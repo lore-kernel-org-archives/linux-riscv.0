@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B833E67A6C
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 05:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F426E67A69
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 06:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sIdWIiRQL/PwPC7a+ln4FxHktOOQXZmotxV9B/52qB8=; b=TdXBaiRwGqWvxZ
-	sR7ntzyipZvDb6lGInQ3LwBvMzQdfEwqGzW+rj3WRr5TcZH0EFHG0p4GLAoimmtpe8oKkQMlbuXiq
-	RPwNllgraw5ojVR2Dn9xc3I9WgDFJ7Lz39C73vlh19Xi9NDkOWJobnSPEXXqXXikfF02gOH6lvjVA
-	g5FNbI6C39Ki2msWLmyj5gfV2OFG+AQ70o6w80brwtctuxlbiediFIgVrNZE2aH9I6j9o6emNuo8u
-	U6JnI+M6Wn97eFutOfRIz2KkXecsZkfxaNalRTD3b07zniu0WND+5bYquqH8pADRVwaxSuEkw2wDx
-	QZbK/xsp/vxw2BzoUKng==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=F4sDoybwwb1+E7JKgMbr+0nqxa2AQizH5ZLI+TfgbF8=; b=Ce8F40dyKxlhl5
+	RbzbzWYWcIJZdQ9j+icbc/5Rxad40EYjrI9ckX2BZi0YyxDoX7yBRXYuW2uvkGYDfDvrdLgpRMfxZ
+	c7Q6HLIorwE+kJj05RH+RX1H/jbhyVa5Pl/BTNgIPuCMYyU+Hs8nX+HEm5BQkvR70pKedyslysahb
+	X+pUTkJm/YJ0AI8316anEShEM4i27B4kCnKT18HUz0rhafcRASWRxz7EwlE8xq9tVbOmkc29pzGGz
+	UO9wJOWP8A5r4pKtBw5Dfzit6nECqlF8O4xT9tjP/GqE2b4vt+tDof+fV7Yptx+n8flefi70BUTd9
+	sPjrcYvKWtQujFO5DTlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxIk0-0000000EZhz-3rmE;
-	Tue, 03 Mar 2026 05:56:20 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxIjx-0000000EZhE-3a4G;
-	Tue, 03 Mar 2026 05:56:19 +0000
-Received: from fric.. (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowACXsNf+d6ZpAcW+CQ--.5526S2;
-	Tue, 03 Mar 2026 13:56:15 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: ryan.jk.hong@gmail.com
-Cc: kvm-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	id 1vxJ2y-0000000EacN-41U6;
+	Tue, 03 Mar 2026 06:15:56 +0000
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxJ2v-0000000EabU-1b8h;
+	Tue, 03 Mar 2026 06:15:55 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app1 (Coremail) with SMTP id TAJkCgCXLHGBfKZpcToFAA--.18321S2;
+	Tue, 03 Mar 2026 14:15:31 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	wens@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
 	linux-riscv@lists.infradead.org,
-	xujiakai2025@iscas.ac.cn
-Subject: Re:[PATCH v2] RISC-V: KVM: Fix use-after-free in kvm_riscv_aia_aplic_has_attr()
-Date: Tue,  3 Mar 2026 05:56:14 +0000
-Message-Id: <20260303055614.1948314-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260303044432.699084-1-ryan.jk.hong@gmail.com>
-References: <20260303044432.699084-1-ryan.jk.hong@gmail.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v3 0/3] net: stmmac: eic7700: fix EIC7700 eth1 RX sampling timing
+Date: Tue,  3 Mar 2026 14:15:24 +0800
+Message-ID: <20260303061525.846-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowACXsNf+d6ZpAcW+CQ--.5526S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYJ7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E
-	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
-	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8I
-	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aV
-	CY1x0267AKxVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv
-	0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z2
-	80aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq
-	67IIx4CEVc8vx2IErcIFxwCY02Avz4vE14v_GrWl42xK82IYc2Ij64vIr41l4c8EcI0Ec7
-	CjxVAaw2AFwI0_JF0_Jw1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
-	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7V
-	AKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j
-	6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42
-	IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU8a0mDUUUU
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiDAUPCWmmMfYKtAACs7
+X-CM-TRANSID: TAJkCgCXLHGBfKZpcToFAA--.18321S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF4UWF1UAr1kWFWkJrW8JFb_yoWrJF1UpF
+	W5Wr4agF1DJr1xJwsFq3W0934rJan3G3W7ur18Jrn7JwsI9Fn0qrW2kF15XFy8CrZ7uryU
+	AFy5Ka1UCa4j9rJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l
+	IxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRBOJnUUUUU=
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_215618_256742_2B2BCF57 
-X-CRM114-Status: UNSURE (   5.25  )
+X-CRM114-CacheID: sfid-20260302_221553_629025_D2160B50 
+X-CRM114-Status: UNSURE (   7.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,22 +101,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-Thank you for pointing this out.
+v2 -> v3:
+  - Update eswin,eic7700-eth.yaml:
+    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
+      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
+      field (127 * 20 ps).
+    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
+      step size.
+    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+      A well-designed board should not require internal delay tuning.
+    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
+      example to avoid encouraging blind copy into board DTs.
 
-I did notice that the IMSIC branch follows a similar pattern. However, 
-I am planning to address the KVM_DEV_RISCV_AIA_GRP_IMSIC case in a 
-separate commit to keep this fix focused strictly on the reported APLIC 
-use-after-free issue.
+  - Update dwmac-eic7700.c:
+    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
+      DT properties.
+    - Apply delay configuration only when properties are present.
+    - Keep TX/RX delay registers cleared by default to ensure a
+      deterministic state when no delay is specified.
 
-I will send a follow-up patch to add the corresponding locking for the 
-IMSIC branch.
+  - Describe Ethernet configuration for the HiFive Premier P550 board:
+    - Add GMAC controller nodes for the HiFive Premier P550 board
+      to describe the on-board Ethernet configuration.
 
-Thanks again for the careful review.
+      The Ethernet controller depends on clock, reset, pinctrl
+      and HSP subsystem providers which are currently under
+      upstream review. These dependent nodes will be submitted
+      separately once the corresponding drivers are merged.
 
-Best regards,
-Jiakai
+      Due to these missing dependencies, dt-binding-check may
+      report warnings or failures for this series.
+
+  - No functional changes to RX clock inversion logic.
+
+  - Link to v2:
+    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
+
+  - This series is based on the EIC7700 clock support series:
+    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
+    The clock series is currently under review.
+
+v1 -> v2:
+  - Update eswin,eic7700-eth.yaml:
+    - Drop the vendor-specific properties eswin,rx-clk-invert and
+      eswin,tx-clk-invert.
+    - Introduce a distinct compatible string
+      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
+      require internal RGMII clock inversion.
+      This models the SoC-specific hardware difference directly via the
+      compatible string and avoids per-board configuration properties.
+    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
+      minimum/maximum to reflect the actual delay range (0-2400 ps)
+    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
+      description. The HSP CSR block is described in Chapter 10
+      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
+      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+  - Update dwmac-eic7700.c:
+    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
+      properties.
+    - Select RX clock inversion based on the new
+      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
+      match data to apply the required configuration for affected MAC
+      instances (eth1).
+
+  - Link to v1:
+    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
+
+Zhi Li (3):
+  dt-bindings: ethernet: eswin: add clock sampling control
+  net: stmmac: eic7700: enable clocks before syscon access and correct
+    RX sampling timing
+  riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet
+    controller
+
+ .../bindings/net/eswin,eic7700-eth.yaml       |  75 ++++++--
+ .../dts/eswin/eic7700-hifive-premier-p550.dts |  50 +++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        |  54 ++++++
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 180 +++++++++++++-----
+ 4 files changed, 300 insertions(+), 59 deletions(-)
+
+-- 
+2.25.1
 
 
 _______________________________________________
