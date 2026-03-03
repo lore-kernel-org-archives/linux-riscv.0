@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 602BFEDA694
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24788EDA694
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VUEsE62ZKe6H85pZlHsa921tRthnCJdNhX/2lXdaQKQ=; b=rLyYvl4ncrn80W
-	vIc1JHgIAFO7jJbFXU3prB707OhGdp3WWFDE/o2riyCS9I5B3PXb7EQRgaZZ95RAVpnvdmp9pCkZd
-	MBSinerEC8XPwnznkbjjMmkmK9WoCv+/08g3DOFEV3tB1tomTTjBX89WtVPXHWzmKRf4yqkkU6OWp
-	zwVsrJlEJfGj96aFYqoSGCVD5uZdcEodaM/qahahHnBvRTQFJRO/4z3+IvsfXCAz5pctjXnISu1fI
-	37w9fTKOiRbnJVw1rR+bTvCGQv/YQT4M7L1HQyAgSn0gES6lR+GEVFCcAAmQ2mDF2BJSJQX5ClEUE
-	Iq6TNiWG4J0/P7dyZ/jg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WUP31s9+53x43SEM/YxZsaIkaki97KNqFJtbtMXvBcE=; b=kBwY/CYHSM2L8S
+	NNHuQiTo2RA14wK9uklkrMEtndYf4hzKke5zUMa7SXuQ0AuSi7plxD9+Qa4bsPyXPHzqeTmx0PFHb
+	vrXNxEQy57bXTAI2Qs35Tieqy7G0P2bPhhPOZtlKNdh97PLRKqvltLoTyghJZt+h1OjLrrBIWo9ZL
+	5DZikn14lE2Lr6oTJiFxRZHmeXTzxvoqenC20quYqOEOgOV4zAEMl+Emlx3wVz9a2vt2ZVb/143iI
+	j+oDlCwGjcwHzJTux7iD3Bs3MJtcBZ0C3MDZfmIocc3YPbwwzpnBb4I6FHCypml9Ig5G0SHwYuNYz
+	/UH/p3ZyigoVR/0VKvzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSOt-0000000FXbC-0rAE;
-	Tue, 03 Mar 2026 16:15:11 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1vxSgU-0000000FZu7-1Yl6;
+	Tue, 03 Mar 2026 16:33:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSOr-0000000FXae-0w6I;
-	Tue, 03 Mar 2026 16:15:10 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 59EE368BEB; Tue,  3 Mar 2026 17:15:00 +0100 (CET)
-Date: Tue, 3 Mar 2026 17:15:00 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 07/25] xor: split xor.h
-Message-ID: <20260303161500.GA8975@lst.de>
-References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-8-hch@lst.de> <20260228044355.GD65277@quark> <20260303160309.GD7021@lst.de>
+	id 1vxSgT-0000000FZu0-12oQ
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Mar 2026 16:33:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 570CB60053;
+	Tue,  3 Mar 2026 16:33:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D605DC116C6;
+	Tue,  3 Mar 2026 16:33:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772555600;
+	bh=GNniCdhssQvj6kOsAg5nxxAmhRPrZp0Gd8y3TJFrI1g=;
+	h=From:To:Cc:Subject:Date:From;
+	b=tzzepbats0DYxPv38UnDFpKCG9GFlgUaJB2E99+0FEiPaO56cHA5TU+s1OcE2jsyB
+	 v603bEMy1S4ox6OAXsDmhTi1Ylf89+IKGNnSxh8Hxgz5raT/1v6rjHgHUCXjMWsSBH
+	 YmJwX0yLZ7nvZf9loPCCWOcINYpqSwaM8MU2FRzJtryEatw5R9nEsniVRwqiWxComP
+	 AwjziEGlWoSA22nmwPRFibOZEEQ/4eqiT7QwcVbx4Owg4A68nxhWIh/iOuranCECcY
+	 03b0anrNJ/9Li9g18//jcpkny9o6u2dLMCXqZgiOVzKxp0r/yOA94E1F9TlTC28f9v
+	 zpFUj7vLz8kGw==
+From: Conor Dooley <conor@kernel.org>
+To: linux-gpio@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] dt-bindings: gpio: mpfs-gpio: permit resets
+Date: Tue,  3 Mar 2026 16:33:12 +0000
+Message-ID: <20260303-irate-hungry-b54cda817e42@spud>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260303160309.GD7021@lst.de>
-User-Agent: Mutt/1.5.17 (2007-11-01)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_081509_419662_40F39EA2 
-X-CRM114-Status: GOOD (  24.12  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1520; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=adnK8FQbeajElGGtcAWQu96FhmakqixOrQ9WdpBSAk4=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnLeT08bkaErRQtnTTVm3tGzxKLvWrS6Up3CsssrO4L/ m3XOjm5o5SFQYyLQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABPZUsXIcMt94e2wG5plD+9N tyjXaOpenC5WyXPvpN/7Ze7uypKfIxn+J8mpnOJnePkv+Pqhax3nD1wV2D6f/0nbouONt4PLVaU /8wEA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,33 +77,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 05:03:09PM +0100, Christoph Hellwig wrote:
-> On Fri, Feb 27, 2026 at 08:43:55PM -0800, Eric Biggers wrote:
-> > On Thu, Feb 26, 2026 at 07:10:19AM -0800, Christoph Hellwig wrote:
-> > > Keep xor.h for the public API, and split the struct xor_block_template
-> > > definition that is only needed by the xor.ko core and
-> > > architecture-specific optimizations into a separate xor_impl.h header.
-> > > 
-> > > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> > > ---
-> > >  arch/arm/lib/xor-neon.c       |  1 +
-> > >  arch/s390/lib/xor.c           |  2 +-
-> > >  include/linux/raid/xor.h      | 22 +---------------------
-> > >  include/linux/raid/xor_impl.h | 25 +++++++++++++++++++++++++
-> > >  lib/raid/xor/xor-core.c       |  1 +
-> > >  5 files changed, 29 insertions(+), 22 deletions(-)
-> > >  create mode 100644 include/linux/raid/xor_impl.h
-> > 
-> > arch/arm64/lib/xor-neon.c needs to be updated to include xor_impl.h.
-> 
-> As of this patch it is not using anything from that header (but
-> neither from the public xor.h).
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Actually looks like we do need it because it pulls in
-arch/arm64/include/asm/xor.h.
+Both CoreGPIO and the hardened versions of it on mpfs and pic64gx have a
+reset pin. For the former, usually this is wired to a common fabric
+reset not managed by software and for the latter two the platform
+firmware takes them out of reset on first-party boards (or those using
+modified versions of the vendor firmware), but not all boards may take
+this approach. Permit providing a reset in devicetree for Linux, or
+other devicetree-consuming software, to use.
 
-Anyway, I think I'll actually move this patch to the end so that the
-impl header does not need moving to it's final place.
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Linus Walleij <linusw@kernel.org>
+CC: Bartosz Golaszewski <brgl@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: linux-gpio@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+---
+ .../devicetree/bindings/gpio/microchip,mpfs-gpio.yaml          | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+index 184432d24ea18..eaa254a468063 100644
+--- a/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
++++ b/Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
+@@ -33,6 +33,9 @@ properties:
+   clocks:
+     maxItems: 1
+ 
++  resets:
++    maxItems: 1
++
+   "#gpio-cells":
+     const: 2
+ 
+-- 
+2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
