@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 821CDEC0479
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 09:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05A5EC047B
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 09:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yy6/P6kShqLxmG5ru8g1Nn6TAGZFyeiYL/PCeclCWqw=; b=R6eU67RUq3ZzxU
-	astDhIXqf32Jy3Kl1FG8Wp6s00/NPJx2UZZ2q/1qh+mNpp5T+KySxbFCP8BPqdfF61Kv3c3py1Rvz
-	aNq2m0+7dk1i4FCW5O4XdfKSlDDn7IRr+jKlSQC4Rup7VpYWKbRCnFgXHvU1rLgNhm9WTot0B1KQb
-	VmNBMFLuiZ2oNZQCvgGhPdW+jRVEamoPXXaK+x22Rq8iBZR59GaPBYKTBBolwNIw6l23Beh9L2OuL
-	n2gMczTtPgXxSoOjx3it7TXRTM8cjTKNHRI/Rx3QQZN4v/MqZzWRZ4XjvOBkE+tG5zCAWpxNTXaIU
-	6rRXl+Tsp8wqlUH3GRqw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Wjo6tkJ9HHVzSjsUKkuM/F9dUrwbAa+gDDaSpTBV+uY=; b=zcW9aR4vD/c+ut
+	c0qTBuPNeh1n/wdF34Mkb6+f9UI+tK/vjfSM1eoVoLJW7rXySrQrkqxVjdwmWbHqBtciKmCaoHyB/
+	VRm97oTPYvy7II8R+bISx/Tbp603WRCuJxNzVmkwc7GuDTVoOF3iumtSUAMXcbjElaFdtAG+gCLy8
+	vWRIenC1cbT9kxwWSXiNpITN0Z9mi/gD0NppRI8NNlCeeaumPHVJBmJzWJ+7gSNQwHE+lz0ClJVNp
+	rSKGDQICtn7U2TPHVxOne89syXkndSDJfRyqX4IEoQA5OM2c++boTekYGFbtNjAN5jeJ8p137/i+v
+	prdwOYuX2X3UdUPZPtEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLzo-0000000EreR-2YkL;
+	id 1vxLzo-0000000EreJ-1Kzc;
 	Tue, 03 Mar 2026 09:24:52 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxLzk-0000000ErbR-0Kww
+	id 1vxLzk-0000000ErbN-0KYm
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Mar 2026 09:24:51 +0000
+	Tue, 03 Mar 2026 09:24:50 +0000
 Received: from [127.0.0.2] (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowAA34WzPqKZpyU4sCQ--.6573S6;
+	by APP-01 (Coremail) with SMTP id qwCowAA34WzPqKZpyU4sCQ--.6573S2;
 	Tue, 03 Mar 2026 17:24:33 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Tue, 03 Mar 2026 17:24:21 +0800
-Subject: [PATCH net-next 4/4] net: spacemit: Free rings of memory after
- unmapping DMA
+Subject: [PATCH net-next 0/4] net: spacemit: A few minor/theoretical fixes
+Date: Tue, 03 Mar 2026 17:24:17 +0800
+Message-Id: <20260303-k1-ethernet-more-fixes-v1-0-0ab0122fdd14@iscas.ac.cn>
 MIME-Version: 1.0
-Message-Id: <20260303-k1-ethernet-more-fixes-v1-4-0ab0122fdd14@iscas.ac.cn>
-References: <20260303-k1-ethernet-more-fixes-v1-0-0ab0122fdd14@iscas.ac.cn>
-In-Reply-To: <20260303-k1-ethernet-more-fixes-v1-0-0ab0122fdd14@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAMGopmkC/y2NWwrCMBREt1Lut1eSFqx2K1KhxqkNktTexFII2
+ bvx8Xk4c5hEAWIRqKsSCVYb7OwL6F1FZhr8HWxvhalW9UE1quGHZsQJ4hHZzQIe7YbA+lifTNP
+ q1oygEj8FX1HaM322Hluk/mcEy6s8xb++DgFsZuds7Kq13SsWoy8pU5/zG/0iN2WhAAAA
+X-Change-ID: 20260303-k1-ethernet-more-fixes-1829c3717cfe
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -49,29 +50,28 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-CM-TRANSID: qwCowAA34WzPqKZpyU4sCQ--.6573S6
-X-Coremail-Antispam: 1UD129KBjvJXoW7AryrZF4Uury7tr48XryUAwb_yoW8XrykpF
-	W7ZasrGryUtF45JrsrAF4Iy3W8AayrtFWj93yYvws3XF9IyrZrKFyFyry7Gr1DArWkKryY
-	vrWqyw13JF1DAr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
-	1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0D
-	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
-	v20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1l
-	F7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2
-	IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8uwCF04k20xvY0x0EwIxGrwCF
-	x2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14
-	v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY
-	67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI
-	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v2
-	6r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7VUj89NPUUUUU==
+X-CM-TRANSID: qwCowAA34WzPqKZpyU4sCQ--.6573S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrZFy3WFW5GF43WFyfGr13CFg_yoWDXrg_uF
+	W8Zas7GF4UWFn7GFy5CwsI9rWvkrs5XrsYqFyFq3y5A347Grn2g3yktrWrZr1fXa1kJrsx
+	J347ZrWrZr17ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbTkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
+	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48JMx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
+	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+	W8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU4VbkUUUUU=
 X-Originating-IP: [210.73.43.101]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_012448_501084_EC551507 
-X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-CacheID: sfid-20260303_012448_493675_B7EF1F04 
+X-CRM114-Status: UNSURE (   5.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,55 +89,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In emac_free_{tx,rx}_resources, call dma_free_coherent() to unmap DMA
-before calling kfree() to deallocate the memory, instead of the other
-way around.
+Recently a user reported a supposed UAF/double-free in this driver. It
+turned out to be a false positive (ugh) from a bug with riscv's
+kfence_protect_page() [1], but it did also prompt me to review the
+driver code yet again. These are some fixes for minor/theoretical
+problems I've found.
 
-Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+[1]: https://lore.kernel.org/r/20260303-handle-kfence-protect-spurious-fault-v2-0-f80d8354d79d@iscas.ac.cn/
+
 ---
- drivers/net/ethernet/spacemit/k1_emac.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Vivian Wang (4):
+      net: spacemit: Remove unused buff_addr fields
+      net: spacemit: Fix error handling in emac_alloc_rx_desc_buffers()
+      net: spacemit: Fix error handling in emac_tx_mem_map()
+      net: spacemit: Free rings of memory after unmapping DMA
 
-diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-index f7f16397a2c2..02a009afc921 100644
---- a/drivers/net/ethernet/spacemit/k1_emac.c
-+++ b/drivers/net/ethernet/spacemit/k1_emac.c
-@@ -446,12 +446,12 @@ static void emac_free_tx_resources(struct emac_priv *priv)
- 
- 	emac_clean_tx_desc_ring(priv);
- 
--	kfree(tr->tx_desc_buf);
--	tr->tx_desc_buf = NULL;
--
- 	dma_free_coherent(dev, tr->total_size, tr->desc_addr,
- 			  tr->desc_dma_addr);
- 	tr->desc_addr = NULL;
-+
-+	kfree(tr->tx_desc_buf);
-+	tr->tx_desc_buf = NULL;
- }
- 
- static void emac_free_rx_resources(struct emac_priv *priv)
-@@ -461,12 +461,12 @@ static void emac_free_rx_resources(struct emac_priv *priv)
- 
- 	emac_clean_rx_desc_ring(priv);
- 
--	kfree(rr->rx_desc_buf);
--	rr->rx_desc_buf = NULL;
--
- 	dma_free_coherent(dev, rr->total_size, rr->desc_addr,
- 			  rr->desc_dma_addr);
- 	rr->desc_addr = NULL;
-+
-+	kfree(rr->rx_desc_buf);
-+	rr->rx_desc_buf = NULL;
- }
- 
- static int emac_tx_clean_desc(struct emac_priv *priv)
+ drivers/net/ethernet/spacemit/k1_emac.c | 34 ++++++++++++++++++---------------
+ 1 file changed, 19 insertions(+), 15 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260303-k1-ethernet-more-fixes-1829c3717cfe
 
+Best regards,
 -- 
-2.53.0
+Vivian "dramforever" Wang
 
 
 _______________________________________________
