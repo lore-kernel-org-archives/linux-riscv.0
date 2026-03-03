@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE3AEDEBF9
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 22:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F4AEDEBF5
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 22:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=54kGWCNaBL4IEJo+hryAfeb2DoEqVyiL5kSkK2fr7ek=; b=rrewXzOcEPpxEK
-	O3Q2pwf9Pg0IZ4hDhyIXtSlJFcotNWmrXFhIBW8BQcoHVX9K07WNkx8pQCrYwziUQTfjUVRadtdmp
-	76Nq8K7bEY46GZQFe3elbRx7js7GW/LxrIEm6ovx15eiVT+TrcERb3Pkv2PkWttu3FLvnnpBqwEgI
-	5JAHETIUkzC0NcOjO4RbC4MKZj1tVnZwA+MayiRMrmYHFmEJ5v0fnisrEjVtDfMF7oe9giht7E0Z+
-	I/N/tsUjI5cqvBD8pTP4FqUiI7tLb0maz3GdwVO9egeJ4CHDifqYMB27YowKibe/N5WYSZi4vlxp6
-	nm2lPdPshO1Ge7SxszBg==;
+	List-Owner; bh=kXm0tedy0WkXX/Lmql+px9IP3wpSNkLBmACpE2huhwc=; b=oDQYpb3L9NrYs8
+	q9nSPLfjXEfBHuJa9eS0PE9IF8Ewv/Q8nNofz/qUTIM+ZdYe75yOGhuyjXZrtFsnqGjwBL940lwU1
+	ZLQXYzFipT3sDuAYqmxawMNNPOkcqa4TzaCLFiiTQ0HI/K0bXrpdhzOVy7rpYBit73+ySHWB3pjQM
+	N+FxEbFaqJKx3h7i2qEIsDgwrfg3ssRL3bUwDjygGPdvrWleYe/3RNAL5UgV3YiD2i1ty3QsHSN8C
+	BnZMeOzykvxiwg15YPITvaikeuEY2/c/mMG04bM+yh/f3syd9raeE5tumpESN+k179ZJoo9SjieIr
+	wZE06bOu8iaYgu9V7xnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxXr4-0000000G11o-2u4W;
-	Tue, 03 Mar 2026 22:04:38 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vxYDp-0000000G2Hh-09ih;
+	Tue, 03 Mar 2026 22:28:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxXr1-0000000G10z-1fD3
+	id 1vxYDm-0000000G2Gz-1P3a
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Mar 2026 22:04:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1772575475; x=1804111475;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=L6txYkgfm/sj0Wa7CYT1lCpX5MtTL/9MidzCZIs2Jn4=;
-  b=hnrfNDtOdmDoFcoun8G6SiEbQE7fEoZE655Igaarxs+FVet5zILaaauo
-   3o0nfLL0Y3JO3TOLp++2Dk1RWMVDyxtjJFmTrMR/hjytzAMb4BcOCosk+
-   X9YWM9VIUg8pYkzw/enovvbtUj4X18ET7BObUkB09JNO+EMdz7KWcn0pv
-   RTdvlVuBA4+ZuqZYhZ68I6urORk5sk+ug+HMNh2n38Pu5CCAleyCVITV5
-   Zjzw8bXaMC6rJBl8DPYAVpgZ3ix0kSlnKw55v1Y1bXBrDLqM4ChCjak2t
-   UjyZ1P1gGYbat7rqgvg3a9zyR/F+aA9o+sYPdwP9w1JGhbU+28iZMPIni
-   w==;
-X-CSE-ConnectionGUID: +BWnAaG9T/O8uk21TrJGag==
-X-CSE-MsgGUID: m12QdKZVRWm+5NKHDMRuaQ==
-X-IronPort-AV: E=Sophos;i="6.21,322,1763449200"; 
-   d="scan'208";a="221446285"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Mar 2026 15:04:32 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.35; Tue, 3 Mar 2026 15:04:14 -0700
-Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 3 Mar 2026 15:04:14 -0700
-Message-ID: <1d35173d-b364-4c4a-a083-388d3bd27ce5@microchip.com>
-Date: Tue, 3 Mar 2026 15:04:19 -0700
+	Tue, 03 Mar 2026 22:28:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0871A40792;
+	Tue,  3 Mar 2026 22:28:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EB3EC116C6;
+	Tue,  3 Mar 2026 22:28:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772576882;
+	bh=h+MB5FEoZuD+ObXgiTN2r18cSRl2AQklGvm8fstFmSM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=B2+xQMzVkzxSmK97R5uyX0710fC2BS5mmL0zXKOzhhQhFXaaTyw+uHGX2l8iQ13bo
+	 v1Vbr8eGAdaM0qR3yoILry64iGddqsLSZWL0II9nqzE9B/5TcaPgJdddl+lsOrLI8y
+	 F2gRvJ5fxbWJ2aS1qeJNfuM6R7vIWTxeeg/LXRSoZC3bMbG+7fWmiPiNH/e/4UtAO2
+	 e9YORGzOrk6jQ+e7XoePD5qj/sHE3nmE5p/H/7K8fBneBOlO6v9PmiKkuFpvINwD7r
+	 0Yle/A2Ju2NwhRrM2aWa1lVF1KzlXXfhn6Jffr5Q27rCR4fkD/IBTn9Iigqf0jPMmz
+	 Nei0CJblySrVA==
+Date: Wed, 4 Mar 2026 06:28:00 +0800
+From: Yixun Lan <dlan@kernel.org>
+To: Iker Pedrosa <ikerpedrosam@gmail.com>
+Cc: Conor Dooley <conor@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 01/10] dt-bindings: mmc: spacemit,sdhci: add AIB voltage
+ switching registers
+Message-ID: <20260303222800-GKC289813@kernel.org>
+References: <20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com>
+ <20260302-orangepi-sd-card-uhs-v1-1-89c219973c0c@gmail.com>
+ <20260302-crewman-faster-9fd00b62e30c@spud>
+ <20260302223803-GKB289813@kernel.org>
+ <CABdCQ=Nd9ZW6OBnAiuki=2+DhVraW19bh_m8=LLQGUKN8TkEdQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next,v2,2/8] net: macb: rename macb_default_usrio to
- at91_default_usrio as not all platforms have mii mode control in usrio
-To: Conor Dooley <conor@kernel.org>
-CC: Jakub Kicinski <kuba@kernel.org>, <andrew+netdev@lunn.ch>,
-	<richardcochran@gmail.com>, <abin.joseph@amd.com>, <robh@kernel.org>,
-	<edumazet@google.com>, <netdev@vger.kernel.org>, <theo.lebrun@bootlin.com>,
-	<pjw@kernel.org>, <Valentina.FernandezAlanis@microchip.com>,
-	<krzk+dt@kernel.org>, <sean.anderson@linux.dev>, <aou@eecs.berkeley.edu>,
-	<linux-kernel@vger.kernel.org>, <alex@ghiti.fr>,
-	<devicetree@vger.kernel.org>, <palmer@dabbelt.com>,
-	<nicolas.ferre@microchip.com>, <vineeth.karumanchi@amd.com>,
-	<claudiu.beznea@tuxon.dev>, <samuel.holland@sifive.com>,
-	<daire.mcnamara@microchip.com>, <conor+dt@kernel.org>,
-	<dave.stevenson@raspberrypi.com>, <linux-riscv@lists.infradead.org>,
-	<davem@davemloft.net>, <conor.dooley@microchip.com>,
-	<narmstrong@baylibre.com>, <pabeni@redhat.com>
-References: <20260226-enjoyer-shock-e17f9dc7cbdb@spud>
- <20260228232600.4187398-1-kuba@kernel.org>
- <20260228-shopping-april-a8c4d2481cbe@spud>
- <a1e36563-0e74-48b2-ae02-813cb28fc931@microchip.com>
- <20260303-stardust-shaky-c8a757ec149d@spud>
-From: Ryan Wanner <ryan.wanner@microchip.com>
-Content-Language: en-US
-In-Reply-To: <20260303-stardust-shaky-c8a757ec149d@spud>
+Content-Disposition: inline
+In-Reply-To: <CABdCQ=Nd9ZW6OBnAiuki=2+DhVraW19bh_m8=LLQGUKN8TkEdQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_140435_812631_052CC4A4 
-X-CRM114-Status: GOOD (  47.90  )
+X-CRM114-CacheID: sfid-20260303_142806_414743_260D8361 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,200 +83,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/3/26 11:01, Conor Dooley wrote:
-> On Tue, Mar 03, 2026 at 10:35:05AM -0700, Ryan Wanner wrote:
->> On 2/28/26 17:06, Conor Dooley wrote:
->>> Yo,
->>>
->>> On Sat, Feb 28, 2026 at 03:26:00PM -0800, Jakub Kicinski wrote:
->>>> This is an AI-generated review of your patch. The human sending this
->>>> email has considered the AI review valid, or at least plausible.
->>>>
->>>> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
->>>> ---
->>>> net: macb: rename macb_default_usrio to at91_default_usrio as not all
->>>> platforms have mii mode control in usrio
->>>>
->>>> This patch renames macb_default_usrio to at91_default_usrio to better
->>>> reflect that the usrio configuration is platform-specific, and
->>>> introduces a new capability flag (MACB_CAPS_USRIO_HAS_MII) to gate MII
->>>> mode configuration code for platforms that actually support it.
->>>>
->>>>> diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
->>>>> --- a/drivers/net/ethernet/cadence/macb.h
->>>>> +++ b/drivers/net/ethernet/cadence/macb.h
->>>>> @@ -779,6 +779,7 @@ #define MACB_CAPS_DMA_64B			BIT(21)
->>>>>  #define MACB_CAPS_DMA_PTP			BIT(22)
->>>>>  #define MACB_CAPS_RSC				BIT(23)
->>>>>  #define MACB_CAPS_NO_LSO			BIT(24)
->>>>> +#define MACB_CAPS_USRIO_HAS_MII			BIT(25)
->>>>>
->>>>>  /* LSO settings */
->>>>>  #define MACB_LSO_UFO_ENABLE			0x01
->>>>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
->>>>> --- a/drivers/net/ethernet/cadence/macb_main.c
->>>>> +++ b/drivers/net/ethernet/cadence/macb_main.c
->>>>> @@ -4614,13 +4614,15 @@
->>>>>
->>>>>  	if (!(bp->caps & MACB_CAPS_USRIO_DISABLED)) {
->>>>>  		val = 0;
->>>>> -		if (phy_interface_mode_is_rgmii(bp->phy_interface))
->>>>> -			val = bp->usrio->rgmii;
->>>>> -		else if (bp->phy_interface == PHY_INTERFACE_MODE_RMII &&
->>>>> -			 (bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
->>>>> -			val = bp->usrio->rmii;
->>>>> -		else if (!(bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
->>>>> -			val = bp->usrio->mii;
->>>>> +		if (bp->caps & MACB_CAPS_USRIO_HAS_MII) {
->>>>> +			if (phy_interface_mode_is_rgmii(bp->phy_interface))
->>>>> +				val = bp->usrio->rgmii;
->>>>> +			else if (bp->phy_interface == PHY_INTERFACE_MODE_RMII &&
->>>>> +				 (bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
->>>>> +				val = bp->usrio->rmii;
->>>>> +			else if (!(bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
->>>>> +				val = bp->usrio->mii;
->>>>> +		}
->>>>>
->>>>>  		if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
->>>>>  			val |= bp->usrio->refclk;
->>>>
->>>> Can bp->usrio be NULL here? The new MACB_CAPS_USRIO_HAS_MII capability
->>>> gates the MII-related dereferences of bp->usrio, but bp->usrio is also
->>>> dereferenced when MACB_CAPS_USRIO_HAS_CLKEN is set.
->>>>
->>>> With the change to default_gem_config later in this patch:
->>>>
->>>> static const struct macb_config default_gem_config = {
->>>> 	...
->>>> 	.usrio = NULL,
->>>> 	...
->>>> };
->>>>
->>>> A device that matches the generic 'cdns,macb' compatible string (without
->>>> specific .data) will get bp->usrio = NULL during probe. If the device
->>>> tree then has 'cdns,refclk-ext', macb_configure_caps() adds
->>>> MACB_CAPS_USRIO_HAS_CLKEN without checking if bp->usrio is valid:
->>>>
->>>> macb_configure_caps() {
->>>> 	...
->>>> 	if (of_property_read_bool(np, "cdns,refclk-ext"))
->>>> 		bp->caps |= MACB_CAPS_USRIO_HAS_CLKEN;
->>>> 	...
->>>> }
->>>>
->>>> Then in macb_init(), the code would dereference bp->usrio->refclk with
->>>> bp->usrio being NULL, causing a crash.
->>>>
->>>> The MACB_CAPS_USRIO_HAS_MII gate only protects the MII-related
->>>> dereferences above, not the CLKEN dereference.
->>>
->>> AI makes a good point here, but in one way this isn't even a problem
->>> with the patchset, it's actually another example of the sort of thing
->>> that I am trying to get rid of from the driver. As far as I can tell,
->>> this was added very recently, for the emac on sama7g5. The sama7g5-emac
->>> sets this cap in its match data, as do several other devices, so this
->>> code that sets the cap based on the dt property isn't needed.
->>>
->>> I would like to get rid of setting the cap based on the dt property,
->>> because it is inherently tied to how at91 have their USRIO set up.
->>> Other platforms that want to use this external refclk might use a
->>> different mechanism for the selection, or only support an external
->>> source. What USRIO does is very platform specific, so it should be
->>> something that is opted in to explicitly. I didn't ask for the property
->>> to be bound to only the at91 devices that use it when I reviewed the
->>> binding, because I figured other platforms might be able to reuse the
->>> property and that's also why I didn't ask for a microchip prefix on the
->>> property. For the driver to reflect that general use, it shouldn't then
->>> do at91-specific things when the property is present.
->>>
->>> Ryan, how does this property actually work now, given your removal
->>> of the cap from match data was reverted? I feel like it just doesn't do
->>> what you want it to do anymore? Before the revert, having the property
->>> meant that the value in sama7g5_usrio.refclk would be written to the
->>> hardware and not having the property meant that the bit would remain
->>> unset. You then had to revert to avoid breaking old devices, because
->>> your property changed the default behaviour for the emac, so now having
->>> the property means that the value in sama7g5_usrio.refclk is written to
->>> the hardware, but that also happens without the property because the cap
->>> is set in the match data.
->>
->> So even with the revert the patch still does what it is intended to do,
->> mainly for the sama7g5_gem and the newer SAM devices, sam9x75 and sama7d65.
-> 
-> Oh, the gems actually have this, but with the default the other way to
-> the emacs? I had figured that only the emacs actually had it, given they
-> were all added prior to your change. Obviously the property then cannot
-> be removed if the gems need it.
+Hi Iker,
 
-Yes that is correct, I am not sure why this was left out in the initial
-implementation of the gems maybe others can give some insight. The gems
-can, similar to the emacs, take an external or internal ref clock that
-is decided by the usrio registers. The difference with the gems and the
-emacs is the gems can have 125MHz refclk for RGMII (50Mhz for RMII)
-either internal or external where as the emacs can only switch refclk
-for RMII.
+On 14:51 Tue 03 Mar     , Iker Pedrosa wrote:
+> El lun, 2 mar 2026 a las 23:38, Yixun Lan (<dlan@kernel.org>) escribi=F3:
+> =
 
-> 
->> Currently with the removal of the change to the emac there is no
->> functional difference. With the newer SAM devices that need this usrio
->> flexibility this patch still works.
->>
->> How this works now is for sama7g5_gmac configs, the default is to use
->> the internal clock for refclk then adding that dt property will set that
->> bit to 1 and refclk will be from an external source. For the
->> sama7g5_emac configs this has no effect due to ABI.
->>>
->>> Unless I am missing something, should we not actually revert
->>> dce32ece3bb8f ("net: cadence: macb: Expose REFCLK as a device tree
->>> property") and 1b7531c094c88 ("dt-bindings: net: cdns,macb: Add external
->>> REFCLK property"), and instead add a property like
->>> "microchip,refclk-internal", because that would actually let you
->>> override the default behaviour of the driver?
->>
->> I think this could be the better way to go as this keeps the existing
->> behavior for the legacy devices while still allowing the initial goal of
->> the patch series. Seems it would be more strait forward in the ABI sense
->> to have a "microchip,refclk-internal" property than an "refclk-ext"
->> property and having the risk of breaking older devices.
-> 
-> By the sounds of things, you actually need both to be functional. The
-> gems default to internal, so need refclk-external and the emacs default
-> to external so need refclk-internal. Maybe it'd be better to have
-> "microchip/cdns,refclk-source" that can be set to a string to deal with
-> both cases?
+> Thanks for the pointer! I missed that these had already landed in
+> mainline. I'll rebase the series, drop the redundant properties and
+> patch [5/10], and send a v2 shortly.
+> =
 
-Since a dt string would need to be placed either way could the default
-be setting be 1 like how the emacs is set then make a
-"microchip,refclk-internal" flag, this seems to have the minimal amount
-of conflicts with legacy implementation.
+Please wait a little bit longer before sending next version, give me or
+other people more time for reviewing, as a quick test, this series will
+break emmc driver as tested on bananapi-f3 board, I suspect it's probably
+duo to clock related issue, but want to confirm later..
 
-> I'd also like to decouple setting the USRIO_HAS_CLKEN cap from what
-> direction it is set in. That way, all devices with the bit in their
-> USRIO would set the cap, but the value would come from either a default
-> in match data or from the dt property if set. I think that's more
-> natural behaviour for the capability, since the bit is in the usrio
-> register regardless of which refclk source is used.
-> 
-> Does that seem reasonable?
+Btw, I was also preparing sd part driver, mainly target K3 SoC, but since
+they are mostly same IP, the driver can be shared..
 
-So to leave the "USRIO_HAS_CLKEN" caps flag in the existing configs for
-emacs, then have this be a toggle for the gem configs, and the
-"microchip/cdns,refclk-source" would be parsed to either set this bit to
-1 or 0? The USRIO refclk bit will be set in the macb_init() based on if
-the dt property is there rather than how it is currently implemented now
-if I understand correctly?
+-- =
 
-Ryan
-
-> 
-> Cheers,
-> Conor.
-
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
