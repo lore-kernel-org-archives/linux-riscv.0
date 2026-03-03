@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3AEEDA697
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E231EDA697
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 16:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pKr4dfSuAoSw3ZzUeRAcOojmxjPTfHiaXS2b8xxmb9c=; b=Hext2jKTCqzFM7
-	7FRrrR0Np8MOf32aA05V9jCmZGirvtJvW0VXSmNQIhp0019GHV47nbrrpVD6FnQrASURlHtA8gpfJ
-	9txJQ8zCrL/Cf78FO7aat91l8JK91Ckwl1h/6miWyRF/yG6hn+JsNncRVDEAgReibM2oZR2mhSmhY
-	ORCf9l94pdmb3alQtBM1S8XwxaBRizEvBg9tIAYs67k0i3sSipHvZfiLlmCs4R9i3izPEtpr05vUk
-	CrK0isFU7siBZA7zHbNr08B7U1ysh40j0ppoesBpSf00SFlA3X22wNzIka5q/PI1aiS+9DynH/sIx
-	4zroXAoOE/526kUra82Q==;
+	List-Owner; bh=r0QL+JF1FRwPKzWRw84Md7r9UqLbqqFIsy5RHDVx8lg=; b=noJxvDFAm1Lgrk
+	1RH/0Oac9xvYZUc0agjQA69Cra0+KabWgEG83R05aUcLgvDBzIA97CrLdGrzxoE/Y5Ix8RKoOK7rl
+	rBCCmJv/JIV6KefXM6wFVfpl4Og2byYdd/eqI6wpuI/M1/1Kj/6e7udNfM94HlKRSRoJi5idKVQEH
+	6u6dvL2CvxkMcahveLtPqPdgotLm+ebGIQmXVhjcpX5/kscCpM32DTC+YUzhSsmgkgwQILf/2hBgN
+	TwU8HhbxTPWiWYV1KijzyyveLqG23JvrLfbSZZZbfNe3/SKkhTMBPLEz9ZMkv5baKsqAOIKriIqWV
+	ujtfEmIJmlB/K8tcPI6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSC1-0000000FVCV-0x6O;
-	Tue, 03 Mar 2026 16:01:53 +0000
+	id 1vxSDN-0000000FVTj-097F;
+	Tue, 03 Mar 2026 16:03:17 +0000
 Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxSBx-0000000FVBN-3KQK;
-	Tue, 03 Mar 2026 16:01:51 +0000
+	id 1vxSDK-0000000FVSE-334Y;
+	Tue, 03 Mar 2026 16:03:15 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
-	id E4F5368BFE; Tue,  3 Mar 2026 17:01:45 +0100 (CET)
-Date: Tue, 3 Mar 2026 17:01:45 +0100
+	id C1C3F68C4E; Tue,  3 Mar 2026 17:03:10 +0100 (CET)
+Date: Tue, 3 Mar 2026 17:03:09 +0100
 From: Christoph Hellwig <hch@lst.de>
 To: Eric Biggers <ebiggers@kernel.org>
 Cc: Christoph Hellwig <hch@lst.de>,
@@ -71,16 +71,16 @@ Cc: Christoph Hellwig <hch@lst.de>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 04/25] xor: move to lib/raid/
-Message-ID: <20260303160145.GC7021@lst.de>
-References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-5-hch@lst.de> <20260228043523.GB65277@quark>
+Subject: Re: [PATCH 07/25] xor: split xor.h
+Message-ID: <20260303160309.GD7021@lst.de>
+References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-8-hch@lst.de> <20260228044355.GD65277@quark>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260228043523.GB65277@quark>
+In-Reply-To: <20260228044355.GD65277@quark>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_080149_977703_A5692C07 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260303_080314_915606_DFDCBADC 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,14 +97,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 08:35:23PM -0800, Eric Biggers wrote:
-> This adds lib/raid/ alongside the existing lib/raid6/ directory.  Is
-> that the intended final state, or is the intent for the code in
-> lib/raid6/ to eventually be moved to a subdirectory of lib/raid/
-> (alongside the "xor" subdirectory)?
+On Fri, Feb 27, 2026 at 08:43:55PM -0800, Eric Biggers wrote:
+> On Thu, Feb 26, 2026 at 07:10:19AM -0800, Christoph Hellwig wrote:
+> > Keep xor.h for the public API, and split the struct xor_block_template
+> > definition that is only needed by the xor.ko core and
+> > architecture-specific optimizations into a separate xor_impl.h header.
+> > 
+> > Signed-off-by: Christoph Hellwig <hch@lst.de>
+> > ---
+> >  arch/arm/lib/xor-neon.c       |  1 +
+> >  arch/s390/lib/xor.c           |  2 +-
+> >  include/linux/raid/xor.h      | 22 +---------------------
+> >  include/linux/raid/xor_impl.h | 25 +++++++++++++++++++++++++
+> >  lib/raid/xor/xor-core.c       |  1 +
+> >  5 files changed, 29 insertions(+), 22 deletions(-)
+> >  create mode 100644 include/linux/raid/xor_impl.h
+> 
+> arch/arm64/lib/xor-neon.c needs to be updated to include xor_impl.h.
 
-Yes, the raid6 code will get a dutup and move after this.  And we'll
-also plan to add a library for more than 2 parities eventually.
+As of this patch it is not using anything from that header (but
+neither from the public xor.h).
 
 
 _______________________________________________
