@@ -4,87 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F426E67A69
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 06:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF607E67A69
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Mar 2026 06:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=F4sDoybwwb1+E7JKgMbr+0nqxa2AQizH5ZLI+TfgbF8=; b=Ce8F40dyKxlhl5
-	RbzbzWYWcIJZdQ9j+icbc/5Rxad40EYjrI9ckX2BZi0YyxDoX7yBRXYuW2uvkGYDfDvrdLgpRMfxZ
-	c7Q6HLIorwE+kJj05RH+RX1H/jbhyVa5Pl/BTNgIPuCMYyU+Hs8nX+HEm5BQkvR70pKedyslysahb
-	X+pUTkJm/YJ0AI8316anEShEM4i27B4kCnKT18HUz0rhafcRASWRxz7EwlE8xq9tVbOmkc29pzGGz
-	UO9wJOWP8A5r4pKtBw5Dfzit6nECqlF8O4xT9tjP/GqE2b4vt+tDof+fV7Yptx+n8flefi70BUTd9
-	sPjrcYvKWtQujFO5DTlA==;
+	List-Owner; bh=/WjJQtnaz0m+Vhr2f7JhMZ8UO4Oe3BO0hxj8wq8P3bk=; b=WHDp71lb4gk8yr
+	8quSU5gXNvmBbpA3Yc1kmYxDmmrIq3YFuiVlMPk5dA53nui2ti8yUkaz3zOIAfE9boB/WpS63OeYi
+	8KSs3Ag6x+DL0f5QrL5Wq9khmIDxJJF0S0C1J4qJXXxpXXOPwRXy6bwZFTFVkyo6kIHQpg7Gl02dG
+	P+7GTMdpKJ1wSlcPe1ZuYBQ2G4zUboQ0LHfih9UzfD5+u77BpwVQce4rO/y70CcYrPA/9NX9fBE+2
+	Pw0RMBsi4XCTa2lopZM6jU4NWVfmIc8F7is6Q8MQNPMwvNubT5Qlc8RXUeVxrK03KDdmj30FWpstA
+	cUPv3FoakfmX3CiWtPQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxJ2y-0000000EacN-41U6;
-	Tue, 03 Mar 2026 06:15:56 +0000
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxJ2v-0000000EabU-1b8h;
-	Tue, 03 Mar 2026 06:15:55 +0000
-Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app1 (Coremail) with SMTP id TAJkCgCXLHGBfKZpcToFAA--.18321S2;
-	Tue, 03 Mar 2026 14:15:31 +0800 (CST)
-From: lizhi2@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	wens@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net-next v3 0/3] net: stmmac: eic7700: fix EIC7700 eth1 RX sampling timing
-Date: Tue,  3 Mar 2026 14:15:24 +0800
-Message-ID: <20260303061525.846-1-lizhi2@eswincomputing.com>
-X-Mailer: git-send-email 2.52.0.windows.1
+	id 1vxJ3O-0000000Eahf-0NFF;
+	Tue, 03 Mar 2026 06:16:22 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vxJ3L-0000000Eagm-2gaY
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Mar 2026 06:16:21 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 622M3Llw2048854
+	for <linux-riscv@lists.infradead.org>; Tue, 3 Mar 2026 06:16:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:sender:subject:to; s=qcppdkim1; bh=jBfJTiyHpDNC9aAf8vmH+NG8GrN3
+	IfFl9hSg78Pea7E=; b=SY3yygMenGp7bzTezkaG5EyOZObt3y7qa6ARKasWE1bI
+	0WvNrfVWVFWznlyrLf9+BJfL7peFjgB1Fh+1uu6IR3hIWMhm2tdoJWV8Vz4KXdXP
+	eBIHJpw4TDNhI3sEXOICzTIYbJpdKg+KB9vvblyHs0PYe75m+mJgFERClA3fWXaY
+	i08AHj0cYej44zSoQD3cnjDH9pPH/1BYJDfgC6oqbm/icCgpusRzGcFqksSnDVaJ
+	BAZif341A/eNYm4OSGDIOlJwXq5qXn4bvlyVIezAziNZ4b9qo35o+v4yBD1MN5/k
+	BqJO7DKwCrqBEFzpWnsvSTOSxywpXnkpm/5kCaZMqw==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cncmftthx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Tue, 03 Mar 2026 06:16:17 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c6e24ee93a6so3447199a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Mar 2026 22:16:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1772518576; x=1773123376; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=jBfJTiyHpDNC9aAf8vmH+NG8GrN3IfFl9hSg78Pea7E=;
+        b=Puy48aeqQlMv8E8c2WnL7zLxGhRJqEcJ8EpvTxZoLEGVnBXp3pJlj4z5Wb3uxJbdXA
+         RZjc4k6rkFJg1OyXq9odBWmUcNkQd8Mo+y/juIu0U56fQh+BzImZBUL+gcPsh5M9uRzP
+         /z0mcx/TCSKhYreu5Id+hMGmgGH3YjA8BjkGf4kyqqZDmBtsbg7GJLnTjM5S86vzFL8n
+         UkLwewjh7HsHQlJHWgMQ0tOaMxpH0mWv4LayubYmjZwUkC2h3v28bpnoOu5pLPd8ID6W
+         VDYpAd09oKR6QUPldjsTxr6RiabbCp25AIaHEZws6YMiuiLHtEL//8UPTehbbOSTbRv1
+         6V5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772518576; x=1773123376;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jBfJTiyHpDNC9aAf8vmH+NG8GrN3IfFl9hSg78Pea7E=;
+        b=o5VMruBYMermq1yHzH4hnmT4Girr5rf4R78eAztnsAhkAd4GavBgPtUnUeqpwJGtN4
+         UeIxEUNrymeSUDK6GRZc3CMgXv27o7dwuhvqnU29lIYTcPnvJoH287BjHvpf9dH1y4ub
+         PHFLcdTC2Dym9w0HCUhg6siZkGLm7d46FbVIb8Rhe3MEftV0pLfWivm6g+y4VppGBkUS
+         lllIb8QmwMQgTJr0V6PcrwR/rgN3XwdReuJGoHOVq520N/eraQtdy4ZR4v2oe3FivJz+
+         eTSWu5A1T0r1k9f+KDr1WG3tTm/6OwZQ85BGVgDudxPep0T+d/NFDFdUTPFGeDolCSS7
+         utKw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1pYSFCX7hcwpTaTzW9PwZ6jrE7RIuyiOuWBOXyNQOmKnsWqbJS3VXbW1IIngPI+xJ3mIh+KAocHblyw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzPfjMGS/76FVjoUTBYCbCmpZOs3/0ru+tJ0AtOGtsdzrm/r/9
+	WXiGID31x/Uymc/ADniPtFqqE6PQgsnS5f8C3wWBnD8X87bhGWdhqyD6jkhfZrb6ZxD1L3BIfDO
+	tJ/InOuVbljm2Y+PMPE4U0fjx42U7GiZy/H5a/GhuGZCSFD6ETcIRPizNuSNep9F3JC6J/jY=
+X-Gm-Gg: ATEYQzyOJeMu2XYVzNuRWlYMulZ2Zt8rDM5AwnFRg0fYGUQoxCSfPrSNZca74LQg8EJ
+	zpX2aFcg+4s0aXCgqHSNwCLFbiVbfdfJyrtQ1svC5Tq9rJrgQmFxAtU6vNV3pi2uDUK2qz8SgZ1
+	M1N7uS4RewHm4BxgiLeH1T3F6iLZJtM5vWE2qFxVlgrz0BZyvX9NiFWE+Qm3SmRjLyUEgdaMh0i
+	RdbAprRwp5aAmAfES3Reuf6WQC6oD1BZP4pvfkwxQrNyg23NqcOFhhF948rlE2aEohspPx8IlFO
+	L7I1Rw7F+tuf53R9W/JxT6Hf2EHQBNQ9y12NWqh/2mO8Bb/f1ItUKcdJZXjcltuXIMFNau+fS/H
+	Ywy7MerNlYJHbEZYhB3t/6qef1ahwWldCd8oue0Ugn3IgUuS2tCQK3ALc0ctjFiZaIKDOGIU+nW
+	FWbA==
+X-Received: by 2002:a05:6a00:13aa:b0:821:78ac:f197 with SMTP id d2e1a72fcca58-8295d99ff4fmr1205382b3a.23.1772518575874;
+        Mon, 02 Mar 2026 22:16:15 -0800 (PST)
+X-Received: by 2002:a05:6a00:13aa:b0:821:78ac:f197 with SMTP id d2e1a72fcca58-8295d99ff4fmr1205358b3a.23.1772518575401;
+        Mon, 02 Mar 2026 22:16:15 -0800 (PST)
+Received: from hu-sunilvl-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82739ff350asm14132649b3a.35.2026.03.02.22.16.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Mar 2026 22:16:15 -0800 (PST)
+From: Sunil V L <sunilvl@oss.qualcomm.com>
+X-Google-Original-From: Sunil V L <sunilvl@oss.qualcomm.com
+To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-acpi@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Anup Patel <anup@brainfault.org>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        Anup Patel <anup.patel@oss.qualcomm.com>,
+        Sunil V L <sunilvl@oss.qualcomm.com>
+Subject: [PATCH] ACPI: RIMT: Add dependency between iommu and devices
+Date: Tue,  3 Mar 2026 11:46:05 +0530
+Message-ID: <20260303061605.722949-1-sunilvl@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-CM-TRANSID: TAJkCgCXLHGBfKZpcToFAA--.18321S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXF4UWF1UAr1kWFWkJrW8JFb_yoWrJF1UpF
-	W5Wr4agF1DJr1xJwsFq3W0934rJan3G3W7ur18Jrn7JwsI9Fn0qrW2kF15XFy8CrZ7uryU
-	AFy5Ka1UCa4j9rJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l
-	IxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRBOJnUUUUU=
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+X-Authority-Analysis: v=2.4 cv=Br+QAIX5 c=1 sm=1 tr=0 ts=69a67cb1 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
+ a=UhKKETOMA_ZNL8J_uLkA:9 a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-ORIG-GUID: if4vQinRWJ4wiZYKd7nGWQefpfctDCe2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzAzMDA0MSBTYWx0ZWRfX/KbIAJ/mpjed
+ u31Ejci1fK542Yf2bKyKg+EPuFPK1b4gPadBgdGq7+FTeiD2I1i9xQZeRoqng0Lo812YNXe/XKr
+ 0zLD8cxbfHSSB+9hGmTyATuDGBuHSVwwaR8xpUHfryd+Rd8/EMOgrj9Odh+br5dWTS3HLU8+eS8
+ YE3ixXWAnHO1jLGrh3awG64ZNANSmXd3pMSEif7ayxGG8EYodVJhEQG7CoXTgvIWXAZHtD8E9et
+ o60RNv05c17TaKbyrPNx4NOYb0OIYyaKD0NrfW9wY7/Xw5xQRdwMmR41i5GzLXqBPCK3vuzeRn0
+ qPK/BGJN8ta9jLI6ZZ2h63B9gkI32ZeJhCXQl/kwz/u7QvMRlLQecEdkx83UZJNjQNib77HR47R
+ 2RkU9h2wVbb7P2+dlqoPGC7SVLADZdmxXAZSNSQ3QK2P+8ipOxnXp17eie90sEAsq0vJDNnsZ+5
+ EI3qqt55v0IGq5HiF5A==
+X-Proofpoint-GUID: if4vQinRWJ4wiZYKd7nGWQefpfctDCe2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-02_05,2026-03-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 malwarescore=0 clxscore=1015 bulkscore=0 spamscore=0
+ priorityscore=1501 adultscore=0 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2602130000
+ definitions=main-2603030041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260302_221553_629025_D2160B50 
-X-CRM114-Status: UNSURE (   7.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260302_221619_800303_2D00823E 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,91 +146,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zhi Li <lizhi2@eswincomputing.com>
+From: Sunil V L <sunilvl@oss.qualcomm.com>
 
-v2 -> v3:
-  - Update eswin,eic7700-eth.yaml:
-    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
-      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
-      field (127 * 20 ps).
-    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
-      step size.
-    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
-      A well-designed board should not require internal delay tuning.
-    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
-      example to avoid encouraging blind copy into board DTs.
+EPROBE_DEFER ensures IOMMU devices are probed before the devices that
+depend on them. During shutdown, however, the IOMMU may be removed
+first, leading to issues. To avoid this, a device link is added
+which enforces the correct removal order.
 
-  - Update dwmac-eic7700.c:
-    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
-      DT properties.
-    - Apply delay configuration only when properties are present.
-    - Keep TX/RX delay registers cleared by default to ensure a
-      deterministic state when no delay is specified.
+Fixes: 8f7729552582 ("ACPI: RISC-V: Add support for RIMT")
+Signed-off-by: Sunil V L <sunilvl@oss.qualcomm.com>
+---
+ drivers/acpi/riscv/rimt.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-  - Describe Ethernet configuration for the HiFive Premier P550 board:
-    - Add GMAC controller nodes for the HiFive Premier P550 board
-      to describe the on-board Ethernet configuration.
-
-      The Ethernet controller depends on clock, reset, pinctrl
-      and HSP subsystem providers which are currently under
-      upstream review. These dependent nodes will be submitted
-      separately once the corresponding drivers are merged.
-
-      Due to these missing dependencies, dt-binding-check may
-      report warnings or failures for this series.
-
-  - No functional changes to RX clock inversion logic.
-
-  - Link to v2:
-    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
-
-  - This series is based on the EIC7700 clock support series:
-    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
-    The clock series is currently under review.
-
-v1 -> v2:
-  - Update eswin,eic7700-eth.yaml:
-    - Drop the vendor-specific properties eswin,rx-clk-invert and
-      eswin,tx-clk-invert.
-    - Introduce a distinct compatible string
-      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
-      require internal RGMII clock inversion.
-      This models the SoC-specific hardware difference directly via the
-      compatible string and avoids per-board configuration properties.
-    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
-      minimum/maximum to reflect the actual delay range (0-2400 ps)
-    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
-      description. The HSP CSR block is described in Chapter 10
-      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
-      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
-      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
-
-  - Update dwmac-eic7700.c:
-    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
-      properties.
-    - Select RX clock inversion based on the new
-      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
-      match data to apply the required configuration for affected MAC
-      instances (eth1).
-
-  - Link to v1:
-    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
-
-Zhi Li (3):
-  dt-bindings: ethernet: eswin: add clock sampling control
-  net: stmmac: eic7700: enable clocks before syscon access and correct
-    RX sampling timing
-  riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet
-    controller
-
- .../bindings/net/eswin,eic7700-eth.yaml       |  75 ++++++--
- .../dts/eswin/eic7700-hifive-premier-p550.dts |  50 +++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        |  54 ++++++
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 180 +++++++++++++-----
- 4 files changed, 300 insertions(+), 59 deletions(-)
-
+diff --git a/drivers/acpi/riscv/rimt.c b/drivers/acpi/riscv/rimt.c
+index 7f423405e5ef..8eaa8731bddd 100644
+--- a/drivers/acpi/riscv/rimt.c
++++ b/drivers/acpi/riscv/rimt.c
+@@ -263,6 +263,13 @@ static int rimt_iommu_xlate(struct device *dev, struct acpi_rimt_node *node, u32
+ 	if (!rimt_fwnode)
+ 		return -EPROBE_DEFER;
+ 
++	/*
++	 * EPROBE_DEFER ensures IOMMU is probed before the devices that
++	 * depend on them. During shutdown, however, the IOMMU may be removed
++	 * first, leading to issues. To avoid this, a device link is added
++	 * which enforces the correct removal order.
++	 */
++	device_link_add(dev, rimt_fwnode->dev, DL_FLAG_AUTOREMOVE_CONSUMER);
+ 	return acpi_iommu_fwspec_init(dev, deviceid, rimt_fwnode);
+ }
+ 
 -- 
-2.25.1
+2.43.0
 
 
 _______________________________________________
