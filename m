@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20D6EFCE39
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 18:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F69EFCE33
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 18:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zck5JfzzPUqs2XQR+M7u0ZErbx5AS9m1ZGD640m+Ie0=; b=gkAFDxibH6lMVy
-	az3f+TnubDkF/aNfNVQnPkNbEtpZ1Z5i6lzyMmDAz/1Ulc7lDCXKZNtJUPBG+n/Mh4TstcJGI8jLq
-	oeOSE3/4DnqeuGLTX7Z7DEMT1hlqob1DsKGKQqQrRCtOdOrFtoXNuzGDMCPI+PBhRbfkRWXDlBa+m
-	yfVs09h/tpvoud+7MYUGeeY1J8VNVtXBL9o4+hIRl+AjTdITBevk3kROBvhEit3wI3d/W0AKXed9u
-	7YN5H/EX2hpq3eSjnA+rpTFK5Cgr+B1Jfg4dt5srkcSCC1sCrxzxFDQN/HU7n5zGOP4v9OaEJj5aL
-	5Kfz7aF13hjb3vtVTgjQ==;
+	List-Owner; bh=kRPbHXrwPjcPuxKqU5ptMcsCtAcQq+Jz5VDbmCO4NVg=; b=ygGK3ld9n3gkBE
+	vRS4eQ3L1xqhavfei3NUzzpKn46+EO7q4HF645kfDBcFE0IH+a0Q497UkY9OT4puUdPYBF3wy0bHC
+	f7CB2FL4U8dNWIWg6se1L1Xtdkdt/vOVHXWSfey/+pN+zErVRll2Xa9bPhc5EGXRWFM2VsqgIxNd1
+	qBjLRrsmGHsoZA9t9XLk9KCKvxR1dgCxNNM9ttNkWGFj97+Whb9WurWDa9hBsxqTzYngoWNju1So5
+	qfCd9Q4QdLf7xn7J5CHBId+PNCMHRv43CMN3bjJFmUIyRSjLinNj3jnqr3Kyp1I6V0ndck7SHk1An
+	VBXG4xWFElHiU97su9ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxqWu-00000000FAR-3pUv;
-	Wed, 04 Mar 2026 18:01:04 +0000
+	id 1vxqX8-00000000FUL-3e4U;
+	Wed, 04 Mar 2026 18:01:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxqWR-00000000EMY-2YtF;
-	Wed, 04 Mar 2026 18:00:35 +0000
+	id 1vxqWV-00000000ETU-20LB;
+	Wed, 04 Mar 2026 18:00:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=u1E4JGqsAJxUOha5bRHq/d8cRujxwXZpuYkmtYCAdQk=; b=fPD3kyQsrcv4x3ptmpuQcnOdT2
-	r5r0lrB0ivC0fZZHw9LWPgffnQZCdEsg3vT+xOsg2SWo9Ht8jfhcU9370YzqVek1XMgMbk7+s49e2
-	BfAuxMDpRFS689TkgedGXBo6y5fFlk2pVbqMzrh8eORH9ee/809pnY0Y2x9j21FclI6qDqJd8Xoah
-	8lgiWBZ2V4oC4XwncZSU/UJa7kRrHEqnhbK+NYoxWO1j35Mjg23eqKigDnyB7CpyPnXounUHir5kp
-	3FKbpbb9JXp0dz7Z20B1OoH/jwvtRwgKSovgd28UU98H9XLn5Nf6Tu6yrSQItItf/K78PYhPN6Or+
-	iJvmxOag==;
+	bh=f+b7aLpOq/iyD+vDQ1nroJ7GTYV+Op/wAwVLY4G3Mpg=; b=d6To+NBfnpUY/BNh24WHBQetLY
+	ZLVgQspmmpJZkn+r230B4AASUlozD8rYQIuKTMKKtGrWzPd1Q8JfKsikMS+xX4d8YCb9OpeTTxYk+
+	aU3Yv2fAA310QIX9ulyqDLVlIKM021e+y/mYnXpXmzj/vY3+Qm26eDvXcy46R0ArnTJv7udC904ia
+	NeRIHOR48tKHmEhTxVAfeCZDD15iTceO1MRq7sa5x7/HxkpNhtRixrCqpiF/jt+GVxxvQbxd9xfhd
+	F+cLs58KpsKGj3c8goAlGKjuI612DwqCWTsN0cBIqWV+pqeBN3jOhF5eeQXLjZ+ZXHXxCVBzOFlEa
+	HC9rATWw==;
 Received: from mail-northeuropeazon11011005.outbound.protection.outlook.com ([52.101.65.5] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxqWO-00000005H8M-16WJ;
-	Wed, 04 Mar 2026 18:00:34 +0000
+	id 1vxqWS-00000005H8M-0ekR;
+	Wed, 04 Mar 2026 18:00:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ugcgLS2a5WaAUjmbni2laYr8FU3EkZHv/AArR3CypP4tB+4HtUdOFgNzj7yX35Ets9HIocu83/wvPEPvw3bIlMK4pQ5s1lupXtGw3VVt1ex3nOwiUFKBsO2gREUXHyJoPLDwAnOJV52qQ7N/jFI9KE1xB6j9JkjYWwY4e+NkpPP4tg8u75p3RmYVmGy9YisBVmSUyVTUYI9q4obvjjIZpk2bTMgEgCyDAPuG04u/EqQM5btvE1zNZkkfx85DSulQMo/cNUK3rT2V1so/lIx559Gp1MT4WoXGBhbcIWl40koopbIldlgbXxLiAKF8nOJ2MLeIngUMAke0G16IkNzbFg==
+ b=ClntI7OwB3gGorSMWbVbpHjxVLVVqIHGQTUyYpwY+J4IcWTTJ9DmBAoqvrf3CNFxcoEYCOfL3Nr3vj+it1NBux58xSC6WqvlbpsT219aYKW1NH7qCtyL2L7xgOJWvLUtp0xpJtPnezUntt23gVOwzhSlcTg7R+U5jjICdzUkhlR5V8+vPks48spJdFutMGe6TzQaH/J/vDgwv/XUT8tij6VAZlWV1fNgYS4dBQR4we09eDCoPu8Keugh9qN9yT8Dx+Dcz03D5sgGX+HTMpEfdztcRfqLb6A0KEqjXAWBvEuDZbPSPy28sJdshkfWRv4HLWAYjfSx2mxmdT1QgORsZg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u1E4JGqsAJxUOha5bRHq/d8cRujxwXZpuYkmtYCAdQk=;
- b=V/iGyIBkVdE3bG7YGbWs6GIOSbioyacKu+ZL1iL0k0xc3G2X/Untu4ZpxY9u+AB9dVAR1q8DZATpbYpmsZZdEE2UhkRHDVuxtRw4qzkPZE2m43D4C122fndMR+1GUDHEJ5bSEIfaDtIc8Un0wZcqSXHUydLpUptYok+T6sSnGlMqmJ/nz1M8338V311eXI2muKbkNmZ7cZzbXtYzqsc/XMrXFrL2+gtrDODChLsScJWuKMjgYuGWu8d5h2kLUN1/5vHRnfyCoqbBT/dGnqWJWLqSVtaF1cfFI11c0imBCs6uBhVN1L3RD50g0verIMKX7O5hhRqEC2OnUXtR2rOfzQ==
+ bh=f+b7aLpOq/iyD+vDQ1nroJ7GTYV+Op/wAwVLY4G3Mpg=;
+ b=YYAwxnngpsVa5wLLGkHnT7RxG3XA7TU0oPrisftqYBkQP0w531DeLMtown0eWbG2Uaow8hZHdT7yvRQ3BVBIKEoCck+lzqRLlVFzVfrfTlgCzfr4kDvr0bEjCyERw6wMzul3DvmnLRC+yvPP9GuM4EpA0P49wt+zzpQCmi94fqQFCkPefyURAOdS+/1/pSbEUTVfhf9Z0ZgXuoLtnauNvmcGUpl21o2Ac4Y4jCQBjrbS83Jswb8n0rTGOGYJxbw47qdLMmEheMG4nV8VNk3ZUZJWLlwSoYKCTUww/Sg1oCxC14/fgfo3k+Re+Yd3GUNc3Y3UcCpdOkhk+v9EfZkZig==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u1E4JGqsAJxUOha5bRHq/d8cRujxwXZpuYkmtYCAdQk=;
- b=J5TmnhHolnFkzgeha9AEqC8IhYcj+NkJbNz29NEkm58CeMTYVc6wR2dt7whBSlexk585eI6LmikUVCbvPo/eU4KtW+ZPpJKIVf+JJI6g4icCBtqgBtMIFN7oylNg4Vvinx+OMtXRB42PxJGvxLUNa/BbVrOs4tu11V7B53yuDmvgoPpxzlE63XC05Pii/egLkM9wNgjxicGrzSTX9uVgVirKuyZl+/htlbXbBkVY9DJ6jl5oS31TfvGsMDG7bUHI8JDN5egGP5CmIaAlBZQavDn3vXAkz6zuJ+7s8Sly0ui56diixeF88xOnhC7UBitz0XJDXTAhkg9N6UylopU3sg==
+ bh=f+b7aLpOq/iyD+vDQ1nroJ7GTYV+Op/wAwVLY4G3Mpg=;
+ b=Ux1D8bkngPNU7GHM3v80ukIOcZVaw8MeZlyHIwP4sJtkRpeh6gGqS8BIQ6CqU931GUkC+Qe2JJRZGuLnMbfCUKni/Wn3j9YL7YAFhotGO7O6ahO4qkCqPbu/c1lE1Sa5E7BsTE9L7eqy2EgXPBOEKDXhbJGmAyZm6djV9UCrCLCrobT5xWZPNNAvSXKNkZitOcpmTyywYfWwpL5U24VCR4Cw1hCw+/p0z17S2PcXXgA12Uz1jFtfP9zKDZUFr5cmzpiJLdSiH8LpBIp+bapNLyVUSPQsSIRRPdwmGQaIygUjg+2wKnlNgDWMxnnG0dBxemAV+hP+VD0zyLV0MMpJ3w==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
  by GV1PR04MB10275.eurprd04.prod.outlook.com (2603:10a6:150:1ad::15) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Wed, 4 Mar
- 2026 18:00:23 +0000
+ 2026 18:00:27 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.016; Wed, 4 Mar 2026
- 18:00:23 +0000
+ 18:00:27 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: linux-phy@lists.infradead.org
 Cc: Vinod Koul <vkoul@kernel.org>,
@@ -98,19 +98,10 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>
-Subject: [PATCH phy-next 13/22] phy: introduce phy_get_max_link_rate() helper for consumers
-Date: Wed,  4 Mar 2026 19:57:26 +0200
-Message-ID: <20260304175735.2660419-14-vladimir.oltean@nxp.com>
+	Simona Vetter <simona@ffwll.ch>
+Subject: [PATCH phy-next 15/22] drm: bridge: cdns-mhdp8546: use consumer API for getting PHY bus width
+Date: Wed,  4 Mar 2026 19:57:28 +0200
+Message-ID: <20260304175735.2660419-16-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
 References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
@@ -120,59 +111,59 @@ X-ClientProxiedBy: VI1P195CA0030.EURP195.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|GV1PR04MB10275:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67fb355c-2427-4906-d395-08de7a17e79b
+X-MS-Office365-Filtering-Correlation-Id: f4275ffe-a90f-4c1c-acd1-08de7a17eabf
 X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|10070799003|19092799006|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: yUFkN3DbabfO7DfDyDtvyYyc4t+ypjKTZcg3umzyryQk3aTZbNcdpwD4qghyD1vfOQuAcllUiCBxfwlLfQMO2ffN/uexzDKr2jWEScPesOmlyzRA/PEWPRQgm6qOqULiFuZdNV2zMpb9ynglzBSY2jwhbkLPYIE/psERx+/qp4xlEbiyaf7ovXskJbmdJf02D5BHE3FasBxZyttyslLDQbGKEwIAUvNDvEpLwp9E1jAfCcD1BS6Noq4YhAo4RpX9IA8qk/nr6bGntbU5TqJvInYgAfP9hMQyQHx8DT3JzqMyuiWt8c3m7auRFfAzO6/Q/5u8TmimAc+Vn1KtmWsWONbJ38qMStnTD84mWkFVa0wAtPjOBku+qWNXLsrzp8Rf3Mv+/lvwmdKPgjRPE/Jz/dC0nmjjkQRJPFAIBK9UvwYfh8QMlcDo/bjCWuT0Hnv2fCzityGQLGog23dAxJki78UptCW3wwrcbEydq2j7b9BPnwmpeUPCn/C+fw1z8W0sG6b9jYYmksJVm9woA57QM2sah3JZQlQ0uLL7r43YdWlco2sL3iLQzoggK8XKD8ZhHMqjje/obDzmh9huOXFOSbxu4vt6eGsqoFeWE9a1EqtHu9t4JqEkvNQZYwWHblpT96CAGTFz+0xxCc71Xzth0vcI5b+WahBRUi6wH/vMcNawEBy1IDO9rhZYzVr2+/Gqlrnl25wgiKkam1hi2VZkTOj8Oh6XRlZYlUlhxr5Ld1k=
+X-Microsoft-Antispam-Message-Info: MlsE1jzbDg8IImEQ9ntOkhEwpTjV71ehH28FEH9UOMZGBvMJN1TD1FSHk37sUJ7qUM0GC5G1EtuvMr6/EJLOtsaGYae/rZUkR0X3dHrQh9ukveNbjyvvDLOegd5BkNrDWPneWLSErnZtQ/7hLLtRb4HLP8wj9qcaYXDHDvyP+7B8qKJqQaI8to4pkqykGiglddxv5Y34DviUIKtHx16Hsbmcr/BHNWKpQk40ZPmqO9vRfU2Ou9s1geIEtR2G/uFR/xoGO140OqUS2F9k7dScWI113jEF8zqgTBLReVAnUAyEyvjIYHjpTtfdgbS8AWyO8/D6PPY0kS7njC0Mu0N94Kha0Yj+JBB88c2MQZPO1NaWm5Rw/G6vwcU5PqxEbVOGrhdAe7+PgDi4uERwL1/5Jkq0TGgPeY/EQFTtOsHogiF6EIx7kfw1NRkI9DoxZ43wc11/ZALp6mcdAZxN3Ouahe2SUTVotWme7oPfcig7ygSc/lXHxnzWXwjmHEb+2R3QRkMv177fNWTQTxt4avia2zvUiJYMA9nj+u1WaNyGTVIhHq65PQdrWDaE4XP8DvfFMQHTeajCBa9BKGkmyrNHKOQJ6ck5/RqXZdfJpbmlsQDX5nUkAPtaQlORNhoQkgKMB4gvMTYqYoTMHKY1xoiykxIB1gRKxv4GD9PLKfXNlb4zqfu2raHLQnpyNhPcCYSiL5JFHE/o5ZUNGZNE0rQhzRDVqDbETFjtASe48X61pY4=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(10070799003)(19092799006)(1800799024)(366016);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LWaQ0KD4T3JdwAmHr5Z2s1Jp79hmcYfp65+Y8Y2DA2XBhpf98DD/n9sAMvhf?=
- =?us-ascii?Q?OldHSdW92MDwyBLBkfC12cabyZIaK/3TepbHACCP4mR/9hBT4ZPgQRIHvpxM?=
- =?us-ascii?Q?kZrW6s366BWgIaMoGL+womj1qwVor+CXEYw2KNgCYQ+NK/hW2ovFCIWUqQV6?=
- =?us-ascii?Q?6wmgRaElQQhItO6cVWMRlS7hiQeF0QotwGbRZP7INneT1X6RThA5ORORhFeH?=
- =?us-ascii?Q?AWI0OyOvuJ9q7asizwCJ+bC2SbhQ0chzl8BGjXYsSyR/dB1Tke3SuJweAFDL?=
- =?us-ascii?Q?eTmx8EdEHykeDAC6YwLHKFWlcXfLESFYciWekbqw7iqVV2jJIZhrMy37Kgm2?=
- =?us-ascii?Q?xif84v7qMGG3HpxZ5/RgDqQnvT7RweIcYYjuEygF9JjEhYt4vq/eeWIg/XDX?=
- =?us-ascii?Q?0Hsf1HPB5EDXcZKn7SRHdJXLqnTelTDotNn/woo/hUZYuaEH1WOUJk0NNIIt?=
- =?us-ascii?Q?rX9MOV4QJChZ5z2NDi7YhNu4sqMJ8/WHzCVe6zZ/i06xA54K2LV7bJjn708h?=
- =?us-ascii?Q?7nKZWCJZ1n5jZDBHncxxXKS/EeRdSGBFAxLyqDxI30tY/+jRiaY0Y1rZ63FA?=
- =?us-ascii?Q?iaIW85SPOJlVObM/DzOjDrl/Dwk5693BPoQ3/yan2iE9y5cm/UyzRRCKhGOU?=
- =?us-ascii?Q?zJqw1XbPREKil9uj1xk5cJmy6FcgMdJD8ZeNMRxQjMVsVAj6WxfRegMc7osd?=
- =?us-ascii?Q?QyqTrsC0Kt1ldsAxz/LbiCEjNtHbvAPs2CyfIsbXmE1nhAfLJZmroyqSZzgE?=
- =?us-ascii?Q?nBR3DkoUx6GyYkRXjWWEAJOXhyNcaeWzaGi38Wa7hvytQC3XXZo1G+DZFmzc?=
- =?us-ascii?Q?Q9WIoOgIbVl044n6xpJhR6SoaN+faKmiiirfSHfcxqYELT5dUS6zg7xI61qT?=
- =?us-ascii?Q?XnLgfIVfjR94ZufQ2ywoPLeu3NJqN0KfSKFrk9WyPOE4hcvNdW1kjLLRxFMa?=
- =?us-ascii?Q?HkHYhoCN5Px+moSZa8GrkLi9W7arqYQT2cbfxjbYbL++E7LZQUasxnhthzR1?=
- =?us-ascii?Q?QZcK5jg0bui4VWo/rTI6sc2f7IQbADtbLKfp75LJa+NNeTXTn6w7oGPFuuoP?=
- =?us-ascii?Q?eyA5lkFYmf9gjtpAjLX788klZ0OH9NEP8zQ2BuUFg6N5zyEhFg6AgQjM50KC?=
- =?us-ascii?Q?tr/v6QRFe+QXMxdNHdE0uaGFaymHo99G4K10zrynLa4EJ2iLfNNgO9D8yXur?=
- =?us-ascii?Q?+QM1CE5aPM+S+1fMqo0L+b/6FGC9HvnSL6YlN3UlPt8SPjjBqWvri6pzZWhp?=
- =?us-ascii?Q?l98c/TtgtBAyrwdCnPZVtriTmrhZMDf7L9G7qavreXuMVudmCfsk6cf1b4tW?=
- =?us-ascii?Q?eGrUuXuF3Ow7elhWf3kQS9uKfbyR+kx2WBeZm2Y/oHXNkojvsF8Iy7I1THcv?=
- =?us-ascii?Q?hM2OGddufjzT9TK1xuzwDreCdPpeCndzgx8pDmxdo6MRPrlhDDc9bwZuyp97?=
- =?us-ascii?Q?qE1gBZspL5NL9fw/Pr5D1zhdWkbuBYawSrNQcKMez6KaaghxZeWKLMv6zusz?=
- =?us-ascii?Q?oN1uXrMyyov6IpehAg+bp81hTXsPpYa1wmQ4yH+OzmRvSxaPXuxJw0ewXJCm?=
- =?us-ascii?Q?ieLAK1swXi8Y1Y/Lqr28HWqjWz1pl2QB7wqQ09O4r2GFkV1m1YH0Q//E10Iu?=
- =?us-ascii?Q?vUjeNb7WdLb/LVvK2StqK0ulq0cnuiHXFvXDjHqkXZtpU6mAoEOMkwL+0eMy?=
- =?us-ascii?Q?CNiUydMy+WsdTzyCkomVUSPBLoPik4+D/OsO62wudPkCve0S5ig7MXCV3DEy?=
- =?us-ascii?Q?0Qs42XbZ2+VoGyNWtNmBmPwhSeI2C45p1zXRoDnWB+Zg9P58Ysv3gXLDf3rU?=
-X-MS-Exchange-AntiSpam-MessageData-1: 365qEXgax/4Uqv+xfbeU30yW2AQXiNTJozQ=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VWtfPzTMPrk6W0niL+C20gKr2cpvsjjdthDFzUvunYG8/NeZl4DLztq7AIBk?=
+ =?us-ascii?Q?Rq/sBXGNWRZgZtv/hO8nyOYrlCPTO8JPeyI63Nwr/Z9U1XqFdzkhhOWOcQaT?=
+ =?us-ascii?Q?JtfkBWfqKol0nF9ahnqdfFehFwpoT9ROK/qtqhUz1fuzOwmg6cPnnDaEt55s?=
+ =?us-ascii?Q?/DFOqFdYXxmz7d27SN4n6xBRWiEtEiu0mtpSsYk9Nb+S7YEAfnH5BymmrOnr?=
+ =?us-ascii?Q?pbBvkqM6WXIvICGFobLdibULSzhvnvUG/yHOAWCjWTqzWjKZ6xB2h03bYLXD?=
+ =?us-ascii?Q?20RqZzIWSXoeabthGRQWUCw3lhvqZ4juEKQdWDKD8sbnhgY2Okunycq79b3r?=
+ =?us-ascii?Q?Kf3eQkpktAzK3Rq+JUjX8AtOtqnuCDrzhhfsUh0bm2nvG89XSUcfQ4sAfLCc?=
+ =?us-ascii?Q?w7yrt/TPTKK2DLebDyg1K2uGBpHYSh4qIvMxhHGmgYwdUIADtU03srFGDBV6?=
+ =?us-ascii?Q?KhAu8rBFaL1KlXQ+wQJ3fn7mR3zI9HSmfeCPJID1hlaSqoF6TANIOxLzmFCb?=
+ =?us-ascii?Q?G810pX4A/FOIHGWtHhCbl0l1jO/2Nm+yycf+4NrGZgYVH0UX5YYZ28RZjRWC?=
+ =?us-ascii?Q?2zhXi3NjmYee7zgy+wSSGrNyVEFkRNsFXn0lbvHIu47Nbgyb3OS5/lZ7XG08?=
+ =?us-ascii?Q?ZJfRIC2E3kZEbMHamR3Dx7346hPw9KzwW0lgcG5GsC0s2s4f1v/SW2aZv9/b?=
+ =?us-ascii?Q?6Y9wtzIdS/Mk5Hhjs13Viq+wpUvH31hzggUqLjEK6RmERgiJe6ovc52pOZF7?=
+ =?us-ascii?Q?dZ3NNt4pue9SvwGmzCtTFP/KeVRUCvaAGA0D+1Qu0AuHAlE+Q6vNJd1wFAuG?=
+ =?us-ascii?Q?YDXSLn19BooZZPXFTDkwU8XS05Mu/30t6tx463+QxxOFPdhvoivBfRGhtKkp?=
+ =?us-ascii?Q?lTtBmki9REVm2F4W1F0PA52ZTY+2q2FkZ3LxMGeinBQxpwWE6h/sGxo+NYHB?=
+ =?us-ascii?Q?6gO7pjR44qjdCHg6ais9AsrtjHiBNdmfRzkwMivtaW228luM4bI5DO5HUPVE?=
+ =?us-ascii?Q?NZlH4/ghg3vsTWwj6oBzp0OKsHmgsjD7UfYItNtrXI8gAMTOVpR8uDAqgqcf?=
+ =?us-ascii?Q?aTiV1lfEMv9Ay/6rSyBwbPNwS5IbVhwVYtlcNwXtr7DyzxR2ReMwCNYSh1er?=
+ =?us-ascii?Q?bZbxi7Mkr8m3UlKGIMmpwmKXIstHD9ie8jksP81SmML9vJg3ljd++vxTc1/Q?=
+ =?us-ascii?Q?PmIKNFX00QLB0o2pFxP08rRtzMZdOBSZfYpyqbamjrTPM87BLwHYKgYxC0X/?=
+ =?us-ascii?Q?gbsnxuWotpivvIk0IjIgCcsE+KfbBKw6qZ+lZftXZ+DF1hyYEA5GxN5syWhi?=
+ =?us-ascii?Q?Y5QH9Yj8dBuQV662oqvSNdKCBsQCYZPOZzSruCny94Ji2A9dW83P3Z4xYyOJ?=
+ =?us-ascii?Q?XrRxSpI8eAi0KC89X6W4Iwuym37xHhW5jxSHbqkrnRfsdCiBQnGSJB+iBjZ5?=
+ =?us-ascii?Q?GRmZ0HTczvELUh0NHpKs9emFq6lAxXAdgYHTE2/hXMGmbQ8WMl4K8lASHMR5?=
+ =?us-ascii?Q?+sMohRdDyXIHn/C/9FZnUFEIeU/gkwm+GyDGLTYZQR0PTpRz73SH4Gnaf4gX?=
+ =?us-ascii?Q?R0nvygo38Ew6YusYm4T28nHqlQBESu5sPC/TkL7Hghk1c5ZTpAV9+yZGosW4?=
+ =?us-ascii?Q?QWxrK3wgrebnJdy3Sl6wdPO7WN9HHaqW+qYsxgwHtXTNKn/Cu9bZiX6pZa9T?=
+ =?us-ascii?Q?KzJng6vDLc5F+/6NhFhZtNwKsNl9ToO6/yy2h1D555oxYLLTvIXmOPnNNbQp?=
+ =?us-ascii?Q?3STzu8cWGnbFhAnHghk6FP3hbaBwY7C+VztuH56Yt8j/pGxl3aqSduHZsXUh?=
+X-MS-Exchange-AntiSpam-MessageData-1: kbP56DnpIjOyEn+HeK1BGGK19AykVt9cqEk=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67fb355c-2427-4906-d395-08de7a17e79b
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4275ffe-a90f-4c1c-acd1-08de7a17eabf
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 18:00:23.0836
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 18:00:27.7019
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7K/7a4WazCXcuGN+B8MbT9w+GtaFK4B1ILyzO4Io2rmPwU/Rs3zFuPsfIbKYW7bU5IiLERHVpA1L+Mz7Vp1aIA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: NOWzSCO4N0/ukqiTbu0ZX9yHP6NCjmYncqVY0UAh42+ILMTrOjbzND3AG99ejJ2j+JcykqGVVyhhZd1c+KZzjw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10275
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_180032_526777_E47E3AFD 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260304_180036_403341_57B95805 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,12 +180,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Consumer drivers shouldn't dereference struct phy, not even to get to
-its attributes.
+The Cadence MHDP8546 DP bridge driver gets the PHY bus_width attribute
+(holding number of lanes) directly, but doing this will no longer be
+possible after the definition of struct phy is hidden from consumers.
 
-We have phy_get_bus_width() as a precedent for getting the bus_width
-attribute, so let's add phy_get_max_link_rate() and use it in DRM and
-CAN drivers.
+Use the phy_get_bus_width() API function designed specifically for
+consumers.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
@@ -209,154 +200,23 @@ Cc: Maxime Ripard <mripard@kernel.org>
 Cc: Thomas Zimmermann <tzimmermann@suse.de>
 Cc: David Airlie <airlied@gmail.com>
 Cc: Simona Vetter <simona@ffwll.ch>
-Cc: Andy Yan <andy.yan@rock-chips.com>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Vincent Mailhol <mailhol@kernel.org>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Markus Schneider-Pargmann <msp@baylibre.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Magnus Damm <magnus.damm@gmail.com>
 ---
- drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c | 4 ++--
- drivers/gpu/drm/bridge/synopsys/dw-dp.c             | 2 +-
- drivers/net/can/at91_can.c                          | 2 +-
- drivers/net/can/flexcan/flexcan-core.c              | 2 +-
- drivers/net/can/m_can/m_can_platform.c              | 2 +-
- drivers/net/can/rcar/rcar_canfd.c                   | 2 +-
- drivers/phy/phy-core.c                              | 6 ++++++
- include/linux/phy/phy.h                             | 6 ++++++
- 8 files changed, 19 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c b/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-index a8b6ae58cb0a..ed7ed82ddb64 100644
+index ed7ed82ddb64..e3f8a281f147 100644
 --- a/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
 +++ b/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-@@ -1300,7 +1300,7 @@ static u32 cdns_mhdp_get_training_interval_us(struct cdns_mhdp_device *mhdp,
- 
- static void cdns_mhdp_fill_host_caps(struct cdns_mhdp_device *mhdp)
- {
--	unsigned int link_rate;
-+	u32 link_rate;
+@@ -1304,7 +1304,7 @@ static void cdns_mhdp_fill_host_caps(struct cdns_mhdp_device *mhdp)
  
  	/* Get source capabilities based on PHY attributes */
  
-@@ -1308,7 +1308,7 @@ static void cdns_mhdp_fill_host_caps(struct cdns_mhdp_device *mhdp)
+-	mhdp->host.lanes_cnt = mhdp->phy->attrs.bus_width;
++	mhdp->host.lanes_cnt = phy_get_bus_width(mhdp->phy);
  	if (!mhdp->host.lanes_cnt)
  		mhdp->host.lanes_cnt = 4;
  
--	link_rate = mhdp->phy->attrs.max_link_rate;
-+	link_rate = phy_get_max_link_rate(mhdp->phy);
- 	if (!link_rate)
- 		link_rate = drm_dp_bw_code_to_link_rate(DP_LINK_BW_8_1);
- 	else
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 4ab6922dd79c..79c72ee8e263 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -536,7 +536,7 @@ static int dw_dp_link_parse(struct dw_dp *dp, struct drm_connector *connector)
- 
- 	link->revision = link->dpcd[DP_DPCD_REV];
- 	link->rate = min_t(u32, min(dp->plat_data.max_link_rate,
--				    dp->phy->attrs.max_link_rate * 100),
-+				    phy_get_max_link_rate(dp->phy) * 100),
- 			   drm_dp_max_link_rate(link->dpcd));
- 	link->lanes = min_t(u8, phy_get_bus_width(dp->phy),
- 			    drm_dp_max_lane_count(link->dpcd));
-diff --git a/drivers/net/can/at91_can.c b/drivers/net/can/at91_can.c
-index 58da323f14d7..b56db253f02d 100644
---- a/drivers/net/can/at91_can.c
-+++ b/drivers/net/can/at91_can.c
-@@ -1126,7 +1126,7 @@ static int at91_can_probe(struct platform_device *pdev)
- 	can_rx_offload_add_timestamp(dev, &priv->offload);
- 
- 	if (transceiver)
--		priv->can.bitrate_max = transceiver->attrs.max_link_rate;
-+		priv->can.bitrate_max = phy_get_max_link_rate(transceiver);
- 
- 	if (at91_is_sam9263(priv))
- 		dev->sysfs_groups[0] = &at91_sysfs_attr_group;
-diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
-index f5d22c61503f..3a4307bc1d61 100644
---- a/drivers/net/can/flexcan/flexcan-core.c
-+++ b/drivers/net/can/flexcan/flexcan-core.c
-@@ -2211,7 +2211,7 @@ static int flexcan_probe(struct platform_device *pdev)
- 	priv->transceiver = transceiver;
- 
- 	if (transceiver)
--		priv->can.bitrate_max = transceiver->attrs.max_link_rate;
-+		priv->can.bitrate_max = phy_get_max_link_rate(transceiver);
- 
- 	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3) {
- 		priv->irq_boff = platform_get_irq(pdev, 1);
-diff --git a/drivers/net/can/m_can/m_can_platform.c b/drivers/net/can/m_can/m_can_platform.c
-index 56da411878af..73525be6566b 100644
---- a/drivers/net/can/m_can/m_can_platform.c
-+++ b/drivers/net/can/m_can/m_can_platform.c
-@@ -132,7 +132,7 @@ static int m_can_plat_probe(struct platform_device *pdev)
- 	}
- 
- 	if (transceiver)
--		mcan_class->can.bitrate_max = transceiver->attrs.max_link_rate;
-+		mcan_class->can.bitrate_max = phy_get_max_link_rate(transceiver);
- 
- 	priv->base = addr;
- 	priv->mram_base = mram_addr;
-diff --git a/drivers/net/can/rcar/rcar_canfd.c b/drivers/net/can/rcar/rcar_canfd.c
-index eaf8cac78038..645d5671705d 100644
---- a/drivers/net/can/rcar/rcar_canfd.c
-+++ b/drivers/net/can/rcar/rcar_canfd.c
-@@ -1885,7 +1885,7 @@ static int rcar_canfd_channel_probe(struct rcar_canfd_global *gpriv, u32 ch,
- 	priv->channel = ch;
- 	priv->gpriv = gpriv;
- 	if (transceiver)
--		priv->can.bitrate_max = transceiver->attrs.max_link_rate;
-+		priv->can.bitrate_max = phy_get_max_link_rate(transceiver);
- 	priv->can.clock.freq = fcan_freq;
- 	dev_info(dev, "can_clk rate is %u\n", priv->can.clock.freq);
- 
-diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-index a1aff00fba7c..89f7410241aa 100644
---- a/drivers/phy/phy-core.c
-+++ b/drivers/phy/phy-core.c
-@@ -640,6 +640,12 @@ void phy_set_bus_width(struct phy *phy, int bus_width)
- }
- EXPORT_SYMBOL_GPL(phy_set_bus_width);
- 
-+u32 phy_get_max_link_rate(struct phy *phy)
-+{
-+	return phy->attrs.max_link_rate;
-+}
-+EXPORT_SYMBOL_GPL(phy_get_max_link_rate);
-+
- /**
-  * _of_phy_get() - lookup and obtain a reference to a phy by phandle
-  * @np: device_node for which to get the phy
-diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-index 36307e47760d..af9c3e795786 100644
---- a/include/linux/phy/phy.h
-+++ b/include/linux/phy/phy.h
-@@ -57,6 +57,7 @@ int phy_notify_disconnect(struct phy *phy, int port);
- int phy_notify_state(struct phy *phy, union phy_notify state);
- int phy_get_bus_width(struct phy *phy);
- void phy_set_bus_width(struct phy *phy, int bus_width);
-+u32 phy_get_max_link_rate(struct phy *phy);
- #else
- static inline struct phy *phy_get(struct device *dev, const char *string)
- {
-@@ -256,6 +257,11 @@ static inline int phy_get_bus_width(struct phy *phy)
- static inline void phy_set_bus_width(struct phy *phy, int bus_width)
- {
- }
-+
-+static inline u32 phy_get_max_link_rate(struct phy *phy)
-+{
-+	return 0;
-+}
- #endif /* IS_ENABLED(CONFIG_GENERIC_PHY) */
- 
- #endif /* __PHY_CONSUMER_H */
 -- 
 2.43.0
 
