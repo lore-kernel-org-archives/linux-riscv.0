@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D95EB7EAA
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 08:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D56BAEB7EAC
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 09:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x8h6DLOhh5Peqhj4KsI20LwTw0+3/VTKC2247iNujrk=; b=bnZVUzeQH4mE4d
-	iwpvjgcl0qIM0D5wYC/RB1e5jx4skc9B3wrNgtVfQQlKkDyclQtbFHN+J4FhsC6oSPeXL7NEx4spH
-	7HFAuA2MlGvD9i/ndERYj51JFT2QGVaISzbtn01F/a1PJUzP4I7FNyYjC/YAvQAopiR/GZ/RE0XPB
-	DVT+AoGqYB9teYnpTOBpPolH6VW4NaWLyLW8U7APEd5Y8uddUWb+73Jxo33a/ObeP+v/FgoZYG5i5
-	pHPwxJHmpkL88v70Wkb+lnF4j6l0oLBsQHMey+GvCIrveYAqlt6nsW6Tz0x/LL68daCLVUNXByxjh
-	gXc2k09RjwkWfCbVSYgw==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RjVUUcjNYwlDasgSRuY3+T4oWx06pMP/drRUPmu2uRg=; b=YOGlWK/+Z2BELj
+	zVKprjRqsjkHoAur2xzFb8yhIcpQwsStPQbmgcwieEAt/hybqUo2aytOP+4fi87tqrRguMJbJUtf0
+	fBtDL+5hLwKF8miQSPl1leA4XkmKZuI7b5FqI1CyaFnXE58DftFpzY6QjDx7PqJCsfjoCzBC5oShK
+	y8kP1zkTppBBNKPkkcBiOO1hY49X2ioUWKj9r1JgI+zKuFLh8lhMzJvyqmbDZlSStCcZXiBm31L2v
+	9dGrT6Y/+KGoWqXtRpFBzXqO7dXEVOevC/860DIOoajb4BsjxgzYVyyMtCAYs3FCfcd4SexBCPPKm
+	cuU0cRKt2C6UiLeo1nKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhhn-0000000Gkxq-1Mxh;
-	Wed, 04 Mar 2026 08:35:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxiQa-0000000GrTv-1mDb;
+	Wed, 04 Mar 2026 09:22:00 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhhk-0000000Gkx2-3Evb
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Mar 2026 08:35:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1AEA443BA8;
-	Wed,  4 Mar 2026 08:35:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F715C19423;
-	Wed,  4 Mar 2026 08:35:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772613340;
-	bh=oWg/cg7kWlEES/qZchQJbpztQ2Tn1CAdFHkpToBc1HM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jbDO9REZow53raDLG6Ylx8rKhsJQX8kWtGz7KlNrZATvSPnmX8sDpV9Tq+my2eKvY
-	 fxJqZ2FcA3QsALILV1TuSsnrTBrnRVWgb5tvTZ68Y1EyPOKMv4Dz+/lACKzqHTY2X+
-	 1xoIDJ6XusXVNeZ++c8yjBO/fmwvYxk0Ho360/zfWqZQBTxfXe9F1YaKXPNhMk9xwH
-	 3gCfDP4acMucgyzLN1qpWikFA5i0c0IdrgBnmw4riv5065a5oWxTHJYCTIOcGCW/yC
-	 D/RR6oVtruJAhNNZpSMlo6xU3+68Lhsyr3sUyv+6OP/8sIperKgNYz8Km8c0NNllJg
-	 HP7x24bA6QNNQ==
-Date: Wed, 4 Mar 2026 09:35:37 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-i2c@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, Andi Shyti <andi.shyti@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] dt-bindings: i2c: microchip,corei2c: permit resets
-Message-ID: <20260304-vivacious-congenial-bear-f47377@quoll>
-References: <20260303-clang-earthling-8a4904cb8a7b@spud>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260303-clang-earthling-8a4904cb8a7b@spud>
+	id 1vxiQW-0000000GrTP-29L0;
+	Wed, 04 Mar 2026 09:21:58 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4fQnHG51clz4xQXM;
+	Wed, 04 Mar 2026 17:21:46 +0800 (CST)
+Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
+	by mse-fl2.zte.com.cn with SMTP id 6249LaoC048377;
+	Wed, 4 Mar 2026 17:21:36 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxlzmapp03[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Wed, 4 Mar 2026 17:21:39 +0800 (CST)
+X-Zmail-TransId: 2b0569a7f9a33a2-214cb
+X-Mailer: Zmail v1.0
+Message-ID: <20260304172139131ChDubMSpGDUB03lY4UCbK@zte.com.cn>
+Date: Wed, 4 Mar 2026 17:21:39 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <wang.yechao255@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYyIDAvM10gUklTQy1WOiBLVk06IEZpeCBodWdlcGFnZSBtYXBwaW5nIGhhbmRsaW5nIGR1cmluZyBkaXJ0eSBsb2dnaW5n?=
+X-MAIL: mse-fl2.zte.com.cn 6249LaoC048377
+X-TLS: YES
+X-SPF-DOMAIN: zte.com.cn
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SPF: None
+X-SOURCE-IP: 10.5.228.133 unknown Wed, 04 Mar 2026 17:21:46 +0800
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 69A7F9AA.000/4fQnHG51clz4xQXM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_003540_827338_891E713C 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20260304_012156_708714_190C3740 
+X-CRM114-Status: UNSURE (   4.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +79,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 04:34:54PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Both CoreI2C and the hardened versions of it on mpfs and pic64gx have a
-> reset pin. For the former, usually this is wired to a common fabric
-> reset not managed by software and for the latter two the platform
-> firmware takes them out of reset on first-party boards (or those using
-> modified versions of the vendor firmware), but not all boards may take
-> this approach. Permit providing a reset in devicetree for Linux, or
-> other devicetree-consuming software, to use.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> CC: Conor Dooley <conor.dooley@microchip.com>
-> CC: Daire McNamara <daire.mcnamara@microchip.com>
-> CC: Andi Shyti <andi.shyti@kernel.org>
-> CC: Rob Herring <robh@kernel.org>
-> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> CC: linux-riscv@lists.infradead.org
-> CC: linux-i2c@vger.kernel.org
-> CC: devicetree@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> ---
->  Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml | 3 +++
->  1 file changed, 3 insertions(+)
+From: Wang Yechao <wang.yechao255@zte.com.cn>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+This series fixes an issue where dirty logging fails to work correctly
+with huge pages.
 
-Best regards,
-Krzysztof
+v1 -> v2:
+  - fix the lost write protection on huge pages
+  - split huge pages before handling the write protection fault.
 
+  - Link to v1:
+  https://lore.kernel.org/linux-riscv/20260226172245358qVZavIykLL2QC0KoqTO-I@zte.com.cn/T/#u
+
+Wang Yechao (3):
+  RISC-V: KVM: Fix lost write protection on huge pages during dirty
+    logging
+  RISC-V: KVM: Allow splitting huge pages to arbitrary level
+  RISC-V: KVM: Split huge pages during fault handling for dirty logging
+
+ arch/riscv/include/asm/kvm_gstage.h |  4 ++
+ arch/riscv/kvm/gstage.c             | 85 +++++++++++++++++++++++++++--
+ 2 files changed, 85 insertions(+), 4 deletions(-)
+
+-- 
+2.47.3
 
 _______________________________________________
 linux-riscv mailing list
