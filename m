@@ -4,73 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1F8EB7EAC
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 09:31:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A49CEB7ECA
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 11:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B8qCNpzZmVx/9E+DWjXPVBx92IPKQl6F8TjGgBPfSck=; b=2qvFkS3jr2lZehjSohablODhDU
-	fGZ0T0gNguzlcVGFF7pphzroF8ufqRO6BivQOamyfi/8zbeUO99OOymFrNU8YiDQwo34bXHVYMsfu
-	nyghqihyo24+cdvAdKGYr/sb+AW+lU+DFAx7H2tJrV56sEsAvNZwEQcNGMJm7/0NbZaNpJt+Jevo/
-	M4hiSsbYYpwbKqZt0mv3ogzA832TJ+GDy2TrXUVt1aCSuZ8+CtJbXL1LkfAa14lhIVqbVAVQE9mjL
-	+Rbg6kHqERjRDzHzeOeoqmrNilrSgcE8V2qdMosKeIFm+gZ68BPQa0fhrFj2KWYXScqCNiLutc2I4
-	l2TRE66w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nMiRQG3NkfmbHbi+22wm8oKNjQc4LxhxpF9Z5MYVsyw=; b=MDo+8vPpSjVdpv
+	ntyPq6BfuggzS4ya6LvqIjpkz95mz8VEcLdG6LgHjKFuqHmwGtctrTGmApJ2bqfWCTPnGEWsnTUvC
+	mVStdwzBP59k7g+KCdpYzHfBjJyzGeold1iqGFXeULxYapvkxbcM51aoZ+tIkhRtDxujgHmgBLQ79
+	WHx1fWNvbCFgaicmt0dtFaKs/jiKx2xgZmANeUnvLxXm4JZStkeZf35q+YuvL4mmI4j2NwmfcmVue
+	zhIAuuicLfb00Fzbq2b9eiHlsqQZ/OR8UcqwdupLEL6UXlaVUUclnWqaV2CnG6dTt0uOcirMY8mjh
+	ww36RtVtUSPqck2oRWyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxiZQ-0000000GsJ2-1n5z;
-	Wed, 04 Mar 2026 09:31:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxk5t-0000000H3RG-0bu5;
+	Wed, 04 Mar 2026 11:08:45 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxiZN-0000000GsI5-1RuW;
-	Wed, 04 Mar 2026 09:31:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA6CA408EB;
-	Wed,  4 Mar 2026 09:31:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99223C19425;
-	Wed,  4 Mar 2026 09:30:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772616664;
-	bh=zgQE9FPg79NGedD2qfd8rrEbgmI4ffrc7T2hh1mMJGs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nM++lJkfi0p1/jKfOa1D+SffAY8be/O9gEmD2PT9ZTwuqGwVM1VSkTvzj+W7HiYE/
-	 u1bt9hSCZdXwGoyy71KOHeyUeE5T5BQ3/LHCed27eQcXArBchaxw7NyiRKJUB4FunA
-	 HBgTGF2hDdooYslK8PIhi4PWwpvCin/mEoz/9Op0AHUHIPgnIGgTUlNLnu/Rioj8x1
-	 /6RhEweeWR2ms7D/bxvbWrFo+/ISYanwH6djArYLBHXYdakBjHdtP0GeovKHxhhCQJ
-	 JE7u1UuyeHI73A1i7yFg5/TPmB28KzDjkCncr8WDbuGtARNrAmf02o7AGBos5Je4C4
-	 hYKrLmEEfy1sQ==
-Date: Wed, 4 Mar 2026 09:30:57 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bo Gan <ganboing@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, lizhi2@eswincomputing.com,
-	devicetree@vger.kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	wens@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com
-Subject: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: eswin: add clock
- sampling control
-Message-ID: <20260304-capable-setback-908ba5b5c858@spud>
-References: <20260303061525.846-1-lizhi2@eswincomputing.com>
- <20260303061637.872-1-lizhi2@eswincomputing.com>
- <20260303163846.156d18f7@kernel.org>
- <20260304-regulate-verdict-c3a361d2dc83@spud>
- <05a15890-392c-41c3-9566-8eb506ddfe5f@gmail.com>
+	id 1vxk5q-0000000H3QA-1QIQ
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Mar 2026 11:08:44 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7d19bfe1190so6118658a34.1
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 03:08:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772622521; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NQvRG3AHnq/uQkbHgAFhCPBURbKlZ4MNxMSbVHiQdSftnXDtE3QWkfi6M2EQfkajzg
+         /GYeyhwSlcO1Fo0s+KUm9BS0l68zXELpRQhvI6o6VRdDHTnBpWlavKkEK9zsmhkSPs3v
+         NlhL1fMyUImELXhvzCR/ZhkAPQ87lIdzmitUzmw+9P0kRuNRbmfjxM1ZIuZ+vt1XlKVk
+         mBTRMegKO2es2+n3Ae7XDcpdX7QC6PqrgcyWIls8x2oKWBCPNbQKBw+Q09N3SVlsmRYE
+         goDB8Nw/hhLOfl7bvHCg7eJJiy518cCQV7aZATZwwoL95qNp6afDLF0bvDNYRwKRHaXD
+         YFJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=20V0HsiRCM8u2CycbPAhWN5bAO7CHOUhSKzXrUPLlhE=;
+        fh=mkeWgxMPzqwF0H5GXusIQ95i7OeDU6ssW1NAUUCldzw=;
+        b=K9NI4ULyLKW+7nYNMRZrRz5kzAledvnRDGtuNIpWYrYiCbS/m0bnJad7IABmKe/PXz
+         gMxdFzOKPaoeNIud2YW1e+cFBMUk6sbujdObKPj1RPYKWiav71w8kx4G544jlq4kQV5q
+         JcyrmcOHDZYQxoOvtBjlS1yYRsFA6T0AIGdjCzL7TCOMv/XD6Qgz+SKrnHNccLuA8rRV
+         YxlkhhNbLTMxNzY6WPDjD95Gp05fFvP6iAtvXrYtMdup1PIAqxPUd2Sjw4RUjeNB9An1
+         jkSqtaZscofIqiacyZh5C6FwSjUJAo+i5D+65SgjIMtiRuERa04fN8fcsyI2as0OZOV1
+         LOzQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1772622521; x=1773227321; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=20V0HsiRCM8u2CycbPAhWN5bAO7CHOUhSKzXrUPLlhE=;
+        b=0TdzYEAdsfIQIyHOGvX7ProYWojA8+be0CgdftfJFfhk5ek+Veblp+Fi+iQxjPd+Rn
+         XXLXknveDygQOcvJSDm4rbrb2gtz1lGYskBquV3Scpwn4TRgy5xDU3qBomroa024vrik
+         +puSuqsa/2u/bw828Ua+v2fPic7Mn9PdXMQMoREV/FmOe1hpkRwOxo9MbT3xpVE/k1+9
+         17VGnsBtm0++Sk8/uFLMvaWZij3bGXCXQWzH47k/PtP7sAz4kguyaENsAERlRdqCvCTW
+         fnvL8uXquq9D+C2DC4dpWEpV2JKefhUvjTm/MaEEEitOmaysgRya9DEZqY23vHB/zYj0
+         lCQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772622521; x=1773227321;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=20V0HsiRCM8u2CycbPAhWN5bAO7CHOUhSKzXrUPLlhE=;
+        b=G5D/HQbLef3o2G0vVCKK9BNYxiWPui1McPUXfl4eBlJ1VbVVYDXFeG/Vu82V8Z/nBF
+         l4yqCN11/UE0d+p0i/wAqLC8d+lVGRlwptz/ACgfp0Dw/UMcW6CoEQr4lGrpppimQFqb
+         7VuVyXAbkZW3epBi4k6YvTDVFkMsdF4ioHmWePjjazCrlPb80jPF6gCA/7s2UDd15M4N
+         4tl0sRZmfHEYI4mm8F9ASHybP7DrEYH1LXYrDe9wt+CwhkQl0er2gN6ovoM8wvaost61
+         pXU5UjlWvhrbuFmqGn9a14ZgPs29hyetXI634iqjAomMX2bT4vPIQSNwTo6m1BP0b+GQ
+         p3OA==
+X-Forwarded-Encrypted: i=1; AJvYcCUyuYv6rnZTY/JE3l7D1CRRCsCjlMjrbU+7qXUeOo4m/37a8UIQZjw5UgdgHdrlB1SiS6B6Ctz0RAJokQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJAOYH0eWubAbSi6LBZVi16o+A89v/JLmnaIFr4mNmU7gY63R8
+	zUoWUBtMIxh6CY/X4obS19+aB5ZzIhWTTdDWsvMqnimJvaIe+CwPn93UMCCeQ/csxxqwmf7Aub9
+	5wU3NISo7xOe5Vnn9z2ZvCZuuzV77j4VCUvj1pkLOZg==
+X-Gm-Gg: ATEYQzw2rWPbJMlrY6cb/vmamGQYegucR+9AOCjOrKbmMYzgtNcRdaA+D9/39ygvdIP
+	QlPfo7nnW7XhvgFT96TUBB45y2mXErp2sB4B0R9PtV37RwkwsQB3YUng2VOGcW0VeOpNifI4v/a
+	3E3IwkTSGMt0i0NbedsPY5eCDmhFBZeSz3AX1O/XcjgUq1mYBYYgH8PDQXg5p3Jonzr7cqMi8Hn
+	tvUay49+yhl83NEHbl9OwBkSquM7bByRbJb2szvOOVoIHPdlpG6ZGoL8aH6z7YEAIJD7M93spaX
+	QnYYwQVxaRQWkboVgOE1QjXYzclObTMsFtvC4CvMy5B9l514aoGn/4J7NEERyXtJsmk/63aW2lX
+	QVVZjyhufwoi/DSX5DpLXC5s2/GU=
+X-Received: by 2002:a05:6820:f021:b0:679:a463:c933 with SMTP id
+ 006d021491bc7-67b1e932124mr914892eaf.71.1772622520701; Wed, 04 Mar 2026
+ 03:08:40 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <05a15890-392c-41c3-9566-8eb506ddfe5f@gmail.com>
+References: <20260303-kvm-riscv-spectre-v1-v2-0-192caab8e0dc@cispa.de>
+In-Reply-To: <20260303-kvm-riscv-spectre-v1-v2-0-192caab8e0dc@cispa.de>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 4 Mar 2026 16:38:29 +0530
+X-Gm-Features: AaiRm50FApq9ik0ETo3HXP7rfW4o3U8qtmgzjhKd-QdWkzujkTa_K8xattka4x8
+Message-ID: <CAAhSdy0nkke8sJR-wV9nrzc=VqdY4igYu9c8g14qudbEeR=27g@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] KVM: riscv: Fix Spectre-v1 vulnerabilities in
+ register access
+To: Lukas Gerlach <lukas.gerlach@cispa.de>
+Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
+	=?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Daniel Weber <daniel.weber@cispa.de>, Michael Schwarz <michael.schwarz@cispa.de>, 
+	Marton Bognar <marton.bognar@kuleuven.be>, Jo Van Bulck <jo.vanbulck@kuleuven.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_013105_449609_FC114892 
-X-CRM114-Status: GOOD (  23.69  )
+X-CRM114-CacheID: sfid-20260304_030842_630236_62879EE6 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,91 +120,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2432717271451266235=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============2432717271451266235==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VyT/OApBJ2ELuMkj"
-Content-Disposition: inline
-
-
---VyT/OApBJ2ELuMkj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Mar 03, 2026 at 05:23:18PM -0800, Bo Gan wrote:
-> Hi All,
->=20
-> On 3/3/26 16:47, Conor Dooley wrote:
-> > On Tue, Mar 03, 2026 at 04:38:46PM -0800, Jakub Kicinski wrote:
-> > > On Tue,  3 Mar 2026 14:16:37 +0800 lizhi2@eswincomputing.com wrote:
-> > > > There are currently no in-tree users of the EIC7700 Ethernet driver=
-, so
-> > > > these changes are safe.
-> > >=20
-> > > What do you mean by this sentence? The commit under Fixes was part of
-> > > Linux v6.19 already.
-> >=20
-> > The "funny" thing is that caring about users doesn't even really matter
-> > on the devicetree patch, except for this hunk:
-> > |@@ -81,7 +99,9 @@ properties:
-> > |                          or external clock selection
-> > |           - description: Offset of AXI clock controller Low-Power req=
-uest
-> > |                          register
-> > |+          - description: Offset of register controlling TXD delay
-> > |           - description: Offset of register controlling TX/RX clock d=
-elay
-> > |+          - description: Offset of register controlling RXD delay
-> > |
-> > | required:
-> > |   - compatible
-> > And it only matters here because an item is injected mid-list. If this
-> > was moved to the end with the RXD delay, the **dt-binding** changes
-> > don't have issues with safety. I've not looked at whether there are
-> > knock-on concerns about users in the driver or whatever yet, but from a
-> > binding POV only that hunk can break something that currently works.
->=20
-> This was already discussed here in v1:
-> https://lore.kernel.org/lkml/e7183ae1-8b8b-4e77-9f4e-3bc1b4b63556@lunn.ch/
->=20
-> The device-tree is not checked in yet by ESWIN folks, so there's currently
-> no user of the dt-binding. No need to worry about backward compat.
-
-The binding and driver exist, there doesn't need to be a dts in tree for
-there to be potential users. If the break was important I might not
-care, but this seems to be a gratuitous break, since the new items could
-be added to the end of the list and compatibility maintained without
-incurring any more difficulty for you.
-
---VyT/OApBJ2ELuMkj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaf70QAKCRB4tDGHoIJi
-0t+yAQDaqUwbBXUnRZdznNlE9A9+14ZFfzPctlXgnLmjDlK8KQEAznLn0a9hkqF9
-NpmQ3RerxFbR3zZlgJKl/8p/5oYxngk=
-=yS9x
------END PGP SIGNATURE-----
-
---VyT/OApBJ2ELuMkj--
-
-
---===============2432717271451266235==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2432717271451266235==--
-
+T24gVHVlLCBNYXIgMywgMjAyNiBhdCA3OjQ54oCvUE0gTHVrYXMgR2VybGFjaCA8bHVrYXMuZ2Vy
+bGFjaEBjaXNwYS5kZT4gd3JvdGU6Cj4KPiBUaGlzIHNlcmllcyBhZGRzIGFycmF5X2luZGV4X25v
+c3BlYygpIHRvIFJJU0MtViBLVk0gdG8gcHJldmVudAo+IHNwZWN1bGF0aXZlIG91dC1vZi1ib3Vu
+ZHMgYWNjZXNzIHRvIGtlcm5lbCBtZW1vcnkuCj4KPiBTaW1pbGFyIGZpeGVzIGV4aXN0IGZvciB4
+ODYgKGlvYXBpYywgbGFwaWMsIFBNVSkgYW5kIGFybTY0ICh2Z2ljKS4KPgo+IFNpZ25lZC1vZmYt
+Ynk6IEx1a2FzIEdlcmxhY2ggPGx1a2FzLmdlcmxhY2hAY2lzcGEuZGU+Cj4gLS0tCj4gQ2hhbmdl
+cyBpbiB2MjoKPiBBZGQgYXJyYXlfaW5kZXhfbm9zcGVjKCkgdG8gZm91ciBhZGRpdGlvbmFsIHNp
+dGVzIGluIHZjcHVfcG11LmMKPiAoUmFkaW0gS3LEjW3DocWZKQo+Cj4gLS0tCj4gTHVrYXMgR2Vy
+bGFjaCAoNCk6Cj4gICAgICAgS1ZNOiByaXNjdjogRml4IFNwZWN0cmUtdjEgaW4gT05FX1JFRyBy
+ZWdpc3RlciBhY2Nlc3MKPiAgICAgICBLVk06IHJpc2N2OiBGaXggU3BlY3RyZS12MSBpbiBBSUEg
+Q1NSIGFjY2Vzcwo+ICAgICAgIEtWTTogcmlzY3Y6IEZpeCBTcGVjdHJlLXYxIGluIGZsb2F0aW5n
+LXBvaW50IHJlZ2lzdGVyIGFjY2Vzcwo+ICAgICAgIEtWTTogcmlzY3Y6IEZpeCBTcGVjdHJlLXYx
+IGluIFBNVSBjb3VudGVyIGFjY2Vzcwo+Cj4gIGFyY2gvcmlzY3Yva3ZtL2FpYS5jICAgICAgICAg
+fCAxMSArKysrKysrKystLQo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X2ZwLmMgICAgIHwgMTcgKysr
+KysrKysrKysrKy0tLS0KPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV9vbmVyZWcuYyB8IDM2ICsrKysr
+KysrKysrKysrKysrKysrKysrKysrKystLS0tLS0tLQo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X3Bt
+dS5jICAgIHwgMTQgKysrKysrKysrKystLS0KPiAgNCBmaWxlcyBjaGFuZ2VkLCA2MSBpbnNlcnRp
+b25zKCspLCAxNyBkZWxldGlvbnMoLSkKClF1ZXVlZCB0aGVzZSBwYXRjaGVzIGFzIGZpeGVzIGZv
+ciBMaW51eC03LjAtcmNYCgpUaGFua3MsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
