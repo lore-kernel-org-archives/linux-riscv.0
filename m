@@ -4,155 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7B8EFCE33
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 18:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4309AEFCE37
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 18:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L1gjA726pjiv3J6WgNpRZsypqiKsgiDJv5NKc5iQCd4=; b=biLL86qf8JHEyE
-	dcT9acOp9Ug2McxcDNULPJQMl664SKm0Z8La5hTYecAxOuuomMcpt9iQZ1cbtK26tAITuiOPhIx19
-	YZaiNochZk4Volddu36rORtspa+03Ju/K7a0TWBTaAVgynby0wzgPnhC7I85p7wxRi98mf8aRE7pL
-	99I4I7q2yfLiAE5xOOhS+qGYNkI4a9eugF2CyjNVupkVSY0fXxnMqwkebllbvLjmax5NVLr0YmWz4
-	rFY3sX7p/QfG7faRED5o2PAceUnRWSIcjMn3bvI7SXjplyti5OWy32xeKi1ZiTVvUaz3ID6RwACOj
-	w12bIFPLe3Xr1efyy2RA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cAKxpuyjkg2bKMexmZ5qpQlIVw9wy2KUKQxj4u4tM8k=; b=L56r68F1kxmUSAFS7rW944xAsT
+	dZ/z/XV50xy0IFxEy2R6imiwMfpmizXANyK1cNDkhXz3RC5zmxO/aS59MxAXKOWXb6iVy46jM/i3d
+	Dz0VC53k2J70P2ftq0XHd/1icdhxzFBm7slm2EtcqcXqryfmWaJcqIJyTVPKBbdsKWdirvTqHbKxU
+	ah9eMtePG2yFVsGekgi/kgD5yS26NfyCPelM8ti4KcfwM9Hn8GXdq7v3NGuB2pSTsKfVh2OAs5QS7
+	Vne1neZI++x++vQIIvHVPdS2t9JlM29FnhLm6w2ybCKKeSIMSNAENUygzkpPkWOHrdfboxt+udLjg
+	jrMBNFpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxqXp-00000000GZl-41im;
-	Wed, 04 Mar 2026 18:02:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vxrLI-00000000MXi-1IoN;
+	Wed, 04 Mar 2026 18:53:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxqWq-00000000F2U-1KMI;
-	Wed, 04 Mar 2026 18:01:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=TufLQkkJicSIiMXLOmdkprNfKKLjXmStM1jfSJ1WAM0=; b=Cc9b5WijK3T5r2v6Ct488OQmhs
-	1nyZaNPkO1AYmfE6dSKMX2D9a/QqHsZJySxZ9cS/vWS1K8kJuTDD8PVLPrVu4C7QlydZmPlHDuAWU
-	lYAYnukIXrySWW3WYm9b9qg3UM8ASutlNx2Hr2nP2Uk3Eh/YaQroVbfw03zkeqwxBAQ7FU11tF7WJ
-	fbLoC4RJV3x2T4dVQjg1hpjYhGAQz+2JY0B0B8mpyfAOuXO2MFJG/G7tY+oq6Qu6fyzg9U4quCnyN
-	iin5ATsWT9z/TMRSS0IttMNtRUsklojsDpQW7MFdyNwWKIzUakshFxuy89sPZm+ql+Mx5KJeEjZzu
-	0TDzZ4Dw==;
-Received: from mail-northeuropeazon11011005.outbound.protection.outlook.com ([52.101.65.5] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxqWm-00000005H8M-1PFY;
-	Wed, 04 Mar 2026 18:00:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s5/dhSvknCenkz90bG0cOm+9smJ1VDY2fFWJG7Bn5KVaF7qsBkgU8tI2q1bZVis6YY1CqJqauek8Jxz2O7RuEEo6yBpR4s/ewfqJ4urFsNVyxLWeId/LYNYrQv0TyTwqVbup8qIkG+kJq+HZS2gaUYbvcTDl4BLEUQpaH4VO5FZka+SI+TbmS8KBemwgvbwcXyjFKgx0gRiu1eeBPzbmowU//9KdRXCA/sEslaou2bwaN+UzGujdadOEUbEUexx/gF0gAeVD/OLzJ7R6JU2DPXmPL6rpMQObmm/2kHyxGMbK3l2sX6i9ZMXcUBDQY0PSPJzaELZlKkiIC57FNpoteA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TufLQkkJicSIiMXLOmdkprNfKKLjXmStM1jfSJ1WAM0=;
- b=yu6jblo7mFHqkWZxInMxT7+ajMp5zENa3HE/GYTR8q5JH8OWpbyj5bZfybmXOj7w1pirHu1laP0TefCWuFMRxXpo1FACMY06JVLlRYDoVj3FFMhIoCv/Fu8l9lA6COeDW7geXMwAIHx9ybNwjanPKhoJBQjiwHDVKNFnX4VjGGsWtVKCSKsQFE/HB86xmr6ImRmRls4ko1tiecdyH8ZhTmcc6DVytg3TA84U432SSqTjmatYrzU+AfZtSzkA7meYjwPgtXM8B/1j6WBqORAoOrskIkOLQhwRHcpiMeS1EcyuAQp+oLiUC8p+TuvvDbcPkpz077vh/zzYmXdaF0rI9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TufLQkkJicSIiMXLOmdkprNfKKLjXmStM1jfSJ1WAM0=;
- b=NdYtsoKFgnqXldFvG5DuuY6rDsC5DgjnJlvokwFUqsHgpbOut+rMhmH18VMo6uII/R5n1p+CztkIKxgZTVJ/xluDw7xcMM7Oh6QbW0uFYUWNLC5nq8O7LgZGLn2cZd9WXPkAk05G5XMt8QjdJ1PKj14EG7bR2QswIHjRaFbVUZJSZ1IRoP2ssw7kyISW9+7BpMMlPuXNVXRhcDXkP7izDGOJfDEDYS2/iMTr+HQZhDWs0VjZZRsZ6TzQalMfdgOP4ecNIk7UgBdHg5H1MIuPTll2sPi+Dnyaoy3tKeKOaQMUt9Aw/eQRsKmOtFs6kY6AjL/6vILuaKBlv3VXIi5dgA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by GV1PR04MB10275.eurprd04.prod.outlook.com (2603:10a6:150:1ad::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9678.18; Wed, 4 Mar
- 2026 18:00:41 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.016; Wed, 4 Mar 2026
- 18:00:41 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: linux-phy@lists.infradead.org
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com
-Subject: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
-Date: Wed,  4 Mar 2026 19:57:35 +0200
-Message-ID: <20260304175735.2660419-23-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
-X-ClientProxiedBy: VI1P195CA0030.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:802:5a::19) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1vxrLH-00000000MXc-2FUk
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Mar 2026 18:53:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5AD1C60018;
+	Wed,  4 Mar 2026 18:53:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCF4CC4CEF7;
+	Wed,  4 Mar 2026 18:53:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772650386;
+	bh=TpogHSI6BcOdK+qKwsFW1zNTYQiLpATLKXEGKvxL/xg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cZFpD/nrDZcQASVw6AJGSdVacyhbfwgsxtiC+9WXGN+fceQhzqJzXZwRXUOVZen/6
+	 8yZg4u/kkoIQGdPatD02YtopuwEI4DM/1N51yTmXlhRP6g3tKN84hRaZkEi72IkJum
+	 0YQPpDI9mHsn26XkErcXt9YJizfd9Gmd7WSyQGnpbaEIgFNH3xj2VnqSVdCN/Q2afa
+	 o1M5qzZlaL1thHt2Mkl1AAx2SGRdGkkKIYDDccZBSxGxEo0n6HM917CufdlLEi6p8A
+	 rinoUBfTI+/gnJWM8crnt+P+Eu+taYdaohQj29+oPPTmbFbJtoF4VJjBZTm/l9qjqS
+	 fqEfpiXwgNy7Q==
+Date: Wed, 4 Mar 2026 18:52:58 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Ryan Wanner <ryan.wanner@microchip.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, andrew+netdev@lunn.ch,
+	richardcochran@gmail.com, abin.joseph@amd.com, robh@kernel.org,
+	edumazet@google.com, netdev@vger.kernel.org,
+	theo.lebrun@bootlin.com, pjw@kernel.org,
+	Valentina.FernandezAlanis@microchip.com, krzk+dt@kernel.org,
+	sean.anderson@linux.dev, aou@eecs.berkeley.edu,
+	linux-kernel@vger.kernel.org, alex@ghiti.fr,
+	devicetree@vger.kernel.org, palmer@dabbelt.com,
+	nicolas.ferre@microchip.com, vineeth.karumanchi@amd.com,
+	claudiu.beznea@tuxon.dev, samuel.holland@sifive.com,
+	daire.mcnamara@microchip.com, conor+dt@kernel.org,
+	dave.stevenson@raspberrypi.com, linux-riscv@lists.infradead.org,
+	davem@davemloft.net, conor.dooley@microchip.com,
+	narmstrong@baylibre.com, pabeni@redhat.com
+Subject: Re: [net-next,v2,2/8] net: macb: rename macb_default_usrio to
+ at91_default_usrio as not all platforms have mii mode control in usrio
+Message-ID: <20260304-stardust-blade-c9ed766b041a@spud>
+References: <20260226-enjoyer-shock-e17f9dc7cbdb@spud>
+ <20260228232600.4187398-1-kuba@kernel.org>
+ <20260228-shopping-april-a8c4d2481cbe@spud>
+ <a1e36563-0e74-48b2-ae02-813cb28fc931@microchip.com>
+ <20260303-stardust-shaky-c8a757ec149d@spud>
+ <1d35173d-b364-4c4a-a083-388d3bd27ce5@microchip.com>
+ <20260303-speech-reversing-b3fdf4817798@spud>
+ <cb782e55-29f9-46c5-8213-397202b326ec@microchip.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|GV1PR04MB10275:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec05bbf8-40d3-489b-029b-08de7a17f30b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|10070799003|19092799006|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: +SBK3VHa1vZFfOpMFSaJye05PDV6Gz1zMpqvynvth4ses8x/WIzrCmh4zxPy5wxjNoZXoBpyHm2rceZR/q4aI99iJdE/M1dwD2yY3AnPjalydxlT/EuT7JSS/p9NxuwNMxZv9mFi59EuROhJW4dx/LFoZEocxkNLVN2OgfMcHNZ0a9E3cTP/fN9H7vese7UB2Qjb/NSxFXGisNjlzhFpFXd6+mUfXrO7MaI/g/+mhFXbjGv8QKHbIMKN020ho8NlRMMPpoUwC1Pqm9k83FzW4f4BH+h6U4G/oaiVKesY3bWxVO+VGYDzne6vYKl3WSZM7sfFGk/FK587q3o78VOZvOV43pEah5zITbjXXQ7AkUdiya2Pttt53Njhtc6YQvoipSpddUmblmiYlNXSFU4+lizLX06P28StyC2C4wN9t9hoQp4zQE6NxNcDxPbUV4gzbzXRVLyTPMDc3A55pi9/vNdmKBsHBAAtoygwfZrDHzwE+PJ9dyTG44YgsrXkjg7TSdEB8J60hrZ/r5QPFO4c+SvCTK+GHv1A1UbwpIrzYo9THe6t/zAbYx2L2T8H+u1g0AfeZ3Vileez7U1CI72fJyOpslUZpMVXPkSbK2aUsYqOI92YSjGR8G8GFHrWiKP17lbjtVCPnKgAjlgEG+Iwex/U/eluXPNUxdobjgwJ/MpkSBgU3Gib7bfV3HMs6m1k9ILf9GF/BtRiNqnWaMk51J0aJZ+o54/AyvHM4onjsfM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(10070799003)(19092799006)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mKopRMUnQUHc8NUFY7AZAI3xNfDDSroafoZQmWRdbb8wYktTtr7hgApmWe22?=
- =?us-ascii?Q?Ad3x27ywMBCkjQartSDWvCtsBQ3VAWJmWR1y+ABAYoZMlF6nvffRhnZl2ZlR?=
- =?us-ascii?Q?Q8Gf80Ok+6geFdl6Dk6yj0KOzefJJ/nqxfVJZIU6QbdS/d7QdysnqNjNhh1Y?=
- =?us-ascii?Q?tFtCzvLcfidLSIUtNqmB0JpPIZCyQtQ2fhBBQt9DRTRa4sOwGx9s47uYC0Cx?=
- =?us-ascii?Q?+8YIupQohvjKyaQTxzEGr7wkM2WJDa1ZzXNxzpgmEbn/ZNYqTfGxzB64+FMV?=
- =?us-ascii?Q?Nk8O4ayLngu+8aDBHbGdvBgbGq7FKRRMwwuxbw/k/4OL9Q0zDovT6YcZhvvX?=
- =?us-ascii?Q?oGMZG+7opNfxETuRKogyZJPy0KNnlykHDK9L1WRzKXGX6hkUG1a2bdoPLyr2?=
- =?us-ascii?Q?p7D6VvCxaVp+yitAa1179m1+j9UYFM7yutkDS219v+mHm98+vu7D21uus9/j?=
- =?us-ascii?Q?pD+RhHdK9EU34SozEV8E4W7xpzaihCDsnWByq1G/CzjCp+VnWfNj55gNFGQw?=
- =?us-ascii?Q?yzOfqsyFPGKJkxxfmJobSLAFQrosDW/q0zSSKAyc94HmXzJh+9RA8KSduwRv?=
- =?us-ascii?Q?QUbUO4PzVLmzxl1TBpCBvOUx2/b73hup5kJTlBq59iVP5JHhIYLL4FKx0jpM?=
- =?us-ascii?Q?ad1tL95Oapy7KdWmJFp9QsBEznLfGBTaKYY+AB0xM4VUNDFrxNA9HjuJJ8za?=
- =?us-ascii?Q?TxxH+tGgwu0BXiPC++o6/ZQuY065pk1wD4BS9XKTRIjb2u5pnuzWKVdCqGBe?=
- =?us-ascii?Q?peHJFxd10yAkGJP/JO9bEi/nOeqlGVt6Ni1cVCc2JXKPxh2kARi5jS2eLrau?=
- =?us-ascii?Q?mznkwKXbUHorUTVT6/iUG2TZAN3dWeW9zjKxqaBJUqNMXXnQJ0Jy42OfmHXz?=
- =?us-ascii?Q?MjdPi/MsRx5RYKWWiJ2f4XgApnLfcBQoHsMsQP9JCbTCNNPS4ATuqKgNnZRy?=
- =?us-ascii?Q?jUfoY6BicjMHo/7NosFdCwybSqeE/efPR7hGool8olNkC3chSYOAqn7q7/L9?=
- =?us-ascii?Q?ntxiYsMtPbwceZ9kDaNFurHvzs7MT8sZyWDmkTLwfb0Ak+51sRnM15UuAEcY?=
- =?us-ascii?Q?mKamWPzvdahQGGnz4itl+NE4ei4Jr9LVwv9iVuMvGyMfGiHG0w4zuQCgaFtc?=
- =?us-ascii?Q?Vb1MTyW9NiTqDmWULK2eXY2zVcnWgzJMMXBXrAwbV8MMj9xri/X/o6JFtjzr?=
- =?us-ascii?Q?sXr2lR3XBPp8nhte0F9w4Q360pCfwpNMrECMesgpQj/AekSTZAXo4JcHQbW5?=
- =?us-ascii?Q?dGrzs/elcGX3lY6yNzQlH79z0Kj37unESNZmU9RUlkOZfhlAY5wwMLnqtUSk?=
- =?us-ascii?Q?9Ammz77cUiJ5PbyIVDApwMwAr0uS0iOGwpC9O4ZYFVjLXSrdybPAuBy8/dYw?=
- =?us-ascii?Q?AcZk24sCznKc9kuHUg4xpg8OdVwhR6fmV+ct4YheQIeIjWxn+kdcnmx8x511?=
- =?us-ascii?Q?+rN1paEGBiKoYDbFbynzyA8TjhkSUpb6szUwZr7yrYmeyLjKla6N/1XzydtW?=
- =?us-ascii?Q?19jH46UblRopzT4VJ7dAg/7N++EfpApIm7OxQrS+2ubI4ll4+Y71lBbCETlM?=
- =?us-ascii?Q?UnMb91oHWoE67W4ihxSitNORSCZHXK4MGfRsE90NgPBT6O+3hcFVnh7reCgi?=
- =?us-ascii?Q?KxQay0bmnoVdA9tzJi/ivmXqrIY6NsR9w8tV3ytE2XEUM1oolrt9lH+a3I4V?=
- =?us-ascii?Q?ElvvFa7SmI1EV3805tvCSwfvy3vB+FcI+Ne7noSPRAVjU2qcKyc9CCur6tI6?=
- =?us-ascii?Q?iudTL11fQyiVwswGQYuN0UI0CGjhLxGYtPrZapwzO6YPnkRUUVGbwesv25Cz?=
-X-MS-Exchange-AntiSpam-MessageData-1: a/e0Snxr9Mr7YKO8XJVVsH1AY+hWKDiZvIQ=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec05bbf8-40d3-489b-029b-08de7a17f30b
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2026 18:00:41.6640
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Hav+faJSFtcsdnxGhRK0OVzAN+CtIQjA+X/PCA/OoH6DY10G0RTe43uOcrp+Fhq8+OIOU4cF439iPwzJYUWruA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10275
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_180056_441444_329B6C43 
-X-CRM114-Status: GOOD (  11.41  )
+In-Reply-To: <cb782e55-29f9-46c5-8213-397202b326ec@microchip.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,49 +83,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6597070690948682071=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some pragmatic shortcuts are being taken by PHY consumer driver authors,
-which put a burden on the framework. A lot of these can be caught during
-review.
 
-Make sure the linux-phy list is copied on as many keywords that a regex
-can reasonably catch.
+--===============6597070690948682071==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9f74gDXlIrnBN4fp"
+Content-Disposition: inline
 
-For simplicity sake this is not perfect (devm_ and of_ are not valid
-prefixes for all function names), but I tried to pay attention on
-avoiding false matches on things like:
-- drivers/net/vendor/device/phy.h
-- include/linux/phy.h - network PHY, not generic PHY
 
-So I used \b to try to match on actual word boundaries and be explicit
-about what is matched on.
+--9f74gDXlIrnBN4fp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+On Wed, Mar 04, 2026 at 09:13:39AM -0700, Ryan Wanner wrote:
+> > No, I don't think this is what I am suggesting. I am suggesting adding
+> > USRIO_HAS_CLKEN to the gem configs, and then modifying the usrio struct
+> > to have a member called something like "refclk_default_enable" and sett=
+ing
+> > it to true for emacs and false for gems. Then in init code somewhere, we
+> > would do:
+> >=20
+> > 	if (property_present(refclk-source))
+> > 		if (property_read_string(refclk-source) =3D=3D "external"
+> > 			refclk_enable =3D true
+> > 		else
+> > 			refclk_enable =3D false
+> > 	else if (property_present(refclk-ext))
+> > 		refclk_enable =3D true
+> > 	else
+> > 		refclk_enable =3D usrio.refclk_default_enable
+> >=20
+> > Then later on in init, when configuring the caps, we would do:
+> >=20
+> > 	if (!(bp->caps & MACB_CAPS_USRIO_DISABLED)) {
+> >=20
+> > 		if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
+> > 			val |=3D refclk_enable;
+> >=20
+> > 		macb_or_gem_writel(bp, USRIO, val);
+> > 	}
+> >=20
+> > Or maybe we just roll all that up together inside the !USRIO_DISABLED
+> > code.=20
+> >=20
+> > The code currently in macb_configure_caps() about refclks would be
+> > deleted.
+> >=20
+> > This would produce one property that works for both emacs and gems, not
+> > change any defaults for existing devices and retain support for whatever
+> > devicetrees made it into the wild with your property.
+> >=20
+> > Does that make sense?
+>=20
+> If we are set to have an external and internal clock dt property than I
+> think we should just keep those if statements inside the !USRIO_DISABLED
+> code block just to keep it more organized and clean and keeping the
+> current HAS_CLKEN if statement be the fallback default case to set the
+> register bit value. Some thing like this:
+>=20
+> if (!(bp->caps & MACB_CAPS_USRIO_DISABLED)) {
+> 		if (property_present(refclk-source)) {
+> 			if (property_read_string =3D=3D "external")
+> 				val |=3D true;
+> 			else
+> 				val |=3D false;
+> 		}
+> 		else if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
+> 			val |=3D bp->usrio->refclk;
+>=20
+> 		macb_or_gem_writel(bp, USRIO, val);
+> }
+>=20
+> Would this be a good middle ground?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 55af015174a5..bdfa47d9c774 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10713,6 +10713,7 @@ F:	Documentation/devicetree/bindings/phy/
- F:	drivers/phy/
- F:	include/dt-bindings/phy/
- F:	include/linux/phy/
-+K:	\b(devm_)?(of_)?phy_(create|destroy|init|exit|reset|power_(on|off)|configure|validate|calibrate|(get|set)_(mode|media|speed|bus_width|drvdata)|get_max_link_rate|pm_runtime_(get|put)|notify_(connect|disconnect|state)|get|put|optional_get|provider_(un)?register|simple_xlate|(create|remove)_lookup)\b|(struct\s+)?phy(_ops|_attrs|_lookup|_provider)?\b|linux/phy/phy\.h|phy-props\.h|phy-provider\.h
- 
- GENERIC PINCTRL I2C DEMULTIPLEXER DRIVER
- M:	Wolfram Sang <wsa+renesas@sang-engineering.com>
--- 
-2.43.0
+I explicitly would like to make HAS_CLKEN represent the USRIO having the
+bit, and not ascribe behaviour to it, so that it is actually a
+capability. This is why I want to make the default a member of the usrio
+struct in match data.
+Also, the bit position depends on the usrio struct, which we both
+omitted from our pseudo code, which means that even knowing how to
+modify val depends on having HAS_CLKEN/usrio.refclk being set, so your
+fallback doesn't sit right with me - I am trying to avoid things writing
+to USRIO without specifically being told what it is writing to is valid.
 
+--9f74gDXlIrnBN4fp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaah/igAKCRB4tDGHoIJi
+0u9rAQCBHamX+ZXo+ry/A8L1d4Wrf/HBb6wst95AlTZw5drewAEAk+Vt8RuqH3cj
+W3p74jc+/pi4WgO9M0TeCoSpNnl1Kgs=
+=JNVT
+-----END PGP SIGNATURE-----
+
+--9f74gDXlIrnBN4fp--
+
+
+--===============6597070690948682071==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6597070690948682071==--
+
