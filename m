@@ -4,99 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF49EEB7EA0
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 08:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F13EB7EA0
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 08:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BQGkna70qnxDT2+ycqpm1fAj6tp/XLWas0+dHTjAfYk=; b=dtV9Gpi8ucjdAc
-	8+J+jIjfEuAmC0DTDqpwy5p/hMLX5CBj6R/Uo7H6PEqTmyUtgP6wlTYqP7WkOJPQqRykKwZc48/xN
-	bHTps5ppHRm8vOukV+rENiHi06rZiXBARtnjgyf2ppK/6rD4zd+reoxs3fd6Q5LpixXU5A3OQkDM1
-	6uyJ2RvRsy6yw2eAt/6moFGyn4cFQsDvvYDANq2gvimg1F67cNzQDHm6MiGcPxmOe3R0sLjiGOlHq
-	jHV/7F3tG4ro6N+J/D4mFsgpY+G0SRizBYKEDZSiG52ZURsQyDjUyHzOia6lPFmpUJb/SVa0WyRfo
-	VkaTAPiK+lGGPzHyf6Kg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NCOA/cV62hDT3QgIo/Y0ts4tIm93D1RlZ9Iu69oxY+w=; b=F/bcQHGhKOE1bw
+	Sii+MbV99i78HYIZ08LjH2d8Z3zKb7IB8a50vQ6dxocknRiBjnNkYuM6Zd1aNYVx83mWC3agZW95D
+	Fk9SVRPGSP/1RjjARoF0qzBvQjv0zCOoE2jY2YVxgmWqZLuj3rdEoAhxwsoNENgf3LHkNdhdrj0g0
+	7zBlGv8sPgonrCgjqGoqdltP6nII6qPrHLBQyNdDEpShXuMmiDz797bbHob6xvcx5Mepf/CWHIJwZ
+	GP8elwi5wuTU7XKWAOhtvhSny6GB8ES3g7CCemC/toQ+LaLuuaj0G+74PQUDnMUZA6f7ZrLUSCGjA
+	iPsUDfrToI/n/b1gQ0DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhWT-0000000Gjl1-49Fc;
-	Wed, 04 Mar 2026 08:24:01 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1vxhYf-0000000GkAD-0P8j;
+	Wed, 04 Mar 2026 08:26:17 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxhWR-0000000GjkU-1O9f
+	id 1vxhYb-0000000Gk93-3YqW
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Mar 2026 08:24:00 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-899e43ae2e1so33268856d6.2
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 00:23:58 -0800 (PST)
+	Wed, 04 Mar 2026 08:26:15 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8297310ce0aso187289b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 00:26:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772612638; x=1773217438; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1VF2q2iw+ZiKGJt45rPpIgu/gs74haGCfE/ZxGBpnps=;
-        b=dIbjVZBnslPNHpXamFt0EnMLAm43/qm6Hf+JvfF5x7wkhD8ADjXISrHjFJAcW0PliS
-         3M0G2xP+XxgGLDXw8PWRYRXqp6umpFzLvkUagXTacBd8OII434r5wdo1sK+7HcWHVG9w
-         6RybX/ss6Fd10RghTYwR0G3UrbBlAWc0XJ9MkiONJpHvR7wBiYdcieefMTrj+HIKCCs4
-         MHEgGU45ALYJrGIDZ9zYlQpBTUy1PYmjTk6dXrKxO5yRVomqoEhbVNzaMCqwgToBE6x5
-         LKTYY6wbY6MFGo45g3f6Tqy2jwwXfCYQl4bhjBKxMlohx2z5PgXK/+E9x8tx1vAhJH8m
-         slDA==
+        d=gmail.com; s=20230601; t=1772612773; x=1773217573; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=S+0Gl/6jsm6dp6ffbeXLRnGklOmDo7AmQYEeUc9n0f0=;
+        b=bv+4sPrAZziJSAqJZTV3l9043OlkPTAcZXZinfm8gQ+228jCVW4aY/tRE/8RyizkQj
+         //g+KMQj73eviAcl6788xkSNtW/3yHzHrqh3VZKNVmF2vczAiRKcvinVrkMgfNfosIpH
+         35Tuitum01w3jG+31IyGb6ezMOtPXlcPUDfp+pIQC9JSsodyRtnlNDOeW0FYOFaZBo6t
+         XJx7EP/tYVCEnxCRBlVbkHACi+ZI57MwOrZHyKYu0FEIunHCC4bFCxsRipGjX3ZTBaiT
+         CiTG6SgZZ+AQQ+dpzHdCu8qeIzzNYz3KyVGrgoMc057tWN4dRJpBiorBpmVgCXLkVfpA
+         Q8cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772612638; x=1773217438;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1VF2q2iw+ZiKGJt45rPpIgu/gs74haGCfE/ZxGBpnps=;
-        b=F8NX5nZK5nGp1IIGEtU76xXx0bL/EamW9MP6kWunvJ+6J3875Ox/VGVLJ4H9PqT6WM
-         N8ePDywoX7Ip3H5iNAbknUld8J1YyNJKj3bh/bUI6lIql5Er8HhAo9qOAOBh0+IJXg1m
-         jrxhlEstliomZWN+enEyEh/22g7wpbthbbX1L1On8tTT03BWslM85mDF6NP2QdcEyQgb
-         fm1t13YOlXH0hUwPM0HCxLJ+JL35K4m9dSP3+HeJmzo6hy3hLfyQ+tcBKKAqcCVdKz+I
-         qtK90dzJMaaj7bKe9AbWN/3CpCNFMDbQ9APnm3SwxP8eOWPEA0FXRJ/iF/ccds3RVioB
-         3rYw==
-X-Forwarded-Encrypted: i=1; AJvYcCXneTufmY/qb6CFBvu7poK+nGQ/VJmMCxPP1qYw/wAfK+zHku6xuBU4f8rabP+NxPlMLz0nyVNgeJh+Hg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQ8UiJdGo+B5awSRsxCjObF9POKWnUTh4OIYO8KmxYx3LP2wLD
-	zIR4TStcMjNrumhZQdmAufETfK4eJ7XaKpp0T7ZSmzRIWZYxdARErCPf
-X-Gm-Gg: ATEYQzy0koKvGygn95DbDDcH0waYYrBilaVp399kxkCnj7Qe1M9OFpJdAvZv2eo2E+K
-	L0suh0or/fJjT5kkZgOuRlz1mHl0cu/wbur/7lTTwfCGlpTw7O74Qmqvf8EnKALIsUhOQk/LKzS
-	AQE0KODqDCd5wUHC+BOXo/MwKGXebmapP0GRIiA2IkynyItq56TfRjQscslXVmKNmxPtwZA3+I6
-	DxmLg4VLPim/8KoJOnXqCj47/w1DwWpxWQB8hVQ9NBkE0M39pY6SBKFE8XG927durswvaYPJkCG
-	s4yDSnyFqqPx908yFDjnkXzBXWWEdh+DcxOcJWz2523Cs8dqPgJomi7ry5tqKKIpQcdXraDS6yf
-	F8VgUvGQnWqazOSGCdML29ESGiP6Iij3uc/eGRAdFPY3lz1xksz9tmEO1JCX0b1umW6QS5T3Lpd
-	gTbu/VPHl2MkG4m8S6VkmP0vzL
-X-Received: by 2002:a05:6214:252f:b0:899:bc85:7b68 with SMTP id 6a1803df08f44-89a199a8921mr12167536d6.16.1772612637696;
-        Wed, 04 Mar 2026 00:23:57 -0800 (PST)
-Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89a0fbdbcb0sm31329776d6.45.2026.03.04.00.23.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Mar 2026 00:23:57 -0800 (PST)
-Message-ID: <3aba626d-7b5b-4d5b-9c91-07f6a2d7c244@gmail.com>
-Date: Wed, 4 Mar 2026 00:22:00 -0800
+        d=1e100.net; s=20230601; t=1772612773; x=1773217573;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S+0Gl/6jsm6dp6ffbeXLRnGklOmDo7AmQYEeUc9n0f0=;
+        b=VLK52iw9kZR8mfWY0gAn7WT/VWEVphxnlDvklqnYIPuJJvuyAQEAlVdjwN4amErD72
+         fZZl74fD6VPjAGTQaz8SLH9yHwuRLKY4o8kpSHp2uykf+cNJDv82wZiu8IQjfOUqF7ri
+         liXJrWdFQlfQAU835vuPwjCWtPdFTp+wfDE9ar5188+AWOffwfVWib1IZw9bsBDzkgx0
+         SzovJrMAZi8DF3VD3v73cJmTeFNN7qxYdxRyi+IY2DzkB5TzXnQl2e8lAyWSzAXS/PBF
+         v4laYzbmAGp58OtZVqQzxnSKeojFjMb57CeosWabG7RhAvKeYUOm3R7fLY72qr3TR+uj
+         PEig==
+X-Forwarded-Encrypted: i=1; AJvYcCUUZio2HiOrP4VCaetKvMT3qXIVAlnUQjcBW/t6la1dH5YVnT6+xzvpx8p89PdBBH+k9TIvc+gIPjj+4A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwooO8j/oRHWhwgW4fx92/Gug6Zf0Vvfq9WCWV4+E5D3TMBdyNs
+	2mRELo0BGewy1Vuq0/E7Ejr9j5eo/ZIlSBkoBP7KD1D5L2V4cStFUNQY
+X-Gm-Gg: ATEYQzyzIjsIOkUlh2fTA1+PODkV1dbJn1qi7pHkdp0li0SHd01c4GKtbv3+GrSLC/f
+	ZLsllPonPvo8PRQqaYyqtl48u4NS2v96jb+8ZiPmx+OvJ/0gI8tIZHjbWFJjJCoYxXR74ApRdYB
+	SvYiXOmDWKgeqp0qFkQf6CIha6btR46zUPoXef17Di9LCKFh+ASwE5uNHzoYH4U5SXJp7Zfy0VX
+	b419Q6jGMbIHvDXnLK3oDLBchQElKcj82QIHZhDnLxt7uVz7UN85Lf28v/j+tQyRveSM9bYIasd
+	MNDqstQp9OhpTz7/OxfFvtXTnA7/tAfs+bcH1OxzwFZvXQW+6adlOHm3lidFnkX106+3tJ0ouPP
+	FdoJh3AyVl3rmFMJgvwl2M6Jk41ci3r7peaktKoMb5ClDM/7HbvEHfhbc8xcz77qVvI1JC7AdJO
+	K5CE+5wh2yJQiXGoozkToU3/0bdQCnOADjWw==
+X-Received: by 2002:a05:6a20:26aa:b0:394:5ac7:8ffa with SMTP id adf61e73a8af0-3982ded341amr1286519637.16.1772612772757;
+        Wed, 04 Mar 2026 00:26:12 -0800 (PST)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7377062904sm1274642a12.30.2026.03.04.00.26.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 00:26:12 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH] riscv: dts: spacemit: k3: Add ethernet device node
+Date: Wed,  4 Mar 2026 16:25:41 +0800
+Message-ID: <20260304082541.1786223-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: eswin: add clock
- sampling control
-To: Krzysztof Kozlowski <krzk@kernel.org>, lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- rmk+kernel@armlinux.org.uk, wens@kernel.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- ningyu@eswincomputing.com, linmin@eswincomputing.com,
- pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
- weishangjuan@eswincomputing.com
-References: <20260303061525.846-1-lizhi2@eswincomputing.com>
- <20260303061637.872-1-lizhi2@eswincomputing.com>
- <20260304-hot-sponge-of-emphasis-6864db@quoll>
-Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20260304-hot-sponge-of-emphasis-6864db@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_002359_418907_809A4EF7 
-X-CRM114-Status: GOOD (  28.42  )
+X-CRM114-CacheID: sfid-20260304_002613_891409_25EB33F7 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,170 +106,240 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Add all ethernet device nodes for K3 SoC. And enable the available
+ethernet device for the PICO ITX board.
 
-On 3/3/26 23:44, Krzysztof Kozlowski wrote:
-> On Tue, Mar 03, 2026 at 02:16:37PM +0800, lizhi2@eswincomputing.com wrote:
->> From: Zhi Li <lizhi2@eswincomputing.com>
->>
->> The second Ethernet controller (eth1) on the EIC7700 SoC may experience
->> RX data sampling issues at high speed due to EIC7700-specific receive
->> clock to data skew at the MAC input.
->>
->> On the EIC7700 SoC, the second Ethernet controller (eth1) requires
->> inversion of the internal RGMII receive clock in order to meet RX data
->> sampling timing at high speed.
->>
->> Describe this SoC-specific difference by introducing a distinct compatible
->> string for MAC instances that require internal clock inversion, allowing the
->> driver to select the appropriate configuration without relying on per-board
->> vendor-specific properties.
-> 
-> Pointless description/paragrapgh. Your explanation why adding a
-> compatible is "because I need compatible". That's completely redundant.
-> 
-> Explain what is special about this MAC instance, what's different in its
-> programming model or other characteristics that you claim it is a
-> different device.
-> 
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+Require the following patch series:
+1. Basic DT device patch
+https://lore.kernel.org/spacemit/20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org
+2. Ethernet driver patch
+https://lore.kernel.org/spacemit/20260304080721.1658224-1-inochiama@gmail.com
+---
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts |  20 ++++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi |  38 +++++++
+ arch/riscv/boot/dts/spacemit/k3.dtsi         | 106 +++++++++++++++++++
+ 3 files changed, 164 insertions(+)
 
-I think ESWIN should improve the description/paragraph and properly doc
-the timing issues discussed here:
-https://lore.kernel.org/lkml/32a1f814.2c79.19bfe173225.Coremail.linmin@eswincomputing.com/
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index b098dbd0e7a1..47e4fa824417 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -6,6 +6,7 @@
 
-I do feel the need of using a different compatible, though. I think we
-discussed in depth in that thread (link above), and advice from Andrew
+ #include "k3.dtsi"
+ #include "k3-pinctrl.dtsi"
++#include <dt-bindings/gpio/gpio.h>
 
-https://lore.kernel.org/lkml/59cec617-0189-4dc3-bc3f-6346155a62ae@lunn.ch/
+ / {
+ 	model = "SpacemiT K3 Pico-ITX";
+@@ -25,6 +26,25 @@ memory@100000000 {
+ 	};
+ };
 
-https://lore.kernel.org/lkml/bd202cfa-d6eb-4d0e-982d-b49795dd25f7@lunn.ch/
++&eth0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac0_cfg>;
++
++	phy-mode = "rgmii-id";
++	phy-handle = <&phy0>;
++	status = "okay";
++
++	mdio {
++		phy0: phy@1 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <1>;
++			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <10000>;
++		};
++	};
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_0_cfg>;
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+index efb0f1572188..256880192846 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+@@ -21,4 +21,42 @@ uart0-0-pins {
+ 			drive-strength = <25>;
+ 		};
+ 	};
++
++	gmac0_cfg: gmac0-cfg {
++		gmac0_base_pins: gmac0-0-pins {
++			pinmux = <K3_PADCONF(0, 1)>,
++				 <K3_PADCONF(1, 1)>,
++				 <K3_PADCONF(2, 1)>,
++				 <K3_PADCONF(3, 1)>,
++				 <K3_PADCONF(6, 1)>,
++				 <K3_PADCONF(7, 1)>,
++				 <K3_PADCONF(11, 1)>,
++				 <K3_PADCONF(12, 1)>,
++				 <K3_PADCONF(13, 1)>;
++
++			bias-disable;
++			drive-strength = <25>;
++			power-source = <1800>;
++		};
++
++		gmac0_rgmii_add_pins: gmac0-1-pins {
++			pinmux = <K3_PADCONF(4, 1)>,
++				 <K3_PADCONF(5, 1)>,
++				 <K3_PADCONF(8, 1)>,
++				 <K3_PADCONF(9, 1)>,
++				 <K3_PADCONF(10, 1)>;
++
++			bias-disable;
++			drive-strength = <25>;
++			power-source = <1800>;
++		};
++
++		gmac0_int_pins: gmac0-3-pins {
++			pinmux = <K3_PADCONF(14, 1)>;
++
++			bias-disable;
++			drive-strength = <25>;
++			power-source = <1800>;
++		};
++	};
+ };
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index a3a8ceddabec..237fb00e4bc4 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -438,6 +438,112 @@ soc: soc {
+ 		dma-noncoherent;
+ 		ranges;
 
-is to basically apply different parameters to MAC based on eth0/eth1. The
-compatible string approach is a clean solution to achieve that. The reason
-being that for eth1, there's no way to meet the standard without clock
-inversion, given the vast internal clock skew. I don't think claiming it
-as a different device than eth0 is that far-fetched. Hence, no need for an
-additional property and the driver code to check for that.
++		gmac_axi_setup: stmmac-axi-config {
++			snps,wr_osr_lmt = <0xf>;
++			snps,rd_osr_lmt = <0xf>;
++			/* max axi burst len is 256 */
++			snps,blen = <256 128 64 32 16 0 0>;
++		};
++
++		eth0: ethernet@cac80000 {
++			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
++			reg = <0x0 0xcac80000 0x0 0x2000>;
++			clocks = <&syscon_apmu CLK_APMU_EMAC0_BUS>,
++				 <&syscon_apmu CLK_APMU_EMAC0_1588>,
++				 <&syscon_apmu CLK_APMU_EMAC0_RGMII_TX>;
++			clock-names = "stmmaceth", "ptp_ref", "tx";
++			interrupt-parent = <&saplic>;
++			interrupts = <131 IRQ_TYPE_LEVEL_HIGH>,
++				     <276 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq", "eth_wake_irq";
++			resets = <&syscon_apmu RESET_APMU_EMAC0>;
++			reset-names = "stmmaceth";
++			rx-fifo-depth = <8192>;
++			tx-fifo-depth = <8192>;
++			snps,multicast-filter-bins = <64>;
++			snps,perfect-filter-entries = <32>;
++			snps,aal;
++			snps,tso;
++			snps,txpbl = <8>;
++			snps,rxpbl = <8>;
++			snps,force_sf_dma_mode;
++			snps,axi-config = <&gmac_axi_setup>;
++			spacemit,apmu = <&syscon_apmu 0x3e4 0x3e8>;
++			status = "disabled";
++
++			mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
++			};
++		};
++
++		eth1: ethernet@cac82000 {
++			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
++			reg = <0x0 0xcac82000 0x0 0x2000>;
++			clocks = <&syscon_apmu CLK_APMU_EMAC1_BUS>,
++				 <&syscon_apmu CLK_APMU_EMAC1_1588>,
++				 <&syscon_apmu CLK_APMU_EMAC1_RGMII_TX>;
++			clock-names = "stmmaceth", "ptp_ref", "tx";
++			interrupt-parent = <&saplic>;
++			interrupts = <133 IRQ_TYPE_LEVEL_HIGH>,
++				     <277 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq", "eth_wake_irq";
++			resets = <&syscon_apmu RESET_APMU_EMAC1>;
++			reset-names = "stmmaceth";
++			rx-fifo-depth = <8192>;
++			tx-fifo-depth = <8192>;
++			snps,multicast-filter-bins = <64>;
++			snps,perfect-filter-entries = <32>;
++			snps,aal;
++			snps,tso;
++			snps,txpbl = <8>;
++			snps,rxpbl = <8>;
++			snps,force_sf_dma_mode;
++			snps,axi-config = <&gmac_axi_setup>;
++			spacemit,apmu = <&syscon_apmu 0x3ec 0x3f0>;
++			status = "disabled";
++
++			mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
++			};
++		};
++
++		eth2: ethernet@cac8e000 {
++			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
++			reg = <0x0 0xcac8e000 0x0 0x2000>;
++			clocks = <&syscon_apmu CLK_APMU_EMAC2_BUS>,
++				 <&syscon_apmu CLK_APMU_EMAC2_1588>,
++				 <&syscon_apmu CLK_APMU_EMAC2_RGMII_TX>;
++			clock-names = "stmmaceth", "ptp_ref", "tx";
++			interrupt-parent = <&saplic>;
++			interrupts = <130 IRQ_TYPE_LEVEL_HIGH>,
++				     <278 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq", "eth_wake_irq";
++			resets = <&syscon_apmu RESET_APMU_EMAC2>;
++			reset-names = "stmmaceth";
++			rx-fifo-depth = <4096>;
++			tx-fifo-depth = <4096>;
++			snps,multicast-filter-bins = <64>;
++			snps,perfect-filter-entries = <32>;
++			snps,aal;
++			snps,tso;
++			snps,txpbl = <8>;
++			snps,rxpbl = <8>;
++			snps,force_sf_dma_mode;
++			snps,axi-config = <&gmac_axi_setup>;
++			spacemit,apmu = <&syscon_apmu 0x248 0x24c>;
++			status = "disabled";
++
++			mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <1>;
++				#size-cells = <0>;
++			};
++		};
++
+ 		syscon_apbc: system-controller@d4015000 {
+ 			compatible = "spacemit,k3-syscon-apbc";
+ 			reg = <0x0 0xd4015000 0x0 0x1000>;
 
->>
->> The rx-internal-delay-ps and tx-internal-delay-ps properties now use
->> minimum and maximum constraints to reflect the actual hardware delay
->> range (0-2540 ps) applied in 20 ps steps. This relaxes the binding
->> validation compared to the previous enum-based definition and avoids
->> regressions for existing DTBs while keeping the same hardware limits.
->>
->> Treat the RX/TX internal delay properties as optional, board-specific
->> tuning knobs and remove them from the example to avoid encouraging
->> their use.
->>
->> In addition, the binding now includes additional background information
->> about the HSP CSR registers accessed by the MAC. The TXD and RXD delay
->> control registers are included so the driver can explicitly clear any
->> residual configuration left by the bootloader. Background reference for
->> the High-Speed Subsystem and HSP CSR block is available in Chapter 10
->> ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
->> Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
->> https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
->>
->> There are currently no in-tree users of the EIC7700 Ethernet driver, so
->> these changes are safe.
->>
->> Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 SoC")
->> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
->> ---
->>   .../bindings/net/eswin,eic7700-eth.yaml       | 75 +++++++++++++++----
->>   1 file changed, 59 insertions(+), 16 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
->> index 91e8cd1db67b..22d1cecea07e 100644
->> --- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
->> +++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
->> @@ -20,6 +20,7 @@ select:
->>         contains:
->>           enum:
->>             - eswin,eic7700-qos-eth
->> +          - eswin,eic7700-qos-eth-clk-inversion
->>     required:
->>       - compatible
->>   
->> @@ -28,9 +29,13 @@ allOf:
->>   
->>   properties:
->>     compatible:
->> -    items:
->> -      - const: eswin,eic7700-qos-eth
->> -      - const: snps,dwmac-5.20
->> +    oneOf:
->> +      - items:
->> +          - const: eswin,eic7700-qos-eth
->> +          - const: snps,dwmac-5.20
->> +      - items:
->> +          - const: eswin,eic7700-qos-eth-clk-inversion
-> 
-> So just enum for both entries?
-> 
-> Anyway, that's the same device, so you do not get two compatibles. This
-> should be a property. Which property not sure, maybe all this was
-> discussed already.
-> 
-> 
->> +          - const: snps,dwmac-5.20
->>   
->>     reg:
->>       maxItems: 1
->> @@ -63,16 +68,29 @@ properties:
->>         - const: stmmaceth
->>   
->>     rx-internal-delay-ps:
->> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
->> +    minimum: 0
->> +    maximum: 2540
->> +    multipleOf: 20
->>   
->>     tx-internal-delay-ps:
->> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
->> +    minimum: 0
->> +    maximum: 2540
->> +    multipleOf: 20
->>   
->>     eswin,hsp-sp-csr:
->>       description:
->>         HSP CSR is to control and get status of different high-speed peripherals
->>         (such as Ethernet, USB, SATA, etc.) via register, which can tune
->>         board-level's parameters of PHY, etc.
->> +
->> +      Additional background information about the High-Speed Subsystem
->> +      and the HSP CSR block is available in Chapter 10 ("High-Speed Interface")
->> +      of the EIC7700X SoC Technical Reference Manual, Part 4
->> +      (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf). The manual is
->> +      publicly available at
->> +      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
->> +
->> +      This reference is provided for background information only.
->>       $ref: /schemas/types.yaml#/definitions/phandle-array
->>       items:
->>         - items:
->> @@ -81,7 +99,9 @@ properties:
->>                            or external clock selection
->>             - description: Offset of AXI clock controller Low-Power request
->>                            register
->> +          - description: Offset of register controlling TXD delay
->>             - description: Offset of register controlling TX/RX clock delay
->> +          - description: Offset of register controlling RXD delay
-> 
-> As pointed out, you cannot change the order and there is no reason for
-> doing this explained in commit msg.
-> 
-> Best regards,
-> Krzysztof
-> 
-
-Bo
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+prerequisite-patch-id: 68c4d869548687dc115dd91e2ffb8f4c11482d86
+prerequisite-patch-id: fdadcf964c2cb3406160edb579d99a8d5695f8e6
+prerequisite-patch-id: 73b9e745338b0499b849fa4f7f9508987ab39a59
+prerequisite-patch-id: cd26770c2160c3c31a406bd8a6b01ab666180ae0
+prerequisite-patch-id: 93a515969fca3b15f827b3507979422dda14db8b
+prerequisite-patch-id: a637cffacb823aa7ae91e03ed42831ef8fbd0d1f
+prerequisite-patch-id: 40c49afe4eb71457913c45ddb720a9c8917aa827
+--
+2.53.0
 
 
 _______________________________________________
