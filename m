@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDE7EF8FE7
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 14:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30196EF8FEB
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 14:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Smqtswbmo4lhIZhPfQn4CITdUX+vPgRRXaxjp1WAgNM=; b=RLloe3PJPAz43h
-	HxET5obB/0JAsFWVkDmernQeKLiXTE/9x8hecz609e/CVV7xqZlxeKlyBb+TPfsX899NQKlb8cOz2
-	KChMQysn1RSO2SuhJFEw8XiFY5eTp2RUgbOjTVqFqCMAPBssLCKkjKHlHwOFVqUigK3lrG5dmwdCG
-	y4Id/LqcyYy45Gd6T1YwA06tBUVAGdP8QCEcwG7y8HRoTOxgP3ZVYpCb1UIm9NJJ6GHTW6Af1QayE
-	7kJySl24FRJXEXLaQPZsUpeMUJ3FvV52oq7G5ltOX83JFzjdYBN0bF/a67uzo92u3UivMxJkFkI2i
-	ui5FP/mT0QsgKzulyMzA==;
+	List-Owner; bh=UuYIMUAPfRZ2gkfEn2bA0kLXvt2Or5eQ53DleHXwO+4=; b=qgtO3bAY0fpkuS
+	nM6dqyJVEzbrWJQoqUt41g6i40MHTCTne8nULU8yIDHU6GjR8pH8FHClV2RcwLvq9LRd+j78AvRJd
+	ni2GbLpP2cHH+DV30NVPyfYG/pyek5gycs2A9DvDP1u18G0dkIQ9fl7VO7iTvSWykj11ns81fWGxO
+	/VKhtfpZb7+LFmVNE4ZLUMqI5fevRDWDbGb9lIexInNBPAGixS8ZoNeLDODApw2zJ6hOXwWte00gg
+	VDMRw3pH+J6p1EUcY5+N2Ali6j0jkUzPmRFqCs2hN4tAAknE2g7tMLHfzc0NbDr12789OA6Gzj4WP
+	jLj788Qxtj+fRVMv5TEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmwL-0000000HLRI-3kdr;
-	Wed, 04 Mar 2026 14:11:05 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vxmx8-0000000HLhn-1z2C;
+	Wed, 04 Mar 2026 14:11:54 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxmwJ-0000000HLQ7-3sJn
+	id 1vxmx5-0000000HLgI-39op
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Mar 2026 14:11:05 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ae527552acso12192165ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 06:11:03 -0800 (PST)
+	Wed, 04 Mar 2026 14:11:52 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c7358a7a8d1so2070271a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 06:11:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772633463; x=1773238263; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1772633511; x=1773238311; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eksk2NaSU09NJtKXet9GHYtfaMBPJpP6oyy4wD9BvXA=;
-        b=Qxpo2daJ+wwckDJPQvXbxBjMotdHPlhcv7ajaMGW+jY9pE4H9yOt/J3C+mSOd+e/7I
-         SOQi9EpSKJyzYkn0BEDNc7RaSxeI9Z364SPq+/SGfWOSkb5m1oAXEtuNE4RaSN/AE/F2
-         YyYnd3BHlFqnbPFVYCim8Jc4Z+b1q1QD6SlEQnOPsGNod6hFzhpu1NvKveInI2E7mB/F
-         xVsOrvIzDIcYYXUm3n9leuiawUXdBKlvjat+QwFaJiUAqy8im4jgkMs/dfcM3XmgZHP4
-         PDMcrKEOMuuweZ8Nz5yOzggS1yNKgpbkCaC0KEv2DbxAAlhpuha5zxPNyouvb7GcNQ8w
-         MC5g==
+        bh=aROfauUNCfk0cLD7hgwZVAJeImYUlQkQwfOgm/TavYo=;
+        b=NdaVw8oO9/2cSGpDRogqHKc1iaRojaFxJluk7ZXvPxFYrPynjJd0wCq//h+EpGQdqS
+         ybgl2+dgszVmH3ThDkWDPyqsgxUniEYYNFFDzsqE/Xw51BeuHDqGQDsbHz/J191Ze+S0
+         NBAeZzddszo4l0bm4e5DubokncJ42Gg6qBFzLXiZJGxIAIQf/8XPwLTxR0r9tvx7jdNv
+         WoWWMB7I7F2GRcLYdxWsNwnvclut+6WlZAeQXashhqsYqqSrrxIHRcQV2vkbhtVC7Oyw
+         GBxo2QothNW/mqByL1gnPAVcPjpFY5cJvT528l9+YQo1Eq07xRMojGSTHnG1viuy9E+p
+         z0ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772633463; x=1773238263;
+        d=1e100.net; s=20230601; t=1772633511; x=1773238311;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=eksk2NaSU09NJtKXet9GHYtfaMBPJpP6oyy4wD9BvXA=;
-        b=ftQmRB9h3n5GcjQEnCehN5nJYir+4g2S5ZPDyxrUTs2GbMac5O0mSkoLcS3XKFwVPX
-         9vbZwo8bXNh9Y1ayFA0hDv+ObBstCRuHv7Ij+5X92eZthP4bUbisb5aiXaKVIvpoklwo
-         TLGh98e+sGL7NPhTEzKPNVHrvyfUqrBnfN4Ersl2ER1/HDVCAurRxv4eQnU2KLK46plt
-         r/hcIRvJ8eRKQ9rfdmxas6RFbqyiBRs/ZaQ9kuJFxJJE9+wKUzPXH+HLdRSaENUKwxPa
-         a1tv2q3j5d96cvgM6XEJYZWG9hb46QgYxT9ZqbOdyTdlT/QJMY6MnNIzapMsdd2fHn8d
-         Zrmg==
-X-Forwarded-Encrypted: i=1; AJvYcCVv6jtiPhkUTwxLlhj9hGV/K9CeDKb6JOBEBsVAh+pQ3JmwxuOaHQGBtnxHS694B6F23JJ4wr/xSXXrkQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxslltxkPAjJWQ91wPAq9U7GGmJvXdw5+Fl8XS+w9PikDE3EVZ
-	Kj891+KCdPQ0leNkL9gMvcJ9qPX8AnXtwuE9DtV1/zTxuHdW9nZxUXOd
-X-Gm-Gg: ATEYQzxlYViXqfaUhTUvrtWDQisA5cU2rQgy88Zvmr1FUTO50z+FADn+UWDne9zDkxO
-	GwMfLYaa4uGHXeTR8+WoNeIhzRLrjbhut12G8VLN+4VYjs602hZo58QrsAlj4a3lNuGAuWuJzua
-	e+vNQ1Q7XPhbdlww09kLrREUXvrBgwe6n2p7414zXiGjHaDjhLIp/IyhywcFjgf2PMfp7mBrLdT
-	2tRbjyEDANMM7d4fJeRRAcdbI1c1SIk0v88G6F40OfC6eG8N0plawGM6FbKAihipue70iZvCcAH
-	6QhwbqbZZMY0mWR/wtv5g+jsZdD1h0BKOc3ghwOTzGVK020h3VRVp4p7fjoxIoYynly9vFL264J
-	A+biJy2cBR9zvzSIY1jKxvVZByiegp5rklxrlG+JKZIWUdxqh8IFKTaQJn7gXRN8dfkaRxaDHA+
-	utfPJKcPF795fHJBbGxO2s1NUrT5b4C+0=
-X-Received: by 2002:a17:90b:510d:b0:359:8c63:8ff2 with SMTP id 98e67ed59e1d1-359a6a4f880mr1548752a91.22.1772633463114;
-        Wed, 04 Mar 2026 06:11:03 -0800 (PST)
+        bh=aROfauUNCfk0cLD7hgwZVAJeImYUlQkQwfOgm/TavYo=;
+        b=UFSenNVzhQe1BcYs6X7RMLnpJ7zYXtFkyYpXxvm7zSb7rOM/QT26SlVaqGlj/INgyX
+         WBUrFH8dzPOS3XsIAXAjAqIxTOoCT51ezvxX4ngiGixw61Ddfq5rXTX1032BKQMjI987
+         eNuicuHWJZHh0hf4gY2edGiHXekP0NTqBecuFrAiDiLAO7rq0m1XFJ2F7Tla2oBJBcMF
+         EXdIO8AqM4gKjbg5tWuQCjqXzxp4eQLhOsxvPEcvQ9tMyN5YR7rqMAXaisaOcjO06vPl
+         DiI1tRR1YULvbw4vQ/ePUbgA+5MeED4NZg2GA9MuqEZajOWg5d18vsKUoXhduEvwa98F
+         dyjw==
+X-Forwarded-Encrypted: i=1; AJvYcCXVsfntLhiSDC8zSN1owJxDru9izZNRgy2+HtE+5l/OytpAPid4eqrL8c4etNcWENAO0JQyY1J2SySAPg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE3JZWmTD8UGPaaQcLfjEqUDpwP/grhq4EdmfIF5aQ/uL1vLXb
+	o4jubhP0mi+TVEYZy5/TiPfwdVyftgKUWoxXvOh2PmyD0rSl0UpnURit
+X-Gm-Gg: ATEYQzxsLo9M2CN97J+7o1jv0IxfgTQNfVnStGAm5aGsWPzVwcMJHkkaAeoClPIq+e9
+	tkysdr6ngTuoKTDfCMltoMcdZCBSnEDHe/YfdgXJBJloTX+FP5CEL/xtHklpEb6msV+E4n5pZlv
+	q7P4gieLJsb5dURXWxPMottWivsoPToD2R6/+m+NeKAWv68K1ILWBzhujaGVzJr0QUia8PcMsJl
+	XHlJjys6jQdyZzjQXmbYIU30Cu8QtwfdYMrydGNGaaDEcwd+r6jtpwvhAhaut9ymTcz3mQEz2Xw
+	2BO5p/2YAvm8nidkNdzVi79ciHxMcwUeoysCKrtl7kv6HlVOVWT9DKxT6xUCSEe34bU0NjYXUzk
+	klIP5MyCGRznbuaabyGg9uN+dHwlTMRd+IotRyGg1TSETlC3L7xz2sn47an28+0tABCM62vOPkk
+	btqG+sgTNkUfFLjrCIDXIBS9gLHP40XpE=
+X-Received: by 2002:a17:90b:4e84:b0:359:7eb:d91d with SMTP id 98e67ed59e1d1-359a6a575e7mr2125758a91.26.1772633510992;
+        Wed, 04 Mar 2026 06:11:50 -0800 (PST)
 Received: from rockpi-5b ([45.112.0.200])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3599c4c0f80sm6826545a91.16.2026.03.04.06.10.49
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3599c4c0f80sm6826545a91.16.2026.03.04.06.11.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Mar 2026 06:11:02 -0800 (PST)
+        Wed, 04 Mar 2026 06:11:50 -0800 (PST)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Vignesh Raghavendra <vigneshr@ti.com>,
 	Siddharth Vadapalli <s-vadapalli@ti.com>,
@@ -108,11 +108,11 @@ To: Vignesh Raghavendra <vigneshr@ti.com>,
 	Niklas Cassel <cassel@kernel.org>,
 	Hans Zhang <18255117159@163.com>,
 	Qianfeng Rong <rongqianfeng@vivo.com>,
-	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
-	Thippeswamy Havalige <thippeswamy.havalige@amd.com>,
 	Sai Krishna Musham <sai.krishna.musham@amd.com>,
+	Thippeswamy Havalige <thippeswamy.havalige@amd.com>,
+	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
+	Koichiro Den <den@valinux.co.jp>,
 	Vidya Sagar <vidyas@nvidia.com>,
-	Nagarjuna Kristam <nkristam@nvidia.com>,
 	linux-omap@vger.kernel.org (open list:PCI DRIVER FOR TI DRA7XX/J721E),
 	linux-pci@vger.kernel.org (open list:PCI DRIVER FOR TI DRA7XX/J721E),
 	linux-arm-kernel@lists.infradead.org (moderated list:PCI DRIVER FOR TI DRA7XX/J721E),
@@ -126,16 +126,16 @@ To: Vignesh Raghavendra <vigneshr@ti.com>,
 	linux-tegra@vger.kernel.org (open list:TEGRA ARCHITECTURE SUPPORT),
 	linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS:Keyword:fu[57]40)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [RFC v1 09/18] PCI: intel-gw: Allow asynchronous probing for background link training
-Date: Wed,  4 Mar 2026 19:21:52 +0530
-Message-ID: <20260304140329.7089-10-linux.amoon@gmail.com>
+Subject: [RFC v1 10/18] PCI: keystone: Allow asynchronous probing for background link training
+Date: Wed,  4 Mar 2026 19:21:53 +0530
+Message-ID: <20260304140329.7089-11-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260304140329.7089-1-linux.amoon@gmail.com>
 References: <20260304140329.7089-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_061103_964610_88DA1E07 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20260304_061151_787031_11BD273A 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,21 +158,21 @@ are being probed.
 
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- drivers/pci/controller/dwc/pcie-intel-gw.c | 1 +
+ drivers/pci/controller/dwc/pci-keystone.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pci/controller/dwc/pcie-intel-gw.c b/drivers/pci/controller/dwc/pcie-intel-gw.c
-index c21906eced61..bc5d96dc12bf 100644
---- a/drivers/pci/controller/dwc/pcie-intel-gw.c
-+++ b/drivers/pci/controller/dwc/pcie-intel-gw.c
-@@ -442,6 +442,7 @@ static struct platform_driver intel_pcie_driver = {
- 		.name = "intel-gw-pcie",
- 		.of_match_table = of_intel_pcie_match,
- 		.pm = &intel_pcie_pm_ops,
+diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+index 20fa4dadb82a..b5c0c690593e 100644
+--- a/drivers/pci/controller/dwc/pci-keystone.c
++++ b/drivers/pci/controller/dwc/pci-keystone.c
+@@ -1351,6 +1351,7 @@ static struct platform_driver ks_pcie_driver = {
+ 	.driver = {
+ 		.name	= "keystone-pcie",
+ 		.of_match_table = ks_pcie_of_match,
 +		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
  	},
  };
- builtin_platform_driver(intel_pcie_driver);
+ 
 -- 
 2.50.1
 
