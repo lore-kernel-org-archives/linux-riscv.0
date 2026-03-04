@@ -4,66 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5B8EB362F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 07:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A11AEDA69A
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 08:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tf/O8okGo7PxcPLi0vvuT8KgEO4pVZX8tJ4fAao0WVs=; b=aXGf7ghty3IfHN
-	vx6xPgq8PfgKECLVJTkhkLJlALZ+dXIkX5aMMjbcadH3oCnohpbPBIPDRfjNistRPdg057brvn7Y0
-	Pjcd/ecud2nYVUxIcS+8D2eSNKe+rS5yTzHPWipFS6u6mEc/wxujaSdpLhx/gd+S/IJUt/t0HWt5m
-	DSfQKm1w9SGhsYuQOd2Xnf3QIKcEG4o73SXoznQ3jEhGE9UPPUE7RAyPoPzhop2mN3KlzlGXTpZe2
-	++0XDb2fiqTLyzc6cdnnCSTMgjfvA7EL76kadtRaIFZ997Ghi+w9jAuhYpuNKdhdNUHUqJJNT1nDx
-	V5NPW7PovwecmwosPGLg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=u7LlYq3qpkhQnikUjwW6K7QKxYuYBJq7m0Qk+nF3EUY=; b=wfupCsd6Q1Dh6S
+	Up/8Aw+1KjpsRKnZNKmw/BQZtdAFiLXvSjzDNeF23+bWdvNGEJcDft6KTIVBBXLRaELgdvKXWPKq7
+	u9BqnlL01kS9hqAOT+sffzOmVuws91uJEpREm4okPtx36ECh8JvxBe0moqLgiAQvJ7yuUNpMA4nW5
+	zV/UMoS8Ls5BnIzxCMdjwMeVKYke2oB4o10nHGWjruf2kjbVv9QSoRQm+tPrF/tbMNZZln68Dc1yk
+	bPKKzs89n3pLnFW5qwLWt5oluAtSxc4R0+yDRu2s+IYwAeYASLe8jMgkqE5oYtIU46MC8zx0vCBPo
+	UyQgxzP1WbLsKHRf930A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxguB-0000000Gdc4-2dkO;
-	Wed, 04 Mar 2026 07:44:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxhGv-0000000Ggrd-1dY5;
+	Wed, 04 Mar 2026 08:07:57 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxgu8-0000000Gdbc-29p0;
-	Wed, 04 Mar 2026 07:44:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72E3B43422;
-	Wed,  4 Mar 2026 07:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3F04C19423;
-	Wed,  4 Mar 2026 07:44:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772610263;
-	bh=Us0KGNplk7HG7Fg83BdG+51O34emtOY7P1nZiiQ0jEU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h14YwVVE6Wj9ayUYI7MGAZoootsuGQ+RsRUIvXmDBYdBvhOGLpsE4P9nw/2i1qmGz
-	 N+VqJuvhpyVsQ3BBLC2IEcy35P7Ad/6xl3kwoDp9ofcfS11K9avXjLWOkOANI4AyWf
-	 zJ01vAyxeRvijBP0ed+iFx0t37A5i0q2Lmim14MvcdRkXdKvcAWbmi9LfC7HaHHuYd
-	 7/rzk8X8A68rxJ7EIcgY3aUvzucihf1RDs3lmV/JqqF5wBtjK2XgakMOwBQlEsoHdv
-	 /MYd0/fycri9g3fr899YtXuwAMjsl3gXw7WHMGy5a5R7snhJZXIh3OvT7FPtFg0fkX
-	 B6OXkr5jGjEcQ==
-Date: Wed, 4 Mar 2026 08:44:21 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, 
-	wens@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, linux-riscv@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, ningyu@eswincomputing.com, linmin@eswincomputing.com, 
-	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: eswin: add clock
- sampling control
-Message-ID: <20260304-hot-sponge-of-emphasis-6864db@quoll>
-References: <20260303061525.846-1-lizhi2@eswincomputing.com>
- <20260303061637.872-1-lizhi2@eswincomputing.com>
+	id 1vxhGs-0000000Ggpq-2YIf
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Mar 2026 08:07:55 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ae50a33ff8so24818025ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 00:07:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772611673; x=1773216473; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=umiDmXimKnwg21TsfCEQ72OkpzfSgk0ygJP0kl6mnKQ=;
+        b=Hx1tm/fOCgKnWvFG9+cAjZ4bvtTMwGB3hM58EkzUD8MAM7JNVst/aDCltUTTwzH/qR
+         AevlS8KRqTgN7MXsuEO5Ph8qQXgRR3s+C4roFOrDufex15p0ItAXA1jaxwgRkdojmZ9D
+         MuvpYntQiOPL2cG7djVMR4phF4dZRVfHiqdexEi+aSho66kw48Yidw2yC1XmNll4SSLz
+         XH41ee5E1m4kiZlRSPGGdsL/7l1E0HinAgoLB7XqYsK5yGJhAfsci3GRLFCIwRRLhhcH
+         mIjnX5WKvSAszES2tHqDFmTI1ZsdWm3yWUJAYbVleGUkaRUPn7yP5mE5UH7eLmpGrh3N
+         o2QQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772611673; x=1773216473;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=umiDmXimKnwg21TsfCEQ72OkpzfSgk0ygJP0kl6mnKQ=;
+        b=efPsyr+cI24CRG+cdchB3nVREIyBuwkt3mCPxp6Me9fmtZDfO/34arBAPTN/e8mMJR
+         91uueqqH2pXd83udxUzNheRSNmfMTJTRSonswA2xBl+uDAU96eROhZBSgDee03DWuZxy
+         WzScYqXGH9qhTnx7QR7PhN9C1jxZ2TQSbsCGJLZt5DIx6Zj5UoMaIuBfXOCAC7jtbbsl
+         y7d4Tv/8Sgvb6GJuNrZFCV8UKhtJq1jKmM5OUqgAzphB48b6nsJPdSdVfP0JR1cFY6an
+         xPnog87RolIsVomXOzj2rsjKIVAorpCMPlCD0CA2J0fv61ivngP8SMUMk3yWX96+eiQ+
+         EGgw==
+X-Forwarded-Encrypted: i=1; AJvYcCV9qFnVoPuooUISpuwWEplhXGMnd9EOOqdXwJf333YyZN12zqaGsOSyNpjO9jrJtpgCr9ja7iy8R1SPOA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnixOCNEYpTQvEK2CYSMkbJkfBKDu0rWCTrul/yftsorYEs3zn
+	s2UEc087mUazx+eFFwlNyJfrkas3M12FqsW8Tl4N5Sx2GQQci7aDBVZO
+X-Gm-Gg: ATEYQzx/d6utFVlmDFUrSfYI0gKIFpVdUvIUedER9YIlUF35+xe5b0KnY5EHgWjSNVL
+	4ajDk0uSbjqEOUT0QaC+F2XYA48wPLS9zbJLmfbTYIdH5GraiN0ID2r5WpXvQI2ZaSUEk5FDSTm
+	fUKk3W2LykFl+O7sYG/usaX0V4siJyVvRE7+l7BaMnHuwI1j7q3dJs2UzUyR0nFovBcjHBfPep4
+	gvrejfHz5MBBECdZf08wNZ4a5dg1tUGcYT03FVgOJFRgTplsOvBboH7FeF2WX3mu8cvO77UuNLJ
+	LJmUcjd9R9+cEMYUca3KK4mBRUVq2CQvrE+JIrCqGNiAAQHblAYaCDUruLwkxjwITCz7ys9ZFYu
+	qCu+yx4T24xskSOQR00RllM1Nn3mUObhj0NqpspPtvU0LmDYb1YVpTwFR8NI/Cifrml5aSIJ5Kk
+	U44We2hui2njLoD0P6XMypbaD2llPse0oLEQ==
+X-Received: by 2002:a17:902:cecf:b0:2ae:665c:8b16 with SMTP id d9443c01a7336-2ae6ab5ac69mr13854625ad.53.1772611673352;
+        Wed, 04 Mar 2026 00:07:53 -0800 (PST)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae489c3626sm94364275ad.8.2026.03.04.00.07.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 00:07:52 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yao Zi <me@ziyao.cc>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v7 0/3] riscv: spacemit: Add ethernet support for K3
+Date: Wed,  4 Mar 2026 16:07:17 +0800
+Message-ID: <20260304080721.1658224-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260303061637.872-1-lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_234424_614072_80D609A9 
-X-CRM114-Status: GOOD (  26.39  )
+X-CRM114-CacheID: sfid-20260304_000754_648792_D0E8D84F 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,140 +131,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 02:16:37PM +0800, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
-> 
-> The second Ethernet controller (eth1) on the EIC7700 SoC may experience
-> RX data sampling issues at high speed due to EIC7700-specific receive
-> clock to data skew at the MAC input.
-> 
-> On the EIC7700 SoC, the second Ethernet controller (eth1) requires
-> inversion of the internal RGMII receive clock in order to meet RX data
-> sampling timing at high speed.
-> 
-> Describe this SoC-specific difference by introducing a distinct compatible
-> string for MAC instances that require internal clock inversion, allowing the
-> driver to select the appropriate configuration without relying on per-board
-> vendor-specific properties.
+Add initial support for ethernet controller of the Spacemit K3 SoC.
+This ethernet controller is almost a standard Synopsys DesignWare
+MAC (version 5.40a). This controller require a syscon device to
+configure some basic features, like interface type and internal delay.
 
-Pointless description/paragrapgh. Your explanation why adding a
-compatible is "because I need compatible". That's completely redundant.
+Change from v6:
+- https://lore.kernel.org/netdev/20260303010630.567674-1-inochiama@gmail.com
+patch 1:
+1. Drop the extra blank line at the last
 
-Explain what is special about this MAC instance, what's different in its
-programming model or other characteristics that you claim it is a
-different device.
+Change from v5:
+- https://lore.kernel.org/netdev/20260227075718.2243818-1-inochiama@gmail.com
+patch 3:
+1. fix error from checkpatch
 
-> 
-> The rx-internal-delay-ps and tx-internal-delay-ps properties now use
-> minimum and maximum constraints to reflect the actual hardware delay
-> range (0-2540 ps) applied in 20 ps steps. This relaxes the binding
-> validation compared to the previous enum-based definition and avoids
-> regressions for existing DTBs while keeping the same hardware limits.
-> 
-> Treat the RX/TX internal delay properties as optional, board-specific
-> tuning knobs and remove them from the example to avoid encouraging
-> their use.
-> 
-> In addition, the binding now includes additional background information
-> about the HSP CSR registers accessed by the MAC. The TXD and RXD delay
-> control registers are included so the driver can explicitly clear any
-> residual configuration left by the bootloader. Background reference for
-> the High-Speed Subsystem and HSP CSR block is available in Chapter 10
-> ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
-> Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
-> https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
-> 
-> There are currently no in-tree users of the EIC7700 Ethernet driver, so
-> these changes are safe.
-> 
-> Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 SoC")
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> ---
->  .../bindings/net/eswin,eic7700-eth.yaml       | 75 +++++++++++++++----
->  1 file changed, 59 insertions(+), 16 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> index 91e8cd1db67b..22d1cecea07e 100644
-> --- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> +++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> @@ -20,6 +20,7 @@ select:
->        contains:
->          enum:
->            - eswin,eic7700-qos-eth
-> +          - eswin,eic7700-qos-eth-clk-inversion
->    required:
->      - compatible
->  
-> @@ -28,9 +29,13 @@ allOf:
->  
->  properties:
->    compatible:
-> -    items:
-> -      - const: eswin,eic7700-qos-eth
-> -      - const: snps,dwmac-5.20
-> +    oneOf:
-> +      - items:
-> +          - const: eswin,eic7700-qos-eth
-> +          - const: snps,dwmac-5.20
-> +      - items:
-> +          - const: eswin,eic7700-qos-eth-clk-inversion
+Change from v4:
+- https://lore.kernel.org/netdev/20260130022705.1059214-1-inochiama@gmail.com
+patch 1:
+1 Apply Rob's tag.
+2 Adjust clock description according to Russell's suggestion.
+patch 3:
+1. Add set_phy_intf_sel() and get_interfaces() hook, suggested by Russell.
 
-So just enum for both entries?
+Change from v3:
+- https://lore.kernel.org/netdev/20260128072931.875041-1-inochiama@gmail.com
+patch 1:
+1. fix the uncorrect compatible string postion
+patch 3:
+1. add "CTRL_" prefix to all ctrl register definition
+2. only use delay config 0 to calculate delay code.
+3. fix typo in the comment
 
-Anyway, that's the same device, so you do not get two compatibles. This
-should be a property. Which property not sure, maybe all this was
-discussed already.
+Change from v2:
+- https://lore.kernel.org/netdev/20260121071315.940130-1-inochiama@gmail.com
+patch 1:
+1. remove not needed compatible for select
+2. drop empty line in "spacemit,apmu" properties
+3. add spacemit,apmu properties to required.
+patch 3:
+1. remove misused phy_fix_phy_mode_for_mac_delays.
+2. use local tx clock instead of the clk_tx_i in the dwmac.
 
+Change from v1:
+- https://lore.kernel.org/netdev/20260120043609.910302-1-inochiama@gmail.com
+patch 1:
+1. remove phy clock
+patch 3:
+1. improve comment and include something special about Spacmit K3 dwmac
+2. reorder the included file
+3. fix wrong delay macro used in spacemit_dwmac_set_delay.
+4. add check for maximum supported delay.
+5. use DIV_ROUND_CLOSEST to calculate best delay configuration.
+6. use assign for the ctrl register initial value.
+7. fix input when calling of_property_read_u32().
 
-> +          - const: snps,dwmac-5.20
->  
->    reg:
->      maxItems: 1
-> @@ -63,16 +68,29 @@ properties:
->        - const: stmmaceth
->  
->    rx-internal-delay-ps:
-> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
-> +    minimum: 0
-> +    maximum: 2540
-> +    multipleOf: 20
->  
->    tx-internal-delay-ps:
-> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
-> +    minimum: 0
-> +    maximum: 2540
-> +    multipleOf: 20
->  
->    eswin,hsp-sp-csr:
->      description:
->        HSP CSR is to control and get status of different high-speed peripherals
->        (such as Ethernet, USB, SATA, etc.) via register, which can tune
->        board-level's parameters of PHY, etc.
-> +
-> +      Additional background information about the High-Speed Subsystem
-> +      and the HSP CSR block is available in Chapter 10 ("High-Speed Interface")
-> +      of the EIC7700X SoC Technical Reference Manual, Part 4
-> +      (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf). The manual is
-> +      publicly available at
-> +      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
-> +
-> +      This reference is provided for background information only.
->      $ref: /schemas/types.yaml#/definitions/phandle-array
->      items:
->        - items:
-> @@ -81,7 +99,9 @@ properties:
->                           or external clock selection
->            - description: Offset of AXI clock controller Low-Power request
->                           register
-> +          - description: Offset of register controlling TXD delay
->            - description: Offset of register controlling TX/RX clock delay
-> +          - description: Offset of register controlling RXD delay
+Inochi Amaoto (3):
+  dt-bindings: net: Add support for Spacemit K3 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+  net: stmmac: Add glue layer for Spacemit K3 SoC
 
-As pointed out, you cannot change the order and there is no reason for
-doing this explained in commit msg.
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 102 ++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 228 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   1 +
+ 6 files changed, 346 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
 
-Best regards,
-Krzysztof
+--
+2.53.0
 
 
 _______________________________________________
