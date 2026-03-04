@@ -4,121 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E3B9EB7ECF
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 12:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5753EF8FE7
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 14:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sJTo0y83WNKb/s9UQUMybwSUlRHk4oZ1vu0pRMnlEmY=; b=dK+QL5pqC0n/hq
-	3fqoOyurJaTp1H9N0jt4mufYmShbI84XaBXsu2e88/Mod65A+0FdSdcn2klINlImrIHIsOfBJQi2/
-	r4ZySSqhkNltsKDK0LgyLlTpkJ7TR6vq+YNQW3/hjIaGZnM0WRMxDgOt4e7hQqsQuFxCCsF951FIU
-	68V6F0Pb/G+mzbZFaPxpsgLktFP66lKi7dYsxtos2hUYLTeYQQYMx/sipleaSvsDFuWdO3Da2LasY
-	eTpsJgYUoKV8GWvup5765Vl2glihBuXIeIQwjMuZNFsoDIK3p8m8cUXYK1DKChmhJs9Pot81PrJeS
-	oFUwHYXMOatT4HkM5KSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ae/y/rduw19NewpXv67OpPabLdCgNgiAzRc8idDCda8=; b=T1UUqDOWbJdSQ2
+	oVx2zvEkea0ZK/srripKnAwBida81XmuX8pJxMBDGFSURPRsqfPpsKkr8LU3/JEiZMxp5oD0zpQdT
+	435pgKiP1ShuMWBRhpPh+ctdxi0JDAm13kSywpYBIRu7R9cfJu1szWlIWYiVYHsbyZvIy48y93Hg8
+	FkGiTBTcd3NDztnKjoDUgKLMN96N0k/sO0IbF9EdN0/tuDJ+nURv0fKyE3N/5AvIq8J1fZDHbtwwO
+	m7erNfiA0QjEw3APwqk7EBCwCuOrJDZTw87Qc3BlOxonoUxng7JBuxqra9vT2q+yjWW6PZ5XjbTuN
+	bDBuCQjsdAWCpbQGMIYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxle7-0000000HCeM-2r6L;
-	Wed, 04 Mar 2026 12:48:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vxmpL-0000000HIOE-3QfK;
+	Wed, 04 Mar 2026 14:03:51 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxle5-0000000HCd7-3cqg;
-	Wed, 04 Mar 2026 12:48:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=YsXg2qDZ+ZjnQnj/eNfiIgU3SLUyimkRR7bx5y5oB4w=; b=U5NhpZCn934XojSyVFL1nj1S/W
-	2SwNvFKnKgDXQSzq6m51IMvSlZX+ne4bEh4E01vZtYgpLee5ixUDi8qEHb4R97fy2f4d2ReNAtXFl
-	2Myy/FM9yjpIi4F5MCjGcXNEoyN2WDgyc7039UPkredIXwYhk1etVNasHnwai+IB6c4ro8VQTd24m
-	dlAjACdWYLWNFfSy+VdBxKivYhNczBRSHxMPHao0CvqQusPNjCznq/i4rksmb+FqExqEhxu3s5ruZ
-	HIicL8wW2i2h8YBWX0vQS1a34HK9wPAQFs79TabY9VaeD6tSKbvzAdMAvOXPYXBWy7iVhi1jbb7PJ
-	KVa5pNSQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxle2-00000004Z41-2FWR;
-	Wed, 04 Mar 2026 12:48:06 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 07040300666; Wed, 04 Mar 2026 13:48:06 +0100 (CET)
-Date: Wed, 4 Mar 2026 13:48:05 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Jens Axboe <axboe@kernel.dk>, Jakub Kicinski <kuba@kernel.org>,
-	Yury Norov <ynorov@nvidia.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Michael S. Tsirkin" <mst@redhat.com>,
-	Theodore Ts'o <tytso@mit.edu>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Duyck <alexanderduyck@fb.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Alexandra Winter <wintera@linux.ibm.com>,
-	Andreas Dilger <adilger.kernel@dilger.ca>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Anna Schumaker <anna@kernel.org>,
-	Anton Yakovlev <anton.yakovlev@opensynergy.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Aswin Karuvally <aswin@linux.ibm.com>,
-	Borislav Petkov <bp@alien8.de>, Carlos Maiolino <cem@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chao Yu <chao@kernel.org>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Airlie <airlied@gmail.com>,
-	Dominique Martinet <asmadeus@codewreck.org>,
-	Dongsheng Yang <dongsheng.yang@linux.dev>,
-	Eric Dumazet <edumazet@google.com>,
-	Eric Van Hensbergen <ericvh@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ingo Molnar <mingo@redhat.com>, Jaegeuk Kim <jaegeuk@kernel.org>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Latchesar Ionkov <lucho@ionkov.net>,
-	Linus Walleij <linusw@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Miklos Szeredi <miklos@szeredi.hu>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <pjw@kernel.org>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Simona Vetter <simona@ffwll.ch>, Takashi Iwai <tiwai@suse.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Trond Myklebust <trondmy@kernel.org>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	Yury Norov <yury.norov@gmail.com>, Zheng Gu <cengku@gmail.com>,
-	linux-kernel@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	linux-s390@vger.kernel.org, linux-block@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	dm-devel@lists.linux.dev, netdev@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-ext4@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-fsdevel@vger.kernel.org, linux-xfs@vger.kernel.org,
-	linux-nfs@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-mm@kvack.org, linux-perf-users@vger.kernel.org,
-	v9fs@lists.linux.dev, virtualization@lists.linux.dev,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH 0/8] mm: globalize rest_of_page() macro
-Message-ID: <20260304124805.GB2277644@noisy.programming.kicks-ass.net>
-References: <20260304012717.201797-1-ynorov@nvidia.com>
- <20260303182845.250bb2de@kernel.org>
- <f8d86743-6231-414d-a5e8-65e867123fea@kernel.dk>
- <aaedwFwXh9QXS3Ju@google.com>
+	id 1vxmpH-0000000HIN3-3f79
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Mar 2026 14:03:49 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3567e2b4159so3665558a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 06:03:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772633026; x=1773237826; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wMG/35vxQWRecO7x0lChQ2qa5zQ+cEwiNdTCEbyqm04=;
+        b=fQN/bx3lQFpwy9HvM/BZFk5qAqgPLA6ynhZNUJ6p6V2Mc73+Y6d2lhMo/Y0REjCsb+
+         Hw+Xq7cTP4MSnqV5xBDrPhICnHJOFrx1025xnENnbnqhBtj6I4L7Vx0pZNG6wV6K24Vi
+         9CWYA/7QaFo4uZ0D6fBBrqPJhN8PLYmyOGardG6IfF52rAY/IHW+OSTj5XwcRkGGB9Ha
+         MYIZdsR2j2HY0b2XYKLDFeSvTkKX9GS2HopFUzv5JIP/noKeDQUH6sgPR/XunlELrBvM
+         eRclD1e91MvVQ1wRuFMLTtt+xONBTkCQIWPL/6S4TavHPlRyLgemwKxlGXAvVHtRfphS
+         UAzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772633026; x=1773237826;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wMG/35vxQWRecO7x0lChQ2qa5zQ+cEwiNdTCEbyqm04=;
+        b=n06pR2RNt1N/Hfx9X2Qt2nxHMeXVRi7GQisK7XhuxQGnnoaGgpQEgnebKbIwq1ovH4
+         T9xo9c+XMqDEJ1wUU5dfQ+hOor0DgQLCnpqJ1hNvbbTTtoeBjIUzkS5MdWMTA43tHUz6
+         t6rt9mes/Xuzj2sT9Hfza4I+OUjeQiRMFnCbeOULtYgDi5MolZc+/Ny19Ar6k0/gs6S9
+         j5rAcI8gD/J5DDxr6rrLD5LGuIXDLq76oBJ3PwCXIXwpsWxvkp7IIvkp5+RJ//bl+0Ok
+         pDFiLvspx3h6Fnin2NPlLTJb86YG0XSzmwdhpkMznlHVGSt4Bhy34c7L8KYs1vjoHOUv
+         0V9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVhbA3XgfLOx81n7HN5g2kkIvEaqH9cM2W0K2OuEJHcj7Xq9tWGXvkRFrHLmqySa0M3QtjyQXbvYSjGdg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjinXWcNY5ezmCfB1v51ocQ5+zwwIf/qMPgJT/kQPUXkkLzxLJ
+	7YePc1Cm6yDvs/OlPylk7X+IWMUF2Jk5tVjxOxQwJhmZTBq2MrCip18U
+X-Gm-Gg: ATEYQzyj2aMRSp9+tcExw66yqqnR30m4CQbFsS7UBCmOADJ2at99ZfWLUnhcZGY6Nnc
+	jcsVxYy6QxzGxTdoWVHloKvBeaCxIG+W74htUasgxDVn/6cuHpihSmZQUOfMTErsENRIFx+aux3
+	qTq7Rv6OiFvPh8TZ5eJBqjFewO2t3sfJX4PWPppBnEmgewmiB+9hIONRiWAOrTarJPs+ytjpaEb
+	z+i9tbvgX8vQV8oSUL2Wu+1V+UlvroiPfInKKpeJdJZZKZjdb8nJ/1r9pE2yamXOWnXBf59FAoy
+	r6FyN36OIYaJE3Fmu9FXnmgl8Dx99Lrrz8z/nv46GZPonISC60fwxRafY52kaMNTUbHqkucRmGs
+	8y8SHU0RM0YMjejv4T7RjvzkITps9NSvqJ7G/eTgAXOi5O5BJShYfIQS5StuH+2M16Dys6PldWg
+	d6m5Ln7IynAuOLQdFM5Jfs9vDWtYYSZCA=
+X-Received: by 2002:a17:90b:3d50:b0:356:2fc5:30f5 with SMTP id 98e67ed59e1d1-359a69cad3amr2158954a91.13.1772633026479;
+        Wed, 04 Mar 2026 06:03:46 -0800 (PST)
+Received: from rockpi-5b ([45.112.0.200])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3599c4c0f80sm6826545a91.16.2026.03.04.06.03.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 06:03:45 -0800 (PST)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Minghuan Lian <minghuan.Lian@nxp.com>,
+	Mingkai Hu <mingkai.hu@nxp.com>,
+	Roy Zang <roy.zang@nxp.com>,
+	Yue Wang <yue.wang@Amlogic.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jonathan Chocron <jonnyc@amazon.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Chuanhua Lei <lchuanhua@maxlinear.com>,
+	Srikanth Thokala <srikanth.thokala@intel.com>,
+	Xiaowei Song <songxiaowei@hisilicon.com>,
+	Binghui Wang <wangbinghui@hisilicon.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Niklas Cassel <cassel@kernel.org>,
+	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
+	Qianfeng Rong <rongqianfeng@vivo.com>,
+	Koichiro Den <den@valinux.co.jp>,
+	Hans Zhang <18255117159@163.com>,
+	Sai Krishna Musham <sai.krishna.musham@amd.com>,
+	Thippeswamy Havalige <thippeswamy.havalige@amd.com>,
+	Vidya Sagar <vidyas@nvidia.com>,
+	linux-omap@vger.kernel.org (open list:PCI DRIVER FOR TI DRA7XX/J721E),
+	linux-pci@vger.kernel.org (open list:PCI DRIVER FOR TI DRA7XX/J721E),
+	linux-arm-kernel@lists.infradead.org (moderated list:PCI DRIVER FOR TI DRA7XX/J721E),
+	linux-kernel@vger.kernel.org (open list),
+	linux-samsung-soc@vger.kernel.org (open list:PCI DRIVER FOR SAMSUNG EXYNOS),
+	linuxppc-dev@lists.ozlabs.org (open list:PCI DRIVER FOR FREESCALE LAYERSCAPE),
+	imx@lists.linux.dev (open list:PCI DRIVER FOR FREESCALE LAYERSCAPE),
+	linux-amlogic@lists.infradead.org (open list:PCIE DRIVER FOR AMLOGIC MESON),
+	linux-arm-kernel@axis.com (open list:PCIE DRIVER FOR AXIS ARTPEC),
+	sophgo@lists.linux.dev (open list:SOPHGO DEVICETREES and DRIVERS),
+	linux-tegra@vger.kernel.org (open list:TEGRA ARCHITECTURE SUPPORT),
+	linux-riscv@lists.infradead.org (open list:SIFIVE DRIVERS:Keyword:fu[57]40)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [RFC v1 00/18] PCI: Enable async probe by default
+Date: Wed,  4 Mar 2026 19:21:43 +0530
+Message-ID: <20260304140329.7089-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aaedwFwXh9QXS3Ju@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260304_060347_918845_8739C640 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,33 +150,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 06:49:36PM -0800, Sean Christopherson wrote:
-> On Tue, Mar 03, 2026, Jens Axboe wrote:
-> > On 3/3/26 7:28 PM, Jakub Kicinski wrote:
-> > > On Tue,  3 Mar 2026 20:27:08 -0500 Yury Norov wrote:
-> > >> The net/9p networking driver has a handy macro to calculate the
-> > >> amount of bytes from a given pointer to the end of page. Move it
-> > >> to core/mm, and apply tree-wide. No functional changes intended.
-> > >>
-> > >> This series was originally introduced as a single patch #07/12 in:
-> > >>
-> > >> https://lore.kernel.org/all/20260219181407.290201-1-ynorov@nvidia.com/
-> > >>
-> > >> Split it for better granularity and submit separately.
-> > > 
-> > > I don't get what the motivation is here. Another helper developers
-> > > and readers of the code will need to know about just to replace 
-> > > obvious and easy to comprehend math.
-> > 
-> > I fully agree, I had the same thought reading this.
-> 
-> +1 from KVM-land.
+Following recent asynchronous probing updates to the Rockchip PCIe
+controller, this change enables default async probe functionality for
+all DesignWare Core (DWC) based controllers to optimize boot times [0]. 
 
-Right, this. I hate these pointless helpers that obscure perfectly
-sensible and obvious code -- and for me that includes things like
-rounddown() and DIV_ROUND_UP().
+[0] https://lore.kernel.org/all/20260226101032.1042-1-linux.amoon@gmail.com/
 
-It just makes the code harder to read.
+This PROBE_PREFER_ASYNCHRONOUS flag help to parallelize device initialization.
+
+Thanks
+-Anand
+
+Anand Moon (18):
+  PCI: al: Allow asynchronous probing for background link training
+  PCI: amd-mdb: Allow asynchronous probing for background link training
+  PCI: armada8x: Allow asynchronous probing for background link training
+  PCI: artpec6: Allow asynchronous probing for background link training
+  PCI: bt1: Allow asynchronous probing for background link training
+  PCI: dra7xx: Allow asynchronous probing for background link training
+  PCI: exynos: Allow asynchronous probing for background link training
+  PCI: fu740: Allow asynchronous probing for background link training
+  PCI: intel-gw: Allow asynchronous probing for background link training
+  PCI: keystone: Allow asynchronous probing for background link training
+  PCI: keembay: Allow asynchronous probing for background link training
+  PCI: kirin: Allow asynchronous probing for background link training
+  PCI: layerscape: Allow asynchronous probing for background link
+    training
+  PCI: meson: Allow asynchronous probing for background link training
+  PCI: sophgo: Allow asynchronous probing for background link training
+  PCI: tegra194: Allow asynchronous probing for background link training
+  PCI: uniphier: Allow asynchronous probing for background link training
+  PCI: visconti: Allow asynchronous probing for background link training
+
+ drivers/pci/controller/dwc/pci-dra7xx.c     | 1 +
+ drivers/pci/controller/dwc/pci-exynos.c     | 1 +
+ drivers/pci/controller/dwc/pci-keystone.c   | 1 +
+ drivers/pci/controller/dwc/pci-layerscape.c | 1 +
+ drivers/pci/controller/dwc/pci-meson.c      | 1 +
+ drivers/pci/controller/dwc/pcie-al.c        | 1 +
+ drivers/pci/controller/dwc/pcie-amd-mdb.c   | 1 +
+ drivers/pci/controller/dwc/pcie-armada8k.c  | 1 +
+ drivers/pci/controller/dwc/pcie-artpec6.c   | 1 +
+ drivers/pci/controller/dwc/pcie-bt1.c       | 1 +
+ drivers/pci/controller/dwc/pcie-fu740.c     | 7 ++++---
+ drivers/pci/controller/dwc/pcie-intel-gw.c  | 1 +
+ drivers/pci/controller/dwc/pcie-keembay.c   | 1 +
+ drivers/pci/controller/dwc/pcie-kirin.c     | 1 +
+ drivers/pci/controller/dwc/pcie-sophgo.c    | 1 +
+ drivers/pci/controller/dwc/pcie-tegra194.c  | 1 +
+ drivers/pci/controller/dwc/pcie-uniphier.c  | 1 +
+ drivers/pci/controller/dwc/pcie-visconti.c  | 1 +
+ 18 files changed, 21 insertions(+), 3 deletions(-)
+
+
+base-commit: 0031c06807cfa8aa51a759ff8aa09e1aa48149af
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
