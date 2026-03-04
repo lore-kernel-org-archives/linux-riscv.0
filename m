@@ -4,53 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA49D58E4D
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 07:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9190BEDEC1E
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 07:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cPtGeYV3ap+SA4ZZ1ghu3ZQV5nNMCm9i4WhpAWWZC64=; b=ETeTAfwce/IbpT
-	Q6joKZtmhywPa/RxdLuLUicRjqqXtANUzwYdEKt8kLfdOhOnRa6OAuAKhmbLFDCGajdijtp0KBfR3
-	ZGIaRgzc7bxw/uIyw+EAQeY1DXvHtHyFRQOlO3pKx54CU+BBlvzLMkAAyIc5Q2Obpe7fh+9w5AwUO
-	c3lG/pqVrmiAeXe71v8h1LKpsslfFfjnj7/vO/c/ViWlPL4CvUYmUy/f+FzGypLYg1as68O9djvGT
-	FFSjMkhi3lA1GUDBzmA9jSpucC+R+oMjZvclKPFFu2wvnLQozS1IeWls/hSKmpDi7sDlzB/lU6TaV
-	RdI4H40wTQXVzf4Wlv0g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gGRLrYhlOV0azDwk4BPAuHP/xoSEInLHKk+WRIgrP54=; b=f8IIExSHzT4vit
+	HCCw/k9ev8ORQuKc/d0kftAJkzGCwToYcIK/fnso/XhwZwTMN/Sb3PYQp2ZhD6DS41m4VknpBt12h
+	ZzAuLadLzXP5Ar9LRKhNaMekpfLQUZnYCvi2/j2SqVe5/YGeoKJmzw6KLqPGJ14EgWmXZ6FloWQfb
+	CvpY+wwMQd4g6NVOmLkuj4pB/J4aMfXI4qBeirV8nhrCrKZ+qBLMIppV2KKWY5YwuTl9uSP1pDddd
+	e7fBtzjjEqQeOWyhBxe3TEIv5tlfwXoLFHylmvTgGaG2kCQglMkYBFHOrc0ofSXwTPXBy17eEA22m
+	qybm3PEegPiC0JCrrv3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxgnF-0000000GcK9-2Vvm;
-	Wed, 04 Mar 2026 07:37:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxgnI-0000000GcLZ-3lSc;
+	Wed, 04 Mar 2026 07:37:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxgnD-0000000GcJR-2yfS
+	id 1vxgnH-0000000GcKb-2FAJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Mar 2026 07:37:16 +0000
+	Wed, 04 Mar 2026 07:37:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E9ED42DA9;
+	by tor.source.kernel.org (Postfix) with ESMTP id A6D526132D;
+	Wed,  4 Mar 2026 07:37:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51F0AC2BC87;
 	Wed,  4 Mar 2026 07:37:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEB8BC19423;
-	Wed,  4 Mar 2026 07:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772609834;
-	bh=Axm5RT1vXW25EsCzGFah2o7AMlhcdm1PbuzuvzpOPwE=;
-	h=From:Subject:Date:To:Cc:From;
-	b=tzQ2fLNwjR8mOuf7rsaHCGTiaFUszXB9rZa8mjMLtJ+H4slRL9+vseaP1Xetrb1rP
-	 D+Ra/4JVKGUkORm4axoX3JE6uar3b2RLuKa7ZRBPt06r8FhohL4T9ZH3HCNSaLLDkN
-	 lHFmQuuGF8RFA/Uw13286c2TEOhauudtH5Rh0Vpx/CE3Yd6GzdZZCP46GU3eMpVeaF
-	 LvyOg6mbiLat3jmkW9QJAsX0ISvOJnRiUSKJ5DAO8ioMZl+XqPY2NGlw1l6+fFTL8C
-	 wZW2/1vvOxCranpDr9IeOKUnBMxb6cX6GJNa1QABK0cLqXVsrThCEUvgIN9eRR1uMn
-	 lYRKUnEpCD5YA==
+	s=k20201202; t=1772609838;
+	bh=jO0M0guSNWEHLzTjxBxCbcuEOMBS1RGGO8p6u7k7qVg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ou5kmWfTVNhkQAGuRMx4jAzMHi1sHSIX+7046/pU9Yv2bkr5MtCI4qnCH7V9VEa7E
+	 VDnT+eQ/fzWaAXvoV/D5blg3JVNMM9tK+ywKGEpAToWU+VVAW/EHMWAP3mJyqHLGOl
+	 JNWRQiFFe3CTf4pzMRnf9AgsUyr93h+oxT6kaFyWyOH8nywTiJbmKOTzgmqCTanWMf
+	 h2vSF9gd21JBz3NRewbHNmKpKNocEiHcVW87KOajIzeV7HusTmnBS1dWHv3k/jmeKH
+	 v6yxrGg56TxGIY5Oo18y7CJ1k6WZkUlFXqtjFMPU08ti+QMk/z5gu4eHLZZGPn/3AD
+	 f9IxJkDNuRW2A==
 From: Yixun Lan <dlan@kernel.org>
-Subject: [PATCH 0/4] riscv: spacemit: k3: Add more resource to UART
-Date: Wed, 04 Mar 2026 07:36:41 +0000
-Message-Id: <20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org>
+Date: Wed, 04 Mar 2026 07:36:42 +0000
+Subject: [PATCH 1/4] riscv: dts: spacemit: k3: add clock tree
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAArhp2kC/x3MQQqAIBBA0avIrBsYsxK6SrSwmmogLNQiiO6et
- HyL/x+IHIQjtOqBwJdE2X2GLhSMq/MLo0zZUFLZkKEKSeOUIp4uJJzPbcOBa9NYstYMNeTsCDz
- L/S+7/n0/mekYj2IAAAA=
-X-Change-ID: 20260304-01-dts-uart-full-be53670773b5
+Message-Id: <20260304-01-dts-uart-full-v1-1-50a0aa53a245@kernel.org>
+References: <20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org>
+In-Reply-To: <20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -59,28 +57,24 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=967; i=dlan@kernel.org;
- h=from:subject:message-id; bh=Axm5RT1vXW25EsCzGFah2o7AMlhcdm1PbuzuvzpOPwE=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpp+EXabe58tmIYcg3+/OAeEMhn8SlnKHAgq0Rd
- a/3F4kfK7iJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaafhFxsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3402; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=jO0M0guSNWEHLzTjxBxCbcuEOMBS1RGGO8p6u7k7qVg=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpp+EaBnWKf5lfQFWDs7PyaOqPYpQUX9+orzVya
+ wlBUL6K0XaJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCaafhGhsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0Jfg/9FiKWNn0F4yxDIuaEf0s4fmZHXKJSDAgDkH8GKtOziZIB0r7ZJ+HD+
- Nqf8X45GqmGvCepByZh6UwBZmzuXY9pS37R8jHYhw/39FuGDuLaJ26iU4QxP8Dsr4gGJ4V09lwT
- 1JbW5mkzLdVHdWCp/ouElnJIcAkEsQygsOwOf7wtCXwj0DVQ98UeachkR0FkbUcysaFY0DEpAFR
- 0kT3Nor1jRrzj0HiFEMIG/P/ssNq755RsSfPfmyQ0NdHhNyun0+lr3Hj6p3RdLsLaW4LqEk7ZtO
- VgJtJf/PzUWl3NZ0kbHXSqa2FUhSZvAHt/SV+3dLpWtE4L/GlMZG/DSw5wVOWzomu6mmjso3LoG
- h2XgIP0S42FPJruiOedOup9ua34i7EADKU/NxtmAiplA22wwbqbh8cm+yBoZhVDyhS3KtW4dXNJ
- FSfM+HZJMahemyT1/emRpJobinMlLKbBwnhg3hAKO0q963IkwVbNnHfihog1fh95rDCIG76p7Eb
- EBnZEvEa+UZFhHTIsPauTupuaZOiJHMYXYxZXXQS3v/jS9YGDT922KPIsf0WYGmcryafzkscIYk
- r+U5JapiFW/ORbs4P1wwnGxlEbIyc1I4j44qRaKAP/x+TaEKUM3c+RmMf0zgrkhlXSstIlXykw9
- FdCUoHCckaA+wCjP4+E1p5GRk214rk=
+ QACgkQMarqR1lNu+1Ieg//ReeuC4zNyy8R8tfDFGVqOd6yom9iwCKlOXMU4KW/9RsBvveOp3D7M
+ AzEVYRl4Uz+o2Ic5Zz5SxmLDxFFZvDFn8pm+66BpKhnUDhpvFCyGO7v8S4NKJwnzaOe3nGz+wWh
+ 9NQfIbn+a/HKqSf3Ti4Jc8z/xc7agehnXRK36diTV6m1kFakW3FVnYdzIABNl53/Url+i08D1UN
+ P7j5IVaKddPRhDBry1R06zt4pbyWjeIdctVf8w+UZ3z7ZjJzb2WIjebXjzKHkjZpyTpw96pejoC
+ y7cPVdP8s+1ETPDgOGIqwUiarndot8z/ko/d44PiPn60Be8AYOWgSyQlEgZpqG+mICyPaGvFsOR
+ bHJ7cSkExV4cR/VlSwacGVNt0qye9EOoI03nkWNEKM+m0BOh/fh+wIJ2ld9Bu0l/USPcuIR2gJw
+ cN6o9BmUewZ7QJLaOB8eKvEAIVJULX+P95eQoToqdpnFAZzkYnsJMXriUYpoWyl71/5tLe0NYtG
+ 8dDhvfG+YQPrgDezq5jYJ60L633w4PMwCW01eg6QetaKOtAHl8nXrli8ujPQxROmuAVoLvU1hH2
+ YsO9GdDBMDMnV4R4k/j7Uz7e4V+4C3cUjS4KEl1kKnOLoh/qjNWlx4uAULckHL6TBKNHxoj1Qqk
+ QsFFCNy7VI1/egT+7FVGw6onExe40g=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260303_233715_776357_60712A85 
-X-CRM114-Status: UNSURE (   6.31  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,30 +91,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series try to add more resource (clock, pinctrl, reset) to UART driver,
-So it will not reply on external bootloader for initialization. While doing
-this, I've tried to break these patchse into more fine pieces, adding clock,
-pinctrl+gpio, reset separately, then UART.
+Add clock support to SpacemiT K3 SoC, the clock tree consist of several
+blocks which are APBC, APMU, DCIU, MPUM.
 
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
-Yixun Lan (4):
-      riscv: dts: spacemit: k3: add clock tree
-      riscv: dts: spacemit: k3: add pinctrl support
-      riscv: dts: spacemit: k3: add GPIO support
-      riscv: dts: spacemit: k3: add full resource to UART
+ arch/riscv/boot/dts/spacemit/k3.dtsi | 75 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 75 insertions(+)
 
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts |   3 +
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi |  24 +++++
- arch/riscv/boot/dts/spacemit/k3.dtsi         | 152 +++++++++++++++++++++++++--
- 3 files changed, 169 insertions(+), 10 deletions(-)
----
-base-commit: ec1fb4e55df47ed043ab2ccc6787e39b9d67e49b
-change-id: 20260304-01-dts-uart-full-be53670773b5
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index b69cf81b5d55..e3d7f3102fd5 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -4,6 +4,7 @@
+  * Copyright (c) 2026 Guodong Xu <guodong@riscstar.com>
+  */
+ 
++#include <dt-bindings/clock/spacemit,k3-clocks.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ 
+ /dts-v1/;
+@@ -398,6 +399,36 @@ core3 {
+ 		};
+ 	};
+ 
++	clocks {
++		vctcxo_1m: clock-1m {
++			compatible = "fixed-clock";
++			clock-frequency = <1000000>;
++			clock-output-names = "vctcxo_1m";
++			#clock-cells = <0>;
++		};
++
++		vctcxo_24m: clock-24m {
++			compatible = "fixed-clock";
++			clock-frequency = <24000000>;
++			clock-output-names = "vctcxo_24m";
++			#clock-cells = <0>;
++		};
++
++		vctcxo_3m: clock-3m {
++			compatible = "fixed-clock";
++			clock-frequency = <3000000>;
++			clock-output-names = "vctcxo_3m";
++			#clock-cells = <0>;
++		};
++
++		osc_32k: clock-32k {
++			compatible = "fixed-clock";
++			clock-frequency = <32000>;
++			clock-output-names = "osc_32k";
++			#clock-cells = <0>;
++		};
++	};
++
+ 	soc: soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&saplic>;
+@@ -406,6 +437,15 @@ soc: soc {
+ 		dma-noncoherent;
+ 		ranges;
+ 
++		syscon_apbc: system-controller@d4015000 {
++			compatible = "spacemit,k3-syscon-apbc";
++			reg = <0x0 0xd4015000 0x0 0x1000>;
++			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>, <&vctcxo_24m>;
++			clock-names = "osc", "vctcxo_1m", "vctcxo_3m", "vctcxo_24m";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
+ 		uart0: serial@d4017000 {
+ 			compatible = "spacemit,k3-uart", "intel,xscale-uart";
+ 			reg = <0x0 0xd4017000 0x0 0x100>;
+@@ -506,6 +546,41 @@ uart10: serial@d401f000 {
+ 			status = "disabled";
+ 		};
+ 
++		syscon_mpmu: system-controller@d4050000 {
++			compatible = "spacemit,k3-syscon-mpmu";
++			reg = <0x0 0xd4050000 0x0 0x10000>;
++			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>, <&vctcxo_24m>;
++			clock-names = "osc", "vctcxo_1m", "vctcxo_3m", "vctcxo_24m";
++			#clock-cells = <1>;
++			#power-domain-cells = <1>;
++			#reset-cells = <1>;
++		};
++
++		pll: clock-controller@d4090000 {
++			compatible = "spacemit,k3-pll";
++			reg = <0x0 0xd4090000 0x0 0x10000>;
++			clocks = <&vctcxo_24m>;
++			spacemit,mpmu = <&syscon_mpmu>;
++			#clock-cells = <1>;
++		};
++
++		syscon_apmu: system-controller@d4282800 {
++			compatible = "spacemit,k3-syscon-apmu";
++			reg = <0x0 0xd4282800 0x0 0x400>;
++			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>, <&vctcxo_24m>;
++			clock-names = "osc", "vctcxo_1m", "vctcxo_3m", "vctcxo_24m";
++			#clock-cells = <1>;
++			#power-domain-cells = <1>;
++			#reset-cells = <1>;
++		};
++
++		syscon_dciu: system-controller@d8440000 {
++			compatible = "spacemit,k3-syscon-dciu";
++			reg = <0x0 0xd8440000 0x0 0xc000>;
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
+ 		simsic: interrupt-controller@e0400000 {
+ 			compatible = "spacemit,k3-imsics", "riscv,imsics";
+ 			reg = <0x0 0xe0400000 0x0 0x200000>;
 
-Best regards,
 -- 
-Yixun Lan <dlan@kernel.org>
+2.53.0
 
 
 _______________________________________________
