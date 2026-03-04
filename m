@@ -4,151 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90AB4EF8FF4
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 15:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461B3EF8FFA
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 15:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vB2TpoQznJXgiRP48jsIrXw0gz0NvG/8iRMy6LH/FJY=; b=SD7riRZCkiDbeq
-	SRKLyZIxOIWmNJADjTJ2RI8db05BYP08xv74nL/YcC5/6yXmyC5UrEiNiV1GeU1I06wQyAr3lf2bH
-	s423B3aTdlJNFEcu113qjH7c3pjewdMxymDPFXyKr4vNuwXcJd0ndW6G4KYvi3D3q3UKW4YnnrTqq
-	P6p2URFewhtsIv5Poe+XM/v7pjNcSoyvsB0rgW6azdUCpt/i9ZxbGGb2pSeRO4wcNMDwOMZVWdp7i
-	Qvu+tqMqh8HTR5aN0YZ1uoUIXgMt/UHY/ggaMxIF504clB7uHwWKe500D2glZvhXPeF529Zy3bLbs
-	eYg5syUhKbwPK8PKnHLg==;
+	List-Owner; bh=kjdvFVTFDa7HLlyekHRqhMh6HhkDfwHKWwSbKtTm/9c=; b=udy8dQAhwK5q8B
+	0Q7gV+yt3oHc0R+JvFXWovb1ztZIIZhZAUn0FJMaia4t6VkkF0Es3xT334ttYY2nqNpDyLvKwQ10h
+	KQXNvNtrl6E6UqCdCT/wvM3c0yljswd3tWx4VMzbHZ9xakMyDLvqjKvlb8oRopsLtNYiF0fIvHhAA
+	jiL4gDZdIqyoZ/5LxOkmhk1S2g23Qx4N11mOb8GTfKlHkPELAI6Inm7DfGgcKedYCfVc7BhbA0vv3
+	Mf6LKkJEGLVfD6memQqGsGgPWtcQU6s2vtTcgeTUchcJO1UYaojH7CmGUgHMAp7Z0SBuNySep3dv0
+	vJFD2qRn5lkE2G16tiRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxoYi-000000001TH-1we5;
-	Wed, 04 Mar 2026 15:54:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vxocD-000000001pd-0QiN;
+	Wed, 04 Mar 2026 15:58:25 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxoYf-000000001Sm-3ICT;
-	Wed, 04 Mar 2026 15:54:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DCE343503;
-	Wed,  4 Mar 2026 15:54:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D8A3C4CEF7;
-	Wed,  4 Mar 2026 15:54:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772639685;
-	bh=QlsJuLHckh6Mhy8Ly+9BkzszlQ9anHptIAU1Q9z4D6Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MuLV5zDHB7PppDbRrIgiA6DqLtvPrce7Q/kz2ceveoK6H8VNlqrQSnVWx4PUY6x7G
-	 lF8PWqNnLHxmrtCGMH21sU1hTyWTcK1zQEH5n5mbASRAx/bxp+ybDJ28Aggyaql1fk
-	 frx5ib6PuHJ2XXJi+zlH5K7hS5Qcj3Z/DUdYsH2ugYb22BEtUIckOzLLVxvspqhPe5
-	 O0zIaXH4kNcewaC9ZZo+g+IekD3SXC32jFGTi3Rv+iMUZKMGS885FKF/WowxfN4+7k
-	 p0FLMAdibE34WhcmFFwxYrZ5UJvwQppkSNV7DyytsEJkVSGu/KE0PfNw/w95AZRQrr
-	 UDsFgJyGvAKgg==
-Message-ID: <e7f0c171-d5f1-4b3f-9155-a774511451c1@kernel.org>
-Date: Wed, 4 Mar 2026 16:54:31 +0100
+	id 1vxoc8-000000001p5-3IRy
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Mar 2026 15:58:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772639900; x=1804175900;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ve/i1ovUikt4fchQnO2N10gdqtMlXSQie+WbwgtkGeY=;
+  b=N83kT4uN+rFmPbLYfDdHWBLfsPXcMnMZmfr1GHAjkDQ/b8CCqn7AlanK
+   9Q+QwOVnWqK4M1yRYt/aybR1wkH6AHAplDlFepkZYO6J+4u3SL/zBkCs6
+   pOltgix6SgA09v8RyhC+NkFSIsJLqSw0E+zTIOdR3teik2lC9+wlMkFmN
+   +dG3ZRC1AV3ysXbJDTSdZQhqSip0PODkAnE3xZjYTbcVDz/DyvMRZQ3Gb
+   ZN1zv7yN/UT/C2rCivobB95XDlwepkcL444bziAkbhxUbMvHMT+snXccD
+   cBQimCIvVY0zvqgzEiH0Snx9yTSZlk/byE9svu3Dlmh9zkBvA3w8GOjTR
+   A==;
+X-CSE-ConnectionGUID: GYxdJlgJQmOBxN+e0MUNCQ==
+X-CSE-MsgGUID: IbGe6QT3T+ysBdPQjxILGQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="91276266"
+X-IronPort-AV: E=Sophos;i="6.21,324,1763452800"; 
+   d="scan'208";a="91276266"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2026 07:58:13 -0800
+X-CSE-ConnectionGUID: qiM638BcQQqns2nKWZp60g==
+X-CSE-MsgGUID: 9dWsxsm2T+CJptlk5rFkxQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,324,1763452800"; 
+   d="scan'208";a="215730108"
+Received: from lkp-server01.sh.intel.com (HELO f27a57aa7a36) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 04 Mar 2026 07:58:02 -0800
+Received: from kbuild by f27a57aa7a36 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vxobn-0000000040L-0Ums;
+	Wed, 04 Mar 2026 15:57:59 +0000
+Date: Wed, 4 Mar 2026 23:57:49 +0800
+From: kernel test robot <lkp@intel.com>
+To: Lukas Gerlach <lukas.gerlach@cispa.de>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	David Laight <david.laight.linux@gmail.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Daniel Weber <daniel.weber@cispa.de>,
+	Michael Schwarz <michael.schwarz@cispa.de>,
+	Marton Bognar <marton.bognar@kuleuven.be>,
+	Jo Van Bulck <jo.vanbulck@kuleuven.be>,
+	Lukas Gerlach <lukas.gerlach@cispa.de>
+Subject: Re: [PATCH v2] riscv: Limit uaccess speculation using guard page
+Message-ID: <202603042332.krm6lzx8-lkp@intel.com>
+References: <20260226-uaccess-guard-v2-v2-1-765a314839bc@cispa.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v1 08/18] PCI: fu740: Allow asynchronous probing for
- background link training
-To: Frank Li <Frank.Li@nxp.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Minghuan Lian
- <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>,
- Roy Zang <roy.zang@nxp.com>, Yue Wang <yue.wang@Amlogic.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jonathan Chocron <jonnyc@amazon.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Jesper Nilsson <jesper.nilsson@axis.com>, Paul Walmsley <pjw@kernel.org>,
- Greentime Hu <greentime.hu@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Chuanhua Lei <lchuanhua@maxlinear.com>,
- Srikanth Thokala <srikanth.thokala@intel.com>,
- Xiaowei Song <songxiaowei@hisilicon.com>,
- Binghui Wang <wangbinghui@hisilicon.com>,
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
- Niklas Cassel <cassel@kernel.org>, Hans Zhang <18255117159@163.com>,
- "Jiri Slaby (SUSE)" <jirislaby@kernel.org>, Thomas Gleixner
- <tglx@kernel.org>, Thippeswamy Havalige <thippeswamy.havalige@amd.com>,
- Sai Krishna Musham <sai.krishna.musham@amd.com>,
- Nagarjuna Kristam <nkristam@nvidia.com>, Vidya Sagar <vidyas@nvidia.com>,
- "open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>,
- "open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>,
- "moderated list:PCI DRIVER FOR TI DRA7XX/J721E"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:PCI DRIVER FOR SAMSUNG EXYNOS"
- <linux-samsung-soc@vger.kernel.org>,
- "open list:PCI DRIVER FOR FREESCALE LAYERSCAPE"
- <linuxppc-dev@lists.ozlabs.org>,
- "open list:PCI DRIVER FOR FREESCALE LAYERSCAPE" <imx@lists.linux.dev>,
- "open list:PCIE DRIVER FOR AMLOGIC MESON"
- <linux-amlogic@lists.infradead.org>,
- "open list:PCIE DRIVER FOR AXIS ARTPEC" <linux-arm-kernel@axis.com>,
- "open list:SOPHGO DEVICETREES and DRIVERS" <sophgo@lists.linux.dev>,
- "open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>,
- "open list:SIFIVE DRIVERS:Keyword:fu [57] 40"
- <linux-riscv@lists.infradead.org>
-Cc: Anand Moon <linux.amoon@gmail.com>
-References: <20260304140329.7089-9-linux.amoon@gmail.com>
- <20260304145540.3331304-3-Frank.Li@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260304145540.3331304-3-Frank.Li@nxp.com>
+Content-Disposition: inline
+In-Reply-To: <20260226-uaccess-guard-v2-v2-1-765a314839bc@cispa.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_075445_868300_167F8319 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_075820_883247_CA73B291 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,26 +98,455 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2026 15:55, Frank Li wrote:
-> From: Frank Li (AI-BOT) <frank.li@nxp.com>
-> 
-> Commit message has a typo:
-> 
->> Fix the identation of the callback functions.
-> 
-> Should be "indentation" (two 'n's).
-> 
-> The code changes look good otherwise. The indentation fix aligns with kernel
-> style (8-char tabs), and adding PROBE_PREFER_ASYNCHRONOUS is a straightforward
-> addition that matches the stated intent.
-> 
-> AI bot review and may be useless.
+Hi Lukas,
 
-So don't send us useless reviews. Trim your reply list, so only you see
-them.
+kernel test robot noticed the following build warnings:
 
-Best regards,
-Krzysztof
+[auto build test WARNING on f4d0ec0aa20d49f09dc01d82894ce80d72de0560]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Lukas-Gerlach/riscv-Limit-uaccess-speculation-using-guard-page/20260227-000028
+base:   f4d0ec0aa20d49f09dc01d82894ce80d72de0560
+patch link:    https://lore.kernel.org/r/20260226-uaccess-guard-v2-v2-1-765a314839bc%40cispa.de
+patch subject: [PATCH v2] riscv: Limit uaccess speculation using guard page
+config: riscv-randconfig-001-20260304 (https://download.01.org/0day-ci/archive/20260304/202603042332.krm6lzx8-lkp@intel.com/config)
+compiler: riscv32-linux-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260304/202603042332.krm6lzx8-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603042332.krm6lzx8-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from include/linux/uaccess.h:13,
+                    from include/linux/sched/task.h:13,
+                    from include/linux/sched/signal.h:9,
+                    from include/linux/rcuwait.h:6,
+                    from include/linux/mm.h:37,
+                    from arch/riscv/kernel/asm-offsets.c:9:
+   arch/riscv/include/asm/uaccess.h: In function '__uaccess_mask_ptr':
+>> arch/riscv/include/asm/uaccess.h:86:65: warning: right shift count >= width of type [-Wshift-count-overflow]
+     unsigned long mask = (unsigned long)((long)(TASK_SIZE - 1 - p) >> 63);
+                                                                    ^~
+--
+   In file included from include/linux/uaccess.h:13,
+                    from include/linux/sched/task.h:13,
+                    from include/linux/sched/signal.h:9,
+                    from include/linux/rcuwait.h:6,
+                    from include/linux/percpu-rwsem.h:7,
+                    from include/linux/fs/super_types.h:13,
+                    from include/linux/fs/super.h:5,
+                    from include/linux/fs.h:5,
+                    from include/linux/poll.h:10,
+                    from fs/signalfd.c:22:
+   arch/riscv/include/asm/uaccess.h: In function '__uaccess_mask_ptr':
+>> arch/riscv/include/asm/uaccess.h:86:65: warning: right shift count >= width of type [-Wshift-count-overflow]
+     unsigned long mask = (unsigned long)((long)(TASK_SIZE - 1 - p) >> 63);
+                                                                    ^~
+   In file included from include/linux/compat.h:34,
+                    from arch/riscv/include/asm/elf.h:12,
+                    from include/linux/elf.h:6,
+                    from include/linux/module.h:20,
+                    from include/linux/device/driver.h:21,
+                    from include/linux/device.h:32,
+                    from include/linux/node.h:18,
+                    from include/linux/cpu.h:17,
+                    from include/linux/static_call.h:135,
+                    from include/linux/tracepoint.h:22,
+                    from include/trace/syscall.h:5,
+                    from include/linux/syscalls.h:95,
+                    from fs/signalfd.c:32:
+   fs/signalfd.c: At top level:
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_signalfd4' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int,  long int,  long int,  long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/signalfd.c:299:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(signalfd4, int, ufd, sigset_t __user *, user_mask,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/signalfd.c:299:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(signalfd4, int, ufd, sigset_t __user *, user_mask,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_signalfd' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int,  long int,  long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:227:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE3(name, ...) SYSCALL_DEFINEx(3, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/signalfd.c:311:1: note: in expansion of macro 'SYSCALL_DEFINE3'
+    SYSCALL_DEFINE3(signalfd, int, ufd, sigset_t __user *, user_mask,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:227:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE3(name, ...) SYSCALL_DEFINEx(3, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/signalfd.c:311:1: note: in expansion of macro 'SYSCALL_DEFINE3'
+    SYSCALL_DEFINE3(signalfd, int, ufd, sigset_t __user *, user_mask,
+    ^~~~~~~~~~~~~~~
+--
+   In file included from include/linux/uaccess.h:13,
+                    from include/linux/sched/task.h:13,
+                    from include/linux/sched/signal.h:9,
+                    from include/linux/rcuwait.h:6,
+                    from include/linux/percpu-rwsem.h:7,
+                    from include/linux/fs/super_types.h:13,
+                    from include/linux/fs/super.h:5,
+                    from include/linux/fs.h:5,
+                    from include/linux/highmem.h:5,
+                    from include/linux/bvec.h:10,
+                    from include/linux/blk_types.h:10,
+                    from include/linux/blkdev.h:9,
+                    from fs/sync.c:6:
+   arch/riscv/include/asm/uaccess.h: In function '__uaccess_mask_ptr':
+>> arch/riscv/include/asm/uaccess.h:86:65: warning: right shift count >= width of type [-Wshift-count-overflow]
+     unsigned long mask = (unsigned long)((long)(TASK_SIZE - 1 - p) >> 63);
+                                                                    ^~
+   In file included from include/linux/compat.h:34,
+                    from arch/riscv/include/asm/elf.h:12,
+                    from include/linux/elf.h:6,
+                    from include/linux/module.h:20,
+                    from include/linux/device/driver.h:21,
+                    from include/linux/device.h:32,
+                    from include/linux/blk_types.h:11,
+                    from include/linux/blkdev.h:9,
+                    from fs/sync.c:6:
+   fs/sync.c: At top level:
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_syncfs' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:225:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/sync.c:148:1: note: in expansion of macro 'SYSCALL_DEFINE1'
+    SYSCALL_DEFINE1(syncfs, int, fd)
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:225:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE1(name, ...) SYSCALL_DEFINEx(1, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/sync.c:148:1: note: in expansion of macro 'SYSCALL_DEFINE1'
+    SYSCALL_DEFINE1(syncfs, int, fd)
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_sync_file_range2' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int,  long int,  long long int,  long long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/sync.c:377:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(sync_file_range2, int, fd, unsigned int, flags,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/sync.c:377:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(sync_file_range2, int, fd, unsigned int, flags,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_sync_file_range' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int,  long long int,  long long int,  long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/sync.c:360:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(sync_file_range, int, fd, loff_t, offset, loff_t, nbytes,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/sync.c:360:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+--
+   In file included from include/linux/uaccess.h:13,
+                    from include/linux/sched/task.h:13,
+                    from include/linux/sched/signal.h:9,
+                    from include/linux/rcuwait.h:6,
+                    from include/linux/percpu-rwsem.h:7,
+                    from include/linux/fs/super_types.h:13,
+                    from include/linux/fs/super.h:5,
+                    from include/linux/fs.h:5,
+                    from include/linux/namei.h:5,
+                    from fs/utimes.c:4:
+   arch/riscv/include/asm/uaccess.h: In function '__uaccess_mask_ptr':
+>> arch/riscv/include/asm/uaccess.h:86:65: warning: right shift count >= width of type [-Wshift-count-overflow]
+     unsigned long mask = (unsigned long)((long)(TASK_SIZE - 1 - p) >> 63);
+                                                                    ^~
+   In file included from include/linux/compat.h:34,
+                    from arch/riscv/include/asm/elf.h:12,
+                    from include/linux/elf.h:6,
+                    from include/linux/module.h:20,
+                    from include/linux/device/driver.h:21,
+                    from include/linux/device.h:32,
+                    from include/linux/node.h:18,
+                    from include/linux/cpu.h:17,
+                    from include/linux/static_call.h:135,
+                    from include/linux/tracepoint.h:22,
+                    from include/trace/syscall.h:5,
+                    from include/linux/syscalls.h:95,
+                    from fs/utimes.c:6:
+   fs/utimes.c: At top level:
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_utimensat' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int,  long int,  long int,  long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/utimes.c:142:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(utimensat, int, dfd, const char __user *, filename,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/utimes.c:142:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(utimensat, int, dfd, const char __user *, filename,
+    ^~~~~~~~~~~~~~~
+--
+   In file included from include/linux/uaccess.h:13,
+                    from include/linux/sched/task.h:13,
+                    from include/linux/sched/signal.h:9,
+                    from include/linux/rcuwait.h:6,
+                    from include/linux/percpu-rwsem.h:7,
+                    from include/linux/fs/super_types.h:13,
+                    from include/linux/fs/super.h:5,
+                    from include/linux/fs.h:5,
+                    from fs/namei.c:22:
+   arch/riscv/include/asm/uaccess.h: In function '__uaccess_mask_ptr':
+>> arch/riscv/include/asm/uaccess.h:86:65: warning: right shift count >= width of type [-Wshift-count-overflow]
+     unsigned long mask = (unsigned long)((long)(TASK_SIZE - 1 - p) >> 63);
+                                                                    ^~
+   In file included from include/linux/compat.h:34,
+                    from arch/riscv/include/asm/elf.h:12,
+                    from include/linux/elf.h:6,
+                    from include/linux/module.h:20,
+                    from include/linux/bpf.h:21,
+                    from include/linux/security.h:35,
+                    from fs/namei.c:29:
+   fs/namei.c: At top level:
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_mknodat' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int,  long int,  long int,  long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/namei.c:5169:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(mknodat, int, dfd, const char __user *, filename, umode_t, mode,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/namei.c:5169:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(mknodat, int, dfd, const char __user *, filename, umode_t, mode,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_rename' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int,  long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:226:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE2(name, ...) SYSCALL_DEFINEx(2, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/namei.c:6184:1: note: in expansion of macro 'SYSCALL_DEFINE2'
+    SYSCALL_DEFINE2(rename, const char __user *, oldname, const char __user *, newname)
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:226:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE2(name, ...) SYSCALL_DEFINEx(2, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/namei.c:6184:1: note: in expansion of macro 'SYSCALL_DEFINE2'
+    SYSCALL_DEFINE2(rename, const char __user *, oldname, const char __user *, newname)
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:35:14: warning: '__se_sys_renameat' alias between functions of incompatible types 'long int(ulong,  ulong,  ulong,  ulong,  ulong,  ulong,  ulong)' {aka 'long int(long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int,  long unsigned int)'} and 'long int(long int,  long int,  long int,  long int)' [-Wattribute-alias]
+     static long __se_##prefix##name(ulong, ulong, ulong, ulong, ulong, ulong,  \
+                 ^~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/namei.c:6176:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,
+    ^~~~~~~~~~~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:41:14: note: aliased declaration here
+     static long ___se_##prefix##name(__MAP(x,__SC_LONG,__VA_ARGS__))
+                 ^~~~~~
+   arch/riscv/include/asm/syscall_wrapper.h:82:2: note: in expansion of macro '__SYSCALL_SE_DEFINEx'
+     __SYSCALL_SE_DEFINEx(x, sys, name, __VA_ARGS__)    \
+     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:236:2: note: in expansion of macro '__SYSCALL_DEFINEx'
+     __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+     ^~~~~~~~~~~~~~~~~
+   include/linux/syscalls.h:228:36: note: in expansion of macro 'SYSCALL_DEFINEx'
+    #define SYSCALL_DEFINE4(name, ...) SYSCALL_DEFINEx(4, _##name, __VA_ARGS__)
+                                       ^~~~~~~~~~~~~~~
+   fs/namei.c:6176:1: note: in expansion of macro 'SYSCALL_DEFINE4'
+    SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,
+    ^~~~~~~~~~~~~~~
+..
+
+
+vim +86 arch/riscv/include/asm/uaccess.h
+
+    58	
+    59	#define __enable_user_access()							\
+    60		__asm__ __volatile__ ("csrs sstatus, %0" : : "r" (SR_SUM) : "memory")
+    61	#define __disable_user_access()							\
+    62		__asm__ __volatile__ ("csrc sstatus, %0" : : "r" (SR_SUM) : "memory")
+    63	
+    64	/*
+    65	 * This is the smallest unsigned integer type that can fit a value
+    66	 * (up to 'long long')
+    67	 */
+    68	#define __inttype(x) __typeof__(		\
+    69		__typefits(x, char,			\
+    70		  __typefits(x, short,			\
+    71		    __typefits(x, int,			\
+    72		      __typefits(x, long, 0ULL)))))
+    73	
+    74	#define __typefits(x, type, not) \
+    75		__builtin_choose_expr(sizeof(x) <= sizeof(type), (unsigned type)0, not)
+    76	
+    77	/*
+    78	 * Sanitize a uaccess pointer such that it cannot reach any kernel address.
+    79	 * Branchlessly clamp any address >= TASK_SIZE to the unmapped guard page
+    80	 * at TASK_SIZE-1, which will always fault on access.
+    81	 */
+    82	#define uaccess_mask_ptr(ptr) ((__typeof__(ptr))__uaccess_mask_ptr(ptr))
+    83	static inline void __user *__uaccess_mask_ptr(const void __user *ptr)
+    84	{
+    85		unsigned long p = (unsigned long)ptr;
+  > 86		unsigned long mask = (unsigned long)((long)(TASK_SIZE - 1 - p) >> 63);
+    87	
+    88		return (void __user *)((p & ~mask) | ((TASK_SIZE - 1) & mask));
+    89	}
+    90	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
