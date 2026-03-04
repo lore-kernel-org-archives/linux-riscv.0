@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B125FEB7EB2
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 09:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1F8EB7EAC
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Mar 2026 09:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+6SzCltvGksRw9hyK1EkYMFptz8/PVD0EJzlf1X9irM=; b=MVgk9gDjP1RAsB
-	cJWOLN9FfXv96bl5sewdlLo9clfGXjb2GTgjmX75ic+vKAFWLIzVH3eZ/xPzPeKvhBYrN4TifnYG1
-	10bAKlPYZuY4Mn8BQUkvhPTrVqP7Iy0UJLdwR3podxD95etQymh3fQkk4K44/5FDN+JjXFHCLDsyt
-	rCIGKctWQ1MZROj6V4k5wF+Lh4qoee/qdxWK9THpZO4bS+I51y7WEJ5gf0gpl5SgjFmgMhc7KpP0T
-	hfO6l3hXK/pS+Zl0CmoleimVt5mOxvoyIC0WT/E/Q1CvSe4HNPNJiIt21I4jD0/zBV+eefiCPCmVT
-	TGI8HMFb1zSz+2fuqlLQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B8qCNpzZmVx/9E+DWjXPVBx92IPKQl6F8TjGgBPfSck=; b=2qvFkS3jr2lZehjSohablODhDU
+	fGZ0T0gNguzlcVGFF7pphzroF8ufqRO6BivQOamyfi/8zbeUO99OOymFrNU8YiDQwo34bXHVYMsfu
+	nyghqihyo24+cdvAdKGYr/sb+AW+lU+DFAx7H2tJrV56sEsAvNZwEQcNGMJm7/0NbZaNpJt+Jevo/
+	M4hiSsbYYpwbKqZt0mv3ogzA832TJ+GDy2TrXUVt1aCSuZ8+CtJbXL1LkfAa14lhIVqbVAVQE9mjL
+	+Rbg6kHqERjRDzHzeOeoqmrNilrSgcE8V2qdMosKeIFm+gZ68BPQa0fhrFj2KWYXScqCNiLutc2I4
+	l2TRE66w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxiUN-0000000Grhq-0Pop;
-	Wed, 04 Mar 2026 09:25:55 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vxiZQ-0000000GsJ2-1n5z;
+	Wed, 04 Mar 2026 09:31:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxiUJ-0000000Grh7-1PqS
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Mar 2026 09:25:53 +0000
-Received: from duge-virtual-machine (unknown [183.192.221.67])
-	by APP-01 (Coremail) with SMTP id qwCowAAHsm2V+qdpyDQ6CQ--.5966S2;
-	Wed, 04 Mar 2026 17:25:42 +0800 (CST)
-Date: Wed, 4 Mar 2026 17:25:40 +0800
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: ulf.hansson@linaro.org
-Cc: pjw@kernel.org, krzk@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, gaohan@iscas.ac.cn, me@ziyao.cc
-Subject: Re: [PATCH v2 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC
- controller support
-Message-ID: <aaf6lBLUP+5J7hcU@duge-virtual-machine>
-References: <20260226115923.75670-1-jiayu.riscv@isrc.iscas.ac.cn>
- <20260226115923.75670-3-jiayu.riscv@isrc.iscas.ac.cn>
+	id 1vxiZN-0000000GsI5-1RuW;
+	Wed, 04 Mar 2026 09:31:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DA6CA408EB;
+	Wed,  4 Mar 2026 09:31:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99223C19425;
+	Wed,  4 Mar 2026 09:30:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772616664;
+	bh=zgQE9FPg79NGedD2qfd8rrEbgmI4ffrc7T2hh1mMJGs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nM++lJkfi0p1/jKfOa1D+SffAY8be/O9gEmD2PT9ZTwuqGwVM1VSkTvzj+W7HiYE/
+	 u1bt9hSCZdXwGoyy71KOHeyUeE5T5BQ3/LHCed27eQcXArBchaxw7NyiRKJUB4FunA
+	 HBgTGF2hDdooYslK8PIhi4PWwpvCin/mEoz/9Op0AHUHIPgnIGgTUlNLnu/Rioj8x1
+	 /6RhEweeWR2ms7D/bxvbWrFo+/ISYanwH6djArYLBHXYdakBjHdtP0GeovKHxhhCQJ
+	 JE7u1UuyeHI73A1i7yFg5/TPmB28KzDjkCncr8WDbuGtARNrAmf02o7AGBos5Je4C4
+	 hYKrLmEEfy1sQ==
+Date: Wed, 4 Mar 2026 09:30:57 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Bo Gan <ganboing@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, lizhi2@eswincomputing.com,
+	devicetree@vger.kernel.org, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	wens@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com
+Subject: Re: [PATCH net-next v3 1/3] dt-bindings: ethernet: eswin: add clock
+ sampling control
+Message-ID: <20260304-capable-setback-908ba5b5c858@spud>
+References: <20260303061525.846-1-lizhi2@eswincomputing.com>
+ <20260303061637.872-1-lizhi2@eswincomputing.com>
+ <20260303163846.156d18f7@kernel.org>
+ <20260304-regulate-verdict-c3a361d2dc83@spud>
+ <05a15890-392c-41c3-9566-8eb506ddfe5f@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260226115923.75670-3-jiayu.riscv@isrc.iscas.ac.cn>
-X-CM-TRANSID: qwCowAAHsm2V+qdpyDQ6CQ--.5966S2
-X-Coremail-Antispam: 1UD129KBjvdXoWruF4DGw1ftFyrJw1rXFy3CFg_yoWxurX_Ca
-	43Wa4fGa47CFWv9a47tr1Sy34YyFs0g3WDWFyYg3y3Wa1UZr1DXa1Ivrn8Xr4Dur4UCFZr
-	Jr98JrWxJFnFkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbsxYjsxI4VWkCwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z2
-	80aVCY1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x07j0fOwUUUUU=
-X-Originating-IP: [183.192.221.67]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+In-Reply-To: <05a15890-392c-41c3-9566-8eb506ddfe5f@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_012551_756313_C752AA94 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260304_013105_449609_FC114892 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +82,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2432717271451266235=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 26, 2026 at 07:59:22PM +0800, Jiayu Du wrote:
-> Add SDHCI controller driver for Canaan k230 SoC. Implement custom
-> sdhci_ops for set_clock, phy init, init and reset.
-> 
-> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-> ---
->  drivers/mmc/host/sdhci-of-dwcmshc.c | 288 ++++++++++++++++++++++++++++
->  1 file changed, 288 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index 2b75a36c096b..21c77e908d77 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-Hi ulf, could you please take a look at this patch? Thank you!
 
-Regards,
-Jiayu Du
+--===============2432717271451266235==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="VyT/OApBJ2ELuMkj"
+Content-Disposition: inline
 
+
+--VyT/OApBJ2ELuMkj
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Mar 03, 2026 at 05:23:18PM -0800, Bo Gan wrote:
+> Hi All,
+>=20
+> On 3/3/26 16:47, Conor Dooley wrote:
+> > On Tue, Mar 03, 2026 at 04:38:46PM -0800, Jakub Kicinski wrote:
+> > > On Tue,  3 Mar 2026 14:16:37 +0800 lizhi2@eswincomputing.com wrote:
+> > > > There are currently no in-tree users of the EIC7700 Ethernet driver=
+, so
+> > > > these changes are safe.
+> > >=20
+> > > What do you mean by this sentence? The commit under Fixes was part of
+> > > Linux v6.19 already.
+> >=20
+> > The "funny" thing is that caring about users doesn't even really matter
+> > on the devicetree patch, except for this hunk:
+> > |@@ -81,7 +99,9 @@ properties:
+> > |                          or external clock selection
+> > |           - description: Offset of AXI clock controller Low-Power req=
+uest
+> > |                          register
+> > |+          - description: Offset of register controlling TXD delay
+> > |           - description: Offset of register controlling TX/RX clock d=
+elay
+> > |+          - description: Offset of register controlling RXD delay
+> > |
+> > | required:
+> > |   - compatible
+> > And it only matters here because an item is injected mid-list. If this
+> > was moved to the end with the RXD delay, the **dt-binding** changes
+> > don't have issues with safety. I've not looked at whether there are
+> > knock-on concerns about users in the driver or whatever yet, but from a
+> > binding POV only that hunk can break something that currently works.
+>=20
+> This was already discussed here in v1:
+> https://lore.kernel.org/lkml/e7183ae1-8b8b-4e77-9f4e-3bc1b4b63556@lunn.ch/
+>=20
+> The device-tree is not checked in yet by ESWIN folks, so there's currently
+> no user of the dt-binding. No need to worry about backward compat.
+
+The binding and driver exist, there doesn't need to be a dts in tree for
+there to be potential users. If the break was important I might not
+care, but this seems to be a gratuitous break, since the new items could
+be added to the end of the list and compatibility maintained without
+incurring any more difficulty for you.
+
+--VyT/OApBJ2ELuMkj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaaf70QAKCRB4tDGHoIJi
+0t+yAQDaqUwbBXUnRZdznNlE9A9+14ZFfzPctlXgnLmjDlK8KQEAznLn0a9hkqF9
+NpmQ3RerxFbR3zZlgJKl/8p/5oYxngk=
+=yS9x
+-----END PGP SIGNATURE-----
+
+--VyT/OApBJ2ELuMkj--
+
+
+--===============2432717271451266235==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2432717271451266235==--
+
