@@ -4,78 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E9DEF47CD0
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 21:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52DA1F47CDB
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 21:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NdHLm3HHIy1u5bSm+gwWV+UV15XzMmIR4ZowmMoBzMA=; b=pXXibhIuozggHMFbhMoGl1cM2v
-	eOFotoKc8e2NAqawFZcVPOf9CQNQyNeH0uCqst6f8OGvdzbbspWnFaZqGlJWSg7HiByHQgTAn04Ss
-	69nx+EXVbvRsBfX4aTJCK0/gKhqV26b1QyP4DmuiCDb0a/tj5bzVI+QGv6CZPNrVI5k/pVJN3ZeVx
-	aNGWiW7fVhO9DAzTULH1qldC5f1bQlXBJm/TBhBM63H4EFVyoI3Pa+fKm6mqB2EwiMz8g8b1o9qip
-	YpBzXf6Kc4NjGiD9rFdgcnlS03pKv1H/vtffIOuE+n02Mns4CWMoBVzHhr2d5SAKsP8AfNfL2i1K6
-	9cpY06pg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UA/tMzXRLzwxXTHzu5b6Ic6Ztv+Qg2pY4SUFVKTJOoE=; b=2tjj2/IguAv6IN
+	13vAM/919zqo3ui38zOdqAy1pEnybsb2r/z9j++M9+zyJLKm3J1wUErbJtB0pqhHag4ZTgYEzrEFu
+	96LpIV8OnzgJZZlE+bQM0nsbM9geWw3+7i4LRvKR74CMqJQfeKB6nr4UUExVC4toUI+qVysBPTHb3
+	cubmXNEKZuX2uDz/AGef1aKBJpLeymGrhvVxIvPDdPIvcCjPUT35ZaHXk49uCwF+fzN6MV0dRo0dX
+	tpy6fbXST+5pnTL0lYcAd9pZCxT0ok10ir112CbWraMsEtLs8n/fiSzKozWoEbNJdDEkYOIRRQJsv
+	A+MSsAMvWS8vPqZopwIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyFrw-00000002Ygh-0VJv;
-	Thu, 05 Mar 2026 21:04:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vyGLN-00000002aez-11Qo;
+	Thu, 05 Mar 2026 21:34:53 +0000
+Received: from mail-dy1-x1331.google.com ([2607:f8b0:4864:20::1331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyFru-00000002Yfd-1eUU
+	id 1vyGLK-00000002aeN-3Rr5
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 21:04:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 950AB444A7;
-	Thu,  5 Mar 2026 21:04:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DD05C116C6;
-	Thu,  5 Mar 2026 21:04:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772744665;
-	bh=zazYrHvSYXwWZwTBCtNqw2NlYT9eCTVzZJ22WXvKDCM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jGKoGMdgvYrKL4azyYnKY5NxH9P4S6CjcZ/QDnmfafybQheYx2fgHJA5uqLHK9YLK
-	 xDwoVDcBNO5n1mKPL8KdwtBHouaOg3Esaz9q6LaPuBuk+4MnBpAacbd8dmC1OEoWa6
-	 NCpNzHdWqcC3SHEzEh8IgpfSoz7I9HW4+V2pwz4tcYc9XhRKoh64GpTFIMW2HP8ao2
-	 qluUm7/Ppcaj23bW2B24+7eu1NzXxUTG0q+zAJuya7iNzflmo/Evqu/x54n2DiUzNf
-	 5Ks/WzuSn9ulmMKWipomicKAXA9crK3HDDOe2ASq8486keMR9ceW3m915jaDfrEkj0
-	 FtjWbkNhCoXMA==
-Date: Thu, 5 Mar 2026 21:04:17 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ryan Wanner <ryan.wanner@microchip.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, andrew+netdev@lunn.ch,
-	richardcochran@gmail.com, abin.joseph@amd.com, robh@kernel.org,
-	edumazet@google.com, netdev@vger.kernel.org,
-	theo.lebrun@bootlin.com, pjw@kernel.org,
-	Valentina.FernandezAlanis@microchip.com, krzk+dt@kernel.org,
-	sean.anderson@linux.dev, aou@eecs.berkeley.edu,
-	linux-kernel@vger.kernel.org, alex@ghiti.fr,
-	devicetree@vger.kernel.org, palmer@dabbelt.com,
-	nicolas.ferre@microchip.com, vineeth.karumanchi@amd.com,
-	claudiu.beznea@tuxon.dev, samuel.holland@sifive.com,
-	daire.mcnamara@microchip.com, conor+dt@kernel.org,
-	dave.stevenson@raspberrypi.com, linux-riscv@lists.infradead.org,
-	davem@davemloft.net, conor.dooley@microchip.com,
-	narmstrong@baylibre.com, pabeni@redhat.com
-Subject: Re: [net-next,v2,2/8] net: macb: rename macb_default_usrio to
- at91_default_usrio as not all platforms have mii mode control in usrio
-Message-ID: <20260305-chatting-immersion-1995ed2ddef5@spud>
-References: <20260226-enjoyer-shock-e17f9dc7cbdb@spud>
- <20260228232600.4187398-1-kuba@kernel.org>
- <20260228-shopping-april-a8c4d2481cbe@spud>
- <a1e36563-0e74-48b2-ae02-813cb28fc931@microchip.com>
- <20260303-stardust-shaky-c8a757ec149d@spud>
- <1d35173d-b364-4c4a-a083-388d3bd27ce5@microchip.com>
- <20260303-speech-reversing-b3fdf4817798@spud>
- <cb782e55-29f9-46c5-8213-397202b326ec@microchip.com>
- <20260304-stardust-blade-c9ed766b041a@spud>
+	Thu, 05 Mar 2026 21:34:52 +0000
+Received: by mail-dy1-x1331.google.com with SMTP id 5a478bee46e88-2be27fa54feso4528807eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 13:34:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772746490; x=1773351290; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pSsd5bKDZzrvqGFN4Dck6xWTQJmjnOdB6I5ka+LcKGg=;
+        b=JqI0TAENNGRT56xb1U4c67FhberD1uDIBDitSHHktxVmVYNuXVkT+UB52w3D4Whm+M
+         rqw98WukpXTkSkleHsjK5y+GVi+ARrIT4gvRXhb3EMhezTy1cE1tlUgMb8ZjIG+aQ7YM
+         faRS3Y2DtqfM7DqYV/AkEYhJcxr3LlZgU8IkyWBLN5gUhlYTfSY7JX1UbJZq6HK+DeN1
+         LPDhu2BD2q9hDiZYG+P5VAF0+oSULVFbP4+/K+VH0TykanYnrHLGh/bd4rBT9bEuBy+W
+         HLWpH60MHSnHWJc9v1zrEjOB6HQ3Dlgp5wrVZgL6I7FtC5xfLTRJtDVyAt3ZHeI8NNiv
+         ELWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772746490; x=1773351290;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=pSsd5bKDZzrvqGFN4Dck6xWTQJmjnOdB6I5ka+LcKGg=;
+        b=ikpGFVyqYIsfUvO1RmD9ifUAYhO+vWidkjPxaOAGGx/XF4Q2YWPspcbgQnQLcTKBlX
+         lLTWxquq5iv1uGmNJ3DeWliCIF70AHo4fxb1Vbqotk9bYfdIk8FVOo8rbISM5q3O46Pk
+         YBSNew1TiB8TSOHgJrWialh+oexSDvBpm4PfBxgzRWUA6IbVh3d4bRNPDDNiuO/kH3qi
+         yiw1xBF0ZL2aN3wyCAIbt9BXRi1nDSPnvARm0Rrxlz6J6y67dyEgSB39SKmysKCe9c4x
+         O/QdIJe/i3nNf+2kFK+GcexotvVnQ3L8hPvbja76sVU+0+ryJFbY9HBR/NgKvURy4PN0
+         BVMA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVkpPRkuP3axCctSHr+Bq9tXGDq3ZaHeZdn9R2Z3y5JH5NcUwOu7+UtM69/oapSJ1wp3OZ36H4j4evjQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmDNY0eHjRYW/7hMzvLKQqV4DZb+8Ln+t/Kh85/AJIoUbt/qam
+	aXyG4BgJYOJmSMFYZp2s6TIbGUutaQ6f1aSFhzjyWURTA0V0XS4rSLjd
+X-Gm-Gg: ATEYQzwg5xOP7Od8KBttpVtVadAb5OHFjvvI3PxQ7f2RXtYmocpn/CIlFJx7UL1VRac
+	IyGsJdVWf28N/U7aF+lVxRR+T+6J3Yp38Xts1tpTM5JmVPtfqy5d3RSFjb9ZUJEd/bFsL7/nIHJ
+	sPNVjoWQUbvysRN9+hf0c/NVWHtfX4L6Oh2FffHuhpqjji86EhLx081D9KcyExP7QgzJ+Hmt9JW
+	6DdSC9azN0JcWZo+le2Zjf1GwsRjNxmXHpmd2mNS+lEUIClTWXN44txrv6/g2ziqkYwf4Z5lTG5
+	XbGlyTbAHMAP45mvoaSMbRP8sjiwVuw9gPRVEaR1ovtLYxnE12A3jWkiCHwHLZod/3aoH2uckcD
+	iYk1msEfEF76yj8umScK+T0lcF/lmohtkDxRf0Dlji3cykS6dHypfMD4mopmgPRFv3I94SkJGgb
+	/wX9cXo/yPWdS1u3DAzTbO4msto4HQlYeCxfZS
+X-Received: by 2002:a05:7300:148a:b0:2ba:75f5:72a2 with SMTP id 5a478bee46e88-2be30fcf975mr3249419eec.2.1772746489738;
+        Thu, 05 Mar 2026 13:34:49 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2bdfba0df2fsm14573249eec.7.2026.03.05.13.34.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 13:34:49 -0800 (PST)
+Date: Thu, 5 Mar 2026 13:34:48 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v2 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
+ multipleOf for T-Head TH1520
+Message-ID: <de1e20d8-2d0c-4eec-978f-2293c1ebac8e@roeck-us.net>
+References: <20260305144044.44208-1-zhengxingda@iscas.ac.cn>
+ <20260305144044.44208-2-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-In-Reply-To: <20260304-stardust-blade-c9ed766b041a@spud>
+Content-Disposition: inline
+In-Reply-To: <20260305144044.44208-2-zhengxingda@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_130426_480447_F06334CA 
-X-CRM114-Status: GOOD (  34.17  )
+X-CRM114-CacheID: sfid-20260305_133450_866726_71096ABD 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,130 +95,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8750268556409485420=="
+Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org, Rahul Tanwar <rtanwar@maxlinear.com>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Fu Wei <wefu@redhat.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 05, 2026 at 10:40:43PM +0800, Icenowy Zheng wrote:
+> The G and J coefficients provided by T-Head TH1520 manual (which calls
+> them A and C coefficients and calls H coefficient in the binding as B)
+> has the 1/100 degree Celsius bit (the values are 42.74 and -0.16
+> correspondingly), however the binding currently only allows cofficients
+> as precise as 100 milli-Celsius (1/10 degree Celsius).
+> 
+> Change the multipleOf value of these two cofficients to 10 (in the unit
+> of milli-Celsius) to satisfy the need of TH1520.
+> 
+AI feedback:
 
---===============8750268556409485420==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ze45Z7enXNcfXoL5"
-Content-Disposition: inline
+This isn't a bug, but there are a few typos in the commit message:
+- "cofficients" should be "coefficients"
+- "correspondingly" should be "respectively"
+- "has" should be "have" (referring to "The G and J coefficients")
+Additionally, "has the 1/100 degree Celsius bit" is slightly confusing and
+might be clearer as "have 1/100 degree Celsius precision".
 
+Please fix.
 
---ze45Z7enXNcfXoL5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Mar 04, 2026 at 06:52:58PM +0000, Conor Dooley wrote:
-> On Wed, Mar 04, 2026 at 09:13:39AM -0700, Ryan Wanner wrote:
-> > > No, I don't think this is what I am suggesting. I am suggesting adding
-> > > USRIO_HAS_CLKEN to the gem configs, and then modifying the usrio stru=
-ct
-> > > to have a member called something like "refclk_default_enable" and se=
-tting
-> > > it to true for emacs and false for gems. Then in init code somewhere,=
- we
-> > > would do:
-> > >=20
-> > > 	if (property_present(refclk-source))
-> > > 		if (property_read_string(refclk-source) =3D=3D "external"
-> > > 			refclk_enable =3D true
-> > > 		else
-> > > 			refclk_enable =3D false
-> > > 	else if (property_present(refclk-ext))
-> > > 		refclk_enable =3D true
-> > > 	else
-> > > 		refclk_enable =3D usrio.refclk_default_enable
-> > >=20
-> > > Then later on in init, when configuring the caps, we would do:
-> > >=20
-> > > 	if (!(bp->caps & MACB_CAPS_USRIO_DISABLED)) {
-> > >=20
-> > > 		if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
-> > > 			val |=3D refclk_enable;
-> > >=20
-> > > 		macb_or_gem_writel(bp, USRIO, val);
-> > > 	}
-> > >=20
-> > > Or maybe we just roll all that up together inside the !USRIO_DISABLED
-> > > code.=20
-> > >=20
-> > > The code currently in macb_configure_caps() about refclks would be
-> > > deleted.
-> > >=20
-> > > This would produce one property that works for both emacs and gems, n=
-ot
-> > > change any defaults for existing devices and retain support for whate=
-ver
-> > > devicetrees made it into the wild with your property.
-> > >=20
-> > > Does that make sense?
-> >=20
-> > If we are set to have an external and internal clock dt property than I
-> > think we should just keep those if statements inside the !USRIO_DISABLED
-> > code block just to keep it more organized and clean and keeping the
-> > current HAS_CLKEN if statement be the fallback default case to set the
-> > register bit value. Some thing like this:
-> >=20
-> > if (!(bp->caps & MACB_CAPS_USRIO_DISABLED)) {
-> > 		if (property_present(refclk-source)) {
-> > 			if (property_read_string =3D=3D "external")
-> > 				val |=3D true;
-> > 			else
-> > 				val |=3D false;
-> > 		}
-> > 		else if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
-> > 			val |=3D bp->usrio->refclk;
-> >=20
-> > 		macb_or_gem_writel(bp, USRIO, val);
-> > }
-> >=20
-> > Would this be a good middle ground?
->=20
-> I explicitly would like to make HAS_CLKEN represent the USRIO having the
-> bit, and not ascribe behaviour to it, so that it is actually a
-> capability. This is why I want to make the default a member of the usrio
-> struct in match data.
-> Also, the bit position depends on the usrio struct, which we both
-> omitted from our pseudo code, which means that even knowing how to
-> modify val depends on having HAS_CLKEN/usrio.refclk being set, so your
-> fallback doesn't sit right with me - I am trying to avoid things writing
-> to USRIO without specifically being told what it is writing to is valid.
-
-Ryan and I have discussed this a bit more, and it seems like the
-USRIO_HAS_CLKEN capability flag is also being used to represent two
-different "features" entirely (turning on a xceiver clock and choosing
-the refclk source), depending on which device the driver has been bound
-to. The next version of this series will also split this into two
-different capability flags, so that each actually does what it says on
-the tin.
-
---ze45Z7enXNcfXoL5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaanv0QAKCRB4tDGHoIJi
-0oz1APwMZmmb5uy3DhSTBfBlnKJpHeM0ls3Jfzyp65FAfq/XjQD+JmWDSVx6mbpG
-EgKcXYMJlYa29W0FoQxDe2MkGzB5Qw0=
-=hH75
------END PGP SIGNATURE-----
-
---ze45Z7enXNcfXoL5--
-
-
---===============8750268556409485420==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Guenter
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8750268556409485420==--
-
