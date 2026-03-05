@@ -4,142 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64451EEF323
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41455EEF325
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+xghazD3EC1LfDJS3mqOPhyM0XlDUHB5Tc9QDxpFWU0=; b=mP2nsNNt8uvvBg
-	ajHDb6lKgMRO9mP4gni6WgJqLo1WX+QRX7OHgQZuu2N2E+G1sFwrxViJs+7hbk4Lt59hP2VX9mtDI
-	b90wTZHzgjMli1cF2Ft3bKASBps6SdIhmu16H7CKPSYojAYIv000d1vpbU7dEYTq0+IyWfujvpaxJ
-	7nJ3X+/QJ6SuAQMG3A+Ab2DgvUXUr9Up/btBKvOodZlcHp6DZoR5ycRtLlkEXyl2BO5k4PJzcVs+W
-	TO9ucFC6dOCziFkxvbx3HWVWhJPVjiTS1aMODQESV1hfgeJ0DUtUBhF3d49ONtxTABt+H0Ak0znQY
-	ouvNFfUS33KFPGCFyjuA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Ttf7DkDXH6k/Db6Bg2Hijv9yhL5qEK9dt0EnaZ3Mp5Q=; b=x7B3b2xIs6JORiMQBJtJjJhije
+	6bBkGTVTgP4oO6OX/YWpYwYOjde1tYAEw+9wCTMhDq5XSKhJZ5HW5thH3owYQxByL40rPynvAC/8T
+	PSz+1cCfxHN8sotcSeYIHkusQlOWSCz3n8PXGVQtR0d6x41JhI64I9l8KSCORxXre3aGWBIoYBUT6
+	TdGPXyaGonJeYL3c4hr+pgETzuISU3F0EqqQDtTE0/FqHkKdwDTspA3Gvb+EGp4wwir8xlrqAtipW
+	5rFXN3cAjKRAV5BtWheHUJvcfNPt61zirsn/9pHZvvh7NXAqUerNzAu9ZVKmvPerXRW+ex4m2MCeO
+	5L9GLvpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4FE-00000001Dag-1akl;
-	Thu, 05 Mar 2026 08:39:44 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vy4IY-00000001ECy-2abe;
+	Thu, 05 Mar 2026 08:43:10 +0000
+Received: from mail-wm1-f73.google.com ([209.85.128.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy4FB-00000001DZp-2p0B
+	id 1vy4IW-00000001ECb-05lS
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 08:39:42 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6253AMqZ865886
-	for <linux-riscv@lists.infradead.org>; Thu, 5 Mar 2026 08:39:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	kdWMwgc8nLSwvc7+zSIUZsTz2pEGRMvswxdPfflnvOo=; b=Zhs1szgRs6PvG6yC
-	/K6l0Og7co3C6ED8icQT7ngtsI9G5Zp17IaIYa/MOFJSyTxAUHo39qtMLOBGQhpj
-	JO9fE/F/E4F4LvhAKnAlFKn+fH9sEpkGqfNT9M43WTCJkjqaFeUzfOGpTrDAGNtC
-	tA5poP4iW9oFEFa2er9A5XyBDJ8CedmbmCYM1jjJmOXgrD4UqsM96/EbUTiVA/x+
-	+Hq4ib0d4uJFejDRNFTAYPM9OxAzG41cfjw0IJBJVDWkmbFbGS1eLwFkvUDxUI+x
-	i9yGzbk3U3z2KxBfUGbK5GoyOmpZPSUHhrYGJ9ek999ywA1Q/YTR3XTo5MWWFrPw
-	1lqwYw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4cq1pk0ycj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 08:39:40 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8cb50dfd542so577162885a.0
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 00:39:40 -0800 (PST)
+	Thu, 05 Mar 2026 08:43:09 +0000
+Received: by mail-wm1-f73.google.com with SMTP id 5b1f17b1804b1-4837c597cd5so45296585e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 00:43:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1772699980; x=1773304780; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kdWMwgc8nLSwvc7+zSIUZsTz2pEGRMvswxdPfflnvOo=;
-        b=Pug3WPBe+xMjZV2lhuqYSbHXUVCZet86PsQZiTY7sG1NRr1B6N2otEtR5RrPVnxYB0
-         r5dTU66aV/1c54vYFHua9XV7RiJiHUBJj3ot4E9rS1GBoiJwCU/lhLFM9e3UPv0hzfCm
-         E5Q9f7HIwiwFDFYbQ0oRSaSvqA86AwJ5/yIQpIfo0FxHRqValVdImCI6GaRWz53JMkZ+
-         sf24Tn3Lq68hl/PAzBzL4C7d55TcpDC7gQtN7nBzvNL9T9q8GZ6j8xr0Is9GFTh1bmry
-         7KDBj4DM+ubZ+pqTuohV5/jRHTQc1sgXa0zlAmG/s09CrSJJnAlGl96ry8HbZekBexJH
-         Rp6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772699980; x=1773304780;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=google.com; s=20230601; t=1772700185; x=1773304985; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kdWMwgc8nLSwvc7+zSIUZsTz2pEGRMvswxdPfflnvOo=;
-        b=e4f8jeqow9IOWoO3w9UqcCg0LfuGdlXcx2F25qP4i9GXcQv8oqoAYEg1oJVD7mhOc3
-         sp01qe+HNjn+XRGCTlUKt3p6+hOqlNUUAY3pCwDv3d6APuP+ZxsBds6kO/+tkd2gjRSd
-         w71he2NwF11Q0Fg+zUHfZXgqoCy0Op6Y78b7/FQZRc+J/pDVdBuQHXflWkU+iNk78y/L
-         WxhnwrgEq3JX5VjwKYcb9Zcoci2oiitDNF2F7h+qigTmqtmvDXVoR0IlMc6cJDLftSSu
-         wDfxMObLZO/D0RX/bi2Ad9zw5MJcCB7KBpeBnk1V7EptmDeArSnz3I5VkD7VarcFba78
-         8MNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX+kfkTiWf74hxDC2/btms9jl/gvjuOIzcppfjM27AIfPgcsJehysyhdTiGBj3vwj8xHYWzxwfzAuVgzw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzt0ABujBTqsSg4h9mtp1yav6bdOjw+mlpTFXXFoN8BFVRpNr4W
-	WqEeYh36vD2puTRXTNAoAXQsT5a6s6yaao9RkOUQbnS0rnwLxF1EkUkJQzJA2xSydBVLJkehcw7
-	7U1GL5AEZwyxKpKd8XxNl3iQQrowbEbTMzUBf9iWO1W3jfT8cP955VJ3uSp6pSWLSRr/uaco=
-X-Gm-Gg: ATEYQzxQj/1sr8x+45IOLpsfGL5nx9hQT0Utm/w/pl1PTI5CGIfFZr47BnB0fL9NJmm
-	gDJqBTQwQ0kqTVNs0QFU55mX2zuMJacRoRdj0PTFacF/Ae1iRCmJ6KPo31c4Nlye2JIT3G2RHNO
-	qimtgziD6r9K0ubhuYSg041eUDdCF+801mvmSylpnYj4sv/M5SE1zbFSkY8xmPVOEssmfcmpg6n
-	IVFX1fdsD9hsFxazixKku+/luUUU8cCVKVOL1X6pDy1MNzE1gL5uiWXc0a44gFC8YebhrnyaXNx
-	cRH7ReCPRHAsceoA1FOp46nyB7Jx/4K+AB69Ty4K5LPBSIMzzQOVvuGakyKaHHSN7XUqHr2rAsm
-	Z9mTRrw5mOmVjRoJWHPKKOf5J/PdXP3L6UdIf58aB24QOMt1iy8CErHDtlLhB3BYkY+/Nltlp4d
-	WofEE=
-X-Received: by 2002:a05:620a:404c:b0:8c7:1b40:d096 with SMTP id af79cd13be357-8cd5afcdcfbmr452359485a.9.1772699980152;
-        Thu, 05 Mar 2026 00:39:40 -0800 (PST)
-X-Received: by 2002:a05:620a:404c:b0:8c7:1b40:d096 with SMTP id af79cd13be357-8cd5afcdcfbmr452356985a.9.1772699979710;
-        Thu, 05 Mar 2026 00:39:39 -0800 (PST)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-65fac06e3fasm6657504a12.25.2026.03.05.00.39.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Mar 2026 00:39:38 -0800 (PST)
-Message-ID: <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
-Date: Thu, 5 Mar 2026 09:39:35 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
-To: Vladimir Oltean <vladimir.oltean@nxp.com>, linux-phy@lists.infradead.org
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
-        linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
-        linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-        linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-        linux-usb@vger.kernel.org, netdev@vger.kernel.org,
-        spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
- <20260304175735.2660419-23-vladimir.oltean@nxp.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260304175735.2660419-23-vladimir.oltean@nxp.com>
-X-Proofpoint-ORIG-GUID: Lau_niguN6ZBmacPM8Nj3B7Xb8ouzn7A
-X-Authority-Analysis: v=2.4 cv=Gu9PO01C c=1 sm=1 tr=0 ts=69a9414c cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=8AirrxEcAAAA:8 a=GJStlgXwfe-SXQdWLvAA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22 a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-GUID: Lau_niguN6ZBmacPM8Nj3B7Xb8ouzn7A
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA1MDA2OCBTYWx0ZWRfX3I3YyJ3qOgpd
- UOcQvArFHcvncLDnP8UstTJRP0eoQHR21GHgK7VbZtdAl1GCM5+KK8Boc48CqPH/ApI1fDRIhGy
- Xala17kG6mJnKlfmsuc0FdjE/qUdZBZeIwcv1R+GC60K4mGzS68+AK2Mk9xosy2V/cBwIoNthBs
- S7qNAD+gESfUZgEiPw5pJp58BO8RNHYCmXwGozcEEl3Rld3RV4bTt8GOInNJWdmAmrnnMv8HdjQ
- N73BguRP+DWfk+xwwHgUEfXtGcT1b7LFkx6pxBFkmVCYVIDMLqMiaq+c+6rrL2kV5MaDUKNLsE8
- kC/ZuAI6ZdyA+qAvcrduisId4fFfyVfQXONcII+bj7i2cmXhJgYMYFnpFxS8NiB+u+xI13BYhYx
- /N59VqMPTqwoh1aRtJnICdGoKNw/uGVnYZ9Bdoqut0JQacbi2jG6+JEpNu5q56K8IZgW9wiYRzs
- I8DVkUWLuM0tmoYH9Vg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-05_02,2026-03-04_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 suspectscore=0 phishscore=0 adultscore=0
- impostorscore=0 clxscore=1011 priorityscore=1501 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603050068
+        bh=ImdwXMFzfOswNPEOQHnijbZ5BxVnmvmjujol0/tafME=;
+        b=rYX7gD4H5G/PSAwQfKhbkBXaRWOWrFSjvwXyLOpm/nWyqEJrKJuZsESL/H/bwOjKWo
+         o5wK82NjAvDLCxDBNoS8myjwhHWwkrTsnCFvt9LRMB5dEt0aZv2KFH48FyD47vsRz363
+         oGrYLMwQj6MtCBX4PVz4SxotrSe2+j8G0eu33nJXPv2NCrYa3v+ocbCTIa8tp2PD7nPx
+         o5aMzvI1qINC03Q1EKuMNspzBwpKNTh4s7HxyFaKju8HCvj2YzoXcjkHnLepS7QEixry
+         v90nBrPrlF+fx1F8aZoxyVWdudD2b8odFFhoI7Knf2gpuomEBrR30BsQul6UqWgbwUor
+         2vyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772700185; x=1773304985;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ImdwXMFzfOswNPEOQHnijbZ5BxVnmvmjujol0/tafME=;
+        b=VkQFBk8GtrIe2JZe6GbnHdwd6zvFxPt9zq4PrBL6qk4lNjR8TyV26r48w3yVyNJKwv
+         vRSa6XRG6pN2pCnn9c8U1ob5GVk8lMS350suGRC5T4AqRbRw7vsjpGxkevyG5Nyi3TLF
+         5PHnICB5YjmSeBqFUl0D60u5J3Og6QbTCLaZcVqTDv768omHDYvLdmKm6sgi49YC1DaF
+         O+vODoHeBOqWUQt4Y8mcaVajGD7ojMEFbN0lvwKfWV7Wu3sWBvZEwhdbDQoH6IQ7uhJm
+         jWxc+l4FtLAN71u9FZOgDZiEqZ72B/himxo/24aGa4bybnf4M+CY7N3dnDyPgFHOwsrn
+         gTeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX+E4TaN02XWh1iXvEoL5Dw8boZeNQI6eyGKwXmbuxEf/t8bU6035sjtN7nhohKYNyrpQO7H6siU64sZA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlAjlOcTNrvliDQh0x9l7V5heIz18sdYtKft6tPVhexvwpJ+1W
+	7pGNzvFPyd8uzUZnW9xioPz8+rrsO4cf/831/ukr5aiN0+zeW6OgLK5cDuu4gDOpjwf825nspRk
+	GEeT8s5AuUm5lBHllAA==
+X-Received: from wmj21.prod.google.com ([2002:a05:600c:255:b0:480:69c2:3949])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3e8f:b0:477:73e9:dc17 with SMTP id 5b1f17b1804b1-485198d8b81mr83642225e9.35.1772700184640;
+ Thu, 05 Mar 2026 00:43:04 -0800 (PST)
+Date: Thu, 5 Mar 2026 08:43:03 +0000
+In-Reply-To: <aak9ZBJenK1DSCEt@monoceros>
+Mime-Version: 1.0
+References: <20260113-clk-send-sync-v4-0-712bc7d94a79@google.com>
+ <CGME20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8@eucas1p1.samsung.com>
+ <20260113-clk-send-sync-v4-3-712bc7d94a79@google.com> <90657b83-1cff-4c7d-adde-9b560c2be7c2@samsung.com>
+ <3cfeounnaphhezvjpz5igswml6iu3b6jhwhjn2g4ziimjdoefi@ge4ezxx6jxlr> <aak9ZBJenK1DSCEt@monoceros>
+Message-ID: <aalCF0Egy6gWXdBK@google.com>
+Subject: Re: [PATCH v4 3/3] pwm: th1520: remove impl Send/Sync for Th1520PwmDriverData
+From: Alice Ryhl <aliceryhl@google.com>
+To: "Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=" <ukleinek@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, Michal Wilczynski <m.wilczynski@samsung.com>, 
+	Michael Turquette <mturquette@baylibre.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Viresh Kumar <viresh.kumar@linaro.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?B?QmrDtnJu?= Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_003941_836125_7588E9EF 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20260305_004308_121391_793F19A5 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,53 +99,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/4/26 6:57 PM, Vladimir Oltean wrote:
-> Some pragmatic shortcuts are being taken by PHY consumer driver authors,
-> which put a burden on the framework. A lot of these can be caught during
-> review.
-> 
-> Make sure the linux-phy list is copied on as many keywords that a regex
-> can reasonably catch.
-> 
-> For simplicity sake this is not perfect (devm_ and of_ are not valid
-> prefixes for all function names), but I tried to pay attention on
-> avoiding false matches on things like:
-> - drivers/net/vendor/device/phy.h
-> - include/linux/phy.h - network PHY, not generic PHY
-> 
-> So I used \b to try to match on actual word boundaries and be explicit
-> about what is matched on.
-> 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> ---
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 55af015174a5..bdfa47d9c774 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -10713,6 +10713,7 @@ F:	Documentation/devicetree/bindings/phy/
->  F:	drivers/phy/
->  F:	include/dt-bindings/phy/
->  F:	include/linux/phy/
-> +K:	\b(devm_)?(of_)?phy_(create|destroy|init|exit|reset|power_(on|off)|configure|validate|calibrate|(get|set)_(mode|media|speed|bus_width|drvdata)|get_max_link_rate|pm_runtime_(get|put)|notify_(connect|disconnect|state)|get|put|optional_get|provider_(un)?register|simple_xlate|(create|remove)_lookup)\b|(struct\s+)?phy(_ops|_attrs|_lookup|_provider)?\b|linux/phy/phy\.h|phy-props\.h|phy-provider\.h
-
-Would looking for the devm/of_phy_ prefix followed by an open parentheses
-not suffice for the 'has function call' case, instead of listing all
-currently present exported functions?
-
-My worry is that this approach is overbuilt and absolutely no one will
-remember to update it
-
-Konrad
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXIgMDUsIDIwMjYgYXQgMDk6MjQ6MzNBTSArMDEwMCwgVXdlIEtsZWluZS1Lw7Zu
+aWcgd3JvdGU6Cj4gSGVsbG8sCj4gCj4gT24gVHVlLCBKYW4gMjAsIDIwMjYgYXQgMDk6NDg6NDhB
+TSArMDEwMCwgVXdlIEtsZWluZS1Lw7ZuaWcgd3JvdGU6Cj4gPiBPbiBNb24sIEphbiAxOSwgMjAy
+NiBhdCAxMDo0NTo1NlBNICswMTAwLCBNaWNoYWwgV2lsY3p5bnNraSB3cm90ZToKPiA+ID4gT24g
+MS8xMy8yNiAxNjoxMiwgQWxpY2UgUnlobCB3cm90ZToKPiA+ID4gPiBOb3cgdGhhdCBjbGsgaW1w
+bGVtZW50cyBTZW5kIGFuZCBTeW5jLCB3ZSBubyBsb25nZXIgbmVlZCB0byBtYW51YWxseQo+ID4g
+PiA+IGltcGxlbWVudCB0aGVzZSB0cmFpdHMgZm9yIFRoMTUyMFB3bURyaXZlckRhdGEuIFRodXMg
+cmVtb3ZlIHRoZQo+ID4gPiA+IGltcGxlbWVudGF0aW9ucy4KPiA+ID4gCj4gPiA+IEkgdGhvdWdo
+dCB0aGlzIHdhcyBhbHJlYWR5IG1lcmdlZCA6LSkuCj4gPiA+IAo+ID4gPiBSZXZpZXdlZC1ieTog
+TWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBzYW1zdW5nLmNvbT4KPiA+IAo+ID4gSWYg
+SSB1bmRlcnN0YW5kIGNvcnJlY3RseSB0aGlzIHBhdGNoIDMgZGVwZW5kcyBvbiB0aGUgZmlyc3Qg
+cGF0Y2ggb2YKPiA+IHRoaXMgc2VyaWVzIHNvIEkgY2Fubm90IHBpY2sgaXQgdXAgdmlhIHRoZSBw
+d20gdHJlZSAqbm93Ki4gVGhlcmUgaXMKPiA+IGFub3RoZXIgcGF0Y2ggcGVuZGluZyBmb3IgdGhl
+IHRoMTUyMCBQV00gZHJpdmVyLCBidXQgYXMgb2Ygbm93IGdpdCBzZWVtcwo+ID4gdG8gY29wZSB3
+ZWxsIHdoZW4gbWVyZ2luZyB0aGUgcHdtJ3MgdHJlZSBmb3ItbmV4dCB3aXRoIHRoaXMgcGF0Y2gu
+ICBTbwo+ID4gaXQncyBmaW5lIGZvciBtZSBpZiB0aGUgc2VyaWVzIGlzIHBpY2tlZCB1cCBmb3Ig
+Ni4yMC1yYzEgdmlhIHRoZSBjbG9jawo+ID4gdHJlZS4KPiAKPiBUaGF0IGRpZG4ndCBoYXBwZW4g
+KHdpdGggcy82LjIwLzcuMC8pLCBzbyB0aGlzIHBhdGNoIGlzIHN0aWxsIG9wZW4gaW4gbXkKPiB0
+b2RvIGxpc3QuIElzIHRoZSBmaXJzdCBwYXRjaCBzdGlsbCBjb25zaWRlcmVkIGZvciB0aGUgY2xr
+IHN1YnN5c3RlbT8KPiBXaGF0IGlzIHRoZSBwbGFuIGZvciB0aGUgcHdtIHBhdGNoPwoKSXQncyBi
+ZWVuIG9uIG15IHRvZG8gbGlzdCB0byB0cnkgYW5kIGNvbnRhY3QgU3RlcGhlbiB0byBzZWUgaWYg
+aGUgY2FuCnRha2UgdGhlc2UgcGF0Y2hlcywgb3IgaWYgaGUgaXMgb2theSB3aXRoIHRoZW0gZ29p
+bmcgdGhyb3VnaCBhbm90aGVyCnRyZWUsIGJ1dCBJIGhhdmUgbm90IGdvdHRlbiBhcm91bmQgdG8g
+aXQuIEhlIGhhcyBub3QgcmVwbGllZCBvbiB0aGUgbGlzdAp0byBhbnkgdmVyc2lvbiBvZiB0aGlz
+IHNlcmllcy4KCkFsaWNlCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
