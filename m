@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC75F513E7
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 22:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56E9F513E1
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 22:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=7j0zUcoZnyv9KNmXxooALQ+COVmX+jmGHs2gOEdChOA=; b=CElEPiKtvnzjgLKO3rpo2lQSFZ
-	s7zaaEF9RzJBUE+PmiysRQzUQNiWUorotBfGoe3SWU6akvdA6wMYDyaPkzRl+rbcRiXRc3g0cVetA
-	UvWrZgthdHZpbc654owysmU2i+JFgcewnyJYc5GJ39QMhFQPwwlXhgVsT/0inlkDYc5g826n45XJW
-	/T6R8XUAOpMXPoKXp0/nAfnxjyfDNp7qM9Nvx3zsfIy1Y+0bDGa0X78/AaOKrxwUKcNsiwXypG8lJ
-	DVptJNGVX46VKDX9mogsganw574QrYl8NUZB6LtCcVD6ozGLglMZ72Z16H8Hkhg6NqHbvk6xcm4p1
-	kPsCJbkw==;
+	bh=/vogKBbhF0b6A7bD9oI3MoeqU5eEeSsdc/izXNpVNKU=; b=S7rWcgHMuIzRM151cv0BMkGV5q
+	i/3NNKV1CWhnuu6e6Ax2ma8YOjvcbhS79PWdjjuK1DZg1aXZG8TnDYDaOD/Z9Aite94D6fU6fZ2CX
+	8SEhCALcDLPHoIm7iFRMBaJ+hUQ3h81blFkrUnQYx6kmgQK2SZmxe52wJMZgDqB9pme7PJNHGZ8hF
+	a6pO4Dleeb5GOkiA0qxqQ87hX2lX+QWlP8ONfW49decY99WCnV2fHc987Eoj71qfwvqfLNlqU+TAk
+	Rcl2SNdIc7vV6eUFO3sPdUd3vGYSTIPiSmSMJY5VGnQ8VgcdwJmihRR1xBBdDrgWZDtPmrfGsoPB+
+	b3BNbmIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyH2t-00000002eMK-1neP;
-	Thu, 05 Mar 2026 22:19:51 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1vyH2m-00000002eGG-0EVm;
+	Thu, 05 Mar 2026 22:19:44 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyH2o-00000002eHo-2bgn
+	id 1vyH2i-00000002eET-3cEb
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 22:19:47 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2bdf6fe90a9so7568524eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 14:19:46 -0800 (PST)
+	Thu, 05 Mar 2026 22:19:42 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12733e595e5so10064574c88.1
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 14:19:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1772749186; x=1773353986; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1772749179; x=1773353979; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=koMggD1S7O2t84HzXzhkoa+xwVt/Yu03GNBlSsAh+a4=;
-        b=Syzyr/UR+KtDUz5SG1oocnhqlvq15RlfZ5xaFr1NbQ9eZyoRddHlXxU1vMkqDZ00N1
-         pkh+p27SVpxMEZd/qEMghLD68yVIkk2p/c4EC+yDOBQaSyQEH59BUPzmTV32XEi0C2fM
-         W3DDoJlKe3PX9ezwW5o/77Eo8+zqHf9BiRCEEPlCdc6n1HtRyOjP0wECwiGyM+MjniYS
-         5+rc7478s+PaCbTrGOo1RRBONqRjNtryo025Auuj+KpouPptUXtQjX+gSDOZecWqMahz
-         A9JKkoEA9+zKm9HoHows712cPHqWoGsiw+VeZ3+fE7eUh8SNftI74ecinfUnlqAYXVIr
-         6R3w==
+        bh=XwuczH7zeef+TPhZgFlCxU0vVFk4yo7TmGdzaIH3pVk=;
+        b=LjZnI2YMPQ4574JM7/Fjp2GprWq6dAoxtd8UgafJjNnVnFhJvz3FKVYMkpEF7U4wHl
+         ZMnFF8N7zQ4taXmCCeEelDrhpmIc1u93FDLc08DOiQqnZEAYqiZmJcTp6n6agtFD0ttt
+         2SUTOnl+AUAponPrmspD775+TmqHSyVgY5Wj7F9oYtS9snyZTI6b22jjrf0jT+WbuAjs
+         MGwoUn6k0QSSXeKqKUkH7C5JlOby1D19eD2qY0ILT+4FcSbUkMKK7cv8gAWvm5R6BKqm
+         kNKGpvwYWI287IjP2rfrDRkpjgM9osv07A8QXrKyXhaNiujgn06H+T9zlw8zR1tSFyzz
+         y06Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772749186; x=1773353986;
+        d=1e100.net; s=20230601; t=1772749179; x=1773353979;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=koMggD1S7O2t84HzXzhkoa+xwVt/Yu03GNBlSsAh+a4=;
-        b=SOwEwMQLKoBUmAb5PREa6MsNKnycdEUyE5hQ1+QcrHBYtDHogcGUO+65sQs6EaOSKk
-         fXkGFG84oYl/TNtplBddnzrR2PHiewpi/47EcPTNmtfv+XbBshA0lnX6rtFe7vhAJ2a3
-         qAb17CyiSLm+PBt+0NEB11LFyCwc+lZ+F9WdJ2fJ/eFjxx79y0g6vrCXEDXWV6wclJiY
-         3Dgt3ieNXvbyLrwI38hzh0LHw3+w0vYhYQ9zQNlBE50mkDpuWuDfMwmURDQkSsYZweRK
-         dkhb2eVtbW3vM62Zc9bkzCe9sFVB5dQVEczCCRvDXv8cC1/u0+/nT1yLOSegWjOLD8lt
-         jpCw==
-X-Forwarded-Encrypted: i=1; AJvYcCXzRwkFLPuBILUPb7XZmSLxLusaSHdyAXq8UMbWgtSpIrIBIqJx8Le55d1JZusBVJwoJ+aRu3tiQAQBqA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3A1/p0tHaLYJtQQtdIt7BRGtGhAYdZddCBZC+fzSrmrm7ZbZO
-	KmmQxvNIEwWVDsj+9wmOhn52NczYCi02rRPk6/2fC+oqwuhaykpVtt3lGNNpmsFbIkMGkEUTFhU
-	phzN4CWBM4Q==
-X-Received: from dyaf18-n1.prod.google.com ([2002:a05:693c:8392:10b0:2be:48a1:a0fb])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4094:b0:2b8:4a34:6c39
- with SMTP id 5a478bee46e88-2be4deabf41mr22043eec.16.1772749185413; Thu, 05
- Mar 2026 14:19:45 -0800 (PST)
-Date: Thu,  5 Mar 2026 14:19:22 -0800
-In-Reply-To: <20260305221927.3237145-1-irogers@google.com>
+        bh=XwuczH7zeef+TPhZgFlCxU0vVFk4yo7TmGdzaIH3pVk=;
+        b=IRtWUKgLTcGnY9/EpBlHuVe+S7iMqJS6v6/xCHAFWpS6wAeshhuteGYy9PL4rl5C0j
+         ZI0dWYa3cyExBsgiEyDuaNZ7qH3ZU5w7FGTEJnUopeqLt+TEg5PUUaN1/8eJnnRsPW7I
+         6VcR2mCxwMRFDVc53Wnf1UZ/BOqxrURhYwK/L2TL+Gna8d7VPYMF9sH7CohFwbR7+ENF
+         1Po6nhv6ntNUjDXguvHUwI4ChnPi4E+GyGo/1NlyzaOV02Vxq0VytCj05oaFlvpV+Zir
+         Xr8pZV1Me7qQPzquOoIqn20QUxg3wsT2i87w3i2Bf5SGSuCIf6AYlWaIjmf+KRLuPr6o
+         N5WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXsaiABc9byqZ+RmabDsaLtWH27VBtD9cQaB1e8YY74a1exrOemvmm26K1+1T0LVCETktF+CHKUl7RumQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU7i5TbOtpMuTAo0IkTpIkszvBI+pj0FGW6B4ncGYdOxo+2Upe
+	BSmsXq+KkTEc+aag7Nuzf+5uMMtoHciZiAdnSTaf4VCwbKQPLvc3N7Yo+nO9dV8K0ubPSU+y7JC
+	ziVdGX3G6bA==
+X-Received: from dlbov3.prod.google.com ([2002:a05:7022:1183:b0:127:1508:19ae])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6ba9:b0:128:bec5:1b37
+ with SMTP id a92af1059eb24-128c2df7d50mr14489c88.16.1772749179209; Thu, 05
+ Mar 2026 14:19:39 -0800 (PST)
+Date: Thu,  5 Mar 2026 14:19:19 -0800
+In-Reply-To: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
 Mime-Version: 1.0
 References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
- <20260305221927.3237145-1-irogers@google.com>
 X-Mailer: git-send-email 2.53.0.473.g4a7958ca14-goog
-Message-ID: <20260305221927.3237145-4-irogers@google.com>
-Subject: [PATCH v2 3/8] tools build: Deduplicate test-libunwind for different architectures
+Message-ID: <20260305221927.3237145-1-irogers@google.com>
+Subject: [PATCH v2 0/8] perf libunwind multiple remote support
 From: Ian Rogers <irogers@google.com>
 To: irogers@google.com
 Cc: 9erthalion6@gmail.com, acme@kernel.org, adrian.hunter@intel.com, 
@@ -82,8 +81,8 @@ Cc: 9erthalion6@gmail.com, acme@kernel.org, adrian.hunter@intel.com,
 	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
 	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_141946_681923_45133E33 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260305_141940_910137_210D73F3 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,283 +99,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The separate test files only exist to pass a different #include,
-instead have a single source file and pass -include to $(CC) to
-include the relevant header file for the architecture being
-tested. Generate the rules using a foreach loop. Include tests for all
-current libunwind architectures.
+Fix the libunwind build for when libdw and libunwind are feature
+detected, currently failing with a duplicate symbol.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/build/feature/Makefile                  | 38 +++++++++----------
- tools/build/feature/test-libunwind-aarch64.c  | 27 -------------
- tools/build/feature/test-libunwind-arm.c      | 28 --------------
- .../test-libunwind-debug-frame-aarch64.c      | 17 ---------
- .../feature/test-libunwind-debug-frame-arm.c  | 17 ---------
- .../feature/test-libunwind-debug-frame.c      |  1 -
- tools/build/feature/test-libunwind-x86.c      | 28 --------------
- tools/build/feature/test-libunwind-x86_64.c   | 28 --------------
- tools/build/feature/test-libunwind.c          |  1 -
- 9 files changed, 19 insertions(+), 166 deletions(-)
+Refactor the libunwind support so that whenever a remote target is
+available, perf functions using the ELF machine can use that remote
+target regardless of what the host/local machine is. Migrate existing
+libunwind supported architectures like powerpc, arm64 and loongarch so
+that they can work in a cross-architecture way. Add support for
+RISC-V. Make the code more regular in function names, etc. and avoid
+including a C-file. This increases the lines of code. It is similar in
+style to the unwind-libdw implementation. It is hoped that the more
+uniform nature of the code with help with refactoring the perf
+registers for SIMD/APX support.
+
+Aside from local host testing these patches are under tested, in part
+as I'm failing to see how to build libunwind with support for multiple
+remote targets. Please could I get help in testing.
+
+v2: Move two fixes patches to position 1 and 2 in the series. Fix
+    struct naming inconsistency, Andrew Jones
+    <andrew.jones@oss.qualcomm.com>. Fix other inconsistencies and
+    potential non-x86 build issues.
+
+v1: https://lore.kernel.org/lkml/20260224142938.26088-1-irogers@google.com/
+
+Ian Rogers (8):
+  perf unwind: Refactor get_entries to allow dynamic libdw/libunwind
+    selection
+  perf build loongarch: Remove reference to missing file
+  tools build: Deduplicate test-libunwind for different architectures
+  perf build: Be more programmatic when setting up libunwind variables
+  perf unwind-libunwind: Make libunwind register reading cross platform
+  perf unwind-libunwind: Move flush/finish access out of local
+  perf unwind-libunwind: Remove libunwind-local
+  perf unwind-libunwind: Add RISC-V libunwind support
+
+ tools/build/feature/Makefile                  |  38 +-
+ tools/build/feature/test-libunwind-aarch64.c  |  27 -
+ tools/build/feature/test-libunwind-arm.c      |  28 -
+ .../test-libunwind-debug-frame-aarch64.c      |  17 -
+ .../feature/test-libunwind-debug-frame-arm.c  |  17 -
+ .../feature/test-libunwind-debug-frame.c      |   1 -
+ tools/build/feature/test-libunwind-x86.c      |  28 -
+ tools/build/feature/test-libunwind-x86_64.c   |  28 -
+ tools/build/feature/test-libunwind.c          |   1 -
+ tools/perf/Makefile.config                    | 215 ++---
+ tools/perf/arch/arm/util/Build                |   2 -
+ tools/perf/arch/arm/util/unwind-libunwind.c   |  50 --
+ tools/perf/arch/arm64/util/Build              |   1 -
+ tools/perf/arch/arm64/util/unwind-libunwind.c |  17 -
+ tools/perf/arch/loongarch/util/Build          |   3 -
+ .../arch/loongarch/util/unwind-libunwind.c    |  82 --
+ tools/perf/arch/mips/Build                    |   1 -
+ tools/perf/arch/mips/util/Build               |   1 -
+ tools/perf/arch/mips/util/unwind-libunwind.c  |  22 -
+ tools/perf/arch/powerpc/util/Build            |   1 -
+ .../perf/arch/powerpc/util/unwind-libunwind.c |  92 --
+ tools/perf/arch/x86/util/Build                |   3 -
+ tools/perf/arch/x86/util/unwind-libunwind.c   | 115 ---
+ tools/perf/builtin-inject.c                   |   4 +
+ tools/perf/builtin-report.c                   |   4 +
+ tools/perf/builtin-script.c                   |   4 +
+ tools/perf/util/Build                         |   5 +-
+ tools/perf/util/libunwind-arch/Build          |  11 +
+ .../perf/util/libunwind-arch/libunwind-arch.c | 319 +++++++
+ .../perf/util/libunwind-arch/libunwind-arch.h | 296 +++++++
+ .../perf/util/libunwind-arch/libunwind-arm.c  | 290 ++++++
+ .../util/libunwind-arch/libunwind-arm64.c     | 289 ++++++
+ .../perf/util/libunwind-arch/libunwind-i386.c | 312 +++++++
+ .../util/libunwind-arch/libunwind-loongarch.c | 297 +++++++
+ .../perf/util/libunwind-arch/libunwind-mips.c | 299 +++++++
+ .../util/libunwind-arch/libunwind-ppc32.c     | 301 +++++++
+ .../util/libunwind-arch/libunwind-ppc64.c     | 303 +++++++
+ .../util/libunwind-arch/libunwind-riscv.c     | 297 +++++++
+ .../perf/util/libunwind-arch/libunwind-s390.c | 299 +++++++
+ .../util/libunwind-arch/libunwind-x86_64.c    | 320 +++++++
+ tools/perf/util/libunwind/arm64.c             |  40 -
+ tools/perf/util/libunwind/x86_32.c            |  41 -
+ tools/perf/util/maps.c                        |  29 +-
+ tools/perf/util/maps.h                        |   4 +-
+ tools/perf/util/symbol_conf.h                 |  15 +
+ tools/perf/util/thread.c                      |  29 +-
+ tools/perf/util/unwind-libdw.c                |   2 +-
+ tools/perf/util/unwind-libunwind-local.c      | 832 ------------------
+ tools/perf/util/unwind-libunwind.c            | 679 ++++++++++++--
+ tools/perf/util/unwind.c                      | 102 +++
+ tools/perf/util/unwind.h                      |  56 +-
+ 51 files changed, 4536 insertions(+), 1733 deletions(-)
  delete mode 100644 tools/build/feature/test-libunwind-aarch64.c
  delete mode 100644 tools/build/feature/test-libunwind-arm.c
  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-aarch64.c
  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-arm.c
  delete mode 100644 tools/build/feature/test-libunwind-x86.c
  delete mode 100644 tools/build/feature/test-libunwind-x86_64.c
+ delete mode 100644 tools/perf/arch/arm/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/arm64/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/loongarch/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/mips/Build
+ delete mode 100644 tools/perf/arch/mips/util/Build
+ delete mode 100644 tools/perf/arch/mips/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/powerpc/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/x86/util/unwind-libunwind.c
+ create mode 100644 tools/perf/util/libunwind-arch/Build
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.h
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm64.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-i386.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-loongarch.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-mips.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc32.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc64.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-riscv.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-s390.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-x86_64.c
+ delete mode 100644 tools/perf/util/libunwind/arm64.c
+ delete mode 100644 tools/perf/util/libunwind/x86_32.c
+ delete mode 100644 tools/perf/util/unwind-libunwind-local.c
+ create mode 100644 tools/perf/util/unwind.c
 
-diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
-index 1fbcb3ce74d2..a0b40e826688 100644
---- a/tools/build/feature/Makefile
-+++ b/tools/build/feature/Makefile
-@@ -204,27 +204,27 @@ $(OUTPUT)test-numa_num_possible_cpus.bin:
- 	$(BUILD) -lnuma
- 
- $(OUTPUT)test-libunwind.bin:
--	$(BUILD) -lelf -llzma
-+	$(BUILD) -include libunwind.h -lelf -llzma -lunwind
- 
- $(OUTPUT)test-libunwind-debug-frame.bin:
--	$(BUILD) -lelf -llzma
--$(OUTPUT)test-libunwind-x86.bin:
--	$(BUILD) -lelf -llzma -lunwind-x86
--
--$(OUTPUT)test-libunwind-x86_64.bin:
--	$(BUILD) -lelf -llzma -lunwind-x86_64
--
--$(OUTPUT)test-libunwind-arm.bin:
--	$(BUILD) -lelf -llzma -lunwind-arm
--
--$(OUTPUT)test-libunwind-aarch64.bin:
--	$(BUILD) -lelf -llzma -lunwind-aarch64
--
--$(OUTPUT)test-libunwind-debug-frame-arm.bin:
--	$(BUILD) -lelf -llzma -lunwind-arm
--
--$(OUTPUT)test-libunwind-debug-frame-aarch64.bin:
--	$(BUILD) -lelf -llzma -lunwind-aarch64
-+	$(BUILD) -include libunwind.h -lelf -llzma -lunwind
-+
-+LIBUNWIND_ARCHS:=aarch64 arm loongarch64 mips ppc32 ppc64 riscv s390x x86 x86_64
-+define LIBUNWIND_RULE
-+$$(OUTPUT)test-libunwind-$(1).bin:
-+	$$(CC) $$(CFLAGS) -MD -Wall -Werror -include libunwind-$(1).h -o $$@ \
-+		test-libunwind.c $$(LDFLAGS) -lelf -llzma -lunwind-$(1) \
-+		> $$(@:.bin=.make.output) 2>&1
-+
-+$$(OUTPUT)test-libunwind-debug-frame-$(1).bin:
-+	$$(CC) $$(CFLAGS) -MD -Wall -Werror -include libunwind-$(1).h -o $$@ \
-+		test-libunwind-debug-frame.c $$(LDFLAGS) -lelf -llzma -lunwind-$(1) \
-+		> $$(@:.bin=.make.output) 2>&1
-+
-+endef
-+$(foreach arch,$(LIBUNWIND_ARCHS), \
-+    $(eval $(call LIBUNWIND_RULE,$(arch))) \
-+)
- 
- $(OUTPUT)test-libslang.bin:
- 	$(BUILD) -lslang
-diff --git a/tools/build/feature/test-libunwind-aarch64.c b/tools/build/feature/test-libunwind-aarch64.c
-deleted file mode 100644
-index 323803f49212..000000000000
---- a/tools/build/feature/test-libunwind-aarch64.c
-+++ /dev/null
-@@ -1,27 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <libunwind-aarch64.h>
--#include <stdlib.h>
--
--extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
--					       unw_word_t ip,
--					       unw_dyn_info_t *di,
--					       unw_proc_info_t *pi,
--					       int need_unwind_info, void *arg);
--
--#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
--
--static unw_accessors_t accessors;
--
--int main(void)
--{
--	unw_addr_space_t addr_space;
--
--	addr_space = unw_create_addr_space(&accessors, 0);
--	if (addr_space)
--		return 0;
--
--	unw_init_remote(NULL, addr_space, NULL);
--	dwarf_search_unwind_table(addr_space, 0, NULL, NULL, 0, NULL);
--
--	return 0;
--}
-diff --git a/tools/build/feature/test-libunwind-arm.c b/tools/build/feature/test-libunwind-arm.c
-deleted file mode 100644
-index cb378b7d6866..000000000000
---- a/tools/build/feature/test-libunwind-arm.c
-+++ /dev/null
-@@ -1,28 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <libunwind-arm.h>
--#include <stdlib.h>
--
--extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
--					       unw_word_t ip,
--					       unw_dyn_info_t *di,
--					       unw_proc_info_t *pi,
--					       int need_unwind_info, void *arg);
--
--
--#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
--
--static unw_accessors_t accessors;
--
--int main(void)
--{
--	unw_addr_space_t addr_space;
--
--	addr_space = unw_create_addr_space(&accessors, 0);
--	if (addr_space)
--		return 0;
--
--	unw_init_remote(NULL, addr_space, NULL);
--	dwarf_search_unwind_table(addr_space, 0, NULL, NULL, 0, NULL);
--
--	return 0;
--}
-diff --git a/tools/build/feature/test-libunwind-debug-frame-aarch64.c b/tools/build/feature/test-libunwind-debug-frame-aarch64.c
-deleted file mode 100644
-index 36d6646c185e..000000000000
---- a/tools/build/feature/test-libunwind-debug-frame-aarch64.c
-+++ /dev/null
-@@ -1,17 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <libunwind-aarch64.h>
--#include <stdlib.h>
--
--extern int
--UNW_OBJ(dwarf_find_debug_frame) (int found, unw_dyn_info_t *di_debug,
--				 unw_word_t ip, unw_word_t segbase,
--				 const char *obj_name, unw_word_t start,
--				 unw_word_t end);
--
--#define dwarf_find_debug_frame UNW_OBJ(dwarf_find_debug_frame)
--
--int main(void)
--{
--	dwarf_find_debug_frame(0, NULL, 0, 0, NULL, 0, 0);
--	return 0;
--}
-diff --git a/tools/build/feature/test-libunwind-debug-frame-arm.c b/tools/build/feature/test-libunwind-debug-frame-arm.c
-deleted file mode 100644
-index 8696e48e1268..000000000000
---- a/tools/build/feature/test-libunwind-debug-frame-arm.c
-+++ /dev/null
-@@ -1,17 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <libunwind-arm.h>
--#include <stdlib.h>
--
--extern int
--UNW_OBJ(dwarf_find_debug_frame) (int found, unw_dyn_info_t *di_debug,
--				 unw_word_t ip, unw_word_t segbase,
--				 const char *obj_name, unw_word_t start,
--				 unw_word_t end);
--
--#define dwarf_find_debug_frame UNW_OBJ(dwarf_find_debug_frame)
--
--int main(void)
--{
--	dwarf_find_debug_frame(0, NULL, 0, 0, NULL, 0, 0);
--	return 0;
--}
-diff --git a/tools/build/feature/test-libunwind-debug-frame.c b/tools/build/feature/test-libunwind-debug-frame.c
-index efb55cdd8d01..4c57e37004b3 100644
---- a/tools/build/feature/test-libunwind-debug-frame.c
-+++ b/tools/build/feature/test-libunwind-debug-frame.c
-@@ -1,5 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#include <libunwind.h>
- #include <stdlib.h>
- 
- extern int
-diff --git a/tools/build/feature/test-libunwind-x86.c b/tools/build/feature/test-libunwind-x86.c
-deleted file mode 100644
-index e5e0f6c89637..000000000000
---- a/tools/build/feature/test-libunwind-x86.c
-+++ /dev/null
-@@ -1,28 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <libunwind-x86.h>
--#include <stdlib.h>
--
--extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
--					       unw_word_t ip,
--					       unw_dyn_info_t *di,
--					       unw_proc_info_t *pi,
--					       int need_unwind_info, void *arg);
--
--
--#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
--
--static unw_accessors_t accessors;
--
--int main(void)
--{
--	unw_addr_space_t addr_space;
--
--	addr_space = unw_create_addr_space(&accessors, 0);
--	if (addr_space)
--		return 0;
--
--	unw_init_remote(NULL, addr_space, NULL);
--	dwarf_search_unwind_table(addr_space, 0, NULL, NULL, 0, NULL);
--
--	return 0;
--}
-diff --git a/tools/build/feature/test-libunwind-x86_64.c b/tools/build/feature/test-libunwind-x86_64.c
-deleted file mode 100644
-index 62ae4db597dc..000000000000
---- a/tools/build/feature/test-libunwind-x86_64.c
-+++ /dev/null
-@@ -1,28 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <libunwind-x86_64.h>
--#include <stdlib.h>
--
--extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
--					       unw_word_t ip,
--					       unw_dyn_info_t *di,
--					       unw_proc_info_t *pi,
--					       int need_unwind_info, void *arg);
--
--
--#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
--
--static unw_accessors_t accessors;
--
--int main(void)
--{
--	unw_addr_space_t addr_space;
--
--	addr_space = unw_create_addr_space(&accessors, 0);
--	if (addr_space)
--		return 0;
--
--	unw_init_remote(NULL, addr_space, NULL);
--	dwarf_search_unwind_table(addr_space, 0, NULL, NULL, 0, NULL);
--
--	return 0;
--}
-diff --git a/tools/build/feature/test-libunwind.c b/tools/build/feature/test-libunwind.c
-index 53fd26614ff0..5af5dc3a73d4 100644
---- a/tools/build/feature/test-libunwind.c
-+++ b/tools/build/feature/test-libunwind.c
-@@ -1,5 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0
--#include <libunwind.h>
- #include <stdlib.h>
- 
- extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
 -- 
 2.53.0.473.g4a7958ca14-goog
 
