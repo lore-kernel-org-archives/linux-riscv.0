@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99EEEEF316
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2578EEF31D
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NWqWXUyp24dWl6sO4g2hNoAtEs5vd59ZRVnMRSivBO4=; b=BWJMWR4PGYJlJn
-	vptM+8HWrALHh+WSKaG1tsq1s0yus2LdCT6XdpBeYth7WhjA0/mxwHdr3hOYl5QIl6+e080/usEBZ
-	qFS9iCxKE8KAvtlqM7MRMhcgucZiulfP0FhjjLdQPN/WgxB5MslXLgMmVLSubNkFMcY31R88TvTJz
-	1xh6I33cyF/En8PZnVCnI07FAUf8oO7pht22gwkZtXqvoRpMFh9qt9EOL4bp1WPgNdiFkOWkjtrnJ
-	KN3QTaNbP78kOgUkPA2wU2Agkscnnqc00sC9/T0CTqCBZpDBWd//gHg7pv9A3YkKahBD9Lm2xdAtG
-	hN1q/H0lRt6lk8KoiqSA==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
+	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/4XJ7NAoFZJolJ9386LSo7tkbrHnhENtzzktD99UIZ0=; b=LfKxdC8QxCEq88
+	ti2gXayMsthvp+5mqQOCheyA+u0gQ5GGj59GrGOSjiUidh6EIjMZGMzdbxfwY7khD/5ynt4wINcAW
+	3EnMOdTCuD0sdRWCqATHvSiAWLS4ZF6X0Htz8EMb7xydNxqUxqHaS03iTnaw+y4gdeGvKrmgpuRV9
+	PZgWDvDAE7DWWx5xwUSN5jjiBgxiSf4Wh1WJnRuTTEh9geBV3OXTVRAtPmgjtoHEQEMMhBYPa7sG7
+	aWVjD+8zomX9MV/aQe/+r/JbhJn+D2qeJB8Z+LHdP/oqS1YGDcGlB4P+oN8pXLw4PkfxlH/CZZ821
+	2SPdK0enK2MP4MNQf5hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy44w-00000001CEI-0f54;
-	Thu, 05 Mar 2026 08:29:06 +0000
-Received: from mail-vk1-f177.google.com ([209.85.221.177])
+	id 1vy4Ac-00000001Cxu-0OyH;
+	Thu, 05 Mar 2026 08:34:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy44t-00000001CDG-1Qfa
+	id 1vy4AZ-00000001Cx7-3PzU
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 08:29:04 +0000
-Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-56a981f44c9so3435363e0c.2
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 00:29:02 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772699342; x=1773304142;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZlLnToI6SbxsSn7ypnmaqq1RX+miw2VMTyDHKi+gwbk=;
-        b=mFaA1mdjvWLZlXFvnzIsB3nN0KkK/e3+ZvMvjTmDqbpxlaLiUvVSMhDar6Dkbr0Me8
-         7cRdX9l0Afs6v5Ept3o9mmM2G3ml37LVdI9nE7pDP7QXZ/G5uRIV5KdmRTBLCpFOk5/X
-         1M0cAasC5ZfjsyVEtlb8JTY6OMD36k433LGIrOhLvuV9yN03XpmCJN6x3xRT/Nvm0pHr
-         dvArvpeDVjwhqyMbLKMkm4QvhN4zaRZGM9gIU68qBDlj4Q5xLYS0yPr0RYD7bIu4HApP
-         BBeFAPYo4OOF6jMpr9sI4ZLyCGZLIV15RDm8LRh30/a+ZV5ZKu9idoyfpmMKIQzl0D4C
-         XXlA==
-X-Forwarded-Encrypted: i=1; AJvYcCXKo+PEoOE1OkiJXmeNP8kRVdeDelJzpbONAiHD7kWRYIpqV7UXnouF0x6Gvag+JfRzkWb70DGQu4d4QA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6elL28Mzjs5g0Od0TMzw5GoyCM82JHV3sJ2bSb+sqwsl1o6sp
-	UY5kjmFSGvlSt7yKphBal9mzzb/IAVEGPjwr3oy4djFNa7oE986nV1aU614Map5O
-X-Gm-Gg: ATEYQzwcFxH2rzXWRe1Ze1Y+IFq7GoPjw/OLJm+Mi8fs97QOzyIxLEUs+qXCgE7DIlp
-	jJLUgM7vDW2ndnYg0qNHC0cYPrirhGA6PR1iRr9+y4CHRXzG5nFwJhdVoNBIE62uRRbZCWQzcnh
-	GVyBPYOFASpS5hpUswWWkoFe/MJvUPx6Lh7iP6u8tL9BmsngC09Und6A5V9AOQRgJ5IRcYkBwi8
-	JS0m3ASK0VbJypbTVFJ4M+0XusoEVrwG32skaNvu7E9+uDZXoWR5UNu1CGfzMPNo3QjuxSIVT5A
-	nwcsICZ2pAVKYBVVKFnis19TN9l2nBh2jjDQG5ZEL9Vd4CzfrSF/NukBDb0WXAOaGnG3Iovj1Cw
-	/QLrFZKNL7FE+2tWE4mq8Qp3ggHsChAITZKjrAZyXtJG/a9jaNnCyXMb0asGF8TfQR6UwBEcFBb
-	8fU/d2xiUDSwXOP3rKptjzD9IQycN4D1ZudCyft64K0ygnbrh0cFafdV8XB0yqY144ZQt1xl4=
-X-Received: by 2002:a05:6122:800f:b0:56a:f3f9:7e4f with SMTP id 71dfb90a1353d-56af3f98193mr545781e0c.18.1772699341926;
-        Thu, 05 Mar 2026 00:29:01 -0800 (PST)
-Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com. [209.85.222.43])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a91b8c96fsm26558628e0c.2.2026.03.05.00.29.01
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Mar 2026 00:29:01 -0800 (PST)
-Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-94ace5d0e39so2297209241.2
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 00:29:01 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVOQjmL4S1En1Q5IZvtTxtBws+YV5syacrNATl8d4R1YIObH7ibLxJQGInfJ6pdAFOzul/ygjCUl9MzmQ==@lists.infradead.org
-X-Received: by 2002:a05:6102:1607:b0:5ff:c64d:228c with SMTP id
- ada2fe7eead31-5ffc64d2600mr724913137.22.1772699340961; Thu, 05 Mar 2026
- 00:29:00 -0800 (PST)
+	Thu, 05 Mar 2026 08:34:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A464400DF;
+	Thu,  5 Mar 2026 08:34:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 05B94C19425;
+	Thu,  5 Mar 2026 08:34:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1772699695;
+	bh=RYt5RMr7m7B2TX/DNqszV3gbTYGJO6UDG79Q1h8dApA=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=EsgjlLbNoIaQr02oFkntz1z8FfqQStT3G5j3af4w8G4TqZ5BEZwkXcLvZwr7CtT/5
+	 9trTxIKegt3JU+TBUURFSWME+DsQAL9a1ntnoM/PrL0HZisI6m0K5lh6dIkB9y/54d
+	 xW9qZTW20ZRfkkyO+5dIGG67wos832gqhwSUIP3m112jBzercWFnAknlBx7pxfOGN+
+	 7pYXRKDVYjXqucMXZc5JxQ/CWruuQrxg65J99qxNPekFAJXRxRjQ/LipLi5Rrv1hvR
+	 tLICbxOV45m8U5E6JF9YPA9g+hjBZLbh/cjpSoBviQq2WNmYZytXI28YwXZ2DLcaDN
+	 Wcta56xP3aM+Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00CDFEEF31D;
+	Thu,  5 Mar 2026 08:34:55 +0000 (UTC)
+From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
+Date: Thu, 05 Mar 2026 00:34:53 -0800
+Subject: [PATCH] mailmap: add entry for Charlie Jenkins
 MIME-Version: 1.0
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com> <20260304175735.2660419-13-vladimir.oltean@nxp.com>
-In-Reply-To: <20260304175735.2660419-13-vladimir.oltean@nxp.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 5 Mar 2026 09:28:50 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdV+7n==crPmitH-JCwtJiH+7LaPKZQYU4ZqX_duo3_7Eg@mail.gmail.com>
-X-Gm-Features: AaiRm50Kgxrt1IEt_9GEmeNyCIrylErpUd7qkh7D4FIoK_FYituUB8DTITetq4c
-Message-ID: <CAMuHMdV+7n==crPmitH-JCwtJiH+7LaPKZQYU4ZqX_duo3_7Eg@mail.gmail.com>
-Subject: Re: [PATCH phy-next 12/22] phy: move provider API out of public <linux/phy/phy.h>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, 
-	netdev@vger.kernel.org, spacemit@lists.linux.dev, 
-	UNGLinuxDriver@microchip.com
+Message-Id: <20260305-add_charlie_mailmap-v1-1-c22775c6e6fb@gmail.com>
+X-B4-Tracking: v=1; b=H4sIACxAqWkC/x2MQQqAIBAAvxJ7TliVivpKhEhutZAWChGIf086D
+ sNMhkSRKcHUZIj0cOIrVJBtA+thw06CXWVQqHrU2AnrnKkmnkzGWz69vYXa9KqldIjDCLW8I23
+ 8/td5KeUDOq4HP2UAAAA=
+X-Change-ID: 20260305-add_charlie_mailmap-2f3c311d0079
+To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Cc: Charlie Jenkins <thecharlesjenkins@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1772699694; l=965;
+ i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
+ bh=w3hqIfRCiAPQl/uqU0LjbNlw64civ/W9yAPwp/blmGg=;
+ b=rz0UoAG9+WXYZyM/6sOm4suo0nEyyu5gE96HKnH5rFnk9Dq1s7eREnHH2j/8387wDHYDk4rmB
+ Z0Q/9aPUxFPD9NOBJnWYCxe1+0BH4Ik5O9ARwI0iD+xVTtK4xT95Gmr
+X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
+ pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
+X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
+ with auth_id=663
+X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_002903_383553_BDCFBF7D 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20260305_003455_898638_AE5C10DA 
+X-CRM114-Status: UNSURE (   6.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,95 +82,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: thecharlesjenkins@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-On Wed, 4 Mar 2026 at 19:03, Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
-> The major goal is to hide the contents of struct phy from consumer
-> drivers.
->
-> The idea with "phy-props.h" is that both consumers and providers make
-> use of some data types. So both headers include "phy-props.h".
->
-> Two slight points of contention.
->
-> 1. phy_set_bus_width(): Vinod explains that despite the current caller
->    situation (9 providers, 1 consumer), it is a consumer API function.
->
->    The use case is that the controller (for example UFS) may have
->    limitations and should set the expected lanes to be used and width on
->    those lanes. A number of Generic PHYs can support multiple lanes and
->    multiple width so this is way for controller telling I am using this
->    configuration.
->
-> 2. phy-provider.h should go to include/linux/phy/ or to drivers/phy/?
->    We do have 3 PHY providers outside of drivers/phy/:
->
->    drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_dphy.c
->    drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
->    drivers/pinctrl/tegra/pinctrl-tegra-xusb.c
->
->    but the practice is not encouraged, and with time, these should be
->    moved to the subsystem. This is not something that I can do now.
->
-> For temporary compatibility, keep including the provider header. This
-> will be removed when abuses are all gotten rid of.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+My Rivos email will expire eventually so switch over to my personal
+email.
 
-Thanks for your patch!
+Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+---
+ .mailmap | 1 +
+ 1 file changed, 1 insertion(+)
 
-> --- /dev/null
-> +++ b/drivers/phy/phy-provider.h
+diff --git a/.mailmap b/.mailmap
+index 7d5a6cc3909f..9eb89a60c7aa 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -178,6 +178,7 @@ Carlos Bilbao <carlos.bilbao@kernel.org> <bilbao@vt.edu>
+ Changbin Du <changbin.du@intel.com> <changbin.du@gmail.com>
+ Chao Yu <chao@kernel.org> <chao2.yu@samsung.com>
+ Chao Yu <chao@kernel.org> <yuchao0@huawei.com>
++Charlie Jenkins <thecharlesjenkins@gmail.com> <charlie@rivosinc.com>
+ Chen-Yu Tsai <wens@kernel.org> <wens@csie.org>
+ Chester Lin <chester62515@gmail.com> <clin@suse.com>
+ Chris Chiu <chris.chiu@canonical.com> <chiu@endlessm.com>
 
-> --- a/include/linux/phy/phy.h
-> +++ b/include/linux/phy/phy.h
-> @@ -1,246 +1,38 @@
->  /* SPDX-License-Identifier: GPL-2.0-or-later */
->  /*
-> - * phy.h -- generic phy header file
-> + * phy.h -- Generic PHY consumer API
->   *
->   * Copyright (C) 2013 Texas Instruments Incorporated - http://www.ti.com
->   *
->   * Author: Kishon Vijay Abraham I <kishon@ti.com>
->   */
->
-> -#ifndef __DRIVERS_PHY_H
-> -#define __DRIVERS_PHY_H
-> +#ifndef __PHY_CONSUMER_H
-> +#define __PHY_CONSUMER_H
->
-> -#include <linux/err.h>
-> -#include <linux/of.h>
-> -#include <linux/device.h>
-> -#include <linux/pm_runtime.h>
-> -#include <linux/regulator/consumer.h>
-> +#include <linux/phy/phy-props.h>
->
-> -#include <linux/phy/phy-dp.h>
-> -#include <linux/phy/phy-hdmi.h>
-> -#include <linux/phy/phy-lvds.h>
-> -#include <linux/phy/phy-mipi-dphy.h>
-> +#include "../../drivers/phy/phy-provider.h"
+---
+base-commit: c107785c7e8dbabd1c18301a1c362544b5786282
+change-id: 20260305-add_charlie_mailmap-2f3c311d0079
 
-Shouldn't there be one more "../"?
-Interestingly, it compiles with/without.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
 
 _______________________________________________
 linux-riscv mailing list
