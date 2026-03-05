@@ -4,106 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B94AF30946
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 13:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4335FF30946
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 13:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hznZvB3ZoWawBz8ekKGNt1BZsLVTFwl+KrQ29P9o2VY=; b=tZlSpc125coFVZ
-	sIhZ7QScl0zlMsAUjjggCkE7Hd0dsD+DGFY5Jc3pD1QiKXL+IRoT43HRBRYRi0cS49O3v1XPR2FAd
-	7O8Ym+0CW/ZAuEfTHuzoljn1VQIQPOraQ/jep8POwErRW+1CFTVLgAVWVKn5EUlvw8oFLn4GZyUJJ
-	FMxOMulNTur/vnNgkZGNZVMgUk1L8gSyMJ8a2EyNq80w+t0Vu2J4X9BcAdTvatrymHHAukAZcp30I
-	cWPM2aIM2bRTwuxmRe9PW8SizS1Y2dYtQWvJaOPvjszAfPiZCwfJxSGl3c5853fhrfE79+mrHvzbz
-	WPGrtlaeU0HD16KXdciw==;
+	List-Owner; bh=PkfyAxgtPnNR1xaKIWUyv6Qc2RaU4HXg0eRdMsWLrzI=; b=b3NRdAYLHlA/on
+	yA7PKL5Zy+XjK0NugKAYa2xEcIHKgJwH095+iNeA01rzLcQxBhJkLIOqQJaff16Mc1HK/ToIBOQNY
+	+dm7D1ehPySPhVSjyaDg0ADTQvscWKXDuh9p9HhxNdAzW9h4fdjKeMNYKHUXhm1S1Qle2MzDIjrTb
+	Tn3mfrv6m62pFjo03DfCFUnozDZDQhhW6oX3IXqW8ma2kiiKnpG6GbQYGzYFLHnRgsCN7P5+sCa/j
+	SCnZHZQmf2fjQIyOqk0mXQoOYAx0X7M+puM1z6k+O22SPSYsiuQYZVoADLw0pERCD7RHpUqRtBxST
+	9rHHz2PBZZXrDJM0Jtrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8K5-00000001pyA-0maT;
-	Thu, 05 Mar 2026 13:01:01 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1vy8L0-00000001qBQ-1wwI;
+	Thu, 05 Mar 2026 13:01:58 +0000
+Received: from mail-pl1-f176.google.com ([209.85.214.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy8K1-00000001pvB-3hf7
+	id 1vy8Kx-00000001q9X-30B6
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 13:01:00 +0000
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 2B67B3FB79
-	for <linux-riscv@lists.infradead.org>; Thu,  5 Mar 2026 13:00:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1772715654;
-	bh=AwP4BhYIWaYYtzi0hBUxp/zG8QUjl+08i0ub1kRdEPI=;
-	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type;
-	b=RLTrDx7xqjdaV245QxFuawUMvLikKo4rnl33i00AiNiN8GbWgnysfhk5dxagxvP+O
-	 y+d1kx+vc2jd8ImL+o6zY2x1cepn/eD3ETAwGkHPICTtCAixF7zMcNxRrGMpFbPN7s
-	 8X9WCthSQatSA1KFNK4/2zWPZB7KU8t0O87ijUpKp/F0C+X3d3YT83TKZFAd4uPQuG
-	 xqV0JKIbbaKX2LRtXYug1EY43js1wwh5oigIHV8EiIfUghET0voO1yRVGjfYRwZnXU
-	 SrjwPdMUeByub1UEDAQYjimje1Xv60A/vxTvZrsNEYZG5txtY5+ZYELUKR+83b5wfQ
-	 IvS9IPAT5fPl0PTzwxMccwoJvRwbCVvmZRUw0qgxBw67/HSVHEr8Ucc4/0dPNJCZRU
-	 jbujNV8BFvhzcWLtooM4Tu27656UXK9sQN1L2BI3K4vPCRQ4w9J2Z0X8my3BtKQN/t
-	 d3knof5bsPz2Qk89RZRHMl7yTRT/pY0eFcbehuNiXtJZd7FbCgOFRqq3CPj+F+xKO8
-	 dlGWE/WXEWggpwjGG9NQ/nmv+/n3roRx+tU2PFjMvSYmBIzNuaZNI3JgPhoBJLz0/c
-	 lbMXWfJN1cj8j+ImpAoekIIChvat+QAlJvVyjhz6JcUd/CthfrFNZ7HArGlHqczTsk
-	 Xt5+Ph8sBo1d+3CSz1l0clpQ=
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4836cc0b38eso81043535e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 05:00:54 -0800 (PST)
+	Thu, 05 Mar 2026 13:01:56 +0000
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2aae146b604so60897015ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 05:01:55 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772715654; x=1773320454;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AwP4BhYIWaYYtzi0hBUxp/zG8QUjl+08i0ub1kRdEPI=;
-        b=BI4w+HoiCpqEdYEqZHKsLDffTTYIuwxDaW7Om3QdxwuGdH0U1RT16+fb5BW2j6buQG
-         ZxNywYFsdjP7SQ9E1Iqz5XfCAXgbDn6qheFQHaJbvqka4ePPZ8wZ1q4ogvYE7pSkbnmB
-         bphu4l/bP4Zu6k1+PBSqq/c1/Msgz41d199lypsbTb/QhksqQ+pWcGWGakUUFwyn2d6U
-         WU/h8/8LTXfl1Stl30jVvQ3+LeBaT65Gwi0k0Rhg10pFQ0U9nq8J2IeGztoTMpZP92Gx
-         WXYZ7ZsrqqUcKyTajiAH03ZIdjY9bHTI9c9MpdKINICt9jgXtjsORI2IHVgZCE6tgbyn
-         0WGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXk1r7XLUjGIbasCSd7kjGLcyhFWo13uYUt9fCV2r7AckRYi57b8a9FpJzudHXx6/FpJ7JdPkhapQQIGg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqGWQT5EanF7LX69TcYEK+Xi7CoHYf8YEE1qIkq1lD2zKEou39
-	IqYyTlzCiNIuGiKimZXvZDQqi78N5/Ux4U45gzsMVrmY2VCmyRZCrmVvY6GStLczuAnu4tjXZrh
-	XDAHTLlKl0VdEuYhCnr0oub7xXLT7nhNhIsq5gmQyRCN8JtcI8zLKWKfPq5DRgLa9mRlEUCnSfY
-	B/wX13a875wQ==
-X-Gm-Gg: ATEYQzy151oabRvmWF3KztD5/nkwtRTtouGGZIXMOlD5f5umgA/hXjn3P0bjDM6q6ep
-	MCFo/Fg+uorWquTInmQW8Oa75j6XkMX0Gze1z+OSyf7j5tdnYdY/PJzVvDeAFuoyxIlsXTXUjbi
-	LmPyYaQFtkCUZw48qPttY3eRLztEILoQc/iltPhxVfSxt+NAb8TOkmdjSnBXqDYTT8nmzuHoNUQ
-	KvnhUNsPkGh+ZTZ1mF62ARr1BhUF1NjcU6c+3SXWBRXka9JV2v+FsgZyNkHES+5MS0tlczAfKIo
-	e6URwxr1dXiigu5/RXH97tsJ6qb7/HF2Ne82pqC0P56ADlpvGd1i6igO11oDaOgukTXUQXib+TR
-	BSsvoalwrilybSbAsc9gu0+I7Wy357FWlf5LaxTKkpCEhkdl2XayVbyh+fCV6jNbpdwSvoVCnPh
-	CefXYJpCAeJ/8f6CnJgNYOjBO5irXZn1/H2IauvUK+flXhSfP0DWI=
-X-Received: by 2002:a05:600c:64ce:b0:477:7925:f7fb with SMTP id 5b1f17b1804b1-485198608e9mr100891325e9.10.1772715653176;
-        Thu, 05 Mar 2026 05:00:53 -0800 (PST)
-X-Received: by 2002:a05:600c:64ce:b0:477:7925:f7fb with SMTP id 5b1f17b1804b1-485198608e9mr100890655e9.10.1772715652709;
-        Thu, 05 Mar 2026 05:00:52 -0800 (PST)
-Received: from [192.168.103.129] (ip-005-147-080-091.um06.pools.vodafone-ip.de. [5.147.80.91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439c1fc577bsm19363148f8f.19.2026.03.05.05.00.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Mar 2026 05:00:52 -0800 (PST)
-Message-ID: <f4ba06cb-a0d8-423c-b1bc-0257625eea00@canonical.com>
-Date: Thu, 5 Mar 2026 14:00:50 +0100
+        d=1e100.net; s=20230601; t=1772715715; x=1773320515;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7IxpxVkGnClS/pzWnTPcTEx+bl+pPZR21vGpLksfVXc=;
+        b=VVYzGWXRbyc7Ol0bFmBDyYSEoMgdjSB03beQWij426xYFw+/H49dQlwulmbP6kHc32
+         XickGZJlqwV1zbw9GjOHMIXN1G8T7yqlNLjIHX6CQ4lbEFWqZ3kMw2gcRq0Le/tIoVh3
+         1NVhawbFs7FuQbLe6mzoHm1rJv7idkzK+VPTuI/Fu3S/iVYVDWPM80L/4uuDKROhdTgU
+         iLzYxCD6xWsAwd76Hgh4eFM+i28Pba1DyRmgOJd8OlzbaKvBrB0SHOTCgZXqwHwYDejt
+         TQ7ZiDlwbn5EhNgjOs/0GeUcmS9pnqnboBwUuW1uUImt7f+IdI3cVe0U4GPW28graaAm
+         g7Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCXOeoxPEKFkxYsFbCFfAWJcD1qmi0aVQ+9/F7NTrNZUHPNUXccJkeXHXRQh3uPG7Y0RQAYnE6KV/qq+Vg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTtQ1Zuf9+3/CaNdnSfiCYFgqPA8yznP28IsAj10zRdg3wPb2p
+	CZxsxYiP70Oa5UuTRoVCF+iSU5qH9KBYHE2BK5XzivBX/uRevyH1zc3A
+X-Gm-Gg: ATEYQzzORkav20pMxHLwvh/uupdTmRfWvQ3eh8juyNDBB6tNlW79QEjZv8rVF9+ECal
+	9A2XfL7wvHLVaLDsOlAbVtAv5SCl3PTB1Cb4Nwel2dAE3Aadi66OUeAXhTyaYHRY1+9iTQt75Pt
+	r3XrHYRztbY7aDPaldavq8OP6dK80S0DnVGGqpJF+rXnU7oM0/XqkaObiZM/+QZ3qJg4QOcfq/W
+	xY+s/I8eBqqOhOW3QKbuRtx09rTsIYp6ELfVah78QiiP+uO7nxJA6hJFS4a85J0w1LwLrbEr+Dc
+	NWvqiEEOsQbfdC5gbwD/p3ODnfuOk1ObZ46tx1Qu5EBJcB9+DZVWFccC2l2MkPxIngnONbVQhBg
+	ZfRzRBkaJn8clHATKe95+u6RjL5LiJxD2/iK6fSEmghsb2O+4u7S+0NEkDzpLScLi+mWoa09vQX
+	oT7VVn3efXYIbGmE4tOxxP9/RFFsJ2w/PdSBjJyHfN5IMIaaVVu9peMRNCLcGDWOMAOKgn1dQl9
+	mJGmTqMy/3FHZpzv1hcZ3jd4ymMBRv3mG7O+8IBGL6pFs/QXNE9z7CTI8AVaw==
+X-Received: by 2002:a17:902:ce03:b0:2ae:5b52:3818 with SMTP id d9443c01a7336-2ae6a9deb2amr60551085ad.8.1772715711782;
+        Thu, 05 Mar 2026 05:01:51 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae54136b28sm115696425ad.73.2026.03.05.05.01.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2026 05:01:50 -0800 (PST)
+Date: Thu, 5 Mar 2026 22:01:49 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Joe Perches <joe@perches.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org, spacemit@lists.linux.dev,
+	UNGLinuxDriver@microchip.com
+Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
+Message-ID: <20260305130149.GA1659133@rocinante>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
+ <20260304175735.2660419-23-vladimir.oltean@nxp.com>
+ <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
+ <20260305085148.7cwo3yflp7vcfldf@skbuf>
+ <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
+ <20260305114352.2f7btqixg4tu5bzl@skbuf>
+ <20260305121532.GA1649635@rocinante>
+ <20260305122957.GA1652563@rocinante>
+ <20260305123956.ojkt4k3ly64xz7fu@skbuf>
+ <aal6kWDx_3XRGB4K@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: acpi: update FADT revision check to 6.6
-To: "rom.wang" <r4o5m6e8o@163.com>
-Cc: linux-kernel@vger.kernel.org, Yufeng Wang <wangyufeng@kylinos.cn>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Conor Dooley <conor.dooley@microchip.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Sean Chang <seanwascoding@gmail.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-riscv@lists.infradead.org
-References: <20260305091433.83983-1-r4o5m6e8o@163.com>
-Content-Language: en-US
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <20260305091433.83983-1-r4o5m6e8o@163.com>
+Content-Disposition: inline
+In-Reply-To: <aal6kWDx_3XRGB4K@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_050058_309957_624854C4 
-X-CRM114-Status: GOOD (  22.29  )
+X-CRM114-CacheID: sfid-20260305_050155_747287_EA0D0EC7 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,68 +106,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/5/26 10:14, rom.wang wrote:
-> From: Yufeng Wang <wangyufeng@kylinos.cn>
+Hello,
+
+> > > For content match, it could also be:
+> > > 
+> > >   K:    phy
+> > > 
+> > > I believe this would match everything of interest?
+> > 
+> > Yeah, and way more. Think USB PHY, network PHY, etc. Don't want to drown
+> > the linux-phy mailing list in unrelated patches, either.
 > 
-> ACPI 6.6 is required for RISC-V as it introduces RISC-V specific
-> tables such as RHCT (RISC-V Hart Capabilities Table) and
-> RIMT (RISC-V I/O Mapping Table).
-> 
-> Update the FADT revision check from 6.5 to 6.6 and remove
-> the TODO comment since ACPI 6.6 has been officially released.
+> Also phylink, any memory management / DMA stuff that happens to mention
+> "physical", and probably numerous other examples.
 
-If I understand the change correctly:
+Makes sense!  Sorry for the commotion here, then. :)
 
-After the patch QEMU v10.0.0 will stop to boot Linux via ACPI.
-QEMU v10.1.0 will be supported as it indicates revision 6.6.
-See function build_fadt_rev6() in qemu/hw/riscv/virt-acpi-build.c.
-
-For Ubuntu this is not an issue as it is on QEMU 10.1 on recent releases 
-(https://launchpad.net/ubuntu/+source/qemu).
-Fedora 43 also has QEMU 10.1 
-(https://packages.fedoraproject.org/pkgs/qemu/qemu/).
-Suse Tumbleweed has 10.2.1 (https://software.opensuse.org/package/qemu).
-
-Stable Debian Trixie using 10.0 will be impacted 
-(https://packages.debian.org/trixie/qemu-system-misc). Debian Testing 
-has 10.2.
-
-Acked-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-
-> 
-> Signed-off-by: Yufeng Wang <wangyufeng@kylinos.cn>
-> ---
->   arch/riscv/kernel/acpi.c | 10 +++++-----
->   1 file changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-> index 71698ee11621..ff681db9f4f1 100644
-> --- a/arch/riscv/kernel/acpi.c
-> +++ b/arch/riscv/kernel/acpi.c
-> @@ -85,12 +85,12 @@ static int __init acpi_fadt_sanity_check(void)
->   	 * The revision in the table header is the FADT's Major revision. The
->   	 * FADT also has a minor revision, which is stored in the FADT itself.
->   	 *
-> -	 * TODO: Currently, we check for 6.5 as the minimum version to check
-> -	 * for HW_REDUCED flag. However, once RISC-V updates are released in
-> -	 * the ACPI spec, we need to update this check for exact minor revision
-> +	 * ACPI 6.6 is required for RISC-V as it introduces RISC-V specific
-> +	 * tables such as RHCT (RISC-V Hart Capabilities Table) and RIMT
-> +	 * (RISC-V I/O Mapping Table).
->   	 */
-> -	if (table->revision < 6 || (table->revision == 6 && fadt->minor_revision < 5))
-> -		pr_err(FW_BUG "Unsupported FADT revision %d.%d, should be 6.5+\n",
-> +	if (table->revision < 6 || (table->revision == 6 && fadt->minor_revision < 6))
-> +		pr_err(FW_BUG "Unsupported FADT revision %d.%d, should be 6.6+\n",
->   		       table->revision, fadt->minor_revision);
->   
->   	if (!(fadt->flags & ACPI_FADT_HW_REDUCED)) {
-
+	Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
