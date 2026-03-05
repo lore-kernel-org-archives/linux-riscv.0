@@ -4,97 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4125EFCE4D
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 00:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C921AEFCE53
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 00:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1DE7SE74SKLH69wH1W9EZea+7+6Bts2u4CyzE3lYwHI=; b=KJ8NQwH4hS6FQe
-	P8qA4umEdoNBjiUJf/UZnMUqLwkpUrp9NCMe4OXv4fFCmALUNAWsjMJFSn6LcUVK4gTkprkh1BA4S
-	dfkRLe6AgN3M3+A2RDXQJRlFiP1OyxNUZnvA+rWMdAPWlu3t8BNPFoaj0NJsl2llzuN2B4ZGeElpM
-	c/g54OXleFomkLt1nazAp0ZR+SHkYO+tTvE37wjKFK6W6LPkXY9B9vO3cdTEv7rT8p93JV4iDMxDx
-	/614V+h9oBWC8l2PC6Gb9oG56QQQz3ysJm768K2Gm/nt1E4arrOxSUsY8ilpPrH+49drkezCPkeuk
-	GO4TO0pq7WTE3ZLz5S2w==;
+	List-Owner; bh=jLDrbgv88ZpoDJ8t5Z8n8IxXcakaeqOLusCXGUMhmc4=; b=uscdZPAvLCP2ds
+	Sj7euSYR9+QojzQU4X7GWVNiqf3jryFzlyYKiMLteFw1nxkrObmp/mFVl7l+tfK0cJqaMSO128TfX
+	HbA80PPbGs/yB2o4FTwI7iNXLcS+u0rwx1y73zx+pIDxlt3il3pD3QXuER4m+tpItDQJpqTy0USVw
+	TsXEgHngx4lfrx/Zi7Y7ms1SidgcBoRmMMGwqBxWxOn8NLrhtaL2uHcCyF4G2o6OZLKTbeY+BB71s
+	9wpvDHOK10/wU6EOga6ExCvDtQ/ynt6jqMClUZB8AJ3wQ1YGtCAVFnkln/31HThNovE69zJ1x6SaX
+	FFbs4zokGpxwBXgKmBxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxwhs-00000000huW-3bCU;
-	Thu, 05 Mar 2026 00:36:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vxx2u-00000000ikd-0Fpk;
+	Thu, 05 Mar 2026 00:58:32 +0000
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vxwhq-00000000hu0-1McT;
-	Thu, 05 Mar 2026 00:36:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D54F2403ED;
-	Thu,  5 Mar 2026 00:36:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70C0CC4CEF7;
-	Thu,  5 Mar 2026 00:36:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772671004;
-	bh=dufxbUIyr7d8ExFT8JscxBc90VyX6BXpvMXaMHirGFY=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=KToGiCmvRjrVNqFH9bmGJHeZ38P88LzG7roLZL+LfIaWcpEiN2r+2cd8LeoKKP35z
-	 U1kZMnp2GF5lnZ/nU+B3HGi0hmJYpifkPnaIttjOzC0p4MJWgdE7whcAtStb71A/hR
-	 PWMEoeZUETbXXgqKLd947UqscZTCqE7PdSGVXWHEJVzdsA5P/GL+TYntigcrzmPu9S
-	 bwFDNJowrmaquHt0GQepYaacF/aqErDIPLaR1+ZJBBxnDoRwltgCLkyg6X/do1S70f
-	 /t3wS/hkSXMAn5Ptc3L2X59NGkKMvuLeUJNxpcdH9xAkM1JdLfqBeN7u7tjz5Udo9K
-	 2yvhogx3J8MSA==
-From: Nathan Chancellor <nathan@kernel.org>
-To: Nicolas Schier <nsc@kernel.org>, Nathan Chancellor <nathan@kernel.org>
-Cc: Richard Henderson <richard.henderson@linaro.org>, 
- Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
- Vineet Gupta <vgupta@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- WANG Xuerui <kernel@xen0n.name>, Geert Uytterhoeven <geert@linux-m68k.org>, 
- Sam Creasey <sammy@sammy.net>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
- Stafford Horne <shorne@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
- "David S. Miller" <davem@davemloft.net>, 
- Andreas Larsson <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, 
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
- Johannes Berg <johannes@sipsolutions.net>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
- linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
- linux-um@lists.infradead.org, linux-kbuild@vger.kernel.org, 
- stable@vger.kernel.org, Ed W <lists@wildgooses.com>
-In-Reply-To: <20260225-separate-modinfo-from-elf-details-v1-1-387ced6baf4b@kernel.org>
-References: <20260225-separate-modinfo-from-elf-details-v1-1-387ced6baf4b@kernel.org>
-Subject: Re: [PATCH] kbuild: Split .modinfo out from ELF_DETAILS
-Message-Id: <177267099220.1730256.13119170390082704508.b4-ty@kernel.org>
-Date: Wed, 04 Mar 2026 17:36:32 -0700
+	id 1vxx2r-00000000ijI-0Mqj
+	for linux-riscv@lists.infradead.org;
+	Thu, 05 Mar 2026 00:58:30 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-126ea4e9694so3573587c88.1
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 16:58:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1772672308; x=1773277108; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=V18G0dffShMU4z6G97+zCQkLAwnQ6V/WEvHOERsnHVY=;
+        b=fvP1p8IASV5xNoUIOn1pbR0JjK5WpnVefjOxu4O1jS3/0itqAlu7Whw8xlrWsPa8X9
+         scBlI7a6AzkwaYDUAXRZHdETgirlvDAbr+nZvK1BLU7NIaAsSmsPX3UEDhxn9Qknu+ZC
+         UCOUL6tb0aByZ1d1oDzWO4kEyPg5FgDrVXD2d/GB+oeATP4KxNv4etyO38RAXyZp9kGs
+         kZNfZQ4o1f0+3IvK2f6bz+iusPQ9odw4Ujt0PlOteXLvmY9oCSo0kqdDyT3G0EYXtKO8
+         zRSb6xCYYDH8Js1rQ7ccu5A74uwYPwSw+CmuITDB40JXvC64x70p9lzpizi3xQFFHIbF
+         sqKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772672308; x=1773277108;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=V18G0dffShMU4z6G97+zCQkLAwnQ6V/WEvHOERsnHVY=;
+        b=ICNL5ef5UJLDh7thWS0DsYYHR98CtdV5o7K9ZUWlFH+u1qlynpbRLwub/qtRx+4Jr+
+         Tifhug3bBwrXYBEFt7MctZgtgrX2YGTLA1zSD7YL3hfGUTu4kRNbWhQyxOu+ZaF0iJ2N
+         7txq1Xyh4IzONoK7DHNDeYO2CZeqipEAj150Fu4xt3i3ZAUMW07hrkVw5tGOSpemjsqP
+         yr5/x0uUXEmDkVQ3aji8MJujXhc0x3BOiIwhsS8367U1AF03mbrAuCkl3kU0Qf6R9QSs
+         ITpBorlYpU68fixp/z/apHU0rCY9jZu7vzRRzGVQp6+n7PSRw/ONqc/z+alH0hnuYmLu
+         l7Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCW6Uq+ncX9wuioHJU0npIruagN6Y7T+kqJgCWgw9uB+Z8JNTWCIJ48vTHQl+m/BGbqQxpyKgj6N/jHbAw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPD3sWNSHs0DtZT7rJsCs70WP+pvkLa83L16j235Jfuun/4WHo
+	FPQyhaJt7NcIfeZDKMNU93uOzNXHDFUNa+wH3O/Qss6EGeet7eL+uUHn
+X-Gm-Gg: ATEYQzxguCLIwZAvkZN60PCOSL19RWbuUTbCvhLT3izvMMuK2CSsejmWY/MMLuF07y+
+	8NJ/MLejGOtD4eym1Rd6YdDQcqzUOMZMEdWG1XN2r3An1nZ+UHLi9rkMza1cBKHIzEi9l+oqnsb
+	5/1Nv5G1qD+m/+yGP1bge3vbvaRwDMmcU/YhIDa+S3qioHlb6JMQH1B+r4NUOc7Kd434M93KCKJ
+	jTgYjVMuXiOVhiGEZfz50gLNZHO6djNghWm7dVggqR3U2wUC6TVDNSqkP3e0fS+7XXmPrdBF/xk
+	owqFmlS8XNEQZTC8l77GC5qxp0pIVsoB5oQW/ZJ611F7ek0aY/6dR8fsIEhYtEKq8Zk6iPms+50
+	YjBe6H2TL4p4pBBIz1sdpqNOelOfH0hK3YK5Ki2EEFdixOPBt1fIBkC9y7+LUvUnPpZv2RJDFKb
+	vTcMMygyzqfg31kv8w0hNU6/0=
+X-Received: by 2002:a05:7022:525:b0:119:e56b:9590 with SMTP id a92af1059eb24-128b70d11bdmr2303907c88.21.1772672307447;
+        Wed, 04 Mar 2026 16:58:27 -0800 (PST)
+Received: from inky.localdomain ([2601:647:6700:64d0::5c10])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2be381d5ae9sm1164212eec.26.2026.03.04.16.58.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Mar 2026 16:58:26 -0800 (PST)
+Date: Wed, 4 Mar 2026 16:58:24 -0800
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+To: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Anup Patel <anup@brainfault.org>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guodong Xu <guodong@riscstar.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [RFC PATCH v1 00/11] riscv: hwprobe: Introduce rva23u64 base
+ behavior
+Message-ID: <20260305005824.GA132269@inky.localdomain>
+References: <20260206002349.96740-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev
+Content-Disposition: inline
+In-Reply-To: <20260206002349.96740-1-andrew.jones@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_163646_411626_4EA18CE8 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20260304_165829_134686_331DD2A6 
+X-CRM114-Status: GOOD (  23.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,38 +106,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Feb 2026 15:02:51 -0700, Nathan Chancellor wrote:
-> Commit 3e86e4d74c04 ("kbuild: keep .modinfo section in
-> vmlinux.unstripped") added .modinfo to ELF_DETAILS while removing it
-> from DISCARDS, as it was needed in vmlinux.unstripped and ELF_DETAILS
-> was present in all architecture specific vmlinux linker scripts. While
-> this shuffle is fine for vmlinux, ELF_DETAILS and DISCARDS may be used
-> by other linker scripts, such as the s390 and x86 compressed boot
-> images, which may not expect to have a modinfo section. In certain
-> circumstances, this could result in a bootloader failing to load the
-> compressed kernel [1].
+On Thu, Feb 05, 2026 at 06:23:38PM -0600, Andrew Jones wrote:
+> Users need a way determine that their harts conform to rva23u64 that
+> isn't error-prone. While patches 2 and 6 make it possible to determine,
+> it requires a bunch of probes and checks themselves (see patch9 for the
+> recipe). This RFC proposes adding an RVA23U64 hwprobe base behavior
+> (patch8) allowing easy determination. It also proposes adding the bases
+> to /proc/cpuinfo (patches 10 and 11) -- but those two patches are probably
+> even more RFCy than the hwprobe proposal...
 > 
-> [...]
+> The first three patches have been posted previously by their respective
+> authors and are currently under active review (except patch2 which
+> appears to have gotten lost in the shuffle). I've collected these
+> patches into the series since they're necessary for the base and
+> because I wanted to repost patch2 and patch3 with some changes. patch4
+> and patch6 expose more extensions to userspace. patch9 adds a consistency
+> test for the new hwprobe base behavior bit.
 
-Applied to
+Great series! Thanks for pulling these all together, I like this
+direction. We had dropped patch2 because we were using it for some
+misaligned access optimizations but then realized that the extension
+wasn't useful for that so then the patches got lost.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git kbuild-fixes
+In Linux 7.0, patch 1 got applied along with CFI using the first flags of
+the second key so there is some rebasing to do.
 
-Thanks!
+I think putting the compatibility info in /proc/cpuinfo is a good idea.
+There is always hesitance around /proc/cpuinfo because some ill-advised
+programs try to parse information from it, but it is nice to have an
+easy way for users to see the compatility and since you also added the
+hwprobe interface for it this seems reasonable.
 
-[1/1] kbuild: Split .modinfo out from ELF_DETAILS
-      https://git.kernel.org/kbuild/c/8678591b47469
+- Charlie
 
-Please look out for regression or issue reports or other follow up
-comments, as they may result in the patch/series getting dropped or
-reverted. Patches applied to an "unstable" branch are accepted pending
-wider testing in -next and any post-commit review; they will generally
-be moved to the main branch in a week if no issues are found.
-
-Best regards,
--- 
-Nathan Chancellor <nathan@kernel.org>
-
+> 
+> Thanks,
+> drew
+> 
+> 
+> Andrew Jones (8):
+>   riscv: Add B to hwcap
+>   riscv: hwprobe.rst: Replace tabs with spaces
+>   riscv: Add Ziccamoa, Ziccif, Ziccrse, and Za64rs to hwprobe
+>   riscv: Export have_user_pmlen* booleans
+>   riscv: hwprobe: Introduce rva23u64 base behavior
+>   riscv: selftests: hwprobe: Check rva23u64 consistency
+>   riscv: /proc/cpuinfo: Add rva23 bases to output
+>   riscv: /proc/cpuinfo: Also output rva20 and rva22 isa bases
+> 
+> Charlie Jenkins (1):
+>   riscv: Standardize extension capitilization
+> 
+> Jesse Taube (1):
+>   RISC-V: Add Zicclsm to cpufeature and hwprobe
+> 
+> Paul Walmsley (1):
+>   riscv: hwprobe: add support for RISCV_HWPROBE_KEY_IMA_EXT_1
+> 
+>  Documentation/arch/riscv/hwprobe.rst          |  42 ++-
+>  arch/riscv/include/asm/cpufeature.h           |  14 +
+>  arch/riscv/include/asm/hwcap.h                |  23 +-
+>  arch/riscv/include/asm/hwprobe.h              |   3 +-
+>  arch/riscv/include/asm/switch_to.h            |   4 +-
+>  arch/riscv/include/uapi/asm/hwcap.h           |   1 +
+>  arch/riscv/include/uapi/asm/hwprobe.h         |   9 +-
+>  arch/riscv/kernel/cpu.c                       |  38 +++
+>  arch/riscv/kernel/cpufeature.c                | 168 ++++++++++--
+>  arch/riscv/kernel/process.c                   |  12 +-
+>  arch/riscv/kernel/sys_hwprobe.c               | 249 +++++++++++++-----
+>  arch/riscv/kvm/main.c                         |   2 +-
+>  arch/riscv/kvm/vcpu_fp.c                      |  28 +-
+>  arch/riscv/kvm/vcpu_onereg.c                  |  22 +-
+>  arch/riscv/kvm/vcpu_vector.c                  |  14 +-
+>  .../testing/selftests/riscv/hwprobe/hwprobe.c | 112 +++++++-
+>  .../selftests/riscv/hwprobe/which-cpus.c      |  20 +-
+>  17 files changed, 610 insertions(+), 151 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
