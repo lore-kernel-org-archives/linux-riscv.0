@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330DAEEF309
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 06:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E7AEEF30B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 06:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dLDYQf/RjUFSMOvCYwfZC5rGHaLScFadF+gBYm9vDFU=; b=2OsyMDt3xTlLs2
-	Cniswd8MaiE1HyWBI6m23NIod3uIDPPM0gLtyTCNVmoMoAvppXKx9k4VMeKZbVRtzPA7yKHSlhVeQ
-	4T8aqlbUK4a1qT4OfbOcsEowUgJnadzre4NdnVDH3yDv4PtGwMg73xP5dCz3Utv2ZgdkXXIKE7mIY
-	yYFqehwVtT34jzWp9aQDrReXfbY/8Y/HkzQ2sqjgDiMuvx0KXCekD8VDGT0G8nUmygy7bN/RZ9fTf
-	8EohZw7jCfmVata/keo/1EapLIlXj7qGv9RJPIZeTwtY1X+xf98SsATZ3HdPUvePiz9lNqNRuaQaD
-	dxNm+GyPx5dMNgX46bIA==;
+	List-Owner; bh=C4o32uafHTrWil40+k4eTVyKZai+CwHgBZAZddNSm00=; b=oUojlSy18+wgUQ
+	4qwj0wp/PvbnvKs9/0R0vcoiF75/8MikzhoKDAOsS6Odr5io3BYGbknUiRxOqPcZh9tkXF5XKTzza
+	KYFcIn2zk/WuKhAZUW6yMTHTO3nf+57wKohKIbPCAVuru+ZaGgvk3NrKA6l9xSNWQsuc/aaA7e7jE
+	LNd4Jp1C1yu5dBYDNZkxIhfTZ0D5BslgGzcmJi9gUNlJBvjbvOrs8PY9kIoC4t/MaMo956VRgoczF
+	lOfAEbZHhSLf48UjBibzOZnVVrQZNcYFQw1wOzEE67q7s6j5cAP1JnbpgANQFeMP8x76SxFSiddja
+	6ugB/VVzJkQdFS7nHomg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2FJ-000000010xB-24Cm;
-	Thu, 05 Mar 2026 06:31:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vy2Io-000000011Am-0bVQ;
+	Thu, 05 Mar 2026 06:35:18 +0000
+Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2FI-000000010x4-2ge9
+	id 1vy2Il-000000011A9-2SCu
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 06:31:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C1CD061339;
-	Thu,  5 Mar 2026 06:31:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B2AEC116C6;
-	Thu,  5 Mar 2026 06:31:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772692299;
-	bh=vYqKAjigSGK+e2mJl4KSQ7Ay4nPe/Fhoh8VuBDSDuPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iiL/1lGU9jqMT97ePehSNPRel+pHwzNy8Sc211RvK7J4OxNjf8ET3jCFjdTbLqUWK
-	 uPlDf4XuWj0ZPK8jTSmKEAArWxC5yDFB6tNypcTjtflbYxTtaBPgK/6jPMQmV58ulB
-	 zQC0s9sMf2vjaMJch9hFxWKmtUs7QwgdSOC37VAKlpEcqLO+EySgoco/taryGwruTe
-	 KJfMxQPazaMns29WtfW/dZRYHB2iKn3PidkF/IRuWb+htj53x/SOLTow+gLXLB624n
-	 +B8DMER6GZB52uLa+7oQOxSFe/h16LXi94UPWjC+M/3sMaQybd2ukllEf86GCtOLP5
-	 V+aJEbSEDOPag==
-Date: Thu, 5 Mar 2026 12:01:20 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Randolph <randolph@andestech.com>
-Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, jingoohan1@gmail.com, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, alex@ghiti.fr, aou@eecs.berkeley.edu, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, ben717@andestech.com, 
-	inochiama@gmail.com, thippeswamy.havalige@amd.com, namcao@linutronix.de, 
-	shradha.t@samsung.com, pjw@kernel.org, christian.bruel@foss.st.com, 
-	Ghennadi.Procopciuc@nxp.com, quic_wenbyao@quicinc.com, qiang.yu@oss.qualcomm.com, 
-	vincent.guittot@linaro.org, vidyas@nvidia.com, elder@riscstar.com, s-vadapalli@ti.com, 
-	ciprianmarian.costea@nxp.com, randolph.sklin@gmail.com, tim609@andestech.com
-Subject: Re: [PATCH v11 2/4] riscv: dts: qilai: Add PCIe node into the QiLai
- SoC
-Message-ID: <rkrado7sb3vevzacprcyphk3amvvognvgqbt74ti6nvk65iqzm@kthkqssjonx6>
-References: <20260225085504.3757601-1-randolph@andestech.com>
- <20260225085504.3757601-3-randolph@andestech.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260225085504.3757601-3-randolph@andestech.com>
+	Thu, 05 Mar 2026 06:35:17 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4fRKXT4QGzz9tj4;
+	Thu,  5 Mar 2026 07:35:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1772692505;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Roprykd/0bxr9LQQRe+mNdX0hmWBmJ1X7LdzolcDU9k=;
+	b=lm1yAbd0qAPVSB0OOQRUd4vtc6/wSfKt2qM2Mf5PCiHXw/Aq5lbJdcLgCoWXi5rGNzqG9h
+	JsPxrV2AZuTaGZHE9YEkXufXbnBOa1vgH/OnrUowClqEfNoiCn0Z2RCtvrYzR+oA3RBpJW
+	e+Nrb02yhjVWSON6v9JBwtizQrlHgMOvTo/30HxJDRNIAzfuXY5d4VmIh7mzzr4cBGo9SX
+	fibh2XYjLeQstM/fIMbgtwCn+WkPMUCv1469slw01W53veN710C6/45blpQJ7jwf568oQT
+	YYEE0Ukn3WsikjqQgjaUW0CHXyLVJTZeb85uiJItA17JeDi5NujobxUHRg6jUw==
+Mime-Version: 1.0
+Date: Thu, 05 Mar 2026 14:34:47 +0800
+Message-Id: <DGUN1I6AY5QI.3VWQAV1IQGD7P@mailbox.org>
+Subject: Re: [PATCH v3 0/3] thermal: spacemit: Add support for SpacemiT K1
+ SoC thermal sensor
+From: "Shuwei Wu" <shuwei.wu@mailbox.org>
+To: "Shuwei Wu" <shuweiwoo@163.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Daniel Lezcano" <daniel.lezcano@linaro.org>, "Zhang
+ Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Yixun Lan" <dlan@gentoo.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>
+Cc: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260119-patchv2-k1-thermal-v3-0-3d82c9ebe8a4@163.com>
+In-Reply-To: <20260119-patchv2-k1-thermal-v3-0-3d82c9ebe8a4@163.com>
+X-MBO-RS-ID: 6a4d1feab15b69ac214
+X-MBO-RS-META: oyujgzgony737ozxqjnzkwqas9ubuoo4
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260304_223515_824338_090C77EE 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,101 +81,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBGZWIgMjUsIDIwMjYgYXQgMDQ6NTU6MDJQTSArMDgwMCwgUmFuZG9scGggd3JvdGU6
-Cj4gRnJvbTogUmFuZG9scGggTGluIDxyYW5kb2xwaEBhbmRlc3RlY2guY29tPgo+IAo+IEFkZCB0
-aGUgQW5kZXMgUWlMYWkgUENJZSBub2RlLCB3aGljaCBpbmNsdWRlcyAzIFJvb3QgQ29tcGxleGVz
-Lgo+IAo+IFNpZ25lZC1vZmYtYnk6IFJhbmRvbHBoIExpbiA8cmFuZG9scGhAYW5kZXN0ZWNoLmNv
-bT4KCkFja2VkLWJ5OiBNYW5pdmFubmFuIFNhZGhhc2l2YW0gPG1hbmlAa2VybmVsLm9yZz4KCk9u
-ZSBuaXQgYmVsb3cuCgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FuZGVzL3FpbGFpLmR0
-c2kgfCAxMDkgKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCAx
-MDkgaW5zZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2Fu
-ZGVzL3FpbGFpLmR0c2kgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2FuZGVzL3FpbGFpLmR0c2kKPiBp
-bmRleCBkZTNkZTMyZjhjMzkuLjczMWJhMTJjY2M5NSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2
-L2Jvb3QvZHRzL2FuZGVzL3FpbGFpLmR0c2kKPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2Fu
-ZGVzL3FpbGFpLmR0c2kKPiBAQCAtMTIzLDYgKzEyMyw3IEBAIGNwdTNfaW50YzogaW50ZXJydXB0
-LWNvbnRyb2xsZXIgewo+ICAJc29jIHsKPiAgCQljb21wYXRpYmxlID0gInNpbXBsZS1idXMiOwo+
-ICAJCXJhbmdlczsKPiArCQlkbWEtcmFuZ2VzOwo+ICAJCWludGVycnVwdC1wYXJlbnQgPSA8JnBs
-aWM+Owo+ICAJCSNhZGRyZXNzLWNlbGxzID0gPDI+Owo+ICAJCSNzaXplLWNlbGxzID0gPDI+Owo+
-IEBAIC0xODIsNSArMTgzLDExMyBAQCB1YXJ0MDogc2VyaWFsQDMwMzAwMDAwIHsKPiAgCQkJcmVn
-LWlvLXdpZHRoID0gPDQ+Owo+ICAJCQluby1sb29wYmFjay10ZXN0Owo+ICAJCX07Cj4gKwo+ICsJ
-CWJ1c0A4MDAwMDAwMCB7Cj4gKwkJCWNvbXBhdGlibGUgPSAic2ltcGxlLWJ1cyI7Cj4gKwkJCSNh
-ZGRyZXNzLWNlbGxzID0gPDI+Owo+ICsJCQkjc2l6ZS1jZWxscyA9IDwyPjsKPiArCQkJZG1hLXJh
-bmdlcyA9IDwweDQ0IDB4MDAwMDAwMDAgMHgwNCAweDAwMDAwMDAwIDB4MDQgMHgwMDAwMDAwMD47
-Cj4gKwkJCXJhbmdlcyA9IDwweDAwIDB4ODAwMDAwMDAgMHgwMCAweDgwMDAwMDAwIDB4MDAgMHgy
-MDAwMDAwMD4sCj4gKwkJCQkgPDB4MDAgMHgwNDAwMDAwMCAweDAwIDB4MDQwMDAwMDAgMHgwMCAw
-eDAwMDAxMDAwPiwKPiArCQkJCSA8MHgwMCAweDAwMDAwMDAwIDB4MjAgMHgwMDAwMDAwMCAweDIw
-IDB4MDAwMDAwMDA+Owo+ICsKPiArCQkJcGNpZUA4MDAwMDAwMCB7Cj4gKwkJCQljb21wYXRpYmxl
-ID0gImFuZGVzdGVjaCxxaWxhaS1wY2llIjsKPiArCQkJCWRldmljZV90eXBlID0gInBjaSI7Cj4g
-KwkJCQlyZWcgPSA8MHgwMCAweDgwMDAwMDAwIDB4MDAgMHgyMDAwMDAwMD4sIC8qIERCSSByZWdp
-c3RlcnMgKi8KPiArCQkJCSAgICAgIDwweDAwIDB4MDQwMDAwMDAgMHgwMCAweDAwMDAxMDAwPiwg
-LyogQVBCIHJlZ2lzdGVycyAqLwo+ICsJCQkJICAgICAgPDB4MDAgMHgwMDAwMDAwMCAweDAwIDB4
-MDAwMTAwMDA+OyAvKiBDb25maWd1cmF0aW9uIHJlZ2lzdGVycyAqLwoKTm8gbmVlZCB0byBhZGQg
-Y29tbWVudHMgYWJvdXQgdGhlIHJlZ2lzdGVyIG5hbWUgc3BhY2UuIFlvdSBoYXZlIHJlZy1uYW1l
-cyBiZWxvdy4KCi0gTWFuaQoKPiArCQkJCXJlZy1uYW1lcyA9ICJkYmkiLCAiYXBiIiwgImNvbmZp
-ZyI7Cj4gKwkJCQlkbWEtY29oZXJlbnQ7Cj4gKwo+ICsJCQkJbGludXgscGNpLWRvbWFpbiA9IDww
-PjsKPiArCQkJCSNhZGRyZXNzLWNlbGxzID0gPDM+Owo+ICsJCQkJI3NpemUtY2VsbHMgPSA8Mj47
-Cj4gKwkJCQlyYW5nZXMgPSA8MHgwMjAwMDAwMCAweDAwIDB4MTAwMDAwMDAgMHgwMCAweDEwMDAw
-MDAwIDB4MDAgMHhmMDAwMDAwMD4sCj4gKwkJCQkJIDwweDQzMDAwMDAwIDB4MDEgMHgwMDAwMDAw
-MCAweDAxIDB4MDAwMDAwMDAgMHgwMiAweDAwMDAwMDAwPjsKPiArCj4gKwkJCQkjaW50ZXJydXB0
-LWNlbGxzID0gPDE+Owo+ICsJCQkJaW50ZXJydXB0cyA9IDwweGYgMHg0PjsKPiArCQkJCWludGVy
-cnVwdC1uYW1lcyA9ICJtc2kiOwo+ICsJCQkJaW50ZXJydXB0LXBhcmVudCA9IDwmcGxpYz47Cj4g
-KwkJCQlpbnRlcnJ1cHQtbWFwLW1hc2sgPSA8MCAwIDAgMD47Cj4gKwkJCQlpbnRlcnJ1cHQtbWFw
-ID0gPDAgMCAwIDEgJnBsaWMgMHhmIDB4ND4sCj4gKwkJCQkJCTwwIDAgMCAyICZwbGljIDB4ZiAw
-eDQ+LAo+ICsJCQkJCQk8MCAwIDAgMyAmcGxpYyAweGYgMHg0PiwKPiArCQkJCQkJPDAgMCAwIDQg
-JnBsaWMgMHhmIDB4ND47Cj4gKwkJCX07Cj4gKwkJfTsKPiArCj4gKwkJYnVzQGEwMDAwMDAwIHsK
-PiArCQkJY29tcGF0aWJsZSA9ICJzaW1wbGUtYnVzIjsKPiArCQkJI2FkZHJlc3MtY2VsbHMgPSA8
-Mj47Cj4gKwkJCSNzaXplLWNlbGxzID0gPDI+Owo+ICsJCQlkbWEtcmFuZ2VzID0gPDB4NDQgMHgw
-MDAwMDAwMCAweDA0IDB4MDAwMDAwMDAgMHgwNCAweDAwMDAwMDAwPjsKPiArCQkJcmFuZ2VzID0g
-PDB4MDAgMHhhMDAwMDAwMCAweDAwIDB4YTAwMDAwMDAgMHgwMCAweDIwMDAwMDAwPiwKPiArCQkJ
-CSA8MHgwMCAweDA0MDAxMDAwIDB4MDAgMHgwNDAwMTAwMCAweDAwIDB4MDAwMDEwMDA+LAo+ICsJ
-CQkJIDwweDAwIDB4MDAwMDAwMDAgMHgxMCAweDAwMDAwMDAwIDB4MDggMHgwMDAwMDAwMD47Cj4g
-Kwo+ICsJCQlwY2llQGEwMDAwMDAwIHsKPiArCQkJCWNvbXBhdGlibGUgPSAiYW5kZXN0ZWNoLHFp
-bGFpLXBjaWUiOwo+ICsJCQkJZGV2aWNlX3R5cGUgPSAicGNpIjsKPiArCQkJCXJlZyA9IDwweDAw
-IDB4YTAwMDAwMDAgMHgwMCAweDIwMDAwMDAwPiwgLyogREJJIHJlZ2lzdGVycyAqLwo+ICsJCQkJ
-ICAgICAgPDB4MDAgMHgwNDAwMTAwMCAweDAwIDB4MDAwMDEwMDA+LCAvKiBBUEIgcmVnaXN0ZXJz
-ICovCj4gKwkJCQkgICAgICA8MHgwMCAweDAwMDAwMDAwIDB4MDAgMHgwMDAxMDAwMD47IC8qIENv
-bmZpZ3VyYXRpb24gcmVnaXN0ZXJzICovCj4gKwkJCQlyZWctbmFtZXMgPSAiZGJpIiwgImFwYiIs
-ICJjb25maWciOwo+ICsJCQkJZG1hLWNvaGVyZW50Owo+ICsKPiArCQkJCWxpbnV4LHBjaS1kb21h
-aW4gPSA8MT47Cj4gKwkJCQkjYWRkcmVzcy1jZWxscyA9IDwzPjsKPiArCQkJCSNzaXplLWNlbGxz
-ID0gPDI+Owo+ICsJCQkJcmFuZ2VzID0gPDB4MDIwMDAwMDAgMHgwMCAweDEwMDAwMDAwIDB4MDAg
-MHgxMDAwMDAwMCAweDAwIDB4ZjAwMDAwMDA+LAo+ICsJCQkJCSA8MHg0MzAwMDAwMCAweDAxIDB4
-MDAwMDAwMDAgMHgwMSAweDAwMDAwMDAwIDB4MDIgMHgwMDAwMDAwMD47Cj4gKwo+ICsJCQkJI2lu
-dGVycnVwdC1jZWxscyA9IDwxPjsKPiArCQkJCWludGVycnVwdHMgPSA8MHhlIDB4ND47Cj4gKwkJ
-CQlpbnRlcnJ1cHQtbmFtZXMgPSAibXNpIjsKPiArCQkJCWludGVycnVwdC1wYXJlbnQgPSA8JnBs
-aWM+Owo+ICsJCQkJaW50ZXJydXB0LW1hcC1tYXNrID0gPDAgMCAwIDA+Owo+ICsJCQkJaW50ZXJy
-dXB0LW1hcCA9IDwwIDAgMCAxICZwbGljIDB4ZSAweDQ+LAo+ICsJCQkJCQk8MCAwIDAgMiAmcGxp
-YyAweGUgMHg0PiwKPiArCQkJCQkJPDAgMCAwIDMgJnBsaWMgMHhlIDB4ND4sCj4gKwkJCQkJCTww
-IDAgMCA0ICZwbGljIDB4ZSAweDQ+Owo+ICsJCQl9Owo+ICsJCX07Cj4gKwo+ICsJCWJ1c0BjMDAw
-MDAwMCB7Cj4gKwkJCWNvbXBhdGlibGUgPSAic2ltcGxlLWJ1cyI7Cj4gKwkJCSNhZGRyZXNzLWNl
-bGxzID0gPDI+Owo+ICsJCQkjc2l6ZS1jZWxscyA9IDwyPjsKPiArCQkJZG1hLXJhbmdlcyA9IDww
-eDQ0IDB4MDAwMDAwMDAgMHgwNCAweDAwMDAwMDAwIDB4MDQgMHgwMDAwMDAwMD47Cj4gKwkJCXJh
-bmdlcyA9IDwweDAwIDB4YzAwMDAwMDAgMHgwMCAweGMwMDAwMDAwIDB4MDAgMHgyMDAwMDAwMD4s
-Cj4gKwkJCQkgPDB4MDAgMHgwNDAwMjAwMCAweDAwIDB4MDQwMDIwMDAgMHgwMCAweDAwMDAxMDAw
-PiwKPiArCQkJCSA8MHgwMCAweDAwMDAwMDAwIDB4MTggMHgwMDAwMDAwMCAweDA4IDB4MDAwMDAw
-MDA+Owo+ICsKPiArCQkJcGNpZUBjMDAwMDAwMCB7Cj4gKwkJCQljb21wYXRpYmxlID0gImFuZGVz
-dGVjaCxxaWxhaS1wY2llIjsKPiArCQkJCWRldmljZV90eXBlID0gInBjaSI7Cj4gKwkJCQlyZWcg
-PSA8MHgwMCAweGMwMDAwMDAwIDB4MDAgMHgyMDAwMDAwMD4sIC8qIERCSSByZWdpc3RlcnMgKi8K
-PiArCQkJCSAgICAgIDwweDAwIDB4MDQwMDIwMDAgMHgwMCAweDAwMDAxMDAwPiwgLyogQVBCIHJl
-Z2lzdGVycyAqLwo+ICsJCQkJICAgICAgPDB4MDAgMHgwMDAwMDAwMCAweDAwIDB4MDAwMTAwMDA+
-OyAvKiBDb25maWd1cmF0aW9uIHJlZ2lzdGVycyAqLwo+ICsJCQkJcmVnLW5hbWVzID0gImRiaSIs
-ICJhcGIiLCAiY29uZmlnIjsKPiArCQkJCWRtYS1jb2hlcmVudDsKPiArCj4gKwkJCQlsaW51eCxw
-Y2ktZG9tYWluID0gPDI+Owo+ICsJCQkJI2FkZHJlc3MtY2VsbHMgPSA8Mz47Cj4gKwkJCQkjc2l6
-ZS1jZWxscyA9IDwyPjsKPiArCQkJCXJhbmdlcyA9IDwweDAyMDAwMDAwIDB4MDAgMHgxMDAwMDAw
-MCAweDAwIDB4MTAwMDAwMDAgMHgwMCAweGYwMDAwMDAwPiwKPiArCQkJCQkgPDB4NDMwMDAwMDAg
-MHgwMSAweDAwMDAwMDAwIDB4MDEgMHgwMDAwMDAwMCAweDAyIDB4MDAwMDAwMDA+Owo+ICsKPiAr
-CQkJCSNpbnRlcnJ1cHQtY2VsbHMgPSA8MT47Cj4gKwkJCQlpbnRlcnJ1cHRzID0gPDB4ZCAweDQ+
-Owo+ICsJCQkJaW50ZXJydXB0LW5hbWVzID0gIm1zaSI7Cj4gKwkJCQlpbnRlcnJ1cHQtcGFyZW50
-ID0gPCZwbGljPjsKPiArCQkJCWludGVycnVwdC1tYXAtbWFzayA9IDwwIDAgMCAwPjsKPiArCQkJ
-CWludGVycnVwdC1tYXAgPSA8MCAwIDAgMSAmcGxpYyAweGQgMHg0PiwKPiArCQkJCQkJPDAgMCAw
-IDIgJnBsaWMgMHhkIDB4ND4sCj4gKwkJCQkJCTwwIDAgMCAzICZwbGljIDB4ZCAweDQ+LAo+ICsJ
-CQkJCQk8MCAwIDAgNCAmcGxpYyAweGQgMHg0PjsKPiArCQkJfTsKPiArCQl9Owo+ICAJfTsKPiAg
-fTsKPiAtLSAKPiAyLjM0LjEKPiAKCi0tIArgrq7grqPgrr/grrXgrqPgr43grqPgrqngr40g4K6a
-4K6k4K6+4K6a4K6/4K614K6u4K+NCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+Hi, 
+
+Sorry for the HTML noise in my previous mail. Correcting the format now.
+
+Gentle ping on this patch.
+Any feedback to help move it forward would be appreciated!
+Thanks!
+
+On Mon Jan 19, 2026 at 10:41 AM CST, Shuwei Wu wrote:
+> Introduce support for the on-die thermal sensor found
+> on the SpacemiT K1 SoC.
+>
+> Include the device tree binding documentation in YAML format, the
+> thermal sensor driver implementation, and the device tree changes to
+> enable the sensor on K1 SoC.
+>
+> ---
+> Changes in v3:
+> - Fix indentation and variable types
+> - Simplify clock management and redundant assignments
+> - Link to v2: https://lore.kernel.org/r/20251216-patchv2-k1-thermal-v1-0-d4b31fe9c904@163.com
+>
+> Changes in v2:
+> - Move driver to drivers/thermal/spacemit/ and update Kconfig/Makefile
+> - Address reviewer feedback on style and structure
+> - Improve variable naming and comments
+> - Link to v1: https://lore.kernel.org/r/20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com
+>
+> ---
+> Shuwei Wu (3):
+>       dt-bindings: thermal: Add SpacemiT K1 thermal sensor
+>       thermal: spacemit: k1: Add thermal sensor support
+>       riscv: dts: spacemit: Add thermal sensor for K1 SoC
+>
+>  .../bindings/thermal/spacemit,k1-tsensor.yaml      |  76 ++++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi               | 101 ++++++++
+>  drivers/thermal/Kconfig                            |   2 +
+>  drivers/thermal/Makefile                           |   1 +
+>  drivers/thermal/spacemit/Kconfig                   |  19 ++
+>  drivers/thermal/spacemit/Makefile                  |   3 +
+>  drivers/thermal/spacemit/k1_tsensor.c              | 281 +++++++++++++++++++++
+>  7 files changed, 483 insertions(+)
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20251215-patchv2-k1-thermal-5ffb838fc1cc
+>
+> Best regards,
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
