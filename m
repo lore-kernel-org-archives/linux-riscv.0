@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93ADEEF319
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A965EEF316
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qJK4kfalX7RdbxNiQWepZekKFolQMVVKdwgKrq1rrnU=; b=U+HUhpIrx1hvCk
-	irz2tC2ELXwen5U8DWDl3Pf0/rlYEe45jHywkFih6mmNyk3W7D/S6w+7sCR+0SWlYym6GLPSP2sBv
-	7FKfoxETgqmz8xt7oDzLuSwUcgj0hwhCxy59M3viIMXHZDHxyHEXhHZQbtrXVMI7MCuzLFFtTyJ9i
-	byXKoyIpTCUuGccahzEmJMbKkyYZz2Nd07sWW96txxfJl/Tjp5yGP+YxpcZ19ZYF8z7RCbrCNQgAp
-	bDGDmzl6mDpV3rvBV9202YlrBoIhKVnNM9YfdurOujsNARQqC/v5+iGIvWtjHiwCGhS9aKpLfhFtH
-	ty9B/qM0yhT1W1CzE2Rg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DXZdQGpEd4ry1eoJwJ6oGeEyNx75vEA5fgCM4tzoUuo=; b=owMhdxgdp8a0zSAqxbXhDss5/s
+	8PGEFHlHE1ZQ247odyWTe1+mxEQsSxWi9y7v3VPYoppOrx5QGrBoIA11HUAB+1IPhcyKRAUA3/e0H
+	kW33kArjZWTtOc5vqtHXL38aqyMFhdG/Ykh/EwKDHqNLK6CYGDJT6ykQpwS3AICAjN11uaKPKGB2T
+	SoFb9ANZ25jWpJr6pCa6aUgpDK0MNfBIh+Si7z4qYoT3RAjAEmWfiW8HDBNBHFRyqOeFqmO4ia/5W
+	DpIl1AILZFHt8NevYYT2DsMrM8KOBasSskRKARtGqf1x/PUlXOoQZyzScKjlmaLLS13Xe7L5/fqrG
+	KHS/nldw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3oV-000000019pL-3gBM;
-	Thu, 05 Mar 2026 08:12:07 +0000
+	id 1vy40e-00000001Bc8-3WZd;
+	Thu, 05 Mar 2026 08:24:40 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3oS-000000019kg-0VJU
+	id 1vy40c-00000001BbA-0sSD
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 08:12:06 +0000
+	Thu, 05 Mar 2026 08:24:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA5A34430F;
-	Thu,  5 Mar 2026 08:12:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A78CBC2BCB1;
-	Thu,  5 Mar 2026 08:12:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B81B344330;
+	Thu,  5 Mar 2026 08:24:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AFFBC2BC9E;
+	Thu,  5 Mar 2026 08:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772698322;
-	bh=jKNMW1Kppp086xhKb9OmDqM3phfapbkFQYsfGDjd564=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=k4zk6MJUbMhYHdS4LxlVYCT/aH0EX994s2aGHdUF/lRA587ZjUzPJuBmqqTJNAL7X
-	 +1B1MmfdBkXJTtQUT0a2XlENQ/9BwgIGF8NCfkceoIrEyRP+LSx12jjs2BYtFWSwbN
-	 YEnvtjihc7FG2A4O3CHKQqulge3DKLRgt9ykDGo53g9Kv/tFf7FGxaqEK7hx57MfrE
-	 PL+j+66cIr6pipAOGtfR6C8mWkvdnXHQylF4Vuax0zHx7wER+kUqBjz6Iyk9hWU2Lt
-	 7jK/HKWZpvzazFVVV5zKWAx862pQABtO7yem94F5mGu+fdLYx2Tjcwf80rL0LH8ivS
-	 /TcAabkl1Gjsw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B2E1EEF31C;
-	Thu,  5 Mar 2026 08:12:02 +0000 (UTC)
-From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Thu, 05 Mar 2026 00:11:30 -0800
-Subject: [PATCH 2/4] selftests: riscv: Add braces around EXPECT_EQ()
+	s=k20201202; t=1772699076;
+	bh=v9aqov2TRju92BUkePwYkzbYjnrsweKBt5HjUS1ipP0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Esq7gGZU0KXs35RQU+pRlI1hgRQdxYIiLM86nXyEIyCQU01GYI19QdoSxNiwazxtb
+	 amix2JoNVwSw4sHwRX3GaRsSGHP3oMYdlKSU2WBjkb5dY8S+Z/qMrUI0igGiit/ebl
+	 EpQYoux7iIB/RdepnrDkfAXKEPEl9C1XqqRL/UnEIROc9kL4kuSOGfrCE3T61m8xtC
+	 mhfz6afBq6fQwsKYcva3+3WIGl4XWrNfxbUL32wxY79TmAi1f0EQl3VDDWv+huynVD
+	 r/g0D1cAC8Lggqh/H7lVjcJ/nM4kvBuAHF13ttzcQ5ww/I1MaSPwikStFIfZh/4Xg0
+	 MGUlxzUri/dKA==
+Date: Thu, 5 Mar 2026 09:24:33 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>, 
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Alice Ryhl <aliceryhl@google.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 3/3] pwm: th1520: remove impl Send/Sync for
+ Th1520PwmDriverData
+Message-ID: <aak9ZBJenK1DSCEt@monoceros>
+References: <20260113-clk-send-sync-v4-0-712bc7d94a79@google.com>
+ <CGME20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8@eucas1p1.samsung.com>
+ <20260113-clk-send-sync-v4-3-712bc7d94a79@google.com>
+ <90657b83-1cff-4c7d-adde-9b560c2be7c2@samsung.com>
+ <3cfeounnaphhezvjpz5igswml6iu3b6jhwhjn2g4ziimjdoefi@ge4ezxx6jxlr>
 MIME-Version: 1.0
-Message-Id: <20260305-fix_selftests-v1-2-61b62d23500b@gmail.com>
-References: <20260305-fix_selftests-v1-0-61b62d23500b@gmail.com>
-In-Reply-To: <20260305-fix_selftests-v1-0-61b62d23500b@gmail.com>
-To: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Sergey Matyukevich <geomatsi@gmail.com>, Andy Chiu <andybnac@gmail.com>, 
- Deepak Gupta <debug@rivosinc.com>
-Cc: linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Charlie Jenkins <thecharlesjenkins@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772698321; l=2373;
- i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
- bh=7v3hKOxSt+L+8LtCfZh085q396U9Poj6cOIz6NZfRCU=;
- b=Sq295+AKQQFINYQEs3JVoWOvokFXidLJ16vqhMSgXrs+qeDEBg2Bsqzq3t3yeHAYLKFS8YzVI
- lMB1g2/JAyhBYHhOGkxarQsvqBREbStMSMkmw1hZ9HeKbCRxs/ZzXQ0
-X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
- pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
-X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
- with auth_id=663
-X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+In-Reply-To: <3cfeounnaphhezvjpz5igswml6iu3b6jhwhjn2g4ziimjdoefi@ge4ezxx6jxlr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_001204_282926_A82E5936 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260305_002438_428885_167721E7 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +80,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: thecharlesjenkins@gmail.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6086066458972413432=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ2hhcmxpZSBKZW5raW5zIDx0aGVjaGFybGVzamVua2luc0BnbWFpbC5jb20+CgpFWFBF
-Q1RfRVEoKSBleHBhbmRzIHRvIG11bHRpcGxlIGxpbmVzLCBicmVha2luZyB1cCBvbmUtbGluZSBp
-ZgpzdGF0ZW1lbnRzLiBUaGlzIGlzc3VlIHdhcyBub3QgcHJlc2VudCBpbiB0aGUgcGF0Y2ggb24g
-dGhlIG1haWxpbmcgbGlzdApidXQgd2FzIGluc3RlYWQgaW50cm9kdWNlZCBieSB0aGUgbWFpbnRh
-aW5lciB3aGVuIGF0dGVtcHRpbmcgdG8gZml4IHVwCmNoZWNrcGF0Y2ggd2FybmluZ3MuIEFkZCBi
-cmFjZXMgYXJvdW5kIEVYUEVDVF9FUSgpIHRvIGF2b2lkIHRoZSBlcnJvcgpldmVuIHRob3VnaCBj
-aGVja3BhdGNoIHN1Z2dlc3RzIHRoZW0gdG8gYmUgcmVtb3ZlZDoKCnZhbGlkYXRlX3ZfcHRyYWNl
-LmM6NjI2OjE3OiBlcnJvcjog4oCYZWxzZeKAmSB3aXRob3V0IGEgcHJldmlvdXMg4oCYaWbigJkK
-CkZpeGVzOiAzNzg5ZDVlZWNkNWEgKCJzZWxmdGVzdHM6IHJpc2N2OiB2ZXJpZnkgc3lzY2FsbHMg
-ZGlzY2FyZCB2ZWN0b3IgY29udGV4dCIpCkZpeGVzOiAzMGViMTkxYzg5NWIgKCJzZWxmdGVzdHM6
-IHJpc2N2OiB2ZXJpZnkgcHRyYWNlIHJlamVjdHMgaW52YWxpZCB2ZWN0b3IgY3NyIGlucHV0cyIp
-CkZpeGVzOiA4NDlmMDVhZTFlYTYgKCJzZWxmdGVzdHM6IHJpc2N2OiB2ZXJpZnkgcHRyYWNlIGFj
-Y2VwdHMgdmFsaWQgdmVjdG9yIGNzciB2YWx1ZXMiKQpTaWduZWQtb2ZmLWJ5OiBDaGFybGllIEpl
-bmtpbnMgPHRoZWNoYXJsZXNqZW5raW5zQGdtYWlsLmNvbT4KLS0tCiB0b29scy90ZXN0aW5nL3Nl
-bGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdmFsaWRhdGVfdl9wdHJhY2UuYyB8IDE1ICsrKysrKysrKy0t
-LS0tLQogMSBmaWxlIGNoYW5nZWQsIDkgaW5zZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMoLSkKCmRp
-ZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdmFsaWRhdGVf
-dl9wdHJhY2UuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L3ZlY3Rvci92YWxpZGF0
-ZV92X3B0cmFjZS5jCmluZGV4IDI1N2RlMzYyNzRlOS4uNTcyNGU2ZWIzMzA5IDEwMDY0NAotLS0g
-YS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdmFsaWRhdGVfdl9wdHJhY2Uu
-YworKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdmFsaWRhdGVfdl9w
-dHJhY2UuYwpAQCAtMjkxLDEwICsyOTEsMTEgQEAgVEVTVChwdHJhY2Vfdl9zeXNjYWxsX2Nsb2Ji
-ZXJpbmcpCiAKIAkJLyogdmVyaWZ5IGluaXRpYWwgdnNldHZsaSBzZXR0aW5ncyAqLwogCi0JCWlm
-IChpc194dGhlYWR2ZWN0b3Jfc3VwcG9ydGVkKCkpCisJCWlmIChpc194dGhlYWR2ZWN0b3Jfc3Vw
-cG9ydGVkKCkpIHsKIAkJCUVYUEVDVF9FUSg1VUwsIHJlZ3NldF9kYXRhLT52dHlwZSk7Ci0JCWVs
-c2UKKwkJfSBlbHNlIHsKIAkJCUVYUEVDVF9FUSg5VUwsIHJlZ3NldF9kYXRhLT52dHlwZSk7CisJ
-CX0KIAogCQlFWFBFQ1RfRVEocmVnc2V0X2RhdGEtPnZsZW5iLCByZWdzZXRfZGF0YS0+dmwpOwog
-CQlFWFBFQ1RfRVEodmxlbmIsIHJlZ3NldF9kYXRhLT52bGVuYik7CkBAIC02MjAsMTAgKzYyMSwx
-MSBAQCBURVNUX0Yodl9jc3JfaW52YWxpZCwgcHRyYWNlX3ZfaW52YWxpZF92YWx1ZXMpCiAKIAkJ
-LyogdmVyaWZ5IGluaXRpYWwgdnNldHZsaSBzZXR0aW5ncyAqLwogCi0JCWlmIChpc194dGhlYWR2
-ZWN0b3Jfc3VwcG9ydGVkKCkpCisJCWlmIChpc194dGhlYWR2ZWN0b3Jfc3VwcG9ydGVkKCkpIHsK
-IAkJCUVYUEVDVF9FUSg1VUwsIHJlZ3NldF9kYXRhLT52dHlwZSk7Ci0JCWVsc2UKKwkJfSBlbHNl
-IHsKIAkJCUVYUEVDVF9FUSg5VUwsIHJlZ3NldF9kYXRhLT52dHlwZSk7CisJCX0KIAogCQlFWFBF
-Q1RfRVEocmVnc2V0X2RhdGEtPnZsZW5iLCByZWdzZXRfZGF0YS0+dmwpOwogCQlFWFBFQ1RfRVEo
-dmxlbmIsIHJlZ3NldF9kYXRhLT52bGVuYik7CkBAIC04MjgsMTAgKzgzMCwxMSBAQCBURVNUX0Yo
-dl9jc3JfdmFsaWQsIHB0cmFjZV92X3ZhbGlkX3ZhbHVlcykKIAogCQkvKiB2ZXJpZnkgaW5pdGlh
-bCB2c2V0dmxpIHNldHRpbmdzICovCiAKLQkJaWYgKGlzX3h0aGVhZHZlY3Rvcl9zdXBwb3J0ZWQo
-KSkKKwkJaWYgKGlzX3h0aGVhZHZlY3Rvcl9zdXBwb3J0ZWQoKSkgewogCQkJRVhQRUNUX0VRKDVV
-TCwgcmVnc2V0X2RhdGEtPnZ0eXBlKTsKLQkJZWxzZQorCQl9IGVsc2UgewogCQkJRVhQRUNUX0VR
-KDlVTCwgcmVnc2V0X2RhdGEtPnZ0eXBlKTsKKwkJfQogCiAJCUVYUEVDVF9FUShyZWdzZXRfZGF0
-YS0+dmxlbmIsIHJlZ3NldF9kYXRhLT52bCk7CiAJCUVYUEVDVF9FUSh2bGVuYiwgcmVnc2V0X2Rh
-dGEtPnZsZW5iKTsKCi0tIAoyLjUyLjAKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+
+--===============6086066458972413432==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ygr7vi7eyprc7gqk"
+Content-Disposition: inline
+
+
+--ygr7vi7eyprc7gqk
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 3/3] pwm: th1520: remove impl Send/Sync for
+ Th1520PwmDriverData
+MIME-Version: 1.0
+
+Hello,
+
+On Tue, Jan 20, 2026 at 09:48:48AM +0100, Uwe Kleine-K=F6nig wrote:
+> On Mon, Jan 19, 2026 at 10:45:56PM +0100, Michal Wilczynski wrote:
+> > On 1/13/26 16:12, Alice Ryhl wrote:
+> > > Now that clk implements Send and Sync, we no longer need to manually
+> > > implement these traits for Th1520PwmDriverData. Thus remove the
+> > > implementations.
+> >=20
+> > I thought this was already merged :-).
+> >=20
+> > Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>=20
+> If I understand correctly this patch 3 depends on the first patch of
+> this series so I cannot pick it up via the pwm tree *now*. There is
+> another patch pending for the th1520 PWM driver, but as of now git seems
+> to cope well when merging the pwm's tree for-next with this patch.  So
+> it's fine for me if the series is picked up for 6.20-rc1 via the clock
+> tree.
+
+That didn't happen (with s/6.20/7.0/), so this patch is still open in my
+todo list. Is the first patch still considered for the clk subsystem?
+What is the plan for the pwm patch?
+
+Best regards
+Uwe
+
+--ygr7vi7eyprc7gqk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmmpPb4ACgkQj4D7WH0S
+/k6AYgf+IFbJpwiUp9P8Rmry4DJdrF6HeXt7L7+0cSOAtSjz8246LrMcqOZN03RB
+YAi8NxU8tZw4Ib54H+GNZUp+gf4jryjO+ry/HXrbC9giXxYVAPBzNhRLgpLUXsm/
+dIJFq7MwB5s7zFnJ6F/u2kD/cCvzCgokFftc831AAAOI7oFD0yZx6nHS/FT60M9B
+eK4cNPn/MEB3vgaxHub02lpr0ctEd+s9sPzbmUobR5KI4yqf60VKycdMGfZtu/m6
+h/nZTyq/u+CEZP92L59gx7GPKTnJZ2XcHKXJSw5wgPiNCYRWn4s1EbKXA6uvKQV5
+r6wXppJz8sU18n8EljYkeht9uPMW0g==
+=NxJx
+-----END PGP SIGNATURE-----
+
+--ygr7vi7eyprc7gqk--
+
+
+--===============6086066458972413432==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6086066458972413432==--
+
