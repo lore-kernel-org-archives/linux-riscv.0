@@ -4,139 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BB4F3D315
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 15:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A09EF3D329
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 16:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A0q/UZzmThbGCztK+RsWx1Zni5SIWrni8sBSVzBsBRI=; b=afNArPq39Etotk
-	TyW7bMDo2SPJAkVnickLVdJjvmgkmLUqgKDOZLPAzmoU9otFOBihKIgSBGnh9dJkMF/AtxqzQo9f7
-	8aae6896jjPY+Sw3+FVxGkLM5UK1DHNemwnHU9xDDd5m5at0EUaB09bZ/ZGSmLO5C585wwTotcYpb
-	0NmQT67ib2BqXkYCuBDxSrkOjqObOSMUxoTTIrYi7K5G4YyNUEX4dES7eBQhQtjxCHhDR28uHIlTb
-	JJz+zJgnvGRurl4O2hJvGlOwMEtmEo6PW1k5KHJmOZeWvMyTQE0FW5VJ/7Q2uhZm9dtpB1aIDyIQX
-	o+ta/ZGy93jTX7a/WE0g==;
+	List-Owner; bh=6rQILrVxqeMSvUlJs+eUG3AnqUnlYk8WQ0MK0Jcli9k=; b=qrcJrdcuDnbBbl
+	9OwReCaY6sgC8iDDKyTRv78kx9DE5jOn5arDcgxh3jTMFlLvwhzsY20YLD/aAij302yBoh+PFpI7v
+	NPdBHzCTiTZ616o/Wda9hyDwJIGLXem95V7mdtfA2sQH6AKEvVtn4HesD76WCzNIFxx6bdSOVRzbM
+	PDqqlauHRiZdPg1XZvL4yzGq333ma+fhHL7YMm4F6ZjuvqBzIGasdfK8xjvU4WRocij+QFgWM0dMU
+	L/LcsbybYxeyLeoHAjRoVN5N1cKrVvqrlVNEszTRsLAf/NuLkOMjwV2+sznZfjU7P+WnhqRs1rAb+
+	fbYY604RYZTM++Yx1Xlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAnD-000000028W9-0Ddc;
-	Thu, 05 Mar 2026 15:39:15 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vyBHo-00000002BbD-2L3N;
+	Thu, 05 Mar 2026 16:10:52 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyAnA-000000028Us-0b2m;
-	Thu, 05 Mar 2026 15:39:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c5Qe0XYvuKejclY5c1ac+RsV1LOU/59br7thbS3kOpXUv1w/9zS9yCkC3IFPbI9SgJHeD67ONHqwGbUwDR4cG5OxFjr8YOFDMgbEVZ1Gz3ASzfhOOx/6zU/tDXZgxBeX+bEnHz30lUkOAZXO5vRL6gD7DYMJ3DBAIhAeA74iGJyW83db/oBzCbVmwfQjDDmw+qiJBw81sfGDx+dtAnQ9kJm9Y754v0h7NP9N7ru/ZYnEQUuxU6np3f8V+nqzAiToG4XGAANFR3UA4bmHSlf+cOclSuDtFDd0ApbNLYnj7oDK5GiVF6IM1v+Anbr43iS0LvsV80JwdR0Fh/5cxfv/eA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6VxRin8KysyhCj02YvmusAAvE6mSgs4Oip/SOYxQ0OE=;
- b=PF34aEwM5bomFdJQn0UBl3NmHxZh3OvN+rSfhmyFUZN3py+PEu6hgGxwOoSSR3WloKKzcUWN8NkwoZxjsAb5txrS7xeFxNTiIWAxYJTzkOZLNKRnYkG61R8ybp7Q9SkPRcLvz1g/sTBqIqgSiBtIZM55+qa1/moRGZV30b6XvscnXXbc7WZHwBRZgUjX69Km7gnKEiOJsC9lQRfIphdx2/uTqnBe1Vi7APqE1V6a8OKCeWt3Uvv2WAD/iQzgt1u+mcXUE09SrIWR1x6qj+CCYMlGF8rSNLehko5NYqgCD7KWOf8bBq3e5tw+Cb+3v3/T/KnSr69v/SyorBMFZedObQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6VxRin8KysyhCj02YvmusAAvE6mSgs4Oip/SOYxQ0OE=;
- b=CtQ1dr6G+1B+9JaFSczGV3pSFQJDk7i6UeTlyZ0CDD0T+kVfE6vTeB3L9lIyjsVs1yLoXRWByvI7NU7ioyQKacpOTYabKQhrfvEWt+XwaSzpYjbH5RGxgXz9UTNUhuNqeJl5Nxa2JzE5G6o+M+UG//OkeBHd+YJOoc3jU3XRiUWH1MmMhrml43oFB+zXgx3xx4qi7WFPlXsz6jvvT/X7m1vudklv5EymLOi0C4NmWNfJK8CsTfsyXr2uoqreWqucz0P05rAJ2XvSTg/2QbeaUcxc4WOnw24nAONJQcBqAlVWCUhQqtCU2jCNaLZJ+uQ+G+ZXhI/3BqP1ewbmdZ7O3w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by GVXPR04MB10921.eurprd04.prod.outlook.com (2603:10a6:150:227::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
- 2026 15:39:05 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.016; Thu, 5 Mar 2026
- 15:39:05 +0000
-Date: Thu, 5 Mar 2026 17:39:00 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Joe Perches <joe@perches.com>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org, spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
-Message-ID: <20260305153900.uyqqux2t42xr3n7y@skbuf>
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
- <20260304175735.2660419-23-vladimir.oltean@nxp.com>
- <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
- <20260305085148.7cwo3yflp7vcfldf@skbuf>
- <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
- <20260305114352.2f7btqixg4tu5bzl@skbuf>
- <21e84301a7c37f9d5ce6f0ddcaed7846174d2a4d.camel@perches.com>
-Content-Disposition: inline
-In-Reply-To: <21e84301a7c37f9d5ce6f0ddcaed7846174d2a4d.camel@perches.com>
-X-ClientProxiedBy: BE1P281CA0483.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:7e::25) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1vyBHl-00000002Bav-2zes
+	for linux-riscv@lists.infradead.org;
+	Thu, 05 Mar 2026 16:10:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772727049; x=1804263049;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1q6rIizXuyYgUo7PEQpRErULcW8ElhJl1i4zMa6SjAM=;
+  b=Y+7KsVLCBrX42Y31yM0aO7f30vehTCFPUgHigUlddZL2bqMQjsvYBmS4
+   PAB2sIIT9GStlMf9b14MuZGmNHDkmbr2rabv9SsHEybTX2gIOLEh/aTrz
+   1mH282YBwiZPYfoCVnDeQ9mhOqQHIPRGZ57LZ7hKx4/RmSkfOubm7xlKz
+   S+7BqSojFkNqt+F5sraaknTPnWt6rgM/Zyzp5qLR6niXbgnubJMNkK26f
+   xKCXORCdROJ4oSvkdXqECToVN92pGUWkda4Fc+v5jgEI+RH2ERNVlv5ur
+   RBUIDdksDS2cL39tAjFO694pt6ZNg6uhSS2sqxr0D5mZU3gct0Ozd1elJ
+   A==;
+X-CSE-ConnectionGUID: LgxeFxYKTKe7uS0Fj4t45A==
+X-CSE-MsgGUID: fiVHqTq0QEC9RAVwclP5yw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11720"; a="84903341"
+X-IronPort-AV: E=Sophos;i="6.23,103,1770624000"; 
+   d="scan'208";a="84903341"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2026 08:10:47 -0800
+X-CSE-ConnectionGUID: rxlLxNrzR9u5WN3YdIEWrA==
+X-CSE-MsgGUID: eVd40RDZRNCDSGOIdh3+nw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,103,1770624000"; 
+   d="scan'208";a="216998057"
+Received: from igk-lkp-server01.igk.intel.com (HELO 9958d990ccf2) ([10.211.93.152])
+  by fmviesa008.fm.intel.com with ESMTP; 05 Mar 2026 08:10:45 -0800
+Received: from kbuild by 9958d990ccf2 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vyBHf-0000000021t-0gSs;
+	Thu, 05 Mar 2026 16:10:43 +0000
+Date: Thu, 5 Mar 2026 17:10:34 +0100
+From: kernel test robot <lkp@intel.com>
+To: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Sergey Matyukevich <geomatsi@gmail.com>,
+	Andy Chiu <andybnac@gmail.com>, Deepak Gupta <debug@rivosinc.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>
+Subject: Re: [PATCH 1/4] selftests: riscv: Add definition of BIT() macro
+Message-ID: <202603051713.xu4BUyLe-lkp@intel.com>
+References: <20260305-fix_selftests-v1-1-61b62d23500b@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|GVXPR04MB10921:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ff15b9e-df10-4470-ef76-08de7acd5591
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|366016|1800799024|10070799003;
-X-Microsoft-Antispam-Message-Info: FkyR3+2d8pwLLbtASKz2BTgqEsbJZvyd4GL0UGrUhNc0uOLPRsCW+b+q0hrHr4epSD5rTHOz6p4UhHgsqoe3CTRO7Ofb04Awpv5qUmutwDpw+aujIj3iNFNuIN9mv6Nhza7vgdGf6jg44RU06GEzs2MjSYblRu2/q9QCG0slYBkjtPJ06a27WmveKJ38GUILSJEbBPilYAcLmmWT32gx1xujFsbNANqCkXck6zUFVT+FX081wROqyA28XrSr6V6Ms+1gFX3cZbhKAfo45px6isfWMw2U+U3IRbk6wkmygice5DZQurzgA3OfMXx5H7sMUEapFvSbJbC1CDBYCV9UbKiL1SGP1NN3Dz4++aO/ooKk/tKdjmjV04FhJ1R26zW2keEwrgJitR558It6j30sb+W7yUilcgr4kjI5twd9iwCr0vSnzqDJCQWYjuLHg6nVe5Ha3IIyyiTd0SvIKM+kh7uofQJkbqteZYYoW5teSlb0Pfs0vSMvZb9nFCInxiGYgluOhPlZ+3y1mCuqD6NlTrrgU/Ruv5rq2XqjmBRasOOwCBx1jYxEw8WAT9MFzTCzkR21QFR7VMZ9ZFf7gy3e6qcmXIc7e0ILc9tCkf39aEJ4GMHkWb+Th+yaFyz1rGM/vhgM1pWRslseBeYBnEPYwsQH2erWvGm12+lJTjV29uecJ4nBrXERjZoI6cmeD+TeQlnOUwL2BrxXFTQJCbB1DV4QarOrS8En2uR1L0hwmzU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(1800799024)(10070799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iV0lPw0y46EBJuYnuG2g8xGBML+rAX4quNQ1LeoxLBVd5d4+dkFezDUjMy6v?=
- =?us-ascii?Q?q6eE6JSimNM2h1PhpYS7V4MdA6cimUjcV7PuUoRfr8+HuZSx2bwrUixEjDXv?=
- =?us-ascii?Q?U2uoz1AlanH3dbKDQO55Rg1QbNv/NNoMEXqWKJNGtP4zmmcCUMoGnXptHEEt?=
- =?us-ascii?Q?+7HelXIleaW7iP3S4oyZmKxZKansAdagtb5EAE2dHMUiPj2gwzDVt4wL2Wdd?=
- =?us-ascii?Q?7ovQX8qOKqG9YV/m10UtzzHBr6U6cqFTm7sSmsYHZQQergp5b3tH1XtjpInk?=
- =?us-ascii?Q?gcTILtAESx+UcStHv7II6vjAnrlNecFZDjdcEjebyl+eFelz08QgbJFfOlTG?=
- =?us-ascii?Q?Mcy9k4yoWkI8R8jeJHnSXP/BDMQGSpAIfs9c5z3ugHl62lwfq5Vju+vp965R?=
- =?us-ascii?Q?tcQnJ9PgSMbRxb4O3mATrf5+YaAVl84Nsj7r/Ft8o+lj9tCyWEdBqI+Ym2Mi?=
- =?us-ascii?Q?vWC81HLz1JeA/hG2Ipz02GVftqAbC/JrAQiV3RenDAiZqFxfp7oU5H9F2YTh?=
- =?us-ascii?Q?sFf3x6u/lN6LD6lPadZ6MgefdNABC60OfjWoEkHd78KKVQVHcfvafVYCdQAt?=
- =?us-ascii?Q?HNWLzzK3lor09ZnTGYK//ojg/+Rh0L7dYQKM+BXtlXxHy+m9v/s7/vjDr2iD?=
- =?us-ascii?Q?BIv90byvKLhaoMUB8VjU722mNjoUJP6LwHM6f0xKqWzmJ6P+fVGXjs/G4Miy?=
- =?us-ascii?Q?wE100jUSpIbV5Fdw7oZRW4bk7xgbdbAPdcJavJ0X40CtuAr3m8C1GSr4gm3b?=
- =?us-ascii?Q?yo9AIfK61JyUBdpmSOJVs+a/yXz6ygGxTV3WqNTWR0zSpELG1tHxsnX40Caj?=
- =?us-ascii?Q?rgbLz4JVvhBUJk6RN8C2oSMoXCFHMyyeSFcGKw01U/8X6ePWNZZ5Qui5p4mZ?=
- =?us-ascii?Q?EV929FRG1565Qm++3OEUR8GUBVESbdRi+LspUdV6uawV7TeS2EYfMtVlunHl?=
- =?us-ascii?Q?UD5dKrSpZfh68n2q6/EpCi4499FzICqumeuoePQIWnFgEWb1ZF4OTJb2cmKt?=
- =?us-ascii?Q?PpE/qpdbt4lwvCCRmuPxRETgZL4CFdc/UKDIIsE+zuj3CQ8X64hu5qEJigGI?=
- =?us-ascii?Q?fS3OZ5x/8bcXubjRqCL0ibYcR8PGUqesezdF0bZtPDpl3ld3pP77151FwWVV?=
- =?us-ascii?Q?RfzP8lSpfQxyqwk1h+xz08dFfWkEbk4sqIxkP/DKbvLYdZDaTTUsj+daglIv?=
- =?us-ascii?Q?Y6jKjBXWCBvlr0nw3gWZXy9HRtU7dpAZDI2AjIayJf6YBVtck9pkl9MLPgQ3?=
- =?us-ascii?Q?P0CAxTixPEoroxpcmX6VOziXPwKKQGEMA3CT8LVdpNJsX8oTEiAkTGf9ncwg?=
- =?us-ascii?Q?d5j/YVmEDPvFTVtc7fQz97pfRrX3BCNvyHSq+rAamhE5q5g3YnZLc1MyZqLY?=
- =?us-ascii?Q?thckLqDOt9+0dHivIMm7jRkilWQh4PXybPbiPVg1qonghlWfu7kKlBO1aFdN?=
- =?us-ascii?Q?Yvh+2Ayl8UBzScFUs/PLW7klA4ojHnoNuUr67ESXughzM0aI7AE6UP2nZAJ9?=
- =?us-ascii?Q?YM1VVmFwe4RFOUpxRqXJtn0HKYF4T6MwQhEIrNq6Y/vEm9zXF5hZoIPigxPK?=
- =?us-ascii?Q?txotDVaGinvPHGMW7vAFfrcSi0ApGdA3K9Abl0Ur6hYJE9xwjypUPDOhwLua?=
- =?us-ascii?Q?lcTQYplKK3p0Z520OWGgoO3j4TMi9ESaA+oTdrucEil3/hwPp0QTw2FJATcw?=
- =?us-ascii?Q?38DB+I+lN60zFVfNV9mBC3MMxVnPfAIrv22TxV2Ix8EwPI1exGBuUkbDZ/hA?=
- =?us-ascii?Q?qppDUW9FGh04jO9HwcRJvk/J6te6dknqGGFEUuuJo/u8D0S4ZOKcOhAinQUc?=
-X-MS-Exchange-AntiSpam-MessageData-1: L42KdJAWL42DGwfzmwW450MSH2j1Ny5hY1o=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ff15b9e-df10-4470-ef76-08de7acd5591
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 15:39:05.6675
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: H0Yub7kxEcJrbEz1l8Gc6U27EDpqI+zxMjw6lOfytBUufdrLeSxaBwjSX4BXpzXEg0Ibc6hdOLn6hASyKt3c9Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10921
+Content-Disposition: inline
+In-Reply-To: <20260305-fix_selftests-v1-1-61b62d23500b@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_073912_829530_8AB242F5 
-X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-CacheID: sfid-20260305_081049_843515_97920606 
+X-CRM114-Status: UNSURE (   9.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -154,20 +94,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 07:35:54AM -0800, Joe Perches wrote:
-> On Thu, 2026-03-05 at 13:43 +0200, Vladimir Oltean wrote:
-> 
-> > K:	(?:struct\s+)?phy(?:_ops|_attrs|_lookup|_provider)?\b
-> 
-> You have (?:...)?phy(?:...)?\b
-> 
-> I rather doubt you want anything that ends in phy
-> 
-> That matches words like cryptography and way too many dts/yaml files
+Hi Charlie,
 
-Yeah, the struct was meant to be non-optional, thanks for pointing it out.
+kernel test robot noticed the following build errors:
 
-K:	\bstruct\s+phy(?:_ops|_attrs|_lookup|_provider)?\b
+[auto build test ERROR on c107785c7e8dbabd1c18301a1c362544b5786282]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Charlie-Jenkins-via-B4-Relay/selftests-riscv-Add-definition-of-BIT-macro/20260305-164838
+base:   c107785c7e8dbabd1c18301a1c362544b5786282
+patch link:    https://lore.kernel.org/r/20260305-fix_selftests-v1-1-61b62d23500b%40gmail.com
+patch subject: [PATCH 1/4] selftests: riscv: Add definition of BIT() macro
+config: riscv-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260305/202603051713.xu4BUyLe-lkp@intel.com/config)
+compiler: riscv64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603051713.xu4BUyLe-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603051713.xu4BUyLe-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from /usr/riscv64-linux-gnu/include/stdint.h:34,
+                    from /usr/lib/gcc-cross/riscv64-linux-gnu/14/include/stdint.h:9,
+                    from tools/testing/selftests/../../../tools/include/linux/types.h:7,
+                    from ./../../../../include/nolibc/std.h:19,
+                    from ./../../../../include/nolibc/nolibc.h:95,
+                    from <command-line>:
+>> /usr/riscv64-linux-gnu/include/bits/stdint-intn.h:27:19: error: conflicting types for 'int64_t'; have '__int64_t' {aka 'long int'}
+      27 | typedef __int64_t int64_t;
+         |                   ^~~~~~~
+   In file included from ./../../../../include/nolibc/std.h:16:
+   ./../../../../include/nolibc/stdint.h:17:29: note: previous declaration of 'int64_t' with type 'int64_t' {aka 'long long int'}
+      17 | typedef   signed long long  int64_t;
+         |                             ^~~~~~~
+   In file included from /usr/riscv64-linux-gnu/include/stdint.h:37:
+>> /usr/riscv64-linux-gnu/include/bits/stdint-uintn.h:27:20: error: conflicting types for 'uint64_t'; have '__uint64_t' {aka 'long unsigned int'}
+      27 | typedef __uint64_t uint64_t;
+         |                    ^~~~~~~~
+   ./../../../../include/nolibc/stdint.h:16:28: note: previous declaration of 'uint64_t' with type 'uint64_t' {aka 'long long unsigned int'}
+      16 | typedef unsigned long long uint64_t;
+         |                            ^~~~~~~~
+   In file included from /usr/riscv64-linux-gnu/include/stdint.h:41:
+>> /usr/riscv64-linux-gnu/include/bits/stdint-least.h:28:25: error: conflicting types for 'int_least64_t'; have '__int_least64_t' {aka 'long int'}
+      28 | typedef __int_least64_t int_least64_t;
+         |                         ^~~~~~~~~~~~~
+   ./../../../../include/nolibc/stdint.h:30:23: note: previous declaration of 'int_least64_t' with type 'int_least64_t' {aka 'long long int'}
+      30 | typedef  int64_t      int_least64_t;
+         |                       ^~~~~~~~~~~~~
+>> /usr/riscv64-linux-gnu/include/bits/stdint-least.h:34:26: error: conflicting types for 'uint_least64_t'; have '__uint_least64_t' {aka 'long unsigned int'}
+      34 | typedef __uint_least64_t uint_least64_t;
+         |                          ^~~~~~~~~~~~~~
+   ./../../../../include/nolibc/stdint.h:31:22: note: previous declaration of 'uint_least64_t' with type 'uint_least64_t' {aka 'long long unsigned int'}
+      31 | typedef uint64_t     uint_least64_t;
+         |                      ^~~~~~~~~~~~~~
+>> /usr/riscv64-linux-gnu/include/stdint.h:51:33: error: conflicting types for 'int_fast64_t'; have 'long int'
+      51 | typedef long int                int_fast64_t;
+         |                                 ^~~~~~~~~~~~
+   ./../../../../include/nolibc/stdint.h:39:24: note: previous declaration of 'int_fast64_t' with type 'int_fast64_t' {aka 'long long int'}
+      39 | typedef  int64_t       int_fast64_t;
+         |                        ^~~~~~~~~~~~
+>> /usr/riscv64-linux-gnu/include/stdint.h:64:33: error: conflicting types for 'uint_fast64_t'; have 'long unsigned int'
+      64 | typedef unsigned long int       uint_fast64_t;
+         |                                 ^~~~~~~~~~~~~
+   ./../../../../include/nolibc/stdint.h:40:23: note: previous declaration of 'uint_fast64_t' with type 'uint_fast64_t' {aka 'long long unsigned int'}
+      40 | typedef uint64_t      uint_fast64_t;
+         |                       ^~~~~~~~~~~~~
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
