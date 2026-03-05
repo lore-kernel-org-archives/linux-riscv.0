@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3137EFCC9A9
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 00:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF8CFCC9AE
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 00:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sWNTOtCa6cL42eakH8B1hTg3IThFM4rZIUV/QY0O+dU=; b=Ad07c0PDEc9i2u
-	ylmtWZd2VNVicVodmjNbiHxp/y+cf6FTMkuHDqZMO8J/Y2L1y8TmB+v0nevoKX5o7Cy4qvY0F0jhA
-	rURdHFRLJzqC9ue7cxA0jur6NVtlkIykDv78V9XPNru3d/CAndGHF4NsgNSHKXF4Ik8EA96g7O8a2
-	3iNLZWtgJ0PDjS++7G+w1TbfKguOX9NQ1K9Rafre4uYfOimFSgFnae5H1TcZC0BXnlAAHVGEeTT9P
-	vj9G9WeUrGGIzVitRlCPVzuUijATf90/Y9l2ZjIvDy2OcfYmzxizJTfzN4uXD0vSACUzcCn2hY4JW
-	/ruVLilibYS3PhQAJlFQ==;
+	List-Owner; bh=JDe+Bbmrba1b3odF0UZ6pIiftfZqaNmbS9QZwH8bJNc=; b=UxrDWQCy50RvMi
+	JVYxCXu5sLKRKBsfc+OfeSLmO+etwsG7rmkSwrFfoGavrw3uUL3kAbNVECupT1y1vARPTKIwZJecv
+	f0tJVks3CEnQOU/nLNweiBfgVIZqEnVkhOO1rH6CVeLzdHOpXfbMhjwrzZOaxOz4lfUyN0qPeK9mW
+	eWLI4NKuiyhsN4dWHPyqhGhys9ClK2EtDuIblJ8M3cF5pnxu93/18sMwHTkRXBHjVlF0eqcXG+3GJ
+	YGmn8ylCZhrxMo2A3qvafP5VmcJTxn+JKwsyZvVZh0CVYxwSQCmqbqO87D+6LDDSc5bDy2QHZCn1x
+	LHe6HtGPhk0pVTVEEzHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzkWb-00000008KbI-0r6r;
-	Tue, 10 Mar 2026 00:00:37 +0000
+	id 1vzkWV-00000008KUc-0rUu;
+	Tue, 10 Mar 2026 00:00:31 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vybRl-00000004SVU-439Z;
-	Fri, 06 Mar 2026 20:06:54 +0000
+	id 1vyE37-00000002QZw-2u84
+	for linux-riscv@lists.infradead.org;
+	Thu, 05 Mar 2026 19:07:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2AF960018;
-	Fri,  6 Mar 2026 20:06:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC53FC4CEF7;
-	Fri,  6 Mar 2026 20:06:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A8216011F;
+	Thu,  5 Mar 2026 19:07:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DEB6C116C6;
+	Thu,  5 Mar 2026 19:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772827612;
-	bh=lcDXN6R21X2uCOK7uiaLL18UXsiIHBRj1spT/gMxVfk=;
+	s=k20201202; t=1772737672;
+	bh=5pMLMYsqUq30caMaqSsCRxg/LUKm2ZwH02Nogw/kZgk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=R2mk+9E44A2EFvK0xK2jJT1OvwtacnYo93YeFCRVWzRYkDIxnSpy7OOavzsLLEA6w
-	 Me1zMjmLO1OdfmZVcDCyAWo6f4IdCrOaG495OZ1gMNZBidhbVudI8sQS/6fxDcBV1X
-	 1rdPbBicT3edr4r+AqB7wAFlka+l6GpipVY4vpZO2tZBVpmXlufaXt6DyLimsh7vxM
-	 LynZIGBSgJSqHS6/H1/kT3yqPiZomKF2oDGemN+plrNaz9+HWm0TsEfpDSzw4DOo8o
-	 QUNjs0SdR5wjM63xK41HWotBwOJ4UBuh5+4T6NTXr21s664CzFEO1RJRWOcZrbs7I5
-	 BsQ0LBzjRGiYw==
-Message-ID: <659c7113-988b-4493-8866-82b55b49a626@kernel.org>
-Date: Fri, 6 Mar 2026 21:06:26 +0100
+	b=Dj+S9NqJtdWz6RBKFzR5acMgUZFQJ3W9fnbktBvz0MaAXoouPnMmfQ67JZmI9sVaH
+	 XQQn6nGUQIhWbu93psky7lo+eqRxXjl34agykwtcFCvJvewXz2H9sBqggtK338M1DH
+	 xMqK0z98I7O58rU2ZExHxgDfn0muFBjv+va4ZBeTvQF1Iwu5bpIwVn7xVrLxpkhupp
+	 DOdrZ4sFZpJOpYA2rNekO31hBtA1G0t1/f5tBT933AusAvejWixb3X2YXLYp78nijl
+	 5WoPlj74YRUASEEXS5XuY65yzkQQnpYLuAnUfI3m9ww+joTZUYCqAu4oOizyBIoyL/
+	 rUJ6jp5aQodrA==
+Message-ID: <ebb4beec-13dc-4b94-a1f8-756e7a8ef5af@kernel.org>
+Date: Thu, 5 Mar 2026 20:07:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 02/15] set_memory: add folio_{zap, restore}_direct_map
- helpers
-To: kalyazin@amazon.com, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
+Subject: Re: [PATCH v10 04/15] mm/gup: drop local variable in
+ gup_fast_folio_allowed
+To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
  "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
  "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
@@ -138,13 +139,7 @@ Cc: "pbonzini@redhat.com" <pbonzini@redhat.com>,
  "Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco"
  <xmarcalx@amazon.co.uk>
 References: <20260126164445.11867-1-kalyazin@amazon.com>
- <20260126164445.11867-3-kalyazin@amazon.com>
- <af2d4dcd-60a8-4a5a-b508-d9600b1f2275@kernel.org>
- <e2834fd9-e4ec-473c-90cd-6c3a5049747f@amazon.com>
- <40bd6f9b-d5c0-4844-81bc-d221cd9b058f@kernel.org>
- <38deb26a-918c-4743-b35f-92a1330dbf40@amazon.com>
- <efc1c39c-7eb5-488f-819c-0ca2149898c3@kernel.org>
- <5c322be7-ea81-4e6a-9689-978c35e93af6@amazon.com>
+ <20260126164445.11867-5-kalyazin@amazon.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -191,7 +186,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <5c322be7-ea81-4e6a-9689-978c35e93af6@amazon.com>
+In-Reply-To: <20260126164445.11867-5-kalyazin@amazon.com>
 X-Mailman-Approved-At: Mon, 09 Mar 2026 17:00:27 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -204,35 +199,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMy82LzI2IDE2OjQxLCBOaWtpdGEgS2FseWF6aW4gd3JvdGU6Cj4gCj4gCj4gT24gMDYvMDMv
-MjAyNiAxNToxNywgRGF2aWQgSGlsZGVuYnJhbmQgKEFybSkgd3JvdGU6Cj4+IE9uIDMvNi8yNiAx
-NTo0OCwgTmlraXRhIEthbHlhemluIHdyb3RlOgo+Pj4KPj4+Cj4+Pgo+Pj4gWWVhaCwgdGhhdCdz
-IHVuZm9ydHVuYXRlbHkgdGhlIHN0YXR1cyBxdW8gYXMgcG9pbnRlZCBieSBBbmVlc2ggWzFdCj4+
-Pgo+Pj4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2t2bS95cTVhanowN2N6dnouZnNmQGtl
-cm5lbC5vcmcvCj4+Pgo+Pj4KPj4+IFllcywgbG9va3MgbGlrZSB0aGF0LsKgIEknbGwgcmVtb3Zl
-IHRoZSBleHBsaWNpdCBmbHVzaCBhbmQgcmVseSBvbgo+Pj4gZm9saW9femFwX2RpcmVjdF9tYXAo
-KS4KPj4+Cj4+Pgo+Pj4gSSBiZWxpZXZlIERhdmUgbWVhbnQgdG8gYWRkcmVzcyB0aGF0IHdpdGgg
-Zm9saW9fe3phcCxyZXN0b3JlfQo+Pj4gX2RpcmVjdF9tYXAoKSBbMl0uCj4+Pgo+Pj4gWzJdIGh0
-dHBzOi8vbG9yZS5rZXJuZWwub3JnL2t2bS85NDA5NTMxYi01ODliLTRhNTQtCj4+PiBiMTIyLTA2
-YTNjZjA4NDZmM0BpbnRlbC5jb20vCj4+Pgo+Pj4KPj4+IEknZCBiZSBpbmNsaW5lZCB0byBrbm93
-IHdoYXQgYXJjaCBtYWludGFpbmVycyB0aGluayBiZWNhdXNlIEkgZG9uJ3QgaGF2ZQo+Pj4gYSBz
-dHJvbmcgb3BpbmlvbiBvbiB0aGF0Lgo+Pgo+PiBZb3UgY291bGQgYWxzbyBqdXN0IHBlcmZvcm0g
-YSBkb3VibGUgZmx1c2gsIGFuZCBsZXQgcGVvcGxlIHRoYXQKPj4gaW1wbGVtZW50ZWQgYSBfbm9m
-bHVzaCgpIHRvIHBlcmZvcm0gYSBmbHVzaCBvcHRpbWl6ZSB0aGF0IGxhdGVyLgo+IAo+IERvIHlv
-dSBwcm9wb3NlIHRvIGp1c3QgdW5pdmVyc2FsaXNlIHRoZSBvbmUgZnJvbSB4ODY/Cj4gCj4gaW50
-IGZvbGlvX3phcF9kaXJlY3RfbWFwKHN0cnVjdCBmb2xpbyAqZm9saW8pCj4gewo+IMKgwqDCoMKg
-Y29uc3Qgdm9pZCAqYWRkciA9IGZvbGlvX2FkZHJlc3MoZm9saW8pOwo+IMKgwqDCoMKgaW50IHJl
-dDsKPiAKPiDCoMKgwqDCoHJldCA9IHNldF9kaXJlY3RfbWFwX3ZhbGlkX25vZmx1c2goYWRkciwg
-Zm9saW9fbnJfcGFnZXMoZm9saW8pLCBmYWxzZSk7Cj4gwqDCoMKgwqBmbHVzaF90bGJfa2VybmVs
-X3JhbmdlKCh1bnNpZ25lZCBsb25nKWFkZHIsCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgICh1bnNpZ25lZCBsb25nKWFkZHIgKyBmb2xpb19zaXplKGZvbGlvKSk7Cj4gCj4g
-wqDCoMKgwqByZXR1cm4gcmV0Owo+IH0KClllcywgZXhhY3RseSBzb21ldGhpbmcgYWxvbmcgdGhv
-c2UgbGluZXMhCi0tIApDaGVlcnMsCgpEYXZpZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+On 1/26/26 17:47, Kalyazin, Nikita wrote:
+> From: Nikita Kalyazin <kalyazin@amazon.com>
+> 
+> Move the check for pinning closer to where the result is used.
+> No functional changes.
+> 
+> Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
+> ---
+>  mm/gup.c | 19 ++++++++-----------
+>  1 file changed, 8 insertions(+), 11 deletions(-)
+> 
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 9cad53acbc99..e72dacce3e34 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -2737,18 +2737,9 @@ EXPORT_SYMBOL(get_user_pages_unlocked);
+>   */
+>  static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+>  {
+> -	bool reject_file_backed = false;
+>  	struct address_space *mapping;
+>  	unsigned long mapping_flags;
+>  
+> -	/*
+> -	 * If we aren't pinning then no problematic write can occur. A long term
+> -	 * pin is the most egregious case so this is the one we disallow.
+> -	 */
+> -	if ((flags & (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)) ==
+> -	    (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE))
+> -		reject_file_backed = true;
+> -
+>  	/* We hold a folio reference, so we can safely access folio fields. */
+>  	if (WARN_ON_ONCE(folio_test_slab(folio)))
+>  		return false;
+> @@ -2793,8 +2784,14 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+>  	 */
+>  	if (secretmem_mapping(mapping))
+>  		return false;
+> -	/* The only remaining allowed file system is shmem. */
+> -	return !reject_file_backed || shmem_mapping(mapping);
+> +
+> +	/*
+> +	 * If we aren't pinning then no problematic write can occur. A long term
+> +	 * pin is the most egregious case so this is the one we disallow.
+> +	 * Also check the only remaining allowed file system - shmem.
+> +	 */
+> +	return (flags & (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)) !=
+> +	    (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE) || shmem_mapping(mapping);
+
+Best to keep this split and a bit more readable.
+
+/*
+ * If we aren't pinning then no problematic write can occur. A writable
+ * long term pin is the most egregious case, so this is the one we
+ * allow only for ...
+ */
+if ((flags & (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)) !=
+    (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)
+	return true;
+/* ... hugetlb (which we allowed above already) and shared memory. */
+return shmem_mapping(mapping);
+
+>  }
+>  
+>  static void __maybe_unused gup_fast_undo_dev_pagemap(int *nr, int nr_start,
+
+
+-- 
+Cheers,
+
+David
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
