@@ -4,100 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B53FEEF312
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 07:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E00EEF319
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D0hxKdu1OXO+LcQfhuA3m6Rm3nAEmXK4V7Cs9IlFHAI=; b=kMQ/maHt6q4diV
-	Xe8OPuRp7oQP7918GjB3qYsDnBkwumF8T7+YeIRJyCwFtXFFowvXb2GtMoI7fq74M45rVXmnqXhzM
-	1XLup15JoerkSc13zmsEVMJMTQXUuJ+u+WMXCq0ZSoa+1vYk1yeeKyJ/LtBeq4f4g8gM+58U0u39h
-	UAxrf6ZOJiDnPyd5E1nTOpKObK7Ya4woWXZRmPWemgtBuO24OofADtHCDwnVpeTxFEHVKwxAQE9lK
-	sWwFiIrBqXav/e6NG0jgCMVxbBIX1Spx5UuO44G/k/8YZvcg42w5Yy8c5Wf4MNJDF5ZN4xplYIl/M
-	mAi0+kAoFQ6umQp8gr5g==;
+	List-Owner; bh=AG+Gk4oBvmdWTVASnVhyels56mPNh8UlCZusae0fEWU=; b=r3pN0gThi4dGOT
+	lPBCp03HZJcr3LaykrN+2vp9EyogTpSRiCdkXGWTaXz8zQEG3XnI6AXm6hpjGWx21PWg0tChaxNuX
+	rgiHGVMJu97jcCYaStPuW4eX+6Kb0WfzSFy0toIPGIps2DH1y253uqqIDiZYSIgnHfBWGpmOH+u2K
+	2yr892FLKzhsqBhMycPkFgrKPkZ9KVm6hlM01cR+LhvnYzljkNq7RbfbKge6AOvqdtBp7mkGlaJM6
+	x0bvpaES7SJuiOYp5z0NM0Eq9x3WbzALLEO63JpRI+xyONKh4eINWcYZ0AFnMth7pDJdOHOJDLL1V
+	RSEz/F7eUxZoi7zHqing==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3Xc-000000018PF-27Z9;
-	Thu, 05 Mar 2026 07:54:40 +0000
-Received: from mail-oo1-f41.google.com ([209.85.161.41])
+	id 1vy3oB-000000019e2-0xoO;
+	Thu, 05 Mar 2026 08:11:47 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy3XZ-000000018NO-0m26
-	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 07:54:39 +0000
-Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-66f3e7d9eccso5057366eaf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 23:54:36 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772697276; x=1773302076;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7xyHjzGnphi32H4Bte19x6wQV76UaiJqzbc3zMkJKs8=;
-        b=DMGqOierOiG0feEkW69EjIoFU0HM+ei0nb2hzsBpMniMTjnSTXF2qX7Ew40B2Y7/2j
-         DBvZWQqjoM/VjWUVJZqDoQZNZUKSDOknzEc+TzqwJZVJvtFq9wsVOJxhI2OtF5m7Hrf7
-         7QH1F9DEpUh1E9PiatZ0lyMyLA44uJ/7pdcdC/Sj4qEHGo8trVaKorIf8htzXZN+T+1n
-         9Lwd6EfAvqnxu5987EsapqgL0fKNWOhQipGPXM+pRZ1WDSFHzoLRpW5OLBZZORvoC5Dk
-         jCtZ5TI5pkePauMKmNIadQ5MLN50ulDXvFCVYmHtxiLGbanMTREHphWslN3p9DhuLbTK
-         ecUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVbAdstNw4UswPOTrSp5VniFcMjmUKW9Wd1N1PY6fQkVVEylhGlbbjhyXXlsxD8U8XLE8Z3Em0WzScNGQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEEvcKAepuQjjvb98O3xEKRCWGBp84MBWAhsHapdiHD9mn8lHe
-	XQjcd0fMcsMDT2UTfY3bayH+gtpkVqwF+TQN1tXj/TFuu72APDsE+ECKcQaB6c0G
-X-Gm-Gg: ATEYQzzFLf8cf5juOhqFhxUMEvSHwoTjnSnVL7sCWn2Vqfry2lcxbpUKC8TqIubgs7k
-	nogdbccmE+BKJLCKmjm1uIfUFe/LUINxiP2i5KZQ4ipcfVkGS7HgdD1kZrvaKwODlSTeyi7KWuo
-	jUQJuEt8VQ5el8xZcIbAuu1+g9OQNHoAhEQ7nA4L7INhE8aeQEM3gtoTEqF/7mru4pmU3NBVUb7
-	k9Q1HedNTr7v/6/CV5XuT0QJdutCNXNkZNFXx9FH/U9Pn3hNJcSIwkqPU6v55PfUSe4IZaow5/u
-	+EUoiApIeascM6xpGyy1+jwb2ZngzecsKPOxinNSHK4uuBJev2wuC01p79f0PN9RwrVloMGWzr3
-	CdZ8eckjSlB98+MxOa+eGqj24rn+REXq/6SWoMQtjen0t+TLyKYgwlJikYdYXmI09IjjJye5xrJ
-	4HgkyFQ+Iz3hgVtguie6WAce2yYpJ69Xl5f1dp/LuH6ymPf0jJuzUXWDaV3lLj
-X-Received: by 2002:a05:6820:1794:b0:67a:9918:5637 with SMTP id 006d021491bc7-67b17748de0mr2717590eaf.35.1772697276077;
-        Wed, 04 Mar 2026 23:54:36 -0800 (PST)
-Received: from mail-oa1-f50.google.com (mail-oa1-f50.google.com. [209.85.160.50])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4160cf239e0sm20839416fac.1.2026.03.04.23.54.35
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Mar 2026 23:54:35 -0800 (PST)
-Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-40438e0cba6so1930214fac.1
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Mar 2026 23:54:35 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXt/hfNNX/PSaKTXRDy7ifdKz2HAMF8ld64N2PYeo/BAvCMdqIhdXpGGL7Uck4oHKgNqNDyYkSeWmrSZA==@lists.infradead.org
-X-Received: by 2002:a05:6102:32c1:b0:5ff:a16b:93f9 with SMTP id
- ada2fe7eead31-5ffaae2d5b0mr1883200137.21.1772696877960; Wed, 04 Mar 2026
- 23:47:57 -0800 (PST)
+	id 1vy3o8-000000019dF-03fk;
+	Thu, 05 Mar 2026 08:11:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1772698304; x=1804234304;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=c2OeupWlyxOBHDjwK27ZWns2H39A64Z/l1mt16Tsh1o=;
+  b=OzW5iJ0cMI2j9l48rWIEQ50bQbTtmmKjeVa/czO9oRTDqCKaObz9EmFk
+   dp3A8EIheMlSGeNABCATK2dTwS7TGIpdldooqY4PphcIt7+HuTJhv4fqO
+   hCZShvCqUt50+xcL8VV33Q4O1xD0kGFPPhjLAZm9YCE6fWnpaZIZhdxLC
+   SzbweRyWBM73mKTrAGNd5wm6bkXoEuEquS7R/6mqneF3tbTwaoOjuy/iz
+   2w2X/DdjVVor+F1yRa9svUvIWrSJDLSzL1ldfKPdYvKXrCMIBHu5CDLtr
+   /wo+ynpclp6WNHW4eEY6N+CYwNQ+t7iL7ptj6f5qUAnXFoC0vsmq5eTIS
+   A==;
+X-CSE-ConnectionGUID: mDc8mb2iRgKwPWYeCbZhHw==
+X-CSE-MsgGUID: uvnBOxBTRkePoZAW7g2Pog==
+X-IronPort-AV: E=McAfee;i="6800,10657,11719"; a="77621873"
+X-IronPort-AV: E=Sophos;i="6.21,325,1763452800"; 
+   d="scan'208";a="77621873"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2026 00:11:42 -0800
+X-CSE-ConnectionGUID: I2lMTBllR9aUsEoqVrkuFg==
+X-CSE-MsgGUID: DP7NclihStmIZM3qvKQwJg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,325,1763452800"; 
+   d="scan'208";a="216418397"
+Received: from lkp-server01.sh.intel.com (HELO cadc4577a874) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 05 Mar 2026 00:11:35 -0800
+Received: from kbuild by cadc4577a874 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vy3nv-000000000Gq-3bdf;
+	Thu, 05 Mar 2026 08:11:31 +0000
+Date: Thu, 5 Mar 2026 16:10:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, wens@kernel.org, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com, Zhi Li <lizhi2@eswincomputing.com>
+Subject: Re: [PATCH net-next v3 2/3] net: stmmac: eic7700: enable clocks
+ before syscon access and correct RX sampling timing
+Message-ID: <202603051549.4Mb0ZZjM-lkp@intel.com>
+References: <20260303061711.895-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com> <20260304175735.2660419-14-vladimir.oltean@nxp.com>
-In-Reply-To: <20260304175735.2660419-14-vladimir.oltean@nxp.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 5 Mar 2026 08:47:47 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUNtqsui3ek1RYCTyiuDLRajpSBMnrdzED6wu6i7-QcuA@mail.gmail.com>
-X-Gm-Features: AaiRm514iMGAdfTBAVsgfVfK-GGHy9jHY4ezK-Lp3w09-JWpnENLQ0I4lkIFgvE
-Message-ID: <CAMuHMdUNtqsui3ek1RYCTyiuDLRajpSBMnrdzED6wu6i7-QcuA@mail.gmail.com>
-Subject: Re: [PATCH phy-next 13/22] phy: introduce phy_get_max_link_rate()
- helper for consumers
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, 
-	netdev@vger.kernel.org, spacemit@lists.linux.dev, 
-	UNGLinuxDriver@microchip.com, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andy Yan <andy.yan@rock-chips.com>, Marc Kleine-Budde <mkl@pengutronix.de>, 
-	Vincent Mailhol <mailhol@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Markus Schneider-Pargmann <msp@baylibre.com>, Magnus Damm <magnus.damm@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20260303061711.895-1-lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_235437_226392_098AA942 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20260305_001144_146733_E62C81F1 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,55 +99,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
+Hi,
 
-On Wed, 4 Mar 2026 at 19:00, Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
-> Consumer drivers shouldn't dereference struct phy, not even to get to
-> its attributes.
->
-> We have phy_get_bus_width() as a precedent for getting the bus_width
-> attribute, so let's add phy_get_max_link_rate() and use it in DRM and
-> CAN drivers.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+kernel test robot noticed the following build errors:
 
-Thanks for your patch!
+[auto build test ERROR on net-next/main]
 
->  drivers/net/can/rcar/rcar_canfd.c                   | 2 +-
+url:    https://github.com/intel-lab-lkp/linux/commits/lizhi2-eswincomputing-com/dt-bindings-ethernet-eswin-add-clock-sampling-control/20260303-142311
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20260303061711.895-1-lizhi2%40eswincomputing.com
+patch subject: [PATCH net-next v3 2/3] net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20260305/202603051549.4Mb0ZZjM-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260305/202603051549.4Mb0ZZjM-lkp@intel.com/reproduce)
 
-For the Renesas part:
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603051549.4Mb0ZZjM-lkp@intel.com/
 
-> --- a/drivers/phy/phy-core.c
-> +++ b/drivers/phy/phy-core.c
-> @@ -640,6 +640,12 @@ void phy_set_bus_width(struct phy *phy, int bus_width)
->  }
->  EXPORT_SYMBOL_GPL(phy_set_bus_width);
->
-> +u32 phy_get_max_link_rate(struct phy *phy)
-> +{
-> +       return phy->attrs.max_link_rate;
-> +}
-> +EXPORT_SYMBOL_GPL(phy_get_max_link_rate);
+All errors (new ones prefixed by >>):
 
-Any specific reason you are not making this a simple static inline
-function, like phy_get_bus_width()?
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c:290:26: error: incompatible function pointer types assigning to 'void (*)(void *, phy_interface_t, int, unsigned int)' from 'void (void *, int, unsigned int)' [-Wincompatible-function-pointer-types]
+     290 |         plat_dat->fix_mac_speed = eic7700_dwmac_fix_speed;
+         |                                 ^ ~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
 
-> +
->  /**
->   * _of_phy_get() - lookup and obtain a reference to a phy by phandle
->   * @np: device_node for which to get the phy
 
-Gr{oetje,eeting}s,
+vim +290 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
 
-                        Geert
+   149	
+   150	static int eic7700_dwmac_probe(struct platform_device *pdev)
+   151	{
+   152		const struct eic7700_dwmac_data *data;
+   153		struct plat_stmmacenet_data *plat_dat;
+   154		struct stmmac_resources stmmac_res;
+   155		struct eic7700_qos_priv *dwc_priv;
+   156		u32 delay_ps, val;
+   157		int i, ret;
+   158	
+   159		ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+   160		if (ret)
+   161			return dev_err_probe(&pdev->dev, ret,
+   162					"failed to get resources\n");
+   163	
+   164		plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+   165		if (IS_ERR(plat_dat))
+   166			return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
+   167					"dt configuration failed\n");
+   168	
+   169		dwc_priv = devm_kzalloc(&pdev->dev, sizeof(*dwc_priv), GFP_KERNEL);
+   170		if (!dwc_priv)
+   171			return -ENOMEM;
+   172	
+   173		dwc_priv->dev = &pdev->dev;
+   174	
+   175		data = device_get_match_data(&pdev->dev);
+   176		if (!data)
+   177			return dev_err_probe(&pdev->dev,
+   178					     -EINVAL, "no match data found\n");
+   179	
+   180		dwc_priv->eth_rx_clk_inv = data->rgmii_rx_clk_invert;
+   181	
+   182		/* Read rx-internal-delay-ps and update rx_clk delay */
+   183		if (!of_property_read_u32(pdev->dev.of_node,
+   184					  "rx-internal-delay-ps", &delay_ps)) {
+   185			if (delay_ps % EIC7700_DELAY_STEP_PS)
+   186				return dev_err_probe(&pdev->dev, -EINVAL,
+   187					"rx delay must be multiple of %dps\n",
+   188					EIC7700_DELAY_STEP_PS);
+   189	
+   190			if (delay_ps > EIC7700_MAX_DELAY_PS)
+   191				return dev_err_probe(&pdev->dev, -EINVAL,
+   192					"rx delay out of range\n");
+   193	
+   194			val = delay_ps / EIC7700_DELAY_STEP_PS;
+   195	
+   196			dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
+   197			dwc_priv->eth_clk_dly_param |=
+   198					 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
+   199		}
+   200	
+   201		/* Read tx-internal-delay-ps and update tx_clk delay */
+   202		if (!of_property_read_u32(pdev->dev.of_node,
+   203					  "tx-internal-delay-ps", &delay_ps)) {
+   204			if (delay_ps % EIC7700_DELAY_STEP_PS)
+   205				return dev_err_probe(&pdev->dev, -EINVAL,
+   206					"tx delay must be multiple of %dps\n",
+   207					EIC7700_DELAY_STEP_PS);
+   208	
+   209			if (delay_ps > EIC7700_MAX_DELAY_PS)
+   210				return dev_err_probe(&pdev->dev, -EINVAL,
+   211					"tx delay out of range\n");
+   212	
+   213			val = delay_ps / EIC7700_DELAY_STEP_PS;
+   214	
+   215			dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
+   216			dwc_priv->eth_clk_dly_param |=
+   217					 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
+   218		}
+   219	
+   220		dwc_priv->eic7700_hsp_regmap =
+   221				syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+   222								"eswin,hsp-sp-csr");
+   223		if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
+   224			return dev_err_probe(&pdev->dev,
+   225					PTR_ERR(dwc_priv->eic7700_hsp_regmap),
+   226					"Failed to get hsp-sp-csr regmap\n");
+   227	
+   228		ret = of_property_read_u32_index(pdev->dev.of_node,
+   229						 "eswin,hsp-sp-csr",
+   230						 1, &dwc_priv->eth_phy_ctrl_offset);
+   231		if (ret)
+   232			return dev_err_probe(&pdev->dev, ret,
+   233					     "can't get eth_phy_ctrl_offset\n");
+   234	
+   235		ret = of_property_read_u32_index(pdev->dev.of_node,
+   236						 "eswin,hsp-sp-csr",
+   237						 2, &dwc_priv->eth_axi_lp_ctrl_offset);
+   238		if (ret)
+   239			return dev_err_probe(&pdev->dev, ret,
+   240					     "can't get eth_axi_lp_ctrl_offset\n");
+   241	
+   242		ret = of_property_read_u32_index(pdev->dev.of_node,
+   243						 "eswin,hsp-sp-csr",
+   244						 3, &dwc_priv->eth_txd_offset);
+   245		if (ret)
+   246			return dev_err_probe(&pdev->dev, ret,
+   247					     "can't get eth_txd_offset\n");
+   248	
+   249		ret = of_property_read_u32_index(pdev->dev.of_node,
+   250						 "eswin,hsp-sp-csr",
+   251						 4, &dwc_priv->eth_clk_offset);
+   252		if (ret)
+   253			return dev_err_probe(&pdev->dev, ret,
+   254					     "can't get eth_clk_offset\n");
+   255	
+   256		ret = of_property_read_u32_index(pdev->dev.of_node,
+   257						 "eswin,hsp-sp-csr",
+   258						 5, &dwc_priv->eth_rxd_offset);
+   259		if (ret)
+   260			return dev_err_probe(&pdev->dev, ret,
+   261					     "can't get eth_rxd_offset\n");
+   262	
+   263		plat_dat->num_clks = ARRAY_SIZE(eic7700_clk_names);
+   264		plat_dat->clks = devm_kcalloc(&pdev->dev,
+   265					      plat_dat->num_clks,
+   266					      sizeof(*plat_dat->clks),
+   267					      GFP_KERNEL);
+   268		if (!plat_dat->clks)
+   269			return -ENOMEM;
+   270	
+   271		for (i = 0; i < ARRAY_SIZE(eic7700_clk_names); i++)
+   272			plat_dat->clks[i].id = eic7700_clk_names[i];
+   273	
+   274		ret = devm_clk_bulk_get_optional(&pdev->dev,
+   275						 plat_dat->num_clks,
+   276						 plat_dat->clks);
+   277		if (ret)
+   278			return dev_err_probe(&pdev->dev, ret,
+   279					     "Failed to get clocks\n");
+   280	
+   281		plat_dat->clk_tx_i = stmmac_pltfr_find_clk(plat_dat, "tx");
+   282		plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
+   283		plat_dat->clks_config = eic7700_clks_config;
+   284		plat_dat->bsp_priv = dwc_priv;
+   285		dwc_priv->plat_dat = plat_dat;
+   286		plat_dat->init = eic7700_dwmac_init;
+   287		plat_dat->exit = eic7700_dwmac_exit;
+   288		plat_dat->suspend = eic7700_dwmac_suspend;
+   289		plat_dat->resume = eic7700_dwmac_resume;
+ > 290		plat_dat->fix_mac_speed = eic7700_dwmac_fix_speed;
+   291	
+   292		return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+   293	}
+   294	
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
