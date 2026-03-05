@@ -4,137 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43F3F30946
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 11:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9D5F3094B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 11:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K6y9DSqO67DTemB1lEx6/yJzgPWvMlnJYdAV4ZXv06c=; b=XC7I/v6cZgj03N
-	FkJl3yXob8GiyZe50koZ2/ihQOAEf2GbRWmmaBrvjpNlsshdaKB/0WSZJXM4uymbIL2MmIdFTOeuq
-	30DdleR94186QNCSQ2gOtprs/xbKPZvym3z3paoTsZSGMjPJz3QmgEeNbIRG+OFdtBCOgNyeKq5Jq
-	+Excdk2CyMMcJ1FhiMRp+U0nQZ7X072lMcs9E6yNGPbJS4vda54X4C5WW1bjCtgDgyfWbXg6aaINg
-	ndC5PtHPJPSyw8h318skoBFDlEFSJ578K1IHgqbihmOIAvz5lkMNgJ6n2y0Fy03bBH7pRPVdTZNef
-	L46R3yzwp1dX2I0Wtp2g==;
+	List-Owner; bh=JFJoqBcjFJhYdAY0gBWUaJsweA6OklMLndyGD4SAnLk=; b=oD0dlmeoS9noNy
+	onR2iGHim/j3G06QPGlSaeU7v/CehR6unt5+j9PY0KkqFhZ11NnCZNE/vOaBrxwM3P2KhescY9y3N
+	8jduRU9QymxpDfqEdh/8Gqa0Z5mgdm8YlNDCOKEeHX3G3KLyU0Gsk1H5WVAcNbz44EvgIGdu496VF
+	Se8HrcSG3BphsR8WlZT3e+Wwr2gKzD9patbH2xZdDt/uneRxkEDsvogs5W+EwCGy5n3ARGEPaQRlM
+	ibBuQWLuxUZlyDDVJmnmpxERoJ/wvJJGQ0K2cqx/eutyJIIL1Y7mFHgINg3pMnVFSEFmph7eJKHGD
+	inPyqcQtGmnx24Dz1UxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy77b-00000001hFu-1bhp;
-	Thu, 05 Mar 2026 11:44:03 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vy7CZ-00000001hoQ-2i3U;
+	Thu, 05 Mar 2026 11:49:11 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy77Y-00000001hF7-2veU;
-	Thu, 05 Mar 2026 11:44:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oEIWMv2wNWIWw7+FLyhyfK1u6rM/R67FkekLSUd95LdyYWhusJWVPnKgB9Oz/Iyo2/BEqtb01x/z84iHqkgVtzL3An1Qhr/naQZUQGCwe4QjYD3GQXFZJm4Pk3tdpMh8JIpzNREtUk0iT2kUk1VXXszVJR+Y1Hs57Ke3Rl1ovPEHhjd/1jKtnlcEVQ9oJX3TbZIC4CZheofT4fPl4kI93YZD24/9YrfXQakriULwAnvOs9L8esgdLb4sed8sjV8BqXoZLxjed0m3way99MbWWsMZOevJaCmp1JlnM2Hztsz9EVKa58sdKX/03ZAIrRTIpzbBQ0oOvHvwvXXZwDjCRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KGS3r3GlRi239YQY4rTO/s7jOKeO++EFBB+W9oAfSFg=;
- b=zRY1UEESsOk53/1xAn20HVLm/0CvB5SxuUBhgu4MSMXiHF93IE2mi9VtRt5w/IZzw8fP+iJxZPnSaL37FI8CZPkiQui8tT5ZohAMEouk3H6NwDbxYzcU1Ct6sD6qh0zDiHJCfiVh9zuJOoHzGK3VsgTk/lO3jxF77jQ/rpfYkBitfiOzEDFkWcFN3aAk3jQoUGYQf7ZoEa4K191gcX4HB3o7SfmP31X6V1KRbLcFq07SFVLII21oYbC4E1GYh9leqvEygLpwibOyNDJf24Rea2296Ff6k4336YuGOgFbcqswZ+Y+4b1QErwatSccZ7VvgQ3DK5wnWzqgAM9n4/oSAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KGS3r3GlRi239YQY4rTO/s7jOKeO++EFBB+W9oAfSFg=;
- b=PfWb550w8BIJTUF40ftI9/08+ky93qIfy3mcCbhrdSitIfMeZ/wipMq9xu2mfT8gacwKYtAhFQeL2dBU/3G04rBE5J8mDdOSW1VanCPMkYNVPN/1+BfT1T4EbjbdhCSbxscabSnPYNvbdMUt+POERSPwIXLQOjHzHwxdYzvrpLkN5jP1d16SbMF+Wo1dgHuTvdO0Pz/GtUIyTJ5NjtOanm/1lPzOgLXRiUz9ZNsEtBmr+MUzHExTKJywsUfZudKzmTSChMRKsSL4AFCpXdKciaIT0kr1eaO2LlZWDt4i19Awh06zHLqi7vqjwsMmRv+d/QpOsfg7bKyT9Uj/tl9Eug==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by DU4PR04MB12348.eurprd04.prod.outlook.com (2603:10a6:10:62c::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9654.22; Thu, 5 Mar
- 2026 11:43:56 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9678.016; Thu, 5 Mar 2026
- 11:43:56 +0000
-Date: Thu, 5 Mar 2026 13:43:52 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Joe Perches <joe@perches.com>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org, spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com
-Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
-Message-ID: <20260305114352.2f7btqixg4tu5bzl@skbuf>
-References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
- <20260304175735.2660419-23-vladimir.oltean@nxp.com>
- <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
- <20260305085148.7cwo3yflp7vcfldf@skbuf>
- <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
-Content-Disposition: inline
-In-Reply-To: <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
-X-ClientProxiedBy: WA2P291CA0027.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1f::18) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1vy7CX-00000001ho0-2tXv
+	for linux-riscv@lists.infradead.org;
+	Thu, 05 Mar 2026 11:49:10 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-59dea72099eso2446359e87.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 03:49:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772711347; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CwQCEkeCG5B1RlXZ/iDAolgIxRirdXBPABjAWC8A8qD8pIVNXmrUCcvASyuzIrPMdI
+         Set8MklLnoYZYX0DewXFf7T7XvwCPz4pMqAjhBC5SJKoeHtc8Wu9LUejMUdz4tnSYSSt
+         8JogOKs+zXLQ8/wess/sIrb0ri5wKr2avSAF44yZ6/rY0g6k+VNcIYb2pPI107/2yso3
+         Y5AyEDKkDdAIGiMuTrc4oFmncbp3yRDK52gUdrVkfH+xPbSbZtoA/fe3Hrga1VdZf4RQ
+         WzArJ3tigByktNrcFtvF/m4hH66yuqx6HIDzChnhEWuMB7FfNxmYjhXVpFFyNxDrB5w8
+         bGTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JsfgSj6xXDBTyorRizxHsuWjgHE8jzwVestTRCsOkXE=;
+        fh=fatudNHtuR0zRq16ZcOAEhzCh+vrn2UAcSX+1ZVrwho=;
+        b=BSpQ6fq2kSKWm+/RzMvUSWTt2aklPawQABj4mVsqh+S2O71C5ZbwPrnyxGimvfeW6O
+         ACjmwMn6QtOuwWNXJ515Opi6OxiNO+RixwaZDfuPyI4Ef/hbG2vtk6APE7p0WAyhvYtR
+         GFWQfoYVrRxtSFcFy2SghIYjr649BUc0+eiwc0EbnRtYE4KLZTpqRKnk7ybB4xv1rHwS
+         PDQBegHWDvHHjHR6Bv8RWoDQkj5/5ZVyqy+Puy+ETmhXm7C3vqbEK5n7foyxCtH/RYqo
+         ImgRL8mC0qxHQjoaJ0qb+dt+iPGOST2BtKh6sHK/UC2cauZN9VUHMPKB77N3jp4qk5Dg
+         dKRg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1772711347; x=1773316147; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=JsfgSj6xXDBTyorRizxHsuWjgHE8jzwVestTRCsOkXE=;
+        b=wCDpHyWWm00q3DWbtSOkOct6Z2n3KVUbIAKXvp+E3/Dw15WzmF7VxxzPmdTDOAvxH3
+         tFF48MtmnaCFhzPKqwaFeIiA9291Owsu5am4+kB+B45McT3DhSa/MjTdfPvPWfAeS/KP
+         X1W8YKSo0dILVs2Jh+gGFbfXyriHF5FXv2C32RGUmo1U5d0Yt67IWNQKNQMVUSOtZmBQ
+         ZrPb1zQAvC3+xpy3v8F1ydXLgyW0d5nHsUPqjVBTISdf4jvBueR6X4gi0hq/TjKkEpA2
+         2+fDsbCLvTM2pNKfEqvnxLA8xL52kiKTwLyQqbPhsDqBA74zsqRSgFqEeYZLzhJyqFMN
+         8wYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772711347; x=1773316147;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JsfgSj6xXDBTyorRizxHsuWjgHE8jzwVestTRCsOkXE=;
+        b=IvA6FG54LsKjVt0mwqXchWvafXzmvzbZ2Y3eCz8eNHcZjozaB2OKR8XvTsnEqKwhXL
+         Od0f7qtTrTN/FiR0wdRTJaUYDyCUFmhta7tSMnzpdD5wkjU675DZmekcX05srHMWE6Rz
+         3Z4HHwqKgS3TSzKOgiQMqP2Dz1ixpBWSdlZiIoSrCf9wevzqV5a5fUIMOsVNNNJmw2eL
+         ZM30gg2KpGPbQITS1BWoNa2Ul4QlGd2FiYGDKIIBlDi7+Lo4SzwC2aOQEoS0ECumVoEA
+         i4w5DuP+1ZxgG+L17JTU4WWqUVEcFCygVoY9jhNa81aNIBb6I5kF1A7BMEXBhQmnHRbk
+         cZ/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXQJ5R4TUJUQeEET8pDo6uwILNMwfb4PvoUKM8alCUPf5WOZoEt83wDZ8OVJElm3OkHDEFJg5kq6ynoXw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxtj4IfVtyC7WvG4JubWCbOW5CZM+O8YsZEHtDT2UlE81MHj22F
+	ALjXtzjg18xIkj7AVH0hRs/izkEGX4SK3yf0k6cjdmC6N3cEu2rZiBqjMVXzT1bkp0HFrtSF3iD
+	VZDPZZxfpNTn1EaksXpSsWdDgvsnPBmiCBE5p8TF0jQ==
+X-Gm-Gg: ATEYQzx7IkDggXKZROeEini/Vjc/yamk08GIFaOW79qLO/EG5KAfqz+FP+2eMmU+Q/K
+	p5Huh9fbIWLIkbicxWizviSphdeMWXARxQ4Fn7nFHmSBfEMgTjauwCalihsrrKVv2yWgnJFhssf
+	YJS/7G2X1Q9zrLm2dew+z8nHrYOSerZzv931uEq4eF97Sg2GQcNhBVydPgvlE5ovLLMkpBGa5CM
+	uRzBzoX1nQqZmcmQkHt0r76UcsGv4hEzx0ED+/gP9us9C3AKBLSjwCsiJWJ2c22OvAcjMw0vLYv
+	D0KACc1H
+X-Received: by 2002:a05:6512:3093:b0:5a1:3134:923f with SMTP id
+ 2adb3069b0e04-5a131349301mr720263e87.40.1772711346715; Thu, 05 Mar 2026
+ 03:49:06 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DU4PR04MB12348:EE_
-X-MS-Office365-Filtering-Correlation-Id: bf133d4c-59e6-484a-ed90-08de7aac7be2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|19092799006|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: JuxnoTb1Jada82oBzvt49PrZL0JJqfGIYJbbIaruvjNEhtvSMIfNcv6cQlD6psNNSg7IGSngt3EYq6YqICGHBbfsMeUnJCf4vjYk0Z22dHaIgWVz40wJ38NuqRWo5dOGwyVQWUM08FHZh+F5duSUAAcTphp+PR2UYL2RjXMOuCeBgM0hBIIInxHN6TclKxoPSck1XoFi23uEB8HRrEpm20MmectQc1XgbG5PlzwlBXkVSnOfh7KcUp/NoXuwlcUqx/9p6ffmLyK1yjBJ2z8dcDWefBN9HCr4cmYIu0I/ZfVjotjB9lVU8NmLqMuPqsBI6l46oE2bNvs/td29InaoC8tD7d7TyBl6wBjb0B8Yvw4DXjROIzKvRPlXhiHOXoUKR1vlJGnmrlJhEXqThpXQ/SdIyuphkTmxE15DydozlCxna6c8h9rZZPWuiTJd7y7lCv26V1iJVGuTduvvMv9LO48+rprS45iEDoqBYsxrW7pt0OvaBcTnHass5/LXi8ul4M9+3yNArZQBw+iRLssPJEB8sEQQrVwm75J3b1HfTyPgsZ8/oY5msCODEDwz6fDhQ1yPSLTbmx7nYH621fTm0k6lFzn3ufe/V6RuoDVpwQBWCl0XlK7P8TtuaFqQY3zcNe8CJsWOG4/fWG1B70OzfFIjELsX1GTJ7Wa2gq3srR/3OtUZAom/6MKZO8OuO7v/Y/9JaM1yJZgVCyxNIGEWOgD1EGR6gz408Kn6K4vTQdI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(19092799006)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lEyqRTZiplAbPPW5ER+AVlgKqOMxEGgAO1qjRbG/Zuz+BheO9Z2Ibsso0dxV?=
- =?us-ascii?Q?E5eQnEPd/pAluqC8G33SDGYD+cmdnMxx0KiqnVn+iBWA0SND12TyPCWTMohL?=
- =?us-ascii?Q?UzjbdmfCte0PuVfnc3tzC47n/cRTvPBoOJrXg/YqpnCf/B01U/pgevPMtrZv?=
- =?us-ascii?Q?NE2wvU8IVLEKl02r3Q6fTBcFOMWlwndPQDpZIYiV7q3Za9DDPE9aOIOszdh4?=
- =?us-ascii?Q?JAieXP5dyZYqFJR3wRdzzUiTLcuBHFJ+13TcT+b/9PU4zNZP231nPgtAtZKP?=
- =?us-ascii?Q?oRbBxsTeAQ/cO1Oc7odlroHhnmd7uruWYoomPFl+21CLglQ0zmAZNRyuftZ2?=
- =?us-ascii?Q?la9qDUxzU7s7Wel7vKA9vJDqLrGbh5tjhw+aFBNAvKZX1E7nGYiljahKE6Z2?=
- =?us-ascii?Q?Aq5BBUpoaWl1/UVZiIVCO4Md4J10zRmw9/MNiIAnZSgET8/boTI3wqrENXUL?=
- =?us-ascii?Q?tVDpaHlckTUEAwXDsSzqYmkvuwWQq5gEmRd/DcdNUb4bDj7pxTz9tLu7ieWr?=
- =?us-ascii?Q?WT2JSHH2u9CGwo107tzH5sWTY8Omu1Zr6JTgOQvjFBI5i4sLYynWBx6/6tP3?=
- =?us-ascii?Q?JGqN1OvB2ls/7wd3WE2DksMXZwF4/qN3t4wkpWD/c6ZTLOxD5aPt5tUv8RGF?=
- =?us-ascii?Q?s//RQ/0DNOWi30r9kp+Ve+MUGBUsp7/5e13KCF+br5v14bgF9UChyXL+J3CY?=
- =?us-ascii?Q?pwpWALlNdXy+IE9Q31WsA3TKAZ357MBX31C4WGwODzazJFhNNWA2ye1pZjb1?=
- =?us-ascii?Q?kGlat+ipOhdUqrKcVfTLx7mGXFO085weTQMqlO6OrqDP0DIXiWzmsRJQ699w?=
- =?us-ascii?Q?OJBaIqUG/kN2OJ501Fp/T7NnhSqXPwOO/1HQrz9BRlrHhUk2owaKWilz9W+Y?=
- =?us-ascii?Q?WnR2WBw2zCtIohpxHSDzedQiQmMogTHJnjd+pnuXTLvgbyIXmkZMFO4B2o5q?=
- =?us-ascii?Q?uFxSdlvqNcSQ1x/fesxYoocbt6zj3rjkx9uPO4LarhXXO5uzRoZfUf7yh8tM?=
- =?us-ascii?Q?DtC3Ia0UA20xJ6B93RgjCqEJMUNgpkb+rUiZv6ITez4w9cuE5MuQrMMyrs9A?=
- =?us-ascii?Q?EcACt/zoqkxdDthcpW59kkhWMV9YRNLsuqaP6bu1q2a1/PnP6bezPIKaw0eq?=
- =?us-ascii?Q?OpspfvdMya5CVx8FYZSunb+QbLPMo19l6KPekJJcV3+htFEZ/Vp41pMamWmD?=
- =?us-ascii?Q?rnf/FzlkZfa6Bh+AMMvOyfaygBLtt3HoksL6ihK01+ci2s7oG63sZw4SW2Rr?=
- =?us-ascii?Q?yCXjz6zvciQlfmOO5NhlW/kgoRz8qhH4EQWmKXAW8qlXiTc5Nxjb9qDyhUrn?=
- =?us-ascii?Q?qrd6hvwZlVYFjH2de6SLNV/8LD6TOFcxiu/SZlatHcMnyXZcZcC9dgggbKI4?=
- =?us-ascii?Q?hBoOYiTQI3hJnr9IMzeGoeh1eZLw7UJH5jHTU2ICLnUpqE9QRhYV6nF9GVE9?=
- =?us-ascii?Q?XGgxkhJ3bFxUXjgmb5Y9nXzfdFwZhfH2cgfDCsA1MozUpOvZkhGMqAh32vk7?=
- =?us-ascii?Q?u6Y+e5xIDpq1n/fJZz7dybXRjWnvPiUQ0bXK1+H61KjrVpBz+B5lH24lV+t2?=
- =?us-ascii?Q?/Yc+pFG0YtHV2w2kxBcbdYR3en+G8NV/jDNHzXtEt3s/myAy6kZN50okojo8?=
- =?us-ascii?Q?bHJmCJB8oRBxVFNvkBTfjMsjkLHrCietWQDJUZEGCr3R0Wvv8mMiea7EYSTG?=
- =?us-ascii?Q?N1PsfHUrz6/rQnQc4ND4x9My/mJmen2tdMudbU4EmMkLUwFzd+ewG9NHJyqa?=
- =?us-ascii?Q?56AGjd3ztdHwjSypvlNX46fJRG8jKEo4l6WmeI9ajBBEO/T/3Wo1QXYaSskE?=
-X-MS-Exchange-AntiSpam-MessageData-1: 5KbcQYK56ar6KYw2fdjoYeMZswgIzy+j+jo=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bf133d4c-59e6-484a-ed90-08de7aac7be2
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2026 11:43:56.6486
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GvtJ9tYfH2QuXfs69JzcXq2dkv+lV43Qg+NduLtI9615guCA9ILujQzljqpm7vpGLO79RmYfmXmkgYMU1dbcfQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12348
+References: <20260226115923.75670-1-jiayu.riscv@isrc.iscas.ac.cn> <20260226115923.75670-3-jiayu.riscv@isrc.iscas.ac.cn>
+In-Reply-To: <20260226115923.75670-3-jiayu.riscv@isrc.iscas.ac.cn>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 5 Mar 2026 12:48:29 +0100
+X-Gm-Features: AaiRm53AjyJYNQijXY6q6y4X_v_yONuMKKSX6WNloZ4c1DB_5kt_3SxJ_g0U8Uc
+Message-ID: <CAPDyKFrxJ0oWuMWoUEYGO0t-WOYU+G7p5eFw8cUY7xyPaREB5Q@mail.gmail.com>
+Subject: Re: [PATCH v2 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC
+ controller support
+To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+Cc: krzk@kernel.org, adrian.hunter@intel.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	gaohan@iscas.ac.cn, me@ziyao.cc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_034400_748430_85245AF9 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260305_034909_811426_3D0EB9F4 
+X-CRM114-Status: GOOD (  27.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,38 +119,215 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 01:30:40AM -0800, Joe Perches wrote:
-> On Thu, 2026-03-05 at 10:51 +0200, Vladimir Oltean wrote:
-> > On Thu, Mar 05, 2026 at 09:39:35AM +0100, Konrad Dybcio wrote:
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > > index 55af015174a5..bdfa47d9c774 100644
-> > > > --- a/MAINTAINERS
-> > > > +++ b/MAINTAINERS
-> > > > @@ -10713,6 +10713,7 @@ F:    Documentation/devicetree/bindings/phy/
-> > > >  F:   drivers/phy/
-> > > >  F:   include/dt-bindings/phy/
-> > > >  F:   include/linux/phy/
-> > > > +K:   \b(devm_)?(of_)?phy_(create|destroy|init|exit|reset|power_(on|off)|configure|validate|calibrate|(get|set)_(mode|media|speed|bus_width|drvdata)|get_max_link_rate|pm_runtime_(get|put)|notify_(connect|disconnect|state)|get|put|optional_get|provider_(un)?register|simple_xlate|(create|remove)_lookup)\b|(struct\s+)?phy(_ops|_attrs|_lookup|_provider)?\b|linux/phy/phy\.h|phy-props\.h|phy-provider\.h
-> 
-> You could use multiple K: entries instead of this monster.
-> 
-> And please use (?:<foo>) to avoid capture groups too.
+On Thu, 26 Feb 2026 at 12:59, Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn> wrote:
+>
+> Add SDHCI controller driver for Canaan k230 SoC. Implement custom
+> sdhci_ops for set_clock, phy init, init and reset.
+>
+> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+> ---
+>  drivers/mmc/host/sdhci-of-dwcmshc.c | 288 ++++++++++++++++++++++++++++
+>  1 file changed, 288 insertions(+)
+>
+> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> index 2b75a36c096b..21c77e908d77 100644
+> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
+> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> @@ -128,9 +128,11 @@
+>  #define PHY_CNFG_PHY_PWRGOOD_MASK      BIT_MASK(1) /* bit [1] */
+>  #define PHY_CNFG_PAD_SP_MASK           GENMASK(19, 16) /* bits [19:16] */
+>  #define PHY_CNFG_PAD_SP                        0x0c /* PMOS TX drive strength */
+> +#define PHY_CNFG_PAD_SP_k230           0x09 /* PMOS TX drive strength for k230 */
+>  #define PHY_CNFG_PAD_SP_SG2042         0x09 /* PMOS TX drive strength for SG2042 */
+>  #define PHY_CNFG_PAD_SN_MASK           GENMASK(23, 20) /* bits [23:20] */
+>  #define PHY_CNFG_PAD_SN                        0x0c /* NMOS TX drive strength */
+> +#define PHY_CNFG_PAD_SN_k230           0x08 /* NMOS TX drive strength for k230 */
+>  #define PHY_CNFG_PAD_SN_SG2042         0x08 /* NMOS TX drive strength for SG2042 */
+>
+>  /* PHY command/response pad settings */
+> @@ -153,14 +155,22 @@
+>  #define PHY_PAD_RXSEL_3V3              0x2 /* Receiver type select for 3.3V */
+>
+>  #define PHY_PAD_WEAKPULL_MASK          GENMASK(4, 3) /* bits [4:3] */
+> +#define PHY_PAD_WEAKPULL_DISABLED      0x0 /* Weak pull up and pull down disabled */
+>  #define PHY_PAD_WEAKPULL_PULLUP                0x1 /* Weak pull up enabled */
+>  #define PHY_PAD_WEAKPULL_PULLDOWN      0x2 /* Weak pull down enabled */
+>
+>  #define PHY_PAD_TXSLEW_CTRL_P_MASK     GENMASK(8, 5) /* bits [8:5] */
+>  #define PHY_PAD_TXSLEW_CTRL_P          0x3 /* Slew control for P-Type pad TX */
+> +#define PHY_PAD_TXSLEW_CTRL_P_k230_VAL2        0x2 /* Slew control for P-Type pad TX for k230 */
+>  #define PHY_PAD_TXSLEW_CTRL_N_MASK     GENMASK(12, 9) /* bits [12:9] */
+>  #define PHY_PAD_TXSLEW_CTRL_N          0x3 /* Slew control for N-Type pad TX */
+>  #define PHY_PAD_TXSLEW_CTRL_N_SG2042   0x2 /* Slew control for N-Type pad TX for SG2042 */
+> +#define PHY_PAD_TXSLEW_CTRL_N_k230_VAL2        0x2 /* Slew control for N-Type pad TX for k230 */
+> +#define PHY_PAD_TXSLEW_CTRL_N_k230_VAL1        0x1 /* Slew control for N-Type pad TX for k230 */
+> +
+> +/* PHY Common DelayLine config settings */
+> +#define PHY_COMMDL_CNFG                        (DWC_MSHC_PTR_PHY_R + 0x1c)
+> +#define PHY_COMMDL_CNFG_DLSTEP_SEL     BIT(0) /* DelayLine outputs on PAD enabled */
+>
+>  /* PHY CLK delay line settings */
+>  #define PHY_SDCLKDL_CNFG_R             (DWC_MSHC_PTR_PHY_R + 0x1d)
+> @@ -174,7 +184,10 @@
+>  #define PHY_SDCLKDL_DC_HS400           0x18 /* delay code for HS400 mode */
+>
+>  #define PHY_SMPLDL_CNFG_R              (DWC_MSHC_PTR_PHY_R + 0x20)
+> +#define PHY_SMPLDL_CNFG_EXTDLY_EN      BIT(0)
+>  #define PHY_SMPLDL_CNFG_BYPASS_EN      BIT(1)
+> +#define PHY_SMPLDL_CNFG_INPSEL_MASK    GENMASK(3, 2) /* bits [3:2] */
+> +#define PHY_SMPLDL_CNFG_INPSEL         0x3 /* delay line input source */
+>
+>  /* PHY drift_cclk_rx delay line configuration setting */
+>  #define PHY_ATDL_CNFG_R                        (DWC_MSHC_PTR_PHY_R + 0x21)
+> @@ -227,6 +240,14 @@
+>  /* SMC call for BlueField-3 eMMC RST_N */
+>  #define BLUEFIELD_SMC_SET_EMMC_RST_N   0x82000007
+>
+> +/* Canaan specific Registers */
+> +#define SD0_CTRL                       0x00
+> +#define SD0_HOST_REG_VOL_STABLE                BIT(4)
+> +#define SD0_CARD_WRITE_PROT            BIT(6)
+> +#define SD1_CTRL                       0x08
+> +#define SD1_HOST_REG_VOL_STABLE                BIT(0)
+> +#define SD1_CARD_WRITE_PROT            BIT(2)
+> +
+>  /* Eswin specific Registers */
+>  #define EIC7700_CARD_CLK_STABLE                BIT(28)
+>  #define EIC7700_INT_BCLK_STABLE                BIT(16)
+> @@ -268,6 +289,12 @@ struct eic7700_priv {
+>         unsigned int drive_impedance;
+>  };
+>
+> +struct k230_priv  {
+> +       /* Kendryte k230 specific */
+> +       struct regmap *hi_sys_regmap;
+> +       const struct dwcmshc_k230_match_data *match_data;
+> +};
+> +
+>  #define DWCMSHC_MAX_OTHER_CLKS 3
+>
+>  struct dwcmshc_priv {
+> @@ -284,12 +311,34 @@ struct dwcmshc_priv {
+>  };
+>
+>  struct dwcmshc_pltfm_data {
+> +       const void *match_data;
 
-Thanks, I wasn't aware of either of those.
+This makes sense to me!
 
-I am now working with this:
+Although, I realized that dwcmshc_rk35xx_init() could also move its
+assignment of "devtype" into this match_data.
 
-K:	\b(?:__)?(?:devm_)?(?:of_)?phy_(?:create|destroy|provider_(?:un)?register)\b
-K:	\bphy_(?:create|remove)_lookup\b
-K:	\bphy_(?:get|set)?_drvdata\b
-K:	\b(?:devm_)?(?:of_)?phy_(?:optional_)?(?:get|put)(?:_by_index)?\b
-K:	\bphy_pm_runtime_(?:get|put)(?:_sync)?\b
-K:	\bphy_(?:init|exit|power_(?:on|off))\b
-K:	\bphy_|(?:get|set)_(?:mode(?:_ext)?|media|speed|bus_width|max_link_rate)\b
-K:	\bphy_(?:reset|configure|validate|calibrate)\b
-K:	\bphy_notify_(?:connect|disconnect|state)\b
-K:	(?:struct\s+)?phy(?:_ops|_attrs|_lookup|_provider)?\b
-K:	(?:linux/phy/phy\.h|phy-props\.h|phy-provider\.h)
+Can you please create a follow-up patch to fixup this and to avoid
+storing this type of data in two different ways?
+
+>         const struct sdhci_pltfm_data pdata;
+>         const struct cqhci_host_ops *cqhci_host_ops;
+>         int (*init)(struct device *dev, struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
+>         void (*postinit)(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
+>  };
+>
+> +struct dwcmshc_k230_match_data {
+> +       bool is_emmc;
+> +       u32 ctrl_reg;
+> +       u32 vol_stable_bit;
+> +       u32 write_prot_bit;
+> +};
+> +
+> +static const struct dwcmshc_k230_match_data k230_emmc_match_data = {
+> +       .is_emmc = true,
+> +       .ctrl_reg = SD0_CTRL,
+> +       .vol_stable_bit = SD0_HOST_REG_VOL_STABLE,
+> +       .write_prot_bit = SD0_CARD_WRITE_PROT,
+> +};
+> +
+> +static const struct dwcmshc_k230_match_data k230_sdio_match_data = {
+> +       .is_emmc = false,
+> +       .ctrl_reg = SD1_CTRL,
+> +       .vol_stable_bit = SD1_HOST_REG_VOL_STABLE,
+> +       .write_prot_bit = SD1_CARD_WRITE_PROT,
+> +};
+
+[...]
+
+> +
+> +static int dwcmshc_k230_init(struct device *dev, struct sdhci_host *host,
+> +                            struct dwcmshc_priv *dwc_priv)
+> +{
+> +       static const char * const clk_ids[] = {"block", "timer", "axi"};
+> +       const struct dwcmshc_k230_match_data *match_data;
+> +       const struct dwcmshc_pltfm_data *pltfm_data;
+> +       struct device_node *usb_phy_node;
+> +       struct k230_priv *k230_priv;
+> +       u32 data;
+> +       int ret;
+> +
+> +       pltfm_data = device_get_match_data(dev);
+> +
+> +       if (!pltfm_data || !pltfm_data->match_data) {
+> +               dev_err(dev, "No vendor data found for K230\n");
+> +               return -EINVAL;
+> +       }
+> +       match_data = pltfm_data->match_data;
+
+I don't think this should be specific to dwcmshc_k230_init().
+
+Instead I suggest adding a "const void *match_data" to the "struct
+dwcmshc_priv" - and copy the pointer in the common dwcmshc_probe()
+instead. In this way, all variants will be able to use it.
+
+> +
+> +       k230_priv = devm_kzalloc(dev, sizeof(struct k230_priv), GFP_KERNEL);
+> +       if (!k230_priv)
+> +               return -ENOMEM;
+> +
+> +       k230_priv->match_data = match_data;
+> +       dwc_priv->priv = k230_priv;
+> +
+> +       usb_phy_node = of_parse_phandle(dev->of_node, "canaan,usb-phy", 0);
+> +       if (!usb_phy_node)
+> +               return dev_err_probe(dev, -ENODEV,
+> +                                    "Failed to find canaan,usb-phy phandle\n");
+> +
+> +       k230_priv->hi_sys_regmap = device_node_to_regmap(usb_phy_node);
+> +       of_node_put(usb_phy_node);
+> +
+> +       if (IS_ERR(k230_priv->hi_sys_regmap))
+> +               return dev_err_probe(dev, PTR_ERR(k230_priv->hi_sys_regmap),
+> +                                    "Failed to get k230-usb-phy regmap\n");
+> +
+> +       ret = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
+> +                                           ARRAY_SIZE(clk_ids), clk_ids);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret,
+> +                                    "Failed to get/enable k230 mmc other clocks\n");
+> +
+> +       if (match_data->is_emmc) {
+> +               host->flags &= ~SDHCI_SIGNALING_330;
+> +               dwc_priv->flags |= FLAG_IO_FIXED_1V8;
+> +       } else {
+> +               host->mmc->caps |= MMC_CAP_SD_HIGHSPEED;
+> +               host->quirks2 |= SDHCI_QUIRK2_NO_1_8_V;
+> +       }
+> +
+> +       ret = regmap_read(k230_priv->hi_sys_regmap, match_data->ctrl_reg, &data);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Failed to read control reg 0x%x\n",
+> +                                    match_data->ctrl_reg);
+> +
+> +       data |= match_data->write_prot_bit | match_data->vol_stable_bit;
+> +       ret = regmap_write(k230_priv->hi_sys_regmap, match_data->ctrl_reg, data);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Failed to write control reg 0x%x\n",
+> +                                    match_data->ctrl_reg);
+> +
+> +       return 0;
+> +}
+
+[...]
+
+Kind regards
+Uffe
 
 _______________________________________________
 linux-riscv mailing list
