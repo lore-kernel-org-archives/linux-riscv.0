@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A10BEEF30C
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 06:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 371E2EEF309
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 06:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uv9+KcvL6DVhZoxt3IRd3wnJ4r44lTGSeEMBpBaYL9I=; b=KlFOeNqLZ6pIg3
-	dv9X3v8hAuo+jIVpBq6ZLaCfrTjOAF4nX1RjwNSaZfv3og2jnTIRFth38iuU9AQmd4q9jTm6jhrVa
-	RHmA8T92VTeFnJXMkZlZCwCkVlMtDchrrmoAi3pbVSyY+EHbhSzNjd//EdFGkTlVyKZN7lYY9tg3P
-	yf60yI0KsaVl4BlcH7OxbvmDEJ/eglNrGAj0/adNdoO1MN6OdIfcOEy5Q81mlGLG3MmxzN74tLBI1
-	sS/mbXGxN2RSY4xKsDzRWStGqJ3UoWVO1RZ22YUvrMcSTKYT5hOBwssZWVQ2vELSOgVYkzNhbZ6mx
-	h3WIh614iunzJgXR+VJg==;
+	List-Owner; bh=gPSiFsCi1SDRGj268I3WcoClEI1SCpLr5iH7WrhGndY=; b=CBee/YyKNPmgnI
+	ko9PuvENdq+EPYk2rZYQeapQR+l5XDz3XMRxgU+vEbHb8qOkbvVkvAdfL6f1duo5iIOGv+G90nsMj
+	LZ4AzrXoe8HCjsTLujXxCZ8soFwfMe/kkpScmQjO8DzcQv0M0GYcLR70cNqHDapr4unn7vKkVpKDy
+	6sJjKM/4K7YJS/KyNRQH9D3es0wFYlifzhtFkxk4RW+OC4OvPzl6oJ9Y/0mbctjThdJbLGYeWkt/y
+	kwt87m80zxxU4sEIoojBiV8vj/NjO8BUy9THfSTmnP/dapRP17uNxtLMT53zfFMQ2S00hX7EBV8bE
+	+ET49xnHlsZDNeUzqkzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2NM-000000011hj-2HJf;
-	Thu, 05 Mar 2026 06:40:00 +0000
+	id 1vy2NO-000000011iX-0uVR;
+	Thu, 05 Mar 2026 06:40:02 +0000
 Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy2NJ-000000011fw-07ME
+	id 1vy2NK-000000011g8-12SS
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 06:39:58 +0000
+	Thu, 05 Mar 2026 06:39:59 +0000
 Received: from [127.0.0.2] (unknown [210.73.43.101])
-	by APP-05 (Coremail) with SMTP id zQCowAAXqg01JalpW7+uCQ--.48975S3;
+	by APP-05 (Coremail) with SMTP id zQCowAAXqg01JalpW7+uCQ--.48975S4;
 	Thu, 05 Mar 2026 14:39:49 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Thu, 05 Mar 2026 14:39:38 +0800
-Subject: [PATCH net v2 1/2] net: spacemit: Fix error handling in
- emac_alloc_rx_desc_buffers()
+Date: Thu, 05 Mar 2026 14:39:39 +0800
+Subject: [PATCH net v2 2/2] net: spacemit: Fix error handling in
+ emac_tx_mem_map()
 MIME-Version: 1.0
-Message-Id: <20260305-k1-ethernet-more-fixes-v2-1-e4e434d65055@iscas.ac.cn>
+Message-Id: <20260305-k1-ethernet-more-fixes-v2-2-e4e434d65055@iscas.ac.cn>
 References: <20260305-k1-ethernet-more-fixes-v2-0-e4e434d65055@iscas.ac.cn>
 In-Reply-To: <20260305-k1-ethernet-more-fixes-v2-0-e4e434d65055@iscas.ac.cn>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -49,13 +49,13 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-CM-TRANSID: zQCowAAXqg01JalpW7+uCQ--.48975S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxJrW7ZFykGryUXr17JF15XFb_yoW8GFWDpr
-	Wj9as3Gwn7XF4Yk3Z7Jr4xXws5Aay0qFyruay0yw4Fv3ZIkF1jgF4rt3W3Jr48urZ7XF4S
-	vr4UZw13GF1DZw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: zQCowAAXqg01JalpW7+uCQ--.48975S4
+X-Coremail-Antispam: 1UD129KBjvJXoWruFyfCrW7Cw15uF1kAF1fZwb_yoW8JF1fpa
+	9rWa9xur18JF4agwsFkr4Iva90vay8try8Ca4Sv3yFqF9Ika1jgFy8tF17Jrn5ArZ5WryS
+	vw4qv345GF1DAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUmC14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
 	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
 	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
 	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
@@ -66,12 +66,13 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxJrW7ZFykGryUXr17JF15XFb_yoW8GFWDpr
 	106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AK
 	xVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7
 	xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_
-	Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRHKZtUUUUU=
+	Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUFkskUUUUU=
 X-Originating-IP: [210.73.43.101]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260304_223957_440094_E8EEE952 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20260304_223958_661467_8BADC268 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +89,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Even if we get a dma_mapping_error() while mapping an RX buffer, we
-should still update rx_ring->head to ensure that the buffers we were
-able to allocate and map are used. Fix this by breaking out to the
-existing code after the loop, analogous to the existing handling for skb
-allocation failure.
+The DMA mappings were leaked on mapping error. Free them with the
+existing emac_free_tx_buf() function.
 
 Fixes: bfec6d7f2001 ("net: spacemit: Add K1 Ethernet MAC")
 Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 ---
- drivers/net/ethernet/spacemit/k1_emac.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/spacemit/k1_emac.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-index 338a2637b1da..5a5cb61be08c 100644
+index 5a5cb61be08c..15d43e4a748b 100644
 --- a/drivers/net/ethernet/spacemit/k1_emac.c
 +++ b/drivers/net/ethernet/spacemit/k1_emac.c
-@@ -565,7 +565,9 @@ static void emac_alloc_rx_desc_buffers(struct emac_priv *priv)
- 						  DMA_FROM_DEVICE);
- 		if (dma_mapping_error(&priv->pdev->dev, rx_buf->dma_addr)) {
- 			dev_err_ratelimited(&ndev->dev, "Mapping skb failed\n");
--			goto err_free_skb;
-+			dev_kfree_skb_any(skb);
-+			rx_buf->skb = NULL;
-+			break;
- 		}
+@@ -733,7 +733,7 @@ static void emac_tx_mem_map(struct emac_priv *priv, struct sk_buff *skb)
+ 	struct emac_desc tx_desc, *tx_desc_addr;
+ 	struct device *dev = &priv->pdev->dev;
+ 	struct emac_tx_desc_buffer *tx_buf;
+-	u32 head, old_head, frag_num, f;
++	u32 head, old_head, frag_num, f, i;
+ 	bool buf_idx;
  
- 		rx_desc_addr = &((struct emac_desc *)rx_ring->desc_addr)[i];
-@@ -590,10 +592,6 @@ static void emac_alloc_rx_desc_buffers(struct emac_priv *priv)
+ 	frag_num = skb_shinfo(skb)->nr_frags;
+@@ -801,6 +801,15 @@ static void emac_tx_mem_map(struct emac_priv *priv, struct sk_buff *skb)
  
- 	rx_ring->head = i;
- 	return;
--
--err_free_skb:
--	dev_kfree_skb_any(skb);
--	rx_buf->skb = NULL;
+ err_free_skb:
+ 	dev_dstats_tx_dropped(priv->ndev);
++
++	i = old_head;
++	while (i != head) {
++		emac_free_tx_buf(priv, i);
++
++		if (++i == tx_ring->total_cnt)
++			i = 0;
++	}
++
+ 	dev_kfree_skb_any(skb);
  }
  
- /* Returns number of packets received */
 
 -- 
 2.53.0
