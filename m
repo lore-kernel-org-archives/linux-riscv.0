@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A965EEF316
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99EEEEF316
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 08:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DXZdQGpEd4ry1eoJwJ6oGeEyNx75vEA5fgCM4tzoUuo=; b=owMhdxgdp8a0zSAqxbXhDss5/s
-	8PGEFHlHE1ZQ247odyWTe1+mxEQsSxWi9y7v3VPYoppOrx5QGrBoIA11HUAB+1IPhcyKRAUA3/e0H
-	kW33kArjZWTtOc5vqtHXL38aqyMFhdG/Ykh/EwKDHqNLK6CYGDJT6ykQpwS3AICAjN11uaKPKGB2T
-	SoFb9ANZ25jWpJr6pCa6aUgpDK0MNfBIh+Si7z4qYoT3RAjAEmWfiW8HDBNBHFRyqOeFqmO4ia/5W
-	DpIl1AILZFHt8NevYYT2DsMrM8KOBasSskRKARtGqf1x/PUlXOoQZyzScKjlmaLLS13Xe7L5/fqrG
-	KHS/nldw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NWqWXUyp24dWl6sO4g2hNoAtEs5vd59ZRVnMRSivBO4=; b=BWJMWR4PGYJlJn
+	vptM+8HWrALHh+WSKaG1tsq1s0yus2LdCT6XdpBeYth7WhjA0/mxwHdr3hOYl5QIl6+e080/usEBZ
+	qFS9iCxKE8KAvtlqM7MRMhcgucZiulfP0FhjjLdQPN/WgxB5MslXLgMmVLSubNkFMcY31R88TvTJz
+	1xh6I33cyF/En8PZnVCnI07FAUf8oO7pht22gwkZtXqvoRpMFh9qt9EOL4bp1WPgNdiFkOWkjtrnJ
+	KN3QTaNbP78kOgUkPA2wU2Agkscnnqc00sC9/T0CTqCBZpDBWd//gHg7pv9A3YkKahBD9Lm2xdAtG
+	hN1q/H0lRt6lk8KoiqSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy40e-00000001Bc8-3WZd;
-	Thu, 05 Mar 2026 08:24:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vy44w-00000001CEI-0f54;
+	Thu, 05 Mar 2026 08:29:06 +0000
+Received: from mail-vk1-f177.google.com ([209.85.221.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vy40c-00000001BbA-0sSD
+	id 1vy44t-00000001CDG-1Qfa
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Mar 2026 08:24:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B81B344330;
-	Thu,  5 Mar 2026 08:24:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AFFBC2BC9E;
-	Thu,  5 Mar 2026 08:24:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772699076;
-	bh=v9aqov2TRju92BUkePwYkzbYjnrsweKBt5HjUS1ipP0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Esq7gGZU0KXs35RQU+pRlI1hgRQdxYIiLM86nXyEIyCQU01GYI19QdoSxNiwazxtb
-	 amix2JoNVwSw4sHwRX3GaRsSGHP3oMYdlKSU2WBjkb5dY8S+Z/qMrUI0igGiit/ebl
-	 EpQYoux7iIB/RdepnrDkfAXKEPEl9C1XqqRL/UnEIROc9kL4kuSOGfrCE3T61m8xtC
-	 mhfz6afBq6fQwsKYcva3+3WIGl4XWrNfxbUL32wxY79TmAi1f0EQl3VDDWv+huynVD
-	 r/g0D1cAC8Lggqh/H7lVjcJ/nM4kvBuAHF13ttzcQ5ww/I1MaSPwikStFIfZh/4Xg0
-	 MGUlxzUri/dKA==
-Date: Thu, 5 Mar 2026 09:24:33 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>, 
-	Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Viresh Kumar <viresh.kumar@linaro.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	linux-clk@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 3/3] pwm: th1520: remove impl Send/Sync for
- Th1520PwmDriverData
-Message-ID: <aak9ZBJenK1DSCEt@monoceros>
-References: <20260113-clk-send-sync-v4-0-712bc7d94a79@google.com>
- <CGME20260113151335eucas1p157cd966c5f0f4e477fb11272810a0ae8@eucas1p1.samsung.com>
- <20260113-clk-send-sync-v4-3-712bc7d94a79@google.com>
- <90657b83-1cff-4c7d-adde-9b560c2be7c2@samsung.com>
- <3cfeounnaphhezvjpz5igswml6iu3b6jhwhjn2g4ziimjdoefi@ge4ezxx6jxlr>
+	Thu, 05 Mar 2026 08:29:04 +0000
+Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-56a981f44c9so3435363e0c.2
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 00:29:02 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772699342; x=1773304142;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZlLnToI6SbxsSn7ypnmaqq1RX+miw2VMTyDHKi+gwbk=;
+        b=mFaA1mdjvWLZlXFvnzIsB3nN0KkK/e3+ZvMvjTmDqbpxlaLiUvVSMhDar6Dkbr0Me8
+         7cRdX9l0Afs6v5Ept3o9mmM2G3ml37LVdI9nE7pDP7QXZ/G5uRIV5KdmRTBLCpFOk5/X
+         1M0cAasC5ZfjsyVEtlb8JTY6OMD36k433LGIrOhLvuV9yN03XpmCJN6x3xRT/Nvm0pHr
+         dvArvpeDVjwhqyMbLKMkm4QvhN4zaRZGM9gIU68qBDlj4Q5xLYS0yPr0RYD7bIu4HApP
+         BBeFAPYo4OOF6jMpr9sI4ZLyCGZLIV15RDm8LRh30/a+ZV5ZKu9idoyfpmMKIQzl0D4C
+         XXlA==
+X-Forwarded-Encrypted: i=1; AJvYcCXKo+PEoOE1OkiJXmeNP8kRVdeDelJzpbONAiHD7kWRYIpqV7UXnouF0x6Gvag+JfRzkWb70DGQu4d4QA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6elL28Mzjs5g0Od0TMzw5GoyCM82JHV3sJ2bSb+sqwsl1o6sp
+	UY5kjmFSGvlSt7yKphBal9mzzb/IAVEGPjwr3oy4djFNa7oE986nV1aU614Map5O
+X-Gm-Gg: ATEYQzwcFxH2rzXWRe1Ze1Y+IFq7GoPjw/OLJm+Mi8fs97QOzyIxLEUs+qXCgE7DIlp
+	jJLUgM7vDW2ndnYg0qNHC0cYPrirhGA6PR1iRr9+y4CHRXzG5nFwJhdVoNBIE62uRRbZCWQzcnh
+	GVyBPYOFASpS5hpUswWWkoFe/MJvUPx6Lh7iP6u8tL9BmsngC09Und6A5V9AOQRgJ5IRcYkBwi8
+	JS0m3ASK0VbJypbTVFJ4M+0XusoEVrwG32skaNvu7E9+uDZXoWR5UNu1CGfzMPNo3QjuxSIVT5A
+	nwcsICZ2pAVKYBVVKFnis19TN9l2nBh2jjDQG5ZEL9Vd4CzfrSF/NukBDb0WXAOaGnG3Iovj1Cw
+	/QLrFZKNL7FE+2tWE4mq8Qp3ggHsChAITZKjrAZyXtJG/a9jaNnCyXMb0asGF8TfQR6UwBEcFBb
+	8fU/d2xiUDSwXOP3rKptjzD9IQycN4D1ZudCyft64K0ygnbrh0cFafdV8XB0yqY144ZQt1xl4=
+X-Received: by 2002:a05:6122:800f:b0:56a:f3f9:7e4f with SMTP id 71dfb90a1353d-56af3f98193mr545781e0c.18.1772699341926;
+        Thu, 05 Mar 2026 00:29:01 -0800 (PST)
+Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com. [209.85.222.43])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56a91b8c96fsm26558628e0c.2.2026.03.05.00.29.01
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Mar 2026 00:29:01 -0800 (PST)
+Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-94ace5d0e39so2297209241.2
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 00:29:01 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVOQjmL4S1En1Q5IZvtTxtBws+YV5syacrNATl8d4R1YIObH7ibLxJQGInfJ6pdAFOzul/ygjCUl9MzmQ==@lists.infradead.org
+X-Received: by 2002:a05:6102:1607:b0:5ff:c64d:228c with SMTP id
+ ada2fe7eead31-5ffc64d2600mr724913137.22.1772699340961; Thu, 05 Mar 2026
+ 00:29:00 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <3cfeounnaphhezvjpz5igswml6iu3b6jhwhjn2g4ziimjdoefi@ge4ezxx6jxlr>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com> <20260304175735.2660419-13-vladimir.oltean@nxp.com>
+In-Reply-To: <20260304175735.2660419-13-vladimir.oltean@nxp.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 5 Mar 2026 09:28:50 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdV+7n==crPmitH-JCwtJiH+7LaPKZQYU4ZqX_duo3_7Eg@mail.gmail.com>
+X-Gm-Features: AaiRm50Kgxrt1IEt_9GEmeNyCIrylErpUd7qkh7D4FIoK_FYituUB8DTITetq4c
+Message-ID: <CAMuHMdV+7n==crPmitH-JCwtJiH+7LaPKZQYU4ZqX_duo3_7Eg@mail.gmail.com>
+Subject: Re: [PATCH phy-next 12/22] phy: move provider API out of public <linux/phy/phy.h>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, 
+	netdev@vger.kernel.org, spacemit@lists.linux.dev, 
+	UNGLinuxDriver@microchip.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_002438_428885_167721E7 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20260305_002903_383553_BDCFBF7D 
+X-CRM114-Status: GOOD (  28.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,80 +100,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6086066458972413432=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Vladimir,
 
---===============6086066458972413432==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ygr7vi7eyprc7gqk"
-Content-Disposition: inline
+On Wed, 4 Mar 2026 at 19:03, Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
+> The major goal is to hide the contents of struct phy from consumer
+> drivers.
+>
+> The idea with "phy-props.h" is that both consumers and providers make
+> use of some data types. So both headers include "phy-props.h".
+>
+> Two slight points of contention.
+>
+> 1. phy_set_bus_width(): Vinod explains that despite the current caller
+>    situation (9 providers, 1 consumer), it is a consumer API function.
+>
+>    The use case is that the controller (for example UFS) may have
+>    limitations and should set the expected lanes to be used and width on
+>    those lanes. A number of Generic PHYs can support multiple lanes and
+>    multiple width so this is way for controller telling I am using this
+>    configuration.
+>
+> 2. phy-provider.h should go to include/linux/phy/ or to drivers/phy/?
+>    We do have 3 PHY providers outside of drivers/phy/:
+>
+>    drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_dphy.c
+>    drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>    drivers/pinctrl/tegra/pinctrl-tegra-xusb.c
+>
+>    but the practice is not encouraged, and with time, these should be
+>    moved to the subsystem. This is not something that I can do now.
+>
+> For temporary compatibility, keep including the provider header. This
+> will be removed when abuses are all gotten rid of.
+>
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 
+Thanks for your patch!
 
---ygr7vi7eyprc7gqk
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 3/3] pwm: th1520: remove impl Send/Sync for
- Th1520PwmDriverData
-MIME-Version: 1.0
+> --- /dev/null
+> +++ b/drivers/phy/phy-provider.h
 
-Hello,
+> --- a/include/linux/phy/phy.h
+> +++ b/include/linux/phy/phy.h
+> @@ -1,246 +1,38 @@
+>  /* SPDX-License-Identifier: GPL-2.0-or-later */
+>  /*
+> - * phy.h -- generic phy header file
+> + * phy.h -- Generic PHY consumer API
+>   *
+>   * Copyright (C) 2013 Texas Instruments Incorporated - http://www.ti.com
+>   *
+>   * Author: Kishon Vijay Abraham I <kishon@ti.com>
+>   */
+>
+> -#ifndef __DRIVERS_PHY_H
+> -#define __DRIVERS_PHY_H
+> +#ifndef __PHY_CONSUMER_H
+> +#define __PHY_CONSUMER_H
+>
+> -#include <linux/err.h>
+> -#include <linux/of.h>
+> -#include <linux/device.h>
+> -#include <linux/pm_runtime.h>
+> -#include <linux/regulator/consumer.h>
+> +#include <linux/phy/phy-props.h>
+>
+> -#include <linux/phy/phy-dp.h>
+> -#include <linux/phy/phy-hdmi.h>
+> -#include <linux/phy/phy-lvds.h>
+> -#include <linux/phy/phy-mipi-dphy.h>
+> +#include "../../drivers/phy/phy-provider.h"
 
-On Tue, Jan 20, 2026 at 09:48:48AM +0100, Uwe Kleine-K=F6nig wrote:
-> On Mon, Jan 19, 2026 at 10:45:56PM +0100, Michal Wilczynski wrote:
-> > On 1/13/26 16:12, Alice Ryhl wrote:
-> > > Now that clk implements Send and Sync, we no longer need to manually
-> > > implement these traits for Th1520PwmDriverData. Thus remove the
-> > > implementations.
-> >=20
-> > I thought this was already merged :-).
-> >=20
-> > Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
->=20
-> If I understand correctly this patch 3 depends on the first patch of
-> this series so I cannot pick it up via the pwm tree *now*. There is
-> another patch pending for the th1520 PWM driver, but as of now git seems
-> to cope well when merging the pwm's tree for-next with this patch.  So
-> it's fine for me if the series is picked up for 6.20-rc1 via the clock
-> tree.
+Shouldn't there be one more "../"?
+Interestingly, it compiles with/without.
 
-That didn't happen (with s/6.20/7.0/), so this patch is still open in my
-todo list. Is the first patch still considered for the clk subsystem?
-What is the plan for the pwm patch?
+Gr{oetje,eeting}s,
 
-Best regards
-Uwe
+                        Geert
 
---ygr7vi7eyprc7gqk
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmmpPb4ACgkQj4D7WH0S
-/k6AYgf+IFbJpwiUp9P8Rmry4DJdrF6HeXt7L7+0cSOAtSjz8246LrMcqOZN03RB
-YAi8NxU8tZw4Ib54H+GNZUp+gf4jryjO+ry/HXrbC9giXxYVAPBzNhRLgpLUXsm/
-dIJFq7MwB5s7zFnJ6F/u2kD/cCvzCgokFftc831AAAOI7oFD0yZx6nHS/FT60M9B
-eK4cNPn/MEB3vgaxHub02lpr0ctEd+s9sPzbmUobR5KI4yqf60VKycdMGfZtu/m6
-h/nZTyq/u+CEZP92L59gx7GPKTnJZ2XcHKXJSw5wgPiNCYRWn4s1EbKXA6uvKQV5
-r6wXppJz8sU18n8EljYkeht9uPMW0g==
-=NxJx
------END PGP SIGNATURE-----
-
---ygr7vi7eyprc7gqk--
-
-
---===============6086066458972413432==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6086066458972413432==--
-
