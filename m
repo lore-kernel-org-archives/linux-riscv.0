@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E922F33A7B
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 14:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BF1F3D302
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Mar 2026 15:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NQ/V/XkTATob/8ViuAdzImJJ8lLPJS2lkRqRzZrcYvE=; b=Br7id6ktJ6bdm5
-	UaL/KdsjPH/ctaOR1sFJetWZOZxj4a4IeONTJcfRYk6QSnOYtXFJPrhnBySQV7PSY1kzdRbXCPlg5
-	/n3sywNNQdmyNkC1ocSesGOIw/PeS540jK8dE1aWn2OdRAh5NmJ+eHm+LdFO3GoXzjPnNwGBntC6N
-	vgsF13W+2k/Lu9kNaT7qZttmD2/HCm27QyseZFQg4zYkZzc0SKiPIpsOcKRxUVdwOkExgAilXIyLO
-	wHqHQWUJ6CA33Un0pqDo9GQ/IWpdhQz34a8HXnnmCHdX7GG3ilceFNm+pE22kHzgLSHGNbtLAfuoh
-	njMWjp+EgmYXgd1Mer6g==;
+	List-Owner; bh=Kwj1bAQrP6kLEqZS3C/4uFDl32mMeNNufnjzdvMRRJo=; b=qbY7mjFZqm97hl
+	alUVX4nYYljW66WiT/t9UFWyIlZxdCXu3li1kAzClj+jHve+zXdC+wZzp6FfFyEatPpdZZDYOD2VM
+	L3V3/7NgGwzXSpJOMwOQLYFfIoaO/2NqKGDzti4w571dd4/WvaGBWjELDOpN85nbhAVhIDFmUB2D9
+	ES/4/WWb0apWLtwpxT/r63sPpT9M8JjTM1imCuJ+cO30u97FHl+SrSg6W28QF7CExuJ2/oLbT5LrK
+	/Z6K6TygVXPk0dmXOWm8+YFtefbLf7SnEQxNanJSumy8NsbQ3KULsrHARyFqbnmpIBpm/Mr+0ThVb
+	bUba6un7YAq6EnFOs3gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyA5i-000000024XG-3NgM;
-	Thu, 05 Mar 2026 14:54:18 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vyAkE-000000027sw-2IvA;
+	Thu, 05 Mar 2026 15:36:10 +0000
+Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyA5e-000000024WX-3hnb;
-	Thu, 05 Mar 2026 14:54:17 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fRXb85pd4zHnGkd;
-	Thu,  5 Mar 2026 22:53:08 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id A5CEC4056B;
-	Thu,  5 Mar 2026 22:54:06 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 5 Mar
- 2026 14:54:04 +0000
-Date: Thu, 5 Mar 2026 14:54:03 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: fengchengwen <fengchengwen@huawei.com>
-Subject: Re: [PATCH v2] PCI/TPH: Fix get cpu steer-tag fail on ARM64
- platform
-Message-ID: <20260305145403.0000394e@huawei.com>
-In-Reply-To: <795a9167-6c49-4c7c-9a36-385bf543cacf@huawei.com>
-References: <20260303003625.39035-1-fengchengwen@huawei.com>
-	<20260305083650.54611-1-fengchengwen@huawei.com>
-	<CAAhV-H4xZsyLdzswPxPGHoQNd4LKXrTOL-oPGZHyVt8dj0xu6A@mail.gmail.com>
-	<795a9167-6c49-4c7c-9a36-385bf543cacf@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vyAkB-000000027rr-2x7G;
+	Thu, 05 Mar 2026 15:36:08 +0000
+Received: from omf17.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay08.hostedemail.com (Postfix) with ESMTP id 9322C14014F;
+	Thu,  5 Mar 2026 15:36:02 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf17.hostedemail.com (Postfix) with ESMTPA id E35031C;
+	Thu,  5 Mar 2026 15:35:55 +0000 (UTC)
+Message-ID: <21e84301a7c37f9d5ce6f0ddcaed7846174d2a4d.camel@perches.com>
+Subject: Re: [PATCH phy-next 22/22] MAINTAINERS: add regex for linux-phy
+From: Joe Perches <joe@perches.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, Neil
+ Armstrong	 <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org, 	spacemit@lists.linux.dev,
+ UNGLinuxDriver@microchip.com
+Date: Thu, 05 Mar 2026 07:35:54 -0800
+In-Reply-To: <20260305114352.2f7btqixg4tu5bzl@skbuf>
+References: <20260304175735.2660419-1-vladimir.oltean@nxp.com>
+	 <20260304175735.2660419-23-vladimir.oltean@nxp.com>
+	 <a8fee1cd-1e69-4a9e-8533-c0988c480fb9@oss.qualcomm.com>
+	 <20260305085148.7cwo3yflp7vcfldf@skbuf>
+	 <f3a5aa3df78553ffc0fd0024f5fd36a4e2158c88.camel@perches.com>
+	 <20260305114352.2f7btqixg4tu5bzl@skbuf>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+X-Stat-Signature: hdghxtayq5bkfzsomxmnfbydyyebzipf
+X-Rspamd-Server: rspamout08
+X-Rspamd-Queue-Id: E35031C
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX19f3I+nQL7Hl0m6eSD18a/IIsXK9f3qkJo=
+X-HE-Tag: 1772724955-671908
+X-HE-Meta: U2FsdGVkX1/X7uxRzGLN+IX8WCZcO8p7ZTfkKmYNWBtz0ybputMaHEYE9yjxoGJ588aNvqlmxPrL8260emaV8dmXUI0e+INEtvEJY25I/Ej/PwqlxILke5yF3tqaj6xtvov8nI2F5oYM0uwbLv+6+skyh/sdJqBRUfJJKxLUzixxjwVPNZYZfPXpcC3lGcz5BMW1nsCCc9lzUvpFfMAODgtiRdX4Al8waTK8ABKVHmTqbt8uPB5EPbopscO3f/XucT2DdozpyI3LxZQRIQw7tIxAWEpzWgj98RYMI3rQa9CVBr40+v4Qte7+qYx1OCa5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_065415_101424_5AEBA04A 
-X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-CacheID: sfid-20260305_073607_798133_0753C9FB 
+X-CRM114-Status: UNSURE (   3.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,27 +80,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Ajit Khaparde <ajit.khaparde@broadcom.com>, x86@kernel.org, liuyonglong@huawei.com, "Rafael J. Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Eric Van Tassell <Eric.VanTassell@amd.com>, Somnath Kotur <somnath.kotur@broadcom.com>, jeremy.linton@arm.com, "H. Peter Anvin" <hpa@zytor.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, Huacai Chen <chenhuacai@kernel.org>, wangliupu@loongson.cn, linux-acpi@vger.kernel.org, Ingo Molnar <mingo@redhat.com>, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, Len Brown <lenb@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, wei.huang2@amd.com, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Shuah Khan <skhan@linuxfoundation.org>, bhelgaas@google.com, Andy Gospodarek <andrew.gospodarek@broadcom.com>, wanghuiqiang@huawei.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, sunilvl@oss.qualcomm.com, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>, chenhuacai@loongson.cn
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 2026-03-05 at 13:43 +0200, Vladimir Oltean wrote:
 
-> >> +       ret = acpi_get_cpu_acpi_id(cpu);  
-> > Can we use get_acpi_id_for_cpu() directly? Then just x86 needs a wrapper.  
-> 
-> Yes, it indeed simple.
-> 
-> But I prefer to have the acpi_ prefix for such API names because it's a cross-subsystem API reference.
+> K:	(?:struct\s+)?phy(?:_ops|_attrs|_lookup|_provider)?\b
 
-Can we just do a global rename of get_acpi_id_for_cpu() as a precursor
-patch?  Then this just becomes adding x86 implementation and using
-it on all architectures.
+You have (?:...)?phy(?:...)?\b
 
-J
+I rather doubt you want anything that ends in phy
 
-
+That matches words like cryptography and way too many dts/yaml files
 
 _______________________________________________
 linux-riscv mailing list
