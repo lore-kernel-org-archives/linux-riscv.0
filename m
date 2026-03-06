@@ -4,124 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CA0FCB620
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Mar 2026 16:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE09EFCB637
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Mar 2026 17:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FWfO6dqIEf2MVqFzEROvoIoDCYi91RUEnUD4K7pQFMc=; b=Qax+r6bC+hjwZJ
-	hRIh/nRIZmLE9CI/7Kxj+AP9i0vF6SmjlKSiQnrXRx1fwGuj6X+ilYy+DzhUQTPQ/AOzBZFKz61ru
-	e9IbfH4fAf8NiTL6D7tNoNcgyHg6ZvZF+0bmpalGA+2RS0YIttfjt4la1+Evr5Xj+PytKayoOHU3n
-	s3tuU990RBbOzdtFhA6ve2SNpp06gnTf4pAEkEkgMDgD07v+VdDMn31bLHP2PrBryhIbrY1LQgVr/
-	thMWEboQNI6cOkB9gEe1Aq9XGDEjMdlNhQX9BYxpZFtzY839ddj7gnbcPUJ0QpeeBrduT/yjAZf2e
-	hr+MdZkuTQ/uOWLCRCIQ==;
+	List-Owner; bh=QdX1KBCQoOg8GyTJWxDMTbSiLVoOewfRnHFywZAlnIo=; b=yKCzXGGQSHlxtd
+	ff81mXJh16JDVbKk6AIfYsz6nuzpc/Hh1CrKOgYPJWvg52saNC833WJaxbMe9h1T8q+ZNkaCGx8Yk
+	yyk+clu7zuxAqYU0Avc3WjZSU8RF7vXareZrHrYYWJXbrc9bHT+wuukwn37XsGJ0MWEmeZ2wAXVV/
+	PM9pCXTANwUiGtviYx5Q94mtMO5vN6X8HAGQzmJnzX76CSk7gAKkjgAyXSN+TwR4rzP4uGT1jO2en
+	A28BgMu8ZummXf0GBBFoCFxQPaszPQH4uw+9Ioq8mytl5RVNje2Aw5Ba0goyEBTJmeoM0pGmIVWXb
+	LxFTINzIYsjXA6as2ieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXrU-000000049A3-3bBq;
-	Fri, 06 Mar 2026 16:17:12 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vyYj8-00000004FMb-13rO;
+	Fri, 06 Mar 2026 17:12:38 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXrS-0000000495l-04E1;
-	Fri, 06 Mar 2026 16:17:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=dvPuYr+wx2QMO9pA8MviOujpF5rIdngV8V2fQYNN3do=; b=YNfbi15dkcbERpuMKznKUhpCXq
-	QJg68bJkkGECHWmNROyCNKfBluXcMBFWdrjWLWTUXqOPVuiRCyVc9AA3XQOhkdFRTPn/iDoliBl3R
-	8WvUPl0M7Y8uUMZH4WM927jDnvC2C5NAMNOnT8t7oWTHSkHBdv0HAlkFKeFCRaI76vefSl/IgaA6z
-	wUa8SEdakUU/ozVhabmBf7o5DLKcbeiQq1EYuV7gXZF6e/PdBgeYaGdi971ZbY3Z4zT86SXjTC/6O
-	j+9Hpp0GmJ3a/ebGKfbYGJcSwoggsaUktEUrTLHxr9LiEqyKRFxb3WA73yZKJJbqKOXtlXC4z2y/v
-	fDsjyT+A==;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXrO-0000000GyeU-3d4S;
-	Fri, 06 Mar 2026 16:17:08 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 626FFW44969840;
-	Fri, 6 Mar 2026 16:16:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=dvPuYr+wx2QMO9pA8
-	MviOujpF5rIdngV8V2fQYNN3do=; b=akviHM64wlvtIFBB7e/2kpXh17aszxoRK
-	0cozfpXqfqJNSVcQaM+nu8FM9eWvAvEMrqxGM5czzP+EIbCrNbAt5hoL8uqe8UX9
-	msB85pTHWQqY2v/vYS3srMMQa/2EwgLF0RMQF4dKAhc10+kM6CIEnJk+hdHBq+M2
-	V5dG9s+MK+lG1F1vQxnUlMvpPTiTJMoo7aTNZNDtHIP04BwV9fQW+6Tnh8eP1uTC
-	0QWoqTGYd+qyXhvDDnq1YMj83NShemnWFkTTflcc1nk9ivcdSgMl5lemA1coKeiV
-	pReDYVxpKfBBuSAo/UIOJk+4PgJIcMmzcdy7Z5hePBOAPXBni2xcQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ckskc8se2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 06 Mar 2026 16:16:38 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 626CmEvi011312;
-	Fri, 6 Mar 2026 16:16:37 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cqau2w48b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 06 Mar 2026 16:16:37 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 626GGX7p56164638
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 6 Mar 2026 16:16:33 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 72E152004D;
-	Fri,  6 Mar 2026 16:16:33 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 31E6420040;
-	Fri,  6 Mar 2026 16:16:33 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Fri,  6 Mar 2026 16:16:33 +0000 (GMT)
-Received: by tuxmaker.boeblingen.de.ibm.com (Postfix, from userid 55669)
-	id 16A52E0782; Fri, 06 Mar 2026 17:16:33 +0100 (CET)
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>
-Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        x86@kernel.org
-Subject: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to pxx_user_accessible_page()
-Date: Fri,  6 Mar 2026 17:16:30 +0100
-Message-ID: <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1772812343.git.agordeev@linux.ibm.com>
-References: <cover.1772812343.git.agordeev@linux.ibm.com>
+	id 1vyYj4-00000004FKu-21kd
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Mar 2026 17:12:35 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-79801df3e21so87186057b3.2
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Mar 2026 09:12:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1772817153; x=1773421953; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0HaqjdpdHc/fQbEY4OtrbjxxM+K8US2OS03rxWtvBv4=;
+        b=CN3XMZBpP6B1WZ+VCY+9rIltzBzW6WNxOgR6Pw4UBmcFuHb5hQZCI9KZKN32PlaJKg
+         q+ZrqH6E/AnFqIA9zFoHrXawB2wdJ6O9wiKWV4waTlvvlHyjyUNRHLxKQ1CDl04VU1ge
+         480FKwR6Brr+eNqL8ZGrj+DD7enZP7iSL2RycIGHIH1G/PzSNB3lISQegZ4JkfFOxbmP
+         9mBe+4oyXYX64XYBVJ5hMZtCWlRsEyW9bSWPNVFJEAHWKpM3Jf8z1jITxR7O4hUsaDG/
+         gikQGwy3SNHR2w1I+9TgI7tySJUFGUcUhEBE3uSpoPAA3VIQ8s/8SL7GynBlG2Hl3716
+         elBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772817153; x=1773421953;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=0HaqjdpdHc/fQbEY4OtrbjxxM+K8US2OS03rxWtvBv4=;
+        b=G97tm2B8FMTGJkx3ITslRiWEalNFT1bW/gF6vYkQumXXLGMv3+wywYAR6eijjpyks2
+         fz54TCkt17MZCiUdxpppROl0Xi4M54CDgmB96WPoCysa96jEZyQ/ppP4Cu0N9Agy+R/P
+         Q5wq7ZDUrqzl9/QWuxzYSvodMqhjQdqtda5daU6Mmkgq3K1fqjQvgO66ro7bfyl+tv8V
+         X/4uE21X/tiy0HWf49Q6t1vd2x1IYK/Ej2qX7X9Zk/XFoPZvy9+9+3blNRSKTGkSliZm
+         eeJSeo2BMJApJI2tHr6wAd2kf8ZoARmd+dkR8A3ZWIm6r/ui6NfYK16dXNasEfdQiPyc
+         +0Bg==
+X-Gm-Message-State: AOJu0YwsttBuFGjOGnUO4aD05g06l2qE1eknsdehDfvFBpK3H0X9MDhx
+	3cFOhCjRx9NetQMcuFf7qya3ssd8nwRK6CZTj7rZN/zsg5stoshycZxyOFCnk6H4miw=
+X-Gm-Gg: ATEYQzx4pWPwYKYKeoW2pcM+kWkDXuXOPMJfu3ggnL/NrKuJfVpAor/IxlORpj9ZmQ/
+	wGWhzogE7NnvcdI6ZohrnQz/fTSREbrHYmB/nVmqZ/EiSHmw6CdtDlxcCppWx+Wk2nIWmG2qhyb
+	kEeDOAjQT/DPYr9/Ok9NR8vKy4E77sYM7K6sQMOmp7Hgn8xzdCJnQGTj0/RPVeCgOyDqC0C2682
+	pau8XTfSu5xW/omWn5lijhFM/3qeKy43OM75Sg6O5gS0KfjUq6vB9odod9WcaPjf68OxgUtrKXQ
+	U9cA8ec1AryQli1+IDX3o+04y8TsPse9dZofBatUi+0ZG0dp/ayxpefnkqq6fSxBYm+o3wpTX0V
+	C/4B1MhJQPFP4TD6uAX4Uquvd16qLTQoj9Lq1aBd1qAgQph0nZsC1AIjZrQ/UuYDaandYXfoUmv
+	AM1IGMOXkIXZeANNpOM8cPse3Fdm4LmGV77kPMtFUNO8wSiehDRlcxUZa3uz/06DBvH5cJF7VD7
+	5b368uYd1Y=
+X-Received: by 2002:a05:690c:450e:b0:798:1637:ff0e with SMTP id 00721157ae682-798dd6b047amr28584697b3.22.1772817153174;
+        Fri, 06 Mar 2026 09:12:33 -0800 (PST)
+Received: from [192.168.5.15] ([68.95.197.245])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-798ded769ecsm9331237b3.23.2026.03.06.09.12.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Mar 2026 09:12:32 -0800 (PST)
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Date: Fri, 06 Mar 2026 11:12:17 -0600
+Subject: [PATCH v8 1/3] dt-bindings: clk: tenstorrent: Add
+ tenstorrent,atlantis-prcm-rcpu
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: r_JJATWQBFsDHEsEyPI0oU--uaf6lVcd
-X-Authority-Analysis: v=2.4 cv=b66/I9Gx c=1 sm=1 tr=0 ts=69aafde6 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=Z4Rwk6OoAAAA:8
- a=asBC7hBXzHMpFcoxCN0A:9 a=O8hF6Hzn-FEA:10 a=HkZW87K1Qel5hWWM3VKY:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzA2MDE1MyBTYWx0ZWRfX1HpUb4J1aFqu
- y6Mdi43ielkZWDJq6nCbK41319XElOsluMXFF10oInHkH/E/R3Dbe8dxItguMzp9Z/bMEhTEXOE
- vr3PwcgjrITFmANL1uRc5DJHiSSObHmmpwcBqskcFDroERwyESMdj2Xx66j01FElS/Ovgsju5So
- BFxH3jnkIgqsHjM7AalQR2xC2WlWlrP7TBypY4xIlghvMAmxVOnov6TDFkQ2/YhtTs/a1ljYdjr
- ShFDCFvJxxAQGc1T5ZyEXx3c4I/HDMLJvrnIxbWldoUTwxaurvhEOLINggXFKBBg4Pkc84+qPx1
- L2XzQYQ58sCiBLHAXQb4aMvCN8lXhcA3URuWRHOwGgXEhwSN5vAqPVizSlrpsh/8Ou7nJsL4yUv
- GcQcTmKbkhf9bzbk03t0aDz59kJ1ypqFq6ZedBhENg9DTZ4V3VIoxqfsi/iQuWV0jlwadad1zpa
- cy5ERl7+xt5fY9kLMRw==
-X-Proofpoint-GUID: r_JJATWQBFsDHEsEyPI0oU--uaf6lVcd
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-06_05,2026-03-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 adultscore=0
- bulkscore=0 impostorscore=0 malwarescore=0 spamscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2602130000 definitions=main-2603060153
+Message-Id: <20260306-atlantis-clocks-v8-1-6c9b14a4aa8e@oss.tenstorrent.com>
+References: <20260306-atlantis-clocks-v8-0-6c9b14a4aa8e@oss.tenstorrent.com>
+In-Reply-To: <20260306-atlantis-clocks-v8-0-6c9b14a4aa8e@oss.tenstorrent.com>
+To: Drew Fustini <dfustini@oss.tenstorrent.com>, 
+ Joel Stanley <jms@oss.tenstorrent.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, 
+ Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, joel@jms.id.au, 
+ fustini@kernel.org, mpe@kernel.org, mpe@oss.tenstorrent.com, 
+ npiggin@oss.tenstorrent.com, agross@kernel.org, agross@oss.tenstorrent.com, 
+ bmasney@redhat.com, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_161707_127509_DBFAE4DF 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260306_091234_542073_9C39BEA5 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,254 +111,205 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Tobias Huschle <huschle@linux.ibm.com>
+Document bindings for Tenstorrent Atlantis PRCM that manages clocks
+and resets. This block is instantiated multiple times in the SoC.
+This commit documents the clocks from the RCPU PRCM block.
 
-Unlike other architectures, s390 does not have means to
-distinguish kernel vs user page table entries - neither
-an entry itself, nor the address could be used for that.
-It is only the mm_struct that indicates whether an entry
-in question is mapped to a user space. So pass mm_struct
-to pxx_user_accessible_page() callbacks.
-
-[agordeev@linux.ibm.com: rephrased commit message, removed braces]
-
-Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
-Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
-Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 ---
- arch/arm64/include/asm/pgtable.h             |  6 +++---
- arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
- arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
- arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
- arch/powerpc/include/asm/pgtable.h           |  4 ++--
- arch/riscv/include/asm/pgtable.h             |  6 +++---
- arch/x86/include/asm/pgtable.h               |  6 +++---
- mm/page_table_check.c                        | 15 ++++++---------
- 8 files changed, 24 insertions(+), 27 deletions(-)
+ .../clock/tenstorrent,atlantis-prcm-rcpu.yaml      |  54 +++++++++++
+ MAINTAINERS                                        |   2 +
+ .../clock/tenstorrent,atlantis-prcm-rcpu.h         | 103 +++++++++++++++++++++
+ 3 files changed, 159 insertions(+)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index b3e58735c49b..ccf0e0638767 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1263,17 +1263,17 @@ static inline int pmdp_set_access_flags(struct vm_area_struct *vma,
- #endif
+diff --git a/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm-rcpu.yaml b/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm-rcpu.yaml
+new file mode 100644
+index 000000000000..7fa16526efce
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm-rcpu.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/tenstorrent,atlantis-prcm-rcpu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Tenstorrent Atlantis PRCM (Power, Reset, Clock Management) Module
++
++maintainers:
++  - Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
++
++description:
++  Multifunctional register block found in Tenstorrent Atlantis SoC whose main
++  function is to control clocks and resets. This block is instantiated multiple
++  times in the SoC, each block controls clock and resets for a different
++  subsystem. RCPU prcm serves low speed IO interfaces.
++
++properties:
++  compatible:
++    enum:
++      - tenstorrent,atlantis-prcm-rcpu
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 1
++    description:
++      See <dt-bindings/clock/tenstorrent,atlantis-prcm-rcpu.h> for valid indices.
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - "#clock-cells"
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@a8000000 {
++      compatible = "tenstorrent,atlantis-prcm-rcpu";
++      reg = <0xa8000000 0x10000>;
++      clocks = <&osc_24m>;
++      #clock-cells = <1>;
++      #reset-cells = <1>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 55af015174a5..40c179c8de1e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22809,8 +22809,10 @@ M:	Joel Stanley <jms@oss.tenstorrent.com>
+ L:	linux-riscv@lists.infradead.org
+ S:	Maintained
+ T:	git https://github.com/tenstorrent/linux.git
++F:	Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm-rcpu.yaml
+ F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
+ F:	arch/riscv/boot/dts/tenstorrent/
++F:	include/dt-bindings/clock/tenstorrent,atlantis-prcm-rcpu.h
  
- #ifdef CONFIG_PAGE_TABLE_CHECK
--static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
- {
- 	return pte_valid(pte) && (pte_user(pte) || pte_user_exec(pte));
- }
- 
--static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-+static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
- {
- 	return pmd_valid(pmd) && !pmd_table(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
- }
- 
--static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-+static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
- {
- 	return pud_valid(pud) && !pud_table(pud) && (pud_user(pud) || pud_user_exec(pud));
- }
-diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
-index 001e28f9eabc..75195bb44d06 100644
---- a/arch/powerpc/include/asm/book3s/32/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
-@@ -438,7 +438,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return true;
- }
- 
--static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
- {
- 	return pte_present(pte) && !is_kernel_addr(addr);
- }
-diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-index 1a91762b455d..a56df313b585 100644
---- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-@@ -549,7 +549,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return arch_pte_access_permitted(pte_val(pte), write, 0);
- }
- 
--static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
- {
- 	return pte_present(pte) && pte_user(pte);
- }
-@@ -925,9 +925,9 @@ static inline bool pud_access_permitted(pud_t pud, bool write)
- }
- 
- #define pud_user_accessible_page pud_user_accessible_page
--static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-+static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
- {
--	return pud_leaf(pud) && pte_user_accessible_page(pud_pte(pud), addr);
-+	return pud_leaf(pud) && pte_user_accessible_page(mm, addr, pud_pte(pud));
- }
- 
- #define __p4d_raw(x)	((p4d_t) { __pgd_raw(x) })
-@@ -1096,9 +1096,9 @@ static inline bool pmd_access_permitted(pmd_t pmd, bool write)
- }
- 
- #define pmd_user_accessible_page pmd_user_accessible_page
--static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-+static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
- {
--	return pmd_leaf(pmd) && pte_user_accessible_page(pmd_pte(pmd), addr);
-+	return pmd_leaf(pmd) && pte_user_accessible_page(mm, addr, pmd_pte(pmd));
- }
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
-index e6da5eaccff6..0665d0abe89f 100644
---- a/arch/powerpc/include/asm/nohash/pgtable.h
-+++ b/arch/powerpc/include/asm/nohash/pgtable.h
-@@ -249,7 +249,7 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return true;
- }
- 
--static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
- {
- 	return pte_present(pte) && !is_kernel_addr(addr);
- }
-diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-index dcd3a88caaf6..29ed509cd235 100644
---- a/arch/powerpc/include/asm/pgtable.h
-+++ b/arch/powerpc/include/asm/pgtable.h
-@@ -205,11 +205,11 @@ static inline bool arch_supports_memmap_on_memory(unsigned long vmemmap_size)
- #endif /* CONFIG_PPC64 */
- 
- #ifndef pmd_user_accessible_page
--#define pmd_user_accessible_page(pmd, addr)	false
-+#define pmd_user_accessible_page(mm, addr, pmd)	false
- #endif
- 
- #ifndef pud_user_accessible_page
--#define pud_user_accessible_page(pud, addr)	false
-+#define pud_user_accessible_page(mm, addr, pud)	false
- #endif
- 
- #endif /* __ASSEMBLER__ */
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 08d1ca047104..affe46cf3bc5 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -984,17 +984,17 @@ static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
- }
- 
- #ifdef CONFIG_PAGE_TABLE_CHECK
--static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
- {
- 	return pte_present(pte) && pte_user(pte);
- }
- 
--static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-+static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
- {
- 	return pmd_leaf(pmd) && pmd_user(pmd);
- }
- 
--static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-+static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
- {
- 	return pud_leaf(pud) && pud_user(pud);
- }
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index 1662c5a8f445..f9353d5c7464 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -1680,17 +1680,17 @@ static inline bool arch_has_hw_nonleaf_pmd_young(void)
- #endif
- 
- #ifdef CONFIG_PAGE_TABLE_CHECK
--static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+static inline bool pte_user_accessible_page(struct mm_struct *mm, unsigned long addr, pte_t pte)
- {
- 	return (pte_val(pte) & _PAGE_PRESENT) && (pte_val(pte) & _PAGE_USER);
- }
- 
--static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-+static inline bool pmd_user_accessible_page(struct mm_struct *mm, unsigned long addr, pmd_t pmd)
- {
- 	return pmd_leaf(pmd) && (pmd_val(pmd) & _PAGE_PRESENT) && (pmd_val(pmd) & _PAGE_USER);
- }
- 
--static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-+static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long addr, pud_t pud)
- {
- 	return pud_leaf(pud) && (pud_val(pud) & _PAGE_PRESENT) && (pud_val(pud) & _PAGE_USER);
- }
-diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-index 2708c2b3ac1f..53a8997ec043 100644
---- a/mm/page_table_check.c
-+++ b/mm/page_table_check.c
-@@ -151,9 +151,8 @@ void __page_table_check_pte_clear(struct mm_struct *mm, unsigned long addr,
- 	if (&init_mm == mm)
- 		return;
- 
--	if (pte_user_accessible_page(pte, addr)) {
-+	if (pte_user_accessible_page(mm, addr, pte))
- 		page_table_check_clear(pte_pfn(pte), PAGE_SIZE >> PAGE_SHIFT);
--	}
- }
- EXPORT_SYMBOL(__page_table_check_pte_clear);
- 
-@@ -163,9 +162,8 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
- 	if (&init_mm == mm)
- 		return;
- 
--	if (pmd_user_accessible_page(pmd, addr)) {
-+	if (pmd_user_accessible_page(mm, addr, pmd))
- 		page_table_check_clear(pmd_pfn(pmd), PMD_SIZE >> PAGE_SHIFT);
--	}
- }
- EXPORT_SYMBOL(__page_table_check_pmd_clear);
- 
-@@ -175,9 +173,8 @@ void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
- 	if (&init_mm == mm)
- 		return;
- 
--	if (pud_user_accessible_page(pud, addr)) {
-+	if (pud_user_accessible_page(mm, addr, pud))
- 		page_table_check_clear(pud_pfn(pud), PUD_SIZE >> PAGE_SHIFT);
--	}
- }
- EXPORT_SYMBOL(__page_table_check_pud_clear);
- 
-@@ -211,7 +208,7 @@ void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
- 
- 	for (i = 0; i < nr; i++)
- 		__page_table_check_pte_clear(mm, addr + PAGE_SIZE * i, ptep_get(ptep + i));
--	if (pte_user_accessible_page(pte, addr))
-+	if (pte_user_accessible_page(mm, addr, pte))
- 		page_table_check_set(pte_pfn(pte), nr, pte_write(pte));
- }
- EXPORT_SYMBOL(__page_table_check_ptes_set);
-@@ -241,7 +238,7 @@ void __page_table_check_pmds_set(struct mm_struct *mm, unsigned long addr,
- 
- 	for (i = 0; i < nr; i++)
- 		__page_table_check_pmd_clear(mm, addr + PMD_SIZE * i, *(pmdp + i));
--	if (pmd_user_accessible_page(pmd, addr))
-+	if (pmd_user_accessible_page(mm, addr, pmd))
- 		page_table_check_set(pmd_pfn(pmd), stride * nr, pmd_write(pmd));
- }
- EXPORT_SYMBOL(__page_table_check_pmds_set);
-@@ -257,7 +254,7 @@ void __page_table_check_puds_set(struct mm_struct *mm, unsigned long addr,
- 
- 	for (i = 0; i < nr; i++)
- 		__page_table_check_pud_clear(mm, addr + PUD_SIZE * i, *(pudp + i));
--	if (pud_user_accessible_page(pud, addr))
-+	if (pud_user_accessible_page(mm, addr, pud))
- 		page_table_check_set(pud_pfn(pud), stride * nr, pud_write(pud));
- }
- EXPORT_SYMBOL(__page_table_check_puds_set);
+ RISC-V THEAD SoC SUPPORT
+ M:	Drew Fustini <fustini@kernel.org>
+diff --git a/include/dt-bindings/clock/tenstorrent,atlantis-prcm-rcpu.h b/include/dt-bindings/clock/tenstorrent,atlantis-prcm-rcpu.h
+new file mode 100644
+index 000000000000..c1c875e016f8
+--- /dev/null
++++ b/include/dt-bindings/clock/tenstorrent,atlantis-prcm-rcpu.h
+@@ -0,0 +1,103 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Tenstorrent Atlantis PRCM Clock and Reset Indices
++ *
++ * Copyright (c) 2026 Tenstorrent
++ */
++
++#ifndef _DT_BINDINGS_ATLANTIS_PRCM_RCPU_H
++#define _DT_BINDINGS_ATLANTIS_PRCM_RCPU_H
++
++/*
++ * RCPU Domain Clock IDs
++ */
++#define CLK_RCPU_PLL		0
++#define CLK_RCPU_ROOT		1
++#define CLK_RCPU_DIV2		2
++#define CLK_RCPU_DIV4		3
++#define CLK_RCPU_RTC		4
++#define CLK_SMNDMA0_ACLK	5
++#define CLK_SMNDMA1_ACLK	6
++#define CLK_WDT0_PCLK		7
++#define CLK_WDT1_PCLK		8
++#define CLK_TIMER_PCLK		9
++#define CLK_PVTC_PCLK		10
++#define CLK_PMU_PCLK		11
++#define CLK_MAILBOX_HCLK	12
++#define CLK_SEC_SPACC_HCLK	13
++#define CLK_SEC_OTP_HCLK	14
++#define CLK_TRNG_PCLK		15
++#define CLK_SEC_CRC_HCLK	16
++#define CLK_SMN_HCLK		17
++#define CLK_AHB0_HCLK		18
++#define CLK_SMN_PCLK		19
++#define CLK_SMN_CLK		20
++#define CLK_SCRATCHPAD_CLK	21
++#define CLK_RCPU_CORE_CLK	22
++#define CLK_RCPU_ROM_CLK	23
++#define CLK_OTP_LOAD_CLK	24
++#define CLK_NOC_PLL		25
++#define CLK_NOCC_CLK		26
++#define CLK_NOCC_DIV2		27
++#define CLK_NOCC_DIV4		28
++#define CLK_NOCC_RTC		29
++#define CLK_NOCC_CAN		30
++#define CLK_QSPI_SCLK		31
++#define CLK_QSPI_HCLK		32
++#define CLK_I2C0_PCLK		33
++#define CLK_I2C1_PCLK		34
++#define CLK_I2C2_PCLK		35
++#define CLK_I2C3_PCLK		36
++#define CLK_I2C4_PCLK		37
++#define CLK_UART0_PCLK		38
++#define CLK_UART1_PCLK		39
++#define CLK_UART2_PCLK		40
++#define CLK_UART3_PCLK		41
++#define CLK_UART4_PCLK		42
++#define CLK_SPI0_PCLK		43
++#define CLK_SPI1_PCLK		44
++#define CLK_SPI2_PCLK		45
++#define CLK_SPI3_PCLK		46
++#define CLK_GPIO_PCLK		47
++#define CLK_CAN0_HCLK		48
++#define CLK_CAN0_CLK		49
++#define CLK_CAN1_HCLK		50
++#define CLK_CAN1_CLK		51
++#define CLK_CAN0_TIMER_CLK	52
++#define CLK_CAN1_TIMER_CLK	53
++
++/* RCPU domain reset */
++#define RST_SMNDMA0		0
++#define RST_SMNDMA1		1
++#define RST_WDT0		2
++#define RST_WDT1		3
++#define RST_TMR			4
++#define RST_PVTC		5
++#define RST_PMU			6
++#define RST_MAILBOX		7
++#define RST_SPACC		8
++#define RST_OTP			9
++#define RST_TRNG		10
++#define RST_CRC			11
++#define RST_QSPI		12
++#define RST_I2C0		13
++#define RST_I2C1		14
++#define RST_I2C2		15
++#define RST_I2C3		16
++#define RST_I2C4		17
++#define RST_UART0		18
++#define RST_UART1		19
++#define RST_UART2		20
++#define RST_UART3		21
++#define RST_UART4		22
++#define RST_SPI0		23
++#define RST_SPI1		24
++#define RST_SPI2		25
++#define RST_SPI3		26
++#define RST_GPIO		27
++#define RST_CAN0		28
++#define RST_CAN1		29
++#define RST_I2S0		30
++#define RST_I2S1		31
++
++#endif /* _DT_BINDINGS_ATLANTIS_PRCM_RCPU_H */
+
 -- 
-2.51.0
+2.43.0
 
 
 _______________________________________________
