@@ -4,108 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4EEEF513E9
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Mar 2026 02:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34FD6F513E9
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Mar 2026 02:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lSwphW5M20BHZCM9cLc74Aurv/DEJkqAzsLYgdLtK/Q=; b=GVtpjaO4k9e0Xz
-	E0lTcqwGvD/KWVw43c/xGCBHoYypzDErO+ME5mARrOh523JbEOZcJIHmBMX0PhLLmgX+7mm7Bltbh
-	D7leMjEz3UTZvaAacJYv/VSnSaLd+2t35lXH+V56JXS2C3jDBGQz5i58TLdHhrQOFbgNJfSM527Ng
-	sjqCVtjxP+cV/cxs+s8iUp2GPndv/xgZgm8Ohf9SE6OWLv26GeYPMLJAp6Qsu5LAwvfEgaVLsUJDB
-	t6eLIYAKoHv8APx9iVhpcGT7M52KmzwMzFWTGnaJUJ5pXFrNx34mwuAAhyLyI9IV/N92y88zdFRKT
-	O/21FC3lxi+suGYqcmaQ==;
+	List-Owner; bh=FyE6NB9cJPAG8vyLiJ01pWCXNr0ulYk0cuRaXrdABuc=; b=BJQqZzKP3Mau/y
+	jOd9/00JoapuK3BIks7GP5wHzCQpnk0Ks0FDwLiwRzEFbZBLrXOkjqIyAPDE8E9lO8fPmJpiIulFS
+	XuVMhMycExCi1rZhoeK9Zb+RiCifb/JxwHrmBFnetODdy/rAyy+W3nKtjAsZEuYMRDGRxjJ44FGcl
+	YWRAcHJqZe6o8y79T0/g8M2HxUwC9YnIHIGnaiIFTux6RiXR7+R+NhQp13a8iKT7kwLSVg3dbbApr
+	sgi43ljPOh5GJXNOl7KgdgjFcg/uQhR2rSkyrgLt+rLgwqfk6vvaIyMMha2+rFpAKcVvnFGXJCRh/
+	XlIKMfQYFBytz/9zwmig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyKkx-00000002sND-2Zso;
-	Fri, 06 Mar 2026 02:17:35 +0000
-Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
+	id 1vyKmy-00000002sa8-1XXA;
+	Fri, 06 Mar 2026 02:19:40 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyKku-00000002sM4-1e3m
-	for linux-riscv@lists.infradead.org;
-	Fri, 06 Mar 2026 02:17:34 +0000
-Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-64c31ca77b4so8670311d50.2
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 18:17:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772763451; cv=none;
-        d=google.com; s=arc-20240605;
-        b=hvP5FbLm4GVvuWMirRILjJ3VBiLHor4Q/9y3YNn6UR/trqp8sFg7bZ81aSv6te1Ins
-         s0tP1/xjeEEcipOXdm7q17fOlQ7ZOYm5FtlKZifU3vBV3R4G7ZFbhm65USZu3RD/SJT4
-         te/0EcWtt3yKWYYc2q5PPl1RvRjcS3yWF1bonF3epXQuWI4tzPzVusaVwGmimOoZynaq
-         2CKPv0Mmm5oR6oH7rKl5HWeTdGobJGnHFQv1kaMDukJKJzQThmZKspHtIFtNV1lcWap8
-         FfI8z7qgd543JJkPHv/lKOb2i0OCQcEseuMTU31nLozaIptPNVA/PJgRxGQFPjIM47Av
-         jmDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2jVjReVr0KkO/5t+3khOfOajGUJKcPNdW8XTPsxdsTk=;
-        fh=9NAz7fxnAshdlbizx1/8VA5npLncYt2vE4UT87IVbNw=;
-        b=JCSNi8fimwbGf2PbYuCcHVxCSBhJnhQtass0CVTBv9GQbC6H6yIDSbDkx9D/da6qmc
-         7uWbsOLTCd4Dj06gh6OftNx7dejR0bQrfbliXL/ECnq+gchFIgKc1p83KawOrcMLPGP8
-         kNUTSTaAU2D/2Wd9lmHf2fuHu6QDm66wmi8eanLhsP9Bd+PrlhIYRJIfP9e+g+GxZ8sX
-         R4pkyv5VxiAUjKeJUZss6ERsIarnUcHkqti/X2R7oSECyig+PqoCZdUMQJeEgMsAWJ4n
-         GS4VRwIH6qJgOu7rZ5Mrn9Lt1/DMIOplLSZycV152DBisv//XTurAdT/GeAUtT+0Vp7+
-         GudQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1772763451; x=1773368251; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2jVjReVr0KkO/5t+3khOfOajGUJKcPNdW8XTPsxdsTk=;
-        b=W56iX5GJPwIiey1UdgOqMAW5ibqlcL0lVFxg5lyVjiJqJITxLnyJGiBh11muarak4n
-         pI24iRA8u00HnnoSZJS0ODTmOGQifM0FzALDEX/0wnn8W3vbkSlTccmTF9oridVjVo2F
-         bPXFe8EcDqvH8kL6Fc7woQPQ3ohxaez0nW0O0daM7AgPzGf7LCrIVyouRqdj7rVZXrti
-         WqI+zZ2oEoFHzAtUP1uMsQXfvCZ1JSVdTPupCeYW9o4r20qiP77npeJz/u++uYVphmii
-         PL144NZ8W0m/Pcy2V/gBI5hdBKTBw+dgo/rKt//RTQvOOANsiRUg2ZOh1FLUVBk8avqv
-         rBNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772763451; x=1773368251;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2jVjReVr0KkO/5t+3khOfOajGUJKcPNdW8XTPsxdsTk=;
-        b=Yr0RRrEwujrBLizdipzABJ04hLZTIBeUQJDMSExqFjM94jIPhlxizdzi21zzG8y6pQ
-         iTWrKXVyV8DcpTavV3/biBSF+zQ1gn5O40fvFGJFN/Mewzd9AWH6hryfLymX9EcvtrTc
-         p3y3VJpY+Yk9u8qTqGiieCaAS6l/hwuXdNY4NpowQG5LrbWoHg6HNe/TuUjS89KfqyQr
-         4Qk5P5bjV159hMRO6OXBvL/5Y+fhyOb4dEvVrFkwTs9sNILfDTUuoZq99WYbbxa8PeCa
-         odUg1tpLqag/zXd3OUXEKeNevdhE4KHGI27ZQ4Iq/ErebcxKorSU+wuD3f8uGOTdv/xX
-         76pg==
-X-Forwarded-Encrypted: i=1; AJvYcCXa/2c0jDUVvfjK7KYUdQ/Lq82z3FdwEBnEJdvpMwc8zU+wiGjVbvDun2xO4ArXpWjKx6NNqghRL2pZmw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YybdAOV8uHEtGx7jMR4PfXb2Byk9qnFGCOd2oxkywQ6Lz+5HsA8
-	ZlUYdZjVo/yiFSrveWnLGRuuaxmjw7HIxrsCBi1j4XwmzbaTaHuUOPMMA8z/lsLMLUa3P7ooCQr
-	hAZYFRse6mXfKXAOx2LZ8iVpi77GNVoAALQljEejeew==
-X-Gm-Gg: ATEYQzyt7wZiC+VJ+tORcTiv5pyXhLpKAUtA2HcVM/RdMLBKmbF2BoeyFlzNbTRZnG8
-	U8Z0nt02kTsbdxuNqvXzqYvLURhWjfTOouAGPyf9boFUB4CbS3HcT3pItyVKn223eUJasXhb6Q5
-	2/17jOj0IYCbFb2tmrrM1ZJo4DwoIHIBNL4IuL+3+Bh0WZ/fuouajQsO1zVlC+ctAGQODDcOScA
-	a9qtMXF6ldFC2SRzjRkdyMiDbB6IG0TiGWF+70uXxEypDJaB6qEOyC7iBpu/LNEyTNli/QTuElc
-	1bvmlq7LjZ3EQGxg5jwAkh8IOG4jYGfmFMQdAYUmIdiLYq7aXcBaGC7pntBls+DT4JI=
-X-Received: by 2002:a05:690e:1206:b0:64a:f177:ef39 with SMTP id
- 956f58d0204a3-64d14061df0mr624811d50.18.1772763450751; Thu, 05 Mar 2026
- 18:17:30 -0800 (PST)
+	id 1vyKmt-00000002sZU-3bSS;
+	Fri, 06 Mar 2026 02:19:38 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=yfMx8zNgzaqPrBfREx6+iwivzUdYyzT0Hs0ec61O+Nk=;
+	b=5QG1NEmJIhkm3YFDFldXOR3evDsXu6CrEywGvqQ5CLkThfE42kdLfXxIYXM8J7azYR/0U8h2D
+	ZvY4q+7KiX7ZiB9D+F6aueg6bE9UJExt0mbJzbvtb8xIz5JYwJHmn9ebeI+UQi6M6eGNqY6Rv3m
+	X29t/dQFsxKILZQASDRYGZE=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4fRqjQ5rjlzmVcw;
+	Fri,  6 Mar 2026 10:14:34 +0800 (CST)
+Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
+	by mail.maildlp.com (Postfix) with ESMTPS id D70354048B;
+	Fri,  6 Mar 2026 10:19:27 +0800 (CST)
+Received: from localhost.localdomain (10.50.163.32) by
+ kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 6 Mar 2026 10:19:26 +0800
+From: Chengwen Feng <fengchengwen@huawei.com>
+To: <linux-pci@vger.kernel.org>, <bhelgaas@google.com>, Jonathan Corbet
+	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
+	<chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner
+	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Sunil V L <sunilvl@ventanamicro.com>, Mark
+ Rutland <mark.rutland@arm.com>, Eric Van Tassell <Eric.VanTassell@amd.com>,
+	Wei Huang <wei.huang2@amd.com>, Ajit Khaparde <ajit.khaparde@broadcom.com>,
+	Andy Gospodarek <andrew.gospodarek@broadcom.com>
+CC: <linux-acpi@vger.kernel.org>, <jonathan.cameron@huawei.com>,
+	<wangzhou1@hisilicon.com>, <wanghuiqiang@huawei.com>,
+	<liuyonglong@huawei.com>, <stable@vger.kernel.org>, <jeremy.linton@arm.com>,
+	<sunilvl@oss.qualcomm.com>, <chenhuacai@loongson.cn>,
+	<wangliupu@loongson.cn>, Chengwen Feng <fengchengwen@huawei.com>, Somnath
+ Kotur <somnath.kotur@broadcom.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>
+Subject: [PATCH v3] PCI/TPH: Fix get cpu steer-tag fail on ARM64 platform
+Date: Fri, 6 Mar 2026 10:19:17 +0800
+Message-ID: <20260306021920.23233-1-fengchengwen@huawei.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260303003625.39035-1-fengchengwen@huawei.com>
+References: <20260303003625.39035-1-fengchengwen@huawei.com>
 MIME-Version: 1.0
-References: <20260206002349.96740-1-andrew.jones@oss.qualcomm.com>
- <20260206002349.96740-5-andrew.jones@oss.qualcomm.com> <CAH1PCMb5YS3UzaxhHCjPJHxeTKMcdO78VTPxa7+oktbbhqQ72Q@mail.gmail.com>
- <wozbsfbvlhsqhvrvjsxyx2u5rpagwlnezythkutzqwikmzeoah@lc3brdn5cu3t>
-In-Reply-To: <wozbsfbvlhsqhvrvjsxyx2u5rpagwlnezythkutzqwikmzeoah@lc3brdn5cu3t>
-From: Guodong Xu <guodong@riscstar.com>
-Date: Fri, 6 Mar 2026 10:17:19 +0800
-X-Gm-Features: AaiRm53HRw4QbPQUetgtrKkgMZEuh8ITbKVJrr5uKjxM4tKW-qSTt5Ouxcjq058
-Message-ID: <CAH1PCMaAEyZVioQmyJh7oFisnFnrxhnc_exJh5=vbZSvNcieJw@mail.gmail.com>
-Subject: Re: [RFC PATCH v1 04/11] riscv: Add B to hwcap
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm-riscv@lists.infradead.org, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
-	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Charlie Jenkins <thecharlesjenkins@gmail.com>, Samuel Holland <samuel.holland@sifive.com>
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk500009.china.huawei.com (7.202.194.94)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_181732_722483_9B163C81 
-X-CRM114-Status: GOOD (  37.02  )
+X-CRM114-CacheID: sfid-20260305_181936_583458_366647A9 
+X-CRM114-Status: GOOD (  27.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,110 +90,369 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBGZWIgMjUsIDIwMjYgYXQgNzowNeKAr0FNIEFuZHJldyBKb25lcwo8YW5kcmV3Lmpv
-bmVzQG9zcy5xdWFsY29tbS5jb20+IHdyb3RlOgo+Cj4gT24gU2F0LCBGZWIgMjEsIDIwMjYgYXQg
-MDY6NDk6MThQTSArMDgwMCwgR3VvZG9uZyBYdSB3cm90ZToKPiA+IEhpLCBEcmV3Cj4gPgo+ID4g
-T24gRnJpLCBGZWIgNiwgMjAyNiBhdCA4OjI04oCvQU0gQW5kcmV3IEpvbmVzCj4gPiA8YW5kcmV3
-LmpvbmVzQG9zcy5xdWFsY29tbS5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiBBZGQgQiB0byBod2Nh
-cCBhbmQgZW5zdXJlIHdoZW4gQiBpcyBwcmVzZW50IHRoYXQgWmJhLCBaYmIsIGFuZCBaYnMKPiA+
-ID4gYXJlIGFsbCBzZXQuCj4gPiA+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IEFuZHJldyBKb25lcyA8
-YW5kcmV3LmpvbmVzQG9zcy5xdWFsY29tbS5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9od2NhcC5oICAgICAgfCAxICsKPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVk
-ZS91YXBpL2FzbS9od2NhcC5oIHwgMSArCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0
-dXJlLmMgICAgICB8IDggKysrKysrKysKPiA+ID4gIDMgZmlsZXMgY2hhbmdlZCwgMTAgaW5zZXJ0
-aW9ucygrKQo+ID4KPiA+IEkgc2F3IHlvdSBjaG9zZSBub3QgdG8gYWRkIEIgdG8gaHdwcm9iZSBp
-biB0aGlzIHNlcmllcywgcGVyCj4gPiB5b3VyIHJldmlldyBvZiBteSBwYXRjaCBbMV0uIEkgaGF2
-ZSBhIGRpZmZlcmVudCBvcGluaW9uLgo+ID4KPiA+IEFzIHlvdSBzYWlkLCBGRCwgQywgYW5kIFYg
-YXJlIGFsbCBleHBvcnRlZCB0aHJvdWdoIGJvdGggaHdjYXAKPiA+IGFuZCBod3Byb2JlLiBBZGRp
-bmcgQiB0byBod3Byb2JlIHRvbyBrZWVwcyB0aGluZ3MgY29uc2lzdGVudCwKPiA+IHVzZXJzIGNh
-biBxdWVyeSBhbGwgdGhlIHNpbmdsZS1sZXR0ZXIgZXh0ZW5zaW9ucyBmcm9tIG9uZQo+ID4gaW50
-ZXJmYWNlIHdpdGhvdXQgbmVlZGluZyB0byBrbm93IHRoYXQgQiBpcyBtaXNzaW5nIGluIGh3cHJv
-YmUKPiA+IGFuZCB0aGF0IHRoZXknZCBoYXZlIHRvIGNoZWNrIFpiYS9aYmIvWmJzIHRvIGluZmVy
-IEIgc3VwcG9ydC4KPiA+Cj4gPiBSZWx5aW5nIG9uIHRoZSBydmEyM3U2NCBiYXNlIGJpdCB0byBp
-bXBseSBCIGFsc28gZG9lc24ndCBjb3Zlcgo+ID4gY2hpcHMgdGhhdCBpbXBsZW1lbnQgQiB3aXRo
-b3V0IGJlaW5nIHJ2YTIzdTY0IGNvbXBsaWFudC4gRWcuIG15Cj4gPiBwYXRjaHNldCBbMl0gYWRk
-cyBzdXBwb3J0IGZvciBleGlzdGluZyAobm9uLXJ2YTIzdTY0KSBTb0NzLgo+ID4KPgo+IEkgdGhp
-bmsgd2UgbmVlZCB0byBjb21lIHVwIHdpdGggc29tZSBzb3J0IG9mIHBvbGljeSBhcyB0byB3aGF0
-IGdvZXMgdG8KPiBod3Byb2JlIGFuZCB3aGF0IGRvZXNuJ3QuIElNTywgaHdjYXAgaXMgZWFzeS4g
-SWYgUklTQy1WIGRlZmluZXMgYSBzaW5nbGUKPiBsZXR0ZXIgZXh0ZW5zaW9uLCBzdWNoIGFzIFYg
-b3IgQiwgdGhlbiB3ZSBzaG91bGQgYWRkIGl0IHRvIGh3Y2FwLiBIb3dldmVyLAoKV2hlbiB3ZSBl
-eHBvcnQgYW4gZXh0ZW5zaW9uIHRocm91Z2ggaHdjYXAgYnV0IGl0IGNhbm5vdApiZSBxdWVyaWVk
-IHRocm91Z2ggaHdwcm9iZSwgd2UgY3JlYXRlIGFuIGluY29uc2lzdGVuY3k6CnRoZSBzYW1lIGV4
-dGVuc2lvbiBpcyBkaXNjb3ZlcmFibGUgdGhyb3VnaCBvbmUgaW50ZXJmYWNlCmJ1dCBub3QgdGhl
-IG90aGVyLgoKVGhlIGN1cnJlbnQga2VybmVsIGFscmVhZHkgZXhwb3NlcyBvdGhlciBzaW5nbGUt
-bGV0dGVyCmV4dGVuc2lvbnMgdGhyb3VnaCBib3RoIGludGVyZmFjZXM6CgogIEYrRDogUklTQ1Zf
-SFdQUk9CRV9JTUFfRkQgKyBDT01QQVRfSFdDQVBfSVNBX0YvX0QKICBDOiAgIFJJU0NWX0hXUFJP
-QkVfSU1BX0MgICsgQ09NUEFUX0hXQ0FQX0lTQV9DCiAgVjogICBSSVNDVl9IV1BST0JFX0lNQV9W
-ICArIENPTVBBVF9IV0NBUF9JU0FfVgoKKEkvTS9BIGFyZSBmb2xkZWQgaW50byBSSVNDVl9IV1BS
-T0JFX0JBU0VfQkVIQVZJT1JfSU1BLApzbyB0aGV5IGFyZSBhIHNlcGFyYXRlIGNhc2UuKQoKRiwg
-RCwgQywgYW5kIFYgYXJlIGNvbnNpc3RlbnQgYmV0d2VlbiBod2NhcCBhbmQgaHdwcm9iZS4KV2h5
-IHNob3VsZCBCIGJlIGRpZmZlcmVudD8KCj4gZm9yIGh3cHJvYmUsIHdlIGNhbiBnbyB0d28gd2F5
-czoKPgo+ICAxLiBBZGQgZXZlcnkgZXh0ZW5zaW9uLCBpbmNsdWRpbmcgJ2J1bmRsZScgZXh0ZW5z
-aW9ucywgd2hpY2ggYXJlIG5vdGhpbmcKPiAgbW9yZSB0aGFuIGFuIGFsaWFzIGZvciBhIGNvbGxl
-Y3Rpb24gb2YgZXh0ZW5zaW9ucy4gVGhpcyBpbmNsdWRlcyBzaW5nbGUKPiAgbGV0dGVyIGJ1bmRs
-ZSBleHRlbnNpb25zIGxpa2UgQi4KPgo+ICAyLiBBZGQgb25seSB1bmlxdWUgZXh0ZW5zaW9ucywg
-aS5lLiBubyBwdXJlbHkgYnVuZGxlIGV4dGVuc2lvbnMgZ2V0Cj4gIGFkZGVkLgo+Cj4gSWYgd2Ug
-Z28gd2l0aCAoMiksIHRoZW4gdXNlcnNwYWNlIHdpbGwgbmVlZCB0byB1c2UgdGhlIGJhc2UgYmVo
-YXZpb3JzCj4gKHByb2ZpbGVzKSBpbiBvcmRlciB0byBnZXQgYW55IHNvcnQgb2YgYnVuZGxpbmcs
-IGJ1dCBJIHRoaW5rIG1vc3QgcGVvcGxlCj4gYWdyZWUgdGhhdCB1c2Vyc3BhY2Ugd2lsbCB0YXJn
-ZXQgcHJvZmlsZXMsIHNvICgyKSBzZWVtcyBzdWZmaWNpZW50LiBJJ20KCgpMb29raW5nIGF0IGV4
-aXN0aW5nIGNvZGUsIGNwdWZlYXR1cmUuYyBmb2xsb3dzIG9wdGlvbiAoMikKZm9yIGJ1bmRsZSBl
-eHRlbnNpb25zLiBaayBoYXMgbm8gaHdwcm9iZSBiaXQuIFRoZQpjb21tdW5pdHkgc2V0dGxlZCBv
-biB0aGlzIGluIDIwMjMgWzFdLCBhbmQgSSByZXNwZWN0CnRoYXQgZGVjaXNpb24uCgpUaGUga2Vy
-bmVsIGhhcyB0d28gZmFtaWxpZXMgb2YgYnVuZGxlcyB0b2RheTogdGhlIFprCnNlcmllcyAoWmss
-IFprbiwgWmtzKSBhbmQgdGhlIFp2ayBzZXJpZXMgKFp2a24sIFp2a25jLApadmtuZywgWnZrcywg
-WnZrc2MsIFp2a3NnKS4gQWxsIHVzZQpfX1JJU0NWX0lTQV9FWFRfQlVORExFKCkuIFR3byB0aGlu
-Z3MgdG8gbm90ZToKCjEpIFRoZXkgYXJlIGFsbCBtdWx0aS1sZXR0ZXIgZXh0ZW5zaW9ucy4KMikg
-QnVuZGxlIGV4dGVuc2lvbnMgaGF2ZSBubyB2YWxpZCBleHQgaWQsIHNvIHVzZXJzcGFjZQpjYW5u
-b3QgcXVlcnkgdGhlbSB0aHJvdWdoIGh3cHJvYmUuIFRvIGRldGVybWluZQoiWmsiIHN1cHBvcnQs
-IGEgdXNlciBtdXN0IGNoZWNrIGFsbCA4IHN1Yi1leHRlbnNpb25zCmluZGl2aWR1YWxseS4KCkIg
-aXMgZGlmZmVyZW50LgoKSW4geW91ciBwYXRjaCBhbmQgbWluZSwgd2UgYm90aCBkZWZpbmUgQiBh
-cyBhIHN1cGVyc2V0LApub3QgYSBidW5kbGU6CgorIF9fUklTQ1ZfSVNBX0VYVF9TVVBFUlNFVChi
-LCBSSVNDVl9JU0FfRVhUX0IsCnJpc2N2X2JfZXh0cyksCgpGcm9tIGEgc3BlYyBwZXJzcGVjdGl2
-ZSwgQiBhZGRzIG5vIG5ldyBmdW5jdGlvbmFsaXR5CmJleW9uZCBaYmEgKyBaYmIgKyBaYnMuIFRo
-ZSBvbmx5IHRoaW5nIEIgYWRkcyBpcyBhIG1pc2EKYml0IChtLW1vZGUgQ1NSIDB4MzAxLCBub3Qg
-dmlzaWJsZSB0byBTLW1vZGUgb3IgVS1tb2RlKS4KU28gZnVuY3Rpb25hbGx5IGl0IGxvb2tzIGxp
-a2UgYSBidW5kbGUuCgpCdXQgY2FuIHdlIGNoYW5nZSBCIHRvIF9fUklTQ1ZfSVNBX0VYVF9CVU5E
-TEUoKT8gSSBkbwpub3QgdGhpbmsgc28uIEEgYnVuZGxlIGhhcyBpZCA9IFJJU0NWX0lTQV9FWFRf
-SU5WQUxJRCwKd2hpY2ggbWVhbnMgbm8gYml0IGluIHRoZSBJU0EgYml0bWFwLiBUaGUgaXNhMmh3
-Y2FwW10KbWFwcGluZyBpbiByaXNjdl9maWxsX2h3Y2FwKCkgcmVxdWlyZXMgYSB2YWxpZCBleHQg
-aWQKdG8gc2V0IENPTVBBVF9IV0NBUF9JU0FfQiBpbnRvIGVsZl9od2NhcC4gV2l0aG91dCBpdCwK
-QVRfSFdDQVAgc3VwcG9ydCBmb3IgQiBicmVha3MsIGFuZCB3ZSB3b3VsZCBuZWVkIGEKc3BlY2lh
-bCBoYWNrLiBUaGF0IGlzIHVubmVjZXNzYXJ5IGNvbXBsZXhpdHkuCgpUaGUgZXhpc3RpbmcgWmsv
-WnZrIGJ1bmRsZXMgd29yayBhcyBidW5kbGVzIGJlY2F1c2UgdGhleQphcmUgbXVsdGktbGV0dGVy
-IGV4dGVuc2lvbnMgd2l0aCBubyBBVF9IV0NBUCBwcmVzZW5jZS4KQiBsaXZlcyBpbiBib3RoIHdv
-cmxkcy4KClsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyMzEwMTItZGFya25lc3Mt
-bmV1dHJvbi1mYzE4NDNmZjA1ZmZAc3B1ZC8KCj4gbm90IHN1cmUgYWJvdXQgYXBwbGljYXRpb25z
-IHRoYXQgd29uJ3QgdGFyZ2V0IHByb2ZpbGVzIGJ1dCB3aWxsIHdhbnQgdG8KPiBjaGVjayBmb3Ig
-YnVuZGxlIGV4dGVuc2lvbnMgcmF0aGVyIHRoYW4gaW5kaXZpZHVhbCBleHRlbnNpb25zLiBTaG91
-bGQgd2UKPiB0YWtlIG9uIHRoZSBtYWludGVuYW5jZSBidXJkZW4gb2YgYWRkaW5nIGVhY2ggYnVu
-ZGxlIGV4dGVuc2lvbiB0byBod3Byb2JlCj4gZm9yIHRob3NlPyBJbiBwYXJ0aWN1bGFyLCBJJ20g
-bm90IHN1cmUgYWJvdXQgQiwgYmVjYXVzZSBpdCdzIGFscmVhZHkKPiBhdmFpbGFibGUgaW5kZXBl
-bmRlbnRseSBvZiBhIGJhc2UgYmVoYXZpb3IgKHByb2ZpbGUpIHRocm91Z2ggaHdjYXAuCj4KCklu
-IHN1bW1hcnksIG15IGNvbW1lbnRzIGFyZToKCjEuIEYsIEQsIEMsIGFuZCBWIGFyZSBkZXRlY3Rh
-YmxlIGZyb20gYm90aCBod2NhcCBhbmQKICAgaHdwcm9iZS4gQiBzaG91bGQgZm9sbG93IHRoZSBz
-YW1lIHBhdHRlcm4uIERyb3BwaW5nCiAgIEIgZnJvbSBod3Byb2JlIHdoaWxlIGtlZXBpbmcgaXQg
-aW4gaHdjYXAgY3JlYXRlcyBhCiAgIGdhcCB0aGF0IHdpbGwgY29uZnVzZSB1c2Vycy4KCjIuIEIg
-aXMgZnVuY3Rpb25hbGx5IGEgYnVuZGxlICh0aGUgbWlzYSBCIGJpdCBhdCAweDMwMQogICBpcyBt
-LW1vZGUgb25seSwgbm90IHZpc2libGUgdG8gUy1tb2RlIG9yIFUtbW9kZSksCiAgIHlldCB3ZSBk
-ZWNsYXJlIGl0IGFzIF9fUklTQ1ZfSVNBX0VYVF9TVVBFUlNFVCgpCiAgIGJlY2F1c2UgaXQgbmVl
-ZHMgYSB2YWxpZCBleHQgaWQgZm9yIEFUX0hXQ0FQLiBJCiAgIHN1Z2dlc3Qgd2UgZG9jdW1lbnQg
-dGhpcyB3aXRoIGEgY29tbWVudCBpbgogICBjcHVmZWF0dXJlLmM6CgorIC8qCisgICogQiBpcyBm
-dW5jdGlvbmFsbHkgYSBidW5kbGUgKFpiYSArIFpiYiArIFpicywKKyAgKiBubyBhZGRpdGlvbmFs
-IGluc3RydWN0aW9ucykuIFdlIHVzZSBTVVBFUlNFVAorICAqIGluc3RlYWQgb2YgQlVORExFIGJl
-Y2F1c2UgQiBuZWVkcyBhIHZhbGlkIGV4dAorICAqIGlkIGZvciBpc2EyaHdjYXBbXSB0byBzZXQg
-Q09NUEFUX0hXQ0FQX0lTQV9CLgorICAqLworICAgX19SSVNDVl9JU0FfRVhUX1NVUEVSU0VUKGIs
-IFJJU0NWX0lTQV9FWFRfQiwgcmlzY3ZfYl9leHRzKSwKCjMuIFNob3VsZCB3ZSBhbHNvIGRvY3Vt
-ZW50IGluIC5yc3Qgb3IgKGluIGNwdWZlYXR1cmUuYykgYWJvdXQgd2hlbiB0byB1c2UKX0JVTkRM
-RSgpIGFuZCB3aGVuIHRvIHVzZSBfU1VQRVJTRVQoKSwgYW5kIHdoYXQncyB0aGUgaW1wbGljYXRp
-b24gd2hlbgp1c2luZyB0aGVtLCB0byBlY2hvIHdoYXQgeW91IHN0YXRlZCBhYm92ZSAiLi4uIEFk
-ZCBvbmx5IHVuaXF1ZQpleHRlbnNpb25zLCBpLmUuIG5vIHB1cmVseSBidW5kbGUgZXh0ZW5zaW9u
-cyBnZXRhZGRlZC4iCgpCUiwKR3VvZG9uZwoKPiBUaGFua3MsCj4gZHJldwoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Currently the pcie_tph_get_cpu_st() has an issue on ARM64 platform:
+1. The pcie_tph_get_cpu_st() function directly uses cpu_uid as the input
+   parameter to call the PCI ACPI DSM method. According to the DSM
+   definition, the input value should be the ACPI Processor UID (see [1]
+   for details).
+2. In the Broadcom driver implementation [2] (which invokes
+   pcie_tph_get_cpu_st()), cpu_uid is obtained via
+   cpumask_first(irq->cpu_mask) - this is the logical CPU ID of a CPU
+   core, generated and managed by kernel (e.g., [0,255] for a system
+   with 256 logical CPU cores).
+3. On ARM64 platforms, ACPI assigns Processor UID to cores listed in the
+   MADT table, and this UID may not match the kernel's logical CPU ID.
+   As a result, the current implementation fails to retrieve the correct
+   CPU steer-tag in such cases.
+4. The function works on AMD x86 platforms only because the logical CPU
+   ID is identical to the ACPI Processor UID on those systems.
+
+This commit fixes it by:
+1. For ACPI-enabled platforms, unify the CPU ACPI ID retrieval
+   interface:
+   - On arm64/riscv/loongarch: Rename existing get_acpi_id_for_cpu() to
+     acpi_get_cpu_acpi_id().
+   - On x86: Add new acpi_get_cpu_acpi_id() implementation that wraps
+     cpu_acpi_id().
+2. Update pcie_tph_get_cpu_st() to use acpi_get_cpu_acpi_id(cpu) to get
+   valid ACPI Processor UID for DSM calls.
+3. Renaming pcie_tph_get_cpu_st()'s input parameter cpu_uid to cpu for
+   clarity, as the parameter now represents a logical CPU ID (not a
+   UID).
+
+[1] According to ECN_TPH-ST_Revision_20200924
+    (https://members.pcisig.com/wg/PCI-SIG/document/15470), the input
+    is defined as: "If the target is a processor, then this field
+    represents the ACPI Processor UID of the processor as specified in
+    the MADT. If the target is a processor container, then this field
+    represents the ACPI Processor UID of the processor container as
+    specified in the PPTT."
+[2] commit c214410c47d6e ("bnxt_en: Add TPH support in BNXT driver")
+
+Fixes: d2e8a34876ce ("PCI/TPH: Add Steering Tag support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
+
+---
+Changes in v3:
+- Rename existing get_acpi_id_for_cpu() to acpi_get_cpu_acpi_id() other
+  than add one new API.
+
+Changes in v2:
+- Add ECN _DSM reference doc name and its URL.
+- Separate implement acpi_get_cpu_acpi_id() in each arch which supports
+  ACPI.
+- Refine commit-log.
+
+---
+ Documentation/PCI/tph.rst          |  4 ++--
+ arch/arm64/include/asm/acpi.h      |  4 ++--
+ arch/loongarch/include/asm/acpi.h  |  2 +-
+ arch/riscv/include/asm/acpi.h      |  2 +-
+ arch/riscv/kernel/acpi_numa.c      |  2 +-
+ arch/x86/include/asm/acpi.h        |  2 ++
+ arch/x86/kernel/cpu/common.c       |  8 ++++++++
+ drivers/acpi/pptt.c                | 16 ++++++++--------
+ drivers/acpi/riscv/rhct.c          |  2 +-
+ drivers/pci/tph.c                  | 11 ++++++-----
+ drivers/perf/arm_cspmu/arm_cspmu.c |  2 +-
+ include/linux/pci-tph.h            |  4 ++--
+ 12 files changed, 35 insertions(+), 24 deletions(-)
+
+diff --git a/Documentation/PCI/tph.rst b/Documentation/PCI/tph.rst
+index e8993be64fd6..b6cf22b9bd90 100644
+--- a/Documentation/PCI/tph.rst
++++ b/Documentation/PCI/tph.rst
+@@ -79,10 +79,10 @@ To retrieve a Steering Tag for a target memory associated with a specific
+ CPU, use the following function::
+ 
+   int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type type,
+-                          unsigned int cpu_uid, u16 *tag);
++                          unsigned int cpu, u16 *tag);
+ 
+ The `type` argument is used to specify the memory type, either volatile
+-or persistent, of the target memory. The `cpu_uid` argument specifies the
++or persistent, of the target memory. The `cpu` argument specifies the
+ CPU where the memory is associated to.
+ 
+ After the ST value is retrieved, the device driver can use the following
+diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
+index c07a58b96329..202107aeb05b 100644
+--- a/arch/arm64/include/asm/acpi.h
++++ b/arch/arm64/include/asm/acpi.h
+@@ -114,7 +114,7 @@ static inline bool acpi_has_cpu_in_madt(void)
+ }
+ 
+ struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu);
+-static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
++static inline u32 acpi_get_cpu_acpi_id(unsigned int cpu)
+ {
+ 	return	acpi_cpu_get_madt_gicc(cpu)->uid;
+ }
+@@ -125,7 +125,7 @@ static inline int get_cpu_for_acpi_id(u32 uid)
+ 
+ 	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
+ 		if (acpi_cpu_get_madt_gicc(cpu) &&
+-		    uid == get_acpi_id_for_cpu(cpu))
++		    uid == acpi_get_cpu_acpi_id(cpu))
+ 			return cpu;
+ 
+ 	return -EINVAL;
+diff --git a/arch/loongarch/include/asm/acpi.h b/arch/loongarch/include/asm/acpi.h
+index 7376840fa9f7..89c6c8f52cc3 100644
+--- a/arch/loongarch/include/asm/acpi.h
++++ b/arch/loongarch/include/asm/acpi.h
+@@ -40,7 +40,7 @@ extern struct acpi_madt_core_pic acpi_core_pic[MAX_CORE_PIC];
+ 
+ extern int __init parse_acpi_topology(void);
+ 
+-static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
++static inline u32 acpi_get_cpu_acpi_id(unsigned int cpu)
+ {
+ 	return acpi_core_pic[cpu_logical_map(cpu)].processor_id;
+ }
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index 6e13695120bc..1d23681b61b5 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -61,7 +61,7 @@ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+ 
+ void acpi_init_rintc_map(void);
+ struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
+-static inline u32 get_acpi_id_for_cpu(int cpu)
++static inline u32 acpi_get_cpu_acpi_id(int cpu)
+ {
+ 	return acpi_cpu_get_madt_rintc(cpu)->uid;
+ }
+diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
+index 130769e3a99c..c2eb4824d0f7 100644
+--- a/arch/riscv/kernel/acpi_numa.c
++++ b/arch/riscv/kernel/acpi_numa.c
+@@ -40,7 +40,7 @@ static inline int get_cpu_for_acpi_id(u32 uid)
+ 	int cpu;
+ 
+ 	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
+-		if (uid == get_acpi_id_for_cpu(cpu))
++		if (uid == acpi_get_cpu_acpi_id(cpu))
+ 			return cpu;
+ 
+ 	return -EINVAL;
+diff --git a/arch/x86/include/asm/acpi.h b/arch/x86/include/asm/acpi.h
+index a03aa6f999d1..b968369715c1 100644
+--- a/arch/x86/include/asm/acpi.h
++++ b/arch/x86/include/asm/acpi.h
+@@ -157,6 +157,8 @@ static inline bool acpi_has_cpu_in_madt(void)
+ 	return !!acpi_lapic;
+ }
+ 
++u32 acpi_get_cpu_acpi_id(unsigned int cpu);
++
+ #define ACPI_HAVE_ARCH_SET_ROOT_POINTER
+ static __always_inline void acpi_arch_set_root_pointer(u64 addr)
+ {
+diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
+index 1c3261cae40c..1c7aa7a4faa0 100644
+--- a/arch/x86/kernel/cpu/common.c
++++ b/arch/x86/kernel/cpu/common.c
+@@ -29,6 +29,7 @@
+ #include <linux/utsname.h>
+ #include <linux/efi.h>
+ 
++#include <asm/acpi.h>
+ #include <asm/alternative.h>
+ #include <asm/cmdline.h>
+ #include <asm/cpuid/api.h>
+@@ -57,6 +58,7 @@
+ #include <asm/asm.h>
+ #include <asm/bugs.h>
+ #include <asm/cpu.h>
++#include <asm/smp.h>
+ #include <asm/mce.h>
+ #include <asm/msr.h>
+ #include <asm/cacheinfo.h>
+@@ -2643,3 +2645,9 @@ void __init arch_cpu_finalize_init(void)
+ 	 */
+ 	mem_encrypt_init();
+ }
++
++u32 acpi_get_cpu_acpi_id(unsigned int cpu)
++{
++	return cpu_acpi_id(cpu);
++}
++EXPORT_SYMBOL_GPL(acpi_get_cpu_acpi_id);
+diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+index de5f8c018333..c1a8fba4c2b2 100644
+--- a/drivers/acpi/pptt.c
++++ b/drivers/acpi/pptt.c
+@@ -459,7 +459,7 @@ static void cache_setup_acpi_cpu(struct acpi_table_header *table,
+ {
+ 	struct acpi_pptt_cache *found_cache;
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+-	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	u32 acpi_cpu_id = acpi_get_cpu_acpi_id(cpu);
+ 	struct cacheinfo *this_leaf;
+ 	unsigned int index = 0;
+ 	struct acpi_pptt_processor *cpu_node = NULL;
+@@ -546,7 +546,7 @@ static int topology_get_acpi_cpu_tag(struct acpi_table_header *table,
+ 				     unsigned int cpu, int level, int flag)
+ {
+ 	struct acpi_pptt_processor *cpu_node;
+-	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	u32 acpi_cpu_id = acpi_get_cpu_acpi_id(cpu);
+ 
+ 	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+ 	if (cpu_node) {
+@@ -622,7 +622,7 @@ static int find_acpi_cpu_topology_tag(unsigned int cpu, int level, int flag)
+ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+ {
+ 	struct acpi_table_header *table;
+-	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	u32 acpi_cpu_id = acpi_get_cpu_acpi_id(cpu);
+ 	struct acpi_pptt_processor *cpu_node = NULL;
+ 	int ret = -ENOENT;
+ 
+@@ -671,7 +671,7 @@ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
+ 
+ 	pr_debug("Cache Setup: find cache levels for CPU=%d\n", cpu);
+ 
+-	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	acpi_cpu_id = acpi_get_cpu_acpi_id(cpu);
+ 	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+ 	if (!cpu_node)
+ 		return -ENOENT;
+@@ -797,7 +797,7 @@ int find_acpi_cpu_topology_cluster(unsigned int cpu)
+ 	if (!table)
+ 		return -ENOENT;
+ 
+-	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	acpi_cpu_id = acpi_get_cpu_acpi_id(cpu);
+ 	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+ 	if (!cpu_node || !cpu_node->parent)
+ 		return -ENOENT;
+@@ -872,7 +872,7 @@ static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+ 	cpumask_clear(cpus);
+ 
+ 	for_each_possible_cpu(cpu) {
+-		acpi_id = get_acpi_id_for_cpu(cpu);
++		acpi_id = acpi_get_cpu_acpi_id(cpu);
+ 		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+ 
+ 		while (cpu_node) {
+@@ -966,7 +966,7 @@ int find_acpi_cache_level_from_id(u32 cache_id)
+ 	for_each_possible_cpu(cpu) {
+ 		bool empty;
+ 		int level = 1;
+-		u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++		u32 acpi_cpu_id = acpi_get_cpu_acpi_id(cpu);
+ 		struct acpi_pptt_cache *cache;
+ 		struct acpi_pptt_processor *cpu_node;
+ 
+@@ -1030,7 +1030,7 @@ int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
+ 	for_each_possible_cpu(cpu) {
+ 		bool empty;
+ 		int level = 1;
+-		u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++		u32 acpi_cpu_id = acpi_get_cpu_acpi_id(cpu);
+ 		struct acpi_pptt_cache *cache;
+ 		struct acpi_pptt_processor *cpu_node;
+ 
+diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
+index caa2c16e1697..c15ce8c13136 100644
+--- a/drivers/acpi/riscv/rhct.c
++++ b/drivers/acpi/riscv/rhct.c
+@@ -44,7 +44,7 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
+ 	struct acpi_rhct_isa_string *isa_node;
+ 	struct acpi_table_rhct *rhct;
+ 	u32 *hart_info_node_offset;
+-	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	u32 acpi_cpu_id = acpi_get_cpu_acpi_id(cpu);
+ 
+ 	BUG_ON(acpi_disabled);
+ 
+diff --git a/drivers/pci/tph.c b/drivers/pci/tph.c
+index ca4f97be7538..c1bd60637b5a 100644
+--- a/drivers/pci/tph.c
++++ b/drivers/pci/tph.c
+@@ -236,18 +236,19 @@ static int write_tag_to_st_table(struct pci_dev *pdev, int index, u16 tag)
+  * with a specific CPU
+  * @pdev: PCI device
+  * @mem_type: target memory type (volatile or persistent RAM)
+- * @cpu_uid: associated CPU id
++ * @cpu: associated CPU id
+  * @tag: Steering Tag to be returned
+  *
+  * Return the Steering Tag for a target memory that is associated with a
+- * specific CPU as indicated by cpu_uid.
++ * specific CPU as indicated by cpu.
+  *
+  * Return: 0 if success, otherwise negative value (-errno)
+  */
+ int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
+-			unsigned int cpu_uid, u16 *tag)
++			unsigned int cpu, u16 *tag)
+ {
+ #ifdef CONFIG_ACPI
++	u32 cpu_uid = acpi_get_cpu_acpi_id(cpu);
+ 	struct pci_dev *rp;
+ 	acpi_handle rp_acpi_handle;
+ 	union st_info info;
+@@ -265,9 +266,9 @@ int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
+ 
+ 	*tag = tph_extract_tag(mem_type, pdev->tph_req_type, &info);
+ 
+-	pci_dbg(pdev, "get steering tag: mem_type=%s, cpu_uid=%d, tag=%#04x\n",
++	pci_dbg(pdev, "get steering tag: mem_type=%s, cpu=%d, tag=%#04x\n",
+ 		(mem_type == TPH_MEM_TYPE_VM) ? "volatile" : "persistent",
+-		cpu_uid, *tag);
++		cpu, *tag);
+ 
+ 	return 0;
+ #else
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index 34430b68f602..506b661c60fd 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -1115,7 +1115,7 @@ static int arm_cspmu_acpi_get_cpus(struct arm_cspmu *cspmu)
+ 	if (affinity_flag == ACPI_APMT_FLAGS_AFFINITY_PROC) {
+ 		for_each_possible_cpu(cpu) {
+ 			if (apmt_node->proc_affinity ==
+-			    get_acpi_id_for_cpu(cpu)) {
++			    acpi_get_cpu_acpi_id(cpu)) {
+ 				cpumask_set_cpu(cpu, &cspmu->associated_cpus);
+ 				break;
+ 			}
+diff --git a/include/linux/pci-tph.h b/include/linux/pci-tph.h
+index ba28140ce670..be68cd17f2f8 100644
+--- a/include/linux/pci-tph.h
++++ b/include/linux/pci-tph.h
+@@ -25,7 +25,7 @@ int pcie_tph_set_st_entry(struct pci_dev *pdev,
+ 			  unsigned int index, u16 tag);
+ int pcie_tph_get_cpu_st(struct pci_dev *dev,
+ 			enum tph_mem_type mem_type,
+-			unsigned int cpu_uid, u16 *tag);
++			unsigned int cpu, u16 *tag);
+ void pcie_disable_tph(struct pci_dev *pdev);
+ int pcie_enable_tph(struct pci_dev *pdev, int mode);
+ u16 pcie_tph_get_st_table_size(struct pci_dev *pdev);
+@@ -36,7 +36,7 @@ static inline int pcie_tph_set_st_entry(struct pci_dev *pdev,
+ { return -EINVAL; }
+ static inline int pcie_tph_get_cpu_st(struct pci_dev *dev,
+ 				      enum tph_mem_type mem_type,
+-				      unsigned int cpu_uid, u16 *tag)
++				      unsigned int cpu, u16 *tag)
+ { return -EINVAL; }
+ static inline void pcie_disable_tph(struct pci_dev *pdev) { }
+ static inline int pcie_enable_tph(struct pci_dev *pdev, int mode)
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
