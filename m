@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B199CFCC9A7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A603FCC9A4
 	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 00:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hDZfO8ddc/iGNG0cRO0Qrk9xY21KFl2TO/E17SH5IFI=; b=N/VdS0qXGaLv/4
-	RQA8Wpz+zgbpT1j9ZKR9FrEkKCH/iSFBm2JFfs0hxYpTUC/0Hp3Cq/GnKNr3+J8TqZMf6FW6eYd4U
-	qj25yqqOHps1aGuRT99y8Ub8xFXsdJtFWpe8rJ6luOw5p48NprzSwPcNECcco+wCASbO6uxvVmGbi
-	3WwHUM5pCT6l0N67nG8Uu6AHllX/H8d2DQ+5IlZnb+Ux6o2+V898VqIsv8OWLCHNau/7DcblZd3W0
-	SqyJrT73h9jI5qfmUIxDzrBZtvpq/UrVKWyT68l7WGKT1NXVbBMAxD66H1e94IDMX5UBlaie95DTw
-	3WEIVXhFMxKVJcwH8ppQ==;
+	List-Owner; bh=2TOliWXMbuYh0SR4aOxw2QrGkTeWIw8InO2gSbWnZig=; b=UVvkCUVJRTVSus
+	UOidl1MFuRlceAVuBQ8RGyQvKvaLanfhrNgnfjAwDqvaeNWswedTZB03aPRZYr0RdvEIOckc5z/2l
+	NEL61DD07+KoZS5sx+5TWOY66dsz3zs296XeQDSDAGXKIzcnyvhkUbwywL7Qc9zCkjXCsmOQggBdM
+	y3ZyhzCzy+ZVXsDlzTLSP0oslTfONLZbctWBKotCzIjpaQE0kWtobQyTXFUjv5e1FLTo+SNl1QDCU
+	oGjQ7WfzD25uWDdQKt5OqlvlfS8s6l9ntGfqpFtKwjEmiueM71uxVp4roHxPSbZM7e2fcwM0VWozN
+	2/dzh3jsPT32DbllKYlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzkWa-00000008Kab-2AmD;
-	Tue, 10 Mar 2026 00:00:36 +0000
-Received: from fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([52.28.197.132])
+	id 1vzkWX-00000008KXR-2uMI;
+	Tue, 10 Mar 2026 00:00:33 +0000
+Received: from fra-out-009.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([3.64.237.68])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyXJN-000000043Uf-4742;
-	Fri, 06 Mar 2026 15:42:00 +0000
+	id 1vyUcJ-00000003gKY-2tPA;
+	Fri, 06 Mar 2026 12:49:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1772811718; x=1804347718;
+  t=1772801359; x=1804337359;
   h=message-id:date:mime-version:reply-to:subject:to:cc:
    references:from:in-reply-to:content-transfer-encoding;
-  bh=YnCR77bPkSJ3r6eLW+FO2o4FnCnPBwwukZtKN2qmask=;
-  b=JtrpxJNRGmLk+k8fmAE1B2QvhHxakHYHnN8bFrhI2fYTq3LYC6xkCSD4
-   ZqybcXR7xdxPM2i96nAhx70oEV4hPuPg1h9xrCR5kFlB5ulpiFM68gQ29
-   +bSYC0SZ9LaWoDRQ7vv+qXh85ebq6p4At9p95t+TA0el2f45lTJgtwIlQ
-   zuIXlY7vXK+hqITLLUuDeYF9R2g7qGeZz0Ei5OBXC8bOFRZ6XbocAbZre
-   QDZDokR8KA8vAvWS2rLjxT63GdRjJbx5DU1fE8+Mjv63aJ2e/6qeLme0Z
-   BWK8MmFEP2juQba5/o7162Na1KoButyGR2nuFhh0AFrChyfZDhLUaZo/u
-   A==;
-X-CSE-ConnectionGUID: GwEkaMEOTMKbobqyy3yX9A==
-X-CSE-MsgGUID: di4IC+oOQpGwVPpG+YbSbA==
-X-IronPort-AV: E=Sophos;i="6.23,105,1770595200"; 
-   d="scan'208";a="10322839"
-Received: from ip-10-6-11-83.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.11.83])
-  by internal-fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 15:41:52 +0000
-Received: from EX19MTAEUA002.ant.amazon.com [54.240.197.232:9370]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.46.96:2525] with esmtp (Farcaster)
- id 5185657e-5145-4540-97b1-c86cd60d47dd; Fri, 6 Mar 2026 15:41:52 +0000 (UTC)
-X-Farcaster-Flow-ID: 5185657e-5145-4540-97b1-c86cd60d47dd
+  bh=bRMHQdQ5GfQ08jWBNyGRBN4vXmA9+fBBCWCkl04FNjQ=;
+  b=Ay0F96w3RVw2nm9FgxFQd0sC5fktbIchaKwSfO23sZWwD7ihM2x2wRvT
+   NoKdM31efeHTiGLW9DMguDe/Kb68smNDT1K10yhnwJoTiAzCa05BT+6FD
+   A+J+mTdjwVFGVQLz76hoa0J9Je0mjftPrNbSOq0meXlU1s/s9l7QEifsX
+   jyR0G8XVNrAzoGcyeravQ7n4UrxLrS0pRljOw3yw8Ozi/ciEBUCUuL8JZ
+   WkBlymruZ6q/BE0WZSyw/mAXwhXhxNUrzbnC2FSyqE6i3LrsGi/2fz612
+   r35wqmeOklrk6CS6TJTw7FCKrYi/13CM80qoesc9ZQY/LQt7ivvLAvMPj
+   g==;
+X-CSE-ConnectionGUID: +CBc8LTUTFyKU3vgne5J+A==
+X-CSE-MsgGUID: SsgvaCDKTQyRTYkBnx7yEA==
+X-IronPort-AV: E=Sophos;i="6.23,104,1770595200"; 
+   d="scan'208";a="10334046"
+Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
+  by internal-fra-out-009.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 12:49:17 +0000
+Received: from EX19MTAEUC001.ant.amazon.com [54.240.197.225:27792]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.8.50:2525] with esmtp (Farcaster)
+ id 3c65634d-d2ee-42b8-a0db-5e2cd1d9a376; Fri, 6 Mar 2026 12:49:17 +0000 (UTC)
+X-Farcaster-Flow-ID: 3c65634d-d2ee-42b8-a0db-5e2cd1d9a376
 Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
+ EX19MTAEUC001.ant.amazon.com (10.252.51.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Fri, 6 Mar 2026 15:41:52 +0000
+ Fri, 6 Mar 2026 12:49:14 +0000
 Received: from [192.168.2.180] (10.106.83.26) by EX19D005EUB003.ant.amazon.com
  (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Fri, 6 Mar 2026
- 15:41:47 +0000
-Message-ID: <5c322be7-ea81-4e6a-9689-978c35e93af6@amazon.com>
-Date: Fri, 6 Mar 2026 15:41:45 +0000
+ 12:49:09 +0000
+Message-ID: <a2d34a91-1d38-4d9d-b7bc-8315245a08a6@amazon.com>
+Date: Fri, 6 Mar 2026 12:49:08 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 02/15] set_memory: add folio_{zap, restore}_direct_map
- helpers
+Subject: Re: [PATCH v10 04/15] mm/gup: drop local variable in
+ gup_fast_folio_allowed
 To: "David Hildenbrand (Arm)" <david@kernel.org>, "Kalyazin, Nikita"
 	<kalyazin@amazon.co.uk>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
 	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
@@ -137,21 +137,17 @@ CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net"
 	"Manwaring, Derek" <derekmn@amazon.com>, "Cali, Marco"
 	<xmarcalx@amazon.co.uk>
 References: <20260126164445.11867-1-kalyazin@amazon.com>
- <20260126164445.11867-3-kalyazin@amazon.com>
- <af2d4dcd-60a8-4a5a-b508-d9600b1f2275@kernel.org>
- <e2834fd9-e4ec-473c-90cd-6c3a5049747f@amazon.com>
- <40bd6f9b-d5c0-4844-81bc-d221cd9b058f@kernel.org>
- <38deb26a-918c-4743-b35f-92a1330dbf40@amazon.com>
- <efc1c39c-7eb5-488f-819c-0ca2149898c3@kernel.org>
+ <20260126164445.11867-5-kalyazin@amazon.com>
+ <ebb4beec-13dc-4b94-a1f8-756e7a8ef5af@kernel.org>
 Content-Language: en-US
 From: Nikita Kalyazin <kalyazin@amazon.com>
-In-Reply-To: <efc1c39c-7eb5-488f-819c-0ca2149898c3@kernel.org>
+In-Reply-To: <ebb4beec-13dc-4b94-a1f8-756e7a8ef5af@kernel.org>
 X-Originating-IP: [10.106.83.26]
-X-ClientProxiedBy: EX19D007EUB003.ant.amazon.com (10.252.51.43) To
+X-ClientProxiedBy: EX19D015EUB002.ant.amazon.com (10.252.51.123) To
  EX19D005EUB003.ant.amazon.com (10.252.51.31)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_074158_401387_814498A6 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20260306_044920_022478_5E72C684 
+X-CRM114-Status: GOOD (  17.01  )
 X-Mailman-Approved-At: Mon, 09 Mar 2026 17:00:27 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -172,86 +168,76 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 06/03/2026 15:17, David Hildenbrand (Arm) wrote:
-> On 3/6/26 15:48, Nikita Kalyazin wrote:
+On 05/03/2026 19:07, David Hildenbrand (Arm) wrote:
+> On 1/26/26 17:47, Kalyazin, Nikita wrote:
+>> From: Nikita Kalyazin <kalyazin@amazon.com>
 >>
+>> Move the check for pinning closer to where the result is used.
+>> No functional changes.
 >>
->> On 06/03/2026 14:17, David Hildenbrand (Arm) wrote:
->>> On 3/6/26 13:48, Nikita Kalyazin wrote:
->>>>
->>>>
->>>>
->>>> Will update, thanks.
->>>>
->>>>
->>>> Absolutely!
->>>>
->>>>
->>>> Yes, on x86 we need an explicit flush.  Other architectures deal with it
->>>> internally.
->>>
->>> So, we call a _noflush function and it performs a ... flush. What.
+>> Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
+>> ---
+>>   mm/gup.c | 19 ++++++++-----------
+>>   1 file changed, 8 insertions(+), 11 deletions(-)
 >>
->> Yeah, that's unfortunately the status quo as pointed by Aneesh [1]
+>> diff --git a/mm/gup.c b/mm/gup.c
+>> index 9cad53acbc99..e72dacce3e34 100644
+>> --- a/mm/gup.c
+>> +++ b/mm/gup.c
+>> @@ -2737,18 +2737,9 @@ EXPORT_SYMBOL(get_user_pages_unlocked);
+>>    */
+>>   static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+>>   {
+>> -     bool reject_file_backed = false;
+>>        struct address_space *mapping;
+>>        unsigned long mapping_flags;
 >>
->> [1] https://lore.kernel.org/kvm/yq5ajz07czvz.fsf@kernel.org/
->>
->>>
->>> Take a look at secretmem_fault(), where we do an unconditional
->>> flush_tlb_kernel_range().
->>>
->>> Do we end up double-flushing in that case?
->>
->> Yes, looks like that.  I'll remove the explicit flush and rely on
->> folio_zap_direct_map().
->>
->>>
->>>> Do you propose a bespoke implementation for x86 and a
->>>> "generic" one for others?
->>>
->>> We have to find a way to have a single set of functions for all archs
->>> that support directmap removal.
->>
->> I believe Dave meant to address that with folio_{zap,restore}
->> _direct_map() [2].
->>
->> [2] https://lore.kernel.org/kvm/9409531b-589b-4a54-
->> b122-06a3cf0846f3@intel.com/
->>
->>>
->>> One option might be to have some indication from the architecture that
->>> no flush_tlb_kernel_range() is required.
->>>
->>> Could be a config option or some simple helper function.
->>
->> I'd be inclined to know what arch maintainers think because I don't have
->> a strong opinion on that.
+>> -     /*
+>> -      * If we aren't pinning then no problematic write can occur. A long term
+>> -      * pin is the most egregious case so this is the one we disallow.
+>> -      */
+>> -     if ((flags & (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)) ==
+>> -         (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE))
+>> -             reject_file_backed = true;
+>> -
+>>        /* We hold a folio reference, so we can safely access folio fields. */
+>>        if (WARN_ON_ONCE(folio_test_slab(folio)))
+>>                return false;
+>> @@ -2793,8 +2784,14 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+>>         */
+>>        if (secretmem_mapping(mapping))
+>>                return false;
+>> -     /* The only remaining allowed file system is shmem. */
+>> -     return !reject_file_backed || shmem_mapping(mapping);
+>> +
+>> +     /*
+>> +      * If we aren't pinning then no problematic write can occur. A long term
+>> +      * pin is the most egregious case so this is the one we disallow.
+>> +      * Also check the only remaining allowed file system - shmem.
+>> +      */
+>> +     return (flags & (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)) !=
+>> +         (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE) || shmem_mapping(mapping);
 > 
-> You could also just perform a double flush, and let people that
-> implemented a _noflush() to perform a flush optimize that later.
+> Best to keep this split and a bit more readable.
+> 
+> /*
+>   * If we aren't pinning then no problematic write can occur. A writable
+>   * long term pin is the most egregious case, so this is the one we
+>   * allow only for ...
+>   */
+> if ((flags & (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)) !=
+>      (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)
+>          return true;
+> /* ... hugetlb (which we allowed above already) and shared memory. */
+> return shmem_mapping(mapping);
 
-Do you propose to just universalise the one from x86?
-
-int folio_zap_direct_map(struct folio *folio)
-{
-	const void *addr = folio_address(folio);
-	int ret;
-
-	ret = set_direct_map_valid_noflush(addr, folio_nr_pages(folio), false);
-	flush_tlb_kernel_range((unsigned long)addr,
-			       (unsigned long)addr + folio_size(folio));
-
-	return ret;
-}
-
-I'm fine with that too.
+Makes sense, thank you!
 
 > 
-> I mean, that's what secretmem did :)
-
-With the solution above, secretmem stays where it was: no optimisation 
-so far :)
-
+>>   }
+>>
+>>   static void __maybe_unused gup_fast_undo_dev_pagemap(int *nr, int nr_start,
+> 
 > 
 > --
 > Cheers,
