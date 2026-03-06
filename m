@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7312BF01804
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Mar 2026 08:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962A7F01814
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Mar 2026 09:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LgKYsxudDUmitxNhx2/M/e/D687ubSKv3UYgKYnpvks=; b=q20BxWxIOfVNaJ
-	f3B8ynIxLcg/ZVboVxkyfCFju1Pk8E4U08fYkz/JlFOXn0VE0sBOpPLXvHu9Cga1ZLsVB1Sidjera
-	erkJ96b6mCWptesaeq6lldgOfZKQP8oTHP1buf6VDWaVnKQ4WtfMjX3lQUfBDV3od7U8jRaa+rw0q
-	GR0brdq/H3E1d1rTSCkHc4Dq+oXUa/FsaP9kvP3XzlbZHXYF8m9WmhKZR4LmRmwPcPYo/qVkZPeGe
-	BMXOSTJPY5yDORl70FAyiwBTQZHwvFsjCd3qRd83J7gthDo1VKpX040xdCm8ZZk7pW6vQSPYP91oV
-	8Y4idx+CP18E0M1VJCyQ==;
+	List-Owner; bh=eyV2O9ODUFZWXpu9jEEpq98gSkc0ASFk00ekcYmJt6U=; b=qynHolM8rfIMY7
+	8EEhgrPsrjILQs4e+W8hjkSJP0j+q63IS6Km5sNxQdEZHF6Nj7BnKFEOY3Hfkhx+GDOxJ+RsP3SJw
+	nVCy9sf/m6P3MIj9mqmMW12sKhbsdQAkLVFlXwMwfdPp43Kd3VjNMkM8QZEIeFhNUeP3Vq/YGkps4
+	uJbyG8EBTmbjbjs/TQU0rkb5aAv6GYlZXlqOBRLXjCCw9Zh5QeTUi7LxXCRQi+OLbNc/KleE2e280
+	MuN0YriKfAUck7AMZEzhMF3Og7L/KXRy/VSCrC9saTEi7sw/XECZ+mYb94CyHlAATpwCidqW37ba3
+	8q0w+/u+arpzpgzeGC7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQDt-00000003DjV-1KbS;
-	Fri, 06 Mar 2026 08:07:49 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vyR35-00000003JTv-301W;
+	Fri, 06 Mar 2026 09:00:43 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyQDm-00000003DUo-3ehl;
-	Fri, 06 Mar 2026 08:07:44 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 6 Mar
- 2026 16:07:24 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 6 Mar 2026 16:07:24 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Fri, 6 Mar 2026 16:07:27 +0800
-Subject: [PATCH v2 5/5] dt-bindings: interrupt-controller: aspeed: Remove
- AST2700-A0 support
+	id 1vyR31-00000003JTV-195V
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Mar 2026 09:00:41 +0000
+Received: from duge-virtual-machine (unknown [183.192.221.67])
+	by APP-05 (Coremail) with SMTP id zQCowADXaQ2ol6ppQLO+CQ--.47488S2;
+	Fri, 06 Mar 2026 17:00:26 +0800 (CST)
+Date: Fri, 6 Mar 2026 17:00:23 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: krzk@kernel.org, adrian.hunter@intel.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	gaohan@iscas.ac.cn, me@ziyao.cc
+Subject: Re: [PATCH v2 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC
+ controller support
+Message-ID: <aaqXpzEPeKfSYF41@duge-virtual-machine>
+References: <20260226115923.75670-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260226115923.75670-3-jiayu.riscv@isrc.iscas.ac.cn>
+ <CAPDyKFrxJ0oWuMWoUEYGO0t-WOYU+G7p5eFw8cUY7xyPaREB5Q@mail.gmail.com>
 MIME-Version: 1.0
-Message-ID: <20260306-irqchip-v2-5-f8512c09be63@aspeedtech.com>
-References: <20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com>
-In-Reply-To: <20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>, Thomas Gleixner <tglx@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772784444; l=4783;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=3E1xw0HsueF+u/KGpP5CYluFLpq97aaG2OP77KelhBs=;
- b=kn3OWDXDQmtIRzIJ+vraA5kn3sCgavptGJTCroJCF5tKMdeBxGWqFh6O/g3qUTIV5PITffJCm
- x6t6XR7doW0DCAxoEbGTDatBhB49uxvPlTHJYMShILaxIWY7BloaU+0
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+Content-Disposition: inline
+In-Reply-To: <CAPDyKFrxJ0oWuMWoUEYGO0t-WOYU+G7p5eFw8cUY7xyPaREB5Q@mail.gmail.com>
+X-CM-TRANSID: zQCowADXaQ2ol6ppQLO+CQ--.47488S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFW7GF1kAw1kJw4rXrWUJwb_yoW8KF1fpa
+	yDXrnIkrWUJF4Sgwnxuw1Duas0qw4Sk3sxtFy3Gw1xZrZ2kF1jqry8Ka4093ZaqrWrGF1j
+	vr1jqr95urnIyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxU2VbyDUUUU
+X-Originating-IP: [183.192.221.67]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_000742_961198_BFE2B381 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260306_010039_711292_4148A9DF 
+X-CRM114-Status: GOOD (  22.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,132 +86,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The existing AST2700 interrupt controller binding
-("aspeed,ast2700-intc-ic") was written against the A0 pre-production
-design.
+On Thu, Mar 05, 2026 at 12:48:29PM +0100, Ulf Hansson wrote:
+> On Thu, 26 Feb 2026 at 12:59, Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn> wrote:
+> >
+> > Add SDHCI controller driver for Canaan k230 SoC. Implement custom
+> > sdhci_ops for set_clock, phy init, init and reset.
+> >
+> > Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+> > ---
+> >  drivers/mmc/host/sdhci-of-dwcmshc.c | 288 ++++++++++++++++++++++++++++
+> >  1 file changed, 288 insertions(+)
+> >
+> > diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> > index 2b75a36c096b..21c77e908d77 100644
+> > --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
+> > +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+...
+> >  struct dwcmshc_pltfm_data {
+> > +       const void *match_data;
+> 
+> This makes sense to me!
+> 
+> Although, I realized that dwcmshc_rk35xx_init() could also move its
+> assignment of "devtype" into this match_data.
+> 
+> Can you please create a follow-up patch to fixup this and to avoid
+> storing this type of data in two different ways?
+> 
+...
+> > +static int dwcmshc_k230_init(struct device *dev, struct sdhci_host *host,
+> > +                            struct dwcmshc_priv *dwc_priv)
+> > +{
+> > +       static const char * const clk_ids[] = {"block", "timer", "axi"};
+> > +       const struct dwcmshc_k230_match_data *match_data;
+> > +       const struct dwcmshc_pltfm_data *pltfm_data;
+> > +       struct device_node *usb_phy_node;
+> > +       struct k230_priv *k230_priv;
+> > +       u32 data;
+> > +       int ret;
+> > +
+> > +       pltfm_data = device_get_match_data(dev);
+> > +
+> > +       if (!pltfm_data || !pltfm_data->match_data) {
+> > +               dev_err(dev, "No vendor data found for K230\n");
+> > +               return -EINVAL;
+> > +       }
+> > +       match_data = pltfm_data->match_data;
+> 
+> I don't think this should be specific to dwcmshc_k230_init().
+> 
+> Instead I suggest adding a "const void *match_data" to the "struct
+> dwcmshc_priv" - and copy the pointer in the common dwcmshc_probe()
+> instead. In this way, all variants will be able to use it.
 
-In A0, the interrupt hierarchy effectively converged at the Primary
-Service Processor (PSP): INTC1 instances fed into INTC0, and INTC0 was
-wired to the PSP GIC. The binding therefore described a fixed, PSP
-aggregation model.
+Your suggestions make perfect sense. I'll prepare a new version to add
+the "const void *match_data" to "struct dwcmshc_priv", assign it in
+"dwcmshc_probe()", and adjust the K230 init accordingly.
 
-From A1 onwards (retained in the A2 production silicon), the interrupt
-fabric was re-architected: interrupt routing is programmable and
-interrupt outputs can be directed to multiple upstream controllers
-(PSP GIC, Secondary Service Processor (SSP) NVIC, Tertiary Service
-Processor (TSP) NVIC, and Boot MCU interrupt controller). This design
-requires route resolution and a controller hierarchy model which the
-A0 binding cannot represent.
+I'll also migrate the rk35xx devtype assignment to match_data for
+consistency. Once ready, I'll post the link as a reply to this k230 mmc
+series.
 
-Remove the binding for the pre-production A0 design in favour of the
-binding for the A2 production design. There is no significant user
-impact from the removal as there are no existing devicetrees in any
-of Linux, u-boot or Zephyr that make use of the A0 binding.
+Best regards,
+Jiayu Du
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- .../interrupt-controller/aspeed,ast2700-intc.yaml  | 90 ----------------------
- 1 file changed, 90 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-deleted file mode 100644
-index 258d21fe6e35..000000000000
---- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-+++ /dev/null
-@@ -1,90 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
--%YAML 1.2
-----
--$id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
--$schema: http://devicetree.org/meta-schemas/core.yaml#
--
--title: Aspeed AST2700 Interrupt Controller
--
--description:
--  This interrupt controller hardware is second level interrupt controller that
--  is hooked to a parent interrupt controller. It's useful to combine multiple
--  interrupt sources into 1 interrupt to parent interrupt controller.
--
--maintainers:
--  - Kevin Chen <kevin_chen@aspeedtech.com>
--
--properties:
--  compatible:
--    enum:
--      - aspeed,ast2700-intc-ic
--
--  reg:
--    maxItems: 1
--
--  interrupt-controller: true
--
--  '#interrupt-cells':
--    const: 1
--    description:
--      The first cell is the IRQ number, the second cell is the trigger
--      type as defined in interrupt.txt in this directory.
--
--  interrupts:
--    minItems: 1
--    maxItems: 10
--    description: |
--      Depend to which INTC0 or INTC1 used.
--      INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
--      status registers for use.
--      INTC0 is used to assert GIC if interrupt in INTC1 asserted.
--      INTC1 is used to assert INTC0 if interrupt of modules asserted.
--      +-----+   +-------+     +---------+---module0
--      | GIC |---| INTC0 |--+--| INTC1_0 |---module2
--      |     |   |       |  |  |         |---...
--      +-----+   +-------+  |  +---------+---module31
--                           |
--                           |   +---------+---module0
--                           +---| INTC1_1 |---module2
--                           |   |         |---...
--                           |   +---------+---module31
--                          ...
--                           |   +---------+---module0
--                           +---| INTC1_5 |---module2
--                               |         |---...
--                               +---------+---module31
--
--required:
--  - compatible
--  - reg
--  - interrupt-controller
--  - '#interrupt-cells'
--  - interrupts
--
--additionalProperties: false
--
--examples:
--  - |
--    #include <dt-bindings/interrupt-controller/arm-gic.h>
--
--    bus {
--        #address-cells = <2>;
--        #size-cells = <2>;
--
--        interrupt-controller@12101b00 {
--            compatible = "aspeed,ast2700-intc-ic";
--            reg = <0 0x12101b00 0 0x10>;
--            #interrupt-cells = <1>;
--            interrupt-controller;
--            interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH>;
--        };
--    };
-
--- 
-2.34.1
+> 
+> Kind regards
+> Uffe
 
 
 _______________________________________________
