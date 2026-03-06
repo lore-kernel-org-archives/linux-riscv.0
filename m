@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560C2FCC9AF
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 00:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8ED0FCC9A8
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 00:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cPHQFk6sX9rLsyMIXqOInWoEFjVDE+GdenMmntTcNc8=; b=ZCCHNFPhDC7q1m
-	kFpucx4pJH+d10rVL9Y/mIyIf8K+3dajkyhDanQ2AiPYw5+mZfFblpuCsgfmfQ4yru2CSQ6nw2xCz
-	gd6kf/4l3QbLaKlwiKQruX0L92hfyL5Vgvzv9QbNT/rxzOcPOHxp7tLLIDK7zEbv20CrCP1s653ZF
-	ZyiWlfk6R0pY9ZKHrrmFAKqOYs322lRyEzUVj+QS8G61cSuJTKKLVnnR6Ah6ELvx0Ld2ImaCuCgYt
-	b962HwgGBucphMpyDqyHtp1jZTECltcKxoT+QmNH5JRwm6ArdIcjoZZjjAzMRLBNhjUf/woRw485r
-	Y4eyD+8pM0E0T2unf2uw==;
+	List-Owner; bh=VnuBcNj8anj4K3FWJNbuJRdCYOOHJKGbPVbN4rxvT08=; b=feEnSKHjXxFcRj
+	4XuJCYqGtxCnJh+mYS+yKbi9kFTXf3MOqIVgt+rGPYvPt0q1HSfT9LLkABKfKj0WW83N0Z1GmJz1h
+	GR+LKUPh4wSk0lfgzLQXiiBTo+19CSpGy8RJD2sN9CePiXqRMr7mnBAZf4TzDJWgGwKKbGZy23xVg
+	8XivFKMzHA86rToPtlpDGqgY0Ns8RYOEkbA2WfGl1BG2FWqolb8Vmuq0LPWeZtqUvgQ03B0PJ8TUp
+	x8+hPaUofPfaKV8WO352pk81+ep/0/1qxbiaoM7lT9i1Bl8V1Xe2PuhLprZj4YFZVKC+KF5cVSq/7
+	7w7U3YFupuuhezjkidLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzkWZ-00000008KZQ-2H0E;
-	Tue, 10 Mar 2026 00:00:35 +0000
-Received: from fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.197.217.180])
+	id 1vzkWa-00000008Kaw-3jUj;
+	Tue, 10 Mar 2026 00:00:36 +0000
+Received: from fra-out-003.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([3.72.182.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyWUb-00000003yKN-25Ef;
-	Fri, 06 Mar 2026 14:49:31 +0000
+	id 1vyXJe-000000043Ws-2LEB;
+	Fri, 06 Mar 2026 15:42:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1772808569; x=1804344569;
+  t=1772811734; x=1804347734;
   h=message-id:date:mime-version:reply-to:subject:to:cc:
    references:from:in-reply-to:content-transfer-encoding;
-  bh=NrzHXx0Lp7Elw8ALF5D0u+kNkH3P0Dcowz8U+9XDncM=;
-  b=JF8M40jG1RYIVatOlRZ2CqOb3BU+ftZ6H1UsIQ8V49OkXZiRblnzYzcD
-   lwsTrNX2Ak8Uzxz6YlcceM5qy5uW5/1ad9ygHDhkhEvNeH+REkwG/ehK2
-   hJnxbzfiuDDaSq41yyj9YNw6LZM0G2DPucgUqa+LJhHBJk5IMmEEQg8PI
-   UzfavGT7CHSPCLSFhRbpb/YZN0NoehEnODnrYaZy1ugMYGbxuNMZQLWW3
-   AciBzfFcrYlb5IOrhrrphx/ShWLuryuB6k8JqlT2lmPaqHlg687/LJ3ho
-   rgkGQmTKB/kAzr7WLBfwP2Sv2Xze8paHGvrtKMeyjbaVs0Wz+XLlbZI1f
-   g==;
-X-CSE-ConnectionGUID: 5IccaEBNQVSWRB5rNmqQOQ==
-X-CSE-MsgGUID: 2TQ5H7tGR3uCD8Jr0npB8Q==
+  bh=zlv5A21skW2cpWW+wfG6AmLOagqEDkrIsCoF7K54pBc=;
+  b=HjUgjvU3l8JCmKgYUMw4Ygy9Aim7IUwMscTQgjIYKFQOxN1QCQi3LM9K
+   ZpvWbKNZzIlzvT0SdXoAxPhz2h3U5its1gk5MKhPEVO4j73IR3gwDdtjg
+   1uZxF5FQ+pFTnSOHUSDJN3ygVO+NjEGkVOix0IHzWSti39+6hNK1dMHNj
+   F3ut/ITRAQ+fP58I3H1ZLkMGiesjuWqoQ4KQAqDxH8CL6S5U03xBYX5iH
+   W8FB3OMlqyDjhNo0KEmoVJgZTMVnRYBZxP8vjqcU2KZHyLbA0KKtx0H74
+   xDYhnx+0vn7TqhzNYwbV5V80J6xqT09R+yok7M0sTV820BeTY8XCFor66
+   A==;
+X-CSE-ConnectionGUID: /M9OfjBRTeKqpDhCE8ldMA==
+X-CSE-MsgGUID: 0Bb6xkULS3yW60j2eb25+A==
 X-IronPort-AV: E=Sophos;i="6.23,105,1770595200"; 
-   d="scan'208";a="10436907"
+   d="scan'208";a="10435125"
 Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
-  by internal-fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 14:49:25 +0000
-Received: from EX19MTAEUB002.ant.amazon.com [54.240.197.224:3701]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.26.205:2525] with esmtp (Farcaster)
- id 00a2718f-a0c4-43d5-bed7-970a51d610b2; Fri, 6 Mar 2026 14:49:25 +0000 (UTC)
-X-Farcaster-Flow-ID: 00a2718f-a0c4-43d5-bed7-970a51d610b2
+  by internal-fra-out-003.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2026 15:42:09 +0000
+Received: from EX19MTAEUB001.ant.amazon.com [54.240.197.226:28153]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.5.165:2525] with esmtp (Farcaster)
+ id 8290e714-6a53-45c7-af32-ec04f3406384; Fri, 6 Mar 2026 15:42:09 +0000 (UTC)
+X-Farcaster-Flow-ID: 8290e714-6a53-45c7-af32-ec04f3406384
 Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19MTAEUB002.ant.amazon.com (10.252.51.79) with Microsoft SMTP Server
+ EX19MTAEUB001.ant.amazon.com (10.252.51.26) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Fri, 6 Mar 2026 14:49:24 +0000
+ Fri, 6 Mar 2026 15:42:07 +0000
 Received: from [192.168.2.180] (10.106.83.26) by EX19D005EUB003.ant.amazon.com
  (10.252.51.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Fri, 6 Mar 2026
- 14:49:19 +0000
-Message-ID: <936fa782-d937-4b14-b92d-cc8707336e5e@amazon.com>
-Date: Fri, 6 Mar 2026 14:49:18 +0000
+ 15:42:02 +0000
+Message-ID: <6dcbcdcb-bfdd-43a3-b724-599a717c1054@amazon.com>
+Date: Fri, 6 Mar 2026 15:42:01 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v10 09/15] KVM: guest_memfd: Add flag to remove from
@@ -141,15 +141,17 @@ References: <20260126164445.11867-1-kalyazin@amazon.com>
  <13ed00e1-f0db-4326-a800-2ba306833921@kernel.org>
  <690c22f9-b71a-4f14-9857-008c7c858373@amazon.com>
  <0c0b911c-cda2-44a4-897e-361e02be7da5@kernel.org>
+ <936fa782-d937-4b14-b92d-cc8707336e5e@amazon.com>
+ <9b4b9f48-595d-46c9-8f77-fc021ac2619c@kernel.org>
 Content-Language: en-US
 From: Nikita Kalyazin <kalyazin@amazon.com>
-In-Reply-To: <0c0b911c-cda2-44a4-897e-361e02be7da5@kernel.org>
+In-Reply-To: <9b4b9f48-595d-46c9-8f77-fc021ac2619c@kernel.org>
 X-Originating-IP: [10.106.83.26]
-X-ClientProxiedBy: EX19D001EUB001.ant.amazon.com (10.252.51.16) To
+X-ClientProxiedBy: EX19D011EUA003.ant.amazon.com (10.252.50.178) To
  EX19D005EUB003.ant.amazon.com (10.252.51.31)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_064929_832976_5ED48D36 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20260306_074215_091554_F1431BDE 
+X-CRM114-Status: GOOD (  16.54  )
 X-Mailman-Approved-At: Mon, 09 Mar 2026 17:00:27 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -170,76 +172,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 06/03/2026 14:22, David Hildenbrand (Arm) wrote:
-> [...]
-> 
->>>> +     /*
->>>> +      * Direct map restoration cannot fail, as the only error condition
->>>> +      * for direct map manipulation is failure to allocate page tables
->>>> +      * when splitting huge pages, but this split would have already
->>>> +      * happened in folio_zap_direct_map() in
->>>> kvm_gmem_folio_zap_direct_map().
->>>> +      * Note that the splitting occurs always because guest_memfd
->>>> +      * currently supports only base pages.
->>>> +      * Thus folio_restore_direct_map() here only updates prot bits.
->>>> +      */
->>>> +     WARN_ON_ONCE(folio_restore_direct_map(folio));
->>>
->>> Which raised the question: why should this function then even return an
->>> error?
+On 06/03/2026 15:16, David Hildenbrand (Arm) wrote:
+> On 3/6/26 15:49, Nikita Kalyazin wrote:
 >>
->> Dave pointed earlier that the failures were possible [1].  Do you think
->> we can document it better?
+>>
+>> On 06/03/2026 14:22, David Hildenbrand (Arm) wrote:
+>>> [...]
+>>>
+>>>>
+>>>> Dave pointed earlier that the failures were possible [1].  Do you think
+>>>> we can document it better?
+>>>
+>>> I'm fine with checking that somewhere (to catch any future problems).
+>>>
+>>> Why not do the WARN_ON_ONCE() in folio_restore_direct_map()?
+>>>
+>>> Then, carefully document (in the new kerneldoc for
+>>> folio_restore_direct_map() etc) that folio_restore_direct_map() is only
+>>> allowed after a prior successful folio_zap_direct_map(), and add a
+>>> helpful comment above the WARN_ON_ONCE() in folio_restore_direct_map()
+>>> that we don't expect errors etc.
+>>
+>> My only concern about that is the assumptions we make in KVM may not
+>> apply to the general case and the WARN_ON_ONCE may become too
+>> restrictive compared to proper error handling in some (rare) cases.  For
+>> example, is it possible for the folio to migrate in between?
 > 
-> I'm fine with checking that somewhere (to catch any future problems).
+> Not without migration support. But then, migration would have to make
+> sure that the destination folio has the direct map removed. So I
+> wouldn't worry about that.
 > 
-> Why not do the WARN_ON_ONCE() in folio_restore_direct_map()?
+> Once you return an error from folio_restore_direct_map(), you better
+> document when/why it happens and how the caller should handle it.
 > 
-> Then, carefully document (in the new kerneldoc for
-> folio_restore_direct_map() etc) that folio_restore_direct_map() is only
-> allowed after a prior successful folio_zap_direct_map(), and add a
-> helpful comment above the WARN_ON_ONCE() in folio_restore_direct_map()
-> that we don't expect errors etc.
+> There is nothing existing callers could really do, so it's an
+> implementation detail of the
+> folio_zap_direct_map()/folio_restore_direct_map() functions to make sure
+> it keeps working.
+> 
+> If it ever fails, we'll have to figure out how to keep the interface
+> working.
+> 
+> You can document any restrictions regarding when
+> folio_zap_direct_map()/folio_restore_direct_map() is allowed to be used
+> in the kerneldoc.
 
-My only concern about that is the assumptions we make in KVM may not 
-apply to the general case and the WARN_ON_ONCE may become too 
-restrictive compared to proper error handling in some (rare) cases.  For 
-example, is it possible for the folio to migrate in between?
+Ok, makes sense to me.
 
-> 
-> [...]
-> 
->>>> -     if (!is_prepared)
->>>> +     if (!is_prepared) {
->>>>                 r = kvm_gmem_prepare_folio(kvm, slot, gfn, folio);
->>>> +             if (r)
->>>> +                     goto out_unlock;
->>>> +     }
->>>> +
->>>> +     if (kvm_gmem_no_direct_map(folio_inode(folio))) {
->>>> +             r = kvm_gmem_folio_zap_direct_map(folio);
->>>> +             if (r)
->>>> +                     goto out_unlock;
->>>> +     }
->>>
->>>
->>> It's a bit nasty that we have two different places where we have to call
->>> this. Smells error prone.
->>
->> We will actually have 2 more: for the write() syscall and UFFDIO_COPY,
->> and 0 once we have [2]
->>
->> [2] https://lore.kernel.org/linux-mm/20260225-page_alloc-unmapped-v1-0-
->> e8808a03cd66@google.com/
->>
->>>
->>> I was wondering why kvm_gmem_get_folio() cannot handle that?
->>
->> Most of the call sites follow the pattern alloc -> write -> zap so
->> they'll need direct map for some time after the allocation.
->>
-> 
-> Okay. Nasty. :)
 > 
 > --
 > Cheers,
