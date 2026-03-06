@@ -4,132 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D6EF513F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Mar 2026 04:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E528BF51416
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Mar 2026 07:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S0Jd4E8tOFfRQxJtDO5eVvsRtdCTquSSuIB5m1gWeSg=; b=FjNS2UU2mY3M8y
-	+N9xh+0/6dZkDvoKpEiOq8ZHPlplGDaaQguQCLDASx6Lm39/az166H/i06nuhc4V9yeSlzmArV20E
-	4eLiYj3boPmnaeGdeTqMAEyB7+ziFHEuZnb0DTEHGR1lYgh5jxxJUlO1nsIVWhIz871Z8SWBfXVT6
-	NFuN/HGtWroU2uhffnTHJBlRuYtTTdsUpnkoC9Ui/iZd59zJTNr4lyGvT6rBknkJp5OQVtczfX9Xu
-	B1XZL83Bzypo50QKoir7XFn/D9/KoOY2CEyO65PFlO3bcb6r9AGayx2D3zpUilChSA2NaQxFebbK9
-	LpyBe9s4Ye2qBgiTmCbw==;
+	List-Owner; bh=/qYyl9juHjHzIJWkHpZcrJgGLvr/U3DV/H+i+ftuJFg=; b=zWDBuj0SYnUnAA
+	zYOYiRBIEJK7E7TYpw69gq54y3enc6i07Ut3YF4NEnoseFXJMLintbmR/bXHBKRHf0HEklXcUjImV
+	E/fpkPTz85pWdfeZ376ddYpkipGZ7jR0hQQTIg7oojIfzRSDjiaoTwDcNB4xGEtC5rMDJhU/craB4
+	vGSVgxcrBWNiWaAdH91ij9SVp/tNXCCuoylnO0+lDmmgNC8vJC9KiJ081vn2qUVfSm0B0c4/yhlXO
+	lDAwNskyldS/4eth/ugphir0IHjlAlrL5fzuXghRRF0F71otwTczNqwIqUmC2PhrX7DiKFGaDTGv2
+	cTuGephP4qP+PK/JTzjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyMap-00000002zvP-3DSo;
-	Fri, 06 Mar 2026 04:15:15 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1vyPEV-000000037Xl-3E0O;
+	Fri, 06 Mar 2026 07:04:23 +0000
+Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyMam-00000002ztz-3BPq
+	id 1vyPET-000000037Wz-1XrE
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Mar 2026 04:15:14 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b940a00415cso222622566b.1
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 20:15:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772770510; cv=none;
+	Fri, 06 Mar 2026 07:04:23 +0000
+Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-66f3e7d9eccso5741948eaf.1
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Mar 2026 23:04:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1772780660; cv=none;
         d=google.com; s=arc-20240605;
-        b=VnCPvOwQU4yn2Ghbd41Vod7v19dhqwCIdW6t3wSNW1LFduIP5/haXKmtif2hhkoORB
-         xdkLJDiQOJ8Kjp8l5xQVcrB92X1AM464AwqalSWjFwZfc0usCOnYlzMv49gxuaQ20zUy
-         PXbmo8Lx0LyxyvUBLMBcsAPNcdf9kogYA/YqNcBMBJZ6b81atLzE5uONxG/m0ePZ0UeC
-         f7XRpT2ZZEKdrh+EJv0IGTedUonuE9UgegsC5WuplKJuaSdiXU2a3iYVWzs7y5gMOCO/
-         JVHKgXAQmzGBl7HMac2N31LY5kG0XH6fK1cOhgFQjd8eazuyji7sL3noOW5KlIbgiovW
-         ZL8A==
+        b=KUjnCoYNbYk7EVv6UXYwiyR6mqG7z1o3Nr26VihX+5/8Ouvy35TzWIPkTY0KhgO3zq
+         vDRk36WnFG3iu+p7gL+dkWDxHM+rwtxAMlfY+Bm/1+iv/FU0vEB5Zg1c4zCbw3IMf8EL
+         SbvExMAFrHxV03vi8p0vsg1e9rG01CQxjuCab/ukRyN1owD/6hE1+3PH2ABU6IBJi6v4
+         IA5DuYE6LBXrb4V6PJi4OH7OipmGQVijOd7CcScKJ1ZP8j0wiLVTLbO0Qf4qEHDWO21m
+         KDuZHAlXjG35jI68j1UB9Q1Jwn9Y3aHJu0hoEK1zUd9jsdCOWhRTq1uq6YcD1RsgIyUA
+         Lpiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=caYlw5uZFtDTjdpuJpoLZkB8qzJjrGN/QTXEgHQCJYY=;
-        fh=z2qmarudbBok6LnkfHHQpwL5IX9KKxtoOEdKrAtvPiI=;
-        b=JWA9oaxYYKKbEnoJb0/2J3AdidNCiB/a8y5Daix7GMhNLwP5STdicYf4euPR+xN613
-         Z/WDK8x1rs42nKuiI2qaq7xnMfglTTRf169DdYktuXcNHim7Ym1OAm/LcVEM5HA2WyVY
-         P95K3QEDxp7SFzzzREVTVZscMm9KwhB4uknvbUhL49g1FfDsmH+w+jlDR7WM4/aQr1OG
-         969kwMO0cshUE4cDJpQBF1ZX2iC45ErfxRdl6lwTWb8Sl2vR+VFJBOZOT5WGJ/158Xlr
-         bjOBpJnc+G7SCMiMnQpiz57YsJeIz5D8ephpill/ltW2tDi5vEKKezy38qwpwAEy2vbo
-         nLYQ==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=yREeU4CE/jhwdCxENgT8cCU88WTqOERvy7IPLNknu0s=;
+        fh=49CtR4It5sapSSVGh+BCaB/cHsfhEs2vjh4tCu0KHtQ=;
+        b=KFm6QFbuHAZilF3D/XXDHeN/ruUYQYDNwSwm/tJtqakq0djqh7iooOISmCvK5WuBc1
+         J/0ZuR0170AhQ3qBeDaxCVB+CAMUdVHlE0gfuUo+X3UmrBoQo+LHbqbM8pGgWmZAqsYR
+         pxoPkPDyCBbxasP3Zm5/BGC1IkoxDaMwwS1UFVSH9GuQ99h2pYtBknKMT/rphw54rF2k
+         fduikCHeK/VMbMfLAglaNgSeTk/Q5m/HZuojeCz465MZGSVqt+KtxJc19aODk1qagPrd
+         sofyELlTyU+Y//kERnR9JbQ75KBFPPt5lz4Rmsng8QX3Ji92nGXGleNWbx3soOOyDnZF
+         NrJA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1772770510; x=1773375310; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=caYlw5uZFtDTjdpuJpoLZkB8qzJjrGN/QTXEgHQCJYY=;
-        b=b1y3QByW7KPVsJykodjSG2MkBg0CDEMn1sg7E8Fa43QBG8FIJtl8tHMNe9CbePFfrW
-         sUNzBDNmPRZSYV24NOD2dQOUgqaeityjK/Z4yHPCNFXTLZfWGGNW8m+thYOawkT9fKmy
-         q9rqYkfbX3ghbt30h7YH5MxaZOOj6e9JCaYwjZMBpE/VeNN3KbVAJKSkQ+/5zJPWHnCz
-         dC0xQ5i6IcYAnQM9wsT2GTePVbM+nfr+nq7xG1WivV+hvnmm14RW+R9AjFl8BXap21lP
-         aYHtQKuGEs2Nm9th9rGxW8sH1edw/MIoIdBkEhOMB2cizm0QN9qeMZlcL++N9bsIfw7a
-         0/mA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1772770510; x=1773375310;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1772780660; x=1773385460; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=caYlw5uZFtDTjdpuJpoLZkB8qzJjrGN/QTXEgHQCJYY=;
-        b=i4syZXbwlydzdP50f+MFgSnrZfPBkoE4t6872+6EK1X1R/GT6XcUqmGTsD2/XieuLK
-         2VnWN/Jja4uyWKs/HWalcfuvbE+neExpbb3cFWY2rfs1jKpaNCQFZIP7pu9hGLGsyhW0
-         aDRIkqf0s5R5jzVqJUymBJJg5Iz8f6CIfjdOAdUudLou9upAmmZI5N92KfFAO3PhhHh0
-         5FxuX1vGQ5pRQpqZSpPOZpUR665hV+zhTcxq8AanuJQdch9QxiWPHIh3MSnDNo5AaifD
-         ZciT7yGQIgmHJ6ttHeBvVJU/eF3SbHQCRV3hzjlIjUQFnpyiS/wmRNs5IOJS7LSI0bqN
-         XKQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVAbUeyFqZ/PIQqcFjIRGMtSmprLxqu8eycTpi4mEgWL5TaFvrkbf5P7u8yWRAYnW5RJgCljbXaETfZEw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYOQywzgElaxI8L+MolWkc4PHacEbtexgNsm7lhhT+JLHlI+Ww
-	ssfxeZ9bhtILSgsGcW7V18cFCKNggzBEJfbkWqjzBKjG8ofqAzALbUd6N5/nqiYVex6Kb3cf0Se
-	gELf4h87qhY37afWx8RJqkDegR1Zh5Rk=
-X-Gm-Gg: ATEYQzxfE3tkSTkoZjUA0L/b715lQWDdvFBb7n85/r++SigTtcywuvfkc5DxLaw3K1W
-	m2jdP3RtUS/1OJsgHBPUDvaghCdDIrKEojlxW2c6LiLVm/qnY3Vj41zTA11d5ReygMLJnJ3i1cr
-	ZBVOcz3ALO7jPvzHvwiB1utIidcTaGqz97ZAFRhff1qS3+LfM1lmq5m400ZYs5zM8+SBT3LG4Xs
-	SBGO4jIL4bFvpjAn/8L/mHYy/Qbc1HNCnCGsKHSU0WegzY/IctZ1PsDGujvPMUvWOKHVPGAG7tc
-	iCwBbg==
-X-Received: by 2002:a17:907:6d02:b0:b93:6bfe:d556 with SMTP id
- a640c23a62f3a-b942db8682dmr33539966b.7.1772770510037; Thu, 05 Mar 2026
- 20:15:10 -0800 (PST)
+        bh=yREeU4CE/jhwdCxENgT8cCU88WTqOERvy7IPLNknu0s=;
+        b=BnjV/4DyhFxpN1Tb3k5Rr8DXwFVmaoSuh/eHYQzttVM0WtlwboeVnwphAPDaFWRm1O
+         QGrPmfkNzqFubMFDb/99+Q7SqV6VSbsG5nel6Y1q/ERurTdb7GAotu9qq8lyU44CgRfP
+         hTAxpd8PxmP/+2G3MkSnVowwnOAphFaTI2PAUrBMs5JjbMV1xNE4zGowz6xUGri6MAFr
+         5eIaJOUdbanibYpEqEYOa5wh4HjPommuTDMBVZNflMWaSi9CZpJr7OiLC9U++2FDHa6E
+         xanV8nZ7kZOxkDGwlmGNpKptvMj1vbTvlOfO+sKKjoE+gyQHn2SJd/qDn5Ae032S/4yH
+         nrpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1772780660; x=1773385460;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yREeU4CE/jhwdCxENgT8cCU88WTqOERvy7IPLNknu0s=;
+        b=efGIB7cRpee/SZjYbj8OtQpMx+TNh7zqP6NLGbq0+m/2lgaovC280HZwoxMirH66Zr
+         tKMDx+yQ0wzORaW44lPb6/HxWDaENpWphkSbspjIZgpIlO0M1NCeKvv+Ojin0APSEs+c
+         qM3XZEowRjsKYzbdZgsFLj7GZGN0waZGKAffkehkR/G0VaiI6+HlUc4IDWwcahjG0c7Y
+         eWpye3qfpPTktUzffds7fMAM+Pvaja1WBsY6w4tof7YaxkjXlbinpURfpqjWesr2Sduk
+         07kt+VzL1q6XeGmNdddrvG+sTrbOQjutt4Tae6DC9FSsuIkJf7TMDKd1U5xGqp1Dd0Ga
+         b7MQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXnA1ylo7zLjtAHWkujqSJZVQSXUl/N7oBTxrwa3ezf4T6mOUnpn5qKvXmPWB65dPeHVme+fj/BvEugOQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjyu5pOGoDSaCDcMm0KX3yu8hiPCO4PSMvo3ZaKuyP5ePWTQ4R
+	55Ov/u+vPjUca4mrhO3d+yH5CtPQ+xpe8u07uY6C1V7DVZGwzitl7WgN39h6SKuuQkQu7MMEx+s
+	ipQ8MVMl0lcDRP/GPOSGgBcOWjkJ7h058/m0G1DRKKg==
+X-Gm-Gg: ATEYQzyyAAEvDmUg1X5WArJalw3cIJESev/VRf1SJXZ96f+qeS4govpstScp2SZv9Vw
+	VAE11S4HPWg13Q9daMuZ4EK84sJgq47GAkkYVso1iC7CcVIFrWq/ShuJajkVDNChsUDQdln/dJp
+	SOAp5f2Y94cKY3fO1MQ5cLmofSTp+mC4+xtg6uFYcseSgD9B0jjXfhdHGKmDrdsiFts2igc7/M2
+	d1Ek7WD9biwIn92hNYi+IryGNg3xHTeCkTWPX4Su3ZHMAtwJeoeH76b5U9M3eerQl3ZMk25y4et
+	d2ICHrtE+U5sDU5lXq2X5Lr3c6WUXtKiFO6nxJHoyLUTqillVjJFLMhhdNWRQatxPE2p1S+vTSK
+	1O/WIaWMD2o5IedCDC93X1lyHEA==
+X-Received: by 2002:a05:6820:1b05:b0:674:62e7:190f with SMTP id
+ 006d021491bc7-67b9bca7baamr925571eaf.17.1772780660047; Thu, 05 Mar 2026
+ 23:04:20 -0800 (PST)
 MIME-Version: 1.0
-References: <20260304140329.7089-1-linux.amoon@gmail.com> <MA5PR01MB125008C876FC8461A80514DE8FE7DA@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
-In-Reply-To: <MA5PR01MB125008C876FC8461A80514DE8FE7DA@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Fri, 6 Mar 2026 09:44:53 +0530
-X-Gm-Features: AaiRm51D8WbPwjbtXZGUsnsbSyyBH4WmUaM2xaSBTKwsUjOwhQr-zWi1-hyOtG4
-Message-ID: <CANAwSgQ8eKV4jyxGeva_2aT98sPW=44Q9J5PxMgJ-bs3XdwrkA@mail.gmail.com>
-Subject: Re: [RFC v1 00/18] PCI: Enable async probe by default
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Jingoo Han <jingoohan1@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Minghuan Lian <minghuan.Lian@nxp.com>, 
-	Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, Yue Wang <yue.wang@amlogic.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jonathan Chocron <jonnyc@amazon.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Jesper Nilsson <jesper.nilsson@axis.com>, 
-	Paul Walmsley <pjw@kernel.org>, Greentime Hu <greentime.hu@sifive.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Chuanhua Lei <lchuanhua@maxlinear.com>, 
-	Srikanth Thokala <srikanth.thokala@intel.com>, Xiaowei Song <songxiaowei@hisilicon.com>, 
-	Binghui Wang <wangbinghui@hisilicon.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Niklas Cassel <cassel@kernel.org>, 
-	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>, Qianfeng Rong <rongqianfeng@vivo.com>, 
-	Koichiro Den <den@valinux.co.jp>, Hans Zhang <18255117159@163.com>, 
-	Sai Krishna Musham <sai.krishna.musham@amd.com>, 
-	Thippeswamy Havalige <thippeswamy.havalige@amd.com>, Vidya Sagar <vidyas@nvidia.com>, 
-	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>, 
-	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>, 
-	"moderated list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:PCI DRIVER FOR SAMSUNG EXYNOS" <linux-samsung-soc@vger.kernel.org>, 
-	"open list:PCI DRIVER FOR FREESCALE LAYERSCAPE" <linuxppc-dev@lists.ozlabs.org>, 
-	"open list:PCI DRIVER FOR FREESCALE LAYERSCAPE" <imx@lists.linux.dev>, 
-	"open list:PCIE DRIVER FOR AMLOGIC MESON" <linux-amlogic@lists.infradead.org>, 
-	"open list:PCIE DRIVER FOR AXIS ARTPEC" <linux-arm-kernel@axis.com>, 
-	"open list:SOPHGO DEVICETREES and DRIVERS" <sophgo@lists.linux.dev>, 
-	"open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>, 
-	"open list:SIFIVE DRIVERS:Keyword:fu [57] 40" <linux-riscv@lists.infradead.org>
+References: <20260120080013.2153519-1-anup.patel@oss.qualcomm.com> <20260120080013.2153519-2-anup.patel@oss.qualcomm.com>
+In-Reply-To: <20260120080013.2153519-2-anup.patel@oss.qualcomm.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 6 Mar 2026 12:34:08 +0530
+X-Gm-Features: AaiRm533kBoYnXDCQRSDQXrP3bNbpBpz22jiDNqrmWLzZZYwaIGtUWbuuXDPWwo
+Message-ID: <CAAhSdy2u3C2JyakhnSZxuSO2ecJsaz9DXWkRp96CArqHz4Ce9w@mail.gmail.com>
+Subject: Re: [PATCH 01/27] RISC-V: KVM: Fix error code returned for Smstateen ONE_REG
+To: Anup Patel <anup.patel@oss.qualcomm.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atish.patra@linux.dev>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Shuah Khan <shuah@kernel.org>, Andrew Jones <andrew.jones@oss.qualcomm.com>, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260305_201512_833323_96FDB6FE 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20260305_230421_673577_EFDA8436 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,85 +116,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chen,
-
-On Thu, 5 Mar 2026 at 05:57, Chen Wang <unicorn_wang@outlook.com> wrote:
->
-> Hello Anand,
->
-> On 3/4/2026 9:51 PM, Anand Moon wrote:
-> > Following recent asynchronous probing updates to the Rockchip PCIe
-> > controller, this change enables default async probe functionality for
-> > all DesignWare Core (DWC) based controllers to optimize boot times [0].
-> >
-> > [0] https://lore.kernel.org/all/20260226101032.1042-1-linux.amoon@gmail.com/
-> >
-> > This PROBE_PREFER_ASYNCHRONOUS flag help to parallelize device initialization.
-> >
-> > Thanks
-> > -Anand
-> >
-> > Anand Moon (18):
-> >    PCI: al: Allow asynchronous probing for background link training
-> >    PCI: amd-mdb: Allow asynchronous probing for background link training
-> >    PCI: armada8x: Allow asynchronous probing for background link training
-> >    PCI: artpec6: Allow asynchronous probing for background link training
-> >    PCI: bt1: Allow asynchronous probing for background link training
-> >    PCI: dra7xx: Allow asynchronous probing for background link training
-> >    PCI: exynos: Allow asynchronous probing for background link training
-> >    PCI: fu740: Allow asynchronous probing for background link training
-> >    PCI: intel-gw: Allow asynchronous probing for background link training
-> >    PCI: keystone: Allow asynchronous probing for background link training
-> >    PCI: keembay: Allow asynchronous probing for background link training
-> >    PCI: kirin: Allow asynchronous probing for background link training
-> >    PCI: layerscape: Allow asynchronous probing for background link
-> >      training
-> >    PCI: meson: Allow asynchronous probing for background link training
-> >    PCI: sophgo: Allow asynchronous probing for background link training
-> >    PCI: tegra194: Allow asynchronous probing for background link training
-> >    PCI: uniphier: Allow asynchronous probing for background link training
-> >    PCI: visconti: Allow asynchronous probing for background link training
-> >
-> >   drivers/pci/controller/dwc/pci-dra7xx.c     | 1 +
-> >   drivers/pci/controller/dwc/pci-exynos.c     | 1 +
-> >   drivers/pci/controller/dwc/pci-keystone.c   | 1 +
-> >   drivers/pci/controller/dwc/pci-layerscape.c | 1 +
-> >   drivers/pci/controller/dwc/pci-meson.c      | 1 +
-> >   drivers/pci/controller/dwc/pcie-al.c        | 1 +
-> >   drivers/pci/controller/dwc/pcie-amd-mdb.c   | 1 +
-> >   drivers/pci/controller/dwc/pcie-armada8k.c  | 1 +
-> >   drivers/pci/controller/dwc/pcie-artpec6.c   | 1 +
-> >   drivers/pci/controller/dwc/pcie-bt1.c       | 1 +
-> >   drivers/pci/controller/dwc/pcie-fu740.c     | 7 ++++---
-> >   drivers/pci/controller/dwc/pcie-intel-gw.c  | 1 +
-> >   drivers/pci/controller/dwc/pcie-keembay.c   | 1 +
-> >   drivers/pci/controller/dwc/pcie-kirin.c     | 1 +
-> >   drivers/pci/controller/dwc/pcie-sophgo.c    | 1 +
-> >   drivers/pci/controller/dwc/pcie-tegra194.c  | 1 +
-> >   drivers/pci/controller/dwc/pcie-uniphier.c  | 1 +
-> >   drivers/pci/controller/dwc/pcie-visconti.c  | 1 +
-> >   18 files changed, 21 insertions(+), 3 deletions(-)
-> >
-> >
-> > base-commit: 0031c06807cfa8aa51a759ff8aa09e1aa48149af
->
-> Suggest you indicate in the title of the cover letter for the next patch
-> that this patchset is only related to dwc.
->
-Thanks, If I get positive feedback I will append dwc in the $subject.
-> Thanks,
->
-> Chen
->
-Thanks
--Anand
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKYW4gMjAsIDIwMjYgYXQgMTozMOKAr1BNIEFudXAgUGF0ZWwgPGFudXAucGF0ZWxA
+b3NzLnF1YWxjb21tLmNvbT4gd3JvdGU6Cj4KPiBSZXR1cm4gLUVOT0VOVCBmb3IgU21zdGF0ZWVu
+IE9ORV9SRUcgd2hlbjoKPiAxKSBTbXN0YXRlZW4gaXMgbm90IGVuYWJsZWQgZm9yIGEgVkNQVQo+
+IDIpIFdoZW4gT05FX1JFRyBpZCBpcyBvdXQgb2YgcmFuZ2UKPgo+IFRoaXMgd2lsbCBtYWtlIFNt
+c3RhdGVlbiBPTkVfUkVHIGVycm9yIGNvZGVzIGNvbnNpc3RlbnQKPiB3aXRoIG90aGVyIE9ORV9S
+RUcgaW50ZXJmYWNlcyBvZiBLVk0gUklTQy1WLgo+Cj4gRml4ZXM6IGMwNDkxM2YyYjU0ZSAoIlJJ
+U0NWOiBLVk06IEFkZCBzc3RhdGVlbjAgdG8gT05FX1JFRyIpCj4gU2lnbmVkLW9mZi1ieTogQW51
+cCBQYXRlbCA8YW51cC5wYXRlbEBvc3MucXVhbGNvbW0uY29tPgoKUXVldWVkIHRoaXMgYXMgZml4
+IGZvciBMaW51eC03LjAtcmNYCgpSZWdhcmRzLApBbnVwCgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2t2
+bS92Y3B1X29uZXJlZy5jIHwgMTggKysrKysrKystLS0tLS0tLS0tCj4gIDEgZmlsZSBjaGFuZ2Vk
+LCA4IGluc2VydGlvbnMoKyksIDEwIGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3Yva3ZtL3ZjcHVfb25lcmVnLmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJlZy5jCj4g
+aW5kZXggZTdhYjZjYjAwNjQ2Li42ZGFiNGRlZWQ4NmQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNj
+di9rdm0vdmNwdV9vbmVyZWcuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfb25lcmVnLmMK
+PiBAQCAtNTQ5LDkgKzU0OSwxMSBAQCBzdGF0aWMgaW5saW5lIGludCBrdm1fcmlzY3ZfdmNwdV9z
+bXN0YXRlZW5fc2V0X2NzcihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4gIHsKPiAgICAgICAgIHN0
+cnVjdCBrdm1fdmNwdV9zbXN0YXRlZW5fY3NyICpjc3IgPSAmdmNwdS0+YXJjaC5zbXN0YXRlZW5f
+Y3NyOwo+Cj4gKyAgICAgICBpZiAoIXJpc2N2X2lzYV9leHRlbnNpb25fYXZhaWxhYmxlKHZjcHUt
+PmFyY2guaXNhLCBTTVNUQVRFRU4pKQo+ICsgICAgICAgICAgICAgICByZXR1cm4gLUVOT0VOVDsK
+PiAgICAgICAgIGlmIChyZWdfbnVtID49IHNpemVvZihzdHJ1Y3Qga3ZtX3Jpc2N2X3Ntc3RhdGVl
+bl9jc3IpIC8KPiAgICAgICAgICAgICAgICAgc2l6ZW9mKHVuc2lnbmVkIGxvbmcpKQo+IC0gICAg
+ICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiArICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9F
+TlQ7Cj4KPiAgICAgICAgICgodW5zaWduZWQgbG9uZyAqKWNzcilbcmVnX251bV0gPSByZWdfdmFs
+Owo+ICAgICAgICAgcmV0dXJuIDA7Cj4gQEAgLTU2Myw5ICs1NjUsMTEgQEAgc3RhdGljIGludCBr
+dm1fcmlzY3ZfdmNwdV9zbXN0YXRlZW5fZ2V0X2NzcihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4g
+IHsKPiAgICAgICAgIHN0cnVjdCBrdm1fdmNwdV9zbXN0YXRlZW5fY3NyICpjc3IgPSAmdmNwdS0+
+YXJjaC5zbXN0YXRlZW5fY3NyOwo+Cj4gKyAgICAgICBpZiAoIXJpc2N2X2lzYV9leHRlbnNpb25f
+YXZhaWxhYmxlKHZjcHUtPmFyY2guaXNhLCBTTVNUQVRFRU4pKQo+ICsgICAgICAgICAgICAgICBy
+ZXR1cm4gLUVOT0VOVDsKPiAgICAgICAgIGlmIChyZWdfbnVtID49IHNpemVvZihzdHJ1Y3Qga3Zt
+X3Jpc2N2X3Ntc3RhdGVlbl9jc3IpIC8KPiAgICAgICAgICAgICAgICAgc2l6ZW9mKHVuc2lnbmVk
+IGxvbmcpKQo+IC0gICAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiArICAgICAgICAgICAg
+ICAgcmV0dXJuIC1FTk9FTlQ7Cj4KPiAgICAgICAgICpvdXRfdmFsID0gKCh1bnNpZ25lZCBsb25n
+ICopY3NyKVtyZWdfbnVtXTsKPiAgICAgICAgIHJldHVybiAwOwo+IEBAIC01OTUsMTAgKzU5OSw3
+IEBAIHN0YXRpYyBpbnQga3ZtX3Jpc2N2X3ZjcHVfZ2V0X3JlZ19jc3Ioc3RydWN0IGt2bV92Y3B1
+ICp2Y3B1LAo+ICAgICAgICAgICAgICAgICByYyA9IGt2bV9yaXNjdl92Y3B1X2FpYV9nZXRfY3Ny
+KHZjcHUsIHJlZ19udW0sICZyZWdfdmFsKTsKPiAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gICAg
+ICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfQ1NSX1NNU1RBVEVFTjoKPiAtICAgICAgICAgICAgICAg
+cmMgPSAtRUlOVkFMOwo+IC0gICAgICAgICAgICAgICBpZiAocmlzY3ZfaGFzX2V4dGVuc2lvbl91
+bmxpa2VseShSSVNDVl9JU0FfRVhUX1NNU1RBVEVFTikpCj4gLSAgICAgICAgICAgICAgICAgICAg
+ICAgcmMgPSBrdm1fcmlzY3ZfdmNwdV9zbXN0YXRlZW5fZ2V0X2Nzcih2Y3B1LCByZWdfbnVtLAo+
+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgJnJlZ192YWwpOwo+ICsgICAgICAgICAgICAgICByYyA9IGt2bV9yaXNjdl92Y3B1X3Nt
+c3RhdGVlbl9nZXRfY3NyKHZjcHUsIHJlZ19udW0sICZyZWdfdmFsKTsKPiAgICAgICAgICAgICAg
+ICAgYnJlYWs7Cj4gICAgICAgICBkZWZhdWx0Ogo+ICAgICAgICAgICAgICAgICByYyA9IC1FTk9F
+TlQ7Cj4gQEAgLTY0MCwxMCArNjQxLDcgQEAgc3RhdGljIGludCBrdm1fcmlzY3ZfdmNwdV9zZXRf
+cmVnX2NzcihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4gICAgICAgICAgICAgICAgIHJjID0ga3Zt
+X3Jpc2N2X3ZjcHVfYWlhX3NldF9jc3IodmNwdSwgcmVnX251bSwgcmVnX3ZhbCk7Cj4gICAgICAg
+ICAgICAgICAgIGJyZWFrOwo+ICAgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX0NTUl9TTVNUQVRF
+RU46Cj4gLSAgICAgICAgICAgICAgIHJjID0gLUVJTlZBTDsKPiAtICAgICAgICAgICAgICAgaWYg
+KHJpc2N2X2hhc19leHRlbnNpb25fdW5saWtlbHkoUklTQ1ZfSVNBX0VYVF9TTVNUQVRFRU4pKQo+
+IC0gICAgICAgICAgICAgICAgICAgICAgIHJjID0ga3ZtX3Jpc2N2X3ZjcHVfc21zdGF0ZWVuX3Nl
+dF9jc3IodmNwdSwgcmVnX251bSwKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlZ192YWwpOwo+ICsgICAgICAgICAgICAgICBy
+YyA9IGt2bV9yaXNjdl92Y3B1X3Ntc3RhdGVlbl9zZXRfY3NyKHZjcHUsIHJlZ19udW0sIHJlZ192
+YWwpOwo+ICAgICAgICAgICAgICAgICBicmVhazsKPiAgICAgICAgIGRlZmF1bHQ6Cj4gICAgICAg
+ICAgICAgICAgIHJjID0gLUVOT0VOVDsKPiAtLQo+IDIuNDMuMAo+CgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
