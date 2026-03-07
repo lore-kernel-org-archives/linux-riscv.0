@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A1DFFC9EC3
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Mar 2026 02:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC471FC9EC0
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Mar 2026 02:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MqZCP8d9bFCdQ0fzF7+FOC4My/gjeb5osPDg9R4I/zo=; b=SR0EP0IGDwtFDq
-	xEbs3G2SChn4l4kC7zfbCQnilaaa4M6R1b2hwrw/A5fXoayCk7PDtc2yEK90VbY3yFKAyqzJt+Ecn
-	KvccOuVF4mFQJROyV0p2c1UKE5E17hB1IRFcinmziif44Vwqtu6fp5SKLuX4UMjF0KbEnVlUVjDl9
-	ZyVY6oO8leaUHI0Whcrhn7mfZZ7cwhehH99vDOA4V4Wwh9N4s8kWR9XDtAkvYSHnLOgenBwgPpLK6
-	1q8ahf5y0QLGimBozzsu6i//VTPJ8Ar+FnBLeGcjofe8u4DNSIjXDs0tnMBesZvy1HdFLcwkZVmom
-	U1N/ZhwN1TMvtn7SEjGg==;
+	List-Owner; bh=+8m0n1wN4V9JVCfwxK1SeC4bI5K0c7ztgEmQl/O+KmI=; b=a1BEVm7cWjYGZr
+	mOqKpGYcakm/1iC2HU1udwb4+Btf3VFRQEU9X/VYXj3AcR2dESBFTQXYWTa20Va/a47OKteccMKoc
+	bXIlrZTFKLXWsUZq2YhrQ55bCUldkgvCLJFQw7+1vpA+ToerYlWeb7ZZ2mcBt+f61DFjiy6/Vqa85
+	+xhE2El5mXkMLvQfUqUT5QCKKfymmRMyavcj1iAhB00i4aqDQ/a6DCTT1gU0fhHjKHFJWeA/EVXon
+	OhJeuN0spCMzVyYVdSRO3g1bK4ZC/+TOVNtqN8di7vUdCvOOcBN8A5YnXPtUv/7UtRC2O5mAV9IAr
+	9/fTQzsZjTSV7GmYh0mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyhQU-00000004oU7-0LU5;
-	Sat, 07 Mar 2026 02:29:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vyhWG-00000004oj2-1tUy;
+	Sat, 07 Mar 2026 02:35:56 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyhQR-00000004oTh-405l
-	for linux-riscv@lists.infradead.org;
-	Sat, 07 Mar 2026 02:29:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D49F243636;
-	Sat,  7 Mar 2026 02:29:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCD0CC4CEF7;
-	Sat,  7 Mar 2026 02:29:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772850594;
-	bh=vOYMV5oYzY1jb9kI2UnsuEVGQtVsXkECOuklSwooqNY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lh82RDczpDMmseaAIlLrISM5VihBBYyxrLaA6CWswNEj8+Hs3pd2/maWsJnnBjUDD
-	 XRZT8wu6vDkPRF3QkLhR6u9qadcTBQb22iltFZNfB3IPmYskDvTmt4NnlPUrLpe343
-	 eTdW8CMi71n/FHDogxGtiRyL+yh/pG7c4nTWNVmBAc0xntlaI9HOgTDPzz5abmi/gj
-	 Of4YaziLG0jcABTOGBC/L4xzOUjH/8HaUIB94BzUyu5UKTnLyNBDoMMbuMJKImtJwL
-	 FDr8I1gxj8numN1KOyCM9vttPjnXeI1xTF4wW9ZVvmu3CJ8lmBEdCReLCbCNuf1Tbf
-	 1zkJOAWhVo+ww==
-Date: Sat, 7 Mar 2026 10:29:51 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Iker Pedrosa <ikerpedrosam@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 02/10] mmc: sdhci-of-k1: enable essential clock
- infrastructure for SD operation
-Message-ID: <20260307022951-GKC302167@kernel.org>
-References: <20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com>
- <20260302-orangepi-sd-card-uhs-v1-2-89c219973c0c@gmail.com>
+	id 1vyhWA-00000004ohy-2rzd;
+	Sat, 07 Mar 2026 02:35:53 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowABH1Qj5jqtptETJCQ--.6811S2;
+	Sat, 07 Mar 2026 10:35:37 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: andrew.jones@oss.qualcomm.com
+Cc: ajones@ventanamicro.com,
+	alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	jiakaiPeanut@gmail.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	xujiakai2025@iscas.ac.cn
+Subject: Re: [PATCH 1/2] RISC-V: KVM: Fix array out-of-bounds in pmu_ctr_read()
+Date: Sat,  7 Mar 2026 02:35:37 +0000
+Message-Id: <20260307023537.3686946-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <7cv4cq43l33fvpbikecjecfulomzurfmlbjk45u6amvdmnmrhu@7padusm25g5l>
+References: <7cv4cq43l33fvpbikecjecfulomzurfmlbjk45u6amvdmnmrhu@7padusm25g5l>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260302-orangepi-sd-card-uhs-v1-2-89c219973c0c@gmail.com>
+X-CM-TRANSID: zQCowABH1Qj5jqtptETJCQ--.6811S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCFyfCw13ArWfKr1DAF43KFg_yoWrGryUpa
+	y8JayYyr1fKFnrtFy3ArnFgr1UJan3Zay8Jry7Gryjyr45JryfXrsFgF9FyayDCFZ5Ww13
+	uw1Iga1ruF4UAaDanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUP014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67
+	AK6r4UMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
+	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc4
+	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
+	xVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr
+	1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbXo7tUU
+	UUU==
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCRATCWmrbvc4AQAAsh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_182956_055750_AB359A61 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20260306_183551_093168_E4724A2F 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,75 +90,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Iker,
+Hi Andrew,
 
-On 16:13 Mon 02 Mar     , Iker Pedrosa wrote:
-> Ensure SD card pins receive clock signals by enabling pad clock
-> generation and overriding automatic clock gating. Required for all SD
-> operation modes.
-> 
-> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-> ---
->  drivers/mmc/host/sdhci-of-k1.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-> index 0cc97e23a2f9c7b2f9376318a8a7ebb860571504..b703b78282ed8d89183c816477c149c0a565618a 100644
-> --- a/drivers/mmc/host/sdhci-of-k1.c
-> +++ b/drivers/mmc/host/sdhci-of-k1.c
-> @@ -20,6 +20,13 @@
->  #include "sdhci.h"
->  #include "sdhci-pltfm.h"
->  
-[snip]
+Thanks for the review and the suggestions.
 
-> +	spacemit_sdhci_setbits(host, SDHC_OVRRD_CLK_OEN | SDHC_FORCE_CLK_ON,
-> +			       SPACEMIT_SDHC_OP_EXT_REG);
-As I'm testing on Bananapi F3 board with emmc chip, this line will cause timeout problem
+I agree with your feedback. In v2, I will merge the fixes for both
+pmu_ctr_read() and pmu_fw_ctr_read_hi() into a single commit and remove
+the pr_warn, simply returning -EINVAL instead.
 
-[   27.613806] mmc2: Timeout waiting for hardware interrupt.
-[   27.616592] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
-[   27.623007] mmc2: sdhci: Sys addr:  0x00000400 | Version:  0x00000002
-[   27.629429] mmc2: sdhci: Blk size:  0x00007200 | Blk cnt:  0x000003a6
-[   27.635853] mmc2: sdhci: Argument:  0x001ca0a0 | Trn mode: 0x0000002b
-[   27.642277] mmc2: sdhci: Present:   0x01f70106 | Host ctl: 0x00000035
-[   27.648700] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
-[   27.655124] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x00000107
-[   27.661547] mmc2: sdhci: Timeout:   0x0000000e | Int stat: 0x00000000
-[   27.667971] mmc2: sdhci: Int enab:  0x03ff000b | Sig enab: 0x03ff000b
-[   27.674394] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
-[   27.680818] mmc2: sdhci: Caps:      0x35fc0080 | Caps_1:   0x00002f77
-[   27.687241] mmc2: sdhci: Cmd:       0x0000193a | Max curr: 0x00000000
-[   27.693666] mmc2: sdhci: Resp[0]:   0x00000900 | Resp[1]:  0xfff6dbff
-[   27.700088] mmc2: sdhci: Resp[2]:   0x320f5903 | Resp[3]:  0x00000900
-[   27.706513] mmc2: sdhci: Host ctl2: 0x0000400d
-[   27.710940] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x02080208
-[   27.717363] mmc2: sdhci: ============================================
+I have two questions regarding the next version:
 
-Drop it will make emmc work again.. but I'm still unable to make SD card driver work,
-that's probably another problem
+1. Regarding other pr_warns in PMU emulation code:
+You mentioned that other pr_warns in the code might need auditing. Should
+I address those in this patchset (e.g., converting them to pr_warn_once
+or removing them), or is it better to keep this series focused strictly
+on the out-of-bounds fix and handle the logging cleanup in a separate
+patchset later?
 
-I've took a look at current K3's sdhci driver, all operations on SPACEMIT_SDHC_OP_EXT_REG
-register are used only when doing voltage switch with SD card, snip of the code from vendor
+2. Selftests update:
+I noticed that applying this fix causes a regression in
+selftests/kvm/sbi_pmu_test. The test_pmu_basic_sanity function currently
+attempts to read a firmware counter without configuring it via
+SBI_EXT_PMU_COUNTER_CFG_MATCH first.
 
-	if (host->mmc->caps2 & MMC_CAP2_NO_MMC) {
-                /* sd/sdio has no phy */
-                spacemit_sdhci_setbits(host, SDHC_TX_INT_CLK_SEL, SPACEMIT_SDHC_TX_CFG_REG);
+Previously, this triggered the out-of-bounds access (likely reading
+garbage), but with this fix, the kernel correctly returns
+SBI_ERR_INVALID_PARAM, causing the test to fail.
 
-        } else {
-                /* use phy func mode */
-                spacemit_sdhci_setbits(host, SDHC_PHY_FUNC_EN | SDHC_PHY_PLL_LOCK,
-                                       SPACEMIT_SDHC_PHY_CTRL_REG);
-                spacemit_sdhci_clrsetbits(host, SDHC_PHY_DRIVE_SEL,
-                                          SDHC_RX_BIAS_CTRL |
-                                          FIELD_PREP(SDHC_PHY_DRIVE_SEL, 4),
-                                          SPACEMIT_SDHC_PHY_PADCFG_REG);
-                /* mmc card mode */
-                spacemit_sdhci_setbits(host, SDHC_MMC_CARD_MODE, SPACEMIT_SDHC_MMC_CTRL_REG);
-        }
+To fix this, I plan to include a second patch in v2 that updates the
+selftest to properly configure the counter before reading. Here is my
+draft for the fix. Does this approach look reasonable to you?
 
+Thanks,
+Jiakai
+
+---
+ .../testing/selftests/kvm/include/riscv/sbi.h | 28 +++++++++++++++++++
+ .../selftests/kvm/riscv/sbi_pmu_test.c        |  9 +++++-
+ 2 files changed, 36 insertions(+), 1 deletion(-)
+
+diff --git a/tools/testing/selftests/kvm/include/riscv/sbi.h b/tools/testing/selftests/kvm/include/riscv/sbi.h
+index 046b432ae896..8c172422f386 100644
+--- a/tools/testing/selftests/kvm/include/riscv/sbi.h
++++ b/tools/testing/selftests/kvm/include/riscv/sbi.h
+@@ -97,6 +97,34 @@ enum sbi_pmu_hw_generic_events_t {
+ 	SBI_PMU_HW_GENERAL_MAX,
+ };
+ 
++enum sbi_pmu_fw_generic_events_t {
++	SBI_PMU_FW_MISALIGNED_LOAD	= 0,
++	SBI_PMU_FW_MISALIGNED_STORE	= 1,
++	SBI_PMU_FW_ACCESS_LOAD		= 2,
++	SBI_PMU_FW_ACCESS_STORE		= 3,
++	SBI_PMU_FW_ILLEGAL_INSN		= 4,
++	SBI_PMU_FW_SET_TIMER		= 5,
++	SBI_PMU_FW_IPI_SENT		= 6,
++	SBI_PMU_FW_IPI_RCVD		= 7,
++	SBI_PMU_FW_FENCE_I_SENT		= 8,
++	SBI_PMU_FW_FENCE_I_RCVD		= 9,
++	SBI_PMU_FW_SFENCE_VMA_SENT	= 10,
++	SBI_PMU_FW_SFENCE_VMA_RCVD	= 11,
++	SBI_PMU_FW_SFENCE_VMA_ASID_SENT	= 12,
++	SBI_PMU_FW_SFENCE_VMA_ASID_RCVD	= 13,
++
++	SBI_PMU_FW_HFENCE_GVMA_SENT	= 14,
++	SBI_PMU_FW_HFENCE_GVMA_RCVD	= 15,
++	SBI_PMU_FW_HFENCE_GVMA_VMID_SENT = 16,
++	SBI_PMU_FW_HFENCE_GVMA_VMID_RCVD = 17,
++
++	SBI_PMU_FW_HFENCE_VVMA_SENT	= 18,
++	SBI_PMU_FW_HFENCE_VVMA_RCVD	= 19,
++	SBI_PMU_FW_HFENCE_VVMA_ASID_SENT = 20,
++	SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD = 21,
++	SBI_PMU_FW_MAX,
++};
++
+ /* SBI PMU counter types */
+ enum sbi_pmu_ctr_type {
+ 	SBI_PMU_CTR_TYPE_HW = 0x0,
+diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+index 924a335d2262..0d6ba3563561 100644
+--- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
++++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+@@ -461,7 +461,14 @@ static void test_pmu_basic_sanity(void)
+ 			pmu_csr_read_num(ctrinfo.csr);
+ 			GUEST_ASSERT(illegal_handler_invoked);
+ 		} else if (ctrinfo.type == SBI_PMU_CTR_TYPE_FW) {
+-			read_fw_counter(i, ctrinfo);
++			/*
++			 * Try to configure with a common firmware event.
++			 * If configuration succeeds, verify we can read it.
++			 */
++			ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH,
++			        i, 1, 0, SBI_PMU_FW_ACCESS_LOAD, 0, 0);
++			if (ret.error == 0 && ret.value < RISCV_MAX_PMU_COUNTERS && BIT(ret.value) & counter_mask_available)
++				read_fw_counter(i, ctrinfo);
+ 		}
+ 	}
+ 
 -- 
-Yixun Lan (dlan)
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
