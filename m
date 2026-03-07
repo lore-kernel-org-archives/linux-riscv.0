@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43BEFC9EC3
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Mar 2026 03:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94046FC9EC3
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Mar 2026 03:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zudGj7tdhbOQJMp+kyWTkjmkNH3dCr3vggCyBnBE2a0=; b=Zmbt4nlIsJQbZj
-	nY8gL9Pf1bMbnEK2VnTkEHVz0VSG4iogLO10voyfVOUBADKNH4Qq+Qw9/OkCMgo7QMR3gzCagiiJW
-	kZRoZxIf4NChHBf1E5JCdZQYYSGQlFzoSEgGT6J6foGa24DhQ5GPbhxW+DjCLRiA6OoqzIvHi1MTk
-	VdZJVoAOQdAiR6u0Nxbz/vIGAVZTlpg3F/rW/qQN8UsupJa1CXfMqbUsutV/wncoqIN4xaWy1TmKX
-	bcGFpMuEapARPI4n3FEEgYaHbqHIzZkbFy4SJWKKtXFDQCbvDVVBY9KEplRAgGW7Tvi+tFXbDY/zR
-	ZSZ6O61QZmA1ZZwgYJIw==;
+	List-Owner; bh=I3KR7tpjudZQo95KZQmVrIyocwmwqjMtuWq7K5MKdqg=; b=Ds5MsG00sYKvD7
+	BT1zYRYiolgtSAFR+9rknOU13rLEz8DTszqF79Y9Ymbq0PxTr7suK2CBcysRH8KNQ+4daySy9yxJu
+	QDzzu0yLwlPTZwynAnRfs6xPC8CvsqI6LTnUeIP5Qw0X8UuI5oscaQB8zf7RhWFd0zXhWv9cEpCMJ
+	as5FxHsvx0hzK92T7k/KLZp4ab9nVQHiwGttAgNJfO45WqYDb17oTJr5w2yS/AJUpSNR6J8XTZPmc
+	331hO8hOWQrF27DnnpV1wqeNjP0O2e2ND+dtbflEFsbZcXwSie07cHU1878k0Xj6NhJBJcNBdhA7D
+	rwANLvv2tvF+29FWW/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyi3V-00000004pjA-0NbJ;
-	Sat, 07 Mar 2026 03:10:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vyi3e-00000004pjz-1lk9;
+	Sat, 07 Mar 2026 03:10:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vyi3S-00000004pio-1cXM
+	id 1vyi3d-00000004pjt-08VV
 	for linux-riscv@lists.infradead.org;
-	Sat, 07 Mar 2026 03:10:15 +0000
+	Sat, 07 Mar 2026 03:10:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9EF0B444C4;
-	Sat,  7 Mar 2026 03:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 783FCC4CEF7;
-	Sat,  7 Mar 2026 03:10:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 15FCB60053;
+	Sat,  7 Mar 2026 03:10:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEC62C4CEF7;
+	Sat,  7 Mar 2026 03:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1772853013;
-	bh=LGnvdT1aKqYb2Uio1qV5MJ3C5YO/gKg/GDx5YXLRzy0=;
+	s=k20201202; t=1772853023;
+	bh=TiajJF8FGs34cMcYXnME5ueOoAbs9UDJQ7cGdkNKzsU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Pi6mLDZ3OKhmafA1CxPaLPBTbJqaj2d/JLhSaK0cAUzHS/5DQSZtmSAswMa+5ZoP0
-	 oSWJEdxuotYjqTtIFoAW73whqbIAVAg1aAoJumSQUYbZw30wCjH8x21gOl3hEqDtT1
-	 UnNiZWOxBsgN71IMP+Q5zF7oOYeLMnW9n+g/hta335qAVwRjlNSpMO1oXblW0YHlCn
-	 sc3bFjlU1WGxERZwXxYoB6zuGrCwiDXOq29PhO7o7C5CtEpzP4VGXhtG2/PcFlbR2d
-	 3jj3ISq3G+n+bb/y7SEcNN8yMRk6U15dAq4PsYq9+7lxFnM4Xx0SK+vEiqPellYyxH
-	 irZOmfRbjieLw==
+	b=FaSUnY5+LJDvosPvE9K6uYmazcUbcnbAqKdoouAsxz742LnmiJrFiO+V9Qly3I4bS
+	 Yb2x9XSbRgA65bXi5UmhFpiepN2/SSREYhtTrI1mMk8txuWHbG6CcDsLprjMozZ2tW
+	 QhVheN+Xw7JmX1LuNxudVvy1yTzOb34l/d/xO/VWH7WboKPBxyEi7uPYwb147kXeEV
+	 BkvXHJr07CcKGceE/H+7I964JxyuALRUPyWI5kg1xVuaZpVy34hjXmnI6f6CCX+9i5
+	 ROD8JW2J2EnpXMZa5LKj1DsU8kJwYP/PGTBkrCtsQYQKGo5Z8pT7JndoOINSC/i1FK
+	 IgXsfifn4SZvw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9EEB3808200;
-	Sat,  7 Mar 2026 03:10:13 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02C763808200;
+	Sat,  7 Mar 2026 03:10:24 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH net v2 0/2] net: spacemit: A few error handling fixes
+Subject: Re: [PATCH net-next] net: spacemit: Remove unused buff_addr fields
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177285301226.135595.13840950042647803809.git-patchwork-notify@kernel.org>
-Date: Sat, 07 Mar 2026 03:10:12 +0000
-References: <20260305-k1-ethernet-more-fixes-v2-0-e4e434d65055@iscas.ac.cn>
-In-Reply-To: <20260305-k1-ethernet-more-fixes-v2-0-e4e434d65055@iscas.ac.cn>
+Message-Id: <177285302252.135595.8145843484531781952.git-patchwork-notify@kernel.org>
+Date: Sat, 07 Mar 2026 03:10:22 +0000
+References: <20260305-k1-ethernet-cleanup-buff_addr-v1-1-e978ef119231@iscas.ac.cn>
+In-Reply-To: <20260305-k1-ethernet-cleanup-buff_addr-v1-1-e978ef119231@iscas.ac.cn>
 To: Vivian Wang <wangruikang@iscas.ac.cn>
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, dlan@kernel.org,
- maxime.chevallier@bootlin.com, vadim.fedorenko@linux.dev,
- troy.mitchell@linux.spacemit.com, netdev@vger.kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, dlan@kernel.org, netdev@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
  linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260306_191014_448919_23C6B504 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,25 +75,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Thu, 05 Mar 2026 14:39:37 +0800 you wrote:
-> Recently a user reported a supposed UAF/double-free in this driver. It
-> turned out to be a false positive (ugh) from a bug with riscv's
-> kfence_protect_page() [1], but it did also prompt me to review the
-> driver code yet again. These are some fixes for error handling problems
-> that I've found.
+On Thu, 05 Mar 2026 15:00:29 +0800 you wrote:
+> These were never used. Just remove them.
 > 
-> [1]: https://lore.kernel.org/r/20260303-handle-kfence-protect-spurious-fault-v2-0-f80d8354d79d@iscas.ac.cn/
+> No functional change intended.
+> 
+> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> ---
+> Cleanup patch split out from:
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v2,1/2] net: spacemit: Fix error handling in emac_alloc_rx_desc_buffers()
-    https://git.kernel.org/netdev/net/c/3aa1417803c1
-  - [net,v2,2/2] net: spacemit: Fix error handling in emac_tx_mem_map()
-    https://git.kernel.org/netdev/net/c/86292155bea5
+  - [net-next] net: spacemit: Remove unused buff_addr fields
+    https://git.kernel.org/netdev/net-next/c/70eba59f9207
 
 You are awesome, thank you!
 -- 
