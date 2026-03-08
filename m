@@ -4,88 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A0DF55130
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Mar 2026 05:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F51BF55138
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Mar 2026 09:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iZA4YKsMZLTjEgaeu4qlEYO2LoGn4d/lkhg2qrSXqKU=; b=TGojEUS7wZVQkG
-	dV3yV3DimPAFIu1MA2dHsrt0zsV0PjWxygyYeZoEvJO3iz7+bzbdqB693tAVwkOTnvUpMeiiH9av7
-	Wi1HbPb/9BmiibWHafh2nZ5/BALdsDlSsZRzRijltkMKo3Rsi0SMffYzKgs2fhp4sqF/6YLQvLxaS
-	U5Gvfo1Q6hDJrtZYHLEgtE5uCAawgO4xSKQLIB+rytIg6AXQaB+jloPkHIZajsIXjtYKw8YniW7nw
-	ZdsKMfE5ZSoBvk253Gl0QLIUfkYStJkOMUgkm43ldKGvwCvR7MswsCkaslSUWGVBSYGAFJXnOBzts
-	fFdnrTxXj2lgiLa8YBJA==;
+	List-Owner; bh=O2MElQjuymtieoBXSEteOCyoSJQyZAq72wFebPmva0s=; b=3UpuHgP/J9J1ZG
+	2fr1ieN0BpqCvYhxuSJ5de6uN7eILnAfs5OQ7a3Z5+HYbn3qS46M/H6LDq4qM/4TcXqva+lCjmYso
+	MQuwr00AoRi2pdcJvjt8C9jpknSkQ4KJD++lQkypOIBz0SjkqN4B6GoYuqZ0+nXtE65/B7FCOZ7qJ
+	RLyG2WraaSSP6wWp/DXy4CRmPUf1Tg1LkTCFiicWzpm7zCwt3xtZmp2aXvtfaOUiDEjdR/cjOf3WO
+	G+O2TxqlCB/O8RtlWLloM2J4eqgV1QVWBRJ+dLvfSwYrhHHglmv97SAX7ZbQG4Zq1YuRbivbB8tJO
+	J4VT4e5RfKRipN0CayOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vz6XS-00000005ill-1Jhr;
-	Sun, 08 Mar 2026 05:18:50 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1vzAHg-00000005pnJ-3bXg;
+	Sun, 08 Mar 2026 09:18:48 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vz6XO-00000005ijy-1r0o
+	id 1vzAHf-00000005pmv-0S56
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Mar 2026 05:18:48 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	Sun, 08 Mar 2026 09:18:48 +0000
+Received: from localhost (unknown [116.232.48.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4fT7hw40bLz9t0N;
-	Sun,  8 Mar 2026 06:18:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1772947120;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U2zbR+yKhzxXYXiJrsbtpXWNDGggLUiz5aQfOKpnS0Q=;
-	b=Z5LYZkg1QgVuziuumFcX38v7gNG0tTh/QEz/hY5Jp3SDd6p8cCyUN6jiWlVkAT2nqg7+js
-	L9QxjlOxG9TsA4+HpIkgoN5RwwQu2oNy5vXdZmbgj95NVjiST2blFVl2qG4Tmgd5kF0NtP
-	ltFQi6u/DtJFw8ROj2Qa9YomlGgewRHYvNLDSecoRDydDMmXUiqa9OfIIC9srsSJ0SHVxa
-	2iJ9UA9BMle90Q65jW6iNPsQ1ihfB9mg6EP5TZNCPhpPAK+Oseln7spaDAd/4S4U9DceOo
-	wv9tT4osiygpakGNgUsxTgCMfE7am36ly7DrJSNPKHtxImeMvHGvCQBx80r/wQ==
-From: Shuwei Wu <shuwei.wu@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1772947118;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U2zbR+yKhzxXYXiJrsbtpXWNDGggLUiz5aQfOKpnS0Q=;
-	b=M7N0iC7ufQiQw9VBZ6hFetwL9gslP8wsaTe79Xd3B7iaT8KzmSXu9BllQLnrJw8dZ9VJE3
-	JDgr1KOw649xwYaw27E0iNF4Q2y9SZz8g2MRo66ePcbBooBLk66KazZXQhHL4J2prC03XQ
-	VHaHP+T4HHa5f64TYIKcS3f/c/uhEjm/1SmnwQZk3Q32W9wrgZhiXnx2tccJ2cpygwi7wk
-	VWNO0yo6ymBp/u8cgcMwgjoh/CZIcPiygiIK2METdY6VmNaWBM4EFBC8iwe9EzoUdbhV6X
-	Y7rBpcEpBCaE9buz2eecEnLvmghXaYKdWWuQlAmic5hz4UIalQsvDL8ABHLt5g==
-Date: Sun, 08 Mar 2026 13:17:40 +0800
-Subject: [PATCH 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id ADAF03417BD;
+	Sun, 08 Mar 2026 09:18:39 +0000 (UTC)
+Date: Sun, 8 Mar 2026 17:18:26 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org,
+	devicetree@vger.kernel.org, dlan@kernel.org, krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, pjw@kernel.org, robh@kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH 1/1] riscv: dts: spacemit: Add 'linux,pci-domain' to PCIe
+ nodes for K1
+Message-ID: <20260308091826-GYA318052@gentoo.org>
+References: <20260302074235-GYB288339@gentoo.org>
+ <20260307043806.957175-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-Message-Id: <20260308-shadow-deps-v1-2-0ceb5c7c07eb@mailbox.org>
-References: <20260308-shadow-deps-v1-0-0ceb5c7c07eb@mailbox.org>
-In-Reply-To: <20260308-shadow-deps-v1-0-0ceb5c7c07eb@mailbox.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, Yixun Lan <dlan@gentoo.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- devicetree@vger.kernel.org, Shuwei Wu <shuwei.wu@mailbox.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1772947080; l=7395;
- i=shuwei.wu@mailbox.org; s=20251125; h=from:subject:message-id;
- bh=7uC3iROuTHcj106rWtHe9UGVXeEv27CxF42mwez2Gho=;
- b=VmNFO8sczaz1iKKTUmT+MODs2QmiZZXmtxSebfW55jeRa+xC+PeTVgp1e8PTlHmuH29O3xpx+
- 0jTQFr9F9+wD7/vkuBLqy8hHuiDkrGrkdYfJ9HiMGVYaq6BJDEL3h1I
-X-Developer-Key: i=shuwei.wu@mailbox.org; a=ed25519;
- pk=qZs6i2UZnXkmjUrwO5HJxcfpCvgSNrR4dcU5cjtfTSk=
-X-MBO-RS-META: x9osz9e998t94rcicehd4hwu4jy99owh
-X-MBO-RS-ID: 554dca1a88f477668d1
+Content-Disposition: inline
+In-Reply-To: <20260307043806.957175-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260307_211847_468140_D70E6A83 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260308_011847_201784_2E3EC3CB 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,227 +69,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Operating Performance Points (OPP) tables and CPU clock properties
-for the two clusters in the SpacemiT K1 SoC.
+Hi Chukun,
 
-Also assign the CPU power supply (cpu-supply) for the Banana Pi BPI-F3
-board to fully enable CPU DVFS.
+On 12:38 Sat 07 Mar     , Chukun Pan wrote:
+> Hi,
+> 
+> > You describe what's has been done here, but no why?
+> 
+> Because the PCIe boot order is random, if there are two R8125
+> network cards, their interface names will not be fixed.
+> 
+> For example:
+> First boot:
+> pcie@ca400000 -> eth2
+> pcie@ca800000 -> eth3
+> 
+> Second boot:
+> pcie@ca400000 -> eth3
+> pcie@ca800000 -> eth2
+> 
+Ok, I can understand your problem
 
-Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 34 +++++++++-
- arch/riscv/boot/dts/spacemit/k1.dtsi            | 86 +++++++++++++++++++++++++
- 2 files changed, 119 insertions(+), 1 deletion(-)
+> If their PCI domain numbers are fixed, I can fix the interface
+> names by matching /sys/devices using a script.
+> 
+If you want to have a fixed interface name, you could setup a udev
+rules according to mac address? something like:
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 444c3b1e6f44..b87bf9d51cb1 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -86,6 +86,38 @@ &combo_phy {
- 	status = "okay";
- };
- 
-+&cpu_0 {
-+	cpu-supply = <&buck1_3v45>;
-+};
-+
-+&cpu_1 {
-+	cpu-supply = <&buck1_3v45>;
-+};
-+
-+&cpu_2 {
-+	cpu-supply = <&buck1_3v45>;
-+};
-+
-+&cpu_3 {
-+	cpu-supply = <&buck1_3v45>;
-+};
-+
-+&cpu_4 {
-+	cpu-supply = <&buck1_3v45>;
-+};
-+
-+&cpu_5 {
-+	cpu-supply = <&buck1_3v45>;
-+};
-+
-+&cpu_6 {
-+	cpu-supply = <&buck1_3v45>;
-+};
-+
-+&cpu_7 {
-+	cpu-supply = <&buck1_3v45>;
-+};
-+
- &emmc {
- 	bus-width = <8>;
- 	mmc-hs400-1_8v;
-@@ -201,7 +233,7 @@ pmic@41 {
- 		dldoin2-supply = <&buck5>;
- 
- 		regulators {
--			buck1 {
-+			buck1_3v45: buck1 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3450000>;
- 				regulator-ramp-delay = <5000>;
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 529ec68e9c23..5c7bb5d85fc0 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -54,6 +54,8 @@ cpu_0: cpu@0 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <0>;
-+			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
-+			operating-points-v2 = <&cluster0_opp_table>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -84,6 +86,8 @@ cpu_1: cpu@1 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <1>;
-+			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
-+			operating-points-v2 = <&cluster0_opp_table>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -114,6 +118,8 @@ cpu_2: cpu@2 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <2>;
-+			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
-+			operating-points-v2 = <&cluster0_opp_table>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -144,6 +150,8 @@ cpu_3: cpu@3 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <3>;
-+			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
-+			operating-points-v2 = <&cluster0_opp_table>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -174,6 +182,8 @@ cpu_4: cpu@4 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <4>;
-+			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
-+			operating-points-v2 = <&cluster1_opp_table>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -204,6 +214,8 @@ cpu_5: cpu@5 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <5>;
-+			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
-+			operating-points-v2 = <&cluster1_opp_table>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -234,6 +246,8 @@ cpu_6: cpu@6 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <6>;
-+			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
-+			operating-points-v2 = <&cluster1_opp_table>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -264,6 +278,8 @@ cpu_7: cpu@7 {
- 			compatible = "spacemit,x60", "riscv";
- 			device_type = "cpu";
- 			reg = <7>;
-+			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
-+			operating-points-v2 = <&cluster1_opp_table>;
- 			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
- 			riscv,isa-base = "rv64i";
- 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
-@@ -339,6 +355,76 @@ osc_32k: clock-32k {
- 		};
- 	};
- 
-+	cluster0_opp_table: opp-table-cluster0 {
-+		compatible = "operating-points-v2";
-+		opp-shared;
-+
-+		opp-614400000 {
-+			opp-hz = /bits/ 64 <614400000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-819000000 {
-+			opp-hz = /bits/ 64 <819000000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1000000000 {
-+			opp-hz = /bits/ 64 <1000000000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1228800000 {
-+			opp-hz = /bits/ 64 <1228800000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1600000000 {
-+			opp-hz = /bits/ 64 <1600000000>;
-+			opp-microvolt = <1050000>;
-+			clock-latency-ns = <200000>;
-+		};
-+	};
-+
-+	cluster1_opp_table: opp-table-cluster1 {
-+		compatible = "operating-points-v2";
-+		opp-shared;
-+
-+		opp-614400000 {
-+			opp-hz = /bits/ 64 <614400000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-819000000 {
-+			opp-hz = /bits/ 64 <819000000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1000000000 {
-+			opp-hz = /bits/ 64 <1000000000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1228800000 {
-+			opp-hz = /bits/ 64 <1228800000>;
-+			opp-microvolt = <950000>;
-+			clock-latency-ns = <200000>;
-+		};
-+
-+		opp-1600000000 {
-+			opp-hz = /bits/ 64 <1600000000>;
-+			opp-microvolt = <1050000>;
-+			clock-latency-ns = <200000>;
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
+$ cat /etc/udev/rules.d/70-network.rules
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="01:02:03:12:34:56", NAME="eth2"
+
+but, I see no harm to add a pci domain property..
+
+> > Can you add description about why problem with random domain,
+> > and the motivation of the change behind?
+> 
+> Should I improve the commit messages?
+> 
+Yes, please, thanks
+
+> Thanks,
+> Chukun
+> 
 
 -- 
-2.52.0
-
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
