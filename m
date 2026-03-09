@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB05EFCD9A
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 11:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CABDEFCD99
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 11:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bwmp0nX6RrmzyjMknV7zWB5aUnRpFk/dw9MWHKliwXQ=; b=oMCcWMIdB0b05u
-	QtHsQHWkfDIjfXPK0/VL4V7rz6jYnP4hKy/5KRM8nWzLV7itHJQJW3UWN0DK2gEkVLYCEXeY6wM0o
-	MXsYs6K23nhXJF3mUxfJoRcFTh5I03/Oh44pOex7uk906Iszu7ECsK9uO8coKjdm1v9mc+quuyD2M
-	+lllv0dA5j6wwy/avLIIzDdFojGGXnsITZoY2WnpGzbi3JdGsyX+X0c0cDu7mkF46L5mR0o/SSCBU
-	7KswTMyo3o+tTlNAsKjOFRaNRNu8gavCnruN4/Sx8fEiX03gZFAP62hSrJCxmgJGBTj24kK4qN6ix
-	XeSJSQOW+HhvRjgikoHw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+Biw5/0tYWc9HGpgOxOSlTthSJKDpbn7wEli6GDkolo=; b=rVXa5TRNF1fIUT
+	HAE4iOkbT94AEA+D3Rugw73ofb/qP/vFqW+Dosq+DWm5Uy+g81dtDqbjMqB+aEi5GZWOJZO8Dd0ng
+	WIRBJgkaHt2DwD8dS7sAVR+ovDHqIos1jYCoRYz1to/CeJq+ehTGR9ZIbdCTT6voX7rvt2GO4JdKG
+	3DKz2gDF4CVX7jqDKUB1aI3vGckYSEXKsohzhHDmInT6UXnabp389ULsGuGOAdvgQaoJOZBTjCL5D
+	zDyEWBCrNXiuSZuQc6tjLEr8u9s+pklr1f8F/VflN+MLojZQ6ra5RYFuawbla7fFOthQfZiNTxgKN
+	ciCFztZKAKV3yuqF342Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYUj-000000079Hi-2l6v;
-	Mon, 09 Mar 2026 11:09:53 +0000
+	id 1vzYUk-000000079ID-462u;
+	Mon, 09 Mar 2026 11:09:54 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYUf-000000079Fb-2NE7
+	id 1vzYUf-000000079FZ-2ODT
 	for linux-riscv@lists.infradead.org;
 	Mon, 09 Mar 2026 11:09:52 +0000
 Received: from [127.0.0.2] (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowAAHItlzqq5pnpElCg--.46862S2;
+	by APP-03 (Coremail) with SMTP id rQCowAAHItlzqq5pnpElCg--.46862S4;
 	Mon, 09 Mar 2026 19:09:41 +0800 (CST)
 From: Vivian Wang <wangruikang@iscas.ac.cn>
-Subject: [PATCH 0/2] riscv: mm: Define DIRECT_MAP_PHYSMEM_END, fix
- ZONE_DEVICE
-Date: Mon, 09 Mar 2026 19:09:36 +0800
-Message-Id: <20260309-riscv-sparsemem-vmemmap-limits-v1-0-f40efe18e3cd@iscas.ac.cn>
+Date: Mon, 09 Mar 2026 19:09:38 +0800
+Subject: [PATCH 2/2] riscv: mm: Define DIRECT_MAP_PHYSMEM_END
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAHCqrmkC/x2NQQqAMAzAviI9W5g6FP2KeBjaacHpaGUI4t8dX
- gK5JA8oCZPCUDwglFj5PLJUZQHz5o6VkJfsUJu6NY3pUVjnhBqdKAUKmDKCi7hz4EvRdo31lW8
- 7a3vIkSjk+f4H4/S+H30e/7xwAAAA
-X-Change-ID: 20260309-riscv-sparsemem-vmemmap-limits-4734f1f67449
+Message-Id: <20260309-riscv-sparsemem-vmemmap-limits-v1-2-f40efe18e3cd@iscas.ac.cn>
+References: <20260309-riscv-sparsemem-vmemmap-limits-v1-0-f40efe18e3cd@iscas.ac.cn>
+In-Reply-To: <20260309-riscv-sparsemem-vmemmap-limits-v1-0-f40efe18e3cd@iscas.ac.cn>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Alexandre Ghiti <alex@ghiti.fr>
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- sophgo@lists.linux.dev, Vivian Wang <wangruikang@iscas.ac.cn>, 
- stable@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
+ sophgo@lists.linux.dev, stable@vger.kernel.org, 
+ Han Gao <gaohan@iscas.ac.cn>, Vivian Wang <wangruikang@iscas.ac.cn>
 X-Mailer: b4 0.14.3
-X-CM-TRANSID: rQCowAAHItlzqq5pnpElCg--.46862S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWr48JFW7AF1fJFyUZr4DXFb_yoW7JrWfpr
-	y5Xr1UCr40yr4DJrWIyry5Zr93GFW2kay7GFyxJw1Yv3WDCr1Utr18JFW3Kr9rJr45JFy7
-	Grs8tr48KryUtw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkm14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r1q
-	6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
-	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y
-	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
-	WUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
-	IxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfU52NtDUUUU
+X-CM-TRANSID: rQCowAAHItlzqq5pnpElCg--.46862S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kr1kXryDtF1xWr1rCFyfWFg_yoW8Xw1xpr
+	Z5CrZ2krW3J3WxW34Sy3Z0gr1UtFn8Kr4UKrWxCryjvan8Kw48Wrn0qa13KrykXanrAFy8
+	WrnakFyrCwnrt3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r1q6r43Mx
+	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
+	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
+	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUUTGQDUUUUU==
 X-Originating-IP: [210.73.43.101]
 X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_040949_975110_3CA05029 
-X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-CacheID: sfid-20260309_040950_014919_5508461D 
+X-CRM114-Status: UNSURE (   7.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,90 +82,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With HSA_AMD_SVM=y, RISC-V runs into the same problem as arm64 at one
-point did [1], where it tries to use a struct page that is outside of
-vmemmap. See log near the end.
+On RISC-V, the actual mappable range of physical address space is
+dependent on the current MMU mode i.e. satp_mode (See
+Documentation/arch/riscv/vm-layout.rst).
 
-On RISC-V, the actual mappable range of physical addresses is dependent
-on the current MMU mode i.e. satp_mode. Define DIRECT_MAP_PHYSMEM_END to
-expose this information to get_free_mem_region().
+Define the DIRECT_MAP_PHYSMEM_END macro based on the existing virtual
+address space layout macros to expose this information to
+get_free_mem_region(). Otherwise, it returns a region that couldn't be
+mapped, which breaks ZONE_DEVICE.
 
-See also commit eeb8fdfcf090 ("arm64: Expose the end of the linear map
-in PHYSMEM_END") which fixed the same issue on arm64, although the
-situation there is much less complicated.
-
-Patch 1 copies a check in vmemmap_populate() over from arm64, which I
-have done to debug this problem. Patch 2 is the actual fix.
-
-[1] https://lore.kernel.org/all/20240903164532.3874988-1-scott@os.amperecomputing.com
-
-Crash log:
-
-[   19.228335] Oops [#1]
-[   19.230607] Modules linked in: amdgpu(+) [ ... many more modules omitted ... ]
-[   19.309895] CPU: 2 UID: 0 PID: 844 Comm: (udev-worker) Not tainted 6.19.3-ztest #3 PREEMPTLAZY
-[   19.318587] Hardware name: Sophgo SG2044 SRD3-10 (DT)
-[   19.323632] epc : __init_single_page+0x16/0x78
-[   19.328079]  ra : __init_zone_device_page.constprop.0+0x28/0xd0
-[   19.333997] epc : ffffffff802ff1be ra : ffffffff80d10de8 sp : ffff8f8002ef3450
-[   19.341210]  gp : ffffffff82290cc8 tp : ffffaf808f526c80 t0 : ffffffff800231a8
-[   19.348423]  t1 : 0000100000000000 t2 : 0000000000000002 s0 : ffff8f8002ef3460
-[   19.355636]  s1 : 00038d7fe6000000 a0 : 00038d7fe6000000 a1 : 00000fffffa00000
-[   19.362848]  a2 : 3000000000000000 a3 : 0000000000000000 a4 : 0000200000000000
-[   19.370060]  a5 : 0000000000600000 a6 : ffffffff82305608 a7 : 0000000000000001
-[   19.377273]  s2 : 00000fffffa00000 s3 : ffffaf8091258028 s4 : 0000000000000000
-[   19.384485]  s5 : 0000100000000000 s6 : 0000000000000001 s7 : 00000fffffa00000
-[   19.391697]  s8 : ffffffff81708b78 s9 : ffffffff81708b38 s10: 0000000000000001
-[   19.398909]  s11: ffffaf8091258028 t3 : ffffffff822b43c0 t4 : 000000000207ffff
-[   19.406121]  t5 : ffffffffffffffff t6 : 0000000000000000
-[   19.411425] status: 0000000200000120 badaddr: 00038d7fe6000030 cause: 000000000000000f
-[   19.419331] [<ffffffff802ff1be>] __init_single_page+0x16/0x78
-[   19.425071] [<ffffffff80d10de8>] __init_zone_device_page.constprop.0+0x28/0xd0
-[   19.432285] [<ffffffff80d11140>] memmap_init_zone_device+0x108/0x278
-[   19.438632] [<ffffffff803f6a7a>] memremap_pages+0x262/0x6b0
-[   19.444201] [<ffffffff803f6ef0>] devm_memremap_pages+0x28/0x78
-[   19.450029] [<ffffffff053f9370>] kgd2kfd_init_zone_device+0xe0/0x1e0 [amdgpu]
-[   19.483691] [<ffffffff059a6df0>] amdgpu_device_ip_init+0xa68/0xad0 [amdgpu]
-[   19.517108] [<ffffffff05120f6e>] amdgpu_device_init+0x1a5e/0x21e0 [amdgpu]
-[   19.550497] [<ffffffff05122e50>] amdgpu_driver_load_kms+0x20/0xc8 [amdgpu]
-[   19.583900] [<ffffffff05116dd6>] amdgpu_pci_probe+0x236/0x6c8 [amdgpu]
-[   19.616947] [<ffffffff807b2c10>] local_pci_probe+0x40/0x98
-[   19.622439] [<ffffffff807b393c>] pci_device_probe+0xcc/0x280
-[   19.628091] [<ffffffff8093527c>] really_probe+0xa4/0x3c0
-[   19.633397] [<ffffffff80935614>] __driver_probe_device+0x7c/0x158
-[   19.639483] [<ffffffff809357d8>] driver_probe_device+0x38/0xd0
-[   19.645308] [<ffffffff80935a3a>] __driver_attach+0xaa/0x200
-[   19.650873] [<ffffffff8093297e>] bus_for_each_dev+0x6e/0xc8
-[   19.656443] [<ffffffff80934996>] driver_attach+0x26/0x38
-[   19.661750] [<ffffffff809340e4>] bus_add_driver+0x11c/0x248
-[   19.667317] [<ffffffff80936d1c>] driver_register+0x54/0x100
-[   19.672884] [<ffffffff807b1f4c>] __pci_register_driver+0x54/0x68
-[   19.678889] [<ffffffff0430e0a8>] amdgpu_init+0xa0/0xff8 [amdgpu]
-[   19.711387] [<ffffffff80013a02>] do_one_initcall+0x62/0x2c8
-[   19.716960] [<ffffffff80127ad6>] do_init_module+0x5e/0x260
-[   19.722445] [<ffffffff80129d1e>] load_module+0x1bd6/0x2388
-[   19.727925] [<ffffffff8012a730>] init_module_from_file+0xc8/0x128
-[   19.734012] [<ffffffff8012a9d0>] __riscv_sys_finit_module+0x1e0/0x338
-[   19.740447] [<ffffffff80d0d62a>] do_trap_ecall_u+0x102/0x3f8
-[   19.746101] [<ffffffff80d1dbb4>] handle_exception+0x154/0x160
-[   19.751852] Code: ffd2 0013 0000 1141 e022 e406 0800 8a0d 16fa 1672 (3823) 0205
-[   19.759334] ---[ end trace 0000000000000000 ]---
-
+Cc: <stable@vger.kernel.org> # v6.13+
+Tested-by: Han Gao <gaohan@iscas.ac.cn> # SG2044
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 ---
-Vivian Wang (2):
-      riscv: mm: WARN_ON() for bad addresses in vmemmap_populate()
-      riscv: mm: Define DIRECT_MAP_PHYSMEM_END
-
  arch/riscv/include/asm/pgtable.h | 10 ++++++++++
- arch/riscv/mm/init.c             |  2 ++
- 2 files changed, 12 insertions(+)
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260309-riscv-sparsemem-vmemmap-limits-4734f1f67449
+ 1 file changed, 10 insertions(+)
 
-Best regards,
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 08d1ca047104..9c92a84e9755 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -93,6 +93,16 @@
+  */
+ #define vmemmap		((struct page *)VMEMMAP_START - vmemmap_start_pfn)
+ 
++/* Needed to limit get_free_mem_region() */
++#if defined(CONFIG_FLATMEM)
++#define DIRECT_MAP_PHYSMEM_END (phys_ram_base + KERN_VIRT_SIZE - 1)
++#elif defined(CONFIG_SPARSEMEM_VMEMMAP)
++#define DIRECT_MAP_PHYSMEM_END \
++	((vmemmap_start_pfn + VMEMMAP_SIZE / sizeof(struct page)) * PAGE_SIZE - 1)
++#elif defined(CONFIG_SPARSEMEM)
++/* DIRECT_MAP_PHYSMEM_END is not limited by VA space assignment in this case */
++#endif
++
+ #define PCI_IO_SIZE      SZ_16M
+ #define PCI_IO_END       VMEMMAP_START
+ #define PCI_IO_START     (PCI_IO_END - PCI_IO_SIZE)
+
 -- 
-Vivian "dramforever" Wang
+2.53.0
 
 
 _______________________________________________
