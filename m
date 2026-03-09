@@ -4,120 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81486EA852F
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 00:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CE5EA854A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 02:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vz2lACLvqIcufFI4LEFppB/sLxq7yv2+Pz1PCUQ77hw=; b=atSQ5Bg9BCC8l+
-	qjNA9KNf/gd7/brZ1/zylUdF2IN+uTGfmXwAdGdkXFdZ2H2T/8F9DoYK902AEo8aeP8AbJxPU8vRS
-	778/Lhiix6T6i3hMj9EEtS9/TsqZfachWF1arrZ4xuTVx0rMtE4DajznOVpfKrrNvGXsPXxYIpdqI
-	zOZhxqL3Ua1nu8yxG+GTQSCeE0znBzdEjU+tZ6jC0QmgXZgkUqOxGyRVk7sO7D/+pPqZgQNi1FQgd
-	WK+Hd7944FMKzj4gjF8KOwFoVJQUsf5nGp5ZYLZJ+BZX8HeDfInitZI0jBn2XGSCQZ3lPcp10Fr9I
-	cRQMkVwURnwyxqDar9bA==;
+	List-Owner; bh=9Njc0m1p6SJ2+nqanPTd5W6QisMcD4CIdIqgijNCSA8=; b=4gpDCv4Ut3u7g/
+	QkcuNadWCG9slpNfGbu4Keigt2dsOMV4sW9nYorRrEnzxmNd2iCp8A1pqSZ/kVtplQHmjnWuu/HqK
+	JMYi+YHeZQmU/J58jkSa3X+qnU0cVx3x7cReBixXsiV5mROF86n/ghV+gqKq2L9v6QaUIO/lI4cM9
+	Tkvnudpqj50z1s9aXj2suom3qIRDRM1fK8OyYufuSw1q6/1TSe+HELcOGPEwklL7+84D2ZA6334kR
+	E8L2vg8IfnODDGS7Q5adGNpXr+MsAJt7Y067K9FP0qzLmxgVeUmwFfJirAYin+n+hHhWjEbIu2Edo
+	Agc693FKl8m4+1fyn1eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzOiu-00000006Ttj-2KDL;
-	Mon, 09 Mar 2026 00:43:52 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vzQdN-00000006Yqg-1d1O;
+	Mon, 09 Mar 2026 02:46:17 +0000
+Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzOis-00000006TrX-0d36
+	id 1vzQdK-00000006YqL-0mw5
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 00:43:51 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2ad9f316d68so48089065ad.2
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Mar 2026 17:43:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773017029; x=1773621829; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ixbx+gDUYeAq/vVDXktJDZ6vOxwnCAtm0z9wr9CgNqc=;
-        b=hzMr1zrODa+CjNB/gnPu4kG07BLCEEnzYsElySyHmlqD13vCPU2jaaJhFXh76RV0Vv
-         8vVnfyiHEEUROH8DAW65xLXUjotaQDuJOnN2YmYfj+TCTY1o3NGV1JQACUEba9Uh3KXg
-         M+tJQ3Xroiz4XgQ+1iuVzdDarILLeC1WxZWRW9pBuX/M7hc/1Ce+MgScZptDK9LGnpvY
-         1qDGXjxUepq4pdDhMbgtnNFoj7441HK711UZyxPXUQQ+VC7hWV/L2yMViQX9XkyOQI4g
-         qwHuHSnKWJGlzTpy9O5gDqcBavG56/Fv6Bv8yKc81HK9m4jIkk4B8UQCOeuOBBrFGK6E
-         1AHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773017029; x=1773621829;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ixbx+gDUYeAq/vVDXktJDZ6vOxwnCAtm0z9wr9CgNqc=;
-        b=e4CBex043V/o8uUqYRMemrPUOSktXGgPTF7dLIfxUGtWeSYUKUw1W2yCwiRX2LQzn9
-         hEET7vtRVwpNqW9nuLXprqNcO6gPWZYuxy23EfYq4S0kxveMlcCvAIh/VuF/2HtNNnCo
-         qJD27lkSW3G7CaJPNcCy0tZpMrBIRrKdzx4fjcPrx/gTUXexrzpQBQvX/x8C5yiA4z/V
-         mqQxclvy4jIKynZrlU7l7dn6KktQ3JRQ1h+69ytNUNO7o7zJcHVQxFGJF9eBmF1CtvEb
-         eftYVJEu2YdCVOLT4YrAkDuS5p8LgXkH3qSDB4yo+o8r/e8ws3vZHkf8cOOm2nMDHMaA
-         OWzA==
-X-Forwarded-Encrypted: i=1; AJvYcCX9PDKktyQTn52r9iPGmX7S2krKXG32nGCGVK9+ydp58KhvC6ro9bumdptLC7fL6V4KrlIRJ4SOx8EBDg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCRRma0ktup0m9ym12mGRZ2yXYh9YHlEhjFk6on/9vBhs3/g3j
-	uGS2zUT+yy/XMw/bmjI0X7/bRobAQWBAs1dvP+5ua3GRS4h3uLhACHjx
-X-Gm-Gg: ATEYQzybwwxbIK5EaV2pgRGnbd2nJZXSIYODnGQW8bMW+OM85xBwuJ0WDWmibQHRd1p
-	IaDfaBVmAsE1K/NGKcxgGnDqbG+weMjFG78sU7UN1NEqMIsz2ZF4UNPXfM67U5huHVMVNrdBZae
-	FXgM5kbNA6XutKR/2LgigScepQ4t0H5QpNxgEYbCfNo9K68c6ogns3K50zRyLMvX2PvytuIkLfP
-	1FatU+za3hepMZPXH1EWO56WudjCQfZDMpYsolqy2nX+moE0vAoyQVxpLQRHX4rmuWVyIww07Yv
-	tHX2RuKd6tRTpjHPqQkWkTjaNx/SSoiI6MVFpVeWUeZqP5hgYQ5fFTV2SmrpaAbuAEILvO958Oy
-	2RAULY8wLRxppYmf4i2Nd5x5cdJekS81mdEhE6njE/R24nhfeQ7CR6UfdVYLPA1YQQk13qmzi90
-	TWhywcKE10aqf0oNXm6XE24JT1DsOBSiCn7g==
-X-Received: by 2002:a17:903:b4e:b0:2a9:62ce:1c15 with SMTP id d9443c01a7336-2ae82269e63mr93309645ad.0.1773017029142;
-        Sun, 08 Mar 2026 17:43:49 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ae83e57740sm88653645ad.15.2026.03.08.17.43.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Mar 2026 17:43:48 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Yao Zi <me@ziyao.cc>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v8 3/3] net: stmmac: Add glue layer for Spacemit K3 SoC
-Date: Mon,  9 Mar 2026 08:42:44 +0800
-Message-ID: <20260309004305.315018-4-inochiama@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260309004305.315018-1-inochiama@gmail.com>
-References: <20260309004305.315018-1-inochiama@gmail.com>
-MIME-Version: 1.0
+	Mon, 09 Mar 2026 02:46:15 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4fThGT6SsVz9tYN;
+	Mon,  9 Mar 2026 03:46:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1773024370;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M1BjM0rf2n3gTAxYcEyrznxi8WA9wRDhAUvOuuf5WIM=;
+	b=EXmgdsAajz8XB2ziZCvpNjOlSNjG0zxQUN48lyeA/eoR6QGJzpXx5qV5AL2SN7wolcquBj
+	3kPK1BCdzmDv8ANZ7JKlG9ZIgK9A7env/8uoGypAiNN2RpSDjHfDxH4liEDKmc4I9L6jfm
+	H8DNsIe2knW8NQzbG/rogB43MCvGYj7pEbM/jo+D0rpJR5F0ix/vkxNwy/18xyIksRTVc/
+	r0R+FhwpIdBQOrFZqbrAB33cS7nnwcRw3tC33ZPJYSDUqH1T0aD0PjT5pas60TLxN6NSmD
+	2GmEX+fOUnyyYDcl8eDYJ/C9aik+tk/K5G+rXKRC41OUhvJCMsQfs/bm6qKBow==
+Mime-Version: 1.0
+Date: Mon, 09 Mar 2026 10:45:49 +0800
+Message-Id: <DGXWODJ8CGUN.KZFJ9JDJMEM3@mailbox.org>
+Cc: <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <devicetree@vger.kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Viresh Kumar" <viresh.kumar@linaro.org>, "Yixun Lan" <dlan@gentoo.org>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
+Subject: Re: [PATCH 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
+From: "Shuwei Wu" <shuwei.wu@mailbox.org>
+To: "Samuel Holland" <samuel.holland@sifive.com>
+References: <20260308-shadow-deps-v1-0-0ceb5c7c07eb@mailbox.org>
+ <20260308-shadow-deps-v1-2-0ceb5c7c07eb@mailbox.org>
+ <610da0d3-1dc0-4f4f-afb4-869d3ed81321@sifive.com>
+In-Reply-To: <610da0d3-1dc0-4f4f-afb4-869d3ed81321@sifive.com>
+X-MBO-RS-ID: 4718965d707e9392835
+X-MBO-RS-META: w3n6rf7qzhqwy6xkdx5zhxepjgn57kz8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260308_174350_251350_3740E519 
-X-CRM114-Status: GOOD (  27.95  )
+X-CRM114-CacheID: sfid-20260308_194614_582656_81D16964 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,295 +84,251 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The ethernet controller on Spacemit K3 SoC is Synopsys DesignWare
-MAC (version 5.40a), with the following special points:
-1. The rate of the tx clock line is auto changed when the mac speed
-   rate is changed, and no need for changing the input tx clock.
-2. This controller require a extra syscon device to configure the
-   interface type, enable wake up interrupt and delay configuration
-   if needed.
+Hi Samuel,
 
-Add Spacemit dwmac driver support on the Spacemit K3 SoC.
+On Mon Mar 9, 2026 at 1:59 AM CST, Samuel Holland wrote:
+> Hi Shuwei,
+>
+> On 2026-03-07 11:17 PM, Shuwei Wu wrote:
+>> Add Operating Performance Points (OPP) tables and CPU clock properties
+>> for the two clusters in the SpacemiT K1 SoC.
+>> 
+>> Also assign the CPU power supply (cpu-supply) for the Banana Pi BPI-F3
+>> board to fully enable CPU DVFS.
+>> 
+>> Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+>> ---
+>>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 34 +++++++++-
+>>  arch/riscv/boot/dts/spacemit/k1.dtsi            | 86 +++++++++++++++++++++++++
+>>  2 files changed, 119 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+>> index 444c3b1e6f44..b87bf9d51cb1 100644
+>> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+>> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+>> @@ -86,6 +86,38 @@ &combo_phy {
+>>  	status = "okay";
+>>  };
+>>  
+>> +&cpu_0 {
+>> +	cpu-supply = <&buck1_3v45>;
+>> +};
+>> +
+>> +&cpu_1 {
+>> +	cpu-supply = <&buck1_3v45>;
+>> +};
+>> +
+>> +&cpu_2 {
+>> +	cpu-supply = <&buck1_3v45>;
+>> +};
+>> +
+>> +&cpu_3 {
+>> +	cpu-supply = <&buck1_3v45>;
+>> +};
+>> +
+>> +&cpu_4 {
+>> +	cpu-supply = <&buck1_3v45>;
+>> +};
+>> +
+>> +&cpu_5 {
+>> +	cpu-supply = <&buck1_3v45>;
+>> +};
+>> +
+>> +&cpu_6 {
+>> +	cpu-supply = <&buck1_3v45>;
+>> +};
+>> +
+>> +&cpu_7 {
+>> +	cpu-supply = <&buck1_3v45>;
+>> +};
+>> +
+>>  &emmc {
+>>  	bus-width = <8>;
+>>  	mmc-hs400-1_8v;
+>> @@ -201,7 +233,7 @@ pmic@41 {
+>>  		dldoin2-supply = <&buck5>;
+>>  
+>>  		regulators {
+>> -			buck1 {
+>> +			buck1_3v45: buck1 {
+>>  				regulator-min-microvolt = <500000>;
+>>  				regulator-max-microvolt = <3450000>;
+>>  				regulator-ramp-delay = <5000>;
+>> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+>> index 529ec68e9c23..5c7bb5d85fc0 100644
+>> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+>> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+>> @@ -54,6 +54,8 @@ cpu_0: cpu@0 {
+>>  			compatible = "spacemit,x60", "riscv";
+>>  			device_type = "cpu";
+>>  			reg = <0>;
+>> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
+>> +			operating-points-v2 = <&cluster0_opp_table>;
+>>  			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>>  			riscv,isa-base = "rv64i";
+>>  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+>> @@ -84,6 +86,8 @@ cpu_1: cpu@1 {
+>>  			compatible = "spacemit,x60", "riscv";
+>>  			device_type = "cpu";
+>>  			reg = <1>;
+>> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
+>> +			operating-points-v2 = <&cluster0_opp_table>;
+>>  			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>>  			riscv,isa-base = "rv64i";
+>>  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+>> @@ -114,6 +118,8 @@ cpu_2: cpu@2 {
+>>  			compatible = "spacemit,x60", "riscv";
+>>  			device_type = "cpu";
+>>  			reg = <2>;
+>> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
+>> +			operating-points-v2 = <&cluster0_opp_table>;
+>>  			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>>  			riscv,isa-base = "rv64i";
+>>  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+>> @@ -144,6 +150,8 @@ cpu_3: cpu@3 {
+>>  			compatible = "spacemit,x60", "riscv";
+>>  			device_type = "cpu";
+>>  			reg = <3>;
+>> +			clocks = <&syscon_apmu CLK_CPU_C0_CORE>;
+>> +			operating-points-v2 = <&cluster0_opp_table>;
+>>  			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>>  			riscv,isa-base = "rv64i";
+>>  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+>> @@ -174,6 +182,8 @@ cpu_4: cpu@4 {
+>>  			compatible = "spacemit,x60", "riscv";
+>>  			device_type = "cpu";
+>>  			reg = <4>;
+>> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
+>> +			operating-points-v2 = <&cluster1_opp_table>;
+>>  			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>>  			riscv,isa-base = "rv64i";
+>>  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+>> @@ -204,6 +214,8 @@ cpu_5: cpu@5 {
+>>  			compatible = "spacemit,x60", "riscv";
+>>  			device_type = "cpu";
+>>  			reg = <5>;
+>> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
+>> +			operating-points-v2 = <&cluster1_opp_table>;
+>>  			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>>  			riscv,isa-base = "rv64i";
+>>  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+>> @@ -234,6 +246,8 @@ cpu_6: cpu@6 {
+>>  			compatible = "spacemit,x60", "riscv";
+>>  			device_type = "cpu";
+>>  			reg = <6>;
+>> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
+>> +			operating-points-v2 = <&cluster1_opp_table>;
+>>  			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>>  			riscv,isa-base = "rv64i";
+>>  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+>> @@ -264,6 +278,8 @@ cpu_7: cpu@7 {
+>>  			compatible = "spacemit,x60", "riscv";
+>>  			device_type = "cpu";
+>>  			reg = <7>;
+>> +			clocks = <&syscon_apmu CLK_CPU_C1_CORE>;
+>> +			operating-points-v2 = <&cluster1_opp_table>;
+>>  			riscv,isa = "rv64imafdcbv_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zba_zbb_zbc_zbs_zkt_zvfh_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt";
+>>  			riscv,isa-base = "rv64i";
+>>  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "b", "v", "zicbom",
+>> @@ -339,6 +355,76 @@ osc_32k: clock-32k {
+>>  		};
+>>  	};
+>>  
+>> +	cluster0_opp_table: opp-table-cluster0 {
+>> +		compatible = "operating-points-v2";
+>> +		opp-shared;
+>> +
+>> +		opp-614400000 {
+>> +			opp-hz = /bits/ 64 <614400000>;
+>> +			opp-microvolt = <950000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +
+>> +		opp-819000000 {
+>> +			opp-hz = /bits/ 64 <819000000>;
+>> +			opp-microvolt = <950000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +
+>> +		opp-1000000000 {
+>> +			opp-hz = /bits/ 64 <1000000000>;
+>> +			opp-microvolt = <950000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +
+>> +		opp-1228800000 {
+>> +			opp-hz = /bits/ 64 <1228800000>;
+>> +			opp-microvolt = <950000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +
+>> +		opp-1600000000 {
+>> +			opp-hz = /bits/ 64 <1600000000>;
+>> +			opp-microvolt = <1050000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +	};
+>> +
+>> +	cluster1_opp_table: opp-table-cluster1 {
+>> +		compatible = "operating-points-v2";
+>> +		opp-shared;
+>> +
+>> +		opp-614400000 {
+>> +			opp-hz = /bits/ 64 <614400000>;
+>> +			opp-microvolt = <950000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +
+>> +		opp-819000000 {
+>> +			opp-hz = /bits/ 64 <819000000>;
+>> +			opp-microvolt = <950000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +
+>> +		opp-1000000000 {
+>> +			opp-hz = /bits/ 64 <1000000000>;
+>> +			opp-microvolt = <950000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +
+>> +		opp-1228800000 {
+>> +			opp-hz = /bits/ 64 <1228800000>;
+>> +			opp-microvolt = <950000>;
+>> +			clock-latency-ns = <200000>;
+>> +		};
+>> +
+>> +		opp-1600000000 {
+>> +			opp-hz = /bits/ 64 <1600000000>;
+>> +			opp-microvolt = <1050000>;
+>> +			clock-latency-ns = <200000>;
+>
+> What is the initial voltage set by firmware before Linux boots? If it is 1.05V,
+> this is fine, but if the default is 950mV, then you cannot enable the OPP table
+> in the SoC .dtsi file. Boards other than the BananaPi F3 are missing the
+> cpu-supply property, so they won't raise the CPU voltage before switching to the
+> higher frequency. The usual solution is to put the OPP table (or at least the
+> OPPs that require a higher voltage) in a separate .dtsi file, and only include
+> that file from boards that provide the cpu-supply.
+>
+> Regards,
+> Samuel
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 227 ++++++++++++++++++
- 3 files changed, 240 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+Thanks for the suggestion!
+I confirmed the firmware sets the initial voltage to 1.05V at the default boot
+frequency before any scaling occurs:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 07088d03dbab..d3a6ab7383fc 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -216,6 +216,18 @@ config DWMAC_SOPHGO
- 	  for the stmmac device driver. This driver is used for the
- 	  ethernet controllers on various Sophgo SoCs.
- 
-+config DWMAC_SPACEMIT
-+	tristate "Spacemit dwmac support"
-+	depends on OF && (ARCH_SPACEMIT || COMPILE_TEST)
-+	select MFD_SYSCON
-+	default m if ARCH_SPACEMIT
-+	help
-+	  Support for ethernet controllers on Spacemit RISC-V SoCs
-+
-+	  This selects the Spacemit platform specific glue layer support
-+	  for the stmmac device driver. This driver is used for the
-+	  Spacemit K3 ethernet controllers.
-+
- config DWMAC_STARFIVE
- 	tristate "StarFive dwmac support"
- 	depends on OF && (ARCH_STARFIVE || COMPILE_TEST)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index c9263987ef8d..945c5354eced 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -27,6 +27,7 @@ obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
- obj-$(CONFIG_DWMAC_S32)		+= dwmac-s32.o
- obj-$(CONFIG_DWMAC_SOCFPGA)	+= dwmac-altr-socfpga.o
- obj-$(CONFIG_DWMAC_SOPHGO)	+= dwmac-sophgo.o
-+obj-$(CONFIG_DWMAC_SPACEMIT)	+= dwmac-spacemit.o
- obj-$(CONFIG_DWMAC_STARFIVE)	+= dwmac-starfive.o
- obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
- obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-new file mode 100644
-index 000000000000..f6379ae6e858
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-@@ -0,0 +1,227 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Spacemit DWMAC platform driver
-+ *
-+ * Copyright (C) 2026 Inochi Amaoto <inochiama@gmail.com>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/math.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/regmap.h>
-+
-+#include "stmmac_platform.h"
-+
-+/* ctrl register bits */
-+#define CTRL_PHY_INTF_RGMII		BIT(3)
-+#define CTRL_PHY_INTF_MII		BIT(4)
-+#define CTRL_WAKE_IRQ_EN		BIT(9)
-+#define CTRL_PHY_IRQ_EN			BIT(12)
-+
-+/* dline register bits */
-+#define RGMII_RX_DLINE_EN		BIT(0)
-+#define RGMII_RX_DLINE_STEP		GENMASK(5, 4)
-+#define RGMII_RX_DLINE_CODE		GENMASK(15, 8)
-+#define RGMII_TX_DLINE_EN		BIT(16)
-+#define RGMII_TX_DLINE_STEP		GENMASK(21, 20)
-+#define RGMII_TX_DLINE_CODE		GENMASK(31, 24)
-+
-+#define MAX_DLINE_DELAY_CODE		0xff
-+#define MAX_WORKED_DELAY		2800
-+/* Note: the delay step value is at 0.1ps */
-+#define K3_DELAY_STEP			367
-+
-+struct spacmit_dwmac {
-+	struct regmap *apmu;
-+	unsigned int ctrl_offset;
-+	unsigned int dline_offset;
-+};
-+
-+static int spacemit_dwmac_set_delay(struct spacmit_dwmac *dwmac,
-+				    unsigned int tx_code, unsigned int rx_code)
-+{
-+	unsigned int mask, val;
-+
-+	mask = RGMII_TX_DLINE_STEP | RGMII_TX_DLINE_CODE | RGMII_TX_DLINE_EN |
-+	       RGMII_RX_DLINE_STEP | RGMII_RX_DLINE_CODE | RGMII_RX_DLINE_EN;
-+
-+	/*
-+	 * Since the delay step provided by config 0 is small enough, and
-+	 * it can cover the range of the valid delay, so there is no needed
-+	 * to use other step config.
-+	 */
-+	val = FIELD_PREP(RGMII_TX_DLINE_STEP, 0) |
-+	      FIELD_PREP(RGMII_TX_DLINE_CODE, tx_code) | RGMII_TX_DLINE_EN |
-+	      FIELD_PREP(RGMII_RX_DLINE_STEP, 0) |
-+	      FIELD_PREP(RGMII_RX_DLINE_CODE, rx_code) | RGMII_RX_DLINE_EN;
-+
-+	return regmap_update_bits(dwmac->apmu, dwmac->dline_offset,
-+				  mask, val);
-+}
-+
-+static int spacemit_dwmac_detected_delay_value(unsigned int delay)
-+{
-+	if (delay == 0)
-+		return 0;
-+
-+	if (delay > MAX_WORKED_DELAY)
-+		return -EINVAL;
-+
-+	/*
-+	 * Note K3 require a specific factor for calculate
-+	 * the delay, in this scenario it is 0.9. So the
-+	 * formula is code * step / 10 * 0.9
-+	 */
-+	return DIV_ROUND_CLOSEST(delay * 10 * 10, K3_DELAY_STEP * 9);
-+}
-+
-+static int spacemit_dwmac_fix_delay(struct spacmit_dwmac *dwmac,
-+				    unsigned int tx_delay,
-+				    unsigned int rx_delay)
-+{
-+	int rx_code;
-+	int tx_code;
-+
-+	rx_code = spacemit_dwmac_detected_delay_value(rx_delay);
-+	if (rx_code < 0)
-+		return rx_code;
-+
-+	tx_code = spacemit_dwmac_detected_delay_value(tx_delay);
-+	if (tx_code < 0)
-+		return tx_code;
-+
-+	return spacemit_dwmac_set_delay(dwmac, tx_code, rx_code);
-+}
-+
-+static int spacemit_dwmac_update_irq_config(struct spacmit_dwmac *dwmac,
-+					    struct stmmac_resources *stmmac_res)
-+{
-+	unsigned int mask = CTRL_WAKE_IRQ_EN;
-+	unsigned int val = stmmac_res->wol_irq >= 0 ? CTRL_WAKE_IRQ_EN : 0;
-+
-+	return regmap_update_bits(dwmac->apmu, dwmac->ctrl_offset,
-+				  mask, val);
-+}
-+
-+static void spacemit_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
-+				    unsigned long *interfaces)
-+{
-+	__set_bit(PHY_INTERFACE_MODE_MII, interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_RMII, interfaces);
-+	phy_interface_set_rgmii(interfaces);
-+}
-+
-+static int spacemit_set_phy_intf_sel(void *bsp_priv, u8 phy_intf_sel)
-+{
-+	struct spacmit_dwmac *dwmac = bsp_priv;
-+	unsigned int mask = CTRL_PHY_INTF_MII | CTRL_PHY_INTF_RGMII;
-+	unsigned int val = 0;
-+
-+	switch (phy_intf_sel) {
-+	case PHY_INTF_SEL_GMII_MII:
-+		val = CTRL_PHY_INTF_MII;
-+		break;
-+
-+	case PHY_INTF_SEL_RMII:
-+		break;
-+
-+	case PHY_INTF_SEL_RGMII:
-+		val = CTRL_PHY_INTF_RGMII;
-+		break;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return regmap_update_bits(dwmac->apmu, dwmac->ctrl_offset,
-+				  mask, val);
-+}
-+
-+static int spacemit_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct device *dev = &pdev->dev;
-+	struct spacmit_dwmac *dwmac;
-+	unsigned int offset[2];
-+	struct regmap *apmu;
-+	struct clk *clk_tx;
-+	u32 rx_delay = 0;
-+	u32 tx_delay = 0;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to get platform resources\n");
-+
-+	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-+	if (!dwmac)
-+		return -ENOMEM;
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return dev_err_probe(dev, PTR_ERR(plat_dat),
-+				     "failed to parse DT parameters\n");
-+
-+	clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
-+	if (IS_ERR(clk_tx))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk_tx),
-+				     "failed to get tx clock\n");
-+
-+	apmu = syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-+						    "spacemit,apmu", 2,
-+						    offset);
-+	if (IS_ERR(apmu))
-+		return dev_err_probe(dev, PTR_ERR(apmu),
-+				"Failed to get apmu regmap\n");
-+
-+	dwmac->apmu = apmu;
-+	dwmac->ctrl_offset = offset[0];
-+	dwmac->dline_offset = offset[1];
-+
-+	ret = spacemit_dwmac_update_irq_config(dwmac, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to configure irq config\n");
-+
-+	of_property_read_u32(pdev->dev.of_node, "tx-internal-delay-ps",
-+			     &tx_delay);
-+	of_property_read_u32(pdev->dev.of_node, "rx-internal-delay-ps",
-+			     &rx_delay);
-+
-+	plat_dat->get_interfaces = spacemit_get_interfaces;
-+	plat_dat->set_phy_intf_sel = spacemit_set_phy_intf_sel;
-+	plat_dat->bsp_priv = dwmac;
-+
-+	ret = spacemit_dwmac_fix_delay(dwmac, tx_delay, rx_delay);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to configure delay\n");
-+
-+	return stmmac_dvr_probe(dev, plat_dat, &stmmac_res);
-+}
-+
-+static const struct of_device_id spacemit_dwmac_match[] = {
-+	{ .compatible = "spacemit,k3-dwmac" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, spacemit_dwmac_match);
-+
-+static struct platform_driver spacemit_dwmac_driver = {
-+	.probe  = spacemit_dwmac_probe,
-+	.remove = stmmac_pltfr_remove,
-+	.driver = {
-+		.name = "spacemit-dwmac",
-+		.pm = &stmmac_pltfr_pm_ops,
-+		.of_match_table = spacemit_dwmac_match,
-+	},
-+};
-+module_platform_driver(spacemit_dwmac_driver);
-+
-+MODULE_AUTHOR("Inochi Amaoto <inochiama@gmail.com>");
-+MODULE_DESCRIPTION("Spacemit DWMAC platform driver");
-+MODULE_LICENSE("GPL");
+~ # cat /sys/class/regulator/regulator.4/name
+buck1
+~ # cat /sys/class/regulator/regulator.4/microvolts
+1050000
+
+But I agree that moving the OPP tables to a separate .dtsi is a much safer
+and more robust approach for boards without cpu-supply.
+I will implement this in v2.
+
+Best regards,
 -- 
-2.53.0
-
+Shuwei Wu
 
 _______________________________________________
 linux-riscv mailing list
