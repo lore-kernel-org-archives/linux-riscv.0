@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9466FCA17D
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 19:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE36EFCA17D
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 19:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TT1TD9ncGJ8QfeSG2STxZYR9NQ4zo2UGL0Z7+5hzgmU=; b=lQHGoMw7WVZlpL
-	oys6t4+qdLaluIy9ZjfT6HlnmuWOcxxDwwuBH/9PeuvVtRrysIkIg2V2AG7f5/KoQ8UTT3X0JUTd+
-	y1kVEpyK8pnXOHGFq1+LyLj0kOittrrBBoA2srFwQZtHfjSS6b8uf9ZDqIYq9XKa71scIb/2unC0c
-	vm3gjLtyEcl2wYVTpfHwvf0Z4jVjMZ99PZ3rnbe8QrmQgzdj8vua/YgyPblYQVP2K7PR3nDwxp0IE
-	rjKylQzBOXUEN1484CoPEz0jm4DS+oGYxXZblmqHOXhtC7KrGGW6jxeqT6oWK8Tf5Kv9ONscyV/ha
-	bufd/VzgP/5v0EF40g7Q==;
+	List-Owner; bh=KIwNQQ1hPOHaQ13hNhVG4KvnVri5PJLv7hL0bNFnR2o=; b=FQu8KYH472E0WX
+	2YYf8prIBO1cDmcU6ksrTl/Ud6Eac+XviS1rzvSMe58xxd55W9rPbjXAdoHdcNp676VuPjPLDaVBD
+	5Lp5QqMnI/ainw7hQXzGp+0jcuB6uJQaSxoI3RZrQff9BQwBqSNxAaFCOAgbyNpMRS7r5vXzgCcW7
+	TKo4rpW76rvMtFVvUuKcRcSMvwK5JKajheLV5qSYsQ4ZGXcokI8VbYGFJ/FjfPKRLufgR4zEhm2vC
+	75rvUDn5g3hpXnh5bzaPIxds+Jmkw4CiSyaPBGvAYu3cMiG3qMFPJzlUpHmP+jWQdvUqORSuFmGSr
+	HHlR9gXS51UljoHFCk8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzgd5-00000008540-3mgB;
-	Mon, 09 Mar 2026 19:51:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzgdS-0000000855u-1ASs;
+	Mon, 09 Mar 2026 19:51:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzgd3-0000000853F-3nvv
+	id 1vzgdQ-0000000855n-2etz
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 19:51:02 +0000
+	Mon, 09 Mar 2026 19:51:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3E1B40273;
-	Mon,  9 Mar 2026 19:51:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43B9DC4CEF7;
-	Mon,  9 Mar 2026 19:51:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BA33A60097;
+	Mon,  9 Mar 2026 19:51:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24E8AC4CEF7;
+	Mon,  9 Mar 2026 19:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773085860;
-	bh=r8c14+2vyTmPlq9oGfRHCFHsPV2c0IguH1Ff9ELKtwo=;
+	s=k20201202; t=1773085883;
+	bh=tc/hXjaPOs4r7lYuxgCDxoSagD04bxl3JaOq+bwMeZM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ujTEAw4SdMi7hxAru83WXXoqFLliRwMETzDnew/NQOGNi47FaI8sUSUDF22F3tLq6
-	 BuWjAGsKG6IrMmpMbTDYUPuZQyR5FFNgJBA5UGJk4NLllWMjmgoVPW/XaKo6Hn7B0R
-	 19f7sb6sl9wLOjoX0+FOwLR3GhbeUSf2vM4Vgggwla/Vc2LOquo/GQbMfO7yQLPn3s
-	 v/SWN7KiHdCR0uVQ6SUNSBtmh70FYeCVfRdAiaIN7SPTqEzae9atx3taonc49K9SyU
-	 SrSohYuTxV76EuJ3/Ps2PbbknRReD6MoSjak2GYuilG75sgD7pkzCxPIIfSmsUHY07
-	 sXzdShm0tH0jg==
-Date: Mon, 9 Mar 2026 12:50:58 -0700
+	b=bSQ52WVjThj/b4JXmo5ZzqQIQw7aHD/oVdg6NxD3iBrH1hcyu2WlidL5PYBOOyh25
+	 SninXDJC3ov4Sr2ZHfBzhyVPgKBMeAuesm/YWDLfZ9DCdhq9n1jLq8/oFccVqWs1JU
+	 fzCycZtwsOWkdIkeQ5VSgOfYkw5SoytrXt+ZIUUgkLHlFxgAuaM7j/q3boEISdwqWJ
+	 wOJpxGHbCa6TIYlCt6MvnxabaPQ10+IxTBSy54pJCiq2g1OePgHJVHzHbvBCsCT/vZ
+	 LUWAebNUzLu7E57fZffMmMltGMlqwoaRh4xEpEEn2hyng9+k0SzSR+aghvWXuxDou1
+	 3f66n05QiPUow==
+Date: Mon, 9 Mar 2026 12:51:21 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
@@ -59,18 +59,14 @@ Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
 	npiggin@oss.tenstorrent.com, agross@kernel.org,
 	agross@oss.tenstorrent.com, bmasney@redhat.com,
 	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v8 1/3] dt-bindings: clk: tenstorrent: Add
- tenstorrent,atlantis-prcm-rcpu
-Message-ID: <aa8korcqvmH15nDW@x1>
+Subject: Re: [PATCH v8 2/3] reset: tenstorrent: Add reset controller for
+ Atlantis
+Message-ID: <aa8kuXgxfqSWC2Yh@x1>
 References: <20260306-atlantis-clocks-v8-0-6c9b14a4aa8e@oss.tenstorrent.com>
- <20260306-atlantis-clocks-v8-1-6c9b14a4aa8e@oss.tenstorrent.com>
+ <20260306-atlantis-clocks-v8-2-6c9b14a4aa8e@oss.tenstorrent.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260306-atlantis-clocks-v8-1-6c9b14a4aa8e@oss.tenstorrent.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_125101_966586_D7E2CF58 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260306-atlantis-clocks-v8-2-6c9b14a4aa8e@oss.tenstorrent.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,18 +83,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 11:12:17AM -0600, Anirudh Srinivasan wrote:
-> Document bindings for Tenstorrent Atlantis PRCM that manages clocks
-> and resets. This block is instantiated multiple times in the SoC.
-> This commit documents the clocks from the RCPU PRCM block.
+On Fri, Mar 06, 2026 at 11:12:18AM -0600, Anirudh Srinivasan wrote:
+> Adds Atlantis Reset Controller driver, which shares the same regmap as
+> prcm ( clock controller).
 > 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> This version of the reset controller driver covers resets from the RCPU
+> prcm.
+> 
+> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+> Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
 > Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 > ---
->  .../clock/tenstorrent,atlantis-prcm-rcpu.yaml      |  54 +++++++++++
->  MAINTAINERS                                        |   2 +
->  .../clock/tenstorrent,atlantis-prcm-rcpu.h         | 103 +++++++++++++++++++++
->  3 files changed, 159 insertions(+)
+>  MAINTAINERS                                |   1 +
+>  drivers/reset/Kconfig                      |  11 ++
+>  drivers/reset/Makefile                     |   1 +
+>  drivers/reset/reset-tenstorrent-atlantis.c | 173 +++++++++++++++++++++++++++++
+>  4 files changed, 186 insertions(+)
 
 Reviewed-by: Drew Fustini <fustini@kernel.org>
 
