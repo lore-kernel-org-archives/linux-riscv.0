@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823E4EFCD98
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 10:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB05EFCD9A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 11:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7xRWC6dxPZPj6/v/KakToE3Oze+PeLZJqhx8dE5kQ9s=; b=OA+siuPJXcFVqk
-	1eXRTPlGoF0OUFGdIOobAp+ziypSScxke6vpt+GtyeIs3F25OOVPeypUd+niK5mS9VBEpd3D5/hvB
-	2ixbC+q7yAYdMovzkF9wD/LwvS2RhE0rK4IhhkxPlyo6qPjsoji/lfSPk/zAijpNrUiQSz8LFyhLR
-	xhhKLFnF21byd6ocDtydtPribKIWXnh48k1FpnbwWpScS6fSkqjzngxeyvG1J3Ha1PIlPxlCd01+b
-	ak4DUM8fEAhFRHO43Ufq2Pdp9x0WtT/JDXVhd8eKe5KYVCdtn6Ohgo+Ko1AUjixM4lXkDD99LGzUU
-	r7wvvIwiazxbf+3OqvFw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bwmp0nX6RrmzyjMknV7zWB5aUnRpFk/dw9MWHKliwXQ=; b=oMCcWMIdB0b05u
+	QtHsQHWkfDIjfXPK0/VL4V7rz6jYnP4hKy/5KRM8nWzLV7itHJQJW3UWN0DK2gEkVLYCEXeY6wM0o
+	MXsYs6K23nhXJF3mUxfJoRcFTh5I03/Oh44pOex7uk906Iszu7ECsK9uO8coKjdm1v9mc+quuyD2M
+	+lllv0dA5j6wwy/avLIIzDdFojGGXnsITZoY2WnpGzbi3JdGsyX+X0c0cDu7mkF46L5mR0o/SSCBU
+	7KswTMyo3o+tTlNAsKjOFRaNRNu8gavCnruN4/Sx8fEiX03gZFAP62hSrJCxmgJGBTj24kK4qN6ix
+	XeSJSQOW+HhvRjgikoHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYDS-000000077Ll-0Rha;
-	Mon, 09 Mar 2026 10:52:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzYUj-000000079Hi-2l6v;
+	Mon, 09 Mar 2026 11:09:53 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzYDQ-000000077LC-16VE
+	id 1vzYUf-000000079Fb-2NE7
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 10:52:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B1F8460121;
-	Mon,  9 Mar 2026 10:51:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85023C2BCAF;
-	Mon,  9 Mar 2026 10:51:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773053519;
-	bh=1EZLF6reVfsACLYhIQJ/1CQNkvrzppvUxxc05yyeYb4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mtnX8aKYF8J8EJ/PpgyRiq1sJOJs0RxjAILcEBg8ndDCUMOUIm4c4qULmL1yXqr9h
-	 PpcoPSxnWm2RJ9N4on+2YOGaH6nLDubl/XlkqZXRpBQ8qeI7LWothi+HMFDAYtbq+h
-	 B67Wmf3Krm9doChxb7DgFxh6U+qpqgIAkxellFcOFDt4xr+JQbDA0oezgCyDG16Vcp
-	 xTU8VXIGGxSzhuVADDudB0w9400TEaMePZNZ8pKf+FgEXqbOjNPHBuf10/Ubkeac3p
-	 2Ww3+r0BpAssO5F4qO1VORZEYFO39m7Q3859BFSj1nSiv/0pj4kE5ZrfU8cEcOVsNn
-	 R5IHr1/9Ul4QA==
-Date: Mon, 9 Mar 2026 18:51:56 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 1/1] riscv: dts: spacemit: Add 'linux,pci-domain' to
- PCIe nodes for K1
-Message-ID: <20260309105156-GKD302167@kernel.org>
-References: <20260309030000.1157040-1-amadeus@jmu.edu.cn>
+	Mon, 09 Mar 2026 11:09:52 +0000
+Received: from [127.0.0.2] (unknown [210.73.43.101])
+	by APP-03 (Coremail) with SMTP id rQCowAAHItlzqq5pnpElCg--.46862S2;
+	Mon, 09 Mar 2026 19:09:41 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: [PATCH 0/2] riscv: mm: Define DIRECT_MAP_PHYSMEM_END, fix
+ ZONE_DEVICE
+Date: Mon, 09 Mar 2026 19:09:36 +0800
+Message-Id: <20260309-riscv-sparsemem-vmemmap-limits-v1-0-f40efe18e3cd@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260309030000.1157040-1-amadeus@jmu.edu.cn>
+X-B4-Tracking: v=1; b=H4sIAHCqrmkC/x2NQQqAMAzAviI9W5g6FP2KeBjaacHpaGUI4t8dX
+ gK5JA8oCZPCUDwglFj5PLJUZQHz5o6VkJfsUJu6NY3pUVjnhBqdKAUKmDKCi7hz4EvRdo31lW8
+ 7a3vIkSjk+f4H4/S+H30e/7xwAAAA
+X-Change-ID: 20260309-riscv-sparsemem-vmemmap-limits-4734f1f67449
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ sophgo@lists.linux.dev, Vivian Wang <wangruikang@iscas.ac.cn>, 
+ stable@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.14.3
+X-CM-TRANSID: rQCowAAHItlzqq5pnpElCg--.46862S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWr48JFW7AF1fJFyUZr4DXFb_yoW7JrWfpr
+	y5Xr1UCr40yr4DJrWIyry5Zr93GFW2kay7GFyxJw1Yv3WDCr1Utr18JFW3Kr9rJr45JFy7
+	Grs8tr48KryUtw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkm14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r1q
+	6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y
+	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+	WUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
+	IxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfU52NtDUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_040949_975110_3CA05029 
+X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +84,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+With HSA_AMD_SVM=y, RISC-V runs into the same problem as arm64 at one
+point did [1], where it tries to use a struct page that is outside of
+vmemmap. See log near the end.
 
-On 11:00 Mon 09 Mar     , Chukun Pan wrote:
-> The SpacemiT K1 SoC has 3 PCIe EP controller nodes. Add the
-> 'linux,pci-domain' property to assign a PCI domain number to
-> each of the controllers instead of assigning it randomly.
-> 
-> This creates a stable sysfs path, allowing userspace scripts
-> to reliably target specific PCIe devices (such as PCIe NICs).
-> 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-Looks good to me
+On RISC-V, the actual mappable range of physical addresses is dependent
+on the current MMU mode i.e. satp_mode. Define DIRECT_MAP_PHYSMEM_END to
+expose this information to get_free_mem_region().
 
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+See also commit eeb8fdfcf090 ("arm64: Expose the end of the linear map
+in PHYSMEM_END") which fixed the same issue on arm64, although the
+situation there is much less complicated.
 
-> ---
-> Changes in v2:
-> - Improve the commit messages
-> ---
->  arch/riscv/boot/dts/spacemit/k1.dtsi | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> index 529ec68e9c23..d2015201f8e5 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> @@ -1033,6 +1033,7 @@ pcie-bus {
->  			#size-cells = <2>;
->  			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>,
->  				     <0x0 0xb8000000 0x1 0x38000000 0x3 0x48000000>;
-> +
->  			pcie0: pcie@ca000000 {
->  				device_type = "pci";
->  				compatible = "spacemit,k1-pcie";
-> @@ -1044,6 +1045,7 @@ pcie0: pcie@ca000000 {
->  					    "atu",
->  					    "config",
->  					    "link";
-> +				linux,pci-domain = <0>;
->  				#address-cells = <3>;
->  				#size-cells = <2>;
->  				ranges = <0x01000000 0x0 0x00000000 0x0 0x8f002000 0x0 0x00100000>,
-> @@ -1087,6 +1089,7 @@ pcie1: pcie@ca400000 {
->  					    "atu",
->  					    "config",
->  					    "link";
-> +				linux,pci-domain = <1>;
->  				#address-cells = <3>;
->  				#size-cells = <2>;
->  				ranges = <0x01000000 0x0 0x00000000 0x0 0x9f002000 0x0 0x00100000>,
-> @@ -1130,6 +1133,7 @@ pcie2: pcie@ca800000 {
->  					    "atu",
->  					    "config",
->  					    "link";
-> +				linux,pci-domain = <2>;
->  				#address-cells = <3>;
->  				#size-cells = <2>;
->  				ranges = <0x01000000 0x0 0x00000000 0x0 0xb7002000 0x0 0x00100000>,
-> -- 
-> 2.25.1
-> 
+Patch 1 copies a check in vmemmap_populate() over from arm64, which I
+have done to debug this problem. Patch 2 is the actual fix.
 
+[1] https://lore.kernel.org/all/20240903164532.3874988-1-scott@os.amperecomputing.com
+
+Crash log:
+
+[   19.228335] Oops [#1]
+[   19.230607] Modules linked in: amdgpu(+) [ ... many more modules omitted ... ]
+[   19.309895] CPU: 2 UID: 0 PID: 844 Comm: (udev-worker) Not tainted 6.19.3-ztest #3 PREEMPTLAZY
+[   19.318587] Hardware name: Sophgo SG2044 SRD3-10 (DT)
+[   19.323632] epc : __init_single_page+0x16/0x78
+[   19.328079]  ra : __init_zone_device_page.constprop.0+0x28/0xd0
+[   19.333997] epc : ffffffff802ff1be ra : ffffffff80d10de8 sp : ffff8f8002ef3450
+[   19.341210]  gp : ffffffff82290cc8 tp : ffffaf808f526c80 t0 : ffffffff800231a8
+[   19.348423]  t1 : 0000100000000000 t2 : 0000000000000002 s0 : ffff8f8002ef3460
+[   19.355636]  s1 : 00038d7fe6000000 a0 : 00038d7fe6000000 a1 : 00000fffffa00000
+[   19.362848]  a2 : 3000000000000000 a3 : 0000000000000000 a4 : 0000200000000000
+[   19.370060]  a5 : 0000000000600000 a6 : ffffffff82305608 a7 : 0000000000000001
+[   19.377273]  s2 : 00000fffffa00000 s3 : ffffaf8091258028 s4 : 0000000000000000
+[   19.384485]  s5 : 0000100000000000 s6 : 0000000000000001 s7 : 00000fffffa00000
+[   19.391697]  s8 : ffffffff81708b78 s9 : ffffffff81708b38 s10: 0000000000000001
+[   19.398909]  s11: ffffaf8091258028 t3 : ffffffff822b43c0 t4 : 000000000207ffff
+[   19.406121]  t5 : ffffffffffffffff t6 : 0000000000000000
+[   19.411425] status: 0000000200000120 badaddr: 00038d7fe6000030 cause: 000000000000000f
+[   19.419331] [<ffffffff802ff1be>] __init_single_page+0x16/0x78
+[   19.425071] [<ffffffff80d10de8>] __init_zone_device_page.constprop.0+0x28/0xd0
+[   19.432285] [<ffffffff80d11140>] memmap_init_zone_device+0x108/0x278
+[   19.438632] [<ffffffff803f6a7a>] memremap_pages+0x262/0x6b0
+[   19.444201] [<ffffffff803f6ef0>] devm_memremap_pages+0x28/0x78
+[   19.450029] [<ffffffff053f9370>] kgd2kfd_init_zone_device+0xe0/0x1e0 [amdgpu]
+[   19.483691] [<ffffffff059a6df0>] amdgpu_device_ip_init+0xa68/0xad0 [amdgpu]
+[   19.517108] [<ffffffff05120f6e>] amdgpu_device_init+0x1a5e/0x21e0 [amdgpu]
+[   19.550497] [<ffffffff05122e50>] amdgpu_driver_load_kms+0x20/0xc8 [amdgpu]
+[   19.583900] [<ffffffff05116dd6>] amdgpu_pci_probe+0x236/0x6c8 [amdgpu]
+[   19.616947] [<ffffffff807b2c10>] local_pci_probe+0x40/0x98
+[   19.622439] [<ffffffff807b393c>] pci_device_probe+0xcc/0x280
+[   19.628091] [<ffffffff8093527c>] really_probe+0xa4/0x3c0
+[   19.633397] [<ffffffff80935614>] __driver_probe_device+0x7c/0x158
+[   19.639483] [<ffffffff809357d8>] driver_probe_device+0x38/0xd0
+[   19.645308] [<ffffffff80935a3a>] __driver_attach+0xaa/0x200
+[   19.650873] [<ffffffff8093297e>] bus_for_each_dev+0x6e/0xc8
+[   19.656443] [<ffffffff80934996>] driver_attach+0x26/0x38
+[   19.661750] [<ffffffff809340e4>] bus_add_driver+0x11c/0x248
+[   19.667317] [<ffffffff80936d1c>] driver_register+0x54/0x100
+[   19.672884] [<ffffffff807b1f4c>] __pci_register_driver+0x54/0x68
+[   19.678889] [<ffffffff0430e0a8>] amdgpu_init+0xa0/0xff8 [amdgpu]
+[   19.711387] [<ffffffff80013a02>] do_one_initcall+0x62/0x2c8
+[   19.716960] [<ffffffff80127ad6>] do_init_module+0x5e/0x260
+[   19.722445] [<ffffffff80129d1e>] load_module+0x1bd6/0x2388
+[   19.727925] [<ffffffff8012a730>] init_module_from_file+0xc8/0x128
+[   19.734012] [<ffffffff8012a9d0>] __riscv_sys_finit_module+0x1e0/0x338
+[   19.740447] [<ffffffff80d0d62a>] do_trap_ecall_u+0x102/0x3f8
+[   19.746101] [<ffffffff80d1dbb4>] handle_exception+0x154/0x160
+[   19.751852] Code: ffd2 0013 0000 1141 e022 e406 0800 8a0d 16fa 1672 (3823) 0205
+[   19.759334] ---[ end trace 0000000000000000 ]---
+
+---
+Vivian Wang (2):
+      riscv: mm: WARN_ON() for bad addresses in vmemmap_populate()
+      riscv: mm: Define DIRECT_MAP_PHYSMEM_END
+
+ arch/riscv/include/asm/pgtable.h | 10 ++++++++++
+ arch/riscv/mm/init.c             |  2 ++
+ 2 files changed, 12 insertions(+)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260309-riscv-sparsemem-vmemmap-limits-4734f1f67449
+
+Best regards,
 -- 
-Yixun Lan (dlan)
+Vivian "dramforever" Wang
+
 
 _______________________________________________
 linux-riscv mailing list
