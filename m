@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEAAF3C241
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 12:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C729BF3C254
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 13:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Subject:
-	Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t0v+KGA9MtzB0c2e9tQ7XTvzADFGNdSFhJDTbunoNgA=; b=MyqrEK2n0whgu5
-	pgkKhBHdlltE3ZW6LSut3ibJpMji4FvtEyYib7ZhhYIBb2Zqfvl8AgTiZbbCYKCsBdirUe14JZsXZ
-	4pQDidXhsqyU+p8WImB/F9l4h9bfBUpJm5+KNJOnagd+oYw930gtA9aZk6tMEaCDkt7yj/jsRXqiO
-	n+lDnE9iT9vAgC5GB3X02eCF141rUCATZNEDSAaEalqqjaEH/uTNqOLV/RS3ZLtp1HYdGf1fYpYVC
-	pn6bja8apBPu4dgozndTUG7rw59eMN4BEUuyh2dnCQnHiUksUiB8gDuV9QhWreropr7r1JXCt7Wd0
-	EMC0KGY2GQKdoVv+BewA==;
+	List-Owner; bh=0gRRPi/AVMTi+wIq4FHSM9WDThSrTuv8QgKuAL5LCM4=; b=43VKsVBHEEBu67
+	XF2QY+hRvO/rkDMRR5ZaYik/HI45M7PtLUbfEQNQrn4HVNAsgYyvpSYGck4/k9+ViXT9f2a9QLTW7
+	Y3x9xncrcD8SWfem2fqTn3F+x89m2oorn0ixC143OvRel2h/Mart9C90pJLaWTeeelyNZT+vcuplA
+	NrGerRqNeCgmhmbX1poHHsdqWwEgoiCQ0VxrjcMynnU0ahgepN211C3o95HQq+pZFhZKPLIlfiyJ4
+	azc+xtf+c6fVTFObuFS7BKTIbP9tEPlafALWTBb4Li5R5UQ/4tKnFEg+AzcisFen0LNIeSlbOwk5F
+	7DvDMysRc5N16lVexj7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vza1N-00000007LI6-4B10;
-	Mon, 09 Mar 2026 12:47:42 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vzaYy-00000007O5g-3j3W;
+	Mon, 09 Mar 2026 13:22:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vza1K-00000007LHg-0CXC
+	id 1vzaYw-00000007O5I-46af
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 12:47:40 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 03B721A2DAB;
-	Mon,  9 Mar 2026 12:47:33 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C9B875FFB8;
-	Mon,  9 Mar 2026 12:47:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09B6810369B97;
-	Mon,  9 Mar 2026 13:47:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773060451; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=wCTUnhuxvulHzW4p0uUdfASMjS854LLOHF+KryEvCLg=;
-	b=el/ScjM4Ue552Q5u0YpglfOiNwlnWqvRvgPZRn0f2Rw9gC2K6miO3fjP58Kezv524ydiSu
-	TnJe8U2jt+A1EJ6DB1yTs7y0A6UQYZvTUFLzohffbj2jx9dbDYRqYRIm/DKsAlA08WUE5o
-	h+sY8NUKOa8F7OPKU7GdMADmAbHvAOWT3Xycjjt/+QEJcuQ8UijP4u56/6n693iG274Qyw
-	TW2fwFCVxVMyU/LU5PH1DEo0plMmeu9xMuFSnZIDm/fLs/dYFW8oWIDiOD5qWXRnYonHxk
-	qlKDmbIRISO2L4epJFOCo80mqRQNmcnKOiRv5ruerLteKpajtRCpOmq8Cv4YXQ==
-Mime-Version: 1.0
-Date: Mon, 09 Mar 2026 13:47:18 +0100
-Message-Id: <DGY9GWWLXGNX.265MMEXXCG8YA@bootlin.com>
-Subject: Re: [PATCH v7 3/8] drm: verisilicon: add a driver for Verisilicon
- display controllers
-To: "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Drew Fustini" <fustini@kernel.org>, "Guo
- Ren" <guoren@kernel.org>, "Fu Wei" <wefu@redhat.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260129023922.1527729-1-zhengxingda@iscas.ac.cn>
- <20260129023922.1527729-4-zhengxingda@iscas.ac.cn>
-In-Reply-To: <20260129023922.1527729-4-zhengxingda@iscas.ac.cn>
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 09 Mar 2026 13:22:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DA87C40472;
+	Mon,  9 Mar 2026 13:22:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C3FCC4CEF7;
+	Mon,  9 Mar 2026 13:22:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773062541;
+	bh=d5MLBrQ/18Asiku/cVf2NDC2Dc4/7wsqetgjS+f9zfw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DIpq8FKkp8gZe5TXhH+XWS6+eZZq3rrI20iVYUZPh7qAhdi/+gfhB7yVXBbU3QWCl
+	 jbfq3r+nc0SvI/WEjbo0harlbVe5UVB6j82MfAmwC3kr2omqwF/tzGil/1IdPQOnxN
+	 BMlm90MXkgxGi0xu3m1yGUY7OxzYunldqBcwSNJYdml75Jru/lHipdourq3OkgKLAg
+	 zwaagSUvrIyJVXuSGmXSLp/n9M4VlvLgtoX6+82xEKOo84PEj2G8DYakk5oyo0N4yH
+	 BofV2f9P7AevI5Nw8re7Mwql7zoP89UoaNaXpzPmErMOlinlIuhoE61RuEuO2QfPjj
+	 FG5Qda63Vw3gw==
+Date: Mon, 9 Mar 2026 21:22:19 +0800
+From: Yixun Lan <dlan@kernel.org>
+To: Iker Pedrosa <ikerpedrosam@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/7] mmc: sdhci-of-k1: add regulator and pinctrl
+ voltage switching support
+Message-ID: <20260309132219-GKE302167@kernel.org>
+References: <20260309-orangepi-sd-card-uhs-v2-0-5bb2b574df5d@gmail.com>
+ <20260309-orangepi-sd-card-uhs-v2-2-5bb2b574df5d@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260309-orangepi-sd-card-uhs-v2-2-5bb2b574df5d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_054738_356528_D14693A8 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20260309_062223_080040_E06EDB80 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,198 +78,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Dmitry Baryshkov <lumag@kernel.org>, Han
- Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Philipp Zabel <p.zabel@pengutronix.de>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Yao Zi <ziyao@disroot.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Icenowy Zheng,
+Hi Iker,
 
-On Thu Jan 29, 2026 at 3:39 AM CET, Icenowy Zheng wrote:
-> From: Icenowy Zheng <uwu@icenowy.me>
->
-> This is a from-scratch driver targeting Verisilicon DC-series display
-> controllers, which feature self-identification functionality like their
-> GC-series GPUs.
->
-> Only DC8200 is being supported now, and only the main framebuffer is set
-> up (as the DRM primary plane). Support for more DC models and more
-> features is my further targets.
->
-> As the display controller is delivered to SoC vendors as a whole part,
-> this driver does not use component framework and extra bridges inside a
-> SoC is expected to be implemented as dedicated bridges (this driver
-> properly supports bridge chaining).
->
-> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> Tested-by: Han Gao <gaohan@iscas.ac.cn>
-> Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-
-I have reviewed the bridge part of this patch and have a few remarks, see
-below.
-
-[...]
-
-> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
-> @@ -0,0 +1,371 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
-> + */
-> +
-> +#include <linux/of.h>
-> +#include <linux/regmap.h>
-> +
-> +#include <uapi/linux/media-bus-format.h>
-> +
-> +#include <drm/drm_atomic.h>
-> +#include <drm/drm_atomic_helper.h>
-> +#include <drm/drm_bridge.h>
-> +#include <drm/drm_bridge_connector.h>
-> +#include <drm/drm_connector.h>
-> +#include <drm/drm_encoder.h>
-> +#include <drm/drm_of.h>
-> +#include <drm/drm_print.h>
-> +#include <drm/drm_simple_kms_helper.h>
-> +
-> +#include "vs_bridge.h"
-> +#include "vs_bridge_regs.h"
-> +#include "vs_crtc.h"
-> +#include "vs_dc.h"
-> +
-> +static int vs_bridge_attach(struct drm_bridge *bridge,
-> +			    struct drm_encoder *encoder,
-> +			    enum drm_bridge_attach_flags flags)
+On 12:40 Mon 09 Mar     , Iker Pedrosa wrote:
+> Add voltage switching infrastructure for UHS-I modes by integrating both
+> regulator framework (for supply voltage control) and pinctrl state
+> switching (for pin drive strength optimization).
+> 
+> - Add regulator supply parsing and voltage switching callback
+> - Add optional pinctrl state switching between "default" (3.3V) and
+>   "state_uhs" (1.8V) configurations
+> - Enable coordinated voltage and pin configuration changes for UHS modes
+> 
+> This provides complete voltage switching support while maintaining
+> backward compatibility when pinctrl states are not defined.
+> 
+> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+> ---
+>  drivers/mmc/host/sdhci-of-k1.c | 59 ++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 59 insertions(+)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+> index 585c7eca6ebf253aac466dd37cef029deb63f692..8af117a8e271c04a80d8dc7bb5ce12075652dd7a 100644
+> --- a/drivers/mmc/host/sdhci-of-k1.c
+> +++ b/drivers/mmc/host/sdhci-of-k1.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_device.h>
+> +#include <linux/pinctrl/consumer.h>
+>  #include <linux/platform_device.h>
+>  
+>  #include "sdhci.h"
+> @@ -70,6 +71,9 @@
+>  struct spacemit_sdhci_host {
+>  	struct clk *clk_core;
+>  	struct clk *clk_io;
+> +	struct pinctrl *pinctrl;
+> +	struct pinctrl_state *pinctrl_default;
+> +	struct pinctrl_state *pinctrl_uhs;
+>  };
+>  
+>  /* All helper functions will update clr/set while preserve rest bits */
+> @@ -218,6 +222,42 @@ static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
+>  			       SPACEMIT_SDHC_PHY_CTRL_REG);
+>  }
+>  
+> +static void spacemit_sdhci_voltage_switch(struct sdhci_host *host)
 > +{
-> +	struct vs_bridge *vbridge = drm_bridge_to_vs_bridge(bridge);
+> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
+> +	struct mmc_ios *ios = &host->mmc->ios;
+> +	struct pinctrl_state *state;
+> +	int ret;
 > +
-> +	return drm_bridge_attach(encoder, vbridge->next_bridge,
-> +				 bridge, flags);
+> +	/* Select appropriate pinctrl state based on signal voltage */
+> +	if (sdhst->pinctrl) {
+do a sanity check, then abort it early, the advantage is that you can get rid of
+one indetation for next code..
+
+	if (!sdhst->pinctrl)
+		return;
+
+
+> +		switch (ios->signal_voltage) {
+> +		case MMC_SIGNAL_VOLTAGE_330:
+> +			state = sdhst->pinctrl_default;
+> +			break;
+> +		case MMC_SIGNAL_VOLTAGE_180:
+> +			state = sdhst->pinctrl_uhs;
+> +			break;
+> +		default:
+> +			dev_warn(mmc_dev(host->mmc), "unsupported voltage %d\n",
+> +				 ios->signal_voltage);
+> +			return;
+> +		}
+> +
+> +		if (state) {
+> +			ret = pinctrl_select_state(sdhst->pinctrl, state);
+> +			if (ret) {
+> +				dev_warn(mmc_dev(host->mmc),
+> +					 "failed to select pinctrl state: %d\n", ret);
+> +				return;
+> +			}
+> +			dev_dbg(mmc_dev(host->mmc), "switched to %s pinctrl state\n",
+> +				ios->signal_voltage == MMC_SIGNAL_VOLTAGE_180 ? "UHS" : "default");
+> +		}
+> +	}
 > +}
 > +
-> +struct vsdc_dp_format {
-> +	u32 linux_fmt;
-> +	bool is_yuv;
-> +	u32 vsdc_fmt;
-> +};
-
-Moving the bool after the two 'u32's would be better for packing and
-spatial locality (especially in case more fields are added in the future).
-
+>  static inline int spacemit_sdhci_get_clocks(struct device *dev,
+>  					    struct sdhci_pltfm_host *pltfm_host)
+>  {
+> @@ -242,6 +282,7 @@ static const struct sdhci_ops spacemit_sdhci_ops = {
+>  	.set_bus_width		= sdhci_set_bus_width,
+>  	.set_clock		= spacemit_sdhci_set_clock,
+>  	.set_uhs_signaling	= spacemit_sdhci_set_uhs_signaling,
+> +	.voltage_switch         = spacemit_sdhci_voltage_switch,
+>  };
+>  
+>  static const struct sdhci_pltfm_data spacemit_sdhci_k1_pdata = {
+> @@ -293,6 +334,24 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
+>  
+>  	host->mmc->caps |= MMC_CAP_NEED_RSP_BUSY;
+>  
+> +	sdhst = sdhci_pltfm_priv(pltfm_host);
+..
+> +	sdhst->pinctrl = devm_pinctrl_get(dev);
+> +	if (!IS_ERR(sdhst->pinctrl)) {
+> +		sdhst->pinctrl_default = pinctrl_lookup_state(sdhst->pinctrl, "default");
+> +		if (IS_ERR(sdhst->pinctrl_default))
+> +			sdhst->pinctrl_default = NULL;
 > +
-> +static struct vsdc_dp_format vsdc_dp_supported_fmts[] = {
-> +	/* default to RGB888 */
-> +	{ MEDIA_BUS_FMT_FIXED, false, VSDC_DISP_DP_CONFIG_FMT_RGB888 },
-> +	{ MEDIA_BUS_FMT_RGB888_1X24, false, VSDC_DISP_DP_CONFIG_FMT_RGB888 },
-> +	{ MEDIA_BUS_FMT_RGB565_1X16, false, VSDC_DISP_DP_CONFIG_FMT_RGB565 },
-> +	{ MEDIA_BUS_FMT_RGB666_1X18, false, VSDC_DISP_DP_CONFIG_FMT_RGB666 },
-> +	{ MEDIA_BUS_FMT_RGB101010_1X30,
-> +	  false, VSDC_DISP_DP_CONFIG_FMT_RGB101010 },
-
-You can put up to 100 chars per line and avoid the newline here to make
-this table more readable. Same below.
-
-> +	{ MEDIA_BUS_FMT_UYVY8_1X16, true, VSDC_DISP_DP_CONFIG_YUV_FMT_UYVY8 },
-> +	{ MEDIA_BUS_FMT_UYVY10_1X20, true, VSDC_DISP_DP_CONFIG_YUV_FMT_UYVY10 },
-> +	{ MEDIA_BUS_FMT_YUV8_1X24, true, VSDC_DISP_DP_CONFIG_YUV_FMT_YUV8 },
-> +	{ MEDIA_BUS_FMT_YUV10_1X30, true, VSDC_DISP_DP_CONFIG_YUV_FMT_YUV10 },
-> +	{ MEDIA_BUS_FMT_UYYVYY8_0_5X24,
-> +	  true, VSDC_DISP_DP_CONFIG_YUV_FMT_UYYVYY8 },
-> +	{ MEDIA_BUS_FMT_UYYVYY10_0_5X30,
-> +	  true, VSDC_DISP_DP_CONFIG_YUV_FMT_UYYVYY10 },
-> +};
+> +		sdhst->pinctrl_uhs = pinctrl_lookup_state(sdhst->pinctrl, "state_uhs");
+> +		if (IS_ERR(sdhst->pinctrl_uhs))
+> +			sdhst->pinctrl_uhs = NULL;
 > +
-
-[...]
-
-> +struct vs_bridge *vs_bridge_init(struct drm_device *drm_dev,
-> +				 struct vs_crtc *crtc)
-> +{
-> +	unsigned int output = crtc->id;
-> +	struct vs_bridge *bridge;
-
-In common practice a variable named 'bridge' is used to point to a 'struct
-drm_bridge', so it feels weird when it is used for another type. Can you
-rename to 'vbridge' or 'vsbridge' or similar, to clarify it's the
-"Verisilicon bridge"?
-
-This is after all what you did in vs_bridge_attach() above, where the
-ambiguity of the 'bridge' name used for a driver-specific struct is
-evident.
-
-> +	struct drm_bridge *next;
-> +	enum vs_bridge_output_interface intf;
-> +	const struct drm_bridge_funcs *bridge_funcs;
-> +	int ret, enctype;
-> +
-> +	intf = vs_bridge_detect_output_interface(drm_dev->dev->of_node,
-> +						 output);
-> +	if (intf == -ENODEV) {
-> +		drm_dbg(drm_dev, "Skipping output %u\n", output);
-> +		return NULL;
+> +		dev_dbg(dev, "pinctrl setup: default=%p, uhs=%p\n",
+> +			sdhst->pinctrl_default, sdhst->pinctrl_uhs);
+> +	} else {
+> +		sdhst->pinctrl = NULL;
+> +		dev_dbg(dev, "pinctrl not available, voltage switching will work without it\n");
 > +	}
 > +
-> +	next = devm_drm_of_get_bridge(drm_dev->dev, drm_dev->dev->of_node,
-> +				      output, intf);
-> +	if (IS_ERR(next)) {
-> +		ret = PTR_ERR(next);
-> +		if (ret != -EPROBE_DEFER)
-> +			drm_err(drm_dev,
-> +				"Cannot get downstream bridge of output %u\n",
-> +				output);
+how about creating a function spacemit_sdhci_get_pins()? similar as get
+resource for clock, will more readable.
 
-100 chars per line are allowed, so this could fit on a single line being
-nicer to read. This applies to a lot places in this driver, of logging
-calls in particular. I understand this would be annoying to change on an
-already reviewed patch and at v7 so up to you, but it would be good to keep
-it in mind for the future.
+>  	ret = spacemit_sdhci_get_clocks(dev, pltfm_host);
+>  	if (ret)
+>  		goto err_pltfm;
+> 
+> -- 
+> 2.53.0
+> 
 
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	if (intf == VSDC_OUTPUT_INTERFACE_DPI)
-> +		bridge_funcs = &vs_dpi_bridge_funcs;
-> +	else
-> +		bridge_funcs = &vs_dp_bridge_funcs;
-> +
-> +	bridge = devm_drm_bridge_alloc(drm_dev->dev, struct vs_bridge, base,
-> +				       bridge_funcs);
-
-The 'struct drm_bridge' field embedded in a driver-specific struct is
-conventionally called 'bridge', so renaming it from 'base' to 'bridge'
-would make it more consistent with other drivers. That would go in sync
-with the coding convention I mentioned above: 'bridge' for struct
-drm_bridge, <XYZ>bridge or just <XYZZ> for a custom driver struct embedding
-a bridge.
-
-> +	if (IS_ERR(bridge))
-> +		return ERR_PTR(PTR_ERR(bridge));
-> +
-> +	bridge->crtc = crtc;
-> +	bridge->intf = intf;
-> +	bridge->next_bridge = next;
-
-There is now a next_bridge field in struct drm_bridge, which handles the
-bridge lifetime in a safer way and more simply [0], so you could use it:
-
-       bridge->base.next_bridge = next;
-
-Or, after the renames I suggested above:
-
-       vbridge->bridge.next_bridge = next;
-
-[0] https://elixir.bootlin.com/linux/v7.0-rc2/source/include/drm/drm_bridge.h#L1269-L1278
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
