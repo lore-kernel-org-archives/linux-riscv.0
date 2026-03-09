@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3081F3C240
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 12:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D960F3C242
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 12:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cyBuxdqj42Tp/hf6b6XkHC6HK5L46ZTKJaFDx/rQBAI=; b=l4DTDW49g+xJzf
-	f6NNVLoXpjIdDu84PZmcbSU/WQzi4V4WXpJ+NJU1FmrJFDZDj7ErIahPu3tXz30Me4eBup54BdJZ+
-	CN93yqZbx40VJvBeuZNRNZa1Sv7mj/P6YWcG7EaivSSx+leXuPgEoTgIwFAJxKYsRyeRE2tPHumph
-	cefCBDlrWgzwXkT/OzGhKPyFsp+fgBedmllWJxdiMkCkUCQexSGcaFprlbR5D41TVDfm1Kac4Y39S
-	qV5yoQTGIYXl2FChtzz2S/Kf6R9Lkb+fIKjrIiy/IsThlsJpuLFrmsBeaeOWxV58gbQmeLm28Tvbn
-	pxvbbsFO+wBvGHsenLjw==;
+	List-Owner; bh=kWbe0ss3S2twHzmdVVaXS65VzhzclOPWdoIXICNzpM0=; b=RkEsmSdw04LRWS
+	07NJ7vbrGhyjYaggvZfL0x2fFWI+fMd5tR+jowMwbCOMMliZKtPiCJ5qQ18fe1g0E9/xkLjd96ABU
+	7ZdyvQYPun2EKpNQGAc8E6ln0AyCbp8QZ/meTykE4mgdRDJu/sWbE3a+m2Txapa5xc5S5WGQerW05
+	bvlgZ/g2OqdcgPPvfKqr1qp1LJhkojtSEpQ3cwXKArDTfHI9AKITzi4DUJeSSMBNvAqTz7h+xj/8L
+	p22ePLiHdjyLmpQWGVXVfEqInIvjkRP6czyDuZQhBeIdnkqJSUxO93S94WIy9MMrHzRRumuUYY9xQ
+	nwSyC7pPkgsOl4pAQ3Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzZX4-00000007IYQ-42qo;
-	Mon, 09 Mar 2026 12:16:23 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1vzZX6-00000007IYt-1ZBQ;
+	Mon, 09 Mar 2026 12:16:24 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzZX2-00000007IXf-127q
+	id 1vzZX4-00000007IYB-1HfY
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 12:16:21 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3599019ae92so4389882a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 05:16:20 -0700 (PDT)
+	Mon, 09 Mar 2026 12:16:23 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c73a12af63cso1471985a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 05:16:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773058579; x=1773663379; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773058581; x=1773663381; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=z/4T5g8cuZpW2r5QmDZ0Rjhhfb9PQbIPZH06YKDgyWo=;
-        b=HV/HbCnLvOIJS9CT1I5GzrN8YV0Jplr8fL6e+iLhav+LxYYG9PblWxVPE9ea0UkBpx
-         4enS8Srt8MDxr97kooBRn46BEFJTVwYrRl+zHUlPhhrfteKXmxtdC8bTnlrwWTPBH8+O
-         WYc8Udurq0QrqksE4icv9r17Qqoy6bGNqFAD1mjZvq1Kh+iY5r4VOKRBFQcIPRQ20xHk
-         9wvA2MG/db8bqZUkXeG6/3hPe++Q2L3rEFpF4JNMQ/yRqvPgq7dOiBXD8SfPUcJV2fSh
-         y0JiwRUj8rx4BaNQ2DrMfmWwC1rqoMv9Tmq2bL08DR7ACzKKslUo5FCUQmXPHkr93IGn
-         os+g==
+        bh=25TZNPEwwPkYTHAgMRLn+Sz9ICp+r6IePTSPwttEBwg=;
+        b=T8fe/DiVxVALtYV16wMx9XPHZF5E5a8Vsrpeq+Tk0ad4FyMKmduK/3XoPocEQWqzFQ
+         hiFCwANH9JzggqoKmzL2wvmuGTfrtaT+uJo8koLZ9ZIVQRtikC0r/tLbBznsegi34kh1
+         tsUMlaOouhObKUat6sk7lsdZPGzoWxqljftg/urvovBi5BVvdwtz1vCPrQYV6pcBo9Uo
+         mLUkNpgPyUaaGvwMq5yxGHuh0XhWlvsaIPK+mytIMQqZMLUsNJ2iqg8VNKT3FmjECddV
+         AsysMKotaAXT9qgsGm3WsR6ScWbotooUTMHPp1i+FFcwc8MeJW+quvs3E4Z2XYucWUup
+         EE6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773058579; x=1773663379;
+        d=1e100.net; s=20230601; t=1773058581; x=1773663381;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=z/4T5g8cuZpW2r5QmDZ0Rjhhfb9PQbIPZH06YKDgyWo=;
-        b=gziAOJgPwq9oTZXhylQqBQB/6QnZMSDkSYauu4Xvn23IWAhkJaC5Cg4piNaYU5uyyS
-         ztP9/BW7haPr7HzyrbeJsH3oQ5FOb3FUPU/fR4IF6PT2+lRNhwCRInSCUr9yCbxrLvA9
-         wI1DIZnN93hy9eVhV5uajDixDlC5Xs0WY4HFOOsQCE+n4o+dJVA6IhaL+YC1vMczDU0X
-         Hcthn3Co8IE052l5bVmcmiDGWSnburxu6sVXJa17vVcskhNAH604/xiXwEoOn86d3DDV
-         /Zri1g1BBDlMBgq0ikvuYPgJG1YaEL2ClS6OnRgshF4zGcTmD1qkCMOgyXSttwJl01M/
-         TXqQ==
-X-Gm-Message-State: AOJu0YzKfqLTAfFyZkCErNLa17Tm/hBCAFg0nJi6FXQ0vYyPmu+W8FUr
-	iTEPSzXDU7H4mvLD6gEgqDl39lzk0La/bvUVd4X6hwTJQYzYiT2gREwU
-X-Gm-Gg: ATEYQzxHqRDJYa1GtltvzWklkkhjdCXCa0icJMhWBwevynKibOsUPRPngL6PDUSsmMZ
-	RprY9+1Ne6/Qo84+qmr/rt8tM/XSQlwfyVPuW/uwsONlSGb+sVtfCtuVkwld1oJcgJ/rm6gj7zd
-	9tYPXAwwKJJj8Vv0gqoog5r+a7J+27Pfhbxp0n5wjp5zTQ3wqe609xGLwRtQRPS/SMmHFnr69TV
-	BAkkHvisRo0vlMEFmRiqoUDJtkOs4DIufHUdyaIC3/uW1oFaurPNo5BFCUI6WVWrstUOGWZbqdv
-	o4RywP5cwnaaebbv9T3WvVfnWhPCkM0uagWMMn5h3ZTKz+2iPG1hDTMyDmWzzF4gFl4zKounSNq
-	of4MrN7XiyAl4JLwpnsV+0y+orHBTLjksiIczsA2UXv+DFMIBt1y+jM4+23+4hAuqATNch2JAwe
-	7XRWPu541Iru3j79Evs2hOJpSIzYJLjiMCIHqT
-X-Received: by 2002:a17:90b:4fcc:b0:356:23be:7ecb with SMTP id 98e67ed59e1d1-359be25a3c7mr10094583a91.12.1773058579365;
-        Mon, 09 Mar 2026 05:16:19 -0700 (PDT)
+        bh=25TZNPEwwPkYTHAgMRLn+Sz9ICp+r6IePTSPwttEBwg=;
+        b=UclUYHzzp9pxfd8UyhqKnX8ug5A6L7GlxEzKyqwB3EPSqhnaB5L2CDdUyVjkE9jOGz
+         GBTjykSAGjHEc1N3dli/jdENeFhD+426rNFcEWTHZPd/y1lhsxcY8o6JC2SV3HrT4mPf
+         XAFoc7ks+LYGQrhq1mTGdD9oitk3g6BCr6v11QlLzjSJaJZmQuA76l3B3dIO8ogbPsR6
+         CsbcLMD2wFm7IV3irk5ReJuKwbnRz4TDcAviUvE+uerGisXlIbc1tuy/muJh8nUUe42E
+         sWSDvNDAEtYOO2kGCRmR6IWUifC66gK+6IlbbQdaG24koFptcuvckxaLv8+CFxe/nQst
+         7pHA==
+X-Gm-Message-State: AOJu0YwBwrSh63DgWgTqEJuSmFrkw/dUACNIN99fK9YfS/fxDZLI+ehb
+	jz/iZR0Kkny3LfezlnyAS6HmmHNB6ebYgKfeOUL5UMZQ+70KpnC2zFET
+X-Gm-Gg: ATEYQzxTBcuU3GpAXTo9wLHSJumcfWZ+wTFoWpFv3pZ+yn4n4zZjNNmgTuk1KZHkZi+
+	PFUHfzNUMUfUiaOV8YqKFl2AcOZVuHK6+voS/tD6K+ioZB5oVg5Rn5FHZC1qfOOR3aepCWpZA+y
+	n6aPvug+GGE3BpC6GsBamjH0r5mNuOSzKigMd+mdl3+cNQgmEUh2huuF4cF8BiJ5kKPtgV17XRV
+	Gtw6ADoLceFpVgs0sivHqATxRL7BqFloejPW/VNHZ2lAqCQHDr9LaWntHeqQQ90Cg+HjX22MWmW
+	WlnVI/zUCuLoMMcr2WJW1bx2PmpAtdMlJ6oi6nec53OIBXjKzKob+GiLRQBoeBC+WXsFtfSPI+O
+	UVEDI3lZ8JyrAc88Fmav862KgA++TGvZoOMlDSrDNi7ubuYMHVtyEevb3hx41SwAKWFsn8Hksvi
+	MKrYpg1kW0U6PqY0KPNj51fHjWc98MiCznP3Ub
+X-Received: by 2002:a05:6300:648f:b0:394:427b:eab with SMTP id adf61e73a8af0-39858fb2ec0mr9506675637.11.1773058581257;
+        Mon, 09 Mar 2026 05:16:21 -0700 (PDT)
 Received: from junjungu-PC.localdomain ([2408:820c:9009:3f2:a816:d74a:dc19:1ab8])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c739e0a7156sm9525693a12.2.2026.03.09.05.16.17
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c739e0a7156sm9525693a12.2.2026.03.09.05.16.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 05:16:19 -0700 (PDT)
+        Mon, 09 Mar 2026 05:16:21 -0700 (PDT)
 From: Felix Gu <ustc.gu@gmail.com>
-Date: Mon, 09 Mar 2026 20:16:14 +0800
-Subject: [PATCH 1/2] soc: microchip: mpfs-control-scb: Fix resource leak on
- driver unbind
+Date: Mon, 09 Mar 2026 20:16:15 +0800
+Subject: [PATCH 2/2] soc: microchip: mpfs-mss-top-sysreg: Fix resource leak
+ on driver unbind
 MIME-Version: 1.0
-Message-Id: <20260309-mpfs-v1-1-0dd89f34f962@gmail.com>
+Message-Id: <20260309-mpfs-v1-2-0dd89f34f962@gmail.com>
 References: <20260309-mpfs-v1-0-0dd89f34f962@gmail.com>
 In-Reply-To: <20260309-mpfs-v1-0-0dd89f34f962@gmail.com>
 To: Conor Dooley <conor.dooley@microchip.com>, 
@@ -81,16 +81,16 @@ To: Conor Dooley <conor.dooley@microchip.com>,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Felix Gu <ustc.gu@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773058576; l=1133;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773058576; l=1123;
  i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=ze6F7nLn47oIqw03rLTI4vCDxZRDfipwZbIzfTE5gVs=;
- b=ylmr5sBs1d1Ppk+RhiT6bo6yWNSoKKwwHBzRIdR3JVTGgLuGmBglRTPjobn6wy51jxhXl8ItT
- 4UW4xSSTi4WAR4dibnoCaxzFr/CC8IbLzY/wULjjzGM2YKCkcJhmvE1
+ bh=O/VunH/9UjAoQv+nRiPfxssAhhHa/MPTIs1QTwQxRWg=;
+ b=w+0DV0seDzjqyUBQXtNmD6gk/M/p8cRtUKvcKz/I7wfEIZoZ1Zgb6MOoHJBN6AC+AjPGp1zHn
+ KE9RxgHDkEcAfXJNS7fS7a/wS96k2XOaRxV1HO2mQBCuUkVqjm2i0S0
 X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
  pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_051620_308916_94064D37 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260309_051622_381488_FF61F4B7 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,26 +113,26 @@ child devices are properly removed when the driver unbinds.
 Fixes: 4aac11c9a6e7 ("soc: microchip: add mfd drivers for two syscon regions on PolarFire SoC")
 Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
- drivers/soc/microchip/mpfs-control-scb.c | 6 ++++--
+ drivers/soc/microchip/mpfs-mss-top-sysreg.c | 6 ++++--
  1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/soc/microchip/mpfs-control-scb.c b/drivers/soc/microchip/mpfs-control-scb.c
-index f0b84b1f49cb..8dda5704a389 100644
---- a/drivers/soc/microchip/mpfs-control-scb.c
-+++ b/drivers/soc/microchip/mpfs-control-scb.c
-@@ -14,8 +14,10 @@ static int mpfs_control_scb_probe(struct platform_device *pdev)
- {
+diff --git a/drivers/soc/microchip/mpfs-mss-top-sysreg.c b/drivers/soc/microchip/mpfs-mss-top-sysreg.c
+index b2244e44ff0f..b0f42b8dd3ed 100644
+--- a/drivers/soc/microchip/mpfs-mss-top-sysreg.c
++++ b/drivers/soc/microchip/mpfs-mss-top-sysreg.c
+@@ -16,8 +16,10 @@ static int mpfs_mss_top_sysreg_probe(struct platform_device *pdev)
  	struct device *dev = &pdev->dev;
+ 	int ret;
  
--	return mfd_add_devices(dev, PLATFORM_DEVID_NONE, mpfs_control_scb_devs,
--			       ARRAY_SIZE(mpfs_control_scb_devs), NULL, 0, NULL);
-+	return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-+				    mpfs_control_scb_devs,
-+				    ARRAY_SIZE(mpfs_control_scb_devs), NULL, 0,
-+				    NULL);
- }
+-	ret = mfd_add_devices(dev, PLATFORM_DEVID_NONE, mpfs_mss_top_sysreg_devs,
+-			      ARRAY_SIZE(mpfs_mss_top_sysreg_devs) , NULL, 0, NULL);
++	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
++				   mpfs_mss_top_sysreg_devs,
++				   ARRAY_SIZE(mpfs_mss_top_sysreg_devs), NULL,
++				   0, NULL);
+ 	if (ret)
+ 		return ret;
  
- static const struct of_device_id mpfs_control_scb_of_match[] = {
 
 -- 
 2.43.0
