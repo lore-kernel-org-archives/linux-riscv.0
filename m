@@ -4,64 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04420F4181C
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 17:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053ECFCA178
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 18:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X1aNBuUISFVzkJ1Ap7A+St1h1csplO8JWs3ytZ2g1aU=; b=KOrKIOYOQBLy9j
-	3gU6yosOAJFyPW9BTs78CtBPg804v2P37Uhz7QGWEO0991B4h9OlfAs8fWvMNIqvtyOSiPTTeZuee
-	jx9id+6dHuRPsqHnRpd8AYXWY+WwWKSRbQPlt17l/e2jBbh0Mmmg4SFeUeymbJyqYkqomlOgrK99L
-	gA4Jau4yvhuEGDwLMtiXr5kyDc63VCtd1Kra6icJQFaOYT5G+CyTQCfUUSgqG5A+j/tmWbZ4BwVw+
-	NPb4NGu7CAoO8LJD9Zzzcr3nL0cYezzu25bWlqw0KCPQK8UibrLwjlLRHRVsqsSapg8DeZ1sUWnQQ
-	ImNS3Wc6WYzcV0b2u9nw==;
+	List-Owner; bh=Ud/1lzNEYTGMs6wVqdXZOxYtNFhker31wBZ8N3RAUsU=; b=BBjae1wX3AFZfO
+	AGbwOMEDcwXBdbfwaiO1GQX5lnxMmLYC58m1aapYjLeNXC+hQREa9lApYvKzTMzme85SF6oagFEul
+	3/BXzs6WbALLHhv68NovmBFaWVOOuUyGKRv11++OOx1G1QRgfpCG9D/R5sM0yT1OiqL4AKbYxEygW
+	zlgdU6D2D5FKe9SaterPZGGbrElseS2g/lC7cFFcVTkW9LpuBWluVYyB6HerrDUMAXsYlfYiDeA3K
+	NuzBDWfwykQzmYkpDnoPr/b9tLTTLntEnsGcNWpWJvyA0+8ZL5ZXEl3Fq48Au7agE3ibNQjmbDyeZ
+	R206oYd/lCca5r7Ou0sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vze2o-00000007mye-3Faa;
-	Mon, 09 Mar 2026 17:05:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vzfgK-00000007vwW-3gUD;
+	Mon, 09 Mar 2026 18:50:20 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vze2l-00000007mxd-301J
+	id 1vzfgI-00000007vvr-2KHu
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 17:05:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F3E640BB8;
-	Mon,  9 Mar 2026 17:05:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D212C4CEF7;
-	Mon,  9 Mar 2026 17:05:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773075921;
-	bh=7mFmtwKAjHDNBjNMVvTL8eQDcm95bdWppDiHo7JVF7o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FMHQUAOlIOAgKcCLbR7qra8Btp+cpIbCBuvNprCVJlM5TQU7w5+pU6s7ClMSjNxTj
-	 UCRP6QAGV9EQAPA1yTwywfLJKauXd6b6lDt6RegeMbLUtiWhl6XSqEiX5847BsMfao
-	 awbn1pHYTMJXP80ChIhgjDnO0YDntwu1vKHFRaqyx252oN2PSxCQKh7gCb0TBefwQf
-	 pXMD5jf5CGuu48t/iB5w9Quq0Fekrbnc/irBiMHKsLPXW4h9i345LCFig5ThicdQp5
-	 4BAbSPzRCuxb7rKk/XlnYubVq8jQ3x7i7DjB5V3aWHsY5xnQYLatvoLCIj4OaUCjH+
-	 +tpGjLwz+/QwQ==
-From: Conor Dooley <conor@kernel.org>
-To: Daire McNamara <daire.mcnamara@microchip.com>,
-	Felix Gu <ustc.gu@gmail.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] soc: microchip: mpfs: Fix resource leak on driver unbind
-Date: Mon,  9 Mar 2026 17:05:12 +0000
-Message-ID: <20260309-envoy-immorally-f8eaa8e3a52a@spud>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260309-mpfs-v1-0-0dd89f34f962@gmail.com>
-References: <20260309-mpfs-v1-0-0dd89f34f962@gmail.com>
+	Mon, 09 Mar 2026 18:50:19 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b941d924534so452222366b.3
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 11:50:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773082216; cv=none;
+        d=google.com; s=arc-20240605;
+        b=T/rOSvLOaA1Ibd2o0ICfyRdA7kXjfeEmLKqmSGYj9e88mqVIqElsamf9YTgx0F6Xkq
+         iz0XLvuSupbicUyBNDjj+7FttO2c9leCnDtNgB002HtZdbi/jq/qJ6K5/+ttazHm69kX
+         WvLfVONqmPhu0rcqENM7v8adgMSfzIxMOWRcgpEBF/vhUjr9FT9yMnKt1DJ/luZPHu+i
+         TIkO4RbtCsyBo4I5KR2DG+93F3V57wz+8p0axqfKxNEtaw2TXSvvZceGM49glE0uKaJy
+         S1ZBfLa8TGPn2hxlkaT/TZQjt2D9PyoX+I6vAsxgXQIjMCgA/1IxeohuJu2rmt5pd/hB
+         HylQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=bowSy7YAPucdHblTmCmhKZ/mGr5O8DBdosAVAbymDGo=;
+        fh=jSTApwwNjuc/NlacG56js7JNNCV0oHM2UFPCPW0Yb38=;
+        b=L4b/AJu4QNClip9U6K7ZpnPCCv6Morv2mAIvfdE96dLNioCx8f99iJQOrKAZcM+rI3
+         AHStOk7TkjxBQfFiBZpFyVWvgry2lOczQ9J1PRtdRnyMK8RnAqGQS6gHQ8rFiTuvYecA
+         DL7tdW3G87m1FkfdWAcqUaXH0yDgSiPxDPdgZMsRFWMaqPGDh3vbqZQxadw9ldIusZKA
+         Mtu1mQ9FSJV/Fp7T0PlER4UxEbQ6MM3Z7y4am5bYE4LQusWEJ0hNZdsmhZmwp7f26BMa
+         tc/uNCuCgEXf4uNRZdyrPSv9EpBI4kjRD9xxpETWtWgFbGFllUOWhTfe2JYQwRD14nBp
+         DQsw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773082216; x=1773687016; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bowSy7YAPucdHblTmCmhKZ/mGr5O8DBdosAVAbymDGo=;
+        b=Cz2/ENabhPmcB+8GMlpeAvO3tTYD2t3xvIba0uShHH6vcyN2dG64Kwzx5HA90v+9av
+         GBLfA8Raq8lJSW2DKZobz89tRYeS2TpUpUwX5w1C98MvSFGbEv+Xqr+ZKXqfvTxs8x7z
+         BS3HFlbZ9Y0XgSWPTFCZDL9lxGCADO1zHvuI3o0ahXSORNrJGqEjME6dohK7wIvImZiu
+         f50cVR+ZWn30qJSOPmK3610dbpDj1c3n8xz5gvCnsGUcDNntMhzcr2cPZVwGu6HQm6vQ
+         c2yXCVU9OBtXQ3LfaEgVN5cHguGU80l+e0fKCWSrVa0dP2nR+9H1ag456H1y7H2U+J99
+         nrcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773082216; x=1773687016;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bowSy7YAPucdHblTmCmhKZ/mGr5O8DBdosAVAbymDGo=;
+        b=B1supaSn676ckXDoNsyMXI/aSQRmGZcVdeWfnayXToHPNhqLda4XpGgzE81ZCNd32j
+         gkqrPjUmeFCriGaz91h8D/+kRG69wEEmkcHtiKi3X3kqOnrVkXOtIFUyil9TFQ/fIRSn
+         QqF5fXgmEjYF2xkD1cdZ6Hpz3sXDPZzX4ZY9aEqp/WXaMycNrziD8RnjhRL/cFGEqn5R
+         Rfta+gg/cyNzYdx5s7y3yRMsAlHVc0iwTT8nPv56sKXyQUiO76FLcoGKOt5sgWWHc3ct
+         sn6dFSdVdlsUtpdnruc2voNLCbQ+RBbcYxXubSZwYkOa+wXVL83/fPgqE2nuL5q1dhWx
+         m8Gw==
+X-Forwarded-Encrypted: i=1; AJvYcCUfY7QXvENHzF55sIgsOKLeUOnpikzldtGeopMQ1hq21c+UwJzhrEq3AP5a21+SAhUCUJBfYDeEGbuoww==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJcz2RsA6/rd5euI9XKliBDfKo7mU42/icoktBMnk40yqOnZdh
+	mOiuAoyenXp/B2S6wyjPrOlc8JIyJCWwoewxUW3Bh7LT80hT17BPzUeOQb5P+vkmX85KLw/12uh
+	XaLqwjbWh6K6fIbgNvWloxHoMvWheHDU=
+X-Gm-Gg: ATEYQzw54/U1uKy0vVyTakyXwv0D9XRLQbacXlpcC+cprmr6PpNbfsd7SVC2Df30NVs
+	7nIoHIIDTJNTbGzu6I/6dLOOwgY0ir1JdqVCrQTc8xPnlqhVKRLukgtnLIwdXUpa5UBbWK3HV84
+	ZBQnpOINeMG15XcoxQ/qKD0evRSU+7ETkMlumBgPxxta0vlHhFL2QJlmrMOTdFY6SkSngdfLwaD
+	0Q7H4fWAff0/GmeLmsgsbTDO/6rANBOvzaVfk7YWdVChBOYIdI7XhJfxY+y7Mq1BxbDmTZx4iF2
+	XNnNQA==
+X-Received: by 2002:a17:907:6ea6:b0:b93:c5a9:a5e9 with SMTP id
+ a640c23a62f3a-b942db854e8mr585699366b.4.1773082216119; Mon, 09 Mar 2026
+ 11:50:16 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=376; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=D95J7xZl8XDm6aGzadwknRB6ejZ3iUfEVbOWOaOb2lc=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnr/p4QSt/9SUiKe/+fwJ1XpL6di3CNf1Uww3e9QMtt5 blZvb97OkpZGMS4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRY/IMfwVFMlzn7X8QllIo xP32gfa0mqsTWzu/tLxyyvViPVnH8pfhv5vCoUnnJde2WZyU4Yjadkv74JOXktadWifurrVhLpX +xQcA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20260309-orangepi-sd-card-uhs-v2-0-5bb2b574df5d@gmail.com>
+In-Reply-To: <20260309-orangepi-sd-card-uhs-v2-0-5bb2b574df5d@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Tue, 10 Mar 2026 00:19:58 +0530
+X-Gm-Features: AaiRm51K4xV8rPWNxLGo_P3SgtaWeN6UkUVkJtFc0B8zhHQGEqIMu2rC6apEjTo
+Message-ID: <CANAwSgRcatU3BQrsd11kA-nj_xos_Oa_47p0P_K+RYrB6QtfXA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/7] riscv: spacemit: enable SD card support with UHS
+ modes for OrangePi RV2
+To: Iker Pedrosa <ikerpedrosam@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_100523_779901_2F25961B 
-X-CRM114-Status: UNSURE (   4.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260309_115018_630451_A4195B60 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,21 +123,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+Hi Iker,
 
-On Mon, 09 Mar 2026 20:16:13 +0800, Felix Gu wrote:
-> 
+On Mon, 9 Mar 2026 at 17:11, Iker Pedrosa <ikerpedrosam@gmail.com> wrote:
+>
+> This series enables complete SD card support for the Spacemit K1-based
+> OrangePi RV2 board, including UHS (Ultra High Speed) modes for
+> high-performance SD card operation.
+>
+> Background
+>
+> The Spacemit K1 SoC includes an SDHCI controller capable of supporting
+> SD cards up to UHS-I speeds (SDR104 at 208MHz). However, mainline
+> currently lacks basic SD controller configuration, SDHCI driver
+> enhancements for voltage switching and tuning, and power management
+> infrastructure.
+>
+> Implementation
+>
+> The series enables SD card support through coordinated layers:
+>
+> - Hardware infrastructure (patches 1-2): Device tree bindings for voltage
+> switching hardware and essential clock infrastructure.
+> - SDHCI driver enhancements (patches 3-7): Regulator framework
+> integration, pinctrl state switching for voltage domains, AIB register
+> programming, and comprehensive SDR tuning support for reliable UHS
+> operation.
+> - SoC and board integration (patches 8-10): Complete K1 SoC controller
+> definitions, PMIC power infrastructure, and OrangePi RV2 board enablement
+> with full UHS support.
+>
+> This transforms the OrangePi RV2 from having no SD card support to full
+> UHS-I capability, enabling high-performance storage up to 208MHz.
+>
+> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+> ---
+> Changes in v2:
+> - Removed custom AIB voltage switching code per maintainer feedback. The
+>   existing pinctrl driver already handles AIB voltage switching
+>   automatically via power-source property changes during UHS mode
+>   transitions. This eliminates code duplication.
+> - Squashed regulator and pinctrl commits into single voltage switching
+>   implementation.
+> - Moved voltage switching callback from dynamic probe assignment to
+>   static sdhci_ops declaration. Removed redundant SDHCI core call since
+>   the framework handles standard voltage switching automatically.
+> - Made clock override (SDHC_OVRRD_CLK_OEN | SDHC_FORCE_CLK_ON)
+>   conditional for SD/SDIO cards only. This follows vendor driver pattern
+>   of differentiating SD and eMMC card handling.
+> - Include no-mmc property for SD card.
+> - Link to v1: https://lore.kernel.org/r/20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com
+>
 
+Thanks. Please include my tested with the SpacemiT Banna F3
 
-Applied to riscv-soc-fixes, thanks!
+Tested-by: Anand Moon <linux.amoon@gmail.com>
 
-[1/2] soc: microchip: mpfs-control-scb: Fix resource leak on driver unbind
-      https://git.kernel.org/conor/c/3d8388c2009b
-[2/2] soc: microchip: mpfs-mss-top-sysreg: Fix resource leak on driver unbind
-      https://git.kernel.org/conor/c/f632c4e84c8e
+Thanks
+-Anand
 
-Thanks,
-Conor.
+> ---
+> Iker Pedrosa (7):
+>       mmc: sdhci-of-k1: enable essential clock infrastructure for SD operation
+>       mmc: sdhci-of-k1: add regulator and pinctrl voltage switching support
+>       mmc: sdhci-of-k1: add SDR tuning infrastructure
+>       mmc: sdhci-of-k1: add comprehensive SDR tuning support
+>       riscv: dts: spacemit: k1: add SD card controller and pinctrl support
+>       riscv: dts: spacemit: k1-orangepi-rv2: add PMIC and power infrastructure
+>       riscv: dts: spacemit: k1-orangepi-rv2: add SD card support with UHS modes
+>
+>  arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts |  67 ++++++
+>  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi     |  40 ++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi             |  13 ++
+>  drivers/mmc/host/sdhci-of-k1.c                   | 252 +++++++++++++++++++++++
+>  4 files changed, 372 insertions(+)
+> ---
+> base-commit: ec1fb4e55df47ed043ab2ccc6787e39b9d67e49b
+> change-id: 20260226-orangepi-sd-card-uhs-0ecb05839b0c
+>
+> Best regards,
+> --
+> Iker Pedrosa <ikerpedrosam@gmail.com>
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
