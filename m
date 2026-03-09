@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A44DFCA17E
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 19:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD2FFCA17D
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 20:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iwXibwoTW79eQYYXoI/LOQ1g+RvuWSGU6CwcFLmXyWA=; b=XDJ5d+QlafPK4d
-	Yxmzv7tz46QCRc5/e+Y117YEfsy/Qp53New2ay+di7yRXHY3nwDbYxKhFu6IcS9Z6CKsvWAANtQNZ
-	U8mI6zKen1OzyNwKixf+TrKfAezFtjFncvJJYWhjxklUfD+rcfu2tff+fXo8TiKdalQ0cUkc6ntiQ
-	z0hp3U8m5T3LtwxJQPV4NjSjOpWzNsmDTEoJnORAx77XMH1/dFLvLDKrIB6jLxFnmRJUoeZMN1kRE
-	bSn48qUclbA+ko4UTV3/1u+Asyxsflgu/iJ4XzqeMAfb0hrs0kZz0PkFihb7BCRVXjsQNnJjDmBjz
-	L7n/n5sFKbbdKDO1W3DQ==;
+	List-Owner; bh=RpfqVzvhqqOZFlGpIqm/EyF5WldzASwb0sy0/K30xBc=; b=M7sYj5VjVBQ4R/
+	d0g/wMA5R5xuvSFS69iHMfX4j70BCYQ1oEDypdpJoxVdB9icPZbNz4AVBTz3G/t42hUnC6XG4PjNy
+	ht//v+Jlp6XFHUZHI4xM73RjhyLmwF/spDf6POMPk2M2aycVQByveYQErGc2gaV4bBEP0Ch+fJBeB
+	1QhpgnDBOFdWkcV+1MyEVgq3/VQuD3bPTYcG5rm4QVE5lEoz6dxbxys2l8/xR3wqocI6EzUdI5Vhb
+	nrw2p3ILFe3AbXLDQURwjRxn/UJ69rmQfWk3koNdNfoHLmJKLrw0w1huDFYeuvk5xVEHGkAOx4W86
+	eN9+XlvSZeDvL1WTWi5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzgdr-000000085CE-3jAu;
-	Mon, 09 Mar 2026 19:51:51 +0000
+	id 1vzgwV-000000086hX-2bni;
+	Mon, 09 Mar 2026 20:11:07 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzgdq-000000085Bw-3WpY
+	id 1vzgwT-000000086hN-3zP4
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 19:51:50 +0000
+	Mon, 09 Mar 2026 20:11:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3592C60054;
-	Mon,  9 Mar 2026 19:51:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EEDFC4CEF7;
-	Mon,  9 Mar 2026 19:51:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EF286600B0;
+	Mon,  9 Mar 2026 20:11:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A2EC2BC87;
+	Mon,  9 Mar 2026 20:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773085909;
-	bh=xM8/Ny/r4IriTwSNVFwt/X7/4waxHBRM2vNObYmgcWg=;
+	s=k20201202; t=1773087064;
+	bh=yF27ep3TepsukCbOCYKesTSmadiqW5lxWjZ7XDNmC/M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tfHeGXWSG0uwvPDJY2nCRkdMzaC2IRdryzlgp+p0E83FrULcn4LOuUh577PcK8AuB
-	 8OilqStmnNO0KgbOnteiyH7zzgRR9CCybSVaXJPyXewRcEp8mg+bEel4UUETzGLnZW
-	 We7VAa7aTPnuZsoF5Im9J7rkJNYknL/7077/FtxQuMG/pVp0XUXfPQ1wtiQqAfuh9k
-	 rsKBCIbiNlGtYL2E20GgxQbid0Bzg0B/Rb4mSmw3F1oShKM5Jz+g/w5n9y7imBqKUP
-	 ForZFKRrKHNFZ2JRoO6mE4CE1nUcMI/NeKKo9Nymw3G4uQEGaK25agXjKG4YLtmfJ9
-	 AQLrLZvbWA6Kg==
-Date: Mon, 9 Mar 2026 12:51:47 -0700
+	b=XVFZwKzB9jRPszDrFhg3z6AwV0gwFcyJ3g2n6z0w+Yf02G1RytIOx+/mGRjRCl4NU
+	 kpOTDJocSOHERiAvVdIYIyz4gLj3Gstuxj/Q8bVORzYaJ9OaCdZVyG9l61n7HnSdon
+	 djU5LnciJLvVsH2fq2RhZYhKuc9kOBiq2Uu+5b0fAJvyj627dVGpae180F88ZItr6f
+	 TFhI6QAKe9oNqeI4uCsgI4a7y0qXDFyJtDvp/aZ49S6yX2KghEJMnb+QgC71VQZxg1
+	 3LvaaTpHBWF2NCNRTGKQ7ez/ARINX4Nne8dS0jvGAv3pJ5QE+3tJ7lio5paaiD8WQA
+	 wWO8E7tt62sNQ==
+Date: Mon, 9 Mar 2026 13:11:02 -0700
 From: Drew Fustini <fustini@kernel.org>
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Drew Fustini <dfustini@oss.tenstorrent.com>,
 	Joel Stanley <jms@oss.tenstorrent.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
@@ -61,7 +61,7 @@ Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Subject: Re: [PATCH v8 3/3] clk: tenstorrent: Add Atlantis clock controller
  driver
-Message-ID: <aa8k0+y0GSxa7lEy@x1>
+Message-ID: <aa8pVqupeZr67bEd@x1>
 References: <20260306-atlantis-clocks-v8-0-6c9b14a4aa8e@oss.tenstorrent.com>
  <20260306-atlantis-clocks-v8-3-6c9b14a4aa8e@oss.tenstorrent.com>
 MIME-Version: 1.0
@@ -107,7 +107,13 @@ On Fri, Mar 06, 2026 at 11:12:19AM -0600, Anirudh Srinivasan wrote:
 >  drivers/clk/tenstorrent/atlantis-prcm.c | 870 ++++++++++++++++++++++++++++++++
 >  6 files changed, 890 insertions(+)
 
-Reviewed-by: Drew Fustini <fustini@kernel.org>
+Hi Stephen, does it make sense for me to create clk branches [1] in the
+tenstorrent repo on kernel.org for Atlantis patches to go through?
+
+Thanks,
+Drew
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/tenstorrent/linux.git/
 
 _______________________________________________
 linux-riscv mailing list
