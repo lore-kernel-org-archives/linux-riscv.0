@@ -4,87 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249FAFCA18E
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 21:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 969BFFCA19A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 22:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BBWHOipr3D5LYwnrcDTSsAzEALp/OXEo8gZcdClgD3I=; b=gI14IRJuFWYyMk
-	L8U/H4VvpHT5e37iK7m9ht3nWZqnKe4JYmUgJaAcJXz83RiWiuyoXPRfKC8Zv/2WETH1JVTJuQMhL
-	OuSp8XpLuuqdBDpQ5ZeT4ulJ1DFbrvrYFhBuDHtJBvSzG3PLlH7Rks2ceCRa8EY7iAZse9vPZRRaH
-	vednUhkdcG9sUjL0qV6yg1Df5AR0CFIqpb4PSzCdkwle1iGXOK1A86ju8DGfVZQ9MJhGzelavijfs
-	09d6B025VPMH9uWKQyKIwYO7mpdVTKIX5fADZtQvPIpR9XU+QERPBfT0B6lKC68EnngZ2xBnIgIo3
-	KgppMu6KlNOfjlm0+fJQ==;
+	List-Owner; bh=n//CCcE1yr07sE7wwU/AJUvN0xEHdtVho/H+zEgl2eU=; b=CWbJENC6j2b5Ca
+	Bn2SB0zF5lN2QqWO0hvAIuKSScLwOWuUKp0tDL3cVzeOhCelyCSjNkzkr/0uHoB+pUQQf2VIqeZmH
+	5tIK60+vPNbCj+mFdN+WufJlg10YakiLm1USzt2k+ffIw3NqaRJ1ACnGW64TaxZ1oyaucrVrep2xY
+	gEO67GbD4OQTjTtMHWETpgJ5OxlftlNzFN6GtdJXrlBw2jVWh4Cefr4HXuWwcbyEf/O4ZN6igd2on
+	1KEtKJebCn/FtDu9J8NgXCL9zCpuANbVG3vJZlDD5eJItMHU3LT0CTNmI+jCHcUuGysaSrTTrCdHm
+	T/gCEgdU57K7ayApXRsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzi2V-00000008AyU-2pOx;
-	Mon, 09 Mar 2026 21:21:23 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vzj3p-00000008Dro-1EAP;
+	Mon, 09 Mar 2026 22:26:49 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzi2T-00000008Ay8-3Xvy
+	id 1vzj3m-00000008Dr9-40QS
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 21:21:22 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4852f73d0a3so20194305e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 14:21:19 -0700 (PDT)
+	Mon, 09 Mar 2026 22:26:48 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-8cbb6d5f780so1228267585a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 15:26:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773091278; x=1773696078; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773095205; x=1773700005; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3mR/03iy2wclJWH4dE6b/zGJuZMq85sTEJ9qWO5p4OU=;
-        b=hBzELtjshBvOK2tY4xXx38QSz2WM75OGbZ9pVNJzGyBTjrniIm+yK9/MxbyipwHcPo
-         0RP+Zas6guaSHLlU9WETVqunT/ryi+ZAwKx8EJLXhvf0sCoRNJ6o9Rc51ADOB6zuYCbV
-         rlqJifrqnAgwQGQHtzBQZYw2/ys8lS7sgVzxFDEFa4MhMwK2dlVDOlkCQzg2/lFN2FTr
-         u75bjoi25TAuejP91YJCGIyDcQfYEWoyw5TnL6nWkDnKuH1SHTGT1aAlvkSdzzn0E6Y8
-         151p831zsnExvNiUB0tQXgbf+8xo3T2aSgHv2kFzFDP1VO0wKjtzejHn2qhaubHEq0Ls
-         siCg==
+        bh=b0qmAnC6DnZWfkO5AOHdxhn/T13J7DQN3esTSP9cxW4=;
+        b=Sv8W27fNaelMqW3EbQeHaL5PSCKPl7iYzQY/fwXpTBwPEcIasJxZuWisoI9zbqebfn
+         yI+Qe4H/5EbEJ7JgggGgRXo7+W/oxA+ihvKICC16kMUJHruG9TPMHhFhMK7f83XoLd1b
+         InvpRp8p6PgiVwygaEzTlUPAs3rAtc72lYxANO/hn3T79ZCaTH6xA51cokw7Sti8XqiR
+         u39yd1GpCk9gLIXjLOtqxRAVW+5KRniqZKd8eJ55TR/1M9/9ax+ks52jcEC1yohx/O7M
+         5z1C3KIdXiY/rzZ9IUaJExvJXuxpXO3CFLLdMVcNoQGS8cRpoweMPJbfj0YPuJdpCDoH
+         TGmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773091278; x=1773696078;
+        d=1e100.net; s=20230601; t=1773095205; x=1773700005;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3mR/03iy2wclJWH4dE6b/zGJuZMq85sTEJ9qWO5p4OU=;
-        b=O2ZSttD7zyF9wzTECQQ6SKpHietvMiXVQHS+Saz/JcHVfpoMMALj3u9c4fDtwPRWOV
-         iHpXNyLmKdLikZrC9vFStjPtBTJGPLQ+cK3RdPOh4HF3ND1zo/HLA0XaDmUNiSRG+qWA
-         uVSFPiYoKaKcetMVU4p2R3Cp2lnrYKM7efRkXC6Nh+qfWa53XeEUtNOkd2IsTY+yxDfz
-         YIN/75iwkEMZgsB5OzFoiBMVr8w+qOxjsQkhWjIcH8nI+ibdcsATgsCoy9wyT4tSmBP6
-         hodZ110G0A2OiNLLOVyBRilsSvXZ5bQ9mPApM4wJAVJa4ZVV0dUnHKvfp4USVe3kcJOl
-         6FuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXm0IWieZ+SGaCxGoLq97cAIKnrTSvrtMSe+2bi78ub0zXIeJfjZcP9Vgdnq/w728bjgCEaBMSm4sh1bg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5o51iECwnYTiTssuUKMzDonqbmBlnRLGeAzJmU1DJ1x7W0BQF
-	FFnvanw5L0j5KvP18kDkIULh7iPRWv9TJF0Ew2ult1QQ7cryGZbNtR3Q
-X-Gm-Gg: ATEYQzy1j9TXRE/s1oEHaPI/h8Z4Vs+/Gxc5dKZT5n71g+IMcMH/rFNpvIc5UBC3Y67
-	c8xwYBDxBnTuaEDoNnH5yfSl859yhXck94IZdoxMPfJfpiKt6nVhfkU09dhLqiqYHwWe/N/eR+Y
-	/0tsenPCf/zl/vqBcGSdXvu30/sbOkaB2ljyAAmiww38ntqjkDl+iQUHd+yH+ZZhuXehoxV/x37
-	fNi3MKCmKN519SseJipwzM8wgb95Hxtmv8Bd7L1eGYq3LXl4K5Ng6x4CW+FFaMwn7ZiCQ8rjYMX
-	TlGH/uGnL9DJDB1NtCRrpntX/HUSLVIu9X/4u0rx6FbdhcyVMgyo8UTrGLiJScovOHdshivLUiD
-	NaQj7ebqok9UFWxiePXls8N0lW601VvUPNUdgcysYSN1DLIcJxwoHBOKgegdp8/eRG4gkXtAUSp
-	TasjFb/cwII4di23XA
-X-Received: by 2002:a05:600c:1f0f:b0:483:703e:4ad5 with SMTP id 5b1f17b1804b1-48526967cd9mr205736655e9.22.1773091278353;
-        Mon, 09 Mar 2026 14:21:18 -0700 (PDT)
-Received: from curiosity ([80.211.22.60])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48541aacd81sm18535685e9.14.2026.03.09.14.21.15
+        bh=b0qmAnC6DnZWfkO5AOHdxhn/T13J7DQN3esTSP9cxW4=;
+        b=ou9SggOSvHLb3hwk/TpymvUjvImZ8UxVWj5vv6b0oJoncb2d0PEoe916TLChg+n9jr
+         Am+TdAXsp7djP2yhTM7D4LA2r8YeJLkDxbTP+kaJExBFEplCSdP35rlb9TTiJ2niSphM
+         /FOhlT+qTpukqFncxgFbKeK0xNa0R0Lweksdi7w5dXMJtAAPg8F96MvUNLkNLLksbb9/
+         Ud5GOvzB8FWc9CGsl9Qq/jS/aQKko/MTWQp8vUPHthXcera5m+ZresVd9evTlsy37/Y3
+         gGkRPNSCIdOac3jF6zN764HESSRJjNgcsCxZIQJOGJKnVLpW0N5GxjznTcqnghD1TP2p
+         YdcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUVCFcPJj5a+Rtsir2y1unNHrGWfNFQ5Z0HLsVsYpY/i8lBJgl/47q+9l0fIbh42EHjpBuCD6Y39TEwlA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7GYGQVdka4kulV+TxgQaoXguKN5S7aaFJ1Y1dxzSp76hAtS06
+	P4Rhu9h3L71XYCtKXtsFmvfflkKQ9WwYamf6qBjGfgyCrKE18JoRXIFd
+X-Gm-Gg: ATEYQzwjn7WZS7hQ5U/pbzhDdYT9VevljEVcm80k69PVxgeA7XL1kZS4+b/uI/R8iPc
+	U0MpUXdBl2b9kvnu7FZHC6Yll38+Hz8rS8HaQf+rHJp96FA+PetLW/vR89xLqyp5nsBVFwL7Qvs
+	cem5WnIRVpXiWm4EQhh/8U6N/lsmRV8dpv3JIYAMuVt4/R/1ZIXHiCHse5uwXrzTT3o01hD5/tP
+	mkT1mZVceJMpaDOb6+VKbqPK5w/C1OVwmfMx7SB2Da9mD3730LevQnk9LA3S+8HVlsiejQYawIE
+	PmGVXIdPxxabV/aFGRsYI9Qw++Bk4qaLphXO4+c8S4z/ANrs0LjcdUW86xA6CXQtlTnEPq8MYKJ
+	qUiJGBO7HbwslwwjHh8mO7O3nFF0zkezZPGoaKhgUrMbKTOLCwfRgu3Kn3KRxvTRupm8/2hxppB
+	otsJRK03R0mRZRYKace2mE3c9CwrDNE2r4SA==
+X-Received: by 2002:a05:620a:c55:b0:8cb:4289:6c1a with SMTP id af79cd13be357-8cd6d549b1fmr1572894885a.75.1773095205343;
+        Mon, 09 Mar 2026 15:26:45 -0700 (PDT)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd866f7074sm325445485a.6.2026.03.09.15.26.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 14:21:17 -0700 (PDT)
-Date: Tue, 10 Mar 2026 00:21:14 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: thecharlesjenkins@gmail.com
-Cc: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andybnac@gmail.com>,
-	Deepak Gupta <debug@rivosinc.com>, linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/4] selftests: riscv: Fix compilation issues for
- v_ptrace and cfi
-Message-ID: <aa85yl-c2suNF5LO@curiosity>
-References: <20260305-fix_selftests-v1-0-61b62d23500b@gmail.com>
+        Mon, 09 Mar 2026 15:26:44 -0700 (PDT)
+Date: Tue, 10 Mar 2026 06:26:07 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>, Yanteng Si <siyanteng@cqsoftware.com.cn>, 
+	Vladimir Oltean <vladimir.oltean@nxp.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Shangjuan Wei <weishangjuan@eswincomputing.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Boon Khai Ng <boon.khai.ng@altera.com>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v8 3/3] net: stmmac: Add glue layer for Spacemit
+ K3 SoC
+Message-ID: <aa9I4pIZs5-TDdXo@inochi.infowork>
+References: <20260309004305.315018-1-inochiama@gmail.com>
+ <20260309004305.315018-4-inochiama@gmail.com>
+ <aa62FTHMOJGhVKTv@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260305-fix_selftests-v1-0-61b62d23500b@gmail.com>
+In-Reply-To: <aa62FTHMOJGhVKTv@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_142121_899299_3FF93677 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20260309_152646_993933_254D2A2C 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,100 +116,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Charlie,
-
-On Thu, Mar 05, 2026 at 12:11:28AM -0800, Charlie Jenkins via B4 Relay wrote:
-> There are a couple of compilation issues of the riscv selftests.
-> Coincidentally two of the issues are independent problems with not
-> including the header that includes the BIT() macro and the other issue
-> is from checkpatch incorrectly suggesting to remove non-redundant
-> braces.
+On Mon, Mar 09, 2026 at 11:59:17AM +0000, Russell King (Oracle) wrote:
+> >  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+> >  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+> >  .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 227 ++++++++++++++++++
 > 
-> Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> ---
-> Charlie Jenkins (4):
->       selftests: riscv: Add definition of BIT() macro
->       selftests: riscv: Add braces around EXPECT_EQ()
->       riscv: ptrace: Fix BIT() compilation issues
->       selftests: riscv: Add license to cfi selftest
+> One last point, please add another patch which adds a MAINTAINERS entry
+> for this file, so you can be Cc'd with future stmmac developments.
 > 
->  arch/riscv/include/uapi/asm/ptrace.h                     |  1 +
->  tools/testing/selftests/riscv/cfi/Makefile               |  2 ++
->  tools/testing/selftests/riscv/vector/Makefile            |  2 ++
->  tools/testing/selftests/riscv/vector/validate_v_ptrace.c | 16 ++++++++++------
->  4 files changed, 15 insertions(+), 6 deletions(-)
-> ---
-> base-commit: c107785c7e8dbabd1c18301a1c362544b5786282
-> change-id: 20260304-fix_selftests-c3f0ae46b3c7
+> Thanks.
 > 
-> Best regards,
-> -- 
-> Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Thanks for catching this !
-
-On rc3 I can also reproduce the issue reported by the kernel test robot
-for v_exec_initval_nolibc.c and vstate_exec_nolibc.c. The following
-addition to your fixes seems to resolve it:
-
-diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
-index 92c4cfe5f34d..48d6cd5e72f6 100644
---- a/tools/testing/selftests/riscv/vector/Makefile
-+++ b/tools/testing/selftests/riscv/vector/Makefile
-@@ -22,15 +22,13 @@ $(OUTPUT)/vstate_prctl: vstate_prctl.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpe
- 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
- 
- $(OUTPUT)/vstate_exec_nolibc: vstate_exec_nolibc.c
--	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
--		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
-+	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
- 
- $(OUTPUT)/v_initval: v_initval.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
- 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
- 
- $(OUTPUT)/v_exec_initval_nolibc: v_exec_initval_nolibc.c
--	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
--		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
-+	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
- 
- $(OUTPUT)/vstate_ptrace: vstate_ptrace.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
- 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-diff --git a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-index 4dde05e45a04..e3f062c85452 100644
---- a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-+++ b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-@@ -9,6 +9,10 @@
-  * To be "clean" all values must be all zeroes.
-  */
- 
-+#include <stdlib.h>
-+#include <string.h>
-+#include <stdio.h>
-+
- #define __stringify_1(x...)	#x
- #define __stringify(x...)	__stringify_1(x)
- 
-diff --git a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-index 12f1b1b1c7aa..ecd687bb8359 100644
---- a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-+++ b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
-@@ -1,6 +1,12 @@
- // SPDX-License-Identifier: GPL-2.0-only
- 
--#include <linux/wait.h>
-+#include <unistd.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <stdio.h>
-+
-+#include <sys/prctl.h>
-+#include <sys/wait.h>
- 
- #define THIS_PROGRAM "./vstate_exec_nolibc"
-
+OK, I will add a MAINTAINERS entry for both this file and
+binding file.
 
 Regards,
-Sergey
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
