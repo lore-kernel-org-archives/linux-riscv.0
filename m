@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4B7F3C245
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 12:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEAAF3C241
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 12:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=C2rXHtEqHN+HMY8pavo3zyTe7P7Mkk2/Iy/gjEBrTyA=; b=1aaCKsIC1Jed61
-	9DwNe5nN2Hcz/gtnENF1zq0IzrURZ2xoXv1HECX1N7i64b5goyRU/uaWgfrPEJOq7SyJdgqefUVTE
-	G0sdSJGxOJhlpOGbtz4Zl2N5eTkIkL6tTTPSMmduWO+HZtok7lHDy6A7W9BT/t3Z4t43unMZYKUw0
-	ppoqK/rrQ+TYnHmfDgUUtFTa+kd9HnfIAZQ/jZQHL9c03WT7ZecjgSHAYrW3/6xA1TbMSeeLfH1sp
-	EaS6n7KHE3F1jin9lLa93kyjA00EHrqZ6gMU4RZJ6wN5Dgr+JKhR7NHvbIYzSW2HSDgBLIXsi6tU0
-	nrZAGZmMnk1dg+1Puu6w==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Subject:
+	Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=t0v+KGA9MtzB0c2e9tQ7XTvzADFGNdSFhJDTbunoNgA=; b=MyqrEK2n0whgu5
+	pgkKhBHdlltE3ZW6LSut3ibJpMji4FvtEyYib7ZhhYIBb2Zqfvl8AgTiZbbCYKCsBdirUe14JZsXZ
+	4pQDidXhsqyU+p8WImB/F9l4h9bfBUpJm5+KNJOnagd+oYw930gtA9aZk6tMEaCDkt7yj/jsRXqiO
+	n+lDnE9iT9vAgC5GB3X02eCF141rUCATZNEDSAaEalqqjaEH/uTNqOLV/RS3ZLtp1HYdGf1fYpYVC
+	pn6bja8apBPu4dgozndTUG7rw59eMN4BEUuyh2dnCQnHiUksUiB8gDuV9QhWreropr7r1JXCt7Wd0
+	EMC0KGY2GQKdoVv+BewA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzZX3-00000007IY7-2g9Z;
-	Mon, 09 Mar 2026 12:16:21 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1vza1N-00000007LI6-4B10;
+	Mon, 09 Mar 2026 12:47:42 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzZX0-00000007IX2-2bcK
+	id 1vza1K-00000007LHg-0CXC
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 12:16:20 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-829a9c03780so2620823b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 05:16:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773058578; x=1773663378; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wKRuQiFEyPdm5c9YpYtOx5qgVqbgbBx3fb6W7NjM1Qs=;
-        b=LdgXbxVBceT7y/EIfoMrmilyqwvE7X/TuREvsqGsh7xZFFHWTQpCTlo7UUDAeg8Tz8
-         d0eNaAnisAfdtUByx7Tx9GSi3b8yVtWXujN5Li0glxJCf48G2v7Di5b4vPgIZjiuI1Vg
-         ZLeyFBYHTanBz4TetQw71ivZ7jpUKhKX2p5PzErtRrVvqb84xHJOJhPaf5pBMkExhHZY
-         b6jD4zVf3NXWoWJFrP39rkmoeHsFzw3mna04AXOO19isf11C7AoxAD9DF1g75SWwN9Z5
-         vOQfl5gbrmaVu1ZkqZN1SDTIzc0gpUNMUvfJ7Ieq4+F1lI99HVm6FqcQ3p3J0CjcQEVF
-         YNkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773058578; x=1773663378;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wKRuQiFEyPdm5c9YpYtOx5qgVqbgbBx3fb6W7NjM1Qs=;
-        b=uKycFz6SKeZXX/7bVn8tH7hFmmycbNbzi2FLvjIwBLd41kwYAGB/kX9mweXDSaiBtx
-         h3Vn3phInuSO1HnY9XZU5pbpvxzNRijIEAfDNxv760hHyxiUv2PV9mF1knLatDU/+v2z
-         32rLjd8+xyl/+an5LtNpeqEpxElB+RUuHiPg67iulkFBe4Noo+wkaGG+XP1ZpyYD1DA6
-         rJVoPbpFXgvprSXlY5WSv9QpKo+e1nr1wClGt7bcdjejmhO6o4AesQ0Rq49Cmwe8wQkv
-         KyaKeY6o585goxPjqJZfpftL9vBK4n24ztzjSiS0CBsVO+p83LOZWWrYFLdyLVlC9V/R
-         Hgmg==
-X-Gm-Message-State: AOJu0YytRL09UjW2Ng83bteBsK7nXBFlLqz1JbTS+ktsXbGFgtRLBHkg
-	4U3azCms/SLKJTEqpIysunVy67cml6XHJyKMHSQLiJCg9T9XrQ1zLK3v
-X-Gm-Gg: ATEYQzyjrIwYPliLoEysPZjNgVdSreyNHyUcb7rpujQ4wP8rugC8Kz1OuUc+RLv4yHz
-	5tsVzn95V7tQXz78QhisT5mxSMlFM709qAzAPyce4nwXQzSg9GnJ042/pJy8EwaRX6akdOiuc1/
-	qcHChqUKMn9KM13/Ev80Rs3Uyu6661jaZpTm2EEhvRHUaGqf4T8fjSgZhYhCZ6zOVfmLiOCWkWx
-	qntUaFBOc0c2XblpH1pI+VQLvR+n3FgzPJqVzX6x/oV3aCeh69CxukfQD7783zVZmba2X2aqebL
-	uJj2zjMlol4hbwFKdtEPhmaGjK/qJhUZcwSfVY9dI4s05GchwNK5YuiZgkjEMTiTmVwa1R1Wqm9
-	CUbi9ppyf8vKfwnk2CF51eUzgEZKwcoT8cxoseJxBI1dLJqq8h1UMUYwIP+Xo18Ixkmz6rmCqm9
-	iHOjyxcE/F3+cJuTjRZK14AxNRfez0pl3zzSNb
-X-Received: by 2002:a05:6a20:258f:b0:398:6e6b:da08 with SMTP id adf61e73a8af0-3986e6bdcf6mr7848532637.29.1773058577462;
-        Mon, 09 Mar 2026 05:16:17 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([2408:820c:9009:3f2:a816:d74a:dc19:1ab8])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c739e0a7156sm9525693a12.2.2026.03.09.05.16.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 05:16:17 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Subject: [PATCH 0/2] soc: microchip: mpfs: Fix resource leak on driver
- unbind
-Date: Mon, 09 Mar 2026 20:16:13 +0800
-Message-Id: <20260309-mpfs-v1-0-0dd89f34f962@gmail.com>
-MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAA26rmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDYwNL3dyCtGLdFIM0i+RUc5MkC3NLJaDSgqLUtMwKsDHRsbW1AMBSxxx
- WAAAA
-X-Change-ID: 20260309-mpfs-d0f8ce74b879
-To: Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773058576; l=538;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=vFf79FzxMVOztJRlXHpBxqZv0zyHB1A8IaAhC+cXeD4=;
- b=BY4bobV9xSDrZE4BwD+t69QaLTSmhGK5sTe4i4vclwWq8n3iuEhFPD4H/gEZtjExapC0E6/uU
- Fd1G3brA3jQDDU24v+Ng/lH4DE7XU4VgGOuTJRmtN/GJg7ZrcZ8D74p
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+	Mon, 09 Mar 2026 12:47:40 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 03B721A2DAB;
+	Mon,  9 Mar 2026 12:47:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C9B875FFB8;
+	Mon,  9 Mar 2026 12:47:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09B6810369B97;
+	Mon,  9 Mar 2026 13:47:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1773060451; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=wCTUnhuxvulHzW4p0uUdfASMjS854LLOHF+KryEvCLg=;
+	b=el/ScjM4Ue552Q5u0YpglfOiNwlnWqvRvgPZRn0f2Rw9gC2K6miO3fjP58Kezv524ydiSu
+	TnJe8U2jt+A1EJ6DB1yTs7y0A6UQYZvTUFLzohffbj2jx9dbDYRqYRIm/DKsAlA08WUE5o
+	h+sY8NUKOa8F7OPKU7GdMADmAbHvAOWT3Xycjjt/+QEJcuQ8UijP4u56/6n693iG274Qyw
+	TW2fwFCVxVMyU/LU5PH1DEo0plMmeu9xMuFSnZIDm/fLs/dYFW8oWIDiOD5qWXRnYonHxk
+	qlKDmbIRISO2L4epJFOCo80mqRQNmcnKOiRv5ruerLteKpajtRCpOmq8Cv4YXQ==
+Mime-Version: 1.0
+Date: Mon, 09 Mar 2026 13:47:18 +0100
+Message-Id: <DGY9GWWLXGNX.265MMEXXCG8YA@bootlin.com>
+Subject: Re: [PATCH v7 3/8] drm: verisilicon: add a driver for Verisilicon
+ display controllers
+To: "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Drew Fustini" <fustini@kernel.org>, "Guo
+ Ren" <guoren@kernel.org>, "Fu Wei" <wefu@redhat.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260129023922.1527729-1-zhengxingda@iscas.ac.cn>
+ <20260129023922.1527729-4-zhengxingda@iscas.ac.cn>
+In-Reply-To: <20260129023922.1527729-4-zhengxingda@iscas.ac.cn>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_051618_706141_AF832E4E 
-X-CRM114-Status: UNSURE (   5.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260309_054738_356528_D14693A8 
+X-CRM114-Status: GOOD (  29.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +80,198 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Dmitry Baryshkov <lumag@kernel.org>, Han
+ Gao <gaohan@iscas.ac.cn>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Philipp Zabel <p.zabel@pengutronix.de>, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Yao Zi <ziyao@disroot.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
-Felix Gu (2):
-      soc: microchip: mpfs-control-scb: Fix resource leak on driver unbind
-      soc: microchip: mpfs-mss-top-sysreg: Fix resource leak on driver unbind
+Hello Icenowy Zheng,
 
- drivers/soc/microchip/mpfs-control-scb.c    | 6 ++++--
- drivers/soc/microchip/mpfs-mss-top-sysreg.c | 6 ++++--
- 2 files changed, 8 insertions(+), 4 deletions(-)
----
-base-commit: a0ae2a256046c0c5d3778d1a194ff2e171f16e5f
-change-id: 20260309-mpfs-d0f8ce74b879
+On Thu Jan 29, 2026 at 3:39 AM CET, Icenowy Zheng wrote:
+> From: Icenowy Zheng <uwu@icenowy.me>
+>
+> This is a from-scratch driver targeting Verisilicon DC-series display
+> controllers, which feature self-identification functionality like their
+> GC-series GPUs.
+>
+> Only DC8200 is being supported now, and only the main framebuffer is set
+> up (as the DRM primary plane). Support for more DC models and more
+> features is my further targets.
+>
+> As the display controller is delivered to SoC vendors as a whole part,
+> this driver does not use component framework and extra bridges inside a
+> SoC is expected to be implemented as dedicated bridges (this driver
+> properly supports bridge chaining).
+>
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> Tested-by: Han Gao <gaohan@iscas.ac.cn>
+> Tested-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
+I have reviewed the bridge part of this patch and have a few remarks, see
+below.
 
+[...]
+
+> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
+> @@ -0,0 +1,371 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
+> + */
+> +
+> +#include <linux/of.h>
+> +#include <linux/regmap.h>
+> +
+> +#include <uapi/linux/media-bus-format.h>
+> +
+> +#include <drm/drm_atomic.h>
+> +#include <drm/drm_atomic_helper.h>
+> +#include <drm/drm_bridge.h>
+> +#include <drm/drm_bridge_connector.h>
+> +#include <drm/drm_connector.h>
+> +#include <drm/drm_encoder.h>
+> +#include <drm/drm_of.h>
+> +#include <drm/drm_print.h>
+> +#include <drm/drm_simple_kms_helper.h>
+> +
+> +#include "vs_bridge.h"
+> +#include "vs_bridge_regs.h"
+> +#include "vs_crtc.h"
+> +#include "vs_dc.h"
+> +
+> +static int vs_bridge_attach(struct drm_bridge *bridge,
+> +			    struct drm_encoder *encoder,
+> +			    enum drm_bridge_attach_flags flags)
+> +{
+> +	struct vs_bridge *vbridge = drm_bridge_to_vs_bridge(bridge);
+> +
+> +	return drm_bridge_attach(encoder, vbridge->next_bridge,
+> +				 bridge, flags);
+> +}
+> +
+> +struct vsdc_dp_format {
+> +	u32 linux_fmt;
+> +	bool is_yuv;
+> +	u32 vsdc_fmt;
+> +};
+
+Moving the bool after the two 'u32's would be better for packing and
+spatial locality (especially in case more fields are added in the future).
+
+> +
+> +static struct vsdc_dp_format vsdc_dp_supported_fmts[] = {
+> +	/* default to RGB888 */
+> +	{ MEDIA_BUS_FMT_FIXED, false, VSDC_DISP_DP_CONFIG_FMT_RGB888 },
+> +	{ MEDIA_BUS_FMT_RGB888_1X24, false, VSDC_DISP_DP_CONFIG_FMT_RGB888 },
+> +	{ MEDIA_BUS_FMT_RGB565_1X16, false, VSDC_DISP_DP_CONFIG_FMT_RGB565 },
+> +	{ MEDIA_BUS_FMT_RGB666_1X18, false, VSDC_DISP_DP_CONFIG_FMT_RGB666 },
+> +	{ MEDIA_BUS_FMT_RGB101010_1X30,
+> +	  false, VSDC_DISP_DP_CONFIG_FMT_RGB101010 },
+
+You can put up to 100 chars per line and avoid the newline here to make
+this table more readable. Same below.
+
+> +	{ MEDIA_BUS_FMT_UYVY8_1X16, true, VSDC_DISP_DP_CONFIG_YUV_FMT_UYVY8 },
+> +	{ MEDIA_BUS_FMT_UYVY10_1X20, true, VSDC_DISP_DP_CONFIG_YUV_FMT_UYVY10 },
+> +	{ MEDIA_BUS_FMT_YUV8_1X24, true, VSDC_DISP_DP_CONFIG_YUV_FMT_YUV8 },
+> +	{ MEDIA_BUS_FMT_YUV10_1X30, true, VSDC_DISP_DP_CONFIG_YUV_FMT_YUV10 },
+> +	{ MEDIA_BUS_FMT_UYYVYY8_0_5X24,
+> +	  true, VSDC_DISP_DP_CONFIG_YUV_FMT_UYYVYY8 },
+> +	{ MEDIA_BUS_FMT_UYYVYY10_0_5X30,
+> +	  true, VSDC_DISP_DP_CONFIG_YUV_FMT_UYYVYY10 },
+> +};
+> +
+
+[...]
+
+> +struct vs_bridge *vs_bridge_init(struct drm_device *drm_dev,
+> +				 struct vs_crtc *crtc)
+> +{
+> +	unsigned int output = crtc->id;
+> +	struct vs_bridge *bridge;
+
+In common practice a variable named 'bridge' is used to point to a 'struct
+drm_bridge', so it feels weird when it is used for another type. Can you
+rename to 'vbridge' or 'vsbridge' or similar, to clarify it's the
+"Verisilicon bridge"?
+
+This is after all what you did in vs_bridge_attach() above, where the
+ambiguity of the 'bridge' name used for a driver-specific struct is
+evident.
+
+> +	struct drm_bridge *next;
+> +	enum vs_bridge_output_interface intf;
+> +	const struct drm_bridge_funcs *bridge_funcs;
+> +	int ret, enctype;
+> +
+> +	intf = vs_bridge_detect_output_interface(drm_dev->dev->of_node,
+> +						 output);
+> +	if (intf == -ENODEV) {
+> +		drm_dbg(drm_dev, "Skipping output %u\n", output);
+> +		return NULL;
+> +	}
+> +
+> +	next = devm_drm_of_get_bridge(drm_dev->dev, drm_dev->dev->of_node,
+> +				      output, intf);
+> +	if (IS_ERR(next)) {
+> +		ret = PTR_ERR(next);
+> +		if (ret != -EPROBE_DEFER)
+> +			drm_err(drm_dev,
+> +				"Cannot get downstream bridge of output %u\n",
+> +				output);
+
+100 chars per line are allowed, so this could fit on a single line being
+nicer to read. This applies to a lot places in this driver, of logging
+calls in particular. I understand this would be annoying to change on an
+already reviewed patch and at v7 so up to you, but it would be good to keep
+it in mind for the future.
+
+> +		return ERR_PTR(ret);
+> +	}
+> +
+> +	if (intf == VSDC_OUTPUT_INTERFACE_DPI)
+> +		bridge_funcs = &vs_dpi_bridge_funcs;
+> +	else
+> +		bridge_funcs = &vs_dp_bridge_funcs;
+> +
+> +	bridge = devm_drm_bridge_alloc(drm_dev->dev, struct vs_bridge, base,
+> +				       bridge_funcs);
+
+The 'struct drm_bridge' field embedded in a driver-specific struct is
+conventionally called 'bridge', so renaming it from 'base' to 'bridge'
+would make it more consistent with other drivers. That would go in sync
+with the coding convention I mentioned above: 'bridge' for struct
+drm_bridge, <XYZ>bridge or just <XYZZ> for a custom driver struct embedding
+a bridge.
+
+> +	if (IS_ERR(bridge))
+> +		return ERR_PTR(PTR_ERR(bridge));
+> +
+> +	bridge->crtc = crtc;
+> +	bridge->intf = intf;
+> +	bridge->next_bridge = next;
+
+There is now a next_bridge field in struct drm_bridge, which handles the
+bridge lifetime in a safer way and more simply [0], so you could use it:
+
+       bridge->base.next_bridge = next;
+
+Or, after the renames I suggested above:
+
+       vbridge->bridge.next_bridge = next;
+
+[0] https://elixir.bootlin.com/linux/v7.0-rc2/source/include/drm/drm_bridge.h#L1269-L1278
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
