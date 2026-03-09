@@ -4,112 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD93F417F6
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 15:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3A7F41808
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 15:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F+k26cLjGJ+4/4bfHAJxORJqUkk0rvycBK0QqsIdJ44=; b=sRd9XDTTdPPPmr
-	bQMQTS5dhldvXHGOClkWzWvwalVYmxCaZv82qIzBdCdW/iCgqhBAZ6nhh+5QYyUCOZ1ln7N1p80b2
-	J0XS/0W4Ad5KP3QMS79LH6nSk6x/F69GkHlYV9Daax/5E35e5DU/JdYyDWIk/CLIRVKWLv7V9YFLa
-	S5bYMteqlNaFzTCZaoOlc4zWDfwQRpHkpc5RGkA7FhAALkYa7yYf5fZXtouVqS1J8TrrwU5+4Rg/3
-	46lOqjfpcwI78Ugs9sd+HN84eSrY9D7/nnCJ8U/bpbxlVR0T9Aud1CTdJS3QcBDmFwyOKkQMFlHMy
-	lUNTnRCIJo5iDLEXyJKA==;
+	List-Owner; bh=JO2SPDWpjxBqvXAC1PCeIBAPW9QB8bgs2tnDYo6cE/Q=; b=xLQtBusMca6HCX
+	1e4LF6JVl2POiOTJ5XpKLHg53yFgksIqPAZo8E4cfhJCbcWnmGNDNPNg+PML3WLk7U0lko8Sx3AsS
+	03gxxwS7diL+wGc/KGNOwRR1W86vj1yZlR+bCUJAurhhClq9DwUo74k5J/ylAQBpHHLljN5W5lLl1
+	Xabq3HW3jN3zVMvgRIjybVecKa9SM1kNHEXN8raEwaeOPKAU7kq7SloK967z21bMO+ktCfJoT+lha
+	49ErYBQJlA65Y6FqzOHHR1hrNrJprs643MDiludyR+lYgp/pd1gGiCz/5rl3KTJDF2wMcD3tyzzSH
+	BS8qaSLohHxVrDW7txWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcBK-00000007YPL-1MSo;
-	Mon, 09 Mar 2026 15:06:06 +0000
+	id 1vzciD-00000007ceO-3mMZ;
+	Mon, 09 Mar 2026 15:40:05 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzcBG-00000007YNb-3R4k
+	id 1vzci9-00000007cdg-3R91
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 15:06:04 +0000
+	Mon, 09 Mar 2026 15:40:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773068761;
+	s=mimecast20190719; t=1773070800;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=phOctTNEVWSPGlfX8YVkAI1SC7tMCmOFyrrNOPwSW4I=;
-	b=jWsaDd0xiVBtSZ0MSnAmeCsugTudx5hUY2C2Bkh09lAEnZukIuN165l8Vtezn8tm3neMyo
-	UWqFsF2d0lhbf2gBZ8+BpcB5Hw5770BCa1ZsIDoTCpUoeBHSDhET4sL+LjhjzvOFC5QiTG
-	7k/wagPSmublJOne91+KZUOUh0bdnw8=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=e0jqr9O5Qe+QOiK/NfYBlUp6xE1Lwly1Kq1xM3BGau4=;
+	b=Qhub2NDumGTxXdr05E5SxqJFRRBekBqtfY8lcsqMclA7lf/vee+g3evCZZ8wnUceE+RRaP
+	tKDf5P6AhYjJnsBnKC2IKZaJpX3hWoXz0r8/eWbSIhkUUevz3V0XXcgZMLgp4npp/Pj1SW
+	Rb9JIKeIs0YpwrvLJSkNMJL3MxBYZgo=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-259-Cvgm5Y-yM5GOu90qT38jIQ-1; Mon, 09 Mar 2026 11:06:00 -0400
-X-MC-Unique: Cvgm5Y-yM5GOu90qT38jIQ-1
-X-Mimecast-MFC-AGG-ID: Cvgm5Y-yM5GOu90qT38jIQ_1773068759
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cd84943c76so776031585a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 08:05:59 -0700 (PDT)
+ us-mta-335-N7n4zAqBO9K0k52nZQCeow-1; Mon, 09 Mar 2026 11:39:58 -0400
+X-MC-Unique: N7n4zAqBO9K0k52nZQCeow-1
+X-Mimecast-MFC-AGG-ID: N7n4zAqBO9K0k52nZQCeow_1773070798
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8cd91c0262fso145437385a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 08:39:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773068758; x=1773673558;
-        h=user-agent:in-reply-to:content-transfer-encoding
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=phOctTNEVWSPGlfX8YVkAI1SC7tMCmOFyrrNOPwSW4I=;
-        b=rKl77NlLXTNuJzIJyJ6ftfOL2fmaZ7akx24qMvEmeW1NZBcumDZ8dcSvv0Xx4pG6kU
-         Thz3rHziqan6q/NM06CiZCV3DNdClPjl5V54zQEWFcOSF6OP9AOPUtq0S2dY2rDQmJL/
-         Jjj4tJJX1f3VTanwJimbyuou1cEP7kcSTez37uQPaamV7MRbyr8pOTuZ2Wh0tPXJVFpc
-         z6VXNHCiPQmkokZhOZ2hxAyMbP6Vs+ErC2xvHD2Ceo7rG6BfzcpF07wrl4WBlBd3RSAp
-         3C5FRvBFoObm/3R85AqaX/OznGWONX3BdUZyGfFvjMkOyzjIiX03yMbfPePmIZuoaCj2
-         yOhg==
-X-Forwarded-Encrypted: i=1; AJvYcCVMZ3d77M76gJGmuiEVhTYUQWeYaqyReT/WbQTE1V+Ezo7fm25RydhU/k0gI5Drfy6/2unIvgOAJuenDw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrWnQjmWAemKthUg+SRpkalpPvT90Iml8kouq5Dp51QiY/IF39
-	+JuvoiyfqGPaH5BKEYkHH5YMy6e6mHhA/Tiic9kSZGADqtCy6XwkiSpkb2n4DQYu8KhjXp9QQlo
-	Gz5fgQTq7QX23BAQnUDg39WjgdxFnzcJVNxBAGgpfDCpnMfK9sa7X5d/Ni1eQnMK7qxqKlQ==
-X-Gm-Gg: ATEYQzy70FLkUjGqku8YLu0cuLoVazYW0htjtpR11ckuxHgsH1JkfnN2tkPHHtM7Wc8
-	bECAgjYSdG7hg2hFz+8XXXAE2LtifehacVkpUFLRTNjuxU/dHQJTj+F5ZL9m3DsAkLH+3Si3eCx
-	ItT45emPs1G0VRQbrmJvbDx/f3e7Qu58LOngCmyrYqOZD0AhulQr/P78Bxmu4Pi4IUQrJRA4kR8
-	ONuEaevQy81yPpSvfz59yZch6WNyqJo6ytE8tmRqNJO6k+Zk+LGGCQ0+xwOU9IMnouv4fIGM2Wq
-	X+h2a9pbq4l1PUawkADqOJydiJN85yF58o/hgM+kBi1WUsXVlmpDW3D9yvSglCZbvO2zSSShZ+T
-	FNXjJrupnNs58wpp4LSCrXo8knQzCHxgzEJjWC7Ws8VQSxCw4+a1mpnCe
-X-Received: by 2002:a05:620a:171e:b0:8c5:2de4:d6ee with SMTP id af79cd13be357-8cd6dc5f80bmr1304761285a.33.1773068758447;
-        Mon, 09 Mar 2026 08:05:58 -0700 (PDT)
-X-Received: by 2002:a05:620a:171e:b0:8c5:2de4:d6ee with SMTP id af79cd13be357-8cd6dc5f80bmr1304750085a.33.1773068757477;
-        Mon, 09 Mar 2026 08:05:57 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1773070798; x=1773675598;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=e0jqr9O5Qe+QOiK/NfYBlUp6xE1Lwly1Kq1xM3BGau4=;
+        b=mBK1fa5iJ5WyCg7+sLzTNUY9eLOyZxrtgCI3liRF7tG7aPA/Z78dT5gObcxfyYYTHp
+         LKtqQ0K1tsKvfgC9tedqCej3KoBU2YDGm568BMbWmhwMaYeFXaU1ue+Lyxce9O3FtKJ+
+         klqoZhRxOtgT0LuGvftzbtTm4Cj+SfzbR0UohW4SPfLkk4Fzp0UL5K784q/56py0Rbxt
+         qDsHRV0ipNJjbBRVp8D3jVsv6MLTdPQC304+/nO4Ufb0IWoKBXai/A7CilthON8m/QO7
+         1cKS2S0dTjFjhImkKamtw7oOQ8rAEfRnKZg0R3ckKqESv2a18ViGvgnvcO/wSlk7/VLD
+         4GhA==
+X-Forwarded-Encrypted: i=1; AJvYcCW6vsfONS0sLJGhIhA80XbuMJd1t6YRn851t3Zt3RsjYbsYhQ7kgdBhVi5pmz1f45tfKwhJjGIOfBtGAw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9dUN+nMhaeqoto9qb7tHQn/iPsQcoykIp9wS6D8KTyQ6cQeGZ
+	+gxOGYK2oY9/wfFd9944xXJ9U4ufGVLiezZvnGx7Pp2sGXIg1rA0q85JUQRosnt9DXg3N7y2JOL
+	hMoZQ3rd4G42JUrjX72GcXMcBjIS86sv3D2fhigeLBs0Y0YmXd4/V42hxcr44pkOQ/4t9Dg==
+X-Gm-Gg: ATEYQzwIzGL2qLTjEKQ7lUP6Vj/3nenN3lqXH8BfCIdwC1BMYP6T/7odUnDqUf5FkW4
+	L0oyOswrKp0G2giF5toxQdYKSFegkoEbVeNYGncb9NabEzSAmqX+o9DUgPFm0Gib2AbEcX8DPX/
+	eGgraZiF84ONWIiJGQdZBkpiFNVvU0XbRHJEzRYXt/AGWTwqD4OGcfguLSW7FrBwGAwzxs7R6tZ
+	96GAw4nrAeLGDBpMLUFwK+gstlgxsRuqWsqvn4Qw/Ams3KbZu0sZJxB+krUaR3Hya3Cri6706mV
+	iTWuDQyw4bAs1MGO45ZkyVRCbh1lhKmOV5qkk1aHMx9K+n8t+TqQT8UQSpXIsODk56HF7YQnpJv
+	Tn/Thi2611hlLWkkUsgUlyn1BwwW7KsfFBZ/g6EZ7CeEEsFI0fRjUXS0Q
+X-Received: by 2002:a05:620a:290a:b0:8cd:8f18:d1c0 with SMTP id af79cd13be357-8cd8f18d44dmr228536785a.27.1773070798144;
+        Mon, 09 Mar 2026 08:39:58 -0700 (PDT)
+X-Received: by 2002:a05:620a:290a:b0:8cd:8f18:d1c0 with SMTP id af79cd13be357-8cd8f18d44dmr228531285a.27.1773070797673;
+        Mon, 09 Mar 2026 08:39:57 -0700 (PDT)
 Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd772f9f9bsm536468385a.24.2026.03.09.08.05.53
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cd90aae418sm84839885a.26.2026.03.09.08.39.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Mar 2026 08:05:56 -0700 (PDT)
-Date: Mon, 9 Mar 2026 11:05:51 -0400
+        Mon, 09 Mar 2026 08:39:57 -0700 (PDT)
+Date: Mon, 9 Mar 2026 11:39:55 -0400
 From: Brian Masney <bmasney@redhat.com>
-To: =?iso-8859-1?Q?Beno=EEt?= Monin <benoit.monin@bootlin.com>
-Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
+	Joel Stanley <jms@oss.tenstorrent.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
 	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-mips@vger.kernel.org
-Subject: Re: [PATCH v4 04/10] clk: fixed-factor: Export
- __clk_hw_register_fixed_factor()
-Message-ID: <aa7hz_psKK6lZC29@redhat.com>
-References: <20260304-clk-eyeq7-v4-0-9d6bd9d24bec@bootlin.com>
- <20260304-clk-eyeq7-v4-4-9d6bd9d24bec@bootlin.com>
+	joel@jms.id.au, fustini@kernel.org, mpe@kernel.org,
+	mpe@oss.tenstorrent.com, npiggin@oss.tenstorrent.com,
+	agross@kernel.org, agross@oss.tenstorrent.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v8 3/3] clk: tenstorrent: Add Atlantis clock controller
+ driver
+Message-ID: <aa7pywbaB7rxLWwX@redhat.com>
+References: <20260306-atlantis-clocks-v8-0-6c9b14a4aa8e@oss.tenstorrent.com>
+ <20260306-atlantis-clocks-v8-3-6c9b14a4aa8e@oss.tenstorrent.com>
 MIME-Version: 1.0
-In-Reply-To: <20260304-clk-eyeq7-v4-4-9d6bd9d24bec@bootlin.com>
+In-Reply-To: <20260306-atlantis-clocks-v8-3-6c9b14a4aa8e@oss.tenstorrent.com>
 User-Agent: Mutt/2.2.14 (2025-02-20)
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: z7i9_8-DHGUfW0wrMzjh9TN2qqZGoCIvxJMYuvmDGQc_1773068759
+X-Mimecast-MFC-PROC-ID: 8UI9rjffLVgj42-CAMCoqWFNy72UT7LBj7RHEGBjC_4_1773070798
 X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_080602_927349_6E06A9E2 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20260309_084001_953613_36824889 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,212 +117,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 04:25:18PM +0100, Beno=EEt Monin wrote:
-> Make the base registration function for fixed-factor clocks public and
-> re-implement the various registration functions that are a direct call
-> to __clk_hw_register_fixed_factor() as macros.
-> =
-
-> This is similar to how the registration functions of divider, mux and
-> other clocks are implemented.
-> =
-
-> Add a new macro clk_hw_register_fixed_factor_pdata() to register
-> a fixed-factor clock with its parent clock passed as a struct
-> clk_parent_data.
-> =
-
-> Signed-off-by: Beno=EEt Monin <benoit.monin@bootlin.com>
-> ---
->  drivers/clk/clk-fixed-factor.c | 52 ++----------------------------------=
----
->  include/linux/clk-provider.h   | 56 +++++++++++++++++++++++++++++++++---=
-------
->  2 files changed, 46 insertions(+), 62 deletions(-)
-> =
-
-> diff --git a/drivers/clk/clk-fixed-factor.c b/drivers/clk/clk-fixed-facto=
-r.c
-> index 359e91441c74..6116f878fc8f 100644
-> --- a/drivers/clk/clk-fixed-factor.c
-> +++ b/drivers/clk/clk-fixed-factor.c
-> @@ -90,7 +90,7 @@ static void devm_clk_hw_register_fixed_factor_release(s=
-truct device *dev, void *
->  	clk_hw_unregister(&fix->hw);
->  }
->  =
-
-> -static struct clk_hw *
-> +struct clk_hw *
->  __clk_hw_register_fixed_factor(struct device *dev, struct device_node *n=
-p,
->  		const char *name, const char *parent_name,
->  		const struct clk_hw *parent_hw, const struct clk_parent_data *pdata,
-> @@ -148,6 +148,7 @@ __clk_hw_register_fixed_factor(struct device *dev, st=
-ruct device_node *np,
->  =
-
->  	return hw;
->  }
-> +EXPORT_SYMBOL_GPL(__clk_hw_register_fixed_factor);
->  =
-
->  /**
->   * devm_clk_hw_register_fixed_factor_index - Register a fixed factor clo=
-ck with
-> @@ -173,46 +174,6 @@ struct clk_hw *devm_clk_hw_register_fixed_factor_ind=
-ex(struct device *dev,
->  }
->  EXPORT_SYMBOL_GPL(devm_clk_hw_register_fixed_factor_index);
->  =
-
-> -/**
-> - * devm_clk_hw_register_fixed_factor_parent_hw - Register a fixed factor=
- clock with
-> - * pointer to parent clock
-> - * @dev: device that is registering this clock
-> - * @name: name of this clock
-> - * @parent_hw: pointer to parent clk
-> - * @flags: fixed factor flags
-> - * @mult: multiplier
-> - * @div: divider
-> - *
-> - * Return: Pointer to fixed factor clk_hw structure that was registered =
-or
-> - * an error pointer.
-> - */
-> -struct clk_hw *devm_clk_hw_register_fixed_factor_parent_hw(struct device=
- *dev,
-> -		const char *name, const struct clk_hw *parent_hw,
-> -		unsigned long flags, unsigned int mult, unsigned int div)
-> -{
-> -	return __clk_hw_register_fixed_factor(dev, NULL, name, NULL, parent_hw,
-> -					      NULL, flags, mult, div, 0, 0, true);
-> -}
-> -EXPORT_SYMBOL_GPL(devm_clk_hw_register_fixed_factor_parent_hw);
-> -
-> -struct clk_hw *clk_hw_register_fixed_factor_parent_hw(struct device *dev,
-> -		const char *name, const struct clk_hw *parent_hw,
-> -		unsigned long flags, unsigned int mult, unsigned int div)
-> -{
-> -	return __clk_hw_register_fixed_factor(dev, NULL, name, NULL, parent_hw,
-> -					      NULL, flags, mult, div, 0, 0, false);
-> -}
-> -EXPORT_SYMBOL_GPL(clk_hw_register_fixed_factor_parent_hw);
-> -
-> -struct clk_hw *clk_hw_register_fixed_factor(struct device *dev,
-> -		const char *name, const char *parent_name, unsigned long flags,
-> -		unsigned int mult, unsigned int div)
-> -{
-> -	return __clk_hw_register_fixed_factor(dev, NULL, name, parent_name, NUL=
-L,
-> -					      NULL, flags, mult, div, 0, 0, false);
-> -}
-> -EXPORT_SYMBOL_GPL(clk_hw_register_fixed_factor);
-> -
->  struct clk_hw *clk_hw_register_fixed_factor_fwname(struct device *dev,
->  		struct device_node *np, const char *name, const char *fw_name,
->  		unsigned long flags, unsigned int mult, unsigned int div)
-> @@ -286,15 +247,6 @@ void clk_hw_unregister_fixed_factor(struct clk_hw *h=
-w)
->  }
->  EXPORT_SYMBOL_GPL(clk_hw_unregister_fixed_factor);
->  =
-
-> -struct clk_hw *devm_clk_hw_register_fixed_factor(struct device *dev,
-> -		const char *name, const char *parent_name, unsigned long flags,
-> -		unsigned int mult, unsigned int div)
-> -{
-> -	return __clk_hw_register_fixed_factor(dev, NULL, name, parent_name, NUL=
-L,
-> -			NULL, flags, mult, div, 0, 0, true);
-> -}
-> -EXPORT_SYMBOL_GPL(devm_clk_hw_register_fixed_factor);
-> -
->  struct clk_hw *devm_clk_hw_register_fixed_factor_fwname(struct device *d=
-ev,
->  		struct device_node *np, const char *name, const char *fw_name,
->  		unsigned long flags, unsigned int mult, unsigned int div)
-> diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
-> index 630705a47129..614abb396a6e 100644
-> --- a/include/linux/clk-provider.h
-> +++ b/include/linux/clk-provider.h
-> @@ -1146,13 +1146,16 @@ struct clk_fixed_factor {
->  #define to_clk_fixed_factor(_hw) container_of(_hw, struct clk_fixed_fact=
-or, hw)
->  =
-
->  extern const struct clk_ops clk_fixed_factor_ops;
-> +struct clk_hw *
-> +__clk_hw_register_fixed_factor(struct device *dev, struct device_node *n=
-p,
-> +		const char *name, const char *parent_name,
-> +		const struct clk_hw *parent_hw, const struct clk_parent_data *pdata,
-> +		unsigned long flags, unsigned int mult, unsigned int div,
-> +		unsigned long acc, unsigned int fixflags, bool devm);
->  struct clk *clk_register_fixed_factor(struct device *dev, const char *na=
-me,
->  		const char *parent_name, unsigned long flags,
->  		unsigned int mult, unsigned int div);
->  void clk_unregister_fixed_factor(struct clk *clk);
-> -struct clk_hw *clk_hw_register_fixed_factor(struct device *dev,
-> -		const char *name, const char *parent_name, unsigned long flags,
-> -		unsigned int mult, unsigned int div);
->  struct clk_hw *clk_hw_register_fixed_factor_fwname(struct device *dev,
->  		struct device_node *np, const char *name, const char *fw_name,
->  		unsigned long flags, unsigned int mult, unsigned int div);
-> @@ -1164,9 +1167,6 @@ struct clk_hw *clk_hw_register_fixed_factor_index(s=
-truct device *dev,
->  		const char *name, unsigned int index, unsigned long flags,
->  		unsigned int mult, unsigned int div);
->  void clk_hw_unregister_fixed_factor(struct clk_hw *hw);
-> -struct clk_hw *devm_clk_hw_register_fixed_factor(struct device *dev,
-> -		const char *name, const char *parent_name, unsigned long flags,
-> -		unsigned int mult, unsigned int div);
->  struct clk_hw *devm_clk_hw_register_fixed_factor_fwname(struct device *d=
-ev,
->  		struct device_node *np, const char *name, const char *fw_name,
->  		unsigned long flags, unsigned int mult, unsigned int div);
-> @@ -1178,13 +1178,45 @@ struct clk_hw *devm_clk_hw_register_fixed_factor_=
-index(struct device *dev,
->  		const char *name, unsigned int index, unsigned long flags,
->  		unsigned int mult, unsigned int div);
->  =
-
-> -struct clk_hw *devm_clk_hw_register_fixed_factor_parent_hw(struct device=
- *dev,
-> -		const char *name, const struct clk_hw *parent_hw,
-> -		unsigned long flags, unsigned int mult, unsigned int div);
-> +# define clk_hw_register_fixed_factor(dev, name, parent_name,           =
-      \
-> +				      flags, mult, div)                       \
-> +	__clk_hw_register_fixed_factor((dev), NULL, (name), (parent_name),    \
-> +				       NULL,  NULL, (flags), (mult), (div),   \
-> +				       0, 0, false)
-
-Why the extra space between # and define? It's not used below.
-
-With that fixed:
+On Fri, Mar 06, 2026 at 11:12:19AM -0600, Anirudh Srinivasan wrote:
+> Add driver for clock controller in Tenstorrent Atlantis SoC. This version
+> of the driver covers clocks from RCPU subsystem.
+> 
+> 5 types of clocks generated by this controller: PLLs (PLLs
+> with bypass functionality and an additional Gate clk at output), Shared
+> Gates (Multiple Gate clks that share an enable bit), standard Muxes,
+> Dividers and Gates. All clocks are implemented using custom clk ops and
+> use the regmap interface associated with the syscon. All clocks are derived
+> from a 24 Mhz oscillator.
+> 
+> The reset controller is also setup as an auxiliary device of the clock
+> controller.
+> 
+> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 
 Reviewed-by: Brian Masney <bmasney@redhat.com>
-
-> +#define clk_hw_register_fixed_factor_pdata(dev, np, name, pdata,        =
-      \
-> +				      flags, mult, div, acc, fixflags)        \
-> +	__clk_hw_register_fixed_factor((dev), (np), (name), NULL, NULL,       \
-> +				       (pdata), (flags), (mult), (div),       \
-> +				       (acc), (fixflags), false)
-> +#define devm_clk_hw_register_fixed_factor(dev, name, parent_name, flags,=
-      \
-> +					  mult, div)                          \
-> +	__clk_hw_register_fixed_factor((dev), NULL, (name), (parent_name),    \
-> +				       NULL, NULL, (flags), (mult), (div), 0, \
-> +				       0, true)
 
 
 _______________________________________________
