@@ -4,107 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F14EF371B
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 08:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9E2EFCD6A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 09:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+TY+Zw7ZTkfFuiUVqfVOeZyS5FgN7Gx0mTPcv7hO7kg=; b=QQIKhkX64FCRZ6
-	i7cs7icvg65OFy/qoo4KgFscDvCufvdFsfDCMTXN1VpHqFjJSIT4WufaMY+wu84wyWJp1cG4yd4fK
-	s3cmLdIHigQ/x3owCSALQ343hIweEF3wSqN1hJifCNciav7n2KsVd0lEGNUwHZ0ta/WAyBT9j/8xA
-	mTmfIhG8PuStJ9S/O8cueTDA1GokQFfTYm7Q5lEeRHs6/M56xGJ23kN+T0xBUIf+eAYAPYLmwyQfx
-	R4X54yGA8zV49LXKNzRULo8LGLzpGqKotECg6lpmGYdG6J4zj9yupnE5po4kLqMndvzsR86c+KBWT
-	9kgKXVuPS4OWsQvfwErA==;
+	List-Owner; bh=IkQzpXrracmbbxtX7vSqAymNBGYkzLLb+mITRKy1nLg=; b=j/+ohnIhDqAzlD
+	SWAX5zpAJes+HbIL7FJAO7kyWLIJPr7eV+nXzgW4C4M9Z0i5rHbcizdZUtFins4GfK6tbkLcSao69
+	KH42eKcwae4XlJbepeA9nqlnHi5/VyBf1t+O7sGw6dfyRsNAfy1qo7OuXdAayyLOjUgSwDWJa/xe1
+	/cmb9LJxLgJCZQLdOhDR9J/Cj2VQoBLVXbslSNfEfKIfn3/f9myXUhnDs96PoRP8sgiZyiz9dOZO7
+	AHowixclq/rWKD9HpXq2nICjivNKHLqQ8K1SVZuVmcYEN56ghh/FGhBtS5bcXJcYlRxBwTPnzkPVQ
+	IkrgEffwPzUZQYlGnePg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzW9A-00000006tNi-0gKG;
-	Mon, 09 Mar 2026 08:39:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vzWjg-00000006wyL-1Jjc;
+	Mon, 09 Mar 2026 09:17:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzW98-00000006tMU-1sIc
+	id 1vzWje-00000006wy7-1YA5
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 08:39:27 +0000
+	Mon, 09 Mar 2026 09:17:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42ECE432C4
-	for <linux-riscv@lists.infradead.org>; Mon,  9 Mar 2026 08:39:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A684C2BCC6
-	for <linux-riscv@lists.infradead.org>; Mon,  9 Mar 2026 08:39:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 01176600AD;
+	Mon,  9 Mar 2026 09:17:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4B4CC4CEF7;
+	Mon,  9 Mar 2026 09:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773045565;
-	bh=lmhRRii9BO7pCks+UXBWncpJDHHvOFHDr/1FU5tS2Dc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=WdSRqv1l9cnLKSFLHhILKBputV3GcYJKALfpBY1JSeYsV8M2DTVAhXvGnFdMIUBoZ
-	 u1TTqUSFnSchtsJAGRsbe75vRgVGaAhmdhg9HvU74esJIPW2495NanSULupwyeW7PT
-	 YaCc04FUEFJ+TnyCI7vwqSgqNgUE6uYG7kXhpWsNzBlH62LL0sdi5KV24INW7HWTMS
-	 DaLkZNI+2flGr4fHuiuuvSJz9dW2rJ7bAYkCMV+MUG0PEE3Cta9uzSWVAyA4AxTN5y
-	 +F2ndD2lKnvgeVQlJCtt8r0Do8bYMPx5sz1Wz+M9150u6O8SAJpB7oeuzYGd3EgwS/
-	 7SEvsU49k0Ckw==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3870778358aso114489641fa.1
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 01:39:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUCMmji0a4qBVYzwz/YvAJGhSTif5jA0nWNyRWfocXg3h03D9vDRB4oN5GPJa8l/+XSAecLrNbq2CvZmg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEQDixDqO5frTns/sXbzxd5RttUuvW/47wP8M42Za1Nalq0BMF
-	Is3v59Mxx8Bxv4x548N59Crg15QGrHzKcONt1/6pVb01Qe4QTEnv3PLgE/bukHr1kyKWw5XroZD
-	VmosXscBAmsNYEu1eRqRmP/LRLp2Jl61y/oIZHUf85g==
-X-Received: by 2002:a05:651c:892:b0:38a:b18:f41e with SMTP id
- 38308e7fff4ca-38a40b4bca5mr35053151fa.6.1773045562416; Mon, 09 Mar 2026
- 01:39:22 -0700 (PDT)
+	s=k20201202; t=1773047828;
+	bh=AOq78/xUyD/cvsmtwcE4UeNHcHh26M25Rpqpzr9frWQ=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=khkcHtmTOmF8C3/XyMez0tQ8r3bYiKTto9pyHzI50pE8wtCHwkD/ZNJXhhJ4aJ42I
+	 1BLardMK6qQMqYYxZxSmTPaaAdS1lCIMbQ9twYgSabLZGpAp1SGDCcjWktcKaz2Hey
+	 57oelZJramA6H0xmmQHWCWGB33ScpJsvF4GQGHKyiogN+np4NQLbOAgo0egL/h7Jbs
+	 h9vHX+dxj5zq5wdzFoXThac23/f5BA2KL7Rtmg6FDxkrmxTZ28rjKH2J2FhZjvt3t/
+	 HAemAp4/iUNpAHvB/grm8eDEUPo2vQ042Gx5GM4J0/diCI0t+i4ocoZ/MLxXIeqYNW
+	 PbXkbtaYvgLlw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: liu.xuemei1@zte.com.cn, anup@brainfault.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ liujingqi@lanxincomputing.com, cyan.yang@sifive.com, nick.hu@sifive.com,
+ yongxuan.wang@sifive.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/riscv-aplic: Register syscore operations only once
+In-Reply-To: <20260309161140133ZhM76Wt3uPliHU5_R8O0j@zte.com.cn>
+References: <20260309161140133ZhM76Wt3uPliHU5_R8O0j@zte.com.cn>
+Date: Mon, 09 Mar 2026 10:17:04 +0100
+Message-ID: <87ms0hs6pb.ffs@tglx>
 MIME-Version: 1.0
-References: <20260306-qcom-sa8255p-emac-v7-0-d6a3013094b7@oss.qualcomm.com>
- <20260306-qcom-sa8255p-emac-v7-1-d6a3013094b7@oss.qualcomm.com> <20260307-boisterous-tuscan-rat-1eb9bb@quoll>
-In-Reply-To: <20260307-boisterous-tuscan-rat-1eb9bb@quoll>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 9 Mar 2026 09:39:10 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MeeHP_ZjhOHu5NNLCU6Cg59EAWQAS0JngEHDQkmcDH3HQ@mail.gmail.com>
-X-Gm-Features: AaiRm50wcU1Efh35HOluVCqu3-5afwUUXiIKPiOPr6mPL4PpMSQ1J-X9POGllS8
-Message-ID: <CAMRc=MeeHP_ZjhOHu5NNLCU6Cg59EAWQAS0JngEHDQkmcDH3HQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v7 1/7] dt-bindings: net: qcom: document the
- ethqos device for SCMI-based systems
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Matthew Gerlach <matthew.gerlach@altera.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Keguang Zhang <keguang.zhang@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
-	Romain Gantois <romain.gantois@bootlin.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Minda Chen <minda.chen@starfivetech.com>, 
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Maxime Ripard <mripard@kernel.org>, Shuang Liang <liangshuang@eswincomputing.com>, 
-	Zhi Li <lizhi2@eswincomputing.com>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
-	"G. Jaya Kumaran" <vineetha.g.jaya.kumaran@intel.com>, Clark Wang <xiaoning.wang@nxp.com>, 
-	Linux Team <linux-imx@nxp.com>, Frank Li <Frank.Li@nxp.com>, David Wu <david.wu@rock-chips.com>, 
-	Samin Guo <samin.guo@starfivetech.com>, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, Swathi K S <swathi.ks@samsung.com>, 
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
-	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_013926_546975_0F642D9A 
-X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,39 +65,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXIgNywgMjAyNiBhdCAxMToyNeKAr0FNIEtyenlzenRvZiBLb3psb3dza2kgPGty
-emtAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBGcmksIE1hciAwNiwgMjAyNiBhdCAwNDo0Njoz
-OVBNICswMTAwLCBCYXJ0b3N6IEdvbGFzemV3c2tpIHdyb3RlOgo+ID4gRnJvbTogQmFydG9zeiBH
-b2xhc3pld3NraSA8YmFydG9zei5nb2xhc3pld3NraUBsaW5hcm8ub3JnPgo+ID4KPiA+IERlc2Ny
-aWJlIHRoZSBmaXJtd2FyZS1tYW5hZ2VkIHZhcmlhbnQgb2YgdGhlIFFDb20gRGVzaWduV2FyZSBN
-QUMuIEFzIHRoZQo+ID4gcHJvcGVydGllcyBoZXJlIGRpZmZlciBhIGxvdCBmcm9tIHRoZSBITE9T
-LW1hbmFnZWQgdmFyaWFudCwgbGV0cyBwdXQgaXQKPiA+IGluIGEgc2VwYXJhdGUgZmlsZS4gU2lu
-Y2Ugd2UgbmVlZCB0byB1cGRhdGUgdGhlIG1heGltdW0gbnVtYmVyIG9mIHBvd2VyCj4gPiBkb21h
-aW5zLCBsZXQncyB1cGRhdGUgZXhpc3RpbmcgYmluZGluZ3MgcmVmZXJlbmNpbmcgdGhlIHRvcC1s
-ZXZlbAo+ID4gc25wcyxkd21hYy55YW1sIGFuZCBsaW1pdCB0aGVpciBtYXhJdGVtcyBmb3IgcG93
-ZXItZG9tYWlucyB0byAxLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEJhcnRvc3ogR29sYXN6ZXdz
-a2kgPGJhcnRvc3ouZ29sYXN6ZXdza2lAbGluYXJvLm9yZz4KPiA+IFJldmlld2VkLWJ5OiBSb21h
-aW4gR2FudG9pcyA8cm9tYWluLmdhbnRvaXNAYm9vdGxpbi5jb20+ICMgRm9yIFJaL04xCj4KPiBD
-YW4gd2UgZHJvcCBoYWxmLWJha2VkIHJldmlld3M/IFJldmlld2luZyBvbmx5IHRoYXQgcGllY2Ug
-aXMgbm90IGV2ZW4KPiBwb3NzaWJsZSwgYmVjYXVzZSBpdCBtYWtlcyBubyBzZW5zZSBvdXRzaWRl
-IG9mIG1haW4gY2hhbmdlIGNvbnRleHQuIElPVywKPiBpdCdzIHBvaW50bGVzcyByZXZpZXcgb2Yg
-bm90aGluZywgaWYgeW91IGRvIG5vdCBhY3R1YWxseSByZXZpZXcgdGhlIG1haW4KPiBjaGFuZ2Ug
-aW1wYWN0aW5nIFJaL04xLgo+CgpUaGlzIGlzIHRoZSBmaXJzdCB0aW1lIEknbSBoZWFyaW5nIHdl
-IGNhbid0IHJldmlldyBpbmRpdmlkdWFsIHBhcnRzIG9mCmNoYW5nZXNldHM/IEkgc2VlIHlvdXIg
-cG9pbnQgYWJvdXQgdGhpcyBwYXJ0aWN1bGFyIHBhdGNoIGFuZCB0aGUgZmFjdAppdCBvbmx5IG1h
-a2VzIHNlbnNlIGFzIGEgd2hvbGUgYnV0IGlzIHRoaXMgdGhlIG9mZmljaWFsIHBvbGljeSBmb3IK
-cGFydHMgb2YgbGFyZ2VyIERUUyBwYXRjaGVzPwoKQmFydAoKPiBBbHNvIHN1Ym1pdHRpbmcgcGF0
-Y2hlcyBkbyBub3QgcmVhbGx5IGFsbG93IHRvIGFwcGx5IHJldmlld2VyJ3MKPiBzdGF0ZW1lbnQg
-b2Ygb3ZlcnNpZ2h0IHRvIGlubHkgcGFydCBvZiB0aGUgcGF0Y2guCj4KPiBJdCdzIGNhbGxlZCBB
-Y2sgdGhlbi4gVXNlIHByb3BlciB0YWdzIGlmIG9uZSBkb2VzIG5vdCBhY3R1YWxseSByZXZpZXcK
-PiB0aGUgcGF0Y2guCj4KCkkgbmVlZCB0byByZXNlbmQgYW55d2F5IHNvIEknbGwgZHJvcCBpdC4g
-SSBtYXkgYWxzbyBkcm9wIHRoZSB0d28KaHVuZHJlZCBhZGRyZXNzZXMgZnJvbSBDYyBiNCBhZGRl
-ZC4gOikKCkJhcnQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Mon, Mar 09 2026 at 16:11, liu wrote:
+> From: Jessica Liu <liu.xuemei1@zte.com.cn>
+>
+> We can have multiple APLIC instances so setup global state
+
+s/We/A system/
+
+Also which global state are you referring to? 
+
+> and resgister syscore operations only once.
+
+register
+
+You also fail to describe what the problem is caused by registering the
+syscore ops more than once. 
+
+> Fixes: 95a8ddde3660 ("irqchip/riscv-aplic: Preserve APLIC states across suspend/resume")
+> Signed-off-by: Jessica Liu <liu.xuemei1@zte.com.cn>
+> ---
+>  drivers/irqchip/irq-riscv-aplic-main.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+> index 4495ca26abf5..8299e0da6577 100644
+> --- a/drivers/irqchip/irq-riscv-aplic-main.c
+> +++ b/drivers/irqchip/irq-riscv-aplic-main.c
+> @@ -20,6 +20,7 @@
+>  #include "irq-riscv-aplic-main.h"
+>
+>  static LIST_HEAD(aplics);
+> +static bool aplic_global_setup_done __ro_after_init;
+
+Again. That global state reference is confusing at best.
+
+>  static void aplic_restore_states(struct aplic_priv *priv)
+>  {
+> @@ -375,8 +376,10 @@ static int aplic_probe(struct platform_device *pdev)
+>  	if (rc)
+>  		dev_err_probe(dev, rc, "failed to setup APLIC in %s mode\n",
+>  			      msi_mode ? "MSI" : "direct");
+> -	else
+> +	else if (!aplic_global_setup_done) {
+>  		register_syscore(&aplic_syscore);
+> +		aplic_global_setup_done = true;
+> +	}
+
+Aside of violating the bracket rules, this code is broken already in a
+very subtle way:
+
+If the probe fails then it should not invoke
+acpi_dev_clear_dependencies() either.
+
+Something like the below makes it entirely clear what this is about.
+
+The fix for the probe fail vs. acpi dependencies obviously wants to be
+split out into a separate patch.
+
+Thanks,
+
+        tglx
+---
+--- a/drivers/irqchip/irq-riscv-aplic-main.c
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -116,6 +116,16 @@ static struct syscore aplic_syscore = {
+ 	.ops = &aplic_syscore_ops,
+ };
+ 
++static bool aplic_syscore_registered __ro_after_init;
++
++static void aplic_syscore_init(void);
++{
++	if (!aplic_syscore_registered) {
++		register_syscore(&aplic_syscore);
++		aplic_syscore_registered = true;
++	}
++}
++
+ static int aplic_pm_notifier(struct notifier_block *nb, unsigned long action, void *data)
+ {
+ 	struct aplic_priv *priv = container_of(nb, struct aplic_priv, genpd_nb);
+@@ -372,18 +382,20 @@ static int aplic_probe(struct platform_d
+ 		rc = aplic_msi_setup(dev, regs);
+ 	else
+ 		rc = aplic_direct_setup(dev, regs);
+-	if (rc)
++
++	if (rc) {
+ 		dev_err_probe(dev, rc, "failed to setup APLIC in %s mode\n",
+ 			      msi_mode ? "MSI" : "direct");
+-	else
+-		register_syscore(&aplic_syscore);
++		return rc;
++	}
++
++	aplic_syscore_register();
+ 
+ #ifdef CONFIG_ACPI
+ 	if (!acpi_disabled)
+ 		acpi_dev_clear_dependencies(ACPI_COMPANION(dev));
+ #endif
+-
+-	return rc;
++	return 0;
+ }
+ 
+ static const struct of_device_id aplic_match[] = {
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
