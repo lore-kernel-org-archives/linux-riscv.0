@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D597FEF36F6
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 07:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7632BEF370A
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Mar 2026 08:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lAlVgpe5TpwrwRwmcPGvZ4yJUI1M8nH2H/0RvLIvpWc=; b=4LAq77rDxv83Ys
-	ZhfUHYoFsSBt317/pSdsfZYspL73ZuQWgtty0ckkGUMPhnMFW3dA/XNMgma1MF01h7GXelg7ucgW1
-	TwHUow0QApDdOhXo7T5nWl85MuqWu7jxG30WysxFnkYFQctCs5VueSlaOxmiHxuG4KwezWggVMvQz
-	i/+YDjJYCLuVnmEJLHpEeXgkw3AAXXh2mji/oel4xqZTivdnmRawRn9gOzBxu0QljJbFQMhAmP2pe
-	wRWLHai8Wjs3zLHPo6ZpTG+ACjR360hDSoL5bf8dAoHc/Xht+gTZQzYNfFggfWmvET4Nr29SuLfZy
-	WbldL7pQ0yD6UBL7j0JA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IizzafM7xaHHyCoLdS39aGH1WNxInTy6zMbq4gkfc5g=; b=rIFU8bqQUkx4Zr
+	lSS044fDmwPzfOJypjmXtGvRNNhaNiJ94hdowmOhqKyWInJPAvP9y9h8HrolxG7IL2JmZendLVCxd
+	wVAOaybYr3+uyUpK9MY1Tnz103MyGXk0GkVwgzRbCR8ErjjBG9ALEkdtvYctml22BJc0qjnp8csv+
+	KwLgTqsQ55sGwqc6ebqMNY+qKlEftP364cDa+e0q/yzsHWjfAAr/BsT4QSdsCBSyJBCAczXCp8B/2
+	HcGKHQ0c95/kdNn5Gx7TGupT/jdAO6XKEnO4rkdqi8uXirCsVBNYdpc76pVgxqv8W6FYDm4wWa8sr
+	NqunyETSb+ppRax20JdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzV8q-00000006oYx-0i5Y;
-	Mon, 09 Mar 2026 07:35:04 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vzViZ-00000006rwt-1OAB;
+	Mon, 09 Mar 2026 08:11:59 +0000
+Received: from mxhk.zte.com.cn ([160.30.148.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzV8n-00000006oYH-3Zim
+	id 1vzViV-00000006rwO-41pg
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Mar 2026 07:35:03 +0000
-Date: Mon, 9 Mar 2026 08:34:55 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1773041696;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=erREKkXABbkGYvmxVpdti4swV6Ha5+3/x20eD7gFqSI=;
-	b=S82gM2Jx+axPsYux9DiBRFecth8F0F6P8ysrYnlCfbt665ZpbroetIAWoRB+ultVzvox9E
-	2A2O+wcDkjsYuXODYk4wdb6QLz23loYpzJMh4tJnltuEC3Qv5OI2Cnf1SYukYX1VjmTsqO
-	nV0OtuPZzg9lIxV0VvH/w7H2sZQihooaFoSniWYRPSQJfjLxH6GvwV6ctowvGXzZXGu+Yy
-	j7dhtqnclxQniHEC3dboVtkziP9VtKNdinqJavgcYnaGNwbaWR4ouSrMCGDL1u8OuJ6YI/
-	A/9Xh7qjs5OGXLUNGOw44da+mPmxp2Fyl2ADfEHkFaUqyc5uhzMbM7zHwdjZsw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1773041696;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=erREKkXABbkGYvmxVpdti4swV6Ha5+3/x20eD7gFqSI=;
-	b=37sFK1ihP0FLGdk850YWQdPbPoi9LKffiG59KV702LXIQaaljdobZkiJ5LO1vpUlnMsovj
-	6K00gNZqnwUXabDg==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Mike Rapoport <rppt@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Vlastimil Babka <vbabka@suse.cz>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, linux-mm@kvack.org
-Subject: [BUG] SPARSEMEM broken on RISC-V; was: [PATCH] arch, mm: consolidate
- initialization of SPARSE memory model
-Message-ID: <20260309082841-9c542a85-073d-4d08-8b8e-a56621a13c91@linutronix.de>
-References: <20260111082105.290734-1-rppt@kernel.org>
- <20260111082105.290734-25-rppt@kernel.org>
- <20260223144108-dcace0b9-02e8-4b67-a7ce-f263bed36f26@linutronix.de>
- <aZytSwzGj24lqkLU@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aZytSwzGj24lqkLU@kernel.org>
+	Mon, 09 Mar 2026 08:11:58 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4fTqVF3GHcz8Xs7T;
+	Mon, 09 Mar 2026 16:11:49 +0800 (CST)
+Received: from xaxapp01.zte.com.cn ([10.88.99.176])
+	by mse-fl1.zte.com.cn with SMTP id 6298Bbfg046466;
+	Mon, 9 Mar 2026 16:11:37 +0800 (+08)
+	(envelope-from liu.xuemei1@zte.com.cn)
+Received: from mapi (xaxapp05[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Mon, 9 Mar 2026 16:11:40 +0800 (CST)
+X-Zmail-TransId: 2afc69ae80bc9de-cfb58
+X-Mailer: Zmail v1.0
+Message-ID: <20260309161140133ZhM76Wt3uPliHU5_R8O0j@zte.com.cn>
+Date: Mon, 9 Mar 2026 16:11:40 +0800 (CST)
+Mime-Version: 1.0
+From: <liu.xuemei1@zte.com.cn>
+To: <anup@brainfault.org>, <tglx@kernel.org>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+        <liujingqi@lanxincomputing.com>, <cyan.yang@sifive.com>,
+        <nick.hu@sifive.com>, <yongxuan.wang@sifive.com>
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: =?UTF-8?B?W1BBVENIXSBpcnFjaGlwL3Jpc2N2LWFwbGljOiBSZWdpc3RlciBzeXNjb3JlIG9wZXJhdGlvbnMgb25seSBvbmNl?=
+X-MAIL: mse-fl1.zte.com.cn 6298Bbfg046466
+X-TLS: YES
+X-SPF-DOMAIN: zte.com.cn
+X-ENVELOPE-SENDER: liu.xuemei1@zte.com.cn
+X-SPF: None
+X-SOURCE-IP: 10.5.228.132 unknown Mon, 09 Mar 2026 16:11:50 +0800
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 69AE80C5.000/4fTqVF3GHcz8Xs7T
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_003502_055894_7C9C587A 
-X-CRM114-Status: GOOD (  31.02  )
+X-CRM114-CacheID: sfid-20260309_011156_175983_DF17184F 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,132 +75,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi RISC-V maintainers,
+From: Jessica Liu <liu.xuemei1@zte.com.cn>
 
-SPARSEMEM on RISC-V is currently broken in mainline.
-Could you take a look at my report and the suggestions from Mike below?
+We can have multiple APLIC instances so setup global state
+and resgister syscore operations only once.
 
-On Mon, Feb 23, 2026 at 09:40:59PM +0200, Mike Rapoport wrote:
-> On Mon, Feb 23, 2026 at 02:52:45PM +0100, Thomas Wei=DFschuh wrote:
-> > On Sun, Jan 11, 2026 at 10:20:58AM +0200, Mike Rapoport wrote:
-> > > Every architecture calls sparse_init() during setup_arch() although t=
-he
-> > > data structures created by sparse_init() are not used until the
-> > > initialization of the core MM.
-> > > =
+Fixes: 95a8ddde3660 ("irqchip/riscv-aplic: Preserve APLIC states across suspend/resume")
+Signed-off-by: Jessica Liu <liu.xuemei1@zte.com.cn>
+---
+ drivers/irqchip/irq-riscv-aplic-main.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-> > > Beside the code duplication, calling sparse_init() from architecture
-> > > specific code causes ordering differences of vmemmap and HVO initiali=
-zation
-> > > on different architectures.
-> > > =
+diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+index 4495ca26abf5..8299e0da6577 100644
+--- a/drivers/irqchip/irq-riscv-aplic-main.c
++++ b/drivers/irqchip/irq-riscv-aplic-main.c
+@@ -20,6 +20,7 @@
+ #include "irq-riscv-aplic-main.h"
 
-> > > Move the call to sparse_init() from architecture specific code to
-> > > free_area_init() to ensure that vmemmap and HVO initialization order =
-is
-> > > always the same.
-> > =
+ static LIST_HEAD(aplics);
++static bool aplic_global_setup_done __ro_after_init;
 
-> > This broke the boot on RISC-V 32-bit (rv32_defconfig) for me.
-> > =
+ static void aplic_restore_states(struct aplic_priv *priv)
+ {
+@@ -375,8 +376,10 @@ static int aplic_probe(struct platform_device *pdev)
+ 	if (rc)
+ 		dev_err_probe(dev, rc, "failed to setup APLIC in %s mode\n",
+ 			      msi_mode ? "MSI" : "direct");
+-	else
++	else if (!aplic_global_setup_done) {
+ 		register_syscore(&aplic_syscore);
++		aplic_global_setup_done = true;
++	}
 
-> > Specifically if sparse_init() is *not* called before the following call=
-chain,
-> > the kernel dies at that point.
-> > =
-
-> > start_kernel()
-> >   setup_arch()
-> >     apply_boot_alternatives()
-> >       _apply_alternatives()
-> >         riscv_cpufeature_patch_func()
-> >           patch_text_nosync()
-> >           riscv_alternative_fix_offsets()
-> =
-
-> Hm, most architectures do alternatives patching much later in the boot,
-> when much more subsystems (including mm) is already initialized.
-> =
-
-> Any particular reason riscv does it that early? =
-
->  =
-
-> > Simple reproducer, using kunit:
-> > =
-
-> > ./tools/testing/kunit/kunit.py run --raw_output=3Dall --make_options LL=
-VM=3D1 --arch riscv32 --kconfig_add CONFIG_SPARSEMEM_MANUAL=3Dy --kconfig_a=
-dd CONFIG_SPARSEMEM=3Dy
-> =
-
-> Looking at patch_map it's quite clear why movement of sparse_init() cased=
- a
-> crash:
-> =
-
-> 	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr))
-> 		page =3D phys_to_page(__pa_symbol(addr));
-> =
-
-> phys_to_page() with CONFIG_SPARSEMEM=3Dy will try to access memory section
-> that are initialized in sparse_init().
-> =
-
-> What I don't understand is why patch_map() needs a struct page for kernel
-> text patching at all, __pa_symbol() should work just fine.
-> And the BUG_ON(!page) is completely bogus for phys_to_page() conversion,
-> because that one is pure arithmetics.
-> =
-
-> If moving apply_boot_alternatives() is not an option for riscv, something
-> like the patch below should fix the issue with access to nonexistent
-> memory sections. But I think moving apply_boot_alternatives() later in bo=
-ot
-> would make things less fragile.
-> =
-
-> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> index db13c9ddf9e3..89b3c13f2865 100644
-> --- a/arch/riscv/kernel/patch.c
-> +++ b/arch/riscv/kernel/patch.c
-> @@ -43,18 +43,19 @@ static __always_inline void *patch_map(void *addr, co=
-nst unsigned int fixmap)
->  {
->  	uintptr_t uintaddr =3D (uintptr_t) addr;
->  	struct page *page;
-> +	phys_addr_t phys;
->  =
-
-> -	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr))
-> -		page =3D phys_to_page(__pa_symbol(addr));
-> -	else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX))
-> +	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr)) {
-> +		phys =3D __pa_symbol(addr);
-> +	} else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX)) {
->  		page =3D vmalloc_to_page(addr);
-> -	else
-> +		BUG_ON(!page);
-> +		phys =3D page_to_phys(page);
-> +	} else {
->  		return addr;
-> +	}
->  =
-
-> -	BUG_ON(!page);
-> -
-> -	return (void *)set_fixmap_offset(fixmap, page_to_phys(page) +
-> -					 offset_in_page(addr));
-> +	return (void *)set_fixmap_offset(fixmap, phys + offset_in_page(addr));
->  }
->  =
-
->  static void patch_unmap(int fixmap)
+ #ifdef CONFIG_ACPI
+ 	if (!acpi_disabled)
+-- 
+2.27.0
 
 _______________________________________________
 linux-riscv mailing list
