@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637FAFCC9D1
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 06:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85CDFCC9D3
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 07:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wyVtO3ea1f3SmZAx+aLZYZdn142fVbGbrzfSnrBvrdo=; b=fn0JcB3g7Eveap
-	/6RR8QLthq5BOkBlaNdCaZfwqCnzuKqdPzSXkVncNUOEa/+lz0dE08ktl+yox6vpBER97aAtRfG9i
-	rd0NOij/TlENxxwDJ3vh8qBp4eetZtX6deu2bFnpLWKhByPUGWW8nDdQvnE1n/QsXPcBRewjsNDEN
-	84Rix6Kqi+TxqK64IJ91wf4YupjnZEsZhk0c70u6goBnwICNmaIEhzSlK3KdcVICdwj1ibops3hcH
-	uEKngHmOvKuEIoXi056Ytdbb6t51UUfjwiIjDuNIs71kgBM3Uw0TEWhUEM1OyZyYdlnjVZ6F2D3Ud
-	aYNmXzWsgBrFQRhftEFw==;
+	List-Owner; bh=lRJpD7mgjSYmg6r1nKvZD8I2C8GTLwVD8Q03PfFWj8c=; b=GNgY3wZ3IfClbJ
+	iGKGukXpLtQz/88vAQivdtXCGWJRTEV3xTwzx1Ijt2o+uTQyez61AlnWS2ZNFMOOU/FPAgCS7PpK2
+	j2gxUrnRKBVi5D328q9FAtBAEd1o28dzXMhzDCrkY/YRBbnrUpSn2d5gx07Q5eU78u3wGVCWpKdCv
+	PPyQl1RGKZV6rPDEHK7dMBOWSxnoNbFhAl/ZVjZLTSDBW6j2uQ6hK7+tbezw9Uy2RT0XISRgO8j55
+	1TPu3WvdnYn1SIE6A0SjhfyXuVN2wusJsUihq02F+pTmt8OMUT9Ydky7ajWigv/HBDPcqSEe0xgEm
+	sf1JuBTT7SNVHK89OSOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzr3Q-00000008pFw-0oKj;
-	Tue, 10 Mar 2026 06:58:56 +0000
-Received: from verein.lst.de ([213.95.11.211])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzr3N-00000008pFP-1IPT;
-	Tue, 10 Mar 2026 06:58:54 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 7056668AFE; Tue, 10 Mar 2026 07:58:40 +0100 (CET)
-Date: Tue, 10 Mar 2026 07:58:40 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 21/25] xor: add a better public API
-Message-ID: <20260310065840.GA10296@lst.de>
-References: <20260226151106.144735-1-hch@lst.de> <20260226151106.144735-22-hch@lst.de> <20260228065038.GH65277@quark>
+	id 1vzrK7-00000008qN4-0PB1;
+	Tue, 10 Mar 2026 07:16:11 +0000
+Received: from azure-sdnproxy.icoremail.net ([52.175.55.52])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzrK2-00000008qMY-2qme;
+	Tue, 10 Mar 2026 07:16:09 +0000
+Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
+ ajax-webmail-app1 (Coremail) ; Tue, 10 Mar 2026 15:15:40 +0800 (GMT+08:00)
+X-Originating-IP: [10.11.96.26]
+Date: Tue, 10 Mar 2026 15:15:40 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+To: "Yao Zi" <me@ziyao.cc>
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	wens@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com
+Subject: Re: Re: [PATCH net-next v3 3/3] riscv: dts: eswin:
+ eic7700-hifive-premier-p550: enable Ethernet controller
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <aaa4xodVNaY0gmBA@pie>
+References: <20260303061525.846-1-lizhi2@eswincomputing.com>
+ <20260303061732.918-1-lizhi2@eswincomputing.com> <aaa4xodVNaY0gmBA@pie>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260228065038.GH65277@quark>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Message-ID: <408e45b4.51a4.19cd699f60e.Coremail.lizhi2@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TAJkCgDHaXMcxa9pRCIHAA--.2221W
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAQECDGmu9hMT1QABsr
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_235853_494793_57C1EB56 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260310_001607_016760_BC9E8796 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,26 +77,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 10:50:38PM -0800, Eric Biggers wrote:
-> > +void xor_gen(void *dest, void **srcss, unsigned int src_cnt,
-> > +		unsigned int bytes);
-> 
-> srcss => srcs
-> 
-> Ideally the source vectors would be 'const' as well.
-
-I looked at the constification, and it's a bit painful because the
-same source arrays are also passed to the raid6 code by the callers.
-I'll clean up the raid6 API first, and then will give it another
-spin.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgoKPiAtLS0tLeWOn+Wni+mCruS7ti0tLS0tCj4g5Y+R5Lu25Lq6OiAiWWFvIFppIiA8bWVAeml5
+YW8uY2M+Cj4g5Y+R6YCB5pe26Ze0OjIwMjYtMDMtMDMgMTg6MzI6MzggKOaYn+acn+S6jCkKPiDm
+lLbku7bkuro6IGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20sIGRldmljZXRyZWVAdmdlci5rZXJu
+ZWwub3JnLCBhbmRyZXcrbmV0ZGV2QGx1bm4uY2gsIGRhdmVtQGRhdmVtbG9mdC5uZXQsIGVkdW1h
+emV0QGdvb2dsZS5jb20sIGt1YmFAa2VybmVsLm9yZywgcm9iaEBrZXJuZWwub3JnLCBrcnprK2R0
+QGtlcm5lbC5vcmcsIGNvbm9yK2R0QGtlcm5lbC5vcmcsIG5ldGRldkB2Z2VyLmtlcm5lbC5vcmcs
+IHBhYmVuaUByZWRoYXQuY29tLCBtY29xdWVsaW4uc3RtMzJAZ21haWwuY29tLCBhbGV4YW5kcmUu
+dG9yZ3VlQGZvc3Muc3QuY29tLCBybWsra2VybmVsQGFybWxpbnV4Lm9yZy51aywgd2Vuc0BrZXJu
+ZWwub3JnLCBwandAa2VybmVsLm9yZywgcGFsbWVyQGRhYmJlbHQuY29tLCBhb3VAZWVjcy5iZXJr
+ZWxleS5lZHUsIGFsZXhAZ2hpdGkuZnIsIGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcs
+IGxpbnV4LXN0bTMyQHN0LW1kLW1haWxtYW4uc3Rvcm1yZXBseS5jb20sIGxpbnV4LWFybS1rZXJu
+ZWxAbGlzdHMuaW5mcmFkZWFkLm9yZywgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwo+IOaK
+hOmAgTogbmluZ3l1QGVzd2luY29tcHV0aW5nLmNvbSwgbGlubWluQGVzd2luY29tcHV0aW5nLmNv
+bSwgcGlua2VzaC52YWdoZWxhQGVpbmZvY2hpcHMuY29tLCBwcml0ZXNoLnBhdGVsQGVpbmZvY2hp
+cHMuY29tLCB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29tCj4g5Li76aKYOiBSZTogW1BB
+VENIIG5ldC1uZXh0IHYzIDMvM10gcmlzY3Y6IGR0czogZXN3aW46IGVpYzc3MDAtaGlmaXZlLXBy
+ZW1pZXItcDU1MDogZW5hYmxlIEV0aGVybmV0IGNvbnRyb2xsZXIKPiAKPiBPbiBUdWUsIE1hciAw
+MywgMjAyNiBhdCAwMjoxNzozMlBNICswODAwLCBsaXpoaTJAZXN3aW5jb21wdXRpbmcuY29tIHdy
+b3RlOgo+ID4gRnJvbTogWmhpIExpIDxsaXpoaTJAZXN3aW5jb21wdXRpbmcuY29tPgo+ID4gCj4g
+PiBFbmFibGUgdGhlIG9uLWJvYXJkIEdpZ2FiaXQgRXRoZXJuZXQgY29udHJvbGxlciBvbiB0aGUK
+PiA+IEhpRml2ZSBQcmVtaWVyIFA1NTAgZGV2ZWxvcG1lbnQgYm9hcmQuCj4gPiAKPiA+IFNpZ25l
+ZC1vZmYtYnk6IFpoaSBMaSA8bGl6aGkyQGVzd2luY29tcHV0aW5nLmNvbT4KPiA+IC0tLQo+ID4g
+IC4uLi9kdHMvZXN3aW4vZWljNzcwMC1oaWZpdmUtcHJlbWllci1wNTUwLmR0cyB8IDUwICsrKysr
+KysrKysrKysrKysrCj4gPiAgYXJjaC9yaXNjdi9ib290L2R0cy9lc3dpbi9laWM3NzAwLmR0c2kg
+ICAgICAgIHwgNTQgKysrKysrKysrKysrKysrKysrKwo+ID4gIDIgZmlsZXMgY2hhbmdlZCwgMTA0
+IGluc2VydGlvbnMoKykKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMv
+ZXN3aW4vZWljNzcwMC1oaWZpdmUtcHJlbWllci1wNTUwLmR0cyBiL2FyY2gvcmlzY3YvYm9vdC9k
+dHMvZXN3aW4vZWljNzcwMC1oaWZpdmUtcHJlbWllci1wNTUwLmR0cwo+ID4gaW5kZXggMTMxZWQx
+ZmM2YjJlLi5kNTU4ZjBmZGZiMzggMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3QvZHRz
+L2Vzd2luL2VpYzc3MDAtaGlmaXZlLXByZW1pZXItcDU1MC5kdHMKPiA+ICsrKyBiL2FyY2gvcmlz
+Y3YvYm9vdC9kdHMvZXN3aW4vZWljNzcwMC1oaWZpdmUtcHJlbWllci1wNTUwLmR0cwo+IAo+IC4u
+Lgo+IAo+ID4gQEAgLTIwLDYgKzIyLDU0IEBAIGNob3NlbiB7Cj4gPiAgCX07Cj4gPiAgfTsKPiA+
+ICAKPiA+ICsmZ21hYzAgewo+ID4gKwlwaHktaGFuZGxlID0gPCZnbWFjMF9waHkwPjsKPiA+ICsJ
+cGh5LW1vZGUgPSAicmdtaWktaWQiOwo+ID4gKwlwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+
+ID4gKwlwaW5jdHJsLTAgPSA8JmdwaW8xMDZfcGlucz47Cj4gPiArCXJ4LWludGVybmFsLWRlbGF5
+LXBzID0gPDIwPjsKPiA+ICsJdHgtaW50ZXJuYWwtZGVsYXktcHMgPSA8MTAwPjsKPiA+ICsJc3Rh
+dHVzID0gIm9rYXkiOwo+ID4gKwo+ID4gKwltZGlvIHsKPiA+ICsJCWNvbXBhdGlibGUgPSAic25w
+cyxkd21hYy1tZGlvIjsKPiAKPiBTaW5jZSBpdCdzIGltcGxlbWVudGVkIGluIHRoZSBEV01BQyBJ
+UCwgSSB0aGluayB0aGUgbWRpbyBidXMgaXMKPiBTb0Mtc3BlY2lmaWMgYW5kIHNob3VsZCBiZSBw
+dXQgaW50byB0aGUgU29DIGRldmljZXRyZWUgaW5zdGVhZC4KPiAKCkhpIFlhbyBaaSwKClRoYW5r
+cyBmb3IgdGhlIHJldmlldy4KCllvdSdyZSByaWdodCB0aGF0IHRoZSBNRElPIGJ1cyBpcyBpbXBs
+ZW1lbnRlZCBhcyBwYXJ0IG9mIHRoZSBEV01BQyBJUCBhbmQKaXMgdGhlcmVmb3JlIFNvQy1zcGVj
+aWZpYy4gSXQgbWFrZXMgbW9yZSBzZW5zZSB0byBkZXNjcmliZSB0aGUgTURJTwpjb250cm9sbGVy
+IGluIHRoZSBTb0MgZHRzaS4KCkknbGwgbW92ZSB0aGUgTURJTyBub2RlIHRvIGVpYzc3MDAuZHRz
+aSBhbmQga2VlcCBvbmx5IHRoZSBQSFkgbm9kZSBpbiB0aGUKYm9hcmQgZHRzIGluIHRoZSBuZXh0
+IHJldmlzaW9uLgoKVGhhbmtzLApaaGkgTGkKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
