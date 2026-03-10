@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F89FCC9DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 08:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94628FCC9DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 08:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
-	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CfmdQKUCuo7fLLbgctAyogsPGKYooaorQ71FTqnrzjU=; b=VVdFPpDK0rm+Eb
-	LzxNypd9511pQ2aLsRh+9S9os55RS+2/9IfDzfycoDIMfMbDxf7AzylrhiTf7S+OVD5Xil/feOxDJ
-	u8sZofUbMlSpODcOzRAR6+562UR12Q78J1I7s/yJOyHYRjtHSCyXYyAnySoMwv7H8F/0Wxi2Q240E
-	IKWT/i4PLrw7L53+g41iAH6elZtgvt8EQUD8uLUr9hwHd0Lc2BPCsjJDZD+0rbiU09khSylZneXJ0
-	22WH1LIjsf3xonMivPqjBEEiw1zePH4v/ozlT5TreOaVHmyd7tefx7XDIhAsUWLO5kf2s+xbPXJY4
-	CrWkpU1DI+CPCto66piA==;
+	List-Owner; bh=289WtaUvWB8nvvn0GZokOWnygh9/QWNYwhTi8kNWUrs=; b=nU3f7bwKta9zFm
+	+UJE3pVxBNN3Lb0lYifPcy84dWkwZX8HSba+5HXGD8rVtbocr1oTACt5zWTOanJAupxm6fWpMC2dH
+	dEV/ASU9N4l8Tl/zbbAIck4+zhG/FL8/8WBX9LgAVQ8Ddzi0XSPM8JcDANKSB6lzETPo6MUFcUG+/
+	YDaYPccBLRvAmgRnXudgfPmZZ2isffjkKOfAlvcMwl+pkg+bTOctVdWqLvlwSpjK/W8AC4KyXAjeI
+	TLpUMEeD7bFeSgDRhrMXNk9QwrAgmxU4RS6K6qr1fNHNpDz/J3vVto5CfE0sw+2aYBoQlU5HjJeJr
+	AXGT1+EFPZ9FyPmratxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsfe-00000008y95-2fGw;
-	Tue, 10 Mar 2026 08:42:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vzsfp-00000008yIv-1iAs;
+	Tue, 10 Mar 2026 08:42:41 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsfd-00000008y7A-28JE
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 10 Mar 2026 08:42:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
-	MIME-Version:Sender:Content-ID:Content-Description;
-	bh=E3LnZLWj7Gk8mfX7i4o5/JcU3ncWfdEk4XN75StFNl4=; b=k++0rtJLMuoQIW+CYQ7JGBqIJF
-	iCyBBtyo0DH/SwylWdnvu9/O6MWLfyTtRILBktAzmSUJdETJP7OZzifJmBxuKItTjaxSnngiuGjiE
-	FgrUU/JMPlNgUPosldZMblJE9xBfuKIeIRbTi+iPwk53oI9Cop7vV6NToegDIMAF6bHs5aQOxh+gb
-	h77oJB0bNxrwk9M6t08idMOvN0Kfk0MnlwYCSqcAoxHDnIvk98x397KTsnYK1SrivWRvkXMkcNdnI
-	hpGa01tCrrv21G/LDP/PzmAwRAkkOjP5VyJi1zUrnL5vAxl60ZTSuzByFDbiCZYBUduLHX+Permgx
-	GCLta6IA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzsfV-0000000E0P6-3060
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Mar 2026 08:42:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7378C41B07
-	for <linux-riscv@lists.infradead.org>; Tue, 10 Mar 2026 08:42:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5496BC2BCC9
-	for <linux-riscv@lists.infradead.org>; Tue, 10 Mar 2026 08:42:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773132140;
-	bh=+hdxOVwm077ylsjLu0wR0T6SVFeW4T69FussqsDDRHA=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=GTvciSqq+x8/zCMOtuyLli8n1vUX944BWGl817kV9StHpWn/ZCnegugKuRQsP31zc
-	 BzAgQT7AReGa+w9FNTeP0MAZpzB8BrfJNqjl8scrI0LyBvBQY7rG+irphiVi9e9Pay
-	 H9kcdpBYkJtzeYMnQcffp0/6DqalOD85Ero6OlpmOhuOcyq6hlw5qVhAebzG2/YIXB
-	 DnMhuDw8gGVkaM59hP3I087c+z0UZ4KsUJrbnznXy+njrrp6YDnmMQ++sMxHFuRr6G
-	 HFUyohjET/eAy2mVYsy+9Qp1f3+sfdypP6FF2U5DFevqkN4m7+QA91ws+sAjszCwIj
-	 fWqe+XRjm8C8A==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5a1443780c4so2867927e87.0
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Mar 2026 01:42:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWiCp4aET5KyRqeAxK5myftg6t0E7c8gKNpjgWYj2P5OvnNRKi1Fuaok1NBzaiV7I1w5H9nj+BUb0o2HQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiA9aAX2nCo6xt/7EOl32D8XXvq35o1QhFVncurddHEmnlpZhc
-	gGQVExhlg1iAiSwl+1X9rmcQ+AnrR3oCd1otLPuUdK8fnpzAt12raVy+XtXRofYviyZopslvFYZ
-	zuUOXiCHNu0tdT1VDKxPwLPWfe/exE88=
-X-Received: by 2002:a2e:880b:0:b0:388:4329:c054 with SMTP id
- 38308e7fff4ca-38a5d04ed61mr6094121fa.15.1773132138304; Tue, 10 Mar 2026
- 01:42:18 -0700 (PDT)
+	id 1vzsfm-00000008yG4-1rgq;
+	Tue, 10 Mar 2026 08:42:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1773132154; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=V+aR1bP4IeGPJLBtcJLwcJlysBs0n1ykZpvKV/ehFvqoXqQ8y1z4MiWaqHAZ7mccn2Vnkma1mblpSFk62BANDALn9xXBcxLTQSTTxG3b0VlDGP/4Gz0vOMRLOj1kZZKGdY0bi09lm8mwrh04nmP+TNcO3KG5+sYQQg6+tZscPxQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1773132154; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FWjn+Xn9ibfzj3/eOMbbIcVWYw4TIKxFMrzDRcoxlL4=; 
+	b=j+QFzThm6DLFXs7XTju7ogPR/hmeS87drnHln5tcTvXiWH2CgYCH9fJ4v/Xg70A7yspQkQ0WCoduTE55BPilXG1GgKv4lrJWGmYWt3JaYT//5ZpZFHvb8pYgQk+/SNSDtAkz/gwOuN8NBFV4fLJIMx/9k4QyQXzX/+FwYkeCKM4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773132154;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=FWjn+Xn9ibfzj3/eOMbbIcVWYw4TIKxFMrzDRcoxlL4=;
+	b=UmI90r6T3QtnCKoPJcQYemdmlmQTOfNH+bFJ9S/iR0UxFH7pGP78gzgDvYZ0p4Tb
+	lJH0Bv8uFYsRlILZpx/l57ZjOwGlwrf8oxiDABTq6O2rKJt9QqzBqXqnJa2OE+abstF
+	NfYkTe3QvNyyk+IW3Ex3m6eciUGX3dQrjES2hIXE=
+Received: by mx.zohomail.com with SMTPS id 1773132151327259.6130910029673;
+	Tue, 10 Mar 2026 01:42:31 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Date: Tue, 10 Mar 2026 16:33:58 +0800
+Subject: [PATCH RFC 5/8] clk: sunxi-ng: a733: Add bus clocks support
 MIME-Version: 1.0
-References: <20260309190842.927634-1-vladimir.oltean@nxp.com> <20260309190842.927634-22-vladimir.oltean@nxp.com>
-In-Reply-To: <20260309190842.927634-22-vladimir.oltean@nxp.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 10 Mar 2026 16:42:04 +0800
-X-Gmail-Original-Message-ID: <CAGb2v649jsoT9Uw5=gg5Zzxmgd4E04f8B8St_vUseP3JOrGG5g@mail.gmail.com>
-X-Gm-Features: AaiRm50ffNFGTkd49hJolMVvUoYaIAAtO7JRlAyrrCfXMo0y-iPLjdkpqATmeN0
-Message-ID: <CAGb2v649jsoT9Uw5=gg5Zzxmgd4E04f8B8St_vUseP3JOrGG5g@mail.gmail.com>
-Subject: Re: [PATCH v3 phy-next 21/24] phy: include PHY provider header (1/2)
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org, 
-	linux-usb@vger.kernel.org, netdev@vger.kernel.org, spacemit@lists.linux.dev, 
-	UNGLinuxDriver@microchip.com
+Message-Id: <20260310-a733-clk-v1-5-36b4e9b24457@pigmoral.tech>
+References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
+In-Reply-To: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ netdev@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773132092; l=6909;
+ i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
+ bh=HtxmFOI8Q42PtnTwtZVDl7nJsFiJiS6vOTLzORmX4tY=;
+ b=fvujAYfom/CLtvUNwlxRK5z0pP279E297wEIHqzeUeANEuAlo78UAKS4ABEJUO8q8S3KQbO/9
+ dUPw3gsMPpRDLTHE9S9fSaIM56oaUpkbJ8/DyEbkDXwdXAnIV4K2yoj
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_084222_191414_0668D439 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260310_014238_536242_61E6F9C2 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +90,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXIgMTAsIDIwMjYgYXQgMzoxMOKAr0FNIFZsYWRpbWlyIE9sdGVhbiA8dmxhZGlt
-aXIub2x0ZWFuQG54cC5jb20+IHdyb3RlOgo+Cj4gVGhlIG1ham9yaXR5IG9mIFBIWSBkcml2ZXJz
-IGFyZSBQSFkgcHJvdmlkZXJzIChvYnZpb3VzbHkpLgo+Cj4gU29tZSBhcmUgcHJvdmlkZXJzICph
-bmQqIGNvbnN1bWVycyAocGh5LW1lc29uLWF4Zy1taXBpLWRwaHksCj4gcGh5LW1lc29uLWF4Zy1w
-Y2llKS4gVGhlc2UgYXJlIHRoZSBBbWxvZ2ljIEFYRyBTb0NzLCB3aGljaCBzcGxpdCB0aGUKPiBw
-aHlzaWNhbCBsYXllciBpbnRvIHR3byBjaGFpbmVkIFBIWXM6IHRoZSBkaWdpdGFsIGxheWVyIGFu
-ZCB0aGUgYW5hbG9nCj4gbGF5ZXIuIFRoZSBEU0kgb3IgUENJZSBjb250cm9sbGVyIGludGVyYWN0
-cyBvbmx5IHdpdGggdGhlIGRpZ2l0YWwgUEhZLAo+IHByZXN1bWFibHkgZm9yIHNpbXBsaWNpdHku
-Cj4KPiBUaGUgcmVzdCBvZiBQSFkgZHJpdmVycyB3aGljaCBpbmNsdWRlIDxsaW51eC9waHkvcGh5
-Lmg+IGRvIHNvIGJlY2F1c2UKPiB0aGV5IGNhbGwgcGh5X3NldF9idXNfd2lkdGgoKSwgYSBjb25z
-dW1lciBmdW5jdGlvbi4KPgo+IFNpZ25lZC1vZmYtYnk6IFZsYWRpbWlyIE9sdGVhbiA8dmxhZGlt
-aXIub2x0ZWFuQG54cC5jb20+Cj4gLS0tCj4gQ29uZmxpY3RzIGluIGRyaXZlcnMvcGh5L2NhbmFh
-bi9waHktazIzMC11c2IuYyB3aXRoIGNvbW1pdCA4Nzg3ZmExZGE2MDMKPiAoInBoeTogdXNiOiBB
-ZGQgZHJpdmVyIGZvciBDYW5hYW4gSzIzMCBVU0IgMi4wIFBIWSIpLgo+IENvbmZsaWN0cyBpbiBk
-cml2ZXJzL3BoeS9lc3dpbi9waHktZWljNzcwMC1zYXRhLmMgd2l0aCBjb21taXQKPiA2N2VlOWNj
-YWEzNGEgKCJwaHk6IGVzd2luOiBDcmVhdGUgZXN3aW4gZGlyZWN0b3J5IGFuZCBhZGQgRUlDNzcw
-MCBTQVRBCj4gUEhZIGRyaXZlciIpCj4KPiBCb3RoIGRyaXZlcnMgYXJlIG5ld2x5IGFkZGVkIGlu
-IGxpbnV4LXBoeS9uZXh0IGFuZCBub3QgcHJlc2VudCBpbgo+IHY3LjAtcmMxLiBUaGUgcmVjb21t
-ZW5kYXRpb24gaXMgdG8gZHJvcCB0aGUgY2hhbmdlcyBpbiB0aGlzIHBhdGNoIGFuZAo+IHJlYWRk
-IHRoZW0gd2hlbiBtZXJnaW5nIGludG8gbGludXgtcGh5L25leHQuCj4KPiB2Mi0+djM6IGFkZCBj
-b25mbGljdCByZXNvbHV0aW9uIGRldGFpbHMKPiB2MS0+djI6IHNwbGl0IGluIHR3byBwYXJ0cyB0
-byBwYXNzIHRocm91Z2ggbGludXgtcGh5IG1haWxpbmcgbGlzdAo+IG1vZGVyYXRpb24KPiAtLS0K
-PiAgZHJpdmVycy9waHkvYWxsd2lubmVyL3BoeS1zdW40aS11c2IuYyAgICAgICAgICAgICAgICAg
-fCAzICsrLQo+ICBkcml2ZXJzL3BoeS9hbGx3aW5uZXIvcGh5LXN1bjUwaS11c2IzLmMgICAgICAg
-ICAgICAgICB8IDMgKystCj4gIGRyaXZlcnMvcGh5L2FsbHdpbm5lci9waHktc3VuNmktbWlwaS1k
-cGh5LmMgICAgICAgICAgIHwgNCArKy0tCj4gIGRyaXZlcnMvcGh5L2FsbHdpbm5lci9waHktc3Vu
-OWktdXNiLmMgICAgICAgICAgICAgICAgIHwgMyArKy0KCkFja2VkLWJ5OiBDaGVuLVl1IFRzYWkg
-PHdlbnNAa2VybmVsLm9yZz4gIyBhbGx3aW5uZXIKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+Add the essential bus clocks in the Allwinner A733 CCU, including AHB,
+APB0, APB1, APB_UART, NSI, and MBUS. These buses are necessary for many
+other functional modules. Additionally clocks such as trace, gic and
+cpu_peri are also added as they fall within the register address range
+of the bus clocks, even though they are not strictly bus clocks.
+
+The MBUS clock is marked as critical to ensure the memory bus remains
+operational at all times. For the NSI and MBUS clocks, the hardware
+requires an update bit (bit 27) to be set so that the configuration
+takes effect and the updated parameters can be correctly read back.
+
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+---
+ drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 131 +++++++++++++++++++++++++++++++++
+ 1 file changed, 131 insertions(+)
+
+diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+index cf819504c51f..68457813dbbb 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
++++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+@@ -19,6 +19,7 @@
+ #include "ccu_common.h"
+ 
+ #include "ccu_div.h"
++#include "ccu_mp.h"
+ #include "ccu_mult.h"
+ #include "ccu_nkmp.h"
+ #include "ccu_nm.h"
+@@ -65,6 +66,16 @@ static const struct clk_hw *pll_ref_hws[] = {
+ 	&pll_ref_clk.common.hw
+ };
+ 
++/*
++ * There is a non-software-configurable mux selecting between the DCXO and the
++ * PLL_REF in hardware, whose output is fed to the sys-24M clock. Although both
++ * sys-24M and pll-ref are fixed at 24 MHz, define a 1:1 fixed factor clock to
++ * provide logical separation:
++ * - pll-ref is dedicated to feeding other PLLs
++ * - sys-24M serves as reference clock for downstream functional modules
++ */
++static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0);
++
+ #define SUN60I_A733_PLL_DDR_REG		0x020
+ static struct ccu_nkmp pll_ddr_clk = {
+ 	.enable		= BIT(27),
+@@ -371,6 +382,107 @@ static SUNXI_CCU_M_HWS(pll_de_4x_clk, "pll-de-4x", pll_de_hws,
+ static SUNXI_CCU_M_HWS(pll_de_3x_clk, "pll-de-3x", pll_de_hws,
+ 		       SUN60I_A733_PLL_DE_REG, 16, 3, 0);
+ 
++/**************************************************************************
++ *                           bus clocks                                   *
++ **************************************************************************/
++
++static const struct clk_parent_data ahb_apb_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .fw_name = "losc" },
++	{ .fw_name = "iosc" },
++	{ .hw = &pll_periph0_600M_clk.hw },
++};
++
++static SUNXI_CCU_M_DATA_WITH_MUX(ahb_clk, "ahb", ahb_apb_parents, 0x500,
++				 0, 5,		/* M */
++				 24, 2,		/* mux */
++				 0);
++
++static SUNXI_CCU_M_DATA_WITH_MUX(apb0_clk, "apb0", ahb_apb_parents, 0x510,
++				 0, 5,		/* M */
++				 24, 2,		/* mux */
++				 0);
++
++static SUNXI_CCU_M_DATA_WITH_MUX(apb1_clk, "apb1", ahb_apb_parents, 0x518,
++				 0, 5,		/* M */
++				 24, 2,		/* mux */
++				 0);
++
++static const struct clk_parent_data apb_uart_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .fw_name = "losc" },
++	{ .fw_name = "iosc" },
++	{ .hw = &pll_periph0_600M_clk.hw },
++	{ .hw = &pll_periph0_480M_clk.common.hw },
++};
++static SUNXI_CCU_M_DATA_WITH_MUX(apb_uart_clk, "apb-uart", apb_uart_parents, 0x538,
++				 0, 5,		/* M */
++				 24, 3,		/* mux */
++				 0);
++
++static const struct clk_parent_data trace_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .fw_name = "losc" },
++	{ .fw_name = "iosc" },
++	{ .hw = &pll_periph0_300M_clk.hw },
++	{ .hw = &pll_periph0_400M_clk.hw },
++};
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(trace_clk, "trace", trace_parents, 0x540,
++				 0, 5,		/* M */
++				 24, 3,		/* mux */
++				 BIT(31),	/* gate */
++				 0);
++
++static const struct clk_parent_data gic_cpu_peri_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .fw_name = "losc" },
++	{ .hw = &pll_periph0_600M_clk.hw },
++	{ .hw = &pll_periph0_480M_clk.common.hw },
++	{ .hw = &pll_periph0_400M_clk.hw },
++};
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(gic_clk, "gic", gic_cpu_peri_parents, 0x560,
++				      0, 5,	/* M */
++				      24, 3,	/* mux */
++				      BIT(31),	/* gate */
++				      0);
++
++static SUNXI_CCU_M_DATA_WITH_MUX_GATE(cpu_peri_clk, "cpu-peri", gic_cpu_peri_parents, 0x568,
++				      0, 5,	/* M */
++				      24, 3,	/* mux */
++				      BIT(31),	/* gate */
++				      0);
++
++static const struct clk_parent_data nsi_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .hw = &pll_ddr_clk.common.hw },
++	{ .hw = &pll_periph0_800M_clk.common.hw },
++	{ .hw = &pll_periph0_600M_clk.hw },
++	{ .hw = &pll_periph0_480M_clk.common.hw },
++	{ .hw = &pll_de_3x_clk.common.hw },
++};
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(nsi_clk, "nsi", nsi_parents, 0x580,
++					    0, 5,	/* M */
++					    0, 0,	/* no P */
++					    24, 3,	/* mux */
++					    BIT(31),	/* gate */
++					    0, CCU_FEATURE_UPDATE_BIT);
++
++static const struct clk_parent_data mbus_parents[] = {
++	{ .hw = &sys_24M_clk.hw },
++	{ .hw = &pll_periph1_600M_clk.hw },
++	{ .hw = &pll_ddr_clk.common.hw },
++	{ .hw = &pll_periph1_480M_clk.common.hw },
++	{ .hw = &pll_periph1_400M_clk.hw },
++	{ .hw = &pll_npu_clk.common.hw },
++};
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x588,
++					    0, 5,	/* M */
++					    0, 0,	/* no P */
++					    24, 3,	/* mux */
++					    BIT(31),	/* gate */
++					    CLK_IS_CRITICAL,
++					    CCU_FEATURE_UPDATE_BIT);
++
+ /*
+  * Contains all clocks that are controlled by a hardware register. They
+  * have a (sunxi) .common member, which needs to be initialised by the common
+@@ -407,11 +519,21 @@ static struct ccu_common *sun60i_a733_ccu_clks[] = {
+ 	&pll_de_clk.common,
+ 	&pll_de_4x_clk.common,
+ 	&pll_de_3x_clk.common,
++	&ahb_clk.common,
++	&apb0_clk.common,
++	&apb1_clk.common,
++	&apb_uart_clk.common,
++	&trace_clk.common,
++	&gic_clk.common,
++	&cpu_peri_clk.common,
++	&nsi_clk.common,
++	&mbus_clk.common,
+ };
+ 
+ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
+ 	.hws	= {
+ 		[CLK_PLL_REF]		= &pll_ref_clk.common.hw,
++		[CLK_SYS_24M]		= &sys_24M_clk.hw,
+ 		[CLK_PLL_DDR]		= &pll_ddr_clk.common.hw,
+ 		[CLK_PLL_PERIPH0_4X]	= &pll_periph0_4x_clk.common.hw,
+ 		[CLK_PLL_PERIPH0_2X]	= &pll_periph0_2x_clk.common.hw,
+@@ -453,6 +575,15 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
+ 		[CLK_PLL_DE]		= &pll_de_clk.common.hw,
+ 		[CLK_PLL_DE_4X]		= &pll_de_4x_clk.common.hw,
+ 		[CLK_PLL_DE_3X]		= &pll_de_3x_clk.common.hw,
++		[CLK_AHB]		= &ahb_clk.common.hw,
++		[CLK_APB0]		= &apb0_clk.common.hw,
++		[CLK_APB1]		= &apb1_clk.common.hw,
++		[CLK_APB_UART]		= &apb_uart_clk.common.hw,
++		[CLK_TRACE]		= &trace_clk.common.hw,
++		[CLK_GIC]		= &gic_clk.common.hw,
++		[CLK_CPU_PERI]		= &cpu_peri_clk.common.hw,
++		[CLK_NSI]		= &nsi_clk.common.hw,
++		[CLK_MBUS]		= &mbus_clk.common.hw,
+ 	},
+ 	.num	= CLK_FANOUT3 + 1,
+ };
+
+-- 
+2.52.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
