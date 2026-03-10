@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E7AFCC9A8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB21FCC9A4
 	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 01:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Erjw6AjEE8B2VgTfirv75dSCdOa0zRlTwSKColkMx4=; b=MH6FNTfu+O6bBw
-	E3PPfOD9lTPWdc30a/oSP2jUVDflB1KnmW8xQUvJLWuEp/nwsIyRufc3aNJMzwhmZ6PASiBpoRO+5
-	9IFZ4s5XNQW+BSFfYH2nD2mty2xFdCPGW4eLCTabtxqY1OIN44GhUMcwu9GAPReCdQFfgYwDC3eU9
-	tBMGmvI+UWuYMO8w6tsuDyYbrAezNA1Bm6w1aQuT1ePnK98GkPiXxdIAmfrVZ3aSZWIwdiywDxymq
-	eyHhSBi7kWnAJy/GZ/1vbtJkTNGFa6WOTYIjQZQDAXOe3MEqXJopVEe30Eqq3bR5q2x6haYmbZZhN
-	futo25wjftzoRLSAyUdw==;
+	List-Owner; bh=/ZsBbr8+ied6/q32JOKkPPOr5kvtQhG2hUgsf6d4dR8=; b=jRSpyslYytrAmC
+	z+yCNJEq2hmK8urPHaufvFHSSvpXNj+zA0uI8W3t4quR/+p13NMWICsx1BKq4P8i28psW/h0QeM4H
+	udmOtjJAI5FERMwrcvOM5u2LJMP9TQCrs585jUyzR8MFm/CzwZF4Cif3kI9VvHAufEgLbyGJ0tB8G
+	eypb/VZJN6lQku9XeyVW52JyPjcwekq0TGJtMUyicUw8dXP4BaCTT7ecOI0Low0uMzHT+jcQqjRCs
+	XFPjL2xGv/FU1lrGqgrUneDXrsOjPgLjnRqiYxPFfLMGuHrMN9nxLfYzgaOhJAvMOD1iuHbxdTOtx
+	zIlZPJv5p9G/DesShtjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzmGl-00000008VXe-15Z8;
-	Tue, 10 Mar 2026 01:52:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vzmGk-00000008VXR-1X9W;
+	Tue, 10 Mar 2026 01:52:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzmGi-00000008VWY-2Q5l
+	id 1vzmGi-00000008VWZ-2jsZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Mar 2026 01:52:21 +0000
+	Tue, 10 Mar 2026 01:52:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F2BF4457E;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8359560097;
 	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E4A6C4AF09;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 31929C19423;
 	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1773107539;
-	bh=nnM2zjvYkKOyj9s5ooMFB4/ffFs14ySMOoYr/6UGGu0=;
+	bh=v2pWrgmnDeGNP0dGg82smLMiBXVJnwAzUgpAkAP6yks=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PmRqzGS3nVJNyRGPSH3I6kRkp2fevQtU8tdhZ7011PZxc3DDMvst1VN2ZvfpAXkdF
-	 z2hbwE6uqhF8ac8S9I7JRR/V5V9UdFn385CKXvyK+6DHnhGRJZptjAwHJMgQcKrAzZ
-	 jQf4/k2+EMFzGH9LRP2j0XF+A9OwjwtHwLAvgvrAX8AUgX0UMLVJsZ55VyCfipgsYR
-	 6VKPYah9V1+iCX7Td+8TXlylyp0ZQfRZ6gGApuJRk+YnlpjQnXVFbdxrAwUfnU+xLM
-	 XjImXn8dOA7HKXT9U3xSiWRa9fGkVbsDll/jYVaqhB75yYqU8tsKz+fPA5ZKMpOV2L
-	 qgU0eUIar6MzQ==
+	b=vF3nY55cr1M70uyokfXKLfrMPo6O/N33FcJGvus4aqlZWZdjC1repl9nhWGB63Hqw
+	 9agH5laEFUBLB/joFaYmS0LjM6oNhLGCqyVIRqgd0O4r8Q8QCp5lk8JUyMGoQuVVZm
+	 durdBouZOZns2QJK7KS8sESCJZ3IEkbNTbFC7cYb8nIK980r4gIiV1VJUtIvSINg2V
+	 It5rOBbwY5ONtFkTr9d+gWXoZwCgXDiCIkLzBZzb0AbSTSJT0JKw8WPwo518LtMN64
+	 YfCG3qFjvf5E+Vs/y6pbnXc+8HtdZ6M0pFDvH3ZOHrxynhc8t1qkWGnJZwVpB3aJwh
+	 XDrMKMZnns8fQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 46F93FCC9AD;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23DACFCC9A8;
 	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Mon, 09 Mar 2026 18:52:13 -0700
-Subject: [PATCH v2 4/4] selftests: riscv: Add license to cfi selftest
+Date: Mon, 09 Mar 2026 18:52:10 -0700
+Subject: [PATCH v2 1/4] selftests: riscv: Add definition of BIT() macro
 MIME-Version: 1.0
-Message-Id: <20260309-fix_selftests-v2-4-9d5a553a531e@gmail.com>
+Message-Id: <20260309-fix_selftests-v2-1-9d5a553a531e@gmail.com>
 References: <20260309-fix_selftests-v2-0-9d5a553a531e@gmail.com>
 In-Reply-To: <20260309-fix_selftests-v2-0-9d5a553a531e@gmail.com>
 To: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -59,20 +59,16 @@ To: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 Cc: linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773107537; l=597;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773107537; l=2501;
  i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
- bh=BASghyhUbPQR3TaCTFC1Bxb1DJuKTtAvjw5yHhn6X94=;
- b=Q1YWdbYniiYp8cgRpgsURgdzBnJ/OsKXk/gnzUPByK9XWSKpz0qoRkkEuNQ3SNyndKtXe33L+
- 0bCI6SQLOQGBvJ5CYNkAcWBJFmsTquFN8xfgNg5XVa0/EgKdC5ItG2a
+ bh=fSLPxH6GsBiaH5osUs3h11f7ItiKygcEvbUUMu8KVw8=;
+ b=fBBjwRxbvodjq3RWghDxm+Dx/Qr/g8qqQkr3tyPeEL/UlTWkFSdguEjJ2AjRozlUJh2HkvnX7
+ a0HUuIEIGH2BBtujgBtaN1UncVFwSqiGg8GtLvfObXDfUeBCaSvFPJL
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
  with auth_id=663
 X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_185220_651142_AA0C1480 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,22 +88,60 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-The cfi selftest was missing a license so add it.
+The BIT() macros is used by the validate_v_ptrace() test case, but not
+defined. Include linux/bits.h to pull in this definition. To ensure that
+the header in the kernel source is used, add tools/include to the header
+search path.
 
+Fixes: 30eb191c895b ("selftests: riscv: verify ptrace rejects invalid vector csr inputs")
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 ---
- tools/testing/selftests/riscv/cfi/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
+ tools/testing/selftests/riscv/vector/Makefile            | 7 +++++--
+ tools/testing/selftests/riscv/vector/validate_v_ptrace.c | 1 +
+ 2 files changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/riscv/cfi/Makefile b/tools/testing/selftests/riscv/cfi/Makefile
-index 96a4dc4b69c3..93b4738c0e2e 100644
---- a/tools/testing/selftests/riscv/cfi/Makefile
-+++ b/tools/testing/selftests/riscv/cfi/Makefile
-@@ -1,3 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0
+diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
+index 326dafd739bf..f74a3aa63c87 100644
+--- a/tools/testing/selftests/riscv/vector/Makefile
++++ b/tools/testing/selftests/riscv/vector/Makefile
+@@ -2,6 +2,9 @@
+ # Copyright (C) 2021 ARM Limited
+ # Originally tools/testing/arm64/abi/Makefile
+ 
++NO_LIBC_CFLAGS := $(CFLAGS)
++CFLAGS += -I$(top_srcdir)/tools/include
 +
- CFLAGS += $(KHDR_INCLUDES)
- CFLAGS += -I$(top_srcdir)/tools/include
+ TEST_GEN_PROGS := v_initval vstate_prctl vstate_ptrace validate_v_ptrace
+ TEST_GEN_PROGS_EXTENDED := vstate_exec_nolibc v_exec_initval_nolibc
+ TEST_GEN_LIBS := v_helpers.c sys_hwprobe.c
+@@ -21,14 +24,14 @@ $(OUTPUT)/vstate_prctl: vstate_prctl.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpe
+ 
+ $(OUTPUT)/vstate_exec_nolibc: vstate_exec_nolibc.c
+ 	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
+-		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
++		-Wall $(NO_LIBC_CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+ 
+ $(OUTPUT)/v_initval: v_initval.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+ 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+ 
+ $(OUTPUT)/v_exec_initval_nolibc: v_exec_initval_nolibc.c
+ 	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
+-		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
++		-Wall $(NO_LIBC_CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+ 
+ $(OUTPUT)/vstate_ptrace: vstate_ptrace.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+ 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+index 3589549f7228..257de36274e9 100644
+--- a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
++++ b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
+@@ -6,6 +6,7 @@
+ #include <unistd.h>
+ #include <errno.h>
+ 
++#include <linux/bits.h>
+ #include <linux/ptrace.h>
+ #include <linux/elf.h>
  
 
 -- 
