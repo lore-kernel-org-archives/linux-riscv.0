@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CF9FCC9D0
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 06:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D457FCC9C8
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 06:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=619eTvsU5fUscPvdtAGsULETvyTofwsN3YKl7L+llIE=; b=Lb2AFpeSNL8EZk
-	oKKuJcGqLuDdCGzOqZm3Ez7WzafrkOKyUTh0hAoitJqSnKefQHptUN7U/QM3y68U9Xpau3OkoRz7V
-	OszpauD6Nj3xNnx5BIFihe/RashkX/ZATGV9CUs6ENPNaScf7iws8GUp2oL2XtGSqNPNClsjymb4l
-	tOtFSIqYGTFJ03mZFewAVrIpLI5TsSxQidF7y18AOt1nbZTI+Xq7fne3fmtWQPxoYNiD+nUN1j//U
-	D+uXjs7HZSdvQ0gdZLO9i2WcGtYT6wzPDMzrbbD7lSEOV2Ys8d/HznbdEuiH09bC0oIah352n7P/2
-	QvRrAHKJjj/bWqsI/BSA==;
+	List-Owner; bh=hQhskcCPpAGGTlV40SS6j0jxjvW1xjQF8KXm6gxclI4=; b=GnjfR4X1BnvTQQ
+	bSq8wpJ1jedZais+OuqxIDSxtvTyPt9/umCxANM0MnDZ8iKhNuD9iXoMQTut2SgJa4WZDiX8i8bcY
+	BwaHvyc/oKZ6h8iDERWxKkFYwdO3laLuVV4Gw0UnkCPDBmT5EAXWCFRYOh12c+HtuEchWgcjsd8km
+	t7sbRiyuBp/Uxv51rn03MY/hnlxAHMJrVO7pjupP+r+es/3vZj5UKCiYVyBElID3i0GEZ8TRpfLZo
+	FyxHBFYFsKNAE3AsOrf0+r6s1uOtvFC0CQc7YcMUmewvAjZhLEf1T+oN3fIe7wNqu4V6ecNiYuNFK
+	q99A/3qEnNe1tQUTamtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzqqe-00000008nfd-04qF;
-	Tue, 10 Mar 2026 06:45:44 +0000
+	id 1vzqqc-00000008nfF-1K1A;
+	Tue, 10 Mar 2026 06:45:42 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzqqY-00000008ndS-1vOn
+	id 1vzqqY-00000008ndT-1OxF
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Mar 2026 06:45:42 +0000
+	Tue, 10 Mar 2026 06:45:41 +0000
 Received: from duge-virtual-machine (unknown [183.192.221.67])
-	by APP-03 (Coremail) with SMTP id rQCowAB3lt0Cvq9plrI5Cg--.34167S4;
-	Tue, 10 Mar 2026 14:45:26 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAB3lt0Cvq9plrI5Cg--.34167S3;
+	Tue, 10 Mar 2026 14:45:25 +0800 (CST)
 From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
 To: krzk@kernel.org,
 	ulf.hansson@linaro.org,
@@ -46,37 +46,39 @@ Cc: pjw@kernel.org,
 	linux-kernel@vger.kernel.org,
 	gaohan@iscas.ac.cn,
 	me@ziyao.cc,
-	Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Subject: [PATCH v3 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC controller support
-Date: Tue, 10 Mar 2026 14:45:12 +0800
-Message-ID: <20260310064513.140093-3-jiayu.riscv@isrc.iscas.ac.cn>
+	Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 1/3] dt-bindings: mmc: Add sdhci support for Canaan k230
+Date: Tue, 10 Mar 2026 14:45:11 +0800
+Message-ID: <20260310064513.140093-2-jiayu.riscv@isrc.iscas.ac.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260310064513.140093-1-jiayu.riscv@isrc.iscas.ac.cn>
 References: <20260310064513.140093-1-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAB3lt0Cvq9plrI5Cg--.34167S4
-X-Coremail-Antispam: 1UD129KBjvAXoWfGF47tw4xJF4ruw47Zr4ruFg_yoW8GFyfCo
-	WfJF13Xw48tw4xW3yqkrs7tFnrZ3yqva4S939I9ws5Cwn7u3WDJry3GFW3Ja43Ww1rKr1k
-	Aws7Jry3XFWSya1Dn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUO77AC8VAFwI0_Wr0E3s1l1xkIjI8I6I8E6xAIw20EY4v20xva
-	j40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7IE14v26r15M28IrcIa0x
-	kI8VCY1x0267AKxVW5JVCq3wA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84AC
-	jcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM2
-	8EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r4UJwAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0x
-	vEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVj
-	vjDU0xZFpf9x0JUQXo7UUUUU=
+X-CM-TRANSID: rQCowAB3lt0Cvq9plrI5Cg--.34167S3
+X-Coremail-Antispam: 1UD129KBjvJXoW7tw4UWrWUur1DWw43CF13CFg_yoW8ArW8pF
+	Z3AF9xKr4rGF13Zw1ft3Wku3W3KF1vyr4Utr1aqr1xWFsYq3WUG3y3Kwn0qr13CF4xJa4a
+	9FW7ury5G342vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQ0b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY
+	1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
+	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCF
+	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFI
+	xGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l
+	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
+	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
+	cVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI
+	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
+	6r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2BMNUUUUU
 X-Originating-IP: [183.192.221.67]
 X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_234539_218768_070CC807 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20260309_234538_872484_0606E7E3 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,407 +95,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add SDHCI controller driver for Canaan k230 SoC. Implement custom
-sdhci_ops for set_clock, phy init, init and reset.
+The Canaan k230 uses the SDHCI from Synopsys. Add compatible strings
+to the k230. The k230 has two controllers. MMC0 supports eMMC, while
+MMC1 supports SDIO.
 
 Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/mmc/host/sdhci-of-dwcmshc.c | 287 ++++++++++++++++++++++++++++
- 1 file changed, 287 insertions(+)
+ .../bindings/mmc/snps,dwcmshc-sdhci.yaml      | 28 +++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-index 2b75a36c096b..39d28574cfa8 100644
---- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-+++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-@@ -128,9 +128,11 @@
- #define PHY_CNFG_PHY_PWRGOOD_MASK	BIT_MASK(1) /* bit [1] */
- #define PHY_CNFG_PAD_SP_MASK		GENMASK(19, 16) /* bits [19:16] */
- #define PHY_CNFG_PAD_SP			0x0c /* PMOS TX drive strength */
-+#define PHY_CNFG_PAD_SP_k230		0x09 /* PMOS TX drive strength for k230 */
- #define PHY_CNFG_PAD_SP_SG2042		0x09 /* PMOS TX drive strength for SG2042 */
- #define PHY_CNFG_PAD_SN_MASK		GENMASK(23, 20) /* bits [23:20] */
- #define PHY_CNFG_PAD_SN			0x0c /* NMOS TX drive strength */
-+#define PHY_CNFG_PAD_SN_k230		0x08 /* NMOS TX drive strength for k230 */
- #define PHY_CNFG_PAD_SN_SG2042		0x08 /* NMOS TX drive strength for SG2042 */
+diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+index 5cebe5eb1efb..2e3ac1053065 100644
+--- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
++++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+@@ -23,6 +23,8 @@ properties:
+           - const: sophgo,sg2044-dwcmshc
+           - const: sophgo,sg2042-dwcmshc
+       - enum:
++          - canaan,k230-emmc
++          - canaan,k230-sdio
+           - rockchip,rk3568-dwcmshc
+           - rockchip,rk3588-dwcmshc
+           - snps,dwcmshc-sdhci
+@@ -57,6 +59,11 @@ properties:
+     minItems: 4
+     maxItems: 5
  
- /* PHY command/response pad settings */
-@@ -153,14 +155,22 @@
- #define PHY_PAD_RXSEL_3V3		0x2 /* Receiver type select for 3.3V */
++  canaan,usb-phy:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the Canaan K230 USB PHY node required for
++                 k230-emmc/sdio.
++
+   rockchip,txclk-tapnum:
+     description: Specify the number of delay for tx sampling.
+     $ref: /schemas/types.yaml#/definitions/uint8
+@@ -89,6 +96,27 @@ required:
+ allOf:
+   - $ref: mmc-controller.yaml#
  
- #define PHY_PAD_WEAKPULL_MASK		GENMASK(4, 3) /* bits [4:3] */
-+#define PHY_PAD_WEAKPULL_DISABLED	0x0 /* Weak pull up and pull down disabled */
- #define PHY_PAD_WEAKPULL_PULLUP		0x1 /* Weak pull up enabled */
- #define PHY_PAD_WEAKPULL_PULLDOWN	0x2 /* Weak pull down enabled */
- 
- #define PHY_PAD_TXSLEW_CTRL_P_MASK	GENMASK(8, 5) /* bits [8:5] */
- #define PHY_PAD_TXSLEW_CTRL_P		0x3 /* Slew control for P-Type pad TX */
-+#define PHY_PAD_TXSLEW_CTRL_P_k230_VAL2	0x2 /* Slew control for P-Type pad TX for k230 */
- #define PHY_PAD_TXSLEW_CTRL_N_MASK	GENMASK(12, 9) /* bits [12:9] */
- #define PHY_PAD_TXSLEW_CTRL_N		0x3 /* Slew control for N-Type pad TX */
- #define PHY_PAD_TXSLEW_CTRL_N_SG2042	0x2 /* Slew control for N-Type pad TX for SG2042 */
-+#define PHY_PAD_TXSLEW_CTRL_N_k230_VAL2	0x2 /* Slew control for N-Type pad TX for k230 */
-+#define PHY_PAD_TXSLEW_CTRL_N_k230_VAL1	0x1 /* Slew control for N-Type pad TX for k230 */
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - canaan,k230-emmc
++              - canaan,k230-sdio
++    then:
++      properties:
++        clocks:
++          minItems: 5
++        clock-names:
++          items:
++            - const: core
++            - const: bus
++            - const: axi
++            - const: block
++            - const: timer
++      required:
++        - canaan,usb-phy
 +
-+/* PHY Common DelayLine config settings */
-+#define PHY_COMMDL_CNFG			(DWC_MSHC_PTR_PHY_R + 0x1c)
-+#define PHY_COMMDL_CNFG_DLSTEP_SEL	BIT(0) /* DelayLine outputs on PAD enabled */
- 
- /* PHY CLK delay line settings */
- #define PHY_SDCLKDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x1d)
-@@ -174,7 +184,10 @@
- #define PHY_SDCLKDL_DC_HS400		0x18 /* delay code for HS400 mode */
- 
- #define PHY_SMPLDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x20)
-+#define PHY_SMPLDL_CNFG_EXTDLY_EN	BIT(0)
- #define PHY_SMPLDL_CNFG_BYPASS_EN	BIT(1)
-+#define PHY_SMPLDL_CNFG_INPSEL_MASK	GENMASK(3, 2) /* bits [3:2] */
-+#define PHY_SMPLDL_CNFG_INPSEL		0x3 /* delay line input source */
- 
- /* PHY drift_cclk_rx delay line configuration setting */
- #define PHY_ATDL_CNFG_R			(DWC_MSHC_PTR_PHY_R + 0x21)
-@@ -227,6 +240,14 @@
- /* SMC call for BlueField-3 eMMC RST_N */
- #define BLUEFIELD_SMC_SET_EMMC_RST_N	0x82000007
- 
-+/* Canaan specific Registers */
-+#define SD0_CTRL			0x00
-+#define SD0_HOST_REG_VOL_STABLE		BIT(4)
-+#define SD0_CARD_WRITE_PROT		BIT(6)
-+#define SD1_CTRL			0x08
-+#define SD1_HOST_REG_VOL_STABLE		BIT(0)
-+#define SD1_CARD_WRITE_PROT		BIT(2)
-+
- /* Eswin specific Registers */
- #define EIC7700_CARD_CLK_STABLE		BIT(28)
- #define EIC7700_INT_BCLK_STABLE		BIT(16)
-@@ -268,6 +289,12 @@ struct eic7700_priv {
- 	unsigned int drive_impedance;
- };
- 
-+struct k230_priv  {
-+	/* Kendryte k230 specific */
-+	struct regmap *hi_sys_regmap;
-+	const struct dwcmshc_k230_match_data *match_data;
-+};
-+
- #define DWCMSHC_MAX_OTHER_CLKS 3
- 
- struct dwcmshc_priv {
-@@ -275,6 +302,7 @@ struct dwcmshc_priv {
- 	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA1 reg */
- 	int vendor_specific_area2; /* P_VENDOR_SPECIFIC_AREA2 reg */
- 
-+	const void *match_data;
- 	int num_other_clks;
- 	struct clk_bulk_data other_clks[DWCMSHC_MAX_OTHER_CLKS];
- 
-@@ -284,12 +312,34 @@ struct dwcmshc_priv {
- };
- 
- struct dwcmshc_pltfm_data {
-+	const void *match_data;
- 	const struct sdhci_pltfm_data pdata;
- 	const struct cqhci_host_ops *cqhci_host_ops;
- 	int (*init)(struct device *dev, struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
- 	void (*postinit)(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
- };
- 
-+struct dwcmshc_k230_match_data {
-+	bool is_emmc;
-+	u32 ctrl_reg;
-+	u32 vol_stable_bit;
-+	u32 write_prot_bit;
-+};
-+
-+static const struct dwcmshc_k230_match_data k230_emmc_match_data = {
-+	.is_emmc = true,
-+	.ctrl_reg = SD0_CTRL,
-+	.vol_stable_bit = SD0_HOST_REG_VOL_STABLE,
-+	.write_prot_bit = SD0_CARD_WRITE_PROT,
-+};
-+
-+static const struct dwcmshc_k230_match_data k230_sdio_match_data = {
-+	.is_emmc = false,
-+	.ctrl_reg = SD1_CTRL,
-+	.vol_stable_bit = SD1_HOST_REG_VOL_STABLE,
-+	.write_prot_bit = SD1_CARD_WRITE_PROT,
-+};
-+
- static void dwcmshc_enable_card_clk(struct sdhci_host *host)
- {
- 	u16 ctrl;
-@@ -1656,6 +1706,205 @@ static int eic7700_init(struct device *dev, struct sdhci_host *host, struct dwcm
- 	return 0;
- }
- 
-+static void dwcmshc_k230_sdhci_set_clock(struct sdhci_host *host, unsigned int clock)
-+{
-+	u16 clk;
-+
-+	sdhci_set_clock(host, clock);
-+
-+	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-+	/*
-+	 * It is necessary to enable SDHCI_PROG_CLOCK_MODE. This is a
-+	 * vendor-specific quirk. If this is not done, the eMMC will be
-+	 * unable to read or write.
-+	 */
-+	clk |= SDHCI_PROG_CLOCK_MODE;
-+	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-+}
-+
-+static void sdhci_k230_config_phy_delay(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *dwc_priv = sdhci_pltfm_priv(pltfm_host);
-+	u32 val;
-+
-+	sdhci_writeb(host, PHY_COMMDL_CNFG_DLSTEP_SEL, PHY_COMMDL_CNFG);
-+	sdhci_writeb(host, 0x0, PHY_SDCLKDL_CNFG_R);
-+	sdhci_writeb(host, PHY_SDCLKDL_DC_INITIAL,
-+		     PHY_SDCLKDL_DC_R);
-+
-+	val = PHY_SMPLDL_CNFG_EXTDLY_EN;
-+	val |= FIELD_PREP(PHY_SMPLDL_CNFG_INPSEL_MASK,
-+			  PHY_SMPLDL_CNFG_INPSEL);
-+	sdhci_writeb(host, val, PHY_SMPLDL_CNFG_R);
-+
-+	sdhci_writeb(host, FIELD_PREP(PHY_ATDL_CNFG_INPSEL_MASK,
-+		     PHY_ATDL_CNFG_INPSEL), PHY_ATDL_CNFG_R);
-+
-+	val = sdhci_readl(host, dwc_priv->vendor_specific_area1 +
-+		     DWCMSHC_EMMC_ATCTRL);
-+	val |= AT_CTRL_TUNE_CLK_STOP_EN;
-+	val |= FIELD_PREP(AT_CTRL_PRE_CHANGE_DLY_MASK,
-+			  AT_CTRL_PRE_CHANGE_DLY);
-+	val |= FIELD_PREP(AT_CTRL_POST_CHANGE_DLY_MASK,
-+			  AT_CTRL_POST_CHANGE_DLY);
-+	sdhci_writel(host, val, dwc_priv->vendor_specific_area1 +
-+		     DWCMSHC_EMMC_ATCTRL);
-+	sdhci_writel(host, 0x0, dwc_priv->vendor_specific_area1 +
-+		     DWCMSHC_AT_STAT);
-+}
-+
-+static int dwcmshc_k230_phy_init(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-+	u32 rxsel;
-+	u32 val;
-+	u32 reg;
-+	int ret;
-+
-+	/* reset phy */
-+	sdhci_writew(host, 0, PHY_CNFG_R);
-+
-+	/* Disable the clock */
-+	sdhci_writew(host, 0, SDHCI_CLOCK_CONTROL);
-+
-+	rxsel = priv->flags & FLAG_IO_FIXED_1V8 ?
-+			PHY_PAD_RXSEL_1V8 : PHY_PAD_RXSEL_3V3;
-+
-+	val = rxsel;
-+	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P_k230_VAL2);
-+	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N_k230_VAL2);
-+	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLUP);
-+
-+	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-+	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-+	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-+
-+	val = rxsel;
-+	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P_k230_VAL2);
-+	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N_k230_VAL2);
-+	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-+
-+	val = rxsel;
-+	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLDOWN);
-+	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P_k230_VAL2);
-+	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N_k230_VAL2);
-+	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-+
-+	sdhci_k230_config_phy_delay(host);
-+
-+	/* Wait max 150 ms */
-+	ret = read_poll_timeout(sdhci_readl, reg,
-+				(reg & FIELD_PREP(
-+					PHY_CNFG_PHY_PWRGOOD_MASK, 1)),
-+				10, 150000, false, host, PHY_CNFG_R);
-+	if (ret) {
-+		dev_err(mmc_dev(host->mmc),
-+			"READ PHY PWRGOOD timeout!\n");
-+		return -ETIMEDOUT;
-+	}
-+
-+	reg = FIELD_PREP(PHY_CNFG_PAD_SN_MASK, PHY_CNFG_PAD_SN_k230) |
-+	      FIELD_PREP(PHY_CNFG_PAD_SP_MASK, PHY_CNFG_PAD_SP_k230);
-+	sdhci_writel(host, reg, PHY_CNFG_R);
-+
-+	/* de-assert the phy */
-+	reg |= PHY_CNFG_RSTN_DEASSERT;
-+	sdhci_writel(host, reg, PHY_CNFG_R);
-+
-+	return 0;
-+}
-+
-+static void dwcmshc_k230_sdhci_reset(struct sdhci_host *host, u8 mask)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct dwcmshc_priv *dwc_priv = sdhci_pltfm_priv(pltfm_host);
-+	struct k230_priv *k230_priv = dwc_priv->priv;
-+	u8 emmc_ctrl;
-+
-+	dwcmshc_reset(host, mask);
-+
-+	if (mask == SDHCI_RESET_ALL) {
-+		emmc_ctrl = sdhci_readw(host,
-+				       dwc_priv->vendor_specific_area1 +
-+				       DWCMSHC_EMMC_CONTROL);
-+		sdhci_writeb(host, emmc_ctrl,
-+			     dwc_priv->vendor_specific_area1 +
-+			     DWCMSHC_EMMC_CONTROL);
-+
-+		if (k230_priv->match_data->is_emmc)
-+			dwcmshc_k230_phy_init(host);
-+		else
-+			sdhci_writel(host, 0x0,
-+				     dwc_priv->vendor_specific_area1 +
-+				     DWCMSHC_HOST_CTRL3);
-+	}
-+}
-+
-+static int dwcmshc_k230_init(struct device *dev, struct sdhci_host *host,
-+			     struct dwcmshc_priv *dwc_priv)
-+{
-+	static const char * const clk_ids[] = {"block", "timer", "axi"};
-+	const struct dwcmshc_k230_match_data *match_data;
-+	struct device_node *usb_phy_node;
-+	struct k230_priv *k230_priv;
-+	u32 data;
-+	int ret;
-+
-+	match_data = dwc_priv->match_data;
-+	if (!match_data) {
-+		dev_err(dev, "No vendor data found for K230\n");
-+		return -EINVAL;
-+	}
-+
-+	k230_priv = devm_kzalloc(dev, sizeof(struct k230_priv), GFP_KERNEL);
-+	if (!k230_priv)
-+		return -ENOMEM;
-+
-+	k230_priv->match_data = match_data;
-+	dwc_priv->priv = k230_priv;
-+
-+	usb_phy_node = of_parse_phandle(dev->of_node, "canaan,usb-phy", 0);
-+	if (!usb_phy_node)
-+		return dev_err_probe(dev, -ENODEV,
-+				     "Failed to find canaan,usb-phy phandle\n");
-+
-+	k230_priv->hi_sys_regmap = device_node_to_regmap(usb_phy_node);
-+	of_node_put(usb_phy_node);
-+
-+	if (IS_ERR(k230_priv->hi_sys_regmap))
-+		return dev_err_probe(dev, PTR_ERR(k230_priv->hi_sys_regmap),
-+				     "Failed to get k230-usb-phy regmap\n");
-+
-+	ret = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
-+					    ARRAY_SIZE(clk_ids), clk_ids);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed to get/enable k230 mmc other clocks\n");
-+
-+	if (match_data->is_emmc) {
-+		host->flags &= ~SDHCI_SIGNALING_330;
-+		dwc_priv->flags |= FLAG_IO_FIXED_1V8;
-+	} else {
-+		host->mmc->caps |= MMC_CAP_SD_HIGHSPEED;
-+		host->quirks2 |= SDHCI_QUIRK2_NO_1_8_V;
-+	}
-+
-+	ret = regmap_read(k230_priv->hi_sys_regmap, match_data->ctrl_reg, &data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to read control reg 0x%x\n",
-+				     match_data->ctrl_reg);
-+
-+	data |= match_data->write_prot_bit | match_data->vol_stable_bit;
-+	ret = regmap_write(k230_priv->hi_sys_regmap, match_data->ctrl_reg, data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to write control reg 0x%x\n",
-+				     match_data->ctrl_reg);
-+
-+	return 0;
-+}
-+
- static const struct sdhci_ops sdhci_dwcmshc_ops = {
- 	.set_clock		= sdhci_set_clock,
- 	.set_bus_width		= sdhci_set_bus_width,
-@@ -1743,6 +1992,15 @@ static const struct sdhci_ops sdhci_dwcmshc_eic7700_ops = {
- 	.platform_execute_tuning = sdhci_eic7700_executing_tuning,
- };
- 
-+static const struct sdhci_ops sdhci_dwcmshc_k230_ops = {
-+	.set_clock = dwcmshc_k230_sdhci_set_clock,
-+	.set_bus_width = sdhci_set_bus_width,
-+	.set_uhs_signaling = dwcmshc_set_uhs_signaling,
-+	.get_max_clock = sdhci_pltfm_clk_get_max_clock,
-+	.reset = dwcmshc_k230_sdhci_reset,
-+	.adma_write_desc = dwcmshc_adma_write_desc,
-+};
-+
- static const struct dwcmshc_pltfm_data sdhci_dwcmshc_pdata = {
- 	.pdata = {
- 		.ops = &sdhci_dwcmshc_ops,
-@@ -1834,6 +2092,26 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_eic7700_pdata = {
- 	.init = eic7700_init,
- };
- 
-+static const struct dwcmshc_pltfm_data sdhci_dwcmshc_k230_emmc_pdata = {
-+	.pdata = {
-+		.ops = &sdhci_dwcmshc_k230_ops,
-+		.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-+			  SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
-+	},
-+	.init = dwcmshc_k230_init,
-+	.match_data = (void *)&k230_emmc_match_data,
-+};
-+
-+static const struct dwcmshc_pltfm_data sdhci_dwcmshc_k230_sdio_pdata = {
-+	.pdata = {
-+		.ops = &sdhci_dwcmshc_k230_ops,
-+		.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-+			  SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
-+	},
-+	.init = dwcmshc_k230_init,
-+	.match_data = (void *)&k230_sdio_match_data,
-+};
-+
- static const struct cqhci_host_ops dwcmshc_cqhci_ops = {
- 	.enable		= dwcmshc_sdhci_cqe_enable,
- 	.disable	= sdhci_cqe_disable,
-@@ -1906,6 +2184,14 @@ static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *
- }
- 
- static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
-+	{
-+		.compatible = "canaan,k230-emmc",
-+		.data = &sdhci_dwcmshc_k230_emmc_pdata,
-+	},
-+	{
-+		.compatible = "canaan,k230-sdio",
-+		.data = &sdhci_dwcmshc_k230_sdio_pdata,
-+	},
- 	{
- 		.compatible = "rockchip,rk3588-dwcmshc",
- 		.data = &sdhci_dwcmshc_rk35xx_pdata,
-@@ -1988,6 +2274,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
- 
- 	pltfm_host = sdhci_priv(host);
- 	priv = sdhci_pltfm_priv(pltfm_host);
-+	priv->match_data = pltfm_data->match_data;
- 
- 	if (dev->of_node) {
- 		pltfm_host->clk = devm_clk_get(dev, "core");
+   - if:
+       properties:
+         compatible:
 -- 
 2.53.0
 
