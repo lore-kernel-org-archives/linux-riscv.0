@@ -4,54 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2FBFCC9A4
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 01:52:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1BBFCC9AA
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 01:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qJK4kfalX7RdbxNiQWepZekKFolQMVVKdwgKrq1rrnU=; b=098db+EFAU2B7b
-	s/nlOcX73N+Wd8Dvl38gCJ5O0QaaL3MxHJYt/8xT6Kss1uWU5QWkLnTdfbKchGnSx86Ae6FfLNAH/
-	V5kOjw54VHvNSNS4d/jUfGxiord+4yb3jx4ny6h/fVVsNoQ/2RUerDzMzkzG1lZsgBjEzGz3CmpGK
-	y6QW+AFaxUe4T7KJQVFzOdC/btHtc3v6DW/RD/0QVSimczChXBph8Y+GJj9Jyl0FEHzbyo+WPJ2fe
-	rcKIwFC6w6XICyKNhuoP2TsQEPAT+X6GqBXLi3ls+XvMKS8aE0RK5xyV6sec4TUXN4ZqSUGJGEsTI
-	1IDPpUYwH5+9jCVkxVPg==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3JZzGaiRtc0GOuzz6YWih6x0Nq2Af9wNLkL2lBZeYnU=; b=eyZBPvQw4Ty64O
+	ialsVIYfwwJC7MYunBmupeyJTbIasBAi15TbPv8gPIwSg85VT8dIfmxviRtrhbKFLgOqVG2H3Yesq
+	ozqMYN6WY3vqVsg88rWUdXUpUnEuJdFl8iuRoU3+qepw58ThOmPkiyNiey74QPJcYMYalnzafmusx
+	gM9PDWOEDZLymEKB+k6TuYBGuj25SHxz+wldmlDBhKyJzfXnaWPEvi1XXhSrp72H454Mk7fIDkbNL
+	3g4zQJcMIoGGZJEQ0Fhz5/H6c0QIIzx6HuW7Or1sSZbC937Lciy7eocF91ovWB5HEZJhlvmbZFm/F
+	IcVbiTffO8OsSjhG7p7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzmGk-00000008VXV-2kGl;
-	Tue, 10 Mar 2026 01:52:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vzmGm-00000008VYP-2KME;
+	Tue, 10 Mar 2026 01:52:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzmGi-00000008VWb-3Q7v
+	id 1vzmGi-00000008VWX-2Q6p
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Mar 2026 01:52:20 +0000
+	Tue, 10 Mar 2026 01:52:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 919A2600AE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4DFC840A37;
 	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3CD8DC2BCAF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 255A1C4CEF7;
 	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1773107539;
-	bh=jKNMW1Kppp086xhKb9OmDqM3phfapbkFQYsfGDjd564=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=GRolZoT/3lA+J+mDh+PZkIBLqUrY5Ps/rKs56UKlapNkRFs7DU4IVWvFUNHG4TPY5
-	 r1EiBHvW9rMBCoXQxH63rmshPR1EMNSvmsJLHgrJkEroA018APIM/FFpPPLOyILISj
-	 u5WjFVkXa6AUlnxoSfnPbtAX0if6s7cWBT8ci9VADZB1tdx8xCuWDpZKSGac4WGG9/
-	 m4cHfqjX28FYf1+ghdL5YhI1bHfdKcPFQkoQIuOulReV5ok1yg9tBM/jJSfjyGs58U
-	 m38Srt4Imu4YUDC5USHH26E2MUJeFrsiyutANeyLOWH7bLkdoAUxx/HZ9fLN/chL66
-	 QQvL/VqH584Jg==
+	bh=DzKG948gcs5x9YgNVim780sUPGDP+fTXP+UFVdlqzwQ=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=VMr2FyoleiSoAgr5GCbS2DsKpQypuNkJ0odP4CTSsyb3MCdj7DilVVtf6GfHRhoqy
+	 VWwpp5783Do6EiOrvyPiN7DWdgpHayKLWKfViIGhjLdIczyvlZMzdI6PsN7y0qVj0v
+	 aUI/udlVUbTmryw4xk4FXEwQFQu+2mGo8nA0S3WDCxg24kWFjQZLk4NkdL/t4NN2Wi
+	 ajPgnVetcFuN+G1pGHvkLEL2LnNsiW1TV4/dGY5m0k84yA+sDCHG24v7Ku1uDC+FRn
+	 cdF/8PuQKSiVsLgaqgQmfRtLzVUvws/5szReZWRpC4TN3weCOpBRli428k0MPNwhR2
+	 SI0uq+EuYMtvQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FCEAFCC9AA;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 17460FCC9A9;
 	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Mon, 09 Mar 2026 18:52:11 -0700
-Subject: [PATCH v2 2/4] selftests: riscv: Add braces around EXPECT_EQ()
+Subject: [PATCH v2 0/4] selftests: riscv: Fix compilation issues for
+ v_ptrace and cfi
+Date: Mon, 09 Mar 2026 18:52:09 -0700
+Message-Id: <20260309-fix_selftests-v2-0-9d5a553a531e@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20260309-fix_selftests-v2-2-9d5a553a531e@gmail.com>
-References: <20260309-fix_selftests-v2-0-9d5a553a531e@gmail.com>
-In-Reply-To: <20260309-fix_selftests-v2-0-9d5a553a531e@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAEl5r2kC/13MTQrCMBCG4auUWRuZJm0EV95DirTptB3oj2RCU
+ Erubiy4cfkO8z07CHkmgWuxg6fIwtuaQ58KcFO7jqS4zw0atUWDlRr49RCah0ASRDkzYEuV7Yy
+ 7QN48PeWHw7s3uSeWsPn3wcfye/1J9Z8US4XKlp3VvTY1Yncbl5bns9sWaFJKH8LiauKqAAAA
+X-Change-ID: 20260304-fix_selftests-c3f0ae46b3c7
 To: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, 
  Sergey Matyukevich <geomatsi@gmail.com>, Andy Chiu <andybnac@gmail.com>, 
@@ -59,16 +62,20 @@ To: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 Cc: linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773107537; l=2373;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773107537; l=1204;
  i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
- bh=7v3hKOxSt+L+8LtCfZh085q396U9Poj6cOIz6NZfRCU=;
- b=S2N9TZ8zWVgCVD+QvRzprkQEUmAHkc0wdE0k32fG4zPv1gMn1F6ZCLgFxIaK3ZXubqJTZ9voc
- cIxu3B7Sm6hBEdbeQLlyIRpfWbeEc6tgeXvqabXhadGrbzqNGjA6diN
+ bh=DzKG948gcs5x9YgNVim780sUPGDP+fTXP+UFVdlqzwQ=;
+ b=FLwvV3VuWbMYTOsNB8g4GlIeYcaaWljR8gG/AFM7wyZlqNAq5LMBFTbAVvehUzguocGXLf516
+ udEBiYriGz1AGyHpt8l8MWcFqCDNTDkQZ98VWgwZXSgMPD6nLqi8ZgE
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
  with auth_id=663
 X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260309_185220_657230_9A14A9D2 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +88,44 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: thecharlesjenkins@gmail.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ2hhcmxpZSBKZW5raW5zIDx0aGVjaGFybGVzamVua2luc0BnbWFpbC5jb20+CgpFWFBF
-Q1RfRVEoKSBleHBhbmRzIHRvIG11bHRpcGxlIGxpbmVzLCBicmVha2luZyB1cCBvbmUtbGluZSBp
-ZgpzdGF0ZW1lbnRzLiBUaGlzIGlzc3VlIHdhcyBub3QgcHJlc2VudCBpbiB0aGUgcGF0Y2ggb24g
-dGhlIG1haWxpbmcgbGlzdApidXQgd2FzIGluc3RlYWQgaW50cm9kdWNlZCBieSB0aGUgbWFpbnRh
-aW5lciB3aGVuIGF0dGVtcHRpbmcgdG8gZml4IHVwCmNoZWNrcGF0Y2ggd2FybmluZ3MuIEFkZCBi
-cmFjZXMgYXJvdW5kIEVYUEVDVF9FUSgpIHRvIGF2b2lkIHRoZSBlcnJvcgpldmVuIHRob3VnaCBj
-aGVja3BhdGNoIHN1Z2dlc3RzIHRoZW0gdG8gYmUgcmVtb3ZlZDoKCnZhbGlkYXRlX3ZfcHRyYWNl
-LmM6NjI2OjE3OiBlcnJvcjog4oCYZWxzZeKAmSB3aXRob3V0IGEgcHJldmlvdXMg4oCYaWbigJkK
-CkZpeGVzOiAzNzg5ZDVlZWNkNWEgKCJzZWxmdGVzdHM6IHJpc2N2OiB2ZXJpZnkgc3lzY2FsbHMg
-ZGlzY2FyZCB2ZWN0b3IgY29udGV4dCIpCkZpeGVzOiAzMGViMTkxYzg5NWIgKCJzZWxmdGVzdHM6
-IHJpc2N2OiB2ZXJpZnkgcHRyYWNlIHJlamVjdHMgaW52YWxpZCB2ZWN0b3IgY3NyIGlucHV0cyIp
-CkZpeGVzOiA4NDlmMDVhZTFlYTYgKCJzZWxmdGVzdHM6IHJpc2N2OiB2ZXJpZnkgcHRyYWNlIGFj
-Y2VwdHMgdmFsaWQgdmVjdG9yIGNzciB2YWx1ZXMiKQpTaWduZWQtb2ZmLWJ5OiBDaGFybGllIEpl
-bmtpbnMgPHRoZWNoYXJsZXNqZW5raW5zQGdtYWlsLmNvbT4KLS0tCiB0b29scy90ZXN0aW5nL3Nl
-bGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdmFsaWRhdGVfdl9wdHJhY2UuYyB8IDE1ICsrKysrKysrKy0t
-LS0tLQogMSBmaWxlIGNoYW5nZWQsIDkgaW5zZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMoLSkKCmRp
-ZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdmFsaWRhdGVf
-dl9wdHJhY2UuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L3ZlY3Rvci92YWxpZGF0
-ZV92X3B0cmFjZS5jCmluZGV4IDI1N2RlMzYyNzRlOS4uNTcyNGU2ZWIzMzA5IDEwMDY0NAotLS0g
-YS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdmFsaWRhdGVfdl9wdHJhY2Uu
-YworKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdmFsaWRhdGVfdl9w
-dHJhY2UuYwpAQCAtMjkxLDEwICsyOTEsMTEgQEAgVEVTVChwdHJhY2Vfdl9zeXNjYWxsX2Nsb2Ji
-ZXJpbmcpCiAKIAkJLyogdmVyaWZ5IGluaXRpYWwgdnNldHZsaSBzZXR0aW5ncyAqLwogCi0JCWlm
-IChpc194dGhlYWR2ZWN0b3Jfc3VwcG9ydGVkKCkpCisJCWlmIChpc194dGhlYWR2ZWN0b3Jfc3Vw
-cG9ydGVkKCkpIHsKIAkJCUVYUEVDVF9FUSg1VUwsIHJlZ3NldF9kYXRhLT52dHlwZSk7Ci0JCWVs
-c2UKKwkJfSBlbHNlIHsKIAkJCUVYUEVDVF9FUSg5VUwsIHJlZ3NldF9kYXRhLT52dHlwZSk7CisJ
-CX0KIAogCQlFWFBFQ1RfRVEocmVnc2V0X2RhdGEtPnZsZW5iLCByZWdzZXRfZGF0YS0+dmwpOwog
-CQlFWFBFQ1RfRVEodmxlbmIsIHJlZ3NldF9kYXRhLT52bGVuYik7CkBAIC02MjAsMTAgKzYyMSwx
-MSBAQCBURVNUX0Yodl9jc3JfaW52YWxpZCwgcHRyYWNlX3ZfaW52YWxpZF92YWx1ZXMpCiAKIAkJ
-LyogdmVyaWZ5IGluaXRpYWwgdnNldHZsaSBzZXR0aW5ncyAqLwogCi0JCWlmIChpc194dGhlYWR2
-ZWN0b3Jfc3VwcG9ydGVkKCkpCisJCWlmIChpc194dGhlYWR2ZWN0b3Jfc3VwcG9ydGVkKCkpIHsK
-IAkJCUVYUEVDVF9FUSg1VUwsIHJlZ3NldF9kYXRhLT52dHlwZSk7Ci0JCWVsc2UKKwkJfSBlbHNl
-IHsKIAkJCUVYUEVDVF9FUSg5VUwsIHJlZ3NldF9kYXRhLT52dHlwZSk7CisJCX0KIAogCQlFWFBF
-Q1RfRVEocmVnc2V0X2RhdGEtPnZsZW5iLCByZWdzZXRfZGF0YS0+dmwpOwogCQlFWFBFQ1RfRVEo
-dmxlbmIsIHJlZ3NldF9kYXRhLT52bGVuYik7CkBAIC04MjgsMTAgKzgzMCwxMSBAQCBURVNUX0Yo
-dl9jc3JfdmFsaWQsIHB0cmFjZV92X3ZhbGlkX3ZhbHVlcykKIAogCQkvKiB2ZXJpZnkgaW5pdGlh
-bCB2c2V0dmxpIHNldHRpbmdzICovCiAKLQkJaWYgKGlzX3h0aGVhZHZlY3Rvcl9zdXBwb3J0ZWQo
-KSkKKwkJaWYgKGlzX3h0aGVhZHZlY3Rvcl9zdXBwb3J0ZWQoKSkgewogCQkJRVhQRUNUX0VRKDVV
-TCwgcmVnc2V0X2RhdGEtPnZ0eXBlKTsKLQkJZWxzZQorCQl9IGVsc2UgewogCQkJRVhQRUNUX0VR
-KDlVTCwgcmVnc2V0X2RhdGEtPnZ0eXBlKTsKKwkJfQogCiAJCUVYUEVDVF9FUShyZWdzZXRfZGF0
-YS0+dmxlbmIsIHJlZ3NldF9kYXRhLT52bCk7CiAJCUVYUEVDVF9FUSh2bGVuYiwgcmVnc2V0X2Rh
-dGEtPnZsZW5iKTsKCi0tIAoyLjUyLjAKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+There are a couple of compilation issues of the riscv selftests.
+Coincidentally two of the issues are independent problems with not
+including the header that includes the BIT() macro and the other issue
+is from checkpatch incorrectly suggesting to remove non-redundant
+braces.
+
+Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+---
+Changes in v2:
+- Fix compilation issue reported by kernel test bot and Sergey
+- Link to v1: https://lore.kernel.org/r/20260305-fix_selftests-v1-0-61b62d23500b@gmail.com
+
+---
+Charlie Jenkins (4):
+      selftests: riscv: Add definition of BIT() macro
+      selftests: riscv: Add braces around EXPECT_EQ()
+      riscv: ptrace: Fix BIT() compilation issues
+      selftests: riscv: Add license to cfi selftest
+
+ arch/riscv/include/uapi/asm/ptrace.h                     |  1 +
+ tools/testing/selftests/riscv/cfi/Makefile               |  2 ++
+ tools/testing/selftests/riscv/vector/Makefile            |  7 +++++--
+ tools/testing/selftests/riscv/vector/validate_v_ptrace.c | 16 ++++++++++------
+ 4 files changed, 18 insertions(+), 8 deletions(-)
+---
+base-commit: c107785c7e8dbabd1c18301a1c362544b5786282
+change-id: ${change-id}
+
+- Charlie
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
