@@ -4,64 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95469FD4F19
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 18:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B50FD88C3
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 22:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NEcAo1N2VBzFApjQpSgmkMOdpqgHPcdiHWbs+afCk/0=; b=g3rsrJxgfj520b
-	uuN7ak8i+d5pKmnUjjcY4MPTA0em2y+lTAhU13m1AEbIwT2UoL1k6fV68xENtR0adrN1MoVHo/oV8
-	aAFGf/v7w53v6V/w5ETc4pDF+r6rFG6ZSL+12NATpj9uTjNFMYoCI/UBrMmLxxPpG2ufVkbtx75MF
-	6vkNT2GKwQlT+Gx3Borqin/4aDdO5EIX6i0+HFtLNGHFmfzMaXTiGRdxwAaArThLUl+99ew/rGmYw
-	5rdvaTHL8bxFNDVeTe13g1776dlRnJ2NLd2I0Evv6iOQBzy1zEQ3R9lL8R4LJUl8M3/l135ge15lH
-	4zvzX6CtsPFlNetL1tbw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=ECfHeTzqewZnInpmA8la+k7DWaPdqN3fRuU5RxZfUZA=; b=32kIzUVxKrsEVS
+	dxRTuZ9huZtUKYJ32JWvShI7scJScVw2paG1dzORKTu5q7E0ZHTh4D15Jt8KordGNAZusk5c3u0Bh
+	5jyS9uwLVkDtIGUljVNTct/1q2m6mpnM9Of6cfc3SCFrbESXj491bSqAWd5pQaj90+UFYkPNbphg6
+	O4XwiP44Z+G1P1XbjmhhS1Ux80UfrEWyUgptKKVsr0VsAq1NPJY39946ZGX32IsDVUt6Z81SZQ+PC
+	m/mGovhonrXHjmQdNGrkQGYZNONpCMFkutk4NylBaOXyvRE+B8y/WaSqfqXd24mkMuvIKWZV0oPNx
+	eaw+Vtk/TJ396P5G0Fjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w01kh-0000000A4UK-1CkA;
-	Tue, 10 Mar 2026 18:24:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w05GX-0000000AKOO-3IPI;
+	Tue, 10 Mar 2026 22:09:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w01kf-0000000A4Tw-0JQ0
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Mar 2026 18:24:18 +0000
+	id 1w05GV-0000000AKOC-1F5p;
+	Tue, 10 Mar 2026 22:09:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E801436F0;
-	Tue, 10 Mar 2026 18:24:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1E11C19423;
-	Tue, 10 Mar 2026 18:24:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3CBF6600B0;
+	Tue, 10 Mar 2026 22:09:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8F86C19423;
+	Tue, 10 Mar 2026 22:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773167056;
-	bh=60fgkUWv92rLl/BzDoW4SUNLQP2bHEZxw7UrCs7abIg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pBppPdW33AdnO65LirAuuQCuyc0yAjz8IHfD6Oz5XBSkkHJ4wuk2hYjfgZ3+f0xCw
-	 /8RSI8DCAXhS68OOaLJ7lVQ7/LmOS6sIfejXfD133JUwwwOeSZRq0TafcfVCi3uUqX
-	 X/nW/eLSQEDtJPxN89fDZ56h9OJf0TMwb3rtmVtpGbYzxFL79IDtSlBoXA/tldrgQJ
-	 km/C1+XfbFv00YK3gqf2X3uRB8TxlJaAVj7QoI3dagJt4seqgfTcwpkRvk9K7g3G0O
-	 DDnR293hcji+pqLfGbQcKFqu9W92EAok8L75heenXeInVBRvyeUKJpNar1vGwMtXP3
-	 4Dw6y+qHWUTvw==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	stable@vger.kernel.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Valentina.FernandezAlanis@microchip.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] firmware: microchip: fail auto-update probe if no flash found
-Date: Tue, 10 Mar 2026 18:24:11 +0000
-Message-ID: <20260310-gyration-smasher-1eb31125b2b6@spud>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260303-emphatic-roundness-8fe5cd8c3159@spud>
-References: <20260303-emphatic-roundness-8fe5cd8c3159@spud>
+	s=k20201202; t=1773180561;
+	bh=W80lkFXkPyxzZPzLe6vTEN0SYi+yr5xZNTGscVmS0ko=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=L00YXZHPMVeEfxwGWu/AsurKr2xWM9c1K5M3MtDaIn5nfcen4jicy1Q3i8rLIm5yf
+	 WfvG20wIi1QYyAKqVzaODlOcIZAjN1oBjLxF9C/amXt1SGV5lxTwZfkpQvXdvW9gAg
+	 U5fgwzShrDb/Z15j0gztxNaymw4OC6qlveBz2cGZnyhROtlLohCqWPm8uXMsbT9F27
+	 CbZuzIyVxmIfJ98YaFyJMcT3cZFIirNKa3bxELZvJJRpc3CFl/8aYvCTYeWpkA6BN0
+	 oBTJJOco6wPHguHYPtf3q7EkbWZ3hux+WxUaIr/01eGtMcm8Pr8xqHRXg8MC7nxSZp
+	 RRiGt6sycGkpg==
+Date: Tue, 10 Mar 2026 17:09:20 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Subject: Re: [PATCH v5 2/2] PCI/TPH: Fix get cpu steer-tag fail on ARM64
+ platform
+Message-ID: <20260310220920.GA826995@bhelgaas>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=836; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=hWgL2DzJiZOmEy7GIVpd1Ka6l//mB6IOSxtqxJ4xxNo=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkbEs88+LWhQ4RZ7uH3mW/rL5ee0hfQmM4ne/7Fpi2Lr x/Pz93T3VHKwiDGxSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJeAsyMvyttczhfnZpstkb nxIm723tHa+O/hR9teby+gmJKllfoxYy/A8r/c26O3uug/fn2fX2la92TmV45tfVujT8SNG/GaY s57gB
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_112417_136375_C6B90B9D 
-X-CRM114-Status: GOOD (  11.83  )
+Content-Disposition: inline
+In-Reply-To: <657142d1-1632-4a3e-8800-ee1dd5763d78@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +61,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Ajit Khaparde <ajit.khaparde@broadcom.com>, x86@kernel.org, liuyonglong@huawei.com, "Rafael J . Wysocki" <rafael@kernel.org>, Kees Cook <kees@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Chengwen Feng <fengchengwen@huawei.com>, Somnath Kotur <somnath.kotur@broadcom.com>, Sohil Mehta <sohil.mehta@intel.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>, "Ahmed S . Darwish" <darwi@linutronix.de>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, linux-pci@vger.kernel.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, Ma Ke <make24@iscas.ac.cn>, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Shuah Khan <skhan@linuxfoundation.org>, Bjorn Helgaas <bhelgaas@google.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, Wathsala Vithanage <wathsala.vithanage@arm.com>, Sean Christopherson <seanjc@google.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Tue, Mar 10, 2026 at 10:58:49AM -0500, Jeremy Linton wrote:
+> On 3/9/26 10:20 PM, Chengwen Feng wrote:
+> > pcie_tph_get_cpu_st() is broken on ARM64:
+> > 1. pcie_tph_get_cpu_st() passes cpu_uid to the PCI ACPI DSM method.
+> >     cpu_uid should be the ACPI Processor UID [1].
+> > 2. In BNXT, pcie_tph_get_cpu_st() is passed a cpu_uid obtained via
+> >     cpumask_first(irq->cpu_mask) - the logical CPU ID of a CPU core,
+> >     generated and managed by kernel (e.g., [0,255] for a system  with 256
+> >     logical CPU cores).
+> > 3. On ARM64 platforms, ACPI assigns Processor UID to cores listed in the
+> >     MADT table, and this UID may not match the kernel's logical CPU ID.
+> >     When this occurs, the mismatch results in the wrong CPU steer-tag.
+> > 4. On AMD x86 the logical CPU ID is identical to the ACPI Processor UID
+> >     so the mismatch is not seen.
 
-On Tue, 03 Mar 2026 11:24:06 +0000, Conor Dooley wrote:
-> There's no point letting the driver probe if there is no flash, as
-> trying to do a firmware upload will fail. Move the code that attempts
-> to get the flash from firmware upload to probe, and let it emit a
-> message to users stating why auto-update is not supported.
-> The code currently could have a problem if there's a flash in
-> devicetree, but the system controller driver fails to get a pointer to
-> it from the mtd subsystem, which will cause
-> mpfs_sys_controller_get_flash() to return an error. Check for errors and
-> null, instead of just null, in the new clause.
-> 
-> [...]
+> >   int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
+> > -			unsigned int cpu_uid, u16 *tag)
+> > +			unsigned int cpu, u16 *tag)
+> >   {
+> >   #ifdef CONFIG_ACPI
+> > +	u32 cpu_uid = acpi_get_cpu_acpi_id(cpu);
 
-Applied to riscv-soc-fixes, thanks!
+From AI review (gemini/gemini-3.1-pro-preview):
 
-[1/1] firmware: microchip: fail auto-update probe if no flash found
-      https://git.kernel.org/conor/c/c30b2509164f
+  Does this code need to validate that `cpu` is within bounds before
+  using it?  Before this change, the `cpu_uid` parameter was passed
+  opaquely to the ACPI firmware via `tph_invoke_dsm()`, which would
+  gracefully handle invalid values.
 
-Thanks,
-Conor.
+  Now, `cpu` is treated as a logical CPU index and passed to
+  `acpi_get_cpu_acpi_id(cpu)`. On architectures like arm64 and riscv,
+  `acpi_get_cpu_acpi_id()` uses `cpu` directly as an array index
+  (`&cpu_madt_gicc[cpu]` and `&cpu_madt_rintc[cpu]`). On x86, it uses
+  `per_cpu(x86_cpu_to_acpiid, cpu)`.
+
+  If a caller passes an out-of-bounds `cpu` index (for example, if an
+  IRQ affinity mask is empty and `cpumask_first()` returns
+  `nr_cpu_ids`, or if userspace passes an arbitrary ID via
+  `mlx5_st_alloc_index()`), this will result in an out-of-bounds
+  memory read.
+
+  Consider adding a bounds check:
+
+    if (cpu >= nr_cpu_ids)
+      return -EINVAL;
+
+I agree that this is an issue, and I think implementations of
+acpi_get_cpu_acpi_id() should validate their inputs.
+
+I don't know if there's a value that can never be a valid ACPI CPU UID
+and could be used as an error value from acpi_get_cpu_acpi_id().  I do
+see a few mentions of a ~0 value meaning "all processors" (ACPI r6.6,
+sec 5.2.12.13).  
 
 _______________________________________________
 linux-riscv mailing list
