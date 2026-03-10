@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3227FD4F08
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 17:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4B15FD4F07
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 17:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NMdjOrVXXHLK8N0yejqmWl7GRk54LT5Y+qMFtI5pbCY=; b=FW8H+ZZ0acsYuB
-	frf0PggqnFm9Zu03uCrLBxCbXRWb2CHoGWyj0CkFC8lELLaSGSyAyktQwJhDCxJt5So+eqJyy+C6w
-	GrowArSPEKbVgHMkbZR5h7NffY1MFpGwwoNDPHv3nwbaIaMdnp1owoBZennLDLUNyNxwSHMajLOE/
-	hvFqcy0gfTUkU+Hot9WsiUp+sGXKOUjWCcAthzFZI8h1zP+gDsrDM5O1uJ65laQv3n9AuzZLVGG3c
-	T9JYhWmuphUwH+p42BK+yqjUHg2m3b2aebHsbdMZ7LFKMICMKGF+FG5IQ4pqF6o2YQdhYW7QP8hTt
-	PaRXZXTqI2wLxd5QzGQg==;
+	List-Owner; bh=bCQ6T5AeHMYIV34j0nYhFcH4KnT8mRKpU4AJFk8rbSU=; b=mmZixqxHvIi7t5
+	sxh3uoom16Cdb1tVfZu5mCsfxf2A8fzEwH4yPhgVQZAdsBX4zXLuFdk23CpN1NXaGud9Z3Q6TeLwg
+	91/sbu3mmV8lYETKcp9M6FU3oii0Yp9V87sGb/AYiY2TgaZsvmohanQ8pQdxuqpO82sfVYWk74yuX
+	46mGG2Oe0bM0LKxpfdvgdmIFQo1qpmLdpY80V/cT89z2YVRdni4UysIHR+d7FG7bxCmwjSLtIAqAD
+	EcU8o7rI1ZJO4sxgzAayLBc0Nz6lGy/5+EV96xs6zOqZS+RktdADRXd26uFUTDDu2sgjvqi88NStY
+	/OJPjt5DU1I/AXazqtYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w00jv-00000009xzc-3pLs;
-	Tue, 10 Mar 2026 17:19:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w00k1-00000009y3C-19mq;
+	Tue, 10 Mar 2026 17:19:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w00jt-00000009xxO-23FY
+	id 1w00jz-00000009y1j-2LsI
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Mar 2026 17:19:26 +0000
+	Tue, 10 Mar 2026 17:19:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E391408FE;
+	by tor.source.kernel.org (Postfix) with ESMTP id F3A3B600C4;
+	Tue, 10 Mar 2026 17:19:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63D81C2BCAF;
 	Tue, 10 Mar 2026 17:19:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACBCAC19425;
-	Tue, 10 Mar 2026 17:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773163165;
-	bh=XKo6oEcfxrAO5a6uL1jOlJ673A3wAiggYrYhD1OOv/s=;
+	s=k20201202; t=1773163170;
+	bh=l0HWcNcVkVo9YLSrRqspDdP84/kdc2LHA5rpvVoVGqQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sNQGP8awIFmI2BSob6KCi/mtqeHWypqZQig0okBXP8w8ZiDMRwXbUXpJXJpYRh/+5
-	 NMhyb4ut+zCHRctYZMaZqnmwsTFJjSSh6VX0Z9JLnXf9ZFJF9Jit7W89qmyBCy6h2F
-	 OlT0BcBKhQZnCAlYTHkzW+iLoMGy/EaRZBy+krRUCxSkC6539O1//86z8DX1BC4kSx
-	 QNpa6vkoK3XlY5fCiiCGZ4ClUl15Y94LYMExbZIVNoYMcr6IJFSvXaYlXDqKfFTx47
-	 Zvq871TL0AxKknXARgdeQAuy1/BnZQoMOpE1V7IAblLB7DV2KIbk7HJ5MC/vi5VOzj
-	 OM/fo7QTgYMKw==
+	b=UZOu3jbwCJQybbw9ITXnq/6jm5sdEpvaO+pzakWGIN+iyNSYTLLBQrrVJbrd1idVB
+	 DybwhA0D4ougEcRqKzQY3N4YRh37XIXm03vtPrUhecWaT6kICBhAOSfcPQu6zKE0zK
+	 BbLFZDPLFdD9iHsUglpz5krTCzo8mskSRB367Xkmbx91gFSLrobe3B4okgNBfdqIR3
+	 jjom2dj3pT88Xcnvdb4uEKRdZ2N6kYYIBCP0qYrODBczDflStGNgQaJyhb0uC4J3df
+	 wV8Ojw8QDjkE2u3Avb3ERM6xrUmPVREwxR2jkYto+Hozb+H72DReSd8/Vzeg1Ra29F
+	 zVeznfyxV7fEA==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -73,18 +73,15 @@ Cc: conor@kernel.org,
 	Abin Joseph <abin.joseph@amd.com>,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
 	Ryan.Wanner@microchip.com
-Subject: [PATCH net-next v3 07/10] net: macb: warn on pclk use as a tsu_clk fallback
-Date: Tue, 10 Mar 2026 17:17:14 +0000
-Message-ID: <20260310-unsubtle-velvet-4bb458cc06ba@spud>
+Subject: [PATCH net-next v3 08/10] net: macb: clean up tsu clk rate acquisition
+Date: Tue, 10 Mar 2026 17:17:15 +0000
+Message-ID: <20260310-undefined-unfocused-805b5f2d3b37@spud>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260310-moneyless-dispense-7bce14b16388@spud>
 References: <20260310-moneyless-dispense-7bce14b16388@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3276; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=NwKelKp1tigxckCA+KrqnMxOmrCbE/r2GTIcp/cWLQA=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkbgvS2BG/8Wp10pvJn4NknK19+fvX1b+aea4FLi7305 qx3WK34vKOUhUGMi0FWTJEl8XZfi9T6Py47nHvewsxhZQIZwsDFKQATebCNkWH3niuXnzXe67Q3 e1adLzT7lGTwHamyCV8LH8zYNIGRVaiE4X+sy+zda+L7unUWqK+KrZeW3WFg6CbPLPGq5dfhv1I 7PdgA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1291; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=pBzsAzv0f5XjXC1axq0Olq90oNiYo0A1zmrCQdWDjrw=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkbgvRMZz1RyXH1WvCHJZxzkUWcxREP8bC0lU/neAeYM hRfYb7SUcrCIMbFICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgInEzGT4Z5Ta9aBIhzcmk3Ph vnTjuc1xro67WCsSdZ7HCfTq7n5wlpHhf6Jd9lSnx3qf/E61ss7fvejji/+v+B+t3DhX1VmLV0q FAQA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_101925_574747_A6AB2E56 
-X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,67 +100,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The Candence GEM IP has a configuration parameter which determines the
-source of the clock used for the timestamp unit (if it is enabled),
-switching it between using the pclk and a dedicated input.
-
-When ptp support was added to the macb driver, a new tsu_clk was added
-to represent the dedicated input. While this is understandable, I think
-it is bug prone and that the tsu_clk should represent whatever clock is
-used for the timestamper and not just that specific input.
-
->From a driver point of view, the benefit of taking the conceptual
-approach is avoiding misconfiguring the driver when the hardware
-supports ptp (and it is set as a capability in the relevant per-device
-structure) but no tsu_clk is provided in devicetree. At the moment, the
-timestamper will be registered and programmed with an increment that
-reflects the pclk in these cases, but will malfunction if the pclk and
-tsu_clk frequencies do not match. Obviously, this means the devicetree
-incorrectly represents the hardware, but this change in approach would
-make the driver more resilient without meaningfully impacting correctly
-described users.
-
-Out of the devices that claim MACB_CAPS_GEM_HAS_PTP the fu540, mpfs,
-sama5d2 and sama7g5-emac (but not sama7g5-gem) are at risk of having
-this problem with the in-kernel devicetrees. mpfs and sama7g5-emac
-have been confirmed to be incorrect, and sama5d2 is correct. It may be
-that the other platforms actually do use the pclk for the timestamper
-(either by supplying pclk to the tsu_clk input of the IP, or by having
-the IP block configured to use pclk instead of the tsu_clk input), but
-at least two are wrong, as they do not use pclk for the tsu_clk, so the
-driver is registering the ptp clock incorrectly.
-
-Add a warning if no tsu_clk is provided on a platform that uses the
-timerstamper, to encourage people to specifically provide a tsu_clk and
-avoid silently registering the timerstamper with the wrong clock. If the
-pclk is actually used, it can be provided as a tsu_clk for improved
-clarity in devicetrees.
-
-While this changes the meaning of the devicetree property, it is
-backwards compatible as there's no functional change for platforms that
-didn't provide a tsu_clk and the changed meaning of providing a tsu_clk
-in the devicetree does not impact platforms that already provided one as
-the decision about the tsu clock source is at IP instantiation time
-rather than at runtime, so there's no driver behaviour that needs to
-change based on the input to the IP used for the timestamping unit.
+tsu_clk is grabbed during probe, so doesn't need to be re-grabbed here.
+pclk is mandatory, probe will fail if it is err/NULL, so there's no need
+to check it here or have a !pclk 3rd arm. Simplify gem_get_tsu_rate() to
+account for these facts.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/net/ethernet/cadence/macb_main.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/ethernet/cadence/macb_main.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index b476bc9663ecd..6b37598ac57cd 100644
+index 6b37598ac57cd..38e75c2e097bf 100644
 --- a/drivers/net/ethernet/cadence/macb_main.c
 +++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -3534,6 +3534,7 @@ static unsigned int gem_get_tsu_rate(struct macb *bp)
- 	else if (!IS_ERR(bp->pclk)) {
+@@ -3527,16 +3527,14 @@ static unsigned int gem_get_tsu_rate(struct macb *bp)
+ 	struct clk *tsu_clk;
+ 	unsigned int tsu_rate;
+ 
+-	tsu_clk = devm_clk_get(&bp->pdev->dev, "tsu_clk");
+-	if (!IS_ERR(tsu_clk))
+-		tsu_rate = clk_get_rate(tsu_clk);
+-	/* try pclk instead */
+-	else if (!IS_ERR(bp->pclk)) {
++	if (!IS_ERR_OR_NULL(bp->tsu_clk)) {
++		tsu_rate = clk_get_rate(bp->tsu_clk);
++	} else {
  		tsu_clk = bp->pclk;
  		tsu_rate = clk_get_rate(tsu_clk);
-+		dev_warn(&bp->pdev->dev, "devicetree missing tsu_clk, using pclk as fallback\n");
- 	} else
- 		return -ENOTSUPP;
+ 		dev_warn(&bp->pdev->dev, "devicetree missing tsu_clk, using pclk as fallback\n");
+-	} else
+-		return -ENOTSUPP;
++	}
++
  	return tsu_rate;
+ }
+ 
 -- 
 2.51.0
 
