@@ -4,52 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F03EB1076
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 15:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B881BFD4F04
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 16:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EMKgkYtGK+6AHgclFlutRTgv3v47tM6LUqXnA0M9hkQ=; b=n6yW3k8fZkaRhnAX6moDKD5bHu
-	3OeBXk2VEWvzzFMB3/7KPLYnPqlPsDKxQ7+D2Oral/HX+tGKvYmWBnI2LAHrpWmSGwN1UoW9gJ6aY
-	/vp5ZaaPawZh+CciKHWWZ6UEkWihXIKB44/+C9la86TA/pIGRkFbYXWuTglTo5yS1OJQPDMWOUN+A
-	28qsj54Xq0Jb1QEq2W8ftD0I/lh3IS5l3dnjh5iyH4757fhaaXw1w6j4noldnqJo8cnbou7pJgKQA
-	PFFQKn1dQdNqlC6WH57zKnBQV1qJhSXkdzlMM6y2HekGW/q0h3qk0ThLACMQRD2H1NYxH0nQIjnpf
-	XNOyb2+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cfGCgO0/ZLKT9q6cDFL6YPbCNAsU2YHsf3rqS6XwTtI=; b=ud/VKYcAtVqKYK
+	kPQ8eoMxwSrOeAMmKnw+3H6eof/nIA/K8eMF6hxt7XpXGNHdOjS0GemMvHr27JI4iVsNFUwaS1PKO
+	gaiq3+SATlrjQTg94mSTGiX6WRmccz31EpVlw2aduZmAOehpBlOCzlOlFA+BePj+UXJZrVg+LGK4A
+	Nt/K82mkz7CRzpU2YYqnn4LCh6t/gYuLiDtsuvj7Nawu7Hn4ukBsd/eY1ZXYSDM4VNW1Nx79nom+Q
+	ZPDAJ3pF3NyT3KThJ3eubzDoh/wh9i1f+eyd7uJbBPEf+SfKLwoXbs57CTaChc8XKFK+FaAzBqJHA
+	uumDt3ESTomh1HH7+HTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzUC-00000009sBI-2ljp;
-	Tue, 10 Mar 2026 15:59:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzzU7-00000009sAI-3en4;
-	Tue, 10 Mar 2026 15:59:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74A8B16A3;
-	Tue, 10 Mar 2026 08:58:54 -0700 (PDT)
-Received: from [192.168.20.93] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 384493F7BD;
-	Tue, 10 Mar 2026 08:58:53 -0700 (PDT)
-Message-ID: <657142d1-1632-4a3e-8800-ee1dd5763d78@arm.com>
-Date: Tue, 10 Mar 2026 10:58:49 -0500
+	id 1vzznb-00000009u3U-03eE;
+	Tue, 10 Mar 2026 16:19:11 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzznW-00000009u24-48rG
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Mar 2026 16:19:09 +0000
+Received: from localhost.localdomain (unknown [223.166.92.103])
+	by APP-03 (Coremail) with SMTP id rQCowAB3lNtwRLBpMRBECg--.1611S6;
+	Wed, 11 Mar 2026 00:18:59 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Han Gao <rabenda.cn@gmail.com>,
+	Han Gao <gaohan@iscas.ac.cn>
+Subject: [PATCH v2 4/4] riscv: dts: spacemit: Enable USB3.0/PCIe on OrangePi RV2
+Date: Wed, 11 Mar 2026 00:18:53 +0800
+Message-ID: <20260310161853.3900605-5-gaohan@iscas.ac.cn>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260310161853.3900605-1-gaohan@iscas.ac.cn>
+References: <20260310161853.3900605-1-gaohan@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] PCI/TPH: Fix get cpu steer-tag fail on ARM64
- platform
-To: Chengwen Feng <fengchengwen@huawei.com>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>
-References: <20260310032049.25387-1-fengchengwen@huawei.com>
- <20260310032049.25387-3-fengchengwen@huawei.com>
-Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <20260310032049.25387-3-fengchengwen@huawei.com>
+X-CM-TRANSID: rQCowAB3lNtwRLBpMRBECg--.1611S6
+X-Coremail-Antispam: 1UD129KBjvJXoWxAw1rJrWxArWxuFyxGryUJrb_yoW5ZFWrpF
+	17Wrsa9a4rAryfKw45Wa4Iga1rWr1vka95Cwn5Zr48GF4qga4q9rn7Ar1rAF1rWr48X3y3
+	AFW2yFy8KF12g3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmI14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
+	1UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r4U
+	JwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
+	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
+	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
+	kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
+	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
+	AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI
+	42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCw
+	CI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnI
+	WIevJa73UjIFyTuYvjfUOyIUUUUUU
+X-Originating-IP: [223.166.92.103]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiDAgCDGmwM1AtDgAAsT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_085904_027999_0BD17386 
-X-CRM114-Status: GOOD (  37.89  )
+X-CRM114-CacheID: sfid-20260310_091907_401394_AFC39896 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,236 +87,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Ajit Khaparde <ajit.khaparde@broadcom.com>, x86@kernel.org, liuyonglong@huawei.com, linux-doc@vger.kernel.org, Kees Cook <kees@kernel.org>, linux-pci@vger.kernel.org, Dave Hansen <dave.hansen@linux.intel.com>, Somnath Kotur <somnath.kotur@broadcom.com>, Wathsala Vithanage <wathsala.vithanage@arm.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, Shuah Khan <skhan@linuxfoundation.org>, WANG Xuerui <kernel@xen0n.name>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, Thorsten Blum <thorsten.blum@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Jonathan Cameron <jonathan.cameron@huawei.com>, Sohil Mehta <sohil.mehta@intel.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, Sean Christopherson <seanjc@google.com>, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
+OrangePi RV2 board.
 
-+Wathsala who has been looking at TPH too.
+The board utilizes a Genesys Logic GL3523 hub, which requires two
+separate power supplies: one VBUS and one for hub itself.
+Add two GPIO-controlled fixed-regulators to manage this.
 
-On 3/9/26 10:20 PM, Chengwen Feng wrote:
-> pcie_tph_get_cpu_st() is broken on ARM64:
-> 1. pcie_tph_get_cpu_st() passes cpu_uid to the PCI ACPI DSM method.
->     cpu_uid should be the ACPI Processor UID [1].
-> 2. In BNXT, pcie_tph_get_cpu_st() is passed a cpu_uid obtained via
->     cpumask_first(irq->cpu_mask) - the logical CPU ID of a CPU core,
->     generated and managed by kernel (e.g., [0,255] for a system  with 256
->     logical CPU cores).
-> 3. On ARM64 platforms, ACPI assigns Processor UID to cores listed in the
->     MADT table, and this UID may not match the kernel's logical CPU ID.
->     When this occurs, the mismatch results in the wrong CPU steer-tag.
-> 4. On AMD x86 the logical CPU ID is identical to the ACPI Processor UID
->     so the mismatch is not seen.
-> 
-> Resolution:
-> 1. Implement acpi_get_cpu_acpi_id() for x86, which replaces
->     cpu_acpi_id(). All ACPI platforms now have an implementation.
-> 2. Use acpi_get_cpu_acpi_id() in pcie_tph_get_cpu_st() to translate from
->     logical CPU ID to ACPI Processor UID needed for the DSM call.
-> 3. Rename pcie_tpu_get_cpu_st() parameter from cpu_uid to cpu to
->     reflect that it is a logical CPU_ID.
-> 
-> [1] According to ECN_TPH-ST_Revision_20200924
->      (https://members.pcisig.com/wg/PCI-SIG/document/15470), the input
->      is defined as: "If the target is a processor, then this field
->      represents the ACPI Processor UID of the processor as specified in
->      the MADT. If the target is a processor container, then this field
->      represents the ACPI Processor UID of the processor container as
->      specified in the PPTT."
+Define a 3.3v fixed voltage regulator to be used by PCIe on OPi RV2.
 
-The bit about "processor containers" is not supported by linux yet, and 
-is potentially a problem worth considering.
+Define PCIe and PHY-related Device Tree nodes for the OPi RV2.
 
-The original rename comments from the previous patch versions are on 
-point, but since they have grown large, i'm going to suggest the x86 
-rename/shuffle here is also in its own patch seperate from the TPH 
-specific changes like the arm ones now are.
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 90 +++++++++++++++++++
+ 1 file changed, 90 insertions(+)
 
-Thanks for looking after this.
-
-> 
-> Fixes: d2e8a34876ce ("PCI/TPH: Add Steering Tag support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> ---
->   Documentation/PCI/tph.rst    |  4 ++--
->   arch/x86/include/asm/acpi.h  |  2 ++
->   arch/x86/include/asm/cpu.h   |  1 -
->   arch/x86/include/asm/smp.h   |  1 -
->   arch/x86/kernel/cpu/common.c | 12 ++++++++++++
->   arch/x86/xen/enlighten_hvm.c |  4 ++--
->   drivers/pci/tph.c            | 11 ++++++-----
->   include/linux/pci-tph.h      |  4 ++--
->   8 files changed, 26 insertions(+), 13 deletions(-)
-> 
-> diff --git a/Documentation/PCI/tph.rst b/Documentation/PCI/tph.rst
-> index e8993be64fd6..b6cf22b9bd90 100644
-> --- a/Documentation/PCI/tph.rst
-> +++ b/Documentation/PCI/tph.rst
-> @@ -79,10 +79,10 @@ To retrieve a Steering Tag for a target memory associated with a specific
->   CPU, use the following function::
->   
->     int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type type,
-> -                          unsigned int cpu_uid, u16 *tag);
-> +                          unsigned int cpu, u16 *tag);
->   
->   The `type` argument is used to specify the memory type, either volatile
-> -or persistent, of the target memory. The `cpu_uid` argument specifies the
-> +or persistent, of the target memory. The `cpu` argument specifies the
->   CPU where the memory is associated to.
->   
->   After the ST value is retrieved, the device driver can use the following
-> diff --git a/arch/x86/include/asm/acpi.h b/arch/x86/include/asm/acpi.h
-> index a03aa6f999d1..b968369715c1 100644
-> --- a/arch/x86/include/asm/acpi.h
-> +++ b/arch/x86/include/asm/acpi.h
-> @@ -157,6 +157,8 @@ static inline bool acpi_has_cpu_in_madt(void)
->   	return !!acpi_lapic;
->   }
->   
-> +u32 acpi_get_cpu_acpi_id(unsigned int cpu);
-> +
->   #define ACPI_HAVE_ARCH_SET_ROOT_POINTER
->   static __always_inline void acpi_arch_set_root_pointer(u64 addr)
->   {
-> diff --git a/arch/x86/include/asm/cpu.h b/arch/x86/include/asm/cpu.h
-> index ad235dda1ded..57a0786dfd75 100644
-> --- a/arch/x86/include/asm/cpu.h
-> +++ b/arch/x86/include/asm/cpu.h
-> @@ -11,7 +11,6 @@
->   
->   #ifndef CONFIG_SMP
->   #define cpu_physical_id(cpu)			boot_cpu_physical_apicid
-> -#define cpu_acpi_id(cpu)			0
->   #endif /* CONFIG_SMP */
->   
->   #ifdef CONFIG_HOTPLUG_CPU
-> diff --git a/arch/x86/include/asm/smp.h b/arch/x86/include/asm/smp.h
-> index 84951572ab81..05d1d479b4cf 100644
-> --- a/arch/x86/include/asm/smp.h
-> +++ b/arch/x86/include/asm/smp.h
-> @@ -130,7 +130,6 @@ __visible void smp_call_function_interrupt(struct pt_regs *regs);
->   __visible void smp_call_function_single_interrupt(struct pt_regs *r);
->   
->   #define cpu_physical_id(cpu)	per_cpu(x86_cpu_to_apicid, cpu)
-> -#define cpu_acpi_id(cpu)	per_cpu(x86_cpu_to_acpiid, cpu)
->   
->   /*
->    * This function is needed by all SMP systems. It must _always_ be valid
-> diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-> index 1c3261cae40c..93f4f3283c81 100644
-> --- a/arch/x86/kernel/cpu/common.c
-> +++ b/arch/x86/kernel/cpu/common.c
-> @@ -29,6 +29,7 @@
->   #include <linux/utsname.h>
->   #include <linux/efi.h>
->   
-> +#include <asm/acpi.h>
->   #include <asm/alternative.h>
->   #include <asm/cmdline.h>
->   #include <asm/cpuid/api.h>
-> @@ -57,6 +58,7 @@
->   #include <asm/asm.h>
->   #include <asm/bugs.h>
->   #include <asm/cpu.h>
-> +#include <asm/smp.h>
->   #include <asm/mce.h>
->   #include <asm/msr.h>
->   #include <asm/cacheinfo.h>
-> @@ -2643,3 +2645,13 @@ void __init arch_cpu_finalize_init(void)
->   	 */
->   	mem_encrypt_init();
->   }
-> +
-> +u32 acpi_get_cpu_acpi_id(unsigned int cpu)
-> +{
-> +#ifndef CONFIG_SMP
-> +	return 0;
-> +#else
-> +	return per_cpu(x86_cpu_to_acpiid, cpu);
-> +#endif
-> +}
-> +EXPORT_SYMBOL_GPL(acpi_get_cpu_acpi_id);
-> diff --git a/arch/x86/xen/enlighten_hvm.c b/arch/x86/xen/enlighten_hvm.c
-> index fe57ff85d004..0a5cde7865b2 100644
-> --- a/arch/x86/xen/enlighten_hvm.c
-> +++ b/arch/x86/xen/enlighten_hvm.c
-> @@ -161,8 +161,8 @@ static int xen_cpu_up_prepare_hvm(unsigned int cpu)
->   	 */
->   	xen_uninit_lock_cpu(cpu);
->   
-> -	if (cpu_acpi_id(cpu) != CPU_ACPIID_INVALID)
-> -		per_cpu(xen_vcpu_id, cpu) = cpu_acpi_id(cpu);
-> +	if (acpi_get_cpu_acpi_id(cpu) != CPU_ACPIID_INVALID)
-> +		per_cpu(xen_vcpu_id, cpu) = acpi_get_cpu_acpi_id(cpu);
->   	else
->   		per_cpu(xen_vcpu_id, cpu) = cpu;
->   	xen_vcpu_setup(cpu);
-> diff --git a/drivers/pci/tph.c b/drivers/pci/tph.c
-> index ca4f97be7538..c1bd60637b5a 100644
-> --- a/drivers/pci/tph.c
-> +++ b/drivers/pci/tph.c
-> @@ -236,18 +236,19 @@ static int write_tag_to_st_table(struct pci_dev *pdev, int index, u16 tag)
->    * with a specific CPU
->    * @pdev: PCI device
->    * @mem_type: target memory type (volatile or persistent RAM)
-> - * @cpu_uid: associated CPU id
-> + * @cpu: associated CPU id
->    * @tag: Steering Tag to be returned
->    *
->    * Return the Steering Tag for a target memory that is associated with a
-> - * specific CPU as indicated by cpu_uid.
-> + * specific CPU as indicated by cpu.
->    *
->    * Return: 0 if success, otherwise negative value (-errno)
->    */
->   int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
-> -			unsigned int cpu_uid, u16 *tag)
-> +			unsigned int cpu, u16 *tag)
->   {
->   #ifdef CONFIG_ACPI
-> +	u32 cpu_uid = acpi_get_cpu_acpi_id(cpu);
->   	struct pci_dev *rp;
->   	acpi_handle rp_acpi_handle;
->   	union st_info info;
-> @@ -265,9 +266,9 @@ int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
->   
->   	*tag = tph_extract_tag(mem_type, pdev->tph_req_type, &info);
->   
-> -	pci_dbg(pdev, "get steering tag: mem_type=%s, cpu_uid=%d, tag=%#04x\n",
-> +	pci_dbg(pdev, "get steering tag: mem_type=%s, cpu=%d, tag=%#04x\n",
->   		(mem_type == TPH_MEM_TYPE_VM) ? "volatile" : "persistent",
-> -		cpu_uid, *tag);
-> +		cpu, *tag);
->   
->   	return 0;
->   #else
-> diff --git a/include/linux/pci-tph.h b/include/linux/pci-tph.h
-> index ba28140ce670..be68cd17f2f8 100644
-> --- a/include/linux/pci-tph.h
-> +++ b/include/linux/pci-tph.h
-> @@ -25,7 +25,7 @@ int pcie_tph_set_st_entry(struct pci_dev *pdev,
->   			  unsigned int index, u16 tag);
->   int pcie_tph_get_cpu_st(struct pci_dev *dev,
->   			enum tph_mem_type mem_type,
-> -			unsigned int cpu_uid, u16 *tag);
-> +			unsigned int cpu, u16 *tag);
->   void pcie_disable_tph(struct pci_dev *pdev);
->   int pcie_enable_tph(struct pci_dev *pdev, int mode);
->   u16 pcie_tph_get_st_table_size(struct pci_dev *pdev);
-> @@ -36,7 +36,7 @@ static inline int pcie_tph_set_st_entry(struct pci_dev *pdev,
->   { return -EINVAL; }
->   static inline int pcie_tph_get_cpu_st(struct pci_dev *dev,
->   				      enum tph_mem_type mem_type,
-> -				      unsigned int cpu_uid, u16 *tag)
-> +				      unsigned int cpu, u16 *tag)
->   { return -EINVAL; }
->   static inline void pcie_disable_tph(struct pci_dev *pdev) { }
->   static inline int pcie_enable_tph(struct pci_dev *pdev, int mode)
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+index 1f08a2713345..fa30f8ba5c77 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+@@ -23,6 +23,15 @@ chosen {
+ 		stdout-path = "serial0";
+ 	};
+ 
++	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "PCIE_VCC3V3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		gpio = <&gpio K1_GPIO(116) GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
+ 	reg_dc_in: regulator-dc-in-12v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "dc_in_12v";
+@@ -42,6 +51,24 @@ reg_vcc_4v: regulator-vcc-4v {
+ 		vin-supply = <&reg_dc_in>;
+ 	};
+ 
++	regulator-usb3-vbus-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "USB30_VBUS";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	usb3_hub_5v: regulator-usb3-hub-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "USB30_HUB";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
+ 	leds {
+ 		compatible = "gpio-leds";
+ 
+@@ -54,6 +81,10 @@ led1 {
+ 	};
+ };
+ 
++&combo_phy {
++	status = "okay";
++};
++
+ &eth0 {
+ 	phy-handle = <&rgmii0>;
+ 	phy-mode = "rgmii-id";
+@@ -230,8 +261,67 @@ dldo7 {
+ 	};
+ };
+ 
++&pcie1_phy {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie1_3_cfg>;
++	status = "okay";
++};
++
++&pcie1_port {
++	phys = <&pcie1_phy>;
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
++};
++
++&pcie1 {
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
++	status = "okay";
++};
++
++&pcie2_phy {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie2_4_cfg>;
++	status = "okay";
++};
++
++&pcie2_port {
++	phys = <&pcie2_phy>;
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
++};
++
++&pcie2 {
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
+ 	status = "okay";
+ };
++
++&usbphy2 {
++	status = "okay";
++};
++
++&usb_dwc3 {
++	dr_mode = "host";
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	hub_2_0: hub@1 {
++		compatible = "usb5e3,610";
++		reg = <0x1>;
++		vdd-supply = <&usb3_hub_5v>;
++		peer-hub = <&hub_3_0>;
++		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
++	};
++
++	hub_3_0: hub@2 {
++		compatible = "usb5e3,620";
++		reg = <0x2>;
++		vdd-supply = <&usb3_hub_5v>;
++		peer-hub = <&hub_2_0>;
++		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
++	};
++};
+-- 
+2.47.3
 
 
 _______________________________________________
