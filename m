@@ -4,85 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BFF2FCC9A4
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 01:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C81CFCC9A2
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 01:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m42Q1KNcbRnRWlB379/y8BRBCZy3i+xXnP92VEGmdLQ=; b=VaapAohLMWQ5/V
-	/Bigl735V4yfGZ12B174DDE2qAGswHWomz+dlmSH9UK8CG8fUErqi3+5c/FoIkdakPO9h13EPf0sk
-	fDfDWPFO8p5W5bZOpU638VMR/OZq1fyws+ja09fCiBMuxTpQ10Gi2O8+ACPTuFV1Fnrd4QS1j9l4m
-	f9FgFWYqmjulMdWF/arpK9N7Nbz06Ee0Z9fIHmLoyQowtbVUwiH8erGPRL9ItsTzYkZsQKZVE8s4K
-	+myX2qZPfG3gZSlJYIlJ8+JqimjDlMQeUkMCMm+72ZvCty48nvETLB+49aG6H2zzudDf4WnuMqXwO
-	OlmdsjlWoDQxL+2h3tRQ==;
+	List-Owner; bh=yBWVB2hPDQRPkm6ArLn4v8JbR3DzbQ5ESeGugJ5yy9Y=; b=tAUj4rKzxqE0K/
+	WEZjNgaHHEb+68ryD/arRZEdBcqm8ByVyL5puA/ON2qAM5SZguptFFiD8KreoOKjhKhRZ+/1gqDKx
+	s6eorHfJfjchJnxFPb66i4XSUW0J/K6iGiCiREF1lPDBGl269QAWFIj5YMl/JgJ+CJsBX2ALnAu9q
+	5oQcSEN7bNKOYp+zX686bM0AhACQUVw/NpDrrxmqp9S1a3lPIrlHP/FVkXbnIj8Xm79My9DN4wFKm
+	p9zHtb/DjB2sIXcwz3+sa99DpVJ/zE2wIeFWvnEDbGq73KAH9P9EJ5vvdr49RVhnuory3+B7xTji/
+	fleXY1p/6i0nmeAoAJ9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzlzj-00000008UdH-2LHF;
-	Tue, 10 Mar 2026 01:34:47 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1vzmAZ-00000008VC0-1bh8;
+	Tue, 10 Mar 2026 01:45:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzlzf-00000008Ucp-1iT1;
-	Tue, 10 Mar 2026 01:34:45 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KynWhPmsq2hgGRdlS5xCodsoSRLB81yWfnaTYob3MHk=;
-	b=Kh676+Q/BlPxtpIddEk+9ICljaWAqVwx0/XgQUgVlvFz1XcZ20W27ChKwIzLEUVcWTbJx6HbV
-	ikPNF9Y2vHA7hELlqoXqrDU2ad2lXumKu5JNd9anYgbNv9VSKDnpeFJJS+kiKxEVvLmGqL2v9A7
-	aE0Nov/WUJOUyJeqCQokOIQ=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4fVGWm0gfVz1cyTP;
-	Tue, 10 Mar 2026 09:29:40 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 60F4240565;
-	Tue, 10 Mar 2026 09:34:34 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 10 Mar 2026 09:34:29 +0800
-Message-ID: <f46f7987-3d47-ec25-ea45-e1b643d380e3@huawei.com>
-Date: Tue, 10 Mar 2026 09:34:28 +0800
+	id 1vzmAX-00000008VBu-20Wd
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 10 Mar 2026 01:45:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=sas/jGM9/gBj/qBL5u5kVfFi+K6+9Elbw68TaVWyj4k=; b=maadWTmkpNjmzERW6O+ZY09ADq
+	8wV64INo8sAgVsBmoO0AsqV8hYjoC8rcluxVdixcjwoQ3lulqVV14ckCt8B/Ka24W1oDI99LM9i75
+	2pHV+29E/Wq7FCMV/H2xTVZK4xbLTTs2sKv5g9GqpHbjnK6hJ0zqjmpNatJ8c7uxJzpE3ONWVyXHv
+	GBsT3McuRyvtGzjcB7Sf40FxQiec0QXtA2Z/wXnJrSZGIva3iAs8twD4QOcAjJmfNliNkZOzOzMyv
+	pYjNdAzLXwD80KHVXCuqLfWrrz3pFhhSw7GyJGoNcHrvR6OosiHMnNJHFQai43z/mCuOK/j/pOP+4
+	mQscrA8w==;
+Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzmAT-0000000DVLv-2ba2
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Mar 2026 01:45:56 +0000
+Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-1273349c56bso14921178c88.0
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Mar 2026 18:45:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773107151; x=1773711951; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=sas/jGM9/gBj/qBL5u5kVfFi+K6+9Elbw68TaVWyj4k=;
+        b=Sjlv65OxDXozPyeSGmlBM8jhU44qUJG+u6rAz2ZxHd29x6TpWUNr6wrJ4ST5Hpa/FF
+         yPj9+yDniCVQsP0drUgQENiN7I1WE1arHyC20zyRuJl3Ib5sJY9pjLrC8wlB/qjyecOZ
+         Of8stM97Z2e3MpuEaBz1PK3GvEVhsqZU8oOXYqWBYdBvfZgPavVJQjHswmSamCvUIuXV
+         pFpIy2O6twZva4LwF7Zzie5bckyfDJKWC75iBEgjEriCkQbSbtI8oiTQE9TP7PP8QDf7
+         CLR4Xqbq2sF8OhUdtk1wZ+/CF1HG5gsjdhvnN/TpwGAB1ffShPnWkWH4IYZyryQozXZL
+         /Rwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773107151; x=1773711951;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sas/jGM9/gBj/qBL5u5kVfFi+K6+9Elbw68TaVWyj4k=;
+        b=qf5Uk35024ln5g/4BtFig3IA2nK6QatXwEbYaPosjDD96hZz7nz51PLvFzS4ItFDDd
+         H17TW1EEB/S4JdGTq9RZFmqwG/xUbs/aJ49E6/ycjy0ZItRBOymF+8X0llLc7X3xHFt6
+         tDQ6XL85yzEhH5RWFdM4TxodHfDlckT6qKpE+y1k2d7TfqKf8NxeD+2/s3pEuVdI/Vbu
+         mNqgXrdLTMV7KglvVQLGHe201RgaC9TR5ZtzhDC9ukGL+3yl7HgbM1ucFUJyDGMuoht6
+         Zdb6ciZ6nCZ8ScRH0pnJOjgQcA9MEDlzpqNvyhKmpJrkEXl7Y9Fq7DaD9wf2dXE3MIQg
+         oukA==
+X-Forwarded-Encrypted: i=1; AJvYcCV325lJyGRiWxxwzUFBney9FmcQhQIQ1eL6lGh+PmMxglSLweP5FyEWGLMHviAs5dERIHT8Y/GfHQoUJg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw44H5tr1eEFFl6ZtgM9s/bT9jkBLgpzLFM/v7hFLO3wnfSeY6T
+	9M0NNCvji5zUU/+5BUsJH7AQ/WjPREd4C25JMOJnJvrrzC9BiPSKlHpJ
+X-Gm-Gg: ATEYQzz4qgz+X0i+YCPyOszj40YVLBcivY3rVndDq28POnv8019izP7AtdawJ8z5vaV
+	l5+cqQa1PyCpXJdIKxEiOausI6YbRkZd2W55COCGMrg+vB2QY7I5SgA2V/Lk9t7w0aWCVA+b7mF
+	3CLSLEoPFZd6fr+sB1dgfuoSHZWEAE3FgUACqraUPHS28x6ayWcH+TqjCw30/b3G6XaffKCx8VX
+	TXCD7esqM5dapLSlnDE3xSizJZx9g2V6Z6yKGvhrUt1JMDwxEBJxgZeOXLPEgDthEfP7uo0NFWC
+	Hmn4gm0a8W7tVdjYZQwYTJLqwCfmEzoJ8tdcLTK/I3DgJ5ddCMkSw+9A5G6g2WZJdq7HBS3geBY
+	AM87WuEEK9Ot9B10ft/qElebQqeTi50H5WUk6HPyLaMlcMxdsic8IJfiJidWZkEzEiSfkBPFVA3
+	hFmbAT8qm5x/8yTLkxC9YdIdd67tkILnjR
+X-Received: by 2002:a05:7022:6b8e:b0:128:d375:f1d3 with SMTP id a92af1059eb24-128d375f681mr3154192c88.18.1773107150649;
+        Mon, 09 Mar 2026 18:45:50 -0700 (PDT)
+Received: from inky.localdomain ([2601:647:6700:64d0::5c10])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-128c3f433d2sm11321482c88.10.2026.03.09.18.45.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Mar 2026 18:45:50 -0700 (PDT)
+Date: Mon, 9 Mar 2026 18:45:46 -0700
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andybnac@gmail.com>,
+	Deepak Gupta <debug@rivosinc.com>, linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/4] selftests: riscv: Fix compilation issues for
+ v_ptrace and cfi
+Message-ID: <20260310014546.GA17809@inky.localdomain>
+References: <20260305-fix_selftests-v1-0-61b62d23500b@gmail.com>
+ <aa85yl-c2suNF5LO@curiosity>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v8 0/5] arm64/riscv: Add support for crashkernel CMA
- reservation
-Content-Language: en-US
-To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
-	<dyoung@redhat.com>, <rdunlap@infradead.org>, <pmladek@suse.com>,
-	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <paulmck@kernel.org>,
-	<lirongqing@baidu.com>, <fvdl@google.com>, <rppt@kernel.org>,
-	<ardb@kernel.org>, <leitao@debian.org>, <sourabhjain@linux.ibm.com>,
-	<jbohac@suse.cz>, <cfsworks@gmail.com>, <osandov@fb.com>,
-	<tangyouling@kylinos.cn>, <ritesh.list@gmail.com>, <hbathini@linux.ibm.com>,
-	<eajames@linux.ibm.com>, <songshuaishuai@tinylab.org>,
-	<kevin.brodsky@arm.com>, <samuel.holland@sifive.com>,
-	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
-	<liaoyuanhong@vivo.com>, <fuqiang.wang@easystack.cn>, <brgerst@gmail.com>,
-	<x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-References: <20260302035315.3892241-1-ruanjinjie@huawei.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260302035315.3892241-1-ruanjinjie@huawei.com>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Disposition: inline
+In-Reply-To: <aa85yl-c2suNF5LO@curiosity>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_183443_756057_F88C54C8 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260310_014554_190464_A2CB9F5C 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,81 +117,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Mar 10, 2026 at 12:21:14AM +0300, Sergey Matyukevich wrote:
+> Hello Charlie,
+> 
+> On Thu, Mar 05, 2026 at 12:11:28AM -0800, Charlie Jenkins via B4 Relay wrote:
+> > There are a couple of compilation issues of the riscv selftests.
+> > Coincidentally two of the issues are independent problems with not
+> > including the header that includes the BIT() macro and the other issue
+> > is from checkpatch incorrectly suggesting to remove non-redundant
+> > braces.
+> > 
+> > Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> > ---
+> > Charlie Jenkins (4):
+> >       selftests: riscv: Add definition of BIT() macro
+> >       selftests: riscv: Add braces around EXPECT_EQ()
+> >       riscv: ptrace: Fix BIT() compilation issues
+> >       selftests: riscv: Add license to cfi selftest
+> > 
+> >  arch/riscv/include/uapi/asm/ptrace.h                     |  1 +
+> >  tools/testing/selftests/riscv/cfi/Makefile               |  2 ++
+> >  tools/testing/selftests/riscv/vector/Makefile            |  2 ++
+> >  tools/testing/selftests/riscv/vector/validate_v_ptrace.c | 16 ++++++++++------
+> >  4 files changed, 15 insertions(+), 6 deletions(-)
+> > ---
+> > base-commit: c107785c7e8dbabd1c18301a1c362544b5786282
+> > change-id: 20260304-fix_selftests-c3f0ae46b3c7
+> > 
+> > Best regards,
+> > -- 
+> > Charlie Jenkins <thecharlesjenkins@gmail.com>
+> 
+> Thanks for catching this !
+> 
+> On rc3 I can also reproduce the issue reported by the kernel test robot
+> for v_exec_initval_nolibc.c and vstate_exec_nolibc.c. The following
+> addition to your fixes seems to resolve it:
 
+I missed that locally since those file compilations were cached for me!
 
-On 2026/3/2 11:53, Jinjie Ruan wrote:
-> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
-> and crashk_cma memory are almost identical across different architectures,
-> This patch set handle them in crash core in a general way, which eliminate
-> a lot of duplication code.
-> 
-> And add support for crashkernel CMA reservation for arm64 and riscv.
+I think we want to keep those as nolibc so instead we can only add the
+header to the CFLAGS for only the tests that want libc, I'll send out an
+updated version.
 
-Hi all,
-
-Do you have any new review comments on this patch set?
-
-Thanks,
+- Charlie
 
 > 
-> Rebased on v7.0-rc1.
+> diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
+> index 92c4cfe5f34d..48d6cd5e72f6 100644
+> --- a/tools/testing/selftests/riscv/vector/Makefile
+> +++ b/tools/testing/selftests/riscv/vector/Makefile
+> @@ -22,15 +22,13 @@ $(OUTPUT)/vstate_prctl: vstate_prctl.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpe
+>  	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+>  
+>  $(OUTPUT)/vstate_exec_nolibc: vstate_exec_nolibc.c
+> -	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
+> -		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+> +	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+>  
+>  $(OUTPUT)/v_initval: v_initval.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+>  	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+>  
+>  $(OUTPUT)/v_exec_initval_nolibc: v_exec_initval_nolibc.c
+> -	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
+> -		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+> +	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+>  
+>  $(OUTPUT)/vstate_ptrace: vstate_ptrace.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
+>  	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+> diff --git a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
+> index 4dde05e45a04..e3f062c85452 100644
+> --- a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
+> +++ b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
+> @@ -9,6 +9,10 @@
+>   * To be "clean" all values must be all zeroes.
+>   */
+>  
+> +#include <stdlib.h>
+> +#include <string.h>
+> +#include <stdio.h>
+> +
+>  #define __stringify_1(x...)	#x
+>  #define __stringify(x...)	__stringify_1(x)
+>  
+> diff --git a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
+> index 12f1b1b1c7aa..ecd687bb8359 100644
+> --- a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
+> +++ b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
+> @@ -1,6 +1,12 @@
+>  // SPDX-License-Identifier: GPL-2.0-only
+>  
+> -#include <linux/wait.h>
+> +#include <unistd.h>
+> +#include <stdlib.h>
+> +#include <string.h>
+> +#include <stdio.h>
+> +
+> +#include <sys/prctl.h>
+> +#include <sys/wait.h>
+>  
+>  #define THIS_PROGRAM "./vstate_exec_nolibc"
 > 
-> Basic second kernel boot test were performed on QEMU platforms for x86,
-> ARM64, and RISC-V architectures with the following parameters:
 > 
-> 	"cma=256M crashkernel=256M crashkernel=64M,cma"
-> 
-> Changes in v8:
-> - Fix the build issues reported by kernel test robot and Sourabh.
-> - Link to v7: https://lore.kernel.org/all/20260226130437.1867658-1-ruanjinjie@huawei.com/
-> 
-> Changes in v7:
-> - Correct the inclusion of CMA-reserved ranges for kdump kernel in of/kexec
->   for arm64 and riscv.
-> - Add Acked-by.
-> - Link to v6: https://lore.kernel.org/all/20260224085342.387996-1-ruanjinjie@huawei.com/
-> 
-> Changes in v6:
-> - Update the crash core exclude code as Mike suggested.
-> - Rebased on v7.0-rc1.
-> - Add acked-by.
-> - Link to v5: https://lore.kernel.org/all/20260212101001.343158-1-ruanjinjie@huawei.com/
-> 
-> Changes in v5:
-> - Fix the kernel test robot build warnings.
-> - Sort crash memory ranges before preparing elfcorehdr for powerpc
-> - Link to v4: https://lore.kernel.org/all/20260209095931.2813152-1-ruanjinjie@huawei.com/
-> 
-> Changes in v4:
-> - Move the size calculation (and the realloc if needed) into the
->   generic crash.
-> - Link to v3: https://lore.kernel.org/all/20260204093728.1447527-1-ruanjinjie@huawei.com/
-> 
-> Jinjie Ruan (4):
->   crash: Exclude crash kernel memory in crash core
->   crash: Use crash_exclude_core_ranges() on powerpc
->   arm64: kexec: Add support for crashkernel CMA reservation
->   riscv: kexec: Add support for crashkernel CMA reservation
-> 
-> Sourabh Jain (1):
->   powerpc/crash: sort crash memory ranges before preparing elfcorehdr
-> 
->  .../admin-guide/kernel-parameters.txt         |  16 +--
->  arch/arm64/kernel/machine_kexec_file.c        |  39 +++----
->  arch/arm64/mm/init.c                          |   5 +-
->  arch/loongarch/kernel/machine_kexec_file.c    |  39 +++----
->  arch/powerpc/include/asm/kexec_ranges.h       |   1 -
->  arch/powerpc/kexec/crash.c                    |   5 +-
->  arch/powerpc/kexec/ranges.c                   | 101 +-----------------
->  arch/riscv/kernel/machine_kexec_file.c        |  38 +++----
->  arch/riscv/mm/init.c                          |   5 +-
->  arch/x86/kernel/crash.c                       |  89 +++------------
->  drivers/of/fdt.c                              |   9 +-
->  drivers/of/kexec.c                            |   9 ++
->  include/linux/crash_core.h                    |   9 ++
->  kernel/crash_core.c                           |  89 ++++++++++++++-
->  14 files changed, 178 insertions(+), 276 deletions(-)
-> 
+> Regards,
+> Sergey
 
 _______________________________________________
 linux-riscv mailing list
