@@ -4,71 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB21FCC9A4
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 01:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56371FCC9A7
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Mar 2026 02:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/ZsBbr8+ied6/q32JOKkPPOr5kvtQhG2hUgsf6d4dR8=; b=jRSpyslYytrAmC
-	z+yCNJEq2hmK8urPHaufvFHSSvpXNj+zA0uI8W3t4quR/+p13NMWICsx1BKq4P8i28psW/h0QeM4H
-	udmOtjJAI5FERMwrcvOM5u2LJMP9TQCrs585jUyzR8MFm/CzwZF4Cif3kI9VvHAufEgLbyGJ0tB8G
-	eypb/VZJN6lQku9XeyVW52JyPjcwekq0TGJtMUyicUw8dXP4BaCTT7ecOI0Low0uMzHT+jcQqjRCs
-	XFPjL2xGv/FU1lrGqgrUneDXrsOjPgLjnRqiYxPFfLMGuHrMN9nxLfYzgaOhJAvMOD1iuHbxdTOtx
-	zIlZPJv5p9G/DesShtjw==;
+	List-Owner; bh=ncze3dNIflsYAf5+9D68z6p6DQq5/+I2Bu1o1S7iOi0=; b=GnInvy76jNTYOa
+	y9EKMssWDjvcx291BDmNngYF/BURTDhpvddghQ3B01hBzVVIYhIi0pzcoJG4+oLloDGd19vYRhCwa
+	ZbxPtVf2eBXQ4q+L73Z6s1HBjjj54wih1udBjAgTKpPeqEFR+TUi7SMzuV/7zItRTiX1nAcXdVVj7
+	E+8ILuCweHY8mZFRyYjPYPyqR04uk/VUaaIzALYWsR5ekyrLj+bDemwNqPcdr1J6q2Z3VO1wYFOh+
+	mmz9QWOLo3RwcZuERm51tDmdJtR76g9WpyDQxSIHb2SLN1SjVqwmrVyHM/YNutbvvLc8UmJZT9E8Z
+	0KQBhNJVdOnzCSEQtUzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzmGk-00000008VXR-1X9W;
-	Tue, 10 Mar 2026 01:52:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vzmbA-00000008YnP-3uwU;
+	Tue, 10 Mar 2026 02:13:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzmGi-00000008VWZ-2jsZ
+	id 1vzmb9-00000008YnA-2DtK
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 10 Mar 2026 02:13:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=aCV6AtrZqJOTKDcJoDwJvJmch/wh+FICVhihLLbm0gc=; b=aAbPuqH34RlFWj+gISOGH1Od+O
+	cqYnZeKEOPfeaKr37eI0q+6n0uSi1AkbvefTebRlIof0KA6kVFSTuBFrmiusYJ4hW4xVlyrmiwXNi
+	KDpeBPb0+Ag3HwzzEA6l38JmG5O3tOiA8hqSO/pNntAVDUQhoVrc4VGvoJZFQRFz74vq1bmYlm5DG
+	WtQG5BmghXrnzs5pyJMuUUBOP3o1uCBK7I7VQaJcXh+RyPmUsXPxWMedeS9E4LxQQTRRFA3HAl8nl
+	CRhjrxAAVhP4dnnHdEJF507DCYeuuC2kHoX5Imak75pxTDIDD3ov2RhGjHVDNtvZm5oMPmqiBaZi6
+	khu0NgcQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vzmb4-0000000DYmP-04oL
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Mar 2026 01:52:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8359560097;
-	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 31929C19423;
-	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773107539;
-	bh=v2pWrgmnDeGNP0dGg82smLMiBXVJnwAzUgpAkAP6yks=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=vF3nY55cr1M70uyokfXKLfrMPo6O/N33FcJGvus4aqlZWZdjC1repl9nhWGB63Hqw
-	 9agH5laEFUBLB/joFaYmS0LjM6oNhLGCqyVIRqgd0O4r8Q8QCp5lk8JUyMGoQuVVZm
-	 durdBouZOZns2QJK7KS8sESCJZ3IEkbNTbFC7cYb8nIK980r4gIiV1VJUtIvSINg2V
-	 It5rOBbwY5ONtFkTr9d+gWXoZwCgXDiCIkLzBZzb0AbSTSJT0JKw8WPwo518LtMN64
-	 YfCG3qFjvf5E+Vs/y6pbnXc+8HtdZ6M0pFDvH3ZOHrxynhc8t1qkWGnJZwVpB3aJwh
-	 XDrMKMZnns8fQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 23DACFCC9A8;
-	Tue, 10 Mar 2026 01:52:19 +0000 (UTC)
-From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Mon, 09 Mar 2026 18:52:10 -0700
-Subject: [PATCH v2 1/4] selftests: riscv: Add definition of BIT() macro
+	Tue, 10 Mar 2026 02:13:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1773108795;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aCV6AtrZqJOTKDcJoDwJvJmch/wh+FICVhihLLbm0gc=;
+	b=fWyXW4Mkd+BpykD05CzIeEUx29LOqu1g6+u7XQ8rcLCEL6Mtx55Be9m9UN4grDO/dHrm85
+	kjKlRNue7oMpp3rb0DSZbICJKdKm5Pjd+J/zh3soJuuvgREGETl+547feUfsPuenA1difw
+	yDMCyg0zH+1Dg/IPSp5tCvzdNbbkNRA=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1773108795;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aCV6AtrZqJOTKDcJoDwJvJmch/wh+FICVhihLLbm0gc=;
+	b=fWyXW4Mkd+BpykD05CzIeEUx29LOqu1g6+u7XQ8rcLCEL6Mtx55Be9m9UN4grDO/dHrm85
+	kjKlRNue7oMpp3rb0DSZbICJKdKm5Pjd+J/zh3soJuuvgREGETl+547feUfsPuenA1difw
+	yDMCyg0zH+1Dg/IPSp5tCvzdNbbkNRA=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-397-0W-wL2VWPKuFFCHVPIHhug-1; Mon,
+ 09 Mar 2026 22:13:09 -0400
+X-MC-Unique: 0W-wL2VWPKuFFCHVPIHhug-1
+X-Mimecast-MFC-AGG-ID: 0W-wL2VWPKuFFCHVPIHhug_1773108784
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 810F31956050;
+	Tue, 10 Mar 2026 02:13:01 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.10])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C06ED1800761;
+	Tue, 10 Mar 2026 02:12:54 +0000 (UTC)
+Date: Tue, 10 Mar 2026 10:12:45 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com,
+	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
+	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	hpa@zytor.com, robh@kernel.org, saravanak@kernel.org,
+	akpm@linux-foundation.org, vgoyal@redhat.com, dyoung@redhat.com,
+	rdunlap@infradead.org, pmladek@suse.com, dapeng1.mi@linux.intel.com,
+	kees@kernel.org, paulmck@kernel.org, lirongqing@baidu.com,
+	fvdl@google.com, rppt@kernel.org, ardb@kernel.org,
+	leitao@debian.org, sourabhjain@linux.ibm.com, jbohac@suse.cz,
+	cfsworks@gmail.com, osandov@fb.com, tangyouling@kylinos.cn,
+	ritesh.list@gmail.com, hbathini@linux.ibm.com,
+	eajames@linux.ibm.com, songshuaishuai@tinylab.org,
+	kevin.brodsky@arm.com, samuel.holland@sifive.com,
+	vishal.moola@gmail.com, junhui.liu@pigmoral.tech, coxu@redhat.com,
+	liaoyuanhong@vivo.com, fuqiang.wang@easystack.cn, brgerst@gmail.com,
+	x86@kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org
+Subject: Re: [PATCH v8 0/5] arm64/riscv: Add support for crashkernel CMA
+ reservation
+Message-ID: <aa9-HYdKT8MhAjhi@MiWiFi-R3L-srv>
+References: <20260302035315.3892241-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Message-Id: <20260309-fix_selftests-v2-1-9d5a553a531e@gmail.com>
-References: <20260309-fix_selftests-v2-0-9d5a553a531e@gmail.com>
-In-Reply-To: <20260309-fix_selftests-v2-0-9d5a553a531e@gmail.com>
-To: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Sergey Matyukevich <geomatsi@gmail.com>, Andy Chiu <andybnac@gmail.com>, 
- Deepak Gupta <debug@rivosinc.com>
-Cc: linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Charlie Jenkins <thecharlesjenkins@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773107537; l=2501;
- i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
- bh=fSLPxH6GsBiaH5osUs3h11f7ItiKygcEvbUUMu8KVw8=;
- b=fBBjwRxbvodjq3RWghDxm+Dx/Qr/g8qqQkr3tyPeEL/UlTWkFSdguEjJ2AjRozlUJh2HkvnX7
- a0HUuIEIGH2BBtujgBtaN1UncVFwSqiGg8GtLvfObXDfUeBCaSvFPJL
-X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
- pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
-X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
- with auth_id=663
-X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+In-Reply-To: <20260302035315.3892241-1-ruanjinjie@huawei.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: SCvCWUFYYPRrDpr5ennB2EBi4j7lhElYjqyM0PgNBzk_1773108784
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260310_021322_804237_7BBD11B3 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +127,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: thecharlesjenkins@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+On 03/02/26 at 11:53am, Jinjie Ruan wrote:
+> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
+> and crashk_cma memory are almost identical across different architectures,
+> This patch set handle them in crash core in a general way, which eliminate
+> a lot of duplication code.
+> 
+> And add support for crashkernel CMA reservation for arm64 and riscv.
+> 
+> Rebased on v7.0-rc1.
+> 
+> Basic second kernel boot test were performed on QEMU platforms for x86,
+> ARM64, and RISC-V architectures with the following parameters:
+> 
+> 	"cma=256M crashkernel=256M crashkernel=64M,cma"
 
-The BIT() macros is used by the validate_v_ptrace() test case, but not
-defined. Include linux/bits.h to pull in this definition. To ensure that
-the header in the kernel source is used, add tools/include to the header
-search path.
+The whole series looks good to me, thanks.
 
-Fixes: 30eb191c895b ("selftests: riscv: verify ptrace rejects invalid vector csr inputs")
-Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
----
- tools/testing/selftests/riscv/vector/Makefile            | 7 +++++--
- tools/testing/selftests/riscv/vector/validate_v_ptrace.c | 1 +
- 2 files changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
-index 326dafd739bf..f74a3aa63c87 100644
---- a/tools/testing/selftests/riscv/vector/Makefile
-+++ b/tools/testing/selftests/riscv/vector/Makefile
-@@ -2,6 +2,9 @@
- # Copyright (C) 2021 ARM Limited
- # Originally tools/testing/arm64/abi/Makefile
- 
-+NO_LIBC_CFLAGS := $(CFLAGS)
-+CFLAGS += -I$(top_srcdir)/tools/include
-+
- TEST_GEN_PROGS := v_initval vstate_prctl vstate_ptrace validate_v_ptrace
- TEST_GEN_PROGS_EXTENDED := vstate_exec_nolibc v_exec_initval_nolibc
- TEST_GEN_LIBS := v_helpers.c sys_hwprobe.c
-@@ -21,14 +24,14 @@ $(OUTPUT)/vstate_prctl: vstate_prctl.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpe
- 
- $(OUTPUT)/vstate_exec_nolibc: vstate_exec_nolibc.c
- 	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
--		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
-+		-Wall $(NO_LIBC_CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
- 
- $(OUTPUT)/v_initval: v_initval.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
- 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
- 
- $(OUTPUT)/v_exec_initval_nolibc: v_exec_initval_nolibc.c
- 	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
--		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
-+		-Wall $(NO_LIBC_CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
- 
- $(OUTPUT)/vstate_ptrace: vstate_ptrace.c $(OUTPUT)/sys_hwprobe.o $(OUTPUT)/v_helpers.o
- 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
-diff --git a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
-index 3589549f7228..257de36274e9 100644
---- a/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
-+++ b/tools/testing/selftests/riscv/vector/validate_v_ptrace.c
-@@ -6,6 +6,7 @@
- #include <unistd.h>
- #include <errno.h>
- 
-+#include <linux/bits.h>
- #include <linux/ptrace.h>
- #include <linux/elf.h>
- 
-
--- 
-2.52.0
-
+Acked-by: Baoquan He <bhe@redhat.com>
 
 
 _______________________________________________
