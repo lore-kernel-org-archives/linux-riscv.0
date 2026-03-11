@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A067FD064E
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 08:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA4CFD064E
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 08:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/JqcKdJY+PYG95TEY2NZmpK9I6aIGkkjNzd1bXEvu7c=; b=uJHGozndnnsyxI
-	SgioLebefpR7dGz+ect1zujgH2BwSqbGaJCoxeCuFwkK+BQRj9QLW6w4qmr6+rtWCrisKEuxv0dA5
-	Op5O7/RZS394v+NgywzfY0btwmcmprQOxn2XMJ24bGzJmh18MqYZ03BXLMSV6fAmvCpyLU4rgTZgo
-	gVxQbCL23hOCNzo3/bvR6j8YQFKaxRMMJhDQlvdH0ESuu+lNNTVDDALDfDcQyvuFJ5643Tmqtxbin
-	p+UEFvrHWtk527IhNbCRUTevV+bhjW9AG2NnvR3EPABvVKHt4KwjH+fkr+W+awgZ1/4DtuTBzyegF
-	YQCgCaOqIKhDNlshBiQQ==;
+	List-Owner; bh=e4FdoAL4JADmF0cD3+/hNQlUrdWK4BF4ZFszzeu3b+A=; b=QgUlDuW+4zVI7j
+	4QYoPuG/7TZgaVkTh9Eas5q2EDNs2Aa/PEgDC9yz4LzC+wBicyJm2Sc21HSHGjTSr1gwpYhyCDDey
+	j0xrt/MBC7y431j5G2upBms0XwLJuQTXli73Zp5mCGkbX2Lz5Dkf/HgH0OBTNcftavYyVQ7j18b0q
+	U7C/5XC1Ft0okmUFkfiggT8FCc7X9yHeegTHLI6XoLmQ8K3w65eT9459PrAomDPlo8JUoJDplTu3I
+	jqOVTcmyOt+cA0h2GRXNGkdTSnwDsT/DA1dXJz7VHep+1NI67BtfAJwN1G6XZiOniedK3davsud52
+	7KY9PDrc4rOzynd0KfSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ExJ-0000000BAru-3KaV;
-	Wed, 11 Mar 2026 08:30:13 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0ExG-0000000BArA-0BzG;
-	Wed, 11 Mar 2026 08:30:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1773217803; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=e4rCCBVXm58mcjZFMPdyRFG67+4JMyj7FIF5xF778sXhKoSe/VaZZZJVskos4Wz7ViFKsKKIpGMZEHd3dElS4ZVHPsGH2bJn/Ye2oEjcJSppUIDxA71IvisuuZmNJUKi5+O94FahgtxmjCWxAlvWFNk4ysylrE/NUYyOOtL40cE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1773217803; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=E3ClCvoJYZuLRBmzTcMn6ajshrwUL6YjIko/DDKwOAE=; 
-	b=PYOpcS5FUN5KR7aIGQPfw7CJFnjR//6NmXyLmjESoG2XhwrzabFKlntU65TiQ1FAzeGR/H4DjpD6m4yBmFa749+f+J5BhbG/aS5kwBhmgCAcFWE+C1rBXKKPDPJf3oaA/z9gIgm9pdK/YU1PgCfNQWEP8yo+t3sQ9jNIsrddKCk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773217803;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:References:In-Reply-To:Reply-To;
-	bh=E3ClCvoJYZuLRBmzTcMn6ajshrwUL6YjIko/DDKwOAE=;
-	b=OFTjD8Na8gTT5YWO1QJxVA72azVF05Cak8Y51Ah2c4qFRKDP0wpL/hTEAH0BBqv3
-	0OyHyZaL7taYlLMdo4gRaMgSygZpOJFHn1fyvc9rjHS0AiXkaeVRndPcZBFSmil+MFI
-	fTES6otGB1PHY1XfTHRGfk5jIdlnITd4bes/Iryc=
-Received: by mx.zohomail.com with SMTPS id 1773217800773151.97248823397604;
-	Wed, 11 Mar 2026 01:30:00 -0700 (PDT)
-Mime-Version: 1.0
-Date: Wed, 11 Mar 2026 16:29:48 +0800
-Message-Id: <DGZT8U7OMGG3.WS9SPLJF9Y4Q@pigmoral.tech>
-Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <gaohan@iscas.ac.cn>, <me@ziyao.cc>, "linux-riscv"
- <linux-riscv-bounces@lists.infradead.org>
-Subject: Re: [PATCH v3 0/3] Add SDHCI support for Canaan K230 SoC
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Jiayu Du" <jiayu.riscv@isrc.iscas.ac.cn>, <krzk@kernel.org>,
- <ulf.hansson@linaro.org>, <adrian.hunter@intel.com>, <robh@kernel.org>,
- <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260310064513.140093-1-jiayu.riscv@isrc.iscas.ac.cn>
-In-Reply-To: <20260310064513.140093-1-jiayu.riscv@isrc.iscas.ac.cn>
-X-ZohoMailClient: External
+	id 1w0EzI-0000000BB5H-3V2c;
+	Wed, 11 Mar 2026 08:32:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0EzF-0000000BB4T-1cA0;
+	Wed, 11 Mar 2026 08:32:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25D5B20E3;
+	Wed, 11 Mar 2026 01:32:04 -0700 (PDT)
+Received: from [10.57.83.155] (unknown [10.57.83.155])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D80843F836;
+	Wed, 11 Mar 2026 01:32:05 -0700 (PDT)
+Message-ID: <7687ded7-ecb1-45fe-bfa6-37d1a04355c8@arm.com>
+Date: Wed, 11 Mar 2026 08:32:04 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/2] Fix bugs and performance of kstack offset
+ randomisation
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>,
+ David Laight <david.laight.linux@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260303150840.3789438-1-ryan.roberts@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260303150840.3789438-1-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_013010_462916_8F7A25D1 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20260311_013213_522015_B1836169 
+X-CRM114-Status: GOOD (  32.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,75 +79,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jiayu,
-Thanks for your work.
+Hi Kees,
 
-On Tue Mar 10, 2026 at 2:45 PM CST, Jiayu Du wrote:
-> This series is based on the k230 usbphy series[1].
->
-> This patch series adds SDHCI support for the Canaan K230 SoC,
-> which uses Synopsys DWCMSHC SDHCI controllers, include MMC0 and MMC1.
-> The hardware designs of these two controllers are different.
-> The MMC0 supports eMMC, while MMC1 only supports SDIO. Detailed
-> information can be found in the vendor's manual[2].
->
-> From the vendor's K230 manual:
->  - MMC0 supports eMMC5.0 and SDIO3.0, usually for eMMC chips.
->  - MMC1 only does SDIO3.0 in 4/1-bit mode up to SDR104, and the manual
->    clearly says it can't handle eMMC because of pin count and limits.
->
-> Therefore, there are two separate compatibles and the driver treats them
-> differently.
->
-> Link: https://lore.kernel.org/all/20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn/ [1]
-> Link: https://github.com/kendryte/k230_docs/blob/main/en/00_hardware/K230_Hardware_Design_Guide.md#mmc-circuit [2]
->
-> Changes in v3:
-> - Drop the clock maxItems.
-> - Add a const void *match_data to the struct dwcmshc_priv
-> - Copy the match_data pointer to dwcmshc_priv in the common dwcmshc_probe
-> - Link to v2: https://lore.kernel.org/all/20260226115923.75670-1-jiayu.riscv@isrc.iscas.ac.cn/
->
-> Changes in v2:
-> - Change the clock minItems to 5.
-> - Add comments to explain the reason for setting SDHCI_PROG_CLOCK_MODE.
-> - Write the power selection logic in the phy init cleaner.
-> - Replace manual delay loop with read_poll_timeout.
-> - Drop unnecessarily braces where a single statement will do.
-> - Add the match_data pointer to dwcmshc_pltfm_data.
-> - Add dwcmshc_k230_match_data struct to separate eMMC/SDIO config data
-> - Split K230 into individual emmc/sdio platform data instances instead of
->   sharing one.
-> - Remove redundant have_phy member in k230_priv.
-> - Replace of_find_compatible_node with of_parse_phandle to get USB PHY
->   from DT phandle.
-> - Link to v1: https://lore.kernel.org/all/20260204082908.27501-1-jiayu.riscv@isrc.iscas.ac.cn/
->
-> Jiayu Du (3):
->   dt-bindings: mmc: Add sdhci support for Canaan k230
->   mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC controller support
->   riscv: dts: canaan: Add mmc nodes for K230
->
->  .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  28 ++
->  .../boot/dts/canaan/k230-canmv-dshanpi.dts    |  56 ++++
->  .../dts/canaan/k230-canmv-module-dshanpi.dtsi |   7 +
->  arch/riscv/boot/dts/canaan/k230.dtsi          |  28 ++
->  drivers/mmc/host/sdhci-of-dwcmshc.c           | 287 ++++++++++++++++++
->  5 files changed, 406 insertions(+)
+I'm keen to get some testing in linux-next and hopefully get this upstream for
+v7.1 as we previously discussed. Are you willing/able to take this via your tree?
 
-Tested-by: Junhui Liu <junhui.liu@pigmoral.tech>
+Thanks,
+Ryan
 
-Tested ok on CanMV-K230-V1.1 (k230-canmv.dts) with AP6212 (BCM43430)
-SDIO WiFi module on MMC0 and MicroSD card on MMC1.
 
-To be noted, a "broken-cd" property is needed to support SD card insert
-and remove detect on CanMV board because the CD pin is not connected. I
-am not sure if this is also needed on DShanPi as I don't have its
-schematic.
 
--- 
-Best regards,
-Junhui Liu
+On 03/03/2026 15:08, Ryan Roberts wrote:
+> [Kees; I'm hoping this is now good-to-go via your hardening tree? It would be
+> good to get some linux-next testing.]
+> 
+> Hi All,
+> 
+> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
+> and, on arm64 at least, the performance is poor. This series attempts to fix
+> both; patch 1 provides back-portable fixes for the functional bugs. Patch 2
+> proposes a performance improvement approach.
+> 
+> I've looked at a few different options but ultimately decided that Jeremy's
+> original prng approach is the fastest. I made the argument that this approach is
+> secure "enough" in the RFC [2] and the responses indicated agreement.
+> 
+> More details in the commit logs.
+> 
+> 
+> Performance
+> ===========
+> 
+> Mean and tail performance of 3 "small" syscalls was measured. syscall was made
+> 10 million times and each individually measured and binned. These results have
+> low noise so I'm confident that they are trustworthy.
+> 
+> The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
+> performance cost of turning it on without any changes to the implementation,
+> then the reduced performance cost of turning it on with my changes applied.
+> 
+> **NOTE**: The below results were generated using the RFC patches but there is no
+> meaningful change, so the numbers are still valid. I've also rerun the tests
+> with this version on top of v7.0-rc2 on arm64 and confirmed simialr results.
+> 
+> arm64 (AWS Graviton3):
+> +-----------------+--------------+-------------+---------------+
+> | Benchmark       | Result Class |   v6.18-rc5 |  per-cpu-prng |
+> |                 |              | rndstack-on |               |
+> |                 |              |             |               |
+> +=================+==============+=============+===============+
+> | syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |
+> |                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |
+> |                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |
+> +-----------------+--------------+-------------+---------------+
+> | syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |
+> |                 | p99 (ns)     | (R) 152.81% |         1.55% |
+> |                 | p99.9 (ns)   | (R) 153.67% |         1.77% |
+> +-----------------+--------------+-------------+---------------+
+> | syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |
+> |                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |
+> |                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |
+> +-----------------+--------------+-------------+---------------+
+> 
+> Because arm64 was previously using get_random_u16(), it was expensive when it
+> didn't have any buffered bits and had to call into the crng. That's what caused
+> the enormous tail latency.
+> 
+> 
+> x86 (AWS Sapphire Rapids):
+> +-----------------+--------------+-------------+---------------+
+> | Benchmark       | Result Class |   v6.18-rc5 |  per-cpu-prng |
+> |                 |              | rndstack-on |               |
+> |                 |              |             |               |
+> +=================+==============+=============+===============+
+> | syscall/getpid  | mean (ns)    |  (R) 13.32% |     (R) 4.60% |
+> |                 | p99 (ns)     |  (R) 13.38% |    (R) 18.08% |
+> |                 | p99.9 (ns)   |      16.26% |    (R) 19.38% |
+> +-----------------+--------------+-------------+---------------+
+> | syscall/getppid | mean (ns)    |  (R) 11.96% |     (R) 5.26% |
+> |                 | p99 (ns)     |  (R) 11.83% |     (R) 8.35% |
+> |                 | p99.9 (ns)   |  (R) 11.42% |    (R) 22.37% |
+> +-----------------+--------------+-------------+---------------+
+> | syscall/invalid | mean (ns)    |  (R) 10.58% |     (R) 2.91% |
+> |                 | p99 (ns)     |  (R) 10.51% |     (R) 4.36% |
+> |                 | p99.9 (ns)   |  (R) 10.35% |    (R) 21.97% |
+> +-----------------+--------------+-------------+---------------+
+> 
+> I was surprised to see that the baseline cost on x86 is 10-12% since it is just
+> using rdtsc. But as I say, I believe the results are accurate.
+> 
+> 
+> Changes since v4 [5]
+> ====================
+> 
+> - Moved add_random_kstack_offset() later in syscall entry code for powerpc, s390
+>   and x86. On these platforms it was previously within noinstr sections but for
+>   some exotic Kconfigs, [get|put]_cpu_var() was calling out to instrumentable
+>   code. (reported by kernel test robot)
+> - Removed what was previously patch 2 (inline version of prandom_u32_state()).
+>   With the above change, there is no longer an issue with calling the
+>   out-of-line version.
+> 
+> Changes since v3 [4]
+> ====================
+> 
+> - Patch 1: Fixed typo in commit log (per David L)
+> - Patch 2: Reinstated prandom_u32_state() as out-of-line function, which
+>   forwards to inline version (per David L)
+> - Patch 3: Added supplementary info about benefits of removing
+>   choose_random_kstack_offset() (per Mark R)
+> 
+> Changes since v2 [3]
+> ====================
+> 
+> - Moved late_initcall() to initialize kstack_rnd_state out of
+>   randomize_kstack.h and into main.c. (issue noticed by kernel test robot)
+> 
+> Changes since v1 (RFC) [2]
+> ==========================
+> 
+> - Introduced patch 2 to make prandom_u32_state() __always_inline (needed since
+>   its called from noinstr code)
+> - In patch 3, prng is now per-cpu instead of per-task (per Ard)
+> 
+> 
+> [1] https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
+> [2] https://lore.kernel.org/all/20251127105958.2427758-1-ryan.roberts@arm.com/
+> [3] https://lore.kernel.org/all/20251215163520.1144179-1-ryan.roberts@arm.com/
+> [4] https://lore.kernel.org/all/20260102131156.3265118-1-ryan.roberts@arm.com/
+> [5] https://lore.kernel.org/all/20260119130122.1283821-1-ryan.roberts@arm.com
+> 
+> Thanks,
+> Ryan
+> 
+> 
+> Ryan Roberts (2):
+>   randomize_kstack: Maintain kstack_offset per task
+>   randomize_kstack: Unify random source across arches
+> 
+>  arch/Kconfig                         |  5 ++-
+>  arch/arm64/kernel/syscall.c          | 11 ------
+>  arch/loongarch/kernel/syscall.c      | 11 ------
+>  arch/powerpc/kernel/syscall.c        | 16 ++-------
+>  arch/riscv/kernel/traps.c            | 12 -------
+>  arch/s390/include/asm/entry-common.h |  8 -----
+>  arch/s390/kernel/syscall.c           |  2 +-
+>  arch/x86/entry/syscall_32.c          |  4 +--
+>  arch/x86/entry/syscall_64.c          |  2 +-
+>  arch/x86/include/asm/entry-common.h  | 12 -------
+>  include/linux/randomize_kstack.h     | 54 +++++++++++-----------------
+>  init/main.c                          |  9 ++++-
+>  kernel/fork.c                        |  1 +
+>  13 files changed, 37 insertions(+), 110 deletions(-)
+> 
+> --
+> 2.43.0
+> 
 
 
 _______________________________________________
