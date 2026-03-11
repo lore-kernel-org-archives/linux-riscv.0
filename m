@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DC3112583A
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 14:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4704A1125847
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 15:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yZR+YslJhX2bBfOWcSYqqJRblkDWc39H9wkOoCiOYg4=; b=wOFmdkzkB8M/wW
-	62J5iMzoW3aAYPHHVH+XQ3wzLREao+hpMAETdYeU5kc4FW2parhTs6aAPqfxllTPegIzWbOwFpRAA
-	7hX5uEXiJ172PY/GfH97PZW1JOHPxLCM4nxjdKFKzdUvM1hdxglBAMN1Hnr9PZ4mywB4iuD6CW4xQ
-	yEulAk4/dBpDjnStmZ+HEFxQHhpOHEn490VSejyZUAundv+ovBhOpKmxNK5SA7NTTS6/CTxcEeMBD
-	yP48cv1YuW6KCSMHNoMqFBu+ZpuFhjsQKqObLMGF35KhFOosJ+5b1GPdtFI3VyiKTxJSi9uYgROkJ
-	pWAceVlpzcwrpxUFPhFw==;
+	List-Owner; bh=5t3RfI4QeY2UZaPHZzCcI+aikEf+1uqa1kr4jG7xVys=; b=eAiZbX0b7xqKHS
+	qIoobXU/9NTuXBQ7fBLH4T8x2WbB9BCC/CTA6bCWs+qY+/GUgOeyPi/zqIQ4SpKJgh3qRM23AFYGU
+	9N3roAcdlDUCAbf3QXKUqBWJCNk9vv5nC7lEyw6dGmZKXArrbOy8IWYlnFWmjiWw7r0bPhZ5eKNpA
+	N6yX/eXga7OXHOh9cltLB8HDRfmVuy1/eImdbSWufgpU8Y2W/RInPiYN5jfKB/L20IkbqcrkU3SZP
+	kG5ontqzMxYgZJ42cSPZtw0hnO6eEqrD5lAz7tuTVnQmDbjbtB3873m5YfTWGmeZq7juPaRWbGF3K
+	zFVbYMXAsoB5YkzpXuqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0KhI-0000000BigG-3ebL;
-	Wed, 11 Mar 2026 14:38:04 +0000
-Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
+	id 1w0LJq-0000000Bmqv-3JlF;
+	Wed, 11 Mar 2026 15:17:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0KhE-0000000Bifi-1B6e
+	id 1w0LJo-0000000BmqJ-21ph
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Mar 2026 14:38:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1773239880; x=1804775880;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=2Q4lRreYXrbQLEk5poRcazVjqCd3Eq8mJOpK+7xvryY=;
-  b=d/5oRTIAwa7NtnBBijCVRRaCmvGztM5Wm+6lTEEvutoQkFshPrYILqnl
-   TuFuKh+v+ZU519zj7sCDDUo8+wQ0ianXCSJ+3DdZIETBP3upzCnVx8TXu
-   cn63qteF8z6+hjfk57VOvl6csDddACFRc1cpHEz4DwDpaknzxNi4vrD5B
-   lqcFYuS4Bnmuvn//nuGs4w3DlisJ76NVcHcHXnZTomEI4sHXwNBwO7AIx
-   kGwxHFBv0MmXHwsY/JY8qJJGWFQAFss4rv32G6aeG+exgnBfpbYpfjlbm
-   KQri2sefciIqGIJ84htuCg1I4IePjalR9sVqrc1td8G+FnBsH3A6s4xpm
-   w==;
-X-CSE-ConnectionGUID: jyCXNiQdSjeXIscvlSxHDw==
-X-CSE-MsgGUID: QijWz08pSsCPUBnOuFaNAg==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2026 16:37:54 +0200
-X-CSE-ConnectionGUID: PN3dHWWWShm/pJENbpQy+A==
-X-CSE-MsgGUID: sstmYQVjQhqz/vVW3j9OwA==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
-  by ces04_data.me-crop.lan with SMTP; 11 Mar 2026 16:40:49 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 11 Mar 2026 16:37:52 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-To: Nick Hu <nick.hu@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@kernel.org>,
+	Wed, 11 Mar 2026 15:17:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D4B5B43A3F;
+	Wed, 11 Mar 2026 15:17:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86EFFC2BC9E;
+	Wed, 11 Mar 2026 15:17:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773242271;
+	bh=baGI29/X7J6RtGJtVe0l5LK6JDkPCmJCS4gpO+nhxmg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hhSHk6EYTGzgb/xT8oW9SKKV7LScUDUABKlBuJvOlkZ2hyg70rUiebLevNzTl770j
+	 Y9Tb0x9U7wijlBmywpTEtuIyHZ7qn/fQuoLB5IcYguvESex0nsKtSr6QhXm03MG9x4
+	 +QazaXcRnlzim1W+ManE2DNq7mrERXGTBYGFWsVrWmURV14fclpqIz/CUDGOef61f1
+	 ZjzvG19sQvgKvrM77A+HFVgPmjZ/XC4NPJtW2YKRdgHzi/LocIE+MWt2O7Hq1o8XTr
+	 w10W12JoVs/NDIjMwFvYKNPLPJoG/hvlxyFTGhxKHr5njTtyPRm6yo7i/oZUnEXe5z
+	 LKYLQH6786LjQ==
+From: Conor Dooley <conor@kernel.org>
+To: linux-gpio@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: [PATCH] irqchip/riscv-aplic: fix PM for multi-aplic system
-Date: Wed, 11 Mar 2026 16:37:49 +0200
-Message-ID: <20260311143749.4058818-1-vladimir.kondratiev@mobileye.com>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v12 0/4] PolarFire SoC GPIO interrupt support
+Date: Wed, 11 Mar 2026 15:17:37 +0000
+Message-ID: <20260311-tasting-friend-eae39148fb96@spud>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4646; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=iroIE3VF1VJ9LtNRmplgK16+lCoduSIXkqDPMvxuhjA=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkb26epBy3ZdvmJ4vckO/sz7IdSsnn2asl+VGO5XeU3N 0ksKVy7o5SFQYyLQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABNRzmP4zRJnKy/k9bHr49+E id8mhm/dvFHigZEI5+4XBvqudc5pBowMP2MirqdMv35piZXQnPzD0ktuuDPfWbJzfvV0mWXr2+S W8QMA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_073800_843195_79893F6B 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260311_081752_584199_1AF48B0E 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,98 +81,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The aplic_syscore is a singleton and should be registered once.
-If it is registered from the driver probe, register_syscore()
-called multiple times for the system having multiple aplic instances.
-This results in double registration of the same syscore. Warning
-triggered:
-
-[    0.553569] ------------[ cut here ]------------
-[    0.553572] list_add double add: new=ffffffff81314a68, prev=ffffffff81314a68, next=ffffffff8131f588.
-[    0.553643] WARNING: lib/list_debug.c:35 at __list_add_valid_or_report+0x4e/0xe8, CPU#23: swapper/0/1
-[    0.553660] Modules linked in:
-[    0.553668] CPU: 23 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.0.0-rc1 #2 PREEMPT_RT
-[    0.553675] Hardware name: EyeQ7 evaluation board (DT)
-[    0.553679] epc : __list_add_valid_or_report+0x4e/0xe8
-[    0.553685]  ra : __list_add_valid_or_report+0x4e/0xe8
-[    0.553691] epc : ffffffff80443e72 ra : ffffffff80443e72 sp : ffffffc6000dbaf0
-[    0.553696]  gp : ffffffff81391b48 tp : ffffffd6007d9b00 t0 : ffffffd9efbc4318
-[    0.553700]  t1 : 0000000000000004 t2 : 2d2d2d2d2d2d2d2d s0 : ffffffc6000dbb20
-[    0.553704]  s1 : ffffffff8131f588 a0 : 0000000000000058 a1 : ffffffff80089b9a
-[    0.553708]  a2 : ffffffd9effab4d0 a3 : 0000000000000000 a4 : 0000000000000000
-[    0.553711]  a5 : 0000000000000000 a6 : ffffffff80da4889 a7 : ffffffffffffffff
-[    0.553715]  s2 : ffffffff8131f558 s3 : ffffffff81314a68 s4 : ffffffff8131f588
-[    0.553719]  s5 : ffffffff81367d40 s6 : ffffffff80a00db8 s7 : ffffffff80a00d78
-[    0.553722]  s8 : ffffffff80e4ac38 s9 : ffffffff80a1c430 s10: 0000000000000008
-[    0.553726]  s11: ffffffff808000c4 t3 : 0000000000000002 t4 : ffffffd9efca3bfc
-[    0.553730]  t5 : ffffffd9efca3bd8 t6 : ffffffc6000db828 ssp : 0000000000000000
-[    0.553734] status: 0000000200000120 badaddr: ffffffff80443e72 cause: 0000000000000003
-[    0.553738] [<ffffffff80443e72>] __list_add_valid_or_report+0x4e/0xe8
-[    0.553745] [<ffffffff804f1c3a>] register_syscore+0x3a/0x6c
-[    0.553754] [<ffffffff80009cd8>] aplic_probe+0xd8/0xe8
-[    0.553765] [<ffffffff804f350e>] platform_probe+0x3e/0x7c
-[    0.553772] [<ffffffff804f0d5e>] really_probe+0x98/0x34a
-[    0.553779] [<ffffffff804f10ba>] __driver_probe_device+0xaa/0xf6
-[    0.553785] [<ffffffff804f11d0>] driver_probe_device+0x36/0xc4
-[    0.553791] [<ffffffff804f1470>] __driver_attach+0x108/0x1ec
-[    0.553797] [<ffffffff804eebde>] bus_for_each_dev+0x58/0xa4
-[    0.553803] [<ffffffff804f0608>] driver_attach+0x1a/0x22
-[    0.553809] [<ffffffff804eff32>] bus_add_driver+0xe2/0x204
-[    0.553814] [<ffffffff804f1f82>] driver_register+0x3e/0xd8
-[    0.553820] [<ffffffff804f3204>] __platform_driver_register+0x1e/0x26
-[    0.553827] [<ffffffff8082be50>] aplic_driver_init+0x1a/0x22
-[    0.553837] [<ffffffff8000e910>] do_one_initcall+0x44/0x286
-[    0.553843] [<ffffffff8080171c>] kernel_init_freeable+0x262/0x2e8
-[    0.553853] [<ffffffff8073cd98>] kernel_init+0x28/0x14c
-[    0.553863] [<ffffffff800101fa>] ret_from_fork_kernel+0x1a/0x15c
-[    0.553870] [<ffffffff807493ae>] ret_from_fork_kernel_asm+0x16/0x18
-[    0.553877] ---[ end trace 0000000000000000 ]---
-
-Move syscore registration to the driver init
-
-Fixes: 95a8ddde3660 ("irqchip/riscv-aplic: Preserve APLIC states across suspend/resume")
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
----
- drivers/irqchip/irq-riscv-aplic-main.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
-index 8fe4dc5cfdae..12d22b9d65cb 100644
---- a/drivers/irqchip/irq-riscv-aplic-main.c
-+++ b/drivers/irqchip/irq-riscv-aplic-main.c
-@@ -376,8 +376,6 @@ static int aplic_probe(struct platform_device *pdev)
- 	if (rc)
- 		dev_err_probe(dev, rc, "failed to setup APLIC in %s mode\n",
- 			      msi_mode ? "MSI" : "direct");
--	else
--		register_syscore(&aplic_syscore);
- 
- #ifdef CONFIG_ACPI
- 	if (!acpi_disabled)
-@@ -400,4 +398,10 @@ static struct platform_driver aplic_driver = {
- 	},
- 	.probe = aplic_probe,
- };
--builtin_platform_driver(aplic_driver);
-+
-+static int __init aplic_driver_init(void)
-+{
-+	register_syscore(&aplic_syscore);
-+	return platform_driver_register(&aplic_driver);
-+}
-+device_initcall(aplic_driver_init);
-
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KCkluIDIwMjQg
+SSBzZW50IGEgdjcgb2YgYWRkaW5nIHN1cHBvcnQgZm9yIHRoZSBHUElPcyBvbiBQb2xhckZpcmUg
+U29DLAp3aGljaCByZWxpZWQgb24gYW4gaXJxY2hpcCBkcml2ZXIgZm9yIGEgbXV4IHNpdHRpbmcg
+YmV0d2VlbiB0aGUgR1BJTwpjb250cm9sbGVycyBhbmQgdGhlIG1haW4gaW50ZXJydXB0IGNvbnRy
+b2xsZXIgb24gdGhlIGNoaXA6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI0MDcyMy1m
+bGF0d29ybS1jb3JuZmxha2UtODAyMzIxMmY2NTg0QHdlbmR5LwoKU29tZSBmZWVkYmFjayBJIGdv
+dCBmcm9tIFRob21hcyB0aGVyZSBlbmRlZCB1cCBiZWluZyBhIGNvbXBsZXRlIGJsYWNrCmhvbGUg
+Zm9yIHRpbWUgc3BlbnQsIGFuZCBJIG5ldmVyIG1hbmFnZWQgdG8gbWFrZSB0aGUgY2hhbmdlIGhl
+IHdhbnRlZCwKYXMgYSBob3VzZSBvZiBjYXJkcyBjb2xsYXBzZWQgd2hlbmV2ZXIgSSB0cmllZCBp
+dC4gSSBldmVudHVhbGx5CmFiYW5kb25lZCBteSBhdHRlbXB0IHRvIHVwc3RyZWFtIHRoZSBHUElP
+IGRyaXZlciB3aXRoIGludGVycnVwdCBzdXBwb3J0CmFuZCBjdXQgaXQgb3V0IG9mIHRoZSBkcml2
+ZXIgdG8gbWFrZSBwcm9ncmVzcy4gSSd2ZSBiZWVuIGNhcnJ5aW5nIHdoYXQKVGhvbWFzIGRlZW1l
+ZCBpbmNvcnJlY3QgZG93bnN0cmVhbSBzaW5jZS4KClJlY2VudGx5IEhlcnbDqSB1cHN0cmVhbWVk
+IGEgcGF0Y2hzZXQgZm9yIGEgUmVuZXNhcyBjaGlwIHRoYXQgZGVhbHMgd2l0aAphIG11eCBzaXR0
+aW5nIGJldHdlZW4gYSBHUElPIGNvbnRyb2xsZXIgYW5kIHRoZSBwbGF0Zm9ybSBpbnRlcnJ1cHQK
+Y29udHJvbGxlciBieSB3YXkgb2YgaW50ZXJydXB0LW1hcC4gSSBzYXcgdGhlIG9wcG9ydHVuaXR5
+IHRvIGNvcHkgd2hhdApoZSBkaWQsIHNvIGhhdmUgZ29uZSBmcm9tIGFuIGlycWNoaXAgZHJpdmVy
+IHRoYXQgcmVhZCB0aGUgbXV4IHNldHRpbmcKdGhhdCBmaXJtd2FyZSBoYWQgY29uZmlndXJlZCwg
+dG8gdHJpdmlhbCBkcml2ZXIgdGhhdCByZWFkcyB0aGUgbXV4CmNvbmZpZ3VyYXRpb24gZnJvbSBk
+ZXZpY2V0cmVlIGFuZCBzZXRzIHRoZSBoYXJkd2FyZSB1cCB0byBtYXRjaC4KClRoaXMgZ2V0cyBy
+aWQgZW50aXJlbHkgb2YgdGhlIGlycWNoaXAgZHJpdmVyLCBzbyByZXNvbHZlcyBUaG9tYXMnCmNv
+bXBsYWludCwgYnV0IEkgZG9uJ3QgbG92ZSBob3cgdGhlIEdQSU8gc2lkZSBvZiB0aGluZ3MgdHVy
+bmVkIG91dCBxdWl0ZQphcyBtdWNoLiBUaGUgaGFyZHdhcmUgaGFzIDQxIGludGVycnVwdHMgYnV0
+IDcwIEdQSU8gbGluZXMuIDM4IG9mIHRoZXNlCmFyZSAxOjEsIGRpcmVjdCBjb25uZWN0aW9ucyB0
+byBhIGRlZGljYXRlZCBsaW5lIG9uIHRoZSBpbnRlcnJ1cHQKY29udHJvbGxlciBhbmQgMyBhcmUg
+c2hhcmVkLgpXaXRoIHRoZSBwYXJlbnQgbXV4IGRyaXZlciwgdGhlIEdQSU8gZHJpdmVyJ3MgaW50
+ZXJydXB0IGhhbmRsZXIgd2FzIG9ubHkKY2FsbGVkIGVpdGhlciBmb3Igc3BlY2lmaWMgZGlyZWN0
+IGludGVycnVwdCBvciBmb3Igb25seSB0aGUgc3Vic2V0IHRoYXQKYXJlIGZlZCBpbnRvIHRoZSBz
+aGFyZWQgaW50ZXJydXB0IGZvciB0aGF0IGNvbnRyb2xsZXIuIFdpdGhvdXQgdGhlCnBhcmVudCBp
+cnFjaGlwIGZyb20gbXV4IGRyaXZlciwgYW5kIHVzaW5nIGludGVycnVwdC1tYXAsIEkgbG9zdCB0
+aGUKYWJpbGl0eSB0byB1c2UgbXV4IGRyaXZlciB0byBzZWxlY3RpdmVseSBjYWxsIHRoZSBoYW5k
+bGVyLCBzbyBub3cgdGhlCkdQSU8gY29udHJvbGxlciBhdHRlbXB0cyB0byBoYW5kbGUgaW50ZXJy
+dXB0cyBvbiBhbGwgbGluZXMuClByb2JhYmx5IHRoaXMgaXMgdWx0aW1hdGVseSBub3QgYSBiaWcg
+ZGVhbCwgaXQganVzdCBmZWVscyBiYWQgdG8gZG8uCgpUaGUgbXV4IGRyaXZlciBoYXMgbW92ZWQg
+ZnJvbSBpcnFjaGlwIHRvIHNvYywgc2luY2UgdGhhdCdzIHdoZXJlIEhlcnbDqSdzCmVuZGVkIHVw
+LgoKSSBhc3N1bWUgdGhlIG1lcmdpbmcgc3RyYXRlZ3kgaXMgZ29pbmcgdG8gYmUgdGhlIGtpbmRh
+IGV4cGVjdGVkIHNwbGl0CmludG8gdGhyZWUsIGFuZCBpdCdzIHdvcnRoIG5vdGluZyB0aGF0IHRo
+aXMgbWF5IGxlYWQgdG8gc29tZSBpc3N1ZXMgd2l0aAp0aGUgZ3BpbyBpbnRlcnJ1cHQgc3VwcG9y
+dCwgZGVwZW5kaW5nIG9uIGhvdyB0aGUgZXhpc3RpbmcgZGV2aWNldHJlZXMKYXJlIHdyaXR0ZW4u
+IE9mIGNvdXJzZSwgaXQnbGwgY29tZSBnb29kIGluIGxpbnV4LW5leHQgYW5kIGluIExpbnVzJwp0
+cmVlLgoKQ2hlZXJzLApDb25vci4KCnYxMjoKLSBJbXBsZW1lbnRlZCBtdXggZHJpdmVyIGZlZWRi
+YWNrIGZyb20gSGVydsOpLgotIFJld29ya2VkIHRoZSBncGlvIGludGVycnVwdCBzdHVmZiBwZXIg
+TGludXMnIGZlZWRiYWNrLCBzbyBkaWRuJ3QgcGljawogIHVwIEhlcnbDqXMgdGFnLgotIE1vZGlm
+aWVkIHRoZSBiaW5kaW5nIGRlc2NyaXB0aW9uIHRvIGNvdmVyIHRoZSA2IGFsd2F5cyAiZGlyZWN0
+IG1vZGUiCiAgaW50ZXJydXB0cyBvbiBncGlvIGNvbnRyb2xsZXIgMS4KCkNDOiBUaG9tYXMgR2xl
+aXhuZXIgPHRnbHhAbGludXRyb25peC5kZT4KQ0M6IEhlcnZlIENvZGluYSA8aGVydmUuY29kaW5h
+QGJvb3RsaW4uY29tPgpDQzogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNv
+bT4KQ0M6IERhaXJlIE1jTmFtYXJhIDxkYWlyZS5tY25hbWFyYUBtaWNyb2NoaXAuY29tPgpDQzog
+Um9iIEhlcnJpbmcgPHJvYmhAa2VybmVsLm9yZz4KQ0M6IEtyenlzenRvZiBLb3psb3dza2kgPGty
+emsrZHRAa2VybmVsLm9yZz4KQ0M6IFBhdWwgV2FsbXNsZXkgPHBqd0BrZXJuZWwub3JnPgpDQzog
+UGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4KQ0M6IEFsYmVydCBPdSA8YW91QGVl
+Y3MuYmVya2VsZXkuZWR1PgpDQzogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgpDQzog
+TGludXMgV2FsbGVpaiA8bGludXN3QGtlcm5lbC5vcmc+CkNDOiBCYXJ0b3N6IEdvbGFzemV3c2tp
+IDxicmdsQGtlcm5lbC5vcmc+CkNDOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCkND
+OiBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZwpDQzogbGludXgta2VybmVsQHZnZXIua2VybmVs
+Lm9yZwpDQzogbGludXgtZ3Bpb0B2Z2VyLmtlcm5lbC5vcmcKCkNvbm9yIERvb2xleSAoNCk6CiAg
+Z3BpbzogbXBmczogQWRkIGludGVycnVwdCBzdXBwb3J0CiAgZHQtYmluZGluZ3M6IHNvYzogbWlj
+cm9jaGlwOiBkb2N1bWVudCBQb2xhckZpcmUgU29DJ3MgZ3BpbyBpbnRlcnJ1cHQKICAgIG11eAog
+IHNvYzogbWljcm9jaGlwOiBhZGQgbXBmcyBncGlvIGludGVycnVwdCBtdXggZHJpdmVyCiAgcmlz
+Y3Y6IGR0czogbWljcm9jaGlwOiB1cGRhdGUgbXBmcyBncGlvIGludGVycnVwdHMgdG8gYmV0dGVy
+IG1hdGNoIHRoZQogICAgU29DCgogLi4uL3NvYy9taWNyb2NoaXAvbWljcm9jaGlwLG1wZnMtaXJx
+bXV4LnlhbWwgIHwgIDc3ICsrKysrKysrCiAuLi4vbWljcm9jaGlwLG1wZnMtbXNzLXRvcC1zeXNy
+ZWcueWFtbCAgICAgICAgfCAgIDQgKwogTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHwgICAyICstCiAuLi4vYm9vdC9kdHMvbWljcm9jaGlwL21wZnMtYmVhZ2xl
+di1maXJlLmR0cyAgfCAgMjkgKysrCiAuLi4vYm9vdC9kdHMvbWljcm9jaGlwL21wZnMtZGlzY28t
+a2l0LmR0cyAgICAgfCAgNDMgKysrLS0KIC4uLi9kdHMvbWljcm9jaGlwL21wZnMtaWNpY2xlLWtp
+dC1jb21tb24uZHRzaSB8ICAzNyArKystCiAuLi4vYm9vdC9kdHMvbWljcm9jaGlwL21wZnMtbTEw
+MHBmc2V2cC5kdHMgICAgfCAgNDEgKystLQogLi4uL2Jvb3QvZHRzL21pY3JvY2hpcC9tcGZzLXBv
+bGFyYmVycnkuZHRzICAgIHwgIDI5ICsrKwogLi4uL3Jpc2N2L2Jvb3QvZHRzL21pY3JvY2hpcC9t
+cGZzLXNldi1raXQuZHRzIHwgIDM3ICsrKy0KIC4uLi9yaXNjdi9ib290L2R0cy9taWNyb2NoaXAv
+bXBmcy10eXNvbS1tLmR0cyB8ICAzNSArKystCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL21pY3JvY2hp
+cC9tcGZzLmR0c2kgICAgICAgfCAgMzcgKysrLQogZHJpdmVycy9ncGlvL0tjb25maWcgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvZ3Bpby9ncGlvLW1wZnMuYyAgICAg
+ICAgICAgICAgICAgICAgICB8IDEyMiArKysrKysrKysrKy0KIGRyaXZlcnMvc29jL21pY3JvY2hp
+cC9LY29uZmlnICAgICAgICAgICAgICAgICB8ICAxMSArKwogZHJpdmVycy9zb2MvbWljcm9jaGlw
+L01ha2VmaWxlICAgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvc29jL21pY3JvY2hpcC9t
+cGZzLWlycW11eC5jICAgICAgICAgICB8IDE4MSArKysrKysrKysrKysrKysrKysKIDE2IGZpbGVz
+IGNoYW5nZWQsIDYzMiBpbnNlcnRpb25zKCspLCA1NSBkZWxldGlvbnMoLSkKIGNyZWF0ZSBtb2Rl
+IDEwMDY0NCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvc29jL21pY3JvY2hpcC9t
+aWNyb2NoaXAsbXBmcy1pcnFtdXgueWFtbAogY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvc29j
+L21pY3JvY2hpcC9tcGZzLWlycW11eC5jCgotLSAKMi41MS4wCgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
