@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4335FD88E1
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 02:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6D3FD88DF
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 02:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mJ/LSs4Kwzn21Km/6q9iLS/uy5gUnOTYcA/0i0mvriI=; b=f8AH6y2p4C2PWQ
-	fcOttOs77Pg62kQ3JGcgiep4QIt2qmSTuLQe2Cg6UlGZVQWX4Bs/CLEchK1tqFCNsW7Q3UTKunrbQ
-	/MPTBGYgvvWmL1jajZRC8Alt0/6FN79pbpujeoFoZNsUWtVhRRCWbkYm8gCOLBIMZ5geyVuHAmSUk
-	YypW9EFRPeOBWTXPTbYf83kjby/sN9ESrGZaUDXvwXkNEpzDj2iU81zIy3TMrwgKqbiIJrGsR99Qq
-	nSOwH4h6x7Iy3EgQIyIPQWBtjYZerbj5qWhsmWFt6T9mwlh/sonVWAIIwMJRzxVwlmNIRA7d51nMl
-	PCbZluR4qApCdW6QCivQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2GIm31nqmKGvnBgyVId2CLELPXeNfH3VzAVLPJSQ3sk=; b=dUH7rn2f3J3R8I
+	dU4v655gsdDgt3WPZy+SzBOi9T6tUtXUV+wNavPt0jWxijVvKLjIqocYEECA23ky57DRmqU5a8GJp
+	VfWkilLOeSLJRhW4+wGTeCs1lV5YW6F5nI8QU29xCql8ehq3Ua1EUOym385qYD8/eoCH09xhhQIGs
+	eHnf2Qm5/Q16ZQu9jV0+7Dgq7nSGZoPyiqoLjnmjzJx3FGxJ3Lc3wdLCm5FH+YPgX5pSlWaPmxVfF
+	WSAin92lFApDLf3q39CBMGS4MG6ZcKri9J71S9Eqyo+Kv7BgSKK/EA0Y48VshODcm0FpM7MwhIr1V
+	jXUzusLRwAgd6/Ok16HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09hR-0000000AZXV-2udh;
-	Wed, 11 Mar 2026 02:53:29 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1w09lt-0000000AZqw-37B0;
+	Wed, 11 Mar 2026 02:58:05 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09hO-0000000AZWL-0hjN
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Mar 2026 02:53:28 +0000
-X-QQ-mid: zesmtpsz3t1773197520t47c586fc
-X-QQ-Originating-IP: sdF9k/qqbfx5xHwfrMQdZ7mOpjfe5m/MCdhh9M9/keE=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 11 Mar 2026 10:51:58 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3368258366227887137
-X-QQ-CSender: troy.mitchell@linux.spacemit.com
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Wed, 11 Mar 2026 10:51:55 +0800
-Subject: [PATCH RFC] riscv: disable local interrupts and stop other CPUs
- before restart
+	id 1w09lp-0000000AZqK-3wQY;
+	Wed, 11 Mar 2026 02:58:03 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=b36C7PXQWMtROHC3akP80A02jao7I70/cN0HO+5yrzc=;
+	b=OIFuDbC2xS7Rgm+I36JhjfBBuNlrExfOc4b/6nZu5Eci5l3+fQS/kU6c0nfyQEGA12kX/Y7Hm
+	Q4fnrBYIxytCYBOb9gfPVNmdxJt8Tvf2GHBr2Fdo4Eecx+kEiQ1JtKfbeg5YZs6XhpMHGRf3AdS
+	dsh0tpvrdex5MaKPf2KuYUQ=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fVwJc46ySz12LFG;
+	Wed, 11 Mar 2026 10:52:16 +0800 (CST)
+Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2B67A2012A;
+	Wed, 11 Mar 2026 10:57:52 +0800 (CST)
+Received: from [10.67.121.161] (10.67.121.161) by
+ kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 11 Mar 2026 10:57:50 +0800
+Message-ID: <f2bf1055-ae5f-44bb-9bd4-8888099933fb@huawei.com>
+Date: Wed, 11 Mar 2026 10:57:49 +0800
 MIME-Version: 1.0
-Message-Id: <20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NQQrCMBBG4auUWftDkraKbgUP4FZcJO1UZ5PKT
- AhC6d0NLr/NexsZq7DRpdtIuYrJmhv8oaPpHfOLIXMzBReOrvce9QQHnTy0YhaD5ILEy6oMZSt
- RC8bU8xjikAZ/phb6KC/y/U8edL9d6bnvP8hZ5w55AAAA
-X-Change-ID: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.dev>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773197518; l=2848;
- i=troy.mitchell@linux.dev; s=20250710; h=from:subject:message-id;
- bh=gy7SA+8vj/QLWMAenN3Vxk5AfAdTFQ8XwfDJ5fmJE3U=;
- b=kHDZeMGQFMACmKsjUfZeMNJAuhwEWGczNZs3+BSngFXZ8rHoZKCrSzIgDCtM//OLMTYX0+vPn
- CRFG/dk8lBkAZGhb8SCUk8HR+oDpeJzHOV7O7hauAPASx9nkXIbqPNW
-X-Developer-Key: i=troy.mitchell@linux.dev; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: M66Ywu80wllzikAOOl1u9GffJrRc4C+PZ4pfmYHtJW3zfi1smvkFoBM+
-	irGIznW0X78obohDM3LZSXZLbhY/9YXaZEkLpQZPvE8p7WuatOoR/m690xV7YJwfk89WsiH
-	WOGe6B1xKqvgMue5DKniB6p0gqfU3GascgRbbQFnMa/jCi+sIyniI5dl5NcrHmiYL9Mqkq0
-	MUHsCCZu0mSnrMiI8apbTpC4lnVsmByFEdxx02jsOE0Wel+nDU2bi+E+eE7DSnTEdcUxF4w
-	nu2V6/97wtV08uUGpFIVpcGd+x/zywCpMqMMZdrvlXIFHQJB5On14D7yDRdeIfaryYrO0xu
-	F0mUMQ4JIhmqGR1q3OA3yRn3NahLRM7SH4quvgE9Q/bCIIKZtf2V/9My33mDfhiax+P3fDU
-	/yFtI1Ygqn2kYsckd6ych8WldjnRQ27v1yJby4gt0a4p+1p974lp4GcxLAxLFaYjcbXFuMx
-	8+5+QQQzh/9KYBn4vdjSOUWCBCMDy6Zpg60cln2FW7DaMHZaNArqSF/idBS5V3GhS7XbajR
-	La4FaYBOKh5v9leWt7W+kuuDWjgSCMhTje/nIKNx2Z1oZoRPFWHODzNpkFflHh1FQUu9Y/x
-	ZlM46R53hcCig/IKvbzYGDUP5MamtHzpYylKpL0HrUva7bw4Hh9YxLLzCsqcKT8xI65E22i
-	jl58gAtzLO/6r8IwmwHCYDta/TvR2dmCiP5OEUN1YDp53/EibCWLbqAswP9r3xg8OIGlPDK
-	NKbouycAaZxruAJ9n7cPvxnZk6aeC9Q7xkRkNUsNvaKAP0rURuKbPCaTadoZ/EhvZ+XL9I8
-	u6Fb3+sFxu1UeGmDOxuF9i9QDvzlfBRQ56RUc3tQTZ3Ce0l6U9NCMl5iOtW8eDgRaNMfC1v
-	ekhegHvLkP4wJtkYdUK4Mf9QmlIEycxTfr4b/MRhipWxyG0ApmlySDlYW/16l4t5GIFQ8De
-	TkzUlR+zyrxZQYaBO5TPuIaiApU4m8Key8V1vEuyA78Y0eHaQzy/FlUx5ceMnyMNR34la+T
-	0vJ2l25Bdm034zawaOyfthgpbA7H0v3K0JmX8+c1+m43stwcZXkHnvFcCTQM0waQHnO7RtI
-	ybq7bOBP1ClD4GW6YkrgqmivyWRhT98CS9pkXVhuEG4eGYjc5fl84Th95LKnJ9y3XY3Ta0N
-	a+vP
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] ACPI: Rename get_acpi_id_for_cpu() to
+ acpi_get_cpu_acpi_id() on non-x86
+To: Bjorn Helgaas <helgaas@kernel.org>
+References: <20260310175305.GA730372@bhelgaas>
+Content-Language: en-US
+From: fengchengwen <fengchengwen@huawei.com>
+In-Reply-To: <20260310175305.GA730372@bhelgaas>
+X-Originating-IP: [10.67.121.161]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk500009.china.huawei.com (7.202.194.94)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_195327_101643_977AF8A1 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20260310_195802_623309_D2639D3C 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,83 +71,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Ajit Khaparde <ajit.khaparde@broadcom.com>, x86@kernel.org, liuyonglong@huawei.com, "Rafael J .
+ Wysocki" <rafael@kernel.org>, Kees Cook <kees@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Somnath Kotur <somnath.kotur@broadcom.com>, Sohil Mehta <sohil.mehta@intel.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, linux-pci@vger.kernel.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Shuah Khan <skhan@linuxfoundation.org>, Bjorn Helgaas <bhelgaas@google.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, Sean Christopherson <seanjc@google.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the RISC-V implementation of machine_restart() directly calls
-do_kernel_restart() without disabling local interrupts or stopping other
-CPUs. This missing architectural setup causes fatal issues for systems
-that rely on external peripherals (e.g., I2C PMICs) to execute the system
-restart when CONFIG_PREEMPT_RCU is enabled.
+On 3/11/2026 1:53 AM, Bjorn Helgaas wrote:
+> On Tue, Mar 10, 2026 at 11:20:48AM +0800, Chengwen Feng wrote:
+>> To unify the CPU ACPI ID retrieval interface across architectures,
+>> rename the existing get_acpi_id_for_cpu() function to
+>> acpi_get_cpu_acpi_id() on arm64/riscv/loongarch platforms.
+>>
+>> This is a pure rename with no functional change, preparing for a
+>> consistent ACPI Processor UID retrieval interface across all ACPI-enabled
+>> platforms.
+> 
+> Really a question for the ACPI folks, but my preferences would be:
+> 
+>   - Simpler name for the interface, e.g., "acpi_get_cpu_id()"
 
-When a restart handler relies on the I2C subsystem, the I2C core checks
-i2c_in_atomic_xfer_mode() to decide whether to use the sleepable xfer
-or the polling atomic_xfer. This check evaluates to true if
-(!preemptible() || irqs_disabled()).
+OK, and how about add u-, like: acpi_get_cpu_uid()
 
-During do_kernel_restart(), the restart handlers are invoked via
-atomic_notifier_call_chain(), which holds an RCU read lock.
-The behavior diverges based on the preemption model:
-1. Under CONFIG_PREEMPT_VOLUNTARY or CONFIG_PREEMPT_NONE, rcu_read_lock()
-   implicitly disables preemption. preemptible() evaluates to false, and
-   the I2C core correctly routes to the atomic, polling transfer path.
-2. Under CONFIG_PREEMPT_RCU, rcu_read_lock() does NOT disable preemption.
-   Since machine_restart() left local interrupts enabled, irqs_disabled()
-   is false, and preempt_count is 0. Consequently, preemptible() evaluates
-   to true.
+> 
+>   - Single prototype in generic header, e.g., include/linux/acpi.h
 
-As a result, the I2C core falsely assumes a sleepable context and routes
-the transfer to the standard master_xfer path. This inevitably triggers a
-schedule() call while holding the RCU read lock, resulting in a fatal splat:
-"Voluntary context switch within RCU read-side critical section!" and
-a system hang.
+OK
 
-Align RISC-V with other major architectures (e.g., ARM64) by adding
-local_irq_disable() and smp_send_stop() to machine_restart().
-- local_irq_disable() guarantees a strict atomic context, forcing sub-
-  systems like I2C to always fall back to polling mode.
-- smp_send_stop() ensures exclusive hardware access by quiescing other
-  CPUs, preventing them from holding bus locks (e.g., I2C spinlocks)
-  during the final restart phase.
+> 
+>   - Split the x86 part to a separate patch and maybe (a tangent, but
+>     looks dubious to me) figure out whether/why xen needs xen_vcpu_id
+>     to be ACPI CPU IDs
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
----
- arch/riscv/kernel/reset.c | 5 +++++
- 1 file changed, 5 insertions(+)
+OK for a separate patch for x86.
 
-diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
-index 912288572226..7a5dcfdc3674 100644
---- a/arch/riscv/kernel/reset.c
-+++ b/arch/riscv/kernel/reset.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/reboot.h>
- #include <linux/pm.h>
-+#include <linux/smp.h>
- 
- static void default_power_off(void)
- {
-@@ -17,6 +18,10 @@ EXPORT_SYMBOL(pm_power_off);
- 
- void machine_restart(char *cmd)
- {
-+	/* Disable interrupts first */
-+	local_irq_disable();
-+	smp_send_stop();
-+
- 	do_kernel_restart(cmd);
- 	while (1);
- }
+Btw: the x86 implementation in 2/2 commit may has problem, please see the reply in 2/2 for detail.
 
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
-
-Best regards,
--- 
-Troy Mitchell <troy.mitchell@linux.dev>
+> 
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> ---
+>>  arch/arm64/include/asm/acpi.h      |  4 ++--
+>>  arch/loongarch/include/asm/acpi.h  |  2 +-
+>>  arch/riscv/include/asm/acpi.h      |  2 +-
+>>  arch/riscv/kernel/acpi_numa.c      |  2 +-
+>>  drivers/acpi/pptt.c                | 16 ++++++++--------
+>>  drivers/acpi/riscv/rhct.c          |  2 +-
+>>  drivers/perf/arm_cspmu/arm_cspmu.c |  2 +-
+>>  7 files changed, 15 insertions(+), 15 deletions(-)
+> 
 
 
 _______________________________________________
