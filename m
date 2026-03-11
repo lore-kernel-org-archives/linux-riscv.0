@@ -4,97 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB6EFD064D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 07:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6004FFD0653
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 08:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
-	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8iC1U9E6fhcYqxcC8kk2XdgqDZDq/O9kPkPSWpG9Yd8=; b=FhPUpm85yXcI2O
-	fXcGQqnWhXRPqAa2jJqK9aVNMJwS42LlqvYwlUytXz1KWx3j/tfXM1abELcUQLzR6CM6AyWEEMQ7/
-	iqWU8C9w3lVQRITYqp+s0E4kPRwlzhNm1YK5sUzdsUFB2yXRqaW0CXNZHEZDZ+5+yf2SuFCozw7Me
-	x9Gj6eJudosfHnT3BJH5lw5LortXZJSl1md8hPWc39YLEAX3jrQ6XWEcOiQhcV1NVxW/QzElYAgPV
-	3iri34wYzZzBzM/BUp/JVEm5WtQN4ROvz+AgHkFH+O7rS5D+NMrzTkn5hu41KuZeaieBY19O0JfsB
-	9oNYA4M4x1GOipYKsr0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T/64fjeMgNqFO8YV8r6et8EesS57jXn4mUlejR/ecZw=; b=a9O2Ah9CKumNtmU+QTG6zyaJcN
+	Dmmp+FNUY9liG2yeOV9tkIcsiz4gJEb4FViWF5XzaJenyJPMi0fZNoLUT+3ugOdLcdycD/bH9FdbP
+	U/SPgJ89HKEy3S9EhROkwyhBKGg6hC41Y14YlvbQy049KxHIkA/rjE7uqMHQ11XmAaiX5m163i8QR
+	0843aJppOQ3Z4pzNonI+wAjPiAqRD6RdIp3Ko8pPWr1I4fnk0Sia5d8aQPGsj9gZA4aeZgXvAAKbq
+	CZUYA46h9XoA0IZaH6YV6QDjdQj0WX8xrSczNZPU0j/x09OKMjdObBNHLZK3xoNGpgXjVDuHTYB3q
+	YQCXKCtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0EKa-0000000B584-0CYz;
-	Wed, 11 Mar 2026 07:50:12 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1w0El2-0000000B90D-2M5A;
+	Wed, 11 Mar 2026 08:17:32 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0EKW-0000000B568-3mO0
+	id 1w0El0-0000000B8vk-0M0X
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Mar 2026 07:50:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1773215305;
-	bh=qWgwB8j/M+E4gmyyhynMGAfBcceSPDvi0TFbAOKm01s=;
-	h=Mime-Version:Date:Message-Id:From:To:Subject;
-	b=aU2nOozP+kpSvl+z8QOWdSmz7dQ3RWdlByK0RvnhCov68BDICDL+bAKxYl+SAQ/yl
-	 8rv4SJRCziHfJcX3EqHkUzfC6J5ce9UMylorkeOBaKBYE8iAwwNaSekQABl8iGaaQl
-	 AikxHQh7SXB0Xw86xyHLemxBD8FQh1qvBeFytUmo=
-X-QQ-mid: zesmtpsz9t1773215295tb12a1a0e
-X-QQ-Originating-IP: ldkFeB95AQ/Pqp2XqD3PI0/pyB/6365kIn1OTkLhfkU=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 11 Mar 2026 15:48:13 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5492583855199653968
-EX-QQ-RecipientCnt: 14
-Mime-Version: 1.0
-Date: Wed, 11 Mar 2026 15:48:13 +0800
-Message-Id: <DGZSCZZTZXMI.15QP3KJ8LB61V@linux.spacemit.com>
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Yanko Kaneti" <yaneti@declera.com>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>, "Aurelien Jarno" <aurelien@aurel32.net>
-Cc: <linux-kernel@vger.kernel.org>, "Lee Jones" <lee@kernel.org>, "Sebastian
- Reichel" <sre@kernel.org>, "Yixun Lan" <dlan@gentoo.org>, "Paul Walmsley"
- <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
- <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "open
- list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
- "open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit"
- <spacemit@lists.linux.dev>, "open list:SYSTEM RESET/SHUTDOWN DRIVERS"
- <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] mfd: simple-mfd-i2c: add a reboot cell for the
- SpacemiT P1 chip
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20251102230352.914421-1-aurelien@aurel32.net>
- <20251102230352.914421-3-aurelien@aurel32.net>
- <b51a62513daa9d2390031ec350e0b33bdb7e54aa.camel@declera.com>
- <aaC78FTN31QYaVg0@aurel32.net>
- <990bc03ed2baa05e619f0aa9cc6a23acadd66ea6.camel@declera.com>
- <aaS6xeKFZz06fb1_@aurel32.net> <aaXuWwyA5NzBZzlW@aurel32.net>
- <36f8df695463e5ff3eaaffbac357fc73026f7373.camel@declera.com>
- <aadGw1fIlJyNNoum@aurel32.net>
- <DGZM6WUAVPPS.20Y0NIZYI4572@linux.spacemit.com>
- <4ab8430161252ec778fabf7e9b68acf3645ed4c7.camel@declera.com>
-In-Reply-To: <4ab8430161252ec778fabf7e9b68acf3645ed4c7.camel@declera.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NV3zG3Y1/ZrFkl9v1qFAFTsRT8MNPHEJeXoudNFh/AKGgU6jZ9e47BiX
-	mbFjpjoJorFjcXKIB+FKlxHtPgE7TS8rbdkqIr+cg4p63RlH94gutJn2nck+Jiio8iy1vdg
-	r1yOVvY1ctNEIXNyG4S9ESFSV3HWElF/jlGKSj9SpaYz/rMAvZ99iTBgded8jq48hOTGFTy
-	wPVko/hWLiFC0qoekGa5pgGSREA+ZvnxoYSgZXFzHxZRxRW3l9skww7D9DtJ7UzTCK14/1j
-	vM+nQKYwm3wZHbPBBZLEEGrujQkYcbJQU2J47XxwvlUb7epFcP+tzDV7u85y4x9FLuGF3Hv
-	y6Ce7JmK1JrfLR8Ynhp2DMwhPvknEKpH3Tac/KXTFO+wKGjwj4klx8FhE6PXDQj/3hN9y4w
-	Z3qf+VV+tHgvfyCOM94hJQyCnP9Ufr6NXn+z/iU+376tgIPEg3IQWaPX1KdvXFdaM6Ga3s9
-	3IckOxj1NYAl+oDZp+QUpQKaWe5J7klMeDaVhVYQVMOmMCDy4UMPpDEkmkN4gxOiDL8mKjT
-	tgj0FdrCVpRnl4zGuef+LkdNVekR1ZdpbyGR6c+cPfGoF0jpHmuoZDO7QAP4kiwPxb7T5tQ
-	jlGQtYuuP/4UpwZBfszGH7Sw0gSP3AdQPEflm7JuuaTzrFZS/3gLqoQ039TM1iuZfOLi2nb
-	0CV1hFA+wLNYqcVpCX7kg+qEbzgFih9KcsZLBLFF9UC9ejpLFJu21TjaxHVeD4l9pZQczO/
-	ucLBNcjgRu9QrpRUeuz6WGPsn7850RI9yKMPNBEnq4EQodhutTMz+cZZzZCL5LOUICQYTO2
-	jQ87zTciBtQJJzrnSq2O6CUXbKefc8bEMQjkN7jzZ8a6GiyjXCutQqmDND5Y+GCE56j9d16
-	ejcSghWf4v1NeuRsre7YarXE3eiSXfqQBDGpLk3fDssmXacgszQ1eqfomO5sI0umkOzaO/x
-	gwlPg0PBW65v5QmSqyo+IH0E9x3Th3Xs2bBUkhIDiltL+vUSO83wM4c3BuG+rBrVB+eEtli
-	r66lcojXKTQBe8UpfhS31sCcYVe6riMoGmqShEpO3h6bcdAWbxmM1R+16K5BZgN3WYo29zf
-	AyJ6zdHTBMDED0B6SjvwI7co1gVmgpTNFlv9WWh48uRPsdzl/4ZugpjZvkX6gDKiw==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+	Wed, 11 Mar 2026 08:17:31 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4fW3Wc4NXZz9tm7;
+	Wed, 11 Mar 2026 09:17:16 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mssola.com; s=MBO0001;
+	t=1773217036;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HVbE7XCLIawi/u9FQSgHONTfHdNScTIl0ofsK2VWYUE=;
+	b=yrcn6O9pdFCOWtGFWrBB+buvKZi54udD+r2gZM39Gb8RLr3b2ka5DE8dNbgun7lE7f35Jk
+	J/bCSrb2jQlq6BzOm5W/5HHrU8rlKmK3vzE6eVRpiZt/SxmQkQqSe3Q5LqxCWrONedkjD8
+	8iG0pkIfGxLbH90+I7PGTcaKDqEFioQr/3M18HjhZu4D/VRROXo/WDc5U5dLka8FtqI3Rw
+	GXVF8TTS61jv4YVRjbrAJJWBGeSvZj/h+IRuLM6/diI6cWPETE5lmVCWhQJEOpuhFljk8r
+	ZLZx21Pox+Xo3UBSq3w3wu8ryghhya28xZ9ptpwqUBl/20xhNV91/zZ7XpxdOQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=softfail (outgoing_mbo_mout: 2001:67c:2050:b231:465::202 is neither permitted nor denied by domain of mssola@mssola.com) smtp.mailfrom=mssola@mssola.com
+From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mssola@mssola.com>
+To: pjw@kernel.org
+Cc: palmer@dabbelt.com,  alex@ghiti.fr,  corbet@lwn.net,
+  linux-riscv@lists.infradead.org,  linux-doc@vger.kernel.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: enable HAVE_CMPXCHG_{DOUBLE,LOCAL}
+In-Reply-To: <20260220074449.8526-1-mssola@mssola.com> ("Miquel
+ =?utf-8?Q?Sabat=C3=A9_Sol=C3=A0=22's?=
+	message of "Fri, 20 Feb 2026 08:44:49 +0100")
+References: <20260220074449.8526-1-mssola@mssola.com>
+Date: Wed, 11 Mar 2026 09:17:10 +0100
+Message-ID: <87sea63hmh.fsf@>
+MIME-Version: 1.0
+X-Rspamd-Queue-Id: 4fW3Wc4NXZz9tm7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_005009_873262_4D9CD0E3 
-X-CRM114-Status: GOOD (  40.89  )
+X-CRM114-CacheID: sfid-20260311_011730_342518_3A484913 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,87 +75,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2139031190715120589=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkIE1hciAxMSwgMjAyNiBhdCAzOjA4IFBNIENTVCwgWWFua28gS2FuZXRpIHdyb3RlOgo+
-IE9uIFdlZCwgMjAyNi0wMy0xMSBhdCAxMDo1OCArMDgwMCwgVHJveSBNaXRjaGVsbCB3cm90ZToK
-Pj4gT24gV2VkIE1hciA0LCAyMDI2IGF0IDQ6MzggQU0gQ1NULCBBdXJlbGllbiBKYXJubyB3cm90
-ZToKPj4gIEhpLCBBdXJlbGllbiBhbmQgWWFua28sCj4+ID4gSGksCj4+ID4gCj4+ID4gT24gMjAy
-Ni0wMy0wMiAyMjozNCwgWWFua28gS2FuZXRpIHdyb3RlOgo+PiA+ID4gSGVsbG8sCj4+ID4gPiAK
-Pj4gPiA+IE9uIE1vbiwgMjAyNi0wMy0wMiBhdCAyMTowOCArMDEwMCwgQXVyZWxpZW4gSmFybm8g
-d3JvdGU6Cj4+ID4gPiA+IE9uIDIwMjYtMDMtMDEgMjM6MTYsIEF1cmVsaWVuIEphcm5vIHdyb3Rl
-Ogo+PiA+ID4gPiA+IE9uIDIwMjYtMDItMjcgMTM6MjksIFlhbmtvIEthbmV0aSB3cm90ZToKPj4g
-PiA+ID4gPiA+IE9uIFRodSwgMjAyNi0wMi0yNiBhdCAyMjozMiArMDEwMCwgQXVyZWxpZW4gSmFy
-bm8gd3JvdGU6Cj4+ID4gPiA+ID4gPiA+IEhpLAo+PiA+ID4gPiA+ID4gPiAKPj4gPiA+ID4gPiA+
-ID4gT24gMjAyNi0wMi0yNiAxNjozMiwgWWFua28gS2FuZXRpIHdyb3RlOgo+PiA+ID4gPiA+ID4g
-PiA+IEhlbGxvLAo+PiA+ID4gPiA+ID4gPiA+IAo+PiA+ID4gPiA+ID4gPiA+IE9uIE1vbiwgMjAy
-NS0xMS0wMyBhdCAwMDowMiArMDEwMCwgQXVyZWxpZW4gSmFybm8gd3JvdGU6Cj4+ID4gPiA+ID4g
-PiA+ID4gPiBBZGQgYSAic3BhY2VtaXQtcDEtcmVib290IiBjZWxsIGZvciB0aGUgU3BhY2VtaVQg
-UDEgY2hpcC4KPj4gPiA+ID4gPiA+ID4gPiA+IAo+PiA+ID4gPiA+ID4gPiA+ID4gU2lnbmVkLW9m
-Zi1ieTogQXVyZWxpZW4gSmFybm8gPGF1cmVsaWVuQGF1cmVsMzIubmV0Pgo+PiA+ID4gPiA+ID4g
-PiA+ID4gLS0tCj4+ID4gPiA+ID4gPiA+ID4gPiB2NTogbm8gY2hhbmdlcwo+PiA+ID4gPiA+ID4g
-PiA+ID4gCj4+ID4gPiA+ID4gPiA+ID4gPiAgZHJpdmVycy9tZmQvc2ltcGxlLW1mZC1pMmMuYyB8
-IDEgKwo+PiA+ID4gPiA+ID4gPiA+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKQo+
-PiA+ID4gPiA+ID4gPiA+ID4gCj4+ID4gPiA+ID4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
-cy9tZmQvc2ltcGxlLW1mZC1pMmMuYyBiL2RyaXZlcnMvbWZkL3NpbXBsZS1tZmQtaTJjLmMKPj4g
-PiA+ID4gPiA+ID4gPiA+IGluZGV4IDBhNjA3YTFlM2NhMWQuLjU0MmQzNzhjZGNkMWYgMTAwNjQ0
-Cj4+ID4gPiA+ID4gPiA+ID4gPiAtLS0gYS9kcml2ZXJzL21mZC9zaW1wbGUtbWZkLWkyYy5jCj4+
-ID4gPiA+ID4gPiA+ID4gPiArKysgYi9kcml2ZXJzL21mZC9zaW1wbGUtbWZkLWkyYy5jCj4+ID4g
-PiA+ID4gPiA+ID4gPiBAQCAtOTksNiArOTksNyBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IHJlZ21h
-cF9jb25maWcgc3BhY2VtaXRfcDFfcmVnbWFwX2NvbmZpZyA9IHsKPj4gPiA+ID4gPiA+ID4gPiA+
-ICB9Owo+PiA+ID4gPiA+ID4gPiA+ID4gIAo+PiA+ID4gPiA+ID4gPiA+ID4gIHN0YXRpYyBjb25z
-dCBzdHJ1Y3QgbWZkX2NlbGwgc3BhY2VtaXRfcDFfY2VsbHNbXSA9IHsKPj4gPiA+ID4gPiA+ID4g
-PiA+ICsJeyAubmFtZSA9ICJzcGFjZW1pdC1wMS1yZWJvb3QiLCB9LAo+PiA+ID4gPiA+ID4gPiA+
-ID4gIAl7IC5uYW1lID0gInNwYWNlbWl0LXAxLXJlZ3VsYXRvciIsIH0sCj4+ID4gPiA+ID4gPiA+
-ID4gPiAgCXsgLm5hbWUgPSAic3BhY2VtaXQtcDEtcnRjIiwgfSwKPj4gPiA+ID4gPiA+ID4gPiA+
-ICB9Owo+PiA+ID4gPiA+ID4gPiA+IAo+PiA+ID4gPiA+ID4gPiA+IFBlcmhhcHMgaXRzIHNhZmUg
-dG8gbWVyZ2UgdGhpcyBvbmUgbm93IHRoYXQgZXZlcnl0aGluZyBQMSBhbmQgSTJDIGlzCj4+ID4g
-PiA+ID4gPiA+ID4gYWxyZWFkeSBpbiBsaW51cyB0aXAgPwo+PiA+ID4gPiA+ID4gPiAKPj4gPiA+
-ID4gPiA+ID4gVW5mb3J0dW5hdGVseSwgdGhpcyBwYXRjaHNldCBpcyBzdGlsbCBtaXNzaW5nOgo+
-PiA+ID4gPiA+ID4gPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNjAyMDctYjQtazMt
-aTJjLXBpby12Ny0wLTYyNjk0MmQ5NGQ5MUBsaW51eC5zcGFjZW1pdC5jb20vCj4+ID4gPiA+ID4g
-PiA+IAo+PiA+ID4gPiA+ID4gPiBUaGlzIG1lYW5zIHRoZSByZWJvb3RzIHdvcmsgbW9zdCBvZiB0
-aGUgdGltZSwgYnV0IGFyZSBub3QgMTAwJSByZWxpYWJsZSwgCj4+ID4gPiA+ID4gPiA+IGFuZCB0
-aGF0J3MgdGhlIHJlYXNvbiB3aHkgdGhpcyBwYXRjaCBnb3QgYmxvY2tlZCBmcm9tIG1lcmdpbmcu
-Cj4+ID4gPiA+ID4gPiAKPj4gPiA+ID4gPiA+IEkgc2VlLiBUaGFua3MuIFNvdW5kcyB0byBtZSBs
-aWtlIHNvbWV0aW1lcyB3b3JraW5nIGNvbXBhcmVkIHRvIG5ldmVyCj4+ID4gPiA+ID4gPiB3b3Jr
-aW5nIGlzIGJldHRlciAsIGJ1dCBhbnl3YXkuLgo+PiA+ID4gPiA+IAo+PiA+ID4gPiA+IEkgYWdy
-ZWUgd2l0aCB0aGF0LCBidXQgdGhlIGRlY2lzaW9uIHdhcyB0byBob2xkIG9uIHRoaXMgcGF0Y2gg
-dW50aWwgdGhlIAo+PiA+ID4gPiA+IEkyQyBQSU8gcGFydCBnb3QgbWVyZ2VkLgo+PiA+ID4gPiA+
-IAo+PiA+ID4gPiA+ID4gRldJVyAgd2l0aCB0aGlzIHBhdGNoIGFuZCB0aGUgcGlvIHBhdGNoZXNl
-dCBJIGdldCB0aGlzIHJjdSBzcGxhdCBvbgo+PiA+ID4gPiA+ID4gcmVib290ICh3aGljaCBpcyBz
-dGlsbCB3b3JraW5nKS4gU2ltaWxhciBzcGxhdCBpcyB0aGVyZSB3aXRob3V0IHRoZSBwaW8KPj4g
-PiA+ID4gPiA+IHBhdGNoZXNldC4KPj4gPiA+ID4gPiAKPj4gPiA+ID4gPiBJIGhhdmVuJ3QgYmVl
-biBhYmxlIHRvIHJlcHJvZHVjZSB0aGUgaXNzdWUgaGVyZSBhZnRlciAxMCsgcmVib290cyBvbiBh
-IAo+PiA+ID4gPiA+IEJQSS1GMyBib2FyZCwgYnV0IEkgdHJpZWQgdGhlIHBhdGNoIG9uIHRvcCBv
-ZiA2LjE5LiBJJ2xsIHRyeSB0byBidWlsZCBhIAo+PiA+ID4gPiA+IDcuMC4wLXJjMiBrZXJuZWwg
-YW5kIHJlcG9ydCBiYWNrLgo+PiA+ID4gPiAKPj4gPiA+ID4gSSBoYXZlIHRyaWVkIHRoYXQsIGFu
-ZCBJIGFtIHN0aWxsIHVuYWJsZSB0byByZXByb2R1Y2UgdGhlIGlzc3VlIHdpdGggYSAKPj4gPiA+
-ID4gNy4wLjAtcmMyIGtlcm5lbCBhbmQgYSBCUEktRjMgYm9hcmQuCj4+ID4gPiAKPj4gPiA+IEkg
-Y2FuIHN0aWxsIHNlZSBpdCBvbiBldmVyeSByZWJvb3QgKHdpdGggdGhlIHBhdGNoZXMgdGhhdCBh
-bGxvdyByZWJvb3QKPj4gPiA+IHRvIHdvcmspLiBEbyB5b3UgaGF2ZSBDT05GSUdfUFJFRU1QVF9S
-Q1UgaW4geW91ciBjb25maWcgPyBpdHMgZGVmYXVsdCBvbgo+PiA+ID4gd2hlbiBhbnl0aGluZyBQ
-UkVFTVBUIGlzIHNlbGVjdGVkLiBJbiBGZWRvcmEgaXRzIENPTkZJR19QUkVFTVBUX0RZTkFNSUMK
-Pj4gPiA+IHRoYXQgZmxpcHMgaXQuCj4+ID4gCj4+ID4gVGhhbmtzIGZvciB0aGUgaGludCwgdGhh
-dCBvcHRpb24gd2FzIG5vdCBhY3RpdmF0ZWQgaGVyZSwgaXQncyBub3QgdGhlIAo+PiA+IHJpc2N2
-NjQgZGVmY29uZmlnLiBXaXRoIGl0IEkgYW0gYWxzbyBhYmxlIHRvIHJlcHJvZHVjZSB0aGUgaXNz
-dWUuIEknbGwgCj4+ID4gdHJ5IHRvIGRlYnVnIHRoYXQgYW5kIHJlcG9ydCBiYWNrLgo+PiBJIGhh
-dmUgc2VudCBhIHBhdGNoIHRvIGFkZHJlc3MgdGhpcyBpc3N1ZSBoZXJlWzFdLgo+PiAKPj4gQ291
-bGQgeW91IHBsZWFzZSB0ZXN0IGl0IG9uIHlvdXIgaGFyZHdhcmUgd2hlbiB5b3UgaGF2ZSBhIGNo
-YW5jZT8KPj4gCj4+ICAgICAgICAgICAgICAgICAgICAgICAgIC0gVHJveQo+PiAKPj4gTGluazoK
-Pj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjYwMzExLXY3LTAtcmMxLXJ2LWRpcy1p
-bnQtYmVmb3JlLXJlc3RhcnQtdjEtMS1iYzQ2YjQzNTFjYWNAbGludXguZGV2LyBbMV0KPgo+IFRo
-YW5rcyBUcm95LsKgU2VlbSB0byBmaXggdGhlIGlzc3VlIGhlcmUuCj4gTm8gc3BsYXQgYW5kIHJl
-Ym9vdCBzdGlsbCB3b3JrcyBPSyBvbiB0aGUgUjJTClRoYW5rIHlvdSBhbmQgQXVyZWxpZW4gZm9y
-IHRoZSB0ZXN0LgoKVG8gYmUgaG9uZXN0LCBJJ20gc3RpbGwgbm90IGVudGlyZWx5IHN1cmUgaWYg
-dGhpcyBpcyB0aGUgcmlnaHQgZml4LgpJ4oCZbSBjdXJpb3VzIHdoeSBSSVNDLVYgZG9lc24ndCBk
-aXNhYmxlIGludGVycnVwdHMgZHVyaW5nIHRoaXMgdGFzaywKYXMgQVJNIGFuZCBQb3dlclBDIGRv
-LgoKSSd2ZSBzZW50IHRoaXMgb3V0IHdpdGggYW4gUkZDIHByZWZpeCBhbmQgYW0gbG9va2luZyBm
-b3J3YXJkIHRvIGdldHRpbmcKc29tZSBmZWVkYmFjayBmcm9tIHRoZSBjb21tdW5pdHkuCgogICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0gVHJveQo+Cj4gLSBZYW5r
-bwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============2139031190715120589==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
+
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Miquel Sabat=C3=A9 Sol=C3=A0 @ 2026-02-20 08:44 +01:
+
+> Support for atomic Compare-And-Swap instructions has been in the RISC-V
+> port of the Linux kernel for a long time. That being said, we apparently
+> never bothered to set HAVE_CMPXCHG_DOUBLE and HAVE_CMPXCHG_LOCAL in the
+> Kconfig, despite having all the framework to support them.
+>
+> Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mssola@mssola.com>
+> ---
+> I have built this patch with multiple configurations and ran it with KVM
+> (the VisionFive2 board that I have lacks the needed extensions). All seems
+> to work, but I do wonder if we did not enable these for a reason or this
+> just slipped through. So far in the code I believe everything is in place,
+> and I haven't seen any commit in the git log stating otherwise.
+>
+>  Documentation/features/locking/cmpxchg-local/arch-support.txt | 2 +-
+>  arch/riscv/Kconfig                                            | 2 ++
+>  2 files changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/features/locking/cmpxchg-local/arch-support.tx=
+t b/Documentation/features/locking/cmpxchg-local/arch-support.txt
+> index 2c3a4b91f16d..28d5fa8c3b4f 100644
+> --- a/Documentation/features/locking/cmpxchg-local/arch-support.txt
+> +++ b/Documentation/features/locking/cmpxchg-local/arch-support.txt
+> @@ -20,7 +20,7 @@
+>      |    openrisc: | TODO |
+>      |      parisc: | TODO |
+>      |     powerpc: | TODO |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>      |        s390: |  ok  |
+>      |          sh: | TODO |
+>      |       sparc: | TODO |
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 7e76b6316425..7c6726a8d738 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -151,6 +151,8 @@ config RISCV
+>  	select HAVE_ARCH_USERFAULTFD_WP if 64BIT && MMU && USERFAULTFD && RISCV=
+_ISA_SVRSW60T59B
+>  	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
+>  	select HAVE_ASM_MODVERSIONS
+> +	select HAVE_CMPXCHG_DOUBLE if RISCV_ISA_ZACAS && RISCV_ISA_ZABHA
+> +	select HAVE_CMPXCHG_LOCAL if RISCV_ISA_ZACAS && RISCV_ISA_ZABHA
+>  	select HAVE_CONTEXT_TRACKING_USER
+>  	select HAVE_DEBUG_KMEMLEAK
+>  	select HAVE_DMA_CONTIGUOUS if MMU
+
+Gentle ping :)
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJiBAEBCgBMFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmmxJQYbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyEhxtc3NvbGFAbXNzb2xhLmNvbQAKCRCWvoxv2J1l
+ZV+qD/42BfFHtrdjJOAGKsZ6+cKha1oRmZ5yMeHtoUCpaZKNRMTiErjvTmWP1JYW
+xgRS/ygXR7uCk/6AMU/TDodVYoSAYf0aiUgUY31MVwdiAuKS47QFNcudT/amOPBj
+ShwZmq1jlwC/ed8RwrrPw37q/u5IqGIcBKzrJiOo/WLxqWmhQWHBuEHXS31wMlHC
+JcYsQ3fVaEjvgx1kJAxsVWZWyNC0xB4uhu/RqC8TzdI2EG2tVceDidlWMDdJytUo
+rNS+Mxs8r94vXfVE4aijycvCu00KLuP3g7PjqTK6oB+2OYJNEJhJjvCC5jKPP6bu
+o3KR+Tqg649SV4jPSbK1dgT2ky3YSeSPK2hd6511z0wnQ9fq90Fj1nJYNkgg1Wz3
+w4+BVCOodwN9zmMPHrjyhkhm1B2/JB8gnDgD62VVVUhtVqHQXklbYgn2yeZpFgZg
+gMp6qfFW9dpaSxGnV9OwYy/ufm4E6ixa9wsWuNH7VbV1ipP0iNhZZXMoDRlLot2D
+ZsLQh9V7RDKUks5Qdf+FRzMVHaHIDk3lZlfbIwCn75LfZvsrIaRfQf8wCZGqnPBA
+Len36N5XxlyqTq3/qtObyZMgLErVW6Z0qkB8IQtYAgTs2isLNul/2PrMY8Q1nuIF
+cwKS/l8y0E8Pbh/4TE09kkDWKhjin4PlhPFUoVY672ptWzPQvA==
+=vK1m
+-----END PGP SIGNATURE-----
+--=-=-=--
+
+
+--===============2139031190715120589==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2139031190715120589==--
+
