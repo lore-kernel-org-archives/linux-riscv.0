@@ -4,82 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C6E112580C
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 13:27:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54FE21125832
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 14:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dGLP2BOcxrdw82qEEwgONhEwuSS5RDJ0ohWQfdGQr4o=; b=5DQMo3ayfJqZa8
-	4SkKApU4me+yLbUjtLozeKtbl/2oeFjxImTwQ2DoXpivD2Cdno+jVUD27pjzpXD3H4ag8ZHXSx9fj
-	WgzKf8muI+L1dvlKsBtUNnYBi/vRMKk85B/LJNyhkyDescGpCz1nwbJAF3bFQLyypJ04+VF7l+Ibp
-	NBZ0P/zULHD0s2uApoKOuJO5IxiTunQEcfD8EvrbNvJGZnXyy63Qa7zhziNq6HkNDIGpTouC+QJXf
-	5Y74idzufIVeKGKPhAckXI8tfR2l6ItRuMz35dL3ZQPOg4MvYjtdyCANYKKqEBr2NIPnqyQHCHOEu
-	JqVye1+f5iLMGBLJcasw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=K278qPyUf1krKovM+N77aemljxc1oVNU5z7hQwr50zE=; b=JryFx85VdxTrRqE0Nrxh6jyXhk
+	VkcjkDQLjcJs0H/hb9c/HGaN0VzyrFR198WaObHqImYg4GdzNrMRcr64LkfuIAvTzvnhsV/YXTlF4
+	60wVQ9Iibtp5IUQ/7VwZU0QsQocoBD7Xa9L8/sTpOSPXAQcjoWn/X8QA9Ca+cQ6sa3m1WgwnGUn/1
+	ldg6OxjjYHrh4xiidSa0ifCFRn6/sAi8T+g/xmb2GTl8hZ1WHBfBJ0zAclr6zISRtvF99nGRQodhT
+	/XYAlBm4jiGiily6rt/jJg0b11hus05S+/Svms7RN6wo3/9E0KE3hEJRSWUc5MkBGCpSZRgJYEuvX
+	at9KRyeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Jan-0000000BdiE-1rlo;
-	Wed, 11 Mar 2026 13:27:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0KAv-0000000Bg3q-0DIW;
+	Wed, 11 Mar 2026 14:04:37 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Jal-0000000BdhN-3CpC
+	id 1w0KAo-0000000Bg27-45jm
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Mar 2026 13:27:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F053060122;
-	Wed, 11 Mar 2026 13:27:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8804CC19425;
-	Wed, 11 Mar 2026 13:27:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773235634;
-	bh=ePHchjnhwuY+HtMvCqWbW0nK976smbTfakDyyaKGCPs=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=Z7gFBIjdNSd1aqIcHBLavydrtoiHR5ES3RMnA9LDeTgyuY/3Sias+XwB6WSXfVDEE
-	 vqbLm9tLiAivqHg+LckJ/z0o51eRnSuaw8NnGBr9hU5+GINdQ0bAovOLFUkgbW6s0q
-	 RttJVn3oiwTtybLmsYV1hUDO+M1uCr/IvxXsgLvdEYfejrMUv3z3ANg8E2xXATCWE5
-	 i0bDMhCiRoJxf8eBUVSp3yDxZjWPqK5vJ/bhpY/NxHecf9Q7bMntiAFR8y/GIlFRv7
-	 el1mtmGM04A9nwQuReRMIExghnNhbgy6vFb79rIw4DSF4Ibu3mw4C/wtRhkoeQbuzv
-	 yMwAoqrnsDZXg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 795591062875;
-	Wed, 11 Mar 2026 13:27:14 +0000 (UTC)
-From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Subject: [PATCH v7 0/3] riscv: Use GCR.U timer device as clocksource
-Date: Wed, 11 Mar 2026 14:26:54 +0100
-Message-Id: <20260311-riscv-time-mmio-v7-0-016845a0f808@htecgroup.com>
+	Wed, 11 Mar 2026 14:04:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773237871; x=1804773871;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=JVOd/NfcWA/LOxHVbsOLCI3cu6BnPT2aiqxto5LxdzY=;
+  b=ifcTaOMXn9s1cKMv6tPAcgsSMaWB2uelR61qedskMkvOTjGah4HfNIOl
+   r64rYh4XwNJ7fPgQdVJkRDvsdFr/ZTxcnK/RC4/uCyU9nWzoJMfJg/XfP
+   tfP0N1RtchZ7xwiWHazwInOVlhSsjilDNVrMAPrP/CDAZ0fcOPLjT2CRe
+   lKrmia+vcteupIoQ/7eFbvu6Ai5Q4YXkyYY8nPO7QhQtwEzSTc1q8fOOG
+   3tzN4gIRznWKoBKSBAkZJOFKwJH7euDnJL4MEiq83/9ag7wrqp5tDCEwF
+   O9IOZkG6odWaQUVN6FbyoRzO8UGx8wxwKaSR8MAIuFUOXqjx8QJNGVaY1
+   Q==;
+X-CSE-ConnectionGUID: Yu8eGbFCQGKNaks05qDRtg==
+X-CSE-MsgGUID: agrT3Vy0Svaa6HZGR7lSEQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11726"; a="74385761"
+X-IronPort-AV: E=Sophos;i="6.23,113,1770624000"; 
+   d="scan'208";a="74385761"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2026 07:04:19 -0700
+X-CSE-ConnectionGUID: CRqxcsMbSLulk3+A/BsGfg==
+X-CSE-MsgGUID: mXoGDKHvSRSdY8RbEJwsBA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,113,1770624000"; 
+   d="scan'208";a="217138291"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2026 07:04:19 -0700
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 11 Mar 2026 07:04:18 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Wed, 11 Mar 2026 07:04:18 -0700
+Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.58) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 11 Mar 2026 07:04:15 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IUAis0xzTDDUg7YsqW/KPjsYy3EQlQC4GcCxbI2LlLe+oeCsLczkznQ5rFlipaQoqvkgwCHwAgBzh+KljsevOuMLPzsPOjfq2w0Tbar1962sruH2PJGgVxNHjHsZ/tPLkXtUfAQOBvcBLC0HbOLM4tkgyH2HcFDby3F7QpetLHXbJScuzxLqIhE+PXPcVJvqwb6tS4tS0gMcO1f+HUuemCx/lOUhz7o+Pa22JfG+4gLek3aBoI+SZU3QUKVj+9wJw0l4RHv2XGSZxI3Ew9uTTnWNct1L9Kjhtqx3TQmhj/4bA4oyR4dS2Ns7G6Z//HXmr+acssjzHkda9YOjY8PU7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SDcTalzNH/4hY0Abacb5aCwoDWYMJMy3br7DO0qZL0I=;
+ b=gowZNxdIZhinWtCQPqGVg9CYEPShLTI26fMLOuH1O0qzp/lNT9aKILv+ZkW3MDg+1m+ybPAK5hVPKAn8e/rIYDCjD9u23l1Adzn9jI3Ma4yX0b7kZMlJM8vBqqOvwT4z/P+MI0Uayh+nmwJvKVglry9DgINxx8hCxaLfV3waap7Y34QbXC2Tsupeijj9SeuICU3iIbNgySFh/QW+ssXW8id+0eDcx1PM/0vz2MLLqgEZg2lJEG+3GCSKQz0oNmRid19liKHtAkvFkLywuzeKQlm1C5BWYQriF7G/svbqXA7nei8X6Jj9l4Jst/9N5mbLEDAKhjnlRoufMreyQPnmIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB7215.namprd11.prod.outlook.com (2603:10b6:8:13a::13)
+ by IA0PR11MB7910.namprd11.prod.outlook.com (2603:10b6:208:40d::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.12; Wed, 11 Mar
+ 2026 14:04:11 +0000
+Received: from DS0PR11MB7215.namprd11.prod.outlook.com
+ ([fe80::cba:8493:6cff:5cf7]) by DS0PR11MB7215.namprd11.prod.outlook.com
+ ([fe80::cba:8493:6cff:5cf7%5]) with mapi id 15.20.9700.010; Wed, 11 Mar 2026
+ 14:04:10 +0000
+Message-ID: <5cac60f7-46cb-45c8-9435-3ae88545ce4d@intel.com>
+Date: Wed, 11 Mar 2026 16:04:03 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC
+ controller support
+To: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>, <krzk@kernel.org>,
+	<ulf.hansson@linaro.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>
+CC: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<gaohan@iscas.ac.cn>, <me@ziyao.cc>
+References: <20260310064513.140093-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260310064513.140093-3-jiayu.riscv@isrc.iscas.ac.cn>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20260310064513.140093-3-jiayu.riscv@isrc.iscas.ac.cn>
+X-ClientProxiedBy: DUZPR01CA0070.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:3c2::9) To DS0PR11MB7215.namprd11.prod.outlook.com
+ (2603:10b6:8:13a::13)
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAJ5tsWkC/23NQQ7CIBCF4asY1mJgUhBceQ/josJgZ1ExUImm6
- d2ldWFiXf4vmW9GljERZnbYjCxhoUzxVmO/3TDXtbcrcvK1GQhQooGGJ8qu8IF65H1PkSsNBkV
- wrWkDq1f3hIGei3g61+4oDzG9lgelmdePpeTaKg0X3F2EC2ABvNbHbkB3TfFx37nYs9kr6mvsp
- VwbqhoWvQwGVOsV/jP01zBCrw1dDfBBoAFprTW/xjRNb1bYGfI6AQAA
-X-Change-ID: 20250424-riscv-time-mmio-5628e0fca8af
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley <pjw@kernel.org>, 
- John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- Vivian Wang <wangruikang@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, 
- Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
- Chao-ying Fu <cfu@mips.com>, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773235633; l=2879;
- i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=ePHchjnhwuY+HtMvCqWbW0nK976smbTfakDyyaKGCPs=;
- b=fkCkl0GxzOWg/0LN7Yq8FbQepOoJ8On8qs/X3czJQ4tyW3a9cG+KEyiZo6KHMeEh5eEM7PwsL
- 2J/cOJRQcL5CyvNAcMBQMDgs4QuKm3cVf0H3TDMqkAN5/T01YSZrBmK
-X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
- pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
-X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
- with auth_id=476
-X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB7215:EE_|IA0PR11MB7910:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7fd92a8-5f54-4e39-fac3-08de7f771181
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|18002099003|7053199007|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: aTDjLRxp1M4hoTG0oCrM1NyM2itbiMtqIi2LLIk8aBGqwvSsxcJEJIxmO20XWQIkKqJJSDxeZA2sZsRZaEjap9kDbxYQjtcgALw80hJ4irDkcisl+SWLpr6P+b5B7YoANyQ6RHvZH1DwWbPIdGtobgz3U3+y7yx35B8t4FpuaaYGseGqTrgMqaxmp77rRZ5EdKssxxY86NW2BQdSVr1bbK9+Gt2bGLVFW3zpiU61KpIW23OCMEcoQexSvR1L0RSTUtnIh7Ti7k39OWOgzQ9wn6ISFt63NfVZbNM0hnXAtTqDB8j/0hKzu9dTxmJpKXggKqMGcnIwkxqzvfOl2VKpljHDVGh6ePE8+qNnVc/lVP9MaqGGAl6Fnu14VPT/MCR15ra2E2fP/kDsO21O6q6vaEl9PAH66H2h45XrtRxqYPtknwGz99bfXDAJxjJHR9l2+WCBLdTS2qYMd2tTOl63vKQVyIxWdjWBZJNsfSb2Sllp45T0nKq+cZc/2vhY7KbfjiHGOQ7tdTYIYiz3ulNEOQOa6zjgspjY+DUs+xygmiJ4XRGXuWrsQXZI8vJpwzVluxLtgWOrx1x9GFdiLWeljdfnFJS9xEETcsmH/RGa7iCRYrhuWCvammSdTzdEinmu496Xztc6mF2g4lthVALANsGz3IOWRiSYtg1r/M6vGPiqkUg13ITWzFh2E90kT4iceoPsoEU0ysIlMLKjzB/xdFwUbGWQO6/qkTPkeDZ6zqM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7215.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(18002099003)(7053199007)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NlFnQ2o0SGcvaUlyK2ErWXNPWG1DQjZ4QnZwWHBTQ2p4N3F3Y0k4MS9HYWhH?=
+ =?utf-8?B?a3g5L0N6RGpsTXZNbFJvVmJEZmpzTjU1eXF4QkpXcUdHSGZuUFEzWnFQZjRP?=
+ =?utf-8?B?czdjN01nc211MkN2bGFQOFI2WXMrQlhDblZ0UGVXeHNURWF4RHJtY2JUQzFk?=
+ =?utf-8?B?M29nS2N0ZElZVm1Dd0FRQXJRdEhsdk1mL1VsUFFERXRkaW5GZVZGTTdjUXJi?=
+ =?utf-8?B?eDNQK0lsZDVrM050MW9HWklEOVAwWXNkYVJESDhrd2NWaUNicDBNOG1OMUpv?=
+ =?utf-8?B?M05ReUlwak0xT0w5TXNodnh2K1E0bUVrMzZuR0F4MmN6YytqMC8vdWVKYUds?=
+ =?utf-8?B?TytPTHdNMnRlYWN1VktJMEdrWGtiUmhrNEpnUnlmVFBweWlPWmZzbFZPbHZZ?=
+ =?utf-8?B?d2ViUmwrNGhyQzhLMlV6QUpWZldFc1pnNXhaSnFLckJnampwZkFwWmhrMlJ2?=
+ =?utf-8?B?V25FZ1ozazJhSUhNR24xeFFib0p5UzNQVHRrWHBkVEprOWZrSUFuWUVjRVpw?=
+ =?utf-8?B?MFcwQXVkWExaRklFMWhyWWZzbFdCUXROTWt6WEVzMGRYZS9NdTR1TEd0N040?=
+ =?utf-8?B?amI3QkpRRnJYcmNuOXFZL3IxbGIwUDIvcXFzN05oR3VVMUhXeTZZSXl1NjBH?=
+ =?utf-8?B?SWZ4ZWdlclFtQlYrNGlrbVhybE1sNk5pbzlxeHdzSjdCeSs5U1JNblVXZHU4?=
+ =?utf-8?B?QXpyMHVEMWloa2psZnRKdjk4N1h1QWNhYjI0V0plUDd0dnVKNUwvb3c3Z3hV?=
+ =?utf-8?B?R1BOczl6ckIvWmU3TmRHd0lLQlBoNkEwRkNHbWIwcHhVWFdWSW9mKzRiVjQr?=
+ =?utf-8?B?Qk4vVThXZDNwaHpWUHNQRW5WNG1vNWQyelJwN01RMVFqVnd2bitsOFJHb3FZ?=
+ =?utf-8?B?OFl6K3IvZEUrZTV2M09SSkM1NVFxdGxpL21TOVJtTzd4Z25rQnVKRTdhNGRH?=
+ =?utf-8?B?L2wwanlHWFo0Tno5MnNBL2kxaHlXRTR1L0grZzQxbHhsOGN3b0hucEJMNEl5?=
+ =?utf-8?B?VHVJVkJIVFNvRGpGUWdHZU9yRkZUODVCTi93TVdnNnVUVCtHYXhvaEdNT3pM?=
+ =?utf-8?B?K0dTdHdvNjJyNXRyMDBWODY1bnpKZ0lnQVM3TVRoQ2lxdlQ1T0NOcWNLYm9B?=
+ =?utf-8?B?aGU3ODF2Z2IxdlhMSVhSeGREZVVjeEdpV2VxZXJFUk5lMGliUzFaWVFSeE52?=
+ =?utf-8?B?aVBNcDNhYXJzTFM5L3NjZzlsNTdaVUpKbGl4Nmp0Lzlaa0ZVc2JMMEs5TnBC?=
+ =?utf-8?B?R2psenRFVG5ERUN1Q05GM1V1eDN0czM2ZGlBZG4rYzNJNFM3ZDNzNExBQVJM?=
+ =?utf-8?B?MUxGM3JKQmU0UDBJRFcvUHYxQitOdE9aMU9VNzJMTXN4RGN1WXNSNm1qaDY4?=
+ =?utf-8?B?SEFvdXVRN0JMMjIyei9oS2FNSThBamdLYlcwd2sydmZrTXdWaldnNFBadXVj?=
+ =?utf-8?B?Q1hOTkljZFFwb3Z1Tk50bExsaGhrV3dJbmRPbTRIY1N1V1loSnhJR1hEUkYy?=
+ =?utf-8?B?V0xoMU1hK3p1bzFwRitCR0VEUHFJUDI2b29oTDJMa2JvWHd3N0txVzE3Ri8z?=
+ =?utf-8?B?SVV5VEFzWk0xTDNxd0E0QlZOVnZCdDBWckc4emNNMVAzSXR1NkordkpWK3lL?=
+ =?utf-8?B?bit4dk4vektEQlRKYjZDSjJ5L1NoUXkvc3BxSk1oNGcvK1ZkckNxU0taWFFN?=
+ =?utf-8?B?VFNUYVJMeUt5eXlZMzJhcERaMW11SCtXZ1JHTnpXdkdIVFpLd0g1N1czSGJY?=
+ =?utf-8?B?N1dLWWIrR1pPQm9MMWRDdm5wUDlaSnBLYmZTNzdhdHVYZEZZYmtMdjdobkFr?=
+ =?utf-8?B?SytkV095ZmtNcFZiUmRScGtJZm81alBadXA1SHZYNys5ZnpZUWdHNVAxYkRS?=
+ =?utf-8?B?Mm5IZ1J1RVg4cS9Pd1VubFNUODkwYlZseTBEbHhiL1d6SXNjVVMxeHU3SlJj?=
+ =?utf-8?B?UjdYRC84VEszeDNPS2o0Y1JUZHl1MjJEV3h0VExjdEJwaloxSER1RENSY3pF?=
+ =?utf-8?B?NFdjYXMrYndsK0FVYnhFbXVLSThKbC9wRGZYOU9WbFRNKzBBWVlMdFZKS0I2?=
+ =?utf-8?B?dmNadTkrUjBBQzhOeUV6MzV3SzJad3pvek5KRDdxcjFsanBhUGZ1L2hzS0RP?=
+ =?utf-8?B?Y25DVUZveWRmODhXOUgzVEtFd3RQQkovRi9HR2hJQVMyR1hob1d2TmxqZXM3?=
+ =?utf-8?B?ZEd2T3hzMDY5UWRGREQraDQ5WHFENGtWTzhwZzhrV01QTy9tOFJwZU9VYmhn?=
+ =?utf-8?B?TWU4bXJ5R2tRUGlWbXh0MEpYOUpBdDdtSzFjY2JlcXR3alN1WStPbUl5NHgx?=
+ =?utf-8?B?TnN0QUVjNFRLQ2hiT1FlN0FYOFlNR0lFNFZ2c1BlV2Zzb0pxa3htbUtWY2Zj?=
+ =?utf-8?Q?MxSWwEIuZ2DzgMUU=3D?=
+X-Exchange-RoutingPolicyChecked: WGMXSBdhOkl+YjvRZsnyKcZtnS01Sq5PLL1n1x4UeW1fled2MSSEYueAX34DlCnzllr519m0bIi0unucYqpuhStpD2CqpSBz51Tdr1dUS97LBnA+7Ityhjq9zHMamRTXov7vsvzJU2VNgsiPxVGrOS9EaDjjOWh0x7y89KF9cAIzWMUUQOI6/HZ9l8SadZH3u2qkoT+3/reZ9O/3/XlcUjMOLRumcHzg0iA5vok6DZdBfBb5EJ0kD5ZBEBgzJF5MX3NFAeWKyi6zusuIZArVOAm5/oUBH5XUUaJ4vpmL0V5bkqL9PtAoFRCsnYTpjS5gombKK6vPytc/5B8dRrDukQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7fd92a8-5f54-4e39-fac3-08de7f771181
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7215.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2026 14:04:10.7993
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7jjVIWf6O6kPzyluU0guwU4TC9yQ7PX8UP2xmgfIMV61akyc5N8pO9HbYg4ncikNeoDOYeX1iEm1VpGfScO5XQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR11MB7910
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_070431_086022_8085695F 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,74 +187,494 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds bindings for the GCR.U timer device and corresponding
-driver support. Accessing the memory mapped shadow of the mtime register
-in the GCR.U region should be faster
-than trapping to M mode each time the timer needs to be read.
-The timer device does not implement any interrupts, therefore the
-timer-riscv clockevent implementation should suffice.
+On 10/03/2026 08:45, Jiayu Du wrote:
+> Add SDHCI controller driver for Canaan k230 SoC. Implement custom
+> sdhci_ops for set_clock, phy init, init and reset.
+> 
+> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+> ---
+>  drivers/mmc/host/sdhci-of-dwcmshc.c | 287 ++++++++++++++++++++++++++++
+>  1 file changed, 287 insertions(+)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> index 2b75a36c096b..39d28574cfa8 100644
+> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
+> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> @@ -128,9 +128,11 @@
+>  #define PHY_CNFG_PHY_PWRGOOD_MASK	BIT_MASK(1) /* bit [1] */
+>  #define PHY_CNFG_PAD_SP_MASK		GENMASK(19, 16) /* bits [19:16] */
+>  #define PHY_CNFG_PAD_SP			0x0c /* PMOS TX drive strength */
+> +#define PHY_CNFG_PAD_SP_k230		0x09 /* PMOS TX drive strength for k230 */
+>  #define PHY_CNFG_PAD_SP_SG2042		0x09 /* PMOS TX drive strength for SG2042 */
+>  #define PHY_CNFG_PAD_SN_MASK		GENMASK(23, 20) /* bits [23:20] */
+>  #define PHY_CNFG_PAD_SN			0x0c /* NMOS TX drive strength */
+> +#define PHY_CNFG_PAD_SN_k230		0x08 /* NMOS TX drive strength for k230 */
+>  #define PHY_CNFG_PAD_SN_SG2042		0x08 /* NMOS TX drive strength for SG2042 */
+>  
+>  /* PHY command/response pad settings */
+> @@ -153,14 +155,22 @@
+>  #define PHY_PAD_RXSEL_3V3		0x2 /* Receiver type select for 3.3V */
+>  
+>  #define PHY_PAD_WEAKPULL_MASK		GENMASK(4, 3) /* bits [4:3] */
+> +#define PHY_PAD_WEAKPULL_DISABLED	0x0 /* Weak pull up and pull down disabled */
+>  #define PHY_PAD_WEAKPULL_PULLUP		0x1 /* Weak pull up enabled */
+>  #define PHY_PAD_WEAKPULL_PULLDOWN	0x2 /* Weak pull down enabled */
+>  
+>  #define PHY_PAD_TXSLEW_CTRL_P_MASK	GENMASK(8, 5) /* bits [8:5] */
+>  #define PHY_PAD_TXSLEW_CTRL_P		0x3 /* Slew control for P-Type pad TX */
+> +#define PHY_PAD_TXSLEW_CTRL_P_k230_VAL2	0x2 /* Slew control for P-Type pad TX for k230 */
+>  #define PHY_PAD_TXSLEW_CTRL_N_MASK	GENMASK(12, 9) /* bits [12:9] */
+>  #define PHY_PAD_TXSLEW_CTRL_N		0x3 /* Slew control for N-Type pad TX */
+>  #define PHY_PAD_TXSLEW_CTRL_N_SG2042	0x2 /* Slew control for N-Type pad TX for SG2042 */
+> +#define PHY_PAD_TXSLEW_CTRL_N_k230_VAL2	0x2 /* Slew control for N-Type pad TX for k230 */
+> +#define PHY_PAD_TXSLEW_CTRL_N_k230_VAL1	0x1 /* Slew control for N-Type pad TX for k230 */
+> +
+> +/* PHY Common DelayLine config settings */
+> +#define PHY_COMMDL_CNFG			(DWC_MSHC_PTR_PHY_R + 0x1c)
+> +#define PHY_COMMDL_CNFG_DLSTEP_SEL	BIT(0) /* DelayLine outputs on PAD enabled */
+>  
+>  /* PHY CLK delay line settings */
+>  #define PHY_SDCLKDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x1d)
+> @@ -174,7 +184,10 @@
+>  #define PHY_SDCLKDL_DC_HS400		0x18 /* delay code for HS400 mode */
+>  
+>  #define PHY_SMPLDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x20)
+> +#define PHY_SMPLDL_CNFG_EXTDLY_EN	BIT(0)
+>  #define PHY_SMPLDL_CNFG_BYPASS_EN	BIT(1)
+> +#define PHY_SMPLDL_CNFG_INPSEL_MASK	GENMASK(3, 2) /* bits [3:2] */
+> +#define PHY_SMPLDL_CNFG_INPSEL		0x3 /* delay line input source */
+>  
+>  /* PHY drift_cclk_rx delay line configuration setting */
+>  #define PHY_ATDL_CNFG_R			(DWC_MSHC_PTR_PHY_R + 0x21)
+> @@ -227,6 +240,14 @@
+>  /* SMC call for BlueField-3 eMMC RST_N */
+>  #define BLUEFIELD_SMC_SET_EMMC_RST_N	0x82000007
+>  
+> +/* Canaan specific Registers */
+> +#define SD0_CTRL			0x00
+> +#define SD0_HOST_REG_VOL_STABLE		BIT(4)
+> +#define SD0_CARD_WRITE_PROT		BIT(6)
+> +#define SD1_CTRL			0x08
+> +#define SD1_HOST_REG_VOL_STABLE		BIT(0)
+> +#define SD1_CARD_WRITE_PROT		BIT(2)
+> +
+>  /* Eswin specific Registers */
+>  #define EIC7700_CARD_CLK_STABLE		BIT(28)
+>  #define EIC7700_INT_BCLK_STABLE		BIT(16)
+> @@ -268,6 +289,12 @@ struct eic7700_priv {
+>  	unsigned int drive_impedance;
+>  };
+>  
+> +struct k230_priv  {
+> +	/* Kendryte k230 specific */
+> +	struct regmap *hi_sys_regmap;
+> +	const struct dwcmshc_k230_match_data *match_data;
+> +};
+> +
+>  #define DWCMSHC_MAX_OTHER_CLKS 3
+>  
+>  struct dwcmshc_priv {
+> @@ -275,6 +302,7 @@ struct dwcmshc_priv {
+>  	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA1 reg */
+>  	int vendor_specific_area2; /* P_VENDOR_SPECIFIC_AREA2 reg */
+>  
+> +	const void *match_data;
+>  	int num_other_clks;
+>  	struct clk_bulk_data other_clks[DWCMSHC_MAX_OTHER_CLKS];
+>  
+> @@ -284,12 +312,34 @@ struct dwcmshc_priv {
+>  };
+>  
+>  struct dwcmshc_pltfm_data {
+> +	const void *match_data;
+>  	const struct sdhci_pltfm_data pdata;
+>  	const struct cqhci_host_ops *cqhci_host_ops;
+>  	int (*init)(struct device *dev, struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
+>  	void (*postinit)(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv);
+>  };
+>  
+> +struct dwcmshc_k230_match_data {
+> +	bool is_emmc;
+> +	u32 ctrl_reg;
+> +	u32 vol_stable_bit;
+> +	u32 write_prot_bit;
+> +};
+> +
+> +static const struct dwcmshc_k230_match_data k230_emmc_match_data = {
+> +	.is_emmc = true,
+> +	.ctrl_reg = SD0_CTRL,
+> +	.vol_stable_bit = SD0_HOST_REG_VOL_STABLE,
+> +	.write_prot_bit = SD0_CARD_WRITE_PROT,
+> +};
+> +
+> +static const struct dwcmshc_k230_match_data k230_sdio_match_data = {
+> +	.is_emmc = false,
+> +	.ctrl_reg = SD1_CTRL,
+> +	.vol_stable_bit = SD1_HOST_REG_VOL_STABLE,
+> +	.write_prot_bit = SD1_CARD_WRITE_PROT,
+> +};
+> +
+>  static void dwcmshc_enable_card_clk(struct sdhci_host *host)
+>  {
+>  	u16 ctrl;
+> @@ -1656,6 +1706,205 @@ static int eic7700_init(struct device *dev, struct sdhci_host *host, struct dwcm
+>  	return 0;
+>  }
+>  
+> +static void dwcmshc_k230_sdhci_set_clock(struct sdhci_host *host, unsigned int clock)
+> +{
+> +	u16 clk;
+> +
+> +	sdhci_set_clock(host, clock);
+> +
+> +	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
+> +	/*
+> +	 * It is necessary to enable SDHCI_PROG_CLOCK_MODE. This is a
+> +	 * vendor-specific quirk. If this is not done, the eMMC will be
+> +	 * unable to read or write.
+> +	 */
+> +	clk |= SDHCI_PROG_CLOCK_MODE;
+> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
+> +}
+> +
+> +static void sdhci_k230_config_phy_delay(struct sdhci_host *host)
+> +{
+> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> +	struct dwcmshc_priv *dwc_priv = sdhci_pltfm_priv(pltfm_host);
+> +	u32 val;
+> +
+> +	sdhci_writeb(host, PHY_COMMDL_CNFG_DLSTEP_SEL, PHY_COMMDL_CNFG);
+> +	sdhci_writeb(host, 0x0, PHY_SDCLKDL_CNFG_R);
+> +	sdhci_writeb(host, PHY_SDCLKDL_DC_INITIAL,
+> +		     PHY_SDCLKDL_DC_R);
 
-We tested the patchset both on QEMU and the Boston board with the P8700 bitfile:
-- Coremark and timer kselftests on QEMU emulating an 8 core CPU
-- Coremark and timer kselftests on the Boston board with a single core CPU.
+Here and elsewhere.  Please avoid unnecessary line wrapping.
+You can use 100 columns.
 
-Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Signed-off-by: Chao-ying Fu <cfu@mips.com>
----
-Changes in v7:
-- Replace the previous implementation with a new timer driver for mips,p8700-gcru
-- Add a patch for 64bit reads for timer mmio
-- Link to v6: https://lore.kernel.org/r/20250806-riscv-time-mmio-v6-0-2df0e8219998@htecgroup.com
+> +
+> +	val = PHY_SMPLDL_CNFG_EXTDLY_EN;
+> +	val |= FIELD_PREP(PHY_SMPLDL_CNFG_INPSEL_MASK,
+> +			  PHY_SMPLDL_CNFG_INPSEL);
+> +	sdhci_writeb(host, val, PHY_SMPLDL_CNFG_R);
+> +
+> +	sdhci_writeb(host, FIELD_PREP(PHY_ATDL_CNFG_INPSEL_MASK,
+> +		     PHY_ATDL_CNFG_INPSEL), PHY_ATDL_CNFG_R);
 
-Changes in v6:
-- Rename mti,gcru to mips,p8700-gcru
-- Link to v5: https://lore.kernel.org/r/20250711-riscv-time-mmio-v5-0-9ed1f825ad5e@htecgroup.com
+Can keep FIELD_PREP() all on one line:
 
-Changes in v5:
-- Fixed build issues on 32-bit RISC-V and sparse warnings
-- Remove clint_time_val and clint.h, replace with riscv_time_val
-- Depend on RISCV_TIMER in Kconfig
+	sdhci_writeb(host, FIELD_PREP(PHY_ATDL_CNFG_INPSEL_MASK, PHY_ATDL_CNFG_INPSEL),
+		     PHY_ATDL_CNFG_R);
 
-Changes in v4:
-- Remove "select" from mti,gcru.yaml.
-- Refactor the driver to use function pointers instead of static keys.
+> +
+> +	val = sdhci_readl(host, dwc_priv->vendor_specific_area1 +
+> +		     DWCMSHC_EMMC_ATCTRL);
+> +	val |= AT_CTRL_TUNE_CLK_STOP_EN;
+> +	val |= FIELD_PREP(AT_CTRL_PRE_CHANGE_DLY_MASK,
+> +			  AT_CTRL_PRE_CHANGE_DLY);
+> +	val |= FIELD_PREP(AT_CTRL_POST_CHANGE_DLY_MASK,
+> +			  AT_CTRL_POST_CHANGE_DLY);
+> +	sdhci_writel(host, val, dwc_priv->vendor_specific_area1 +
+> +		     DWCMSHC_EMMC_ATCTRL);
+> +	sdhci_writel(host, 0x0, dwc_priv->vendor_specific_area1 +
+> +		     DWCMSHC_AT_STAT);
+> +}
+> +
+> +static int dwcmshc_k230_phy_init(struct sdhci_host *host)
+> +{
+> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> +	u32 rxsel;
+> +	u32 val;
+> +	u32 reg;
+> +	int ret;
+> +
+> +	/* reset phy */
+> +	sdhci_writew(host, 0, PHY_CNFG_R);
+> +
+> +	/* Disable the clock */
+> +	sdhci_writew(host, 0, SDHCI_CLOCK_CONTROL);
+> +
+> +	rxsel = priv->flags & FLAG_IO_FIXED_1V8 ?
+> +			PHY_PAD_RXSEL_1V8 : PHY_PAD_RXSEL_3V3;
+> +
+> +	val = rxsel;
+> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P_k230_VAL2);
+> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N_k230_VAL2);
+> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLUP);
+> +
+> +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
+> +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
+> +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
+> +
+> +	val = rxsel;
+> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P_k230_VAL2);
+> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N_k230_VAL2);
+> +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
+> +
+> +	val = rxsel;
+> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLDOWN);
+> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P_k230_VAL2);
+> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N_k230_VAL2);
+> +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
+> +
+> +	sdhci_k230_config_phy_delay(host);
+> +
+> +	/* Wait max 150 ms */
+> +	ret = read_poll_timeout(sdhci_readl, reg,
+> +				(reg & FIELD_PREP(
+> +					PHY_CNFG_PHY_PWRGOOD_MASK, 1)),
 
-Previous versions:
-v1: https://lore.kernel.org/lkml/20241227150056.191794-1-arikalo@gmail.com/#t
-v2: https://lore.kernel.org/linux-riscv/20250409143816.15802-1-aleksa.paunovic@htecgroup.com/
-v3: https://lore.kernel.org/linux-riscv/DU0PR09MB61968695A2A3146EE83B7708F6BA2@DU0PR09MB6196.eurprd09.prod.outlook.com/
-v4: https://lore.kernel.org/r/20250514-riscv-time-mmio-v4-0-cb0cf2922d66@htecgroup.com
-v5: https://lore.kernel.org/r/20250711-riscv-time-mmio-v5-0-9ed1f825ad5e@htecgroup.com
-v6: https://lore.kernel.org/r/20250806-riscv-time-mmio-v6-0-2df0e8219998@htecgroup.com
+Need not line wrap after "FIELD_PREP("
 
----
-Aleksa Paunovic (3):
-      dt-bindings: timer: mips,p8700-gcru
-      riscv: clocksource: Add readq options to clocksource mmio
-      riscv: clocksource: Add p8700-gcru driver
+> +				10, 150000, false, host, PHY_CNFG_R);
+> +	if (ret) {
+> +		dev_err(mmc_dev(host->mmc),
+> +			"READ PHY PWRGOOD timeout!\n");
+> +		return -ETIMEDOUT;
+> +	}
+> +
+> +	reg = FIELD_PREP(PHY_CNFG_PAD_SN_MASK, PHY_CNFG_PAD_SN_k230) |
+> +	      FIELD_PREP(PHY_CNFG_PAD_SP_MASK, PHY_CNFG_PAD_SP_k230);
+> +	sdhci_writel(host, reg, PHY_CNFG_R);
+> +
+> +	/* de-assert the phy */
+> +	reg |= PHY_CNFG_RSTN_DEASSERT;
+> +	sdhci_writel(host, reg, PHY_CNFG_R);
+> +
+> +	return 0;
+> +}
+> +
+> +static void dwcmshc_k230_sdhci_reset(struct sdhci_host *host, u8 mask)
+> +{
+> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> +	struct dwcmshc_priv *dwc_priv = sdhci_pltfm_priv(pltfm_host);
+> +	struct k230_priv *k230_priv = dwc_priv->priv;
+> +	u8 emmc_ctrl;
+> +
+> +	dwcmshc_reset(host, mask);
+> +
+> +	if (mask == SDHCI_RESET_ALL) {
 
- .../devicetree/bindings/timer/mips,p8700-gcru.yaml | 38 ++++++++++++++++++
- drivers/clocksource/Kconfig                        |  9 +++++
- drivers/clocksource/Makefile                       |  1 +
- drivers/clocksource/mmio.c                         | 14 +++++++
- drivers/clocksource/timer-p8700.c                  | 45 ++++++++++++++++++++++
- include/linux/clocksource.h                        |  4 ++
- 6 files changed, 111 insertions(+)
----
-base-commit: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
-change-id: 20250424-riscv-time-mmio-5628e0fca8af
+Can reduce the indent by instead:
 
-Best regards,
--- 
-Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+	if (mask != SDHCI_RESET_ALL)
+		return;
 
+Then the remaining lines in this function do not need to be
+wrapped.
+
+> +		emmc_ctrl = sdhci_readw(host,
+> +				       dwc_priv->vendor_specific_area1 +
+> +				       DWCMSHC_EMMC_CONTROL);
+> +		sdhci_writeb(host, emmc_ctrl,
+> +			     dwc_priv->vendor_specific_area1 +
+> +			     DWCMSHC_EMMC_CONTROL);
+> +
+> +		if (k230_priv->match_data->is_emmc)
+> +			dwcmshc_k230_phy_init(host);
+> +		else
+> +			sdhci_writel(host, 0x0,
+> +				     dwc_priv->vendor_specific_area1 +
+> +				     DWCMSHC_HOST_CTRL3);
+> +	}
+> +}
+> +
+> +static int dwcmshc_k230_init(struct device *dev, struct sdhci_host *host,
+> +			     struct dwcmshc_priv *dwc_priv)
+> +{
+> +	static const char * const clk_ids[] = {"block", "timer", "axi"};
+> +	const struct dwcmshc_k230_match_data *match_data;
+> +	struct device_node *usb_phy_node;
+> +	struct k230_priv *k230_priv;
+> +	u32 data;
+> +	int ret;
+> +
+> +	match_data = dwc_priv->match_data;
+> +	if (!match_data) {
+> +		dev_err(dev, "No vendor data found for K230\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	k230_priv = devm_kzalloc(dev, sizeof(struct k230_priv), GFP_KERNEL);
+> +	if (!k230_priv)
+> +		return -ENOMEM;
+> +
+> +	k230_priv->match_data = match_data;
+> +	dwc_priv->priv = k230_priv;
+> +
+> +	usb_phy_node = of_parse_phandle(dev->of_node, "canaan,usb-phy", 0);
+> +	if (!usb_phy_node)
+> +		return dev_err_probe(dev, -ENODEV,
+> +				     "Failed to find canaan,usb-phy phandle\n");
+> +
+> +	k230_priv->hi_sys_regmap = device_node_to_regmap(usb_phy_node);
+> +	of_node_put(usb_phy_node);
+> +
+> +	if (IS_ERR(k230_priv->hi_sys_regmap))
+> +		return dev_err_probe(dev, PTR_ERR(k230_priv->hi_sys_regmap),
+> +				     "Failed to get k230-usb-phy regmap\n");
+> +
+> +	ret = dwcmshc_get_enable_other_clks(mmc_dev(host->mmc), dwc_priv,
+> +					    ARRAY_SIZE(clk_ids), clk_ids);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to get/enable k230 mmc other clocks\n");
+> +
+> +	if (match_data->is_emmc) {
+> +		host->flags &= ~SDHCI_SIGNALING_330;
+> +		dwc_priv->flags |= FLAG_IO_FIXED_1V8;
+> +	} else {
+> +		host->mmc->caps |= MMC_CAP_SD_HIGHSPEED;
+> +		host->quirks2 |= SDHCI_QUIRK2_NO_1_8_V;
+> +	}
+> +
+> +	ret = regmap_read(k230_priv->hi_sys_regmap, match_data->ctrl_reg, &data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to read control reg 0x%x\n",
+> +				     match_data->ctrl_reg);
+> +
+> +	data |= match_data->write_prot_bit | match_data->vol_stable_bit;
+> +	ret = regmap_write(k230_priv->hi_sys_regmap, match_data->ctrl_reg, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to write control reg 0x%x\n",
+> +				     match_data->ctrl_reg);
+> +
+> +	return 0;
+> +}
+> +
+>  static const struct sdhci_ops sdhci_dwcmshc_ops = {
+>  	.set_clock		= sdhci_set_clock,
+>  	.set_bus_width		= sdhci_set_bus_width,
+> @@ -1743,6 +1992,15 @@ static const struct sdhci_ops sdhci_dwcmshc_eic7700_ops = {
+>  	.platform_execute_tuning = sdhci_eic7700_executing_tuning,
+>  };
+>  
+> +static const struct sdhci_ops sdhci_dwcmshc_k230_ops = {
+> +	.set_clock = dwcmshc_k230_sdhci_set_clock,
+> +	.set_bus_width = sdhci_set_bus_width,
+> +	.set_uhs_signaling = dwcmshc_set_uhs_signaling,
+> +	.get_max_clock = sdhci_pltfm_clk_get_max_clock,
+> +	.reset = dwcmshc_k230_sdhci_reset,
+> +	.adma_write_desc = dwcmshc_adma_write_desc,
+> +};
+> +
+>  static const struct dwcmshc_pltfm_data sdhci_dwcmshc_pdata = {
+>  	.pdata = {
+>  		.ops = &sdhci_dwcmshc_ops,
+> @@ -1834,6 +2092,26 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_eic7700_pdata = {
+>  	.init = eic7700_init,
+>  };
+>  
+> +static const struct dwcmshc_pltfm_data sdhci_dwcmshc_k230_emmc_pdata = {
+> +	.pdata = {
+> +		.ops = &sdhci_dwcmshc_k230_ops,
+> +		.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
+> +			  SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
+> +	},
+> +	.init = dwcmshc_k230_init,
+> +	.match_data = (void *)&k230_emmc_match_data,
+> +};
+
+Just an option if you like it:
+An alternative is to define your own platform data e.g.
+
+struct k230_pltfm_data {
+	struct dwcmshc_pltfm_data dwcmshc_pdata;
+	bool is_emmc;
+	u32 ctrl_reg;
+	u32 vol_stable_bit;
+	u32 write_prot_bit;
+};
+
+static const struct k230_pltfm_data k230_emmc_data = {
+	.dwcmshc_pdata = {
+		.pdata = {
+			.ops = &sdhci_dwcmshc_k230_ops,
+			.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
+				  SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
+		},
+		.init = dwcmshc_k230_init,
+	},
+	.is_emmc = true,
+	.ctrl_reg = SD0_CTRL,
+	.vol_stable_bit = SD0_HOST_REG_VOL_STABLE,
+	.write_prot_bit = SD0_CARD_WRITE_PROT,
+};
+
+static const struct k230_pltfm_data k230_sdio_data = {
+	.dwcmshc_pdata = {
+		.pdata = {
+			.ops = &sdhci_dwcmshc_k230_ops,
+			.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
+				  SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
+		},
+		.init = dwcmshc_k230_init,
+	},
+	.is_emmc = false,
+	.ctrl_reg = SD1_CTRL,
+	.vol_stable_bit = SD1_HOST_REG_VOL_STABLE,
+	.write_prot_bit = SD1_CARD_WRITE_PROT,
+};
+
+Then:
+		.compatible = "canaan,k230-emmc",
+		.data = &k230_emmc_data.dwcmshc_pdata,
+and
+		.compatible = "canaan,k230-sdio",
+		.data = &k230_sdio_data.dwcmshc_pdata,
+
+Although you would still need to add a pointer 
+to struct dwcmshc_pltfm_data from struct dwcmshc_priv,
+but then you could access it like:
+
+#define to_k230_pdata(pd) container_of(pd, struct k230_pltfm_data, pd)
+
+	struct dwcmshc_priv *dwc_priv = sdhci_pltfm_priv(pltfm_host);
+	struct dwcmshc_pltfm_data *dwcmshc_pdata = dwc_priv->dwcmshc_pdata;
+	struct k230_pltfm_data *k230_pdata = to_k230_pdata(dwcmshc_pdata);
+
+> +
+> +static const struct dwcmshc_pltfm_data sdhci_dwcmshc_k230_sdio_pdata = {
+> +	.pdata = {
+> +		.ops = &sdhci_dwcmshc_k230_ops,
+> +		.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
+> +			  SDHCI_QUIRK_MULTIBLOCK_READ_ACMD12,
+> +	},
+> +	.init = dwcmshc_k230_init,
+> +	.match_data = (void *)&k230_sdio_match_data,
+> +};
+> +
+>  static const struct cqhci_host_ops dwcmshc_cqhci_ops = {
+>  	.enable		= dwcmshc_sdhci_cqe_enable,
+>  	.disable	= sdhci_cqe_disable,
+> @@ -1906,6 +2184,14 @@ static void dwcmshc_cqhci_init(struct sdhci_host *host, struct platform_device *
+>  }
+>  
+>  static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
+> +	{
+> +		.compatible = "canaan,k230-emmc",
+> +		.data = &sdhci_dwcmshc_k230_emmc_pdata,
+> +	},
+> +	{
+> +		.compatible = "canaan,k230-sdio",
+> +		.data = &sdhci_dwcmshc_k230_sdio_pdata,
+> +	},
+>  	{
+>  		.compatible = "rockchip,rk3588-dwcmshc",
+>  		.data = &sdhci_dwcmshc_rk35xx_pdata,
+> @@ -1988,6 +2274,7 @@ static int dwcmshc_probe(struct platform_device *pdev)
+>  
+>  	pltfm_host = sdhci_priv(host);
+>  	priv = sdhci_pltfm_priv(pltfm_host);
+> +	priv->match_data = pltfm_data->match_data;
+>  
+>  	if (dev->of_node) {
+>  		pltfm_host->clk = devm_clk_get(dev, "core");
 
 
 _______________________________________________
