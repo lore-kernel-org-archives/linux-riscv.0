@@ -4,79 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C3F1125863
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 18:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F831125863
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 18:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nCv9V0OpdhN1I6neJYI1nWPH5AmRCkTOZ5F4GKpVuGc=; b=s2fTDhcpHuYykvFh9ilIBZrh37
-	lfN1j7RxtUv+N1i/ZyM8UcjTZGirFTHrJo+Qio80Vl+8TKlvLXDVzULGNTH9uhSGEIM6hAFPVcRxR
-	OrnhSy3+m8QYy54S0B7Hc63PYVXoVdDZ80tmF+rXSENNzrkeFsHowJoYpOLGSl12NdmMltSDf/zjD
-	FUZHoU79B2R8kw3P4lvzCrvGmjc1ZedJgYBl//+HZjJJeubc/Uajr3WMDISpAiMSORnLJZ5vk6NAw
-	hc0sqjeEzZo1zldJmFUTmIYL/46KxfeS+z3/+4bPU7C92k7fNk0eq53KWpYF6NezoMrxkx2M5W5zv
-	/OpoYOiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MqTbn2tsVgDoLTWqedRWVX33ZeIYujhpfmQ3GykhBLs=; b=FYfhS2E2OFe2zO
+	gkcjuBxJPKDXz8LJ5mBYacG74bB+T5Birr9mgJTICiNVS9XTo4CXPvMK+bULSPkdgtJEWNOy1Pd+7
+	NTo4wKkmgSAUkiHJffLXkpPFSChQbtWoMoA+tdPWJXj5PIGjIuVWXwPpOzNyRNRisX6o1Xs+BojBd
+	5V+O7/u161H5HbALpvEKRHwCCpmHUy5cIxUXVt1f51ccoE+Y4E8yb2rJTfG+ZJek8jy8UhhRw1sgs
+	izh9vDWU5njZrKTs0IP5d2+gHS6N7zuP8XELZ8v3s0h6XPnl7CFoKTaR5F5/h+AyscUsHPmCUW/Dt
+	XjN6GflVSEcIMNcaXLpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Nz9-0000000C7vr-2ahR;
-	Wed, 11 Mar 2026 18:08:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0O0q-0000000C8Es-0AvQ;
+	Wed, 11 Mar 2026 18:10:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Nz8-0000000C7vU-0KXv
+	id 1w0O0n-0000000C8ED-1eHA
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Mar 2026 18:08:42 +0000
+	Wed, 11 Mar 2026 18:10:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 31DA960054;
-	Wed, 11 Mar 2026 18:08:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96420C4CEF7;
-	Wed, 11 Mar 2026 18:08:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A976F43B4D;
+	Wed, 11 Mar 2026 18:10:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E204C4CEF7;
+	Wed, 11 Mar 2026 18:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773252519;
-	bh=XawCcOA4Jr7tFQ8sqhyB8MmvC3bH5pq//7zAxd0ijr4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fqifVIMzkcLUNr5eejYjS4DCibDuyB1iPk/MbTV0vH9WPWCHf4nVLPCk6Xo7++oLY
-	 8omBpNuWrxXeaC6IqZ117GSz4cPM6ltPSe4ELb7YtUGIqzV/TrTYUy8TYb9dudvoBc
-	 b15x3U1yfssSmQtQFCd5VUcN66HFXisy4feR4VujfMbbR0OCvygTm1hupxKL2ClVz/
-	 MwHvNzRHKx9c9AFurFEiCcwN5pBgx3yYXABVw3MZ6UCIjPZrC7scuqKhT9XqCvVEph
-	 hv3CJ3lP+c4XWN/NbHemPNkwC6CnF+hNc4lrq9VI1bX1m7kTpfjsv8cUzxuPAVthuc
-	 eU2fEtiVemVcQ==
-Date: Wed, 11 Mar 2026 18:08:32 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
-	Valentina.FernandezAlanis@microchip.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
-	Abin Joseph <abin.joseph@amd.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Ryan.Wanner@microchip.com
+	s=k20201202; t=1773252624;
+	bh=fX97InEG2Y/bHlqZFQqzPwU7oz0ha1RwbkrWCs4lWas=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KtH96U9GUOZyJ/lj7WtbQSyJr21mPmZuMIGeMhm/E+9z8uhRCV9HT5VoxIhQsXQPC
+	 5482lcmlJbnDEwaUAnWxZFirHLT/HBNJB6grmAvGz5yQXz0MTe4FSar/OcsedMoQ+7
+	 kpvLDu9s5NkxWrYaSNgShVcNL5lBV3aeQeyuhkXn/csPSj1JwBVJ28COEXhCnrzVpZ
+	 fp/NlLOTbVO8IysIfhzva3qVlXVSebToikFVoxAiPuQVT1DQ2qaawZRg0cp/2q5ajm
+	 Oyf2DwAPtdiGowzzBJ13RXMYgS/+eZXmCS+8Grj9G9Zn8uOTofCN1yYn/vpjDzoE3Y
+	 c06klwjMg07yw==
+Message-ID: <8f6eb4f0-50b7-4894-b990-98563f1e6b3b@kernel.org>
+Date: Wed, 11 Mar 2026 19:10:09 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH net-next v3 03/10] dt-bindings: net: cdns,macb: replace
  cdns,refclk-ext with cdns,refclk-source
-Message-ID: <20260311-rival-kerosene-81d12381d120@spud>
+To: Conor Dooley <conor@kernel.org>
+Cc: netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+ Valentina.FernandezAlanis@microchip.com, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Daire McNamara <daire.mcnamara@microchip.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Samuel Holland <samuel.holland@sifive.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Sean Anderson <sean.anderson@linux.dev>,
+ Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
+ Abin Joseph <abin.joseph@amd.com>, =?UTF-8?Q?Th=C3=A9o_Lebrun?=
+ <theo.lebrun@bootlin.com>, Ryan.Wanner@microchip.com
 References: <20260310-moneyless-dispense-7bce14b16388@spud>
  <20260310-sneak-handclap-c150d8f1236b@spud>
  <20260311-horned-dexterous-caribou-3a46fb@quoll>
-MIME-Version: 1.0
-In-Reply-To: <20260311-horned-dexterous-caribou-3a46fb@quoll>
+ <20260311-rival-kerosene-81d12381d120@spud>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260311-rival-kerosene-81d12381d120@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_111025_479471_D0F47582 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,108 +132,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8232780029663999693=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 11/03/2026 19:08, Conor Dooley wrote:
+> On Wed, Mar 11, 2026 at 08:00:54AM +0100, Krzysztof Kozlowski wrote:
+>> On Tue, Mar 10, 2026 at 05:17:10PM +0000, Conor Dooley wrote:
+>>> From: Conor Dooley <conor.dooley@microchip.com>
+>>>
+>>> Ryan added cdns,refclk-ext with the intent of decoupling the source of
+>>> the reference clock on sama7g5 (and related platforms) from the
+>>> compatible. Unfortunately, the default for sama7g5-emac is an external
+>>> reference clock, so this property had no effect there, so that
+>>> compatibility with older devicetrees is preserved.
+>>> Replace cdns,refclk-ext with one that supports both default states and
+>>> therefore is usable for sama7g5-emac.
+>>>
+>>> For now, limit it to only the platforms that have USRIO controlled
+>>> reference clock selection, but this could be generalised in the future.
+>>>
+>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>>> ---
+>>>  .../devicetree/bindings/net/cdns,macb.yaml    | 39 ++++++++++++++++---
+>>>  1 file changed, 34 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+>>> index cb14c35ba9969..a492357570edd 100644
+>>> --- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
+>>> +++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+>>> @@ -120,12 +120,14 @@ properties:
+>>>    power-domains:
+>>>      maxItems: 1
+>>>  
+>>> -  cdns,refclk-ext:
+>>> -    type: boolean
+>>
+>> This is already an implemented ABI, so you cannot drop it even if some
+>> devices works fine on default. Instead please deprecate it and keep
+>> drivers backwards compatible for whoever is using it.
+> 
+> The driver still will support it for those devices, but I don't see any
+> value in keeping the property about, even deprecated, when it doesn't
+> work properly. If you insist that it be kept and marked deprecated, it
 
---===============8232780029663999693==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="CzbrZhLK2nJ/Peoo"
-Content-Disposition: inline
+There cannot be an undocumented ABI, so if driver has it, it must stay
+in the bindings.
 
+> needs conditional rules to only permit it on devices that it actually
+> does something. I'm surprised you even considered that I would drop
+> support for it from the driver!
 
---CzbrZhLK2nJ/Peoo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Commit msg suggested it is no-op, thus could be dropped without having
+impact?
 
-On Wed, Mar 11, 2026 at 08:00:54AM +0100, Krzysztof Kozlowski wrote:
-> On Tue, Mar 10, 2026 at 05:17:10PM +0000, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > Ryan added cdns,refclk-ext with the intent of decoupling the source of
-> > the reference clock on sama7g5 (and related platforms) from the
-> > compatible. Unfortunately, the default for sama7g5-emac is an external
-> > reference clock, so this property had no effect there, so that
-> > compatibility with older devicetrees is preserved.
-> > Replace cdns,refclk-ext with one that supports both default states and
-> > therefore is usable for sama7g5-emac.
-> >=20
-> > For now, limit it to only the platforms that have USRIO controlled
-> > reference clock selection, but this could be generalised in the future.
-> >=20
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  .../devicetree/bindings/net/cdns,macb.yaml    | 39 ++++++++++++++++---
-> >  1 file changed, 34 insertions(+), 5 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Doc=
-umentation/devicetree/bindings/net/cdns,macb.yaml
-> > index cb14c35ba9969..a492357570edd 100644
-> > --- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
-> > +++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-> > @@ -120,12 +120,14 @@ properties:
-> >    power-domains:
-> >      maxItems: 1
-> > =20
-> > -  cdns,refclk-ext:
-> > -    type: boolean
->=20
-> This is already an implemented ABI, so you cannot drop it even if some
-> devices works fine on default. Instead please deprecate it and keep
-> drivers backwards compatible for whoever is using it.
-
-The driver still will support it for those devices, but I don't see any
-value in keeping the property about, even deprecated, when it doesn't
-work properly. If you insist that it be kept and marked deprecated, it
-needs conditional rules to only permit it on devices that it actually
-does something. I'm surprised you even considered that I would drop
-support for it from the driver!
-
-> > +  cdns,refclk-source:
-> > +    $ref: /schemas/types.yaml#/definitions/string
-> > +    enum:
-> > +      - internal
-> > +      - external
-> >      description:
-> > -      This selects if the REFCLK for RMII is provided by an external s=
-ource.
-> > -      For RGMII mode this selects if the 125MHz REF clock is provided =
-by an external
-> > -      source.
-> > +      Select whether or not the refclk for RGMII or RMII is provided b=
-y an
-> > +      internal or external source. The default is device specific.
->=20
-> Best regards,
-> Krzysztof
->=20
-
---CzbrZhLK2nJ/Peoo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabGvoAAKCRB4tDGHoIJi
-0qYJAP9SsPtMLqsKLk3++GjsX/sVhVG2+UVwOXE5GD+tJz8eDQD+PEe3Z/ZeEbTq
-g6twAbUPHM0gSKmKvD9509m1+an2Egs=
-=PWoT
------END PGP SIGNATURE-----
-
---CzbrZhLK2nJ/Peoo--
-
-
---===============8232780029663999693==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8232780029663999693==--
-
