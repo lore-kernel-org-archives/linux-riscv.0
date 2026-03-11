@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D87C1125858
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 17:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C3F1125863
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 18:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3mzHsiEKaKwrj2+cNJUo/1MmlraPVCw7Q31wvKwNEWI=; b=VQOvqVQZ6Ey4sncaWFSeO6CblD
-	H1TtBIg3hMzxlZsXH4rOP1ku+7kRmyErw7zXZyiUEjV7MwirXsNcplYaMgBRhNUepie9NrJ8yKimE
-	ue/03xr9rtu4l3BOY5hkRMJsa9Vw7BFlbdgq8Hh9ckepon5FaT51c2k2a3kxTUGZiXg1kierQEu+D
-	QKicB22rdTN4wNggk3lh44KSz8aChyirVPKwG75Ex+HKkaEDuV7kfEzG5Ejq6CEJA9jRvU2bsJD+Y
-	F8AYDmf3ZekSdYK6ddlDaCR98icu2muOlMWwi72o1U0GKe8GR+UtxoDODL0IjNzA30/ux3HdDdszc
-	RrDZ7vsA==;
+	bh=nCv9V0OpdhN1I6neJYI1nWPH5AmRCkTOZ5F4GKpVuGc=; b=s2fTDhcpHuYykvFh9ilIBZrh37
+	lfN1j7RxtUv+N1i/ZyM8UcjTZGirFTHrJo+Qio80Vl+8TKlvLXDVzULGNTH9uhSGEIM6hAFPVcRxR
+	OrnhSy3+m8QYy54S0B7Hc63PYVXoVdDZ80tmF+rXSENNzrkeFsHowJoYpOLGSl12NdmMltSDf/zjD
+	FUZHoU79B2R8kw3P4lvzCrvGmjc1ZedJgYBl//+HZjJJeubc/Uajr3WMDISpAiMSORnLJZ5vk6NAw
+	hc0sqjeEzZo1zldJmFUTmIYL/46KxfeS+z3/+4bPU7C92k7fNk0eq53KWpYF6NezoMrxkx2M5W5zv
+	/OpoYOiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Np5-0000000C6Y8-26zp;
-	Wed, 11 Mar 2026 17:58:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w0Nz9-0000000C7vr-2ahR;
+	Wed, 11 Mar 2026 18:08:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Np2-0000000C6Wt-45ga
+	id 1w0Nz8-0000000C7vU-0KXv
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Mar 2026 17:58:18 +0000
+	Wed, 11 Mar 2026 18:08:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1B6D42D9F;
-	Wed, 11 Mar 2026 17:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C115BC4CEF7;
-	Wed, 11 Mar 2026 17:58:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 31DA960054;
+	Wed, 11 Mar 2026 18:08:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96420C4CEF7;
+	Wed, 11 Mar 2026 18:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773251895;
-	bh=REZVKE/XRqdzPQdeJe3+5UNr7QWGQUq5Vy/h1znmS7Y=;
+	s=k20201202; t=1773252519;
+	bh=XawCcOA4Jr7tFQ8sqhyB8MmvC3bH5pq//7zAxd0ijr4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cy0lEcArPly5OmTy6AXVaIBxwh5aIVqDl3XTzJlbm+09THhYCehxaFsbZL/UVXuwX
-	 2rhWaOSdRz8P0k5WYtDmeHYkAO5jTMG8qUwjS60kG5H0JMic48D1EpRgHPrnEiNf/+
-	 Cto8rNNXqADIDBLjMvN0qNHnrrSntyv/d9DonpmTJFhzJUkHLOSApE5LueCNvokxMC
-	 HS2pLcyXQtBd7aFWE8nnKrqm0p4lHQ0l4II+xluLxlfrdMB+HZ0T19O/4+xJ6VJ7ra
-	 fiYABqLAfHI7CT3IJ4Zl1AoQxm7MRskJiao0WjoO8KbxH0KO3a2wXk2EHDobCKTEqy
-	 dt7DvfeZCBFUA==
-Date: Wed, 11 Mar 2026 17:58:10 +0000
+	b=fqifVIMzkcLUNr5eejYjS4DCibDuyB1iPk/MbTV0vH9WPWCHf4nVLPCk6Xo7++oLY
+	 8omBpNuWrxXeaC6IqZ117GSz4cPM6ltPSe4ELb7YtUGIqzV/TrTYUy8TYb9dudvoBc
+	 b15x3U1yfssSmQtQFCd5VUcN66HFXisy4feR4VujfMbbR0OCvygTm1hupxKL2ClVz/
+	 MwHvNzRHKx9c9AFurFEiCcwN5pBgx3yYXABVw3MZ6UCIjPZrC7scuqKhT9XqCvVEph
+	 hv3CJ3lP+c4XWN/NbHemPNkwC6CnF+hNc4lrq9VI1bX1m7kTpfjsv8cUzxuPAVthuc
+	 eU2fEtiVemVcQ==
+Date: Wed, 11 Mar 2026 18:08:32 +0000
 From: Conor Dooley <conor@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	devicetree@vger.kernel.org,
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Valentina.FernandezAlanis@microchip.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>, linux-gpio@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 2/4] dt-bindings: soc: microchip: document PolarFire
- SoC's gpio interrupt mux
-Message-ID: <20260311-unlovable-ecosphere-07df196823b3@spud>
-References: <20260311-tasting-friend-eae39148fb96@spud>
- <20260311-collar-smokiness-5313aa648a6f@spud>
- <177324727784.4047403.339169143402607624.robh@kernel.org>
+	Conor Dooley <conor+dt@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
+	Abin Joseph <abin.joseph@amd.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Ryan.Wanner@microchip.com
+Subject: Re: [PATCH net-next v3 03/10] dt-bindings: net: cdns,macb: replace
+ cdns,refclk-ext with cdns,refclk-source
+Message-ID: <20260311-rival-kerosene-81d12381d120@spud>
+References: <20260310-moneyless-dispense-7bce14b16388@spud>
+ <20260310-sneak-handclap-c150d8f1236b@spud>
+ <20260311-horned-dexterous-caribou-3a46fb@quoll>
 MIME-Version: 1.0
-In-Reply-To: <177324727784.4047403.339169143402607624.robh@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_105817_082622_1478048D 
-X-CRM114-Status: GOOD (  23.97  )
+In-Reply-To: <20260311-horned-dexterous-caribou-3a46fb@quoll>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,122 +88,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8414136349412173866=="
+Content-Type: multipart/mixed; boundary="===============8232780029663999693=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8414136349412173866==
+--===============8232780029663999693==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="f75TBWoebi84s6Wt"
+	protocol="application/pgp-signature"; boundary="CzbrZhLK2nJ/Peoo"
 Content-Disposition: inline
 
 
---f75TBWoebi84s6Wt
+--CzbrZhLK2nJ/Peoo
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Rob,
-
-On Wed, Mar 11, 2026 at 11:41:17AM -0500, Rob Herring (Arm) wrote:
->=20
-> On Wed, 11 Mar 2026 15:17:39 +0000, Conor Dooley wrote:
+On Wed, Mar 11, 2026 at 08:00:54AM +0100, Krzysztof Kozlowski wrote:
+> On Tue, Mar 10, 2026 at 05:17:10PM +0000, Conor Dooley wrote:
 > > From: Conor Dooley <conor.dooley@microchip.com>
 > >=20
-> > On PolarFire SoC there are more GPIO interrupts than there are interrupt
-> > lines available on the PLIC, and a runtime configurable mux is used to
-> > decide which interrupts are assigned direct connections to the PLIC &
-> > which are relegated to sharing a line.
+> > Ryan added cdns,refclk-ext with the intent of decoupling the source of
+> > the reference clock on sama7g5 (and related platforms) from the
+> > compatible. Unfortunately, the default for sama7g5-emac is an external
+> > reference clock, so this property had no effect there, so that
+> > compatibility with older devicetrees is preserved.
+> > Replace cdns,refclk-ext with one that supports both default states and
+> > therefore is usable for sama7g5-emac.
 > >=20
-> > Reviewed-by: Herve Codina <herve.codina@bootlin.com>
+> > For now, limit it to only the platforms that have USRIO controlled
+> > reference clock selection, but this could be generalised in the future.
+> >=20
 > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > > ---
-> >  .../soc/microchip/microchip,mpfs-irqmux.yaml  | 77 +++++++++++++++++++
-> >  .../microchip,mpfs-mss-top-sysreg.yaml        |  4 +
-> >  2 files changed, 81 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/soc/microchip/mic=
-rochip,mpfs-irqmux.yaml
+> >  .../devicetree/bindings/net/cdns,macb.yaml    | 39 ++++++++++++++++---
+> >  1 file changed, 34 insertions(+), 5 deletions(-)
 > >=20
+> > diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Doc=
+umentation/devicetree/bindings/net/cdns,macb.yaml
+> > index cb14c35ba9969..a492357570edd 100644
+> > --- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
+> > +++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+> > @@ -120,12 +120,14 @@ properties:
+> >    power-domains:
+> >      maxItems: 1
+> > =20
+> > -  cdns,refclk-ext:
+> > -    type: boolean
 >=20
-> My bot found errors running 'make dt_binding_check' on your patch:
+> This is already an implemented ABI, so you cannot drop it even if some
+> devices works fine on default. Instead please deprecate it and keep
+> drivers backwards compatible for whoever is using it.
 
-AAAAAAAAA, goddammit. I forgot there was a reason why I had not just
-sent off the new version of the series.
+The driver still will support it for those devices, but I don't see any
+value in keeping the property about, even deprecated, when it doesn't
+work properly. If you insist that it be kept and marked deprecated, it
+needs conditional rules to only permit it on devices that it actually
+does something. I'm surprised you even considered that I would drop
+support for it from the driver!
 
-> yamllint warnings/errors:
+> > +  cdns,refclk-source:
+> > +    $ref: /schemas/types.yaml#/definitions/string
+> > +    enum:
+> > +      - internal
+> > +      - external
+> >      description:
+> > -      This selects if the REFCLK for RMII is provided by an external s=
+ource.
+> > -      For RGMII mode this selects if the 125MHz REF clock is provided =
+by an external
+> > -      source.
+> > +      Select whether or not the refclk for RGMII or RMII is provided b=
+y an
+> > +      internal or external source. The default is device specific.
 >=20
-> dtschema/dtc warnings/errors:
-> Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-irqmux.exa=
-mple.dts:18.33-24.11: Warning (interrupt_provider): /example-0/interrupt-co=
-ntroller@54: '#interrupt-cells' found, but node is not an interrupt provider
-> Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-irqmux.exa=
-mple.dtb: Warning (interrupt_map): Failed prerequisite 'interrupt_provider'
-
-I wanted to ask about this Rob, I wasn't sure I fully understood it.
-I figured it was because...
-
-
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/s=
-oc/microchip/microchip,mpfs-irqmux.example.dtb: interrupt-controller@54 (mi=
-crochip,mpfs-irqmux): 'interrupt-map' is a required property
-> 	from schema $id: http://devicetree.org/schemas/soc/microchip/microchip,m=
-pfs-irqmux.yaml
-
-=2E..I had not added the interrupt-map yet...
-
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/s=
-oc/microchip/microchip,mpfs-irqmux.example.dtb: interrupt-controller@54 (mi=
-crochip,mpfs-irqmux): 'interrupt-map' is a dependency of 'interrupt-map-mas=
-k'
-> 	from schema $id: http://devicetree.org/schemas/interrupt-controller.yaml
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/s=
-oc/microchip/microchip,mpfs-irqmux.example.dtb: interrupt-controller@54 (mi=
-crochip,mpfs-irqmux): 'anyOf' conditional failed, one must be fixed:
-> 	'interrupt-controller' is a required property
-> 	'interrupt-map' is a required property
-> 	from schema $id: http://devicetree.org/schemas/interrupt-controller.yaml
-
-=2E..so this schema complained. But why is there a custom warning about
-"node is not an interrupt provider", when the conditional schema
-produces a warning of its own?
-
-> doc reference errors (make refcheckdocs):
->=20
-> See https://patchwork.kernel.org/project/devicetree/patch/20260311-collar=
--smokiness-5313aa648a6f@spud
->=20
-> The base for the series is generally the latest rc1. A different dependen=
-cy
-> should be noted in *this* patch.
->=20
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
->=20
-> pip3 install dtschema --upgrade
->=20
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your sch=
-ema.
+> Best regards,
+> Krzysztof
 >=20
 
---f75TBWoebi84s6Wt
+--CzbrZhLK2nJ/Peoo
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabGtMgAKCRB4tDGHoIJi
-0kLAAP4/StUCvibT5hub5xjSEE2d21x03BUhs+ifxgEyZFkLvgD9EcfeAWt2eGYl
-AoCeqdx4b8MruMjeVy1/SlSu8M7GWwg=
-=NT5s
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabGvoAAKCRB4tDGHoIJi
+0qYJAP9SsPtMLqsKLk3++GjsX/sVhVG2+UVwOXE5GD+tJz8eDQD+PEe3Z/ZeEbTq
+g6twAbUPHM0gSKmKvD9509m1+an2Egs=
+=PWoT
 -----END PGP SIGNATURE-----
 
---f75TBWoebi84s6Wt--
+--CzbrZhLK2nJ/Peoo--
 
 
---===============8414136349412173866==
+--===============8232780029663999693==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -205,5 +191,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8414136349412173866==--
+--===============8232780029663999693==--
 
