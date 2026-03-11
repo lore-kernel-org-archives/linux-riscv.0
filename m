@@ -4,96 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E642FD88DF
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 02:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D4A5FD88E2
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 03:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
-	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BN0+0Eqtwu1X9erLrgVCFD4CwD2Xz5CpVPN2oUt2J3A=; b=NDgDSwIz1qco6R
-	/UcZgIz0C1meoWgTRfcq2AvzcN9ExUPcbn2tqkdqZmeYbivUVQhtfkLp8K7LsJe95wwOjdi420i7k
-	7exfc9YAA4EFjXGc54DJjE9FSDg4KehMO80SlWY/x8q9i2Uuh70fGIqSuNrJW6X7nZ97fP2iNwE+E
-	zhZYEHksIxZ7ysmfcVyXCSeB3vWO5xsqBOmhotlWop3gQjhkK2/24KfxuHJe1MdjawECHgncPv3S5
-	RjTObzBQ4brX8otyOOfm8IBR6ttoSNn9wKSbedbF+496nTFGj0gQBtxORDIPZ8jgU8EKImXcx+POZ
-	wR+c1YmKDcXUhA2dCGPw==;
+	List-Owner; bh=cPZ9mcnPgCCWi5z5fu6V4VAZcpXM49Mif//Ygfyyb1c=; b=ISocozrNTFNaU7
+	bn9izQ8/Z04GruzsHK21l22IKDDTtF2wXoTYGowTZugVjAAsBaTEwKFTe2DdrtqO9ELnsgmsN1FjG
+	SlWoNuaif1IIpaLxFUuybufeu8Ho005CKawYL4ks/DYAJ8+gMXmbLdpvWP7mLYe3pi+KeJbLXukz0
+	ENdxoZ19TCGzpZlHDHtgnr1Zrag2WUW+yEHSBwW5fJwmP5bnrGlBlK5jisxTo4PQYabkMS0g+o0hR
+	JkuLZeqI7gtz3z/APEjX4Vp82yrELKo/sdHF0gwkvspA3DR+KKpga4/U0J/Lp1TJbDHzZmh9Xo9r7
+	hqbBUzEt383BZ6Cwllpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09nY-0000000Aa1b-3tFK;
-	Wed, 11 Mar 2026 02:59:48 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1w09o2-0000000Aa4o-11Pa;
+	Wed, 11 Mar 2026 03:00:18 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09nW-0000000AZzs-1ArF
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Mar 2026 02:59:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1773197901;
-	bh=cdYAA+g/5AwgfFzsh2zrBrYJPymEr6G4WcYfRqa8g2A=;
-	h=Mime-Version:Date:Message-Id:To:Subject:From;
-	b=LZ7nTvklF5b+GD6I66nWVRG2zJPjmwpOWs7RR/GCdkw9pKVXO7iaE58cst27M9k/v
-	 87/dnVrOHmvMYYTOn+qBdBcQyq+xRmWGRD4GWj3wgBVMmxv0y1H7bNel4WA9at0V43
-	 e1fFg7HcdO1P9ezBt7cut0hBqIkH8YKq8jjspW64=
-X-QQ-mid: zesmtpsz6t1773197891tb6bc5c9c
-X-QQ-Originating-IP: JjQFje59Pj2+UWzI0DdnSaJjGPej3hv3InT1nK7o+PE=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 11 Mar 2026 10:58:09 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11627406965186864480
-EX-QQ-RecipientCnt: 14
-Mime-Version: 1.0
-Date: Wed, 11 Mar 2026 10:58:09 +0800
-Message-Id: <DGZM6WUAVPPS.20Y0NIZYI4572@linux.spacemit.com>
-To: "Aurelien Jarno" <aurelien@aurel32.net>, "Yanko Kaneti"
- <yaneti@declera.com>
-Cc: <linux-kernel@vger.kernel.org>, "Lee Jones" <lee@kernel.org>, "Sebastian
- Reichel" <sre@kernel.org>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>, "Yixun Lan" <dlan@gentoo.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "open
- list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
- "open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit"
- <spacemit@lists.linux.dev>, "open list:SYSTEM RESET/SHUTDOWN DRIVERS"
- <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] mfd: simple-mfd-i2c: add a reboot cell for the
- SpacemiT P1 chip
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20251102230352.914421-1-aurelien@aurel32.net>
- <20251102230352.914421-3-aurelien@aurel32.net>
- <b51a62513daa9d2390031ec350e0b33bdb7e54aa.camel@declera.com>
- <aaC78FTN31QYaVg0@aurel32.net>
- <990bc03ed2baa05e619f0aa9cc6a23acadd66ea6.camel@declera.com>
- <aaS6xeKFZz06fb1_@aurel32.net> <aaXuWwyA5NzBZzlW@aurel32.net>
- <36f8df695463e5ff3eaaffbac357fc73026f7373.camel@declera.com>
- <aadGw1fIlJyNNoum@aurel32.net>
-In-Reply-To: <aadGw1fIlJyNNoum@aurel32.net>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OLsBWtCIHsg6buEiKGGL/LCBUeXpuoFwDyI9NRafgFg1zEkJDxEW9jX7
-	CCnzBTLKftIQu0WYFRFJbuq7tTu6o6mDYPTaFerfqFSQOBi4BTloFi/hHd1aH8a3cxLZNCh
-	YIZtWcUWcqLUNEXlhTWts95mavd/h/ykbAGybhKdonXikBx9DQnQ9/iTzreTfJFTQinbo4k
-	zokyEc5btd6DjE2V14QoZt0SulA28q9vawh7VAbP95EUSOCTXgblRwqtNarpjAKQ4TLxBUr
-	Lhku3UXsIfkLvsIfNZ2dePAXPPuXYVs/bsoEL2a0j7HKGJ7Q2e6v1HU2Tf6koaXMREsCoMN
-	sphw3WN493QaK2YAgRrMTsAPMXf7PbXhARzUcMPVuTn/lAONs5HRPAuXkcZlKkwTrPqFArp
-	3yA9MEUW+BeD+NKclWawUPsu8l2Yk3uD1T0njXxBdMLNqUhUi2PlhgjFROzSztMIGVfCZNA
-	6sjpQs2uku8bVGl6tWnppBLlqzfJhf+PgEJyjRRutXZkydXCRdeCCPviSNn5SiZUAVnq5Ef
-	Xz+pjLZi7HbUisZ2deP1VV43pKVPn1OL+yJsG6quB/l2pR6pjrU1Qb1sax8dK14cJHeDTeC
-	FO++057Valgvny+YQl6Jt2cf4vi6Ghcn6x9s26FGDAEewCGzV09RKMUrf5loCbSi+Mm1ysy
-	82S3MGpooa/gwEb9Mmvg8SCod7qWbuw4YaGHPC8URFiyrL3MX/p16nw1WC8JXgPDjKls23e
-	mIWxIu2GrweISzOOw6aYrCWcnFli+LIiQtv08AU+dmFc9uZ8Qt+cn49tQgfb9nsEHGDpF4j
-	9ZEoPvVGizvkY9O5jxNrQjU9Fj6N6UoK2/A/Q1R5V9kEq8kUqY1ROIFyh7Phjhy6jXVA3qA
-	rg0NIhO0REvmLfc4Q1ZFCAAQsHr+LtaEGIoSmTX00nujCegozbCORMo6td7Wz4+G92jp+QX
-	zF8r8+cjM6BRtffiGxoZDcKOUJNo5CQwb/gimAlex5iN2xIP+jAPMJ+bQS1o74tGcFH4gCE
-	wb8pdfv+gVyIz7N97JkOhKvc1fMFJUWuGLR3m0fHdq1UQzH0a49rDRxHUKo/tx+W7h2bwqS
-	amUypc7RMsJZ4LqsgdFuq8=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
+	id 1w09ny-0000000Aa41-376m;
+	Wed, 11 Mar 2026 03:00:16 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=DUKycpPzpFIpG0env8jwSvfK5sQZJJ1YY0eqvDa9Ls4=;
+	b=UIuMwL2ZnQBHKt0OSz5st4Og2VYIGREkqW4SE+XsyKkbHXGhNjJEsAWrxVSqy6OOZJ3NLbK9Z
+	kP8s3Xd0pnLT2F4QMacoWnfn19/NxFuvNNLMkzdoJPW46wBbTVsZOQsEtjgpquwRCBs94A0/o7e
+	g1HUZD+aWdwNP2wFTTnfWEY=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fVwMy3T5lzLlSf;
+	Wed, 11 Mar 2026 10:55:10 +0800 (CST)
+Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7FEF34056C;
+	Wed, 11 Mar 2026 11:00:05 +0800 (CST)
+Received: from [10.67.121.161] (10.67.121.161) by
+ kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 11 Mar 2026 11:00:03 +0800
+Message-ID: <9ef9b529-839b-4cf0-a294-5b68fe8aa768@huawei.com>
+Date: Wed, 11 Mar 2026 11:00:02 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] PCI/TPH: Fix get cpu steer-tag fail on ARM64
+ platform
+To: Bjorn Helgaas <helgaas@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>
+References: <20260310220920.GA826995@bhelgaas>
+Content-Language: en-US
+From: fengchengwen <fengchengwen@huawei.com>
+In-Reply-To: <20260310220920.GA826995@bhelgaas>
+X-Originating-IP: [10.67.121.161]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk500009.china.huawei.com (7.202.194.94)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_195946_779637_BAC827ED 
-X-CRM114-Status: GOOD (  34.86  )
+X-CRM114-CacheID: sfid-20260310_200015_175776_47D41FF7 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,96 +71,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Ajit Khaparde <ajit.khaparde@broadcom.com>, x86@kernel.org, liuyonglong@huawei.com, "Rafael J .
+ Wysocki" <rafael@kernel.org>, Kees Cook <kees@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Somnath Kotur <somnath.kotur@broadcom.com>, Sohil Mehta <sohil.mehta@intel.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, linux-pci@vger.kernel.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Shuah Khan <skhan@linuxfoundation.org>, Bjorn Helgaas <bhelgaas@google.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, Wathsala Vithanage <wathsala.vithanage@arm.com>, Sean Christopherson <seanjc@google.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Mar 4, 2026 at 4:38 AM CST, Aurelien Jarno wrote:
- Hi, Aurelien and Yanko,
-> Hi,
->
-> On 2026-03-02 22:34, Yanko Kaneti wrote:
->> Hello,
->> 
->> On Mon, 2026-03-02 at 21:08 +0100, Aurelien Jarno wrote:
->> > On 2026-03-01 23:16, Aurelien Jarno wrote:
->> > > On 2026-02-27 13:29, Yanko Kaneti wrote:
->> > > > On Thu, 2026-02-26 at 22:32 +0100, Aurelien Jarno wrote:
->> > > > > Hi,
->> > > > > 
->> > > > > On 2026-02-26 16:32, Yanko Kaneti wrote:
->> > > > > > Hello,
->> > > > > > 
->> > > > > > On Mon, 2025-11-03 at 00:02 +0100, Aurelien Jarno wrote:
->> > > > > > > Add a "spacemit-p1-reboot" cell for the SpacemiT P1 chip.
->> > > > > > > 
->> > > > > > > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
->> > > > > > > ---
->> > > > > > > v5: no changes
->> > > > > > > 
->> > > > > > >  drivers/mfd/simple-mfd-i2c.c | 1 +
->> > > > > > >  1 file changed, 1 insertion(+)
->> > > > > > > 
->> > > > > > > diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
->> > > > > > > index 0a607a1e3ca1d..542d378cdcd1f 100644
->> > > > > > > --- a/drivers/mfd/simple-mfd-i2c.c
->> > > > > > > +++ b/drivers/mfd/simple-mfd-i2c.c
->> > > > > > > @@ -99,6 +99,7 @@ static const struct regmap_config spacemit_p1_regmap_config = {
->> > > > > > >  };
->> > > > > > >  
->> > > > > > >  static const struct mfd_cell spacemit_p1_cells[] = {
->> > > > > > > +	{ .name = "spacemit-p1-reboot", },
->> > > > > > >  	{ .name = "spacemit-p1-regulator", },
->> > > > > > >  	{ .name = "spacemit-p1-rtc", },
->> > > > > > >  };
->> > > > > > 
->> > > > > > Perhaps its safe to merge this one now that everything P1 and I2C is
->> > > > > > already in linus tip ?
->> > > > > 
->> > > > > Unfortunately, this patchset is still missing:
->> > > > > https://lore.kernel.org/all/20260207-b4-k3-i2c-pio-v7-0-626942d94d91@linux.spacemit.com/
->> > > > > 
->> > > > > This means the reboots work most of the time, but are not 100% reliable, 
->> > > > > and that's the reason why this patch got blocked from merging.
->> > > > 
->> > > > I see. Thanks. Sounds to me like sometimes working compared to never
->> > > > working is better , but anyway..
->> > > 
->> > > I agree with that, but the decision was to hold on this patch until the 
->> > > I2C PIO part got merged.
->> > > 
->> > > > FWIW  with this patch and the pio patcheset I get this rcu splat on
->> > > > reboot (which is still working). Similar splat is there without the pio
->> > > > patcheset.
->> > > 
->> > > I haven't been able to reproduce the issue here after 10+ reboots on a 
->> > > BPI-F3 board, but I tried the patch on top of 6.19. I'll try to build a 
->> > > 7.0.0-rc2 kernel and report back.
->> > 
->> > I have tried that, and I am still unable to reproduce the issue with a 
->> > 7.0.0-rc2 kernel and a BPI-F3 board.
->> 
->> I can still see it on every reboot (with the patches that allow reboot
->> to work). Do you have CONFIG_PREEMPT_RCU in your config ? its default on
->> when anything PREEMPT is selected. In Fedora its CONFIG_PREEMPT_DYNAMIC
->> that flips it.
->
-> Thanks for the hint, that option was not activated here, it's not the 
-> riscv64 defconfig. With it I am also able to reproduce the issue. I'll 
-> try to debug that and report back.
-I have sent a patch to address this issue here[1].
+On 3/11/2026 6:09 AM, Bjorn Helgaas wrote:
+> On Tue, Mar 10, 2026 at 10:58:49AM -0500, Jeremy Linton wrote:
+>> On 3/9/26 10:20 PM, Chengwen Feng wrote:
+>>> pcie_tph_get_cpu_st() is broken on ARM64:
+>>> 1. pcie_tph_get_cpu_st() passes cpu_uid to the PCI ACPI DSM method.
+>>>     cpu_uid should be the ACPI Processor UID [1].
+>>> 2. In BNXT, pcie_tph_get_cpu_st() is passed a cpu_uid obtained via
+>>>     cpumask_first(irq->cpu_mask) - the logical CPU ID of a CPU core,
+>>>     generated and managed by kernel (e.g., [0,255] for a system  with 256
+>>>     logical CPU cores).
+>>> 3. On ARM64 platforms, ACPI assigns Processor UID to cores listed in the
+>>>     MADT table, and this UID may not match the kernel's logical CPU ID.
+>>>     When this occurs, the mismatch results in the wrong CPU steer-tag.
+>>> 4. On AMD x86 the logical CPU ID is identical to the ACPI Processor UID
+>>>     so the mismatch is not seen.
+> 
+>>>   int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
+>>> -			unsigned int cpu_uid, u16 *tag)
+>>> +			unsigned int cpu, u16 *tag)
+>>>   {
+>>>   #ifdef CONFIG_ACPI
+>>> +	u32 cpu_uid = acpi_get_cpu_acpi_id(cpu);
+> 
+> From AI review (gemini/gemini-3.1-pro-preview):
+> 
+>   Does this code need to validate that `cpu` is within bounds before
+>   using it?  Before this change, the `cpu_uid` parameter was passed
+>   opaquely to the ACPI firmware via `tph_invoke_dsm()`, which would
+>   gracefully handle invalid values.
+> 
+>   Now, `cpu` is treated as a logical CPU index and passed to
+>   `acpi_get_cpu_acpi_id(cpu)`. On architectures like arm64 and riscv,
+>   `acpi_get_cpu_acpi_id()` uses `cpu` directly as an array index
+>   (`&cpu_madt_gicc[cpu]` and `&cpu_madt_rintc[cpu]`). On x86, it uses
+>   `per_cpu(x86_cpu_to_acpiid, cpu)`.
+> 
+>   If a caller passes an out-of-bounds `cpu` index (for example, if an
+>   IRQ affinity mask is empty and `cpumask_first()` returns
+>   `nr_cpu_ids`, or if userspace passes an arbitrary ID via
+>   `mlx5_st_alloc_index()`), this will result in an out-of-bounds
+>   memory read.
+> 
+>   Consider adding a bounds check:
+> 
+>     if (cpu >= nr_cpu_ids)
+>       return -EINVAL;
+> 
+> I agree that this is an issue, and I think implementations of
+> acpi_get_cpu_acpi_id() should validate their inputs.
+> 
+> I don't know if there's a value that can never be a valid ACPI CPU UID
+> and could be used as an error value from acpi_get_cpu_acpi_id().  I do
+> see a few mentions of a ~0 value meaning "all processors" (ACPI r6.6,
+> sec 5.2.12.13).  
 
-Could you please test it on your hardware when you have a chance?
+I only have the ACPI Specification Version 6.5, so I will use v6.5 as an example.
 
-                        - Troy
+The ACPI specification does not define invalid value ranges for the ACPI UID.
+For the arm64 platform (Section 5.2.12.14):
+  ACPI Processor UID: The OS associates this GICC Structure with a processor device
+                      object in the namespace when the _UID child object of the
+                      processor device evaluates to a numeric value that matches
+                      the numeric value in this field.
 
-Link:
-https://lore.kernel.org/all/20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev/ [1]
+I am concerned that we cannot implement it like this:
+	int acpi_get_cpu_uid(unsigned int cpu) {
+		if (cpu >= nr_cpu_ids)
+			return -EINVAL;
+		...
+	}
+or:
+	u32 acpi_get_cpu_uid(unsigned int cpu) {
+		if (cpu >= nr_cpu_ids)
+			return U32_MAX;
+		...
+	}
 
->
-> Regards
-> Aurelien
+How about implementing it as follows:
+	s64 acpi_get_cpu_uid(unsigned int cpu) {
+		if (cpu >= nr_cpu_ids)
+			return -EINVAL;
+		...
+	}
+or
+	int acpi_get_cpu_uid(unsigned int cpu, u32 *uid) {
+		if (cpu >= nr_cpu_ids)
+			return -EINVAL;
+		*uid = xxx;
+		return 0;
+	}
+
+
+
+Another issue: This commit also provides an implementation for the x86 platform.
+However, further code analysis revealed a potential problem in the implementation:
+
+The acpi_get_cpu_acpi_id() retrieves uid from x86_cpu_to_acpiid in SMP, and
+x86_cpu_to_acpiid is set through the call chain: acpi_parse_lapic() ->
+topology_register_apic() -> topo_register_apic() -> topo_set_cpuids() ->
+x86_cpu_to_acpiid. It appears to retrieve the "ACPI Processor UID" from
+ACPI Section 5.2.12.2, but the problem is that this field is only one byte in length,
+which may cause issues in huge-core systems.
+
+Therefore, I suggest re-implementing the acpi_get_cpu_uid function for the x86
+platform. Either I provide a default implementation (shown below), or x86 guys
+contribute to the implementation:
+
+	s64 acpi_get_cpu_uid(unsigned int cpu) {
+		if (cpu >= nr_cpu_ids)
+			return -EINVAL;
+		return cpu;
+	}
+
+Thanks
+
+> 
 
 
 _______________________________________________
