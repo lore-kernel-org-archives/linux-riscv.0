@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F8EFD88E3
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 03:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54B4FD062E
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 06:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
-	In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o+nTWrUuYeD9CqvfboLEe/dTgaeBT0vJmTFolO6fYa8=; b=vqDY61kzzeZjV7
-	qUiULL/+M95sYr168juENgP7EZVcHPIqyJsjmWOpceX8er3xnSucWYv/EjLwrjig6TCRmgadYczt+
-	HZPdSNBL4pK2nuWWoN3V3RJ4BAx981Qu+ZLe2ywg4bT21i31Yt5XsNYv/e3n/l8OkE29OUN7ah4cf
-	B6C5bDUy+Y/yUgGUc18GoOuYLu3K2o8JmZaoub5bFZDgMzdZ1FlLHcDWyOcjbTp/vnDwlvE1/OpKK
-	Dt9gOg+bOENRLopaSTTFFT/QXc5kFGtYglMBhCHkTvzTmT1JZkQ4+kO2hTt/QACRhLhSLErNVnE3T
-	bZeI4sRP4aXN6b6OmLXA==;
+	List-Owner; bh=+eygR1JziCk+0mt7Mav4ifIgb1tuSvYunrXwUahjZBY=; b=RI5deUTjAbPo6y
+	LHuHxpjgcRN2oAuaUMMkyStHI2uO9Ws0d9LNN2tJj1JR8ZKri+xrgI1cFOMdlqgnRwg6ZKQnSEeYn
+	kbUS/0s/9G9yJMDfvDc570COxcJG9vB2nPOjS8jwGv6eBG59/SwHm3EWcqGXeYnPgJA3MyU0vSC07
+	gzlzrqIW9LpTvqElrBo63xJ5jhlaOlJ/qxOsfp+q+QWHp6KgISeD+XPREFZ7m9C0Ka/A71Hd+Lx2f
+	2mOW4ejMr3auKqSKnlg7SFdUM7VnJfcF7jOOVjexZiwd1hhvIY8u2R9LS7nPbR8ErNUS0KOB1+XkZ
+	uv52CG3JzZZtYoKsW9aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09qN-0000000AaSc-1RAq;
-	Wed, 11 Mar 2026 03:02:43 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1w0DLJ-0000000Aww2-3PER;
+	Wed, 11 Mar 2026 06:46:53 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09qK-0000000AaRd-33xl
+	id 1w0DLF-0000000AwuZ-0qdK
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Mar 2026 03:02:42 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c7382731edfso4592234a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Mar 2026 20:02:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773198159; x=1773802959; darn=lists.infradead.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vO8RhD7fGikYRNYtDoD/8DClVqthT19fczPJykhciJA=;
-        b=VarAXYfXtzV9d6vdd7cx/DXmfEO8i7GvX2FuMCctz/ivE8M0BB7/yvGBddRHs5MnY7
-         U6gV6cY8XgMs34qjCiuNDjAZ90oaRo5L+zQZIPH2TQwYvHqr3HsU70TH8YUNHpnZidSk
-         rSh1w3neVgR4+rQV+PmyhgR9bUazJN4RddPTVrIip+wQoywi1mCnMHbHhi0Ed3999AkB
-         UtC5tcMFCUMNEpS2Xci+k6azUOLXf2AAXyFNfHPSPEAQqBexaJHGQTnG96vVnJjgHO5d
-         E6eQhbt5yJMAN0tYp3xp06geg/TMMvBR7nuunUSTV3qOfotG9CCb/0vbFH2pXy7FzGUm
-         PJnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773198159; x=1773802959;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vO8RhD7fGikYRNYtDoD/8DClVqthT19fczPJykhciJA=;
-        b=oAQzKno9DJqSmwdW28t/Q7CGWoUcgpkYgFNCw2thS3r5jTNlO3mCy/pW2MFi6aV0iW
-         514Na4eGIS9ktjmpbCjz6jOPnrFALFUL1bN+c4+5G+wu+M3C3oR7s59IjzazEIb/Afab
-         We1WiNk4s7EORv/nEHvi7jeZVFqh0f9hVdmXyajutEM0N76yYfHDOXTWBj7uKn/m1B2u
-         /AUlPynqrJEpDqNNKGUk8mFY1ztDoG3aEIF81BiVTbAO/Bc2pdHR1b1GMvYMhyMtTX/2
-         kLn5eIyZU91/lRnSLGBNG77uc5b8yiER3GR0kxdRAHIzkuho/AHl4LlFkOIXw40CsSck
-         9CUw==
-X-Forwarded-Encrypted: i=1; AJvYcCULiBSQZHL2FxL7FirTPBDfk3CHh7JxFbqc/XGrzIg/vwDZ0KNq3fGEWCOo6gggp7ceBtpq9m//Tsyb/Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YznBSmoYNA/fbWzK05gAihLpWTcO+3Lyv+d/JzSvC+7766QAGcO
-	Kk2HTCwmM8N/Pp1pM4d/VucmiF7TupT6Wvq5bDESYhbsxA+CiPiPHGsa
-X-Gm-Gg: ATEYQzzNs9qVjV7HYHPs/eS09du9jVAIXLYXzpuCGJOamNi4gr8cSS2Fvf78u+jigWu
-	Tl/J3CxsnNiAZfD7Ec37UORD+u628dgKGHleZuniPlWTkMAn2AITdaqqDXnouWcbiVtE1UOaJwP
-	/TZaTapQXVjyHAAPl8c446hhoIdRKcx+bQkJUkGGqE4m7DKOgkw/h9LioLq0aS6CTslNWZi9Yr1
-	MHVvreOFdJ767YaEuovU/b1P8I1Hbh+IggNWANmL6/egvA61uBeb5s0VeGfM2lmayGxEEmWfwkg
-	i4NKFAL+L9TSZx0pjjwsq5TKv3slgvVhfNQBNF18x6R/GYDIdEqo6iGclLWzx3uhLKHd371UjpF
-	V22Nc4v/IPIbKsXNdzAVvHHYcmz+xkme5hQSN+lJ2JstqXLb8tQ1vTLAtwuMARPtDR4dXGrJC7N
-	4OYDMTJgYYwyZgapnTqRw/Zg==
-X-Received: by 2002:a05:6a21:38a:b0:398:778f:6973 with SMTP id adf61e73a8af0-398c60e5857mr818593637.40.1773198159334;
-        Tue, 10 Mar 2026 20:02:39 -0700 (PDT)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c73cdf2725csm548196a12.13.2026.03.10.20.02.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Mar 2026 20:02:38 -0700 (PDT)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Alexander Gordeev <agordeev@linux.ibm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Pasha Tatashin <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>, Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>
-Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, x86@kernel.org
-Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to pxx_user_accessible_page()
-In-Reply-To: <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
-Date: Wed, 11 Mar 2026 08:29:53 +0530
-Message-ID: <zf4ft6ja.ritesh.list@gmail.com>
-References: <cover.1772812343.git.agordeev@linux.ibm.com> <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+	Wed, 11 Mar 2026 06:46:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=zMDCp80wXcZlLIgcMelPeXG51rHfM/JmcuxJr30FfrI=; b=ETuMtQDJY2vKLj6uIgdJBYJEYM
+	IEPDBl9cBc/VI5eOShAEWs+TcADvt/4WIraBsH+PplPd/frmUrUNPQpKyJA/GKeMEfHL2ogFBCxSO
+	nweLqxHjG5mwOhp+FPQdFy5lRhAkWzhWJfiqQUaLNUScVTI4QvpGsfHSOPapX2sxKkIg0TUNWS+2Z
+	ZIHgP1CwEhEM29wN780LxlJWL+F5cp4dfd6zXwC2Y//7r0WqdL0ocAIVfA4nKeYVdt6BAF/Bxqylz
+	j+/CpCFYpo+p/oswbdaCP9YJbXknwXvy14AYjtO6hjXaVmO03F/25exOwnpqjxVzS9KqxAuVTOZ/3
+	4AphON0w==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1w0DKx-0000000709L-3xln;
+	Wed, 11 Mar 2026 07:46:31 +0100
+Date: Wed, 11 Mar 2026 07:46:31 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yanko Kaneti <yaneti@declera.com>, linux-kernel@vger.kernel.org,
+	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] mfd: simple-mfd-i2c: add a reboot cell for the
+ SpacemiT P1 chip
+Message-ID: <abEPxzhpQSzkfbaI@aurel32.net>
+Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yanko Kaneti <yaneti@declera.com>, linux-kernel@vger.kernel.org,
+	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>,
+	"open list:SYSTEM RESET/SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>
+References: <20251102230352.914421-1-aurelien@aurel32.net>
+ <20251102230352.914421-3-aurelien@aurel32.net>
+ <b51a62513daa9d2390031ec350e0b33bdb7e54aa.camel@declera.com>
+ <aaC78FTN31QYaVg0@aurel32.net>
+ <990bc03ed2baa05e619f0aa9cc6a23acadd66ea6.camel@declera.com>
+ <aaS6xeKFZz06fb1_@aurel32.net>
+ <aaXuWwyA5NzBZzlW@aurel32.net>
+ <36f8df695463e5ff3eaaffbac357fc73026f7373.camel@declera.com>
+ <aadGw1fIlJyNNoum@aurel32.net>
+ <DGZM6WUAVPPS.20Y0NIZYI4572@linux.spacemit.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <DGZM6WUAVPPS.20Y0NIZYI4572@linux.spacemit.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_200240_757923_0C6078A8 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260310_234649_242193_F31320BE 
+X-CRM114-Status: GOOD (  41.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +94,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Alexander Gordeev <agordeev@linux.ibm.com> writes:
+Hi,
 
-> From: Tobias Huschle <huschle@linux.ibm.com>
->
-> Unlike other architectures, s390 does not have means to
-> distinguish kernel vs user page table entries - neither
-> an entry itself, nor the address could be used for that.
-> It is only the mm_struct that indicates whether an entry
-> in question is mapped to a user space. So pass mm_struct
-> to pxx_user_accessible_page() callbacks.
->
-> [agordeev@linux.ibm.com: rephrased commit message, removed braces]
->
-> Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
-> Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
-> Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
-> ---
->  arch/arm64/include/asm/pgtable.h             |  6 +++---
->  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
->  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
->  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
->  arch/powerpc/include/asm/pgtable.h           |  4 ++--
+On 2026-03-11 10:58, Troy Mitchell wrote:
+> On Wed Mar 4, 2026 at 4:38 AM CST, Aurelien Jarno wrote:
+>  Hi, Aurelien and Yanko,
+> > Hi,
+> >
+> > On 2026-03-02 22:34, Yanko Kaneti wrote:
+> >> Hello,
+> >> 
+> >> On Mon, 2026-03-02 at 21:08 +0100, Aurelien Jarno wrote:
+> >> > On 2026-03-01 23:16, Aurelien Jarno wrote:
+> >> > > On 2026-02-27 13:29, Yanko Kaneti wrote:
+> >> > > > On Thu, 2026-02-26 at 22:32 +0100, Aurelien Jarno wrote:
+> >> > > > > Hi,
+> >> > > > > 
+> >> > > > > On 2026-02-26 16:32, Yanko Kaneti wrote:
+> >> > > > > > Hello,
+> >> > > > > > 
+> >> > > > > > On Mon, 2025-11-03 at 00:02 +0100, Aurelien Jarno wrote:
+> >> > > > > > > Add a "spacemit-p1-reboot" cell for the SpacemiT P1 chip.
+> >> > > > > > > 
+> >> > > > > > > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> >> > > > > > > ---
+> >> > > > > > > v5: no changes
+> >> > > > > > > 
+> >> > > > > > >  drivers/mfd/simple-mfd-i2c.c | 1 +
+> >> > > > > > >  1 file changed, 1 insertion(+)
+> >> > > > > > > 
+> >> > > > > > > diff --git a/drivers/mfd/simple-mfd-i2c.c b/drivers/mfd/simple-mfd-i2c.c
+> >> > > > > > > index 0a607a1e3ca1d..542d378cdcd1f 100644
+> >> > > > > > > --- a/drivers/mfd/simple-mfd-i2c.c
+> >> > > > > > > +++ b/drivers/mfd/simple-mfd-i2c.c
+> >> > > > > > > @@ -99,6 +99,7 @@ static const struct regmap_config spacemit_p1_regmap_config = {
+> >> > > > > > >  };
+> >> > > > > > >  
+> >> > > > > > >  static const struct mfd_cell spacemit_p1_cells[] = {
+> >> > > > > > > +	{ .name = "spacemit-p1-reboot", },
+> >> > > > > > >  	{ .name = "spacemit-p1-regulator", },
+> >> > > > > > >  	{ .name = "spacemit-p1-rtc", },
+> >> > > > > > >  };
+> >> > > > > > 
+> >> > > > > > Perhaps its safe to merge this one now that everything P1 and I2C is
+> >> > > > > > already in linus tip ?
+> >> > > > > 
+> >> > > > > Unfortunately, this patchset is still missing:
+> >> > > > > https://lore.kernel.org/all/20260207-b4-k3-i2c-pio-v7-0-626942d94d91@linux.spacemit.com/
+> >> > > > > 
+> >> > > > > This means the reboots work most of the time, but are not 100% reliable, 
+> >> > > > > and that's the reason why this patch got blocked from merging.
+> >> > > > 
+> >> > > > I see. Thanks. Sounds to me like sometimes working compared to never
+> >> > > > working is better , but anyway..
+> >> > > 
+> >> > > I agree with that, but the decision was to hold on this patch until the 
+> >> > > I2C PIO part got merged.
+> >> > > 
+> >> > > > FWIW  with this patch and the pio patcheset I get this rcu splat on
+> >> > > > reboot (which is still working). Similar splat is there without the pio
+> >> > > > patcheset.
+> >> > > 
+> >> > > I haven't been able to reproduce the issue here after 10+ reboots on a 
+> >> > > BPI-F3 board, but I tried the patch on top of 6.19. I'll try to build a 
+> >> > > 7.0.0-rc2 kernel and report back.
+> >> > 
+> >> > I have tried that, and I am still unable to reproduce the issue with a 
+> >> > 7.0.0-rc2 kernel and a BPI-F3 board.
+> >> 
+> >> I can still see it on every reboot (with the patches that allow reboot
+> >> to work). Do you have CONFIG_PREEMPT_RCU in your config ? its default on
+> >> when anything PREEMPT is selected. In Fedora its CONFIG_PREEMPT_DYNAMIC
+> >> that flips it.
+> >
+> > Thanks for the hint, that option was not activated here, it's not the 
+> > riscv64 defconfig. With it I am also able to reproduce the issue. I'll 
+> > try to debug that and report back.
+> I have sent a patch to address this issue here[1].
+> 
+> Could you please test it on your hardware when you have a chance?
+> 
+>                         - Troy
+> 
+> Link:
+> https://lore.kernel.org/all/20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev/ [1]
 
-straightforward change for adding mm struct param in the page table
-check calls. Also verified building different powerpc configs using ci.
+Thanks, I confirm it fixes the issue \o/.
 
-The changes looks good to me. Please feel free to add:
+Regards
+Aurelien
 
-Reviewed-by Ritesh Harjani (IBM) <ritesh.list@gmail.com> #powerpc
-
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
