@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D4A5FD88E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 03:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F8EFD88E3
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Mar 2026 03:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
+	In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cPZ9mcnPgCCWi5z5fu6V4VAZcpXM49Mif//Ygfyyb1c=; b=ISocozrNTFNaU7
-	bn9izQ8/Z04GruzsHK21l22IKDDTtF2wXoTYGowTZugVjAAsBaTEwKFTe2DdrtqO9ELnsgmsN1FjG
-	SlWoNuaif1IIpaLxFUuybufeu8Ho005CKawYL4ks/DYAJ8+gMXmbLdpvWP7mLYe3pi+KeJbLXukz0
-	ENdxoZ19TCGzpZlHDHtgnr1Zrag2WUW+yEHSBwW5fJwmP5bnrGlBlK5jisxTo4PQYabkMS0g+o0hR
-	JkuLZeqI7gtz3z/APEjX4Vp82yrELKo/sdHF0gwkvspA3DR+KKpga4/U0J/Lp1TJbDHzZmh9Xo9r7
-	hqbBUzEt383BZ6Cwllpw==;
+	List-Owner; bh=o+nTWrUuYeD9CqvfboLEe/dTgaeBT0vJmTFolO6fYa8=; b=vqDY61kzzeZjV7
+	qUiULL/+M95sYr168juENgP7EZVcHPIqyJsjmWOpceX8er3xnSucWYv/EjLwrjig6TCRmgadYczt+
+	HZPdSNBL4pK2nuWWoN3V3RJ4BAx981Qu+ZLe2ywg4bT21i31Yt5XsNYv/e3n/l8OkE29OUN7ah4cf
+	B6C5bDUy+Y/yUgGUc18GoOuYLu3K2o8JmZaoub5bFZDgMzdZ1FlLHcDWyOcjbTp/vnDwlvE1/OpKK
+	Dt9gOg+bOENRLopaSTTFFT/QXc5kFGtYglMBhCHkTvzTmT1JZkQ4+kO2hTt/QACRhLhSLErNVnE3T
+	bZeI4sRP4aXN6b6OmLXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09o2-0000000Aa4o-11Pa;
-	Wed, 11 Mar 2026 03:00:18 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1w09qN-0000000AaSc-1RAq;
+	Wed, 11 Mar 2026 03:02:43 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w09ny-0000000Aa41-376m;
-	Wed, 11 Mar 2026 03:00:16 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=DUKycpPzpFIpG0env8jwSvfK5sQZJJ1YY0eqvDa9Ls4=;
-	b=UIuMwL2ZnQBHKt0OSz5st4Og2VYIGREkqW4SE+XsyKkbHXGhNjJEsAWrxVSqy6OOZJ3NLbK9Z
-	kP8s3Xd0pnLT2F4QMacoWnfn19/NxFuvNNLMkzdoJPW46wBbTVsZOQsEtjgpquwRCBs94A0/o7e
-	g1HUZD+aWdwNP2wFTTnfWEY=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fVwMy3T5lzLlSf;
-	Wed, 11 Mar 2026 10:55:10 +0800 (CST)
-Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7FEF34056C;
-	Wed, 11 Mar 2026 11:00:05 +0800 (CST)
-Received: from [10.67.121.161] (10.67.121.161) by
- kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 11 Mar 2026 11:00:03 +0800
-Message-ID: <9ef9b529-839b-4cf0-a294-5b68fe8aa768@huawei.com>
-Date: Wed, 11 Mar 2026 11:00:02 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] PCI/TPH: Fix get cpu steer-tag fail on ARM64
- platform
-To: Bjorn Helgaas <helgaas@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>
-References: <20260310220920.GA826995@bhelgaas>
-Content-Language: en-US
-From: fengchengwen <fengchengwen@huawei.com>
-In-Reply-To: <20260310220920.GA826995@bhelgaas>
-X-Originating-IP: [10.67.121.161]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemk500009.china.huawei.com (7.202.194.94)
+	id 1w09qK-0000000AaRd-33xl
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Mar 2026 03:02:42 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c7382731edfso4592234a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Mar 2026 20:02:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773198159; x=1773802959; darn=lists.infradead.org;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vO8RhD7fGikYRNYtDoD/8DClVqthT19fczPJykhciJA=;
+        b=VarAXYfXtzV9d6vdd7cx/DXmfEO8i7GvX2FuMCctz/ivE8M0BB7/yvGBddRHs5MnY7
+         U6gV6cY8XgMs34qjCiuNDjAZ90oaRo5L+zQZIPH2TQwYvHqr3HsU70TH8YUNHpnZidSk
+         rSh1w3neVgR4+rQV+PmyhgR9bUazJN4RddPTVrIip+wQoywi1mCnMHbHhi0Ed3999AkB
+         UtC5tcMFCUMNEpS2Xci+k6azUOLXf2AAXyFNfHPSPEAQqBexaJHGQTnG96vVnJjgHO5d
+         E6eQhbt5yJMAN0tYp3xp06geg/TMMvBR7nuunUSTV3qOfotG9CCb/0vbFH2pXy7FzGUm
+         PJnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773198159; x=1773802959;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vO8RhD7fGikYRNYtDoD/8DClVqthT19fczPJykhciJA=;
+        b=oAQzKno9DJqSmwdW28t/Q7CGWoUcgpkYgFNCw2thS3r5jTNlO3mCy/pW2MFi6aV0iW
+         514Na4eGIS9ktjmpbCjz6jOPnrFALFUL1bN+c4+5G+wu+M3C3oR7s59IjzazEIb/Afab
+         We1WiNk4s7EORv/nEHvi7jeZVFqh0f9hVdmXyajutEM0N76yYfHDOXTWBj7uKn/m1B2u
+         /AUlPynqrJEpDqNNKGUk8mFY1ztDoG3aEIF81BiVTbAO/Bc2pdHR1b1GMvYMhyMtTX/2
+         kLn5eIyZU91/lRnSLGBNG77uc5b8yiER3GR0kxdRAHIzkuho/AHl4LlFkOIXw40CsSck
+         9CUw==
+X-Forwarded-Encrypted: i=1; AJvYcCULiBSQZHL2FxL7FirTPBDfk3CHh7JxFbqc/XGrzIg/vwDZ0KNq3fGEWCOo6gggp7ceBtpq9m//Tsyb/Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YznBSmoYNA/fbWzK05gAihLpWTcO+3Lyv+d/JzSvC+7766QAGcO
+	Kk2HTCwmM8N/Pp1pM4d/VucmiF7TupT6Wvq5bDESYhbsxA+CiPiPHGsa
+X-Gm-Gg: ATEYQzzNs9qVjV7HYHPs/eS09du9jVAIXLYXzpuCGJOamNi4gr8cSS2Fvf78u+jigWu
+	Tl/J3CxsnNiAZfD7Ec37UORD+u628dgKGHleZuniPlWTkMAn2AITdaqqDXnouWcbiVtE1UOaJwP
+	/TZaTapQXVjyHAAPl8c446hhoIdRKcx+bQkJUkGGqE4m7DKOgkw/h9LioLq0aS6CTslNWZi9Yr1
+	MHVvreOFdJ767YaEuovU/b1P8I1Hbh+IggNWANmL6/egvA61uBeb5s0VeGfM2lmayGxEEmWfwkg
+	i4NKFAL+L9TSZx0pjjwsq5TKv3slgvVhfNQBNF18x6R/GYDIdEqo6iGclLWzx3uhLKHd371UjpF
+	V22Nc4v/IPIbKsXNdzAVvHHYcmz+xkme5hQSN+lJ2JstqXLb8tQ1vTLAtwuMARPtDR4dXGrJC7N
+	4OYDMTJgYYwyZgapnTqRw/Zg==
+X-Received: by 2002:a05:6a21:38a:b0:398:778f:6973 with SMTP id adf61e73a8af0-398c60e5857mr818593637.40.1773198159334;
+        Tue, 10 Mar 2026 20:02:39 -0700 (PDT)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c73cdf2725csm548196a12.13.2026.03.10.20.02.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Mar 2026 20:02:38 -0700 (PDT)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Alexander Gordeev <agordeev@linux.ibm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Pasha Tatashin <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>, Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>
+Cc: linux-s390@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, x86@kernel.org
+Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to pxx_user_accessible_page()
+In-Reply-To: <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+Date: Wed, 11 Mar 2026 08:29:53 +0530
+Message-ID: <zf4ft6ja.ritesh.list@gmail.com>
+References: <cover.1772812343.git.agordeev@linux.ibm.com> <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260310_200015_175776_47D41FF7 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20260310_200240_757923_0C6078A8 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,129 +89,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Ajit Khaparde <ajit.khaparde@broadcom.com>, x86@kernel.org, liuyonglong@huawei.com, "Rafael J .
- Wysocki" <rafael@kernel.org>, Kees Cook <kees@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Somnath Kotur <somnath.kotur@broadcom.com>, Sohil Mehta <sohil.mehta@intel.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, linux-pci@vger.kernel.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Shuah Khan <skhan@linuxfoundation.org>, Bjorn Helgaas <bhelgaas@google.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, Wathsala Vithanage <wathsala.vithanage@arm.com>, Sean Christopherson <seanjc@google.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/11/2026 6:09 AM, Bjorn Helgaas wrote:
-> On Tue, Mar 10, 2026 at 10:58:49AM -0500, Jeremy Linton wrote:
->> On 3/9/26 10:20 PM, Chengwen Feng wrote:
->>> pcie_tph_get_cpu_st() is broken on ARM64:
->>> 1. pcie_tph_get_cpu_st() passes cpu_uid to the PCI ACPI DSM method.
->>>     cpu_uid should be the ACPI Processor UID [1].
->>> 2. In BNXT, pcie_tph_get_cpu_st() is passed a cpu_uid obtained via
->>>     cpumask_first(irq->cpu_mask) - the logical CPU ID of a CPU core,
->>>     generated and managed by kernel (e.g., [0,255] for a system  with 256
->>>     logical CPU cores).
->>> 3. On ARM64 platforms, ACPI assigns Processor UID to cores listed in the
->>>     MADT table, and this UID may not match the kernel's logical CPU ID.
->>>     When this occurs, the mismatch results in the wrong CPU steer-tag.
->>> 4. On AMD x86 the logical CPU ID is identical to the ACPI Processor UID
->>>     so the mismatch is not seen.
-> 
->>>   int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
->>> -			unsigned int cpu_uid, u16 *tag)
->>> +			unsigned int cpu, u16 *tag)
->>>   {
->>>   #ifdef CONFIG_ACPI
->>> +	u32 cpu_uid = acpi_get_cpu_acpi_id(cpu);
-> 
-> From AI review (gemini/gemini-3.1-pro-preview):
-> 
->   Does this code need to validate that `cpu` is within bounds before
->   using it?  Before this change, the `cpu_uid` parameter was passed
->   opaquely to the ACPI firmware via `tph_invoke_dsm()`, which would
->   gracefully handle invalid values.
-> 
->   Now, `cpu` is treated as a logical CPU index and passed to
->   `acpi_get_cpu_acpi_id(cpu)`. On architectures like arm64 and riscv,
->   `acpi_get_cpu_acpi_id()` uses `cpu` directly as an array index
->   (`&cpu_madt_gicc[cpu]` and `&cpu_madt_rintc[cpu]`). On x86, it uses
->   `per_cpu(x86_cpu_to_acpiid, cpu)`.
-> 
->   If a caller passes an out-of-bounds `cpu` index (for example, if an
->   IRQ affinity mask is empty and `cpumask_first()` returns
->   `nr_cpu_ids`, or if userspace passes an arbitrary ID via
->   `mlx5_st_alloc_index()`), this will result in an out-of-bounds
->   memory read.
-> 
->   Consider adding a bounds check:
-> 
->     if (cpu >= nr_cpu_ids)
->       return -EINVAL;
-> 
-> I agree that this is an issue, and I think implementations of
-> acpi_get_cpu_acpi_id() should validate their inputs.
-> 
-> I don't know if there's a value that can never be a valid ACPI CPU UID
-> and could be used as an error value from acpi_get_cpu_acpi_id().  I do
-> see a few mentions of a ~0 value meaning "all processors" (ACPI r6.6,
-> sec 5.2.12.13).  
+Alexander Gordeev <agordeev@linux.ibm.com> writes:
 
-I only have the ACPI Specification Version 6.5, so I will use v6.5 as an example.
+> From: Tobias Huschle <huschle@linux.ibm.com>
+>
+> Unlike other architectures, s390 does not have means to
+> distinguish kernel vs user page table entries - neither
+> an entry itself, nor the address could be used for that.
+> It is only the mm_struct that indicates whether an entry
+> in question is mapped to a user space. So pass mm_struct
+> to pxx_user_accessible_page() callbacks.
+>
+> [agordeev@linux.ibm.com: rephrased commit message, removed braces]
+>
+> Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+> Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
+> Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
+> ---
+>  arch/arm64/include/asm/pgtable.h             |  6 +++---
+>  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
+>  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
+>  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
+>  arch/powerpc/include/asm/pgtable.h           |  4 ++--
 
-The ACPI specification does not define invalid value ranges for the ACPI UID.
-For the arm64 platform (Section 5.2.12.14):
-  ACPI Processor UID: The OS associates this GICC Structure with a processor device
-                      object in the namespace when the _UID child object of the
-                      processor device evaluates to a numeric value that matches
-                      the numeric value in this field.
+straightforward change for adding mm struct param in the page table
+check calls. Also verified building different powerpc configs using ci.
 
-I am concerned that we cannot implement it like this:
-	int acpi_get_cpu_uid(unsigned int cpu) {
-		if (cpu >= nr_cpu_ids)
-			return -EINVAL;
-		...
-	}
-or:
-	u32 acpi_get_cpu_uid(unsigned int cpu) {
-		if (cpu >= nr_cpu_ids)
-			return U32_MAX;
-		...
-	}
+The changes looks good to me. Please feel free to add:
 
-How about implementing it as follows:
-	s64 acpi_get_cpu_uid(unsigned int cpu) {
-		if (cpu >= nr_cpu_ids)
-			return -EINVAL;
-		...
-	}
-or
-	int acpi_get_cpu_uid(unsigned int cpu, u32 *uid) {
-		if (cpu >= nr_cpu_ids)
-			return -EINVAL;
-		*uid = xxx;
-		return 0;
-	}
-
-
-
-Another issue: This commit also provides an implementation for the x86 platform.
-However, further code analysis revealed a potential problem in the implementation:
-
-The acpi_get_cpu_acpi_id() retrieves uid from x86_cpu_to_acpiid in SMP, and
-x86_cpu_to_acpiid is set through the call chain: acpi_parse_lapic() ->
-topology_register_apic() -> topo_register_apic() -> topo_set_cpuids() ->
-x86_cpu_to_acpiid. It appears to retrieve the "ACPI Processor UID" from
-ACPI Section 5.2.12.2, but the problem is that this field is only one byte in length,
-which may cause issues in huge-core systems.
-
-Therefore, I suggest re-implementing the acpi_get_cpu_uid function for the x86
-platform. Either I provide a default implementation (shown below), or x86 guys
-contribute to the implementation:
-
-	s64 acpi_get_cpu_uid(unsigned int cpu) {
-		if (cpu >= nr_cpu_ids)
-			return -EINVAL;
-		return cpu;
-	}
-
-Thanks
-
-> 
+Reviewed-by Ritesh Harjani (IBM) <ritesh.list@gmail.com> #powerpc
 
 
 _______________________________________________
