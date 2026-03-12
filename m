@@ -4,121 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B05103E2F0
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 01:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0578F103E302
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 03:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HyqUFCsf/ZbF8orvENhaN3m/xXHAH3K7qGIoCv1m2J0=; b=4wJNhJ6Q3uEef/
-	KhhjPNUrft89iZuccFDXWborrcI91bfYvySrLgsEtNhYQ2gxgRyL3q75pcuhSKwfxsKT4Hdkfl4AS
-	FKe9QlChEZJcd154N31aCRgFtHtwwmRdkLAVmudDjUC9yRNwNXhKcYCxUYZYzVsYz/vEW5SRwW3ui
-	NwrmMO26TDIACGO4uhOw86osl0gwN6wVtTk82IVUIp/J8lNk6pxPcZrhV0QMJvhDhiKUqN9Swr4pX
-	0Q9EDr93kOna919qo42Eu3fOR0q+75RnDoEaIaLkS8sW2dK6jSZwPVvanE2lU5CNdoykiKIZtm4VJ
-	cqXQFRB3NX77bRLLARVw==;
+	List-Owner; bh=oHe6LGxHX3G3JVFvStwUGIRMluMXHz2pQHLnAi1lpP8=; b=0RN6yXuBbtji/a
+	kk7kemHU4pF0fw2rl7fgldai1Dhhravqpomru1ylt9F/eH4YFTCj7a0RlCgGByp5irwM3bXYQ/FSQ
+	6Jgk9K3Cd2IktKQ8veIw9UvriEQkqBwyhtISBqgz2e4QjHGnJd0u4EbPPsU3JK5U43G0wQ0zEAVOH
+	cMCk+c7y6BP/SEMtMwqA4O9BDWbOotFL3u5KrVMDLo86eho/6A/HgvucAH12d24VXE6Ds0q0bYmhp
+	oe4qDvU8mrBM9F8s6voyKyq2Tg+7wcSnYX8b23xxnJE6FbpxTe4ziE8kuG51MVizZl8TZWiuTLbO4
+	XUj/8zZtn8/3CgdDPLiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Um2-0000000CzzI-3Ph9;
-	Thu, 12 Mar 2026 01:23:38 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1w0WNE-0000000D4tw-0swL;
+	Thu, 12 Mar 2026 03:06:08 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0Ulz-0000000CzvH-12I0
+	id 1w0WNB-0000000D4sW-16wh
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Mar 2026 01:23:37 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-89a05955720so6475716d6.2
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Mar 2026 18:23:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773278614; x=1773883414; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iB9g5jx+x167tNjxcGl7Z3iDMBhQp91ckzQQIEVj78E=;
-        b=mqwCybnOQDdrfyQp8pBbHFoAQXK8aEEDx5MXR2W2BCb7R1K0/6Pv6XUAqBYXsgcs8z
-         Okel74IvadmaNG364Lc2wujbFbUQv2QRMEWHcpLcvwl4/PAR+yeGPXV0hGmq6dFRUcqW
-         iXx5DAJ82Bu/X+uYUkXGHw0tQ0lCwKsDhGbQ1Ca6xSmWqClTokq/v/psGBv1WmtTcJOW
-         G9MPD9eeELBO216UMTBSCWs47L78Ib/O2wcfTwAF/Cq97bBDLjxNJ5LdUUQMs/hRpJcV
-         R3pfO/jRsBQsHsOaLlvnAKSzcZu1LL1urNBGdlYfVBa8sEBc5pnJpvs84GCQPmSZIDPV
-         IFAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773278614; x=1773883414;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=iB9g5jx+x167tNjxcGl7Z3iDMBhQp91ckzQQIEVj78E=;
-        b=ZSVYyZIng289stzCRHia9v+NdkKNRURbNeAhJXFYYKQb4o0MKaAxLvd/shZciDwzo6
-         ZqMR90HziRNFdrkEnm32YltCeZmFFZKmIXcPllSs35wFYVAjMjh3YInr0Vz7B9kMU2eB
-         /nem78X8rNLEfmOJFzWWek7UCJthwpdJu9K+ydgpuwy3ZeONYU8D5UFneH2ElLGDEW3Z
-         dATlqiPq8Bug2Zzqf+ErHCHfXoJk4wmOeGpCx9B+ZS5UJXYGNHDhOu+9VeIJ+dljkKN7
-         UVHCwkRBxV5IsUrgL2fzt6NkaWVVZ+6XdJkoB6TNd+bsORpX+ZOrEL73bK/IjlRYp7lQ
-         e+3w==
-X-Forwarded-Encrypted: i=1; AJvYcCXGyFX6hfxXdu/Qf56CN/LJfRgUEvgirZoIBbhJ4P5U03OlgN8i8W1zDZvGDi+BBP15X+6RxO4m4154bw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9uEhOcYdaxJEMpcqqFcgYlXYr9/4djfXSHb2IHzcL8n4RanRu
-	OVhnYsLrfki8T35dw7Zhz1sFBCK3q1r+RfnfhxdmTiYekX5Q4fXG96aF
-X-Gm-Gg: ATEYQzxvy1vlf3Y9q2OkI7pzSPTTDFdumv64O1ZG2CO+pOgYnrSOJQIsmKKehpDBSFO
-	e3HWKfOJCvV+9CSY/6JR2qWN1ZSsOubJXLNBgDLa43YdwspU2887dy0Dx2AEa6Tl2Ch9HZd1PHk
-	FieRs3IzxahcBabtQ8RA+W6gyQx8LQc9tWs9xqQ8NdHqhUCWfzCYUDPalbZQ7XMX6MxVEWR2i1M
-	3kSM74BeWVsTxszbKL4AiAE1JZy0qahswH8GRA33ZBaPjpHTGKmf6lzBU5B7LPowLileJj+tEAs
-	hOqCoB2Z//ef/lhuja7vX9iOWm+6YES7m/BYntMub7Exty8tZFHDu/3R0Nqs3dignUMvZnlLvbr
-	AWcc16DrdvYS4kHrdnSuE58imTiTJbVY3xJPuGeyTMcJWjo1+k0MALr6kjfu0Hy/pvCnhLw8dxO
-	ktShGJ/Nm7RzV+1QTWdP7VfoiJjqPDu35HBg==
-X-Received: by 2002:a05:6214:2305:b0:89a:717:1e48 with SMTP id 6a1803df08f44-89a66ae1ce8mr61425926d6.58.1773278613817;
-        Wed, 11 Mar 2026 18:23:33 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89a65beb4b3sm25165286d6.14.2026.03.11.18.23.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Mar 2026 18:23:33 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Yixun Lan <dlan@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Yao Zi <me@ziyao.cc>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v9 4/4] MAINTAINERS: add entry for SpacemiT DWMAC glue layer
-Date: Thu, 12 Mar 2026 09:22:26 +0800
-Message-ID: <20260312012232.373713-5-inochiama@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260312012232.373713-1-inochiama@gmail.com>
-References: <20260312012232.373713-1-inochiama@gmail.com>
+	Thu, 12 Mar 2026 03:06:07 +0000
+Received: from [10.213.19.38] (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowACHLGiRLbJpY4nQCQ--.250S2;
+	Thu, 12 Mar 2026 11:05:53 +0800 (CST)
+Message-ID: <f9079774-1d16-4b84-bf85-bc8444e93446@iscas.ac.cn>
+Date: Thu, 12 Mar 2026 11:05:53 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] riscv: disable local interrupts and stop other CPUs
+ before restart
+To: Troy Mitchell <troy.mitchell@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev>
+X-CM-TRANSID: qwCowACHLGiRLbJpY4nQCQ--.250S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGw1xGF1xAryUZFWxtw48Xrb_yoW5KFWfpF
+	43Cr10vrs5Z3W0v3ZFva10vFyrZws5G3y5Cr9YkrW7Aws8Kr9xKw1Sgw10qF4UGrWDW3Wf
+	Z3Wvyr4093ZrZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvYb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxkF7I0En4kS14v26r126r1DMxkI
+	ecxEwVAFwVW8GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c
+	02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_
+	Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07
+	b7hLnUUUUU=
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_182335_318592_D0BBB0CD 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260311_200605_709272_92EAF4E2 
+X-CRM114-Status: GOOD (  23.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,33 +82,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a MAINTAINERS entry for the SpacemiT DWMAC glue layer driver and
-its DT binding.
+On 3/11/26 10:51, Troy Mitchell wrote:
+> Currently, the RISC-V implementation of machine_restart() directly calls
+> do_kernel_restart() without disabling local interrupts or stopping other
+> CPUs. This missing architectural setup causes fatal issues for systems
+> that rely on external peripherals (e.g., I2C PMICs) to execute the system
+> restart when CONFIG_PREEMPT_RCU is enabled.
+>
+> When a restart handler relies on the I2C subsystem, the I2C core checks
+> i2c_in_atomic_xfer_mode() to decide whether to use the sleepable xfer
+> or the polling atomic_xfer. This check evaluates to true if
+> (!preemptible() || irqs_disabled()).
+>
+> During do_kernel_restart(), the restart handlers are invoked via
+> atomic_notifier_call_chain(), which holds an RCU read lock.
+> The behavior diverges based on the preemption model:
+> 1. Under CONFIG_PREEMPT_VOLUNTARY or CONFIG_PREEMPT_NONE, rcu_read_lock()
+>    implicitly disables preemption. preemptible() evaluates to false, and
+>    the I2C core correctly routes to the atomic, polling transfer path.
+> 2. Under CONFIG_PREEMPT_RCU, rcu_read_lock() does NOT disable preemption.
+>    Since machine_restart() left local interrupts enabled, irqs_disabled()
+>    is false, and preempt_count is 0. Consequently, preemptible() evaluates
+>    to true.
+>
+> As a result, the I2C core falsely assumes a sleepable context and routes
+> the transfer to the standard master_xfer path. This inevitably triggers a
+> schedule() call while holding the RCU read lock, resulting in a fatal splat:
+> "Voluntary context switch within RCU read-side critical section!" and
+> a system hang.
+>
+> Align RISC-V with other major architectures (e.g., ARM64) by adding
+> local_irq_disable() and smp_send_stop() to machine_restart().
+> - local_irq_disable() guarantees a strict atomic context, forcing sub-
+>   systems like I2C to always fall back to polling mode.
+> - smp_send_stop() ensures exclusive hardware access by quiescing other
+>   CPUs, preventing them from holding bus locks (e.g., I2C spinlocks)
+>   during the final restart phase.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
+Maybe while we're at it, we can fix the other functions in this file as
+well?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2265e2c9bfbe..dd72d26ac837 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -24834,6 +24834,12 @@ W:	https://linuxtv.org
- Q:	http://patchwork.linuxtv.org/project/linux-media/list/
- F:	drivers/media/dvb-frontends/sp2*
- 
-+SPACEMIT DWMAC GLUE LAYER
-+M:	Inochi Amaoto <inochiama@gmail.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-+F:	drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-+
- SPACEMIT K1 I2C DRIVER
- M:	Troy Mitchell <troy.mitchell@linux.spacemit.com>
- S:	Maintained
--- 
-2.53.0
+I think the reason we ended up with the "unsafe" implementations of the
+reboot/shutdown functions is that on the backend it is usually SBI SRST
+calls, which can protect itself from other CPUs and interrupts. Since on
+K1 we're going to be poking I2C directly, we run into the problem
+described above. So all of these should disable interrupts and stop
+other CPUs before calling the handlers, and can't assume the handlers
+are all SBI SRST.
+
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+> ---
+>  arch/riscv/kernel/reset.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
+> index 912288572226..7a5dcfdc3674 100644
+> --- a/arch/riscv/kernel/reset.c
+> +++ b/arch/riscv/kernel/reset.c
+> @@ -5,6 +5,7 @@
+>  
+>  #include <linux/reboot.h>
+>  #include <linux/pm.h>
+> +#include <linux/smp.h>
+>  
+>  static void default_power_off(void)
+>  {
+> @@ -17,6 +18,10 @@ EXPORT_SYMBOL(pm_power_off);
+>  
+>  void machine_restart(char *cmd)
+>  {
+> +	/* Disable interrupts first */
+> +	local_irq_disable();
+> +	smp_send_stop();
+> +
+>  	do_kernel_restart(cmd);
+>  	while (1);
+>  }
+
+So... one thing I'm not certain is that arm64 also has some EFI handling
+here. But I think the safe choice is to ignore EFI for now until it's
+needed, instead of preemptively doing it. Who knows what shenanigans
+firmwares can get up to.
+
+Thanks for the patch!
+
+Vivian "dramforever" Wang
 
 
 _______________________________________________
