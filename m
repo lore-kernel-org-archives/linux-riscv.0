@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6126F106ACD6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5DF106ACDD
 	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 19:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q6Tw3+VOkkIS8Rm9JeZrqJovCCO7OTxshdjdpkCXUrs=; b=pZajH9TlLC2XLA
-	gWFz2SpfY/aIRPmUs91VhQMAxUk45GQsqkvMVwkIxU+OR42ZP6nPV5um4h9D5a0R0PychC/nL5z4J
-	ziE4O58h4hxKPfu3+qOaufU2OnPnmz1OiQwR9jY0iZHky9I8jn9acWhM8g7j8gMU9rlhr3F+TXkxY
-	suAN7cJIKkcdvSq+dUSNEqT0rVzzKFecW7p4NcBQWnPeVpp0XOLQ9kH9Wsl84Nsj1PC7c5inhfAFB
-	YdoWu8xr5zUe3BuibmB1qNww+iREvVyuS8lxlm3cXhufaRlmok8QZtjCj+DPtzFM+qnvAuznhTfza
-	V/KpCdtDw4UZZB6irG1Q==;
+	List-Owner; bh=jcYwHoQuevvpMQS05G2MpYMGXFH+JX20tu1O+WBr8gc=; b=5AtQKqvuHXtd+C
+	g4HcugBSQPCXi/gBgt6rP1T4XLRWFkNH/AeSZDR9pHnw4BfimiiXZxT+TYuxORJndLoc5ty8P0Hc8
+	Sa6miNSlOUJOd9SrRNHVEy3KmiIhu8LAMAzNoX/1Y8kP4ClmnvvLKYSIpjvEi3Jk5xVYZYTPOJrRn
+	PxnVItL1XzIEQ2PqM2+QI+tS08EpxPa8qgu1AXMbbHxEDaTGtdtKWnMnC3frTHA9rdoFnTehMxtc2
+	kirJbhwh1KJIMMM1YtMiGkqQQ5mPEiBgM0cL30E1822y1rM0MInhe3a+rMp7Vs4WdLquWADV3jCDq
+	00sf0dHMwjmGUz+1w8ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lWT-0000000F0gj-0pcK;
-	Thu, 12 Mar 2026 19:16:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w0lWa-0000000F0r1-2X7Y;
+	Thu, 12 Mar 2026 19:16:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lWQ-0000000F0do-0iFx;
-	Thu, 12 Mar 2026 19:16:39 +0000
+	id 1w0lWW-0000000F0l9-3Bqc;
+	Thu, 12 Mar 2026 19:16:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8BE1643F30;
-	Thu, 12 Mar 2026 19:16:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0D4CC19425;
-	Thu, 12 Mar 2026 19:16:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1FA3B44525;
+	Thu, 12 Mar 2026 19:16:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABB2C2BC87;
+	Thu, 12 Mar 2026 19:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773342996;
-	bh=rmag2s0g65CAKC0Xf9m0zlBDU6DuMOSnW8ME0umbezA=;
+	s=k20201202; t=1773343004;
+	bh=+M4BT0nrwQS1+BTMjEUM7b1+CvQgWXdBFpfMn8l/bGQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A0bUCX14RjqPZkRXbzyEhTqyZYEqIjOQLgybcKzkccy+LXGGr36t4NvVzpNrqjdwF
-	 TsDC1xcFCp7Wh+q/QHRU3E7em6sR1ptXSPqUO7ThxLkf1O7L3CFkFhjPiopkgmlcNQ
-	 MindUE677rwJsqW8JsGFr4pBFXa6CsXlzQhtgPRg37kCPai2bI7GRr1+dK1qQfRC9c
-	 Tk6po9Vh/18J1Z7qvSLBkXDUuUJ83fduq4gpRkWL9nAHuPZSvyY1rTVDL+M1zMSz8F
-	 pUhbrXfiJcY+0k1Gryq/u5DBK3JtFWoHcztrQlljkJSJbS/ynTr7wfSTciXTm5t+BS
-	 fnf7OLayaefmw==
+	b=ujyqLIewtZtmjtNaAsAH0qHaP3lR8yFZqDc6+AfdlnGA3xRQl2l7s81sfPXdWj+2X
+	 4SGtO/ZeirMdSzAfXI8W4OvIFfh5rqPjaZlRIuvmeWhl1+DxuZQviOcO/umzxgJaP9
+	 qJxJxwpkzCs39WrYYDMl1a+ujyX3yHyTAfWJ4ShRXpHqPugSA1D9rFRPmeV3+98WdH
+	 BBj9wLvEAOMKYTSpYr6d+qV9Vz8HR/s2GrLyKORBehB5AJhqukzl/ZGikBa39zuxdm
+	 PjTtsPhy6J14UP8BpcVF++8kRYgRJIOiBdfiLS3FLpCxhg3wdqcSOf95AtUrB2QS1h
+	 hCDPQkdm7vVgQ==
 From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: David Hildenbrand <david@kernel.org>,
@@ -104,16 +104,16 @@ Cc: David Hildenbrand <david@kernel.org>,
 	linux-um@lists.infradead.org,
 	linux-fsdevel@vger.kernel.org,
 	selinux@vger.kernel.org
-Subject: [PATCH 01/20] mm/vma: add vma_flags_empty(), vma_flags_and(), vma_flags_diff_pair()
-Date: Thu, 12 Mar 2026 19:15:59 +0000
-Message-ID: <94300284a3a2e0dbf30af26a00160ad8b3bc3459.1773342102.git.ljs@kernel.org>
+Subject: [PATCH 04/20] tools/testing/vma: convert bulk of test code to vma_flags_t
+Date: Thu, 12 Mar 2026 19:16:02 +0000
+Message-ID: <26712be0774921d51df284005e90f4a9e3230b20.1773342102.git.ljs@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1773342102.git.ljs@kernel.org>
 References: <cover.1773342102.git.ljs@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_121638_267570_A457A1BE 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20260312_121644_872917_85161D08 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,253 +130,1079 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Firstly, add the ability to determine if VMA flags are empty, that is no
-flags are set in a vma_flags_t value.
+Covert the test code to utilise vma_flags_t as opposed to the deprecate
+vm_flags_t as much as possible.
 
-Next, add the ability to obtain the equivalent of the bitwise and of two
-vma_flags_t values, via vma_flags_and().
-
-Next, add the ability to obtain the difference between two sets of VMA
-flags, that is the equivalent to the exclusive bitwise OR of the two sets
-of flags, via vma_flags_diff_pair().
-
-vma_flags_xxx_mask() typically operates on a pointer to a vma_flags_t
-value, which is assumed to be an lvalue of some kind (such as a field in a
-struct or a stack variable) and an rvalue of some kind (typically a
-constant set of VMA flags obtained e.g. via mk_vma_flags() or equivalent).
-
-However vma_flags_diff_pair() is intended to operate on two lvalues, so use
-the _pair() suffix to make this clear.
-
-Finally, update VMA userland tests to add these helpers.
-
-We also port bitmap_xor() and __bitmap_xor() to the tools/ headers and
-source to allow the tests to work with vma_flags_diff_pair().
+As part of this change, add VMA_STICKY_FLAGS and VMA_SPECIAL_FLAGS as early
+versions of what these defines will look like in the kernel logic once this
+logic is implemented.
 
 Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 ---
- include/linux/mm.h              | 60 ++++++++++++++++++++++++++++-----
- include/linux/mm_types.h        |  8 +++++
- tools/include/linux/bitmap.h    | 13 +++++++
- tools/lib/bitmap.c              | 10 ++++++
- tools/testing/vma/include/dup.h | 36 +++++++++++++++++++-
- 5 files changed, 117 insertions(+), 10 deletions(-)
+ tools/testing/vma/include/custom.h |   7 +
+ tools/testing/vma/include/dup.h    |   7 +-
+ tools/testing/vma/shared.c         |   8 +-
+ tools/testing/vma/shared.h         |   4 +-
+ tools/testing/vma/tests/merge.c    | 313 +++++++++++++++--------------
+ tools/testing/vma/tests/vma.c      |  10 +-
+ 6 files changed, 186 insertions(+), 163 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 4c4fd55fc823..3d82e53875fa 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -1055,6 +1055,19 @@ static __always_inline vma_flags_t __mk_vma_flags(size_t count,
- 	return flags;
+diff --git a/tools/testing/vma/include/custom.h b/tools/testing/vma/include/custom.h
+index ce056e790817..da84f54cf977 100644
+--- a/tools/testing/vma/include/custom.h
++++ b/tools/testing/vma/include/custom.h
+@@ -130,3 +130,10 @@ static __always_inline bool vma_flags_same_mask(vma_flags_t *flags,
  }
- 
-+/*
-+ * Helper macro which bitwise-or combines the specified input flags into a
-+ * vma_flags_t bitmap value. E.g.:
-+ *
-+ * vma_flags_t flags = mk_vma_flags(VMA_IO_BIT, VMA_PFNMAP_BIT,
-+ *              VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT);
-+ *
-+ * The compiler cleverly optimises away all of the work and this ends up being
-+ * equivalent to aggregating the values manually.
-+ */
-+#define mk_vma_flags(...) __mk_vma_flags(COUNT_ARGS(__VA_ARGS__), \
-+					 (const vma_flag_t []){__VA_ARGS__})
-+
- /*
-  * Test whether a specific VMA flag is set, e.g.:
-  *
-@@ -1069,17 +1082,30 @@ static __always_inline bool vma_flags_test(const vma_flags_t *flags,
- }
- 
- /*
-- * Helper macro which bitwise-or combines the specified input flags into a
-- * vma_flags_t bitmap value. E.g.:
-- *
-- * vma_flags_t flags = mk_vma_flags(VMA_IO_BIT, VMA_PFNMAP_BIT,
-- * 		VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT);
-+ * Obtain a set of VMA flags which contain the overlapping flags contained
-+ * within flags and to_and.
-+ */
-+static __always_inline vma_flags_t vma_flags_and_mask(const vma_flags_t *flags,
-+						      vma_flags_t to_and)
-+{
-+	vma_flags_t dst;
-+	unsigned long *bitmap_dst = dst.__vma_flags;
-+	const unsigned long *bitmap = flags->__vma_flags;
-+	const unsigned long *bitmap_to_and = to_and.__vma_flags;
-+
-+	bitmap_and(bitmap_dst, bitmap, bitmap_to_and, NUM_VMA_FLAG_BITS);
-+	return dst;
-+}
-+
-+/*
-+ * Obtain a set of VMA flags which contains the specified overlapping flags,
-+ * e.g.:
-  *
-- * The compiler cleverly optimises away all of the work and this ends up being
-- * equivalent to aggregating the values manually.
-+ * vma_flags_t read_flags = vma_flags_and(&flags, VMA_READ_BIT,
-+ *                                        VMA_MAY_READ_BIT);
-  */
--#define mk_vma_flags(...) __mk_vma_flags(COUNT_ARGS(__VA_ARGS__), \
--					 (const vma_flag_t []){__VA_ARGS__})
-+#define vma_flags_and(flags, ...)				\
-+	vma_flags_and_mask(flags, mk_vma_flags(__VA_ARGS__))
- 
- /*  Test each of to_test flags in flags, non-atomically. */
- static __always_inline bool vma_flags_test_any_mask(const vma_flags_t *flags,
-@@ -1153,6 +1179,22 @@ static __always_inline void vma_flags_clear_mask(vma_flags_t *flags,
- #define vma_flags_clear(flags, ...) \
- 	vma_flags_clear_mask(flags, mk_vma_flags(__VA_ARGS__))
- 
-+/*
-+ * Obtain a VMA flags value containing those flags that are present in flags or
-+ * flags_other but not in both.
-+ */
-+static __always_inline vma_flags_t vma_flags_diff_pair(const vma_flags_t *flags,
-+		const vma_flags_t *flags_other)
-+{
-+	vma_flags_t dst;
-+	const unsigned long *bitmap_other = flags_other->__vma_flags;
-+	const unsigned long *bitmap = flags->__vma_flags;
-+	unsigned long *bitmap_dst = dst.__vma_flags;
-+
-+	bitmap_xor(bitmap_dst, bitmap, bitmap_other, NUM_VMA_FLAG_BITS);
-+	return dst;
-+}
-+
- /*
-  * Helper to test that ALL specified flags are set in a VMA.
-  *
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 3944b51ebac6..ad414ff2d815 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -870,6 +870,14 @@ typedef struct {
- 
- #define EMPTY_VMA_FLAGS ((vma_flags_t){ })
- 
-+/* Are no flags set in the specified VMA flags? */
-+static __always_inline bool vma_flags_empty(vma_flags_t *flags)
-+{
-+	unsigned long *bitmap = flags->__vma_flags;
-+
-+	return bitmap_empty(bitmap, NUM_VMA_FLAG_BITS);
-+}
-+
- /*
-  * Describes a VMA that is about to be mmap()'ed. Drivers may choose to
-  * manipulate mutable fields which will cause those fields to be updated in the
-diff --git a/tools/include/linux/bitmap.h b/tools/include/linux/bitmap.h
-index 250883090a5d..845eda759f67 100644
---- a/tools/include/linux/bitmap.h
-+++ b/tools/include/linux/bitmap.h
-@@ -28,6 +28,8 @@ bool __bitmap_subset(const unsigned long *bitmap1,
- 		     const unsigned long *bitmap2, unsigned int nbits);
- bool __bitmap_andnot(unsigned long *dst, const unsigned long *bitmap1,
- 		    const unsigned long *bitmap2, unsigned int nbits);
-+void __bitmap_xor(unsigned long *dst, const unsigned long *bitmap1,
-+		  const unsigned long *bitmap2, unsigned int nbits);
- 
- #define BITMAP_FIRST_WORD_MASK(start) (~0UL << ((start) & (BITS_PER_LONG - 1)))
- #define BITMAP_LAST_WORD_MASK(nbits) (~0UL >> (-(nbits) & (BITS_PER_LONG - 1)))
-@@ -209,4 +211,15 @@ static inline void bitmap_clear(unsigned long *map, unsigned int start,
- 	else
- 		__bitmap_clear(map, start, nbits);
- }
-+
-+static __always_inline
-+void bitmap_xor(unsigned long *dst, const unsigned long *src1,
-+		const unsigned long *src2, unsigned int nbits)
-+{
-+	if (small_const_nbits(nbits))
-+		*dst = *src1 ^ *src2;
-+	else
-+		__bitmap_xor(dst, src1, src2, nbits);
-+}
-+
- #endif /* _TOOLS_LINUX_BITMAP_H */
-diff --git a/tools/lib/bitmap.c b/tools/lib/bitmap.c
-index aa83d22c45e3..fedc9070f0e4 100644
---- a/tools/lib/bitmap.c
-+++ b/tools/lib/bitmap.c
-@@ -169,3 +169,13 @@ bool __bitmap_subset(const unsigned long *bitmap1,
- 			return false;
- 	return true;
- }
-+
-+void __bitmap_xor(unsigned long *dst, const unsigned long *bitmap1,
-+				const unsigned long *bitmap2, unsigned int bits)
-+{
-+	unsigned int k;
-+	unsigned int nr = BITS_TO_LONGS(bits);
-+
-+	for (k = 0; k < nr; k++)
-+		dst[k] = bitmap1[k] ^ bitmap2[k];
-+}
+ #define vma_flags_same(flags, ...) \
+ 	vma_flags_same_mask(flags, mk_vma_flags(__VA_ARGS__))
++#define VMA_SPECIAL_FLAGS mk_vma_flags(VMA_IO_BIT, VMA_DONTEXPAND_BIT, \
++				       VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT)
++#ifdef CONFIG_MEM_SOFT_DIRTY
++#define VMA_STICKY_FLAGS mk_vma_flags(VMA_SOFTDIRTY_BIT, VMA_MAYBE_GUARD_BIT)
++#else
++#define VMA_STICKY_FLAGS mk_vma_flags(VMA_MAYBE_GUARD_BIT)
++#endif
 diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
-index 5eb313beb43d..2f53c27ddb21 100644
+index faaf1239123d..005cef50704f 100644
 --- a/tools/testing/vma/include/dup.h
 +++ b/tools/testing/vma/include/dup.h
-@@ -419,6 +419,13 @@ struct vma_iterator {
+@@ -504,10 +504,7 @@ struct vm_area_desc {
+ 	/* Mutable fields. Populated with initial state. */
+ 	pgoff_t pgoff;
+ 	struct file *vm_file;
+-	union {
+-		vm_flags_t vm_flags;
+-		vma_flags_t vma_flags;
+-	};
++	vma_flags_t vma_flags;
+ 	pgprot_t page_prot;
  
- #define EMPTY_VMA_FLAGS ((vma_flags_t){ })
+ 	/* Write-only fields. */
+@@ -1143,7 +1140,7 @@ static inline int __compat_vma_mmap(const struct file_operations *f_op,
  
-+static __always_inline bool vma_flags_empty(vma_flags_t *flags)
-+{
-+	unsigned long *bitmap = flags->__vma_flags;
-+
-+	return bitmap_empty(bitmap, NUM_VMA_FLAG_BITS);
-+}
-+
- /* What action should be taken after an .mmap_prepare call is complete? */
- enum mmap_action_type {
- 	MMAP_NOTHING,		/* Mapping is complete, no further action. */
-@@ -852,6 +859,21 @@ static __always_inline bool vma_flags_test(const vma_flags_t *flags,
- 	return test_bit((__force int)bit, bitmap);
+ 		.pgoff = vma->vm_pgoff,
+ 		.vm_file = vma->vm_file,
+-		.vm_flags = vma->vm_flags,
++		.vma_flags = vma->flags,
+ 		.page_prot = vma->vm_page_prot,
+ 
+ 		.action.type = MMAP_NOTHING, /* Default */
+diff --git a/tools/testing/vma/shared.c b/tools/testing/vma/shared.c
+index bda578cc3304..2565a5aecb80 100644
+--- a/tools/testing/vma/shared.c
++++ b/tools/testing/vma/shared.c
+@@ -14,7 +14,7 @@ struct task_struct __current;
+ 
+ struct vm_area_struct *alloc_vma(struct mm_struct *mm,
+ 		unsigned long start, unsigned long end,
+-		pgoff_t pgoff, vm_flags_t vm_flags)
++		pgoff_t pgoff, vma_flags_t vma_flags)
+ {
+ 	struct vm_area_struct *vma = vm_area_alloc(mm);
+ 
+@@ -24,7 +24,7 @@ struct vm_area_struct *alloc_vma(struct mm_struct *mm,
+ 	vma->vm_start = start;
+ 	vma->vm_end = end;
+ 	vma->vm_pgoff = pgoff;
+-	vm_flags_reset(vma, vm_flags);
++	vma->flags = vma_flags;
+ 	vma_assert_detached(vma);
+ 
+ 	return vma;
+@@ -38,9 +38,9 @@ void detach_free_vma(struct vm_area_struct *vma)
+ 
+ struct vm_area_struct *alloc_and_link_vma(struct mm_struct *mm,
+ 		unsigned long start, unsigned long end,
+-		pgoff_t pgoff, vm_flags_t vm_flags)
++		pgoff_t pgoff, vma_flags_t vma_flags)
+ {
+-	struct vm_area_struct *vma = alloc_vma(mm, start, end, pgoff, vm_flags);
++	struct vm_area_struct *vma = alloc_vma(mm, start, end, pgoff, vma_flags);
+ 
+ 	if (vma == NULL)
+ 		return NULL;
+diff --git a/tools/testing/vma/shared.h b/tools/testing/vma/shared.h
+index e2e5d6ef6bdd..8b9e3b11c3cb 100644
+--- a/tools/testing/vma/shared.h
++++ b/tools/testing/vma/shared.h
+@@ -94,7 +94,7 @@ static inline void dummy_close(struct vm_area_struct *)
+ /* Helper function to simply allocate a VMA. */
+ struct vm_area_struct *alloc_vma(struct mm_struct *mm,
+ 		unsigned long start, unsigned long end,
+-		pgoff_t pgoff, vm_flags_t vm_flags);
++		pgoff_t pgoff, vma_flags_t vma_flags);
+ 
+ /* Helper function to detach and free a VMA. */
+ void detach_free_vma(struct vm_area_struct *vma);
+@@ -102,7 +102,7 @@ void detach_free_vma(struct vm_area_struct *vma);
+ /* Helper function to allocate a VMA and link it to the tree. */
+ struct vm_area_struct *alloc_and_link_vma(struct mm_struct *mm,
+ 		unsigned long start, unsigned long end,
+-		pgoff_t pgoff, vm_flags_t vm_flags);
++		pgoff_t pgoff, vma_flags_t vma_flags);
+ 
+ /*
+  * Helper function to reset the dummy anon_vma to indicate it has not been
+diff --git a/tools/testing/vma/tests/merge.c b/tools/testing/vma/tests/merge.c
+index 3708dc6945b0..d3e725dc0000 100644
+--- a/tools/testing/vma/tests/merge.c
++++ b/tools/testing/vma/tests/merge.c
+@@ -33,7 +33,7 @@ static int expand_existing(struct vma_merge_struct *vmg)
+  * specified new range.
+  */
+ void vmg_set_range(struct vma_merge_struct *vmg, unsigned long start,
+-		   unsigned long end, pgoff_t pgoff, vm_flags_t vm_flags)
++		   unsigned long end, pgoff_t pgoff, vma_flags_t vma_flags)
+ {
+ 	vma_iter_set(vmg->vmi, start);
+ 
+@@ -45,7 +45,7 @@ void vmg_set_range(struct vma_merge_struct *vmg, unsigned long start,
+ 	vmg->start = start;
+ 	vmg->end = end;
+ 	vmg->pgoff = pgoff;
+-	vmg->vm_flags = vm_flags;
++	vmg->vma_flags = vma_flags;
+ 
+ 	vmg->just_expand = false;
+ 	vmg->__remove_middle = false;
+@@ -56,10 +56,10 @@ void vmg_set_range(struct vma_merge_struct *vmg, unsigned long start,
+ 
+ /* Helper function to set both the VMG range and its anon_vma. */
+ static void vmg_set_range_anon_vma(struct vma_merge_struct *vmg, unsigned long start,
+-		unsigned long end, pgoff_t pgoff, vm_flags_t vm_flags,
++		unsigned long end, pgoff_t pgoff, vma_flags_t vma_flags,
+ 		struct anon_vma *anon_vma)
+ {
+-	vmg_set_range(vmg, start, end, pgoff, vm_flags);
++	vmg_set_range(vmg, start, end, pgoff, vma_flags);
+ 	vmg->anon_vma = anon_vma;
  }
  
-+static __always_inline vma_flags_t vma_flags_and_mask(const vma_flags_t *flags,
-+						      vma_flags_t to_and)
-+{
-+	vma_flags_t dst;
-+	unsigned long *bitmap_dst = dst.__vma_flags;
-+	const unsigned long *bitmap = flags->__vma_flags;
-+	const unsigned long *bitmap_to_and = to_and.__vma_flags;
-+
-+	bitmap_and(bitmap_dst, bitmap, bitmap_to_and, NUM_VMA_FLAG_BITS);
-+	return dst;
-+}
-+
-+#define vma_flags_and(flags, ...)		\
-+	vma_flags_and_mask(flags, mk_vma_flags(__VA_ARGS__))
-+
- static __always_inline bool vma_flags_test_any_mask(const vma_flags_t *flags,
- 		vma_flags_t to_test)
+@@ -71,12 +71,12 @@ static void vmg_set_range_anon_vma(struct vma_merge_struct *vmg, unsigned long s
+  */
+ static struct vm_area_struct *try_merge_new_vma(struct mm_struct *mm,
+ 		struct vma_merge_struct *vmg, unsigned long start,
+-		unsigned long end, pgoff_t pgoff, vm_flags_t vm_flags,
++		unsigned long end, pgoff_t pgoff, vma_flags_t vma_flags,
+ 		bool *was_merged)
  {
-@@ -898,8 +920,20 @@ static __always_inline void vma_flags_clear_mask(vma_flags_t *flags, vma_flags_t
- #define vma_flags_clear(flags, ...) \
- 	vma_flags_clear_mask(flags, mk_vma_flags(__VA_ARGS__))
+ 	struct vm_area_struct *merged;
  
-+static __always_inline vma_flags_t vma_flags_diff_pair(const vma_flags_t *flags,
-+		const vma_flags_t *flags_other)
-+{
-+	vma_flags_t dst;
-+	const unsigned long *bitmap_other = flags_other->__vma_flags;
-+	const unsigned long *bitmap = flags->__vma_flags;
-+	unsigned long *bitmap_dst = dst.__vma_flags;
-+
-+	bitmap_xor(bitmap_dst, bitmap, bitmap_other, NUM_VMA_FLAG_BITS);
-+	return dst;
-+}
-+
- static inline bool vma_test_all_mask(const struct vm_area_struct *vma,
--					   vma_flags_t flags)
-+				     vma_flags_t flags)
- {
- 	return vma_flags_test_all_mask(&vma->flags, flags);
+-	vmg_set_range(vmg, start, end, pgoff, vm_flags);
++	vmg_set_range(vmg, start, end, pgoff, vma_flags);
+ 
+ 	merged = merge_new(vmg);
+ 	if (merged) {
+@@ -89,23 +89,24 @@ static struct vm_area_struct *try_merge_new_vma(struct mm_struct *mm,
+ 
+ 	ASSERT_EQ(vmg->state, VMA_MERGE_NOMERGE);
+ 
+-	return alloc_and_link_vma(mm, start, end, pgoff, vm_flags);
++	return alloc_and_link_vma(mm, start, end, pgoff, vma_flags);
  }
+ 
+ static bool test_simple_merge(void)
+ {
+ 	struct vm_area_struct *vma;
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT, VMA_MAYREAD_BIT,
++					     VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+-	struct vm_area_struct *vma_left = alloc_vma(&mm, 0, 0x1000, 0, vm_flags);
+-	struct vm_area_struct *vma_right = alloc_vma(&mm, 0x2000, 0x3000, 2, vm_flags);
++	struct vm_area_struct *vma_left = alloc_vma(&mm, 0, 0x1000, 0, vma_flags);
++	struct vm_area_struct *vma_right = alloc_vma(&mm, 0x2000, 0x3000, 2, vma_flags);
+ 	VMA_ITERATOR(vmi, &mm, 0x1000);
+ 	struct vma_merge_struct vmg = {
+ 		.mm = &mm,
+ 		.vmi = &vmi,
+ 		.start = 0x1000,
+ 		.end = 0x2000,
+-		.vm_flags = vm_flags,
++		.vma_flags = vma_flags,
+ 		.pgoff = 1,
+ 	};
+ 
+@@ -118,7 +119,7 @@ static bool test_simple_merge(void)
+ 	ASSERT_EQ(vma->vm_start, 0);
+ 	ASSERT_EQ(vma->vm_end, 0x3000);
+ 	ASSERT_EQ(vma->vm_pgoff, 0);
+-	ASSERT_EQ(vma->vm_flags, vm_flags);
++	ASSERT_FLAGS_SAME_MASK(&vma->flags, vma_flags);
+ 
+ 	detach_free_vma(vma);
+ 	mtree_destroy(&mm.mm_mt);
+@@ -129,11 +130,12 @@ static bool test_simple_merge(void)
+ static bool test_simple_modify(void)
+ {
+ 	struct vm_area_struct *vma;
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT, VMA_MAYREAD_BIT,
++					     VMA_MAYWRITE_BIT);
++	vm_flags_t legacy_flags = VM_READ | VM_WRITE;
+ 	struct mm_struct mm = {};
+-	struct vm_area_struct *init_vma = alloc_vma(&mm, 0, 0x3000, 0, vm_flags);
++	struct vm_area_struct *init_vma = alloc_vma(&mm, 0, 0x3000, 0, vma_flags);
+ 	VMA_ITERATOR(vmi, &mm, 0x1000);
+-	vm_flags_t flags = VM_READ | VM_MAYREAD;
+ 
+ 	ASSERT_FALSE(attach_vma(&mm, init_vma));
+ 
+@@ -142,7 +144,7 @@ static bool test_simple_modify(void)
+ 	 * performs the merge/split only.
+ 	 */
+ 	vma = vma_modify_flags(&vmi, init_vma, init_vma,
+-			       0x1000, 0x2000, &flags);
++			       0x1000, 0x2000, &legacy_flags);
+ 	ASSERT_NE(vma, NULL);
+ 	/* We modify the provided VMA, and on split allocate new VMAs. */
+ 	ASSERT_EQ(vma, init_vma);
+@@ -189,9 +191,10 @@ static bool test_simple_modify(void)
+ 
+ static bool test_simple_expand(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT, VMA_MAYREAD_BIT,
++					     VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+-	struct vm_area_struct *vma = alloc_vma(&mm, 0, 0x1000, 0, vm_flags);
++	struct vm_area_struct *vma = alloc_vma(&mm, 0, 0x1000, 0, vma_flags);
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vma_merge_struct vmg = {
+ 		.vmi = &vmi,
+@@ -217,9 +220,10 @@ static bool test_simple_expand(void)
+ 
+ static bool test_simple_shrink(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT, VMA_MAYREAD_BIT,
++					     VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+-	struct vm_area_struct *vma = alloc_vma(&mm, 0, 0x3000, 0, vm_flags);
++	struct vm_area_struct *vma = alloc_vma(&mm, 0, 0x3000, 0, vma_flags);
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 
+ 	ASSERT_FALSE(attach_vma(&mm, vma));
+@@ -238,7 +242,8 @@ static bool test_simple_shrink(void)
+ 
+ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky, bool c_is_sticky)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vma_merge_struct vmg = {
+@@ -265,31 +270,31 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	bool merged;
+ 
+ 	if (is_sticky)
+-		vm_flags |= VM_STICKY;
++		vma_flags_set_mask(&vma_flags, VMA_STICKY_FLAGS);
+ 
+ 	/*
+ 	 * 0123456789abc
+ 	 * AA B       CC
+ 	 */
+-	vma_a = alloc_and_link_vma(&mm, 0, 0x2000, 0, vm_flags);
++	vma_a = alloc_and_link_vma(&mm, 0, 0x2000, 0, vma_flags);
+ 	ASSERT_NE(vma_a, NULL);
+ 	if (a_is_sticky)
+-		vm_flags_set(vma_a, VM_STICKY);
++		vma_flags_set_mask(&vma_a->flags, VMA_STICKY_FLAGS);
+ 	/* We give each VMA a single avc so we can test anon_vma duplication. */
+ 	INIT_LIST_HEAD(&vma_a->anon_vma_chain);
+ 	list_add(&dummy_anon_vma_chain_a.same_vma, &vma_a->anon_vma_chain);
+ 
+-	vma_b = alloc_and_link_vma(&mm, 0x3000, 0x4000, 3, vm_flags);
++	vma_b = alloc_and_link_vma(&mm, 0x3000, 0x4000, 3, vma_flags);
+ 	ASSERT_NE(vma_b, NULL);
+ 	if (b_is_sticky)
+-		vm_flags_set(vma_b, VM_STICKY);
++		vma_flags_set_mask(&vma_b->flags, VMA_STICKY_FLAGS);
+ 	INIT_LIST_HEAD(&vma_b->anon_vma_chain);
+ 	list_add(&dummy_anon_vma_chain_b.same_vma, &vma_b->anon_vma_chain);
+ 
+-	vma_c = alloc_and_link_vma(&mm, 0xb000, 0xc000, 0xb, vm_flags);
++	vma_c = alloc_and_link_vma(&mm, 0xb000, 0xc000, 0xb, vma_flags);
+ 	ASSERT_NE(vma_c, NULL);
+ 	if (c_is_sticky)
+-		vm_flags_set(vma_c, VM_STICKY);
++		vma_flags_set_mask(&vma_c->flags, VMA_STICKY_FLAGS);
+ 	INIT_LIST_HEAD(&vma_c->anon_vma_chain);
+ 	list_add(&dummy_anon_vma_chain_c.same_vma, &vma_c->anon_vma_chain);
+ 
+@@ -299,7 +304,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	 * 0123456789abc
+ 	 * AA B   **  CC
+ 	 */
+-	vma_d = try_merge_new_vma(&mm, &vmg, 0x7000, 0x9000, 7, vm_flags, &merged);
++	vma_d = try_merge_new_vma(&mm, &vmg, 0x7000, 0x9000, 7, vma_flags, &merged);
+ 	ASSERT_NE(vma_d, NULL);
+ 	INIT_LIST_HEAD(&vma_d->anon_vma_chain);
+ 	list_add(&dummy_anon_vma_chain_d.same_vma, &vma_d->anon_vma_chain);
+@@ -314,7 +319,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	 */
+ 	vma_a->vm_ops = &vm_ops; /* This should have no impact. */
+ 	vma_b->anon_vma = &dummy_anon_vma;
+-	vma = try_merge_new_vma(&mm, &vmg, 0x2000, 0x3000, 2, vm_flags, &merged);
++	vma = try_merge_new_vma(&mm, &vmg, 0x2000, 0x3000, 2, vma_flags, &merged);
+ 	ASSERT_EQ(vma, vma_a);
+ 	/* Merge with A, delete B. */
+ 	ASSERT_TRUE(merged);
+@@ -325,7 +330,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	ASSERT_TRUE(vma_write_started(vma));
+ 	ASSERT_EQ(mm.map_count, 3);
+ 	if (is_sticky || a_is_sticky || b_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma->flags, VMA_STICKY_FLAGS));
+ 
+ 	/*
+ 	 * Merge to PREVIOUS VMA.
+@@ -333,7 +338,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	 * 0123456789abc
+ 	 * AAAA*  DD  CC
+ 	 */
+-	vma = try_merge_new_vma(&mm, &vmg, 0x4000, 0x5000, 4, vm_flags, &merged);
++	vma = try_merge_new_vma(&mm, &vmg, 0x4000, 0x5000, 4, vma_flags, &merged);
+ 	ASSERT_EQ(vma, vma_a);
+ 	/* Extend A. */
+ 	ASSERT_TRUE(merged);
+@@ -344,7 +349,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	ASSERT_TRUE(vma_write_started(vma));
+ 	ASSERT_EQ(mm.map_count, 3);
+ 	if (is_sticky || a_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma->flags, VMA_STICKY_FLAGS));
+ 
+ 	/*
+ 	 * Merge to NEXT VMA.
+@@ -354,7 +359,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	 */
+ 	vma_d->anon_vma = &dummy_anon_vma;
+ 	vma_d->vm_ops = &vm_ops; /* This should have no impact. */
+-	vma = try_merge_new_vma(&mm, &vmg, 0x6000, 0x7000, 6, vm_flags, &merged);
++	vma = try_merge_new_vma(&mm, &vmg, 0x6000, 0x7000, 6, vma_flags, &merged);
+ 	ASSERT_EQ(vma, vma_d);
+ 	/* Prepend. */
+ 	ASSERT_TRUE(merged);
+@@ -365,7 +370,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	ASSERT_TRUE(vma_write_started(vma));
+ 	ASSERT_EQ(mm.map_count, 3);
+ 	if (is_sticky) /* D uses is_sticky. */
+-		ASSERT_TRUE(IS_SET(vma->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma->flags, VMA_STICKY_FLAGS));
+ 
+ 	/*
+ 	 * Merge BOTH sides.
+@@ -374,7 +379,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	 * AAAAA*DDD  CC
+ 	 */
+ 	vma_d->vm_ops = NULL; /* This would otherwise degrade the merge. */
+-	vma = try_merge_new_vma(&mm, &vmg, 0x5000, 0x6000, 5, vm_flags, &merged);
++	vma = try_merge_new_vma(&mm, &vmg, 0x5000, 0x6000, 5, vma_flags, &merged);
+ 	ASSERT_EQ(vma, vma_a);
+ 	/* Merge with A, delete D. */
+ 	ASSERT_TRUE(merged);
+@@ -385,7 +390,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	ASSERT_TRUE(vma_write_started(vma));
+ 	ASSERT_EQ(mm.map_count, 2);
+ 	if (is_sticky || a_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma->flags, VMA_STICKY_FLAGS));
+ 
+ 	/*
+ 	 * Merge to NEXT VMA.
+@@ -394,7 +399,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	 * AAAAAAAAA *CC
+ 	 */
+ 	vma_c->anon_vma = &dummy_anon_vma;
+-	vma = try_merge_new_vma(&mm, &vmg, 0xa000, 0xb000, 0xa, vm_flags, &merged);
++	vma = try_merge_new_vma(&mm, &vmg, 0xa000, 0xb000, 0xa, vma_flags, &merged);
+ 	ASSERT_EQ(vma, vma_c);
+ 	/* Prepend C. */
+ 	ASSERT_TRUE(merged);
+@@ -405,7 +410,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	ASSERT_TRUE(vma_write_started(vma));
+ 	ASSERT_EQ(mm.map_count, 2);
+ 	if (is_sticky || c_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma->flags, VMA_STICKY_FLAGS));
+ 
+ 	/*
+ 	 * Merge BOTH sides.
+@@ -413,7 +418,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	 * 0123456789abc
+ 	 * AAAAAAAAA*CCC
+ 	 */
+-	vma = try_merge_new_vma(&mm, &vmg, 0x9000, 0xa000, 0x9, vm_flags, &merged);
++	vma = try_merge_new_vma(&mm, &vmg, 0x9000, 0xa000, 0x9, vma_flags, &merged);
+ 	ASSERT_EQ(vma, vma_a);
+ 	/* Extend A and delete C. */
+ 	ASSERT_TRUE(merged);
+@@ -424,7 +429,7 @@ static bool __test_merge_new(bool is_sticky, bool a_is_sticky, bool b_is_sticky,
+ 	ASSERT_TRUE(vma_write_started(vma));
+ 	ASSERT_EQ(mm.map_count, 1);
+ 	if (is_sticky || a_is_sticky || c_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma->flags, VMA_STICKY_FLAGS));
+ 
+ 	/*
+ 	 * Final state.
+@@ -469,29 +474,30 @@ static bool test_merge_new(void)
+ 
+ static bool test_vma_merge_special_flags(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vma_merge_struct vmg = {
+ 		.mm = &mm,
+ 		.vmi = &vmi,
+ 	};
+-	vm_flags_t special_flags[] = { VM_IO, VM_DONTEXPAND, VM_PFNMAP, VM_MIXEDMAP };
+-	vm_flags_t all_special_flags = 0;
++	vma_flag_t special_flags[] = { VMA_IO_BIT, VMA_DONTEXPAND_BIT,
++		VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT };
++	vma_flags_t all_special_flags = EMPTY_VMA_FLAGS;
+ 	int i;
+ 	struct vm_area_struct *vma_left, *vma;
+ 
+ 	/* Make sure there aren't new VM_SPECIAL flags. */
+-	for (i = 0; i < ARRAY_SIZE(special_flags); i++) {
+-		all_special_flags |= special_flags[i];
+-	}
+-	ASSERT_EQ(all_special_flags, VM_SPECIAL);
++	for (i = 0; i < ARRAY_SIZE(special_flags); i++)
++		vma_flags_set(&all_special_flags, special_flags[i]);
++	ASSERT_FLAGS_SAME_MASK(&all_special_flags, VMA_SPECIAL_FLAGS);
+ 
+ 	/*
+ 	 * 01234
+ 	 * AAA
+ 	 */
+-	vma_left = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
++	vma_left = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
+ 	ASSERT_NE(vma_left, NULL);
+ 
+ 	/* 1. Set up new VMA with special flag that would otherwise merge. */
+@@ -502,12 +508,14 @@ static bool test_vma_merge_special_flags(void)
+ 	 *
+ 	 * This should merge if not for the VM_SPECIAL flag.
+ 	 */
+-	vmg_set_range(&vmg, 0x3000, 0x4000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x4000, 3, vma_flags);
+ 	for (i = 0; i < ARRAY_SIZE(special_flags); i++) {
+-		vm_flags_t special_flag = special_flags[i];
++		vma_flag_t special_flag = special_flags[i];
++		vma_flags_t flags = vma_flags;
+ 
+-		vm_flags_reset(vma_left, vm_flags | special_flag);
+-		vmg.vm_flags = vm_flags | special_flag;
++		vma_flags_set(&flags, special_flag);
++		vma_left->flags = flags;
++		vmg.vma_flags = flags;
+ 		vma = merge_new(&vmg);
+ 		ASSERT_EQ(vma, NULL);
+ 		ASSERT_EQ(vmg.state, VMA_MERGE_NOMERGE);
+@@ -521,15 +529,17 @@ static bool test_vma_merge_special_flags(void)
+ 	 *
+ 	 * Create a VMA to modify.
+ 	 */
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x4000, 3, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x4000, 3, vma_flags);
+ 	ASSERT_NE(vma, NULL);
+ 	vmg.middle = vma;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(special_flags); i++) {
+-		vm_flags_t special_flag = special_flags[i];
++		vma_flag_t special_flag = special_flags[i];
++		vma_flags_t flags = vma_flags;
+ 
+-		vm_flags_reset(vma_left, vm_flags | special_flag);
+-		vmg.vm_flags = vm_flags | special_flag;
++		vma_flags_set(&flags, special_flag);
++		vma_left->flags = flags;
++		vmg.vma_flags = flags;
+ 		vma = merge_existing(&vmg);
+ 		ASSERT_EQ(vma, NULL);
+ 		ASSERT_EQ(vmg.state, VMA_MERGE_NOMERGE);
+@@ -541,7 +551,8 @@ static bool test_vma_merge_special_flags(void)
+ 
+ static bool test_vma_merge_with_close(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vma_merge_struct vmg = {
+@@ -621,11 +632,11 @@ static bool test_vma_merge_with_close(void)
+ 	 * PPPPPPNNN
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x9000, 5, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x9000, 5, vma_flags);
+ 	vma_next->vm_ops = &vm_ops;
+ 
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	ASSERT_EQ(merge_new(&vmg), vma_prev);
+ 	ASSERT_EQ(vmg.state, VMA_MERGE_SUCCESS);
+ 	ASSERT_EQ(vma_prev->vm_start, 0);
+@@ -646,11 +657,11 @@ static bool test_vma_merge_with_close(void)
+ 	 * proceed.
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
+ 	vma->vm_ops = &vm_ops;
+ 
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 
+@@ -674,11 +685,11 @@ static bool test_vma_merge_with_close(void)
+ 	 * proceed.
+ 	 */
+ 
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x9000, 5, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x9000, 5, vma_flags);
+ 	vma->vm_ops = &vm_ops;
+ 
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.middle = vma;
+ 	ASSERT_EQ(merge_existing(&vmg), NULL);
+ 	/*
+@@ -702,12 +713,12 @@ static bool test_vma_merge_with_close(void)
+ 	 * PPPVVNNNN
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x9000, 5, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x9000, 5, vma_flags);
+ 	vma->vm_ops = &vm_ops;
+ 
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 
+@@ -728,12 +739,12 @@ static bool test_vma_merge_with_close(void)
+ 	 * PPPPPNNNN
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x9000, 5, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x9000, 5, vma_flags);
+ 	vma_next->vm_ops = &vm_ops;
+ 
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 
+@@ -750,15 +761,16 @@ static bool test_vma_merge_with_close(void)
+ 
+ static bool test_vma_merge_new_with_close(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vma_merge_struct vmg = {
+ 		.mm = &mm,
+ 		.vmi = &vmi,
+ 	};
+-	struct vm_area_struct *vma_prev = alloc_and_link_vma(&mm, 0, 0x2000, 0, vm_flags);
+-	struct vm_area_struct *vma_next = alloc_and_link_vma(&mm, 0x5000, 0x7000, 5, vm_flags);
++	struct vm_area_struct *vma_prev = alloc_and_link_vma(&mm, 0, 0x2000, 0, vma_flags);
++	struct vm_area_struct *vma_next = alloc_and_link_vma(&mm, 0x5000, 0x7000, 5, vma_flags);
+ 	const struct vm_operations_struct vm_ops = {
+ 		.close = dummy_close,
+ 	};
+@@ -788,7 +800,7 @@ static bool test_vma_merge_new_with_close(void)
+ 	vma_prev->vm_ops = &vm_ops;
+ 	vma_next->vm_ops = &vm_ops;
+ 
+-	vmg_set_range(&vmg, 0x2000, 0x5000, 2, vm_flags);
++	vmg_set_range(&vmg, 0x2000, 0x5000, 2, vma_flags);
+ 	vma = merge_new(&vmg);
+ 	ASSERT_NE(vma, NULL);
+ 	ASSERT_EQ(vmg.state, VMA_MERGE_SUCCESS);
+@@ -805,9 +817,10 @@ static bool test_vma_merge_new_with_close(void)
+ 
+ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bool next_is_sticky)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
+-	vm_flags_t prev_flags = vm_flags;
+-	vm_flags_t next_flags = vm_flags;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
++	vma_flags_t prev_flags = vma_flags;
++	vma_flags_t next_flags = vma_flags;
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vm_area_struct *vma, *vma_prev, *vma_next;
+@@ -821,11 +834,11 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	struct anon_vma_chain avc = {};
+ 
+ 	if (prev_is_sticky)
+-		prev_flags |= VM_STICKY;
++		vma_flags_set_mask(&prev_flags, VMA_STICKY_FLAGS);
+ 	if (middle_is_sticky)
+-		vm_flags |= VM_STICKY;
++		vma_flags_set_mask(&vma_flags, VMA_STICKY_FLAGS);
+ 	if (next_is_sticky)
+-		next_flags |= VM_STICKY;
++		vma_flags_set_mask(&next_flags, VMA_STICKY_FLAGS);
+ 
+ 	/*
+ 	 * Merge right case - partial span.
+@@ -837,11 +850,11 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	 * 0123456789
+ 	 *   VNNNNNN
+ 	 */
+-	vma = alloc_and_link_vma(&mm, 0x2000, 0x6000, 2, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0x2000, 0x6000, 2, vma_flags);
+ 	vma->vm_ops = &vm_ops; /* This should have no impact. */
+ 	vma_next = alloc_and_link_vma(&mm, 0x6000, 0x9000, 6, next_flags);
+ 	vma_next->vm_ops = &vm_ops; /* This should have no impact. */
+-	vmg_set_range_anon_vma(&vmg, 0x3000, 0x6000, 3, vm_flags, &dummy_anon_vma);
++	vmg_set_range_anon_vma(&vmg, 0x3000, 0x6000, 3, vma_flags, &dummy_anon_vma);
+ 	vmg.middle = vma;
+ 	vmg.prev = vma;
+ 	vma_set_dummy_anon_vma(vma, &avc);
+@@ -858,7 +871,7 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	ASSERT_TRUE(vma_write_started(vma_next));
+ 	ASSERT_EQ(mm.map_count, 2);
+ 	if (middle_is_sticky || next_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma_next->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma_next->flags, VMA_STICKY_FLAGS));
+ 
+ 	/* Clear down and reset. */
+ 	ASSERT_EQ(cleanup_mm(&mm, &vmi), 2);
+@@ -873,10 +886,10 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	 * 0123456789
+ 	 *   NNNNNNN
+ 	 */
+-	vma = alloc_and_link_vma(&mm, 0x2000, 0x6000, 2, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0x2000, 0x6000, 2, vma_flags);
+ 	vma_next = alloc_and_link_vma(&mm, 0x6000, 0x9000, 6, next_flags);
+ 	vma_next->vm_ops = &vm_ops; /* This should have no impact. */
+-	vmg_set_range_anon_vma(&vmg, 0x2000, 0x6000, 2, vm_flags, &dummy_anon_vma);
++	vmg_set_range_anon_vma(&vmg, 0x2000, 0x6000, 2, vma_flags, &dummy_anon_vma);
+ 	vmg.middle = vma;
+ 	vma_set_dummy_anon_vma(vma, &avc);
+ 	ASSERT_EQ(merge_existing(&vmg), vma_next);
+@@ -888,7 +901,7 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	ASSERT_TRUE(vma_write_started(vma_next));
+ 	ASSERT_EQ(mm.map_count, 1);
+ 	if (middle_is_sticky || next_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma_next->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma_next->flags, VMA_STICKY_FLAGS));
+ 
+ 	/* Clear down and reset. We should have deleted vma. */
+ 	ASSERT_EQ(cleanup_mm(&mm, &vmi), 1);
+@@ -905,9 +918,9 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	 */
+ 	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, prev_flags);
+ 	vma_prev->vm_ops = &vm_ops; /* This should have no impact. */
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x7000, 3, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x7000, 3, vma_flags);
+ 	vma->vm_ops = &vm_ops; /* This should have no impact. */
+-	vmg_set_range_anon_vma(&vmg, 0x3000, 0x6000, 3, vm_flags, &dummy_anon_vma);
++	vmg_set_range_anon_vma(&vmg, 0x3000, 0x6000, 3, vma_flags, &dummy_anon_vma);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 	vma_set_dummy_anon_vma(vma, &avc);
+@@ -924,7 +937,7 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	ASSERT_TRUE(vma_write_started(vma));
+ 	ASSERT_EQ(mm.map_count, 2);
+ 	if (prev_is_sticky || middle_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma_prev->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma_prev->flags, VMA_STICKY_FLAGS));
+ 
+ 	/* Clear down and reset. */
+ 	ASSERT_EQ(cleanup_mm(&mm, &vmi), 2);
+@@ -941,8 +954,8 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	 */
+ 	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, prev_flags);
+ 	vma_prev->vm_ops = &vm_ops; /* This should have no impact. */
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x7000, 3, vm_flags);
+-	vmg_set_range_anon_vma(&vmg, 0x3000, 0x7000, 3, vm_flags, &dummy_anon_vma);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x7000, 3, vma_flags);
++	vmg_set_range_anon_vma(&vmg, 0x3000, 0x7000, 3, vma_flags, &dummy_anon_vma);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 	vma_set_dummy_anon_vma(vma, &avc);
+@@ -955,7 +968,7 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	ASSERT_TRUE(vma_write_started(vma_prev));
+ 	ASSERT_EQ(mm.map_count, 1);
+ 	if (prev_is_sticky || middle_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma_prev->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma_prev->flags, VMA_STICKY_FLAGS));
+ 
+ 	/* Clear down and reset. We should have deleted vma. */
+ 	ASSERT_EQ(cleanup_mm(&mm, &vmi), 1);
+@@ -972,9 +985,9 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	 */
+ 	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, prev_flags);
+ 	vma_prev->vm_ops = &vm_ops; /* This should have no impact. */
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x7000, 3, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x7000, 3, vma_flags);
+ 	vma_next = alloc_and_link_vma(&mm, 0x7000, 0x9000, 7, next_flags);
+-	vmg_set_range_anon_vma(&vmg, 0x3000, 0x7000, 3, vm_flags, &dummy_anon_vma);
++	vmg_set_range_anon_vma(&vmg, 0x3000, 0x7000, 3, vma_flags, &dummy_anon_vma);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 	vma_set_dummy_anon_vma(vma, &avc);
+@@ -987,7 +1000,7 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	ASSERT_TRUE(vma_write_started(vma_prev));
+ 	ASSERT_EQ(mm.map_count, 1);
+ 	if (prev_is_sticky || middle_is_sticky || next_is_sticky)
+-		ASSERT_TRUE(IS_SET(vma_prev->vm_flags, VM_STICKY));
++		ASSERT_TRUE(vma_flags_test_any_mask(&vma_prev->flags, VMA_STICKY_FLAGS));
+ 
+ 	/* Clear down and reset. We should have deleted prev and next. */
+ 	ASSERT_EQ(cleanup_mm(&mm, &vmi), 1);
+@@ -1008,40 +1021,40 @@ static bool __test_merge_existing(bool prev_is_sticky, bool middle_is_sticky, bo
+ 	 */
+ 
+ 	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, prev_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x8000, 3, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x8000, 3, vma_flags);
+ 	vma_next = alloc_and_link_vma(&mm, 0x8000, 0xa000, 8, next_flags);
+ 
+-	vmg_set_range(&vmg, 0x4000, 0x5000, 4, vm_flags);
++	vmg_set_range(&vmg, 0x4000, 0x5000, 4, vma_flags);
+ 	vmg.prev = vma;
+ 	vmg.middle = vma;
+ 	ASSERT_EQ(merge_existing(&vmg), NULL);
+ 	ASSERT_EQ(vmg.state, VMA_MERGE_NOMERGE);
+ 
+-	vmg_set_range(&vmg, 0x5000, 0x6000, 5, vm_flags);
++	vmg_set_range(&vmg, 0x5000, 0x6000, 5, vma_flags);
+ 	vmg.prev = vma;
+ 	vmg.middle = vma;
+ 	ASSERT_EQ(merge_existing(&vmg), NULL);
+ 	ASSERT_EQ(vmg.state, VMA_MERGE_NOMERGE);
+ 
+-	vmg_set_range(&vmg, 0x6000, 0x7000, 6, vm_flags);
++	vmg_set_range(&vmg, 0x6000, 0x7000, 6, vma_flags);
+ 	vmg.prev = vma;
+ 	vmg.middle = vma;
+ 	ASSERT_EQ(merge_existing(&vmg), NULL);
+ 	ASSERT_EQ(vmg.state, VMA_MERGE_NOMERGE);
+ 
+-	vmg_set_range(&vmg, 0x4000, 0x7000, 4, vm_flags);
++	vmg_set_range(&vmg, 0x4000, 0x7000, 4, vma_flags);
+ 	vmg.prev = vma;
+ 	vmg.middle = vma;
+ 	ASSERT_EQ(merge_existing(&vmg), NULL);
+ 	ASSERT_EQ(vmg.state, VMA_MERGE_NOMERGE);
+ 
+-	vmg_set_range(&vmg, 0x4000, 0x6000, 4, vm_flags);
++	vmg_set_range(&vmg, 0x4000, 0x6000, 4, vma_flags);
+ 	vmg.prev = vma;
+ 	vmg.middle = vma;
+ 	ASSERT_EQ(merge_existing(&vmg), NULL);
+ 	ASSERT_EQ(vmg.state, VMA_MERGE_NOMERGE);
+ 
+-	vmg_set_range(&vmg, 0x5000, 0x6000, 5, vm_flags);
++	vmg_set_range(&vmg, 0x5000, 0x6000, 5, vma_flags);
+ 	vmg.prev = vma;
+ 	vmg.middle = vma;
+ 	ASSERT_EQ(merge_existing(&vmg), NULL);
+@@ -1067,7 +1080,8 @@ static bool test_merge_existing(void)
+ 
+ static bool test_anon_vma_non_mergeable(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vm_area_struct *vma, *vma_prev, *vma_next;
+@@ -1091,9 +1105,9 @@ static bool test_anon_vma_non_mergeable(void)
+ 	 * 0123456789
+ 	 * PPPPPPPNNN
+ 	 */
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x7000, 3, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x7000, 0x9000, 7, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x7000, 3, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x7000, 0x9000, 7, vma_flags);
+ 
+ 	/*
+ 	 * Give both prev and next single anon_vma_chain fields, so they will
+@@ -1101,7 +1115,7 @@ static bool test_anon_vma_non_mergeable(void)
+ 	 *
+ 	 * However, when prev is compared to next, the merge should fail.
+ 	 */
+-	vmg_set_range_anon_vma(&vmg, 0x3000, 0x7000, 3, vm_flags, NULL);
++	vmg_set_range_anon_vma(&vmg, 0x3000, 0x7000, 3, vma_flags, NULL);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 	vma_set_dummy_anon_vma(vma_prev, &dummy_anon_vma_chain_1);
+@@ -1129,10 +1143,10 @@ static bool test_anon_vma_non_mergeable(void)
+ 	 * 0123456789
+ 	 * PPPPPPPNNN
+ 	 */
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x7000, 0x9000, 7, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x7000, 0x9000, 7, vma_flags);
+ 
+-	vmg_set_range_anon_vma(&vmg, 0x3000, 0x7000, 3, vm_flags, NULL);
++	vmg_set_range_anon_vma(&vmg, 0x3000, 0x7000, 3, vma_flags, NULL);
+ 	vmg.prev = vma_prev;
+ 	vma_set_dummy_anon_vma(vma_prev, &dummy_anon_vma_chain_1);
+ 	__vma_set_dummy_anon_vma(vma_next, &dummy_anon_vma_chain_2, &dummy_anon_vma_2);
+@@ -1154,7 +1168,8 @@ static bool test_anon_vma_non_mergeable(void)
+ 
+ static bool test_dup_anon_vma(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vma_merge_struct vmg = {
+@@ -1175,11 +1190,11 @@ static bool test_dup_anon_vma(void)
+ 	 * This covers new VMA merging, as these operations amount to a VMA
+ 	 * expand.
+ 	 */
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
+ 	vma_next->anon_vma = &dummy_anon_vma;
+ 
+-	vmg_set_range(&vmg, 0, 0x5000, 0, vm_flags);
++	vmg_set_range(&vmg, 0, 0x5000, 0, vma_flags);
+ 	vmg.target = vma_prev;
+ 	vmg.next = vma_next;
+ 
+@@ -1201,16 +1216,16 @@ static bool test_dup_anon_vma(void)
+ 	 *  extend   delete  delete
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x8000, 5, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x8000, 5, vma_flags);
+ 
+ 	/* Initialise avc so mergeability check passes. */
+ 	INIT_LIST_HEAD(&vma_next->anon_vma_chain);
+ 	list_add(&dummy_anon_vma_chain.same_vma, &vma_next->anon_vma_chain);
+ 
+ 	vma_next->anon_vma = &dummy_anon_vma;
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 
+@@ -1234,12 +1249,12 @@ static bool test_dup_anon_vma(void)
+ 	 *  extend   delete  delete
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x8000, 5, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x8000, 5, vma_flags);
+ 	vmg.anon_vma = &dummy_anon_vma;
+ 	vma_set_dummy_anon_vma(vma, &dummy_anon_vma_chain);
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 
+@@ -1263,11 +1278,11 @@ static bool test_dup_anon_vma(void)
+ 	 *  extend shrink/delete
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x8000, 3, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x8000, 3, vma_flags);
+ 
+ 	vma_set_dummy_anon_vma(vma, &dummy_anon_vma_chain);
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 
+@@ -1291,11 +1306,11 @@ static bool test_dup_anon_vma(void)
+ 	 * shrink/delete extend
+ 	 */
+ 
+-	vma = alloc_and_link_vma(&mm, 0, 0x5000, 0, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x8000, 5, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0, 0x5000, 0, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x5000, 0x8000, 5, vma_flags);
+ 
+ 	vma_set_dummy_anon_vma(vma, &dummy_anon_vma_chain);
+-	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.prev = vma;
+ 	vmg.middle = vma;
+ 
+@@ -1314,7 +1329,8 @@ static bool test_dup_anon_vma(void)
+ 
+ static bool test_vmi_prealloc_fail(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vma_merge_struct vmg = {
+@@ -1330,11 +1346,11 @@ static bool test_vmi_prealloc_fail(void)
+ 	 * the duplicated anon_vma is unlinked.
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
+ 	vma->anon_vma = &dummy_anon_vma;
+ 
+-	vmg_set_range_anon_vma(&vmg, 0x3000, 0x5000, 3, vm_flags, &dummy_anon_vma);
++	vmg_set_range_anon_vma(&vmg, 0x3000, 0x5000, 3, vma_flags, &dummy_anon_vma);
+ 	vmg.prev = vma_prev;
+ 	vmg.middle = vma;
+ 	vma_set_dummy_anon_vma(vma, &avc);
+@@ -1358,11 +1374,11 @@ static bool test_vmi_prealloc_fail(void)
+ 	 * performed in this case too.
+ 	 */
+ 
+-	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vm_flags);
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0, 0x3000, 0, vma_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
+ 	vma->anon_vma = &dummy_anon_vma;
+ 
+-	vmg_set_range(&vmg, 0, 0x5000, 3, vm_flags);
++	vmg_set_range(&vmg, 0, 0x5000, 3, vma_flags);
+ 	vmg.target = vma_prev;
+ 	vmg.next = vma;
+ 
+@@ -1380,13 +1396,14 @@ static bool test_vmi_prealloc_fail(void)
+ 
+ static bool test_merge_extend(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0x1000);
+ 	struct vm_area_struct *vma;
+ 
+-	vma = alloc_and_link_vma(&mm, 0, 0x1000, 0, vm_flags);
+-	alloc_and_link_vma(&mm, 0x3000, 0x4000, 3, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0, 0x1000, 0, vma_flags);
++	alloc_and_link_vma(&mm, 0x3000, 0x4000, 3, vma_flags);
+ 
+ 	/*
+ 	 * Extend a VMA into the gap between itself and the following VMA.
+@@ -1410,11 +1427,13 @@ static bool test_merge_extend(void)
+ 
+ static bool test_expand_only_mode(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
++	vm_flags_t legacy_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
+ 	struct mm_struct mm = {};
+ 	VMA_ITERATOR(vmi, &mm, 0);
+ 	struct vm_area_struct *vma_prev, *vma;
+-	VMG_STATE(vmg, &mm, &vmi, 0x5000, 0x9000, vm_flags, 5);
++	VMG_STATE(vmg, &mm, &vmi, 0x5000, 0x9000, legacy_flags, 5);
+ 
+ 	/*
+ 	 * Place a VMA prior to the one we're expanding so we assert that we do
+@@ -1422,14 +1441,14 @@ static bool test_expand_only_mode(void)
+ 	 * have, through the use of the just_expand flag, indicated we do not
+ 	 * need to do so.
+ 	 */
+-	alloc_and_link_vma(&mm, 0, 0x2000, 0, vm_flags);
++	alloc_and_link_vma(&mm, 0, 0x2000, 0, vma_flags);
+ 
+ 	/*
+ 	 * We will be positioned at the prev VMA, but looking to expand to
+ 	 * 0x9000.
+ 	 */
+ 	vma_iter_set(&vmi, 0x3000);
+-	vma_prev = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
++	vma_prev = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
+ 	vmg.prev = vma_prev;
+ 	vmg.just_expand = true;
+ 
+diff --git a/tools/testing/vma/tests/vma.c b/tools/testing/vma/tests/vma.c
+index 4a7b11a8a285..b2f068c3d6d0 100644
+--- a/tools/testing/vma/tests/vma.c
++++ b/tools/testing/vma/tests/vma.c
+@@ -22,7 +22,8 @@ static bool compare_legacy_flags(vm_flags_t legacy_flags, vma_flags_t flags)
+ 
+ static bool test_copy_vma(void)
+ {
+-	vm_flags_t vm_flags = VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE;
++	vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					     VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
+ 	struct mm_struct mm = {};
+ 	bool need_locks = false;
+ 	VMA_ITERATOR(vmi, &mm, 0);
+@@ -30,7 +31,7 @@ static bool test_copy_vma(void)
+ 
+ 	/* Move backwards and do not merge. */
+ 
+-	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0x3000, 0x5000, 3, vma_flags);
+ 	vma_new = copy_vma(&vma, 0, 0x2000, 0, &need_locks);
+ 	ASSERT_NE(vma_new, vma);
+ 	ASSERT_EQ(vma_new->vm_start, 0);
+@@ -42,8 +43,8 @@ static bool test_copy_vma(void)
+ 
+ 	/* Move a VMA into position next to another and merge the two. */
+ 
+-	vma = alloc_and_link_vma(&mm, 0, 0x2000, 0, vm_flags);
+-	vma_next = alloc_and_link_vma(&mm, 0x6000, 0x8000, 6, vm_flags);
++	vma = alloc_and_link_vma(&mm, 0, 0x2000, 0, vma_flags);
++	vma_next = alloc_and_link_vma(&mm, 0x6000, 0x8000, 6, vma_flags);
+ 	vma_new = copy_vma(&vma, 0x4000, 0x2000, 4, &need_locks);
+ 	vma_assert_attached(vma_new);
+ 
+@@ -61,7 +62,6 @@ static bool test_vma_flags_unchanged(void)
+ 	struct vm_area_struct vma;
+ 	struct vm_area_desc desc;
+ 
+-
+ 	vma.flags = EMPTY_VMA_FLAGS;
+ 	desc.vma_flags = EMPTY_VMA_FLAGS;
+ 
 -- 
 2.53.0
 
