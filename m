@@ -4,58 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14277106ACD6
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 18:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC4A0106ACE2
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 19:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y84VfnfSzAWGhy1idd4dGopMSJ0F6Sey3Nfs0EiiZYQ=; b=TWKaSESzCCFcJChoSiRY4pJIVd
-	x4LeRU2AOvBPXE82sNPqxKg2+jWQI6b6Kr31WLWFXcGEZraEcbfYpbJXfL+vCV4HkKxffO7FCSSNy
-	uvdKpZzq8Q3Qs4fTaO40E1GUXLoeDnqUehROf2HWp7cb/HTGVuNnOJAbHrkIed4AhSHj6TQaEagkp
-	DFCyIi4naryuq4XteDp4YZPSkuv7n59TYA5DWktQCCFtgvjW5OypWWGPr7+D/xAIiQT5jFLRkoPrD
-	i6QF0kxX+H9IYlWVadWtwEPa79oBSYvuEYdwnOm3CscqLHVhLvkYEJST/guUdoFkkQ4bnOYhhQs95
-	66tzFuYA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WZrEb+Bbh/7RZzCe/aJ2hNtZC0n1xTI+myMefJ9+WIs=; b=iFTn+mrTyWBKO3
+	450i1OkLAw4OuRvDZtIfhLtwEfJyx//dZqmyCyWw1VrOkEdWRY6F9EzEsbbwkn0eockV0xicRuNwq
+	j3o3TEPteHfD7V8QOKrmEN56vvCiSSB8xs55WYOKiWcrwZfEdF+48BcDSDgiih2hEVaI4X7zgjTgr
+	jUdXomCnGRyUjexZWkT+id/1HSzKYRGR8zoCkMO9Fr5VvD+w/7nXXZ9uisUpExZL8BKqo+e0m7JQv
+	Ud9gcfQAKs8mj/cJS8PBjyDF1U3aLgEcnjg7s6vBL3ZJY849BhkA+mOfSf+l2LbDAM3JkoG6E87vk
+	h0Kz1wm2v9PT3djiSwpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kLi-0000000Eowl-2bF2;
-	Thu, 12 Mar 2026 18:01:30 +0000
+	id 1w0lWP-0000000F0dv-2NYv;
+	Thu, 12 Mar 2026 19:16:37 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0kLh-0000000EowX-2B5Z
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Mar 2026 18:01:29 +0000
+	id 1w0lWN-0000000F0cu-1luy;
+	Thu, 12 Mar 2026 19:16:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D399560054;
-	Thu, 12 Mar 2026 18:01:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F50EC4CEF7;
-	Thu, 12 Mar 2026 18:01:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 32C5160142;
+	Thu, 12 Mar 2026 19:16:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FB2FC4CEF7;
+	Thu, 12 Mar 2026 19:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773338487;
-	bh=OSzRLFN/O+oARU9QCcrSlaMvdDHHRKYudUhwaCmYKXM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jbxDsa/82t2/tn++3U6n4t9JBwfH7xOxwADsSHdTwaLtwVMbaUAX46M2Iy5W4GPvK
-	 dt8PGdQ87WZdrPiZuriIs6z5NON1/8E8BxMTxbE6B3xDUF6pS264nmMPpw/NU9mvBp
-	 jFujHHl2YyKAwTUIms6oKi+R5Pe3EHSD7qpe+/XBY1imLYzBMx5viJtoya7OEEF6Ve
-	 8KaKOlqWKaiKY4yRZlGKXuHx9Vl7ThQVfsOXVfv2OopMXa/rLWKNgaTW1QvZcuGmGG
-	 7t4XOJ6UDhYONWh7dLLyYoBKDoWcbJaweE90phlYZ66IGf23MZiT9zoNA7DppO+Xe2
-	 E/i7zBZfdqcVg==
-Date: Thu, 12 Mar 2026 18:01:24 +0000
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: Conor Dooley <conor.dooley@microchip.com>, stable@vger.kernel.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Valentina.FernandezAlanis@microchip.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] firmware: microchip: fail auto-update probe if no
- flash found
-Message-ID: <20260312-distress-figure-e05517910026@spud>
-References: <20260303-emphatic-roundness-8fe5cd8c3159@spud>
- <20260310-gyration-smasher-1eb31125b2b6@spud>
+	s=k20201202; t=1773342993;
+	bh=TaSLkR5gPDfxujDC1zIc+PKZQMwo2SHfFpgA8heiCwA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=RJ/OeZwo0EpMiWhb6/z0zIn+/lFIuIvP2BfzNEAj9LTqZfBCjv1o5hnt4plZA721a
+	 ih6WVKNO5Z+PgABzP3qU9mNk3ZQdayMRlhZrsa3HWiVByCdZSFrFYLe0/7lxG7OMSg
+	 FBYifP/bgQwr574bwudgfgyoHnB9f/hWGwgWe1FDPrtLRQXW3cutgrXsqn1yBfQyAO
+	 cLyQ9H8N5cQhIxAeyK3PB3UNucYEayj8QTANEhh8lPSNLnt33n+V+48VghS2R7jej6
+	 vxj7XgXAC6C2E/LkQ0c1rBr5o/kq+vJUK3tiAL3mfMap9fAXAJ1J2eEDtK0eEUhevE
+	 WNctijuQVz9Nw==
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Jann Horn <jannh@google.com>,
+	Pedro Falcato <pfalcato@suse.de>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Kees Cook <kees@kernel.org>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Brian Cain <bcain@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Xu Xin <xu.xin16@zte.com.cn>,
+	Chengming Zhou <chengming.zhou@linux.dev>,
+	Michal Hocko <mhocko@suse.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Stephen Smalley <stephen.smalley.work@gmail.com>,
+	Ondrej Mosnacek <omosnace@redhat.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	selinux@vger.kernel.org
+Subject: [PATCH 00/20] mm/vma: convert vm_flags_t to vma_flags_t in vma code
+Date: Thu, 12 Mar 2026 19:15:58 +0000
+Message-ID: <cover.1773342102.git.ljs@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-In-Reply-To: <20260310-gyration-smasher-1eb31125b2b6@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,102 +120,145 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6830387056044078773=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series converts a lot of the existing use of the legacy vm_flags_t
+data type to the new vma_flags_t type which replaces it.
 
---===============6830387056044078773==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DKurcfiHx8r5qs5K"
-Content-Disposition: inline
+In order to do so it adds a number of additional helpers:
 
+* vma_flags_empty() - Determines whether a vma_flags_t value has no bits
+  set.
 
---DKurcfiHx8r5qs5K
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+* vma_flags_and() - Performs a bitwise AND between two vma_flags_t values.
 
-On Tue, Mar 10, 2026 at 06:24:11PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> On Tue, 03 Mar 2026 11:24:06 +0000, Conor Dooley wrote:
-> > There's no point letting the driver probe if there is no flash, as
-> > trying to do a firmware upload will fail. Move the code that attempts
-> > to get the flash from firmware upload to probe, and let it emit a
-> > message to users stating why auto-update is not supported.
-> > The code currently could have a problem if there's a flash in
-> > devicetree, but the system controller driver fails to get a pointer to
-> > it from the mtd subsystem, which will cause
-> > mpfs_sys_controller_get_flash() to return an error. Check for errors and
-> > null, instead of just null, in the new clause.
-> >=20
-> > [...]
->=20
-> Applied to riscv-soc-fixes, thanks!
->=20
-> [1/1] firmware: microchip: fail auto-update probe if no flash found
->       https://git.kernel.org/conor/c/c30b2509164f
+* vma_flags_diff_pair() - Determines which flags are not shared between a
+  pair of VMA flags (typically non-constant values)
 
-My CI started whinging about this..
-Probably needs to be:
-commit 8fc167b47d48d3653639d026cc3f657f6c78ab4d
-Author: Conor Dooley <conor.dooley@microchip.com>
-Date:   Thu Mar 12 18:00:01 2026 +0000
+* append_vma_flags() - Similar to mk_vma_flags(), but allows a vma_flags_t
+  value to be specified (typically a constant value) which will be copied
+  and appended to to create a new vma_flags_t value, with additional flags
+  specified to append to it.
 
-    firmware: microchip: auto-update: silence error print when flash not fo=
-und
-   =20
-    Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+* vma_flags_same() - Determines if a vma_flags_t value is exactly equal to
+  a set of VMA flags.
 
-diff --git a/drivers/firmware/microchip/mpfs-auto-update.c b/drivers/firmwa=
-re/microchip/mpfs-auto-update.c
-index 0105c55ed7f37..8fc3749d4a709 100644
---- a/drivers/firmware/microchip/mpfs-auto-update.c
-+++ b/drivers/firmware/microchip/mpfs-auto-update.c
-@@ -424,9 +424,10 @@ static int mpfs_auto_update_probe(struct platform_devi=
-ce *pdev)
- 				     "Could not register as a sub device of the system controller\n");
-=20
- 	priv->flash =3D mpfs_sys_controller_get_flash(priv->sys_controller);
--	if (IS_ERR_OR_NULL(priv->flash))
--		return dev_err_probe(dev, -ENODEV,
--				     "No flash connected to the system controller, auto-update not sup=
-ported\n");
-+	if (IS_ERR_OR_NULL(priv->flash)) {
-+		dev_dbg(dev, "No flash connected to the system controller, auto-update n=
-ot supported\n");
-+		return -ENODEV;
-+	}
-=20
- 	priv->dev =3D dev;
- 	platform_set_drvdata(pdev, priv);
+* vma_flags_same_mask() - Determines if a vma_flags_t value is eactly equal
+  to another vma_flags_t value (typically constant).
 
+* vma_flags_same_pair() - Determines if a pair of vma_flags_t values are
+  exactly equal to one another (typically both non-constant).
 
---DKurcfiHx8r5qs5K
-Content-Type: application/pgp-signature; name="signature.asc"
+* vma_flags_to_legacy() - Converts a vma_flags_t value to a vm_flags_t
+  value, used to enable more iterative introduction of the use of
+  vma_flags_t.
 
------BEGIN PGP SIGNATURE-----
+* legacy_to_vma_flags() - Converts a vm_flags_t value to a vma_flags-t
+  value, for the same purpose.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabL/dAAKCRB4tDGHoIJi
-0nIFAQCsTwy1NI0n231g4yLIMo9S2hTDrZiTE2HbmorJLJkLAQEAprS2DQKLze43
-jHIP7MAm39UKt8Kf06T8nwfZXfNrBAU=
-=yvGr
------END PGP SIGNATURE-----
+* vma_test() - Tests whether a VMA's flags contain s specific singular VMA
+  flag.
 
---DKurcfiHx8r5qs5K--
+* vma_test_any() - Tests whether a VMA's flags contain any of a set of VMA
+  flags.
 
+* vma_test_any_mask() - Tests whether a VMA's flags contain any of the
+  flags specified in another, typically constant, vma_flags_t value.
 
---===============6830387056044078773==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+* vma_clear_flags() - Clears a specific set of VMA flags from a vma_flags_t
+  value.
+
+* vma_clear_flags_mask() - Clears those flag set in a vma_flags_t value
+  (typically constant) from a (typically not constant) vma_flags_t value.
+
+The series mostly focuses on the the VMA specific code, especially that
+contained in mm/vma.c and mm/vma.h.
+
+It updates both brk() and mmap() logic to utils vma_flags_t values as much
+as is practiaclly possible at this point, changing surrounding logic to be
+able to do so.
+
+It also updates the vma_modify_xxx() functions where they interact with VMA
+flags directly to use vm_flags_t values where possible.
+
+There is extensive testing added in the VMA userland tests to assert that
+all of these new VMA flag functions work correctly.
+
+Lorenzo Stoakes (Oracle) (20):
+  mm/vma: add vma_flags_empty(), vma_flags_and(), vma_flags_diff_pair()
+  tools/testing/vma: add unit tests flag empty, diff_pair, and[_mask]
+  mm/vma: add further vma_flags_t unions
+  tools/testing/vma: convert bulk of test code to vma_flags_t
+  mm/vma: use new VMA flags for sticky flags logic
+  tools/testing/vma: fix VMA flag tests
+  mm/vma: add append_vma_flags() helper
+  tools/testing/vma: add simple test for append_vma_flags()
+  mm: unexport vm_brk_flags() and eliminate vm_flags parameter
+  mm/vma: introduce vma_flags_same[_mask/_pair]()
+  mm/vma: introduce [vma_flags,legacy]_to_[legacy,vma_flags]() helpers
+  tools/testing/vma: test that legacy flag helpers work correctly
+  mm: convert do_brk_flags() to use vma_flags_t
+  mm/vma: introduce vma_test[_any[_mask]](), and make inlining
+    consistent
+  tools/testing/vma: update VMA flag tests to test vma_test[_any_mask]()
+  mm/vma: introduce vma_clear_flags[_mask]()
+  tools/testing/vma: update VMA tests to test vma_clear_flags[_mask]()
+  mm/vma: convert as much as we can in mm/vma.c to vma_flags_t
+  mm/vma: convert vma_modify_flags[_uffd]() to use vma_flags_t
+  mm/vma: convert __mmap_region() to use vma_flags_t
+
+ arch/arc/include/asm/page.h        |   2 +-
+ arch/arm/include/asm/page.h        |   2 +-
+ arch/arm64/include/asm/page.h      |   3 +-
+ arch/hexagon/include/asm/page.h    |   2 +-
+ arch/loongarch/include/asm/page.h  |   2 +-
+ arch/mips/include/asm/page.h       |   2 +-
+ arch/nios2/include/asm/page.h      |   2 +-
+ arch/powerpc/include/asm/page.h    |   4 +-
+ arch/powerpc/include/asm/page_32.h |   2 +-
+ arch/powerpc/include/asm/page_64.h |  12 +-
+ arch/riscv/include/asm/page.h      |   2 +-
+ arch/s390/include/asm/page.h       |   2 +-
+ arch/x86/include/asm/page_types.h  |   2 +-
+ arch/x86/um/asm/vm-flags.h         |   4 +-
+ fs/binfmt_elf.c                    |   3 +-
+ include/linux/ksm.h                |  10 +-
+ include/linux/mm.h                 | 282 ++++++++++++++++++++------
+ include/linux/mm_types.h           |  52 ++++-
+ include/linux/mman.h               |  49 -----
+ include/linux/userfaultfd_k.h      |   3 +
+ mm/internal.h                      |   3 +
+ mm/ksm.c                           |  43 ++--
+ mm/madvise.c                       |  10 +-
+ mm/mlock.c                         |  42 ++--
+ mm/mmap.c                          |  19 +-
+ mm/mprotect.c                      |  53 +++--
+ mm/mremap.c                        |   6 +-
+ mm/mseal.c                         |  10 +-
+ mm/userfaultfd.c                   |  21 +-
+ mm/vma.c                           | 216 ++++++++++++--------
+ mm/vma.h                           |  86 ++++++--
+ mm/vma_exec.c                      |   5 +-
+ security/selinux/hooks.c           |   4 +-
+ tools/include/linux/bitmap.h       |  13 ++
+ tools/lib/bitmap.c                 |  10 +
+ tools/testing/vma/include/custom.h |  19 --
+ tools/testing/vma/include/dup.h    | 262 +++++++++++++++++-------
+ tools/testing/vma/include/stubs.h  |  11 +-
+ tools/testing/vma/shared.c         |   8 +-
+ tools/testing/vma/shared.h         |  22 +-
+ tools/testing/vma/tests/merge.c    | 311 +++++++++++++++--------------
+ tools/testing/vma/tests/mmap.c     |  18 +-
+ tools/testing/vma/tests/vma.c      | 303 +++++++++++++++++++++++++---
+ 43 files changed, 1307 insertions(+), 630 deletions(-)
+
+--
+2.53.0
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6830387056044078773==--
-
