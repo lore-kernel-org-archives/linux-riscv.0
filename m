@@ -4,60 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB68F106ACEE
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 20:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD4B106ACEE
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 22:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4/a+pNrNTO5OHJmg3o1CR+mW+g9KmdvxWB4j6B7AlMM=; b=zjyQISh3b+GAvk
-	T/T/2vNT7dz4EWbns3bVr6+VL4szEstigpkas6WYVzt00BxI6KGwvalFgIWzEY5w0buV14xxkAyB1
-	E8yTYNX8PabKRDA7VzD8+yI+f2F/XUnK/0hpdki3zTkjkU5xMInQJC8lJ+Sf21Oy61EUw7jlvRK0e
-	yru4wKyKI198uWntSIOCAuCu4zPDLXvvW/ifGUly2A3BdfFaCa30S8xTzqcFm99wKAGsaznC6LeEp
-	06qmyiG7zF2tSnOprrfv823LExWc8sRenDewDj4MI+4EUI+Z/lCMtRQXp2rsjjTetXlsAedgVpPRK
-	ZOmNR+zZ5DJmaemZtobg==;
+	List-Owner; bh=B3rv7XpiECC7P2y+Kbrkbj2nIecAy2jWB95YlIar85w=; b=rFW/r/PcIKMYTU
+	YuCnjWjijCIEyWPmuWmk49tJzPgLQmZIdYoFBBz7s6s1SwgdnpMAe78/+UfxbHZXPTM5QaVL/9V/v
+	P0u7np63DF4+2cTHSJUGFKgxppnyLy8c58Ck72spjs7g4oY+tqvvTlQQxDxwyjdq+cIr+K8DLRciH
+	aGQfZBrLJEpFKtnvsVZivfAsifWQh+CnVjRHbb56L1OEao1tPvU/TzJ00r1/d2ParUzZWD5WdgBuM
+	OigE+8+C828kYARCIC+vEBCT4S6SSl1gWYrJTI8VmNVWM3A9q+P/s1fpJOuUitgGGGic6wyClOwx3
+	ps1B5CCFw5C4VrXOaVyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0n6Y-0000000FNUO-3M4q;
-	Thu, 12 Mar 2026 20:58:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0omh-0000000FgOM-2P17;
+	Thu, 12 Mar 2026 22:45:39 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0n6W-0000000FNTm-1vEK;
-	Thu, 12 Mar 2026 20:58:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6134260142;
-	Thu, 12 Mar 2026 20:57:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D739C4CEF7;
-	Thu, 12 Mar 2026 20:57:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1773349079;
-	bh=K9BkTSEP4DAO1oqXkTRgIUsMciXJXXN0g3ET3zAlngE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FLiV1etmYVcSGbbdm/XWzQaxQrtcu+DjcXjI6bdWYsu841NM3z6Xw64cXI54+iaIn
-	 L2BrHY9lnVUqIJ6938urwDNEtRFz9ffekCMe3lr4UZIlR45/w5t14m5ix5+hCEMOxM
-	 z/hIOPZIY6kgBHdLKvnC8iu8NrktiaWhHWtId3+Y=
-Date: Thu, 12 Mar 2026 13:57:57 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Vasily Gorbik <gor@linux.ibm.com>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Pasha
- Tatashin <pasha.tatashin@soleen.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
- linux-s390@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- x86@kernel.org
+	id 1w0omd-0000000FgNb-2pVW;
+	Thu, 12 Mar 2026 22:45:37 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62CE0fjC2303568;
+	Thu, 12 Mar 2026 22:45:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=2G9U3elAqhs4zYdHUN+a5FlSCohzSK
+	h6Zqf15xFcDmY=; b=p64AnWj9ExYqW1NUdqJX+6EKpyhBPbsYkxGr2rNi7udkzR
+	mPCsiiV6yalNQ+ERMxdk4VybWmqsREOMYu+eyWqXU5IJFyzZDCA9Q31KRToz25Gg
+	FCvQctEzhW1SQfkGaU4aQ64qaJx3Ao5+8/SdpENY+Rw7ctcI0MTNW0f35gL/HyRz
+	kt/L08rVcGpwD51pcGqDA7wD3KaaCN80iKqZ0ZmQazF/M5LAa08lsu7uOxya0FlS
+	mPTu4pQSePVHOm+xTgKSZJ7y7hMvDCwoWfhk54mqIGTWtHul8J7XTp++1MZzyqk9
+	3jQSApEJiPrwqknlxYVyjDQfatCzBDc2B4jYNpOQ==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cuh95vxum-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Mar 2026 22:45:21 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62CIP52a020779;
+	Thu, 12 Mar 2026 22:45:20 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4cuha9maan-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Mar 2026 22:45:20 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62CMjGTg62456198
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 12 Mar 2026 22:45:16 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 831612005A;
+	Thu, 12 Mar 2026 22:45:16 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B82792004F;
+	Thu, 12 Mar 2026 22:45:15 +0000 (GMT)
+Received: from localhost (unknown [9.111.83.60])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 12 Mar 2026 22:45:15 +0000 (GMT)
+Date: Thu, 12 Mar 2026 23:45:14 +0100
+From: Vasily Gorbik <gor@linux.ibm.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Pasha Tatashin <pasha.tatashin@soleen.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
+        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, x86@kernel.org
 Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to
  pxx_user_accessible_page()
-Message-Id: <20260312135757.d65e8145d9d39e1ca5bc9666@linux-foundation.org>
-In-Reply-To: <ttbskgg@ub.hpns>
+Message-ID: <ttbt5ve@ub.hpns>
 References: <cover.1772812343.git.agordeev@linux.ibm.com>
-	<ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
-	<ttbskgg@ub.hpns>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+ <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+ <ttbskgg@ub.hpns>
+ <20260312135757.d65e8145d9d39e1ca5bc9666@linux-foundation.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260312135757.d65e8145d9d39e1ca5bc9666@linux-foundation.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDE4MSBTYWx0ZWRfXzYRyN5/1wkHl
+ 8TfaTg+WwEhBWaLRIUn8c4VotmT0v7+i4klU/zanb5KBhYOXSHC0b1B/j/R3HGjKYUZ7s45ArYd
+ NOvg1rRYgpbBTsTSzStU2GfcOF8G6g9r5NIH3Ay6umGVXWebvdBzD2umTIw/i4lL9fnZX/rm/LS
+ q8ADIDgvF2JE28rH47n7d1LIvoOGZsaPMIWW4yMAceSvjfyJUiHo3Orl4Czwv+DwdF/ShQj5MEy
+ PQCd3owMZzIBLkO9kkEJvcpddzy6lwRK9QdRrOuQ5uyJ7PyobTUQkWGv54wpy9KbR6RdyNSaOju
+ 4GrOs39BpF82PGy8Elt9tAWVpqNFO4lqFGiXZVjprTXbpAm7MnCxbJX4r/aynfyyeQdNkYNJz9J
+ me0U1FKHzQ/m+q7ldI+/6IrHu7F/83TRpceZnVCRxh7ZU9AsQa044ocDKAsqi9S+LFGRxTR6529
+ rP0JdbrQZYTAyaV6t5A==
+X-Authority-Analysis: v=2.4 cv=FowIPmrq c=1 sm=1 tr=0 ts=69b34201 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
+ a=QyXUC8HyAAAA:8 a=VnNF1IyMAAAA:8 a=Z4Rwk6OoAAAA:8 a=Lr05aJhEBrfB6ZlMEgwA:9
+ a=QEXdDO2ut3YA:10 a=HkZW87K1Qel5hWWM3VKY:22
+X-Proofpoint-GUID: _i2x_4G56o4Oof-KO5vWXCMuPGh66yzn
+X-Proofpoint-ORIG-GUID: _i2x_4G56o4Oof-KO5vWXCMuPGh66yzn
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-12_03,2026-03-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1015 suspectscore=0 bulkscore=0 impostorscore=0
+ lowpriorityscore=0 adultscore=0 phishscore=0 malwarescore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603120181
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_154536_177078_271E9D71 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +129,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Mar 2026 16:02:40 +0100 Vasily Gorbik <gor@linux.ibm.com> wrote:
-
-> On Fri, Mar 06, 2026 at 05:16:30PM +0100, Alexander Gordeev wrote:
-> > From: Tobias Huschle <huschle@linux.ibm.com>
-> > 
-> > Unlike other architectures, s390 does not have means to
-> > distinguish kernel vs user page table entries - neither
-> > an entry itself, nor the address could be used for that.
-> > It is only the mm_struct that indicates whether an entry
-> > in question is mapped to a user space. So pass mm_struct
-> > to pxx_user_accessible_page() callbacks.
-> > 
-> > [agordeev@linux.ibm.com: rephrased commit message, removed braces]
-> > 
-> > Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> > Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
-> > Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
-> > Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
-> > ---
-> >  arch/arm64/include/asm/pgtable.h             |  6 +++---
-> >  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
-> >  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
-> >  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
-> >  arch/powerpc/include/asm/pgtable.h           |  4 ++--
-> >  arch/riscv/include/asm/pgtable.h             |  6 +++---
-> >  arch/x86/include/asm/pgtable.h               |  6 +++---
-> >  mm/page_table_check.c                        | 15 ++++++---------
-> >  8 files changed, 24 insertions(+), 27 deletions(-)
+On Thu, Mar 12, 2026 at 01:57:57PM -0700, Andrew Morton wrote:
+> On Thu, 12 Mar 2026 16:02:40 +0100 Vasily Gorbik <gor@linux.ibm.com> wrote:
 > 
-> Andrew, may I get your Reviewed-by or Ack-by for v2 so I can take it
-> via the s390 tree as well?
+> > On Fri, Mar 06, 2026 at 05:16:30PM +0100, Alexander Gordeev wrote:
+> > > From: Tobias Huschle <huschle@linux.ibm.com>
+> > > 
+> > > Unlike other architectures, s390 does not have means to
+> > > distinguish kernel vs user page table entries - neither
+> > > an entry itself, nor the address could be used for that.
+> > > It is only the mm_struct that indicates whether an entry
+> > > in question is mapped to a user space. So pass mm_struct
+> > > to pxx_user_accessible_page() callbacks.
+> > > 
+...
+> > > ---
+> > >  arch/arm64/include/asm/pgtable.h             |  6 +++---
+> > >  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
+> > >  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
+> > >  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
+> > >  arch/powerpc/include/asm/pgtable.h           |  4 ++--
+> > >  arch/riscv/include/asm/pgtable.h             |  6 +++---
+> > >  arch/x86/include/asm/pgtable.h               |  6 +++---
+> > >  mm/page_table_check.c                        | 15 ++++++---------
+> > >  8 files changed, 24 insertions(+), 27 deletions(-)
+> > 
+> > Andrew, may I get your Reviewed-by or Ack-by for v2 so I can take it
+> > via the s390 tree as well?
+> 
+> 	Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+> 
+> It doesn't look like [1/4] changed significanty since v1?
 
-	Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
-
-It doesn't look like [1/4] changed significanty since v1?
-
+PowerPC page table check support landed at the same
+time v1 was sent, so v1 was missing PowerPC header
+changes, which was reported by the kernel test robot:
+https://lore.kernel.org/all/202603050830.LXQcUa5Z-lkp@intel.com/
+Hence, v2 to address that.
 
 _______________________________________________
 linux-riscv mailing list
