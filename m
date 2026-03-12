@@ -4,117 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F81FED2EB
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 08:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977CAFED2EB
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 08:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Eiv/b+YO4n7W2fauJsb/jz9kiRhCMZuvr5KhL0kfq/o=; b=T20npVjm3bQ+OQ
-	4a9X6J9QiSVkhbZbo61tQ7kqoA3j+mDWLdckm+Lb92PrGTvEzuTl/QinLWM/lQbSuLMvdY2ZfTFj0
-	lSELlD7yKAcSYpIcpfn4p34osW3q/G2Nm4RET4UkBqCAMbxLiYkuZ3V9B4amfYZityONXCZlO5oBk
-	WecM6DSBOKa7d4AxruF4RUPcw/JuZxCAnX7DrGTq2TX2Bhby8xG9sRZ5EgUpr1DnBX5ok3+Zw9yFb
-	S9EJmzh89HTEH9baILqp8wtR9OBnySkGDsBof7c7xhmPcE9YxUJkxBRIaDnjBQYOtmoFbEoQOTU5W
-	VjBS1UKdkchkpsANHsIA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qLmPAGrVRKpLK6tw6IVvGoZ5f35IEF8JvjNxdqT373Y=; b=21y15PvrorxCaI
+	feInItYCGm007r6TjMVhkegFQUa7dxwr4rvrHGB2tO7lW1gBR+35UsnJ27r7JkJSMNYqU5NvDoHpD
+	xTZj8bfcgPv9zFLb+zL15rIPVSmamXiZF90alDjV6e15E3dh8QSBpZqjR3V+gnzUCyIGYufpKOm6S
+	36HZipFnDx6lnAoxybVQEUlDFzfJZazY0cRIJObfLs7dn4VGt4ApH9S4SX1l8o1MeQ4oqp+JUaaYI
+	u02WqOuhYwZ+IJuZ7S/KJ4wAII9izvZl0R6wyTlfXtZftVedAl3xU76rGr+DrYvqLn1Lnn2GnAmEw
+	romVL/+10d0UfzEwvY/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0bZM-0000000DeSP-3ate;
-	Thu, 12 Mar 2026 08:39:00 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1w0bdY-0000000Del3-0NJL;
+	Thu, 12 Mar 2026 08:43:21 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0bZL-0000000DeRN-12Y4
+	id 1w0bdS-0000000Dek2-3lZc
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Mar 2026 08:39:00 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-48374014a77so7748155e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Mar 2026 01:38:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773304736; x=1773909536; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tXrAFYR5bIhSumOFjuc1G0swOeqj6K0Pq1d0oWdhjWU=;
-        b=kWXVmDGOrEI/c0dfGsKm/XXJFuYc1x/lnyO+3N/5VLpeCHtXRjuwJRmyfiL3pOzOHF
-         xmBeLEkngRGDzecE4mkaac6NrrilKw51bHgItokf3gHXUFAf/56RyB5aTlJPsHMzDCUJ
-         8eze2Dt8k46mcEnC9YEdiAirVgSZHKMEnVpaP6mCZD4KVILxeX3MgsWjTqdr00w26HMY
-         0Q7qH9M0BX7562RTR+7lq0KjhPsQQ8nhFmo8nl0ZWRL+N1le2Tc3jJr0JdX7J6WirTso
-         SpHkC2ZCPA4miolQWr8BTE1hUiHd78K9eHAl7OykfckSkOXGEm8OhN9fdYNgxRwwltFS
-         MMew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1773304736; x=1773909536;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tXrAFYR5bIhSumOFjuc1G0swOeqj6K0Pq1d0oWdhjWU=;
-        b=NCftxXtKZz9mN8vRWFJZpzQes9HAQkLvhPfwwIFdLH4BA60sYuhyf6epec/VopD7ZS
-         aL+0Z4+loA+F52vao4A3Kxy024Ku7WSVbs9BNn0VUB1kg5NDQHBJYSxrPgnvJYxL3JxF
-         k18jvxVgj+kPbT/AGAObBEDZr7jV6ASkTIWT1slQGUoHhpMyJV6PrVdstaaW6dhaJKtB
-         DNloDQ6J9bEkSU0mM5mhyaPCDqQuIxxp2rlXbnQKagmSYOWfU5hWu9tGP05RrYDxDHnT
-         3KrRfJfd5NOaPREvGSzaYiFyXNJqdw530Gch0/Mrv77kEcGUP8v6Fr0AfIuxPBNLAmyL
-         janw==
-X-Forwarded-Encrypted: i=1; AJvYcCWVpzHukoY6urQgq5WQaBx8TRQ9pGng7t4lLUhij325U7QtLNu3P2VnVtgfanDsTwMFB7IKqBE5L2F5oQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3SGan4PECCej0paS2EquAEIuhJT7v42S66QRMfrXNCE+icZ9+
-	lAYV8oyZnK5bHfirKiouS8zrNLz35xq/X3VGy6zDWLmj9ebuL4jOovvU
-X-Gm-Gg: ATEYQzx6cGGy8deF2F7VXMgMkG28FJbflwVFehRuMCa0r0O7mpXZ8boKyl1PutQvCln
-	Ag08fY1t/kGQ2kTGp6KvZiajKN5Use6JpLbKrL6GltGsvdkLztwTkoao11sDakB8VtUSlw0hlnj
-	pdT8S3a2XumdTJwVOYxKcnGUUwC5V8TkNfdV9WgYReWcMniPYxHXAE83vELhV0QH6iqctN35OM9
-	9PDeByszTpQ7iz8c29S1/rXF8GWyRBehq65ffDSteoiQUNzYaI/1d4hwXL8dGj6KnaNPM5UsWBK
-	IixeCSjahPHoF6rxkdJmTQmc08DJ3rg3HSKi2BCopKo1nmd74GKTSU8YgOlt5kqvaVapQClKWa5
-	j41BWseViM0R9LjUNODmfnuQGTLnTTvmL+6IxmWj/i9aKo89PF58xnXbUr+W8+BXMikribrCtUF
-	NMHSsjzONfmkeMKfDdC300heT3sUKs08mpspDJoPZInmrNED1qlCCmsplAu69ohP9J
-X-Received: by 2002:a05:600c:3551:b0:477:7b16:5fb1 with SMTP id 5b1f17b1804b1-4854b0cbe81mr96719315e9.7.1773304735965;
-        Thu, 12 Mar 2026 01:38:55 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b5f6bb4sm111774365e9.4.2026.03.12.01.38.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 01:38:55 -0700 (PDT)
-Date: Thu, 12 Mar 2026 08:38:53 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Christoph Hellwig <hch@lst.de>, Andrew Morton
- <akpm@linux-foundation.org>, Richard Henderson
- <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, Magnus
- Lindholm <linmag7@gmail.com>, Russell King <linux@armlinux.org.uk>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai
- Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Madhavan
- Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas
- Larsson <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, Anton
- Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg
- <johannes@sipsolutions.net>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
- <hpa@zytor.com>, Herbert Xu <herbert@gondor.apana.org.au>, Dan Williams
- <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>, David Sterba
- <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>, Song Liu
- <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>, Li Nan
- <linan122@huawei.com>, Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld"
- <Jason@zx2c4.com>, linux-alpha@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 26/27] random: factor out a __limit_random_u32_below
- helper
-Message-ID: <20260312083853.01dc18d3@pumpkin>
-In-Reply-To: <20260311222935.GA3161@quark>
-References: <20260311070416.972667-1-hch@lst.de>
-	<20260311070416.972667-27-hch@lst.de>
-	<20260311222935.GA3161@quark>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Thu, 12 Mar 2026 08:43:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1773304989; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=F5hSwpNZcQtPKx7PQE4uUw6GIsAXX1/M4MwaBj7AJ8XzgPjtg/nW1GQ3DCbHGYuda2RvWQHaKnVoAgvLUhf4RViwXDOH8++InsmhJGcIdus2Pw6Nqx6Tg0yD7hCowC3rHtRo3z7lBVnVJnQjL73IayheJ/KOXnJXegTVi3AJYCU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1773304989; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=uQj6ZycW4k8NABW6ZEGD6JBqWI4xAvj29ErMyDzsZ7k=; 
+	b=m2l6mmAxbSZ6YrZB5dsSZ/LhWb93JExKcXB0CoLvvqTJPEs9v0Dm3AXo8bPzI/gtm6ki63XzJDz0ZKmSEKBHztal2mjNExQSon0cBFiQsxesCdZLWh6uDabGPDPF4zX/7YhmqVqOo3bx4JLl3A2bgsWGrx6PlmReDceuXsXrTko=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773304989;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=uQj6ZycW4k8NABW6ZEGD6JBqWI4xAvj29ErMyDzsZ7k=;
+	b=iGqgAF3ElbsFNoBBYvYlk+7yISCfZose0UO9SS4fheago7uHeddrXBQot6fi8PXw
+	aHkloALKzy/Djrmzef/fbzPgRvjeCI+RKyGUb5QaCES88o08X3hyckMyXvv6INm73IY
+	K8GNxEV5a4iTihTzxZcKAjv0xoF91jwrm+RWOLB0=
+Received: by mx.zohomail.com with SMTPS id 1773304988251269.8455882910689;
+	Thu, 12 Mar 2026 01:43:08 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH 0/2] gpio/pinctrl: spacemit: Add GPIO pin configuration
+ support for K1
+Date: Thu, 12 Mar 2026 16:42:41 +0800
+Message-Id: <20260312-k1-gpio-set-config-v1-0-8c3541da16b1@pigmoral.tech>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MywqAIBBA0V+JWTfgA3r9SrQoG20IVDQiCP89a
+ XkW976QKTFlmJoXEt2cOfgK2TZgjtU7Qt6rQQnVCS0VnhJd5ICZLjTBW3ZoxdBrGhVtq4EaxkS
+ Wn386L6V8uku2DGQAAAA=
+X-Change-ID: 20260312-k1-gpio-set-config-f0873e92ebac
+To: Linus Walleij <linusw@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Junhui Liu <junhui.liu@pigmoral.tech>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773304980; l=1284;
+ i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
+ bh=f+PIqqu6oVpYXE4fiunpYM9+RC9U5ZQdIJciIwi3PyY=;
+ b=5zW2jnVH1u6pfK3Opx9MYniDsQj3a+gJXL+kgsic5po1fkwmnfqQDhiSxKdD/08ykbVl2Wnfq
+ 33jyxJufWOAAXHu/XQ/JCfVvmzJZA3UMs2Zh+nGhnJcwaO/FuMdCroW
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_013859_335679_B37D8817 
-X-CRM114-Status: GOOD (  25.35  )
+X-CRM114-CacheID: sfid-20260312_014315_321353_003F41F4 
+X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,52 +91,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Mar 2026 15:29:35 -0700
-Eric Biggers <ebiggers@kernel.org> wrote:
+This add GPIO pin configuration support for the Spacemit K1 SoC. Some
+use cases require configuring pin attributes like pull-up/down when using
+GPIO lines.
 
-> On Wed, Mar 11, 2026 at 08:03:58AM +0100, Christoph Hellwig wrote:
-> > Factor out the guts of __get_random_u32_below into a new helper,
-> > so that callers with their own prng state can reuse this code.
-> > 
-> > Signed-off-by: Christoph Hellwig <hch@lst.de>  
-> 
-> I think I'd prefer that the test just uses the mod operation instead,
-> like many of the existing tests do:
-> 
->     prandom_u32_state(&rng) % ceil
+A practical example is the SD card detection pin on the Banana Pi BPI-F3
+board. Since it lacks an external pull-up circuit, the pin must be
+configured with an internal pull-up to function correctly. Such
+configurations can be specified directly in the devicetree:
 
-Or possibly what the old code used:
-	(prandom_u32_state(&rnd) * (u64)ceil) >> 32
+    cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
-Which distributes the values evenly across the range although
-some values happen 1 more time than others.
-I suspect that is good enough for a lot of the users of the cryptographic
-random number generator as well.
+To address this, add the set_config() callback to the gpio-spacemit-k1
+driver to enable pin configuration through pinctrl, and modify the
+pinctrl driver to return -ENOTSUPP instead of -EINVAL for unsupported
+parameters, allowing the GPIO subsystem to gracefully handle them.
 
-	David
+---
+Junhui Liu (2):
+      pinctrl: spacemit: return -ENOTSUPP for unsupported pin configurations
+      gpio: spacemit-k1: Add set_config callback support
 
-> 
-> Yes, when ceil isn't a power of 2 the result isn't uniformly
-> distributed.  But that's perfectly fine for these tests, especially with
-> the values of ceil being used being far smaller than U32_MAX.
-> 
-> There's been an effort to keep the cryptographic random number generator
-> (drivers/char/random.c and include/linux/random.h) separate from the
-> non-cryptographic random number generator (lib/random32.c and
-> include/linux/prandom.h).  This patch feels like it's going in a
-> slightly wrong direction, where random.c gains a function that's used
-> with both cryptographic and non-cryptographic random numbers.
-> 
-> And if someone actually needs a fully unform distribution, then they'd
-> probably want cryptographic random numbers as well.
-> 
-> So I'm not sure the proposed combination of "fully uniform
-> non-cryptographic random numbers" makes much sense.
-> 
-> Plus the '% ceil' implementation is much easier to understand.
-> 
-> - Eric
-> 
+ drivers/gpio/gpio-spacemit-k1.c       |  1 +
+ drivers/pinctrl/spacemit/pinctrl-k1.c | 21 ++++++++++++---------
+ 2 files changed, 13 insertions(+), 9 deletions(-)
+---
+base-commit: b29fb8829bff243512bb8c8908fd39406f9fd4c3
+change-id: 20260312-k1-gpio-set-config-f0873e92ebac
+
+Best regards,
+-- 
+Junhui Liu <junhui.liu@pigmoral.tech>
 
 
 _______________________________________________
