@@ -4,143 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC194106ACE1
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 19:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C53C106ACE2
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 19:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R7I9/6t128gDIJmJoJfpUIYlFtN4XTFjU9rLxqNpZm0=; b=a/Lno0XOUzZB1n
-	h1rweyEyKW8nYRBV3Ml6Z3MhBauuPiIs8LDGtKUwgaGo9E+fhA18ojwFjNGii5zdXLSPNrGwB+tMA
-	cAJBL6eFMIMA8EfbXw4HJLa5rjH1x/dxsaG6V+7AP+F4P1CNAxAlG8mN3y4xwj6a0QMNzdmaSW6Wo
-	vyEWw6PLXtTp4dyYLIh+Nugzl0CucaWLJlVEpYotwwZCmYF3CfqFgKhHit7gVhqch2siiCeDhK7nz
-	4Y6P1SpQJeUbIqW9tWolK55qe6U0D1cuVxLbWYIFpTJE7vLNt2gqxeIcF58UTL6zKGaP4FOPkWMod
-	YMzXv/fye/kCzDbXnPRw==;
+	List-Owner; bh=TBJhf/TyJJkIJhVdh0vBwIMbxbbn11A+zXsdXiyEz3c=; b=cxOILqPZUtrQve
+	ETntqIQVzIwH8lExY427wqyB1JjaxBOK43DgTKU4bRaqVrphweflGOnYBJoTwcE0zETqW1le8KBCD
+	PBwYxO8oMrRUzUuT3v46Tia7ySvNOQEqDlTtmaCEqVBd2f2PS5JTAqmjMIKG5rZY3qn2RbI/Jpr/k
+	UYQy5YLTEcWWGxQayTp8LbRehPIPDyjdaXk1JvLNFCRUR4vDo1uNPFp+qmsq7sZ9GgOG/5tjXP2zb
+	iQiOXPJcTLWwKbCjeSLOZovooSMf/oZH5COgLDHKhEjOIjcKTg4AbWPhlDu2ZjS4D5dwj2qiNDLND
+	6diadpkcrW4yl6JksBqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lYz-0000000F43c-0yye;
-	Thu, 12 Mar 2026 19:19:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w0lj1-0000000F6Mm-3Oje;
+	Thu, 12 Mar 2026 19:29:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lYw-0000000F400-3dYz;
-	Thu, 12 Mar 2026 19:19:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=FN0iLvgqSyaZiDl0c3ZhPpZly7Om5f6dGlIUMbmjzk0=; b=Rjyu4ApzIxwhbYaBKr9aLMN4mW
-	wTQ5fY8ljYeOKQc85LselN817PPUcLQiZnw97paxa4NL5iWGghfHegh39Deoj+qWIq2HdAv8sAMfH
-	IcT17lT5ywum3IO3s5G2+QJvj9/NtREj4AT7qGXtcmb1Tw5DMZQqeaDUTXFoJIIC55JdndywOcrrG
-	sYypCCcg+6yLStBRJbTcEtHOMkVFumuTUtQK9Q6sPq49nYZsfMmZvqgWAjw170kHjPYvcXcj1UHEJ
-	aRyi0B6j9b/cGT2ha/Jzw4IDlAkQXOgpJN66Y7aNCZlFWvC4KO7wHGGxMGk/bkxkit1waypSaE7lH
-	gZ3B46Bw==;
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lYp-00000001rHE-2ImK;
-	Thu, 12 Mar 2026 19:19:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SCUFLp1CvJedzR4MwF9yFcypz3w/fRljMwPR99hW+f+U7XDRkZ6FpiKgGBxYxa2pWSEddIK1XwqGtuXqESYN7MYtojSFVa8sI4wl3ZVfPHTTGe9WQROeDrfL0N0MiC4URoME16Nkw9y1K1jkQgbhuj/kiUZh1fp3iNj11J+v5yVgzslCJ/Y1eiWChStqTWHP3jI3V/qYxSNrZVoyfhOfE0WpzEgFigEH2TgIjfvtYdcWwnVFbYqClEeLac9k1UeunXcC+7B+U2/hUErxk6lzD9H53IDN72KTuD7tIXQqlUrHUELxyea0yR5F+XbECB6b0f82KNYX1o7eQ6Uj5qy1lA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FN0iLvgqSyaZiDl0c3ZhPpZly7Om5f6dGlIUMbmjzk0=;
- b=nYmrgWbeDOnanGnfeKHbiE/oFq4QPy4UnfpuWtGbj2D6s+0mma0d7BMz0cPWkasqhsyFS73mbGe40RvDqOdBmy0+wTc1NnJBak7zgkPYGiNGdeXnrlewxV49vr+VBuvgbPRzWUrBbB88pqfIIja0Dyk+mAY4/HkzrgFzlCrsI+Zjbg90zCWSJ875lGBhMlIyoIwMrA5fRNvkBblaAAtwH7p/0gNKByMyfGlyJmdjsMxQqgrmk2/GSu1VcEHvyEaeBp9BBPZHkUxuiNspCo6cfW++U6E67WRHQuCHivZbFmTYF4Z+u+lc6zhtHSSyE5fK4Nv/hn4TSBL8ns57c+wSjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FN0iLvgqSyaZiDl0c3ZhPpZly7Om5f6dGlIUMbmjzk0=;
- b=QrxtgTzx0Cnj8qBJ1Q2jyXHdsGOnSCKfICLEb97i7JpV7WR/GcJ5+aNaFRkj/0gZNPuVOb3w+ep0UKEpF5FWgyrDHs/tQvhcG70SBi4l6n17vEXi1YSI2jnF4sVodag1NA61iAP0dPxSXJY3DMzKOCD7xJ3eGOKZGtIU4nvlTj8x7ivoKd1GWPVxw1/cyew4sMnuVBeob5+ghUTw9kxI2vuJzhRDnLkq9w5tjNmv/GQ9ZH00OV3yveHgmQj+EFuh5mOBee9ERw9KB8DzHYAu6KdTZA+vNk7G8przGn6shkaDZif30Ac3CZax0XvfvkuDYzfh/9Yav50EnbVl+OY9oQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAXPR04MB9124.eurprd04.prod.outlook.com (2603:10a6:102:22f::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.15; Thu, 12 Mar
- 2026 19:19:01 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9700.010; Thu, 12 Mar 2026
- 19:19:01 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: linux-spi@vger.kernel.org,
+	id 1w0liz-0000000F6M8-2nF3;
+	Thu, 12 Mar 2026 19:29:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4FB6D60142;
+	Thu, 12 Mar 2026 19:29:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1CFC4CEF7;
+	Thu, 12 Mar 2026 19:29:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773343746;
+	bh=YOpLJ11dYkodZx+8r67n8RhJ76dQINyNi6epYf/ZdHo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=D5HD7ub66roaJWE7nrlmZAdflnSN0hO7otfgMZKtfYptdRiQTxOped1BoFkMJPpjl
+	 mH9m12adCkTI8dW3Uw2bSQccqFmWiGxOgZgwkl8VEI3kLYpji0j6otmhnt2X8pJBkS
+	 d9n2kEACyQQ233Akhzuf1EUppbZ76a/Fh6nI/O3LY0UyrGQfiYI/qFTHHZzhUlZ0Wc
+	 RH11N4B7/2JfpXNL3XfCBwtHe1XgaZATYAGzrYiPQoeKPR1+AKl6IpUrkktXCzQFV2
+	 xZs80hRlOi6SdjYJHSHauWWQ+yIS/dw25//+hVMfrNvAegcqoCSuk8G1c2FCRi4X5A
+	 9x6bga13XCQVw==
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Jann Horn <jannh@google.com>,
+	Pedro Falcato <pfalcato@suse.de>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Kees Cook <kees@kernel.org>,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Brian Cain <bcain@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Xu Xin <xu.xin16@zte.com.cn>,
+	Chengming Zhou <chengming.zhou@linux.dev>,
+	Michal Hocko <mhocko@suse.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Stephen Smalley <stephen.smalley.work@gmail.com>,
+	Ondrej Mosnacek <omosnace@redhat.com>,
+	linux-snps-arc@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org,
-	linux-rockchip@lists.infradead.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	broonie@kernel.org
-Cc: Frank Li <frank.li@nxp.com>,
-	Pei Xiao <xiaopei01@kylinos.cn>
-Subject: Re: [PATCH 13/17] spi: stm32: Use helper function devm_clk_get_enabled()
-Date: Thu, 12 Mar 2026 15:18:47 -0400
-Message-ID: <20260312191849.3483369-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <d239cda51bb3dcc84da4a7194a30f3be82422f70.1773306858.git.xiaopei01@kylinos.cn>
-References: <d239cda51bb3dcc84da4a7194a30f3be82422f70.1773306858.git.xiaopei01@kylinos.cn>
-X-ClientProxiedBy: SA0PR11CA0050.namprd11.prod.outlook.com
- (2603:10b6:806:d0::25) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	selinux@vger.kernel.org
+Subject: [PATCH 02/20] tools/testing/vma: add unit tests flag empty, diff_pair, and[_mask]
+Date: Thu, 12 Mar 2026 19:28:57 +0000
+Message-ID: <ae25ef9cd48e20553babaad3868da1cf74f16af1.1773342102.git.ljs@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1773342102.git.ljs@kernel.org>
+References: <cover.1773342102.git.ljs@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB9124:EE_
-X-MS-Office365-Filtering-Correlation-Id: cafe27e4-5d9f-4509-b351-08de806c3757
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|52116014|38350700014|921020|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 3aEIg0x714ONy/TGnss+dpNElwUBDBOtqtjeVADmFEq4l2NmUWF0QuFTOp25HCtLDclVsqiZtduHVdhyrUSEr3xKmoo/eLTv86w4eLVq7zDhwKeA3mqX7vKmHS6yMcfz58ustb6/IpI56s/28yE8/r1TFJVZgRh0BWwhzPjxY0DIrm26HcPxKlH9v3SUh/4Lzed8XUJiJkQ8TemnhEttYpclV9ibjW/iY4JkZxzKpuonSXPdsxJbGePB4tEO0FI9CYD1zY4br4prOKCM9V46mFGLYcuscnceOPkri1RM3YTPJ+1rg9s9OSO58Ke21bcoMZBA0HMSG0xK3BXBbkDiANdvSxLye8ruSZ5q00Q/E8grzKI3n2j5Tc+QpF9hkb8PrIbvPguody9XOSQxgpcyOMpmv8BdeLFXgqXTUQUC9anMDKus3lVsa7d4vjO5zDnz0kxdh4UoMseunbkYujGHfC9z7Biowl7mk8E3PQIr6+LxbmarNSrLCTEn2YuGGEoAPZULSCcLJRVa5NS+jzed6v2HR1pnSjSP6vbbkIphm3RGbrUXLJNRe/4DIDHRCHlxObaBr64rUHh4nm/sCON0yyQ5cMVddXF6+glzHo1uaiPONNkSJKRkQCV2T7YlrlOc/ey3op/gc7cp9d4o3wuTFBzvnw0dAlYNIbQE6UlM8ar5FVMpP5qwRENJd82JzOkgBph+SGiW3pFjnPaC+Dhl0E2AXQgSjLRQCho4qkWlZ120ycbmRajd8o3h2mkS/Nnuk323fi7fXOMCRuvUvJVwzTvFnkTmPU4sla0HY1PoPFtzG1gCb0g9UUtlGp2kK1es
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014)(921020)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tW+A9EX5RZ5EsqzQUPb05l1LZf2iFbW9gwYEfg3lDMd0RF0RhGMDnR1ezXae?=
- =?us-ascii?Q?V3pY3SBygXvaXs663Rjs6TLluyjyi1M7/zLWwYKy16FHMBpznQ57QaLsK7+w?=
- =?us-ascii?Q?QuDBU/wG1RLyrH+HjRtYdTRC9iD9SpALFwEP/DQ98HTqYNvzsWDT+SOsgQjc?=
- =?us-ascii?Q?KCGau/PTBaKVI+vmdp2ugichMSpsUNtPHlsHMwD9Ej4bPFwDP9QRScRQ5v3Z?=
- =?us-ascii?Q?QEEato9CO/gOgWoG1Jwzwd/imbBt6jqOouC/OeiFKynQuMATpoYGFhZUO05W?=
- =?us-ascii?Q?EtPbzNhc4HfRAG3Yv/YCwgVwq4Pz1RozCupHlRKp83+de55oSb2UqRwP7uAL?=
- =?us-ascii?Q?rEA4YuixPVMRP90KuyRjav6HiOcUfcU+4hwuIxqTO31dKDaGcH9e1qFlrdlc?=
- =?us-ascii?Q?EosJ6jWv08/KRfZU8jHCfww6gnUpLfmkd8xeOjWHeJJdVifri9/FEluMBQPn?=
- =?us-ascii?Q?c4n7+mIzTI/tfDiMceK3QFlqIbqIaZKHGXq7wXRkwcmCKqItw+R69fSO8R2O?=
- =?us-ascii?Q?3DnEGjVCp2tkQma+fkOkwLmnxuxkE1NkFLvT7B4/zDI2kVBtROx8CapZf5ZR?=
- =?us-ascii?Q?RhYNqPaxu36JtgsPz3hotwDA1VjABGFEl3Uc1yw2FyHysXX6+WpOWFXqT7mn?=
- =?us-ascii?Q?a8pul+rLAM8whnAzcHRI7+TVbe21MeMpdqxuU4wjK5X2b6kGW8dYwBDku9kF?=
- =?us-ascii?Q?83nniHbh0YQet6lMfRKAeYhTm78Nv6YogMreyUNdbQ2OfFZb2XyflL8W8ZDF?=
- =?us-ascii?Q?TASs9owrvQ0r89+sQ1owEqR/qDF9293ZGNlu74isQh5mUI1s/h9/vZHhB9mp?=
- =?us-ascii?Q?ybuG4pjXngaPao0OEwdhitUUARggDJmI8P7lNei4DKNi7Ou+dEWev5kOG4/E?=
- =?us-ascii?Q?q3DLT+XZMmTdWsPs9xPhYY8u3YiiqzrVVHdFfVGADWwhS7/1lDCggtsoPG7U?=
- =?us-ascii?Q?1Hz5YS8s/jVwnT3bnG+3sW22Gh9O54upq9aCxP5B/CfIq9NF0280dXlUNGuL?=
- =?us-ascii?Q?WYWi5PfQX3POpWT81ltQIJ/4eFBbLZK7FD6klSxpBC/xurtzJ6J1TZs+PFkm?=
- =?us-ascii?Q?qIkVw55NSTXRQ41MWOHZJBioAko0F9D5GiP+FK6x+lkyC000UgzUE5U8Vof8?=
- =?us-ascii?Q?rLSZic0DR2UITPOjZkioBz9SV5gNSjfryJJuZGQU5hw3HFFgvWN7vOz6AmXf?=
- =?us-ascii?Q?eDmDOPTKxgCDllAjvos7ZX1g5/TiehY29vHMgR4s+UhVKJgJun/TLMziugx5?=
- =?us-ascii?Q?hcfT4C88eU7DS9zJFP0EjKWITniDL3QuB4+5/iE3GArHJSuvgFXpLVCnR9s/?=
- =?us-ascii?Q?2iPf9AALVoMQAhXrXY+e2aH3VJC3ELFeYXKnLA46WlXcl8ZwkqN6/Bzi7bOi?=
- =?us-ascii?Q?Cdzzi2+LAjjimV3er1LEK3/S0ySXb/NmWnn9oMPd3eTNrqtN+ITImWnp2Wex?=
- =?us-ascii?Q?asXFG7/5ILsiUszPCAsIvj4rggy04hqD0xrP+Mv5HKpa1mbEXuYTa/dYsxZj?=
- =?us-ascii?Q?GjUWUOtcqr7F6q3lMLhYTKebtI/xTQ1wk90AX6/eJk3jo6x8aMQ5DXaEoSPb?=
- =?us-ascii?Q?sIgUhsFaiKyoR4jsH8bq61PuwAIguf4b8txUQKFIV8QBUu7jY8a7qDZa0p2m?=
- =?us-ascii?Q?urGnCJWXNXBBBJGiHpDANAesntuofba0atN0wUIerSsMldX5c2N2jYEomY6S?=
- =?us-ascii?Q?w3mjHjZPQ3p4xJpr+P9ps7EvbJk3Hx9LkvwWgKxqDU8KHa0j?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cafe27e4-5d9f-4509-b351-08de806c3757
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2026 19:19:01.2102
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pLSmNN5PTAZaNj78b1rum8bHuxMH5RZQei+ffR0AoGypPT06GaMvb9FJFI7l0IQ8+Rgq9MqW5ibtnVrP+DxCzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9124
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_191907_653025_54A4AB09 
-X-CRM114-Status: UNSURE (   5.99  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,23 +127,233 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li (AI-BOT) <frank.li@nxp.com>
+Add VMA unit tests to assert that:
 
-> +	spi->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> +	if (IS_ERR(spi->clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(spi->clk), "clk get failed: %d\n", ret);
+* vma_flags_empty()
+* vma_flags_diff_pair()
+* vma_flags_and_mask()
+* vma_flags_and()
 
-AI: Bug: format string references undefined variable 'ret'. Should use
-PTR_ERR(spi->clk) directly or remove the %d format specifier.
+All function as expected.
 
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, "controller configuration
-> +				     failed: %d\n", ret);
+In additional to the added tests, in order to make testing easier, add
+vma_flags_same_mask() and vma_flags_same() for testing only. If/when these
+are required in kernel code, they can be moved over.
 
-AI: Missing error code argument to dev_err_probe(). Should be:
-return dev_err_probe(&pdev->dev, ret, "controller configuration failed\n");
+Also add ASSERT_FLAGS_[NOT_]SAME[_MASK](), ASSERT_FLAGS_[NON]EMPTY() test
+helpers to make asserting flag state easier and more convenient.
 
-Frank
+Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+---
+ tools/testing/vma/include/custom.h |  12 +++
+ tools/testing/vma/shared.h         |  18 ++++
+ tools/testing/vma/tests/vma.c      | 137 +++++++++++++++++++++++++++++
+ 3 files changed, 167 insertions(+)
+
+diff --git a/tools/testing/vma/include/custom.h b/tools/testing/vma/include/custom.h
+index 833ff4d7f799..ce056e790817 100644
+--- a/tools/testing/vma/include/custom.h
++++ b/tools/testing/vma/include/custom.h
+@@ -118,3 +118,15 @@ static __always_inline vma_flags_t __mk_vma_flags(size_t count,
+ 			vma_flags_set_flag(&flags, bits[i]);
+ 	return flags;
+ }
++
++/* Place here until needed in the kernel code. */
++static __always_inline bool vma_flags_same_mask(vma_flags_t *flags,
++						vma_flags_t flags_other)
++{
++	const unsigned long *bitmap = flags->__vma_flags;
++	const unsigned long *bitmap_other = flags_other.__vma_flags;
++
++	return bitmap_equal(bitmap, bitmap_other, NUM_VMA_FLAG_BITS);
++}
++#define vma_flags_same(flags, ...) \
++	vma_flags_same_mask(flags, mk_vma_flags(__VA_ARGS__))
+diff --git a/tools/testing/vma/shared.h b/tools/testing/vma/shared.h
+index 6c64211cfa22..e2e5d6ef6bdd 100644
+--- a/tools/testing/vma/shared.h
++++ b/tools/testing/vma/shared.h
+@@ -35,6 +35,24 @@
+ #define ASSERT_EQ(_val1, _val2) ASSERT_TRUE((_val1) == (_val2))
+ #define ASSERT_NE(_val1, _val2) ASSERT_TRUE((_val1) != (_val2))
+
++#define ASSERT_FLAGS_SAME_MASK(_flags, _flags_other) \
++	ASSERT_TRUE(vma_flags_same_mask((_flags), (_flags_other)))
++
++#define ASSERT_FLAGS_NOT_SAME_MASK(_flags, _flags_other) \
++	ASSERT_FALSE(vma_flags_same_mask((_flags), (_flags_other)))
++
++#define ASSERT_FLAGS_SAME(_flags, ...) \
++	ASSERT_TRUE(vma_flags_same(_flags, __VA_ARGS__))
++
++#define ASSERT_FLAGS_NOT_SAME(_flags, ...) \
++	ASSERT_FALSE(vma_flags_same(_flags, __VA_ARGS__))
++
++#define ASSERT_FLAGS_EMPTY(_flags) \
++	ASSERT_TRUE(vma_flags_empty(_flags))
++
++#define ASSERT_FLAGS_NONEMPTY(_flags) \
++	ASSERT_FALSE(vma_flags_empty(_flags))
++
+ #define IS_SET(_val, _flags) ((_val & _flags) == _flags)
+
+ extern bool fail_prealloc;
+diff --git a/tools/testing/vma/tests/vma.c b/tools/testing/vma/tests/vma.c
+index f6edd44f4e9e..4a7b11a8a285 100644
+--- a/tools/testing/vma/tests/vma.c
++++ b/tools/testing/vma/tests/vma.c
+@@ -363,6 +363,140 @@ static bool test_vma_flags_clear(void)
+ 	return true;
+ }
+
++/* Ensure that vma_flags_empty() works correctly. */
++static bool test_vma_flags_empty(void)
++{
++	vma_flags_t flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					 VMA_EXEC_BIT, 64, 65);
++
++	ASSERT_FLAGS_NONEMPTY(&flags);
++	vma_flags_clear(&flags, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
++#if NUM_VMA_FLAG_BITS > 64
++	ASSERT_FLAGS_NONEMPTY(&flags);
++	vma_flags_clear(&flags, 64, 65);
++	ASSERT_FLAGS_EMPTY(&flags);
++#else
++	ASSERT_FLAGS_EMPTY(&flags);
++#endif
++
++	return true;
++}
++
++/* Ensure that vma_flags_diff_pair() works correctly. */
++static bool test_vma_flags_diff(void)
++{
++	vma_flags_t flags1 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					  VMA_EXEC_BIT, 64, 65);
++	vma_flags_t flags2 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					  VMA_EXEC_BIT, VMA_MAYWRITE_BIT,
++					  VMA_MAYEXEC_BIT, 64, 65, 66, 67);
++	vma_flags_t diff = vma_flags_diff_pair(&flags1, &flags2);
++
++#if NUM_VMA_FLAG_BITS > 64
++	ASSERT_FLAGS_SAME(&diff, VMA_MAYWRITE_BIT, VMA_MAYEXEC_BIT, 66, 67);
++#else
++	ASSERT_FLAGS_SAME(&diff, VMA_MAYWRITE_BIT, VMA_MAYEXEC_BIT);
++#endif
++	/* Should be the same even if re-ordered. */
++	diff = vma_flags_diff_pair(&flags2, &flags1);
++#if NUM_VMA_FLAG_BITS > 64
++	ASSERT_FLAGS_SAME(&diff, VMA_MAYWRITE_BIT, VMA_MAYEXEC_BIT, 66, 67);
++#else
++	ASSERT_FLAGS_SAME(&diff, VMA_MAYWRITE_BIT, VMA_MAYEXEC_BIT);
++#endif
++
++	/* Should be no difference when applied against themselves. */
++	diff = vma_flags_diff_pair(&flags1, &flags1);
++	ASSERT_FLAGS_EMPTY(&diff);
++	diff = vma_flags_diff_pair(&flags2, &flags2);
++	ASSERT_FLAGS_EMPTY(&diff);
++
++	/* One set of flags against an empty one should equal the original. */
++	flags2 = EMPTY_VMA_FLAGS;
++	diff = vma_flags_diff_pair(&flags1, &flags2);
++	ASSERT_FLAGS_SAME_MASK(&diff, flags1);
++
++	/* A subset should work too. */
++	flags2 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT);
++	diff = vma_flags_diff_pair(&flags1, &flags2);
++#if NUM_VMA_FLAG_BITS > 64
++	ASSERT_FLAGS_SAME(&diff, VMA_EXEC_BIT, 64, 65);
++#else
++	ASSERT_FLAGS_SAME(&diff, VMA_EXEC_BIT);
++#endif
++
++	return true;
++}
++
++/* Ensure that vma_flags_and() and friends work correctly. */
++static bool test_vma_flags_and(void)
++{
++	vma_flags_t flags1 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					  VMA_EXEC_BIT, 64, 65);
++	vma_flags_t flags2 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
++					  VMA_EXEC_BIT, VMA_MAYWRITE_BIT,
++					  VMA_MAYEXEC_BIT, 64, 65, 66, 67);
++	vma_flags_t flags3 = mk_vma_flags(VMA_IO_BIT, VMA_MAYBE_GUARD_BIT,
++					  68, 69);
++	vma_flags_t and = vma_flags_and_mask(&flags1, flags2);
++
++#if NUM_VMA_FLAG_BITS > 64
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT,
++			  64, 65);
++#else
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
++#endif
++
++	and = vma_flags_and_mask(&flags1, flags1);
++	ASSERT_FLAGS_SAME_MASK(&and, flags1);
++
++	and = vma_flags_and_mask(&flags2, flags2);
++	ASSERT_FLAGS_SAME_MASK(&and, flags2);
++
++	and = vma_flags_and_mask(&flags1, flags3);
++	ASSERT_FLAGS_EMPTY(&and);
++	and = vma_flags_and_mask(&flags2, flags3);
++	ASSERT_FLAGS_EMPTY(&and);
++
++	and = vma_flags_and(&flags1, VMA_READ_BIT);
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT);
++
++	and = vma_flags_and(&flags1, VMA_READ_BIT, VMA_WRITE_BIT);
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT);
++
++	and = vma_flags_and(&flags1, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
++
++#if NUM_VMA_FLAG_BITS > 64
++	and = vma_flags_and(&flags1, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT,
++			    64);
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT, 64);
++
++	and = vma_flags_and(&flags1, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT,
++			    64, 65);
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT, 64,
++			  65);
++#endif
++
++	/* And against some missing values. */
++
++	and = vma_flags_and(&flags1, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT,
++			    VMA_IO_BIT);
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
++
++	and = vma_flags_and(&flags1, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT,
++			    VMA_IO_BIT, VMA_RAND_READ_BIT);
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
++
++#if NUM_VMA_FLAG_BITS > 64
++	and = vma_flags_and(&flags1, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT,
++			    VMA_IO_BIT, VMA_RAND_READ_BIT, 69);
++	ASSERT_FLAGS_SAME(&and, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
++#endif
++
++	return true;
++}
++
+ static void run_vma_tests(int *num_tests, int *num_fail)
+ {
+ 	TEST(copy_vma);
+@@ -372,4 +506,7 @@ static void run_vma_tests(int *num_tests, int *num_fail)
+ 	TEST(vma_flags_test);
+ 	TEST(vma_flags_test_any);
+ 	TEST(vma_flags_clear);
++	TEST(vma_flags_empty);
++	TEST(vma_flags_diff);
++	TEST(vma_flags_and);
+ }
+--
+2.53.0
 
 _______________________________________________
 linux-riscv mailing list
