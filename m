@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D87103E2F8
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 00:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF5F103E2FC
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 01:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EVzoqnZgo/oDBJFqZTWkg8d+ymjy71K4X65pdPFt/oU=; b=w9WHF0+vRhv/pf
-	ugvMh7JgE96LpSH1gxd+fwDu1ZGEpaGnj88a9X1wuuyBFrmFI1lPCiBadP5zGa1Oz9QJ1D9sCtz+R
-	bsXd9/A32kI0HVBbE5p1JkGLrwjiWX9prKd5FnRCXTDsivAnm8oC5eSylP/2pB0PkhL1AD7Lzb4Lr
-	WF0MdfI8eLS731IL332smbC/uNKJNrQD1UwVvuX+wTOFgNXrYFZjXP6N0GWbyr41Wk+Jon3SMZz51
-	2TwZ32rFy6E9hvPbEEdks1OZBclrdkEDcjoxSEicRCmblclUWyoxJ1CzLm8EspdRKbe98N5JmKh5i
-	7XCQ14VzosVKQAIS+MiA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nVPY7/WK2//76D41ozgpHIew0hJi9EPNAGXeqhf1ndc=; b=kM0mpJkYvAthjO
+	3tW7ohQEHIqoxSQpujrbY+jWbgwCfZtfcVT1CVrC2g46dC5rXE1WYlqHTp6aNJfGza4MgVbJ0CTCu
+	B5EIzoT4RhSLNwOIzhwVs7jtr2u/QPgA+aTMOEySw89N25NzAtxrZtuTKVudTsQXPbp1/1oTVOg43
+	3BHUxPjeVi6vmwUKCHRXC73nviCfQQ00RGZX/+9o2dsFCY4+p5x5wWrQVA6WlQlESI5yFGU7t9M2y
+	0Np+cdsEE3l06nkjYbcgJ0D6h8cUxPapssiHxXOv56TfSQwZGSS+spmOGUcV3f/4kRiArLEnvomz1
+	DfFJPXlQIVb+ny9eJjtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0UKB-0000000CyKA-0y1F;
-	Thu, 12 Mar 2026 00:54:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0UiT-0000000CzJ4-11oo;
+	Thu, 12 Mar 2026 01:19:57 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0UK9-0000000CyJx-2xHd;
-	Thu, 12 Mar 2026 00:54:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77C6460054;
-	Thu, 12 Mar 2026 00:54:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC1C9C4CEF7;
-	Thu, 12 Mar 2026 00:54:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773276888;
-	bh=SuqAhThH82+S6Gh7IKidJqQh0WkKbmHEI0mLdj41Lhs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QYtQvxRUl11pl5l03BQKBUEhgz56QONgnc2kaGayekmZntDuW/DKkgurHrtCHVzzs
-	 jpzzJjdAShhodIdN30vG9BPjCGnog9HpZIv3Ee0j42lQ55g9wf0ey8DeyUwaZkDcUo
-	 4IvGmBikopdR5eDiCqVY5kEdfVy5EMQqlCxr0Rm08gOIgv6qvhtdqONByqr1wqOCXa
-	 ZSAEynUTw1U5vN3Lh/xfYRtxUECIxa4mzvwmHHsLJDVTH87rKEV1Ydpjtj8g8OkqPM
-	 cpwxJ3lGXlQMEM5y7yL+b70SoAEJHFaitkwrhg6zFleNIqac+qEk2ZzSAvW9Vp85Y9
-	 y03Osm7E2M0kw==
-Date: Wed, 11 Mar 2026 17:54:44 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, Theodore Ts'o <tytso@mit.edu>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: [PATCH 27/27] xor: add a kunit test case
-Message-ID: <20260312005444.GA31906@quark>
-References: <20260311070416.972667-1-hch@lst.de>
- <20260311070416.972667-28-hch@lst.de>
+	id 1w0UiN-0000000CzH6-2h1Q;
+	Thu, 12 Mar 2026 01:19:54 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowAAntwqkFLJpB6U4Cg--.65391S2;
+	Thu, 12 Mar 2026 09:19:33 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Subject: [PATCH v4 0/2] RISC-V: KVM: Fix array out-of-bounds in firmware counter reads
+Date: Thu, 12 Mar 2026 01:19:29 +0000
+Message-Id: <20260312011931.1352239-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260311070416.972667-28-hch@lst.de>
+X-CM-TRANSID: zQCowAAntwqkFLJpB6U4Cg--.65391S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF4fXw45Cry8Ar47tF4DXFb_yoW8Xr1fpF
+	W3Ka4YkrykJrs7t343A3yktw15Xrs5Ca98GryxGF18Cr45ZryfXr1qkwnxt3WrCrsYqw1Y
+	ya1Igas7CFy5Za7anT9S1TB71UUUUjDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQ014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F
+	4UJVW0owAaw2AFwI0_JF0_Jw1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28I
+	cVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx
+	0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwAC
+	jI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
+	0_GFv_Wrylc2xSY4AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
+	Gr1l4IxYO2xFxVAFwI0_JF0_Jw1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
+	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
+	cVAFwI0_Gr0_Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI
+	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v2
+	6r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNeOpDUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCQ4ECWmx5mWOZAACs5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260311_181952_055963_76EE454B 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,158 +90,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 08:03:59AM +0100, Christoph Hellwig wrote:
-> diff --git a/lib/raid/Kconfig b/lib/raid/Kconfig
-> index 4359971ebd04..97c123806466 100644
-> --- a/lib/raid/Kconfig
-> +++ b/lib/raid/Kconfig
-> @@ -6,3 +6,14 @@ config XOR_BLOCKS
->  # selected by architectures that provide an optimized XOR implementation
->  config XOR_BLOCKS_ARCH
->  	bool
-> +
-> +config XOR_KUNIT_TEST
-> +	tristate "KUnit tests for xor_gen" if !KUNIT_ALL_TESTS
-> +	depends on KUNIT
-> +	default KUNIT_ALL_TESTS
-> +	select XOR_BLOCKS
-> +	help
-> +	  Unit tests for the XOR library functions.
-> +
-> +	  This is intended to help people writing architecture-specific
-> +	  optimized versions.  If unsure, say N.
+When a guest reads a firmware PMU counter via
+SBI_EXT_PMU_COUNTER_FW_READ or SBI_EXT_PMU_COUNTER_FW_READ_HI without
+first configuring it with SBI_EXT_PMU_COUNTER_CFG_MATCH, the counter's
+event_idx remains SBI_PMU_EVENT_IDX_INVALID (0xFFFFFFFF).
 
-The convention for KUnit tests is actually to depend on the code they
-test, not select it, so that it's easy to enable only the tests that are
-relevant to a particular kernel build.  So instead of
-"select XOR_BLOCKS", this should use "depends on KUNIT && XOR_BLOCKS".
+get_event_code() extracts the lower 16 bits from event_idx, yielding
+0xFFFF, which is then used to index into kvpmu->fw_event[]. Since the
+fw_event array only contains RISCV_KVM_MAX_FW_CTRS entries, this results
+in an out-of-bounds access that can be detected by UBSAN.
 
-(Yes, I got this wrong in the crypto and CRC tests.  I recently fixed it
-in the crypto tests, and I have pending patches that fix the CRC test.)
+Patch 1 fixes the issue by validating the firmware event code before
+accessing the fw_event array and returning -EINVAL for invalid values.
 
-There should also be a lib/raid/.kunitconfig file containing something
-like:
+After fixing the kernel behavior, the existing KVM selftest
+(sbi_pmu_test) fails because it attempts to read firmware counters
+without configuring them first. Patch 2 updates the selftest to
+configure a firmware event before reading the counter and adds a
+negative test to ensure that reading an unconfigured firmware counter
+fails gracefully.
 
-    CONFIG_KUNIT=y
-    CONFIG_BTRFS_FS=y
-    CONFIG_XOR_KUNIT_TEST=y
+Jiakai Xu (2):
+  RISC-V: KVM: Fix array out-of-bounds in pmu_ctr_read() and
+    pmu_fw_ctr_read_hi()
+  RISC-V: KVM: selftests: Fix firmware counter read in sbi_pmu_test
 
-(CONFIG_BTRFS_FS is there because it's one of the visible symbols that
-select the hidden symbol XOR_BLOCKS.)
+ arch/riscv/kvm/vcpu_pmu.c                     | 14 +++++++
+ .../testing/selftests/kvm/include/riscv/sbi.h | 37 +++++++++++++++++++
+ .../selftests/kvm/riscv/sbi_pmu_test.c        | 20 +++++++++-
+ 3 files changed, 70 insertions(+), 1 deletion(-)
 
-> +static u32 rand32(void)
-> +{
-> +	return prandom_u32_state(&rng);
-> +}
-> +
-> +static u32 rand32_below(u32 ceil)
-> +{
-> +	return __limit_random_u32_below(ceil, prandom_u32_state(&rng));
-> +}
-> +
-[...]
-> +
-> +/* Generate a random length that is a multiple of 512. */
-> +static unsigned int generate_random_length(unsigned int max_length)
-> +{
-> +	return (rand32_below(max_length / 512) + 1) * 512;
-> +}
-> +
-> +/* Generate a random alignment that is a multiple of 32. */
-> +static unsigned int generate_random_alignment(unsigned int max_alignment)
-> +{
-> +	return (rand32_below((max_alignment + 1) / 32)) * 32;
-> +}
+-- 
+2.34.1
 
-As per my comment on patch 26, these should just use a simple mod
-operations so that the new random.c helper function (which conflates
-cryptographic and non-cryptographic random numbers) isn't needed.
-
-Maybe:
-
-        return (rand32() % (max_length + 1)) & ~511;
-
-and
-
-        return (rand32() % (max_alignment + 1)) & ~63;
-
-> +/* Test that xor_gen gives the same result as a reference implementation. */
-> +static void xor_test(struct kunit *test)
-> +{
-> +	void *aligned_buffers[XOR_KUNIT_MAX_BUFFERS];
-> +	size_t i;
-> +
-> +	for (i = 0; i < XOR_KUNIT_NUM_TEST_ITERS; i++) {
-> +		unsigned int nr_buffers =
-> +			rand32_below(XOR_KUNIT_MAX_BUFFERS) + 1;
-> +		unsigned int len = generate_random_length(XOR_KUNIT_MAX_BYTES);
-> +		unsigned int max_alignment, align = 0;
-> +		void *buffers;
-> +
-> +		if (rand32() % 8 == 0)
-> +			/* Refresh the data occasionally. */
-> +			xor_generate_random_data();
-> +
-> +		/*
-> +		 * If we're not using the entire buffer size, inject randomize
-> +		 * alignment into the buffer.
-> +		 */
-> +		max_alignment = XOR_KUNIT_MAX_BYTES - len;
-> +		if (max_alignment) {
-> +			int j;
-> +
-> +			align = generate_random_alignment(max_alignment);
-> +			for (j = 0; j < nr_buffers; j++)
-> +				aligned_buffers[j] = test_buffers[j] +
-> +					generate_random_alignment(max_alignment);
-> +			buffers = aligned_buffers;
-> +		} else {
-> +			buffers = test_buffers;
-> +		}
-
-This isn't taking advantage of the guard pages properly, since it rarely
-selects buffers that go all the way up to the guard page.
-
-If the guard page testing is going to be included (which is a good idea;
-the crypto and CRC tests have it and they already caught a bug using
-it), then the data should be placed at the very end of the buffers more
-often, like what the CRC test does.
-
-> +		/*
-> +		 * Compute the XOR, and verify that it equals the XOR computed
-> +		 * by a simple byte-at-a-time reference implementation.
-> +		 */
-> +		xor_ref(test_ref + align, buffers, nr_buffers, len);
-> +		xor_gen(test_dest + align, buffers, nr_buffers, len);
-> +		KUNIT_EXPECT_MEMEQ_MSG(test, test_ref, test_dest, len,
-> +				"Wrong result with buffers=%u, len=%u, align=%s",
-> +				nr_buffers, len, str_yes_no(max_alignment));
-
-When align != 0, this does the comparison at the wrong offset.
-
-The message also shows "align=no" if fully aligned buffers were used and
-"align=yes" if they were not, which is a bit confusing.  Maybe replace
-align=%s with randalign=%s.
-
-> +MODULE_DESCRIPTION("Unit tests and benchmarks for the XOR library functions");
-
-There's no benchmark included (yet), so that should be left out of the
-description.
-
-Also, I tried running this test on different architectures, and in
-qemu-system-sparc64 it crashes with an alignment fault in xor_vis_5().
-
-It goes away if the minimum tested alignment is increased from 32 bytes
-to 64 bytes.  lib/raid/xor/sparc/xor-sparc64.S has a comment that
-documents a requirement of "!(((long)dest | (long)sourceN) & (64 - 1))",
-i.e. 64-byte alignment.
-
-So, it seems the assumption that 32 bytes is the maximum required
-alignment over all architectures is not correct.  The tested alignment
-will need to be increased to 64 bytes, and the kerneldoc for xor_gen()
-will need to be updated as well.
-
-- Eric
 
 _______________________________________________
 linux-riscv mailing list
