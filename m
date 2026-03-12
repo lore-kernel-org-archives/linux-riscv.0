@@ -4,112 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266F81067040
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 15:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F2B106ACCD
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 17:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fo8I8LjBzldLRy8QQKTs8rm7PBoS8gr9VKuOkxNrLSo=; b=Si8Owdx6ZKcyBn
-	azRH6fbQKvCDnuaJi3pH53aw/nP5B78gfUvNzVe05QY2sOXFPNYwWzyu4ttlqIpQymjSeEObrSoWj
-	gx21trkXhKmLtK0YSgc533Cq2xGrIKDwfMSJno+v2r754AsZSemahNVPXgoyVlSMLjRABp7wIkl5B
-	OpSUEmDe927lEIQ+tUeo23MA7G1hft1CWnyXFI8hKRNvS2xLXpMEVG2uZtOeOd92cCehwNzzKNfFY
-	CgGdwNmPlJq9y3aySP5jZrJUm7vvt4FrrFVxgrVRC6qZ7NFv72JlIw2ze9RsLtmF4bslVP/whkGro
-	qO/CfjL/PGctVtNbWNOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q+HQKvPrwQSUDmOgA4yDN502so0MbgN8iZWoxo6Ny6E=; b=cfD0TRAv/U0ZI4ogr9yh2PZWnT
+	v4mfjAzyqt+MMLMvA4fJAvuoWCSv/tWIgzKTL7G4iLhTs9+A3KiJfh3IAiPlFMLeDoSfz+bfwiB29
+	QkHtwGghN9VD0a2h4Ze08ct4mZ+qCZFWqVaEVZIIlFxmWgDgUmxgm5FYOP3/dLpndwocTI7QWiFst
+	YM8aYQ0Hddu4SgN57/3jguB9pkjfA59iZGydfEVHHahSq9XuHjIiVh5seP2EU6ULkX3JCFp4Owaf2
+	9jgiiKkmnNndtyxXpQnwGRunD01Nqt707sKQ26+8uuJXm6FR7j4Di3IU8H6S+h73jolLQO91ob0C0
+	NWavsFEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hZ2-0000000EIQL-0bxc;
-	Thu, 12 Mar 2026 15:03:04 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1w0js7-0000000EivI-3ptV;
+	Thu, 12 Mar 2026 17:30:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0hYz-0000000EIN5-0OxK;
-	Thu, 12 Mar 2026 15:03:02 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62CEYoAI2256683;
-	Thu, 12 Mar 2026 15:02:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=9yQLPhF/8tvYIDT5F8gEZIM1Lj5cCv
-	oGcEOmMxBZOxo=; b=MC0pt+PeqJ/Fx0rQPpGYhy4twD3b2Kc3SyGf6uydq7veOf
-	8wSyVumxfYcS/RzLsLeDh8kl9tD8R4upozst/SCAgDPTqUvZAmWAxmio9y7OUnuT
-	z+9VkyVr2PtgAtjQ0Lx8hCSh12XXatgaPxqxwMvKJXGxkJkYajZHeGG8FFjLWuwt
-	A8sSjHM0AL5l7/rGDzvXX3n/TnC1GNUMHMp8KZgOej48GZLIJZLI1hfjuva/1XP4
-	1J3vzIqfnclM5Nt7mo5XR2o0alAXT63fVux788NDDz7JkbrDWVUnoTDzw6dMHvhx
-	oQjkY8po5xcP4wjIRBxqWDT9CJV+bVyXkR6qLRFw==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4cuh92b9bm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Mar 2026 15:02:48 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62CEN16g025674;
-	Thu, 12 Mar 2026 15:02:47 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4cuha8as0r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Mar 2026 15:02:47 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62CF2hgt59965898
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Mar 2026 15:02:43 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 613C32004E;
-	Thu, 12 Mar 2026 15:02:43 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 80C7120043;
-	Thu, 12 Mar 2026 15:02:42 +0000 (GMT)
-Received: from localhost (unknown [9.111.83.60])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 12 Mar 2026 15:02:42 +0000 (GMT)
-Date: Thu, 12 Mar 2026 16:02:40 +0100
-From: Vasily Gorbik <gor@linux.ibm.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, x86@kernel.org
-Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to
- pxx_user_accessible_page()
-Message-ID: <ttbskgg@ub.hpns>
-References: <cover.1772812343.git.agordeev@linux.ibm.com>
- <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+	id 1w0js5-0000000EiuW-3c75
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Mar 2026 17:30:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 477D44348C;
+	Thu, 12 Mar 2026 17:30:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05248C19424;
+	Thu, 12 Mar 2026 17:30:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773336651;
+	bh=W6tGZ3NCS57fycGB4Z6FjTao9Hr+IRejW/1XW8Q2EbY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V9KRHsRiqVMm1UsQicox1Kr9qVSuXsJ98bMYR51K/SnUhXS1yx0aTqGt4Nm6p6XD4
+	 jRsZfPwgNxkSy1hFZEp9kv3Z9rNst9vugRPBg7pVI1nhuiGFHj67PxTHHnR8TBH2et
+	 JWZmBtLsGZhq53JfLKB5Js7T6bgp1OZlRmloKHrd207TrQq075Q+h/H/FHVjpl697C
+	 tsFPToxalvLUwM9gHDjtJ+bNoBj9ItAqDLNANw9GHpXSAH3PhAgxA2Xvd6JXe7U+fm
+	 IPum2fqKPaEib0tDzoI6TUFDKzGfWmOwnNJKR0GWUIj2baKBy7uGWCWO0xvtzi/KXs
+	 DCHoa+oZnEOxw==
+Date: Thu, 12 Mar 2026 17:30:46 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Junzhong Pan <junzhong.pan@spacemit.com>,
+	Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: soc: spacemit: k3: Decouple composite
+ reset lines
+Message-ID: <20260312-legume-unstitch-129b278e14d6@spud>
+References: <20260312-01-k3-reset-usb-pci-v1-0-022b24b7340f@kernel.org>
+ <20260312-01-k3-reset-usb-pci-v1-1-022b24b7340f@kernel.org>
+ <0abfd76f49e5cedf7bfc84eb4d9a0a1d7543f6f8.camel@pengutronix.de>
+ <20260312112858-GKH302167@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 1KsyIx1BDwTPWaT_bYuVWvLadqDOw4WH
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzEyMDEyMSBTYWx0ZWRfX9FVH7vrUmovR
- J4ljyZrodPGRPdSk7n1B/Cu0G49IAvTOnb9rnFhx7k/ZMkrjauFEAfl9mgAdqYFQ5AIeON+I65L
- aBHB+xoH0lQifsBvM+fDapqU7iShTN1mwz6wfd4HDoQHyRNUuL3SE4S+xE7l9cxyu/+VssBqPe8
- FtomLZUnwBdwc6mhzgyI+QBRIj0VvjIIMzoW/dhIAaRL2RNh8URukhOHG2aIpg3TrvdODgERw94
- bu/MNsCRkWPsIKbo7rlefYFNmgpmKQz9p4ndZ+DRs20cVYl1l6HF2M4uoujYP0HyT7PBzGeqfT+
- 8NU/fKpq9pAf5Ac3EfQsegHyszKU98eJp54aJoGeN2WHCSsZHn/zujIQWl+iQTzwRz4TdtyIETZ
- 5GC2PliLsfoRSNNNxjHHjgzxZZUP16hgpTMMKnK5UhAY3UAhROBg9q4VyPk1g6GDwAdF7Qhb7JE
- ektOqp8PyzdLfyWK8Og==
-X-Proofpoint-GUID: 1KsyIx1BDwTPWaT_bYuVWvLadqDOw4WH
-X-Authority-Analysis: v=2.4 cv=XNk9iAhE c=1 sm=1 tr=0 ts=69b2d598 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
- a=Z4Rwk6OoAAAA:8 a=qw9MI_8u0g6XvTY13mQA:9 a=QEXdDO2ut3YA:10
- a=HkZW87K1Qel5hWWM3VKY:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-12_01,2026-03-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 clxscore=1011 lowpriorityscore=0 adultscore=0
- bulkscore=0 phishscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603120121
+In-Reply-To: <20260312112858-GKH302167@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_080301_479758_93B752FF 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260312_103054_522202_95EC6474 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,44 +75,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4894150250953331253=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 05:16:30PM +0100, Alexander Gordeev wrote:
-> From: Tobias Huschle <huschle@linux.ibm.com>
-> 
-> Unlike other architectures, s390 does not have means to
-> distinguish kernel vs user page table entries - neither
-> an entry itself, nor the address could be used for that.
-> It is only the mm_struct that indicates whether an entry
-> in question is mapped to a user space. So pass mm_struct
-> to pxx_user_accessible_page() callbacks.
-> 
-> [agordeev@linux.ibm.com: rephrased commit message, removed braces]
-> 
-> Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
-> Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
-> Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
-> ---
->  arch/arm64/include/asm/pgtable.h             |  6 +++---
->  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
->  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
->  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
->  arch/powerpc/include/asm/pgtable.h           |  4 ++--
->  arch/riscv/include/asm/pgtable.h             |  6 +++---
->  arch/x86/include/asm/pgtable.h               |  6 +++---
->  mm/page_table_check.c                        | 15 ++++++---------
->  8 files changed, 24 insertions(+), 27 deletions(-)
 
-Andrew, may I get your Reviewed-by or Ack-by for v2 so I can take it
-via the s390 tree as well?
+--===============4894150250953331253==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7Ay2qMKpijP+JeF+"
+Content-Disposition: inline
 
-Thank you.
+
+--7Ay2qMKpijP+JeF+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Mar 12, 2026 at 07:28:58PM +0800, Yixun Lan wrote:
+> Hi Philipp,
+>=20
+> On 12:09 Thu 12 Mar     , Philipp Zabel wrote:
+> > On Do, 2026-03-12 at 10:34 +0000, Yixun Lan wrote:
+> > > Instead of grouping several different reset lines into one composite
+> > > reset, decouple them to individual ones which make it more aligned
+> > > with underlying hardware.
+> > >
+> > > The DWC3 USB host controller in K3 SoC has three reset lines - AHB, V=
+CC,
+> > > PHY. The PCIe controller also has three reset lines - DBI, Slave, Mas=
+ter.
+> > >=20
+> > > Signed-off-by: Yixun Lan <dlan@kernel.org>
+> > > ---
+> > >  include/dt-bindings/reset/spacemit,k3-resets.h | 42 ++++++++++++++++=
+++++------
+> > >  1 file changed, 32 insertions(+), 10 deletions(-)
+> > >=20
+> > > diff --git a/include/dt-bindings/reset/spacemit,k3-resets.h b/include=
+/dt-bindings/reset/spacemit,k3-resets.h
+> > > index 79ac1c22b7b5..c12f8bd32047 100644
+> > > --- a/include/dt-bindings/reset/spacemit,k3-resets.h
+> > > +++ b/include/dt-bindings/reset/spacemit,k3-resets.h
+> > > @@ -97,11 +97,7 @@
+> > >  #define RESET_APMU_SDH0          13
+> > >  #define RESET_APMU_SDH1          14
+> > >  #define RESET_APMU_SDH2          15
+> > > -#define RESET_APMU_USB2          16
+> > > -#define RESET_APMU_USB3_PORTA    17
+> > > -#define RESET_APMU_USB3_PORTB    18
+> > > -#define RESET_APMU_USB3_PORTC    19
+> > > -#define RESET_APMU_USB3_PORTD    20
+> >=20
+> > This is backwards incompatible.
+> > Are there any device trees using the APMU resets yet?
+> > If not, I wonder if we should just renumber all APMU resets into a
+> > contiguous range and try to get it into v7.0 as a fix.
+> >=20
+> No, there is currently no consumers, so I could rework them into a contig=
+uous
+> version, thanks for the suggestion
+
+Only as long as it goes into 7.0, IMO, as a fix.
+
+> > Also, this breaks bisectability.
+> > reset-spacemit-k3.c will fail to compile between patches 1 and 2.
+> >=20
+> I've tried a first version to squash the two patches, but got a checkpatc=
+h.pl complait
+> for binding should follow into a separate patch.
+>=20
+> I can combine these two patches into one, is this Ok for you?
+
+Be very very very clear about why they're going together, otherwise you'll
+get yelled at!
+
+--7Ay2qMKpijP+JeF+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabL4RgAKCRB4tDGHoIJi
+0lFCAQC8R0krTCJ3h8LENWd4AYu7AGIS+9Kr+nwqeEhqxLlJ6gEA9efqzwnlJkD2
+xl++M7pPu/XyyZgMduLa1mwL6FPpUgs=
+=uTkh
+-----END PGP SIGNATURE-----
+
+--7Ay2qMKpijP+JeF+--
+
+
+--===============4894150250953331253==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4894150250953331253==--
+
