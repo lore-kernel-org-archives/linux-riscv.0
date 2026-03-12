@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1888FFED2FF
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 10:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38045FED2FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 10:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CmGdqbUP3DOE1OfvS1EXdKc9peg1m64hok+tLh2Tr/Q=; b=kcpfJwc49yfGpeBqG2Cz/RJ2pv
-	x0TtmNXuP9JvtMJLMbAuTXByUgSaDAh2dOO81PnVsh9l3H0OtQYz9MD6vPe667f243DUfhXExdrir
-	4tla+tY6W4ZvtxXz3DsKIRtKBiqZirq/Ku3O/FketTi0G/u8e3CUlNxM3jPas5rQHCPSchd9HuOcb
-	LAKvIPbwa7nya4BU9k5ssgnNAEf4FhKMHQXhCx4WyJjagJLxIoWAryyMejyimEVYdDc+LVbGePPbc
-	YAW3aIMMgtal6jeNDv+BOSZMXMTyZDP5lQzGoBNQumO1eFrXIcGyS9SkOT1X5pJEMIU4F1FvwVf6x
-	6sJ3hDvA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Nmzc9x7KPiWT4y0F7jLDeZI6Id8n8ome5TEfXYk5t04=; b=XRJk/SYeYEe9GX
+	9rK6OGDQnleVVCbgJ1pTrNLkB/LDALDsXJ9lAF0NnGnyf7/tQx40zepvJ9iAXwm0HOIjjEnAUzUcH
+	PLCBmTe2ryc/hlnjDGj759sRg+1fgZKTc4ymAZXw9bc2jkVuKqDZ+AtPUV/0odC/IYTIDc5bD3ogQ
+	sTSkYY+4cpJASluzcF6jXx8zGEgsdVH90a81rJy2xYLFTtbQkdianEhqcfhJ2z0JE48HA5pXAFm2p
+	GbFyeFs4Vre4aHdUvUvh04sQ/86BCSMBhQpwI7QGL4AoZhKcjwpylU2f5KiiKJPF/t/cdcdf0Jq9F
+	a/riclwp29SJvpn14mkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dBZ-0000000Drfk-0kLd;
-	Thu, 12 Mar 2026 10:22:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0dNG-0000000DsBU-1G9H;
+	Thu, 12 Mar 2026 10:34:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dBY-0000000Drfe-1KFN
+	id 1w0dND-0000000DsAe-49FI
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Mar 2026 10:22:32 +0000
+	Thu, 12 Mar 2026 10:34:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BF9160137;
-	Thu, 12 Mar 2026 10:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7284FC4CEF7;
-	Thu, 12 Mar 2026 10:22:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C13B943480;
+	Thu, 12 Mar 2026 10:34:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C9F8C116C6;
+	Thu, 12 Mar 2026 10:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773310950;
-	bh=h9YSKRTZGF583NYryI301XnKTB+VY4d9eZcYTI6L0mg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dXvpD/36HWhV2uAFhkuL3LSram9ibN5VHQQFuIdI0m0rBaKsbneKQQcixQFgFyeGR
-	 /ixKek6TghhDHQfK1toi4U8zUwd32mB7zh/FHRYI1qQH97AYgi8dp7q9I0Ty60SCFg
-	 3pNGR20ixSJXmwSHC2wJL5Tap4s2uyDb5volkxAW4Y5YIVGt7z9TpYTLzrcJsZPtaz
-	 jMJ/vdTC6kywXsyEGKMaAG6eBv+VJb0d9QbN1Unf7PnIdaW7cVQplCNrF/6D9aWKPk
-	 Mszd/NZFisaur0v2WahAMwj1i6F8YXDCYY3mQJoqe0jWA730ku49FHPd6mqo5J+1I3
-	 VZpuTIcy+ZBkA==
-Date: Thu, 12 Mar 2026 10:22:23 +0000
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>
-Cc: netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
-	Valentina.FernandezAlanis@microchip.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
-	Abin Joseph <abin.joseph@amd.com>, Ryan.Wanner@microchip.com,
-	=?iso-8859-1?Q?Gr=E9gory?= Clement <gregory.clement@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH net-next v3 00/10] macb usrio/tsu patches
-Message-ID: <20260312-fool-obsessed-3ba0a7c7cc37@spud>
-References: <20260310-moneyless-dispense-7bce14b16388@spud>
- <DH0PZN0WJZC5.26KLH464PMMTP@bootlin.com>
+	s=k20201202; t=1773311673;
+	bh=eG47Dl2Bc/ZA8mrG8zkkaZ4+w/bWA/2Y9BE8NMR8OPI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=fHNhatLJTnSPpLPEekFiBI3St6bu+fFOm3/7cDd66ySD42QhhnN4YZdv6dEFwU9Hx
+	 XNtescUwb/hSLSRKzkaOjnItIN03HwLX+zs1o6RhxKEOipWQV8lFNq7Cj2+A9sQQRB
+	 IudIxKtIdUyRrg6Vwfk1D7RkbFthP68TMweD6SFmcaFS0CGiQgQQSicKJjQ7lfQpq7
+	 hRZLp9cVGpbEt6/1bcnf9Ll88Qg3GhZeqImsnIGiaLDPWqd4kOR10/tx7a3TDZdc9B
+	 24Owm+ZkTbnDBi8XimTz5ReuWJN8l6AnvshE7TPHP5gQNixc2fW2WkaKEl2eo4rrIU
+	 sOVkXaJgQHFWg==
+From: Yixun Lan <dlan@kernel.org>
+Subject: [PATCH 0/2] reset: spacemit: k3: Decouple the composite reset
+Date: Thu, 12 Mar 2026 10:34:18 +0000
+Message-Id: <20260312-01-k3-reset-usb-pci-v1-0-022b24b7340f@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <DH0PZN0WJZC5.26KLH464PMMTP@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAKqWsmkC/x3MMQqAMAxA0atIZgNpxQpeRRyqTTUIKo2KIN7d4
+ viG/x9QTsIKbfFA4ktUtjXDlAWMs18nRgnZYMk6qoxFMrhUmFj5wFMH3EfBEIh89E3tjIdc7om
+ j3P+169/3AyL/eWxlAAAA
+X-Change-ID: 20260312-01-k3-reset-usb-pci-dd00afa7561a
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Junzhong Pan <junzhong.pan@spacemit.com>, 
+ Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1290; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=eG47Dl2Bc/ZA8mrG8zkkaZ4+w/bWA/2Y9BE8NMR8OPI=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpspatpujL2boqdEZkli7eEVCVnQvbqf8bRpgAZ
+ R7LuZFjpbuJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCabKWrRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+2sjQ/+MZkAD1W11hl4KKJoVbLZ/GRv2XFAwZM9VxPIjzqUPyGgXBBnjnxvv
+ q6gHrI4gcXqIYn+LBExtZawet/TFNSuN2pdMZVOqGWJ5IE6ddL5Hs4e4FeT4JGBTZNIwnhHhzEt
+ U9lWCXi2vcyZ2Gj+ecgBI+5PeU0L8aRZyjw2InWWnmkLLDOW9ZAV+CehkGA+IBf6mh28NLzIaGk
+ o5F5t9BeJ36YWJYtsqRZ8GrlxcK4xWDA7kmxT0d/lXjJbJvSeEKrgno6jcxU52v+zvIhtIgkJBy
+ 6ssZ8QuqqrK9Nm2yZCsLWiaeVI/tGA3LUhNyygJpngx/KyFBIBu3l6ZMFRSvi+nfNUGanaID2nI
+ 9SId0bzDzMtPFCk+RiypcwJ1epr/o1MWCBhwPvpnptkIkbc87b+yrL85R93dsayR2ylwljX1GJI
+ w66d4J6HlJOZtNCkGHXOo1E+x8nkl5anzi1yK3Pl6GRi8mODHVlKq2xw0W6FqewjNT5XWqWcwQz
+ 0XQf2HLihEftIcUOQKhCkXheiIB5IiLx4Nl/zJD/B/JUoclWmBZovsBg6t2Cnr7Yb1FrfMJnJQb
+ 2WVDA//FmZxvNOguPh5bypHvPltR9ZPRnY7gz2k5KcJXVZlUv/WzH7HHJ095UNezhh1/O1X6ct+
+ 163NjyYRhdAvubLJda3QwqLorIm9QI=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_033436_102542_CB044F5E 
+X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,87 +92,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6842189307456065309=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Previously, the reset of The USB and PCIe was submited as a composite
+reset, try to decouple them in this series.
 
---===============6842189307456065309==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wg429xnLYxmYuNFe"
-Content-Disposition: inline
+The motivation behind is that it will will make the result more aligned
+with the hardware which describe them as different reset lines, and also
+match with the K3 dwc3 DT binding which request different reset, 
+K1 and K3 SoC share same topology of the reset line design.
 
+See the reset part info in binding doc
+Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
 
---wg429xnLYxmYuNFe
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I've not added a Fixes tag here, as previous old reset ID has not been
+used in any DTS, so it shouldn't cause any problem. I also mark
+previous old reset ID as deprecated for now (let me know if it's ok).
 
-On Thu, Mar 12, 2026 at 11:09:24AM +0100, Th=E9o Lebrun wrote:
-> Hello Conor,
->=20
-> On Tue Mar 10, 2026 at 6:17 PM CET, Conor Dooley wrote:
-> > At the very least, it'd be good of the soc vendor folks could check
-> > their platforms and see if their usrio stuff actually lines up with what
-> > the driver currently calls "macb_default_usrio". Ours didn't and it was
-> > a nasty surprise.
-> >
-> > Theo, you added eyeq5 recently. Does it genuinely have the same usrio
-> > bits as the at91 devices?
->=20
-> Sorry I missed your direct mention. After checking (because I completely
-> ignored this part of the code before), the User I/O feature is disabled
-> on EyeQ5 & EyeQ6H. It can be seen from DCFG1 BIT(9). It was invisible
-> because the USRIO register turns read-only when User I/O is disabled.
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+Yixun Lan (2):
+      dt-bindings: soc: spacemit: k3: Decouple composite reset lines
+      reset: spacemit: k3: Add individual reset lines for USB, PCIe
 
-Ye, my assumption was that on your platform and sifive it's not enabled
-but didn't have the behaviour of np4 where accesses don't complete.
+ drivers/reset/spacemit/reset-spacemit-k3.c     | 50 +++++++++++++++-----------
+ include/dt-bindings/reset/spacemit,k3-resets.h | 42 ++++++++++++++++------
+ 2 files changed, 62 insertions(+), 30 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260312-01-k3-reset-usb-pci-dd00afa7561a
 
->=20
-> 1. So I thought about adding runtime detection.
->=20
-> 2. But then having eyeq5_config->usrio made no sense so I dropped it.
->=20
-> 3. And then I thought that a config having usrio being NULL should
->    imply MACB_CAPS_USRIO_DISABLED to ensure we don't NULL dereference
->    the bp->usrio pointer.
->=20
-> #1 is useless for EyeQ combined with #2 and #3, but it should be useful
-> for the many compatibles that inherited the wrong default value of
-> at91_default_usrio.
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
 
-Yeah, that's a good shout. I never checked to see if this had a control.
-
-> I am sending those three patches as a reply, feel free to pick them up
-> if you consider them useful. They apply on top of your series and have
-> been tested on EyeQ5.
-
-Ye, I think they're a good idea. Thanks for sending em :)
-
---wg429xnLYxmYuNFe
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabKT3gAKCRB4tDGHoIJi
-0thYAQDSnsVDrIoSK3oA+E80W/ccq+tdstmAM6a0wgF6piT8EgD/Vd4hV89FYGSa
-JwJLyF8ZdrUYu6DQijMfSnjdpP6jcQA=
-=ZCzG
------END PGP SIGNATURE-----
-
---wg429xnLYxmYuNFe--
-
-
---===============6842189307456065309==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6842189307456065309==--
-
