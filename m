@@ -4,78 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BCEFED2FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 10:34:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D957105A56D
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 10:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MDSdaQFNXQvT9B0W07h7hXuAkaE+B2CEAboTF50BDZU=; b=kzSqO2RopupFJ0
-	zVJJC/iazR1cId/p7HO7WNARxa53TGpm2Q9Iet0BghT9V8WF3DL7UMjjvMYljIzERvTc8vat8+Gw9
-	T07Pcx65j32cCvP2UwqK1rPhuV6MS2tveFn+COgf2W86NddRrE7pVFm6BXnx2hrAH2iOJw6sjFnp5
-	BJSv22fZhfJRF/CcL93V6ly9BK4JXAIRaK3AzezT/P/ClkOk3ff90uPw3HvM6kcckmRT3zwrQC7TI
-	jC8Bpnd/S4Ks5OIB/kXRohBvIJYpEJjkfgSZfyxoFKgGpeyuzO0QWpVok/SAV2BxJj668Z3tpPaYm
-	2RwLMAKQT6oOd/MszfFA==;
+	List-Owner; bh=5DybwGBd0PQYPH6y98nHtFURaQqtwbdTskzB67yMynM=; b=MzY5xGFfmuLN85
+	UPIeY5xJx/8ilR5z1pVI0U6VSiN9kos7+BoSolFoLvys3zR2qK4Lb3GFNxUDi82Z5gDTZp3PXwcjs
+	lz2CnQyW2u1HTp09RnvydyEXT55EZMNPcY6rs8cAgNXa0XpCuXZrbNuk00JlOJM7UudqDyrAw4UiH
+	8/yyR9TP4qCorqHW7x2oIGwtqcVQoRSGOqwFOWg4Zo5SMcWJBgcYBL1t+/IIXQtQGgplxn3aF17Qw
+	iutN2ahS15MOnnycpdFt1safVnue6QlGkV2e/42+u/g328yxl7gh/u0zlnHObRwRs4kl1iJ2n4ciu
+	/PGGzdSHa4rH8S3qBzCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dNH-0000000DsBZ-2VTI;
-	Thu, 12 Mar 2026 10:34:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w0dhC-0000000DtsT-1HA0;
+	Thu, 12 Mar 2026 10:55:14 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0dNF-0000000DsAu-2qxo
-	for linux-riscv@lists.infradead.org;
-	Thu, 12 Mar 2026 10:34:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BCB0060145;
-	Thu, 12 Mar 2026 10:34:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 136C2C2BC87;
-	Thu, 12 Mar 2026 10:34:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773311676;
-	bh=TXeg03A17+JTRhh6ORiHWKg8puKzhaSUB8aiB1qimoc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WvPvbgR46qpZFMw17w7dcWygzH7RcdidwdsC01SgjOnKicPfuOtE/QS76BGTmjxaj
-	 8D+plW4g+716p/7qo64Jo8KIDFqv8+QA++DynjBxqX9N3+qRahSu8WO3RgymnklawU
-	 ld0zA92jljsul1ROv8MPxtL32YGg6Br6SucBvK/5hGwUG/kgyuQp6FpOSJedBsidDA
-	 xfyn2feowBiLwZlWE24TKEzSbM/J+bnPrArxabgPdAwdXBU+JN9TpbxM/BQWWYkQkI
-	 uKVjmSxzwQXBS4x5QLN0bjZ5zizxUMxC8UU7JQU4n6XUEVUUExgPfS2UFgYMj811UH
-	 MZ37lCo9QRxFQ==
-From: Yixun Lan <dlan@kernel.org>
-Date: Thu, 12 Mar 2026 10:34:19 +0000
-Subject: [PATCH 1/2] dt-bindings: soc: spacemit: k3: Decouple composite
- reset lines
+	id 1w0dh9-0000000Dtry-1j2s;
+	Thu, 12 Mar 2026 10:55:13 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fWkyK3T4pzJ46kW;
+	Thu, 12 Mar 2026 18:54:17 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 32AB64056B;
+	Thu, 12 Mar 2026 18:55:05 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 12 Mar
+ 2026 10:55:02 +0000
+Date: Thu, 12 Mar 2026 10:55:00 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Chengwen Feng <fengchengwen@huawei.com>
+Subject: Re: [PATCH v6 2/3] x86: Implement acpi_get_cpu_uid()
+Message-ID: <20260312105500.00005d7c@huawei.com>
+In-Reply-To: <20260312072316.4806-3-fengchengwen@huawei.com>
+References: <20260312072316.4806-1-fengchengwen@huawei.com>
+	<20260312072316.4806-3-fengchengwen@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Message-Id: <20260312-01-k3-reset-usb-pci-v1-1-022b24b7340f@kernel.org>
-References: <20260312-01-k3-reset-usb-pci-v1-0-022b24b7340f@kernel.org>
-In-Reply-To: <20260312-01-k3-reset-usb-pci-v1-0-022b24b7340f@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Junzhong Pan <junzhong.pan@spacemit.com>, 
- Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2995; i=dlan@kernel.org;
- h=from:subject:message-id; bh=TXeg03A17+JTRhh6ORiHWKg8puKzhaSUB8aiB1qimoc=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpspawl4ApWYrlyNDba348jokZUG3mE8tY23kBN
- my4zgoKR4KJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCabKWsBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0mmA//fpEoEYLSrNxjLP6JMj0vOvfx/ImIo1QpYY7i8FB+Rj6W23J0HjAIB
- RI385PB67NG6ImPgd/vD706j97p9DXuxlxR3q1feIyKHoQYGiDUlnFuCrEGid8ue1OZUkCuL6IG
- xv3qj29jjj3QqRfkY/Tzjja3MpzuZkOSqxD2Rz9f1Gj8uJCTWbmn84TmqSyk1IIVZScaT38vvID
- B7OdRze352sBZEx40MbnoD+P5LgY15RHX5oBsCVYIRkwgSgu67iSueGaPDyzSaswldaDO7px4B1
- R9Z6UXmV7N+BMwD3MA1va06AA9jzujZybd7rTcoaJQ7LiZkrorJ92fB4DT3N+CUsPLo/Xa9EGne
- zEVMLT+yOtVvTTdqo/DoqXWtud6TzKE/XSCxT+GIjLZfoWmNsImXDYtYR//0UgIpX+ZgR5d0maz
- /zJmKMQwhmrRizAKmdGAU9TNpZqkWfV+Fxpk3EMQyHF3uK6f+n3mXcXQ3mzorh0UIbF1E5Ip+tT
- x790u86ojBrekaexzWEdyV8n40SzekfWnd9tbUlpsMQdgKIMTCjPaD44u4tU+aPpVt7tyeeU8vG
- xPydkPLNS8msDA/wW3w5fjB9id+l7/KpiHC8nyEUMlq+k/pbyDIafaLNLJohH8e8XJxosFuYdUv
- mM+BNc9sa8X8aWMP9pkg4dRQLw0t0Y=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_035511_775152_CEC040D7 
+X-CRM114-Status: UNSURE (   6.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,91 +64,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, x86@kernel.org, liuyonglong@huawei.com, anshuman.khandual@arm.com, "Rafael J .
+ Wysocki" <rafael@kernel.org>, Kees Cook <kees@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Eric.VanTassell@amd.com, Somnath Kotur <somnath.kotur@broadcom.com>, Sohil Mehta <sohil.mehta@intel.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, punit.agrawal@oss.qualcomm.com, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, WANG
+ Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, masahiroy@kernel.org, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, linux-pci@vger.kernel.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, ryan.roberts@arm.com, "Ahmed S .
+ Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, suzuki.poulose@arm.com, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Shuah Khan <skhan@linuxfoundation.org>, Bjorn Helgaas <bhelgaas@google.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, wangyuquan1236@phytium.com.cn, Sean Christopherson <seanjc@google.com>, guohanjun@huawei.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, heinrich.schuchardt@canonical.com, chenl311@chinatelecom.cn, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of grouping several different reset lines into one composite
-reset, decouple them to individual ones which make it more aligned
-with underlying hardware.
+On Thu, 12 Mar 2026 15:23:15 +0800
+Chengwen Feng <fengchengwen@huawei.com> wrote:
 
-The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
-PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
+> Add acpi_get_cpu_uid() implementation for x86, replacing the existing
+> cpu_acpi_id() function. This completes the unified ACPI Processor UID
+> retrieval interface across all ACPI-enabled architectures.
+> 
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
- include/dt-bindings/reset/spacemit,k3-resets.h | 42 ++++++++++++++++++++------
- 1 file changed, 32 insertions(+), 10 deletions(-)
-
-diff --git a/include/dt-bindings/reset/spacemit,k3-resets.h b/include/dt-bindings/reset/spacemit,k3-resets.h
-index 79ac1c22b7b5..c12f8bd32047 100644
---- a/include/dt-bindings/reset/spacemit,k3-resets.h
-+++ b/include/dt-bindings/reset/spacemit,k3-resets.h
-@@ -97,11 +97,7 @@
- #define RESET_APMU_SDH0          13
- #define RESET_APMU_SDH1          14
- #define RESET_APMU_SDH2          15
--#define RESET_APMU_USB2          16
--#define RESET_APMU_USB3_PORTA    17
--#define RESET_APMU_USB3_PORTB    18
--#define RESET_APMU_USB3_PORTC    19
--#define RESET_APMU_USB3_PORTD    20
-+/* Deprecated USB 16 - 20 */
- #define RESET_APMU_QSPI          21
- #define RESET_APMU_QSPI_BUS      22
- #define RESET_APMU_DMA           23
-@@ -143,16 +139,42 @@
- #define RESET_APMU_UFS_ACLK      59
- #define RESET_APMU_EDP0          60
- #define RESET_APMU_EDP1          61
--#define RESET_APMU_PCIE_PORTA    62
--#define RESET_APMU_PCIE_PORTB    63
--#define RESET_APMU_PCIE_PORTC    64
--#define RESET_APMU_PCIE_PORTD    65
--#define RESET_APMU_PCIE_PORTE    66
-+/* Deprecated PCIe 62 - 66 */
- #define RESET_APMU_EMAC0         67
- #define RESET_APMU_EMAC1         68
- #define RESET_APMU_EMAC2         69
- #define RESET_APMU_ESPI_MCLK     70
- #define RESET_APMU_ESPI_SCLK     71
-+#define RESET_APMU_USB2_AHB      72
-+#define RESET_APMU_USB2_VCC      73
-+#define RESET_APMU_USB2_PHY      74
-+#define RESET_APMU_USB3_A_AHB    75
-+#define RESET_APMU_USB3_A_VCC    76
-+#define RESET_APMU_USB3_A_PHY    77
-+#define RESET_APMU_USB3_B_AHB    78
-+#define RESET_APMU_USB3_B_VCC    79
-+#define RESET_APMU_USB3_B_PHY    80
-+#define RESET_APMU_USB3_C_AHB    81
-+#define RESET_APMU_USB3_C_VCC    82
-+#define RESET_APMU_USB3_C_PHY    83
-+#define RESET_APMU_USB3_D_AHB    84
-+#define RESET_APMU_USB3_D_VCC    85
-+#define RESET_APMU_USB3_D_PHY    86
-+#define RESET_APMU_PCIE_A_DBI    87
-+#define RESET_APMU_PCIE_A_SLAVE  88
-+#define RESET_APMU_PCIE_A_MASTER 89
-+#define RESET_APMU_PCIE_B_DBI    90
-+#define RESET_APMU_PCIE_B_SLAVE  91
-+#define RESET_APMU_PCIE_B_MASTER 92
-+#define RESET_APMU_PCIE_C_DBI    93
-+#define RESET_APMU_PCIE_C_SLAVE  94
-+#define RESET_APMU_PCIE_C_MASTER 95
-+#define RESET_APMU_PCIE_D_DBI    96
-+#define RESET_APMU_PCIE_D_SLAVE  97
-+#define RESET_APMU_PCIE_D_MASTER 98
-+#define RESET_APMU_PCIE_E_DBI    99
-+#define RESET_APMU_PCIE_E_SLAVE  100
-+#define RESET_APMU_PCIE_E_MASTER 101
- 
- /* DCIU resets*/
- #define RESET_DCIU_HDMA          0
-
--- 
-2.53.0
 
 
 _______________________________________________
