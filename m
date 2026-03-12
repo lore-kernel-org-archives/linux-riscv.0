@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE8B8106ACDF
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 19:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB68F106ACEE
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 20:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xxteMn30gX6LEtvLjqom5IvPb9Nf0JeIcU839boWa2E=; b=kFU2eBAmvVWdef
-	AmsxD+tenEP2kPNnXY/OpvJveY4iiqAJ1DTaB/VcPP9lfZYNCLD9bZ+cy+A/hqcbVM20RRFIKYFyq
-	bMX0v2wMPY6DHAvjWpm4TG2+Q7wPBzCFvDtSz1vSp55J8ONscrnlo8TeD0zxWeBWlnvMPdVGy3Ozf
-	xHg0aMTcyuAjNUmKbYI9WFK8bzQYVnTljx5XdSr1+m3rBUiOIa1YB9YdJ/JeHLAp0mwaANnEOnX3E
-	Bv+uu5iV68Joq+wDu6t1SEr62pPMNVMRx2f7O77sYDngmxpIKEfgvC8P8X+H1EgGMt5iqs1B3Ci33
-	qKtMTPAsvwc0RMz6adwQ==;
+	List-Owner; bh=4/a+pNrNTO5OHJmg3o1CR+mW+g9KmdvxWB4j6B7AlMM=; b=zjyQISh3b+GAvk
+	T/T/2vNT7dz4EWbns3bVr6+VL4szEstigpkas6WYVzt00BxI6KGwvalFgIWzEY5w0buV14xxkAyB1
+	E8yTYNX8PabKRDA7VzD8+yI+f2F/XUnK/0hpdki3zTkjkU5xMInQJC8lJ+Sf21Oy61EUw7jlvRK0e
+	yru4wKyKI198uWntSIOCAuCu4zPDLXvvW/ifGUly2A3BdfFaCa30S8xTzqcFm99wKAGsaznC6LeEp
+	06qmyiG7zF2tSnOprrfv823LExWc8sRenDewDj4MI+4EUI+Z/lCMtRQXp2rsjjTetXlsAedgVpPRK
+	ZOmNR+zZ5DJmaemZtobg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lk6-0000000F6hX-0qor;
-	Thu, 12 Mar 2026 19:30:46 +0000
+	id 1w0n6Y-0000000FNUO-3M4q;
+	Thu, 12 Mar 2026 20:58:02 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0lk0-0000000F6dT-3pnJ;
-	Thu, 12 Mar 2026 19:30:40 +0000
+	id 1w0n6W-0000000FNTm-1vEK;
+	Thu, 12 Mar 2026 20:58:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 406E160142;
-	Thu, 12 Mar 2026 19:30:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7617AC4CEF7;
-	Thu, 12 Mar 2026 19:30:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773343839;
-	bh=dppx5bZj4+zeqj0N8m+gDYvEY1V3ochaIFGxa6FTN9A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MpZymGjSfeezPsAxTR8is/y91vPi0xEPN0K7IFHZz77hM83w5Vj26pRQa3IjU+zwy
-	 tbXTe0vQVq6U2m+k9m9HlIImXQzU1M/vS/yGyO63HG8DiJ/vWb+uh3H//T9IyA4hRD
-	 LHmNXH5dbPF1f5a6PD6COunVyQVhVzAFmLKrarzr4fRbA4mQYsRv3xiTnLsrX7/jL3
-	 WHpFX+yadIsp2XaB8uyt+zH82bPt5Vn2z3z5NgdxkOECEMl6n7PpL7zmNASsxMRVme
-	 OdW87Byykc4nbucZ93idCIAIBC9mWbsdzDxSrxwiqiZl0Wrvakg+Vhl50YtatzUzD4
-	 wIPQgYElJZvAQ==
-Date: Thu, 12 Mar 2026 19:30:38 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>, 
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Kees Cook <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, 
-	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin <xu.xin16@zte.com.cn>, 
-	Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, 
-	Stephen Smalley <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
-Subject: Re: [PATCH 02/20] tools/testing/vma: add unit tests for
- vma_flags_[empty, diff_pair, and]()
-Message-ID: <9198d18c-a1a9-4321-bf34-13e48172eab4@lucifer.local>
-References: <cover.1773340636.git.ljs@kernel.org>
- <87517d01b3973aa43f874164d0741d02cb123537.1773340636.git.ljs@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87517d01b3973aa43f874164d0741d02cb123537.1773340636.git.ljs@kernel.org>
+	by tor.source.kernel.org (Postfix) with ESMTP id 6134260142;
+	Thu, 12 Mar 2026 20:57:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D739C4CEF7;
+	Thu, 12 Mar 2026 20:57:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1773349079;
+	bh=K9BkTSEP4DAO1oqXkTRgIUsMciXJXXN0g3ET3zAlngE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FLiV1etmYVcSGbbdm/XWzQaxQrtcu+DjcXjI6bdWYsu841NM3z6Xw64cXI54+iaIn
+	 L2BrHY9lnVUqIJ6938urwDNEtRFz9ffekCMe3lr4UZIlR45/w5t14m5ix5+hCEMOxM
+	 z/hIOPZIY6kgBHdLKvnC8iu8NrktiaWhHWtId3+Y=
+Date: Thu, 12 Mar 2026 13:57:57 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Vasily Gorbik <gor@linux.ibm.com>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Pasha
+ Tatashin <pasha.tatashin@soleen.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
+ linux-s390@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ x86@kernel.org
+Subject: Re: [PATCH v2 1/4] mm/page_table_check: Pass mm_struct to
+ pxx_user_accessible_page()
+Message-Id: <20260312135757.d65e8145d9d39e1ca5bc9666@linux-foundation.org>
+In-Reply-To: <ttbskgg@ub.hpns>
+References: <cover.1772812343.git.agordeev@linux.ibm.com>
+	<ca77f3489453c2fe01b25e50e53b778929e0dfc5.1772812343.git.agordeev@linux.ibm.com>
+	<ttbskgg@ub.hpns>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,9 +74,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-(Please ignore this patch, it was sent by mistake, the correct 2/20 is [0])
+On Thu, 12 Mar 2026 16:02:40 +0100 Vasily Gorbik <gor@linux.ibm.com> wrote:
 
-[0]:https://lore.kernel.org/linux-mm/ae25ef9cd48e20553babaad3868da1cf74f16af1.1773342102.git.ljs@kernel.org/
+> On Fri, Mar 06, 2026 at 05:16:30PM +0100, Alexander Gordeev wrote:
+> > From: Tobias Huschle <huschle@linux.ibm.com>
+> > 
+> > Unlike other architectures, s390 does not have means to
+> > distinguish kernel vs user page table entries - neither
+> > an entry itself, nor the address could be used for that.
+> > It is only the mm_struct that indicates whether an entry
+> > in question is mapped to a user space. So pass mm_struct
+> > to pxx_user_accessible_page() callbacks.
+> > 
+> > [agordeev@linux.ibm.com: rephrased commit message, removed braces]
+> > 
+> > Reviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+> > Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+> > Signed-off-by: Tobias Huschle <huschle@linux.ibm.com>
+> > Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
+> > ---
+> >  arch/arm64/include/asm/pgtable.h             |  6 +++---
+> >  arch/powerpc/include/asm/book3s/32/pgtable.h |  2 +-
+> >  arch/powerpc/include/asm/book3s/64/pgtable.h | 10 +++++-----
+> >  arch/powerpc/include/asm/nohash/pgtable.h    |  2 +-
+> >  arch/powerpc/include/asm/pgtable.h           |  4 ++--
+> >  arch/riscv/include/asm/pgtable.h             |  6 +++---
+> >  arch/x86/include/asm/pgtable.h               |  6 +++---
+> >  mm/page_table_check.c                        | 15 ++++++---------
+> >  8 files changed, 24 insertions(+), 27 deletions(-)
+> 
+> Andrew, may I get your Reviewed-by or Ack-by for v2 so I can take it
+> via the s390 tree as well?
+
+	Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
+
+It doesn't look like [1/4] changed significanty since v1?
+
 
 _______________________________________________
 linux-riscv mailing list
