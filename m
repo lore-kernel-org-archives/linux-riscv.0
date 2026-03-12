@@ -4,105 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B22EFED2F9
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 10:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1888FFED2FF
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 10:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SNrgHJGLerRqJeFenDhkRI8otP4QFLCKwvVhO0nwGkU=; b=EuTojd7Nd2JqAt
-	0KE6CLbMWeKfKLHIIktUI46Or8I58pxN49kCHmyWP+PlCf2+OGe1IJqWUQz03bxg0+YMdM0TGsXbZ
-	nrlM/jrwD9LbNN/iCBbhPDvAPSkTl4rLCOEMc3PUe78bvLJtFASgbiUzqpBAdRxSVLi2M/EsJNtLw
-	SXsDEWFFo/bCs4djgqcSRTMWTRCar8LEdzLgdJLvt7Xzp8ORVtB0CXrry7sgPCBtddUFVRDWPVXdA
-	DnMxvzyf64mqJ4zIvchL0jQet0sE5YVJ/n0NfvMN+T2bEclXcZx+GU0R/65A3o31MnQm3m1/iS4Kb
-	Ik7Mx65PEAZzePIKCkBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CmGdqbUP3DOE1OfvS1EXdKc9peg1m64hok+tLh2Tr/Q=; b=kcpfJwc49yfGpeBqG2Cz/RJ2pv
+	x0TtmNXuP9JvtMJLMbAuTXByUgSaDAh2dOO81PnVsh9l3H0OtQYz9MD6vPe667f243DUfhXExdrir
+	4tla+tY6W4ZvtxXz3DsKIRtKBiqZirq/Ku3O/FketTi0G/u8e3CUlNxM3jPas5rQHCPSchd9HuOcb
+	LAKvIPbwa7nya4BU9k5ssgnNAEf4FhKMHQXhCx4WyJjagJLxIoWAryyMejyimEVYdDc+LVbGePPbc
+	YAW3aIMMgtal6jeNDv+BOSZMXMTyZDP5lQzGoBNQumO1eFrXIcGyS9SkOT1X5pJEMIU4F1FvwVf6x
+	6sJ3hDvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0d1m-0000000DqVt-0naW;
-	Thu, 12 Mar 2026 10:12:26 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1w0dBZ-0000000Drfk-0kLd;
+	Thu, 12 Mar 2026 10:22:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0d1j-0000000DqUw-3T6W
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 12 Mar 2026 10:12:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=Lj7v8KqAHFpPD+bbuLSZdQfcrsKxuMLWjY2vWELEISw=; b=BAlTcVXPXwzMPGt/HFTcuHZZxl
-	dOdSxET2t5x7YeFBy1P9iIGYHzqCBckRKpY7Hxz4mDi+anuxb2YUqiqd96OepmjhgR7sdPAseZHWe
-	kydkxjv/dCw7GvT32LLVMdjw3WIBeaga78KYSVjs700FSXAyFFpCXN6EnXHhPszdPUPDYs9gGK5Km
-	09IzMn2XGgl9X1gIxUVxshc8iiHMBaC62QYcDXM0FGCMTbv03e3pMQ9UasecjZS3CsWToStqzbV/7
-	QwnKVuvGdiOb6fRTUvEALCIOAkGmbeBLMVZgaBM9mRtPf7Vdf+TjdWN/ocTmOk0Q4Z9GB/sXfnJMV
-	IYUdSr1g==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0d1g-0000000BABM-3iz8
+	id 1w0dBY-0000000Drfe-1KFN
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Mar 2026 10:12:22 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 61335C4159D;
-	Thu, 12 Mar 2026 10:12:23 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B21AB5FDEB;
-	Thu, 12 Mar 2026 10:12:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6DFE610368916;
-	Thu, 12 Mar 2026 11:11:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773310320; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Lj7v8KqAHFpPD+bbuLSZdQfcrsKxuMLWjY2vWELEISw=;
-	b=hp+t8ykUahsGtr0cK+M2lXNRD8ODQBIMFRzp3qoMPndxGauz3WJl2gZGyJzv9rhO2BzEfB
-	1mm3ifxAGhW7gOtndV6Gl3tkVBlR3+3FdlMpPy0imKO3GHrhGDWHURUtDsVGhnhSkWbVJ2
-	vlZZOSiXo3OYnXKM2LtpoPcNH3F/FRg1j5daWQizrIAZNlRhcv3UAMgbjrRtuM3AZV/AOz
-	Rse89qlv1VJlId9mybaJP8pnudgIBP8Vq0Xio+EdwngnUruw89lPzhcq1QXF9HEdxOEi+L
-	D3g4uqfDV052jeAwt7ganfNXgo5JZ0TFE37HrOwHwaoi4ngOxPISMyqI6Z6X5w==
-From: =?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>
-To: theo.lebrun@bootlin.com
-Cc: Ryan.Wanner@microchip.com,
+	Thu, 12 Mar 2026 10:22:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BF9160137;
+	Thu, 12 Mar 2026 10:22:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7284FC4CEF7;
+	Thu, 12 Mar 2026 10:22:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773310950;
+	bh=h9YSKRTZGF583NYryI301XnKTB+VY4d9eZcYTI6L0mg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dXvpD/36HWhV2uAFhkuL3LSram9ibN5VHQQFuIdI0m0rBaKsbneKQQcixQFgFyeGR
+	 /ixKek6TghhDHQfK1toi4U8zUwd32mB7zh/FHRYI1qQH97AYgi8dp7q9I0Ty60SCFg
+	 3pNGR20ixSJXmwSHC2wJL5Tap4s2uyDb5volkxAW4Y5YIVGt7z9TpYTLzrcJsZPtaz
+	 jMJ/vdTC6kywXsyEGKMaAG6eBv+VJb0d9QbN1Unf7PnIdaW7cVQplCNrF/6D9aWKPk
+	 Mszd/NZFisaur0v2WahAMwj1i6F8YXDCYY3mQJoqe0jWA730ku49FHPd6mqo5J+1I3
+	 VZpuTIcy+ZBkA==
+Date: Thu, 12 Mar 2026 10:22:23 +0000
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>
+Cc: netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
 	Valentina.FernandezAlanis@microchip.com,
-	abin.joseph@amd.com,
-	alex@ghiti.fr,
-	andrew+netdev@lunn.ch,
-	aou@eecs.berkeley.edu,
-	claudiu.beznea@tuxon.dev,
-	conor+dt@kernel.org,
-	conor.dooley@microchip.com,
-	conor@kernel.org,
-	daire.mcnamara@microchip.com,
-	dave.stevenson@raspberrypi.com,
-	davem@davemloft.net,
-	devicetree@vger.kernel.org,
-	edumazet@google.com,
-	gregory.clement@bootlin.com,
-	krzk+dt@kernel.org,
-	kuba@kernel.org,
-	linux-kernel@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org,
-	nicolas.ferre@microchip.com,
-	pabeni@redhat.com,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	richardcochran@gmail.com,
-	robh@kernel.org,
-	samuel.holland@sifive.com,
-	sean.anderson@linux.dev,
-	thomas.petazzoni@bootlin.com,
-	vineeth.karumanchi@amd.com
-Subject: [PATCH 1/3] net: macb: runtime detect MACB_CAPS_USRIO_DISABLED
-Date: Thu, 12 Mar 2026 11:11:36 +0100
-Message-ID: <20260312101138.465482-1-theo.lebrun@bootlin.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <DH0PZN0WJZC5.26KLH464PMMTP@bootlin.com>
-References: <DH0PZN0WJZC5.26KLH464PMMTP@bootlin.com>
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
+	Abin Joseph <abin.joseph@amd.com>, Ryan.Wanner@microchip.com,
+	=?iso-8859-1?Q?Gr=E9gory?= Clement <gregory.clement@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH net-next v3 00/10] macb usrio/tsu patches
+Message-ID: <20260312-fool-obsessed-3ba0a7c7cc37@spud>
+References: <20260310-moneyless-dispense-7bce14b16388@spud>
+ <DH0PZN0WJZC5.26KLH464PMMTP@bootlin.com>
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_101220_967154_C671CBB2 
-X-CRM114-Status: GOOD (  10.00  )
+In-Reply-To: <DH0PZN0WJZC5.26KLH464PMMTP@bootlin.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,45 +86,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6842189307456065309=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RENGRzEgKGRlc2lnbiBjb25maWcgMSByZWdpc3RlcikgY2FycmllcyBhIGJpdCBpbmRpY2F0aW5n
-IHdoZXRoZXIgVXNlcgpJL08gZmVhdHVyZSBoYXMgYmVlbiBlbmFibGVkIG9yIG5vdC4gVGhlIE1B
-Q0IvR0VNIGRyaXZlciBoYXMgYSBjYXAgZmxhZwppbmRpY2F0aW5nIHRoYXQgSFcgaGFzIHRoZSBm
-ZWF0dXJlIGRpc2FibGVkIChkZWZhdWx0IGlzIGVuYWJsZWQpLiBBZGQKdGhlIG1pc3NpbmcgY29u
-bmVjdGlvbiBiZXR3ZWVuIERDRkcxIGJpdCBhbmQgTUFDQl9DQVBTX1VTUklPX0RJU0FCTEVELgoK
-SW5kaXJlY3QgaW1wYWN0OiBhdm9pZCB1c2VsZXNzIHdyaXRlbCgpIG9uIFVTRVJJTyByZWdpc3Rl
-cjsgdGhpcyBpcyBub3QKYW4gaW1wb3J0YW50IGZpeCBiZWNhdXNlIFVTRVJJTyBpcyBhbnl3YXkg
-cmVhZC1vbmx5IHdoZW4gZmVhdHVyZSBpcwpkaXNhYmxlZC4KCklmIGZvciBzb21lIHJlYXNvbiBh
-IGNvbXBhdGlibGUgc2V0cyBVU1JJT19ESVNBQkxFRCBidXQgRENGRzEgaW5kaWNhdGVzCml0IGlz
-IGVuYWJsZWQsIHdlIHN0aWxsIGtlZXAgdGhlIGRpc2FibGVkIGNhcGFiaWxpdHkgZmxhZy4gVGhp
-cyBlbnN1cmVzCndlIGRvbid0IGJyZWFrICJjZG5zLG5wNC1tYWNiIiB0aGF0IHNldHMgdGhlIGZs
-YWcgZnJvbSBjb21wYXRpYmxlIG1hdGNoCmRhdGEuCgpTaWduZWQtb2ZmLWJ5OiBUaMOpbyBMZWJy
-dW4gPHRoZW8ubGVicnVuQGJvb3RsaW4uY29tPgotLS0KIGRyaXZlcnMvbmV0L2V0aGVybmV0L2Nh
-ZGVuY2UvbWFjYi5oICAgICAgfCAyICsrCiBkcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21h
-Y2JfbWFpbi5jIHwgMiArKwogMiBmaWxlcyBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKykKCmRpZmYg
-LS1naXQgYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2IuaCBiL2RyaXZlcnMvbmV0
-L2V0aGVybmV0L2NhZGVuY2UvbWFjYi5oCmluZGV4IDhlNTMwNWY5YTc1NC4uMTY1MjdkYmFiODc1
-IDEwMDY0NAotLS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2IuaAorKysgYi9k
-cml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2IuaApAQCAtNTI0LDYgKzUyNCw4IEBACiAj
-ZGVmaW5lIEdFTV9JUlFDT1JfU0laRQkJCQkxCiAjZGVmaW5lIEdFTV9EQldERUZfT0ZGU0VUCQkJ
-MjUKICNkZWZpbmUgR0VNX0RCV0RFRl9TSVpFCQkJCTMKKyNkZWZpbmUgR0VNX1VTRVJJT19PRkZT
-RVQJCQk5CisjZGVmaW5lIEdFTV9VU0VSSU9fU0laRQkJCQkxCiAjZGVmaW5lIEdFTV9OT19QQ1Nf
-T0ZGU0VUCQkJMAogI2RlZmluZSBHRU1fTk9fUENTX1NJWkUJCQkJMQogCmRpZmYgLS1naXQgYS9k
-cml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jIGIvZHJpdmVycy9uZXQvZXRo
-ZXJuZXQvY2FkZW5jZS9tYWNiX21haW4uYwppbmRleCA2YWM2ODczMTc4NGYuLmVjYWI3ZmRjOTYy
-ZCAxMDA2NDQKLS0tIGEvZHJpdmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiX21haW4uYwor
-KysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jCkBAIC00NDgxLDYg
-KzQ0ODEsOCBAQCBzdGF0aWMgdm9pZCBtYWNiX2NvbmZpZ3VyZV9jYXBzKHN0cnVjdCBtYWNiICpi
-cCwKIAkJCWJwLT5jYXBzIHw9IE1BQ0JfQ0FQU19JU1JfQ0xFQVJfT05fV1JJVEU7CiAJCWlmIChH
-RU1fQkZFWFQoTk9fUENTLCBkY2ZnKSA9PSAwKQogCQkJYnAtPmNhcHMgfD0gTUFDQl9DQVBTX1BD
-UzsKKwkJaWYgKCEoZGNmZyAmIEdFTV9CSVQoVVNFUklPKSkpCisJCQlicC0+Y2FwcyB8PSBNQUNC
-X0NBUFNfVVNSSU9fRElTQUJMRUQ7CiAJCWRjZmcgPSBnZW1fcmVhZGwoYnAsIERDRkcxMik7CiAJ
-CWlmIChHRU1fQkZFWFQoSElHSF9TUEVFRCwgZGNmZykgPT0gMSkKIAkJCWJwLT5jYXBzIHw9IE1B
-Q0JfQ0FQU19ISUdIX1NQRUVEOwotLSAKMi41My4wCgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============6842189307456065309==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wg429xnLYxmYuNFe"
+Content-Disposition: inline
+
+
+--wg429xnLYxmYuNFe
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Mar 12, 2026 at 11:09:24AM +0100, Th=E9o Lebrun wrote:
+> Hello Conor,
+>=20
+> On Tue Mar 10, 2026 at 6:17 PM CET, Conor Dooley wrote:
+> > At the very least, it'd be good of the soc vendor folks could check
+> > their platforms and see if their usrio stuff actually lines up with what
+> > the driver currently calls "macb_default_usrio". Ours didn't and it was
+> > a nasty surprise.
+> >
+> > Theo, you added eyeq5 recently. Does it genuinely have the same usrio
+> > bits as the at91 devices?
+>=20
+> Sorry I missed your direct mention. After checking (because I completely
+> ignored this part of the code before), the User I/O feature is disabled
+> on EyeQ5 & EyeQ6H. It can be seen from DCFG1 BIT(9). It was invisible
+> because the USRIO register turns read-only when User I/O is disabled.
+
+Ye, my assumption was that on your platform and sifive it's not enabled
+but didn't have the behaviour of np4 where accesses don't complete.
+
+>=20
+> 1. So I thought about adding runtime detection.
+>=20
+> 2. But then having eyeq5_config->usrio made no sense so I dropped it.
+>=20
+> 3. And then I thought that a config having usrio being NULL should
+>    imply MACB_CAPS_USRIO_DISABLED to ensure we don't NULL dereference
+>    the bp->usrio pointer.
+>=20
+> #1 is useless for EyeQ combined with #2 and #3, but it should be useful
+> for the many compatibles that inherited the wrong default value of
+> at91_default_usrio.
+
+Yeah, that's a good shout. I never checked to see if this had a control.
+
+> I am sending those three patches as a reply, feel free to pick them up
+> if you consider them useful. They apply on top of your series and have
+> been tested on EyeQ5.
+
+Ye, I think they're a good idea. Thanks for sending em :)
+
+--wg429xnLYxmYuNFe
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabKT3gAKCRB4tDGHoIJi
+0thYAQDSnsVDrIoSK3oA+E80W/ccq+tdstmAM6a0wgF6piT8EgD/Vd4hV89FYGSa
+JwJLyF8ZdrUYu6DQijMfSnjdpP6jcQA=
+=ZCzG
+-----END PGP SIGNATURE-----
+
+--wg429xnLYxmYuNFe--
+
+
+--===============6842189307456065309==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6842189307456065309==--
+
