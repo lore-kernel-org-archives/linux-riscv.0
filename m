@@ -4,67 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E730C103E2F0
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 01:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67BD7103E2FC
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 01:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UHD5Ctj5P69Q27SEfGT6AQb6G1nN1YKDupHnSJGnn3c=; b=38VWk4te2VIyDy
-	Jje0TIyb/UYaPUut0xHKHROOmJiYx0Z0sSUvgErFBVSHKBPi+ZDExCszXnCf+HM0K9bTFXDUiZHt0
-	A6zB4cQ5eaDVzeBMPu/LQfVbJ8uIsji7jjYjWCIs22gfgYQcuyYAORfpcZfVhdazhGvddfZ7vpV06
-	2SxvYiTa/DfW5w6oajj68hgAYZkD2pkJWH5fRwxVWpTgJkrLCa8O1sG2LuG2DpyfK9gamgRxzJMrN
-	gOFTL2nz2h4sULH1JuRog/g1Omny3B9vgc8h6Vqov314sdS4R0o3KZzZOWwe0WNfQkPGPKAd5M9q6
-	2DgQRrwAjHdjIQbfKomQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ntku8UHH/5wBBZkuBYm9Ce57eDyMX1YZpmu8pP2L+uM=; b=Uzs0EPXIGLMgkK
+	ajcUpTpCuQA2TTtS7gMuJ29aKxKEt1HkW9dp678hPiWO8LrbRi8j/GGRdG92A5EXv1VTyjwXqmZRc
+	YTcYEU/J4NLqcNzP0UmfRitjPUva81j/vGkZoSSd/f5p8X1PM/xUpp76t9GSxyTfG4pkykjC4pMoE
+	e6gnVKg+Dc8uXSsq8FLlCJhqM8XmEsQYtx30syc2zmi7IZk1qzz+RPYYM1qpr066iv09tMJlg/xOD
+	nc02jzEyK2Fwbg7Q/jbv0WbTr+o45I29qByGh+yYy7GDuFeeCRCaM30eY2oAeuDe9eXkEEmrq7igi
+	DOVGQVKkd0q9abTNWQyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0UjV-0000000CzYB-2VeA;
-	Thu, 12 Mar 2026 01:21:01 +0000
-Received: from smtp37.cstnet.cn ([159.226.251.37] helo=cstnet.cn)
+	id 1w0Ull-0000000Cznc-1vnd;
+	Thu, 12 Mar 2026 01:23:21 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0UjQ-0000000CzVp-2TnF;
-	Thu, 12 Mar 2026 01:21:00 +0000
-Received: from xujiakai2025$iscas.ac.cn ( [210.73.43.101] ) by
- ajax-webmail-APP-12 (Coremail) ; Thu, 12 Mar 2026 09:20:45 +0800
- (GMT+08:00)
-X-Originating-IP: [210.73.43.101]
-Date: Thu, 12 Mar 2026 09:20:45 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: "Jiakai Xu" <xujiakai2025@iscas.ac.cn>
-To: "Andrew Jones" <andrew.jones@oss.qualcomm.com>
-Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, "Albert Ou" <aou@eecs.berkeley.edu>, 
-	"Alexandre Ghiti" <alex@ghiti.fr>, 
-	"Andrew Jones" <ajones@ventanamicro.com>, 
-	"Anup Patel" <anup@brainfault.org>, 
-	"Atish Patra" <atish.patra@linux.dev>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Paolo Bonzini" <pbonzini@redhat.com>, 
-	"Paul Walmsley" <pjw@kernel.org>, "Shuah Khan" <shuah@kernel.org>, 
-	"Jiakai Xu" <jiakaiPeanut@gmail.com>
-Subject: Re: Re: [PATCH v3 1/2] RISC-V: KVM: Fix array out-of-bounds in
- pmu_ctr_read() and pmu_fw_ctr_read_hi()
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.1-cmXT5 build
- 20240627(e6c6db66) Copyright (c) 2002-2026 www.mailtech.cn cnic.cn
-In-Reply-To: <2apicvahmomu57i7gjd2cgc5cakq4pxsbphz5xnl4cr2sqvp72@hqud4u6bo53b>
-References: <20260310055557.835531-1-xujiakai2025@iscas.ac.cn>
- <20260310055557.835531-2-xujiakai2025@iscas.ac.cn>
- <2apicvahmomu57i7gjd2cgc5cakq4pxsbphz5xnl4cr2sqvp72@hqud4u6bo53b>
+	id 1w0Uli-0000000Czmt-3D81
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Mar 2026 01:23:20 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-8cd751a4e93so21172185a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Mar 2026 18:23:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773278597; x=1773883397; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VyB5pKnWn9O1wtjxVZxKBeu/DBXMCZY1EfBDXvBRKnY=;
+        b=ekSEuVMWAOmqAEVrkRqyZmjJ4cTMNBoqr4Om6hEg6kZgG/43Q4TYw6n1kxyu2msYik
+         uzpNnKF4TY6N0XIe6KlxC3W7slomTUOycJ9brevLQEUhiR1O2MLh7s0DsQWaFtqWeGcO
+         gnCTNmH23hKOY/gLKRdbAhhSOAhP6x2IxDepUHi37hmp4hbx0wJXyL1rjodCL9sdZVJn
+         22T9FUnqOFMH+jR1vBkFl5PYc2zAqWVyK3yuRvvQSyjhYHRNMvbA5e+UHPF79SIYzJad
+         iY8SPk84kRWhwk4IR1CyfXd+JEYxeAlkJlNjlHhjq2RSjNrZ7g7h7D8A5d8oQjbmywZl
+         svxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773278597; x=1773883397;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VyB5pKnWn9O1wtjxVZxKBeu/DBXMCZY1EfBDXvBRKnY=;
+        b=Ld3DHK3pCAOc444ZsDp4ed0pGslOoc5bQFp7IXJN6v/q3YrDwiCehvmDQLVM1RmhcT
+         31RoeMfvzCIxlB4Y0RsFVLl1bMveIp2/vhX20cmsvyAM0hpS5Hn+psiHHbl3LJHXxTRy
+         i+T76SsisXnXrNu8pBQ5DAi8In7WVp7cTCGOv7fHN3nAqwsHT3Kh97piAYqoVJJn5uHo
+         fmwjRgUSzXHM+zQwVbkWDc1Jli9boo9fsnPdQCOMZH9Bj00BMy+Nd9pIdVwIwYgEjHjr
+         ae+Tson9KtTXNTVPSkpKaZWhetONPPqGp4a/hOzzZPGndrxQf2fs9w7KUXemm3NjBUdK
+         6b2A==
+X-Forwarded-Encrypted: i=1; AJvYcCVAu4+wVuJ72XBFUgu3ZQvdjCKLno/55bfaDTy9NkraQGhmCLfJOqU3ndM1a8omyGgRFjFlEIHsljsKdw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/qAeQVQOgOi4bK0MMShP/BD5CSuWsDCmoNY+SUi77Hh/GxF9I
+	G0SOrkC9zGjNZVoN1ordFJZ81NbQsSzGTw8PtVrFJyS71H3hHPeqC6nz
+X-Gm-Gg: ATEYQzxmlynwtzrfogFNkuTEuE5C7gVYcgJGQMlqn9W9Y3COnJVnrT2BSPUPVPyDUDJ
+	v3uV3QVwHM20XqFbxcOyctEpf6uxMz+lRy+x1Zx2ZesSeEblPMje+3Xpb5hsVRF+dsi+JV4ZoSq
+	MwKyv4B0h4JAu6V/C6sYDAYb1C+8CkHzCaDvjmkIal2G7H5wxm4dfgVDq4HWcAzj32/75olNP1N
+	mlRGhb8sCNitFX05d5dKCCPHYX62fESeYNc6shNZMJkHW+7fkjsxLB2lr7wo7zNagni7GOP9Lar
+	ChyVPrBgy26CxIujQjC+saHLNN909DnaSb8zNx2fnhdBTVCduGNB8KjZmc2FiEURP0qGCp51wov
+	brAdFhLoHyz8JLzBfswvjH7AULLaHZyaVSjj9b/c7B0CHU7c7btu8dmD0Z1mPTTQW3jDBN4RwCv
+	RYTzLxUv/GjLj4hGRYkEbs6Ew=
+X-Received: by 2002:a05:620a:2a08:b0:8cd:95b4:c521 with SMTP id af79cd13be357-8cda1a311e0mr596901285a.45.1773278596866;
+        Wed, 11 Mar 2026 18:23:16 -0700 (PDT)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cda1ff7642sm266671585a.21.2026.03.11.18.23.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Mar 2026 18:23:16 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Yixun Lan <dlan@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yao Zi <me@ziyao.cc>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v9 0/4] riscv: spacemit: Add ethernet support for K3
+Date: Thu, 12 Mar 2026 09:22:22 +0800
+Message-ID: <20260312012232.373713-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Message-ID: <70069435.611f3.19cdfa1bfed.Coremail.xujiakai2025@iscas.ac.cn>
-X-Coremail-Locale: en_US
-X-CM-TRANSID: tgCowAC3wtLtFLJpJeEVAA--.7213W
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBg0ECWmx5lWRSAABs1
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VW3Jw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260311_182057_521963_BC619FF6 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20260311_182318_818840_ED4E0F90 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,94 +131,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi drew,
+Add initial support for ethernet controller of the Spacemit K3 SoC.
+This ethernet controller is almost a standard Synopsys DesignWare
+MAC (version 5.40a). This controller require a syscon device to
+configure some basic features, like interface type and internal delay.
 
-Thanks for the review and suggestion. 
-I'll fix the alignment and send v4 shortly.
+Change from v8:
+- https://lore.kernel.org/netdev/20260309004305.315018-1-inochiama@gmail.com
+patch 2:
+1. Apply Russell's tag.
+patch 3:
+1. reverse the order of the local variable to make it "reverse christmas
+   tree" for function spacemit_dwmac_update_irq_config() and function
+   spacemit_set_phy_intf_sel()
+2. Apply Russell's tag
+patch 4:
+1. Add MAINTAINERS entry
 
-Best,
-Jiakai
+Change from v7:
+- https://lore.kernel.org/netdev/20260304080721.1658224-1-inochiama@gmail.com
+patch 3:
+1. Remove unused parameter in spacemit_dwmac_fix_delay().
 
-&quot;Andrew Jones&quot; &lt;andrew.jones@oss.qualcomm.com&gt;wrote:
-> On Tue, Mar 10, 2026 at 05:55:56AM +0000, Jiakai Xu wrote:
-> > When a guest invokes SBI_EXT_PMU_COUNTER_FW_READ or
-> > SBI_EXT_PMU_COUNTER_FW_READ_HI on a firmware counter that has not been
-> > configured via SBI_EXT_PMU_COUNTER_CFG_MATCH, the pmc->event_idx remains
-> > SBI_PMU_EVENT_IDX_INVALID (0xFFFFFFFF). get_event_code() extracts the
-> > lower 16 bits, yielding 0xFFFF (65535), which is then used to index into
-> > kvpmu->fw_event[]. Since fw_event is only RISCV_KVM_MAX_FW_CTRS (32)
-> > entries, this triggers an array-index-out-of-bounds:
-> > 
-> >   UBSAN: array-index-out-of-bounds in arch/riscv/kvm/vcpu_pmu.c:255:37
-> >   index 65535 is out of range for type 'kvm_fw_event [32]'
-> > 
-> > Add a check for the known unconfigured case (SBI_PMU_EVENT_IDX_INVALID)
-> > and a WARN_ONCE guard for any unexpected out-of-bounds event codes,
-> > returning -EINVAL in both cases.
-> > 
-> > Fixes: badc386869e2c ("RISC-V: KVM: Support firmware events")
-> > Fixes: 08fb07d6dcf71 ("RISC-V: KVM: Support 64 bit firmware counters on RV32")
-> > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> > Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-> > ---
-> > V2 -> V3:
-> > - Added check for SBI_PMU_EVENT_IDX_INVALID.
-> > - Added WARN_ONCE for unexpected out-of-bounds event codes.
-> > V1 -> V2:
-> > - Merged the fixes for pmu_ctr_read() and pmu_fw_ctr_read_hi() into a single
-> > commit.
-> > - Removed the pr_warn, simply returning -EINVAL instead.
-> > ---
-> >  arch/riscv/kvm/vcpu_pmu.c | 14 ++++++++++++++
-> >  1 file changed, 14 insertions(+)
-> > 
-> > diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-> > index e873430e596b..c87a7b0037cf 100644
-> > --- a/arch/riscv/kvm/vcpu_pmu.c
-> > +++ b/arch/riscv/kvm/vcpu_pmu.c
-> > @@ -226,7 +226,14 @@ static int pmu_fw_ctr_read_hi(struct kvm_vcpu *vcpu, unsigned long cidx,
-> >  	if (pmc->cinfo.type != SBI_PMU_CTR_TYPE_FW)
-> >  		return -EINVAL;
-> >  
-> > +	if (pmc->event_idx == SBI_PMU_EVENT_IDX_INVALID)
-> > +		return -EINVAL;
-> > +
-> >  	fevent_code = get_event_code(pmc->event_idx);
-> > +	if (WARN_ONCE(fevent_code >= SBI_PMU_FW_MAX,
-> > +				  "Invalid firmware event code: %d\n", fevent_code))
-> 
-> Align under previous parameter, not the >= operator
-> 
->  if (WARN_ONCE(fevent_code >= SBI_PMU_FW_MAX,
->      "Invalid firmware event code: %d\n", fevent_code))
-> 
-> > +		return -EINVAL;
-> > +
-> >  	pmc->counter_val = kvpmu->fw_event[fevent_code].value;
-> >  
-> >  	*out_val = pmc->counter_val >> 32;
-> > @@ -251,7 +258,14 @@ static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-> >  	pmc = &kvpmu->pmc[cidx];
-> >  
-> >  	if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW) {
-> > +		if (pmc->event_idx == SBI_PMU_EVENT_IDX_INVALID)
-> > +			return -EINVAL;
-> > +
-> >  		fevent_code = get_event_code(pmc->event_idx);
-> > +		if (WARN_ONCE(fevent_code >= SBI_PMU_FW_MAX,
-> > +					  "Invalid firmware event code: %d\n", fevent_code))
-> > +			return -EINVAL;
-> > +
-> >  		pmc->counter_val = kvpmu->fw_event[fevent_code].value;
-> >  	} else if (pmc->perf_event) {
-> >  		pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
-> > -- 
-> > 2.34.1
-> >
-> 
-> Otherwise,
-> 
-> Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Change from v6:
+- https://lore.kernel.org/netdev/20260303010630.567674-1-inochiama@gmail.com
+patch 1:
+1. Drop the extra blank line at the last
+
+Change from v5:
+- https://lore.kernel.org/netdev/20260227075718.2243818-1-inochiama@gmail.com
+patch 3:
+1. fix error from checkpatch
+
+Change from v4:
+- https://lore.kernel.org/netdev/20260130022705.1059214-1-inochiama@gmail.com
+patch 1:
+1 Apply Rob's tag.
+2 Adjust clock description according to Russell's suggestion.
+patch 3:
+1. Add set_phy_intf_sel() and get_interfaces() hook, suggested by Russell.
+
+Change from v3:
+- https://lore.kernel.org/netdev/20260128072931.875041-1-inochiama@gmail.com
+patch 1:
+1. fix the uncorrect compatible string postion
+patch 3:
+1. add "CTRL_" prefix to all ctrl register definition
+2. only use delay config 0 to calculate delay code.
+3. fix typo in the comment
+
+Change from v2:
+- https://lore.kernel.org/netdev/20260121071315.940130-1-inochiama@gmail.com
+patch 1:
+1. remove not needed compatible for select
+2. drop empty line in "spacemit,apmu" properties
+3. add spacemit,apmu properties to required.
+patch 3:
+1. remove misused phy_fix_phy_mode_for_mac_delays.
+2. use local tx clock instead of the clk_tx_i in the dwmac.
+
+Change from v1:
+- https://lore.kernel.org/netdev/20260120043609.910302-1-inochiama@gmail.com
+patch 1:
+1. remove phy clock
+patch 3:
+1. improve comment and include something special about Spacmit K3 dwmac
+2. reorder the included file
+3. fix wrong delay macro used in spacemit_dwmac_set_delay.
+4. add check for maximum supported delay.
+5. use DIV_ROUND_CLOSEST to calculate best delay configuration.
+6. use assign for the ctrl register initial value.
+7. fix input when calling of_property_read_u32().
+
+Inochi Amaoto (4):
+  dt-bindings: net: Add support for Spacemit K3 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+  net: stmmac: Add glue layer for Spacemit K3 SoC
+  MAINTAINERS: add entry for SpacemiT DWMAC glue layer
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   2 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 102 ++++++++
+ MAINTAINERS                                   |   6 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 227 ++++++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |   1 +
+ 7 files changed, 351 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+
+--
+2.53.0
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
