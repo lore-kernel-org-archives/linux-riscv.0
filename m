@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABDA105A593
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 12:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434A4105A591
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Mar 2026 12:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PApZtkQmJOEq0xf4UnBlc44mUXq3eJJxn5GF3UKkUoo=; b=Lj4DQ9+dSW5ohp
-	53u9frJqPBsKXzPqWjJ4Br3zTLRy/6yTF5EY3VF1oFSWBzmZrK5OiS55b4hkD8Y7ngR4OtfErAaYs
-	tce2VevOVjyININYVTvoJVBQkvUjLi/YSivQ1VWPtdtrFGQUG6maPMxGSjSctD+gn0JFe/khUeZBx
-	JTOTDCvoPO/9JkYQMowrc+dQqse3Ek8tMpHbV3BZxtuGhEVomq2+msaF2iftx7LFG1WfYNKCPpdzn
-	Guwx7TrWMBPp278o0dgexX138E5s2fwVx3iH8NHEHj8sjl6t/MK+pTGEa5rXLsRfXnsXxGdeFbulK
-	7f2Z7qzkIEEdbbO84AIQ==;
+	List-Owner; bh=vyfCclycdOaI8HoZXz7If8/RDCyAELSGSMfrgD5482k=; b=0bDQ6NpqZ37mMd
+	pweroHUxo5GVrja+J1W8DB4eTIF2vJd8py6UdkhGpAMpmssHFq1wc8p0j5CNMcWYBRUgJekFFna8A
+	Xgn88MHY3YoYJvBQkPC6jQM+it8QhydGBISC/UmQfDawgtEIDZopo7Ifh1f0fqtGHDWJj9Pq5nxC+
+	J7B1U+nt0O5j8/sb9lX3ZqY4jfauLw4peY3iIxB5aeE0zE1HXFqj6hGuo9zi0/jupNV52XQpZ/7Nc
+	j+mtbW39ny80uJby7cYU1oyysjjWsXpaoHwP6uTLaiqwd6C9XrtwV7XOGMvWydpZuuP5xjVDtZILH
+	oev3ZUXmnjhn4TJqSmkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fKj-0000000E3xz-27es;
-	Thu, 12 Mar 2026 12:40:09 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1w0fXw-0000000E4zu-4BRw;
+	Thu, 12 Mar 2026 12:53:49 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0fKg-0000000E3xK-0PVA;
-	Thu, 12 Mar 2026 12:40:08 +0000
-Received: from duge-virtual-machine (unknown [183.192.221.67])
-	by APP-01 (Coremail) with SMTP id qwCowACnT2sVtLJp+kDbCQ--.49377S2;
-	Thu, 12 Mar 2026 20:39:51 +0800 (CST)
-Date: Thu, 12 Mar 2026 20:39:49 +0800
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, krzk@kernel.org,
-	ulf.hansson@linaro.org, adrian.hunter@intel.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	gaohan@iscas.ac.cn, me@ziyao.cc,
-	linux-riscv <linux-riscv-bounces@lists.infradead.org>
-Subject: Re: [PATCH v3 0/3] Add SDHCI support for Canaan K230 SoC
-Message-ID: <abK0FcDHrQsDKBnl@duge-virtual-machine>
-References: <20260310064513.140093-1-jiayu.riscv@isrc.iscas.ac.cn>
- <DGZT8U7OMGG3.WS9SPLJF9Y4Q@pigmoral.tech>
+	id 1w0fXu-0000000E4yv-3dyT
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Mar 2026 12:53:48 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-40f1ffba6a0so628458fac.0
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Mar 2026 05:53:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1773320025; x=1773924825; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ky7U0hmCeNi6OyUrf2MxogfDAlaxZWXxIQIvc2Y9k8Y=;
+        b=PqKx9b8gCq1X4S5smoMl8y9rJhMPkJWPaAbrXVvWDmsnPs4tUnMako8OB+pUeId1eE
+         7hVu8O6udJf/FOiFcNn6OdZCI8Th2KAKOAL5GscD75vh8H7wtOEo0rmv2MdsnaurOhb9
+         kJr22L1Nxjw8UCfTn82G0B0lz8su5MWy68nURKKpNkryEhavSRp+MTJqzxHdUYOqp8WE
+         XvVwwrsBIgu9NwNkHo1j+RBY1dRr3WOuV8f0ixBnXPZQFboAsPsITPzw2++37PjR1uqN
+         zzuiW3E932+orTLSpT8roXMh5IpJW+LAIZ/IqDzSWKjrUCHMD9gImWCgOWF1yi+2sCJM
+         wFhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1773320025; x=1773924825;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ky7U0hmCeNi6OyUrf2MxogfDAlaxZWXxIQIvc2Y9k8Y=;
+        b=W7BrAuoCWtgxuWxeLtkCeGiAe7YxaixHDsAWbkuLTGq44pwAzsp+NfVBbeLaAO4T2/
+         HBe26ucVnHmE2egyH2wBJ4cqv/K9AVjxxT1v6oFUWGXAoc3Nbz7MWHjk66MWDb/6ZFhQ
+         jEYhF0dXK/5Kd7eYvT+iTlvZrKX1hdKsSjXNZbMYjBjwVJ8sZfY3CRObQyuOkHBygDsa
+         GVLj3Q+f84Ueze3K8RAtEso0eBSRlrnfKfkBlioxKqS/q9Risz8xR0Vt+kFmxCtEWDXl
+         K608zbWkLndcjlGFz2pFdoPMaiJ300ve+AsNk5q/Nq7BD6Qr+NZyxbs8tUAxe15U3s51
+         IwiA==
+X-Forwarded-Encrypted: i=1; AJvYcCXteTQsaML7dAN8yqi0SZ70WJxqlfTjbNVH51U8powgnHWEM0q713KHg6JI3jLjaSVkyF4/rJTU9qLY5g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRQ/ZSAbvyhkLl1RHibRK6C5Y9jwE8chJ83C/6dUO3WfKZgCcx
+	55JHEWUoSEsxjlGHuKZCeX/z49LJgrqmL3OCF89KanS8xBYN+VChxJ83/KVNOTHD/4g=
+X-Gm-Gg: ATEYQzzZ9KlYeTyH1NslHYB6byoPFvXM8jRkZj7tyW4uMn4j7iwwey3Gr5thwlacoXi
+	TWkYSeiUrltFrKdH74ekNzPvyjQjwSwmuB2gR9px9d2H8ZnUgjFc9ntFjCuq63IYc3GsiSa1QUk
+	jNw7Lfc+cLX0kRvlGghJxxpZ3vh5zLFuG81/ogTElBE4D/1GMg3AxnGum/xyO4MKHtDfJPWHb49
+	+guCm8oUrB4YhSGqSD0A4/68zHfu61b2yeoqKAeEO8qr063QxyhVOP1yWjUARmQxg+/5XLcPPdJ
+	0etGzue18qNRXCBhtClxaIxMXmyxHSwgdWW+SH/guCfUD5J++Lc9XiZwvDgKIgA+RU/MMPcDIcW
+	sWcAO8kjRSV1kQl0yJyUznBokLem3ir2Y7swSro9zrvJudEhXV+YMxHmPPxA0DkzyRW67Loxzaf
+	kC1zBQnmPNXBm8qJZ9x3uPAMHaowDSTrSCM8Z9zDU=
+X-Received: by 2002:a05:6870:649f:b0:409:74c7:1cbb with SMTP id 586e51a60fabf-4177c6f1d08mr3392540fac.7.1773320024820;
+        Thu, 12 Mar 2026 05:53:44 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.103.0])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-41791432d87sm3765785fac.1.2026.03.12.05.53.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Mar 2026 05:53:44 -0700 (PDT)
+Message-ID: <f7054184-dca2-4c7c-9e2e-4a5e3e1c81da@sifive.com>
+Date: Thu, 12 Mar 2026 07:53:42 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DGZT8U7OMGG3.WS9SPLJF9Y4Q@pigmoral.tech>
-X-CM-TRANSID: qwCowACnT2sVtLJp+kDbCQ--.49377S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAw1xAF4DAF1fWF1UAF1kXwb_yoW5ur4kpF
-	WDCFZIka9rKFyIyFs29w4kua15Ars5Jr4UGr1ag34DX3909FWYqr1xKa1Yqa4DJF1fCw1I
-	yw45XryfW398ZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxU3wIDUUUUU
-X-Originating-IP: [183.192.221.67]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 14/15] mm/kasan: add document into
+ kernel-parameters.txt
+To: Baoquan He <bhe@redhat.com>, kasan-dev@googlegroups.com
+Cc: linux-mm@kvack.org, andreyknvl@gmail.com, ryabinin.a.a@gmail.com,
+ glider@google.com, dvyukov@google.com, linux-kernel@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org, chris@zankel.net,
+ jcmvbkbc@gmail.com, linux-s390@vger.kernel.org, hca@linux.ibm.com
+References: <20260225081412.76502-1-bhe@redhat.com>
+ <20260225081412.76502-15-bhe@redhat.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20260225081412.76502-15-bhe@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_054006_536348_31D731C0 
-X-CRM114-Status: GOOD (  28.79  )
+X-CRM114-CacheID: sfid-20260312_055346_951985_139D646A 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,78 +107,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 04:29:48PM +0800, Junhui Liu wrote:
-> Hi Jiayu,
-> Thanks for your work.
-> 
-> On Tue Mar 10, 2026 at 2:45 PM CST, Jiayu Du wrote:
-> > This series is based on the k230 usbphy series[1].
-> >
-> > This patch series adds SDHCI support for the Canaan K230 SoC,
-> > which uses Synopsys DWCMSHC SDHCI controllers, include MMC0 and MMC1.
-> > The hardware designs of these two controllers are different.
-> > The MMC0 supports eMMC, while MMC1 only supports SDIO. Detailed
-> > information can be found in the vendor's manual[2].
-> >
-> > From the vendor's K230 manual:
-> >  - MMC0 supports eMMC5.0 and SDIO3.0, usually for eMMC chips.
-> >  - MMC1 only does SDIO3.0 in 4/1-bit mode up to SDR104, and the manual
-> >    clearly says it can't handle eMMC because of pin count and limits.
-> >
-> > Therefore, there are two separate compatibles and the driver treats them
-> > differently.
-> >
-> > Link: https://lore.kernel.org/all/20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn/ [1]
-> > Link: https://github.com/kendryte/k230_docs/blob/main/en/00_hardware/K230_Hardware_Design_Guide.md#mmc-circuit [2]
-> >
-> > Changes in v3:
-> > - Drop the clock maxItems.
-> > - Add a const void *match_data to the struct dwcmshc_priv
-> > - Copy the match_data pointer to dwcmshc_priv in the common dwcmshc_probe
-> > - Link to v2: https://lore.kernel.org/all/20260226115923.75670-1-jiayu.riscv@isrc.iscas.ac.cn/
-> >
-> > Changes in v2:
-> > - Change the clock minItems to 5.
-> > - Add comments to explain the reason for setting SDHCI_PROG_CLOCK_MODE.
-> > - Write the power selection logic in the phy init cleaner.
-> > - Replace manual delay loop with read_poll_timeout.
-> > - Drop unnecessarily braces where a single statement will do.
-> > - Add the match_data pointer to dwcmshc_pltfm_data.
-> > - Add dwcmshc_k230_match_data struct to separate eMMC/SDIO config data
-> > - Split K230 into individual emmc/sdio platform data instances instead of
-> >   sharing one.
-> > - Remove redundant have_phy member in k230_priv.
-> > - Replace of_find_compatible_node with of_parse_phandle to get USB PHY
-> >   from DT phandle.
-> > - Link to v1: https://lore.kernel.org/all/20260204082908.27501-1-jiayu.riscv@isrc.iscas.ac.cn/
-> >
-> > Jiayu Du (3):
-> >   dt-bindings: mmc: Add sdhci support for Canaan k230
-> >   mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC controller support
-> >   riscv: dts: canaan: Add mmc nodes for K230
-> >
-> >  .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  28 ++
-> >  .../boot/dts/canaan/k230-canmv-dshanpi.dts    |  56 ++++
-> >  .../dts/canaan/k230-canmv-module-dshanpi.dtsi |   7 +
-> >  arch/riscv/boot/dts/canaan/k230.dtsi          |  28 ++
-> >  drivers/mmc/host/sdhci-of-dwcmshc.c           | 287 ++++++++++++++++++
-> >  5 files changed, 406 insertions(+)
-> 
-> Tested-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> 
-> Tested ok on CanMV-K230-V1.1 (k230-canmv.dts) with AP6212 (BCM43430)
-> SDIO WiFi module on MMC0 and MicroSD card on MMC1.
-> 
-> To be noted, a "broken-cd" property is needed to support SD card insert
-> and remove detect on CanMV board because the CD pin is not connected. I
-> am not sure if this is also needed on DShanPi as I don't have its
-> schematic.
+Hi Baoquan,
 
-Thank you for your test and reminder. I have checked the schematic and
-I will add "broken-cd" in the next version.
+On 2026-02-25 2:14 AM, Baoquan He wrote:
+> And also remove the relevant description in dev-tools/kasan.rst
+> which is hw_tags specificially.
+> 
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+> ---
+>  Documentation/admin-guide/kernel-parameters.txt | 4 ++++
+>  Documentation/dev-tools/kasan.rst               | 2 --
+>  2 files changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index cb850e5290c2..e0115fad9e60 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -2899,6 +2899,10 @@ Kernel parameters
+>  	js=		[HW,JOY] Analog joystick
+>  			See Documentation/input/joydev/joystick.rst.
+>  
+> +	kasan=		[KNL] controls whether KASAN is enabled.
+> +			Format: off | on
+> +			default: on
+> +
+>  	kasan_multi_shot
+>  			[KNL] Enforce KASAN (Kernel Address Sanitizer) to print
+>  			report on every invalid memory access. Without this
+> diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/kasan.rst
+> index a034700da7c4..eaae83fcb5e4 100644
+> --- a/Documentation/dev-tools/kasan.rst
+> +++ b/Documentation/dev-tools/kasan.rst
+> @@ -129,8 +129,6 @@ Hardware Tag-Based KASAN mode is intended for use in production as a security
+>  mitigation. Therefore, it supports additional boot parameters that allow
+>  disabling KASAN altogether or controlling its features:
 
-Best regards,
-Jiayu Du
+The sentence above is now incorrect as well. I would recommend documenting the
+parameter earlier in the "Boot parameters" section instead of removing it from
+this document entirely.
+
+Regards,
+Samuel
+
+>  
+> -- ``kasan=off`` or ``=on`` controls whether KASAN is enabled (default: ``on``).
+> -
+>  - ``kasan.mode=sync``, ``=async`` or ``=asymm`` controls whether KASAN
+>    is configured in synchronous, asynchronous or asymmetric mode of
+>    execution (default: ``sync``).
 
 
 _______________________________________________
