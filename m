@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5A1105F7AC
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 13:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFE5105F7AC
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 13:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1G3Wi1mDuXxgJOMsrPRUufNF9kzRlBZJV1Kjpz667Eg=; b=IPzLm5cRRiJwx0
-	OgGsqs5avl9mxRFvDfMaIaEq5kDzOo6UrgEI3zumCnp5mPozprMIuKZVlpNEFaFuzM+oVDmBksJ/J
-	lkgAff3wIjh3utELiQkE6kBZnFRj7tC4lQ7tapLG323yC+D/ecMNLFzwaRXIZnsWQxbZC0I42ylXH
-	np3DywnZ81G2I4L0SnhikcMBYVtQk+5qo4DjLbIOZZJMGDF4UaWZ1uzpuLgp/whk4EZKjQ3GmP0WG
-	+uq2Sn7NW9s40/RCgVS6DQgqLsHc48ck+kbkaoNPX7Vs3PxBX36+s+keMYVV1FAf7qwHlaXCrsKYp
-	s5S4N7L5P9b+0G7PVPnQ==;
+	List-Owner; bh=Z8JD8q59t/t1oawa4ndFVPVfXV5FGx8TJCO1Hqcmr8Q=; b=s1df3VbOnJlutI
+	7eWd4DK513S0agdExzfI0tx0tcDQkQUn5afZHbKGzn3gXiGtTmkorlHHj/FlBhzSJzBX8m1nSeAbB
+	h1jY3YiqWODmHXbPz5Sd1fvt8TBQOcPUqGl42OjYhdytlP/YdYwdPtOYw00B0OnX4+8CaOGPPis6K
+	xfbJ+ektbqU8oluQxkO02wXX8g8RzGq9A3KaCwB0h5xbIk2/VSRlTe8NMzNaNCthA/OBs2zpkC5rA
+	PAseSL13CVy/NRxnoNs70Y5g3n/ES8Tz9z9KkKoYT1qLfX+CanJ1aniHJgS6HuyCVeOXDIRg2O1EY
+	66jWliWMg28xFhGdNE5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12iH-00000000I7H-419h;
-	Fri, 13 Mar 2026 13:38:01 +0000
-Received: from sender4-op-o17.zoho.com ([136.143.188.17])
+	id 1w12mk-00000000JCT-2UQW;
+	Fri, 13 Mar 2026 13:42:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w12iF-00000000I6s-29eZ
+	id 1w12mj-00000000JCM-1qCK
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 13:38:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1773409074; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cg2Za8ytuaIQiCfO0rTWkIE+v+HBEroNtByDdsDSBreHBfeMZeNo7+Ej3k6Wk2gwtqwjITjDl2dzQ9saaytyAqk0mBXtxHHZ8xmc43MsRsitiGj4L1oTYoKZnXCB3d8oq8owfARqSAzrFjlInNTX9Ux6HyoAKS2uQobybyjrNss=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1773409074; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=1EMaOoOWPOC7Nwsl+BdHwxbIv8eBJD7gu8iTli3mgVQ=; 
-	b=YH5WLgV9Hc8ZZ3IsOSxf4f/ktVGEbcLLk8I/nnkBh82WGfJZl0FZYWBYH5G6qnlKJ5zGVVl7vl8LvoGvK0+dSztQsfooJwgHv5SOFVL22x4mBu7gpWVCrnQWTPxM68pYXS1jMSV5P0f/+rBEZh3c12L7OgEgfUomzplj7ArW6SM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773409074;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=1EMaOoOWPOC7Nwsl+BdHwxbIv8eBJD7gu8iTli3mgVQ=;
-	b=Z6kJoduVHRDoY8n9ISMguJSD8DYG8cvzoN3J3a+e1bZP5wXFDVIMFhv0PJEo7QHU
-	GuhT1sp7rlMqU8rxhGr5AhJbQBdGJENPmIedV9USaHnutxfyKEzCoMLv1AuZyO3xKPR
-	0VFeroTutnQf1Gq9bmD9D1MHTA+uSyO2W4k59eeY=
-Received: by mx.zohomail.com with SMTPS id 1773409071410361.89946816641975;
-	Fri, 13 Mar 2026 06:37:51 -0700 (PDT)
-Date: Fri, 13 Mar 2026 13:37:34 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
-	Linus Walleij <linusw@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] pinctrl: spacemit: return -ENOTSUPP for unsupported
- pin configurations
-Message-ID: <abQTHmE_8_N3F-Hj@pie>
-References: <20260312-k1-gpio-set-config-v1-0-8c3541da16b1@pigmoral.tech>
- <20260312-k1-gpio-set-config-v1-1-8c3541da16b1@pigmoral.tech>
+	Fri, 13 Mar 2026 13:42:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C2A966012B;
+	Fri, 13 Mar 2026 13:42:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED71FC19421;
+	Fri, 13 Mar 2026 13:42:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773409356;
+	bh=N404hNd2TZwFuhFt4ZSZsbQMNcJjqVfNAm4y3u8q4ZE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G9ZwP6i6m4lvgrH6TkmdU9FHOc/5nxCrIIjqs0xUVbDpcxqZmvGGnZnS7FFYhcJSD
+	 TyXZS1qkxnnXhCL1lf5bx5lfvbu8/185OzyaAMkvdeasxA3+st8DB11XrSbinVtYt0
+	 ItYmWKJde/J0GuqaSOQ4W0FjaqPF/V8ZxTPD9fBGB5pkteypSTjFJK7xNImDNaO4BJ
+	 1x7ct0ZqJNNe4DSc/uWm4IG7aJLQQiNobpiWcBoE08N2LDrVCTMF9BQgbVE6Hnk6z2
+	 eiJnPeaoELBP3as4y6pLdN6iYeUJkfaYUC3kvgvEALF9V9MVCfOmf8S62ny6QpCQuX
+	 fScm25gHof3lw==
+Date: Fri, 13 Mar 2026 14:42:34 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Junzhong Pan <junzhong.pan@spacemit.com>, Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: soc: spacemit: k3: Decouple composite
+ reset lines
+Message-ID: <20260313-certain-idealistic-urchin-001e96@quoll>
+References: <20260312-01-k3-reset-usb-pci-v1-0-022b24b7340f@kernel.org>
+ <20260312-01-k3-reset-usb-pci-v1-1-022b24b7340f@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260312-k1-gpio-set-config-v1-1-8c3541da16b1@pigmoral.tech>
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_063759_656258_59E3CD54 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260312-01-k3-reset-usb-pci-v1-1-022b24b7340f@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,19 +73,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 04:42:42PM +0800, Junhui Liu wrote:
-> Return -ENOTSUPP instead of -EINVAL when encountering unsupported pin
-> configuration parameters. This is more logical and allows the GPIO
-> subsystem to gracefully handle unsupported parameters via functions like
-> gpio_set_config_with_argument_optional(), which specifically ignores
-> -ENOTSUPP but treats others as failure.
+On Thu, Mar 12, 2026 at 10:34:19AM +0000, Yixun Lan wrote:
+> Instead of grouping several different reset lines into one composite
+> reset, decouple them to individual ones which make it more aligned
+> with underlying hardware.
+> 
+> The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
+> PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
 
-This sounds like a fix and deserves Fixes tag, though I'm not sure
-whether backporting is appropriate since no existing system should be
-affected...
+Either this is ABI break, which would need explanation, or it is not,
+which also needs explanation and then fixing current bindings before
+they are released.
 
-Regards,
-Yao Zi
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
