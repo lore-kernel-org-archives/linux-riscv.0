@@ -4,90 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A646107BCE8
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 21:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437D5107BCE2
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 21:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DaglJqIKbTAmKoR/oGWGD2gudzbIrntFkxQ1bJwaL+A=; b=QGs9l+ebpu78F3
-	IhrteQklUFLqKFKoNRDmdbxPhOp/m3IiInC0JbMKrM4QoDKrO9juOlmBcws4CWkzDexWWWrCdP26p
-	2H8kyD8Gb9yuOLf/8zc3IGlFugWa+EG6oYmPVc9kapaLJFNBKOhHdc016JAPa/3+XXjgI+TlMOH1d
-	mt/FEpyylY0wU/d0GeE18s4tm3We5bmzqDXpT8XB5eiWdhvSuuMh9R3ozAoyf3TISEiq+guakehoY
-	F/RpAnSDVv2FpLRfFnsNk1U8tKxdtM0tB/XMS8GiUSh/H8bi0qZ768p7PRj/oL+DtD3Pz78eaSFNf
-	jc0HxBJbabLWbE3tzQxg==;
+	List-Owner; bh=x0dv7MmAFAG6yzK9RadmZsMuwPP0/AgxQXi/nyPLg2A=; b=ozpbV0HgEu9loL
+	en/+wJtA/UFeMRrw1BLM7cAKpA6vo0E7PKAFJnrpxvoLHwHzz3b3nVstH07xKjn+/X11YepjyD+Eq
+	iBb4Q+qrnfglrDjC7E2+L37fVjV/A9rLZBwmtJ34PZKUXpGy2MvaPtCyTfcRQykf5E4LPf3kZrfmh
+	rwqY/Hb5RmAIL+s43X1dsOnYUNNpTHUeWpawKOCmCN3xuRno+lS5dnChyKbjrvH2elZBgw+z4nQcy
+	C4nXExSrO7bmhVAUoMmgLBDWgtu5gTAUSp0ghNxbCsVFb6OJTaBncSrJoPk30tpyF1hjsb0FTsXN8
+	m/2Jt2jSJLgqsmyLH2iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ASq-00000001FFo-2elb;
-	Fri, 13 Mar 2026 21:54:36 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1w1AVN-00000001FTH-2zY8;
+	Fri, 13 Mar 2026 21:57:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ASo-00000001FFT-00iR
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 21:54:35 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-1271195d2a7so1689643c88.0
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 14:54:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773438873; x=1774043673; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8G/at76670ycOzH91CNexS5yCq4aAux5TqZxX053qrI=;
-        b=CFCPb51hvM15bsSpTHdH1seU9rlcX4UQNwbzGna4IZI6P1xV1LbnaWH1KtMABJQtfS
-         IPD8Lsc41ALF5Tzo1nxot7c1djo4y/umL0O6XA9rgH0m+v+FU0AfceMJ4CcsJnAuHQHK
-         Fv5nZhLi76w11qwcq0aeanT5nXeFO5dIQSB+Q5Qoe+GDnx+/visHvOEOyiyJquACL+MZ
-         iD6iMRvI3iqE/fCNvGDeljlSb9YYBs/u3st8jI4q6v00S9iUHYfTnxVuAkOZhrinw7W/
-         3dvrHi87YVSUHLv0h02Qn7JxiySadA4wPRC+NmlJ3JAG0wAoXW8E+BLinYNBCsQ30x7V
-         LXyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773438873; x=1774043673;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8G/at76670ycOzH91CNexS5yCq4aAux5TqZxX053qrI=;
-        b=PaFUNTBX8MaV0n8eHGRJaThdI38aDP7juZ6qxh3h66/2WSvI4A9mQLYyH3AkcZoqya
-         IDsXII8uZBQp0Oa0VeEq457kX2eO69h4Clsgb4tGLAHAzXstxeHjR44lL1qmEyDumkrC
-         BMRewR8em39J5lMApibsyAgwlvsfw4jya5AsUHwZPsX/RX/dU4X76+ZJsiLW83KqWceL
-         sgmCCrVkaGzeWlXstqqpzniiZRQ44+XoN4dKOav3bDCP87pkeAFqRKQc+iGJ9F49w3Dm
-         QgwxVhtZw1nBfJfNHE8om2NjvmG+Izxo+sgZfvae/IekswuysTZ9ygNf+64SJ7NvJ0Ps
-         iHAw==
-X-Gm-Message-State: AOJu0YwRRVCaM16/8D7l6mlxn3/te8BqWy0hHOWS1ANTQQAxVobYJSKN
-	G9zQH7s2lPAD4uiuab9NxregqVCmBPMjGvQ7vmLkKfbGGNvLZrjbxypo
-X-Gm-Gg: ATEYQzzRv5ExabwxS/GX80zw5Tg6FA5Q8sP+HOe0qC6yb9IMl5ZvHPVSrvQ6IIKkn83
-	1CnQsnkYM0YMfyyx7Ar3TO+dwadrDwWNwjI0q7NemoEYpLRkvKaSbUVeDMQ/jycXeyrbYKYb0X7
-	po5E97J8YQhnZ/TrO9Typ06u9VHUhH1ClVZ+6KVVJmwZXTYt3/0gr1asHroeCqoRmSUadqz6KI/
-	Vwa7Hhas5QetVstOWanH79WbPHevxykzOIXChY5cb9pJdLWfVHZXuVyDpSACFz9uN+ndxlqL1Cd
-	L4LM0APe/1AiTQgLUOWe1nlNPSZjRJZzppHtnrTPguijBM7LWdwLgb+x7QPNA2gyUAjJe/2cyfA
-	SUNxmb00/iFXFzyaX8S0IogqkwznJ5OTei36dA+yNHEIR8lSYgB9BmHAKCa71ni9F2wydSOXeY/
-	c0Sfxd3le1aDNjVmGD+k2chZ8rVmKnOnmxgPCjCOLBez2RuPI=
-X-Received: by 2002:a05:7022:309:b0:123:2c98:f65d with SMTP id a92af1059eb24-128f3d3cbe0mr2285425c88.13.1773438872617;
-        Fri, 13 Mar 2026 14:54:32 -0700 (PDT)
-Received: from [172.16.0.242] ([192.19.161.250])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-128f6384e7asm3541611c88.11.2026.03.13.14.54.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Mar 2026 14:54:31 -0700 (PDT)
-Message-ID: <f2cd9698-1200-4752-a61a-e4f311473523@gmail.com>
-Date: Fri, 13 Mar 2026 14:59:44 -0700
+	id 1w1AVC-00000001FSa-3Y7i;
+	Fri, 13 Mar 2026 21:57:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8FEB56183F;
+	Fri, 13 Mar 2026 21:57:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBE5AC19421;
+	Fri, 13 Mar 2026 21:57:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773439021;
+	bh=BwGIzF3Y1kGJ7LSzEz+7QIlkvRAEX1ybLPLbwYlypHg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D8LFC/Y2BvExaUUaQwCZ1enN784C4eGC3QLIYlLXoQRLLoZbcIPAW+9UHxunos89u
+	 W2FcjOgbPlul4rkrHWNMnWcebVKNCNJBcZAC9W9bHqSllID/Yx8/g7Pg0waFNdbV1F
+	 PZkKpvhQhygkjCvndRt4AGAp3O3ce5dB8Hf9tYRkl1Yd2G1/EC1V7ihRTEFOlFWtJD
+	 TVRWH74L5h1udZNpGw4w/HeSz46hbFXg77yqFlXWTNDJcGX7icfPbrJEmetdc7x+30
+	 MorgajnbJ3XPvDp3w4FMrauooCX4QG0hYbWRVYVLx7aMFlZXvlf6/A/GVpusGs1ME1
+	 T/VOcVRh6Fn9Q==
+Date: Fri, 13 Mar 2026 16:56:59 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: loongarch@lists.linux.dev, cfsworks@gmail.com, alex@ghiti.fr,
+	skhan@linuxfoundation.org, liaoyuanhong@vivo.com,
+	ritesh.list@gmail.com, linux-arm-kernel@lists.infradead.org,
+	kees@kernel.org, leitao@debian.org, lirongqing@baidu.com,
+	corbet@lwn.net, pmladek@suse.com, jbohac@suse.cz,
+	eajames@linux.ibm.com, sourabhjain@linux.ibm.com,
+	palmer@dabbelt.com, vishal.moola@gmail.com, npiggin@gmail.com,
+	dapeng1.mi@linux.intel.com, brgerst@gmail.com, will@kernel.org,
+	paulmck@kernel.org, tglx@kernel.org, rdunlap@infradead.org,
+	hbathini@linux.ibm.com, kexec@lists.infradead.org, bhe@redhat.com,
+	dyoung@redhat.com, x86@kernel.org, pjw@kernel.org, rppt@kernel.org,
+	linux-doc@vger.kernel.org, kernel@xen0n.name,
+	dave.hansen@linux.intel.com, catalin.marinas@arm.com,
+	saravanak@kernel.org, samuel.holland@sifive.com,
+	songshuaishuai@tinylab.org, coxu@redhat.com,
+	fuqiang.wang@easystack.cn, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, osandov@fb.com, chenhuacai@kernel.org,
+	aou@eecs.berkeley.edu, tangyouling@kylinos.cn, hpa@zytor.com,
+	chleroy@kernel.org, linuxppc-dev@lists.ozlabs.org, bp@alien8.de,
+	vgoyal@redhat.com, fvdl@google.com, kevin.brodsky@arm.com,
+	mingo@redhat.com, maddy@linux.ibm.com, akpm@linux-foundation.org,
+	junhui.liu@pigmoral.tech, ardb@kernel.org, mpe@ellerman.id.au,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 4/5] arm64: kexec: Add support for crashkernel CMA
+ reservation
+Message-ID: <177343901948.3415566.6726187926870600451.robh@kernel.org>
+References: <20260302035315.3892241-1-ruanjinjie@huawei.com>
+ <20260302035315.3892241-5-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 5/6] riscv: dts: starfive: jh7110: activate XPbmtUC
-To: Conor Dooley <conor@kernel.org>, Bo Gan <ganboing@gmail.com>
-Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
- david@redhat.com, palmer@dabbelt.com, pjw@kernel.org, gaohan@iscas.ac.cn,
- me@ziyao.cc, lizhi2@eswincomputing.com, hal.feng@starfivetech.com,
- marcel@ziswiler.com, kernel@esmil.dk, devicetree@vger.kernel.org
-References: <20260313084407.29669-1-ganboing@gmail.com>
- <20260313084407.29669-6-ganboing@gmail.com>
- <20260313-overstep-viscosity-23f4f23e1871@spud>
-Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20260313-overstep-viscosity-23f4f23e1871@spud>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_145434_088178_797600CC 
-X-CRM114-Status: GOOD (  22.20  )
+Content-Disposition: inline
+In-Reply-To: <20260302035315.3892241-5-ruanjinjie@huawei.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,87 +86,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On 3/13/26 06:48, Conor Dooley wrote:
-> On Fri, Mar 13, 2026 at 01:44:06AM -0700, Bo Gan wrote:
->> Set riscv,xpbmt-uncache-bit to 32 to match SoC memory map:
->>
->>             [0x0,   0x40000000) Low MMIO
->>      [0x40000000, 0x2_40000000) Cached Mem
->>    [0x4_40000000, 0x6_40000000) Uncached Mem UC+
->>    [0x9_00000000, 0x9_d0000000) High MMIO
->>
->> Signed-off-by: Bo Gan <ganboing@gmail.com>
-> 
-> 
-> What I want know is how this whole setup interacts with the existing
-> support that we have for these devices?
-> Samuel's patchetset removed from the devicetree all of the nodes related
-> to having two mappings of the same memory, and modified the existing
-> erratum to only be required for older devicetrees.
-> You've not removed them, only added a new property. The non-coherent
-> peripherals on jh7110 already work prior to this patchset, is there not
-> going to be funky behaviour with both of these things operating in
-> parallel?
-> 
-
-I just want to clarify that Samuel's change is not touching JH7110, but
-*JH7100*. They are very similar chips, can can confuse people sometimes,
-but JH7110 evolved to put more devices such as gmac/sdio/usb/pcie through
-the front port to make them cache coherent. The left over noncoherent
-device are dealt by the driver through cache flushes, I believe. That's
-why we have out-of-box support for JH7110 even without Samuel's patch. On
-the older JH7100, none of the peripheral is DMA coherent, so we either
-use ERRATA_STARFIVE_JH7100, making kernel NONPORTABLE or Samuel's patch.
-Refer to this pdf for a detailed comparison:
-https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Cache%20Coherence%20V1.0.pdf
-
-My patch doesn't touch anything JH7100. It's an enhancement to JH7110 (the
-newer chip). The issue is that even though basic peripherals are coherent,
-the video subsystem, GPU/VPU/ISP... is still not. (See page 6 in that pdf)
-Hence technically, we still need to deal with the same issue on JH7110.
-E.g., part of the reason we can't have GPU driver working is because we
-can't map a DMA page as uncached in userspace. There's no cache flush insn
-in userspace, either. This change tries to solve the issue in a simple yet
-elegant way.
-
-There's no other changes to the device-tree required, just adding the prop
-for JH7110, and things should just work. As for JH7100 (the older chip), I
-don't plan to support it, as the cached/uncached region are offsetted by
-0xf80000000, so it can't be modeled by a single UC bit (w/o hypervisor
-re-mapping it underneath, and there's no H for JH71x0) The chip was also
-superseded very quickly after the release of JH7110. I don't imagine too
-many users demanding support.
-
->> ---
->>   arch/riscv/boot/dts/starfive/jh7110.dtsi | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> index 6e56e9d20bb06..6dfeb31538fba 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> @@ -14,6 +14,7 @@ / {
->>   	compatible = "starfive,jh7110";
->>   	#address-cells = <2>;
->>   	#size-cells = <2>;
->> +	riscv,xpbmt-uncache-bit = <32>;
->>   
->>   	cpus: cpus {
->>   		#address-cells = <1>;
->> -- 
->> 2.34.1
->>
-
-Bo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIE1vbiwgMDIgTWFyIDIwMjYgMTE6NTM6MTQgKzA4MDAsIEppbmppZSBSdWFuIHdyb3RlOgo+
+IENvbW1pdCAzNWMxOGYyOTMzYzUgKCJBZGQgYSBuZXcgb3B0aW9uYWwgIixjbWEiIHN1ZmZpeCB0
+byB0aGUKPiBjcmFzaGtlcm5lbD0gY29tbWFuZCBsaW5lIG9wdGlvbiIpIGFuZCBjb21taXQgYWI0
+NzU1MTBlMDQyICgia2R1bXA6Cj4gaW1wbGVtZW50IHJlc2VydmVfY3Jhc2hrZXJuZWxfY21hIikg
+YWRkZWQgQ01BIHN1cHBvcnQgZm9yIGtkdW1wCj4gY3Jhc2hrZXJuZWwgcmVzZXJ2YXRpb24uCj4g
+Cj4gQ3Jhc2gga2VybmVsIG1lbW9yeSByZXNlcnZhdGlvbiB3YXN0ZXMgcHJvZHVjdGlvbiByZXNv
+dXJjZXMgaWYgdG9vCj4gbGFyZ2UsIHJpc2tzIGtkdW1wIGZhaWx1cmUgaWYgdG9vIHNtYWxsLCBh
+bmQgZmFjZXMgYWxsb2NhdGlvbiBkaWZmaWN1bHRpZXMKPiBvbiBmcmFnbWVudGVkIHN5c3RlbXMg
+ZHVlIHRvIGNvbnRpZ3VvdXMgYmxvY2sgY29uc3RyYWludHMuIFRoZSBuZXcKPiBDTUEtYmFzZWQg
+Y3Jhc2hrZXJuZWwgcmVzZXJ2YXRpb24gc2NoZW1lIHNwbGl0cyB0aGUgImxhcmdlIGZpeGVkCj4g
+cmVzZXJ2YXRpb24iIGludG8gYSAic21hbGwgZml4ZWQgcmVnaW9uICsgbGFyZ2UgQ01BIGR5bmFt
+aWMgcmVnaW9uIjogdGhlCj4gQ01BIG1lbW9yeSBpcyBhdmFpbGFibGUgdG8gdXNlcnNwYWNlIGR1
+cmluZyBub3JtYWwgb3BlcmF0aW9uIHRvIGF2b2lkCj4gd2FzdGUsIGFuZCBpcyByZWNsYWltZWQg
+Zm9yIGtkdW1wIHVwb24gY3Jhc2jigJRzYXZpbmcgbWVtb3J5IHdoaWxlCj4gaW1wcm92aW5nIHJl
+bGlhYmlsaXR5Lgo+IAo+IFNvIGV4dGVuZCBjcmFzaGtlcm5lbCBDTUEgcmVzZXJ2YXRpb24gc3Vw
+cG9ydCB0byBhcm02NC4gVGhlIGZvbGxvd2luZwo+IGNoYW5nZXMgYXJlIG1hZGUgdG8gZW5hYmxl
+IENNQSByZXNlcnZhdGlvbjoKPiAKPiAtIFBhcnNlIGFuZCBvYnRhaW4gdGhlIENNQSByZXNlcnZh
+dGlvbiBzaXplIGFsb25nIHdpdGggb3RoZXIgY3Jhc2hrZXJuZWwKPiAgIHBhcmFtZXRlcnMuCj4g
+LSBDYWxsIHJlc2VydmVfY3Jhc2hrZXJuZWxfY21hKCkgdG8gYWxsb2NhdGUgdGhlIENNQSByZWdp
+b24gZm9yIGtkdW1wLgo+IC0gSW5jbHVkZSB0aGUgQ01BLXJlc2VydmVkIHJhbmdlcyBmb3Iga2R1
+bXAga2VybmVsIHRvIHVzZS4KPiAtIEV4Y2x1ZGUgdGhlIENNQS1yZXNlcnZlZCByYW5nZXMgZnJv
+bSB0aGUgY3Jhc2gga2VybmVsIG1lbW9yeSB0bwo+ICAgcHJldmVudCB0aGVtIGZyb20gYmVpbmcg
+ZXhwb3J0ZWQgdGhyb3VnaCAvcHJvYy92bWNvcmUsIHdoaWNoIGlzIGFscmVhZHkKPiAgIGRvbmUg
+aW4gdGhlIGNyYXNoIGNvcmUuCj4gCj4gVXBkYXRlIGtlcm5lbC1wYXJhbWV0ZXJzLnR4dCB0byBk
+b2N1bWVudCBDTUEgc3VwcG9ydCBmb3IgY3Jhc2hrZXJuZWwgb24KPiBhcm02NCBhcmNoaXRlY3R1
+cmUuCj4gCj4gQWNrZWQtYnk6IE1pa2UgUmFwb3BvcnQgKE1pY3Jvc29mdCkgPHJwcHRAa2VybmVs
+Lm9yZz4KPiBBY2tlZC1ieTogQXJkIEJpZXNoZXV2ZWwgPGFyZGJAa2VybmVsLm9yZz4KPiBTaWdu
+ZWQtb2ZmLWJ5OiBKaW5qaWUgUnVhbiA8cnVhbmppbmppZUBodWF3ZWkuY29tPgo+IC0tLQo+IHY3
+Ogo+IC0gQ29ycmVjdCB0aGUgaW5jbHVzaW9uIG9mIENNQS1yZXNlcnZlZCByYW5nZXMgZm9yIGtk
+dW1wCj4gICBrZXJuZWwgaW4gb2Yva2V4ZWMuCj4gdjM6Cj4gLSBBZGQgQWNrZWQtYnkuCj4gdjI6
+Cj4gLSBGcmVlIGNtZW0gaW4gcHJlcGFyZV9lbGZfaGVhZGVycygpCj4gLSBBZGQgdGhlIG10aXZh
+dGlvbi4KPiAtLS0KPiAgRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFyYW1ldGVy
+cy50eHQgfCAyICstCj4gIGFyY2gvYXJtNjQva2VybmVsL21hY2hpbmVfa2V4ZWNfZmlsZS5jICAg
+ICAgICAgIHwgMiArLQo+ICBhcmNoL2FybTY0L21tL2luaXQuYyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICB8IDUgKysrLS0KPiAgZHJpdmVycy9vZi9mZHQuYyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCA5ICsrKysrLS0tLQo+ICBkcml2ZXJzL29mL2tleGVjLmMgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICB8IDkgKysrKysrKysrCj4gIDUgZmlsZXMgY2hhbmdlZCwgMTkg
+aW5zZXJ0aW9ucygrKSwgOCBkZWxldGlvbnMoLSkKPiAKCkFja2VkLWJ5OiBSb2IgSGVycmluZyAo
+QXJtKSA8cm9iaEBrZXJuZWwub3JnPgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
