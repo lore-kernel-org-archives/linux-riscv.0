@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA411106FD6B
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 02:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39822106FD85
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 06:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+a+vgQ5MMgQkd1rYgbbfG+HNaK9Mu3SA5kJR0p8gcNY=; b=qpWxc+ow2qoYig
-	ZfINdF/397lCvIVpK+FQdAbGgJHA5e7vJ1TqxbnfG87XtoHX1qj2vajhmWNexvc09SWd295mHYaKL
-	Qxueuq5pHHgu/c0iSkE/7VaqW8MG0lIrs9T4RQp74bcfQ6XHAXTFZ+uhKdbRPco7pnfYa2uNrRSmD
-	CnSJvnW0eqExoBXu1DSljkqfCnhC0KwNJnfu4kDhSOPugqVJPmmDWtx1EVM763GXM6KLLBYeiQ4hu
-	OYzqocKvyF6A7Inm9S6JGluPQKDK6Dgaij4CkmXC4cJA/jAhcdHMuBVlmONj79IgEAI5LS5Nb2ES+
-	TdX6uptvQ5mKdjGYFJEw==;
+	List-Owner; bh=fGF+68hXu6gp7uT/wQonLxtOX1o35U54eOEYhki/Y/g=; b=p7hUITmrGMdpS6
+	AAtzLuWo1hrsw4gwj5NFh6+0tIk9Rqf2e/UoDbgQIXvVlEgrjEL4DSI1919xDdNDuyDM1AorqgOyo
+	bvrhT4jxdBlnyUHeSCNfa3T3kG6c1Wmfab4l8izCm6DgX7GQMM7KQOUOJ0Mzo1DRzcchC94h9hPpU
+	K1Y0qrYkmdEgX7yDbG+B+S3C1dBzTOhoVDJkHJZRFHGuvSQwYSmalo5P2gSx2nVHS2QPtNFka0CiY
+	Uj5+fFBY5a8dXiA6uWlMeDaSAOai6OU73sT7PfUNFYAinpjKOodufPcyU8eYC0g7ggt3jtgzz9mBa
+	ob1NABC210jqNB3Rkvgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0shb-0000000GJSp-1HuK;
-	Fri, 13 Mar 2026 02:56:39 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1w0vhr-0000000Gk2b-2G87;
+	Fri, 13 Mar 2026 06:09:07 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0shY-0000000GJRJ-079w
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 02:56:37 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4fX8JT0kRJz51Sjp;
-	Fri, 13 Mar 2026 10:56:25 +0800 (CST)
-Received: from xaxapp04.zte.com.cn ([10.99.98.157])
-	by mse-fl2.zte.com.cn with SMTP id 62D2uFU2087779;
-	Fri, 13 Mar 2026 10:56:15 +0800 (+08)
-	(envelope-from hu.shengming@zte.com.cn)
-Received: from mapi (xaxapp01[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Fri, 13 Mar 2026 10:56:16 +0800 (CST)
-X-Zmail-TransId: 2af969b37cd0ec5-ee738
-X-Mailer: Zmail v1.0
-Message-ID: <20260313105616335IVh7tn1pSkAHNnfckGCQ-@zte.com.cn>
-Date: Fri, 13 Mar 2026 10:56:16 +0800 (CST)
-Mime-Version: 1.0
-From: <hu.shengming@zte.com.cn>
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-Cc: <alex@ghiti.fr>, <linux-kernel@vger.kernel.org>,
-        <linux-riscv@lists.infradead.org>, <zhang.run@zte.com.cn>,
-        <yang.tao172@zte.com.cn>, <yang.yang29@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIXSByaXNjdjogbW06IFZlcmlmeSBwZXItaGFydCBBU0lEIGJpdHMgd2hlbiB1c2luZyBBU0lEIGFsbG9jYXRvcg==?=
-X-MAIL: mse-fl2.zte.com.cn 62D2uFU2087779
-X-TLS: YES
-X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: hu.shengming@zte.com.cn
-X-SPF: None
-X-SOURCE-IP: 10.5.228.133 unknown Fri, 13 Mar 2026 10:56:25 +0800
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 69B37CD9.000/4fX8JT0kRJz51Sjp
+	id 1w0vho-0000000Gk0Q-1HOz;
+	Fri, 13 Mar 2026 06:09:06 +0000
+X-UUID: 1f3293ac1ea311f1a21c59e7364eecb8-20260313
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:7bc6b968-39e1-4f72-bcff-73ca10c27e16,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:89c9d04,CLOUDID:c109a704f89f73548902f755b0defa24,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|50,EDM:5
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1f3293ac1ea311f1a21c59e7364eecb8-20260313
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 288646284; Fri, 13 Mar 2026 14:08:57 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: broonie@kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Cc: Pei Xiao <xiaopei01@kylinos.cn>
+Subject: [PATCH v2 00/17] cleanup in spi by use devm_clk_get_enabled
+Date: Fri, 13 Mar 2026 14:08:16 +0800
+Message-Id: <cover.1773381582.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_195636_248336_7583B470 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20260312_230904_657509_2DCC8602 
+X-CRM114-Status: UNSURE (   5.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,136 +82,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Shengming Hu <hu.shengming@zte.com.cn>
-
-RISC-V probes the number of implemented ASID bits in SATP on the boot
-hart and enables the ASID allocator based on that result. However, the
-privileged spec allows harts to implement fewer ASID bits by hardwiring
-the upper bits to zero.
-
-If a secondary hart implements fewer ASID bits than the boot hart while
-the ASID allocator is enabled, different Linux ASIDs may alias on that
-hart. This can allow stale TLB entries to survive and potentially
-corrupt memory.
-
-Verify the number of implemented ASID bits on each CPU as it comes
-online, and refuse to online CPUs that support fewer ASID bits than
-the boot CPU.
-
-Signed-off-by: Shengming Hu <hu.shengming@zte.com.cn>
+I know that many old SPI drivers should not be modified for hardware
+stability and to reduce maintenance effort. But I can't help cleaning them
+up. To minimize the introduction of issues, I tried not to modify the
+timing of those hardware clock enables.
 ---
- arch/riscv/include/asm/mmu_context.h |  2 ++
- arch/riscv/kernel/smpboot.c          |  3 ++
- arch/riscv/mm/context.c              | 42 ++++++++++++++++++++++++----
- 3 files changed, 41 insertions(+), 6 deletions(-)
+changes in v2: fix error message but having a line break
+Missing error code argument to dev_err_probe()
+---
+Pei Xiao (17):
+  spi: axiado: Use helper function devm_clk_get_enabled()
+  spi: bcm63xx-hsspi: Use helper function devm_clk_get_enabled()
+  spi: bcmbca-hsspi: Use helper function devm_clk_get_enabled()
+  spi: img-spfi: Use helper function devm_clk_get_enabled()
+  spi: imx: Use helper function devm_clk_get_enabled()
+  spi: npcm-pspi: Use helper function devm_clk_get_enabled()
+  spi: orion: Use helper function devm_clk_get_enabled()
+  spi: rockchip-sfc: Use helper function devm_clk_get_enabled()
+  spi: sifive: Use helper function devm_clk_get_enabled()
+  spi: slave-mt27xx: Use helper function devm_clk_get_enabled()
+  spi: st: Use helper function devm_clk_get_enabled()
+  spi: stm32-qspi: Use helper function devm_clk_get_enabled()
+  spi: stm32: Use helper function devm_clk_get_enabled()
+  spi: sunplus-sp7021: Use helper function devm_clk_get_enabled()
+  spi: uniphier: Use helper function devm_clk_get_enabled()
+  spi: zynq-qspi: Use helper function devm_clk_get_enabled()
+  spi: zynqmp-gqspi: Use helper function devm_clk_get_enabled()
 
-diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-index dbf27a78df6c..0cca20b7dbe1 100644
---- a/arch/riscv/include/asm/mmu_context.h
-+++ b/arch/riscv/include/asm/mmu_context.h
-@@ -16,6 +16,8 @@
- void switch_mm(struct mm_struct *prev, struct mm_struct *next,
- 	struct task_struct *task);
+ drivers/spi/spi-axiado.c         | 23 +++----------
+ drivers/spi/spi-bcm63xx-hsspi.c  | 44 +++++++-----------------
+ drivers/spi/spi-bcmbca-hsspi.c   | 47 +++++++++-----------------
+ drivers/spi/spi-img-spfi.c       | 14 ++------
+ drivers/spi/spi-imx.c            | 15 ++-------
+ drivers/spi/spi-npcm-pspi.c      | 19 ++++-------
+ drivers/spi/spi-orion.c          | 10 ++----
+ drivers/spi/spi-rockchip-sfc.c   | 20 ++---------
+ drivers/spi/spi-sifive.c         | 20 ++++-------
+ drivers/spi/spi-slave-mt27xx.c   |  8 +----
+ drivers/spi/spi-st-ssc4.c        | 14 +++-----
+ drivers/spi/spi-stm32-qspi.c     | 17 +++-------
+ drivers/spi/spi-stm32.c          | 58 ++++++++++----------------------
+ drivers/spi/spi-sunplus-sp7021.c | 15 +--------
+ drivers/spi/spi-uniphier.c       | 15 +++------
+ drivers/spi/spi-zynq-qspi.c      | 28 ++++-----------
+ drivers/spi/spi-zynqmp-gqspi.c   | 17 ++--------
+ 17 files changed, 94 insertions(+), 290 deletions(-)
 
-+int verify_cpu_asid_bits(void);
-+
- #define activate_mm activate_mm
- static inline void activate_mm(struct mm_struct *prev,
- 			       struct mm_struct *next)
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 8b628580fe11..9774a591c1a5 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -230,6 +230,9 @@ asmlinkage __visible void smp_callin(void)
- 			return;
- 	}
-
-+	if (verify_cpu_asid_bits())
-+		return;
-+
- 	/* All kernel threads share the same mm context.  */
- 	mmgrab(mm);
- 	current->active_mm = mm;
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 55c20ad1f744..2a830f021ce5 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -22,6 +22,7 @@
- DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
-
- static unsigned long num_asids;
-+static unsigned long asid_bits;
-
- static atomic_long_t current_version;
-
-@@ -224,16 +225,16 @@ static inline void set_mm(struct mm_struct *prev,
- 	}
- }
-
--static int __init asids_init(void)
-+static unsigned long get_cpu_asid_bits(void)
- {
--	unsigned long asid_bits, old;
-+	unsigned long asid_bit_count, old;
-
- 	/* Figure-out number of ASID bits in HW */
- 	old = csr_read(CSR_SATP);
--	asid_bits = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
--	csr_write(CSR_SATP, asid_bits);
--	asid_bits = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
--	asid_bits = fls_long(asid_bits);
-+	asid_bit_count = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
-+	csr_write(CSR_SATP, asid_bit_count);
-+	asid_bit_count = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
-+	asid_bit_count = fls_long(asid_bit_count);
- 	csr_write(CSR_SATP, old);
-
- 	/*
-@@ -242,6 +243,30 @@ static int __init asids_init(void)
- 	 * to remove unwanted TLB enteries.
- 	 */
- 	local_flush_tlb_all();
-+	return asid_bit_count;
-+}
-+
-+int verify_cpu_asid_bits(void)
-+{
-+	unsigned long cpu_asid_bits = get_cpu_asid_bits();
-+
-+	if (cpu_asid_bits < asid_bits) {
-+		/*
-+		 * The ASID allocator is initialized using the boot CPU's ASID width.
-+		 * We cannot safely shrink the system-wide ASID space at runtime, so
-+		 * reject secondary CPU bringup if it supports fewer ASID bits than
-+		 * the boot CPU.
-+		 */
-+		pr_crit("CPU%d: ASID bits (%lu) smaller than boot CPU (%lu), refusing to online\n",
-+			smp_processor_id(), cpu_asid_bits, asid_bits);
-+		return -EINVAL;
-+	}
-+	return 0;
-+}
-+
-+static int __init asids_init(void)
-+{
-+	asid_bits = get_cpu_asid_bits();
-
- 	/* Pre-compute ASID details */
- 	if (asid_bits) {
-@@ -279,6 +304,11 @@ static inline void set_mm(struct mm_struct *prev,
- {
- 	/* Nothing to do here when there is no MMU */
- }
-+
-+int verify_cpu_asid_bits(void)
-+{
-+	return 0;
-+}
- #endif
-
- /*
 -- 
 2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
