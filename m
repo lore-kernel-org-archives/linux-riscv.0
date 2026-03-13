@@ -4,62 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B0D2106FD62
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 00:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E19106FD60
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 01:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n60g1okgcBRbTyFvlKcNhhqhRC/AHqW9gXL/5rznhXg=; b=wIlHiSPWOuBPtO
-	4MILXJOuZ5+uEADIhEG8mg2FIXtsvbfIztVETDR1doqKsWeVjBgdHrmn1942UVx96stLSwG9Aflv1
-	Te1ZM2QPPehGEGessiqdBM3D+Z1qjpPPf+0osujj4qgx+jVFtA1ith0/7hFfKbX9hgAwGmwUO3eC2
-	BHJspktrpQzvOKTf+3honVgb0xTCivJ+pC93qZ1cr7NoFIKLxfSs04TXwD+K1CnvBcXkmxVvORo3g
-	m2o8A8jqvf5cgtexuyMuPrPfgzG2B6GzJs4HdkH/tBcl7gLOwMA0tBxgD1hjZm5KLUeeGayEn0D7j
-	2hEv5BStSiIW3aGgM9zw==;
+	List-Owner; bh=EGA3naNSS4wbn4kSNq2G4td5XAZeZvzQeC2EZwHU5Qc=; b=qLtZk3eFnXix7W
+	DC/oJ3uYFIs8q9EggQgQ8W2TF1uKkkkoQYJ5parjVthvclDnfS33mWvuCqPUcrigYjb37Y0SYVyU5
+	2/lozb5E9+VpDAxy9FTc6C7w3hVIwVh/pjzRn2DSWWR3bTRZfFDORgSc60WbdZ7YQjBBUnhT3eZOg
+	odFotE9ygOE8Y3UcqgTNKugEHJfflgvfgNhGrYI7OEbAIHq/nemvo5xEv+54AtowF2vi4o2+nLxQs
+	Fbu/g+H1ExXsI+omrIARrq6bA5B/SdcApUyTaGrtDvxUk7/H7px5Hh0+AXZj9G8cPTrZlNp9+MUmR
+	Q0il+832n9uKQ5DZUBaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0qQO-0000000FvtJ-3y8M;
-	Fri, 13 Mar 2026 00:30:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w0r9B-0000000G2zY-0dPC;
+	Fri, 13 Mar 2026 01:17:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0qQO-0000000Fvt3-0pvD
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 00:30:44 +0000
+	id 1w0r98-0000000G2wQ-23px;
+	Fri, 13 Mar 2026 01:16:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C79B61335;
-	Fri, 13 Mar 2026 00:30:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 869AFC19424;
-	Fri, 13 Mar 2026 00:30:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 32410418A1;
+	Fri, 13 Mar 2026 01:16:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF82BC4CEF7;
+	Fri, 13 Mar 2026 01:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773361842;
-	bh=yufSPKe+3LIlfMb2dw1jvZN41wg6MKFMPyYCOzToFtw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DKgBE4nEadicyq9IVOKkobZgY4RSEMNfkKt88A9EjtxBOG+K2zZ5IbpwNVo6dXDTJ
-	 cOtQIxWCEkrK3MWFxcZAfaqg6riJQLmri9Ytl/OvOCtS78WrfsyPAg4BS1bHtyOAHU
-	 5qWH1rC3ni5MPniGi5thcPqIbcU8aTog1DR8GZ1AQ9m4nGsqugUkLduneH0Z+SxG0k
-	 W8cPoB6LFnBtfjCiNm/cNflA2Jfh8AapdeHRH5vqE2IN/RcNLoh8vHSwcSEwM+DxLp
-	 9mXggc9sIeB834d1gDduhK/EcSCbjmKxSLAQ8v/OOeL0Rr8P3T3LMc61NzLGMRp/gR
-	 IUTlvjlt/Dc4w==
-Date: Fri, 13 Mar 2026 08:30:40 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Han Gao <gaohan@iscas.ac.cn>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Han Gao <rabenda.cn@gmail.com>
-Subject: Re: [PATCH v2 2/4] riscv: dts: spacemit: Define fixed regulators for
- OrangePi RV2
-Message-ID: <20260313003040-GKK302167@kernel.org>
-References: <20260310161853.3900605-1-gaohan@iscas.ac.cn>
- <20260310161853.3900605-3-gaohan@iscas.ac.cn>
+	s=k20201202; t=1773364617;
+	bh=zPEcR98I4xhUijv+qJNI6kaevc+I8oOwAq51hsyZIN4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jFllOpLRMRE2IGfEDXUEY9ba4b3cNJWvEbGvGBw5ZGzoCW8DWdJj0BqcNiQ/Y8GUJ
+	 cRhG0Zmu/MtyrpDtIKMli5RfjyB/7DdinXkjUxwC3r2xHYzxZbVE1PbUsIBtNBGdXT
+	 zBg/De8hBSG2RiGNlB9aDCTKJRuiv+r9Rg4ZJ3giPiudOiLXMS1iDeGg6PQ7NkTCtQ
+	 CN1f3+8XC3U+KAwErIpoSpBRfdv6Z/+4x5hJTBdsFVOCyayhVGj6jeZHQfgm+zMlxj
+	 EQv4E9b4SZXOVU2lIIor9NApwk4IbuDYgD3C03BfACceOsz9wt5jUmHqlze9bYvBTs
+	 DJoY+01DWokAA==
+Date: Thu, 12 Mar 2026 18:16:54 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio
+ <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Vinod Koul <vkoul@kernel.org>, Giuseppe
+ Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
+ Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>, Fabio
+ Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>,
+ s32@nxp.com, Romain Gantois <romain.gantois@bootlin.com>, Geert
+ Uytterhoeven <geert+renesas@glider.be>, Magnus Damm
+ <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, Christophe
+ Roullier <christophe.roullier@foss.st.com>, Bartosz Golaszewski
+ <brgl@kernel.org>, Radu Rendec <rrendec@redhat.com>,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Drew Fustini
+ <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
+ linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
+ imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+ linux-riscv@lists.infradead.org, Bartosz Golaszewski
+ <bartosz.golaszewski@linaro.org>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Krzysztof Kozlowski
+ <krzysztof.kozlowski@oss.qualcomm.com>, Lad Prabhakar
+ <prabhakar.mahadev-lad.rj@bp.renesas.com>, Konrad Dybcio
+ <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH net-next v8 0/6] net: stmmac: qcom-ethqos: add support
+ for SCMI power domains
+Message-ID: <20260312181654.2d9ba69c@kernel.org>
+In-Reply-To: <20260311-qcom-sa8255p-emac-v8-0-58227bcf1018@oss.qualcomm.com>
+References: <20260311-qcom-sa8255p-emac-v8-0-58227bcf1018@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260310161853.3900605-3-gaohan@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260312_181658_563026_3C8FCAA7 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +100,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Han,
-
-I'd suggest to squash this one with patch 3 which it isn't necessary to
-split the series into too fine pieces..
-
-On 00:18 Wed 11 Mar     , Han Gao wrote:
-> Define the DC power input and the 4v power as fixed regulator supplies.
+On Wed, 11 Mar 2026 18:03:35 +0100 Bartosz Golaszewski wrote:
+> Add support for the firmware-managed variant of the DesignWare MAC on
+> the sa8255p platform. This series contains new DT bindings and driver
+> changes required to support the MAC in the STMMAC driver.
 > 
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> ---
->  .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> index 93880ba7bdfe..55b3d8d7f7f1 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> @@ -23,6 +23,25 @@ chosen {
->  		stdout-path = "serial0";
->  	};
->  
-> +	reg_dc_in: regulator-dc-in-12v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "dc_in_12v";
-> +		regulator-min-microvolt = <12000000>;
-> +		regulator-max-microvolt = <12000000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_vcc_4v: regulator-vcc-4v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc_4v";
-> +		regulator-min-microvolt = <4000000>;
-> +		regulator-max-microvolt = <4000000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		vin-supply = <&reg_dc_in>;
-> +	};
-> +
->  	leds {
->  		compatible = "gpio-leds";
->  
-> -- 
-> 2.47.3
-> 
+> It also reorganizes the ethqos code quite a bit to make the introduction
+> of power domains into the driver a bit easier on the eye.
 
--- 
-Yixun Lan (dlan)
+Not entirely sure what the conclusion was in the sub-thread with Russell
+but FWIW this doesn't apply to net-next as posted so respin will be
+needed either way.
 
 _______________________________________________
 linux-riscv mailing list
