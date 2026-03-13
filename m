@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74338106FD91
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 07:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB1B106FD98
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 07:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mpIWQgcAF0sHUFCrzoHlQRz3KOORgRUTEHyt2Qw9IHo=; b=hALrHmWwvp09V+
-	moGiXpyZ0UU3lbO7WnDhO0CKm4OHYlqmBAkcgk1yoIsjaOHBw9mynFysLjir7fP0SZXlLf2WDseBv
-	Juv1e3cSXiOMwUtNeqRQYAKQpXZfDT+0pf6tM1IiNo3IRJW9hvziLzcJVf2MwL81JJGczQ4OEMTly
-	P87GOnl+K4vElDVJvIeJ/KnTPhWq4rMB5ydBNNKV6FMDKb86OPDHxagLPKuht2TfGKGluLE5FlcPC
-	Ou+zBj4N47kOwt4PqB9drKAq4BA90KsT8Tl0VJPn8JoSGkt8Ya5ptYEoRECvEcSWIuQiMs5knoz9X
-	QzWPxmKoYPY5AF2d1VbA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mwYP5NLnlx8n7nSDjpZGgorNhUaK6gQoAgWg6zjEaLs=; b=Je9DoXeuDp5N/2
+	k6ClsuquaA5Zv+7fdSVz+VHuY5QkOKAi0MBmpgMVI0Wn4PsAx7M2+vzAw1293tcvgs/06wEbFOTnB
+	uFuT2UsRe2clW5nX705NMZpkFg59I61yCJjYUuDatkMXCUE7xvLVmIkyFz78JAHieQ5rhhHhCdCXW
+	1Iq+ddflYOaNsG2wR4h3JYIoOCl5hN24e37slXfTf5SjI0KuMvETrg7eE1qBaD6FOOU6SMZOoMzmS
+	xdfkJc87wt9a+3jopAUel5E7p8aZFDTjfXBsMBp4fwiEzItpYiJewanJekTmPNW0fR/+8GagHOG3p
+	yvY3XdyupaM2j5f6tsVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wb5-0000000Gxwo-41Sk;
-	Fri, 13 Mar 2026 07:06:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0wb2-0000000Gxw5-1LQm
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 07:06:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7DF56012B;
-	Fri, 13 Mar 2026 07:06:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A197C19421;
-	Fri, 13 Mar 2026 07:06:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1773385566;
-	bh=cFxTeORzoBh5yrTQu5gbFRopOPKKtVbksSq1U5jNLFY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZtrhaIr1MRpUh8c6OylnW1rHwx8y+dXU12D78Veri7x8Y94WUujRcJixgZGDj5Llt
-	 3mKATdISePftWdwKyniGUmendfmLZv+gTgADzFKn1vYpDihXNsCrzrhWL9qnMVLoYG
-	 l1i71ZKmBpIpURBqmPIEuMwxNAy5e993yYApmkyo=
-Date: Fri, 13 Mar 2026 08:06:02 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Yixun Lan <dlan@gentoo.org>, Jiri Slaby <jirislaby@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
-	devicetree@vger.kernel.org, Guodong Xu <guodong@riscstar.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH] dt-bindings: serial: 8250: spacemit: fix clock property
- for K3 SoC
-Message-ID: <2026031357-storeroom-repurpose-f680@gregkh>
-References: <20260304-01-uart-clock-names-v1-1-338483f04a8b@kernel.org>
- <20260310093446-GYC318052@gentoo.org>
- <2026031226-utter-spellbind-53bf@gregkh>
- <20260313011910-GKL302167@kernel.org>
+	id 1w0xKZ-0000000H7iv-49CL;
+	Fri, 13 Mar 2026 07:53:11 +0000
+Received: from azure-sdnproxy.icoremail.net ([52.237.72.81])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w0xKW-0000000H7gs-0nsE;
+	Fri, 13 Mar 2026 07:53:10 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app1 (Coremail) with SMTP id TAJkCgAXrHBEwrNpdBoIAA--.9372S2;
+	Fri, 13 Mar 2026 15:52:38 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	wens@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v4 0/3] net: stmmac: eic7700: fix EIC7700 eth1 RX sampling timing
+Date: Fri, 13 Mar 2026 15:52:34 +0800
+Message-ID: <20260313075234.1567-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260313011910-GKL302167@kernel.org>
+X-CM-TRANSID: TAJkCgAXrHBEwrNpdBoIAA--.9372S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCr4DXF43Cr1UCr4kCr4Durg_yoWrZFyrpF
+	45Wr45GF4Dtr1xJwsrtF10934rJan3G3W29r18AwnrJwsIkas0qrWIkF15ZFyDCrZ7ur1U
+	ZF15Ka1UCa4j9rJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBv14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l
+	IxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRBOJnUUUUU=
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_005308_426322_799EE77A 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +101,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 09:19:10AM +0800, Yixun Lan wrote:
-> Hi Greg,
-> 
-> On 15:13 Thu 12 Mar     , Greg Kroah-Hartman wrote:
-> > On Tue, Mar 10, 2026 at 05:34:46PM +0800, Yixun Lan wrote:
-> > > Hi Greg, Jiri,
-> > > 
-> > >   Do you mind if I taking this patch via SpacemiT's SoC tree? and if
-> > > possible, it would be nice to have your Acks..
-> > > (or either way works for me, if you grab it and merged via tty tree)
-> > > 
-> > > On 07:19 Wed 04 Mar     , Yixun Lan wrote:
-> > > > The UART of SpacemiT K3 SoC has same clock property as K1 generation which
-> > > > request two clock sources, fix the binding otherwise will get DT check
-> > > > warnings.
-> > > > 
-> > > > Fixes: b5024e804ee0 ("dt-bindings: serial: 8250: add SpacemiT K3 UART compatible")
-> > > I would just drop the Fixes tag, as I think at the time of Gudong
-> > > submitting the patch, the clock driver isn't ready, so he deliberatly
-> > > removed this clock contraint and provided with a fixed clock frequency
-> > > (the bindings match with DTS)
-> > > 
-> > > https://github.com/torvalds/linux/blob/v7.0-rc3/arch/riscv/boot/dts/spacemit/k3.dtsi#L414
-> > 
-> > You need to get a DT maintainer to review it before you can apply it.
-> Ok, so Rob gave an Ack
-> 
-> > If you want to take it through your tree once that happens, that's fine
-> > with me.
-> Thanks, so this imply an Ack, but could give an explict Acked-by?
-> then I will proceed..
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+v3 -> v4:
+  - Update eswin,eic7700-eth.yaml:
+    - Improve commit message in dt-bindings patch to clarify the
+      hardware difference of the eth1 MAC and why a new compatible
+      string is required.
+    - Move the newly added eswin,hsp-sp-csr item to the end of the list
+      to avoid inserting entries in the middle of the binding schema.
+    - Simplify the compatible schema by replacing the previous oneOf
+      construct with an enum.
+
+  - Update dwmac-eic7700.c:
+    - Fix build issues.
+    - Adjust code to match the updated binding definition.
+
+  - Update DTS/DTSI descriptions:
+    - Move SoC-level descriptions to the .dtsi file.
+    - Keep board-specific configuration in the .dts file.
+
+  - Link to v3:
+    https://lore.kernel.org/lkml/20260303061525.846-1-lizhi2@eswincomputing.com/
+
+v2 -> v3:
+  - Update eswin,eic7700-eth.yaml:
+    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
+      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
+      field (127 * 20 ps).
+    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
+      step size.
+    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+      A well-designed board should not require internal delay tuning.
+    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
+      example to avoid encouraging blind copy into board DTs.
+
+  - Update dwmac-eic7700.c:
+    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
+      DT properties.
+    - Apply delay configuration only when properties are present.
+    - Keep TX/RX delay registers cleared by default to ensure a
+      deterministic state when no delay is specified.
+
+  - Describe Ethernet configuration for the HiFive Premier P550 board:
+    - Add GMAC controller nodes for the HiFive Premier P550 board
+      to describe the on-board Ethernet configuration.
+
+      The Ethernet controller depends on clock, reset, pinctrl
+      and HSP subsystem providers which are currently under
+      upstream review. These dependent nodes will be submitted
+      separately once the corresponding drivers are merged.
+
+      Due to these missing dependencies, dt-binding-check may
+      report warnings or failures for this series.
+
+  - No functional changes to RX clock inversion logic.
+
+  - Link to v2:
+    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
+
+  - This series is based on the EIC7700 clock support series:
+    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
+    The clock series is currently under review.
+
+v1 -> v2:
+  - Update eswin,eic7700-eth.yaml:
+    - Drop the vendor-specific properties eswin,rx-clk-invert and
+      eswin,tx-clk-invert.
+    - Introduce a distinct compatible string
+      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
+      require internal RGMII clock inversion.
+      This models the SoC-specific hardware difference directly via the
+      compatible string and avoids per-board configuration properties.
+    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
+      minimum/maximum to reflect the actual delay range (0-2400 ps)
+    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
+      description. The HSP CSR block is described in Chapter 10
+      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
+      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+  - Update dwmac-eic7700.c:
+    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
+      properties.
+    - Select RX clock inversion based on the new
+      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
+      match data to apply the required configuration for affected MAC
+      instances (eth1).
+
+  - Link to v1:
+    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
+
+Zhi Li (3):
+  dt-bindings: ethernet: eswin: add clock sampling control
+  net: stmmac: eic7700: enable clocks before syscon access and correct
+    RX sampling timing
+  riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet
+    controller
+
+ .../bindings/net/eswin,eic7700-eth.yaml       |  69 +++++--
+ .../dts/eswin/eic7700-hifive-premier-p550.dts |  42 ++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        |  66 +++++++
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 181 +++++++++++++-----
+ 4 files changed, 301 insertions(+), 57 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
