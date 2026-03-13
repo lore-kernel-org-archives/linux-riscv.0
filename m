@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2180105F79A
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 11:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F75105F799
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 11:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cu6p/t8nebqBoz/MByYjkPPcpDwn5eJcBY1ViI3cc7s=; b=obwfDRZS8lMBTz
-	btOfet0O+xCiC2V5KY9z00c74A8gzVUiqc8ECzAOZIlV2FGEUNkajEJZsxaQBsOZlMLVpz5mBiQKa
-	vm3oFDli0Omu4rI0xNEviESjjrbWUs9nnBE+AfqpK1gJMAQ/pA0jGgfpCi6cuIyLsmkAcC8xfb2KK
-	7zaL9whRCnajPywj8W/P4gviUZAsqkVXDkdcT/or0RKvzrxulS33WTzcShjtIr4DOINW7uKSbkNkD
-	x/QciJ7eMr2njavUPCTiTpwtJfcx0qTyqMZwUHus3m5stlc1EUCksFXIrcMFD1CNlw6kg9bF+rYqG
-	Voa6lKs+S1GkoFrar4qQ==;
+	List-Owner; bh=kvEj3++9FPHNds+JLLbE8UE/gHPqKoWvpVvAQwf8IYM=; b=T03VxUJLWY4iYp
+	q+pxzuEswnOI/xW3936Y/fpM1c+xJe3LVJl5DO/lGMriCAZvxCKYEkyQ1euV2gedF31mopZrThAo/
+	e1iklFSVKDpNxIQdsFHPC0tIAm17pCr8uIQNEjwVKOcOka9HG+swN7jCAjkCIQW8ynyIxVxE9s5NK
+	pkgmM+dYxxN5uH8TH7dW9OugqNK9QHNELy20dCzzpYLyrTnYnoI2hQU0RT5I5f+vfRRZXCdiQxmFt
+	Ll59EfOsJYaZ6HS9ZCmJVWDG1xeQ7qCHi1HsuCZKYlgnWRXZXTii8pcSnRs4VaKD+d8idHdfGnu4g
+	Kc8IJVal+mnAiO7oLILQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10QE-0000000HaUJ-1mk5;
-	Fri, 13 Mar 2026 11:11:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w10a2-0000000016q-2ohd;
+	Fri, 13 Mar 2026 11:21:22 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w10QC-0000000HaU6-0lXy
+	id 1w10a0-0000000016P-1Lrn
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 11:11:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D69E60132;
-	Fri, 13 Mar 2026 11:11:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D55A5C19421;
-	Fri, 13 Mar 2026 11:11:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773400271;
-	bh=r5oAxsSgqMEW7Ns8Az8YVhuyu0CrjtI8S+hb3nn7Tww=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MgVyAec3WBE6a+ul+CXwo0AaKRP5WzH8ZLS9BMVWWGFh7Aqnqm65cC7Aj6cZiDf9N
-	 8uYUbKxlSm+MuEsEeVuIuFv9z9y1NQBlflrhJy3ZqMshL1Hv019lPjy5YEdvQiCPdn
-	 mfwgmVqCGSWFSEW0Qrlz9VgIZBUWqxG9htt306LntceicurnjHdAwoLJDNWBKGp2n0
-	 ObwkT6QgDYc6WfaSDIbhNyZWP5A7QEABvKF5VADPiWGUxjfV5rOKGR/Jt2ADIdP2Wk
-	 Y5wwFk0YVAEiSBkYxX5++OwYocWVRS8W19PoWV4U59FsPp4RrEBBshzLF2ySHCFsic
-	 eikAZFINoXWYA==
-Date: Fri, 13 Mar 2026 19:11:08 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Iker Pedrosa <ikerpedrosam@gmail.com>
-Cc: Trevor Gamblin <tgamblin@baylibre.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 6/7] riscv: dts: spacemit: k1-orangepi-rv2: add PMIC
- and power infrastructure
-Message-ID: <20260313111108-GKM302167@kernel.org>
-References: <20260309-orangepi-sd-card-uhs-v2-0-5bb2b574df5d@gmail.com>
- <20260309-orangepi-sd-card-uhs-v2-6-5bb2b574df5d@gmail.com>
- <8e91c86d-ea41-4535-a7cd-5b602c546cb7@baylibre.com>
- <20260313001940-GKA407679@kernel.org>
- <CABdCQ=Mv-3X8KE1WOWKVTmq+POgJczsL-qFdAyp5qzM6=0s28A@mail.gmail.com>
+	Fri, 13 Mar 2026 11:21:21 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-509149ab7d7so17107901cf.2
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 04:21:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773400879; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RRBfw4Lm7AIq+Zu7AHOsg4kZKnths/G6Nj88F9DpcHjseE0irniaytyL3VB9OB8hoI
+         sH6hGlTFPkI3uTry9mTkVwJBnZEoREg04OT7LIIpH1xCBE+FmTEMXSzwqoGY0R/Tagoa
+         MMW1DhH+bKgvQPStWkjnvn1LuASYgE15vkrQIQv70n+1TnhJrl9FrpxjofJkuR0XrtKQ
+         7+KyK894o6dX1W4fV0Z8Cq4LN0PC11dpdk5gwsSAAuycY/51GZMf19ObanQBpmTvZnca
+         bbnOvEFeSeRVB8w4ATaJ7sIAKCiCZxKfeDGDR2S+xErOipWNfTL3Jwgiu5Q8egjsyYJr
+         LYHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=7fVc/jZfynFeoSYgaf7HxtjcfzW1V4HoQrTDitcvLZw=;
+        fh=RSzT+zmy1GPYAzIsd/aaoFmJjU5Uu+WX/5gnYqu1dWE=;
+        b=NlqG9SwevQC7FyYepWsnapqDSmbngVgHOOnEf2GFE9CVTcYIqcJWHqApt2VlqfYHrO
+         8kR5XXx5CMLi2Hi/fP/BgBfMW5+3NtOIKLq/5wVHzZs0LY+nNbob2E+2ybs8hxmuzytQ
+         iDMtzzRTxFjcro5ZUwZLZ5CpGJ3yvE//KfdS/LkfC4v/e/OkwZAvpNEjV82QKhXkB+9P
+         n0X8pQ7yQj0MOrxAKTdPAACA4kmNd4122NO4+dW2JVDG6CQuSxHxPZzpx8P2dNZO9Zz3
+         VHxXEmHkC47HmJdz6H5nrjWp1rGHGIbv19tO7Zb9ZdPm3T6OCx5acFT91Fxs7GMdkKui
+         obeA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773400879; x=1774005679; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=7fVc/jZfynFeoSYgaf7HxtjcfzW1V4HoQrTDitcvLZw=;
+        b=ZQZr/rWwQk8xOGtFim2jCmdCjskP37fhl6OVx8zpOA6ky/U03OWRrIkIfN9Dk8rRqW
+         vj4/jm0L83P6DPl3ely+Vx4whMYjKx7Rd5JAmueLgYaFMce/6/wYbU25OxVf2l2KOYxm
+         t+gPr6ZSJ9DS5DJoguxYGob1F+4wp05jBUTCSx1KBdC3LMzJZpT0NBqjzu9ZJkIDEyf3
+         TYAiG9G4X4+ZQhrkTaWw2DLXSA3RnPpbtxtDobFp/ysYVxJzc+5vnErN4zfvauOX49FU
+         GyRN9Z7ZXdKb7JWGqKB8Z2hjP1pLgB6AJYtCmAMR49vYrVAZloFgTbwF1VVbvGueAFsn
+         ZOZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773400879; x=1774005679;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7fVc/jZfynFeoSYgaf7HxtjcfzW1V4HoQrTDitcvLZw=;
+        b=nMenu5FVqVw1oS3UGc1KCpLK1XnBYuFBLp2eKXZBgoL9QF4oK5rvdhrjsOg2DX+/KG
+         ecb+WBNbiKc6jZAflp1upjEuCKWPtStwe3CHIW38ml7qQrW/kGYxe60mPmeD0zSDiF4Y
+         2mwYv5vAZicyiynYj5IAivbwkE1H8gDhm6+xRzxmAeFLDIF4cdpQ060Y5l+g54aUIkln
+         9d71HVpOFUcLSoNLTI2WcEPGlC7b+JTYquXwln8l3bD7hz+qfbHSfqFAgN/MjQaqgejZ
+         GKckuscE5PajTS/Ms5/9EAZckNA9hiZYev6miolhKg8cdU0hIxZRhFdRJ1x8vxaq8+bT
+         +v/A==
+X-Forwarded-Encrypted: i=1; AJvYcCXJlMsnMwtqo0TVgIVcRLACZV37Z0w357LdklGN4I1d92TPQAaaoubsxceUikSl+PqSnpw8jue1QhlRLA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8FmrK5GO7z0nuUpaYUwbquQAWJl0Hw6P4BbidLSe3uRmm8ARi
+	KrY/oQqyWIAw/lP2vp5uiAWtT0VqedWW7Q2Prh9KpTct+Gafq5kGKkvYJmS3qK6ucBQxLzWRMAE
+	IIYgUmmjrBMH350JQ2KHNRS6Qtd9qVcE=
+X-Gm-Gg: ATEYQzwNqOaTocPM5N5arbye1zXsaqcjurhBYlj89pkZ7ayKZsxVIBKmeWM7FB3wqsm
+	ncLgH+7KftSdKI0R1PboyWi4Qxl72YTy8QIM/DlBUjum0Xmj0PmlcLYaBg3BgE/6PbneQg5zAsJ
+	eYTqIJJG1JfeslU7xV6wiRsKDbGDwOMKmzEgPgrcyLl1WIARBokVoTO3ieAIhllHqvPV6n1faNp
+	3b3GrpZuTRWgSiWarD1KRYRVZw6+HYlA0L7oDjpKzzkDNgOchWBBMfd+Gm/LJrN7Nv2yc/TUaYE
+	ljlG4g==
+X-Received: by 2002:ac8:5946:0:b0:509:2222:4202 with SMTP id
+ d75a77b69052e-50957e65448mr38456401cf.71.1773400879027; Fri, 13 Mar 2026
+ 04:21:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CABdCQ=Mv-3X8KE1WOWKVTmq+POgJczsL-qFdAyp5qzM6=0s28A@mail.gmail.com>
+References: <20260309-orangepi-sd-card-uhs-v2-0-5bb2b574df5d@gmail.com> <20260309-orangepi-sd-card-uhs-v2-7-5bb2b574df5d@gmail.com>
+In-Reply-To: <20260309-orangepi-sd-card-uhs-v2-7-5bb2b574df5d@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Fri, 13 Mar 2026 16:50:59 +0530
+X-Gm-Features: AaiRm51wBTKcyCiwjUblmLGy3GXdm8W7RXj8vtcE2IrwfuzlmNKUiXiuwUzU7RE
+Message-ID: <CANAwSgTkyyPYExj8fwhtG1mEmKkKWqQf3ZwaJrsvj90sMf1kJQ@mail.gmail.com>
+Subject: Re: [PATCH v2 7/7] riscv: dts: spacemit: k1-orangepi-rv2: add SD card
+ support with UHS modes
+To: Iker Pedrosa <ikerpedrosam@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260313_042120_391378_27D7017E 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +118,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Hi Iker,
 
-On 10:42 Fri 13 Mar     , Iker Pedrosa wrote:
-> El vie, 13 mar 2026 a las 1:19, Yixun Lan (<dlan@kernel.org>) escribi=F3:
-> >
-> > Hi Trevor, Iker,
-> >
-> > On 14:27 Wed 11 Mar     , Trevor Gamblin wrote:
-> > > Hi,
-> > >
-> > > On 2026-03-09 07:40, Iker Pedrosa wrote:
-> > > > Add Spacemit P1 PMIC configuration and board power infrastructure f=
-or
-> > > > voltage regulation support.
-> > > >
-> > > > - Add board power regulators (12V input, 4V rail)
-> > > > - Enable I2C8 for PMIC communication
-> > > > - Configure PMIC with buck4 (vmmc) and aldo1 (vqmmc) regulators
-> > > > - Set up regulator constraints for SD card operation
-> > > >
-> > > > Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-> > > > ---
-> > > >   arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 48 +++++++++++=
-+++++++++++++
-> > > >   1 file changed, 48 insertions(+)
-> > > >
-> > > > diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arc=
-h/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> > > > index 7b7331cb3c726f11d597f81917f3a3f5fc21e1b9..414b03f5e6480f05f5d=
-7eeaaa0afb4e86425ae36 100644
-> > > > --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> > > > +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> > > > @@ -19,6 +19,25 @@ aliases {
-> > > >             ethernet1 =3D &eth1;
-> > > >     };
-> > > >
-> > > > +   reg_dc_in: dc-in-12v {
-> > > > +           compatible =3D "regulator-fixed";
-> > > > +           regulator-name =3D "dc_in_12v";
-> > > > +           regulator-min-microvolt =3D <12000000>;
-> > > > +           regulator-max-microvolt =3D <12000000>;
-> > > > +           regulator-boot-on;
-> > > > +           regulator-always-on;
-> > > > +   };
-> > > > +
-> > > Is this the correct voltage? I don't see a 12V rail in the RV2's
-> > > datasheet, and the board's specifications only indicate a 5V USB-C in=
-put.
-> >
-> > Right, this should be fixed. Please note Han submitted one version of b=
-asic DT for rv2
-> > which I think that series will go in first
-> >
-> > https://lore.kernel.org/r/20260310161853.3900605-1-gaohan@iscas.ac.cn
-> >
-> =
+On Mon, 9 Mar 2026 at 17:11, Iker Pedrosa <ikerpedrosam@gmail.com> wrote:
+>
+> Add complete SD card controller support with UHS high-speed modes.
+>
+> - Enable sdhci0 controller with 4-bit bus width
+> - Configure card detect GPIO with inversion
+> - Connect vmmc-supply to buck4 for 3.3V card power
+> - Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
+> - Add dual pinctrl states for voltage-dependent pin configuration
+> - Support UHS-I SDR25, SDR50, and SDR104 modes
+>
+> This enables full SD card functionality including high-speed UHS modes
+> for improved performance.
+>
+> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 
-> I'm fine with that. Do we have an estimate of when these changes will
-> land? I'm fine with rebasing once those are merged, but I'd like to
-> continue with the review for the remaining changes in this patch
-> series and I'm unsure on how to proceed.
-> =
+Can you add the same node for k1-bananapi-f3.dts in the next version?
 
-For that changes, likely will target v7.1 merge window
-
-You can continue with current version, once that happen, you can rebase ..
-
--- =
-
-Yixun Lan (dlan)
+Thanks
+-Anand
 
 _______________________________________________
 linux-riscv mailing list
