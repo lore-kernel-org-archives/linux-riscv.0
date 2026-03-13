@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62FC5107BCE6
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 21:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1205107BCE6
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 21:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=btLWnaqR2KgEF3V223snQ27bT9ptrTsAnt1llpSaPmI=; b=2O7TKc8/9DJ7KE
-	oKnHLA3Km1/z9z6yq+YdGZds4bW5lVG6p3sVZlnjmDtZ7tjNSOPTd3W/oqsmrawK9fXOdgKxdnmFG
-	BIsEwM9AWjX3RJwCiIoYdKDdBXhmH4a5+wgoCrfYjo5X3MR45SslBhbn/tVS8sEdbL2UlN2vY0Vpm
-	PtLU8c98WiQovPJAUhPabKLFmp2v9ss+dZEksnWLUNdMaeNthoPtot5Db1rfu8nVE+0BY2ZDR1uq1
-	10c8DFP2P75JmIXTMgNgUYOoj0XbQDzYoESYSVkWue/nkcYXsBUu3XFeDfeyPYRGvA4pFg/h0WslJ
-	P6/hvSWgTKhOvkRV78ZQ==;
+	List-Owner; bh=AOx6SGWtJlG1Ubl0OnzdM45LjZncLIq8ygd0Pi+QPOM=; b=Y6DOv/zvJiYtIy
+	B3fGAX5kqKiZ0mYe6cYqQmJAlSRek6lPQYvaiqB76oypmJKhtsnFpP8IjXYUdpRBepvHCv5XnSKvh
+	2RetPWNAIAKQRDcFaenGbLLzPO8FWz5zbaqbJvrtLnNNVtcztLSIRqLQO5K2bg1NOWq5cNLNQzA/L
+	weZE0HjY7UJRN+XQp/2Wo1kRotY0BY7zKjFPr5G2gaoJAfxqnf/DKsogbvZKDLH/YUWjNnoXUr5mm
+	nyxhi8BhSyHuvHN2Lk/x+OqVQmT8jBelDSHUfwNJ4neSAORndOvEXKVdbY3B1uGijDNqw1UPhjQnx
+	NWtHc9xOmYORdgJV2pyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1A4N-00000001DUS-37qr;
-	Fri, 13 Mar 2026 21:29:19 +0000
-Received: from mail-dl1-x122a.google.com ([2607:f8b0:4864:20::122a])
+	id 1w1A5T-00000001Ddq-0Puu;
+	Fri, 13 Mar 2026 21:30:27 +0000
+Received: from mail-dy1-x1333.google.com ([2607:f8b0:4864:20::1333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1A4K-00000001DU0-2cAn
+	id 1w1A5Q-00000001DdK-3ytg
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 21:29:17 +0000
-Received: by mail-dl1-x122a.google.com with SMTP id a92af1059eb24-126ea4b77adso3424791c88.1
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 14:29:16 -0700 (PDT)
+	Fri, 13 Mar 2026 21:30:26 +0000
+Received: by mail-dy1-x1333.google.com with SMTP id 5a478bee46e88-2be1b5fe11cso4225653eec.0
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 14:30:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773437356; x=1774042156; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773437424; x=1774042224; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=1IyD/QFjiB4F3V0bSsrb/CnqUpdLxKmx3PhmqTmoLis=;
-        b=nOjm5Zk32zXcgrSdr4w85RN6f0qWiLdbojKJQBR+lCVUAK4zm5xZyybe71Q3ihDEQt
-         uC33QZXXL46CxZDQepCZ2SGzBWqLU6r094u2FC90W1UR7+zt9ruWHE64i1b3eKkp0ltI
-         yDWhkGoNiGRaXh1kdkA++tXMKQv18hINFkvvq5yLkaRDzmKIM1KWfecPnqVy/eP3ruKC
-         vmbkn/wiPl6lsIYwDMGVzaoWYBNbm4sy0uQ4vz8pYobquzqqzrkv7paP0e+guCqO4T5L
-         hrrwcEv50ac7RbFNXF2RPUfpzpzUvXIhlreLXpp/kDDbQ5zwKV//kQj49kxOtlJpawHP
-         9W8Q==
+        bh=TlrfzWsjPUE6veDC3r0tKtgFvPrhedUitAlzl2kQ2Yk=;
+        b=lshGkt1W44DiP/pwv+DufaFiu0nAS8+qPOyn7MsBJmcRUx3A1d2brfgevKBY1W+bjg
+         8KUAnq5YqHGVMGs6Oz55dbblgNzPCJVCNWPIApzli8Y69cTwrSAnFl3t6QnGHIR8noBu
+         E8Yr0QVcXUlJeyAzv+TTC+5OSR/wEG1bytXDl6f2szjF4H9yWuU0FEujVY0Es0Hszo1n
+         qWYa8AX0zhSdrNdIqboFv5hRyvA+qoaDaDxX3GJOJRRYytVNz+HapmYS4jxEDLvbaKZ8
+         S1LHo/6gLABTcsKNbuZU3rRJaVKqgrsaAWPmYpIlYseChGQJzUqIGLwg626VATL3OsvI
+         2v8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773437356; x=1774042156;
+        d=1e100.net; s=20251104; t=1773437424; x=1774042224;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1IyD/QFjiB4F3V0bSsrb/CnqUpdLxKmx3PhmqTmoLis=;
-        b=lpbzKEhXPIZ3h1sxTwsUjzRjh1qlZ3cPKsKNhTH+YGbHBrJRUNI97bNiOOuNTL0Fyc
-         IUtIIRsqO8l7kpg2flMVzhZo3QSThgakubCzCYP9YKwNngjZHWiRigTCcAIwC0Zajl4k
-         NEuEcfjchfmnx2L58u6K7+hDvzERp5IrbQwRF20nmLPKnt0KBil8j/+78DengZWg/+3O
-         on8BBTVLaP4tLU6efivkPmEqsXLAKONe0tRBGNOvOJkAHrjRTzaPJ4l0sXfBMMoDCED7
-         qnw457ZMJsrgKY/D/lRN1lvGbDNMMVkbA8YxJ3bgsP9CNHiQZntvmd6EBz4orkvzGrji
-         Ay2A==
-X-Gm-Message-State: AOJu0Ywfty8I9HYTVS1WzjEC+aytU23wzsu1UOY5jKMNWneVx6XpV6xy
-	5k1tFTf5jfzmy67VxIFX2DvziDBLKHM5pLL3IlmomeuOy2KUmeByQcsy
-X-Gm-Gg: ATEYQzxIvT9zUPwaind7nGCZu6fgADyYzW8x8xsT5U77AGN6p8MfGPsXXiKCtwXDu2B
-	rN6DXALtB19SI+bLPnCtvjnJjTKnwHdIzrfZpV8htuJR29tThnLtihcejTpklPlahy2VdaR3o+v
-	doWeg758r7MS6Uj6BBi9kAggN6nYA/9KBN8RlBldtgCdiL0dVFueSOB8fo7cH8LE5Hvo/4GsTF1
-	ecJbqCuAqAJRZd2ZqxlGhRu6NZDbP354Zp+8UYG7IEo1Zel2h/d2CNPXOgG3jAd5p5WMjE27UXT
-	0VnP2WmIC8PXG0k+O9w0pp4LXp4DGkm2uay0uVIOLEXqNya6EZvo4JFrhO/5Wrmoi+JdyxxQM+5
-	C/O0PrV1C/woPlqRq6VReo6C7pHT+S1zQZhBfCpHHhYIsNtS6pb/GTXshuCyxARo3XaOz2znsR3
-	nnlcY+OpzfbOBhuuhDpbhH8vtnmhr+csAboPVWXLdiN//gCb0=
-X-Received: by 2002:a05:7300:d717:b0:2be:fe8:8b0a with SMTP id 5a478bee46e88-2bea54de394mr2020946eec.21.1773437355602;
-        Fri, 13 Mar 2026 14:29:15 -0700 (PDT)
+        bh=TlrfzWsjPUE6veDC3r0tKtgFvPrhedUitAlzl2kQ2Yk=;
+        b=swoYLUOjwYhS3btEaaSbB3vOb66tSyqrpnvXuJK1Xpul9ngDMz5XR14bipJ/SjIIdO
+         glafSgnkD44c7SabuJWnCePTynnrse//N16pQT9RoXYW9CDihpvm0OvWG307k5x2Dztx
+         7z8b0ffYGcqVv3xFnWyyDsNGUZxYYFHybYyqxLkOinKsR5s7qO28BaEZN1gEbN0txGIT
+         UsdkFq4sXLy6dLqtR5Y3XTmruqGyiikdvSeSz7YbYIjEsx57RY5jhF7zm6AECc+iSYQP
+         3SwtHGxVKNUIhBoQ7H9ZgadO/TZk9ZlXANavTMfAacJQxpCU7EcAnk+kRrq4vw7YQJbi
+         JvOQ==
+X-Gm-Message-State: AOJu0YwTEyXav6DYApvJfXDIBoWl0m6h41o761Op3rMd9XdIN1jIgKps
+	a2Zwo7UW+ebH94OkWPRhPHw3aDYUJBn7TEKcBwnLFCJqRc2+oaMddOge
+X-Gm-Gg: ATEYQzxFk1R7sYwDhOit2qIaAIXLPzCQse3Oqi+4SqWap6Yc5PYay9Yezko62eky1hw
+	QN54uDNgZgBAc9fK2c22F+4MiGruaxmizCJUKliG2C5VZtfz//iqlZx5joHM1ZtIRC+d7PXLZ0m
+	YSJSs+gpZi+VFrZJ1PSCdcG2J67flx/7dqE3k8fuUhnO+byvq5HgBvzYkFQf/DIznWzyeLj6O5s
+	0bXZ7/QBcKHLZCHQ0V/+GKlQ1/wYNFrgR0jrS7iF7OHR7mGDj1FlFFo6YBLk1GV747fzUyEo5dI
+	qN22IkxABu+Ww3JWx7lMsO/tHHp/gDfGLXcOemDfBFnaWwxRNparS8YfzayhUC+bSQkCEKEL6LG
+	IvTAzIxPFhu0vvb/r5IqNCxKg5gTkGXHPh3w51B1PR9/N3V1JN/Z8Z7wdL1XlUKOWYujuA47Mje
+	tWMV7mSpUp87Rmou/5twHInepTvpLGUUd0mKSvH5lVYr7U4zY=
+X-Received: by 2002:a05:7300:b54a:b0:2bd:b325:8d91 with SMTP id 5a478bee46e88-2bea5542097mr2083037eec.29.1773437419216;
+        Fri, 13 Mar 2026 14:30:19 -0700 (PDT)
 Received: from [172.16.0.242] ([192.19.161.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2beab3eec8fsm4224208eec.13.2026.03.13.14.29.13
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2beab527170sm4197910eec.21.2026.03.13.14.30.16
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Mar 2026 14:29:14 -0700 (PDT)
-Message-ID: <31b0abc4-b107-4c95-b6c8-51941330b0f4@gmail.com>
-Date: Fri, 13 Mar 2026 14:34:27 -0700
+        Fri, 13 Mar 2026 14:30:18 -0700 (PDT)
+Message-ID: <5129988d-a75f-473f-bb9b-b8da006d52c1@gmail.com>
+Date: Fri, 13 Mar 2026 14:35:31 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 3/6] riscv: apply page table attribute bits for
- XPbmtUC
+Subject: Re: [RFC PATCH 4/6] riscv: select RISCV_ISA_XPBMTUC in STARFIVE and
+ ESWIN SoC
 To: Conor Dooley <conor@kernel.org>, Bo Gan <ganboing@gmail.com>
 Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
  david@redhat.com, palmer@dabbelt.com, pjw@kernel.org, gaohan@iscas.ac.cn,
  me@ziyao.cc, lizhi2@eswincomputing.com, hal.feng@starfivetech.com,
  marcel@ziswiler.com, kernel@esmil.dk, devicetree@vger.kernel.org
 References: <20260313084407.29669-1-ganboing@gmail.com>
- <20260313084407.29669-4-ganboing@gmail.com>
- <20260313-breezy-from-6b5ad9e9a5ac@spud>
+ <20260313084407.29669-5-ganboing@gmail.com>
+ <20260313-backrest-shamrock-0c651c405686@spud>
 Content-Language: en-US
 From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20260313-breezy-from-6b5ad9e9a5ac@spud>
+In-Reply-To: <20260313-backrest-shamrock-0c651c405686@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_142916_664218_B81833A3 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20260313_143024_992392_CC1153AB 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,89 +107,48 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Conor,
 
-On 3/13/26 06:24, Conor Dooley wrote:
-> On Fri, Mar 13, 2026 at 01:44:04AM -0700, Bo Gan wrote:
->> Apply the UC bit like Svpbmt and THEAD_MAE does. Also changed the
->> _PAGE_PFN_MASK definition to exclude the UC bit, as it's position
->> is now determined at runtime, and can be part of PPN.
+On 3/13/26 06:28, Conor Dooley wrote:
+> On Fri, Mar 13, 2026 at 01:44:05AM -0700, Bo Gan wrote:
+>> Enable the XPbmtUC feature for Starfive and ESWIN SoC
 >>
 >> Signed-off-by: Bo Gan <ganboing@gmail.com>
+>> ---
+>>   arch/riscv/Kconfig.socs | 2 ++
+>>   1 file changed, 2 insertions(+)
+>>
+>> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+>> index d621b85dd63bd..0584511707c7c 100644
+>> --- a/arch/riscv/Kconfig.socs
+>> +++ b/arch/riscv/Kconfig.socs
+>> @@ -14,6 +14,7 @@ config ARCH_ANLOGIC
+>>   
+>>   config ARCH_ESWIN
+>>   	bool "ESWIN SoCs"
+>> +	select RISCV_ISA_XPBMTUC
 > 
-> This should be squashed with the patch adding detection and the Kconfig
-> option.
+> Nah, you can't do this. Either RISCV_ISA_XPBMTUC is user selectable or
+> it is mandatory for these platforms and selected. Don't mix and match
+> please.
 > 
 
 Sure.
 
->> ---
->>   arch/riscv/include/asm/errata_list.h | 17 +++++++++++++++--
->>   arch/riscv/include/asm/pgtable-64.h  |  9 ++++++++-
->>   2 files changed, 23 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
->> index 6694b5ccdcf85..ba0f3d4dd0cbb 100644
->> --- a/arch/riscv/include/asm/errata_list.h
->> +++ b/arch/riscv/include/asm/errata_list.h
->> @@ -53,6 +53,16 @@ asm(ALTERNATIVE(	\
->>   	: /* no inputs */	\
->>   	: "memory")
+>>   	help
+>>   	  This enables support for ESWIN SoC platform hardware,
+>>   	  including the ESWIN EIC7700 SoC.
+>> @@ -56,6 +57,7 @@ config SOC_STARFIVE
+>>   	select PINCTRL
+>>   	select RESET_CONTROLLER
+>>   	select ARM_AMBA
+>> +	select RISCV_ISA_XPBMTUC
+>>   	help
+>>   	  This enables support for StarFive SoC platform hardware.
 >>   
->> +#ifdef CONFIG_64BIT
->> +#define ALT_PAGE_CUST_BIT(_bit)						\
->> +asm(ALTERNATIVE("li %0, 0\t\nnop",					\
->> +		"1: auipc %0, %%pcrel_hi(riscv_xpbmtuc_mask)\t\n"	\
->> +		      "ld %0, %%pcrel_lo(1b)(%0)", 0,			\
->> +			RISCV_ISA_EXT_XPBMTUC,				\
->> +			CONFIG_RISCV_ISA_XPBMTUC)			\
->> +		: "=r"(_bit))
->> +#endif
->> +
->>   /*
->>    * _val is marked as "will be overwritten", so need to set it to 0
->>    * in the default case.
->> @@ -60,11 +70,14 @@ asm(ALTERNATIVE(	\
->>   #define ALT_SVPBMT_SHIFT 61
->>   #define ALT_THEAD_MAE_SHIFT 59
->>   #define ALT_SVPBMT(_val, prot)						\
->> -asm(ALTERNATIVE_2("li %0, 0\t\nnop",					\
->> +asm(ALTERNATIVE_3("li %0, 0\t\nnop",					\
->>   		  "li %0, %1\t\nslli %0,%0,%3", 0,			\
->>   			RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
->>   		  "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,	\
->> -			ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE)	\
->> +			ERRATA_THEAD_MAE, CONFIG_ERRATA_THEAD_MAE,	\
->> +		  "1: auipc %0, %%pcrel_hi(riscv_xpbmtuc_mask)\t\n"	\
->> +			"ld %0, %%pcrel_lo(1b)(%0)", 0,			\
->> +			RISCV_ISA_EXT_XPBMTUC, XPBMTUC_HAS##prot)	\
->>   		: "=r"(_val)						\
->>   		: "I"(prot##_SVPBMT >> ALT_SVPBMT_SHIFT),		\
->>   		  "I"(prot##_THEAD >> ALT_THEAD_MAE_SHIFT),		\
->> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
->> index 1a6d04884111d..aab6990d92238 100644
->> --- a/arch/riscv/include/asm/pgtable-64.h
->> +++ b/arch/riscv/include/asm/pgtable-64.h
->> @@ -76,7 +76,14 @@ typedef struct {
->>    * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
->>    *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
->>    */
->> -#define _PAGE_PFN_MASK  GENMASK(53, 10)
->> +static inline u64 riscv_pfn_mask(void)
->> +{
->> +	u64 cust_bit;
->> +
->> +	ALT_PAGE_CUST_BIT(cust_bit);
->> +	return GENMASK(53, 10) ^ cust_bit;
->> +}
->> +#define _PAGE_PFN_MASK  riscv_pfn_mask()
->>   
->>   /*
->>    * [63] Svnapot definitions:
 >> -- 
 >> 2.34.1
 >>
 
 Bo
-
 
 _______________________________________________
 linux-riscv mailing list
