@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE4FB106FD82
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 06:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF18106FD82
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 06:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LLX0u4PtYOSNB84AiQ6ykrX795z9G7dGq5BMi6gvIaQ=; b=L1fufdWnbTAq58
-	RmI11xCQ7lsHypvecHlh5sMCVQCy/mff3BqsPDb9CeoRmSqfn/U39NBRhL/b14BgmeA+THxwFIja1
-	J/dJbIv4AOPIWvOoIqbqaS6bSmdZhCmzD98Ug+pMtjK8BMbYTIbG528ElxQH/faDBWt68URNarrBP
-	QhzevJLnz5tCPa8uJfsWDgevx6IgMQ7ckjHKbQlZ1f6Yzn0JETaMqUO1LiGHTBTpRdHu2cAdZGbWP
-	t7yDPUJpEmUGJ9+uvnFrU26X97jyM6A6EyIiw8A/T0hgp9Zj5J0x+fmuKBAr4ugpFwvd8u/epFZHu
-	MmiyR8mr+4NOuSJIunrw==;
+	List-Owner; bh=3DqdFVfE6LyLz2CTY9UsQNa/sGIycyae3VxofGWyHlU=; b=3AgFipJEGaIHhW
+	qcLbTRMBTGRJR63PbrXYeht0KTMydjHF20Nk+umHPSn2IOZiyu/wRyWnSOSQfGo6DLebSoE8YXO6f
+	bGgXy3jy8xhQGWSi6doVKmJxHmGozEulfaw33McmGb/ENt+4utkRuHyqc2ZEqe9yt3PoWmAz2o4iz
+	c3+wU5HNjwEoIERpee7I3sSHTlj3g6bVcgE72btwfZ5tsXxHUBFTgNnhqJp5ctN6In4nJQ94sLkqt
+	ke4tP1fxdmriQeO8QaIoXQ9Qiua/utmaQRwa5k/QRhpXRItDEGNE7Q1v7IrqukCCiglM+BDIH+72/
+	maRwgAi/qxYnEZHX9M7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0vj1-0000000Glaq-3Hw2;
-	Fri, 13 Mar 2026 06:10:19 +0000
+	id 1w0vj4-0000000GldX-0diB;
+	Fri, 13 Mar 2026 06:10:22 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0vhw-0000000Gk5r-1lfl;
+	id 1w0vhy-0000000Gk1p-126b;
 	Fri, 13 Mar 2026 06:09:15 +0000
-X-UUID: 2025a7e01ea311f1a21c59e7364eecb8-20260313
+X-UUID: 22eeeeaa1ea311f1a21c59e7364eecb8-20260313
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:d89ac4ec-369b-4d47-846d-ed976b4fdb08,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:20
-X-CID-META: VersionHash:89c9d04,CLOUDID:fd8bf85eeab97c9d96b48752536a9aa3,BulkI
+X-CID-O-INFO: VERSION:1.3.11,REQID:4b6aa0af-ffb4-4b0d-a0cc-f9d15f63a572,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:da9e4b9454dc511ca8a48fba8da5b2c6,BulkI
 	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
 	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
 	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -39,12 +39,12 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 2025a7e01ea311f1a21c59e7364eecb8-20260313
+X-UUID: 22eeeeaa1ea311f1a21c59e7364eecb8-20260313
 X-User: xiaopei01@kylinos.cn
 Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <xiaopei01@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1216968440; Fri, 13 Mar 2026 14:08:59 +0800
+	with ESMTP id 974837560; Fri, 13 Mar 2026 14:09:03 +0800
 From: Pei Xiao <xiaopei01@kylinos.cn>
 To: broonie@kernel.org,
 	linux-spi@vger.kernel.org,
@@ -57,16 +57,16 @@ To: broonie@kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
 Cc: Pei Xiao <xiaopei01@kylinos.cn>
-Subject: [PATCH v2 04/17] spi: img-spfi: Use helper function devm_clk_get_enabled()
-Date: Fri, 13 Mar 2026 14:08:20 +0800
-Message-Id: <8e188ff7513f1a57e6b9b973d231b0eb8f317253.1773381582.git.xiaopei01@kylinos.cn>
+Subject: [PATCH v2 14/17] spi: sunplus-sp7021: Use helper function devm_clk_get_enabled()
+Date: Fri, 13 Mar 2026 14:08:30 +0800
+Message-Id: <5951a0403ac15a2f46ad8f126ccccc5a209e85d1.1773381582.git.xiaopei01@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1773381582.git.xiaopei01@kylinos.cn>
 References: <cover.1773381582.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_230913_227007_8A564019 
-X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-CacheID: sfid-20260312_230914_642010_FA3C841F 
+X-CRM114-Status: UNSURE (   9.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,50 +91,49 @@ Simplify code.
 
 Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
 ---
- drivers/spi/spi-img-spfi.c | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
+ drivers/spi/spi-sunplus-sp7021.c | 15 +--------------
+ 1 file changed, 1 insertion(+), 14 deletions(-)
 
-diff --git a/drivers/spi/spi-img-spfi.c b/drivers/spi/spi-img-spfi.c
-index 902fb64815c9..a227cff5da70 100644
---- a/drivers/spi/spi-img-spfi.c
-+++ b/drivers/spi/spi-img-spfi.c
-@@ -557,24 +557,17 @@ static int img_spfi_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto put_spi;
+diff --git a/drivers/spi/spi-sunplus-sp7021.c b/drivers/spi/spi-sunplus-sp7021.c
+index 789b092fe8c0..35601212fb78 100644
+--- a/drivers/spi/spi-sunplus-sp7021.c
++++ b/drivers/spi/spi-sunplus-sp7021.c
+@@ -389,11 +389,6 @@ static int sp7021_spi_target_transfer_one(struct spi_controller *ctlr, struct sp
+ 	return ret;
+ }
  
--	spfi->sys_clk = devm_clk_get(spfi->dev, "sys");
-+	spfi->sys_clk = devm_clk_get_enabled(spfi->dev, "sys");
- 	if (IS_ERR(spfi->sys_clk)) {
- 		ret = PTR_ERR(spfi->sys_clk);
- 		goto put_spi;
- 	}
--	spfi->spfi_clk = devm_clk_get(spfi->dev, "spfi");
-+	spfi->spfi_clk = devm_clk_get_enabled(spfi->dev, "spfi");
- 	if (IS_ERR(spfi->spfi_clk)) {
- 		ret = PTR_ERR(spfi->spfi_clk);
- 		goto put_spi;
- 	}
- 
--	ret = clk_prepare_enable(spfi->sys_clk);
--	if (ret)
--		goto put_spi;
--	ret = clk_prepare_enable(spfi->spfi_clk);
--	if (ret)
--		goto disable_pclk;
+-static void sp7021_spi_disable_unprepare(void *data)
+-{
+-	clk_disable_unprepare(data);
+-}
 -
- 	spfi_reset(spfi);
- 	/*
- 	 * Only enable the error (IACCESS) interrupt.  In PIO mode we'll
-@@ -655,9 +648,6 @@ static int img_spfi_probe(struct platform_device *pdev)
- 		dma_release_channel(spfi->rx_ch);
- 	if (spfi->tx_ch)
- 		dma_release_channel(spfi->tx_ch);
--	clk_disable_unprepare(spfi->spfi_clk);
--disable_pclk:
--	clk_disable_unprepare(spfi->sys_clk);
- put_spi:
- 	spi_controller_put(host);
+ static void sp7021_spi_reset_control_assert(void *data)
+ {
+ 	reset_control_assert(data);
+@@ -460,7 +455,7 @@ static int sp7021_spi_controller_probe(struct platform_device *pdev)
+ 	if (pspim->s_irq < 0)
+ 		return pspim->s_irq;
  
+-	pspim->spi_clk = devm_clk_get(dev, NULL);
++	pspim->spi_clk = devm_clk_get_enabled(dev, NULL);
+ 	if (IS_ERR(pspim->spi_clk))
+ 		return dev_err_probe(dev, PTR_ERR(pspim->spi_clk), "clk get fail\n");
+ 
+@@ -468,14 +463,6 @@ static int sp7021_spi_controller_probe(struct platform_device *pdev)
+ 	if (IS_ERR(pspim->rstc))
+ 		return dev_err_probe(dev, PTR_ERR(pspim->rstc), "rst get fail\n");
+ 
+-	ret = clk_prepare_enable(pspim->spi_clk);
+-	if (ret)
+-		return dev_err_probe(dev, ret, "failed to enable clk\n");
+-
+-	ret = devm_add_action_or_reset(dev, sp7021_spi_disable_unprepare, pspim->spi_clk);
+-	if (ret)
+-		return ret;
+-
+ 	ret = reset_control_deassert(pspim->rstc);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to deassert reset\n");
 -- 
 2.25.1
 
