@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DE8105F78C
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 12:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF710105F7A6
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 12:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k9PjF42XaaJRsNUpTu3J93SU2s/rzVKl5+YLs4Ka2X8=; b=ud3ynkwqvsyBPCL5BiBAFytkKF
-	gblozPK8tku6lB9M+6D0ETG/HlAhBc6NW16zVE91b7hEi4QokzTeFEsONGHiyGmvygBhFZn9auu7i
-	6aezRgqaJPVi1yMhauHmeOgd8PonfNkgq73e+ueSubpTNMwJAlsIjOYlqGGs5aTAjfrudEyNYsN8h
-	1bx+vPSg5oHwbFkbdwC/dL5E5PqY/kGKJveeMjDWzVfy5w51VlEyfpZI9q1ZdkuZi96u6//R4iDc5
-	ANxR7X/09rTkg9f8gxMoxVmBTJWlAh2/BKJKQvQBMRdPwFdJCZULn7S32jwaeZOXH4s8BRI3edY6j
-	YrS8Pirg==;
+	bh=f/ksBDp8SoSIoe0OdnNMhXBNiiAy/7SzGhY0WL75NE0=; b=b7fsWG7yTT/ui0VmcSa14H3PXd
+	XVvP6CUtCev82plUfZr1MP5obolDzE7unTW4mQc7YNQKUQWgPcAEtjVGPaPejK0t+MwE7Y5VsMv/Y
+	IikZ4oydZ86kQ3IN9iYMrq/ba4tfu5xJiR9Xh5KoN+vX/ssyEFLrYJYgkma4AMWfKWEK+IE6ZU3Zs
+	zVCbrH6bRbhN3WUs5BJtamyqO1GrPi2fUPRxBh2PXZjJq34vCxrj5JNzZXN899kjzGODnMz+aouQx
+	hwVlFstsgC2ePLEcMLDQpkfPGMsikMpz44WAeVOXR9VrFqTVy48YhgkRPZsGqN/ae5WGYEts0KVvm
+	VTd354kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w11fH-000000007SI-0zKW;
-	Fri, 13 Mar 2026 12:30:51 +0000
+	id 1w123g-00000000A2e-1TEd;
+	Fri, 13 Mar 2026 12:56:04 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w11fF-000000007Ru-0trG
-	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 12:30:50 +0000
+	id 1w123Z-00000000A1Z-2bRw;
+	Fri, 13 Mar 2026 12:55:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 140216012B;
-	Fri, 13 Mar 2026 12:30:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B019C19421;
-	Fri, 13 Mar 2026 12:30:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F07486012B;
+	Fri, 13 Mar 2026 12:55:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8865AC19421;
+	Fri, 13 Mar 2026 12:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773405047;
-	bh=UC+Yl3z9QYsXrYj3QIsZyePn4NCs3LhBHikYlM0lMo4=;
+	s=k20201202; t=1773406556;
+	bh=Zjx0eOHVxG9gyRtEPqgdCcdKSmIhSdKw+KfUYhGrs8w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IVUq0zNRNrljbCxxMZulnQZ7IOV29OHJIkJ4OgZpAAvHIOj1JbG04jaMt2XLMFA/+
-	 NL7xKNMiV9XwBmTh99MIY/KPA73hS6g6ez5MwN+3J7HaxHKdjhdcoWVkk1gyGnE35j
-	 DBjr48+sqRS3xbffIolD3DIeuN9Eul2/I2hJTLzBUKvgKjICNXyY9LvnSQhjGrpFJX
-	 JhZTnlb8fWLSi8b0IipKgeWCV0sM7qDa+Rm3X7rMHrn7AdiWT9uU4FWGjHtJ0TrYfg
-	 iZ3mA8NEZw0MzFdHLIOr4VuSyP8dru3o3zUNJo5Mw77r0ZJFr729SF0f3nhzvzZCa6
-	 8Xp6cvqwz9HMw==
-Date: Fri, 13 Mar 2026 12:30:42 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bo Gan <ganboing@gmail.com>
-Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
-	david@redhat.com, palmer@dabbelt.com, pjw@kernel.org,
-	gaohan@iscas.ac.cn, me@ziyao.cc, lizhi2@eswincomputing.com,
-	hal.feng@starfivetech.com, marcel@ziswiler.com, kernel@esmil.dk,
-	devicetree@vger.kernel.org
-Subject: Re: [RFC PATCH 0/6] riscv: support EIC770X/JH7110 noncoherent
- devices with XPbmtUC
-Message-ID: <20260313-uninsured-desecrate-06d51e8c100d@spud>
-References: <20260313084407.29669-1-ganboing@gmail.com>
+	b=LKDNhWqZ9gcLlJdoxr0XynPiyUoe0daj5KnfLIG4JofOAQVLnpfys+tsWuBfR2BP+
+	 6BJj6yZqfdm3hP9/V+3GjcABC4QPZaLJh+UehwPfjEiiPgBRLJ6mgswvf9usqZ5HyW
+	 B35LWJTwY7IrxQ1ooNqsQWH1kQI+VgfVN7nqixPusURihdngD8rUG+kVXzeu3RPREe
+	 HL0ID1LecKPKPy/Ia8QeXmRWoF6BA05QvmnIjDA4KKqSsmWbqzdha1+mMcteN7bbhf
+	 Hzm7r3p3USkrdmFn6vaEWdLOJOjaqX2Y8UmAlpDxnlihm5RiCIr2WOGSb3NBQJJndm
+	 MHJylAxBihjJQ==
+Date: Fri, 13 Mar 2026 12:55:51 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Pei Xiao <xiaopei01@kylinos.cn>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 01/17] spi: axiado: Use helper function
+ devm_clk_get_enabled()
+Message-ID: <d54214f4-b57a-455e-991e-8700d03eea95@sirena.org.uk>
+References: <cover.1773381582.git.xiaopei01@kylinos.cn>
+ <d78ba5faa6ed3f5e009b41fc1ee1c2bcdaff882b.1773381582.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-In-Reply-To: <20260313084407.29669-1-ganboing@gmail.com>
+In-Reply-To: <d78ba5faa6ed3f5e009b41fc1ee1c2bcdaff882b.1773381582.git.xiaopei01@kylinos.cn>
+X-Cookie: Monitor not included.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,97 +68,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9202659942140323371=="
+Content-Type: multipart/mixed; boundary="===============8346988286258514968=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============9202659942140323371==
+--===============8346988286258514968==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xl7sylfjzH1sx4al"
+	protocol="application/pgp-signature"; boundary="1oJhbZS/zdMQ8Obt"
 Content-Disposition: inline
 
 
---xl7sylfjzH1sx4al
+--1oJhbZS/zdMQ8Obt
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 13, 2026 at 01:44:01AM -0700, Bo Gan wrote:
-> Starfive JH7110 and ESWIN EIC770X both have non cache-coherent
-> peripherals. On JH7110[1], GPU/VOUT/VPU/ISP are routed to the sys port,
-> making them not cache-coherent. On EIC770X, all peripherals are routed
-> to the sys port, and none is cache-coherent. To make drivers work on
-> such platforms, the standard solution is to use Svpbmt and map the DMA
-> buffer as uncacheable. However, neither SoC supports Svpbmt. Instead,
-> they map the system memory twice, as cached and uncached. The uncached
-> alias implicitly applies the uncacheable PMA. To support such platform,
-> a special form of Svpbmt, namely "XPbmtUC" is introduced in this patch.
-> It's a synthetical PTE format where a single bit (UC) is controlling
-> the cacheability and the bit position can be configured at runtime. It
-> is intended to model the physical memory aliasing with minimal effort.
->=20
-> On JH7110, it aligns perfectly with the HW, as the aliased UC region
-> happens to be offsetted by 2^34. Thus, configuring the XPbmtUC with
-> bit=3D32 (PPN is shifted by 2) is all that needs to be done.
->=20
-> On EIC770X, the aliased UC region is put to a awkward offset, and given
-> there can be 2 NUMA node (dual-die) with 2 separate memory regions and
-> their UC alias counterpart, we instead ask the firmware to provide a
-> thin-layer hypervisor to re-arrange the memory map. The XPbmtUC will be
-> enabled with bit=3D38, thus map all UC pages to 2^40 (the upper-half of
-> 2^41), and the underlaying hypervisor will re-map the 2^40+ addresses
-> to the appropriate UC alias regions. (See description in PATCH 1/6)
->=20
-> We chose bit 38 (PPN bit 40) to make the 2-stage translation efficient.
-> Hypervisor can utilize Sv39x4 G-stage scheme, and map all pages as 1GB
-> huge page, consuming only the first-level page table (16KB total), and
-> several TLB entries. In practice, it's the firmware/bootloader that
-> configures XPbmtUC through device-tree, based on firmware capabilities,
-> and skip the enablement on stock firmware. This is tested on Hifive
-> Premier P550 with the modified OpenSBI[2]. It runs the host Linux in VS
-> mode, and provide the aforementioned remapping. The performance penalty
-> (if not running KVM in Linux) is minimal, as the CPU is never switched
-> to HS mode. A very slight, unavoidable, slow down is with the external
-> interrupt delivery. Due to the lack of AIA in EIC770X, all device irq
-> now needs to trap to M mode first, before forwarding to VS mode. The
-> overhead of running KVM in such setup is yet unknown, and may well be
-> noticeable, as all HS-qualified instructions will trap to M mode, and
-> there's also the extra cost of flushing G/VS-stage TLBs. I'm analyzing
-> it in parallel.
->=20
-> I'm aware there's an ongoing series that Samuel sent for physical
-> memory aliases. I haven't been following too closely, but if you're
-> worried about it touching to many areas, I hope my series can shed some
-> light on the problem. My change is very minimal and local, also fairly
-> easy to remove if we later decide deprecating it down the road.
->=20
-> [1] https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Cache=
-%20Coherence%20V1.0.pdf
-> [2] https://github.com/ganboing/opensbi/tree/eic77x-vspt-physalias-wip
+On Fri, Mar 13, 2026 at 02:08:17PM +0800, Pei Xiao wrote:
+> devm_clk_get() and clk_prepare_enable() can now be replaced by
+> devm_clk_get_enabled() when driver enables the clocks. Moreover, it is no
+> longer necessary to unprepare and disable the clocks explicitly.
+> Simplify code.
 
-For those following along at home, Samuel's series is:
-https://lore.kernel.org/all/20251113014656.2605447-20-samuel.holland@sifive=
-=2Ecom/
+> -	xspi->pclk = devm_clk_get(&pdev->dev, "pclk");
+> +	xspi->pclk = devm_clk_get_enabled(&pdev->dev, "pclk");
+>  	if (IS_ERR(xspi->pclk)) {
 
-I've been meaning to try it, but never conjured up the time to dig into
-it...
+This doesn't update the remove function which while it doesn't free the
+clock does disable it.  Please check all the other patches for similar
+issues too.
 
---xl7sylfjzH1sx4al
+--1oJhbZS/zdMQ8Obt
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabQDcgAKCRB4tDGHoIJi
-0k91AQCTigu4flNTwbRfBa2qpwsZVt98SjWUsg5VrekaxBGmfwEAtK6Z8NycfbK9
-zELdQt5kDWP0hvATewi82y8QSsJ6WgM=
-=TC7+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmm0CVcACgkQJNaLcl1U
+h9AmBQf+NZmcjADEavTXUkEkwog1B2fWsPoumOErBPGPp/uNMBzFPkj7gtNd5btL
+ucVKvAua02jhgHneB/r1FG0shTauJc9wVpal3XmgRnMdqN8XRjML+ZWlF1SI+tpc
+v45g2somStcn0QaQOUiGzrwcZddKdUwXCKwidznhryq4fm4Qm0d0jSLg5ayUdLhN
+iavAAr+18xMj0UyCJQttiVZ5oR4PdExtioX/4xm4pJhL+H9TPdBC1fouESmEEOG4
+krxSjVZLRrIxK8ZTjQ4RCV9ykypPyOl3bheFPN7rtI234NlAhUQu6ujoUgoC4aXU
+IoIqyGMXFEt63B8KRgz9kIl/lz6DCw==
+=oV3/
 -----END PGP SIGNATURE-----
 
---xl7sylfjzH1sx4al--
+--1oJhbZS/zdMQ8Obt--
 
 
---===============9202659942140323371==
+--===============8346988286258514968==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -168,5 +126,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9202659942140323371==--
+--===============8346988286258514968==--
 
