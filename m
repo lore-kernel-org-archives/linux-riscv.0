@@ -4,102 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A6A106FD6C
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 02:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA411106FD6B
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 02:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wBxbOWKem5RjV5gfYeqN2fX/7E7ntTWr1uWgn5Jjy5o=; b=eOEzoRT+yUtCTn
-	l3frPB+j3EIXk2pgmenTPZ2XI78QTXJ7agfdqi4S944HtrfqE9/Ub1ORs52d3bXXJmKjgYg6zJYcc
-	YgK3F1MvjHSeDW52UlbiHykTNnEquFdiXhkUxU3Ng7yamDWpwBTmsUSOMzUkhGIT/p/P/CQNQCFEy
-	7MjRmmAbyj+a2PNqMryIQHTqk8b9AYNVvJwFVuew4mcUV5WztNLF1Yh5ZkziO3AHPCE7rRyPvGqWF
-	m5C9eESN99XliPrcgkTQOADp+32evFn87qXw9c3MSkm/edm0s4UInK6TN2yPXYWBiFjU5hQy6GagW
-	yUisDywI4cneXvhbiH5w==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+a+vgQ5MMgQkd1rYgbbfG+HNaK9Mu3SA5kJR0p8gcNY=; b=qpWxc+ow2qoYig
+	ZfINdF/397lCvIVpK+FQdAbGgJHA5e7vJ1TqxbnfG87XtoHX1qj2vajhmWNexvc09SWd295mHYaKL
+	Qxueuq5pHHgu/c0iSkE/7VaqW8MG0lIrs9T4RQp74bcfQ6XHAXTFZ+uhKdbRPco7pnfYa2uNrRSmD
+	CnSJvnW0eqExoBXu1DSljkqfCnhC0KwNJnfu4kDhSOPugqVJPmmDWtx1EVM763GXM6KLLBYeiQ4hu
+	OYzqocKvyF6A7Inm9S6JGluPQKDK6Dgaij4CkmXC4cJA/jAhcdHMuBVlmONj79IgEAI5LS5Nb2ES+
+	TdX6uptvQ5mKdjGYFJEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0sVD-0000000GHGL-1tTs;
-	Fri, 13 Mar 2026 02:43:51 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1w0shb-0000000GJSp-1HuK;
+	Fri, 13 Mar 2026 02:56:39 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w0sVA-0000000GHFF-18XH
+	id 1w0shY-0000000GJRJ-079w
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 02:43:49 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-5094b54a250so12140711cf.2
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Mar 2026 19:43:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773369826; x=1773974626; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q9hCuzuHEN/sMOidNnhHLkJz/g4iSobaxo8mhYZkdNU=;
-        b=b+7czi3vmOhXwpsN0OjQGCunBmsqIMIL0Yxxw2l4uhS8hhZWHEaek2gpbLxUvsnMTs
-         mqJLL/LakbsZoDeOCg1IxpjhigzPEeN6ei3NqdKE2y6aKDX1RvrRh9MPLxWpCbAvn/JZ
-         9JCl4uUHgJti1VUlKj1adYZ8axAy9zNCLRL0JXgaYDsZhu2ug35CrgcN5YMfcPiQc9YU
-         mlm8tWSH8Px/VcZf5ER3iuVZlsoe+Iy2Lw8siINd7Ejv2J7pSwW/4xaEa63ZIOBqqK9A
-         oI3eUK7XwGU6pz1owto46w2dvmuVu87qkfjCF3nftuCZnGvAMM8nOb21xKWETmdR3NN5
-         6mYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773369826; x=1773974626;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Q9hCuzuHEN/sMOidNnhHLkJz/g4iSobaxo8mhYZkdNU=;
-        b=H/zsbL4vE7yBejNkildgSYLZm3lpotUYE8TtRZ3h09WqfBVHtPxcBuUhsMdE6C5DJc
-         NFA+QlwgfCz0lOWpR/h70ktPbauX2gr0I8IwohUALVKorkoD/TN4xYxNaVEKwiqOCc5L
-         +q2MLXZo5NL//jfNycGixiKspoHF53Jo+/ZUjv9pAxnKh0spTK4x8WIe//MQbC4NVedP
-         qth8yrv3uWcV1zJL6LYaLyvKj3yQZQ12W0alOSx/31rtJAJv9BjND3M+NIENbu8dHxIp
-         OI20v2V//xSmGQusCBz3KlVpiI8O2337mpt+fzPUNVmT7qmL97MALY5jBu5GAcilo50O
-         itfA==
-X-Forwarded-Encrypted: i=1; AJvYcCWBtc/E5RDe8cuJ7UwC4wpDI93KDhRsQsz/9cJB2qQCCo7oc7GQsiSyK48Q5PaVeQYGXm9EWu5WjfIzBw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNy/opIg7KEoKmWb8dBG0+LO2bSbwZvo4xEdHEsPX4+WdvYFBW
-	z71cDMfr6jUXbWdfzbkBndOYFWD4ZauhcDpX8UGEwuxFRSEAr/tPk5Ov
-X-Gm-Gg: ATEYQzx/e3jgbDXlkLWfpNmoV/SwCi4uMyTmQ1u7CbZ/xgzx8Px8+UyKWcYUmBoXJ1m
-	LxGCHlXB3s6DqhfO1KuC3XbirZX1Lt0kx753uUQFJi3hyNp47GBQuyL4Ai3hD5rXJ3CD0y6fLE9
-	2QiNxLhmLJe13zHgR1qS5eg7Xr0VyYSHb2o8R9aG34BXSuYIhiV0aN4wvcmCzlzreIn8C8l58Sl
-	4RIAii4WUcfwUk8FgbFmpUybDFgS4asIPbN8EEF1HIi4YJMwWp4/qFh+rDlySidoXhdj53cETFe
-	tXBshvwiJU0YiA1tJ+ihNydSuwdgSTdp5JQNC4RVWmaXuMtWYKD1e9A4WP7BIqGvSzBVAAeUB87
-	yL9gMTz8AFvbnLrxjEFPbFUORrVTIXvhXo3QWWOmRuJzxSWs+rAS956oRpVrypZDvtX4QlNdrSd
-	0tLbasN2ftjh3T8CTCpiGyHeQ=
-X-Received: by 2002:ac8:5fcb:0:b0:509:329e:bd5 with SMTP id d75a77b69052e-50957b909c8mr24981181cf.3.1773369825770;
-        Thu, 12 Mar 2026 19:43:45 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5093a0ea844sm53518871cf.17.2026.03.12.19.43.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Mar 2026 19:43:45 -0700 (PDT)
-Date: Fri, 13 Mar 2026 10:43:05 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	Yao Zi <me@ziyao.cc>, Yanteng Si <siyanteng@cqsoftware.com.cn>, 
-	Vladimir Oltean <vladimir.oltean@nxp.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Shangjuan Wei <weishangjuan@eswincomputing.com>, Boon Khai Ng <boon.khai.ng@altera.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v9 3/4] net: stmmac: Add glue layer for Spacemit
- K3 SoC
-Message-ID: <abN5Xn5GCa_UqCbO@inochi.infowork>
-References: <20260312012232.373713-1-inochiama@gmail.com>
- <20260312012232.373713-4-inochiama@gmail.com>
- <20260312193801.61c30de4@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260312193801.61c30de4@kernel.org>
+	Fri, 13 Mar 2026 02:56:37 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4fX8JT0kRJz51Sjp;
+	Fri, 13 Mar 2026 10:56:25 +0800 (CST)
+Received: from xaxapp04.zte.com.cn ([10.99.98.157])
+	by mse-fl2.zte.com.cn with SMTP id 62D2uFU2087779;
+	Fri, 13 Mar 2026 10:56:15 +0800 (+08)
+	(envelope-from hu.shengming@zte.com.cn)
+Received: from mapi (xaxapp01[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Fri, 13 Mar 2026 10:56:16 +0800 (CST)
+X-Zmail-TransId: 2af969b37cd0ec5-ee738
+X-Mailer: Zmail v1.0
+Message-ID: <20260313105616335IVh7tn1pSkAHNnfckGCQ-@zte.com.cn>
+Date: Fri, 13 Mar 2026 10:56:16 +0800 (CST)
+Mime-Version: 1.0
+From: <hu.shengming@zte.com.cn>
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+Cc: <alex@ghiti.fr>, <linux-kernel@vger.kernel.org>,
+        <linux-riscv@lists.infradead.org>, <zhang.run@zte.com.cn>,
+        <yang.tao172@zte.com.cn>, <yang.yang29@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIXSByaXNjdjogbW06IFZlcmlmeSBwZXItaGFydCBBU0lEIGJpdHMgd2hlbiB1c2luZyBBU0lEIGFsbG9jYXRvcg==?=
+X-MAIL: mse-fl2.zte.com.cn 62D2uFU2087779
+X-TLS: YES
+X-SPF-DOMAIN: zte.com.cn
+X-ENVELOPE-SENDER: hu.shengming@zte.com.cn
+X-SPF: None
+X-SOURCE-IP: 10.5.228.133 unknown Fri, 13 Mar 2026 10:56:25 +0800
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 69B37CD9.000/4fX8JT0kRJz51Sjp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260312_194348_323131_8B65B4C5 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20260312_195636_248336_7583B470 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,33 +78,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 07:38:01PM -0700, Jakub Kicinski wrote:
-> Some nit picks only to be addressed in case the AI complaint on patch 1
-> is legit..
-> 
-> On Thu, 12 Mar 2026 09:22:25 +0800 Inochi Amaoto wrote:
-> > +config DWMAC_SPACEMIT
-> > +	tristate "Spacemit dwmac support"
-> > +	depends on OF && (ARCH_SPACEMIT || COMPILE_TEST)
-> > +	select MFD_SYSCON
-> > +	default m if ARCH_SPACEMIT
-> 
-> I know other STMMAC sub-drivers do it but isn't the defconfig for 
-> the platform the right place to add this sort of default?
-> 
-> > +	apmu = syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-> > +						    "spacemit,apmu", 2,
-> > +						    offset);
-> > +	if (IS_ERR(apmu))
-> > +		return dev_err_probe(dev, PTR_ERR(apmu),
-> > +				"Failed to get apmu regmap\n");
-> 
-> looks mis-aligned 
+From: Shengming Hu <hu.shengming@zte.com.cn>
 
-Yes, that's true. I will fix this.
+RISC-V probes the number of implemented ASID bits in SATP on the boot
+hart and enables the ASID allocator based on that result. However, the
+privileged spec allows harts to implement fewer ASID bits by hardwiring
+the upper bits to zero.
 
-Regards,
-Inochi
+If a secondary hart implements fewer ASID bits than the boot hart while
+the ASID allocator is enabled, different Linux ASIDs may alias on that
+hart. This can allow stale TLB entries to survive and potentially
+corrupt memory.
+
+Verify the number of implemented ASID bits on each CPU as it comes
+online, and refuse to online CPUs that support fewer ASID bits than
+the boot CPU.
+
+Signed-off-by: Shengming Hu <hu.shengming@zte.com.cn>
+---
+ arch/riscv/include/asm/mmu_context.h |  2 ++
+ arch/riscv/kernel/smpboot.c          |  3 ++
+ arch/riscv/mm/context.c              | 42 ++++++++++++++++++++++++----
+ 3 files changed, 41 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+index dbf27a78df6c..0cca20b7dbe1 100644
+--- a/arch/riscv/include/asm/mmu_context.h
++++ b/arch/riscv/include/asm/mmu_context.h
+@@ -16,6 +16,8 @@
+ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+ 	struct task_struct *task);
+
++int verify_cpu_asid_bits(void);
++
+ #define activate_mm activate_mm
+ static inline void activate_mm(struct mm_struct *prev,
+ 			       struct mm_struct *next)
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 8b628580fe11..9774a591c1a5 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -230,6 +230,9 @@ asmlinkage __visible void smp_callin(void)
+ 			return;
+ 	}
+
++	if (verify_cpu_asid_bits())
++		return;
++
+ 	/* All kernel threads share the same mm context.  */
+ 	mmgrab(mm);
+ 	current->active_mm = mm;
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index 55c20ad1f744..2a830f021ce5 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -22,6 +22,7 @@
+ DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
+
+ static unsigned long num_asids;
++static unsigned long asid_bits;
+
+ static atomic_long_t current_version;
+
+@@ -224,16 +225,16 @@ static inline void set_mm(struct mm_struct *prev,
+ 	}
+ }
+
+-static int __init asids_init(void)
++static unsigned long get_cpu_asid_bits(void)
+ {
+-	unsigned long asid_bits, old;
++	unsigned long asid_bit_count, old;
+
+ 	/* Figure-out number of ASID bits in HW */
+ 	old = csr_read(CSR_SATP);
+-	asid_bits = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
+-	csr_write(CSR_SATP, asid_bits);
+-	asid_bits = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
+-	asid_bits = fls_long(asid_bits);
++	asid_bit_count = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
++	csr_write(CSR_SATP, asid_bit_count);
++	asid_bit_count = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
++	asid_bit_count = fls_long(asid_bit_count);
+ 	csr_write(CSR_SATP, old);
+
+ 	/*
+@@ -242,6 +243,30 @@ static int __init asids_init(void)
+ 	 * to remove unwanted TLB enteries.
+ 	 */
+ 	local_flush_tlb_all();
++	return asid_bit_count;
++}
++
++int verify_cpu_asid_bits(void)
++{
++	unsigned long cpu_asid_bits = get_cpu_asid_bits();
++
++	if (cpu_asid_bits < asid_bits) {
++		/*
++		 * The ASID allocator is initialized using the boot CPU's ASID width.
++		 * We cannot safely shrink the system-wide ASID space at runtime, so
++		 * reject secondary CPU bringup if it supports fewer ASID bits than
++		 * the boot CPU.
++		 */
++		pr_crit("CPU%d: ASID bits (%lu) smaller than boot CPU (%lu), refusing to online\n",
++			smp_processor_id(), cpu_asid_bits, asid_bits);
++		return -EINVAL;
++	}
++	return 0;
++}
++
++static int __init asids_init(void)
++{
++	asid_bits = get_cpu_asid_bits();
+
+ 	/* Pre-compute ASID details */
+ 	if (asid_bits) {
+@@ -279,6 +304,11 @@ static inline void set_mm(struct mm_struct *prev,
+ {
+ 	/* Nothing to do here when there is no MMU */
+ }
++
++int verify_cpu_asid_bits(void)
++{
++	return 0;
++}
+ #endif
+
+ /*
+-- 
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
