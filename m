@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1205107BCE6
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 21:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A646107BCE8
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Mar 2026 21:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AOx6SGWtJlG1Ubl0OnzdM45LjZncLIq8ygd0Pi+QPOM=; b=Y6DOv/zvJiYtIy
-	B3fGAX5kqKiZ0mYe6cYqQmJAlSRek6lPQYvaiqB76oypmJKhtsnFpP8IjXYUdpRBepvHCv5XnSKvh
-	2RetPWNAIAKQRDcFaenGbLLzPO8FWz5zbaqbJvrtLnNNVtcztLSIRqLQO5K2bg1NOWq5cNLNQzA/L
-	weZE0HjY7UJRN+XQp/2Wo1kRotY0BY7zKjFPr5G2gaoJAfxqnf/DKsogbvZKDLH/YUWjNnoXUr5mm
-	nyxhi8BhSyHuvHN2Lk/x+OqVQmT8jBelDSHUfwNJ4neSAORndOvEXKVdbY3B1uGijDNqw1UPhjQnx
-	NWtHc9xOmYORdgJV2pyQ==;
+	List-Owner; bh=DaglJqIKbTAmKoR/oGWGD2gudzbIrntFkxQ1bJwaL+A=; b=QGs9l+ebpu78F3
+	IhrteQklUFLqKFKoNRDmdbxPhOp/m3IiInC0JbMKrM4QoDKrO9juOlmBcws4CWkzDexWWWrCdP26p
+	2H8kyD8Gb9yuOLf/8zc3IGlFugWa+EG6oYmPVc9kapaLJFNBKOhHdc016JAPa/3+XXjgI+TlMOH1d
+	mt/FEpyylY0wU/d0GeE18s4tm3We5bmzqDXpT8XB5eiWdhvSuuMh9R3ozAoyf3TISEiq+guakehoY
+	F/RpAnSDVv2FpLRfFnsNk1U8tKxdtM0tB/XMS8GiUSh/H8bi0qZ768p7PRj/oL+DtD3Pz78eaSFNf
+	jc0HxBJbabLWbE3tzQxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1A5T-00000001Ddq-0Puu;
-	Fri, 13 Mar 2026 21:30:27 +0000
-Received: from mail-dy1-x1333.google.com ([2607:f8b0:4864:20::1333])
+	id 1w1ASq-00000001FFo-2elb;
+	Fri, 13 Mar 2026 21:54:36 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1A5Q-00000001DdK-3ytg
+	id 1w1ASo-00000001FFT-00iR
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Mar 2026 21:30:26 +0000
-Received: by mail-dy1-x1333.google.com with SMTP id 5a478bee46e88-2be1b5fe11cso4225653eec.0
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 14:30:24 -0700 (PDT)
+	Fri, 13 Mar 2026 21:54:35 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-1271195d2a7so1689643c88.0
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 14:54:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773437424; x=1774042224; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773438873; x=1774043673; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=TlrfzWsjPUE6veDC3r0tKtgFvPrhedUitAlzl2kQ2Yk=;
-        b=lshGkt1W44DiP/pwv+DufaFiu0nAS8+qPOyn7MsBJmcRUx3A1d2brfgevKBY1W+bjg
-         8KUAnq5YqHGVMGs6Oz55dbblgNzPCJVCNWPIApzli8Y69cTwrSAnFl3t6QnGHIR8noBu
-         E8Yr0QVcXUlJeyAzv+TTC+5OSR/wEG1bytXDl6f2szjF4H9yWuU0FEujVY0Es0Hszo1n
-         qWYa8AX0zhSdrNdIqboFv5hRyvA+qoaDaDxX3GJOJRRYytVNz+HapmYS4jxEDLvbaKZ8
-         S1LHo/6gLABTcsKNbuZU3rRJaVKqgrsaAWPmYpIlYseChGQJzUqIGLwg626VATL3OsvI
-         2v8g==
+        bh=8G/at76670ycOzH91CNexS5yCq4aAux5TqZxX053qrI=;
+        b=CFCPb51hvM15bsSpTHdH1seU9rlcX4UQNwbzGna4IZI6P1xV1LbnaWH1KtMABJQtfS
+         IPD8Lsc41ALF5Tzo1nxot7c1djo4y/umL0O6XA9rgH0m+v+FU0AfceMJ4CcsJnAuHQHK
+         Fv5nZhLi76w11qwcq0aeanT5nXeFO5dIQSB+Q5Qoe+GDnx+/visHvOEOyiyJquACL+MZ
+         iD6iMRvI3iqE/fCNvGDeljlSb9YYBs/u3st8jI4q6v00S9iUHYfTnxVuAkOZhrinw7W/
+         3dvrHi87YVSUHLv0h02Qn7JxiySadA4wPRC+NmlJ3JAG0wAoXW8E+BLinYNBCsQ30x7V
+         LXyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773437424; x=1774042224;
+        d=1e100.net; s=20251104; t=1773438873; x=1774043673;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=TlrfzWsjPUE6veDC3r0tKtgFvPrhedUitAlzl2kQ2Yk=;
-        b=swoYLUOjwYhS3btEaaSbB3vOb66tSyqrpnvXuJK1Xpul9ngDMz5XR14bipJ/SjIIdO
-         glafSgnkD44c7SabuJWnCePTynnrse//N16pQT9RoXYW9CDihpvm0OvWG307k5x2Dztx
-         7z8b0ffYGcqVv3xFnWyyDsNGUZxYYFHybYyqxLkOinKsR5s7qO28BaEZN1gEbN0txGIT
-         UsdkFq4sXLy6dLqtR5Y3XTmruqGyiikdvSeSz7YbYIjEsx57RY5jhF7zm6AECc+iSYQP
-         3SwtHGxVKNUIhBoQ7H9ZgadO/TZk9ZlXANavTMfAacJQxpCU7EcAnk+kRrq4vw7YQJbi
-         JvOQ==
-X-Gm-Message-State: AOJu0YwTEyXav6DYApvJfXDIBoWl0m6h41o761Op3rMd9XdIN1jIgKps
-	a2Zwo7UW+ebH94OkWPRhPHw3aDYUJBn7TEKcBwnLFCJqRc2+oaMddOge
-X-Gm-Gg: ATEYQzxFk1R7sYwDhOit2qIaAIXLPzCQse3Oqi+4SqWap6Yc5PYay9Yezko62eky1hw
-	QN54uDNgZgBAc9fK2c22F+4MiGruaxmizCJUKliG2C5VZtfz//iqlZx5joHM1ZtIRC+d7PXLZ0m
-	YSJSs+gpZi+VFrZJ1PSCdcG2J67flx/7dqE3k8fuUhnO+byvq5HgBvzYkFQf/DIznWzyeLj6O5s
-	0bXZ7/QBcKHLZCHQ0V/+GKlQ1/wYNFrgR0jrS7iF7OHR7mGDj1FlFFo6YBLk1GV747fzUyEo5dI
-	qN22IkxABu+Ww3JWx7lMsO/tHHp/gDfGLXcOemDfBFnaWwxRNparS8YfzayhUC+bSQkCEKEL6LG
-	IvTAzIxPFhu0vvb/r5IqNCxKg5gTkGXHPh3w51B1PR9/N3V1JN/Z8Z7wdL1XlUKOWYujuA47Mje
-	tWMV7mSpUp87Rmou/5twHInepTvpLGUUd0mKSvH5lVYr7U4zY=
-X-Received: by 2002:a05:7300:b54a:b0:2bd:b325:8d91 with SMTP id 5a478bee46e88-2bea5542097mr2083037eec.29.1773437419216;
-        Fri, 13 Mar 2026 14:30:19 -0700 (PDT)
+        bh=8G/at76670ycOzH91CNexS5yCq4aAux5TqZxX053qrI=;
+        b=PaFUNTBX8MaV0n8eHGRJaThdI38aDP7juZ6qxh3h66/2WSvI4A9mQLYyH3AkcZoqya
+         IDsXII8uZBQp0Oa0VeEq457kX2eO69h4Clsgb4tGLAHAzXstxeHjR44lL1qmEyDumkrC
+         BMRewR8em39J5lMApibsyAgwlvsfw4jya5AsUHwZPsX/RX/dU4X76+ZJsiLW83KqWceL
+         sgmCCrVkaGzeWlXstqqpzniiZRQ44+XoN4dKOav3bDCP87pkeAFqRKQc+iGJ9F49w3Dm
+         QgwxVhtZw1nBfJfNHE8om2NjvmG+Izxo+sgZfvae/IekswuysTZ9ygNf+64SJ7NvJ0Ps
+         iHAw==
+X-Gm-Message-State: AOJu0YwRRVCaM16/8D7l6mlxn3/te8BqWy0hHOWS1ANTQQAxVobYJSKN
+	G9zQH7s2lPAD4uiuab9NxregqVCmBPMjGvQ7vmLkKfbGGNvLZrjbxypo
+X-Gm-Gg: ATEYQzzRv5ExabwxS/GX80zw5Tg6FA5Q8sP+HOe0qC6yb9IMl5ZvHPVSrvQ6IIKkn83
+	1CnQsnkYM0YMfyyx7Ar3TO+dwadrDwWNwjI0q7NemoEYpLRkvKaSbUVeDMQ/jycXeyrbYKYb0X7
+	po5E97J8YQhnZ/TrO9Typ06u9VHUhH1ClVZ+6KVVJmwZXTYt3/0gr1asHroeCqoRmSUadqz6KI/
+	Vwa7Hhas5QetVstOWanH79WbPHevxykzOIXChY5cb9pJdLWfVHZXuVyDpSACFz9uN+ndxlqL1Cd
+	L4LM0APe/1AiTQgLUOWe1nlNPSZjRJZzppHtnrTPguijBM7LWdwLgb+x7QPNA2gyUAjJe/2cyfA
+	SUNxmb00/iFXFzyaX8S0IogqkwznJ5OTei36dA+yNHEIR8lSYgB9BmHAKCa71ni9F2wydSOXeY/
+	c0Sfxd3le1aDNjVmGD+k2chZ8rVmKnOnmxgPCjCOLBez2RuPI=
+X-Received: by 2002:a05:7022:309:b0:123:2c98:f65d with SMTP id a92af1059eb24-128f3d3cbe0mr2285425c88.13.1773438872617;
+        Fri, 13 Mar 2026 14:54:32 -0700 (PDT)
 Received: from [172.16.0.242] ([192.19.161.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2beab527170sm4197910eec.21.2026.03.13.14.30.16
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-128f6384e7asm3541611c88.11.2026.03.13.14.54.30
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Mar 2026 14:30:18 -0700 (PDT)
-Message-ID: <5129988d-a75f-473f-bb9b-b8da006d52c1@gmail.com>
-Date: Fri, 13 Mar 2026 14:35:31 -0700
+        Fri, 13 Mar 2026 14:54:31 -0700 (PDT)
+Message-ID: <f2cd9698-1200-4752-a61a-e4f311473523@gmail.com>
+Date: Fri, 13 Mar 2026 14:59:44 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 4/6] riscv: select RISCV_ISA_XPBMTUC in STARFIVE and
- ESWIN SoC
+Subject: Re: [RFC PATCH 5/6] riscv: dts: starfive: jh7110: activate XPbmtUC
 To: Conor Dooley <conor@kernel.org>, Bo Gan <ganboing@gmail.com>
 Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
  david@redhat.com, palmer@dabbelt.com, pjw@kernel.org, gaohan@iscas.ac.cn,
  me@ziyao.cc, lizhi2@eswincomputing.com, hal.feng@starfivetech.com,
  marcel@ziswiler.com, kernel@esmil.dk, devicetree@vger.kernel.org
 References: <20260313084407.29669-1-ganboing@gmail.com>
- <20260313084407.29669-5-ganboing@gmail.com>
- <20260313-backrest-shamrock-0c651c405686@spud>
+ <20260313084407.29669-6-ganboing@gmail.com>
+ <20260313-overstep-viscosity-23f4f23e1871@spud>
 Content-Language: en-US
 From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20260313-backrest-shamrock-0c651c405686@spud>
+In-Reply-To: <20260313-overstep-viscosity-23f4f23e1871@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_143024_992392_CC1153AB 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260313_145434_088178_797600CC 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +106,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Conor,
 
-On 3/13/26 06:28, Conor Dooley wrote:
-> On Fri, Mar 13, 2026 at 01:44:05AM -0700, Bo Gan wrote:
->> Enable the XPbmtUC feature for Starfive and ESWIN SoC
+On 3/13/26 06:48, Conor Dooley wrote:
+> On Fri, Mar 13, 2026 at 01:44:06AM -0700, Bo Gan wrote:
+>> Set riscv,xpbmt-uncache-bit to 32 to match SoC memory map:
+>>
+>>             [0x0,   0x40000000) Low MMIO
+>>      [0x40000000, 0x2_40000000) Cached Mem
+>>    [0x4_40000000, 0x6_40000000) Uncached Mem UC+
+>>    [0x9_00000000, 0x9_d0000000) High MMIO
 >>
 >> Signed-off-by: Bo Gan <ganboing@gmail.com>
+> 
+> 
+> What I want know is how this whole setup interacts with the existing
+> support that we have for these devices?
+> Samuel's patchetset removed from the devicetree all of the nodes related
+> to having two mappings of the same memory, and modified the existing
+> erratum to only be required for older devicetrees.
+> You've not removed them, only added a new property. The non-coherent
+> peripherals on jh7110 already work prior to this patchset, is there not
+> going to be funky behaviour with both of these things operating in
+> parallel?
+> 
+
+I just want to clarify that Samuel's change is not touching JH7110, but
+*JH7100*. They are very similar chips, can can confuse people sometimes,
+but JH7110 evolved to put more devices such as gmac/sdio/usb/pcie through
+the front port to make them cache coherent. The left over noncoherent
+device are dealt by the driver through cache flushes, I believe. That's
+why we have out-of-box support for JH7110 even without Samuel's patch. On
+the older JH7100, none of the peripheral is DMA coherent, so we either
+use ERRATA_STARFIVE_JH7100, making kernel NONPORTABLE or Samuel's patch.
+Refer to this pdf for a detailed comparison:
+https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Cache%20Coherence%20V1.0.pdf
+
+My patch doesn't touch anything JH7100. It's an enhancement to JH7110 (the
+newer chip). The issue is that even though basic peripherals are coherent,
+the video subsystem, GPU/VPU/ISP... is still not. (See page 6 in that pdf)
+Hence technically, we still need to deal with the same issue on JH7110.
+E.g., part of the reason we can't have GPU driver working is because we
+can't map a DMA page as uncached in userspace. There's no cache flush insn
+in userspace, either. This change tries to solve the issue in a simple yet
+elegant way.
+
+There's no other changes to the device-tree required, just adding the prop
+for JH7110, and things should just work. As for JH7100 (the older chip), I
+don't plan to support it, as the cached/uncached region are offsetted by
+0xf80000000, so it can't be modeled by a single UC bit (w/o hypervisor
+re-mapping it underneath, and there's no H for JH71x0) The chip was also
+superseded very quickly after the release of JH7110. I don't imagine too
+many users demanding support.
+
 >> ---
->>   arch/riscv/Kconfig.socs | 2 ++
->>   1 file changed, 2 insertions(+)
+>>   arch/riscv/boot/dts/starfive/jh7110.dtsi | 1 +
+>>   1 file changed, 1 insertion(+)
 >>
->> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
->> index d621b85dd63bd..0584511707c7c 100644
->> --- a/arch/riscv/Kconfig.socs
->> +++ b/arch/riscv/Kconfig.socs
->> @@ -14,6 +14,7 @@ config ARCH_ANLOGIC
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> index 6e56e9d20bb06..6dfeb31538fba 100644
+>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> @@ -14,6 +14,7 @@ / {
+>>   	compatible = "starfive,jh7110";
+>>   	#address-cells = <2>;
+>>   	#size-cells = <2>;
+>> +	riscv,xpbmt-uncache-bit = <32>;
 >>   
->>   config ARCH_ESWIN
->>   	bool "ESWIN SoCs"
->> +	select RISCV_ISA_XPBMTUC
-> 
-> Nah, you can't do this. Either RISCV_ISA_XPBMTUC is user selectable or
-> it is mandatory for these platforms and selected. Don't mix and match
-> please.
-> 
-
-Sure.
-
->>   	help
->>   	  This enables support for ESWIN SoC platform hardware,
->>   	  including the ESWIN EIC7700 SoC.
->> @@ -56,6 +57,7 @@ config SOC_STARFIVE
->>   	select PINCTRL
->>   	select RESET_CONTROLLER
->>   	select ARM_AMBA
->> +	select RISCV_ISA_XPBMTUC
->>   	help
->>   	  This enables support for StarFive SoC platform hardware.
->>   
+>>   	cpus: cpus {
+>>   		#address-cells = <1>;
 >> -- 
 >> 2.34.1
 >>
