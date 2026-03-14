@@ -4,57 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136C110706CE
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 11:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D4CE10706D5
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 12:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rB41ZvE0qULkzXeluHnS+UbrohtpTLnPjqztKGcB8ak=; b=xzE9eb0ZJGCcrxHBEG5+8V4Xpm
-	avlTvPqetrKQvnIDcWJY94QlSyx5V3VVfZjzgIc5dr5RcjU+Cmb8GJI+MHpWMg+eCvxx+Fi94g2Zr
-	DVuIV/P5j8PLCzUBYVKk24XmCakjDKev99z+XUAODF1Dw2DPlgNu5+w0sIOwFYtWUwDT6ra1xn6td
-	5Sah5xMNZPaDvNaLhsVSl0UC7MZS1kjMTamAqifmISHSn9zloo1pbQe0Hs3oGfau2D73P/XZqgxTU
-	hCux7Jt79sXReTpK5Yjedi+kNSnEgJYhn/Dj5mipg50Lb2S16iiQwJSM3Jrnqm0RdHjbCkVXDkKYq
-	ZI7j7jhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zWGYPMsEe5xSuKObGBOyvjkrchONlxBnDfgbFpVQanY=; b=0QPw7B5CrxU7m2F7ON9x1lw0ik
+	O6FfkayJ1anst4m6nPlpFbj5YcH3QT9+uchPmx7IN35wAz8l1SyqBj5nnBkDgyTcnhREbPS6IyGRS
+	+OnpAoU9FJOtl+Ov6LKneBQs4H8OZnJ87PnkhcGrwuWZco+YYYx9hT/BUKLOMO6xwNo5xcGqm7Lep
+	cjz7S2+GdjN12sioQ7gvPaPcRvq/kX8SUBNwzv4FXVRVbvMZ5GGBl971dX4PZy+L2o0MzjsfUKIIl
+	TvAVrrVEL/j3s1Gqsq6BIkcKysAPgzHAsQcTZU34gb4o+dCHSZQdRD7xXNRpOFYhXZkVJSoHrZS1f
+	W9WYhNPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1MsD-00000001lXn-3UG5;
-	Sat, 14 Mar 2026 11:09:37 +0000
+	id 1w1Nvn-00000001piC-0n2T;
+	Sat, 14 Mar 2026 12:17:23 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1MsB-00000001lXS-0WZG
+	id 1w1Nvi-00000001php-1EWO
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Mar 2026 11:09:36 +0000
+	Sat, 14 Mar 2026 12:17:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3B1644129;
-	Sat, 14 Mar 2026 11:09:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 072E8C116C6;
-	Sat, 14 Mar 2026 11:09:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 80BD7442F0;
+	Sat, 14 Mar 2026 12:17:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAAC3C116C6;
+	Sat, 14 Mar 2026 12:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773486573;
-	bh=FsIdoywK9beEGP500Y5qRV1jmRWb97tBn7YIlx7LUOQ=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=cwgP8Hvlsp1NLiGJ3Waw5c+mGf4ZOp059dd1X+SRUpFCs8OMZHVcw4Y/XDG8fxwP7
-	 Nbq6Wwzjf4wWcr8AYL0V1rpCYv0YAuW1feiHX3eNobdrA/tQYDhBwWAPGElblCAQTn
-	 XjFLKQxIsAhF4n5wYJi8T7VC3AsM5WMVeGg1W2ODJYz9554cE3CJR0+K6NW9OLUfKK
-	 v4+IsP6bHZsONsEXdwWJDrwFXgM3jJ8WyXmc5hm1bLDVbkMFTzRazKU4gvxD8LhrTg
-	 0cAngWpWCFC/HKS2C1dAh9YmXJQFkE8GcKRDZ8IFBSxC3DehkLMO18ZCORh0JI4AtD
-	 uS1gozNea7dQA==
-Content-Type: multipart/mixed; boundary="===============7202453078316456263=="
+	s=k20201202; t=1773490637;
+	bh=qJN0XXCAFaH6VkPmE666UHy9EHp3KHZV4dMoKW+Qfz8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DzkVT062gMhnk4qaERql+mwsd79l6a1zlNM7tZT9ZLpvvmwtM7l6GzAs0fG+KYDCf
+	 GnxB9EVnaG5/XzTtge/XmWhi5g6v+WlCpbHgn9sKhRcdjiDe/NfjXPf1YMQFFw+wC1
+	 2I6FJH/2LenPCD7kBnbGjFTeVMDBCfkttqWYn9SAqNDuCdJYWzfh+bmcykLAaI51uq
+	 4yVSABdemLJetaVLt2j7SV/3esrCm7UDrzDvpb5bCV1wrtJAD1nCmfzHIlO/ivwFxp
+	 d15R7U6kvNmEB+aRWtrr4KN1I4Sils/8oZdsmjbYBMKZLvrlRvv2HER5yCSoqg5SsL
+	 wSvRq+XSGghyg==
+Date: Sat, 14 Mar 2026 12:17:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Bo Gan <ganboing@gmail.com>
+Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
+	david@redhat.com, palmer@dabbelt.com, pjw@kernel.org,
+	gaohan@iscas.ac.cn, me@ziyao.cc, lizhi2@eswincomputing.com,
+	hal.feng@starfivetech.com, marcel@ziswiler.com, kernel@esmil.dk,
+	devicetree@vger.kernel.org
+Subject: Re: [RFC PATCH 1/6] riscv: Add a custom, simplified version of
+ Svpbmt "XPbmtUC"
+Message-ID: <20260314-subdued-morally-f20a84fd446c@spud>
+References: <20260313084407.29669-1-ganboing@gmail.com>
+ <20260313084407.29669-2-ganboing@gmail.com>
+ <20260313-visitor-majestic-1a6888dc57b2@spud>
+ <25a8565d-a6bb-401f-b776-d743a2ec9ee0@gmail.com>
+ <20260313-spiny-duration-702fff6bca17@spud>
+ <ba44e0ed-9a6f-4d4d-b3bc-a6e0bac19940@gmail.com>
+ <20260314-errant-gnarly-dcca92457051@spud>
+ <9592ecf2-8410-4df7-9b2c-17564426240d@gmail.com>
 MIME-Version: 1.0
-Message-Id: <dfa065670c02c16c71cac4773c62208f2b031198d9cf070d1b69a5ce0ff3d7ab@mail.kernel.org>
-In-Reply-To: <20260314-bpf-kmalloc-nolock-v1-1-24abf3f75a9f@outlook.com>
-References: <20260314-bpf-kmalloc-nolock-v1-1-24abf3f75a9f@outlook.com>
-Subject: Re: [PATCH bpf] bpf: do not use kmalloc_nolock when !HAVE_CMPXCHG_DOUBLE
-From: bot+bpf-ci@kernel.org
-To: rsworktech@outlook.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,song@kernel.org,yonghong.song@linux.dev,john.fastabend@gmail.com,kpsingh@kernel.org,sdf@fomichev.me,haoluo@google.com,jolsa@kernel.org,bigeasy@linutronix.de,clrkwllms@kernel.org,rostedt@goodmis.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr
-Cc: ameryhung@gmail.com,linux-riscv@lists.infradead.org,stable@vger.kernel.org,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-rt-devel@lists.linux.dev,rsworktech@outlook.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Sat, 14 Mar 2026 11:09:33 +0000 (UTC)
+In-Reply-To: <9592ecf2-8410-4df7-9b2c-17564426240d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_040935_192850_90EB9CAB 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20260314_051718_391799_4EB04D78 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,41 +77,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: multipart/mixed; boundary="===============4536818182561032797=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7202453078316456263==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
 
-> diff --git a/kernel/bpf/bpf_local_storage.c b/kernel/bpf/bpf_local_storage.c
-> index 9c96a4477f81..8e4b0fe6d12a 100644
-> --- a/kernel/bpf/bpf_local_storage.c
-> +++ b/kernel/bpf/bpf_local_storage.c
-> @@ -894,7 +894,8 @@ bpf_local_storage_map_alloc(union bpf_attr *attr,
->  	 * preemptible context. Thus, enforce all storages to use
->  	 * kmalloc_nolock() when CONFIG_PREEMPT_RT is enabled.
->  	 */
-> -	smap->use_kmalloc_nolock = IS_ENABLED(CONFIG_PREEMPT_RT) ? true : use_kmalloc_nolock;
-> +	smap->use_kmalloc_nolock = IS_ENABLED(CONFIG_PREEMPT_RT) &&
-> +		KMALLOC_NOLOCK_SUPPORTED ? true : use_kmalloc_nolock;
-
-Should the comment above be updated to reflect the new behavior?
-It currently says "enforce all storages to use kmalloc_nolock()
-when CONFIG_PREEMPT_RT is enabled", but the code now only enforces
-kmalloc_nolock when both CONFIG_PREEMPT_RT and
-CONFIG_HAVE_CMPXCHG_DOUBLE are enabled. On PREEMPT_RT without
-HAVE_CMPXCHG_DOUBLE, the override is silently skipped and the
-caller's value is used instead.
+--===============4536818182561032797==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iDS3O7h7qtVz8IgK"
+Content-Disposition: inline
 
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+--iDS3O7h7qtVz8IgK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23086356774
---===============7202453078316456263==
+On Fri, Mar 13, 2026 at 10:06:42PM -0700, Bo Gan wrote:
+> > To be honest, I'm not completely dead-set opposed to a property that has
+> > the bit positioning, but any property being added for what is
+> > effectively an erratum needs to pass a high bar when the info could be
+> > gathered in another way. That the eic7700 one depends on firmware for
+> > what the bit may be is points in your favour, since firmware variability
+> > is part of what dt is there to do. The jh7110 is points against, since
+> > it could be fished out of the errata handling code.
+> >=20
+> Even for JH7110, I don't think it can be handled through the errata. It
+> describes the errata of the core (if I'm not mistaken), and there can be
+> other SoCs using the same core with the same archid/impid, but maps the
+> peripherals differently, and the UC bit position doesn't apply there. I
+> think you are probably looking for "SoC level errata" handling. It's not
+> there AFAIK. Hence I guess both SoC cases point in favor of the dt prop?
+
+I dunno, nothing wrong with checking the devicetree during the errata
+"probe" code. Checks are not limited to imp/arch ids, can do ecalls etc
+etc in there too, so looking at the root compatible would be possible.
+
+Either way, if people like what you've done here generally (because
+coming up with our own use of PTE bits could be controversial), and a
+custom property of some sort is to be used, you need to provide a good
+justification of why it is needed in the commit messages because you're
+setting a precedent of being the first "extension" conjured up to suit
+linux that would need that kind of functionality.
+Need to demonstrate that it describes an aspect of the hardware, and
+isn't being conjured up to configure software to use one out of several
+possible values, that it may even be able to determine heuristically
+=66rom information already provided in the devicetree (like the root
+compatible or a completely described memory node).
+
+--iDS3O7h7qtVz8IgK
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabVRxAAKCRB4tDGHoIJi
+0sKCAQCFcLXaxPOsQWiEZYssCaXCDw8Ikdz/ax1iXfKfagutMgD/TE4w73XgMNvH
+GeXGGZb5eOooB27gJKL5sMKOn2nx1A0=
+=c0jS
+-----END PGP SIGNATURE-----
+
+--iDS3O7h7qtVz8IgK--
+
+
+--===============4536818182561032797==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -111,5 +150,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7202453078316456263==--
+--===============4536818182561032797==--
 
