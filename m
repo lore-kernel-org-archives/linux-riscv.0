@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EEC107BCEF
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 01:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60976107BCEE
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 02:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hFYbte41BwPC6xV56576TdNxiOVI4I2rLK4uwSUe3gs=; b=0iHQwVZJrdgfS+
-	5pdIzbSB6/0Y4yDii7F0BiKVcpjWBLnoMzatUaNQBoK4iNqmbaPNvyXLiuzijQsKPHwmGpLyQI2bg
-	PeUrkp4ZqTUcQcd2yAr62E1F0Biz2jCmW+S7fW+Su5XTXzHV6X1RPT3VQfY8ZbLmYJS+IInD0Bm3E
-	lVIzZjhcaD2YN8TsUiOkQPVcTDdQhRvYuYup6TnUJd8lh6AMbYbfn+m/1pVDoEa+1iQ0TXI83MU3N
-	HhKRh9yxKnN0CTdN0+0iL0IF2yfHFte8kYZKapQjyEbHNwSpaR1cmRZIHfUXs7U1hKvDXd1xc9GLf
-	C9aVTp7C6gPXuSKW3/3A==;
+	List-Owner; bh=t/v8oPsCQByI6Ju06AspFjD3/bBJDbZk0O6zRfWev8k=; b=nfOXM1JqbtJXNN
+	ycFXi5C65bb8Py2e9u4kFGEXxwZ6H9v/RjQi3BWTUWZXTcmcTz2inpgI1MZtra1enMCbGibFWxWKz
+	qlil0m6UKXQAF5yvdZCpkOxrXL0qw+jS7mxe/fgYFcskObvlvO+x8tKedgz5YlBoYZoNPkseT/frS
+	WX1tZ/GFe9pWaZne/gI0WdEA+atCoKuqqb/8AKFHH9wZc/qxxnpb3CMtQ8Sbiheh/VXzkla39rQ1g
+	gi8IlmRKjl/WhHn1XlC1laAChfkJ5wdhqE8nXtswuLg28VBVX/aKSNSDNNRqkolzl8TViI0nNJRPz
+	v+XbM5qN7ayjzg6E1y3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1E3B-00000001Ovf-3uUh;
-	Sat, 14 Mar 2026 01:44:21 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1w1EJZ-00000001POd-25UE;
+	Sat, 14 Mar 2026 02:01:17 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1E39-00000001OvK-0tGT
+	id 1w1EJU-00000001POJ-151M
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Mar 2026 01:44:20 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-78fc4425b6bso29042767b3.1
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 18:44:18 -0700 (PDT)
+	Sat, 14 Mar 2026 02:01:15 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-64cb577e79cso3171170d50.0
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 19:01:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1773452657; x=1774057457; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=sifive.com; s=google; t=1773453671; x=1774058471; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=M+0PW7TLqltEBmQy5cqK8weQnye0SYryGMpoq56/3fY=;
-        b=Q4m8MGvtudK09VdOYNK7rLYHOodC/GgnulW9TMPNa8bnkaY/YSX/Y9WPgtGY3Z4hrd
-         SQhi13b4thnfrEjJuAoiW1NXS2+0Pf4mYTsnW7tcmsAmZ0B88iBnIRp1OL2I1k8Hsi+S
-         AOpOm9kyySCO6THqhnZsYb02O8KjtWgO0edcHEh0+seJZ6x2YOSIV6ac1v3SQWgqBA3z
-         oDTQFwOmTzveDFJ5NRY7GvFbv3kj8fh1xmNkUvOgm4hlPt/v4LGWdVD0b7z+v/pMYZvu
-         hw/8038polYcQRQ/9rAgT79/HIDZNZUialWo2BMcJb/LEL92CnBqIZoYYMoRo5GfuH8K
-         zSUw==
+        bh=dCvYTlqh1MWL8IyixDf4AN02tdUmB4IFN+TyGNNiUIs=;
+        b=ipfXEt90xEXQdK/5zd4UzIjuXdYCeo8EIK+gEOvJSfBb+rM+6l5dafMxkl2jLWDuUX
+         ZN0pNrXmMK7qf0HLrTRcEnu7BiMFY6dQNeua5NCvuYaQhoxM8MnX8SrTfwcY0VJuBBr1
+         tszuq6yfY+SyNhD14maAnc4wgEOYXetlsU4AxjfMEaR29gDt99nmolALuRUghxETzGbL
+         QKMsamacLcgOAzkex6mqWFH+BZtepMYLzalxSVeuSClIvMOKNkush790IPKl0UnaYJ0d
+         8bvCjXh0jjx0jwmyaThWevB6he5KqoomR0vot4HaXgOetjqvF1z2fMZAQWc6cRNRFH9s
+         DFnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773452657; x=1774057457;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=1e100.net; s=20251104; t=1773453671; x=1774058471;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=M+0PW7TLqltEBmQy5cqK8weQnye0SYryGMpoq56/3fY=;
-        b=IMCiDYkksYxheSvfHkCjVZtsCjOZe3MKQluZjLcPlbnXde3z351nc+SpwWxvG2V2Re
-         QTq5LrjLPUhTBloS1BuCb1sB3KRP5chZhMEtxZtKh5UUrkXSqvteS8cEEmv1b+CuTtzI
-         sEJJesXA3aFDJgWC4uY69fYlGLau/U1QMw/J3yqNqz5+itPZsyWTc7KqvUIja+pwGHcm
-         IdaZTif4vktXiZCPfHX6iUCqfpQli/aSKYrawtru1zQeKy7gwbJFyhVzmpMrwnGRrm5Z
-         jDgN1Ywz4BPHYl2NcpVgUlWvfYlBws0Nx3cHb8YJRmck1kNGevOO2KI3tMYAxh8BfNw0
-         TyDg==
-X-Forwarded-Encrypted: i=1; AJvYcCXuiTcQhfQOcjzDosgooxx/u2lInZg9Y2kuNtORpp+wprRDCKQ4miE5I9j8P0Jz2LJBgv0DjjOmZNy3qQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwolImJesRRK9n29egd+RClgdd5CccuAceYKx7HY3G36WDRIeBj
-	N4FAya3um16cf6VnCdeFi1qRKH5W/5sB+zIo8MzjLxgJdiTzA4+Gw58S108CgqoHsQ0=
-X-Gm-Gg: ATEYQzyOsBFVzFTvwkA50Qw3d1/e6JI3WUMLcZahbQshrQTJ4sWQ/kFLOBWDVlIQnke
-	H4G7Sg9qmyPsry6dSPdqvRLpaUL2Q7UoaMiyWutEuGvasskl02crELv8o6/IbvGNg7ZV56u0IQz
-	PWNFGWhUADkHJcDWJ/ejbjF8KUFaK1xgs9c3/bY/PCnRybiSUciPVkKllRwEuE1JDvEIZfHyPWK
-	8ovt/lRqIr7A8Sz02petgeFoKJunI3nS6EvlhnwFjbmls390/QY5xETulHgIfH7/FR6Sqs8QEUY
-	AbpPZywBvp1N55f2S0nfHdiAseHqOp/ggF79M9Y/Lxryy+bpiafn9wSzujTlVyZFwujSse97f0P
-	e2IOsxXCtNNS9HWkV/BD8LjjYFxbiPlr33WOOWdauw2mthaXLqkqGuq3p97p2C9i0nPMGC1AZh7
-	vslknzFdi9S5MCebwalIr7/QUBEIcECjQm6K80L7dp
-X-Received: by 2002:a05:690c:112:b0:798:67be:f903 with SMTP id 00721157ae682-79a1c17ba6emr59139737b3.39.1773452657155;
-        Fri, 13 Mar 2026 18:44:17 -0700 (PDT)
+        bh=dCvYTlqh1MWL8IyixDf4AN02tdUmB4IFN+TyGNNiUIs=;
+        b=DjvNDsrDYowBQulgPsomkHRVtvl+f0NIexaA5HSN91hl0m2Ynp/MT8NxM/KCVIxotK
+         scjZkOItZ/qkDeTeReAqZ7kRX8dYMX+DreW2dzVk0d73YD1Pj0KRd4zgvzWdHEhZhxcb
+         fbOD35UyhJnIs6wLxfRFKizBgyiYlhjUzZe1cRQB7SN9npl8EW/8hrCxcoTBzvyeDJqZ
+         +F/2+7Ql+KElwiK0pJerQ8lO9EeNSMFRENMEsqXEtX+nhf2wjGhNgjRokFXSd0AujPrs
+         HZrNCvIhaDwR9mVoDyu7gcufoLQ0TCFdHaV/Ha7IM5rs5FoWka80uWMuMDiZKGy9mSLY
+         +EdA==
+X-Forwarded-Encrypted: i=1; AJvYcCW110DntjLupNtvfptGB0u9tFcJAzkZKITT0DWk34BAf9JRXV2o2jAc+28Heh96aRBKIwUqkjZCToBIng==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCeqKPTx14DuzPGu7vfMv7aKJWsJBvp7EU93I0kkic15F32wV+
+	JQZqTnkchEYolJoRVE3WrIFKGjR0NPwyXaT/iWqgpx3I8pXGPHcKRm3Q/oFJ4Vhd2Jc=
+X-Gm-Gg: ATEYQzwBORAH3S6Hyv5g4qJZiuWBi1B1w4pUnOjCR/oWX+hTYO2iI/R584+qGwwHsoe
+	r36l9HmvFm9lMtqXeYUQlJhuz6qyQe+EphRpCuoBA2lGBbBCzaBeeXAmI/ipQcUAyh+ktWoXItP
+	JKHvp1C3wQpqTYEsPtGbCbbLWXjy4mESKnO2l6QL2Y/hr3YjEt7ZvuPNdTRuVZUHV7t/aROQwEO
+	PYVeZ4iO2Uw96yiOv0keKn2SiQqikxPOwBUVsIRXanwY6dS9vHFd0R2XdJxUCqcoTKD6WpmzxD/
+	j4HpRGXjpHE/vPXOax6fNXZYyTQ6DgFGIAlIFSTEuYexmypeXliG9zNpxbmcSbN/bjyhwlyixoY
+	o+BpsicK/5ERNo6BLilpYBBhgf9rIpZOLzEa7vfCAZm4nS3jmOJx2//A9nNtOH1TM0Cy5uau1u3
+	vjUyRGAgnHNNP8KeMjQAqk98dfQYD63XyjWys=
+X-Received: by 2002:a05:690c:6e87:b0:798:1636:c330 with SMTP id 00721157ae682-79a1c18818bmr60490517b3.34.1773453670899;
+        Fri, 13 Mar 2026 19:01:10 -0700 (PDT)
 Received: from [100.64.0.1] ([170.85.103.33])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-7991ad51ee0sm50488877b3.8.2026.03.13.18.44.16
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-79917ee4a8esm58267877b3.32.2026.03.13.19.01.09
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Mar 2026 18:44:16 -0700 (PDT)
-Message-ID: <fecadd41-ee3e-4452-bf25-4a70eaeb5f3f@sifive.com>
-Date: Fri, 13 Mar 2026 20:44:15 -0500
+        Fri, 13 Mar 2026 19:01:10 -0700 (PDT)
+Message-ID: <47e9a3e0-c056-41e8-a175-442a3ba7e355@sifive.com>
+Date: Fri, 13 Mar 2026 21:01:09 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] riscv: dts: spacemit: k3: add clock tree
-To: Yixun Lan <dlan@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-References: <20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org>
- <20260304-01-dts-uart-full-v1-1-50a0aa53a245@kernel.org>
-From: Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v2 0/1] update riscv prctl for discovering V extension
+To: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>, andybnac@gmail.com
+Cc: alex@ghiti.fr, eric.lin@sifive.com, greentime.hu@sifive.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, nick.hu@sifive.com, nylon.chen@sifive.com,
+ paul.walmsley@sifive.com, pjw@kernel.org, vincent.chen@sifive.com,
+ yongxuan.wang@sifive.com, zong.li@sifive.com
+References: <20260117233228.36088-1-andybnac@gmail.com>
+ <20260313092012.64446-1-zihong.plct@isrc.iscas.ac.cn>
 Content-Language: en-US
-In-Reply-To: <20260304-01-dts-uart-full-v1-1-50a0aa53a245@kernel.org>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20260313092012.64446-1-zihong.plct@isrc.iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_184419_301213_4DF92B3E 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20260313_190114_654104_36CCEBBF 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,136 +106,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yixun,
+Hi,
 
-On 2026-03-04 1:36 AM, Yixun Lan wrote:
-> Add clock support to SpacemiT K3 SoC, the clock tree consist of several
-> blocks which are APBC, APMU, DCIU, MPUM.
-> 
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  arch/riscv/boot/dts/spacemit/k3.dtsi | 75 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 75 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> index b69cf81b5d55..e3d7f3102fd5 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> @@ -4,6 +4,7 @@
->   * Copyright (c) 2026 Guodong Xu <guodong@riscstar.com>
->   */
->  
-> +#include <dt-bindings/clock/spacemit,k3-clocks.h>
->  #include <dt-bindings/interrupt-controller/irq.h>
->  
->  /dts-v1/;
-> @@ -398,6 +399,36 @@ core3 {
->  		};
->  	};
->  
-> +	clocks {
-> +		vctcxo_1m: clock-1m {
-> +			compatible = "fixed-clock";
-> +			clock-frequency = <1000000>;
-> +			clock-output-names = "vctcxo_1m";
-> +			#clock-cells = <0>;
-> +		};
-> +
-> +		vctcxo_24m: clock-24m {
-> +			compatible = "fixed-clock";
-> +			clock-frequency = <24000000>;
-> +			clock-output-names = "vctcxo_24m";
-> +			#clock-cells = <0>;
-> +		};
-> +
-> +		vctcxo_3m: clock-3m {
-> +			compatible = "fixed-clock";
-> +			clock-frequency = <3000000>;
-> +			clock-output-names = "vctcxo_3m";
-> +			#clock-cells = <0>;
-> +		};
-> +
-> +		osc_32k: clock-32k {
-> +			compatible = "fixed-clock";
-> +			clock-frequency = <32000>;
-> +			clock-output-names = "osc_32k";
-> +			#clock-cells = <0>;
-> +		};
+On 2026-03-13 4:19 AM, Yao Zihong wrote:
+> It has been a while since the last activity on this thread,
+> so I would like to gently ping for comments.
 
-Are these clocks provided by SoC or by the board? Usually there's a crystal
-external to the SoC that provides the root of the clock tree. If these clocks
-are provided by the board, they (or at least the clock-frequency property)
-should be in the board DT, not the SoC dtsi.
+There was some off-list discussion about this around this time (anyone involved
+please correct me, it has been several weeks), and my understanding of the
+sentiment was that:
 
-Also, the /clocks node is out of order.
+1) These sysctl and prctl() interfaces were introduced because adding vector
+state to the signal frame was technically an ABI break, due to increasing the
+minimum signal stack size. The prctl() provided an escape hatch for users to run
+existing software that used a smaller signal stack size. Notably, this existing
+software necessarily did not use RVV, because any C runtime that supported RVV
+would have enforced a larger minimum signal stack size.
+
+2) Using these interfaces for another reason is unsupported, and anyone doing so
+gets to keep both pieces. Software that was aware of RVV at compile time is not
+expected to ever run with the sysctl/prctl() disabled at runtime.
+
+3) Therefore, hwprobe() is sufficient for detecting the presence of the various
+vector extensions. The case where hwprobe() says RVV is available, but its usage
+traps, is considered a configuration error.
 
 Regards,
 Samuel
-
-> +	};
-> +
->  	soc: soc {
->  		compatible = "simple-bus";
->  		interrupt-parent = <&saplic>;
-> @@ -406,6 +437,15 @@ soc: soc {
->  		dma-noncoherent;
->  		ranges;
->  
-> +		syscon_apbc: system-controller@d4015000 {
-> +			compatible = "spacemit,k3-syscon-apbc";
-> +			reg = <0x0 0xd4015000 0x0 0x1000>;
-> +			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>, <&vctcxo_24m>;
-> +			clock-names = "osc", "vctcxo_1m", "vctcxo_3m", "vctcxo_24m";
-> +			#clock-cells = <1>;
-> +			#reset-cells = <1>;
-> +		};
-> +
->  		uart0: serial@d4017000 {
->  			compatible = "spacemit,k3-uart", "intel,xscale-uart";
->  			reg = <0x0 0xd4017000 0x0 0x100>;
-> @@ -506,6 +546,41 @@ uart10: serial@d401f000 {
->  			status = "disabled";
->  		};
->  
-> +		syscon_mpmu: system-controller@d4050000 {
-> +			compatible = "spacemit,k3-syscon-mpmu";
-> +			reg = <0x0 0xd4050000 0x0 0x10000>;
-> +			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>, <&vctcxo_24m>;
-> +			clock-names = "osc", "vctcxo_1m", "vctcxo_3m", "vctcxo_24m";
-> +			#clock-cells = <1>;
-> +			#power-domain-cells = <1>;
-> +			#reset-cells = <1>;
-> +		};
-> +
-> +		pll: clock-controller@d4090000 {
-> +			compatible = "spacemit,k3-pll";
-> +			reg = <0x0 0xd4090000 0x0 0x10000>;
-> +			clocks = <&vctcxo_24m>;
-> +			spacemit,mpmu = <&syscon_mpmu>;
-> +			#clock-cells = <1>;
-> +		};
-> +
-> +		syscon_apmu: system-controller@d4282800 {
-> +			compatible = "spacemit,k3-syscon-apmu";
-> +			reg = <0x0 0xd4282800 0x0 0x400>;
-> +			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>, <&vctcxo_24m>;
-> +			clock-names = "osc", "vctcxo_1m", "vctcxo_3m", "vctcxo_24m";
-> +			#clock-cells = <1>;
-> +			#power-domain-cells = <1>;
-> +			#reset-cells = <1>;
-> +		};
-> +
-> +		syscon_dciu: system-controller@d8440000 {
-> +			compatible = "spacemit,k3-syscon-dciu";
-> +			reg = <0x0 0xd8440000 0x0 0xc000>;
-> +			#clock-cells = <1>;
-> +			#reset-cells = <1>;
-> +		};
-> +
->  		simsic: interrupt-controller@e0400000 {
->  			compatible = "spacemit,k3-imsics", "riscv,imsics";
->  			reg = <0x0 0xe0400000 0x0 0x200000>;
-> 
 
 
 _______________________________________________
