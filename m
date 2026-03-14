@@ -4,62 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C11105F79E
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 08:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F9C10706CE
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 10:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0a9m55dxni9eb9Zvv3wnbbpACbnSOPhKrQOkgkWIL8s=; b=N/gh+JQRpXlSbG
-	yVfb23Oj0zSAOq9onhvzetW9wtsQar2Mx5FlQZUqgdrOl4RxtQyhYS+MInvL+3Dsj99O0pr7MVztH
-	7NXlgIA9wcuf1lCBnV/ANb5yIwz/fx+aD/Vdh+DuN0SbVVK/2aVwXUSRzjBC6sMWsaiz5oOlAX5nR
-	LHrOOcOsTbhNoGpg5TpZR3IemE/wt6+bUBCAcRWHkNG/CnRNF7unERIf3F0RBAec9Y/0EngJtsjEa
-	skc6mb1qUu2A6qlQOmKbdAZOrc8xECwgBHpa02oygR5+7myNo0+lyGFtmJy4tz33mwGmZq4izToXj
-	wmCiEZkGlavvYi5RS6lw==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
+	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SWacFNZLR9uJueIzC8Zag4zGukx9bTk0hXIFGeSpZ6E=; b=tdlehF49do6WtV
+	udaGJyhu4Nifv3o8BsohoitrVj2Mtz6Uf2yuDgc4q+FICJIRqsLivgVd/ccof/jB8pLfl38l9Zb2o
+	N/W0s7Jz3hkd+Cdq3QI0/84evJt11QREiN5QcvdHRmLWIztJO4NU1K3JKkq3FvLEXQG+hhaNj5AGs
+	FlLN3S8MYYdyyZOw/KE376vpWPUIS8zWkNn4CXZ0V+2DNYC4orn7xO4tT1a7ASXMmMst4qHrei31P
+	ESonpX2qxxwIRW2JKXgY52DkiRt+UizlrwXtdaWQd96/StRPLlO/majck6AZBUnS9T20nx2ZGcg5B
+	wtjd/+ropNGy0bFEZ0Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Kjz-00000001eLe-1tL1;
-	Sat, 14 Mar 2026 08:52:59 +0000
+	id 1w1MMF-00000001kbs-0e2g;
+	Sat, 14 Mar 2026 10:36:35 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Kjy-00000001eLY-0SPr
+	id 1w1MMD-00000001kbk-0Xed
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Mar 2026 08:52:58 +0000
+	Sat, 14 Mar 2026 10:36:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 37B4860008;
-	Sat, 14 Mar 2026 08:52:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 183CDC116C6;
-	Sat, 14 Mar 2026 08:52:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 241F660008;
+	Sat, 14 Mar 2026 10:36:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BCE80C116C6;
+	Sat, 14 Mar 2026 10:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773478376;
-	bh=isyAYh5ojmORloCgPaNY2dTczDe0Vz4+tpOhyTGu6gE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FG0XXk9sqlykF+WTrPP6Ra92mHopuoMNuMu4U/kRaB5eTRWeCH2Es+O4bivRJvt0h
-	 xkwdx1VosZCrxboHeTVeo/Z/305oScEfFYnphPE3lqJLcK6v59hY7C6ssj8ZIF3LjT
-	 FRwyNLZbwVEnzLeoieLUEu+YPDF3npLUlKnHZlhqljprrKRWaJRjxtjTA6gQJGEaT2
-	 EfsDh9jw7zC3MDTqKoJcKbz0Fh7+6DFfCfDg3bJpn1GokSvQUM2whoYaa7ZLcoZWev
-	 EmwvnDWTDtcsNwHG6uIERTr7twHHes1pWZNrHdwLtp0o5y+8jOcn8GIytEqmki32ne
-	 XnIoOG1lCbFWQ==
-Date: Sat, 14 Mar 2026 16:52:52 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH 1/4] riscv: dts: spacemit: k3: add clock tree
-Message-ID: <20260314085252-GKB415778@kernel.org>
-References: <20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org>
- <20260304-01-dts-uart-full-v1-1-50a0aa53a245@kernel.org>
- <fecadd41-ee3e-4452-bf25-4a70eaeb5f3f@sifive.com>
+	s=k20201202; t=1773484591;
+	bh=8ETulfXTKfn6xXZVUkPqEIhROGr0XO3o3r6Ttt19XQk=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=vHk8E9JBoOnLB/4CsXojWjwa/EhIcCulnxGLn+x1tEK3hdjU7WX3oA6prrCCKaIbo
+	 AAJwQLXTLPj+YToYB2jeNlmiTjKQ4xL6oQ58jEpIrGOsjB7wwVPXRQEOQxkNYbQCsq
+	 sNWmE2XbysaEY5YhblpLyptnB7lhZbcd2P2gS4FvcJSOJ2rAmW2pMGIDc49Zr2MNkt
+	 BooD1btWz1CoH/1mjANOtSlhrjd7hhLxZKYAN156b975cAFcS/0OSOkyEu8FEiNYsH
+	 Sf0Q6KwxQQmAt7n20H/5kK/2klKweOuIH/C0spgfn54iV18MXy0dqH8d1Kz1Oop7uz
+	 NVwr4Qcpct7QQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B12E010706CE;
+	Sat, 14 Mar 2026 10:36:31 +0000 (UTC)
+From: Levi Zim via B4 Relay <devnull+rsworktech.outlook.com@kernel.org>
+Date: Sat, 14 Mar 2026 18:36:19 +0800
+Subject: [PATCH bpf] bpf: do not use kmalloc_nolock when
+ !HAVE_CMPXCHG_DOUBLE
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <fecadd41-ee3e-4452-bf25-4a70eaeb5f3f@sifive.com>
+Message-Id: <20260314-bpf-kmalloc-nolock-v1-1-24abf3f75a9f@outlook.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MUQqAIBAFrxL73YJWSHSV6MNyq8XSUIhAuntLP
+ wMD816BTIkpw1AVSHRz5hhEdF3BstuwEbITh0Y1RrW6w/la0Z/2OOKCIQo9GuVsr8jo1hHI8Eq
+ 08vOfjiA9TO/7AU1VTm9pAAAA
+X-Change-ID: 20260314-bpf-kmalloc-nolock-60da80e613de
+To: Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, 
+ Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+ Yonghong Song <yonghong.song@linux.dev>, 
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+ Jiri Olsa <jolsa@kernel.org>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Amery Hung <ameryhung@gmail.com>, linux-riscv@lists.infradead.org, 
+ stable@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rt-devel@lists.linux.dev, Levi Zim <rsworktech@outlook.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4230;
+ i=rsworktech@outlook.com; s=ryzen; h=from:subject:message-id;
+ bh=QOQQvNeL8PrIqPi0m3JHglV7ieN/9+UfvisySvT/v4A=;
+ b=owEBbQKS/ZANAwAKAW87mNQvxsnYAcsmYgBptTooRbmkLsBvfVY7zCs8SZI8nDOpAcm9uBuzB
+ nCMVjhWUTiJAjMEAAEKAB0WIQQolnD5HDY18KF0JEVvO5jUL8bJ2AUCabU6KAAKCRBvO5jUL8bJ
+ 2OeCEADR8P2Uxds/iCtElbGKkbcKkohS0ENKy1l3pKUinigemojfX5EVTSbjU/jcGoQ6t7TeHNi
+ yqDF0iWuanovTdO0u+0RgRQWeubUh2DcU9zoZFIRLAEa74AfnUWizOF9x5jakwt7DN1/tXGJx/D
+ z5s74yT1frkH4nzW+ScRdTeNz2i5HM//MIFmQ0uZCOqSweN5MjpWO6kvN9gdqP6u6+2iiZWkIk0
+ 801KLi8G7GlxX0yTldIj+LUzknAdTvpT/bsPOrD+lGtvLAwcU0Zz6RitWxCpKHP1FAi1qd3OWhA
+ WioCxp4COL7nt4X0TZuRWpinmpn1noa226U5cfrFMUNGKPDwySfWYyvJn8zOZRKVg+xnrtD29pA
+ QuFmje0O3MobS6IMKwRLTlBDkcGWpV8R26y5FiaPpZcGqmZWa2NF1BMXtiXiEjl17fdAEMqW2dT
+ pXcrNjXiaIi/lPOOZk+TmwasML6EyNX0F7XbgcKuq0zUX0omVVwpurhpoKh/BKTMETJOFkEuJkK
+ 6R+fyFjRkgezi8zeO4P0Nw4+9ck5p7P37UdhoRsQiF+oUZ6jWo4p/v0YUmfLPXmnM49Hm2aBUMH
+ La4koSyh3joxkpiGyhEw3sD41kditehoALriZ/Z8qW84QCSMF5W+vX0Dd+PowVO4Jgr06iiA0xF
+ DhNLuSZrftM31Fg==
+X-Developer-Key: i=rsworktech@outlook.com; a=openpgp;
+ fpr=17AADD6726DDC58B8EE5881757670CCFA42CCF0A
+X-Endpoint-Received: by B4 Relay for rsworktech@outlook.com/ryzen with
+ auth_id=536
+X-Original-From: Levi Zim <rsworktech@outlook.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,93 +102,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: rsworktech@outlook.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
+From: Levi Zim <rsworktech@outlook.com>
 
-On 20:44 Fri 13 Mar     , Samuel Holland wrote:
-> Hi Yixun,
-> 
-> On 2026-03-04 1:36 AM, Yixun Lan wrote:
-> > Add clock support to SpacemiT K3 SoC, the clock tree consist of several
-> > blocks which are APBC, APMU, DCIU, MPUM.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@kernel.org>
-> > ---
-> >  arch/riscv/boot/dts/spacemit/k3.dtsi | 75 ++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 75 insertions(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > index b69cf81b5d55..e3d7f3102fd5 100644
-> > --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > @@ -4,6 +4,7 @@
-> >   * Copyright (c) 2026 Guodong Xu <guodong@riscstar.com>
-> >   */
-> >  
-> > +#include <dt-bindings/clock/spacemit,k3-clocks.h>
-> >  #include <dt-bindings/interrupt-controller/irq.h>
-> >  
-> >  /dts-v1/;
-> > @@ -398,6 +399,36 @@ core3 {
-> >  		};
-> >  	};
-> >  
-> > +	clocks {
-> > +		vctcxo_1m: clock-1m {
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <1000000>;
-> > +			clock-output-names = "vctcxo_1m";
-> > +			#clock-cells = <0>;
-> > +		};
-> > +
-> > +		vctcxo_24m: clock-24m {
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <24000000>;
-> > +			clock-output-names = "vctcxo_24m";
-> > +			#clock-cells = <0>;
-> > +		};
-> > +
-> > +		vctcxo_3m: clock-3m {
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <3000000>;
-> > +			clock-output-names = "vctcxo_3m";
-> > +			#clock-cells = <0>;
-> > +		};
-> > +
-> > +		osc_32k: clock-32k {
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <32000>;
-> > +			clock-output-names = "osc_32k";
-> > +			#clock-cells = <0>;
-> > +		};
-> 
-> Are these clocks provided by SoC or by the board? Usually there's a crystal
-> external to the SoC that provides the root of the clock tree. If these clocks
-> are provided by the board, they (or at least the clock-frequency property)
-> should be in the board DT, not the SoC dtsi.
-> 
-It's true, as a quick check, osc_32k provided by P1 PMU, while vctcxo_24m is
-a crystal, vctcxo_1m and vctcxo_3m are also marked as external in the clock
-tree, but I would confirm them later..
+kmalloc_nolock always fails for architectures that lack cmpxchg16b.
+For example, this causes bpf_task_storage_get with flag
+BPF_LOCAL_STORAGE_GET_F_CREATE to fails on riscv64 6.19 kernel.
 
-I agree to move them out of SoC dtsi file - k3.dtsi, while due to all boards share
-the same clock topology, what if I creating a k3-clock.dtsi and making it shared 
-between all board dts file? to avoid massive DTS duplication
+Fix it by enabling use_kmalloc_nolock only when HAVE_CMPXCHG_DOUBLE
 
-> Also, the /clocks node is out of order.
-> 
-I will move osc_32k before vtccxo_1m, assuming it's the problem you
-refered to?
+Fixes: f484f4a3e058 ("bpf: Replace bpf memory allocator with kmalloc_nolock() in local storage")
+Cc: stable@vger.kernel.org
+Signed-off-by: Levi Zim <rsworktech@outlook.com>
+---
+I find that bpf_task_storage_get with flag BPF_LOCAL_STORAGE_GET_F_CREATE
+always fails for me on 6.19 kernel on riscv64 and bisected it.
 
-> Regards,
-> Samuel
+In f484f4a3e058 ("bpf: Replace bpf memory allocator with kmalloc_nolock()
+in local storage"), bpf memory allocator is replaced with kmalloc_nolock.
+This approach is problematic for architectures that lack CMPXCHG_DOUBLE
+because kmalloc_nolock always fails in this case:
 
+In function kmalloc_nolock (kmalloc_nolock_noprof): 
+
+	if (!(s->flags & __CMPXCHG_DOUBLE) && !kmem_cache_debug(s))
+		/*
+		 * kmalloc_nolock() is not supported on architectures that
+		 * don't implement cmpxchg16b, but debug caches don't use
+		 * per-cpu slab and per-cpu partial slabs. They rely on
+		 * kmem_cache_node->list_lock, so kmalloc_nolock() can
+		 * attempt to allocate from debug caches by
+		 * spin_trylock_irqsave(&n->list_lock, ...)
+		 */
+		return NULL;
+
+Fix it by enabling use_kmalloc_nolock only when HAVE_CMPXCHG_DOUBLE.
+
+Note for stable: this only needs to be picked into v6.19 if the patch
+makes it into 7.0.
+---
+ include/linux/bpf_local_storage.h | 2 ++
+ kernel/bpf/bpf_cgrp_storage.c     | 2 +-
+ kernel/bpf/bpf_local_storage.c    | 3 ++-
+ kernel/bpf/bpf_task_storage.c     | 2 +-
+ 4 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/include/linux/bpf_local_storage.h b/include/linux/bpf_local_storage.h
+index 8157e8da61d40..a7ae5dde15bcb 100644
+--- a/include/linux/bpf_local_storage.h
++++ b/include/linux/bpf_local_storage.h
+@@ -19,6 +19,8 @@
+ 
+ #define BPF_LOCAL_STORAGE_CACHE_SIZE	16
+ 
++static const bool KMALLOC_NOLOCK_SUPPORTED = IS_ENABLED(CONFIG_HAVE_CMPXCHG_DOUBLE);
++
+ struct bpf_local_storage_map_bucket {
+ 	struct hlist_head list;
+ 	rqspinlock_t lock;
+diff --git a/kernel/bpf/bpf_cgrp_storage.c b/kernel/bpf/bpf_cgrp_storage.c
+index c2a2ead1f466d..09c557e426968 100644
+--- a/kernel/bpf/bpf_cgrp_storage.c
++++ b/kernel/bpf/bpf_cgrp_storage.c
+@@ -114,7 +114,7 @@ static int notsupp_get_next_key(struct bpf_map *map, void *key, void *next_key)
+ 
+ static struct bpf_map *cgroup_storage_map_alloc(union bpf_attr *attr)
+ {
+-	return bpf_local_storage_map_alloc(attr, &cgroup_cache, true);
++	return bpf_local_storage_map_alloc(attr, &cgroup_cache, KMALLOC_NOLOCK_SUPPORTED);
+ }
+ 
+ static void cgroup_storage_map_free(struct bpf_map *map)
+diff --git a/kernel/bpf/bpf_local_storage.c b/kernel/bpf/bpf_local_storage.c
+index 9c96a4477f81a..8e4b0fe6d12af 100644
+--- a/kernel/bpf/bpf_local_storage.c
++++ b/kernel/bpf/bpf_local_storage.c
+@@ -894,7 +894,8 @@ bpf_local_storage_map_alloc(union bpf_attr *attr,
+ 	 * preemptible context. Thus, enforce all storages to use
+ 	 * kmalloc_nolock() when CONFIG_PREEMPT_RT is enabled.
+ 	 */
+-	smap->use_kmalloc_nolock = IS_ENABLED(CONFIG_PREEMPT_RT) ? true : use_kmalloc_nolock;
++	smap->use_kmalloc_nolock = IS_ENABLED(CONFIG_PREEMPT_RT) &&
++		KMALLOC_NOLOCK_SUPPORTED ? true : use_kmalloc_nolock;
+ 
+ 	smap->cache_idx = bpf_local_storage_cache_idx_get(cache);
+ 	return &smap->map;
+diff --git a/kernel/bpf/bpf_task_storage.c b/kernel/bpf/bpf_task_storage.c
+index 605506792b5b4..9f74fd1ef7f46 100644
+--- a/kernel/bpf/bpf_task_storage.c
++++ b/kernel/bpf/bpf_task_storage.c
+@@ -212,7 +212,7 @@ static int notsupp_get_next_key(struct bpf_map *map, void *key, void *next_key)
+ 
+ static struct bpf_map *task_storage_map_alloc(union bpf_attr *attr)
+ {
+-	return bpf_local_storage_map_alloc(attr, &task_cache, true);
++	return bpf_local_storage_map_alloc(attr, &task_cache, KMALLOC_NOLOCK_SUPPORTED);
+ }
+ 
+ static void task_storage_map_free(struct bpf_map *map)
+
+---
+base-commit: e06e6b8001233241eb5b2e2791162f0585f50f4b
+change-id: 20260314-bpf-kmalloc-nolock-60da80e613de
+
+Best regards,
 -- 
-Yixun Lan (dlan)
+Levi Zim <rsworktech@outlook.com>
+
+
 
 _______________________________________________
 linux-riscv mailing list
