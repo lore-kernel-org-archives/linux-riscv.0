@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D6810706EA
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 17:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5EB10854AA
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 22:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZTfi8jPcMsBL/rabUtptXnRA4lbEshwHfbaN7/YxaOI=; b=JpCQAtEVEvJfgP
-	cXIkwZ1ZgCOAEDUzk5O739InUjpMZtLwmGduT6HBcnGl5FpJ8UKEX+T2NjRBCRZewB4plvibD7p6D
-	SSTguUD+owxkg9Il/n7K7b3g8oAsJt1dTXZy1twQ3Y4x4GjS7KVWi1OMWcXB64OeRf6x28KDtX0CP
-	R7sQkD2Op7c/cyQ8MNRf2/fKf3GVx6ewKOoaHFArsbcWhgWpsGko3G8itQt6YoCqh9m2+gZfMOnIE
-	vVqNOyD49CUgG4EPwDLr2HCv6qGtAWYAzKp/jwhGDj6gF20uKN/eyK4XQd5a3l11/lD2imZzW0aN5
-	nPNF9xrWLG9F2DE/5IwQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=72tDSEWdEDNVwDvbu3DItr822VitwGtx+sm7izPBj+4=; b=P6ci1w3QGxPJdb
+	074DkJsce+yN0v66UCIYUEAePpoxTpTdkqneizHdAXZ6HivyEU+IN1o8dOSfpdACHKAne+mDs04JS
+	lT9uRu3mPxQ84c4HNz2plDimqJZ/ijZRzWhpyL1yc3ag03LP85Wj0uhuVl4Wgxjl19kluQTFTRz9N
+	z249W4CzZ88qIkgZZvxEJoantrchuMgf6bPlfWN8DdDjMzek9qSSTnZnK64mEhP2GuD9p5JaFxThy
+	Ngf13xEkdxgAdVPzmxcPVriDhTRQ4EZEdbSyEkVzvvxXHNbIazAc632nnjGEH/JzFBSnFlPIIoqAx
+	hJJejg/C2SywTfpEKbTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1SRg-00000002152-1P56;
-	Sat, 14 Mar 2026 17:06:36 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1w1XUP-00000002D3e-20SO;
+	Sat, 14 Mar 2026 22:29:45 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1SRb-0000000214L-3yKs
+	id 1w1XUM-00000002D3J-1RFM
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Mar 2026 17:06:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773507992; x=1805043992;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BP6PDAwL7ZQIFhbNuWPztuxpeFKM2OWgbd3nAKkdShI=;
-  b=PJVksR9HKZbAZ1i+tE3XUNerJXpYJB5n0XPqMRbnRYwSaIR/0FffR1ex
-   JuQIMiFTZgZbPqhy70BqmcTumhRirUH0r0vULnlw1btV32ds0l4srb51A
-   IbfKvbsBVAqvhDL6feSHdqks2V3Euw9dqmQVZR56RgesdWxHVfVgp5LNY
-   cG3nSAqccN2frY6Pg/St0ySYMvqPX6UNyr63u29jRXYSbdBKHtUQCaepZ
-   DtnsEhOuwp4bQGsrd0kUxCsVIYF4P65Q8lTumvpKWrkX9cEJQV1HQhqLm
-   Tt1wjy5jzVbtwTPsiwT6XzWwHL+9ENIm48LOhLIcLwNVUftMuzazpg+NK
-   w==;
-X-CSE-ConnectionGUID: Gx+LU5PRToelmAM3SDW4eQ==
-X-CSE-MsgGUID: ArbtlKQpRxm78dR9w5GuyQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11729"; a="74291612"
-X-IronPort-AV: E=Sophos;i="6.23,119,1770624000"; 
-   d="scan'208";a="74291612"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Mar 2026 10:06:29 -0700
-X-CSE-ConnectionGUID: S7Qzg7o5QjeaYBCY2orMyA==
-X-CSE-MsgGUID: 1B0hQ5hhSyOavx3FZxVKcw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,119,1770624000"; 
-   d="scan'208";a="221543533"
-Received: from igk-lkp-server01.igk.intel.com (HELO 9958d990ccf2) ([10.211.93.152])
-  by orviesa008.jf.intel.com with ESMTP; 14 Mar 2026 10:06:23 -0700
-Received: from kbuild by 9958d990ccf2 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w1SRQ-000000003pJ-4Brw;
-	Sat, 14 Mar 2026 17:06:21 +0000
-Date: Sat, 14 Mar 2026 18:05:40 +0100
-From: kernel test robot <lkp@intel.com>
-To: Levi Zim via B4 Relay <devnull+rsworktech.outlook.com@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: oe-kbuild-all@lists.linux.dev, Amery Hung <ameryhung@gmail.com>,
-	linux-riscv@lists.infradead.org, stable@vger.kernel.org,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, Levi Zim <rsworktech@outlook.com>
-Subject: Re: [PATCH bpf] bpf: do not use kmalloc_nolock when
- !HAVE_CMPXCHG_DOUBLE
-Message-ID: <202603141857.sLJ0vJoa-lkp@intel.com>
-References: <20260314-bpf-kmalloc-nolock-v1-1-24abf3f75a9f@outlook.com>
+	Sat, 14 Mar 2026 22:29:43 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43b3cfc38edso445634f8f.3
+        for <linux-riscv@lists.infradead.org>; Sat, 14 Mar 2026 15:29:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773527379; x=1774132179; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jrFd10CMHTUngJ+QOak22idMJWYggdJEidQTQ1ilrUk=;
+        b=DvjlUAYMoqb3sC6MIIMPXVyvPiJeCnVeKY1ONsCftkCQeNxx9C1QJB1h6U7PS8oZld
+         OHZPTLdvp+sVNk4nAW/S8iB9WymUoiksiNpVGeTgoF+o+fNpLG9peQHLiIXThzqw+qXg
+         XiviB9vmlyW5r/nhXqUnoRpetJedspw5gkn4MprtCwAnAm9wiYvG+LdiYRrhTlfN3f9k
+         MF5oMXy3hvGaFU+POfWoRxf1mxcgFHZdwQNL8/ftg2gHn0AI7Hh40oBMeOiywwpoA/GS
+         XxrhY0pWC7q+B8HJ8h6eS7sxZxuj4X6nbbzVzJQ9dK2mfSveN08VYPXXxPoaqgRepnXU
+         4mKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773527379; x=1774132179;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jrFd10CMHTUngJ+QOak22idMJWYggdJEidQTQ1ilrUk=;
+        b=mZLY0JUoQolyImZMarQvYgeDhtWdEq8F0gajRLDFmzxqN+mPvJsrXwE6xWtbzGz1Yj
+         Vk/HQBIB8mjyBGb8vcv/IpGEptVHjdelggPtWcM6K1Flz7VzjxTpKO9uOIfxksBB5GtA
+         2KFpKJx2mYecVz04LrV/KHH7Dwy/K9a8NeEIPAMcUs6zzDI5IjoKWTh9IgLJcFxN+kj2
+         Mpi9x4/Ed2PG9el1m9M/tP/UviB4syaMqj7B25FPD5iTui37PwxjyOhiWxJ/aBQrOcf+
+         08FD7EJOpkCicYiX3HA+OQYbUsgL0COTWCgtsOPLiG77Ifk3Zpw66IjVAls8wzKpd6ef
+         F/KA==
+X-Forwarded-Encrypted: i=1; AJvYcCWy+BVbfYcr0fVnnkw2CoewH7N3Vae+vfD3yNysKsH0YiEBpfK61397XWwgbYbNXPlFxmhnmgNYDf13Og==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywyob2mgFcqDGryxhqKaQmJSN6z+/0T+caHsUccyy92bnJpBI7Y
+	/i6bHDUqoq3TCXa8vr3DxPy1QVNvTKWQuqkA5AyH6Ap51v2QNbauNw0g
+X-Gm-Gg: ATEYQzwSFE0+t59NX3f6MxERV8KEAicHWzxdG0DFXJK/htizPK+b3RnToDRS3JraGFa
+	xYS2Hw+EJvs3azSiBrwuAUSoMoTeb/AEgmU82ZO29VFFnsjXR9WJBtCi4ttocm2HZHh9Gx/kiwk
+	N3wNOX8cNgvEWpIi5qLu9lYaxAerPPDCUfn+HFHF68vCwYuQyqk5DbbdrAZsJXD4MmaNrPQXzKi
+	pLjAg9wluB1qozhAIHUfVfJKPelkHQrs2FE8jovHfvOaLjA+wabDzbfNujYnoMb7V43SB5YV8qK
+	bIv/uq/X+0YaNqrko5NZPlqmsy0UpOBwkH9WNRlJjL7LSR3uV4lvYgIrosMP4iJXeUbPZhjed+Q
+	EEtcQpvtU5R69v7ek2OnOTnCO6LS0jxYN+0957sVEyTpp7bCDVeKk/Pk0OsBR62+FN5Z286w4W8
+	xF+zo/ppnCzTc0M3BKDhaJlp/JfX3Nf8h6InKOvDoKjbkgJAEb7C/qTm3Jlxk=
+X-Received: by 2002:a05:6000:1863:b0:439:bce5:6519 with SMTP id ffacd0b85a97d-43a04dc0849mr14418218f8f.39.1773527379315;
+        Sat, 14 Mar 2026 15:29:39 -0700 (PDT)
+Received: from osama.. ([41.238.114.180])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-439fe20c0b4sm31185193f8f.25.2026.03.14.15.29.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Mar 2026 15:29:38 -0700 (PDT)
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Oscar Salvador <osalvador@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Osama Abdelkader <osama.abdelkader@gmail.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: mm: add null check for find_vm_area in set_memory
+Date: Sat, 14 Mar 2026 23:28:14 +0100
+Message-ID: <20260314222815.153203-1-osama.abdelkader@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260314-bpf-kmalloc-nolock-v1-1-24abf3f75a9f@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_100632_044667_CC4EBF2E 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260314_152942_388111_2B574FC0 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +105,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Levi,
+find_vm_area() can return NULL. Add a null check to avoid potential
+null pointer dereference, matching the pattern used by other arches.
 
-kernel test robot noticed the following build warnings:
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+---
+ arch/riscv/mm/pageattr.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-[auto build test WARNING on e06e6b8001233241eb5b2e2791162f0585f50f4b]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Levi-Zim-via-B4-Relay/bpf-do-not-use-kmalloc_nolock-when-HAVE_CMPXCHG_DOUBLE/20260314-195705
-base:   e06e6b8001233241eb5b2e2791162f0585f50f4b
-patch link:    https://lore.kernel.org/r/20260314-bpf-kmalloc-nolock-v1-1-24abf3f75a9f%40outlook.com
-patch subject: [PATCH bpf] bpf: do not use kmalloc_nolock when !HAVE_CMPXCHG_DOUBLE
-config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20260314/202603141857.sLJ0vJoa-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260314/202603141857.sLJ0vJoa-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603141857.sLJ0vJoa-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from include/net/bpf_sk_storage.h:15,
-                    from net/core/sock.c:141:
->> include/linux/bpf_local_storage.h:22:19: warning: 'KMALLOC_NOLOCK_SUPPORTED' defined but not used [-Wunused-const-variable=]
-      22 | static const bool KMALLOC_NOLOCK_SUPPORTED = IS_ENABLED(CONFIG_HAVE_CMPXCHG_DOUBLE);
-         |                   ^~~~~~~~~~~~~~~~~~~~~~~~
-
-
-vim +/KMALLOC_NOLOCK_SUPPORTED +22 include/linux/bpf_local_storage.h
-
-    21	
-  > 22	static const bool KMALLOC_NOLOCK_SUPPORTED = IS_ENABLED(CONFIG_HAVE_CMPXCHG_DOUBLE);
-    23	
-
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index 3f76db3d2769..46a999c86b26 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -289,6 +289,10 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+ 		int i, page_start;
+ 
+ 		area = find_vm_area((void *)start);
++		if (!area) {
++			ret = -EINVAL;
++			goto unlock;
++		}
+ 		page_start = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
+ 
+ 		for (i = page_start; i < page_start + numpages; ++i) {
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
