@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D4CE10706D5
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 12:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D4310706DC
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 14:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zWGYPMsEe5xSuKObGBOyvjkrchONlxBnDfgbFpVQanY=; b=0QPw7B5CrxU7m2F7ON9x1lw0ik
-	O6FfkayJ1anst4m6nPlpFbj5YcH3QT9+uchPmx7IN35wAz8l1SyqBj5nnBkDgyTcnhREbPS6IyGRS
-	+OnpAoU9FJOtl+Ov6LKneBQs4H8OZnJ87PnkhcGrwuWZco+YYYx9hT/BUKLOMO6xwNo5xcGqm7Lep
-	cjz7S2+GdjN12sioQ7gvPaPcRvq/kX8SUBNwzv4FXVRVbvMZ5GGBl971dX4PZy+L2o0MzjsfUKIIl
-	TvAVrrVEL/j3s1Gqsq6BIkcKysAPgzHAsQcTZU34gb4o+dCHSZQdRD7xXNRpOFYhXZkVJSoHrZS1f
-	W9WYhNPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z9eM+Zhxw92galGjmwIEjtpDXaeQk28x2qwyWqXXTq0=; b=qKD6MeNFKrLv1Y
+	lysORBhrNAvNz5ND6OXApfo7PDijbxpePPI8LLfkEUWr7HCYLaLDu+2DbWb005NjltMEFg8XFsEpm
+	t8l0rP1/LamaIJVzAr2bk7ZWTq0gXZhJgjIURLKmFOe7xeVmieP4DaL5cr1aOQmMyv6Dkw6spZCGt
+	7pCCKlL+xKsO02XR2SGdzkQwclUv577pZw8PUH+buZQuEeodkJXopbKGJN4SOKfWqqj3nQRJVIAL2
+	wZ50sezv8qn8bT71W/yNx6iN9Xy70TrN+AL4cqEDnzhq8Ab26oTcq8lRxLjRvdgB1Z4gVVUixcm63
+	PWTdIsPp0mXGJrQR+Wmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Nvn-00000001piC-0n2T;
-	Sat, 14 Mar 2026 12:17:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w1Pjo-00000001uKC-1awK;
+	Sat, 14 Mar 2026 14:13:08 +0000
+Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1Nvi-00000001php-1EWO
+	id 1w1Pjl-00000001uJr-3xxY
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Mar 2026 12:17:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 80BD7442F0;
-	Sat, 14 Mar 2026 12:17:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAAC3C116C6;
-	Sat, 14 Mar 2026 12:17:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773490637;
-	bh=qJN0XXCAFaH6VkPmE666UHy9EHp3KHZV4dMoKW+Qfz8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DzkVT062gMhnk4qaERql+mwsd79l6a1zlNM7tZT9ZLpvvmwtM7l6GzAs0fG+KYDCf
-	 GnxB9EVnaG5/XzTtge/XmWhi5g6v+WlCpbHgn9sKhRcdjiDe/NfjXPf1YMQFFw+wC1
-	 2I6FJH/2LenPCD7kBnbGjFTeVMDBCfkttqWYn9SAqNDuCdJYWzfh+bmcykLAaI51uq
-	 4yVSABdemLJetaVLt2j7SV/3esrCm7UDrzDvpb5bCV1wrtJAD1nCmfzHIlO/ivwFxp
-	 d15R7U6kvNmEB+aRWtrr4KN1I4Sils/8oZdsmjbYBMKZLvrlRvv2HER5yCSoqg5SsL
-	 wSvRq+XSGghyg==
-Date: Sat, 14 Mar 2026 12:17:12 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bo Gan <ganboing@gmail.com>
-Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
-	david@redhat.com, palmer@dabbelt.com, pjw@kernel.org,
-	gaohan@iscas.ac.cn, me@ziyao.cc, lizhi2@eswincomputing.com,
-	hal.feng@starfivetech.com, marcel@ziswiler.com, kernel@esmil.dk,
-	devicetree@vger.kernel.org
-Subject: Re: [RFC PATCH 1/6] riscv: Add a custom, simplified version of
- Svpbmt "XPbmtUC"
-Message-ID: <20260314-subdued-morally-f20a84fd446c@spud>
-References: <20260313084407.29669-1-ganboing@gmail.com>
- <20260313084407.29669-2-ganboing@gmail.com>
- <20260313-visitor-majestic-1a6888dc57b2@spud>
- <25a8565d-a6bb-401f-b776-d743a2ec9ee0@gmail.com>
- <20260313-spiny-duration-702fff6bca17@spud>
- <ba44e0ed-9a6f-4d4d-b3bc-a6e0bac19940@gmail.com>
- <20260314-errant-gnarly-dcca92457051@spud>
- <9592ecf2-8410-4df7-9b2c-17564426240d@gmail.com>
+	Sat, 14 Mar 2026 14:13:07 +0000
+Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-64ca4dfdd88so3290245d50.0
+        for <linux-riscv@lists.infradead.org>; Sat, 14 Mar 2026 07:13:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1773497585; x=1774102385; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kb1CjrStBIIzJ9sGHwsiJsF+p3lIqo/Alx3Y+vVcnNg=;
+        b=B+aLoC1G5lO8ICNwiyl/UKTWByqlPa0iMx7/cspfeDfr8j40XVZm1CQClAw7lL33a2
+         ZbmXDfI136br4dPtVxHPG8hEEjOPURUZTbPwN0LefKdwFw5wyCmQ+PqcgWWZljn5h6hp
+         f2aAdv1PMrYcBSwZBh1AHpBCwaYjqcQCTJIu89c1BW9mhYg0COF5iacfCmuxdce5b9c4
+         m/o3b0O7ZeOo6Hf3M3tFeSiv6ksYo+iySSe4MbKWqbvuNCBw0CW/nx1svFHWPup6e1Gw
+         CPOlbziHT9A2sZfb3FRLeDQJJneCl6fBV+C5fiSGNdQ+ydDLZEsP3Jsn4D80H6js9hKf
+         sChw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773497585; x=1774102385;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kb1CjrStBIIzJ9sGHwsiJsF+p3lIqo/Alx3Y+vVcnNg=;
+        b=czjMz8nr2nbP6Er7HgzLoI/uTXYVpiXpHDLUlxFbTzxFHSxJco9yI/NyyPbuBs14hB
+         jRzrT4Rk1nNjj16J/gYr4SW+AhWBLLLHRIbiILqj9RTL/kKdeDY8f/j4OoMy6oISOjN+
+         7JeqgG71+IcXgjCaOij+jTvo9p50+rkDKxQA7MbB8nD0xETZAai7Y8rXv+HumDbnlohF
+         OxbvBW/1UWEkSi9PK0F/ALP9GANaLJKStQfYVNBXFvq6t94YUJCftO4ulUGLq3vxwS1P
+         XkcrAHTYvNv4ZcwHZtYeg6iFk/mVLHuKIzholnTq5Q7vvzWKtIg3Bp6htMLYMpBbmvOw
+         j9tA==
+X-Forwarded-Encrypted: i=1; AJvYcCU8ZVbiClH/P1VvrK4pqwRuvhB4T+gvKynaPNz/zIMshD3zzuAx7jka5Wkb8ILM9rMiBbnzYq/3FhwVUw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzDpEGThx4YL/w5n5Zy1IYvsSBzNxK2gAl8hfYW1Vdl+F7uFJv
+	jKkrNN/tFoLBFhKBzqWDw0IdMZBRh1ocU/dGpNUvFCtOKl+blFSFF96o+MUdvBK7XSY=
+X-Gm-Gg: ATEYQzwtWhpHK010n/yueU8wYGzP/2qk3NbQwf+vse0RlrvOERbEfGTcIW70BTkyoY2
+	/bDnALcfnPWDevKXnFNUDlKNfheTyL0zldoMKBB1WwRuyhieoHiS3vvcPRUQuBkN49E3rO9/P8H
+	k9lLmaRYhVDotwsTDxwb0Q+9fYzwODLGs8N/6xv9gbyf1rT5TJI1pc8JWlz/dsavKj7BlZljCRE
+	CENur0yIavvTZJ1OXonoElsWaEZGH6uxNXxtIoqZYh7Ovw0SA/VbHXmdjDb/cEX13S54n8gwcJ+
+	EHyAdKsa39xB3p2e0nFVX7yD7bCnwD9K8AegTLwPf2ZfWnR1cBiIgEO9d2cVRDDkHpgJJ+Qq4B0
+	ZXSEucA2g3b924Ec/d8Q2UR+Z/ybqfOJOqnnFi0B3x4weotkJcxAMrKiKVlVfTVydTmKX1YSHw7
+	i79ccNfItFVACYCYj4Rla0APAPRZOngDWugAH0ibimhjKTHVoKO8g=
+X-Received: by 2002:a53:ee65:0:b0:64d:6193:a752 with SMTP id 956f58d0204a3-64e62fc1f7amr5251930d50.28.1773497584611;
+        Sat, 14 Mar 2026 07:13:04 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.103.33])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-64e65b39f56sm2709456d50.15.2026.03.14.07.13.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 14 Mar 2026 07:13:04 -0700 (PDT)
+Message-ID: <b885158f-3859-4bfa-96b0-39c274a856cf@sifive.com>
+Date: Sat, 14 Mar 2026 09:13:03 -0500
 MIME-Version: 1.0
-In-Reply-To: <9592ecf2-8410-4df7-9b2c-17564426240d@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] riscv: dts: spacemit: k3: add clock tree
+To: Yixun Lan <dlan@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+References: <20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org>
+ <20260304-01-dts-uart-full-v1-1-50a0aa53a245@kernel.org>
+ <fecadd41-ee3e-4452-bf25-4a70eaeb5f3f@sifive.com>
+ <20260314085252-GKB415778@kernel.org>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20260314085252-GKB415778@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_051718_391799_4EB04D78 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20260314_071306_032159_EE2096F3 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,78 +103,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4536818182561032797=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Yixun,
 
---===============4536818182561032797==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iDS3O7h7qtVz8IgK"
-Content-Disposition: inline
+On 2026-03-14 3:52 AM, Yixun Lan wrote:
+> On 20:44 Fri 13 Mar     , Samuel Holland wrote:
+>> On 2026-03-04 1:36 AM, Yixun Lan wrote:
+>>> Add clock support to SpacemiT K3 SoC, the clock tree consist of several
+>>> blocks which are APBC, APMU, DCIU, MPUM.
+>>>
+>>> Signed-off-by: Yixun Lan <dlan@kernel.org>
+>>> ---
+>>>  arch/riscv/boot/dts/spacemit/k3.dtsi | 75 ++++++++++++++++++++++++++++++++++++
+>>>  1 file changed, 75 insertions(+)
+>>>
+>>> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+>>> index b69cf81b5d55..e3d7f3102fd5 100644
+>>> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
+>>> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+>>> @@ -4,6 +4,7 @@
+>>>   * Copyright (c) 2026 Guodong Xu <guodong@riscstar.com>
+>>>   */
+>>>  
+>>> +#include <dt-bindings/clock/spacemit,k3-clocks.h>
+>>>  #include <dt-bindings/interrupt-controller/irq.h>
+>>>  
+>>>  /dts-v1/;
+>>> @@ -398,6 +399,36 @@ core3 {
+>>>  		};
+>>>  	};
+>>>  
+>>> +	clocks {
+>>> +		vctcxo_1m: clock-1m {
+>>> +			compatible = "fixed-clock";
+>>> +			clock-frequency = <1000000>;
+>>> +			clock-output-names = "vctcxo_1m";
+>>> +			#clock-cells = <0>;
+>>> +		};
+>>> +
+>>> +		vctcxo_24m: clock-24m {
+>>> +			compatible = "fixed-clock";
+>>> +			clock-frequency = <24000000>;
+>>> +			clock-output-names = "vctcxo_24m";
+>>> +			#clock-cells = <0>;
+>>> +		};
+>>> +
+>>> +		vctcxo_3m: clock-3m {
+>>> +			compatible = "fixed-clock";
+>>> +			clock-frequency = <3000000>;
+>>> +			clock-output-names = "vctcxo_3m";
+>>> +			#clock-cells = <0>;
+>>> +		};
+>>> +
+>>> +		osc_32k: clock-32k {
+>>> +			compatible = "fixed-clock";
+>>> +			clock-frequency = <32000>;
+>>> +			clock-output-names = "osc_32k";
+>>> +			#clock-cells = <0>;
+>>> +		};
+>>
+>> Are these clocks provided by SoC or by the board? Usually there's a crystal
+>> external to the SoC that provides the root of the clock tree. If these clocks
+>> are provided by the board, they (or at least the clock-frequency property)
+>> should be in the board DT, not the SoC dtsi.
+>>
+> It's true, as a quick check, osc_32k provided by P1 PMU, while vctcxo_24m is
+> a crystal, vctcxo_1m and vctcxo_3m are also marked as external in the clock
+> tree, but I would confirm them later..
 
+In that case, osc_32k should ideally be a reference to the P1 PMU clock
+provider, not a fixed-clock. But this may be infeasible if it creates dependency
+loops (PMU depends on I2C, I2C depends on clocks, clocks depend on PMU).
 
---iDS3O7h7qtVz8IgK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> I agree to move them out of SoC dtsi file - k3.dtsi, while due to all boards share
+> the same clock topology, what if I creating a k3-clock.dtsi and making it shared 
+> between all board dts file? to avoid massive DTS duplication
 
-On Fri, Mar 13, 2026 at 10:06:42PM -0700, Bo Gan wrote:
-> > To be honest, I'm not completely dead-set opposed to a property that has
-> > the bit positioning, but any property being added for what is
-> > effectively an erratum needs to pass a high bar when the info could be
-> > gathered in another way. That the eic7700 one depends on firmware for
-> > what the bit may be is points in your favour, since firmware variability
-> > is part of what dt is there to do. The jh7110 is points against, since
-> > it could be fished out of the errata handling code.
-> >=20
-> Even for JH7110, I don't think it can be handled through the errata. It
-> describes the errata of the core (if I'm not mistaken), and there can be
-> other SoCs using the same core with the same archid/impid, but maps the
-> peripherals differently, and the UC bit position doesn't apply there. I
-> think you are probably looking for "SoC level errata" handling. It's not
-> there AFAIK. Hence I guess both SoC cases point in favor of the dt prop?
+Yes, it is common practice to create a .dtsi file for things shared among
+several boards for a SoC (for example if they are all based on a reference
+platform). You may want to name it something more generic if more than just
+clocks can be shared (like k3-common.dtsi, compare jh7110-common.dtsi).
 
-I dunno, nothing wrong with checking the devicetree during the errata
-"probe" code. Checks are not limited to imp/arch ids, can do ecalls etc
-etc in there too, so looking at the root compatible would be possible.
+>> Also, the /clocks node is out of order.
+>>
+> I will move osc_32k before vtccxo_1m, assuming it's the problem you
+> refered to?
 
-Either way, if people like what you've done here generally (because
-coming up with our own use of PTE bits could be controversial), and a
-custom property of some sort is to be used, you need to provide a good
-justification of why it is needed in the commit messages because you're
-setting a precedent of being the first "extension" conjured up to suit
-linux that would need that kind of functionality.
-Need to demonstrate that it describes an aspect of the hardware, and
-isn't being conjured up to configure software to use one out of several
-possible values, that it may even be able to determine heuristically
-=66rom information already provided in the devicetree (like the root
-compatible or a completely described memory node).
+I mean that /clocks sorts alphabetically before /cpus. Your ordering of the
+fixed-clocks nodes themselves is fine.
 
---iDS3O7h7qtVz8IgK
-Content-Type: application/pgp-signature; name="signature.asc"
+Regards,
+Samuel
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabVRxAAKCRB4tDGHoIJi
-0sKCAQCFcLXaxPOsQWiEZYssCaXCDw8Ikdz/ax1iXfKfagutMgD/TE4w73XgMNvH
-GeXGGZb5eOooB27gJKL5sMKOn2nx1A0=
-=c0jS
------END PGP SIGNATURE-----
-
---iDS3O7h7qtVz8IgK--
-
-
---===============4536818182561032797==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4536818182561032797==--
-
