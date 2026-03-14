@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60976107BCEE
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 02:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD46E107BCF1
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 05:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t/v8oPsCQByI6Ju06AspFjD3/bBJDbZk0O6zRfWev8k=; b=nfOXM1JqbtJXNN
-	ycFXi5C65bb8Py2e9u4kFGEXxwZ6H9v/RjQi3BWTUWZXTcmcTz2inpgI1MZtra1enMCbGibFWxWKz
-	qlil0m6UKXQAF5yvdZCpkOxrXL0qw+jS7mxe/fgYFcskObvlvO+x8tKedgz5YlBoYZoNPkseT/frS
-	WX1tZ/GFe9pWaZne/gI0WdEA+atCoKuqqb/8AKFHH9wZc/qxxnpb3CMtQ8Sbiheh/VXzkla39rQ1g
-	gi8IlmRKjl/WhHn1XlC1laAChfkJ5wdhqE8nXtswuLg28VBVX/aKSNSDNNRqkolzl8TViI0nNJRPz
-	v+XbM5qN7ayjzg6E1y3A==;
+	List-Owner; bh=xmLke6/VXORZK74YijaYqTi/PFdwCysk/mT4n2nZi1s=; b=QqAAls/sekjoOq
+	Ds3CQQmPQ++pjchVq9dr7FtkrgaCNSz2n11nyMJ8CGimeudjkdbGPEvbsXTPi2qc0QVes98aHUzrs
+	G6cHFYoh6f2nQBYCeMQszXR90NVu21egPQxnr83ooAs6cgD7ROrLtzL11rbkn3mzi4nLD3M4asJNw
+	oqapwqrshfuMV1aa7IzyZdEigBql1sUA9Z6zKvr1cG3SjoWwYKqvjjqi9OYW6z8V81yAu/T785Kkc
+	QAs63fT0KIUW5CBH7DOYW8QbPqF6z+e8K8Z4kPhZe00L2sKuOdIKfeBfQJAOx+WIp0XKa2uu3YNLF
+	b31sfHP96t2GCC5qoLaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1EJZ-00000001POd-25UE;
-	Sat, 14 Mar 2026 02:01:17 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1w1HFO-00000001VOq-1U3Z;
+	Sat, 14 Mar 2026 05:09:10 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1EJU-00000001POJ-151M
+	id 1w1HFK-00000001VOM-0rbM
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Mar 2026 02:01:15 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-64cb577e79cso3171170d50.0
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 19:01:11 -0700 (PDT)
+	Sat, 14 Mar 2026 05:09:08 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-8cb40149037so322102185a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Mar 2026 22:09:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1773453671; x=1774058471; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773464945; x=1774069745; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=dCvYTlqh1MWL8IyixDf4AN02tdUmB4IFN+TyGNNiUIs=;
-        b=ipfXEt90xEXQdK/5zd4UzIjuXdYCeo8EIK+gEOvJSfBb+rM+6l5dafMxkl2jLWDuUX
-         ZN0pNrXmMK7qf0HLrTRcEnu7BiMFY6dQNeua5NCvuYaQhoxM8MnX8SrTfwcY0VJuBBr1
-         tszuq6yfY+SyNhD14maAnc4wgEOYXetlsU4AxjfMEaR29gDt99nmolALuRUghxETzGbL
-         QKMsamacLcgOAzkex6mqWFH+BZtepMYLzalxSVeuSClIvMOKNkush790IPKl0UnaYJ0d
-         8bvCjXh0jjx0jwmyaThWevB6he5KqoomR0vot4HaXgOetjqvF1z2fMZAQWc6cRNRFH9s
-         DFnw==
+        bh=w/e/9v0Sp4Vhwdmz1g84yGNuM71VzfuGISYjVINsFhk=;
+        b=fdXtq3+Ikb37WoOV7a/KnZBKAw7s8LLCeHEJkOcb/XRV+g56WYVApZr+Az3uz2leVi
+         kxiKJoiiClojK/UEqQ+l2olxfnNx8Pb+x/Fyx74jq/GV3WlzhnfajbPhp2iUmjFWIWUG
+         PSk1SIToq92TkNk+Qp1CFeariATC30H3TLcwF77LMtweBhuTfc2XcSzWt0gLQ4DX8ifa
+         bWHehgXePfffzTC/Ga6zh9/OzVoCgTUE2ff3CXYDcoGcD6IHThs+/yfKugt1UbKaWeu6
+         wH/binAU6aIa+NAqgnDIFKWbewxvyQDAhttn7K2Ghv+8EmKWHpKh8CMmUubTojR3prfo
+         B7hQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773453671; x=1774058471;
+        d=1e100.net; s=20251104; t=1773464945; x=1774069745;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dCvYTlqh1MWL8IyixDf4AN02tdUmB4IFN+TyGNNiUIs=;
-        b=DjvNDsrDYowBQulgPsomkHRVtvl+f0NIexaA5HSN91hl0m2Ynp/MT8NxM/KCVIxotK
-         scjZkOItZ/qkDeTeReAqZ7kRX8dYMX+DreW2dzVk0d73YD1Pj0KRd4zgvzWdHEhZhxcb
-         fbOD35UyhJnIs6wLxfRFKizBgyiYlhjUzZe1cRQB7SN9npl8EW/8hrCxcoTBzvyeDJqZ
-         +F/2+7Ql+KElwiK0pJerQ8lO9EeNSMFRENMEsqXEtX+nhf2wjGhNgjRokFXSd0AujPrs
-         HZrNCvIhaDwR9mVoDyu7gcufoLQ0TCFdHaV/Ha7IM5rs5FoWka80uWMuMDiZKGy9mSLY
-         +EdA==
-X-Forwarded-Encrypted: i=1; AJvYcCW110DntjLupNtvfptGB0u9tFcJAzkZKITT0DWk34BAf9JRXV2o2jAc+28Heh96aRBKIwUqkjZCToBIng==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCeqKPTx14DuzPGu7vfMv7aKJWsJBvp7EU93I0kkic15F32wV+
-	JQZqTnkchEYolJoRVE3WrIFKGjR0NPwyXaT/iWqgpx3I8pXGPHcKRm3Q/oFJ4Vhd2Jc=
-X-Gm-Gg: ATEYQzwBORAH3S6Hyv5g4qJZiuWBi1B1w4pUnOjCR/oWX+hTYO2iI/R584+qGwwHsoe
-	r36l9HmvFm9lMtqXeYUQlJhuz6qyQe+EphRpCuoBA2lGBbBCzaBeeXAmI/ipQcUAyh+ktWoXItP
-	JKHvp1C3wQpqTYEsPtGbCbbLWXjy4mESKnO2l6QL2Y/hr3YjEt7ZvuPNdTRuVZUHV7t/aROQwEO
-	PYVeZ4iO2Uw96yiOv0keKn2SiQqikxPOwBUVsIRXanwY6dS9vHFd0R2XdJxUCqcoTKD6WpmzxD/
-	j4HpRGXjpHE/vPXOax6fNXZYyTQ6DgFGIAlIFSTEuYexmypeXliG9zNpxbmcSbN/bjyhwlyixoY
-	o+BpsicK/5ERNo6BLilpYBBhgf9rIpZOLzEa7vfCAZm4nS3jmOJx2//A9nNtOH1TM0Cy5uau1u3
-	vjUyRGAgnHNNP8KeMjQAqk98dfQYD63XyjWys=
-X-Received: by 2002:a05:690c:6e87:b0:798:1636:c330 with SMTP id 00721157ae682-79a1c18818bmr60490517b3.34.1773453670899;
-        Fri, 13 Mar 2026 19:01:10 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.103.33])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-79917ee4a8esm58267877b3.32.2026.03.13.19.01.09
+        bh=w/e/9v0Sp4Vhwdmz1g84yGNuM71VzfuGISYjVINsFhk=;
+        b=avAHGhLWcn37/D2FHhjK5JK1B4u0GUeKhvSw3Jhf7Dn5b7CRCzIzO0R2XpX+w22C38
+         96FE90P+palF8KQuQkUhOqU03WHfHWAm+1jo5RywJjFrC05HgaIHUPATuwdvJEDsMHf+
+         L5GZEFGX2P6f7eMTedxPX/XXW9cLJa3hm/JZtZOdjOirXZUIdRk3b+bgiLhyH4/pOt7s
+         UVoQnrNPntaefUbKogj2w+s8g9Tjf2mU6jGvZPEblZwUfHyTLaA8nM1SBtWwi6DTyXXK
+         bYbzRQN6rZtyToxtK7XtHYo5NjhzEDPkzyBZ4jC8tXE9P28CXS0pt1onoxy0naN9VxEH
+         WlCw==
+X-Gm-Message-State: AOJu0YzrU2X8CSiLBpiWr0PSEbCUphYNM38RAitEWCSTxCLLWjHW31Wg
+	c+efQ0yDYP2J9hyUUBNj+/XeLef/mpnTx3A9+/FUHApVQesDGFDBKUvigbqYwTI0
+X-Gm-Gg: ATEYQzzdLlLJYGbY+KQyFkFyL/C7kcySROU1JW6+L03So/rn82yp3MZZwx1c9OTs+fO
+	WBx/uiFN/aPtY4aDFYUoqoWe20eGag7wCbET6fMEinYEgBkZV4ulOwI4FofbF1H8ydx4ZnYi4Gi
+	vpI1NM9wLTHbdpeTOjET22iyxb5QVkxjGLziBAu5ZvEXTquEkzeLUo9lB9DBzMhX9SaH6xOioni
+	LMV86dkgcmTI+Gz7vZxCu3QSplA7e4KWrfdp5FSkepq7HszDGxOkwZTM3NzAJAtc931F8VPiUNl
+	yN6G69/sLgi2oSHfZ9QaLn4AyU557YDhoKguLxPLmxFwWKZ4z/8X7fQ8HTgSZ8mhOYcqf9HF4hB
+	YWUaDP1/pTUaeOYJdDQusZA0huxmT6WR73Z0kxBVmTA3V1w/zkJ0qxfNHiwW0wNiyzzTgCqlhO/
+	+EMB+LkU291pBIEhIQp6bejy6O
+X-Received: by 2002:a05:620a:4613:b0:8c8:753a:7d9 with SMTP id af79cd13be357-8cdb5b6f808mr807185585a.66.1773464944670;
+        Fri, 13 Mar 2026 22:09:04 -0700 (PDT)
+Received: from [192.168.0.13] ([172.92.174.155])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cdaac435dbsm559487285a.16.2026.03.13.22.09.02
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Mar 2026 19:01:10 -0700 (PDT)
-Message-ID: <47e9a3e0-c056-41e8-a175-442a3ba7e355@sifive.com>
-Date: Fri, 13 Mar 2026 21:01:09 -0500
+        Fri, 13 Mar 2026 22:09:03 -0700 (PDT)
+Message-ID: <9592ecf2-8410-4df7-9b2c-17564426240d@gmail.com>
+Date: Fri, 13 Mar 2026 22:06:42 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/1] update riscv prctl for discovering V extension
-To: Yao Zihong <zihong.plct@isrc.iscas.ac.cn>, andybnac@gmail.com
-Cc: alex@ghiti.fr, eric.lin@sifive.com, greentime.hu@sifive.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, nick.hu@sifive.com, nylon.chen@sifive.com,
- paul.walmsley@sifive.com, pjw@kernel.org, vincent.chen@sifive.com,
- yongxuan.wang@sifive.com, zong.li@sifive.com
-References: <20260117233228.36088-1-andybnac@gmail.com>
- <20260313092012.64446-1-zihong.plct@isrc.iscas.ac.cn>
+Subject: Re: [RFC PATCH 1/6] riscv: Add a custom, simplified version of Svpbmt
+ "XPbmtUC"
+To: Conor Dooley <conor@kernel.org>, Bo Gan <ganboing@gmail.com>
+Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
+ david@redhat.com, palmer@dabbelt.com, pjw@kernel.org, gaohan@iscas.ac.cn,
+ me@ziyao.cc, lizhi2@eswincomputing.com, hal.feng@starfivetech.com,
+ marcel@ziswiler.com, kernel@esmil.dk, devicetree@vger.kernel.org
+References: <20260313084407.29669-1-ganboing@gmail.com>
+ <20260313084407.29669-2-ganboing@gmail.com>
+ <20260313-visitor-majestic-1a6888dc57b2@spud>
+ <25a8565d-a6bb-401f-b776-d743a2ec9ee0@gmail.com>
+ <20260313-spiny-duration-702fff6bca17@spud>
+ <ba44e0ed-9a6f-4d4d-b3bc-a6e0bac19940@gmail.com>
+ <20260314-errant-gnarly-dcca92457051@spud>
 Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20260313092012.64446-1-zihong.plct@isrc.iscas.ac.cn>
+From: Bo Gan <ganboing@gmail.com>
+In-Reply-To: <20260314-errant-gnarly-dcca92457051@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260313_190114_654104_36CCEBBF 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260313_220907_442074_9B660CD8 
+X-CRM114-Status: GOOD (  45.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +104,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Conor,
 
-On 2026-03-13 4:19 AM, Yao Zihong wrote:
-> It has been a while since the last activity on this thread,
-> so I would like to gently ping for comments.
+On 3/13/26 18:18, Conor Dooley wrote:
+> On Fri, Mar 13, 2026 at 05:29:53PM -0700, Bo Gan wrote:
+>> Hi Conor,
+>>
+>> On 3/13/26 16:55, Conor Dooley wrote:
+>>> On Fri, Mar 13, 2026 at 02:33:16PM -0700, Bo Gan wrote:
+>>>> Hi Conor,
+>>>>
+>>>> Thanks so much for the prompt review. See inline.
+>>>>
+>>>> On 3/13/26 06:24, Conor Dooley wrote:
+>>>>> Hey,
+>>>>>
+>>>>> Gonna offer some feedback on the detail of what's been done in this
+>>>>> series, without providing any commentary on whether this is the correct
+>>>>> approach to take.
+>>>>>
+>>>>> On Fri, Mar 13, 2026 at 01:44:02AM -0700, Bo Gan wrote:
+>>>>>> On platforms that doesn't support Svpbmt or XTheadMae, SoC vendors
+>>>>>> sometimes map the system memory twice in physical address space, one
+>>>>>> as cached, and the other as uncached. Through the uncached window,
+>>>>>> device drivers will be able to map DMA buffer for noncoherent devices.
+>>>>>> Such setup is usually found in SoC with pre-Svpbmt Sifive cores.
+>>>>>> Make use of such feature by modeling it as "XPbmtUC", a customized
+>>>>>> version of Svpbmt, where a single bit in PTE is used for UC control.
+>>>>>> There's no IO bit with such scheme, as it's assumed that the PMA
+>>>>>> (usually hard-wired on these SoCs) will properly convey the strongly-
+>>>>>> ordered, non-idempotent attribute of the MMIO region.
+>>>>>>
+>>>>>> The enablement of such position of "XPbmtUC" is controlled by the
+>>>>>> device-tree property "riscv,xpbmt-uncache-bit".
+>>>>>
+>>>>> Firstly, the naming generally I take some exception to. If this is some
+>>>>> fake vendor extension for linux purposes, it needs to have "xlinux" in
+>>>>> it, like our xlinuxenvcfg does. It should also be consistent, don't use
+>>>>> "xpmbtuc" and "xpbmt-uncache-bit", pick one and stick to it.
+>>>>>
+>>>> Makes sense. I can certainly change that to be conformant.
+>>>>
+>>>>> Athough, I think I disagree fundamentally with this property, as it seems
+>>>>> to me like "software configuration" that shouldn't be permitted in
+>>>>> devicetree. Maybe I am misunderstanding, but the numbers you chose are
+>>>>> convenient, not set in stone by the specific hardware, right?
+>>>>
+>>>> For JH7110, the bit 32 (PPN bit 34) matches exactly with the HW. Meaning
+>>>> toggling this bit would re-map the page to the uncached window, which
+>>>> matches perfectly with the synthetic UC bit in the scheme.
+>>>
+>>> What does "matches exactly with the hardware" mean? AFAICT, you picked
+>>> it because it was the best value, but you could also have picked another
+>>> less optimal value?
+>>>
+>>>>
+>>>> For EIC770X, the bit 38 (PPN bit 40) is hand picked to be able to map all
+>>>> physical memory space (40 bit), while making it very easy for the thin-
+>>>> hypervisor, which can utilize Sv39x4 (41 bit) page scheme in G-stage.
+>>>>
+>>>> I also considered the sbi call approach, where the kernel can query for
+>>>> the support and position of the uncache bit. The thing is that JH7110
+>>>> can just hard-code the bit without any changes to firmware, and I want
+>>>> to have a consistent way for both SoC, thus the device-tree approach, to
+>>>> let the EIC770X firmware/bootloader adding the property to dt at runtime.
+>>>> Any better ideas?
+>>>
+>>> Is the only thing that's variable on your eic770x platform whether or
+>>> not the bit is enabled? Or are you looking to vary the bit depending on
+>>> the specific platform?
+>>>
+>>
+>> It'll be "fixed" for eic770x if a thin-hypervisor re-mapping is enabled
+>> underneath. It just so happens that the physical address space is 40 bits
+>> (ignoring the 40bit+ upper uncached region for interleaved memory, which
+>> we don't need when the "xpbmt-uc" is enabled anyway), and the hypervisor
+>> can use Sv39x4 (also 41bit) to re-map everything.
+>>
+>> The variation comes with different SoCs, JH7110 vs. EIC770X. I'd like to
+>> make it a variable, to make a unified kernel binary boot on all SoCs, so
+> 
+> FWIW, I have no interest in things that are not multiplatform-safe, so
+> anything I've been suggesting has been with that in mind. When I was
+> talking about not conveying the bit via DT, but storing the value in the
+> kernel, I was still considering that the values would be stored for
+> specific soc compatibles.
+> 
+> To be honest, I'm not completely dead-set opposed to a property that has
+> the bit positioning, but any property being added for what is
+> effectively an erratum needs to pass a high bar when the info could be
+> gathered in another way. That the eic7700 one depends on firmware for
+> what the bit may be is points in your favour, since firmware variability
+> is part of what dt is there to do. The jh7110 is points against, since
+> it could be fished out of the errata handling code.
+> 
+Even for JH7110, I don't think it can be handled through the errata. It
+describes the errata of the core (if I'm not mistaken), and there can be
+other SoCs using the same core with the same archid/impid, but maps the
+peripherals differently, and the UC bit position doesn't apply there. I
+think you are probably looking for "SoC level errata" handling. It's not
+there AFAIK. Hence I guess both SoC cases point in favor of the dt prop?
 
-There was some off-list discussion about this around this time (anyone involved
-please correct me, it has been several weeks), and my understanding of the
-sentiment was that:
+>> I need to fix the alternative logic for PC-relative instructions to read
+>> from a global variable "xpbmtuc_bit/mask". Also I want to avoid adding
+>> too many branches to the alternative macro.
+>>
+>>>>> I'd be much more comfortable with adding xlinuxwhatever to
+>>>>> riscv,isa-extensions, to signal that a soc supports this stuff than with
+>>>>> a property for the bit itself. I suppose that bit information could then
+>>>>> come from a LUT in the vendor extensions, that a validate callback could
+>>>>> check (via root compatible) before enabling. There's not a super neat
+>>>>> way to do that at the moment though I don't think, code currently
+>>>>> expects that vendor extensions are in a different "namespace" to
+>>>>> standard ones, and this would blur the lines because it's not from a
+>>>>> specific vendor, nor is it a standard extension.
+>>>>> I guess, it could be done by keeping it as a standard number, but then
+>>>>> it's a bit trickier to neatly access the LUT while keeping it split
+>>>>> apart.
+>>>>> I know this means having to modify the kernel if there's a new device,
+>>>>> but I'm inclined to say "deal with it" because they could've done
+>>>>> something standard and opted not to.
+>>>>>
+>>>>> Could also argue that this should be shoved into a sifive specific
+>>>>> thing, but I don't expect that they're the only ones with devices like
+>>>>> this that could benefit.
+>>>>>
+>>>>
+>>>> I've thought about riscv,isa-extensions. The issue with that is that it's
+>>>> a per-CPU thing, but I'm adding a global extension, and I don't want to
+>>>
+>>> Most of the extensions in that string are effectively global. There's no
+>>> need to worry about "polluting" it.
+>>>
+>>
+>> Got it. So I can use something like "xlinuxpbmtuc38" in isa-string? (until
+>> someone comes up with a better naming. Naming things is hard...)
+> 
+> I don't think the encoding of the bit should be in the name, otherwise
+> we'd need to many different variations, if using riscv,isa-extensions is
+> the approach that ends up being used.
+> 
+>>>> pollute the isa-extension string. Thus, I followed Samuel's approach --
+>>>> He uses "riscv,physical-memory-regions" in the root node.
+>>
+>> Bo
 
-1) These sysctl and prctl() interfaces were introduced because adding vector
-state to the signal frame was technically an ABI break, due to increasing the
-minimum signal stack size. The prctl() provided an escape hatch for users to run
-existing software that used a smaller signal stack size. Notably, this existing
-software necessarily did not use RVV, because any C runtime that supported RVV
-would have enforced a larger minimum signal stack size.
-
-2) Using these interfaces for another reason is unsupported, and anyone doing so
-gets to keep both pieces. Software that was aware of RVV at compile time is not
-expected to ever run with the sysctl/prctl() disabled at runtime.
-
-3) Therefore, hwprobe() is sufficient for detecting the presence of the various
-vector extensions. The case where hwprobe() says RVV is available, but its usage
-traps, is considered a configuration error.
-
-Regards,
-Samuel
+Bo
 
 
 _______________________________________________
