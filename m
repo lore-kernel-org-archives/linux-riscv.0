@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCFC10706E9
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 16:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B4710706E9
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 16:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n0s3ri7xSNUSJ0oXQqgxSeEZSKXotE70JmjpbXMolsg=; b=kzS6twJxpEdiNh
-	fbF1nlqU75aD74Segu7Uyggvsf0InYSvoPUtHhVleAA8SQJeIrGA3CiuEhLL6du/8axSNWPxBss7x
-	Y/rdr5OirSenL8KbuQPpy06zuus3kYx8uDvtTU0aQ3TsjEQJQlhngvEua92LLodjtwgjyvcdQbN1f
-	COHNzq+5Mlzm3cFMXAB8YmM5cvd8qtSVabM6/eB65VVCQdnH3wwY7M+WCaoVG/8vc4+9yVjQ/NxWn
-	94jsaNbmSIxqR3kco0qUFWfuECBj5xT6Gul8KyPd1fEzNgNNk1Trp/Js2yAwV2E1q8lh2slIJO7JI
-	eqjkv0mGKRf6KrUGB0yw==;
+	List-Owner; bh=WirfSr/lGilYGWHbMG1KKGSdgbxQrO8G7m+Vt5PKgZI=; b=u4Rk9h4JkfzG/I
+	Zs8bjtbpsUXmm8OK+FPJje/uV/4Bg9/nzAxmHwFK/lIBHMkH4AS+FY6qK8wFZDrj3DwoLLPESNBWG
+	uUBJmUcZjLMiPxRQzAm+feJbftsPm4kR3dq5iXt205BmJFNueMrXGXXxoRtYF8LC23gkyvQtQRj9j
+	FnIUlpr741JwJT01aXWZCqg8UBso7Wr6JTCF2Mx2VMj1Apv5T3hsMRkV9ysWYZ6nfjQnRnhl8+YGG
+	82leL4DoPz/bkhbTrQ1TpYiDX6n0VSRc0nYw5jzkySzhRJnh5oX+4w6btD+szTPaEWOBqaUvXC0G0
+	ZmDlAy6A7qRiJ/FV/Hqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1SHw-000000020eO-3skE;
-	Sat, 14 Mar 2026 16:56:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w1SJA-000000020jk-1QE7;
+	Sat, 14 Mar 2026 16:57:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1SHu-000000020e2-33wu
+	id 1w1SJ7-000000020jD-47Kg
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Mar 2026 16:56:31 +0000
+	Sat, 14 Mar 2026 16:57:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4832843582;
-	Sat, 14 Mar 2026 16:56:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC902C116C6;
-	Sat, 14 Mar 2026 16:56:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C1F343E85;
+	Sat, 14 Mar 2026 16:57:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3899C116C6;
+	Sat, 14 Mar 2026 16:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773507389;
-	bh=K2/51MC7bI/87I8mto05HaeOL1q9UD0Pz5lwJ/71o/4=;
+	s=k20201202; t=1773507465;
+	bh=1QgLBpuzpumxuzLwiduaG7BRUXzEsWH9tCQ1NLudE8M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UsJ+5EBHkfaXYTFY7PI8OeYdt2u9isrCQDZ4tpK+CcWe3/Iqum+vK2TSUaJUtWi4I
-	 KiDqjZXijttMtJsUrSPSAMIPwY6BPPyrDYeyPf8pzVAOnqnOL2lMzdS+HN9AphXA58
-	 nkHrlvYUxMJ7nGDyb320oQamwGcjKwjypuNryunDbDwisHbMciB22vEKIySphyF3aI
-	 pBtj5KfjH9r9DvDRUn5qF7BU9qhIUwd5wupk7aCk1ABHJPoEk6sEoLjbIqmcd2AfAo
-	 3XT/f1G0ngCUCorEXlPj70ExYWaGAN3r4/imwUBcJB1qST7m0tClf1mXhq9FP6UeQI
-	 z3oc99jzfi/aQ==
-Date: Sat, 14 Mar 2026 09:56:27 -0700
+	b=mBhpxFbxjovN1pMXc5+sqAYNmShCKqCCyPvMkI4tqtFmDWvmRzovEEjhSdRZgoXil
+	 aBGufqNe/a3q1NYbm5dXhoNVZUPPYOAdzbKgl6N9nPoGnW4jLiwG1MgN3R/64fB8QS
+	 MW78SLQJuOBnmRbmwG4nA/vQ/dVrt0jQZa9OJdrzeCzlTxBeY94JHCzSYD5OewNUQn
+	 Jwi2f02iERKsUAVQSO6x63WD6GrZ5LqigbS5nAE4cYfuaO7/tDumj/HnmtAo4JKSft
+	 8jwlKJGCTrbNPfZIH0/09yDkb/AUSZA6H57GBrEiiXDk8SQA0bGyEleaoqglERplrC
+	 SL2cyuxjpuGIw==
+Date: Sat, 14 Mar 2026 09:57:43 -0700
 From: Drew Fustini <fustini@kernel.org>
 To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
- multipleOf for T-Head TH1520
-Message-ID: <abWTO7QBFIcjxKn6@x1>
+Subject: Re: [PATCH v3 2/2] riscv: dts: thead: th1520: add coefficients to
+ the PVT node
+Message-ID: <abWTh/HkVAiIjInt@x1>
 References: <20260309162457.4128205-1-zhengxingda@iscas.ac.cn>
- <20260309162457.4128205-2-zhengxingda@iscas.ac.cn>
+ <20260309162457.4128205-3-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260309162457.4128205-2-zhengxingda@iscas.ac.cn>
+In-Reply-To: <20260309162457.4128205-3-zhengxingda@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_095630_805218_6A0E4C27 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20260314_095746_035082_BC38915F 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,56 +73,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 12:24:56AM +0800, Icenowy Zheng wrote:
-> The G and J coefficients provided by T-Head TH1520 manual (which calls
-> them A and C coefficients and calls H coefficient in the binding as B)
-> have 1/100 degree Celsius precision (the values are 42.74 and -0.16
-> respectively), however the binding currently only allows coefficients as
-> precise as 100 milli-Celsius (1/10 degree Celsius).
+On Tue, Mar 10, 2026 at 12:24:57AM +0800, Icenowy Zheng wrote:
+> The manual of TH1520 contains a set of coefficients a little different
+> to the driver default ones.
 > 
-> Change the multipleOf value of these two coefficients to 10 (in the unit
-> of milli-Celsius) to satisfy the need of TH1520.
+> Add them to the device tree node of PVT.
 > 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 > Reviewed-by: Drew Fustini <fustini@kernel.org>
 > ---
 > Changes in v3:
 > - Added Drew's R-b.
-> - Fixed some typos in the commit message and slightly reworded the
->   precision sentence.
+> No changes in v2.
 > 
->  Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
-> index 56db2292f062d..7d57c2934a8a1 100644
-> --- a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
-> +++ b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
-> @@ -105,7 +105,7 @@ properties:
->        G coefficient for temperature equation.
->        Default for series 5 = 60000
->        Default for series 6 = 57400
-> -    multipleOf: 100
-> +    multipleOf: 10
->      minimum: 1000
->      $ref: /schemas/types.yaml#/definitions/uint32
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index bd5d33840884e..2160c8b6c2261 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -753,6 +753,10 @@ pvt: pvt@fffff4e000 {
+>  			reg-names = "common", "ts", "pd", "vm";
+>  			clocks = <&aonsys_clk>;
+>  			#thermal-sensor-cells = <1>;
+> +			moortec,ts-coeff-g = <42740>;
+> +			moortec,ts-coeff-h = <220500>;
+> +			moortec,ts-coeff-j = <(-160)>;
+> +			moortec,ts-coeff-cal5 = <4094>;
+>  		};
 >  
-> @@ -131,7 +131,7 @@ properties:
->        J coefficient for temperature equation.
->        Default for series 5 = -100
->        Default for series 6 = 0
-> -    multipleOf: 100
-> +    multipleOf: 10
->      maximum: 0
->      $ref: /schemas/types.yaml#/definitions/int32
->  
+>  		gpio@fffff52000 {
 > -- 
 > 2.52.0
-> 
+>
 
-I have applied this to thead-dt-for-next.
+I have applied this to thead-dt-for-next:
 
-https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/?h=thead-dt-for-next&id=eb4fd43ff6793681f0a0a8e8ac861142caba2b19
+https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/?h=thead-dt-for-next&id=2592a7072a816be80337b0a85e6279f75498262b
 
 Thanks,
 Drew
