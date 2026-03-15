@@ -4,79 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECB0D58B14
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 05:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91EDDD58B0F
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 07:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X7NLRmu6IgCZbcfXx6Ch5zxG6jO90r55Mt+cxx+qJ3Y=; b=FDCVmqfX/zyPeo
-	Rr5og2k+OFP0Mu6jQSEms3ORAV22nnPBkIRwPvk7OPnfIV4fe8UDIK3fEf0Goh2UdPnAMQOvW0G0s
-	y7i2u/YLnVdzCdGdEHcAOZlYBCgyAaZP6OKGkh3G0kUPSZ3JsTL6aBswIZufd4SQs6JqkNTnMaMM3
-	AohoRDX9XIJDf/VM1GpVEoPa35xcf/kfk5QGKM773jkefoR9Ls1I4xeFnBAU8wi0B++g6kVejW1CF
-	R5zvhvpmZMZ/FmBSsucNpUBDoqC/kKdxYcRaus4Xu3R5+jNpG0SXkPKziDCM19ZhRhOInwbsEgIGy
-	FT5VuWhC3fWieAi1vtLQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=feNwdCBVTIzJbQtvOTESTkdosRLLEefYQZyYqH6qgrE=; b=cje9Q1dF3wSny5
+	97T7l3kfhTuLr3beQU9QK9dA48aIxkr+MQUPcU9ZXzWe53ixgG5ChAqVyFIcJtgz2NxKcVHaN2Qqq
+	4GZQbo889zyIdEIOfSRpztzTCX5t/aDp3xVQ26rZtTmGkPTlcMlO0dQGyLLaV1fxHSCWnI5fXpn2I
+	n5YDJIO22e75lCq7rMXB0Wxn4jSrZIRfyMWimRgir6kHurcYQHdAddmko7tixoOb0/SRKg/h6aFof
+	3UrrDm2gveRChPIuQXzOCLUVW1ZZXoOuXgAaoAxjYldgvagrm/21h2Bw0AaPyoZyfC7hjnzKTINBS
+	a78AyKkMwJwPh2nWGbPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1eHX-00000002PJW-0aju;
-	Sun, 15 Mar 2026 05:44:55 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1w1fjh-00000002SHO-0ZzM;
+	Sun, 15 Mar 2026 07:18:05 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1eHS-00000002PIB-2TpM
+	id 1w1fjd-00000002SH4-2q3s
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Mar 2026 05:44:53 +0000
-Received: from duge-virtual-machine (unknown [183.192.222.244])
-	by APP-05 (Coremail) with SMTP id zQCowADXaQ1BR7Zp5WGACg--.20291S5;
-	Sun, 15 Mar 2026 13:44:37 +0800 (CST)
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: krzk@kernel.org,
-	ulf.hansson@linaro.org,
-	adrian.hunter@intel.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	gaohan@iscas.ac.cn,
-	me@ziyao.cc,
-	Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Subject: [PATCH v4 3/3] riscv: dts: canaan: Add mmc nodes for K230
-Date: Sun, 15 Mar 2026 13:44:26 +0800
-Message-ID: <20260315054426.18383-4-jiayu.riscv@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260315054426.18383-1-jiayu.riscv@isrc.iscas.ac.cn>
-References: <20260315054426.18383-1-jiayu.riscv@isrc.iscas.ac.cn>
+	Sun, 15 Mar 2026 07:18:02 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ae88e16485so24607545ad.0
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Mar 2026 00:18:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773559080; x=1774163880; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZmB+4AfDJQoT99kSuCamxfMIbT8/uyLGRZ2V2BFS2Jk=;
+        b=SqshZtXfD1vZ68wpjCkjxOZDSNwOitQKsKLvn06z5/ZaNiudqIpFqxQq3W+p/bQE/T
+         SnSRv4tMjz+7+qZ5iqMmCtUzZ5Phl9+XEyccgOLK1RJ4aYvemnjM+0oKmcDpon6wMssr
+         PD6FSMtFLouMk5U2jAMCy/l8x4eoTLUrM1pMoYtr7G+eT5rYVweyCCNQ6V1Tf+EkndW7
+         VgzNSB2V0V+VjvjIWg9bJhnthfN2jPYAQPa5o91gIIYlq93jPTGiwnbY9pw3rwA921cS
+         iJChAv5gqhbBA7nWJZBNki+0DohjfXCwAHclI/VfZbHrIkHGneA5UN0nHlRiS+Lbd71i
+         teZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773559080; x=1774163880;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZmB+4AfDJQoT99kSuCamxfMIbT8/uyLGRZ2V2BFS2Jk=;
+        b=cDuTVKjegzizjLOoDROy0ADDGDR4JpuoSde7mU5QnXZmEVMKLhh9Du5c7C8l4GS0qu
+         EOZUiUrHfSfJd2BwHn4UgEiM71qzsa6qtje3M5otNIRGg10+HPgVZXj1+m8CQ7fHettb
+         IcJzap+KqJJYEJ4ztCd/QqT96JKa5e7LG/4c8ALv7EjwcJQQ6WdzUo2+YbqacmiS5TKx
+         rkH6jaH92t4r7d9N4Pfwux0cyWvLhAZN4UOAMb3tQuv2TyW+TlSHKjvz4KF3dm7sbN8p
+         HJO5vyWOlIvePXBDPWAmq/mFrau1RZN1twqGqeJEHVMPk4n0XJirzQ6f1oseP0XvVj9F
+         PITQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV0yJ+tYJDmTPWNEBWVBJ80/7jr3CXtp00cehJ5ldO445fENzSOgcZd0AOR+KeWoyIDuyaK/aPzAcT4mg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1b2DU7zb4g61qteEVVgJYZ5B8spYRapZafTOOvnVzqYanxuuq
+	8/sbUhzh3cJZeKu+smmx20gmxdEThggxRaMc6hwro8q1guo/tJx93D8z
+X-Gm-Gg: ATEYQzy5c0LqAVYFH1KywY0caBr565yrnbcc1bOby1UGSya8NO7S5L57pHDKsBJOImp
+	15Bu+WPTie7Gu0ctoW9Ts9SMfp3SJ0u0hROdH+exdR2qOCNUUWfhH9vAeE9tJxmYD/445+T+lC6
+	Fw5IGp5Grr/ClswnW4CzW/oo9+b8U0S8JhQMAutfqfYvHMd21UYBtR11TTB/ttP+ttGV+wu+OLX
+	i6fYxTjV6Iw2LTc13fc1ZRIc7YV6QSoe7bGv5KEP5kq+IBPnGvcpFKpTzoVj/yOuFltwPCBCloL
+	62ceamBCSoKZSo+2gGGm9eAH+QEKB5tcnWsKEcbya3heCMKM9ZeOOz5188oLA2TkSSD53PVTwA5
+	u6zddr0eVNhtwKhwnRPU92c1fxhMS0F9aQPHSoXODu2jYgrTcS4iZdhDUMSmByQDdl1zNBXURnI
+	O1YLHR4GMtanSuqSvtUviEN0Tjgzj8PJ/WfhOh
+X-Received: by 2002:a17:902:cecf:b0:2ae:cbd9:5f2a with SMTP id d9443c01a7336-2aecbd961acmr92596685ad.11.1773559079937;
+        Sun, 15 Mar 2026 00:17:59 -0700 (PDT)
+Received: from junjungu-PC.localdomain ([223.167.147.240])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2aece56cb7fsm87285415ad.6.2026.03.15.00.17.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Mar 2026 00:17:59 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Sun, 15 Mar 2026 15:17:54 +0800
+Subject: [PATCH] irqchip/riscv-rpmi-sysmsi: Fix mailbox channel leak in
+ rpmi_sysmsi_probe()
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADXaQ1BR7Zp5WGACg--.20291S5
-X-Coremail-Antispam: 1UD129KBjvJXoWxCFy8KF13GF4kKw1xXF48tFb_yoWrXr47p3
-	9rCFZ3Kas2gr1S9ay2kry09rs3CF4kKr1FgwnIv347Kr4jqFWvkwn5Aw48XF1UXa1UA3y2
-	g3yrJryI9rs0v3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
-	8EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r4UJwAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
-	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
-	Ja73UjIFyTuYvjfUO_MaUUUUU
-X-Originating-IP: [183.192.222.244]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+Message-Id: <20260315-sysmsi-v1-1-5f090c86c2ca@gmail.com>
+X-B4-Tracking: v=1; b=H4sIACFdtmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDY0NT3eLK4tziTN00MyNTkzQzU3MDwzQloOKCotS0zAqwQdGxtbUA09f
+ 2HVgAAAA=
+X-Change-ID: 20260315-sysmsi-f6254f65701f
+To: Rahul Pathak <rahul@summations.net>, Anup Patel <anup@brainfault.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Jassi Brar <jassisinghbrar@gmail.com>, 
+ Sunil V L <sunilvl@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773559076; l=1079;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=tcQw2kHiC9GSxdTDYKfZrPmy6kro67MTQ4O0GCXNUmE=;
+ b=92SpKj9FxV87KIFWQ02U8AtxkgcLsgAkrosCGnPj2ue44MhpG2PET9Xd9SyE3A5bCsSZqaEjR
+ H1FxIkU82XoAgnDGhNdAlcZU97KWiIudzcnQsWtyLVHTRfe4+oGQP1d
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_224451_022789_98612E0E 
-X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-CacheID: sfid-20260315_001801_753962_3B65C47D 
+X-CRM114-Status: UNSURE (   8.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,146 +113,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add MMC nodes to K230, including eMMC and SDIO. Enable HS200 eMMC
-on the SoM and SDIO high-speed on the board.
+When riscv_acpi_get_gsi_info() fails, the mailbox channel previously
+requested via mbox_request_channel() is not freed. Add the missing
+mbox_free_channel() call to prevent the resource leak.
 
-Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+Fixes: 4752b0cfbc37 ("irqchip/riscv-rpmi-sysmsi: Add ACPI support")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
- .../boot/dts/canaan/k230-canmv-dshanpi.dts    | 56 +++++++++++++++++++
- .../dts/canaan/k230-canmv-module-dshanpi.dtsi |  7 +++
- arch/riscv/boot/dts/canaan/k230.dtsi          | 28 ++++++++++
- 3 files changed, 91 insertions(+)
+ drivers/irqchip/irq-riscv-rpmi-sysmsi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts b/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
-index 55197cfc25b4..1877b2049409 100644
---- a/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
-+++ b/arch/riscv/boot/dts/canaan/k230-canmv-dshanpi.dts
-@@ -15,6 +15,8 @@ / {
- 
- 	aliases {
- 		serial0 = &uart0;
-+		mmc0 = &emmc;
-+		mmc1 = &sdio;
- 	};
- 
- 	chosen {
-@@ -73,6 +75,60 @@ uart0-rxd-cfg {
- 			input-schmitt-enable;
- 		};
- 	};
-+
-+	mmc1_pins: mmc1-pins {
-+		mmc1-cmd-cfg {
-+			pinmux = <K230_PINMUX(54, 2)>;
-+			slew-rate = <0>;
-+			drive-strength = <7>;
-+			power-source = <K230_MSC_3V3>;
-+			input-enable;
-+			output-enable;
-+			bias-pull-up;
-+			input-schmitt-enable;
-+		};
-+
-+		mmc1-clk-cfg {
-+			pinmux = <K230_PINMUX(55, 2)>;
-+			slew-rate = <0>;
-+			drive-strength = <7>;
-+			power-source = <K230_MSC_3V3>;
-+			output-enable;
-+			bias-disable;
-+			input-schmitt-enable;
-+		};
-+
-+		mmc1-data-cfg {
-+			pinmux = <K230_PINMUX(56, 2)>, /* mmc1 data0 */
-+				 <K230_PINMUX(57, 2)>, /* mmc1 data1 */
-+				 <K230_PINMUX(58, 2)>, /* mmc1 data2 */
-+				 <K230_PINMUX(59, 2)>; /* mmc1 data3 */
-+			slew-rate = <0>;
-+			drive-strength = <7>;
-+			power-source = <K230_MSC_3V3>;
-+			input-enable;
-+			output-enable;
-+			bias-pull-up;
-+			input-schmitt-enable;
-+		};
-+	};
-+};
-+
-+&emmc {
-+	vmmc-supply = <&vdd_3v3>;
-+	vqmmc-supply = <&vdd_1v8>;
-+};
-+
-+&sdio {
-+	bus-width = <4>;
-+	max-frequency = <50000000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mmc1_pins>;
-+	vmmc-supply = <&vdd_3v3>;
-+	vqmmc-supply = <&vdd_3v3>;
-+	cap-sd-highspeed;
-+	no-1-8-v;
-+	status = "okay";
- };
- 
- &uart0 {
-diff --git a/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi b/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
-index 566665d39239..1db7569253fe 100644
---- a/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k230-canmv-module-dshanpi.dtsi
-@@ -24,3 +24,10 @@ &sysclk {
- 	clocks = <&osc24m>, <&timerx_pulse_in>;
- 	clock-names = "osc24m", "timer-pulse-in";
- };
-+
-+&emmc {
-+	bus-width = <8>;
-+	max-frequency = <200000000>;
-+	mmc-hs200-1_8v;
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
-index e1ec3e1f40a7..e3c6926dbadc 100644
---- a/arch/riscv/boot/dts/canaan/k230.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k230.dtsi
-@@ -192,6 +192,34 @@ usb1: usb@91540000 {
- 			status = "disabled";
- 		};
- 
-+		emmc: mmc@91580000 {
-+			compatible = "canaan,k230-emmc";
-+			reg = <0x0 0x91580000 0x0 0x1000>;
-+			clocks = <&sysclk K230_HS_SD0_CARD_GATE>,
-+				 <&sysclk K230_HS_SD0_AHB_GATE>,
-+				 <&sysclk K230_HS_SD0_AXI_GATE>,
-+				 <&sysclk K230_HS_SD0_BASE_GATE>,
-+				 <&sysclk K230_HS_SD0_TIMER_GATE>;
-+			clock-names = "core", "bus", "axi", "block", "timer";
-+			interrupts = <142 IRQ_TYPE_LEVEL_HIGH>;
-+			canaan,usb-phy = <&usbphy>;
-+			status = "disabled";
-+		};
-+
-+		sdio: mmc@91581000 {
-+			compatible = "canaan,k230-sdio";
-+			reg = <0x0 0x91581000 0x0 0x1000>;
-+			clocks = <&sysclk K230_HS_SD1_CARD_GATE>,
-+				 <&sysclk K230_HS_SD1_AHB_GATE>,
-+				 <&sysclk K230_HS_SD1_AXI_GATE>,
-+				 <&sysclk K230_HS_SD1_BASE_GATE>,
-+				 <&sysclk K230_HS_SD1_TIMER_GATE>;
-+			clock-names = "core", "bus", "axi", "block", "timer";
-+			interrupts = <144 IRQ_TYPE_LEVEL_HIGH>;
-+			canaan,usb-phy = <&usbphy>;
-+			status = "disabled";
-+		};
-+
- 		usbphy: usb-phy@91585000 {
- 			compatible = "canaan,k230-usb-phy";
- 			reg = <0x0 0x91585000 0x0 0x400>;
+diff --git a/drivers/irqchip/irq-riscv-rpmi-sysmsi.c b/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+index 5c74c561ce31..612f3972f7af 100644
+--- a/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
++++ b/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+@@ -250,6 +250,7 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
+ 		rc = riscv_acpi_get_gsi_info(fwnode, &priv->gsi_base, &id,
+ 					     &nr_irqs, NULL);
+ 		if (rc) {
++			mbox_free_channel(priv->chan);
+ 			dev_err(dev, "failed to find GSI mapping\n");
+ 			return rc;
+ 		}
+
+---
+base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
+change-id: 20260315-sysmsi-f6254f65701f
+
+Best regards,
 -- 
-2.53.0
+Felix Gu <ustc.gu@gmail.com>
 
 
 _______________________________________________
