@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E6FD58B1A
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 12:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47F6D58B17
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 12:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6/QJBHicgjvfWnleSIjB6dlB/CZbX0m1R2jcKLJ4Aw=; b=R9ckO+0ZEjzKOLZtHgQT1NdVN7
-	hs4f2BgpqoEARdDXgsVNDbZxlHKGjrMVJqNDWlAGOjgWN9zXOddbndtsw+/FBFzkWbDlZiPxJv4ka
-	pBaFfVATYGP6DmN9EhoDVVnNYvNO/9+2mq/QivFI5dwU4cPmAtNTbIlpiJjShj+WnMHNypkjssMPz
-	k0/K/4RQ049e57o2ItYW/C70GLTaAVo3tHLln6b49bMa9IvG9gMsJLDuIVG/he2v0uQWF2VAKnBnx
-	Zf+3cfeA621crZs9fIzmmHUj6BWIOLcNlPaNGzJglJArlhLlCkewfCsNMU/vtb6/bT1zQPSQXhTul
-	gdfw1mGw==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4+8gjbNNlrK4JoVgtrefsgqH2I0Mr4/FS4Sqp4UVDw=; b=Qtk8dApBDJQw5cUAJlwG/kTmye
+	ttxE2c6pO0uLNULCMhdlSIGAo+25fxEHgB+YqZma6lSQlp3+E7fpTCUGVM643e7EC2P8K3acXiJGS
+	lZvDxv5DKju1327CHEvBbNZTj3S2ZtagSCtRXkjSw8fXuFR2rpAg8zme+mc6jinn/vAH7a1QP4cb0
+	7sHwM+14+nGbu4PqGgWGsDjsd94HtAzr2DPkNNXbpNHaZ/b2E22XYqgWS/w1o1u/+lOCfDSgCvJZY
+	519iYlbA8hcpiXrLwbwXoxKLHI2Vam2Ng9smusT/PTjHYdJYcOCn+qTA7SsA2N5c8vhsASYUEBKFD
+	zxyJsX3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1kEM-00000002aS8-48Fs;
-	Sun, 15 Mar 2026 12:06:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w1kKT-00000002amH-1gHM;
+	Sun, 15 Mar 2026 12:12:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1kEK-00000002aRZ-2CVl
+	id 1w1kKR-00000002alw-0cjK
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Mar 2026 12:06:01 +0000
+	Sun, 15 Mar 2026 12:12:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E11C4004F;
-	Sun, 15 Mar 2026 12:05:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE61AC4CEF7;
-	Sun, 15 Mar 2026 12:05:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B68C402E2;
+	Sun, 15 Mar 2026 12:12:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F112C4CEF7;
+	Sun, 15 Mar 2026 12:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773576359;
-	bh=l67yryRnjt4eHFTNrM4PyDXl+WM1ez2ttvW7tVoQF1M=;
+	s=k20201202; t=1773576738;
+	bh=6CGcM3IIxKsMzHTVUtHK9uC5NP4xomnmcR+Vtyq5J4Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tv6BQ9PhM/O1IWOCbyGKnOljvGKShDhSbiIo1kfV7C51QEPbsjQqFDHYCHfm+GZVo
-	 Ixai2HHt3vPvQVc4++uDCmsOgVhPlU0+u+O4e7BrUxiTSy7KbRbmDXLWEYpOhlUL/i
-	 dppMKyiSW1twuEtgFe/qOyMYSZ/dpDICzkROlRlvHxk+sl+5+ZW4P+kRHazhggrB8g
-	 K3j57aY18TBOem6UV+FbZIdvLeuy3qigt9BsLOlBVtTID+zGYNgDhD5yDvx52tx6wE
-	 fADbCy9Uso7gu1259YZYXKOPyf4ppUhyH9fcKL9btCvflH2bCB7gMaPnrDaV1rZuw9
-	 ke7DaSVaaNASg==
-Date: Sun, 15 Mar 2026 12:05:54 +0000
+	b=Xye8T87sqEmhusxuk+NSjtJawsXqCHdy/Tp6LOpl1tOZb0g1oMBTy1jQyMbY1URn/
+	 yUVlDlGzUiAuvvX3ywbujI7hnxLgEuhMdhI/LD3kaHVVuTHlwjdOx/Qo8DzvZ7dULi
+	 Njs5ME23BdPtoQpF2xqbXxp6kLZzpX0b/P/7BtKIQOazSFo1hU6bhy+hFbCnXiKBmA
+	 eHTx97n9AJhRmA77ZF8AwAl7rIZ++qHs+SoGZqqh5netbueup7dtYkL+TkiLDtMPkK
+	 WnRWjmw6qis6GhaUjTPq7CLbz12qcjAtq9IFdLsIOULpkVc+Ngf+bsLWBgU5aZ4KxI
+	 nGfhnCXdrTkbA==
+Date: Sun, 15 Mar 2026 12:12:13 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Bo Gan <ganboing@gmail.com>
-Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
-	david@redhat.com, palmer@dabbelt.com, pjw@kernel.org,
-	gaohan@iscas.ac.cn, me@ziyao.cc, lizhi2@eswincomputing.com,
-	hal.feng@starfivetech.com, marcel@ziswiler.com, kernel@esmil.dk,
-	devicetree@vger.kernel.org
-Subject: Re: [RFC PATCH 1/6] riscv: Add a custom, simplified version of
- Svpbmt "XPbmtUC"
-Message-ID: <20260315-uptight-kinfolk-e4fece4d3447@spud>
-References: <20260313084407.29669-1-ganboing@gmail.com>
- <20260313084407.29669-2-ganboing@gmail.com>
- <20260313-visitor-majestic-1a6888dc57b2@spud>
- <25a8565d-a6bb-401f-b776-d743a2ec9ee0@gmail.com>
+To: Drew Fustini <fustini@kernel.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
+ multipleOf for T-Head TH1520
+Message-ID: <20260315-cogwheel-dislodge-a3efe31728d1@spud>
+References: <20260309162457.4128205-1-zhengxingda@iscas.ac.cn>
+ <20260309162457.4128205-2-zhengxingda@iscas.ac.cn>
+ <abWTO7QBFIcjxKn6@x1>
 MIME-Version: 1.0
-In-Reply-To: <25a8565d-a6bb-401f-b776-d743a2ec9ee0@gmail.com>
+In-Reply-To: <abWTO7QBFIcjxKn6@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_050600_796267_EC6E80BF 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260315_051219_248768_1D2165BF 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,65 +67,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8358232637544358714=="
+Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Rahul Tanwar <rtanwar@maxlinear.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Guenter Roeck <linux@roeck-us.net>, Fu Wei <wefu@redhat.com>
+Content-Type: multipart/mixed; boundary="===============6663096075420497168=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8358232637544358714==
+--===============6663096075420497168==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ClXvIVeaEZNbVPHZ"
+	protocol="application/pgp-signature"; boundary="K2OPznGYZkKn+vwY"
 Content-Disposition: inline
 
 
---ClXvIVeaEZNbVPHZ
+--K2OPznGYZkKn+vwY
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 13, 2026 at 02:33:16PM -0700, Bo Gan wrote:
-> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
-ature.c
-> > > index fa591aff9d335..faec169004b4a 100644
-> > > --- a/arch/riscv/kernel/cpufeature.c
-> > > +++ b/arch/riscv/kernel/cpufeature.c
-> > > @@ -1118,6 +1118,14 @@ void __init riscv_fill_hwcap(void)
-> > >   		riscv_v_setup_vsize();
-> > >   	}
-> > > +#ifdef CONFIG_RISCV_ISA_XPBMTUC
+On Sat, Mar 14, 2026 at 09:56:27AM -0700, Drew Fustini wrote:
+> On Tue, Mar 10, 2026 at 12:24:56AM +0800, Icenowy Zheng wrote:
+> > The G and J coefficients provided by T-Head TH1520 manual (which calls
+> > them A and C coefficients and calls H coefficient in the binding as B)
+> > have 1/100 degree Celsius precision (the values are 42.74 and -0.16
+> > respectively), however the binding currently only allows coefficients as
+> > precise as 100 milli-Celsius (1/10 degree Celsius).
 > >=20
-> > Code like this needs to be unconditionally compiled.
+> > Change the multipleOf value of these two coefficients to 10 (in the unit
+> > of milli-Celsius) to satisfy the need of TH1520.
 > >=20
-> > > +	if (!of_property_read_u32(of_root, "riscv,xpbmt-uncache-bit",
-> > > +				  &riscv_xpbmtuc_bit)) {
-> > > +		riscv_xpbmtuc_mask =3D 1UL << riscv_xpbmtuc_bit;
-> > > +		set_bit(RISCV_ISA_EXT_XPBMTUC, riscv_isa);
-> > > +		pr_info("Using XPbmtUC bit=3D%d\n", riscv_xpbmtuc_bit);
-> > > +	}
-> > > +#endif
-> > >   	memset(print_str, 0, sizeof(print_str));
-> > >   	for (i =3D 0, j =3D 0; i < NUM_ALPHA_EXTS; i++)
-> > >   		if (riscv_isa[0] & BIT_MASK(i))
+> > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> > Reviewed-by: Drew Fustini <fustini@kernel.org>
+> > ---
+> > Changes in v3:
+> > - Added Drew's R-b.
+> > - Fixed some typos in the commit message and slightly reworded the
+> >   precision sentence.
+> >=20
+> >  Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.ya=
+ml b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
+> > index 56db2292f062d..7d57c2934a8a1 100644
+> > --- a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
+> > +++ b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
+> > @@ -105,7 +105,7 @@ properties:
+> >        G coefficient for temperature equation.
+> >        Default for series 5 =3D 60000
+> >        Default for series 6 =3D 57400
+> > -    multipleOf: 100
+> > +    multipleOf: 10
+> >      minimum: 1000
+> >      $ref: /schemas/types.yaml#/definitions/uint32
+> > =20
+> > @@ -131,7 +131,7 @@ properties:
+> >        J coefficient for temperature equation.
+> >        Default for series 5 =3D -100
+> >        Default for series 6 =3D 0
+> > -    multipleOf: 100
+> > +    multipleOf: 10
+> >      maximum: 0
+> >      $ref: /schemas/types.yaml#/definitions/int32
+> > =20
+> > --=20
+> > 2.52.0
+> >=20
+>=20
+> I have applied this to thead-dt-for-next.
 
+That's odd, why is a hwmon binding in your branch?
 
-btw, not sure if you saw this comment, about using IS_ENABLED() rather
-than ifdeffery.
+> https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/=
+?h=3Dthead-dt-for-next&id=3Deb4fd43ff6793681f0a0a8e8ac861142caba2b19
 
---ClXvIVeaEZNbVPHZ
+I don't see an ack on it from the relevant maintainer either?
+
+--K2OPznGYZkKn+vwY
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabagogAKCRB4tDGHoIJi
-0r34AP49ylCNDRGFQceatVi18SbN8zTJ9+pAO8n99b3xWxlDBgEA3lisTiKeXeZn
-f7QBUbuzAv6Iwmj4Qt3Iv30NPyrktw4=
-=ifwS
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabaiHQAKCRB4tDGHoIJi
+0sHpAQCQjzi+cNolm2xVUQPM/xhXGlaZd27ksgr515avB8wazwEA23VtiIN0eo3j
+ca7CEQM0KubAhupaXlPmwyZWu6IPNwY=
+=4gr8
 -----END PGP SIGNATURE-----
 
---ClXvIVeaEZNbVPHZ--
+--K2OPznGYZkKn+vwY--
 
 
---===============8358232637544358714==
+--===============6663096075420497168==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -142,5 +167,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8358232637544358714==--
+--===============6663096075420497168==--
 
