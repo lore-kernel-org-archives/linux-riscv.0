@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE17010854AA
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Mar 2026 22:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3848D58B11
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 05:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4GHwjWDP17e1bmIaxdORrTWToWiuRi78azGVjF8ItOE=; b=EZACx0nWjaMoU7
-	UBlv52JDfSLDkgNkQ93+FvqSXK2L9GAlXah4haFLEovMSvcMRsbPiEPgvsyg/3pqHQnfFBIu/7z7M
-	fOXZx0VRcoIlwqqGB6vP4lnSSz17WemcodMXUZnmLj4tQT2JOSGJrWQMA9if2kh/Q3JBe/W5Rf15K
-	j8+iq5HZ/19HxrqT8WzgaZkVmlZ1LPgfK8iQIeCkzkQ5qyu5EY6+MlX7vScTPzzEuyS2tmccIA/mX
-	hZzt03xhYK6kfjVcodfrFijcxAs9MBzOzMP4whoST3fzOJgUmvksc46E/a7jXAWGWF4jKEHgd8Bg0
-	QnduhBVxJx/WpWg/A4ew==;
+	List-Owner; bh=VU2koVG4bkhCGTOYUm0462AGiPwumAy72Tnuh2Pti/k=; b=YGKQY8XU5f+Zml
+	Qj2yA5sE1oJhksIQYBmeBoU/DwTmbNgU6JepvGA3qeM8X12zFbZxRuXQNkQm4yvHc/AJg4DxMShRN
+	7WV3pDOlxiH1//RZnGRaYRCvmG+77Elv8RT2X1uECijd9Bnx344cj1q4MdQMSdIuIBaPsurpKkX8I
+	H7jd32btP6aiEotejHindY9ZoBMr139s/yQwCvzxkLzW+A5Zu4EJV3nCVbuYl2nJz+FrteFuN+xDE
+	PVYEBATjwH1CKivySpJah02czCQTMTU/IXBH8WNmH9kQhUTikTXAXTCGSCTpr5zifjf60yawAU+nk
+	Y9CIBxLgighqYd23fkaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1XWU-00000002DCx-0hyj;
-	Sat, 14 Mar 2026 22:31:54 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1w1eHY-00000002PJr-3HKO;
+	Sun, 15 Mar 2026 05:44:56 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1XWR-00000002DBV-0Pmz
+	id 1w1eHS-00000002PIA-2T7I
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Mar 2026 22:31:52 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-483487335c2so32149045e9.2
-        for <linux-riscv@lists.infradead.org>; Sat, 14 Mar 2026 15:31:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773527509; x=1774132309; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gJ7hVQIRD6vEHOsR3AJFX+E3NnIhhIwHbuPfNg+Gnww=;
-        b=HDYRXVuzVSqWAllakJ5MNNmn+GN93Ug34p6qJiPF0NafABVJo3w8T1WSKHwrFi7Euw
-         AlFBVhV1g2P9wGXtvN80DF+SY6OpFf+GJ3bH8tT8WJFwJXY/0ll1I5LF/5YMco7kDllf
-         CSWANvZejrT9h3hF182QvO/vXPZzxkg3d9FIbQQlFxMVcAePF/hBnHrAhOdZVhZB3ADV
-         f4LqX9ur7iB2BxOnWoRrQijLXitqE1NeVfQGdsxq/yUmL5RsIs46I/zTJpz0hrXl9Rxl
-         28PblawtqygTHxON6vROrx6DPoVQS2lgcHFxNpcMB1ntFbBaFyT5jMkZ+lDIYenHFEhJ
-         qcSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773527509; x=1774132309;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gJ7hVQIRD6vEHOsR3AJFX+E3NnIhhIwHbuPfNg+Gnww=;
-        b=YT/IyVgRrEjU4g7v2foaZGI5MKT3KSVLtfRBSwRqIEjFPsK8GGyAjc4Nne3tl4Wz1O
-         w1Rqn+8NwY4NqCHS6I5f6S04c1ocO7OiINH0aAaHuMRLC9MU4DOZXfqiHZM2YH1AEM7p
-         UaGl2WneNHzgseDUjF4n3WUyq59xJXnLljdal3Z6dUf4YklmIHMuR00Avo6YDE7NiMzO
-         PnovvSIKpgHKqSc89eSjOc79PBAUNl596Dd+FoJXKD0Z/pZmF1cLzSEMicS0OczqKXlc
-         M1eNOR9Mty1TAZhqkyUMBoFv5OywL6jaxhTRW/eUxvcOElNWkBx5XYkkqs6GN/wzekPv
-         62pA==
-X-Forwarded-Encrypted: i=1; AJvYcCWGN5wzEwsW8zh/7H+P9QMzvF8+Ho0rUmmOtPetsBrxebDWZ8N8THMsZmWh6JdL2RbsUMLabS3PpnipGg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3QlF3m/LrNW1IPrxWNbjMdlGf/3AHb2sn9Pl+2Gmu/LcZ6kQR
-	5NBHtSIB4qXSYzvcf+9NPoPOFnTpW3e6gb8OxQ3iBPKWyuLYndrvuIv+
-X-Gm-Gg: ATEYQzx4V2vTdlCHfzFEobq7d+W4evsyct+6alnqYGkFrkw/w/Gp8pkMg9eLVCUrkWl
-	Y+eQTMmaawt91bXpKNFFNYfXVO7OrLjASRixqvDfZETH1KWLv5ZE/SK4LzsiaXq5Dsz9GDJbGPI
-	UvAh65danpi/2dTrfRNLk61avHRld2Etpy9nD7LjnEngfC33JB5xdN2R9JviL4LjNE41x0nR5OU
-	XsItklHKBES3t/KHQkJnw3fMnELxU6UvvlTKIBlR4+KQp54v9SMMLHdc8vAXVzpTr9tQpCwW6dN
-	UwojC3rd/JID/OdITS8XVqbhXsDDdw1NhQaXjDpazUXlSbyMUV0MZeZU235egKTgGsnb8QvurR+
-	LkR3CwjuKJEOqwSicfiiOZRZNFlnofogJlsDi52H217jVhu+DNTtwF8jlCwQIYuhpESmI4aD1Te
-	qHwLXUpexxoEJO0c6LIfs59yR1euTtwDhcQjA5xn8zikypkN4XP7OHVaYWVSf+z93O9P4NZw==
-X-Received: by 2002:a05:600c:6287:b0:485:3f72:323f with SMTP id 5b1f17b1804b1-485566d2ff2mr132595095e9.11.1773527508820;
-        Sat, 14 Mar 2026 15:31:48 -0700 (PDT)
-Received: from osama.. ([41.238.114.180])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48558fd09d8sm149314455e9.7.2026.03.14.15.31.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Mar 2026 15:31:48 -0700 (PDT)
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
+	Sun, 15 Mar 2026 05:44:54 +0000
+Received: from duge-virtual-machine (unknown [183.192.222.244])
+	by APP-05 (Coremail) with SMTP id zQCowADXaQ1BR7Zp5WGACg--.20291S2;
+	Sun, 15 Mar 2026 13:44:35 +0800 (CST)
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: krzk@kernel.org,
+	ulf.hansson@linaro.org,
+	adrian.hunter@intel.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Osama Abdelkader <osama.abdelkader@gmail.com>
-Subject: [PATCH] riscv: kvm: fix vector context allocation leak
-Date: Sat, 14 Mar 2026 23:31:43 +0100
-Message-ID: <20260314223144.154349-1-osama.abdelkader@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-kernel@vger.kernel.org,
+	gaohan@iscas.ac.cn,
+	me@ziyao.cc,
+	Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+Subject: [PATCH v4 0/3] Add SDHCI support for Canaan K230 SoC
+Date: Sun, 15 Mar 2026 13:44:23 +0800
+Message-ID: <20260315054426.18383-1-jiayu.riscv@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowADXaQ1BR7Zp5WGACg--.20291S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxur4fJF1fCw45Aw18tF1rXrb_yoW5WF1UpF
+	WUurW3G3yDGF1ftF4xKa1ku3W3Zws5X34UGw1ag34UX390kFW5Xr97C3WYqFyDJFZ7Gw1j
+	yw15XFyfCrZ8ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
+	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [183.192.222.244]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260314_153151_140664_0DEB7DB3 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20260314_224451_022491_290AE315 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +90,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the second kzalloc (host_context.vector.datap) fails in
-kvm_riscv_vcpu_alloc_vector_context, the first allocation
-(guest_context.vector.datap) is leaked. Free it before returning.
+This series is based on the k230 usbphy series[1].
 
-Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
----
- arch/riscv/kvm/vcpu_vector.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+This patch series adds SDHCI support for the Canaan K230 SoC,
+which uses Synopsys DWCMSHC SDHCI controllers, include MMC0 and MMC1.
+The hardware designs of these two controllers are different.
+The MMC0 supports eMMC, while MMC1 only supports SDIO. Detailed
+information can be found in the vendor's manual[2].
 
-diff --git a/arch/riscv/kvm/vcpu_vector.c b/arch/riscv/kvm/vcpu_vector.c
-index 05f3cc2d8e31..5b6ad82d47be 100644
---- a/arch/riscv/kvm/vcpu_vector.c
-+++ b/arch/riscv/kvm/vcpu_vector.c
-@@ -80,8 +80,11 @@ int kvm_riscv_vcpu_alloc_vector_context(struct kvm_vcpu *vcpu)
- 		return -ENOMEM;
- 
- 	vcpu->arch.host_context.vector.datap = kzalloc(riscv_v_vsize, GFP_KERNEL);
--	if (!vcpu->arch.host_context.vector.datap)
-+	if (!vcpu->arch.host_context.vector.datap) {
-+		kfree(vcpu->arch.guest_context.vector.datap);
-+		vcpu->arch.guest_context.vector.datap = NULL;
- 		return -ENOMEM;
-+	}
- 
- 	return 0;
- }
+From the vendor's K230 manual:
+ - MMC0 supports eMMC5.0 and SDIO3.0, usually for eMMC chips.
+ - MMC1 only does SDIO3.0 in 4/1-bit mode up to SDR104, and the manual
+   clearly says it can't handle eMMC because of pin count and limits.
+
+Therefore, there are two separate compatibles and the driver treats them
+differently.
+
+Link: https://lore.kernel.org/all/20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn/ [1]
+Link: https://github.com/kendryte/k230_docs/blob/main/en/00_hardware/K230_Hardware_Design_Guide.md#mmc-circuit [2]
+
+Changes in v4:
+- Drop the unnecessary line wrapping.
+- Drop the extra match_data pointer that was added in v3.
+- Add struct k230_pltfm_data which embeds struct dwcmshc_pltfm_data.
+- Use container_of() to get k230_pltfm_data.
+- Link to v3: https://lore.kernel.org/all/20260310064513.140093-1-jiayu.riscv@isrc.iscas.ac.cn/
+
+Changes in v3:
+- Drop the clock maxItems.
+- Add a const void *match_data to the struct dwcmshc_priv
+- Copy the match_data pointer to dwcmshc_priv in the common dwcmshc_probe
+- Link to v2: https://lore.kernel.org/all/20260226115923.75670-1-jiayu.riscv@isrc.iscas.ac.cn/
+
+Changes in v2:
+- Change the clock minItems to 5.
+- Add comments to explain the reason for setting SDHCI_PROG_CLOCK_MODE.
+- Write the power selection logic in the phy init cleaner.
+- Replace manual delay loop with read_poll_timeout.
+- Drop unnecessarily braces where a single statement will do.
+- Add the match_data pointer to dwcmshc_pltfm_data.
+- Add dwcmshc_k230_match_data struct to separate eMMC/SDIO config data
+- Split K230 into individual emmc/sdio platform data instances instead of
+  sharing one.
+- Remove redundant have_phy member in k230_priv.
+- Replace of_find_compatible_node with of_parse_phandle to get USB PHY
+  from DT phandle.
+- Link to v1: https://lore.kernel.org/all/20260204082908.27501-1-jiayu.riscv@isrc.iscas.ac.cn/
+
+Jiayu Du (3):
+  dt-bindings: mmc: Add sdhci support for Canaan k230
+  mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC controller support
+  riscv: dts: canaan: Add mmc nodes for K230
+
+ .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  28 ++
+ .../boot/dts/canaan/k230-canmv-dshanpi.dts    |  56 ++++
+ .../dts/canaan/k230-canmv-module-dshanpi.dtsi |   7 +
+ arch/riscv/boot/dts/canaan/k230.dtsi          |  28 ++
+ drivers/mmc/host/sdhci-of-dwcmshc.c           | 277 ++++++++++++++++++
+ 5 files changed, 396 insertions(+)
+
 -- 
-2.43.0
+2.53.0
 
 
 _______________________________________________
