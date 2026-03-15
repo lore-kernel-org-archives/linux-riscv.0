@@ -4,80 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0883EF30271
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 16:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8D1F3026D
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 17:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UDo/glIWt1y/vYqjczDV/OnRfgahswNSsqMzyJq3xlM=; b=cSFsTre4/oDTjD
-	NlH3UriiMsM9T7CaEfh1ALwms+Cx/0bm5O0YfZCL1lUWXqigOr4/2NFBQG5esDbJwVRJ8gW0noAwy
-	YkiuRQIGlVgp9AJ0XCnNWlRmJ4aX5bYZ2spy27wkAo+zDc73aR9GECvMnsiHMltH30uNotrN507wP
-	D/IrgMQW0HoUfGN8rju5WtzFKRj6Kti94FtL3M/aKzCyHiiUvSwwPHilTHYl6cP2BlVKPWgWerQg6
-	3t+RCBExzqRSXLJl16LkeovgGoI2dB3mMDRjItE3ynIn5D3R5c1g/+q59pjmL7a6uPnFP7srbSKX/
-	T2k7qcyvXOnhn7TXR6mA==;
+	List-Owner; bh=VoNjANthmPoRGHS/+w8Qn1D5wkqVVE9UcjJD0EgH4gw=; b=zjhbeNbQu+6uiH
+	w5nCjK2HtLnwmFXuYbe0NRmjrNtNwQEStgo3JVVZqpcbDzhqPuS+nSagLXS3TeLSqVi2HJkM8XGqe
+	FgDcls6ROvMCZ/p4gHj6CuCxO0f6VUmguvJXupatCXxLQmn3MU+gh7A7UJcgqYDvptqJEVSSp5deD
+	3IqIdltdu6yPjdSbKBTNtUpSiitg8stj3ar/P7ie8nAJZojIAgcaCjQ5f4VD5QNfiW2eMaVhQic+W
+	8etFPQ0nPn5Lo1wVQAlbaf2KLmXvP8KKFmTgIVVELqqvRPZQt2/fCdpI0jLyKkYRka9nPcdqvXJiE
+	FbrzISGQfrhVzVjJQ5mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1oKC-00000002j27-1Szh;
-	Sun, 15 Mar 2026 16:28:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w1pCU-00000002lkW-0SEG;
+	Sun, 15 Mar 2026 17:24:28 +0000
+Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1oKB-00000002j1u-0688;
-	Sun, 15 Mar 2026 16:28:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4AE3660130;
-	Sun, 15 Mar 2026 16:28:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C97E1C4CEF7;
-	Sun, 15 Mar 2026 16:28:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773592096;
-	bh=xOjKR0tFQLh7NVKP3TuLU6yEiJpBek/7xxzo0eG2SsE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=g7LkekBrPJ9cKt/zbK+Lo5Xfhdj3uJc5sNkE8qRDj9+aYIpOrz7GPNnbQ4TdC8GUc
-	 6GmCGs58jD6kKrvf+CAztmbX8gJTuPsJ6dgzCfxBWtRG81On1wtBnirmdNnJ3MFxgQ
-	 a6Jm3xF0RzTobFkLPSN3HzEjy5Iheldwz+WvOtjtfqzADfEbbZVoesidFnPkw41qte
-	 ydXYJS/4EmXl14omp/KQBYmMlQhC7uhtCHvFw2na3xwE228IBwvydRweuL4woSjER0
-	 WAsbhlPqvR5a6HR26rn2XBjTcAuIzzxZ9o8ylRAbYiUmWnWMd1AF50dSs0n0sdoXXV
-	 UoqKB4okRRJcQ==
-From: Simon Horman <horms@kernel.org>
-To: lizhi2@eswincomputing.com
-Cc: Simon Horman <horms@kernel.org>,
-	alexandre.torgue@foss.st.com,
-	devicetree@vger.kernel.org,
-	alex@ghiti.fr,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	ningyu@eswincomputing.com,
-	linux-riscv@lists.infradead.org,
-	krzk+dt@kernel.org,
-	davem@davemloft.net,
-	andrew+netdev@lunn.ch,
-	conor+dt@kernel.org,
-	weishangjuan@eswincomputing.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	edumazet@google.com,
-	pjw@kernel.org,
-	rmk+kernel@armlinux.org.uk,
-	palmer@dabbelt.com,
-	mcoquelin.stm32@gmail.com,
-	pinkesh.vaghela@einfochips.com,
-	linux-kernel@vger.kernel.org,
-	pritesh.patel@einfochips.com,
-	pabeni@redhat.com,
-	aou@eecs.berkeley.edu,
-	wens@kernel.org,
-	netdev@vger.kernel.org,
-	linmin@eswincomputing.com
-Subject: Re: [net-next,v4,2/3] net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
-Date: Sun, 15 Mar 2026 16:27:35 +0000
-Message-ID: <20260315162735.1427325-1-horms@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260313075416.1607-1-lizhi2@eswincomputing.com>
-References: <20260313075416.1607-1-lizhi2@eswincomputing.com>
+	id 1w1pCQ-00000002lkA-1veg
+	for linux-riscv@lists.infradead.org;
+	Sun, 15 Mar 2026 17:24:24 +0000
+Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-64ad79dfb6eso4172646d50.0
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Mar 2026 10:24:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773595460; cv=none;
+        d=google.com; s=arc-20240605;
+        b=W7OOVp7phdvy5S+X5L41Hs4X6JSeiixnbdJ6aR4ngwEV8e+WUfM8OAe364S+a9yE1w
+         o6cQlgQVYE7HFLCi5r+7d3dnryzESQMwi5jT0Xdl0FM6oTJTbHP6gUcM8/A6Nw+UzgLp
+         GFu0d8maJq5FXHxegvHTK3C5lxYiM02ISIsvZ7yWIBmdMRpOPQFKYHuV9uaLE/226Asn
+         DiW7qQW+lPzw+yxYUvWczrFxbE1s9YOU3XXB9qfDhTGrVakeVIM4P84HIyIVmRI4rkZc
+         GFWibi4TN1qpU9W8h4oWNZ6JuEndp9WbYBvuDV3Ni5QLOGJEQoJ0B1D+Qii08ABFEo1d
+         1WiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=D4Az3AD3ctAbubU2dZBKCAHmxhpBWtpaolBJU2BIHmU=;
+        fh=UfpPKn2YnoSHQrQrKbHtjXgINHD1koRQuohj0rdWSqU=;
+        b=daNO+CgucU/PHtqmxN5yIhWO6n2is8iNXmIjAfO0UpRVxps2jFbud9R2VpmFQHEJ+r
+         ACHeZBYA7iFb7qclWabbo55QTXVhN+BdqB4aWxSjf/EM7HMdi2JVO18RsMuRP7IftLF1
+         zXxGRtKSX61QEC28V0xmbWkfbjMDMqNaPJgMTIbEIHFGMI9NHKMZmW3d1cnBrpVMHgnt
+         +SgvDg/eaDm6BzJ+8/8cx3JQw0IDuPo4OPK3x9xDUJYajBpYYHYLOqlQr3JU7kIz53cq
+         R3YNiwLQLY/d72YjMPQukZSbI7TuQ+84X3iqHfRG7yQxec8HiX1e8zjtHuhdtMqwlbpg
+         6X8Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=summations-net.20230601.gappssmtp.com; s=20230601; t=1773595460; x=1774200260; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D4Az3AD3ctAbubU2dZBKCAHmxhpBWtpaolBJU2BIHmU=;
+        b=hs75IVc2FhT5AaSAPxOoSVfKxH/C1Plr+iSnzqbf6DxwaBw3Lc60xPDNRNoxtr/fIC
+         lq4ou5vi1jWOXBB/6Y/aUU6vPF7ZHdXxWDSAuxCPXzG1A9aaewFbumtMX2JTghaY9vqx
+         ZLWaf6pzEIOo8IH6J6UVa/71UHvwSppfEWkUYeDRXOi6v7uDsNwFCiql83UkZrcsgOQL
+         c4uJ4j5a2WlON/YhwGFKCeLIB5ynuh4wb8tJg03S02DjHQ0UWT3kqxeda3say/0NjxdE
+         B05j3cU2h43W8roLBJEhaSy3Kv+7/Ru7JHBTMctwVvYy6WYEIhKaVt2YL2ZebFBbM0TH
+         Eu4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773595460; x=1774200260;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=D4Az3AD3ctAbubU2dZBKCAHmxhpBWtpaolBJU2BIHmU=;
+        b=TygOOL0AiPdtNKkkGnYYej6eXBqeNELhJLYiDERcYjBsq6f1hkMVMnR3/iY0p7u+qL
+         jlYzjoN+xE8+KJEa/dCnh9e68MjUQqKknXv6xyV15gdtk4CzxVhCVxuFet0MKpazEUxn
+         6rb+LT3gzGBqwaIeY5QUoJR4KnpX0n40ZcysQh220wrwfffYa3GRScGcfUbgWbLF8Bjj
+         rhDVjtXdtlrnMvlBkN2WOq94LgL2OnoBmBH+WDFXNlpzcaphWoUIfa2I/VSr9aO2CgHe
+         SvNvh0hqxiXr4zT7Gn2FwxUcsOhGDcmscnhaYu8b5CoYuNI9Qc7D08QeCNNQV2ekAkMY
+         svuA==
+X-Forwarded-Encrypted: i=1; AJvYcCXyx33+cM1P8K0KcplL6UYc3m6lb9cvV3CAmeo82ttZt2OrXUEB64fPId2JHcSituL2pjWAMdvYJFdzBQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfguhyA3I3wyQI2cKhSHoXeEiEFni4QjJHZS9ArVTnmPFTRMBa
+	Fdf/unPFo4yYLuBCraXIBnK4tO1XYIezivSda95k+1SSEk23R/DDq/Zqbab3jyOJdbM5mincUlW
+	yqGZm+VR5+zYyNLL759EyKNbyYHoTGdGwk52Fd+fSzgk=
+X-Gm-Gg: ATEYQzx2knrYIhQO0X3kgpFCIdx5f2EtER8WdejuoHKmZmgZzBelXphTmuxVeXZN5hE
+	9UGjqCzhVOfjzBOqafDPKQQmgDqfh4CmkwsJDyfcnDWjh86JkNKatNdIbzJwUXd4tAzvJuRriNk
+	2qG6zkPP63Yg2o2NxQfcE+nvL7LkeejWEwJQtWEUzUtBx1YH74+F0C8xHTPRrd1L/D/LmQ4vnCc
+	ucLXWsLJZ5Gs6vJ1j2z2Y/SmFdtOSYUfCwlsvXEevuoan7GPJzrXPAya5Ha19EzB/qhtRt0wsbn
+	SLCLAmAVlop2PDON5S0s5daBrX6/rHoujv84OHl/
+X-Received: by 2002:a53:5a0f:0:b0:64c:a37b:53d2 with SMTP id
+ 956f58d0204a3-64e62fdbe40mr7873603d50.39.1773595460636; Sun, 15 Mar 2026
+ 10:24:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260315-sysmsi-v1-1-5f090c86c2ca@gmail.com>
+In-Reply-To: <20260315-sysmsi-v1-1-5f090c86c2ca@gmail.com>
+From: Rahul Pathak <rahul@summations.net>
+Date: Sun, 15 Mar 2026 22:54:08 +0530
+X-Gm-Features: AaiRm50MBFY_3_63SWgnu7L6Bk4J3ywfMt5xcokfpD1ACYf6sCSF9CTMhqIV-0M
+Message-ID: <CABdD5x=kMWcmnWZGs6xu_p4GnSJwAg-HSrYepwd3TcLoewWdbg@mail.gmail.com>
+Subject: Re: [PATCH] irqchip/riscv-rpmi-sysmsi: Fix mailbox channel leak in rpmi_sysmsi_probe()
+To: Felix Gu <ustc.gu@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260315_102422_604008_335B87DD 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,85 +109,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Jassi Brar <jassisinghbrar@gmail.com>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
-
-The second Ethernet controller (eth1) on the Eswin EIC7700 SoC may fail
-to sample RX data correctly at Gigabit speed due to EIC7700-specific
-receive clock to data skew at the MAC input in the silicon. The existing
-internal delay configuration does not provide sufficient adjustment range
-to compensate for this condition at 1000Mbps. Update the EIC7700 DWMAC
-glue driver to apply EIC7700-specific clock sampling inversion only
-during Gigabit operation on MAC instances that require it.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> index bcb8e000e720..b230bc5b902a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-
-[ ... ]
-
-> @@ -61,8 +81,26 @@ static int eic7700_clks_config(void *priv, bool enabled)
->  static int eic7700_dwmac_init(struct device *dev, void *priv)
->  {
->  	struct eic7700_qos_priv *dwc = priv;
-> +	int ret;
-> +
-> +	ret = eic7700_clks_config(dwc, true);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = regmap_set_bits(dwc->eic7700_hsp_regmap,
-> +			      dwc->eth_phy_ctrl_offset,
-> +			      EIC7700_ETH_TX_CLK_SEL |
-> +			      EIC7700_ETH_PHY_INTF_SELI);
-> +	if (ret)
-> +		return ret;
-
-Does this code leak the enabled clocks? The function calls
-eic7700_clks_config(dwc, true) to enable the clocks, then later calls
-regmap_set_bits(). If regmap_set_bits() fails, the function returns
-without disabling the clocks.
-
-Looking at the caller in stmmac_main.c:stmmac_dvr_probe():
-
-    if (priv->plat->init) {
-        ret = priv->plat->init(priv->device, priv->plat->bsp_priv);
-        if (ret)
-            return ret;
-    }
-
-    ret = __stmmac_dvr_probe(priv->device, priv->plat, &res);
-    if (ret)
-        goto error_exit_init;
-
-The exit handler is only called when __stmmac_dvr_probe() fails, not
-when init() fails. This leaves the bulk clocks in the prepared-and-enabled
-state on this error path.
-
-> +
-> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_axi_lp_ctrl_offset,
-> +		     EIC7700_ETH_CSYSREQ_VAL);
->
-> -	return eic7700_clks_config(dwc, true);
-> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_txd_offset, 0);
-> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_rxd_offset, 0);
-> +
-> +	return 0;
->  }
-
-[ ... ]
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBNYXIgMTUsIDIwMjYgYXQgMTI6NDjigK9QTSBGZWxpeCBHdSA8dXN0Yy5ndUBnbWFp
+bC5jb20+IHdyb3RlOgo+Cj4gV2hlbiByaXNjdl9hY3BpX2dldF9nc2lfaW5mbygpIGZhaWxzLCB0
+aGUgbWFpbGJveCBjaGFubmVsIHByZXZpb3VzbHkKPiByZXF1ZXN0ZWQgdmlhIG1ib3hfcmVxdWVz
+dF9jaGFubmVsKCkgaXMgbm90IGZyZWVkLiBBZGQgdGhlIG1pc3NpbmcKPiBtYm94X2ZyZWVfY2hh
+bm5lbCgpIGNhbGwgdG8gcHJldmVudCB0aGUgcmVzb3VyY2UgbGVhay4KPgo+IEZpeGVzOiA0NzUy
+YjBjZmJjMzcgKCJpcnFjaGlwL3Jpc2N2LXJwbWktc3lzbXNpOiBBZGQgQUNQSSBzdXBwb3J0IikK
+PiBTaWduZWQtb2ZmLWJ5OiBGZWxpeCBHdSA8dXN0Yy5ndUBnbWFpbC5jb20+Cj4gLS0tCj4gIGRy
+aXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtcnBtaS1zeXNtc2kuYyB8IDEgKwo+ICAxIGZpbGUgY2hh
+bmdlZCwgMSBpbnNlcnRpb24oKykKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJx
+LXJpc2N2LXJwbWktc3lzbXNpLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LXJwbWktc3lz
+bXNpLmMKPiBpbmRleCA1Yzc0YzU2MWNlMzEuLjYxMmYzOTcyZjdhZiAxMDA2NDQKPiAtLS0gYS9k
+cml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LXJwbWktc3lzbXNpLmMKPiArKysgYi9kcml2ZXJzL2ly
+cWNoaXAvaXJxLXJpc2N2LXJwbWktc3lzbXNpLmMKPiBAQCAtMjUwLDYgKzI1MCw3IEBAIHN0YXRp
+YyBpbnQgcnBtaV9zeXNtc2lfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiAg
+ICAgICAgICAgICAgICAgcmMgPSByaXNjdl9hY3BpX2dldF9nc2lfaW5mbyhmd25vZGUsICZwcml2
+LT5nc2lfYmFzZSwgJmlkLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICZucl9pcnFzLCBOVUxMKTsKPiAgICAgICAgICAgICAgICAgaWYgKHJjKSB7Cj4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgbWJveF9mcmVlX2NoYW5uZWwocHJpdi0+Y2hhbik7Cj4gICAg
+ICAgICAgICAgICAgICAgICAgICAgZGV2X2VycihkZXYsICJmYWlsZWQgdG8gZmluZCBHU0kgbWFw
+cGluZ1xuIik7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHJjOwo+ICAgICAgICAg
+ICAgICAgICB9Cj4KClJldmlld2VkLWJ5OiBSYWh1bCBQYXRoYWsgPHJhaHVsQHN1bW1hdGlvbnMu
+bmV0PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
