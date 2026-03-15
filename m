@@ -4,59 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259E5F3026E
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 15:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0883EF30271
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 16:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p6yD0kFMvMCo6iguFUhT0v6CTOKUiyyrEq2gKXqNptU=; b=xReAGGy4AhBo2Xou6603NSjcV7
-	IfavVXzm+QTXB3wzL5zI1F92gMLvRGWv85tldGuB5SMg8l76yo/28kr8wFx1+kvJFuwFhxksUAolT
-	LAFnpB7Xw8fbAzl7ZqQyfRMMaxryhcoM9iGAb842TQ+TanQqpv7K0Q9MbXEpS1K/vBIkiqQq9HDxz
-	mUIbCG4+tfUWeB6kE7MrDODG6jWuq2p8sDunEmJ1ak6+DZKl5Omrn85iYdY2PNfRIOn3BP7DgvkrO
-	+IquWNtgEcXBa6ESo5qeGnJdRiZ671FaIYa34VvkxYgl1o2iJLUpBU5foKRjaeWIcdOzcNmowV687
-	sCWxBXVg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UDo/glIWt1y/vYqjczDV/OnRfgahswNSsqMzyJq3xlM=; b=cSFsTre4/oDTjD
+	NlH3UriiMsM9T7CaEfh1ALwms+Cx/0bm5O0YfZCL1lUWXqigOr4/2NFBQG5esDbJwVRJ8gW0noAwy
+	YkiuRQIGlVgp9AJ0XCnNWlRmJ4aX5bYZ2spy27wkAo+zDc73aR9GECvMnsiHMltH30uNotrN507wP
+	D/IrgMQW0HoUfGN8rju5WtzFKRj6Kti94FtL3M/aKzCyHiiUvSwwPHilTHYl6cP2BlVKPWgWerQg6
+	3t+RCBExzqRSXLJl16LkeovgGoI2dB3mMDRjItE3ynIn5D3R5c1g/+q59pjmL7a6uPnFP7srbSKX/
+	T2k7qcyvXOnhn7TXR6mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ndT-00000002hRx-0u7u;
-	Sun, 15 Mar 2026 15:44:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w1oKC-00000002j27-1Szh;
+	Sun, 15 Mar 2026 16:28:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1ndP-00000002hRa-0O9s
-	for linux-riscv@lists.infradead.org;
-	Sun, 15 Mar 2026 15:44:09 +0000
+	id 1w1oKB-00000002j1u-0688;
+	Sun, 15 Mar 2026 16:28:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F19124397E;
-	Sun, 15 Mar 2026 15:44:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94C0FC4CEF7;
-	Sun, 15 Mar 2026 15:44:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AE3660130;
+	Sun, 15 Mar 2026 16:28:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C97E1C4CEF7;
+	Sun, 15 Mar 2026 16:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773589443;
-	bh=T2WiSdPf90DBlRhXs8K5bj+h+XrpfiKq077HjRLBytM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fq6T5vXp4HTEDulwoRGzNwgc+NvCL4su0DtGKkqkA5XHuCNlauZSpHNVnMTuy0iql
-	 x8o3NxdQYpaCHHxpNixLRfNrRvIhMdPyB+BZRfzBCE/UwQ7vnQxm9BsqkfwiGCNjNc
-	 T3JkwFy8thKTHjfEAfhUlgBw+wT8RxX6nifo/4qAJHeqf+q4gFx0/4ox6YHVUgrxWc
-	 uPyYHq6lVpJyYhYuMreubfrfLEW7lwkVvTq6Z3Q3KtnWc0W/9aeejV5c6kToQWGsNy
-	 kcno2KIIME1Yw4s8a7z+vUB6Y7wLb/nxHxyIfxtaeniqUHGqjGkripH1Xg5QG1dc4P
-	 aJ496NPPnzupg==
-Date: Sun, 15 Mar 2026 08:44:02 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
- multipleOf for T-Head TH1520
-Message-ID: <abbTwrAALGy3QbxN@gen8>
-References: <20260309162457.4128205-1-zhengxingda@iscas.ac.cn>
- <20260309162457.4128205-2-zhengxingda@iscas.ac.cn>
- <abWTO7QBFIcjxKn6@x1>
- <20260315-cogwheel-dislodge-a3efe31728d1@spud>
+	s=k20201202; t=1773592096;
+	bh=xOjKR0tFQLh7NVKP3TuLU6yEiJpBek/7xxzo0eG2SsE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=g7LkekBrPJ9cKt/zbK+Lo5Xfhdj3uJc5sNkE8qRDj9+aYIpOrz7GPNnbQ4TdC8GUc
+	 6GmCGs58jD6kKrvf+CAztmbX8gJTuPsJ6dgzCfxBWtRG81On1wtBnirmdNnJ3MFxgQ
+	 a6Jm3xF0RzTobFkLPSN3HzEjy5Iheldwz+WvOtjtfqzADfEbbZVoesidFnPkw41qte
+	 ydXYJS/4EmXl14omp/KQBYmMlQhC7uhtCHvFw2na3xwE228IBwvydRweuL4woSjER0
+	 WAsbhlPqvR5a6HR26rn2XBjTcAuIzzxZ9o8ylRAbYiUmWnWMd1AF50dSs0n0sdoXXV
+	 UoqKB4okRRJcQ==
+From: Simon Horman <horms@kernel.org>
+To: lizhi2@eswincomputing.com
+Cc: Simon Horman <horms@kernel.org>,
+	alexandre.torgue@foss.st.com,
+	devicetree@vger.kernel.org,
+	alex@ghiti.fr,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	ningyu@eswincomputing.com,
+	linux-riscv@lists.infradead.org,
+	krzk+dt@kernel.org,
+	davem@davemloft.net,
+	andrew+netdev@lunn.ch,
+	conor+dt@kernel.org,
+	weishangjuan@eswincomputing.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	edumazet@google.com,
+	pjw@kernel.org,
+	rmk+kernel@armlinux.org.uk,
+	palmer@dabbelt.com,
+	mcoquelin.stm32@gmail.com,
+	pinkesh.vaghela@einfochips.com,
+	linux-kernel@vger.kernel.org,
+	pritesh.patel@einfochips.com,
+	pabeni@redhat.com,
+	aou@eecs.berkeley.edu,
+	wens@kernel.org,
+	netdev@vger.kernel.org,
+	linmin@eswincomputing.com
+Subject: Re: [net-next,v4,2/3] net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
+Date: Sun, 15 Mar 2026 16:27:35 +0000
+Message-ID: <20260315162735.1427325-1-horms@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260313075416.1607-1-lizhi2@eswincomputing.com>
+References: <20260313075416.1607-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-In-Reply-To: <20260315-cogwheel-dislodge-a3efe31728d1@spud>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_084408_678262_F6970618 
-X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,116 +89,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Rahul Tanwar <rtanwar@maxlinear.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Guenter Roeck <linux@roeck-us.net>, Fu Wei <wefu@redhat.com>
-Content-Type: multipart/mixed; boundary="===============3851886904077487257=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
---===============3851886904077487257==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+F+4oLCDbQt9O7DS"
-Content-Disposition: inline
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+---
+net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
 
+The second Ethernet controller (eth1) on the Eswin EIC7700 SoC may fail
+to sample RX data correctly at Gigabit speed due to EIC7700-specific
+receive clock to data skew at the MAC input in the silicon. The existing
+internal delay configuration does not provide sufficient adjustment range
+to compensate for this condition at 1000Mbps. Update the EIC7700 DWMAC
+glue driver to apply EIC7700-specific clock sampling inversion only
+during Gigabit operation on MAC instances that require it.
 
---+F+4oLCDbQt9O7DS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> index bcb8e000e720..b230bc5b902a 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
 
-On Sun, Mar 15, 2026 at 12:12:13PM +0000, Conor Dooley wrote:
-> On Sat, Mar 14, 2026 at 09:56:27AM -0700, Drew Fustini wrote:
-> > On Tue, Mar 10, 2026 at 12:24:56AM +0800, Icenowy Zheng wrote:
-> > > The G and J coefficients provided by T-Head TH1520 manual (which calls
-> > > them A and C coefficients and calls H coefficient in the binding as B)
-> > > have 1/100 degree Celsius precision (the values are 42.74 and -0.16
-> > > respectively), however the binding currently only allows coefficients=
- as
-> > > precise as 100 milli-Celsius (1/10 degree Celsius).
-> > >=20
-> > > Change the multipleOf value of these two coefficients to 10 (in the u=
-nit
-> > > of milli-Celsius) to satisfy the need of TH1520.
-> > >=20
-> > > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > > Reviewed-by: Drew Fustini <fustini@kernel.org>
-> > > ---
-> > > Changes in v3:
-> > > - Added Drew's R-b.
-> > > - Fixed some typos in the commit message and slightly reworded the
-> > >   precision sentence.
-> > >=20
-> > >  Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml | 4 ++--
-> > >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.=
-yaml b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
-> > > index 56db2292f062d..7d57c2934a8a1 100644
-> > > --- a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
-> > > +++ b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
-> > > @@ -105,7 +105,7 @@ properties:
-> > >        G coefficient for temperature equation.
-> > >        Default for series 5 =3D 60000
-> > >        Default for series 6 =3D 57400
-> > > -    multipleOf: 100
-> > > +    multipleOf: 10
-> > >      minimum: 1000
-> > >      $ref: /schemas/types.yaml#/definitions/uint32
-> > > =20
-> > > @@ -131,7 +131,7 @@ properties:
-> > >        J coefficient for temperature equation.
-> > >        Default for series 5 =3D -100
-> > >        Default for series 6 =3D 0
-> > > -    multipleOf: 100
-> > > +    multipleOf: 10
-> > >      maximum: 0
-> > >      $ref: /schemas/types.yaml#/definitions/int32
-> > > =20
-> > > --=20
-> > > 2.52.0
-> > >=20
-> >=20
-> > I have applied this to thead-dt-for-next.
->=20
-> That's odd, why is a hwmon binding in your branch?
->=20
-> > https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commi=
-t/?h=3Dthead-dt-for-next&id=3Deb4fd43ff6793681f0a0a8e8ac861142caba2b19
->=20
-> I don't see an ack on it from the relevant maintainer either?
+[ ... ]
 
-Sorry, my mistake, I should not have applied the binding. And you are
-right to point out that there was no ack from Guenter or Rahul Tanwar.
-I will drop both patches from thead-dt-for-next and wait for agreement
-on the binding.
+> @@ -61,8 +81,26 @@ static int eic7700_clks_config(void *priv, bool enabled)
+>  static int eic7700_dwmac_init(struct device *dev, void *priv)
+>  {
+>  	struct eic7700_qos_priv *dwc = priv;
+> +	int ret;
+> +
+> +	ret = eic7700_clks_config(dwc, true);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_set_bits(dwc->eic7700_hsp_regmap,
+> +			      dwc->eth_phy_ctrl_offset,
+> +			      EIC7700_ETH_TX_CLK_SEL |
+> +			      EIC7700_ETH_PHY_INTF_SELI);
+> +	if (ret)
+> +		return ret;
 
-Thanks,
-Drew
+Does this code leak the enabled clocks? The function calls
+eic7700_clks_config(dwc, true) to enable the clocks, then later calls
+regmap_set_bits(). If regmap_set_bits() fails, the function returns
+without disabling the clocks.
 
---+F+4oLCDbQt9O7DS
-Content-Type: application/pgp-signature; name="signature.asc"
+Looking at the caller in stmmac_main.c:stmmac_dvr_probe():
 
------BEGIN PGP SIGNATURE-----
+    if (priv->plat->init) {
+        ret = priv->plat->init(priv->device, priv->plat->bsp_priv);
+        if (ret)
+            return ret;
+    }
 
-iHUEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCabbTuAAKCRDb7CzD2Six
-DAWrAP4xDvkXL4ryz5mqHC42vAKQLprtWK3yOVHg0qHRPUP0LQEAzWZ82751xGky
-SDgVYjNgQpHEejY52ScPCJjQS9yh2g4=
-=EKB3
------END PGP SIGNATURE-----
+    ret = __stmmac_dvr_probe(priv->device, priv->plat, &res);
+    if (ret)
+        goto error_exit_init;
 
---+F+4oLCDbQt9O7DS--
+The exit handler is only called when __stmmac_dvr_probe() fails, not
+when init() fails. This leaves the bulk clocks in the prepared-and-enabled
+state on this error path.
 
+> +
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_axi_lp_ctrl_offset,
+> +		     EIC7700_ETH_CSYSREQ_VAL);
+>
+> -	return eic7700_clks_config(dwc, true);
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_txd_offset, 0);
+> +	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_rxd_offset, 0);
+> +
+> +	return 0;
+>  }
 
---===============3851886904077487257==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+[ ... ]
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3851886904077487257==--
-
