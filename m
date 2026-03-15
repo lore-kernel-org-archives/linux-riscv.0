@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EDDD58B0C
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 08:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E6FD58B1A
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Mar 2026 12:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jwNGwaauHL5WT7F+hqgtWLYdsoC6fvR2Z4t1rr+7yXs=; b=LNAk2o6E31kunR
-	ugH0tzgJJmMbiPFasWLzhnA+HYbeuInUoxB6MEAkD2h1JpVgrWNMKALLefnJHoTZ6SNYbdTgfehnk
-	MtN6pgslv9LkT+YQQ51/osAQj2A28nVh/p4Amxr1jkga3tt8aTGzAANUxAxDfQPe8SzXlzddrQ6r9
-	cxWKBST5cY7zCrLnFuo2dFefLuw+HMAJOrUiVwTDkFbOaKYI6YhJGuv9dA7CJ9FPSGvR+ow/knTVU
-	OpChUyMwNc8kbUetRKGeKKQPu2t18XNpjgLbJiSk8Fk9S2aA+KUgkm1I3QX/YfgtuVIb2XXV892eG
-	XuyuHVwHF+r77DNVQFDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n6/QJBHicgjvfWnleSIjB6dlB/CZbX0m1R2jcKLJ4Aw=; b=R9ckO+0ZEjzKOLZtHgQT1NdVN7
+	hs4f2BgpqoEARdDXgsVNDbZxlHKGjrMVJqNDWlAGOjgWN9zXOddbndtsw+/FBFzkWbDlZiPxJv4ka
+	pBaFfVATYGP6DmN9EhoDVVnNYvNO/9+2mq/QivFI5dwU4cPmAtNTbIlpiJjShj+WnMHNypkjssMPz
+	k0/K/4RQ049e57o2ItYW/C70GLTaAVo3tHLln6b49bMa9IvG9gMsJLDuIVG/he2v0uQWF2VAKnBnx
+	Zf+3cfeA621crZs9fIzmmHUj6BWIOLcNlPaNGzJglJArlhLlCkewfCsNMU/vtb6/bT1zQPSQXhTul
+	gdfw1mGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1hEY-00000002UqV-01Ob;
-	Sun, 15 Mar 2026 08:54:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w1kEM-00000002aS8-48Fs;
+	Sun, 15 Mar 2026 12:06:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1hEW-00000002UqP-213P
+	id 1w1kEK-00000002aRZ-2CVl
 	for linux-riscv@lists.infradead.org;
-	Sun, 15 Mar 2026 08:54:00 +0000
+	Sun, 15 Mar 2026 12:06:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3934A60018;
-	Sun, 15 Mar 2026 08:53:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 602DAC4CEF7;
-	Sun, 15 Mar 2026 08:53:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E11C4004F;
+	Sun, 15 Mar 2026 12:05:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE61AC4CEF7;
+	Sun, 15 Mar 2026 12:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773564838;
-	bh=m1VKwca+Qai2oamEOxJQFznJO8zSAU7WZ7lAcZjYyfI=;
+	s=k20201202; t=1773576359;
+	bh=l67yryRnjt4eHFTNrM4PyDXl+WM1ez2ttvW7tVoQF1M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P0Ej9BY6M1dQmilvRz8Owg1JeWPIjTIAlpcdfULClEMxBVvirPLVil2DPYD+2G7Pf
-	 IMTiLzGXjw9CatYHPtsi/KRonhONUC0LdSLmZfclpX2crUQE4nr1uDymC98J4WpC/6
-	 3mYxem3mFJRC+FuB8eU8TsDaRaqi8zF4TWRmBugwfIv5D4dDgYXNwiSdJozP5pzcIl
-	 UYWMzJpafTgzi0hpeWGkvN7DMFlrYJ4rEcB2rkOhTOoyvCPC3UmwPBXOttqF3mAGPF
-	 fiLxczL7+qwIbtZ3AseClYiyxWdx4Dh0Zku/sklpHKRlugNkDm5gflOfEfqQVxvQg9
-	 EpCRwhjF9x+Ng==
-Date: Sun, 15 Mar 2026 09:53:56 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Junzhong Pan <junzhong.pan@spacemit.com>, Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] reset: spacemit: k3: Decouple composite reset lines
-Message-ID: <20260315-crystal-ambrosial-hamster-4b970c@quoll>
-References: <20260314-01-k3-reset-usb-pci-v2-1-9dc0976d524e@kernel.org>
+	b=Tv6BQ9PhM/O1IWOCbyGKnOljvGKShDhSbiIo1kfV7C51QEPbsjQqFDHYCHfm+GZVo
+	 Ixai2HHt3vPvQVc4++uDCmsOgVhPlU0+u+O4e7BrUxiTSy7KbRbmDXLWEYpOhlUL/i
+	 dppMKyiSW1twuEtgFe/qOyMYSZ/dpDICzkROlRlvHxk+sl+5+ZW4P+kRHazhggrB8g
+	 K3j57aY18TBOem6UV+FbZIdvLeuy3qigt9BsLOlBVtTID+zGYNgDhD5yDvx52tx6wE
+	 fADbCy9Uso7gu1259YZYXKOPyf4ppUhyH9fcKL9btCvflH2bCB7gMaPnrDaV1rZuw9
+	 ke7DaSVaaNASg==
+Date: Sun, 15 Mar 2026 12:05:54 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Bo Gan <ganboing@gmail.com>
+Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
+	david@redhat.com, palmer@dabbelt.com, pjw@kernel.org,
+	gaohan@iscas.ac.cn, me@ziyao.cc, lizhi2@eswincomputing.com,
+	hal.feng@starfivetech.com, marcel@ziswiler.com, kernel@esmil.dk,
+	devicetree@vger.kernel.org
+Subject: Re: [RFC PATCH 1/6] riscv: Add a custom, simplified version of
+ Svpbmt "XPbmtUC"
+Message-ID: <20260315-uptight-kinfolk-e4fece4d3447@spud>
+References: <20260313084407.29669-1-ganboing@gmail.com>
+ <20260313084407.29669-2-ganboing@gmail.com>
+ <20260313-visitor-majestic-1a6888dc57b2@spud>
+ <25a8565d-a6bb-401f-b776-d743a2ec9ee0@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260314-01-k3-reset-usb-pci-v2-1-9dc0976d524e@kernel.org>
+In-Reply-To: <25a8565d-a6bb-401f-b776-d743a2ec9ee0@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260315_050600_796267_EC6E80BF 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,62 +73,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8358232637544358714=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 14, 2026 at 08:27:25AM +0000, Yixun Lan wrote:
-> Instead of grouping several different reset lines into one composite
-> reset, decouple them to individual ones which make it more aligned
-> with underlying hardware. And for DWC USB driver, it will match well
-> with the number of the reset property in the DT bindings.
-> 
-> The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
-> PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
-> Also three reset lines each for UCIE and RCPU block.
-> 
-> As an agreement with maintainer, the reset IDs has been rearranged as
-> contiguous number and pushed as a fix for the driver, and reason is that
-> there isn't any consumer of reset driver so far, so should not cause
-> any ABI breakage. Also, the changes of DT binding header file and reset
-> driver are merged together as one single commit to avoid git-bisect
-> breakage.
-> 
-> Fixes: 938ce3b16582 ("reset: spacemit: Add SpacemiT K3 reset driver)
 
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
+--===============8358232637544358714==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ClXvIVeaEZNbVPHZ"
+Content-Disposition: inline
 
-> Fixes: 216e0a5e98e5 ("dt-bindings: soc: spacemit: Add K3 reset support and IDs")
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
-> Previously, the reset of The USB and PCIe was submited as a composite
-> reset, try to decouple them in this series.
-> 
-> The motivation behind is that it will will make the result more aligned
-> with the hardware which describe them as different reset lines, and also
-> match with the K3 dwc3 DT binding which request different reset, 
-> K1 and K3 SoC share same topology of the reset line design.
-> 
-> See the reset part info in binding doc
-> Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-> 
-> In V2, I've visited through whole reset driver and decouple more resets,
-> which include the block - UCIE and RPCU. Also add an explanation of why
-> rearrange the reset IDs as contiguous number.
-> ---
-> Changes in v2:
-> - squash the two patches to avoid git-biset breakage
 
-Best regards,
-Krzysztof
+--ClXvIVeaEZNbVPHZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Fri, Mar 13, 2026 at 02:33:16PM -0700, Bo Gan wrote:
+> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
+ature.c
+> > > index fa591aff9d335..faec169004b4a 100644
+> > > --- a/arch/riscv/kernel/cpufeature.c
+> > > +++ b/arch/riscv/kernel/cpufeature.c
+> > > @@ -1118,6 +1118,14 @@ void __init riscv_fill_hwcap(void)
+> > >   		riscv_v_setup_vsize();
+> > >   	}
+> > > +#ifdef CONFIG_RISCV_ISA_XPBMTUC
+> >=20
+> > Code like this needs to be unconditionally compiled.
+> >=20
+> > > +	if (!of_property_read_u32(of_root, "riscv,xpbmt-uncache-bit",
+> > > +				  &riscv_xpbmtuc_bit)) {
+> > > +		riscv_xpbmtuc_mask =3D 1UL << riscv_xpbmtuc_bit;
+> > > +		set_bit(RISCV_ISA_EXT_XPBMTUC, riscv_isa);
+> > > +		pr_info("Using XPbmtUC bit=3D%d\n", riscv_xpbmtuc_bit);
+> > > +	}
+> > > +#endif
+> > >   	memset(print_str, 0, sizeof(print_str));
+> > >   	for (i =3D 0, j =3D 0; i < NUM_ALPHA_EXTS; i++)
+> > >   		if (riscv_isa[0] & BIT_MASK(i))
+
+
+btw, not sure if you saw this comment, about using IS_ENABLED() rather
+than ifdeffery.
+
+--ClXvIVeaEZNbVPHZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabagogAKCRB4tDGHoIJi
+0r34AP49ylCNDRGFQceatVi18SbN8zTJ9+pAO8n99b3xWxlDBgEA3lisTiKeXeZn
+f7QBUbuzAv6Iwmj4Qt3Iv30NPyrktw4=
+=ifwS
+-----END PGP SIGNATURE-----
+
+--ClXvIVeaEZNbVPHZ--
+
+
+--===============8358232637544358714==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8358232637544358714==--
+
