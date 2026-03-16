@@ -4,65 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CD7F506E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 14:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC82EF506E1
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 14:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1cp3FsLNUdtiYK/WC7nHjJV8uVz4UT95iusZ8HXKCs=; b=yZWCO+OoalSpTvv5lSv98qdjCn
-	I9QxZ6uwoHUd3PuoqazLkvU7PKK5MoTXm98zL8fNR1XFwYRmCvzd/jmT2O4JOWJZU5vQK4RlufmOI
-	SrNXifOhv5XRPWHfxlxOyie8DvVrPJOwD+hiAFyyBmGczwFdNlnpagKyGZi1vR/PburEQcZOXSws6
-	aVweTprPB6PKiuI6BkiZGD3GTEhvKVhtlzt8aDg+/KegO+stXdrOd5t8g84uXffMuCHeyiEdGiq83
-	HqTekOpRLQatJh0YoVknEMvRVwVFXe7L8Uo81qKLsvUV3MdFNzJVOkv4yAQ6DQkFYcTnvLb7WA9wo
-	XSn0ap2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hXDV3LAZMoMgXC3u11XinZD3Aehcl/gbvwztgc3M3cs=; b=MX7oTQPLxWOB6e
+	GINLfuQF/7yoch5RjN3BFJxDWIkhkh157oTcVDDUIcRFg6I0tPND+6dsPKpP5425rDz7v+yuRk2Tu
+	Lid+HngUO1/LP8FtcbRI0/jco4R0zjmPnwvRRmerMCVFjSVbW3G8Sd5xyGa4F+D3WnxWA6BF6BNpe
+	3aCIt23udgiPATbZXM5xOuNFzJ0w1gcIE8nEzkixSzW/4BO7uZbseys8SWq9TCGy/5GRpaSnPL4G2
+	XnKXQ/2NdAy95X4yl7DuPnwvfzeqRpPEd+MWCSMcFTJCHE4UyRKDrPfUPnk/cL1RVet+fxrB9QFgq
+	OHvEzEjuqbpcSLI3/v2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w296K-00000004CWx-3fgT;
-	Mon, 16 Mar 2026 14:39:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w29Mk-00000004GUY-1ftB;
+	Mon, 16 Mar 2026 14:56:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w296J-00000004CWX-21EK
+	id 1w29Mj-00000004GTx-3cQJ
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 16 Mar 2026 14:56:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=TGku/l9FNPrwiqABN5hj0gv51qaKMC4DWzEN52XfCG0=; b=OVh/ZinYFUKn20yBRFalqGnY//
+	gni2WiTBWrBvkV5HXOaxAkPb7C0v9bU/yHvcxAt1KMAZzlmFtfZZnDkF9VRoxcmrzA9fST/DlwzV5
+	y/Fjclne64/MYQY4CBrOVf9FWvcBGPmtNRbt9DA3e28VczO5DfMgVnEntRXyy7+co8rtTBFAGXvk4
+	yTV2XkDuPxNFs+7oZd9tg4Vv1IhY9M5e919jPhn9Hn7hVUdU/2Lnvy5ZWLwQjJ50w9EZCFYsvNFPn
+	qYJ2Rv+y+WBTp5NibwTTEgtpnGp3i7NUrtOKknxVf1g9fGZImbNmLfE5vjad4vVbQu2426RLlSUDj
+	K+e/C4Sw==;
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w28Yk-00000006tgt-3Rvj
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 14:39:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 798C6600AD;
-	Mon, 16 Mar 2026 14:39:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8BA8C19421;
-	Mon, 16 Mar 2026 14:39:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773671962;
-	bh=+mvv7r3Vkd9Ef/iLR0Zs1FGWEywTSdXOK8C9f6GXNSA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g7q4TnA1YJVeSMZKWRHqWJntFiKHntjL3mVZo3SuqW51s1AChvtvBT8nYvvcvAAjI
-	 fsj6r2vqsrheQ4r9PBsMqL01RphqK2bpmYyydtgdCa8PZq1QSXjC6JzSNnHxVye2Dz
-	 6fwkPL1BaE8hOnstgJ7mP7Y07bZ+XgcrVH3hjQXSzAvd5tp2y/ahYfl2ARZ5xen7yt
-	 Ppex/MfYnJd05CkYPuk3JeP4VCYwErCK2IkRG+GT6S3Er9mANKkb0bHeplh1VEuSdm
-	 0+t5/Yzi3dmDi1b4ADLGdb3m+fmRs0XBzoGzo35esXKRW6jGxErseGSdpNnEQs3dMH
-	 zU7gUYfZyKubg==
-Date: Mon, 16 Mar 2026 14:39:16 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/4] riscv: add UltraRISC SoC family Kconfig support
-Message-ID: <20260316-powdery-unbundle-b1166d13f53b@spud>
-References: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
- <20260316-ultrarisc-pcie-v1-1-ef2946ede698@ultrarisc.com>
+	Mon, 16 Mar 2026 14:04:44 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-439b7c2788dso2850413f8f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 07:04:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773669881; x=1774274681; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TGku/l9FNPrwiqABN5hj0gv51qaKMC4DWzEN52XfCG0=;
+        b=ljiWh2oX8WryK5UcmTLcH8tzecXIyCviwUedL1hvVWj3OMaY2kMupRecDOB8q7HJNR
+         +/MAkN3H62slwCjnGurTGGpGMoaVuabEei0Le9gKSpNZDGPzDdtgDv0Kug5VdgOJ1Ol3
+         qmC94SafiXE9wkxo7ynPqkPH08X1W95SC8WObHMvcwt6eBOLWYz5hz0kOcFoy3pGkqJK
+         1V0KvJ6uxJsm0lh/jTcBwMV3v1OJ5b7ae7XHgEyvbtRle24TuLGETgNdqMEIN5DFZJgu
+         oEYsYnorI/8KxRyC8wjAexUDHrO5PFOFKxEehRmnv5K/4dAO9m+zaOmYkDYAPELrMWhI
+         5QEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773669881; x=1774274681;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=TGku/l9FNPrwiqABN5hj0gv51qaKMC4DWzEN52XfCG0=;
+        b=G8PMtHW9YAXP/vSQM6ZS1d9bUENUXp4QkL58z9C3VUix0faG+F4DHFqW/edaQo/Dbq
+         WATmM8lLChz3EdGmKercnDxQym2WVMRYWWQMt2m8LCIW26QFs6+oBzmad4Q6Vzy4Oq37
+         Rcr298OLxMOEa0E1p2p7yzhq4P+YNwwwiUyV5KV3KuKUmP9gToIUGL7CBfzmNoq2z/RZ
+         G7+CmGt71xwkCHYwkVDszouEwmopg1Tu9nY8lkFBkpBMMlazA9tLYiX4bFvq0xYG+9j+
+         l4vR69SyFleD8Kbjujy+ipoklkBuh0iCw/XuskWFtG5vdTKnWHSpdSaRi2UMBZFp2X50
+         Tbpg==
+X-Forwarded-Encrypted: i=1; AJvYcCVRqskqeQCAZbLx0HbyfFF4EX3bV+xJzlo77irszf4afAYM9S3VIH3OCAzx3sVcaONNIEpcN3Fitv8seg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxM4316dp2Lt9tZYIfDTYxOpg7E1YXVeeD6dZy9AxqEnQqeGEn0
+	4/miWiP2Rf1KfA5rF0G9D0wJd1nOe86JI6KhOTvQM+9iF+Ar21AS5DWr
+X-Gm-Gg: ATEYQzxKtHFWVj+GrjWNN2wfpCqNzkdAlwMC7KeSa+gPIA8J7wTfV5dN9YINsYvE39A
+	IxSyLhyUjNxX/vkgjEl01NsqI3Usx7ibl2U0HqjYI1vzCZsDpX3FJc/qa4bG1Jv4ABcFl84/eYp
+	fegvwZYN2ukJAGZwwrR3hcUSLAJAN/0xvVX3dGdfG3e8eCtKcuMwHwz5teHwBuyvEmahEmkG8XW
+	D2seTEWBcrIxkHKFQifxGkkECwlVORBdUsQILUmxQ26OHzKpEE0gk8euUxRVIrOR7qLNKCLTcnU
+	g7qq0iOi+iX9l7atfFIkQHfqnJfivCv83ZJPGKb24v6cH3VbuvmmDp3Q4b+hk2P59/Hs7L7uDcQ
+	p5wtgWJAZeJSfBF0lS3OLSTLudGlisz1KCKz63L2NHhLL8abIZ1YNKy2y4L42PAjLpz3aE9quqN
+	pCK36koy1WFaffhaQIM/k3xEFUZKVqOPUhgi8PRWVhkh7D7Yo11JtPQpV81SLoCgS8
+X-Received: by 2002:a05:6000:2889:b0:43b:4153:c2a6 with SMTP id ffacd0b85a97d-43b4153c45fmr7601207f8f.36.1773669880512;
+        Mon, 16 Mar 2026 07:04:40 -0700 (PDT)
+Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.234.31])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b3a09e453sm20698725f8f.0.2026.03.16.07.04.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Mar 2026 07:04:39 -0700 (PDT)
+From: Iker Pedrosa <ikerpedrosam@gmail.com>
+Date: Mon, 16 Mar 2026 15:03:35 +0100
+Subject: [PATCH v3 7/7] riscv: dts: spacemit: k1-bananapi-f3: add SD card
+ support with UHS modes
 MIME-Version: 1.0
-In-Reply-To: <20260316-ultrarisc-pcie-v1-1-ef2946ede698@ultrarisc.com>
+Message-Id: <20260316-orangepi-sd-card-uhs-v3-7-aefd3b7832df@gmail.com>
+References: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
+In-Reply-To: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Yixun Lan <dlan@kernel.org>, Yixun Lan <dlan@kernel.org>
+Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+ Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Iker Pedrosa <ikerpedrosam@gmail.com>, Anand Moon <linux.amoon@gmail.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_140443_050738_FCACDD6C 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,84 +119,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5349559281655064554=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add complete SD card controller support with UHS high-speed modes.
 
---===============5349559281655064554==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="77NVXxmwy8lu9z90"
-Content-Disposition: inline
+- Enable sdhci0 controller with 4-bit bus width
+- Configure card detect GPIO with inversion
+- Connect vmmc-supply to buck4 for 3.3V card power
+- Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
+- Add dual pinctrl states for voltage-dependent pin configuration
+- Support UHS-I SDR25, SDR50, and SDR104 modes
 
+This enables full SD card functionality including high-speed UHS modes
+for improved performance.
 
---77NVXxmwy8lu9z90
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Suggested-by: Anand Moon <linux.amoon@gmail.com>
+Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+---
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 23 +++++++++++++++++++++--
+ 1 file changed, 21 insertions(+), 2 deletions(-)
 
-On Mon, Mar 16, 2026 at 03:06:57PM +0800, Jia Wang wrote:
-> The first SoC in the UltraRISC series is UR-DP1000, containing octa
-> UltraRISC C100 cores.
->=20
-> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> ---
->  arch/riscv/Kconfig.socs | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index d621b85dd63b..f49d3ccaacde 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -84,6 +84,16 @@ config ARCH_THEAD
->  	help
->  	  This enables support for the RISC-V based T-HEAD SoCs.
-> =20
-> +config ARCH_ULTRARISC
-> +	bool "UltraRISC RISC-V SoCs"
-> +	depends on MMU && !XIP_KERNEL
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 404b69c47b91f8c37d74a3031dbad0d94a28d1b4..a7d480d01ccc0439dbf456ed5a81f467af68056a 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -222,7 +222,7 @@ buck3_1v8: buck3 {
+ 				regulator-always-on;
+ 			};
+ 
+-			buck4 {
++			buck4: buck4 {
+ 				regulator-min-microvolt = <500000>;
+ 				regulator-max-microvolt = <3300000>;
+ 				regulator-ramp-delay = <5000>;
+@@ -243,7 +243,7 @@ buck6 {
+ 				regulator-always-on;
+ 			};
+ 
+-			aldo1 {
++			aldo1: aldo1 {
+ 				regulator-min-microvolt = <500000>;
+ 				regulator-max-microvolt = <3400000>;
+ 				regulator-boot-on;
+@@ -369,3 +369,22 @@ hub_3_0: hub@2 {
+ 		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
+ 	};
+ };
++
++&sdhci0 {
++	pinctrl-names = "default", "state_uhs";
++	pinctrl-0 = <&mmc1_cfg>;
++	pinctrl-1 = <&mmc1_uhs_cfg>;
++	bus-width = <4>;
++	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
++	cd-inverted;
++	no-mmc;
++	no-sdio;
++	disable-wp;
++	cap-sd-highspeed;
++	vmmc-supply = <&buck4>;
++	vqmmc-supply = <&aldo1>;
++	sd-uhs-sdr25;
++	sd-uhs-sdr50;
++	sd-uhs-sdr104;
++	status = "okay";
++};
 
-Why do you depend on "MMU && !XIP_KERNEL"?
+-- 
+2.53.0
 
-> +	help
-> +	 This enables support for UltraRISC SoC platform hardware,
-> +	 including boards based on the UR-DP1000.
-> +	 UR-DP1000 is an 8-core 64-bit RISC-V SoC that supports
-> +	 the RV64GCBHX ISA. It supports Hardware Virtualization
-> +	 and RISC-V RV64 ISA H(v1.0) Extension.
-> +
->  config ARCH_VIRT
->  	bool "QEMU Virt Machine"
->  	select POWER_RESET
->=20
-> --=20
-> 2.34.1
->=20
-
---77NVXxmwy8lu9z90
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabgWFAAKCRB4tDGHoIJi
-0kfCAQC+/WgX8p/XaK/3hhi3OD3wO0xX5tzs8Ld0kia5edHwsgD/aJNp0dlufRCQ
-PfW5xC/axFIwCGfzQ4P9VfKIqzzeyg8=
-=b552
------END PGP SIGNATURE-----
-
---77NVXxmwy8lu9z90--
-
-
---===============5349559281655064554==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5349559281655064554==--
-
