@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E8DF4645C
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 12:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993D2F4645C
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 12:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+V+tezfe2rsXM55p4wAwyBHCn4b9jDxE/qQ4YkrX3yk=; b=qk6xt2WG2sniUY
-	AVdx9bgpfnFr5UDgNnCdTR+I+jP9tOD24Ye+qAMtzmxKki5cTs/RjLenPgOtUmB3Z9JPfzMHw1hcl
-	v+YqbA6XbmPpUHaCTu/1ysFYfGpYCNknhBzPw8yVP84AqFnINm3dezGccOxsmQ3sMX4BncrNfRgmJ
-	rqsuviOus4rd8m8fiizXWANG9HO/Xetzy6K8kB344BZWItp55jdedezM9NLE0KZZGY+Vqbf0/qxaP
-	ioK5hKpWDcnadfY8tvJbluCwurpmKTF5TTkJE7JWbrtVxMn2ocCFgPn6UkRHj7UA/6cAGcpMu1N4R
-	yhdkoMKEUUp3Yj1uctSg==;
+	List-Owner; bh=ZAriiBriMhU2KKXAiLPXMEriMlsk/AKFjauWRFAwJfM=; b=t2GXldaFf/Yy8i
+	I05+ODok/SUul6aF/21CPx32DoAuiyttM2xSiXuM8DNRpIf6y5hUwXs9uvssFQ0/bWwq8fG+Quzn1
+	DdG9d5ss4Wev2D8oXUTyuxJa0PvjdA59b+zJQdyaUFxlR7aQKzMxmiohXw4FJMSlKoh6RxGouU6vd
+	1l5dEhAW9RaJyMItjW92uiJTGAY4nWBd8cTeIC/JQQEs92lAkvQD/DLBE0TNIhYQ+fq+T8t8hBQKH
+	vdnnWG27d8foIeOQtgRkqnTuAokE1gGW7JiOnEZPcQH6gUui1qlC5t4Q6cH9swiSU2Qk1pAYTALlp
+	A7aefz43SS7YpVMjVwHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w26oi-00000003uTB-0d5d;
-	Mon, 16 Mar 2026 12:13:04 +0000
+	id 1w26ow-00000003uba-1qyM;
+	Mon, 16 Mar 2026 12:13:18 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w26oe-00000003uS5-1UAh;
-	Mon, 16 Mar 2026 12:13:01 +0000
+	id 1w26ot-00000003uZD-0wSx;
+	Mon, 16 Mar 2026 12:13:16 +0000
 Received: from CPC-namja-026ON.redmond.corp.microsoft.com (unknown [4.213.232.19])
-	by linux.microsoft.com (Postfix) with ESMTPSA id C980B20B7129;
-	Mon, 16 Mar 2026 05:12:52 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com C980B20B7129
+	by linux.microsoft.com (Postfix) with ESMTPSA id ECDB820B712B;
+	Mon, 16 Mar 2026 05:13:07 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com ECDB820B712B
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1773663179;
-	bh=6df6NmlHbYEwsjePCZxMwR+//HiqFND2iuF0yusrO7A=;
+	s=default; t=1773663194;
+	bh=E3StM9+iDpcoit1RWPxAyV+2hPmFkaB3kEah6gv3o8Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JnrfaQ1qzJtMxSWlOSqo+uWUtX+v3P2ZCsXLOhdyHnOiD5Mf/g2gbHMdnHNx1+B0e
-	 HG2BK6FeWTAuENeXTbTg7QebepK3AW7xpc2WLe6mfQa3LB3dskvBj/x9U7s0qec5Nj
-	 uex5YeK0kEHqZinvkTyE9P6h/eVsH96Ez3dITCIY=
+	b=ZMDm6OU2yqAfZL7t2pqxQXx0b+7Tzsl4B3jaASsVyXx4EtKOat/05+uslxY9NnP2z
+	 2qsH8BP+y+pNNzM6HR60ValkMckk/IJ3+xUNijOYFVQ2x1XUoFaNp//Gzxc3sCXm1o
+	 mbW5a0iAOYbxtYDeW/Is9Z2foXY/L41i7tMDtNB4=
 From: Naman Jain <namjain@linux.microsoft.com>
 To: "K . Y . Srinivasan" <kys@microsoft.com>,
 	Haiyang Zhang <haiyangz@microsoft.com>,
@@ -68,16 +68,16 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 01/11] arch: arm64: Export arch_smp_send_reschedule for mshv_vtl module
-Date: Mon, 16 Mar 2026 12:12:31 +0000
-Message-ID: <20260316121241.910764-2-namjain@linux.microsoft.com>
+Subject: [PATCH 03/11] Drivers: hv: Add support to setup percpu vmbus handler
+Date: Mon, 16 Mar 2026 12:12:33 +0000
+Message-ID: <20260316121241.910764-4-namjain@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260316121241.910764-1-namjain@linux.microsoft.com>
 References: <20260316121241.910764-1-namjain@linux.microsoft.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_051300_817843_4BDE8616 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260316_051315_294758_4F3BEC1D 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +94,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-mshv_vtl_main.c calls smp_send_reschedule() which expands to
-arch_smp_send_reschedule(). When CONFIG_MSHV_VTL=m, the module cannot
-access this symbol since it is not exported on arm64.
+Add a wrapper function - hv_setup_percpu_vmbus_handler(), similar to
+hv_setup_vmbus_handler() to allow setting up custom per-cpu VMBus
+interrupt handler. This is required for arm64 support, to be added
+in MSHV_VTL driver, where per-cpu VMBus interrupt handler will be
+set to mshv_vtl_vmbus_isr() for VTL2 (Virtual Trust Level 2).
 
-smp_send_reschedule() is used in mshv_vtl_cancel() to interrupt a vCPU
-thread running on another CPU. When a vCPU is looping in
-mshv_vtl_ioctl_return_to_lower_vtl(), it checks a per-CPU cancel flag
-before each VTL0 entry. Setting cancel=1 alone is not enough if the
-target CPU thread is sleeping - the IPI from smp_send_reschedule() kicks
-the remote CPU out of idle/sleep so it re-checks the cancel flag and
-exits the loop promptly.
-
-Other architectures (riscv, loongarch, powerpc) already export this
-symbol. Add the same EXPORT_SYMBOL_GPL for arm64. This is required
-for adding arm64 support in MSHV_VTL.
-
+Signed-off-by: Saurabh Sengar <ssengar@linux.microsoft.com>
 Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
 ---
- arch/arm64/kernel/smp.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/hyperv/mshyperv.c   | 13 +++++++++++++
+ drivers/hv/hv_common.c         | 11 +++++++++++
+ drivers/hv/vmbus_drv.c         |  7 +------
+ include/asm-generic/mshyperv.h |  3 +++
+ 4 files changed, 28 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 1aa324104afb..26b1a4456ceb 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -1152,6 +1152,7 @@ void arch_smp_send_reschedule(int cpu)
- {
- 	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index 4fdc26ade1d7..d4494ceeaad0 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -134,3 +134,16 @@ bool hv_is_hyperv_initialized(void)
+ 	return hyperv_initialized;
  }
-+EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+ EXPORT_SYMBOL_GPL(hv_is_hyperv_initialized);
++
++static void (*vmbus_percpu_handler)(void);
++void hv_setup_percpu_vmbus_handler(void (*handler)(void))
++{
++	vmbus_percpu_handler = handler;
++}
++
++irqreturn_t vmbus_percpu_isr(int irq, void *dev_id)
++{
++	if (vmbus_percpu_handler)
++		vmbus_percpu_handler();
++	return IRQ_HANDLED;
++}
+diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+index d1ebc0ebd08f..a5064f558bf6 100644
+--- a/drivers/hv/hv_common.c
++++ b/drivers/hv/hv_common.c
+@@ -759,6 +759,17 @@ void __weak hv_setup_vmbus_handler(void (*handler)(void))
+ }
+ EXPORT_SYMBOL_GPL(hv_setup_vmbus_handler);
  
- #ifdef CONFIG_ARM64_ACPI_PARKING_PROTOCOL
- void arch_send_wakeup_ipi(unsigned int cpu)
++irqreturn_t __weak vmbus_percpu_isr(int irq, void *dev_id)
++{
++	return IRQ_HANDLED;
++}
++EXPORT_SYMBOL_GPL(vmbus_percpu_isr);
++
++void __weak hv_setup_percpu_vmbus_handler(void (*handler)(void))
++{
++}
++EXPORT_SYMBOL_GPL(hv_setup_percpu_vmbus_handler);
++
+ void __weak hv_remove_vmbus_handler(void)
+ {
+ }
+diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+index bc4fc1951ae1..f99d4f2d3862 100644
+--- a/drivers/hv/vmbus_drv.c
++++ b/drivers/hv/vmbus_drv.c
+@@ -1413,12 +1413,6 @@ void vmbus_isr(void)
+ }
+ EXPORT_SYMBOL_FOR_MODULES(vmbus_isr, "mshv_vtl");
+ 
+-static irqreturn_t vmbus_percpu_isr(int irq, void *dev_id)
+-{
+-	vmbus_isr();
+-	return IRQ_HANDLED;
+-}
+-
+ static void vmbus_percpu_work(struct work_struct *work)
+ {
+ 	unsigned int cpu = smp_processor_id();
+@@ -1520,6 +1514,7 @@ static int vmbus_bus_init(void)
+ 	if (vmbus_irq == -1) {
+ 		hv_setup_vmbus_handler(vmbus_isr);
+ 	} else {
++		hv_setup_percpu_vmbus_handler(vmbus_isr);
+ 		ret = request_percpu_irq(vmbus_irq, vmbus_percpu_isr,
+ 				"Hyper-V VMbus", &vmbus_evt);
+ 		if (ret) {
+diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+index 108f135d4fd9..b147a12085e4 100644
+--- a/include/asm-generic/mshyperv.h
++++ b/include/asm-generic/mshyperv.h
+@@ -22,6 +22,7 @@
+ #include <linux/bitops.h>
+ #include <acpi/acpi_numa.h>
+ #include <linux/cpumask.h>
++#include <linux/interrupt.h>
+ #include <linux/nmi.h>
+ #include <asm/ptrace.h>
+ #include <hyperv/hvhdk.h>
+@@ -179,6 +180,8 @@ static inline u64 hv_generate_guest_id(u64 kernel_version)
+ 
+ int hv_get_hypervisor_version(union hv_hypervisor_version_info *info);
+ 
++irqreturn_t vmbus_percpu_isr(int irq, void *dev_id);
++void hv_setup_percpu_vmbus_handler(void (*handler)(void));
+ void hv_setup_vmbus_handler(void (*handler)(void));
+ void hv_remove_vmbus_handler(void);
+ void hv_setup_stimer0_handler(void (*handler)(void));
 -- 
 2.43.0
 
