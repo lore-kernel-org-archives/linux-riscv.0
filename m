@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B60F53D6D
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 16:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E05AF53D78
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 17:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oZuORWu4yHDghVfHQGuyrwBDXN3l2sfgQTjkU2TV4nA=; b=PGAXebpN5Y4rsh
-	OMEEQhgGq1BjrcwX/yC4aj9DG5jGSHqNyptr2m28NG/4d3pdkdlscZHCOIel3HnbIylc6gGF7bHWQ
-	GPLy5/IexIhwt7CvyDghTDNxeJWhSRaSilrO/58bYsNYSzRdDevj91hpp79tJjNSY2/c322ld4EiO
-	Zv8db/jiBNVSJhsFOzD58B1UEZ77pwuPjhP8HIiNRJxdeFEB6Eu62ju/zseV0wBPRcbzRDlEG02eA
-	q0CLJVLrbD4DRAkWi1+URCNKjPtkGS2vu/MiuM2/BXEjNodH3urUBxPACJ61aX2wiUT3kOgx1kC/f
-	B2hdNetllP4FIGw2+09w==;
+	List-Owner; bh=3HUgCrkEW0pocbKYXLc4Jk+u5KcjTBdkxib9as1G+bM=; b=SMbTV3x8JanOnH
+	NpucyhM9BLU1EonLb++gCjdBn3zEMxtS/AN/EkjrcIYT2UsPKQV8rI6wYRwxuRMz1NaD3irPiOOsX
+	VoWPsqtOci2mzFL0aWYgrLxyrmwiNHVzLxDuSmuhOZ/Hv+bccUAAAEy0gH6feNSrJ0ZD/0AmOaUBl
+	GOwuFH3zion8EUF/v/DWj7XU3csYyAKR9KR9j/eRG/NXu/tc35NfOX6a7qwrp0JfRMbMxIDnR0ere
+	ZNmFlcKFJWjS61KSJLL/6g4fAZBZJMR+0cCxagvGGpE2uBi/oTByx+w3quU6Fm/k2KcRjmgUhcYxZ
+	PtPvm3WEMBD7+L7i0nZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2B88-00000004UPn-0Te6;
-	Mon, 16 Mar 2026 16:49:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2BKL-00000004VBF-2r9K;
+	Mon, 16 Mar 2026 17:02:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2B85-00000004UOs-25G5
+	id 1w2BKK-00000004VB0-2Xz2
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 16:49:22 +0000
+	Mon, 16 Mar 2026 17:02:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 11E624376E;
-	Mon, 16 Mar 2026 16:49:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB465C19421;
-	Mon, 16 Mar 2026 16:49:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9918260123;
+	Mon, 16 Mar 2026 17:01:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 270D3C19421;
+	Mon, 16 Mar 2026 17:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773679760;
-	bh=uk1xHHKJArXOa0D/n6OA2egxALwqJwTNCh5fudHqvn8=;
+	s=k20201202; t=1773680519;
+	bh=ETulvVJzr+X1Ku5WeaZkYZesCeUYQzFa7GOml7F5mxs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=S18YUcU7zj5dwedocu26adSAA6wCoD342MiDux8Lqox9E5YEW7px8XzMPZp3l/GG2
-	 X33FV25AdFzEz9i8jaHd1X8c5XpHUxaZjGA9Zv/wuFs2gDGu/nV/KA+76Ac3D3AyrH
-	 A9iiph3Q3pTq2hmxvlXuP7RB0tm2DDiDaO+iLDXr9H/arruE4C+HDHB2PNVGllDs2S
-	 /IoWz8Kdo8wG0x7VrpPDsKDlQiSspFfZm6qMVD6jbHD2bgbR8g1sHxgtniRnTWPsJv
-	 8jwOMtYleOb+cWDLHvCGbsP9ly6WhoA1uWte8qt1uQQqdytuSnqZ3l4Slx/aUFe5rt
-	 za9JXBprOuoZw==
-Message-ID: <3ac4a544-53bd-42e7-8191-ae9f79aad5e9@kernel.org>
-Date: Mon, 16 Mar 2026 17:49:13 +0100
+	b=RRylpIw2eIVb7L9jiz2iaEGM/RV33gOA0TX/2UtNgBjLDL0za8hdtwl+ym1TAAdYk
+	 rO/D1H+L3G1jrcZpLbeEc2exebBJs2fRf1RQSnrbK92Ngemue+WX+mZAgPQwylYlg7
+	 rrtziz7OHiiUjLsV2PO6Yt6gNFCMroC3kGBcfKE8WHHNOqhHgy1Zpflx1aZ3o4n18g
+	 2SQZtJwZ3EMpYh5DzRdtBwa4OzrSQGhQgJB35B1KNH2DyUN4F/07GxjVNpC7KsxmEa
+	 xO/vDMwFbDZ32X3ASDl4Nm10wMbRwhWHgoPD7VFx16hAd1yqWX/C/XUKbRXao8DJj0
+	 E3S68YKLGpmGg==
+Message-ID: <d5755c59-d010-4770-b26a-b233fd000190@kernel.org>
+Date: Mon, 16 Mar 2026 18:01:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv7 11/18] x86/vdso: Undefine
- CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP for vdso32
+Subject: Re: [PATCHv7 12/18] mm/hugetlb: Remove fake head pages
 To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -64,7 +63,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260227194302.274384-1-kas@kernel.org>
- <20260227194302.274384-12-kas@kernel.org>
+ <20260227194302.274384-13-kas@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -111,10 +110,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260227194302.274384-12-kas@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_094921_582764_35B9D68A 
-X-CRM114-Status: GOOD (  11.52  )
+In-Reply-To: <20260227194302.274384-13-kas@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,32 +128,77 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/27/26 20:42, Kiryl Shutsemau (Meta) wrote:
-> The 32-bit VDSO build on x86_64 uses fake_32bit_build.h to undefine
-> various kernel configuration options that are not suitable for the
-> VDSO context or may cause build issues when including kernel headers.
+> From: Kiryl Shutsemau <kas@kernel.org>
 > 
-> Undefine CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP in fake_32bit_build.h to
-> prepare for change in  HugeTLB Vmemmap Optimization.
+> HugeTLB Vmemmap Optimization (HVO) reduces memory usage by freeing most
+> vmemmap pages for huge pages and remapping the freed range to a single
+> page containing the struct page metadata.
 > 
-> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> With the new mask-based compound_info encoding (for power-of-2 struct
+> page sizes), all tail pages of the same order are now identical
+> regardless of which compound page they belong to. This means the tail
+> pages can be truly shared without fake heads.
+> 
+> Allocate a single page of initialized tail struct pages per zone
+> per order in the vmemmap_tails[] array in struct zone. All huge pages of
+> that order in the zone share this tail page, mapped read-only into their
+> vmemmap. The head page remains unique per huge page.
+> 
+> Redefine MAX_FOLIO_ORDER using ilog2(). The define has to produce a
+> compile-constant as it is used to specify vmemmap_tail array size.
+> For some reason, compiler is not able to solve get_order() at
+> compile-time, but ilog2() works.
+> 
+> Avoid PUD_ORDER to define MAX_FOLIO_ORDER as it adds dependency to
+> <linux/pgtable.h> which generates hard-to-break include loop.
+> 
+> This eliminates fake heads while maintaining the same memory savings,
+> and simplifies compound_head() by removing fake head detection.
+> 
+> Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
 > ---
->  arch/x86/entry/vdso/vdso32/fake_32bit_build.h | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/x86/entry/vdso/vdso32/fake_32bit_build.h b/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
-> index db1b15f686e3..bc3e549795c3 100644
-> --- a/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
-> +++ b/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
-> @@ -11,6 +11,7 @@
->  #undef CONFIG_PGTABLE_LEVELS
->  #undef CONFIG_ILLEGAL_POINTER_VALUE
->  #undef CONFIG_SPARSEMEM_VMEMMAP
-> +#undef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
->  #undef CONFIG_NR_CPUS
->  #undef CONFIG_PARAVIRT_XXL
->  
 
-Pain as always :)
+[...]
+>  
+> +static struct zone *pfn_to_zone(unsigned nid, unsigned long pfn)
+
+I'd make it clearer that this some hugetlb helper, not just some
+page_zone(pfn_to_page()).
+
+Also, it's only really valid during boot, where we cannot have
+overlapping zones yet (hopefully IIRC).
+
+static struct zone *hugetlb_early_pfn_to_zone(unsigned nid,
+	unsigned long pfn)
+
+or sth. like that (throwing in an __init).
+
+[...]
+
+> index c76122f22294..928e79c7549c 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -886,6 +886,15 @@ static inline void prep_compound_tail(struct page *tail,
+>  	set_page_private(tail, 0);
+>  }
+>  
+> +static inline void init_compound_tail(struct page *tail,
+> +		const struct page *head, unsigned int order, struct zone *zone)
+> +{
+
+In light of the refcount rework (lock/frozen bit), it might make sense
+to directly set the page count here to 0, so it's easier to spot and
+consider later.
+
+set_page_count(tail, 0)
+
+> +	atomic_set(&tail->_mapcount, -1);
+> +	set_page_node(tail, zone_to_nid(zone));
+> +	set_page_zone(tail, zone_idx(zone));
+> +	prep_compound_tail(tail, head, order);
+> +}
+> +
+Nothing else jumped at me
 
 Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
