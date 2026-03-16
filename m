@@ -4,111 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7F0F53D8B
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 19:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897AEF53D9A
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 20:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5fgi3hQhTRG/Ih90sGqxmNpo0at8EnqRfHqlAdQd3B0=; b=0G5N/0v9lGlHqL
-	4Y1vZ1kR84ly0OkoqsNzEWSzjuHOyLlXeAT0qMqQVU59cQru4TnbqFQ3zGcR/eNvhueomjOaXei49
-	XvettjkyPtJlyWCIbxXkvWxTAWxaCaNOInEamcSxxe7ysXf039pO10gDp6nxPBMGEHZOc2Du5v5kw
-	IBapoy6lIvveQKW/X3jtX5PsWS462a91UDG+bIIMVhw+u+q1XhUV1TSrSSBxdCaOkXW6sNBU81ZRA
-	GeLKmCx7wwROQ0ipGpektsz2FjsfotcCoGTd/mkbk6kEMZ4NSZTklghna2fjnnjO+c2G/Zc4fyRrd
-	gWNwg8T1qKZH2NMvIhbA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=8HguwEKKfAxaqvHKi/yTZco0lmBuWuFUUc/HKAHbUZo=; b=f3YrkF5dqvuz0S
+	XKUYG7vbBwqZLFD1T+Pf60TXXFdujK39/eEoBhFb4wgmAJUjHk1t0aF69BgRXObhJveEwaxqzU/5u
+	eFmA0bIRuSf0gXbvd1O01ASLS2LPC+eKljZDHH3yIhKo1nO7O6G0vVCIbztIFZmzX1k5r3teT4LlI
+	qx9ig29NCOGfWf8B3+VGIeW48aCy5Jc+CnV3mi/arJDjG08Wzr0OGLwa05rkvKTbkn6SxtE6Bh89c
+	e9pGmfIxzek4gcJZ2glngEl9uzmzfrCyB/Vry+wJzh259FwWk/sNy7M1sz3R5laDcN45XEb+qaodl
+	nuBYYNG1y7WarDha2TJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2E0U-00000004mg5-0p4d;
-	Mon, 16 Mar 2026 19:53:42 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1w2Et1-00000004qS2-1KKP;
+	Mon, 16 Mar 2026 20:50:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2E0R-00000004mfk-47mU
+	id 1w2Esy-00000004qRI-3mgR
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 19:53:41 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-79a535e7c00so12415147b3.3
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 12:53:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773690818; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HZGHbf6V75cJCWz2ma0p42f+oXE121XxYnVzDeYFGKpHh7idAjjhde0RX4qg72l8pu
-         xOgg9sF3bmATLFN4d2PP6LAnYke5frXgFQ4B4EJ6EI3wjwpY8gZ+1C75MVrC/SeuSVzY
-         SP25duvWbLJEtm5NEQoRKIu7sI1v6lSU8sw6PA9Uw9cO7Ra84N5KA606HEUP90Drg5xA
-         YoCHs7/SXvGmMyAisi0jxbqkTGLC8/qrQcv5PI6mf6Jm5Xw7hhFok4OgERCuachTpZNg
-         d8SQmWMjo9E0VlxyBeqgNZbCAW5BJScZruDFdkv28/cdkJnV52uH+BbIfsMaoG0Hy0d7
-         Qrcw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=cfr/+KdWaNG7d26GP7p0CvuBKTKufLHHRbtv8HCrcI8=;
-        fh=7+/4/qN8+7BisMvjnXTStmhHpXNHIoLkLAIqPDs8798=;
-        b=OALwxvU3i43zFJkWecUxrcwJzZhyxeY8q1AZtnjbukH+FRq37tCAxhfe5CUajOUP+T
-         2ujzjaJIGA7RH7TFPrUyVQnkDzApOcmGJWN/joR9RGpQ/3j2FTu6RRcNPDSm8nHQGK26
-         TUP5TkF6hEELsmdzgi/1u0nuSvcVqThMIMuvbTNnG9DOio/MaeWg80BdFskTAh+XTAAb
-         dIj96pNKaM/A5ixvhQ9ZjXkkcN+jZvlQRJ7FBFLEhe+v/mw4Y1soroHga91VzDfLEJC2
-         2RapD1SswpcmaCH++JnWMr8idahYVnRO2h4J9sCbZ9Kh2D7pVfyQC/o45yF2+KfCE/Q7
-         r5rg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773690818; x=1774295618; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cfr/+KdWaNG7d26GP7p0CvuBKTKufLHHRbtv8HCrcI8=;
-        b=LxrNsr2o99Kq//nQubyMcpM958f8BOSvzhNPKJcZPyMPDPYxlWjxZF/nXkpCemdGY2
-         HeFwJAGTLe3PCgbOipbj55HGd0C7QGG5x3d5HL9ZPTtnlIHO7o+rM0JrTCo8yWgyWjm5
-         8wSe/G5/IBj/7wGpzvC3qqYMrakmB0LZClNO2HAPaEpHECvJs/yQ/CJhWKrhaGEE2dMI
-         I05RB7pYBmH1k/uvYjj84WhXnwEgmPATOkCuYoKLyUJYXx8qI8t+qjFtgG7Qbcu1LIqJ
-         ySJiLgWxPKG0pFF5Rf96Ks4pjd206oP0e7+MOED2obmlsgXJh9rW7ZgYF4iP7E4AuDp8
-         jEaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773690818; x=1774295618;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=cfr/+KdWaNG7d26GP7p0CvuBKTKufLHHRbtv8HCrcI8=;
-        b=cN0GqHUGrY29m10yYL/VR55BrcTVsjDgBuKJ+/swkNe84aC9QCo53aDpoDUnA+rGXW
-         Usy4PT5JvRECPzR+E4YrND4PBfQMRAN7gq+K3jf13GdilLhCqoRwBes3SsXHnIj7TXp1
-         upXnFXTESL5dkan4QVa2NbtzgphOWdocCdjZVMtFjFzHcc9AlO+6glrCEBVoufjUpwBm
-         U+amxUA8CNw+Aqy3643DCCddnUgcKbXCP2LGnq4q0Gl4WrsO3ptwofW+7J+DHTbPG2rn
-         nX19egrAqlV63urne/c01Y5w8gNG+SWV0n1Q+F/rhTwpEmkEaMqcRkLTd79kZEEVirtA
-         gSTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+1TWHPTqIT66n81G9Ry8npcqe/E90GsKTqlW9JL7pJ3TgtDSfqALcw21htlvKci6NMBJXDC7G6xxETg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsJKHS95/y/CiNTC30ktcUl1ezcGDTiefqBK3ORrzxqa+IejGd
-	7BeeYASKPkhcgQYRnBqua3napoPJ9/c6DBexiSsz8LTE6JdRWczQ98dtENbYiAfnKMi+wKcChkh
-	cfUaurlbz2pAmkyDYL6/ZrbCK0CQsmZ4=
-X-Gm-Gg: ATEYQzys8W+npeEfjjMaItyK1sM8EiGlvRiVf8jjOKFBBX6EZzQ++lk4Bp6CmKIq9KA
-	jbJ3PWMXX5nI7S4ntBFaeVzAlaBJNFxNTAriJLFf3rtrAvweEbwrcbPifwgy3LkHr0SAYvgGwnD
-	Ij24vZW6zGH638Rjc2+ESsCrPDfc4sbkglqyvsenGBkPxVuvferb7jpC2BuXp3QlYjuStKj3Mz4
-	pc7owo2/hl7pWVHGr19YsFznIdcEWG69lcs1qvwS542X1jIhFrp4mIPxR7UvYl+tZ3BPTONvlND
-	ZC3//dbpgKNtgmeWhw5XsTc=
-X-Received: by 2002:a05:690c:6c0b:b0:79a:4317:395a with SMTP id
- 00721157ae682-79a43175384mr64466277b3.2.1773690817924; Mon, 16 Mar 2026
- 12:53:37 -0700 (PDT)
+	Mon, 16 Mar 2026 20:50:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D27194195F;
+	Mon, 16 Mar 2026 20:49:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 853B1C19421;
+	Mon, 16 Mar 2026 20:49:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773694199;
+	bh=VyX54W89shXL5ZHcR5Ba0Rlr48RPKhTHtTOzkF6KJg4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=WRrNeqSFkHSdFxlwfCoAWa1OzDA7OClDnXdqNJMyMuUcu8Eiau+kMwT7fyJgBnxQ/
+	 vEVLsdL86XSK7gxWYKePK0F5F1lApQOexKFdrTA0fb8SDPFAolD8pE3OEpKQmbU7Hf
+	 GkJk9UizipXVbZayxXDVeYWWuI7nW1yZQ/WNZQK8E3vh7JB1X409Rlix0SIh/zta29
+	 rslZGMOaxwrvsE4KCwfE3L9RUK8aB+Np3aXtA5A6vYph8n88s+jXiQ8uctmnlZM6AM
+	 Q6nSZ8p1d9q2EEAV4PTL0iDet1zqNMTcjfPKn4HOFEpLJhXBjYPTjzr11F++TVkU79
+	 7rAP/lz0xr74w==
+Date: Mon, 16 Mar 2026 15:49:58 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: wangjia@ultrarisc.com
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 4/4] PCI: dwc: Add UltraRISC DP1000 PCIe rc driver
+Message-ID: <20260316204958.GA23965@bhelgaas>
 MIME-Version: 1.0
-References: <20260315-bpf-kmalloc-nolock-v3-1-91c72bf91902@outlook.com>
-In-Reply-To: <20260315-bpf-kmalloc-nolock-v3-1-91c72bf91902@outlook.com>
-From: Amery Hung <ameryhung@gmail.com>
-Date: Mon, 16 Mar 2026 12:53:27 -0700
-X-Gm-Features: AaiRm51TRiU_TdEe_xqQj-pB0MImfrzcDdg1WNNiYNlT_5xOuouk70K7fxXMtb4
-Message-ID: <CAMB2axN9xYPzAJVQVywx3sxYa5ViRxt2oktt1LFXsSD_XsuJrA@mail.gmail.com>
-Subject: Re: [PATCH bpf v3] bpf: do not use kmalloc_nolock when !HAVE_CMPXCHG_DOUBLE
-To: rsworktech@outlook.com
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, stable@vger.kernel.org, 
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-rt-devel@lists.linux.dev
+Content-Disposition: inline
+In-Reply-To: <20260316-ultrarisc-pcie-v1-4-ef2946ede698@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_125340_079694_76FC9A6A 
-X-CRM114-Status: GOOD (  33.65  )
+X-CRM114-CacheID: sfid-20260316_135000_991882_A353FC8F 
+X-CRM114-Status: GOOD (  36.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,117 +76,371 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXIgMTQsIDIwMjYgYXQgOTowMuKAr0FNIExldmkgWmltIHZpYSBCNCBSZWxheQo8
-ZGV2bnVsbCtyc3dvcmt0ZWNoLm91dGxvb2suY29tQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gRnJv
-bTogTGV2aSBaaW0gPHJzd29ya3RlY2hAb3V0bG9vay5jb20+Cj4KPiBrbWFsbG9jX25vbG9jayBh
-bHdheXMgZmFpbHMgZm9yIGFyY2hpdGVjdHVyZXMgdGhhdCBsYWNrIGNtcHhjaGcxNmIuCj4gRm9y
-IGV4YW1wbGUsIHRoaXMgY2F1c2VzIGJwZl90YXNrX3N0b3JhZ2VfZ2V0IHdpdGggZmxhZwo+IEJQ
-Rl9MT0NBTF9TVE9SQUdFX0dFVF9GX0NSRUFURSB0byBmYWlscyBvbiByaXNjdjY0IDYuMTkga2Vy
-bmVsLgo+Cj4gRml4IGl0IGJ5IGVuYWJsaW5nIHVzZV9rbWFsbG9jX25vbG9jayBvbmx5IHdoZW4g
-SEFWRV9DTVBYQ0hHX0RPVUJMRS4KPiBCdXQgbGVhdmUgdGhlIFBSRUVNUFRfUlQgY2FzZSBhcyBp
-cyBiZWNhdXNlIGl0IHJlcXVpcmVzIGttYWxsb2Nfbm9sb2NrCj4gZm9yIGNvcnJlY3RuZXNzLiBB
-ZGQgYSBjb21tZW50IGFib3V0IHRoaXMgbGltaXRhdGlvbiB0aGF0IGFyY2hpdGVjdHVyZSdzCj4g
-bGFjayBvZiBDTVBYQ0hHX0RPVUJMRSBjb21iaW5lZCB3aXRoIFBSRUVNUFRfUlQgY291bGQgbWFr
-ZQo+IGJwZl9sb2NhbF9zdG9yYWdlX2FsbG9jIGFsd2F5cyBmYWlsLgoKTGV0J3Mgbm90IGRvIHRo
-aXMuCgpUaGlzIHJlLWludHJvZHVjZXMgZGVhZGxvY2sgdG8gbG9jYWwgc3RvcmFnZS4gSW4gYWRk
-aXRpb24sIGxvY2FsCnN0b3JhZ2Ugd2lsbCBzd2l0Y2ggdG8gdXNpbmcga21hbGxvY19ub2xvY2so
-KSBlbnRpcmVseS4KCkZvciByaXNjdiBoYXJkd2FyZSB3aXRob3V0IHphY2FzIGV4dGVuc2lvbiwg
-SSB0aGluayBhIHdvcmthcm91bmQgd2l0aApzb21lIHBlcmZvcm1hbmNlIG92ZXJoZWFkIGlzIHRv
-IGVuYWJsZSBDT05GSUdfU0xVQl9ERUJVRyBhbmQKc2x1Yl9kZWJ1ZyBvcHRpb25zLgoKPgo+IEZp
-eGVzOiBmNDg0ZjRhM2UwNTggKCJicGY6IFJlcGxhY2UgYnBmIG1lbW9yeSBhbGxvY2F0b3Igd2l0
-aCBrbWFsbG9jX25vbG9jaygpIGluIGxvY2FsIHN0b3JhZ2UiKQo+IENjOiBzdGFibGVAdmdlci5r
-ZXJuZWwub3JnCj4gU2lnbmVkLW9mZi1ieTogTGV2aSBaaW0gPHJzd29ya3RlY2hAb3V0bG9vay5j
-b20+Cj4gLS0tCj4gSSBmaW5kIHRoYXQgYnBmX3Rhc2tfc3RvcmFnZV9nZXQgd2l0aCBmbGFnIEJQ
-Rl9MT0NBTF9TVE9SQUdFX0dFVF9GX0NSRUFURQo+IGFsd2F5cyBmYWlscyBmb3IgbWUgb24gNi4x
-OSBrZXJuZWwgb24gcmlzY3Y2NCBhbmQgYmlzZWN0ZWQgaXQuCj4KPiBJbiBmNDg0ZjRhM2UwNTgg
-KCJicGY6IFJlcGxhY2UgYnBmIG1lbW9yeSBhbGxvY2F0b3Igd2l0aCBrbWFsbG9jX25vbG9jaygp
-Cj4gaW4gbG9jYWwgc3RvcmFnZSIpLCBicGYgbWVtb3J5IGFsbG9jYXRvciBpcyByZXBsYWNlZCB3
-aXRoIGttYWxsb2Nfbm9sb2NrLgo+IFRoaXMgYXBwcm9hY2ggaXMgcHJvYmxlbWF0aWMgZm9yIGFy
-Y2hpdGVjdHVyZXMgdGhhdCBsYWNrIENNUFhDSEdfRE9VQkxFCj4gYmVjYXVzZSBrbWFsbG9jX25v
-bG9jayBhbHdheXMgZmFpbHMgaW4gdGhpcyBjYXNlOgo+Cj4gSW4gZnVuY3Rpb24ga21hbGxvY19u
-b2xvY2sgKGttYWxsb2Nfbm9sb2NrX25vcHJvZik6Cj4KPiAgICAgICAgIGlmICghKHMtPmZsYWdz
-ICYgX19DTVBYQ0hHX0RPVUJMRSkgJiYgIWttZW1fY2FjaGVfZGVidWcocykpCj4gICAgICAgICAg
-ICAgICAgIC8qCj4gICAgICAgICAgICAgICAgICAqIGttYWxsb2Nfbm9sb2NrKCkgaXMgbm90IHN1
-cHBvcnRlZCBvbiBhcmNoaXRlY3R1cmVzIHRoYXQKPiAgICAgICAgICAgICAgICAgICogZG9uJ3Qg
-aW1wbGVtZW50IGNtcHhjaGcxNmIsIGJ1dCBkZWJ1ZyBjYWNoZXMgZG9uJ3QgdXNlCj4gICAgICAg
-ICAgICAgICAgICAqIHBlci1jcHUgc2xhYiBhbmQgcGVyLWNwdSBwYXJ0aWFsIHNsYWJzLiBUaGV5
-IHJlbHkgb24KPiAgICAgICAgICAgICAgICAgICoga21lbV9jYWNoZV9ub2RlLT5saXN0X2xvY2ss
-IHNvIGttYWxsb2Nfbm9sb2NrKCkgY2FuCj4gICAgICAgICAgICAgICAgICAqIGF0dGVtcHQgdG8g
-YWxsb2NhdGUgZnJvbSBkZWJ1ZyBjYWNoZXMgYnkKPiAgICAgICAgICAgICAgICAgICogc3Bpbl90
-cnlsb2NrX2lycXNhdmUoJm4tPmxpc3RfbG9jaywgLi4uKQo+ICAgICAgICAgICAgICAgICAgKi8K
-PiAgICAgICAgICAgICAgICAgcmV0dXJuIE5VTEw7Cj4KPiBGaXggaXQgYnkgZW5hYmxpbmcgdXNl
-X2ttYWxsb2Nfbm9sb2NrIG9ubHkgd2hlbiBIQVZFX0NNUFhDSEdfRE9VQkxFLgo+IChCdXQgbm90
-IGZvciBhIFBSRUVNUFRfUlQgY2FzZSBhcyBleHBsYWluZWQgaW4gdGhlIGNvbW1lbnQgYW5kIGNv
-bW1pdG1zZykKPgo+IE5vdGUgZm9yIHN0YWJsZTogdGhpcyBvbmx5IG5lZWRzIHRvIGJlIHBpY2tl
-ZCBpbnRvIHY2LjE5IGlmIHRoZSBwYXRjaAo+IG1ha2VzIGl0IGludG8gNy4wLgo+IC0tLQo+IENo
-YW5nZXMgaW4gdjM6Cj4gLSBVc2UgbWFjcm8gaW5zdGVhZCBvZiBjb25zdCBzdGF0aWMgdmFyaWFi
-bGUgdG8gYXZvaWQgdHJpZ2dlcmluZwo+ICAgd2FybmluZ3MuCj4gLSBXcmFwIGxpbmVzIGF0IDgw
-IGNvbHVtbnMKPiAtIExpbmsgdG8gdjI6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNjAz
-MTQtYnBmLWttYWxsb2Mtbm9sb2NrLXYyLTEtNTc2ZTMzZTRmYTY3QG91dGxvb2suY29tCj4KPiBD
-aGFuZ2VzIGluIHYyOgo+IC0gRHJvcCB0aGUgbW9kaWZpY2F0aW9uIHRvIHRoZSBQUkVFTVBUX1JU
-IGNhc2UgYXMgaXQgcmVxdWlyZXMKPiAgIGttYWxsb2Nfbm9sb2NrIGZvciBjb3JyZWN0bmVzcy4K
-PiAtIEFkZCBhIGNvbW1lbnQgdG8gdGhlIFBSRUVNUFRfUlQgY2FzZSBhYm91dCB0aGUgbGltaXRh
-dGlvbiB3aGVuCj4gICBub3QgSEFWRV9DTVBYQ0hHX0RPVUJMRSBidXQgZW5hYmxlcyBQUkVFTVBU
-X1JULgo+IC0gTGluayB0byB2MTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI2MDMxNC1i
-cGYta21hbGxvYy1ub2xvY2stdjEtMS0yNGFiZjNmNzVhOWZAb3V0bG9vay5jb20KPiAtLS0KPiAg
-aW5jbHVkZS9saW51eC9icGZfbG9jYWxfc3RvcmFnZS5oIHwgMSArCj4gIGtlcm5lbC9icGYvYnBm
-X2NncnBfc3RvcmFnZS5jICAgICB8IDMgKystCj4gIGtlcm5lbC9icGYvYnBmX2xvY2FsX3N0b3Jh
-Z2UuYyAgICB8IDQgKysrKwo+ICBrZXJuZWwvYnBmL2JwZl90YXNrX3N0b3JhZ2UuYyAgICAgfCAz
-ICsrLQo+ICA0IGZpbGVzIGNoYW5nZWQsIDkgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkK
-Pgo+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L2JwZl9sb2NhbF9zdG9yYWdlLmggYi9pbmNs
-dWRlL2xpbnV4L2JwZl9sb2NhbF9zdG9yYWdlLmgKPiBpbmRleCA4MTU3ZThkYTYxZDQwLi5kOGYy
-YzVkNjNhODBlIDEwMDY0NAo+IC0tLSBhL2luY2x1ZGUvbGludXgvYnBmX2xvY2FsX3N0b3JhZ2Uu
-aAo+ICsrKyBiL2luY2x1ZGUvbGludXgvYnBmX2xvY2FsX3N0b3JhZ2UuaAo+IEBAIC0xOCw2ICsx
-OCw3IEBACj4gICNpbmNsdWRlIDxhc20vcnFzcGlubG9jay5oPgo+Cj4gICNkZWZpbmUgQlBGX0xP
-Q0FMX1NUT1JBR0VfQ0FDSEVfU0laRSAgIDE2Cj4gKyNkZWZpbmUgS01BTExPQ19OT0xPQ0tfU1VQ
-UE9SVEVEIElTX0VOQUJMRUQoQ09ORklHX0hBVkVfQ01QWENIR19ET1VCTEUpCj4KPiAgc3RydWN0
-IGJwZl9sb2NhbF9zdG9yYWdlX21hcF9idWNrZXQgewo+ICAgICAgICAgc3RydWN0IGhsaXN0X2hl
-YWQgbGlzdDsKPiBkaWZmIC0tZ2l0IGEva2VybmVsL2JwZi9icGZfY2dycF9zdG9yYWdlLmMgYi9r
-ZXJuZWwvYnBmL2JwZl9jZ3JwX3N0b3JhZ2UuYwo+IGluZGV4IGMyYTJlYWQxZjQ2NmQuLmNkMTgx
-OTNjNDQwNTggMTAwNjQ0Cj4gLS0tIGEva2VybmVsL2JwZi9icGZfY2dycF9zdG9yYWdlLmMKPiAr
-KysgYi9rZXJuZWwvYnBmL2JwZl9jZ3JwX3N0b3JhZ2UuYwo+IEBAIC0xMTQsNyArMTE0LDggQEAg
-c3RhdGljIGludCBub3RzdXBwX2dldF9uZXh0X2tleShzdHJ1Y3QgYnBmX21hcCAqbWFwLCB2b2lk
-ICprZXksIHZvaWQgKm5leHRfa2V5KQo+Cj4gIHN0YXRpYyBzdHJ1Y3QgYnBmX21hcCAqY2dyb3Vw
-X3N0b3JhZ2VfbWFwX2FsbG9jKHVuaW9uIGJwZl9hdHRyICphdHRyKQo+ICB7Cj4gLSAgICAgICBy
-ZXR1cm4gYnBmX2xvY2FsX3N0b3JhZ2VfbWFwX2FsbG9jKGF0dHIsICZjZ3JvdXBfY2FjaGUsIHRy
-dWUpOwo+ICsgICAgICAgcmV0dXJuIGJwZl9sb2NhbF9zdG9yYWdlX21hcF9hbGxvYyhhdHRyLCAm
-Y2dyb3VwX2NhY2hlLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBLTUFMTE9DX05PTE9DS19TVVBQT1JURUQpOwo+ICB9Cj4KPiAgc3RhdGljIHZvaWQgY2dyb3Vw
-X3N0b3JhZ2VfbWFwX2ZyZWUoc3RydWN0IGJwZl9tYXAgKm1hcCkKPiBkaWZmIC0tZ2l0IGEva2Vy
-bmVsL2JwZi9icGZfbG9jYWxfc3RvcmFnZS5jIGIva2VybmVsL2JwZi9icGZfbG9jYWxfc3RvcmFn
-ZS5jCj4gaW5kZXggOWM5NmE0NDc3ZjgxYS4uYTZjMjQwZGE4NzY2OCAxMDA2NDQKPiAtLS0gYS9r
-ZXJuZWwvYnBmL2JwZl9sb2NhbF9zdG9yYWdlLmMKPiArKysgYi9rZXJuZWwvYnBmL2JwZl9sb2Nh
-bF9zdG9yYWdlLmMKPiBAQCAtODkzLDYgKzg5MywxMCBAQCBicGZfbG9jYWxfc3RvcmFnZV9tYXBf
-YWxsb2ModW5pb24gYnBmX2F0dHIgKmF0dHIsCj4gICAgICAgICAvKiBJbiBQUkVFTVBUX1JULCBr
-bWFsbG9jKEdGUF9BVE9NSUMpIGlzIHN0aWxsIG5vdCBzYWZlIGluIG5vbgo+ICAgICAgICAgICog
-cHJlZW1wdGlibGUgY29udGV4dC4gVGh1cywgZW5mb3JjZSBhbGwgc3RvcmFnZXMgdG8gdXNlCj4g
-ICAgICAgICAgKiBrbWFsbG9jX25vbG9jaygpIHdoZW4gQ09ORklHX1BSRUVNUFRfUlQgaXMgZW5h
-YmxlZC4KPiArICAgICAgICAqCj4gKyAgICAgICAgKiBIb3dldmVyLCBrbWFsbG9jX25vbG9jayB3
-b3VsZCBmYWlsIG9uIGFyY2hpdGVjdHVyZXMgdGhhdCBkbyBub3QKPiArICAgICAgICAqIGhhdmUg
-Q01QWENIR19ET1VCTEUuIE9uIHN1Y2ggYXJjaGl0ZWN0dXJlcyB3aXRoIFBSRUVNUFRfUlQsCj4g
-KyAgICAgICAgKiBicGZfbG9jYWxfc3RvcmFnZV9hbGxvYyB3b3VsZCBhbHdheXMgZmFpbC4KPiAg
-ICAgICAgICAqLwo+ICAgICAgICAgc21hcC0+dXNlX2ttYWxsb2Nfbm9sb2NrID0gSVNfRU5BQkxF
-RChDT05GSUdfUFJFRU1QVF9SVCkgPyB0cnVlIDogdXNlX2ttYWxsb2Nfbm9sb2NrOwo+Cj4gZGlm
-ZiAtLWdpdCBhL2tlcm5lbC9icGYvYnBmX3Rhc2tfc3RvcmFnZS5jIGIva2VybmVsL2JwZi9icGZf
-dGFza19zdG9yYWdlLmMKPiBpbmRleCA2MDU1MDY3OTJiNWI0Li42ZTg1OTdlZGVhMzE0IDEwMDY0
-NAo+IC0tLSBhL2tlcm5lbC9icGYvYnBmX3Rhc2tfc3RvcmFnZS5jCj4gKysrIGIva2VybmVsL2Jw
-Zi9icGZfdGFza19zdG9yYWdlLmMKPiBAQCAtMjEyLDcgKzIxMiw4IEBAIHN0YXRpYyBpbnQgbm90
-c3VwcF9nZXRfbmV4dF9rZXkoc3RydWN0IGJwZl9tYXAgKm1hcCwgdm9pZCAqa2V5LCB2b2lkICpu
-ZXh0X2tleSkKPgo+ICBzdGF0aWMgc3RydWN0IGJwZl9tYXAgKnRhc2tfc3RvcmFnZV9tYXBfYWxs
-b2ModW5pb24gYnBmX2F0dHIgKmF0dHIpCj4gIHsKPiAtICAgICAgIHJldHVybiBicGZfbG9jYWxf
-c3RvcmFnZV9tYXBfYWxsb2MoYXR0ciwgJnRhc2tfY2FjaGUsIHRydWUpOwo+ICsgICAgICAgcmV0
-dXJuIGJwZl9sb2NhbF9zdG9yYWdlX21hcF9hbGxvYyhhdHRyLCAmdGFza19jYWNoZSwKPiArICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgS01BTExPQ19OT0xPQ0tfU1VQ
-UE9SVEVEKTsKPiAgfQo+Cj4gIHN0YXRpYyB2b2lkIHRhc2tfc3RvcmFnZV9tYXBfZnJlZShzdHJ1
-Y3QgYnBmX21hcCAqbWFwKQo+Cj4gLS0tCj4gYmFzZS1jb21taXQ6IGUwNmU2YjgwMDEyMzMyNDFl
-YjViMmUyNzkxMTYyZjA1ODVmNTBmNGIKPiBjaGFuZ2UtaWQ6IDIwMjYwMzE0LWJwZi1rbWFsbG9j
-LW5vbG9jay02MGRhODBlNjEzZGUKPgo+IEJlc3QgcmVnYXJkcywKPiAtLQo+IExldmkgWmltIDxy
-c3dvcmt0ZWNoQG91dGxvb2suY29tPgo+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+In subject, s/dwc/ultrarisc/ or whatever tag we're going to use for
+this driver, e.g.,
+
+  PCI: ultrarisc: Add UltraRISC DP1000 PCIe Root Complex driver
+
+On Mon, Mar 16, 2026 at 03:07:00PM +0800, Jia Wang via B4 Relay wrote:
+> From: Xincheng Zhang <zhangxincheng@ultrarisc.com>
+> 
+> Add DP1000 soc PCIe rc driver.
+
+s/soc/SoC/
+s/rc/RC/ or Root Complex (also in subject)
+
+> Signed-off-by: Xincheng Zhang <zhangxincheng@ultrarisc.com>
+> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+> ---
+>  drivers/pci/controller/dwc/Kconfig           |  15 ++
+>  drivers/pci/controller/dwc/Makefile          |   1 +
+>  drivers/pci/controller/dwc/pcie-designware.h |  22 +++
+>  drivers/pci/controller/dwc/pcie-ultrarisc.c  | 202 +++++++++++++++++++++++++++
+>  4 files changed, 240 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> index d0aa031397fa..0a33891bf7ef 100644
+> --- a/drivers/pci/controller/dwc/Kconfig
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -548,4 +548,19 @@ config PCIE_VISCONTI_HOST
+>  	  Say Y here if you want PCIe controller support on Toshiba Visconti SoC.
+>  	  This driver supports TMPV7708 SoC.
+>  
+> +config PCIE_ULTRARISC
+> +	bool "UltraRISC PCIe host controller"
+> +	depends on ARCH_ULTRARISC || COMPILE_TEST
+> +	select PCIE_DW_HOST
+> +	select PCI_MSI
+> +	default y if ARCH_ULTRARISC
+> +	help
+> +	  Enables support for the PCIe controller in the UltraRISC SoC.
+> +	  This driver supports UR-DP1000 SoC. When selected, it automatically
+> +	  enables both `PCIE_DW_HOST` and `PCI_MSI`, ensuring proper support
+> +	  for MSI-based interrupt handling in the PCIe controller.
+
+I don't think the PCIE_DW_HOST and PCI_MSI explanation is relevant for
+Kconfig help.
+
+> +	  By default, this symbol is enabled when `ARCH_ULTRARISC` is active,
+> +	  requiring no further configuration on that platform.
+> +
+> +
+
+Remove spurious blank line.
+
+>  endmenu
+> diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+> index 67ba59c02038..884c46b78e01 100644
+> --- a/drivers/pci/controller/dwc/Makefile
+> +++ b/drivers/pci/controller/dwc/Makefile
+> @@ -38,6 +38,7 @@ obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
+>  obj-$(CONFIG_PCIE_SPACEMIT_K1) += pcie-spacemit-k1.o
+>  obj-$(CONFIG_PCIE_STM32_HOST) += pcie-stm32.o
+>  obj-$(CONFIG_PCIE_STM32_EP) += pcie-stm32-ep.o
+> +obj-$(CONFIG_PCIE_ULTRARISC) += pcie-ultrarisc.o
+>  
+>  # The following drivers are for devices that use the generic ACPI
+>  # pci_root.c driver but don't support standard ECAM config access.
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index ae6389dd9caa..8f2ed86cb5c5 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -69,6 +69,8 @@
+>  
+>  /* Synopsys-specific PCIe configuration registers */
+>  #define PCIE_PORT_FORCE			0x708
+> +/* Bit[7:0] LINK_NUM: Link Number. Not used for endpoint */
+> +#define PORT_LINK_NUM_MASK		GENMASK(7, 0)
+>  #define PORT_FORCE_DO_DESKEW_FOR_SRIS	BIT(23)
+>  
+>  #define PCIE_PORT_AFR			0x70C
+> @@ -96,6 +98,26 @@
+>  #define PCIE_PORT_LANE_SKEW		0x714
+>  #define PORT_LANE_SKEW_INSERT_MASK	GENMASK(23, 0)
+>  
+> +/*
+> + * PCIE_TIMER_CTRL_MAX_FUNC_NUM: Timer Control and Max Function Number Register.
+> + * This register holds the ack frequency, latency, replay, fast link scaling timers,
+> + * and max function number values.
+
+Wrap to fit in 80 columns like the rest of the file.
+
+> + * Bit[30:29] FAST_LINK_SCALING_FACTOR: Fast Link Timer Scaling Factor.
+> + *   0x0 (SF_1024):Scaling Factor is 1024 (1ms is 1us).
+> + *     When the LTSSM is in Config or L12 Entry State, 1ms
+> + *     timer is 2us, 2ms timer is 4us and 3ms timer is 6us.
+> + *   0x1 (SF_256): Scaling Factor is 256 (1ms is 4us)
+> + *   0x2 (SF_64): Scaling Factor is 64 (1ms is 16us)
+> + *   0x3 (SF_16): Scaling Factor is 16 (1ms is 64us)
+> + */
+> +#define PCIE_TIMER_CTRL_MAX_FUNC_NUM    0x718
+> +#define PORT_FLT_SF_MASK    GENMASK(30, 29)
+> +#define PORT_FLT_SF(n)      FIELD_PREP(PORT_FLT_SF_MASK, n)
+> +#define PORT_FLT_SF_1024    PORT_FLT_SF(0x0)
+> +#define PORT_FLT_SF_256     PORT_FLT_SF(0x1)
+> +#define PORT_FLT_SF_64      PORT_FLT_SF(0x2)
+> +#define PORT_FLT_SF_16      PORT_FLT_SF(0x3)
+> +
+>  #define PCIE_PORT_DEBUG0		0x728
+>  #define PORT_LOGIC_LTSSM_STATE_MASK	0x3f
+>  #define PORT_LOGIC_LTSSM_STATE_L0	0x11
+> diff --git a/drivers/pci/controller/dwc/pcie-ultrarisc.c b/drivers/pci/controller/dwc/pcie-ultrarisc.c
+> new file mode 100644
+> index 000000000000..64cbf16d3ff7
+> --- /dev/null
+> +++ b/drivers/pci/controller/dwc/pcie-ultrarisc.c
+> @@ -0,0 +1,202 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * DWC PCIe RC driver for UltraRISC DP1000 SoC
+> + *
+> + * Copyright (C) 2023 UltraRISC
+> + *
+
+Remove spurious blank line.  Maybe you want "(C) 2026"?
+
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/kernel.h>
+> +#include <linux/init.h>
+> +#include <linux/of_device.h>
+> +#include <linux/pci.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/resource.h>
+> +#include <linux/types.h>
+> +#include <linux/regmap.h>
+
+Order alphabetically.
+
+> +#include "pcie-designware.h"
+> +
+> +#define PCIE_CUS_CORE          0x400000
+> +
+> +#define LTSSM_ENABLE           BIT(7)
+> +#define FAST_LINK_MODE         BIT(12)
+> +#define HOLD_PHY_RST           BIT(14)
+> +#define L1SUB_DISABLE          BIT(15)
+> +
+> +struct ultrarisc_pcie {
+> +	struct dw_pcie  *pci;
+
+s/dw_pcie  /dw_pcie / (single space to match irq_mask below)
+
+> +	u32 irq_mask[MAX_MSI_CTRLS];
+> +};
+> +
+> +static const struct of_device_id ultrarisc_pcie_of_match[];
+
+This declaration looks unnecessary.
+
+> +static struct pci_ops ultrarisc_pci_ops = {
+> +	.map_bus = dw_pcie_own_conf_map_bus,
+> +	.read = pci_generic_config_read32,
+> +	.write = pci_generic_config_write32,
+
+I guess this hardware has the defect that it can only do 32-bit
+writes?
+
+> +};
+> +
+> +static int ultrarisc_pcie_host_init(struct dw_pcie_rp *pp)
+> +{
+> +	struct pci_host_bridge *bridge = pp->bridge;
+> +
+> +	/* Set the bus ops */
+
+Drop spurious comment.
+
+> +	bridge->ops = &ultrarisc_pci_ops;
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dw_pcie_host_ops ultrarisc_pcie_host_ops = {
+> +	.init = ultrarisc_pcie_host_init,
+> +};
+> +
+> +static int ultrarisc_pcie_establish_link(struct dw_pcie *pci)
+> +{
+> +	u32 val;
+> +	u8 cap_exp;
+> +
+> +	val = dw_pcie_readl_dbi(pci, PCIE_CUS_CORE);
+> +	val &= ~FAST_LINK_MODE;
+> +	dw_pcie_writel_dbi(pci, PCIE_CUS_CORE, val);
+> +
+> +	val = dw_pcie_readl_dbi(pci, PCIE_TIMER_CTRL_MAX_FUNC_NUM);
+> +	val &= ~PORT_FLT_SF_MASK;
+> +	val |= PORT_FLT_SF_64;
+
+FIELD_MODIFY() here and below.
+
+> +	dw_pcie_writel_dbi(pci, PCIE_TIMER_CTRL_MAX_FUNC_NUM, val);
+> +
+> +	cap_exp = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+> +	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCTL2);
+> +	val &= ~PCI_EXP_LNKCTL2_TLS;
+> +	val |= PCI_EXP_LNKCTL2_TLS_16_0GT;
+> +	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCTL2, val);
+> +
+> +	val = dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
+> +	val &= ~PORT_LINK_NUM_MASK;
+> +	dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
+> +
+> +	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_DEVCTL2);
+> +	val &= ~PCI_EXP_DEVCTL2_COMP_TIMEOUT;
+> +	val |= 0x6;
+> +	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_DEVCTL2, val);
+> +
+> +	val = dw_pcie_readl_dbi(pci, PCIE_CUS_CORE);
+> +	val &= ~(HOLD_PHY_RST | L1SUB_DISABLE);
+> +	val |= LTSSM_ENABLE;
+> +	dw_pcie_writel_dbi(pci, PCIE_CUS_CORE, val);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dw_pcie_ops dw_pcie_ops = {
+> +	.start_link = ultrarisc_pcie_establish_link,
+
+s/ultrarisc_pcie_establish_link/ultrarisc_pcie_start_link/
+to match member name and other drivers.
+
+> +};
+> +
+> +static int ultrarisc_pcie_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct ultrarisc_pcie *ultrarisc_pcie;
+
+"ultrarisc_pcie" is a pretty long name that will be used for
+parameters when you add more functionality.  Several drivers just use
+"pcie", some use the equivalent of "ultrarisc", etc.
+
+> +	struct dw_pcie *pci;
+> +	struct dw_pcie_rp *pp;
+> +	int ret;
+> +
+> +	ultrarisc_pcie = devm_kzalloc(dev, sizeof(*ultrarisc_pcie), GFP_KERNEL);
+> +	if (!ultrarisc_pcie)
+> +		return -ENOMEM;
+> +
+> +	pci = devm_kzalloc(dev, sizeof(*pci), GFP_KERNEL);
+> +	if (!pci)
+> +		return -ENOMEM;
+> +
+> +	pci->dev = dev;
+> +	pci->ops = &dw_pcie_ops;
+> +
+> +	/* Set a default value suitable for at most 16 in and 16 out windows */
+> +	pci->atu_size = SZ_8K;
+> +
+> +	ultrarisc_pcie->pci = pci;
+> +
+> +	pp = &pci->pp;
+> +
+> +	platform_set_drvdata(pdev, ultrarisc_pcie);
+> +
+> +	pp->irq = platform_get_irq(pdev, 1);
+> +	if (pp->irq < 0)
+> +		return pp->irq;
+> +
+> +	pp->num_vectors = MAX_MSI_IRQS;
+> +	pp->ops = &ultrarisc_pcie_host_ops;
+> +
+> +	ret = dw_pcie_host_init(pp);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to initialize host\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int ultrarisc_pcie_suspend(struct platform_device *pdev, pm_message_t state)
+
+If you use generic power management, this will be:
+
+  static int ultrarisc_pcie_suspend(struct device *dev)
+
+> +{
+> +	struct ultrarisc_pcie *ultrarisc_pcie = platform_get_drvdata(pdev);
+> +	struct dw_pcie *pci = ultrarisc_pcie->pci;
+> +	struct dw_pcie_rp *pp = &pci->pp;
+> +	int num_ctrls = pp->num_vectors / MAX_MSI_IRQS_PER_CTRL;
+> +	unsigned long flags;
+> +	int ctrl;
+> +
+> +	raw_spin_lock_irqsave(&pp->lock, flags);
+> +
+> +	for (ctrl = 0; ctrl < num_ctrls; ctrl++)
+> +		ultrarisc_pcie->irq_mask[ctrl] = pp->irq_mask[ctrl];
+> +
+> +	raw_spin_unlock_irqrestore(&pp->lock, flags);
+> +
+> +	return 0;
+> +}
+> +
+> +static int ultrarisc_pcie_resume(struct platform_device *pdev)
+> +{
+> +	struct ultrarisc_pcie *ultrarisc_pcie = platform_get_drvdata(pdev);
+> +	struct dw_pcie *pci = ultrarisc_pcie->pci;
+> +	struct dw_pcie_rp *pp = &pci->pp;
+> +	int num_ctrls = pp->num_vectors / MAX_MSI_IRQS_PER_CTRL;
+> +	unsigned long flags;
+> +	int ctrl;
+> +
+> +	raw_spin_lock_irqsave(&pp->lock, flags);
+> +
+> +	for (ctrl = 0; ctrl < num_ctrls; ctrl++) {
+> +		pp->irq_mask[ctrl] = ultrarisc_pcie->irq_mask[ctrl];
+> +		dw_pcie_writel_dbi(pci,
+> +				   PCIE_MSI_INTR0_MASK +
+> +				   ctrl * MSI_REG_CTRL_BLOCK_SIZE,
+> +				   pp->irq_mask[ctrl]);
+> +	}
+> +
+> +	raw_spin_unlock_irqrestore(&pp->lock, flags);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id ultrarisc_pcie_of_match[] = {
+> +	{
+> +		.compatible = "ultrarisc,dp1000-pcie",
+> +	},
+> +	{},
+> +};
+> +
+> +static struct platform_driver ultrarisc_pcie_driver = {
+> +	.driver = {
+> +		.name	= "ultrarisc-pcie",
+> +		.of_match_table = ultrarisc_pcie_of_match,
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe = ultrarisc_pcie_probe,
+> +	.suspend = ultrarisc_pcie_suspend,
+> +	.resume = ultrarisc_pcie_resume,
+
+Use generic driver PM instead of the platform_driver.suspend/resume.
+
+> +};
+> +builtin_platform_driver(ultrarisc_pcie_driver);
+> 
+> -- 
+> 2.34.1
+> 
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
