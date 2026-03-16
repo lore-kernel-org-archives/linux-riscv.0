@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF9BF53D6E
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 16:31:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B89F53D6E
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 16:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WzAtJVmCrYmVSzPmusbSqXqFLBrbH/m/x/lbndQ02/c=; b=A7XiGkB6AdEVy2
-	+L0yDMX0OO4M7d/w23v+/xRnEA9ntj15F7bqwmMcgeRsjg1aymvOv/+/ra38PkodLSHZUKKmXE5DM
-	a94/jfS3IzX2C9Ztl/+3DAHLMff0qUK6s7LspLuBbhtLo9nWDuQfXZzjljHPHxyTYmALueRclXzQP
-	EQaHZ/JyjWumUihtpUoF0Ll/iJkLORPanU94bT+Pg3mEpexNVacxlAKOMXc9Db3orQlOZqikX5lFS
-	uo21Nx3ofC31IkJap6IhULlyusmkYHMpJp8UK/WCk9YbwuC3Zp8IajyhtTXN1fD9h7aCxpFCjwHGc
-	xy3erouPBhJl7dzrR7vg==;
+	List-Owner; bh=0bjCOfAZTSDnBM553umEchBtw9eAPVGzZH6NRwruNFY=; b=j0faZ9OHaZakaH
+	Jy8u3c5ZWHBoWz1Cr9RNr8i/HJza33LmgDuiGRgeh/5+dneyI964et/WNVST0am3vMwmjlTCteU2M
+	FpSdaGR6CridH9NwfKL9/eTHH2kRXJ6yOaITSLOOwOWm9bC5ncMbQ5aDbFeMkEM7FHDXooQV3JRGv
+	eAQZkCeU+x5xzXYbbjClqzxg7eMlxyp26gGshO4afmGrdDQtLE2CHeUkMlG99iDSRV/2ANwxVXIg8
+	reXFj5HPeazCiZxo6u9Dk1135aMWfgM43+Het69RnT/PufM/x6lIG4zM9ibhKFVKDZ+yWWefVVHfo
+	a0EtLlgO6gykV5aleHAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AqM-00000004SQQ-1dgX;
-	Mon, 16 Mar 2026 16:31:02 +0000
+	id 1w2ArC-00000004SYL-0LwX;
+	Mon, 16 Mar 2026 16:31:54 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AqJ-00000004SQ7-2tIZ
+	id 1w2Ar9-00000004SXi-2K49
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 16:31:00 +0000
+	Mon, 16 Mar 2026 16:31:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3CED5441B8;
-	Mon, 16 Mar 2026 16:30:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 961D6C19421;
-	Mon, 16 Mar 2026 16:30:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 27CFA403CA;
+	Mon, 16 Mar 2026 16:31:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D00A0C19421;
+	Mon, 16 Mar 2026 16:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773678658;
-	bh=CvqhlbZ6pZRpmgYEengTiRdk2wqsmPtfd4AlTRX6XAQ=;
+	s=k20201202; t=1773678711;
+	bh=9tTGJ8xmnCXmNkktqRH7NLuhVDHU2e7HFmvsJCGcDrU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lS0PsNXH9/7mKjFbl7P6BYXKU5yTyrWNZZgvFNT4ECWzUajz0KDb7gPKpFteZGR3F
-	 xd0gnK4HNCVXh9YpkBomXUnaGgldp1N6Rgf8QdFarxvNkGe6W4L9e0UWPDkWcrgBr1
-	 6YbftjhWSFs9ocW1Ak31uKAKbdPErLg7x9IGs6ryGTEwqny4xCRIi4C/M2iZOLX0ld
-	 I1hCgyfHQGxJk+lopAMeHCpqY1kTYSNWnOxYeXL0B+8TZ2oztbYTDOeXzuT/AbE3Cm
-	 JWAojxIDMDmnmBOnAWUQ41bnzyxd/N0ZFQOzZW7WR9rTWTsLFwV9NPP46L9zsQ+dsN
-	 2Uz8Da6DiL9bA==
-Message-ID: <02c62e7b-9ece-4334-8312-52d635dc6171@kernel.org>
-Date: Mon, 16 Mar 2026 17:30:48 +0100
+	b=Bk9S8whDQdEnqW8ivoY5HX7nZMwZc0L9+aRbd+FeNHoZjTq+j8OGcarcdrT1AG40R
+	 nrrLY+QC/TTcjOUasLpldywlhcZfBWmtht15G8LlwCB1WxLv9OxwvdpkbqX+76nI1I
+	 sjvnlEzt04Qkv3r0ZYl8hjOEgyqvC6kkELiiNLPbY6SLuXv+CRpoEZR+raUtV3KMhR
+	 Znw5eCXl0BfAnswB60wy+5Uz6imrsnGy/LwDqJ8f8LzRBAESWl09x1ti+wwAfQymsm
+	 jiLUPufNOanffV04CImNSB8s8lrBQUPEk8IeHdtQzKWkUwe3ttFiz+MU8LxWna40I/
+	 wUcm3gK29qIWQ==
+Message-ID: <488499f2-3e3f-4377-bc28-40ff7f5166ec@kernel.org>
+Date: Mon, 16 Mar 2026 17:31:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv7 05/18] riscv/mm: Align vmemmap to maximal folio size
+Subject: Re: [PATCHv7 06/18] LoongArch/mm: Align vmemmap to maximal folio size
 To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -63,7 +63,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260227194302.274384-1-kas@kernel.org>
- <20260227194302.274384-6-kas@kernel.org>
+ <20260227194302.274384-7-kas@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -110,9 +110,9 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260227194302.274384-6-kas@kernel.org>
+In-Reply-To: <20260227194302.274384-7-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_093059_800424_4FA332D2 
+X-CRM114-CacheID: sfid-20260316_093151_636146_40CE82E1 
 X-CRM114-Status: UNSURE (   6.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -138,7 +138,7 @@ On 2/27/26 20:42, Kiryl Shutsemau (Meta) wrote:
 > struct pages of the head page to be naturally aligned with regard to the
 > folio size.
 > 
-> Align vmemmap to the newly introduced MAX_FOLIO_VMEMMAP_ALIGN.
+> Align vmemmap to MAX_FOLIO_VMEMMAP_ALIGN.
 > 
 > Signed-off-by: Kiryl Shutsemau <kas@kernel.org>
 > ---
