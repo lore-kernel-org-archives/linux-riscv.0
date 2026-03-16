@@ -4,91 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47AD1F506CF
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 13:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AFDF506D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 14:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TRdb69Jfb9saVG+uUDAnSFBzzulaxdSV8obsTIdj8po=; b=n+XVvB96eBqmtL
-	JRiMTSWp+5ZcEU/JEHM6pngkZdPK2lnHuw3fno0ja6TknKixVmhyG2/w75V70Ez+XC5J2Jj8Ak5qZ
-	dTie490pRxT+FU7/8eQd6ONICT61I2QXUvpwFsvjlatPswF8BrDYV0q1NVvMWiiVdF2vW21inoT6B
-	xA0PEzU0CGeBnOsBOA2JI7ARA1j3CFSobEuc1HjvpAvmNwjFE5Qizj+O+h3fLon3oQcFz3QeXdQHa
-	B5GwXvW4nC1WvHVMe8BkBJF7O0aZL/v1LFabmkHUlXzttanwmnNWzL9Y1QMHxIy153DUlcOntT0ca
-	xKdTHsvOs6L4qQhMu9tA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HqkDxo0OxaFxqA7H39YyYEaFbL5lVBQmqA64+zIn4L0=; b=kcTOCJsBqsOFY+
+	K6GNugknRFMIbJ3ojtrVOCW4XVHMRicqhtfvjLMYuW8m0aWlEm7eOrvcj5crDV61a3TfcS9chV0gV
+	btGwLTM8pYQ6rLCoS6oIaRRqTin9WaonJNrvSjpTx/9E7A5dQDgu3Pb7abji8cnx9ajhWz8dsUWX5
+	/Iez8pr7EUfVbZNm/lgkKnftxJIICnNUBKKtGzSiEipW3/2+AkF0D2j/SmHhTsier9li1x2OSF92A
+	asQ6cfGbFimTJ7rEPdYfF5M73RL1/zF8AqlPYg+hCj+2jBWlilRLqoKqqxiScpHBz/23GGrC6TJTy
+	2MZw8r+tW2Zn/LAdFfLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27rK-000000043vv-0RH1;
-	Mon, 16 Mar 2026 13:19:50 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1w28fZ-000000048va-1dZk;
+	Mon, 16 Mar 2026 14:11:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27rH-000000043vD-0SlD
+	id 1w28fX-000000048uo-3Dl1
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 16 Mar 2026 14:11:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=OdoEqGGjgbvJGV3XvDqNqAu8aItRm8RFqY326SKUvHs=; b=mV2yJS60/77TpdacMualldIPTX
+	eLHDsbGhuC5GBJ//LDu7NMctByXLV5k7yMLXAICj3JtwWBoJw8Eh1VJv78LYadF0F/sDuGkjpeOhe
+	hfLGk8b7WKTbem0IXCFVRIoKDSdlOsSWwECH9WTckY1txg9uabpj7tbh02hxED//mNDeLYhyhKh1O
+	x5gTNKgIpLZGIZEISWbU4wgk/xb8JpgBF+urB5yIZK0PTexNGMSz8UJxg6LjMYwx7ocKKcR2D0ywQ
+	eYckgG/T40tz9kEkglxVjQBBcBfu9s6+OJkUbxTl5QeCoUGySNOgSJqwcdEiuoY3kClR/jBsCr3SF
+	FTDk+KrA==;
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w28YT-00000006tcO-2Riw
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 13:19:48 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-466f935a82fso2963011b6e.0
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 06:19:46 -0700 (PDT)
+	Mon, 16 Mar 2026 14:04:27 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48374014a77so47613285e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 07:04:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1773667185; x=1774271985; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=fcUQdthu3w3MmzOBiSvMw8yvWhLEb2QVxffY5zYz7z0=;
-        b=fg6g2P3rPjyx+HZ6CANbvu9XgQ7MHJiidU8ktP/C5QaDrVAHm7Hr7F+kzXAG1ge5ux
-         6MqbPEWj4pixUmJ+vRpXu4OBIhWOLkPL6u1IN75WQk9hOfLsC3Fya5+RB3ZhEHL2khPA
-         dL/b4epW1Rxm1PTQ/gL470r3ej8p76o2Mw3untNjUN+0BnyLm/2gbNwixYmM/KSpcljg
-         o1Sm09Xhav8tPCoriLZCKANB7/iOIcREmcxg8gShiHvr1Pj+zX5wQ1tVWzKvzT/4U7+x
-         xE+OY8gqAzEuj8gHqfo/dGTIlSF+sNjLwLaglfyhKoMH/lcU3UQP7JeOCbHPoQ52NEMA
-         JLcQ==
+        d=gmail.com; s=20230601; t=1773669863; x=1774274663; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OdoEqGGjgbvJGV3XvDqNqAu8aItRm8RFqY326SKUvHs=;
+        b=lhavkSt285AG0agfy6A+oIzmIpGS3UUovgyZrjI8PIx3BDM6YAP3rMsyrSVY5o0l2k
+         qUHRv2A78j0SCmhlaiHf28rmRv9tkFiGifARlPJze4UHvR51o1xEITQjEqHS4klkmVy1
+         qcMrmqI/aft+YigB5xHH6hlzMb3mHMERHh70OEDpr2GkdizdrjnVn69qU4S6DJRh1ptx
+         HVeQvCd8m+z82fa+3cm5g/XFO0SamaEKuGhpqtUVr5llp/UhzFcRcLNHzN5r6JL6yKvz
+         5TtyO6HcVKJsLoCOIXouHjM+AeMtMdpzHvGC3xGUiKZ6qcITODZmTlAvmyefgzdhEP7I
+         rwjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773667185; x=1774271985;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fcUQdthu3w3MmzOBiSvMw8yvWhLEb2QVxffY5zYz7z0=;
-        b=O1NEhXOcJlyOQZO29vrkiGB/XODVKzbDeGTANx0G4x0cTYi0FQm/pE+SZWGU5YxwDJ
-         H+CKVS1qqOg6l+6D1JbTHIGISZ/HtdBVr5qhEhc9wOrq1tnDH11tgKUX/KXL+gSXXyBe
-         w39YIZ54W/3kHhFyqFdYqXFDaspruC95eizNi/V2fKArOM8xTPdWgnO9I2788Gq07VXs
-         JAigMNewj0TaFKOfDFvq2oEkKS8hZ6Nal3VKTR7AdfXmbnysNNIB9znIPi9KBgkjF1aj
-         O1rLhiyHk3MxTuZIEiM3DOqvV6Y8AHcx4TlGxu9N6YU9iJYTWL2mZK2o4/VHJK9RMN1+
-         5r6Q==
-X-Gm-Message-State: AOJu0YylNNj1ucBsJK5iCkj3kqsY03LWDtHwShtIb7Zq+XTzs2TqP2a/
-	sQeDn5c7RyifICM8Gzm/ymHAhl55oNW0uXbgOiNkR18F5eTQAYkqmD5+m1xXM18lsp0=
-X-Gm-Gg: ATEYQzxtwmaoPyp9Ygj8crmN+OzsjpVr6kb7r2e7YhA+1GUyUAAe7F4Jc0T2pwvDjoh
-	VbllWkMBKsd1RouWwfMgXXHzVE17VDCKFt0mCk2VGwpPOCEPHBuYF7v90kRT1GrfgfAZSs+lMTl
-	gkbevRWNeCf4IxbbiCQWQr393LvGWei7xYoc42FtmWPE9HRBlu0pSxd8qr+sef2Sej96Bg9v2gL
-	F4W9v5hretSeqhFLrkvoDbZFBTsLOjI+UBIaqSauwDoFgRzinTWR79ooLmcli5hLNtqg7Ktc8DR
-	h91/F5FGS2Ne5RVT3P0piSX8AbyMZ7bIqGiP/xydr7AT1Qw4fJZciIdojwbBysMUXkyCU1u9Oe6
-	PmbfbMlGsNSXcywrNdr/kDjFiRyxZjBY/Vbxr1Hk7FLJc4Z3HcZr9K9mf00OJLSPu68LANVOfTA
-	Md2fxoWqu3e1Pti1AQzm0pBGBEYmuHRqEIE3RuGnD9
-X-Received: by 2002:a05:6808:a596:20b0:467:1ad3:7ee with SMTP id 5614622812f47-4675753157fmr5424703b6e.40.1773667185289;
-        Mon, 16 Mar 2026 06:19:45 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.103.33])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-46734164245sm9151715b6e.8.2026.03.16.06.19.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2026 06:19:44 -0700 (PDT)
-Message-ID: <c1f466f8-4e76-43a2-a7a2-126415fd1f56@sifive.com>
-Date: Mon, 16 Mar 2026 08:19:44 -0500
+        d=1e100.net; s=20251104; t=1773669863; x=1774274663;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OdoEqGGjgbvJGV3XvDqNqAu8aItRm8RFqY326SKUvHs=;
+        b=Ga4P8ArVMo1vAq8S11z7Z9mIi0W9v3QE0FTRZhFh4xZAO+xJw+FAnmd4zIqCbwvCLR
+         SoQiA9ZMcnhe3oRB/8Nhr4uWC1uhX+Q0RFaZ1L2N/wOuqBLava+tmb9jQXMRmfCsFJ9d
+         IJxf7uHRQRwu+/5TWU8SEKuY4bZ19zScfGcLR4Etmgo+e52GEwAasuUvSKf4/RtBqtfN
+         lvf9exqby2b6rHDV6rP0RRuj2Qfox9LEjvlPIcIO2dYygRJJExPAs7T272K+Kk0U10Us
+         1NjmiGdq3wk2o+5JBTBFmYLNsDnHymAxvPZiqNkLhGe28D9cpqEdxogF40EY4rajeY2y
+         0gaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXVRCCoJ0iYLQvhdj0pk9oCNquUGfAv1MGEtx51+mvGONRGg/LkFchYSzwrhycEpdkYWm9qHkatRmCwbA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMIP1RZv5GPfnSRnJEHZwJll5esmuDq2MMBEETaiV58pY0zGe6
+	EnYmxw6aHeZVgWn0pqT9G6f5eH7xJsOlo5fpLQQLbv9a8oJQ3Tltz9KH
+X-Gm-Gg: ATEYQzzl4xq+BBKenXJpGvsiaa5wczNsrWzVno42fLOCZI9FJgDbD0ML6lBvQ29YBCy
+	7Qm3/Q2ZsxcgooSluv2LIJ7/xbjebOIzdZ0WSyru9tTYhQGsIR8KKLClCYYuQCKhJkumVJ/PHwS
+	PAmT5pTRmj2Iml/cYeV4aKUs221BQWyfBcUqsFU+HrumhMQrb+RT3eGh2Ra8PnS+BjAz6jquvCO
+	5B1V2GAspwSeUKah7NCA/Tt8C69OFuBUaF6lp8iIgXnOHHwQwSTf/+u4l+s/HlLW8nH6rU77gTE
+	JlbVc7LBa8jEBVrFluUMhwsEb6Vf/AozMYJiMfB9cy70b8Zx8VfziInrMt+6dT28RyrwIROHzeq
+	fUu1CWXOFQhXpTkUatr8x3M6angW8Ivv4svcYpTJPZnApba0uBSBgMLQtBe+JPGgesTfOHPdSdF
+	hCB14YNARqcFrecy5Pn5cSLoUGzg7MVkC6s3CiJUnd/JZk8wUuYv4nOcTSmPxPtRnS
+X-Received: by 2002:a05:600c:1988:b0:485:3f58:d84 with SMTP id 5b1f17b1804b1-4855a8d6fd7mr204197625e9.32.1773669863067;
+        Mon, 16 Mar 2026 07:04:23 -0700 (PDT)
+Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.234.31])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b3a09e453sm20698725f8f.0.2026.03.16.07.04.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Mar 2026 07:04:21 -0700 (PDT)
+From: Iker Pedrosa <ikerpedrosam@gmail.com>
+Subject: [PATCH v3 0/7] riscv: spacemit: enable SD card support with UHS
+ modes for OrangePi RV2
+Date: Mon, 16 Mar 2026 15:03:28 +0100
+Message-Id: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC] riscv: disable local interrupts and stop other CPUs
- before restart
-To: Troy Mitchell <troy.mitchell@linux.dev>,
- Vivian Wang <wangruikang@iscas.ac.cn>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev>
- <f9079774-1d16-4b84-bf85-bc8444e93446@iscas.ac.cn>
- <DH40Z14EHV40.1I443BTRU720F@linux.dev>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <DH40Z14EHV40.1I443BTRU720F@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNyw6CMBCF4VchXVszTOVSV76HcUEvwCRCSauNh
+ vDuFtyw0OV/kvlmZsF6soGds5l5GymQG1OIQ8Z034yd5WRSMwQsAbHkzq/rRDwYrhtv+LMPHKx
+ WUNRCKtAsnU7etvTa2OstdU/h4fx7+xLzdf2CAvA3GHMOvJYacykroUFfuqGh+1G7ga1gxD0i/
+ yCYkEIpVEV1Mm1h9siyLB/zujKG/QAAAA==
+X-Change-ID: 20260226-orangepi-sd-card-uhs-0ecb05839b0c
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Yixun Lan <dlan@kernel.org>, Yixun Lan <dlan@kernel.org>
+Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+ Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Iker Pedrosa <ikerpedrosam@gmail.com>, Anand Moon <linux.amoon@gmail.com>, 
+ Trevor Gamblin <tgamblin@baylibre.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_061947_202031_E281F1C9 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260316_140425_741294_32007593 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,71 +126,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+This series enables complete SD card support for the Spacemit K1-based
+OrangePi RV2 board, including UHS (Ultra High Speed) modes for
+high-performance SD card operation.
 
-On 2026-03-16 2:23 AM, Troy Mitchell wrote:
-> On Thu Mar 12, 2026 at 11:05 AM CST, Vivian Wang wrote:
->> On 3/11/26 10:51, Troy Mitchell wrote:
->>> Currently, the RISC-V implementation of machine_restart() directly calls
->>> do_kernel_restart() without disabling local interrupts or stopping other
->>> CPUs. This missing architectural setup causes fatal issues for systems
->>> that rely on external peripherals (e.g., I2C PMICs) to execute the system
->>> restart when CONFIG_PREEMPT_RCU is enabled.
->>>
->>> When a restart handler relies on the I2C subsystem, the I2C core checks
->>> i2c_in_atomic_xfer_mode() to decide whether to use the sleepable xfer
->>> or the polling atomic_xfer. This check evaluates to true if
->>> (!preemptible() || irqs_disabled()).
->>>
->>> During do_kernel_restart(), the restart handlers are invoked via
->>> atomic_notifier_call_chain(), which holds an RCU read lock.
->>> The behavior diverges based on the preemption model:
->>> 1. Under CONFIG_PREEMPT_VOLUNTARY or CONFIG_PREEMPT_NONE, rcu_read_lock()
->>>    implicitly disables preemption. preemptible() evaluates to false, and
->>>    the I2C core correctly routes to the atomic, polling transfer path.
->>> 2. Under CONFIG_PREEMPT_RCU, rcu_read_lock() does NOT disable preemption.
->>>    Since machine_restart() left local interrupts enabled, irqs_disabled()
->>>    is false, and preempt_count is 0. Consequently, preemptible() evaluates
->>>    to true.
->>>
->>> As a result, the I2C core falsely assumes a sleepable context and routes
->>> the transfer to the standard master_xfer path. This inevitably triggers a
->>> schedule() call while holding the RCU read lock, resulting in a fatal splat:
->>> "Voluntary context switch within RCU read-side critical section!" and
->>> a system hang.
->>>
->>> Align RISC-V with other major architectures (e.g., ARM64) by adding
->>> local_irq_disable() and smp_send_stop() to machine_restart().
->>> - local_irq_disable() guarantees a strict atomic context, forcing sub-
->>>   systems like I2C to always fall back to polling mode.
->>> - smp_send_stop() ensures exclusive hardware access by quiescing other
->>>   CPUs, preventing them from holding bus locks (e.g., I2C spinlocks)
->>>   during the final restart phase.
->>
->> Maybe while we're at it, we can fix the other functions in this file as
->> well?
-> Nice catch. I'll fix other functions in the next version.
->>
->> I think the reason we ended up with the "unsafe" implementations of the
->> reboot/shutdown functions is that on the backend it is usually SBI SRST
->> calls, which can protect itself from other CPUs and interrupts. Since on
->> K1 we're going to be poking I2C directly, we run into the problem
->> described above. So all of these should disable interrupts and stop
->> other CPUs before calling the handlers, and can't assume the handlers
->> are all SBI SRST.
-> Yes, we cannot assume that all platforms rely on this.
+Background
 
-Why isn't K1 using the SBI SRST extension? Resetting the platform from S-mode
-directly causes problems if you ever want to run another supervisor domain (for
-example a TEE or EFI runtime services), which may need to clean up before a
-system reset.
+The Spacemit K1 SoC includes an SDHCI controller capable of supporting
+SD cards up to UHS-I speeds (SDR104 at 208MHz). However, mainline
+currently lacks basic SD controller configuration, SDHCI driver
+enhancements for voltage switching and tuning, and power management
+infrastructure.
 
-As you mention, other platforms use the standard SBI SRST interface, event if
-they need to poke a PMIC to perform a system reset. Is there something
-preventing K1 from following this path?
+Implementation
 
-Regards,
-Samuel
+The series enables SD card support through coordinated layers:
+
+- Hardware infrastructure (patches 1-2): Device tree bindings for voltage
+switching hardware and essential clock infrastructure.
+- SDHCI driver enhancements (patches 3-7): Regulator framework
+integration, pinctrl state switching for voltage domains, AIB register
+programming, and comprehensive SDR tuning support for reliable UHS
+operation.
+- SoC and board integration (patches 8-10): Complete K1 SoC controller
+definitions, PMIC power infrastructure, and OrangePi RV2 board enablement
+with full UHS support.
+
+This transforms the OrangePi RV2 from having no SD card support to full
+UHS-I capability, enabling high-performance storage up to 208MHz.
+
+Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+---
+Changes in v3:
+- Rebase on mmc.git/next to resolve conflicts with "mmc: sdhci-of-k1:
+  add reset support" patch.
+- Squash tuning infrastructure and implementation patches (3 and 4)      
+  together to form complete functionality and avoid unused function      
+  warnings.
+- Reduce code nesting: implemented an early return sanity check in
+  spacemit_sdhci_voltage_switch() to reduce indentation and improve
+  logic flow.
+- Refactor pinctrl initialization: moved pinctrl resource acquisition    
+  and state lookup into a dedicated helper function,                     
+  spacemit_sdhci_get_pins().
+- Use generic regulator node names (buck4, aldo1) instead of             
+  device-specific aliases (sd_vmmc, sd_vqmmc) to better reflect that     
+  these PMIC outputs serve multiple devices.
+- Remove dead code handling 3.3V voltage switching from
+  spacemit_sdhci_voltage_switch().
+- Optimize tuning algorithm to use single-pass window detection instead
+  of storing results in array, reducing memory usage and complexity.
+- Remove unnecessary card detect check in execute_tuning() - rely on MMC
+  core.
+- Clarify commit message to mention both SD (UHS-I) and eMMC (HS200)
+  tuning support.
+- Add SD card support for Banana Pi BPI-F3 board with UHS-I capabilities
+  following the same pattern as OrangePi RV2.
+- Link to v2: https://lore.kernel.org/r/20260309-orangepi-sd-card-uhs-v2-0-5bb2b574df5d@gmail.com
+
+Changes in v2:
+- Removed custom AIB voltage switching code per maintainer feedback. The
+  existing pinctrl driver already handles AIB voltage switching
+  automatically via power-source property changes during UHS mode
+  transitions. This eliminates code duplication.
+- Squashed regulator and pinctrl commits into single voltage switching
+  implementation.
+- Moved voltage switching callback from dynamic probe assignment to
+  static sdhci_ops declaration. Removed redundant SDHCI core call since
+  the framework handles standard voltage switching automatically.
+- Made clock override (SDHC_OVRRD_CLK_OEN | SDHC_FORCE_CLK_ON)
+  conditional for SD/SDIO cards only. This follows vendor driver pattern
+  of differentiating SD and eMMC card handling.
+- Include no-mmc property for SD card.
+- Link to v1: https://lore.kernel.org/r/20260302-orangepi-sd-card-uhs-v1-0-89c219973c0c@gmail.com
+
+---
+Iker Pedrosa (7):
+      mmc: sdhci-of-k1: enable essential clock infrastructure for SD operation
+      mmc: sdhci-of-k1: add regulator and pinctrl voltage switching support
+      mmc: sdhci-of-k1: add comprehensive SDR tuning support
+      riscv: dts: spacemit: k1: add SD card controller and pinctrl support
+      riscv: dts: spacemit: k1-orangepi-rv2: add PMIC and power infrastructure
+      riscv: dts: spacemit: k1-orangepi-rv2: add SD card support with UHS modes
+      riscv: dts: spacemit: k1-bananapi-f3: add SD card support with UHS modes
+
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts  |  23 ++-
+ arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts |  67 +++++++
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi     |  40 ++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi             |  13 ++
+ drivers/mmc/host/sdhci-of-k1.c                   | 243 +++++++++++++++++++++++
+ 5 files changed, 384 insertions(+), 2 deletions(-)
+---
+base-commit: f38f518dda1f1decc7a39556fe3231b0d1b84e1e
+change-id: 20260226-orangepi-sd-card-uhs-0ecb05839b0c
+
+Best regards,
+-- 
+Iker Pedrosa <ikerpedrosam@gmail.com>
 
 
 _______________________________________________
