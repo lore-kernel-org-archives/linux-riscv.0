@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F32F30297
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 01:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D705AF30297
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 01:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4lMn2/pxrY2qKlSlTDlJmfUlKIHcjzyn79tUnw9m/EM=; b=ONWGJgT4FdkgEB
-	gvmKLjj4rAezWQwD185A0sEXxLgA5vEEpi6BwzXRMdRQbzi46ZpZ7qvlQfOJ8nCR4pLZLerqeRlGb
-	Yf7dGLjuChojBkEbE5cQDR0Xcsf1AmACrXpsB8NzuNbZSZIV0oKIo/5rzgxAV89v/jk1FAvUNd7xw
-	qOsh+GI3DfP2QvYA5gO0I+R6e9Co+jqaoDxk5hyu3Lg00vP+plc819rqJ3IcMWzkysBr5r9zPEfHP
-	Y7lj4mNNmNv4DDpvbLPI8zFPR4LW+bdazJ+qRQ7sLN+6G/rjenDfSBpyLtPDJ5xZs17xQafQXr26f
-	dDnyfRH72dNMDZENFrxQ==;
+	List-Owner; bh=WJ5VdRwgtha8vbgXYUTN5ELJwAHU3vx7zFIjs5xB5eA=; b=c5rdBwvQdb9KNM
+	eZhf430+hiOJVMyWbWBPYx77UOS/dhQ7MvxKG5ZjickykeGNT9BhVhaRzI8U0xdpbfHWsr7fl9+GZ
+	y1sumHFEbKVT9/Cb7de8Q/LsnCObj6ZKMa2y5FNVezsXOsGHFjz7UlH0fakYLwM89IrBpj7YMgzFn
+	e+8XYKfDuTYw62opKSMZc5nTVizecC1QOKZB5rZsWkaxn5DPYextAR96eIUjTTap6UiYOqQOoo/t1
+	kog3MX55Nh15hzuen40zStZP+e6y5USqcxduH4GZF+RxcH62hrZU4+E/4Il6hW6XlRcj1MfxZOMRR
+	K3qO2FS7FCd4EsZ/Y3yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wwU-000000037qM-3VrH;
-	Mon, 16 Mar 2026 01:40:26 +0000
-Received: from smtp17.cstnet.cn ([159.226.251.17] helo=cstnet.cn)
+	id 1w1wwi-000000037ui-3ToW;
+	Mon, 16 Mar 2026 01:40:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wwN-000000037kf-1AXV;
-	Mon, 16 Mar 2026 01:40:22 +0000
-Received: from xujiakai2025$iscas.ac.cn ( [210.73.43.101] ) by
- ajax-webmail-APP-09 (Coremail) ; Mon, 16 Mar 2026 09:39:34 +0800
- (GMT+08:00)
-X-Originating-IP: [210.73.43.101]
-Date: Mon, 16 Mar 2026 09:39:34 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: "Jiakai Xu" <xujiakai2025@iscas.ac.cn>
-To: "Nutty.Liu" <nutty.liu@hotmail.com>
-Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, "Albert Ou" <aou@eecs.berkeley.edu>, 
-	"Alexandre Ghiti" <alex@ghiti.fr>, 
-	"Andrew Jones" <ajones@ventanamicro.com>, 
-	"Anup Patel" <anup@brainfault.org>, 
-	"Atish Patra" <atish.patra@linux.dev>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Paolo Bonzini" <pbonzini@redhat.com>, 
-	"Paul Walmsley" <pjw@kernel.org>, "Shuah Khan" <shuah@kernel.org>, 
-	"Jiakai Xu" <jiakaiPeanut@gmail.com>
-Subject: Re: Re: [PATCH v3 2/2] RISC-V: KVM: selftests: Fix firmware counter
- read in sbi_pmu_test
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.1-cmXT5 build
- 20240627(e6c6db66) Copyright (c) 2002-2026 www.mailtech.cn cnic.cn
-In-Reply-To: <SE3PR04MB892267C1A570CF03E870BAADF345A@SE3PR04MB8922.apcprd04.prod.outlook.com>
-References: <20260310055557.835531-1-xujiakai2025@iscas.ac.cn>
- <20260310055557.835531-3-xujiakai2025@iscas.ac.cn>
- <SE3PR04MB892267C1A570CF03E870BAADF345A@SE3PR04MB8922.apcprd04.prod.outlook.com>
+	id 1w1wwh-000000037u3-2NNM
+	for linux-riscv@lists.infradead.org;
+	Mon, 16 Mar 2026 01:40:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 758B9600AE;
+	Mon, 16 Mar 2026 01:40:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D52A9C4CEF7;
+	Mon, 16 Mar 2026 01:40:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773625238;
+	bh=ZPfHl5i+yhNvz8XVnNx77cuo9bMmwo9JExTG2xmxWdA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OAu/F4aHmlmWHQxcnlZTuAnwdugHO0Ad0CNlSoMfqzipOIzDkfbfz6No9JTQ3wq+I
+	 WtSDhQG0aX1jP7qhrlsvHPPwtkz4pk2tbXaejPimF/C/WwNTAkDJN0RPD2Z4zDwwgE
+	 AiHJgFhIUMA9Quo1Rw2gQjOO/931x6C6ndUXrbQygtrwKNP31ptJ6W5ndfw8ZWAiTv
+	 nyGcq9NPxaQRfCHD/JyPykq+8s6ie/eQSmeZypYBCEYwlG5GzqpuoaoKgTXJkWw/37
+	 ZMjBEMEIdkVFvN4hfFJaiSZsfSuNM1+zQS09T5w6tWE9FA1K47QxlxiYL8WLVTnAvh
+	 X8p+V2Attkgew==
+Date: Mon, 16 Mar 2026 09:40:36 +0800
+From: Yixun Lan <dlan@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Junzhong Pan <junzhong.pan@spacemit.com>,
+	Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] reset: spacemit: k3: Decouple composite reset lines
+Message-ID: <20260316014036-GKC415778@kernel.org>
+References: <20260314-01-k3-reset-usb-pci-v2-1-9dc0976d524e@kernel.org>
+ <20260315-crystal-ambrosial-hamster-4b970c@quoll>
 MIME-Version: 1.0
-Message-ID: <19053540.4b36.19cf44c69f9.Coremail.xujiakai2025@iscas.ac.cn>
-X-Coremail-Locale: en_US
-X-CM-TRANSID: swCowAAX7AtWX7dpjsoWAA--.63261W
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCQ4FCWmzulfEYwADsY
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_184019_756014_0F6D3DED 
-X-CRM114-Status: GOOD (  20.19  )
+Content-Disposition: inline
+In-Reply-To: <20260315-crystal-ambrosial-hamster-4b970c@quoll>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,134 +75,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nutty, 
+Hi Krzysztof, 
 
-Thanks for the review!
-I'll fix the indentation and send a v5.
+On 09:53 Sun 15 Mar     , Krzysztof Kozlowski wrote:
+> On Sat, Mar 14, 2026 at 08:27:25AM +0000, Yixun Lan wrote:
+> > Instead of grouping several different reset lines into one composite
+> > reset, decouple them to individual ones which make it more aligned
+> > with underlying hardware. And for DWC USB driver, it will match well
+> > with the number of the reset property in the DT bindings.
+> > 
+> > The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
+> > PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
+> > Also three reset lines each for UCIE and RCPU block.
+> > 
+> > As an agreement with maintainer, the reset IDs has been rearranged as
+> > contiguous number and pushed as a fix for the driver, and reason is that
+> > there isn't any consumer of reset driver so far, so should not cause
+> > any ABI breakage. Also, the changes of DT binding header file and reset
+> > driver are merged together as one single commit to avoid git-bisect
+> > breakage.
+> > 
+> > Fixes: 938ce3b16582 ("reset: spacemit: Add SpacemiT K3 reset driver)
+> 
+> Please run scripts/checkpatch.pl on the patches and fix reported
+> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+> patches and (probably) fix more warnings. Some warnings can be ignored,
+> especially from --strict run, but the code here looks like it needs a
+> fix. Feel free to get in touch if the warning is not clear.
+I usually run "b4 prep --check" to do the check, but I do forget it this
+time, sorry about this.. will be more cautious next time
 
-Best Regards,
-Jiakai
+With the check, the only problem I see is one double quotes missing 
+at end of the line, for the code I didn't see any complaint, let me
+know if I overlooked anything?
 
-&quot;Nutty.Liu&quot; &lt;nutty.liu@hotmail.com&gt;wrote:
-> 
-> On 3/10/2026 1:55 PM, Jiakai Xu wrote:
-> > The current sbi_pmu_test attempts to read firmware counters without
-> > configuring them first with SBI_EXT_PMU_COUNTER_CFG_MATCH.
-> >
-> > Previously this did not fail because KVM incorrectly allowed the read
-> > and accessed fw_event[] with an out-of-bounds index when the counter
-> > was unconfigured. After fixing that bug, the read now correctly returns
-> > SBI_ERR_INVALID_PARAM, causing the selftest to fail.
-> >
-> > Update the test to configure a firmware event before reading the
-> > counter. Also add a negative test to ensure that attempting to read an
-> > unconfigured firmware counter fails gracefully.
-> >
-> > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> > Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-> > ---
-> > V2 -> V3:
-> > - Removed unnecessary BIT(ret.value) & counter_mask_available check.
-> > - Asserted ret.value == i after successful CFG_MATCH.
-> > - Fixed eidx construction in SBI_EXT_PMU_COUNTER_CFG_MATCH.
-> > ---
-> >   .../testing/selftests/kvm/include/riscv/sbi.h | 37 +++++++++++++++++++
-> >   .../selftests/kvm/riscv/sbi_pmu_test.c        | 20 +++++++++-
-> >   2 files changed, 56 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/tools/testing/selftests/kvm/include/riscv/sbi.h b/tools/testing/selftests/kvm/include/riscv/sbi.h
-> > index 046b432ae896..16f1815ac48f 100644
-> > --- a/tools/testing/selftests/kvm/include/riscv/sbi.h
-> > +++ b/tools/testing/selftests/kvm/include/riscv/sbi.h
-> > @@ -97,6 +97,43 @@ enum sbi_pmu_hw_generic_events_t {
-> >   	SBI_PMU_HW_GENERAL_MAX,
-> >   };
-> >   
-> > +enum sbi_pmu_fw_generic_events_t {
-> > +	SBI_PMU_FW_MISALIGNED_LOAD	= 0,
-> > +	SBI_PMU_FW_MISALIGNED_STORE	= 1,
-> > +	SBI_PMU_FW_ACCESS_LOAD		= 2,
-> > +	SBI_PMU_FW_ACCESS_STORE		= 3,
-> > +	SBI_PMU_FW_ILLEGAL_INSN		= 4,
-> > +	SBI_PMU_FW_SET_TIMER		= 5,
-> > +	SBI_PMU_FW_IPI_SENT		= 6,
-> > +	SBI_PMU_FW_IPI_RCVD		= 7,
-> > +	SBI_PMU_FW_FENCE_I_SENT		= 8,
-> > +	SBI_PMU_FW_FENCE_I_RCVD		= 9,
-> > +	SBI_PMU_FW_SFENCE_VMA_SENT	= 10,
-> > +	SBI_PMU_FW_SFENCE_VMA_RCVD	= 11,
-> > +	SBI_PMU_FW_SFENCE_VMA_ASID_SENT	= 12,
-> > +	SBI_PMU_FW_SFENCE_VMA_ASID_RCVD	= 13,
-> > +
-> > +	SBI_PMU_FW_HFENCE_GVMA_SENT	= 14,
-> > +	SBI_PMU_FW_HFENCE_GVMA_RCVD	= 15,
-> > +	SBI_PMU_FW_HFENCE_GVMA_VMID_SENT = 16,
-> > +	SBI_PMU_FW_HFENCE_GVMA_VMID_RCVD = 17,
-> > +
-> > +	SBI_PMU_FW_HFENCE_VVMA_SENT	= 18,
-> > +	SBI_PMU_FW_HFENCE_VVMA_RCVD	= 19,
-> > +	SBI_PMU_FW_HFENCE_VVMA_ASID_SENT = 20,
-> > +	SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD = 21,
-> > +	SBI_PMU_FW_MAX,
-> > +};
-> > +
-> > +/* SBI PMU event types */
-> > +enum sbi_pmu_event_type {
-> > +	SBI_PMU_EVENT_TYPE_HW = 0x0,
-> > +	SBI_PMU_EVENT_TYPE_CACHE = 0x1,
-> > +	SBI_PMU_EVENT_TYPE_RAW = 0x2,
-> > +	SBI_PMU_EVENT_TYPE_RAW_V2 = 0x3,
-> > +	SBI_PMU_EVENT_TYPE_FW = 0xf,
-> > +};
-> > +
-> >   /* SBI PMU counter types */
-> >   enum sbi_pmu_ctr_type {
-> >   	SBI_PMU_CTR_TYPE_HW = 0x0,
-> > diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-> > index 924a335d2262..9404577e4ad5 100644
-> > --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-> > +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-> > @@ -436,6 +436,7 @@ static void test_pmu_basic_sanity(void)
-> >   	struct sbiret ret;
-> >   	int num_counters = 0, i;
-> >   	union sbi_pmu_ctr_info ctrinfo;
-> > +	unsigned long fw_eidx;
-> >   
-> >   	probe = guest_sbi_probe_extension(SBI_EXT_PMU, &out_val);
-> >   	GUEST_ASSERT(probe && out_val == 1);
-> > @@ -461,7 +462,24 @@ static void test_pmu_basic_sanity(void)
-> >   			pmu_csr_read_num(ctrinfo.csr);
-> >   			GUEST_ASSERT(illegal_handler_invoked);
-> >   		} else if (ctrinfo.type == SBI_PMU_CTR_TYPE_FW) {
-> > -			read_fw_counter(i, ctrinfo);
-> > +			/* Read without configure should fail */
-> > +			ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
-> > +					i, 0, 0, 0, 0, 0);
-> > +			GUEST_ASSERT(ret.error == SBI_ERR_INVALID_PARAM);
-> > +
-> > +			/*
-> > +			 * Try to configure with a common firmware event.
-> > +			 * If configuration succeeds, verify we can read it.
-> > +			 */
-> > +			fw_eidx = ((unsigned long)SBI_PMU_EVENT_TYPE_FW << 16) |
-> > +					  SBI_PMU_FW_ACCESS_LOAD;
-> Nit: Also need to align with previous line ?
-> 
-> Otherwise,
-> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
-> 
-> Thanks,
-> Nutty
-> > +
-> > +			ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH,
-> > +					i, 1, 0, fw_eidx, 0, 0);
-> > +			if (ret.error == 0) {
-> > +				GUEST_ASSERT(ret.value == i);
-> > +				read_fw_counter(i, ctrinfo);
-> > +			}
-> >   		}
-> >   	}
-> >   
+-- 
+Yixun Lan (dlan)
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
