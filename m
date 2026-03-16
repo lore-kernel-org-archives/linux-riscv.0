@@ -4,65 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD00DF53D73
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 16:48:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B60F53D6D
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 16:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vgLNQO1ofYzUjOLj98PSooYe5Puyrzw/bphE0vrQCw4=; b=XETU+Byd22+cIE
-	OtICRUPILWvSAtNP8Gfkl5rIb3snAPJ0rCUwz3yxGskjoOfbEqIRIXGLmJ4K1zvTylnrsXLTnNPX9
-	6AO6PqP7FPFlpANXmGTUvZp3FKQZHKuyPm6MSCu7pVIvmEpolvuQCeNz4kA29qwAxZPbVUTI2FW/1
-	CgYEyw7GyuHO2pdvqo4kLcnCksKynFs5ZgHJZdVMkUfQkCzaozC++CuT6TL9DVTbBei6xrysxX7+r
-	l2XbvJ0XqXB484Msi/AwyFsyLFv5QgtTLn+rlgN2z8DCIw3g1Yb9M7JaK1LwSP4GjwlNMb0rogmzG
-	X8reM8+wVg1bnbhHpfjg==;
+	List-Owner; bh=oZuORWu4yHDghVfHQGuyrwBDXN3l2sfgQTjkU2TV4nA=; b=PGAXebpN5Y4rsh
+	OMEEQhgGq1BjrcwX/yC4aj9DG5jGSHqNyptr2m28NG/4d3pdkdlscZHCOIel3HnbIylc6gGF7bHWQ
+	GPLy5/IexIhwt7CvyDghTDNxeJWhSRaSilrO/58bYsNYSzRdDevj91hpp79tJjNSY2/c322ld4EiO
+	Zv8db/jiBNVSJhsFOzD58B1UEZ77pwuPjhP8HIiNRJxdeFEB6Eu62ju/zseV0wBPRcbzRDlEG02eA
+	q0CLJVLrbD4DRAkWi1+URCNKjPtkGS2vu/MiuM2/BXEjNodH3urUBxPACJ61aX2wiUT3kOgx1kC/f
+	B2hdNetllP4FIGw2+09w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2B7O-00000004UKB-38Qb;
-	Mon, 16 Mar 2026 16:48:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2B7N-00000004UJz-2hNr
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 16 Mar 2026 16:48:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=6HMue/BtNqbapqvyup6rq06duhvxsCfM2He2oPvEiuo=; b=fA0r11Re5J4SiMhQQLwFqb0JdP
-	/iDWo6QJJRaw8FC2T+h8ql8j0M5swcDb3xtGby6dt+HgIxqvty3WDa0AmLnHuUZU2/JZYCS9OPZFN
-	V2IQ67FN2+MNO7LggAdI06E58f1Su9fgqKinSMKB72XCF0YPGql5eTlxjweWUYfsxh8wGmSLzgx04
-	SFfFXBVHE/7SCKdK/H7kXjVDypCN2fE3cSByaS+18TF50RR7VL5KXx4ybCtpb2B6W43o21KotdvY4
-	KZKIoboW9fazhSTwsmXp3bCpR+vS6GNk+IjvoN+X04QR4PSHIt2oVDssg6qYJIOJ0ksLV+BUAQ6OE
-	8xX2foOA==;
+	id 1w2B88-00000004UPn-0Te6;
+	Mon, 16 Mar 2026 16:49:24 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2B7K-00000007FNU-1L8V
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2B85-00000004UOs-25G5
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 16:48:36 +0000
+	Mon, 16 Mar 2026 16:49:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D120C4190C;
-	Mon, 16 Mar 2026 16:48:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3519CC19421;
-	Mon, 16 Mar 2026 16:48:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 11E624376E;
+	Mon, 16 Mar 2026 16:49:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB465C19421;
+	Mon, 16 Mar 2026 16:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773679712;
-	bh=WuhfP0oahkZFMDr9DJw5bOig+EPYbiQxrAUeY6rjrp8=;
+	s=k20201202; t=1773679760;
+	bh=uk1xHHKJArXOa0D/n6OA2egxALwqJwTNCh5fudHqvn8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tfDNQUaxol6LRd60RlzKMPBwZeRswtt0gijLKRle/y1Gh2I8LCYZPLlSGuyVRuaXo
-	 51KnhnRizLNklEFx071MubuAC2yWZkUVVvh54WEZaNBLoexRQsc2eG26lodtQXLGlM
-	 oI/QKSm+xuFjQlMaAei1lExj53BlnuTkSXYqRZCwHwg9R/WwTh2j9VA8fpTX4uLXV6
-	 jPdw41sY/fP161N7mgDB0lonw74jjjnDVcu//OG7HFE50IXE3C68Lf2V+z7mwJ78Uy
-	 npy24JfcTGg6xdNBU+M2rp91Q0ZhlJLwe+IiGGd2raRV+o+sh90pV6lVkRhLAe5a0K
-	 A9yNbLsJuqUOA==
-Message-ID: <4e52f70d-e0c3-471f-8073-68c0e9bc94ca@kernel.org>
-Date: Mon, 16 Mar 2026 17:48:24 +0100
+	b=S18YUcU7zj5dwedocu26adSAA6wCoD342MiDux8Lqox9E5YEW7px8XzMPZp3l/GG2
+	 X33FV25AdFzEz9i8jaHd1X8c5XpHUxaZjGA9Zv/wuFs2gDGu/nV/KA+76Ac3D3AyrH
+	 A9iiph3Q3pTq2hmxvlXuP7RB0tm2DDiDaO+iLDXr9H/arruE4C+HDHB2PNVGllDs2S
+	 /IoWz8Kdo8wG0x7VrpPDsKDlQiSspFfZm6qMVD6jbHD2bgbR8g1sHxgtniRnTWPsJv
+	 8jwOMtYleOb+cWDLHvCGbsP9ly6WhoA1uWte8qt1uQQqdytuSnqZ3l4Slx/aUFe5rt
+	 za9JXBprOuoZw==
+Message-ID: <3ac4a544-53bd-42e7-8191-ae9f79aad5e9@kernel.org>
+Date: Mon, 16 Mar 2026 17:49:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv7 09/18] mm/hugetlb: Defer vmemmap population for bootmem
- hugepages
+Subject: Re: [PATCHv7 11/18] x86/vdso: Undefine
+ CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP for vdso32
 To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
@@ -79,7 +64,7 @@ Cc: Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
 References: <20260227194302.274384-1-kas@kernel.org>
- <20260227194302.274384-10-kas@kernel.org>
+ <20260227194302.274384-12-kas@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -126,10 +111,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260227194302.274384-10-kas@kernel.org>
+In-Reply-To: <20260227194302.274384-12-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_164834_838741_9225A30E 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20260316_094921_582764_35B9D68A 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,37 +132,32 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/27/26 20:42, Kiryl Shutsemau (Meta) wrote:
-> Currently, the vmemmap for bootmem-allocated gigantic pages is populated
-> early in hugetlb_vmemmap_init_early(). However, the zone information is
-> only available after zones are initialized. If it is later discovered
-> that a page spans multiple zones, the HVO mapping must be undone and
-> replaced with a normal mapping using vmemmap_undo_hvo().
+> The 32-bit VDSO build on x86_64 uses fake_32bit_build.h to undefine
+> various kernel configuration options that are not suitable for the
+> VDSO context or may cause build issues when including kernel headers.
 > 
-> Defer the actual vmemmap population to hugetlb_vmemmap_init_late(). At
-> this stage, zones are already initialized, so it can be checked if the
-> page is valid for HVO before deciding how to populate the vmemmap.
+> Undefine CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP in fake_32bit_build.h to
+> prepare for change in  HugeTLB Vmemmap Optimization.
 > 
-> This allows us to remove vmemmap_undo_hvo() and the complex logic
-> required to rollback HVO mappings.
+> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> ---
+>  arch/x86/entry/vdso/vdso32/fake_32bit_build.h | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> In hugetlb_vmemmap_init_late(), if HVO population fails or if the zones
-> are invalid, fall back to a normal vmemmap population.
-> 
-> Postponing population until hugetlb_vmemmap_init_late() also makes zone
-> information available from within vmemmap_populate_hvo().
+> diff --git a/arch/x86/entry/vdso/vdso32/fake_32bit_build.h b/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
+> index db1b15f686e3..bc3e549795c3 100644
+> --- a/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
+> +++ b/arch/x86/entry/vdso/vdso32/fake_32bit_build.h
+> @@ -11,6 +11,7 @@
+>  #undef CONFIG_PGTABLE_LEVELS
+>  #undef CONFIG_ILLEGAL_POINTER_VALUE
+>  #undef CONFIG_SPARSEMEM_VMEMMAP
+> +#undef CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+>  #undef CONFIG_NR_CPUS
+>  #undef CONFIG_PARAVIRT_XXL
+>  
 
-So we'll keep marking the sections as SECTION_IS_VMEMMAP_PREINIT such
-that sparse_init_nid() will still properly skip it and leave population
-to hugetlb_vmemmap_init_late().
-
-Should we clear SECTION_IS_VMEMMAP_PREINIT in case we run into the
-hugetlb_bootmem_page_zones_valid() scenario?
-
-I suspect we don't care about SECTION_IS_VMEMMAP_PREINIT after boot and
-can just leave the flag set. (maybe we wan to add a comment in the code?
-above the vmemmap_populate() ?)
-
-Nothing else jumped at me
+Pain as always :)
 
 Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
