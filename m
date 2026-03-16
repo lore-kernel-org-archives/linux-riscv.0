@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2025F30273
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 06:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F630D58B21
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 06:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tWRajDAU8S0VHiXcPBCYVb18c1QtHX1ujGhgkPRZxVY=; b=0xW/FJAsi4jCUq
-	W+mT87NmE6B36lhACP868dPvvxHjA76AsaotwVEKkPwjwtMGwsddKkksj6vA92hiUhxvKDyLBRZAr
-	gKC0pAmERxsxoA52Z3wsVCFd+BHiedzRmL5tAzw+wgefOQdxS1E4gPTL2DwTYzTktyZ1TA+GDvZd4
-	cgwTsNXmZDurq45qbNX5rp8YR3OyX3Ufic4uaaeK5eKP8QKFLEJoL2is9MAX08lc+61/GW0bXJ7qA
-	jznsLY2iQkU7dMlhp9mX3AiCBdjQJA0vS1ZmvYOSBYXRbA8Jfu2Q3cz53uLnAQqIOVi1ln1V4FAb5
-	4loADV8CGKP6l7bEUc/g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wWBHX1D5ZrmW4dYRP7gKhuzHaapl1qGQWUGwz/XJg6s=; b=X6NX8dCU2fji0g
+	5EHnS6P1CyEOrz4G7lDBNPexUWTBBZTJAbJvLBrepegJbe0uatnCmikCkVCkVbOoDtFT5hca2SGL7
+	cfwli2K0ok0EmcTnbk3rx6LnT3XetnqhE88vq7hFgjQmEPUQQEp69KnEl+TSTOPIk4jn+5pUPbUPx
+	Pp2kIAkg5HmvXgc6GOUjwfx+BtBx8+PJ8JCoOTcg8fEsAyw1YxSM3WkpAowQwPLbiEasjBSC3oT5c
+	rjuBgQQDKNnECyK9MzgJTvy+A1eZaw0Bf+EfDtLQUl2xUJAHAGa9sH6KOm/NYpIP0RCZr4q+B6fn3
+	Lv+g8Yqs643iCBmvOaLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w215P-00000003Nsr-1UA0;
-	Mon, 16 Mar 2026 06:05:55 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1w215M-00000003Nrr-0A6s;
+	Mon, 16 Mar 2026 06:05:52 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w215F-00000003Npx-1Tog
+	id 1w215F-00000003Npu-0w1r
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 06:05:49 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-829b8b6c4d0so3395060b3a.0
-        for <linux-riscv@lists.infradead.org>; Sun, 15 Mar 2026 23:05:45 -0700 (PDT)
+	Mon, 16 Mar 2026 06:05:47 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-824c9da9928so2687992b3a.3
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Mar 2026 23:05:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773641144; x=1774245944; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xean22/tjFsNOsF/nOdABDf/+KIaxj5k5+75ISbAbNU=;
-        b=haNxfbGbe2irSAD4ggDPEe1gW/ch8VFQ6eHxlHgwAcVPqEpktomi2ls7MrvrDOJVJi
-         aYQ8U59ozrrzfjM+6Tt/yLut1UJnZYM7a0K+GvQXsuoxNh+DGMgAFRRIyc9GrOZt7wKx
-         lDURdniJ46zwS3fQYdcSGoDVbtZDWxH3G05+eNCo0iuIuxtg9UWGt9509SY4FmP4FB4r
-         i2Bg6Kh0d5dYSE2OLb6lTNTYHr1OHGNEyPxrlmhMGBwyTNzsz3gtIIR0ZSOsLjFlK518
-         6sTdiaMV+ItAVFLg9JUkRkSJKkYXNvnm/fY6wSl/92JXDL3SlKN0ZlHQtJ+QuuODBTqy
-         uS+w==
+        d=gmail.com; s=20230601; t=1773641142; x=1774245942; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XqADmgEQy7gNByruAkWImtwTKNM7Exnw9tKz+3+dv0M=;
+        b=CFdnePKrN0hs+oxDfw7eV1GvPAesONeJTdI1N4GrlJiymerSTFn+sQD32l3B6CAKbN
+         888XEnL4x2pH/daA2umNy5/04Usnx2dyd4Qfv0b+pShXea79dPxrlhaqZ79XAnpbNFgt
+         lKfpHFn4ZyjvWm45mTZ3TepxRMasaUBUVPKVS3Hf75Iv/ZhgH9MmxEiJeaPZczdPCUrr
+         8tB7OsPusil+6kRdPoC6Qgkvl8hftwYVNmja7C7CDTc1v1kq7UQcTDjkU57+tbwPMYl7
+         0xRBp5kPuYPYKcwUJcyUn6hIAwxXY/VmwPQpYHS3u2pnNnq/l71bnNLqyzA122qsRWND
+         QY3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773641144; x=1774245944;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xean22/tjFsNOsF/nOdABDf/+KIaxj5k5+75ISbAbNU=;
-        b=LuLM86tM+Pj5Vc4c3TmVXQMfRHu9BOsb+SyLwieBN8KEkbM9vShYJv5Ve5EuqA53vB
-         zu2wA4szxCbRZB+V8OCfXe9vOHwQUYfP8fJSkEtDTG4AcUyWGU9MhY2oVkMS4ZAO5+j/
-         KyHXv969a2IDwflxpgqZ3eQ5msmZjq3ReLlPR+fNVOKoKU2Up+4l7+MN8bRDQi8grnVT
-         N07zSnI0bKklyALu+JhK+2hD6FCBlimTL++gR9eP0wCNmZab/PDas29yGZmTsEJtUt4i
-         bV3vfMsN4hUi/IM9+ToshpZi5iszONm6qZvCsmsN6SBYnKABzpjMh6h2cxDxHaNhitXr
-         0Iiw==
-X-Gm-Message-State: AOJu0Yxyk/cNSbPXujUImsA9ftAkR3nqWk10fiBhyAPrZE6kyzZV5dUy
-	SDSfmKfhMjBg28RLjXTKIMgPXPWD9BUOt4L9LJTTXTbi5t6lu9sGIS3+3bTi2A==
-X-Gm-Gg: ATEYQzxqMQ2lXuJmaOsN7TJ/sKAU+lRUs4QDJ8tULaFvKjxg9b7Wz3JWrvT5Ec5tI+S
-	NLtMMYpWh49eVehEM9wTZktnpvfzLc0kQNpNL4i81GiL/M1LfUUGYlzWTYxC1Xy47h53CKsedO4
-	6RjWKowUPgkZboAATAmGeXY8xwKv6ZwZ0o6Q26u9cPbf4Zi9NpjL6GyvYVcslQ75JlscbU8h7xL
-	yeznrwIaqdRI6JVj9ICvQw0A2Xmq9QxeuSxmCy+upKnW2YhQbsHdLZ+hmNK++ZZuPsz9+oLWrjf
-	cnJ8MZsvsg3v89mAwrq5tp+G+iQqXikswgFyKEbUTsapPelEFd2nb+5UFzsAzCdEM2T8/U1AdK0
-	hhbW3iFbcnRYrVebaORiGh7qoLUNvY/16L30DmRooCaLT2+KWD1mpQhevfhXm474gIb6z9YiZx1
-	qySyaYjQ6HSPfWSNrzUuUW8Ovn
-X-Received: by 2002:a05:6a00:2d8c:b0:829:8bb4:1034 with SMTP id d2e1a72fcca58-82a19873098mr10167099b3a.28.1773641143923;
-        Sun, 15 Mar 2026 23:05:43 -0700 (PDT)
-Received: from m91p.airy.home ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a07393098sm12525226b3a.62.2026.03.15.23.05.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        d=1e100.net; s=20251104; t=1773641142; x=1774245942;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XqADmgEQy7gNByruAkWImtwTKNM7Exnw9tKz+3+dv0M=;
+        b=U+WlkialEFNby+n8S9qEF78r/hFPIcLuai7/OD8gwaM9dHkJe3yvbZunTuWarHv+Oe
+         B2SOf6bSqvE/TuVeTIYBzkEPpVbu/uAt0c5+bS8amhAHx/h2GS3qe6WivevwLPUXrXAf
+         JTe8Z8yrNY3J5dshsPZeStJM67sruhcK2/jR1glqQ83BGO+zepYipBkzmFVMArfPivHD
+         61UZdO56ktnjARfWCh2lATd5+Tq3ARJF0qiPVZvTBvLxw/Aj5cmTIJbrTi7mfTzNE7CT
+         gzwMXGUjvAVx1haKZDDKy8BgBLZecBzAa+alG7NDhRKQUb9T9KTLZ7PfwvG/HdByWTv9
+         pAzQ==
+X-Gm-Message-State: AOJu0YyTho4Rpqybs0C74dKSrnyLEIV9TN0ZWl7eIuhtSx+VKheGJcqU
+	NsrW7/oWjDqyqfiVwyT6S1vP1NaH6iOHp8FDYwiAcWWZ1MSPZ/VL7FSFDyJNFQ==
+X-Gm-Gg: ATEYQzz3MW0ZfbVM9TxiVB/A24WROkxQ7ccxVYUV1dMGv5bsM4DYDzeYTH38rBewZx5
+	Vg/wl0yIT9RWX23x5pf2t+2JkXmS88zP7Fdi5g/ktBacJ9Vc/Wr0yau95mrjBInWd1OAZ0+M+kc
+	RHcjJEfyWYM2uYdsbIXgowuo+rBn5bq6t91oyVSKppZaxidupbQf7ZlMTQwx2XkpgZmhtgcegQf
+	hiT7kM+4rfA/P7T8TPcM83T+RhDRsWl2fp1pK3R28iyyR2t3TgEPAJRXiPUwtN9MNE4Zv4bMYJx
+	rciNr/wY9vYOw8LMGO+zm7ef7XFwyp6+F0MaV75U+uka74ZT8EUlGd0Y1NF7fEfa0NJghWLx37V
+	sDEM18TRF5k+SvDeGZ326RGkuCWwx3E9MpMSmdiqAHr4ECtMKcypFJPS5wpoGjJEHoqeq0iYyZ1
+	Y/DcDxcpij1yKlG3VZT1OnHW73DoIrfSeeQzM=
+X-Received: by 2002:a05:6a00:3e22:b0:829:a127:518 with SMTP id d2e1a72fcca58-82a198d152dmr8827062b3a.40.1773641142279;
         Sun, 15 Mar 2026 23:05:42 -0700 (PDT)
+Received: from m91p.airy.home ([172.92.174.155])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82a07393098sm12525226b3a.62.2026.03.15.23.05.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Mar 2026 23:05:41 -0700 (PDT)
 From: Bo Gan <ganboing@gmail.com>
 To: linux-riscv@lists.infradead.org,
 	samuel.holland@sifive.com,
@@ -82,16 +81,14 @@ Cc: lizhi2@eswincomputing.com,
 	conor@kernel.org,
 	kernel@esmil.dk,
 	devicetree@vger.kernel.org
-Subject: [RFC PATCH v2 1/3] riscv: alternatives: support auipc+load pair
-Date: Sun, 15 Mar 2026 23:03:26 -0700
-Message-Id: <20260316060328.1173634-2-ganboing@gmail.com>
+Subject: [RFC PATCH v2 0/3] riscv: support EIC770X/JH7110 noncoherent devices with XPbmtUC
+Date: Sun, 15 Mar 2026 23:03:25 -0700
+Message-Id: <20260316060328.1173634-1-ganboing@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260316060328.1173634-1-ganboing@gmail.com>
-References: <20260316060328.1173634-1-ganboing@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_230545_903357_43D693E2 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260315_230545_270037_D86D3F4E 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,88 +105,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Previously only auipc+jalr pair is supported. Add auipc+load pair
-to support PC-relative memory load instruction as well.
+SoCs with pre-Svpbmt Sifive cores, e.g., Starfive JH7110 and ESWIN
+EIC770X both have non cache-coherent peripherals. On JH7110[1], video
+subsystem (GPU/VOUT/VPU/ISP) is routed to the sys port, making them not
+cache-coherent. On EIC770X, all peripherals are routed to the sys port,
+and none is cache-coherent. Instead of Svpbmt, these SoCs map system
+memory twice -- the conventional cached region (through front port),
+and the uncached alias (through sys port) at different base addresses.
+The uncached alias implicitly applies the uncacheable PMA. Drivers
+working with noncoherent devices can utilize the uncache alias to map
+DMA buffers, without doing explicit cache flushes.
 
-Signed-off-by: Bo Gan <ganboing@gmail.com>
+This feature is not an ISA standard, and the cache/uncache base can be
+configured by the SoC vendor. To expose it properly, introduce a Sifive
+"errata", namely "XPbmtUC", to model the setup as a customized version
+of Svpbmt. It choses a single, artificial bit in PTE at runtime for
+cache/uncache control, effectively offsetting the PPN by power-of-2.
+On JH7110, it aligns perfectly with the HW: it maps the cached region
+at 0x40000000, and the uncached alias at 0x4_40000000. Chosing bit 32
+(PPN bit 34) as the UC bit matches HW exactly.
+
+Starfive JH7110 (Sifive U74 core) memory map:
+
+          [0x0,   0x40000000) Low MMIO
+   [0x40000000, 0x2_40000000) Cached Mem
+ [0x4_40000000, 0x6_40000000) Uncached Mem (UC+)
+ [0x9_00000000, 0x9_d0000000) High MMIO
+
+On EIC770X, the aliased UC region is put to a offset not power-of-2.
+There can also be 2 NUMA node (dual-die) with 2 separate memory regions
+and their UC alias counterparts are offsetted differently. We detect if
+the firmware has the capability to re-arrange the memory map, using
+G-stage pagetable, making the the offsets power-of-2 again.
+
+            [0x0,     0x20000000) Core Internal
+     [0x20000000,     0x40000000) Core Internal (Die 1)
+     [0x40000000,     0x60000000) Low MMIO
+     [0x60000000,     0x80000000) Low MMIO (Die 1)
+     [0x80000000,  0x10_80000000) Cached Mem
+  [0x20_00000000,  0x30_00000000) Cached Mem (Die 1)
+  [0x80_00000000,  0xa0_00000000) High MMIO
+  [0xa0_00000000,  0xc0_00000000) High MMIO (Die 1)
+  [0xc0_00000000,  0xd0_00000000) Uncached Mem <----------.
+  [0xe0_00000000,  0xf0_00000000) Uncached Mem (Die 1) <--+--.
+with firmware/hypervisor re-mapping:                      |  |
+------------------------------------                      |  |
+ [0x100_80000000, 0x110_80000000) Mem UC+ ----------------'  |
+ [0x120_00000000, 0x130_00000000) Mem UC+ (Die 1) -----------'
+
+The "XPbmtUC" alternative PTE format is the cleanest solution I can
+think of to solve the non-coherent device enablement w/o Svpbmt from
+kernel side. Drivers can do explicit cache flushes to workaround the
+problem, but a. it pushes the burden of cache flushes to driver code,
+and we don't want to complicate them if it's already written with the
+cache coherent assumption in mind. b. complex drivers like GPU could
+allow user-space to mmap DMA pages, but userspace can't flush caches
+due to the lack of Zicbom on these SoCs. I'm aware there's an ongoing
+series[2] that Samuel sent for physical memory aliases, which is
+essentially a superset of my patch. I don't mean to step ahead of him,
+but try to find a middle ground if the community still worries about
+his change touching too many areas. My change is very minimal and
+local. It's fairly easy to remove, too.
+
+----------------------------------------
+Notes about PoC firmware implementation on EIC7700X[3]:
+
+The OpenSBI is augmented to provide a very thin layer hypervisor, where
+it runs the entire host OS in VS-mode, and provide the aforementioned
+remapping. I remap UC+ memory to 2^40+ to make the 2-stage translation
+efficient, where I can utilize Sv39x4 G-stage scheme to map the entire
+physical address space at bottom-half, and the uncache counterparts to
+system memory at top-half. I also make use of the largest page in Sv39
+-- 1GB page, to map everything, keeping the G-stage page-table minimal,
+only 16KB in size, while also minimizing TLB misses. A very slight,
+unavoidable, slow down is with the external interrupt delivery. Due to
+the lack of AIA in EIC770X, all device irq now needs to trap to M mode
+first, before forwarding to VS mode. The overhead of running KVM in
+such setup is yet unknown, and may well be noticeable. All HS-qualified
+instructions will trap to M mode, which is costly. The NACL extension,
+if implemented, will alleviate it, but there's also the extra cost of
+flushing G/VS-stage TLBs. I'm analyzing it in parallel.
+
+Use [4] if you have a Hifive Premier P550 to try it out.
+
+[1] https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Cache%20Coherence%20V1.0.pdf
+[2] https://lore.kernel.org/all/20251113014656.2605447-20-samuel.holland@sifive.com/
+[3] https://github.com/ganboing/opensbi/tree/eic77x-vspt-physalias-wip
+[4] https://github.com/ganboing/linux-eic77/tree/ganboing-xpbmt-uc-v2-eic77-clk-v15
+
 ---
- arch/riscv/include/asm/insn.h   |  8 ++++++++
- arch/riscv/kernel/alternative.c | 11 ++++++-----
- 2 files changed, 14 insertions(+), 5 deletions(-)
+v2:
+ - Move the core logic to Sifive errata to address Conor's comments
 
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index c3005573e8c99..1c791a8732efc 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -135,6 +135,8 @@
- #define RVC_C2_RS1_MASK		GENMASK(4, 0)
- 
- /* parts of opcode for RVG*/
-+#define RVG_OPCODE_LOAD		0x03
-+#define RVG_OPCODE_STORE	0x23
- #define RVG_OPCODE_FENCE	0x0f
- #define RVG_OPCODE_AUIPC	0x17
- #define RVG_OPCODE_BRANCH	0x63
-@@ -198,6 +200,8 @@
- #define RVG_MATCH_BGE		(RV_ENCODE_FUNCT3(BGE) | RVG_OPCODE_BRANCH)
- #define RVG_MATCH_BLTU		(RV_ENCODE_FUNCT3(BLTU) | RVG_OPCODE_BRANCH)
- #define RVG_MATCH_BGEU		(RV_ENCODE_FUNCT3(BGEU) | RVG_OPCODE_BRANCH)
-+#define RVG_MATCH_LOAD		(RVG_OPCODE_LOAD)
-+#define RVG_MATCH_STORE		(RVG_OPCODE_STORE)
- #define RVG_MATCH_EBREAK	(RV_ENCODE_FUNCT12(EBREAK) | RVG_OPCODE_SYSTEM)
- #define RVG_MATCH_SRET		(RV_ENCODE_FUNCT12(SRET) | RVG_OPCODE_SYSTEM)
- #define RVC_MATCH_C_BEQZ	(RVC_ENCODE_FUNCT3(C_BEQZ) | RVC_OPCODE_C1)
-@@ -222,6 +226,8 @@
- #define RVG_MASK_BGE		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
- #define RVG_MASK_BLTU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
- #define RVG_MASK_BGEU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
-+#define RVG_MASK_LOAD		(RV_INSN_OPCODE_MASK)
-+#define RVG_MASK_STORE		(RV_INSN_OPCODE_MASK)
- #define RVC_MASK_C_BEQZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
- #define RVC_MASK_C_BNEZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
- #define RVC_MASK_C_EBREAK	0xffff
-@@ -262,6 +268,8 @@ __RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
- __RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
- __RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
- __RISCV_INSN_FUNCS(fence, RVG_MASK_FENCE, RVG_MATCH_FENCE);
-+__RISCV_INSN_FUNCS(load, RVG_MASK_LOAD, RVG_MATCH_LOAD);
-+__RISCV_INSN_FUNCS(store, RVG_MASK_STORE, RVG_MATCH_STORE);
- 
- /* special case to catch _any_ system instruction */
- static __always_inline bool riscv_insn_is_system(u32 code)
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 7642704c7f184..04a9d3aed4647 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -74,7 +74,7 @@ static u32 riscv_instruction_at(void *p)
- 	return (u32)parcel[0] | (u32)parcel[1] << 16;
- }
- 
--static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
-+static void riscv_alternative_fix_auipc_pair(void *ptr, u32 auipc_insn,
- 					     u32 jalr_insn, int patch_offset)
- {
- 	u32 call[2] = { auipc_insn, jalr_insn };
-@@ -123,14 +123,15 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
- 		if (riscv_insn_is_auipc(insn) && i < num_insn - 1) {
- 			u32 insn2 = riscv_instruction_at(alt_ptr + (i + 1) * sizeof(u32));
- 
--			if (!riscv_insn_is_jalr(insn2))
-+			if (!riscv_insn_is_jalr(insn2) &&
-+			    !riscv_insn_is_load(insn2))
- 				continue;
- 
--			/* if instruction pair is a call, it will use the ra register */
--			if (RV_EXTRACT_RD_REG(insn) != 1)
-+			if (RV_EXTRACT_RD_REG(insn) != RV_EXTRACT_RS1_REG(insn2))
- 				continue;
- 
--			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
-+			/* insn2 use rd of insn as rs1, patch it */
-+			riscv_alternative_fix_auipc_pair(alt_ptr + i * sizeof(u32),
- 							 insn, insn2, patch_offset);
- 			i++;
- 		}
+v1: https://lore.kernel.org/linux-riscv/338f0f79-1eed-4c5c-9966-04a2eaeb3d98@gmail.com
+
+Bo Gan (3):
+  riscv: alternatives: support auipc+load pair
+  riscv: errata: sifive: support auipc/load pair in patched alternatives
+  riscv: errata: sifive: Add an "errata" to simulate Svpbmt on cores
+    without
+
+ arch/riscv/Kconfig.errata                    | 13 ++++
+ arch/riscv/errata/sifive/errata.c            | 80 +++++++++++++++++++-
+ arch/riscv/include/asm/errata_list.h         | 19 ++++-
+ arch/riscv/include/asm/errata_list_vendors.h |  3 +-
+ arch/riscv/include/asm/insn.h                |  8 ++
+ arch/riscv/include/asm/pgtable-64.h          |  9 ++-
+ arch/riscv/kernel/alternative.c              | 11 +--
+ 7 files changed, 132 insertions(+), 11 deletions(-)
+
 -- 
 2.34.1
 
