@@ -4,110 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC82EF506E1
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 14:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A364F53D67
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 15:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hXDV3LAZMoMgXC3u11XinZD3Aehcl/gbvwztgc3M3cs=; b=MX7oTQPLxWOB6e
-	GINLfuQF/7yoch5RjN3BFJxDWIkhkh157oTcVDDUIcRFg6I0tPND+6dsPKpP5425rDz7v+yuRk2Tu
-	Lid+HngUO1/LP8FtcbRI0/jco4R0zjmPnwvRRmerMCVFjSVbW3G8Sd5xyGa4F+D3WnxWA6BF6BNpe
-	3aCIt23udgiPATbZXM5xOuNFzJ0w1gcIE8nEzkixSzW/4BO7uZbseys8SWq9TCGy/5GRpaSnPL4G2
-	XnKXQ/2NdAy95X4yl7DuPnwvfzeqRpPEd+MWCSMcFTJCHE4UyRKDrPfUPnk/cL1RVet+fxrB9QFgq
-	OHvEzEjuqbpcSLI3/v2Q==;
+	List-Owner; bh=6Nwi9J2yhF2bx9GIoZ1FM7tawN+P98XHH+BO1lRrW7o=; b=LAeWsSqDYKwxs7
+	r5KFEsu+zVMQwG3HJCcaSpmCg2UTIvOfbvJzuGmygSHw6P9fSAOY8Qcm9vGKkgL17nRL+ggTcGXCr
+	AdRd6p6hnMZTxjC0Kd69Uhe6Ua7KJEMO/bnQw2I+i4SfSmGGh2KiUaWL5w6I72yRSBhgqiLfVLqfz
+	DXEQQvexsKIj+sUF7KcLSLqfknr9rJWRkZGL6T++Bw5HQR161fVgDQTHujrk2r4tCVG6XvuA/ZqRU
+	C4KWEtgiW9yrvkxg6KZcdVbaFnFZ1gIsa8HHayVc1E/9UQGIqxP5VdZoccfNvZNlH6ZtZkr1dVowu
+	unyz7PgP1E0MA1NycZaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29Mk-00000004GUY-1ftB;
-	Mon, 16 Mar 2026 14:56:22 +0000
+	id 1w29VU-00000004HsD-2ZiK;
+	Mon, 16 Mar 2026 15:05:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29Mj-00000004GTx-3cQJ
+	id 1w29VT-00000004Hs2-0w7Y
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 16 Mar 2026 14:56:22 +0000
+	Mon, 16 Mar 2026 15:05:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=TGku/l9FNPrwiqABN5hj0gv51qaKMC4DWzEN52XfCG0=; b=OVh/ZinYFUKn20yBRFalqGnY//
-	gni2WiTBWrBvkV5HXOaxAkPb7C0v9bU/yHvcxAt1KMAZzlmFtfZZnDkF9VRoxcmrzA9fST/DlwzV5
-	y/Fjclne64/MYQY4CBrOVf9FWvcBGPmtNRbt9DA3e28VczO5DfMgVnEntRXyy7+co8rtTBFAGXvk4
-	yTV2XkDuPxNFs+7oZd9tg4Vv1IhY9M5e919jPhn9Hn7hVUdU/2Lnvy5ZWLwQjJ50w9EZCFYsvNFPn
-	qYJ2Rv+y+WBTp5NibwTTEgtpnGp3i7NUrtOKknxVf1g9fGZImbNmLfE5vjad4vVbQu2426RLlSUDj
-	K+e/C4Sw==;
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Gqco5SPEd6UaXLI10tvcOr9r7x/pSR9Rg9OAhUkP36s=; b=aFvZpvj7nR5cba1xERW24Egjb8
+	tRm4l3GG9HpRaF6MWFw8blxAlRm17hQdBCpOTpk4dcC5N2/Zj97u71RbT2gTwbGdqf2g4ghBbXjPq
+	jSf5iSZ1n4pEwJPrU21+Ye/c2nybvaMb6EWnv4wOQW7Cb1P8aZhQhuas6XIwPoZj9JBClipYj0G1z
+	LaT5QKlKujs03D+6yXXk+jlt+pCbZ3dGSP/Sy0vTpkPuFaPkgH2YjNZXrWUsn71plyfC2baOgCjVf
+	yd8DTdGacNMnHcGpuoYDniyF3mfIwMEDdfQ+UrhzYQq+vZ+rt5mBiTIm9t1snWNqh80t9w98jBfVn
+	ctMCMw0Q==;
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28Yk-00000006tgt-3Rvj
+	id 1w29VP-000000071t9-3ncG
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 14:04:44 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-439b7c2788dso2850413f8f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 07:04:42 -0700 (PDT)
+	Mon, 16 Mar 2026 15:05:21 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48540355459so44186335e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 08:05:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773669881; x=1774274681; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TGku/l9FNPrwiqABN5hj0gv51qaKMC4DWzEN52XfCG0=;
-        b=ljiWh2oX8WryK5UcmTLcH8tzecXIyCviwUedL1hvVWj3OMaY2kMupRecDOB8q7HJNR
-         +/MAkN3H62slwCjnGurTGGpGMoaVuabEei0Le9gKSpNZDGPzDdtgDv0Kug5VdgOJ1Ol3
-         qmC94SafiXE9wkxo7ynPqkPH08X1W95SC8WObHMvcwt6eBOLWYz5hz0kOcFoy3pGkqJK
-         1V0KvJ6uxJsm0lh/jTcBwMV3v1OJ5b7ae7XHgEyvbtRle24TuLGETgNdqMEIN5DFZJgu
-         oEYsYnorI/8KxRyC8wjAexUDHrO5PFOFKxEehRmnv5K/4dAO9m+zaOmYkDYAPELrMWhI
-         5QEg==
+        d=gmail.com; s=20230601; t=1773673518; x=1774278318; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Gqco5SPEd6UaXLI10tvcOr9r7x/pSR9Rg9OAhUkP36s=;
+        b=JUjxKl2c23gIIl1E8xkEIwv0SpZIdm8YNOd58JVxQR5qGqi3SSAA1JbP6e6pduax0v
+         xJpP2/0FUJG55JiF7X37Frpl4Hj6B5sTDnk8UJD0cSUlYOukrruC7Nwnq1d/FgFXOy2V
+         cMRj6YKf0hUpmQFLqeQs1VhMxqOIed8iFBilUHK623mxicl6EWazYEIh/AlSny0+VMeV
+         3VXTNFu88gpXXMp/EQ4AEDgobNLkBaLX0K0C0BAIzd7J6UNqLP4DH4Q2I3m2U77eztPY
+         E2xZKTbCJ6QrrJsmE+WK9ZlVXFRWDbaEU1AP3m7aod74uJwRQ8VbG/zNtclkj3cNc2Sl
+         hVTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773669881; x=1774274681;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=TGku/l9FNPrwiqABN5hj0gv51qaKMC4DWzEN52XfCG0=;
-        b=G8PMtHW9YAXP/vSQM6ZS1d9bUENUXp4QkL58z9C3VUix0faG+F4DHFqW/edaQo/Dbq
-         WATmM8lLChz3EdGmKercnDxQym2WVMRYWWQMt2m8LCIW26QFs6+oBzmad4Q6Vzy4Oq37
-         Rcr298OLxMOEa0E1p2p7yzhq4P+YNwwwiUyV5KV3KuKUmP9gToIUGL7CBfzmNoq2z/RZ
-         G7+CmGt71xwkCHYwkVDszouEwmopg1Tu9nY8lkFBkpBMMlazA9tLYiX4bFvq0xYG+9j+
-         l4vR69SyFleD8Kbjujy+ipoklkBuh0iCw/XuskWFtG5vdTKnWHSpdSaRi2UMBZFp2X50
-         Tbpg==
-X-Forwarded-Encrypted: i=1; AJvYcCVRqskqeQCAZbLx0HbyfFF4EX3bV+xJzlo77irszf4afAYM9S3VIH3OCAzx3sVcaONNIEpcN3Fitv8seg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxM4316dp2Lt9tZYIfDTYxOpg7E1YXVeeD6dZy9AxqEnQqeGEn0
-	4/miWiP2Rf1KfA5rF0G9D0wJd1nOe86JI6KhOTvQM+9iF+Ar21AS5DWr
-X-Gm-Gg: ATEYQzxKtHFWVj+GrjWNN2wfpCqNzkdAlwMC7KeSa+gPIA8J7wTfV5dN9YINsYvE39A
-	IxSyLhyUjNxX/vkgjEl01NsqI3Usx7ibl2U0HqjYI1vzCZsDpX3FJc/qa4bG1Jv4ABcFl84/eYp
-	fegvwZYN2ukJAGZwwrR3hcUSLAJAN/0xvVX3dGdfG3e8eCtKcuMwHwz5teHwBuyvEmahEmkG8XW
-	D2seTEWBcrIxkHKFQifxGkkECwlVORBdUsQILUmxQ26OHzKpEE0gk8euUxRVIrOR7qLNKCLTcnU
-	g7qq0iOi+iX9l7atfFIkQHfqnJfivCv83ZJPGKb24v6cH3VbuvmmDp3Q4b+hk2P59/Hs7L7uDcQ
-	p5wtgWJAZeJSfBF0lS3OLSTLudGlisz1KCKz63L2NHhLL8abIZ1YNKy2y4L42PAjLpz3aE9quqN
-	pCK36koy1WFaffhaQIM/k3xEFUZKVqOPUhgi8PRWVhkh7D7Yo11JtPQpV81SLoCgS8
-X-Received: by 2002:a05:6000:2889:b0:43b:4153:c2a6 with SMTP id ffacd0b85a97d-43b4153c45fmr7601207f8f.36.1773669880512;
-        Mon, 16 Mar 2026 07:04:40 -0700 (PDT)
-Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.234.31])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b3a09e453sm20698725f8f.0.2026.03.16.07.04.38
+        d=1e100.net; s=20251104; t=1773673518; x=1774278318;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Gqco5SPEd6UaXLI10tvcOr9r7x/pSR9Rg9OAhUkP36s=;
+        b=B3kYw0gygeEvBE++XwIhRupela2NXKF2vQcfw0aaEGaGEwQX4WnzpmK/pXgty43EaX
+         gRDQqKKgvfCJHJtn7A2XiFdntLWRSgJ58pY5KcA3FS9I1PFi5Yg8XG4D8XffbKjLa56d
+         fOZQD84HuceEXU+umZRT98iZcIynp2SBVFT69FWeLyfDLW6QTCcY+0Rh2+b/jHvmLrt8
+         mlxksF3RtYONgfDIusqWu7EhJA3OI76s9Cywx8Iu24vcNsWR8uRoo/YUI6qZZLg/p0bD
+         meGRHy1jLxQAsOeBj2u9x4iORpJc7ywfGKzzIh6ED7P8DrhXhy0ME2Fc3VyD21UDyzGN
+         D0PQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWKyoMRGznnmW+wR3hyapiale4ZdDeL0aIcaGCUHXEl1KSteQfz+I6DHMD5u9GZ8e6bxGA9obms5PF/9w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhN0Hmm5VKVx7n9A4CiT1UmxFOj6+wKqNb578Q+sKtviPAW3GO
+	zMWPUsjChvkVPNxwofxxy+9db7+8TDZektWTulOLQBKqHjuiokL02w4m
+X-Gm-Gg: ATEYQzxtaCgZ5BuKXgvMIpg3P2r1Dn1d7s/092hmoSoV3L5atMZlzUmrXVxvkc4OW2i
+	RhNFLSfX2ok8uLVFFMYElDq/znoOkakbx0j79VbwrjtGIvrE73rpAKlOqqivu9qB/xYcvM1BYrw
+	tJpq8vt2w7XOLyKRdsLmIJTJmJDIspZp9+F0t/gZ3uj7AtEprKhug251VHL6dUqdwdpy+wp5MGU
+	WuraPd3NB4rR8o0BM6ZSyy1YSN39/qX4CGNnDAEuNWZPmJaBJ3O34lHKWQY4PXym2cn+JV1nTqh
+	284aYZYCEUCD0q7uERo9wTBGXZRhSzsYW5drB6e6WTFfpPI2a5yfvacbASheioUsPC1VIcoEAZJ
+	zjCCLpVU+saoVeF53CVtP5yl1dcdkdT09CUthzq6eVEzEyac0oYXJIAZArdVYmgKOkGDisdDD8i
+	oKEDnSScoN3iyWkcJRXVC+tJFouGQCNtPEgjp2lM86kV5JQZeNW7k7kvDcAjBx4ra2T8k2clJs8
+	PXr5EgrD+KpSNBaBtNJUMvxmrO6Bd+YsZ+5ACHRfnwbdAhXZdOspHR8Mtcqyxnz/GLruqsUTtxh
+	6c/3+9uCt5M=
+X-Received: by 2002:a05:600c:8b2c:b0:485:4bd1:4c7e with SMTP id 5b1f17b1804b1-485567148e8mr223653815e9.33.1773673517657;
+        Mon, 16 Mar 2026 08:05:17 -0700 (PDT)
+Received: from mail.gmail.com (2a01cb0889497e0077fb9a9968087a66.ipv6.abo.wanadoo.fr. [2a01:cb08:8949:7e00:77fb:9a99:6808:7a66])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4854b5f6c24sm398807025e9.5.2026.03.16.08.05.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2026 07:04:39 -0700 (PDT)
-From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Mon, 16 Mar 2026 15:03:35 +0100
-Subject: [PATCH v3 7/7] riscv: dts: spacemit: k1-bananapi-f3: add SD card
- support with UHS modes
+        Mon, 16 Mar 2026 08:05:16 -0700 (PDT)
+Date: Mon, 16 Mar 2026 16:05:14 +0100
+From: Paul Chaignon <paul.chaignon@gmail.com>
+To: rsworktech@outlook.com
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Amery Hung <ameryhung@gmail.com>, linux-riscv@lists.infradead.org,
+	stable@vger.kernel.org, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH bpf v3] bpf: do not use kmalloc_nolock when
+ !HAVE_CMPXCHG_DOUBLE
+Message-ID: <abgcKvuSQc2ZYKw4@mail.gmail.com>
+References: <20260315-bpf-kmalloc-nolock-v3-1-91c72bf91902@outlook.com>
 MIME-Version: 1.0
-Message-Id: <20260316-orangepi-sd-card-uhs-v3-7-aefd3b7832df@gmail.com>
-References: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
-In-Reply-To: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Yixun Lan <dlan@kernel.org>, Yixun Lan <dlan@kernel.org>
-Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
- Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Iker Pedrosa <ikerpedrosam@gmail.com>, Anand Moon <linux.amoon@gmail.com>
-X-Mailer: b4 0.14.2
+Content-Disposition: inline
+In-Reply-To: <20260315-bpf-kmalloc-nolock-v3-1-91c72bf91902@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_140443_050738_FCACDD6C 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_150520_032482_F046F4DB 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,73 +131,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add complete SD card controller support with UHS high-speed modes.
+On Sun, Mar 15, 2026 at 12:02:48AM +0800, Levi Zim via B4 Relay wrote:
+> From: Levi Zim <rsworktech@outlook.com>
+> 
+> kmalloc_nolock always fails for architectures that lack cmpxchg16b.
+> For example, this causes bpf_task_storage_get with flag
+> BPF_LOCAL_STORAGE_GET_F_CREATE to fails on riscv64 6.19 kernel.
+> 
+> Fix it by enabling use_kmalloc_nolock only when HAVE_CMPXCHG_DOUBLE.
+> But leave the PREEMPT_RT case as is because it requires kmalloc_nolock
+> for correctness. Add a comment about this limitation that architecture's
+> lack of CMPXCHG_DOUBLE combined with PREEMPT_RT could make
+> bpf_local_storage_alloc always fail.
+> 
+> Fixes: f484f4a3e058 ("bpf: Replace bpf memory allocator with kmalloc_nolock() in local storage")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Levi Zim <rsworktech@outlook.com>
+> ---
 
-- Enable sdhci0 controller with 4-bit bus width
-- Configure card detect GPIO with inversion
-- Connect vmmc-supply to buck4 for 3.3V card power
-- Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
-- Add dual pinctrl states for voltage-dependent pin configuration
-- Support UHS-I SDR25, SDR50, and SDR104 modes
+Note there may be something broken with your setup as lore is reporting
+that you sent this v3 email three times. Not sure if it could be an
+issue.
 
-This enables full SD card functionality including high-speed UHS modes
-for improved performance.
+[...]
 
-Suggested-by: Anand Moon <linux.amoon@gmail.com>
-Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 23 +++++++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
+> diff --git a/include/linux/bpf_local_storage.h b/include/linux/bpf_local_storage.h
+> index 8157e8da61d40..d8f2c5d63a80e 100644
+> --- a/include/linux/bpf_local_storage.h
+> +++ b/include/linux/bpf_local_storage.h
+> @@ -18,6 +18,7 @@
+>  #include <asm/rqspinlock.h>
+>  
+>  #define BPF_LOCAL_STORAGE_CACHE_SIZE	16
+> +#define KMALLOC_NOLOCK_SUPPORTED IS_ENABLED(CONFIG_HAVE_CMPXCHG_DOUBLE)
+>  
+>  struct bpf_local_storage_map_bucket {
+>  	struct hlist_head list;
+> diff --git a/kernel/bpf/bpf_cgrp_storage.c b/kernel/bpf/bpf_cgrp_storage.c
+> index c2a2ead1f466d..cd18193c44058 100644
+> --- a/kernel/bpf/bpf_cgrp_storage.c
+> +++ b/kernel/bpf/bpf_cgrp_storage.c
+> @@ -114,7 +114,8 @@ static int notsupp_get_next_key(struct bpf_map *map, void *key, void *next_key)
+>  
+>  static struct bpf_map *cgroup_storage_map_alloc(union bpf_attr *attr)
+>  {
+> -	return bpf_local_storage_map_alloc(attr, &cgroup_cache, true);
+> +	return bpf_local_storage_map_alloc(attr, &cgroup_cache,
+> +					   KMALLOC_NOLOCK_SUPPORTED);
+>  }
+>  
+>  static void cgroup_storage_map_free(struct bpf_map *map)
+> diff --git a/kernel/bpf/bpf_local_storage.c b/kernel/bpf/bpf_local_storage.c
+> index 9c96a4477f81a..a6c240da87668 100644
+> --- a/kernel/bpf/bpf_local_storage.c
+> +++ b/kernel/bpf/bpf_local_storage.c
+> @@ -893,6 +893,10 @@ bpf_local_storage_map_alloc(union bpf_attr *attr,
+>  	/* In PREEMPT_RT, kmalloc(GFP_ATOMIC) is still not safe in non
+>  	 * preemptible context. Thus, enforce all storages to use
+>  	 * kmalloc_nolock() when CONFIG_PREEMPT_RT is enabled.
+> +	 *
+> +	 * However, kmalloc_nolock would fail on architectures that do not
+> +	 * have CMPXCHG_DOUBLE. On such architectures with PREEMPT_RT,
+> +	 * bpf_local_storage_alloc would always fail.
+>  	 */
+>  	smap->use_kmalloc_nolock = IS_ENABLED(CONFIG_PREEMPT_RT) ? true : use_kmalloc_nolock;
+>  
+> diff --git a/kernel/bpf/bpf_task_storage.c b/kernel/bpf/bpf_task_storage.c
+> index 605506792b5b4..6e8597edea314 100644
+> --- a/kernel/bpf/bpf_task_storage.c
+> +++ b/kernel/bpf/bpf_task_storage.c
+> @@ -212,7 +212,8 @@ static int notsupp_get_next_key(struct bpf_map *map, void *key, void *next_key)
+>  
+>  static struct bpf_map *task_storage_map_alloc(union bpf_attr *attr)
+>  {
+> -	return bpf_local_storage_map_alloc(attr, &task_cache, true);
+> +	return bpf_local_storage_map_alloc(attr, &task_cache,
+> +					   KMALLOC_NOLOCK_SUPPORTED);
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 404b69c47b91f8c37d74a3031dbad0d94a28d1b4..a7d480d01ccc0439dbf456ed5a81f467af68056a 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -222,7 +222,7 @@ buck3_1v8: buck3 {
- 				regulator-always-on;
- 			};
- 
--			buck4 {
-+			buck4: buck4 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3300000>;
- 				regulator-ramp-delay = <5000>;
-@@ -243,7 +243,7 @@ buck6 {
- 				regulator-always-on;
- 			};
- 
--			aldo1 {
-+			aldo1: aldo1 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-@@ -369,3 +369,22 @@ hub_3_0: hub@2 {
- 		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
- 	};
- };
-+
-+&sdhci0 {
-+	pinctrl-names = "default", "state_uhs";
-+	pinctrl-0 = <&mmc1_cfg>;
-+	pinctrl-1 = <&mmc1_uhs_cfg>;
-+	bus-width = <4>;
-+	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
-+	cd-inverted;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	vmmc-supply = <&buck4>;
-+	vqmmc-supply = <&aldo1>;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
+I can confirm that this does fix one selftest using
+BPF_LOCAL_STORAGE_GET_F_CREATE on riscv64: test_ls_map_kptr_ref1 in
+map_kptr. Other tests using BPF_LOCAL_STORAGE_GET_F_CREATE are still
+failing so I guess they have other issues.
 
--- 
-2.53.0
+Tested-by: Paul Chaignon <paul.chaignon@gmail.com>
 
+>  }
+>  
+>  static void task_storage_map_free(struct bpf_map *map)
+> 
+> ---
+> base-commit: e06e6b8001233241eb5b2e2791162f0585f50f4b
+> change-id: 20260314-bpf-kmalloc-nolock-60da80e613de
+> 
+> Best regards,
+> -- 
+> Levi Zim <rsworktech@outlook.com>
+> 
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
