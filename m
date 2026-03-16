@@ -4,129 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC2AF53D78
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 17:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C15F53D80
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 17:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IF9Ik3ClYaxSx2UlsyJBYF4itx43U8G9j4ORarBZVKU=; b=2zGb9yEFlMUwre
-	GfdLGnZsms2Zh7mc5JZ/lq9YDznl1ysIzZHNuHKo+V59VKC7VTdQ3ah3LWDCQzD7tbStAoW7AeNoT
-	LBW4OHc3/xHgNmWuWMArUUDt6hq+KqJcJXoBjRsmmJHdj5LIB0aN6c0PAnjsSHL5d5PlWe4zNmW3x
-	6oY9bQYWn8ZJQlOZ1YEMBJZ3/JAwtPAoMWcMGbSXmBIs8Hqn6o6erSIcStNTj3bSw5HTrIt4QIP9a
-	e+ifnHypEl915ziQuDiaa3DfspQZIl8sKiBvibpwSyIWW3OPTJjzBIPu9Qv///6bza4NybPGaIa9y
-	0L6mfF6xe+eaSWbzIw9g==;
+	List-Owner; bh=WdyPo8R5ncZtmSeUQXz0RKaaxQBn0a1wisV1XxfEAIw=; b=d/d/qR0acz5pWr
+	tpRmiYUUw09LRSYc/ude9UpEbnIB5Bhc214E4VXJ9TITt5NUoBOd2khK/1xxWToKQxdoke2eAxu0Q
+	WWWBR4Vo5hHNqQNv4h6qNbLYleXT85iS/p6QtpQOkn2pBg1hTGShLYVuHuNCQ66x0W8GIWOVjCEx5
+	hfWIGCDOctSzT1sLf58ABm5RA1jUEuOq9fBT0ReIkQ5Hgf6PO1MUbWWjEFuidiRoUYgoFv1AtDYVn
+	j1nd1LzYfQR1XNe11JzpmPGC3ArL3I6nmHXlm3aSbZR51P4Wej8Nqg65JNhFwQzIN6XUE8S7xaTF6
+	IWUBcCJUZMltApP0t8jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2BYB-00000004XLQ-2wXW;
-	Mon, 16 Mar 2026 17:16:19 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1w2Bl7-00000004Z8o-3m8c;
+	Mon, 16 Mar 2026 17:29:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2BY7-00000004XKQ-1CUb;
-	Mon, 16 Mar 2026 17:16:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VPeQjtS9l+RfeZB6KXK+8dXJ2PosPSe17xClxjhabHk2Q8VUBWhNBP05vrpcx2d+y4Hyt80XEiQZHgVIa7afjK3IUbsjTx/uXBv5Kb0JE1KfhFll96e6Cm6KFC9Q/swJpImfCGj8vLaT0fY0YbzIOuvVFgZGKuj4eHaoCdfxYx88mfO1HdIdvrbpRsK316bYzUuKj0fYAm49YGyHHmj5ZLWp/ZujdX3q3Twy/Vr0zoIM8508XNKQEb+b5F9Lz4JiJkTBLnnuVJOVNXIMQa4KGLWzPMXx95Zce4pM98yEwilkVHrzjWG1ZET+C/do805aNBHDYJ/IVjnQa1YucVvK9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PSg+Oo9bKmxjcK/RACzBZ6TJ0H0VpiWej7UYa/J7534=;
- b=V9th9+gZLay+oPs6HTFohJvsxTYtDCj12Bjs55CD9ND7xZWz5YVY2ANZJ8Rrlfsh5zqYyHkd10AlipR6BFGsyiqzn8jciDYLABQXYpdt2dOfZa7cJUfx4WS+0OHBeIMAmIwySn34N8HB5W2JgSXUS6tIS6tDc2P9HVylHvxtUGnaHjokv+aElBOHSwRfUsVKpmQ77kZIOyCisAevQn4gQ02Z5KOiE3C4a+8ypud+QcTUsC/fzQUnueL6IWJ/XUCyoZczw/q8mxogJM87dpEP+4i10TvUgFXiDeaRq5uZ1mEcuHZKcKEjkf8gGt/l+0iX2b3VHxfPgEmV1SZXTNMJdw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PSg+Oo9bKmxjcK/RACzBZ6TJ0H0VpiWej7UYa/J7534=;
- b=tpDhTZjpta9VAXocFnlQ7AFp4qrS9Y9Pw4vD8WwwvApeESE99rI7bugeIQxoj1clBoC1JrBPZ/CPPH0jNDBStKsgm/4Ls/zwX36PMDHaxB9kmpB4FxZ+1K+QCC8vNEygKJM6XNvD4p5Ptd4XvgQA2prUoCycvBPg69zK2wEQPdM=
-Received: from SA0PR11CA0102.namprd11.prod.outlook.com (2603:10b6:806:d1::17)
- by SJ2PR12MB9162.namprd12.prod.outlook.com (2603:10b6:a03:555::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.16; Mon, 16 Mar
- 2026 17:16:08 +0000
-Received: from SA2PEPF00003AEB.namprd02.prod.outlook.com
- (2603:10b6:806:d1:cafe::33) by SA0PR11CA0102.outlook.office365.com
- (2603:10b6:806:d1::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.24 via Frontend Transport; Mon,
- 16 Mar 2026 17:16:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SA2PEPF00003AEB.mail.protection.outlook.com (10.167.248.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9700.17 via Frontend Transport; Mon, 16 Mar 2026 17:16:08 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 16 Mar
- 2026 12:16:06 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 16 Mar
- 2026 12:16:06 -0500
-Received: from [172.31.184.125] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Mon, 16 Mar 2026 12:15:56 -0500
-Message-ID: <9e84f85b-a86e-4a93-81bf-5c0951b8d81c@amd.com>
-Date: Mon, 16 Mar 2026 22:45:50 +0530
+	id 1w2Bl6-00000004Z8Q-0TQL;
+	Mon, 16 Mar 2026 17:29:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B31E60018;
+	Mon, 16 Mar 2026 17:29:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5089EC2BC87;
+	Mon, 16 Mar 2026 17:29:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773682178;
+	bh=Ysd3eBupfSljhrNmOpuGPKVMPzOcnIp/9ypCnnttjrY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SeG1bDmb2FosihW0Q0vHpHDd6Vq9zHI/km9LM9pVc+W9ySVDXWNuYswxphJ768iy+
+	 rRTo4LFSUsqxFYgG+8R5d0PCs94v7ggs1ZV94QtxtKZemNboI/SB6zraswF7lRv/V0
+	 4dRzPiYhaMGMP5SoiQOyyHwGQgu4ORDieCfhRvo7rhFoRx8WGR5BN5Zduj9HcYol5y
+	 xigRuamu6mn78C8lcPsh5eNPMZw4UmXPzfzEmZKk8UyxEMqKXHMUVbtQQdAJZBIRKO
+	 fqFw06ytMbWL1ifvXu8nl9a+xt365ou5fLzGd/1kCY837nZwvVw1ifY2Dp/xBaICkO
+	 C+r3Fk7Yn1mQQ==
+Message-ID: <846c077d-f1ca-45bc-b3d4-52ba71c34909@kernel.org>
+Date: Mon, 16 Mar 2026 18:29:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 7/7] futex: Use runtime constants for
- __futex_hash() hot path
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-CC: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Peter
- Zijlstra" <peterz@infradead.org>, Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Borislav
- Petkov" <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
-	<x86@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, "Arnd
- Bergmann" <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>, Davidlohr
- Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
-	<andrealmeid@igalia.com>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Alexandre
- Ghiti <alex@ghiti.fr>, "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau
-	<kas@kernel.org>, Sean Christopherson <seanjc@google.com>, Charlie Jenkins
-	<charlie@rivosinc.com>, Charles Mirabile <cmirabil@redhat.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Huth <thuth@redhat.com>, "Jisheng Zhang" <jszhang@kernel.org>
-References: <20260316052401.18910-1-kprateek.nayak@amd.com>
- <20260316052401.18910-8-kprateek.nayak@amd.com>
- <20260316081429.FJx4fnNl@linutronix.de>
+Subject: Re: [PATCH net-next v9 1/6] dt-bindings: net: qcom: document the
+ ethqos device for SCMI-based systems
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+ Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Christophe Roullier <christophe.roullier@foss.st.com>,
+ Bartosz Golaszewski <brgl@kernel.org>, Radu Rendec <rrendec@redhat.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Drew Fustini
+ <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
+ linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
+ imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+ linux-riscv@lists.infradead.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20260316-qcom-sa8255p-emac-v9-0-c58934e76ff2@oss.qualcomm.com>
+ <20260316-qcom-sa8255p-emac-v9-1-c58934e76ff2@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <20260316081429.FJx4fnNl@linutronix.de>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003AEB:EE_|SJ2PR12MB9162:EE_
-X-MS-Office365-Filtering-Correlation-Id: 521baaca-6f8c-417a-2289-08de837fb6e1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|36860700016|82310400026|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: Bj2UrZRAJjyE1feOpD1Pu5fBIcZBHYnUz3rO6HxdqIexW6Q0nd10LTk0J+bobi6e/IBwe0p45LcEF5dS6WLJovQYRUqlZkzv/27GK7GCEiY1Ba5O5uTFA7Q/9P4yyqzzv1i2Dp5Fwo+G4dIXpklc2i792PlsZGhAQlFXaPSNEzWK58qjfb0aQCkBg6KovNqv7VJRBMxLmuHbo4bqpIvJ0kFPLTd11j2NqvF8vsWDb0mnIFmSXGHGZ1WVnDySRv7WIaxX9bhHpEFubkiQDxctRQx5pZe37ui8gdSYYo1CR99N7pAVKxIxV8I47xpFTLlVd1VGvx++yD1BGxsDgpks2/IgcIhc7v6PI5Q+einEMmZicMEelncx08K7QDcMVJ71qK8qpp0tckEzacIYyEiErzIZdZ+IWjPfWbUEfx7vvxsstrxJV0qUE/itZQKY+7rvevFrEkBKJ3IuRILjRRA+UtFoj+O6RlSWt5yZOktq/So82VXYT12tWAqotmxH5uXaWbD9LT1mW5uenkoaYkuP0jF9nppYrasPQ2kVttXCngmMBkmBIbFOUoOS/rl1MjcyXPsjs4/J5iut1f9HQ04YLzID7X2CvObbex+JLnR55rgiSeJIL+fGkN6u2lEnF/oqyB5zmDyUDrOL1UdBX6NMZ+AXIFmEZ7kF+orK7kR8fNTxHTkQ3Xl+G0C+ZiMtefSiN+Lo3flcqW9xosOS+rhSMZ/pBG+/aWSc84TrUoL949qN9d78vjiXOqeTFptVkNSJD1HjJfHlhqf6bsyP+qFnDA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(36860700016)(82310400026)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SbBX0fdv3hUdFhnyMqYxjYU3KnTxPWvwU/2crPFOICS2fYEJjH5G8HYA9fa350Ak1e+7+PUFYFofovlfFURH4Rcwdn/0yGkXuWnxrzKk+NxtrlOXHKCerLi8lew9/Tt6kpt2m/sJ5xcTbo722zXR2T3bA6qhG4VCknl7CSaPHVxjhLEEPTutM4a2tdB6Z3tbh0tVVSss0Gboe7S7HXbv77pqyTsk/rWOlxOfv7YWccRlFkuNVYL5XTnYtyA94Ulo0pvIdXDRyHlk+3WGelS2syNeywvHUjqlg1bQXN2nI33zqKt7zhxapQ/HXxMpDP1SHgMPAgPWFP4nlO09G4uYfk4F9D5vdh/IAfmsLQ3sUgeZiWtL8AZeK91H3yGiYXvZls/bDR32aAcu6IDpRsEOE2/IOXXFprAr5OjB8OeOYmi8FqcOTSGb+MBSafp5OJ8v
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 17:16:08.4867
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 521baaca-6f8c-417a-2289-08de837fb6e1
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AEB.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9162
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_101615_332784_3B31EE42 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260316-qcom-sa8255p-emac-v9-1-c58934e76ff2@oss.qualcomm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,21 +145,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Sebastian,
+On 16/03/2026 13:05, Bartosz Golaszewski wrote:
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    ethernet: ethernet@7a80000 {
 
-On 3/16/2026 1:44 PM, Sebastian Andrzej Siewior wrote:
-> This all looks nice. Let me look later at the resulting code. Thank you
-> so far ;)
+Wrong unit address.
 
-Let me know if you find anything nasty and we can see how to best
-address those bits in the next version :-)
+> +        compatible = "qcom,sa8255p-ethqos";
+> +        reg = <0x23040000 0x10000>,
+> +              <0x23056000 0x100>;
 
-Thank you for taking a look at the series.
 
--- 
-Thanks and Regards,
-Prateek
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
