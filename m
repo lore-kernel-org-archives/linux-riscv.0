@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB602F53D6E
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 16:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77570F53D6D
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 16:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4T19+leHGReMu0PljLctcTF6ItZSTw/BnyRD5dG3PAA=; b=Hb0/I76Zkcsyz4
-	Bf1nrA+CSwAG2lFJRxr3IEkzh1bSDQlLl8SU2/EpSASnHQWwdt0PDYjsRTxbnWQtqdciEB1uXTCzM
-	oJ1MU9eGhnUyJv8se9+2dP4DeBFEw8tUpT9iIsf9Y71sAeDqSO9yTzBkUpXElIWbb3wmNvX+xEZqj
-	/UucxrnPggRE94i/tNfLSJRfTZZ1UclSpaF8+lv+GoZQuaaP+wrnVic2/qpE79HdhlHD+yQIiy/oc
-	TyqSLQtkIzUtZyNojKkwQeui8VdzGA/RwXqivT9fr5DVE/CUcSQbvvbGcpuVKGSxUMiY9bqiRvv4e
-	5J3FIPn5CFcIsNa3bhSw==;
+	List-Owner; bh=lMQKnANwb8liUJTp49gr5OHy7buFllnrsdT4Qn67I2k=; b=h8yP+kVu48qL4N
+	Ag4c0qPelrMJvai62s5wla+L6H2XJ/kCmb0F8is4N2QhP0A15nEZnUlCi9W+QZ+GNHjmbTdQ4e5Qw
+	KKX6XBtWg8Eljozg98q4dDMk/+FEwUtOVhfOlH/ABl4vHM+3MNy9xPg3EzcAUOFf7keS1bSRGs0FR
+	IM7SxBLsZDtTRnNtLbbiRSW+sykq5zyGZe6HqnQ9MbhbHP8G9qn+noW/rmNfsOlvIgSteEKSGBpQu
+	4XrxNtND9P08tqh7T7oPH1luaMy085HNA65aQ+5VhCO9sw5Yo1jxQPSUUcDJHiNrWY1xs/7lQ5Lti
+	KsdxsjaqHqG3ZbARY7Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AZO-00000004Q9T-1Bip;
-	Mon, 16 Mar 2026 16:13:30 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1w2Acx-00000004Qwn-21Wb;
+	Mon, 16 Mar 2026 16:17:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2AZL-00000004Q8w-1e67
-	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 16:13:29 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id D5E9968BEB; Mon, 16 Mar 2026 17:13:13 +0100 (CET)
-Date: Mon, 16 Mar 2026 17:13:13 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: kernel test robot <oliver.sang@intel.com>
-Cc: Christoph Hellwig <hch@lst.de>, oe-lkp@lists.linux.dev, lkp@intel.com,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Borislav Petkov (AMD)" <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>, Chris Mason <clm@fb.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Sterba <dsterba@suse.com>, Heiko Carstens <hca@linux.ibm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Li Nan <linan122@huawei.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matt Turner <mattst88@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
-	Will Deacon <will@kernel.org>, linux-raid@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [linux-next:master] [xor]  ebbbf58989:
- BUG:KASAN:slab-out-of-bounds_in_xor_gen_avx
-Message-ID: <20260316161313.GA20842@lst.de>
-References: <202603131751.7ba6ffc8-lkp@intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202603131751.7ba6ffc8-lkp@intel.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+	id 1w2Acu-00000004Qvv-2Izq;
+	Mon, 16 Mar 2026 16:17:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 544DE439D2;
+	Mon, 16 Mar 2026 16:17:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52FBAC19421;
+	Mon, 16 Mar 2026 16:17:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1773677827;
+	bh=piGtJoQS85x055Jj6a8BM+ONk4RlzPnFJWtiG0/1/40=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=L29wqMAsUJ+kd0X9h7g849lKpqLxCfCPG0hoLd+WtnJ50ZCOkgcNxIONjg5Cqui/L
+	 XCAUjTPqdwvcgvUKcOIyocy046LFIx0+L2G9uLv5ICqCsBhbaAsDvCluEeycwL6k+7
+	 sLjEpI9to3sgq/yF8A1DWAUyiyt23UTdiAafOEOE=
+Date: Mon, 16 Mar 2026 09:17:04 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>, "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn
+ <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Kees Cook
+ <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, Vineet
+ Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian
+ Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
+ <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh
+ Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily
+ Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin"
+ <hpa@zytor.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov
+ <anton.ivanov@cambridgegreys.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin
+ <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>, Michal
+ Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, Stephen Smalley
+ <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ selinux@vger.kernel.org
+Subject: Re: [PATCH v2 00/23] mm/vma: convert vm_flags_t to vma_flags_t in
+ vma code
+Message-Id: <20260316091704.24d7f8230ad57e8b7d18e9f8@linux-foundation.org>
+In-Reply-To: <cover.1773665966.git.ljs@kernel.org>
+References: <cover.1773665966.git.ljs@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_091327_595762_DF7FBE8A 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260316_091708_634989_EDFC2FE8 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,8 +99,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Note that this is the v1 series, and this is the case that Eric
-mentioned and which thus got fixed.
+On Mon, 16 Mar 2026 13:07:49 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
+
+> This series converts a lot of the existing use of the legacy vm_flags_t
+> data type to the new vma_flags_t type which replaces it.
+
+This series assumes the non-presence of your series "mm: expand
+mmap_prepare functionality and usage".  Seems that series is due for a
+respin so I'll drop v1.
 
 _______________________________________________
 linux-riscv mailing list
