@@ -4,113 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E420EF506CF
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 13:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47AD1F506CF
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 13:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7l15bNkr3qBC94zGzcj0K41Seykx7H8XzaAhGid5JCE=; b=l00zyO8yQ27Wm9
-	qeOHKcUbKkTzKttUMnC+bSkoIUsuCbKmTzupf/jXar8RP95h38w0W/PwE10olRiU6MYm8p/81wccz
-	BywNbGzQF2zood7NrK/WLNAVC1meCOoOx5Wv1l2WohQ2K3y9hHyjol4UkM57ubPkc/XvJE9RmkJoa
-	vrc3iOcB4/OYuXrdD1EYt2gkyG7eWdpRiy1bWwjQNw/rb1QhBR6NZhZMMYXuqjYTtI26v8l6Fkcwt
-	O+1k835VXCsKB0ksogyYAUlQhJ4asCEshx/xAML48puKw/S/BAykQyFgTEp0EdoFq9162dojEl95F
-	6tjeXqQ84a9IycyY+S5A==;
+	List-Owner; bh=TRdb69Jfb9saVG+uUDAnSFBzzulaxdSV8obsTIdj8po=; b=n+XVvB96eBqmtL
+	JRiMTSWp+5ZcEU/JEHM6pngkZdPK2lnHuw3fno0ja6TknKixVmhyG2/w75V70Ez+XC5J2Jj8Ak5qZ
+	dTie490pRxT+FU7/8eQd6ONICT61I2QXUvpwFsvjlatPswF8BrDYV0q1NVvMWiiVdF2vW21inoT6B
+	xA0PEzU0CGeBnOsBOA2JI7ARA1j3CFSobEuc1HjvpAvmNwjFE5Qizj+O+h3fLon3oQcFz3QeXdQHa
+	B5GwXvW4nC1WvHVMe8BkBJF7O0aZL/v1LFabmkHUlXzttanwmnNWzL9Y1QMHxIy153DUlcOntT0ca
+	xKdTHsvOs6L4qQhMu9tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27i5-0000000428V-1qho;
-	Mon, 16 Mar 2026 13:10:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w27rK-000000043vv-0RH1;
+	Mon, 16 Mar 2026 13:19:50 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27hp-000000041hA-30XM;
-	Mon, 16 Mar 2026 13:10:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 44DCD6012B;
-	Mon, 16 Mar 2026 13:10:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56090C19421;
-	Mon, 16 Mar 2026 13:09:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773666599;
-	bh=HlwQws2GiwC3VPBALr2/PhG0TCVrel/OsdG0jnr2Xwc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=f0c6FqdH4BOMwU2R0p0hwlGjfE0ECoL29OCMEkEyGFqh0UJudhJrCS+npgEh2jkTV
-	 ht/QRY95JyNoDyCmflE5lB6aLEhaN+jVZNbZBP9SuJdmZYehf+8r33SwOkiJOoRVjE
-	 DAKJBSJS/J9GgR0EpKwtGyC3ikPHYiDIXvdBes7SpUKAFDsL3NwO7ivo/EpAWpKDB4
-	 wjQXfY4fTwoRQhaFmmK/VEEV/aItFrHGllQrRPq8QLWyUzz2CBgDoWzUyYbrDIDztq
-	 hVyAPoKCDzGOvXeQh2WhuQrbE/jUvmuQq17f/pysd1slBp49p78C3UjQx0Z53Be3IL
-	 1NQjeRM5i3u7g==
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Jann Horn <jannh@google.com>,
-	Pedro Falcato <pfalcato@suse.de>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Kees Cook <kees@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Brian Cain <bcain@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Xu Xin <xu.xin16@zte.com.cn>,
-	Chengming Zhou <chengming.zhou@linux.dev>,
-	Michal Hocko <mhocko@suse.com>,
-	Paul Moore <paul@paul-moore.com>,
-	Stephen Smalley <stephen.smalley.work@gmail.com>,
-	Ondrej Mosnacek <omosnace@redhat.com>,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	selinux@vger.kernel.org
-Subject: [PATCH v2 23/23] mm/vma: convert __mmap_region() to use vma_flags_t
-Date: Mon, 16 Mar 2026 13:08:12 +0000
-Message-ID: <0dfdae451f825437e042db9b434a7d509dce6841.1773665966.git.ljs@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1773665966.git.ljs@kernel.org>
-References: <cover.1773665966.git.ljs@kernel.org>
+	id 1w27rH-000000043vD-0SlD
+	for linux-riscv@lists.infradead.org;
+	Mon, 16 Mar 2026 13:19:48 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-466f935a82fso2963011b6e.0
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 06:19:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1773667185; x=1774271985; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fcUQdthu3w3MmzOBiSvMw8yvWhLEb2QVxffY5zYz7z0=;
+        b=fg6g2P3rPjyx+HZ6CANbvu9XgQ7MHJiidU8ktP/C5QaDrVAHm7Hr7F+kzXAG1ge5ux
+         6MqbPEWj4pixUmJ+vRpXu4OBIhWOLkPL6u1IN75WQk9hOfLsC3Fya5+RB3ZhEHL2khPA
+         dL/b4epW1Rxm1PTQ/gL470r3ej8p76o2Mw3untNjUN+0BnyLm/2gbNwixYmM/KSpcljg
+         o1Sm09Xhav8tPCoriLZCKANB7/iOIcREmcxg8gShiHvr1Pj+zX5wQ1tVWzKvzT/4U7+x
+         xE+OY8gqAzEuj8gHqfo/dGTIlSF+sNjLwLaglfyhKoMH/lcU3UQP7JeOCbHPoQ52NEMA
+         JLcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773667185; x=1774271985;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fcUQdthu3w3MmzOBiSvMw8yvWhLEb2QVxffY5zYz7z0=;
+        b=O1NEhXOcJlyOQZO29vrkiGB/XODVKzbDeGTANx0G4x0cTYi0FQm/pE+SZWGU5YxwDJ
+         H+CKVS1qqOg6l+6D1JbTHIGISZ/HtdBVr5qhEhc9wOrq1tnDH11tgKUX/KXL+gSXXyBe
+         w39YIZ54W/3kHhFyqFdYqXFDaspruC95eizNi/V2fKArOM8xTPdWgnO9I2788Gq07VXs
+         JAigMNewj0TaFKOfDFvq2oEkKS8hZ6Nal3VKTR7AdfXmbnysNNIB9znIPi9KBgkjF1aj
+         O1rLhiyHk3MxTuZIEiM3DOqvV6Y8AHcx4TlGxu9N6YU9iJYTWL2mZK2o4/VHJK9RMN1+
+         5r6Q==
+X-Gm-Message-State: AOJu0YylNNj1ucBsJK5iCkj3kqsY03LWDtHwShtIb7Zq+XTzs2TqP2a/
+	sQeDn5c7RyifICM8Gzm/ymHAhl55oNW0uXbgOiNkR18F5eTQAYkqmD5+m1xXM18lsp0=
+X-Gm-Gg: ATEYQzxtwmaoPyp9Ygj8crmN+OzsjpVr6kb7r2e7YhA+1GUyUAAe7F4Jc0T2pwvDjoh
+	VbllWkMBKsd1RouWwfMgXXHzVE17VDCKFt0mCk2VGwpPOCEPHBuYF7v90kRT1GrfgfAZSs+lMTl
+	gkbevRWNeCf4IxbbiCQWQr393LvGWei7xYoc42FtmWPE9HRBlu0pSxd8qr+sef2Sej96Bg9v2gL
+	F4W9v5hretSeqhFLrkvoDbZFBTsLOjI+UBIaqSauwDoFgRzinTWR79ooLmcli5hLNtqg7Ktc8DR
+	h91/F5FGS2Ne5RVT3P0piSX8AbyMZ7bIqGiP/xydr7AT1Qw4fJZciIdojwbBysMUXkyCU1u9Oe6
+	PmbfbMlGsNSXcywrNdr/kDjFiRyxZjBY/Vbxr1Hk7FLJc4Z3HcZr9K9mf00OJLSPu68LANVOfTA
+	Md2fxoWqu3e1Pti1AQzm0pBGBEYmuHRqEIE3RuGnD9
+X-Received: by 2002:a05:6808:a596:20b0:467:1ad3:7ee with SMTP id 5614622812f47-4675753157fmr5424703b6e.40.1773667185289;
+        Mon, 16 Mar 2026 06:19:45 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.103.33])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-46734164245sm9151715b6e.8.2026.03.16.06.19.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Mar 2026 06:19:44 -0700 (PDT)
+Message-ID: <c1f466f8-4e76-43a2-a7a2-126415fd1f56@sifive.com>
+Date: Mon, 16 Mar 2026 08:19:44 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] riscv: disable local interrupts and stop other CPUs
+ before restart
+To: Troy Mitchell <troy.mitchell@linux.dev>,
+ Vivian Wang <wangruikang@iscas.ac.cn>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev>
+ <f9079774-1d16-4b84-bf85-bc8444e93446@iscas.ac.cn>
+ <DH40Z14EHV40.1I443BTRU720F@linux.dev>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <DH40Z14EHV40.1I443BTRU720F@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_061947_202031_E281F1C9 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,417 +105,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the mmap() implementation logic implemented in __mmap_region() and
-functions invoked by it. The mmap_region() function converts its input
-vm_flags_t parameter to a vma_flags_t value which it then passes to
-__mmap_region() which uses the vma_flags_t value consistently from then on.
+Hi Troy,
 
-As part of the change, we convert map_deny_write_exec() to using
-vma_flags_t (it was incorrectly using unsigned long before), and place it
-in vma.h, as it is only used internal to mm.
+On 2026-03-16 2:23 AM, Troy Mitchell wrote:
+> On Thu Mar 12, 2026 at 11:05 AM CST, Vivian Wang wrote:
+>> On 3/11/26 10:51, Troy Mitchell wrote:
+>>> Currently, the RISC-V implementation of machine_restart() directly calls
+>>> do_kernel_restart() without disabling local interrupts or stopping other
+>>> CPUs. This missing architectural setup causes fatal issues for systems
+>>> that rely on external peripherals (e.g., I2C PMICs) to execute the system
+>>> restart when CONFIG_PREEMPT_RCU is enabled.
+>>>
+>>> When a restart handler relies on the I2C subsystem, the I2C core checks
+>>> i2c_in_atomic_xfer_mode() to decide whether to use the sleepable xfer
+>>> or the polling atomic_xfer. This check evaluates to true if
+>>> (!preemptible() || irqs_disabled()).
+>>>
+>>> During do_kernel_restart(), the restart handlers are invoked via
+>>> atomic_notifier_call_chain(), which holds an RCU read lock.
+>>> The behavior diverges based on the preemption model:
+>>> 1. Under CONFIG_PREEMPT_VOLUNTARY or CONFIG_PREEMPT_NONE, rcu_read_lock()
+>>>    implicitly disables preemption. preemptible() evaluates to false, and
+>>>    the I2C core correctly routes to the atomic, polling transfer path.
+>>> 2. Under CONFIG_PREEMPT_RCU, rcu_read_lock() does NOT disable preemption.
+>>>    Since machine_restart() left local interrupts enabled, irqs_disabled()
+>>>    is false, and preempt_count is 0. Consequently, preemptible() evaluates
+>>>    to true.
+>>>
+>>> As a result, the I2C core falsely assumes a sleepable context and routes
+>>> the transfer to the standard master_xfer path. This inevitably triggers a
+>>> schedule() call while holding the RCU read lock, resulting in a fatal splat:
+>>> "Voluntary context switch within RCU read-side critical section!" and
+>>> a system hang.
+>>>
+>>> Align RISC-V with other major architectures (e.g., ARM64) by adding
+>>> local_irq_disable() and smp_send_stop() to machine_restart().
+>>> - local_irq_disable() guarantees a strict atomic context, forcing sub-
+>>>   systems like I2C to always fall back to polling mode.
+>>> - smp_send_stop() ensures exclusive hardware access by quiescing other
+>>>   CPUs, preventing them from holding bus locks (e.g., I2C spinlocks)
+>>>   during the final restart phase.
+>>
+>> Maybe while we're at it, we can fix the other functions in this file as
+>> well?
+> Nice catch. I'll fix other functions in the next version.
+>>
+>> I think the reason we ended up with the "unsafe" implementations of the
+>> reboot/shutdown functions is that on the backend it is usually SBI SRST
+>> calls, which can protect itself from other CPUs and interrupts. Since on
+>> K1 we're going to be poking I2C directly, we run into the problem
+>> described above. So all of these should disable interrupts and stop
+>> other CPUs before calling the handlers, and can't assume the handlers
+>> are all SBI SRST.
+> Yes, we cannot assume that all platforms rely on this.
 
-With this change, we eliminate the legacy is_shared_maywrite_vm_flags()
-helper function which is now no longer required.
+Why isn't K1 using the SBI SRST extension? Resetting the platform from S-mode
+directly causes problems if you ever want to run another supervisor domain (for
+example a TEE or EFI runtime services), which may need to clean up before a
+system reset.
 
-We are also able to update the MMAP_STATE() and VMG_MMAP_STATE() macros to
-use the vma_flags_t value.
+As you mention, other platforms use the standard SBI SRST interface, event if
+they need to poke a PMIC to perform a system reset. Is there something
+preventing K1 from following this path?
 
-Finally, we update the VMA tests to reflect the change.
-
-Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
----
- include/linux/mm.h              | 18 ++++++++----
- include/linux/mman.h            | 49 -------------------------------
- mm/mprotect.c                   |  4 ++-
- mm/vma.c                        | 25 ++++++++--------
- mm/vma.h                        | 51 +++++++++++++++++++++++++++++++++
- tools/testing/vma/include/dup.h | 34 +++++-----------------
- tools/testing/vma/tests/mmap.c  | 18 ++++--------
- 7 files changed, 92 insertions(+), 107 deletions(-)
-
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 174b1d781ca0..42cc40aa63d9 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -1529,12 +1529,6 @@ static inline bool vma_is_accessible(const struct vm_area_struct *vma)
- 	return vma->vm_flags & VM_ACCESS_FLAGS;
- }
- 
--static inline bool is_shared_maywrite_vm_flags(vm_flags_t vm_flags)
--{
--	return (vm_flags & (VM_SHARED | VM_MAYWRITE)) ==
--		(VM_SHARED | VM_MAYWRITE);
--}
--
- static inline bool is_shared_maywrite(const vma_flags_t *flags)
- {
- 	return vma_flags_test_all(flags, VMA_SHARED_BIT, VMA_MAYWRITE_BIT);
-@@ -4351,12 +4345,24 @@ static inline bool range_in_vma(const struct vm_area_struct *vma,
- 
- #ifdef CONFIG_MMU
- pgprot_t vm_get_page_prot(vm_flags_t vm_flags);
-+
-+static inline pgprot_t vma_get_page_prot(vma_flags_t vma_flags)
-+{
-+	const vm_flags_t vm_flags = vma_flags_to_legacy(vma_flags);
-+
-+	return vm_get_page_prot(vm_flags);
-+}
-+
- void vma_set_page_prot(struct vm_area_struct *vma);
- #else
- static inline pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
- {
- 	return __pgprot(0);
- }
-+static inline pgprot_t vma_get_page_prot(vma_flags_t vma_flags)
-+{
-+	return __pgprot(0);
-+}
- static inline void vma_set_page_prot(struct vm_area_struct *vma)
- {
- 	vma->vm_page_prot = vm_get_page_prot(vma->vm_flags);
-diff --git a/include/linux/mman.h b/include/linux/mman.h
-index 0ba8a7e8b90a..389521594c69 100644
---- a/include/linux/mman.h
-+++ b/include/linux/mman.h
-@@ -170,53 +170,4 @@ static inline bool arch_memory_deny_write_exec_supported(void)
- }
- #define arch_memory_deny_write_exec_supported arch_memory_deny_write_exec_supported
- #endif
--
--/*
-- * Denies creating a writable executable mapping or gaining executable permissions.
-- *
-- * This denies the following:
-- *
-- * 	a)	mmap(PROT_WRITE | PROT_EXEC)
-- *
-- *	b)	mmap(PROT_WRITE)
-- *		mprotect(PROT_EXEC)
-- *
-- *	c)	mmap(PROT_WRITE)
-- *		mprotect(PROT_READ)
-- *		mprotect(PROT_EXEC)
-- *
-- * But allows the following:
-- *
-- *	d)	mmap(PROT_READ | PROT_EXEC)
-- *		mmap(PROT_READ | PROT_EXEC | PROT_BTI)
-- *
-- * This is only applicable if the user has set the Memory-Deny-Write-Execute
-- * (MDWE) protection mask for the current process.
-- *
-- * @old specifies the VMA flags the VMA originally possessed, and @new the ones
-- * we propose to set.
-- *
-- * Return: false if proposed change is OK, true if not ok and should be denied.
-- */
--static inline bool map_deny_write_exec(unsigned long old, unsigned long new)
--{
--	/* If MDWE is disabled, we have nothing to deny. */
--	if (!mm_flags_test(MMF_HAS_MDWE, current->mm))
--		return false;
--
--	/* If the new VMA is not executable, we have nothing to deny. */
--	if (!(new & VM_EXEC))
--		return false;
--
--	/* Under MDWE we do not accept newly writably executable VMAs... */
--	if (new & VM_WRITE)
--		return true;
--
--	/* ...nor previously non-executable VMAs becoming executable. */
--	if (!(old & VM_EXEC))
--		return true;
--
--	return false;
--}
--
- #endif /* _LINUX_MMAN_H */
-diff --git a/mm/mprotect.c b/mm/mprotect.c
-index 2b8a85689ab7..ef09cd1aa33f 100644
---- a/mm/mprotect.c
-+++ b/mm/mprotect.c
-@@ -882,6 +882,7 @@ static int do_mprotect_pkey(unsigned long start, size_t len,
- 	tmp = vma->vm_start;
- 	for_each_vma_range(vmi, vma, end) {
- 		vm_flags_t mask_off_old_flags;
-+		vma_flags_t new_vma_flags;
- 		vm_flags_t newflags;
- 		int new_vma_pkey;
- 
-@@ -904,6 +905,7 @@ static int do_mprotect_pkey(unsigned long start, size_t len,
- 		new_vma_pkey = arch_override_mprotect_pkey(vma, prot, pkey);
- 		newflags = calc_vm_prot_bits(prot, new_vma_pkey);
- 		newflags |= (vma->vm_flags & ~mask_off_old_flags);
-+		new_vma_flags = legacy_to_vma_flags(newflags);
- 
- 		/* newflags >> 4 shift VM_MAY% in place of VM_% */
- 		if ((newflags & ~(newflags >> 4)) & VM_ACCESS_FLAGS) {
-@@ -911,7 +913,7 @@ static int do_mprotect_pkey(unsigned long start, size_t len,
- 			break;
- 		}
- 
--		if (map_deny_write_exec(vma->vm_flags, newflags)) {
-+		if (map_deny_write_exec(&vma->flags, &new_vma_flags)) {
- 			error = -EACCES;
- 			break;
- 		}
-diff --git a/mm/vma.c b/mm/vma.c
-index f52fe7f9bae4..c1f183235756 100644
---- a/mm/vma.c
-+++ b/mm/vma.c
-@@ -44,7 +44,7 @@ struct mmap_state {
- 	bool file_doesnt_need_get :1;
- };
- 
--#define MMAP_STATE(name, mm_, vmi_, addr_, len_, pgoff_, vm_flags_, file_) \
-+#define MMAP_STATE(name, mm_, vmi_, addr_, len_, pgoff_, vma_flags_, file_) \
- 	struct mmap_state name = {					\
- 		.mm = mm_,						\
- 		.vmi = vmi_,						\
-@@ -52,9 +52,9 @@ struct mmap_state {
- 		.end = (addr_) + (len_),				\
- 		.pgoff = pgoff_,					\
- 		.pglen = PHYS_PFN(len_),				\
--		.vm_flags = vm_flags_,					\
-+		.vma_flags = vma_flags_,				\
- 		.file = file_,						\
--		.page_prot = vm_get_page_prot(vm_flags_),		\
-+		.page_prot = vma_get_page_prot(vma_flags_),		\
- 	}
- 
- #define VMG_MMAP_STATE(name, map_, vma_)				\
-@@ -63,7 +63,7 @@ struct mmap_state {
- 		.vmi = (map_)->vmi,					\
- 		.start = (map_)->addr,					\
- 		.end = (map_)->end,					\
--		.vm_flags = (map_)->vm_flags,				\
-+		.vma_flags = (map_)->vma_flags,				\
- 		.pgoff = (map_)->pgoff,					\
- 		.file = (map_)->file,					\
- 		.prev = (map_)->prev,					\
-@@ -2745,14 +2745,14 @@ static int call_action_complete(struct mmap_state *map,
- }
- 
- static unsigned long __mmap_region(struct file *file, unsigned long addr,
--		unsigned long len, vm_flags_t vm_flags, unsigned long pgoff,
--		struct list_head *uf)
-+		unsigned long len, vma_flags_t vma_flags,
-+		unsigned long pgoff, struct list_head *uf)
- {
- 	struct mm_struct *mm = current->mm;
- 	struct vm_area_struct *vma = NULL;
- 	bool have_mmap_prepare = file && file->f_op->mmap_prepare;
- 	VMA_ITERATOR(vmi, mm, addr);
--	MMAP_STATE(map, mm, &vmi, addr, len, pgoff, vm_flags, file);
-+	MMAP_STATE(map, mm, &vmi, addr, len, pgoff, vma_flags, file);
- 	struct vm_area_desc desc = {
- 		.mm = mm,
- 		.file = file,
-@@ -2836,16 +2836,17 @@ static unsigned long __mmap_region(struct file *file, unsigned long addr,
-  * been performed.
-  */
- unsigned long mmap_region(struct file *file, unsigned long addr,
--			  unsigned long len, vm_flags_t vm_flags, unsigned long pgoff,
--			  struct list_head *uf)
-+			  unsigned long len, vm_flags_t vm_flags,
-+			  unsigned long pgoff, struct list_head *uf)
- {
- 	unsigned long ret;
- 	bool writable_file_mapping = false;
-+	const vma_flags_t vma_flags = legacy_to_vma_flags(vm_flags);
- 
- 	mmap_assert_write_locked(current->mm);
- 
- 	/* Check to see if MDWE is applicable. */
--	if (map_deny_write_exec(vm_flags, vm_flags))
-+	if (map_deny_write_exec(&vma_flags, &vma_flags))
- 		return -EACCES;
- 
- 	/* Allow architectures to sanity-check the vm_flags. */
-@@ -2853,7 +2854,7 @@ unsigned long mmap_region(struct file *file, unsigned long addr,
- 		return -EINVAL;
- 
- 	/* Map writable and ensure this isn't a sealed memfd. */
--	if (file && is_shared_maywrite_vm_flags(vm_flags)) {
-+	if (file && is_shared_maywrite(&vma_flags)) {
- 		int error = mapping_map_writable(file->f_mapping);
- 
- 		if (error)
-@@ -2861,7 +2862,7 @@ unsigned long mmap_region(struct file *file, unsigned long addr,
- 		writable_file_mapping = true;
- 	}
- 
--	ret = __mmap_region(file, addr, len, vm_flags, pgoff, uf);
-+	ret = __mmap_region(file, addr, len, vma_flags, pgoff, uf);
- 
- 	/* Clear our write mapping regardless of error. */
- 	if (writable_file_mapping)
-diff --git a/mm/vma.h b/mm/vma.h
-index 270008e5babc..adc18f7dd9f1 100644
---- a/mm/vma.h
-+++ b/mm/vma.h
-@@ -704,4 +704,55 @@ int create_init_stack_vma(struct mm_struct *mm, struct vm_area_struct **vmap,
- int relocate_vma_down(struct vm_area_struct *vma, unsigned long shift);
- #endif
- 
-+#ifdef CONFIG_MMU
-+/*
-+ * Denies creating a writable executable mapping or gaining executable permissions.
-+ *
-+ * This denies the following:
-+ *
-+ *	a)	mmap(PROT_WRITE | PROT_EXEC)
-+ *
-+ *	b)	mmap(PROT_WRITE)
-+ *		mprotect(PROT_EXEC)
-+ *
-+ *	c)	mmap(PROT_WRITE)
-+ *		mprotect(PROT_READ)
-+ *		mprotect(PROT_EXEC)
-+ *
-+ * But allows the following:
-+ *
-+ *	d)	mmap(PROT_READ | PROT_EXEC)
-+ *		mmap(PROT_READ | PROT_EXEC | PROT_BTI)
-+ *
-+ * This is only applicable if the user has set the Memory-Deny-Write-Execute
-+ * (MDWE) protection mask for the current process.
-+ *
-+ * @old specifies the VMA flags the VMA originally possessed, and @new the ones
-+ * we propose to set.
-+ *
-+ * Return: false if proposed change is OK, true if not ok and should be denied.
-+ */
-+static inline bool map_deny_write_exec(const vma_flags_t *old,
-+				       const vma_flags_t *new)
-+{
-+	/* If MDWE is disabled, we have nothing to deny. */
-+	if (!mm_flags_test(MMF_HAS_MDWE, current->mm))
-+		return false;
-+
-+	/* If the new VMA is not executable, we have nothing to deny. */
-+	if (!vma_flags_test(new, VMA_EXEC_BIT))
-+		return false;
-+
-+	/* Under MDWE we do not accept newly writably executable VMAs... */
-+	if (vma_flags_test(new, VMA_WRITE_BIT))
-+		return true;
-+
-+	/* ...nor previously non-executable VMAs becoming executable. */
-+	if (!vma_flags_test(old, VMA_EXEC_BIT))
-+		return true;
-+
-+	return false;
-+}
-+#endif
-+
- #endif	/* __MM_VMA_H */
-diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
-index b5660c470a5c..999357e18eb0 100644
---- a/tools/testing/vma/include/dup.h
-+++ b/tools/testing/vma/include/dup.h
-@@ -1118,12 +1118,6 @@ static __always_inline void vma_desc_clear_flags_mask(struct vm_area_desc *desc,
- #define vma_desc_clear_flags(desc, ...) \
- 	vma_desc_clear_flags_mask(desc, mk_vma_flags(__VA_ARGS__))
- 
--static inline bool is_shared_maywrite_vm_flags(vm_flags_t vm_flags)
--{
--	return (vm_flags & (VM_SHARED | VM_MAYWRITE)) ==
--		(VM_SHARED | VM_MAYWRITE);
--}
--
- static inline bool is_shared_maywrite(const vma_flags_t *flags)
- {
- 	return vma_flags_test_all(flags, VMA_SHARED_BIT, VMA_MAYWRITE_BIT);
-@@ -1440,27 +1434,6 @@ static inline bool mlock_future_ok(const struct mm_struct *mm,
- 	return locked_pages <= limit_pages;
- }
- 
--static inline bool map_deny_write_exec(unsigned long old, unsigned long new)
--{
--	/* If MDWE is disabled, we have nothing to deny. */
--	if (mm_flags_test(MMF_HAS_MDWE, current->mm))
--		return false;
--
--	/* If the new VMA is not executable, we have nothing to deny. */
--	if (!(new & VM_EXEC))
--		return false;
--
--	/* Under MDWE we do not accept newly writably executable VMAs... */
--	if (new & VM_WRITE)
--		return true;
--
--	/* ...nor previously non-executable VMAs becoming executable. */
--	if (!(old & VM_EXEC))
--		return true;
--
--	return false;
--}
--
- static inline int mapping_map_writable(struct address_space *mapping)
- {
- 	return atomic_inc_unless_negative(&mapping->i_mmap_writable) ?
-@@ -1512,3 +1485,10 @@ static inline int get_sysctl_max_map_count(void)
- #ifndef pgtable_supports_soft_dirty
- #define pgtable_supports_soft_dirty()	IS_ENABLED(CONFIG_MEM_SOFT_DIRTY)
- #endif
-+
-+static inline pgprot_t vma_get_page_prot(vma_flags_t vma_flags)
-+{
-+	const vm_flags_t vm_flags = vma_flags_to_legacy(vma_flags);
-+
-+	return vm_get_page_prot(vm_flags);
-+}
-diff --git a/tools/testing/vma/tests/mmap.c b/tools/testing/vma/tests/mmap.c
-index bded4ecbe5db..c85bc000d1cb 100644
---- a/tools/testing/vma/tests/mmap.c
-+++ b/tools/testing/vma/tests/mmap.c
-@@ -2,6 +2,8 @@
- 
- static bool test_mmap_region_basic(void)
- {
-+	const vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
-+			VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
- 	struct mm_struct mm = {};
- 	unsigned long addr;
- 	struct vm_area_struct *vma;
-@@ -10,27 +12,19 @@ static bool test_mmap_region_basic(void)
- 	current->mm = &mm;
- 
- 	/* Map at 0x300000, length 0x3000. */
--	addr = __mmap_region(NULL, 0x300000, 0x3000,
--			     VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE,
--			     0x300, NULL);
-+	addr = __mmap_region(NULL, 0x300000, 0x3000, vma_flags, 0x300, NULL);
- 	ASSERT_EQ(addr, 0x300000);
- 
- 	/* Map at 0x250000, length 0x3000. */
--	addr = __mmap_region(NULL, 0x250000, 0x3000,
--			     VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE,
--			     0x250, NULL);
-+	addr = __mmap_region(NULL, 0x250000, 0x3000, vma_flags, 0x250, NULL);
- 	ASSERT_EQ(addr, 0x250000);
- 
- 	/* Map at 0x303000, merging to 0x300000 of length 0x6000. */
--	addr = __mmap_region(NULL, 0x303000, 0x3000,
--			     VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE,
--			     0x303, NULL);
-+	addr = __mmap_region(NULL, 0x303000, 0x3000, vma_flags, 0x303, NULL);
- 	ASSERT_EQ(addr, 0x303000);
- 
- 	/* Map at 0x24d000, merging to 0x250000 of length 0x6000. */
--	addr = __mmap_region(NULL, 0x24d000, 0x3000,
--			     VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE,
--			     0x24d, NULL);
-+	addr = __mmap_region(NULL, 0x24d000, 0x3000, vma_flags, 0x24d, NULL);
- 	ASSERT_EQ(addr, 0x24d000);
- 
- 	ASSERT_EQ(mm.map_count, 2);
--- 
-2.53.0
+Regards,
+Samuel
 
 
 _______________________________________________
