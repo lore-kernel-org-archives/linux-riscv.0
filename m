@@ -4,54 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5514CEFCBB3
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 06:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ED9EFCBBB
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 06:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q21l36AnC6FPy6C/zypTdDCVMC71sCY64Od5TdjOo1A=; b=D7BOUyVR01iAK2
-	rO78GDCVHUqpt2jEx/TzDz3ucXxMFJ1ZSEVHaDjHMbDnBDatK5wIdOhFRFnKFrfY2HgHdHviHjWbn
-	qViTfkhxe1DXfTRHrk8/X4WCGHm8FF+5PXiIrATRIWg8Sl9d/67FMcFAAdZ5U4dLTIBENhBYUHByO
-	JxwxqeDypXUGDuyIJ7Hg4/6K3imspDR/cINdL8Yt9JhqrkmbHMRL658BG6PqAgamb0J3xccJ/AL85
-	X8i7LCa8yH9YBnGaycmKosxVkuNHsUZz9PaWzJQMvSE9tIip+prHWhl40XUhH0GO6iQjpkeJn5yb3
-	eB0fz6KHeproOllVqvGQ==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=//KX1H+qoJZszhz61XxSEAQJxICRqwubAVIQDB6ADNg=; b=P2IQPQZE4dVHKk
+	jQDBKEkMNm1UPTpXMGHcSLAcB1xfYa9M1cNj1NLtquiltkPWykJiKXGUOErNXaPcqr1Fs00lYL4B+
+	nCtoWp0gC7J8bZc+UMZh3JWyBO1ypYAUW548EQym7V2c9QJqWfLQ/r2qiGQ+JfdnBQLrHWXGALHzb
+	yd7pAY4acdkr0+cq46KxB0oQ6SzJeb6MTEITG7i8UoSstbi7DUeVfl/+POolW8a2ucaLdc+YcjEz2
+	TBwJlyrnlWJbpmnzbu+iKAC9wFL5pKp26IFF5asFjPEZ1BXTr8EAIA/i71aKbptGLa8MAcIHyVoqJ
+	cQpBl8JCm12h5b48smKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w21WJ-00000003Q2U-1Iha;
-	Mon, 16 Mar 2026 06:33:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w21WE-00000003Q0X-09C8
-	for linux-riscv@lists.infradead.org;
+	id 1w21WG-00000003Q1k-3wnG;
 	Mon, 16 Mar 2026 06:33:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w21WE-00000003Q0W-09G8
+	for linux-riscv@lists.infradead.org;
+	Mon, 16 Mar 2026 06:33:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A58A43E6D;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8101243D20;
 	Mon, 16 Mar 2026 06:33:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 71524C2BCAF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 51113C19421;
 	Mon, 16 Mar 2026 06:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1773642815;
-	bh=/cBRAudR782PfI6JZqOVzrGeBpkRDlrf5iNN8lqsEyc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kamfbimK8WbBFJvpa9J4Mv6xtNo8mTh14NWAPg4Kf6ivrOcIdkH3MeiQIS3qvTOQE
-	 YpnbosRb4+KI5gYXZUOnIAdNkM+marUjK6HiIyAjSGLDqXm5BUTPmRr+QMjCwnOxIw
-	 v9YA6J5RiXqXwV3fXaYHGc/XZz0+WfMGEPs0ns9lp0eRSeuvxDFDVawcbxnz/hfbeI
-	 0VyysXFMvQTEIdJojs9m9hOw6CDFYUPVbX3K2mU8Scks7VvP63VME++i5SypZdHZbO
-	 2qjqrgAUWymv90Y7iXs2NACzlb6/UwY7Lx5NhEUNkjMTfzHyLnBy+4CU0zVXHX14yo
-	 JLsqvqIGDh3RA==
+	bh=djv1u2JNf9x0lGNw7u4dJc88RxbiQVxfUiQI1JdoKw8=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=tica4iijwoTOjs2tI71jPmJjKpXxaUKV6Hacz9qjEYLvcUZ6NNgyczqsR7zfRAJzK
+	 0RBI1Ey4uzmKI2H+0wnhj0VG8COgCVIDZU/G/80XDIAUiRmhUD9ZFeEb6TJOcvm/9w
+	 1mdHkb6NLkQz2x2vHtEEVDRdvSEKnJwfB5RTXvpNdIDa4JRivjBZVI1S5rICBJkh6i
+	 zOrxGtPIueVqJ+IxeYaF4deDYRjWKVG5niJJGK5LnxtrLarEIg/lFA5TnuZ5vEGzDh
+	 dBTdnG7nAKEG4DnWtwxcnZTaYQdo4N/L7lQztXF1dFG8WmpZiTeLqibVg3sUqtWs1u
+	 xoAu7CmGLrR1A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63775EFCBBB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4114EEFCBB3;
 	Mon, 16 Mar 2026 06:33:35 +0000 (UTC)
 From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Date: Mon, 16 Mar 2026 14:33:23 +0800
-Subject: [PATCH v2 2/2] riscv: ultrarisc: 8250_dw: support DP1000 uart
+Subject: [PATCH v2 0/2] serial: 8250_dw: Add support for UltraRISC DP1000
+ uart
+Date: Mon, 16 Mar 2026 14:33:21 +0800
+Message-Id: <20260316-ultrarisc-serial-v2-0-6ab3e7fa891c@ultrarisc.com>
 MIME-Version: 1.0
-Message-Id: <20260316-ultrarisc-serial-v2-2-6ab3e7fa891c@ultrarisc.com>
-References: <20260316-ultrarisc-serial-v2-0-6ab3e7fa891c@ultrarisc.com>
-In-Reply-To: <20260316-ultrarisc-serial-v2-0-6ab3e7fa891c@ultrarisc.com>
+X-B4-Tracking: v=1; b=H4sIADGkt2kC/2WNwQ6CMBAFf4Xs2ZrSYg2e/A/DoZatrEEgbWk0h
+ H+3RePF4yTz5i3g0RF6OBULOIzkaRwSiF0BptPDDRm1iUFwobjkNZv74LQjb1he6p6pylolj9h
+ aoSDNJoeWnlvy0nzYz9c7mpA72ejIh9G9ts9YZu+bL9V/PpaMM1OlF4m1lPpw/il7Mz6gWdf1D
+ ZrpnmvGAAAA
+X-Change-ID: 20260309-ultrarisc-serial-64ff637edf26
 To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -62,22 +66,22 @@ To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
  linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- Jia Wang <wangjia@ultrarisc.com>, 
+ Jia Wang <wangjia@ultrarisc.com>, Yao Zi <me@ziyao.cc>, 
  Zhang Xincheng <zhangxincheng@ultrarisc.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773642814; l=2191;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773642814; l=1529;
  i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=gRRSp55pRniZyx6sAoUvfL+vjmmUJve5ICYBYJttQq0=;
- b=lE6icoO2hEHbQKWQ48OM1Kw9YZjvib5LhszrMykHhbDQX2zTvBfTYY30YIYexqWCM0knHf563
- EmfvFVXAzMeBO74xu2ActGmCwxHWYHjEe8MkxIad730zdn+FOFn4xUH
+ bh=djv1u2JNf9x0lGNw7u4dJc88RxbiQVxfUiQI1JdoKw8=;
+ b=gfIW1chPaStqWtJUPKcrjAUVN4EHB+jkMVfWtWMQwkmMqfWBb+AQRgDtE21J180xBTs2tmFwu
+ gUitd1zpKnYDozapFw5ml8C+MNA4RZuaJIBgJrvMzhej6L/3rdKgSFB
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
 X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260309 with
  auth_id=682
 X-Original-From: Jia Wang <wangjia@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_233338_151098_9DB95DAA 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260315_233338_151573_CDEB1294 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +99,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zhang Xincheng <zhangxincheng@ultrarisc.com>
+This is version 2 of the patch series.  
+Previous version was sent via local SMTP, some recipients received it.  
+This series is now sent via official web endpoint.
 
-The UART of DP1000 does not support automatic detection of
-buffer size. skip_autocfg needs to be set to true
+This patch series adds support for the UltraRISC DP1000 UART controller.
 
-Signed-off-by: Zhang Xincheng <zhangxincheng@ultrarisc.com>
+The series includes two patches:
+1. Update device tree bindings to document the DP1000 UART compatible string
+   and required properties.
+2. Add driver support in the 8250_dw driver by handling the DP1000-specific
+   initialization and configuration.
+
+The patches have been tested on Ultrarisc DP1000 development board with
+Linux v7.0-rc2, verifying basic UART functionality and runtime suspend/resume.
+
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
- drivers/tty/serial/8250/8250_dw.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Changes in v2:
+- Rebased on Linux v7.0-rc4 (previously on v7.0-rc2).
+- Reordered patch series: DT binding patch comes before driver changes.
+- Updated commit message for DT binding patch.
+- Link to v1: https://patch.msgid.link/20260316-ultrarisc-serial-v1-0-c464f3e933a5@ultrarisc.com
 
-diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
-index db73b2ae17fa..6a2acf173331 100644
---- a/drivers/tty/serial/8250/8250_dw.c
-+++ b/drivers/tty/serial/8250/8250_dw.c
-@@ -56,6 +56,7 @@
- #define DW_UART_QUIRK_IS_DMA_FC		BIT(3)
- #define DW_UART_QUIRK_APMC0D08		BIT(4)
- #define DW_UART_QUIRK_CPR_VALUE		BIT(5)
-+#define DW_UART_QUIRK_FIXED_TYPE	BIT(6)
- 
- struct dw8250_platform_data {
- 	u8 usr_reg;
-@@ -514,6 +515,11 @@ static void dw8250_quirks(struct uart_port *p, struct dw8250_data *data)
- 		data->data.dma.prepare_tx_dma = dw8250_prepare_tx_dma;
- 		data->data.dma.prepare_rx_dma = dw8250_prepare_rx_dma;
- 	}
-+	if (quirks & DW_UART_QUIRK_FIXED_TYPE) {
-+		p->flags |= UPF_FIXED_TYPE;
-+		p->type = PORT_16550A;
-+		data->skip_autocfg = true;
-+	}
- 	if (quirks & DW_UART_QUIRK_APMC0D08) {
- 		p->iotype = UPIO_MEM32;
- 		p->regshift = 2;
-@@ -789,6 +795,11 @@ static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
- 	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
- };
- 
-+static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
-+	.usr_reg = DW_UART_USR,
-+	.quirks = DW_UART_QUIRK_FIXED_TYPE,
-+};
-+
- static const struct of_device_id dw8250_of_match[] = {
- 	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
- 	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
-@@ -796,6 +807,7 @@ static const struct of_device_id dw8250_of_match[] = {
- 	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
- 	{ .compatible = "sophgo,sg2044-uart", .data = &dw8250_skip_set_rate_data },
- 	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
-+	{ .compatible = "ultrarisc,dp1000-uart", .data = &dw8250_ultrarisc_dp1000_data },
- 	{ /* Sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, dw8250_of_match);
+---
+Jia Wang (1):
+      dt-bindings: serial: update bindings of ultrarisc dp1000 uart
 
--- 
-2.34.1
+Zhang Xincheng (1):
+      riscv: ultrarisc: 8250_dw: support DP1000 uart
+
+ .../devicetree/bindings/serial/snps-dw-apb-uart.yaml         |  2 ++
+ drivers/tty/serial/8250/8250_dw.c                            | 12 ++++++++++++
+ 2 files changed, 14 insertions(+)
+---
+base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
+change-id: 20260309-ultrarisc-serial-64ff637edf26
+
+Best regards,
+--  
+Jia Wang <wangjia@ultrarisc.com>
 
 
 
