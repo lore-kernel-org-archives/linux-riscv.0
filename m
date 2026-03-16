@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ED9EFCBBB
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 06:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4125EFCBD4
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 07:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=//KX1H+qoJZszhz61XxSEAQJxICRqwubAVIQDB6ADNg=; b=P2IQPQZE4dVHKk
-	jQDBKEkMNm1UPTpXMGHcSLAcB1xfYa9M1cNj1NLtquiltkPWykJiKXGUOErNXaPcqr1Fs00lYL4B+
-	nCtoWp0gC7J8bZc+UMZh3JWyBO1ypYAUW548EQym7V2c9QJqWfLQ/r2qiGQ+JfdnBQLrHWXGALHzb
-	yd7pAY4acdkr0+cq46KxB0oQ6SzJeb6MTEITG7i8UoSstbi7DUeVfl/+POolW8a2ucaLdc+YcjEz2
-	TBwJlyrnlWJbpmnzbu+iKAC9wFL5pKp26IFF5asFjPEZ1BXTr8EAIA/i71aKbptGLa8MAcIHyVoqJ
-	cQpBl8JCm12h5b48smKA==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pMcYCTbaGKqd08tU1wfG/KUibHwXl+hrdCwjDmkEd14=; b=WtYU1OTda7z1Bt
+	pNv7pX3IlzsMN8RnfxKLXBWYbPGYnlDjVcRFKf2pFePCVDry6yvq4YcllZRJq5F2O6fE8CalWfDTi
+	iHpZcVAGei5PvNdl6NdgHwmQKnC9h7+mXLy4UtGLieI3OVuHHAoTtDska4AkSy94Hznuk9TXoPCca
+	mQcKsCQBG5l6iB1qDr7dvb5fkYZtou3oaaZjxZIrWbBZZGCG+mcCvvIEs8Dm6MF8GcOCrdvrfx2/o
+	iOEezr8+KYPACwOcTyGzD+upf+zWhWWb/3OMsraJQYoL6lulUa9NUpIKRVo+qTswnUZE0HeyR8nv1
+	kQlj4XFeDPyL0hVe9sVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w21WG-00000003Q1k-3wnG;
-	Mon, 16 Mar 2026 06:33:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w224G-00000003SJp-1Ssx;
+	Mon, 16 Mar 2026 07:08:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w21WE-00000003Q0W-09G8
+	id 1w224D-00000003SIP-19cB
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 06:33:39 +0000
+	Mon, 16 Mar 2026 07:08:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8101243D20;
-	Mon, 16 Mar 2026 06:33:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 51113C19421;
-	Mon, 16 Mar 2026 06:33:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BE9404457B;
+	Mon, 16 Mar 2026 07:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8BFDAC2BCAF;
+	Mon, 16 Mar 2026 07:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773642815;
-	bh=djv1u2JNf9x0lGNw7u4dJc88RxbiQVxfUiQI1JdoKw8=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=tica4iijwoTOjs2tI71jPmJjKpXxaUKV6Hacz9qjEYLvcUZ6NNgyczqsR7zfRAJzK
-	 0RBI1Ey4uzmKI2H+0wnhj0VG8COgCVIDZU/G/80XDIAUiRmhUD9ZFeEb6TJOcvm/9w
-	 1mdHkb6NLkQz2x2vHtEEVDRdvSEKnJwfB5RTXvpNdIDa4JRivjBZVI1S5rICBJkh6i
-	 zOrxGtPIueVqJ+IxeYaF4deDYRjWKVG5niJJGK5LnxtrLarEIg/lFA5TnuZ5vEGzDh
-	 dBTdnG7nAKEG4DnWtwxcnZTaYQdo4N/L7lQztXF1dFG8WmpZiTeLqibVg3sUqtWs1u
-	 xoAu7CmGLrR1A==
+	s=k20201202; t=1773644924;
+	bh=7JNa/azXas/8ygI+nuLDHtgvWG1Ojpx/lGt6T8WknJo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=hccsN/DnyEWEOIURVhoJRyNNjcfHePsiiDfETb0VKyssK3ATbtaRk7hTtDI5bF1In
+	 d+5XrSMob6SOKx1yQbB+mcRNh2jFgP2cFoSk4D3TgJBoDZDgjr29acVJ1mpqQXWiJt
+	 RWTlGh7mpXk2tw90IaXKLBbgsKkuK16q5j9ejnnvH6DBwnE9coI2STfg+1wiQyCGCn
+	 F7OSIDWcWohYxy3FiG/GgTn2iCw+eC9LrsZTh36Y8tr/jpYWdT6vwFNDwYsp5+fVpt
+	 6qQGxnSnhbvMKDmuRRiSNmqVXxzRpWJ9w3z/GRVUZpKOC0Ah+qRzrF3penR1NIsJBj
+	 bRiaUncpBmurw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4114EEFCBB3;
-	Mon, 16 Mar 2026 06:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 827DBEFCBDD;
+	Mon, 16 Mar 2026 07:08:44 +0000 (UTC)
 From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Subject: [PATCH v2 0/2] serial: 8250_dw: Add support for UltraRISC DP1000
- uart
-Date: Mon, 16 Mar 2026 14:33:21 +0800
-Message-Id: <20260316-ultrarisc-serial-v2-0-6ab3e7fa891c@ultrarisc.com>
+Date: Mon, 16 Mar 2026 15:07:00 +0800
+Subject: [PATCH 4/4] PCI: dwc: Add UltraRISC DP1000 PCIe rc driver
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIADGkt2kC/2WNwQ6CMBAFf4Xs2ZrSYg2e/A/DoZatrEEgbWk0h
- H+3RePF4yTz5i3g0RF6OBULOIzkaRwSiF0BptPDDRm1iUFwobjkNZv74LQjb1he6p6pylolj9h
- aoSDNJoeWnlvy0nzYz9c7mpA72ejIh9G9ts9YZu+bL9V/PpaMM1OlF4m1lPpw/il7Mz6gWdf1D
- ZrpnmvGAAAA
-X-Change-ID: 20260309-ultrarisc-serial-64ff637edf26
-To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
+Message-Id: <20260316-ultrarisc-pcie-v1-4-ef2946ede698@ultrarisc.com>
+References: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
+In-Reply-To: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+ Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- Jia Wang <wangjia@ultrarisc.com>, Yao Zi <me@ziyao.cc>, 
- Zhang Xincheng <zhangxincheng@ultrarisc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ Jia Wang <wangjia@ultrarisc.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773642814; l=1529;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773644922; l=9411;
  i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=djv1u2JNf9x0lGNw7u4dJc88RxbiQVxfUiQI1JdoKw8=;
- b=gfIW1chPaStqWtJUPKcrjAUVN4EHB+jkMVfWtWMQwkmMqfWBb+AQRgDtE21J180xBTs2tmFwu
- gUitd1zpKnYDozapFw5ml8C+MNA4RZuaJIBgJrvMzhej6L/3rdKgSFB
+ bh=tSfhKfbr5/q5BnKydlotmuXWfmzyfzz7sJS5AJBU+XI=;
+ b=afXZZOlq52qEbho3/d36SucpTBSbGpASGiqFD1YQYpstpuOVXbwJsd8PaN4wZT6/FtpTgil43
+ RvSJdOaINjVCJL77kZPyGxcS1vKDQmZXwF2Qe7RQ6kg/JrfifLn+qix
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
 X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260309 with
  auth_id=682
 X-Original-From: Jia Wang <wangjia@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_233338_151573_CDEB1294 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20260316_000845_388917_85ECEF42 
+X-CRM114-Status: GOOD (  24.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +95,306 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is version 2 of the patch series.  
-Previous version was sent via local SMTP, some recipients received it.  
-This series is now sent via official web endpoint.
+From: Xincheng Zhang <zhangxincheng@ultrarisc.com>
 
-This patch series adds support for the UltraRISC DP1000 UART controller.
+Add DP1000 soc PCIe rc driver.
 
-The series includes two patches:
-1. Update device tree bindings to document the DP1000 UART compatible string
-   and required properties.
-2. Add driver support in the 8250_dw driver by handling the DP1000-specific
-   initialization and configuration.
-
-The patches have been tested on Ultrarisc DP1000 development board with
-Linux v7.0-rc2, verifying basic UART functionality and runtime suspend/resume.
-
+Signed-off-by: Xincheng Zhang <zhangxincheng@ultrarisc.com>
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
-Changes in v2:
-- Rebased on Linux v7.0-rc4 (previously on v7.0-rc2).
-- Reordered patch series: DT binding patch comes before driver changes.
-- Updated commit message for DT binding patch.
-- Link to v1: https://patch.msgid.link/20260316-ultrarisc-serial-v1-0-c464f3e933a5@ultrarisc.com
+ drivers/pci/controller/dwc/Kconfig           |  15 ++
+ drivers/pci/controller/dwc/Makefile          |   1 +
+ drivers/pci/controller/dwc/pcie-designware.h |  22 +++
+ drivers/pci/controller/dwc/pcie-ultrarisc.c  | 202 +++++++++++++++++++++++++++
+ 4 files changed, 240 insertions(+)
 
----
-Jia Wang (1):
-      dt-bindings: serial: update bindings of ultrarisc dp1000 uart
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index d0aa031397fa..0a33891bf7ef 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -548,4 +548,19 @@ config PCIE_VISCONTI_HOST
+ 	  Say Y here if you want PCIe controller support on Toshiba Visconti SoC.
+ 	  This driver supports TMPV7708 SoC.
+ 
++config PCIE_ULTRARISC
++	bool "UltraRISC PCIe host controller"
++	depends on ARCH_ULTRARISC || COMPILE_TEST
++	select PCIE_DW_HOST
++	select PCI_MSI
++	default y if ARCH_ULTRARISC
++	help
++	  Enables support for the PCIe controller in the UltraRISC SoC.
++	  This driver supports UR-DP1000 SoC. When selected, it automatically
++	  enables both `PCIE_DW_HOST` and `PCI_MSI`, ensuring proper support
++	  for MSI-based interrupt handling in the PCIe controller.
++	  By default, this symbol is enabled when `ARCH_ULTRARISC` is active,
++	  requiring no further configuration on that platform.
++
++
+ endmenu
+diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+index 67ba59c02038..884c46b78e01 100644
+--- a/drivers/pci/controller/dwc/Makefile
++++ b/drivers/pci/controller/dwc/Makefile
+@@ -38,6 +38,7 @@ obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
+ obj-$(CONFIG_PCIE_SPACEMIT_K1) += pcie-spacemit-k1.o
+ obj-$(CONFIG_PCIE_STM32_HOST) += pcie-stm32.o
+ obj-$(CONFIG_PCIE_STM32_EP) += pcie-stm32-ep.o
++obj-$(CONFIG_PCIE_ULTRARISC) += pcie-ultrarisc.o
+ 
+ # The following drivers are for devices that use the generic ACPI
+ # pci_root.c driver but don't support standard ECAM config access.
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+index ae6389dd9caa..8f2ed86cb5c5 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -69,6 +69,8 @@
+ 
+ /* Synopsys-specific PCIe configuration registers */
+ #define PCIE_PORT_FORCE			0x708
++/* Bit[7:0] LINK_NUM: Link Number. Not used for endpoint */
++#define PORT_LINK_NUM_MASK		GENMASK(7, 0)
+ #define PORT_FORCE_DO_DESKEW_FOR_SRIS	BIT(23)
+ 
+ #define PCIE_PORT_AFR			0x70C
+@@ -96,6 +98,26 @@
+ #define PCIE_PORT_LANE_SKEW		0x714
+ #define PORT_LANE_SKEW_INSERT_MASK	GENMASK(23, 0)
+ 
++/*
++ * PCIE_TIMER_CTRL_MAX_FUNC_NUM: Timer Control and Max Function Number Register.
++ * This register holds the ack frequency, latency, replay, fast link scaling timers,
++ * and max function number values.
++ * Bit[30:29] FAST_LINK_SCALING_FACTOR: Fast Link Timer Scaling Factor.
++ *   0x0 (SF_1024):Scaling Factor is 1024 (1ms is 1us).
++ *     When the LTSSM is in Config or L12 Entry State, 1ms
++ *     timer is 2us, 2ms timer is 4us and 3ms timer is 6us.
++ *   0x1 (SF_256): Scaling Factor is 256 (1ms is 4us)
++ *   0x2 (SF_64): Scaling Factor is 64 (1ms is 16us)
++ *   0x3 (SF_16): Scaling Factor is 16 (1ms is 64us)
++ */
++#define PCIE_TIMER_CTRL_MAX_FUNC_NUM    0x718
++#define PORT_FLT_SF_MASK    GENMASK(30, 29)
++#define PORT_FLT_SF(n)      FIELD_PREP(PORT_FLT_SF_MASK, n)
++#define PORT_FLT_SF_1024    PORT_FLT_SF(0x0)
++#define PORT_FLT_SF_256     PORT_FLT_SF(0x1)
++#define PORT_FLT_SF_64      PORT_FLT_SF(0x2)
++#define PORT_FLT_SF_16      PORT_FLT_SF(0x3)
++
+ #define PCIE_PORT_DEBUG0		0x728
+ #define PORT_LOGIC_LTSSM_STATE_MASK	0x3f
+ #define PORT_LOGIC_LTSSM_STATE_L0	0x11
+diff --git a/drivers/pci/controller/dwc/pcie-ultrarisc.c b/drivers/pci/controller/dwc/pcie-ultrarisc.c
+new file mode 100644
+index 000000000000..64cbf16d3ff7
+--- /dev/null
++++ b/drivers/pci/controller/dwc/pcie-ultrarisc.c
+@@ -0,0 +1,202 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * DWC PCIe RC driver for UltraRISC DP1000 SoC
++ *
++ * Copyright (C) 2023 UltraRISC
++ *
++ */
++
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/interrupt.h>
++#include <linux/kernel.h>
++#include <linux/init.h>
++#include <linux/of_device.h>
++#include <linux/pci.h>
++#include <linux/platform_device.h>
++#include <linux/resource.h>
++#include <linux/types.h>
++#include <linux/regmap.h>
++
++#include "pcie-designware.h"
++
++#define PCIE_CUS_CORE          0x400000
++
++#define LTSSM_ENABLE           BIT(7)
++#define FAST_LINK_MODE         BIT(12)
++#define HOLD_PHY_RST           BIT(14)
++#define L1SUB_DISABLE          BIT(15)
++
++struct ultrarisc_pcie {
++	struct dw_pcie  *pci;
++	u32 irq_mask[MAX_MSI_CTRLS];
++};
++
++static const struct of_device_id ultrarisc_pcie_of_match[];
++
++static struct pci_ops ultrarisc_pci_ops = {
++	.map_bus = dw_pcie_own_conf_map_bus,
++	.read = pci_generic_config_read32,
++	.write = pci_generic_config_write32,
++};
++
++static int ultrarisc_pcie_host_init(struct dw_pcie_rp *pp)
++{
++	struct pci_host_bridge *bridge = pp->bridge;
++
++	/* Set the bus ops */
++	bridge->ops = &ultrarisc_pci_ops;
++
++	return 0;
++}
++
++static const struct dw_pcie_host_ops ultrarisc_pcie_host_ops = {
++	.init = ultrarisc_pcie_host_init,
++};
++
++static int ultrarisc_pcie_establish_link(struct dw_pcie *pci)
++{
++	u32 val;
++	u8 cap_exp;
++
++	val = dw_pcie_readl_dbi(pci, PCIE_CUS_CORE);
++	val &= ~FAST_LINK_MODE;
++	dw_pcie_writel_dbi(pci, PCIE_CUS_CORE, val);
++
++	val = dw_pcie_readl_dbi(pci, PCIE_TIMER_CTRL_MAX_FUNC_NUM);
++	val &= ~PORT_FLT_SF_MASK;
++	val |= PORT_FLT_SF_64;
++	dw_pcie_writel_dbi(pci, PCIE_TIMER_CTRL_MAX_FUNC_NUM, val);
++
++	cap_exp = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCTL2);
++	val &= ~PCI_EXP_LNKCTL2_TLS;
++	val |= PCI_EXP_LNKCTL2_TLS_16_0GT;
++	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCTL2, val);
++
++	val = dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
++	val &= ~PORT_LINK_NUM_MASK;
++	dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
++
++	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_DEVCTL2);
++	val &= ~PCI_EXP_DEVCTL2_COMP_TIMEOUT;
++	val |= 0x6;
++	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_DEVCTL2, val);
++
++	val = dw_pcie_readl_dbi(pci, PCIE_CUS_CORE);
++	val &= ~(HOLD_PHY_RST | L1SUB_DISABLE);
++	val |= LTSSM_ENABLE;
++	dw_pcie_writel_dbi(pci, PCIE_CUS_CORE, val);
++
++	return 0;
++}
++
++static const struct dw_pcie_ops dw_pcie_ops = {
++	.start_link = ultrarisc_pcie_establish_link,
++};
++
++static int ultrarisc_pcie_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct ultrarisc_pcie *ultrarisc_pcie;
++	struct dw_pcie *pci;
++	struct dw_pcie_rp *pp;
++	int ret;
++
++	ultrarisc_pcie = devm_kzalloc(dev, sizeof(*ultrarisc_pcie), GFP_KERNEL);
++	if (!ultrarisc_pcie)
++		return -ENOMEM;
++
++	pci = devm_kzalloc(dev, sizeof(*pci), GFP_KERNEL);
++	if (!pci)
++		return -ENOMEM;
++
++	pci->dev = dev;
++	pci->ops = &dw_pcie_ops;
++
++	/* Set a default value suitable for at most 16 in and 16 out windows */
++	pci->atu_size = SZ_8K;
++
++	ultrarisc_pcie->pci = pci;
++
++	pp = &pci->pp;
++
++	platform_set_drvdata(pdev, ultrarisc_pcie);
++
++	pp->irq = platform_get_irq(pdev, 1);
++	if (pp->irq < 0)
++		return pp->irq;
++
++	pp->num_vectors = MAX_MSI_IRQS;
++	pp->ops = &ultrarisc_pcie_host_ops;
++
++	ret = dw_pcie_host_init(pp);
++	if (ret) {
++		dev_err(dev, "Failed to initialize host\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static int ultrarisc_pcie_suspend(struct platform_device *pdev, pm_message_t state)
++{
++	struct ultrarisc_pcie *ultrarisc_pcie = platform_get_drvdata(pdev);
++	struct dw_pcie *pci = ultrarisc_pcie->pci;
++	struct dw_pcie_rp *pp = &pci->pp;
++	int num_ctrls = pp->num_vectors / MAX_MSI_IRQS_PER_CTRL;
++	unsigned long flags;
++	int ctrl;
++
++	raw_spin_lock_irqsave(&pp->lock, flags);
++
++	for (ctrl = 0; ctrl < num_ctrls; ctrl++)
++		ultrarisc_pcie->irq_mask[ctrl] = pp->irq_mask[ctrl];
++
++	raw_spin_unlock_irqrestore(&pp->lock, flags);
++
++	return 0;
++}
++
++static int ultrarisc_pcie_resume(struct platform_device *pdev)
++{
++	struct ultrarisc_pcie *ultrarisc_pcie = platform_get_drvdata(pdev);
++	struct dw_pcie *pci = ultrarisc_pcie->pci;
++	struct dw_pcie_rp *pp = &pci->pp;
++	int num_ctrls = pp->num_vectors / MAX_MSI_IRQS_PER_CTRL;
++	unsigned long flags;
++	int ctrl;
++
++	raw_spin_lock_irqsave(&pp->lock, flags);
++
++	for (ctrl = 0; ctrl < num_ctrls; ctrl++) {
++		pp->irq_mask[ctrl] = ultrarisc_pcie->irq_mask[ctrl];
++		dw_pcie_writel_dbi(pci,
++				   PCIE_MSI_INTR0_MASK +
++				   ctrl * MSI_REG_CTRL_BLOCK_SIZE,
++				   pp->irq_mask[ctrl]);
++	}
++
++	raw_spin_unlock_irqrestore(&pp->lock, flags);
++
++	return 0;
++}
++
++static const struct of_device_id ultrarisc_pcie_of_match[] = {
++	{
++		.compatible = "ultrarisc,dp1000-pcie",
++	},
++	{},
++};
++
++static struct platform_driver ultrarisc_pcie_driver = {
++	.driver = {
++		.name	= "ultrarisc-pcie",
++		.of_match_table = ultrarisc_pcie_of_match,
++		.suppress_bind_attrs = true,
++	},
++	.probe = ultrarisc_pcie_probe,
++	.suspend = ultrarisc_pcie_suspend,
++	.resume = ultrarisc_pcie_resume,
++};
++builtin_platform_driver(ultrarisc_pcie_driver);
 
-Zhang Xincheng (1):
-      riscv: ultrarisc: 8250_dw: support DP1000 uart
-
- .../devicetree/bindings/serial/snps-dw-apb-uart.yaml         |  2 ++
- drivers/tty/serial/8250/8250_dw.c                            | 12 ++++++++++++
- 2 files changed, 14 insertions(+)
----
-base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
-change-id: 20260309-ultrarisc-serial-64ff637edf26
-
-Best regards,
---  
-Jia Wang <wangjia@ultrarisc.com>
+-- 
+2.34.1
 
 
 
