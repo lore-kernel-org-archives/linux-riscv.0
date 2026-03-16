@@ -4,182 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692BFF46437
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 09:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F55F46436
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 09:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=nIHNX83JufAFL+hS+01CTeN4t7eFBHQzpnv3gffHLlk=; b=mdJY79gyF5eACjmIjKnTiVAjgO
-	+2DRf4U++wmBTgTaIKrN2MMWsaITvGCz0ceDQaXy2J1j2hTbxym7a2yJnwtfTlNCZmuUi1S+xlfjN
-	NC5ZUMas0n32HExcskWGJfrd4mRkSfSX9gihPhZvf1ihC5e/ecXFTYrtXvCpKT7iC8GtmVXsKTrNl
-	DSDj7CQo7Ah+xtt3dn4iURJ8BrhP/WCvIiBXi9A2E9FWemmgsjtmqhwjIjtBoYTCDzM6Wm7iGj1Zh
-	tpOGoS459IljOQ/XpU/gkubnbSm4Z3lvqL4s2DYP3bVb9/C7ifxv0h+edu+oEcCNLBaD7TwdB9X5a
-	Mo6+UPoQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6MMBB3F6taRn9mfxqMnymBLoGHouS7KB35EfNU/lfko=; b=noSLBH6MMotJEjivawfOX+I1Qq
+	qxlAPNUkMwXNvCVQwou9RGT7ubp7HihNSj8DZq2U8jWMYMM3Gf66CO2oNLRxzrhg8ORVbAb0AESlh
+	J00Bkc3s7dcSJtDDiRZ31Ks7UYmgZK290OtSjwxZuD07IhGYycAxlUjeHEj+0dzEu95ejqNBgFyZj
+	IqhVTOGM81z5XpSA9DuOlZ+RfcaoPFW+tt1VfUOo8W/43JjMRFcEhz75F4v1R+INT4Ofs2yWPKraR
+	QrZCWKDOIRckRXN9ergeLDa1oSU1U9voxsqW0VfaxrdiTh2YYRtCeIbNSeWWAccv8vOjFc2wxf5SV
+	zIwraH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w24Lw-00000003eCO-0kTO;
-	Mon, 16 Mar 2026 09:35:12 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1w24Pn-00000003el3-0sfH;
+	Mon, 16 Mar 2026 09:39:11 +0000
+Received: from mail-japanwestazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d406::1] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w24Lt-00000003eBB-1x0G
-	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 09:35:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773653710; x=1805189710;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=1HcQEd9gQNgFL9I3W22eKKUQznCMiofwPK+peupcBPE=;
-  b=mM9YU9MMv/EPNNHdtTOGkUxLjm52+CwPKEt8pjhBwwIsa/2qdTHB2ETX
-   Q+E8oyplybBhA2I7oOQCfv+VvJPs5E0pO0XiNde42XjaadIRrxhU3BRr2
-   k5/bN6TBD2CX2xoHVGSqDS98INzmn+3mJMx6UgQPu0F4hpN95q0dMpOtL
-   HPupc1CZ6l6ghUiM7Sckx/XVPZXwcSIk0w/C9kD2moLeYhi7BEU6+6kGP
-   s8j57e/IXhhZLg7vNSHobaqSZtgepcIujWtnp7vyqVJti2R05PWTbDALt
-   Ol8vP34PGggTS3/WcerowMaF81pwYTM6wIWSGcMqI/xEXs9jZFoKp7g3u
-   g==;
-X-CSE-ConnectionGUID: rXR8iKpQQnKSVsOVlemYXA==
-X-CSE-MsgGUID: oJFW2GvbS++cmwkUBWg5MQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11730"; a="92233107"
-X-IronPort-AV: E=Sophos;i="6.23,123,1770624000"; 
-   d="scan'208";a="92233107"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2026 02:35:06 -0700
-X-CSE-ConnectionGUID: olTIGRsTQcGKcud65rXjEQ==
-X-CSE-MsgGUID: viLtdvF0RzGMvxjHWCxoPA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,123,1770624000"; 
-   d="scan'208";a="221943757"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2026 02:35:06 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Mon, 16 Mar 2026 02:35:05 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Mon, 16 Mar 2026 02:35:05 -0700
-Received: from BL2PR02CU003.outbound.protection.outlook.com (52.101.52.48) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Mon, 16 Mar 2026 02:35:04 -0700
+	id 1w24Pj-00000003ek1-4Bbt;
+	Mon, 16 Mar 2026 09:39:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ek02ZOJViuuikGF/1oF+hHkjsybhjxS8QkZbIygAz1Cbr+al55lLLQrFS4zTr5WrId8EApQ5KI021YArhTgBmsXCSuTJfYxoSHaLGlVNV9Pqh3QVvxwJIXZ37Sm7KqsvnKtDNQb/bGxnuWhElF6fBjqOzZzfhfelWeoFYhVcyY/gCwtaTyUxpdBZ0aA8K0JZE3XaPt4WIy6qOrbWn2PpYe4upceE9EuXy04KKeN45dNSXEn6M7/eyfdyM/Hx+lXN8bxWEobfYpJf1PZQFlUrDHgad3DTOG6GZ116nIw7MdK3b+geOGn4GonP2wUqNwxtEXxJTXkqOFlKBN03R3CtNg==
+ b=lYKXRe/lf9t6lfovegODWZYSBt1lz3ew6MxJ1Wr4Yg6y6OAfI5t9tbWbhEQxUz+st4vBzI+2HvJB1bCeEe/HuHumzUHyAVbeBU5RjZ325bb9P5dCuXRDkV+4qfJetL5bKH41fwHP177B9bYBjG4KWwDjJWHWsw09wt3Jery+GXxmH2Iz0ZXehGov+otaeL0OUq2Ey272OwAl1ns9lxoJD7R61uLtZTO3GiPyJp6euAS7GFstm1TeuSY1tAnWdj7fEKLYWYgssp9LbCydJoioUH1sBcO3WgNjtwBRtl07f//Wf49tjePlDZhzs7GpQtWh5qLHmUwqIuMShsrNQ11v+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sDkmsXSMC3KdO4O3U8jDaRo8MxZ67RfLHrybyq085gc=;
- b=Ex8qTUdrutwZ58V4W7blrlYZUfl4BtbA23r89F1jcN4wQIjk5q/NtVth+IMsrjuXKzUzBRrt5ArlGWGWMIeFU+AZEsLOmNWTGMpKD1oXCwjhRGKlM6HqTQPNDWK+XnwgcJWGYmh1A2+zvyur/t6BWfuYc9tcBCXpwiIy5jLYcBdgpTvJhr03NB32WFrc6GS/fk11EGQHE/6LewsSxJBq4y/gLkMF78wcZP31qsSGH5X79w97YG9xN+/Y9k7Oqb5KA1/QlUDlLcyBYTZVoZ75vWJahXNIcwHEDT7wK7kFMBXxGnGYbo5fV8UJiW5hJgavRXINRCY5q3jj9PQ6KEQlAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by MN2PR11MB4567.namprd11.prod.outlook.com (2603:10b6:208:26d::16) with
+ bh=2xVpX1sTLSy1uOLWLTDmKZsw8xGm7wswnQExa0dzagE=;
+ b=szct8mytYVHe5DPSApatxk6XU2jyGyTCgi6wSpGruamXUgAO5mi8ihg1GeZlceb41h9WuZh/R+J65uQuCUBvb9C0ywN7vXgrbvWkTjaATQQZNiyPzFeVZzLydZkOqqigUEnjDWtta5EOx4rVOibTkeEUF5DyyNvMuwL8b/RTSQDKVRYus/SVQ4pGtfD1f1eekUURWk1/AGYSwXeBg/YyC8Am+W7OzKPhuCukLtLHZysN85jTcQsOlFxzDx2XMdXaPRrpkAFqKzse2CbhmCKF2JFcPVrqBB8bCzt2oETBEZuUTCFAVec3UAfy07498+GIeyQ9k1LIcUhtL/+lOajpeg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2xVpX1sTLSy1uOLWLTDmKZsw8xGm7wswnQExa0dzagE=;
+ b=ZqqfA8Xa6vJwlW/WWr310L02+jdNB73WxV5AMa0KP3u3Zvy1X+NyWjrsrFF2jyzy4l6frul/+CDF5+2QtjFRfGzdKihybfB/e/xVna+3ghGEUGNnJ53bX5QQ8s6MRtsOKs0nV4f0Tu3wvlasyIRwQre8BdDGTz5w7AjMus2pOUx/Fikm9O1nKmGsF+RK+aYsHl/ADF19cPHN9w1Kn2CAIudBH8LSFLwBINCkNhvIUroVe1rIspJrBNu4oOpslsjK0rCIXi4hEXDSw9ABnQ4jk9z/HcnueguTdjJXrWc9o7+2IN9iRfqPZAih0wP0CVpPczTjwLxBMyXXM4S6CVVUSg==
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
+ by SI6PR04MB8283.apcprd04.prod.outlook.com (2603:1096:4:235::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.16; Mon, 16 Mar
- 2026 09:35:02 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%6]) with mapi id 15.20.9723.014; Mon, 16 Mar 2026
- 09:35:02 +0000
-Message-ID: <d822d905-f956-42b4-8441-e5c786d326de@intel.com>
-Date: Mon, 16 Mar 2026 11:34:55 +0200
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.22; Mon, 16 Mar
+ 2026 09:24:06 +0000
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58]) by SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58%6]) with mapi id 15.20.9700.018; Mon, 16 Mar 2026
+ 09:24:06 +0000
+Message-ID: <SE3PR04MB892282928C3FB021CCF23AE4F340A@SE3PR04MB8922.apcprd04.prod.outlook.com>
+Date: Mon, 16 Mar 2026 17:23:57 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] mmc: sdhci-of-k1: enable essential clock
- infrastructure for SD operation
-To: Iker Pedrosa <ikerpedrosam@gmail.com>
-CC: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan
-	<dlan@kernel.org>, Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Javier Martinez Canillas <javierm@redhat.com>, <linux-mmc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-References: <20260309-orangepi-sd-card-uhs-v2-0-5bb2b574df5d@gmail.com>
- <20260309-orangepi-sd-card-uhs-v2-1-5bb2b574df5d@gmail.com>
- <a416dc43-58fd-4462-9ec5-b3dadbbacf8b@intel.com>
- <CABdCQ=PeB5hhkk3eO3Mu89bb7m=4ccZrwouuZScGOTHwN5owQw@mail.gmail.com>
+Subject: Re: [PATCH v1] RISC-V: KVM: Batch stage-2 remote TLB flushes
+To: Jinyu Tang <tjytimi@163.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?=
+ <radim.krcmar@oss.qualcomm.com>, Andrew Jones
+ <andrew.jones@oss.qualcomm.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260307130452.721375-1-tjytimi@163.com>
 Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <CABdCQ=PeB5hhkk3eO3Mu89bb7m=4ccZrwouuZScGOTHwN5owQw@mail.gmail.com>
-X-ClientProxiedBy: DU7P194CA0026.EURP194.PROD.OUTLOOK.COM
- (2603:10a6:10:553::23) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+From: "Nutty.Liu" <nutty.liu@hotmail.com>
+In-Reply-To: <20260307130452.721375-1-tjytimi@163.com>
+X-ClientProxiedBy: TP0P295CA0048.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:3::19) To SE3PR04MB8922.apcprd04.prod.outlook.com
+ (2603:1096:101:2e9::7)
+X-Microsoft-Original-Message-ID: <892b2804-c69a-495b-8f59-187baae2cb3b@hotmail.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|MN2PR11MB4567:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01f0f8cd-f420-460a-cbb6-08de833f4c36
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: vAitGOOH2nDDrOzQC7eBYkEPwadS3Ss6CuqVzKGyeFs3H6fmcem31ePQ0GruJKQ60W49O+spFYAri3OfkpdxEtTXeeL2zTbDtgNOH/bvYuwYnuTUUvyfUZ+RTC209Vhu509+dlJImZVY7fb16nv+N6SeKgc3j9clXsnb+Mkg2psWR700ZhIBzWrZscJkyIDDZiJKTPcX4zsgpDXTNSlCf7gmx022aoJ+EIOwmd9QhCko5ZnSlfxnSdX0xmXP3mPrI6xprTzoYDDDefJS/BiQlGhGlWY0KUmeqRZMFNgguEOF2SN4sc3QGVqaz+2UJCLb+UBpIP654+cSeqaKcuQEuJi3HR1Lw5qky9w9Dk1mbaqZgup5gYn1tGDS0wkdoSzEjVwcxYqZV1sMVm/5mPzZVausJyJ0dbhWOQVW92BFm6MTPt5DHo4DQPVp/4Kr//vKHJ83lVWs8/jnhcxUHxJ3PHH/L1i0A83I1VyFpOlNjeid+UiWFK2cNtNPf9CwYiXnxa5S43oJmmdG4e4xv4TeXQ73Ks5zws6GttNQcMzpIhjKevq088h3U+39iTQAmnvruuIDux5m/l/u3tEUwOc9XTwqvRhYfk+Srn09JwkxeDMGD0qRm+HGHfi3Tjvn2pIE1QOPmOfdk+P1pcnmpJK9OA015hoqSkADNSDe+qn0l2ZddZmLmzBLd9dCwoK3Opz54ywcGRmSiqFxHzqrvxdAKfhGlrVA8cGusYMB5a/CA5ViceG5H4SgMysPeYdNzylN
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-TrafficTypeDiagnostic: SE3PR04MB8922:EE_|SI6PR04MB8283:EE_
+X-MS-Office365-Filtering-Correlation-Id: afd547d6-970e-4bd0-a5e2-08de833dc529
+X-Microsoft-Antispam: BCL:0;ARA:14566002|6090799003|15080799012|23021999003|41001999006|5072599009|461199028|7042599007|19110799012|51005399006|8060799015|440099028|3412199025|12091999003|40105399003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Uy9wcmNxV0drdUV4SjNIUUhheWk0WWEyK2lsUHdmUzB3Q0RrTU5xUlRBZUxJ?=
+ =?utf-8?B?STRRc2EwNzJCOGtGREsvVnY5SExaNWd2NllHUTkwZ1l5STBqRGF0NUZPckg3?=
+ =?utf-8?B?RHJiMVJ4ZnMrdXU1eFgzeUFoWWhtOVE3c3BzcTFGSVhiRHNYWGxBMXQ2S2JJ?=
+ =?utf-8?B?OElGNk95V2JRUVFXT0o2MDNaTmpXQWROR1kxZWM5cFRneHB2bEhCMVFvVUI4?=
+ =?utf-8?B?M1JFcGRTaXdiSXBmMGtNUEFPYzR5VG5xTWJINXJQVXlNV1dGblNDbDRoVWk4?=
+ =?utf-8?B?NUNOMytIVjg2Rk42QkkrOGR1OENHS0JJbElVdU14YkExWnVGQTAzRzFBQ1E2?=
+ =?utf-8?B?aGxUc1pQQzF1aUsvM01xWC9za3JIMWk0N3NBOERGcEVLdHJxOHdjQmtnZnBv?=
+ =?utf-8?B?d2UrWFF3U3V3cHBEZzlLNFJQOWVEVXpCUTdCSGptajhWRGhmQWduTGtFODUx?=
+ =?utf-8?B?WXpoOERnaStxcitOeFRSR2xZZ3VzTXNlWi85Wlo1THgxNERzV05SVTJ3ZHdj?=
+ =?utf-8?B?SFNVUzNaVjFEZ09yMDZvVXVuQTRJalA3bXdZR2UvaFpWN2pwSmdoTUp5eTFv?=
+ =?utf-8?B?UmtyMzNGZHowcWpkWXB5cW1vaXB3M1BvVFZ5Q2l2UGJpUjQzYnlGaFU5N3pr?=
+ =?utf-8?B?djcrajZkMndnU3duYkNET3Z4enVSRmhSQzN1SWtGRWgyVWNOVVduSGRSUlFh?=
+ =?utf-8?B?bTVlVjNndWV3Q2dPUXJ5RVVURHJ6RWhMZDFZZjBFYzlMeVZyNlloOGdEaFdY?=
+ =?utf-8?B?VVFmb2RuMSsxQkk1ZnNpUTdVN2pLbENFeng5NW1lYkZpOFNKa3VTN0V1bHpk?=
+ =?utf-8?B?cCtnNU9VWWU1RGFvWmY4Ymc5QlNZL1QwdlNnOWtwY0lObS84d0NBNVZKOEI0?=
+ =?utf-8?B?YnVXVjlhK1lVV3lnL1Z1QjBQVFBla2Z1QTdPT3FER3NGQ2c4UElCVjVNOFJ5?=
+ =?utf-8?B?K2NsOW5xaUt4d0J4b053YTlGSmFvakE3S3BjU0UzcldGOUZTNVE1TEpINTEv?=
+ =?utf-8?B?ZEhaUEhROHlRRG1WcE5mTGgwMzZvWWdRQjI4c3VZQ1EzSUtzdC9mazdqZzdx?=
+ =?utf-8?B?N2NRcnVnZ3F4RFVobnBSdGhMVzZCY0hyTm9vZUdBNngrUHB0cUNtVkcyU3NS?=
+ =?utf-8?B?Y2d1MFVxZStBYnd1VHlnRXpRRDk5M2pMOWJwNUxIbTRSVlMxUHYxOFpLWjJn?=
+ =?utf-8?B?TDZ4UytuRkxCbHhsWGlxRE50QTFpVlVTNjJhRVBsNjhDZVNHc0VZZzdCcGJs?=
+ =?utf-8?B?NUZ4Q216K3FHOGdGUlZCM2MwNDVhbWpraFp3aVptOHBtd0F4ZnpTRVpjRUNa?=
+ =?utf-8?B?TlJvQkZaYlM1VHFCR0gyZ1dnaEdBcFZWaWpyWlFRcUNWYmVuQUV1NW1iajlo?=
+ =?utf-8?B?VEF0WVVNVVJDRmc9PQ==?=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RmRUMGRoMTBPUEJZYU52YzJ0L2FrVzhiV0cxbEVPQ1o3dG13c3JROUdkeDhw?=
- =?utf-8?B?aG5KUGVHc3ZFcjFuYTBMcUcrb0x1dlkwZWpnRGJFZU5GM3hNaGl2cFZEWVpD?=
- =?utf-8?B?TUU5NEE0bEY1RE94UXdtdmVkUXZjaFZCKzRqTU9hSEt1eFZpcW1mS0FheVRh?=
- =?utf-8?B?aXVyU3NMc2FUMVdGcmNkQXBVUWFwU0FVYnE2Unh5ZnF6Vnh0R094Qm9mOE51?=
- =?utf-8?B?bUJ4c3dWQmNmVFdkSktHeTlJelNqdDI4c2hjcGpUWEgvS1ZJOHNyM3V4MXNw?=
- =?utf-8?B?TEwweHlMeGtRRU1TNTdBc0ZjR2VyNGozWE11SkUwdS81OFBLNDQwSVFYdTNF?=
- =?utf-8?B?NHZXdkU5UnRlKzlqVjAxNVFXbjc2aVV5Mk42VUVmTENOU3JCY1FsQWFhUUp0?=
- =?utf-8?B?NEZQQ2s4alBKcVlrNTJoYm44ZyswS1NDM29Ma1UrNnF2bGpHRkZQSWlwaVFC?=
- =?utf-8?B?WnM3dFU5M3V5Y0dZRXFDV1lxZU1adTYzWlZiR3hXcWNTZGd5VTMvVnFxVkhG?=
- =?utf-8?B?UFZBaDZpNTl6RVd4SFE3clNqd0Rub1RMUzhHeFE4STltU09RS3RrTExaVTRU?=
- =?utf-8?B?cDdEOFdWeEFKY21teVQ2Znhza1dtWkNvZmhUbW8vSDRTampDYUs5eE9BNjJl?=
- =?utf-8?B?NEpJQkJvNFBYYkZlS1JJTlNOYVJnRnlweGlRdjhJek55S0ZiVzI5OWhqaDZE?=
- =?utf-8?B?d0tRR1o4UTdpdGg2alhlTS95SWMyOFNuK0ovZ2ZrYlZ0SmhLbVFtTFNab2dn?=
- =?utf-8?B?WTd5SU1CWTAwUExUVndTUDdiQVFFNDY4NmtEUWtwZzE2eDVOazNlemtrdmRH?=
- =?utf-8?B?R3RGOCt5U2JQUHN5VFRVMUVhM2EyRmozRytmZmRaVkNIM0RBY2RjTVFuaXlm?=
- =?utf-8?B?b3VIUS8xbEtnejV4blNiSkxFZ2FEcnRIbzhLNkQyb3hXT2xLMUtZRVp1TWRy?=
- =?utf-8?B?cWFkWFdIWk43d25DcVFZVnJyU2xSR1c0WFlCeThtMElSdEVFdTRVNkRlUmR6?=
- =?utf-8?B?RDRjbTdOVHdOQ1p3R0NDQlpaZ1ZLRnJKMFVrNG83MGFrV21UMWUyN3I0SGdR?=
- =?utf-8?B?WTVPdjVUWERVdGo1NW82TmJLZHhwakh0ckQyRDFWKzY5L3R6TXAyQ21yQjRW?=
- =?utf-8?B?cE5uQW83cVRNUUVIVEtPUkZnTGQ1dXZOUUF4QmNrYTVHT1JyQXVDT2x2L3Vp?=
- =?utf-8?B?ZjUxNlkvRFJPaUFUcEV6OE9uazZ5U3M2dEdWMUdzQWtJS1hHc092NHlubi9E?=
- =?utf-8?B?dWVzVkVIak1qK21TQ001S1RkNlVVRXRJTzhEd1Z6a2FFSzdjclNic2xzaGpQ?=
- =?utf-8?B?cXFMUm5SNktsaWllbFo0Q2lwVTN5RUxMUmR0M08zb3o3c3I0dHo4QXVBdE9p?=
- =?utf-8?B?dXNWRWh6ak9vUk1xTFgxODRZRUtBUWVYRGNzSVFBdWx1VFpGOTRydGxTUlBo?=
- =?utf-8?B?TXJSNWFUY01DSXlKbzJEYU11UXFya29Ed3NVZ2xac1dJR2JZWlQzTDNyQUQv?=
- =?utf-8?B?ZzdtMjkwQmNjV0lhZ1JkaG4yZTU5M2hFai9FMm1BUGY0dzhlaGtxbTJETkxo?=
- =?utf-8?B?QkhMN0E3MFV5NkJyYk9KNTVoRlFHNHpOTVNoMDZ6a3hwaUZ1ZHMxblJtNmsr?=
- =?utf-8?B?N2tuTnNRL1BGL0V1QTFDOHZjdXl5blFZbjRERSs3cGVwK2JCSFNwQUFZNmYr?=
- =?utf-8?B?M3A2MjFpVjIwVkNDUGxaenpHVXVpRE9hM3BLMUc1QmZWMFhCQTdGN05tT2Ny?=
- =?utf-8?B?akdab25SanZWQ2duczJvN0J3dHpXNHc3YnIxVHhEZ1FEUWZucHZYd0JUUW9z?=
- =?utf-8?B?UnJSMFRmdGFNcXRnMVZGcFhhWk5Xb0FROFFBb1VCRGk3dHNSaWRUS1VDRWpr?=
- =?utf-8?B?bWxHUk1LN0dMZlJ4UWtUS2JQUzh1dWc4ei9oTU5qWnBxRW1lM2NWQVAvRmpn?=
- =?utf-8?B?Z1Vtd3NnS29jcC9NeUlHd1l4WlBXd01USzJpMVIxR2hYWTkxcStIZUJpMkNx?=
- =?utf-8?B?b3YrSU54NHNRTWtaQmZUdERRdHNGZmV2KzN2b1R1L0ZKczZMcWE5RktrQ0FF?=
- =?utf-8?B?bEttVTNkRm5TQUd0bjRWQ2ZiSldVMk1DbmxPNHgyZlBZZDVVU1dGc05nOERp?=
- =?utf-8?B?aGlWRDU5NFJpa2k4c0RxQ2ViajJmTHk3ZkJ3OFpMNU1EcDlac0hHd3J3anV6?=
- =?utf-8?B?dU13YkxqbTJlcStJbkpzaVgrc3g2ZFZhLzJYaEFBZ2VORXhtaGNjZVhUKzla?=
- =?utf-8?B?bHFTeUl3QVI5ZmdVMzVpMzdjaElsSFBEbTBUa0ZQUm9DMzFCZFBNaytkdG1k?=
- =?utf-8?B?MFdMb1BtSzgrOWE0d0ZGT0l2WFlXSmFLanJEVitKR0d3eGwzUjZjd25MNE1E?=
- =?utf-8?Q?MsOdhXANz3YHurqI=3D?=
-X-Exchange-RoutingPolicyChecked: J9YZg1NB6zgDoQ+rcDv9Qq1nWdWZ9abEuEkyqm9EOyvIldQXimIL6GQA+UAm/TaoA6BE8Hti+C/g/ub9eA+fyiw9D/+leBovA2K/Z5RjxlI+zRGDeonNoVaCEh/W/0wGS8hs6MucGtB+5qxT2J4nUF/qkhNS9GMj1hDu6+unfSZbidXbWuJx3sScPzdwz6oluVtoF8wJN5GqjnYZcgn99xxpEJnkcrlbGdffjyMax7I/LtU/4MPB95e0DHXw5mimMHB3Jf1oN5Vh3MftYZTZFPVwV8FFMxygZT7DzVaeqEGE0mQOHIjjwWiDbEn5/c8D3ByzfEzYNdH6YjsZllQgaA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01f0f8cd-f420-460a-cbb6-08de833f4c36
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGo1SXhhbVRyR3gydGJDcWcyZENydTErTjdqbHpXQ1U4SGdTOVVNcVBteHZs?=
+ =?utf-8?B?ditqUGJtUjlBMUZZMGNZRGpPNlN4QUFyVFZ4N3V6bzNOQ3JzZm1jSVd3VHVX?=
+ =?utf-8?B?cEIrRCtPcWpmSzJLSStYZ3FZbHNNSEdwdjJ0UUZxTHJ2UVIrbmFRQ0Q1R2Vz?=
+ =?utf-8?B?SmpqYWFkd2FKb1R6UE5hR0hGRlNRZEprZmhyWkNkYnlxVjExRlFQVk43T1Jq?=
+ =?utf-8?B?TnRGeGErcmx2Q3NZWC9pbEJ2MHBUSGJmRThRYUxLUHY0MHFscXVrZk13bmYz?=
+ =?utf-8?B?cjh2Q2h3eGE4WmlKZ2ZGbU5UN25pc2U1clRPVTI3VWs0OVhPdzN0R1lrdGhT?=
+ =?utf-8?B?VThtVURHckhtalZzOGhtNUpIOFk0UEJIOVFENDgxWWZoVWRGd2xpNi9DM1Fx?=
+ =?utf-8?B?dUJxQU03dTNRYkZxYjRJYVdSRmcwU2w4VGJpM3lMcE9MR0gwRFdMNnJJNWln?=
+ =?utf-8?B?ZlQvcGltKy9qZHdkWG0rQTFsQ3hQZktsQ2kvZDljV2Z1YnVra1dsTU5nTDJr?=
+ =?utf-8?B?TER4SmI3VVBVMWhncFptYzRlTTBrTVhiSkVWeEhNMys0SitnY0wzc3dxSVgx?=
+ =?utf-8?B?NCsxV0duUXVVdzBNbHY3QkdYWFJjSTJURnQvbEhkQ0t3b0dBR3E2WEZscTlt?=
+ =?utf-8?B?YktrQjEvbmtzRi9DMXROcUY5RGJRejZoVDkxWHNrWHVMc3pUL2VHbTNJZTB6?=
+ =?utf-8?B?KzdISXBsUFdwM1lBVXpnZjhNVUZuR3NMVE12Y280Sm5vR0pZNWcvc2tpblpm?=
+ =?utf-8?B?cWs2MFNqYnpjSU1DblFnYTFvYTExN0Yxd2psTjYzWkdmNlMyYmlUemNxa292?=
+ =?utf-8?B?dUVzVUxDbnh3N2hCV2JXRXppb0ZSbzh3djNka3pHd3d1NlpXWEFlU1pHemVo?=
+ =?utf-8?B?MlZsY0Nnd0RWUEtLTUJXZWRKT1RMVzU4YWRPT04yNU1LbVROYVdmVUlEYnhH?=
+ =?utf-8?B?b3E1M0xsSTVoYWpkZW1yRklCNEdRcHRDNDQzaWVZcHl5SVQvaVd6bHdWb2hy?=
+ =?utf-8?B?cllJeGRoWmMxSU5CVE42SnV5TVo3bW9jQ1FVQTFVbENpYy9vQXdRRlp1NjN2?=
+ =?utf-8?B?MUNQVmpvb1hxMXkwNnJUdVVRVE85K2FMMWMzWjd1bzcrQ0U2Z3gwWm9ld0xj?=
+ =?utf-8?B?WHV2Y242OTBkajN3QUl3Z3l6VWEwMzdGM3dNRkNJTjNFbEZVczBiSFhxS1NL?=
+ =?utf-8?B?dmw1ay80QlE2MGFpQWtrOEtld3V4cWJzeXpDbktPUU9nR1BxZnZlN3RyK1Jx?=
+ =?utf-8?B?ZlIwU1dqakZaQ1cyZUpQeVlRRkNjTzBrMkVuV0VLbGlMUDVXUWxpeHczZWNp?=
+ =?utf-8?B?YzFlZ01NU3lMcWpuNHhIWm9NOE41aC9SYlQ1WHdlNUZjcHdlY0ljL0lIN2k1?=
+ =?utf-8?B?c1dQaEM0ZWNkN2pyUlJYY3UwU0NmaHNxYXFXT0JkemFxZk11WUN6NFgrQndL?=
+ =?utf-8?B?VTlIZmFtSVJJd3QvaU9mWWhnL2lWN0szWXhSd2c3UFRiVzU4bkx3YWlrNWFu?=
+ =?utf-8?B?REtBNncvTWRoc1AwSmFmTEJyb0tibGF4RHNjLzc2eDZTNWUyOFRMODRaYXhH?=
+ =?utf-8?B?Q2s3OFpCMURiSkQra29KL3oyR2NITHNSMjFMTVgvZWNLb282Y3F6V0Zwenpp?=
+ =?utf-8?B?KzBDcEp6YkN2eHFseG1DY2xTK1p3MkNzM3BzOEZGanVOZTd3dXQxcU01NkZp?=
+ =?utf-8?B?aW45aUkxTzZsL1cva1Y5ZXJVY1RuSnBPTlFTbmY2YWYyTVVWQUwxN0JYZDFm?=
+ =?utf-8?B?SzR3aVc4bkM2OXByRUVMZEp0VWY3SGpDYVRjZ3JiYkx3N0NYVDJXSFlYb2E0?=
+ =?utf-8?B?UGdJOWpuMGc3SHd5Y0VYeXE3d2F6QlY0Nk9GSk5uQnh0Z3pvOG1DdFZjOHpk?=
+ =?utf-8?Q?xsAZs5Z3Be1kt?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-c3e7a.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: afd547d6-970e-4bd0-a5e2-08de833dc529
+X-MS-Exchange-CrossTenant-AuthSource: SE3PR04MB8922.apcprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 09:35:02.2617
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Mar 2026 09:24:06.1435
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3iqOZ4fyvqIBus8wipxkTcwCh2aOo2LRbDGAvOV/sbuGqd2f3y3srh0l6G+QM5XAfV4N4plyJLdDUttdCyBQNQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB4567
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI6PR04MB8283
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_023509_655936_6475015A 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260316_023908_555614_9871CAD8 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,30 +158,329 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTYvMDMvMjAyNiAxMTowNCwgSWtlciBQZWRyb3NhIHdyb3RlOgo+IEVsIHZpZSwgMTMgbWFy
-IDIwMjYgYSBsYXMgMTQ6MDQsIEFkcmlhbiBIdW50ZXIKPiAoPGFkcmlhbi5odW50ZXJAaW50ZWwu
-Y29tPikgZXNjcmliacOzOgo+Pgo+PiBPbiAwOS8wMy8yMDI2IDEzOjQwLCBJa2VyIFBlZHJvc2Eg
-d3JvdGU6Cj4+PiBFbnN1cmUgU0QgY2FyZCBwaW5zIHJlY2VpdmUgY2xvY2sgc2lnbmFscyBieSBl
-bmFibGluZyBwYWQgY2xvY2sKPj4+IGdlbmVyYXRpb24gYW5kIG92ZXJyaWRpbmcgYXV0b21hdGlj
-IGNsb2NrIGdhdGluZy4gUmVxdWlyZWQgZm9yIGFsbCBTRAo+Pj4gb3BlcmF0aW9uIG1vZGVzLgo+
-Pgo+PiBOZWVkIHRvIHNheSB3aHkgdXBkYXRlIHRvICJTUEFDRU1JVF9TREhDX0xFR0FDWV9DVFJM
-X1JFRyIgaXMgT2sgZm9yCj4+IG5vbi1TRAo+IAo+IEFmdGVyIGFuYWx5emluZyB0aGUgcmVmZXJl
-bmNlIGRyaXZlciBpbXBsZW1lbnRhdGlvblsxXSwgdGhlCj4gU0RIQ19MRUdBQ1lfQ1RSTF9SRUcg
-c2V0dGluZyBpcyBhcHBsaWVkIHRvIGJvdGggZU1NQyBhbmQgU0QKPiBjb250cm9sbGVycy4KPiAK
-PiBUaGUgcmVmZXJlbmNlIGRyaXZlciBzZXRzIEdFTl9QQURfQ0xLX09OIGZvciBhbnkgY29udHJv
-bGxlciB3aXRoCj4gTU1DX0NBUDJfTk9fU0RJTyBzZXQgKFNESU8gZGlzYWJsZWQpLiBTaW5jZSBi
-b3RoIG91ciBlTU1DIGFuZCBTRAo+IGNvbnRyb2xsZXJzIGhhdmUgbm8tc2RpbzsgaW4gdGhlaXIg
-ZGV2aWNlIHRyZWUgY29uZmlndXJhdGlvbnMsIGJvdGgKPiBzaG91bGQgcmVjZWl2ZSB0aGlzIHNl
-dHRpbmcuCj4gCj4gWzFdIGh0dHBzOi8vZ2l0aHViLmNvbS9vcmFuZ2VwaS14dW5sb25nL2xpbnV4
-LW9yYW5nZXBpL2Jsb2Ivb3JhbmdlLXBpLTYuNi1reS9kcml2ZXJzL21tYy9ob3N0L3NkaGNpLW9m
-LXgxLmMjTDQ4Mgo+IAoKIkkgY29waWVkIGl0IGZyb20gc29tZXdoZXJlIGVsc2UiIGlzIG5vdCB0
-aGUgYmVzdCBleHBsYW5hdGlvbiwKYnV0IGJldHRlciB0aGFuIG5vdGhpbmcgSSBndWVzcy4gIEhv
-d2V2ZXIgSSBtZWFudCBhZGQgdGhlCmV4cGxhbmF0aW9uIHRvIHRoZSBjb21taXQgbWVzc2FnZS4K
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On 3/7/2026 9:04 PM, Jinyu Tang wrote:
+> KVM RISC-V triggers a TLB flush for every single stage-2 PTE
+> modification (unmap or write-protect) now. Although KVM coalesces the
+> hardware IPIs, the software overhead of executing the flush work
+> for every 4K page is large, especially during dirty page tracking.
+>
+> Following the approach used in x86 and arm64, this patch optimizes
+> the MMU logic by making the PTE manipulation functions return a boolean
+> indicating if a leaf PTE was actually changed. The outer MMU functions
+> bubble up this flag to batch the remote TLB flushes. This change makes
+> the generic KVM MMU callbacks (e.g., `kvm_unmap_gfn_range()`) actually
+> effective by returning the true flush requirement rather than `false`.
+>
+> Consequently, the flush operation is executed only once per batch.
+> Moving it outside of the `mmu_lock` also reduces lock contention.
+> For directory pages, we keep the synchronous flush to ensure safety.
+>
+> Tested with tools/testing/selftests/kvm on a 4-vCPU guest (Host
+> environment: QEMU 10.2.1 RISC-V)
+> 1. demand_paging_test (1GB memory)
+> 	# time ./demand_paging_test -b 1G -v 4
+>     - Total execution time reduced from ~2m33s to ~2m25s
+> 2. dirty_log_perf_test (1GB memory)
+>     	# ./dirty_log_perf_test -b 1G -v 4
+> 	- "Clear dirty log time" per iteration dropped significantly from
+>       ~3.02s to ~0.20s
+>
+> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+> ---
+>   arch/riscv/include/asm/kvm_gstage.h |  6 ++---
+>   arch/riscv/kvm/gstage.c             | 40 ++++++++++++++++++++---------
+>   arch/riscv/kvm/mmu.c                | 34 ++++++++++++++++++------
+>   3 files changed, 57 insertions(+), 23 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
+> index 595e21831..b003a07f1 100644
+> --- a/arch/riscv/include/asm/kvm_gstage.h
+> +++ b/arch/riscv/include/asm/kvm_gstage.h
+> @@ -59,13 +59,13 @@ enum kvm_riscv_gstage_op {
+>   	GSTAGE_OP_WP,		/* Write-protect */
+>   };
+>   
+> -void kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
+> +bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
+>   			     pte_t *ptep, u32 ptep_level, enum kvm_riscv_gstage_op op);
+>   
+> -void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+> +bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+>   				  gpa_t start, gpa_t size, bool may_block);
+>   
+> -void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end);
+> +bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end);
+>   
+>   void kvm_riscv_gstage_mode_detect(void);
+>   
+> diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+> index b67d60d72..8e7a69d35 100644
+> --- a/arch/riscv/kvm/gstage.c
+> +++ b/arch/riscv/kvm/gstage.c
+> @@ -209,49 +209,59 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+>   	return kvm_riscv_gstage_set_pte(gstage, pcache, out_map);
+>   }
+>   
+> -void kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
+> +bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
+>   			     pte_t *ptep, u32 ptep_level, enum kvm_riscv_gstage_op op)
+>   {
+>   	int i, ret;
+>   	pte_t old_pte, *next_ptep;
+>   	u32 next_ptep_level;
+>   	unsigned long next_page_size, page_size;
+> +	bool flush = false;
+>   
+>   	ret = gstage_level_to_page_size(ptep_level, &page_size);
+>   	if (ret)
+> -		return;
+> +		return false;
+>   
+>   	WARN_ON(addr & (page_size - 1));
+>   
+>   	if (!pte_val(ptep_get(ptep)))
+> -		return;
+> +		return false;
+>   
+>   	if (ptep_level && !gstage_pte_leaf(ptep)) {
+>   		next_ptep = (pte_t *)gstage_pte_page_vaddr(ptep_get(ptep));
+>   		next_ptep_level = ptep_level - 1;
+>   		ret = gstage_level_to_page_size(next_ptep_level, &next_page_size);
+>   		if (ret)
+> -			return;
+> +			return false;
+>   
+>   		if (op == GSTAGE_OP_CLEAR)
+>   			set_pte(ptep, __pte(0));
+>   		for (i = 0; i < PTRS_PER_PTE; i++)
+> -			kvm_riscv_gstage_op_pte(gstage, addr + i * next_page_size,
+> +			flush |= kvm_riscv_gstage_op_pte(gstage, addr + i * next_page_size,
+>   						&next_ptep[i], next_ptep_level, op);
+It would be better to align with the first parameter.
+There are many similar lines that need to be aligned in this patch.
+
+Otherwise,
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+
+Thanks,
+Nutty
+> -		if (op == GSTAGE_OP_CLEAR)
+> +		if (op == GSTAGE_OP_CLEAR) {
+> +			gstage_tlb_flush(gstage, ptep_level, addr);
+> +			flush = false;
+>   			put_page(virt_to_page(next_ptep));
+> +		}
+>   	} else {
+>   		old_pte = *ptep;
+>   		if (op == GSTAGE_OP_CLEAR)
+>   			set_pte(ptep, __pte(0));
+>   		else if (op == GSTAGE_OP_WP)
+>   			set_pte(ptep, __pte(pte_val(ptep_get(ptep)) & ~_PAGE_WRITE));
+> -		if (pte_val(*ptep) != pte_val(old_pte))
+> -			gstage_tlb_flush(gstage, ptep_level, addr);
+> +		if (pte_val(*ptep) != pte_val(old_pte)) {
+> +			if (gstage->flags & KVM_GSTAGE_FLAGS_LOCAL)
+> +				gstage_tlb_flush(gstage, ptep_level, addr);
+> +			else
+> +				flush = true;
+> +		}
+>   	}
+> +
+> +	return flush;
+>   }
+>   
+> -void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+> +bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+>   				  gpa_t start, gpa_t size, bool may_block)
+>   {
+>   	int ret;
+> @@ -260,6 +270,7 @@ void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+>   	bool found_leaf;
+>   	unsigned long page_size;
+>   	gpa_t addr = start, end = start + size;
+> +	bool flush = false;
+>   
+>   	while (addr < end) {
+>   		found_leaf = kvm_riscv_gstage_get_leaf(gstage, addr, &ptep, &ptep_level);
+> @@ -271,7 +282,7 @@ void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+>   			goto next;
+>   
+>   		if (!(addr & (page_size - 1)) && ((end - addr) >= page_size))
+> -			kvm_riscv_gstage_op_pte(gstage, addr, ptep,
+> +			flush |= kvm_riscv_gstage_op_pte(gstage, addr, ptep,
+>   						ptep_level, GSTAGE_OP_CLEAR);
+>   
+>   next:
+> @@ -284,9 +295,11 @@ void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
+>   		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) && may_block && addr < end)
+>   			cond_resched_lock(&gstage->kvm->mmu_lock);
+>   	}
+> +
+> +	return flush;
+>   }
+>   
+> -void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end)
+> +bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end)
+>   {
+>   	int ret;
+>   	pte_t *ptep;
+> @@ -294,6 +307,7 @@ void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end
+>   	bool found_leaf;
+>   	gpa_t addr = start;
+>   	unsigned long page_size;
+> +	bool flush = false;
+>   
+>   	while (addr < end) {
+>   		found_leaf = kvm_riscv_gstage_get_leaf(gstage, addr, &ptep, &ptep_level);
+> @@ -305,12 +319,14 @@ void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end
+>   			goto next;
+>   
+>   		if (!(addr & (page_size - 1)) && ((end - addr) >= page_size))
+> -			kvm_riscv_gstage_op_pte(gstage, addr, ptep,
+> +			flush |= kvm_riscv_gstage_op_pte(gstage, addr, ptep,
+>   						ptep_level, GSTAGE_OP_WP);
+>   
+>   next:
+>   		addr += page_size;
+>   	}
+> +
+> +	return flush;
+>   }
+>   
+>   void __init kvm_riscv_gstage_mode_detect(void)
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index 0b75eb2a1..075cc433e 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -23,6 +23,7 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
+>   	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
+>   	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
+>   	struct kvm_gstage gstage;
+> +	bool flush;
+>   
+>   	gstage.kvm = kvm;
+>   	gstage.flags = 0;
+> @@ -30,9 +31,10 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
+>   	gstage.pgd = kvm->arch.pgd;
+>   
+>   	spin_lock(&kvm->mmu_lock);
+> -	kvm_riscv_gstage_wp_range(&gstage, start, end);
+> +	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
+>   	spin_unlock(&kvm->mmu_lock);
+> -	kvm_flush_remote_tlbs_memslot(kvm, memslot);
+> +	if (flush)
+> +		kvm_flush_remote_tlbs_memslot(kvm, memslot);
+>   }
+>   
+>   int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+> @@ -88,6 +90,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+>   void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
+>   {
+>   	struct kvm_gstage gstage;
+> +	bool flush;
+>   
+>   	gstage.kvm = kvm;
+>   	gstage.flags = 0;
+> @@ -95,8 +98,11 @@ void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
+>   	gstage.pgd = kvm->arch.pgd;
+>   
+>   	spin_lock(&kvm->mmu_lock);
+> -	kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
+> +	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
+>   	spin_unlock(&kvm->mmu_lock);
+> +
+> +	if (flush)
+> +		kvm_flush_remote_tlbs_range(kvm, gpa >> PAGE_SHIFT, size >> PAGE_SHIFT);
+>   }
+>   
+>   void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+> @@ -108,13 +114,18 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+>   	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
+>   	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
+>   	struct kvm_gstage gstage;
+> +	bool flush;
+>   
+>   	gstage.kvm = kvm;
+>   	gstage.flags = 0;
+>   	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+>   	gstage.pgd = kvm->arch.pgd;
+>   
+> -	kvm_riscv_gstage_wp_range(&gstage, start, end);
+> +	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
+> +	if (flush)
+> +		kvm_flush_remote_tlbs_range(kvm, start >> PAGE_SHIFT,
+> +			(end - start) >> PAGE_SHIFT);
+> +
+>   }
+>   
+>   void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+> @@ -140,6 +151,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+>   	gpa_t gpa = slot->base_gfn << PAGE_SHIFT;
+>   	phys_addr_t size = slot->npages << PAGE_SHIFT;
+>   	struct kvm_gstage gstage;
+> +	bool flush;
+>   
+>   	gstage.kvm = kvm;
+>   	gstage.flags = 0;
+> @@ -147,8 +159,10 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+>   	gstage.pgd = kvm->arch.pgd;
+>   
+>   	spin_lock(&kvm->mmu_lock);
+> -	kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
+> +	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
+>   	spin_unlock(&kvm->mmu_lock);
+> +	if (flush)
+> +		kvm_flush_remote_tlbs(kvm);
+>   }
+>   
+>   void kvm_arch_commit_memory_region(struct kvm *kvm,
+> @@ -253,10 +267,9 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+>   	gstage.flags = 0;
+>   	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+>   	gstage.pgd = kvm->arch.pgd;
+> -	kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
+> +	return kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
+>   				     (range->end - range->start) << PAGE_SHIFT,
+>   				     range->may_block);
+> -	return false;
+>   }
+>   
+>   bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+> @@ -579,6 +592,7 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+>   {
+>   	struct kvm_gstage gstage;
+>   	void *pgd = NULL;
+> +	bool flush = false;
+>   
+>   	spin_lock(&kvm->mmu_lock);
+>   	if (kvm->arch.pgd) {
+> @@ -586,13 +600,17 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+>   		gstage.flags = 0;
+>   		gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+>   		gstage.pgd = kvm->arch.pgd;
+> -		kvm_riscv_gstage_unmap_range(&gstage, 0UL, kvm_riscv_gstage_gpa_size, false);
+> +		flush = kvm_riscv_gstage_unmap_range(&gstage, 0UL,
+> +					kvm_riscv_gstage_gpa_size, false);
+>   		pgd = READ_ONCE(kvm->arch.pgd);
+>   		kvm->arch.pgd = NULL;
+>   		kvm->arch.pgd_phys = 0;
+>   	}
+>   	spin_unlock(&kvm->mmu_lock);
+>   
+> +	if (flush)
+> +		kvm_flush_remote_tlbs(kvm);
+> +
+>   	if (pgd)
+>   		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
+>   }
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
