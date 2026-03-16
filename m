@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA6F10775E1
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 995D110775E7
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t6eHAPCD4+gmAKtX3zojD6R8n+7tco2pMoAo/EGhuWA=; b=U96+VATeEmFK6+
-	0RfO0+lr+ES64zccjkcMljhkCqVa0V8PFVsvDPmwtIzE+tliy0KjKUbNlDKkTUvWXkKtydYcduPiU
-	Kd0n0JP2iDzXT2EC6kuOWXhgE1upfrdx7FRzO5AYPPlDwvJJqt7pY7f6GXktsxfg1mgfmwVbczg5Q
-	LcJ9/IYEVzJK7v27XxKDE2Qy1jWhIBsH6QoEmv+gpS9lKb1re3XgvN+psThtzXdK+eJ849UHGFiTs
-	gvlO1mK6V33/+XaJ3YBZlRKaoXVdzYaq79Jr2fGpTW9Lk2W3oc9Qk05lpApn9E2WzAo4JxO4w0AQD
-	uiVfZGDWavJBCaNm0p8g==;
+	List-Owner; bh=3oZ3pjzPYM/nVtTNfczvwihsYdtciGjm1WBusgixh7A=; b=wKQE84+Tuo1lE5
+	7MWcB4hi3+CjopghsFl0yof9Ad43x0hhGWJ+krw8lZ4pOFU4g5yln7sDkYMUCvHZSE5d6uLuNjKXk
+	4Ud65Gt5kPEilPe8ZlXwOhXD5R6EKxKk30H8qqkgXwC+F26BZQc+uYttJ6Zs/1R4/8Ep4yEQBjhl0
+	QEQE8Scp6+R9CHDn3FWXmIl+SFEGs1FZvhqzTgWVUm79LYwXu/fXeG9EP/Ux063QLEkY5iQE7Sjzu
+	DLp/KPxep7M/YPSbkQ+3UDfIVxi+etv117TLB0C9CuH14bE3WAOt0CcrTV7mNRfhQdRg2KeGhTPh/
+	5wA2ZtZIPC2e/pYPafZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tfC-00000008ueT-3OYD;
-	Wed, 18 Mar 2026 16:22:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2tkj-00000008vLf-0x0T;
+	Wed, 18 Mar 2026 16:28:13 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tfA-00000008udm-0kCT;
-	Wed, 18 Mar 2026 16:22:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A99260097;
-	Wed, 18 Mar 2026 16:22:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AC48C19421;
-	Wed, 18 Mar 2026 16:22:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773850947;
-	bh=FGNSu4DlIfiUMZa5ZkmaJp/QIn2lggE4u2Ndygv6FBY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XpeluXyxDsZzF3NAmckdqJwpVkaAqttUopjBMOigcEjrW9PG4hOk9bFNjIu2+1hu1
-	 IcsDTmGhCVATBRixcmNQQhBpayz2AxBxUoh+MbYsjRcLuorNTLiwBf6/k0JgHJn6Wz
-	 raA3nLiznqIL8OBq0mPUTLKCPd5eb3Bv2V64KLPcxM+MrRFRw5yx4UwmNfiJttbMZO
-	 J7HUEZM+SLsx9D5/aRBj0upZmqFXxEgFHzFGt2zHtfm6J4HCe4vfApVE0dgUg61GmQ
-	 0lp53wfP1tgknNDPDCf1MumSabgXnKYpdnqZftaDNWH4frl/QojAulg09IVXxCoww0
-	 l5WkFd3jbD+kg==
-Date: Wed, 18 Mar 2026 09:22:26 -0700
-From: Kees Cook <kees@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-mips@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org
-Subject: Re: [PATCH 00/15] exec: Remove AT_VECTOR_SIZE_ARCH from UAPI
-Message-ID: <202603180921.1B52D626@keescook>
-References: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
+	id 1w21I3-00000003P9v-0aC2;
+	Mon, 16 Mar 2026 06:19:00 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4fZ4fW6K72z4xQX9;
+	Mon, 16 Mar 2026 14:18:43 +0800 (CST)
+Received: from szxl2zmapp07.zte.com.cn ([10.1.32.52])
+	by mse-fl2.zte.com.cn with SMTP id 62G6IZu4088164;
+	Mon, 16 Mar 2026 14:18:35 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxlzmapp01[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Mon, 16 Mar 2026 14:18:36 +0800 (CST)
+X-Zmail-TransId: 2b0369b7a0bcfa0-2c182
+X-Mailer: Zmail v1.0
+Message-ID: <20260316141836922ffC0zmiE01ptC2jpXl4zJ@zte.com.cn>
+In-Reply-To: <20260316141234007qSAOsesu2cSQsj-LA-qq3@zte.com.cn>
+References: 20260316141234007qSAOsesu2cSQsj-LA-qq3@zte.com.cn
+Date: Mon, 16 Mar 2026 14:18:36 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <wang.yechao255@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYzIDIvM10gUklTQy1WOiBLVk06IEFsbG93IHNwbGl0dGluZyBodWdlIHBhZ2VzIHRvIGFyYml0cmFyeSBsZXZlbA==?=
+X-MAIL: mse-fl2.zte.com.cn 62G6IZu4088164
+X-TLS: YES
+X-SPF-DOMAIN: zte.com.cn
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SPF: None
+X-SOURCE-IP: 10.5.228.133 unknown Mon, 16 Mar 2026 14:18:43 +0800
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 69B7A0C3.000/4fZ4fW6K72z4xQX9
+X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260315_231859_782455_74DD0B8E 
+X-CRM114-Status: GOOD (  13.57  )
+X-Mailman-Approved-At: Wed, 18 Mar 2026 09:28:11 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,94 +77,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 01:25:24PM +0100, Thomas Wei=DFschuh wrote:
-> There is nothing userspace can do with this value. In the kernel is
-> always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
-> userspace and also changes from time to time.
-> =
+From: Wang Yechao <wang.yechao255@zte.com.cn>
 
-> Move the symbol to kernel-internal headers.
-> =
+This patch introduces the function kvm_riscv_gstage_split_huge().
+It splits the huge page covering a given guest physical address down
+to a specified target level (e.g., from 1G to 2M or 4K). The caller
+provides a memory cache for allocating any intermediate page tables
+and may request a TLB flush after the split.
 
-> Meant to be applied through the asm-generic tree.
-> The default recipient list was huge. I trimmed it to only the
-> architecture lists.
+This functionality will be used by subsequent patches to split huge
+pages before handling the write-protection fault, or for other operations
+that require page-level granularity.
 
-I don't see anything in Debian Code Search that actually uses this
-symbol, so that seems fine. Userspace already parses auxvec looking for
-AT_NULL, so length isn't useful.
+Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+---
+ arch/riscv/include/asm/kvm_gstage.h |  4 ++
+ arch/riscv/kvm/gstage.c             | 69 +++++++++++++++++++++++++++++
+ 2 files changed, 73 insertions(+)
 
-Reviewed-by: Kees Cook <kees@kernel.org>
+diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
+index 595e2183173e..373748c6745e 100644
+--- a/arch/riscv/include/asm/kvm_gstage.h
++++ b/arch/riscv/include/asm/kvm_gstage.h
+@@ -53,6 +53,10 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+ 			      bool page_rdonly, bool page_exec,
+ 			      struct kvm_gstage_mapping *out_map);
 
-> =
++int kvm_riscv_gstage_split_huge(struct kvm_gstage *gstage,
++                                struct kvm_mmu_memory_cache *pcache,
++                                gpa_t addr, u32 target_level, bool flush);
++
+ enum kvm_riscv_gstage_op {
+ 	GSTAGE_OP_NOP = 0,	/* Nothing */
+ 	GSTAGE_OP_CLEAR,	/* Clear/Unmap */
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index d2001d508046..5356abb18932 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -209,6 +209,75 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+ 	return kvm_riscv_gstage_set_pte(gstage, pcache, out_map);
+ }
 
-> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> ---
-> Thomas Wei=DFschuh (15):
->       MAINTAINERS: exec: Add more auxvec.h variants
->       auxvec.h: Move AT_VECTOR_SIZE definitions to linux/auxvec.h
->       asm-generic: add an in-kernel auxvec.h header
->       ARM: drop custom asm/auxvec.h
->       x86: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       arm64: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       RISC-V: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       LoongArch: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       s390: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       powerpc: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       MIPS: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       sparc: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       sh: Remove AT_VECTOR_SIZE_ARCH from UAPI
->       alpha: remove AT_VECTOR_SIZE_ARCH from UAPI
->       auxvec.h: Drop fallback AT_VECTOR_SIZE_ARCH
-> =
-
->  MAINTAINERS                              |  5 +++++
->  arch/alpha/include/asm/auxvec.h          |  7 +++++++
->  arch/alpha/include/uapi/asm/auxvec.h     |  8 +++-----
->  arch/arm/include/asm/auxvec.h            |  1 -
->  arch/arm64/include/asm/auxvec.h          |  7 +++++++
->  arch/arm64/include/uapi/asm/auxvec.h     |  6 ++----
->  arch/loongarch/include/asm/auxvec.h      | 14 ++++++++++++++
->  arch/loongarch/include/uapi/asm/auxvec.h |  8 +++-----
->  arch/mips/include/asm/auxvec.h           | 17 +++++++++++++++++
->  arch/mips/include/uapi/asm/auxvec.h      |  8 +++-----
->  arch/powerpc/include/asm/auxvec.h        |  7 +++++++
->  arch/powerpc/include/uapi/asm/auxvec.h   |  6 ++----
->  arch/riscv/include/asm/auxvec.h          | 13 +++++++++++++
->  arch/riscv/include/uapi/asm/auxvec.h     |  2 --
->  arch/s390/include/asm/auxvec.h           |  7 +++++++
->  arch/s390/include/uapi/asm/auxvec.h      |  6 ++----
->  arch/sh/include/asm/auxvec.h             |  7 +++++++
->  arch/sh/include/uapi/asm/auxvec.h        |  8 +++-----
->  arch/sparc/include/asm/auxvec.h          |  6 ++++++
->  arch/sparc/include/uapi/asm/auxvec.h     |  8 +++-----
->  arch/x86/include/asm/auxvec.h            | 12 ++++++++++++
->  arch/x86/include/uapi/asm/auxvec.h       | 13 +++----------
->  include/asm-generic/Kbuild               |  1 +
->  include/asm-generic/auxvec.h             |  7 +++++++
->  include/linux/auxvec.h                   |  5 +++++
->  include/linux/mm_types.h                 |  6 ------
->  26 files changed, 139 insertions(+), 56 deletions(-)
-> ---
-> base-commit: f6b3b0a4c85882ad75bce3b093173203e3f39f28
-> change-id: 20260109-at-vector-size-arch-6e0f2e9ff8b6
-> =
-
-> Best regards,
-> -- =
-
-> Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> =
-
-
--- =
-
-Kees Cook
++static inline unsigned long make_child_pte(unsigned long huge_pte, int index,
++					   unsigned long child_page_size)
++{
++	unsigned long child_pte = huge_pte;
++	unsigned long child_pfn_offset;
++
++	/*
++	 * The child_pte already has the base address of the huge page being
++	 * split. So we just have to OR in the offset to the page at the next
++	 * lower level for the given index.
++	 */
++	child_pfn_offset = index * (child_page_size / PAGE_SIZE);
++	child_pte |= pte_val(pfn_pte(child_pfn_offset, __pgprot(0)));
++
++	return child_pte;
++}
++
++int kvm_riscv_gstage_split_huge(struct kvm_gstage *gstage,
++				struct kvm_mmu_memory_cache *pcache,
++				gpa_t addr, u32 target_level, bool flush)
++{
++	u32 current_level = kvm_riscv_gstage_pgd_levels - 1;
++	pte_t *next_ptep = (pte_t *)gstage->pgd;
++	pte_t *ptep;
++	unsigned long huge_pte, child_pte;
++	unsigned long child_page_size;
++	int i, ret;
++
++	while(current_level > target_level) {
++		ptep = (pte_t *)&next_ptep[gstage_pte_index(addr, current_level)];
++
++		if (!pte_val(ptep_get(ptep)))
++			break;
++
++		if (!gstage_pte_leaf(ptep)) {
++			next_ptep = (pte_t *)gstage_pte_page_vaddr(ptep_get(ptep));
++			current_level--;
++			continue;
++		}
++
++		huge_pte = pte_val(ptep_get(ptep));
++
++		ret = gstage_level_to_page_size(current_level - 1, &child_page_size);
++		if (ret)
++			return ret;
++
++		if (!pcache)
++			return -ENOMEM;
++		next_ptep = kvm_mmu_memory_cache_alloc(pcache);
++		if (!next_ptep)
++			return -ENOMEM;
++
++		for (i = 0; i < PTRS_PER_PTE; i++) {
++			child_pte = make_child_pte(huge_pte, i, child_page_size);
++			set_pte((pte_t *)&next_ptep[i], __pte(child_pte));
++		}
++
++		set_pte(ptep, pfn_pte(PFN_DOWN(__pa(next_ptep)),
++				__pgprot(_PAGE_TABLE)));
++
++		if (flush)
++			gstage_tlb_flush(gstage, current_level, addr);
++
++		current_level--;
++	}
++
++	return 0;
++}
++
+ void kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
+ 			     pte_t *ptep, u32 ptep_level, enum kvm_riscv_gstage_op op)
+ {
+-- 
+2.27.0
 
 _______________________________________________
 linux-riscv mailing list
