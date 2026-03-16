@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2836F30298
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 01:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F32F30297
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 01:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NnmLmr1Lqy5niMw34BCLG9dhWYUQjoD1J07Y5magDmM=; b=XQqzFdHFakOSeb
-	BekkRrq36Tsw8v1q8ai/ISYrDn6dB/arDg9q9YL/4HQs9YbhP8ih6JUiYzmMww+cVl8OSH4Ydtv3n
-	BChViqbJn1qWzQwUz+zNSAXnljtiWBEcOYn4G4EA39XKhsgGmLMXw9JMXMGL1UNIdhKCgvjMEaWbU
-	fMhhaJ1wRsvy/dWRcFQDnrBX8k/qC0YgkAzOLvkgWxbdbINMQLN4DilhRonit73Gb8zHwwMNWaXER
-	1wYCTeoCAfPlxrKf7ukSXbRkTHJQfRww9XVar2jHuHEFt3Ui1xO6muAeSRFViDb6A8aGPPH82xQmo
-	NA7g18XayhS9HoaLPtaA==;
+	List-Owner; bh=4lMn2/pxrY2qKlSlTDlJmfUlKIHcjzyn79tUnw9m/EM=; b=ONWGJgT4FdkgEB
+	gvmKLjj4rAezWQwD185A0sEXxLgA5vEEpi6BwzXRMdRQbzi46ZpZ7qvlQfOJ8nCR4pLZLerqeRlGb
+	Yf7dGLjuChojBkEbE5cQDR0Xcsf1AmACrXpsB8NzuNbZSZIV0oKIo/5rzgxAV89v/jk1FAvUNd7xw
+	qOsh+GI3DfP2QvYA5gO0I+R6e9Co+jqaoDxk5hyu3Lg00vP+plc819rqJ3IcMWzkysBr5r9zPEfHP
+	Y7lj4mNNmNv4DDpvbLPI8zFPR4LW+bdazJ+qRQ7sLN+6G/rjenDfSBpyLtPDJ5xZs17xQafQXr26f
+	dDnyfRH72dNMDZENFrxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wv2-0000000374z-0yNN;
-	Mon, 16 Mar 2026 01:38:56 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wub-000000036ju-1NZX
-	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 01:38:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	References:In-Reply-To:To:Cc; bh=8ig7C87ryqsS5WSVgx5+YTbbHZo9k9s
-	uFES/R2cgBPM=; b=RxbYvFP+WXSiVet5Nca9wzp9u3WbkOu3WMQNw9LgeQHuAx7
-	pjLYGt/jV/Dl7cZqm1LGzF/LXLMsp+NpQL2UrqUe1G5HdP1liwI69YpJNZTRUb3x
-	tWHwj2QbxUS2ILIBG7w+ZRo+ozZxAaEfQtDFUoXvGEMG1eXg05wd1cFkj3EY=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAHtSQNX7dpnx0BAA--.1023S3;
-	Mon, 16 Mar 2026 09:38:21 +0800 (CST)
-From: Jia Wang <wangjia@ultrarisc.com>
-Date: Mon, 16 Mar 2026 09:36:18 +0800
-Subject: [PATCH 1/2] riscv: ultrarisc: 8250_dw: support DP1000 uart
+	id 1w1wwU-000000037qM-3VrH;
+	Mon, 16 Mar 2026 01:40:26 +0000
+Received: from smtp17.cstnet.cn ([159.226.251.17] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w1wwN-000000037kf-1AXV;
+	Mon, 16 Mar 2026 01:40:22 +0000
+Received: from xujiakai2025$iscas.ac.cn ( [210.73.43.101] ) by
+ ajax-webmail-APP-09 (Coremail) ; Mon, 16 Mar 2026 09:39:34 +0800
+ (GMT+08:00)
+X-Originating-IP: [210.73.43.101]
+Date: Mon, 16 Mar 2026 09:39:34 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: "Jiakai Xu" <xujiakai2025@iscas.ac.cn>
+To: "Nutty.Liu" <nutty.liu@hotmail.com>
+Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, "Albert Ou" <aou@eecs.berkeley.edu>, 
+	"Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Andrew Jones" <ajones@ventanamicro.com>, 
+	"Anup Patel" <anup@brainfault.org>, 
+	"Atish Patra" <atish.patra@linux.dev>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Paolo Bonzini" <pbonzini@redhat.com>, 
+	"Paul Walmsley" <pjw@kernel.org>, "Shuah Khan" <shuah@kernel.org>, 
+	"Jiakai Xu" <jiakaiPeanut@gmail.com>
+Subject: Re: Re: [PATCH v3 2/2] RISC-V: KVM: selftests: Fix firmware counter
+ read in sbi_pmu_test
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.1-cmXT5 build
+ 20240627(e6c6db66) Copyright (c) 2002-2026 www.mailtech.cn cnic.cn
+In-Reply-To: <SE3PR04MB892267C1A570CF03E870BAADF345A@SE3PR04MB8922.apcprd04.prod.outlook.com>
+References: <20260310055557.835531-1-xujiakai2025@iscas.ac.cn>
+ <20260310055557.835531-3-xujiakai2025@iscas.ac.cn>
+ <SE3PR04MB892267C1A570CF03E870BAADF345A@SE3PR04MB8922.apcprd04.prod.outlook.com>
 MIME-Version: 1.0
-Message-Id: <20260316-ultrarisc-serial-v1-1-c464f3e933a5@ultrarisc.com>
-References: <20260316-ultrarisc-serial-v1-0-c464f3e933a5@ultrarisc.com>
-In-Reply-To: <20260316-ultrarisc-serial-v1-0-c464f3e933a5@ultrarisc.com>
-To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- Jia Wang <wangjia@ultrarisc.com>, 
- Zhang Xincheng <zhangxincheng@ultrarisc.com>
-X-Mailer: b4 0.15-dev-5b4ea
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773625052; l=2191;
- i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=gRRSp55pRniZyx6sAoUvfL+vjmmUJve5ICYBYJttQq0=;
- b=RduBJkDDCED22b0LiiHvOkF8LTSkbNYBogdJGNCfFTZ6l3d2XVzTwddUvq4DnBO5zK7XFCBRe
- k4okA57GlhgD5iOZSCGd4+wwIk1H27b1IaTfY5i8R7+esuBWUs11txm
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwAHtSQNX7dpnx0BAA--.1023S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7CF1UGr4DCr18Cr4UCF1xKrg_yoW8tw4DpF
-	W7KrZ0yF9Yqa1a93WxAan0vFZ7u3WrZryay39rK343trn8Kr1DAF1xKw4Yy3Z0gryIvr12
-	kF1jvryxZa47XFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQlb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY
-	1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
-	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCF
-	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFI
-	xGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK6svPMxAIw28I
-	cxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2
-	IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI
-	42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42
-	IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280
-	aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRZ0eHDUUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQADEWmxBggAFQAEsU
+Message-ID: <19053540.4b36.19cf44c69f9.Coremail.xujiakai2025@iscas.ac.cn>
+X-Coremail-Locale: en_US
+X-CM-TRANSID: swCowAAX7AtWX7dpjsoWAA--.63261W
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCQ4FCWmzulfEYwADsY
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_183829_769883_EFD9759A 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20260315_184019_756014_0F6D3DED 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,66 +81,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zhang Xincheng <zhangxincheng@ultrarisc.com>
+Hi Nutty, 
 
-The UART of DP1000 does not support automatic detection of
-buffer size. skip_autocfg needs to be set to true
+Thanks for the review!
+I'll fix the indentation and send a v5.
 
-Signed-off-by: Zhang Xincheng <zhangxincheng@ultrarisc.com>
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
----
- drivers/tty/serial/8250/8250_dw.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Best Regards,
+Jiakai
 
-diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
-index db73b2ae17fa..6a2acf173331 100644
---- a/drivers/tty/serial/8250/8250_dw.c
-+++ b/drivers/tty/serial/8250/8250_dw.c
-@@ -56,6 +56,7 @@
- #define DW_UART_QUIRK_IS_DMA_FC		BIT(3)
- #define DW_UART_QUIRK_APMC0D08		BIT(4)
- #define DW_UART_QUIRK_CPR_VALUE		BIT(5)
-+#define DW_UART_QUIRK_FIXED_TYPE	BIT(6)
- 
- struct dw8250_platform_data {
- 	u8 usr_reg;
-@@ -514,6 +515,11 @@ static void dw8250_quirks(struct uart_port *p, struct dw8250_data *data)
- 		data->data.dma.prepare_tx_dma = dw8250_prepare_tx_dma;
- 		data->data.dma.prepare_rx_dma = dw8250_prepare_rx_dma;
- 	}
-+	if (quirks & DW_UART_QUIRK_FIXED_TYPE) {
-+		p->flags |= UPF_FIXED_TYPE;
-+		p->type = PORT_16550A;
-+		data->skip_autocfg = true;
-+	}
- 	if (quirks & DW_UART_QUIRK_APMC0D08) {
- 		p->iotype = UPIO_MEM32;
- 		p->regshift = 2;
-@@ -789,6 +795,11 @@ static const struct dw8250_platform_data dw8250_skip_set_rate_data = {
- 	.quirks = DW_UART_QUIRK_SKIP_SET_RATE,
- };
- 
-+static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
-+	.usr_reg = DW_UART_USR,
-+	.quirks = DW_UART_QUIRK_FIXED_TYPE,
-+};
-+
- static const struct of_device_id dw8250_of_match[] = {
- 	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
- 	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
-@@ -796,6 +807,7 @@ static const struct of_device_id dw8250_of_match[] = {
- 	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
- 	{ .compatible = "sophgo,sg2044-uart", .data = &dw8250_skip_set_rate_data },
- 	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
-+	{ .compatible = "ultrarisc,dp1000-uart", .data = &dw8250_ultrarisc_dp1000_data },
- 	{ /* Sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, dw8250_of_match);
-
--- 
-2.34.1
-
-
+&quot;Nutty.Liu&quot; &lt;nutty.liu@hotmail.com&gt;wrote:
+> 
+> On 3/10/2026 1:55 PM, Jiakai Xu wrote:
+> > The current sbi_pmu_test attempts to read firmware counters without
+> > configuring them first with SBI_EXT_PMU_COUNTER_CFG_MATCH.
+> >
+> > Previously this did not fail because KVM incorrectly allowed the read
+> > and accessed fw_event[] with an out-of-bounds index when the counter
+> > was unconfigured. After fixing that bug, the read now correctly returns
+> > SBI_ERR_INVALID_PARAM, causing the selftest to fail.
+> >
+> > Update the test to configure a firmware event before reading the
+> > counter. Also add a negative test to ensure that attempting to read an
+> > unconfigured firmware counter fails gracefully.
+> >
+> > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+> > Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+> > ---
+> > V2 -> V3:
+> > - Removed unnecessary BIT(ret.value) & counter_mask_available check.
+> > - Asserted ret.value == i after successful CFG_MATCH.
+> > - Fixed eidx construction in SBI_EXT_PMU_COUNTER_CFG_MATCH.
+> > ---
+> >   .../testing/selftests/kvm/include/riscv/sbi.h | 37 +++++++++++++++++++
+> >   .../selftests/kvm/riscv/sbi_pmu_test.c        | 20 +++++++++-
+> >   2 files changed, 56 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/tools/testing/selftests/kvm/include/riscv/sbi.h b/tools/testing/selftests/kvm/include/riscv/sbi.h
+> > index 046b432ae896..16f1815ac48f 100644
+> > --- a/tools/testing/selftests/kvm/include/riscv/sbi.h
+> > +++ b/tools/testing/selftests/kvm/include/riscv/sbi.h
+> > @@ -97,6 +97,43 @@ enum sbi_pmu_hw_generic_events_t {
+> >   	SBI_PMU_HW_GENERAL_MAX,
+> >   };
+> >   
+> > +enum sbi_pmu_fw_generic_events_t {
+> > +	SBI_PMU_FW_MISALIGNED_LOAD	= 0,
+> > +	SBI_PMU_FW_MISALIGNED_STORE	= 1,
+> > +	SBI_PMU_FW_ACCESS_LOAD		= 2,
+> > +	SBI_PMU_FW_ACCESS_STORE		= 3,
+> > +	SBI_PMU_FW_ILLEGAL_INSN		= 4,
+> > +	SBI_PMU_FW_SET_TIMER		= 5,
+> > +	SBI_PMU_FW_IPI_SENT		= 6,
+> > +	SBI_PMU_FW_IPI_RCVD		= 7,
+> > +	SBI_PMU_FW_FENCE_I_SENT		= 8,
+> > +	SBI_PMU_FW_FENCE_I_RCVD		= 9,
+> > +	SBI_PMU_FW_SFENCE_VMA_SENT	= 10,
+> > +	SBI_PMU_FW_SFENCE_VMA_RCVD	= 11,
+> > +	SBI_PMU_FW_SFENCE_VMA_ASID_SENT	= 12,
+> > +	SBI_PMU_FW_SFENCE_VMA_ASID_RCVD	= 13,
+> > +
+> > +	SBI_PMU_FW_HFENCE_GVMA_SENT	= 14,
+> > +	SBI_PMU_FW_HFENCE_GVMA_RCVD	= 15,
+> > +	SBI_PMU_FW_HFENCE_GVMA_VMID_SENT = 16,
+> > +	SBI_PMU_FW_HFENCE_GVMA_VMID_RCVD = 17,
+> > +
+> > +	SBI_PMU_FW_HFENCE_VVMA_SENT	= 18,
+> > +	SBI_PMU_FW_HFENCE_VVMA_RCVD	= 19,
+> > +	SBI_PMU_FW_HFENCE_VVMA_ASID_SENT = 20,
+> > +	SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD = 21,
+> > +	SBI_PMU_FW_MAX,
+> > +};
+> > +
+> > +/* SBI PMU event types */
+> > +enum sbi_pmu_event_type {
+> > +	SBI_PMU_EVENT_TYPE_HW = 0x0,
+> > +	SBI_PMU_EVENT_TYPE_CACHE = 0x1,
+> > +	SBI_PMU_EVENT_TYPE_RAW = 0x2,
+> > +	SBI_PMU_EVENT_TYPE_RAW_V2 = 0x3,
+> > +	SBI_PMU_EVENT_TYPE_FW = 0xf,
+> > +};
+> > +
+> >   /* SBI PMU counter types */
+> >   enum sbi_pmu_ctr_type {
+> >   	SBI_PMU_CTR_TYPE_HW = 0x0,
+> > diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> > index 924a335d2262..9404577e4ad5 100644
+> > --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> > +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> > @@ -436,6 +436,7 @@ static void test_pmu_basic_sanity(void)
+> >   	struct sbiret ret;
+> >   	int num_counters = 0, i;
+> >   	union sbi_pmu_ctr_info ctrinfo;
+> > +	unsigned long fw_eidx;
+> >   
+> >   	probe = guest_sbi_probe_extension(SBI_EXT_PMU, &out_val);
+> >   	GUEST_ASSERT(probe && out_val == 1);
+> > @@ -461,7 +462,24 @@ static void test_pmu_basic_sanity(void)
+> >   			pmu_csr_read_num(ctrinfo.csr);
+> >   			GUEST_ASSERT(illegal_handler_invoked);
+> >   		} else if (ctrinfo.type == SBI_PMU_CTR_TYPE_FW) {
+> > -			read_fw_counter(i, ctrinfo);
+> > +			/* Read without configure should fail */
+> > +			ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
+> > +					i, 0, 0, 0, 0, 0);
+> > +			GUEST_ASSERT(ret.error == SBI_ERR_INVALID_PARAM);
+> > +
+> > +			/*
+> > +			 * Try to configure with a common firmware event.
+> > +			 * If configuration succeeds, verify we can read it.
+> > +			 */
+> > +			fw_eidx = ((unsigned long)SBI_PMU_EVENT_TYPE_FW << 16) |
+> > +					  SBI_PMU_FW_ACCESS_LOAD;
+> Nit: Also need to align with previous line ?
+> 
+> Otherwise,
+> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+> 
+> Thanks,
+> Nutty
+> > +
+> > +			ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH,
+> > +					i, 1, 0, fw_eidx, 0, 0);
+> > +			if (ret.error == 0) {
+> > +				GUEST_ASSERT(ret.value == i);
+> > +				read_fw_counter(i, ctrinfo);
+> > +			}
+> >   		}
+> >   	}
+> >   
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
