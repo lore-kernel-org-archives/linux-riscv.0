@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEADF506C3
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 12:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F24F506C1
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 12:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kikQwnsNdGLvyDrXj1GseEin78+h7ANjx1d0LsInH5c=; b=J9DcRYbgasYbX8
-	LgLK1+FhQYNN8NzEDEZA6KF5y2Mi2Q9dDfqhJDPR+0jP4BNlR9TC0/wNkz+1T7KEc/VzeMsFI8vcE
-	/lM7rKRfVSROwyO9TM7HP/egpQxXGhc9v/w6faPo7U/LcoaGzpSsNBikpyVrWuSpYOn6nZ9esWlnP
-	bxu7wcPNBauutMlx/aa37F6Bdmi+lflWAUkIbVRByNap9NrWbxVTsa1NkkbHalYtXBSDmxIWMOOf+
-	K4dzNTV4eV3Hn4ZfvYbcLP6A6ygiu8+WoQ7q2+fGG7hDhV1u65T9Ad2zGXRLwy/nk6xx9mxIh7RVV
-	llFy5Gi4OGk0MuQQuYqw==;
+	List-Owner; bh=Gso68CIGviKpmt6eTmKnHvN9mg7aD7CFKv4t0ha5QmQ=; b=AlKQphnSVZsr6l
+	dpqWH8hb4g9dolcfyJCkWqaZPGsxwEm5t8KfHLAy8sMM33+Bi2RpOVpxNOP4IT2u2GBfhoiGia5QJ
+	78xsYV+DkQwPiLvwLJmyAyk9oC+386Ms7GhqUZ8q37QDjJdbz5gudvaub6WMKWwzhndEQWNEnGKsP
+	bKEQYPsQQM4fP6eOlE0GPBOarQFy1VIV+tEwLM6gYZHW+DCdGrJV01FNsJUZOu2Hs2f008yqlC8VU
+	MV3gDcrR+m0VR+sM5u5vlnpEgGA98KzaSwW0hmYxhH0UCRzwYqlK/+GcYgFkrz6fyIlkLOGiWyRTY
+	XYDQfi57A9U14AxiNqJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27CJ-00000003y6B-1i4g;
-	Mon, 16 Mar 2026 12:37:27 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1w27Db-00000003yGw-0x7J;
+	Mon, 16 Mar 2026 12:38:47 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w27CG-00000003y5d-10qs
+	id 1w27DY-00000003yGZ-2yJD
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 12:37:25 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-8cd71fb9f06so283759585a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 05:37:23 -0700 (PDT)
+	Mon, 16 Mar 2026 12:38:45 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-89a1347051aso71361896d6.2
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 05:38:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773664642; x=1774269442; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773664723; x=1774269523; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/+43p1seL+R/O2hzNoObXrztoY0CvWOJdUHkcnpAiuU=;
-        b=mK7dh7XBQdSMPH0yKboGtwBSw0aiwNjbBp1BJ2CyBCXN3KZjkB/b0mK9ENwuIhvlIY
-         v0iOkDTSP+r1zQNfpDAqw4xuldY+Z2AG45Np1b//6YELTY0FqSFC3N+ZKCO/DGCdkEbU
-         Ar0H32y3BqYKPjPVuMrWmvzUPkXZGZwt5F12B4KYilcCgvbHlpwLx8GR7Tq7Mb9zjihH
-         M4Uf2CJlNpAaLzWsr8+vqK9Wq2hEx8v9PoaMz7Fpd47Y4IefmyVD8VjZg6Pk6STRohiz
-         JFpLaucmMgRWja5/ewUQbSd+XnfdUzRY5qZV/mE68mBiiJyaYugVEZ14T7/ygfy86yMy
-         qqJw==
+        bh=pBvUzLH0uz26jQRAjkurWhWn8KmiumiD3Cbz8sGkBMI=;
+        b=Xmis3GCYu2zBdIFw2I6SHbKKIuH7PHw3nBQEXhF7Z+N//B70sh1ai6hccIh2JZXoiO
+         H1XDBJDMotD7ODdoQeRchk45Q8s/h3cMdTWfehcH81FZeGi9fv3pFM1EIwvJHN74Kz1h
+         v6Uy7wTVcvB8zaqgf7mOFzTrexo5hyDgRU4mk3swQtCnkwGW31ot2VEz73mfh0HW5FzG
+         h5acVn4dDv5r8Z3zrU0lQm77SflI0tuaRweicM5G+zkdTpZmddqC4GesnwrhW1FUSoCx
+         tquJ0Mz7L6I5jtmd2JybDsrH+tPCB0F+tPsbtbFPirgP9b8I+otBNGJu1mS2zOa392Wh
+         rm8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773664642; x=1774269442;
+        d=1e100.net; s=20251104; t=1773664723; x=1774269523;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/+43p1seL+R/O2hzNoObXrztoY0CvWOJdUHkcnpAiuU=;
-        b=Wq2zHtOgNaR2zRnti90U8N6mhtYHsa8Kh+HRLmNfoGoJwD5tKA/lBGnaUgCpNMedhx
-         h70GflpoYk6aAeTSrs7bAWIhuLjHXP/O9FJkJRNbZqhX0gxF26s9sYM8jkMzNeRCpWdO
-         FS/vhkAff8+ED8jMEv+CWlBAVpbbCbpwESes10rKvrxkiaPjdylHFhFa5eSgR3biw+Oy
-         S58ELb5R5ozam0W6qtYFpB3HesFjczoZibvpj01z5BODFjvcgpu90foyQe7ODM7BXE8n
-         W3N0szIT4EtnY82XH/kvD1Xab52bx3peI6faVzBy+v1XW0VOOqKKqG7Prfflacrw7exj
-         BM6w==
-X-Forwarded-Encrypted: i=1; AJvYcCVCv7sFr8X1tKJVgoUXiGQi+7i75Puel3TvhSa8lAL5Dyxx69p7BNfY3MGGbeoyXryQwg+q2f3mCG2I4A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjlZP91+s6ev4XkWlfT9zn9QmRYJE8ym5l2beppGoxDBOgQQwj
-	B8PW1BIz5eZB5Hk3ugkyz00Anh2FAO2DynKFTG6bxfs5HXhLUXaB9bsW
-X-Gm-Gg: ATEYQzz/QHhd9hSgJtE4ljcqn+2W9HbwZA4EoACJfsDxXYHuughcc1KaIhy6D6I0ibn
-	RaiciC9OHvbuU9Jj4dBTzKf1Am0qOLFCReSP8ublGwMWIpDmNuX1IW+U5TDNC4w+QKSEbL2W9lw
-	FDsV0w5G6n13ZVpmdnhJAhLWHK7iACaEbS8MYVpbheywTygJtCwaqscm+MermV3PaiXx34RQUOE
-	wY5XENQ2soLZbV4/BBXoK+c8uOQhMXKBNhpOd+a7HoSrVTK56zCMOhf4jjm5C8eHdQZTx02hioa
-	UNHlDFSkKEVsAUdQsRqQa2eDxlZG9EoFL++yWU/HUNwteeem/1paj4xnvwDfjP0ihDoWj3ERrh5
-	a4n4R4JvSHVBS4ZGz3lmIqPkVARgsPRIoMVzt8UlMT7qGON4uXqRxRi1Q5mqoDMHUOLFb3+1+FZ
-	ezuCvkgJjgb4u7Iqi5wtlahtdeDN8Gq+Xw9IlfCEv0P6/C+zwU1EAORD71
-X-Received: by 2002:a05:620a:2912:b0:8c7:9e6:3a72 with SMTP id af79cd13be357-8cdb59eb46fmr1602679485a.6.1773664642445;
-        Mon, 16 Mar 2026 05:37:22 -0700 (PDT)
+        bh=pBvUzLH0uz26jQRAjkurWhWn8KmiumiD3Cbz8sGkBMI=;
+        b=CCgUphGpb8CteeJzM1339PJnI/Pbbp9eTO5V9f86cGxW3NyFzoUGMnCeBj2T0stZpd
+         X0XR1LhHuLEp/waNdDCG9ibt1F7LBswcG+1Ru8bTYuWlvALQ3dmcZn1AAZ/I8rTLjDeJ
+         NZoC0CZXKG1qQHBqtRUKkqBN68YBKtYi2+EXCl94jCnh8+E+FSrhem8Fh4Ie2Jx6d9I2
+         0lQaGkDsk9+lOn16BdfkUbh80EevJSOpTpxCmkYL5sQwvnY74+3uOk4e/CUItFG5J59L
+         pApYdhMCs8WbGJSL67zqSuZqFaU6eTBhGhTUuE9HnuTAQBGFmCCPenVQ8nTzQTbw4Z72
+         VFDA==
+X-Forwarded-Encrypted: i=1; AJvYcCU4jfW5oEmfX+GLCSLUEoFD9y3mHyAwYVxYpdHipMkXI3Np2N6ST3J/R2UXUL00rdAyAeiGrDvO0Ny9pQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwF6YQOGJ2Xiu6NeAfKyCcyucy2ONPf6j3KV2mFDnm1AOF+orIb
+	yW87b12zuMFQJDIP7rhCRTAEgBV9v2sz2w/qYN+nLwnohddJD+vilP+7
+X-Gm-Gg: ATEYQzxyudQgqpCDpa8xcre+shbFTUx41DnNUo1dLyBLiSbOwjPZw53Txp0cjndmcUg
+	0nWNxI3TeQtD4I256RTqJgSRtl6+H+Arm3/MIWltNOvqnXd2os706Qd46ChQW3MU3AZ6fP4a/a7
+	JysoTnylayPN7pbRoKFX+xzpMDDcWvpzPmeGIZ0zrMsgU/Ktkf0owww1KbOpGZeT3xjZyz7zl2O
+	rQClI+pwHMehILykltCASikLnNXovwhlrtbl1pNJ1zcOiOW7cmY/p0Qr+JPD5A3s0UXSihhYhHv
+	qCHogjvs2FMeBJDtaVXG019dboZjrn1lHBSxvKwQDv9cL9CRu1vpY6RZp5zV6MzkPgC848jdRGj
+	I2V97r19N2Z0uvDS48rVLawvmI06At+c7ycT3Ev8mDIHPHHgR3lrQB34AnUiQPFY50sxVhkFkt6
+	4KJ2Dg+nhpsJl3yAiwrZYenSAj0s+fFvId/kUfnLOiNylDwfPKacITbKIk
+X-Received: by 2002:a05:6214:300f:b0:89a:1bd:233 with SMTP id 6a1803df08f44-89a81d4518fmr193199906d6.1.1773664723207;
+        Mon, 16 Mar 2026 05:38:43 -0700 (PDT)
 Received: from sleek (d-23-244-200-70.nh.cpe.atlanticbb.net. [23.244.200.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cda2148400sm1214055685a.39.2026.03.16.05.37.21
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89a65d0a7b6sm121853296d6.44.2026.03.16.05.38.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Mar 2026 05:37:22 -0700 (PDT)
-Date: Mon, 16 Mar 2026 08:37:19 -0400
+        Mon, 16 Mar 2026 05:38:42 -0700 (PDT)
+Date: Mon, 16 Mar 2026 08:38:40 -0400
 From: Joshua Milas <josh.milas@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
+To: Michael Opdenacker <michael.opdenacker@rootcommit.com>
 Cc: tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org,
 	conor+dt@kernel.org, unicorn_wang@outlook.com, inochiama@gmail.com,
 	paul.walmsley@sifive.com, samuel.holland@sifive.com,
@@ -79,18 +79,19 @@ Cc: tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org,
 	thomas.bonnefille@bootlin.com, chao.wei@sophgo.com,
 	liujingqi@lanxincomputing.com, devicetree@vger.kernel.org,
 	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/5] dt-bindings: soc: sophgo: add Milk-V Duo S board
- compatibles
-Message-ID: <abf5fw5wdsfdNV8G@sleek>
+Subject: Re: [PATCH v3 2/5] arm64: dts: sophgo: add initial Milk-V Duo S
+ board support
+Message-ID: <abf50DaYQCmrx_BG@sleek>
 References: <20251029001052.36774-1-josh.milas@gmail.com>
- <20251029001052.36774-2-josh.milas@gmail.com>
- <20251029-nebulous-doberman-of-wholeness-0fd3a5@kuoka>
+ <20251029001052.36774-3-josh.milas@gmail.com>
+ <4b1b2580-63ce-4ce8-b4a9-1763d3d3a253@rootcommit.com>
+ <6e4bf564-07e9-44a3-a18f-69bc716ca575@rootcommit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251029-nebulous-doberman-of-wholeness-0fd3a5@kuoka>
+In-Reply-To: <6e4bf564-07e9-44a3-a18f-69bc716ca575@rootcommit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_053724_316674_9315DBB1 
-X-CRM114-Status: UNSURE (   6.45  )
+X-CRM114-CacheID: sfid-20260316_053844_751777_4BC17519 
+X-CRM114-Status: UNSURE (   8.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,18 +109,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Michael,
 
-Apologies for missing the change, I got ahead of myself.
-I updated my changelog for an upcoming v4 patch.
+Not sure what is going on with your eth or i2c as I donyt see those errors,
+let me try testing the riscv side as I have been running most of my tests
+on the arm64 side and have not run the riscv tests in a bit.
 
-> How did you resolve previous comments on bindings? Nothing mentioned
-> here.
+I used pins 3/5 for i2c4 using `i2cdetect -y -a -r 4`. It seems the docs
+might have SDA and SCL reversed, unless my i2c test device has it
+backwards I have SCL connected to pin 3 and SDA connected to pin 5.
 
-Which issues specifically? i2c issues were resolved by updating the 
-.config for drivers. I have yet to resolve the spi issues.
+I am using an SD card variant and have not touched emmc myself.
 
-Have a good day,
+Take care,
 - Joshua Milas
 
 _______________________________________________
