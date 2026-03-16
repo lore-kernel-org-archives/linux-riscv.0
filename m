@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD118F506D2
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 14:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A27D7F506D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 14:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
 	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mtdPzAY9wnlUdRJbPWu9srNqJAB50tLK5X1pcLKgtT0=; b=4F2Q5zpwijyaHUcrtEgHk4BYWG
-	/kj0H8dkELsjwz+ieiTevZEe7ZW91a4sDY8xdQ3ai5qoFtXM6eSuk19VDLHeOE2dicAYR1xEm9zTD
-	XTeakg3bJ+tEXufKwST8XXe/EQHCY89ViWX1ACFozOY5AyXmohhXz4zzG+b31z5tQFPjRLtlhkbUW
-	VSvj8+czsnXCDNsRhTh20tNmv7bGHlcrfUdqJQlI1WWbKdnZlut7udC5gLI1kJCWqBX8LvW3IuTnK
-	X2ECQain+Cmn6t8g93bSvVWXVtxuTcY5+oWhcjuf4z2FLE13cyKlQ72Uqet3JtiDmZoDLjGdDgTre
-	D7vP+lGw==;
+	bh=xHYeh464UHQgSm8E2sXr6Wpk3r3sg2iWXh5KPcnFWb4=; b=ykXIK2cE0pgo0XO2V5PqsWEqtT
+	oolG5NPAyD1UCH0Ag39e2KlRPXonZpA7h+UzG1fRAv445cvlS9ffh/ZXB5SN8155cyskwbt43uV5h
+	VpvsJ1tdZs4bWu5C41FxVqR3bZ6tl7h+gIKhqsfR+b9WaC9pPMHdOFaRCNzzgAW6HpvhS1g9kYIlb
+	NzOjjLKvCGUAwZLeujNh//rccJCkwginauT/S7Zokk/5FwKYwX9LySIfSQgcTe5dd8IjpOh2MrGXv
+	YTMgJ47+exVWIEfVxCXd6n0brZuKYU2EO37D1sSQDqyW3XMrGwaA6O7POh2ni8CDC2EGujTdk7ws/
+	Ywn7tFVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28fZ-000000048vn-3d42;
-	Mon, 16 Mar 2026 14:11:45 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1w28hK-0000000499H-3gEl;
+	Mon, 16 Mar 2026 14:13:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w28fX-000000048uq-0CPU
+	id 1w28hJ-00000004997-433j
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 16 Mar 2026 14:13:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LQ0mg0iTQfY7doxy4pSiWFN/FrO9Rma90YeZ4+gFic8=; b=QOzNTQcRa1a2waI0ZXcINgIfux
+	9NdqagFZFPZ30g4h1crSVgrQOiwVOawiV6XCL2xtt9X20iHHdCVWvIsWN8+EHa708auQ06kkJfRbh
+	YvPKibsWDD+iOcITwk9Bb7sOk1BQQ56un9BHG/QKIkilf7zVzyzkxV3Ch7ybsTR3QBlcYzUj5QHgH
+	J7g4YnwHVMI/QH15RxMpzHZGZrWVRlkUnkz6Abky4u9nI55hTKckn1EewU0MXLI7meXG//GeWA1iY
+	QVozZF3GdEruAsS6Y6d34W8h3QZzCjmrRX4QXm/XXUeV2op/G6LJyaS4U7sfw1neOu1UEitiOGE+P
+	2hWRwJ7A==;
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w28hG-00000006v3A-1fUd
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 14:11:44 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-128e4d0cc48so5109450c88.1
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 07:11:42 -0700 (PDT)
+	Mon, 16 Mar 2026 14:13:32 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-1273349c56bso6681774c88.0
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 07:13:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773670302; x=1774275102; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773670408; x=1774275208; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=qTyet+vUs4i5zO6iAQ/90TtCdIDVFVxtPrkgLSGy3qg=;
-        b=IG0zYg6abwqC97mvQxtA3axmnOEw6nZZtsWzoxT9EkSbAFQwxgY1ZWymTxs4PolOK9
-         TN9Q53oAmo0Q2br7UcWmSyuZgdei7vEoLgiUfGm3QGplcoiUinFV4GAVdnHx2KVJHQ1D
-         dbeeWWlVLeNQyc2XBkrs7kNZIXx8LzpIaK+T/u1Bc8DePadl7vQnSrAYKiRtTWrqBFFm
-         PKlkyr/bcKhwlr/tLsKJp1mM+DQ9z8DnxrHnUqNmsVj16yoCqUWZgT4zM9av8LRkiG/K
-         QiOSUmb2WU5A6KDNSIwOwp0Zeq3v333kCmVQiPfvD5QXmn/qNJFBZJsHUEytv4jq82F4
-         oO/Q==
+        bh=LQ0mg0iTQfY7doxy4pSiWFN/FrO9Rma90YeZ4+gFic8=;
+        b=KsNFTYbxms9fu72EDYmZLanAHQdkAzNK97RIAosyptzHtGRNjA/ew7rgwLDfLhnF+0
+         oyvgsFwaKeSB4hvYjHv7gQL0Vb0/49TKkm3rjXJiHbZupjP1lDfJ3hWcwrGbjxqhy8Nh
+         SBHKq7t8otRLzXdeWnvN5dw9KvmL1S9GkkiAi4oC+dgOjT8edHWoiXw4uQo8MpG7ykOO
+         5wYKmrv+cLNYsTMx11hcs08LMRQ316iPjEoRWtmpYDHC5rYqWrhtZrqNsrvXNwaO1BoO
+         P4YNyFlTdGNWCr3fpzWlaiuAeJz/vv9z2a86N5rlJnQ7T+SmIKXxvLJFEsl2X0Rr6Q1v
+         Ku7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773670302; x=1774275102;
+        d=1e100.net; s=20251104; t=1773670408; x=1774275208;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qTyet+vUs4i5zO6iAQ/90TtCdIDVFVxtPrkgLSGy3qg=;
-        b=ctSkEKZ9Df8I6X+SRAiFAbagO2PyZb8csTN/ALeiePzB7/zrRc+O4z3KC1NcckoQ5F
-         47PWglwchjDMQQ0Yzh8BwghCClKjbtvi0ssVAfjrclOGZtodD3ofcOr3iLrjo9JzVOw+
-         WZNvrkJM6GOWDLmihLWr+W9JfugChH/PM9zP91UczUFu190gaU8Lm458lI62brnbKunI
-         Hn/SWW/y7mHmordAPnQfu8Zw321Avpdrl51dj7oaAy0qZ6NCmbYH85uG9FYxzy14oS8Z
-         Z34u5p1rMWKINFYG2Z3p7gPmAfSFvJ6KrEug0tN3DCBolGQ36wxrr/87waYkqWIfBUgI
-         D/Mg==
-X-Forwarded-Encrypted: i=1; AJvYcCXd2b8S/rHguVZ5dh88QS7XeLnwTxI2h85mMmZi7n8kGAw6Kg2fK7uogFrdDwK7QYzjo/rW8vrj9dozZg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqsjFUnNt1k06OMjod9azw9tlSn8xosEXU7170gumFARdDJLBk
-	U8eEqqW7ZhRdhlN2e4FG5AuX+n5Sf0CEYGtdi7CqSCGCzHSQ0IaGgypO
-X-Gm-Gg: ATEYQzzLgDXqyMZt4LbfHP7SKzyce0q5cqxmEmxJzBVPNbhaGO8rDU/hKmdcGa3t3tn
-	PG/9Pu+MiVaj3jkIG5pNFYXh1aSexhlfxY9P7PuZaJIQXE8o+RCZ0SQ+Mf/AGmcDDaKbR8dslMd
-	M7SczmpQm41IYJll8WoNSQlkvHFn/pxaa5J+Fs80CH1OcBBoMmqjRva0o6CYZbXq58nTWY+/z4+
-	STTaPfnud6+YjIRcMq+QHc4GjmuZpsw7dz3rOiiDYlYljAQDbIejN/llh7oI2YYnKRcWmcPiyNw
-	m9qhBZncMYnu5YplSM1mJUkwH40Z/jJam8jufwIcnj+15M4CZe59EMPA9s9XyBdXiR+woEzsmXI
-	MMyaA4OnZBtUrSI9Rg58rgg0zfOp+Duf2pdmf+Ez1wCG0l/rqyvQDlRlFSC1/zrGdKgno2P8rA6
-	hgh6Km3Vn7TOoscIKlynodUtuDLQPn4opxjxWjxmaCCZKqfejbRpjxc9NmWKNSt5+x8byk40Xc
-X-Received: by 2002:a05:7022:b9c:b0:128:cc63:82f0 with SMTP id a92af1059eb24-128f3e2aa9emr5757183c88.25.1773670301528;
-        Mon, 16 Mar 2026 07:11:41 -0700 (PDT)
+        bh=LQ0mg0iTQfY7doxy4pSiWFN/FrO9Rma90YeZ4+gFic8=;
+        b=UXb7T8QQbl41y+cQFFi0yN6gX9EDwKN3+CsdOjI40+v91iG+zpbwTs3I7JILgP1qMJ
+         qlCXAcLQ0o90ch8yQ5Thiby4E6fkOzAyVhqKIK6u0LuLwdOJgGxXSjHzlEtN30y5rW1K
+         /VoKbGbjWjWSdUhgkShmxAPQZjZnGHeVKLEyIYoGk8vxs15m9I/SXBe6L7gA9qAnHAoi
+         FPEngMssznrTTgYTFBZIoFTppNCFsU0vTXLynSzcAIm9XZvmmZfx0PKSFLOwmIRIPcP+
+         WblpIjCteE31wSdEX1J88jLtnsGAPuA9p9P7kHk2m49Ghxb0+9j2X77zc0G++GKZ7NgG
+         wmkw==
+X-Forwarded-Encrypted: i=1; AJvYcCUqmXsy//f8ROgJGTruzShKqjHc4b+7p/+hRr0/LjZbCTWYQI5RjPh22fDJQHUlCbHIw21VViHQoiLElg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyh3iBe7IvFaCS13lAJJwA/gqEvF42GRVXSQeO8zbIJVx/yu1Um
+	tcL7X9JSSpLxW3P8N5Gf1AEpYwinxaQysa+yMoeGdguRq4mu/sU3qb7G
+X-Gm-Gg: ATEYQzxrk6o7bER5NLxpGMU88GGK30gV4Fk3IWMTbdacgloQ3lVp81KGJ70Jph2A0YI
+	0TNisutTlNWyvmC0wBNDQC8IRVlP3vL2d3tNNs3BrNYLqkiwsKUKG4qMTXtpQrP+UY5CSOeHiBi
+	40UOy8oiQ1KpKMAPzoVybOnYRE7+a4v+jktXya2PT6RG57nmCu1p/wiFzS1HOsMVgQtWFlcgJ9g
+	uyZKZGanfE0dew5MgUIYqyqo7mHHyad2IvYGYgs1aGTlhHCMyi1e42swsO0oh1dZj9o7boagW2R
+	aDjUS/R49yIzBErUbxeAF21prAJTjVNs5iuRNREWSuxeVI2T6Mvx368sEsm9AacooGJ5s4I0+jN
+	PMkmVmzajpaveEKrAOq+dL0LM8CoAb9I9DGapiMZtgDt13RFl1u56s4ABBM3dZBmM6u7UkXFXZt
+	dVp7HLlDKhuAyCo/dGLPa31q70bSzommPYMd43aqQcdJAlmYdYvFFxUPeBNq60NTeBt8nNf9g2
+X-Received: by 2002:a05:7022:458c:b0:11b:9386:8265 with SMTP id a92af1059eb24-128f3e1d951mr6117870c88.42.1773670407752;
+        Mon, 16 Mar 2026 07:13:27 -0700 (PDT)
 Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-128f6283845sm12630518c88.2.2026.03.16.07.11.38
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-128f62991c7sm12119295c88.5.2026.03.16.07.13.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Mar 2026 07:11:40 -0700 (PDT)
-Message-ID: <0f88a17c-7c21-4ae5-b418-dfb4b4ac5d6a@roeck-us.net>
-Date: Mon, 16 Mar 2026 07:11:37 -0700
+        Mon, 16 Mar 2026 07:13:26 -0700 (PDT)
+Message-ID: <d8c3d6be-1c4a-449e-bf38-69e71f544513@roeck-us.net>
+Date: Mon, 16 Mar 2026 07:13:24 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
@@ -79,7 +94,8 @@ Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
 To: Conor Dooley <conor@kernel.org>, Drew Fustini <fustini@kernel.org>
 References: <20260309162457.4128205-1-zhengxingda@iscas.ac.cn>
  <20260309162457.4128205-2-zhengxingda@iscas.ac.cn> <abWTO7QBFIcjxKn6@x1>
- <20260315-cogwheel-dislodge-a3efe31728d1@spud>
+ <20260315-cogwheel-dislodge-a3efe31728d1@spud> <abbTwrAALGy3QbxN@gen8>
+ <20260316-handshake-subdivide-9de6c4410927@spud>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -125,10 +141,10 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
  FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
  np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20260315-cogwheel-dislodge-a3efe31728d1@spud>
+In-Reply-To: <20260316-handshake-subdivide-9de6c4410927@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_071143_121142_EC9EEE90 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20260316_141330_545737_18115FF9 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,67 +162,83 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/15/26 05:12, Conor Dooley wrote:
-> On Sat, Mar 14, 2026 at 09:56:27AM -0700, Drew Fustini wrote:
->> On Tue, Mar 10, 2026 at 12:24:56AM +0800, Icenowy Zheng wrote:
->>> The G and J coefficients provided by T-Head TH1520 manual (which calls
->>> them A and C coefficients and calls H coefficient in the binding as B)
->>> have 1/100 degree Celsius precision (the values are 42.74 and -0.16
->>> respectively), however the binding currently only allows coefficients as
->>> precise as 100 milli-Celsius (1/10 degree Celsius).
+On 3/16/26 04:09, Conor Dooley wrote:
+> On Sun, Mar 15, 2026 at 08:44:02AM -0700, Drew Fustini wrote:
+>> On Sun, Mar 15, 2026 at 12:12:13PM +0000, Conor Dooley wrote:
+>>> On Sat, Mar 14, 2026 at 09:56:27AM -0700, Drew Fustini wrote:
+>>>> On Tue, Mar 10, 2026 at 12:24:56AM +0800, Icenowy Zheng wrote:
+>>>>> The G and J coefficients provided by T-Head TH1520 manual (which calls
+>>>>> them A and C coefficients and calls H coefficient in the binding as B)
+>>>>> have 1/100 degree Celsius precision (the values are 42.74 and -0.16
+>>>>> respectively), however the binding currently only allows coefficients as
+>>>>> precise as 100 milli-Celsius (1/10 degree Celsius).
+>>>>>
+>>>>> Change the multipleOf value of these two coefficients to 10 (in the unit
+>>>>> of milli-Celsius) to satisfy the need of TH1520.
+>>>>>
+>>>>> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+>>>>> Reviewed-by: Drew Fustini <fustini@kernel.org>
+>>>>> ---
+>>>>> Changes in v3:
+>>>>> - Added Drew's R-b.
+>>>>> - Fixed some typos in the commit message and slightly reworded the
+>>>>>    precision sentence.
+>>>>>
+>>>>>   Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml | 4 ++--
+>>>>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
+>>>>> index 56db2292f062d..7d57c2934a8a1 100644
+>>>>> --- a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
+>>>>> @@ -105,7 +105,7 @@ properties:
+>>>>>         G coefficient for temperature equation.
+>>>>>         Default for series 5 = 60000
+>>>>>         Default for series 6 = 57400
+>>>>> -    multipleOf: 100
+>>>>> +    multipleOf: 10
+>>>>>       minimum: 1000
+>>>>>       $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>   
+>>>>> @@ -131,7 +131,7 @@ properties:
+>>>>>         J coefficient for temperature equation.
+>>>>>         Default for series 5 = -100
+>>>>>         Default for series 6 = 0
+>>>>> -    multipleOf: 100
+>>>>> +    multipleOf: 10
+>>>>>       maximum: 0
+>>>>>       $ref: /schemas/types.yaml#/definitions/int32
+>>>>>   
+>>>>> -- 
+>>>>> 2.52.0
+>>>>>
+>>>>
+>>>> I have applied this to thead-dt-for-next.
 >>>
->>> Change the multipleOf value of these two coefficients to 10 (in the unit
->>> of milli-Celsius) to satisfy the need of TH1520.
+>>> That's odd, why is a hwmon binding in your branch?
 >>>
->>> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
->>> Reviewed-by: Drew Fustini <fustini@kernel.org>
->>> ---
->>> Changes in v3:
->>> - Added Drew's R-b.
->>> - Fixed some typos in the commit message and slightly reworded the
->>>    precision sentence.
+>>>> https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/?h=thead-dt-for-next&id=eb4fd43ff6793681f0a0a8e8ac861142caba2b19
 >>>
->>>   Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml | 4 ++--
->>>   1 file changed, 2 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
->>> index 56db2292f062d..7d57c2934a8a1 100644
->>> --- a/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
->>> +++ b/Documentation/devicetree/bindings/hwmon/moortec,mr75203.yaml
->>> @@ -105,7 +105,7 @@ properties:
->>>         G coefficient for temperature equation.
->>>         Default for series 5 = 60000
->>>         Default for series 6 = 57400
->>> -    multipleOf: 100
->>> +    multipleOf: 10
->>>       minimum: 1000
->>>       $ref: /schemas/types.yaml#/definitions/uint32
->>>   
->>> @@ -131,7 +131,7 @@ properties:
->>>         J coefficient for temperature equation.
->>>         Default for series 5 = -100
->>>         Default for series 6 = 0
->>> -    multipleOf: 100
->>> +    multipleOf: 10
->>>       maximum: 0
->>>       $ref: /schemas/types.yaml#/definitions/int32
->>>   
->>> -- 
->>> 2.52.0
->>>
+>>> I don't see an ack on it from the relevant maintainer either?
 >>
->> I have applied this to thead-dt-for-next.
+>> Sorry, my mistake, I should not have applied the binding. And you are
+>> right to point out that there was no ack from Guenter or Rahul Tanwar.
 > 
-> That's odd, why is a hwmon binding in your branch?
+> It was Guenter I was thinking of, but there's not one from myself, Rob
+> or Krzysztof either.
 > 
->> https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/?h=thead-dt-for-next&id=eb4fd43ff6793681f0a0a8e8ac861142caba2b19
-> 
-> I don't see an ack on it from the relevant maintainer either?
 
-I don't get it either. Normally I am the one to apply hwmon bindings
-through the hwmon branch.
+... which is why I didn't apply it yet.
 
 Guenter
+
+>> I will drop both patches from thead-dt-for-next and wait for agreement
+>> on the binding.
+>>
+>> Thanks,
+>> Drew
+> 
+> 
 
 
 _______________________________________________
