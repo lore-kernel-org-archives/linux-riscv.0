@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B83EFCBD5
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 07:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6A2EFCBD4
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 07:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S1m0/oAnpPOdLveRCteCBvFNxZAj6my3M7u9HSZRRKI=; b=j76nenwyuCrLh1
-	2bcDXxZmzxkjcnLz4peQlhEsLb6dEjFQgUDxzjyb6I6LkZgqfnjCUzXVDMG7Il+RiTtQZWXuXNUiW
-	l3Vndhifs3+svv6owE1Cxr8aBX0Pnx8sgdgmTyG+g6wLCKLp4bOkIBWE5uHroqkCS8vvWKuWxXlO3
-	9BZDkdW0YFjPDAmbLBCh19WcWXVu+2javxncR74H3th7QmjiLZ6iC35ybGgdUlEqsjfeG1TVIUIMu
-	1MNtJAs4a3vT4XzLwVH2Hj9vhHvXMpAB82JkqzjcebZw5EbWQtAF5Tx4W2Zc5EkVpHs8HBYlO9Xs3
-	yvPgv/dCXgtJ3yYmyLdA==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
+	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ph8v0EVhNpliPA/hPA++5sR7Cdq9B0EkA2Ys/d7sTtU=; b=amLJxd4f8M4U8z
+	GnfIFO9W05TVwoaXRRZ+B+yRq5UCi6+/H+5RYj+1Q/YKSgC4aPpDylHu/RGZ/hzwG1Qm4fGEoyPXr
+	AykS5e75Xn7gCTB80PEO8+0/qA02sJDniWXhrKLRJlGhfatMPYtrBGcEaGr9C4Q126hncaTR4UzU+
+	7/oA40DfFKZDf6nFDsjzPt7c7KqClZkGpb5ABtKX2UMvgQT7pymuSKg6BOt6XbYYod0gv8ubE/5vP
+	ZtA/E2PptrXfNm2ErHCCvS8FXhUAagQswr1mPjS2D1rBOaWxM2woLwy6p9uFNtgc0ZBW9QklqNxm9
+	MJzE2XVrhrOIQhSYnUYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w224I-00000003SKQ-1ChG;
-	Mon, 16 Mar 2026 07:08:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w224D-00000003SIO-1pfQ
-	for linux-riscv@lists.infradead.org;
+	id 1w224G-00000003SK0-2mNM;
 	Mon, 16 Mar 2026 07:08:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w224D-00000003SIM-19bw
+	for linux-riscv@lists.infradead.org;
+	Mon, 16 Mar 2026 07:08:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEB894456D;
+	by sea.source.kernel.org (Postfix) with ESMTP id 85458402FA;
 	Mon, 16 Mar 2026 07:08:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7DF41C4AF0E;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 55420C19421;
 	Mon, 16 Mar 2026 07:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1773644924;
-	bh=AGj1UDmeoWNwCDk5uI2bGQTFDb3YOnURIc7J8HTUHnE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=qpv0C8GfbJ1CVJPJ33FRsn98e6NSZz1ePIwNv+jdYzqBRon91yNYn6DQMuwKapVw9
-	 zRwc6gviZhv6bWU0uYE4oauITosqXofevMLcxPdwLf63vhKDPHfpoicYPMsf17HA8e
-	 FuwHiwocDr69XfwZ8Eql645C8xTHgD2wThV9CU897o33actGps/w1W1h8cIxD1Sr4R
-	 sj43Q/rWNLFSHCKMZp+IrzjbrLInPkymQWlki7lbo6GKQiUn2bOjEazUCkEeaqQzoJ
-	 QSGWNeEfEFmgNkWJL1U8MGTaXebJ6PB3yR7pIW7I9z8KZy4aKcutHzTyXE1SrVp0NM
-	 GfO3yi2hI1k6g==
+	bh=9A5OCwRLDHXQNfCDrDgLTuSWigTIaBNqYaY07aDVvXk=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=I403kxFK7qxALhqqYw9BSrxwTMBeArORC0C1yRHI4kzHKd4P6V/+7uQ3vt+sPc2v/
+	 o+3uK2tHvCTcK80zvdrENZ8OjgqNfqEf0cDfP9m6WA8Ss+BpD5xUaMtcDzFXvIQ9RG
+	 AA24E8ugpGX6VXV8Qy3iMPLZ7yC4AjD4l5513qBicwAlop0O6LhKHSkCWNbAmQQkdx
+	 14ftazIYU25wzF5HcS9zDa5Vi414dIqxZW4/Oc5SqzSP/LlLAi3BUrSI2zueYhmuMI
+	 41OFB1txd7nPG5Acv7JSyn5JsqdhSgbbquyoNb3DzwDN9yXHvjVEHTBl+vwWSNU/RI
+	 vDZ1mwcRpqnsg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72043EFCBD7;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4538AEFCBCD;
 	Mon, 16 Mar 2026 07:08:44 +0000 (UTC)
 From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Date: Mon, 16 Mar 2026 15:06:59 +0800
-Subject: [PATCH 3/4] dt-bindings: PCI: Add UltraRISC DP1000 PCIe controller
+Subject: [PATCH 0/4] riscv: Add PCIe support for UltraRISC DP1000 SoC
+Date: Mon, 16 Mar 2026 15:06:56 +0800
+Message-Id: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
 MIME-Version: 1.0
-Message-Id: <20260316-ultrarisc-pcie-v1-3-ef2946ede698@ultrarisc.com>
-References: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
-In-Reply-To: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
+X-B4-Tracking: v=1; b=H4sIABCst2kC/yXMQQqDQAxA0atI1gbGGVHTq0gXdho1UuyQaCmId
+ ++0Xb7F/wcYq7DBpThA+SUmzzWjKguI87BOjHLPBu9840LlcH9sOqhYxBSFsaaaqGubEIggR0l
+ 5lPdv2F//tv22cNy+FzjPD2lTZsVyAAAA
+X-Change-ID: 20260310-ultrarisc-pcie-494998763399
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -65,19 +67,19 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
  Jia Wang <wangjia@ultrarisc.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773644922; l=3662;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773644922; l=1823;
  i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=nD9gA9EKG6xe+XUDTqlleMYCHKvkqt4+oCKLxokSvt4=;
- b=MGeeWLEgIvcIfEisStVOuydBYqRjk3U61LnS/xnp67AAPQXB8zlZOT01Mp14YJQDYLPmwhljI
- 3nR3K1SADJ2DRpuLDddU8DxUN/+EdsqsXLX+Mwx0D7x6UL173T1JcBF
+ bh=9A5OCwRLDHXQNfCDrDgLTuSWigTIaBNqYaY07aDVvXk=;
+ b=rTFbbGwTCs1+w180BnpbPCUeQ48DDiDPysHMhe+dVo09dnr0HDi5YQ722b8CFO3rBZlb+4Mxj
+ ApRZT3KEmc7CSeiRFYvzulaVAR4fW8CRujEIfp2OSn7/LlXmilFN+/I
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
 X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260309 with
  auth_id=682
 X-Original-From: Jia Wang <wangjia@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_000845_543071_5C0C7DCB 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20260316_000845_382115_D1DBD77A 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,132 +97,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jia Wang <wangjia@ultrarisc.com>
+This patch series adds PCIe controller support for the UltraRISC DP1000 SoC.
+The DP1000 is an 8-core 64-bit RISC-V SoC based on UltraRISC C100 cores,
+supporting RV64GCBHX ISA with Hardware Virtualization and RISC-V H(v1.0)
+Extension.
 
-Add UltraRISC DP1000 SoC PCIe controller devicetree bindings.
+The PCIe controller is based on Synopsys DesignWare PCIe IP.
+This series adds:
+- Patch 1 adds the basic SoC family Kconfig support for UltraRISC platforms.
+- Patch 2 adds the MAINTAINERS entry for the new driver.
+- Patch 3 adds the device tree bindings documentation for the PCIe controller.
+- Patch 4 introduces the PCIe host controller driver.
+
+The patches have been tested on UltraRISC DP1000 development board with
+various PCIe devices including NVMe SSDs and network cards, verifying
+link establishment, enumeration, and basic data transfer.
 
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
- .../bindings/pci/ultrarisc,dp1000-pcie.yaml        | 108 +++++++++++++++++++++
- 1 file changed, 108 insertions(+)
+Jia Wang (3):
+      riscv: add UltraRISC SoC family Kconfig support
+      MAINTAINERS: Add entry for the UltraRISC DP1000 PCIe controller driver and its DT binding
+      dt-bindings: PCI: Add UltraRISC DP1000 PCIe controller
 
-diff --git a/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-new file mode 100644
-index 000000000000..b50ff98dd878
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-@@ -0,0 +1,108 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/ultrarisc,dp1000-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: UltraRISC DP1000 PCIe Host Controller
-+
-+description: |
-+  UltraRISC DP1000 SoC PCIe host controller is based on the DesignWare PCIe IP.
-+  This binding describes the UltraRISC specific extensions to the base DesignWare
-+  PCIe binding.
-+
-+maintainers:
-+  - Xincheng Zhang <zhangxincheng@ultrarisc.com>
-+  - Jia Wang <wangjia@ultrarisc.com>
-+
-+allOf:
-+  - $ref: /schemas/pci/pci-bus.yaml#
-+
-+properties:
-+  compatible:
-+    const: ultrarisc,dp1000-pcie
-+
-+  reg:
-+      - description: Data Bus Interface (DBI) registers.
-+      - description: PCIe configuration space region.
-+
-+  reg-names:
-+    items:
-+      - const: dbi
-+      - const: config
-+
-+  num-lanes:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      Number of lanes to use.
-+      Valid values: 4, 16.
-+
-+  max-link-speed:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    const: 4
-+    description:
-+      Maximum PCIe link speed supported. 4 for Gen4.
-+
-+  interrupt-names:
-+    items:
-+      - const: msi
-+      - const: inta
-+      - const: intb
-+      - const: intc
-+      - const: intd
-+
-+  device_type:
-+    const: pci
-+
-+  dma-coherent:
-+    type: boolean
-+
-+  bus-range:
-+    description:
-+      PCI bus range associated with this controller.
-+
-+  interrupt-map-mask:
-+    description:
-+      PCI interrupt map mask for this controller.
-+
-+  interrupt-map:
-+    description:
-+      PCI interrupt map for this controller.
-+
-+  required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - interrupt-names
-+  - device_type
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    pcie_x16: pcie@21000000 {
-+        compatible = "ultrarisc,dp1000-pcie";
-+        #address-cells = <3>;
-+        #size-cells = <2>;
-+        #interrupt-cells = <1>;
-+        reg = <0x0 0x21000000 0x0 0x01000000>, /* IP registers */
-+              <0x0 0x4fff0000 0x0 0x00010000>; /* Configuration space */
-+        reg-names = "dbi", "config";
-+        device_type = "pci";
-+        dma-coherent;
-+        bus-range = <0x0 0xff>;
-+        num-lanes = <16>;
-+        ranges = <0x81000000  0x0 0x4fbf0000  0x0 0x4fbf0000  0x0 0x00400000>, /* io */
-+                 <0x82000000  0x0 0x40000000  0x0 0x40000000  0x0 0x0fbf0000>, /* mem32 */
-+                 <0xc3000000 0x40 0x00000000 0x40 0x00000000  0xd 0x00000000>; /* mem64 prefetchable */
-+        max-link-speed = <4>;
-+        interrupt-parent = <&plic>;
-+        interrupts = <43>, <44>, <45>, <46>, <47>;
-+        interrupt-names = "msi", "inta", "intb", "intc", "intd";
-+        interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+        interrupt-map = <0x0 0x0 0x0 0x1 &plic 44>,
-+                        <0x0 0x0 0x0 0x2 &plic 45>,
-+                        <0x0 0x0 0x0 0x3 &plic 46>,
-+                        <0x0 0x0 0x0 0x4 &plic 47>;
-+    };
+Xincheng Zhang (1):
+      PCI: dwc: Add UltraRISC DP1000 PCIe rc driver
 
--- 
-2.34.1
+ .../bindings/pci/ultrarisc,dp1000-pcie.yaml        | 108 +++++++++++
+ MAINTAINERS                                        |   8 +
+ arch/riscv/Kconfig.socs                            |  10 +
+ drivers/pci/controller/dwc/Kconfig                 |  15 ++
+ drivers/pci/controller/dwc/Makefile                |   1 +
+ drivers/pci/controller/dwc/pcie-designware.h       |  22 +++
+ drivers/pci/controller/dwc/pcie-ultrarisc.c        | 202 +++++++++++++++++++++
+ 7 files changed, 366 insertions(+)
+---
+base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
+change-id: 20260310-ultrarisc-pcie-494998763399
+
+Best regards,
+--  
+Jia Wang <wangjia@ultrarisc.com>
 
 
 
