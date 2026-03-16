@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D705AF30297
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 01:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D55F30296
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 01:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WJ5VdRwgtha8vbgXYUTN5ELJwAHU3vx7zFIjs5xB5eA=; b=c5rdBwvQdb9KNM
-	eZhf430+hiOJVMyWbWBPYx77UOS/dhQ7MvxKG5ZjickykeGNT9BhVhaRzI8U0xdpbfHWsr7fl9+GZ
-	y1sumHFEbKVT9/Cb7de8Q/LsnCObj6ZKMa2y5FNVezsXOsGHFjz7UlH0fakYLwM89IrBpj7YMgzFn
-	e+8XYKfDuTYw62opKSMZc5nTVizecC1QOKZB5rZsWkaxn5DPYextAR96eIUjTTap6UiYOqQOoo/t1
-	kog3MX55Nh15hzuen40zStZP+e6y5USqcxduH4GZF+RxcH62hrZU4+E/4Il6hW6XlRcj1MfxZOMRR
-	K3qO2FS7FCd4EsZ/Y3yg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nVPY7/WK2//76D41ozgpHIew0hJi9EPNAGXeqhf1ndc=; b=EZkoYUeO+5pE7x
+	Dvq6NxR2cz9j1IyYqm491qYzXoY6/mUYlx5NbJGmPXL1cG2cUpPEsUF2Sm1CyIjSfcb7+p4qDwdWa
+	3NIiTrYEt/pHXyH58SsujhwHI1nUgjNOh1+r2kZ+I43w6JZDxO197Z8p3+YCwFqa98G/f+i9Uxqsu
+	4PXI3fuYPLlYqOzdPN340y7B8gv30pKNv8RFvyK2/Is589JG30yhHvrg6pKW0VRZKvZmjC0YOLf1f
+	wwK3L8hThDZLh/heKcZLX+Pc3l5s0Owe0GJLsyxYmE1ZjbyAVWQysXXPZm6BMuwDs8ZERR7dQaLYk
+	3AF/iIRKHKw6wIcj9Onw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wwi-000000037ui-3ToW;
-	Mon, 16 Mar 2026 01:40:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w1x1k-000000038Tn-3EaZ;
+	Mon, 16 Mar 2026 01:45:52 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w1wwh-000000037u3-2NNM
-	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 01:40:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 758B9600AE;
-	Mon, 16 Mar 2026 01:40:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D52A9C4CEF7;
-	Mon, 16 Mar 2026 01:40:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773625238;
-	bh=ZPfHl5i+yhNvz8XVnNx77cuo9bMmwo9JExTG2xmxWdA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OAu/F4aHmlmWHQxcnlZTuAnwdugHO0Ad0CNlSoMfqzipOIzDkfbfz6No9JTQ3wq+I
-	 WtSDhQG0aX1jP7qhrlsvHPPwtkz4pk2tbXaejPimF/C/WwNTAkDJN0RPD2Z4zDwwgE
-	 AiHJgFhIUMA9Quo1Rw2gQjOO/931x6C6ndUXrbQygtrwKNP31ptJ6W5ndfw8ZWAiTv
-	 nyGcq9NPxaQRfCHD/JyPykq+8s6ie/eQSmeZypYBCEYwlG5GzqpuoaoKgTXJkWw/37
-	 ZMjBEMEIdkVFvN4hfFJaiSZsfSuNM1+zQS09T5w6tWE9FA1K47QxlxiYL8WLVTnAvh
-	 X8p+V2Attkgew==
-Date: Mon, 16 Mar 2026 09:40:36 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Junzhong Pan <junzhong.pan@spacemit.com>,
-	Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] reset: spacemit: k3: Decouple composite reset lines
-Message-ID: <20260316014036-GKC415778@kernel.org>
-References: <20260314-01-k3-reset-usb-pci-v2-1-9dc0976d524e@kernel.org>
- <20260315-crystal-ambrosial-hamster-4b970c@quoll>
+	id 1w1x1d-000000038Qx-2dzX;
+	Mon, 16 Mar 2026 01:45:48 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowAC3XWm+YLdpa+wzCg--.590S2;
+	Mon, 16 Mar 2026 09:45:34 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Subject: [PATCH v5 0/2] RISC-V: KVM: Fix array out-of-bounds in firmware counter reads
+Date: Mon, 16 Mar 2026 01:45:31 +0000
+Message-Id: <20260316014533.2312254-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260315-crystal-ambrosial-hamster-4b970c@quoll>
+X-CM-TRANSID: qwCowAC3XWm+YLdpa+wzCg--.590S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF4fXw45Cry8Ar47tF4DXFb_yoW8Xr1fpF
+	W3Ka4YkrykJrs7t343A3yktw15Xrs5Ca98GryxGF18Cr45ZryfXr1qkwnxt3WrCrsYqw1Y
+	ya1Igas7CFy5Za7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26F
+	4UJVW0owAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr
+	0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8v
+	x2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4
+	vE14v_KwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
+	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
+	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAF
+	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
+	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUDb18U
+	UUUU=
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwwICWm3WbMoDgAAsY
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260315_184546_527032_473F2C14 
+X-CRM114-Status: UNSURE (   6.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +90,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof, 
+When a guest reads a firmware PMU counter via
+SBI_EXT_PMU_COUNTER_FW_READ or SBI_EXT_PMU_COUNTER_FW_READ_HI without
+first configuring it with SBI_EXT_PMU_COUNTER_CFG_MATCH, the counter's
+event_idx remains SBI_PMU_EVENT_IDX_INVALID (0xFFFFFFFF).
 
-On 09:53 Sun 15 Mar     , Krzysztof Kozlowski wrote:
-> On Sat, Mar 14, 2026 at 08:27:25AM +0000, Yixun Lan wrote:
-> > Instead of grouping several different reset lines into one composite
-> > reset, decouple them to individual ones which make it more aligned
-> > with underlying hardware. And for DWC USB driver, it will match well
-> > with the number of the reset property in the DT bindings.
-> > 
-> > The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
-> > PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
-> > Also three reset lines each for UCIE and RCPU block.
-> > 
-> > As an agreement with maintainer, the reset IDs has been rearranged as
-> > contiguous number and pushed as a fix for the driver, and reason is that
-> > there isn't any consumer of reset driver so far, so should not cause
-> > any ABI breakage. Also, the changes of DT binding header file and reset
-> > driver are merged together as one single commit to avoid git-bisect
-> > breakage.
-> > 
-> > Fixes: 938ce3b16582 ("reset: spacemit: Add SpacemiT K3 reset driver)
-> 
-> Please run scripts/checkpatch.pl on the patches and fix reported
-> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-> patches and (probably) fix more warnings. Some warnings can be ignored,
-> especially from --strict run, but the code here looks like it needs a
-> fix. Feel free to get in touch if the warning is not clear.
-I usually run "b4 prep --check" to do the check, but I do forget it this
-time, sorry about this.. will be more cautious next time
+get_event_code() extracts the lower 16 bits from event_idx, yielding
+0xFFFF, which is then used to index into kvpmu->fw_event[]. Since the
+fw_event array only contains RISCV_KVM_MAX_FW_CTRS entries, this results
+in an out-of-bounds access that can be detected by UBSAN.
 
-With the check, the only problem I see is one double quotes missing 
-at end of the line, for the code I didn't see any complaint, let me
-know if I overlooked anything?
+Patch 1 fixes the issue by validating the firmware event code before
+accessing the fw_event array and returning -EINVAL for invalid values.
+
+After fixing the kernel behavior, the existing KVM selftest
+(sbi_pmu_test) fails because it attempts to read firmware counters
+without configuring them first. Patch 2 updates the selftest to
+configure a firmware event before reading the counter and adds a
+negative test to ensure that reading an unconfigured firmware counter
+fails gracefully.
+
+Jiakai Xu (2):
+  RISC-V: KVM: Fix array out-of-bounds in pmu_ctr_read() and
+    pmu_fw_ctr_read_hi()
+  RISC-V: KVM: selftests: Fix firmware counter read in sbi_pmu_test
+
+ arch/riscv/kvm/vcpu_pmu.c                     | 14 +++++++
+ .../testing/selftests/kvm/include/riscv/sbi.h | 37 +++++++++++++++++++
+ .../selftests/kvm/riscv/sbi_pmu_test.c        | 20 +++++++++-
+ 3 files changed, 70 insertions(+), 1 deletion(-)
 
 -- 
-Yixun Lan (dlan)
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
