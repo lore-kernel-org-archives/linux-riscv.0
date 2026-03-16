@@ -4,131 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C15F53D80
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 17:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991B4F53D7E
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 17:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WdyPo8R5ncZtmSeUQXz0RKaaxQBn0a1wisV1XxfEAIw=; b=d/d/qR0acz5pWr
-	tpRmiYUUw09LRSYc/ude9UpEbnIB5Bhc214E4VXJ9TITt5NUoBOd2khK/1xxWToKQxdoke2eAxu0Q
-	WWWBR4Vo5hHNqQNv4h6qNbLYleXT85iS/p6QtpQOkn2pBg1hTGShLYVuHuNCQ66x0W8GIWOVjCEx5
-	hfWIGCDOctSzT1sLf58ABm5RA1jUEuOq9fBT0ReIkQ5Hgf6PO1MUbWWjEFuidiRoUYgoFv1AtDYVn
-	j1nd1LzYfQR1XNe11JzpmPGC3ArL3I6nmHXlm3aSbZR51P4Wej8Nqg65JNhFwQzIN6XUE8S7xaTF6
-	IWUBcCJUZMltApP0t8jA==;
+	List-Owner; bh=tyUtvtNnu0v9XePYuaucowvy3uak5i90B7Fn4iKxaQU=; b=yEH1CZ/YAaZp2e
+	g5JR2TXxqRBmfauRk+rAODxF8zppTM469q6VmS77KV6ZsUlnnD2a5Y/l5ysGc0zw5o9ZhZKflQbvH
+	lNAa/yVRqf6zioXoSxreX0twhjo/2fUBrKkc2DXp8g72Z5fLE47+GixnAt89rXYMRpAAugal3NS4I
+	3GzofETcwaKGL3W1oSBxTA3JbcH8pe+uia2VYkvGkvHIWta6V7fKyR00nxtbIPpQxM7ihV4HwpIGp
+	pP1ucOzyjCLm0BR2Od63qRTWsWunaKIpu/9Dw9RYilzKN61ye5m/024BXLiL/nQb33pUQAe3oVB0k
+	vL1XeVyWIjGbzJPKTZ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bl7-00000004Z8o-3m8c;
-	Mon, 16 Mar 2026 17:29:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2BtQ-00000004ap4-2bX7;
+	Mon, 16 Mar 2026 17:38:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Bl6-00000004Z8Q-0TQL;
-	Mon, 16 Mar 2026 17:29:40 +0000
+	id 1w2BtN-00000004aoP-3vP0
+	for linux-riscv@lists.infradead.org;
+	Mon, 16 Mar 2026 17:38:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B31E60018;
-	Mon, 16 Mar 2026 17:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5089EC2BC87;
-	Mon, 16 Mar 2026 17:29:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 30273435AD;
+	Mon, 16 Mar 2026 17:38:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A269CC19421;
+	Mon, 16 Mar 2026 17:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773682178;
-	bh=Ysd3eBupfSljhrNmOpuGPKVMPzOcnIp/9ypCnnttjrY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SeG1bDmb2FosihW0Q0vHpHDd6Vq9zHI/km9LM9pVc+W9ySVDXWNuYswxphJ768iy+
-	 rRTo4LFSUsqxFYgG+8R5d0PCs94v7ggs1ZV94QtxtKZemNboI/SB6zraswF7lRv/V0
-	 4dRzPiYhaMGMP5SoiQOyyHwGQgu4ORDieCfhRvo7rhFoRx8WGR5BN5Zduj9HcYol5y
-	 xigRuamu6mn78C8lcPsh5eNPMZw4UmXPzfzEmZKk8UyxEMqKXHMUVbtQQdAJZBIRKO
-	 fqFw06ytMbWL1ifvXu8nl9a+xt365ou5fLzGd/1kCY837nZwvVw1ifY2Dp/xBaICkO
-	 C+r3Fk7Yn1mQQ==
-Message-ID: <846c077d-f1ca-45bc-b3d4-52ba71c34909@kernel.org>
-Date: Mon, 16 Mar 2026 18:29:27 +0100
+	s=k20201202; t=1773682693;
+	bh=0uW0QOZk5+IfrJxww2/4kQ/hWFCZYeZgunMAVkXXw+8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nbwCgANBypjy9qsi2M3LSEE/LODxD5jHzS0uqZlwWS+Pk8Qrcz7ggO1/eWSB7U0oW
+	 69BBy8B7n4E1YfjAreHNxmgRhpGnsVaeIEfJ2L/gGO7pKRLew9oiPxOsUXaC0aEcE/
+	 Fy+zu4Yn8otzpEMMQzuTlYhf/CTfDt+CcO0xjBjYuDIi2/4SjvnSg0WegJAwfOm30z
+	 IoKA9Iy5dOCxrDX7/xYu/pUkUJC9I8OtfrHvLiIv7xiMx/ftallNP0srMh32sb+khI
+	 +BN1oT6k1TwGySXYIQZeRlh2rMjr7plvFLajGq3+2oXALjFG2Pv60moJw97JCvdT3l
+	 eSZxGqw+H4W7w==
+Date: Mon, 16 Mar 2026 17:38:11 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Osama Abdelkader <osama.abdelkader@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Qi Zheng <zhengqi.arch@bytedance.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: mm: add null check for find_vm_area in
+ __set_memory
+Message-ID: <8d5e3b4a-4b8f-4db8-9dab-5b2d66b05f1a@lucifer.local>
+References: <20260316151642.13738-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 1/6] dt-bindings: net: qcom: document the
- ethqos device for SCMI-based systems
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
- Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- Christophe Roullier <christophe.roullier@foss.st.com>,
- Bartosz Golaszewski <brgl@kernel.org>, Radu Rendec <rrendec@redhat.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Drew Fustini
- <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
- linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
- imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
- linux-riscv@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20260316-qcom-sa8255p-emac-v9-0-c58934e76ff2@oss.qualcomm.com>
- <20260316-qcom-sa8255p-emac-v9-1-c58934e76ff2@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260316-qcom-sa8255p-emac-v9-1-c58934e76ff2@oss.qualcomm.com>
+Content-Disposition: inline
+In-Reply-To: <20260316151642.13738-1-osama.abdelkader@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260316_103813_993548_62C97914 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,22 +76,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 16/03/2026 13:05, Bartosz Golaszewski wrote:
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    ethernet: ethernet@7a80000 {
+(-cc old email address +cc new.)
 
-Wrong unit address.
+On Mon, Mar 16, 2026 at 04:16:39PM +0100, Osama Abdelkader wrote:
+> find_vm_area() can return NULL. Add a null check to avoid potential
+> null pointer dereference, matching the pattern used by other arches.
+>
+> Fixes: 311cd2f6e253 ("riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge linear mappings")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+> ---
+> v2:
+> - Add Cc: stable@vger.kernel.org
+> - Add Fixes: tag
 
-> +        compatible = "qcom,sa8255p-ethqos";
-> +        reg = <0x23040000 0x10000>,
-> +              <0x23056000 0x100>;
+This isn't a bug AFAICT, and we'd only really cc: stable add fixes if it was
+identifiable as one, as Andrew mentions.
 
+> - mention __set_memory in the commit message
+> ---
+>  arch/riscv/mm/pageattr.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+> index 3f76db3d2769..46a999c86b26 100644
+> --- a/arch/riscv/mm/pageattr.c
+> +++ b/arch/riscv/mm/pageattr.c
+> @@ -289,6 +289,10 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+>  		int i, page_start;
+>
+>  		area = find_vm_area((void *)start);
+> +		if (!area) {
+> +			ret = -EINVAL;
+> +			goto unlock;
+> +		}
 
-Best regards,
-Krzysztof
+This call is gated on is_vmalloc_or_module_addr() so how would we fail to find
+an area here?  (modules are also vmalloc()'d)
+
+All set_memory_*() callers will be referencing genuine live data also, so I
+don't think this is an issue?
+
+Other arches do a NULL check, but they are not explicitly checking
+is_vmalloc_or_module_addr() before doing the check, they seem to be using this
+== NULL to imply the memory is something else.
+
+So I think this patch is not correct, except for cases of some underlying bug,
+but a bug SURELY would have triggered by now?
+
+So yeah I don't think we should take this patch, as it implies a case that
+simply cannot happen.
+
+If it does happen and we get a bug report, it'll be very obvious where it
+happened and why.
+
+>  		page_start = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
+>
+>  		for (i = page_start; i < page_start + numpages; ++i) {
+> --
+> 2.43.0
+>
+
+Thanks, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
