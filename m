@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B32FF53D65
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 15:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B06F53D69
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Mar 2026 15:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8r4Yy0My2kBHBXVzbBpbjdMv/GI5eJkYBqc9ZA6+FuA=; b=xZNfTP1nrOpEIN
-	SLVZRoGNtZcxvnXQxw5ZMhqyde3koqQi87Prswu93sYN1NPzZ75BxLY74n3I/TkDNw6N1embA/tjW
-	t2QmR4lg1/HAKRKIh7qaaxMmMuGOB+EkgHnGhAjxexvBNCsyb6ffjJMNIn2VpXGHTj9iTCRDIjjLk
-	ODZc9GTHjMJO7P0z9NAAWe87sKmjP33wItZwVGD9jVutb+xRFT7n+ICXu3hWO4HxGlu0VBfU0SolG
-	JhpX39eQzmNE7f7jwlgfWy3IkYgNAAfKdpXDWEjxjzlYDrqZzzhb6bw7MVZm92C7LUodlcgTtRZ5h
-	H6Q2mQRLm7Po4o5dSYJg==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CjNSWPhwa9NRYVt4BlRL9fc4shp97GqpcWHitiPA8ek=; b=poMJ0JI6dnLw5G
+	K65zuvqzVbA2+wsAk/ZOIztV5LTXi7Xdum8LQ+j3z1wjKQiFMyh4ZEkaxrCwY3YjXGersgD/Ttals
+	R+0Z6lR6Bw5jRYVD2oh2FUD1eGXj4MEbQjyjbNuth6NY0VgA9rbJfglag/WpGgP9Epz9+Kkmwax1b
+	NFXrz38om8v49NtIED7x+4LK+g3VoOgnkpNaU2CbhhAeMHqhQtgUJ6C50PANlJB35mxbLxiia1VE5
+	YowDkbQNUrLKel4ph//cFKjalpTERitxbAHczCX0nHCb7xFlAqNwsmzsdkZRA+sH2st6/r12oFuui
+	CqAN4pYDGLFfUPDG2EzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29pj-00000004KmO-3EcL;
-	Mon, 16 Mar 2026 15:26:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2A7n-00000004MjN-2TGe;
+	Mon, 16 Mar 2026 15:44:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w29ph-00000004Kly-3INv
+	id 1w2A7l-00000004Mj9-31Te
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Mar 2026 15:26:18 +0000
+	Mon, 16 Mar 2026 15:44:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 999044086A;
-	Mon, 16 Mar 2026 15:26:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56604C19421;
-	Mon, 16 Mar 2026 15:26:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773674776;
-	bh=f5yrzvJyKqNO0mx1A368jXTrlKXyBPupbgbIJWVdVDg=;
-	h=Date:From:To:Cc:Subject:From;
-	b=ovhzMWqk806ZgRSfbKVBcxktTp+WFCFPfQii4kiAXjB/7c60iC/cGW0GHW1LveMa0
-	 w/GQbssWk9KmNuPvTBzHBcTD5l8BjYuvvusZgzfGltD1S1YLexZmxaFLWHSJknBZOb
-	 qNcxmTgvrz/dsom3WZx91hP+Qcgdf47U7v+rm5W6ieJU0kj/+TjI/qiCdFP9PVoZ91
-	 sIpBJT8ODkhe6zDwzJd1eKnmkGMDp6rdFGMrI2248Zckv6qoDbNcXanZFY8Gy6rPX6
-	 Oakf0AgRspS14udOdoJv28RnnQOX3DrM/YXIw5YSg/O4eMMR0NHRV0kHi7iEw8PCz9
-	 xcSh00OQLnp/g==
-Date: Mon, 16 Mar 2026 08:26:14 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Brian Masney <bmasney@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Drew Fustini <dfustini@oss.tenstorrent.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: [GIT PULL] clk: tenstorrent: Add Atlantis PRCM for v7.1
-Message-ID: <abghFg5INVslFFcc@x1>
-MIME-Version: 1.0
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_082617_900104_56966796 
-X-CRM114-Status: GOOD (  12.90  )
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FE2360018;
+	Mon, 16 Mar 2026 15:44:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE97C19421;
+	Mon, 16 Mar 2026 15:44:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1773675896;
+	bh=IH6hjF+pkW2zjrOcoLLUCtQbwyxCT8NByC78D6ekXco=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=TcOeR9SgSAlkVmfMXk8wAz1W+adrhixRO9ilx9mDNYkqKasT0/37suCzyVn5arpef
+	 8+axpziHyVNvrp8vMNMQTmTnKkwlsFNtb2TmxOlNa4WXFUg4R0IPHS7CHZvX2eRlfb
+	 vnib7BcfwcCG2CaM+sGH5qQT9iRVVwlx83jDrY7I=
+Date: Mon, 16 Mar 2026 08:44:55 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Osama Abdelkader <osama.abdelkader@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Lorenzo
+ Stoakes <lorenzo.stoakes@oracle.com>, Suren Baghdasaryan
+ <surenb@google.com>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>, Qi
+ Zheng <zhengqi.arch@bytedance.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: mm: add null check for find_vm_area in
+ __set_memory
+Message-Id: <20260316084455.bb44dd7baa47487f1e567ce9@linux-foundation.org>
+In-Reply-To: <20260316151642.13738-1-osama.abdelkader@gmail.com>
+References: <20260316151642.13738-1-osama.abdelkader@gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +71,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen,
+On Mon, 16 Mar 2026 16:16:39 +0100 Osama Abdelkader <osama.abdelkader@gmail.com> wrote:
 
-This pull request introduces support for the Tenstorrent Atlantis RISC-V
-SoC in the form of a clk driver, reset driver and the associated DT
-binding. The reset driver was reviewed by Philipp, who agreed that it
-could go via the clk tree. Brian reviewed the clk driver but there is no
-review/ack from you. Please let me know if you'd like to see any changes
-and we will post a new revision.
+> find_vm_area() can return NULL. Add a null check to avoid potential
+> null pointer dereference, matching the pattern used by other arches.
+> 
+> Fixes: 311cd2f6e253 ("riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge linear mappings")
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+Three years ago.
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+> Cc: stable@vger.kernel.org
 
-are available in the Git repository at:
+Why cc:stable?  Has anyone ever hit this?  Are we able to identify a
+scenario where this bug might be triggered?
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tenstorrent/linux.git tags/tenstorrent-clk-for-v7.1
-
-for you to fetch changes up to 23c8ebc952849b3ba47d04d0ec95daf5cc136061:
-
-  clk: tenstorrent: Add Atlantis clock controller driver (2026-03-09 20:10:26 -0700)
-
-----------------------------------------------------------------
-clk: tenstorrent: Add support for Atlantis PRCM
-
-Introduce support for the clock and reset controllers (e.g. PRCM) in the
-Tenstorrent Atlantis SoC. 5 types of clocks are generated by the PRCM:
-PLLs, shared gates and standard muxes. The reset controller is setup as
-an auxiliary device of the clock controller.
-
-Signed-off-by: Drew Fustini <fustini@kernel.org>
-
-----------------------------------------------------------------
-Anirudh Srinivasan (3):
-      dt-bindings: clk: tenstorrent: Add tenstorrent,atlantis-prcm-rcpu
-      reset: tenstorrent: Add reset controller for Atlantis
-      clk: tenstorrent: Add Atlantis clock controller driver
-
- .../clock/tenstorrent,atlantis-prcm-rcpu.yaml      |  54 ++
- MAINTAINERS                                        |   4 +
- drivers/clk/Kconfig                                |   1 +
- drivers/clk/Makefile                               |   1 +
- drivers/clk/tenstorrent/Kconfig                    |  14 +
- drivers/clk/tenstorrent/Makefile                   |   3 +
- drivers/clk/tenstorrent/atlantis-prcm.c            | 870 +++++++++++++++++++++
- drivers/reset/Kconfig                              |  11 +
- drivers/reset/Makefile                             |   1 +
- drivers/reset/reset-tenstorrent-atlantis.c         | 173 ++++
- .../clock/tenstorrent,atlantis-prcm-rcpu.h         | 103 +++
- 11 files changed, 1235 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/tenstorrent,atlantis-prcm-rcpu.yaml
- create mode 100644 drivers/clk/tenstorrent/Kconfig
- create mode 100644 drivers/clk/tenstorrent/Makefile
- create mode 100644 drivers/clk/tenstorrent/atlantis-prcm.c
- create mode 100644 drivers/reset/reset-tenstorrent-atlantis.c
- create mode 100644 include/dt-bindings/clock/tenstorrent,atlantis-prcm-rcpu.h
-
+> --- a/arch/riscv/mm/pageattr.c
+> +++ b/arch/riscv/mm/pageattr.c
+> @@ -289,6 +289,10 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+>  		int i, page_start;
+>  
+>  		area = find_vm_area((void *)start);
+> +		if (!area) {
+> +			ret = -EINVAL;
+> +			goto unlock;
+> +		}
+>  		page_start = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
+>  
+>  		for (i = page_start; i < page_start + numpages; ++i) {
+> -- 
+> 2.43.0
 
 _______________________________________________
 linux-riscv mailing list
