@@ -4,71 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2462FF6E85
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 21:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908EAFF6E8B
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 22:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/hEr1Z/CwAx5kNhE/gEhHFHpFxH8zTLI05B9k8vwVvk=; b=m2V2iwenzzCvh6
-	aDwQ8Nf9MEjDFwODdHpZiCoUZZWmp+F+08jVXRizs+gxZ5qKDYdn2UIvlp1EwVgDk9pWQOHBuZZrx
-	aJDFXHyTzFr8Zp7acQHjiF/siWXTHJiBfvAjYr2XgPoRHExjnkbVXwY1zT7pR2LsNiT8rurrZGwDS
-	4iGkITBurAIawYnES9L5Qn04XL0lrkwL2uAP5cBwSKuqyy6UfYejuDT9unVyvVNskGmUCjjAmZjOM
-	pcMsdL6PAYATucQeeWZk39lEi3+sMNojkL4vyaRxCk6DJg5IJ+tTHT5WsIY42LkN4L1VuxNtsXmI1
-	PTTZ3AHNPjAZx4RMhtfg==;
+	List-Owner; bh=PAUVnHvDvknRkp4BLoX9d3utxZkiM+PZFpwFsk4DspQ=; b=ZOwn+del6locvO
+	z03FSySKYnZYYIlwvizMwVf7NFM2t/NJVGmZ409ycJeL/4tLNm0E347SYBBNR2O3YPOv8IOoWh8zZ
+	A5FFKHodmRFVP0KIt1A09k1OPY1njRlsCA1wF1BVl3wb50x1editFz/eNWjYAR+D6RYBiVWhntPte
+	DPA/1ZsUut8+UFA4HuqJ66PrAF5aOhTSGYJu3ue9ohs1I8XfG/oOpIq4DC8qKijwRLW9dW7hnKByt
+	s7/HQAIJx+NEn7uUSDDhRR0QmP9ENodxDpe/xpdVmFVz1cKwJvzQNxXRU2jmNspVLttRHOB954ZQx
+	B9+VIqWK4hvdRn9gBwcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2cDQ-00000007Gsa-0cEi;
-	Tue, 17 Mar 2026 21:44:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2cVR-00000007HYx-0NEh;
+	Tue, 17 Mar 2026 22:03:17 +0000
+Received: from mail-westus2azolkn19012049.outbound.protection.outlook.com ([52.103.10.49] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2cDO-00000007Gru-0Ypj
-	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 21:44:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E57343504;
-	Tue, 17 Mar 2026 21:44:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8F6BC4CEF7;
-	Tue, 17 Mar 2026 21:44:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773783877;
-	bh=YnJxAqY3yVW0rBxCTAK9ZMy9uB7s9ePxLZFBfN6k5Wg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CTiOJc38tOqLBn6rKI1YCPrqaDNI0pR0suhd/76OSH8FqwhojyJL044wxft0zFGA7
-	 w+I48l+FEX6LtDsEgVFl2jI8n39BjNL59z9UROKhQOiG7OZvEJOigEYsBP2wi5hk9O
-	 FmsEpuMyAgqtQpmGo2Rexj+dRBKotiX5FNyPpAJMjkFtMAw2GXApL7KCUZ6KWrHea/
-	 en+WOvZRSy2Z0HiZnCp0iRwgqX9uSrgiqbfoXRncbkq+FkqQ+P6Roz4MKSke+pZXQN
-	 kc6l8umBVg5mToKGRlv82fTPz3cnr9E2MpwCL4ID403lX93cBrlYJ18gAnG6zkENKE
-	 LfzKPrZQwg0rw==
-Date: Wed, 18 Mar 2026 05:44:35 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Junzhong Pan <junzhong.pan@spacemit.com>,
-	Inochi Amaoto <inochiama@gmail.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: usb: dwc3: spacemit: add support for K3
- SoC
-Message-ID: <20260317214435-GKA453922@kernel.org>
-References: <20260317-02-k3-usb20-support-v1-0-d89f59062ad4@kernel.org>
- <20260317-02-k3-usb20-support-v1-1-d89f59062ad4@kernel.org>
- <20260317-shortness-gecko-72f14fbc79f2@spud>
+	id 1w2cVO-00000007HYU-1zvR;
+	Tue, 17 Mar 2026 22:03:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xHHzUrmE4KEvb3zRgYEFIVnqj3pj+rHpVHTjpyc8VjnEcm6LnVbZHlATX1kEHevxqB4S2ZkkTKrhPhLheeWcfMHQjqOc3Mv5mhAEfDNxwwLH2YcGt5GXPnGm56SPzPptXfdwG2kCG2SBs3saHhk4iUv57qJlO0zqh6ToJK4UHVSikO/WVio2eznS89iZKWNtbx5qzGfCL2WmD7L4bo/kWg06e+06/06xiHIlsooYdePjcE1IF91ajXSC25MAB1ltuQeiHpPGlxIhBD0/JBIiR9rvgFaQApAwwPuUepw4TuaWQWGmFGtQHL4SbnpGoc5P7CVBUijrO7iVUYxdsnrSaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mK7AnZA5zQToFouP8HV9eUz8Dd41X4GhkYbD3cq/lFk=;
+ b=umH2XP367x4nerHLFwfONWB15VT4fc64yvJojJHO+guE6xugzxhE4Adc8eUw+cvqGvjs2H4SnKA3pO29QeQBPCi0dd0n9r67zRI4ce87hYb4eKGiZ9bKf2L+HOAdn8+6/Z6XlgfPAB1BGIBDju/e5VyU7bP8ysc9MYyyYJvnE0DAt7C0IZkW3c4BP6CoX3q23FE9NI8it64YFtz5I76hKEhy/70SB7Vo7Ys5SkKcqkto1Uv32cPt7d0niCdtQC9z8hx+UfHlF02u41eD0leZ4yLJxGndkZ37KLKGvbj2OsnQT1SOgU7tRPUj8DB/Si/AVCwoOXGiIJAnQnTiHbS8BA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mK7AnZA5zQToFouP8HV9eUz8Dd41X4GhkYbD3cq/lFk=;
+ b=od7xs7F4rVsCgfDkxCzNVLdHJm1eh0ZnqBtYNjGrAq7vkag+gqeaBI9Nx5ZKGGjcg2GUaZ9NJy0mRZYeEDB9j0FV6aXtl9hz31y4zJA7XJ2BbIYQn1ObrGfrOrWTLkASj4QBcz7r7cxjgyFL4imfPCxgvg3ltitK2jttWLtdjFTLocgIRFfkoH+5ZkU/Cpkc+4/cEyzmbfSqXBTrGoSo+vltnL3/xmHy7sc8gWeZQESjFCD3bGy0VCkeZ/gIRXHbN8KlgyRVYC8CXFZRFihHrQWmlEyWXksTTs7+38U5y6kJNk0WB/N37BI25T9/Q4DjAn8BqbNyIas1ZHy+MXpn4w==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by MWHPR02MB10545.namprd02.prod.outlook.com (2603:10b6:303:286::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Tue, 17 Mar
+ 2026 22:03:07 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9700.024; Tue, 17 Mar 2026
+ 22:03:06 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
+	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
+	<wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li
+	<longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H . Peter
+ Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, mrigendrachaubey
+	<mrigendra.chaubey@gmail.com>, "ssengar@linux.microsoft.com"
+	<ssengar@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH 00/11] Drivers: hv: Add ARM64 support in mshv_vtl
+Thread-Topic: [PATCH 00/11] Drivers: hv: Add ARM64 support in mshv_vtl
+Thread-Index: AQHctT5MQUy+plR6RkKYTgy6jJBWJ7WzSSyA
+Date: Tue, 17 Mar 2026 22:03:06 +0000
+Message-ID: <SN6PR02MB4157DFC7B7CE94500C89664BD441A@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20260316121241.910764-1-namjain@linux.microsoft.com>
+In-Reply-To: <20260316121241.910764-1-namjain@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MWHPR02MB10545:EE_
+x-ms-office365-filtering-correlation-id: 57c921ad-0f24-41cf-bd1b-08de8470f837
+x-microsoft-antispam: BCL:0;ARA:14566002|19110799012|8062599012|13091999003|8060799015|461199028|15080799012|31061999003|41001999006|37011999003|1602099012|52005399003|40105399003|41105399003|4302099013|3412199025|10035399007|440099028|102099032|1710799026;
+x-microsoft-antispam-message-info: =?us-ascii?Q?psvLWVDbwQQUU21guAumyr7THxVqB15xrr4vDgrMAoUAGCAGos+vkHsNGg+W?=
+ =?us-ascii?Q?6J76/ACvEhO8YSW2dvkFy/OE1ka2v/rudH0wsj0NqaoaFdZ4gs+tbmM8V9Tp?=
+ =?us-ascii?Q?/JbwAD/pXGiQXOQryWe6geB3XFLSodwK4pmKdfPuAn8hJtyeKyFoSvZ4iXrr?=
+ =?us-ascii?Q?+4TxtnZOXT3YRSLZ1UjkIY4Tgqko+CRESa3Yy0YRGYF7YHU0BTvgqxG6EcKb?=
+ =?us-ascii?Q?lQFpm87SiHBVy0dyuuGTEa9NCpcz8wapFsMBeBzAuv47mDhPVmpbkrMCH36s?=
+ =?us-ascii?Q?JlFnRfXULv9xR2oaLvZZHPON/bNFpE4VVzTDNO3x/YQIgRJcz5QZPYyiauMG?=
+ =?us-ascii?Q?RHeQ9b2cnKW7iD2TNSY/r/FFJVWgrMDs4VQ8Q5roSbrrmN2mU6SNb1yFDOXz?=
+ =?us-ascii?Q?qCB4sx1QYKy2yyukWLfQzq5nlhp3UU9JT53NyvVsyn0vbrDk30glqQFjmb0b?=
+ =?us-ascii?Q?zv1oGi60OYhktQF70Wx4p9fkkRbmPz1qp9ChOotjX0LJYiZ1h4kx8JIJxs2H?=
+ =?us-ascii?Q?k99AZjrNQhr95QtSYhJNRPRDcURnYehCmMQsfjy3wqRZN3kMou/E7CTH6Ht+?=
+ =?us-ascii?Q?mbqrud1ZSdCTns0ZrbHAMVwVKEIX/2PwBisWGRdNaZBV7GMi0iHR8rpPqXC8?=
+ =?us-ascii?Q?XEYaQ3EFC/uKUXSn9saoY5DUodtF373nuaBc6I/G1skVI+ABbpjxS6wD2UgY?=
+ =?us-ascii?Q?OzMPoC4syS1zQUu+jXsj+j1C/WXu1O8r0T6F+ZRfii7iu31ThlCN6H1iXbyw?=
+ =?us-ascii?Q?9s3tvMhF3Ka3ffPrr0TiaXV/lWLjhu9smVkhoACA7hqurqgl8+Scy7OIt6Nn?=
+ =?us-ascii?Q?n5qtbAVYsNWKg1wxoxyFgEaBmc25peEhZLnB6tdkpriTimj2xEKbtjn1KDqw?=
+ =?us-ascii?Q?NUbOVJ+kdO2ZTYYNC3x/3qBRUyib6LLJM+Kt1zTcQGfTYvClOHQkMS7pZ/Wn?=
+ =?us-ascii?Q?T79DPSDIzXGrkv9AmiGIudbUo/XH7oLnQ8ed/hRz2lYaEDyInx5okMvg1UE2?=
+ =?us-ascii?Q?FHO+1C07COs4+P1zY8s8xhNOqKFNCLdADoaMeagBc9e8DJD3KdaziwJca54L?=
+ =?us-ascii?Q?M0TqCfDdYcXsXocaPbKJY95CsdS43YTfBueAeon2NWtuaR6fC9iaN3ka1Czh?=
+ =?us-ascii?Q?blZA7UHCSjVN?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ELk/KZTU24blekeW/DU9p3X/GzG9GArFqbaD4vjO5rkZNIOayJj8qHKX289u?=
+ =?us-ascii?Q?2czFk3bTT760fGFK3xOMLq7AFCNuSBexr4tQ7Jzep5wR6642Fs+yuUBNIAAb?=
+ =?us-ascii?Q?vov6lQHD9q9h7wLrgNRGR6a/E/yvcMoMnxD0comtlpsrUe6Pu9FplSAs5s4/?=
+ =?us-ascii?Q?/0aTYHZ7YOfKlu1cYjtAIqBbqDJ994ATPussPHIDnE1ha4P1TeFiQMiTqmsC?=
+ =?us-ascii?Q?J8CLL8BXS5pXRJDUKXeTXhzETwLzJJSFqLR0ebbJdtP/5rvTgJPqIOQiJz0x?=
+ =?us-ascii?Q?Uam/3M90F57PvlgnDAOHaWupIPbHN3BA0KH5yKCT7Xj/fEwUo8YPhSbDCJWK?=
+ =?us-ascii?Q?P/ju/INbWR0mqebu5tIr+zmUEWXULHwRPwr3yt27dVjGfY78UHcvwMZdkf/t?=
+ =?us-ascii?Q?OK0hVhOf58Jofks5CUj/M2vUMsqRLzBiSOXAOtIPlgHt+GwrAjZH2ffgHz7X?=
+ =?us-ascii?Q?0jHf/k3oNzoLlduvh3wxGck/rBLcdWKlZMFG7uQjhu1XSXj++9V4YWA1XFsD?=
+ =?us-ascii?Q?yaZ1+QMwdiR5PuI425ElgZ1+8qrEugWDsnJTABEEzSX99flMlVwayT6sTnvW?=
+ =?us-ascii?Q?pOUJXf7SQYJRwnbg72B7Xigi0hog87iiaq8tfkLjREkBvklVx7JJwUpU4sb8?=
+ =?us-ascii?Q?EgwLXsYR9ZU8u2mXcTbZ2c5TnRsWxMUWlcpNy+dWIsbf8RCC7i6RQ+iJDCFu?=
+ =?us-ascii?Q?AZdt4p8dXOcXj7T5Kbq0LrWhEhJ7DpVkKgvnMySGyT5oRPPiactmMwIRi7Mf?=
+ =?us-ascii?Q?8C03C/qcLmBzpCRXVz3SMmfkJLxoiGa60HFugKmT5w0wjsByQ5VZ2ueXHMgT?=
+ =?us-ascii?Q?ZUkyrBUPAU6mJ7Z/xJoHlz3niS5SierDfVbsLU33JmX/DxryNtXTpFyUgfNQ?=
+ =?us-ascii?Q?u5mo14J5rT3vj2bPGarT3lWP70plrPFRBxjeeWb7v3wtKHN8rXxqku0R0a8o?=
+ =?us-ascii?Q?GWU2D1o4iercrvyif8BJNK0YpNIRU5wNgh4Z83vByGujckSeS4N1zJkxGART?=
+ =?us-ascii?Q?4OxGy/Vm8tSueLMPEtKUQDwkialuaEEa1d0cqYK8ZE7i7aBdp6+OQ+sEdZOd?=
+ =?us-ascii?Q?lWWyLLDj553ZZS4h2z0dLXvWLTZ1wZdC7xHf0KuKKWMhAByP1Pklb0xHk/ox?=
+ =?us-ascii?Q?f8O1q0TJxReAhZJtS+TZbnmalR3hcGLE/7qlaO/iESYaxgaUDFg7AZPqySv1?=
+ =?us-ascii?Q?VmhkQjXa/93wqP9GQiU7hi/RDcACMt8n3DisIh1+bQEy6Rj+v9yUzbyGoRfU?=
+ =?us-ascii?Q?ei4A/vCYjCYUS0F+GJGHOsxLhZ6BCl1SWm+N362twVeKH1S8oddF54LgEgMP?=
+ =?us-ascii?Q?+ECATaItwa2sK2toz/ES/Kl7I/bWVvG00RSg9bb4yKDodR1rECFBz+cqInCa?=
+ =?us-ascii?Q?ldCprwE=3D?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260317-shortness-gecko-72f14fbc79f2@spud>
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57c921ad-0f24-41cf-bd1b-08de8470f837
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Mar 2026 22:03:06.8517
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR02MB10545
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_144438_217980_93FF74FB 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20260317_150314_527465_93D526C2 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +161,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On 12:55 Tue 17 Mar     , Conor Dooley wrote:
-> On Tue, Mar 17, 2026 at 11:53:02AM +0000, Yixun Lan wrote:
-> > Add compatible string for DWC3 USB controller found in SpacemiT K3 SoC.
-> > The USB2.0 host controller in K3 SoC actually use DWC3 IP but only has
-> > USB2.0 functionality, and requires only one USB2.0 PHY connected.
-> > 
-> > Explicitly reduce number of phy property to minimal one.
+From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
 > 
-> Is this valid for the existing compatible, will it work with only one
-> clock?
+> The series intends to add support for ARM64 to mshv_vtl driver.
+> For this, common Hyper-V code is refactored, necessary support is added,
+> mshv_vtl_main.c is refactored and then finally support is added in
+> Kconfig.
 > 
-I didn't change clock binding, do you mean phy?
+> Based on commit 1f318b96cc84 ("Linux 7.0-rc3")
 
-Both k1 and k3 work with one clock (no change here)
+There's now an online LLM-based tool that is automatically reviewing
+kernel patches. For this patch set, the results are here:
 
-for phy, the existing k1 requires two. for k3, one controller requires
-one phy due to only has USB2.0 support, other controllers requires two
-phys - USB2, USB3 PHY
+https://sashiko.dev/#/patchset/20260316121241.910764-1-namjain%40linux.microsoft.com
 
-> > 
-> > Signed-off-by: Yixun Lan <dlan@kernel.org>
-> > ---
-> >  Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml | 6 +++++-
-> >  1 file changed, 5 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-> > index 0f0b5e061ca1..cc27b363ca79 100644
-> > --- a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-> > +++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-> > @@ -27,7 +27,9 @@ allOf:
-> >  
-> >  properties:
-> >    compatible:
-> > -    const: spacemit,k1-dwc3
-> > +    enum:
-> > +      - spacemit,k1-dwc3
-> > +      - spacemit,k3-dwc3
-> >  
-> >    reg:
-> >      maxItems: 1
-> > @@ -42,11 +44,13 @@ properties:
-> >      maxItems: 1
-> >  
-> >    phys:
-> > +    minItems: 1
-> >      items:
-> >        - description: phandle to USB2/HS PHY
-> >        - description: phandle to USB3/SS PHY
-> >  
-> >    phy-names:
-> > +    minItems: 1
-> >      items:
-> >        - const: usb2-phy
-> >        - const: usb3-phy
-> > 
-> > -- 
-> > 2.53.0
-> > 
+It has flagged several things that are worth checking, but I haven't
+reviewed them to see if they are actually valid.
 
+FWIW, the announcement about sashiko.dev is here:
 
+https://lore.kernel.org/lkml/7ia4o6kmpj5s.fsf@castle.c.googlers.com/
 
--- 
-Yixun Lan (dlan)
+Michael
+
+> 
+> Naman Jain (11):
+>   arch: arm64: Export arch_smp_send_reschedule for mshv_vtl module
+>   Drivers: hv: Move hv_vp_assist_page to common files
+>   Drivers: hv: Add support to setup percpu vmbus handler
+>   Drivers: hv: Refactor mshv_vtl for ARM64 support to be added
+>   drivers: hv: Export vmbus_interrupt for mshv_vtl module
+>   Drivers: hv: Make sint vector architecture neutral in MSHV_VTL
+>   arch: arm64: Add support for mshv_vtl_return_call
+>   Drivers: hv: mshv_vtl: Move register page config to arch-specific
+>     files
+>   Drivers: hv: mshv_vtl: Let userspace do VSM configuration
+>   Drivers: hv: Add support for arm64 in MSHV_VTL
+>   Drivers: hv: Kconfig: Add ARM64 support for MSHV_VTL
+> 
+>  arch/arm64/hyperv/Makefile        |   1 +
+>  arch/arm64/hyperv/hv_vtl.c        | 152 ++++++++++++++++++++++
+>  arch/arm64/hyperv/mshyperv.c      |  13 ++
+>  arch/arm64/include/asm/mshyperv.h |  28 ++++
+>  arch/arm64/kernel/smp.c           |   1 +
+>  arch/x86/hyperv/hv_init.c         |  88 +------------
+>  arch/x86/hyperv/hv_vtl.c          | 130 +++++++++++++++++++
+>  arch/x86/include/asm/mshyperv.h   |   8 +-
+>  drivers/hv/Kconfig                |   2 +-
+>  drivers/hv/hv_common.c            |  99 +++++++++++++++
+>  drivers/hv/mshv.h                 |   8 --
+>  drivers/hv/mshv_vtl_main.c        | 205 ++++--------------------------
+>  drivers/hv/vmbus_drv.c            |   8 +-
+>  include/asm-generic/mshyperv.h    |  49 +++++++
+>  include/hyperv/hvgdk_mini.h       |   2 +
+>  15 files changed, 505 insertions(+), 289 deletions(-)
+>  create mode 100644 arch/arm64/hyperv/hv_vtl.c
+> 
+> 
+> base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
+> prerequisite-patch-id: 24022ec1fb63bc20de8114eedf03c81bb1086e0e
+> prerequisite-patch-id: 801f2588d5c6db4ceb9a6705a09e4649fab411b1
+> prerequisite-patch-id: 581c834aa268f0c54120c6efbc1393fbd9893f49
+> prerequisite-patch-id: b0b153807bab40860502c52e4a59297258ade0db
+> prerequisite-patch-id: 2bff6accea80e7976c58d80d847cd33f260a3cb9
+> prerequisite-patch-id: 296ffbc4f119a5b249bc9c840f84129f5c151139
+> prerequisite-patch-id: 3b54d121145e743ac5184518df33a1812280ec96
+> prerequisite-patch-id: 06fc5b37b23ee3f91a2c8c9b9c126fde290834f2
+> prerequisite-patch-id: 6e8afed988309b03485f5538815ea29c8fa5b0a9
+> prerequisite-patch-id: 4f1fb1b7e9cfa8a3b1c02fafecdbb432b74ee367
+> prerequisite-patch-id: 49944347e0b2d93e72911a153979c567ebb7e66b
+> prerequisite-patch-id: 6dec75498eeae6365d15ac12b5d0a3bd32e9f91c
+> --
+> 2.43.0
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
