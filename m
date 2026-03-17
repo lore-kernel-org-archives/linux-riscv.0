@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 071F9FB5EA6
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 02:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23F8FB5EA6
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 02:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Kqk19Vj0/Cotzcqc9SYN6HVpgTlMYrX0DOg7KVdVIPk=; b=30Dc/aj+hzOutP
-	KgOArxlC6duAttwbeJ8/VbwHhb1E/hbdmO6Li3JhRPB4+jRqIX73TsOM0t18gMI/289/Uzpqb6KVm
-	JwmeT6aez1Be0L94dcNiF7OBGdAN0qnLRO/aQ3ULqKq/YV0C4L6+UDn0IU4qvsCXqsPDb2YIYrSBc
-	tLLR0j9+fbdhOLXb5LMVXfEpbDyizt6ymfEyjATGUbD7Ji3Fglrs25nSWxdmEB0UCKHN8NlQ3EkUw
-	/S9UanVegiHQGN/jvN1vOMgcljN12tmOKfGgnOy07FR8qYepzka0dB3u84sjXgbgzjAGJfM7bEtce
-	LbsdPiDh73oV8SMqhoFw==;
+	List-Owner; bh=ZXREzjQ/aCYbQQczu8ej2AbCILgaIY45W170dR68Alk=; b=1cgLLrThqgRxCh
+	TbAvM+4aN/v5VyEIBejbhqfrO38nigQL/PH8ItnEc6/XN9PYJ5khBLF+cJF4iDTD++9y32VD9g7Rb
+	ZVwC2flM00LCprYNOt2SOEvKf87CfPamDiLB1sVLVAZVc6Gg3lqmdwuSl+W+aTja0xU7KJ/VFDCoz
+	mg65MOBD1UWx/NIMf3mbpuI7BpLgJPHi3dy2Krzoyk7lVzw7epExskah2BTrDs0tB1VaFTDg52s8R
+	k4qQKxJBuAn48Zb7r9HORAqC2R3sR5PCt9Yw7lADyV1uUXeTGJKqklOtPH3ZtGZcmq7KUUXS6wouu
+	uo1N1ZPeY5paxlTYBqzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2K55-00000005FNZ-2L9l;
-	Tue, 17 Mar 2026 02:22:51 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1w2KIK-00000005Fs9-1Emk;
+	Tue, 17 Mar 2026 02:36:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2K50-00000005FMn-3T6V
+	id 1w2KIG-00000005Frm-3XAG
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 02:22:50 +0000
-Received: from localhost.localdomain (unknown [121.237.245.153])
-	by APP-05 (Coremail) with SMTP id zQCowACHFQnturhpsbunCg--.37111S2;
-	Tue, 17 Mar 2026 10:22:37 +0800 (CST)
-From: daichengrong <daichengrong@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	daichengrong <daichengrong@iscas.ac.cn>
-Subject: [RFC PATCH] riscv: add userspace interface to voluntarily release vector state
-Date: Tue, 17 Mar 2026 10:22:32 +0800
-Message-Id: <20260317022232.11022-1-daichengrong@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Tue, 17 Mar 2026 02:36:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C4D9842CBA;
+	Tue, 17 Mar 2026 02:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95AB1C19421;
+	Tue, 17 Mar 2026 02:36:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773714986;
+	bh=4RTD/yVfz8nqsxqv6oLXhqKEvwwMZcuh5/dmklf76I4=;
+	h=From:Date:Subject:To:Cc:From;
+	b=JyGjYvFoyfE9oPqs1rRlWVBmC5wSFXmU7DuOSZcq4KZ2/S6LzlfovTOILdNskGqal
+	 PMMgdlVW4OwgUjehNbEsRyp92Ek0b2fxXjBIyt9JSnsvvPmfCoCQbafl10yZKlnf0L
+	 ADJ0u6lid7enblKVPeUxfF5Hahz+IWS2d5fevTOoudOj5SxLid511xrSBN3DUQ56AX
+	 vpgSO6nWrEe6dNPc+Uj2UHQzR/8Bd8+53afi3WF89VSq5/AUI4y0UhItKR2GvLwCU/
+	 3dMxuR9m4tPzWBfLSZJJNQufHKEJmLFrQWR4tbWpdDVCTkPbBN1WZA2cNw30WKJaMN
+	 5ZYP9spzX4IDA==
+From: Yixun Lan <dlan@kernel.org>
+Date: Tue, 17 Mar 2026 02:36:17 +0000
+Subject: [PATCH v3] reset: spacemit: k3: Decouple composite reset lines
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACHFQnturhpsbunCg--.37111S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuFykCr1xJFWDZr1xXFW8JFb_yoW7WF13pF
-	s8CrWfJrWrCr1xur9Iy3ykWr4rGas5Ww4akr47Wa43A3W3KrW5Xr93Ka4DZF4UJFyY9a4j
-	9ayYkrykCw4UAF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvG14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxV
-	WxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2Wl
-	Yx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbV
-	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AF
-	wI0_JF0_Jw1lc2xSY4AK67AK6r4UMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r
-	1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CE
-	b7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0x
-	vE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAI
-	cVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa
-	73UjIFyTuYvjfU0YFCUUUUU
-X-Originating-IP: [121.237.245.153]
-X-CM-SenderInfo: pgdluxxhqj201qj6x2xfdvhtffof0/
+Message-Id: <20260317-01-k3-reset-usb-pci-v3-1-e4b9a43c7d45@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACC+uGkC/33NQQ6CMBCF4auYrh0znRYIrryHcVHoAA0GSIuNh
+ nB3CytNjMv/JfPNIgJ7x0GcD4vwHF1w45BCHQ+i7szQMjibWhBSjkoSoIRegefAMzxCBVPtwFp
+ E05giy6UR6XLy3Ljnrl5vqTsX5tG/9idRbut/L0pAQKKKdFUojc2lZz/w/TT6VmxgpE9E/0YIJ
+ JS2xrLIbUaav5B1Xd/twA1F/AAAAA==
+X-Change-ID: 20260312-01-k3-reset-usb-pci-dd00afa7561a
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Junzhong Pan <junzhong.pan@spacemit.com>, 
+ Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13998; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=4RTD/yVfz8nqsxqv6oLXhqKEvwwMZcuh5/dmklf76I4=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpuL4k2K9YyCxu7zijmW/LDkGYpELbhu9DSb+5c
+ 1y2CGdAEwGJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCabi+JBsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+1GDg/+IJTWeYNanQDfVPNx5r+Z3XvOlPtUqLEsoEe++OcZZFE7VaNKzZCWa
+ nbqXhrmnpbrvJCKY4b1SEpXyAeQ1VMbhixk6w55cNTVxcwuUfDY9byLHuYIoVN6lY6HRabwt0vQ
+ YKuzSWpuOYGhVUF/Z+q+BRSnBN5YD5/H8AZ9TFsYsjzY4yknzRk8SNkE8vn2LnTWiu1CTHgMPIj
+ BL+0FTuLZYP8yotEIjsQLmDvH6+PeEZ55+X3cfv3Elpx+XGH5lngEfG5oNoHWi8s4poHVO+vskb
+ 7919DyVNPNcsMU8vi6VIAVHxR9hw8kf5dJSUsNxCg/bT0PGufA0hFdUd1t2eDXjgsXKAaq42T79
+ 1oihd863CRPMouvnA0ZJvli1JcGFoA0shqgoMNCjogSp7gTJpxBS2YxM8UYpiDyd0Mc/tD4Af8Y
+ eNiw0x+jwaS8mDd4y7MMMFKzdD96nOqC6gRjVTE2UY94OAFLxcoESHU37jeUepn22rCQZotsdyc
+ f79mPFOts+8wEHaijwV3iml97DclmU3aII7z/qK7QWvUzWS3LPcAESE0nFanjJy2cGtbITK9Gyd
+ LDg2LAq4y+YSW3KLWU0s4qKzgCa5XKW2UFUfQ23ah4wIjOUTQmj2G9uldaMJyR4uGFHkkOXr12q
+ 7siXZUU9VhbEX0fjm1rh3fw1G561Q8=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_192247_953576_3641F66E 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260316_193628_934910_AECF3C81 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,139 +97,296 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Vector registers in RVV can be large, and saving/restoring them on
-context switches introduces overhead. Some workloads only use
-vector instructions in short phases, after which the vector state
-does not need to be preserved.
+Instead of grouping several different reset lines into one composite
+reset, decouple them to individual ones which make it more aligned
+with underlying hardware. And for DWC USB driver, it will match well
+with the number of the reset property in the DT bindings.
 
-This patch introduces a userspace-controlled mechanism:
+The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
+PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
+Also three reset lines each for UCIE and RCPU block.
 
-- Userspace can declare that it no longer needs the vector state.
-- Kernel will skip saving/restoring vector registers during context
-  switch while the declaration is active.
-- If the thread executes vector instructions after releasing its
-  vector state, the kernel will revoke the declaration automatically.
+As an agreement with maintainer, the reset IDs has been rearranged as
+contiguous number and pushed as a fix for the driver, and reason is that
+there isn't any consumer of reset driver so far, so should not cause
+any ABI breakage. Also, the changes of DT binding header file and reset
+driver are merged together as one single commit to avoid git-bisect
+breakage.
 
-This reduces unnecessary vector context switch overhead and improves
-performance in workloads with intermittent vector usage.
-
-This is an RFC patch to solicit feedback on the API design and
-implementation approach.
-
-Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
+Fixes: 938ce3b16582 ("reset: spacemit: Add SpacemiT K3 reset driver")
+Fixes: 216e0a5e98e5 ("dt-bindings: soc: spacemit: Add K3 reset support and IDs")
+Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- arch/riscv/include/asm/processor.h |  1 +
- arch/riscv/include/asm/syscall.h   |  2 ++
- arch/riscv/include/asm/vector.h    |  7 +++++--
- arch/riscv/kernel/process.c        |  1 +
- arch/riscv/kernel/sys_riscv.c      | 12 ++++++++++++
- scripts/syscall.tbl                |  1 +
- 6 files changed, 22 insertions(+), 2 deletions(-)
+Previously, the reset of The USB and PCIe was submited as a composite
+reset, try to decouple them in this series.
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 4c3dd94d0f63..b59f1456918b 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -113,6 +113,7 @@ struct thread_struct {
- 	unsigned long envcfg;
- 	unsigned long sum;
- 	u32 riscv_v_flags;
-+	unsigned long riscv_v_release_flags;
- 	u32 vstate_ctrl;
- 	struct __riscv_v_ext_state vstate;
- 	unsigned long align_ctl;
-diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-index 8067e666a4ca..f6be37b01a67 100644
---- a/arch/riscv/include/asm/syscall.h
-+++ b/arch/riscv/include/asm/syscall.h
-@@ -121,4 +121,6 @@ asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
+The motivation behind is that it will will make the result more aligned
+with the hardware which describe them as different reset lines, and also
+match with the K3 dwc3 DT binding which request different reset, 
+K1 and K3 SoC share same topology of the reset line design.
+
+See the reset part info in binding doc
+Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+
+In V2, I've visited through whole reset driver and decouple more resets,
+which include the block - UCIE and RPCU. Also add an explanation of why
+rearrange the reset IDs as contiguous number.
+---
+Changes in v3:
+- fix checkpatch.pl warning due to missing double quotes in Fixes tag
+- Link to v2: https://lore.kernel.org/r/20260314-01-k3-reset-usb-pci-v2-1-9dc0976d524e@kernel.org
+
+Changes in v2:
+- squash the two patches to avoid git-biset breakage
+- rearrange the ID to make it contiguous
+- also decouple more reset IDs - UCIE and RPCU block
+- add Fixes tag explicitly
+- Link to v1: https://lore.kernel.org/r/20260312-01-k3-reset-usb-pci-v1-0-022b24b7340f@kernel.org
+---
+ drivers/reset/spacemit/reset-spacemit-k3.c     |  60 ++++++-----
+ include/dt-bindings/reset/spacemit,k3-resets.h | 136 +++++++++++++++----------
+ 2 files changed, 116 insertions(+), 80 deletions(-)
+
+diff --git a/drivers/reset/spacemit/reset-spacemit-k3.c b/drivers/reset/spacemit/reset-spacemit-k3.c
+index e9e32e4c1ba5..9841f5e057b2 100644
+--- a/drivers/reset/spacemit/reset-spacemit-k3.c
++++ b/drivers/reset/spacemit/reset-spacemit-k3.c
+@@ -112,16 +112,21 @@ static const struct ccu_reset_data k3_apmu_resets[] = {
+ 	[RESET_APMU_SDH0]	= RESET_DATA(APMU_SDH0_CLK_RES_CTRL,	0, BIT(1)),
+ 	[RESET_APMU_SDH1]	= RESET_DATA(APMU_SDH1_CLK_RES_CTRL,	0, BIT(1)),
+ 	[RESET_APMU_SDH2]	= RESET_DATA(APMU_SDH2_CLK_RES_CTRL,	0, BIT(1)),
+-	[RESET_APMU_USB2]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
+-				BIT(1)|BIT(2)|BIT(3)),
+-	[RESET_APMU_USB3_PORTA]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
+-				BIT(5)|BIT(6)|BIT(7)),
+-	[RESET_APMU_USB3_PORTB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
+-				BIT(9)|BIT(10)|BIT(11)),
+-	[RESET_APMU_USB3_PORTC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
+-				BIT(13)|BIT(14)|BIT(15)),
+-	[RESET_APMU_USB3_PORTD]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
+-				BIT(17)|BIT(18)|BIT(19)),
++	[RESET_APMU_USB2_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(1)),
++	[RESET_APMU_USB2_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(2)),
++	[RESET_APMU_USB2_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(3)),
++	[RESET_APMU_USB3_A_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(5)),
++	[RESET_APMU_USB3_A_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(6)),
++	[RESET_APMU_USB3_A_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(7)),
++	[RESET_APMU_USB3_B_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(9)),
++	[RESET_APMU_USB3_B_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(10)),
++	[RESET_APMU_USB3_B_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(11)),
++	[RESET_APMU_USB3_C_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(13)),
++	[RESET_APMU_USB3_C_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(14)),
++	[RESET_APMU_USB3_C_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(15)),
++	[RESET_APMU_USB3_D_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(17)),
++	[RESET_APMU_USB3_D_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(18)),
++	[RESET_APMU_USB3_D_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(19)),
+ 	[RESET_APMU_QSPI]	= RESET_DATA(APMU_QSPI_CLK_RES_CTRL,	0, BIT(1)),
+ 	[RESET_APMU_QSPI_BUS]	= RESET_DATA(APMU_QSPI_CLK_RES_CTRL,	0, BIT(0)),
+ 	[RESET_APMU_DMA]	= RESET_DATA(APMU_DMA_CLK_RES_CTRL,	0, BIT(0)),
+@@ -151,10 +156,12 @@ static const struct ccu_reset_data k3_apmu_resets[] = {
+ 	[RESET_APMU_CPU7_SW]	= RESET_DATA(APMU_PMU_CC2_AP,		BIT(26), 0),
+ 	[RESET_APMU_C1_MPSUB_SW]	= RESET_DATA(APMU_PMU_CC2_AP,	BIT(28), 0),
+ 	[RESET_APMU_MPSUB_DBG]	= RESET_DATA(APMU_PMU_CC2_AP,		BIT(29), 0),
+-	[RESET_APMU_UCIE]	= RESET_DATA(APMU_UCIE_CTRL,
+-				BIT(1) | BIT(2) | BIT(3), 0),
+-	[RESET_APMU_RCPU]	= RESET_DATA(APMU_RCPU_CLK_RES_CTRL,	0,
+-				BIT(3) | BIT(2) | BIT(0)),
++	[RESET_APMU_UCIE_IP]	= RESET_DATA(APMU_UCIE_CTRL,		BIT(1),  0),
++	[RESET_APMU_UCIE_HOT]	= RESET_DATA(APMU_UCIE_CTRL,		BIT(2),  0),
++	[RESET_APMU_UCIE_MON]	= RESET_DATA(APMU_UCIE_CTRL,		BIT(3),  0),
++	[RESET_APMU_RCPU_AUDIO_SYS]	= RESET_DATA(APMU_RCPU_CLK_RES_CTRL,	0, BIT(0)),
++	[RESET_APMU_RCPU_MCU_CORE]	= RESET_DATA(APMU_RCPU_CLK_RES_CTRL,	0, BIT(2)),
++	[RESET_APMU_RCPU_AUDIO_APMU]	= RESET_DATA(APMU_RCPU_CLK_RES_CTRL,	0, BIT(3)),
+ 	[RESET_APMU_DSI4LN2_ESCCLK]	= RESET_DATA(APMU_LCD_CLK_RES_CTRL3,	0, BIT(3)),
+ 	[RESET_APMU_DSI4LN2_LCD_SW]	= RESET_DATA(APMU_LCD_CLK_RES_CTRL3,	0, BIT(4)),
+ 	[RESET_APMU_DSI4LN2_LCD_MCLK]	= RESET_DATA(APMU_LCD_CLK_RES_CTRL4,	0, BIT(9)),
+@@ -164,16 +171,21 @@ static const struct ccu_reset_data k3_apmu_resets[] = {
+ 	[RESET_APMU_UFS_ACLK]	= RESET_DATA(APMU_UFS_CLK_RES_CTRL,	0, BIT(0)),
+ 	[RESET_APMU_EDP0]	= RESET_DATA(APMU_LCD_EDP_CTRL,		0, BIT(0)),
+ 	[RESET_APMU_EDP1]	= RESET_DATA(APMU_LCD_EDP_CTRL,		0, BIT(16)),
+-	[RESET_APMU_PCIE_PORTA]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_A,	0,
+-				BIT(5) | BIT(4) | BIT(3)),
+-	[RESET_APMU_PCIE_PORTB]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_B,	0,
+-				BIT(5) | BIT(4) | BIT(3)),
+-	[RESET_APMU_PCIE_PORTC]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_C,	0,
+-				BIT(5) | BIT(4) | BIT(3)),
+-	[RESET_APMU_PCIE_PORTD]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_D,	0,
+-				BIT(5) | BIT(4) | BIT(3)),
+-	[RESET_APMU_PCIE_PORTE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_E,	0,
+-				BIT(5) | BIT(4) | BIT(3)),
++	[RESET_APMU_PCIE_A_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_A,	0, BIT(3)),
++	[RESET_APMU_PCIE_A_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_A,	0, BIT(4)),
++	[RESET_APMU_PCIE_A_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_A,	0, BIT(5)),
++	[RESET_APMU_PCIE_B_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_B,	0, BIT(3)),
++	[RESET_APMU_PCIE_B_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_B,	0, BIT(4)),
++	[RESET_APMU_PCIE_B_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_B,	0, BIT(5)),
++	[RESET_APMU_PCIE_C_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_C,	0, BIT(3)),
++	[RESET_APMU_PCIE_C_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_C,	0, BIT(4)),
++	[RESET_APMU_PCIE_C_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_C,	0, BIT(5)),
++	[RESET_APMU_PCIE_D_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_D,	0, BIT(3)),
++	[RESET_APMU_PCIE_D_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_D,	0, BIT(4)),
++	[RESET_APMU_PCIE_D_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_D,	0, BIT(5)),
++	[RESET_APMU_PCIE_E_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_E,	0, BIT(3)),
++	[RESET_APMU_PCIE_E_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_E,	0, BIT(4)),
++	[RESET_APMU_PCIE_E_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_E,	0, BIT(5)),
+ 	[RESET_APMU_EMAC0]	= RESET_DATA(APMU_EMAC0_CLK_RES_CTRL,	0, BIT(1)),
+ 	[RESET_APMU_EMAC1]	= RESET_DATA(APMU_EMAC1_CLK_RES_CTRL,	0, BIT(1)),
+ 	[RESET_APMU_EMAC2]	= RESET_DATA(APMU_EMAC2_CLK_RES_CTRL,	0, BIT(1)),
+diff --git a/include/dt-bindings/reset/spacemit,k3-resets.h b/include/dt-bindings/reset/spacemit,k3-resets.h
+index 79ac1c22b7b5..4c8cba2897c8 100644
+--- a/include/dt-bindings/reset/spacemit,k3-resets.h
++++ b/include/dt-bindings/reset/spacemit,k3-resets.h
+@@ -97,62 +97,86 @@
+ #define RESET_APMU_SDH0          13
+ #define RESET_APMU_SDH1          14
+ #define RESET_APMU_SDH2          15
+-#define RESET_APMU_USB2          16
+-#define RESET_APMU_USB3_PORTA    17
+-#define RESET_APMU_USB3_PORTB    18
+-#define RESET_APMU_USB3_PORTC    19
+-#define RESET_APMU_USB3_PORTD    20
+-#define RESET_APMU_QSPI          21
+-#define RESET_APMU_QSPI_BUS      22
+-#define RESET_APMU_DMA           23
+-#define RESET_APMU_AES_WTM       24
+-#define RESET_APMU_MCB_DCLK      25
+-#define RESET_APMU_MCB_ACLK      26
+-#define RESET_APMU_VPU           27
+-#define RESET_APMU_DTC           28
+-#define RESET_APMU_GPU           29
+-#define RESET_APMU_ALZO          30
+-#define RESET_APMU_MC            31
+-#define RESET_APMU_CPU0_POP      32
+-#define RESET_APMU_CPU0_SW       33
+-#define RESET_APMU_CPU1_POP      34
+-#define RESET_APMU_CPU1_SW       35
+-#define RESET_APMU_CPU2_POP      36
+-#define RESET_APMU_CPU2_SW       37
+-#define RESET_APMU_CPU3_POP      38
+-#define RESET_APMU_CPU3_SW       39
+-#define RESET_APMU_C0_MPSUB_SW   40
+-#define RESET_APMU_CPU4_POP      41
+-#define RESET_APMU_CPU4_SW       42
+-#define RESET_APMU_CPU5_POP      43
+-#define RESET_APMU_CPU5_SW       44
+-#define RESET_APMU_CPU6_POP      45
+-#define RESET_APMU_CPU6_SW       46
+-#define RESET_APMU_CPU7_POP      47
+-#define RESET_APMU_CPU7_SW       48
+-#define RESET_APMU_C1_MPSUB_SW   49
+-#define RESET_APMU_MPSUB_DBG     50
+-#define RESET_APMU_UCIE          51
+-#define RESET_APMU_RCPU          52
+-#define RESET_APMU_DSI4LN2_ESCCLK     53
+-#define RESET_APMU_DSI4LN2_LCD_SW     54
+-#define RESET_APMU_DSI4LN2_LCD_MCLK   55
+-#define RESET_APMU_DSI4LN2_LCD_DSCCLK 56
+-#define RESET_APMU_DSI4LN2_DPU_ACLK   57
+-#define RESET_APMU_DPU_ACLK      58
+-#define RESET_APMU_UFS_ACLK      59
+-#define RESET_APMU_EDP0          60
+-#define RESET_APMU_EDP1          61
+-#define RESET_APMU_PCIE_PORTA    62
+-#define RESET_APMU_PCIE_PORTB    63
+-#define RESET_APMU_PCIE_PORTC    64
+-#define RESET_APMU_PCIE_PORTD    65
+-#define RESET_APMU_PCIE_PORTE    66
+-#define RESET_APMU_EMAC0         67
+-#define RESET_APMU_EMAC1         68
+-#define RESET_APMU_EMAC2         69
+-#define RESET_APMU_ESPI_MCLK     70
+-#define RESET_APMU_ESPI_SCLK     71
++#define RESET_APMU_USB2_AHB      16
++#define RESET_APMU_USB2_VCC      17
++#define RESET_APMU_USB2_PHY      18
++#define RESET_APMU_USB3_A_AHB    19
++#define RESET_APMU_USB3_A_VCC    20
++#define RESET_APMU_USB3_A_PHY    21
++#define RESET_APMU_USB3_B_AHB    22
++#define RESET_APMU_USB3_B_VCC    23
++#define RESET_APMU_USB3_B_PHY    24
++#define RESET_APMU_USB3_C_AHB    25
++#define RESET_APMU_USB3_C_VCC    26
++#define RESET_APMU_USB3_C_PHY    27
++#define RESET_APMU_USB3_D_AHB    28
++#define RESET_APMU_USB3_D_VCC    29
++#define RESET_APMU_USB3_D_PHY    30
++#define RESET_APMU_QSPI          31
++#define RESET_APMU_QSPI_BUS      32
++#define RESET_APMU_DMA           33
++#define RESET_APMU_AES_WTM       34
++#define RESET_APMU_MCB_DCLK      35
++#define RESET_APMU_MCB_ACLK      36
++#define RESET_APMU_VPU           37
++#define RESET_APMU_DTC           38
++#define RESET_APMU_GPU           39
++#define RESET_APMU_ALZO          40
++#define RESET_APMU_MC            41
++#define RESET_APMU_CPU0_POP      42
++#define RESET_APMU_CPU0_SW       43
++#define RESET_APMU_CPU1_POP      44
++#define RESET_APMU_CPU1_SW       45
++#define RESET_APMU_CPU2_POP      46
++#define RESET_APMU_CPU2_SW       47
++#define RESET_APMU_CPU3_POP      48
++#define RESET_APMU_CPU3_SW       49
++#define RESET_APMU_C0_MPSUB_SW   50
++#define RESET_APMU_CPU4_POP      51
++#define RESET_APMU_CPU4_SW       52
++#define RESET_APMU_CPU5_POP      53
++#define RESET_APMU_CPU5_SW       54
++#define RESET_APMU_CPU6_POP      55
++#define RESET_APMU_CPU6_SW       56
++#define RESET_APMU_CPU7_POP      57
++#define RESET_APMU_CPU7_SW       58
++#define RESET_APMU_C1_MPSUB_SW   59
++#define RESET_APMU_MPSUB_DBG     60
++#define RESET_APMU_UCIE_IP       61
++#define RESET_APMU_UCIE_HOT      62
++#define RESET_APMU_UCIE_MON      63
++#define RESET_APMU_RCPU_AUDIO_SYS     64
++#define RESET_APMU_RCPU_MCU_CORE      65
++#define RESET_APMU_RCPU_AUDIO_APMU    66
++#define RESET_APMU_DSI4LN2_ESCCLK     67
++#define RESET_APMU_DSI4LN2_LCD_SW     68
++#define RESET_APMU_DSI4LN2_LCD_MCLK   69
++#define RESET_APMU_DSI4LN2_LCD_DSCCLK 70
++#define RESET_APMU_DSI4LN2_DPU_ACLK   71
++#define RESET_APMU_DPU_ACLK      72
++#define RESET_APMU_UFS_ACLK      73
++#define RESET_APMU_EDP0          74
++#define RESET_APMU_EDP1          75
++#define RESET_APMU_PCIE_A_DBI    76
++#define RESET_APMU_PCIE_A_SLAVE  77
++#define RESET_APMU_PCIE_A_MASTER 78
++#define RESET_APMU_PCIE_B_DBI    79
++#define RESET_APMU_PCIE_B_SLAVE  80
++#define RESET_APMU_PCIE_B_MASTER 81
++#define RESET_APMU_PCIE_C_DBI    82
++#define RESET_APMU_PCIE_C_SLAVE  83
++#define RESET_APMU_PCIE_C_MASTER 84
++#define RESET_APMU_PCIE_D_DBI    85
++#define RESET_APMU_PCIE_D_SLAVE  86
++#define RESET_APMU_PCIE_D_MASTER 87
++#define RESET_APMU_PCIE_E_DBI    88
++#define RESET_APMU_PCIE_E_SLAVE  89
++#define RESET_APMU_PCIE_E_MASTER 90
++#define RESET_APMU_EMAC0         91
++#define RESET_APMU_EMAC1         92
++#define RESET_APMU_EMAC2         93
++#define RESET_APMU_ESPI_MCLK     94
++#define RESET_APMU_ESPI_SCLK     95
  
- asmlinkage long sys_riscv_hwprobe(struct riscv_hwprobe *, size_t, size_t,
- 				  unsigned long *, unsigned int);
-+// asmlinkage long sys_riscv_release_vector_register(uintptr_t);
-+asmlinkage long sys_riscv_release_vector_register(void);
- #endif	/* _ASM_RISCV_SYSCALL_H */
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 00cb9c0982b1..4bccccc20cc3 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -309,6 +309,7 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
- 	if (__riscv_v_vstate_check(regs->status, DIRTY)) {
- 		__riscv_v_vstate_save(vstate, vstate->datap);
- 		__riscv_v_vstate_clean(regs);
-+		WRITE_ONCE(current->thread.riscv_v_release_flags, 0);
- 	}
- }
- 
-@@ -325,8 +326,10 @@ static inline void riscv_v_vstate_set_restore(struct task_struct *task,
- 					      struct pt_regs *regs)
- {
- 	if (riscv_v_vstate_query(regs)) {
--		set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
--		riscv_v_vstate_on(regs);
-+		if (!READ_ONCE(current->thread.riscv_v_release_flags)) {
-+			set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
-+			riscv_v_vstate_on(regs);
-+		}
- 	}
- }
- 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index aacb23978f93..f1f36a3c7914 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -279,6 +279,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		p->thread.ra = (unsigned long)ret_from_fork_user_asm;
- 	}
- 	p->thread.riscv_v_flags = 0;
-+	p->thread.riscv_v_release_flags = 0;
- 	if (has_vector() || has_xtheadvector())
- 		riscv_v_thread_alloc(p);
- 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 22fc9b3268be..934ddc06858d 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -8,6 +8,7 @@
- #include <linux/syscalls.h>
- #include <asm/cacheflush.h>
- #include <asm-generic/mman-common.h>
-+#include <asm/vector.h>
- 
- static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 			   unsigned long prot, unsigned long flags,
-@@ -78,6 +79,17 @@ SYSCALL_DEFINE3(riscv_flush_icache, uintptr_t, start, uintptr_t, end,
- 	return 0;
- }
- 
-+SYSCALL_DEFINE0(riscv_release_vector_register)
-+{
-+	struct pt_regs *regs = task_pt_regs(current);
-+
-+	if (__riscv_v_vstate_check(regs->status, DIRTY))
-+		__riscv_v_vstate_clean(regs);
-+
-+	WRITE_ONCE(current->thread.riscv_v_release_flags, 1);
-+	return 0;
-+}
-+
- /* Not defined using SYSCALL_DEFINE0 to avoid error injection */
- asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *__unused)
- {
-diff --git a/scripts/syscall.tbl b/scripts/syscall.tbl
-index 7a42b32b6577..1d0a493b87c3 100644
---- a/scripts/syscall.tbl
-+++ b/scripts/syscall.tbl
-@@ -302,6 +302,7 @@
- 
- 244	or1k	or1k_atomic			sys_or1k_atomic
- 
-+257	riscv	riscv_release_vector_register	sys_riscv_release_vector_register
- 258	riscv	riscv_hwprobe			sys_riscv_hwprobe
- 259	riscv	riscv_flush_icache		sys_riscv_flush_icache
- 
+ /* DCIU resets*/
+ #define RESET_DCIU_HDMA          0
+
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260312-01-k3-reset-usb-pci-dd00afa7561a
+
+Best regards,
 -- 
-2.25.1
+Yixun Lan <dlan@kernel.org>
 
 
 _______________________________________________
