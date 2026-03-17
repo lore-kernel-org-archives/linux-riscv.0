@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCDA6F3381E
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 09:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F657F3381E
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 09:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0hi5cvB4ZESU4LfPMplYzK1wnZFsecUMJeb1fXSCmqk=; b=IFRvmUtOIvlKGo
-	5HfIoVejaiebzLBAmsX1d53SkqQhtPkzbckodv6a+3WX1aFM1AIveshTSXyVXWyYyJblCuDuI+xQZ
-	u7W6dRGNr2tg9CRAxHndKBU9sYN8Mtzn3sxf+1ZQg2y9ouqsgNBpUfF4/8D1xJzhgqyrQxznyeIPt
-	wHeJBsVvCPilcbvsuPb/KEmZB4YAcCOIMOQ1t2OwQ1X1sRsEepHOPsi3zP0tPZt2pXLftPvIaizIa
-	FVzU8fhmuJXcOcPNUjl+nYesanrmyXjUbeYIuiyl4PIhW3UBugryM3AquhbwBav+LfwpnG5DW63jw
-	5ktDO9u3HLXa1tweHIwA==;
+	List-Owner; bh=yZ0+R2FTk5pxx01pTmEahZs5a12e9kHxIqaHLuetANQ=; b=GJ5HJaCvfW96pt
+	TxnKklfmwIXnMiAKR6QfOGVo/Zt2m34zXh+M/8V3/ItRvVoDhOmsZGSB1+jBWvERbdvZa0EwtcP+E
+	ICqnpjJCyOaoSkusDAXsYAtnJywVsejdLsHiaclYzQZQQXqQlzFCpub3tB+jfLe4+NhSsx2j09/LV
+	VwROniUsBFF/BFVKghnLK04UnonAvmVn3t2E0Lp1G5zOUSb5PH5efPUwXkye6c2W+WJsKM+f9vXKp
+	2QOamps81BeDjdAfPn11YsRs15dGIwgXfdOs/21OxF09djJ9Gz4UC3nGApJiML/VuRJzwMTKvw04l
+	gr5N4HUsOth6iRuhE43A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QYF-00000005q7h-0E20;
-	Tue, 17 Mar 2026 09:17:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w2QYY-00000005qGT-0P5b;
+	Tue, 17 Mar 2026 09:17:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QYB-00000005q5O-3mHB;
-	Tue, 17 Mar 2026 09:17:20 +0000
+	id 1w2QYU-00000005qEj-43NC;
+	Tue, 17 Mar 2026 09:17:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4383B6132E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 954EA43672;
+	Tue, 17 Mar 2026 09:17:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65A00C19425;
 	Tue, 17 Mar 2026 09:17:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E7D7C2BC9E;
-	Tue, 17 Mar 2026 09:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773739039;
-	bh=Mk/oX5hILYiP7pQGn6SnTdlX4gw/NbWPzyO/VnCZiBw=;
+	s=k20201202; t=1773739058;
+	bh=6y8Kwkh/OaXUAUrCp7sWLG87zBC+NAUQTwYE5Ak5GSk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QYiqhmApnfyMWRd7nudSPadPclrdwy7KxdA/OH/prej1bKJmrgKSW2/u8En/1GZFl
-	 GADrJmqNxGcuowwqrzMLce6Pvim9wcvbSG94OR/DtA2tcYUoPIqXvXMagiGgAmvm9r
-	 UYShmiHGLg4MVujYG2dC9kLKNbvh+ZX3xMQ0k62lXxkatQWHcm5Bb8E4qeGHUqt40J
-	 J+qafXs1BUKRJvtXC/efFzZztQ0OHgYDVz/WsPcSAYX+/QtTmIcN8s6fbGbth/BBqa
-	 kuOj6yI3LSDNBAos0ImceSwNrKiS6eQ6Mgv6KnrL08LXvTM6WcdhnhxBLoR0RMPoBp
-	 r83OCR3II7PBw==
+	b=H1I3ECyaVjAv8V07VjWoO7K3OMvYB22GI6ioEMAE14Wyqr4QC8SGYtafcvejqr4tN
+	 qkx09x1luYXw8AvU+giJ+A7A4+asAI6nN1a1tTkMTXa5crQz2UlxrwaynyHw6Xg5iS
+	 ndnhrVrDu/Daj2vNgsuAeUI7tdajy/rGJsr/PW2pkui/ixmfWQvZ89O4lzr4NWwqRl
+	 W25J76tfRi7iGQd4MxwKw+Duwb+cAfZScCi/jM2WeSlEQlMAEKbjlqshOzHiUiEAXA
+	 yI3Yv5R4+kKjT4h5ZT+11yWuT/6kGkEA/4gLqjKkv8UAaQwPVa/Fvpmy3aJBxuYs8L
+	 vYjjCxUe6vaHg==
 From: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
-Date: Tue, 17 Mar 2026 10:13:42 +0100
-Subject: [PATCH 6/9] arm64: defconfig: remove implicit assignment to
- CRYPTO_SHA3
+Date: Tue, 17 Mar 2026 10:13:43 +0100
+Subject: [PATCH 7/9] arm64: defconfig: remove incorrect assignment to
+ IPQ_APSS_5018
 MIME-Version: 1.0
-Message-Id: <20260317-arm_defconf_cleanup-v1-6-8eecb7fdd24d@kernel.org>
+Message-Id: <20260317-arm_defconf_cleanup-v1-7-8eecb7fdd24d@kernel.org>
 References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
 In-Reply-To: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
 To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
@@ -116,14 +116,17 @@ Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  linux-renesas-soc@vger.kernel.org, linux-parisc@vger.kernel.org, 
  openbmc@lists.ozlabs.org, "Vincent Mailhol (Arm)" <mailhol@kernel.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1248; i=mailhol@kernel.org;
- h=from:subject:message-id; bh=Mk/oX5hILYiP7pQGn6SnTdlX4gw/NbWPzyO/VnCZiBw=;
- b=owGbwMvMwCV2McXO4Xp97WbG02pJDJk7pfvCDmS/Fdlwpjpxl/HUlTsWl1YJKocsKREOWyxfz
- /nk6WPvjlIWBjEuBlkxRZZl5ZzcCh2F3mGH/lrCzGFlAhnCwMUpABN50sDIMDGI6bOjM1dktH8q
- uzZX4bngw3XnnPlWbXi+fEvY5dmGNgz/s7cXHqhREZXlj9wTNi+p9WXLxKYl/7+u2bUwIk51rtF
- ZbgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=709; i=mailhol@kernel.org;
+ h=from:subject:message-id; bh=6y8Kwkh/OaXUAUrCp7sWLG87zBC+NAUQTwYE5Ak5GSk=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDJk7pfv+h06fUW+wxn1x9lH+P27C01ptVGM+Ga740GTrJ
+ v7U9dWJjlIWBjEuBlkxRZZl5ZzcCh2F3mGH/lrCzGFlAhnCwMUpABPZsZSR4brMbJ/EW5ziP5d7
+ r+t6Me136Islt3+dvjLx2rIGM61v6y4x/GI+sbVb4fQH233qzxrtQj9dOamXqLWOT8bzoa3QZJf
+ 7//gB
 X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
  fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260317_021739_052378_EF8FA9EA 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,38 +143,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When given the arm64 defconfig, merge_config.sh yields below warning:
+CONFIG_IPQ_APSS_5018 does not exist and never existed. Remove it.
 
-  $ ARCH=arm64 ./scripts/kconfig/merge_config.sh arch/arm64/configs/defconfig
-  <...>
-  WARNING: CONFIG_CRYPTO_SHA3 differs:
-  Requested value: CONFIG_CRYPTO_SHA3=m
-  Actual value:    CONFIG_CRYPTO_SHA3=y
-
-This is because one of CRYPTO_SHA3 child dependency, CRYPTO_JITTERENTROPY,
-is set to "y" thus preventing CRYPTO_SHA3 to be built as a module.
-
-CRYPTO_SHA3 is automatically selected anyway, so just remove it from
-the defconfig and let the kconfig scripts set it to the correct value.
-
-Fixes: 1e29a750572a ("lib/crypto: arm64/sha3: Migrate optimized code into library")
+Fixes: 7f0c87348fb5 ("arm64: defconfig: Enable IPQ5018 SoC base configs")
 Signed-off-by: Vincent Mailhol (Arm) <mailhol@kernel.org>
 ---
  arch/arm64/configs/defconfig | 1 -
  1 file changed, 1 deletion(-)
 
 diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 7f6334d1d040..0b307e2ab384 100644
+index 0b307e2ab384..1fda77bca432 100644
 --- a/arch/arm64/configs/defconfig
 +++ b/arch/arm64/configs/defconfig
-@@ -1901,7 +1901,6 @@ CONFIG_CRYPTO_CHACHA20=m
- CONFIG_CRYPTO_BENCHMARK=m
- CONFIG_CRYPTO_ECHAINIV=y
- CONFIG_CRYPTO_MICHAEL_MIC=m
--CONFIG_CRYPTO_SHA3=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_GHASH_ARM64_CE=y
- CONFIG_CRYPTO_SM3_ARM64_CE=m
+@@ -1456,7 +1456,6 @@ CONFIG_QCOM_CLK_APCC_MSM8996=y
+ CONFIG_QCOM_CLK_SMD_RPM=y
+ CONFIG_QCOM_CLK_RPMH=y
+ CONFIG_IPQ_APSS_6018=y
+-CONFIG_IPQ_APSS_5018=y
+ CONFIG_IPQ_CMN_PLL=m
+ CONFIG_IPQ_GCC_5018=y
+ CONFIG_IPQ_GCC_5332=y
 
 -- 
 2.43.0
