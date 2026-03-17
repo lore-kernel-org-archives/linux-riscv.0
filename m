@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F657F3381E
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 09:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC41AF3381B
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 09:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yZ0+R2FTk5pxx01pTmEahZs5a12e9kHxIqaHLuetANQ=; b=GJ5HJaCvfW96pt
-	TxnKklfmwIXnMiAKR6QfOGVo/Zt2m34zXh+M/8V3/ItRvVoDhOmsZGSB1+jBWvERbdvZa0EwtcP+E
-	ICqnpjJCyOaoSkusDAXsYAtnJywVsejdLsHiaclYzQZQQXqQlzFCpub3tB+jfLe4+NhSsx2j09/LV
-	VwROniUsBFF/BFVKghnLK04UnonAvmVn3t2E0Lp1G5zOUSb5PH5efPUwXkye6c2W+WJsKM+f9vXKp
-	2QOamps81BeDjdAfPn11YsRs15dGIwgXfdOs/21OxF09djJ9Gz4UC3nGApJiML/VuRJzwMTKvw04l
-	gr5N4HUsOth6iRuhE43A==;
+	List-Owner; bh=M+s7dvr9JtkjpUHGxTGXwHzCa124hFE4MJ4oV0p1JrQ=; b=qPzGfYpsOD7GhC
+	S7QcNwXMSPcQk6GIWapHdS9lrPZjcSHtoKWhes6LnFVikjTheP+7shMF2a9xS4k7e72tZ2ozOGkEg
+	hujI7XQb+zbXrMVVXBJ7Z8PsNn+P7ft6Q8JPBDhavH16Fy7wn7yDqq5kZGpQ4B0J8NLzRW2Lo9V8e
+	fLzjAnqO5W8ZLpNgkXvZ2cCPo9gh6aDo8uUrlCwRr89ga2MX39kOfL07v3YzMWEMCfXRSZdv/UE7K
+	vNy+g5Y4v3ijkJL+rcyxotV1+8FM/KgrCAwQ34EDKl0ucyQeVzoJqdI0ISMGdYfjX38nU4+FeHJor
+	qcIyuY5eeJls201SCp/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QYY-00000005qGT-0P5b;
-	Tue, 17 Mar 2026 09:17:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w2QYt-00000005qQo-1uAs;
+	Tue, 17 Mar 2026 09:18:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QYU-00000005qEj-43NC;
-	Tue, 17 Mar 2026 09:17:40 +0000
+	id 1w2QYr-00000005qPb-0EMa;
+	Tue, 17 Mar 2026 09:18:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 954EA43672;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A71261336;
+	Tue, 17 Mar 2026 09:17:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF11CC4CEF7;
 	Tue, 17 Mar 2026 09:17:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65A00C19425;
-	Tue, 17 Mar 2026 09:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773739058;
-	bh=6y8Kwkh/OaXUAUrCp7sWLG87zBC+NAUQTwYE5Ak5GSk=;
+	s=k20201202; t=1773739078;
+	bh=rijEHchLteNXFaviNnGMZpirNppt7OUDLa0dnxKFYl8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=H1I3ECyaVjAv8V07VjWoO7K3OMvYB22GI6ioEMAE14Wyqr4QC8SGYtafcvejqr4tN
-	 qkx09x1luYXw8AvU+giJ+A7A4+asAI6nN1a1tTkMTXa5crQz2UlxrwaynyHw6Xg5iS
-	 ndnhrVrDu/Daj2vNgsuAeUI7tdajy/rGJsr/PW2pkui/ixmfWQvZ89O4lzr4NWwqRl
-	 W25J76tfRi7iGQd4MxwKw+Duwb+cAfZScCi/jM2WeSlEQlMAEKbjlqshOzHiUiEAXA
-	 yI3Yv5R4+kKjT4h5ZT+11yWuT/6kGkEA/4gLqjKkv8UAaQwPVa/Fvpmy3aJBxuYs8L
-	 vYjjCxUe6vaHg==
+	b=XpwVmfZw0JgXdiE+9Wy7h/YBbFNV2OF2PkFXJirhrMjyHVETav4IuXybm/nhrKbEk
+	 Pcg5g9eXGagveMnhb0pPNJ8ekcfyChtxtDD5u2bKbV2IwVUcQjWuIPLtZXV88xWRRa
+	 fnDRnXz0+h1/HEJktAYm6Drw56s0I6YC8BoaYLXdGr+PUP2mZV9/o9ApAbuj2nAF9K
+	 ErkJ/xyOxGtDap4AMHhLUg25qX9nEzNONDGvrUbRvLzJglPEHUZ2AsG9H5jLTpfJDF
+	 KVAR7LFPE5HIoLf8DdWDaFSuDNPAVr5+fhJpCw8JZw0bqDYX7yEO/ZXVvE6cGlE5AW
+	 xj983+NGdjTjg==
 From: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
-Date: Tue, 17 Mar 2026 10:13:43 +0100
-Subject: [PATCH 7/9] arm64: defconfig: remove incorrect assignment to
- IPQ_APSS_5018
+Date: Tue, 17 Mar 2026 10:13:44 +0100
+Subject: [PATCH 8/9] arm64: defconfig: remove obsolete assignment to
+ SENSORS_SA67MCU
 MIME-Version: 1.0
-Message-Id: <20260317-arm_defconf_cleanup-v1-7-8eecb7fdd24d@kernel.org>
+Message-Id: <20260317-arm_defconf_cleanup-v1-8-8eecb7fdd24d@kernel.org>
 References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
 In-Reply-To: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
 To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
@@ -116,17 +116,14 @@ Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  linux-renesas-soc@vger.kernel.org, linux-parisc@vger.kernel.org, 
  openbmc@lists.ozlabs.org, "Vincent Mailhol (Arm)" <mailhol@kernel.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=709; i=mailhol@kernel.org;
- h=from:subject:message-id; bh=6y8Kwkh/OaXUAUrCp7sWLG87zBC+NAUQTwYE5Ak5GSk=;
- b=owGbwMvMwCV2McXO4Xp97WbG02pJDJk7pfv+h06fUW+wxn1x9lH+P27C01ptVGM+Ga740GTrJ
- v7U9dWJjlIWBjEuBlkxRZZl5ZzcCh2F3mGH/lrCzGFlAhnCwMUpABPZsZSR4brMbJ/EW5ziP5d7
- r+t6Me136Islt3+dvjLx2rIGM61v6y4x/GI+sbVb4fQH233qzxrtQj9dOamXqLWOT8bzoa3QZJf
- 7//gB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=824; i=mailhol@kernel.org;
+ h=from:subject:message-id; bh=rijEHchLteNXFaviNnGMZpirNppt7OUDLa0dnxKFYl8=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDJk7pfu4z51qK2SKqPyQF71s5huv6GT+Csa9LQnOJ5L/9
+ gfNT5/fUcrCIMbFICumyLKsnJNboaPQO+zQX0uYOaxMIEMYuDgFYCISDxn+KfF26bU9O/vIh/dw
+ l+z03NxrCSeWyx/higu0+Sy2KKSwk+F/xaT++zem3G88G3/mbKnKgUheFcFqpQOPWvq2f7hTUC/
+ DAQA=
 X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
  fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_021739_052378_EF8FA9EA 
-X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,26 +140,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CONFIG_IPQ_APSS_5018 does not exist and never existed. Remove it.
+The Kontron SMARC-sAM67 board management controller is not in the
+kernel tree anymore. Clean-up the leftover reference to
+CONFIG_SENSORS_SA67MCU which was left in the defconfig.
 
-Fixes: 7f0c87348fb5 ("arm64: defconfig: Enable IPQ5018 SoC base configs")
+Fixes: e710b2283725 ("Revert "hwmon: add SMARC-sAM67 support"")
 Signed-off-by: Vincent Mailhol (Arm) <mailhol@kernel.org>
 ---
  arch/arm64/configs/defconfig | 1 -
  1 file changed, 1 deletion(-)
 
 diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 0b307e2ab384..1fda77bca432 100644
+index 1fda77bca432..c5e23beeaebf 100644
 --- a/arch/arm64/configs/defconfig
 +++ b/arch/arm64/configs/defconfig
-@@ -1456,7 +1456,6 @@ CONFIG_QCOM_CLK_APCC_MSM8996=y
- CONFIG_QCOM_CLK_SMD_RPM=y
- CONFIG_QCOM_CLK_RPMH=y
- CONFIG_IPQ_APSS_6018=y
--CONFIG_IPQ_APSS_5018=y
- CONFIG_IPQ_CMN_PLL=m
- CONFIG_IPQ_GCC_5018=y
- CONFIG_IPQ_GCC_5332=y
+@@ -743,7 +743,6 @@ CONFIG_SENSORS_LM75=m
+ CONFIG_SENSORS_LM90=m
+ CONFIG_SENSORS_PWM_FAN=m
+ CONFIG_SENSORS_RASPBERRYPI_HWMON=m
+-CONFIG_SENSORS_SA67MCU=m
+ CONFIG_SENSORS_SL28CPLD=m
+ CONFIG_SENSORS_INA2XX=m
+ CONFIG_SENSORS_INA3221=m
 
 -- 
 2.43.0
