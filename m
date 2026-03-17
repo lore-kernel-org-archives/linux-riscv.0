@@ -4,76 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E476FB5EA7
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 02:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0220CFB5EA9
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 03:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dvkIS6SyUT81Qc15ZJDwID291DhPQ/O4AgD2UDoGkJQ=; b=qW+tAmMWIZUXvf
-	vMMT1Kr5l2vdWwLmpnbVZH703IWVldxBMgdudThcWenYa2NrunZCkEmaxiWXiU6112hnpU3U+yY/d
-	kLzhZDHMcU3NeD/CxbulQ18VB45bhBxHHFUr3ZEPBcoNwEj+epAr/L9+DCygcODIhVYScxxK9aQZp
-	U5k829wLnowriIygR96l87wIcqZbKVSiEh9u5x/cfFOBUS+MvfY9CJ9PCL9rzU+In5hV2LBjpUKyg
-	CVNgZ4fxvzO9k8bLrgx4d00hwSK17GyF84dCfrbSBoAhFm6lWOujxB6LzTShDkjS7snSY8egzTliC
-	0sz/vfiBp/apHNRy5Mbw==;
+	List-Owner; bh=vE1EpFEXsl1sthMnaGMOvt74WIvEbHzLnnpDV3Xq4Rk=; b=32JO8WK4IjhXeT
+	hGPLNHgXTsXC3tmMJ5J8z6Q8Jbjf6yEDw4ttMMJPkNbFEBRmUZ1yqMCOd7b0Zzj9avpzTO5+WIJoG
+	HnW/wRCU/qGlArKDDm/wUGA9j5NElmggR7hY92Qd+e9wvy5ufd9iHcvTipid+RKdsA4j+KAEMZpiI
+	HVnuPPTqlnJgh0MH0QAiOLxCYSUJ42hqNHk9isKiBrP+Mw1+ynga7ZfeC42HKpO1KFDuGO2eG0p6S
+	6hpoQuxItgUwmbESjJFAcFySgI6bCrENJr4uIqGXnO9uqAZwCdkwM8qC7BY59fQcc4BKUjEi7dVGc
+	wN33nBhG4kgpda34KKUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2KSM-00000005GRX-1IWO;
-	Tue, 17 Mar 2026 02:46:54 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1w2Klb-00000005HQC-09Gg;
+	Tue, 17 Mar 2026 03:06:47 +0000
+Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2KSJ-00000005GQD-2RA7
+	id 1w2KlY-00000005HPW-0wKR
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 02:46:53 +0000
-X-QQ-mid: zesmtpsz9t1773715523t4ae20d3d
-X-QQ-Originating-IP: 2h42IC1ek+5dvQXwfLBVyYcnusnH3Nyf0LxkdkbHyV0=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 17 Mar 2026 10:45:21 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4810139380364614713
-X-QQ-CSender: troy.mitchell@linux.spacemit.com
-Mime-Version: 1.0
-Date: Tue, 17 Mar 2026 10:45:21 +0800
-Message-Id: <DH4PODM2MN9W.V6082HZA6E18@linux.dev>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <spacemit@lists.linux.dev>
-Subject: Re: [PATCH RFC] riscv: disable local interrupts and stop other CPUs
- before restart
-From: "Troy Mitchell" <troy.mitchell@linux.dev>
-To: "Samuel Holland" <samuel.holland@sifive.com>, "Troy Mitchell"
- <troy.mitchell@linux.dev>, "Vivian Wang" <wangruikang@iscas.ac.cn>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev> <f9079774-1d16-4b84-bf85-bc8444e93446@iscas.ac.cn> <DH40Z14EHV40.1I443BTRU720F@linux.dev> <c1f466f8-4e76-43a2-a7a2-126415fd1f56@sifive.com>
-In-Reply-To: <c1f466f8-4e76-43a2-a7a2-126415fd1f56@sifive.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: No6BRNJhcpN0UX6OEnuJKhkIKXUwxWIZH4DTyp12UVRBbxWlqB7rjqU2
-	G8FUARRYwrpwNuudNoWAluIz+Vs3l64HXkIN0t7E2L5hhmB2jVbn0zuMqt8SSNzGByAdAZY
-	WlR123dCpvQ5Xbzxj/u8e3IzzDOtQI6nULXEsYj6Jn1JPbL6VbTBVkje4l44d3JZSP12i2h
-	sgO7QJOgnH+lzBBFLSGho/h83qv3IbLxiohOoTzJbQGHG1x8XSFkb+IRAouujecQL5vbS1K
-	V5hM+DwMxNmhAXfx2iZej2kPmJqvDBoWqeMJzfi2ubr7fMfSaBQr+Zo6I0NRtiX0cFXPq9y
-	d4EGwh8IqIaLF4ER/CZSLIqD5ItSdU5V0FYT7weWFe1eliK9YHPf1jLiglal3m4C/IdaWW+
-	HYLsLKHEVxxG+Q/oze3DVRtUdMSvuQ5g2oxYu0tNndVSSGNd3gpANdQ+uxQQ4OAfp7srszA
-	uLDqj4YL3+kIX0vl/O9P5URyWlAzJaUF8DDJewbunDrlnB8NzIn55wxpHz8XZ1xVBE+imCm
-	SEFI5mcHoulghMxQPkioG62TeqCE5DtIAcdU+IAQq6jN6nD3qz8aI2UGuHw9UEOdnnp2KF+
-	nRej0aJbO5uxpZRvT9ZcWD/MLliYZho72Ztc5CPo8wAJFgwTr0FR0vUHRyjjaqRfmazNiTw
-	qnovwrxUiKJIhnf+LctDUQnrShiHM5PbxncXcbaTSKXabbDwCc0ve0sSpF+mFjD68W5nioR
-	/kClzt7LsaPZNuvi/5GCA1rEIwMS1HFrp6nWn8FpFSV70vgYJfGTYNlLxsl/CeXGoELS5WP
-	GYdLPM5qaMDn8/YMWIICHN+Pkb0yLMctvuZTOpHdhoob0sP0JrddPUIcFQDQD/QojOYxDj9
-	jO/lvjU7xlwVLQv/fd7J0Vi9h5mTy5BKlsj9tKB4ceFmwJoi0J9ybkRa35WnwJdgNl14b7J
-	1DzBJnzGonqzQTxGhogqBEXAIgeCzpHuKry6gItspV8GLq6NA/oXhR7aLG8XnSgv7cN/D6J
-	UWeYJ+2g==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+	Tue, 17 Mar 2026 03:06:45 +0000
+Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-40946982a78so2029745fac.2
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 20:06:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1773716803; x=1774321603; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pIA5bzRUo/kqjvuSbXtkhZ0/jdS0vsz2MPNHxmrgJFE=;
+        b=O+ONBUeC2Ydk2uIeTn7HSjsKWlkyQuIfbHTTeOYaTKtbfuwpOe5l0i+5rV1trR0no7
+         2WtF7D4fVFhB/ehzkd4vpEe4+KrGEDooqDzVhtwNvjlDNDBX37TS3/pK2k6JlG6Lk/NP
+         oIG1Owfu/CadNA6869Cw2fE52RoFVZXv4E3dvfoZ550uJTtSvsijamzt4Ql15Q0fRy/F
+         BS5qSI7Ecw13iF165u0AxOQyX3x6bUlxVrV0pGOgWdIfp3oXSzqZ+SnJ2Xe5pZC8ZHMV
+         O5z72x1yyp1tpzl5dGyqKAou7nU9YXL2KBR/zncTzBRRC955GUOQEB312GSn9FviRCFO
+         l5Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773716803; x=1774321603;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pIA5bzRUo/kqjvuSbXtkhZ0/jdS0vsz2MPNHxmrgJFE=;
+        b=BsdD+jM4k1sUDQ1FYC0BtrE3ZIL72v8tw8EXqwf0YWunCgTzTcnVT0sWv7rl8+Mvcp
+         Y8iX1t/6fBhqT5aSkvG3XLle1rlSZpCR/AJ0TblYfrX8kSAi/8UsRha3tOfu2qbSwTIf
+         YtNNiA6ohS2S6B6J51WPEoA0HltUKlOQZOLc4MJDbahY8GTg+byb9gKclAhUF9BfkSC6
+         3QlcWLFSLFKAQx90HfcmNBlBovNyPaxCLhdz7KkKEsWOGrmvzaj0dYkcU8U5pPXDiSB1
+         EBlzQYrRAkFdWigZWq6wgSYFdWNbr37/2QkpqFfFUktKOoyP6mF1MwhOv3+zGU4xXIM7
+         iusA==
+X-Forwarded-Encrypted: i=1; AJvYcCX+S398DeiknARIwioOZAj4KJv46XH9NEcno/Krjw44+MXTlyn4Kt24PEk21wQVWzaDb7z3HRnaPv10xw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMLLnb+ejZYVA9Qn4Rv0O/jTpMNUpUS2oHps+PIalNdu5D0T6g
+	bAQwP6LPX1gV7cyv6IB7ZMzxGQ16E4XC5m+sqVac6LN7J1YCfVruq5H7RbrwFazRj/k=
+X-Gm-Gg: ATEYQzyqUI9l6cmInKZ39E9ENgJnz0yBH6SzxtFM3JQa9zdRCdHm9kZJj3HiuBoWRU1
+	a7ExKxxnGQwfp3YamtZtf68AoXTLfzhETRfIZ2Ob9gCEtoxwCi+Gs2Rr5SdEN7hGtgGDwX9kOXn
+	6hQj9PPrjnr5indMXIxxqqhvOz50CMnzrMmbv5G1UHvajTzS1ctUrxY2bZ1RIafuH7ne3RdZk67
+	RrOnuyW7A9XMGXlO9L9zvO1K189Lfia9s1e1ej01aiwZoGQzO7ilri9QCWPeCte4NqZGfqKtS0c
+	RrJhWw72GniIeyoAeFvs9NFQoe1rYn7ppPwnyEcwdNwFkY8NoY+NPyeXwziTPuY0gjhgC0yqf8S
+	hJyGSxkWCe41KQ7iqiu0ak5NtMISdm+cOiZ+VqdwqNBmJn0cnyBg6QxtqZpJ1s3UP4y0PslCRfB
+	2EzYJOFp6x58/CNVjR7FHqjjSvY4R4Y6wVC31B8biw
+X-Received: by 2002:a05:6870:c154:b0:40e:a338:c8a1 with SMTP id 586e51a60fabf-417b9072c62mr8995239fac.11.1773716802857;
+        Mon, 16 Mar 2026 20:06:42 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.103.33])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4177e1f9f86sm18099947fac.2.2026.03.16.20.06.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Mar 2026 20:06:42 -0700 (PDT)
+Message-ID: <f25ed5b8-e785-414a-b13e-85c1a787665d@sifive.com>
+Date: Mon, 16 Mar 2026 22:06:40 -0500
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 7/7] futex: Use runtime constants for
+ __futex_hash() hot path
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Sean Christopherson <seanjc@google.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ Charles Mirabile <cmirabil@redhat.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Huth <thuth@redhat.com>,
+ Jisheng Zhang <jszhang@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>
+References: <20260316052401.18910-1-kprateek.nayak@amd.com>
+ <20260316052401.18910-8-kprateek.nayak@amd.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20260316052401.18910-8-kprateek.nayak@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_194652_159800_64E8A829 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20260316_200644_316038_85323A9F 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,114 +121,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon Mar 16, 2026 at 9:19 PM CST, Samuel Holland wrote:
-Hi Samuel,
-> Hi Troy,
->
-> On 2026-03-16 2:23 AM, Troy Mitchell wrote:
->> On Thu Mar 12, 2026 at 11:05 AM CST, Vivian Wang wrote:
->>> On 3/11/26 10:51, Troy Mitchell wrote:
->>>> Currently, the RISC-V implementation of machine_restart() directly calls
->>>> do_kernel_restart() without disabling local interrupts or stopping other
->>>> CPUs. This missing architectural setup causes fatal issues for systems
->>>> that rely on external peripherals (e.g., I2C PMICs) to execute the system
->>>> restart when CONFIG_PREEMPT_RCU is enabled.
->>>>
->>>> When a restart handler relies on the I2C subsystem, the I2C core checks
->>>> i2c_in_atomic_xfer_mode() to decide whether to use the sleepable xfer
->>>> or the polling atomic_xfer. This check evaluates to true if
->>>> (!preemptible() || irqs_disabled()).
->>>>
->>>> During do_kernel_restart(), the restart handlers are invoked via
->>>> atomic_notifier_call_chain(), which holds an RCU read lock.
->>>> The behavior diverges based on the preemption model:
->>>> 1. Under CONFIG_PREEMPT_VOLUNTARY or CONFIG_PREEMPT_NONE, rcu_read_lock()
->>>>    implicitly disables preemption. preemptible() evaluates to false, and
->>>>    the I2C core correctly routes to the atomic, polling transfer path.
->>>> 2. Under CONFIG_PREEMPT_RCU, rcu_read_lock() does NOT disable preemption.
->>>>    Since machine_restart() left local interrupts enabled, irqs_disabled()
->>>>    is false, and preempt_count is 0. Consequently, preemptible() evaluates
->>>>    to true.
->>>>
->>>> As a result, the I2C core falsely assumes a sleepable context and routes
->>>> the transfer to the standard master_xfer path. This inevitably triggers a
->>>> schedule() call while holding the RCU read lock, resulting in a fatal splat:
->>>> "Voluntary context switch within RCU read-side critical section!" and
->>>> a system hang.
->>>>
->>>> Align RISC-V with other major architectures (e.g., ARM64) by adding
->>>> local_irq_disable() and smp_send_stop() to machine_restart().
->>>> - local_irq_disable() guarantees a strict atomic context, forcing sub-
->>>>   systems like I2C to always fall back to polling mode.
->>>> - smp_send_stop() ensures exclusive hardware access by quiescing other
->>>>   CPUs, preventing them from holding bus locks (e.g., I2C spinlocks)
->>>>   during the final restart phase.
->>>
->>> Maybe while we're at it, we can fix the other functions in this file as
->>> well?
->> Nice catch. I'll fix other functions in the next version.
->>>
->>> I think the reason we ended up with the "unsafe" implementations of the
->>> reboot/shutdown functions is that on the backend it is usually SBI SRST
->>> calls, which can protect itself from other CPUs and interrupts. Since on
->>> K1 we're going to be poking I2C directly, we run into the problem
->>> described above. So all of these should disable interrupts and stop
->>> other CPUs before calling the handlers, and can't assume the handlers
->>> are all SBI SRST.
->> Yes, we cannot assume that all platforms rely on this.
->
-> Why isn't K1 using the SBI SRST extension? Resetting the platform from S-mode
-> directly causes problems if you ever want to run another supervisor domain (for
-> example a TEE or EFI runtime services), which may need to clean up before a
-> system reset.
->
-> As you mention, other platforms use the standard SBI SRST interface, event if
-> they need to poke a PMIC to perform a system reset. Is there something
-> preventing K1 from following this path?
+Hi Prateek,
 
-Ideally, yes, resetting the platform should be handled by the firmware (SBI SRST) to
-properly tear down M-mode/TEE states before pulling the plug.
+On 2026-03-16 12:24 AM, K Prateek Nayak wrote:
+> From: Peter Zijlstra <peterz@infradead.org>
+> 
+> Runtime constify the read-only after init data  __futex_shift(shift_32),
+> __futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
+> hot path to avoid referencing global variable.
+> 
+> This also allows __futex_queues to be allocated dynamically to
+> "nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
+> (1 << CONFIG_NODES_SHIFT) worth of slots upfront.
+> 
+> No functional chages intended.
+> 
+>   [ prateek: Dynamically allocate __futex_queues, mark the global data
+>     __ro_after_init since they are constified after futex_init(). ]
+> 
+> Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
+> Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
+> Not-yet-signed-off-by: Peter Zijlstra <peterz@infradead.org>
+> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
+> ---
+>  include/asm-generic/vmlinux.lds.h |  5 +++-
+>  kernel/futex/core.c               | 42 +++++++++++++++++--------------
+>  2 files changed, 27 insertions(+), 20 deletions(-)
+> 
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> index 1e1580febe4b..86f99fa6ae24 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -975,7 +975,10 @@
+>  		RUNTIME_CONST(shift, d_hash_shift)			\
+>  		RUNTIME_CONST(ptr, dentry_hashtable)			\
+>  		RUNTIME_CONST(ptr, __dentry_cache)			\
+> -		RUNTIME_CONST(ptr, __names_cache)
+> +		RUNTIME_CONST(ptr, __names_cache)			\
+> +		RUNTIME_CONST(shift, __futex_shift)			\
+> +		RUNTIME_CONST(mask,  __futex_mask)			\
+> +		RUNTIME_CONST(ptr,   __futex_queues)
+>  
+>  /* Alignment must be consistent with (kunit_suite *) in include/kunit/test.h */
+>  #define KUNIT_TABLE()							\
+> diff --git a/kernel/futex/core.c b/kernel/futex/core.c
+> index cf7e610eac42..6b5c5a1596a5 100644
+> --- a/kernel/futex/core.c
+> +++ b/kernel/futex/core.c
+> @@ -45,23 +45,19 @@
+>  #include <linux/mempolicy.h>
+>  #include <linux/mmap_lock.h>
+>  
+> +#include <asm/runtime-const.h>
+> +
+>  #include "futex.h"
+>  #include "../locking/rtmutex_common.h"
+>  
+> -/*
+> - * The base of the bucket array and its size are always used together
+> - * (after initialization only in futex_hash()), so ensure that they
+> - * reside in the same cacheline.
+> - */
+> -static struct {
+> -	unsigned long            hashmask;
+> -	unsigned int		 hashshift;
+> -	struct futex_hash_bucket *queues[MAX_NUMNODES];
+> -} __futex_data __read_mostly __aligned(2*sizeof(long));
+> +static u32 __futex_mask __ro_after_init;
+> +static u32 __futex_shift __ro_after_init;
+> +static struct futex_hash_bucket **__futex_queues __ro_after_init;
+>  
+> -#define futex_hashmask	(__futex_data.hashmask)
+> -#define futex_hashshift	(__futex_data.hashshift)
+> -#define futex_queues	(__futex_data.queues)
+> +static __always_inline struct futex_hash_bucket **futex_queues(void)
+> +{
+> +	return runtime_const_ptr(__futex_queues);
+> +}
+>  
+>  struct futex_private_hash {
+>  	int		state;
+> @@ -439,14 +435,14 @@ __futex_hash(union futex_key *key, struct futex_private_hash *fph)
+>  		 * NOTE: this isn't perfectly uniform, but it is fast and
+>  		 * handles sparse node masks.
+>  		 */
+> -		node = (hash >> futex_hashshift) % nr_node_ids;
+> +		node = runtime_const_shift_right_32(hash, __futex_shift) % nr_node_ids;
+>  		if (!node_possible(node)) {
+>  			node = find_next_bit_wrap(node_possible_map.bits,
+>  						  nr_node_ids, node);
+>  		}
+>  	}
+>  
+> -	return &futex_queues[node][hash & futex_hashmask];
+> +	return &futex_queues()[node][runtime_const_mask_32(hash, __futex_mask)];
+>  }
+>  
+>  /**
+> @@ -1913,7 +1909,7 @@ int futex_hash_allocate_default(void)
+>  	 *   16 <= threads * 4 <= global hash size
+>  	 */
+>  	buckets = roundup_pow_of_two(4 * threads);
+> -	buckets = clamp(buckets, 16, futex_hashmask + 1);
+> +	buckets = clamp(buckets, 16, __futex_mask + 1);
+>  
+>  	if (current_buckets >= buckets)
+>  		return 0;
+> @@ -1983,10 +1979,19 @@ static int __init futex_init(void)
+>  	hashsize = max(4, hashsize);
+>  	hashsize = roundup_pow_of_two(hashsize);
+>  #endif
+> -	futex_hashshift = ilog2(hashsize);
+> +	__futex_mask = hashsize - 1;
+> +	__futex_shift = ilog2(hashsize);
 
-However, for the K1 platform, while the SoC itself can be reset via SBI SRST, this warm
-reset does not propagate to the external PMIC. For instance, if the kernel switches the
-SD card to 1.8V signaling for high-speed mode during runtime, an SoC-only reset leaves
-the PMIC still supplying 1.8V. Upon reboot, the bootrom/early kernel expects the SD card
-to be in the default 3.3V state for initialization, which inevitably leads to a boot hang.
+__futex_mask is always a power of two minus 1, in other words all low bits set.
+Would it be worth using an n-bit zero extension operation instead of an
+arbitrary 32-bit mask? This would use fewer instructions on some architectures:
+for example a single ubfx on arm64 and slli+srli on riscv.
 
-Setting the K1-specific hardware design aside, I believe this patch is fundamentally necessary
-to fix a latent bug in the RISC-V Linux kernel itself, regardless of whether the final
-reset is backed by SBI or not.
-
-The core issue here is the context in which do_kernel_restart() invokes the restart_handler_list.
-It does so via an atomic_notifier_call_chain. If RISC-V enters this phase without disabling local IRQs,
-we are leaving a trap for any generic driver or kernel subsystem invoked during this teardown phase.
-
-Under CONFIG_PREEMPT_RCU, the RCU read lock does not bump the preempt count.
-Without local_irq_disable(), the preemptible() check will unexpectedly evaluate to true.
-
-A quick grep shows that preemptible() is widely relied upon by generic subsystems to
-determine safe execution paths (~16 occurrences in kernel/ and ~11 in drivers/).
-This means generic code implicitly trusts the architecture to set up the correct
-atomic context during a system restart.
-
-The I2C PMIC crash we encountered is just one symptom of this missing context. If we don't
-fix this at the architecture level, it leaves the door open for other undiscovered panics.
-Any driver (watchdog, display, network, etc.) that registers a restart handler and internally
-relies on preemptible() to choose between a sleepable or polling path will inevitably trigger
-a schedule(), attempt to acquire a sleeping lock (e.g., a mutex), or call other blocking functions
-while holding the RCU read lock, resulting in a fatal splat.
-
-*Aligning machine_restart() with other architectures* by adding local_irq_disable() and smp_send_stop()
-ensures a deterministic, single-threaded atomic context.
-This protects the Linux teardown sequence from SMP deadlocks and context misidentification,
-well before the control is ever handed over to the firmware or hardware.
-
-Does this perspective make sense?
-
-                      - Troy
->
-> Regards,
-> Samuel
+Regards,
+Samuel
 
 
 _______________________________________________
