@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95CBFB5EA8
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 03:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CFFFB5EAC
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 03:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JiYEIw+IjQHdIi8MnRlj61bHT2LDGKYx4HDICN/FoU0=; b=Ku3CjpS5OuvRM6
-	TLQbzbkOmNiXmbKzHq/uBzW8FRPi+Ekv14O3g5UzTk62Ytf2E7JextVYgLEiDsVwHkj+buAeAiFes
-	gmj4mxepowytG1AImq0S6ehfFxcai5TVvP+NPjekrXuxbHd8m/pSYI/gdh+spVXq2nnwGrIQEHRFi
-	uNxwH/c8xKQQJJ78ynG0tbvSDV4SQyY7ZAUPBq2N+lefyUou9ktkexsak7UMe22I6BSKxRZtU6Gal
-	ASJbMTQqKYIAk+DscDk8x1AcZhMR4Xw6zglkDZZPxis/0t1DRRiLCO+pMVnWfvSvN2o1lU5HjznmU
-	mBjZrsnS5mow8v7+JZLw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mE+sQhhZXG57+OZplmoU6Gad7yCt1ZuXHhwcjW3Pljw=; b=LN59pB1R6pdGjB
+	TyKTwWGxaJb0OTQWthl9kb7E0pMvXBmAePUFTJI+ahBaW84Y5vncNksdE6Vtu9CsIZLN4Lmhj+9h4
+	mqykZqinB8tBusdNnzdBJZh9++o+eka9lUfdkQAJOf6BvMaDC0mBRNkPaQfQ52pwE8/QpzM1MK2bi
+	qjDFEHveBI/mNOTCJOE4xxpSjV3axazynzGWmWcnIpSfw7YiKj37+2kpwzJlTEb7ggoSh80+D0Hk/
+	FiLD5aDqtO/BZUfLO1zjp8VyBQu/aVUT/9KCy11c3FadrUIHJBiKm+dFXkNUbqlgiWuAghdC08ueL
+	mjTpBtv5cp44TDEOIdaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2LEh-00000005KdU-1s24;
-	Tue, 17 Mar 2026 03:36:51 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w2LRL-00000005LUl-33GZ;
+	Tue, 17 Mar 2026 03:49:55 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2LEd-00000005KcV-3GNm
+	id 1w2LRH-00000005LUC-0SkF
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 03:36:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1773718606;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zB79a/FOENLHI8FCWiGrvfZkVLmqf3PzewX8k2/xZr0=;
-	b=PpG0VOplPRRPrS/ZFvMKKDdvi8oJrLfkyZby0m7NXt73lK7jOIQxUukiYdqH4Zz+LuGjgM
-	LoMQD+YqgUl1XhsLiK3VpDKHOGhQjlRgZTtPlBR37eceey9/mJa1/Dbf79bQP1+1kJhBy5
-	VQyOGO6ZA2EP3BZZ8cqK6MRlG5arYas=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-568-ivqPJgBFMnCWlq80myHG4g-1; Mon,
- 16 Mar 2026 23:36:42 -0400
-X-MC-Unique: ivqPJgBFMnCWlq80myHG4g-1
-X-Mimecast-MFC-AGG-ID: ivqPJgBFMnCWlq80myHG4g_1773718600
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1AF9A195608B;
-	Tue, 17 Mar 2026 03:36:39 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.155])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 414B31800361;
-	Tue, 17 Mar 2026 03:36:35 +0000 (UTC)
-Date: Tue, 17 Mar 2026 11:36:31 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: kasan-dev@googlegroups.com, linux-mm@kvack.org, andreyknvl@gmail.com,
-	ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com,
-	linux-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	x86@kernel.org, chris@zankel.net, jcmvbkbc@gmail.com,
-	linux-s390@vger.kernel.org, hca@linux.ibm.com
-Subject: Re: [PATCH v5 14/15] mm/kasan: add document into
- kernel-parameters.txt
-Message-ID: <abjMP58VdUu_eElh@fedora>
-References: <20260225081412.76502-1-bhe@redhat.com>
- <20260225081412.76502-15-bhe@redhat.com>
- <f7054184-dca2-4c7c-9e2e-4a5e3e1c81da@sifive.com>
+	Tue, 17 Mar 2026 03:49:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1773719384; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=xWngtpObbjeyx2KTcz5ogpg82L+5SXTyDpUJYBAyjEY=;
+	b=blnVpcflqqKjRHhoxjVygC7zwIyCjcvctbs0C3Kfvk0Y/rAsSonOHzMAf4wUV2rP8TOJh3ImgIaY70mA749xmR7xuYHi9WIWlkvUiD35CDuXb9iOinVMODIOMKROae9iEThKvxTCn7lqTwUuttPjQhGBY8SjPjoN92JEziOvMn4=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R481e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=12;SR=0;TI=SMTPD_---0X.9XpQ6_1773719378;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X.9XpQ6_1773719378 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 17 Mar 2026 11:49:43 +0800
+From: cp0613@linux.alibaba.com
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com,
+	pjw@kernel.org,
+	alex@ghiti.fr,
+	guoren@kernel.org
+Cc: linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Pei <cp0613@linux.alibaba.com>
+Subject: [PATCH] perf symbol: Add RISCV case in get_plt_sizes
+Date: Tue, 17 Mar 2026 11:48:47 +0800
+Message-ID: <20260317034847.4136-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <f7054184-dca2-4c7c-9e2e-4a5e3e1c81da@sifive.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: oCXvd96vk7KrKGKvuCQMMC1xuRXxQ5hdJyJm55M0NW4_1773718600
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_203648_259762_175F7729 
-X-CRM114-Status: GOOD (  25.29  )
+X-CRM114-CacheID: sfid-20260316_204951_870114_392D7A1E 
+X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,91 +74,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/12/26 at 07:53am, Samuel Holland wrote:
-> Hi Baoquan,
-> 
-> On 2026-02-25 2:14 AM, Baoquan He wrote:
-> > And also remove the relevant description in dev-tools/kasan.rst
-> > which is hw_tags specificially.
-> > 
-> > Signed-off-by: Baoquan He <bhe@redhat.com>
-> > ---
-> >  Documentation/admin-guide/kernel-parameters.txt | 4 ++++
-> >  Documentation/dev-tools/kasan.rst               | 2 --
-> >  2 files changed, 4 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> > index cb850e5290c2..e0115fad9e60 100644
-> > --- a/Documentation/admin-guide/kernel-parameters.txt
-> > +++ b/Documentation/admin-guide/kernel-parameters.txt
-> > @@ -2899,6 +2899,10 @@ Kernel parameters
-> >  	js=		[HW,JOY] Analog joystick
-> >  			See Documentation/input/joydev/joystick.rst.
-> >  
-> > +	kasan=		[KNL] controls whether KASAN is enabled.
-> > +			Format: off | on
-> > +			default: on
-> > +
-> >  	kasan_multi_shot
-> >  			[KNL] Enforce KASAN (Kernel Address Sanitizer) to print
-> >  			report on every invalid memory access. Without this
-> > diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/kasan.rst
-> > index a034700da7c4..eaae83fcb5e4 100644
-> > --- a/Documentation/dev-tools/kasan.rst
-> > +++ b/Documentation/dev-tools/kasan.rst
-> > @@ -129,8 +129,6 @@ Hardware Tag-Based KASAN mode is intended for use in production as a security
-> >  mitigation. Therefore, it supports additional boot parameters that allow
-> >  disabling KASAN altogether or controlling its features:
-> 
-> The sentence above is now incorrect as well. I would recommend documenting the
-> parameter earlier in the "Boot parameters" section instead of removing it from
-> this document entirely.
+From: Chen Pei <cp0613@linux.alibaba.com>
 
-Good catch and the suggestion is good to me. Thanks.
+According to RISC-V psABI specification, the PLT (Program Linkage Table)
+has the following layout:
+- The first PLT entry occupies two 16-byte entries (32 bytes total)
+- Subsequent PLT entries take up 16 bytes each
 
-Is below change OK to you?
+This aligns with the binutils-gdb implementation which defines the same
+PLT sizes for RISC-V architecture.
 
+Update get_plt_sizes() to set plt_header_size=32 and plt_entry_size=16
+for EM_RISCV, matching the architecture's standard ABI.
 
-From 317be48b9c1bf9d33b8d8fff5e401e3155531d81 Mon Sep 17 00:00:00 2001
-From: Baoquan He <bhe@redhat.com>
-Date: Tue, 17 Mar 2026 11:28:39 +0800
-Subject: [PATCH] mm/kasan: adjust documentation
-Content-type: text/plain
+Since AARCH64, LOONGARCH, and RISCV have the same PLT size definition,
+they are merged together.
 
-To reflect the change of kasan=on|off.
+Link: https://github.com/riscv-non-isa/riscv-elf-psabi-doc
+Link: https://sourceware.org/git/?p=binutils-gdb.git;a=blob;f=bfd/elfnn-riscv.c
 
-Signed-off-by: Baoquan He <bhe@redhat.com>
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
- Documentation/dev-tools/kasan.rst | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ tools/perf/util/symbol-elf.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/kasan.rst
-index a034700da7c4..8e65bc04dbcd 100644
---- a/Documentation/dev-tools/kasan.rst
-+++ b/Documentation/dev-tools/kasan.rst
-@@ -103,6 +103,9 @@ Boot parameters
- KASAN is affected by the generic ``panic_on_warn`` command line parameter.
- When it is enabled, KASAN panics the kernel after printing a bug report.
- 
-+The generic ``kasan=off`` or ``=on`` command line parameter controls
-+whether KASAN is enabled (default: ``on``).
-+
- By default, KASAN prints a bug report only for the first invalid memory access.
- With ``kasan_multi_shot``, KASAN prints a report on every invalid access. This
- effectively disables ``panic_on_warn`` for KASAN reports.
-@@ -127,9 +130,7 @@ modes below) support altering stack trace collection behavior:
- 
- Hardware Tag-Based KASAN mode is intended for use in production as a security
- mitigation. Therefore, it supports additional boot parameters that allow
--disabling KASAN altogether or controlling its features:
--
--- ``kasan=off`` or ``=on`` controls whether KASAN is enabled (default: ``on``).
-+controlling its features:
- 
- - ``kasan.mode=sync``, ``=async`` or ``=asymm`` controls whether KASAN
-   is configured in synchronous, asynchronous or asymmetric mode of
+diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
+index 76912c62b6a0..806936d95523 100644
+--- a/tools/perf/util/symbol-elf.c
++++ b/tools/perf/util/symbol-elf.c
+@@ -372,10 +372,8 @@ static bool get_plt_sizes(struct dso *dso, GElf_Ehdr *ehdr, GElf_Shdr *shdr_plt,
+ 		*plt_entry_size = 12;
+ 		return true;
+ 	case EM_AARCH64:
+-		*plt_header_size = 32;
+-		*plt_entry_size = 16;
+-		return true;
+ 	case EM_LOONGARCH:
++	case EM_RISCV:
+ 		*plt_header_size = 32;
+ 		*plt_entry_size = 16;
+ 		return true;
 -- 
-2.52.0
+2.50.1
 
 
 _______________________________________________
