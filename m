@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BED510775ED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B7F10775E7
 	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V+ev/uyKU14chnmn7XfaqtgwHZYyRv023EmisdmUu9s=; b=eGYhYCrL6PwQiX
-	lvPuNNgSeQlpCwAHgoyCQkGCT0hO8NofBYt44N1wBAakv4AgY30dLRQ8L0FIKlB3S95tIbL9TjspC
-	DYXj3JsZMl6p/oODs1llMqhL4DTGHmymfACnJK7EhviLSX2Iz+kNjRZh+F/vOobMnpADJvaaYZXLc
-	/i2xcc2ORkJwCRxrZzfjqIikA6AdSsUx/7MgVDjUFcigUPU7GRBJDLsw4dtwpWSmIaabumR3Uo5m5
-	IcZTO8WL6m7wOAe8dAPAyQ+RM2mjLpVJLQD90q3D8ShjSz2bDWP80SRGgY11/Xmjk+7Lh6yk2opTh
-	0MbryG6zK7s/hF8sOSzw==;
+	List-Owner; bh=w+g/y1Jdsrt9JKTpdNLbg5iBBfbLufXRTJxAouhD1vY=; b=zXtHBL3Ho90uYv
+	iuaZbH9FH7FLA3jkxGUeipWUoAoCh8DYg0WtgOUnpze40PAZxVgV21PVnINq8NmRLkYON1S6PU82k
+	jUhSeX3io7wAUWvbQf+mA9pI+XS44TdrmhTUJmdmDuVE4H7em0N7JpHeJKma1/mpNGuoi0hsDXQhH
+	vPDMu1d05WGiOHPQA6HqL04gsmhg4Q3Yxpj4CrseGVuafn2WRi/tzTvxcuxVbVsEfy2+GT350JHM6
+	qcPg97QGbE+VkBAsxUUDXNg6wz9DltPsFnAlUYS7fJbd0gdONHWb4h2GBZVeyT223yejoCLq5SWdd
+	qvr6//wynUtFPQV1heZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tko-00000008vPm-0V9t;
-	Wed, 18 Mar 2026 16:28:18 +0000
-Received: from fra-out-015.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.158.153.154])
+	id 1w2tks-00000008vWB-0Izr;
+	Wed, 18 Mar 2026 16:28:22 +0000
+Received: from fra-out-008.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([35.158.23.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2V9J-00000006Wzn-1otg;
-	Tue, 17 Mar 2026 14:11:58 +0000
+	id 1w2VAc-00000006XO8-2Qol;
+	Tue, 17 Mar 2026 14:13:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazoncorp2; t=1773756717; x=1805292717;
+  s=amazoncorp2; t=1773756798; x=1805292798;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-transfer-encoding:mime-version;
-  bh=y0x5KoVb2XnhSb3FpN6GmZ1KmGrNgU7ZlSRbkqzUa08=;
-  b=cL1NhbJziGUwrbRKxXQ3abbl2OQGy+denOhb2+d+wVNA3QDL0OxMZnlr
-   0roRdvbUcJyQJa6H5AszIDcVzfyRjDpJAWAj2ICASCDQkap5NVAdI/AKw
-   hB6T3VK3Co0JOp89q0H6Hn4ZWidWCd55DBaAnpfd2+8iYBwvXvOLSKbNM
-   WaFj98gWieFwW8IgTulEnA7l5ovc7mmyu3n8EHOdl/vAsPyDw4zntCQsI
-   Lj436nH3c1lj6xcy0/gl0it4MTDMhjrXO+r+9qxIcfzjpyU+ytVoXeXwF
-   E3Uhs5N0s+2+O3lyY6MxIDdonBLElR2Xq8/XACteNBbIVwh649wU/vxX9
-   A==;
-X-CSE-ConnectionGUID: Dl0HC9MwQMa+Q3LUUQfzuQ==
-X-CSE-MsgGUID: DA3VCEsDRPWtBlGsfxdvSQ==
+  bh=FYsgkotQwsE3twzfNgwzCUddRr5tCg6gdL5/vBTBngA=;
+  b=EYZyvHezjPmrOd6lAK1D4mGGpYwNOO+VGJFUPNyGmf1ZA052+ZxZhFcJ
+   d+Ob39SwJDxI2hXUkRaSUs0ebVoJYiVUSSG+vYyQKK03V8ha9ogch13Aq
+   bmfDvh8dw3oWw61h6pL6uKoM4YYGbmpzwUVC9oiKIKSkrBDJKXEa251Ey
+   yWJ/DNRxqOPrLzmOFPS8tDlL4wvJGvCY9wLoX1Crseicj7zPZZodayy9U
+   A63sxF5uLY/JJley+/jE3M4Sct/mScvCye1U4Foxo5ssJIz38pvyEbb8a
+   IJxV7ve55+Aq/PyM3qydMLpu4DtjjWmypUcSBjN4yV2EpsHH9QJwPEISp
+   w==;
+X-CSE-ConnectionGUID: dQ50hGlCS+mVkdXQCi27XQ==
+X-CSE-MsgGUID: 75IWVisKTEGJehvuWkfBTw==
 X-IronPort-AV: E=Sophos;i="6.23,124,1770595200"; 
-   d="scan'208";a="10880459"
-Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
-  by internal-fra-out-015.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 14:11:55 +0000
-Received: from EX19MTAEUB001.ant.amazon.com [54.240.197.234:18272]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.15.31:2525] with esmtp (Farcaster)
- id 98ad6bdf-0bd7-47fe-9110-00c11837fc04; Tue, 17 Mar 2026 14:11:54 +0000 (UTC)
-X-Farcaster-Flow-ID: 98ad6bdf-0bd7-47fe-9110-00c11837fc04
-Received: from EX19D005EUB001.ant.amazon.com (10.252.51.12) by
- EX19MTAEUB001.ant.amazon.com (10.252.51.26) with Microsoft SMTP Server
+   d="scan'208";a="10999470"
+Received: from ip-10-6-11-83.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.11.83])
+  by internal-fra-out-008.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 14:13:16 +0000
+Received: from EX19MTAEUA002.ant.amazon.com [54.240.197.232:19246]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.18.122:2525] with esmtp (Farcaster)
+ id 2f13a2a9-ef77-4a1d-b7d5-f69766945acd; Tue, 17 Mar 2026 14:13:16 +0000 (UTC)
+X-Farcaster-Flow-ID: 2f13a2a9-ef77-4a1d-b7d5-f69766945acd
+Received: from EX19D005EUB004.ant.amazon.com (10.252.51.126) by
+ EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Tue, 17 Mar 2026 14:11:53 +0000
+ Tue, 17 Mar 2026 14:13:15 +0000
 Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
- EX19D005EUB001.ant.amazon.com (10.252.51.12) with Microsoft SMTP Server
+ EX19D005EUB004.ant.amazon.com (10.252.51.126) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Tue, 17 Mar 2026 14:11:53 +0000
+ Tue, 17 Mar 2026 14:13:15 +0000
 Received: from EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c]) by
  EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c%3]) with mapi id
- 15.02.2562.037; Tue, 17 Mar 2026 14:11:53 +0000
+ 15.02.2562.037; Tue, 17 Mar 2026 14:13:15 +0000
 From: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
 To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
 	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
@@ -75,14 +75,14 @@ To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
 	<loongarch@lists.linux.dev>, "linux-pm@vger.kernel.org"
 	<linux-pm@vger.kernel.org>
 CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "osalvador@suse.de" <osalvador@suse.de>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>,
- "Manwaring, Derek" <derekmn@amazon.com>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, Vlastimil Babka <vbabka@suse.cz>
-Subject: [PATCH v11 07/16] KVM: guest_memfd: Add stub for
- kvm_arch_gmem_invalidate
-Thread-Topic: [PATCH v11 07/16] KVM: guest_memfd: Add stub for
- kvm_arch_gmem_invalidate
-Thread-Index: AQHcthgBZn18ggWzQ06mGEbWQ0oCgg==
-Date: Tue, 17 Mar 2026 14:11:53 +0000
-Message-ID: <20260317141031.514-8-kalyazin@amazon.com>
+ "Manwaring, Derek" <derekmn@amazon.com>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
+Subject: [PATCH v11 14/16] KVM: selftests: cover
+ GUEST_MEMFD_FLAG_NO_DIRECT_MAP in existing selftests
+Thread-Topic: [PATCH v11 14/16] KVM: selftests: cover
+ GUEST_MEMFD_FLAG_NO_DIRECT_MAP in existing selftests
+Thread-Index: AQHcthgyuwe8FmKDH0i+WVkM5uY4og==
+Date: Tue, 17 Mar 2026 14:13:14 +0000
+Message-ID: <20260317141031.514-15-kalyazin@amazon.com>
 References: <20260317141031.514-1-kalyazin@amazon.com>
 In-Reply-To: <20260317141031.514-1-kalyazin@amazon.com>
 Accept-Language: en-GB, en-US
@@ -92,8 +92,8 @@ X-MS-TNEF-Correlator:
 x-originating-ip: [172.19.103.116]
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_071157_756624_69CB3024 
-X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-CacheID: sfid-20260317_071318_907137_1978C313 
+X-CRM114-Status: UNSURE (   8.50  )
 X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Wed, 18 Mar 2026 09:28:11 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -114,63 +114,87 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Patrick Roy <patrick.roy@linux.dev>
 
-Add a no-op stub for kvm_arch_gmem_invalidate if
-CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE=n. This allows defining
-kvm_gmem_free_folio without ifdef-ery, which allows more cleanly using
-guest_memfd's free_folio callback for non-arch-invalidation related
-code.
+Extend mem conversion selftests to cover the scenario that the guest can
+fault in and write gmem-backed guest memory even if its direct map
+removed. Also cover the new flag in guest_memfd_test.c tests.
 
-Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
 Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
-Acked-by: Vlastimil Babka <vbabka@suse.cz>
-Reviewed-by: Ackerley Tng <ackerleytng@google.com>
 Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
 ---
- include/linux/kvm_host.h | 2 ++
- virt/kvm/guest_memfd.c   | 4 ----
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ tools/testing/selftests/kvm/guest_memfd_test.c  | 17 ++++++++++++++++-
+ .../kvm/x86/private_mem_conversions_test.c      |  7 ++++---
+ 2 files changed, 20 insertions(+), 4 deletions(-)
 
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 6b76e7a6f4c2..e8aa3d676c31 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -2587,6 +2587,8 @@ long kvm_gmem_populate(struct kvm *kvm, gfn_t gfn, void __user *src, long npages
+diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
+index cc329b57ce2e..64c1200c182e 100644
+--- a/tools/testing/selftests/kvm/guest_memfd_test.c
++++ b/tools/testing/selftests/kvm/guest_memfd_test.c
+@@ -403,6 +403,17 @@ static void test_guest_memfd(unsigned long vm_type)
+ 		__test_guest_memfd(vm, GUEST_MEMFD_FLAG_MMAP |
+ 				       GUEST_MEMFD_FLAG_INIT_SHARED);
  
- #ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE
- void kvm_arch_gmem_invalidate(kvm_pfn_t start, kvm_pfn_t end);
-+#else
-+static inline void kvm_arch_gmem_invalidate(kvm_pfn_t start, kvm_pfn_t end) { }
- #endif
- 
- #ifdef CONFIG_KVM_GENERIC_PRE_FAULT_MEMORY
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index 017d84a7adf3..651649623448 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -522,7 +522,6 @@ static int kvm_gmem_error_folio(struct address_space *mapping, struct folio *fol
- 	return MF_DELAYED;
++	if (flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP) {
++		__test_guest_memfd(vm, GUEST_MEMFD_FLAG_NO_DIRECT_MAP);
++		if (flags & GUEST_MEMFD_FLAG_MMAP)
++			__test_guest_memfd(vm, GUEST_MEMFD_FLAG_NO_DIRECT_MAP |
++					       GUEST_MEMFD_FLAG_MMAP);
++		if (flags & GUEST_MEMFD_FLAG_INIT_SHARED)
++			__test_guest_memfd(vm, GUEST_MEMFD_FLAG_NO_DIRECT_MAP |
++					       GUEST_MEMFD_FLAG_MMAP |
++					       GUEST_MEMFD_FLAG_INIT_SHARED);
++	}
++
+ 	kvm_vm_free(vm);
  }
  
--#ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE
- static void kvm_gmem_free_folio(struct folio *folio)
+@@ -445,10 +456,14 @@ static void test_guest_memfd_guest(void)
+ 	TEST_ASSERT(vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS) & GUEST_MEMFD_FLAG_INIT_SHARED,
+ 		    "Default VM type should support INIT_SHARED, supported flags = 0x%x",
+ 		    vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS));
++	TEST_ASSERT(vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS) & GUEST_MEMFD_FLAG_NO_DIRECT_MAP,
++		    "Default VM type should support NO_DIRECT_MAP, supported flags = 0x%x",
++		    vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS));
+ 
+ 	size = vm->page_size;
+ 	fd = vm_create_guest_memfd(vm, size, GUEST_MEMFD_FLAG_MMAP |
+-					     GUEST_MEMFD_FLAG_INIT_SHARED);
++					     GUEST_MEMFD_FLAG_INIT_SHARED |
++					     GUEST_MEMFD_FLAG_NO_DIRECT_MAP);
+ 	vm_set_user_memory_region2(vm, slot, KVM_MEM_GUEST_MEMFD, gpa, size, NULL, fd, 0);
+ 
+ 	mem = kvm_mmap(size, PROT_READ | PROT_WRITE, MAP_SHARED, fd);
+diff --git a/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c b/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
+index 1969f4ab9b28..8767cb4a037e 100644
+--- a/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
++++ b/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
+@@ -367,7 +367,7 @@ static void *__test_mem_conversions(void *__vcpu)
+ }
+ 
+ static void test_mem_conversions(enum vm_mem_backing_src_type src_type, uint32_t nr_vcpus,
+-				 uint32_t nr_memslots)
++				 uint32_t nr_memslots, uint64_t gmem_flags)
  {
- 	struct page *page = folio_page(folio, 0);
-@@ -531,15 +530,12 @@ static void kvm_gmem_free_folio(struct folio *folio)
+ 	/*
+ 	 * Allocate enough memory so that each vCPU's chunk of memory can be
+@@ -394,7 +394,7 @@ static void test_mem_conversions(enum vm_mem_backing_src_type src_type, uint32_t
  
- 	kvm_arch_gmem_invalidate(pfn, pfn + (1ul << order));
+ 	vm_enable_cap(vm, KVM_CAP_EXIT_HYPERCALL, (1 << KVM_HC_MAP_GPA_RANGE));
+ 
+-	memfd = vm_create_guest_memfd(vm, memfd_size, 0);
++	memfd = vm_create_guest_memfd(vm, memfd_size, gmem_flags);
+ 
+ 	for (i = 0; i < nr_memslots; i++)
+ 		vm_mem_add(vm, src_type, BASE_DATA_GPA + slot_size * i,
+@@ -474,7 +474,8 @@ int main(int argc, char *argv[])
+ 		}
+ 	}
+ 
+-	test_mem_conversions(src_type, nr_vcpus, nr_memslots);
++	test_mem_conversions(src_type, nr_vcpus, nr_memslots, 0);
++	test_mem_conversions(src_type, nr_vcpus, nr_memslots, GUEST_MEMFD_FLAG_NO_DIRECT_MAP);
+ 
+ 	return 0;
  }
--#endif
- 
- static const struct address_space_operations kvm_gmem_aops = {
- 	.dirty_folio = noop_dirty_folio,
- 	.migrate_folio	= kvm_gmem_migrate_folio,
- 	.error_remove_folio = kvm_gmem_error_folio,
--#ifdef CONFIG_HAVE_KVM_ARCH_GMEM_INVALIDATE
- 	.free_folio = kvm_gmem_free_folio,
--#endif
- };
- 
- static int kvm_gmem_setattr(struct mnt_idmap *idmap, struct dentry *dentry,
 -- 
 2.50.1
 
