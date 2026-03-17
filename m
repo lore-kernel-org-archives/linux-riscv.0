@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924D010775E1
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:28:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7F210775EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fRj+nzQB1eSCaDfFrHJQ5i91SnwAgZoklZqSEFEsu34=; b=pUPJSyan3oQOSA
-	N+4SJfzl0OOLSnvZteE6R7lkYcK6WcLh5Jjuq6AytEf9ye24o5hZ7GgECaJhAdluTCxxbPkn5yzKF
-	gnaz33jFxLxyh9cCfmVGlXk8Z+VUaNHi+xtFRmSr3lPTeZbiD4GZdEwGXUuF+EiaFOCnazCqz2ECl
-	D89k1CrrUyozz0QNZFkpzWU3KQVppf/1vSwjMBfJUPTmW1453O368vNOzBiN2ngMdNIeRzKWf3DxC
-	V1Yx8fK7vG9svfVr60qZatD7PdoolDf9WPGeKwHw3nmSS/PN9bfRlFdxZuBwRK00aRph0gEFv5JvO
-	qL6BjIGseiajCHAfFtIw==;
+	List-Owner; bh=KRp2dcbQ1ITUijAyWQO9zZafJAAbuB3kqUQvzb+VU3c=; b=qoEPycObdcbWNe
+	oEmp3bQsZXX+TaGVxeBDkXHNJqgO1L0LzvsT4EOXZkrp5yHM7e+Lv2M+LBcE/nQJoxb7PlUWYvHYG
+	ZofyTdxok1BvQ9GyG59zMrAgOKn91s25Ho8nMKYftd6j5cQDEcTzsFm7PeBlFT+bDNULm10Ds0I8n
+	1m2oY4UquD0Ft0Atam+9lvF4r6aOcA61yz1/58qpgmCygp+w2myar0vcggfIW7yNr1bPldqSwriKx
+	M17tOJqZnYFXZreXT30F7KLT6ix/7g5QHZjbi4KL9+L9cZLsIEPByLyzAZ9l7Bjczj80OmXughBVC
+	XGg5xupf90RhvXcG4Fig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tkj-00000008vLv-2Jxa;
-	Wed, 18 Mar 2026 16:28:13 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1w2tkn-00000008vOY-0Txr;
+	Wed, 18 Mar 2026 16:28:17 +0000
+Received: from fra-out-005.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.176.194.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w21Jd-00000003PFy-1pjU;
-	Mon, 16 Mar 2026 06:20:38 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4fZ4hc4nwkz51Sdl;
-	Mon, 16 Mar 2026 14:20:32 +0800 (CST)
-Received: from szxl2zmapp05.zte.com.cn ([10.1.32.37])
-	by mse-fl1.zte.com.cn with SMTP id 62G6KF36004235;
-	Mon, 16 Mar 2026 14:20:15 +0800 (+08)
-	(envelope-from wang.yechao255@zte.com.cn)
-Received: from mapi (szxlzmapp04[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Mon, 16 Mar 2026 14:20:17 +0800 (CST)
-X-Zmail-TransId: 2b0669b7a121451-2263c
-X-Mailer: Zmail v1.0
-Message-ID: <20260316142017362R7MOT-xQWGMPiGnD0zuht@zte.com.cn>
-In-Reply-To: <20260316141234007qSAOsesu2cSQsj-LA-qq3@zte.com.cn>
-References: 20260316141234007qSAOsesu2cSQsj-LA-qq3@zte.com.cn
-Date: Mon, 16 Mar 2026 14:20:17 +0800 (CST)
-Mime-Version: 1.0
-From: <wang.yechao255@zte.com.cn>
-To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>
-Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <wang.yechao255@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIHYzIDMvM10gUklTQy1WOiBLVk06IFNwbGl0IGh1Z2UgcGFnZXMgZHVyaW5nIGZhdWx0IGhhbmRsaW5nIGZvciBkaXJ0eSBsb2dnaW5n?=
-X-MAIL: mse-fl1.zte.com.cn 62G6KF36004235
-X-TLS: YES
-X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
-X-SPF: None
-X-SOURCE-IP: 10.5.228.132 unknown Mon, 16 Mar 2026 14:20:32 +0800
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 69B7A130.002/4fZ4hc4nwkz51Sdl
-X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
+	id 1w2V8n-00000006Wnu-16yD;
+	Tue, 17 Mar 2026 14:11:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
+  s=amazoncorp2; t=1773756685; x=1805292685;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=QH/0pY+L5Mnx+GXH9O+3FVFXbnxf+J6Zf5bgE/TnHq0=;
+  b=di50sTK/jnmlQSGDVf9p3P4DtlftqmHqEv2TNbBLcGFdj/oNxg+yHWUZ
+   KG7GNfESBVDtfrNYdK8fYwyU3zaT8UuhQ1UxVup2n5Exk3q51EeDR9hc9
+   vzx2pb8/sOK8JoyW5dn/r+4BfOSVLnAurexwxSXCfBh+A7L3uooKvA1Zz
+   I596PqlxOsjlFmGsClU6YrktLn0zoLUiesKC8NiP8oxm1QQDtrmUC1VJ3
+   pv21WDXWhXfb9jlexARRHVKvHiPOHfWW1+FW3UwPoj6JVKWphssesXA2R
+   G3hXI5voQmQ3c56iQXrINCYewjXG/iUB1TBqBTEkanFbNMaPn4hEJpddx
+   w==;
+X-CSE-ConnectionGUID: bjZm6s3/TCWdkXS4JpYsMA==
+X-CSE-MsgGUID: Uv/u4CHeTxOSFi5l4I+Zag==
+X-IronPort-AV: E=Sophos;i="6.23,124,1770595200"; 
+   d="scan'208";a="11017718"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-005.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 14:11:20 +0000
+Received: from EX19MTAEUB002.ant.amazon.com [54.240.197.232:28302]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.29.244:2525] with esmtp (Farcaster)
+ id 2703a9d0-a65e-493e-aff8-54f3e9f5b406; Tue, 17 Mar 2026 14:11:20 +0000 (UTC)
+X-Farcaster-Flow-ID: 2703a9d0-a65e-493e-aff8-54f3e9f5b406
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19MTAEUB002.ant.amazon.com (10.252.51.59) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Tue, 17 Mar 2026 14:11:19 +0000
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19D005EUB003.ant.amazon.com (10.252.51.31) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Tue, 17 Mar 2026 14:11:19 +0000
+Received: from EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c]) by
+ EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c%3]) with mapi id
+ 15.02.2562.037; Tue, 17 Mar 2026 14:11:19 +0000
+From: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
+To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org"
+	<linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>
+CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "osalvador@suse.de" <osalvador@suse.de>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>,
+ "Manwaring, Derek" <derekmn@amazon.com>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, Vlastimil Babka <vbabka@suse.cz>
+Subject: [PATCH v11 04/16] mm/gup: drop secretmem optimization from
+ gup_fast_folio_allowed
+Thread-Topic: [PATCH v11 04/16] mm/gup: drop secretmem optimization from
+ gup_fast_folio_allowed
+Thread-Index: AQHcthfsUhUKrmwTXkGd7H9F3DgqvA==
+Date: Tue, 17 Mar 2026 14:11:18 +0000
+Message-ID: <20260317141031.514-5-kalyazin@amazon.com>
+References: <20260317141031.514-1-kalyazin@amazon.com>
+In-Reply-To: <20260317141031.514-1-kalyazin@amazon.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [172.19.103.116]
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260315_232037_638785_442DF398 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20260317_071125_587895_9E5D284D 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Wed, 18 Mar 2026 09:28:11 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,108 +112,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wang Yechao <wang.yechao255@zte.com.cn>
+From: Patrick Roy <patrick.roy@linux.dev>
 
-During dirty logging, all huge pages are write-protected. When the guest
-writes to a write-protected huge page, a page fault is triggered. Before
-recovering the write permission, the huge page must be split into smaller
-pages (e.g., 4K). After splitting, the normal mapping process proceeds,
-allowing write permission to be restored at the smaller page granularity.
+This drops an optimization in gup_fast_folio_allowed() where
+secretmem_mapping() was only called if CONFIG_SECRETMEM=y. secretmem is
+enabled by default since commit b758fe6df50d ("mm/secretmem: make it on
+by default"), so the secretmem check did not actually end up elided in
+most cases anymore anyway.
 
-If dirty logging is disabled because migration failed or was cancelled,
-only recover the write permission at the 4K level, and skip recovering the
-huge page mapping at this time to avoid the overhead of freeing page tables.
-The huge page mapping can be recovered in the ioctl context, similar to x86,
-in a later patch.
+This is in preparation of the generalization of handling mappings where
+direct map entries of folios are set to not present.  Currently,
+mappings that match this description are secretmem mappings
+(memfd_secret()).  Later, some guest_memfd configurations will also fall
+into this category.
 
-Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
+Acked-by: Vlastimil Babka <vbabka@suse.cz>
+Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
+Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
 ---
- arch/riscv/kvm/gstage.c | 56 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+ mm/gup.c | 11 +----------
+ 1 file changed, 1 insertion(+), 10 deletions(-)
 
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index 5356abb18932..4bee042f3c7f 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -163,6 +163,21 @@ int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
- 	return 0;
- }
-
-+static int kvm_riscv_gstage_update_pte_prot(pte_t *ptep, pgprot_t prot)
-+{
-+	pte_t new_pte;
-+
-+	if (pgprot_val(pte_pgprot(ptep_get(ptep))) == pgprot_val(prot))
-+		return 0;
-+
-+	new_pte = pfn_pte(pte_pfn(ptep_get(ptep)), prot);
-+	new_pte = pte_mkdirty(new_pte);
-+
-+	set_pte(ptep, new_pte);
-+
-+	return 1;
-+}
-+
- int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
- 			      struct kvm_mmu_memory_cache *pcache,
- 			      gpa_t gpa, phys_addr_t hpa, unsigned long page_size,
-@@ -171,6 +186,9 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+diff --git a/mm/gup.c b/mm/gup.c
+index 8e7dc2c6ee73..5856d35be385 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -2739,7 +2739,6 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
  {
- 	pgprot_t prot;
- 	int ret;
-+	pte_t *ptep;
-+	u32 ptep_level;
-+	bool found_leaf;
-
- 	out_map->addr = gpa;
- 	out_map->level = 0;
-@@ -203,6 +221,44 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
- 		else
- 			prot = PAGE_WRITE;
- 	}
-+
-+	found_leaf = kvm_riscv_gstage_get_leaf(gstage, gpa, &ptep, &ptep_level);
-+	if (found_leaf) {
-+		/*
-+		 * ptep_level is the current gstage mapping level of addr, out_map->level
-+		 * is the required mapping level during fault handling.
-+		 *
-+		 * 1) ptep_level > out_map->level
-+		 * This happens when dirty logging is enabled and huge pages are used.
-+		 * KVM must track the pages at 4K level, and split the huge mapping
-+		 * into 4K mappings.
-+		 *
-+		 * 2) ptep_level < out_map->level
-+		 * This happens when dirty logging is disabled and huge pages are used.
-+		 * The gstage is split into 4K mappings, but the out_map level is now
-+		 * back to the huge page level. Ignore the out_map level this time, and
-+		 * just update the pte prot here. Otherwise, we would fall back to mapping
-+		 * the gstage at huge page level in `kvm_riscv_gstage_set_pte`, with the
-+		 * overhead of freeing the page tables(not support now), which would slow
-+		 * down the vCPUs' performance.
-+		 *
-+		 * It is better to recover the huge page mapping in the ioctl context when
-+		 * disabling dirty logging.
-+		 *
-+		 * 3) ptep_level == out_map->level
-+		 * We already have the ptep, just update the pte prot if the pfn not change.
-+		 * There is no need to invoke `kvm_riscv_gstage_set_pte` again.
-+		 */
-+		if (ptep_level > out_map->level) {
-+			kvm_riscv_gstage_split_huge(gstage, pcache, gpa,
-+						    out_map->level, true);
-+		} else if (ALIGN_DOWN(PFN_PHYS(pte_pfn(ptep_get(ptep))), page_size) == hpa) {
-+			if (kvm_riscv_gstage_update_pte_prot(ptep, prot))
-+				gstage_tlb_flush(gstage, ptep_level, out_map->addr);
-+			return 0;
-+		}
-+	}
-+
- 	out_map->pte = pfn_pte(PFN_DOWN(hpa), prot);
- 	out_map->pte = pte_mkdirty(out_map->pte);
-
+ 	bool reject_file_backed = false;
+ 	struct address_space *mapping;
+-	bool check_secretmem = false;
+ 	unsigned long mapping_flags;
+ 
+ 	/*
+@@ -2751,14 +2750,6 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+ 		reject_file_backed = true;
+ 
+ 	/* We hold a folio reference, so we can safely access folio fields. */
+-
+-	/* secretmem folios are always order-0 folios. */
+-	if (IS_ENABLED(CONFIG_SECRETMEM) && !folio_test_large(folio))
+-		check_secretmem = true;
+-
+-	if (!reject_file_backed && !check_secretmem)
+-		return true;
+-
+ 	if (WARN_ON_ONCE(folio_test_slab(folio)))
+ 		return false;
+ 
+@@ -2800,7 +2791,7 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+ 	 * At this point, we know the mapping is non-null and points to an
+ 	 * address_space object.
+ 	 */
+-	if (check_secretmem && secretmem_mapping(mapping))
++	if (secretmem_mapping(mapping))
+ 		return false;
+ 	/* The only remaining allowed file system is shmem. */
+ 	return !reject_file_backed || shmem_mapping(mapping);
 -- 
-2.27.0
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
