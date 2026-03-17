@@ -4,118 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE61FED9E8
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 15:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C636EFED9E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 15:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EuVnru8LYcIiPf8zfSKlgJLZTYRdqvgY0UUqzF9ONVo=; b=5GTEeguXvq6d7DmaLK/t1DHWAy
-	RX8xJRE/Nl6JqP66y+yAJStAUao04Mgw1Y4YpL9DtMHa5IiHWOzfpBQJC+d3MWbgT4wAeSxlD+0es
-	mQCehKaheC9VK6e/WLlzA9t9qF7PBxtpyLBsVLebOkAx+MICAqffu6KJKdCfyWzPJNdyxHVATpKAj
-	Mgz3xMXRV7YaEnwM/HMUC8dzEUYuhslams0zVbMsMABQDRdIjF63GI8DNFh7WNpJCeL6dlEd/hUJb
-	FOoVw7yy1JLMyeHJRIgoUnhefMEHwWivXvKB5NlbrTfvPPr1yVex7TszJRr9cARXrWFPeEZhflRPs
-	tUF6yzgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=waHhDgxBtjd2BUkXXKY1PWaKT9Mk9jZUJC0ZOXo0KYA=; b=orfu8ahnVOviO4
+	J77cVwAffUJo5VdbIS7CxjLzcoH8y5s+h/UIkLGQ5xoVoqtiJpC9uprEIPfIpGV7Z5t2zDaUTTrDE
+	nifSeBFt7SO6oDsEfv4mSDA4kbjAQH945Fbn49hc1fXLuROUse89ZIve88hDw2GcDwyTeRtZ5toae
+	ji5e1LeAsdEEkRM1WKWYhLoInwPiVSxUzq9feve1kKPGbz9XriG9wuSU0dB0c09EM0OwoEyc6rs4l
+	hud2nWPd+BMGi85Hl9ww5unFcPDz7BuBQTPApPjvciTEv3FV/rrk7rYJvFw+mBPbOBojl/62dNHrJ
+	rxac2nsdBznxKDlKNWog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2WkZ-00000006lTb-2RED;
-	Tue, 17 Mar 2026 15:54:31 +0000
-Received: from coral.ash.relay.mailchannels.net ([23.83.222.39])
+	id 1w2WlC-00000006lY5-3waz;
+	Tue, 17 Mar 2026 15:55:10 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2WkV-00000006lTE-1lP6
+	id 1w2WlA-00000006lXV-0cEF
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 15:54:28 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 50F17441501;
-	Tue, 17 Mar 2026 15:54:21 +0000 (UTC)
-Received: from de-fra-smtpout10.hostinger.io (trex-green-3.trex.outbound.svc.cluster.local [100.115.143.3])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 1DC08443A5F;
-	Tue, 17 Mar 2026 15:54:16 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1773762860;
-	b=b61weR3qTzwwdmqJyI94fqXX2G8Q7UoYujr5CpkJBQufmk3KQqjTsfXFuifqNlfVIMQUQ+
-	Zb5GoIDH42Qwpef0RoXYAnnShqKPdwenXMpGlzAX8ARXrJRzRSU5pjvVdBRcc7HvPZP2GE
-	PK9NJzf9ApB06R8cmrgD8L13uzvoO9kgfA8xM5yg80ONYZSshHlTeLGgkpOU6KPHVa8rjd
-	WQBg5i331RRPtS8rCSjLZsUWOiEjKSoqOvZQCuCRSKHM2qzei8bZPP3VneXC4u4YKczc8Y
-	+EUQHRGQBV9QgLNBJPznZS0Wrz+5OKcb1a9KyWMBlkas3WPvKrC+g0k3W0o/fA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1773762860;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=ILl2TqrEu5S8QBVXKLjl+G/C6M4r2ZltpX0HMEpdMmw=;
-	b=KFseWj9vQw7waI91d1jD4C9V9iWI5bmYcVjXZ295r/i50nke6nN6LzuZ/G5z9kEPsEuBrj
-	1ZcwlF0afGaNEmvSA51Rhc4LhS77CGslrHBCroxrY6M7W+/5+BTVSPpByP8mWtguipXSbq
-	4xzQms43J43/gYBvYZLhk34FTqTHopIdJYKuTZUJUKFCpfoezyA8w7LCLS+P29rOvaETjj
-	qbmkReB8/a/HYBG70YWjZnbQH/tgYXfo4HQa+Oc40I+8m7m/QTkKiidIqfGnnYkxzLSpk2
-	8ziFyfDXE+FteP2lUXepUK1iOQtpynZjwvAF7XDrg6G2KSkoq7RJzoS2NUX/jQ==
-ARC-Authentication-Results: i=1;
-	rspamd-78765f9847-k8fbv;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Interest-Macabre: 274221fb23ded875_1773762861123_1944666366
-X-MC-Loop-Signature: 1773762861123:2501252353
-X-MC-Ingress-Time: 1773762861122
-Received: from de-fra-smtpout10.hostinger.io (de-fra-smtpout10.hostinger.io
- [148.222.55.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.115.143.3 (trex/7.1.5);
-	Tue, 17 Mar 2026 15:54:21 +0000
-Received: from [IPV6:2001:861:4450:d360:2a72:4a2c:81bf:d1d4] (unknown [IPv6:2001:861:4450:d360:2a72:4a2c:81bf:d1d4])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4fZxN64SDxz3wnK;
-	Tue, 17 Mar 2026 15:54:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1773762855;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ILl2TqrEu5S8QBVXKLjl+G/C6M4r2ZltpX0HMEpdMmw=;
-	b=N8dktOgPXQBd0S/4dO0a9yNoHQlVfXPSThfnDEr3FYupVmQVvM/Zt93eiVQJ5UkeJYlTL5
-	lENELrdv6VKeJQmaGq2vElqTsdbH2ey+hEY9+z44cvuAvtXuHMts9k/mmDc7pcB9DQVCxb
-	eot8EYj0oCPwOnYPGCdHQzDhfMMSaULjXyyzSyNyYL5q+4xNPj4Foo0Yaa98O6iZIT80V1
-	n7fEUE+X2M4oGX0thn+ti8SrLsGjzsxh1fXd+w9IRWcGODEvH/ZR2DdEKG3IiM3VSKhsNp
-	g+8xs4euZQQ3BXf0iWNJZ1ER9twA3ejKNtpeEYBJEpXBQnHFyUaXY/wHWzbMxg==
-Message-ID: <5fbc6f34-06d3-4e11-b9f7-f091cbf7394a@rootcommit.com>
+	Tue, 17 Mar 2026 15:55:09 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-829b2019b39so3122329b3a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 17 Mar 2026 08:55:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773762907; x=1774367707; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=f8ibux8nB/MhHnX1SyYOz0IsNXVQjw67zWlanOsT53c=;
+        b=izn9cS23piLT6pq+bKKz1iAvwjbU2GI6VeJ0ryz3IYqYbMEiWkyojtsDpedWZfFfTY
+         MM3dmQRV7gtvRjKKlh6dyYcNOeXDC31indOWKe+GyuZNIsceZHgKQH6iK/vv67xstF+/
+         IEFzVdPMzv43wIX78ZiS403nwMklnGS9fyU8JAr5xGXRMQFk+bAZ7tuksbJlKZzZAQ4g
+         oA5yWXIgVag06Ca0Cn2cZQIiJNCpHKYA1BDn/RseiXS+wrKjboK8LnFSKA0QmrgUXN9T
+         /ccVXjya0xfEAQ/nWkGJf4pSLzqHJ4JXj5tncuL878LVfq/E9B/l6UE8CGWqpPm3fqp6
+         Nq7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773762907; x=1774367707;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=f8ibux8nB/MhHnX1SyYOz0IsNXVQjw67zWlanOsT53c=;
+        b=BWoHX+WRyj891e99xddVX08jroYfHfOr80WJa+7Ep4YzaQjwh4fVWrxIDo4qthXdmN
+         EAvYnKcNjNh9dLUz6nFvijg9oFTiKyfThGg8bW35dwbw5jTNfpSNxWYp/4izBkUpGLCf
+         VyYngS+jXLcWcICM4EYrzteIy9pEYDNFb4lNwgr+/yJuzSfLFw/Z0YrAOEsBYM/3EXDX
+         nNHFw70vxcGyApuw/rxtuClC87WfsOfdbwG8aLQU+bfzQQEnCUGLQXF1jjJz4zo40bGd
+         KaQmrCCC/JQjFpyoOLkfX4lEdivtx52VbYiyjA82zhHmZ/YDMW5N7SAP7Mht3A6fz7iC
+         XWkw==
+X-Forwarded-Encrypted: i=1; AJvYcCXTtxyQRUcT3b7aozFpWFbW1rVycjfDEWrcD1YRpNMJphfyiiLW2CyeHUZZfIO3AkP5R7N0iw8fpadLFw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBrtBbN6DH4zvi69BMEKwS38PYtRi3Tw6v0usgUl2I5IIawsAQ
+	R4k1EuLkTN4qfarTn/Pnm0S3v6p6jFBQ4s+9YpKRsYvgLSIU7rTieCYk
+X-Gm-Gg: ATEYQzyZiI7PXfDbt5p2rLILRKllQM/DsajjDdYugy3AqF5DLWoH7IFwbvGrw9LETnf
+	qys16LQlbwx7Bx+9NGHpqniVM6EP2dVlxVrL4Tcb1hB+1StWHyH2c28blE/j6p9wPZLayT055vE
+	dtAIOFIFJc9MnFRYhNgq/HQt5aHzqdYYNtTXk8emc9VQKt3lRBo0crcPa5boSRFZScIB1a66gRj
+	Z7MrreqdshnxpWwp7WxQ/T9HqwaUqzWHYVWMHLiKspFbXsOqKUeZf3qW8HLNC7baCO4YuYz6NVg
+	QC/fJa1u0ZXyVjMn+E8qkt6BcP/kxnyWhJK8tp4BkBDJWxvsmFcwNQi5NkffpIpc2R/VifvUzk9
+	Fc2TZudztl8+hqmuQdgXPf3gOc2V7v0S1GL+zCPd5XiY4ZxapyqzFT1RZ8ilOToJyL8Nch7BcVa
+	Su7xyr41aN04jW/c+Soo6/7dJtdJwmrRHEiaoG
+X-Received: by 2002:a05:6a21:516:b0:398:9044:77b7 with SMTP id adf61e73a8af0-398ecdd8a48mr15587743637.59.1773762906804;
+        Tue, 17 Mar 2026 08:55:06 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c741e5691b8sm21201a12.25.2026.03.17.08.55.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Mar 2026 08:55:06 -0700 (PDT)
+Date: Tue, 17 Mar 2026 08:55:05 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
+ multipleOf for T-Head TH1520
+Message-ID: <7f043ae1-c863-4884-a2c7-710a8d9d8771@roeck-us.net>
+References: <20260309162457.4128205-1-zhengxingda@iscas.ac.cn>
+ <20260309162457.4128205-2-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com,
- Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Anand Moon <linux.amoon@gmail.com>, Trevor Gamblin <tgamblin@baylibre.com>
-Subject: Re: [PATCH v3 6/7] riscv: dts: spacemit: k1-orangepi-rv2: add SD card
- support with UHS modes
-To: Iker Pedrosa <ikerpedrosam@gmail.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Yixun Lan <dlan@kernel.org>
-References: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
- <20260316-orangepi-sd-card-uhs-v3-6-aefd3b7832df@gmail.com>
-Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-In-Reply-To: <20260316-orangepi-sd-card-uhs-v3-6-aefd3b7832df@gmail.com>
-Date: Tue, 17 Mar 2026 15:54:14 +0000 (UTC)
-X-CM-Envelope: MS4xfJw5AHuHKESwjxDU42t1s3Ntdjj/zJ52wwsXYYlRQARrN6B9FMg779E6OU6fQazbRZ+bWLG5XaO3Ntlgvf2SLKo1l5gVtS3EevJM26Cv+2YK3TO24ScR dtkz91LSXVI8KMYrrxjikwy6zfHYux/zzoWXi9bYBz5vsPA2B/mZfV+CkUFV4pZBkjpCbxrmmfgAU5XMARsge99C+0XEBumIz3AE/9GjjsYz51Ovt8JBk5FW Iwe7hqbmOXuXU8L5leCOV4bHVgDvn77uwAkvVfXv4RdGdJ9GOJY4OKt12Ucf7Cmh0Xy+MN448nX/3DtQzh0x/weDvOn86VCaa3XBMSJo+XRGRJB+g8GpDyCq G+zZACs0al7qKDgrDbp6y6kmA0WTIUo8ZvOA66GGh71eUr3RnKE4YEAkJbQkq4aIT+kuSwOPS/T+BJ2+I3Wf98SshtNlTj6LWnzJkqiyKlU0W4JTH5Cm3IEh DbN5uLy8tnnkf3Dg0QOYdlJICLyecy5gfP9eXFYzAlqzS8mNshQAmfGaZBxmlcPqYS+JvukqtmO0BBEbA1jmBa/VeFfuzJS2XNKAwY5lu4NrPxjwI9zbwtyl UjHkq1vVbjHX9Fj3YDXUN6vJEhfha9dL6mjUegX8KHfcoPX7rAN0fq0/dG222h2xfE/4MmClBv2j6ztnssNTtvc6ZMzztxhjrHksMq90vY43szkM6N1Si09X XFM5E2SOE9a15HZm1nMVMj9cVfhhG9akQXRfd0cG7w/h8REGvYyvtYncLiogf0JKA6RWRgypgR21tIgd6EPFSxNdCBIvtMtpQRY3nvq3WrNiqAOFMNi85E1N Fo5BoX87N4fRKE8ePYmaW1ddfRAQHel5qVqDmcYQ2/VT+er3DATVkRakruHBMuwpT+jnVvA9IfUXyezepwfPFBGey+y5+jv2FqRK3tp0Zi+0S8My3EA1nM5x xVBscA==
-X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=69b97927 a=eExTT1VkZWUTeek0JR7vTg==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=pGLkceISAAAA:8 a=IpJZQVW2AAAA:8 a=LzP2-JvhAYZmahfDZeMA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22 a=IawgGOuG5U0WyFbmm1f5:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+Content-Disposition: inline
+In-Reply-To: <20260309162457.4128205-2-zhengxingda@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_085427_698630_80D242B5 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260317_085508_187779_197BF593 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,74 +95,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org, Rahul Tanwar <rtanwar@maxlinear.com>, Guo Ren <guoren@kernel.org>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Fu Wei <wefu@redhat.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Iker
+On Tue, Mar 10, 2026 at 12:24:56AM +0800, Icenowy Zheng wrote:
+> The G and J coefficients provided by T-Head TH1520 manual (which calls
+> them A and C coefficients and calls H coefficient in the binding as B)
+> have 1/100 degree Celsius precision (the values are 42.74 and -0.16
+> respectively), however the binding currently only allows coefficients as
+> precise as 100 milli-Celsius (1/10 degree Celsius).
+> 
+> Change the multipleOf value of these two coefficients to 10 (in the unit
+> of milli-Celsius) to satisfy the need of TH1520.
+> 
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> Reviewed-by: Drew Fustini <fustini@kernel.org>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks for the update!
+Applied.
 
-On 3/16/26 3:03 PM, Iker Pedrosa wrote:
-> Add complete SD card controller support with UHS high-speed modes.
->
-> - Enable sdhci0 controller with 4-bit bus width
-> - Configure card detect GPIO with inversion
-> - Connect vmmc-supply to buck4 for 3.3V card power
-> - Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
-> - Add dual pinctrl states for voltage-dependent pin configuration
-> - Support UHS-I SDR25, SDR50, and SDR104 modes
->
-> This enables full SD card functionality including high-speed UHS modes
-> for improved performance.
->
-> Tested-by: Anand Moon <linux.amoon@gmail.com>
-> Tested-by: Trevor Gamblin <tgamblin@baylibre.com>
-> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-> ---
->   arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 19 +++++++++++++++++++
->   1 file changed, 19 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> index f1533c99881dbf38e16cff5e91e33253cfa7a56d..aff23846085d22d1e9cd77434bffd2816ad59e12 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> @@ -140,3 +140,22 @@ aldo1: aldo1 {
->   		};
->   	};
->   };
-> +
-> +&sdhci0 {
-> +	pinctrl-names = "default", "state_uhs";
-> +	pinctrl-0 = <&mmc1_cfg>;
-> +	pinctrl-1 = <&mmc1_uhs_cfg>;
-> +	bus-width = <4>;
-> +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
-> +	cd-inverted;
-> +	no-mmc;
-> +	no-sdio;
-> +	disable-wp;
-> +	cap-sd-highspeed;
-> +	vmmc-supply = <&buck4>;
-> +	vqmmc-supply = <&aldo1>;
-> +	sd-uhs-sdr25;
-> +	sd-uhs-sdr50;
-> +	sd-uhs-sdr104;
-> +	status = "okay";
-> +};
-
-
-Tested successfully on OrangePi RV2.
-Tested-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Cheers
-Michael
-
--- 
-Root Commit
-Embedded Linux Training and Consulting
-https://rootcommit.com
-
+Thanks,
+Guenter
 
 _______________________________________________
 linux-riscv mailing list
