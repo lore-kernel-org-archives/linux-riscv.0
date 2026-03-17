@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 506F1F33805
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 06:46:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959B5F33804
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 06:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7/J/TcJDibdjL9Hys2Mb9YwGXBPkU7yhBUaKU5UZPSQ=; b=NuelsTS+/9JIRa
-	mZ0TnG4VW50AljqJTD6b7BYLNIgEYoUaq0Ux+/Vhlid6GPlnYMh26foJ9n4qhGbaVo09tIvqjOmIz
-	27WH0gDRJ+bf6Y81oecXtFsB23iOgd0cY2X1Xu8vLe2uFUgYGTwPiEi8Jl0DAo17D8jZzXnvz2w7T
-	bqMvmNSIjAVfwpQ+VQxn00GqQ+PeQ61A4PgbTW7gZMm2KEYss7xUyp59X3fP09F8hHos+n6rU7Bo2
-	2Ec6+9KFuXtp65gvoeZArfFbnakVYhJpfzLXb/iUCzN9dZD+IKnMGnv76RiLNxzRJM49AqaoTZaLI
-	0ocks2NrJ1zrh0576izg==;
+	List-Owner; bh=LBifCYtK8v3acRYWqDCbRGcitXVbbbIerQoQU8m7+Zs=; b=gZERQkNxmamSFu
+	ShFgS7scLMgLGSx/yMbnN8z4xDg7pYAR7u9wX90eRCMN2yFn7q39Pkrig7UYpT5CGbHv2b9jxOCWO
+	LgOAHzT64Jn6jBNG9+m6XhAMwouSQR6/keE+VyX2JI+GnWgNpyIi1ytc+/105UYKY+n+BEQrRMCC5
+	azi9CJCjZ/NAeIdmxJ9AGNYo8ellPFkjwtsoETaAO8c9urtU9zzfGUqjOtk8JiuqEpzXvagRxGn4C
+	LHY9pWmWzZlCL0Y4udaxAS/0Y6igsanAyKagjF5XoZt6zdrJNWfxarP0VJIl/WTbmgyOq1D78cDUA
+	yK6qr6N3zuW46uONpl9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2OCP-00000005Wan-3epo;
-	Tue, 17 Mar 2026 06:46:41 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2OCM-00000005WZw-0NUC
-	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 06:46:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=gIoVGh7it5fMYUkkNLHp8OH2p11aLnm6q
-	S09VmO8Afg=; b=D0au6ZbvipQmgQNRbvlxf2uZ8Ml+cTM36jHoo5umNmfQ8QwgF
-	VfdEXq7RkCDI2C3cKihBZeQI7ETx0dZJQWQFEdrAootKoX8uGDyp65rL2HY1HNW5
-	BY+NeKxuRcv55W77ImFvfnr38gFl7fCgCN/VeOG1jqr0kdjZRB/RTQ4xO0=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAXxSTy+LhpU0cBAA--.1123S2;
-	Tue, 17 Mar 2026 14:47:14 +0800 (CST)
-MIME-Version: 1.0
-Subject: Re: [PATCH 1/4] riscv: add UltraRISC SoC family Kconfig support
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Jia Wang <wangjia@ultrarisc.com>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
- Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
- devicetree@vger.kernel.org
-In-Reply-To: <20260316-powdery-unbundle-b1166d13f53b@spud>
-References: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
- <20260316-ultrarisc-pcie-v1-1-ef2946ede698@ultrarisc.com>
- <20260316-powdery-unbundle-b1166d13f53b@spud>
-Date: Tue, 17 Mar 2026 14:46:24 +0800
-Message-Id: <177372998464.49340.13796019002628537253.b4-reply@b4>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773729985; l=1669;
- i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=Wh4r1tJxW/lcrM+5/s3mKCV9XBfeqG6hKDHxb5EPDGw=;
- b=ILj7unpHtMHqWmjlLI7/tPGnunhwSsS8Xtq1iZbRucVP8vowTNh4jyI+qbH5QarPUFQzPy/4t
- oNPEPJb4jhzCT7Eu7JSn7WY9jScPJmDP1wK6D+CRtY1UamBX4EkSEux
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwAXxSTy+LhpU0cBAA--.1123S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF48Xr1UAryftFyUZFWkZwb_yoW8Wr17pF
-	s5CF1rCFsxGr1fCa9aqw45urWI9F4v93y5Zr1Duw18AFs8Cry5C3s7tr13X3WDZFZ8Crna
-	gFyru3W3ua15uaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNJ5oDUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAJEWm47wkAAgAAss
+	id 1w2OIc-00000005WsR-38BF;
+	Tue, 17 Mar 2026 06:53:06 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2OIY-00000005Ws3-2FNg;
+	Tue, 17 Mar 2026 06:53:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1773730375; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=O6F4vfO27BhBgsN3Ujy+LtSzFdCuHLO/IeOMoxw9yMu53IRZLX1XxN67TSpJV92anSu5AWt2LdJzbkoJwXCSzDgTlO2YPDtlRq8AGBIrZfrm39oYgsTIKl3P/a0IYLXn4hNm75s26AJCddxfpVC0BSDvGTKx/gCe8BKLR7zwrfc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1773730375; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=r6x359z7LUVYIlGpCkt6UIl3c41zccuqshUShGS4DHY=; 
+	b=e7R1IAjUPyDZ2Ye0k3mmjAM5TWsjKFUhVYfeniN/NkcYvbRBZB5SzupB2pQYUUk3KNr8Zps+7EAB1RsJNNXziC1jprgB9sJij8xpSCpsoAcCJHDc0ElX3duMK1/FkM2zrjKGrvymwgNzj/yIE70h1ju10AF4iLUcRe1rbs9kKjY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773730375;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:References:In-Reply-To:Reply-To;
+	bh=r6x359z7LUVYIlGpCkt6UIl3c41zccuqshUShGS4DHY=;
+	b=mzTpzJAzBRKZxiOK12kTEebg9Tk2UIrEvu6fEsRwoC7w3gM32G3kCOjiW2ZekerT
+	jMq+pfu7laCjLfzycupCNZ1lv2HdmvSx9TcArqsnSFYsQzC9WBr57G7w5aGoytVYCaB
+	oxK1IJiUOaSOeou/NJulhapgAgMhWLbjwFJ3noKs=
+Received: by mx.zohomail.com with SMTPS id 1773730373624551.8839282460517;
+	Mon, 16 Mar 2026 23:52:53 -0700 (PDT)
+Mime-Version: 1.0
+Date: Tue, 17 Mar 2026 14:52:44 +0800
+Message-Id: <DH4UXSB5ZT12.2ZL6R3FWUR6GN@pigmoral.tech>
+Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+ <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <gaohan@iscas.ac.cn>, <me@ziyao.cc>, "linux-riscv"
+ <linux-riscv-bounces@lists.infradead.org>
+Subject: Re: [PATCH v4 3/3] riscv: dts: canaan: Add mmc nodes for K230
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Jiayu Du" <jiayu.riscv@isrc.iscas.ac.cn>, "Junhui Liu"
+ <junhui.liu@pigmoral.tech>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260315054426.18383-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260315054426.18383-4-jiayu.riscv@isrc.iscas.ac.cn>
+ <DH49Q7OQSIYM.1RD7H0L809JQV@pigmoral.tech>
+ <abgp0PT4GHRwmaLy@duge-virtual-machine>
+In-Reply-To: <abgp0PT4GHRwmaLy@duge-virtual-machine>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_234638_611410_EE56C513 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20260316_235302_955892_D19A6F0C 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,59 +84,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-16 14:39 +0000, Conor Dooley wrote:
-> On Mon, Mar 16, 2026 at 03:06:57PM +0800, Jia Wang wrote:
-> > The first SoC in the UltraRISC series is UR-DP1000, containing octa
-> > UltraRISC C100 cores.
-> > 
-> > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> > ---
-> >  arch/riscv/Kconfig.socs | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> > 
-> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > index d621b85dd63b..f49d3ccaacde 100644
-> > --- a/arch/riscv/Kconfig.socs
-> > +++ b/arch/riscv/Kconfig.socs
-> > @@ -84,6 +84,16 @@ config ARCH_THEAD
-> >  	help
-> >  	  This enables support for the RISC-V based T-HEAD SoCs.
-> >  
-> > +config ARCH_ULTRARISC
-> > +	bool "UltraRISC RISC-V SoCs"
-> > +	depends on MMU && !XIP_KERNEL
-> 
-> Why do you depend on "MMU && !XIP_KERNEL"?
+On Tue Mar 17, 2026 at 12:03 AM CST, Jiayu Du wrote:
+> On Mon, Mar 16, 2026 at 10:15:27PM +0800, Junhui Liu wrote:
+>> Hi Jiayu,
+>> Thanks for the new version. Just a friendly reminder.
+>> 
+>> On Sun Mar 15, 2026 at 1:44 PM CST, Jiayu Du wrote:
+>> > Add MMC nodes to K230, including eMMC and SDIO. Enable HS200 eMMC
+>> > on the SoM and SDIO high-speed on the board.
+>> >
+>> > Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+>> > ---
+>> >  .../boot/dts/canaan/k230-canmv-dshanpi.dts    | 56 +++++++++++++++++++
+>> >  .../dts/canaan/k230-canmv-module-dshanpi.dtsi |  7 +++
+>> >  arch/riscv/boot/dts/canaan/k230.dtsi          | 28 ++++++++++
+>> >  3 files changed, 91 insertions(+)
+>> 
+>> [...]
+>> 
+>> > +
+>> > +&sdio {
+>> > +	bus-width = <4>;
+>> > +	max-frequency = <50000000>;
+>> > +	pinctrl-names = "default";
+>> > +	pinctrl-0 = <&mmc1_pins>;
+>> > +	vmmc-supply = <&vdd_3v3>;
+>> > +	vqmmc-supply = <&vdd_3v3>;
+>> > +	cap-sd-highspeed;
+>> > +	no-1-8-v;
+>> > +	status = "okay";
+>> >  };
+>> >  
+>> 
+>> It seems the broken-cd property we discussed in the previous version is
+>> not added, and also my Tested-by tag (for the whole series). Was this
+>> intentional or just an oversight?
+>> 
 >
-Hi Conor,
+> Sorry for that, It was a oversight. I will fix both.
+>
+> And I will only add your Tested-by tags to patch [2/3] and [3/3].
+> Is this correct?
 
-Thanks for the review.
+That's fine, Thanks.
 
-The dependency on "MMU" was added conservatively, but the DP1000 hardware
-does not strictly require MMU. I will remove this dependency in the
-next version of the patch.
-
-The "!XIP_KERNEL" dependency is retained because the platform does not
-support executing the kernel directly from storage, so the kernel
-must be loaded into RAM before execution.
-
+-- 
 Best regards,
-Jia 
-> > +	help
-> > +	 This enables support for UltraRISC SoC platform hardware,
-> > +	 including boards based on the UR-DP1000.
-> > +	 UR-DP1000 is an 8-core 64-bit RISC-V SoC that supports
-> > +	 the RV64GCBHX ISA. It supports Hardware Virtualization
-> > +	 and RISC-V RV64 ISA H(v1.0) Extension.
-> > +
-> >  config ARCH_VIRT
-> >  	bool "QEMU Virt Machine"
-> >  	select POWER_RESET
-> > 
-> > -- 
-> > 2.34.1
-> > 
-
+Junhui Liu
 
 
 _______________________________________________
