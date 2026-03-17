@@ -4,76 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B20FB5EAF
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 04:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92911FB5EBB
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 05:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=78dAHdTRZAAswBsuro0yHbKOVs/m3eeKnPYREjka8S4=; b=RKxA+3SxH/lTBC
-	JQGq47E6ZxE/fBlcZvsR5haG42q5vdWl0YgpojDk3DGbXVd8f+jjDJzKF33taYXK+emPJ8j9lVZBE
-	bXq7o1WmeTvTlUPV9GWJNd0Ti9v8xXHHCYhv4td4HAGoLIOSwf0gystkteVPRk2xflt0Jb/pfkEo6
-	C2MPepiL5U8C6Kq1rpF1F3m1gfqgK14MzPmiYMv72m9uXeeOIQaNFMLzl1MzXgo4hhiGhaP4jljaS
-	DBiwOIOGcalvQVYoxknrSxggHc6TGrJsWKV2YVFuHWGhXq9y/E3uI8njYbEzlk6xJtYVJuTKeMif/
-	MW091CS87TQo50TNvrxg==;
+	List-Owner; bh=tJ/JNbdSM0gzyhGEx2q2TEKlePEqBK4geXjiWsKFd2c=; b=r3gsVFurajvA2i
+	NQTZchsNDWDa5AYYxxcwTsXOXyDqSpqyD6TQ2pD0I8qO0S+JL0eUWg3ixclmoCpsc5+Zyd8u2MQwK
+	dAL4syjwvgYn+qGwKpOfB7PNQJW8k/Cg49Sl8rdgMibgS6tq70M0mZqYaSOlnfKq7PIy5b4zzeCde
+	1MRmnIjDV2cmeg5VUcDlnHQ85h1vtyDVBUr6d1Abf/Zdbe0Blz7g/YbYloaq9wHgnYM+4i3hp5y3B
+	dmWq6mdHgEDH6KNzbRGovX8T459DhFqGbPLDR4sVxlHUduQmJR9sUQ7W8Xhq87idMZvSIFt8hyO/Z
+	knvXkQVpBc/jKx4GO/hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2MTe-00000005Pul-29JW;
-	Tue, 17 Mar 2026 04:56:22 +0000
-Received: from sender4-op-o14.zoho.com ([136.143.188.14])
+	id 1w2MiH-00000005QPY-0z6z;
+	Tue, 17 Mar 2026 05:11:29 +0000
+Received: from mail-westus3azon11010040.outbound.protection.outlook.com ([52.101.201.40] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2MTb-00000005PuQ-2l0G
-	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 04:56:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1773723375; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=jv4W65Eez2XeH9G5ErU/Y8ESdtUVdFcY98YBU6VYVL32MAvWA/3o27T85GNglxfY2zG41dX/1h1hNF5YTjeGZ48TSDBQfbccolxYkJAAYFoT34Ex0ruvdCTbhoA52dl1xM+qj7xaeJ6Ni7I6ygbEzbFDtY+WPg3uZPvV5IddfB0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1773723375; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=/T2hb2zDBTYyx2qNSAdWht261iTUJecScL8CnM2TGvc=; 
-	b=A7hfPYMKt3xQ9cT30L5UCrgV51YbBzJ65/x1qGwdJKViu9iGhnyRCLOKyvaS2w+skFbalcWM4FVCcr5FF8lJ/uYt4K6HJH0xyeV+eInKQ5fI0MGPFPiYhbh/0zIde7YtlY8BULUGRE1iesyDRkQ3YvWGg6GhZAxTtSaUU86JAHw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773723375;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=/T2hb2zDBTYyx2qNSAdWht261iTUJecScL8CnM2TGvc=;
-	b=WPCqwGLghg4ELnTN0tR7SEMkq0yPRX/HCjbLCRFxu+Qmz19wmBt0P3riww0KuAZt
-	4V8bMeGnXDyQ/GORqiRq5XpdtTklmon8PRTyzj+3OwG4bY0/BcQ1VozmHv5sZbg4lph
-	feeQ9VTh3/e1bb9HtSRuCMlB5WMO0iyMmccY1Vi0=
-Received: by mx.zohomail.com with SMTPS id 1773723374200302.13921499108164;
-	Mon, 16 Mar 2026 21:56:14 -0700 (PDT)
-Date: Tue, 17 Mar 2026 04:56:07 +0000
-From: Yao Zi <me@ziyao.cc>
-To: wangjia@ultrarisc.com, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 3/4] dt-bindings: PCI: Add UltraRISC DP1000 PCIe
- controller
-Message-ID: <abje5wWCljOBhgHU@pie>
-References: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
- <20260316-ultrarisc-pcie-v1-3-ef2946ede698@ultrarisc.com>
+	id 1w2MiD-00000005QOq-2B9E;
+	Tue, 17 Mar 2026 05:11:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A3tKj6OYJFvdFvZlFokm3uBq54fHJ89gdvCAQ1mibTJ0D4rL7xZyQHbMc/+AF92GKtyi7CoUAQyVLgiJHEjrv1Yw9Ct0EyBX+0D/000l4zSX+/J9PkN2xga55R4AZI/m+iY/LgYguGxdUsGavEeqcCIptHUs+LvBHuESvQf7JdUGl9XHEmmHZnZwrZqMsORIKvJ/L9oImr8cPzKgzEu/dxLYUaJE7WXiJJR3IAEIUv4k8eahx2CLgoJWKrWyKW2kD6uUhK1UbeV/gBBpPVD4U0WDjFWeo2Juxu2J92/QnFc4FP4yKOQ2VX1/4oPQUVm1uiMj2IpakGII5uh1QFfjRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F43DsBW1DIz/ciaUzZxCRjd4DKLMY3Vf+jP/6z85oEE=;
+ b=wxyMUNf8rStHUv3lLs1cNXhy6hkyRonNoQ5/zrkn6zCApTjrEJY8beo+G1vtcFYd8JWdE+ddjJC5BoRVEzRmcEcPlFluIwHPuwK4Cq9+pi3GvhpVqq1h8XFL/x88upUQuAg0WHq2XX1x6F9NFMf80cWVG4q9SJnbIvh01VXXLfCt3Jp8ELPaeosXcpLDtoyxlPdQiyNuAyIbuBCkkRTsCbqw7NrqRQS7rBTkmqk7JspBQeQx4GFMHQqRgr6eeByf4oBkmItAkgZEIgIXFjxVicKZZzD2PMKPAWRo+L+/gogp8vgzPK3ALZqsUbFufcvdFFgSLeWfuEkPAbd/aUO++A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=sifive.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F43DsBW1DIz/ciaUzZxCRjd4DKLMY3Vf+jP/6z85oEE=;
+ b=IZ+iCho5Hsvd0qmKqSallyDgfYatTM+jf2Qze22okwn+i2Qqj4gnUMb7KcLK3HdE+f+HUZsZmv6F+Qi7Zb3C5dkZMPTPtv8v+cFLuUO7whD4nKjdwcRlUruNKyZ06TvVdrRH+SrmKa5r0Dd/5PLyHvl5/wlgwkMItfva0lHpMIg=
+Received: from MN2PR06CA0014.namprd06.prod.outlook.com (2603:10b6:208:23d::19)
+ by MN2PR12MB4439.namprd12.prod.outlook.com (2603:10b6:208:262::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.17; Tue, 17 Mar
+ 2026 05:11:17 +0000
+Received: from BN3PEPF0000B075.namprd04.prod.outlook.com
+ (2603:10b6:208:23d:cafe::9a) by MN2PR06CA0014.outlook.office365.com
+ (2603:10b6:208:23d::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Tue,
+ 17 Mar 2026 05:11:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN3PEPF0000B075.mail.protection.outlook.com (10.167.243.120) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9700.17 via Frontend Transport; Tue, 17 Mar 2026 05:11:16 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 17 Mar
+ 2026 00:11:16 -0500
+Received: from [10.136.37.230] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 17 Mar 2026 00:11:08 -0500
+Message-ID: <9fa8ef20-1da2-48e3-a9d8-340a5106cea8@amd.com>
+Date: Tue, 17 Mar 2026 10:41:07 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260316-ultrarisc-pcie-v1-3-ef2946ede698@ultrarisc.com>
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 7/7] futex: Use runtime constants for
+ __futex_hash() hot path
+To: Samuel Holland <samuel.holland@sifive.com>
+CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, "H. Peter
+ Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, Sean Christopherson
+	<seanjc@google.com>, Charlie Jenkins <charlie@rivosinc.com>, Charles Mirabile
+	<cmirabil@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Huth <thuth@redhat.com>, Jisheng
+ Zhang <jszhang@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Sebastian Andrzej
+ Siewior <bigeasy@linutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+	<will@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Arnd
+ Bergmann <arnd@arndb.de>
+References: <20260316052401.18910-1-kprateek.nayak@amd.com>
+ <20260316052401.18910-8-kprateek.nayak@amd.com>
+ <f25ed5b8-e785-414a-b13e-85c1a787665d@sifive.com>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <f25ed5b8-e785-414a-b13e-85c1a787665d@sifive.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B075:EE_|MN2PR12MB4439:EE_
+X-MS-Office365-Filtering-Correlation-Id: de3a01ff-9094-4428-b186-08de83e39e4d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: qJ+qfHkyDhpuyR+nI64b1GyuVhK0vG8KRwSbX554heKAtoHgAY02m50fp6/lgVgDm1XFrifv/OIyRigELP8YJukqJ/qwUWwZWz1jCeT+EgWtjbcWxXA5A9Em/1JJclv3nKzU+uLjiWp2ZdnH6Kwrw0fzk5Ags7ch1TqZDa08wlZbv1UwKaXuzM7UHJnosk28VVwfd3afidYtnZiOpW3giZ7PnVGZtWhmsx5NrQ37fpzRyOlFHLSWUqv8xjnrvrINTziXw8sCiiKRqc6QLIwAQm0PYlAYWLQ17+8yWYIboptjCmTTBiqXH6U5FmlK5lR4pC2IZ3G1g/VdB0+e5QRUefCeUX+gsFAjWXNT4/HfRw3nAFAr9vK2LhHvU2JYanzRip6DVr95HCnWRs6iEGhiYlI+21NuyQI4H/4jsuoTiEFD7fPSn3zCGxzrwLzxPez4mAG/vkqfpMyBQ9XD44KCe1m9uxVhX7VqUr3WduRVEDceAwCjjUVviXjyJfK2rA8zoUxsew89gwXBZIrLXhIlGwUR/Y0g7ExCgyNxtf2fdBB3bnLD0BUqezwkIUqrsG8+54kTuzU1tG+ueAtjbl8DtVv8WuSzdzmP8ufrZMYFSfCnHV7xuzaEgfjOH6FuU2P54MNLH2YVWHBz55p43Uf+t3aaLIIvgYePt0f7XcSChpSMQufoA+TxINCM12hJG/XtjLER7NbsFEN1/sukMLZGFi2VN429sz985PfToBY8nMSZtgowo/feYm4bZdi4kOANcDokOHPTp53mVHNs3dF0fQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: LgMejL8HVi51SFtSNVzhPWyVNfVnUQ/Ufp6pUMOJ7lcTSAOt/UGXndRmRIKero3m8FyRmUBRkyogQ65C5FfK6tvJNL+8Y163Lr53Z8ae54tYOvcDqB5Pslkw8vxB4x75BI5/zk4ndW3JFg5V6ru6GYrzWGSadnZiB8tH6ZZPXG5LsC5cPzRJsYp0mS9rdIBwqSHFEWBYGjZv3YAPwE/vagABUCcU+oP0DvqtTSij1ylS+RzKBO6GVsPyQi3sDotFTHrsSfVaXFAZToUVDEw2PCWP8m5RP+Zd8G2ZDjgWGJBb4hDpHYBKQx8XNereiVhBDSMFT1ujliXrUMQhYNJWPgMXy4SSygdh/lx4cTMhYT0CDn2CHr1rBuq+zfwLYLBzbfzDzxeKMuqEqXdDRiu4DL5fGV2CaexHHgWtooZINsFp1sjS/iGRNeCyCMxqqbRB
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2026 05:11:16.9497
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: de3a01ff-9094-4428-b186-08de83e39e4d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B075.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4439
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_215619_744754_F9EBAC9F 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260316_221125_626818_CA8F8DDC 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,38 +139,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 03:06:59PM +0800, Jia Wang via B4 Relay wrote:
-> From: Jia Wang <wangjia@ultrarisc.com>
-> 
-> Add UltraRISC DP1000 SoC PCIe controller devicetree bindings.
-> 
-> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> ---
->  .../bindings/pci/ultrarisc,dp1000-pcie.yaml        | 108 +++++++++++++++++++++
->  1 file changed, 108 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-> new file mode 100644
-> index 000000000000..b50ff98dd878
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-> @@ -0,0 +1,108 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/ultrarisc,dp1000-pcie.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: UltraRISC DP1000 PCIe Host Controller
-> +
-> +description: |
-> +  UltraRISC DP1000 SoC PCIe host controller is based on the DesignWare PCIe IP.
+Hello Samuel,
 
-If so, you should probably refer snps,dw-pcie.yaml to avoid
-some duplication.
+On 3/17/2026 8:36 AM, Samuel Holland wrote:
+>> @@ -1913,7 +1909,7 @@ int futex_hash_allocate_default(void)
+>>        *   16 <= threads * 4 <= global hash size
+>>        */
+>>       buckets = roundup_pow_of_two(4 * threads);
+>> -     buckets = clamp(buckets, 16, futex_hashmask + 1);
+>> +     buckets = clamp(buckets, 16, __futex_mask + 1);
+>>
+>>       if (current_buckets >= buckets)
+>>               return 0;
+>> @@ -1983,10 +1979,19 @@ static int __init futex_init(void)
+>>       hashsize = max(4, hashsize);
+>>       hashsize = roundup_pow_of_two(hashsize);
+>>  #endif
+>> -     futex_hashshift = ilog2(hashsize);
+>> +     __futex_mask = hashsize - 1;
+>> +     __futex_shift = ilog2(hashsize);
+> 
+> __futex_mask is always a power of two minus 1, in other words all low bits set.
+> Would it be worth using an n-bit zero extension operation instead of an
+> arbitrary 32-bit mask? This would use fewer instructions on some architectures:
+> for example a single ubfx on arm64 and slli+srli on riscv.
 
-Regards,
-Yao Zi
+Sure that works for __futex_mask but runtime_const_mask_32() should be
+generic enough to handle any mask, no?
+
+Currently, the __futex_hash() with futex_hashmask ends up being:
+
+
+  # ./include/linux/jhash.h:139:          __jhash_final(a, b, c);
+          xor     a4,a4,a3        # tmp350, tmp353, tmp334
+  ...
+  # kernel/futex/core.c:449:      return &futex_queues[node][hash & futex_hashmask];
+          lla     a3,.LANCHOR0    # tmp361,
+  # kernel/futex/core.c:449:      return &futex_queues[node][hash & futex_hashmask];
+          ld      a5,0(a3)                # __futex_data.hashmask, __futex_data.hashmask
+  ...
+  # kernel/futex/core.c:449:      return &futex_queues[node][hash & futex_hashmask];
+          and     a5,a5,a4        # tmp358, tmp367, __futex_data.hashmask
+
+
+which isn't too far from what runtime_const_mask_32() implements
+where "lla + ld" sequence gets replaced by the "lui + addi"
+sequence to load the immediate.
+
+Sure it can be better here since we know the bitmask is of the form
+GENMASK(N,0) but IMO runtime_const_mask_32() should generally work
+for all masks.
+
+Now, runtime_const_mask_lower_32(val, nbits) may be a better suited
+API name for that purpose.
+
+If there is enough interest, I'll go back to the drawing board and
+go that route for v2 for arm64 and riscv.
+
+-- 
+Thanks and Regards,
+Prateek
+
 
 _______________________________________________
 linux-riscv mailing list
