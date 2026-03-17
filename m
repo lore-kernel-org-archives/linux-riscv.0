@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12DC7F3380C
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 07:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC64F3380B
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 07:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k/o1gvC7kyhxvgAl7zUA+dNVfEF6usswjF2XoSd2O1c=; b=Tka5qqxG2y1ZH0
-	qobtvzCiZf705CzOookix2VZ2mRID2CPwIjMRXTbLF86ZyksB+pu/jhSwIeov9AUjzmoMlo34v+gn
-	sTgFpBMXsFcsKerjEFqrql/V6FvdBYqZBV2QLIMzE1ohlt/3WwBzuMza6Ymc3Yk+N5W91fprK7iLd
-	fOdyW0wdLoPBhjkBbzbPt+EaiY4jw91Cl/KGZNJNcgJj526KaMhnxNnqu4L/hHxKea+C1b8/7IRtN
-	GFxO9gD17faeLg6wHHI47GwvBJdffBOApWuEeUyYOKhwpFxJ+s4qlKeG9fsC9VQ8nRHDwVv0gijP3
-	NUax6B57Dcc+a8LXSqvQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oNeuW6tz028BpJOk6xY3g4gNFOyjRlHvg+m1jwj8Nsc=; b=hce9zCZ/xRdY/3
+	zgpQVC4Z9+2n46VR8QOYrbuxtn6MXZwwSg+hH7/8GM2RzyevjFpghmplQdKKDP1M3NdxDehfYaX/A
+	tu5Dc+HWnzUHotASgB/ZD/VL4SB/ToIo6MgeG+AIyHEkcueTXPqudYf4r3IDDMiNQppCIQKbVQ4Mq
+	YdJNSZzNr7yFX9N9zVx+L5z/1ZVuH/sh2zGikzjLhjiVALxP1TdhZoWlq55iuOL0tqioo+V8v3pks
+	jUQXASf0PEUuSNl9nMpSZokIB/Wxt9lDLqK3yfJ6DOyYE5Sln8A7RsBuAhNAwyBexfx+X8z3uo8Jp
+	C9/RsYMW+lFFNA9wQOig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2P6I-00000005dq2-3PUN;
-	Tue, 17 Mar 2026 07:44:26 +0000
-Received: from bg1.exmail.qq.com ([114.132.58.223])
+	id 1w2PIa-00000005fWQ-2zyI;
+	Tue, 17 Mar 2026 07:57:08 +0000
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2P5j-00000005cl1-3MnG
+	id 1w2PIX-00000005fV0-1q0c
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 07:43:54 +0000
-X-QQ-mid: esmtpsz10t1773733353t02284f6f
-X-QQ-Originating-IP: 0p7OrIEXIc6/5mK53s8Mf6pDqVlYJYCnKyf1eSqth6M=
+	Tue, 17 Mar 2026 07:57:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1773734166;
+	bh=2x3H1s4Sa0yhs6+gMgWwNOfaEbRWoZBFTbfGwSBZafY=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=dYbF7Q6nb2cc/qoUejdBXiUr+41s4aTx1d4OvdkboUsVEEI4jpsqTOOWd20XtZfI4
+	 SrlrZDSTxgc1Hbbzw90cHcBHe/jAk1KtqcAJ1KIDbAQHM9LiCNCZ2Ep+3kn+RfJ7Yn
+	 Ugvr4H87aaVuxnntqJnvPheTFWZoz1ubzwd7g+rk=
+X-QQ-mid: esmtpgz14t1773734164td4b9ac16
+X-QQ-Originating-IP: M88vjTllWXtDO6TtolrovEckKrAGjRt6n+l2s8Qou0g=
 Received: from = ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 17 Mar 2026 15:42:31 +0800 (CST)
+	id ; Tue, 17 Mar 2026 15:56:01 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8631632203164296220
-X-QQ-CSender: troy.mitchell@linux.spacemit.com
-Mime-Version: 1.0
-Date: Tue, 17 Mar 2026 15:42:31 +0800
-Message-Id: <DH4VZWOSTSIH.10276GPTK1HD1@linux.dev>
-Subject: Re: [PATCH RFC] riscv: disable local interrupts and stop other CPUs
- before restart
-From: "Troy Mitchell" <troy.mitchell@linux.dev>
-To: "Samuel Holland" <samuel.holland@sifive.com>, "Troy Mitchell"
- <troy.mitchell@linux.dev>, "Vivian Wang" <wangruikang@iscas.ac.cn>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <spacemit@lists.linux.dev>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev> <f9079774-1d16-4b84-bf85-bc8444e93446@iscas.ac.cn> <DH40Z14EHV40.1I443BTRU720F@linux.dev> <c1f466f8-4e76-43a2-a7a2-126415fd1f56@sifive.com> <DH4PODM2MN9W.V6082HZA6E18@linux.dev> <7e80356c-c937-4812-b237-184676a466c0@sifive.com>
-In-Reply-To: <7e80356c-c937-4812-b237-184676a466c0@sifive.com>
+X-BIZMAIL-ID: 16495269182346670904
+EX-QQ-RecipientCnt: 13
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Tue, 17 Mar 2026 15:55:58 +0800
+Subject: [PATCH] riscv: dts: spacemit: Add PDMA controller node for K3 SoC
+MIME-Version: 1.0
+Message-Id: <20260317-k3-pdma-v1-1-f39d3e97b53a@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDY0Nz3Wxj3YKU3ERd82RDc2MTE2NDE2MzJaDqgqLUtMwKsEnRsbW1AGc
+ 2xwxZAAAA
+X-Change-ID: 20260317-k3-pdma-7c1734431436
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773734161; l=1958;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=88z24i4Mu4dMX0+3MiP08K4JRaNoaZcAVvLBU8NrdgM=;
+ b=Y+IAEWOo3h4hOK1f8C70fhGXYsB4h9Xx8sqUos0crU5miTr+1bZ1OxlGMdybE07C1Vd2OpstJ
+ 4wWif//EQX8A6wH/vL1rtXbCBp3niqfCWVk+0H2ZX2YGj5rR23c8EwR
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: M4lPCacZ9YlemkVGxZgsQDX0ZYmsyQ3xrlx5oQ78mVpvEeQBAgc3I0Kr
-	RbmZsBRpNhw4qVG6kFS3BGsJ3KJVq1zIt8BDMUCusT1ZGds5lTLHSWReK2IDWSXbkfHRTUK
-	QWa4MsNDKvxfBuA5y3NPmVlKo2kdQlGvzpnaLAx7H4OByCZg8/O6pZ/LKIOnaL6Yl7yZFdK
-	lUobBJ1GDjkPQadN2Icq1+5KCJq04hPz7BqhJ2d41wLr0BxdKJB421GdDmz5lYJGYuBpxvX
-	sux1GUJTKMWT+RU0+On19XkHM10njOkW5St74BPEYc0QrplJusSCwQ+o5R7CHCyIBbRRo/G
-	BMdA0jf2p5+LIvZDzIRKJ7TA5k/HIUZ6cXorktC0/vGhqpIzsLDNYx2fLyV87FHOt1pLO5p
-	rgKmODRgNlusE/cxxqB3xmIRvLNkTQBVzJTjEoIfEIOgx1wkaD3uD/J1EtaMq41gSMDFQpp
-	qN4kddFHnIBjYmxhBepzWVQAGGDA+gQCCAGvIXdfcJF6MIdkgnJniEnDw+8OIZvXd2tCpGL
-	mD9fuoV3NJaJ4AzMsC7uh1uArmFPzLFjiSs7QQx0jHtsV35X/cfw202l2Ky/KsJV/DS2WVs
-	dNbpy8mtSnuAb8eH6snmbO3ujNXqlFus528HjUJus0DmShuc909Fv1x9tZOicK9l2hAsVl8
-	PuddnAB/JVKj2Oq5v7pLM0gkaE+lhuJ4TIHdryY5Nf2scajSd+KkrqVvOFPBcE+FidPJwVg
-	oh7rUYVl+0u9y2VcaMzb64kWAqWAIStFRutfIc4tR0q3XN2nyH5TmjGLfVTkuFmTLayV0oi
-	MJsmqkk4DV8zYR936RN7HvXsVCpFD0KXNm+rY2ynDXar3Qggc4S0KNxJn2pvHk38WJGQuNu
-	T/o4CfCvqW/j9nRROIKkYRICAvMuNGlIMA5egkusjrxRuuAmh5BvGsBJUILCqd4zuIQRjAt
-	Gdl7bs1ERQgyD1/+de77EUtLlT+5nqCAD0wsWf+Kn73vxPB9Tkg/LQAwJwzCNx98syI9/h2
-	ngWmh0eLVuyCOrxJ5l8BcH8veh8bWVnqeM8CBpCA==
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Oe4bhvFplmDXywCtraLnPVnfRIOs167xFFlvtE7uIQdyZugF9l+/08bQ
+	NV4k/uT5ta8i4YXTKskAZN2qkptO59mnJJh6nsOiQteun6B3OMxI46nVxlBEV+okMXt3ka7
+	w2EoXoc11XZ0uS+X9Yd0SkKEtRki0yXM4c4q7y3L5+pyKHW1fXy356035Lh325MW1uMgXq+
+	imMYw8f6r+OsguluXjNu8RJf8B6Y3lPcwd4ak434dKM+Gl/FIFEkJHmmtVLkCWDzdwMsYRY
+	OJiJn+9TtcMBqeVOU+aaprkd3rvMHQ0ESvYK+tMMHOIxOEHPvMZGVH/6ohsn1oJ6Q3Qsj72
+	szJMtfiBstItxmHx9X9RR+WComGAnQAN1PkbLc/7oAjNLamy2GmFp7tNYDCH99D50GaK2MZ
+	OVahCdYbxc7ek1BfH2UunLcwMugWLsOkTcgrjY5VF1hTfwgyLX0PBmAZJhXL/XKZ+Rzr1+3
+	+gQnT2jv71EQKoQ6vK0BKUxWdEtj6ulV+s1y0tlqxos7PVlJvrFX9sBi1Vjcikotr6R6Ppr
+	NG3XvCOzTEXuZIzxKIi0kQMAMtM5jlojOJsdKfmoxdU1mvOEsLKcFjOfb1kx+weaViARrGt
+	z6696u7qzoJYIaglEYECb9Bh5gW/5viUBzGK19NLynxU/woW6kIeZM1EiH/2X2VNM6kq00v
+	/MGq1EMTSjDY3xMxbqGa10OKAb36dNOoVxfhntaYwjqrwGwY89H/cXzuSQpvk2Ec2X0wROU
+	cGIWpyLtLqZYIiFg2YVRiJHZ4VG3mQ+nbyGfprvhmzqW6lP6OumP9XilMsousHFyGI3sbkr
+	PpTjSAVPr43/XNfAHcXnoB43ZOvTCL62sM33IZI0NRnApOm1ZqfAR3gBn5YH01J3I8ehvvn
+	MiCVz2ptj6nwKBfguJuEFvPX8NCtJzOm9IjlnC6oGugSzGfkZIwNjkmM9R/bhtZBWzu3v/5
+	dSgHNvvhT5N8JiAcHJa+aNzVbxvzbD62FlRSL0Nc4tF36CTginaaUdByZR1M8NqU7c1XrOs
+	R1EfkiLLgEerSObo1++SzEsc/elp1E/MeN1yTrBPJ7jpVBU7PGiaRWU1rojm8u8F9ENoiKc
+	ST6daC9H0KUXHfDV4IViwKmNcYO0PLvcWQUO5vHYHvf22mT348CCica89Rr3EKa8fO9O4UC
+	zJgx7wSSwgzupQ/eDPk8QVZ73A==
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_004352_841953_80DF529B 
-X-CRM114-Status: GOOD (  33.23  )
+X-CRM114-CacheID: sfid-20260317_005705_753137_27969DC1 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,146 +109,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
+Add the Peripheral DMA (PDMA) controller node for the SpacemiT K3 SoC.
+The PDMA controller provides general-purpose DMA capabilities for various
+peripheral devices across the system to offload CPU data transfers.
 
-On Tue Mar 17, 2026 at 12:07 PM CST, Samuel Holland wrote:
-> On 2026-03-16 9:45 PM, Troy Mitchell wrote:
->> On Mon Mar 16, 2026 at 9:19 PM CST, Samuel Holland wrote:
->>> On 2026-03-16 2:23 AM, Troy Mitchell wrote:
->>>> On Thu Mar 12, 2026 at 11:05 AM CST, Vivian Wang wrote:
->>>>> On 3/11/26 10:51, Troy Mitchell wrote:
->>>>>> Currently, the RISC-V implementation of machine_restart() directly calls
->>>>>> do_kernel_restart() without disabling local interrupts or stopping other
->>>>>> CPUs. This missing architectural setup causes fatal issues for systems
->>>>>> that rely on external peripherals (e.g., I2C PMICs) to execute the system
->>>>>> restart when CONFIG_PREEMPT_RCU is enabled.
->>>>>>
->>>>>> When a restart handler relies on the I2C subsystem, the I2C core checks
->>>>>> i2c_in_atomic_xfer_mode() to decide whether to use the sleepable xfer
->>>>>> or the polling atomic_xfer. This check evaluates to true if
->>>>>> (!preemptible() || irqs_disabled()).
->>>>>>
->>>>>> During do_kernel_restart(), the restart handlers are invoked via
->>>>>> atomic_notifier_call_chain(), which holds an RCU read lock.
->>>>>> The behavior diverges based on the preemption model:
->>>>>> 1. Under CONFIG_PREEMPT_VOLUNTARY or CONFIG_PREEMPT_NONE, rcu_read_lock()
->>>>>>    implicitly disables preemption. preemptible() evaluates to false, and
->>>>>>    the I2C core correctly routes to the atomic, polling transfer path.
->>>>>> 2. Under CONFIG_PREEMPT_RCU, rcu_read_lock() does NOT disable preemption.
->>>>>>    Since machine_restart() left local interrupts enabled, irqs_disabled()
->>>>>>    is false, and preempt_count is 0. Consequently, preemptible() evaluates
->>>>>>    to true.
->>>>>>
->>>>>> As a result, the I2C core falsely assumes a sleepable context and routes
->>>>>> the transfer to the standard master_xfer path. This inevitably triggers a
->>>>>> schedule() call while holding the RCU read lock, resulting in a fatal splat:
->>>>>> "Voluntary context switch within RCU read-side critical section!" and
->>>>>> a system hang.
->>>>>>
->>>>>> Align RISC-V with other major architectures (e.g., ARM64) by adding
->>>>>> local_irq_disable() and smp_send_stop() to machine_restart().
->>>>>> - local_irq_disable() guarantees a strict atomic context, forcing sub-
->>>>>>   systems like I2C to always fall back to polling mode.
->>>>>> - smp_send_stop() ensures exclusive hardware access by quiescing other
->>>>>>   CPUs, preventing them from holding bus locks (e.g., I2C spinlocks)
->>>>>>   during the final restart phase.
->>>>>
->>>>> Maybe while we're at it, we can fix the other functions in this file as
->>>>> well?
->>>> Nice catch. I'll fix other functions in the next version.
->>>>>
->>>>> I think the reason we ended up with the "unsafe" implementations of the
->>>>> reboot/shutdown functions is that on the backend it is usually SBI SRST
->>>>> calls, which can protect itself from other CPUs and interrupts. Since on
->>>>> K1 we're going to be poking I2C directly, we run into the problem
->>>>> described above. So all of these should disable interrupts and stop
->>>>> other CPUs before calling the handlers, and can't assume the handlers
->>>>> are all SBI SRST.
->>>> Yes, we cannot assume that all platforms rely on this.
->>>
->>> Why isn't K1 using the SBI SRST extension? Resetting the platform from S-mode
->>> directly causes problems if you ever want to run another supervisor domain (for
->>> example a TEE or EFI runtime services), which may need to clean up before a
->>> system reset.
->>>
->>> As you mention, other platforms use the standard SBI SRST interface, event if
->>> they need to poke a PMIC to perform a system reset. Is there something
->>> preventing K1 from following this path?
->> 
->> Ideally, yes, resetting the platform should be handled by the firmware (SBI SRST) to
->> properly tear down M-mode/TEE states before pulling the plug.
->> 
->> However, for the K1 platform, while the SoC itself can be reset via SBI SRST, this warm
->> reset does not propagate to the external PMIC. For instance, if the kernel switches the
->> SD card to 1.8V signaling for high-speed mode during runtime, an SoC-only reset leaves
->> the PMIC still supplying 1.8V. Upon reboot, the bootrom/early kernel expects the SD card
->> to be in the default 3.3V state for initialization, which inevitably leads to a boot hang.
->
-> Right, so you would need a driver in M-mode that performs a PMIC-level reset
-> instead of a SoC-level reset when the SBI SRST function is called. Several
-> platforms already do this.
-Agreed. Porting the PMIC/I2C driver to M-mode (OpenSBI) is indeed the proper
-long-term solution for the K1 platform.
->
->> Setting the K1-specific hardware design aside, I believe this patch is fundamentally necessary
->> to fix a latent bug in the RISC-V Linux kernel itself, regardless of whether the final
->> reset is backed by SBI or not.
->> 
->> The core issue here is the context in which do_kernel_restart() invokes the restart_handler_list.
->> It does so via an atomic_notifier_call_chain. If RISC-V enters this phase without disabling local IRQs,
->> we are leaving a trap for any generic driver or kernel subsystem invoked during this teardown phase.
->> 
->> Under CONFIG_PREEMPT_RCU, the RCU read lock does not bump the preempt count.
->> Without local_irq_disable(), the preemptible() check will unexpectedly evaluate to true.
->> 
->> A quick grep shows that preemptible() is widely relied upon by generic subsystems to
->> determine safe execution paths (~16 occurrences in kernel/ and ~11 in drivers/).
->> This means generic code implicitly trusts the architecture to set up the correct
->> atomic context during a system restart.
->
-> I agree with the conceptual issue, that do_kernel_restart() should be called
-> from an atomic context, but may not be. But there seems to be no practical
-> problem if the first/only entry in restart_handler_list is sbi_srst_reboot(),
-> which is why we haven't seen problems on other platforms.
-Yes, that perfectly explains why this missing atomic context has remained
-hidden on most other platforms.
+Unlike the previous K1 SoC, where some DMA masters had memory addressing
+limitations (e.g. restricted to the 0-4GB space) requiring a dedicated dma-bus
+with dma-ranges to restrict memory allocations, the K3 DMA masters have
+full memory addressing capabilities. Therefore, the PDMA node is now
+instantiated directly under the main soc bus.
 
->
->> The I2C PMIC crash we encountered is just one symptom of this missing context. If we don't
->> fix this at the architecture level, it leaves the door open for other undiscovered panics.
->> Any driver (watchdog, display, network, etc.) that registers a restart handler and internally
->> relies on preemptible() to choose between a sleepable or polling path will inevitably trigger
->> a schedule(), attempt to acquire a sleeping lock (e.g., a mutex), or call other blocking functions
->> while holding the RCU read lock, resulting in a fatal splat.
->
-> Are you possibly confusing restart_handler_list and reboot_notifier_list here? A
-> display or network driver would not register a restart handler. And similarly to
-> the PMIC case, I would expect a platform that resets by watchdog to have a
-> M-mode driver for it and still use the SBI SRST extension.
-You are completely right, I mixed up `restart_handler_list` and
-`reboot_notifier_list`. My apologies for the poor examples. Display and network
-drivers definitely use the notifiers. The actual restart handlers are mostly
-limited to watchdogs, PMICs, or specific reset controllers.
+This configuration defines the essential hardware properties:
+- Register base address and size
+- High-level triggered interrupt
+- Associated APMU clock and reset controls
+- 16 hardware DMA channels
 
-Thank you for pointing this out.
->
->> *Aligning machine_restart() with other architectures* by adding local_irq_disable() and smp_send_stop()
->> ensures a deterministic, single-threaded atomic context.
->> This protects the Linux teardown sequence from SMP deadlocks and context misidentification,
->> well before the control is ever handed over to the firmware or hardware.
->> 
->> Does this perspective make sense?
->
-> Yes, I'm not opposed to making this change, because it is conceptually the right
-> thing to do. I'm only questioning why you are in a position to notice this issue
-> in the first place: you only see this because Linux is driving the PMIC directly
-> instead of going through firmware.
-Thanks for the ACK and the insightful review.
+The node is disabled by default and should be enabled by specific
+board device trees as needed.
 
-I will prepare and send out a v2 shortly.
-Looking forward to your further review.
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+ arch/riscv/boot/dts/spacemit/k3.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-                    - Troy
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index a3a8ceddabec..f90d34a81be0 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -438,6 +438,17 @@ soc: soc {
+ 		dma-noncoherent;
+ 		ranges;
+ 
++		pdma: dma-controller@d4000000 {
++			compatible = "spacemit,k1-pdma";
++			reg = <0x0 0xd4000000 0x0 0x4000>;
++			clocks = <&syscon_apmu CLK_APMU_DMA>;
++			resets = <&syscon_apmu RESET_APMU_DMA>;
++			interrupts = <72 IRQ_TYPE_LEVEL_HIGH>;
++			dma-channels = <16>;
++			#dma-cells = <1>;
++			status = "disabled";
++		};
++
+ 		syscon_apbc: system-controller@d4015000 {
+ 			compatible = "spacemit,k3-syscon-apbc";
+ 			reg = <0x0 0xd4015000 0x0 0x1000>;
+
+---
+base-commit: 95c541ddfb0815a0ea8477af778bb13bb075079a
+change-id: 20260317-k3-pdma-7c1734431436
+
+Best regards,
+-- 
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
 
 _______________________________________________
 linux-riscv mailing list
