@@ -4,122 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F26FFED9E3
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 15:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE61FED9E8
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 15:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:From:To:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tysi6xlEq1FxNlW7y88efeZ/EAWVVunkIhGe9Kz4arU=; b=CEeRSitAjIyzXE
-	SoM/M+VQdAKLBCLROO8EintgYSPmDOApXaobZcZQ+GtmsDRqzGDTDvTYed5KfVuImhhHWEFNG3OY7
-	RKrxbUMBviqMt6roieURTiZZ3P9CaJc0lzMEwPuLK203i2//56QUoj/n9wpc/m6kE4g/XPHcKCoAG
-	hD5vAsGVVlYFXlw2DSWP9kgSrNj4+km5FMOrHWDxk3anPThzzahbR0+DHvetZK6P+2ccQLi5+BAot
-	xpDW0Oenicfe4tWeYcWr7sCiiCkDlHHaMNRnz/SToaL4YpVfK3FTBqDF/Oqe1zhxjpRgZ7OePRiTZ
-	UTDClUAxxSGkwrsufTZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EuVnru8LYcIiPf8zfSKlgJLZTYRdqvgY0UUqzF9ONVo=; b=5GTEeguXvq6d7DmaLK/t1DHWAy
+	RX8xJRE/Nl6JqP66y+yAJStAUao04Mgw1Y4YpL9DtMHa5IiHWOzfpBQJC+d3MWbgT4wAeSxlD+0es
+	mQCehKaheC9VK6e/WLlzA9t9qF7PBxtpyLBsVLebOkAx+MICAqffu6KJKdCfyWzPJNdyxHVATpKAj
+	Mgz3xMXRV7YaEnwM/HMUC8dzEUYuhslams0zVbMsMABQDRdIjF63GI8DNFh7WNpJCeL6dlEd/hUJb
+	FOoVw7yy1JLMyeHJRIgoUnhefMEHwWivXvKB5NlbrTfvPPr1yVex7TszJRr9cARXrWFPeEZhflRPs
+	tUF6yzgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2WHN-00000006jeF-43ER;
-	Tue, 17 Mar 2026 15:24:21 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1w2WkZ-00000006lTb-2RED;
+	Tue, 17 Mar 2026 15:54:31 +0000
+Received: from coral.ash.relay.mailchannels.net ([23.83.222.39])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2WHL-00000006jdL-0IE2;
-	Tue, 17 Mar 2026 15:24:20 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A7E1A1A2DE6;
-	Tue, 17 Mar 2026 15:24:15 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6C52B60050;
-	Tue, 17 Mar 2026 15:24:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4159410450618;
-	Tue, 17 Mar 2026 16:23:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1773761051; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rawTxtgvvbkzzbH2UV4s1WHUqEhvtXowvJ2A1NK5Dfo=;
-	b=AoIs2DBUSiP3+bDh8ceDZ5pucIsCr73r049SuZ/HJKLAXGmyad7NTpfKNSaNVk51NUvTIH
-	BgPqPlr1rDNIoyNmYsJc8ISuC3ycIUVQBissA6PEINJzL6N8BH0o8JqMgWYQdBCgi49zvl
-	Rl36ZnNiln6rG+QQTga+S6KU/OOWAfvfLuGWL19TZHwCliPsRxvb67701TK9QVVKGnTpoa
-	j3Xvy3JqNEig/PiitIwS73AwutDLx9LIw9v/asnkWmeV/tuNISa5PJ8YUSBzapnrkc2NV+
-	NRS8gndZVMreSkSC8PDnKgeiyjCRU66WdvwKgyQf+/ugl+MnQb1DhlIwJ0DqHw==
-Mime-Version: 1.0
-Date: Tue, 17 Mar 2026 16:23:45 +0100
-Message-Id: <DH55T20W6ZID.1O0R8EFW6R5G3@bootlin.com>
-Cc: "Alexandre Gonzalo" <alexandre.gonzalo@arm.com>,
- <linux-kbuild@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-alpha@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-omap@vger.kernel.org>, <loongarch@lists.linux.dev>,
- <linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
- <linux-sh@vger.kernel.org>, <linux-rt-devel@lists.linux.dev>,
- <linux-samsung-soc@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-renesas-soc@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
- <openbmc@lists.ozlabs.org>
-To: "Vincent Mailhol (Arm)" <mailhol@kernel.org>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Mikko Rapeli"
- <mikko.rapeli@linaro.org>, "Richard Henderson"
- <richard.henderson@linaro.org>, "Matt Turner" <mattst88@gmail.com>, "Magnus
- Lindholm" <linmag7@gmail.com>, "Russell King" <linux@armlinux.org.uk>,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>, "Andreas Kemnade"
- <andreas@kemnade.info>, "Kevin Hilman" <khilman@baylibre.com>, "Roger
- Quadros" <rogerq@kernel.org>, "Tony Lindgren" <tony@atomide.com>, "Huacai
- Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>, "Thomas
- Bogendoerfer" <tsbogend@alpha.franken.de>, "Madhavan Srinivasan"
- <maddy@linux.ibm.com>, "Michael Ellerman" <mpe@ellerman.id.au>, "Nicholas
- Piggin" <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Heiko Carstens" <hca@linux.ibm.com>, "Vasily
- Gorbik" <gor@linux.ibm.com>, "Alexander Gordeev" <agordeev@linux.ibm.com>,
- "Christian Borntraeger" <borntraeger@linux.ibm.com>, "Sven Schnelle"
- <svens@linux.ibm.com>, "Yoshinori Sato" <ysato@users.sourceforge.jp>, "Rich
- Felker" <dalias@libc.org>, "John Paul Adrian Glaubitz"
- <glaubitz@physik.fu-berlin.de>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
- "Clark Williams" <clrkwllms@kernel.org>, "Steven Rostedt"
- <rostedt@goodmis.org>, "Pablo Neira Ayuso" <pablo@netfilter.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>, "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer"
- <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Vladimir
- Zapolskiy" <vz@mleia.com>, "Piotr Wojtaszczyk"
- <piotr.wojtaszczyk@timesys.com>, "Liviu Dudau" <liviu.dudau@arm.com>,
- "Sudeep Holla" <sudeep.holla@kernel.org>, "Lorenzo Pieralisi"
- <lpieralisi@kernel.org>, "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Magnus Damm" <magnus.damm@gmail.com>, "Vladimir Kondratiev"
- <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
- <gregory.clement@bootlin.com>, =?utf-8?q?Th=C3=A9o_Lebrun?=
- <theo.lebrun@bootlin.com>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, "Helge Deller" <deller@gmx.de>,
- "Janusz Krzysztofik" <jmkrzyszt@gmail.com>,
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, "Chris
- Zankel" <chris@zankel.net>, "Max Filippov" <jcmvbkbc@gmail.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "Arnd Bergmann" <arnd@arndb.de>, "Heiko
- Stuebner" <heiko@sntech.de>, "Kuninori Morimoto"
- <kuninori.morimoto.gx@renesas.com>, "Mark Brown" <broonie@kernel.org>,
- "Eric Biggers" <ebiggers@kernel.org>, "Ard Biesheuvel" <ardb@kernel.org>,
- "Sricharan Ramabadhran" <quic_srichara@quicinc.com>, "Bjorn Andersson"
- <andersson@kernel.org>, "Michael Walle" <mwalle@kernel.org>, "Guenter
- Roeck" <linux@roeck-us.net>, "Srinivas Kandagatla"
- <srinivas.kandagatla@oss.qualcomm.com>, "Rob Herring (Arm)"
- <robh@kernel.org>, "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Anna Schumaker"
- <anna.schumaker@oracle.com>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH 3/9] configs: remove obsolete assignments to
- CONFIG_NFS_V4_1
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
- <20260317-arm_defconf_cleanup-v1-3-8eecb7fdd24d@kernel.org>
-In-Reply-To: <20260317-arm_defconf_cleanup-v1-3-8eecb7fdd24d@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1w2WkV-00000006lTE-1lP6
+	for linux-riscv@lists.infradead.org;
+	Tue, 17 Mar 2026 15:54:28 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 50F17441501;
+	Tue, 17 Mar 2026 15:54:21 +0000 (UTC)
+Received: from de-fra-smtpout10.hostinger.io (trex-green-3.trex.outbound.svc.cluster.local [100.115.143.3])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 1DC08443A5F;
+	Tue, 17 Mar 2026 15:54:16 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1773762860;
+	b=b61weR3qTzwwdmqJyI94fqXX2G8Q7UoYujr5CpkJBQufmk3KQqjTsfXFuifqNlfVIMQUQ+
+	Zb5GoIDH42Qwpef0RoXYAnnShqKPdwenXMpGlzAX8ARXrJRzRSU5pjvVdBRcc7HvPZP2GE
+	PK9NJzf9ApB06R8cmrgD8L13uzvoO9kgfA8xM5yg80ONYZSshHlTeLGgkpOU6KPHVa8rjd
+	WQBg5i331RRPtS8rCSjLZsUWOiEjKSoqOvZQCuCRSKHM2qzei8bZPP3VneXC4u4YKczc8Y
+	+EUQHRGQBV9QgLNBJPznZS0Wrz+5OKcb1a9KyWMBlkas3WPvKrC+g0k3W0o/fA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1773762860;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=ILl2TqrEu5S8QBVXKLjl+G/C6M4r2ZltpX0HMEpdMmw=;
+	b=KFseWj9vQw7waI91d1jD4C9V9iWI5bmYcVjXZ295r/i50nke6nN6LzuZ/G5z9kEPsEuBrj
+	1ZcwlF0afGaNEmvSA51Rhc4LhS77CGslrHBCroxrY6M7W+/5+BTVSPpByP8mWtguipXSbq
+	4xzQms43J43/gYBvYZLhk34FTqTHopIdJYKuTZUJUKFCpfoezyA8w7LCLS+P29rOvaETjj
+	qbmkReB8/a/HYBG70YWjZnbQH/tgYXfo4HQa+Oc40I+8m7m/QTkKiidIqfGnnYkxzLSpk2
+	8ziFyfDXE+FteP2lUXepUK1iOQtpynZjwvAF7XDrg6G2KSkoq7RJzoS2NUX/jQ==
+ARC-Authentication-Results: i=1;
+	rspamd-78765f9847-k8fbv;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Interest-Macabre: 274221fb23ded875_1773762861123_1944666366
+X-MC-Loop-Signature: 1773762861123:2501252353
+X-MC-Ingress-Time: 1773762861122
+Received: from de-fra-smtpout10.hostinger.io (de-fra-smtpout10.hostinger.io
+ [148.222.55.9])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.115.143.3 (trex/7.1.5);
+	Tue, 17 Mar 2026 15:54:21 +0000
+Received: from [IPV6:2001:861:4450:d360:2a72:4a2c:81bf:d1d4] (unknown [IPv6:2001:861:4450:d360:2a72:4a2c:81bf:d1d4])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4fZxN64SDxz3wnK;
+	Tue, 17 Mar 2026 15:54:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1773762855;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ILl2TqrEu5S8QBVXKLjl+G/C6M4r2ZltpX0HMEpdMmw=;
+	b=N8dktOgPXQBd0S/4dO0a9yNoHQlVfXPSThfnDEr3FYupVmQVvM/Zt93eiVQJ5UkeJYlTL5
+	lENELrdv6VKeJQmaGq2vElqTsdbH2ey+hEY9+z44cvuAvtXuHMts9k/mmDc7pcB9DQVCxb
+	eot8EYj0oCPwOnYPGCdHQzDhfMMSaULjXyyzSyNyYL5q+4xNPj4Foo0Yaa98O6iZIT80V1
+	n7fEUE+X2M4oGX0thn+ti8SrLsGjzsxh1fXd+w9IRWcGODEvH/ZR2DdEKG3IiM3VSKhsNp
+	g+8xs4euZQQ3BXf0iWNJZ1ER9twA3ejKNtpeEYBJEpXBQnHFyUaXY/wHWzbMxg==
+Message-ID: <5fbc6f34-06d3-4e11-b9f7-f091cbf7394a@rootcommit.com>
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com,
+ Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Anand Moon <linux.amoon@gmail.com>, Trevor Gamblin <tgamblin@baylibre.com>
+Subject: Re: [PATCH v3 6/7] riscv: dts: spacemit: k1-orangepi-rv2: add SD card
+ support with UHS modes
+To: Iker Pedrosa <ikerpedrosam@gmail.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Yixun Lan <dlan@kernel.org>
+References: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
+ <20260316-orangepi-sd-card-uhs-v3-6-aefd3b7832df@gmail.com>
+Content-Language: en-US
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+In-Reply-To: <20260316-orangepi-sd-card-uhs-v3-6-aefd3b7832df@gmail.com>
+Date: Tue, 17 Mar 2026 15:54:14 +0000 (UTC)
+X-CM-Envelope: MS4xfJw5AHuHKESwjxDU42t1s3Ntdjj/zJ52wwsXYYlRQARrN6B9FMg779E6OU6fQazbRZ+bWLG5XaO3Ntlgvf2SLKo1l5gVtS3EevJM26Cv+2YK3TO24ScR dtkz91LSXVI8KMYrrxjikwy6zfHYux/zzoWXi9bYBz5vsPA2B/mZfV+CkUFV4pZBkjpCbxrmmfgAU5XMARsge99C+0XEBumIz3AE/9GjjsYz51Ovt8JBk5FW Iwe7hqbmOXuXU8L5leCOV4bHVgDvn77uwAkvVfXv4RdGdJ9GOJY4OKt12Ucf7Cmh0Xy+MN448nX/3DtQzh0x/weDvOn86VCaa3XBMSJo+XRGRJB+g8GpDyCq G+zZACs0al7qKDgrDbp6y6kmA0WTIUo8ZvOA66GGh71eUr3RnKE4YEAkJbQkq4aIT+kuSwOPS/T+BJ2+I3Wf98SshtNlTj6LWnzJkqiyKlU0W4JTH5Cm3IEh DbN5uLy8tnnkf3Dg0QOYdlJICLyecy5gfP9eXFYzAlqzS8mNshQAmfGaZBxmlcPqYS+JvukqtmO0BBEbA1jmBa/VeFfuzJS2XNKAwY5lu4NrPxjwI9zbwtyl UjHkq1vVbjHX9Fj3YDXUN6vJEhfha9dL6mjUegX8KHfcoPX7rAN0fq0/dG222h2xfE/4MmClBv2j6ztnssNTtvc6ZMzztxhjrHksMq90vY43szkM6N1Si09X XFM5E2SOE9a15HZm1nMVMj9cVfhhG9akQXRfd0cG7w/h8REGvYyvtYncLiogf0JKA6RWRgypgR21tIgd6EPFSxNdCBIvtMtpQRY3nvq3WrNiqAOFMNi85E1N Fo5BoX87N4fRKE8ePYmaW1ddfRAQHel5qVqDmcYQ2/VT+er3DATVkRakruHBMuwpT+jnVvA9IfUXyezepwfPFBGey+y5+jv2FqRK3tp0Zi+0S8My3EA1nM5x xVBscA==
+X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=69b97927 a=eExTT1VkZWUTeek0JR7vTg==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=pGLkceISAAAA:8 a=IpJZQVW2AAAA:8 a=LzP2-JvhAYZmahfDZeMA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22 a=IawgGOuG5U0WyFbmm1f5:22
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_082419_244065_6050D88D 
-X-CRM114-Status: UNSURE (   4.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260317_085427_698630_80D242B5 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,19 +127,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gVmluY2VudCwKCk9uIFR1ZSBNYXIgMTcsIDIwMjYgYXQgMTA6MTMgQU0gQ0VULCBWaW5j
-ZW50IE1haWxob2wgKEFybSkgd3JvdGU6Cj4gQ09ORklHX05GU19WNF8xIHdhcyByZXZvbWVkIGlu
-IGNvbW1pdCA3NTM3ZGIyNDgwNmYgKCJORlM6IE1lcmdlCj4gQ09ORklHX05GU19WNF8xIHdpdGgg
-Q09ORklHX05GU19WNCIpLiBIb3dldmVyLCBzb21lIGRlZmNvbmZpZ3MgYXJlCj4gc3RpbGwgcmVm
-ZXJyaW5nIHRoZSBvbGQgY29uZmlndXJhdGlvbi4KCnR5cG86IHJldm9tZWQgLT4gcmVtb3ZlZApv
-dGhlcndpc2UsIHRoYW5rczoKClJldmlld2VkLWJ5OiBUaMOpbyBMZWJydW4gPHRoZW8ubGVicnVu
-QGJvb3RsaW4uY29tPgoKVGhhbmtzLAoKLS0KVGjDqW8gTGVicnVuLCBCb290bGluCkVtYmVkZGVk
-IExpbnV4IGFuZCBLZXJuZWwgZW5naW5lZXJpbmcKaHR0cHM6Ly9ib290bGluLmNvbQoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Iker
+
+Thanks for the update!
+
+On 3/16/26 3:03 PM, Iker Pedrosa wrote:
+> Add complete SD card controller support with UHS high-speed modes.
+>
+> - Enable sdhci0 controller with 4-bit bus width
+> - Configure card detect GPIO with inversion
+> - Connect vmmc-supply to buck4 for 3.3V card power
+> - Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
+> - Add dual pinctrl states for voltage-dependent pin configuration
+> - Support UHS-I SDR25, SDR50, and SDR104 modes
+>
+> This enables full SD card functionality including high-speed UHS modes
+> for improved performance.
+>
+> Tested-by: Anand Moon <linux.amoon@gmail.com>
+> Tested-by: Trevor Gamblin <tgamblin@baylibre.com>
+> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+> ---
+>   arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 19 +++++++++++++++++++
+>   1 file changed, 19 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> index f1533c99881dbf38e16cff5e91e33253cfa7a56d..aff23846085d22d1e9cd77434bffd2816ad59e12 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> @@ -140,3 +140,22 @@ aldo1: aldo1 {
+>   		};
+>   	};
+>   };
+> +
+> +&sdhci0 {
+> +	pinctrl-names = "default", "state_uhs";
+> +	pinctrl-0 = <&mmc1_cfg>;
+> +	pinctrl-1 = <&mmc1_uhs_cfg>;
+> +	bus-width = <4>;
+> +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
+> +	cd-inverted;
+> +	no-mmc;
+> +	no-sdio;
+> +	disable-wp;
+> +	cap-sd-highspeed;
+> +	vmmc-supply = <&buck4>;
+> +	vqmmc-supply = <&aldo1>;
+> +	sd-uhs-sdr25;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr104;
+> +	status = "okay";
+> +};
+
+
+Tested successfully on OrangePi RV2.
+Tested-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Cheers
+Michael
+
+-- 
+Root Commit
+Embedded Linux Training and Consulting
+https://rootcommit.com
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
