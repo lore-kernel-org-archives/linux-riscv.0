@@ -4,85 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3F5F3381A
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 08:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7724DF3381E
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 09:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=x14OY9zG32TqSiBkefX75P6FxRLsKKNqFnVG7cJs3Cc=; b=AiZFFfJgScuCFa
-	ZBVUB4CBADwzvRsUh5xch2Ov5pS5s15yhyQfCh7F8NJqjWWiVLA5N1WgZR+R/CtUs0pO1rouVfedT
-	NMseIPmLBGqpeVb4/WpVNi0qlx75tc648V7XimVa34FKuJzQvD97BASRMxg6kkmsTYT4MNIxk8Xls
-	CzVrZp0pcjHNU4lzF5xYRukvhjuVPUDXcCqh4+HiT+7XePGox2FSiLJThW6UxwKD45gwwpduYUT1n
-	QmBqj1VEZUKb09YGKui8HLSGMyTz4bnBaSw1YRphU+n/Xq2kTpXISk2qQUwG2Fot3xF9jbFy0Hr9W
-	JQE2T1OVuUUfykgnYDuA==;
+	List-Owner; bh=vVQJxYe8H50uuKQCPOqw4/87s6WAfsSfsMCVUE8nW8Q=; b=kd7BdJHseJuFeX
+	sKydp9+CHAzyhnbAUOwIlymb9qlXhzJj6kpxSqum41iR7O6//vu91HXWWy+c20CA5uNoGgmnuBKlQ
+	UiEqbfuhZJW7bYtEcuWV+8gkXyD2RyBZv/ChSbLPnsM74hISnIBgeWtBbfwAHFNziF/NrqdsJHkrs
+	crGo7Qyt5vcByvOC/vQg5cKaiSZeJZDpcOH4/JEZc9ayGAi6SpaJBJMfPqfqkS4K5CMysci7lJkLY
+	QFasyJnz2mY7+KJK6RBvUhfvkbgd57LwXuouJbvMNXVGHBufd0Z/6/8ImfZEuMUu0yNtQmnzZTXnM
+	kHakyEXtwP93LsUQAAIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q7D-00000005lNI-1u4V;
-	Tue, 17 Mar 2026 08:49:27 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1w2QWI-00000005pEm-2Xuo;
+	Tue, 17 Mar 2026 09:15:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Q7A-00000005lKv-27PH
-	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 08:49:26 +0000
-X-QQ-mid: esmtpgz10t1773737295ta347157a
-X-QQ-Originating-IP: BCSFo/f2lL2ttwAP9G71tVRnNucTKFyKwqyTYjZFQiY=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 17 Mar 2026 16:48:13 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14524113417459469981
-X-QQ-CSender: troy.mitchell@linux.spacemit.com
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Tue, 17 Mar 2026 16:48:06 +0800
-Subject: [PATCH v2] riscv: disable local interrupts and stop other CPUs
- before reboot/shutdown
+	id 1w2QWF-00000005pEU-0fVt;
+	Tue, 17 Mar 2026 09:15:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCBA760103;
+	Tue, 17 Mar 2026 09:15:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19933C19425;
+	Tue, 17 Mar 2026 09:14:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773738916;
+	bh=QU6cedlzf40aFEFMHAi3oFEJtwf/R3OvK72FIzwtc/c=;
+	h=From:Subject:Date:To:Cc:From;
+	b=VQ4BnuZzjGlyHuYCbl/mEKd7zh11jNZHM6YOmeZHshjwK7wAidut5bW59fUtAEXsF
+	 LPrDV/0BkMPGm+OJixWV70wz76CjI7ChsKDFhgNC2W34z47FQe0lHP3u0iv7QCx6TM
+	 h+pw5pDiAHiX9uP7B2DDiXpzrT6KYsbPR7UCv0w1HuTX65DzWGjkfmOONp++HBzeoI
+	 W35XeW99LW6pqjsde/3KUhI6qN9+5JT/76M2rqzs0qozQfuchLSotd/EnU+b43RHXh
+	 QYMfZORHioe+ZjSW10OOkakkBEnXg9s7kH9nnBEvUCCjLwnJvrcNHqItv+HuXbE3Da
+	 wb4xOWrkkkXlg==
+From: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
+Subject: [PATCH 0/9] configs: cleanup obsolete or incorrect assignments
+Date: Tue, 17 Mar 2026 10:13:36 +0100
+Message-Id: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260317-v7-0-rc1-rv-dis-int-before-restart-v2-1-0ecc85fbb7ff@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WNQQrCMBAAv1L27Eo3SSt66j/EQ5KudkFS2MSgl
- P7d4A88DXOZ2SCzCme4dBsoV8mypibm0EFcfHowytwcTG/G3hJhPWGPGgm14iwZJRUMfF+VUTk
- XrwWHYHkw3gVHZ2ihRXJZ9fN7VGq4/pWrhIQhujE4O1D0cXpKer2PM1e47fv+BX3v6QzEAAAA
-X-Change-ID: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- spacemit@lists.linux.dev, Troy Mitchell <troy.mitchell@linux.dev>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773737293; l=2726;
- i=troy.mitchell@linux.dev; s=20250710; h=from:subject:message-id;
- bh=9UuB2mxrWb99JhNS2nCV7XUSiYTNEQ1fUoH09J11oiM=;
- b=x/UqHlFAH4JrKqYp5htSeYsgZLml4FYOynp8/UzI8w4Q3pulvLLTKwOoJrFpTt6+1etYEW9xt
- pi+bwUVQ5KuC4sjTnL0dsOqp8F8jTxAl1Ck6zI12v0Brzbu/JRdWopv
-X-Developer-Key: i=troy.mitchell@linux.dev; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NVS2jg7zJdeMPqjrOR8Sl9OQwer/4dyjJWWxk0NS59YMhyXNrXgqnlNh
-	c1PzKM8rcu0VkO4u2lkl+2WtJgTy9ckaSDUDAAYXVh3hfnWg2riZ9ffLl84Is6119OGQh1e
-	LEm9E/zRxqK3PiLBTXFkwz5xK8OYc+b15q1GSbyE2ukRInnOKJXOjWIbARAvfO4Tss9QGVa
-	6TeNuPwkggBgpP1Ysz/llsIqNt5NQOkBVZ+LbJXutLhJMvynZpjgWNVYM7V4UqF20OCCpsk
-	7ni6zK/sn6dZmaARu+nK41pLszfTG4FD/zgCZqBHQpTco25gINJ3xTlQrf6c2Gj+W8/LT2i
-	MLBqYi2OKDmE+4/y9evP9HaNZKgmgnY0YtzHX5lb515S8ragKLuFfHUdzupj5dPuIE/bUV1
-	qaYDchxij3Mmx4j00hDegIzs9IFaNxhaWHegM/s+QY0lMyQnPKOQUJf5NSLRSAh31dgXsmP
-	O7TIbbxgouqmxKOGOCEtpv/PQGhmQeju9ax/S+HzQr/F/irtiaEPkhleE8AvAHfkWAX5rjp
-	Ik9scCwN/BgSrCy4PoncqqMSPmSpDf03B4g/BRjPo8dP4rjQikeO32GfAC8mANV/CTwN7OC
-	6kuf5NjRml+ioRZh3EaTHTVcJsjTqireINq3fkhy8XyuUo7fMgKpesXRLZadfUalU5YLnnw
-	dGg0lkJoLPIzPcvcJfNi7unzFEDgsw+DvAIzGQFKwcLMoyUWRUpo0ErT43I1ek8EhJkA1Q6
-	rjltSbbs//qoGDPx/JcQBIsfYw/9IeFhTIRsCzixVbC3Dq3DdruC79tZ9jXJeTteDPzmM8X
-	/Z9mfhKVBidX4ksjzIGdo5h7u1Let5J/G14rqOgMFXGJcVP4OTxvLEvJkJfSwLQXj0RdPwM
-	iY/JJXPKTvSdRRjN2oHSzd7tEFb7+DTDzdCJYLVeCrPQI8QTcCIFU90roLHeq91fe+hvsbm
-	u/tXW8lGmVv+xiCwyoAbWTWbatKIDNsEGlJKfyPEjBGyN4sh3+rrb9NhT9v5WNbkSgJjtu/
-	SkFJxOzuGB7BeDQOF0GKZ8n4czcJ5SdF3OBqbkFWSWh3ywSKr6saAUgfqW/xIr/LNOKjyVh
-	I/g8GaWwpJKWsMhVsA1pgRVP+hhC/UMR+uqXLk8VzIsXgsKpKMIrFH01kvIGEb68bJ0Y/Xv
-	8RoO
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_014924_923213_E4242851 
-X-CRM114-Status: GOOD (  10.02  )
+X-B4-Tracking: v=1; b=H4sIAEAbuWkC/x3MTQqAIBBA4avErBPUor+rRIjpWANloRSBdPek5
+ bd4L0HEQBhhKBIEvCnS4TNEWYBZtV+Qkc0GyWXDKyGZDruy6MzhnTIban+dzFjRunrWfddbyOU
+ Z0NHzX8fpfT8esQDDZQAAAA==
+To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Mikko Rapeli <mikko.rapeli@linaro.org>, 
+ Richard Henderson <richard.henderson@linaro.org>, 
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Pablo Neira Ayuso <pablo@netfilter.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>, 
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+ Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
+ =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Arnd Bergmann <arnd@arndb.de>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Mark Brown <broonie@kernel.org>, Eric Biggers <ebiggers@kernel.org>, 
+ Ard Biesheuvel <ardb@kernel.org>, 
+ Sricharan Ramabadhran <quic_srichara@quicinc.com>, 
+ Bjorn Andersson <andersson@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Guenter Roeck <linux@roeck-us.net>, 
+ Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>, 
+ "Rob Herring (Arm)" <robh@kernel.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Anna Schumaker <anna.schumaker@oracle.com>
+Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>, 
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-omap@vger.kernel.org, loongarch@lists.linux.dev, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-sh@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
+ linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
+ linux-renesas-soc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, "Vincent Mailhol (Arm)" <mailhol@kernel.org>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8431; i=mailhol@kernel.org;
+ h=from:subject:message-id; bh=QU6cedlzf40aFEFMHAi3oFEJtwf/R3OvK72FIzwtc/c=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDJk7pVvaF++b0PNYl09G4rhpZ5/F95IzPF8ENlalen5lX
+ tdxvoyno5SFQYyLQVZMkWVZOSe3Qkehd9ihv5Ywc1iZQIYwcHEKwEQOCDMyvJL+9Nvo+385B4nm
+ Cy6lJuYqus3+jtGCa5OqhZc35J5iZGToaOwWd/8w895elfePn0w9IhU3K2dRZcenlrOWTzyUps3
+ jAQA=
+X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
+ fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,91 +140,198 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the RISC-V implementation of machine_restart(), machine_halt(),
-and machine_power_off() invokes the kernel teardown chains (e.g.,
-do_kernel_restart()) with local interrupts enabled and other CPUs still
-running.
+The arm64 defconfig contains several inconsistencies, as shown by the
+following merge_config warnings:
 
-This implementation fails to provide a deterministic execution environment
-for registered handlers in the restart or power-off notifier chains. These
-chains are intended to be executed in a strict atomic and single-threaded
-context.
+  $ ARCH=arm64 ./scripts/kconfig/merge_config.sh arch/arm64/configs/defconfig
+  Using arch/arm64/configs/defconfig as base
+  #
+  # configuration written to .config
+  #
+  WARNING: Value requested for CONFIG_NETFILTER_XT_TARGET_CHECKSUM not in final .config
+  Requested value: CONFIG_NETFILTER_XT_TARGET_CHECKSUM=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP_NF_FILTER not in final .config
+  Requested value: CONFIG_IP_NF_FILTER=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP_NF_TARGET_REJECT not in final .config
+  Requested value: CONFIG_IP_NF_TARGET_REJECT=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP_NF_NAT not in final .config
+  Requested value: CONFIG_IP_NF_NAT=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP_NF_TARGET_MASQUERADE not in final .config
+  Requested value: CONFIG_IP_NF_TARGET_MASQUERADE=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP_NF_MANGLE not in final .config
+  Requested value: CONFIG_IP_NF_MANGLE=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP6_NF_FILTER not in final .config
+  Requested value: CONFIG_IP6_NF_FILTER=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP6_NF_TARGET_REJECT not in final .config
+  Requested value: CONFIG_IP6_NF_TARGET_REJECT=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP6_NF_MANGLE not in final .config
+  Requested value: CONFIG_IP6_NF_MANGLE=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP6_NF_NAT not in final .config
+  Requested value: CONFIG_IP6_NF_NAT=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IP6_NF_TARGET_MASQUERADE not in final .config
+  Requested value: CONFIG_IP6_NF_TARGET_MASQUERADE=m
+  Actual value:
+  WARNING: Value requested for CONFIG_SENSORS_SA67MCU not in final .config
+  Requested value: CONFIG_SENSORS_SA67MCU=m
+  Actual value:
+  WARNING: Value requested for CONFIG_FB_MODE_HELPERS not in final .config
+  Requested value: CONFIG_FB_MODE_HELPERS=y
+  Actual value:
+  WARNING: Value requested for CONFIG_SND_SOC_ROCKCHIP not in final .config
+  Requested value: CONFIG_SND_SOC_ROCKCHIP=m
+  Actual value:
+  WARNING: Value requested for CONFIG_IPQ_APSS_5018 not in final .config
+  Requested value: CONFIG_IPQ_APSS_5018=y
+  Actual value:
+  WARNING: Value requested for CONFIG_SLIM_QCOM_CTRL not in final .config
+  Requested value: CONFIG_SLIM_QCOM_CTRL=m
+  Actual value:
+  WARNING: Value requested for CONFIG_NFS_V4_1 not in final .config
+  Requested value: CONFIG_NFS_V4_1=y
+  Actual value:
+  WARNING: CONFIG_CRYPTO_SHA3 differs:
+  Requested value: CONFIG_CRYPTO_SHA3=m
+  Actual value:    CONFIG_CRYPTO_SHA3=y
+  ./scripts/kconfig/merge_config.sh: 384: [: false: unexpected operator
 
-Specifically, under CONFIG_PREEMPT_RCU, rcu_read_lock() does not increment
-the preempt_count. If local interrupts remain enabled, the environment
-is not guaranteed to be atomic. This can lead to a context misidentification
-within generic kernel teardown code, causing it to incorrectly enter
-non-atomic paths (such as attempting to acquire sleeping locks), which
-results in fatal "scheduling while atomic" splats or system hangs.
+The issues fall into several categories:
 
-Additionally, stopping other CPUs ensures the primary CPU has exclusive
-access to the hardware state during the final teardown phase, preventing
-unpredictable interference from other active cores.
+  - assignments to removed or renamed configuration symbols.
 
-Align RISC-V with other major architectures by disabling local interrupts
-and stopping other CPUs at the beginning of the shutdown sequences. This
-guarantees the architectural expectations of the kernel's restart and
-power-off handlers are met.
+  - assignments to symbols that became hidden or internal.
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+  - assignments that are requested as module (=m) but which have a
+    built-in parent dependency (=y).
+
+This series cleans up all those issues. While the focus is the arm64
+defconfig, fixes that apply more broadly are extended treewide.
+
+After applying this series, merge_config.sh runs without warnings on
+the arm64 defconfig. Below script was used to confirm that no symbols
+got inadvertently removed:
+
+  #!/bin/sh
+
+  DIR=$(mktemp -d)
+
+  # Generate conf before this series
+  git checkout $(git merge-base HEAD @{upstream})
+  for arch in arch/*/; do
+      for conf in "$arch"configs/*defconfig; do
+        ARCH=$(basename $arch) \
+        KCONFIG_CONFIG="$DIR/$(basename $arch)_$(basename $conf)_before" \
+            ./scripts/kconfig/merge_config.sh $conf
+      done
+  done
+
+  # Generate conf after this series
+  git checkout -
+  for arch in arch/*/; do
+      for conf in "$arch"configs/*defconfig; do
+        ARCH=$(basename $arch) \
+        KCONFIG_CONFIG="$DIR/$(basename $arch)_$(basename $conf)_after" \
+            ./scripts/kconfig/merge_config.sh $conf
+      done
+  done
+
+  # Compare
+  for arch in arch/*/; do
+      for conf in "$arch"configs/*defconfig; do
+        if diff --unified \
+                "$DIR/$(basename $arch)_$(basename $conf)_before" \
+                "$DIR/$(basename $arch)_$(basename $conf)_after"; then
+            echo "$conf: OK"
+        else
+            echo "$conf: configuration changed"
+        fi
+      done
+  done
+
+Signed-off-by: Vincent Mailhol (Arm) <mailhol@kernel.org>
 ---
-Changes in v2:
-- expand the fix to cover machine_halt() and machine_power_off() for
-  architectural consistency.
-- update commit message
-- Link to v1: https://lore.kernel.org/r/20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev
----
- arch/riscv/kernel/reset.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Vincent Mailhol (Arm) (9):
+      scripts: kconfig: merge_config.sh: use POSIX '=' in test
+      configs: remove orphan dependencies of NETFILTER_XTABLES_LEGACY
+      configs: remove obsolete assignments to CONFIG_NFS_V4_1
+      configs: remove implicit assignments to FB_MODE_HELPERS
+      arm: configs: remove obsolete assignments to SND_SOC_ROCKCHIP
+      arm64: defconfig: remove implicit assignment to CRYPTO_SHA3
+      arm64: defconfig: remove incorrect assignment to IPQ_APSS_5018
+      arm64: defconfig: remove obsolete assignment to SENSORS_SA67MCU
+      arm64: defconfig: remove obsolete assignment to SLIM_QCOM_CTRL
 
-diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
-index 912288572226..8c48466c50e9 100644
---- a/arch/riscv/kernel/reset.c
-+++ b/arch/riscv/kernel/reset.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/reboot.h>
- #include <linux/pm.h>
-+#include <linux/smp.h>
- 
- static void default_power_off(void)
- {
-@@ -17,18 +18,27 @@ EXPORT_SYMBOL(pm_power_off);
- 
- void machine_restart(char *cmd)
- {
-+	local_irq_disable();
-+	smp_send_stop();
-+
- 	do_kernel_restart(cmd);
- 	while (1);
- }
- 
- void machine_halt(void)
- {
-+	local_irq_disable();
-+	smp_send_stop();
-+
- 	do_kernel_power_off();
- 	default_power_off();
- }
- 
- void machine_power_off(void)
- {
-+	local_irq_disable();
-+	smp_send_stop();
-+
- 	do_kernel_power_off();
- 	default_power_off();
- }
-
+ arch/alpha/configs/defconfig                |  1 -
+ arch/arm/configs/am200epdkit_defconfig      |  1 -
+ arch/arm/configs/collie_defconfig           |  1 -
+ arch/arm/configs/ep93xx_defconfig           |  1 -
+ arch/arm/configs/exynos_defconfig           |  1 -
+ arch/arm/configs/imx_v6_v7_defconfig        |  2 --
+ arch/arm/configs/ixp4xx_defconfig           |  3 ---
+ arch/arm/configs/keystone_defconfig         |  3 ---
+ arch/arm/configs/lpc18xx_defconfig          |  1 -
+ arch/arm/configs/lpc32xx_defconfig          |  2 --
+ arch/arm/configs/mps2_defconfig             |  1 -
+ arch/arm/configs/multi_v7_defconfig         |  2 --
+ arch/arm/configs/mxs_defconfig              |  1 -
+ arch/arm/configs/omap1_defconfig            |  1 -
+ arch/arm/configs/omap2plus_defconfig        |  1 -
+ arch/arm/configs/shmobile_defconfig         |  1 -
+ arch/arm/configs/spitz_defconfig            |  4 ----
+ arch/arm/configs/wpcm450_defconfig          |  1 -
+ arch/arm64/configs/defconfig                | 18 ------------------
+ arch/loongarch/configs/loongson32_defconfig |  1 -
+ arch/loongarch/configs/loongson64_defconfig |  1 -
+ arch/mips/configs/bmips_stb_defconfig       |  2 --
+ arch/mips/configs/cavium_octeon_defconfig   |  1 -
+ arch/mips/configs/db1xxx_defconfig          |  1 -
+ arch/mips/configs/eyeq5_defconfig           |  1 -
+ arch/mips/configs/eyeq6_defconfig           |  1 -
+ arch/mips/configs/fuloong2e_defconfig       |  3 ---
+ arch/mips/configs/generic_defconfig         |  1 -
+ arch/mips/configs/gpr_defconfig             |  3 ---
+ arch/mips/configs/ip22_defconfig            |  6 ------
+ arch/mips/configs/lemote2f_defconfig        |  1 -
+ arch/mips/configs/loongson2k_defconfig      |  3 ---
+ arch/mips/configs/loongson3_defconfig       | 11 -----------
+ arch/mips/configs/malta_defconfig           |  6 ------
+ arch/mips/configs/malta_kvm_defconfig       |  6 ------
+ arch/mips/configs/maltaup_xpa_defconfig     |  6 ------
+ arch/mips/configs/mtx1_defconfig            |  6 ------
+ arch/mips/configs/rb532_defconfig           |  3 ---
+ arch/mips/configs/rm200_defconfig           |  6 ------
+ arch/mips/configs/rt305x_defconfig          |  3 ---
+ arch/mips/configs/xway_defconfig            |  3 ---
+ arch/parisc/configs/generic-64bit_defconfig |  1 -
+ arch/powerpc/configs/85xx/stx_gp3_defconfig |  1 -
+ arch/powerpc/configs/cell_defconfig         |  3 ---
+ arch/powerpc/configs/linkstation_defconfig  |  3 ---
+ arch/powerpc/configs/mvme5100_defconfig     |  3 ---
+ arch/powerpc/configs/pmac32_defconfig       |  3 ---
+ arch/powerpc/configs/ppc6xx_defconfig       |  6 ------
+ arch/riscv/configs/defconfig                |  9 ---------
+ arch/sh/configs/titan_defconfig             |  6 ------
+ arch/x86/configs/i386_defconfig             |  7 -------
+ arch/x86/configs/x86_64_defconfig           |  7 -------
+ arch/xtensa/configs/virt_defconfig          |  1 -
+ scripts/kconfig/merge_config.sh             |  2 +-
+ 54 files changed, 1 insertion(+), 172 deletions(-)
 ---
-base-commit: 31489a8c1e95cfa2039b7ec4abf124d1fdda31a6
-change-id: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
+base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
+change-id: 20260312-arm_defconf_cleanup-cd17f4ba989d
 
 Best regards,
 -- 
-Troy Mitchell <troy.mitchell@linux.dev>
+Vincent Mailhol (Arm) <mailhol@kernel.org>
 
 
 _______________________________________________
