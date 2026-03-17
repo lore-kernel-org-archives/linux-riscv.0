@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C55F506CF
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 05:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FBEF33802
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 06:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yPJcFanN0wFkQhlOI/fetJa+5+lSLmG82KJSWrVx4GM=; b=bUD9d34vV25O7r
-	LZi7QAzTD9P/JQgip6nNdcL37j7D3BUXgpgrIbyg74Qedct5SNlyPbDXsBB1x/qe+FkwlLedvt0wg
-	Z3w0WtkPlaANB66ClS6IRgqq6KiMdK/N3A/XMNxSeYmHmi5IqjafFejd97JBGyt2fdvTesooHGOEF
-	Xekrmc8aWhfG/0/OwO79nECppihzwTWaJN9fPP2Wg77YXjq6n30K65w9GW19dTLCV4lOPPNClWr1q
-	HK9UiqXjROIvl5w/F18L6onHIQViK4OJN6yUJhQn7pSZsHA+sMRxKo2VbR250Bz7vcU23Su8qClVp
-	P5TVxuDYMGfdyDJlCI0g==;
+	List-Owner; bh=AnM9DU8VVeubUFN8ley+1VOwM9AKqdCTgR90G7MzoNI=; b=Sc+iCRJ3tpiAtd
+	qwzvvSc+hV2VHd7Ri9aw4RNsHaTV/6KZJa4/vY1wGuZZuftfC2aipFTu8jecpMvp2Nc0/2YabCVCr
+	rJlP8NdY6JRT3OXpdO+fkZDkAFCROosZJtysLWOvjG6o6ZQSIGbrk1RvBvSfZ+c1BekPGRVXi2qYv
+	lz9GIpLJ+3Dpjc8pqu551pAjLwuHpYpcbvOOl/vyYo4Rg1t20g8zEkxHhxy+0mTnVjROWTQu2jlgk
+	Is9iCayphgqCWEr9XDrqewwyRh0qCsWW2VuNjQHBLpwunYfRvlaoVVzgdrQKLDSsVRVeW+1KqFsZm
+	omz4y+j2an93DjJEIcqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2N3M-00000005Rcx-2ZNP;
-	Tue, 17 Mar 2026 05:33:16 +0000
-Received: from sender4-op-o14.zoho.com ([136.143.188.14])
+	id 1w2Nvk-00000005V47-1f7m;
+	Tue, 17 Mar 2026 06:29:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2N3J-00000005Rc7-21qS
+	id 1w2Nvi-00000005V3k-3PJV
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 05:33:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1773725589; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Qsmefrqsk7KvHZu9LJfj3ZnxXaXC8oWr1zwkioGNa6MfAlX4sPJtm2L/TmBOkUqd5/dbeG6jSseZtptEB7U7hLPIs5P3xjqn7PUEZAO2RKFXCL8adfrXpVbeaugUzyTMrmIsJ0KEE4/yJ03QUJ22fgqWTUOeswEt7Uaj2doCb0U=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1773725589; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=eyhiSFd7TnnR0Y4KPBjzhgYS3ePqfaic4BGkMyXWNsw=; 
-	b=mZP9Fh7ks1MBeclBECCuJouLSVmAo1S3kP+g3XJyaJo4EK9nSYO3mHOHz0ekBs8A0/dHe5Apu8wb1N227eM6sES3ZKWHV3Um+PPTp/Ovpy9qc5Gyj9mrDt3O3gOvj0izJOldmf0ZdA/xQs0knMttMDN2FjDp0WS+9dTUaIwb1oc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1773725589;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=eyhiSFd7TnnR0Y4KPBjzhgYS3ePqfaic4BGkMyXWNsw=;
-	b=ImJqzBhaykJ7b6/ZZttuDa2mVkhAhgDaSE6bshmKI944v399pbVfoE7pBrw+w0s7
-	3jyglFuOx3pr6RFQB9UJV8Nx9sIzKyQ0123yzbCRoTT6QXZhGKYysfsaK2IWwFHCq79
-	tuhORvK26dfLgOeQgY0foUHdkkgE5XaiFrZJ3J44=
-Received: by mx.zohomail.com with SMTPS id 1773725587000567.8249611127286;
-	Mon, 16 Mar 2026 22:33:07 -0700 (PDT)
-Date: Tue, 17 Mar 2026 05:32:54 +0000
-From: Yao Zi <me@ziyao.cc>
-To: wangjia@ultrarisc.com, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 4/4] PCI: dwc: Add UltraRISC DP1000 PCIe rc driver
-Message-ID: <abjnhn5sqnJv1fYY@pie>
-References: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
- <20260316-ultrarisc-pcie-v1-4-ef2946ede698@ultrarisc.com>
+	Tue, 17 Mar 2026 06:29:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 408B8442E5
+	for <linux-riscv@lists.infradead.org>; Tue, 17 Mar 2026 06:29:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201C1C19424
+	for <linux-riscv@lists.infradead.org>; Tue, 17 Mar 2026 06:29:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773728962;
+	bh=eCiKRyoDAzKNcTc0XsJk4iW3vQZugoEMQp0SQuxx7CA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VjHacC/8FdACMbK6ZQ3iSWuPyV3khiCNBlCPf3ZLxirZ7gQYmgHytqYXG3Ss3utf2
+	 ib1639oiQIddZPKO2RsdlurBgzHCUTBD6nfwPntBJ0jCwPOiVmrF5QekBOCS/H5Qq1
+	 xgjOCXElPosQY4Hlf7LebOJXJsxbPdh8VW/n1Vk5Rm3TxeA5ETssbdfPtDL+3XaBO9
+	 /JuL6bfB/vHVk3051d91dpGc8ApeJbBhBPWEruW5YTgl6LWvZhTvO/ZKKaEvS8GBVM
+	 327YTigTfgIT0sCJbIgWiv5EYe8k4ZFfiJIIc/Qdr3scZxGE5xWJtf9W8sTzTLPSXm
+	 n8212MZTDwKLA==
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4852fdb36a8so62501495e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Mar 2026 23:29:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUiYGSoZImbZgbEogW9DeZxeIViDVNHZpBTs/1bU052+g9ngWKksgEu17TtlosC1dcJL0/PUMgexBqDAQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2jWcMFYAdjgfBPgrA0P5uHkvJrkllI99fRaM1WMyvgr/rLKmF
+	Ox7DNUzrybQngmebM2f+uLqA3rFWukysRabFED05lc0dJnVraShOojzSpK5TxIP3Rc/DNA2w3w2
+	8Bb035JpITsDTdFvKqPfsOu+TMvI/tRg=
+X-Received: by 2002:a05:600c:c4ac:b0:485:40a4:364 with SMTP id
+ 5b1f17b1804b1-4855670c2a5mr259125285e9.26.1773728960630; Mon, 16 Mar 2026
+ 23:29:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260316-ultrarisc-pcie-v1-4-ef2946ede698@ultrarisc.com>
-X-ZohoMailClient: External
+References: <20260317034847.4136-1-cp0613@linux.alibaba.com>
+In-Reply-To: <20260317034847.4136-1-cp0613@linux.alibaba.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 17 Mar 2026 14:29:08 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRYfvFCeHx4yxdh8tfn1GLTC+UN7vtrTokmkmb2Z6=vKg@mail.gmail.com>
+X-Gm-Features: AaiRm515znQBvPe7b1QWk6C1XHuW373cVtMlbUs1J4rEm3b0iHNiaSsIo_5SmLg
+Message-ID: <CAJF2gTRYfvFCeHx4yxdh8tfn1GLTC+UN7vtrTokmkmb2Z6=vKg@mail.gmail.com>
+Subject: Re: [PATCH] perf symbol: Add RISCV case in get_plt_sizes
+To: cp0613@linux.alibaba.com
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
+	namhyung@kernel.org, irogers@google.com, pjw@kernel.org, alex@ghiti.fr, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260316_223313_590555_886D11D4 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20260316_232926_897488_CCB780ED 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +79,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 03:07:00PM +0800, Jia Wang via B4 Relay wrote:
-> From: Xincheng Zhang <zhangxincheng@ultrarisc.com>
-> 
-> Add DP1000 soc PCIe rc driver.
-> 
-> Signed-off-by: Xincheng Zhang <zhangxincheng@ultrarisc.com>
-> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> ---
->  drivers/pci/controller/dwc/Kconfig           |  15 ++
->  drivers/pci/controller/dwc/Makefile          |   1 +
->  drivers/pci/controller/dwc/pcie-designware.h |  22 +++
->  drivers/pci/controller/dwc/pcie-ultrarisc.c  | 202 +++++++++++++++++++++++++++
->  4 files changed, 240 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> index d0aa031397fa..0a33891bf7ef 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -548,4 +548,19 @@ config PCIE_VISCONTI_HOST
->  	  Say Y here if you want PCIe controller support on Toshiba Visconti SoC.
->  	  This driver supports TMPV7708 SoC.
->  
-> +config PCIE_ULTRARISC
-> +	bool "UltraRISC PCIe host controller"
-
-Is there any reason preventing the driver being built as a module? If
-no, it would be better to change it to "tristate", to allow distribution
-to customize the configuration for image sizes, etc.
-
-> +	depends on ARCH_ULTRARISC || COMPILE_TEST
-> +	select PCIE_DW_HOST
-> +	select PCI_MSI
-> +	default y if ARCH_ULTRARISC
-> +	help
-> +	  Enables support for the PCIe controller in the UltraRISC SoC.
-> +	  This driver supports UR-DP1000 SoC. When selected, it automatically
-> +	  enables both `PCIE_DW_HOST` and `PCI_MSI`, ensuring proper support
-> +	  for MSI-based interrupt handling in the PCIe controller.
-> +	  By default, this symbol is enabled when `ARCH_ULTRARISC` is active,
-> +	  requiring no further configuration on that platform.
-> +
-> +
->  endmenu
->  #define PORT_LOGIC_LTSSM_STATE_L0	0x11
-
-Best regards,
-Yao Zi
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXIgMTcsIDIwMjYgYXQgMTE6NDnigK9BTSA8Y3AwNjEzQGxpbnV4LmFsaWJhYmEu
+Y29tPiB3cm90ZToKPgo+IEZyb206IENoZW4gUGVpIDxjcDA2MTNAbGludXguYWxpYmFiYS5jb20+
+Cj4KPiBBY2NvcmRpbmcgdG8gUklTQy1WIHBzQUJJIHNwZWNpZmljYXRpb24sIHRoZSBQTFQgKFBy
+b2dyYW0gTGlua2FnZSBUYWJsZSkKPiBoYXMgdGhlIGZvbGxvd2luZyBsYXlvdXQ6Cj4gLSBUaGUg
+Zmlyc3QgUExUIGVudHJ5IG9jY3VwaWVzIHR3byAxNi1ieXRlIGVudHJpZXMgKDMyIGJ5dGVzIHRv
+dGFsKQo+IC0gU3Vic2VxdWVudCBQTFQgZW50cmllcyB0YWtlIHVwIDE2IGJ5dGVzIGVhY2gKPgo+
+IFRoaXMgYWxpZ25zIHdpdGggdGhlIGJpbnV0aWxzLWdkYiBpbXBsZW1lbnRhdGlvbiB3aGljaCBk
+ZWZpbmVzIHRoZSBzYW1lCj4gUExUIHNpemVzIGZvciBSSVNDLVYgYXJjaGl0ZWN0dXJlLgo+Cj4g
+VXBkYXRlIGdldF9wbHRfc2l6ZXMoKSB0byBzZXQgcGx0X2hlYWRlcl9zaXplPTMyIGFuZCBwbHRf
+ZW50cnlfc2l6ZT0xNgo+IGZvciBFTV9SSVNDViwgbWF0Y2hpbmcgdGhlIGFyY2hpdGVjdHVyZSdz
+IHN0YW5kYXJkIEFCSS4KPgo+IFNpbmNlIEFBUkNINjQsIExPT05HQVJDSCwgYW5kIFJJU0NWIGhh
+dmUgdGhlIHNhbWUgUExUIHNpemUgZGVmaW5pdGlvbiwKPiB0aGV5IGFyZSBtZXJnZWQgdG9nZXRo
+ZXIuCj4KPiBMaW5rOiBodHRwczovL2dpdGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS9yaXNjdi1lbGYt
+cHNhYmktZG9jCj4gTGluazogaHR0cHM6Ly9zb3VyY2V3YXJlLm9yZy9naXQvP3A9YmludXRpbHMt
+Z2RiLmdpdDthPWJsb2I7Zj1iZmQvZWxmbm4tcmlzY3YuYwoKSSBkb24ndCB0aGluayBwdXR0aW5n
+IExpbmsgaGVyZSBpcyBhIGdvb2QgaWRlYS4gSnVzdCBjb3B5IHRoZSBwYXJ0IG9mCnRoZSBwc2Fi
+aSBzcGVjIHYxLjAgaGVyZToKCjguNC42LiBQcm9ncmFtIExpbmthZ2UgVGFibGUKLi4uClRoZSBm
+aXJzdCBlbnRyeSBpbiB0aGUgUExUIG9jY3VwaWVzIHR3byAxNiBieXRlIGVudHJpZXM6Ci4uLgpT
+dWJzZXF1ZW50IGZ1bmN0aW9uIGVudHJ5IHN0dWJzIGluIHRoZSBQTFQgdGFrZSB1cCAxNiBieXRl
+cyBhbmQgbG9hZCBhCmZ1bmN0aW9uIHBvaW50ZXIgZnJvbSB0aGUgR09ULgoKRm9yIG90aGVyczoK
+UmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgoKCj4KPgo+Cj4gU2lnbmVk
+LW9mZi1ieTogQ2hlbiBQZWkgPGNwMDYxM0BsaW51eC5hbGliYWJhLmNvbT4KPiAtLS0KPiAgdG9v
+bHMvcGVyZi91dGlsL3N5bWJvbC1lbGYuYyB8IDQgKy0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMSBp
+bnNlcnRpb24oKyksIDMgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi91
+dGlsL3N5bWJvbC1lbGYuYyBiL3Rvb2xzL3BlcmYvdXRpbC9zeW1ib2wtZWxmLmMKPiBpbmRleCA3
+NjkxMmM2MmI2YTAuLjgwNjkzNmQ5NTUyMyAxMDA2NDQKPiAtLS0gYS90b29scy9wZXJmL3V0aWwv
+c3ltYm9sLWVsZi5jCj4gKysrIGIvdG9vbHMvcGVyZi91dGlsL3N5bWJvbC1lbGYuYwo+IEBAIC0z
+NzIsMTAgKzM3Miw4IEBAIHN0YXRpYyBib29sIGdldF9wbHRfc2l6ZXMoc3RydWN0IGRzbyAqZHNv
+LCBHRWxmX0VoZHIgKmVoZHIsIEdFbGZfU2hkciAqc2hkcl9wbHQsCj4gICAgICAgICAgICAgICAg
+ICpwbHRfZW50cnlfc2l6ZSA9IDEyOwo+ICAgICAgICAgICAgICAgICByZXR1cm4gdHJ1ZTsKPiAg
+ICAgICAgIGNhc2UgRU1fQUFSQ0g2NDoKPiAtICAgICAgICAgICAgICAgKnBsdF9oZWFkZXJfc2l6
+ZSA9IDMyOwo+IC0gICAgICAgICAgICAgICAqcGx0X2VudHJ5X3NpemUgPSAxNjsKPiAtICAgICAg
+ICAgICAgICAgcmV0dXJuIHRydWU7Cj4gICAgICAgICBjYXNlIEVNX0xPT05HQVJDSDoKPiArICAg
+ICAgIGNhc2UgRU1fUklTQ1Y6Cj4gICAgICAgICAgICAgICAgICpwbHRfaGVhZGVyX3NpemUgPSAz
+MjsKPiAgICAgICAgICAgICAgICAgKnBsdF9lbnRyeV9zaXplID0gMTY7Cj4gICAgICAgICAgICAg
+ICAgIHJldHVybiB0cnVlOwo+IC0tCj4gMi41MC4xCj4KCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8g
+UmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
