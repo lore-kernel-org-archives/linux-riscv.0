@@ -4,116 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B88FD875E
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 12:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E4B6FD8764
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 12:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rZaYS/usfPgRzPyghQb7BJMJtAKVEUtbcyHtRtp9qQE=; b=K6ie3ObtnoXem/
-	KZ3d5qQnG5wFz7sp0e3+7lt8WZ2lrtonGmHhMnWBi0gq7age3krd0dJGHTsfiEY/Tob3N7yuH2JH8
-	KlN9y/nqvvsJX3hCi6vtMdDQfEeyPsP0C6btOxuKf9fk0q+nOIUZpSTvayOnyVLK11f7/g2e3oEfe
-	jfOTOj+qE+6xsuDhoD3QrqpWKUTMBdjpR6R+w58TEF1DNznlJ1QG7AyrtsiahDBLIVsqemWohd21G
-	1YfNxja/HnF3gpa4WSzCCbMcaORnav8Nlc46A1rQkv40UCD1IfRNxYtRIDfZ/C+bXdBK5PO1dG0MM
-	uWAmyfQL9lB2L8CWeMrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ktEh2OfZulSJygbwWLrBam3jWPB8DU/3baqIkogr+/E=; b=YyOAY4tVdwIEaGSh1ob16nTpnm
+	iZcSl3iC744J5FpjdBGjMSvP2BCJ+Mankra6myA4p7PVnzkAgSGG/tsVtgbM8/IU+FPBxjlS7kjrV
+	zJSy8EMPUVeY+1lwgS6NPsLipo++rtgFV61+9N9hUHT+E8H/avpl7u2ShHWGcEwQB3KjO++obYirC
+	bGZDyA57F4qzzqrk9VkQhgfcHHnHedOAVOyHHbwkfuFXXWsF7mZ9yqAj22DG2L7ZuvrY1qA2Tsaag
+	dzonHkb5+ZEFpucl6CzR+2ckb6NC1XkctUmdTh0A+N11UF5zE1WYoGoECcG2gybjtcpUpEXg6qgQn
+	Hlr/qAkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Tpd-00000006KNr-44Mb;
-	Tue, 17 Mar 2026 12:47:33 +0000
+	id 1w2TxO-00000006L2H-3qWj;
+	Tue, 17 Mar 2026 12:55:34 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2Tpc-00000006KNW-29sG
+	id 1w2TxM-00000006L1l-44mZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 17 Mar 2026 12:47:32 +0000
+	Tue, 17 Mar 2026 12:55:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A375660008;
-	Tue, 17 Mar 2026 12:47:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B404C19425;
-	Tue, 17 Mar 2026 12:47:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 012A460008;
+	Tue, 17 Mar 2026 12:55:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F9B3C19425;
+	Tue, 17 Mar 2026 12:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773751651;
-	bh=JTwsqMb2I4dHEBP3Yr6hdh+SSfntwSOXY7WxnE4Jx3c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Mmx0yAMPyaTi+W7LMOLMl9+7j+cgfxWgN+0e8+WOHglYQuD4eGL8x36KMvnKPf8pn
-	 wVn0efCAa7oEY8R0Id09hXCEmjRworf4hb93qMp5v/xMr+uwYeFP0hoPWqXx65PWUT
-	 28MvJwArdGTlcRdzcbOVdEVX+vwzLSPskqz2CxbZWLn4w9Lf3/9wnOrQNGE78MhC1w
-	 8HqKB40pzPWf8MIbg3kDKy+lOBM54cmDfPUaQ8Go8LlCRvyEMOBq2etcU5lk1GT0fs
-	 /+JtdnBN9kqfbEOA1t2Fw7892WsmzlseiC2e9U/NDToOC6pX9+JrG7YzEzJ2z+7e9/
-	 GD/Agse4pYisw==
-Message-ID: <169a3438-40f9-40bc-86cf-a24535494115@kernel.org>
-Date: Tue, 17 Mar 2026 13:47:22 +0100
+	s=k20201202; t=1773752131;
+	bh=JjzTP7hmp1XcE7FvW69lGHkfiLxgys4jXR9NwDPJZHU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g+p6n/jlYOqTL1GKPlXe3s+fY4jFeIO+PMtxymQ8kOyB4MOY7pNsK/41pb0AkU1kI
+	 eHuo1eN6Il+Z7yn2xOVcpip3IKqn6pYPlN2isod5lb+sYPJWt5mmPHzvEidB4JmosI
+	 WtHWZNfFzG9WFcm8irnejmYHX3V1/IcJnLkRbs50tzmnq/jNthYGMcspArBxmoCQBX
+	 BSe8NkzR4pX/7VmsMBx36/Rwj+tzxREi6pie0juXYfsOhUjDPdGoDCFzL4LFlTZNB7
+	 Mj83zJsmPb/FlrD714JrJ0G2iJWssWHDT50k2wln0tiP7zdL0tQc0tiWKfSjw2SDQU
+	 nPQlHQTKAZ6Hg==
+Date: Tue, 17 Mar 2026 12:55:25 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Junzhong Pan <junzhong.pan@spacemit.com>,
+	Inochi Amaoto <inochiama@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: usb: dwc3: spacemit: add support for K3
+ SoC
+Message-ID: <20260317-shortness-gecko-72f14fbc79f2@spud>
+References: <20260317-02-k3-usb20-support-v1-0-d89f59062ad4@kernel.org>
+ <20260317-02-k3-usb20-support-v1-1-d89f59062ad4@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv7 09/18] mm/hugetlb: Defer vmemmap population for bootmem
- hugepages
-To: Kiryl Shutsemau <kas@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <muchun.song@linux.dev>, Matthew Wilcox <willy@infradead.org>,
- Usama Arif <usamaarif642@gmail.com>, Frank van der Linden <fvdl@google.com>,
- Oscar Salvador <osalvador@suse.de>, Mike Rapoport <rppt@kernel.org>,
- Vlastimil Babka <vbabka@suse.cz>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Zi Yan <ziy@nvidia.com>,
- Baoquan He <bhe@redhat.com>, Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Jonathan Corbet <corbet@lwn.net>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, kernel-team@meta.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org
-References: <20260227194302.274384-1-kas@kernel.org>
- <20260227194302.274384-10-kas@kernel.org>
- <4e52f70d-e0c3-471f-8073-68c0e9bc94ca@kernel.org>
- <abk58j2bV0sGabEU@thinkstation>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <abk58j2bV0sGabEU@thinkstation>
+In-Reply-To: <20260317-02-k3-usb20-support-v1-1-d89f59062ad4@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,59 +75,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4312360951181449835=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/17/26 12:28, Kiryl Shutsemau wrote:
-> On Mon, Mar 16, 2026 at 05:48:24PM +0100, David Hildenbrand (Arm) wrote:
->> On 2/27/26 20:42, Kiryl Shutsemau (Meta) wrote:
->>> Currently, the vmemmap for bootmem-allocated gigantic pages is populated
->>> early in hugetlb_vmemmap_init_early(). However, the zone information is
->>> only available after zones are initialized. If it is later discovered
->>> that a page spans multiple zones, the HVO mapping must be undone and
->>> replaced with a normal mapping using vmemmap_undo_hvo().
->>>
->>> Defer the actual vmemmap population to hugetlb_vmemmap_init_late(). At
->>> this stage, zones are already initialized, so it can be checked if the
->>> page is valid for HVO before deciding how to populate the vmemmap.
->>>
->>> This allows us to remove vmemmap_undo_hvo() and the complex logic
->>> required to rollback HVO mappings.
->>>
->>> In hugetlb_vmemmap_init_late(), if HVO population fails or if the zones
->>> are invalid, fall back to a normal vmemmap population.
->>>
->>> Postponing population until hugetlb_vmemmap_init_late() also makes zone
->>> information available from within vmemmap_populate_hvo().
->>
->> So we'll keep marking the sections as SECTION_IS_VMEMMAP_PREINIT such
->> that sparse_init_nid() will still properly skip it and leave population
->> to hugetlb_vmemmap_init_late().
->>
->> Should we clear SECTION_IS_VMEMMAP_PREINIT in case we run into the
->> hugetlb_bootmem_page_zones_valid() scenario?
->>
->> I suspect we don't care about SECTION_IS_VMEMMAP_PREINIT after boot and
->> can just leave the flag set. (maybe we wan to add a comment in the code?
->> above the vmemmap_populate() ?)
-> 
-> I think keeping the flag is right thing to do.
-> 
-> SECTION_IS_VMEMMAP_PREINIT indicates to core-sparse that the section
-> should not be populated and it will be initialized elsewhere. Even in
-> !hugetlb_bootmem_page_zones_valid() we take care of it in
-> hugetlb_vmemmap_init_late().
 
-Makes sense.
+--===============4312360951181449835==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EuN2sbgx2TXCBXAM"
+Content-Disposition: inline
 
--- 
-Cheers,
 
-David
+--EuN2sbgx2TXCBXAM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Mar 17, 2026 at 11:53:02AM +0000, Yixun Lan wrote:
+> Add compatible string for DWC3 USB controller found in SpacemiT K3 SoC.
+> The USB2.0 host controller in K3 SoC actually use DWC3 IP but only has
+> USB2.0 functionality, and requires only one USB2.0 PHY connected.
+>=20
+> Explicitly reduce number of phy property to minimal one.
+
+Is this valid for the existing compatible, will it work with only one
+clock?
+
+>=20
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml =
+b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+> index 0f0b5e061ca1..cc27b363ca79 100644
+> --- a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+> +++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+> @@ -27,7 +27,9 @@ allOf:
+> =20
+>  properties:
+>    compatible:
+> -    const: spacemit,k1-dwc3
+> +    enum:
+> +      - spacemit,k1-dwc3
+> +      - spacemit,k3-dwc3
+> =20
+>    reg:
+>      maxItems: 1
+> @@ -42,11 +44,13 @@ properties:
+>      maxItems: 1
+> =20
+>    phys:
+> +    minItems: 1
+>      items:
+>        - description: phandle to USB2/HS PHY
+>        - description: phandle to USB3/SS PHY
+> =20
+>    phy-names:
+> +    minItems: 1
+>      items:
+>        - const: usb2-phy
+>        - const: usb3-phy
+>=20
+> --=20
+> 2.53.0
+>=20
+
+--EuN2sbgx2TXCBXAM
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCablPPQAKCRB4tDGHoIJi
+0kOzAP9IrBhz/9lUWu6n36ZzFVdy7rbYI2ZzdxCKDRsfR4RKowD/UYnpNrGUAgeX
+VhlMZkWPWooLosGBq/M0pO1VFGiCvQ8=
+=DUTM
+-----END PGP SIGNATURE-----
+
+--EuN2sbgx2TXCBXAM--
+
+
+--===============4312360951181449835==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4312360951181449835==--
+
