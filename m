@@ -4,70 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F67010775EA
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB6C10775EE
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n3B3vzBuXnwsLW9TCxp1wTe3sF88CpGDlNEwyRVqO8g=; b=tHAKHIOEs6MC4L
-	R6dWdpMz5Hw8cCmli+hXr0TG1o7oPrzcjzdUzyhUI1QSftL0ZIYNwwi3LwnyirzhaaTRvS0x+5RbY
-	QYkhtRWtD2YJ0dB9JUacGTvVxlWpjxVP+CSwaGzsDOYxHM6MLEUdIEATh6o6tNA6EswL+Sx1JaAvx
-	QxvI5uBsPXfyS1l/KruPJyA5yutbtou3Gmr5cFUKqW3h2dpgPJNwQcRQEMB2+PZEKGVWl+fh7hgxg
-	DhoN0gVXP7IcmIy+4g3y67GfP0jCEcdxB27H0+xNV2QjAurwEDtLn5tRQFNFtD2t59qYImuyEijXC
-	qVxfYdrsiBoHw6RYk/IQ==;
+	List-Owner; bh=sSJvyJVitb7ZfHOOR+EKV7suRFOhljN5GEL7xFla+jY=; b=gwgrY6uPrsWNWi
+	MMUzLksgBfJlVjoLxbr/zyyT/8ufC/avY93BautnFwdlgVWUJUuK+5gvetSUY0+f3E/X4Fqjos5R1
+	07RNvRnIPtEH/iJA0mxDT0pjPfUxQHUqGfuA0KnWs0b43Psk+frlCNaSRz2Jy+/aZHLPqo4KCyguj
+	vUSCer7e+okvrP835pbL5Dg0O00M0Lgh6kSOoDmY2RzreRorHwKOhUpN7cNc73+70fV+PW5SeAwXf
+	dtimd4Wwnlh9W63/P49srYSHXl7uE/RyLU2T8W2AEJL/s+gujOkxBgVN+HPI5QrLrJvS2Pn1l8yyv
+	VMRSYcGq/TtNgirovedA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tki-00000008vKf-2dYU;
-	Wed, 18 Mar 2026 16:28:12 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.35])
+	id 1w2tkr-00000008vVA-1tuI;
+	Wed, 18 Mar 2026 16:28:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vzqPc-00000008mbU-1qk7
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Mar 2026 06:17:49 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4fVNwB3MQ7z8Xs6v;
-	Tue, 10 Mar 2026 14:17:46 +0800 (CST)
-Received: from xaxapp01.zte.com.cn ([10.88.99.176])
-	by mse-fl2.zte.com.cn with SMTP id 62A6HT5x005013;
-	Tue, 10 Mar 2026 14:17:29 +0800 (+08)
-	(envelope-from liu.xuemei1@zte.com.cn)
-Received: from mapi (xaxapp04[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Tue, 10 Mar 2026 14:17:31 +0800 (CST)
-X-Zmail-TransId: 2afb69afb77b311-b4eab
-X-Mailer: Zmail v1.0
-Message-ID: <20260310141731145xMwLsyvXl9Gw-m6A4VRYj@zte.com.cn>
-In-Reply-To: <20260310141349432DBRJJclgnBHYWu8it0geX@zte.com.cn>
-References: 20260310141349432DBRJJclgnBHYWu8it0geX@zte.com.cn
-Date: Tue, 10 Mar 2026 14:17:31 +0800 (CST)
-Mime-Version: 1.0
-From: <liu.xuemei1@zte.com.cn>
-To: <anup@brainfault.org>, <tglx@kernel.org>, <pjw@kernel.org>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-        <sunilvl@ventanamicro.com>, <rafael.j.wysocki@intel.com>,
-        <liujingqi@lanxincomputing.com>, <cyan.yang@sifive.com>,
-        <nick.hu@sifive.com>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <liu.xuemei1@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIHYyIDIvMl0gaXJxY2hpcC9yaXNjdi1hcGxpYzogUmVnaXN0ZXIgc3lzY29yZSBvcGVyYXRpb25zIG9ubHkgb25jZQ==?=
-X-MAIL: mse-fl2.zte.com.cn 62A6HT5x005013
-X-TLS: YES
-X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: liu.xuemei1@zte.com.cn
-X-SPF: None
-X-SOURCE-IP: 10.5.228.133 unknown Tue, 10 Mar 2026 14:17:46 +0800
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 69AFB78A.000/4fVNwB3MQ7z8Xs6v
-X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
+	id 1w2VAV-00000006XLa-3nG2;
+	Tue, 17 Mar 2026 14:13:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ar/RLV2nTk0mEfqcj3AjlRvCzScvha3E/slvpgUYOeA=; b=rPG/LGGzRTNDGNodllunaYP/wO
+	cBmKUq1FvwuLXACbkroqszW2gTLG7sOO6fCN2jn5RY/8VyBn1wHFBDsk1hEy5WMidOlS0m6SpS7Ys
+	8H0w//ef9VgwIcUEk5HZRUaGyDBgcwTGC/ycSWRjfWDF0ziPxyGpKC6sqAzxKIVwJsTdr5ZVppn31
+	D0RLdE2mlmJq0vPE/XszeCClpiOErj5uuvicNdh3I1Bt7sgyAg5urXskN1UysucXIx8fe4Ia2xEtd
+	GKFlnRxM17sqstXdLqBaKTmX3VQJ8Jezd8jAXzMBPo8VPkngFEhKqkqYDHFx8zYosHRC0zdDGnj3/
+	sVr9OVXw==;
+Received: from fra-out-009.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([3.64.237.68])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w2VAS-00000009BPB-1wYM;
+	Tue, 17 Mar 2026 14:13:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
+  s=amazoncorp2; t=1773756788; x=1805292788;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=ar/RLV2nTk0mEfqcj3AjlRvCzScvha3E/slvpgUYOeA=;
+  b=gNYQ85CA7gMCkvaB4eTCyuSsvHdQvnpc3xW6P55W+y3o4/u0q43SMyb2
+   VwZh/FbudLz1KE9d7fp+ZECcrt9paOB1lea0GbojIMUsx9Jx1KY7pK3gL
+   Y61lvKrkSh/Nl5juy+HReO0WEWg55jOE7YUY9wWzaq0y7A2Qdq4PxTKlm
+   eeSdq0WwPkeGYs0ZJoT2zpRMxHtcwojT9DAjU9NgEyWQZISdJj1aSkxPo
+   iQ6B68cV7TqxeB4zHHpLtSgPetD/Lq+v9gxBRNJksFMOtL5W1i+NDLqZf
+   2YtuhcRtPcRwrxF5Y/GcWwGcvVOnXdKvIquTixw9fNR+0NkUc4ydYfpKZ
+   Q==;
+X-CSE-ConnectionGUID: JF0NEqvkTCWWM6/3S7X9RQ==
+X-CSE-MsgGUID: fZJRC3bjRKuOf4zEpJ6/dQ==
+X-IronPort-AV: E=Sophos;i="6.23,124,1770595200"; 
+   d="scan'208";a="10906824"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-009.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Mar 2026 14:13:05 +0000
+Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:31988]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.29.244:2525] with esmtp (Farcaster)
+ id a9d392c6-d4f3-4dc6-86a0-65d9475b4fe7; Tue, 17 Mar 2026 14:13:05 +0000 (UTC)
+X-Farcaster-Flow-ID: a9d392c6-d4f3-4dc6-86a0-65d9475b4fe7
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19MTAEUA001.ant.amazon.com (10.252.50.192) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Tue, 17 Mar 2026 14:13:03 +0000
+Received: from EX19D005EUB003.ant.amazon.com (10.252.51.31) by
+ EX19D005EUB003.ant.amazon.com (10.252.51.31) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Tue, 17 Mar 2026 14:13:03 +0000
+Received: from EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c]) by
+ EX19D005EUB003.ant.amazon.com ([fe80::b825:becb:4b38:da0c%3]) with mapi id
+ 15.02.2562.037; Tue, 17 Mar 2026 14:13:03 +0000
+From: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
+To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org"
+	<linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>
+CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "osalvador@suse.de" <osalvador@suse.de>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>,
+ "Manwaring, Derek" <derekmn@amazon.com>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
+Subject: [PATCH v11 13/16] KVM: selftests: Add guest_memfd based
+ vm_mem_backing_src_types
+Thread-Topic: [PATCH v11 13/16] KVM: selftests: Add guest_memfd based
+ vm_mem_backing_src_types
+Thread-Index: AQHcthgrl2L6VQHT9EGNGtASEbZtQQ==
+Date: Tue, 17 Mar 2026 14:13:03 +0000
+Message-ID: <20260317141031.514-14-kalyazin@amazon.com>
+References: <20260317141031.514-1-kalyazin@amazon.com>
+In-Reply-To: <20260317141031.514-1-kalyazin@amazon.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [172.19.103.116]
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260309_231748_799013_682663BF 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260317_141308_585553_9C81D5F6 
+X-CRM114-Status: GOOD (  14.75  )
 X-Mailman-Approved-At: Wed, 18 Mar 2026 09:28:11 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,103 +125,191 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jessica Liu <liu.xuemei1@zte.com.cn>
+From: Patrick Roy <patrick.roy@linux.dev>
 
-Since commit 95a8ddde3660 ("irqchip/riscv-aplic: Preserve APLIC
-states across suspend/resume"), when multiple NUMA nodes exist
-and AIA is not configured as "none", aplic_probe() is called
-multiple times. This leads to register_syscore(&aplic_syscore)
-being invoked repeatedly, causing the following Oops:
+Allow selftests to configure their memslots such that userspace_addr is
+set to a MAP_SHARED mapping of the guest_memfd that's associated with
+the memslot. This setup is the configuration for non-CoCo VMs, where all
+guest memory is backed by a guest_memfd whose folios are all marked
+shared, but KVM is still able to access guest memory to provide
+functionality such as MMIO emulation on x86.
 
-[    1.188071] list_add double add: new=ffffffffb91461f0, prev=ffffffffb91461f0, next=ffffffffb915c408.
-[    1.189839] ------------[ cut here ]------------
-[    1.190080] kernel BUG at lib/list_debug.c:35!
-[    1.190403] Kernel BUG [#1]
-[    1.190438] Modules linked in:
-[    1.191173] CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.0.0-rc2+ #1 PREEMPT(full)
-[    1.191363] Hardware name: QEMU QEMU Virtual Machine, BIOS edk2-202402-20.an23 02/14/2024
-[    1.191495] epc : __list_add_valid_or_report+0x60/0xc0
-[    1.192103]  ra : __list_add_valid_or_report+0x60/0xc0
-[    1.192143] epc : ffffffffb7b5c8ca ra : ffffffffb7b5c8ca sp : ffffffc600103ad0
-[    1.192166]  gp : ffffffffb91feb60 tp : ffffffd680a1eac0 t0 : 2000000000000000
-[    1.192188]  t1 : 000000000000006c t2 : 206464615f747369 s0 : ffffffc600103b00
-[    1.192209]  s1 : ffffffffb915c408 a0 : 0000000000000058 a1 : ffffffe23ef7b0c0
-[    1.192229]  a2 : 0000000000000010 a3 : 0000000000000000 a4 : 0000000000000000
-[    1.192249]  a5 : 0000000000000000 a6 : c0000000ffffdfff a7 : ffffffffb93da948
-[    1.192271]  s2 : ffffffffb91461f0 s3 : ffffffffb91461f0 s4 : ffffffffb915c408
-[    1.192292]  s5 : ffffffd681254890 s6 : ffffffffb8c40410 s7 : ffffffffb84361c8
-[    1.192313]  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
-[    1.192333]  s11: 0000000000000000 t3 : ffffffffb93da9e7 t4 : ffffffffb93da9e7
-[    1.192352]  t5 : ffffffffb93da9e8 t6 : ffffffc6001038d8 ssp : 0000000000000000
-[    1.192373] status: 0000000200000120 badaddr: ffffffffb7b5c8ca cause: 0000000000000003
-[    1.192508] [<ffffffffb7b5c8ca>] __list_add_valid_or_report+0x60/0xc0
-[    1.192606] [<ffffffffb7cc3236>] register_syscore+0x3e/0x70
-[    1.192630] [<ffffffffb7b8d61c>] aplic_probe+0xc6/0x112
-[    1.192649] [<ffffffffb7cc5014>] platform_probe+0x46/0x76
-[    1.192669] [<ffffffffb7cc19c6>] call_driver_probe+0x1a/0x108
-[    1.192687] [<ffffffffb7cc23e2>] really_probe+0x82/0x288
-[    1.192707] [<ffffffffb7cc2654>] __driver_probe_device+0x6c/0x11e
-[    1.192727] [<ffffffffb7cc27c8>] driver_probe_device+0x2c/0xa0
-[    1.192746] [<ffffffffb7cc2a08>] __driver_attach+0xce/0x1ee
-[    1.192763] [<ffffffffb7cc00e6>] bus_for_each_dev+0x5a/0xa6
-[    1.192781] [<ffffffffb7cc1cf4>] driver_attach+0x1a/0x22
-[    1.192798] [<ffffffffb7cc148a>] bus_add_driver+0x10e/0x1fc
-[    1.192817] [<ffffffffb7cc3ab2>] driver_register+0x3e/0xd8
-[    1.192837] [<ffffffffb7cc4c7c>] __platform_driver_register+0x1c/0x24
-[    1.192887] [<ffffffffb8236e4c>] aplic_driver_init+0x1a/0x22
-[    1.192909] [<ffffffffb76179a6>] do_one_initcall+0x36/0x2b4
-[    1.192935] [<ffffffffb82013b2>] do_initcalls+0xfe/0x12c
-[    1.192958] [<ffffffffb82015a4>] kernel_init_freeable+0x15c/0x1c8
-[    1.192979] [<ffffffffb80894ea>] kernel_init+0x20/0x152
-[    1.193001] [<ffffffffb76194c6>] ret_from_fork_kernel+0x12/0x1f6
-[    1.193020] [<ffffffffb80943e6>] ret_from_fork_kernel_asm+0x16/0x18
-[    1.193190] Code: 86a6 85aa 4517 00fc 0513 7765 8097 ffaa 80e7 9940 (9002) 854a
-[    1.193665] ---[ end trace 0000000000000000 ]---
-[    1.194254] Kernel panic - not syncing: Fatal exception in interrupt
-[    1.194627] SMP: stopping secondary CPUs
-[    1.195436] Kernel Offset: 0x37600000 from 0xffffffff80000000
+Add backing types for normal guest_memfd, as well as direct map removed
+guest_memfd.
 
-Fix by registering syscore operations only once, using a static
-variable aplic_syscore_registered to track registration.
-
-Fixes: 95a8ddde3660 ("irqchip/riscv-aplic: Preserve APLIC states across suspend/resume")
-Signed-off-by: Jessica Liu <liu.xuemei1@zte.com.cn>
+Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
+Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
 ---
- drivers/irqchip/irq-riscv-aplic-main.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ .../testing/selftests/kvm/include/kvm_util.h  | 18 ++++++
+ .../testing/selftests/kvm/include/test_util.h |  7 +++
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 61 ++++++++++---------
+ tools/testing/selftests/kvm/lib/test_util.c   |  8 +++
+ 4 files changed, 65 insertions(+), 29 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
-index 8775f188ea4f..9f53979b6962 100644
---- a/drivers/irqchip/irq-riscv-aplic-main.c
-+++ b/drivers/irqchip/irq-riscv-aplic-main.c
-@@ -116,6 +116,16 @@ static struct syscore aplic_syscore = {
- 	.ops = &aplic_syscore_ops,
- };
-
-+static bool aplic_syscore_registered __ro_after_init;
-+
-+static void aplic_syscore_init(void)
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index 8b39cb919f4f..056a003a63c0 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -664,6 +664,24 @@ static inline bool is_smt_on(void)
+ 
+ void vm_create_irqchip(struct kvm_vm *vm);
+ 
++static inline uint32_t backing_src_guest_memfd_flags(enum vm_mem_backing_src_type t)
 +{
-+	if (!aplic_syscore_registered) {
-+		register_syscore(&aplic_syscore);
-+		aplic_syscore_registered = true;
++	uint32_t flags = 0;
++
++	switch (t) {
++	case VM_MEM_SRC_GUEST_MEMFD_NO_DIRECT_MAP:
++		flags |= GUEST_MEMFD_FLAG_NO_DIRECT_MAP;
++		fallthrough;
++	case VM_MEM_SRC_GUEST_MEMFD:
++		flags |= GUEST_MEMFD_FLAG_MMAP | GUEST_MEMFD_FLAG_INIT_SHARED;
++		break;
++	default:
++		break;
 +	}
++
++	return flags;
 +}
 +
- static int aplic_pm_notifier(struct notifier_block *nb, unsigned long action, void *data)
+ static inline int __vm_create_guest_memfd(struct kvm_vm *vm, uint64_t size,
+ 					uint64_t flags)
  {
- 	struct aplic_priv *priv = container_of(nb, struct aplic_priv, genpd_nb);
-@@ -379,7 +389,7 @@ static int aplic_probe(struct platform_device *pdev)
- 		return rc;
+diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
+index 8140e59b59e5..ea6de20ce8ef 100644
+--- a/tools/testing/selftests/kvm/include/test_util.h
++++ b/tools/testing/selftests/kvm/include/test_util.h
+@@ -152,6 +152,8 @@ enum vm_mem_backing_src_type {
+ 	VM_MEM_SRC_ANONYMOUS_HUGETLB_16GB,
+ 	VM_MEM_SRC_SHMEM,
+ 	VM_MEM_SRC_SHARED_HUGETLB,
++	VM_MEM_SRC_GUEST_MEMFD,
++	VM_MEM_SRC_GUEST_MEMFD_NO_DIRECT_MAP,
+ 	NUM_SRC_TYPES,
+ };
+ 
+@@ -184,6 +186,11 @@ static inline bool backing_src_is_shared(enum vm_mem_backing_src_type t)
+ 	return vm_mem_backing_src_alias(t)->flag & MAP_SHARED;
+ }
+ 
++static inline bool backing_src_is_guest_memfd(enum vm_mem_backing_src_type t)
++{
++	return t == VM_MEM_SRC_GUEST_MEMFD || t == VM_MEM_SRC_GUEST_MEMFD_NO_DIRECT_MAP;
++}
++
+ static inline bool backing_src_can_be_huge(enum vm_mem_backing_src_type t)
+ {
+ 	return t != VM_MEM_SRC_ANONYMOUS && t != VM_MEM_SRC_SHMEM;
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 5b0865683047..fa4a2fc236fe 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -1046,6 +1046,33 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+ 	alignment = 1;
+ #endif
+ 
++	if (guest_memfd < 0) {
++		if ((flags & KVM_MEM_GUEST_MEMFD) || backing_src_is_guest_memfd(src_type)) {
++			uint32_t guest_memfd_flags = backing_src_guest_memfd_flags(src_type);
++
++			TEST_ASSERT(!guest_memfd_offset,
++				    "Offset must be zero when creating new guest_memfd");
++			guest_memfd = vm_create_guest_memfd(vm, mem_size, guest_memfd_flags);
++		}
++	} else {
++		/*
++		 * Install a unique fd for each memslot so that the fd
++		 * can be closed when the region is deleted without
++		 * needing to track if the fd is owned by the framework
++		 * or by the caller.
++		 */
++		guest_memfd = kvm_dup(guest_memfd);
++	}
++
++	if (guest_memfd >= 0) {
++		flags |= KVM_MEM_GUEST_MEMFD;
++
++		region->region.guest_memfd = guest_memfd;
++		region->region.guest_memfd_offset = guest_memfd_offset;
++	} else {
++		region->region.guest_memfd = -1;
++	}
++
+ 	/*
+ 	 * When using THP mmap is not guaranteed to returned a hugepage aligned
+ 	 * address so we have to pad the mmap. Padding is not needed for HugeTLB
+@@ -1061,10 +1088,13 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+ 	if (alignment > 1)
+ 		region->mmap_size += alignment;
+ 
+-	region->fd = -1;
+-	if (backing_src_is_shared(src_type))
++	if (backing_src_is_guest_memfd(src_type))
++		region->fd = guest_memfd;
++	else if (backing_src_is_shared(src_type))
+ 		region->fd = kvm_memfd_alloc(region->mmap_size,
+ 					     src_type == VM_MEM_SRC_SHARED_HUGETLB);
++	else
++		region->fd = -1;
+ 
+ 	region->mmap_start = kvm_mmap(region->mmap_size, PROT_READ | PROT_WRITE,
+ 				      vm_mem_backing_src_alias(src_type)->flag,
+@@ -1089,33 +1119,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
  	}
-
--	register_syscore(&aplic_syscore);
-+	aplic_syscore_init();
-
- #ifdef CONFIG_ACPI
- 	if (!acpi_disabled)
+ 
+ 	region->backing_src_type = src_type;
+-
+-	if (guest_memfd < 0) {
+-		if (flags & KVM_MEM_GUEST_MEMFD) {
+-			uint32_t guest_memfd_flags = 0;
+-			TEST_ASSERT(!guest_memfd_offset,
+-				    "Offset must be zero when creating new guest_memfd");
+-			guest_memfd = vm_create_guest_memfd(vm, mem_size, guest_memfd_flags);
+-		}
+-	} else {
+-		/*
+-		 * Install a unique fd for each memslot so that the fd
+-		 * can be closed when the region is deleted without
+-		 * needing to track if the fd is owned by the framework
+-		 * or by the caller.
+-		 */
+-		guest_memfd = kvm_dup(guest_memfd);
+-	}
+-
+-	if (guest_memfd >= 0) {
+-		flags |= KVM_MEM_GUEST_MEMFD;
+-
+-		region->region.guest_memfd = guest_memfd;
+-		region->region.guest_memfd_offset = guest_memfd_offset;
+-	} else {
+-		region->region.guest_memfd = -1;
+-	}
+-
+ 	region->unused_phy_pages = sparsebit_alloc();
+ 	if (vm_arch_has_protected_memory(vm))
+ 		region->protected_phy_pages = sparsebit_alloc();
+diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
+index 8a1848586a85..ce9fe0271515 100644
+--- a/tools/testing/selftests/kvm/lib/test_util.c
++++ b/tools/testing/selftests/kvm/lib/test_util.c
+@@ -306,6 +306,14 @@ const struct vm_mem_backing_src_alias *vm_mem_backing_src_alias(uint32_t i)
+ 			 */
+ 			.flag = MAP_SHARED,
+ 		},
++		[VM_MEM_SRC_GUEST_MEMFD] = {
++			.name = "guest_memfd",
++			.flag = MAP_SHARED,
++		},
++		[VM_MEM_SRC_GUEST_MEMFD_NO_DIRECT_MAP] = {
++			.name = "guest_memfd_no_direct_map",
++			.flag = MAP_SHARED,
++		}
+ 	};
+ 	_Static_assert(ARRAY_SIZE(aliases) == NUM_SRC_TYPES,
+ 		       "Missing new backing src types?");
 -- 
-2.27.0
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
