@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC41AF3381B
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 09:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6508F3381B
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Mar 2026 09:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M+s7dvr9JtkjpUHGxTGXwHzCa124hFE4MJ4oV0p1JrQ=; b=qPzGfYpsOD7GhC
-	S7QcNwXMSPcQk6GIWapHdS9lrPZjcSHtoKWhes6LnFVikjTheP+7shMF2a9xS4k7e72tZ2ozOGkEg
-	hujI7XQb+zbXrMVVXBJ7Z8PsNn+P7ft6Q8JPBDhavH16Fy7wn7yDqq5kZGpQ4B0J8NLzRW2Lo9V8e
-	fLzjAnqO5W8ZLpNgkXvZ2cCPo9gh6aDo8uUrlCwRr89ga2MX39kOfL07v3YzMWEMCfXRSZdv/UE7K
-	vNy+g5Y4v3ijkJL+rcyxotV1+8FM/KgrCAwQ34EDKl0ucyQeVzoJqdI0ISMGdYfjX38nU4+FeHJor
-	qcIyuY5eeJls201SCp/g==;
+	List-Owner; bh=Xz0zkum0fBBJAUeVqcWfIq7v/BW75TKiAPXq3wTMtDw=; b=B9XBCoA0i5JtLW
+	gphUfxPqQoleNJEnAcb+DavUARB2OVWzulGygGaZYT5NvyiOQoOvasmojMQIoQMuuODX6AS62cKvK
+	Ef592n2RshDcy3bjwKg7PNh26JqNj2c/W2zgc3BDkBLy3Gt4FtnKfZl7QfPArCgBNL2aUb+9iysCg
+	x98qOFBKY+zEB7WE3/wsJSaVVR2AqUAKa9xDJxsk4HjuZaCghRmCpyjCbROvHmUCYy+hv5zA9lyn/
+	jI+GynwRixDWPv9nVES3qexEtjjz763l5jKItbTgZF10a/SgUa288p1nD40hZcxv5vH8BDMiPRl0Y
+	lFD79T6dj5CVHgvJIn+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QYt-00000005qQo-1uAs;
-	Tue, 17 Mar 2026 09:18:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2QZC-00000005qZz-2BWS;
+	Tue, 17 Mar 2026 09:18:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2QYr-00000005qPb-0EMa;
-	Tue, 17 Mar 2026 09:18:01 +0000
+	id 1w2QZA-00000005qZ1-2fcI;
+	Tue, 17 Mar 2026 09:18:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A71261336;
-	Tue, 17 Mar 2026 09:17:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF11CC4CEF7;
-	Tue, 17 Mar 2026 09:17:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E2AF861334;
+	Tue, 17 Mar 2026 09:18:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B28DC19425;
+	Tue, 17 Mar 2026 09:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773739078;
-	bh=rijEHchLteNXFaviNnGMZpirNppt7OUDLa0dnxKFYl8=;
+	s=k20201202; t=1773739099;
+	bh=aDNsd04I+L/FbjpEUbNbTUbkn5QKAI4xvdupFjUj+7s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XpwVmfZw0JgXdiE+9Wy7h/YBbFNV2OF2PkFXJirhrMjyHVETav4IuXybm/nhrKbEk
-	 Pcg5g9eXGagveMnhb0pPNJ8ekcfyChtxtDD5u2bKbV2IwVUcQjWuIPLtZXV88xWRRa
-	 fnDRnXz0+h1/HEJktAYm6Drw56s0I6YC8BoaYLXdGr+PUP2mZV9/o9ApAbuj2nAF9K
-	 ErkJ/xyOxGtDap4AMHhLUg25qX9nEzNONDGvrUbRvLzJglPEHUZ2AsG9H5jLTpfJDF
-	 KVAR7LFPE5HIoLf8DdWDaFSuDNPAVr5+fhJpCw8JZw0bqDYX7yEO/ZXVvE6cGlE5AW
-	 xj983+NGdjTjg==
+	b=ReNXgdl8wrMR0j9myTw0vxEUXdUH3VmbBFakEpeGWMQyqMywjtPl5Xtqb7CK3MSmU
+	 qEqNhLfqwOJ19vhybs59iW13+uwkx3KQPD1k0k49R2AF01pvm7oM/8bhpwu6TqSVHj
+	 U3AZOviPY7TMOtnC9489kfNRt6LCPMAYNZMv9zltaD4QIxRnuzLjQFi9j3bHLWFv0J
+	 79xnWFh2qUeQUt8ASeRZuMi2RryimNsz37FHt/1I8V/TuTHEJAKzClw6hbiX+LbLFP
+	 6qKpGFIeXpFt2tjpIv6KSmSCUuge4UXMpHfNph3juVSSLwwmFhtiqS83E7BmpwGge3
+	 YHW1tZ2nsZxbg==
 From: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
-Date: Tue, 17 Mar 2026 10:13:44 +0100
-Subject: [PATCH 8/9] arm64: defconfig: remove obsolete assignment to
- SENSORS_SA67MCU
+Date: Tue, 17 Mar 2026 10:13:45 +0100
+Subject: [PATCH 9/9] arm64: defconfig: remove obsolete assignment to
+ SLIM_QCOM_CTRL
 MIME-Version: 1.0
-Message-Id: <20260317-arm_defconf_cleanup-v1-8-8eecb7fdd24d@kernel.org>
+Message-Id: <20260317-arm_defconf_cleanup-v1-9-8eecb7fdd24d@kernel.org>
 References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
 In-Reply-To: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
 To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
@@ -116,12 +116,12 @@ Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  linux-renesas-soc@vger.kernel.org, linux-parisc@vger.kernel.org, 
  openbmc@lists.ozlabs.org, "Vincent Mailhol (Arm)" <mailhol@kernel.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=824; i=mailhol@kernel.org;
- h=from:subject:message-id; bh=rijEHchLteNXFaviNnGMZpirNppt7OUDLa0dnxKFYl8=;
- b=owGbwMvMwCV2McXO4Xp97WbG02pJDJk7pfu4z51qK2SKqPyQF71s5huv6GT+Csa9LQnOJ5L/9
- gfNT5/fUcrCIMbFICumyLKsnJNboaPQO+zQX0uYOaxMIEMYuDgFYCISDxn+KfF26bU9O/vIh/dw
- l+z03NxrCSeWyx/higu0+Sy2KKSwk+F/xaT++zem3G88G3/mbKnKgUheFcFqpQOPWvq2f7hTUC/
- DAQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=784; i=mailhol@kernel.org;
+ h=from:subject:message-id; bh=aDNsd04I+L/FbjpEUbNbTUbkn5QKAI4xvdupFjUj+7s=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDJk7pft4ZO8tTex4wfvw9YIiq6jtBybw7z0uX/S3IE/wW
+ /Gtf8Y5HaUsDGJcDLJiiizLyjm5FToKvcMO/bWEmcPKBDKEgYtTACbS4MLwP4DxBcvGZZMnmd8M
+ 9V0kJLhc+/yjhz7H/3y47t6w4o3BuxmMDHdCHOdwaR1uVt49bc6ST6s71+S/Mphb8ebstGlNC1b
+ b2fEAAA==
 X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
  fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -140,28 +140,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Kontron SMARC-sAM67 board management controller is not in the
-kernel tree anymore. Clean-up the leftover reference to
-CONFIG_SENSORS_SA67MCU which was left in the defconfig.
+The Qcom Slimbus controller driver is not in the kernel tree
+anymore. Clean-up the leftover reference to CONFIG_SLIM_QCOM_CTRL
+which was left in the defconfig.
 
-Fixes: e710b2283725 ("Revert "hwmon: add SMARC-sAM67 support"")
+Fixes: 7cbba32a2d62 ("slimbus: qcom: remove unused qcom controller driver")
 Signed-off-by: Vincent Mailhol (Arm) <mailhol@kernel.org>
 ---
  arch/arm64/configs/defconfig | 1 -
  1 file changed, 1 deletion(-)
 
 diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 1fda77bca432..c5e23beeaebf 100644
+index c5e23beeaebf..88951844c203 100644
 --- a/arch/arm64/configs/defconfig
 +++ b/arch/arm64/configs/defconfig
-@@ -743,7 +743,6 @@ CONFIG_SENSORS_LM75=m
- CONFIG_SENSORS_LM90=m
- CONFIG_SENSORS_PWM_FAN=m
- CONFIG_SENSORS_RASPBERRYPI_HWMON=m
--CONFIG_SENSORS_SA67MCU=m
- CONFIG_SENSORS_SL28CPLD=m
- CONFIG_SENSORS_INA2XX=m
- CONFIG_SENSORS_INA3221=m
+@@ -1822,7 +1822,6 @@ CONFIG_OPTEE=y
+ CONFIG_MUX_GPIO=m
+ CONFIG_MUX_MMIO=y
+ CONFIG_SLIMBUS=m
+-CONFIG_SLIM_QCOM_CTRL=m
+ CONFIG_SLIM_QCOM_NGD_CTRL=m
+ CONFIG_INTERCONNECT=y
+ CONFIG_INTERCONNECT_IMX=y
 
 -- 
 2.43.0
