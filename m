@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86E010706ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 15:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484D6107BCF4
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 15:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gn49gbn4Hzpk6llGGF1cWzkSxglj34FR4dg/wiR0nqo=; b=LCeqs2nMBeRDhO
-	nZzW8FYLbvBJppqANLg6v8WrPi5Rgi67pPNEsC8wWHzT0kzoMY8ffSsaIU3VRruq2KvnWQGRi08Ku
-	3k96AfRdKt8NV/YZp3hmb/LAvf2sS2AMqInFvaLyl5YSPW24kDaxrHXX36H48T4D83edX8qlUkuc4
-	IAAF5Ku+kAu+A+IZ7nWXudRUsEhuUC0hDsh6xLZoZzT5ozOVV1ip1RzbgIZYOo2nx1LVNvhMrfxog
-	TJ/jLMMtjOT4owG4R4eEaa/S4l5by4hsSe+tbDtUMCyAlm7JqTfuVo3nuanph34veGj/3ZvmS/AUX
-	Mrm9hGXuD1/RkV05u8wg==;
+	List-Owner; bh=ptoyUyLMKiPrPFIN5LDwk33YAq6cIYMMPuIL+YiA4Z0=; b=jeInlU9waKTJzA
+	hayqlB9tVfmAf2tLye/YkkkbQ8X8AYElSSREbPlS7YLG+9QYpJuw0gPvjacy0XnWnOyo6P0Qa6vOt
+	SVfQNmvnaiaO0d4pc7E9vCDcoAvdzXTjqeJbZRMxKJQFBZz6J0pi1usZ3LlCG2jVW8TgzLkGGI+BN
+	nh5Q6n2osrMFIT25qIPoIs/InQazGMtz7HynoOCvkGaI6XkIbwLuoeWt4FQzkjimRtFp9u+IBTf2k
+	zfslx2t5pOYnB0gPJmTogQLPM8imsUYHmF2KO3yu+ArtWi29A3FSsb9zZH4zuDEdzBZ9+Cx1HEtDh
+	U5h7HgCke6qrgeC1+INQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tAj-00000008lJ4-2N3K;
-	Wed, 18 Mar 2026 15:51:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w2tAp-00000008lS9-0pEK;
+	Wed, 18 Mar 2026 15:51:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tAg-00000008lE0-12FD;
-	Wed, 18 Mar 2026 15:50:58 +0000
+	id 1w2tAm-00000008lMT-060Z;
+	Wed, 18 Mar 2026 15:51:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73ABA6013E;
-	Wed, 18 Mar 2026 15:50:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A56CC2BCB0;
-	Wed, 18 Mar 2026 15:50:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 67F6F43699;
+	Wed, 18 Mar 2026 15:51:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66852C19421;
+	Wed, 18 Mar 2026 15:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773849057;
-	bh=sXTA38aR3D+fdGqayQPYQbnT5BeFDDGI8fzyIj7UQaw=;
+	s=k20201202; t=1773849063;
+	bh=CbVUiCL/t2srd5zwtc07H5gs2GSHrFH2Iq8wD8euBls=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=K/Iw+dkzcdg0NlPM33x+vkwnW6DVOT0gLkmkC2ylMxTmGXsA6eVnqRCwn1OsobAi0
-	 6P8PhOl444c2jzI7Yutrtsqi/16jje6mjnFKzxXqhvyViWYifCjm+3kGRdh+dCobaj
-	 zxL7vpSW7cIhmXKd5FDOkIDkfA8ANDckQ55Q7Ds7aDDK+JTzrsbB7OSTnjw2THYC8n
-	 GpqQ2RLdq+L5K5M3icxa5/k//wLEEU4nl2I5t4ggnxZLw01A3Kp3GCNl57C2/OUYyW
-	 VgcEHin3BstoJsJIemDpHCgpLSWm0XFf03WvvXKNV9iT0WNAHF145MbAvoZrqeKe4s
-	 npRiCrtMSzaMw==
+	b=bHv9eKMOTXaW3e/PYMPxcSHWVbRiZhQ2ghRjhPQUitNyovT4KZngeu2a1vjTY8Op5
+	 lGNzeo0DREgBbiCFv14zlBUPG/gA0kAJZzZzi4i/Pkvtt9H09VRFYUN6bXgy1G2x64
+	 3173p7qWD6AkcIreGBb5olInwOQ7hBrqYiyyw8Yinj/GHk3//U8WI09jLtEjpRWIkq
+	 rHzSgCbquZCEMB3jVvJf48OOM1pipHJrMdcyLR7a+fcC0W/EmjsJkbz9+rF0gh0H6Y
+	 Scgj1UdqYBQfQWuQNWayII7hcsPtkW8/pzt+8mSwjjI+QItn6+vZ3tUfH2p+GxFdeI
+	 01txAq3SyTVRQ==
 From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: David Hildenbrand <david@kernel.org>,
@@ -104,13 +104,16 @@ Cc: David Hildenbrand <david@kernel.org>,
 	linux-um@lists.infradead.org,
 	linux-fsdevel@vger.kernel.org,
 	selinux@vger.kernel.org
-Subject: [PATCH v3 06/23] tools/testing/vma: fix VMA flag tests
-Date: Wed, 18 Mar 2026 15:50:17 +0000
-Message-ID: <d2050c8d8d7ef7ef118267031df73bb5c747df3e.1773846935.git.ljs@kernel.org>
+Subject: [PATCH v3 08/23] tools/testing/vma: add simple test for append_vma_flags()
+Date: Wed, 18 Mar 2026 15:50:19 +0000
+Message-ID: <45960c2380b7dd30571fa7e082a16da016a7f53e.1773846935.git.ljs@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1773846935.git.ljs@kernel.org>
 References: <cover.1773846935.git.ljs@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_085104_146120_E16C387F 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,326 +130,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The VMA tests are incorrectly referencing NUM_VMA_FLAGS, which doesn't
-exist, rather they should reference NUM_VMA_FLAG_BITS.
+Add a simple test for append_vma_flags() to assert that it behaves as
+expected.
 
-Additionally, remove the custom-written implementation of __mk_vma_flags()
-as this means we are not testing the code as present in the kernel, rather
-add the actual __mk_vma_flags() to dup.h and add #ifdef's to handle
-declarations differently depending on NUM_VMA_FLAG_BITS.
+Additionally, include the VMA_REMAP_FLAGS definition in the VMA tests to
+allow us to use this value in the testing.
 
 Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 ---
- tools/testing/vma/include/custom.h | 19 -------
- tools/testing/vma/include/dup.h    | 21 ++++++-
- tools/testing/vma/tests/vma.c      | 88 +++++++++++++++++++++++++-----
- 3 files changed, 92 insertions(+), 36 deletions(-)
+ tools/testing/vma/include/dup.h |  3 +++
+ tools/testing/vma/tests/vma.c   | 25 +++++++++++++++++++++++++
+ 2 files changed, 28 insertions(+)
 
-diff --git a/tools/testing/vma/include/custom.h b/tools/testing/vma/include/custom.h
-index 7cdd0f60600a..8f33df02816a 100644
---- a/tools/testing/vma/include/custom.h
-+++ b/tools/testing/vma/include/custom.h
-@@ -29,8 +29,6 @@ extern unsigned long dac_mmap_min_addr;
-  */
- #define pr_warn_once pr_err
- 
--#define pgtable_supports_soft_dirty() 1
--
- struct anon_vma {
- 	struct anon_vma *root;
- 	struct rb_root_cached rb_root;
-@@ -99,23 +97,6 @@ static inline void vma_lock_init(struct vm_area_struct *vma, bool reset_refcnt)
- 		refcount_set(&vma->vm_refcnt, 0);
- }
- 
--static __always_inline vma_flags_t __mk_vma_flags(size_t count,
--		const vma_flag_t *bits)
--{
--	vma_flags_t flags;
--	int i;
--
--	/*
--	 * For testing purposes: allow invalid bit specification so we can
--	 * easily test.
--	 */
--	vma_flags_clear_all(&flags);
--	for (i = 0; i < count; i++)
--		if (bits[i] < NUM_VMA_FLAG_BITS)
--			vma_flags_set_flag(&flags, bits[i]);
--	return flags;
--}
--
- static inline unsigned long vma_kernel_pagesize(struct vm_area_struct *vma)
- {
- 	return PAGE_SIZE;
 diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
-index 65134303b645..3005e33d1ede 100644
+index a2f311b5ea82..802b3d97b627 100644
 --- a/tools/testing/vma/include/dup.h
 +++ b/tools/testing/vma/include/dup.h
-@@ -854,10 +854,21 @@ static inline void vm_flags_clear(struct vm_area_struct *vma,
- 	vma_flags_clear_word(&vma->flags, flags);
- }
+@@ -345,6 +345,9 @@ enum {
+  */
+ #define VM_SPECIAL (VM_IO | VM_DONTEXPAND | VM_PFNMAP | VM_MIXEDMAP)
  
--static inline vma_flags_t __mk_vma_flags(size_t count, const vma_flag_t *bits);
-+static __always_inline vma_flags_t __mk_vma_flags(size_t count,
-+		const vma_flag_t *bits)
-+{
-+	vma_flags_t flags;
-+	int i;
++#define VMA_REMAP_FLAGS mk_vma_flags(VMA_IO_BIT, VMA_PFNMAP_BIT,	\
++				     VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT)
 +
-+	vma_flags_clear_all(&flags);
-+	for (i = 0; i < count; i++)
-+		vma_flags_set_flag(&flags, bits[i]);
-+
-+	return flags;
-+}
- 
--#define mk_vma_flags(...) __mk_vma_flags(COUNT_ARGS(__VA_ARGS__), \
--					 (const vma_flag_t []){__VA_ARGS__})
-+#define mk_vma_flags(...) __mk_vma_flags(COUNT_ARGS(__VA_ARGS__),	\
-+		(const vma_flag_t []){__VA_ARGS__})
- 
- static __always_inline bool vma_flags_test(const vma_flags_t *flags,
- 		vma_flag_t bit)
-@@ -1390,3 +1401,7 @@ static inline int get_sysctl_max_map_count(void)
- {
- 	return READ_ONCE(sysctl_max_map_count);
- }
-+
-+#ifndef pgtable_supports_soft_dirty
-+#define pgtable_supports_soft_dirty()	IS_ENABLED(CONFIG_MEM_SOFT_DIRTY)
-+#endif
+ #define DEFAULT_MAP_WINDOW	((1UL << 47) - PAGE_SIZE)
+ #define TASK_SIZE_LOW		DEFAULT_MAP_WINDOW
+ #define TASK_SIZE_MAX		DEFAULT_MAP_WINDOW
 diff --git a/tools/testing/vma/tests/vma.c b/tools/testing/vma/tests/vma.c
-index b2f068c3d6d0..feea6d270233 100644
+index feea6d270233..98e465fb1bf2 100644
 --- a/tools/testing/vma/tests/vma.c
 +++ b/tools/testing/vma/tests/vma.c
-@@ -5,11 +5,11 @@ static bool compare_legacy_flags(vm_flags_t legacy_flags, vma_flags_t flags)
- 	const unsigned long legacy_val = legacy_flags;
- 	/* The lower word should contain the precise same value. */
- 	const unsigned long flags_lower = flags.__vma_flags[0];
--#if NUM_VMA_FLAGS > BITS_PER_LONG
-+#if NUM_VMA_FLAG_BITS > BITS_PER_LONG
- 	int i;
- 
- 	/* All bits in higher flag values should be zero. */
--	for (i = 1; i < NUM_VMA_FLAGS / BITS_PER_LONG; i++) {
-+	for (i = 1; i < NUM_VMA_FLAG_BITS / BITS_PER_LONG; i++) {
- 		if (flags.__vma_flags[i] != 0)
- 			return false;
- 	}
-@@ -116,6 +116,7 @@ static bool test_vma_flags_cleared(void)
+@@ -555,6 +555,30 @@ static bool test_vma_flags_and(void)
  	return true;
  }
  
++/* Ensure append_vma_flags() acts as expected. */
++static bool test_append_vma_flags(void)
++{
++	vma_flags_t flags = append_vma_flags(VMA_REMAP_FLAGS, VMA_READ_BIT,
++					     VMA_WRITE_BIT
 +#if NUM_VMA_FLAG_BITS > 64
- /*
-  * Assert that VMA flag functions that operate at the system word level function
-  * correctly.
-@@ -124,10 +125,14 @@ static bool test_vma_flags_word(void)
- {
- 	vma_flags_t flags = EMPTY_VMA_FLAGS;
- 	const vma_flags_t comparison =
--		mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT, 64, 65);
-+		mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT
-+
-+			     , 64, 65
-+			);
- 
- 	/* Set some custom high flags. */
- 	vma_flags_set(&flags, 64, 65);
-+
- 	/* Now overwrite the first word. */
- 	vma_flags_overwrite_word(&flags, VM_READ | VM_WRITE);
- 	/* Ensure they are equal. */
-@@ -158,12 +163,17 @@ static bool test_vma_flags_word(void)
- 
- 	return true;
- }
-+#endif /* NUM_VMA_FLAG_BITS > 64 */
- 
- /* Ensure that vma_flags_test() and friends works correctly. */
- static bool test_vma_flags_test(void)
- {
- 	const vma_flags_t flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
--					       VMA_EXEC_BIT, 64, 65);
-+					       VMA_EXEC_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					       , 64, 65
-+#endif
-+		);
- 	struct vm_area_desc desc = {
- 		.vma_flags = flags,
- 	};
-@@ -198,7 +208,11 @@ static bool test_vma_flags_test(void)
- static bool test_vma_flags_test_any(void)
- {
- 	const vma_flags_t flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
--					       VMA_EXEC_BIT, 64, 65);
-+					       VMA_EXEC_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					       , 64, 65
-+#endif
-+		);
- 	struct vm_area_struct vma;
- 	struct vm_area_desc desc;
- 
-@@ -224,10 +238,12 @@ static bool test_vma_flags_test_any(void)
- 	do_test(VMA_READ_BIT, VMA_MAYREAD_BIT, VMA_SEQ_READ_BIT);
- 	/* However, the ...test_all() variant should NOT pass. */
- 	do_test_all_false(VMA_READ_BIT, VMA_MAYREAD_BIT, VMA_SEQ_READ_BIT);
-+#if NUM_VMA_FLAG_BITS > 64
- 	/* But should pass for flags present. */
- 	do_test_all_true(VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT, 64, 65);
- 	/* Also subsets... */
- 	do_test_all_true(VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT, 64);
-+#endif
- 	do_test_all_true(VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
- 	do_test_all_true(VMA_READ_BIT, VMA_WRITE_BIT);
- 	do_test_all_true(VMA_READ_BIT);
-@@ -291,8 +307,16 @@ static bool test_vma_flags_test_any(void)
- static bool test_vma_flags_clear(void)
- {
- 	vma_flags_t flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
--					 VMA_EXEC_BIT, 64, 65);
--	vma_flags_t mask = mk_vma_flags(VMA_EXEC_BIT, 64);
-+					 VMA_EXEC_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					       , 64, 65
-+#endif
-+		);
-+	vma_flags_t mask = mk_vma_flags(VMA_EXEC_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					, 64
-+#endif
-+		);
- 	struct vm_area_struct vma;
- 	struct vm_area_desc desc;
- 
-@@ -303,6 +327,7 @@ static bool test_vma_flags_clear(void)
- 	vma_flags_clear_mask(&flags, mask);
- 	vma_flags_clear_mask(&vma.flags, mask);
- 	vma_desc_clear_flags_mask(&desc, mask);
-+#if NUM_VMA_FLAG_BITS > 64
- 	ASSERT_FALSE(vma_flags_test_any(&flags, VMA_EXEC_BIT, 64));
- 	ASSERT_FALSE(vma_flags_test_any(&vma.flags, VMA_EXEC_BIT, 64));
- 	ASSERT_FALSE(vma_desc_test_any(&desc, VMA_EXEC_BIT, 64));
-@@ -310,6 +335,7 @@ static bool test_vma_flags_clear(void)
- 	vma_flags_set(&flags, VMA_EXEC_BIT, 64);
- 	vma_set_flags(&vma, VMA_EXEC_BIT, 64);
- 	vma_desc_set_flags(&desc, VMA_EXEC_BIT, 64);
-+#endif
- 
- 	/*
- 	 * Clear the flags and assert clear worked, then reset flags back to
-@@ -330,20 +356,27 @@ static bool test_vma_flags_clear(void)
- 	do_test_and_reset(VMA_READ_BIT);
- 	do_test_and_reset(VMA_WRITE_BIT);
- 	do_test_and_reset(VMA_EXEC_BIT);
-+#if NUM_VMA_FLAG_BITS > 64
- 	do_test_and_reset(64);
- 	do_test_and_reset(65);
-+#endif
- 
- 	/* Two flags, in different orders. */
- 	do_test_and_reset(VMA_READ_BIT, VMA_WRITE_BIT);
- 	do_test_and_reset(VMA_READ_BIT, VMA_EXEC_BIT);
-+#if NUM_VMA_FLAG_BITS > 64
- 	do_test_and_reset(VMA_READ_BIT, 64);
- 	do_test_and_reset(VMA_READ_BIT, 65);
-+#endif
- 	do_test_and_reset(VMA_WRITE_BIT, VMA_READ_BIT);
- 	do_test_and_reset(VMA_WRITE_BIT, VMA_EXEC_BIT);
-+#if NUM_VMA_FLAG_BITS > 64
- 	do_test_and_reset(VMA_WRITE_BIT, 64);
- 	do_test_and_reset(VMA_WRITE_BIT, 65);
-+#endif
- 	do_test_and_reset(VMA_EXEC_BIT, VMA_READ_BIT);
- 	do_test_and_reset(VMA_EXEC_BIT, VMA_WRITE_BIT);
-+#if NUM_VMA_FLAG_BITS > 64
- 	do_test_and_reset(VMA_EXEC_BIT, 64);
- 	do_test_and_reset(VMA_EXEC_BIT, 65);
- 	do_test_and_reset(64, VMA_READ_BIT);
-@@ -354,6 +387,7 @@ static bool test_vma_flags_clear(void)
- 	do_test_and_reset(65, VMA_WRITE_BIT);
- 	do_test_and_reset(65, VMA_EXEC_BIT);
- 	do_test_and_reset(65, 64);
-+#endif
- 
- 	/* Three flags. */
- 
-@@ -367,7 +401,11 @@ static bool test_vma_flags_clear(void)
- static bool test_vma_flags_empty(void)
- {
- 	vma_flags_t flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
--					 VMA_EXEC_BIT, 64, 65);
-+					 VMA_EXEC_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					       , 64, 65
-+#endif
-+		);
- 
- 	ASSERT_FLAGS_NONEMPTY(&flags);
- 	vma_flags_clear(&flags, VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT);
-@@ -386,10 +424,19 @@ static bool test_vma_flags_empty(void)
- static bool test_vma_flags_diff(void)
- {
- 	vma_flags_t flags1 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
--					  VMA_EXEC_BIT, 64, 65);
-+					  VMA_EXEC_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					       , 64, 65
++					     , 64, 65
 +#endif
 +		);
 +
- 	vma_flags_t flags2 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
- 					  VMA_EXEC_BIT, VMA_MAYWRITE_BIT,
--					  VMA_MAYEXEC_BIT, 64, 65, 66, 67);
-+					  VMA_MAYEXEC_BIT
++	ASSERT_FLAGS_SAME(&flags, VMA_IO_BIT, VMA_PFNMAP_BIT,
++			  VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT, VMA_READ_BIT,
++			  VMA_WRITE_BIT
 +#if NUM_VMA_FLAG_BITS > 64
-+					  , 64, 65, 66, 67
++					     , 64, 65
 +#endif
 +		);
- 	vma_flags_t diff = vma_flags_diff_pair(&flags1, &flags2);
- 
- #if NUM_VMA_FLAG_BITS > 64
-@@ -432,12 +479,23 @@ static bool test_vma_flags_diff(void)
- static bool test_vma_flags_and(void)
++
++	flags = append_vma_flags(EMPTY_VMA_FLAGS, VMA_READ_BIT, VMA_WRITE_BIT);
++	ASSERT_FLAGS_SAME(&flags, VMA_READ_BIT, VMA_WRITE_BIT);
++
++	return true;
++}
++
+ static void run_vma_tests(int *num_tests, int *num_fail)
  {
- 	vma_flags_t flags1 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
--					  VMA_EXEC_BIT, 64, 65);
-+					  VMA_EXEC_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					       , 64, 65
-+#endif
-+		);
- 	vma_flags_t flags2 = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
- 					  VMA_EXEC_BIT, VMA_MAYWRITE_BIT,
--					  VMA_MAYEXEC_BIT, 64, 65, 66, 67);
--	vma_flags_t flags3 = mk_vma_flags(VMA_IO_BIT, VMA_MAYBE_GUARD_BIT,
--					  68, 69);
-+					  VMA_MAYEXEC_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					  , 64, 65, 66, 67
-+#endif
-+		);
-+	vma_flags_t flags3 = mk_vma_flags(VMA_IO_BIT, VMA_MAYBE_GUARD_BIT
-+#if NUM_VMA_FLAG_BITS > 64
-+					  , 68, 69
-+#endif
-+		);
- 	vma_flags_t and = vma_flags_and_mask(&flags1, flags2);
- 
- #if NUM_VMA_FLAG_BITS > 64
-@@ -502,7 +560,9 @@ static void run_vma_tests(int *num_tests, int *num_fail)
  	TEST(copy_vma);
- 	TEST(vma_flags_unchanged);
- 	TEST(vma_flags_cleared);
-+#if NUM_VMA_FLAG_BITS > 64
- 	TEST(vma_flags_word);
-+#endif
- 	TEST(vma_flags_test);
- 	TEST(vma_flags_test_any);
- 	TEST(vma_flags_clear);
+@@ -569,4 +593,5 @@ static void run_vma_tests(int *num_tests, int *num_fail)
+ 	TEST(vma_flags_empty);
+ 	TEST(vma_flags_diff);
+ 	TEST(vma_flags_and);
++	TEST(append_vma_flags);
+ }
 -- 
 2.53.0
 
