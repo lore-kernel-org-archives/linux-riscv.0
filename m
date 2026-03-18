@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3ADFCD0CD
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 08:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74667FCD0D0
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 08:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:In-Reply-To:
-	References:Message-Id:Subject:Date:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=0K6loF3+21fZZ7rcBlTTIEBRYhwcAkrOjb3gI3XWynw=; b=YSNNGTQh8gD5ESKeJhz5NczCCP
-	2V+2v3jRHAN+iaXOj5wMIeI3+GS+7PzmlnVvF6vuVSz5fAbdxMQjxG6D9wxmEJRAljOtNsT73fxvQ
-	lb1j0At5IvBoCl22CiIky5imsJnpgelQ64AGHPWZa37rktECZUjEYKA985W+raFun1fiMEm11shNh
-	1Tdxqp6FRtq33bQ4POzvausnshuM1kaBfayknRBGpEDMrQqMn7XerOLXG8hgrt/iUe3BCveVZGnaS
-	eN1WrZuQyhJQ8hNXwNwJfLoqyBxz54Y/sD5bmaBHi+cOwaLBi7i8IXkb5lsFP0UcpSmK0Z4PKJ+an
-	/cPn8QCg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hV+ukDu2e/ul+6I7y/BSD5wplieTthZw2D033hhcow4=; b=0C3G1VRjBxcMhM
+	9Z44xxW9x30NNl6Wvp3pE4VKwjrPg/dSpo/RNq9aPJFJPY4F+uNDIDnvOSBF5X+nQ6CqqG3MsyAh7
+	9r21muyiNDLfFwBooQ2fN1yjV3mP3fXtPiFffMwPbjDk2Nhh356cD9+Km7dL/DokagnboFh05khYl
+	/hlV9DSJ8Qy28IymBsmmIWWcmMEslZHbdNg7D2nlkiuol5ebk09/a7reKxD33Ags4Bdb/dhgzuVG3
+	H4ABFMuA06PUOZ/qGTY7ZwhIv6o2Nf7HiFdbl+Pe1O5gSw8SZNmMzArWv0pIUOR6teQdZrRa3vdOw
+	KtZk0eZ6DGZ1HwfDPFpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2lvL-00000007zUV-0BqM;
-	Wed, 18 Mar 2026 08:06:39 +0000
+	id 1w2lvI-00000007zTB-1V82;
+	Wed, 18 Mar 2026 08:06:36 +0000
 Received: from mail-westus2azon11012036.outbound.protection.outlook.com ([52.101.48.36] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2lvH-00000007zPL-0b5a
+	id 1w2lvE-00000007zPL-1TAK
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 08:06:36 +0000
+	Wed, 18 Mar 2026 08:06:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qr04fXGWhrbCHtol4DZBIcvHbGWFp6cJqXgwH7TIGjBG65gOUqLGFqx8jGmP9ssNQVx4TROBT7ejGqrivayK5N8tFKQJUqs59TGRzgip0z3GmrifwrAmPwnObqWvbfw+O498BwusbRjnEowOoaRKFns2YxRo0TCJnzGXZKZdlHtgL/7mae/IgVYVVLXUw1FeRlmNr6uUAusjryEaYxGnTIXKSGu5BmyeqcCcOq5y659EaJXb10FJaAFQI4jHADG2QeZUn7Ncnvr4xjq1MinmaLajy8df0i+tEOxw0YL4d8Q/mw6YQ7ecfT9TKOah+Zz3Px9YW1KzluVKlzREn2UcMA==
+ b=jwsskYWKy/NDHYcTJ9eL++aTyKxWOmCKQ/44EeaIpUEaVlfEX+5XAkxsf0Ai7Bx/GAreaoLqPja7Kl2vbR9JK0oEQlN3V1xOF+/k3jDfgxQxqVhN2MoC9axLSuVfnwJelJJTRy4t8MOjCmbs2lENgv/1d4kZrtE1B6VjiZVKYCtnqoyvgspmRJt5n0s1WsafHZTBdrBY/rsCGc0vr3O7ii9CUd/xEG0pIZbze7ojyz9gRGUTEUWY89JABdKBuTnf7wiO5CLWIwM5fzeeGti6mUsXqr7rdTbD2s3hJhnJTF9ZI9XmunXeE0oXb8k71UzDLM6rnEN/kugxX5KOP0aJIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OTfJLn6BbT6xVusjuQEIMCUBwWsazDd8sCdIg9cqew4=;
- b=pmiQLnh9DuVk2d7g0D+9Au2v4WnS3u51vQirQdrSrzsY88DqcErzbliHLsqZ9fzFIOEkrOI/XACbYL0JCoDjK9JGrx378psHJZ3MPBFo9jpfQZO9nSPDIwvRdYAtdWyrow/Uf8w9F1h5v4u3eo1UeAtzuEnOX7vvjj666Kta8UGThkyzWDqTG34IONV+4UUWjjkFcwFoMdhlaFmjlEDkVM1TRno4nttRCq4lV4u77Au+FNBtUkD2b7+vA3hGBfGHM45aEHLg9cDrB7NTZUNrpBlJB6Qd69jYD1HlSRofP62d4XuHVRRj0LKumBvafr1PJkDZtNybT7d/6Hczf2O3Bg==
+ bh=gwnD3585ya/DzCjFi25dZ7f9azPsIClEYGYPXpsXesA=;
+ b=MowzoUcAZJWoaP0EvdkT/tZeMJg0Xos8ggulVkOWzsBCKse1EyACneFBpbZJObaEgqXqJTEfBfgdvOr1FB8A557Dx5pEfiF4Te1Rx9lnB2JyprzVyvmtqosN3HaLP6re6VOs0T/KkUv/wEXU04AIUEGMRwIXrBPqK05F4+wEB4j2JPqXfl6oIhVJruuCbOc4dN/a77MGfN0tLQV/FZ4TjCfsjjPLs/By2/6x7pi4zFeEXpHrhPl7vthisVVJsRN053mSCmYR9ImirMOlAOD8IX6HjbBmOM3qwG8f4HGjieHB75TuF4JJdIjXn+0ii0yBKBgRKXmdkA6xTDwB+1JrJQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OTfJLn6BbT6xVusjuQEIMCUBwWsazDd8sCdIg9cqew4=;
- b=lI/SPnyRP3yg3Zy7Eo3r3qGSgqMnpwXxaCM6zanjgS9sUy4czNaRF2kLP8txCnxaRUdXdvfE63XjoKGVr7ti8vPeJVRf08Y3nBU5dtg5b7528HhtB1KnzM4+dGpqgwL0bLwPWSAIKAgon7PdsvnPcsMFUBQcFid3bwVtqipu9/4DzLuYNZLMcA+4wDLoVYqscRp37OjsLLM4e2ckdJevT3puGLgiujIvHDRLa1ROmaHQbVWBqqQbwDl8sVQ5KWRSsp92yUSV4ZlrMMPLPydoKe1ntvxXREx2bo1f0InBXNK9WRvrbbRG4ktKDk+/BYxJ5q/MnzeH3nX5/UshgJ14KA==
+ bh=gwnD3585ya/DzCjFi25dZ7f9azPsIClEYGYPXpsXesA=;
+ b=grASQdtC2JEXFgEvA+MuIzhGjqmTHhqVkJUpOSj7pVph/EWeNsQYXwU8x5xQ2EC9W+ui7nvqyIjASoTDHFahCbisK7xsPzGwee82axUOnPbVElqNSyXD8P8zNJSPFPFcXKv+W76CrrB1M7KRr01mXQw9WyHQXc9y/tDrU5oxVqnUIz2KjQ/rC0hpsebSlA4SfxwplnnWMm5rNl2sAOiFK1JJpTgSvAcYW8FucuQjTT4c6+0JRBOe5DSuxV1/P9vxXG+ybqg76vzdu8U2HoOum9v20V5mmsW4WXxBVHZlaqTkTjYtrWjCWj01lwZHWJV5DhKLge7a1IyVuvLJa7nMcA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
  by DS0PR12MB8197.namprd12.prod.outlook.com (2603:10b6:8:f1::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Wed, 18 Mar
- 2026 08:06:24 +0000
+ 2026 08:06:15 +0000
 Received: from CH2PR12MB3990.namprd12.prod.outlook.com
  ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
  ([fe80::7de1:4fe5:8ead:5989%6]) with mapi id 15.20.9745.007; Wed, 18 Mar 2026
- 08:06:24 +0000
+ 08:06:08 +0000
 From: Alexandre Courbot <acourbot@nvidia.com>
-Date: Wed, 18 Mar 2026 17:06:02 +0900
-Subject: [PATCH 4/8] gpu: nova-core: convert GC6 registers to kernel
+Subject: [PATCH 0/8] gpu: nova-core: convert registers to use the kernel
  register macro
-Message-Id: <20260318-b4-nova-register-v1-4-22a358aa4c63@nvidia.com>
-References: <20260318-b4-nova-register-v1-0-22a358aa4c63@nvidia.com>
-In-Reply-To: <20260318-b4-nova-register-v1-0-22a358aa4c63@nvidia.com>
+Date: Wed, 18 Mar 2026 17:05:58 +0900
+Message-Id: <20260318-b4-nova-register-v1-0-22a358aa4c63@nvidia.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MTQqAIBBA4avErBtQS7GuEi36mWw2FmNIEN09a
+ fkt3nsgkTAl6KsHhDInPmKBritY9ikGQl6LwSjjVKM9zi3GI08oFDhdJOg65WertbfWQMlOoY3
+ vfzmM7/sBP0laUGIAAAA=
+X-Change-ID: 20260318-b4-nova-register-6908b5118552
 To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -78,74 +79,75 @@ Cc: John Hubbard <jhubbard@nvidia.com>,
  linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
  rust-for-linux@vger.kernel.org, Alexandre Courbot <acourbot@nvidia.com>
 X-Mailer: b4 0.14.3
-X-ClientProxiedBy: TYCP286CA0297.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:3c8::20) To CH2PR12MB3990.namprd12.prod.outlook.com
- (2603:10b6:610:28::18)
+X-ClientProxiedBy: TY4P301CA0076.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:36f::18) To MN2PR12MB3997.namprd12.prod.outlook.com
+ (2603:10b6:208:161::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|DS0PR12MB8197:EE_
-X-MS-Office365-Filtering-Correlation-Id: f32a290a-52ab-4887-253e-08de84c53f98
+X-MS-Office365-Filtering-Correlation-Id: 6eacf677-3276-4a47-f955-08de84c53594
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|10070799003|366016|921020|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: AX/4fuCePCh/aibmkbvayu8kPhmf6Q7b8W+vbb2OpemUl6u17gUsCrECcyBeuqmk0FaZSJ+8nogQ/bKbVNLTgCFvYSemyJqz+CAtvDRUZEMYxLlCaOCASNfKac+4tDa9qg11FseYtZWPjnZY5vKT2rQ1lZRNIyNJdnPu4S99sFfrNg1EBwU6xzgM42g2jibty+z0zc2DRg0q4SqD49anOV1M0cbLX3y72I1HxRrpSFO5h5Sq7usm9OXq7a+fDDm0DQX1SOpseXWdMSzMjqrHHibazRlgYve5Zctacn+cSg7iGdjS53OZXd2z6Uc+i4HyJFnD0S8HjASSfz27wj9Bwv1Bl23w852WxcNx2/vYrmh8UonK1pmCM1B5RZN90XJ5EkUc9zP6T5djNnZNNqLbWU6DiZxSzYCgrrdq8RfLSD27Ne2PMzi0sCDN33zzWXbxwFtYNIyGiAMhlWkVMi+WWv+241rClW3BO3UfrHYDbunMPY/vuHNNBy/dM0uYCH3hhUA+BvMtBxfB9qdR6ZhKzSbD52X2ABFdskXOUSm4NaG9sy4hzr0sfVBjxFHRQ/ql3qWhg3pr92ab47b8voRwp/gNjr5URMLiUAbZZHXQpiW0GhK0e79N6hM2VIfh2Rv8rI6eZEnMjysnhPp48PVsZuwxF3/k+by0+aLog0zvHOyCls19PtNMSc/Ft88wkKBvpSF+u1P34FNTCb8jfrkpZg4zhXA378DbrRI1IKWSe5nHJLVPc2+7OcyCOVKpNdsmQxtnEQc9bcRGjTEz5zqYFg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(10070799003)(366016)(921020)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|10070799003|366016|921020|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: VKXQulFvpEQuDgM0hH4MS/FjRwo/nA//mw9ZsGyLYIZ49tcBTen6cZldfapEx3QCgBAaUXfDg5jmAkdAf2Zdth5iBZYDcsDwZ/Aq+cfiErAIIDefB6bPro6K3ThEKN7n0gBV1AtlwjlMbxlPIF2cItVS5+N7NJYBprV9kRclf18xMNvqORkjT610GQwwqnVbDwmxnHclsOiAq3LrZk2Yy5h4IAszZYAG+CSm+KJKFw8eTJ3O1W1LwkwEsbqzcJ7KPClHbG/4cIp2x28u7xeQJNsJqbFuWhMYfErUpkO8Et2M1jUn4uYQlJA+LqK7boU+L/pJGHk0ZIp7y7yeEYUr4qE8Ah62nFiz9FRCjc7kBici6Skz1b65MSlH3ZxO6xQmkpOecwzXd0kXFsozaeH6KvkM2nTZYA2c2+aM+kxoUgfYXmMKbcPwoqLhTE4up/no7+eLpyWs8pjXkswPYapR7SnQcoM0BBxViAj/Fg8eiObKhY6DcFLbUHXWYDZo5xZoqtb6VXEOUtALkIk5zYdxcJbyHl3vE7DHsCvb3ZHNXrwQkjtPVhOzyWHP8YwWh+H2AlvMKT7IgtybxkrR+3DqwfCg7FUd+cVUi8nCYKN8yLHc85bYpDIZBAMV9Ops+M+ScQh2rdD2diWtZAM3khwl2MySgG3wTYTLSQnO1yIIEemBUnU4Fh1jJisPCYdKF0wK0hEO4/3AtHmr02F9gKUthV8P2acSiI2ENvqhkyXhRwN9nn/7Bl6CvQrR7EVgsG7LILQM5ehz7BLqNNv5aXsx9A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(10070799003)(366016)(921020)(56012099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YTJQc3VpU3lxVjM2bEh0SEI5Z1hwQzNuS0R5K1Q0bEhjMzJocUxKQUdlSDQw?=
- =?utf-8?B?N1RuOXA4aEFLSG40MzVvWE12Y1JpM0FKc0Y0UUxBNXpGZWkzaHNBL2U3RkpW?=
- =?utf-8?B?a25XL1JlNHpQTDZmdTQ1UFFHcVdDVHBjd1pKditlR3Bod3V5TjY0YjNlZEx3?=
- =?utf-8?B?ejV1cEx5MlZrcGRzek1aQXNacjhtMHNYYWs1YTl1L2dPbC9zcFJPQytvblVq?=
- =?utf-8?B?NHBnOGRmVTlDaXF1M0lDMTJWeFpaT25ka293OWIxazlGZ05nay9hcVFMZncw?=
- =?utf-8?B?em5IaGlWSEdBeG5nY3ZDeEhZZ2w4Q3lKM0JYVFIzVm9JYkhUSFZ5Q3VHSVNt?=
- =?utf-8?B?ODg5WGxBcmI1WkNFd1R0RDFQb0VWNTlTNDk5ZDc2WTdQZVI0QzBrcy9LOGg2?=
- =?utf-8?B?VGwrWGo3TTdGUDBPcXdDWWhYVkFlaDZpemlXSGgzTEdlREVEZGV1WEw3SzJx?=
- =?utf-8?B?VWs4WHNyVWdQei9mbWZFcWVna1QvRGxYZjRZZ2ZkTXduSjN1VmFjS1orUTlt?=
- =?utf-8?B?azJaZS82MWMvZEI3Y1VtM3dDL0U4aHJ0b21ldVVwZWtsWm9CdTE5UU9IdktW?=
- =?utf-8?B?OFk2ZVp1ZXhRQzJrMk1jb0treCs1MTBpS2hmMVJpdGYrbERjYkRZeUJMd1NW?=
- =?utf-8?B?SHNLREZ1ZDFIdzRka21qUk9wSUpSTi9vd3owOUZTUlc4OS9oRGJzMnBudWJ3?=
- =?utf-8?B?SlZsVzlxc3Y5Q0lWbFNWWXJBNzBueW5KV2VCQ1FyM2w2Y0t1MEY3cERDVy9D?=
- =?utf-8?B?TW54SWQveUU2MWJ2SGlUanBvQ0tDelAwVEorS3RLdUR6UmlaNkQ3NVg1aVFl?=
- =?utf-8?B?L21yM1V0OFUxa2pEY3hmS1JYYXdoUVF4RjU3QnE0TEVDd2NXaWVrWnorNG5r?=
- =?utf-8?B?MFNQSFJjalluT2x0em8wQVJwdTZGKy81d09IVlMwd1BKYTNxNys3UmxUTkYv?=
- =?utf-8?B?eURQSXZJRjNIa1pOZFRheWt5WHhucDdOR1gxcFI3MEJ2bVNpeTdKK1dscFJu?=
- =?utf-8?B?SGxBM2FNaWpIQ2E5KzFyNjBNY25QT2ZxTDg5RzR6S3FzT3lvK1p6WU94WnYx?=
- =?utf-8?B?WllHaUF2OUNNZjZlbHBlYnFnNHNFUmdFMXhyM3cvTWNmQS85WWhOc3NobVdN?=
- =?utf-8?B?eEEwbXUyWjJSYVVkSmptL21TUE9ZVU9mUXVkVkNJZUU0dzNZRXRMeU9VTkJ0?=
- =?utf-8?B?SUlqc1JsV01rQXlPSHFvd0d0c0czd3JHUVAvN3J6b3Q1bCszSk43NXRhVnRx?=
- =?utf-8?B?ZStRRnRLSHJ4M0ZpVnltbjNVV2drMTlUTW1jZ2ZqbHVoNi9GeUVRSVlaYnJw?=
- =?utf-8?B?V3BKZko0eGd0VVU0MTBhSmkzbDE4bjZBd0RWRTJyaHpvSVF2R0dMY0puTktr?=
- =?utf-8?B?RnJRQklEVUVtTzhWVjJGUWt2Ym12SC9sU3RVcWEzemQ1R3dhNzVqeFdubUdL?=
- =?utf-8?B?L0ZBenRqL3htOGl4Z3RwZkEyK3Y4KzB2RlgvQnB5TDlLZTBnaG5LODFJYUJt?=
- =?utf-8?B?VlZYeC9yMlY3Rm9JSW8xWlp4NW16OS9jQnVMM1hEaU5EYUVzc0tkaWtIM1h5?=
- =?utf-8?B?dUwrTlJid2ZEUFRvRFVVWnY2Z1ZubXBIV3U3TlI3YzdqaktZaVplNmwzcE00?=
- =?utf-8?B?cmxnMmZzdUd5RUpTdjNpNUVnRFVtUWRrNnN1eU5HSmpXRE1ha1BSQzJNaGRO?=
- =?utf-8?B?V0F1TEpJQUpaQ2NyQ2J5Um9nRm9sRlRyRVh2MlR4TTh3QU42ZXBpTGZER2Q0?=
- =?utf-8?B?VnNqOW9WZ3NkM2UwQ0ZualU1eVBUa01aSHlqZ3VuV04rK3RMbVR4R2svWll2?=
- =?utf-8?B?Lzg3SGVCV05RZ2FuN3Z1cURVQW4wNExwV1RiZVBOeU1OVWk2RzBBOXEyU1Vv?=
- =?utf-8?B?ZUN6cTlsWk1KZ3c2S3ZQL0o4MU54RmRabEJWOXI2MUFqMVNlVGZ6UWg2Qjhn?=
- =?utf-8?B?eTFnNExYWlpuY1F4OXpwYXRUVHZhM25jaE5Ra09IYTFFaDEyeGpSY0JicU5z?=
- =?utf-8?B?OXA2c252ZU9RVFFnK2dUaDYvN3JnUk56NndDdzNReXZXVU1PNUhVSFM5dG1q?=
- =?utf-8?B?Ny9sUWNmbldieTkvNGF3SEtXTVhPcS9hekV4T2JISGxpVmx2REVOeFl1YUJH?=
- =?utf-8?B?a0VDemRXalh0U080bVFZSmdVN0NwZjNlZE8yLzY5OEc0QldMaCtRSnpWSFlo?=
- =?utf-8?B?VnRZOGxaWG5UcmlOU0JNNWxiOTBZemYzbk9FV1p0YnpVMjJTS1NPZVdXd3Bl?=
- =?utf-8?B?Wm04TWs5d3BJSURKZXVKLzE2NTRnNzNKc3ZnMHJFS2tzUzJqRkozMFBocDdY?=
- =?utf-8?B?RFpkWVZBTmxLUzE0b2R4eGthbytRUXhQTVFubGp6RDVHeHppTlpFVnhJL2hC?=
- =?utf-8?Q?+hrW11H+u5IroBuC611zL+tO/mbxf4g6HdJjDTi0KLADJ?=
-X-MS-Exchange-AntiSpam-MessageData-1: E95V4EFc5QYDZw==
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eW0vU0FsbzBHZ0FCdUhhK3BoaVVRVFNNSm1sT1ZvbWF4cEJtWEhldnp5TTZz?=
+ =?utf-8?B?UzZwTEdNd04raWt4eHJ6RUpXOHBMWjgyTktBaVExYThWOU9hQjVwWjNYck10?=
+ =?utf-8?B?eUFrT3VCRlNLT1RaWFh1NkVuYThHTG9QdEZFVGlKNTNXczBiQ1EyRXBGMURV?=
+ =?utf-8?B?TkRhYWpYNU10V2pFVlJwaGRwcEp1UXZ4aUdCbVc4WENma3BoeExVeDlZYTFp?=
+ =?utf-8?B?VzNHVUx6NkR2OXpIVFJ1NGJqcFU5c2xWK3lKbmJTeENiTVE4QjY0c1JlTG1Z?=
+ =?utf-8?B?UlNmSGM1bnlrOWpnMUlIbGZKUktKVitZYmlVenpCUE5yc2QyaExHOFNuZDJY?=
+ =?utf-8?B?cGtLNEFIcnZBbmhkT29LYkFyUThQYlc4VUxkcjkwdW5XU3BwVVFORm53Rnly?=
+ =?utf-8?B?NWhJb2pWaU9qVURWTUFpbW5ReEE3dmMrZGQ5Tmx1NHkvRVNVTHZOLzlHV0NH?=
+ =?utf-8?B?UXUxT2F6Q1FMczZRQ1I1VVkxS3lvd255V2kydUQvVVVQMjBBOC9zNFFVc29V?=
+ =?utf-8?B?Nzdtb2xqcXdqVTJVckJVY2xIRHA0b1JNZXpxYmlDcnAxTjIvOGF5YWpZVm01?=
+ =?utf-8?B?QldMdUVjS2paRGlnZzY5VWRaMTQybzYxbEd0TmFTQU8yYnpHeXVoQlpiQXZw?=
+ =?utf-8?B?aHdqZm5UZ0JWK3dXZUQ0c3pLOGYrby9HQ0N1UjdJR243cEQzc3NicDVNTzNh?=
+ =?utf-8?B?ZVllOUlwaG05bzZsdVNFT3d2RFFwNUJIaVlGc3MvM29uTWd6T1BJZjdLbm5M?=
+ =?utf-8?B?VEtBNHdwbWhNMUhCUTdmMTlERGR3bDZ1K0RIOTZMUnhpN0ptRTlmRlhMclZu?=
+ =?utf-8?B?ZUE1SzdWVEI2b084NDlxdWJHbGpoYWI1S3pZOXpZSUxCOTZSZ2JYa3pNVzQ2?=
+ =?utf-8?B?bmIzRVZ1V0Zsd3lHYTA1dnEzNzFaVi96ZzV5TjZxd2V6L2MrSlNLQ1lKWkw3?=
+ =?utf-8?B?bUNQTDdZSDN3UzQ0THpKSHFibjFUb2pQOTd6RnRPekZtZ2pRbUVZbC9yckxG?=
+ =?utf-8?B?K3BXVlQ5aVlEZ0drcW0ybFNRWjJMei9WL2E1YWhWNUNzQk1WcHlzaWJLQTcr?=
+ =?utf-8?B?NlZsWXNRTXBydFo2cDZraGU2QmVXdlhpSGtzMEZoWjRnL1htby9HVVA2Yi9I?=
+ =?utf-8?B?bnBxNVdtb0lwZU94MGVaVjJNM3MvS0Zqc0hHNDgxbTdwQTBjNFRQaUFmZTdR?=
+ =?utf-8?B?TVIrWHA3TjhTTlpVK3o1ZmtZNUg3VkQwN3BwOGpyTTJZQWJoMVZ6N1pJS1Vv?=
+ =?utf-8?B?ZmZubEkvU3BjYkkrNCtWRGk5eVhsTlNjcm1ZOWhXZjhrajNIRkRzcjA4bFp0?=
+ =?utf-8?B?ZFArNU4vU2YzZFRHZmtiWmp0MHJ6RE1Pb1JmaXFjMFZNSlFlVXdRaG5wRERK?=
+ =?utf-8?B?RUxIS3JyVnVCQW4yOU5BV0xPRW96WlhaQTIvS3o4UVQ4bStDWUpDb2dKVEts?=
+ =?utf-8?B?UGRyOHA1SW5vMEkzbkhVTDFLU3hhcEdPYXIzajM1b3JlT2JTeWRxQmdDY3Az?=
+ =?utf-8?B?UmVvRy9aL0UxWGxYOHRNaU5BTk5Pa0lkK29RNW9TeWprS0d6SjI1VFo2dmtG?=
+ =?utf-8?B?QlRnM3ZPRnZjOTdlZGduUUlBTm1sSWFSUmwwUWRxUU93cXdwUEVxNk5FVVg3?=
+ =?utf-8?B?UzhFLytkbCtrUXVxWExzMkpqbWxQL29CdGE5SStBS050cGtNTmFpaDhtcUJY?=
+ =?utf-8?B?TjZLYWxuQ0g4cUl2M0RtdFNsVjdjRVlrVWFuZ3pjaGpua1dXTmF3WTFkVWFT?=
+ =?utf-8?B?Tm95VW5VazU3eVBFbzBQeXF5aEtHZTF5bDAyQUZNNVRUeU1RYzQ0d2g5cWNl?=
+ =?utf-8?B?UXpDdXh6NHFoa0FaMm9hTHdlMW9iVzB0cWRVaFRhSzR1SDNBd2VvTVhTRjI2?=
+ =?utf-8?B?QWpVYis0cGNYYVA0eTBTZG9mR0oyaktyQWVhcmVPMS81c3E2UDVuMndSYU8w?=
+ =?utf-8?B?eWlKSTYvWDBEVEtrZzFiSWNIckpEclcybkl0UGxGOW1DTjNScXBFS0hUbFpN?=
+ =?utf-8?B?QU5ueHVaaVZsOFVUallTWlYxZVA0ZENOZ2tGbWs5OXZKTitocEVBT0Q4U1FO?=
+ =?utf-8?B?ejBRbXJyNEcvNUJGQmFSL2dwV21jYzBIbkxhMGpyVDRGSkZZWTFFZ2p3MEE4?=
+ =?utf-8?B?M0hwa2FOc282N1dMcTVvRXo1MExjZXZycC9DVnhFRUhJN2FNUHRtVWQ2YTl6?=
+ =?utf-8?B?WXNEeUI4SUVqVXVVTXZFK3ovVGF0VndLdURyOSt0Tk1tNG1YL1lSR2VKZzB5?=
+ =?utf-8?B?RXdyUmJUWURQdW9BeFQyYkpySm9pbjdvRFozRkgyNkZoRllMZlVJZTA1enZi?=
+ =?utf-8?B?UW1DMUdjZ1FPVWRGVHorb2ovM0ZNSVg0YUlvSjkvQUFJeG1wRE9vazJsN25o?=
+ =?utf-8?Q?kB836CMiOckYGmIoq4RKPQ1w8VtPZ9xESl8RvixMgwLQv?=
+X-MS-Exchange-AntiSpam-MessageData-1: tt3YyPOeLgKYjw==
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f32a290a-52ab-4887-253e-08de84c53f98
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6eacf677-3276-4a47-f955-08de84c53594
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3997.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 08:06:24.5045
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Mar 2026 08:06:08.3076
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: r6ewSx95mxkTaQrsNcx6HAaNBWAktCIlQisevr1L0TCKfLr7H6OW/dVG/2kDhIb2Ep8SWAi5NfxFIbDuCRFy1Q==
+X-MS-Exchange-CrossTenant-UserPrincipalName: Nrmo06VZpyLwkrXZGUwOgqdUIiIMf6vbiShRMhF8LX5ePDyQDDrAVOouhJIotfOzcDP/itbvyeolmhm0DoGO2A==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8197
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_010635_236059_76B4969E 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260318_010632_394030_93DFBE9E 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,183 +164,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert all GC6 registers to use the kernel's register macro and update
-the code accordingly.
+nova-core carried its own helper macro to declare register types. Its
+purpose was to be temporary since the beginning, and to serve as a
+testbed to develop an equivalent that could be used kernel-wide.
+
+That equivalent has now been merged, so it is time to retire the
+nova-core local version.
+
+The kernel register macro has evolved into something significantly
+different from the one in nova-core, so it cannot be used as a drop-in
+replacement. All declarations and sites using registers need to be
+updated. No semantic change should happen as a result.
+
+All the patches in this series could also be squashed into a single one
+without altering their reviewability significantly. Actually I am
+leaning towards that option since it doesn't make much sense to
+partially convert the driver anyway. I'm leaving it in split state for
+now in case this drives more people towards review. :)
+
+I hope to be able to merge this quickly so we can rebase in-flight
+series to use the updated register syntax.
+
+This series is based on drm-rust-next as of 2026-03-18.
 
 Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
 ---
- drivers/gpu/nova-core/falcon/gsp.rs   |  7 ++--
- drivers/gpu/nova-core/fb/hal/ga102.rs |  7 ++--
- drivers/gpu/nova-core/gfw.rs          | 11 ++++--
- drivers/gpu/nova-core/regs.rs         | 64 ++++++++++++++++++-----------------
- 4 files changed, 51 insertions(+), 38 deletions(-)
+Alexandre Courbot (8):
+      gpu: nova-core: convert PMC registers to kernel register macro
+      gpu: nova-core: convert PBUS registers to kernel register macro
+      gpu: nova-core: convert PFB registers to kernel register macro
+      gpu: nova-core: convert GC6 registers to kernel register macro
+      gpu: nova-core: convert FUSE registers to kernel register macro
+      gpu: nova-core: convert PDISP registers to kernel register macro
+      gpu: nova-core: convert falcon registers to kernel register macro
+      Documentation: nova: remove register abstraction task
 
-diff --git a/drivers/gpu/nova-core/falcon/gsp.rs b/drivers/gpu/nova-core/falcon/gsp.rs
-index 67edef3636c1..e52f57abc223 100644
---- a/drivers/gpu/nova-core/falcon/gsp.rs
-+++ b/drivers/gpu/nova-core/falcon/gsp.rs
-@@ -1,7 +1,10 @@
- // SPDX-License-Identifier: GPL-2.0
- 
- use kernel::{
--    io::poll::read_poll_timeout,
-+    io::{
-+        poll::read_poll_timeout,
-+        Io, //
-+    },
-     prelude::*,
-     time::Delta, //
- };
-@@ -47,7 +50,7 @@ pub(crate) fn clear_swgen0_intr(&self, bar: &Bar0) {
-     /// Checks if GSP reload/resume has completed during the boot process.
-     pub(crate) fn check_reload_completed(&self, bar: &Bar0, timeout: Delta) -> Result<bool> {
-         read_poll_timeout(
--            || Ok(regs::NV_PGC6_BSI_SECURE_SCRATCH_14::read(bar)),
-+            || Ok(bar.read(regs::NV_PGC6_BSI_SECURE_SCRATCH_14)),
-             |val| val.boot_stage_3_handoff(),
-             Delta::ZERO,
-             timeout,
-diff --git a/drivers/gpu/nova-core/fb/hal/ga102.rs b/drivers/gpu/nova-core/fb/hal/ga102.rs
-index 734605905031..4b9f0f74d0e7 100644
---- a/drivers/gpu/nova-core/fb/hal/ga102.rs
-+++ b/drivers/gpu/nova-core/fb/hal/ga102.rs
-@@ -1,6 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- 
--use kernel::prelude::*;
-+use kernel::{
-+    io::Io,
-+    prelude::*, //
-+};
- 
- use crate::{
-     driver::Bar0,
-@@ -9,7 +12,7 @@
- };
- 
- fn vidmem_size_ga102(bar: &Bar0) -> u64 {
--    regs::NV_USABLE_FB_SIZE_IN_MB::read(bar).usable_fb_size()
-+    bar.read(regs::NV_USABLE_FB_SIZE_IN_MB).usable_fb_size()
- }
- 
- struct Ga102;
-diff --git a/drivers/gpu/nova-core/gfw.rs b/drivers/gpu/nova-core/gfw.rs
-index 9121f400046d..fb75dd10a172 100644
---- a/drivers/gpu/nova-core/gfw.rs
-+++ b/drivers/gpu/nova-core/gfw.rs
-@@ -19,7 +19,10 @@
- //! Note that the devinit sequence also needs to run during suspend/resume.
- 
- use kernel::{
--    io::poll::read_poll_timeout,
-+    io::{
-+        poll::read_poll_timeout,
-+        Io, //
-+    },
-     prelude::*,
-     time::Delta, //
- };
-@@ -58,9 +61,11 @@ pub(crate) fn wait_gfw_boot_completion(bar: &Bar0) -> Result {
-             Ok(
-                 // Check that FWSEC has lowered its protection level before reading the GFW_BOOT
-                 // status.
--                regs::NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK::read(bar)
-+                bar.read(regs::NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK)
-                     .read_protection_level0()
--                    && regs::NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_0_GFW_BOOT::read(bar).completed(),
-+                    && bar
-+                        .read(regs::NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_0_GFW_BOOT)
-+                        .completed(),
-             )
-         },
-         |&gfw_booted| gfw_booted,
-diff --git a/drivers/gpu/nova-core/regs.rs b/drivers/gpu/nova-core/regs.rs
-index 6e35240fb326..4439464aae4d 100644
---- a/drivers/gpu/nova-core/regs.rs
-+++ b/drivers/gpu/nova-core/regs.rs
-@@ -221,29 +221,30 @@ pub(crate) fn higher_bound(self) -> u64 {
- // These scratch registers remain powered on even in a low-power state and have a designated group
- // number.
- 
--// Boot Sequence Interface (BSI) register used to determine
--// if GSP reload/resume has completed during the boot process.
--register!(NV_PGC6_BSI_SECURE_SCRATCH_14 @ 0x001180f8 {
--    26:26   boot_stage_3_handoff as bool;
--});
--
--// Privilege level mask register. It dictates whether the host CPU has privilege to access the
--// `PGC6_AON_SECURE_SCRATCH_GROUP_05` register (which it needs to read GFW_BOOT).
--register!(NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK @ 0x00118128,
--          "Privilege level mask register" {
--    0:0     read_protection_level0 as bool, "Set after FWSEC lowers its protection level";
--});
--
--// OpenRM defines this as a register array, but doesn't specify its size and only uses its first
--// element. Be conservative until we know the actual size or need to use more registers.
--register!(NV_PGC6_AON_SECURE_SCRATCH_GROUP_05 @ 0x00118234[1] {});
--
--register!(
--    NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_0_GFW_BOOT => NV_PGC6_AON_SECURE_SCRATCH_GROUP_05[0],
--    "Scratch group 05 register 0 used as GFW boot progress indicator" {
--        7:0    progress as u8, "Progress of GFW boot (0xff means completed)";
-+nv_reg! {
-+    /// Boot Sequence Interface (BSI) register used to determine
-+    /// if GSP reload/resume has completed during the boot process.
-+    NV_PGC6_BSI_SECURE_SCRATCH_14 @ 0x001180f8 {
-+        26:26   boot_stage_3_handoff => bool;
-     }
--);
-+
-+    /// Privilege level mask register. It dictates whether the host CPU has privilege to access the
-+    /// `PGC6_AON_SECURE_SCRATCH_GROUP_05` register (which it needs to read GFW_BOOT).
-+    NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK @ 0x00118128 {
-+        /// Set after FWSEC lowers its protection level.
-+        0:0     read_protection_level0 => bool;
-+    }
-+
-+    /// OpenRM defines this as a register array, but doesn't specify its size and only uses its
-+    /// first element. Be conservative until we know the actual size or need to use more registers.
-+    NV_PGC6_AON_SECURE_SCRATCH_GROUP_05[1] @ 0x00118234 {}
-+
-+    /// Scratch group 05 register 0 used as GFW boot progress indicator.
-+    NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_0_GFW_BOOT => NV_PGC6_AON_SECURE_SCRATCH_GROUP_05[0] {
-+        /// Progress of GFW boot (0xff means completed).
-+        7:0    progress;
-+    }
-+}
- 
- impl NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_0_GFW_BOOT {
-     /// Returns `true` if GFW boot is completed.
-@@ -252,16 +253,17 @@ pub(crate) fn completed(self) -> bool {
-     }
- }
- 
--register!(NV_PGC6_AON_SECURE_SCRATCH_GROUP_42 @ 0x001183a4 {
--    31:0    value as u32;
--});
--
--register!(
--    NV_USABLE_FB_SIZE_IN_MB => NV_PGC6_AON_SECURE_SCRATCH_GROUP_42,
--    "Scratch group 42 register used as framebuffer size" {
--        31:0    value as u32, "Usable framebuffer size, in megabytes";
-+nv_reg! {
-+    NV_PGC6_AON_SECURE_SCRATCH_GROUP_42 @ 0x001183a4 {
-+        31:0    value;
-     }
--);
-+
-+    /// Scratch group 42 register used as framebuffer size.
-+    NV_USABLE_FB_SIZE_IN_MB => NV_PGC6_AON_SECURE_SCRATCH_GROUP_42 {
-+        /// Usable framebuffer size, in megabytes.
-+        31:0    value;
-+    }
-+}
- 
- impl NV_USABLE_FB_SIZE_IN_MB {
-     /// Returns the usable framebuffer size, in bytes.
+ Documentation/gpu/nova/core/todo.rst               |  76 ---
+ drivers/gpu/nova-core/falcon.rs                    | 336 +++++-----
+ drivers/gpu/nova-core/falcon/gsp.rs                |  27 +-
+ drivers/gpu/nova-core/falcon/hal/ga102.rs          |  73 +-
+ drivers/gpu/nova-core/falcon/hal/tu102.rs          |  12 +-
+ drivers/gpu/nova-core/falcon/sec2.rs               |  17 +-
+ drivers/gpu/nova-core/fb.rs                        |   6 +-
+ drivers/gpu/nova-core/fb/hal/ga100.rs              |  37 +-
+ drivers/gpu/nova-core/fb/hal/ga102.rs              |   7 +-
+ drivers/gpu/nova-core/fb/hal/tu102.rs              |  17 +-
+ drivers/gpu/nova-core/firmware/fwsec/bootloader.rs |  19 +-
+ drivers/gpu/nova-core/gfw.rs                       |  11 +-
+ drivers/gpu/nova-core/gpu.rs                       |  37 +-
+ drivers/gpu/nova-core/gsp/boot.rs                  |  11 +-
+ drivers/gpu/nova-core/gsp/cmdq.rs                  |   9 +-
+ drivers/gpu/nova-core/regs.rs                      | 616 +++++++++--------
+ drivers/gpu/nova-core/regs/macros.rs               | 739 ---------------------
+ 17 files changed, 685 insertions(+), 1365 deletions(-)
+---
+base-commit: d19ab42867ae7c68be84ed957d95712b7934773f
+change-id: 20260318-b4-nova-register-6908b5118552
 
+Best regards,
 -- 
-2.53.0
+Alexandre Courbot <acourbot@nvidia.com>
 
 
 _______________________________________________
