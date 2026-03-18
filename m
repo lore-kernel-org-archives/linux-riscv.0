@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5871610775F9
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 17:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE6D10775FC
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 17:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICKDNiL/njSlOUNr1P7GnGFlmcbeh3LDs7mMhJThMls=; b=A8a3kWoXG1KXewnlaDG8DJAALl
-	XD+f4qiBHXSpdLtk/87vfehBq2fZ2hjj5q+N8BZophfZrVLiCf9YtnSHo2/sTaDG0TzhYDzv+M15y
-	5ZVuLUlIUOQastZxDtZoDY4CJm/M6lD3EK8HxpCVhn5TogFvGYt/RBnGurnn4bkg3bTPQ/2BlDXV9
-	84O98vA4C/bzc3/S0vWjtc7yb7Qks04L8mQ3/meyvdpRq72NYJCl9SqUshqaSCsUaOP3e0UNZGRSt
-	zzkQOnt2q/4l127T6tQ1jikNEl7fEHrk8xLWsskjvBlJ5/wGAbFjSdpKI8cmmlvhcmbv3Jow2z1xp
-	QYgNL7sA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e1qJTx04VH6b+46LX6KIEGm6MaEmWtRAIdqXtT2KRc0=; b=MB1vzFbVB6UFUs
+	30jqzIhKo9vibDvd7uaJBAJ3pJwQO569Cb6dI+YqRniVbf6ISc4KV4+qNgD3GQypz6conkpAkoT4P
+	BuTrCvLFZbSh5ho+HtvKs2uM4fwS/h2p92/cUfSz1UlXzE9paA5BXgELQMeXQ/MnlDpdXBO9j60r9
+	rdanf4s7of4zJd6R9uLFJFF3m56MrTPr7+A13dYt6GKoYKtgkQsvRr5vR5bFxoKfCP2O9Unfh8mB7
+	mkbjaVMpWhcpjiwhyQShJg65DFmHlyHexQhk8LU7bEc0+E5LNeRik3IXbxJfjK3ovqoMhNhvDG952
+	0/SRlZ19IHEkJUvmAsIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uuW-000000096TY-3ulJ;
-	Wed, 18 Mar 2026 17:42:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2v01-0000000973u-1Bjz;
+	Wed, 18 Mar 2026 17:48:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2uuV-000000096T2-0Pce
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 17:42:24 +0000
+	id 1w2uzz-0000000973F-18V7;
+	Wed, 18 Mar 2026 17:48:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3202443886;
-	Wed, 18 Mar 2026 17:42:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73AF2C19421;
-	Wed, 18 Mar 2026 17:42:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773855742;
-	bh=8zKKN1pmyDuNOP9IFZ6JMQazxPmRneYZb7GkM0EWs1M=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=iYAEIkXCrx+/VEh7DepBCdOTKPwbvrbMFvjTsIWj/rqiBguk6+RQ75QjfHlMkIQ4v
-	 PTG5SQq6AsjL7xtYZilcn6AgYRU82pofqSAoZrhhL59FYUak4m5cJqdcegrcHJPjWJ
-	 8jIxEt3wImCIbcQU/kbaO3d/VyGmD2NFBb6CuGGUHczyc/EaJK3olq01mnk1kY+6A6
-	 UjOXtjxsm/+addRwRZLayKye+WHXrPmZxtmquu7qkbJO6g4Uz1aBH755I8TJopmD1T
-	 vKwEFlhWyH+RqDMVMC0hHb000gZ3YxGHwykfhaiWQjmMBmPCcMxfg4q4vKLCoKrDi9
-	 gD83h3od9KNSg==
-Date: Wed, 18 Mar 2026 11:42:18 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Vivian Wang <wangruikang@iscas.ac.cn>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Andrew Morton <akpm@linux-foundation.org>, 
-    "Mike Rapoport (Microsoft)" <rppt@kernel.org>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Subject: Re: [PATCH] riscv: patch: Avoid early page_to_phys()
-In-Reply-To: <20260310-riscv-sparsemem-alternatives-fix-v1-1-659d5dd257e2@iscas.ac.cn>
-Message-ID: <6ec5d4d4-f171-d41b-2705-a051bcb794e9@kernel.org>
-References: <20260310-riscv-sparsemem-alternatives-fix-v1-1-659d5dd257e2@iscas.ac.cn>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-310414524-1773855742=:215483"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_104223_158349_718751BB 
-X-CRM114-Status: GOOD (  10.10  )
+	by tor.source.kernel.org (Postfix) with ESMTP id EB51A60132;
+	Wed, 18 Mar 2026 17:48:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99B7CC19421;
+	Wed, 18 Mar 2026 17:47:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1773856081;
+	bh=hq72KfDI9YIjm4UqddYP9KoqIbbXOeXeI0l+6wtPMMo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jzROPGVpzZ38jRINIUlrs6pYfFojw6d5rE/vbNiFKT2UViwtaZd0lDJtPPR3nnuYS
+	 FF9HJXYzwRihCsjyfkE7AMRmpanGALhCQ9VX7i/W6cYBSjxY2y2GwDDanrboMs/kOZ
+	 kogswLXx++OfebTDVl2acbny9BYIqCrFpBBH+dng=
+Date: Wed, 18 Mar 2026 10:47:59 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>, "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn
+ <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Kees Cook
+ <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, Vineet
+ Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian
+ Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
+ <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh
+ Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily
+ Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin"
+ <hpa@zytor.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov
+ <anton.ivanov@cambridgegreys.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin
+ <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>, Michal
+ Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, Stephen Smalley
+ <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ selinux@vger.kernel.org
+Subject: Re: [PATCH v3 00/23] mm/vma: convert vm_flags_t to vma_flags_t in
+ vma code
+Message-Id: <20260318104759.92b339d382e7d8d25daea54b@linux-foundation.org>
+In-Reply-To: <cover.1773846935.git.ljs@kernel.org>
+References: <cover.1773846935.git.ljs@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,48 +91,282 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Wed, 18 Mar 2026 15:50:11 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
 
---8323329-310414524-1773855742=:215483
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8BIT
+> This series converts a lot of the existing use of the legacy vm_flags_t
+> data type to the new vma_flags_t type which replaces it.
 
-On Tue, 10 Mar 2026, Vivian Wang wrote:
-
-> Similarly to commit 8d09e2d569f6 ("arm64: patching: avoid early
-> page_to_phys()"), avoid using phys_to_page() for the kernel address case
-> in patch_map().
-> 
-> Since this is called from apply_boot_alternatives() in setup_arch(), and
-> commit 4267739cabb8 ("arch, mm: consolidate initialization of SPARSE
-> memory model") has moved sparse_init() to after setup_arch(),
-> phys_to_page() is not available there yet, and it panics on boot with
-> SPARSEMEM on RV32, which does not use SPARSEMEM_VMEMMAP.
-> 
-> Reported-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-> Closes: https://lore.kernel.org/r/20260223144108-dcace0b9-02e8-4b67-a7ce-f263bed36f26@linutronix.de/
-> Fixes: 4267739cabb8 ("arch, mm: consolidate initialization of SPARSE memory model")
-> Suggested-by: Mike Rapoport <rppt@kernel.org>
-> Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
-
-Thanks, queued for v7.0-rc.
+Updated, thanks.  Below is how v3 altered mm.git:
 
 
-- Paul
---8323329-310414524-1773855742=:215483
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+ arch/arm64/include/asm/page.h   |    4 +++
+ include/linux/mm_types.h        |   32 +++++++++++++++---------------
+ mm/mseal.c                      |    1 
+ mm/vma.c                        |   27 +++++++++++++------------
+ tools/testing/vma/include/dup.h |   22 +++++++++++---------
+ tools/testing/vma/tests/vma.c   |    3 --
+ 6 files changed, 48 insertions(+), 41 deletions(-)
+
+--- a/arch/arm64/include/asm/page.h~b
++++ a/arch/arm64/include/asm/page.h
+@@ -46,8 +46,12 @@ int pfn_is_map_memory(unsigned long pfn)
+ 
+ #endif /* !__ASSEMBLER__ */
+ 
++#ifdef CONFIG_ARM64_MTE
+ #define VMA_DATA_DEFAULT_FLAGS	append_vma_flags(VMA_DATA_FLAGS_TSK_EXEC, \
+ 						 VMA_MTE_ALLOWED_BIT)
++#else
++#define VMA_DATA_DEFAULT_FLAGS	VMA_DATA_FLAGS_TSK_EXEC
++#endif
+ 
+ #include <asm-generic/getorder.h>
+ 
+--- a/include/linux/mm_types.h~b
++++ a/include/linux/mm_types.h
+@@ -871,9 +871,9 @@ typedef struct {
+ #define EMPTY_VMA_FLAGS ((vma_flags_t){ })
+ 
+ /* Are no flags set in the specified VMA flags? */
+-static __always_inline bool vma_flags_empty(vma_flags_t *flags)
++static __always_inline bool vma_flags_empty(const vma_flags_t *flags)
+ {
+-	unsigned long *bitmap = flags->__vma_flags;
++	const unsigned long *bitmap = flags->__vma_flags;
+ 
+ 	return bitmap_empty(bitmap, NUM_VMA_FLAG_BITS);
+ }
+@@ -1082,20 +1082,6 @@ static __always_inline vm_flags_t vma_fl
+ }
+ 
+ /*
+- * Helper function which converts a legacy vm_flags_t value to a vma_flags_t
+- * value.
+- *
+- * Will be removed once the conversion to VMA flags is complete.
+- */
+-static __always_inline vma_flags_t legacy_to_vma_flags(vm_flags_t flags)
+-{
+-	vma_flags_t ret;
+-
+-	ret.__vma_flags[0] = (unsigned long)flags;
+-	return ret;
+-}
+-
+-/*
+  * Copy value to the first system word of VMA flags, non-atomically.
+  *
+  * IMPORTANT: This does not overwrite bytes past the first system word. The
+@@ -1110,6 +1096,20 @@ static __always_inline void vma_flags_ov
+ }
+ 
+ /*
++ * Helper function which converts a legacy vm_flags_t value to a vma_flags_t
++ * value.
++ *
++ * Will be removed once the conversion to VMA flags is complete.
++ */
++static __always_inline vma_flags_t legacy_to_vma_flags(vm_flags_t flags)
++{
++	vma_flags_t ret = EMPTY_VMA_FLAGS;
++
++	vma_flags_overwrite_word(&ret, flags);
++	return ret;
++}
++
++/*
+  * Copy value to the first system word of VMA flags ONCE, non-atomically.
+  *
+  * IMPORTANT: This does not overwrite bytes past the first system word. The
+--- a/mm/mseal.c~b
++++ a/mm/mseal.c
+@@ -77,6 +77,7 @@ static int mseal_apply(struct mm_struct
+ 					       curr_end, &vma_flags);
+ 			if (IS_ERR(vma))
+ 				return PTR_ERR(vma);
++			vma_start_write(vma);
+ 			vma_set_flags(vma, VMA_SEALED_BIT);
+ 		}
+ 
+--- a/mm/vma.c~b
++++ a/mm/vma.c
+@@ -905,20 +905,21 @@ static __must_check struct vm_area_struc
+ 	vma_start_write(middle);
+ 
+ 	if (merge_right) {
+-		const vma_flags_t next_sticky =
+-			vma_flags_and_mask(&next->flags, VMA_STICKY_FLAGS);
++		vma_flags_t next_sticky;
+ 
+ 		vma_start_write(next);
+ 		vmg->target = next;
++		next_sticky = vma_flags_and_mask(&next->flags, VMA_STICKY_FLAGS);
+ 		vma_flags_set_mask(&sticky_flags, next_sticky);
+ 	}
+ 
+ 	if (merge_left) {
+-		const vma_flags_t prev_sticky =
+-			vma_flags_and_mask(&prev->flags, VMA_STICKY_FLAGS);
++		vma_flags_t prev_sticky;
+ 
+ 		vma_start_write(prev);
+ 		vmg->target = prev;
++
++		prev_sticky = vma_flags_and_mask(&prev->flags, VMA_STICKY_FLAGS);
+ 		vma_flags_set_mask(&sticky_flags, prev_sticky);
+ 	}
+ 
+@@ -1170,13 +1171,14 @@ int vma_expand(struct vma_merge_struct *
+ 	bool remove_next = false;
+ 	vma_flags_t sticky_flags =
+ 		vma_flags_and_mask(&vmg->vma_flags, VMA_STICKY_FLAGS);
+-	const vma_flags_t target_sticky =
+-		vma_flags_and_mask(&target->flags, VMA_STICKY_FLAGS);
++	vma_flags_t target_sticky;
+ 	int ret = 0;
+ 
+ 	mmap_assert_write_locked(vmg->mm);
+ 	vma_start_write(target);
+ 
++	target_sticky = vma_flags_and_mask(&target->flags, VMA_STICKY_FLAGS);
++
+ 	if (next && target != next && vmg->end == next->vm_end)
+ 		remove_next = true;
+ 
+@@ -1192,12 +1194,6 @@ int vma_expand(struct vma_merge_struct *
+ 		       target->vm_end > vmg->end, vmg);
+ 
+ 	vma_flags_set_mask(&sticky_flags, target_sticky);
+-	if (remove_next) {
+-		const vma_flags_t next_sticky =
+-			vma_flags_and_mask(&next->flags, VMA_STICKY_FLAGS);
+-
+-		vma_flags_set_mask(&sticky_flags, next_sticky);
+-	}
+ 
+ 	/*
+ 	 * If we are removing the next VMA or copying from a VMA
+@@ -1214,8 +1210,13 @@ int vma_expand(struct vma_merge_struct *
+ 		return ret;
+ 
+ 	if (remove_next) {
++		vma_flags_t next_sticky;
++
+ 		vma_start_write(next);
+ 		vmg->__remove_next = true;
++
++		next_sticky = vma_flags_and_mask(&next->flags, VMA_STICKY_FLAGS);
++		vma_flags_set_mask(&sticky_flags, next_sticky);
+ 	}
+ 	if (commit_merge(vmg))
+ 		goto nomem;
+@@ -2950,7 +2951,7 @@ out:
+ 	if (vma_flags_test(&vma_flags, VMA_LOCKED_BIT))
+ 		mm->locked_vm += (len >> PAGE_SHIFT);
+ 	if (pgtable_supports_soft_dirty())
+-		vma_flags_set(&vma_flags, VMA_SOFTDIRTY_BIT);
++		vma_set_flags(vma, VMA_SOFTDIRTY_BIT);
+ 	return 0;
+ 
+ mas_store_fail:
+--- a/tools/testing/vma/include/dup.h~b
++++ a/tools/testing/vma/include/dup.h
+@@ -441,9 +441,9 @@ struct vma_iterator {
+ #define MAPCOUNT_ELF_CORE_MARGIN	(5)
+ #define DEFAULT_MAX_MAP_COUNT	(USHRT_MAX - MAPCOUNT_ELF_CORE_MARGIN)
+ 
+-static __always_inline bool vma_flags_empty(vma_flags_t *flags)
++static __always_inline bool vma_flags_empty(const vma_flags_t *flags)
+ {
+-	unsigned long *bitmap = flags->__vma_flags;
++	const unsigned long *bitmap = flags->__vma_flags;
+ 
+ 	return bitmap_empty(bitmap, NUM_VMA_FLAG_BITS);
+ }
+@@ -775,7 +775,9 @@ static inline bool mm_flags_test(int fla
+ static __always_inline void vma_flags_overwrite_word(vma_flags_t *flags,
+ 		unsigned long value)
+ {
+-	*ACCESS_PRIVATE(flags, __vma_flags) = value;
++	unsigned long *bitmap = flags->__vma_flags;
++
++	bitmap[0] = value;
+ }
+ 
+ /*
+@@ -787,7 +789,7 @@ static __always_inline void vma_flags_ov
+ static __always_inline void vma_flags_overwrite_word_once(vma_flags_t *flags,
+ 		unsigned long value)
+ {
+-	unsigned long *bitmap = ACCESS_PRIVATE(flags, __vma_flags);
++	unsigned long *bitmap = flags->__vma_flags;
+ 
+ 	WRITE_ONCE(*bitmap, value);
+ }
+@@ -796,7 +798,7 @@ static __always_inline void vma_flags_ov
+ static __always_inline void vma_flags_set_word(vma_flags_t *flags,
+ 		unsigned long value)
+ {
+-	unsigned long *bitmap = ACCESS_PRIVATE(flags, __vma_flags);
++	unsigned long *bitmap = flags->__vma_flags;
+ 
+ 	*bitmap |= value;
+ }
+@@ -805,7 +807,7 @@ static __always_inline void vma_flags_se
+ static __always_inline void vma_flags_clear_word(vma_flags_t *flags,
+ 		unsigned long value)
+ {
+-	unsigned long *bitmap = ACCESS_PRIVATE(flags, __vma_flags);
++	unsigned long *bitmap = flags->__vma_flags;
+ 
+ 	*bitmap &= ~value;
+ }
+@@ -835,9 +837,9 @@ static __always_inline vm_flags_t vma_fl
+  */
+ static __always_inline vma_flags_t legacy_to_vma_flags(vm_flags_t flags)
+ {
+-	vma_flags_t ret;
++	vma_flags_t ret = EMPTY_VMA_FLAGS;
+ 
+-	ret.__vma_flags[0] = (unsigned long)flags;
++	vma_flags_overwrite_word(&ret, flags);
+ 	return ret;
+ }
+ 
+@@ -1073,8 +1075,8 @@ static __always_inline void vma_clear_fl
+ 	vma_flags_clear_mask(&vma->flags, flags);
+ }
+ 
+-#define vma_clear_flags(vmag, ...) \
+-	vma_clear_flags_mask(vmag, mk_vma_flags(__VA_ARGS__))
++#define vma_clear_flags(vma, ...) \
++	vma_clear_flags_mask(vma, mk_vma_flags(__VA_ARGS__))
+ 
+ static __always_inline bool vma_desc_test(const struct vm_area_desc *desc,
+ 		vma_flag_t bit)
+--- a/tools/testing/vma/tests/vma.c~b
++++ a/tools/testing/vma/tests/vma.c
+@@ -356,10 +356,9 @@ static bool test_vma_flags_clear(void)
+ 
+ 	/* Cursory check of _mask() variant, as the helper macros imply. */
+ 	vma_flags_clear_mask(&flags, mask);
+-	vma_flags_clear_mask(&vma.flags, mask);
++	vma_clear_flags_mask(&vma, mask);
+ 	vma_desc_clear_flags_mask(&desc, mask);
+ #if NUM_VMA_FLAG_BITS > 64
+-	vma_clear_flags_mask(&vma, mask);
+ 	ASSERT_FALSE(vma_flags_test_any(&flags, VMA_EXEC_BIT, 64));
+ 	ASSERT_FALSE(vma_test_any(&vma, VMA_EXEC_BIT, 64));
+ 	ASSERT_FALSE(vma_desc_test_any(&desc, VMA_EXEC_BIT, 64));
+_
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-310414524-1773855742=:215483--
-
