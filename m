@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FF010854D0
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 02:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E00AFCD0A1
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 03:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k5biUShGzz9n3qCU9y4mjhRAofWpvtJtA6UuH0AnEoo=; b=eYyDzlv+IP+Ssc
-	WmTOoJ4Qk2/9MZk8FF13ObkyVPJiEQ1JT/LWUUbYfuSewMXkQZcLWi449EEDEcvo8M29J44v0dE4Z
-	BeL3a8DkAxD9mV7dSVMDr88f+DZuw4yibWRwBImiYxagli1xWCeHSX+zSQkAqu++DwIVHb+54Nk1N
-	TvQ6hrrj/g2/Tm9RUdUotT64HZqY7QLsrOTx7i0INKUtwJQqu+7aUv89FjxhKXOocs7vZD077gldO
-	LiDwHg3zW0q9xxYlXr8RG3iTHxConAnVjgpUEqVeaMGdTHEUvr+wBuqpj3rKmo9XQL4/WjDdNSA/f
-	uJm61f6M8BqJyQ5V4HOA==;
+	List-Owner; bh=1CqpSmzPAiIi4QmB7OxVRq1jwAvG/nHSOOj4qPjuCs8=; b=3tlPB6AvrnxwYK
+	au1mVFF+spFYA4oqczSXbKPvV4bIUhfLwVNIc05uN52Lh6c4soeIGN9hM9lQvLWcKBoJUY8aHeINr
+	5RLs0nYvgYvcKr9/Mgn0Si2tA1Zz3lkZlG4MkSFoGdSj9u27RAnyy5HhhutUSg3qowml9WJ3GOA3L
+	8u+Ws7HPArSOwNSqdohSJo0eIFjmBPNRrdEgpPYeH3CtLmr9lLh90D9KLa9ZSSz07zeuSS8UgYiH/
+	jRoyPFY+nnYHUkA2EVeQLMOcu/GQ4KLmlvPR72P3sct7JNMMI5wFQPEi6I5CSu3pbm6XzfM9jURb0
+	7+JClbFcez9ix5epKeww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2gr6-00000007eRq-1Gef;
-	Wed, 18 Mar 2026 02:41:56 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1w2hm8-00000007iiS-1msV;
+	Wed, 18 Mar 2026 03:40:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2gph-00000007cXE-0vGq;
-	Wed, 18 Mar 2026 02:40:30 +0000
-X-UUID: cc9aa704227311f1a21c59e7364eecb8-20260318
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:0cfe2427-3d59-4ad2-bf8a-2e540f18b346,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:89c9d04,CLOUDID:5d417bfb0956acf9f04223ba2d7b9988,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|898,TC:nil,Content:0|15|50
-	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: cc9aa704227311f1a21c59e7364eecb8-20260318
-X-User: xiaopei01@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 288843384; Wed, 18 Mar 2026 10:40:17 +0800
-From: Pei Xiao <xiaopei01@kylinos.cn>
-To: linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org,
-	linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Cc: Pei Xiao <xiaopei01@kylinos.cn>
-Subject: [PATCH v4 16/17] spi: zynq-qspi: Simplify clock handling with devm_clk_get_enabled()
-Date: Wed, 18 Mar 2026 10:40:06 +0800
-Message-Id: <ddf33629a24d640b3c775cca35123ff051366648.1773801401.git.xiaopei01@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1773801401.git.xiaopei01@kylinos.cn>
-References: <cover.1773801401.git.xiaopei01@kylinos.cn>
+	id 1w2hm3-00000007igt-3Fyv;
+	Wed, 18 Mar 2026 03:40:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3ED74406EF;
+	Wed, 18 Mar 2026 03:40:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 170E8C19421;
+	Wed, 18 Mar 2026 03:40:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773805244;
+	bh=b5OWkuV535Oj1V56MTHDGF5WH37w+G2cepaHZkvA+6A=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=OZlImp5de0YUVbmDOxamq0jULzuXJ18Plsj/DYYr1d9yzVnU6jnkLIdgBgapY5l+Z
+	 9z/5aKPq8GfU/o4Ld5wUT8/Ii6U5HAKgU1f410onFyYmJkWpepDrCDRmQMOZD1VY/H
+	 16gKyCAwyP9sjqfzKI/7vuK50XPkT5mJwMRAU+mEVIMka9P3FSPwfFAjz697NEmuX9
+	 F0xrbH4WwthbEiRhnluec/iydIpOUqNsL4LAs2ZPidcH1ZSlPAd6Fnc1oICkd/Bpjp
+	 ZvzxCB2LilAYUWlnZt82XHcqnEBkQ8JhkTS3CHM+ye6UiSkWyLw4plYFKqJ9ZGURar
+	 Km0HUg2O2yMXg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FFCF3808200;
+	Wed, 18 Mar 2026 03:40:37 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [PATCH net-next v10 0/4] riscv: spacemit: Add ethernet support
+ for K3
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177380523578.113469.12534429691494800323.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Mar 2026 03:40:35 +0000
+References: <20260316010041.164360-1-inochiama@gmail.com>
+In-Reply-To: <20260316010041.164360-1-inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, dlan@kernel.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, richardcochran@gmail.com, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ rmk+kernel@armlinux.org.uk, me@ziyao.cc, siyanteng@cqsoftware.com.cn,
+ vladimir.oltean@nxp.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+ weishangjuan@eswincomputing.com, wens@kernel.org, lizhi2@eswincomputing.com,
+ boon.khai.ng@altera.com, maxime.chevallier@bootlin.com,
+ quentin.schulz@cherry.de, peppe.cavallaro@st.com, joabreu@synopsys.com,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, dlan@gentoo.org, looong.bin@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260317_194029_660347_BBE14429 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20260317_204047_840069_B5B1B83B 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,112 +87,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace devm_clk_get() followed by clk_prepare_enable() with
-devm_clk_get_enabled() for both "pclk" and "ref_clk". This removes
-the need for explicit clock enable and disable calls, as the managed
-API automatically disables the clocks on device removal or probe
-failure.
+Hello:
 
-Remove the now-unnecessary clk_disable_unprepare() calls from the
-probe error paths and the remove callback. Simplify error handling
-by jumping directly to the remove_ctlr label.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
----
- drivers/spi/spi-zynq-qspi.c | 31 ++++++-------------------------
- 1 file changed, 6 insertions(+), 25 deletions(-)
+On Mon, 16 Mar 2026 09:00:36 +0800 you wrote:
+> Add initial support for ethernet controller of the Spacemit K3 SoC.
+> This ethernet controller is almost a standard Synopsys DesignWare
+> MAC (version 5.40a). This controller require a syscon device to
+> configure some basic features, like interface type and internal delay.
+> 
+> Change from v9:
+> - https://lore.kernel.org/netdev/20260312012232.373713-1-inochiama@gmail.com
+> patch 3:
+> 1. fix misaligned brace.
+> 
+> [...]
 
-diff --git a/drivers/spi/spi-zynq-qspi.c b/drivers/spi/spi-zynq-qspi.c
-index 5232483c4a3a..8c3975030d0a 100644
---- a/drivers/spi/spi-zynq-qspi.c
-+++ b/drivers/spi/spi-zynq-qspi.c
-@@ -661,7 +661,7 @@ static int zynq_qspi_probe(struct platform_device *pdev)
- 		goto remove_ctlr;
- 	}
- 
--	xqspi->pclk = devm_clk_get(&pdev->dev, "pclk");
-+	xqspi->pclk = devm_clk_get_enabled(&pdev->dev, "pclk");
- 	if (IS_ERR(xqspi->pclk)) {
- 		dev_err(&pdev->dev, "pclk clock not found.\n");
- 		ret = PTR_ERR(xqspi->pclk);
-@@ -670,36 +670,24 @@ static int zynq_qspi_probe(struct platform_device *pdev)
- 
- 	init_completion(&xqspi->data_completion);
- 
--	xqspi->refclk = devm_clk_get(&pdev->dev, "ref_clk");
-+	xqspi->refclk = devm_clk_get_enabled(&pdev->dev, "ref_clk");
- 	if (IS_ERR(xqspi->refclk)) {
- 		dev_err(&pdev->dev, "ref_clk clock not found.\n");
- 		ret = PTR_ERR(xqspi->refclk);
- 		goto remove_ctlr;
- 	}
- 
--	ret = clk_prepare_enable(xqspi->pclk);
--	if (ret) {
--		dev_err(&pdev->dev, "Unable to enable APB clock.\n");
--		goto remove_ctlr;
--	}
--
--	ret = clk_prepare_enable(xqspi->refclk);
--	if (ret) {
--		dev_err(&pdev->dev, "Unable to enable device clock.\n");
--		goto clk_dis_pclk;
--	}
--
- 	xqspi->irq = platform_get_irq(pdev, 0);
- 	if (xqspi->irq < 0) {
- 		ret = xqspi->irq;
--		goto clk_dis_all;
-+		goto remove_ctlr;
- 	}
- 	ret = devm_request_irq(&pdev->dev, xqspi->irq, zynq_qspi_irq,
- 			       0, pdev->name, xqspi);
- 	if (ret != 0) {
- 		ret = -ENXIO;
- 		dev_err(&pdev->dev, "request_irq failed\n");
--		goto clk_dis_all;
-+		goto remove_ctlr;
- 	}
- 
- 	ret = of_property_read_u32(np, "num-cs",
-@@ -709,7 +697,7 @@ static int zynq_qspi_probe(struct platform_device *pdev)
- 	} else if (num_cs > ZYNQ_QSPI_MAX_NUM_CS) {
- 		ret = -EINVAL;
- 		dev_err(&pdev->dev, "only 2 chip selects are available\n");
--		goto clk_dis_all;
-+		goto remove_ctlr;
- 	} else {
- 		ctlr->num_chipselect = num_cs;
- 	}
-@@ -728,15 +716,11 @@ static int zynq_qspi_probe(struct platform_device *pdev)
- 	ret = devm_spi_register_controller(&pdev->dev, ctlr);
- 	if (ret) {
- 		dev_err(&pdev->dev, "devm_spi_register_controller failed\n");
--		goto clk_dis_all;
-+		goto remove_ctlr;
- 	}
- 
- 	return ret;
- 
--clk_dis_all:
--	clk_disable_unprepare(xqspi->refclk);
--clk_dis_pclk:
--	clk_disable_unprepare(xqspi->pclk);
- remove_ctlr:
- 	spi_controller_put(ctlr);
- 
-@@ -758,9 +742,6 @@ static void zynq_qspi_remove(struct platform_device *pdev)
- 	struct zynq_qspi *xqspi = platform_get_drvdata(pdev);
- 
- 	zynq_qspi_write(xqspi, ZYNQ_QSPI_ENABLE_OFFSET, 0);
--
--	clk_disable_unprepare(xqspi->refclk);
--	clk_disable_unprepare(xqspi->pclk);
- }
- 
- static const struct of_device_id zynq_qspi_of_match[] = {
+Here is the summary with links:
+  - [net-next,v10,1/4] dt-bindings: net: Add support for Spacemit K3 dwmac
+    https://git.kernel.org/netdev/net-next/c/bb30400a566c
+  - [net-next,v10,2/4] net: stmmac: platform: Add snps,dwmac-5.40a IP compatible string
+    https://git.kernel.org/netdev/net-next/c/d35aa97ea908
+  - [net-next,v10,3/4] net: stmmac: Add glue layer for Spacemit K3 SoC
+    https://git.kernel.org/netdev/net-next/c/30f0ba420ed3
+  - [net-next,v10,4/4] MAINTAINERS: add entry for SpacemiT DWMAC glue layer
+    https://git.kernel.org/netdev/net-next/c/25e7553a502b
+
+You are awesome, thank you!
 -- 
-2.25.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
