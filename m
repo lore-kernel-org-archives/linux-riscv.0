@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A409C10775E4
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 046DB10775E1
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bCQ6T5AeHMYIV34j0nYhFcH4KnT8mRKpU4AJFk8rbSU=; b=QM81jxGv6tJsVq
-	qqbE/dd2P9rqQPzCKJ0JW3EIuGviNDwMfO4TcLLHYb8wvoMUxfFQ0/jVc6oST0UKVfXf5nf7m0fT2
-	CfuGlXB0VoGNoEMwy1iXm5q/9slii8he8c4TrncJApC9uSToAuLNmdIJqWBlii02MkDfjIYRf9iE6
-	GP78Zr2X/szXbr3mawGFKfIwp9OFlh7FEO2UCzCLuJH7+RS+oBUBjTS41TNrdiNQXTPCAUPPMXKLv
-	Da7ukvipzWo87lDH/Xd2XVCs7/5HpQ10vUlWSdz0J4EzPTOhTHKQ3Kx7gRFkAri0RQ1Ay7qwlGTXF
-	vDweXtKbTeL8E562p0AA==;
+	List-Owner; bh=YbUGLEnl1LcGNIj9i5r5q9CdJaCJ0Jwe4wP6sPCHcFY=; b=sZ0bntcJQ1Op/6
+	wZearq85vnBe8X0HEBhN+C369tY1xcfkThv+iAt/Zh3A0u27QAL28z/LdiBG45dXY3rgrH7uR1MIy
+	W18FQNPLoIOMjZ/Y6/8DRdo0xOL7vWJBfDlNOVGxnGPY+N3C0rlSk2+RxBNftw+3g53h6iM5NMuv5
+	YxSggVf/Ou9Q14S9OyaiQleGsdnjsouc/iREMMyQI5Lus/OA++tltoj79WvKJWIPRobzRh+dnS/+n
+	tIx9v9ifR1iteP6NRf5sCt1t7IncYh8D8gr8hm6kd++KnD29y2d8xbsFUMTRMFz/wRE64Vuxs+nVD
+	2OVmP05BcvaH5mOpDmpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tup-00000008y7Z-2xFO;
-	Wed, 18 Mar 2026 16:38:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2tuv-00000008yBz-0ENq;
+	Wed, 18 Mar 2026 16:38:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tum-00000008y5O-2qs8
+	id 1w2tus-00000008y9k-2faq
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 16:38:37 +0000
+	Wed, 18 Mar 2026 16:38:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36BFF41E53;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B2DF41E53;
+	Wed, 18 Mar 2026 16:38:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7823DC2BCB2;
 	Wed, 18 Mar 2026 16:38:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7CE1C2BCAF;
-	Wed, 18 Mar 2026 16:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773851916;
-	bh=l0HWcNcVkVo9YLSrRqspDdP84/kdc2LHA5rpvVoVGqQ=;
+	s=k20201202; t=1773851921;
+	bh=gjHC8nKBbyN/J7nUktQURQT8MLrY5TCbtclmLfjJxcY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AkLHLtIDUQIcR2f35rUx0ynntzvhUqWnX0VejtaIQfCBp4uwxqQ1L2gf0dpXF6/Nn
-	 tdtHZHVK/kSEZidI+iHSEtDrAr6jOKAtyqiglrDAXxosW+Y8GM4pJVK+5uE122EztP
-	 VbowwyDnuUwuiuGl+ePXAURXYRyxLk1aRZLijSNvbnXRn0lKyhqUswGOZDaNlvyoxi
-	 FNOU51U0197+BQJB3uW87xqZpwxdva29it6s701LUCrH6sAOIRhsUjT+ccW60PHT4P
-	 T/lnJyPZAIZAnpjcdc0PqTOtByr5xiqQYAl5/hW1vJSvjCOwFmKwmatgO7toRd7zx1
-	 Z/4yzhyu5yRGw==
+	b=S/FKct6+uK+T5Tfm5J8abXN6B2PFfJyBjsDFx4A5VbcORHRuI5TwGXnhQhk2Vyfp4
+	 gCSu1s0vr49Y6T6FxWP+l63sxrbo+GlzYbtXmFZLCgU3PQS85P6sjtRKEn6eKnwJnP
+	 DeNzS8TcTHDf3pJwsvcd+9rmmM2O7Lk1kcVM3xtHwRvo1nRkd02wCXh9yMe+qd6xmy
+	 QHPlwPgxCMeUjLrsFX1c63Xu5MuHmIZQsHz4M/S76YPAdrMjAtpl8tuvOmkbRQP7BQ
+	 TIdOq1W/bsnwS/XN71qoM1DrIydNUhRDzmA1FmjRtlKHDzrILTjfjAhmQO6vwmX34i
+	 vo2aTjY1Tc27Q==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -72,19 +72,20 @@ Cc: conor@kernel.org,
 	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
 	Abin Joseph <abin.joseph@amd.com>,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
-	Ryan.Wanner@microchip.com
-Subject: [PATCH net-next v4 08/13] net: macb: clean up tsu clk rate acquisition
-Date: Wed, 18 Mar 2026 16:37:39 +0000
-Message-ID: <20260318-doable-precise-3952562ac964@spud>
+	Ryan.Wanner@microchip.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH net-next v4 09/13] dt-bindings: net: macb: add property indicating timer adjust mode
+Date: Wed, 18 Mar 2026 16:37:40 +0000
+Message-ID: <20260318-overdue-rotten-0edf34901a3d@spud>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260318-surpass-puzzle-f94b46aa8808@spud>
 References: <20260318-surpass-puzzle-f94b46aa8808@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1291; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=pBzsAzv0f5XjXC1axq0Olq90oNiYo0A1zmrCQdWDjrw=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJm7rlzaPCHYT3DXL+nzPRp1L578ODU9dFqEkpHUg7pZW 3+6iEmqdpSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAiQWyMDL/SrsSz9T8oc/Lc 7HJvY+iMe7WfxMV09uQYTFhvHvfwrxUjwzPZqDVn0o66VF1PSZJJeO+9pSupqnWDfOfCl4461s8 u8QIA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2116; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=g/wRNKNLFPT+82I0uxzexOCw4Xbz/Y2VsmMJeulMEF0=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJm7rly6LfIuj32O8wEvx7OSbabC1dvdlVOWHsiQ8Fghy qw5+5BaRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACaS4MXwV27HlyWqCYyNx7sL Pk7lz54Xe/nHJ+upqrtFJzZwKa8MP8zwv+7fpGqmvgnnUpNCtgQbNLe3Pwyb5TAp/kVG1pp3E2q 7OQA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_093836_764950_CED85B54 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260318_093842_723078_BAFEC0FF 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,42 +104,59 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-tsu_clk is grabbed during probe, so doesn't need to be re-grabbed here.
-pclk is mandatory, probe will fail if it is err/NULL, so there's no need
-to check it here or have a !pclk 3rd arm. Simplify gem_get_tsu_rate() to
-account for these facts.
+The GEM IP has two methods for modifying the ptp timer. The first of
+these, named "increment mode", relies on software controlling the timer
+by setting tsu_timer_incr and tsu_timer_incr_sub_nsec and performing
+once-off adjustments via the tsu_timer_adjust register. This is what the
+macb driver uses. The second mechanism, "timer adjust mode" uses the
+gem_tsu_inc_ctrl and gem_tsu_ms signals to control the timer. These
+modes are not intended to be used in parallel, but both can be possible
+on the same device and which mode is used cannot be determined from the
+compatible on all devices, because some users of the GEM IP are SoC
+FPGAs that permit configuring how the IP is wired up.
 
+Add a property to indicate that gem_tsu_inc_ctrl and gem_tsu_ms are wired
+up for timer adjust mode.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/net/ethernet/cadence/macb_main.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+ .../devicetree/bindings/net/cdns,macb.yaml        | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 6b37598ac57cd..38e75c2e097bf 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -3527,16 +3527,14 @@ static unsigned int gem_get_tsu_rate(struct macb *bp)
- 	struct clk *tsu_clk;
- 	unsigned int tsu_rate;
+diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+index f6df793c4af65..b9caa7e5ef328 100644
+--- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
++++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+@@ -150,6 +150,12 @@ properties:
+       that need to be filled, before the forwarding process is activated.
+       Width of the SRAM is platform dependent, and can be 4, 8 or 16 bytes.
  
--	tsu_clk = devm_clk_get(&bp->pdev->dev, "tsu_clk");
--	if (!IS_ERR(tsu_clk))
--		tsu_rate = clk_get_rate(tsu_clk);
--	/* try pclk instead */
--	else if (!IS_ERR(bp->pclk)) {
-+	if (!IS_ERR_OR_NULL(bp->tsu_clk)) {
-+		tsu_rate = clk_get_rate(bp->tsu_clk);
-+	} else {
- 		tsu_clk = bp->pclk;
- 		tsu_rate = clk_get_rate(tsu_clk);
- 		dev_warn(&bp->pdev->dev, "devicetree missing tsu_clk, using pclk as fallback\n");
--	} else
--		return -ENOTSUPP;
-+	}
++  cdns,timer-adjust:
++    type: boolean
++    description:
++      Set when the hardware is operating in timer-adjust mode, where the timer
++      is controlled by the gem_tsu_inc_ctrl and gem_tsu_ms inputs.
 +
- 	return tsu_rate;
- }
+   '#address-cells':
+     const: 1
  
+@@ -199,6 +205,15 @@ allOf:
+       properties:
+         reg:
+           maxItems: 1
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              const: microchip,mpfs-macb
++    then:
++      properties:
++        cdns,timer-adjust: false
+ 
+   - if:
+       properties:
 -- 
 2.51.0
 
