@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A9610854D0
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 09:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D2E10854DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 09:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T44lChMQRuA1ekdW1n8gFn7IeLO571lIftcw6y5nRjA=; b=Yal8SsXWegItg5
-	ml5P6ynFj3Y3RvYzfZZM6fr9Liro98pBoYcwQnDmDWgmk7uF2RoorlevM867Dw/U1TNYTF6Gm7N/B
-	GVeHcCzXw/nECP9PhTV8MubHjv27pZ+D+o3KGvzskrZxZ5+kWAr+swE+jlo0Oh0W1k5Ap5T0x4OvC
-	BnsdtMoruJZsXIj2sU7kfXLPL0r3+ymM0l9sl7wYFZwXFpKLa3XJItZYkq89/8dgmNNr1eipz0CMm
-	IyJgNBypO50Dhd0DfxJQOJGztMLbLKKalSGyIM2v8HlWF8R4cbMeCP7jlHk6zR0KjTDkHWyqLvMuh
-	4xtmwTmEQr6vZN3vLtJQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LqEMcI4Ufw6lEBetwJcseCCTVAQwT8sMhgnRnlYfYc8=; b=isEDPxK9SN4Kby
+	4jfi3EK2276wMfliQNXiRZMgVka8Bprzb40aRM7GyQNhwC55iN1XjszNgB1peR4WIJRzAppTPTq3O
+	Q5hwoCweDenYM5DGjubgZNRqzvnwk93PUhhf7w+yoEW2JkAdmRvmgEmDRjXvkEBbl8NcRC3zqJLLa
+	Dh6M8Id82HCE/E8Qv+YgZMAsg87puPki1kCBaxTWpgP68mxBoB//nWGpcRD5O2UgUntMI5yF1wM44
+	Tfdw+rVUSj+jd1rkYLwthqqZDX9CzCSkIfi+xfJ/CX0iuGYyyLgNotXM43Aw4gqRwpxYAPl4oTDnd
+	xJFM0g1EZvpP2gddkxrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mmD-0000000862h-0hWh;
-	Wed, 18 Mar 2026 09:01:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w2nEO-000000089AX-0cH9;
+	Wed, 18 Mar 2026 09:30:24 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2mm5-0000000861p-16Ok
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 09:01:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94A56440F6;
-	Wed, 18 Mar 2026 09:01:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E842EC19421;
-	Wed, 18 Mar 2026 09:01:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773824468;
-	bh=Y7NA/QDIalWo3D2nRcGD3UiRiGnKtgUyJPIS23k/YlA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oNYnbJhJQKFMBTOaoOaL8B3vntvOGTJkSyS/fiTuXvhdF4d5UlKf03QNdWwm6N8N+
-	 xjbBULijEY1lvlNOH023Kplgl+ZhyRFTN3KA7jzoingqBX3gHGgOqGE7SQMroxZRrR
-	 UHytpJQlqFMRtaYh71y5QfcKcbh0mXpmbDBUyKMw5nDLst6AY8qZLaq6ONVvd6z5K/
-	 WR5ytD4+hI8JcG9hAjUodVBrcE53o9X/WUS8VeKiaaR/PTpKeeY+jxNMD+/4bYHS25
-	 EFyGlO9Ui/E6U1G8a850TbCwzg/cdM1X09u/MKXtq1pjYN1usq319IIJLZnqUm87z/
-	 mzVhOiUfKgyNA==
-Date: Wed, 18 Mar 2026 10:01:05 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Junzhong Pan <junzhong.pan@spacemit.com>, Inochi Amaoto <inochiama@gmail.com>, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] riscv: dts: spacemit: k3: Add USB2.0 support
-Message-ID: <20260318-belligerent-boa-of-resistance-4b98a0@quoll>
-References: <20260317-02-k3-usb20-support-v1-0-d89f59062ad4@kernel.org>
- <20260317-02-k3-usb20-support-v1-3-d89f59062ad4@kernel.org>
+	id 1w2nEI-0000000899m-0fTi;
+	Wed, 18 Mar 2026 09:30:22 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-03 (Coremail) with SMTP id rQCowABnieCVcLppXb4CCw--.589S2;
+	Wed, 18 Mar 2026 17:29:57 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Fix double-free of sdata in kvm_pmu_clear_snapshot_area()
+Date: Wed, 18 Mar 2026 09:29:56 +0000
+Message-Id: <20260318092956.708246-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260317-02-k3-usb20-support-v1-3-d89f59062ad4@kernel.org>
+X-CM-TRANSID: rQCowABnieCVcLppXb4CCw--.589S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AF43Wr1DArWfCw1xZr4fKrg_yoW5JFy5pr
+	WDC3WkWrWFyFn7K342yanY9ry8trWYgrn3Kr1DWFy5Gr13KFZ5Zw4v9ryUWry3Z3yvqF9a
+	yr40kFy8uFn0q3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUP014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr0_Gr
+	1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67
+	AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
+	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc4
+	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
+	xVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr
+	1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbyCJPUU
+	UUU==
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCQ4KCWm6Z5gnFwAAsY
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_020109_320341_CC618A0C 
-X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-CacheID: sfid-20260318_023018_592980_F23BBC38 
+X-CRM114-Status: UNSURE (   8.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,24 +88,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 11:53:04AM +0000, Yixun Lan wrote:
-> The USB2.0 controller on Pico-ITX board connnects to a Terminus FE1.1 Hub
-> which fully USB2.0 protocol compliant and provides 4 ports.
-> 
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 24 +++++++++++++++++++++
->  arch/riscv/boot/dts/spacemit/k3.dtsi         | 31 ++++++++++++++++++++++++++++
->  2 files changed, 55 insertions(+)
-> 
+In kvm_riscv_vcpu_pmu_snapshot_set_shmem(), when kvm_vcpu_write_guest()
+fails, kvpmu->sdata is freed but not set to NULL. This leaves a dangling
+pointer that will be freed again when kvm_pmu_clear_snapshot_area() is
+called during vcpu teardown, triggering a KASAN double-free report.
 
-DTS cannot be combined in this patchset and must be split. Don't mix
-patches from independent subsystems when you send something explicitly
-targeting only one subsystem.
-See also: Documentation/devicetree/bindings/submitting-patches.rst
+First free occurs in kvm_riscv_vcpu_pmu_snapshot_set_shmem():
+ kvm_riscv_vcpu_pmu_snapshot_set_shmem arch/riscv/kvm/vcpu_pmu.c:443
+ kvm_sbi_ext_pmu_handler arch/riscv/kvm/vcpu_sbi_pmu.c:74
+ kvm_riscv_vcpu_sbi_ecall arch/riscv/kvm/vcpu_sbi.c:608
+ kvm_riscv_vcpu_exit arch/riscv/kvm/vcpu_exit.c:240
+ kvm_arch_vcpu_ioctl_run arch/riscv/kvm/vcpu.c:1008
+ kvm_vcpu_ioctl virt/kvm/kvm_main.c:4476
 
-Best regards,
-Krzysztof
+Second free (double-free) occurs in kvm_pmu_clear_snapshot_area():
+ kvm_pmu_clear_snapshot_area arch/riscv/kvm/vcpu_pmu.c:403 [inline]
+ kvm_riscv_vcpu_pmu_deinit.part arch/riscv/kvm/vcpu_pmu.c:905
+ kvm_riscv_vcpu_pmu_deinit arch/riscv/kvm/vcpu_pmu.c:893
+ kvm_arch_vcpu_destroy arch/riscv/kvm/vcpu.c:199
+ kvm_vcpu_destroy virt/kvm/kvm_main.c:469 [inline]
+ kvm_destroy_vcpus virt/kvm/kvm_main.c:489
+ kvm_arch_destroy_vm arch/riscv/kvm/vm.c:54
+ kvm_destroy_vm virt/kvm/kvm_main.c:1301 [inline]
+ kvm_put_kvm virt/kvm/kvm_main.c:1338
+ kvm_vm_release virt/kvm/kvm_main.c:1361
+
+Fix it by setting kvpmu->sdata to NULL after kfree() in
+kvm_riscv_vcpu_pmu_snapshot_set_shmem(), so that the subsequent
+kfree(NULL) in kvm_pmu_clear_snapshot_area() becomes a safe no-op.
+
+This bug was found by fuzzing the KVM RISC-V PMU interface.
+
+Fixes: c2f41ddbcdd756 ("RISC-V: KVM: Implement SBI PMU Snapshot feature")
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+---
+ arch/riscv/kvm/vcpu_pmu.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index e873430e596b2..ac1b9a91a19db 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -441,6 +441,7 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 	/* No need to check writable slot explicitly as kvm_vcpu_write_guest does it internally */
+ 	if (kvm_vcpu_write_guest(vcpu, saddr, kvpmu->sdata, snapshot_area_size)) {
+ 		kfree(kvpmu->sdata);
++		kvpmu->sdata = NULL;
+ 		sbiret = SBI_ERR_INVALID_ADDRESS;
+ 		goto out;
+ 	}
+-- 
+2.34.1
 
 
 _______________________________________________
