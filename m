@@ -4,130 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B90103E198
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 15:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA6F10775E1
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NBzfi8UmrG8gkTQ0RcotYXBdVLYEPjTYWkHZdaLNG7g=; b=nEWQikCib810ER
-	tuKuvv3hjueX/dsa96x2kXB5+WEgb1N43zMLgAPfkSDwHQ8XFu9TuS81TLYwA26tG84i45B1Q1Csg
-	C1AtuM5P1DiZZ7hBLBe/4oJaId/cLLl871KDRuVhTLRSKbwHSc3LSDzIXFB1qai72Px9woonSOIT3
-	uKRrlqDFnCeW5KziVgWU6hBEMgq0hSePHhg/AF2TZ80tYng0byRKQyM39PTNRa7s9OrxsdatYGpyn
-	u7Hl7bn2LvFU2rbm6FslBMpzbtBSIxnj69ci5fC0hKstsv1rmye/8UCCyojHE3N+8QCoGxDah1XsQ
-	66Fo3Tb7X6cBy2w2d9cA==;
+	List-Owner; bh=t6eHAPCD4+gmAKtX3zojD6R8n+7tco2pMoAo/EGhuWA=; b=U96+VATeEmFK6+
+	0RfO0+lr+ES64zccjkcMljhkCqVa0V8PFVsvDPmwtIzE+tliy0KjKUbNlDKkTUvWXkKtydYcduPiU
+	Kd0n0JP2iDzXT2EC6kuOWXhgE1upfrdx7FRzO5AYPPlDwvJJqt7pY7f6GXktsxfg1mgfmwVbczg5Q
+	LcJ9/IYEVzJK7v27XxKDE2Qy1jWhIBsH6QoEmv+gpS9lKb1re3XgvN+psThtzXdK+eJ849UHGFiTs
+	gvlO1mK6V33/+XaJ3YBZlRKaoXVdzYaq79Jr2fGpTW9Lk2W3oc9Qk05lpApn9E2WzAo4JxO4w0AQD
+	uiVfZGDWavJBCaNm0p8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tBd-00000008miX-021b;
-	Wed, 18 Mar 2026 15:51:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2tfC-00000008ueT-3OYD;
+	Wed, 18 Mar 2026 16:22:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tBb-00000008mei-2Dws;
-	Wed, 18 Mar 2026 15:51:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=pajZQrF/3/L4n2QR2m/Zu9zxH8XTR1iw4nvDDShpbZY=; b=WuQhUUAPuOnu4shZuy4pPO2o/s
-	iahZJ61yWLwdNV3tzAd7cSutFfWxDkhv1iFcwkhQQrt1DgvfPvPrRIMf7dEr0Xf+QPXiXE5Vod6Q0
-	NKl5Iuq1sHpXddPIPTcNlPJdl+Hs58ZcDyF+pYO7zfzE/pG97uZLRQ318D4D53/K+y0POy2RDgXtW
-	/YDwgQGaZAQm6oiKhIHvBx9rJQ5mrfRcENjR6GfCqDuQjpLVMNQMxKwdHsBHfLyhQ4mLUP/+is/Pn
-	xZvnVvjT8whLGwzDyMBqLcjYpaF3MO4OIf5N54j2o5wYFeOixWVOnjfHC0+AWpXdFs0VJeEsbnU9O
-	v1wElGUA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tBW-0000000Bcat-2wLa;
-	Wed, 18 Mar 2026 15:51:53 +0000
+	id 1w2tfA-00000008udm-0kCT;
+	Wed, 18 Mar 2026 16:22:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1540F434F4;
-	Wed, 18 Mar 2026 15:51:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54065C2BC87;
-	Wed, 18 Mar 2026 15:51:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A99260097;
+	Wed, 18 Mar 2026 16:22:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AC48C19421;
+	Wed, 18 Mar 2026 16:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773849105;
-	bh=TKnS9ldxHLUPA8n5L3TssqyImjVUII3Zigq7w5opl1k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=keurN0al0ZnaiXinusOQ42eJ2aBTLNluJ+UdtGwHwDXvo/nry3IfTw8Btlf+YEM+5
-	 fwtApz4OV8JxLN19R16nnKOjB9GlBbd7CzWodmVkxP2WQDvMrIc730FFNaTw/1nyTz
-	 TL7uIhzecz4fSxfn0Y36YNbATwq0gq2pzn7qUQq9f6zrMcWIfiyFG8ur5n0jqvDcaa
-	 bUUm/dO8MX0D/0eyT3FqR3w9xIhy5X57tTUHwEXf2ukNKIoEP6tRWyRH6/qPiFC2sM
-	 0ShlhHQzU+d/50jXxWikMVqIMfHWaskHos2keJDPThVM4v3Ybe9T8GMqAyTq01tYxS
-	 YCSpo0y8CeNDA==
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Jann Horn <jannh@google.com>,
-	Pedro Falcato <pfalcato@suse.de>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Kees Cook <kees@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Brian Cain <bcain@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Xu Xin <xu.xin16@zte.com.cn>,
-	Chengming Zhou <chengming.zhou@linux.dev>,
-	Michal Hocko <mhocko@suse.com>,
-	Paul Moore <paul@paul-moore.com>,
-	Stephen Smalley <stephen.smalley.work@gmail.com>,
-	Ondrej Mosnacek <omosnace@redhat.com>,
-	linux-snps-arc@lists.infradead.org,
+	s=k20201202; t=1773850947;
+	bh=FGNSu4DlIfiUMZa5ZkmaJp/QIn2lggE4u2Ndygv6FBY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XpeluXyxDsZzF3NAmckdqJwpVkaAqttUopjBMOigcEjrW9PG4hOk9bFNjIu2+1hu1
+	 IcsDTmGhCVATBRixcmNQQhBpayz2AxBxUoh+MbYsjRcLuorNTLiwBf6/k0JgHJn6Wz
+	 raA3nLiznqIL8OBq0mPUTLKCPd5eb3Bv2V64KLPcxM+MrRFRw5yx4UwmNfiJttbMZO
+	 J7HUEZM+SLsx9D5/aRBj0upZmqFXxEgFHzFGt2zHtfm6J4HCe4vfApVE0dgUg61GmQ
+	 0lp53wfP1tgknNDPDCf1MumSabgXnKYpdnqZftaDNWH4frl/QojAulg09IVXxCoww0
+	 l5WkFd3jbD+kg==
+Date: Wed, 18 Mar 2026 09:22:26 -0700
+From: Kees Cook <kees@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	selinux@vger.kernel.org
-Subject: [PATCH v3 23/23] mm/vma: convert __mmap_region() to use vma_flags_t
-Date: Wed, 18 Mar 2026 15:50:34 +0000
-Message-ID: <c587f5ed177fd4f62b66cb8d5321fa56eeb6a69a.1773846935.git.ljs@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1773846935.git.ljs@kernel.org>
-References: <cover.1773846935.git.ljs@kernel.org>
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-mips@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org
+Subject: Re: [PATCH 00/15] exec: Remove AT_VECTOR_SIZE_ARCH from UAPI
+Message-ID: <202603180921.1B52D626@keescook>
+References: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_155151_280512_60DE1DC3 
-X-CRM114-Status: GOOD (  25.66  )
+Content-Disposition: inline
+In-Reply-To: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,424 +68,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the mmap() implementation logic implemented in __mmap_region() and
-functions invoked by it.  The mmap_region() function converts its input
-vm_flags_t parameter to a vma_flags_t value which it then passes to
-__mmap_region() which uses the vma_flags_t value consistently from then
-on.
+On Mon, Mar 02, 2026 at 01:25:24PM +0100, Thomas Wei=DFschuh wrote:
+> There is nothing userspace can do with this value. In the kernel is
+> always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
+> userspace and also changes from time to time.
+> =
 
-As part of the change, we convert map_deny_write_exec() to using
-vma_flags_t (it was incorrectly using unsigned long before), and place it
-in vma.h, as it is only used internal to mm.
+> Move the symbol to kernel-internal headers.
+> =
 
-With this change, we eliminate the legacy is_shared_maywrite_vm_flags()
-helper function which is now no longer required.
+> Meant to be applied through the asm-generic tree.
+> The default recipient list was huge. I trimmed it to only the
+> architecture lists.
 
-We are also able to update the MMAP_STATE() and VMG_MMAP_STATE() macros to
-use the vma_flags_t value.
+I don't see anything in Debian Code Search that actually uses this
+symbol, so that seems fine. Userspace already parses auxvec looking for
+AT_NULL, so length isn't useful.
 
-Finally, we update the VMA tests to reflect the change.
+Reviewed-by: Kees Cook <kees@kernel.org>
 
-Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
----
- include/linux/mm.h              | 18 ++++++++----
- include/linux/mman.h            | 49 -------------------------------
- mm/mprotect.c                   |  4 ++-
- mm/vma.c                        | 25 ++++++++--------
- mm/vma.h                        | 51 +++++++++++++++++++++++++++++++++
- tools/testing/vma/include/dup.h | 34 +++++-----------------
- tools/testing/vma/tests/mmap.c  | 18 ++++--------
- 7 files changed, 92 insertions(+), 107 deletions(-)
+> =
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 174b1d781ca0..42cc40aa63d9 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -1529,12 +1529,6 @@ static inline bool vma_is_accessible(const struct vm_area_struct *vma)
- 	return vma->vm_flags & VM_ACCESS_FLAGS;
- }
- 
--static inline bool is_shared_maywrite_vm_flags(vm_flags_t vm_flags)
--{
--	return (vm_flags & (VM_SHARED | VM_MAYWRITE)) ==
--		(VM_SHARED | VM_MAYWRITE);
--}
--
- static inline bool is_shared_maywrite(const vma_flags_t *flags)
- {
- 	return vma_flags_test_all(flags, VMA_SHARED_BIT, VMA_MAYWRITE_BIT);
-@@ -4351,12 +4345,24 @@ static inline bool range_in_vma(const struct vm_area_struct *vma,
- 
- #ifdef CONFIG_MMU
- pgprot_t vm_get_page_prot(vm_flags_t vm_flags);
-+
-+static inline pgprot_t vma_get_page_prot(vma_flags_t vma_flags)
-+{
-+	const vm_flags_t vm_flags = vma_flags_to_legacy(vma_flags);
-+
-+	return vm_get_page_prot(vm_flags);
-+}
-+
- void vma_set_page_prot(struct vm_area_struct *vma);
- #else
- static inline pgprot_t vm_get_page_prot(vm_flags_t vm_flags)
- {
- 	return __pgprot(0);
- }
-+static inline pgprot_t vma_get_page_prot(vma_flags_t vma_flags)
-+{
-+	return __pgprot(0);
-+}
- static inline void vma_set_page_prot(struct vm_area_struct *vma)
- {
- 	vma->vm_page_prot = vm_get_page_prot(vma->vm_flags);
-diff --git a/include/linux/mman.h b/include/linux/mman.h
-index 0ba8a7e8b90a..389521594c69 100644
---- a/include/linux/mman.h
-+++ b/include/linux/mman.h
-@@ -170,53 +170,4 @@ static inline bool arch_memory_deny_write_exec_supported(void)
- }
- #define arch_memory_deny_write_exec_supported arch_memory_deny_write_exec_supported
- #endif
--
--/*
-- * Denies creating a writable executable mapping or gaining executable permissions.
-- *
-- * This denies the following:
-- *
-- * 	a)	mmap(PROT_WRITE | PROT_EXEC)
-- *
-- *	b)	mmap(PROT_WRITE)
-- *		mprotect(PROT_EXEC)
-- *
-- *	c)	mmap(PROT_WRITE)
-- *		mprotect(PROT_READ)
-- *		mprotect(PROT_EXEC)
-- *
-- * But allows the following:
-- *
-- *	d)	mmap(PROT_READ | PROT_EXEC)
-- *		mmap(PROT_READ | PROT_EXEC | PROT_BTI)
-- *
-- * This is only applicable if the user has set the Memory-Deny-Write-Execute
-- * (MDWE) protection mask for the current process.
-- *
-- * @old specifies the VMA flags the VMA originally possessed, and @new the ones
-- * we propose to set.
-- *
-- * Return: false if proposed change is OK, true if not ok and should be denied.
-- */
--static inline bool map_deny_write_exec(unsigned long old, unsigned long new)
--{
--	/* If MDWE is disabled, we have nothing to deny. */
--	if (!mm_flags_test(MMF_HAS_MDWE, current->mm))
--		return false;
--
--	/* If the new VMA is not executable, we have nothing to deny. */
--	if (!(new & VM_EXEC))
--		return false;
--
--	/* Under MDWE we do not accept newly writably executable VMAs... */
--	if (new & VM_WRITE)
--		return true;
--
--	/* ...nor previously non-executable VMAs becoming executable. */
--	if (!(old & VM_EXEC))
--		return true;
--
--	return false;
--}
--
- #endif /* _LINUX_MMAN_H */
-diff --git a/mm/mprotect.c b/mm/mprotect.c
-index 2b8a85689ab7..ef09cd1aa33f 100644
---- a/mm/mprotect.c
-+++ b/mm/mprotect.c
-@@ -882,6 +882,7 @@ static int do_mprotect_pkey(unsigned long start, size_t len,
- 	tmp = vma->vm_start;
- 	for_each_vma_range(vmi, vma, end) {
- 		vm_flags_t mask_off_old_flags;
-+		vma_flags_t new_vma_flags;
- 		vm_flags_t newflags;
- 		int new_vma_pkey;
- 
-@@ -904,6 +905,7 @@ static int do_mprotect_pkey(unsigned long start, size_t len,
- 		new_vma_pkey = arch_override_mprotect_pkey(vma, prot, pkey);
- 		newflags = calc_vm_prot_bits(prot, new_vma_pkey);
- 		newflags |= (vma->vm_flags & ~mask_off_old_flags);
-+		new_vma_flags = legacy_to_vma_flags(newflags);
- 
- 		/* newflags >> 4 shift VM_MAY% in place of VM_% */
- 		if ((newflags & ~(newflags >> 4)) & VM_ACCESS_FLAGS) {
-@@ -911,7 +913,7 @@ static int do_mprotect_pkey(unsigned long start, size_t len,
- 			break;
- 		}
- 
--		if (map_deny_write_exec(vma->vm_flags, newflags)) {
-+		if (map_deny_write_exec(&vma->flags, &new_vma_flags)) {
- 			error = -EACCES;
- 			break;
- 		}
-diff --git a/mm/vma.c b/mm/vma.c
-index fd47af6d857f..8cccaeb8ccbb 100644
---- a/mm/vma.c
-+++ b/mm/vma.c
-@@ -44,7 +44,7 @@ struct mmap_state {
- 	bool file_doesnt_need_get :1;
- };
- 
--#define MMAP_STATE(name, mm_, vmi_, addr_, len_, pgoff_, vm_flags_, file_) \
-+#define MMAP_STATE(name, mm_, vmi_, addr_, len_, pgoff_, vma_flags_, file_) \
- 	struct mmap_state name = {					\
- 		.mm = mm_,						\
- 		.vmi = vmi_,						\
-@@ -52,9 +52,9 @@ struct mmap_state {
- 		.end = (addr_) + (len_),				\
- 		.pgoff = pgoff_,					\
- 		.pglen = PHYS_PFN(len_),				\
--		.vm_flags = vm_flags_,					\
-+		.vma_flags = vma_flags_,				\
- 		.file = file_,						\
--		.page_prot = vm_get_page_prot(vm_flags_),		\
-+		.page_prot = vma_get_page_prot(vma_flags_),		\
- 	}
- 
- #define VMG_MMAP_STATE(name, map_, vma_)				\
-@@ -63,7 +63,7 @@ struct mmap_state {
- 		.vmi = (map_)->vmi,					\
- 		.start = (map_)->addr,					\
- 		.end = (map_)->end,					\
--		.vm_flags = (map_)->vm_flags,				\
-+		.vma_flags = (map_)->vma_flags,				\
- 		.pgoff = (map_)->pgoff,					\
- 		.file = (map_)->file,					\
- 		.prev = (map_)->prev,					\
-@@ -2746,14 +2746,14 @@ static int call_action_complete(struct mmap_state *map,
- }
- 
- static unsigned long __mmap_region(struct file *file, unsigned long addr,
--		unsigned long len, vm_flags_t vm_flags, unsigned long pgoff,
--		struct list_head *uf)
-+		unsigned long len, vma_flags_t vma_flags,
-+		unsigned long pgoff, struct list_head *uf)
- {
- 	struct mm_struct *mm = current->mm;
- 	struct vm_area_struct *vma = NULL;
- 	bool have_mmap_prepare = file && file->f_op->mmap_prepare;
- 	VMA_ITERATOR(vmi, mm, addr);
--	MMAP_STATE(map, mm, &vmi, addr, len, pgoff, vm_flags, file);
-+	MMAP_STATE(map, mm, &vmi, addr, len, pgoff, vma_flags, file);
- 	struct vm_area_desc desc = {
- 		.mm = mm,
- 		.file = file,
-@@ -2837,16 +2837,17 @@ static unsigned long __mmap_region(struct file *file, unsigned long addr,
-  * been performed.
-  */
- unsigned long mmap_region(struct file *file, unsigned long addr,
--			  unsigned long len, vm_flags_t vm_flags, unsigned long pgoff,
--			  struct list_head *uf)
-+			  unsigned long len, vm_flags_t vm_flags,
-+			  unsigned long pgoff, struct list_head *uf)
- {
- 	unsigned long ret;
- 	bool writable_file_mapping = false;
-+	const vma_flags_t vma_flags = legacy_to_vma_flags(vm_flags);
- 
- 	mmap_assert_write_locked(current->mm);
- 
- 	/* Check to see if MDWE is applicable. */
--	if (map_deny_write_exec(vm_flags, vm_flags))
-+	if (map_deny_write_exec(&vma_flags, &vma_flags))
- 		return -EACCES;
- 
- 	/* Allow architectures to sanity-check the vm_flags. */
-@@ -2854,7 +2855,7 @@ unsigned long mmap_region(struct file *file, unsigned long addr,
- 		return -EINVAL;
- 
- 	/* Map writable and ensure this isn't a sealed memfd. */
--	if (file && is_shared_maywrite_vm_flags(vm_flags)) {
-+	if (file && is_shared_maywrite(&vma_flags)) {
- 		int error = mapping_map_writable(file->f_mapping);
- 
- 		if (error)
-@@ -2862,7 +2863,7 @@ unsigned long mmap_region(struct file *file, unsigned long addr,
- 		writable_file_mapping = true;
- 	}
- 
--	ret = __mmap_region(file, addr, len, vm_flags, pgoff, uf);
-+	ret = __mmap_region(file, addr, len, vma_flags, pgoff, uf);
- 
- 	/* Clear our write mapping regardless of error. */
- 	if (writable_file_mapping)
-diff --git a/mm/vma.h b/mm/vma.h
-index 270008e5babc..adc18f7dd9f1 100644
---- a/mm/vma.h
-+++ b/mm/vma.h
-@@ -704,4 +704,55 @@ int create_init_stack_vma(struct mm_struct *mm, struct vm_area_struct **vmap,
- int relocate_vma_down(struct vm_area_struct *vma, unsigned long shift);
- #endif
- 
-+#ifdef CONFIG_MMU
-+/*
-+ * Denies creating a writable executable mapping or gaining executable permissions.
-+ *
-+ * This denies the following:
-+ *
-+ *	a)	mmap(PROT_WRITE | PROT_EXEC)
-+ *
-+ *	b)	mmap(PROT_WRITE)
-+ *		mprotect(PROT_EXEC)
-+ *
-+ *	c)	mmap(PROT_WRITE)
-+ *		mprotect(PROT_READ)
-+ *		mprotect(PROT_EXEC)
-+ *
-+ * But allows the following:
-+ *
-+ *	d)	mmap(PROT_READ | PROT_EXEC)
-+ *		mmap(PROT_READ | PROT_EXEC | PROT_BTI)
-+ *
-+ * This is only applicable if the user has set the Memory-Deny-Write-Execute
-+ * (MDWE) protection mask for the current process.
-+ *
-+ * @old specifies the VMA flags the VMA originally possessed, and @new the ones
-+ * we propose to set.
-+ *
-+ * Return: false if proposed change is OK, true if not ok and should be denied.
-+ */
-+static inline bool map_deny_write_exec(const vma_flags_t *old,
-+				       const vma_flags_t *new)
-+{
-+	/* If MDWE is disabled, we have nothing to deny. */
-+	if (!mm_flags_test(MMF_HAS_MDWE, current->mm))
-+		return false;
-+
-+	/* If the new VMA is not executable, we have nothing to deny. */
-+	if (!vma_flags_test(new, VMA_EXEC_BIT))
-+		return false;
-+
-+	/* Under MDWE we do not accept newly writably executable VMAs... */
-+	if (vma_flags_test(new, VMA_WRITE_BIT))
-+		return true;
-+
-+	/* ...nor previously non-executable VMAs becoming executable. */
-+	if (!vma_flags_test(old, VMA_EXEC_BIT))
-+		return true;
-+
-+	return false;
-+}
-+#endif
-+
- #endif	/* __MM_VMA_H */
-diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
-index 58a621ec389f..b69eefba4cf7 100644
---- a/tools/testing/vma/include/dup.h
-+++ b/tools/testing/vma/include/dup.h
-@@ -1120,12 +1120,6 @@ static __always_inline void vma_desc_clear_flags_mask(struct vm_area_desc *desc,
- #define vma_desc_clear_flags(desc, ...) \
- 	vma_desc_clear_flags_mask(desc, mk_vma_flags(__VA_ARGS__))
- 
--static inline bool is_shared_maywrite_vm_flags(vm_flags_t vm_flags)
--{
--	return (vm_flags & (VM_SHARED | VM_MAYWRITE)) ==
--		(VM_SHARED | VM_MAYWRITE);
--}
--
- static inline bool is_shared_maywrite(const vma_flags_t *flags)
- {
- 	return vma_flags_test_all(flags, VMA_SHARED_BIT, VMA_MAYWRITE_BIT);
-@@ -1442,27 +1436,6 @@ static inline bool mlock_future_ok(const struct mm_struct *mm,
- 	return locked_pages <= limit_pages;
- }
- 
--static inline bool map_deny_write_exec(unsigned long old, unsigned long new)
--{
--	/* If MDWE is disabled, we have nothing to deny. */
--	if (mm_flags_test(MMF_HAS_MDWE, current->mm))
--		return false;
--
--	/* If the new VMA is not executable, we have nothing to deny. */
--	if (!(new & VM_EXEC))
--		return false;
--
--	/* Under MDWE we do not accept newly writably executable VMAs... */
--	if (new & VM_WRITE)
--		return true;
--
--	/* ...nor previously non-executable VMAs becoming executable. */
--	if (!(old & VM_EXEC))
--		return true;
--
--	return false;
--}
--
- static inline int mapping_map_writable(struct address_space *mapping)
- {
- 	return atomic_inc_unless_negative(&mapping->i_mmap_writable) ?
-@@ -1514,3 +1487,10 @@ static inline int get_sysctl_max_map_count(void)
- #ifndef pgtable_supports_soft_dirty
- #define pgtable_supports_soft_dirty()	IS_ENABLED(CONFIG_MEM_SOFT_DIRTY)
- #endif
-+
-+static inline pgprot_t vma_get_page_prot(vma_flags_t vma_flags)
-+{
-+	const vm_flags_t vm_flags = vma_flags_to_legacy(vma_flags);
-+
-+	return vm_get_page_prot(vm_flags);
-+}
-diff --git a/tools/testing/vma/tests/mmap.c b/tools/testing/vma/tests/mmap.c
-index bded4ecbe5db..c85bc000d1cb 100644
---- a/tools/testing/vma/tests/mmap.c
-+++ b/tools/testing/vma/tests/mmap.c
-@@ -2,6 +2,8 @@
- 
- static bool test_mmap_region_basic(void)
- {
-+	const vma_flags_t vma_flags = mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT,
-+			VMA_MAYREAD_BIT, VMA_MAYWRITE_BIT);
- 	struct mm_struct mm = {};
- 	unsigned long addr;
- 	struct vm_area_struct *vma;
-@@ -10,27 +12,19 @@ static bool test_mmap_region_basic(void)
- 	current->mm = &mm;
- 
- 	/* Map at 0x300000, length 0x3000. */
--	addr = __mmap_region(NULL, 0x300000, 0x3000,
--			     VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE,
--			     0x300, NULL);
-+	addr = __mmap_region(NULL, 0x300000, 0x3000, vma_flags, 0x300, NULL);
- 	ASSERT_EQ(addr, 0x300000);
- 
- 	/* Map at 0x250000, length 0x3000. */
--	addr = __mmap_region(NULL, 0x250000, 0x3000,
--			     VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE,
--			     0x250, NULL);
-+	addr = __mmap_region(NULL, 0x250000, 0x3000, vma_flags, 0x250, NULL);
- 	ASSERT_EQ(addr, 0x250000);
- 
- 	/* Map at 0x303000, merging to 0x300000 of length 0x6000. */
--	addr = __mmap_region(NULL, 0x303000, 0x3000,
--			     VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE,
--			     0x303, NULL);
-+	addr = __mmap_region(NULL, 0x303000, 0x3000, vma_flags, 0x303, NULL);
- 	ASSERT_EQ(addr, 0x303000);
- 
- 	/* Map at 0x24d000, merging to 0x250000 of length 0x6000. */
--	addr = __mmap_region(NULL, 0x24d000, 0x3000,
--			     VM_READ | VM_WRITE | VM_MAYREAD | VM_MAYWRITE,
--			     0x24d, NULL);
-+	addr = __mmap_region(NULL, 0x24d000, 0x3000, vma_flags, 0x24d, NULL);
- 	ASSERT_EQ(addr, 0x24d000);
- 
- 	ASSERT_EQ(mm.map_count, 2);
--- 
-2.53.0
+> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> ---
+> Thomas Wei=DFschuh (15):
+>       MAINTAINERS: exec: Add more auxvec.h variants
+>       auxvec.h: Move AT_VECTOR_SIZE definitions to linux/auxvec.h
+>       asm-generic: add an in-kernel auxvec.h header
+>       ARM: drop custom asm/auxvec.h
+>       x86: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       arm64: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       RISC-V: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       LoongArch: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       s390: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       powerpc: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       MIPS: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       sparc: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       sh: Remove AT_VECTOR_SIZE_ARCH from UAPI
+>       alpha: remove AT_VECTOR_SIZE_ARCH from UAPI
+>       auxvec.h: Drop fallback AT_VECTOR_SIZE_ARCH
+> =
 
+>  MAINTAINERS                              |  5 +++++
+>  arch/alpha/include/asm/auxvec.h          |  7 +++++++
+>  arch/alpha/include/uapi/asm/auxvec.h     |  8 +++-----
+>  arch/arm/include/asm/auxvec.h            |  1 -
+>  arch/arm64/include/asm/auxvec.h          |  7 +++++++
+>  arch/arm64/include/uapi/asm/auxvec.h     |  6 ++----
+>  arch/loongarch/include/asm/auxvec.h      | 14 ++++++++++++++
+>  arch/loongarch/include/uapi/asm/auxvec.h |  8 +++-----
+>  arch/mips/include/asm/auxvec.h           | 17 +++++++++++++++++
+>  arch/mips/include/uapi/asm/auxvec.h      |  8 +++-----
+>  arch/powerpc/include/asm/auxvec.h        |  7 +++++++
+>  arch/powerpc/include/uapi/asm/auxvec.h   |  6 ++----
+>  arch/riscv/include/asm/auxvec.h          | 13 +++++++++++++
+>  arch/riscv/include/uapi/asm/auxvec.h     |  2 --
+>  arch/s390/include/asm/auxvec.h           |  7 +++++++
+>  arch/s390/include/uapi/asm/auxvec.h      |  6 ++----
+>  arch/sh/include/asm/auxvec.h             |  7 +++++++
+>  arch/sh/include/uapi/asm/auxvec.h        |  8 +++-----
+>  arch/sparc/include/asm/auxvec.h          |  6 ++++++
+>  arch/sparc/include/uapi/asm/auxvec.h     |  8 +++-----
+>  arch/x86/include/asm/auxvec.h            | 12 ++++++++++++
+>  arch/x86/include/uapi/asm/auxvec.h       | 13 +++----------
+>  include/asm-generic/Kbuild               |  1 +
+>  include/asm-generic/auxvec.h             |  7 +++++++
+>  include/linux/auxvec.h                   |  5 +++++
+>  include/linux/mm_types.h                 |  6 ------
+>  26 files changed, 139 insertions(+), 56 deletions(-)
+> ---
+> base-commit: f6b3b0a4c85882ad75bce3b093173203e3f39f28
+> change-id: 20260109-at-vector-size-arch-6e0f2e9ff8b6
+> =
+
+> Best regards,
+> -- =
+
+> Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> =
+
+
+-- =
+
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
