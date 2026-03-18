@@ -4,59 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D7FE10775E1
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F265410775E1
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 16:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sQGYMmVBeGCgVVOl1MOnNuTXMY4CKDc3Z2PWWDjNRX8=; b=Q/3R54jU7Wkuoa
-	w5higL72YnzTBY4PmAkbRBqOp8xX2DZ3KRAQW06jZZszS9Oa8JQQNTH6p71xpLfycazcWwZs8z1A3
-	y8B+BtOjAKMlLDUaOgcI3im2BHKL9jvTsTPW6tCQ+gGBSnklJQQG2JGAa0/yHlvLDKrnwNIG3c370
-	BTzsV+DZGclCqZv1peB1A7ANBIoDZ4SrQ7cpsdddJdkAbZKezFRwAX7oy7/FqAX73NiDaDlS6bll3
-	inJ9dI19J7F6AqHZ15km3NqdR78BHN2BMzehXSNk1z5WL58tXYJq5MPcVvwD9Y8iPmCs+RY79D8jX
-	h048sXzUbvLufMwF6RoA==;
+	List-Owner; bh=ryahtXV9KZx/es4CTeNMtjeVVSxzFWAULRn2/aWQs7E=; b=xmGbx7oPEVJ6oB
+	KpmBcuaBTLNyuZIgJrAVkE2YwHxSqgrwlS4p/6sle+L7zzWrnCPBSnDYb8x3nxoD1wsIGT4lEg0oQ
+	PwJC+u/57uqnqUErrRbSw+N2IWQTcv6JWo/vLjXsWIXZbLlmIbggZRF/Bwu9PaTA3sQrBbgEgo/zL
+	+a3x1a+TXwy4EeqlKZorFFBCbhmoZ3wzml+sLknjGz7L/uV0A12AXOoFXvXp9FyRVJ5UuTOvy1whw
+	rajeSZUwgdVuN9AdKYUjutB8Oj0aqTyswkMOQKtMNTfpSMvJvBIGCWxGlpyGIJDTSbb1W0F1NUuSg
+	V9Xzkeq7uxHdnZFXB8DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tv4-00000008yJh-1eDZ;
-	Wed, 18 Mar 2026 16:38:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w2tv6-00000008yMA-326E;
+	Wed, 18 Mar 2026 16:38:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tv2-00000008yHB-3Pur
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 18 Mar 2026 16:38:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=J6RjHjBxLKASBqsPqRkDWJ/hIESdR/fTnV+eVP5JJ9U=; b=aRcBB9jhRcijuPWyxgnnWzttw8
-	jt/LG89TnC809rRw9bGBfe5eHGcNE6Xq79PBQ13Btll72hVYsdO6ufzbSJb7WK4A6PcWu6+whnaQd
-	GIyvzvWwwCFCX1Bpz57uwg/26r81cK+EpjhyUb/fKI0Rp7p1TSSW2Jkr9BRxUvBlRngNSaMfZTmO2
-	mrfi2suHg2/lA8CwXZ+GPeDCL8S3kVQ+xBqTamhEx2yTO/yPaCUqyrS2zBDvGkRIXspuahDBN0ri4
-	YIMEw6+9eR5M3EbPbQvvnVYS7+o4W0v7pWLaaE+AD9zAvRI6gBypd2wh0JSBf1lVX/NiOywi79x08
-	ZjUNvJEw==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2tuy-0000000Bk8Q-4AZC
+	id 1w2tv4-00000008yJ4-0Ys5
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 16:38:50 +0000
+	Wed, 18 Mar 2026 16:38:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC79E43711;
+	by tor.source.kernel.org (Postfix) with ESMTP id 899F760054;
+	Wed, 18 Mar 2026 16:38:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F363BC2BCAF;
 	Wed, 18 Mar 2026 16:38:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FFC3C19421;
-	Wed, 18 Mar 2026 16:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773851927;
-	bh=9DLc73kRovjX7PmKOfMC6v7DvLF8VkwF6ivlc5RlT3Y=;
+	s=k20201202; t=1773851933;
+	bh=i7QiZWLKSiDuy+JWZoWlsnw6MxIl6xp8yCXQ6R5f7pk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YIOHMbPJf94NLNUV9jBhDq41CqmoAepK1RX00vXTypZdd1Gf/FXdTqWm+vWLDl/Dc
-	 z5HZrY53xhay2S8W2IlAc42Oprs3LMHYhN1SSKUmrLI1+Qtm/9frgSpmvy2NsH2uw3
-	 HeUtp/DW4zBd/LAMS1FqxkwOnm/tmY2Sw8+jwQghQxKzIUmv6fa++lojdsEtg3/Xjy
-	 lg0i3TCZ5CTPJWplenL3FZsND6BhFUW+OW/DdWh2qGd3hWlcESXSPOxysSu7XGBqz0
-	 5WJU2rnPtXAd/v05vFNmVtOV/1M/OxHRzOgmeAulaENRNxEcw8u8QXvRhaCVlIJfU0
-	 tONegjVjLtA8A==
+	b=OnOzb99IJdzWRWPppb1WwQY3nqJoJLbNJyKhbBRYNPyDj33oM8Y7KNUf++z49F4tr
+	 08LHUHNmcTR34Lz24Rvg6IjBI7XmMfwWPebLtOTS/+cQUVoCqa0cuVRrA1IrzWHthQ
+	 7ijkzOPszVg/blmXINrMkRgEZ0Z/FYBsLG3Ly6IeRcrPteuFrWThhrPYcToEWoPveP
+	 cc054tjPLMUZwlfn8y/l/SD+oivRZsZCQhddLh0TFijA0XGitHIgtmC/R4BeRfOijJ
+	 KW5GsXXQQdiYj6ikQz86p38VDC2tXca1d4A1ugycXVQSEre4WR4AzGlF/Ymte6v/LA
+	 M3OpsC7l75SNg==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -88,18 +73,15 @@ Cc: conor@kernel.org,
 	Abin Joseph <abin.joseph@amd.com>,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
 	Ryan.Wanner@microchip.com
-Subject: [PATCH net-next v4 10/13] net: macb: timer adjust mode is not supported
-Date: Wed, 18 Mar 2026 16:37:41 +0000
-Message-ID: <20260318-armless-generic-9845d484aca1@spud>
+Subject: [PATCH net-next v4 11/13] net: macb: runtime detect MACB_CAPS_USRIO_DISABLED
+Date: Wed, 18 Mar 2026 16:37:42 +0000
+Message-ID: <20260318-fifth-getaway-2e50f7a71eed@spud>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260318-surpass-puzzle-f94b46aa8808@spud>
 References: <20260318-surpass-puzzle-f94b46aa8808@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1214; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=OqQujPb90kYRx/KgLbRe0CGbTbZ7JG8YWaMugKJ3peY=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJm7rlyK+v2e34jRK2GFxczui4m7r0TEORfH88Rvk5v+P OhXxxqPjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExEby/D/9Km8GvK54x0bmxi OhdTdYFlt3b2B7XkFq4j57JfmAk83MXwh+f2hZZnh3OtsmtMv9vueLa9saIl62WFk/cDw6d+M+c EsgIA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2022; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Bd2gbW7fOvjC1AVjUN6Hv9MmZ1hZns7eUKZVvI7xatU=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJm7rlx+2fahvr/SaZ1sdZuHf+XuE5m/v7Rf1bf7a8I30 26No5tdRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbi18Twh3fVy7Muuh4BX9g5 u+63V0yYsFdh9dPEHP/L0pKL9tvmXGVk6LY57tLFzTlRJsX050+ry48uNj92eLdpwtaX786eDr7 6iQUA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_163849_419889_798B5E90 
-X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,47 +93,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-The ptp portion of this driver controls the tsu's timer using the
-controls for "increment mode", which is not compatible with the hardware
-trying to control it via the gem_tsu_inc_ctrl and gem_tsu_ms inputs in
-"timer adjust mode". Abort probe if the property signalling that the
-relevant signals have been wired up is present.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/net/ethernet/cadence/macb_main.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 38e75c2e097bf..3e0ab23e9b9b0 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -5577,6 +5577,13 @@ static int macb_probe(struct platform_device *pdev)
- 
- 	bp->usrio = macb_config->usrio;
- 
-+	if (of_property_read_bool(bp->pdev->dev.of_node, "cdns,timer-adjust") &&
-+			IS_ENABLED(CONFIG_MACB_USE_HWSTAMP)) {
-+		dev_err(&pdev->dev, "Timer adjust mode is not supported\n");
-+		err = -EINVAL;
-+		goto err_out_free_netdev;
-+	}
-+
- 	/* By default we set to partial store and forward mode for zynqmp.
- 	 * Disable if not set in devicetree.
- 	 */
--- 
-2.51.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogVGjDqW8gTGVicnVuIDx0aGVvLmxlYnJ1bkBib290bGluLmNvbT4KCkRDRkcxIChkZXNp
+Z24gY29uZmlnIDEgcmVnaXN0ZXIpIGNhcnJpZXMgYSBiaXQgaW5kaWNhdGluZyB3aGV0aGVyIFVz
+ZXIKSS9PIGZlYXR1cmUgaGFzIGJlZW4gZW5hYmxlZCBvciBub3QuIFRoZSBNQUNCL0dFTSBkcml2
+ZXIgaGFzIGEgY2FwIGZsYWcKaW5kaWNhdGluZyB0aGF0IEhXIGhhcyB0aGUgZmVhdHVyZSBkaXNh
+YmxlZCAoZGVmYXVsdCBpcyBlbmFibGVkKS4gQWRkCnRoZSBtaXNzaW5nIGNvbm5lY3Rpb24gYmV0
+d2VlbiBEQ0ZHMSBiaXQgYW5kIE1BQ0JfQ0FQU19VU1JJT19ESVNBQkxFRC4KCkluZGlyZWN0IGlt
+cGFjdDogYXZvaWQgdXNlbGVzcyB3cml0ZWwoKSBvbiBVU0VSSU8gcmVnaXN0ZXI7IHRoaXMgaXMg
+bm90CmFuIGltcG9ydGFudCBmaXggYmVjYXVzZSBVU0VSSU8gaXMgYW55d2F5IHJlYWQtb25seSB3
+aGVuIGZlYXR1cmUgaXMKZGlzYWJsZWQuCgpJZiBmb3Igc29tZSByZWFzb24gYSBjb21wYXRpYmxl
+IHNldHMgVVNSSU9fRElTQUJMRUQgYnV0IERDRkcxIGluZGljYXRlcwppdCBpcyBlbmFibGVkLCB3
+ZSBzdGlsbCBrZWVwIHRoZSBkaXNhYmxlZCBjYXBhYmlsaXR5IGZsYWcuIFRoaXMgZW5zdXJlcwp3
+ZSBkb24ndCBicmVhayAiY2RucyxucDQtbWFjYiIgdGhhdCBzZXRzIHRoZSBmbGFnIGZyb20gY29t
+cGF0aWJsZSBtYXRjaApkYXRhLgoKU2lnbmVkLW9mZi1ieTogVGjDqW8gTGVicnVuIDx0aGVvLmxl
+YnJ1bkBib290bGluLmNvbT4KU2lnbmVkLW9mZi1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
+ZXlAbWljcm9jaGlwLmNvbT4KLS0tCiBkcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2Iu
+aCAgICAgIHwgMiArKwogZHJpdmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiX21haW4uYyB8
+IDIgKysKIDIgZmlsZXMgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiLmggYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9j
+YWRlbmNlL21hY2IuaAppbmRleCBjZGI5ZmIyMjE4YzZmLi5iYzAyNTcxOWY2MDA4IDEwMDY0NAot
+LS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2IuaAorKysgYi9kcml2ZXJzL25l
+dC9ldGhlcm5ldC9jYWRlbmNlL21hY2IuaApAQCAtNTE4LDYgKzUxOCw4IEBACiAjZGVmaW5lIEdF
+TV9JUlFDT1JfU0laRQkJCQkxCiAjZGVmaW5lIEdFTV9EQldERUZfT0ZGU0VUCQkJMjUKICNkZWZp
+bmUgR0VNX0RCV0RFRl9TSVpFCQkJCTMKKyNkZWZpbmUgR0VNX1VTRVJJT19PRkZTRVQJCQk5Cisj
+ZGVmaW5lIEdFTV9VU0VSSU9fU0laRQkJCQkxCiAjZGVmaW5lIEdFTV9OT19QQ1NfT0ZGU0VUCQkJ
+MAogI2RlZmluZSBHRU1fTk9fUENTX1NJWkUJCQkJMQogCmRpZmYgLS1naXQgYS9kcml2ZXJzL25l
+dC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jIGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvY2Fk
+ZW5jZS9tYWNiX21haW4uYwppbmRleCAzZTBhYjIzZTliOWIwLi5iMTFlZjcwMzU3NWIwIDEwMDY0
+NAotLS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jCisrKyBiL2Ry
+aXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYl9tYWluLmMKQEAgLTQzMzAsNiArNDMzMCw4
+IEBAIHN0YXRpYyB2b2lkIG1hY2JfY29uZmlndXJlX2NhcHMoc3RydWN0IG1hY2IgKmJwLAogCQkJ
+YnAtPmNhcHMgfD0gTUFDQl9DQVBTX0lTUl9DTEVBUl9PTl9XUklURTsKIAkJaWYgKEdFTV9CRkVY
+VChOT19QQ1MsIGRjZmcpID09IDApCiAJCQlicC0+Y2FwcyB8PSBNQUNCX0NBUFNfUENTOworCQlp
+ZiAoIShkY2ZnICYgR0VNX0JJVChVU0VSSU8pKSkKKwkJCWJwLT5jYXBzIHw9IE1BQ0JfQ0FQU19V
+U1JJT19ESVNBQkxFRDsKIAkJZGNmZyA9IGdlbV9yZWFkbChicCwgRENGRzEyKTsKIAkJaWYgKEdF
+TV9CRkVYVChISUdIX1NQRUVELCBkY2ZnKSA9PSAxKQogCQkJYnAtPmNhcHMgfD0gTUFDQl9DQVBT
+X0hJR0hfU1BFRUQ7Ci0tIAoyLjUxLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
