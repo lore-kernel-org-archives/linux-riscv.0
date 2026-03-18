@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8D21077617
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 20:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2499D107760E
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 20:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3jjJiJZnOmSjY7FikpvfU5oWtpTfI9zpIFj41hVC5Bc=; b=isBPeFgZM98eJK
-	UzjjelRwfOMA9ecvnfgUK3heXmPdRMj/E+72KxyRgG6iqvKvqdyZZUopQPm+5dywLVWHDTha0dmV/
-	FKHimFgQVUVWbXbZAEy5xrIfRHcliLRgY0fZBXYePYFvOpQlI3XRbRDTqosQb1kBMUnELAsaPBXir
-	neViBFu6P3XS/LWATaKBESt+JBQGM57tHTfu2pRzfC8PwtaR0tS5pKfl5omvSWkoFi50nLC3cJZ8X
-	m0W7dS/EqK/5bfwt2IQoeAnpvzFas0DvtgDK3J+HPNfN3teZeU0SYmwnw6Ew8uvrqpftiFEQWn2Mq
-	eLBatFQXXO9yx1qDKlnQ==;
+	List-Owner; bh=wMSI6XqG7SZ9ufgI1W9um6HiJLLq2b7tGqt+mqVGPQI=; b=DRB2hHKWvvq/2V
+	4FZlW/Ft4mIHN67Lhxb3qrNTcYKL5joqnoA9DEi7yoc/ovEj5ADa8v783dvJZ+6j54PxaYexdcWcB
+	XV9SzikqJ7oJZrA7Caf7jVbRHOqONMB211VxbIEzmg4Gz56OennU/LuEHoIleHuz9ILkH8MZwEWNd
+	YKjP+l5fHVjfch90kIdidlyHM7MSptJywCbbT1Hwg9cxdgPyOLdhHIjIWCW+AvPathzXwyvZcJvSG
+	hU6Jw4IJgjoJEjF/wJMpcM9Oc59rrwqnXnaaQC1eqhQHRP+LwBktt6J7b9KrN5sPn+F6iYw+B/xom
+	HsF2cRMRBtVBpRjOkr3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xRm-00000009INa-0BKO;
-	Wed, 18 Mar 2026 20:24:54 +0000
+	id 1w2xW5-00000009Im5-1ARv;
+	Wed, 18 Mar 2026 20:29:21 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xRk-00000009INF-0mba
+	id 1w2xW3-00000009IlW-2m4x
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 20:24:53 +0000
+	Wed, 18 Mar 2026 20:29:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=DxuFz52fFq6pkfpxsifbWk1sah6P9t7hQOOOvkqb+BE=; b=C2or/c1nfGppJw2wonUiXwDl8M
-	U0MXuq4A+MilzgT1hA08TOf46BxtiuYqfLiIPH+8hF5Mx3Mq82OoHLIQgCnBnXE+DbG2PUpwwtzXx
-	Wgd73hUpBxRHZozfD1B2qsd//sDDigr4PnrgJa007CJpa8qPQcky64PQsKRkVM44LwPWRffjOI1GY
-	eWiNlGcUR6nFuB+qosOuEe71UK+34L3JJj9CheBs15AupuxmUYUL5ZI8bLq+VNMmouZM0YyNT6NDw
-	S6f2qE3u5r0qETOPWE7BaaPzh95TWUJ9gHgmw8iRqs/uDGeCaUZoHxbczSRLA095hJqUolwez8gWe
-	szD3vDRA==;
+	bh=kMEfzXsB7JKireizXoIe2FQNbvVD/n2jTrp8b4fyj/U=; b=hnjfVKeqsuUHHVlJjlufr4M1xX
+	3YovllmITe/ZWh4+FMjnO+5wyV/T77V6hjaclb5ivDNcIu8I5YZUxrJjkdQHiXnek7vcUxmVMrbFV
+	0UTFYzqE9ua9w/z+ekkp1rrchw9iw9LgybdJE2jTWfCRtrPwcftAc08XdcmbVKmcufWOmUtzevYnQ
+	3iSCNiqL93YKMlS8mjAovmYCrVo54Gs54uulkmjHwBeOLZAOX97rLV4KyBGPpIYuA8iJFEEhyaba5
+	HPgAdWZx8xHoYXW0fBkO/J78RIBzMXIG8zOlTNLPP0zNJkrbmuFGnG3/fK2dzGENRkrB08fTUm0bL
+	b8dU98SQ==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1w2xRd-00000005fXL-1dM1;
-	Wed, 18 Mar 2026 21:24:45 +0100
-Date: Wed, 18 Mar 2026 21:24:44 +0100
+	id 1w2xVu-00000005fov-192c;
+	Wed, 18 Mar 2026 21:29:10 +0100
+Date: Wed, 18 Mar 2026 21:29:09 +0100
 From: Aurelien Jarno <aurelien@aurel32.net>
-To: Iker Pedrosa <ikerpedrosam@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+To: Shuwei Wu <shuweiwoo@163.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>
-Subject: Re: [PATCH v3 7/7] riscv: dts: spacemit: k1-bananapi-f3: add SD card
- support with UHS modes
-Message-ID: <absKDGLCw26xr7Z4@aurel32.net>
-Mail-Followup-To: Iker Pedrosa <ikerpedrosam@gmail.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] thermal: spacemit: Add support for SpacemiT K1 SoC
+ thermal sensor
+Message-ID: <absLFdJ8GypLh8te@aurel32.net>
+Mail-Followup-To: Shuwei Wu <shuweiwoo@163.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>
-References: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
- <20260316-orangepi-sd-card-uhs-v3-7-aefd3b7832df@gmail.com>
+	linux-kernel@vger.kernel.org
+References: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260316-orangepi-sd-card-uhs-v3-7-aefd3b7832df@gmail.com>
+In-Reply-To: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
 User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_132452_250316_852D209F 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20260318_132919_697405_8EF5AFF3 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,83 +100,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi,
 
-On 2026-03-16 15:03, Iker Pedrosa wrote:
-> Add complete SD card controller support with UHS high-speed modes.
+On 2025-11-27 02:44, Shuwei Wu wrote:
+> Introduce support for the on-die thermal sensor unit (TSU)
+> found on the SpacemiT K1 SoC.
 > 
-> - Enable sdhci0 controller with 4-bit bus width
-> - Configure card detect GPIO with inversion
-> - Connect vmmc-supply to buck4 for 3.3V card power
-> - Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
-> - Add dual pinctrl states for voltage-dependent pin configuration
-> - Support UHS-I SDR25, SDR50, and SDR104 modes
+> Include the device tree binding documentation in YAML format, the
+> thermal sensor driver implementation, and the device tree changes to
+> enable the sensor on K1 SoC.
 > 
-> This enables full SD card functionality including high-speed UHS modes
-> for improved performance.
+> Test logs:
+> Hardware: OrangePi-RV2 integrates SpacemiT K1 SoC
+> Kernel: 6.18.0-rc4 mainline
 > 
-> Suggested-by: Anand Moon <linux.amoon@gmail.com>
-> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+> Verified that all five thermal sensors are registered and reporting
+> valid temperatures.
+> 
+> $ cat /sys/class/thermal/thermal_zone*/type
+> soc-thermal
+> package-thermal
+> gpu-thermal
+> cluster0-thermal
+> cluster1-thermal
+> 
+> $ cat /sys/class/thermal/thermal_zone3/temp
+> 28000
+> 
+> Dynamic threshold and interrupt tests passed via sysfs trip_point
+> manipulation.
+> 
 > ---
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 23 +++++++++++++++++++++--
->  1 file changed, 21 insertions(+), 2 deletions(-)
+> Shuwei Wu (3):
+>       dt-bindings: thermal: Add SpacemiT K1 thermal sensor
+>       thermal: K1: Add driver for K1 SoC thermal sensor
+>       riscv: dts: spacemit: Add thermal sensor for K1 SoC
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> index 404b69c47b91f8c37d74a3031dbad0d94a28d1b4..a7d480d01ccc0439dbf456ed5a81f467af68056a 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> @@ -222,7 +222,7 @@ buck3_1v8: buck3 {
->  				regulator-always-on;
->  			};
->  
-> -			buck4 {
-> +			buck4: buck4 {
->  				regulator-min-microvolt = <500000>;
->  				regulator-max-microvolt = <3300000>;
->  				regulator-ramp-delay = <5000>;
-> @@ -243,7 +243,7 @@ buck6 {
->  				regulator-always-on;
->  			};
->  
-> -			aldo1 {
-> +			aldo1: aldo1 {
->  				regulator-min-microvolt = <500000>;
->  				regulator-max-microvolt = <3400000>;
->  				regulator-boot-on;
-> @@ -369,3 +369,22 @@ hub_3_0: hub@2 {
->  		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
->  	};
->  };
-> +
-> +&sdhci0 {
-> +	pinctrl-names = "default", "state_uhs";
-> +	pinctrl-0 = <&mmc1_cfg>;
-> +	pinctrl-1 = <&mmc1_uhs_cfg>;
-> +	bus-width = <4>;
-> +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
-> +	cd-inverted;
+>  .../bindings/thermal/spacemit,k1-thermal.yaml      |  76 +++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi               | 101 +++++++
+>  drivers/thermal/Kconfig                            |  14 +
+>  drivers/thermal/Makefile                           |   1 +
+>  drivers/thermal/k1_thermal.c                       | 307 +++++++++++++++++++++
+>  5 files changed, 499 insertions(+)
+> ---
+> base-commit: f5f2e20b1cbc5f9ea20b372d15967b24921ede19
+> change-id: 20251124-b4-k1-thermal-eca906e6dd7a
 
-Thanks for this driver. Unfortunately, this is not correct for the 
-Banana PI F3. The OrangePi RV2 buffers the signal from the SD card 
-connector through a transistor, inverting the signal. On the Banana PI 
-F3, the signal goes directly to the GPIO, and does not even have a 
-pull-up.
+Thanks, I confirm this works fine on a Banana PI F3.
 
-With the following change, I have been able to get the patchset working 
-as expected:
-
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index a7d480d01ccc0..72b0f75f936aa 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -375,8 +375,7 @@ &sdhci0 {
- 	pinctrl-0 = <&mmc1_cfg>;
- 	pinctrl-1 = <&mmc1_uhs_cfg>;
- 	bus-width = <4>;
--	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
--	cd-inverted;
-+	cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
- 	no-mmc;
- 	no-sdio;
- 	disable-wp;
+Tested-by: Aurelien Jarno <aurelien@aurel32.net>
 
 Regards
 Aurelien
