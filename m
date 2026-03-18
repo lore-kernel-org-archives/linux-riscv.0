@@ -4,104 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D16103E199
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 15:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF42103E198
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 15:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p4HFS9Q2uCnjdOFYQyeMMmEWTNUPpxTFj4yboHAGZH4=; b=1QDomK0+oClspe
-	CTaXroMbs4Wh0EuO6TMwyA71Sm09io3e2HAwkn19oGOHxPLn9h9mVUpaXucmdfLRWikNplu2zGnkI
-	EekFhz88IkQMdPVVGlITafJSob2hxDTHTY3FESsFXfS8ikCG0z3pUFeE+csVkBfyXTVFUllPYzeRQ
-	wp4Gfu6JZD3BJNZr3w2+xJqsFyEsQE0CN4lWNQCLJ1FmQG7iKQlPA115LEkS2Ze+Sa5un3ixHGmYc
-	Jd5jHlB6JeyvnN7NLurG0j6K1b/eYDxL+3qb46c6cVIHdd8xBoAQKWdNFj6EPJICUQRksNRr17/uu
-	W6e4XdZalA4UuFZWGOTQ==;
+	List-Owner; bh=sufHFiuLiNM7ioRalcowy6FiQMS/tHEgDzsfixL2KyQ=; b=nbx9ieKw41SVGA
+	y3rvd0QIHioYxxC25RsPw3lTz69mzYFaAxULRV0Dr6vVoevc5cWnuWmqjowzHeiNVr8p6V5B1d4sS
+	TG6O3tqEKcSljn5ik9L9p7ETsO/DqHwLcLPvdOBRXV2wwi+XtkulUmoIdjRrNkVeuf+1c6/tyrLM0
+	eGBt6XGqcmaULlPiu0i8yAYs4O4B/xLksPhQfkNJjZG0CHzT23i+WOeUvQZMIti1vBfrsGjk6lEj/
+	wgnE87uYQWI7Qq0q1hH5hdli8X9HUz/vBh6b0A9auUrnUGBc3itjeFe5+GYkGJptl97vBYcFd1eJr
+	sQBfj7KVXKk6NK6e922g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2stL-00000008ixB-0bTT;
-	Wed, 18 Mar 2026 15:33:03 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1w2tAV-00000008l3g-3nVQ;
+	Wed, 18 Mar 2026 15:50:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2stI-00000008iwp-3I7V
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 15:33:01 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-667d8f30bb7so48795a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Mar 2026 08:32:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773847978; cv=none;
-        d=google.com; s=arc-20240605;
-        b=PhG2jUicYgXmDXAaJZq9TkGzMNgw99BotkrWy1ftBn67+VBvM93BiJbSFSK2AfIgm7
-         9yvMOnXrtkHUKPE/gB2oPMGPsljDB3QRZB8nWBu7UHRTuF1/P+8vlfrvATf9fFJL+n3D
-         qt43xGnwXu5XN0L2BdQjlVW7xScCKQTi4In21WmsK4UexikW/zOPmMwXBUO4kfHOwyWf
-         vuksI3IkJaOZdUuiaiBpMZ5qAkTeg81mLlgQyebFY7Nx+siAAcUzoV7RBWKhMPdUViqM
-         w7/l+gt2WPafl9lfPq+SVEqUESE6zn5f/inpgHEcE6ympk89cHD3yvOAerrEYE0lr6+c
-         xrhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GCKw9Uhv3YzwPf7aqi1WbVCttX+v96RUntNWLlLtpCs=;
-        fh=Fos0cv7L7pI8tS+yyXP0+GKSx5+rfwJxSwNMlsM/DsA=;
-        b=WOwsohfdr3Wm5eR5WPZqh6BiheUGnat+4WlHGFJ9Y6xQP+1bKzuYZILE+qEeaPQyOh
-         SIKk4byS2fm4g0+jSfDu2QIwSuqYPc+3I4+nSlZySuIx9Tgf3I5WxfUNxy7JJsrzryAx
-         1MMR0fpdU3FnNZenYKGiLQzY6UyMpp+Fj2OZDgGkQGLnnuTn2ARxEvu/c62wHlI8OXo1
-         IpXHMpHshyx9bYVHVHru1QfeZ9imcW5a/aj4aW/rRXsVR1NDVWU7/GQ32OR5dP8BpQtf
-         b3kp4ZUf+OHJKnVfxb7+ff2GBRwiK0qGTU0Lv4rJyY67b4e3JfAgx/P4hGidM+GTqpZa
-         emnQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773847978; x=1774452778; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GCKw9Uhv3YzwPf7aqi1WbVCttX+v96RUntNWLlLtpCs=;
-        b=A2VJxoGUaP2UAPEq9wkz4sgCeQQ3GYBh+bEc6GHTaZ8d9+Z3vZX7rAnODWr4Qpj2m/
-         Jt2bSCyatKWhF0P3v3Sc4/HHyTm5bnx1ysmZLTtXq0fBeh137B3O5JJ9nEFtD35yfM9Y
-         kCTOvb43D9LesEIutCZV0SUZWoF8U3AGAoWDRWzHJjtqPojCbcePXlfXg0nK2HjPa1Y3
-         EqRRuQ3lVPQ0TRuD8ULKbw6VQV2NJgYnLcVGejmSsENPmybvsteMVLAzn3IiqtRNZxcn
-         h1QKcjB4lm+o3vIe7ELTRK8gK1W8u+wbKhM+EdSzlaX5aKXfo7Xm6PoAJS9QiFKanM9t
-         Noyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773847978; x=1774452778;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=GCKw9Uhv3YzwPf7aqi1WbVCttX+v96RUntNWLlLtpCs=;
-        b=rZDH3ehJXfLH5eKRKPdaOh4wph7IvktHrBaC9uRvmKbp2H7OmXeLW1yMf9Ne4SO1dR
-         +wP7Piet08JQeOpGwVafG4wvSQehI/YouCUH+ZQjNyx1Q8C3amhPRN//ql06bAmQ9CGk
-         9jM0DXMbRvf+Tg/hJPoemmzm0akRY7uLOU50TWlm4zE1EIV4Ry+bBvH0vML52rguZoBA
-         NiNd/KTjhdUdiYjsfIKUsDYEqsJCw0pPUzTNtmaD58JFqcU40+cn7W/VYhzH2cfpDaFv
-         pKVfquNcXx1bVZva8lz7sqO9BeJzpw40Zia6f4qp/0XbhKE1StdzqmG4VxfcYHhhRayf
-         U6XQ==
-X-Gm-Message-State: AOJu0Yzg8mDiAn9KiPdMVX3oJ89tW74NTe+MTXU8zWZ0OYRNW8f81iuB
-	jBgx23mQdhneJ7ChPdyoUBxbnIORDapTEW8wUZffoJmeZWwCoOovYscX35wG43cE+tB6TinDQuz
-	W1eeeup8RB719x/IZWZamTAv/IeatLkDlZg==
-X-Gm-Gg: ATEYQzxa40XYOoc8Rg5n/5EooYxN5daAbdidSUkoDS8loH0mAZCLvtkcz0ERSI70pFy
-	JG/iyyQm7f4iK2hCa53J2C01vNMlZ4nXqVmgEcfa66nlZYxKjTdFpe88yGXaVC9TlRpNqMiFsYn
-	4BBqpdfkIjujSdqUVhYfcqeWRuHq8dEqJ+P+Hq5UPTjO6EWS89ePcyPK/StGCdCBCE3y42fw7wb
-	pFCQA8m8xX++Yc4z9UxmhA0YWp8VAo1O7lhCRanpKSxO/351bxB3QdIQ2AtVqFpbL8ZVhkN5LC8
-	np0VaHv4rA==
-X-Received: by 2002:a17:906:fe08:b0:b96:dd1c:9408 with SMTP id
- a640c23a62f3a-b97f4b60f52mr266277966b.54.1773847977583; Wed, 18 Mar 2026
- 08:32:57 -0700 (PDT)
+	id 1w2tAS-00000008l23-1vHN;
+	Wed, 18 Mar 2026 15:50:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B66060123;
+	Wed, 18 Mar 2026 15:50:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52453C19421;
+	Wed, 18 Mar 2026 15:50:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773849042;
+	bh=XNaJylMB4ToYbiyO76kSgASv2eZo/bh0bkFERIO4NSI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fmWRhrM5nH+kjm/rkpDWtdAzEUZpv8wThhQZJsq318tUoOS8qjV0VdqDX9AEPIHeC
+	 iKsGU4vrLmkv5KESEJl52p468hqffcju858fQAQeWXpMwzJFkpMY/AQSfokagglkpd
+	 T0ADc/b1mpIwCW0JE2u/wcDs1YGe1Nb2Rf7MJYstv5dGvc0DK1oLWcE1lZwZuAjY+Z
+	 GdGGR2UQRTzDPpuHCuaDO/fcykWeNNeB/xjRv/8SC+vU6uEuubAosWdTnRhpmCliE/
+	 Yo3qqkYf12v8TONAkstM+2DQ7EVbRlPFvU/FHUcVMxNVZApBMXf5p9T5w9ypwUU8o8
+	 kabGMlOpHeJiA==
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Jann Horn <jannh@google.com>,
+	Pedro Falcato <pfalcato@suse.de>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Kees Cook <kees@kernel.org>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Brian Cain <bcain@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Xu Xin <xu.xin16@zte.com.cn>,
+	Chengming Zhou <chengming.zhou@linux.dev>,
+	Michal Hocko <mhocko@suse.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Stephen Smalley <stephen.smalley.work@gmail.com>,
+	Ondrej Mosnacek <omosnace@redhat.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	selinux@vger.kernel.org
+Subject: [PATCH v3 01/23] mm/vma: add vma_flags_empty(), vma_flags_and(), vma_flags_diff_pair()
+Date: Wed, 18 Mar 2026 15:50:12 +0000
+Message-ID: <ca9062b3d08ae38bc149e98eb146c44c8a113b7d.1773846935.git.ljs@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1773846935.git.ljs@kernel.org>
+References: <cover.1773846935.git.ljs@kernel.org>
 MIME-Version: 1.0
-References: <20240628-dev-vstate_discard-v1-1-18e1c5d7997e@sifive.com> <20260318151924.1037423-1-andybnac@gmail.com>
-In-Reply-To: <20260318151924.1037423-1-andybnac@gmail.com>
-From: Andy Chiu <andybnac@gmail.com>
-Date: Wed, 18 Mar 2026 10:32:00 -0500
-X-Gm-Features: AaiRm50rE7EjeAFC_qhhbsG2KQAP0RKy-2mNCi6TpI19-Hv9vOF5e7WpTiZn-wc
-Message-ID: <CAFTtA3MyuPYMX5b1n_ioTKN=1qgz1cKGKPvi20=xsFoarR1y=A@mail.gmail.com>
-Subject: Re: [PATCH] riscv: vector: treat VS_INITIAL as discard
-To: linux-riscv@lists.infradead.org
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, samuel@sholland.org, 
-	bjorn@kernel.org, Alexandre Ghiti <alex@ghiti.fr>, greentime.hu@sifive.com, 
-	nick.hu@sifive.com, nylon.chen@sifive.com, eric.lin@sifive.com, 
-	vincent.chen@sifive.com, zong.li@sifive.com, yongxuan.wang@sifive.com, 
-	samuel.holland@sifive.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_083300_868758_1420617C 
-X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,73 +122,264 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMTgsIDIwMjYgYXQgMTA6MTnigK9BTSBBbmR5IENoaXUgPGFuZHlibmFjQGdt
-YWlsLmNvbT4gd3JvdGU6Cj4KPiBJdCB0dXJucyBvdXQgdGhhdCB0aGUgb3B0aW1pemVkIHZyZXN0
-b3JlIG9uIHN5c2NhbGwgcGF0aCBoYXMgbm90IGJlZW4KPiBtZXJnZWQgeWV0LiBJIHRoaW5rIHRo
-aXMgcGF0Y2ggaGFzIG5vdCBnb3R0ZW4gZW5vdWdoIGF0dGVudGlvbiBhbmQgd2FzCj4gbG9zdCBs
-b25nIGFnby4gSXQgc2VlbXMgbm90IGFibGUgdG8gYXBwbHkgZGlyZWN0bHkgb24gY3VycmVudCBo
-ZWFkLiBJCj4gY2FuIHJlc2VuZCBvbiB0b3Agb2YgdGhlIHRyZWUgYWZ0ZXIgd2Ugc2V0dGxlIGRv
-d24gdGhlIGRpc2N1c3Npb24uCgpBZGRpbmcgdGhlIG9yaWdpbmFsIHBhdGNoIGZvciByZWZlcmVu
-Y2U6CgpGcm9tIGdpdEB6IFRodSBKYW4gIDEgMDA6MDA6MDAgMTk3MApTdWJqZWN0OiBbUEFUQ0hd
-IHJpc2N2OiB2ZWN0b3I6IHRyZWF0IFZTX0lOSVRJQUwgYXMgZGlzY2FyZApGcm9tOiBBbmR5IENo
-aXUgPGFuZHkuY2hpdUBzaWZpdmUuY29tPgpEYXRlOiBGcmksIDI4IEp1biAyMDI0IDE5OjQ5OjEy
-ICswODAwCk1lc3NhZ2UtSWQ6IDwyMDI0MDYyOC1kZXYtdnN0YXRlX2Rpc2NhcmQtdjEtMS0xOGUx
-YzVkNzk5N2VAc2lmaXZlLmNvbT4KTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiB0ZXh0
-L3BsYWluOyBjaGFyc2V0PSJ1dGYtOCIKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAoK
-VGhlIHB1cnBvc2Ugb2YgcmlzY3Zfdl92c3RhdGVfZGlzY2FyZCgpIGlzIHRvIGludmFsaWRhdGUg
-diBjb250ZXh0IGF0CmVudHJpZXMgb2Ygc3lzY2FsbHMuIFNvIHVzZXJzIGhhcHBlbiB0byB1c2Ug
-diBhZnRlciBhIHN5c2NhbGwgd2l0aG91dApyZS1jb25maWd1cmluZyB3b3VsZCBzZWUgYSBmYWls
-dXJlLiBJdCB3YXMgYWNoaWV2ZWQgYnkgc2V0dGluZyB2ZWN0b3IKcmVnaXN0ZXJzIGFuZCBDU1Jz
-IHRvIC0xIGFuZCBtYXJraW5nIHRoZSBjb250ZXh0IGJ1c3kuIEhvd2V2ZXIsIHRoaXMKcmVzdWx0
-cyBpbiByZWR1bmRhbnQgc2F2aW5nIG9mIHYtY29udGV4dCBpZiB0aGUgcHJvY2VzcyBpcyBzY2hl
-ZHVsZWQgb3V0CmluIGEgc3lzY2FsbC4gTW9yZW92ZXIsIHJlc3RvcmluZyB0aGUgaW52YWxpZGF0
-ZWQgY29udGV4dCBmcm9tIG1lbW9yeSBpcwphIGNvc3RseSBvcGVyYXRpb24uIEluIGZhY3QsIGFs
-bCBjYW4gYmUgcHJldmVudGVkIGlmIHdlIGNhbiBkZWxheQp2c3RhdGVfZGlzY2FyZCBiZWZvcmUg
-cmV0dXJuaW5nIGJhY2sgdG8gdGhlIHVzZXIgc3BhY2UuIFRvIGJlIG1vcmUKc3BlY2lmaWMsIHRo
-ZSBrZXJuZWwgY2FuIG1hcmsgdi1jb250ZXh0IGFzIElOSVRJQUwgYW5kIHNldCB0aGUgcmVzdG9y
-ZQpmbGFnIGF0IHN5c2NhbGwgZW50cmllcy4gVGhpcyBpcyB0aGUgaW5kaWNhdGlvbiBmb3IgdGhl
-IHZzdGF0ZV9yZXN0b3JlLApzbyBpdCBhd2FyZXMgdGhhdCB0aGUgdnN0YXRlIGhhcyB0byBiZSBp
-bnZhbGlkYXRlZCBiZWZvcmUgcmV0dXJuaW5nIGJhY2sKdG8gdGhlIHVzZXIgc3BhY2UuCgpBZnRl
-ciBhcHBseWluZyB0aGlzIHBhdGNoLCB0aGUgY29udGV4dCBzd2l0Y2ggcGVyZm9ybWFuY2UgaGFz
-IGltcHJvdmVkCjYuNzglIG9uIHZlY3RvciBlbmFibGVkIGxtYmVuY2ggcnVubmluZyBvbiBhIEZQ
-R0Egd2l0aCBWTEVOPTUxMi4gVGhlCnJlc3VsdCB3YXMgb2J0YWluZWQgYnkgYXZlcmFnaW5nIHRo
-ZSBvdXRwdXQgZnJvbSB0aGUgZm9sbG93aW5nIGNvbW1hbmQuCgokIGxhdF9jdHggMgpCZWZvcmUg
-dGhlIHBhdGNoOiA1OTkuODM1NzY5MgpBZnRlciB0aGUgcGF0Y2g6IDU1OS4xNzQ4MTQ4CgpTaWdu
-ZWQtb2ZmLWJ5OiBBbmR5IENoaXUgPGFuZHkuY2hpdUBzaWZpdmUuY29tPgotLS0KIGFyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vdmVjdG9yLmggfCAxMCArKysrKystLS0tCiAxIGZpbGUgY2hhbmdlZCwg
-NiBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vdmVjdG9yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oCmlu
-ZGV4IGJlN2QzMDljY2E4YS4uMTIyMWY4YjhmNTY0IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL3ZlY3Rvci5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVjdG9yLmgK
-QEAgLTE3MCw4ICsxNzAsOCBAQCBzdGF0aWMgaW5saW5lIHZvaWQgcmlzY3Zfdl92c3RhdGVfZGlz
-Y2FyZChzdHJ1Y3QKcHRfcmVncyAqcmVncykKICAgICBpZiAoKHJlZ3MtPnN0YXR1cyAmIFNSX1ZT
-KSA9PSBTUl9WU19PRkYpCiAgICAgICAgIHJldHVybjsKCi0gICAgX19yaXNjdl92X3ZzdGF0ZV9k
-aXNjYXJkKCk7Ci0gICAgX19yaXNjdl92X3ZzdGF0ZV9kaXJ0eShyZWdzKTsKKyAgICBzZXRfdHNr
-X3RocmVhZF9mbGFnKGN1cnJlbnQsIFRJRl9SSVNDVl9WX0RFRkVSX1JFU1RPUkUpOworICAgIHJp
-c2N2X3ZfdnN0YXRlX29uKHJlZ3MpOwogfQoKIHN0YXRpYyBpbmxpbmUgdm9pZCByaXNjdl92X3Zz
-dGF0ZV9zYXZlKHN0cnVjdCBfX3Jpc2N2X3ZfZXh0X3N0YXRlICp2c3RhdGUsCkBAIC0xODYsNyAr
-MTg2LDkgQEAgc3RhdGljIGlubGluZSB2b2lkIHJpc2N2X3ZfdnN0YXRlX3NhdmUoc3RydWN0Cl9f
-cmlzY3Zfdl9leHRfc3RhdGUgKnZzdGF0ZSwKIHN0YXRpYyBpbmxpbmUgdm9pZCByaXNjdl92X3Zz
-dGF0ZV9yZXN0b3JlKHN0cnVjdCBfX3Jpc2N2X3ZfZXh0X3N0YXRlICp2c3RhdGUsCiAgICAgICAg
-ICAgICAgICAgICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCiB7Ci0gICAgaWYgKChyZWdzLT5z
-dGF0dXMgJiBTUl9WUykgIT0gU1JfVlNfT0ZGKSB7CisgICAgaWYgKChyZWdzLT5zdGF0dXMgJiBT
-Ul9WUykgPT0gU1JfVlNfSU5JVElBTCkgeworICAgICAgICBfX3Jpc2N2X3ZfdnN0YXRlX2Rpc2Nh
-cmQoKTsKKyAgICB9IGVsc2UgaWYgKChyZWdzLT5zdGF0dXMgJiBTUl9WUykgIT0gU1JfVlNfT0ZG
-KSB7CiAgICAgICAgIF9fcmlzY3Zfdl92c3RhdGVfcmVzdG9yZSh2c3RhdGUsIHZzdGF0ZS0+ZGF0
-YXApOwogICAgICAgICBfX3Jpc2N2X3ZfdnN0YXRlX2NsZWFuKHJlZ3MpOwogICAgIH0KQEAgLTE5
-Nyw3ICsxOTksNyBAQCBzdGF0aWMgaW5saW5lIHZvaWQKcmlzY3Zfdl92c3RhdGVfc2V0X3Jlc3Rv
-cmUoc3RydWN0IHRhc2tfc3RydWN0ICp0YXNrLAogewogICAgIGlmICgocmVncy0+c3RhdHVzICYg
-U1JfVlMpICE9IFNSX1ZTX09GRikgewogICAgICAgICBzZXRfdHNrX3RocmVhZF9mbGFnKHRhc2ss
-IFRJRl9SSVNDVl9WX0RFRkVSX1JFU1RPUkUpOwotICAgICAgICByaXNjdl92X3ZzdGF0ZV9vbihy
-ZWdzKTsKKyAgICAgICAgX19yaXNjdl92X3ZzdGF0ZV9jbGVhbihyZWdzKTsKICAgICB9CiB9CgoK
-LS0tCmJhc2UtY29tbWl0OiA2MGE2NzA3ZjU4MmViYmRmYjZiMzc4ZjQ1ZDdiZjkyOTEwNmExY2Q1
-CmNoYW5nZS1pZDogMjAyNDA2MjgtZGV2LXZzdGF0ZV9kaXNjYXJkLTU3ODQ2NTI5NjhhMwoKQmVz
-dCByZWdhcmRzLAoKLS0KQW5keSBDaGl1IDxhbmR5LmNoaXVAc2lmaXZlLmNvbT4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Firstly, add the ability to determine if VMA flags are empty, that is no
+flags are set in a vma_flags_t value.
+
+Next, add the ability to obtain the equivalent of the bitwise and of two
+vma_flags_t values, via vma_flags_and().
+
+Next, add the ability to obtain the difference between two sets of VMA
+flags, that is the equivalent to the exclusive bitwise OR of the two sets
+of flags, via vma_flags_diff_pair().
+
+vma_flags_xxx_mask() typically operates on a pointer to a vma_flags_t
+value, which is assumed to be an lvalue of some kind (such as a field in a
+struct or a stack variable) and an rvalue of some kind (typically a
+constant set of VMA flags obtained e.g.  via mk_vma_flags() or
+equivalent).
+
+However vma_flags_diff_pair() is intended to operate on two lvalues, so
+use the _pair() suffix to make this clear.
+
+Finally, update VMA userland tests to add these helpers.
+
+We also port bitmap_xor() and __bitmap_xor() to the tools/ headers and
+source to allow the tests to work with vma_flags_diff_pair().
+
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+---
+ include/linux/mm.h              | 60 ++++++++++++++++++++++++++++-----
+ include/linux/mm_types.h        |  8 +++++
+ tools/include/linux/bitmap.h    | 13 +++++++
+ tools/lib/bitmap.c              | 10 ++++++
+ tools/testing/vma/include/dup.h | 36 +++++++++++++++++++-
+ 5 files changed, 117 insertions(+), 10 deletions(-)
+
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 70747b53c7da..6d2c4bd2c61d 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -1053,6 +1053,19 @@ static __always_inline vma_flags_t __mk_vma_flags(size_t count,
+ 	return flags;
+ }
+
++/*
++ * Helper macro which bitwise-or combines the specified input flags into a
++ * vma_flags_t bitmap value. E.g.:
++ *
++ * vma_flags_t flags = mk_vma_flags(VMA_IO_BIT, VMA_PFNMAP_BIT,
++ *              VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT);
++ *
++ * The compiler cleverly optimises away all of the work and this ends up being
++ * equivalent to aggregating the values manually.
++ */
++#define mk_vma_flags(...) __mk_vma_flags(COUNT_ARGS(__VA_ARGS__), \
++					 (const vma_flag_t []){__VA_ARGS__})
++
+ /*
+  * Test whether a specific VMA flag is set, e.g.:
+  *
+@@ -1067,17 +1080,30 @@ static __always_inline bool vma_flags_test(const vma_flags_t *flags,
+ }
+
+ /*
+- * Helper macro which bitwise-or combines the specified input flags into a
+- * vma_flags_t bitmap value. E.g.:
+- *
+- * vma_flags_t flags = mk_vma_flags(VMA_IO_BIT, VMA_PFNMAP_BIT,
+- * 		VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT);
++ * Obtain a set of VMA flags which contain the overlapping flags contained
++ * within flags and to_and.
++ */
++static __always_inline vma_flags_t vma_flags_and_mask(const vma_flags_t *flags,
++						      vma_flags_t to_and)
++{
++	vma_flags_t dst;
++	unsigned long *bitmap_dst = dst.__vma_flags;
++	const unsigned long *bitmap = flags->__vma_flags;
++	const unsigned long *bitmap_to_and = to_and.__vma_flags;
++
++	bitmap_and(bitmap_dst, bitmap, bitmap_to_and, NUM_VMA_FLAG_BITS);
++	return dst;
++}
++
++/*
++ * Obtain a set of VMA flags which contains the specified overlapping flags,
++ * e.g.:
+  *
+- * The compiler cleverly optimises away all of the work and this ends up being
+- * equivalent to aggregating the values manually.
++ * vma_flags_t read_flags = vma_flags_and(&flags, VMA_READ_BIT,
++ *                                        VMA_MAY_READ_BIT);
+  */
+-#define mk_vma_flags(...) __mk_vma_flags(COUNT_ARGS(__VA_ARGS__), \
+-					 (const vma_flag_t []){__VA_ARGS__})
++#define vma_flags_and(flags, ...)				\
++	vma_flags_and_mask(flags, mk_vma_flags(__VA_ARGS__))
+
+ /*  Test each of to_test flags in flags, non-atomically. */
+ static __always_inline bool vma_flags_test_any_mask(const vma_flags_t *flags,
+@@ -1151,6 +1177,22 @@ static __always_inline void vma_flags_clear_mask(vma_flags_t *flags,
+ #define vma_flags_clear(flags, ...) \
+ 	vma_flags_clear_mask(flags, mk_vma_flags(__VA_ARGS__))
+
++/*
++ * Obtain a VMA flags value containing those flags that are present in flags or
++ * flags_other but not in both.
++ */
++static __always_inline vma_flags_t vma_flags_diff_pair(const vma_flags_t *flags,
++		const vma_flags_t *flags_other)
++{
++	vma_flags_t dst;
++	const unsigned long *bitmap_other = flags_other->__vma_flags;
++	const unsigned long *bitmap = flags->__vma_flags;
++	unsigned long *bitmap_dst = dst.__vma_flags;
++
++	bitmap_xor(bitmap_dst, bitmap, bitmap_other, NUM_VMA_FLAG_BITS);
++	return dst;
++}
++
+ /*
+  * Helper to test that ALL specified flags are set in a VMA.
+  *
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index 3944b51ebac6..5584a0c7bcea 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -870,6 +870,14 @@ typedef struct {
+
+ #define EMPTY_VMA_FLAGS ((vma_flags_t){ })
+
++/* Are no flags set in the specified VMA flags? */
++static __always_inline bool vma_flags_empty(const vma_flags_t *flags)
++{
++	const unsigned long *bitmap = flags->__vma_flags;
++
++	return bitmap_empty(bitmap, NUM_VMA_FLAG_BITS);
++}
++
+ /*
+  * Describes a VMA that is about to be mmap()'ed. Drivers may choose to
+  * manipulate mutable fields which will cause those fields to be updated in the
+diff --git a/tools/include/linux/bitmap.h b/tools/include/linux/bitmap.h
+index 250883090a5d..845eda759f67 100644
+--- a/tools/include/linux/bitmap.h
++++ b/tools/include/linux/bitmap.h
+@@ -28,6 +28,8 @@ bool __bitmap_subset(const unsigned long *bitmap1,
+ 		     const unsigned long *bitmap2, unsigned int nbits);
+ bool __bitmap_andnot(unsigned long *dst, const unsigned long *bitmap1,
+ 		    const unsigned long *bitmap2, unsigned int nbits);
++void __bitmap_xor(unsigned long *dst, const unsigned long *bitmap1,
++		  const unsigned long *bitmap2, unsigned int nbits);
+
+ #define BITMAP_FIRST_WORD_MASK(start) (~0UL << ((start) & (BITS_PER_LONG - 1)))
+ #define BITMAP_LAST_WORD_MASK(nbits) (~0UL >> (-(nbits) & (BITS_PER_LONG - 1)))
+@@ -209,4 +211,15 @@ static inline void bitmap_clear(unsigned long *map, unsigned int start,
+ 	else
+ 		__bitmap_clear(map, start, nbits);
+ }
++
++static __always_inline
++void bitmap_xor(unsigned long *dst, const unsigned long *src1,
++		const unsigned long *src2, unsigned int nbits)
++{
++	if (small_const_nbits(nbits))
++		*dst = *src1 ^ *src2;
++	else
++		__bitmap_xor(dst, src1, src2, nbits);
++}
++
+ #endif /* _TOOLS_LINUX_BITMAP_H */
+diff --git a/tools/lib/bitmap.c b/tools/lib/bitmap.c
+index aa83d22c45e3..fedc9070f0e4 100644
+--- a/tools/lib/bitmap.c
++++ b/tools/lib/bitmap.c
+@@ -169,3 +169,13 @@ bool __bitmap_subset(const unsigned long *bitmap1,
+ 			return false;
+ 	return true;
+ }
++
++void __bitmap_xor(unsigned long *dst, const unsigned long *bitmap1,
++				const unsigned long *bitmap2, unsigned int bits)
++{
++	unsigned int k;
++	unsigned int nr = BITS_TO_LONGS(bits);
++
++	for (k = 0; k < nr; k++)
++		dst[k] = bitmap1[k] ^ bitmap2[k];
++}
+diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
+index 8865ffe046d8..8091a5caaeb8 100644
+--- a/tools/testing/vma/include/dup.h
++++ b/tools/testing/vma/include/dup.h
+@@ -422,6 +422,13 @@ struct vma_iterator {
+ #define MAPCOUNT_ELF_CORE_MARGIN	(5)
+ #define DEFAULT_MAX_MAP_COUNT	(USHRT_MAX - MAPCOUNT_ELF_CORE_MARGIN)
+
++static __always_inline bool vma_flags_empty(const vma_flags_t *flags)
++{
++	const unsigned long *bitmap = flags->__vma_flags;
++
++	return bitmap_empty(bitmap, NUM_VMA_FLAG_BITS);
++}
++
+ /* What action should be taken after an .mmap_prepare call is complete? */
+ enum mmap_action_type {
+ 	MMAP_NOTHING,		/* Mapping is complete, no further action. */
+@@ -855,6 +862,21 @@ static __always_inline bool vma_flags_test(const vma_flags_t *flags,
+ 	return test_bit((__force int)bit, bitmap);
+ }
+
++static __always_inline vma_flags_t vma_flags_and_mask(const vma_flags_t *flags,
++						      vma_flags_t to_and)
++{
++	vma_flags_t dst;
++	unsigned long *bitmap_dst = dst.__vma_flags;
++	const unsigned long *bitmap = flags->__vma_flags;
++	const unsigned long *bitmap_to_and = to_and.__vma_flags;
++
++	bitmap_and(bitmap_dst, bitmap, bitmap_to_and, NUM_VMA_FLAG_BITS);
++	return dst;
++}
++
++#define vma_flags_and(flags, ...)		\
++	vma_flags_and_mask(flags, mk_vma_flags(__VA_ARGS__))
++
+ static __always_inline bool vma_flags_test_any_mask(const vma_flags_t *flags,
+ 		vma_flags_t to_test)
+ {
+@@ -901,8 +923,20 @@ static __always_inline void vma_flags_clear_mask(vma_flags_t *flags, vma_flags_t
+ #define vma_flags_clear(flags, ...) \
+ 	vma_flags_clear_mask(flags, mk_vma_flags(__VA_ARGS__))
+
++static __always_inline vma_flags_t vma_flags_diff_pair(const vma_flags_t *flags,
++		const vma_flags_t *flags_other)
++{
++	vma_flags_t dst;
++	const unsigned long *bitmap_other = flags_other->__vma_flags;
++	const unsigned long *bitmap = flags->__vma_flags;
++	unsigned long *bitmap_dst = dst.__vma_flags;
++
++	bitmap_xor(bitmap_dst, bitmap, bitmap_other, NUM_VMA_FLAG_BITS);
++	return dst;
++}
++
+ static inline bool vma_test_all_mask(const struct vm_area_struct *vma,
+-					   vma_flags_t flags)
++				     vma_flags_t flags)
+ {
+ 	return vma_flags_test_all_mask(&vma->flags, flags);
+ }
+--
+2.53.0
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
