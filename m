@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B9E1077614
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 20:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8D21077617
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 20:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l08r8bpt7FLewuoScU1qP/Jx/K8bNIxZApMN96QmmKE=; b=OYNajZq9eHZc9r
-	bazaJemmdwL7FLB9uY7O6KFpQmTRYlTLYi15raAAcq99XBfp/Xz00WopsQwa7dHjdeCk8szbTpEFh
-	AN4lIiXkexRinZQdFzZ+4vy+KpX7VEp9jbyrAGHCpPXq5qH0CSH7pOeMzElh5+LLoo9I3hwrXuYp+
-	iws4ZtMwd9wQ+d7j6nnEze9KWKXwGx92J/6zV8YUw8uG3edReFj2Ao4W35X9kc1FghaXh7t/2qLQQ
-	eDeQMk6UlB8CwJYTtsD4b7Uv9J7ah5LXZ9VD4MF+ig0iJSPzSfhOnk4XLghIgqBP4BCxpLQDSBr93
-	XbbB9EnyzKlZkLfzTmjg==;
+	List-Owner; bh=3jjJiJZnOmSjY7FikpvfU5oWtpTfI9zpIFj41hVC5Bc=; b=isBPeFgZM98eJK
+	UzjjelRwfOMA9ecvnfgUK3heXmPdRMj/E+72KxyRgG6iqvKvqdyZZUopQPm+5dywLVWHDTha0dmV/
+	FKHimFgQVUVWbXbZAEy5xrIfRHcliLRgY0fZBXYePYFvOpQlI3XRbRDTqosQb1kBMUnELAsaPBXir
+	neViBFu6P3XS/LWATaKBESt+JBQGM57tHTfu2pRzfC8PwtaR0tS5pKfl5omvSWkoFi50nLC3cJZ8X
+	m0W7dS/EqK/5bfwt2IQoeAnpvzFas0DvtgDK3J+HPNfN3teZeU0SYmwnw6Ew8uvrqpftiFEQWn2Mq
+	eLBatFQXXO9yx1qDKlnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xMC-00000009I7Q-1ELo;
-	Wed, 18 Mar 2026 20:19:08 +0000
+	id 1w2xRm-00000009INa-0BKO;
+	Wed, 18 Mar 2026 20:24:54 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2xM9-00000009I74-2lsu
+	id 1w2xRk-00000009INF-0mba
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 20:19:06 +0000
+	Wed, 18 Mar 2026 20:24:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=LdG7Sm2ptAX6UD2HdakCYLcb1OHihIX1Cvex0rU/AzQ=; b=vEHWcxncGlGcDZ2E2SyOFxqoah
-	2WmJFbz3N8WKv/AokAOdGDTSiTQabVDPNE8RT1b+jLassaXtmMF/TU+zMr0DDbsIa28VikweVyfDy
-	3puPxOdf93Lo0fTxixjeKGbyMQIxouBO9nwJCjGP07EdShAyA06FV0hSQKU0DdGThsyNKQ38tDNlf
-	k6nCQGcjvfMF0WNNGn9kPZyMUoHiGytt6/QelGiA3/y8dLQ21BYZZPq7KBIO/QduaZ+PihHuxjODT
-	oSYHQbEmn8wgXQD8DMKaEIyu6f0HwDDX82IeSONEOmIS2A+wCp/mqzIE7L0/RTOzltGE9PSqtRlOw
-	l7PvXFQQ==;
+	bh=DxuFz52fFq6pkfpxsifbWk1sah6P9t7hQOOOvkqb+BE=; b=C2or/c1nfGppJw2wonUiXwDl8M
+	U0MXuq4A+MilzgT1hA08TOf46BxtiuYqfLiIPH+8hF5Mx3Mq82OoHLIQgCnBnXE+DbG2PUpwwtzXx
+	Wgd73hUpBxRHZozfD1B2qsd//sDDigr4PnrgJa007CJpa8qPQcky64PQsKRkVM44LwPWRffjOI1GY
+	eWiNlGcUR6nFuB+qosOuEe71UK+34L3JJj9CheBs15AupuxmUYUL5ZI8bLq+VNMmouZM0YyNT6NDw
+	S6f2qE3u5r0qETOPWE7BaaPzh95TWUJ9gHgmw8iRqs/uDGeCaUZoHxbczSRLA095hJqUolwez8gWe
+	szD3vDRA==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1w2xLy-00000005fER-1Kds;
-	Wed, 18 Mar 2026 21:18:54 +0100
-Date: Wed, 18 Mar 2026 21:18:53 +0100
+	id 1w2xRd-00000005fXL-1dM1;
+	Wed, 18 Mar 2026 21:24:45 +0100
+Date: Wed, 18 Mar 2026 21:24:44 +0100
 From: Aurelien Jarno <aurelien@aurel32.net>
-To: Troy Mitchell <troy.mitchell@linux.dev>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH v2] riscv: disable local interrupts and stop other CPUs
- before reboot/shutdown
-Message-ID: <absIrdV8Ef2YjqR7@aurel32.net>
-Mail-Followup-To: Troy Mitchell <troy.mitchell@linux.dev>,
+To: Iker Pedrosa <ikerpedrosam@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev
-References: <20260317-v7-0-rc1-rv-dis-int-before-restart-v2-1-0ecc85fbb7ff@linux.dev>
+	Yixun Lan <dlan@kernel.org>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>
+Subject: Re: [PATCH v3 7/7] riscv: dts: spacemit: k1-bananapi-f3: add SD card
+ support with UHS modes
+Message-ID: <absKDGLCw26xr7Z4@aurel32.net>
+Mail-Followup-To: Iker Pedrosa <ikerpedrosam@gmail.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>
+References: <20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com>
+ <20260316-orangepi-sd-card-uhs-v3-7-aefd3b7832df@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260317-v7-0-rc1-rv-dis-int-before-restart-v2-1-0ecc85fbb7ff@linux.dev>
+In-Reply-To: <20260316-orangepi-sd-card-uhs-v3-7-aefd3b7832df@gmail.com>
 User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_131905_719413_85CF6624 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20260318_132452_250316_852D209F 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,98 +99,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+Hi,
 
-On 2026-03-17 16:48, Troy Mitchell wrote:
-> Currently, the RISC-V implementation of machine_restart(), machine_halt(),
-> and machine_power_off() invokes the kernel teardown chains (e.g.,
-> do_kernel_restart()) with local interrupts enabled and other CPUs still
-> running.
+On 2026-03-16 15:03, Iker Pedrosa wrote:
+> Add complete SD card controller support with UHS high-speed modes.
 > 
-> This implementation fails to provide a deterministic execution environment
-> for registered handlers in the restart or power-off notifier chains. These
-> chains are intended to be executed in a strict atomic and single-threaded
-> context.
+> - Enable sdhci0 controller with 4-bit bus width
+> - Configure card detect GPIO with inversion
+> - Connect vmmc-supply to buck4 for 3.3V card power
+> - Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
+> - Add dual pinctrl states for voltage-dependent pin configuration
+> - Support UHS-I SDR25, SDR50, and SDR104 modes
 > 
-> Specifically, under CONFIG_PREEMPT_RCU, rcu_read_lock() does not increment
-> the preempt_count. If local interrupts remain enabled, the environment
-> is not guaranteed to be atomic. This can lead to a context misidentification
-> within generic kernel teardown code, causing it to incorrectly enter
-> non-atomic paths (such as attempting to acquire sleeping locks), which
-> results in fatal "scheduling while atomic" splats or system hangs.
+> This enables full SD card functionality including high-speed UHS modes
+> for improved performance.
 > 
-> Additionally, stopping other CPUs ensures the primary CPU has exclusive
-> access to the hardware state during the final teardown phase, preventing
-> unpredictable interference from other active cores.
-> 
-> Align RISC-V with other major architectures by disabling local interrupts
-> and stopping other CPUs at the beginning of the shutdown sequences. This
-> guarantees the architectural expectations of the kernel's restart and
-> power-off handlers are met.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+> Suggested-by: Anand Moon <linux.amoon@gmail.com>
+> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 > ---
-> Changes in v2:
-> - expand the fix to cover machine_halt() and machine_power_off() for
->   architectural consistency.
-> - update commit message
-> - Link to v1: https://lore.kernel.org/r/20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev
-> ---
->  arch/riscv/kernel/reset.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 23 +++++++++++++++++++++--
+>  1 file changed, 21 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
-> index 912288572226..8c48466c50e9 100644
-> --- a/arch/riscv/kernel/reset.c
-> +++ b/arch/riscv/kernel/reset.c
-> @@ -5,6 +5,7 @@
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> index 404b69c47b91f8c37d74a3031dbad0d94a28d1b4..a7d480d01ccc0439dbf456ed5a81f467af68056a 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> @@ -222,7 +222,7 @@ buck3_1v8: buck3 {
+>  				regulator-always-on;
+>  			};
 >  
->  #include <linux/reboot.h>
->  #include <linux/pm.h>
-> +#include <linux/smp.h>
+> -			buck4 {
+> +			buck4: buck4 {
+>  				regulator-min-microvolt = <500000>;
+>  				regulator-max-microvolt = <3300000>;
+>  				regulator-ramp-delay = <5000>;
+> @@ -243,7 +243,7 @@ buck6 {
+>  				regulator-always-on;
+>  			};
 >  
->  static void default_power_off(void)
->  {
-> @@ -17,18 +18,27 @@ EXPORT_SYMBOL(pm_power_off);
->  
->  void machine_restart(char *cmd)
->  {
-> +	local_irq_disable();
-> +	smp_send_stop();
+> -			aldo1 {
+> +			aldo1: aldo1 {
+>  				regulator-min-microvolt = <500000>;
+>  				regulator-max-microvolt = <3400000>;
+>  				regulator-boot-on;
+> @@ -369,3 +369,22 @@ hub_3_0: hub@2 {
+>  		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
+>  	};
+>  };
 > +
->  	do_kernel_restart(cmd);
->  	while (1);
->  }
->  
->  void machine_halt(void)
->  {
-> +	local_irq_disable();
-> +	smp_send_stop();
-> +
->  	do_kernel_power_off();
->  	default_power_off();
->  }
->  
->  void machine_power_off(void)
->  {
-> +	local_irq_disable();
-> +	smp_send_stop();
-> +
->  	do_kernel_power_off();
->  	default_power_off();
->  }
-> 
-> ---
-> base-commit: 31489a8c1e95cfa2039b7ec4abf124d1fdda31a6
-> change-id: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
-> 
-> Best regards,
-> -- 
-> Troy Mitchell <troy.mitchell@linux.dev>
+> +&sdhci0 {
+> +	pinctrl-names = "default", "state_uhs";
+> +	pinctrl-0 = <&mmc1_cfg>;
+> +	pinctrl-1 = <&mmc1_uhs_cfg>;
+> +	bus-width = <4>;
+> +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
+> +	cd-inverted;
 
-Thanks for this new version. I confirm it works fine.
+Thanks for this driver. Unfortunately, this is not correct for the 
+Banana PI F3. The OrangePi RV2 buffers the signal from the SD card 
+connector through a transistor, inverting the signal. On the Banana PI 
+F3, the signal goes directly to the GPIO, and does not even have a 
+pull-up.
 
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+With the following change, I have been able to get the patchset working 
+as expected:
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index a7d480d01ccc0..72b0f75f936aa 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -375,8 +375,7 @@ &sdhci0 {
+ 	pinctrl-0 = <&mmc1_cfg>;
+ 	pinctrl-1 = <&mmc1_uhs_cfg>;
+ 	bus-width = <4>;
+-	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
+-	cd-inverted;
++	cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+ 	no-mmc;
+ 	no-sdio;
+ 	disable-wp;
 
 Regards
 Aurelien
