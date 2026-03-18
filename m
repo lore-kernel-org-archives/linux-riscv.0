@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 046BA103E168
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 12:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE724103E171
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 12:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7QNVIEH+EJQqgVP3LJ0EP0Sjkb3p4UA04Xr442N51jQ=; b=WkfyxVNelPC9Nl
-	NIjelBxRy1C5s7htTbwJMm+S74iWxCwKxJaxS6KNpNuIB+IfH1onKaBdfxvD7icyQk6wv6Ja1mlXe
-	8dbk+8Txr1sNYhX/Ei4rq0BDxd85Wl/o1ZFSacPUG6PbanKqD5SRWZb1RbkeB5xah7jkGKkrqXrE/
-	lvHoKLQv2Q1kX0JaHdWXM3O8q0/LBrYNZkq16TMLXckBOiGsJAN+6jHqjQO7FsZSJKlId7qOVgEkJ
-	c0x8MBetjiYFIvS7sOld8lKdUU13RfXcfan3qGFwzyEc4//JEVuGqjJH5xXf/bMIvv20Y064sLZj+
-	Aftm14GtzKznI5AZSQvg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N3fFokGylSqaP1SqL79p7yQZgiD25sW/hlrSkjJuP+E=; b=gzZlxjWYmXUt+P
+	sG23ywup+DQZrvTjMaakt++swfor8G0Mt7q2o9GxzPd8I0Kr5AtVml8/7uen3rhlqx+mioejZJr78
+	YQAO9KA4YkKF033Jbu3jmhp+x0y4R/yMOWC3ybS4DmevMgSQiK2XW9F88ptkUjXzAIBAjU+BsjJyI
+	Mw+dKac0PGO23cGkTg84XTLthd2hwBt8idoo3RXZ+Pwmbtw3qLTCkzb3pvZSLT7AvCXbIdU5tXueh
+	1KYMu5j3AJsf43xZOkcsmd+G0CcPdsTAkA27hNrfQCbLsbWq9rbCs2KzepBxr3vmq54b3sd6kNJOv
+	vqbcHqrcHSELT80lcohg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2q8o-00000008OeG-1CpQ;
-	Wed, 18 Mar 2026 12:36:50 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1w2qBv-00000008Pgh-0E9B;
+	Wed, 18 Mar 2026 12:40:03 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2q8k-00000008ObL-2AKL;
-	Wed, 18 Mar 2026 12:36:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=8F
-	dH4WSxnaNsrxY+HYRVMygusEpKn03CJlFj28CLWrg=; b=nPmqn+xZb9/6kIWpKt
-	PBafquFmonCwZZApNE6ze4EcISCtOlG3EaEuZvaseAY368KiGr7yNx+oUsle6ZWe
-	1pVFWs7pbZRbqxp2HC+558w8Ce0OQjGDP4kYQ5lGnGkZLUh7K50eADVrjO/UC6/G
-	CIAReeXcijx33mIasr3g8MrOI=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wAXfZkinLpp4Se1Bg--.34780S2;
-	Wed, 18 Mar 2026 20:35:47 +0800 (CST)
-From: Jinyu Tang <tjytimi@163.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	=?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?= <radim.krcmar@oss.qualcomm.com>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Nutty Liu <nutty.liu@hotmail.com>
-Cc: kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jinyu Tang <tjytimi@163.com>
-Subject: [PATCH v2] RISC-V: KVM: Batch stage-2 remote TLB flushes
-Date: Wed, 18 Mar 2026 20:35:33 +0800
-Message-ID: <20260318123534.2166919-1-tjytimi@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1w2qBs-00000008Pcw-0APz
+	for linux-riscv@lists.infradead.org;
+	Wed, 18 Mar 2026 12:40:01 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w2qBf-0001Qv-Cj; Wed, 18 Mar 2026 13:39:47 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w2qBe-000uRl-2b;
+	Wed, 18 Mar 2026 13:39:46 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w2qBe-000000009ES-30Jx;
+	Wed, 18 Mar 2026 13:39:46 +0100
+Message-ID: <3e9022faae3dc6f5066a1e7cc3752a0193a55bc9.camel@pengutronix.de>
+Subject: Re: [PATCH v3] reset: spacemit: k3: Decouple composite reset lines
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Junzhong Pan <junzhong.pan@spacemit.com>, Guodong Xu
+ <guodong@riscstar.com>, 	devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, 	spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Inochi Amaoto	 <inochiama@gmail.com>
+Date: Wed, 18 Mar 2026 13:39:46 +0100
+In-Reply-To: <20260317-01-k3-reset-usb-pci-v3-1-e4b9a43c7d45@kernel.org>
+References: <20260317-01-k3-reset-usb-pci-v3-1-e4b9a43c7d45@kernel.org>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-X-CM-TRANSID: _____wAXfZkinLpp4Se1Bg--.34780S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Zry5AF1DtrW7tF43JF13Jwb_yoWkXw45pr
-	4DCryfur4fXrs7XF13tFWDZrn8uws7W3WrAr98CF90yrn8trWfXr1vg34vvr15Jr1rXFW3
-	ZFyDGF1UAr4IyFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piUGYdUUUUU=
-X-Originating-IP: [2408:823d:2011:31d0:e5a2:a09d:6cdb:4df]
-X-CM-SenderInfo: xwm13xlpl6il2tof0z/xtbC8gM4sGm6nCMLxgAA3Y
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_053647_138793_2BCCD571 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20260318_054000_079559_26360976 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,327 +79,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM RISC-V triggers a TLB flush for every single stage-2 PTE
-modification (unmap or write-protect) now. Although KVM coalesces the
-hardware IPIs, the software overhead of executing the flush work
-for every 4K page is large, especially during dirty page tracking.
+On Di, 2026-03-17 at 02:36 +0000, Yixun Lan wrote:
+> Instead of grouping several different reset lines into one composite
+> reset, decouple them to individual ones which make it more aligned
+> with underlying hardware. And for DWC USB driver, it will match well
+> with the number of the reset property in the DT bindings.
+> 
+> The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
+> PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
+> Also three reset lines each for UCIE and RCPU block.
+> 
+> As an agreement with maintainer, the reset IDs has been rearranged as
+> contiguous number and pushed as a fix for the driver, and reason is that
+> there isn't any consumer of reset driver so far,
 
-Following the approach used in x86 and arm64, this patch optimizes
-the MMU logic by making the PTE manipulation functions return a boolean
-indicating if a leaf PTE was actually changed. The outer MMU functions
-bubble up this flag to batch the remote TLB flushes. This change makes
-the generic KVM MMU callbacks (e.g., `kvm_unmap_gfn_range()`) actually
-effective by returning the true flush requirement rather than `false`.
+Unfortunately that does not seem to be the case for all APMU resets.
+A lore query for all changed IDs [1] yields a patch that adds ethernet
+device nodes using RESET_APMU_EMAC[012] [2].
 
-Consequently, the flush operation is executed only once per batch.
-Moving it outside of the `mmu_lock` also reduces lock contention.
-For directory pages, we keep the synchronous flush to ensure safety.
+[1] https://lore.kernel.org/all/?q=dfb%3ARESET_APMU_USB2+OR+dfb%3ARESET_APMU_USB3_PORTA+OR+dfb%3ARESET_APMU_USB3_PORTB+OR+dfb%3ARESET_APMU_USB3_PORTC+OR+dfb%3ARESET_APMU_USB3_PORTD+OR+dfb%3ARESET_APMU_QSPI+OR+dfb%3ARESET_APMU_QSPI_BUS+OR+dfb%3ARESET_APMU_DMA+OR+dfb%3ARESET_APMU_AES_WTM+OR+dfb%3ARESET_APMU_MCB_DCLK+OR+dfb%3ARESET_APMU_MCB_ACLK+OR+dfb%3ARESET_APMU_VPU+OR+dfb%3ARESET_APMU_DTC+OR+dfb%3ARESET_APMU_GPU+OR+dfb%3ARESET_APMU_ALZO+OR+dfb%3ARESET_APMU_MC+OR+dfb%3ARESET_APMU_CPU0_POP+OR+dfb%3ARESET_APMU_CPU0_SW+OR+dfb%3ARESET_APMU_CPU1_POP+OR+dfb%3ARESET_APMU_CPU1_SW+OR+dfb%3ARESET_APMU_CPU2_POP+OR+dfb%3ARESET_APMU_CPU2_SW+OR+dfb%3ARESET_APMU_CPU3_POP+OR+dfb%3ARESET_APMU_CPU3_SW+OR+dfb%3ARESET_APMU_C0_MPSUB_SW+OR+dfb%3ARESET_APMU_CPU4_POP+OR+dfb%3ARESET_APMU_CPU4_SW+OR+dfb%3ARESET_APMU_CPU5_POP+OR+dfb%3ARESET_APMU_CPU5_SW+OR+dfb%3ARESET_APMU_CPU6_POP+OR+dfb%3ARESET_APMU_CPU6_SW+OR+dfb%3ARESET_APMU_CPU7_POP+OR+dfb%3ARESET_APMU_CPU7_SW+OR+dfb%3ARESET_APMU_C1_MPSUB_SW+OR+dfb%3ARESET_APMU_MPSUB_DBG+OR+dfb%3ARESET_APMU_UCIE+OR+dfb%3ARESET_APMU_RCPU+OR+dfb%3ARESET_APMU_DSI4LN2_ESCCLK+OR+dfb%3ARESET_APMU_DSI4LN2_LCD_SW+OR+dfb%3ARESET_APMU_DSI4LN2_LCD_MCLK+OR+dfb%3ARESET_APMU_DSI4LN2_LCD_DSCCLK+OR+dfb%3ARESET_APMU_DSI4LN2_DPU_ACLK+OR+dfb%3ARESET_APMU_DPU_ACLK+OR+dfb%3ARESET_APMU_UFS_ACLK+OR+dfb%3ARESET_APMU_EDP0+OR+dfb%3ARESET_APMU_EDP1+OR+dfb%3ARESET_APMU_PCIE_PORTA+OR+dfb%3ARESET_APMU_PCIE_PORTB+OR+dfb%3ARESET_APMU_PCIE_PORTC+OR+dfb%3ARESET_APMU_PCIE_PORTD+OR+dfb%3ARESET_APMU_PCIE_PORTE+OR+dfb%3ARESET_APMU_EMAC0+OR+dfb%3ARESET_APMU_EMAC1+OR+dfb%3ARESET_APMU_EMAC2+OR+dfb%3ARESET_APMU_ESPI_MCLK+OR+dfb%3ARESET_APMU_ESPI_SCLK
+[2] https://lore.kernel.org/all/20260318035542.517554-1-inochiama@gmail.com/
 
-Tested with tools/testing/selftests/kvm on a 4-vCPU guest (Host
-environment: QEMU 10.2.1 RISC-V)
-1. demand_paging_test (1GB memory)
-	# time ./demand_paging_test -b 1G -v 4
-   - Total execution time reduced from ~2m33s to ~2m25s
-2. dirty_log_perf_test (1GB memory)
-   	# ./dirty_log_perf_test -b 1G -v 4
-	- "Clear dirty log time" per iteration dropped significantly from
-     ~3.02s to ~0.20s
+Please reorder the resets such that only the decoupled lines get new
+numbers. Especially EMAC resets should keep the same value.
 
-Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
-Signed-off-by: Jinyu Tang <tjytimi@163.com>
----
-v1 -> v2:
-Changes in v2:
-- Fixed alignment issues in multi-line function calls supported by
-  Nutty Liu.
+> so should not cause any ABI breakage.
+>
+> Also, the changes of DT binding header file and reset
+> driver are merged together as one single commit to avoid git-bisect
+> breakage.
 
- arch/riscv/include/asm/kvm_gstage.h |  6 ++--
- arch/riscv/kvm/gstage.c             | 46 +++++++++++++++++++----------
- arch/riscv/kvm/mmu.c                | 38 +++++++++++++++++-------
- 3 files changed, 62 insertions(+), 28 deletions(-)
+This addresses the only remaining checkpatch-warning:
 
-diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
-index 595e21831..b003a07f1 100644
---- a/arch/riscv/include/asm/kvm_gstage.h
-+++ b/arch/riscv/include/asm/kvm_gstage.h
-@@ -59,13 +59,13 @@ enum kvm_riscv_gstage_op {
- 	GSTAGE_OP_WP,		/* Write-protect */
- };
- 
--void kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
-+bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 			     pte_t *ptep, u32 ptep_level, enum kvm_riscv_gstage_op op);
- 
--void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
-+bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 				  gpa_t start, gpa_t size, bool may_block);
- 
--void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end);
-+bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end);
- 
- void kvm_riscv_gstage_mode_detect(void);
- 
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index b67d60d72..798719ac1 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -209,49 +209,59 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
- 	return kvm_riscv_gstage_set_pte(gstage, pcache, out_map);
- }
- 
--void kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
-+bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 			     pte_t *ptep, u32 ptep_level, enum kvm_riscv_gstage_op op)
- {
- 	int i, ret;
- 	pte_t old_pte, *next_ptep;
- 	u32 next_ptep_level;
- 	unsigned long next_page_size, page_size;
-+	bool flush = false;
- 
- 	ret = gstage_level_to_page_size(ptep_level, &page_size);
- 	if (ret)
--		return;
-+		return false;
- 
- 	WARN_ON(addr & (page_size - 1));
- 
- 	if (!pte_val(ptep_get(ptep)))
--		return;
-+		return false;
- 
- 	if (ptep_level && !gstage_pte_leaf(ptep)) {
- 		next_ptep = (pte_t *)gstage_pte_page_vaddr(ptep_get(ptep));
- 		next_ptep_level = ptep_level - 1;
- 		ret = gstage_level_to_page_size(next_ptep_level, &next_page_size);
- 		if (ret)
--			return;
-+			return false;
- 
- 		if (op == GSTAGE_OP_CLEAR)
- 			set_pte(ptep, __pte(0));
- 		for (i = 0; i < PTRS_PER_PTE; i++)
--			kvm_riscv_gstage_op_pte(gstage, addr + i * next_page_size,
--						&next_ptep[i], next_ptep_level, op);
--		if (op == GSTAGE_OP_CLEAR)
-+			flush |= kvm_riscv_gstage_op_pte(gstage, addr + i * next_page_size,
-+							 &next_ptep[i], next_ptep_level, op);
-+		if (op == GSTAGE_OP_CLEAR) {
-+			gstage_tlb_flush(gstage, ptep_level, addr);
-+			flush = false;
- 			put_page(virt_to_page(next_ptep));
-+		}
- 	} else {
- 		old_pte = *ptep;
- 		if (op == GSTAGE_OP_CLEAR)
- 			set_pte(ptep, __pte(0));
- 		else if (op == GSTAGE_OP_WP)
- 			set_pte(ptep, __pte(pte_val(ptep_get(ptep)) & ~_PAGE_WRITE));
--		if (pte_val(*ptep) != pte_val(old_pte))
--			gstage_tlb_flush(gstage, ptep_level, addr);
-+		if (pte_val(*ptep) != pte_val(old_pte)) {
-+			if (gstage->flags & KVM_GSTAGE_FLAGS_LOCAL)
-+				gstage_tlb_flush(gstage, ptep_level, addr);
-+			else
-+				flush = true;
-+		}
- 	}
-+
-+	return flush;
- }
- 
--void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
-+bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 				  gpa_t start, gpa_t size, bool may_block)
- {
- 	int ret;
-@@ -260,6 +270,7 @@ void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 	bool found_leaf;
- 	unsigned long page_size;
- 	gpa_t addr = start, end = start + size;
-+	bool flush = false;
- 
- 	while (addr < end) {
- 		found_leaf = kvm_riscv_gstage_get_leaf(gstage, addr, &ptep, &ptep_level);
-@@ -271,8 +282,8 @@ void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 			goto next;
- 
- 		if (!(addr & (page_size - 1)) && ((end - addr) >= page_size))
--			kvm_riscv_gstage_op_pte(gstage, addr, ptep,
--						ptep_level, GSTAGE_OP_CLEAR);
-+			flush |= kvm_riscv_gstage_op_pte(gstage, addr, ptep,
-+							 ptep_level, GSTAGE_OP_CLEAR);
- 
- next:
- 		addr += page_size;
-@@ -284,9 +295,11 @@ void kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) && may_block && addr < end)
- 			cond_resched_lock(&gstage->kvm->mmu_lock);
- 	}
-+
-+	return flush;
- }
- 
--void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end)
-+bool kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end)
- {
- 	int ret;
- 	pte_t *ptep;
-@@ -294,6 +307,7 @@ void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end
- 	bool found_leaf;
- 	gpa_t addr = start;
- 	unsigned long page_size;
-+	bool flush = false;
- 
- 	while (addr < end) {
- 		found_leaf = kvm_riscv_gstage_get_leaf(gstage, addr, &ptep, &ptep_level);
-@@ -305,12 +319,14 @@ void kvm_riscv_gstage_wp_range(struct kvm_gstage *gstage, gpa_t start, gpa_t end
- 			goto next;
- 
- 		if (!(addr & (page_size - 1)) && ((end - addr) >= page_size))
--			kvm_riscv_gstage_op_pte(gstage, addr, ptep,
--						ptep_level, GSTAGE_OP_WP);
-+			flush |= kvm_riscv_gstage_op_pte(gstage, addr, ptep,
-+							 ptep_level, GSTAGE_OP_WP);
- 
- next:
- 		addr += page_size;
- 	}
-+
-+	return flush;
- }
- 
- void __init kvm_riscv_gstage_mode_detect(void)
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 0b75eb2a1..dde5afe57 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -23,6 +23,7 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
- 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
-+	bool flush;
- 
- 	gstage.kvm = kvm;
- 	gstage.flags = 0;
-@@ -30,9 +31,10 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
- 	gstage.pgd = kvm->arch.pgd;
- 
- 	spin_lock(&kvm->mmu_lock);
--	kvm_riscv_gstage_wp_range(&gstage, start, end);
-+	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
- 	spin_unlock(&kvm->mmu_lock);
--	kvm_flush_remote_tlbs_memslot(kvm, memslot);
-+	if (flush)
-+		kvm_flush_remote_tlbs_memslot(kvm, memslot);
- }
- 
- int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
-@@ -88,6 +90,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
- {
- 	struct kvm_gstage gstage;
-+	bool flush;
- 
- 	gstage.kvm = kvm;
- 	gstage.flags = 0;
-@@ -95,8 +98,12 @@ void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
- 	gstage.pgd = kvm->arch.pgd;
- 
- 	spin_lock(&kvm->mmu_lock);
--	kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
-+	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
- 	spin_unlock(&kvm->mmu_lock);
-+
-+	if (flush)
-+		kvm_flush_remote_tlbs_range(kvm, gpa >> PAGE_SHIFT,
-+					    size >> PAGE_SHIFT);
- }
- 
- void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
-@@ -108,13 +115,17 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
- 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
-+	bool flush;
- 
- 	gstage.kvm = kvm;
- 	gstage.flags = 0;
- 	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
- 	gstage.pgd = kvm->arch.pgd;
- 
--	kvm_riscv_gstage_wp_range(&gstage, start, end);
-+	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
-+	if (flush)
-+		kvm_flush_remote_tlbs_range(kvm, start >> PAGE_SHIFT,
-+					    (end - start) >> PAGE_SHIFT);
- }
- 
- void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
-@@ -140,6 +151,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
- 	gpa_t gpa = slot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t size = slot->npages << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
-+	bool flush;
- 
- 	gstage.kvm = kvm;
- 	gstage.flags = 0;
-@@ -147,8 +159,10 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
- 	gstage.pgd = kvm->arch.pgd;
- 
- 	spin_lock(&kvm->mmu_lock);
--	kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
-+	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
- 	spin_unlock(&kvm->mmu_lock);
-+	if (flush)
-+		kvm_flush_remote_tlbs(kvm);
- }
- 
- void kvm_arch_commit_memory_region(struct kvm *kvm,
-@@ -253,10 +267,9 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- 	gstage.flags = 0;
- 	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
- 	gstage.pgd = kvm->arch.pgd;
--	kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
--				     (range->end - range->start) << PAGE_SHIFT,
--				     range->may_block);
--	return false;
-+	return kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
-+					    (range->end - range->start) << PAGE_SHIFT,
-+					    range->may_block);
- }
- 
- bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-@@ -579,6 +592,7 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- {
- 	struct kvm_gstage gstage;
- 	void *pgd = NULL;
-+	bool flush = false;
- 
- 	spin_lock(&kvm->mmu_lock);
- 	if (kvm->arch.pgd) {
-@@ -586,13 +600,17 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 		gstage.flags = 0;
- 		gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
- 		gstage.pgd = kvm->arch.pgd;
--		kvm_riscv_gstage_unmap_range(&gstage, 0UL, kvm_riscv_gstage_gpa_size, false);
-+		flush = kvm_riscv_gstage_unmap_range(&gstage, 0UL,
-+						     kvm_riscv_gstage_gpa_size, false);
- 		pgd = READ_ONCE(kvm->arch.pgd);
- 		kvm->arch.pgd = NULL;
- 		kvm->arch.pgd_phys = 0;
- 	}
- 	spin_unlock(&kvm->mmu_lock);
- 
-+	if (flush)
-+		kvm_flush_remote_tlbs(kvm);
-+
- 	if (pgd)
- 		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
- }
--- 
-2.43.0
+  WARNING: DT binding docs and includes should be a separate patch. See: Documentation/devicetree/bindings/submitting-patches.rst
 
+which is ignored on purpose to avoid a bisection hazard.
+
+> Fixes: 938ce3b16582 ("reset: spacemit: Add SpacemiT K3 reset driver")
+> Fixes: 216e0a5e98e5 ("dt-bindings: soc: spacemit: Add K3 reset support and IDs")
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
