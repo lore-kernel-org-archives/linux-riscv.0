@@ -4,89 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AAB107760E
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 21:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1164103E19D
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Mar 2026 21:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bqyl4gqVG4cPivzAHf3eucLx/G5P/eeV5E8iSQtO/f4=; b=2uMxcerRgbN6m7
-	YI2yk/3PNZHz2wpk6L/ajfPazQzptgHnIFQVybxmJusFaE3At5nMKD8QsOao/hTup0fgPxPfcTUUt
-	DQGibhw4P9Yz0MdhGW8frG+l4QCGMzNoFVL47CFeT7bpfagzkN5dh99fVTN64u1yOoNYdgi+Hot41
-	0h6ob1yVIZmgvR+aGhEr/FXoMWyGT7EqlPTCIyy1Rix7xAy88fm19jzXrHLfJ4VFMIqcvBKKko/ii
-	EBDKeBYWaxTEhFgpPkYzvfbyGT8L/mZUbv9Nu4k+T4U/dcmxsUOzoG2FUj8gdNz1n1Zt5niudAsh2
-	bnbu6bvOlwvExkrpQ1mQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Iep7+QXaXx1FjuR9VaOiDVGf8UBFZD6BnpFk+pFkjB8=; b=xjYNoHaaM7Cn6s
+	zbhPpDn/1c/ffRdZ6APmeUbU4cdeM9ccYKBr28aYG8GIODElXyhkONl9+ZPA269ZcZoFuOcWOF3zg
+	s8Ccd2JwSoKoac+2u2i0rAOwP3c7A5K1gk+MSiP2luTtAT2qqEVq+RirRDCcVlvM0JhvBpYBV/Gyn
+	8eX7tRrv97xMrDxo2vKJsfzqvfIICczzmsLajXhec+3qI2FaVOWfa01ZcuJa+9rLWQGg10U+gDrqA
+	rLtlq9IwyvVN7o8nGYyiH4kredVSO4yAQhi3q2D477X+n93+5p3PGU771QlLre1STuBTTdUXDM637
+	OedBANKPjQ6rXcfuDhag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2yIa-00000009NDc-20Ka;
-	Wed, 18 Mar 2026 21:19:28 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1w2yXg-00000009Nyb-2KqB;
+	Wed, 18 Mar 2026 21:35:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w2yIY-00000009NCt-0HYv
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Mar 2026 21:19:27 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-799001d73bdso3422327b3.0
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Mar 2026 14:19:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773868764; x=1774473564; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s1Qp9lS9mJbsbw6BdqhHIoqJG66lBxCc3NYAKkS9f8Q=;
-        b=DubDZY/87GoCPOJi0ahxlHKpbCVOFfdW5jWWi1itdhhC+tg2v/hfi+pbis7+07JcA+
-         SqjqjGsLxuCWeFhAY7PLyvB58F0Onz0cYaaAmzJFjQhWaXVK5y91HjLLV2Xf73aHuiX2
-         i7j6x0xlVZv/QdF0WrS8HIzfe+2GegWvSPeUsqDpEIK/vD3mwfdEWecXtHBylTt7HCy8
-         gs0xSUuiEi6KQXTnyL/vOoSHx2U1pQHazewRI7ijIZbu9dItNfCcWBO4qrrN1lDXJxnm
-         peeULC+uNdLS+bUE9dfH84PRJwTff50auSfdP67zyI/b4eNO5ej1z8RKmNSD0/m1wfjv
-         wOTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773868764; x=1774473564;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=s1Qp9lS9mJbsbw6BdqhHIoqJG66lBxCc3NYAKkS9f8Q=;
-        b=syLNrKRw3HsKSjatGFCGHrPOzyIqm57DfnlzfSYP9gRLwNUmMEEDXJYBJ2OJ/Ht6Nb
-         p6J6wjHjXwMO3trKOOLd7/Q/9cjGdhAJhLxlO/W019uVRpcY/xFPLy0tsV/sJQjhFm+m
-         G6uWNGalAgG2/9Op5D9S5NqDzPBnx4ZLJRIcxpsArvWpMgxYMSJsW3iWUvgCso9jHWeX
-         f/BiF5/ou0/G4lPCL+hxcUU2Job4KwclJj0225vW9nAnMyLFMQwc07IjsW7KvBrQKc76
-         Q2r6VZtht+LPqXoTYZ8XDR7FJ6hZ+la//XjINI9jKvbd8yKVq3cYM0FRNqvraPYwxJMB
-         LxuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVrRfy24d7ePyO1vAOHtsHbzF7A8TFZkG8wcKWAi/z2TcMXRjyWRvx8gVWwV+kFHG4Hszq3j8Tf8Cs34w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfiVJVSos+ehGSy+uFANyDnzRRdQ74ZgSV/yMKZvTJrIznEBeW
-	XdKIav7FRNiwjy486ozqmo3RBTFpP+bbkUS5hx01mLvASyrJd4f4B6Qm
-X-Gm-Gg: ATEYQzxwZhf1yL3DkPH+qAyT17kiEOmKquqVE7qfCib7e8+j2hHAEa/VpiylrHMA8RS
-	WBVTx7cZT+MWUJoRLqs7ILGZmK8rRem5XOVnfNK39ym87UA9djtFoBVKZIXAkow3MVgdN77Izqq
-	gdN+wfH4oJgmE1t+t20oI5YYwRX/HcICa1oc6hbb1tdPMG5VozIiMpSQabHbt8pDrKvWDfLXIql
-	ITBIsaHLqPhv2MFSm0cVuX+17RqZsqXgt57KGgPaUsGpL48QOSuAbsWbA+1g273jNLqLK6V5INh
-	XSI8x3FDAdqI5gRbX9oRsB6IQWpJKzi9lBJfqzLk026z7CotXmxEme+3L0rt+sq+PffCEHo4iiG
-	MDNk2llpXuuEKzPmRekBxhCrxg2nI2xLLO7VEs76XWZJ4cDRoLVYIOSn62zpLRNyiFjDs0s24sP
-	fOkHmoVjv4cukfp+cc0OtUjUUaUaOs9kJTCW4cOfCe4H7aULAm8O213tgesfPxntM1X3Q1+RU+W
-	Xm9JPHFq9Z2j9DvKQfqENJ88bu5O0Ht
-X-Received: by 2002:a05:690c:dc4:b0:79a:2ef2:82a with SMTP id 00721157ae682-79a718c82b6mr50873677b3.20.1773868764218;
-        Wed, 18 Mar 2026 14:19:24 -0700 (PDT)
-Received: from localhost ([2601:7c0:c37e:2360::f769])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-79a7136de7bsm24223777b3.2.2026.03.18.14.19.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Mar 2026 14:19:23 -0700 (PDT)
-Mime-Version: 1.0
-Date: Wed, 18 Mar 2026 16:19:22 -0500
-Message-Id: <DH67ZVO5UL9G.3SP1BFT4TQOI5@gmail.com>
-Cc: <atish.patra@linux.dev>, <pjw@kernel.org>, <palmer@dabbelt.com>,
- <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <ajones@ventanamicro.com>,
- <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] RISC-V: KVM: Fix out-of-bounds by 1
-From: "Ethan Tidmore" <ethantidmore06@gmail.com>
-To: "Ethan Tidmore" <ethantidmore06@gmail.com>, <anup@brainfault.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260228152226.2116895-1-ethantidmore06@gmail.com>
-In-Reply-To: <20260228152226.2116895-1-ethantidmore06@gmail.com>
+	id 1w2yXd-00000009Nxw-1RHQ;
+	Wed, 18 Mar 2026 21:35:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 98F88444AA;
+	Wed, 18 Mar 2026 21:34:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 426C5C19421;
+	Wed, 18 Mar 2026 21:34:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773869699;
+	bh=Z0sKaJzTVL625RHeAqUXkWbk+PwyTXe6rgvq5zdqspk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=enhKUZI1jj3ieMY8eJQdZfts0UzqIVpSvb7BNpwyEo6cCVUZVq3lzrQXsNun9R5Xp
+	 zd1CJufEu7ggTl02IPQL02vxNO8ijzyn4l07satVwgFMF1cs1W5f73zso2t4w92x37
+	 nW9Kzojr52ITf2ngCjyoU4hz3kfWo+O19Dc0ZQK0o8gIVL13XBhMcjbxkgr0GHNqIu
+	 hEJuTBn5+/ESMFoAFZ6lP1pdiNYZWtgiw9hZDF+BjOitYdv5OaH9l66Jisr4d8N69E
+	 931It9dGXXcbbh64ru+9TYZtZ9D7WNdsZ1R2sNYyXF+JT++5BxxX6xv1zaHGAsLqPN
+	 Qgvd979U3ojbw==
+Date: Wed, 18 Mar 2026 16:34:58 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Chengwen Feng <fengchengwen@huawei.com>
+Subject: Re: [PATCH v8 1/3] ACPI: Refactor get_acpi_id_for_cpu() to
+ acpi_get_cpu_uid() on non-x86
+Message-ID: <20260318213458.GA474040@bhelgaas>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260318060151.29438-2-fengchengwen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_141926_108922_B7E62888 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260318_143501_462371_71438149 
+X-CRM114-Status: GOOD (  36.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,34 +64,445 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, liuyonglong@huawei.com, anshuman.khandual@arm.com, "Rafael J . Wysocki" <rafael@kernel.org>, Kees Cook <kees@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Eric.VanTassell@amd.com, Somnath Kotur <somnath.kotur@broadcom.com>, Sohil Mehta <sohil.mehta@intel.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, punit.agrawal@oss.qualcomm.com, guohanjun@huawei.com, Ilkka Koskinen <ilkka@os.amperecomputing.com>, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>, linux-acpi@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, masahiroy@kernel.org, Yanteng Si <si.yanteng@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, ryan.roberts@arm.com, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, suzuki.poulose@arm.com, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, loongarch@lists.linux.dev, Jonathan Cameron <jonathan.cameron@huawei.com>, Bjorn Helgaas <bhelgaas@google.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, wangyuquan1236@phytium.com.cn, Sean Christopherson <seanjc@google.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, heinrich.schuchardt@canonical.com, chenl311@chinatelecom.cn, Robin Murphy <robin.murphy@arm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat Feb 28, 2026 at 9:22 AM CST, Ethan Tidmore wrote:
-> The array kvpmu->pmc is defined as:
->
-> struct kvm_pmc pmc[RISCV_KVM_MAX_COUNTERS];
->
-> So, accessing it with index RISCV_KVM_MAX_COUNTERS would be
-> out-of-bounds by 1.
->
-> Change index check from > to >=.
->
-> Detected by Smatch:
-> arch/riscv/kvm/vcpu_pmu.c:528 kvm_riscv_vcpu_pmu_ctr_info() error:
-> buffer overflow 'kvpmu->pmc' 64 <= 64
->
-> Fixes: 8f0153ecd3bf1 ("RISC-V: KVM: Add skeleton support for perf")
-> Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
+On Wed, Mar 18, 2026 at 02:01:49PM +0800, Chengwen Feng wrote:
+> Unify CPU ACPI ID retrieval interface across architectures by
+> refactoring get_acpi_id_for_cpu() to acpi_get_cpu_uid() on
+> arm64/riscv/loongarch:
+> - Add input parameter validation
+> - Adjust interface to int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
+>   (old: u32 get_acpi_id_for_cpu(unsigned int cpu), no input check)
+> 
+> This refactoring (not a pure rename) enhances interface robustness while
+> preparing for consistent ACPI Processor UID retrieval across all
+> ACPI-enabled platforms. Valid inputs retain original behavior.
+> 
+> Note: Move the ARM64-specific get_cpu_for_acpi_id() implementation to
+>       arch/arm64/kernel/acpi.c to fix compilation errors from circular
+>       header dependencies introduced by the rename.
+> 
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > ---
+>  arch/arm64/include/asm/acpi.h      | 16 +---------
+>  arch/arm64/kernel/acpi.c           | 30 ++++++++++++++++++
+>  arch/loongarch/include/asm/acpi.h  |  5 ---
+>  arch/loongarch/kernel/acpi.c       |  9 ++++++
+>  arch/riscv/include/asm/acpi.h      |  4 ---
+>  arch/riscv/kernel/acpi.c           | 16 ++++++++++
+>  arch/riscv/kernel/acpi_numa.c      |  9 ++++--
+>  drivers/acpi/pptt.c                | 50 ++++++++++++++++++++++--------
+>  drivers/acpi/riscv/rhct.c          |  7 ++++-
+>  drivers/perf/arm_cspmu/arm_cspmu.c |  6 ++--
+>  include/linux/acpi.h               | 13 ++++++++
+>  11 files changed, 122 insertions(+), 43 deletions(-)
 
-Friendly ping.
+There's a lot going on in this single patch, which makes it hard to
+review.  I think this might make more sense as several patches:
 
-Thanks,
+  - arm64: declare acpi_get_cpu_uid() in arch/arm64/include, implement
+    it, and use in drivers/perf/arm_cspmu/arm_cspmu.c
 
-ET
+  - loongarch: declare acpi_get_cpu_uid() in arch/loongarch/include
+    and implement
+
+  - riscv: declare acpi_get_cpu_uid() in arch/riscv/include, implement
+    it, and use in rhct.c, riscv/kernel/acpi_numa.c
+
+  - x86: declare acpi_get_cpu_uid() in arch/x86/include, implement it,
+    and use in xen
+
+  - declare acpi_get_cpu_uid() in include/linux/acpi.h, remove
+    declarations from arm64, loongarch, riscv, x86
+
+  - convert acpi/pptt.c to use acpi_get_cpu_uid(), remove unused
+    get_acpi_id_for_cpu() from arm64, loongarch, riscv
+
+  - use acpi_get_cpu_uid() in tph.c
+
+Doc nit below.
+
+> diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
+> index c07a58b96329..106a08556cbf 100644
+> --- a/arch/arm64/include/asm/acpi.h
+> +++ b/arch/arm64/include/asm/acpi.h
+> @@ -114,22 +114,8 @@ static inline bool acpi_has_cpu_in_madt(void)
+>  }
+>  
+>  struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu);
+> -static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
+> -{
+> -	return	acpi_cpu_get_madt_gicc(cpu)->uid;
+> -}
+> -
+> -static inline int get_cpu_for_acpi_id(u32 uid)
+> -{
+> -	int cpu;
+> -
+> -	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
+> -		if (acpi_cpu_get_madt_gicc(cpu) &&
+> -		    uid == get_acpi_id_for_cpu(cpu))
+> -			return cpu;
+>  
+> -	return -EINVAL;
+> -}
+> +int get_cpu_for_acpi_id(u32 uid);
+>  
+>  static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+>  void __init acpi_init_cpus(void);
+> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+> index af90128cfed5..24b9d934be54 100644
+> --- a/arch/arm64/kernel/acpi.c
+> +++ b/arch/arm64/kernel/acpi.c
+> @@ -458,3 +458,33 @@ int acpi_unmap_cpu(int cpu)
+>  }
+>  EXPORT_SYMBOL(acpi_unmap_cpu);
+>  #endif /* CONFIG_ACPI_HOTPLUG_CPU */
+> +
+> +int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
+> +{
+> +	struct acpi_madt_generic_interrupt *gicc;
+> +
+> +	if (cpu >= nr_cpu_ids)
+> +		return -EINVAL;
+> +
+> +	gicc = acpi_cpu_get_madt_gicc(cpu);
+> +	if (!gicc)
+> +		return -ENODEV;
+> +
+> +	*uid = gicc->uid;
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
+> +
+> +int get_cpu_for_acpi_id(u32 uid)
+> +{
+> +	u32 cpu_uid;
+> +	int ret;
+> +
+> +	for (int cpu = 0; cpu < nr_cpu_ids; cpu++) {
+> +		ret = acpi_get_cpu_uid(cpu, &cpu_uid);
+> +		if (ret == 0 && uid == cpu_uid)
+> +			return cpu;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+> diff --git a/arch/loongarch/include/asm/acpi.h b/arch/loongarch/include/asm/acpi.h
+> index 7376840fa9f7..eda9d4d0a493 100644
+> --- a/arch/loongarch/include/asm/acpi.h
+> +++ b/arch/loongarch/include/asm/acpi.h
+> @@ -40,11 +40,6 @@ extern struct acpi_madt_core_pic acpi_core_pic[MAX_CORE_PIC];
+>  
+>  extern int __init parse_acpi_topology(void);
+>  
+> -static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
+> -{
+> -	return acpi_core_pic[cpu_logical_map(cpu)].processor_id;
+> -}
+> -
+>  #endif /* !CONFIG_ACPI */
+>  
+>  #define ACPI_TABLE_UPGRADE_MAX_PHYS ARCH_LOW_ADDRESS_LIMIT
+> diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
+> index 1367ca759468..058f0dbe8e8f 100644
+> --- a/arch/loongarch/kernel/acpi.c
+> +++ b/arch/loongarch/kernel/acpi.c
+> @@ -385,3 +385,12 @@ int acpi_unmap_cpu(int cpu)
+>  EXPORT_SYMBOL(acpi_unmap_cpu);
+>  
+>  #endif /* CONFIG_ACPI_HOTPLUG_CPU */
+> +
+> +int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
+> +{
+> +	if (cpu >= nr_cpu_ids)
+> +		return -EINVAL;
+> +	*uid = acpi_core_pic[cpu_logical_map(cpu)].processor_id;
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
+> diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+> index 6e13695120bc..26ab37c171bc 100644
+> --- a/arch/riscv/include/asm/acpi.h
+> +++ b/arch/riscv/include/asm/acpi.h
+> @@ -61,10 +61,6 @@ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+>  
+>  void acpi_init_rintc_map(void);
+>  struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
+> -static inline u32 get_acpi_id_for_cpu(int cpu)
+> -{
+> -	return acpi_cpu_get_madt_rintc(cpu)->uid;
+> -}
+>  
+>  int acpi_get_riscv_isa(struct acpi_table_header *table,
+>  		       unsigned int cpu, const char **isa);
+> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+> index 71698ee11621..322ea92aa39f 100644
+> --- a/arch/riscv/kernel/acpi.c
+> +++ b/arch/riscv/kernel/acpi.c
+> @@ -337,3 +337,19 @@ int raw_pci_write(unsigned int domain, unsigned int bus,
+>  }
+>  
+>  #endif	/* CONFIG_PCI */
+> +
+> +int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
+> +{
+> +	struct acpi_madt_rintc *rintc;
+> +
+> +	if (cpu >= nr_cpu_ids)
+> +		return -EINVAL;
+> +
+> +	rintc = acpi_cpu_get_madt_rintc(cpu);
+> +	if (!rintc)
+> +		return -ENODEV;
+> +
+> +	*uid = rintc->uid;
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
+> diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
+> index 130769e3a99c..6a2d4289f806 100644
+> --- a/arch/riscv/kernel/acpi_numa.c
+> +++ b/arch/riscv/kernel/acpi_numa.c
+> @@ -37,11 +37,14 @@ static int __init acpi_numa_get_nid(unsigned int cpu)
+>  
+>  static inline int get_cpu_for_acpi_id(u32 uid)
+>  {
+> -	int cpu;
+> +	u32 cpu_uid;
+> +	int ret;
+>  
+> -	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
+> -		if (uid == get_acpi_id_for_cpu(cpu))
+> +	for (int cpu = 0; cpu < nr_cpu_ids; cpu++) {
+> +		ret = acpi_get_cpu_uid(cpu, &cpu_uid);
+> +		if (ret == 0 && uid == cpu_uid)
+>  			return cpu;
+> +	}
+>  
+>  	return -EINVAL;
+>  }
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index de5f8c018333..7bd5bc1f225a 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -459,11 +459,14 @@ static void cache_setup_acpi_cpu(struct acpi_table_header *table,
+>  {
+>  	struct acpi_pptt_cache *found_cache;
+>  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+> -	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +	u32 acpi_cpu_id;
+>  	struct cacheinfo *this_leaf;
+>  	unsigned int index = 0;
+>  	struct acpi_pptt_processor *cpu_node = NULL;
+>  
+> +	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
+> +		return;
+> +
+>  	while (index < get_cpu_cacheinfo(cpu)->num_leaves) {
+>  		this_leaf = this_cpu_ci->info_list + index;
+>  		found_cache = acpi_find_cache_node(table, acpi_cpu_id,
+> @@ -546,7 +549,10 @@ static int topology_get_acpi_cpu_tag(struct acpi_table_header *table,
+>  				     unsigned int cpu, int level, int flag)
+>  {
+>  	struct acpi_pptt_processor *cpu_node;
+> -	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +	u32 acpi_cpu_id;
+> +
+> +	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
+> +		return -ENOENT;
+>  
+>  	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+>  	if (cpu_node) {
+> @@ -614,18 +620,22 @@ static int find_acpi_cpu_topology_tag(unsigned int cpu, int level, int flag)
+>   *
+>   * Check the node representing a CPU for a given flag.
+>   *
+> - * Return: -ENOENT if the PPTT doesn't exist, the CPU cannot be found or
+> - *	   the table revision isn't new enough.
+> + * Return: -ENOENT if can't get CPU's ACPI Processor UID, the PPTT doesn't
+> + *	   exist, the CPU cannot be found or the table revision isn't new
+> + *	   enough.
+>   *	   1, any passed flag set
+>   *	   0, flag unset
+>   */
+>  static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+>  {
+>  	struct acpi_table_header *table;
+> -	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +	u32 acpi_cpu_id;
+>  	struct acpi_pptt_processor *cpu_node = NULL;
+>  	int ret = -ENOENT;
+>  
+> +	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
+> +		return -ENOENT;
+> +
+>  	table = acpi_get_pptt();
+>  	if (!table)
+>  		return -ENOENT;
+> @@ -651,7 +661,8 @@ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+>   * in the PPTT. Errors caused by lack of a PPTT table, or otherwise, return 0
+>   * indicating we didn't find any cache levels.
+>   *
+> - * Return: -ENOENT if no PPTT table or no PPTT processor struct found.
+> + * Return: -ENOENT if no PPTT table, can't get CPU's ACPI Process UID or no PPTT
+> + *	   processor struct found.
+>   *	   0 on success.
+>   */
+>  int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
+> @@ -671,7 +682,9 @@ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
+>  
+>  	pr_debug("Cache Setup: find cache levels for CPU=%d\n", cpu);
+>  
+> -	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id))
+> +		return -ENOENT;
+> +
+>  	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+>  	if (!cpu_node)
+>  		return -ENOENT;
+> @@ -780,8 +793,9 @@ int find_acpi_cpu_topology_package(unsigned int cpu)
+>   * It may not exist in single CPU systems. In simple multi-CPU systems,
+>   * it may be equal to the package topology level.
+>   *
+> - * Return: -ENOENT if the PPTT doesn't exist, the CPU cannot be found
+> - * or there is no toplogy level above the CPU..
+> + * Return: -ENOENT if the PPTT doesn't exist, can't get CPU's ACPI
+> + * Processor UID, the CPU cannot be found or there is no toplogy level
+> + * above the CPU.
+>   * Otherwise returns a value which represents the package for this CPU.
+>   */
+>  
+> @@ -797,7 +811,9 @@ int find_acpi_cpu_topology_cluster(unsigned int cpu)
+>  	if (!table)
+>  		return -ENOENT;
+>  
+> -	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
+> +		return -ENOENT;
+> +
+>  	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+>  	if (!cpu_node || !cpu_node->parent)
+>  		return -ENOENT;
+> @@ -872,7 +888,9 @@ static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+>  	cpumask_clear(cpus);
+>  
+>  	for_each_possible_cpu(cpu) {
+> -		acpi_id = get_acpi_id_for_cpu(cpu);
+> +		if (acpi_get_cpu_uid(cpu, &acpi_id) != 0)
+> +			continue;
+> +
+>  		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+>  
+>  		while (cpu_node) {
+> @@ -966,10 +984,13 @@ int find_acpi_cache_level_from_id(u32 cache_id)
+>  	for_each_possible_cpu(cpu) {
+>  		bool empty;
+>  		int level = 1;
+> -		u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +		u32 acpi_cpu_id;
+>  		struct acpi_pptt_cache *cache;
+>  		struct acpi_pptt_processor *cpu_node;
+>  
+> +		if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
+> +			continue;
+> +
+>  		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+>  		if (!cpu_node)
+>  			continue;
+> @@ -1030,10 +1051,13 @@ int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
+>  	for_each_possible_cpu(cpu) {
+>  		bool empty;
+>  		int level = 1;
+> -		u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +		u32 acpi_cpu_id;
+>  		struct acpi_pptt_cache *cache;
+>  		struct acpi_pptt_processor *cpu_node;
+>  
+> +		if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
+> +			continue;
+> +
+>  		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+>  		if (!cpu_node)
+>  			continue;
+> diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
+> index caa2c16e1697..8f3f38c64a88 100644
+> --- a/drivers/acpi/riscv/rhct.c
+> +++ b/drivers/acpi/riscv/rhct.c
+> @@ -44,10 +44,15 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
+>  	struct acpi_rhct_isa_string *isa_node;
+>  	struct acpi_table_rhct *rhct;
+>  	u32 *hart_info_node_offset;
+> -	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +	u32 acpi_cpu_id;
+> +	int ret;
+>  
+>  	BUG_ON(acpi_disabled);
+>  
+> +	ret = acpi_get_cpu_uid(cpu, &acpi_cpu_id);
+> +	if (ret != 0)
+> +		return ret;
+> +
+>  	if (!table) {
+>  		rhct = acpi_get_rhct();
+>  		if (!rhct)
+> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+> index 34430b68f602..ed72c3d1f796 100644
+> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
+> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+> @@ -1107,15 +1107,17 @@ static int arm_cspmu_acpi_get_cpus(struct arm_cspmu *cspmu)
+>  {
+>  	struct acpi_apmt_node *apmt_node;
+>  	int affinity_flag;
+> +	u32 cpu_uid;
+>  	int cpu;
+> +	int ret;
+>  
+>  	apmt_node = arm_cspmu_apmt_node(cspmu->dev);
+>  	affinity_flag = apmt_node->flags & ACPI_APMT_FLAGS_AFFINITY;
+>  
+>  	if (affinity_flag == ACPI_APMT_FLAGS_AFFINITY_PROC) {
+>  		for_each_possible_cpu(cpu) {
+> -			if (apmt_node->proc_affinity ==
+> -			    get_acpi_id_for_cpu(cpu)) {
+> +			ret = acpi_get_cpu_uid(cpu, &cpu_uid);
+> +			if (ret == 0 && apmt_node->proc_affinity == cpu_uid) {
+>  				cpumask_set_cpu(cpu, &cspmu->associated_cpus);
+>  				break;
+>  			}
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index 4d2f0bed7a06..035094a55f18 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -324,6 +324,19 @@ int acpi_unmap_cpu(int cpu);
+>  
+>  acpi_handle acpi_get_processor_handle(int cpu);
+>  
+> +#ifndef CONFIG_X86
+> +/*
+> + * acpi_get_cpu_uid() - Get ACPI Processor UID of a specified CPU from MADT table
+> + * @cpu: Logical CPU number (0-based)
+> + * @uid: Pointer to store the ACPI Processor UID (valid only on successful return)
+
+This would normally go at the implementation, but it probably does
+make sense here because each arch has its own implementation.
+
+Should start with "/**" to make it kernel-doc though.
+
+Wrap to fit in 78 columns, like other comments in this file.
+
+> + * Return: 0 on successful retrieval (the ACPI Processor ID is stored in *uid);
+> + *         -EINVAL if the CPU number is invalid or out of range;
+> + *         -ENODEV if the ACPI Processor UID for the specified CPU is not found.
+> + */
+> +int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
+> +#endif
 
 _______________________________________________
 linux-riscv mailing list
