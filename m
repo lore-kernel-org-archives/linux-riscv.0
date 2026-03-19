@@ -4,66 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CE51075274
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 08:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74341075273
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 08:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=x2YV/FLyqKix0Moc1PM6W7u6FY9Kj//MmVmikIKmdsA=; b=dd4woLFqw8/nUC
-	8F5EPNIIofjiiNqq+uGW2K8b6sRYU4fp+9SCMBcH/Lfm7C/gqw/quGMVCyUc9MsTMrwH6u+RM2JQK
-	2D0rg1vni5VXSv+O+X9KpR00cJmfAs4jzll8xMqLnwFkqH0sZyJV+PLcoHKQgf0mLke7uRyWCIBkS
-	au+veKutt8WCMglPHRAvkAkfDif48y4iEDFncUmlvSVfzMQC6xfqG95ZFPFSTb1Pvk2SCmHfG8Z20
-	skqUeDWcBATGZqL/ey0ZQNZEXPZlgB6lX444gW2ocHDwbmPGh0SofkaUQRD0TIOrQOSyphJEsmbNy
-	kIdql3A86dskYmxFRjcA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mQ0scudaB0LibP/RBTQZ1c+pQH+XdEgUK0Wh69AC3H0=; b=w54MSX0iBMXwFJ
+	bIY3aJ0RfZPCP0YrZkvB2dz8ORkY6DYSm028qju30hKv1K9bYGJjB38460MrZgS98Vv/IRIwsBJgm
+	jJbb6UcCBNdRo3zx0iQCTP1mc8fWsOD8q0A8y/bckGzVgxJRoqERPfivkkD5dmjA1YaxLLqBOA5HF
+	7q47AMcXg5gqjIUJh23DWS6QYqPQ1+mWpL3BG78qLiH8k7Cemtq6+V+hr+bRLXZS+So5foJVePl4M
+	S5/vHbB+PjT8dtnuHELw9LdUvKSVngWcAXAdKjEqVEOS5cz6a0oYowLcTUqVEoR4xkPK84gwamG8E
+	rAlr4bj1JfK0m4wGWZ6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38c3-0000000ADxU-2ALj;
-	Thu, 19 Mar 2026 08:20:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w38cK-0000000AE08-2oRa;
+	Thu, 19 Mar 2026 08:20:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38c2-0000000ADxF-1nOH;
-	Thu, 19 Mar 2026 08:20:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=9vONOIrqW/UJkG8W01y5FtYV4fnBAGfruHFEOeSnnYw=; b=Rv0vHUlKRaEznufj1gJ+wPb24J
-	pRYaHTeYkpqLBqZ85f9vW1VcBQ7QeX+5lhW1g8A8F+FuyaO3yfQ4oPoQvZWYNRSb12r0LKZ6AIYDu
-	2h2FtVRnr55AUzVvVjMgSCV//vsxaiK4714TZULQ+lzV5MytQNy5Q3xYJAZORrtvKYAdhKOdKbrLF
-	8yuttbO9KCGtoFdXd34/v85pbkiK8dUw4LHh9IBY5XBi+6bymGETIA7T3y5vosZpugls5XiqdVB6B
-	Yf8ArkTH3rGTp3TIYWmGYAOAOLRz9XewjiAeXznJDsmdMaw/20iqCZvOvp6O5QjYEWjo1jO1pOZB3
-	0MQvwYDg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w38bz-0000000D0dI-0fyF;
-	Thu, 19 Mar 2026 08:20:13 +0000
+	id 1w38cI-0000000ADzc-3y9L;
+	Thu, 19 Mar 2026 08:20:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E02D43D39;
+	by tor.source.kernel.org (Postfix) with ESMTP id 62D5B60126;
+	Thu, 19 Mar 2026 08:20:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB51CC19424;
 	Thu, 19 Mar 2026 08:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E3B1C19424;
-	Thu, 19 Mar 2026 08:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773908409;
-	bh=GAQ9b9edKTgGxU+mpQzf5vrvp0GbZiNpB68nUzbzDyY=;
-	h=From:Subject:Date:To:Cc:From;
-	b=nW9ab7OnkN7S00RxQQ6fV539CUU/HXaHfFwpCsfjk1vZa9nrCehAKXmvHkrdByEwi
-	 UTuF8w219c0gp/9PlGkyTjPCXYgHMu+wuB+VcuJDOAEMR4YYArxHQyQe1bdwRE69iq
-	 6KnzMuHTxJ83BywVs82C5DCGxHXYPZw/XiMZC3jCTCs7Ed7M20epXUlpSA58uZXblU
-	 VhVWCftNRHTP6Wysxkep+z8UHXRrW+AIwQJO/Iq01wPPGebHyKnPiUVOyGVPTWywxV
-	 gA0MkkSVRuNWrkUsu2BUt2gfc0ropCqtacyuIkXHK1ZCQaGyBOonZgNXG1/Y1ey4xt
-	 IYgm8NZf2LthQ==
+	s=k20201202; t=1773908429;
+	bh=klUwCUSCdgbV1tZfxsphb/dv7F/GAnfibv0j756H5s0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Ncs5z7CTqhJIhBNQChRHYmFCx/Gw02cZqph0yX7SmRTDgJm2DLn2WyIwLTWtTffwk
+	 FlIgvvlw2O7wMiIl4sIdqv1PPMfQyjp+lEiO6kSyoZuT8mUfKTQ58kd1Xm4OxGQKdT
+	 p9pxFkdizBdGPWKy4V3zTtFizqjONEz3nDGPvqv0/GEHaaK8ekD7oZsfIu7ePeci/k
+	 AkZs2QIi6CuvEPo3LuCzwztW4AlExyadOcFwBMGWiJ1FQkRF+eqDtaMkeokzzcKOUb
+	 dymhmxUCovijWR/aJHZBLNT2MH6nnIGjbCu14vm9SHNCQW3yrPxcgl7Y5pxQ2yt0YG
+	 ENQ7VsLW8LzDQ==
 From: "David Hildenbrand (Arm)" <david@kernel.org>
-Subject: [PATCH 0/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE and
- cleanup CONFIG_MIGRATION
-Date: Thu, 19 Mar 2026 09:19:39 +0100
-Message-Id: <20260319-config_migration-v1-0-42270124966f@kernel.org>
+Date: Thu, 19 Mar 2026 09:19:40 +0100
+Subject: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAJuxu2kC/x2MQQqAIBAAvxJ7TlhNjPpKRISttocsNCIQ/550H
- JiZDIkiU4KxyRDp4cRnqCDbBuy+Bk+Ct8qgUBnsZC/sGRz75WAf17vKQpuOFGpEPQxQsyuS4/d
- fTnMpH8Y9x3JiAAAA
+Message-Id: <20260319-config_migration-v1-1-42270124966f@kernel.org>
+References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
+In-Reply-To: <20260319-config_migration-v1-0-42270124966f@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -96,10 +80,6 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
  linux-rt-devel@lists.linux.dev, 
  "David Hildenbrand (Arm)" <david@kernel.org>
 X-Mailer: b4 0.13.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_082011_763644_A180178D 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,44 +96,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While working on memory hotplug code cleanups, I realized that
-CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE is not really required anymore.
+All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
+select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
+CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
 
-Changing that revealed some rather nasty looking CONFIG_MIGRATION
-handling.
+For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
+and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
+CONFIG_CMA and CONFIG_COMPACTION already do).
 
-Let's clean that up by introducing a dedicated CONFIG_NUMA_MIGRATION
-option and reducing the dependencies that CONFIG_MIGRATION has.
-
-Heavily cross compiled. I assume these changes are fine, but messing
-with kconfig sometimes feels like playing with fire :)
+We'll clean up CONFIG_MIGRATION next.
 
 Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
-David Hildenbrand (Arm) (2):
-      mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
-      mm: introduce CONFIG_NUMA_MIGRATION and simplify CONFIG_MIGRATION
+ arch/arm64/Kconfig     | 1 -
+ arch/loongarch/Kconfig | 1 -
+ arch/powerpc/Kconfig   | 1 -
+ arch/riscv/Kconfig     | 1 -
+ arch/s390/Kconfig      | 1 -
+ arch/x86/Kconfig       | 1 -
+ mm/Kconfig             | 9 +++------
+ 7 files changed, 3 insertions(+), 12 deletions(-)
 
- arch/arm64/Kconfig           |  1 -
- arch/loongarch/Kconfig       |  1 -
- arch/powerpc/Kconfig         |  1 -
- arch/riscv/Kconfig           |  1 -
- arch/s390/Kconfig            |  1 -
- arch/x86/Kconfig             |  1 -
- include/linux/memory-tiers.h |  2 +-
- init/Kconfig                 |  2 +-
- mm/Kconfig                   | 33 +++++++++++++++------------------
- mm/memory-tiers.c            | 12 ++++++------
- mm/mempolicy.c               |  2 +-
- mm/migrate.c                 |  5 ++---
- 12 files changed, 26 insertions(+), 36 deletions(-)
----
-base-commit: fbf55982f31ae6aa11f890c36bccc130ce70a312
-change-id: 20260317-config_migration-463e20400499
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 38dba5f7e4d2..bcd9f5bc66e2 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -16,7 +16,6 @@ config ARM64
+ 	select ARCH_BINFMT_ELF_STATE
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG
+-	select ARCH_ENABLE_MEMORY_HOTREMOVE
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_CACHE_LINE_SIZE
+diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+index d211c6572b0a..dbf65ad512f1 100644
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -12,7 +12,6 @@ config LOONGARCH
+ 	select ARCH_NEEDS_DEFER_KASAN
+ 	select ARCH_DISABLE_KASAN_INLINE
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG
+-	select ARCH_ENABLE_MEMORY_HOTREMOVE
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
+ 	select ARCH_HAS_CPU_FINALIZE_INIT
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index ad7a2fe63a2a..9f3417b75b2b 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -126,7 +126,6 @@ config PPC
+ 	select ARCH_DISABLE_KASAN_INLINE	if PPC_RADIX_MMU
+ 	select ARCH_DMA_DEFAULT_COHERENT	if !NOT_COHERENT_CACHE
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG
+-	select ARCH_ENABLE_MEMORY_HOTREMOVE
+ 	select ARCH_HAS_COPY_MC			if PPC64
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 90c531e6abf5..61a9d8d3ea64 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -21,7 +21,6 @@ config RISCV
+ 	select ARCH_DMA_DEFAULT_COHERENT
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM_VMEMMAP
+-	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_BINFMT_FLAT
+diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+index edc927d9e85a..d01800962d84 100644
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -85,7 +85,6 @@ config S390
+ 	select ARCH_32BIT_USTAT_F_TINODE
+ 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM
+-	select ARCH_ENABLE_MEMORY_HOTREMOVE
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_CC_CAN_LINK
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index e2df1b147184..c290fe363f27 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -69,7 +69,6 @@ config X86
+ 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
+ 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if X86_64 && HUGETLB_PAGE && MIGRATION
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG if X86_64
+-	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if (PGTABLE_LEVELS > 2) && (X86_64 || X86_PAE)
+ 	select ARCH_ENABLE_THP_MIGRATION if X86_64 && TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
+diff --git a/mm/Kconfig b/mm/Kconfig
+index c012944938a7..b2e21d873d3f 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -465,9 +465,6 @@ config HAVE_BOOTMEM_INFO_NODE
+ config ARCH_ENABLE_MEMORY_HOTPLUG
+ 	bool
+ 
+-config ARCH_ENABLE_MEMORY_HOTREMOVE
+-	bool
+-
+ # eventually, we can have this option just 'select SPARSEMEM'
+ menuconfig MEMORY_HOTPLUG
+ 	bool "Memory hotplug"
+@@ -540,8 +537,8 @@ endchoice
+ config MEMORY_HOTREMOVE
+ 	bool "Allow for memory hot remove"
+ 	select HAVE_BOOTMEM_INFO_NODE if (X86_64 || PPC64)
+-	depends on MEMORY_HOTPLUG && ARCH_ENABLE_MEMORY_HOTREMOVE
+-	depends on MIGRATION
++	depends on MEMORY_HOTPLUG
++	select MIGRATION
+ 
+ config MHP_MEMMAP_ON_MEMORY
+ 	def_bool y
+@@ -636,7 +633,7 @@ config PAGE_REPORTING
+ config MIGRATION
+ 	bool "Page migration"
+ 	default y
+-	depends on (NUMA || ARCH_ENABLE_MEMORY_HOTREMOVE || COMPACTION || CMA) && MMU
++	depends on (NUMA || MEMORY_HOTREMOVE || COMPACTION || CMA) && MMU
+ 	help
+ 	  Allows the migration of the physical location of pages of processes
+ 	  while the virtual addresses are not changed. This is useful in
 
-Best regards,
 -- 
-David Hildenbrand (Arm) <david@kernel.org>
+2.43.0
 
 
 _______________________________________________
