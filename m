@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD86109024C
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 16:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE009109024D
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 16:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4PG3HTvE8Rav5wuTu/N9GHCDS59sORulEW0PeIvfHFY=; b=ba8IBxZB8h4jq5
-	RUEQieizs0nbbDFH49rqK0qcB7nZ6VBmWkFzKLivJOXO0iAgm/uQ88LOfa7KJ1VvOykG0cQju6NS7
-	C4butk7LCSv3ciQEtFwIg4sVUrBilpRR5uTbXY9+kBoD+qQHSflAvxNc/qrP82JnXoF2o+BJOcBU/
-	4Fa+tlPDhmg5XkfEzt3KTaGwBcK1Hubln+ckGiBPsKYzmhAqoCVq1tIgOmOcZh7Kmh/ltuTsRENN8
-	QqJqxTmw2wCNlB423t1aU+AHzTISDRiaCIt6ZbS7nj/E1GK5RgwKKDVL7jRewnXMKFF9vsh6E8vj3
-	kW5gRqOM90ohjE6OZkoQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yyppvB18/x6bU99q6+7hnMIMbT83JGK7rdD1ww5AWjc=; b=PSZ8RWNf2pr3u9
+	AqkSKJb38IbBr/CNJwFG7OWmvd5WBh/iA6Tl3KenCyVl+mtAnTfR5xnTSU6e40JSZPkUPaEzQgyMQ
+	5qH+Cj9N918LK+0010tQjjqL0LBt+jgqlA8Q/Bc7z7vW6wyauHlH2bYZiMMqF3B301N1rHqKEahuh
+	V8TCqoyJamj0VoIdSKvt2ZO+02tgYARUsMLKPr/C0TP3c6ddyU7HkU+M6J0V+S0xcYmI7Lp9b1Gg0
+	sfjzmpdkrPMvD+DbmdjUZEXPpyB+3T+Fd15NRNj372uNfZr8M7PzCF2ENChV2BFISqZeGaQ7YEnQU
+	BETo1ZMEoxsweHhbmo1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3G58-0000000B3cB-0s7J;
-	Thu, 19 Mar 2026 16:18:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w3GHh-0000000B5BC-0j2p;
+	Thu, 19 Mar 2026 16:31:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3G55-0000000B3b8-1OBJ;
-	Thu, 19 Mar 2026 16:18:44 +0000
+	id 1w3GHe-0000000B5An-31Ez
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 16:31:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CB5A44100;
-	Thu, 19 Mar 2026 16:18:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F5EDC19424;
-	Thu, 19 Mar 2026 16:18:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 949DB44189;
+	Thu, 19 Mar 2026 16:31:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42BABC19424;
+	Thu, 19 Mar 2026 16:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773937121;
-	bh=+rJxXvh9jbY/cYu63rGxCHb0s8bdU5IuTtrr+qf/8ms=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SAhj5GuC0PfaoylzOpmZEg5wivkofnQ+GtRsdaeJOUJ4uAmHeX9yWUjJtJAn3it/L
-	 DtIYhs/uZLj/VchTSC0AmON6+W7EzTrZwPGqVuCyAhjCjaHPnhkABYQUeqprmOj1i/
-	 R/FWq7IVvWU1IGMy9FTlbHxdCNuIq9kR2X6GzLnLDJQbozNo/mkx2YeXRGXNiMY0o7
-	 vQpts1+55w++E8C9ighzin4xwksBwu0yd2u4NfBf4vlh8psPZ69uaMIHcyWDj4a0OE
-	 UwiaTPNnXiiVy+7V9ISLDkx2gH43hmidRMy6gz3GsbPkAVEku6PbjeRjw4rot/k9lf
-	 Rn92JSY6yNwyg==
-Date: Thu, 19 Mar 2026 18:18:22 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
-	Byungchul Park <byungchul@sk.com>,
-	Gregory Price <gourry@gourry.net>,
-	Ying Huang <ying.huang@linux.alibaba.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-mm@kvack.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
-Message-ID: <abwhzkhM9Bk9xPIf@kernel.org>
-References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
- <20260319-config_migration-v1-1-42270124966f@kernel.org>
+	s=k20201202; t=1773937901;
+	bh=tX5CZ3K8Vq/igCccbXJWFNMbc/1E+klQ2HU03miDdJc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=K6vb6vEqnzVw1iwc1/6E75xCDqIxm/ECFR+CswBv5djrLb/XY708t6gpIMY/POpXq
+	 q8IonaCwV816TcuMYINEFAejsXUVDQnj3bYJaCnNaKRn5ZtQQblXUpBiBY65Ntvcrd
+	 8uHzuNz+e14H7uH3c5cMMDC2ZGbwPJD9v+uqNT049S04kB8cBS4YukJ9NxFlljJVQw
+	 a3BYHilBlZqAKJXLEG9FuJy3GR2Uo9kdlhPlNB6apyVzwL5zr3hgFRg6f4Q+uwfiV2
+	 VmC4kftfDKg+e3Bn3IZuG2+mUj6m13VwaGy7s+7/9pUXuQcB2sOx9kaDKSxIQ48Ufd
+	 5rbBKYuVwKT9Q==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Valentina.FernandezAlanis@microchip.com,
+	Brian.Burke@microchip.com,
+	cyril.jean@microchip.com
+Subject: [PATCH v1 0/5] riscv: dts: minor beaglev-fire improvements
+Date: Thu, 19 Mar 2026 16:31:14 +0000
+Message-ID: <20260319-outsell-hypnotic-94b480408ad4@spud>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260319-config_migration-v1-1-42270124966f@kernel.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1181; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=IE2qHnLos3DeWsfckcYM89YQUbZK71dJp/VB4KAbbWU=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJl7VK6YrmnuEc4STq5O2bL5xzefpVbzhC4byqWtk5inu 3hC4LLgjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEwkV5eRYebswGs/Fq5M7wiX 8Jyvt8X3eazPyz2XBdOvTuNw5Fs9T4eRYdbbgAJR/3e+6+zuWmivKe0JW7r349fauue/5weUTWO 4xQwA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_091843_405575_A02DE702 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20260319_093142_780614_F62294E2 
+X-CRM114-Status: UNSURE (   5.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +81,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 09:19:40AM +0100, David Hildenbrand (Arm) wrote:
-> All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
-> select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
-> CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
-> 
-> For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
-> and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
-> CONFIG_CMA and CONFIG_COMPACTION already do).
-> 
-> We'll clean up CONFIG_MIGRATION next.
-> 
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Yo,
 
-> ---
->  arch/arm64/Kconfig     | 1 -
->  arch/loongarch/Kconfig | 1 -
->  arch/powerpc/Kconfig   | 1 -
->  arch/riscv/Kconfig     | 1 -
->  arch/s390/Kconfig      | 1 -
->  arch/x86/Kconfig       | 1 -
->  mm/Kconfig             | 9 +++------
->  7 files changed, 3 insertions(+), 12 deletions(-)
-> 
-> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-> index edc927d9e85a..d01800962d84 100644
-> --- a/arch/s390/Kconfig
-> +++ b/arch/s390/Kconfig
-> @@ -85,7 +85,6 @@ config S390
->  	select ARCH_32BIT_USTAT_F_TINODE
->  	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
->  	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM
+Some minor improvements etc for the BeagleV Fire, spotted while updating
+our downstream stuff to the latest lts.
 
-Not really related, but s390 does not have anything but SPARSEMEM_VMEMMAP.
+Produces errors at the moment, as it depends on changing the
+interrupt-cells in the gpio binding.
 
-> -	select ARCH_ENABLE_MEMORY_HOTREMOVE
->  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
->  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
->  	select ARCH_HAS_CC_CAN_LINK
+Cheers,
+Conor.
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: Valentina.FernandezAlanis@microchip.com
+CC: Brian.Burke@microchip.com
+CC: cyril.jean@microchip.com
+
+Conor Dooley (5):
+  riscv: dts: microchip: gpio controllers on mpfs need 2 interrupt cells
+  riscv: dts: microchip: remove gpio hogs from beaglev-fire
+  riscv: dts: microchip: clean up beaglev-fire regulator node names
+  riscv: dts: microchip: add adc interrupt on beaglev-fire
+  riscv: dts: microchip: add gpio line names on beaglev-fire
+
+ .../boot/dts/microchip/mpfs-beaglev-fire.dts  | 36 ++++++++++---------
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  6 ++--
+ 2 files changed, 22 insertions(+), 20 deletions(-)
 
 -- 
-Sincerely yours,
-Mike.
+2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
