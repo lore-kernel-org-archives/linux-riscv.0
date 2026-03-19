@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF1A1091903
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 18:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572B21091904
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 18:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fRT+TwyyO8jZdaJMHUYBJlYObEY/MKkVE5toscnKVrE=; b=hhZ3ro5BKkFnWH
-	+oAa+/B53W1dS9AUFY9xHOb2lm5JKBbHPLTZr1Nqb9qR0Z+Ew9h3n4ZDmk3VDPqlKwLtWfamEoWUa
-	YluR5ZyCdaFS8OSvgUdhZ7+fgGjCN7GNBIW6Afw1SNuejIKNmjpp6RufBB/wMwAn3ExxxUxNsZ6W+
-	+BiQNmWewh6E7G9KKF4oLVxUbLULZlgkR6gkVp2OMrYIRHmc3KgkUGmmO3D+Jn1UZ0Zbf3GHNgR72
-	JQD1Xgrd3U6QWdslnKJdsqeV0likVaQLQfe/8IdhRsXvT0umu800xLOIlQXFrcMowJJShFYX8U+jh
-	gZSJ0mh2SF/gBMPXoVOQ==;
+	List-Owner; bh=bp4w5vtQUTKD1siq/p1EpmKlYmzkjeMexkS6iCPZE2U=; b=B5ahzIqbVqB1SX
+	B5M2IgGv5jm38JR4GAUq0JreNKhjjvq+0zfwoVs1W2AechuL0Cs9NsoWa5IWdCVjC4IGxSWYKjBMk
+	3jGIrbkIClsymImSwg8kJ65m8Ukx+5bgwXpEm5cFJ27wlvUTcXf/112PYFX1vNcbb8EUSDxXlp3Pj
+	X41R93xVRCEeIjjhHGEkfIdKVV172FX10jYtPWiGACH1TUftTCnwKcvX46Z0OVnEpm6HTxQoULa2G
+	FTrckllk3Mw91McVayqMlW8oRcxEKrrX1M0UFnShvrC50Fk1aqYtADj29w6e/GY6Jv/Xdia9zlz6O
+	yRM6aQ+eJxBNOtc4uQAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Ho1-0000000BGda-3fWi;
-	Thu, 19 Mar 2026 18:09:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3HpB-0000000BGvN-0xvx;
+	Thu, 19 Mar 2026 18:10:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Hnz-0000000BGca-1Po5;
-	Thu, 19 Mar 2026 18:09:12 +0000
+	id 1w3Hp7-0000000BGuX-49fu;
+	Thu, 19 Mar 2026 18:10:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52D3B434F6;
-	Thu, 19 Mar 2026 18:09:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 957E3C19424;
-	Thu, 19 Mar 2026 18:08:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CCE7560053;
+	Thu, 19 Mar 2026 18:10:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C03DC19424;
+	Thu, 19 Mar 2026 18:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773943750;
-	bh=6e0EEIIbFUQq892CEmzGoS89gmnjToRL3GjT58TAgu0=;
+	s=k20201202; t=1773943820;
+	bh=qiycmf8FVsKgiwJW+WF27BXoBUYgMXO2nKq2qH8/V9w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qX+5ATXaTeCVWnoq1pb3+DCvmHvgnPIAYR73j5oOUNNdhwJKMvxcxvMznp8qHd0GX
-	 xv9Nr4ET8PVsG4aPWJihjD17Yv4iSbwgqNwABsBQW9fob6yyIX9OL4T2HWsZX6uCus
-	 TFTxhLxBv3my3hJsS7WCE9HsFSKoBMrCM00nIZRsc3Cjm5vt8s5urJsnDYrzNSpl5W
-	 iLWAQ195xdMWcV+3wWlfcPK8SqBN9pQvzG7SgVOkmXFjAbrbNl7km4EVw8CntlIph+
-	 dgN4D/4rF2yXtEVk2ehm0cNMmvNiiHv2w0hPJ/ndW32TV+0f0DlGB7PdfcvTzv01cO
-	 LSmnz5V9S1qOw==
-Message-ID: <e166588e-036c-4fa3-81fc-d7aca9f02c29@kernel.org>
-Date: Thu, 19 Mar 2026 19:08:57 +0100
+	b=X0Euv4a8xyCYdsckpAbt8fT6LqhKk7IuU0UqphcoasZc2okaGlb+kQYu+uazvOUtq
+	 85f+tSHFspaDj1edmQOYfSf5Ln5e81IFaOedSogu+LxydtG1FDpGmK9cZBlZ5AYzRa
+	 3uKZfLc+Mxf0MDYXO0yxgs9q6RIzLjuRbFSenCg/KJjHEyTHUYURQrV5WpCEGCaa0E
+	 N97jKwxLfoj1ZChZKwjSPam7zTLbwQPiCGk+kCz60PShf3Pl02lf55TnKyqVR6fsWG
+	 h4sM7htBfcjdWtB4m4kvmy0dLFujX92gd2g9Mr2Log7dTfXYTuA10MgzgiWcha4EYZ
+	 7d5LBzU69n9gw==
+Message-ID: <571af145-df68-4f5d-8f21-a244552e104b@kernel.org>
+Date: Thu, 19 Mar 2026 19:10:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
-To: Gregory Price <gourry@gourry.net>
+To: Mike Rapoport <rppt@kernel.org>
 Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
  Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
  WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -63,12 +63,12 @@ Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
  "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
  Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett"
  <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>,
- Matthew Brost <matthew.brost@intel.com>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
  Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
- Byungchul Park <byungchul@sk.com>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>,
+ Ying Huang <ying.huang@linux.alibaba.com>,
+ Alistair Popple <apopple@nvidia.com>,
  Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
  Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
  linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
@@ -77,7 +77,7 @@ Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
  linux-rt-devel@lists.linux.dev
 References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
  <20260319-config_migration-v1-1-42270124966f@kernel.org>
- <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
+ <abwhzkhM9Bk9xPIf@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -124,10 +124,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_110911_417048_4BB1877A 
-X-CRM114-Status: GOOD (  11.55  )
+In-Reply-To: <abwhzkhM9Bk9xPIf@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,38 +141,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/19/26 16:24, Gregory Price wrote:
-> On Thu, Mar 19, 2026 at 09:19:40AM +0100, David Hildenbrand (Arm) wrote:
->> All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
->> select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
->> CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
+
+>>  arch/arm64/Kconfig     | 1 -
+>>  arch/loongarch/Kconfig | 1 -
+>>  arch/powerpc/Kconfig   | 1 -
+>>  arch/riscv/Kconfig     | 1 -
+>>  arch/s390/Kconfig      | 1 -
+>>  arch/x86/Kconfig       | 1 -
+>>  mm/Kconfig             | 9 +++------
+>>  7 files changed, 3 insertions(+), 12 deletions(-)
 >>
->> For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
->> and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
->> CONFIG_CMA and CONFIG_COMPACTION already do).
->>
->> We'll clean up CONFIG_MIGRATION next.
->>
->> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+>> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+>> index edc927d9e85a..d01800962d84 100644
+>> --- a/arch/s390/Kconfig
+>> +++ b/arch/s390/Kconfig
+>> @@ -85,7 +85,6 @@ config S390
+>>  	select ARCH_32BIT_USTAT_F_TINODE
+>>  	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
+>>  	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM
 > 
-> HOTREMOVE has long been a thorn in my side, I appreciate you cleaning
-> this up.
+> Not really related, but s390 does not have anything but SPARSEMEM_VMEMMAP.
 
-On a long cardrive today I was wondering: do we still need a separate
-MEMORY_HOTREMOVE
+yeah, spotted that as well but decided to leave it as is for now.
 
-Now we'll have
-
-config MEMORY_HOTREMOVE
-	bool "Allow for memory hot remove"
-	select HAVE_BOOTMEM_INFO_NODE if (X86_64 || PPC64)
-	depends on MEMORY_HOTPLUG
-	select MIGRATION
-
-I'll try to get rid of that HAVE_BOOTMEM_INFO_NODE shite next.
-
-Then it's really just MIGRATION and some sprinkled
-CONFIG_MEMORY_HOTREMOVE. Not a lot of code.
+Thanks!
 
 -- 
 Cheers,
