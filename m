@@ -4,65 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B551075260
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A976E1075262
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FsycmgQji31r8fBKMYljP/58rl9BxogrAw6dux5AIKc=; b=ZofUeO/FWV9xgV
-	iQMfTZ6yyYq0vi5cIZqCIoqr7aYaDDLRvJAtaLYUVOKFnJeHM/Q+hQAXQGOYuFUl9cMJbdtOPo9W9
-	nDud17QpA3d3BEh0NuAcq9ki0OG3ESrTXX+Tn2okcs9+1VCRcTiRLvDPmzAaPzkIBq9I95oWzOoQP
-	jM4kgzmRr6oc+hVF0ZlFddi2+j2FFR1eRazXWCA9R3sZIxb828R02IE5OpI5BcwQCV9RCGnIS3Tvu
-	wXnicm9p+1yBHAEREunwtfknib0F+ux6+wFRhpDrpLQqc6lcvZbpkFaRkVpy0fLQrwKPvoE9apnyH
-	yo5QJzAnhH/ihq2HhR6w==;
+	List-Owner; bh=BdflGL/GePV3fBTS5GCvme2k5ynII+qgyAv0IcjKlSA=; b=R8wRG5XBxkmHJY
+	CL/AMKA5+CnmAUkvmhdA5W2td84p8iV+d5wSkcDC00JOAAtfRjLyLhC1KBQpsNW7Kbx1NIBUlmcmI
+	wxPdbKrhuFaDcR1/yJtAHtTQq2XwWmPBfp8nJao3XS/74efEx5S4A+kmJwzWfcA0HWa/Qsg9B37Rk
+	wCYbSpKm2UYosApZ7zFedbprRGuUZMxvnN8T0kfcwVN7eqeXEf/C6BwxKhXsOFq8NOEXywJTukjh+
+	HYJgfLbuV8EJeJhfK38RBZ+Nr9hZRVnmxtQ8wC9sRKCZI7oK8jzmYa5/IOdnz8NqXyBDDx0nuX3dY
+	Qm7fX9dwsDis8tGN20uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36ke-0000000A1ZP-0euu;
-	Thu, 19 Mar 2026 06:21:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w36um-0000000A3UY-1Kng;
+	Thu, 19 Mar 2026 06:31:28 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36j5-00000009zp0-1fA5;
-	Thu, 19 Mar 2026 06:19:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 064BF44720;
-	Thu, 19 Mar 2026 06:19:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78620C2BCB3;
-	Thu, 19 Mar 2026 06:19:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901162;
-	bh=mTRLUTdGzhcdizBLZYtXG0wi5TCm65S4qlvgr+wYUYI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qUjaGrt7RFDnbK+cIlqFbgJnk6RjjiIP4nOUXjksgVsooOttsP6ts10f9DTl8O1LL
-	 fltmBuZVfF4AgTiJWgwJpoljMMtZvb1kGG1F8wwoAvdwrtEKtC+mdAi2Ie7ox16kJ0
-	 aPxVeBkcYFwJLXZB2NkYHm93FvphnZNvhSEZ1qO6kngwuTmb64LuUjgHg3brwwDaVz
-	 rvUSK30xdWlSDu5/JM8w8gPwvKmXljbiOQiOhp7P9c5k91Qe88X67tUuicrNsDvd7e
-	 X9JHCcVGW72qMY4IPT8WssLvoWtjXoBYf8FZoAx4HmznfMi6YdscUdMDOR1zRH+lfJ
-	 cMpc+5cqAOd/A==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
+	id 1w36ug-0000000A3TX-2kgE
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 06:31:24 +0000
+Received: from localhost.localdomain (unknown [116.25.95.187])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 378652ffb;
+	Thu, 19 Mar 2026 14:26:10 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: thinh.nguyen@synopsys.com
+Cc: amadeus@jmu.edu.cn,
+	dlan@kernel.org,
+	gregkh@linuxfoundation.org,
+	huang.ze@linux.dev,
+	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 17/19] lib/crypto: gf128mul: Remove unused 4k_lle functions
-Date: Wed, 18 Mar 2026 23:17:18 -0700
-Message-ID: <20260319061723.1140720-18-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
-References: <20260319061723.1140720-1-ebiggers@kernel.org>
+	linux-usb@vger.kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH 1/1] usb: dwc3: dwc3-generic-plat: Add optional VBUS regulator support
+Date: Thu, 19 Mar 2026 14:26:01 +0800
+Message-Id: <20260319062601.1042965-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260318231542.mmbcrqy36oyw44xc@synopsys.com>
+References: <20260318231542.mmbcrqy36oyw44xc@synopsys.com>
 MIME-Version: 1.0
+X-HM-Tid: 0a9d04c5e12303a2kunm33e6bd551ad55b
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTkkeVkxPHkMeSUxPSksdTlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk5VSkNMWVdZFhoPEhUdFFlBWU9LSFVKS0lCTUtKVUpLS1VLWQ
+	Y+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_231923_855546_B7E2AB44 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20260318_233122_903280_7B3ABF04 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,155 +72,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove the 4k_lle multiplication functions and the associated
-gf128mul_table_le data table.  Their only user was the generic
-implementation of GHASH, which has now been changed to use a different
-implementation based on standard integer multiplication.
+Hi,
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- include/crypto/gf128mul.h | 17 ++-------
- lib/crypto/gf128mul.c     | 73 +--------------------------------------
- 2 files changed, 4 insertions(+), 86 deletions(-)
+> I mean this is a generic glue driver and not specific to your spacemit
+> k1. Some platforms use regulators to drive the vbus (e.g. dwc3 meson)
+> while others for internal controller supplies (e.g. dwc3 exynos). Also,
 
-diff --git a/include/crypto/gf128mul.h b/include/crypto/gf128mul.h
-index b0853f7cada0..6ed2a8351902 100644
---- a/include/crypto/gf128mul.h
-+++ b/include/crypto/gf128mul.h
-@@ -213,29 +213,18 @@ static inline void gf128mul_x_ble(le128 *r, const le128 *x)
- 
- 	r->a = cpu_to_le64((a << 1) | (b >> 63));
- 	r->b = cpu_to_le64((b << 1) ^ _tt);
- }
- 
--/* 4k table optimization */
--
--struct gf128mul_4k {
--	be128 t[256];
--};
--
--struct gf128mul_4k *gf128mul_init_4k_lle(const be128 *g);
--void gf128mul_4k_lle(be128 *a, const struct gf128mul_4k *t);
- void gf128mul_x8_ble(le128 *r, const le128 *x);
--static inline void gf128mul_free_4k(struct gf128mul_4k *t)
--{
--	kfree_sensitive(t);
--}
--
- 
- /* 64k table optimization, implemented for bbe */
- 
- struct gf128mul_64k {
--	struct gf128mul_4k *t[16];
-+	struct {
-+		be128 t[256];
-+	} *t[16];
- };
- 
- /* First initialize with the constant factor with which you
-  * want to multiply and then call gf128mul_64k_bbe with the other
-  * factor in the first argument, and the table in the second.
-diff --git a/lib/crypto/gf128mul.c b/lib/crypto/gf128mul.c
-index e5a727b15f07..7ebf07ce1168 100644
---- a/lib/crypto/gf128mul.c
-+++ b/lib/crypto/gf128mul.c
-@@ -125,31 +125,13 @@
- 	(i & 0x20 ? 0x3840 : 0) ^ (i & 0x10 ? 0x1c20 : 0) ^ \
- 	(i & 0x08 ? 0x0e10 : 0) ^ (i & 0x04 ? 0x0708 : 0) ^ \
- 	(i & 0x02 ? 0x0384 : 0) ^ (i & 0x01 ? 0x01c2 : 0) \
- )
- 
--static const u16 gf128mul_table_le[256] = gf128mul_dat(xda_le);
- static const u16 gf128mul_table_be[256] = gf128mul_dat(xda_be);
- 
--/*
-- * The following functions multiply a field element by x^8 in
-- * the polynomial field representation.  They use 64-bit word operations
-- * to gain speed but compensate for machine endianness and hence work
-- * correctly on both styles of machine.
-- */
--
--static void gf128mul_x8_lle(be128 *x)
--{
--	u64 a = be64_to_cpu(x->a);
--	u64 b = be64_to_cpu(x->b);
--	u64 _tt = gf128mul_table_le[b & 0xff];
--
--	x->b = cpu_to_be64((b >> 8) | (a << 56));
--	x->a = cpu_to_be64((a >> 8) ^ (_tt << 48));
--}
--
--/* time invariant version of gf128mul_x8_lle */
-+/* A table-less implementation of multiplying by x^8 */
- static void gf128mul_x8_lle_ti(be128 *x)
- {
- 	u64 a = be64_to_cpu(x->a);
- 	u64 b = be64_to_cpu(x->b);
- 	u64 _tt = xda_le(b & 0xff); /* avoid table lookup */
-@@ -303,60 +285,7 @@ void gf128mul_64k_bbe(be128 *a, const struct gf128mul_64k *t)
- 		be128_xor(r, r, &t->t[i]->t[ap[15 - i]]);
- 	*a = *r;
- }
- EXPORT_SYMBOL(gf128mul_64k_bbe);
- 
--/*      This version uses 4k bytes of table space.
--    A 16 byte buffer has to be multiplied by a 16 byte key
--    value in GF(2^128).  If we consider a GF(2^128) value in a
--    single byte, we can construct a table of the 256 16 byte
--    values that result from the 256 values of this byte.
--    This requires 4096 bytes. If we take the highest byte in
--    the buffer and use this table to get the result, we then
--    have to multiply by x^120 to get the final value. For the
--    next highest byte the result has to be multiplied by x^112
--    and so on. But we can do this by accumulating the result
--    in an accumulator starting with the result for the top
--    byte.  We repeatedly multiply the accumulator value by
--    x^8 and then add in (i.e. xor) the 16 bytes of the next
--    lower byte in the buffer, stopping when we reach the
--    lowest byte. This requires a 4096 byte table.
--*/
--struct gf128mul_4k *gf128mul_init_4k_lle(const be128 *g)
--{
--	struct gf128mul_4k *t;
--	int j, k;
--
--	t = kzalloc_obj(*t);
--	if (!t)
--		goto out;
--
--	t->t[128] = *g;
--	for (j = 64; j > 0; j >>= 1)
--		gf128mul_x_lle(&t->t[j], &t->t[j+j]);
--
--	for (j = 2; j < 256; j += j)
--		for (k = 1; k < j; ++k)
--			be128_xor(&t->t[j + k], &t->t[j], &t->t[k]);
--
--out:
--	return t;
--}
--EXPORT_SYMBOL(gf128mul_init_4k_lle);
--
--void gf128mul_4k_lle(be128 *a, const struct gf128mul_4k *t)
--{
--	u8 *ap = (u8 *)a;
--	be128 r[1];
--	int i = 15;
--
--	*r = t->t[ap[15]];
--	while (i--) {
--		gf128mul_x8_lle(r);
--		be128_xor(r, r, &t->t[ap[i]]);
--	}
--	*a = *r;
--}
--EXPORT_SYMBOL(gf128mul_4k_lle);
--
- MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("Functions for multiplying elements of GF(2^128)");
--- 
-2.53.0
+So shouldn't the generic glue driver manage vbus, but rather the Spacemit
+USB PHY driver? I don't have any good ideas about the current name.
 
+> if the platform is operating in device mode, there should be no vbus.
+
+Do I need to check if it's in host mode?
+
+> Also do we want to disable the regulator on system suspend? If so, we
+> may need a regulator handle.
+
+I'll add it if you think it's necessary.
+
+I'm not quite sure how to do it well, thank
+you for taking the time to review.
+
+Thanks,
+Chukun
 
 _______________________________________________
 linux-riscv mailing list
