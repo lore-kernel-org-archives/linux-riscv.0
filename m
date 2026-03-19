@@ -4,52 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982221091904
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 18:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF381091910
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 19:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=9r+jSlpuo9irk2bOx9ZgG/OftpdpCCqQAvdSeiceriE=; b=r+1Va/aA/1Gvr4
-	L210phbSNi89zoOv2F0akdogB0Y22F4z9aFnI2yhaunGUiquBvSSNB3i+qr/ZYSfUcW+digVsqRPa
-	ozyngj+ffoObY6yQgNnkd7OXPC+JKzWEaMB1T7fsp9Oo80/Ry/9lxBKX7/SWm4SHiiSt33ilauehe
-	O4uhLK3qW1TAkRi1JfxneaqUIkgTtY8hJF3iZn9aQ0novkvhRHt8y9cPIRYE+CX1UYKiHjxmJ341/
-	BKR5zJVmaei0FquWvS0bPFUy+vP3BNiKn4spJdZmaz4p7ByxWCxKBIN5HG90DI2IzDBKTTmcWxKY9
-	CoAszNwaJZAwwk1fCJvw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+RxUcx8BC7xLNrp37mUj6JfnfvLmWiHjB2f7lbc3/Qs=; b=iGtnk2/u4PucVT
+	JeURZ1yknwv4Ku8+UbFjbaOqq+ZfIRS0xprpj+F/L+WWZ/kME7hZ14by7mIk1iP2uhSMzsmQZ6Ku2
+	JSo2y/gt9K6TaZysgvZ6yS/LHfzwvBKYK5Hr1aOOid84w2TMtU17fpY9wzesrKwlymLklZpBSMXpg
+	t7Rr1h0M9WH+UufaT6moyJQvmEAjxSZECafT0TS3ks65HCrPGqnkaoi/mPri0thclKGyes9ENujL5
+	6tFgFEkFkttFRGLhePpOSlgJ6VwmclAA9zVtHd07EdqLp7PVJr4b2XEXWS/s2fZLlCCRv/4H5JAe8
+	ZLN24uxeyVv3f3kGgNkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3IAv-0000000BMPC-33d3;
-	Thu, 19 Mar 2026 18:32:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3JSg-0000000BUUl-3OFz;
+	Thu, 19 Mar 2026 19:55:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3IAu-0000000BMOz-19jg;
-	Thu, 19 Mar 2026 18:32:52 +0000
+	id 1w3JSd-0000000BUTp-2dEr
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 19:55:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72EAF60053;
-	Thu, 19 Mar 2026 18:32:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2336C19424;
-	Thu, 19 Mar 2026 18:32:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 884FC40618;
+	Thu, 19 Mar 2026 19:55:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D42EC19424;
+	Thu, 19 Mar 2026 19:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773945141;
-	bh=q/AIFKBlYrlqgaIU+R+X2Kbm55lVUhw1nLQSCLmd6ew=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=SLfxJBQH3ZBwLVeaWFuXtr69z+ue66UBDBXapfmCGZU/5sePR0jM8ttItsExbkxXd
-	 fat6HASgQmW8lTt+q9Fv/u0XJTf3d3wZAiJLqrgzYHG5GWO4lK+JttBOqJXt5pwhQF
-	 w+6FlJPTdi3oKlG3m7NbTFgXf1aiA6jp7uCbZskZpkhz+sWDidVqJYVEsczF3/Cr0q
-	 5HIA6+fCuzX4SwGeOuI+h7S9iLuLC57oeWrh6xVKPtDKceG2qv5E5rx2twVSmjZBNQ
-	 hX57e6N1IjMEwU/bgDkP0m8XkKB2jG/ioYVncpqZsFKATtztVHzIe50BPghhEOmL2B
-	 /aAbuSjpDjtvg==
-Date: Thu, 19 Mar 2026 13:32:19 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Chengwen Feng <fengchengwen@huawei.com>
-Subject: Re: [PATCH v9 7/7] PCI/TPH: Fix get cpu steer-tag fail on ARM64
- platform
-Message-ID: <20260319183219.GA519221@bhelgaas>
+	s=k20201202; t=1773950114;
+	bh=BKVZIah/27SLYSlA2gUiVUQcfkViEh1zQPpjbR2l7E8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f3RZ7ji8vqCdCclzDcS8bxpmooQGTTnlKkdFQgEXQg1eZhvBRCr9f4qrNJ620yjUg
+	 YXtywyDtB3wVVShkAOr430yMfXJiqfY3rfQ1InBq05TObVmEqtHm54N2IyAgiJtvOW
+	 iKPvf3mUn/pmOYLr3WRNE9a2eJQ/ySMghE5TG76mi4z5rJtyWPdlt7Egf5zN+IxS6Z
+	 xfQ7LaxJFhQw4Il7ujQAJneS9zlanA5TqyXxq2dxbOTEGDdKtnTe1CrvJgY3S/N2zu
+	 wrBmDbvn+/z5e9BiWqOALDtaQKasCXlGI8VZEuZybeyU/2gPSvL0WXjLUzh5ckvJ4r
+	 Ie4Y49eFc4y2A==
+Date: Thu, 19 Mar 2026 19:52:38 +0000
+From: Simon Horman <horms@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Valentina.FernandezAlanis@microchip.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
+	Abin Joseph <abin.joseph@amd.com>,
+	=?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>,
+	Ryan.Wanner@microchip.com
+Subject: Re: [PATCH net-next v4 00/13] macb usrio/tsu patches
+Message-ID: <20260319195238.GT1753385@horms.kernel.org>
+References: <20260318-surpass-puzzle-f94b46aa8808@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260319065735.45954-8-fengchengwen@huawei.com>
+In-Reply-To: <20260318-surpass-puzzle-f94b46aa8808@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_125515_692384_81BB83E7 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,170 +89,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, x86@kernel.org, heinrich.schuchardt@canonical.com, liuyonglong@huawei.com, anshuman.khandual@arm.com, "Rafael J . Wysocki" <rafael@kernel.org>, Kees Cook <kees@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Eric.VanTassell@amd.com, Somnath Kotur <somnath.kotur@broadcom.com>, Sohil Mehta <sohil.mehta@intel.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, punit.agrawal@oss.qualcomm.com, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, masahiroy@kernel.org, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, linux-pci@vger.kernel.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, ryan.roberts@arm.com, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, suzuki.poulose@arm.com, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Shuah Khan <skhan@linuxfoundation.org>, Bjorn Helgaas <bhelgaas@google.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, wangyuquan1236@phytium.com.cn, Sean Christopherson <seanjc@google.com>, guohanjun@huawei.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, chenl311@chinatelecom.cn, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let's make the subject a little more specific, e.g.,
-
-  PCI/TPH: Pass ACPI Processor UID to Cache Locality _DSM
-
-On Thu, Mar 19, 2026 at 02:57:35PM +0800, Chengwen Feng wrote:
-> pcie_tph_get_cpu_st() is broken on ARM64:
-> 1. pcie_tph_get_cpu_st() passes cpu_uid to the PCI ACPI DSM method.
->    cpu_uid should be the ACPI Processor UID [1].
-> 2. In BNXT, pcie_tph_get_cpu_st() is passed a cpu_uid obtained via
->    cpumask_first(irq->cpu_mask) - the logical CPU ID of a CPU core,
->    generated and managed by kernel (e.g., [0,255] for a system  with 256
->    logical CPU cores).
-> 3. On ARM64 platforms, ACPI assigns Processor UID to cores listed in the
->    MADT table, and this UID may not match the kernel's logical CPU ID.
->    When this occurs, the mismatch results in the wrong CPU steer-tag.
-> 4. On AMD x86 the logical CPU ID is identical to the ACPI Processor UID
->    so the mismatch is not seen.
+On Wed, Mar 18, 2026 at 04:37:31PM +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Resolution:
-> 1. Use acpi_get_cpu_uid() in pcie_tph_get_cpu_st() to translate from
->    logical CPU ID to ACPI Processor UID needed for the DSM call.
-> 2. Rename pcie_tpu_get_cpu_st() parameter from cpu_uid to cpu to
->    reflect that it is a logical CPU_ID.
-
-And simplify this, e.g.,
-
-  pcie_tph_get_cpu_st() uses the Query Cache Locality Features _DSM
-  [1] to retrieve the TPH Steering Tag for memory associated with the
-  CPU identified by its "cpu_uid" parameter, a Linux logical CPU ID.
-
-  The _DSM requires a ACPI Processor UID, which pcie_tph_get_cpu_st()
-  previously assumed was the same as the Linux logical CPU ID.  This
-  is true on x86 but not on arm64, so pcie_tph_get_cpu_st() failed on
-  arm64.
-
-  Convert the Linux logical CPU ID to the ACPI Processor UID with
-  acpi_get_cpu_uid() before passing it to the _DSM.
-
-If there's a specific error message from BNXT or similar that is a
-symptom of this problem, it'd be nice to include that.  Or if the
-problem was just poor performance because the _DSM returned the wrong
-Steering Tag, you could say something like:
-
-  ... so pcie_tph_get_cpu_st() returned the wrong Steering Tag,
-  resulting in poor network performance.
-
-> [1] According to ECN_TPH-ST_Revision_20200924
->     (https://members.pcisig.com/wg/PCI-SIG/document/15470), the input
->     is defined as: "If the target is a processor, then this field
->     represents the ACPI Processor UID of the processor as specified in
->     the MADT. If the target is a processor container, then this field
->     represents the ACPI Processor UID of the processor container as
->     specified in the PPTT."
+> Hey folks,
 > 
-> Fixes: d2e8a34876ce ("PCI/TPH: Add Steering Tag support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-The patch looks good to me.  Thanks for all your work on this!
-
-Reviewed-by: Bjorn Helgaas <bhelgaas@google.com>
-
-> ---
->  Documentation/PCI/tph.rst |  4 ++--
->  drivers/pci/tph.c         | 16 +++++++++++-----
->  include/linux/pci-tph.h   |  4 ++--
->  3 files changed, 15 insertions(+), 9 deletions(-)
+> At the very least, it'd be good of the soc vendor folks could check
+> their platforms and see if their usrio stuff actually lines up with what
+> the driver currently calls "macb_default_usrio". Ours didn't and it was
+> a nasty surprise.
 > 
-> diff --git a/Documentation/PCI/tph.rst b/Documentation/PCI/tph.rst
-> index e8993be64fd6..b6cf22b9bd90 100644
-> --- a/Documentation/PCI/tph.rst
-> +++ b/Documentation/PCI/tph.rst
-> @@ -79,10 +79,10 @@ To retrieve a Steering Tag for a target memory associated with a specific
->  CPU, use the following function::
->  
->    int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type type,
-> -                          unsigned int cpu_uid, u16 *tag);
-> +                          unsigned int cpu, u16 *tag);
->  
->  The `type` argument is used to specify the memory type, either volatile
-> -or persistent, of the target memory. The `cpu_uid` argument specifies the
-> +or persistent, of the target memory. The `cpu` argument specifies the
->  CPU where the memory is associated to.
->  
->  After the ST value is retrieved, the device driver can use the following
-> diff --git a/drivers/pci/tph.c b/drivers/pci/tph.c
-> index ca4f97be7538..b67c9ad14bda 100644
-> --- a/drivers/pci/tph.c
-> +++ b/drivers/pci/tph.c
-> @@ -236,21 +236,27 @@ static int write_tag_to_st_table(struct pci_dev *pdev, int index, u16 tag)
->   * with a specific CPU
->   * @pdev: PCI device
->   * @mem_type: target memory type (volatile or persistent RAM)
-> - * @cpu_uid: associated CPU id
-> + * @cpu: associated CPU id
->   * @tag: Steering Tag to be returned
->   *
->   * Return the Steering Tag for a target memory that is associated with a
-> - * specific CPU as indicated by cpu_uid.
-> + * specific CPU as indicated by cpu.
->   *
->   * Return: 0 if success, otherwise negative value (-errno)
->   */
->  int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
-> -			unsigned int cpu_uid, u16 *tag)
-> +			unsigned int cpu, u16 *tag)
->  {
->  #ifdef CONFIG_ACPI
->  	struct pci_dev *rp;
->  	acpi_handle rp_acpi_handle;
->  	union st_info info;
-> +	u32 cpu_uid;
-> +	int ret;
-> +
-> +	ret = acpi_get_cpu_uid(cpu, &cpu_uid);
-> +	if (ret != 0)
-> +		return ret;
->  
->  	rp = pcie_find_root_port(pdev);
->  	if (!rp || !rp->bus || !rp->bus->bridge)
-> @@ -265,9 +271,9 @@ int pcie_tph_get_cpu_st(struct pci_dev *pdev, enum tph_mem_type mem_type,
->  
->  	*tag = tph_extract_tag(mem_type, pdev->tph_req_type, &info);
->  
-> -	pci_dbg(pdev, "get steering tag: mem_type=%s, cpu_uid=%d, tag=%#04x\n",
-> +	pci_dbg(pdev, "get steering tag: mem_type=%s, cpu=%d, tag=%#04x\n",
->  		(mem_type == TPH_MEM_TYPE_VM) ? "volatile" : "persistent",
-> -		cpu_uid, *tag);
-> +		cpu, *tag);
->  
->  	return 0;
->  #else
-> diff --git a/include/linux/pci-tph.h b/include/linux/pci-tph.h
-> index ba28140ce670..be68cd17f2f8 100644
-> --- a/include/linux/pci-tph.h
-> +++ b/include/linux/pci-tph.h
-> @@ -25,7 +25,7 @@ int pcie_tph_set_st_entry(struct pci_dev *pdev,
->  			  unsigned int index, u16 tag);
->  int pcie_tph_get_cpu_st(struct pci_dev *dev,
->  			enum tph_mem_type mem_type,
-> -			unsigned int cpu_uid, u16 *tag);
-> +			unsigned int cpu, u16 *tag);
->  void pcie_disable_tph(struct pci_dev *pdev);
->  int pcie_enable_tph(struct pci_dev *pdev, int mode);
->  u16 pcie_tph_get_st_table_size(struct pci_dev *pdev);
-> @@ -36,7 +36,7 @@ static inline int pcie_tph_set_st_entry(struct pci_dev *pdev,
->  { return -EINVAL; }
->  static inline int pcie_tph_get_cpu_st(struct pci_dev *dev,
->  				      enum tph_mem_type mem_type,
-> -				      unsigned int cpu_uid, u16 *tag)
-> +				      unsigned int cpu, u16 *tag)
->  { return -EINVAL; }
->  static inline void pcie_disable_tph(struct pci_dev *pdev) { }
->  static inline int pcie_enable_tph(struct pci_dev *pdev, int mode)
-> -- 
-> 2.17.1
+> Ryan and I figured out that the sama7g5 stuff is not actually using the
+> same usrio bits as earlier devices, so there's now more patches in this
+> series to split them apart. I've not tested the split or the new
+> property due to lack of hardware, but Ryan has.
 > 
+> Marking this stuff net-next, because although they're fixes I don't see
+> any particular urgency, and it avoids creating some dependencies between
+> cleanup items and the fixes.
+> 
+> Cheers,
+> Conor.
+> 
+> v4:
+> - deprecate instead of remove existing devicetree property
+> - pick up Theo's patches
+> 
+> v3:
+> - reorder patches
+> - fix smatch issue reported by Simon
+> - add patches reworking usrio handling of clken/refclk (and remove the
+>   issue the llm reported in the process)
+> - add a new devicetree property for refclk selection, replacing the
+>   existing one.
+> - drop the dts patch
+
+Hi Conor,
+
+Unfortunately this does not apply cleanly to net-next, which breaks our CI.
+
+Please rebase and repost.
+
+Thanks!
+
+-- 
+pw-bot: changes-requested
 
 _______________________________________________
 linux-riscv mailing list
