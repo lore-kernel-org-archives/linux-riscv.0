@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC7A1075260
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5961075263
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X/vQny99caLmq60o63VchaAR42lzXgARt8mCDCxRASQ=; b=1oV/uBQ+HK/IAJ
-	MbZ9W0Ypv+owtGLWkHsDo4EiMwxN3Z2t3MRYTpVr3Z3MUaUxHr294umjbPpmoZsuM3uW5ZMWhYkZ8
-	0rMqF76JmcyYsXS/pL1MAwOIB1C0dGqlzT0RGmWB8MV71qMeVFuTaNqetG5j0mo/ibcjSTxLzcX5Q
-	s549vkcIDldKiPHT8fXpbnGfMWmzHKedkNuAozc4WiO7eSMyl4jj0xesGTlik1bmSD3ulXsNpcu9l
-	V5Y2jaBxC1x5vrjVILIuW2NAH32rGGkl0muROWoTR6P+pRW0vgnrYQ4eravRcmh/VUQ90OTeXNoIQ
-	kqaJsKARP7qwyUF0tctA==;
+	List-Owner; bh=VlIzJHzavJzZ3i3avMlxOi44/JssG+1wK4nKL2BdjfY=; b=lwRfkeccEP3Lcu
+	7xi3tLXSiy2EtpJzuuJPxunlcaRl9SrH2lxR8uLlO5jcsIj2KLMjbPdOMddQ0XgF4NQsk350leBsV
+	kcGDGT1g4x7b3zIXfoRSQ6s0aP+ivVkIGyXYrmQTrCuJPtKiBSBOp+BXXh9sJIlZkUi6c4SYYuKtg
+	S9ihZ87qhsn7eHLEDTqP7MNo9lQk1Cb0EXcWPcUAdv+pMKejtdvwfCJTUtoMfb1ZnQvl6Sr4bZ1uq
+	PPymnzzJ9a3I0tzB1quPgx0pvPyE3BtD6AZdcQaLl3OZ20z9OXodGqrCSy+vinaIftz6dbO/FRtYt
+	1d0x1+IXTLZfamTUYPOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36k9-0000000A11d-1XJJ;
-	Thu, 19 Mar 2026 06:20:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w36kI-0000000A19s-1iV3;
+	Thu, 19 Mar 2026 06:20:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36j5-00000009zol-0qOV;
+	id 1w36j4-00000009znD-1WCw;
 	Thu, 19 Mar 2026 06:19:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 83AA56185A;
-	Thu, 19 Mar 2026 06:19:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD107C2BCC4;
+	by sea.source.kernel.org (Postfix) with ESMTP id D684643799;
+	Thu, 19 Mar 2026 06:19:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53BB9C2BCB3;
 	Thu, 19 Mar 2026 06:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901162;
-	bh=A17Or1mhILOD8g/OauvklfFcseA7rh2PNPCFHHxYHps=;
+	s=k20201202; t=1773901161;
+	bh=Y/jiAG4WYOgLgUKopzWm2Mr8y1Z3WH35BAGXg5EAIW4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rLuXxi5JU7e4lhDja+r/raWzll947pWc4MN189ypr8SfFoCCk+3TWuQLyZg5+aqur
-	 KtJWSfl0m9oJzz/nIxydzurMQxR/TXkO3B2H6vPc8ohT6HxPfCtyBjfA+jfePcJTLv
-	 iXWK9SuB8JbbOGVLAdzzUmS/keEKFG5TpF5elm5N3dm7pANpOfiyrfurP6rzophpj0
-	 PgPEoS+zkDU/xnBynkSgZcrtmGPnxFbVyqi30/9F0B7YBbz8fyFYdGGZgkOat5RGXw
-	 RDkNDtSWLFnuvY0vc62CKN9KHXl5vaSu/UIq1pYiP609MOnMgpbb18sNPGGJfx/fIG
-	 WUzFLC7v2SSNg==
+	b=l9kgMshkfQJkJhsWfrrmEY/dXu0RsB5ej79ZbbCkwLerjo7cTRHJrk/0fDKn8OzoT
+	 n8HH8zm+cZVC/e/xVtLaVxLEorCYoszIAt1OZitUUaoxmdTsQEXQG/5piFr+pXKJEF
+	 CnIXhupQoxjzABf1u+5ylMlMSOMOvxwcu7EA9RbihORUTgdN/r80b32yaAxyb0/NYs
+	 4W/nVgiu/SSCylqFIkm6uaouBhJHljhw8YwIw1uxme8JZRTXkuLBFMjEhjg4mGj6xQ
+	 LK4dHNHorY1Zye9y8uO8qZHRKijSI+YfPoaxmqCjgJJpWU7rovcQNDlzqfEuhtoETI
+	 xdyD4jaRYHwbg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,13 +53,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 16/19] crypto: ghash - Remove ghash from crypto_shash API
-Date: Wed, 18 Mar 2026 23:17:17 -0700
-Message-ID: <20260319061723.1140720-17-ebiggers@kernel.org>
+Subject: [PATCH 15/19] crypto: gcm - Use GHASH library instead of crypto_ahash
+Date: Wed, 18 Mar 2026 23:17:16 -0700
+Message-ID: <20260319061723.1140720-16-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
 References: <20260319061723.1140720-1-ebiggers@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260318_231922_482671_5E51849A 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,237 +74,812 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tm93IHRoYXQgdGhlcmUgYXJlIG5vIHVzZXJzIG9mIHRoZSAiZ2hhc2giIGNyeXB0b19zaGFzaCBh
-bGdvcml0aG0sCnJlbW92ZSBpdC4gIEdIQVNIIHJlbWFpbnMgc3VwcG9ydGVkIHZpYSB0aGUgbGli
-cmFyeSBBUEkuCgpTaWduZWQtb2ZmLWJ5OiBFcmljIEJpZ2dlcnMgPGViaWdnZXJzQGtlcm5lbC5v
-cmc+Ci0tLQogY3J5cHRvL0tjb25maWcgICAgICAgICB8ICAgNyAtLQogY3J5cHRvL01ha2VmaWxl
-ICAgICAgICB8ICAgMSAtCiBjcnlwdG8vZ2hhc2gtZ2VuZXJpYy5jIHwgMTYyIC0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiBjcnlwdG8vdGNyeXB0LmMgICAgICAgIHwg
-ICA5IC0tLQogY3J5cHRvL3Rlc3RtZ3IuYyAgICAgICB8ICAgNiAtLQogY3J5cHRvL3Rlc3RtZ3Iu
-aCAgICAgICB8IDEwOSAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIDYgZmlsZXMgY2hhbmdl
-ZCwgMjk0IGRlbGV0aW9ucygtKQogZGVsZXRlIG1vZGUgMTAwNjQ0IGNyeXB0by9naGFzaC1nZW5l
-cmljLmMKCmRpZmYgLS1naXQgYS9jcnlwdG8vS2NvbmZpZyBiL2NyeXB0by9LY29uZmlnCmluZGV4
-IDEzY2NmNWFjMmYxYS4uZWZiNDgyZWExOTJkIDEwMDY0NAotLS0gYS9jcnlwdG8vS2NvbmZpZwor
-KysgYi9jcnlwdG8vS2NvbmZpZwpAQCAtODg2LDE3ICs4ODYsMTAgQEAgY29uZmlnIENSWVBUT19D
-TUFDCiAJc2VsZWN0IENSWVBUT19NQU5BR0VSCiAJaGVscAogCSAgQ01BQyAoQ2lwaGVyLWJhc2Vk
-IE1lc3NhZ2UgQXV0aGVudGljYXRpb24gQ29kZSkgYXV0aGVudGljYXRpb24KIAkgIG1vZGUgKE5J
-U1QgU1A4MDAtMzhCIGFuZCBJRVRGIFJGQzQ0OTMpCiAKLWNvbmZpZyBDUllQVE9fR0hBU0gKLQl0
-cmlzdGF0ZSAiR0hBU0giCi0Jc2VsZWN0IENSWVBUT19IQVNICi0Jc2VsZWN0IENSWVBUT19MSUJf
-R0YxMjhNVUwKLQloZWxwCi0JICBHQ00gR0hBU0ggZnVuY3Rpb24gKE5JU1QgU1A4MDAtMzhEKQot
-CiBjb25maWcgQ1JZUFRPX0hNQUMKIAl0cmlzdGF0ZSAiSE1BQyAoS2V5ZWQtSGFzaCBNQUMpIgog
-CXNlbGVjdCBDUllQVE9fSEFTSAogCXNlbGVjdCBDUllQVE9fTUFOQUdFUgogCWhlbHAKZGlmZiAt
-LWdpdCBhL2NyeXB0by9NYWtlZmlsZSBiL2NyeXB0by9NYWtlZmlsZQppbmRleCAwNGUyNjkxMTc1
-ODkuLjE3ZjRmY2E5YjllNSAxMDA2NDQKLS0tIGEvY3J5cHRvL01ha2VmaWxlCisrKyBiL2NyeXB0
-by9NYWtlZmlsZQpAQCAtMTY5LDExICsxNjksMTAgQEAgQ0ZMQUdTX2ppdHRlcmVudHJvcHkubyA9
-IC1PMAogS0FTQU5fU0FOSVRJWkVfaml0dGVyZW50cm9weS5vID0gbgogVUJTQU5fU0FOSVRJWkVf
-aml0dGVyZW50cm9weS5vID0gbgogaml0dGVyZW50cm9weV9ybmcteSA6PSBqaXR0ZXJlbnRyb3B5
-Lm8gaml0dGVyZW50cm9weS1rY2FwaS5vCiBvYmotJChDT05GSUdfQ1JZUFRPX0pJVFRFUkVOVFJP
-UFlfVEVTVElOVEVSRkFDRSkgKz0gaml0dGVyZW50cm9weS10ZXN0aW5nLm8KIG9iai0kKENPTkZJ
-R19DUllQVE9fQkVOQ0hNQVJLKSArPSB0Y3J5cHQubwotb2JqLSQoQ09ORklHX0NSWVBUT19HSEFT
-SCkgKz0gZ2hhc2gtZ2VuZXJpYy5vCiBvYmotJChDT05GSUdfQ1JZUFRPX1VTRVJfQVBJKSArPSBh
-Zl9hbGcubwogb2JqLSQoQ09ORklHX0NSWVBUT19VU0VSX0FQSV9IQVNIKSArPSBhbGdpZl9oYXNo
-Lm8KIG9iai0kKENPTkZJR19DUllQVE9fVVNFUl9BUElfU0tDSVBIRVIpICs9IGFsZ2lmX3NrY2lw
-aGVyLm8KIG9iai0kKENPTkZJR19DUllQVE9fVVNFUl9BUElfUk5HKSArPSBhbGdpZl9ybmcubwog
-b2JqLSQoQ09ORklHX0NSWVBUT19VU0VSX0FQSV9BRUFEKSArPSBhbGdpZl9hZWFkLm8KZGlmZiAt
-LWdpdCBhL2NyeXB0by9naGFzaC1nZW5lcmljLmMgYi9jcnlwdG8vZ2hhc2gtZ2VuZXJpYy5jCmRl
-bGV0ZWQgZmlsZSBtb2RlIDEwMDY0NAppbmRleCBlNTgwM2MyNDljMTIuLjAwMDAwMDAwMDAwMAot
-LS0gYS9jcnlwdG8vZ2hhc2gtZ2VuZXJpYy5jCisrKyAvZGV2L251bGwKQEAgLTEsMTYyICswLDAg
-QEAKLS8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkKLS8qCi0gKiBHSEFT
-SDogaGFzaCBmdW5jdGlvbiBmb3IgR0NNIChHYWxvaXMvQ291bnRlciBNb2RlKS4KLSAqCi0gKiBD
-b3B5cmlnaHQgKGMpIDIwMDcgTm9raWEgU2llbWVucyBOZXR3b3JrcyAtIE1pa2tvIEhlcnJhbmVu
-IDxtaDFAaWtpLmZpPgotICogQ29weXJpZ2h0IChjKSAyMDA5IEludGVsIENvcnAuCi0gKiAgIEF1
-dGhvcjogSHVhbmcgWWluZyA8eWluZy5odWFuZ0BpbnRlbC5jb20+Ci0gKi8KLQotLyoKLSAqIEdI
-QVNIIGlzIGEga2V5ZWQgaGFzaCBmdW5jdGlvbiB1c2VkIGluIEdDTSBhdXRoZW50aWNhdGlvbiB0
-YWcgZ2VuZXJhdGlvbi4KLSAqCi0gKiBUaGUgb3JpZ2luYWwgR0NNIHBhcGVyIFsxXSBwcmVzZW50
-cyBHSEFTSCBhcyBhIGZ1bmN0aW9uIEdIQVNIKEgsIEEsIEMpIHdoaWNoCi0gKiB0YWtlcyBhIDE2
-LWJ5dGUgaGFzaCBrZXkgSCwgYWRkaXRpb25hbCBhdXRoZW50aWNhdGVkIGRhdGEgQSwgYW5kIGEg
-Y2lwaGVydGV4dAotICogQy4gIEl0IGZvcm1hdHMgQSBhbmQgQyBpbnRvIGEgc2luZ2xlIGJ5dGUg
-c3RyaW5nIFgsIGludGVycHJldHMgWCBhcyBhCi0gKiBwb2x5bm9taWFsIG92ZXIgR0YoMl4xMjgp
-LCBhbmQgZXZhbHVhdGVzIHRoaXMgcG9seW5vbWlhbCBhdCB0aGUgcG9pbnQgSC4KLSAqCi0gKiBI
-b3dldmVyLCB0aGUgTklTVCBzdGFuZGFyZCBmb3IgR0NNIFsyXSBwcmVzZW50cyBHSEFTSCBhcyBH
-SEFTSChILCBYKSB3aGVyZSBYCi0gKiBpcyB0aGUgYWxyZWFkeS1mb3JtYXR0ZWQgYnl0ZSBzdHJp
-bmcgY29udGFpbmluZyBib3RoIEEgYW5kIEMuCi0gKgotICogImdoYXNoIiBpbiB0aGUgTGludXgg
-Y3J5cHRvIEFQSSB1c2VzIHRoZSAnWCcgKHByZS1mb3JtYXR0ZWQpIGNvbnZlbnRpb24sCi0gKiBz
-aW5jZSB0aGUgQVBJIHN1cHBvcnRzIG9ubHkgYSBzaW5nbGUgZGF0YSBzdHJlYW0gcGVyIGhhc2gu
-ICBUaHVzLCB0aGUKLSAqIGZvcm1hdHRpbmcgb2YgJ0EnIGFuZCAnQycgaXMgZG9uZSBpbiB0aGUg
-ImdjbSIgdGVtcGxhdGUsIG5vdCBpbiAiZ2hhc2giLgotICoKLSAqIFRoZSByZWFzb24gImdoYXNo
-IiBpcyBzZXBhcmF0ZSBmcm9tICJnY20iIGlzIHRvIGFsbG93ICJnY20iIHRvIHVzZSBhbgotICog
-YWNjZWxlcmF0ZWQgImdoYXNoIiB3aGVuIGEgc3RhbmRhbG9uZSBhY2NlbGVyYXRlZCAiZ2NtKGFl
-cykiIGlzIHVuYXZhaWxhYmxlLgotICogSXQgaXMgZ2VuZXJhbGx5IGluYXBwcm9wcmlhdGUgdG8g
-dXNlICJnaGFzaCIgZm9yIG90aGVyIHB1cnBvc2VzLCBzaW5jZSBpdCBpcwotICogYW4gIs61LWFs
-bW9zdC1YT1ItdW5pdmVyc2FsIGhhc2ggZnVuY3Rpb24iLCBub3QgYSBjcnlwdG9ncmFwaGljIGhh
-c2ggZnVuY3Rpb24uCi0gKiBJdCBjYW4gb25seSBiZSB1c2VkIHNlY3VyZWx5IGluIGNyeXB0byBt
-b2RlcyBzcGVjaWFsbHkgZGVzaWduZWQgdG8gdXNlIGl0LgotICoKLSAqIFsxXSBUaGUgR2Fsb2lz
-L0NvdW50ZXIgTW9kZSBvZiBPcGVyYXRpb24gKEdDTSkKLSAqICAgICAoaHR0cDovL2NpdGVzZWVy
-eC5pc3QucHN1LmVkdS92aWV3ZG9jL2Rvd25sb2FkP2RvaT0xMC4xLjEuNjk0LjY5NSZyZXA9cmVw
-MSZ0eXBlPXBkZikKLSAqIFsyXSBSZWNvbW1lbmRhdGlvbiBmb3IgQmxvY2sgQ2lwaGVyIE1vZGVz
-IG9mIE9wZXJhdGlvbjogR2Fsb2lzL0NvdW50ZXIgTW9kZSAoR0NNKSBhbmQgR01BQwotICogICAg
-IChodHRwczovL2NzcmMubmlzdC5nb3YvcHVibGljYXRpb25zL2RldGFpbC9zcC84MDAtMzhkL2Zp
-bmFsKQotICovCi0KLSNpbmNsdWRlIDxjcnlwdG8vZ2YxMjhtdWwuaD4KLSNpbmNsdWRlIDxjcnlw
-dG8vZ2hhc2guaD4KLSNpbmNsdWRlIDxjcnlwdG8vaW50ZXJuYWwvaGFzaC5oPgotI2luY2x1ZGUg
-PGNyeXB0by91dGlscy5oPgotI2luY2x1ZGUgPGxpbnV4L2Vyci5oPgotI2luY2x1ZGUgPGxpbnV4
-L2tlcm5lbC5oPgotI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPgotI2luY2x1ZGUgPGxpbnV4L3N0
-cmluZy5oPgotCi1zdGF0aWMgaW50IGdoYXNoX2luaXQoc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2Mp
-Ci17Ci0Jc3RydWN0IGdoYXNoX2Rlc2NfY3R4ICpkY3R4ID0gc2hhc2hfZGVzY19jdHgoZGVzYyk7
-Ci0KLQltZW1zZXQoZGN0eCwgMCwgc2l6ZW9mKCpkY3R4KSk7Ci0KLQlyZXR1cm4gMDsKLX0KLQot
-c3RhdGljIGludCBnaGFzaF9zZXRrZXkoc3RydWN0IGNyeXB0b19zaGFzaCAqdGZtLAotCQkJY29u
-c3QgdTggKmtleSwgdW5zaWduZWQgaW50IGtleWxlbikKLXsKLQlzdHJ1Y3QgZ2hhc2hfY3R4ICpj
-dHggPSBjcnlwdG9fc2hhc2hfY3R4KHRmbSk7Ci0JYmUxMjggazsKLQotCWlmIChrZXlsZW4gIT0g
-R0hBU0hfQkxPQ0tfU0laRSkKLQkJcmV0dXJuIC1FSU5WQUw7Ci0KLQlpZiAoY3R4LT5nZjEyOCkK
-LQkJZ2YxMjhtdWxfZnJlZV80ayhjdHgtPmdmMTI4KTsKLQotCUJVSUxEX0JVR19PTihzaXplb2Yo
-aykgIT0gR0hBU0hfQkxPQ0tfU0laRSk7Ci0JbWVtY3B5KCZrLCBrZXksIEdIQVNIX0JMT0NLX1NJ
-WkUpOyAvKiBhdm9pZCB2aW9sYXRpbmcgYWxpZ25tZW50IHJ1bGVzICovCi0JY3R4LT5nZjEyOCA9
-IGdmMTI4bXVsX2luaXRfNGtfbGxlKCZrKTsKLQltZW16ZXJvX2V4cGxpY2l0KCZrLCBHSEFTSF9C
-TE9DS19TSVpFKTsKLQotCWlmICghY3R4LT5nZjEyOCkKLQkJcmV0dXJuIC1FTk9NRU07Ci0KLQly
-ZXR1cm4gMDsKLX0KLQotc3RhdGljIGludCBnaGFzaF91cGRhdGUoc3RydWN0IHNoYXNoX2Rlc2Mg
-KmRlc2MsCi0JCQkgY29uc3QgdTggKnNyYywgdW5zaWduZWQgaW50IHNyY2xlbikKLXsKLQlzdHJ1
-Y3QgZ2hhc2hfZGVzY19jdHggKmRjdHggPSBzaGFzaF9kZXNjX2N0eChkZXNjKTsKLQlzdHJ1Y3Qg
-Z2hhc2hfY3R4ICpjdHggPSBjcnlwdG9fc2hhc2hfY3R4KGRlc2MtPnRmbSk7Ci0JdTggKmRzdCA9
-IGRjdHgtPmJ1ZmZlcjsKLQotCWRvIHsKLQkJY3J5cHRvX3hvcihkc3QsIHNyYywgR0hBU0hfQkxP
-Q0tfU0laRSk7Ci0JCWdmMTI4bXVsXzRrX2xsZSgoYmUxMjggKilkc3QsIGN0eC0+Z2YxMjgpOwot
-CQlzcmMgKz0gR0hBU0hfQkxPQ0tfU0laRTsKLQkJc3JjbGVuIC09IEdIQVNIX0JMT0NLX1NJWkU7
-Ci0JfSB3aGlsZSAoc3JjbGVuID49IEdIQVNIX0JMT0NLX1NJWkUpOwotCi0JcmV0dXJuIHNyY2xl
-bjsKLX0KLQotc3RhdGljIHZvaWQgZ2hhc2hfZmx1c2goc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2Ms
-IGNvbnN0IHU4ICpzcmMsCi0JCQl1bnNpZ25lZCBpbnQgbGVuKQotewotCXN0cnVjdCBnaGFzaF9j
-dHggKmN0eCA9IGNyeXB0b19zaGFzaF9jdHgoZGVzYy0+dGZtKTsKLQlzdHJ1Y3QgZ2hhc2hfZGVz
-Y19jdHggKmRjdHggPSBzaGFzaF9kZXNjX2N0eChkZXNjKTsKLQl1OCAqZHN0ID0gZGN0eC0+YnVm
-ZmVyOwotCi0JaWYgKGxlbikgewotCQljcnlwdG9feG9yKGRzdCwgc3JjLCBsZW4pOwotCQlnZjEy
-OG11bF80a19sbGUoKGJlMTI4ICopZHN0LCBjdHgtPmdmMTI4KTsKLQl9Ci19Ci0KLXN0YXRpYyBp
-bnQgZ2hhc2hfZmludXAoc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2MsIGNvbnN0IHU4ICpzcmMsCi0J
-CSAgICAgICB1bnNpZ25lZCBpbnQgbGVuLCB1OCAqZHN0KQotewotCXN0cnVjdCBnaGFzaF9kZXNj
-X2N0eCAqZGN0eCA9IHNoYXNoX2Rlc2NfY3R4KGRlc2MpOwotCXU4ICpidWYgPSBkY3R4LT5idWZm
-ZXI7Ci0KLQlnaGFzaF9mbHVzaChkZXNjLCBzcmMsIGxlbik7Ci0JbWVtY3B5KGRzdCwgYnVmLCBH
-SEFTSF9CTE9DS19TSVpFKTsKLQotCXJldHVybiAwOwotfQotCi1zdGF0aWMgdm9pZCBnaGFzaF9l
-eGl0X3RmbShzdHJ1Y3QgY3J5cHRvX3RmbSAqdGZtKQotewotCXN0cnVjdCBnaGFzaF9jdHggKmN0
-eCA9IGNyeXB0b190Zm1fY3R4KHRmbSk7Ci0JaWYgKGN0eC0+Z2YxMjgpCi0JCWdmMTI4bXVsX2Zy
-ZWVfNGsoY3R4LT5nZjEyOCk7Ci19Ci0KLXN0YXRpYyBzdHJ1Y3Qgc2hhc2hfYWxnIGdoYXNoX2Fs
-ZyA9IHsKLQkuZGlnZXN0c2l6ZQk9IEdIQVNIX0RJR0VTVF9TSVpFLAotCS5pbml0CQk9IGdoYXNo
-X2luaXQsCi0JLnVwZGF0ZQkJPSBnaGFzaF91cGRhdGUsCi0JLmZpbnVwCQk9IGdoYXNoX2ZpbnVw
-LAotCS5zZXRrZXkJCT0gZ2hhc2hfc2V0a2V5LAotCS5kZXNjc2l6ZQk9IHNpemVvZihzdHJ1Y3Qg
-Z2hhc2hfZGVzY19jdHgpLAotCS5iYXNlCQk9IHsKLQkJLmNyYV9uYW1lCQk9ICJnaGFzaCIsCi0J
-CS5jcmFfZHJpdmVyX25hbWUJPSAiZ2hhc2gtZ2VuZXJpYyIsCi0JCS5jcmFfcHJpb3JpdHkJCT0g
-MTAwLAotCQkuY3JhX2ZsYWdzCQk9IENSWVBUT19BSEFTSF9BTEdfQkxPQ0tfT05MWSwKLQkJLmNy
-YV9ibG9ja3NpemUJCT0gR0hBU0hfQkxPQ0tfU0laRSwKLQkJLmNyYV9jdHhzaXplCQk9IHNpemVv
-ZihzdHJ1Y3QgZ2hhc2hfY3R4KSwKLQkJLmNyYV9tb2R1bGUJCT0gVEhJU19NT0RVTEUsCi0JCS5j
-cmFfZXhpdAkJPSBnaGFzaF9leGl0X3RmbSwKLQl9LAotfTsKLQotc3RhdGljIGludCBfX2luaXQg
-Z2hhc2hfbW9kX2luaXQodm9pZCkKLXsKLQlyZXR1cm4gY3J5cHRvX3JlZ2lzdGVyX3NoYXNoKCZn
-aGFzaF9hbGcpOwotfQotCi1zdGF0aWMgdm9pZCBfX2V4aXQgZ2hhc2hfbW9kX2V4aXQodm9pZCkK
-LXsKLQljcnlwdG9fdW5yZWdpc3Rlcl9zaGFzaCgmZ2hhc2hfYWxnKTsKLX0KLQotbW9kdWxlX2lu
-aXQoZ2hhc2hfbW9kX2luaXQpOwotbW9kdWxlX2V4aXQoZ2hhc2hfbW9kX2V4aXQpOwotCi1NT0RV
-TEVfTElDRU5TRSgiR1BMIik7Ci1NT0RVTEVfREVTQ1JJUFRJT04oIkdIQVNIIGhhc2ggZnVuY3Rp
-b24iKTsKLU1PRFVMRV9BTElBU19DUllQVE8oImdoYXNoIik7Ci1NT0RVTEVfQUxJQVNfQ1JZUFRP
-KCJnaGFzaC1nZW5lcmljIik7CmRpZmYgLS1naXQgYS9jcnlwdG8vdGNyeXB0LmMgYi9jcnlwdG8v
-dGNyeXB0LmMKaW5kZXggYWRlZDM3NTQ2MTM3Li4xNzczZjVmNzEzNTEgMTAwNjQ0Ci0tLSBhL2Ny
-eXB0by90Y3J5cHQuYworKysgYi9jcnlwdG8vdGNyeXB0LmMKQEAgLTE2NDgsMTQgKzE2NDgsMTAg
-QEAgc3RhdGljIGludCBkb190ZXN0KGNvbnN0IGNoYXIgKmFsZywgdTMyIHR5cGUsIHUzMiBtYXNr
-LCBpbnQgbSwgdTMyIG51bV9tYikKIAogCWNhc2UgNDU6CiAJCXJldCA9IG1pbihyZXQsIHRjcnlw
-dF90ZXN0KCJyZmM0MzA5KGNjbShhZXMpKSIpKTsKIAkJYnJlYWs7CiAKLQljYXNlIDQ2OgotCQly
-ZXQgPSBtaW4ocmV0LCB0Y3J5cHRfdGVzdCgiZ2hhc2giKSk7Ci0JCWJyZWFrOwotCiAJY2FzZSA0
-ODoKIAkJcmV0ID0gbWluKHJldCwgdGNyeXB0X3Rlc3QoInNoYTMtMjI0IikpOwogCQlicmVhazsK
-IAogCWNhc2UgNDk6CkBAIC0yMjQ5LDE1ICsyMjQ1LDEwIEBAIHN0YXRpYyBpbnQgZG9fdGVzdChj
-b25zdCBjaGFyICphbGcsIHUzMiB0eXBlLCB1MzIgbWFzaywgaW50IG0sIHUzMiBudW1fbWIpCiAJ
-CWZhbGx0aHJvdWdoOwogCWNhc2UgMzE3OgogCQl0ZXN0X2hhc2hfc3BlZWQoImJsYWtlMmItNTEy
-Iiwgc2VjLCBnZW5lcmljX2hhc2hfc3BlZWRfdGVtcGxhdGUpOwogCQlpZiAobW9kZSA+IDMwMCAm
-JiBtb2RlIDwgNDAwKSBicmVhazsKIAkJZmFsbHRocm91Z2g7Ci0JY2FzZSAzMTg6Ci0JCWtsZW4g
-PSAxNjsKLQkJdGVzdF9oYXNoX3NwZWVkKCJnaGFzaCIsIHNlYywgZ2VuZXJpY19oYXNoX3NwZWVk
-X3RlbXBsYXRlKTsKLQkJaWYgKG1vZGUgPiAzMDAgJiYgbW9kZSA8IDQwMCkgYnJlYWs7Ci0JCWZh
-bGx0aHJvdWdoOwogCWNhc2UgMzE5OgogCQl0ZXN0X2hhc2hfc3BlZWQoImNyYzMyYyIsIHNlYywg
-Z2VuZXJpY19oYXNoX3NwZWVkX3RlbXBsYXRlKTsKIAkJaWYgKG1vZGUgPiAzMDAgJiYgbW9kZSA8
-IDQwMCkgYnJlYWs7CiAJCWZhbGx0aHJvdWdoOwogCWNhc2UgMzIyOgpkaWZmIC0tZ2l0IGEvY3J5
-cHRvL3Rlc3RtZ3IuYyBiL2NyeXB0by90ZXN0bWdyLmMKaW5kZXggMGIwYWQzNThlMDkxLi5kZDAx
-Zjg2ZGQ2ZmUgMTAwNjQ0Ci0tLSBhL2NyeXB0by90ZXN0bWdyLmMKKysrIGIvY3J5cHRvL3Rlc3Rt
-Z3IuYwpAQCAtNDk4MywxNiArNDk4MywxMCBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGFsZ190ZXN0
-X2Rlc2MgYWxnX3Rlc3RfZGVzY3NbXSA9IHsKIAkJLmdlbmVyaWNfZHJpdmVyID0gImdjbV9iYXNl
-KGN0cihzbTQtZ2VuZXJpYyksZ2hhc2gtbGliKSIsCiAJCS50ZXN0ID0gYWxnX3Rlc3RfYWVhZCwK
-IAkJLnN1aXRlID0gewogCQkJLmFlYWQgPSBfX1ZFQ1Moc200X2djbV90dl90ZW1wbGF0ZSkKIAkJ
-fQotCX0sIHsKLQkJLmFsZyA9ICJnaGFzaCIsCi0JCS50ZXN0ID0gYWxnX3Rlc3RfaGFzaCwKLQkJ
-LnN1aXRlID0gewotCQkJLmhhc2ggPSBfX1ZFQ1MoZ2hhc2hfdHZfdGVtcGxhdGUpCi0JCX0KIAl9
-LCB7CiAJCS5hbGcgPSAiaGN0cjIoYWVzKSIsCiAJCS5nZW5lcmljX2RyaXZlciA9ICJoY3RyMl9i
-YXNlKHhjdHIoYWVzLWxpYikscG9seXZhbC1saWIpIiwKIAkJLnRlc3QgPSBhbGdfdGVzdF9za2Np
-cGhlciwKIAkJLnN1aXRlID0gewpkaWZmIC0tZ2l0IGEvY3J5cHRvL3Rlc3RtZ3IuaCBiL2NyeXB0
-by90ZXN0bWdyLmgKaW5kZXggMWM2OWMxMWMwY2RiLi5hMzI3NGFiYWNmZGUgMTAwNjQ0Ci0tLSBh
-L2NyeXB0by90ZXN0bWdyLmgKKysrIGIvY3J5cHRvL3Rlc3RtZ3IuaApAQCAtNjE4MSwxMTkgKzYx
-ODEsMTAgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCBoYXNoX3Rlc3R2ZWMgd3AyNTZfdHZfdGVtcGxh
-dGVbXSA9IHsKIAkJCSAgIlx4OEFceDdBXHg1QVx4NTJceERFXHhFRVx4NjVceDYyIgogCQkJICAi
-XHgwN1x4QzVceDYyXHhGOVx4ODhceEU5XHg1Q1x4NjkiLAogCX0sCiB9OwogCi1zdGF0aWMgY29u
-c3Qgc3RydWN0IGhhc2hfdGVzdHZlYyBnaGFzaF90dl90ZW1wbGF0ZVtdID0KLXsKLQl7Ci0JCS5r
-ZXkJPSAiXHhkZlx4YTZceGJmXHg0ZFx4ZWRceDgxXHhkYlx4MDMiCi0JCQkgICJceGZmXHhjYVx4
-ZmZceDk1XHhmOFx4MzBceGYwXHg2MSIsCi0JCS5rc2l6ZQk9IDE2LAotCQkucGxhaW50ZXh0ID0g
-Ilx4OTVceDJiXHgyYVx4NTZceGE1XHg2MFx4MDRhXHhjMCIKLQkJCSAgICAgIlx4YjNceDJiXHg2
-Nlx4NTZceGEwXHg1Ylx4NDBceGI2IiwKLQkJLnBzaXplCT0gMTYsCi0JCS5kaWdlc3QJPSAiXHhk
-YVx4NTNceGViXHgwYVx4ZDJceGM1XHg1Ylx4YjYiCi0JCQkgICJceDRmXHhjNFx4ODBceDJjXHhj
-M1x4ZmVceGRhXHg2MCIsCi0JfSwgewotCQkua2V5CT0gIlx4MGJceDBiXHgwYlx4MGJceDBiXHgw
-Ylx4MGJceDBiIgotCQkJICAiXHgwYlx4MGJceDBiXHgwYlx4MGJceDBiXHgwYlx4MGIiLAotCQku
-a3NpemUJPSAxNiwKLQkJLnBsYWludGV4dCA9ICJ3aGF0IGRvIHlhIHdhbnQgZm9yIG5vdGhpbmc/
-IiwKLQkJLnBzaXplCT0gMjgsCi0JCS5kaWdlc3QJPSAiXHgzZVx4MWZceDVjXHg0ZFx4NjVceGYw
-XHhlZlx4Y2UiCi0JCQkgICJceDBkXHg2MVx4MDZceDI3XHg2Nlx4NTFceGQ1XHhlMiIsCi0JfSwg
-ewotCQkua2V5CT0gIlx4YWFceGFhXHhhYVx4YWFceGFhXHhhYVx4YWFceGFhIgotCQkJICAiXHhh
-YVx4YWFceGFhXHhhYVx4YWFceGFhXHhhYVx4YWEiLAotCQkua3NpemUJPSAxNiwKLQkJLnBsYWlu
-dGV4dCA9ICJceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGQi
-Ci0JCQkiXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhk
-ZCIKLQkJCSJceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRc
-eGRkIgotCQkJIlx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhk
-ZCIsCi0JCS5wc2l6ZQk9IDUwLAotCQkuZGlnZXN0CT0gIlx4ZmJceDQ5XHg4YVx4MzZceGUxXHg5
-Nlx4ZTFceDk2IgotCQkJICAiXHhlMVx4OTZceGUxXHg5Nlx4ZTFceDk2XHhlMVx4OTYiLAotCX0s
-IHsKLQkJLmtleQk9ICJceGRhXHg1M1x4ZWJceDBhXHhkMlx4YzVceDViXHhiNiIKLQkJCSAgIlx4
-NGZceGM0XHg4MFx4MmNceGMzXHhmZVx4ZGFceDYwIiwKLQkJLmtzaXplCT0gMTYsCi0JCS5wbGFp
-bnRleHQgPSAiXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNk
-IgotCQkJIlx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4
-Y2QiCi0JCQkiXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNk
-XHhjZCIKLQkJCSJceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4
-Y2QiLAotCQkucHNpemUJPSA1MCwKLQkJLmRpZ2VzdAk9ICJceDJiXHg1Y1x4MGNceDdmXHg1Mlx4
-ZDFceDYwXHhjMiIKLQkJCSAgIlx4NDlceGVkXHg2ZVx4MzJceDdhXHhhOVx4YmVceDA4IiwKLQl9
-LCB7Ci0JCS5rZXkJPSAiXHg5NVx4MmJceDJhXHg1Nlx4YTVceDYwXHgwNGFceGMwIgotCQkJICAi
-XHhiM1x4MmJceDY2XHg1Nlx4YTBceDViXHg0MFx4YjYiLAotCQkua3NpemUJPSAxNiwKLQkJLnBs
-YWludGV4dCA9ICJUZXN0IFdpdGggVHJ1bmNhdGlvbiIsCi0JCS5wc2l6ZQk9IDIwLAotCQkuZGln
-ZXN0CT0gIlx4ZjhceDk0XHg4N1x4MmFceDRiXHg2M1x4OTlceDI4IgotCQkJICAiXHgyM1x4Zjdc
-eDkzXHhmN1x4MTlceGY1XHg5Nlx4ZDkiLAotCX0sIHsKLQkJLmtleQk9ICJceDBhXHgxYlx4MmNc
-eDNkXHg0ZVx4NWZceDY0XHg3MSIKLQkJCSJceDgyXHg5M1x4YTRceGI1XHhjNlx4ZDdceGU4XHhm
-OSIsCi0JCS5rc2l6ZQk9IDE2LAotCQkucGxhaW50ZXh0ID0gIlx4NTZceDZmXHg3Mlx4MjBceDZj
-XHg2MVx4NzVceDc0IgotCQkJIlx4NjVceDcyXHgyMFx4NGNceDYxXHg3NVx4NzNceDYzIgotCQkJ
-Ilx4NjhceDY1XHg2ZVx4MjBceDc1XHg2ZVx4NjRceDIwIgotCQkJIlx4NTNceDc0XHg2MVx4NzVc
-eDZlXHg2NVx4NmVceDIwIgotCQkJIlx4NzNceDY1XHg2OVx4MjBceDczXHg3NFx4NjlceDZjIgot
-CQkJIlx4NmNceDJjXHgwYVx4NjRceDc1XHgyMFx4NmRceDY1IgotCQkJIlx4NjlceDZlXHgyMFx4
-NzRceDY5XHg2NVx4NjZceDc0IgotCQkJIlx4NjlceDY1XHg2Nlx4NjVceDczXHgyMFx4NGNceDY1
-IgotCQkJIlx4NjJceDY1XHg2ZVx4M2JceDBhXHg2NFx4NjFceDczIgotCQkJIlx4NzNceDIwXHg2
-NFx4NzVceDIwXHg3N1x4NjVceDY5IgotCQkJIlx4YzNceDlmXHg3NFx4MjBceDc3XHg2MVx4NzNc
-eDIwIgotCQkJIlx4NjRceDY1XHg3Mlx4MjBceDU3XHg2OVx4NmVceDY0IgotCQkJIlx4MjBceDY0
-XHg2OVx4NzJceDIwXHg3N1x4NjlceDZjIgotCQkJIlx4NmNceDJjXHgwYVx4NjVceDY4XHgyMFx4
-NmVceDZmIgotCQkJIlx4NjNceDY4XHgyMFx4NjRceDY5XHg2NVx4MjBceDQyIgotCQkJIlx4Njlc
-eDcyXHg2Ylx4NjVceDZlXHgyMFx4NjJceDY1IgotCQkJIlx4NjJceDY1XHg2ZVx4MmVceDBhXHgw
-YVx4NTVceDZlIgotCQkJIlx4NjRceDIwXHg3N1x4NjVceDZlXHg2ZVx4MjBceDY0IgotCQkJIlx4
-NjlceDcyXHgyMFx4NjVceDY5XHg2ZVx4NmRceDYxIgotCQkJIlx4NmNceDIwXHg2NFx4NjFceDcz
-XHgyMFx4NTNceDYzIgotCQkJIlx4NjhceDc3XHg2NVx4NjlceDY3XHg2NVx4NmVceDIwIgotCQkJ
-Ilx4NzNceDcwXHg3Mlx4NjFceDYzXHg2OFx4MmNceDBhIgotCQkJIlx4NmNceDYxXHg3M1x4NzNc
-eDIwXHg2NFx4NjVceDY5IgotCQkJIlx4NmVceDY1XHgyMFx4NTNceDY5XHg2ZVx4NmVceDY1Igot
-CQkJIlx4MjBceDYyXHg2NVx4NzNceDY5XHg2NVx4NjdceDY1IgotCQkJIlx4NmVceDJlXHgwYVx4
-NGFceDY1XHg2NFx4NjVceDZkIgotCQkJIlx4MjBceDQ4XHg2MVx4NzVceDYzXHg2OFx4NjVceDIw
-IgotCQkJIlx4NjdceDY5XHg2Mlx4NzRceDIwXHg2NFx4NjlceDYzIgotCQkJIlx4NjhceDJjXHgy
-MFx4NjdceDY5XHg2Mlx4MjBceDZlIgotCQkJIlx4NjFceDYzXHg2OFx4MmNceDBhXHg2NVx4NzJc
-eDIwIgotCQkJIlx4NzdceDY5XHg3Mlx4NjRceDIwXHg2NFx4NjlceDYzIgotCQkJIlx4NjhceDIw
-XHg2Y1x4NjlceDY1XHg2Mlx4NjVceDZlIgotCQkJIlx4MjBceDc1XHg2ZVx4NjRceDIwXHg3N1x4
-NjlceDY1IgotCQkJIlx4NjdceDY1XHg2ZVx4MmVceDBhXHgwYVx4NTVceDZlIgotCQkJIlx4NjRc
-eDIwXHg2NFx4NjFceDZlXHg2ZVx4MjBceDZkIgotCQkJIlx4NjVceDY5XHg2ZVx4NjVceDIwXHg1
-M1x4NjVceDY1IgotCQkJIlx4NmNceDY1XHgyMFx4NzNceDY1XHg2OVx4NzRceDIwIgotCQkJIlx4
-NzdceDY1XHg2OVx4NzRceDJjXHgyMFx4NzNceDY1IgotCQkJIlx4NjlceDIwXHg3N1x4NjVceDY5
-XHg3NFx4MmNceDBhIgotCQkJIlx4NjRceDYxXHg3M1x4NzNceDIwXHg2NFx4NjlceDcyIgotCQkJ
-Ilx4MjBceDY0XHg2MVx4NzNceDIwXHg0Y1x4NjVceDYyIgotCQkJIlx4NjVceDZlXHgyMFx4Njdc
-eDY1XHg2Y1x4NjlceDZlIgotCQkJIlx4NjdceDY1XHgyY1x4MGFceDYyXHg3Mlx4NjVceDY5Igot
-CQkJIlx4NzRceDY1XHgyMFx4NjRceDY5XHg2M1x4NjhceDIwIgotCQkJIlx4NzdceDY5XHg2NVx4
-MjBceDY1XHg2OVx4NmVceDIwIgotCQkJIlx4NDZceDY1XHg2OVx4NjVceDcyXHg2Ylx4NmNceDY1
-IgotCQkJIlx4NjlceDY0XHgwYVx4YzNceGJjXHg2Mlx4NjVceDcyIgotCQkJIlx4MjBceDY0XHg2
-OVx4NjVceDIwXHg3M1x4NjlceDZlIgotCQkJIlx4NmVceDY1XHg2ZVx4NjRceDY1XHg2ZVx4MjBc
-eDQ0IgotCQkJIlx4NjlceDZlXHg2N1x4NjVceDJlXHgyZVx4MmVceDBhIiwKLQkJLnBzaXplCT0g
-NDAwLAotCQkuZGlnZXN0ID0gIlx4YWRceGIxXHhjMVx4ZTlceDU2XHg3MFx4MzFceDFkIgotCQkJ
-Ilx4YmJceDViXHhkZlx4NWVceDcwXHg3Mlx4MWFceDU3IiwKLQl9LAotfTsKLQogLyoKICAqIEhN
-QUMtTUQ1IHRlc3QgdmVjdG9ycyBmcm9tIFJGQzIyMDIKICAqIChUaGVzZSBuZWVkIHRvIGJlIGZp
-eGVkIHRvIG5vdCB1c2Ugc3RybGVuKS4KICAqLwogc3RhdGljIGNvbnN0IHN0cnVjdCBoYXNoX3Rl
-c3R2ZWMgaG1hY19tZDVfdHZfdGVtcGxhdGVbXSA9Ci0tIAoyLjUzLjAKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Make the "gcm" template access GHASH using the library API instead of
+crypto_ahash.  This is much simpler and more efficient, especially given
+that all GHASH implementations are synchronous and CPU-based anyway.
+
+Note that this allows "ghash" to be removed from the crypto_ahash (and
+crypto_shash) API, which a later commit will do.
+
+This mirrors the similar cleanup that was done with POLYVAL.
+
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+---
+ crypto/Kconfig                       |   2 +-
+ crypto/gcm.c                         | 413 +++++----------------------
+ crypto/testmgr.c                     |  10 +-
+ drivers/crypto/starfive/jh7110-aes.c |   2 +-
+ 4 files changed, 85 insertions(+), 342 deletions(-)
+
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 5627b3691561..13ccf5ac2f1a 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -792,11 +792,11 @@ config CRYPTO_CCM
+ 
+ config CRYPTO_GCM
+ 	tristate "GCM (Galois/Counter Mode) and GMAC (GCM MAC)"
+ 	select CRYPTO_CTR
+ 	select CRYPTO_AEAD
+-	select CRYPTO_GHASH
++	select CRYPTO_LIB_GF128HASH
+ 	select CRYPTO_MANAGER
+ 	help
+ 	  GCM (Galois/Counter Mode) authenticated encryption mode and GMAC
+ 	  (GCM Message Authentication Code) (NIST SP800-38D)
+ 
+diff --git a/crypto/gcm.c b/crypto/gcm.c
+index e1e878d37410..5f16b237b3c5 100644
+--- a/crypto/gcm.c
++++ b/crypto/gcm.c
+@@ -3,31 +3,28 @@
+  * GCM: Galois/Counter Mode.
+  *
+  * Copyright (c) 2007 Nokia Siemens Networks - Mikko Herranen <mh1@iki.fi>
+  */
+ 
+-#include <crypto/gf128mul.h>
+ #include <crypto/internal/aead.h>
+ #include <crypto/internal/skcipher.h>
+-#include <crypto/internal/hash.h>
+ #include <crypto/scatterwalk.h>
+ #include <crypto/gcm.h>
+-#include <crypto/hash.h>
++#include <crypto/gf128hash.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ 
+ struct gcm_instance_ctx {
+ 	struct crypto_skcipher_spawn ctr;
+-	struct crypto_ahash_spawn ghash;
+ };
+ 
+ struct crypto_gcm_ctx {
+ 	struct crypto_skcipher *ctr;
+-	struct crypto_ahash *ghash;
++	struct ghash_key ghash;
+ };
+ 
+ struct crypto_rfc4106_ctx {
+ 	struct crypto_aead *child;
+ 	u8 nonce[4];
+@@ -50,35 +47,19 @@ struct crypto_rfc4543_ctx {
+ 
+ struct crypto_rfc4543_req_ctx {
+ 	struct aead_request subreq;
+ };
+ 
+-struct crypto_gcm_ghash_ctx {
+-	unsigned int cryptlen;
+-	struct scatterlist *src;
+-	int (*complete)(struct aead_request *req, u32 flags);
+-};
+-
+ struct crypto_gcm_req_priv_ctx {
+ 	u8 iv[16];
+ 	u8 auth_tag[16];
+ 	u8 iauth_tag[16];
+ 	struct scatterlist src[3];
+ 	struct scatterlist dst[3];
+-	struct scatterlist sg;
+-	struct crypto_gcm_ghash_ctx ghash_ctx;
+-	union {
+-		struct ahash_request ahreq;
+-		struct skcipher_request skreq;
+-	} u;
++	struct skcipher_request skreq; /* Must be last */
+ };
+ 
+-static struct {
+-	u8 buf[16];
+-	struct scatterlist sg;
+-} *gcm_zeroes;
+-
+ static inline struct crypto_gcm_req_priv_ctx *crypto_gcm_reqctx(
+ 	struct aead_request *req)
+ {
+ 	unsigned long align = crypto_aead_alignmask(crypto_aead_reqtfm(req));
+ 
+@@ -87,14 +68,13 @@ static inline struct crypto_gcm_req_priv_ctx *crypto_gcm_reqctx(
+ 
+ static int crypto_gcm_setkey(struct crypto_aead *aead, const u8 *key,
+ 			     unsigned int keylen)
+ {
+ 	struct crypto_gcm_ctx *ctx = crypto_aead_ctx(aead);
+-	struct crypto_ahash *ghash = ctx->ghash;
+ 	struct crypto_skcipher *ctr = ctx->ctr;
+ 	struct {
+-		be128 hash;
++		u8 h[GHASH_BLOCK_SIZE];
+ 		u8 iv[16];
+ 
+ 		struct crypto_wait wait;
+ 
+ 		struct scatterlist sg[1];
+@@ -113,29 +93,26 @@ static int crypto_gcm_setkey(struct crypto_aead *aead, const u8 *key,
+ 		       GFP_KERNEL);
+ 	if (!data)
+ 		return -ENOMEM;
+ 
+ 	crypto_init_wait(&data->wait);
+-	sg_init_one(data->sg, &data->hash, sizeof(data->hash));
++	sg_init_one(data->sg, data->h, sizeof(data->h));
+ 	skcipher_request_set_tfm(&data->req, ctr);
+ 	skcipher_request_set_callback(&data->req, CRYPTO_TFM_REQ_MAY_SLEEP |
+ 						  CRYPTO_TFM_REQ_MAY_BACKLOG,
+ 				      crypto_req_done,
+ 				      &data->wait);
+ 	skcipher_request_set_crypt(&data->req, data->sg, data->sg,
+-				   sizeof(data->hash), data->iv);
++				   sizeof(data->h), data->iv);
+ 
+ 	err = crypto_wait_req(crypto_skcipher_encrypt(&data->req),
+ 							&data->wait);
+ 
+ 	if (err)
+ 		goto out;
+ 
+-	crypto_ahash_clear_flags(ghash, CRYPTO_TFM_REQ_MASK);
+-	crypto_ahash_set_flags(ghash, crypto_aead_get_flags(aead) &
+-			       CRYPTO_TFM_REQ_MASK);
+-	err = crypto_ahash_setkey(ghash, (u8 *)&data->hash, sizeof(be128));
++	ghash_preparekey(&ctx->ghash, data->h);
+ out:
+ 	kfree_sensitive(data);
+ 	return err;
+ }
+ 
+@@ -174,288 +151,106 @@ static void crypto_gcm_init_crypt(struct aead_request *req,
+ 				  unsigned int cryptlen)
+ {
+ 	struct crypto_aead *aead = crypto_aead_reqtfm(req);
+ 	struct crypto_gcm_ctx *ctx = crypto_aead_ctx(aead);
+ 	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct skcipher_request *skreq = &pctx->u.skreq;
++	struct skcipher_request *skreq = &pctx->skreq;
+ 	struct scatterlist *dst;
+ 
+ 	dst = req->src == req->dst ? pctx->src : pctx->dst;
+ 
+ 	skcipher_request_set_tfm(skreq, ctx->ctr);
+ 	skcipher_request_set_crypt(skreq, pctx->src, dst,
+ 				     cryptlen + sizeof(pctx->auth_tag),
+ 				     pctx->iv);
+ }
+ 
+-static inline unsigned int gcm_remain(unsigned int len)
+-{
+-	len &= 0xfU;
+-	return len ? 16 - len : 0;
+-}
+-
+-static void gcm_hash_len_done(void *data, int err);
+-
+-static int gcm_hash_update(struct aead_request *req,
+-			   crypto_completion_t compl,
+-			   struct scatterlist *src,
+-			   unsigned int len, u32 flags)
+-{
+-	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct ahash_request *ahreq = &pctx->u.ahreq;
+-
+-	ahash_request_set_callback(ahreq, flags, compl, req);
+-	ahash_request_set_crypt(ahreq, src, NULL, len);
+-
+-	return crypto_ahash_update(ahreq);
+-}
+-
+-static int gcm_hash_remain(struct aead_request *req,
+-			   unsigned int remain,
+-			   crypto_completion_t compl, u32 flags)
+-{
+-	return gcm_hash_update(req, compl, &gcm_zeroes->sg, remain, flags);
+-}
+-
+-static int gcm_hash_len(struct aead_request *req, u32 flags)
+-{
+-	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct ahash_request *ahreq = &pctx->u.ahreq;
+-	struct crypto_gcm_ghash_ctx *gctx = &pctx->ghash_ctx;
+-	be128 lengths;
+-
+-	lengths.a = cpu_to_be64(req->assoclen * 8);
+-	lengths.b = cpu_to_be64(gctx->cryptlen * 8);
+-	memcpy(pctx->iauth_tag, &lengths, 16);
+-	sg_init_one(&pctx->sg, pctx->iauth_tag, 16);
+-	ahash_request_set_callback(ahreq, flags, gcm_hash_len_done, req);
+-	ahash_request_set_crypt(ahreq, &pctx->sg,
+-				pctx->iauth_tag, sizeof(lengths));
+-
+-	return crypto_ahash_finup(ahreq);
+-}
+-
+-static int gcm_hash_len_continue(struct aead_request *req, u32 flags)
+-{
+-	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct crypto_gcm_ghash_ctx *gctx = &pctx->ghash_ctx;
+-
+-	return gctx->complete(req, flags);
+-}
+-
+-static void gcm_hash_len_done(void *data, int err)
+-{
+-	struct aead_request *req = data;
+-
+-	if (err)
+-		goto out;
+-
+-	err = gcm_hash_len_continue(req, 0);
+-	if (err == -EINPROGRESS)
+-		return;
+-
+-out:
+-	aead_request_complete(req, err);
+-}
+-
+-static int gcm_hash_crypt_remain_continue(struct aead_request *req, u32 flags)
+-{
+-	return gcm_hash_len(req, flags) ?:
+-	       gcm_hash_len_continue(req, flags);
+-}
+-
+-static void gcm_hash_crypt_remain_done(void *data, int err)
+-{
+-	struct aead_request *req = data;
+-
+-	if (err)
+-		goto out;
+-
+-	err = gcm_hash_crypt_remain_continue(req, 0);
+-	if (err == -EINPROGRESS)
+-		return;
+-
+-out:
+-	aead_request_complete(req, err);
+-}
+-
+-static int gcm_hash_crypt_continue(struct aead_request *req, u32 flags)
+-{
+-	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct crypto_gcm_ghash_ctx *gctx = &pctx->ghash_ctx;
+-	unsigned int remain;
+-
+-	remain = gcm_remain(gctx->cryptlen);
+-	if (remain)
+-		return gcm_hash_remain(req, remain,
+-				       gcm_hash_crypt_remain_done, flags) ?:
+-		       gcm_hash_crypt_remain_continue(req, flags);
+-
+-	return gcm_hash_crypt_remain_continue(req, flags);
+-}
+-
+-static void gcm_hash_crypt_done(void *data, int err)
+-{
+-	struct aead_request *req = data;
+-
+-	if (err)
+-		goto out;
+-
+-	err = gcm_hash_crypt_continue(req, 0);
+-	if (err == -EINPROGRESS)
+-		return;
+-
+-out:
+-	aead_request_complete(req, err);
+-}
+-
+-static int gcm_hash_assoc_remain_continue(struct aead_request *req, u32 flags)
+-{
+-	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct crypto_gcm_ghash_ctx *gctx = &pctx->ghash_ctx;
+-
+-	if (gctx->cryptlen)
+-		return gcm_hash_update(req, gcm_hash_crypt_done,
+-				       gctx->src, gctx->cryptlen, flags) ?:
+-		       gcm_hash_crypt_continue(req, flags);
+-
+-	return gcm_hash_crypt_remain_continue(req, flags);
+-}
+-
+-static void gcm_hash_assoc_remain_done(void *data, int err)
+-{
+-	struct aead_request *req = data;
+-
+-	if (err)
+-		goto out;
+-
+-	err = gcm_hash_assoc_remain_continue(req, 0);
+-	if (err == -EINPROGRESS)
+-		return;
+-
+-out:
+-	aead_request_complete(req, err);
+-}
+-
+-static int gcm_hash_assoc_continue(struct aead_request *req, u32 flags)
++static void ghash_update_sg_and_pad(struct ghash_ctx *ghash,
++				    struct scatterlist *sg, unsigned int len)
+ {
+-	unsigned int remain;
++	static const u8 zeroes[GHASH_BLOCK_SIZE];
+ 
+-	remain = gcm_remain(req->assoclen);
+-	if (remain)
+-		return gcm_hash_remain(req, remain,
+-				       gcm_hash_assoc_remain_done, flags) ?:
+-		       gcm_hash_assoc_remain_continue(req, flags);
++	if (len) {
++		unsigned int pad_len = -len % GHASH_BLOCK_SIZE;
++		struct scatter_walk walk;
+ 
+-	return gcm_hash_assoc_remain_continue(req, flags);
+-}
++		scatterwalk_start(&walk, sg);
++		do {
++			unsigned int n = scatterwalk_next(&walk, len);
+ 
+-static void gcm_hash_assoc_done(void *data, int err)
+-{
+-	struct aead_request *req = data;
++			ghash_update(ghash, walk.addr, n);
++			scatterwalk_done_src(&walk, n);
++			len -= n;
++		} while (len);
+ 
+-	if (err)
+-		goto out;
+-
+-	err = gcm_hash_assoc_continue(req, 0);
+-	if (err == -EINPROGRESS)
+-		return;
+-
+-out:
+-	aead_request_complete(req, err);
+-}
+-
+-static int gcm_hash_init_continue(struct aead_request *req, u32 flags)
+-{
+-	if (req->assoclen)
+-		return gcm_hash_update(req, gcm_hash_assoc_done,
+-				       req->src, req->assoclen, flags) ?:
+-		       gcm_hash_assoc_continue(req, flags);
+-
+-	return gcm_hash_assoc_remain_continue(req, flags);
++		if (pad_len)
++			ghash_update(ghash, zeroes, pad_len);
++	}
+ }
+ 
+-static void gcm_hash_init_done(void *data, int err)
++static void gcm_hash(struct aead_request *req, struct scatterlist *ctext,
++		     unsigned int datalen, u8 out[GHASH_BLOCK_SIZE])
+ {
+-	struct aead_request *req = data;
+-
+-	if (err)
+-		goto out;
++	const struct crypto_gcm_ctx *ctx =
++		crypto_aead_ctx(crypto_aead_reqtfm(req));
++	__be64 lengths[2] = {
++		cpu_to_be64(8 * (u64)req->assoclen),
++		cpu_to_be64(8 * (u64)datalen),
++	};
++	struct ghash_ctx ghash;
+ 
+-	err = gcm_hash_init_continue(req, 0);
+-	if (err == -EINPROGRESS)
+-		return;
++	ghash_init(&ghash, &ctx->ghash);
+ 
+-out:
+-	aead_request_complete(req, err);
+-}
++	/* Associated data, then zero-padding to the next 16-byte boundary */
++	ghash_update_sg_and_pad(&ghash, req->src, req->assoclen);
+ 
+-static int gcm_hash(struct aead_request *req, u32 flags)
+-{
+-	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct ahash_request *ahreq = &pctx->u.ahreq;
+-	struct crypto_gcm_ctx *ctx = crypto_aead_ctx(crypto_aead_reqtfm(req));
++	/* Ciphertext, then zero-padding to the next 16-byte boundary */
++	ghash_update_sg_and_pad(&ghash, ctext, datalen);
+ 
+-	ahash_request_set_tfm(ahreq, ctx->ghash);
++	/* Lengths block */
++	ghash_update(&ghash, (const u8 *)lengths, sizeof(lengths));
+ 
+-	ahash_request_set_callback(ahreq, flags, gcm_hash_init_done, req);
+-	return crypto_ahash_init(ahreq) ?:
+-	       gcm_hash_init_continue(req, flags);
++	ghash_final(&ghash, out);
+ }
+ 
+-static int gcm_enc_copy_hash(struct aead_request *req, u32 flags)
++static int gcm_add_auth_tag(struct aead_request *req)
+ {
+-	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+ 	struct crypto_aead *aead = crypto_aead_reqtfm(req);
+-	u8 *auth_tag = pctx->auth_tag;
+-
+-	crypto_xor(auth_tag, pctx->iauth_tag, 16);
+-	scatterwalk_map_and_copy(auth_tag, req->dst,
+-				 req->assoclen + req->cryptlen,
+-				 crypto_aead_authsize(aead), 1);
+-	return 0;
+-}
+-
+-static int gcm_encrypt_continue(struct aead_request *req, u32 flags)
+-{
+ 	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct crypto_gcm_ghash_ctx *gctx = &pctx->ghash_ctx;
+ 
+-	gctx->src = sg_next(req->src == req->dst ? pctx->src : pctx->dst);
+-	gctx->cryptlen = req->cryptlen;
+-	gctx->complete = gcm_enc_copy_hash;
+-
+-	return gcm_hash(req, flags);
++	gcm_hash(req, sg_next(req->src == req->dst ? pctx->src : pctx->dst),
++		 req->cryptlen, pctx->iauth_tag);
++	crypto_xor(pctx->auth_tag, pctx->iauth_tag, 16);
++	memcpy_to_sglist(req->dst, req->assoclen + req->cryptlen,
++			 pctx->auth_tag, crypto_aead_authsize(aead));
++	return 0;
+ }
+ 
+ static void gcm_encrypt_done(void *data, int err)
+ {
+ 	struct aead_request *req = data;
+ 
+ 	if (err)
+ 		goto out;
+ 
+-	err = gcm_encrypt_continue(req, 0);
+-	if (err == -EINPROGRESS)
+-		return;
++	err = gcm_add_auth_tag(req);
+ 
+ out:
+ 	aead_request_complete(req, err);
+ }
+ 
+ static int crypto_gcm_encrypt(struct aead_request *req)
+ {
+ 	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct skcipher_request *skreq = &pctx->u.skreq;
++	struct skcipher_request *skreq = &pctx->skreq;
+ 	u32 flags = aead_request_flags(req);
+ 
+ 	crypto_gcm_init_common(req);
+ 	crypto_gcm_init_crypt(req, req->cryptlen);
+ 	skcipher_request_set_callback(skreq, flags, gcm_encrypt_done, req);
+ 
+-	return crypto_skcipher_encrypt(skreq) ?:
+-	       gcm_encrypt_continue(req, flags);
++	return crypto_skcipher_encrypt(skreq) ?: gcm_add_auth_tag(req);
+ }
+ 
+ static int crypto_gcm_verify(struct aead_request *req)
+ {
+ 	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+@@ -479,106 +274,71 @@ static void gcm_decrypt_done(void *data, int err)
+ 		err = crypto_gcm_verify(req);
+ 
+ 	aead_request_complete(req, err);
+ }
+ 
+-static int gcm_dec_hash_continue(struct aead_request *req, u32 flags)
+-{
+-	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct skcipher_request *skreq = &pctx->u.skreq;
+-	struct crypto_gcm_ghash_ctx *gctx = &pctx->ghash_ctx;
+-
+-	crypto_gcm_init_crypt(req, gctx->cryptlen);
+-	skcipher_request_set_callback(skreq, flags, gcm_decrypt_done, req);
+-	return crypto_skcipher_decrypt(skreq) ?: crypto_gcm_verify(req);
+-}
+-
+ static int crypto_gcm_decrypt(struct aead_request *req)
+ {
+ 	struct crypto_aead *aead = crypto_aead_reqtfm(req);
+ 	struct crypto_gcm_req_priv_ctx *pctx = crypto_gcm_reqctx(req);
+-	struct crypto_gcm_ghash_ctx *gctx = &pctx->ghash_ctx;
+-	unsigned int authsize = crypto_aead_authsize(aead);
+-	unsigned int cryptlen = req->cryptlen;
+-	u32 flags = aead_request_flags(req);
+-
+-	cryptlen -= authsize;
++	struct skcipher_request *skreq = &pctx->skreq;
++	unsigned int datalen = req->cryptlen - crypto_aead_authsize(aead);
+ 
+ 	crypto_gcm_init_common(req);
+ 
+-	gctx->src = sg_next(pctx->src);
+-	gctx->cryptlen = cryptlen;
+-	gctx->complete = gcm_dec_hash_continue;
++	gcm_hash(req, sg_next(pctx->src), datalen, pctx->iauth_tag);
+ 
+-	return gcm_hash(req, flags);
++	crypto_gcm_init_crypt(req, datalen);
++	skcipher_request_set_callback(skreq, aead_request_flags(req),
++				      gcm_decrypt_done, req);
++	return crypto_skcipher_decrypt(skreq) ?: crypto_gcm_verify(req);
+ }
+ 
+ static int crypto_gcm_init_tfm(struct crypto_aead *tfm)
+ {
+ 	struct aead_instance *inst = aead_alg_instance(tfm);
+ 	struct gcm_instance_ctx *ictx = aead_instance_ctx(inst);
+ 	struct crypto_gcm_ctx *ctx = crypto_aead_ctx(tfm);
+ 	struct crypto_skcipher *ctr;
+-	struct crypto_ahash *ghash;
+ 	unsigned long align;
+-	int err;
+-
+-	ghash = crypto_spawn_ahash(&ictx->ghash);
+-	if (IS_ERR(ghash))
+-		return PTR_ERR(ghash);
+ 
+ 	ctr = crypto_spawn_skcipher(&ictx->ctr);
+-	err = PTR_ERR(ctr);
+ 	if (IS_ERR(ctr))
+-		goto err_free_hash;
++		return PTR_ERR(ctr);
+ 
+ 	ctx->ctr = ctr;
+-	ctx->ghash = ghash;
+ 
+ 	align = crypto_aead_alignmask(tfm);
+ 	align &= ~(crypto_tfm_ctx_alignment() - 1);
+ 	crypto_aead_set_reqsize(tfm,
+-		align + offsetof(struct crypto_gcm_req_priv_ctx, u) +
+-		max(sizeof(struct skcipher_request) +
+-		    crypto_skcipher_reqsize(ctr),
+-		    sizeof(struct ahash_request) +
+-		    crypto_ahash_reqsize(ghash)));
+-
++				align + sizeof(struct crypto_gcm_req_priv_ctx) +
++					crypto_skcipher_reqsize(ctr));
+ 	return 0;
+-
+-err_free_hash:
+-	crypto_free_ahash(ghash);
+-	return err;
+ }
+ 
+ static void crypto_gcm_exit_tfm(struct crypto_aead *tfm)
+ {
+ 	struct crypto_gcm_ctx *ctx = crypto_aead_ctx(tfm);
+ 
+-	crypto_free_ahash(ctx->ghash);
+ 	crypto_free_skcipher(ctx->ctr);
+ }
+ 
+ static void crypto_gcm_free(struct aead_instance *inst)
+ {
+ 	struct gcm_instance_ctx *ctx = aead_instance_ctx(inst);
+ 
+ 	crypto_drop_skcipher(&ctx->ctr);
+-	crypto_drop_ahash(&ctx->ghash);
+ 	kfree(inst);
+ }
+ 
+ static int crypto_gcm_create_common(struct crypto_template *tmpl,
+-				    struct rtattr **tb,
+-				    const char *ctr_name,
+-				    const char *ghash_name)
++				    struct rtattr **tb, const char *ctr_name)
+ {
+ 	struct skcipher_alg_common *ctr;
+ 	u32 mask;
+ 	struct aead_instance *inst;
+ 	struct gcm_instance_ctx *ctx;
+-	struct hash_alg_common *ghash;
+ 	int err;
+ 
+ 	err = crypto_check_attr_type(tb, CRYPTO_ALG_TYPE_AEAD, &mask);
+ 	if (err)
+ 		return err;
+@@ -586,21 +346,10 @@ static int crypto_gcm_create_common(struct crypto_template *tmpl,
+ 	inst = kzalloc(sizeof(*inst) + sizeof(*ctx), GFP_KERNEL);
+ 	if (!inst)
+ 		return -ENOMEM;
+ 	ctx = aead_instance_ctx(inst);
+ 
+-	err = crypto_grab_ahash(&ctx->ghash, aead_crypto_instance(inst),
+-				ghash_name, 0, mask);
+-	if (err)
+-		goto err_free_inst;
+-	ghash = crypto_spawn_ahash_alg(&ctx->ghash);
+-
+-	err = -EINVAL;
+-	if (strcmp(ghash->base.cra_name, "ghash") != 0 ||
+-	    ghash->digestsize != 16)
+-		goto err_free_inst;
+-
+ 	err = crypto_grab_skcipher(&ctx->ctr, aead_crypto_instance(inst),
+ 				   ctr_name, 0, mask);
+ 	if (err)
+ 		goto err_free_inst;
+ 	ctr = crypto_spawn_skcipher_alg_common(&ctx->ctr);
+@@ -615,17 +364,15 @@ static int crypto_gcm_create_common(struct crypto_template *tmpl,
+ 	if (snprintf(inst->alg.base.cra_name, CRYPTO_MAX_ALG_NAME,
+ 		     "gcm(%s", ctr->base.cra_name + 4) >= CRYPTO_MAX_ALG_NAME)
+ 		goto err_free_inst;
+ 
+ 	if (snprintf(inst->alg.base.cra_driver_name, CRYPTO_MAX_ALG_NAME,
+-		     "gcm_base(%s,%s)", ctr->base.cra_driver_name,
+-		     ghash->base.cra_driver_name) >=
+-	    CRYPTO_MAX_ALG_NAME)
++		     "gcm_base(%s,ghash-lib)",
++		     ctr->base.cra_driver_name) >= CRYPTO_MAX_ALG_NAME)
+ 		goto err_free_inst;
+ 
+-	inst->alg.base.cra_priority = (ghash->base.cra_priority +
+-				       ctr->base.cra_priority) / 2;
++	inst->alg.base.cra_priority = ctr->base.cra_priority;
+ 	inst->alg.base.cra_blocksize = 1;
+ 	inst->alg.base.cra_alignmask = ctr->base.cra_alignmask;
+ 	inst->alg.base.cra_ctxsize = sizeof(struct crypto_gcm_ctx);
+ 	inst->alg.ivsize = GCM_AES_IV_SIZE;
+ 	inst->alg.chunksize = ctr->chunksize;
+@@ -658,11 +405,11 @@ static int crypto_gcm_create(struct crypto_template *tmpl, struct rtattr **tb)
+ 
+ 	if (snprintf(ctr_name, CRYPTO_MAX_ALG_NAME, "ctr(%s)", cipher_name) >=
+ 	    CRYPTO_MAX_ALG_NAME)
+ 		return -ENAMETOOLONG;
+ 
+-	return crypto_gcm_create_common(tmpl, tb, ctr_name, "ghash");
++	return crypto_gcm_create_common(tmpl, tb, ctr_name);
+ }
+ 
+ static int crypto_gcm_base_create(struct crypto_template *tmpl,
+ 				  struct rtattr **tb)
+ {
+@@ -675,11 +422,20 @@ static int crypto_gcm_base_create(struct crypto_template *tmpl,
+ 
+ 	ghash_name = crypto_attr_alg_name(tb[2]);
+ 	if (IS_ERR(ghash_name))
+ 		return PTR_ERR(ghash_name);
+ 
+-	return crypto_gcm_create_common(tmpl, tb, ctr_name, ghash_name);
++	/*
++	 * Originally this parameter allowed requesting a specific
++	 * implementation of GHASH.  This is no longer supported.  Now the best
++	 * implementation of GHASH is just always used.
++	 */
++	if (strcmp(ghash_name, "ghash") != 0 &&
++	    strcmp(ghash_name, "ghash-lib") != 0)
++		return -EINVAL;
++
++	return crypto_gcm_create_common(tmpl, tb, ctr_name);
+ }
+ 
+ static int crypto_rfc4106_setkey(struct crypto_aead *parent, const u8 *key,
+ 				 unsigned int keylen)
+ {
+@@ -1094,29 +850,16 @@ static struct crypto_template crypto_gcm_tmpls[] = {
+ 	},
+ };
+ 
+ static int __init crypto_gcm_module_init(void)
+ {
+-	int err;
+-
+-	gcm_zeroes = kzalloc_obj(*gcm_zeroes);
+-	if (!gcm_zeroes)
+-		return -ENOMEM;
+-
+-	sg_init_one(&gcm_zeroes->sg, gcm_zeroes->buf, sizeof(gcm_zeroes->buf));
+-
+-	err = crypto_register_templates(crypto_gcm_tmpls,
+-					ARRAY_SIZE(crypto_gcm_tmpls));
+-	if (err)
+-		kfree(gcm_zeroes);
+-
+-	return err;
++	return crypto_register_templates(crypto_gcm_tmpls,
++					 ARRAY_SIZE(crypto_gcm_tmpls));
+ }
+ 
+ static void __exit crypto_gcm_module_exit(void)
+ {
+-	kfree(gcm_zeroes);
+ 	crypto_unregister_templates(crypto_gcm_tmpls,
+ 				    ARRAY_SIZE(crypto_gcm_tmpls));
+ }
+ 
+ module_init(crypto_gcm_module_init);
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index fec950f1628b..0b0ad358e091 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -4963,26 +4963,26 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 			.kpp = __VECS(ffdhe8192_dh_tv_template)
+ 		}
+ 	}, {
+ #endif /* CONFIG_CRYPTO_DH_RFC7919_GROUPS */
+ 		.alg = "gcm(aes)",
+-		.generic_driver = "gcm_base(ctr(aes-lib),ghash-generic)",
++		.generic_driver = "gcm_base(ctr(aes-lib),ghash-lib)",
+ 		.test = alg_test_aead,
+ 		.fips_allowed = 1,
+ 		.suite = {
+ 			.aead = __VECS(aes_gcm_tv_template)
+ 		}
+ 	}, {
+ 		.alg = "gcm(aria)",
+-		.generic_driver = "gcm_base(ctr(aria-generic),ghash-generic)",
++		.generic_driver = "gcm_base(ctr(aria-generic),ghash-lib)",
+ 		.test = alg_test_aead,
+ 		.suite = {
+ 			.aead = __VECS(aria_gcm_tv_template)
+ 		}
+ 	}, {
+ 		.alg = "gcm(sm4)",
+-		.generic_driver = "gcm_base(ctr(sm4-generic),ghash-generic)",
++		.generic_driver = "gcm_base(ctr(sm4-generic),ghash-lib)",
+ 		.test = alg_test_aead,
+ 		.suite = {
+ 			.aead = __VECS(sm4_gcm_tv_template)
+ 		}
+ 	}, {
+@@ -5312,11 +5312,11 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 		.suite = {
+ 			.cipher = __VECS(sm4_ctr_rfc3686_tv_template)
+ 		}
+ 	}, {
+ 		.alg = "rfc4106(gcm(aes))",
+-		.generic_driver = "rfc4106(gcm_base(ctr(aes-lib),ghash-generic))",
++		.generic_driver = "rfc4106(gcm_base(ctr(aes-lib),ghash-lib))",
+ 		.test = alg_test_aead,
+ 		.fips_allowed = 1,
+ 		.suite = {
+ 			.aead = {
+ 				____VECS(aes_gcm_rfc4106_tv_template),
+@@ -5336,11 +5336,11 @@ static const struct alg_test_desc alg_test_descs[] = {
+ 				.aad_iv = 1,
+ 			}
+ 		}
+ 	}, {
+ 		.alg = "rfc4543(gcm(aes))",
+-		.generic_driver = "rfc4543(gcm_base(ctr(aes-lib),ghash-generic))",
++		.generic_driver = "rfc4543(gcm_base(ctr(aes-lib),ghash-lib))",
+ 		.test = alg_test_aead,
+ 		.suite = {
+ 			.aead = {
+ 				____VECS(aes_gcm_rfc4543_tv_template),
+ 				.einval_allowed = 1,
+diff --git a/drivers/crypto/starfive/jh7110-aes.c b/drivers/crypto/starfive/jh7110-aes.c
+index 2e2d97d17e6c..a0713aa21250 100644
+--- a/drivers/crypto/starfive/jh7110-aes.c
++++ b/drivers/crypto/starfive/jh7110-aes.c
+@@ -1006,11 +1006,11 @@ static int starfive_aes_ccm_init_tfm(struct crypto_aead *tfm)
+ 	return starfive_aes_aead_init_tfm(tfm, "ccm_base(ctr(aes-lib),cbcmac-aes-lib)");
+ }
+ 
+ static int starfive_aes_gcm_init_tfm(struct crypto_aead *tfm)
+ {
+-	return starfive_aes_aead_init_tfm(tfm, "gcm_base(ctr(aes-lib),ghash-generic)");
++	return starfive_aes_aead_init_tfm(tfm, "gcm_base(ctr(aes-lib),ghash-lib)");
+ }
+ 
+ static struct skcipher_engine_alg skcipher_algs[] = {
+ {
+ 	.base.init			= starfive_aes_ecb_init_tfm,
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
