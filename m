@@ -4,132 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E6A1091907
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 18:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF44109190B
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 18:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r/AZRX4hW6NjxQCKloV4jhB4xNpRMPB/WbvvX5mMcPo=; b=zS9bSAsqYTC5op
-	605gXPb/MKy8kizUz357Ggn6U4qpP4cF3TiUqDMqh2BfjmOdXHl5/JaV67wJTcX2mzcDJIeyFZlqs
-	0rD9hjiaUAxM+WM2HntVDMz/n504E61wxoUyroJOvWb93253nMuvOnxWx8IevYMwC9W+oiRMfwEtv
-	A/FyS+1yDbOYQmq7+ZY4javgugkxhXmmyGP3LNKjcnGK6IqlIg36G27jtnFnRaSU8AKOSyTsoYv1y
-	xWR+dl/Kgpbiqu4H2kkFl2YDqivaPiM2a1rZHq+OElsab7JikcvIzn/DV9schDUUBbpimvDxAWBj+
-	TPPvyAPsDGTm8WTTnODw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GEm0rRBFRpkZkyaBGQBh5TE7j2AtDqhSqDPg8Od5GLU=; b=ZONupcuC8+FYFiH7KRnMZKIDa4
+	qhHmvxGjs9RqgMvY30acjX+/+rznWAd+3JMqfAvAmKOTqTiGDrXdPd2gJMK4s4oKDbMT3VPgwBgPJ
+	Iu1wHBjoCI5oW6KlQY30fuD3aEwyxZX1RBXVUWZts+QVTpppU1sYbfnbqexTojKbte5gU1admWc+y
+	n2b3TgkY1bMoZhmko5vnnCB64uH2k34KxwCt3SQz27YebUooFItjeXAnlqW+dbRIWlJvjOY+cPo/z
+	kgQpEChq/GfP0pJ7rUMmHTslUmwVB02cXPVwJ3dHGbNjuHwAAjUW8BUsPQ+YLuIJI3wZpvVAAhsEp
+	nLVZ4/RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Hu2-0000000BHsy-3FId;
-	Thu, 19 Mar 2026 18:15:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3I1k-0000000BISr-2e1u;
+	Thu, 19 Mar 2026 18:23:24 +0000
+Received: from mail-dl1-f41.google.com ([74.125.82.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Hu0-0000000BHsJ-2ouL;
-	Thu, 19 Mar 2026 18:15:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 046A143B8B;
-	Thu, 19 Mar 2026 18:15:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7FB8C19424;
-	Thu, 19 Mar 2026 18:15:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773944123;
-	bh=5DhJroPho5HkyxwhM6V6zbgBvmoqML8NktMl6KS/Elc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iaPGo3ExscR6X7srKmPzvgCbo6Wpln64H40NZbIw1mmdGUiO7xBzZelVKxrAP8hpi
-	 2vVOf6WBMtsAozeBlYtBYs8hdJNPqG0YZEA107tQQg9MKlLMutTpHravhxjMDcowXf
-	 tA/iFu8TjynZBG1HTrAFSqnzJN3Y7KRutMGsveHzIp74T0E/87sgOKXgNZLUoD5Qi4
-	 HPDcXpdPqOzEx7CNngfzW9FfuJzso80Brjn9rmXrL0tNOxBz73IAhGO8ChAqMSUSyr
-	 ZT7pmmQXVCL/A7n46BTPQvTC5IGpsZff4s+AaNRLL9q4IET8x86CS71Zzk954mQz7r
-	 u2kNtJEBsIsLw==
-Message-ID: <feaf8a33-c716-418a-af32-aae4f1949a4b@kernel.org>
-Date: Thu, 19 Mar 2026 19:15:10 +0100
+	id 1w3I1i-0000000BISG-02v9
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 18:23:23 +0000
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-12a695044a4so2075253c88.0
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 11:23:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773944600; x=1774549400; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=mXmpYx5FvbdQdUVERyfihydPyXAGjQF34GKm5VI1Sts=;
+        b=YScuP4bxK/Tmt3d5CMyLWmvs8VEPOLvN0Kvp0Gf7WVVJlVKG9cT5x3BEcFQg0P/QCY
+         +sWhXdhHumqqRIVGqdrlCdfJeBKxox1Gn7J15AZajD/KL5zDxD257pm8k9mvwWcdzBQp
+         Gv0R0U9xcIfWBhnr98o3pCp50v+50I+3SFdGNGYDLqtUu+mTT3Xpl+aUTKXHbBOBMqmu
+         MENPRvdAkMNBrBhHYGGdVtr5W5ZoO6tkSprKLxmdwd05nUWzvAKC3vLpOWCHSaOv89gh
+         9zqEf9U77I2ZEP1WfeGaVb4gr6MFaKluQEN2lkHNOAk/sGoayT2utV/DE+tGS+Wd4EF8
+         wCxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773944600; x=1774549400;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mXmpYx5FvbdQdUVERyfihydPyXAGjQF34GKm5VI1Sts=;
+        b=niGKtF6DEKsW1L7IamBD+Q/yTKQ0JwJxD3JvBDdvmztOAOMb4P7beAnea0qXvsWU+q
+         5GiThZ7S7ebiQPKWIaKLjJcFRuJr+2JrY+oZKxPTkkynt7xtrT5r4YIBRuwKnq+3mawI
+         1gJUiXnOp1euEMJ6oE0AqFKIkHkFu5+PPBrZ5Ep7iWdnRzjJV66g/AiRji+nWcKdNr8D
+         soryBGMaTuxxx9FKNAYZFvNPVVGpeEx/i1T59JLvuTGLIOmGsorj7MUWYBeWE+SWkAFf
+         mS66io6b1NHbba+tH5/TpwYTfED5O4/q12IMnA2IXkQQ+Ay4cx8Dzo6J95f4xCmUyWDR
+         wRVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJViAGKmEUi5hAVSfQRqjnOmrr+2Unb4dkYs9rxL8WwbqUurq8sHCOmEOr9RqhXAljqVpdWKkjqjzDsQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNNV8ouglfWEkoVWFw/iSTsQY4DNud1lar27yqA1Qeg+RKFAlc
+	UH/e0qKQSVW3dmKJYugOx/zkQXgy3wKzmJQy8s0tv7gZBz5rK8gWZ5y1TLB6Bw==
+X-Gm-Gg: ATEYQzydMawAYaZPaJ8E25UohjyL6lC78Rl4/vd+IKpJBXvEH0W5VIEUTHxNhRBtB2B
+	hPy3wxB0ZVKORavoG6UUoVs7KFR6bJmJArSpwIX7CwkmCY3Jp9jWuVDnYPSkOb1jOjHzQGCQWNA
+	Ukd676ATS3pGsVVmO+buQR4hp8ML3aiNvzGh18zirnGuRy3KRnePxaYXxDQ30Le06LvfyhC7tE/
+	Q3N278IeyjX6q+VezdJgoq5DZLR6VArTVRfivFmYiQqNRovkwyIpyOY1P1/9ZHSpgciStsfujjV
+	LmA1JOnbNQYiDCeiamzn+9FUCLX8m8r8zB9KwW2BVMlVngGmLduoEJ8OjpmbSyO/YMG7UuIfIrb
+	zLzwfzoEPlVK1c+llSm+IRO7YIV09+EWUg8qHxA3lR18sXUufTB/OEF1XOITONYEgT8yLLQR3Z+
+	YpIwhwvJKcRqLooObyHVN8LSDxGQJEI6iZ0HBut2GbnUMfJVNa/Jbo3arczOMShFDtKUla487i
+X-Received: by 2002:a05:7022:4590:b0:122:153:d161 with SMTP id a92af1059eb24-12a7267f80bmr69519c88.17.1773944600270;
+        Thu, 19 Mar 2026 11:23:20 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-129b4127b7esm11303312c88.9.2026.03.19.11.23.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Mar 2026 11:23:19 -0700 (PDT)
+Message-ID: <630e8ccd-e2e6-4d2b-9689-d55e0210e518@roeck-us.net>
+Date: Thu, 19 Mar 2026 11:23:18 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
-To: Zi Yan <ziy@nvidia.com>
-Cc: Gregory Price <gourry@gourry.net>, linux-kernel@vger.kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
- Byungchul Park <byungchul@sk.com>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-mm@kvack.org,
- linux-rt-devel@lists.linux.dev
-References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
- <20260319-config_migration-v1-1-42270124966f@kernel.org>
- <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
- <e166588e-036c-4fa3-81fc-d7aca9f02c29@kernel.org>
- <1559C268-444B-4A64-A0B8-21B2FE49A5E2@nvidia.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
+ multipleOf for T-Head TH1520
+To: Drew Fustini <fustini@kernel.org>
+References: <20260309162457.4128205-1-zhengxingda@iscas.ac.cn>
+ <20260309162457.4128205-2-zhengxingda@iscas.ac.cn>
+ <7f043ae1-c863-4884-a2c7-710a8d9d8771@roeck-us.net> <abwsv3t1jdWJ7sZf@x1>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <1559C268-444B-4A64-A0B8-21B2FE49A5E2@nvidia.com>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <abwsv3t1jdWJ7sZf@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_111524_757471_10F2AD07 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260319_112322_062412_82679729 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,38 +140,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Rahul Tanwar <rtanwar@maxlinear.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/19/26 19:12, Zi Yan wrote:
-> On 19 Mar 2026, at 14:08, David Hildenbrand (Arm) wrote:
-> 
->> On 3/19/26 16:24, Gregory Price wrote:
+On 3/19/26 10:05, Drew Fustini wrote:
+> On Tue, Mar 17, 2026 at 08:55:05AM -0700, Guenter Roeck wrote:
+>> On Tue, Mar 10, 2026 at 12:24:56AM +0800, Icenowy Zheng wrote:
+>>> The G and J coefficients provided by T-Head TH1520 manual (which calls
+>>> them A and C coefficients and calls H coefficient in the binding as B)
+>>> have 1/100 degree Celsius precision (the values are 42.74 and -0.16
+>>> respectively), however the binding currently only allows coefficients as
+>>> precise as 100 milli-Celsius (1/10 degree Celsius).
 >>>
->>> HOTREMOVE has long been a thorn in my side, I appreciate you cleaning
->>> this up.
+>>> Change the multipleOf value of these two coefficients to 10 (in the unit
+>>> of milli-Celsius) to satisfy the need of TH1520.
+>>>
+>>> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+>>> Reviewed-by: Drew Fustini <fustini@kernel.org>
+>>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 >>
->> On a long cardrive today I was wondering: do we still need a separate
->> MEMORY_HOTREMOVE
+>> Applied.
+>>
+>> Thanks,
+>> Guenter
 > 
-> You mean merge HOTREMOVE into HOTPLUG?
+> Hi, what branch is it applied to? I don't see it in next-20260319, so
+> I'm thinking I should wait on the dts patch.
+> 
 
-Yes, only have a single config.
+Sorry, I forgot to push. It is now in hwmon-next and should show up in
+next- in a couple of days.
 
-> I wondered the same. Is there
-> a reason to only have HOTPLUG without HOTREMOVE?
-In the past some architectures (e.g., s390x) did not support HOTREMOVE.
-Then it made sense. I'm not sure if someone would want to build a kernel
-with HOTPLUG but not have the bit of overhead for unplug+migration.
+Guenter
 
-So I would guess nothing major speaks against it.
-
--- 
-Cheers,
-
-David
 
 _______________________________________________
 linux-riscv mailing list
