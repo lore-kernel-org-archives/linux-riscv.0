@@ -4,86 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53854108E1E4
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 10:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C81DC108E1E4
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 10:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QFI89pcbTtGfLqF2V6sg3ICEx2yK4I/dR4hIlyPKPic=; b=GHkRZl4EtddLLP
-	jEYSGEWQ7Pfen058q86LYk/vtRIWZP1Khd7ZKwQSmMPXBndWVITbEL4vM0JDeRnVaOiyQ+hfD8uwz
-	AsC3RcZPx/movZKC6LJ/oFltNZATN88fIYwq++uS3ouz/eavi5rMAqkANxumg8ZTyW7aLmOAxrY1Y
-	vLRuzYrErnBT/K8N5DghrE9IfswRJTzcUqFG+B+7LVCoybziKF04QZEnGxpdhMnr6k8tAPComM2rx
-	7/lybK+FmS2HUI9YS3NBvNzyOjpryrEHyRnrn+MP8Tehl1EDrJfaJtJy6wH3ln9S2kxcBM2AXYfY3
-	KgQYCH1VEbwZMudrKWmQ==;
+	List-Owner; bh=rxSeX58aNslnV+wYu1OXHnMp96+KbNYbRwFVNpTM9mg=; b=oiwugH4vCN93AF
+	xRZbdLViWymVxLi++s0kSEvPAWYzoyERCLa1eCqp4ST9sqTFFzzSWhksX56x0At1J4QGBwzkHKkx1
+	wzbEOZTEDRFpPfYZOFzkOcKrUv7Rlrj0qUz03JpTRJmsUrd4rSjS3oRqJnldxykD/4DxJKFzWRxc0
+	8KwCddtCpnAvd++5/9cSb/LPmJJJyEmyJS7mE7JmkMvDPw+BezHZ+NkSXFMtT9r7iY+AGxJC9OgB+
+	K+RzKhvUCvfjIdVUGHRjRJqf1cE+MEyrRi744wZUkA30lLyAdwBuu6uO3klo0Zfr7CDNPtVWrLagc
+	EueVZwhwF6tlBGz/8rTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Ak1-0000000AQW9-1RdX;
-	Thu, 19 Mar 2026 10:36:37 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1w3As1-0000000ASH3-0KMJ;
+	Thu, 19 Mar 2026 10:44:53 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Ajy-0000000AQVP-0s9N
+	id 1w3Ary-0000000ASGC-0oe4
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Mar 2026 10:36:35 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5a0faa0d15cso748280e87.0
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 03:36:33 -0700 (PDT)
+	Thu, 19 Mar 2026 10:44:51 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-665634cb208so1523865a12.3
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 03:44:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773917088; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NtmNj83NCdFVfbvtk/1oPtIMDO0k5SZG9hog23mkzJ6MBSRQOT0w68+okjE6gIVExr
+         B8lk+bkXAHtHKpnuEqSuIKsZX40215mEZbGO3V6Wppuo6KdeoxrE73WnFXbvUw5ldMst
+         Td0CcNMOktOSt6H71SSt88oEvOw/kxp+2g3XMB4G7JsSIFDUIYzoX3E0UR9ZK3+125hI
+         6UhCdIz10VJGpHLYMf04Si7OZ3XUSjsSuybRT5aJxD/tbhlv9aFjtumTNRUvl3nFe3DX
+         C9yBNAdTj5WEttlaSW+KzXHBuGqg+jaTgLH1xWA6+KINcWOavabEbWXMW96Ip3YCva0p
+         ArWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=8nsXLrCC8XRALmE6EP9wDlaUdJlORBZ30G/UqxIe1EE=;
+        fh=gwu+F2RfEJYa+JKKQTlousWDkrCSAjxxP1uuLJdQgwg=;
+        b=DWdtzpTE1vNJQ7PN0Abpa1DiDmsVEvSzCsLgAwyPkKEDfQlhmqlipbwyGZeTwtXX44
+         1vOzyznEcb4irivCMoWtz5FdZRnwi0jRC6i2VovS2MMidIgY0G08xdvx3I1DpONUlAFj
+         Ag7Z8TzXHgaFAF0faFKKPc+87vPttQ4lNIHRI4/x0qEND6D4Sbx7jm7twpkmWvoWP4m8
+         N70V++ZMNt0+wPayqvcQAsM5uD2K4PUAWKvQKiB+kQQuPVpJ2p7WekcfsjHyqz+ydc4e
+         mvaPcfXVRZBNdCNrNb7bRFwUfkGQQxadAOBG83gxD2Eau28nqKDZ/2oo5TQfMBXjskFo
+         LmQQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773916592; x=1774521392; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tvZnxNdQMkwiTW3tDu7XCVsslkr30HbaMvbGALgZS0Q=;
-        b=YezpFcEHbijf2okBwe9cPjbG7hs7fk/SHPVuUP4Q2vFtn+EkPg4q5dko/aMprVMM2n
-         0XltjXtq5fGKTafdA3bCHnQ5covsJAWQqpEFTAJWRLVGIJeVxEfb2JqILua93lMMF3jH
-         XSzYhVpNyvXdgF43Tjz/QUszLK95hPramRpupmBJwTFHiNDV6FaA0MoVSaW0hrwjETO8
-         gmj7RsPWq9kvH4ItCD+XWawLw3Xlox6RFW5LE5hyas1SBkZ2gELbyl8oJAflwefyVFOI
-         LSdvEVAbZ5Ydv8muemBv1hi7n2bFLUewsJVhl839J7J8Osm1KV/dmmSRXpnYYxND7gZu
-         lh+A==
+        d=gmail.com; s=20230601; t=1773917088; x=1774521888; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8nsXLrCC8XRALmE6EP9wDlaUdJlORBZ30G/UqxIe1EE=;
+        b=ho6If0VT6kb4RNbpkZrhv1j981JQ3qUVU4qlU8WAUaPjvBkXbnAD3l1PSuJsDE3klN
+         cjOPeZrJLA1MYmUbF5XjnRBGjsqMTDKKHFiQDTMn1GPuKvfj1sWEECGX9l3YCJFaKuIZ
+         uYasZFPHJLeBptHAfBVIWwCqrWc+5xJ4KeRgOO6rZmhH2+o3KUJSkg/OSphwxj4IBdHH
+         4cpn+A/fiQfUMe9JkOdmFaBJiHl2UZk+DUXd076PgroNX0kzhSPzLJsdl7kRcVhoR8qu
+         codcWeyKnVYNWXiJK1ZjY7rk1fnnH5Ur700kkDzdEvKkUqT7SUswrySjFk+9ykOE65TI
+         +OSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773916592; x=1774521392;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tvZnxNdQMkwiTW3tDu7XCVsslkr30HbaMvbGALgZS0Q=;
-        b=qLriImDrz0rjNT0Fer5b7e2UAcKLOvpiQnmkwhfJmYpA4f9UXOFivI4y1kt1M75+qe
-         IToVCwB+4vYVv+RdCNngTt6IqyxAa3Gld81rabjto7lcYaUHedGCyH8qLFunSVSSt3Nv
-         pw2XO4sXMij+l574xf4Y/ROKAqhBGdmCXlJ2EQ/ByYR9Rl7d6T9CvwcRjeURDhOQIx8X
-         bcgREN3/vl+xrckZulAMrbaCgx2/zyY4Sn1BuU3L4cMUYfD09hYgaCJsd71aAQKz6Cvo
-         H1vsSZQcqd9Dc95Xj0fU6Y04CTN/ORN+GJhgYhRU3MXxdJtMfX9BL8+tdXEzdCvNdMW+
-         MlWg==
-X-Gm-Message-State: AOJu0YxEQ2nJ9C0MZ1pRBY0AB2nbcwWqXf+fqt69i4euc6XZ7lwrv7p6
-	D6K1K0qNnvFCK4HrfClzh5nWqvBjGNIGVMDpqVrgvaTHFTsTYhzan01J
-X-Gm-Gg: ATEYQzwpWvMNDWm0bdfKG77Mmgb3tUSHl8YEq7TE4mmkgvgLLaZUedi7DeZ8PqyU5kS
-	VVncTZZfQSHmfjfkLoS8c/Q8IWOqChAiBki5Pe3nAW2oEGP6JfuwaO1ZhzbIox0rIjwkzrssb2S
-	9gZA/MZqKf9EHaG2LYoypxs8sjn+72V/Axal0EvzjPy1nL3OpxlcDYy1B32uYz9Gh79c4X2AlqM
-	IQRGVj+PIFbM7n5KdGCj5LHoRPY+8hvOscHPHKlQSfJ11QDfYZh6kQRZxuZcnHozcNVnamNqy0D
-	xOydAenpAoikJ7aW0rEnEq+IBEc0yaWTKJTCZa/1YUs3XxSw+OYfv1lrZdLC0qGLnj+TobB99Tc
-	k1ExYyIC4KkqK4q85CeQvtcHRgq90KmKgHkU1B9dqR7c3ouQoM0cI3KrsimtUVab4uI7UBMuVmI
-	4Fwh3hnGfyR5q1SFwJwTA27HfLDBD0pW8ljY/+Bbg=
-X-Received: by 2002:a05:6512:1193:b0:5a2:7c1c:749 with SMTP id 2adb3069b0e04-5a27c1c088fmr2333426e87.39.1773916591523;
-        Thu, 19 Mar 2026 03:36:31 -0700 (PDT)
-Received: from imamay-pc ([46.73.133.192])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a279c27575sm1120034e87.17.2026.03.19.03.36.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 03:36:31 -0700 (PDT)
-Date: Thu, 19 Mar 2026 13:36:29 +0300
-From: Ilya Mamay <mmamayka01@gmail.com>
-To: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, shuah@kernel.org
-Subject: Re: [PATCH v3 1/2] riscv: Introduce support for hardware
- break/watchpoints
-Message-ID: <20260319103629.by3bw3qeev26jvqq@imamay-pc>
-References: <20260223044918.1359983-1-himanshu.chauhan@oss.qualcomm.com>
- <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
+        d=1e100.net; s=20251104; t=1773917088; x=1774521888;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8nsXLrCC8XRALmE6EP9wDlaUdJlORBZ30G/UqxIe1EE=;
+        b=pyfF4ZtoviKTqRg7Wd0wDyPqNA8QHjegk8naqpNw5mKzYxUqBgxP4zrXhG7wK4xrQj
+         eTRZPF5r4KK6QNH9arnQvD/hqGlmcSia7/WOQWheyw9wHnJF4GApAqxsJ4BgBK2NIhO3
+         CljD0Pp2JgFsMp9tWdM1UC4HZakilVD1A6gTVsIpnGoOAaMC+sJKtgAq/8aKu8rMYHzV
+         NmXMtZ4O6zbv0GgEy/2crzxhq5sB4I3uvwN5ibxkaSYnE/7zh98we98oSdjtNLR8gvk5
+         vTokKX3sgr8nRDY6RYQgi8+o0NAalkke7AE03/TBGSfi+RxcR6yduJVYJ4eI0XkjkCvD
+         OkuA==
+X-Forwarded-Encrypted: i=1; AJvYcCUEAS9UW7D0W/8Xa/QOvMre2VCEYn4IXfuxaidlBCoz0mOdHo3TvW7z0UzUVF0PkrCd3ooBeo2TTuYATA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOnQP0PeBw5gTjY1vfh/YdPuurizBNmy2bQFxmqFns38+d8w6Q
+	ZkxVpC+6lzxDdNTZU/Gj2ZBe0G9Iu16Rnkai26VR3Pew1jGXnyXGTc66j4UH87NgU8ki1CInQGw
+	7Msc1keW4gZ75k2nlciFm48t/1+aaji8=
+X-Gm-Gg: ATEYQzytddvyQ9yroiB62Oh7C9vcsXdcwhC7BJx243WENmjuDMRa6mnzZywvup48pti
+	FHCEg/nxXRB9PsE9jsueAEQgOgwB3eWX1OufQJccsnziXM3c6e87iPudZLW4ke4wbNKOxpp0KCj
+	SPv+k9kiL8bAED8xS1n30HV+16lZEwd+4wT868HhWfs+PIv+0vmoPu0R4DyIHi9R32lU0g9zanS
+	v1oLr6qrqs9+IIJseP7Fr69jH1WbMtnXFxSuaU7SXn7gQQEupUuqoVVNK+L0B3rgL4TJPKM5eBx
+	jhJB3g==
+X-Received: by 2002:aa7:ca56:0:b0:667:ddf7:7d9d with SMTP id
+ 4fb4d7f45d1cf-667ddf7835fmr2510617a12.10.1773917087638; Thu, 19 Mar 2026
+ 03:44:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260223044918.1359983-2-himanshu.chauhan@oss.qualcomm.com>
+References: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
+In-Reply-To: <20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Thu, 19 Mar 2026 16:14:30 +0530
+X-Gm-Features: AaiRm52C7IQCXAwHh87UFE9OwrOumGbtL8uwoXCOsBJxz_0fqoGXY7qT2wiZr5Q
+Message-ID: <CANAwSgTp6urWYT9H96XR7viKv7Sy16L4exS2KR5PLq_FJ91xbQ@mail.gmail.com>
+Subject: Re: [PATCH 0/3] thermal: spacemit: Add support for SpacemiT K1 SoC
+ thermal sensor
+To: Shuwei Wu <shuweiwoo@163.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_033634_270114_3851E04E 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20260319_034450_249171_DD3AA55E 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,95 +122,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Himanshu
+Hi Shuwei,
 
-I have been using your previous HBP implementation for some time and have
-encountered some of its shortcomings, which this implementation has also
-inherited.
+On Wed, 26 Nov 2025 at 17:27, Shuwei Wu <shuweiwoo@163.com> wrote:
+>
+> Introduce support for the on-die thermal sensor unit (TSU)
+> found on the SpacemiT K1 SoC.
+>
+> Include the device tree binding documentation in YAML format, the
+> thermal sensor driver implementation, and the device tree changes to
+> enable the sensor on K1 SoC.
+>
+> Test logs:
+> Hardware: OrangePi-RV2 integrates SpacemiT K1 SoC
+> Kernel: 6.18.0-rc4 mainline
+>
+> Verified that all five thermal sensors are registered and reporting
+> valid temperatures.
+>
+> $ cat /sys/class/thermal/thermal_zone*/type
+> soc-thermal
+> package-thermal
+> gpu-thermal
+> cluster0-thermal
+> cluster1-thermal
+>
+> $ cat /sys/class/thermal/thermal_zone3/temp
+> 28000
+>
+> Dynamic threshold and interrupt tests passed via sysfs trip_point
+> manipulation.
+>
+> ---
+> Shuwei Wu (3):
+>       dt-bindings: thermal: Add SpacemiT K1 thermal sensor
+>       thermal: K1: Add driver for K1 SoC thermal sensor
+>       riscv: dts: spacemit: Add thermal sensor for K1 SoC
+>
+>  .../bindings/thermal/spacemit,k1-thermal.yaml      |  76 +++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi               | 101 +++++++
+>  drivers/thermal/Kconfig                            |  14 +
+>  drivers/thermal/Makefile                           |   1 +
+>  drivers/thermal/k1_thermal.c                       | 307 +++++++++++++++++++++
+>  5 files changed, 499 insertions(+)
+> ---
+> base-commit: f5f2e20b1cbc5f9ea20b372d15967b24921ede19
+> change-id: 20251124-b4-k1-thermal-eca906e6dd7a
+>
+> Best regards,
 
-On Mon, Feb 23, 2026 at 10:19:17AM +0530, Himanshu Chauhan wrote:
-> +/*
-> + * HW Breakpoint/watchpoint handler
-> + */
-> +static int hw_breakpoint_handler(struct die_args *args)
-> +{
-> +	int ret = NOTIFY_DONE;
-> +	struct arch_hw_breakpoint *bp;
-> +	struct perf_event *event;
-> +	int i;
-> +
-> +	for (i = 0; i < dbtr_total_num; i++) {
-> +		event = this_cpu_read(pcpu_hw_bp_events[i]);
-> +		if (!event)
-> +			continue;
-> +
-> +		bp = counter_arch_bp(event);
-> +		switch (bp->type) {
-> +		/* Breakpoint */
-> +		case RV_DBTR_BP:
-> +			if (bp->address == args->regs->epc) {
+Tested-by: Anand Moon <linux.amoon@gmail.com>
 
-> +				perf_bp_event(event, args->regs);
-> +				ret = NOTIFY_STOP;
-> +			}
-> +			break;
-> +
-> +		/* Watchpoint */
-> +		case RV_DBTR_WP:
-> +			if (bp->address == csr_read(CSR_STVAL)) {
+Thanks
+-Anand
 
-Sdtrig spec (5.7.11 and 5.7.12 in the tdata1.select field description) states that:
-"There is at least (!) one compare value and it contains the lowest virtual
-address of the access. In addition, it is recommended that there are additional
-compare values for the other accessed virtual addresses match. (E.g. on a 32-bit
-read from 0x4000, the lowest address is 0x4000 and the other addresses are
-0x4001, 0x4002, and 0x4003".
-
-A 32-bit read from 0x4000 will definitely have compare value 0x4000 (the lowest
-virtual address), but may also have compare values at 0x4001, 0x4002, and 0x4003.
-This means that a 16-bit watchpoint at 0x4002 will fire on this 32-bit read, yet
-stval will be 0x4000, and the current hw_breakpoint_handler implementation will
-not detect it.
-
-Therefore, it is important to check tdata1.hit bit (which indicates that the
-trigger condition was definitely met) and only use the comparison between
-bp->address and CSR_STVAL as a fallback (if tdata1.hit is not supported by the
-hardware).
-
-> +/* atomic: counter->ctx->lock is held */
-> +int arch_install_hw_breakpoint(struct perf_event *event)
-> +{
-> +	struct arch_hw_breakpoint *bp = counter_arch_bp(event);
-> +	union sbi_dbtr_shmem_entry *shmem = this_cpu_ptr(sbi_dbtr_shmem);
-> +	struct sbi_dbtr_data_msg *xmit;
-> +	struct sbi_dbtr_id_msg *recv;
-> +	struct perf_event **slot;
-> +	unsigned long idx;
-> +	struct sbiret ret;
-> +	int err = 0;
-> +
-> +	raw_spin_lock_irqsave(this_cpu_ptr(&ecall_lock),
-> +			      *this_cpu_ptr(&ecall_lock_flags));
-> +
-> +	xmit = &shmem->data;
-> +	recv = &shmem->id;
-> +	xmit->tdata1 = cpu_to_le(bp->tdata1);
-> +	xmit->tdata2 = cpu_to_le(bp->tdata2);
-> +	xmit->tdata3 = cpu_to_le(bp->tdata3);
-> +
-> +	ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIG_INSTALL,
-> +			1, 0, 0, 0, 0, 0);
-
-perf installs breakpoints (via the call chain pmu.add->arch_install_hw_breakpoint)
-during context rotation after a perf_event_open or ptrace call finishes.
-So, if the hardware does not support the given tdata1, tdata2 and tdata3
-configuration and OpenSBI fails to set up the trigger, the kernel will still
-report that the breakpoint was successfully installed.
-
-A probing stage is therefore needed  before or during perf event
-registration to ensure that all breakpoints can be installed
-successfully during context rotation.
-
+> --
+> Shuwei Wu <shuweiwoo@163.com>
+>
+>
 > _______________________________________________
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
