@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8371088E78
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 03:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AF01088E70
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 03:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YVvSAUhemJf2xTu1nERymFPPlJc5gJGi69hmrH78BSk=; b=jnyUvO1X0YdnPv
-	Ko235hs8YIr87xDlioDiK2jhXbqIFRS5OdfEyQY/RkqQMtqB1dr5/wP4qLZf/xNwFj4YtnPOPiMjP
-	mzyb77AfJqafzVx/sLthq/VJYJNn7J3hI08NFWkW+ZwoRufmqnyBQIa5zTm4hUx505JmUe3cWTMP8
-	I1dK47GIZCDMDxJ9T1wW/UTODdFDBC3Q7CTnwQ+IuCP5qdlXmXeV8g7xQZY3M1gPlTE42nDHZ7hM1
-	eFD6wIKyUg6JFstCysr0KKPGXDGAgh4VVWnlPe2frGBqaQDTz6uvK5Vbx+eUbybaKr8p8Bkf7biOX
-	adpkVeAippsQqDDK5HmA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zQDmSzRTy/swOd+zLQNllSrqrHwbUr5q7ruWdyS0puE=; b=jePP9Gi6DuXXv5
+	dduLKyvGIiDZ8Z/+bxWt/Yi9UvskNifBsNNULV7idzr2B462qmMnJB5gdV1OF/Wt5r6FdkjE1mJRU
+	vTEoGZuZUeRkm4N3swNyOm1NLWd/fJYnk5FftoiFmrvuGD/NzwAX+YwjNnf4hPUwwRGXKOixowf/O
+	v+OK3iwIn8zO9t3YE0apq4gWguEysrIlHMb8Qh8iS44LGLGx7yRhDb6JVQuavnQld96/boGoqGgfZ
+	s7NMO9mU03qyCHE9+ywqFfOE9D21vSOoWU+hm1kzNzWHwQpajmvF6OojGUyIm1iMTi+TW2/meszqh
+	YhJbGWP5YMQzcMqY2MEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3408-00000009od6-23X5;
-	Thu, 19 Mar 2026 03:24:48 +0000
+	id 1w34Xl-00000009rz9-11dR;
+	Thu, 19 Mar 2026 03:59:33 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3404-00000009oVU-0r7q;
-	Thu, 19 Mar 2026 03:24:44 +0000
+	id 1w34Xj-00000009ryj-39Yi;
+	Thu, 19 Mar 2026 03:59:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=6jNODp3wp4DROUhBG8kpRzhyFycKpwSYO5gu6salJm0=; b=TIBZTDiavjTYleqTL+7VA7OhWk
-	xZh7t41UyShLN+GYi5I/pWeelbtRr/Yi+mrk3xkSnXDsJ42HBknPFs8F8Ms+mvumlqW2yuectpLTX
-	gVyFDLKvQqv8NWyl70+fowdQs6tbqrYvBuCwF6qVESCAogQMgWqICT+j0QAK/phC6L9nFHy+3K8RB
-	gRpzQJDXA56J49IVJhByITEBJSgwBMA2Lb5uuEOnO81afJrdJ31hKo+nsIpfE2UhyMHhPJTmAAQeT
-	kmC7BuGWY8MpickhWAm7ixKMlql7Xi53p44/feoXrwSMlbC5PqyY6HAXJJj1xOfNIA/cKkyOioSyo
-	RKw/7oJw==;
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=KVi+eN+XOBHfLARggmA1jnAZgpDae5PHmqZb3ZDS6nY=; b=U9tyzclJ+smJjEtOtk4/XEnGLo
+	awDR3Gekb21QahRJ8CATnSogcaLfiohdBX48yUnd4YGdyy4E2E8AMxXSs8EYrkryZVV5KirCmfLks
+	X6kBWqL5Kb/CVSUcr9KzC2b/O1UI2bY9ADX3mEkDWIYLvIeszQ5/S8fCXvy5j7xIAVX98wbokWIfK
+	SrE5xUAX+0QSon7g6aUcK3j85ocwrB6QxSy6oj4KywUMhyGtqvx7XLagrJTmne3c8Kw+1Z5iaHffs
+	THYXeOBeg41SGPsXHfRNwC47IVGhYi8N6RXyMfYpVJOuxJ6NAtnm0lb6jzdEwgES19EFdQSAk2Qz+
+	qWgItaWQ==;
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3400-0000000CdkD-0772;
-	Thu, 19 Mar 2026 03:24:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1773890664; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=6jNODp3wp4DROUhBG8kpRzhyFycKpwSYO5gu6salJm0=;
-	b=mKUk+6SKDCmmeY5Q7msKhu32EuxcZIg+i3WeXd1dfUG8kr7ct97KxQns/EDjbVrajl2/LKJK3Z1FADZhzCTMK2KFsjXg52lYG5n057qbg+QaBRIo9ivzWokvw+pX+rGG60vB/yO7xO2whPoCkCPGLUjMQP1vexIOMDkc2TGj8W8=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R391e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X.Gt-DE_1773890662;
-Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X.Gt-DE_1773890662 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Mar 2026 11:24:23 +0800
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-To: akpm@linux-foundation.org,
-	david@kernel.org
-Cc: ljs@kernel.org,
-	Liam.Howlett@oracle.com,
-	vbabka@kernel.org,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	baolin.wang@linux.alibaba.com,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
+	id 1w34Xe-0000000CgnO-3EzE;
+	Thu, 19 Mar 2026 03:59:30 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-05 (Coremail) with SMTP id zQCowAAHmQyKdLtpTTrUCg--.61883S2;
+	Thu, 19 Mar 2026 11:59:07 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: kvm-riscv@lists.infradead.org,
 	kvm@vger.kernel.org,
-	linux-mm@kvack.org (open),
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/6] mm: change to return bool for pmdp_clear_flush_young()
-Date: Thu, 19 Mar 2026 11:24:03 +0800
-Message-ID: <eb513ed809685f78e0abdeb7f7b6ebdec0fcca18.1773890510.git.baolin.wang@linux.alibaba.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
-References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Fix integer overflow in kvm_pmu_validate_counter_mask()
+Date: Thu, 19 Mar 2026 03:59:02 +0000
+Message-Id: <20260319035902.924661-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowAAHmQyKdLtpTTrUCg--.61883S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZr1xZw1furW7Cw4Uuw43trb_yoW5AF4UpF
+	WDGry5Grs5JF1kGa4UAws8Xr15Kr4kKanxCrs0k3yUtr90ga48Zrn5Kry2yrnrJFWkZFya
+	yryDuayDuFW5Xa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
+	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14
+	v_Gr4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AK
+	xVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrx
+	kI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v2
+	6r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
+	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU1xhlDUUU
+	U
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwsLCWm7a4Mi3AAAsK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_032440_740859_AB9F898E 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260319_035927_652266_53D6CADC 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,116 +101,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pmdp_clear_flush_young() is used to clear the young flag and flush the
-TLB, returning whether the young flag was set for this PMD entry. Change
-the return type to bool to make the intention clearer.
+When a guest initiates an SBI_EXT_PMU_COUNTER_CFG_MATCH call with
+ctr_base=0xfffffffffffffffe, ctr_mask=0xeb5f and flags=0x1
+(SBI_PMU_CFG_FLAG_SKIP_MATCH), kvm_riscv_vcpu_pmu_ctr_cfg_match()
+first invokes kvm_pmu_validate_counter_mask() to verify whether
+ctr_base and ctr_mask are valid, by evaluating:
+ !ctr_mask || (ctr_base + __fls(ctr_mask) >= kvm_pmu_num_counters(kvpmu))
 
-Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+With the above inputs, __fls(0xeb5f) equals 15, and adding 15 to
+0xfffffffffffffffe causes an integer overflow, wrapping around to 13.
+Since 13 is less than kvm_pmu_num_counters(), the validation wrongly
+succeeds.
+
+Thereafter, since flags & SBI_PMU_CFG_FLAG_SKIP_MATCH is satisfied,
+the code evaluates:
+ !test_bit(ctr_base + __ffs(ctr_mask), kvpmu->pmc_in_use)
+
+Here __ffs(0xeb5f) equals 0, so test_bit() receives 0xfffffffffffffffe
+as the bit index and attempts to access the corresponding element of
+the kvpmu->pmc_in_use, which results in an invalid memory access. This
+triggers the following Oops:
+ Unable to handle kernel paging request at virtual address e3ebffff12abba89
+  generic_test_bit include/asm-generic/bitops/generic-non-atomic.h:128
+  kvm_riscv_vcpu_pmu_ctr_cfg_match arch/riscv/kvm/vcpu_pmu.c:758
+  kvm_sbi_ext_pmu_handler arch/riscv/kvm/vcpu_sbi_pmu.c:49
+  kvm_riscv_vcpu_sbi_ecall arch/riscv/kvm/vcpu_sbi.c:608
+  kvm_riscv_vcpu_exit arch/riscv/kvm/vcpu_exit.c:240
+
+The root cause is that kvm_pmu_validate_counter_mask() does not account
+for the case where ctr_base itself is out of range, allowing the
+subsequent addition to silently overflow and bypass the check.
+
+Fix this by explicitly validating ctr_base against kvm_pmu_num_counters()
+before performing the addition.
+
+This bug was found by fuzzing the KVM RISC-V PMU interface.
+
+Fixes: 0cb74b65d2e5e6 ("RISC-V: KVM: Implement perf support without sampling")
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
 ---
- arch/s390/include/asm/pgtable.h |  4 ++--
- arch/x86/include/asm/pgtable.h  |  4 ++--
- arch/x86/mm/pgtable.c           |  6 +++---
- include/linux/pgtable.h         | 10 +++++-----
- mm/pgtable-generic.c            |  7 ++++---
- 5 files changed, 16 insertions(+), 15 deletions(-)
+ arch/riscv/kvm/vcpu_pmu.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
-index 1f5efb7be71d..90bba85ca4b8 100644
---- a/arch/s390/include/asm/pgtable.h
-+++ b/arch/s390/include/asm/pgtable.h
-@@ -1693,8 +1693,8 @@ static inline bool pmdp_test_and_clear_young(struct vm_area_struct *vma,
- }
- 
- #define __HAVE_ARCH_PMDP_CLEAR_YOUNG_FLUSH
--static inline int pmdp_clear_flush_young(struct vm_area_struct *vma,
--					 unsigned long addr, pmd_t *pmdp)
-+static inline bool pmdp_clear_flush_young(struct vm_area_struct *vma,
-+					  unsigned long addr, pmd_t *pmdp)
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index e873430e596b2..a098a9b417ad8 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -266,8 +266,10 @@ static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+ static int kvm_pmu_validate_counter_mask(struct kvm_pmu *kvpmu, unsigned long ctr_base,
+ 					 unsigned long ctr_mask)
  {
- 	VM_BUG_ON(addr & ~HPAGE_MASK);
- 	return pmdp_test_and_clear_young(vma, addr, pmdp);
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index bd02ee730a23..f9439449c9bd 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -1301,8 +1301,8 @@ extern int pudp_test_and_clear_young(struct vm_area_struct *vma,
- 				     unsigned long addr, pud_t *pudp);
- 
- #define __HAVE_ARCH_PMDP_CLEAR_YOUNG_FLUSH
--extern int pmdp_clear_flush_young(struct vm_area_struct *vma,
--				  unsigned long address, pmd_t *pmdp);
-+extern bool pmdp_clear_flush_young(struct vm_area_struct *vma,
-+				   unsigned long address, pmd_t *pmdp);
- 
- 
- #define __HAVE_ARCH_PMDP_HUGE_GET_AND_CLEAR
-diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
-index 10a5e0b2be36..8c336edf0e65 100644
---- a/arch/x86/mm/pgtable.c
-+++ b/arch/x86/mm/pgtable.c
-@@ -503,10 +503,10 @@ bool ptep_clear_flush_young(struct vm_area_struct *vma,
- }
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
--int pmdp_clear_flush_young(struct vm_area_struct *vma,
--			   unsigned long address, pmd_t *pmdp)
-+bool pmdp_clear_flush_young(struct vm_area_struct *vma,
-+			    unsigned long address, pmd_t *pmdp)
- {
--	int young;
-+	bool young;
- 
- 	VM_BUG_ON(address & ~HPAGE_PMD_MASK);
- 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index e53220b0a9a3..8b8838f19af3 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -536,18 +536,18 @@ bool ptep_clear_flush_young(struct vm_area_struct *vma,
- 
- #ifndef __HAVE_ARCH_PMDP_CLEAR_YOUNG_FLUSH
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
--extern int pmdp_clear_flush_young(struct vm_area_struct *vma,
--				  unsigned long address, pmd_t *pmdp);
-+bool pmdp_clear_flush_young(struct vm_area_struct *vma,
-+		unsigned long address, pmd_t *pmdp);
- #else
- /*
-  * Despite relevant to THP only, this API is called from generic rmap code
-  * under PageTransHuge(), hence needs a dummy implementation for !THP
-  */
--static inline int pmdp_clear_flush_young(struct vm_area_struct *vma,
--					 unsigned long address, pmd_t *pmdp)
-+static inline bool pmdp_clear_flush_young(struct vm_area_struct *vma,
-+		unsigned long address, pmd_t *pmdp)
- {
- 	BUILD_BUG();
--	return 0;
-+	return false;
- }
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
- #endif
-diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-index db0ee918b08a..b91b1a98029c 100644
---- a/mm/pgtable-generic.c
-+++ b/mm/pgtable-generic.c
-@@ -124,10 +124,11 @@ int pmdp_set_access_flags(struct vm_area_struct *vma,
- #endif
- 
- #ifndef __HAVE_ARCH_PMDP_CLEAR_YOUNG_FLUSH
--int pmdp_clear_flush_young(struct vm_area_struct *vma,
--			   unsigned long address, pmd_t *pmdp)
-+bool pmdp_clear_flush_young(struct vm_area_struct *vma,
-+		unsigned long address, pmd_t *pmdp)
- {
--	int young;
-+	bool young;
+-	/* Make sure the we have a valid counter mask requested from the caller */
+-	if (!ctr_mask || (ctr_base + __fls(ctr_mask) >= kvm_pmu_num_counters(kvpmu)))
++	unsigned long num_ctrs = kvm_pmu_num_counters(kvpmu);
 +
- 	VM_BUG_ON(address & ~HPAGE_PMD_MASK);
- 	young = pmdp_test_and_clear_young(vma, address, pmdp);
- 	if (young)
++	/* Make sure we have a valid counter mask requested from the caller */
++	if (!ctr_mask || ctr_base >= num_ctrs || (ctr_base + __fls(ctr_mask) >= num_ctrs))
+ 		return -EINVAL;
+ 
+ 	return 0;
 -- 
-2.47.3
+2.34.1
 
 
 _______________________________________________
