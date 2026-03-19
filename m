@@ -4,162 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E88A109022C
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 14:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6355D109022C
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 14:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WeC7hiNG5DYgKqeRivqLBKEolC2EqDomcWKgDe5k5fI=; b=l8C47XE6kTBG49
-	cT7Ji2ZUN1dm30kd+VAOEVoaURbY+DQUDorkmfuzWnT11ckTi4iLMDEvMxI5LXhCEcqWbkt21Cnjz
-	wfbVWVDtcCvZG6FdNw1XLTxpXqwIONfwnk5jxhkIc1sm1CYOh5NezYVwAc1ixE5bSNb1HXSWVhUVU
-	7zJQ8T241vVH8KDcwpZQ4EUyK3vZoyPq6Jbx4fckZG3bSXqXEEUcv7TcZFJ/F9VDRAq9GsrSDs3+A
-	7CemB3ZbziZOZKXYH73jXGWIiSzF0/VntzP+879GBuxIukf91TQaAxTyDY18h9w5cHxrrQ1/tFJ1U
-	COkJmFBIcAsoA7qws7bQ==;
+	List-Owner; bh=Ng01xrXp/vpbQ2r43GBPFNNsZwlmU2VvI4m2KmLDado=; b=eVubVDe37DabfL
+	Ww/SSrdgbwSjPPyjsRx1WOD1wB7IeL+lit9/6SbaKyF/Rntd963Q53Q+oLfwajpTmyjJy8cYGqhw8
+	or4OPGBCxd15gzgGHoLUoV/we6w0u+XQU64Dy2luVGdyliW/OjxsJ8HRH7mvIL76VrteA851iQZAL
+	FbtSk9g/IVj3OOl5zu9UAosu/XCJzHv9wjJgo6IValVFHNBfrN1qarPGTkF7UGYrM8LkTI2mGI8x+
+	lkrmY4uwQs/rM1kJ3ZTalw/NtqEaSMczNpz9BIYL3q1uz62eV3siElwjieq93A8RVw2wGrCY2sKBB
+	P65VxpmSq3ayear7PoIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3EEQ-0000000Am7A-1SYz;
-	Thu, 19 Mar 2026 14:20:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3EFE-0000000AmVq-3UJK;
+	Thu, 19 Mar 2026 14:21:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3EEO-0000000Am6d-2swx
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 19 Mar 2026 14:20:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:References:To
-	:From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=M9Qte7+dgjV+n3esLuMxEJVRrlo+w/8MHqT7SIBpCOs=; b=oH84uxEkTESUmUlU2IOTRFAVVD
-	tO41GqB5IRtZtrGDr3mR4Blceyx77u/2w1shkKA4VJi2owCug2RGKAXfa5k3wKWtuyTHFMR16oaTq
-	S4cVnpB3vl2E6LRBnjcHO9AxcuHRSiFakUlIMIguYdwwoFpeRF4EVVGpWom8LgZVehpGqBiw7bJPU
-	NS+j5a1AFzB+iuAfRxgXp3kssJdfX4h40zJBjcQHXIWxK44u4VTyWznZ6jvGW8sE34aRYZEYphglR
-	Dm7BIgs12L/rBDeBz/4wFkGyo9/3MJBtE2wT1LfrP8FT/godPTHeE6rMZ6E8gmMFtBWToSc5sqqiF
-	D/SnK/Cw==;
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3EEK-0000000Dfai-33FP
-	for linux-riscv@lists.infradead.org;
-	Thu, 19 Mar 2026 14:20:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D7+KjOvN5VTNBlJYqzctx5Ohg8Yj2A/cOU6RfbiljbmLXZIuxU61h1DZvx441oBY7Mh/KPsBZNrlz+7QdNKzD7ahTr436jXkumBIN0f+GOu96PwrQ3FfUxCVCjzSA3Tldx2z4epWKcHbFVYll0c4jljh9e5pLSAfuPmTL9U+U2zU9l1u9/6qvQtFQDd5y2HQMNMmW6y1d3l9R4yFzJQQUN+lozWEpg7j1DM+fRHJdD0xmxHiN1FWEOnjwLSA8CeJTaiRG9Ply88z4Siirdq5SG+R8Kru4GwVGDtbVMUnLfhtnRDXEFxu2WaKVvsoR0ELnUlnBvWwQo5WdtSzZEzwQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=M9Qte7+dgjV+n3esLuMxEJVRrlo+w/8MHqT7SIBpCOs=;
- b=wXY6MWb9htjZTq7pwy0IUgi75ydMw6CgpftZcyOMYamvm7UjU8ExG128N8+e8abV2czeJ/anwSQuyZT7BCMyYBCU2Kvmc0tmvbeH8BC6nmbcQxPRjWPhpmM+kpDzPn8iFG18mHDV6ZSJ1aiK9fwLiOkgIz/7JZs5HTDf0/xUopiRvog+nf2VN8mK69hIZwJw0TqKTIdzAAX3SI7BdAlaOwKOXtuEsGwjpSc0qG93QFYUMr0ghXOaULTD2kkHtHPV7bFBbOshDdFG4j/A9iLRG1KimfGtntEPbk1BYlDsLpaN3i/c9eULXeSRwsAjTcOerYN5Ghv5fvwJGZ8oZ2Ifuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M9Qte7+dgjV+n3esLuMxEJVRrlo+w/8MHqT7SIBpCOs=;
- b=Vx/HxdloIW1tZHnPxLXbn6UWihiHaDaDKsjdqoc/bLHmimeY+4sDCZ6955Pz/68W1CmSmHFe1Gk9kKR0lZxN7vkagplRdfwBSzSGlEvVYP+qo9JD6cLhc/8U/kPT2quabzkmGURwmmqYKS1os8/nUnE/EFmC5Be0pCHIpx/W7Oxl9gtFFezUTmSjqXIc7RmU8yY6lRLlXAbaEzxkMISO259bkbf9VCiX+TCp4hIWpaJPfk0XSrp/kkZcLmtagCJApcZ09x9AoPfIn6sA6KQKR3cucyFLyN09Om1nK5MeJj3zsBJc/dFugfmLUlNnKeLlM533Xt8KenFEpQYV/q82zw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
- by SA3PR12MB9198.namprd12.prod.outlook.com (2603:10b6:806:39f::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
- 2026 14:19:58 +0000
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989%6]) with mapi id 15.20.9745.007; Thu, 19 Mar 2026
- 14:19:58 +0000
-Date: Thu, 19 Mar 2026 23:19:54 +0900
-Message-Id: <DH6TP9BTRXUW.237ZG7ZO8S9NZ@nvidia.com>
-Cc: "Danilo Krummrich" <dakr@kernel.org>, "Alice Ryhl"
- <aliceryhl@google.com>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
- "Maxime Ripard" <mripard@kernel.org>, "Thomas Zimmermann"
- <tzimmermann@suse.de>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng"
- <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
- Gross" <tmgross@umich.edu>, "John Hubbard" <jhubbard@nvidia.com>, "Alistair
- Popple" <apopple@nvidia.com>, "Joel Fernandes" <joelagnelf@nvidia.com>,
- "Timur Tabi" <ttabi@nvidia.com>, "Zhi Wang" <zhiw@nvidia.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-doc@vger.kernel.org>,
- <rust-for-linux@vger.kernel.org>
-Subject: Re: [PATCH 4/8] gpu: nova-core: convert GC6 registers to kernel
- register macro
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-To: "Eliot Courtney" <ecourtney@nvidia.com>
-References: <20260318-b4-nova-register-v1-0-22a358aa4c63@nvidia.com>
- <20260318-b4-nova-register-v1-4-22a358aa4c63@nvidia.com>
- <DH6E45B9EBWR.1MAR230QYC2HG@nvidia.com>
-In-Reply-To: <DH6E45B9EBWR.1MAR230QYC2HG@nvidia.com>
-X-ClientProxiedBy: TYCP286CA0359.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:7c::13) To CH2PR12MB3990.namprd12.prod.outlook.com
- (2603:10b6:610:28::18)
+	id 1w3EFD-0000000AmTj-2UCl;
+	Thu, 19 Mar 2026 14:21:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 06DE260054;
+	Thu, 19 Mar 2026 14:21:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E157C19424;
+	Thu, 19 Mar 2026 14:20:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773930062;
+	bh=hloQh1pJoXmEXMOlDUXK84ib0nwYZGczcXxlM+VCi2k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MRcM9xy67Fted5xe37sVxp3BmyygXrtfYkz5/iutI0Xh1wW8POLhKiNYc7CLq5IG0
+	 P+GSBCqz9kM8/7Od0B6KytgitXAJ7Zyqwn7ebBlIFSTlHRGIJn+VnWHhEeSX6VtMX1
+	 5FPxCVVE1JP1OIJSCGs1nIk9yrRFmXBCHOL1AshTFbmU3neog5MQ1gTe/zPJOpZr97
+	 vARSX45iEnijjaIuarm4PLvKi8UcHylPi5lk/T7f9QrT63vNBpTJQUtQiK8vpZ0JcE
+	 sQqUfbqG+6w1VOGr336sjvrPQcFlGKNBcua4fZ+FR8vD6IXSsmyOkb4oT31wV/PmJI
+	 h31d3KgoEfAxg==
+Date: Thu, 19 Mar 2026 14:20:48 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>, 
+	Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
+	Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, 
+	Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, 
+	Alistair Popple <apopple@nvidia.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-mm@kvack.org, 
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH 2/2] mm: introduce CONFIG_NUMA_MIGRATION and simplify
+ CONFIG_MIGRATION
+Message-ID: <5a31d1ed-7972-4d73-a39d-b1c7ed593a02@lucifer.local>
+References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
+ <20260319-config_migration-v1-2-42270124966f@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|SA3PR12MB9198:EE_
-X-MS-Office365-Filtering-Correlation-Id: 38fc867d-d6df-444e-e16c-08de85c299ce
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|366016|376014|7416014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: uMCQsXv+Sjbu7rACDD+SRfYkk5NV91BcW3yQYlRJEzVU0tH5QDGgWCUZhfwgDbWCF7bU1FzUWnNtzEFi+EEjVbIo6vZ8NhXkyaQw8cOLEJQ3PHw/Hnplk8A0VTGeegknMUA+cZwQq3ZHq79zC8wpskRywS1ff5Hso/eW4Bcip6DWO4e/qsS27mqChI/Zo5r/Ntfvil6V+dkkA7/ATIpabDBK/C7TxerMgtbH3AAygzhuPhBJ9AH3q60FQagpy0/Qs7/0pJ8aFMmtEdp08PZh/nDloUDVK/nUJSqKYK3rjVXJM1jpzEBwFAXYVIaPkv3ozmRNT593RmGwX/0/ocAwKc65naCWze8iIn3e9UYdQ/yaT/MQvVFeKJKuKH/Kg6H0lbwf04HYj9JDeMIWNpJt1XVa0AHgX6yP/wGIKBosJuJa6SoKhYSmAX0vP1ds9x7rZfFHG2ZgMu6bw9RhPexXQVNBX2IbWvDB3j7kXcIk3JI9doJS2ZbM3iLFnkQ4Z/aW3/Q7qCPj9rCNdNw9gb0pqz7AGxm60lJhWghaPV4IxPL4YdXU+YsSr0XM+idYtnyUikYcKJ0r/heJhWlCGRGNVxanvhfBtNePhPTe43clVblUIi5JKAh31KkqDDEBpaZdr3Hwz+lPKbERkOEwDWi7VWri8DE5tppQSyTPrpiuo3V7x/eAu5Lbie1jormncS+Rbwa1XNyjhVUCkkKj5dO04B2Z8irJVxiKat1PL4GTKSk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(366016)(376014)(7416014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aG9lMVozeUhJajQzd3h0aEpETVdpQzBjamxybUhvcitrNmZPSDlMOUVyK2NL?=
- =?utf-8?B?N1VzVzI2bFJ4ZUVXM1hSTS9rdE1Ib0E2RXE3aFhHZXd4WGdodXlDZU9TdlNV?=
- =?utf-8?B?d1FBQWxMOVFxaWU2S25WK1pQOC9kT2pkdDBDOEY2SFZsQmx1Z1ltNzY1ZHpp?=
- =?utf-8?B?aDd2Y3RoSTlLbyt1ZCtoUEkwa3l6ekJ6MnZHSnZBbkZKSGpDT0dlbDR5MzBh?=
- =?utf-8?B?TGloY2ZhUXNvMU02UGd4RDZrNStqemxscE1TTW95RUNMeFNqeThZT2xLUjZz?=
- =?utf-8?B?bXBubGdWaFNmTVMwQjljU1VXQjN6azBLQ0d3dTBBRXMyWjNLU28vRFBWVlha?=
- =?utf-8?B?ZGdWVDNMUHlrSGNZckxPU1hjdm9ULzFDb1lHSDNBUUo5RFZJK1BrTGlUQm4y?=
- =?utf-8?B?Q2VnOUw5ejdFeGZnQmdQME5tdjJneGJzTWU4dW1ZNS9yejZkbkduVzlnV0R3?=
- =?utf-8?B?VWhCeXZrc2xTbHBzaVVpRCtlZ2QxMGgranlKK1VmcHBHbk5tSXM4OHd4SDE5?=
- =?utf-8?B?bDZHSi9Qd052dStsaTJRT3FlZHJzcnI0UHJtZVNMV0w5Zmg1cEZZMkFlMW9s?=
- =?utf-8?B?eFNRSS9BWFpYODhGbG1NRDhGYUNYazBDSFBVVVJHMEtLS0prZjRCRkxEajRv?=
- =?utf-8?B?RDJENW12WitJZzB3QXVBT3Rqa2pFTkxxZ1VOckFPWElGekY2RUxsWlJhMlhi?=
- =?utf-8?B?YUZHdDMrKzI5bThUM1R1cW9QeU5pVkJmQ0FKQW5jdDJmTzk1cVhONTlvam5D?=
- =?utf-8?B?a2NncFJ4WkRQMGlaUlZ3L0orSGlHei9PMEZjN0FXVmt2KzhEWnBnaG5RYXFz?=
- =?utf-8?B?YjhQeEd0YStveHo2cjkvMzViellSQmVaQk5RVmNFaXRBRm83Wis3N3dSMFR6?=
- =?utf-8?B?MkhLMEd5clJ0UmlsYTVVM0pyNXFVRFE5N1lGVEp1MEY0RHl0WmtiREJldWxn?=
- =?utf-8?B?YWgybDJ5cktUN09OdHhzalZtayt0VUY0UEN3VUpPYUh4TjZmWlhhQzNJZllw?=
- =?utf-8?B?Z3ZIazBlSnI4Vy9MVWJLVkFadFN0MVQ3SzBXV0ZNV0RPSllOc2UzNE5zeS84?=
- =?utf-8?B?R0pHNDQ3bk9SalRlMGVDeHUxclgvZ212em9UYURVSTZsTS9KbGg3TWNtOUho?=
- =?utf-8?B?RmxTblJwZ1ZSeElBZGhwRWdiWjdrSnlkTTFsN0N3ZVRnMTJkN0xoM2cvZGFT?=
- =?utf-8?B?S1lLclhjYkVvdlRCaGhqTDZnb0VzMHJNWlQ1Z2Vnb2RGelU5Y2tUMEdaamd1?=
- =?utf-8?B?R0xwWTFQK3ZpaXVoa2JnYzArVlJVbTdTYk04KzJ0UlJmSWtzVkR3MkZ2WUhy?=
- =?utf-8?B?dGFOSThxeVc2NWNJNnVxY09XVHM5U0ZGUkxyZUt0K0VMdmtJYXgwcDF0dkFw?=
- =?utf-8?B?aDB0WkwrUGVHQ3lnQUZibkhHOUFoS3dkSG5pL3JhVDN4UWM1dkJQeXlrTzBK?=
- =?utf-8?B?YlVQdnVhN21SVTcyMXY3S0Y2aTF2azI2MjJJN0FBTmUxc3pVa0o2UzRmWkpD?=
- =?utf-8?B?a2RkRnEwYmJ1eGQzaE4rK0VFb3ZsSGE3UEI3cFBSUmZlZUJWU3pWV3VJMGVQ?=
- =?utf-8?B?bE9QZVM1ZzBUZGYvRUhUU1ZobmNpejhYSll4c2NndXBOdGVmZFFTY3RFSU5G?=
- =?utf-8?B?MTAwTjZWZmIxakx3cm5Ia0dBcVIwVXFxWDVSRUs3cVE0bWN6QTdTNi9UbVls?=
- =?utf-8?B?R0Zqa3lZcnA2ZENJYTBKaG5RQ3BldmJKU0U5aklRYllHK1MzSnBHR3NLTk8v?=
- =?utf-8?B?NGVlaTUyZ0lpU3RCcDRVVlYzT0xpTHRPd052YkYyaHdNYTFhRStmVFZyQ0xn?=
- =?utf-8?B?cC9SUkVoNkRPY2pZa2IyOTRIdHphOVU0dzBsWWRiN25Pd2xzaUFISDlqYjEy?=
- =?utf-8?B?TUpBQjltRGx1OU1jMFpWSlF3ckk3eEJUb0R2aFZWRlZkRngwaGRlVEc4Vmw0?=
- =?utf-8?B?alJJU1VmZW1wRFRPc0xBd2lldWRhZnJpRUJTbzBaZS9FVlI5TUlhYUwrRGpY?=
- =?utf-8?B?cTkyYkJ1QWNuV1d0ZENtOUgxa1g1c0tMQzExZ3pnUkFpVlZwZ2hRZUN4UnNt?=
- =?utf-8?B?dHkzRzVvWWJUN2ZGMXBKeWF0RXhVdGdYd1BmQjJCSSt1VitvZG9Lbkx3cElp?=
- =?utf-8?B?RnBOTm55enlxQ1I0VGZYaWRhUXJUZW9iVm1UODFpSEp0UUFkL29Yd1F5eW1H?=
- =?utf-8?B?cVhGRnJwc1o2N0Qyby9qSEdHelp3SGJ2Mng5U203N0JxSU1idXdZbHhZc1Fv?=
- =?utf-8?B?YzdKb1pIaGU4dE9xcXBBaHRCaFJtQ0krQ1JSYTkvTEMzKzk3RGxEc0kzZEsy?=
- =?utf-8?B?cW83ODNkb0N0N2xaNmt5VUNXVzRha2t6M2Y4NGg4UkRGdVVvakVsWW5BS29E?=
- =?utf-8?Q?jzOq9BB7EZ0eWwwF4c1FxECZn94OLKZU40HJLo02Ot4mf?=
-X-MS-Exchange-AntiSpam-MessageData-1: fv9TzxAb6X7JHw==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 38fc867d-d6df-444e-e16c-08de85c299ce
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 14:19:58.6265
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xY8CrT/23PW72UznBvbVPey/xfuTOG8ye/Ro9Tp35jL9wMauIi9yWXchc+vcidaeu6yHzspT2k9y7QWT5nnc1Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB9198
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_142008_843467_0E2C8229 
-X-CRM114-Status: GOOD (  12.27  )
+Content-Disposition: inline
+In-Reply-To: <20260319-config_migration-v1-2-42270124966f@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,50 +91,239 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu Mar 19, 2026 at 11:07 AM JST, Eliot Courtney wrote:
-> On Wed Mar 18, 2026 at 5:06 PM JST, Alexandre Courbot wrote:
->> Convert all GC6 registers to use the kernel's register macro and update
->> the code accordingly.
->>
->> Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
->>  impl NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_0_GFW_BOOT {
->>      /// Returns `true` if GFW boot is completed.
->> @@ -252,16 +253,17 @@ pub(crate) fn completed(self) -> bool {
->>      }
->>  }
->>  
->> -register!(NV_PGC6_AON_SECURE_SCRATCH_GROUP_42 @ 0x001183a4 {
->> -    31:0    value as u32;
->> -});
->> -
->> -register!(
->> -    NV_USABLE_FB_SIZE_IN_MB => NV_PGC6_AON_SECURE_SCRATCH_GROUP_42,
->> -    "Scratch group 42 register used as framebuffer size" {
->> -        31:0    value as u32, "Usable framebuffer size, in megabytes";
->> +nv_reg! {
->> +    NV_PGC6_AON_SECURE_SCRATCH_GROUP_42 @ 0x001183a4 {
->> +        31:0    value;
->>      }
->> -);
->> +
->> +    /// Scratch group 42 register used as framebuffer size.
->> +    NV_USABLE_FB_SIZE_IN_MB => NV_PGC6_AON_SECURE_SCRATCH_GROUP_42 {
->> +        /// Usable framebuffer size, in megabytes.
->> +        31:0    value;
->> +    }
->> +}
+On Thu, Mar 19, 2026 at 09:19:41AM +0100, David Hildenbrand (Arm) wrote:
+> CONFIG_MEMORY_HOTREMOVE, CONFIG_COMPACTION and CONFIG_CMA all select
+> CONFIG_MIGRATION, because they require it to work (users).
 >
-> This is not an issue with your series, but why do we have
-> `NV_PGC6_AON_SECURE_SCRATCH_GROUP_42` which is aliased to
-> `NV_USABLE_FB_SIZE_IN_MB` and not used for anything else?
+> Only CONFIG_NUMA_BALANCING and CONFIG_BALLOON_MIGRATION depend on
+> CONFIG_MIGRATION. CONFIG_BALLOON_MIGRATION is not an actual user, but
+> an implementation of migration support, so the dependency is correct
+> (CONFIG_BALLOON_MIGRATION does not make any sense without
+> CONFIG_MIGRATION).
+>
+> However, kconfig-language.rst  clearly states "In general use select only
+> for non-visible symbols". So far CONFIG_MIGRATION is user-visible ...
+> and the dependencies rather confusing.
+>
+> The whole reason why CONFIG_MIGRATION is user-visible is because of
+> CONFIG_NUMA: some users might want CONFIG_NUMA but not page migration
+> support.
+>
+> Let's clean all that up by introducing a dedicated CONFIG_NUMA_MIGRATION
+> config option for that purpose only. Make CONFIG_NUMA_BALANCING that so
+> far depended on CONFIG_NUMA && CONFIG_MIGRATION to depend on
+> CONFIG_MIGRATION instead. CONFIG_NUMA_MIGRATION will depend on
+> CONFIG_NUMA && CONFIG_MMU.
+>
+> CONFIG_NUMA_MIGRATION is user-visible and will default to "y". We
+> use that default so new configs will automatically enable it, just
+> like it was the case with CONFIG_MIGRATION. The downside is that
+> some configs that used to have CONFIG_MIGRATION=n might get it
+> re-enabled by CONFIG_NUMA_MIGRATION=y, which shouldn't be a problem.
+>
+> CONFIG_MIGRATION is now a non-visible config option. Any code that
+> select CONFIG_MIGRATION (as before) must depend directly or indirectly
+> on CONFIG_MMU.
 
-This is just to follow the register definitions of OpenRM - the actual
-register name is `SCRATCH_GROUP_42`, but we are using it in a given
-software context where its role is reporting the size of the
-framebuffer.
+Nice. I always found it odd that it was optional.
 
-We could just define `NV_USABLE_FB_SIZE_IN_MB`, but that wouldn't
-reflect the hardware manuals properly.
+>
+> CONFIG_NUMA_MIGRATION is responsible for any NUMA migration code, which is
+> mempolicy migration code, memory-tiering code, and move_pages() code in
+> migrate.c. CONFIG_NUMA_BALANCING uses its functionality.
+>
+> Note that this implies that with CONFIG_NUMA_MIGRATION=n, move_pages() will
+> not be available even though CONFIG_MIGRATION=y, which is an expected
+> change.
+>
+> In migrate.c, we can remove the CONFIG_NUMA check as both
+> CONFIG_NUMA_MIGRATION and CONFIG_NUMA_BALANCING depend on it.
+>
+> With this change, CONFIG_MIGRATION is an internal config, all users of
+> migration selects CONFIG_MIGRATION, and only CONFIG_BALLOON_MIGRATION
+> depends on it.
+>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+
+AFAICT this all LGTM, so:
+
+Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+
+> ---
+>  include/linux/memory-tiers.h |  2 +-
+>  init/Kconfig                 |  2 +-
+>  mm/Kconfig                   | 26 +++++++++++++-------------
+>  mm/memory-tiers.c            | 12 ++++++------
+>  mm/mempolicy.c               |  2 +-
+>  mm/migrate.c                 |  5 ++---
+>  6 files changed, 24 insertions(+), 25 deletions(-)
+>
+> diff --git a/include/linux/memory-tiers.h b/include/linux/memory-tiers.h
+> index 96987d9d95a8..7999c58629ee 100644
+> --- a/include/linux/memory-tiers.h
+> +++ b/include/linux/memory-tiers.h
+> @@ -52,7 +52,7 @@ int mt_perf_to_adistance(struct access_coordinate *perf, int *adist);
+>  struct memory_dev_type *mt_find_alloc_memory_type(int adist,
+>  						  struct list_head *memory_types);
+>  void mt_put_memory_types(struct list_head *memory_types);
+> -#ifdef CONFIG_MIGRATION
+> +#ifdef CONFIG_NUMA_MIGRATION
+>  int next_demotion_node(int node, const nodemask_t *allowed_mask);
+>  void node_get_allowed_targets(pg_data_t *pgdat, nodemask_t *targets);
+>  bool node_is_toptier(int node);
+> diff --git a/init/Kconfig b/init/Kconfig
+> index 444ce811ea67..3648e401b78b 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -997,7 +997,7 @@ config NUMA_BALANCING
+>  	bool "Memory placement aware NUMA scheduler"
+>  	depends on ARCH_SUPPORTS_NUMA_BALANCING
+>  	depends on !ARCH_WANT_NUMA_VARIABLE_LOCALITY
+> -	depends on SMP && NUMA && MIGRATION && !PREEMPT_RT
+> +	depends on SMP && NUMA_MIGRATION && !PREEMPT_RT
+>  	help
+>  	  This option adds support for automatic NUMA aware memory/task placement.
+>  	  The mechanism is quite primitive and is based on migrating memory when
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index b2e21d873d3f..bd283958d675 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -627,20 +627,20 @@ config PAGE_REPORTING
+>  	  those pages to another entity, such as a hypervisor, so that the
+>  	  memory can be freed within the host for other uses.
+>
+> -#
+> -# support for page migration
+> -#
+> -config MIGRATION
+> -	bool "Page migration"
+> +config NUMA_MIGRATION
+> +	bool "NUMA page migration"
+>  	default y
+> -	depends on (NUMA || MEMORY_HOTREMOVE || COMPACTION || CMA) && MMU
+> -	help
+> -	  Allows the migration of the physical location of pages of processes
+> -	  while the virtual addresses are not changed. This is useful in
+> -	  two situations. The first is on NUMA systems to put pages nearer
+> -	  to the processors accessing. The second is when allocating huge
+> -	  pages as migration can relocate pages to satisfy a huge page
+> -	  allocation instead of reclaiming.
+> +	depends on NUMA && MMU
+> +	select MIGRATION
+> +	help
+> +	  Support the migration of pages to other NUMA nodes, available to
+> +	  user space through interfaces like migrate_pages(), move_pages(),
+> +	  and mbind(). Selecting this option also enables support for page
+> +	  demotion for memory tiering.
+> +
+> +config MIGRATION
+> +	bool
+> +	depends on MMU
+>
+>  config DEVICE_MIGRATION
+>  	def_bool MIGRATION && ZONE_DEVICE
+> diff --git a/mm/memory-tiers.c b/mm/memory-tiers.c
+> index 986f809376eb..54851d8a195b 100644
+> --- a/mm/memory-tiers.c
+> +++ b/mm/memory-tiers.c
+> @@ -69,7 +69,7 @@ bool folio_use_access_time(struct folio *folio)
+>  }
+>  #endif
+>
+> -#ifdef CONFIG_MIGRATION
+> +#ifdef CONFIG_NUMA_MIGRATION
+>  static int top_tier_adistance;
+>  /*
+>   * node_demotion[] examples:
+> @@ -129,7 +129,7 @@ static int top_tier_adistance;
+>   *
+>   */
+>  static struct demotion_nodes *node_demotion __read_mostly;
+> -#endif /* CONFIG_MIGRATION */
+> +#endif /* CONFIG_NUMA_MIGRATION */
+>
+>  static BLOCKING_NOTIFIER_HEAD(mt_adistance_algorithms);
+>
+> @@ -273,7 +273,7 @@ static struct memory_tier *__node_get_memory_tier(int node)
+>  				     lockdep_is_held(&memory_tier_lock));
+>  }
+>
+> -#ifdef CONFIG_MIGRATION
+> +#ifdef CONFIG_NUMA_MIGRATION
+>  bool node_is_toptier(int node)
+>  {
+>  	bool toptier;
+> @@ -519,7 +519,7 @@ static void establish_demotion_targets(void)
+>
+>  #else
+>  static inline void establish_demotion_targets(void) {}
+> -#endif /* CONFIG_MIGRATION */
+> +#endif /* CONFIG_NUMA_MIGRATION */
+>
+>  static inline void __init_node_memory_type(int node, struct memory_dev_type *memtype)
+>  {
+> @@ -911,7 +911,7 @@ static int __init memory_tier_init(void)
+>  	if (ret)
+>  		panic("%s() failed to register memory tier subsystem\n", __func__);
+>
+> -#ifdef CONFIG_MIGRATION
+> +#ifdef CONFIG_NUMA_MIGRATION
+>  	node_demotion = kzalloc_objs(struct demotion_nodes, nr_node_ids);
+>  	WARN_ON(!node_demotion);
+>  #endif
+> @@ -938,7 +938,7 @@ subsys_initcall(memory_tier_init);
+>
+>  bool numa_demotion_enabled = false;
+>
+> -#ifdef CONFIG_MIGRATION
+> +#ifdef CONFIG_NUMA_MIGRATION
+>  #ifdef CONFIG_SYSFS
+>  static ssize_t demotion_enabled_show(struct kobject *kobj,
+>  				     struct kobj_attribute *attr, char *buf)
+> diff --git a/mm/mempolicy.c b/mm/mempolicy.c
+> index e5528c35bbb8..fd08771e2057 100644
+> --- a/mm/mempolicy.c
+> +++ b/mm/mempolicy.c
+> @@ -1239,7 +1239,7 @@ static long do_get_mempolicy(int *policy, nodemask_t *nmask,
+>  	return err;
+>  }
+>
+> -#ifdef CONFIG_MIGRATION
+> +#ifdef CONFIG_NUMA_MIGRATION
+>  static bool migrate_folio_add(struct folio *folio, struct list_head *foliolist,
+>  				unsigned long flags)
+>  {
+> diff --git a/mm/migrate.c b/mm/migrate.c
+> index fdbb20163f66..05cb408846f2 100644
+> --- a/mm/migrate.c
+> +++ b/mm/migrate.c
+> @@ -2224,8 +2224,7 @@ struct folio *alloc_migration_target(struct folio *src, unsigned long private)
+>  	return __folio_alloc(gfp_mask, order, nid, mtc->nmask);
+>  }
+>
+> -#ifdef CONFIG_NUMA
+> -
+> +#ifdef CONFIG_NUMA_MIGRATION
+>  static int store_status(int __user *status, int start, int value, int nr)
+>  {
+>  	while (nr-- > 0) {
+> @@ -2624,6 +2623,7 @@ SYSCALL_DEFINE6(move_pages, pid_t, pid, unsigned long, nr_pages,
+>  {
+>  	return kernel_move_pages(pid, nr_pages, pages, nodes, status, flags);
+>  }
+> +#endif /* CONFIG_NUMA_MIGRATION */
+>
+>  #ifdef CONFIG_NUMA_BALANCING
+>  /*
+> @@ -2766,4 +2766,3 @@ int migrate_misplaced_folio(struct folio *folio, int node)
+>  	return nr_remaining ? -EAGAIN : 0;
+>  }
+>  #endif /* CONFIG_NUMA_BALANCING */
+> -#endif /* CONFIG_NUMA */
+>
+> --
+> 2.43.0
+>
 
 _______________________________________________
 linux-riscv mailing list
