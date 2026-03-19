@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28BE109192B
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 22:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174DB109192B
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 22:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XG5ZoEgIgyvmU6Bvw9ht14WxNYYiytUKAstjux/MNiE=; b=5Cmm0qbOo4SfbM
-	q47atEnBbGzLgN8/RjHBm9odIPYvkyuNSn+aTKtgdreQKflfOFqiPXOxZdn5OeuY6fri6TK46MB20
-	6mA4eTyS8Jp2GjUUMb5JrtjFV1kuejS1C+3jvfJzhFe5s1CMb23GGOxX9FwUH7YzwA0lF5C+UX1UU
-	WDU4Hok5fjOeHt8PO0Mj5xJAVjucEK+0vGnJtcG7OujC95hfmtUck+MOHil99Z1aPsPfwa2rIm/Mz
-	+khpLmSOxuCblQIj4c3nK6VxbyMln37FfjMuIJwJEUrq/StYERSR7bqkETmLmBVhThzhuv7srJ+5d
-	Rq2p8DWxnvyd8hnSDOPw==;
+	List-Owner; bh=9J5UaZno3wRAcxMXUF2FI//b0j3YpVUR+C4V16nP4Xc=; b=mOkgq9pTbrV/HK
+	p0T3DxVn9LBSwD8vQyjxJzQSikhciSeyElvoEWbdOfcFyARracu4bpDy5MlNG8GNr1YgKuUV4s+L/
+	8N6XsFEBv+o5hqMDKr0ctb/ICLHUaUKskBry+NnL63B1Kzcb4J4AsCxRkYeZ8aZ/5lU2kb3EHVFZn
+	mR1Xg6OIAOLbr99xSJJU/6/g7Mub2XycpP67pJhJxl/Bx1Ycu0TwLM1gKLWX5vhwe6pZPnOn0G5wv
+	EhfegvlVUZM6hzZTqFc90ALxSAeDGN6QuvDQvHwGsjOPPQ1WU5Stp2UV31F8oOK2sWwQiv7jBgCeR
+	1MFcvB+Kd8lqJzeyDtBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3LwQ-0000000Bgby-11wO;
-	Thu, 19 Mar 2026 22:34:10 +0000
-Received: from mail-westeuropeazon11013012.outbound.protection.outlook.com ([52.101.72.12] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w3LwT-0000000BghA-2cUV;
+	Thu, 19 Mar 2026 22:34:13 +0000
+Received: from mail-francecentralazon11013009.outbound.protection.outlook.com ([40.107.162.9] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3LvZ-0000000BfTp-0FQB;
-	Thu, 19 Mar 2026 22:33:19 +0000
+	id 1w3Lva-0000000Bf9g-2tXR;
+	Thu, 19 Mar 2026 22:33:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wt8M2EqX+GtzNNRWwm0fJLxUlmaTFMyqDlKL1Sea25erXQF4hFQPjf30cxOYqF11X0+P3z3Nvr5Dl/F4aumzW3GlR2avvrs+W02TYwLVsMnVZ2mGVbzpTfHRJvI8FAxebRvh58MsuJsl2Vnf5SSf4vEJhvpZkeZ84evkbPHfKR+H3B4X2C441FvYluwq5i9SHf/iGucrk2ZeMmbjaTZpm3ayUMrsolBp+9Ow5vfv98WI2rEU3ERwgr+7MMCdaLuZ0+jr81n/HHnqMMDHw92OFT0j/oxv2+EBgY1m2rYDFdl8SMEBxwZlnngmB12DYYbqjoQEttF5Xc3OpxxnkBPO+w==
+ b=SKWZNLoNeZMYzJHfDUek1gfXIMBYQfBXxTjaxmj0dBk/7aeORKUBPmp8Qwg5lx1D2R/MAKh/hVBuM2yjQRssSVclafsnXFi713QyUbeVCv+5TIsuTPfqFT7fsDDpn+s4Rufk2LiEZ1cS6F2iufIFjP34whQ3W9ThdGrWcpDbCUqISf+r7yjUd0o22NV/oElTp8T4YCju0Tn0ZAoauJHm9wVQ3FeV5vxgjovzOTUgc53zOSsjANoVKQoGS6E1wXtB3XoSk7eH/AWFiZnJ68PgRtW305BoAbbScRcZlk+Vy1aOP+bZbBe4C5mTnuIJ3wOQeCuR+5SfXUx9ywAXsh6ueA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NwPzCdR9oQFjNkW2qTUlpL5D0InEz/Mg8gojRKQDHGg=;
- b=jUABx9V8dO0sNl0IfhpmUAclf6S5LxeJ7jWRrBC83d28u2pdz0g6gaE8+qLNdVofL9na9coyQsZ3JMOrOhdPazI07DNYdn4PKoM5CxdvRQ3bgZIcgGIRx8SNOSAXU9Sc26Jeh+M9m4kcpSicmxqy1MlH7onfAKBKGfYUCvqRQmDvwpjrim/A/wwgOc5HLQ9tdUpQkhl4tn49JfB3hZ7eOafvIwawWLhcIOYkykJoVzqv0UfI/HOxyhMn2PKmtdTbTsDNWbq7EuMQd++rlkgXqCKe41EhcmC/0Hzpm0Mf54ghic5BGq9iwS351oAQJGoviV+MS222Wf5bHO4Ve+C1cQ==
+ bh=+MtIGGi8U7z6sayPbWkjpsR35AKsf3Ssgr2wiEpFo8I=;
+ b=sZpV2ITm8HFHC4q+bnPjwDtOcfYszv4KviYhmRmUPi06xETf7mDVjK3rKKAMLUb+rjuiQyUorLU454Y1JxR3aAbywtjVeOGTKlQM1ZCTkmI2W3ggzTWCmgq+gA6TjU4Q+8MeeGJ2iNOmrumn8FwA3sUQiwBJBsPTmgocTzjq6/fWNqFQ/psnLy0VFJBN0GJ8sv78PFv8hiT2zGdd2dYkhSepNJ5HKvN/r6VSoTiRY9elF1IXNlK9gAjz9kNYugjXOfg8kg4PPZrqH7SY7KsdV3TxtEcwutpGlPsWmEtO0c2k+xTQTNb1BWPxrnDANSRpwqSoTo58sX8bfWs9ONTFaA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NwPzCdR9oQFjNkW2qTUlpL5D0InEz/Mg8gojRKQDHGg=;
- b=DZSaBjNfMCkjPIsLbcfwEHxETfJDo7fN0hTG4t4ArXHGeadayztoQMTGUP2PqJ1/n8bbUkPBiBVEXBonh4/mug9IZz0ALyVHb6N+avapE9PkmJ6QVwuy4r5ZHF5aRUUjZhnAxTu7pDXDZL2ow86z/XSnz5fN/BibuJqiygp78ZzVtffolxUF1bC3ygqpVgdZUMub4CDwJVTsDvGiiO0IZyTY6dwjxlzunMBQg+26Nv/E0f4H5KdqW08sspXO51jabRFhC5cD357Z42ka4xXTnOC7hdthdTOo4I6kVXevLibT9i2lGrJKaHeTGoieGt5LyzRvCg9dgJkNLBo4xGmECw==
+ bh=+MtIGGi8U7z6sayPbWkjpsR35AKsf3Ssgr2wiEpFo8I=;
+ b=hVqart/A1aMHjQwiIXlShvpG99CeZ97v/pA3L2X9pNxk5vNBGzKkaGu8o4SpZFXKgOSy9Hsa5cVkE6KF3gAqI5XqHfxiP8zQoyrIyy2mmY4mhpLDt+2Rt/3MjyQWYk2G6rRYfSvp7guJDzQfQ2j77jGI/SEjeZJAjhmTVbzmo3he63ip+ndC4GjTVEiARYo4H3cFJ6JOqZgRV95lk6jZJRVIiymHMJZvwAvlQKGCTLrOHONVMTf113JDyBDCkbEpVJv1wthDtTfX+JkWd23GNv338sIJR0fKXfYREfmk7Lq5TP3CM3qLctzobD8INpfcNdjlAFkkD7UpDegVK6KvAw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by PAXPR04MB8079.eurprd04.prod.outlook.com (2603:10a6:102:1cc::12) with
+ by GV4PR04MB11355.eurprd04.prod.outlook.com (2603:10a6:150:296::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 22:33:09 +0000
+ 2026 22:33:02 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 22:33:04 +0000
+ 22:32:59 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: linux-phy@lists.infradead.org
 Cc: Vinod Koul <vkoul@kernel.org>,
@@ -76,76 +76,74 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	netdev@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	UNGLinuxDriver@microchip.com,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	JC Kuo <jckuo@nvidia.com>,
-	Johan Hovold <johan+linaro@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Mathias Nyman <mathias.nyman@intel.com>,
-	Thierry Reding <thierry.reding@gmail.com>
-Subject: [PATCH v5 phy-next 12/27] usb: host: tegra: avoid direct dereference of phy->dev.of_node
-Date: Fri, 20 Mar 2026 00:32:26 +0200
-Message-ID: <20260319223241.1351137-13-vladimir.oltean@nxp.com>
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Nitin Rawat <quic_nitirawa@quicinc.com>
+Subject: [PATCH v5 phy-next 10/27] scsi: ufs: qcom: keep parallel track of PHY power state
+Date: Fri, 20 Mar 2026 00:32:24 +0200
+Message-ID: <20260319223241.1351137-11-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
 References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
-X-ClientProxiedBy: VI1PR04CA0119.eurprd04.prod.outlook.com
- (2603:10a6:803:f0::17) To AM9PR04MB8585.eurprd04.prod.outlook.com
+X-ClientProxiedBy: VI1PR0502CA0024.eurprd05.prod.outlook.com
+ (2603:10a6:803:1::37) To AM9PR04MB8585.eurprd04.prod.outlook.com
  (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|PAXPR04MB8079:EE_
-X-MS-Office365-Filtering-Correlation-Id: 251bb3c8-3389-4c48-f012-08de86077c3f
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|GV4PR04MB11355:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7023de91-fdd5-438a-996e-08de860779a4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|19092799006|10070799003|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: rMLN4RFtjU8pfh1gNeT2OTHrnlNJhhJdFl3yqgchmuoQwG83ytKRPt9859F9x5bNiiiJDzoz2yE4BHJmkLlaT5nGrWtDLqyYPyklrWOIRuNDV7h7WEmQk60/2eu+RSRL8niao+SIBimXT7e7/iuG9VcTR2P920S7pRX+VbcMJawZBOGbCF/pBsFHGpUsYY1cPFneMSEeJOrlEUZJ7xR5NwQq01dSGakvWMkZKudVgxSkuHNwFNALTWM+rQpPiF6g7cxeuv+JpFfZ1vwUaWfxu8GvgXEJdvcdYMBPYeShAQwEq3dWE3fgNxjXWOhIlzfbnhl5Kp0q+USyoRK8l6ATpidtbO1c1uIG2ITl3emTIk/6370ibcCSCXfjE4DdKlF/q8VHPydtcEOflHlqCVtnWC7nWnxh11BW9ywV1ysNrbzRxkv4ng1hmUzNTAhohbcKY688ghxBT51ghR6l348M0MJhUVD5/BQG5MRfXswA1Y1ukjPmhXRveM7v43M+kB/5uO9l9IlcwK1+mckU3MsGIUat7k7eXeKkkEmEBK9PWOxnxi+ywfTioFZ6aXgj6IcNAl8QF4pRi5JoXPNz33sK9HBWdWnnFQQ8VwJFc+wOhppV240PLcftM4BVRpEPmr7xPwJ6Oqz5bEPNzhNQOLpq84pNmKBWohwbFl4ODekE/vLEiBUhk/ktU4OokO2NqF5qhD5Qg2Rtr2Z6TgpTzxKwtvfEpTx/1x18Ytzh3DI6G4M=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(19092799006)(10070799003)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|10070799003|1800799024|376014|7416014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ikcUkytvipMECPn+3aQ3dkEceeHklJ2dgug6qLWyizYyn6PeMfZdTOd3XnBi55MA8j5wxbnKFbQiy6n3bMwgEX+NGrE/MSBw9DgenBmh2bjGELNvP/y193CofJifS6Ougc1B/iB1DygX6jB4MzYKUDcxW31GJJvq3AEJ6/8psWg2DGgj4ub3g0kmdwIM/jw9lP5z0Coy4kW9x9yBUykQY4yQxd04gwq0jLNOnRte/B8+5+AcLfjJC0xRwvdKOaNIyi2W7YEA8/Vif0lGhkHKVBT2kLf37hFIqo13OJYl7zDO20TvcoBn5pAYPNCXRqgjyz39u6/bDUiy4H18qt+FfvkONHXzKqk2bioVmBYyMPZ4OHtNUy9dOHeCGTCfSRb1zeXCAinmyYHPuskx6ySkr3YsMkOp+gY3uwnDpMrgZFB3QKC7W8GHzXA5XVaCBY7x4gH4NDg3pHnSiI4xJ5gWhywN6zObUQzrN+vayIRZeMeareeUz3zp4fcLZySw+TTaCHMS/yISPWodqLoifGE9zGeIBDUUSHml5r9YlErs8LXUMAv+Uci869Hpo+7CwRtbv3D9c1KpHKcumAcGmc7caGm9NuNblR0xITtD7xoCCIsykfBD219n7AikJBYP1yOvMYkSUcxCyLsBfTtV/aaJ3YK70Vzlkwjm9w6BM/Kenm6wcaSofEm/Pi707exLRHJ/AYB6bLRhU/9XK1ct4s/nCbJZXOw7lLCQSy1ASYe3kn4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(10070799003)(1800799024)(376014)(7416014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gKVhi07LsqkxdWsWyf1mpt7pQ8eFb1MEsubi1jjZL6eK93eZA9ym40fFR/Gd?=
- =?us-ascii?Q?b93J6oRca5I7ujTyBfkyOYh3lJx8IBwk+HKUDPaSyCnYrjXNwlA17haBQnJ8?=
- =?us-ascii?Q?XJwTsZ4VrrYN0jWJTTG9SUCNUUOISrZ2IuT1oWIEX5/1xez7kaxcim4ay/+d?=
- =?us-ascii?Q?k4BOxVMEVPsaLkXOC3MidthN5vmnK3J8OeWcJYIPI2ldSZzQCOHuRQW/CX6g?=
- =?us-ascii?Q?0Siidp8d9Xxq9cFtUwYZ66yhCcZcoMjBvhrUJlYIb7PtrXtmbwiQsdK1j7yY?=
- =?us-ascii?Q?uBRnuL8RlzP/c1q+xqPuE411n6u8d62+dHZAJP1zJQciePtAsMjX+hUO2KCQ?=
- =?us-ascii?Q?sVpe04mGROng7v0PMaxNsl0dx2Ws/QgI2uBqPz9TRpLHMEFLe6k3PgzfwCzh?=
- =?us-ascii?Q?urNk4F4dZvZzYq5ZhNov7SpIb0WD9JtyjbBsIjv3Z0QKgX6vi80fVNLjJgZw?=
- =?us-ascii?Q?9EU3hF2ZUVYHjvAuaVQceAMeShIb+vFmVyhlUt3Co4P86SXOU6njHAoXFFKJ?=
- =?us-ascii?Q?ZGRtDJxzfglzxTuqjwSTwgf9FVFDOqqX46DBsKZl0orBbaO+8yBIs1tjjeti?=
- =?us-ascii?Q?hJR/Enz7KJ/bwFuNMP/o/SCKqCxS5y1XByU1vp4FyLfIm2kcafXwuFiKvQp7?=
- =?us-ascii?Q?oRZbpT7hp8QjN3WMXbATxfIVXNXkfGIAmE5t9Yxk8/58NeUCjKogVONfAkmt?=
- =?us-ascii?Q?BKKmnvgm0QY0Gnwci+4Sa9qmbYQpkpfs4jLhNDlDf+pBPDYKiEpeVc2u0ntK?=
- =?us-ascii?Q?bwBnVx/W1CKYfN/Gw/2C2Zzc5A27ckIKTtXfew7YqmbVqQNNj9Ri8trHIGlh?=
- =?us-ascii?Q?A+R81qc9DKocs2FxD2WsoCmp2ivJfQybjVlv76xEeFu9zmy1kmgaePfuRT7n?=
- =?us-ascii?Q?/S/vAzpLPp/aH5KHVwc3A+pGFncq5DklBjUCM1MF7iqNPr5SStpF26GEdu8J?=
- =?us-ascii?Q?0QcRb9XDV0jDcFldPXAVP956e3OZ3kGeb+MwzPKvuWaxq3TIs8aZfTN0sGu9?=
- =?us-ascii?Q?oLjeWBBx8gPm2I+ceild1pZjFRqm5ijm9bLZBu3PtA33xWWnx0YgxPN9K9gD?=
- =?us-ascii?Q?FT/5auD9QGvHPFOIGFgWNosa/HrXabcnI1/6+ijCbN35VsDmxF21ehoMUrz5?=
- =?us-ascii?Q?iepdgubZIAje/zASKzygimwA69ffc+hm/XWSy4YbqJBidOCCcM1dvw6UEi6s?=
- =?us-ascii?Q?aeXxZd2XcQ/B7BjG58uqr5Fs4tvqN0PKmsd0GgaN7OxF6U+dlskAu4IDFlq0?=
- =?us-ascii?Q?ClBCnH//wCEHzDB0YNvOErjnr4LJA8q2VHofCWpC/bQDxVuovCOxPEE+4qys?=
- =?us-ascii?Q?y1mZforchzdSWViKSonUsIITI93SeXtoBovhgtTUhmFN0/MMj1WhMzpk736g?=
- =?us-ascii?Q?xppT9A868vkR5flieu+lJtU9NzPFCCu3J/uLtKRxTtJonXm72Zm0fZd32k8O?=
- =?us-ascii?Q?ryJyooeHFJSMq3YFnQTvgf02YWcZaZIjyWjoGX8JwadY/+FtLVu00fTU78CY?=
- =?us-ascii?Q?yoh1LgWjt+OtI0NAB1AkdojdXGOl147MzZJg8RFt0YCwFj8+I/iTN8ok+KrE?=
- =?us-ascii?Q?ZTfTZeHWEcf1Mj5fcbrEKM0bQN+sldWmldfbvVp3QnjDiUV+zOEQsE7L4e0c?=
- =?us-ascii?Q?/Ito2EIaIt0S8DRKtcsUReMPTX3p1W8+TXMNsaE4hiT3Ji4Z6Sk7LDRaLypM?=
- =?us-ascii?Q?WYHE/wjz+T2WdDwWxiudPcIHfuJF8g+DuekELaDpfY+tKH65LBEhktmuMeg/?=
- =?us-ascii?Q?6NErwXTIUmqyii/zUQaviuaAW8YeWgv/wekcd5kEaetyeY15l8e7Y05pSFvf?=
-X-MS-Exchange-AntiSpam-MessageData-1: p5C4czHjKYd37j2Rijoel3nOOOfRS9t4tUs=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9G1igbazjU8vd42Jp+C+5zc85Ylx1M28NNtoEf0nje1Qm1BdeVQT8ccOEc1S?=
+ =?us-ascii?Q?OqidXxQVtbh1jK1/yXmU7H5C0am3YSjrhgUAJ6rK8yJuQUlCah2Dd8ypGmR6?=
+ =?us-ascii?Q?xsvLGOJK1jnQa1WspfrXgFU4U/FzMAHOppER6IFD20mRasgtI/OxKNrpksqb?=
+ =?us-ascii?Q?rbLmNqqzFppqQTuLvFTBaPbaA3afYcZcREqBQ+31NxNg+4sGZ6PCfv20/HFu?=
+ =?us-ascii?Q?bYkrq/Gqmmumw/FMT+zl5p6fE4zRK+Y5WwLKAQ5jy2tRyNBe+XiXUTus7mbQ?=
+ =?us-ascii?Q?JZQaOnDWfsVTuMXZh7z6qxbBLWZ5tAfVLCmFDEyol06CEU/0GIxNtPWAVRRc?=
+ =?us-ascii?Q?wWFpzNFXEGcUH+X1+JrshqIh/Z6UWTsoZgdCQtdUGxXY8V/2Hm161P0dHgiR?=
+ =?us-ascii?Q?Jji4zKfmMDMwJ4MPMORGaBLd0u0RnUkv5+B7bTV4oenDwg3Q91yvHQ/rKLvn?=
+ =?us-ascii?Q?afjW9wJjzNx0YFPfqUORNE1e9F2wTR7No4EFOA53Qjxr4/K9zIzMHiwxFMyZ?=
+ =?us-ascii?Q?SLAm1D/Fsp0B1/I2YkDgdMILC+9SDzvQxmjFYPVGo2FfkWLqIsAxxwLdjIr/?=
+ =?us-ascii?Q?9yzaQec/KUSawHtHgIjKf9GQUcpXnHrKM3n/pBbdCKEV/xdfuCX6WqY1mQF7?=
+ =?us-ascii?Q?YzvPoBRmK2sb/ehj9Clucu0kZ6b6en60dufx93QIEC1xymxMktA36feGaOae?=
+ =?us-ascii?Q?kUG60Zd8mSwLHrz7cw3PqqyjPH91Y+5ddtD0r6Hw4b9dF8x3uPKtpq23GQCJ?=
+ =?us-ascii?Q?YC6Hj/CTLGmW/AnbxVFXjb2KwjEf5tpl3p6neHOAPTGJe9rtU6n7+NM46UPv?=
+ =?us-ascii?Q?+REzum3yYfNh/CpO9m+RVCx8T1ckhVoMKIEywBokA5Nrah2MmAOVeIY9TijM?=
+ =?us-ascii?Q?vo4fvVGo35q38bCH8HtcgsAUz+1f+M0oDPjhGaVEEuKqJP3s7vJ1KqkdDCGh?=
+ =?us-ascii?Q?PYjO4Ltd9eE808I62HoKDCZ0VUoRVhoLsNFEaiKbB4+w2q/bBIceTRMk4nWV?=
+ =?us-ascii?Q?LKNe9H+vqVctg11VuQR5cqtwzT7At+5CrzdWVq8YRCEFlVLE2W2he2i0Va8A?=
+ =?us-ascii?Q?1PX9pv0+pXbRfiC9PFuGvXG1F58FDiqVDCGNsF51CoWCDl0sKg5yHAl7qcfZ?=
+ =?us-ascii?Q?9sLAFssAPQOYUvt0hWcHkdzQe4FTL0BPIlHJ4uO16AXKRZDbbAvUY1tM8qOI?=
+ =?us-ascii?Q?hSppTnvYjr47Gj+8pNZbfkQgmi1P4BCus1kh1PW3irzgyTUQVU2GU8wIps8k?=
+ =?us-ascii?Q?K55WRWD6jJr6y4qm395RT7TE+za01CE8qGu6jUOFdYBxCgwUoHe6ztc/w8Lx?=
+ =?us-ascii?Q?fBZMW/imqAt4Kf2oQzkvk8RVC0n+EM9JW1vwrNonjxNL7ibCUpN6ryM6kov+?=
+ =?us-ascii?Q?PUYFCuWVlTt8sB6Fbekq6cJs9VevxgWsCqSW9zxvHDk0bbMWxxDf+zRc6XeN?=
+ =?us-ascii?Q?KaQ+jWI2BRfiYVF4LMTCuPib9MucTk0ZMph6gRA+zoLF5Rk7GHbOyoe4C/7A?=
+ =?us-ascii?Q?VNwMcoBiz9zlecJwvEzK3BEhny2fap4M7pT8tzYMoaXfFw5UU1hESKXDH4Zk?=
+ =?us-ascii?Q?mSBKD55OFhItuCstCayQwwImVIP/TBzbTf6LcP4GUTkOpNXnp9g06GAVvBDC?=
+ =?us-ascii?Q?QL0hx7uwqCcYAhKmLV1Wj0Hkf3sNSxE5m+gcCXoYtlrhmhB1jqJwSkaI0ebz?=
+ =?us-ascii?Q?fjYIgb5+Hzq/wb071XkA7uFh8J65fQzjYUY1r89LYZ6pNnloc+9tyNm13Ak7?=
+ =?us-ascii?Q?QqpdOiu3TP+AfDIwA6jICrEyUPlO4pE9JP4f9bFHOxwlM7TBqozrM9aZjhjM?=
+X-MS-Exchange-AntiSpam-MessageData-1: 3KCF/9VW+S9jNZFbj9atMAFvuenyqVAfcZo=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 251bb3c8-3389-4c48-f012-08de86077c3f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7023de91-fdd5-438a-996e-08de860779a4
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 22:33:04.1720
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 22:32:59.7907
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SPRyChECR+cvfihEzs6ZwNpCxLvEDzcBIvKr58EKZmlUJT6tjaqJ987hQH9JRhqg/xHbBWRyqbcHqYXKR7VDwQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8079
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4WTj8SRkL5/KdFtdxvfC67t1THYjCvi10XEO7/JYA7Vs78l79UQK8AU1d1hpjJM/0mpWeTxazKpxgx1CYohhuQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11355
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_153317_174426_3161D0BB 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20260319_153318_835628_AF204A5C 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,119 +160,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A piece of context which seems relevant here is that the USB subsystem
-is transitioning from struct usb_phy to struct phy (belonging to the
-Generic PHY subsystem). Commit 1a229d8690a0 ("Revert "usb: phy: add usb
-phy notify port status API"") seems to confirm that this is the case.
+As explained in the similar ufs-exynos.c change, PHY consumer drivers
+should not look at the phy->power_count, because in the general case
+there might also be other consumers who have called phy_power_on() too,
+so the fact that the power_count is non-zero does not mean that we did.
 
-In the transition process, some PHY provider drivers register themselves
-as both Generic PHY and USB PHY in an attempt to bridge the API gap.
-Such is the case with drivers/phy/tegra/xusb.c, accessed here by the
-Tegra USB host driver. This USB host expects the PHY device behind the
-Generic PHY to also be a USB PHY, and calls
-devm_usb_get_phy_by_node(phy->dev.of_node).
+Moreover, struct phy will become opaque soon, so the qcom UFS driver
+will not be able to apply this pattern. Keep parallel track of the PHY
+power state, instead of looking at a field which will become unavailable
+(phy->power_count).
 
-The Generic PHY exposes no API to get the OF node from a PHY device, so
-the Tegra USB host driver gets it directly. However, "struct phy" will
-be made an opaque pointer, to avoid misuse, so this will no longer be
-possible.
-
-Considering the fact that the Generic PHY/USB PHY duality is a
-transitional state, I am deliberately not planning to make the life of
-this driver any easier by providing a helper to get to the OF node
-somehow. Instead, implement a parallel lookup path through which the
-Tegra USB host driver can continue to get to the OF node provided by the
-padctl component, using the 'phys' phandle.
-
-Secondly (minor issue) the driver uses the phy->dev.of_node again to
-print using dev_dbg() that a "remote wake" was detected. Just print the
-index at which the PHY appears inside the driver's tegra->phys[] array
-instead.
+About treating the phy_power_off() return code: from an API perspective,
+this should have probably returned void, otherwise consumers would be
+stuck in a state they can't escape. The provider, phy-qcom-qmp-ufs.c,
+does return 0 in its power_off() implementation. I consider it safe to
+discard potential errors from phy_power_off() instead of complicating
+the phy_powered_on logic.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: JC Kuo <jckuo@nvidia.com>
-Cc: Johan Hovold <johan+linaro@kernel.org>
-Cc: Jonathan Hunter <jonathanh@nvidia.com>
-Cc: Mathias Nyman <mathias.nyman@intel.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
+Cc: "Martin K. Petersen" <martin.petersen@oracle.com>
+Cc: Nitin Rawat <quic_nitirawa@quicinc.com>
 
 v4->v5: patch is new
 ---
- drivers/usb/host/xhci-tegra.c | 42 ++++++++++++++++++++++-------------
- 1 file changed, 26 insertions(+), 16 deletions(-)
+ drivers/ufs/host/ufs-qcom.c | 9 +++++++--
+ drivers/ufs/host/ufs-qcom.h | 1 +
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/usb/host/xhci-tegra.c b/drivers/usb/host/xhci-tegra.c
-index 3f6aa2440b05..46fee219e09a 100644
---- a/drivers/usb/host/xhci-tegra.c
-+++ b/drivers/usb/host/xhci-tegra.c
-@@ -1495,6 +1495,7 @@ static int tegra_xhci_id_notify(struct notifier_block *nb,
+diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+index 375fd24ba458..3b8bd9968235 100644
+--- a/drivers/ufs/host/ufs-qcom.c
++++ b/drivers/ufs/host/ufs-qcom.c
+@@ -508,9 +508,10 @@ static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
+ 	if (ret)
+ 		return ret;
  
- static int tegra_xusb_init_usb_phy(struct tegra_xusb *tegra)
- {
-+	struct device_node *np = dev_of_node(tegra->dev);
- 	unsigned int i;
+-	if (phy->power_count)
++	if (host->phy_powered_on) {
+ 		phy_power_off(phy);
+-
++		host->phy_powered_on = false;
++	}
  
- 	tegra->usbphy = devm_kcalloc(tegra->dev, tegra->num_usb_phys,
-@@ -1508,23 +1509,33 @@ static int tegra_xusb_init_usb_phy(struct tegra_xusb *tegra)
- 	tegra->otg_usb3_port = -EINVAL;
- 
- 	for (i = 0; i < tegra->num_usb_phys; i++) {
--		struct phy *phy = tegra_xusb_get_phy(tegra, "usb2", i);
-+		struct of_phandle_args args;
-+		struct usb_phy *usbphy;
-+		int index, err;
-+		char prop[8];
- 
--		if (!phy)
-+		snprintf(prop, sizeof(prop), "usb2-%d", i);
-+
-+		/*
-+		 * usb-phy is optional, continue if it's not available.
-+		 */
-+		index = of_property_match_string(np, "phy-names", prop);
-+		if (index < 0)
- 			continue;
- 
--		tegra->usbphy[i] = devm_usb_get_phy_by_node(tegra->dev,
--							phy->dev.of_node,
--							&tegra->id_nb);
--		if (!IS_ERR(tegra->usbphy[i])) {
--			dev_dbg(tegra->dev, "usbphy-%d registered", i);
--			otg_set_host(tegra->usbphy[i]->otg, &tegra->hcd->self);
--		} else {
--			/*
--			 * usb-phy is optional, continue if its not available.
--			 */
--			tegra->usbphy[i] = NULL;
--		}
-+		err = of_parse_phandle_with_args(np, "phys", "#phy-cells",
-+						 index, &args);
-+		if (err)
-+			continue;
-+
-+		usbphy = devm_usb_get_phy_by_node(tegra->dev, args.np,
-+						  &tegra->id_nb);
-+		if (IS_ERR(usbphy))
-+			continue;
-+
-+		tegra->usbphy[i] = usbphy;
-+		dev_dbg(tegra->dev, "usbphy-%d registered", i);
-+		otg_set_host(tegra->usbphy[i]->otg, &tegra->hcd->self);
+ 	/* phy initialization - calibrate the phy */
+ 	ret = phy_init(phy);
+@@ -531,6 +532,7 @@ static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
+ 			__func__, ret);
+ 		goto out_disable_phy;
  	}
++	host->phy_powered_on = true;
  
- 	return 0;
-@@ -2172,8 +2183,7 @@ static void tegra_xhci_disable_phy_wake(struct tegra_xusb *tegra)
- 			continue;
+ 	ret = phy_calibrate(phy);
+ 	if (ret) {
+@@ -1268,6 +1270,7 @@ static int ufs_qcom_setup_clocks(struct ufs_hba *hba, bool on,
+ 				dev_err(hba->dev, "phy power off failed, ret=%d\n", err);
+ 				return err;
+ 			}
++			host->phy_powered_on = false;
+ 		}
+ 		break;
+ 	case POST_CHANGE:
+@@ -1277,6 +1280,7 @@ static int ufs_qcom_setup_clocks(struct ufs_hba *hba, bool on,
+ 				dev_err(hba->dev, "phy power on failed, ret = %d\n", err);
+ 				return err;
+ 			}
++			host->phy_powered_on = true;
  
- 		if (tegra_xusb_padctl_remote_wake_detected(padctl, tegra->phys[i]))
--			dev_dbg(tegra->dev, "%pOF remote wake detected\n",
--				tegra->phys[i]->dev.of_node);
-+			dev_dbg(tegra->dev, "PHY %d remote wake detected\n", i);
+ 			/* enable the device ref clock for HS mode*/
+ 			if (ufshcd_is_hs_mode(&hba->pwr_info))
+@@ -1467,6 +1471,7 @@ static void ufs_qcom_exit(struct ufs_hba *hba)
  
- 		tegra_xusb_padctl_disable_phy_wake(padctl, tegra->phys[i]);
- 	}
+ 	ufs_qcom_disable_lane_clks(host);
+ 	phy_power_off(host->generic_phy);
++	host->phy_powered_on = false;
+ 	phy_exit(host->generic_phy);
+ }
+ 
+diff --git a/drivers/ufs/host/ufs-qcom.h b/drivers/ufs/host/ufs-qcom.h
+index 1111ab34da01..72ce0687fa42 100644
+--- a/drivers/ufs/host/ufs-qcom.h
++++ b/drivers/ufs/host/ufs-qcom.h
+@@ -282,6 +282,7 @@ struct ufs_qcom_host {
+ 	struct clk_bulk_data *clks;
+ 	u32 num_clks;
+ 	bool is_lane_clks_enabled;
++	bool phy_powered_on;
+ 
+ 	struct icc_path *icc_ddr;
+ 	struct icc_path *icc_cpu;
 -- 
 2.43.0
 
