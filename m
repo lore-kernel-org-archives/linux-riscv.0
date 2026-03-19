@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A845109022E
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 14:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C2E1090233
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 14:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pHphpqA9xTiWlwDXw7gCaI72jN2tR7fJL9GyKklLbjw=; b=nCKx2VHOvTcOB3
-	nxBK7YF5BRzup/P9mE3xW2tO1SVTh9czt6u4CmoOy3Sos1lmv2cAyT/LFqKDIZiJnQpzuDEcvnFoI
-	qN+rkZGpZCWEwNt1rnroP3P8MURcn/01sWwh4KhtdeB5EZHoLrmdJDt6wLbySX+wdM3lANU13/FF3
-	CeGDG6ScMERJsZUzc5wwOvr42+l4sshXLmGgtjoKWH4+cIjM6WLzdJy99g6ugjl2FlhJU9uqq47Mt
-	ORoL+DIluv/UBrdft9W/r2KbuwCiLxy5WPgOfdZ6anGwKKy1NUGUwLaF24r2QOYh7a0xw4tCEUGnX
-	Pbzuq6r3BNU+xfrDgx4g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2JWTSdXNRU0tDnbyYettQg7HmDUQ/HftvlfBC8ND8SA=; b=p1rEk+ZgiwA0or
+	/vUAICFcXS8Ynr7J2Bg7gNLhyjjt3g+ygcrIKeLWxwea1zH8iNq/lIQbZSq5KvWZJ9fA9tJumTv+l
+	DdUaYr6k5hufTm/0ufynYOuIyNxpvH76TCMHzKovlYS0vZPeMAKGVjjFJCwrO3aXd9xU28dPFHD97
+	kXiQk4BXWKM0DrNW/MkAuFeRb1JN90t4qu3ZXKbABVF8TaCUxoKS/ifsD6HWa17ftL49dKChwdikl
+	qKbyEd99kDkR9lMLT4+dyDteJIsIROsCaq9f207UdpC3IWAkSrvVv7GQd73Q4XE1wyiWYfZwgPxaf
+	6jLteLRLa8qKvQ1qAykQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3E2H-0000000Ajna-1w3s;
-	Thu, 19 Mar 2026 14:07:41 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1w3E6J-0000000AkRL-1lqc;
+	Thu, 19 Mar 2026 14:11:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3E2D-0000000AjlW-2DFA
-	for linux-riscv@lists.infradead.org;
-	Thu, 19 Mar 2026 14:07:40 +0000
-Received: from duge-virtual-machine (unknown [183.192.222.244])
-	by APP-03 (Coremail) with SMTP id rQCowABnieAaA7xpRC4mCw--.14810S2;
-	Thu, 19 Mar 2026 22:07:24 +0800 (CST)
-From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-To: krzk@kernel.org,
-	ulf.hansson@linaro.org,
-	adrian.hunter@intel.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	gaohan@iscas.ac.cn,
-	me@ziyao.cc,
-	Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
-Subject: [PATCH v5 0/3] Add SDHCI support for Canaan K230 SoC
-Date: Thu, 19 Mar 2026 22:07:02 +0800
-Message-ID: <20260319140705.123502-1-jiayu.riscv@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.53.0
+	id 1w3E6G-0000000AkQL-0lLw;
+	Thu, 19 Mar 2026 14:11:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B92D440BCE;
+	Thu, 19 Mar 2026 14:11:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 664A8C19424;
+	Thu, 19 Mar 2026 14:11:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773929507;
+	bh=MivZjiW5NvagivYMYH70K18NXOP+4XjdCcrtxZRKzWw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UerHPcIhZf5iw1L4uJ064Sm5pT3BEiIczGzptBjlWHw2pf3d+tNXIabR0FlPqyIRk
+	 i5A/s8jANJQ+6DUKj9E72Pk/lWL3jerwH8bHCa5SFCaU4jhsmeb+7/x+Ua9i0WELOr
+	 Ul+vuoba3lTnp86TRF2Gqt6t+s9MBbPodYgntONPFxSLb6c4CzdLpTzVBK9FDDgtpb
+	 GtbHzfXlvHPbrSvV7xXFxD3nRPfQ6pzF6z2CrsaJL1o1mZx8i0TVCMMHxmzlmccQr2
+	 TxqxhEmmNyEKoFOHBIAHTBuL5gqIQSxljyLvzzcUAdFWSowUlBD6xMHugYmz7rRveT
+	 VQko93pO+Dwtw==
+Date: Thu, 19 Mar 2026 14:11:34 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>, 
+	Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
+	Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, 
+	Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, 
+	Alistair Popple <apopple@nvidia.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-mm@kvack.org, 
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
+Message-ID: <2b23080c-0af9-4269-958b-957e7c093258@lucifer.local>
+References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
+ <20260319-config_migration-v1-1-42270124966f@kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABnieAaA7xpRC4mCw--.14810S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxur4fJF1fCw45Aw18tF1rXrb_yoW5CFWxpF
-	WUurZ8Gw4DGFyftF4xKa1ku3W3uws5J34UGw15X34UX398CFW5Xr9293WYqFyDGFZ7Gw4Y
-	yw15XFyrCrZ8ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [183.192.222.244]
-X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
+Content-Disposition: inline
+In-Reply-To: <20260319-config_migration-v1-1-42270124966f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_070737_945651_73D8E9B7 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260319_071148_260773_528ACD23 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,75 +93,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series is based on the k230 usbphy series[1].
+On Thu, Mar 19, 2026 at 09:19:40AM +0100, David Hildenbrand (Arm) wrote:
+> All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
+> select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
+> CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
+>
+> For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
+> and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
+> CONFIG_CMA and CONFIG_COMPACTION already do).
 
-This patch series adds SDHCI support for the Canaan K230 SoC,
-which uses Synopsys DWCMSHC SDHCI controllers, include MMC0 and MMC1.
-The hardware designs of these two controllers are different.
-The MMC0 supports eMMC, while MMC1 only supports SDIO. Detailed
-information can be found in the vendor's manual[2].
+Makes sense!
 
-From the vendor's K230 manual:
- - MMC0 supports eMMC5.0 and SDIO3.0, usually for eMMC chips.
- - MMC1 only does SDIO3.0 in 4/1-bit mode up to SDR104, and the manual
-   clearly says it can't handle eMMC because of pin count and limits.
+>
+> We'll clean up CONFIG_MIGRATION next.
+>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Therefore, there are two separate compatibles and the driver treats them
-differently.
+LGTM, so:
 
-Link: https://lore.kernel.org/all/20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn/ [1]
-Link: https://github.com/kendryte/k230_docs/blob/main/en/00_hardware/K230_Hardware_Design_Guide.md#mmc-circuit [2]
+Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Changes in v5:
-- Drop the unnecessary line wrapping.
-- Drop k230_priv->k230_pdata.
-- Make a macro to uses container_of for pointer type conversion.
-- Add the tested-by tag.
-- Link to v4: https://lore.kernel.org/all/20260315054426.18383-1-jiayu.riscv@isrc.iscas.ac.cn/
-
-Changes in v4:
-- Drop the unnecessary line wrapping.
-- Drop the extra match_data pointer that was added in v3.
-- Add struct k230_pltfm_data which embeds struct dwcmshc_pltfm_data.
-- Use container_of() to get k230_pltfm_data.
-- Link to v3: https://lore.kernel.org/all/20260310064513.140093-1-jiayu.riscv@isrc.iscas.ac.cn/
-
-Changes in v3:
-- Drop the clock maxItems.
-- Add a const void *match_data to the struct dwcmshc_priv
-- Copy the match_data pointer to dwcmshc_priv in the common dwcmshc_probe
-- Link to v2: https://lore.kernel.org/all/20260226115923.75670-1-jiayu.riscv@isrc.iscas.ac.cn/
-
-Changes in v2:
-- Change the clock minItems to 5.
-- Add comments to explain the reason for setting SDHCI_PROG_CLOCK_MODE.
-- Write the power selection logic in the phy init cleaner.
-- Replace manual delay loop with read_poll_timeout.
-- Drop unnecessarily braces where a single statement will do.
-- Add the match_data pointer to dwcmshc_pltfm_data.
-- Add dwcmshc_k230_match_data struct to separate eMMC/SDIO config data
-- Split K230 into individual emmc/sdio platform data instances instead of
-  sharing one.
-- Remove redundant have_phy member in k230_priv.
-- Replace of_find_compatible_node with of_parse_phandle to get USB PHY
-  from DT phandle.
-- Link to v1: https://lore.kernel.org/all/20260204082908.27501-1-jiayu.riscv@isrc.iscas.ac.cn/
-
-Jiayu Du (3):
-  dt-bindings: mmc: Add sdhci support for Canaan k230
-  mmc: sdhci-dwcmshc: Add Canaan K230 DWCMSHC controller support
-  riscv: dts: canaan: Add mmc nodes for K230
-
- .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  28 ++
- .../boot/dts/canaan/k230-canmv-dshanpi.dts    |  57 ++++
- .../dts/canaan/k230-canmv-module-dshanpi.dtsi |   7 +
- arch/riscv/boot/dts/canaan/k230.dtsi          |  28 ++
- drivers/mmc/host/sdhci-of-dwcmshc.c           | 260 ++++++++++++++++++
- 5 files changed, 380 insertions(+)
-
--- 
-2.53.0
-
+> ---
+>  arch/arm64/Kconfig     | 1 -
+>  arch/loongarch/Kconfig | 1 -
+>  arch/powerpc/Kconfig   | 1 -
+>  arch/riscv/Kconfig     | 1 -
+>  arch/s390/Kconfig      | 1 -
+>  arch/x86/Kconfig       | 1 -
+>  mm/Kconfig             | 9 +++------
+>  7 files changed, 3 insertions(+), 12 deletions(-)
+>
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 38dba5f7e4d2..bcd9f5bc66e2 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -16,7 +16,6 @@ config ARM64
+>  	select ARCH_BINFMT_ELF_STATE
+>  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+>  	select ARCH_ENABLE_MEMORY_HOTPLUG
+> -	select ARCH_ENABLE_MEMORY_HOTREMOVE
+>  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+>  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>  	select ARCH_HAS_CACHE_LINE_SIZE
+> diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+> index d211c6572b0a..dbf65ad512f1 100644
+> --- a/arch/loongarch/Kconfig
+> +++ b/arch/loongarch/Kconfig
+> @@ -12,7 +12,6 @@ config LOONGARCH
+>  	select ARCH_NEEDS_DEFER_KASAN
+>  	select ARCH_DISABLE_KASAN_INLINE
+>  	select ARCH_ENABLE_MEMORY_HOTPLUG
+> -	select ARCH_ENABLE_MEMORY_HOTREMOVE
+>  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>  	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
+>  	select ARCH_HAS_CPU_FINALIZE_INIT
+> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+> index ad7a2fe63a2a..9f3417b75b2b 100644
+> --- a/arch/powerpc/Kconfig
+> +++ b/arch/powerpc/Kconfig
+> @@ -126,7 +126,6 @@ config PPC
+>  	select ARCH_DISABLE_KASAN_INLINE	if PPC_RADIX_MMU
+>  	select ARCH_DMA_DEFAULT_COHERENT	if !NOT_COHERENT_CACHE
+>  	select ARCH_ENABLE_MEMORY_HOTPLUG
+> -	select ARCH_ENABLE_MEMORY_HOTREMOVE
+>  	select ARCH_HAS_COPY_MC			if PPC64
+>  	select ARCH_HAS_CURRENT_STACK_POINTER
+>  	select ARCH_HAS_DEBUG_VIRTUAL
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 90c531e6abf5..61a9d8d3ea64 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -21,7 +21,6 @@ config RISCV
+>  	select ARCH_DMA_DEFAULT_COHERENT
+>  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
+>  	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM_VMEMMAP
+> -	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
+>  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+>  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>  	select ARCH_HAS_BINFMT_FLAT
+> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+> index edc927d9e85a..d01800962d84 100644
+> --- a/arch/s390/Kconfig
+> +++ b/arch/s390/Kconfig
+> @@ -85,7 +85,6 @@ config S390
+>  	select ARCH_32BIT_USTAT_F_TINODE
+>  	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
+>  	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM
+> -	select ARCH_ENABLE_MEMORY_HOTREMOVE
+>  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+>  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>  	select ARCH_HAS_CC_CAN_LINK
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index e2df1b147184..c290fe363f27 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -69,7 +69,6 @@ config X86
+>  	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
+>  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if X86_64 && HUGETLB_PAGE && MIGRATION
+>  	select ARCH_ENABLE_MEMORY_HOTPLUG if X86_64
+> -	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
+>  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if (PGTABLE_LEVELS > 2) && (X86_64 || X86_PAE)
+>  	select ARCH_ENABLE_THP_MIGRATION if X86_64 && TRANSPARENT_HUGEPAGE
+>  	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index c012944938a7..b2e21d873d3f 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -465,9 +465,6 @@ config HAVE_BOOTMEM_INFO_NODE
+>  config ARCH_ENABLE_MEMORY_HOTPLUG
+>  	bool
+>
+> -config ARCH_ENABLE_MEMORY_HOTREMOVE
+> -	bool
+> -
+>  # eventually, we can have this option just 'select SPARSEMEM'
+>  menuconfig MEMORY_HOTPLUG
+>  	bool "Memory hotplug"
+> @@ -540,8 +537,8 @@ endchoice
+>  config MEMORY_HOTREMOVE
+>  	bool "Allow for memory hot remove"
+>  	select HAVE_BOOTMEM_INFO_NODE if (X86_64 || PPC64)
+> -	depends on MEMORY_HOTPLUG && ARCH_ENABLE_MEMORY_HOTREMOVE
+> -	depends on MIGRATION
+> +	depends on MEMORY_HOTPLUG
+> +	select MIGRATION
+>
+>  config MHP_MEMMAP_ON_MEMORY
+>  	def_bool y
+> @@ -636,7 +633,7 @@ config PAGE_REPORTING
+>  config MIGRATION
+>  	bool "Page migration"
+>  	default y
+> -	depends on (NUMA || ARCH_ENABLE_MEMORY_HOTREMOVE || COMPACTION || CMA) && MMU
+> +	depends on (NUMA || MEMORY_HOTREMOVE || COMPACTION || CMA) && MMU
+>  	help
+>  	  Allows the migration of the physical location of pages of processes
+>  	  while the virtual addresses are not changed. This is useful in
+>
+> --
+> 2.43.0
+>
 
 _______________________________________________
 linux-riscv mailing list
