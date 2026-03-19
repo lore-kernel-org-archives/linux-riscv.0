@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6228E1075260
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:19:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3523D1075260
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vYXbe2SBIEWYJ1UuF6tSVSzBHb8FoLnzhPjBwO4Y018=; b=EDEjaJ+nyZ7UML
-	zA8N/Nmizt2owEow23NkCc1nCdOFBqgkh2C9qBcDLOKFtQyHb7HA7xmeAQol7UIpJat2qQ4WMkZoz
-	6t0Sr4UkkoC44D757KXRhTFgigYUxaIO+w6uQPW5n/AGylouF0NWQ69IugjLMOXtkKojaVn8eH6a0
-	8foQsx+VSJUpUoDQfXRPpiYaPC4aJxjCr7M7L2O2qAguDzFLRJAJhlqyQZulEnkel3KvYInNWxfAK
-	8KQTFf5DtqbWJbnSqZp065K6lFEyKhygKvWCju5+sZxnw0GYk9X6xwKYZc63tBoRRejVgnAC16S3U
-	nQvuyBWJ6n3MB1iIPXMA==;
+	List-Owner; bh=eo3tAyiKdpIWi/Y2jEltaLHiZL/cR5v9K3mOHLnZIX4=; b=kM31YL11b0ME9H
+	9FDbvacGQohVi8grzaVjhaRCSVaes0hqk1u4GxjbB74g+D0LNWSFSi0zcBFUKMKVIzE5t6McgB1Dd
+	8CO2UhmgoHkCG9+nAVz2vu933ya7kPgKlrxR9kqrBTHshxFzjz1crEGp1hcJBGblqqAGNghlR1w/s
+	o0iy3zeuba3muyfKRZc1OytJDHc/w0mT/FbcGfJKS4WV58ej+f9ibcTZbUDajFKqRpLS5U+YRtoL1
+	J3JjESNfX1AVfSEtkiqrnCKeO+RnVOIsX+L5k9nQIj5399GjP3+6PAA44/BBacHEWtWC+Db/P4d8o
+	MKv1mHI3tUz/x+cRHuww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36jK-0000000A00h-3xZd;
-	Thu, 19 Mar 2026 06:19:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w36jR-0000000A088-0erp;
+	Thu, 19 Mar 2026 06:19:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36iy-00000009zgU-3TJV;
+	id 1w36j1-00000009ziP-1e6F;
 	Thu, 19 Mar 2026 06:19:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6034B432E8;
-	Thu, 19 Mar 2026 06:19:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E91D1C2BCB2;
-	Thu, 19 Mar 2026 06:19:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B85660128;
+	Thu, 19 Mar 2026 06:19:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9917BC2BCAF;
+	Thu, 19 Mar 2026 06:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901155;
-	bh=2RnBJCTFrD0ohcPH8mcR5XHGHKUTn3w5CDa+XMF3VZs=;
+	s=k20201202; t=1773901157;
+	bh=SUlBh6ude964ptwoct2eRUqHN2yhqaxUURXeunMfh1w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qme/wxlpFt5vEOTbM9QLsloHawmga9oHXECrQF9aFqJ+c22qswdZvB1tt8zMSpFDD
-	 gj3SR5bJOOOI/CwrWD6c/OJFWl6EoLqissuqhMXuLElf33A+M8eFK3/akwhQUYCPvv
-	 fHA/MWnN0WFeo0BwGMowPsFpuS1BfPQExabl5O8liLGii9wcok730wyc+yhgqX4k1Y
-	 dtF3PmCJMvNkwrSj+l+Q1BAbG0f3bn6mstN4ZrdizPGgfPaae6hGPJvH9JSvRQJSV7
-	 a7U0XkjSLJgXrpcZOsY81qaijqTblYWUKaPClmI5/TznDuh/7d/w2RxYSaODwp1DcK
-	 XlkYCLJv7+YuA==
+	b=c9oN+4HYz50QQhyhsYQS0uoK8sVJjrgvy/HMW9/IDw+Bksg5NpyRYOFIftimZWHqV
+	 vxwhE6XtM6scxfGLKGA9D2lrnYfiQygnqngC2RzY6Xj4fkebDCXyHXWDqIyT7kmiM6
+	 JjkehxjMri8fQq2rI1BC9+5GopxUSlVkC+EvJL9qXN5uInDMgpIMRCQPLeBjyAqpXy
+	 q6XXI78pR9PfCWrCIs8kPi6Vf81yTVijCWZ+AR2jpcCUNf1lVfsR0BpbRf7ncVccYQ
+	 C/biGma0wwnRC21kXe9SOZ14mh9r+L7TqUF3W+0wDW3SbhgrR7+vAA45u1hBl3+DJy
+	 bwj2qMifmZ/Wg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,16 +53,13 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 01/19] lib/crypto: gf128hash: Rename polyval module to gf128hash
-Date: Wed, 18 Mar 2026 23:17:02 -0700
-Message-ID: <20260319061723.1140720-2-ebiggers@kernel.org>
+Subject: [PATCH 07/19] lib/crypto: arm/ghash: Migrate optimized code into library
+Date: Wed, 18 Mar 2026 23:17:08 -0700
+Message-ID: <20260319061723.1140720-8-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
 References: <20260319061723.1140720-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_231916_907983_44199B92 
-X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,439 +76,460 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the standalone GHASH code is coupled with crypto_shash.  This
-has resulted in unnecessary complexity and overhead, as well as the code
-being unavailable to library code such as the AES-GCM library.  Like was
-done with POLYVAL, it needs to find a new home in lib/crypto/.
+Remove the "ghash-neon" crypto_shash algorithm.  Move the corresponding
+assembly code into lib/crypto/, and wire it up to the GHASH library.
 
-GHASH and POLYVAL are closely related and can each be implemented in
-terms of each other.  Optimized code for one can be reused with the
-other.  But also since GHASH tends to be difficult to implement directly
-due to its unnatural bit order, most modern GHASH implementations
-(including the existing arm, arm64, powerpc, and x86 optimized GHASH
-code, and the new generic GHASH code I'll be adding) actually
-reinterpret the GHASH computation as an equivalent POLYVAL computation,
-pre and post-processing the inputs and outputs to map to/from POLYVAL.
+This makes the GHASH library be optimized on arm (though only with NEON,
+not PMULL; for now the goal is just parity with crypto_shash).  It
+greatly reduces the amount of arm-specific glue code that is needed, and
+it fixes the issue where this optimization was disabled by default.
 
-Given this close relationship, it makes sense to group the GHASH and
-POLYVAL code together in the same module.  This gives us a wide range of
-options for implementing them, reusing code between the two and properly
-utilizing whatever instructions each architecture provides.
+To integrate the assembly code correctly with the library, make the
+following tweaks:
 
-Thus, GHASH support will be added to the library module that is
-currently called "polyval".  Rename it to an appropriate name:
-"gf128hash".  Rename files, options, functions, etc. where appropriate
-to reflect the upcoming sharing with GHASH.  (Note: polyval_kunit is not
-renamed, as ghash_kunit will be added alongside it instead.)
+- Change the type of 'blocks' from int to size_t.
+- Change the types of 'dg' and 'k' to polyval_elem.  Note that this
+  simply reflects the format that the code was already using, at least
+  on little endian CPUs.  For big endian CPUs, add byte-swaps.
+- Remove the 'head' argument, which is no longer needed.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/Kconfig                              |  2 +-
- crypto/hctr2.c                              |  2 +-
- include/crypto/{polyval.h => gf128hash.h}   | 16 ++++++-------
- lib/crypto/Kconfig                          | 24 +++++++++----------
- lib/crypto/Makefile                         | 20 ++++++++--------
- lib/crypto/arm64/{polyval.h => gf128hash.h} |  4 ++--
- lib/crypto/{polyval.c => gf128hash.c}       | 26 ++++++++++-----------
- lib/crypto/tests/Kconfig                    |  4 ++--
- lib/crypto/tests/polyval_kunit.c            |  2 +-
- lib/crypto/x86/{polyval.h => gf128hash.h}   |  4 ++--
- 10 files changed, 52 insertions(+), 52 deletions(-)
- rename include/crypto/{polyval.h => gf128hash.h} (94%)
- rename lib/crypto/arm64/{polyval.h => gf128hash.h} (95%)
- rename lib/crypto/{polyval.c => gf128hash.c} (94%)
- rename lib/crypto/x86/{polyval.h => gf128hash.h} (95%)
+ arch/arm/crypto/Kconfig                       |  13 +-
+ arch/arm/crypto/Makefile                      |   2 +-
+ arch/arm/crypto/ghash-ce-glue.c               | 144 +-----------------
+ lib/crypto/Kconfig                            |   1 +
+ lib/crypto/Makefile                           |   1 +
+ lib/crypto/arm/gf128hash.h                    |  43 ++++++
+ .../crypto/arm}/ghash-neon-core.S             |  24 +--
+ 7 files changed, 66 insertions(+), 162 deletions(-)
+ create mode 100644 lib/crypto/arm/gf128hash.h
+ rename {arch/arm/crypto => lib/crypto/arm}/ghash-neon-core.S (92%)
 
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index b8608ef6823b..5627b3691561 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -684,11 +684,11 @@ config CRYPTO_ECB
- 	  ECB (Electronic Codebook) mode (NIST SP800-38A)
+diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
+index b9c28c818b7c..f884b8b2fd93 100644
+--- a/arch/arm/crypto/Kconfig
++++ b/arch/arm/crypto/Kconfig
+@@ -1,30 +1,21 @@
+ # SPDX-License-Identifier: GPL-2.0
  
- config CRYPTO_HCTR2
- 	tristate "HCTR2"
- 	select CRYPTO_XCTR
--	select CRYPTO_LIB_POLYVAL
-+	select CRYPTO_LIB_GF128HASH
- 	select CRYPTO_MANAGER
+ menu "Accelerated Cryptographic Algorithms for CPU (arm)"
+ 
+ config CRYPTO_GHASH_ARM_CE
+-	tristate "Hash functions: GHASH (PMULL/NEON/ARMv8 Crypto Extensions)"
++	tristate "AEAD cipher: AES in GCM mode (ARMv8 Crypto Extensions)"
+ 	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_AEAD
+-	select CRYPTO_HASH
+-	select CRYPTO_CRYPTD
+ 	select CRYPTO_LIB_AES
+ 	select CRYPTO_LIB_GF128MUL
  	help
- 	  HCTR2 length-preserving encryption mode
+-	  GCM GHASH function (NIST SP800-38D)
++	  AEAD cipher: AES-GCM
  
- 	  A mode for storage encryption that is efficient on processors with
-diff --git a/crypto/hctr2.c b/crypto/hctr2.c
-index f4cd6c29b4d3..ad5edf9366ac 100644
---- a/crypto/hctr2.c
-+++ b/crypto/hctr2.c
-@@ -14,13 +14,13 @@
+ 	  Architecture: arm using
+-	  - PMULL (Polynomial Multiply Long) instructions
+-	  - NEON (Advanced SIMD) extensions
+ 	  - ARMv8 Crypto Extensions
+ 
+-	  Use an implementation of GHASH (used by the GCM AEAD chaining mode)
+-	  that uses the 64x64 to 128 bit polynomial multiplication (vmull.p64)
+-	  that is part of the ARMv8 Crypto Extensions, or a slower variant that
+-	  uses the vmull.p8 instruction that is part of the basic NEON ISA.
+-
+ config CRYPTO_AES_ARM_BS
+ 	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XTS (bit-sliced NEON)"
+ 	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_SKCIPHER
+ 	select CRYPTO_LIB_AES
+diff --git a/arch/arm/crypto/Makefile b/arch/arm/crypto/Makefile
+index cedce94d5ee5..e73099e120b3 100644
+--- a/arch/arm/crypto/Makefile
++++ b/arch/arm/crypto/Makefile
+@@ -8,6 +8,6 @@ obj-$(CONFIG_CRYPTO_AES_ARM_BS) += aes-arm-bs.o
+ obj-$(CONFIG_CRYPTO_AES_ARM_CE) += aes-arm-ce.o
+ obj-$(CONFIG_CRYPTO_GHASH_ARM_CE) += ghash-arm-ce.o
+ 
+ aes-arm-bs-y	:= aes-neonbs-core.o aes-neonbs-glue.o
+ aes-arm-ce-y	:= aes-ce-core.o aes-ce-glue.o
+-ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o ghash-neon-core.o
++ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o
+diff --git a/arch/arm/crypto/ghash-ce-glue.c b/arch/arm/crypto/ghash-ce-glue.c
+index d7d787de7dd3..9aa0ada5b627 100644
+--- a/arch/arm/crypto/ghash-ce-glue.c
++++ b/arch/arm/crypto/ghash-ce-glue.c
+@@ -1,8 +1,8 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ /*
+- * Accelerated GHASH implementation with ARMv8 vmull.p64 instructions.
++ * AES-GCM using ARMv8 Crypto Extensions
   *
-  * For more details, see the paper: "Length-preserving encryption with HCTR2"
-  * (https://eprint.iacr.org/2021/1441.pdf)
+  * Copyright (C) 2015 - 2018 Linaro Ltd.
+  * Copyright (C) 2023 Google LLC.
   */
  
-+#include <crypto/gf128hash.h>
- #include <crypto/internal/cipher.h>
+@@ -12,116 +12,38 @@
+ #include <crypto/b128ops.h>
+ #include <crypto/gcm.h>
+ #include <crypto/gf128mul.h>
+ #include <crypto/ghash.h>
+ #include <crypto/internal/aead.h>
+-#include <crypto/internal/hash.h>
  #include <crypto/internal/skcipher.h>
--#include <crypto/polyval.h>
  #include <crypto/scatterwalk.h>
- #include <linux/module.h>
- 
- #define BLOCKCIPHER_BLOCK_SIZE		16
- 
-diff --git a/include/crypto/polyval.h b/include/crypto/gf128hash.h
-similarity index 94%
-rename from include/crypto/polyval.h
-rename to include/crypto/gf128hash.h
-index b28b8ef11353..5ffa86f5c13f 100644
---- a/include/crypto/polyval.h
-+++ b/include/crypto/gf128hash.h
-@@ -1,14 +1,14 @@
- /* SPDX-License-Identifier: GPL-2.0-or-later */
- /*
-- * POLYVAL library API
-+ * GF(2^128) polynomial hashing: GHASH and POLYVAL
-  *
-  * Copyright 2025 Google LLC
-  */
- 
--#ifndef _CRYPTO_POLYVAL_H
--#define _CRYPTO_POLYVAL_H
-+#ifndef _CRYPTO_GF128HASH_H
-+#define _CRYPTO_GF128HASH_H
- 
- #include <linux/string.h>
- #include <linux/types.h>
- 
- #define POLYVAL_BLOCK_SIZE	16
-@@ -42,24 +42,24 @@ struct polyval_elem {
-  *
-  * By H^i we mean H^(i-1) * H * x^-128, with base case H^1 = H.  I.e. the
-  * exponentiation repeats the POLYVAL dot operation, with its "extra" x^-128.
-  */
- struct polyval_key {
--#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
-+#ifdef CONFIG_CRYPTO_LIB_GF128HASH_ARCH
- #ifdef CONFIG_ARM64
- 	/** @h_powers: Powers of the hash key H^8 through H^1 */
- 	struct polyval_elem h_powers[8];
- #elif defined(CONFIG_X86)
- 	/** @h_powers: Powers of the hash key H^8 through H^1 */
- 	struct polyval_elem h_powers[8];
- #else
- #error "Unhandled arch"
- #endif
--#else /* CONFIG_CRYPTO_LIB_POLYVAL_ARCH */
-+#else /* CONFIG_CRYPTO_LIB_GF128HASH_ARCH */
- 	/** @h: The hash key H */
- 	struct polyval_elem h;
--#endif /* !CONFIG_CRYPTO_LIB_POLYVAL_ARCH */
-+#endif /* !CONFIG_CRYPTO_LIB_GF128HASH_ARCH */
- };
- 
- /**
-  * struct polyval_ctx - Context for computing a POLYVAL value
-  * @key: Pointer to the prepared POLYVAL key.  The user of the API is
-@@ -82,11 +82,11 @@ struct polyval_ctx {
-  * copy, or it may involve precomputing powers of the key, depending on the
-  * platform's POLYVAL implementation.
-  *
-  * Context: Any context.
-  */
--#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
-+#ifdef CONFIG_CRYPTO_LIB_GF128HASH_ARCH
- void polyval_preparekey(struct polyval_key *key,
- 			const u8 raw_key[POLYVAL_BLOCK_SIZE]);
- 
- #else
- static inline void polyval_preparekey(struct polyval_key *key,
-@@ -185,6 +185,6 @@ static inline void polyval(const struct polyval_key *key,
- 	polyval_init(&ctx, key);
- 	polyval_update(&ctx, data, len);
- 	polyval_final(&ctx, out);
- }
- 
--#endif /* _CRYPTO_POLYVAL_H */
-+#endif /* _CRYPTO_GF128HASH_H */
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 4910fe20e42a..98cedd95c2a5 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -108,10 +108,22 @@ config CRYPTO_LIB_CURVE25519_GENERIC
- 	default y if !CRYPTO_LIB_CURVE25519_ARCH || ARM || X86_64
- 
- config CRYPTO_LIB_DES
- 	tristate
- 
-+config CRYPTO_LIB_GF128HASH
-+	tristate
-+	help
-+	  The GHASH and POLYVAL library functions.  Select this if your module
-+	  uses any of the functions from <crypto/gf128hash.h>.
-+
-+config CRYPTO_LIB_GF128HASH_ARCH
-+	bool
-+	depends on CRYPTO_LIB_GF128HASH && !UML
-+	default y if ARM64
-+	default y if X86_64
-+
- config CRYPTO_LIB_MD5
- 	tristate
- 	help
- 	  The MD5 and HMAC-MD5 library functions.  Select this if your module
- 	  uses any of the functions from <crypto/md5.h>.
-@@ -176,22 +188,10 @@ config CRYPTO_LIB_POLY1305_RSIZE
- 	default 2 if MIPS || RISCV
- 	default 11 if X86_64
- 	default 9 if ARM || ARM64
- 	default 1
- 
--config CRYPTO_LIB_POLYVAL
--	tristate
--	help
--	  The POLYVAL library functions.  Select this if your module uses any of
--	  the functions from <crypto/polyval.h>.
--
--config CRYPTO_LIB_POLYVAL_ARCH
--	bool
--	depends on CRYPTO_LIB_POLYVAL && !UML
--	default y if ARM64
--	default y if X86_64
--
- config CRYPTO_LIB_CHACHA20POLY1305
- 	tristate
- 	select CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_POLY1305
- 	select CRYPTO_LIB_UTILS
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index a961615c8c7f..fc30622123d2 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -152,10 +152,20 @@ endif
- obj-$(CONFIG_CRYPTO_LIB_DES)			+= libdes.o
- libdes-y					:= des.o
- 
- ################################################################################
- 
-+obj-$(CONFIG_CRYPTO_LIB_GF128HASH) += libgf128hash.o
-+libgf128hash-y := gf128hash.o
-+ifeq ($(CONFIG_CRYPTO_LIB_GF128HASH_ARCH),y)
-+CFLAGS_gf128hash.o += -I$(src)/$(SRCARCH)
-+libgf128hash-$(CONFIG_ARM64) += arm64/polyval-ce-core.o
-+libgf128hash-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
-+endif
-+
-+################################################################################
-+
- obj-$(CONFIG_CRYPTO_LIB_MD5) += libmd5.o
- libmd5-y := md5.o
- ifeq ($(CONFIG_CRYPTO_LIB_MD5_ARCH),y)
- CFLAGS_md5.o += -I$(src)/$(SRCARCH)
- libmd5-$(CONFIG_PPC) += powerpc/md5-asm.o
-@@ -249,20 +259,10 @@ clean-files += arm/poly1305-core.S \
- 	       riscv/poly1305-core.S \
- 	       x86/poly1305-x86_64-cryptogams.S
- 
- ################################################################################
- 
--obj-$(CONFIG_CRYPTO_LIB_POLYVAL) += libpolyval.o
--libpolyval-y := polyval.o
--ifeq ($(CONFIG_CRYPTO_LIB_POLYVAL_ARCH),y)
--CFLAGS_polyval.o += -I$(src)/$(SRCARCH)
--libpolyval-$(CONFIG_ARM64) += arm64/polyval-ce-core.o
--libpolyval-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
--endif
--
--################################################################################
--
- obj-$(CONFIG_CRYPTO_LIB_SHA1) += libsha1.o
- libsha1-y := sha1.o
- ifeq ($(CONFIG_CRYPTO_LIB_SHA1_ARCH),y)
- CFLAGS_sha1.o += -I$(src)/$(SRCARCH)
- ifeq ($(CONFIG_ARM),y)
-diff --git a/lib/crypto/arm64/polyval.h b/lib/crypto/arm64/gf128hash.h
-similarity index 95%
-rename from lib/crypto/arm64/polyval.h
-rename to lib/crypto/arm64/gf128hash.h
-index a39763395e9b..c1012007adcf 100644
---- a/lib/crypto/arm64/polyval.h
-+++ b/lib/crypto/arm64/gf128hash.h
-@@ -70,11 +70,11 @@ static void polyval_blocks_arch(struct polyval_elem *acc,
- 		polyval_blocks_generic(acc, &key->h_powers[NUM_H_POWERS - 1],
- 				       data, nblocks);
- 	}
- }
- 
--#define polyval_mod_init_arch polyval_mod_init_arch
--static void polyval_mod_init_arch(void)
-+#define gf128hash_mod_init_arch gf128hash_mod_init_arch
-+static void gf128hash_mod_init_arch(void)
- {
- 	if (cpu_have_named_feature(PMULL))
- 		static_branch_enable(&have_pmull);
- }
-diff --git a/lib/crypto/polyval.c b/lib/crypto/gf128hash.c
-similarity index 94%
-rename from lib/crypto/polyval.c
-rename to lib/crypto/gf128hash.c
-index 5796275f574a..8bb848bf26b7 100644
---- a/lib/crypto/polyval.c
-+++ b/lib/crypto/gf128hash.c
-@@ -1,13 +1,13 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * POLYVAL library functions
-+ * GF(2^128) polynomial hashing: GHASH and POLYVAL
-  *
-  * Copyright 2025 Google LLC
-  */
- 
--#include <crypto/polyval.h>
-+#include <crypto/gf128hash.h>
- #include <linux/export.h>
+ #include <linux/cpufeature.h>
+ #include <linux/errno.h>
+ #include <linux/jump_label.h>
+ #include <linux/kernel.h>
  #include <linux/module.h>
  #include <linux/string.h>
  #include <linux/unaligned.h>
  
-@@ -216,12 +216,12 @@ polyval_blocks_generic(struct polyval_elem *acc, const struct polyval_elem *key,
- 		data += POLYVAL_BLOCK_SIZE;
- 	} while (--nblocks);
- }
- 
- /* Include the arch-optimized implementation of POLYVAL, if one is available. */
--#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
--#include "polyval.h" /* $(SRCARCH)/polyval.h */
-+#ifdef CONFIG_CRYPTO_LIB_GF128HASH_ARCH
-+#include "gf128hash.h" /* $(SRCARCH)/gf128hash.h */
- void polyval_preparekey(struct polyval_key *key,
- 			const u8 raw_key[POLYVAL_BLOCK_SIZE])
- {
- 	polyval_preparekey_arch(key, raw_key);
- }
-@@ -236,21 +236,21 @@ EXPORT_SYMBOL_GPL(polyval_preparekey);
-  * code is needed to pass the appropriate key argument.
-  */
- 
- static void polyval_mul(struct polyval_ctx *ctx)
- {
--#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
-+#ifdef CONFIG_CRYPTO_LIB_GF128HASH_ARCH
- 	polyval_mul_arch(&ctx->acc, ctx->key);
- #else
- 	polyval_mul_generic(&ctx->acc, &ctx->key->h);
- #endif
- }
- 
- static void polyval_blocks(struct polyval_ctx *ctx,
- 			   const u8 *data, size_t nblocks)
- {
--#ifdef CONFIG_CRYPTO_LIB_POLYVAL_ARCH
-+#ifdef CONFIG_CRYPTO_LIB_GF128HASH_ARCH
- 	polyval_blocks_arch(&ctx->acc, ctx->key, data, nblocks);
- #else
- 	polyval_blocks_generic(&ctx->acc, &ctx->key->h, data, nblocks);
- #endif
- }
-@@ -287,21 +287,21 @@ void polyval_final(struct polyval_ctx *ctx, u8 out[POLYVAL_BLOCK_SIZE])
- 	memcpy(out, &ctx->acc, POLYVAL_BLOCK_SIZE);
- 	memzero_explicit(ctx, sizeof(*ctx));
- }
- EXPORT_SYMBOL_GPL(polyval_final);
- 
--#ifdef polyval_mod_init_arch
--static int __init polyval_mod_init(void)
-+#ifdef gf128hash_mod_init_arch
-+static int __init gf128hash_mod_init(void)
- {
--	polyval_mod_init_arch();
-+	gf128hash_mod_init_arch();
- 	return 0;
- }
--subsys_initcall(polyval_mod_init);
-+subsys_initcall(gf128hash_mod_init);
- 
--static void __exit polyval_mod_exit(void)
-+static void __exit gf128hash_mod_exit(void)
- {
- }
--module_exit(polyval_mod_exit);
-+module_exit(gf128hash_mod_exit);
- #endif
- 
--MODULE_DESCRIPTION("POLYVAL almost-XOR-universal hash function");
-+MODULE_DESCRIPTION("GF(2^128) polynomial hashing: GHASH and POLYVAL");
+-MODULE_DESCRIPTION("GHASH hash function using ARMv8 Crypto Extensions");
++MODULE_DESCRIPTION("AES-GCM using ARMv8 Crypto Extensions");
+ MODULE_AUTHOR("Ard Biesheuvel <ardb@kernel.org>");
  MODULE_LICENSE("GPL");
-diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
-index 42e1770e1883..aa627b6b9855 100644
---- a/lib/crypto/tests/Kconfig
-+++ b/lib/crypto/tests/Kconfig
-@@ -67,11 +67,11 @@ config CRYPTO_LIB_POLY1305_KUNIT_TEST
- 	help
- 	  KUnit tests for the Poly1305 library functions.
+-MODULE_ALIAS_CRYPTO("ghash");
+ MODULE_ALIAS_CRYPTO("gcm(aes)");
+ MODULE_ALIAS_CRYPTO("rfc4106(gcm(aes))");
  
- config CRYPTO_LIB_POLYVAL_KUNIT_TEST
- 	tristate "KUnit tests for POLYVAL" if !KUNIT_ALL_TESTS
--	depends on KUNIT && CRYPTO_LIB_POLYVAL
-+	depends on KUNIT && CRYPTO_LIB_GF128HASH
- 	default KUNIT_ALL_TESTS
- 	select CRYPTO_LIB_BENCHMARK_VISIBLE
- 	help
- 	  KUnit tests for the POLYVAL library functions.
+ #define RFC4106_NONCE_SIZE	4
  
-@@ -120,15 +120,15 @@ config CRYPTO_LIB_ENABLE_ALL_FOR_KUNIT
- 	tristate "Enable all crypto library code for KUnit tests"
- 	depends on KUNIT
- 	select CRYPTO_LIB_AES_CBC_MACS
- 	select CRYPTO_LIB_BLAKE2B
- 	select CRYPTO_LIB_CURVE25519
-+	select CRYPTO_LIB_GF128HASH
- 	select CRYPTO_LIB_MD5
- 	select CRYPTO_LIB_MLDSA
- 	select CRYPTO_LIB_NH
- 	select CRYPTO_LIB_POLY1305
--	select CRYPTO_LIB_POLYVAL
- 	select CRYPTO_LIB_SHA1
- 	select CRYPTO_LIB_SHA256
- 	select CRYPTO_LIB_SHA512
- 	select CRYPTO_LIB_SHA3
- 	help
-diff --git a/lib/crypto/tests/polyval_kunit.c b/lib/crypto/tests/polyval_kunit.c
-index f47f41a39a41..d1f53a690ab8 100644
---- a/lib/crypto/tests/polyval_kunit.c
-+++ b/lib/crypto/tests/polyval_kunit.c
-@@ -1,10 +1,10 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-  * Copyright 2025 Google LLC
-  */
--#include <crypto/polyval.h>
-+#include <crypto/gf128hash.h>
- #include "polyval-testvecs.h"
+-struct ghash_key {
+-	be128	k;
+-	u64	h[1][2];
+-};
+-
+ struct gcm_key {
+ 	u64	h[4][2];
+ 	u32	rk[AES_MAX_KEYLENGTH_U32];
+ 	int	rounds;
+ 	u8	nonce[];	// for RFC4106 nonce
+ };
  
- /*
-  * A fixed key used when presenting POLYVAL as an unkeyed hash function in order
-  * to reuse hash-test-template.h.  At the beginning of the test suite, this is
-diff --git a/lib/crypto/x86/polyval.h b/lib/crypto/x86/gf128hash.h
-similarity index 95%
-rename from lib/crypto/x86/polyval.h
-rename to lib/crypto/x86/gf128hash.h
-index ef8797521420..fe506cf6431b 100644
---- a/lib/crypto/x86/polyval.h
-+++ b/lib/crypto/x86/gf128hash.h
-@@ -72,12 +72,12 @@ static void polyval_blocks_arch(struct polyval_elem *acc,
- 		polyval_blocks_generic(acc, &key->h_powers[NUM_H_POWERS - 1],
- 				       data, nblocks);
- 	}
+-struct arm_ghash_desc_ctx {
+-	u64 digest[GHASH_DIGEST_SIZE/sizeof(u64)];
+-};
+-
+ asmlinkage void pmull_ghash_update_p64(int blocks, u64 dg[], const char *src,
+ 				       u64 const h[4][2], const char *head);
+ 
+-asmlinkage void pmull_ghash_update_p8(int blocks, u64 dg[], const char *src,
+-				      u64 const h[1][2], const char *head);
+-
+-static int ghash_init(struct shash_desc *desc)
+-{
+-	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	*ctx = (struct arm_ghash_desc_ctx){};
+-	return 0;
+-}
+-
+-static void ghash_do_update(int blocks, u64 dg[], const char *src,
+-			    struct ghash_key *key, const char *head)
+-{
+-	kernel_neon_begin();
+-	pmull_ghash_update_p8(blocks, dg, src, key->h, head);
+-	kernel_neon_end();
+-}
+-
+-static int ghash_update(struct shash_desc *desc, const u8 *src,
+-			unsigned int len)
+-{
+-	struct ghash_key *key = crypto_shash_ctx(desc->tfm);
+-	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
+-	int blocks;
+-
+-	blocks = len / GHASH_BLOCK_SIZE;
+-	ghash_do_update(blocks, ctx->digest, src, key, NULL);
+-	return len - blocks * GHASH_BLOCK_SIZE;
+-}
+-
+-static int ghash_export(struct shash_desc *desc, void *out)
+-{
+-	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
+-	u8 *dst = out;
+-
+-	put_unaligned_be64(ctx->digest[1], dst);
+-	put_unaligned_be64(ctx->digest[0], dst + 8);
+-	return 0;
+-}
+-
+-static int ghash_import(struct shash_desc *desc, const void *in)
+-{
+-	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
+-	const u8 *src = in;
+-
+-	ctx->digest[1] = get_unaligned_be64(src);
+-	ctx->digest[0] = get_unaligned_be64(src + 8);
+-	return 0;
+-}
+-
+-static int ghash_finup(struct shash_desc *desc, const u8 *src,
+-		       unsigned int len, u8 *dst)
+-{
+-	struct ghash_key *key = crypto_shash_ctx(desc->tfm);
+-	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
+-
+-	if (len) {
+-		u8 buf[GHASH_BLOCK_SIZE] = {};
+-
+-		memcpy(buf, src, len);
+-		ghash_do_update(1, ctx->digest, buf, key, NULL);
+-		memzero_explicit(buf, sizeof(buf));
+-	}
+-	return ghash_export(desc, dst);
+-}
+-
+ static void ghash_reflect(u64 h[], const be128 *k)
+ {
+ 	u64 carry = be64_to_cpu(k->a) >> 63;
+ 
+ 	h[0] = (be64_to_cpu(k->b) << 1) | carry;
+@@ -129,44 +51,10 @@ static void ghash_reflect(u64 h[], const be128 *k)
+ 
+ 	if (carry)
+ 		h[1] ^= 0xc200000000000000UL;
  }
  
--#define polyval_mod_init_arch polyval_mod_init_arch
--static void polyval_mod_init_arch(void)
+-static int ghash_setkey(struct crypto_shash *tfm,
+-			const u8 *inkey, unsigned int keylen)
+-{
+-	struct ghash_key *key = crypto_shash_ctx(tfm);
+-
+-	if (keylen != GHASH_BLOCK_SIZE)
+-		return -EINVAL;
+-
+-	/* needed for the fallback */
+-	memcpy(&key->k, inkey, GHASH_BLOCK_SIZE);
+-	ghash_reflect(key->h[0], &key->k);
+-	return 0;
+-}
+-
+-static struct shash_alg ghash_alg = {
+-	.digestsize		= GHASH_DIGEST_SIZE,
+-	.init			= ghash_init,
+-	.update			= ghash_update,
+-	.finup			= ghash_finup,
+-	.setkey			= ghash_setkey,
+-	.export			= ghash_export,
+-	.import			= ghash_import,
+-	.descsize		= sizeof(struct arm_ghash_desc_ctx),
+-	.statesize		= sizeof(struct ghash_desc_ctx),
+-
+-	.base.cra_name		= "ghash",
+-	.base.cra_driver_name	= "ghash-neon",
+-	.base.cra_priority	= 300,
+-	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
+-	.base.cra_blocksize	= GHASH_BLOCK_SIZE,
+-	.base.cra_ctxsize	= sizeof(struct ghash_key),
+-	.base.cra_module	= THIS_MODULE,
+-};
+-
+ void pmull_gcm_encrypt(int blocks, u64 dg[], const char *src,
+ 		       struct gcm_key const *k, char *dst,
+ 		       const char *iv, int rounds, u32 counter);
+ 
+ void pmull_gcm_enc_final(int blocks, u64 dg[], char *tag,
+@@ -541,40 +429,18 @@ static struct aead_alg gcm_aes_algs[] = {{
+ 	.base.cra_module	= THIS_MODULE,
+ }};
+ 
+ static int __init ghash_ce_mod_init(void)
+ {
+-	int err;
+-
+-	if (!(elf_hwcap & HWCAP_NEON))
++	if (!(elf_hwcap & HWCAP_NEON) || !(elf_hwcap2 & HWCAP2_PMULL))
+ 		return -ENODEV;
+ 
+-	if (elf_hwcap2 & HWCAP2_PMULL) {
+-		err = crypto_register_aeads(gcm_aes_algs,
+-					    ARRAY_SIZE(gcm_aes_algs));
+-		if (err)
+-			return err;
+-	}
+-
+-	err = crypto_register_shash(&ghash_alg);
+-	if (err)
+-		goto err_aead;
+-
+-	return 0;
+-
+-err_aead:
+-	if (elf_hwcap2 & HWCAP2_PMULL)
+-		crypto_unregister_aeads(gcm_aes_algs,
+-					ARRAY_SIZE(gcm_aes_algs));
+-	return err;
++	return crypto_register_aeads(gcm_aes_algs, ARRAY_SIZE(gcm_aes_algs));
+ }
+ 
+ static void __exit ghash_ce_mod_exit(void)
+ {
+-	crypto_unregister_shash(&ghash_alg);
+-	if (elf_hwcap2 & HWCAP2_PMULL)
+-		crypto_unregister_aeads(gcm_aes_algs,
+-					ARRAY_SIZE(gcm_aes_algs));
++	crypto_unregister_aeads(gcm_aes_algs, ARRAY_SIZE(gcm_aes_algs));
+ }
+ 
+ module_init(ghash_ce_mod_init);
+ module_exit(ghash_ce_mod_exit);
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 98cedd95c2a5..4f1a79883a56 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -117,10 +117,11 @@ config CRYPTO_LIB_GF128HASH
+ 	  uses any of the functions from <crypto/gf128hash.h>.
+ 
+ config CRYPTO_LIB_GF128HASH_ARCH
+ 	bool
+ 	depends on CRYPTO_LIB_GF128HASH && !UML
++	default y if ARM && KERNEL_MODE_NEON
+ 	default y if ARM64
+ 	default y if X86_64
+ 
+ config CRYPTO_LIB_MD5
+ 	tristate
+diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
+index fc30622123d2..8a06dd6a43ea 100644
+--- a/lib/crypto/Makefile
++++ b/lib/crypto/Makefile
+@@ -156,10 +156,11 @@ libdes-y					:= des.o
+ 
+ obj-$(CONFIG_CRYPTO_LIB_GF128HASH) += libgf128hash.o
+ libgf128hash-y := gf128hash.o
+ ifeq ($(CONFIG_CRYPTO_LIB_GF128HASH_ARCH),y)
+ CFLAGS_gf128hash.o += -I$(src)/$(SRCARCH)
++libgf128hash-$(CONFIG_ARM) += arm/ghash-neon-core.o
+ libgf128hash-$(CONFIG_ARM64) += arm64/polyval-ce-core.o
+ libgf128hash-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
+ endif
+ 
+ ################################################################################
+diff --git a/lib/crypto/arm/gf128hash.h b/lib/crypto/arm/gf128hash.h
+new file mode 100644
+index 000000000000..cb929bed29d5
+--- /dev/null
++++ b/lib/crypto/arm/gf128hash.h
+@@ -0,0 +1,43 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * GHASH, arm optimized
++ *
++ * Copyright 2026 Google LLC
++ */
++
++#include <asm/hwcap.h>
++#include <asm/neon.h>
++#include <asm/simd.h>
++
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
++
++void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
++			   const u8 *src, const struct polyval_elem *k);
++
++#define ghash_blocks_arch ghash_blocks_arch
++static void ghash_blocks_arch(struct polyval_elem *acc,
++			      const struct ghash_key *key,
++			      const u8 *data, size_t nblocks)
++{
++	if (static_branch_likely(&have_neon) && may_use_simd()) {
++		do {
++			/* Allow rescheduling every 4 KiB. */
++			size_t n =
++				min_t(size_t, nblocks, 4096 / GHASH_BLOCK_SIZE);
++
++			scoped_ksimd()
++				pmull_ghash_update_p8(n, acc, data, &key->h);
++			data += n * GHASH_BLOCK_SIZE;
++			nblocks -= n;
++		} while (nblocks);
++	} else {
++		ghash_blocks_generic(acc, &key->h, data, nblocks);
++	}
++}
++
 +#define gf128hash_mod_init_arch gf128hash_mod_init_arch
 +static void gf128hash_mod_init_arch(void)
- {
- 	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ) &&
- 	    boot_cpu_has(X86_FEATURE_AVX))
- 		static_branch_enable(&have_pclmul_avx);
- }
++{
++	if (elf_hwcap & HWCAP_NEON)
++		static_branch_enable(&have_neon);
++}
+diff --git a/arch/arm/crypto/ghash-neon-core.S b/lib/crypto/arm/ghash-neon-core.S
+similarity index 92%
+rename from arch/arm/crypto/ghash-neon-core.S
+rename to lib/crypto/arm/ghash-neon-core.S
+index bdf6fb6d063c..bf423fb06a75 100644
+--- a/arch/arm/crypto/ghash-neon-core.S
++++ b/lib/crypto/arm/ghash-neon-core.S
+@@ -139,26 +139,25 @@
+ 	veor		XL, XL, T1
+ 	vshr.u64	T1, T1, #6
+ 	vshr.u64	XL, XL, #1
+ 	.endm
+ 
++	.macro		vrev64_if_be	a
++#ifdef CONFIG_CPU_BIG_ENDIAN
++	vrev64.8	\a, \a
++#endif
++	.endm
++
+ 	.macro		ghash_update
+ 	vld1.64		{XL}, [r1]
+-
+-	/* do the head block first, if supplied */
+-	ldr		ip, [sp]
+-	teq		ip, #0
+-	beq		0f
+-	vld1.64		{T1}, [ip]
+-	teq		r0, #0
+-	b		3f
++	vrev64_if_be	XL
+ 
+ 0:
+ 	vld1.8		{T1}, [r2]!
+ 	subs		r0, r0, #1
+ 
+-3:	/* multiply XL by SHASH in GF(2^128) */
++	/* multiply XL by SHASH in GF(2^128) */
+ 	vrev64.8	T1, T1
+ 
+ 	vext.8		IN1, T1, T1, #8
+ 	veor		T1_L, T1_L, XL_H
+ 	veor		XL, XL, IN1
+@@ -178,15 +177,17 @@
+ 
+ 	bne		0b
+ 	.endm
+ 
+ 	/*
+-	 * void pmull_ghash_update_p8(int blocks, u64 dg[], const char *src,
+-	 *			      u64 const h[1][2], const char *head)
++	 * void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
++	 *			      const u8 *src,
++	 *			      const struct polyval_elem *k)
+ 	 */
+ ENTRY(pmull_ghash_update_p8)
+ 	vld1.64		{SHASH}, [r3]
++	vrev64_if_be	SHASH
+ 	veor		SHASH2_p8, SHASH_L, SHASH_H
+ 
+ 	vext.8		s1l, SHASH_L, SHASH_L, #1
+ 	vext.8		s2l, SHASH_L, SHASH_L, #2
+ 	vext.8		s3l, SHASH_L, SHASH_L, #3
+@@ -199,9 +200,10 @@ ENTRY(pmull_ghash_update_p8)
+ 	vmov.i64	k16, #0xffff
+ 	vmov.i64	k32, #0xffffffff
+ 	vmov.i64	k48, #0xffffffffffff
+ 
+ 	ghash_update
++	vrev64_if_be	XL
+ 	vst1.64		{XL}, [r1]
+ 
+ 	bx		lr
+ ENDPROC(pmull_ghash_update_p8)
 -- 
 2.53.0
 
