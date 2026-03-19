@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B2110854D2
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 17:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4581075270
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 17:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=96fz6RULvYtiC+fZuUEv0svfZVbMfc7ZE8v0IiQ+ayU=; b=n6aSYsuY4GrIgr
-	Zpv1oOplGqECbKGlxMuVv/1Enk/WtyBIiO42nVtidJwi3eLDq1mCmdJH2f0yxdEsbVHdNZpx3hPsA
-	YF0jMXSzHNEtY8WKV3Bx5UFY84K7PQcF3JfPUOOCiMgyduKyDy8OXN0TeNBRjV78oNQVldSiOKPeL
-	/oVWI8YqWc/vhR924pR9hTMkgHNcy+n8UXC1hMkCFJFOCnl/8G5Nf9DNV6e+nq1ZjV+g+vJ+/IDlu
-	8spD0/wEV0fnKF7/3Cbg0dZw2hwayHqATva8x+jfyBHTFkPK0/n9P+0BZHlhLfk5WoJ94Bu7q7AOO
-	298g8MxJswmXAvYEkosg==;
+	List-Owner; bh=IRNimHEqx4mBHj40jIW5tchb6Wg/YGN4KnZvxrDOrwo=; b=2Ucj+seAgyuG4X
+	Ff96JzIUE6OlHqAjMnhEX+F53elSvBzzeXZzrAU2qswxPTMI8MaqSJB01+/MN0+rKpDcOK1pJEhlO
+	cI41bMAET5yoxBZa6wb+wMwGOqUxlzHhTwxvqn99fFyHFqTrEOc3KK5qVkIQQpUJs9X9ySFe/teH7
+	4xOxpAgNCJpiprOLDDt8NpkJRcUIeQ1ZuUXVR7zul3GOjsmHFlbPuzWwHwPS09G8YNwG28jQ3SVd8
+	vcJVzIi7m1hiadf7XTzVUI27EHVKWEmQvbR+z8kjXFRs/O2w0P+I+w+3rNYSz1P0mS4QKfeLhdMHD
+	CzTnuoqpFVBdQPLr2ANA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3H6w-0000000BC78-0sOM;
-	Thu, 19 Mar 2026 17:24:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3HA9-0000000BCYM-1RBj;
+	Thu, 19 Mar 2026 17:28:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3H6t-0000000BC6X-0nxw
-	for linux-riscv@lists.infradead.org;
-	Thu, 19 Mar 2026 17:24:40 +0000
+	id 1w3HA7-0000000BCXq-0FfG;
+	Thu, 19 Mar 2026 17:27:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94B58444F5;
-	Thu, 19 Mar 2026 17:24:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 056A6C2BCAF;
-	Thu, 19 Mar 2026 17:24:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C229960053;
+	Thu, 19 Mar 2026 17:27:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C008C19424;
+	Thu, 19 Mar 2026 17:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773941078;
-	bh=kBRINqrLYdRaj2OTEdauVdZSYU6PWMTWOVjA1hl4gb8=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=R5r8knBa5uix+BUJZ32fXdz4UxrwXjG1/IOoy+lDg1ROBRqtLSvPC5ACZyKJ66ny0
-	 G/2rA3+d+BId4Em+A5hIh54RuH9SJfLwBzsqSFDRoa6hDzJTgleTmdXrxh0FYq3mqj
-	 bqwd6nJ7qR6G2ZKtHs3pO47snz/Fm8dHEwd5UZcaZLJNU9b/flBfw+7vpvhuJbN1NB
-	 Kmfg7lMJPyEP28OSbR26yckvQUJvLqZke38CjCOOyVt48ivSf52/J4M/EG6IHa/cbM
-	 8+aYK5BUVDFvwkTd9DXextHTEbOdvEQMAsbzluZzvd2CgZsduZrVl5+JjFPl5IU1oJ
-	 MB8YO1qcxjMxw==
-From: Namhyung Kim <namhyung@kernel.org>
-To: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
- irogers@google.com, pjw@kernel.org, alex@ghiti.fr, guoren@kernel.org, 
- cp0613@linux.alibaba.com
-Cc: linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260317034847.4136-1-cp0613@linux.alibaba.com>
-References: <20260317034847.4136-1-cp0613@linux.alibaba.com>
-Subject: Re: [PATCH] perf symbol: Add RISCV case in get_plt_sizes
-Message-Id: <177394107796.14914.5183103180695281404.b4-ty@b4>
-Date: Thu, 19 Mar 2026 10:24:37 -0700
+	s=k20201202; t=1773941277;
+	bh=wnmsKZ1D1KfzQIEHQIk8Eq+6eKtEf+x/yXH1sCkJxLE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ni11x5qHEQ6U2LG6CI2Vjyjh8t7GcOt+96zl91V9r2Di7PZwwNlUqIZVECtb5H2w5
+	 aQAItB7sZ8iybPVrttsTi0XPAtP+zr/ASNQ1euqvkmHf5ydGP6UZqDwpxf8ALEXyxe
+	 8pCPJtXU8n7uKWcfbNhSoQVeIfHgpw1D/+DaX6oVnt1IqKlW7ofgHpLFNeb9PCwYJO
+	 z9xyzSEe9mrHUJmqAXRi85ear0h0WPeoMl9z5fS+NVNSAnh6OhiWOJtu46EqEDWHpx
+	 ropdkm9HGkEYmJPnTkidmpipti0N5Xx1ibqNhPY2cRQYPPciTZ+SLEtNcx/Gs/2xYI
+	 UmlXn7wXZROVA==
+Message-ID: <624d9f1f-656a-4a63-888c-e953b90bf56e@kernel.org>
+Date: Thu, 19 Mar 2026 18:27:44 +0100
 MIME-Version: 1.0
-X-Mailer: b4 0.15-dev-02735
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_102439_261792_B11DCBD1 
-X-CRM114-Status: UNSURE (   6.15  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 09/23] mm: unexport vm_brk_flags() and eliminate
+ vm_flags parameter
+Content-Language: en-US
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Kees Cook <kees@kernel.org>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>,
+ Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ Ondrej Mosnacek <omosnace@redhat.com>, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
+References: <cover.1773846935.git.ljs@kernel.org>
+ <297c7690f17257ba11a7b8c94fe54709a64d89fb.1773846935.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <297c7690f17257ba11a7b8c94fe54709a64d89fb.1773846935.git.ljs@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +105,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Mar 2026 11:48:47 +0800, cp0613@linux.alibaba.com wrote:
-
-> According to RISC-V psABI specification, the PLT (Program Linkage Table)
-> has the following layout:
-> - The first PLT entry occupies two 16-byte entries (32 bytes total)
-> - Subsequent PLT entries take up 16 bytes each
+On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
+> This function is only used by elf_load(), and that is a static function
+> that doesn't need an exported symbol to invoke an internal function, so
+> un-EXPORT_SYMBOLS() it.
 > 
-> This aligns with the binutils-gdb implementation which defines the same
-> PLT sizes for RISC-V architecture.
+> Also, the vm_flags parameter is unnecessary, as we only ever set VM_EXEC,
+> so simply make this parameter a boolean.
 > 
-> [...]
+> While we're here, clean up the mm.h definitions for the various vm_xxx()
+> helpers so we actually specify parameter names and elide the redundant
+> extern's.
+> 
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Applied to perf-tools-next, thanks!
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-Best regards,
-Namhyung
+> ---
+>  fs/binfmt_elf.c    |  3 +--
+>  include/linux/mm.h | 12 ++++++------
+>  mm/mmap.c          |  8 ++------
+>  3 files changed, 9 insertions(+), 14 deletions(-)
+> 
+> diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
+> index fb857faaf0d6..16a56b6b3f6c 100644
+> --- a/fs/binfmt_elf.c
+> +++ b/fs/binfmt_elf.c
+> @@ -453,14 +453,13 @@ static unsigned long elf_load(struct file *filep, unsigned long addr,
+>  		zero_end = ELF_PAGEALIGN(zero_end);
+>  
+>  		error = vm_brk_flags(zero_start, zero_end - zero_start,
+> -				     prot & PROT_EXEC ? VM_EXEC : 0);
+> +				     prot & PROT_EXEC);
+>  		if (error)
+>  			map_addr = error;
+>  	}
+>  	return map_addr;
+>  }
+>  
+> -
+>  static unsigned long total_mapping_size(const struct elf_phdr *phdr, int nr)
+>  {
+>  	elf_addr_t min_addr = -1;
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 0c35423177bf..42d346684678 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -4005,12 +4005,12 @@ static inline void mm_populate(unsigned long addr, unsigned long len) {}
+>  #endif
+>  
+>  /* This takes the mm semaphore itself */
+> -extern int __must_check vm_brk_flags(unsigned long, unsigned long, unsigned long);
+> -extern int vm_munmap(unsigned long, size_t);
+> -extern unsigned long __must_check vm_mmap(struct file *, unsigned long,
+> -        unsigned long, unsigned long,
+> -        unsigned long, unsigned long);
+> -extern unsigned long __must_check vm_mmap_shadow_stack(unsigned long addr,
+> +int __must_check vm_brk_flags(unsigned long addr, unsigned long request, bool is_exec);
+> +int vm_munmap(unsigned long start, size_t len);
+> +unsigned long __must_check vm_mmap(struct file *file, unsigned long addr,
+> +		unsigned long len, unsigned long prot,
+> +		unsigned long flag, unsigned long offset);
+> +unsigned long __must_check vm_mmap_shadow_stack(unsigned long addr,
+>  		unsigned long len, unsigned long flags);
+>  
+>  struct vm_unmapped_area_info {
+> diff --git a/mm/mmap.c b/mm/mmap.c
+> index 79544d893411..2d2b814978bf 100644
+> --- a/mm/mmap.c
+> +++ b/mm/mmap.c
+> @@ -1201,8 +1201,9 @@ SYSCALL_DEFINE5(remap_file_pages, unsigned long, start, unsigned long, size,
+>  	return ret;
+>  }
+>  
+> -int vm_brk_flags(unsigned long addr, unsigned long request, vm_flags_t vm_flags)
+> +int vm_brk_flags(unsigned long addr, unsigned long request, bool is_exec)
+>  {
+> +	const vm_flags_t vm_flags = is_exec ? VM_EXEC : 0;
+>  	struct mm_struct *mm = current->mm;
+>  	struct vm_area_struct *vma = NULL;
+>  	unsigned long len;
+> @@ -1217,10 +1218,6 @@ int vm_brk_flags(unsigned long addr, unsigned long request, vm_flags_t vm_flags)
+>  	if (!len)
+>  		return 0;
+>  
+> -	/* Until we need other flags, refuse anything except VM_EXEC. */
+> -	if ((vm_flags & (~VM_EXEC)) != 0)
+> -		return -EINVAL;
+> -
+>  	if (mmap_write_lock_killable(mm))
+>  		return -EINTR;
+>  
+> @@ -1246,7 +1243,6 @@ int vm_brk_flags(unsigned long addr, unsigned long request, vm_flags_t vm_flags)
+>  	mmap_write_unlock(mm);
+>  	return ret;
+>  }
+> -EXPORT_SYMBOL(vm_brk_flags);
+>  
+>  static
+>  unsigned long tear_down_vmas(struct mm_struct *mm, struct vma_iterator *vmi,
 
 
 _______________________________________________
