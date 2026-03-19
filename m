@@ -4,127 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D78109023F
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 15:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC19109023F
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 15:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GfdPSA3r6hD/sOd7m1yVnYhn0ji4aChoCLlW6UmYM7s=; b=ODSNZkw6lXzwrU
-	kCAnBYyMsf1r9LrgoyrGPZbZ9VWxOX6hq4jZBbtDwNSw1xoDWDgOnb1aJaavMu+2MARSIdhmu80b4
-	F+cvjKXJ3yvCFrlyuImUzHh6RVFehtZmgs8a9TPlpU6mZ4P965onC4JmmssV8GIkvTUjqKbuxc030
-	Y9QnO1IjL/6nnmQ2mGzp616degLBUX5z9lGqvBh0VeikGxbGDg7bPwBy3r3C1jzRhLKB5qlWal7xc
-	GWmmxa/eAbhSlZEMprkF4bMzNvhFZdUDaf7FBogNraf4LgnwZ9dGRUKaJ/7F1FQWxljKC/o3sOxeN
-	YUhXKqhUUQXiMpZuC9rA==;
+	List-Owner; bh=8pwdUGERVXqBlqKQpLiqv3fqkdH0M6jPfVuzujqcqdY=; b=c3THMH3sDhc5TI
+	5k+s5xL16dOyW8+eYzd4q8y0cgZOElFm+x/iEilaT5RJvMWwtpbPgC693h4OfFb2aj8vK7J6GZA/o
+	5QEqGD7Zvw9BU50zzro2PXof0RmlcAM7wNI4fgaaK8S3X6hKzWTVX/PHQRkVR/YD0oEyhhW5QEzNZ
+	yE4QBd3ZyBQ0HX32DLb4Lb2FH3mqlq13XAXoZYE8JC0luVOTZwLlqqMhu5MjK/IgsJVWYyYuXVIS4
+	x8H9yjo0+bILwsEF2BdDgMGAB1xvEyfbNC6QAJpyA5jqzHp9Jxszwqv28gV9FpAoZSQ8+RZZ0hC6e
+	8s45JbwK/RJSD8jf0FBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FZn-0000000AwAA-3iJU;
-	Thu, 19 Mar 2026 15:46:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w3Ffo-0000000AxR0-49gQ;
+	Thu, 19 Mar 2026 15:52:37 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FZk-0000000Aw97-4BKm
-	for linux-riscv@lists.infradead.org;
-	Thu, 19 Mar 2026 15:46:22 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62JEJOTI4156100
-	for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 15:46:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=DvNqP241qE8dFBqHq5L6qVz4
-	ghSD7knOgVJYfSQ1B58=; b=Yld7gZy2Vwg7aTwn9M0NrrFrVWWy2GG/gLK7dKB6
-	3Xxqr/TDd+CZGMnsnJPz/K3Qa/xinQn4bBim6e/SIY2lxHC59LsOg3Ir/Bzop+FN
-	nXALqgBdEtgGwTx4hrDwAIgi3E++GbgchA/Tb9JqtNNJE0lGCxQFp70ZN7dnnhpb
-	gA2H4CjR3pEBLlK1y3IKFMLVtPdf3IqARQSJUG53twBLZifGbwlK4ijMhGb9hsol
-	oPtOLe3EiflHII4K6ErRMacybeKHiy5UDD1BRgXKQBSo5+2t7g6sdf7GTIUnXg7/
-	1fuSHqndq50QugXJHsDKcZ6CqP2RsEPQJBrTEF2i7yH6vg==
-Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d0jt90ab8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 15:46:19 +0000 (GMT)
-Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-6028957144bso1618012137.2
-        for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 08:46:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1773935177; x=1774539977; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DvNqP241qE8dFBqHq5L6qVz4ghSD7knOgVJYfSQ1B58=;
-        b=Fu21YFnDGogecPCrSv+Bu8lcy5ftUPu4Doi1x8+68+S8Fk/9YJzVy7rpBopM691FRI
-         Z0jmhOr2K2/LRwPRrlO8hl6afa/jHUqNemIZ+fWnaj1YJgIXr3rJS2qHGV559ZWOpA3s
-         p6LYtzlhK9paFrHYoVojyVzWSYfOfja/3b394AJu6LGQMZSq3E2R9UZA4hdLOZLtBHXV
-         7dzGkHoGPPASjhFkaYUHh9fb5ucG7tcC7vb4g0F5yiocpeOA5Ksqn3dQ0Z2DzA7TJBmD
-         yJVcnNPn0ANSsOey9HHTRf3v3YCFdV6OSWO4ooYQZG+jABMDLTImvMJJv+FRDo671EV7
-         JozA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773935177; x=1774539977;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=DvNqP241qE8dFBqHq5L6qVz4ghSD7knOgVJYfSQ1B58=;
-        b=gbirp65AzyRtljqgFR8S1T9iCjgU9PdM25dsi9SlfF2PWZbyCbRAJdltohgw6YAuHT
-         7lxXVEJnowDTGPIaSPl5jpX+vhoWjvNAy372iTZrRm10UE6eZWj9lY5xxVCiqStCsNZ0
-         6qylEnAk4aZni6CTQawgGdFH58SSCR29BNWKdqi3dLjBrj5by2d7K/D6yhwtVbjpO1y2
-         kaut5nzEEWheikuxv/ZTWUxsKnD+lTwHo7hBwSQOPjEo1pkUUs42rCE2d3TUXw4PK3R6
-         szbVfsqr1BpGb4e3htDaSIx5TgKVf/iY0L9nx/7ybRnjYTsBwsCLo6joUNtKO8ONIypi
-         U4YA==
-X-Forwarded-Encrypted: i=1; AJvYcCU16IVDRx+dOe9OI9C3hT/3wFkTQE9L+GC2FVkytm52nq3P22eVXdiFeo5ldpbEHPLPFKF+GuWpgDiinA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywa7u6ZOsoFxCrZCFOs5p0Od0pNdlKpScRVFPSG0CoMwC2eEERt
-	0Hl74O/SsGjamHArWd1yLf2HKm4OBhONEfvf9EJOi3KQav1nhhRVh4EWVotAjZ2Dp9ILa00GOFL
-	gXQRentKcBdRlQYd9B+7vP5H7mYBcAKf5g9XeMBZJOvgB264KUUn2BImmU6gs51cLZpMQqlg=
-X-Gm-Gg: ATEYQzymcglH8AcXhCWTmekcuxCIc+6icQS+sgCa7tAsavDNqacWEqvyleGr4iyI2/p
-	xYELyUiycrNUCcEm183teqenhmiPk3HAhcHIdF2l4rpXancV3KCHQ0jfFc94OTF7J3XMR2CpGtO
-	ZpmAGjESSmB1tLOButCXlssftPzy+7+CJtY0dFIoI5OYqgEQUq/t7adoQ3wUajQjoxGEl7zuNiy
-	0ijZ9x7RrGoGot4Z5Fyp5GmQKWV8y3ADD4fkyuCVX7/DNoo3cREEhXad9Y0So4D5Q9/DL06KnJJ
-	RAZEYF4+uEpGybVdNAsMhj2swyxWebVTHkq6LNB6oVgy7ewvnIDVTBIjqsFfIoNIvF4L0sZWK/K
-	6I2MOY5CFMTyAVnTNe5nRMKuPmZFnJBk/P6r+qA==
-X-Received: by 2002:a05:6102:d89:b0:5ff:9d74:967b with SMTP id ada2fe7eead31-6027d330b13mr3043074137.20.1773935177064;
-        Thu, 19 Mar 2026 08:46:17 -0700 (PDT)
-X-Received: by 2002:a05:6102:d89:b0:5ff:9d74:967b with SMTP id ada2fe7eead31-6027d330b13mr3042963137.20.1773935176396;
-        Thu, 19 Mar 2026 08:46:16 -0700 (PDT)
-Received: from localhost ([2a01:4b00:b703:c200:1ac0:4dff:fe39:5426])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f8c40ccbsm129162465e9.9.2026.03.19.08.46.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 08:46:15 -0700 (PDT)
-From: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-To: Chengwen Feng <fengchengwen@huawei.com>
-Subject: Re: [PATCH v9 1/7] arm64/acpi: Add acpi_get_cpu_uid() and switch
- arm_cspmu to use it
-In-Reply-To: <20260319065735.45954-2-fengchengwen@huawei.com> (Chengwen Feng's
-	message of "Thu, 19 Mar 2026 14:57:29 +0800")
-References: <20260319065735.45954-1-fengchengwen@huawei.com>
-	<20260319065735.45954-2-fengchengwen@huawei.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
-Date: Thu, 19 Mar 2026 15:46:14 +0000
-Message-ID: <87341vq0u1.fsf@stealth>
+	id 1w3Ffl-0000000AxN8-2vtV;
+	Thu, 19 Mar 2026 15:52:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KB45WVRPD/YHpVDRB1Dwd/5KMpc6wZjbp21dITHPVl4GVAFPeoYTtCG+ua+QiU9vONGerdMQMDESe6kQ+z8xDRkNgI8KQUS5XfZDUY6RzhNhlSn1E875dl8W6b6+dLhpGpDu2RWIFGMtCTE25aysRQNf6zJTuIIhxaRQ/ncWIYCA99rS80G33ZHFuqGrI+pZr2bxib5e1TDWtfiWvfSWX8UI0h3M3B3gFVPj7FsI5xPLG4d3mW1yd+8Gw3FM3HbugX0zDv7qmL86X8u+MY1yiVmxyOmcMRJG9QsPQQMPTv6bsImQYEtz5CW0IVGHvZ9ubAxLsQJGZ6qBm5oZZm1Brw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PmgyijRcd4OmJG/9PnORXit59oxOF3CJelVTrd5+kIQ=;
+ b=RbDDlMRmUrAgX3L0qbeftOWPiG3CALw6/Wtyd9zwJM+7Em0wBCAOP1H4+8G4zFMEQCnX+WwZaQbXaQkFrKDMNKsm6HzUFGlRZREHDGQRmPnbu0toHA2Un9Xt++rr4P/YS6xEpjGKiml7MxXOIag9GdYw2SK9KrmhORtiFZa14OVaIJ4BC0CX/3yTa4So/3m1kIOJ4Nm2G1/B6BEHMYQdCrk5A9AqPeK20fEPRnpywr+aqyily17PBR7emMLIxos1TVn6XrrALaMksy4Myy6WT/5udIgKovgvCgQGQrUZzSGKKP77QotdW8fZKL1LFN8mrq93fT14xa2jMetpQr1A5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kylinos.cn smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PmgyijRcd4OmJG/9PnORXit59oxOF3CJelVTrd5+kIQ=;
+ b=jSyvClCrbBv2TQ4t2t90g/vNNcn42Xj8bhi5UEPDpNPAmF6JnQjYiMgsyxZKHKmIEKZVQYI9Frp3DKPh19nFNMHgGbMawlUreS76kYr2aU1snytDDGlf9LB5VBH8JTkhk54HpGwgWNnVri6kFCyNnWpncuSIejKBu1NDApA3FmBvD3sREn/77pc83HP5twjh974pHyUEvRxbnwEGae8m+nv7LYhiruT9V0/Rm8x+Q2x7zukcKDy2+hQlLzPB1AfR/b1ae5ifVtkHGXO9PwcDVQZTz+bTfBiT8yF6A5MrXxxosW5QaLTeScTYEZauIYnTj5BCcRJEcBDb0jgkuWXCEw==
+Received: from DB3PR08CA0014.eurprd08.prod.outlook.com (2603:10a6:8::27) by
+ DU0PR10MB7264.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:447::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19; Thu, 19 Mar 2026 15:52:26 +0000
+Received: from DB1PEPF000509E3.eurprd03.prod.outlook.com
+ (2603:10a6:8:0:cafe::ee) by DB3PR08CA0014.outlook.office365.com
+ (2603:10a6:8::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Thu,
+ 19 Mar 2026 15:52:25 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB1PEPF000509E3.mail.protection.outlook.com (10.167.242.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Thu, 19 Mar 2026 15:52:25 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Mar
+ 2026 16:55:00 +0100
+Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Mar
+ 2026 16:52:24 +0100
+Date: Thu, 19 Mar 2026 16:52:17 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: Pei Xiao <xiaopei01@kylinos.cn>
+CC: <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+	<openbmc@lists.ozlabs.org>, <linux-rockchip@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <broonie@kernel.org>,
+	<Frank.Li@nxp.com>, <amelie.delaunay@foss.st.com>
+Subject: Re: [Linux-stm32] [PATCH v5 13/17] spi: stm32: Simplify clock
+ handling with devm_clk_get_enabled()
+Message-ID: <abwbsdBCbNZniGPO@gnbcxd0016.gnb.st.com>
+References: <cover.1773885292.git.xiaopei01@kylinos.cn>
+ <c8259f582596fd08541b94dce5dbb4cae513e295.1773885292.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-X-Proofpoint-GUID: aJa8V9pXwNLKWBB1tBLM-AQvlLXZYjYE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE5MDEyNCBTYWx0ZWRfX4QEsWkl70A41
- X+4PqZmLIQBLJd9x6ZY/1rgaX07XQ0QKxq46+oQGulwbz6GdpAceZi9BI9/vIhkzgBZGUjkADK0
- O/uFLhJnLxZ5m7oP6WJlBf6mbGgobFoyOOmhDJC/tOMH+AF5VulGu5giR/z0YVqD7Xa5TmM0iYk
- m/AYV3Za38umHwXD13feTIKuX01gGhV1q0wi6PWnOD2IDsb8t5FfUKSRh5JC01NmMv95lwpI1SR
- ZuupTvYxxgpJgXb9ECI1bYkalA7tekXctQ951fajmBr/Xn53PrjpAz5toQPUYGDiL5GrCeeQIAs
- Jml2OoxeqEDaHkq77jOsmG1FCUQZLcLcBJYhsvmMl6ikZRbqaErwjc6zGYsVInLTMqSOBp619xe
- OILWJ3Ap8ccAb11gz3Krk5WwLqL+6JkN0nOyI5S+Re6WNX8Vuk3hfXZu8ZgqNX9tYETWUPO83s6
- pGggqIY/TriUvs51ugg==
-X-Proofpoint-ORIG-GUID: aJa8V9pXwNLKWBB1tBLM-AQvlLXZYjYE
-X-Authority-Analysis: v=2.4 cv=FKMWBuos c=1 sm=1 tr=0 ts=69bc1a4b cx=c_pps
- a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=xqWC_Br6kY4A:10 a=Yq5XynenixoA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=DJpcGTmdVt4CTyJn9g5Z:22 a=i0EeH86SAAAA:8 a=VwQbUJbxAAAA:8
- a=Gl9ZV0r3yxOOH3mhj0oA:9 a=gYDTvv6II1OnSo0itH1n:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-19_02,2026-03-19_05,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 bulkscore=0 spamscore=0 malwarescore=0
- lowpriorityscore=0 clxscore=1011 adultscore=0 priorityscore=1501
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2603190124
+Content-Disposition: inline
+In-Reply-To: <c8259f582596fd08541b94dce5dbb4cae513e295.1773885292.git.xiaopei01@kylinos.cn>
+X-Disclaimer: ce message est personnel / this message is private
+X-Originating-IP: [10.130.77.119]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509E3:EE_|DU0PR10MB7264:EE_
+X-MS-Office365-Filtering-Correlation-Id: 26f4bb44-52c2-4323-b3ae-08de85cf83f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|1800799024|82310400026|18002099003|56012099003|22082099003|7053199007;
+X-Microsoft-Antispam-Message-Info: i790NmnyAze8L8ruj4DraySR3x2noY4HVobfFZ71eduo69J/CBZ19gmz5kiqg7mQ/+Fm6bHpxiRH29PU8N4MU/pAyxOXuvlBKhZ9Zqkkv4cqDeHhnsBKTGY0BI9ZlndodkR6AeGPS5eTRmtxqIolxDjk21FG1x+L9181Q26sJaqFLIS/Yus4pOJWUttYbX8YEs/jAZigMy9IlMwVl7IBMb9r5OdoQi5g/SDEGjXVRHg3V4r5YauwoVTUTb3IBoEbVWao2Zp6Ns1XdjFMlVT7YwPNvjaNMOk79u/e/wh+hrTWr44LOmp4UGDQ0y2aFZDnSJ/aV07Ln45je5VPDQOT5J4enIwt2+C90e/If/3Y3LdGBi/hVNnH5Skd+a0wVLO4Aoa23HT1fR+p/CyCY3aRNUdYvoGx2v7DBy4fbYCbKRGmHn7Fvk72fP1ISAajuoA05rCsYsd9+OoLw6OS204/o48Wcdpo5zx76xqAFHm6QUtx1MBBC++Y9lguY5s+lTD5+S2WcMcxlg+fSyn+n1HnQXOn1z6nUmucC6/GhMjSTyQmxh17XdPQorwQbR3P6cRAXbObZcUeHMAKULsGHIUEW5iGIapwW1pgAdebK7nTEIB6qNN1eHpfE2LA2pDErsWdZ/lvLHrkmXKFuBFTgRvoKs/zIU/3/062IQOT/xq2RB7Q4OYgv5+nU2z+IyDvcn+IZSNAIY8I6hoylkOC73j1V7rKpMU7F2vWZaREoih91f8=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(1800799024)(82310400026)(18002099003)(56012099003)(22082099003)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: TVXouk8Fa30YFfPqg/PB/cNdwlNnrIc58BlsYVyv1hQtynP8rMeuZOfnW5TDyQAHeR7zXxyCKrUW0qt44lpV6w78fID2zpFCzeL0KFt2qYYLHILZB3rdzDtnPtptXRGjbLO4LomkViIdEOBCtSy7S40eLEt5OIs2vOsJDLczQuB4+RcNjoDQP2WUDrpd6BGl8Mm1F8/3ZnVI33QIi0XplZYKfTVp3U4702JwNQdyeGtN5/rgJ6fsB4Niw1J/CZjlo0siAVpO6mKucCdVyr7ql1oxUhQfX2teXeifx18y9+kDs9PtVVuVoZCfxoW4kAvfKyPWQ7wW1MJg9eR5b83Su6e4G2Qg1lKqwhU0sv/Om+rnkVrqn3+0r/4o+NbWBxDKXCJHKxrDb5ZH8eWMygU+ls8JZ3mo3B2LxxdXuZwNYExzV6dVgIkrRPtTjy7d1DAy
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 15:52:25.0594
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26f4bb44-52c2-4323-b3ae-08de85cf83f3
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E3.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB7264
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_084621_065263_518167A9 
-X-CRM114-Status: GOOD (  31.51  )
+X-CRM114-CacheID: sfid-20260319_085234_076480_DD0A891C 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,143 +125,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, x86@kernel.org, heinrich.schuchardt@canonical.com, liuyonglong@huawei.com, anshuman.khandual@arm.com, "Rafael J .
- Wysocki" <rafael@kernel.org>, Kees Cook <kees@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Eric.VanTassell@amd.com, Somnath Kotur <somnath.kotur@broadcom.com>, Sohil Mehta <sohil.mehta@intel.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, punit.agrawal@oss.qualcomm.com, "H . Peter
- Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Thorsten Blum <thorsten.blum@linux.dev>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, masahiroy@kernel.org, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, linux-pci@vger.kernel.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, ryan.roberts@arm.com, "Ahmed S .
- Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, suzuki.poulose@arm.com, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Shuah Khan <skhan@linuxfoundation.org>, Bjorn Helgaas <bhelgaas@google.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, wangyuquan1236@phytium.com.cn, Sean Christopherson <seanjc@google.com>, guohanjun@huawei.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, chenl311@chinatelecom.cn, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Chengwen Feng <fengchengwen@huawei.com> writes:
+Hello,
 
-> Add arch-specific acpi_get_cpu_uid() for arm64, and update dependent
-> code:
-> - Declare acpi_get_cpu_uid() in arch/arm64/include/asm/acpi.h
-> - Implement acpi_get_cpu_uid() with input parameter validation
-> - Replace get_acpi_id_for_cpu() with acpi_get_cpu_uid() in
->   drivers/perf/arm_cspmu/arm_cspmu.c
-> - Reimplement get_cpu_for_acpi_id() based on acpi_get_cpu_uid() (to
->   align with new interface) and move its implementation next to
->   acpi_get_cpu_uid()
+thanks for your patch.
 
-There is no benefit in describing the code changes like this in the
-commit log. It makes it hard to follow the intent of the patch.
+On Thu, Mar 19, 2026 at 10:04:09AM +0800, Pei Xiao wrote:
+> Replace devm_clk_get() followed by clk_prepare_enable() with
+> devm_clk_get_enabled() for the clock. This removes the need for
+> explicit clock enable and disable calls, as the managed API automatically
+> handles clock disabling on device removal or probe failure.
+> 
+> Remove the now-unnecessary clk_disable_unprepare() calls from the probe
+> error paths and the remove callback. Also simplify error handling by
+> using dev_err_probe().
+> 
+> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
 
-> This is the first step towards unifying ACPI CPU UID retrieval interface
-> across architectures, while adding input validation for robustness.
+Acked-by: Alain Volmat <alain.volmat@foss.st.com>
 
-I would simplify the commit log to something along the lines of -
-
-    As a step towards unifying the interface for retrieving ACPI CPU uid
-    across architectures, introduce a new function
-    acpi_get_cpu_uid(). While at it, also add input validation to make
-    the code more robust.
-
-Just my 2c.
-
-The code changes looks fine.
-
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > ---
->  arch/arm64/include/asm/acpi.h      | 14 ++------------
->  arch/arm64/kernel/acpi.c           | 30 ++++++++++++++++++++++++++++++
->  drivers/perf/arm_cspmu/arm_cspmu.c |  6 ++++--
->  3 files changed, 36 insertions(+), 14 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
-> index c07a58b96329..2219a3301e72 100644
-> --- a/arch/arm64/include/asm/acpi.h
-> +++ b/arch/arm64/include/asm/acpi.h
-> @@ -118,18 +118,8 @@ static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
->  {
->  	return	acpi_cpu_get_madt_gicc(cpu)->uid;
+>  drivers/spi/spi-stm32.c | 62 +++++++++++------------------------------
+>  1 file changed, 17 insertions(+), 45 deletions(-)
+> 
+> diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
+> index 8a7f5a10d4af..be88e62075af 100644
+> --- a/drivers/spi/spi-stm32.c
+> +++ b/drivers/spi/spi-stm32.c
+> @@ -2360,25 +2360,20 @@ static int stm32_spi_probe(struct platform_device *pdev)
+>  	int ret;
+>  
+>  	cfg = of_device_get_match_data(&pdev->dev);
+> -	if (!cfg) {
+> -		dev_err(&pdev->dev, "Failed to get match data for platform\n");
+> -		return -ENODEV;
+> -	}
+> +	if (!cfg)
+> +		return dev_err_probe(&pdev->dev, -ENODEV,
+> +				     "Failed to get match data for platform\n");
+>  
+>  	device_mode = of_property_read_bool(np, "spi-slave");
+> -	if (!cfg->has_device_mode && device_mode) {
+> -		dev_err(&pdev->dev, "spi-slave not supported\n");
+> -		return -EPERM;
+> -	}
+> +	if (!cfg->has_device_mode && device_mode)
+> +		return dev_err_probe(&pdev->dev, -EPERM, "spi-slave not supported\n");
+>  
+>  	if (device_mode)
+>  		ctrl = devm_spi_alloc_target(&pdev->dev, sizeof(struct stm32_spi));
+>  	else
+>  		ctrl = devm_spi_alloc_host(&pdev->dev, sizeof(struct stm32_spi));
+> -	if (!ctrl) {
+> -		dev_err(&pdev->dev, "spi controller allocation failed\n");
+> -		return -ENOMEM;
+> -	}
+> +	if (!ctrl)
+> +		return dev_err_probe(&pdev->dev, -ENOMEM, "spi controller allocation failed\n");
+>  	platform_set_drvdata(pdev, ctrl);
+>  
+>  	spi = spi_controller_get_devdata(ctrl);
+> @@ -2409,32 +2404,18 @@ static int stm32_spi_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>  
+> -	spi->clk = devm_clk_get(&pdev->dev, NULL);
+> -	if (IS_ERR(spi->clk)) {
+> -		ret = PTR_ERR(spi->clk);
+> -		dev_err(&pdev->dev, "clk get failed: %d\n", ret);
+> -		return ret;
+> -	}
+> +	spi->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> +	if (IS_ERR(spi->clk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(spi->clk), "clk enabled failed\n");
+>  
+> -	ret = clk_prepare_enable(spi->clk);
+> -	if (ret) {
+> -		dev_err(&pdev->dev, "clk enable failed: %d\n", ret);
+> -		return ret;
+> -	}
+>  	spi->clk_rate = clk_get_rate(spi->clk);
+> -	if (!spi->clk_rate) {
+> -		dev_err(&pdev->dev, "clk rate = 0\n");
+> -		ret = -EINVAL;
+> -		goto err_clk_disable;
+> -	}
+> +	if (!spi->clk_rate)
+> +		return dev_err_probe(&pdev->dev, -EINVAL, "clk rate = 0\n");
+>  
+>  	rst = devm_reset_control_get_optional_exclusive(&pdev->dev, NULL);
+>  	if (rst) {
+> -		if (IS_ERR(rst)) {
+> -			ret = dev_err_probe(&pdev->dev, PTR_ERR(rst),
+> -					    "failed to get reset\n");
+> -			goto err_clk_disable;
+> -		}
+> +		if (IS_ERR(rst))
+> +			return dev_err_probe(&pdev->dev, PTR_ERR(rst), "failed to get reset\n");
+>  
+>  		reset_control_assert(rst);
+>  		udelay(2);
+> @@ -2461,11 +2442,8 @@ static int stm32_spi_probe(struct platform_device *pdev)
+>  	dev_dbg(spi->dev, "one message max size %d\n", spi->t_size_max);
+>  
+>  	ret = spi->cfg->config(spi);
+> -	if (ret) {
+> -		dev_err(&pdev->dev, "controller configuration failed: %d\n",
+> -			ret);
+> -		goto err_clk_disable;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "controller configuration failed: %d\n", ret);
+>  
+>  	ctrl->auto_runtime_pm = true;
+>  	ctrl->bus_num = pdev->id;
+> @@ -2490,8 +2468,7 @@ static int stm32_spi_probe(struct platform_device *pdev)
+>  			dev_info(&pdev->dev, "tx dma disabled\n");
+>  			spi->dma_tx = NULL;
+>  		} else {
+> -			dev_err_probe(&pdev->dev, ret, "failed to request tx dma channel\n");
+> -			goto err_clk_disable;
+> +			return dev_err_probe(&pdev->dev, ret, "failed to request tx dma channel\n");
+>  		}
+>  	} else {
+>  		ctrl->dma_tx = spi->dma_tx;
+> @@ -2579,8 +2556,6 @@ static int stm32_spi_probe(struct platform_device *pdev)
+>  err_dma_tx_release:
+>  	if (spi->dma_tx)
+>  		dma_release_channel(spi->dma_tx);
+> -err_clk_disable:
+> -	clk_disable_unprepare(spi->clk);
+>  
+>  	return ret;
 >  }
-> -
-> -static inline int get_cpu_for_acpi_id(u32 uid)
-> -{
-> -	int cpu;
-> -
-> -	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
-> -		if (acpi_cpu_get_madt_gicc(cpu) &&
-> -		    uid == get_acpi_id_for_cpu(cpu))
-> -			return cpu;
-> -
-> -	return -EINVAL;
-> -}
-> +int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
-> +int get_cpu_for_acpi_id(u32 uid);
+> @@ -2610,9 +2585,6 @@ static void stm32_spi_remove(struct platform_device *pdev)
+>  		gen_pool_free(spi->sram_pool, (unsigned long)spi->sram_rx_buf,
+>  			      spi->sram_rx_buf_size);
 >  
->  static inline void arch_fix_phys_package_id(int num, u32 slot) { }
->  void __init acpi_init_cpus(void);
-> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> index af90128cfed5..24b9d934be54 100644
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -458,3 +458,33 @@ int acpi_unmap_cpu(int cpu)
+> -	clk_disable_unprepare(spi->clk);
+> -
+> -
+>  	pinctrl_pm_select_sleep_state(&pdev->dev);
 >  }
->  EXPORT_SYMBOL(acpi_unmap_cpu);
->  #endif /* CONFIG_ACPI_HOTPLUG_CPU */
-> +
-> +int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
-> +{
-> +	struct acpi_madt_generic_interrupt *gicc;
-> +
-> +	if (cpu >= nr_cpu_ids)
-> +		return -EINVAL;
-> +
-> +	gicc = acpi_cpu_get_madt_gicc(cpu);
-> +	if (!gicc)
-> +		return -ENODEV;
-> +
-> +	*uid = gicc->uid;
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
-> +
-> +int get_cpu_for_acpi_id(u32 uid)
-> +{
-> +	u32 cpu_uid;
-> +	int ret;
-> +
-> +	for (int cpu = 0; cpu < nr_cpu_ids; cpu++) {
-> +		ret = acpi_get_cpu_uid(cpu, &cpu_uid);
-> +		if (ret == 0 && uid == cpu_uid)
-> +			return cpu;
-> +	}
-> +
-> +	return -EINVAL;
-> +}
-> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-> index 34430b68f602..ed72c3d1f796 100644
-> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
-> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-> @@ -1107,15 +1107,17 @@ static int arm_cspmu_acpi_get_cpus(struct arm_cspmu *cspmu)
->  {
->  	struct acpi_apmt_node *apmt_node;
->  	int affinity_flag;
-> +	u32 cpu_uid;
->  	int cpu;
-> +	int ret;
 >  
->  	apmt_node = arm_cspmu_apmt_node(cspmu->dev);
->  	affinity_flag = apmt_node->flags & ACPI_APMT_FLAGS_AFFINITY;
->  
->  	if (affinity_flag == ACPI_APMT_FLAGS_AFFINITY_PROC) {
->  		for_each_possible_cpu(cpu) {
-> -			if (apmt_node->proc_affinity ==
-> -			    get_acpi_id_for_cpu(cpu)) {
-> +			ret = acpi_get_cpu_uid(cpu, &cpu_uid);
-> +			if (ret == 0 && apmt_node->proc_affinity == cpu_uid) {
->  				cpumask_set_cpu(cpu, &cspmu->associated_cpus);
->  				break;
->  			}
+> -- 
+> 2.25.1
+> 
+> _______________________________________________
+> Linux-stm32 mailing list
+> Linux-stm32@st-md-mailman.stormreply.com
+> https://st-md-mailman.stormreply.com/mailman/listinfo/linux-stm32
 
-I think cspmu changes go via a separate pull request. You might have to
-split this change into a separate commit.
+Regards,
+Alain
 
 _______________________________________________
 linux-riscv mailing list
