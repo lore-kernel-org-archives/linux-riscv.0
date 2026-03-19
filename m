@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB058108E1F7
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 11:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2071090222
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 12:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yk28p1KhJtsWi5dhM/fUbqRNSoWIJFf3ILHk6uQkG+Q=; b=TZzz3vuFDn24qw
-	1GUGERlk7R9OLgr7HIf1l/ZVh4RCK77mvtqwoHyFT+/Mkb9RxMQHU+0UAaYhoeDmM8A1/E0P83zTJ
-	X7Dx7SBdof6sYoUa3gP7HMEyPmNy1iJhwSi1KcdnmcGmlU4M3l2z9mWvxB6Jj+CWxU8RJq1PyCQiO
-	m3pigH18+URoRHFLYxHSVd0f4NszL8TuLes13Y2goFTGIuDF8o/3y+UcXc1QX+yRlIzQOrwr5EYdR
-	DTgzcKjybUdLYiti9yDjuR8bCh6rcgbXewCdKIcjuZBWGG7fsRRHiGbVoMhBlmMqnzdCGzOvpBqPH
-	7WauLTVJ5pLF76XbXDKg==;
+	List-Owner; bh=dSdKDT9QcR9mjHsbyooHZglmDq+xcpzW4WiLk0+6H+4=; b=TkbjRx7Oxuv7FW
+	qnSfIB82VAd9AgTEHyZEbD8kqyW5CiMor9fGu5PM9s/2Z4NYNVs/NAiVe2u4TKTYp6qaTOh9Vs6yR
+	AeXaymRwmXc3jdQwqmH6hneaDzur0b/qOZJaabxb7G4qXASE80mnI1cFXUg8/U95ycU/OHucW3zFT
+	9PeqsU2RTpbc42EEU/R/hGl8zYiiFrWLXPqgDu6xyuOsW9C5pTm3wYs8z+FHbLXfBhpIS+kDvVJ0S
+	8QMnNUrmX9zmgHBRir6IJfL5YkfGSEbff8I8DTKlJep60IgWDv4+AuLqhgH3QmsHsRZQdgA7xzA4J
+	3K9WaGblDD06QvmgCBog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BmN-0000000AYhx-17LB;
-	Thu, 19 Mar 2026 11:43:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3Csg-0000000Adg7-2n79;
+	Thu, 19 Mar 2026 12:53:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BmL-0000000AYhm-3ByV
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 19 Mar 2026 11:43:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=0iBKfs7yUmTmI3ueHYb0OvhWTjmElVxY8JUdHliSajk=; b=UZ3BdZYB+2jOc37HaxKBA5eqmb
-	H+qUQQA/dWtLSmIAC1A2LWa1sww+mciBoRRt8vI7rbjoMzq+5OLuQxvq6Wee+eSowpvwAGalWKaju
-	FoM2bMH0zROlg9p6pRJ4YncFPT+Ot1hFzMaG6N2s2LNLoz9jXS7qP7YtB6veeITqidWwIdl86HMLx
-	+4b1V5NGuw4v+70ms5zOrGZ1R1ffgpwfrLygp6T+gm+8AIQFK0D0yztKA4OwgwgoB1RjD0tMeIgZr
-	cT5ZiZHuVbsQnAoTaDhzhnEgMY9evn4cwrOif0kLx23p+p/k41I9Zy6bfoCLkQKTg0GPj0BXBhXtc
-	h8pCgj+A==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BmH-0000000DO6L-1Q3O
+	id 1w3Csf-0000000AdfS-0WHh
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Mar 2026 11:43:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w3Bm5-0007xc-Cs; Thu, 19 Mar 2026 12:42:49 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w3Bm3-0014CP-2s;
-	Thu, 19 Mar 2026 12:42:47 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w3Bm3-00000000Byb-3NCL;
-	Thu, 19 Mar 2026 12:42:47 +0100
-Message-ID: <c0a6d0346e2b766ab4dab3340445c45843f28b60.camel@pengutronix.de>
-Subject: Re: [PATCH v3] reset: spacemit: k3: Decouple composite reset lines
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Junzhong Pan
- <junzhong.pan@spacemit.com>, Guodong Xu	 <guodong@riscstar.com>,
- devicetree@vger.kernel.org, 	linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, 	linux-kernel@vger.kernel.org, Inochi Amaoto
- <inochiama@gmail.com>
-Date: Thu, 19 Mar 2026 12:42:47 +0100
-In-Reply-To: <20260318131043-GKA488271@kernel.org>
-References: <20260317-01-k3-reset-usb-pci-v3-1-e4b9a43c7d45@kernel.org>
-	 <3e9022faae3dc6f5066a1e7cc3752a0193a55bc9.camel@pengutronix.de>
-	 <20260318131043-GKA488271@kernel.org>
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 19 Mar 2026 12:53:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7AF66443A6
+	for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 12:53:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F997C2BCB0
+	for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 12:53:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773924820;
+	bh=aZGDZBgh8B46KiK5LwZKPSo3Z/c5+KufgSnlcr+rs0E=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=S5ae4X0ybrzEvsJ8y5I4xja7M1TxrCaMMIj/VGk8td2EMv/JbdA6cfeWWM1igWhga
+	 8FACR7yKCvLm2nTTWw6mOhiaxNrRiTA36pLv7kX2tWD3zeIT2jdc0db8MUCxJCILc5
+	 Lj2xNnxc7WDKHSaszIhxTNJ0AApQM84lS5eenscw3nRBdg5OgpnhL1vPHoKq4RuaN1
+	 5Q85T1YEUrKWVgrCFSdVsdJTWVZLu0JuCyV+I6ufhG23g2f+i2H5NTwMYqLeo6ursI
+	 J1y9++/8pzqpWyUg6oGUEFTxxgahfwShaHCcrmshR0hqTNjRCvrVEqc5xuQE4m/fFA
+	 j1HrrX0TE3ofw==
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-7991db3dc98so10825567b3.0
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 05:53:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVVpE6T7hvRIn7iILPQMEI3qPMvHh7N97CNtLkkJjTHgONEelfkCLxoOrBaM+ZwNFwDV4oMLw1qQ+1LEw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuXGgNCcemDLdqt7mTC/eumIbnafuXIxB0iQ6iTuoiA0dcjLZV
+	7OMscc5Y4xjT5q/61RKDJ+WbD+Q1gbuaSH/0hG5UYoBv4d1O4Uq3CBy2jUfKPjR3DrIddXcK2Vn
+	FdHOmSe5TAeAK/fvHfs+iSfW9CFmC870=
+X-Received: by 2002:a05:690c:9307:b0:79a:436b:70c7 with SMTP id
+ 00721157ae682-79a71c7f13emr58564037b3.54.1773924819696; Thu, 19 Mar 2026
+ 05:53:39 -0700 (PDT)
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20260312-k1-gpio-set-config-v1-0-8c3541da16b1@pigmoral.tech>
+In-Reply-To: <20260312-k1-gpio-set-config-v1-0-8c3541da16b1@pigmoral.tech>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 19 Mar 2026 13:53:28 +0100
+X-Gmail-Original-Message-ID: <CAD++jLn6AwD91zTM40accHrYeWFgoUkknEt=c+qhBSQ77bRCTw@mail.gmail.com>
+X-Gm-Features: AaiRm50JOv-QYXkwbpNYvSXiAbstTRzfapJj9qbqk5T6xP8tXe1iZ5aNllQor9U
+Message-ID: <CAD++jLn6AwD91zTM40accHrYeWFgoUkknEt=c+qhBSQ77bRCTw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] gpio/pinctrl: spacemit: Add GPIO pin configuration
+ support for K1
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Yixun Lan <dlan@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_114301_472193_FAA6E92C 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20260319_055341_181684_E1E7791E 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +79,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-03-18 at 21:10 +0800, Yixun Lan wrote:
-> Hi Philipp,
-> 
-> On 13:39 Wed 18 Mar     , Philipp Zabel wrote:
-> > On Di, 2026-03-17 at 02:36 +0000, Yixun Lan wrote:
-> > > Instead of grouping several different reset lines into one composite
-> > > reset, decouple them to individual ones which make it more aligned
-> > > with underlying hardware. And for DWC USB driver, it will match well
-> > > with the number of the reset property in the DT bindings.
-> > > 
-> > > The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
-> > > PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
-> > > Also three reset lines each for UCIE and RCPU block.
-> > > 
-> > > As an agreement with maintainer, the reset IDs has been rearranged as
-> > > contiguous number and pushed as a fix for the driver, and reason is that
-> > > there isn't any consumer of reset driver so far,
-> > 
-> > Unfortunately that does not seem to be the case for all APMU resets.
-> > A lore query for all changed IDs [1] yields a patch that adds ethernet
-> > device nodes using RESET_APMU_EMAC[012] [2].
-> > 
-> Yes, although the ethernet use this ID, but I don't think we should worry
-> about that, since the ethernet patch is still under review, and ideally it
-> will be merged after this reordering patch, unless you disagree? and insist
-> the RESET_APMU_EMAC should not be changed?
-
-Yes, please. Somebody might have picked up those patches from the list
-and we can easily avoid the risk of breaking their ethernet with v7.0
-by not reordering all resets. Let's do that.
-
-regards
-Philipp
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhhbmsgSnVuaHVpLAoKT24gVGh1LCBNYXIgMTIsIDIwMjYgYXQgOTo0M+KAr0FNIEp1bmh1aSBM
+aXUgPGp1bmh1aS5saXVAcGlnbW9yYWwudGVjaD4gd3JvdGU6Cgo+IFRoaXMgYWRkIEdQSU8gcGlu
+IGNvbmZpZ3VyYXRpb24gc3VwcG9ydCBmb3IgdGhlIFNwYWNlbWl0IEsxIFNvQy4gU29tZQo+IHVz
+ZSBjYXNlcyByZXF1aXJlIGNvbmZpZ3VyaW5nIHBpbiBhdHRyaWJ1dGVzIGxpa2UgcHVsbC11cC9k
+b3duIHdoZW4gdXNpbmcKPiBHUElPIGxpbmVzLgo+Cj4gQSBwcmFjdGljYWwgZXhhbXBsZSBpcyB0
+aGUgU0QgY2FyZCBkZXRlY3Rpb24gcGluIG9uIHRoZSBCYW5hbmEgUGkgQlBJLUYzCj4gYm9hcmQu
+IFNpbmNlIGl0IGxhY2tzIGFuIGV4dGVybmFsIHB1bGwtdXAgY2lyY3VpdCwgdGhlIHBpbiBtdXN0
+IGJlCj4gY29uZmlndXJlZCB3aXRoIGFuIGludGVybmFsIHB1bGwtdXAgdG8gZnVuY3Rpb24gY29y
+cmVjdGx5LiBTdWNoCj4gY29uZmlndXJhdGlvbnMgY2FuIGJlIHNwZWNpZmllZCBkaXJlY3RseSBp
+biB0aGUgZGV2aWNldHJlZToKPgo+ICAgICBjZC1ncGlvcyA9IDwmZ3BpbyBLMV9HUElPKDgwKSAo
+R1BJT19BQ1RJVkVfTE9XIHwgR1BJT19QVUxMX1VQKT47Cj4KPiBUbyBhZGRyZXNzIHRoaXMsIGFk
+ZCB0aGUgc2V0X2NvbmZpZygpIGNhbGxiYWNrIHRvIHRoZSBncGlvLXNwYWNlbWl0LWsxCj4gZHJp
+dmVyIHRvIGVuYWJsZSBwaW4gY29uZmlndXJhdGlvbiB0aHJvdWdoIHBpbmN0cmwsIGFuZCBtb2Rp
+ZnkgdGhlCj4gcGluY3RybCBkcml2ZXIgdG8gcmV0dXJuIC1FTk9UU1VQUCBpbnN0ZWFkIG9mIC1F
+SU5WQUwgZm9yIHVuc3VwcG9ydGVkCj4gcGFyYW1ldGVycywgYWxsb3dpbmcgdGhlIEdQSU8gc3Vi
+c3lzdGVtIHRvIGdyYWNlZnVsbHkgaGFuZGxlIHRoZW0uCj4KPiAtLS0KPiBKdW5odWkgTGl1ICgy
+KToKPiAgICAgICBwaW5jdHJsOiBzcGFjZW1pdDogcmV0dXJuIC1FTk9UU1VQUCBmb3IgdW5zdXBw
+b3J0ZWQgcGluIGNvbmZpZ3VyYXRpb25zCj4gICAgICAgZ3Bpbzogc3BhY2VtaXQtazE6IEFkZCBz
+ZXRfY29uZmlnIGNhbGxiYWNrIHN1cHBvcnQKCkJvdGggcGF0Y2hlcyBhcHBsaWVkIHRvIHRoZSBw
+aW5jdHJsIHRyZWUuCgpZb3VycywKTGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
