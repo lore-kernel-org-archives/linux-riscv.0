@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB571075263
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC7A1075260
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=butfmNJccD1eGufKnGfn/hHDPLbM08JgjnOsEbZgL5I=; b=owid/sM1+gCd+S
-	Mnpbb5Xs2OfG1TW8ugYtfIlTXwrO9OQV/pVtGhKEhJ8HVoIwclsAcK39zCp0YpUPfw+xNHzYVAJDo
-	yO1hpkQEFQ9zc9gEshY6jHYT72kxsAG+aZ+OgmiNM02rhMXeU9GkAia39xd94YiEgUTC/aEWiEouY
-	WB0I25AqAihk2HVrvhrn9Rk6BQ+qTV0fz56m5Bv83YBj3R+hIFBdH4IAh/2E3iRHMRxQ/Eb6pI6cS
-	aBRhPFx6rtGjgqfF0yUWOGK1CR6rO5js3QyPg4ylBRnOYi50xaJ4p0iSIkyRryoPRsKEUTFmeu/5D
-	jgF/nUpTJvEamNjENlYQ==;
+	List-Owner; bh=X/vQny99caLmq60o63VchaAR42lzXgARt8mCDCxRASQ=; b=1oV/uBQ+HK/IAJ
+	MbZ9W0Ypv+owtGLWkHsDo4EiMwxN3Z2t3MRYTpVr3Z3MUaUxHr294umjbPpmoZsuM3uW5ZMWhYkZ8
+	0rMqF76JmcyYsXS/pL1MAwOIB1C0dGqlzT0RGmWB8MV71qMeVFuTaNqetG5j0mo/ibcjSTxLzcX5Q
+	s549vkcIDldKiPHT8fXpbnGfMWmzHKedkNuAozc4WiO7eSMyl4jj0xesGTlik1bmSD3ulXsNpcu9l
+	V5Y2jaBxC1x5vrjVILIuW2NAH32rGGkl0muROWoTR6P+pRW0vgnrYQ4eravRcmh/VUQ90OTeXNoIQ
+	kqaJsKARP7qwyUF0tctA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36k5-0000000A0uy-0Tvb;
-	Thu, 19 Mar 2026 06:20:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w36k9-0000000A11d-1XJJ;
+	Thu, 19 Mar 2026 06:20:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36j4-00000009zn8-12Wy;
-	Thu, 19 Mar 2026 06:19:22 +0000
+	id 1w36j5-00000009zol-0qOV;
+	Thu, 19 Mar 2026 06:19:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 898056184F;
+	by tor.source.kernel.org (Postfix) with ESMTP id 83AA56185A;
+	Thu, 19 Mar 2026 06:19:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD107C2BCC4;
 	Thu, 19 Mar 2026 06:19:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3186C2BCF5;
-	Thu, 19 Mar 2026 06:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901161;
-	bh=v23KyGPrHWAAC2T6J0ScHjRgqX7DUkokMnXW1NT3GDU=;
+	s=k20201202; t=1773901162;
+	bh=A17Or1mhILOD8g/OauvklfFcseA7rh2PNPCFHHxYHps=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=R7hvvACgXThVeEen2oB8v6/av/AmwXd++45upOpQyMaz+8DIdfwgfaEHjmMxHY95L
-	 KgDxi1UEF65u8um9/80JUp1ERfI1lwB48xLsrNZalIFhHPKAcJW45DmTzH2Q1gcugu
-	 QzkkUbuyb8Lf4vpYiyVNf9MKR5L+6kQSzmVeeZ4M1kBoBgBCjM7FrjyN7WDr+hjlz4
-	 nj48OxB+Q1YTRVJe28oDZXuI2pmvrueIrl3YO8B99ipT7UI93XYMveTfuaS/W7NWjc
-	 S860Q85nik5x7j1fDEP5CaEq7D1GEvarLqRTq/lxlioLeZlJeB3qp19mVvt6FHCjW9
-	 w8pMMm1XNjL6w==
+	b=rLuXxi5JU7e4lhDja+r/raWzll947pWc4MN189ypr8SfFoCCk+3TWuQLyZg5+aqur
+	 KtJWSfl0m9oJzz/nIxydzurMQxR/TXkO3B2H6vPc8ohT6HxPfCtyBjfA+jfePcJTLv
+	 iXWK9SuB8JbbOGVLAdzzUmS/keEKFG5TpF5elm5N3dm7pANpOfiyrfurP6rzophpj0
+	 PgPEoS+zkDU/xnBynkSgZcrtmGPnxFbVyqi30/9F0B7YBbz8fyFYdGGZgkOat5RGXw
+	 RDkNDtSWLFnuvY0vc62CKN9KHXl5vaSu/UIq1pYiP609MOnMgpbb18sNPGGJfx/fIG
+	 WUzFLC7v2SSNg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,9 +53,9 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 14/19] lib/crypto: x86/ghash: Migrate optimized code into library
-Date: Wed, 18 Mar 2026 23:17:15 -0700
-Message-ID: <20260319061723.1140720-15-ebiggers@kernel.org>
+Subject: [PATCH 16/19] crypto: ghash - Remove ghash from crypto_shash API
+Date: Wed, 18 Mar 2026 23:17:17 -0700
+Message-ID: <20260319061723.1140720-17-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
 References: <20260319061723.1140720-1-ebiggers@kernel.org>
@@ -71,553 +71,237 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove the "ghash-pclmulqdqni" crypto_shash algorithm.  Move the
-corresponding assembly code into lib/crypto/, and wire it up to the
-GHASH library.
-
-This makes the GHASH library be optimized with x86's carryless
-multiplication instructions.  It also greatly reduces the amount of
-x86-specific glue code that is needed, and it fixes the issue where this
-GHASH optimization was disabled by default.
-
-Rename and adjust the prototypes of the assembly functions to make them
-fit better with the library.  Remove the byte-swaps (pshufb
-instructions) that are no longer necessary because the library keeps the
-accumulator in POLYVAL format rather than GHASH format.
-
-Rename clmul_ghash_mul() to polyval_mul_pclmul() to reflect that it
-really does a POLYVAL style multiplication.  Wire it up to both
-ghash_mul_arch() and polyval_mul_arch().
-
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- arch/x86/crypto/Kconfig                       |  10 --
- arch/x86/crypto/Makefile                      |   3 -
- arch/x86/crypto/ghash-clmulni-intel_glue.c    | 163 ------------------
- lib/crypto/Makefile                           |   3 +-
- lib/crypto/x86/gf128hash.h                    |  65 ++++++-
- .../crypto/x86/ghash-pclmul.S                 |  98 +++++------
- 6 files changed, 104 insertions(+), 238 deletions(-)
- delete mode 100644 arch/x86/crypto/ghash-clmulni-intel_glue.c
- rename arch/x86/crypto/ghash-clmulni-intel_asm.S => lib/crypto/x86/ghash-pclmul.S (54%)
-
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 7fb2319a0916..905e8a23cec3 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -342,16 +342,6 @@ config CRYPTO_SM3_AVX_X86_64
- 	  Architecture: x86_64 using:
- 	  - AVX (Advanced Vector Extensions)
- 
- 	  If unsure, say N.
- 
--config CRYPTO_GHASH_CLMUL_NI_INTEL
--	tristate "Hash functions: GHASH (CLMUL-NI)"
--	depends on 64BIT
--	select CRYPTO_CRYPTD
--	help
--	  GCM GHASH hash function (NIST SP800-38D)
--
--	  Architecture: x86_64 using:
--	  - CLMUL-NI (carry-less multiplication new instructions)
--
- endmenu
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index b21ad0978c52..d562f4341da6 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -48,13 +48,10 @@ aesni-intel-$(CONFIG_64BIT) += aes-ctr-avx-x86_64.o \
- 			       aes-gcm-aesni-x86_64.o \
- 			       aes-gcm-vaes-avx2.o \
- 			       aes-gcm-vaes-avx512.o \
- 			       aes-xts-avx-x86_64.o
- 
--obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
--ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
--
- obj-$(CONFIG_CRYPTO_SM3_AVX_X86_64) += sm3-avx-x86_64.o
- sm3-avx-x86_64-y := sm3-avx-asm_64.o sm3_avx_glue.o
- 
- obj-$(CONFIG_CRYPTO_SM4_AESNI_AVX_X86_64) += sm4-aesni-avx-x86_64.o
- sm4-aesni-avx-x86_64-y := sm4-aesni-avx-asm_64.o sm4_aesni_avx_glue.o
-diff --git a/arch/x86/crypto/ghash-clmulni-intel_glue.c b/arch/x86/crypto/ghash-clmulni-intel_glue.c
-deleted file mode 100644
-index aea5d4d06be7..000000000000
---- a/arch/x86/crypto/ghash-clmulni-intel_glue.c
-+++ /dev/null
-@@ -1,163 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Accelerated GHASH implementation with Intel PCLMULQDQ-NI
-- * instructions. This file contains glue code.
-- *
-- * Copyright (c) 2009 Intel Corp.
-- *   Author: Huang Ying <ying.huang@intel.com>
-- */
--
--#include <asm/cpu_device_id.h>
--#include <asm/simd.h>
--#include <crypto/b128ops.h>
--#include <crypto/ghash.h>
--#include <crypto/internal/hash.h>
--#include <crypto/utils.h>
--#include <linux/errno.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/string.h>
--#include <linux/unaligned.h>
--
--asmlinkage void clmul_ghash_mul(char *dst, const le128 *shash);
--
--asmlinkage int clmul_ghash_update(char *dst, const char *src,
--				  unsigned int srclen, const le128 *shash);
--
--struct x86_ghash_ctx {
--	le128 shash;
--};
--
--static int ghash_init(struct shash_desc *desc)
--{
--	struct ghash_desc_ctx *dctx = shash_desc_ctx(desc);
--
--	memset(dctx, 0, sizeof(*dctx));
--
--	return 0;
--}
--
--static int ghash_setkey(struct crypto_shash *tfm,
--			const u8 *key, unsigned int keylen)
--{
--	struct x86_ghash_ctx *ctx = crypto_shash_ctx(tfm);
--	u64 a, b;
--
--	if (keylen != GHASH_BLOCK_SIZE)
--		return -EINVAL;
--
--	/*
--	 * GHASH maps bits to polynomial coefficients backwards, which makes it
--	 * hard to implement.  But it can be shown that the GHASH multiplication
--	 *
--	 *	D * K (mod x^128 + x^7 + x^2 + x + 1)
--	 *
--	 * (where D is a data block and K is the key) is equivalent to:
--	 *
--	 *	bitreflect(D) * bitreflect(K) * x^(-127)
--	 *		(mod x^128 + x^127 + x^126 + x^121 + 1)
--	 *
--	 * So, the code below precomputes:
--	 *
--	 *	bitreflect(K) * x^(-127) (mod x^128 + x^127 + x^126 + x^121 + 1)
--	 *
--	 * ... but in Montgomery form (so that Montgomery multiplication can be
--	 * used), i.e. with an extra x^128 factor, which means actually:
--	 *
--	 *	bitreflect(K) * x (mod x^128 + x^127 + x^126 + x^121 + 1)
--	 *
--	 * The within-a-byte part of bitreflect() cancels out GHASH's built-in
--	 * reflection, and thus bitreflect() is actually a byteswap.
--	 */
--	a = get_unaligned_be64(key);
--	b = get_unaligned_be64(key + 8);
--	ctx->shash.a = cpu_to_le64((a << 1) | (b >> 63));
--	ctx->shash.b = cpu_to_le64((b << 1) | (a >> 63));
--	if (a >> 63)
--		ctx->shash.a ^= cpu_to_le64((u64)0xc2 << 56);
--	return 0;
--}
--
--static int ghash_update(struct shash_desc *desc,
--			 const u8 *src, unsigned int srclen)
--{
--	struct x86_ghash_ctx *ctx = crypto_shash_ctx(desc->tfm);
--	struct ghash_desc_ctx *dctx = shash_desc_ctx(desc);
--	u8 *dst = dctx->buffer;
--	int remain;
--
--	kernel_fpu_begin();
--	remain = clmul_ghash_update(dst, src, srclen, &ctx->shash);
--	kernel_fpu_end();
--	return remain;
--}
--
--static void ghash_flush(struct x86_ghash_ctx *ctx, struct ghash_desc_ctx *dctx,
--			const u8 *src, unsigned int len)
--{
--	u8 *dst = dctx->buffer;
--
--	kernel_fpu_begin();
--	if (len) {
--		crypto_xor(dst, src, len);
--		clmul_ghash_mul(dst, &ctx->shash);
--	}
--	kernel_fpu_end();
--}
--
--static int ghash_finup(struct shash_desc *desc, const u8 *src,
--		       unsigned int len, u8 *dst)
--{
--	struct x86_ghash_ctx *ctx = crypto_shash_ctx(desc->tfm);
--	struct ghash_desc_ctx *dctx = shash_desc_ctx(desc);
--	u8 *buf = dctx->buffer;
--
--	ghash_flush(ctx, dctx, src, len);
--	memcpy(dst, buf, GHASH_BLOCK_SIZE);
--
--	return 0;
--}
--
--static struct shash_alg ghash_alg = {
--	.digestsize	= GHASH_DIGEST_SIZE,
--	.init		= ghash_init,
--	.update		= ghash_update,
--	.finup		= ghash_finup,
--	.setkey		= ghash_setkey,
--	.descsize	= sizeof(struct ghash_desc_ctx),
--	.base		= {
--		.cra_name		= "ghash",
--		.cra_driver_name	= "ghash-pclmulqdqni",
--		.cra_priority		= 400,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize		= GHASH_BLOCK_SIZE,
--		.cra_ctxsize		= sizeof(struct x86_ghash_ctx),
--		.cra_module		= THIS_MODULE,
--	},
--};
--
--static const struct x86_cpu_id pcmul_cpu_id[] = {
--	X86_MATCH_FEATURE(X86_FEATURE_PCLMULQDQ, NULL), /* Pickle-Mickle-Duck */
--	{}
--};
--MODULE_DEVICE_TABLE(x86cpu, pcmul_cpu_id);
--
--static int __init ghash_pclmulqdqni_mod_init(void)
--{
--	if (!x86_match_cpu(pcmul_cpu_id))
--		return -ENODEV;
--
--	return crypto_register_shash(&ghash_alg);
--}
--
--static void __exit ghash_pclmulqdqni_mod_exit(void)
--{
--	crypto_unregister_shash(&ghash_alg);
--}
--
--module_init(ghash_pclmulqdqni_mod_init);
--module_exit(ghash_pclmulqdqni_mod_exit);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("GHASH hash function, accelerated by PCLMULQDQ-NI");
--MODULE_ALIAS_CRYPTO("ghash");
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 8950509833af..19c67f70fb38 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -172,11 +172,12 @@ $(obj)/powerpc/ghashp8-ppc.S: $(src)/powerpc/ghashp8-ppc.pl FORCE
- targets += powerpc/ghashp8-ppc.S
- OBJECT_FILES_NON_STANDARD_powerpc/ghashp8-ppc.o := y
- endif
- 
- libgf128hash-$(CONFIG_RISCV) += riscv/ghash-riscv64-zvkg.o
--libgf128hash-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
-+libgf128hash-$(CONFIG_X86) += x86/ghash-pclmul.o \
-+			      x86/polyval-pclmul-avx.o
- endif # CONFIG_CRYPTO_LIB_GF128HASH_ARCH
- 
- # clean-files must be defined unconditionally
- clean-files += powerpc/ghashp8-ppc.S
- 
-diff --git a/lib/crypto/x86/gf128hash.h b/lib/crypto/x86/gf128hash.h
-index adf6147ea677..6b79b06caab0 100644
---- a/lib/crypto/x86/gf128hash.h
-+++ b/lib/crypto/x86/gf128hash.h
-@@ -1,20 +1,27 @@
- /* SPDX-License-Identifier: GPL-2.0-or-later */
- /*
-- * POLYVAL library functions, x86_64 optimized
-+ * GHASH and POLYVAL, x86_64 optimized
-  *
-  * Copyright 2025 Google LLC
-  */
- #include <asm/fpu/api.h>
- #include <linux/cpufeature.h>
- 
- #define NUM_H_POWERS 8
- 
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmul);
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmul_avx);
- 
-+asmlinkage void polyval_mul_pclmul(struct polyval_elem *a,
-+				   const struct polyval_elem *b);
- asmlinkage void polyval_mul_pclmul_avx(struct polyval_elem *a,
- 				       const struct polyval_elem *b);
-+
-+asmlinkage void ghash_blocks_pclmul(struct polyval_elem *acc,
-+				    const struct polyval_elem *key,
-+				    const u8 *data, size_t nblocks);
- asmlinkage void polyval_blocks_pclmul_avx(struct polyval_elem *acc,
- 					  const struct polyval_key *key,
- 					  const u8 *data, size_t nblocks);
- 
- #define polyval_preparekey_arch polyval_preparekey_arch
-@@ -39,20 +46,58 @@ static void polyval_preparekey_arch(struct polyval_key *key,
- 					    &key->h_powers[NUM_H_POWERS - 1]);
- 		}
- 	}
- }
- 
-+static void polyval_mul_x86(struct polyval_elem *a,
-+			    const struct polyval_elem *b)
-+{
-+	if (static_branch_likely(&have_pclmul) && irq_fpu_usable()) {
-+		kernel_fpu_begin();
-+		if (static_branch_likely(&have_pclmul_avx))
-+			polyval_mul_pclmul_avx(a, b);
-+		else
-+			polyval_mul_pclmul(a, b);
-+		kernel_fpu_end();
-+	} else {
-+		polyval_mul_generic(a, b);
-+	}
-+}
-+
-+#define ghash_mul_arch ghash_mul_arch
-+static void ghash_mul_arch(struct polyval_elem *acc,
-+			   const struct ghash_key *key)
-+{
-+	polyval_mul_x86(acc, &key->h);
-+}
-+
- #define polyval_mul_arch polyval_mul_arch
- static void polyval_mul_arch(struct polyval_elem *acc,
- 			     const struct polyval_key *key)
- {
--	if (static_branch_likely(&have_pclmul_avx) && irq_fpu_usable()) {
--		kernel_fpu_begin();
--		polyval_mul_pclmul_avx(acc, &key->h_powers[NUM_H_POWERS - 1]);
--		kernel_fpu_end();
-+	polyval_mul_x86(acc, &key->h_powers[NUM_H_POWERS - 1]);
-+}
-+
-+#define ghash_blocks_arch ghash_blocks_arch
-+static void ghash_blocks_arch(struct polyval_elem *acc,
-+			      const struct ghash_key *key,
-+			      const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_pclmul) && irq_fpu_usable()) {
-+		do {
-+			/* Allow rescheduling every 4 KiB. */
-+			size_t n = min_t(size_t, nblocks,
-+					 4096 / GHASH_BLOCK_SIZE);
-+
-+			kernel_fpu_begin();
-+			ghash_blocks_pclmul(acc, &key->h, data, n);
-+			kernel_fpu_end();
-+			data += n * GHASH_BLOCK_SIZE;
-+			nblocks -= n;
-+		} while (nblocks);
- 	} else {
--		polyval_mul_generic(acc, &key->h_powers[NUM_H_POWERS - 1]);
-+		ghash_blocks_generic(acc, &key->h, data, nblocks);
- 	}
- }
- 
- #define polyval_blocks_arch polyval_blocks_arch
- static void polyval_blocks_arch(struct polyval_elem *acc,
-@@ -78,9 +123,11 @@ static void polyval_blocks_arch(struct polyval_elem *acc,
- }
- 
- #define gf128hash_mod_init_arch gf128hash_mod_init_arch
- static void gf128hash_mod_init_arch(void)
- {
--	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ) &&
--	    boot_cpu_has(X86_FEATURE_AVX))
--		static_branch_enable(&have_pclmul_avx);
-+	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ)) {
-+		static_branch_enable(&have_pclmul);
-+		if (boot_cpu_has(X86_FEATURE_AVX))
-+			static_branch_enable(&have_pclmul_avx);
-+	}
- }
-diff --git a/arch/x86/crypto/ghash-clmulni-intel_asm.S b/lib/crypto/x86/ghash-pclmul.S
-similarity index 54%
-rename from arch/x86/crypto/ghash-clmulni-intel_asm.S
-rename to lib/crypto/x86/ghash-pclmul.S
-index c4fbaa82ed7a..6ffb5aea6063 100644
---- a/arch/x86/crypto/ghash-clmulni-intel_asm.S
-+++ b/lib/crypto/x86/ghash-pclmul.S
-@@ -19,12 +19,12 @@
- .section	.rodata.cst16.bswap_mask, "aM", @progbits, 16
- .align 16
- .Lbswap_mask:
- 	.octa 0x000102030405060708090a0b0c0d0e0f
- 
--#define DATA	%xmm0
--#define SHASH	%xmm1
-+#define ACC	%xmm0
-+#define KEY	%xmm1
- #define T1	%xmm2
- #define T2	%xmm3
- #define T3	%xmm4
- #define BSWAP	%xmm5
- #define IN1	%xmm6
-@@ -32,102 +32,96 @@
- .text
- 
- /*
-  * __clmul_gf128mul_ble:	internal ABI
-  * input:
-- *	DATA:			operand1
-- *	SHASH:			operand2, hash_key << 1 mod poly
-+ *	ACC:			operand1
-+ *	KEY:			operand2, hash_key << 1 mod poly
-  * output:
-- *	DATA:			operand1 * operand2 mod poly
-+ *	ACC:			operand1 * operand2 mod poly
-  * changed:
-  *	T1
-  *	T2
-  *	T3
-  */
- SYM_FUNC_START_LOCAL(__clmul_gf128mul_ble)
--	movaps DATA, T1
--	pshufd $0b01001110, DATA, T2
--	pshufd $0b01001110, SHASH, T3
--	pxor DATA, T2
--	pxor SHASH, T3
-+	movaps ACC, T1
-+	pshufd $0b01001110, ACC, T2
-+	pshufd $0b01001110, KEY, T3
-+	pxor ACC, T2
-+	pxor KEY, T3
- 
--	pclmulqdq $0x00, SHASH, DATA	# DATA = a0 * b0
--	pclmulqdq $0x11, SHASH, T1	# T1 = a1 * b1
-+	pclmulqdq $0x00, KEY, ACC	# ACC = a0 * b0
-+	pclmulqdq $0x11, KEY, T1	# T1 = a1 * b1
- 	pclmulqdq $0x00, T3, T2		# T2 = (a1 + a0) * (b1 + b0)
--	pxor DATA, T2
-+	pxor ACC, T2
- 	pxor T1, T2			# T2 = a0 * b1 + a1 * b0
- 
- 	movaps T2, T3
- 	pslldq $8, T3
- 	psrldq $8, T2
--	pxor T3, DATA
--	pxor T2, T1			# <T1:DATA> is result of
-+	pxor T3, ACC
-+	pxor T2, T1			# <T1:ACC> is result of
- 					# carry-less multiplication
- 
- 	# first phase of the reduction
--	movaps DATA, T3
-+	movaps ACC, T3
- 	psllq $1, T3
--	pxor DATA, T3
-+	pxor ACC, T3
- 	psllq $5, T3
--	pxor DATA, T3
-+	pxor ACC, T3
- 	psllq $57, T3
- 	movaps T3, T2
- 	pslldq $8, T2
- 	psrldq $8, T3
--	pxor T2, DATA
-+	pxor T2, ACC
- 	pxor T3, T1
- 
- 	# second phase of the reduction
--	movaps DATA, T2
-+	movaps ACC, T2
- 	psrlq $5, T2
--	pxor DATA, T2
-+	pxor ACC, T2
- 	psrlq $1, T2
--	pxor DATA, T2
-+	pxor ACC, T2
- 	psrlq $1, T2
- 	pxor T2, T1
--	pxor T1, DATA
-+	pxor T1, ACC
- 	RET
- SYM_FUNC_END(__clmul_gf128mul_ble)
- 
--/* void clmul_ghash_mul(char *dst, const le128 *shash) */
--SYM_FUNC_START(clmul_ghash_mul)
-+/*
-+ * void polyval_mul_pclmul(struct polyval_elem *a,
-+ *			   const struct polyval_elem *b)
-+ */
-+SYM_FUNC_START(polyval_mul_pclmul)
- 	FRAME_BEGIN
--	movups (%rdi), DATA
--	movups (%rsi), SHASH
--	movaps .Lbswap_mask(%rip), BSWAP
--	pshufb BSWAP, DATA
-+	movups (%rdi), ACC
-+	movups (%rsi), KEY
- 	call __clmul_gf128mul_ble
--	pshufb BSWAP, DATA
--	movups DATA, (%rdi)
-+	movups ACC, (%rdi)
- 	FRAME_END
- 	RET
--SYM_FUNC_END(clmul_ghash_mul)
-+SYM_FUNC_END(polyval_mul_pclmul)
- 
- /*
-- * int clmul_ghash_update(char *dst, const char *src, unsigned int srclen,
-- *			  const le128 *shash);
-+ * void ghash_blocks_pclmul(struct polyval_elem *acc,
-+ *			    const struct polyval_elem *key,
-+ *			    const u8 *data, size_t nblocks)
-  */
--SYM_FUNC_START(clmul_ghash_update)
-+SYM_FUNC_START(ghash_blocks_pclmul)
- 	FRAME_BEGIN
--	cmp $16, %rdx
--	jb .Lupdate_just_ret	# check length
- 	movaps .Lbswap_mask(%rip), BSWAP
--	movups (%rdi), DATA
--	movups (%rcx), SHASH
--	pshufb BSWAP, DATA
-+	movups (%rdi), ACC
-+	movups (%rsi), KEY
- .align 4
--.Lupdate_loop:
--	movups (%rsi), IN1
-+.Lnext_block:
-+	movups (%rdx), IN1
- 	pshufb BSWAP, IN1
--	pxor IN1, DATA
-+	pxor IN1, ACC
- 	call __clmul_gf128mul_ble
--	sub $16, %rdx
--	add $16, %rsi
--	cmp $16, %rdx
--	jge .Lupdate_loop
--	pshufb BSWAP, DATA
--	movups DATA, (%rdi)
--.Lupdate_just_ret:
--	mov %rdx, %rax
-+	add $16, %rdx
-+	dec %rcx
-+	jnz .Lnext_block
-+	movups ACC, (%rdi)
- 	FRAME_END
- 	RET
--SYM_FUNC_END(clmul_ghash_update)
-+SYM_FUNC_END(ghash_blocks_pclmul)
--- 
-2.53.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Tm93IHRoYXQgdGhlcmUgYXJlIG5vIHVzZXJzIG9mIHRoZSAiZ2hhc2giIGNyeXB0b19zaGFzaCBh
+bGdvcml0aG0sCnJlbW92ZSBpdC4gIEdIQVNIIHJlbWFpbnMgc3VwcG9ydGVkIHZpYSB0aGUgbGli
+cmFyeSBBUEkuCgpTaWduZWQtb2ZmLWJ5OiBFcmljIEJpZ2dlcnMgPGViaWdnZXJzQGtlcm5lbC5v
+cmc+Ci0tLQogY3J5cHRvL0tjb25maWcgICAgICAgICB8ICAgNyAtLQogY3J5cHRvL01ha2VmaWxl
+ICAgICAgICB8ICAgMSAtCiBjcnlwdG8vZ2hhc2gtZ2VuZXJpYy5jIHwgMTYyIC0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiBjcnlwdG8vdGNyeXB0LmMgICAgICAgIHwg
+ICA5IC0tLQogY3J5cHRvL3Rlc3RtZ3IuYyAgICAgICB8ICAgNiAtLQogY3J5cHRvL3Rlc3RtZ3Iu
+aCAgICAgICB8IDEwOSAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIDYgZmlsZXMgY2hhbmdl
+ZCwgMjk0IGRlbGV0aW9ucygtKQogZGVsZXRlIG1vZGUgMTAwNjQ0IGNyeXB0by9naGFzaC1nZW5l
+cmljLmMKCmRpZmYgLS1naXQgYS9jcnlwdG8vS2NvbmZpZyBiL2NyeXB0by9LY29uZmlnCmluZGV4
+IDEzY2NmNWFjMmYxYS4uZWZiNDgyZWExOTJkIDEwMDY0NAotLS0gYS9jcnlwdG8vS2NvbmZpZwor
+KysgYi9jcnlwdG8vS2NvbmZpZwpAQCAtODg2LDE3ICs4ODYsMTAgQEAgY29uZmlnIENSWVBUT19D
+TUFDCiAJc2VsZWN0IENSWVBUT19NQU5BR0VSCiAJaGVscAogCSAgQ01BQyAoQ2lwaGVyLWJhc2Vk
+IE1lc3NhZ2UgQXV0aGVudGljYXRpb24gQ29kZSkgYXV0aGVudGljYXRpb24KIAkgIG1vZGUgKE5J
+U1QgU1A4MDAtMzhCIGFuZCBJRVRGIFJGQzQ0OTMpCiAKLWNvbmZpZyBDUllQVE9fR0hBU0gKLQl0
+cmlzdGF0ZSAiR0hBU0giCi0Jc2VsZWN0IENSWVBUT19IQVNICi0Jc2VsZWN0IENSWVBUT19MSUJf
+R0YxMjhNVUwKLQloZWxwCi0JICBHQ00gR0hBU0ggZnVuY3Rpb24gKE5JU1QgU1A4MDAtMzhEKQot
+CiBjb25maWcgQ1JZUFRPX0hNQUMKIAl0cmlzdGF0ZSAiSE1BQyAoS2V5ZWQtSGFzaCBNQUMpIgog
+CXNlbGVjdCBDUllQVE9fSEFTSAogCXNlbGVjdCBDUllQVE9fTUFOQUdFUgogCWhlbHAKZGlmZiAt
+LWdpdCBhL2NyeXB0by9NYWtlZmlsZSBiL2NyeXB0by9NYWtlZmlsZQppbmRleCAwNGUyNjkxMTc1
+ODkuLjE3ZjRmY2E5YjllNSAxMDA2NDQKLS0tIGEvY3J5cHRvL01ha2VmaWxlCisrKyBiL2NyeXB0
+by9NYWtlZmlsZQpAQCAtMTY5LDExICsxNjksMTAgQEAgQ0ZMQUdTX2ppdHRlcmVudHJvcHkubyA9
+IC1PMAogS0FTQU5fU0FOSVRJWkVfaml0dGVyZW50cm9weS5vID0gbgogVUJTQU5fU0FOSVRJWkVf
+aml0dGVyZW50cm9weS5vID0gbgogaml0dGVyZW50cm9weV9ybmcteSA6PSBqaXR0ZXJlbnRyb3B5
+Lm8gaml0dGVyZW50cm9weS1rY2FwaS5vCiBvYmotJChDT05GSUdfQ1JZUFRPX0pJVFRFUkVOVFJP
+UFlfVEVTVElOVEVSRkFDRSkgKz0gaml0dGVyZW50cm9weS10ZXN0aW5nLm8KIG9iai0kKENPTkZJ
+R19DUllQVE9fQkVOQ0hNQVJLKSArPSB0Y3J5cHQubwotb2JqLSQoQ09ORklHX0NSWVBUT19HSEFT
+SCkgKz0gZ2hhc2gtZ2VuZXJpYy5vCiBvYmotJChDT05GSUdfQ1JZUFRPX1VTRVJfQVBJKSArPSBh
+Zl9hbGcubwogb2JqLSQoQ09ORklHX0NSWVBUT19VU0VSX0FQSV9IQVNIKSArPSBhbGdpZl9oYXNo
+Lm8KIG9iai0kKENPTkZJR19DUllQVE9fVVNFUl9BUElfU0tDSVBIRVIpICs9IGFsZ2lmX3NrY2lw
+aGVyLm8KIG9iai0kKENPTkZJR19DUllQVE9fVVNFUl9BUElfUk5HKSArPSBhbGdpZl9ybmcubwog
+b2JqLSQoQ09ORklHX0NSWVBUT19VU0VSX0FQSV9BRUFEKSArPSBhbGdpZl9hZWFkLm8KZGlmZiAt
+LWdpdCBhL2NyeXB0by9naGFzaC1nZW5lcmljLmMgYi9jcnlwdG8vZ2hhc2gtZ2VuZXJpYy5jCmRl
+bGV0ZWQgZmlsZSBtb2RlIDEwMDY0NAppbmRleCBlNTgwM2MyNDljMTIuLjAwMDAwMDAwMDAwMAot
+LS0gYS9jcnlwdG8vZ2hhc2gtZ2VuZXJpYy5jCisrKyAvZGV2L251bGwKQEAgLTEsMTYyICswLDAg
+QEAKLS8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkKLS8qCi0gKiBHSEFT
+SDogaGFzaCBmdW5jdGlvbiBmb3IgR0NNIChHYWxvaXMvQ291bnRlciBNb2RlKS4KLSAqCi0gKiBD
+b3B5cmlnaHQgKGMpIDIwMDcgTm9raWEgU2llbWVucyBOZXR3b3JrcyAtIE1pa2tvIEhlcnJhbmVu
+IDxtaDFAaWtpLmZpPgotICogQ29weXJpZ2h0IChjKSAyMDA5IEludGVsIENvcnAuCi0gKiAgIEF1
+dGhvcjogSHVhbmcgWWluZyA8eWluZy5odWFuZ0BpbnRlbC5jb20+Ci0gKi8KLQotLyoKLSAqIEdI
+QVNIIGlzIGEga2V5ZWQgaGFzaCBmdW5jdGlvbiB1c2VkIGluIEdDTSBhdXRoZW50aWNhdGlvbiB0
+YWcgZ2VuZXJhdGlvbi4KLSAqCi0gKiBUaGUgb3JpZ2luYWwgR0NNIHBhcGVyIFsxXSBwcmVzZW50
+cyBHSEFTSCBhcyBhIGZ1bmN0aW9uIEdIQVNIKEgsIEEsIEMpIHdoaWNoCi0gKiB0YWtlcyBhIDE2
+LWJ5dGUgaGFzaCBrZXkgSCwgYWRkaXRpb25hbCBhdXRoZW50aWNhdGVkIGRhdGEgQSwgYW5kIGEg
+Y2lwaGVydGV4dAotICogQy4gIEl0IGZvcm1hdHMgQSBhbmQgQyBpbnRvIGEgc2luZ2xlIGJ5dGUg
+c3RyaW5nIFgsIGludGVycHJldHMgWCBhcyBhCi0gKiBwb2x5bm9taWFsIG92ZXIgR0YoMl4xMjgp
+LCBhbmQgZXZhbHVhdGVzIHRoaXMgcG9seW5vbWlhbCBhdCB0aGUgcG9pbnQgSC4KLSAqCi0gKiBI
+b3dldmVyLCB0aGUgTklTVCBzdGFuZGFyZCBmb3IgR0NNIFsyXSBwcmVzZW50cyBHSEFTSCBhcyBH
+SEFTSChILCBYKSB3aGVyZSBYCi0gKiBpcyB0aGUgYWxyZWFkeS1mb3JtYXR0ZWQgYnl0ZSBzdHJp
+bmcgY29udGFpbmluZyBib3RoIEEgYW5kIEMuCi0gKgotICogImdoYXNoIiBpbiB0aGUgTGludXgg
+Y3J5cHRvIEFQSSB1c2VzIHRoZSAnWCcgKHByZS1mb3JtYXR0ZWQpIGNvbnZlbnRpb24sCi0gKiBz
+aW5jZSB0aGUgQVBJIHN1cHBvcnRzIG9ubHkgYSBzaW5nbGUgZGF0YSBzdHJlYW0gcGVyIGhhc2gu
+ICBUaHVzLCB0aGUKLSAqIGZvcm1hdHRpbmcgb2YgJ0EnIGFuZCAnQycgaXMgZG9uZSBpbiB0aGUg
+ImdjbSIgdGVtcGxhdGUsIG5vdCBpbiAiZ2hhc2giLgotICoKLSAqIFRoZSByZWFzb24gImdoYXNo
+IiBpcyBzZXBhcmF0ZSBmcm9tICJnY20iIGlzIHRvIGFsbG93ICJnY20iIHRvIHVzZSBhbgotICog
+YWNjZWxlcmF0ZWQgImdoYXNoIiB3aGVuIGEgc3RhbmRhbG9uZSBhY2NlbGVyYXRlZCAiZ2NtKGFl
+cykiIGlzIHVuYXZhaWxhYmxlLgotICogSXQgaXMgZ2VuZXJhbGx5IGluYXBwcm9wcmlhdGUgdG8g
+dXNlICJnaGFzaCIgZm9yIG90aGVyIHB1cnBvc2VzLCBzaW5jZSBpdCBpcwotICogYW4gIs61LWFs
+bW9zdC1YT1ItdW5pdmVyc2FsIGhhc2ggZnVuY3Rpb24iLCBub3QgYSBjcnlwdG9ncmFwaGljIGhh
+c2ggZnVuY3Rpb24uCi0gKiBJdCBjYW4gb25seSBiZSB1c2VkIHNlY3VyZWx5IGluIGNyeXB0byBt
+b2RlcyBzcGVjaWFsbHkgZGVzaWduZWQgdG8gdXNlIGl0LgotICoKLSAqIFsxXSBUaGUgR2Fsb2lz
+L0NvdW50ZXIgTW9kZSBvZiBPcGVyYXRpb24gKEdDTSkKLSAqICAgICAoaHR0cDovL2NpdGVzZWVy
+eC5pc3QucHN1LmVkdS92aWV3ZG9jL2Rvd25sb2FkP2RvaT0xMC4xLjEuNjk0LjY5NSZyZXA9cmVw
+MSZ0eXBlPXBkZikKLSAqIFsyXSBSZWNvbW1lbmRhdGlvbiBmb3IgQmxvY2sgQ2lwaGVyIE1vZGVz
+IG9mIE9wZXJhdGlvbjogR2Fsb2lzL0NvdW50ZXIgTW9kZSAoR0NNKSBhbmQgR01BQwotICogICAg
+IChodHRwczovL2NzcmMubmlzdC5nb3YvcHVibGljYXRpb25zL2RldGFpbC9zcC84MDAtMzhkL2Zp
+bmFsKQotICovCi0KLSNpbmNsdWRlIDxjcnlwdG8vZ2YxMjhtdWwuaD4KLSNpbmNsdWRlIDxjcnlw
+dG8vZ2hhc2guaD4KLSNpbmNsdWRlIDxjcnlwdG8vaW50ZXJuYWwvaGFzaC5oPgotI2luY2x1ZGUg
+PGNyeXB0by91dGlscy5oPgotI2luY2x1ZGUgPGxpbnV4L2Vyci5oPgotI2luY2x1ZGUgPGxpbnV4
+L2tlcm5lbC5oPgotI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPgotI2luY2x1ZGUgPGxpbnV4L3N0
+cmluZy5oPgotCi1zdGF0aWMgaW50IGdoYXNoX2luaXQoc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2Mp
+Ci17Ci0Jc3RydWN0IGdoYXNoX2Rlc2NfY3R4ICpkY3R4ID0gc2hhc2hfZGVzY19jdHgoZGVzYyk7
+Ci0KLQltZW1zZXQoZGN0eCwgMCwgc2l6ZW9mKCpkY3R4KSk7Ci0KLQlyZXR1cm4gMDsKLX0KLQot
+c3RhdGljIGludCBnaGFzaF9zZXRrZXkoc3RydWN0IGNyeXB0b19zaGFzaCAqdGZtLAotCQkJY29u
+c3QgdTggKmtleSwgdW5zaWduZWQgaW50IGtleWxlbikKLXsKLQlzdHJ1Y3QgZ2hhc2hfY3R4ICpj
+dHggPSBjcnlwdG9fc2hhc2hfY3R4KHRmbSk7Ci0JYmUxMjggazsKLQotCWlmIChrZXlsZW4gIT0g
+R0hBU0hfQkxPQ0tfU0laRSkKLQkJcmV0dXJuIC1FSU5WQUw7Ci0KLQlpZiAoY3R4LT5nZjEyOCkK
+LQkJZ2YxMjhtdWxfZnJlZV80ayhjdHgtPmdmMTI4KTsKLQotCUJVSUxEX0JVR19PTihzaXplb2Yo
+aykgIT0gR0hBU0hfQkxPQ0tfU0laRSk7Ci0JbWVtY3B5KCZrLCBrZXksIEdIQVNIX0JMT0NLX1NJ
+WkUpOyAvKiBhdm9pZCB2aW9sYXRpbmcgYWxpZ25tZW50IHJ1bGVzICovCi0JY3R4LT5nZjEyOCA9
+IGdmMTI4bXVsX2luaXRfNGtfbGxlKCZrKTsKLQltZW16ZXJvX2V4cGxpY2l0KCZrLCBHSEFTSF9C
+TE9DS19TSVpFKTsKLQotCWlmICghY3R4LT5nZjEyOCkKLQkJcmV0dXJuIC1FTk9NRU07Ci0KLQly
+ZXR1cm4gMDsKLX0KLQotc3RhdGljIGludCBnaGFzaF91cGRhdGUoc3RydWN0IHNoYXNoX2Rlc2Mg
+KmRlc2MsCi0JCQkgY29uc3QgdTggKnNyYywgdW5zaWduZWQgaW50IHNyY2xlbikKLXsKLQlzdHJ1
+Y3QgZ2hhc2hfZGVzY19jdHggKmRjdHggPSBzaGFzaF9kZXNjX2N0eChkZXNjKTsKLQlzdHJ1Y3Qg
+Z2hhc2hfY3R4ICpjdHggPSBjcnlwdG9fc2hhc2hfY3R4KGRlc2MtPnRmbSk7Ci0JdTggKmRzdCA9
+IGRjdHgtPmJ1ZmZlcjsKLQotCWRvIHsKLQkJY3J5cHRvX3hvcihkc3QsIHNyYywgR0hBU0hfQkxP
+Q0tfU0laRSk7Ci0JCWdmMTI4bXVsXzRrX2xsZSgoYmUxMjggKilkc3QsIGN0eC0+Z2YxMjgpOwot
+CQlzcmMgKz0gR0hBU0hfQkxPQ0tfU0laRTsKLQkJc3JjbGVuIC09IEdIQVNIX0JMT0NLX1NJWkU7
+Ci0JfSB3aGlsZSAoc3JjbGVuID49IEdIQVNIX0JMT0NLX1NJWkUpOwotCi0JcmV0dXJuIHNyY2xl
+bjsKLX0KLQotc3RhdGljIHZvaWQgZ2hhc2hfZmx1c2goc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2Ms
+IGNvbnN0IHU4ICpzcmMsCi0JCQl1bnNpZ25lZCBpbnQgbGVuKQotewotCXN0cnVjdCBnaGFzaF9j
+dHggKmN0eCA9IGNyeXB0b19zaGFzaF9jdHgoZGVzYy0+dGZtKTsKLQlzdHJ1Y3QgZ2hhc2hfZGVz
+Y19jdHggKmRjdHggPSBzaGFzaF9kZXNjX2N0eChkZXNjKTsKLQl1OCAqZHN0ID0gZGN0eC0+YnVm
+ZmVyOwotCi0JaWYgKGxlbikgewotCQljcnlwdG9feG9yKGRzdCwgc3JjLCBsZW4pOwotCQlnZjEy
+OG11bF80a19sbGUoKGJlMTI4ICopZHN0LCBjdHgtPmdmMTI4KTsKLQl9Ci19Ci0KLXN0YXRpYyBp
+bnQgZ2hhc2hfZmludXAoc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2MsIGNvbnN0IHU4ICpzcmMsCi0J
+CSAgICAgICB1bnNpZ25lZCBpbnQgbGVuLCB1OCAqZHN0KQotewotCXN0cnVjdCBnaGFzaF9kZXNj
+X2N0eCAqZGN0eCA9IHNoYXNoX2Rlc2NfY3R4KGRlc2MpOwotCXU4ICpidWYgPSBkY3R4LT5idWZm
+ZXI7Ci0KLQlnaGFzaF9mbHVzaChkZXNjLCBzcmMsIGxlbik7Ci0JbWVtY3B5KGRzdCwgYnVmLCBH
+SEFTSF9CTE9DS19TSVpFKTsKLQotCXJldHVybiAwOwotfQotCi1zdGF0aWMgdm9pZCBnaGFzaF9l
+eGl0X3RmbShzdHJ1Y3QgY3J5cHRvX3RmbSAqdGZtKQotewotCXN0cnVjdCBnaGFzaF9jdHggKmN0
+eCA9IGNyeXB0b190Zm1fY3R4KHRmbSk7Ci0JaWYgKGN0eC0+Z2YxMjgpCi0JCWdmMTI4bXVsX2Zy
+ZWVfNGsoY3R4LT5nZjEyOCk7Ci19Ci0KLXN0YXRpYyBzdHJ1Y3Qgc2hhc2hfYWxnIGdoYXNoX2Fs
+ZyA9IHsKLQkuZGlnZXN0c2l6ZQk9IEdIQVNIX0RJR0VTVF9TSVpFLAotCS5pbml0CQk9IGdoYXNo
+X2luaXQsCi0JLnVwZGF0ZQkJPSBnaGFzaF91cGRhdGUsCi0JLmZpbnVwCQk9IGdoYXNoX2ZpbnVw
+LAotCS5zZXRrZXkJCT0gZ2hhc2hfc2V0a2V5LAotCS5kZXNjc2l6ZQk9IHNpemVvZihzdHJ1Y3Qg
+Z2hhc2hfZGVzY19jdHgpLAotCS5iYXNlCQk9IHsKLQkJLmNyYV9uYW1lCQk9ICJnaGFzaCIsCi0J
+CS5jcmFfZHJpdmVyX25hbWUJPSAiZ2hhc2gtZ2VuZXJpYyIsCi0JCS5jcmFfcHJpb3JpdHkJCT0g
+MTAwLAotCQkuY3JhX2ZsYWdzCQk9IENSWVBUT19BSEFTSF9BTEdfQkxPQ0tfT05MWSwKLQkJLmNy
+YV9ibG9ja3NpemUJCT0gR0hBU0hfQkxPQ0tfU0laRSwKLQkJLmNyYV9jdHhzaXplCQk9IHNpemVv
+ZihzdHJ1Y3QgZ2hhc2hfY3R4KSwKLQkJLmNyYV9tb2R1bGUJCT0gVEhJU19NT0RVTEUsCi0JCS5j
+cmFfZXhpdAkJPSBnaGFzaF9leGl0X3RmbSwKLQl9LAotfTsKLQotc3RhdGljIGludCBfX2luaXQg
+Z2hhc2hfbW9kX2luaXQodm9pZCkKLXsKLQlyZXR1cm4gY3J5cHRvX3JlZ2lzdGVyX3NoYXNoKCZn
+aGFzaF9hbGcpOwotfQotCi1zdGF0aWMgdm9pZCBfX2V4aXQgZ2hhc2hfbW9kX2V4aXQodm9pZCkK
+LXsKLQljcnlwdG9fdW5yZWdpc3Rlcl9zaGFzaCgmZ2hhc2hfYWxnKTsKLX0KLQotbW9kdWxlX2lu
+aXQoZ2hhc2hfbW9kX2luaXQpOwotbW9kdWxlX2V4aXQoZ2hhc2hfbW9kX2V4aXQpOwotCi1NT0RV
+TEVfTElDRU5TRSgiR1BMIik7Ci1NT0RVTEVfREVTQ1JJUFRJT04oIkdIQVNIIGhhc2ggZnVuY3Rp
+b24iKTsKLU1PRFVMRV9BTElBU19DUllQVE8oImdoYXNoIik7Ci1NT0RVTEVfQUxJQVNfQ1JZUFRP
+KCJnaGFzaC1nZW5lcmljIik7CmRpZmYgLS1naXQgYS9jcnlwdG8vdGNyeXB0LmMgYi9jcnlwdG8v
+dGNyeXB0LmMKaW5kZXggYWRlZDM3NTQ2MTM3Li4xNzczZjVmNzEzNTEgMTAwNjQ0Ci0tLSBhL2Ny
+eXB0by90Y3J5cHQuYworKysgYi9jcnlwdG8vdGNyeXB0LmMKQEAgLTE2NDgsMTQgKzE2NDgsMTAg
+QEAgc3RhdGljIGludCBkb190ZXN0KGNvbnN0IGNoYXIgKmFsZywgdTMyIHR5cGUsIHUzMiBtYXNr
+LCBpbnQgbSwgdTMyIG51bV9tYikKIAogCWNhc2UgNDU6CiAJCXJldCA9IG1pbihyZXQsIHRjcnlw
+dF90ZXN0KCJyZmM0MzA5KGNjbShhZXMpKSIpKTsKIAkJYnJlYWs7CiAKLQljYXNlIDQ2OgotCQly
+ZXQgPSBtaW4ocmV0LCB0Y3J5cHRfdGVzdCgiZ2hhc2giKSk7Ci0JCWJyZWFrOwotCiAJY2FzZSA0
+ODoKIAkJcmV0ID0gbWluKHJldCwgdGNyeXB0X3Rlc3QoInNoYTMtMjI0IikpOwogCQlicmVhazsK
+IAogCWNhc2UgNDk6CkBAIC0yMjQ5LDE1ICsyMjQ1LDEwIEBAIHN0YXRpYyBpbnQgZG9fdGVzdChj
+b25zdCBjaGFyICphbGcsIHUzMiB0eXBlLCB1MzIgbWFzaywgaW50IG0sIHUzMiBudW1fbWIpCiAJ
+CWZhbGx0aHJvdWdoOwogCWNhc2UgMzE3OgogCQl0ZXN0X2hhc2hfc3BlZWQoImJsYWtlMmItNTEy
+Iiwgc2VjLCBnZW5lcmljX2hhc2hfc3BlZWRfdGVtcGxhdGUpOwogCQlpZiAobW9kZSA+IDMwMCAm
+JiBtb2RlIDwgNDAwKSBicmVhazsKIAkJZmFsbHRocm91Z2g7Ci0JY2FzZSAzMTg6Ci0JCWtsZW4g
+PSAxNjsKLQkJdGVzdF9oYXNoX3NwZWVkKCJnaGFzaCIsIHNlYywgZ2VuZXJpY19oYXNoX3NwZWVk
+X3RlbXBsYXRlKTsKLQkJaWYgKG1vZGUgPiAzMDAgJiYgbW9kZSA8IDQwMCkgYnJlYWs7Ci0JCWZh
+bGx0aHJvdWdoOwogCWNhc2UgMzE5OgogCQl0ZXN0X2hhc2hfc3BlZWQoImNyYzMyYyIsIHNlYywg
+Z2VuZXJpY19oYXNoX3NwZWVkX3RlbXBsYXRlKTsKIAkJaWYgKG1vZGUgPiAzMDAgJiYgbW9kZSA8
+IDQwMCkgYnJlYWs7CiAJCWZhbGx0aHJvdWdoOwogCWNhc2UgMzIyOgpkaWZmIC0tZ2l0IGEvY3J5
+cHRvL3Rlc3RtZ3IuYyBiL2NyeXB0by90ZXN0bWdyLmMKaW5kZXggMGIwYWQzNThlMDkxLi5kZDAx
+Zjg2ZGQ2ZmUgMTAwNjQ0Ci0tLSBhL2NyeXB0by90ZXN0bWdyLmMKKysrIGIvY3J5cHRvL3Rlc3Rt
+Z3IuYwpAQCAtNDk4MywxNiArNDk4MywxMCBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGFsZ190ZXN0
+X2Rlc2MgYWxnX3Rlc3RfZGVzY3NbXSA9IHsKIAkJLmdlbmVyaWNfZHJpdmVyID0gImdjbV9iYXNl
+KGN0cihzbTQtZ2VuZXJpYyksZ2hhc2gtbGliKSIsCiAJCS50ZXN0ID0gYWxnX3Rlc3RfYWVhZCwK
+IAkJLnN1aXRlID0gewogCQkJLmFlYWQgPSBfX1ZFQ1Moc200X2djbV90dl90ZW1wbGF0ZSkKIAkJ
+fQotCX0sIHsKLQkJLmFsZyA9ICJnaGFzaCIsCi0JCS50ZXN0ID0gYWxnX3Rlc3RfaGFzaCwKLQkJ
+LnN1aXRlID0gewotCQkJLmhhc2ggPSBfX1ZFQ1MoZ2hhc2hfdHZfdGVtcGxhdGUpCi0JCX0KIAl9
+LCB7CiAJCS5hbGcgPSAiaGN0cjIoYWVzKSIsCiAJCS5nZW5lcmljX2RyaXZlciA9ICJoY3RyMl9i
+YXNlKHhjdHIoYWVzLWxpYikscG9seXZhbC1saWIpIiwKIAkJLnRlc3QgPSBhbGdfdGVzdF9za2Np
+cGhlciwKIAkJLnN1aXRlID0gewpkaWZmIC0tZ2l0IGEvY3J5cHRvL3Rlc3RtZ3IuaCBiL2NyeXB0
+by90ZXN0bWdyLmgKaW5kZXggMWM2OWMxMWMwY2RiLi5hMzI3NGFiYWNmZGUgMTAwNjQ0Ci0tLSBh
+L2NyeXB0by90ZXN0bWdyLmgKKysrIGIvY3J5cHRvL3Rlc3RtZ3IuaApAQCAtNjE4MSwxMTkgKzYx
+ODEsMTAgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCBoYXNoX3Rlc3R2ZWMgd3AyNTZfdHZfdGVtcGxh
+dGVbXSA9IHsKIAkJCSAgIlx4OEFceDdBXHg1QVx4NTJceERFXHhFRVx4NjVceDYyIgogCQkJICAi
+XHgwN1x4QzVceDYyXHhGOVx4ODhceEU5XHg1Q1x4NjkiLAogCX0sCiB9OwogCi1zdGF0aWMgY29u
+c3Qgc3RydWN0IGhhc2hfdGVzdHZlYyBnaGFzaF90dl90ZW1wbGF0ZVtdID0KLXsKLQl7Ci0JCS5r
+ZXkJPSAiXHhkZlx4YTZceGJmXHg0ZFx4ZWRceDgxXHhkYlx4MDMiCi0JCQkgICJceGZmXHhjYVx4
+ZmZceDk1XHhmOFx4MzBceGYwXHg2MSIsCi0JCS5rc2l6ZQk9IDE2LAotCQkucGxhaW50ZXh0ID0g
+Ilx4OTVceDJiXHgyYVx4NTZceGE1XHg2MFx4MDRhXHhjMCIKLQkJCSAgICAgIlx4YjNceDJiXHg2
+Nlx4NTZceGEwXHg1Ylx4NDBceGI2IiwKLQkJLnBzaXplCT0gMTYsCi0JCS5kaWdlc3QJPSAiXHhk
+YVx4NTNceGViXHgwYVx4ZDJceGM1XHg1Ylx4YjYiCi0JCQkgICJceDRmXHhjNFx4ODBceDJjXHhj
+M1x4ZmVceGRhXHg2MCIsCi0JfSwgewotCQkua2V5CT0gIlx4MGJceDBiXHgwYlx4MGJceDBiXHgw
+Ylx4MGJceDBiIgotCQkJICAiXHgwYlx4MGJceDBiXHgwYlx4MGJceDBiXHgwYlx4MGIiLAotCQku
+a3NpemUJPSAxNiwKLQkJLnBsYWludGV4dCA9ICJ3aGF0IGRvIHlhIHdhbnQgZm9yIG5vdGhpbmc/
+IiwKLQkJLnBzaXplCT0gMjgsCi0JCS5kaWdlc3QJPSAiXHgzZVx4MWZceDVjXHg0ZFx4NjVceGYw
+XHhlZlx4Y2UiCi0JCQkgICJceDBkXHg2MVx4MDZceDI3XHg2Nlx4NTFceGQ1XHhlMiIsCi0JfSwg
+ewotCQkua2V5CT0gIlx4YWFceGFhXHhhYVx4YWFceGFhXHhhYVx4YWFceGFhIgotCQkJICAiXHhh
+YVx4YWFceGFhXHhhYVx4YWFceGFhXHhhYVx4YWEiLAotCQkua3NpemUJPSAxNiwKLQkJLnBsYWlu
+dGV4dCA9ICJceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGQi
+Ci0JCQkiXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhk
+ZCIKLQkJCSJceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRc
+eGRkIgotCQkJIlx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhkZFx4ZGRceGRkXHhk
+ZCIsCi0JCS5wc2l6ZQk9IDUwLAotCQkuZGlnZXN0CT0gIlx4ZmJceDQ5XHg4YVx4MzZceGUxXHg5
+Nlx4ZTFceDk2IgotCQkJICAiXHhlMVx4OTZceGUxXHg5Nlx4ZTFceDk2XHhlMVx4OTYiLAotCX0s
+IHsKLQkJLmtleQk9ICJceGRhXHg1M1x4ZWJceDBhXHhkMlx4YzVceDViXHhiNiIKLQkJCSAgIlx4
+NGZceGM0XHg4MFx4MmNceGMzXHhmZVx4ZGFceDYwIiwKLQkJLmtzaXplCT0gMTYsCi0JCS5wbGFp
+bnRleHQgPSAiXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNk
+IgotCQkJIlx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4
+Y2QiCi0JCQkiXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNk
+XHhjZCIKLQkJCSJceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4Y2RceGNkXHhjZFx4
+Y2QiLAotCQkucHNpemUJPSA1MCwKLQkJLmRpZ2VzdAk9ICJceDJiXHg1Y1x4MGNceDdmXHg1Mlx4
+ZDFceDYwXHhjMiIKLQkJCSAgIlx4NDlceGVkXHg2ZVx4MzJceDdhXHhhOVx4YmVceDA4IiwKLQl9
+LCB7Ci0JCS5rZXkJPSAiXHg5NVx4MmJceDJhXHg1Nlx4YTVceDYwXHgwNGFceGMwIgotCQkJICAi
+XHhiM1x4MmJceDY2XHg1Nlx4YTBceDViXHg0MFx4YjYiLAotCQkua3NpemUJPSAxNiwKLQkJLnBs
+YWludGV4dCA9ICJUZXN0IFdpdGggVHJ1bmNhdGlvbiIsCi0JCS5wc2l6ZQk9IDIwLAotCQkuZGln
+ZXN0CT0gIlx4ZjhceDk0XHg4N1x4MmFceDRiXHg2M1x4OTlceDI4IgotCQkJICAiXHgyM1x4Zjdc
+eDkzXHhmN1x4MTlceGY1XHg5Nlx4ZDkiLAotCX0sIHsKLQkJLmtleQk9ICJceDBhXHgxYlx4MmNc
+eDNkXHg0ZVx4NWZceDY0XHg3MSIKLQkJCSJceDgyXHg5M1x4YTRceGI1XHhjNlx4ZDdceGU4XHhm
+OSIsCi0JCS5rc2l6ZQk9IDE2LAotCQkucGxhaW50ZXh0ID0gIlx4NTZceDZmXHg3Mlx4MjBceDZj
+XHg2MVx4NzVceDc0IgotCQkJIlx4NjVceDcyXHgyMFx4NGNceDYxXHg3NVx4NzNceDYzIgotCQkJ
+Ilx4NjhceDY1XHg2ZVx4MjBceDc1XHg2ZVx4NjRceDIwIgotCQkJIlx4NTNceDc0XHg2MVx4NzVc
+eDZlXHg2NVx4NmVceDIwIgotCQkJIlx4NzNceDY1XHg2OVx4MjBceDczXHg3NFx4NjlceDZjIgot
+CQkJIlx4NmNceDJjXHgwYVx4NjRceDc1XHgyMFx4NmRceDY1IgotCQkJIlx4NjlceDZlXHgyMFx4
+NzRceDY5XHg2NVx4NjZceDc0IgotCQkJIlx4NjlceDY1XHg2Nlx4NjVceDczXHgyMFx4NGNceDY1
+IgotCQkJIlx4NjJceDY1XHg2ZVx4M2JceDBhXHg2NFx4NjFceDczIgotCQkJIlx4NzNceDIwXHg2
+NFx4NzVceDIwXHg3N1x4NjVceDY5IgotCQkJIlx4YzNceDlmXHg3NFx4MjBceDc3XHg2MVx4NzNc
+eDIwIgotCQkJIlx4NjRceDY1XHg3Mlx4MjBceDU3XHg2OVx4NmVceDY0IgotCQkJIlx4MjBceDY0
+XHg2OVx4NzJceDIwXHg3N1x4NjlceDZjIgotCQkJIlx4NmNceDJjXHgwYVx4NjVceDY4XHgyMFx4
+NmVceDZmIgotCQkJIlx4NjNceDY4XHgyMFx4NjRceDY5XHg2NVx4MjBceDQyIgotCQkJIlx4Njlc
+eDcyXHg2Ylx4NjVceDZlXHgyMFx4NjJceDY1IgotCQkJIlx4NjJceDY1XHg2ZVx4MmVceDBhXHgw
+YVx4NTVceDZlIgotCQkJIlx4NjRceDIwXHg3N1x4NjVceDZlXHg2ZVx4MjBceDY0IgotCQkJIlx4
+NjlceDcyXHgyMFx4NjVceDY5XHg2ZVx4NmRceDYxIgotCQkJIlx4NmNceDIwXHg2NFx4NjFceDcz
+XHgyMFx4NTNceDYzIgotCQkJIlx4NjhceDc3XHg2NVx4NjlceDY3XHg2NVx4NmVceDIwIgotCQkJ
+Ilx4NzNceDcwXHg3Mlx4NjFceDYzXHg2OFx4MmNceDBhIgotCQkJIlx4NmNceDYxXHg3M1x4NzNc
+eDIwXHg2NFx4NjVceDY5IgotCQkJIlx4NmVceDY1XHgyMFx4NTNceDY5XHg2ZVx4NmVceDY1Igot
+CQkJIlx4MjBceDYyXHg2NVx4NzNceDY5XHg2NVx4NjdceDY1IgotCQkJIlx4NmVceDJlXHgwYVx4
+NGFceDY1XHg2NFx4NjVceDZkIgotCQkJIlx4MjBceDQ4XHg2MVx4NzVceDYzXHg2OFx4NjVceDIw
+IgotCQkJIlx4NjdceDY5XHg2Mlx4NzRceDIwXHg2NFx4NjlceDYzIgotCQkJIlx4NjhceDJjXHgy
+MFx4NjdceDY5XHg2Mlx4MjBceDZlIgotCQkJIlx4NjFceDYzXHg2OFx4MmNceDBhXHg2NVx4NzJc
+eDIwIgotCQkJIlx4NzdceDY5XHg3Mlx4NjRceDIwXHg2NFx4NjlceDYzIgotCQkJIlx4NjhceDIw
+XHg2Y1x4NjlceDY1XHg2Mlx4NjVceDZlIgotCQkJIlx4MjBceDc1XHg2ZVx4NjRceDIwXHg3N1x4
+NjlceDY1IgotCQkJIlx4NjdceDY1XHg2ZVx4MmVceDBhXHgwYVx4NTVceDZlIgotCQkJIlx4NjRc
+eDIwXHg2NFx4NjFceDZlXHg2ZVx4MjBceDZkIgotCQkJIlx4NjVceDY5XHg2ZVx4NjVceDIwXHg1
+M1x4NjVceDY1IgotCQkJIlx4NmNceDY1XHgyMFx4NzNceDY1XHg2OVx4NzRceDIwIgotCQkJIlx4
+NzdceDY1XHg2OVx4NzRceDJjXHgyMFx4NzNceDY1IgotCQkJIlx4NjlceDIwXHg3N1x4NjVceDY5
+XHg3NFx4MmNceDBhIgotCQkJIlx4NjRceDYxXHg3M1x4NzNceDIwXHg2NFx4NjlceDcyIgotCQkJ
+Ilx4MjBceDY0XHg2MVx4NzNceDIwXHg0Y1x4NjVceDYyIgotCQkJIlx4NjVceDZlXHgyMFx4Njdc
+eDY1XHg2Y1x4NjlceDZlIgotCQkJIlx4NjdceDY1XHgyY1x4MGFceDYyXHg3Mlx4NjVceDY5Igot
+CQkJIlx4NzRceDY1XHgyMFx4NjRceDY5XHg2M1x4NjhceDIwIgotCQkJIlx4NzdceDY5XHg2NVx4
+MjBceDY1XHg2OVx4NmVceDIwIgotCQkJIlx4NDZceDY1XHg2OVx4NjVceDcyXHg2Ylx4NmNceDY1
+IgotCQkJIlx4NjlceDY0XHgwYVx4YzNceGJjXHg2Mlx4NjVceDcyIgotCQkJIlx4MjBceDY0XHg2
+OVx4NjVceDIwXHg3M1x4NjlceDZlIgotCQkJIlx4NmVceDY1XHg2ZVx4NjRceDY1XHg2ZVx4MjBc
+eDQ0IgotCQkJIlx4NjlceDZlXHg2N1x4NjVceDJlXHgyZVx4MmVceDBhIiwKLQkJLnBzaXplCT0g
+NDAwLAotCQkuZGlnZXN0ID0gIlx4YWRceGIxXHhjMVx4ZTlceDU2XHg3MFx4MzFceDFkIgotCQkJ
+Ilx4YmJceDViXHhkZlx4NWVceDcwXHg3Mlx4MWFceDU3IiwKLQl9LAotfTsKLQogLyoKICAqIEhN
+QUMtTUQ1IHRlc3QgdmVjdG9ycyBmcm9tIFJGQzIyMDIKICAqIChUaGVzZSBuZWVkIHRvIGJlIGZp
+eGVkIHRvIG5vdCB1c2Ugc3RybGVuKS4KICAqLwogc3RhdGljIGNvbnN0IHN0cnVjdCBoYXNoX3Rl
+c3R2ZWMgaG1hY19tZDVfdHZfdGVtcGxhdGVbXSA9Ci0tIAoyLjUzLjAKCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
