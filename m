@@ -4,59 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9846A108E1F3
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 11:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB058108E1F7
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 11:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LCQc9XBQ0JYYnhRYWQX8/PqATIl8qzkytHeyub+a2dE=; b=hnBICV7psiv9CH
-	HRwV7AGP/9wD2xNGuX4Bid+Bjn/nOVKksNW8HAZlw9WmqLNqG1ehrLhiyvva87uBVyF+dWwmnVn6F
-	fF2G7r2rIsQEAeTUAqMOazV3R3TN4M93UJrpLr9BjYeCOoJ5VeoAIOUfEWgJt96Kd9n5Qq0aSHsD+
-	CIxwwNsL8eQAyhDY//cLDM7OZmb18YjW9/1qW0DD0BHmAPeIt11gkm2F02AjMxw1aMDh8QxfViN9F
-	J1zCUxuYO2nOC0HIZFMzvEUZJi2OyeSQgaNY9y5qXeddTiVFrtv423WkCOQIsssDk+e6GVHL/+/mE
-	38fDuHAcyp2lBGmsIQ6w==;
+	List-Owner; bh=yk28p1KhJtsWi5dhM/fUbqRNSoWIJFf3ILHk6uQkG+Q=; b=TZzz3vuFDn24qw
+	1GUGERlk7R9OLgr7HIf1l/ZVh4RCK77mvtqwoHyFT+/Mkb9RxMQHU+0UAaYhoeDmM8A1/E0P83zTJ
+	X7Dx7SBdof6sYoUa3gP7HMEyPmNy1iJhwSi1KcdnmcGmlU4M3l2z9mWvxB6Jj+CWxU8RJq1PyCQiO
+	m3pigH18+URoRHFLYxHSVd0f4NszL8TuLes13Y2goFTGIuDF8o/3y+UcXc1QX+yRlIzQOrwr5EYdR
+	DTgzcKjybUdLYiti9yDjuR8bCh6rcgbXewCdKIcjuZBWGG7fsRRHiGbVoMhBlmMqnzdCGzOvpBqPH
+	7WauLTVJ5pLF76XbXDKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BjE-0000000AYPc-1RiY;
-	Thu, 19 Mar 2026 11:39:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3BmN-0000000AYhx-17LB;
+	Thu, 19 Mar 2026 11:43:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3BjC-0000000AYP4-2ws2;
-	Thu, 19 Mar 2026 11:39:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B28436011F;
-	Thu, 19 Mar 2026 11:39:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A442FC19424;
-	Thu, 19 Mar 2026 11:39:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773920389;
-	bh=E9JhBbwIf2oYiVeQO98SXyjx4quJ+BMudZAgGLFcb+g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BGx7WrTwHUihAjtcSbFNMAICzyKVLizTimomndMFC17GigIHl2O5lLd1sAboSBwgz
-	 teTLnani2q02pnMpHF5I64dZ3BvIk/JIUF/u8u/Bd2YHImY7IFL2+OvVZNa41u0ra+
-	 0OMaJIIAcvUg7Gjcw8smNDGGOYsDwc1/HwLmjvPFzWx3oYGtRvNe6urP8AOJm5vdM5
-	 jYzKtGiYHfkigeu6+1gWkC9Uvr0NJ8lJV5m9qVwNrOYChDvk1FHRUJG/M5g2z/kZLI
-	 daNPIHfmjTPYD/PMmFMMlmRs2UzfU3YqHjEfUY4w3wEM9yjit59oEp/L1Mbz0Ga+4j
-	 3P7vBOv+qa4qQ==
-Date: Thu, 19 Mar 2026 11:39:43 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, Liam.Howlett@oracle.com, 
-	vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/6] mm: change to return bool for the MMU notifier's
- young flag check
-Message-ID: <67c670e2-c98f-490b-bbb9-2960f8175b5a@lucifer.local>
-References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
- <545847c132da5d957cfc74ab19e849b16127aa8f.1773890510.git.baolin.wang@linux.alibaba.com>
+	id 1w3BmL-0000000AYhm-3ByV
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 19 Mar 2026 11:43:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=0iBKfs7yUmTmI3ueHYb0OvhWTjmElVxY8JUdHliSajk=; b=UZ3BdZYB+2jOc37HaxKBA5eqmb
+	H+qUQQA/dWtLSmIAC1A2LWa1sww+mciBoRRt8vI7rbjoMzq+5OLuQxvq6Wee+eSowpvwAGalWKaju
+	FoM2bMH0zROlg9p6pRJ4YncFPT+Ot1hFzMaG6N2s2LNLoz9jXS7qP7YtB6veeITqidWwIdl86HMLx
+	+4b1V5NGuw4v+70ms5zOrGZ1R1ffgpwfrLygp6T+gm+8AIQFK0D0yztKA4OwgwgoB1RjD0tMeIgZr
+	cT5ZiZHuVbsQnAoTaDhzhnEgMY9evn4cwrOif0kLx23p+p/k41I9Zy6bfoCLkQKTg0GPj0BXBhXtc
+	h8pCgj+A==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3BmH-0000000DO6L-1Q3O
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 11:43:04 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w3Bm5-0007xc-Cs; Thu, 19 Mar 2026 12:42:49 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w3Bm3-0014CP-2s;
+	Thu, 19 Mar 2026 12:42:47 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w3Bm3-00000000Byb-3NCL;
+	Thu, 19 Mar 2026 12:42:47 +0100
+Message-ID: <c0a6d0346e2b766ab4dab3340445c45843f28b60.camel@pengutronix.de>
+Subject: Re: [PATCH v3] reset: spacemit: k3: Decouple composite reset lines
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Junzhong Pan
+ <junzhong.pan@spacemit.com>, Guodong Xu	 <guodong@riscstar.com>,
+ devicetree@vger.kernel.org, 	linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, 	linux-kernel@vger.kernel.org, Inochi Amaoto
+ <inochiama@gmail.com>
+Date: Thu, 19 Mar 2026 12:42:47 +0100
+In-Reply-To: <20260318131043-GKA488271@kernel.org>
+References: <20260317-01-k3-reset-usb-pci-v3-1-e4b9a43c7d45@kernel.org>
+	 <3e9022faae3dc6f5066a1e7cc3752a0193a55bc9.camel@pengutronix.de>
+	 <20260318131043-GKA488271@kernel.org>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <545847c132da5d957cfc74ab19e849b16127aa8f.1773890510.git.baolin.wang@linux.alibaba.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_114301_472193_FAA6E92C 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,387 +97,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 11:24:05AM +0800, Baolin Wang wrote:
-> The MMU notifier young flag check related functions only return whether
-> the young flag was set. Change the return type to bool to make the
-> intention clearer.
->
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+On Mi, 2026-03-18 at 21:10 +0800, Yixun Lan wrote:
+> Hi Philipp,
+> 
+> On 13:39 Wed 18 Mar     , Philipp Zabel wrote:
+> > On Di, 2026-03-17 at 02:36 +0000, Yixun Lan wrote:
+> > > Instead of grouping several different reset lines into one composite
+> > > reset, decouple them to individual ones which make it more aligned
+> > > with underlying hardware. And for DWC USB driver, it will match well
+> > > with the number of the reset property in the DT bindings.
+> > > 
+> > > The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
+> > > PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
+> > > Also three reset lines each for UCIE and RCPU block.
+> > > 
+> > > As an agreement with maintainer, the reset IDs has been rearranged as
+> > > contiguous number and pushed as a fix for the driver, and reason is that
+> > > there isn't any consumer of reset driver so far,
+> > 
+> > Unfortunately that does not seem to be the case for all APMU resets.
+> > A lore query for all changed IDs [1] yields a patch that adds ethernet
+> > device nodes using RESET_APMU_EMAC[012] [2].
+> > 
+> Yes, although the ethernet use this ID, but I don't think we should worry
+> about that, since the ethernet patch is still under review, and ideally it
+> will be merged after this reordering patch, unless you disagree? and insist
+> the RESET_APMU_EMAC should not be changed?
 
-I can see KVM is the only user for the mmu_notifier_ops clear_flush_young,
-clear_young and test_young hooks, which map to
-kvm_mmu_notifier_[clear_flush,clear,test]_young() functions, and you have
-updated them all.
+Yes, please. Somebody might have picked up those patches from the list
+and we can easily avoid the risk of breaking their ethernet with v7.0
+by not reordering all resets. Let's do that.
 
-So this LGTM with nits below, and so (with nits addressed as per the other R-b
-tags :):
-
-Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-
-Thanks for doing this! Int as bool is a pet peeve of mine :))
-
-Cheers, Lorenzo
-
-> ---
->  include/linux/mmu_notifier.h | 76 +++++++++++++++++-------------------
->  mm/internal.h                | 16 ++++----
->  mm/mmu_notifier.c            | 20 +++++-----
->  virt/kvm/kvm_main.c          | 40 +++++++++----------
->  4 files changed, 72 insertions(+), 80 deletions(-)
->
-> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
-> index 3705d350c863..17f2cdc77dd5 100644
-> --- a/include/linux/mmu_notifier.h
-> +++ b/include/linux/mmu_notifier.h
-> @@ -97,20 +97,20 @@ struct mmu_notifier_ops {
->  	 * Start-end is necessary in case the secondary MMU is mapping the page
->  	 * at a smaller granularity than the primary MMU.
->  	 */
-> -	int (*clear_flush_young)(struct mmu_notifier *subscription,
-> -				 struct mm_struct *mm,
-> -				 unsigned long start,
-> -				 unsigned long end);
-> +	bool (*clear_flush_young)(struct mmu_notifier *subscription,
-> +				  struct mm_struct *mm,
-> +				  unsigned long start,
-> +				  unsigned long end);
->
->  	/*
->  	 * clear_young is a lightweight version of clear_flush_young. Like the
->  	 * latter, it is supposed to test-and-clear the young/accessed bitflag
->  	 * in the secondary pte, but it may omit flushing the secondary tlb.
->  	 */
-> -	int (*clear_young)(struct mmu_notifier *subscription,
-> -			   struct mm_struct *mm,
-> -			   unsigned long start,
-> -			   unsigned long end);
-> +	bool (*clear_young)(struct mmu_notifier *subscription,
-> +			    struct mm_struct *mm,
-> +			    unsigned long start,
-> +			    unsigned long end);
->
->  	/*
->  	 * test_young is called to check the young/accessed bitflag in
-> @@ -118,9 +118,9 @@ struct mmu_notifier_ops {
->  	 * frequently used without actually clearing the flag or tearing
->  	 * down the secondary mapping on the page.
->  	 */
-> -	int (*test_young)(struct mmu_notifier *subscription,
-> -			  struct mm_struct *mm,
-> -			  unsigned long address);
-> +	bool (*test_young)(struct mmu_notifier *subscription,
-> +			   struct mm_struct *mm,
-> +			   unsigned long address);
->
->  	/*
->  	 * invalidate_range_start() and invalidate_range_end() must be
-> @@ -376,14 +376,12 @@ mmu_interval_check_retry(struct mmu_interval_notifier *interval_sub,
->
->  extern void __mmu_notifier_subscriptions_destroy(struct mm_struct *mm);
->  extern void __mmu_notifier_release(struct mm_struct *mm);
-> -extern int __mmu_notifier_clear_flush_young(struct mm_struct *mm,
-> -					  unsigned long start,
-> -					  unsigned long end);
-> -extern int __mmu_notifier_clear_young(struct mm_struct *mm,
-> -				      unsigned long start,
-> -				      unsigned long end);
-> -extern int __mmu_notifier_test_young(struct mm_struct *mm,
-> -				     unsigned long address);
-> +bool __mmu_notifier_clear_flush_young(struct mm_struct *mm,
-> +		unsigned long start, unsigned long end);
-> +bool __mmu_notifier_clear_young(struct mm_struct *mm,
-> +		unsigned long start, unsigned long end);
-> +bool __mmu_notifier_test_young(struct mm_struct *mm,
-> +		unsigned long address);
->  extern int __mmu_notifier_invalidate_range_start(struct mmu_notifier_range *r);
->  extern void __mmu_notifier_invalidate_range_end(struct mmu_notifier_range *r);
->  extern void __mmu_notifier_arch_invalidate_secondary_tlbs(struct mm_struct *mm,
-
-I mean damn, at this point maybe it's legit to drop the surrounding externs here
-too? But maybe not :))
-
-> @@ -403,30 +401,28 @@ static inline void mmu_notifier_release(struct mm_struct *mm)
->  		__mmu_notifier_release(mm);
->  }
->
-> -static inline int mmu_notifier_clear_flush_young(struct mm_struct *mm,
-> -					  unsigned long start,
-> -					  unsigned long end)
-> +static inline bool mmu_notifier_clear_flush_young(struct mm_struct *mm,
-> +		unsigned long start, unsigned long end)
->  {
->  	if (mm_has_notifiers(mm))
->  		return __mmu_notifier_clear_flush_young(mm, start, end);
-> -	return 0;
-> +	return false;
->  }
->
-> -static inline int mmu_notifier_clear_young(struct mm_struct *mm,
-> -					   unsigned long start,
-> -					   unsigned long end)
-> +static inline bool mmu_notifier_clear_young(struct mm_struct *mm,
-> +		unsigned long start, unsigned long end)
->  {
->  	if (mm_has_notifiers(mm))
->  		return __mmu_notifier_clear_young(mm, start, end);
-> -	return 0;
-> +	return false;
->  }
->
-> -static inline int mmu_notifier_test_young(struct mm_struct *mm,
-> -					  unsigned long address)
-> +static inline bool mmu_notifier_test_young(struct mm_struct *mm,
-> +		unsigned long address)
->  {
->  	if (mm_has_notifiers(mm))
->  		return __mmu_notifier_test_young(mm, address);
-> -	return 0;
-> +	return false;
->  }
->
->  static inline void
-> @@ -552,24 +548,22 @@ static inline void mmu_notifier_release(struct mm_struct *mm)
->  {
->  }
->
-> -static inline int mmu_notifier_clear_flush_young(struct mm_struct *mm,
-> -					  unsigned long start,
-> -					  unsigned long end)
-> +static inline bool mmu_notifier_clear_flush_young(struct mm_struct *mm,
-> +		unsigned long start, unsigned long end)
->  {
-> -	return 0;
-> +	return false;
->  }
->
-> -static inline int mmu_notifier_clear_young(struct mm_struct *mm,
-> -					   unsigned long start,
-> -					   unsigned long end)
-> +static inline bool mmu_notifier_clear_young(struct mm_struct *mm,
-> +		unsigned long start, unsigned long end)
->  {
-> -	return 0;
-> +	return false;
->  }
->
-> -static inline int mmu_notifier_test_young(struct mm_struct *mm,
-> -					  unsigned long address)
-> +static inline bool mmu_notifier_test_young(struct mm_struct *mm,
-> +		unsigned long address)
->  {
-> -	return 0;
-> +	return false;
->  }
->
->  static inline void
-> diff --git a/mm/internal.h b/mm/internal.h
-> index 0eaca2f0eb6a..3d6eba216364 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -1831,10 +1831,10 @@ static inline int io_remap_pfn_range_complete(struct vm_area_struct *vma,
->  }
->
->  #ifdef CONFIG_MMU_NOTIFIER
-> -static inline int clear_flush_young_ptes_notify(struct vm_area_struct *vma,
-> +static inline bool clear_flush_young_ptes_notify(struct vm_area_struct *vma,
->  		unsigned long addr, pte_t *ptep, unsigned int nr)
->  {
-> -	int young;
-> +	bool young;
->
->  	young = clear_flush_young_ptes(vma, addr, ptep, nr);
->  	young |= mmu_notifier_clear_flush_young(vma->vm_mm, addr,
-> @@ -1842,30 +1842,30 @@ static inline int clear_flush_young_ptes_notify(struct vm_area_struct *vma,
->  	return young;
->  }
->
-> -static inline int pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
-> +static inline bool pmdp_clear_flush_young_notify(struct vm_area_struct *vma,
->  		unsigned long addr, pmd_t *pmdp)
->  {
-> -	int young;
-> +	bool young;
->
->  	young = pmdp_clear_flush_young(vma, addr, pmdp);
->  	young |= mmu_notifier_clear_flush_young(vma->vm_mm, addr, addr + PMD_SIZE);
->  	return young;
->  }
->
-> -static inline int test_and_clear_young_ptes_notify(struct vm_area_struct *vma,
-> +static inline bool test_and_clear_young_ptes_notify(struct vm_area_struct *vma,
->  		unsigned long addr, pte_t *ptep, unsigned int nr)
->  {
-> -	int young;
-> +	bool young;
->
->  	young = test_and_clear_young_ptes(vma, addr, ptep, nr);
->  	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + nr * PAGE_SIZE);
->  	return young;
->  }
->
-> -static inline int pmdp_test_and_clear_young_notify(struct vm_area_struct *vma,
-> +static inline bool pmdp_test_and_clear_young_notify(struct vm_area_struct *vma,
->  		unsigned long addr, pmd_t *pmdp)
->  {
-> -	int young;
-> +	bool young;
->
->  	young = pmdp_test_and_clear_young(vma, addr, pmdp);
->  	young |= mmu_notifier_clear_young(vma->vm_mm, addr, addr + PMD_SIZE);
-> diff --git a/mm/mmu_notifier.c b/mm/mmu_notifier.c
-> index 2502474b83b6..3e3e7e727ba2 100644
-> --- a/mm/mmu_notifier.c
-> +++ b/mm/mmu_notifier.c
-> @@ -364,12 +364,11 @@ void __mmu_notifier_release(struct mm_struct *mm)
->   * unmap the address and return 1 or 0 depending if the mapping previously
->   * existed or not.
->   */
-> -int __mmu_notifier_clear_flush_young(struct mm_struct *mm,
-> -					unsigned long start,
-> -					unsigned long end)
-> +bool __mmu_notifier_clear_flush_young(struct mm_struct *mm,
-> +		unsigned long start, unsigned long end)
->  {
->  	struct mmu_notifier *subscription;
-> -	int young = 0, id;
-> +	bool young = false, id;
->
->  	id = srcu_read_lock(&srcu);
->  	hlist_for_each_entry_srcu(subscription,
-> @@ -384,12 +383,11 @@ int __mmu_notifier_clear_flush_young(struct mm_struct *mm,
->  	return young;
->  }
->
-> -int __mmu_notifier_clear_young(struct mm_struct *mm,
-> -			       unsigned long start,
-> -			       unsigned long end)
-> +bool __mmu_notifier_clear_young(struct mm_struct *mm,
-> +		unsigned long start, unsigned long end)
->  {
->  	struct mmu_notifier *subscription;
-> -	int young = 0, id;
-> +	bool young = false, id;
->
->  	id = srcu_read_lock(&srcu);
->  	hlist_for_each_entry_srcu(subscription,
-> @@ -404,11 +402,11 @@ int __mmu_notifier_clear_young(struct mm_struct *mm,
->  	return young;
->  }
->
-> -int __mmu_notifier_test_young(struct mm_struct *mm,
-> -			      unsigned long address)
-> +bool __mmu_notifier_test_young(struct mm_struct *mm,
-> +		unsigned long address)
->  {
->  	struct mmu_notifier *subscription;
-> -	int young = 0, id;
-> +	bool young = false, id;
->
->  	id = srcu_read_lock(&srcu);
->  	hlist_for_each_entry_srcu(subscription,
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index d0ab29672c71..6bcfc1b3021d 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -646,11 +646,11 @@ static __always_inline kvm_mn_ret_t kvm_handle_hva_range(struct kvm *kvm,
->  	return r;
->  }
->
-> -static __always_inline int kvm_age_hva_range(struct mmu_notifier *mn,
-> -						unsigned long start,
-> -						unsigned long end,
-> -						gfn_handler_t handler,
-> -						bool flush_on_ret)
-> +static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
-> +					      unsigned long start,
-> +					      unsigned long end,
-> +					      gfn_handler_t handler,
-> +					      bool flush_on_ret)
-
-Can we please fix this terrrible indentation while we're here :)?
-
-static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
-		unsigned long start, unsigned long end, gfn_handler_t handler,
-		bool flush_on_ret)
-
-Would be nicer, thanks!
-
->  {
->  	struct kvm *kvm = mmu_notifier_to_kvm(mn);
->  	const struct kvm_mmu_notifier_range range = {
-> @@ -666,10 +666,10 @@ static __always_inline int kvm_age_hva_range(struct mmu_notifier *mn,
->  	return kvm_handle_hva_range(kvm, &range).ret;
->  }
->
-> -static __always_inline int kvm_age_hva_range_no_flush(struct mmu_notifier *mn,
-> -						      unsigned long start,
-> -						      unsigned long end,
-> -						      gfn_handler_t handler)
-> +static __always_inline bool kvm_age_hva_range_no_flush(struct mmu_notifier *mn,
-> +						       unsigned long start,
-> +						       unsigned long end,
-> +						       gfn_handler_t handler)
-
-Same indentation comment here.
-
->  {
->  	return kvm_age_hva_range(mn, start, end, handler, false);
->  }
-> @@ -829,10 +829,10 @@ static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
->  		rcuwait_wake_up(&kvm->mn_memslots_update_rcuwait);
->  }
->
-> -static int kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
-> -					      struct mm_struct *mm,
-> -					      unsigned long start,
-> -					      unsigned long end)
-> +static bool kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
-> +					       struct mm_struct *mm,
-> +					       unsigned long start,
-> +					       unsigned long end)
-
-Same indentation comment here.
-
->  {
->  	trace_kvm_age_hva(start, end);
->
-> @@ -840,10 +840,10 @@ static int kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
->  				 !IS_ENABLED(CONFIG_KVM_ELIDE_TLB_FLUSH_IF_YOUNG));
->  }
->
-> -static int kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
-> -					struct mm_struct *mm,
-> -					unsigned long start,
-> -					unsigned long end)
-> +static bool kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
-> +					 struct mm_struct *mm,
-> +					 unsigned long start,
-> +					 unsigned long end)
-
-Same indentation comment here.
-
->  {
->  	trace_kvm_age_hva(start, end);
->
-> @@ -863,9 +863,9 @@ static int kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
->  	return kvm_age_hva_range_no_flush(mn, start, end, kvm_age_gfn);
->  }
->
-> -static int kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
-> -				       struct mm_struct *mm,
-> -				       unsigned long address)
-> +static bool kvm_mmu_notifier_test_young(struct mmu_notifier *mn,
-> +					struct mm_struct *mm,
-> +					unsigned long address)
-
-Same indentation comment here.
-
->  {
->  	trace_kvm_test_age_hva(address);
->
-> --
-> 2.47.3
->
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
