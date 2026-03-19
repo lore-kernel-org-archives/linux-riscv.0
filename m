@@ -4,76 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1A51075262
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEAFE1075262
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 07:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bFQ2HIMaIwXlOUplmoA4LYM+nPsxRoPH9nU4BQc56Aw=; b=vTZdKISGYGrAz0
-	Dcs8vr0xh/IpbcbULQZTmAsadx859KHQ0zy0iD0PymKNc65lNZkVxEQlO13+K0uGN4JsNhIlJdeFh
-	LlgPIi4zutbR+v7Pxqh+k1umHcivsKZ6yuuz6qRakx+cwuydnP1fNQsN7PefEAMLXTdhXhKayk+vt
-	qQNBX1BrM3kqjsSokPY+c+Qp5RqUYppa9OzkLNNsadw7bLXked+Rs1UJfOPMRepPI+l8rsaynr2r1
-	XgC42l1pFqfCqUykgmte6WxXhl7N34JHLsuAqxcLzfEcrStkZspOVxngN4/7s81acsuhrEjoUGkSQ
-	v5nvHhwCQ9mRwoK7SJQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EHA/u87xkjyr0EEh6gPZtJyvdGEUzl53G92OGLyLVlA=; b=I85wtGUXBSxJT/hNHmCVAo2t+I
+	ODnyNeGRz0rqzIt5BkPFc+QnDMMQCkbmi3RfGVP/Bso/HTxKQLR6+kUi4eAZ0gaE3N8BhLsmdhkTi
+	nsJmA6AoNulEvPoHqrs3RczreTA1apXCFGjxiZVARx7I00jqNr4tMQR6ArqUSXjB6cMHzIQ30vSUm
+	Q0f5yyedNIx5vgHm2d6EYHXPsz1tt9XQXQSZa24eKsDqnQLKpHGawWG+IRRDY26FG09nyFyKjvHZx
+	5O1iR+4R/FVcFYAiBRLnLFedxnkPy5DGPEy41AShvyWUy5bp2I25qcq3hVJo2IoxOYcdwAQT6KH/I
+	K27DMKxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w37Ko-0000000A4yG-2zNv;
-	Thu, 19 Mar 2026 06:58:22 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1w37Ru-0000000A6Qm-3hu5;
+	Thu, 19 Mar 2026 07:05:42 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w37Kn-0000000A4wo-0c3y;
-	Thu, 19 Mar 2026 06:58:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=OY+9eLOMu8D6VbbXOJYy45gDVG6RhQRdRz0wVTUZID0=; b=VarKU/dObtTsFA8r0Gjo41xLDw
-	jGfXY7DOPLq/wTZdvpkTd3bW7rdkR6uT4rAktTdWeAs2ITn+LRO3qSQS6yxubfcB80/QUZaRS0IsW
-	0r/WFP2t7VUq/m8UyemrBF6q4a9ZQuSwf0xiT3jZ+4Lx+v3JKJ2V0LxarG6Bld8Jd8yl0DGC22gq7
-	LCZIuhkc+ooSLcdi6vlC2KDxvKRbNIYq60x8tI0ncSLxWgp9hVhZzWt36Fzzudy/c8ayb8IX0bz4F
-	AF6gJAc8VBOHDvbGI7yUjd4DEwbEPqxN5c6PgY2Ic56owIPQPvCW9AErVwKzUaCYUtUrll2dUOgML
-	4gy2yn3g==;
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w37Kj-00000005hQm-49ZC;
-	Thu, 19 Mar 2026 06:58:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=OY+9eLOMu8D6VbbXOJYy45gDVG6RhQRdRz0wVTUZID0=;
-	b=tGsdcrSPQ6/D7kDlywRLputfdp4O3BpSi06NDZOuqDq9RwNCdUmLUny90T52M93qSR0ELt1No
-	0x3bYTk6cFBJRi0ff34XzxmQupT2nTllpT0EFZ4LwwYf9jApBTbyR8UDr6ucCdTiLKu6SG7E6Gm
-	l+Gf3n5twSKDJEGOWeOXo9w=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fbxFr4DTPz12LDD;
-	Thu, 19 Mar 2026 14:52:16 +0800 (CST)
-Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6A5D340538;
-	Thu, 19 Mar 2026 14:57:47 +0800 (CST)
-Received: from localhost.localdomain (10.50.163.32) by
- kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 19 Mar 2026 14:57:45 +0800
-From: Chengwen Feng <fengchengwen@huawei.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J .
- Wysocki" <rafael@kernel.org>
-Subject: [PATCH v9 2/7] loongarch/acpi: Add acpi_get_cpu_uid() declaration and implementation
-Date: Thu, 19 Mar 2026 14:57:30 +0800
-Message-ID: <20260319065735.45954-3-fengchengwen@huawei.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260319065735.45954-1-fengchengwen@huawei.com>
-References: <20260319065735.45954-1-fengchengwen@huawei.com>
+	id 1w37Rr-0000000A6Pm-3AYV
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 07:05:41 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6616cb8c80cso1003463a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Mar 2026 00:05:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1773903935; x=1774508735; darn=lists.infradead.org;
+        h=in-reply-to:autocrypt:from:content-language:references:cc:to
+         :subject:user-agent:mime-version:date:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=wByaUL24vrAyIuOx18rXl10HJ+lmVFi8kPhiaZgqoCk=;
+        b=CtD7JuuI3h22xMtrMDdpyN/wJuBEv/G1g7QL0J8HQ3QSEl99qBkZYGtlROci2vak+b
+         0I+Axpm4Oj2iJo//K2HoBuY8LtfZROwjsnIlUnY9ic56YL6qPEj2YBYJSXIhsOde1iNg
+         s9k5lpIlMKZuxK0NGgLJ3qGgWquxRB30YHrF99KBD3+2Oj3RzMK8l+kWeBPYSDtNZYrU
+         bDXFbW/mrI+Wb24YorFpJOnYV1hjKSyj10q0xxIwiPIslHNuJSuAlK+FatTA5GWAS+St
+         imaY0k8Vo6GLUSjzith2SHXJ/l4WZHA42dJGpAtddfHmhyErZ3eCW85SpQk03wUPu+Sk
+         mbcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773903935; x=1774508735;
+        h=in-reply-to:autocrypt:from:content-language:references:cc:to
+         :subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wByaUL24vrAyIuOx18rXl10HJ+lmVFi8kPhiaZgqoCk=;
+        b=dlK5xGBYozRV+dINzzX1VXbImDRlrs7mxa01Od6hkzetoM7lDb3r8i8UDEFBc9BiJA
+         tciShQO8E7uGBsZii6r5L0uz9Q2yduOqJ7xRBGIEvfNUmQo1w985/LMdXXMcENJLpDbk
+         9JFgGVnHFAWRlAimO9BHG2memToSlb60cxomNuVJ4k9h1hdt+jLtSXpZ1iedufgqy5C5
+         0xs+QMUcoNVFx48QUVIuOuf0IxfM8UYWNZnz9FEUu1teXTeHaZ9sm+5AsWD6Q4reyL8O
+         8gehtjkK/I9s6FVMO+bie3N8wh8vr/VdjzQR4SEIkxrr4WY1EsZjJJe4NdMNW3+xJZSd
+         Iaqw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJwYjly+tXlKxhSY0xsaA6dF7GQN8tW8jqO+LFF+svWUDyenv9dU/wiuFsN7CU5XhI9rrIF1m0zy/PVw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNSc7eO7Dp8/GhnHa/V/ipgg+xn2Rr1UY5FTzHqU9+lviKJh4p
+	IhGhzgurgx4+5KvLWaGzcXzGipnES4MlkJ/SoF05/n+yphp4PnRyieWcovGlFkD77f8=
+X-Gm-Gg: ATEYQzzpu7k02gpXGXQf2ZEnD2JilhP+Th+KuPUFkXYBXaOSf+imEp8wX/rJ/CaoQaV
+	OMN3Ok5yNy6RMej0QRSKlhdxP5rjJ+0vODbNuAstNc4we7Oew2WAJt6fXfvh94ZKpLsm+mu0FxJ
+	Hwr53GR3BsdL0I5+vtfvAkedUrpydoatlfCABPLx4ltVzs8EeyFJ2SuZ+76Bg1/4f77HzUwPRz6
+	d+y6WOSug5P++rVYt74RXuDxhCbb3v6UfT2FzSqv89mEraOuz0pwJDPIwCa9jsZ7elgc3ST37eG
+	TT65rcJ5mF6/9ZvnFQ/wUAFP7R5Y2z47JC7+YFosnAHOO+Mez5noj6DfZ/KNBc4sULCjAo8WjSZ
+	iNpbMbly/+6cRDboB+BB7O4F8K+wXsX3kJPrT0GLM60RyuYPCT+6bm9jeeaVaIumXLWg2542tyW
+	Km2YAzmU/uD4OYZja/0R/1ve2IwbRtCcSAbtrSoEpIb62yTJH3/Opu5Gjt4Un/ZiIk4tWOufA1z
+	LBF9nwNiGjk2mjBWBdwgaRcp46EQm5GkKPxlDaaoW1slrbv8qOYgg==
+X-Received: by 2002:a05:6402:458a:b0:668:58b6:5061 with SMTP id 4fb4d7f45d1cf-66858b651e5mr869453a12.23.1773903934927;
+        Thu, 19 Mar 2026 00:05:34 -0700 (PDT)
+Received: from ?IPV6:2a00:12d0:af5d:ad01:5d3f:14e6:9bcb:5112? (2a00-12d0-af5d-ad01-5d3f-14e6-9bcb-5112.ip.tng.de. [2a00:12d0:af5d:ad01:5d3f:14e6:9bcb:5112])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-667b14976f1sm3306167a12.31.2026.03.19.00.05.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Mar 2026 00:05:34 -0700 (PDT)
+Message-ID: <5f0ca1fc-9eb4-48ae-b578-f490a6ba5ea3@suse.com>
+Date: Thu, 19 Mar 2026 08:05:33 +0100
 MIME-Version: 1.0
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk500009.china.huawei.com (7.202.194.94)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 4/7] x86/acpi: Add acpi_get_cpu_uid() implementation
+ and update Xen users
+To: Chengwen Feng <fengchengwen@huawei.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>
+References: <20260319065735.45954-1-fengchengwen@huawei.com>
+ <20260319065735.45954-5-fengchengwen@huawei.com>
+Content-Language: en-US
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <20260319065735.45954-5-fengchengwen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_065818_591882_833E2687 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260319_000539_885434_00BFD6A2 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,62 +122,189 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, x86@kernel.org, liuyonglong@huawei.com, anshuman.khandual@arm.com, linux-doc@vger.kernel.org, Kees Cook <kees@kernel.org>, linux-pci@vger.kernel.org, Dave Hansen <dave.hansen@linux.intel.com>, Eric.VanTassell@amd.com, fengchengwen@huawei.com, Somnath Kotur <somnath.kotur@broadcom.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, punit.agrawal@oss.qualcomm.com, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, Shuah Khan <skhan@linuxfoundation.org>, WANG Xuerui <kernel@xen0n.name>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, masahiroy@kernel.org, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, Thorsten Blum <thorsten.blum@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, ryan.roberts@arm.com, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, suzuki.poulose@arm.com, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Jonathan Cameron <jonathan.cameron@huawei.com>, Sohil Mehta <sohil.mehta@intel.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, wangyuquan1236@phytium.com.cn, Sean Christopherson <seanjc@google.com>, guohanjun@huawei.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, heinrich.schuchardt@canonical.com, chenl311@chinatelecom.cn, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, x86@kernel.org, liuyonglong@huawei.com, anshuman.khandual@arm.com, linux-doc@vger.kernel.org, Kees Cook <kees@kernel.org>, linux-pci@vger.kernel.org, Dave Hansen <dave.hansen@linux.intel.com>, Eric.VanTassell@amd.com, Somnath Kotur <somnath.kotur@broadcom.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, punit.agrawal@oss.qualcomm.com, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, Shuah Khan <skhan@linuxfoundation.org>, WANG Xuerui <kernel@xen0n.name>, linux-acpi@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Jonathan Corbet <corbet@lwn.net>, masahiroy@kernel.org, Huacai Chen <chenhuacai@kernel.org>, linux-riscv@lists.infradead.org, Thorsten Blum <thorsten.blum@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Yanteng Si <si.yanteng@linux.dev>, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>, ryan.roberts@arm.com, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, suzuki.poulose@arm.com, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Jonathan Cameron <jonathan.cameron@huawei.com>, Sohil Mehta <sohil.mehta@intel.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, Ingo Molnar <mingo@redhat.com>, wanghuiqiang@huawei.com, linux-arm-kernel@lists.infradead.org, wangyuquan1236@phytium.com.cn, Sean Christopherson <seanjc@google.com>, guohanjun@huawei.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, heinrich.schuchardt@canonical.com, chenl311@chinatelecom.cn, Paul Walmsley <pjw@kernel.org>, Robin Murphy <robin.murphy@arm.com>
+Content-Type: multipart/mixed; boundary="===============6698648046692804597=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add arch-specific acpi_get_cpu_uid() for loongarch:
-- Declare acpi_get_cpu_uid() in arch/loongarch/include/asm/acpi.h
-- Implement acpi_get_cpu_uid() with input parameter validation
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--===============6698648046692804597==
+Content-Language: en-US
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------3tp0T0MlZQxaVhr4dI0c0IO4"
 
-Align loongarch with the new unified ACPI CPU UID retrieval interface,
-preparing for replacement of the legacy get_acpi_id_for_cpu() (to be
-removed in follow-up patches).
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------3tp0T0MlZQxaVhr4dI0c0IO4
+Content-Type: multipart/mixed; boundary="------------T7ItBqu2YKFGEfwY3NGBxjdV";
+ protected-headers="v1"
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+To: Chengwen Feng <fengchengwen@huawei.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Len Brown <lenb@kernel.org>,
+ Sunil V L <sunilvl@ventanamicro.com>, Mark Rutland <mark.rutland@arm.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Kees Cook <kees@kernel.org>,
+ Yanteng Si <si.yanteng@linux.dev>, Sean Christopherson <seanjc@google.com>,
+ Kai Huang <kai.huang@intel.com>, Tom Lendacky <thomas.lendacky@amd.com>,
+ Thomas Huth <thuth@redhat.com>, Thorsten Blum <thorsten.blum@linux.dev>,
+ Kevin Loughlin <kevinloughlin@google.com>, Zheyun Shen
+ <szy0127@sjtu.edu.cn>, Peter Zijlstra <peterz@infradead.org>,
+ Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Xin Li <xin@zytor.com>,
+ "Ahmed S . Darwish" <darwi@linutronix.de>,
+ Sohil Mehta <sohil.mehta@intel.com>,
+ Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+ Robin Murphy <robin.murphy@arm.com>, James Clark <james.clark@linaro.org>,
+ Besar Wicaksono <bwicaksono@nvidia.com>, Ma Ke <make24@iscas.ac.cn>,
+ Wei Huang <wei.huang2@amd.com>,
+ Andy Gospodarek <andrew.gospodarek@broadcom.com>,
+ Somnath Kotur <somnath.kotur@broadcom.com>, punit.agrawal@oss.qualcomm.com,
+ guohanjun@huawei.com, suzuki.poulose@arm.com, ryan.roberts@arm.com,
+ chenl311@chinatelecom.cn, masahiroy@kernel.org,
+ wangyuquan1236@phytium.com.cn, anshuman.khandual@arm.com,
+ heinrich.schuchardt@canonical.com, Eric.VanTassell@amd.com,
+ wangzhou1@hisilicon.com, wanghuiqiang@huawei.com, liuyonglong@huawei.com,
+ linux-pci@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, stable@vger.kernel.org
+Message-ID: <5f0ca1fc-9eb4-48ae-b578-f490a6ba5ea3@suse.com>
+Subject: Re: [PATCH v9 4/7] x86/acpi: Add acpi_get_cpu_uid() implementation
+ and update Xen users
+References: <20260319065735.45954-1-fengchengwen@huawei.com>
+ <20260319065735.45954-5-fengchengwen@huawei.com>
+In-Reply-To: <20260319065735.45954-5-fengchengwen@huawei.com>
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
----
- arch/loongarch/include/asm/acpi.h | 1 +
- arch/loongarch/kernel/acpi.c      | 9 +++++++++
- 2 files changed, 10 insertions(+)
+--------------T7ItBqu2YKFGEfwY3NGBxjdV
+Content-Type: multipart/mixed; boundary="------------dgRJU17tRiil2XqvArK0zE1P"
 
-diff --git a/arch/loongarch/include/asm/acpi.h b/arch/loongarch/include/asm/acpi.h
-index 7376840fa9f7..8bb101b4557e 100644
---- a/arch/loongarch/include/asm/acpi.h
-+++ b/arch/loongarch/include/asm/acpi.h
-@@ -44,6 +44,7 @@ static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
- {
- 	return acpi_core_pic[cpu_logical_map(cpu)].processor_id;
- }
-+int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
- 
- #endif /* !CONFIG_ACPI */
- 
-diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
-index 1367ca759468..058f0dbe8e8f 100644
---- a/arch/loongarch/kernel/acpi.c
-+++ b/arch/loongarch/kernel/acpi.c
-@@ -385,3 +385,12 @@ int acpi_unmap_cpu(int cpu)
- EXPORT_SYMBOL(acpi_unmap_cpu);
- 
- #endif /* CONFIG_ACPI_HOTPLUG_CPU */
-+
-+int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
-+{
-+	if (cpu >= nr_cpu_ids)
-+		return -EINVAL;
-+	*uid = acpi_core_pic[cpu_logical_map(cpu)].processor_id;
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
--- 
-2.17.1
+--------------dgRJU17tRiil2XqvArK0zE1P
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
+T24gMTkuMDMuMjYgMDc6NTcsIENoZW5nd2VuIEZlbmcgd3JvdGU6DQo+IEFkZCBhcmNoLXNw
+ZWNpZmljIGFjcGlfZ2V0X2NwdV91aWQoKSBmb3IgeDg2Og0KPiAtIERlY2xhcmUgYWNwaV9n
+ZXRfY3B1X3VpZCgpIGluIGFyY2gveDg2L2luY2x1ZGUvYXNtL2FjcGkuaA0KPiAtIEltcGxl
+bWVudCBhY3BpX2dldF9jcHVfdWlkKCkgd2l0aCBpbnB1dCBwYXJhbWV0ZXIgdmFsaWRhdGlv
+bg0KPiAtIFJlcGxhY2UgY3B1X2FjcGlfaWQoKSB3aXRoIGFjcGlfZ2V0X2NwdV91aWQoKSBp
+biBYZW4tcmVsYXRlZCBjb2RlDQo+IC0gUmVtb3ZlIHRoZSBub3ctdW51c2VkIGNwdV9hY3Bp
+X2lkKCkgZnVuY3Rpb24NCj4gDQo+IEV4dGVuZCB0aGUgdW5pZmllZCBBQ1BJIENQVSBVSUQg
+aW50ZXJmYWNlIHRvIHg4NiwgZW5zdXJpbmcgY29uc2lzdGVudA0KPiBlcnJvciBoYW5kbGlu
+ZyBhbmQgaW5wdXQgdmFsaWRhdGlvbiBhY3Jvc3MgYWxsIEFDUEktZW5hYmxlZA0KPiBhcmNo
+aXRlY3R1cmVzLg0KPiANCj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcNCj4gU2lnbmVk
+LW9mZi1ieTogQ2hlbmd3ZW4gRmVuZyA8ZmVuZ2NoZW5nd2VuQGh1YXdlaS5jb20+DQo+IFJl
+dmlld2VkLWJ5OiBKb25hdGhhbiBDYW1lcm9uIDxqb25hdGhhbi5jYW1lcm9uQGh1YXdlaS5j
+b20+DQoNClJldmlld2VkLWJ5OiBKdWVyZ2VuIEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+DQoN
+Cg0KSnVlcmdlbg0K
+--------------dgRJU17tRiil2XqvArK0zE1P
+Content-Type: application/pgp-keys; name="OpenPGP_0xB0DE9DD628BF132F.asc"
+Content-Disposition: attachment; filename="OpenPGP_0xB0DE9DD628BF132F.asc"
+Content-Description: OpenPGP public key
+Content-Transfer-Encoding: quoted-printable
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+kt+z4drzFUyEjLM1vVvIMjkUoJs=3D
+=3DeeAB
+-----END PGP PUBLIC KEY BLOCK-----
+
+--------------dgRJU17tRiil2XqvArK0zE1P--
+
+--------------T7ItBqu2YKFGEfwY3NGBxjdV--
+
+--------------3tp0T0MlZQxaVhr4dI0c0IO4
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmm7oD0FAwAAAAAACgkQsN6d1ii/Ey+T
+4Af7BgRCEqltwxse9iwcB9WhOIH6KFt1MYOFZq112r1cJg+TH/WEse7TN58VY5qa+q1hJREPnezC
+LCVT3XE6GrfGVi/BneCT3fapyoRpJo8WUFwvtqIj+QHgdvgl1ic3A6m/3x9PkqZwsbbueYZD9m57
+EZQ6a1JXiStwakpyRJTmIi5kL4NFQJWMIgznjeOmWCYpg9vhkpfWZ/x7Tr+tb0OdX+DuqRw+ken9
+0FrgxNuxF96ZiXq2q5PB2ntXKoNpSS2n+NIqcn2dsIAb8ICVS1sZHNu5TtbcKPMCz02KbrLaCYa/
+WkP0G6aIrA3XQwzQDZddXKuFcNeZqR9TXz4FC71G4Q==
+=cF9V
+-----END PGP SIGNATURE-----
+
+--------------3tp0T0MlZQxaVhr4dI0c0IO4--
+
+
+--===============6698648046692804597==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6698648046692804597==--
+
