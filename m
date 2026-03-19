@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA64D1090253
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 16:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 562561090257
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 17:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X6S7788XJBAgwSF2d+2f+x1UsEd6fEbAFn/HZLRHrY0=; b=IiF2E2GQybuLDk
-	hk7f6hCFO6fObBZzLrZcD3i+UUhJ/zmnAze+HMspIhlOIHMnpEsgVo/MAX/o6CQ+0SgYGzM/Na6b9
-	mBYqynok/VUNWH7BQUM/SOmOUgrFko1BoXNoPKYYTL7fCG7pP8SQV0M27FwvlBDMFDriSBrDuFIqJ
-	TcSMQMVNNF+dBXlC6QR1z4arirWtI3ye4YTK/b2mpGYNRubyu1y+l3FExgjf8U+BNzmDXywUIYNGy
-	DqoX9vFWd64p83Bt/OnPbNHfWwP/ljaIKPS7G8krdhRJRZnvygwfaI0UUP+dWyFBZrOeStGeRrtsg
-	2YICTicHJl33v8RlaHpQ==;
+	List-Owner; bh=lm0a6fno75KTSYjM1yrgp27BQ2DAU57Ri+mGy65v6KU=; b=Zqhq0Za3BE2z3a
+	h2Vkzaz2aZ9Q5kUFkRN1/1gw4sGFBPocsKbTGAdycz2JBqhEk3jDgI/Qy2VTVrAdY5nzzjLYbGWQF
+	6abe5ob4tg5HZaPvhNDuwTD4DMenIurZPWiE/thPM/BAVTao6h2g+Fd0Fc76yXpw0acsKv/wJdQ5c
+	hTfNtYkxPYHV/D3h2tBSU9Mk+CnWDmMgzmx1LjyykAPGxCNFq9/nBlER13XE0EqC79eRpKnLZ/FcK
+	s4xadSoOMr44djAgBncr/OnN1//m6SlV7xdeIpyJMfY5pAAyeY0JXU+ogKc9iJggEL7qJju/7sna3
+	d2/+jX93zKL4RfTp+y/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GZn-0000000B75q-1Gbj;
-	Thu, 19 Mar 2026 16:50:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3Go2-0000000B9Eq-1Ncw;
+	Thu, 19 Mar 2026 17:05:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3GZl-0000000B75M-3Dt8;
-	Thu, 19 Mar 2026 16:50:25 +0000
+	id 1w3Gnz-0000000B9Dc-1SU4
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 17:05:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7AA6760097;
-	Thu, 19 Mar 2026 16:50:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41945C19424;
-	Thu, 19 Mar 2026 16:50:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 723BD43EB2;
+	Thu, 19 Mar 2026 17:05:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18BAAC19424;
+	Thu, 19 Mar 2026 17:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773939024;
-	bh=ySKX/SdqeoTiP9pwQcgZ94qbw5sb0oTPtV3x6ZUzB64=;
+	s=k20201202; t=1773939905;
+	bh=dp5TXBiDu+vK4NhHATnAX3a+wpecLWfNEQc3Apzs7i8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YgTWHgcwTFKs1gBYxdYW33eFt5gNoD63sWPX8mdYVejWbKUuDdrFkJsiURNl6lSLi
-	 XYkJpx/wRyyEkQGRCONtUVwp8dlhSmjpJmDCO67CtepROdANquLF914vAvs8F03t4f
-	 bTPzUwW9A/1agL8G//3eqOLaaV9TNMSiL0J0t6/c4zk5axQdTYHz2ZOVPKnbSwlk6K
-	 qocxlmnDCy6A8nO8NHNs/bLSd9OhmFGiAmqwSf3sFUuUX0nCndmYw9sGuphDXOX2tS
-	 i4TA+BApsD8Pt+tqXbprswARO/rjXi7FaX5y7BenKplS9DF3okpkWVua6BEbY/FEZi
-	 KOJGjMYMEW9VA==
-Date: Thu, 19 Mar 2026 16:50:08 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
-	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Kees Cook <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, 
-	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin <xu.xin16@zte.com.cn>, 
-	Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, 
-	Stephen Smalley <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
-Subject: Re: [PATCH v2 01/23] mm/vma: add vma_flags_empty(), vma_flags_and(),
- vma_flags_diff_pair()
-Message-ID: <3cf675e3-d333-45f1-bcf9-466c7b16f916@lucifer.local>
-References: <cover.1773665966.git.ljs@kernel.org>
- <ede9b0f8a2e2dc72e7fbc1a0ddbeb513364c28a2.1773665966.git.ljs@kernel.org>
- <4620167c-bcfe-414b-85f6-a5d28563b9af@kernel.org>
+	b=Iv6+cWyOCRLbOqlRnp3hXQJEjDZGLaAjmgz/CeEaHpG1cEfd8eYys8Wblh3Wr11+A
+	 k03QXjcb20gVQGEBAiVAsIwL5Xr/137DDU9GABRiuwFbEEbtFH//BjlL/GpmH3HTfz
+	 xg6y/PdZBVGRNXkYuhgSUt86vhChxbrk6Cha0G/j0I7GC+ILLAWsqB//7XrgIBWR3b
+	 UK2QN+QfPV7Ig22C+rE2q3OkeY/9GwDYjMKKAdhWltSBcWhW/JB+xeznWkbzGYX1kN
+	 NX/HKKCJkJBwOiw+no8ULxPUt7m4MPLg9s8QIclN8evMHfzI/z5B/Nc1c9tnt6mFWd
+	 XLyLp1FSeXo6A==
+Date: Thu, 19 Mar 2026 10:05:03 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: moortec,mr75203: adapt
+ multipleOf for T-Head TH1520
+Message-ID: <abwsv3t1jdWJ7sZf@x1>
+References: <20260309162457.4128205-1-zhengxingda@iscas.ac.cn>
+ <20260309162457.4128205-2-zhengxingda@iscas.ac.cn>
+ <7f043ae1-c863-4884-a2c7-710a8d9d8771@roeck-us.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <4620167c-bcfe-414b-85f6-a5d28563b9af@kernel.org>
+In-Reply-To: <7f043ae1-c863-4884-a2c7-710a8d9d8771@roeck-us.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_100507_441448_2C224238 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +68,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Rahul Tanwar <rtanwar@maxlinear.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, Han Gao <rabenda.cn@gmail.com>, Guo Ren <guoren@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 03:40:45PM +0100, Vlastimil Babka (SUSE) wrote:
-> On 3/16/26 14:07, Lorenzo Stoakes (Oracle) wrote:
-> > Firstly, add the ability to determine if VMA flags are empty, that is no
-> > flags are set in a vma_flags_t value.
-> >
-> > Next, add the ability to obtain the equivalent of the bitwise and of two
-> > vma_flags_t values, via vma_flags_and().
->
-> Nit: "two values" is vma_flags_and_mask(), while vma_flags_and() takes one
-> value and list of flags, no?
+On Tue, Mar 17, 2026 at 08:55:05AM -0700, Guenter Roeck wrote:
+> On Tue, Mar 10, 2026 at 12:24:56AM +0800, Icenowy Zheng wrote:
+> > The G and J coefficients provided by T-Head TH1520 manual (which calls
+> > them A and C coefficients and calls H coefficient in the binding as B)
+> > have 1/100 degree Celsius precision (the values are 42.74 and -0.16
+> > respectively), however the binding currently only allows coefficients as
+> > precise as 100 milli-Celsius (1/10 degree Celsius).
+> > 
+> > Change the multipleOf value of these two coefficients to 10 (in the unit
+> > of milli-Celsius) to satisfy the need of TH1520.
+> > 
+> > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> > Reviewed-by: Drew Fustini <fustini@kernel.org>
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Applied.
+> 
+> Thanks,
+> Guenter
 
-Sorry missed this. Yeah should be 'via vma_flags_and_mask()', or a better
-description of vma_flags_and() :)
+Hi, what branch is it applied to? I don't see it in next-20260319, so
+I'm thinking I should wait on the dts patch.
 
->
-> > Next, add the ability to obtain the difference between two sets of VMA
-> > flags, that is the equivalent to the exclusive bitwise OR of the two sets
-> > of flags, via vma_flags_diff_pair().
-> >
-> > vma_flags_xxx_mask() typically operates on a pointer to a vma_flags_t
-> > value, which is assumed to be an lvalue of some kind (such as a field in a
-> > struct or a stack variable) and an rvalue of some kind (typically a
-> > constant set of VMA flags obtained e.g. via mk_vma_flags() or equivalent).
-> >
-> > However vma_flags_diff_pair() is intended to operate on two lvalues, so use
-> > the _pair() suffix to make this clear.
-> >
-> > Finally, update VMA userland tests to add these helpers.
-> >
-> > We also port bitmap_xor() and __bitmap_xor() to the tools/ headers and
-> > source to allow the tests to work with vma_flags_diff_pair().
-> >
-> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
->
-> Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
->
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
