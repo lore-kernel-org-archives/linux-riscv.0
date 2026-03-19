@@ -4,93 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7B11075270
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 17:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B2110854D2
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 17:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=johy38Vwq2l98w+nuefweP7VE7ET8fScv/4SpWFMXNY=; b=yixT4pwlkZGWBi
-	TRLDDTV0PDq4oj1Xy8ehbeHrULxQEhiKAiNkxKiVmVhXMYXy3Vv1ut4P8EbtKM8mkA67VwbPo+mDc
-	YaWLyAxenTUtTcUBQCi1o+bb73eDEAhqFyC/lGeAInND2n8j5CaKF5SBib8ow3tKMuCCLR3j97dNu
-	mQ5vK297WHtIxtPwRMYwTqCmvjU0/NgRvgmIA9U9AjCR0PUWc1vi9Ug4oTTsJQPfINcAyXsRRtVmK
-	riYBR+2c8ewJDyE54dBuqbOwOM9LBb4s3frAfu9B2bdEMEMxf+ZYdPkK235iYG5froRz6Rs0AZlD8
-	Ucj7F1GDoeQCyhMZ1u6w==;
+	List-Owner; bh=96fz6RULvYtiC+fZuUEv0svfZVbMfc7ZE8v0IiQ+ayU=; b=n6aSYsuY4GrIgr
+	Zpv1oOplGqECbKGlxMuVv/1Enk/WtyBIiO42nVtidJwi3eLDq1mCmdJH2f0yxdEsbVHdNZpx3hPsA
+	YF0jMXSzHNEtY8WKV3Bx5UFY84K7PQcF3JfPUOOCiMgyduKyDy8OXN0TeNBRjV78oNQVldSiOKPeL
+	/oVWI8YqWc/vhR924pR9hTMkgHNcy+n8UXC1hMkCFJFOCnl/8G5Nf9DNV6e+nq1ZjV+g+vJ+/IDlu
+	8spD0/wEV0fnKF7/3Cbg0dZw2hwayHqATva8x+jfyBHTFkPK0/n9P+0BZHlhLfk5WoJ94Bu7q7AOO
+	298g8MxJswmXAvYEkosg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3H32-0000000BBc7-3V8x;
-	Thu, 19 Mar 2026 17:20:40 +0000
+	id 1w3H6w-0000000BC78-0sOM;
+	Thu, 19 Mar 2026 17:24:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3H30-0000000BBbN-1Fxd;
-	Thu, 19 Mar 2026 17:20:39 +0000
+	id 1w3H6t-0000000BC6X-0nxw
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 17:24:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B1244180A;
-	Thu, 19 Mar 2026 17:20:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E73FCC19425;
-	Thu, 19 Mar 2026 17:20:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 94B58444F5;
+	Thu, 19 Mar 2026 17:24:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 056A6C2BCAF;
+	Thu, 19 Mar 2026 17:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773940837;
-	bh=7WKgNaoLHZy+p07zFzG+uBXisQ4HbwxhhgHjiSoiZqk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ffSI6bz53zQJuafJNtvM0FXrQJK6TSoiAy3TsE/OHG+oBO774YE9Uq3ERY0vLajMq
-	 foC9QTSU4NBbGhonH60yk0rap8lV3ZJiY0EdZg4ohtjFxDdP03WSSuv7FxOfb2gNRf
-	 4Tk0tb7MTeJ/T9jngjYvWOB7yaJiVrqkxSsZr8VaEiHU45hzdr+GUo5kh19vXtO0bW
-	 q9aU3TOVflRNsW/UNdynX4mjKb683rFQGdGwpblrX7NCqBLWvGBpQLTxS9zEs4EM+S
-	 6Jfsi2AkaiHj/WZ4zV6R2NgeHtz6Hh0jtHlsQEY+sWmOdz5CYdHv4iR/em4M/Sr5Ei
-	 2g4iqlwGBs5oQ==
-Message-ID: <50ff8894-3013-48e3-91ae-e96499ac394b@kernel.org>
-Date: Thu, 19 Mar 2026 18:20:23 +0100
+	s=k20201202; t=1773941078;
+	bh=kBRINqrLYdRaj2OTEdauVdZSYU6PWMTWOVjA1hl4gb8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=R5r8knBa5uix+BUJZ32fXdz4UxrwXjG1/IOoy+lDg1ROBRqtLSvPC5ACZyKJ66ny0
+	 G/2rA3+d+BId4Em+A5hIh54RuH9SJfLwBzsqSFDRoa6hDzJTgleTmdXrxh0FYq3mqj
+	 bqwd6nJ7qR6G2ZKtHs3pO47snz/Fm8dHEwd5UZcaZLJNU9b/flBfw+7vpvhuJbN1NB
+	 Kmfg7lMJPyEP28OSbR26yckvQUJvLqZke38CjCOOyVt48ivSf52/J4M/EG6IHa/cbM
+	 8+aYK5BUVDFvwkTd9DXextHTEbOdvEQMAsbzluZzvd2CgZsduZrVl5+JjFPl5IU1oJ
+	 MB8YO1qcxjMxw==
+From: Namhyung Kim <namhyung@kernel.org>
+To: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
+ irogers@google.com, pjw@kernel.org, alex@ghiti.fr, guoren@kernel.org, 
+ cp0613@linux.alibaba.com
+Cc: linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260317034847.4136-1-cp0613@linux.alibaba.com>
+References: <20260317034847.4136-1-cp0613@linux.alibaba.com>
+Subject: Re: [PATCH] perf symbol: Add RISCV case in get_plt_sizes
+Message-Id: <177394107796.14914.5183103180695281404.b4-ty@b4>
+Date: Thu, 19 Mar 2026 10:24:37 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/23] mm/vma: add append_vma_flags() helper
-Content-Language: en-US
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Kees Cook <kees@kernel.org>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Dinh Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>,
- Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- Ondrej Mosnacek <omosnace@redhat.com>, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
-References: <cover.1773846935.git.ljs@kernel.org>
- <868641e2dbf62e3e04108a0b8092df25c250e3b9.1773846935.git.ljs@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <868641e2dbf62e3e04108a0b8092df25c250e3b9.1773846935.git.ljs@kernel.org>
+X-Mailer: b4 0.15-dev-02735
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_102038_381037_200B3EE1 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260319_102439_261792_B11DCBD1 
+X-CRM114-Status: UNSURE (   6.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,21 +75,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
-> In order to be able to efficiently combine VMA flag masks with additional
-> VMA flag bits we need to extend the concept introduced in mk_vma_flags()
-> and __mk_vma_flags() by allowing the specification of a VMA flag mask to
-> append VMA flag bits to.
-> 
-> Update __mk_vma_flags() to allow for this and update mk_vma_flags()
-> accordingly, and also provide append_vma_flags() to allow for the caller
-> to specify which VMA flags mask to append to.
-> 
-> Finally, update the VMA flags tests to reflect the change.
-> 
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+On Tue, 17 Mar 2026 11:48:47 +0800, cp0613@linux.alibaba.com wrote:
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+> According to RISC-V psABI specification, the PLT (Program Linkage Table)
+> has the following layout:
+> - The first PLT entry occupies two 16-byte entries (32 bytes total)
+> - Subsequent PLT entries take up 16 bytes each
+> 
+> This aligns with the binutils-gdb implementation which defines the same
+> PLT sizes for RISC-V architecture.
+> 
+> [...]
+
+Applied to perf-tools-next, thanks!
+
+Best regards,
+Namhyung
 
 
 _______________________________________________
