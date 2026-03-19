@@ -4,162 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 430E81088E65
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 02:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EB11088E65
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 02:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4qpCKdLl8w43YZoTQNtroJXXrMpVAxNXGuIRKCf9L6o=; b=4hWubyOVovgvO1
-	OaX5m38BAmjHxbg9muChvY0iTBxuTuHCvj3/T5eA7dxf+9/pjRGwaQZ2YuvX2acIcjDk6BPuVC0/6
-	FLhJ8gzS+nZAdXLiGL0dSSEpvoHtxBM0KCo4zsWjDliHeeFF/k1XN85tJ8TLg5ZGNwq38uw+Ms7OO
-	ucxiCHhc82n2RTnAZO4myzPmaEuKBm0mELsqXqH2eURkLV5b8jWbdApC4kd4AM0c5UmnQGcgzEtcZ
-	Rur92zULauOIjsH14G4W7ZRW+Q8s/8vFY5DoZPBRcJROZ3r9L9M147+o0cXWBkXZFOvZkHYZQ8T7D
-	6YbvRR2U3i04bigG3ZjQ==;
+	List-Owner; bh=zrZ5MtIZI2J2fiQc0zgZp7W9jaW3YzSAYlbPmDNdXHk=; b=ifaG87IFstCD4G
+	aaFA+iJuMpohbPpos1bsihsmJn/yR+LkswJaRHYfuCQrCPJHIGlgCs6O/hXSDb57gebPoTg4F6OGW
+	gy6PoOsDIJtzdM5Y5j0vm0ZxTjiicVXUM+jdyX4pklQJytsPzZy6+XW6Rcj+alrupV5x0T9TRXXEO
+	pVVNYZMF1TaEUSlt2m+welX1bnjTAbhZsdVT/ag9a3DbXEnpatSe/5HC1mGiDt1U8bDJNYpngGitI
+	ZiCsGhRwHH0xQpDfl5UrASVa8btOImhlt2GbJc7yD7oAdGVC7R1qvMMp3rZCUrPsCbFEqju7+BXcz
+	I3gjKtIycAwVdTvKtUrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w330S-00000009isN-0MLE;
-	Thu, 19 Mar 2026 02:21:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w33KD-00000009lpW-45aU;
+	Thu, 19 Mar 2026 02:41:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w330R-00000009isF-2XLQ
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 19 Mar 2026 02:21:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:References:To
-	:From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4+2Wc6le2P0VKnQkK9bhSsQ/qTOhwXF9TFeW1sB/Aho=; b=mPHsWacwJuKeuK18UPZBfvb7Bq
-	78BVocXqnhS1YIfHZ3/5/a/cbN43p/rCo4rjTzkn3QNEIDcXz0Cwej6satpSLTC29JCGiOrEdUcZp
-	Wg1yTGHV3fsQvr0DaX/iivxL2iOUJ6q309gFI97OW0vfAhUsI/rZ/crGJYZno8ZDmAfzx7Ddo9ELn
-	nMIF8JYLj+lFhAaARwN8qSS6AxJkyppG9s5zuYCzMOwxX6ZDwKAlqbaic6OZ80AT5z65w/1R2kOE7
-	lJBfNbnlZsLgFFLn9s5dbQGb5tBX2GMFOe19GQaN+bzU/2Xi7P1+49bLPVaXCAovTJjmvvc2KFP5Q
-	6WjvwDXg==;
-Received: from mail-westusazon11012042.outbound.protection.outlook.com ([52.101.43.42] helo=SJ2PR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w330M-0000000CYXh-2aif
+	id 1w33KB-00000009lp9-0Bnz
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Mar 2026 02:21:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DIiOcWU3ixPdn4SMf52fLxvvu3+nGVxYYnrPxHjKbLYx/aLd0zgjJSqEjAV9vdFVyrO77GWClhhSgDb6bs4iE6rbBRDoL0tB1H4stQ4lX1l83BXUWxLwmwpcZRgoO2Ux9ZAHOk6hjcwTo0uem9/j3ct7K5/26qjJxXU2O7PuJz1AuMUPreV2aEH+NXAiAMwt6xad0H7uFHNEaq2vkBAEqQJhW3K3tnTvguPSPLoamsCZ/RxFMtu/f2GjFFTGczcGMoQq/k+04y7islPQ7CjJwQq9oi/e83MrW4bbbEgMixpF4IQSc0VpObEHTUQd6iEo0IAOFkKeQ2tNY1TnwffPnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4+2Wc6le2P0VKnQkK9bhSsQ/qTOhwXF9TFeW1sB/Aho=;
- b=GcrRNTntB9m3iRd5ZIEJH949SxUYKMx22efHfsjabyuvkylCvWrjASu4Y8J2MgV5u1Rh+ouDYVMlpqAVKehSHHDPz4AihAp7kbliGYNs5BDcWranmH4RxKyBgPBsgWOIlBKP7zK3aDOz8mJeFGW2WEtWc+/awq3/ykblYjmvuHBapZ3wl1SqWdQPGyjVtEupNlKbOrELKa1daW/EDXPuOX9qf0Z0lMlqFrgg4uGhFjJUPbJ4E35teNbB6gZKgwkH74LH5rwjUEWwLbvlSR1QcUfrIfTlef5V30yHmUoPAvn8UOtDJyLoYg5Q19RXd0NEdPH8YA1cyYp8i1uVP8bkNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4+2Wc6le2P0VKnQkK9bhSsQ/qTOhwXF9TFeW1sB/Aho=;
- b=biwtkhshgT6wVP4ctmv0J+b6jia0xZCX5wdG6dhLltpei4bB1Iym2vrnkiTcZVevOqQAW731KWUsLrCx+IORd13dJF+zhSjSqBF+c4UQwlqtRvUr9uwLs8xQTN15YcTzkwhQ98WxehPF6SqpR0GoqEfKrb1C1UZWa1dU4YemZsZYXxkb5woXXWZMjLEabZp3r0GIN/rjBKsaS9inTC29ThS3ifwNbgKUHaH0vtDWYcwv+T7pNCvfFQpbDeZBRJ76yVNt0TbYEPx5v2RhNXEYKJoBweNkQaJ3oJf2wjxYMaUnDnDCMQ550S5Uo4MIC3yFGrxwARR8ypIy/lV5aS3HRg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL0PR12MB2353.namprd12.prod.outlook.com (2603:10b6:207:4c::31)
- by IA0PR12MB8351.namprd12.prod.outlook.com (2603:10b6:208:40e::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
- 2026 02:20:48 +0000
-Received: from BL0PR12MB2353.namprd12.prod.outlook.com
- ([fe80::99b:dcff:8d6d:78e0]) by BL0PR12MB2353.namprd12.prod.outlook.com
- ([fe80::99b:dcff:8d6d:78e0%4]) with mapi id 15.20.9723.016; Thu, 19 Mar 2026
- 02:20:48 +0000
-Date: Thu, 19 Mar 2026 11:20:44 +0900
-Message-Id: <DH6EEM769HTJ.2LR1PGC8WZBS@nvidia.com>
-Cc: "John Hubbard" <jhubbard@nvidia.com>, "Alistair Popple"
- <apopple@nvidia.com>, "Joel Fernandes" <joelagnelf@nvidia.com>, "Timur
- Tabi" <ttabi@nvidia.com>, "Zhi Wang" <zhiw@nvidia.com>, "Eliot Courtney"
- <ecourtney@nvidia.com>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <linux-doc@vger.kernel.org>, <rust-for-linux@vger.kernel.org>
-Subject: Re: [PATCH 8/8] Documentation: nova: remove register abstraction
- task
-From: "Eliot Courtney" <ecourtney@nvidia.com>
-To: "Alexandre Courbot" <acourbot@nvidia.com>, "Danilo Krummrich"
- <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "Miguel Ojeda"
- <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary Guo"
- <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260318-b4-nova-register-v1-0-22a358aa4c63@nvidia.com>
- <20260318-b4-nova-register-v1-8-22a358aa4c63@nvidia.com>
-In-Reply-To: <20260318-b4-nova-register-v1-8-22a358aa4c63@nvidia.com>
-X-ClientProxiedBy: TYCPR01CA0004.jpnprd01.prod.outlook.com (2603:1096:405::16)
- To BL0PR12MB2353.namprd12.prod.outlook.com (2603:10b6:207:4c::31)
+	Thu, 19 Mar 2026 02:41:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 53FCE4344D;
+	Thu, 19 Mar 2026 02:41:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0BB0C19421;
+	Thu, 19 Mar 2026 02:41:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773888086;
+	bh=0YnP0cX3MOJZgYSvb4gihkYukDmX2h84D3ADD5FXdlA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L6ZUK1lqkr0Ua+ipa9dcLBgDnGGBlJvcoNOB5C1O8WnuVfKIeUQ+DJWDy7dohNL4L
+	 rR37FEj7qh9YiJx9m27wX7qU7NcJNrOc5ZPd8sAiU2/Q6m4FVYS6ou7GVU2gEazrcR
+	 5b7wlNnJHQquBjC93+eZ7LOlrYLdn8jQTK6jDKbLF3BxmcI0dB8qNgvAkFBJZ9AU8n
+	 b7+31FsaSsZ7d1x0sslfDgUwF4tn08Jfq+zX+8au2oO9XlkfHHvwrCBoAbsk35mFDi
+	 V53+XwVUy4XaSG404BZ5/5T7owqvGFBBJOZM9wzFD96NiAdw2kr2efZWodWNpcdowT
+	 C9XFRJycPcrSg==
+Date: Thu, 19 Mar 2026 10:41:24 +0800
+From: Yixun Lan <dlan@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Junzhong Pan <junzhong.pan@spacemit.com>,
+	Inochi Amaoto <inochiama@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: usb: dwc3: spacemit: add support for K3
+ SoC
+Message-ID: <20260319024124-GKB489299@kernel.org>
+References: <20260317-02-k3-usb20-support-v1-0-d89f59062ad4@kernel.org>
+ <20260317-02-k3-usb20-support-v1-1-d89f59062ad4@kernel.org>
+ <20260317-shortness-gecko-72f14fbc79f2@spud>
+ <20260317214435-GKA453922@kernel.org>
+ <20260318-crock-tinderbox-ae12024627d9@spud>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL0PR12MB2353:EE_|IA0PR12MB8351:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f130524-eb33-4225-6601-08de855e2231
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|10070799003|18002099003|22082099003|56012099003|921020;
-X-Microsoft-Antispam-Message-Info: bVQsRFuLaL3S54FVdNbi6EYJIeuta+3o53ioxETN76IhtQfJQdlM4BoY9UxxDSkPDI5Vkob2Cl2iyRwUQnX1TiPb2eJpMtfvpUaFyuD5ktt7OnP0c5JrBZijbUmz6+P1O8ZgfG4NUsdDIEoFZJxav8GBoXOCra52da5B0v4I0+dTvu+7f3z6+7/U22QQARDz4yNJIg3Kfc6gbc2OgdoMGN8hyFtG5mhfKjOik5bdzq5x6Cn6E2PFZsoyO1xwKF58j+ndSDU62oX+xMGZdKDund4JXtN7/6GgQHCjhwj0C0nXp9NEAXNX9mx5kEt37lnZvv5KFCgFpcN0PBG/5zxfcF2LYIht8VpV2MHvscRE116l+TRfmq7JBCY8z++3qntydLMD6mMNcc1lpYbpehr8vHCiQ3QKPuiTcuTM0Cp1p3TFDsZhwdAZeaP2NhLtD8SoAKSYylVDN3N+lUw4+lBSj3bPDAqnrpkEoYdLRsVeyfSTHFvnpZxLyfw/6L71IA9K2ouuEcMbGot3HuQTnAZxjt8Fjs84SCccjfskBQrXbpl0uKVqR2jWsOOaOP00OwuE87nlZvLRkwda7InBYJEz5rOQ4TgaQ2QjYPXZgb8OLSGR+DD9NDHk9DwHUhsmte4js7cM38la31IN23KtX8vEvTgXZsaQNRhwDgehrJLdDutvzx918Ei8kAtRI5BFnn1Z3Tp/u6SX4+GsrBjlEQTlC74Dj+RkyGqRtASNZ6iYfMUepBdTnQHTXk5CvrI9iHldM+KKswfOGoLsH0X5++rfpQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB2353.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(10070799003)(18002099003)(22082099003)(56012099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MTcrTmZaTjNuTU1hV1JXaTBUSFp3ajdFOW44YnVDVld4ZnJyZU8yY083QVZ6?=
- =?utf-8?B?cVVSQ21xZXp0cHVGQXM4RG5jdkRzb0pNMzFlQ0gzaHp2VUZzQyt6emZWV2ZP?=
- =?utf-8?B?ejNad1FvTWFrRm1Gb3F0TUpheWRDOEFHTDdOeHdPVHpvZ1NLL3RES1c5NmxD?=
- =?utf-8?B?N2tvSDh6ZEcxS1E2akxjdldjai8wcmVpY09vc0lTWTI0SUZGOS9VVElyRkxy?=
- =?utf-8?B?K3FrUjhBZ2hDdmpHK09kQUZyOGVkTEpmamlpNFhqbk5uRnk2SUl4SmwrN0hz?=
- =?utf-8?B?ajhHbTV1L3BzOE04OWJpa1J6SDVSb0NTWGV6NW5TWXE0cTdONklwUnJQRSs0?=
- =?utf-8?B?enlTc3FTMVRSeHhLVDJaVk5hVWtCSWNMcmFJN2xWUUdRZCtORjJHdFk4THV0?=
- =?utf-8?B?ekFOUmhFYmlqcGM0QzVsRlV4WS9kN0ZnZmtGM3dUM1FRcEhYYjRKMDlRMzZO?=
- =?utf-8?B?NFJuTlhGK0dQM0YxZXljQUtqWnIvSm8xR1pxb3RHVkJXTk9XUndQMjE5TmJV?=
- =?utf-8?B?RkhZZkdIRTBRM05tVEF0ZXVKMFRwSXVrWEpMbDRlRFRjdGM3Y3k1UENySFRY?=
- =?utf-8?B?eFBHd3kxNXVXVXljZEFiRWwvZGlpTnFVTFJNR0c0NU9xT0I4SmRyK3VBaFpn?=
- =?utf-8?B?aEIrN2IzMjJ3cU13TnZYQm5uaDBERHVjeG9UM1hPTGRQUWcrWm1wRUt5TGNu?=
- =?utf-8?B?MVUrbjduUDZXTHBPTzNxclZIWHQ1V1FJOFVrU2EvNGNBc21RT3RTWjcwcnhm?=
- =?utf-8?B?RjJ1V3BZVXdCcUtCRDJ2cTFtVmkyUVJyYkQrYXBqMGp1Z0FTNzFpaHpDdVhN?=
- =?utf-8?B?Tk5FK0QxL2hmNkZudkIxY25YaHJqdDdOVXJjZC9INjJBdE9Jd1FtYm1JV0JJ?=
- =?utf-8?B?Z0U3bWxHczZweEg4YlpuaE9YRlJ4UUVzV3dsby9GUi8vaG9BVnZ4K29IaFV5?=
- =?utf-8?B?cHJwZ2lBYlQrSlNWc0RXUy9pKzl4THZVbU90T0dXSCtUMUJ5ZUxueDVKZkkz?=
- =?utf-8?B?WFpnY1hIYTd0dHd2UXl0WUhseFlxMmp6OHlqd3RTMFVFclgvYUJZckRVV2RU?=
- =?utf-8?B?YnkrcE1Xc1R1b3dacFlIQlE4Uzl1WjJHdXVXa0Rrd3VyU2tOMm1obXEydFZT?=
- =?utf-8?B?NXpBOXdZMjhPWnp0QUZJTXlIb1NNNzhrY2cvT0QyeG1QTHo5QXEzQjk2TVA5?=
- =?utf-8?B?NWtyTXI1aUQ3a29jTzhYTnAycGhaMC80ZGNpQ2cwNG1XZENEZ09Sd3VLaG1n?=
- =?utf-8?B?T3pSb1NYalJDL0RRVHRpQ2R2RXc5Vm13b0gzT0YrbXh3STVPSmZYM0ptVm9X?=
- =?utf-8?B?YlY4YkREY3J1bHhVOUZ3UHJGSnZEczNKWHk5d3FYZ2JwQjBDa1QxWitOeXVh?=
- =?utf-8?B?NlJsTGcrRkFFSUxMR1gyT1hDYWJ5VHF3c1lMMk96dVhmbERtZzl2TnJsbXFT?=
- =?utf-8?B?aktqT3M1Q3NiMFovMW9Bc0VLTEVWVEV0RkVPM2o4ZklmaEpCeUNCdUFIbHEy?=
- =?utf-8?B?V0lIS2NEK0ZWMnFuMmxESzYrSmphU1c3NGlHMEQ4dVBkQTdndlR3VkFlREdy?=
- =?utf-8?B?NHcxZUFLcCsvTFQzT3BZSXo5bUFrTjR6L1NncXF1MkVLeTYrb01Kanp0Qm1K?=
- =?utf-8?B?SEFaV1l2MzBjWjBpOElyWmJ4L0ZuTmw2Znl6Skc2WjBkeWN1cWtQcmNTT1RN?=
- =?utf-8?B?Q3VXZG5YeEFlVmFyQ3EwZWx0NExnQmwyVWUwcGpaQVNtRXNGSWgweXJLRTl2?=
- =?utf-8?B?WUpUcmdBbisrbTNRU0dzRVlsQVJjU3hqSldaWll2VmNiSFoxQkdJaUhmLzZy?=
- =?utf-8?B?ZTF3TGdPcEtGM0FGbE1LN0x4UTdXNSt0eXdTMDI3azRlckFZMEZ1WXVSWDNj?=
- =?utf-8?B?OFNmbzk3SUgrSDdXK1dBWGNxUlRUNjNCek5DbzZVQnhUY2xpKzFtc0R6S3BD?=
- =?utf-8?B?ampRcVYyTEJqelpQZHNWTWRMbTdhd05RTnpraXMxQnlLN0h0VS82MkRqZnZQ?=
- =?utf-8?B?THc4U0hFay9PR2NnV1pubndqRmE5cEZrZmh5TlFIaDVTcGZ6N0MvUm5MSmcr?=
- =?utf-8?B?YXhzVHBXWU9ieitSNDFjcTZvL2lyM2hGRWtFbzVEb2dlRWNwd01CZDcwcnJa?=
- =?utf-8?B?bGxwQXRCaTc0eEE5L2Ruc3FHZk5vYzVXQlNZeWlvZ3pRM29yTnV2cWd4MzZz?=
- =?utf-8?B?dUpaRkRLd1o0cHdzdER6VzRsOVZsMGNoTEtHZm9nS3AxWVErWm1oRFg0UStL?=
- =?utf-8?B?TDZxVHhtWHZJeEVYaVpNNzZrY25pUG1OdXdGVkVLZEtHYjU0bW04K09COUZz?=
- =?utf-8?B?THZiTXVIYkFjRTk2QzMrOThqaWk1WDRyU3BObW50TzFYakxzaGxYTFBEUlpI?=
- =?utf-8?Q?amXOE2KHRsmhP2eAdCe6dWzi/uK/e4fAGh5z/atO9Z4zI?=
-X-MS-Exchange-AntiSpam-MessageData-1: 2m2Kapu63y6Lng==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f130524-eb33-4225-6601-08de855e2231
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB2353.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 02:20:48.1726
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: smIJgFwh6XKyWnLdgVGdXNqztnT647naLgx1I+depoYStH8bTQlurEUhQmll+wu+mjfM3OdHZXKdAtIWrBQQxg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8351
+Content-Disposition: inline
+In-Reply-To: <20260318-crock-tinderbox-ae12024627d9@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_022058_879726_7CCA32E0 
-X-CRM114-Status: UNSURE (   5.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260318_194127_101284_E28C1705 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,14 +87,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Mar 18, 2026 at 5:06 PM JST, Alexandre Courbot wrote:
-> The `register!` macro has been implemented and all nova-core code
-> converted to use it. Remove the corresponding task in todo.rst.
->
-> Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
-> ---
+Hi Conor,
 
-Reviewed-by: Eliot Courtney <ecourtney@nvidia.com>
+On 17:21 Wed 18 Mar     , Conor Dooley wrote:
+> On Wed, Mar 18, 2026 at 05:44:35AM +0800, Yixun Lan wrote:
+> > Hi Conor,
+> > 
+> > On 12:55 Tue 17 Mar     , Conor Dooley wrote:
+> > > On Tue, Mar 17, 2026 at 11:53:02AM +0000, Yixun Lan wrote:
+> > > > Add compatible string for DWC3 USB controller found in SpacemiT K3 SoC.
+> > > > The USB2.0 host controller in K3 SoC actually use DWC3 IP but only has
+> > > > USB2.0 functionality, and requires only one USB2.0 PHY connected.
+> > > > 
+> > > > Explicitly reduce number of phy property to minimal one.
+> > > 
+> > > Is this valid for the existing compatible, will it work with only one
+> > > clock?
+> > > 
+> > I didn't change clock binding, do you mean phy?
+> > 
+> > Both k1 and k3 work with one clock (no change here)
+> > 
+> > for phy, the existing k1 requires two. for k3, one controller requires
+> > one phy due to only has USB2.0 support, other controllers requires two
+> > phys - USB2, USB3 PHY
+> 
+> Yep, phy is what I meant. Sorry bout that. Since you're relaxing the
+> constraints for the k1, can you please add a conditional section to the
+> binding to enforce 2 phys min for k1?
+> 
+
+To be explicit, the change should be applied to both K1 and K3, even in K1
+use case, it's perfectly fine for designer to choose enabling USB2.0
+only, and leave the comb phy to pcie contoller, so only one phy required
+
+While revisiting the DT file, the phy related property should be moved
+to board level, but this is another thing we should fix..
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
