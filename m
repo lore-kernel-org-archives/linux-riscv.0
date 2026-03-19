@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D8D1075270
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 17:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7B11075270
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 17:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=koHLgWkel3E0y7XV2MVp+TlZBucxXQSDdL1gUfms5iQ=; b=C80945vXAUp4ZZ
-	MEkw7if8zYNjLx6M2bsJRAZuSwJvErtczPnKW9ZwAPoScHt0T70y8LVpC4HMrVyZkv6l1UtwC0Oer
-	s6wxwmcMv11YaiAYq3eFLjKNi0D+4G9591Lk5xIZvejj6MK/PRuQhg9GIUJUuoeWcokCI+LRUbB5m
-	aogh2XzLApEmE8nU9mkhMGPK+qorSAO4SR9mNcKe5zAgiLSQnxz4wE6+KvLHuqCc0ZJUq81AFrkx6
-	v/LSnag4aqFM1txXtvSlgxUK8sLTali5t+1st+gtiK5p0zQDhRsTdW7KrCW8rDo3UEzD39Q1drbj/
-	aJwduXVU9gfIRwzBcgbA==;
+	List-Owner; bh=johy38Vwq2l98w+nuefweP7VE7ET8fScv/4SpWFMXNY=; b=yixT4pwlkZGWBi
+	TRLDDTV0PDq4oj1Xy8ehbeHrULxQEhiKAiNkxKiVmVhXMYXy3Vv1ut4P8EbtKM8mkA67VwbPo+mDc
+	YaWLyAxenTUtTcUBQCi1o+bb73eDEAhqFyC/lGeAInND2n8j5CaKF5SBib8ow3tKMuCCLR3j97dNu
+	mQ5vK297WHtIxtPwRMYwTqCmvjU0/NgRvgmIA9U9AjCR0PUWc1vi9Ug4oTTsJQPfINcAyXsRRtVmK
+	riYBR+2c8ewJDyE54dBuqbOwOM9LBb4s3frAfu9B2bdEMEMxf+ZYdPkK235iYG5froRz6Rs0AZlD8
+	Ucj7F1GDoeQCyhMZ1u6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Gxl-0000000BAM3-0zBx;
-	Thu, 19 Mar 2026 17:15:13 +0000
-Received: from 011.lax.mailroute.net ([199.89.1.14])
+	id 1w3H32-0000000BBc7-3V8x;
+	Thu, 19 Mar 2026 17:20:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Gxi-0000000BAKq-1IlT;
-	Thu, 19 Mar 2026 17:15:11 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 011.lax.mailroute.net (Postfix) with ESMTP id 4fcC4X1zKzz1XM5kY;
-	Thu, 19 Mar 2026 17:15:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1773940495; x=1776532496; bh=UHJsWGTSlJTfY7QnX97XerQU
-	NMUaLpd7tP4C0EEZkzg=; b=dFKmxQsxM8O2hO+PntnmCfQmA2VsxQt1I9BWP45v
-	e99xashdlvnQ0iqpzna366213RNXzYUgf1v3+givoQ4OAgp6jhkArR0HgCsDDvLP
-	5u4QOdYjX9pUJlOX2DE3toANf60hlf5yDeqMcuMD1kjAv9XaSRRnHc2imlEmPZqQ
-	YiM5s2CDkWV6Mdk4AFzavdqTRL89qGFkfAxKt3lZ3gbdurzVjr4dSZvtrHFIkz0p
-	eIImjdzfLZxX4edUA95TsTfOxQ31EJmzDgr27Ispq2YeMv+HqZqSJu2XoNuEf+ZO
-	v8YxxK8gPLxPwbUnDpqGfT41WYhoPLQKKf/Ytf8IZrNWLA==
-X-Virus-Scanned: by MailRoute
-Received: from 011.lax.mailroute.net ([127.0.0.1])
- by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id kgNEXQsIxXTY; Thu, 19 Mar 2026 17:14:55 +0000 (UTC)
-Received: from [100.119.48.131] (unknown [104.135.180.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4fcC482cLFz1XM5kW;
-	Thu, 19 Mar 2026 17:14:48 +0000 (UTC)
-Message-ID: <ea7a5729-3df0-49ef-ab8d-47ade75cc393@acm.org>
-Date: Thu, 19 Mar 2026 10:14:47 -0700
+	id 1w3H30-0000000BBbN-1Fxd;
+	Thu, 19 Mar 2026 17:20:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B1244180A;
+	Thu, 19 Mar 2026 17:20:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E73FCC19425;
+	Thu, 19 Mar 2026 17:20:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773940837;
+	bh=7WKgNaoLHZy+p07zFzG+uBXisQ4HbwxhhgHjiSoiZqk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ffSI6bz53zQJuafJNtvM0FXrQJK6TSoiAy3TsE/OHG+oBO774YE9Uq3ERY0vLajMq
+	 foC9QTSU4NBbGhonH60yk0rap8lV3ZJiY0EdZg4ohtjFxDdP03WSSuv7FxOfb2gNRf
+	 4Tk0tb7MTeJ/T9jngjYvWOB7yaJiVrqkxSsZr8VaEiHU45hzdr+GUo5kh19vXtO0bW
+	 q9aU3TOVflRNsW/UNdynX4mjKb683rFQGdGwpblrX7NCqBLWvGBpQLTxS9zEs4EM+S
+	 6Jfsi2AkaiHj/WZ4zV6R2NgeHtz6Hh0jtHlsQEY+sWmOdz5CYdHv4iR/em4M/Sr5Ei
+	 2g4iqlwGBs5oQ==
+Message-ID: <50ff8894-3013-48e3-91ae-e96499ac394b@kernel.org>
+Date: Thu, 19 Mar 2026 18:20:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 phy-next 09/24] ufs: exynos: stop poking into struct
- phy guts
-To: Vladimir Oltean <vladimir.oltean@nxp.com>, linux-phy@lists.infradead.org
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org,
- freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org,
- linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org, spacemit@lists.linux.dev,
- UNGLinuxDriver@microchip.com, Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Chanho Park <chanho61.park@samsung.com>
-References: <20260309190842.927634-1-vladimir.oltean@nxp.com>
- <20260309190842.927634-10-vladimir.oltean@nxp.com>
+Subject: Re: [PATCH v3 07/23] mm/vma: add append_vma_flags() helper
 Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20260309190842.927634-10-vladimir.oltean@nxp.com>
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Kees Cook <kees@kernel.org>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>,
+ Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ Ondrej Mosnacek <omosnace@redhat.com>, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
+References: <cover.1773846935.git.ljs@kernel.org>
+ <868641e2dbf62e3e04108a0b8092df25c250e3b9.1773846935.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <868641e2dbf62e3e04108a0b8092df25c250e3b9.1773846935.git.ljs@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_101510_397085_D9FFDAB3 
-X-CRM114-Status: UNSURE (   6.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260319_102038_381037_200B3EE1 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,17 +102,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/9/26 12:08 PM, Vladimir Oltean wrote:
-> The Exynos host controller driver is clearly a PHY consumer (gets the
-> ufs->phy using devm_phy_get()), but pokes into the guts of struct phy
-> to get the generic_phy->power_count.
+On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
+> In order to be able to efficiently combine VMA flag masks with additional
+> VMA flag bits we need to extend the concept introduced in mk_vma_flags()
+> and __mk_vma_flags() by allowing the specification of a VMA flag mask to
+> append VMA flag bits to.
+> 
+> Update __mk_vma_flags() to allow for this and update mk_vma_flags()
+> accordingly, and also provide append_vma_flags() to allow for the caller
+> to specify which VMA flags mask to append to.
+> 
+> Finally, update the VMA flags tests to reflect the change.
+> 
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
