@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF3A1075261
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439031075260
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 06:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VIZ1LtJsIrdI9E1cUUuFb7MlRvjL2c1v4Fwf9B8mEU8=; b=YyIwoXF7CTvgLU
-	udIZqwDuXPRlLxEgF5zujsLaUzdLlDkWQz3simukP6WPnZXbvvjCH8NdqfYb2s1CL/fsfu0rMMG51
-	92UsokLD+E8WB58dc6gKU5xzI6yWTdgyNZB4c7HPPvt7Ytm8ukZ5hkcIIuNzIj7Bp0ZQh5f0VfT+h
-	1opZM/noUTO6xmm7O9mNZLvd1WACQtn0GXduuAboGPOqStBsKv+1yBKMqUoVuRdR8jp3hqJ6ys5WS
-	y9oDmJoyiCVZdnq92g+ZvKE6igXa3+tTjmCMkKnVifr3iS4NSBWuBuR67E+EV6JC0WKsVKTw/Ef00
-	oKbGFIzO33tK0qtlbH8g==;
+	List-Owner; bh=qhnhiyIBpJyZhLsG3wuU2xOQz6au8nKstsFvV+3+lXE=; b=3wSu8MxN19zLWA
+	OHjEyVaoDRriUPGODFB02HySyuLi7lrGBcHFT+e/ur6Rx1Se5amxpViFdGrAGbPDxOVseytE/uRMn
+	plrp2dtwKk8PbtTtu+pJVbXMplaUAzN4bG3VP2YWKwd6ng4mBoTRVZ1XfUbxnTKNPixjFYjqZXGvT
+	QQfO6bD+zU2vU0xrZhRq6198J9whGFQ+CBdLe6EkuMODHaC2I0XMOUTU6lSWFyDYAL3WFD37HLZOK
+	NRKNenVwudiNzaErJE1WBi5XPVCc3i+kU/Aql0qo0MU0XQJYIEcM3zB6BQlT4Y1nfzD3BlnVSmhDg
+	f7V4nbG6XjWBd27hs01g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36ju-0000000A0h1-31Xn;
-	Thu, 19 Mar 2026 06:20:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w36k0-0000000A0oP-1jcW;
+	Thu, 19 Mar 2026 06:20:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w36j1-00000009zj4-1g8w;
+	id 1w36j3-00000009zkt-0Ewz;
 	Thu, 19 Mar 2026 06:19:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0AF9943332;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F8966185C;
+	Thu, 19 Mar 2026 06:19:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9139C2BCB1;
 	Thu, 19 Mar 2026 06:19:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E9F7C19425;
-	Thu, 19 Mar 2026 06:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773901158;
-	bh=yr8pKBP08w4IQOykt2Y32o124L8GWjwohcioSRWmwdw=;
+	s=k20201202; t=1773901160;
+	bh=+ZmjSDH5DIbHkhs8sGfuQZibCGDn1Tzw/dqhYSngFD8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=srZICETKoqua/JoZbO/T3R+C7Ijrlp6jUWjb/0ULuTwyL7bg8SKcyKQjSg13NqVkI
-	 rYncMULyh6z0UsA0CNoYrrJQk0adbGrcOdqWw1WKcIR3d0fBG8XDDyS+MsQsIi0tUF
-	 vPS5fHQaV2NjqJ+v7ZwNRVTVcsUKy4n/f2dtZ4elTMUrTPPykUOEJDOtaV54jvgsUn
-	 iAGKNzdr51p1nQ3wZTo5vssSgzic0sPUBQ9QFFQZ9Nm99iVE2e6UbJV++nWN8cmTsU
-	 WWRP/lezIN8tazlI2KPjsV2jN9OP06PI2ojgLZ4KQ4OwSg1xm87vxPZ37+IwZhj9hT
-	 njCZCgVt2oqDA==
+	b=hnean7F5sIW0j/PDDxjaqGyGILEQL5LWC1ZOa2gtGq3EkrwAV03/l3rgTmOOHTpHf
+	 zuWiucXxFt0bIE/omsLvX3AYzKLw35DJ0KiTAXUiu9rnnVV3Go7xE7twTP3m4a9u4k
+	 kuPIiu4CjMhPqmQlqBhSgq836J+HHGm9m7WGDcJHOWIDXrjaGPWWdc9IThZSx53uz8
+	 H4ZXX1uojF+l9CmYgAMCgkuREmq7GPg5yOYWBKCe7vY+YlOQDe0U1ZT7l6KuRL/+a1
+	 Cto/yQ8kWtV3VUj+9ES3MrtArOdzHHnqThiXY2S9ptS6HVrdHf4U3bv7k3V7NpVhmB
+	 i8tqNk8NcHEbw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,16 +53,13 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 09/19] lib/crypto: arm64/ghash: Migrate optimized code into library
-Date: Wed, 18 Mar 2026 23:17:10 -0700
-Message-ID: <20260319061723.1140720-10-ebiggers@kernel.org>
+Subject: [PATCH 12/19] lib/crypto: riscv/ghash: Migrate optimized code into library
+Date: Wed, 18 Mar 2026 23:17:13 -0700
+Message-ID: <20260319061723.1140720-13-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
 References: <20260319061723.1140720-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260318_231919_524280_9E8B2765 
-X-CRM114-Status: GOOD (  24.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,454 +76,319 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove the "ghash-neon" crypto_shash algorithm.  Move the corresponding
-assembly code into lib/crypto/, and wire it up to the GHASH library.
+Remove the "ghash-riscv64-zvkg" crypto_shash algorithm.  Move the
+corresponding assembly code into lib/crypto/, modify it to take the
+length in blocks instead of bytes, and wire it up to the GHASH library.
 
-This makes the GHASH library be optimized on arm64 (though only with
-NEON, not PMULL; for now the goal is just parity with crypto_shash).  It
-greatly reduces the amount of arm64-specific glue code that is needed,
-and it fixes the issue where this optimization was disabled by default.
+This makes the GHASH library be optimized with the RISC-V Vector
+Cryptography Extension.  It also greatly reduces the amount of
+riscv-specific glue code that is needed, and it fixes the issue where
+this optimized GHASH code was disabled by default.
 
-To integrate the assembly code correctly with the library, make the
-following tweaks:
+Note that this RISC-V code has multiple opportunities for improvement,
+such as adding more parallelism, providing an optimized multiplication
+function, and directly supporting POLYVAL.  But for now, this commit
+simply tweaks ghash_zvkg() slightly to make it compatible with the
+library, then wires it up to ghash_blocks_arch().
 
-- Change the type of 'blocks' from int to size_t
-- Change the types of 'dg' and 'k' to polyval_elem.  Note that this
-  simply reflects the format that the code was already using.
-- Remove the 'head' argument, which is no longer needed.
-- Remove the CFI stubs, as indirect calls are no longer used.
+ghash_preparekey_arch() is also implemented to store the copy of the raw
+key needed by the vghsh.vv instruction.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm64/crypto/Kconfig                     |   5 +-
- arch/arm64/crypto/Makefile                    |   2 +-
- arch/arm64/crypto/ghash-ce-core.S             |   3 +-
- arch/arm64/crypto/ghash-ce-glue.c             | 146 ++----------------
- lib/crypto/Makefile                           |   3 +-
- lib/crypto/arm64/gf128hash.h                  |  68 +++++++-
- .../crypto/arm64}/ghash-neon-core.S           |  20 +--
- 7 files changed, 86 insertions(+), 161 deletions(-)
- rename {arch/arm64/crypto => lib/crypto/arm64}/ghash-neon-core.S (93%)
+ arch/riscv/crypto/Kconfig                     |  11 --
+ arch/riscv/crypto/Makefile                    |   3 -
+ arch/riscv/crypto/ghash-riscv64-glue.c        | 146 ------------------
+ include/crypto/gf128hash.h                    |   3 +
+ lib/crypto/Kconfig                            |   2 +
+ lib/crypto/Makefile                           |   1 +
+ lib/crypto/riscv/gf128hash.h                  |  57 +++++++
+ .../crypto/riscv}/ghash-riscv64-zvkg.S        |  13 +-
+ 8 files changed, 69 insertions(+), 167 deletions(-)
+ delete mode 100644 arch/riscv/crypto/ghash-riscv64-glue.c
+ create mode 100644 lib/crypto/riscv/gf128hash.h
+ rename {arch/riscv/crypto => lib/crypto/riscv}/ghash-riscv64-zvkg.S (91%)
 
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index 82794afaffc9..1a0c553fbfd7 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -1,18 +1,17 @@
- # SPDX-License-Identifier: GPL-2.0
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 22d4eaab15f3..c208f54afbcd 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -15,21 +15,10 @@ config CRYPTO_AES_RISCV64
+ 	  - Zvkned vector crypto extension
+ 	  - Zvbb vector extension (XTS)
+ 	  - Zvkb vector crypto extension (CTR)
+ 	  - Zvkg vector crypto extension (XTS)
  
- menu "Accelerated Cryptographic Algorithms for CPU (arm64)"
+-config CRYPTO_GHASH_RISCV64
+-	tristate "Hash functions: GHASH"
+-	depends on 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
+-		   RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
+-	select CRYPTO_GCM
+-	help
+-	  GCM GHASH function (NIST SP 800-38D)
+-
+-	  Architecture: riscv64 using:
+-	  - Zvkg vector crypto extension
+-
+ config CRYPTO_SM3_RISCV64
+ 	tristate "Hash functions: SM3 (ShangMi 3)"
+ 	depends on 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
+ 		   RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
+ 	select CRYPTO_HASH
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index 183495a95cc0..5c9ee1b876fa 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -2,13 +2,10 @@
  
- config CRYPTO_GHASH_ARM64_CE
--	tristate "Hash functions: GHASH (ARMv8 Crypto Extensions)"
-+	tristate "AEAD cipher: AES in GCM mode (ARMv8 Crypto Extensions)"
- 	depends on KERNEL_MODE_NEON
--	select CRYPTO_HASH
- 	select CRYPTO_LIB_AES
- 	select CRYPTO_LIB_GF128MUL
- 	select CRYPTO_AEAD
- 	help
--	  GCM GHASH function (NIST SP800-38D)
-+	  AEAD cipher: AES-GCM
+ obj-$(CONFIG_CRYPTO_AES_RISCV64) += aes-riscv64.o
+ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
+ 		 aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
  
- 	  Architecture: arm64 using:
- 	  - ARMv8 Crypto Extensions
+-obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
+-ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
+-
+ obj-$(CONFIG_CRYPTO_SM3_RISCV64) += sm3-riscv64.o
+ sm3-riscv64-y := sm3-riscv64-glue.o sm3-riscv64-zvksh-zvkb.o
  
- config CRYPTO_SM3_NEON
-diff --git a/arch/arm64/crypto/Makefile b/arch/arm64/crypto/Makefile
-index b7ba43ce8584..8a8e3e551ed3 100644
---- a/arch/arm64/crypto/Makefile
-+++ b/arch/arm64/crypto/Makefile
-@@ -25,11 +25,11 @@ sm4-ce-gcm-y := sm4-ce-gcm-glue.o sm4-ce-gcm-core.o
- 
- obj-$(CONFIG_CRYPTO_SM4_ARM64_NEON_BLK) += sm4-neon.o
- sm4-neon-y := sm4-neon-glue.o sm4-neon-core.o
- 
- obj-$(CONFIG_CRYPTO_GHASH_ARM64_CE) += ghash-ce.o
--ghash-ce-y := ghash-ce-glue.o ghash-ce-core.o ghash-neon-core.o
-+ghash-ce-y := ghash-ce-glue.o ghash-ce-core.o
- 
- obj-$(CONFIG_CRYPTO_AES_ARM64_CE_CCM) += aes-ce-ccm.o
- aes-ce-ccm-y := aes-ce-ccm-glue.o aes-ce-ccm-core.o
- 
- obj-$(CONFIG_CRYPTO_AES_ARM64_CE_BLK) += aes-ce-blk.o
-diff --git a/arch/arm64/crypto/ghash-ce-core.S b/arch/arm64/crypto/ghash-ce-core.S
-index 4344fe213d14..a01f136f4fb2 100644
---- a/arch/arm64/crypto/ghash-ce-core.S
-+++ b/arch/arm64/crypto/ghash-ce-core.S
-@@ -4,11 +4,10 @@
-  *
-  * Copyright (C) 2014 - 2018 Linaro Ltd. <ard.biesheuvel@linaro.org>
-  */
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
- #include <asm/assembler.h>
- 
- 	SHASH		.req	v0
- 	SHASH2		.req	v1
- 	T1		.req	v2
-@@ -65,11 +64,11 @@
- 
- 	/*
- 	 * void pmull_ghash_update_p64(int blocks, u64 dg[], const char *src,
- 	 *			       u64 const h[][2], const char *head)
- 	 */
--SYM_TYPED_FUNC_START(pmull_ghash_update_p64)
-+SYM_FUNC_START(pmull_ghash_update_p64)
- 	ld1		{SHASH.2d}, [x3]
- 	ld1		{XL.2d}, [x1]
- 
- 	__pmull_pre_p64
- 
-diff --git a/arch/arm64/crypto/ghash-ce-glue.c b/arch/arm64/crypto/ghash-ce-glue.c
-index 63bb9e062251..42fb46bdc124 100644
---- a/arch/arm64/crypto/ghash-ce-glue.c
-+++ b/arch/arm64/crypto/ghash-ce-glue.c
-@@ -1,19 +1,18 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /*
-- * Accelerated GHASH implementation with ARMv8 PMULL instructions.
-+ * AES-GCM using ARMv8 Crypto Extensions
-  *
-  * Copyright (C) 2014 - 2018 Linaro Ltd. <ard.biesheuvel@linaro.org>
-  */
- 
- #include <crypto/aes.h>
- #include <crypto/b128ops.h>
- #include <crypto/gcm.h>
- #include <crypto/ghash.h>
- #include <crypto/gf128mul.h>
- #include <crypto/internal/aead.h>
+ obj-$(CONFIG_CRYPTO_SM4_RISCV64) += sm4-riscv64.o
+ sm4-riscv64-y := sm4-riscv64-glue.o sm4-riscv64-zvksed-zvkb.o
+diff --git a/arch/riscv/crypto/ghash-riscv64-glue.c b/arch/riscv/crypto/ghash-riscv64-glue.c
+deleted file mode 100644
+index d86073d25387..000000000000
+--- a/arch/riscv/crypto/ghash-riscv64-glue.c
++++ /dev/null
+@@ -1,146 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/*
+- * GHASH using the RISC-V vector crypto extensions
+- *
+- * Copyright (C) 2023 VRULL GmbH
+- * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
+- *
+- * Copyright (C) 2023 SiFive, Inc.
+- * Author: Jerry Shih <jerry.shih@sifive.com>
+- */
+-
+-#include <asm/simd.h>
+-#include <asm/vector.h>
+-#include <crypto/b128ops.h>
+-#include <crypto/gf128mul.h>
+-#include <crypto/ghash.h>
 -#include <crypto/internal/hash.h>
- #include <crypto/internal/skcipher.h>
- #include <crypto/scatterwalk.h>
- #include <linux/cpufeature.h>
- #include <linux/errno.h>
- #include <linux/kernel.h>
-@@ -21,14 +20,15 @@
- #include <linux/string.h>
- #include <linux/unaligned.h>
- 
- #include <asm/simd.h>
- 
--MODULE_DESCRIPTION("GHASH and AES-GCM using ARMv8 Crypto Extensions");
-+MODULE_DESCRIPTION("AES-GCM using ARMv8 Crypto Extensions");
- MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
- MODULE_LICENSE("GPL v2");
--MODULE_ALIAS_CRYPTO("ghash");
-+MODULE_ALIAS_CRYPTO("gcm(aes)");
-+MODULE_ALIAS_CRYPTO("rfc4106(gcm(aes))");
- 
- #define RFC4106_NONCE_SIZE	4
- 
- struct ghash_key {
- 	be128			k;
-@@ -46,100 +46,23 @@ struct gcm_aes_ctx {
- };
- 
- asmlinkage void pmull_ghash_update_p64(int blocks, u64 dg[], const char *src,
- 				       u64 const h[][2], const char *head);
- 
--asmlinkage void pmull_ghash_update_p8(int blocks, u64 dg[], const char *src,
--				      u64 const h[][2], const char *head);
+-#include <crypto/internal/simd.h>
+-#include <crypto/utils.h>
+-#include <linux/errno.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
 -
- asmlinkage void pmull_gcm_encrypt(int bytes, u8 dst[], const u8 src[],
- 				  u64 const h[][2], u64 dg[], u8 ctr[],
- 				  u32 const rk[], int rounds, u8 tag[]);
- asmlinkage int pmull_gcm_decrypt(int bytes, u8 dst[], const u8 src[],
- 				 u64 const h[][2], u64 dg[], u8 ctr[],
- 				 u32 const rk[], int rounds, const u8 l[],
- 				 const u8 tag[], u64 authsize);
- 
--static int ghash_init(struct shash_desc *desc)
+-asmlinkage void ghash_zvkg(be128 *accumulator, const be128 *key, const u8 *data,
+-			   size_t len);
+-
+-struct riscv64_ghash_tfm_ctx {
+-	be128 key;
+-};
+-
+-struct riscv64_ghash_desc_ctx {
+-	be128 accumulator;
+-};
+-
+-static int riscv64_ghash_setkey(struct crypto_shash *tfm, const u8 *key,
+-				unsigned int keylen)
 -{
--	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
+-	struct riscv64_ghash_tfm_ctx *tctx = crypto_shash_ctx(tfm);
 -
--	*ctx = (struct arm_ghash_desc_ctx){};
+-	if (keylen != GHASH_BLOCK_SIZE)
+-		return -EINVAL;
+-
+-	memcpy(&tctx->key, key, GHASH_BLOCK_SIZE);
+-
 -	return 0;
 -}
 -
--static __always_inline
--void ghash_do_simd_update(int blocks, u64 dg[], const char *src,
--			  struct ghash_key *key, const char *head,
--			  void (*simd_update)(int blocks, u64 dg[],
--					      const char *src,
--					      u64 const h[][2],
--					      const char *head))
-+static void ghash_do_simd_update(int blocks, u64 dg[], const char *src,
-+				 struct ghash_key *key, const char *head)
- {
- 	scoped_ksimd()
--		simd_update(blocks, dg, src, key->h, head);
--}
--
--/* avoid hogging the CPU for too long */
--#define MAX_BLOCKS	(SZ_64K / GHASH_BLOCK_SIZE)
--
--static int ghash_update(struct shash_desc *desc, const u8 *src,
--			unsigned int len)
+-static int riscv64_ghash_init(struct shash_desc *desc)
 -{
--	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
--	struct ghash_key *key = crypto_shash_ctx(desc->tfm);
--	int blocks;
+-	struct riscv64_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
 -
--	blocks = len / GHASH_BLOCK_SIZE;
--	len -= blocks * GHASH_BLOCK_SIZE;
+-	*dctx = (struct riscv64_ghash_desc_ctx){};
 -
--	do {
--		int chunk = min(blocks, MAX_BLOCKS);
--
--		ghash_do_simd_update(chunk, ctx->digest, src, key, NULL,
--				     pmull_ghash_update_p8);
--		blocks -= chunk;
--		src += chunk * GHASH_BLOCK_SIZE;
--	} while (unlikely(blocks > 0));
--	return len;
--}
--
--static int ghash_export(struct shash_desc *desc, void *out)
--{
--	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
--	u8 *dst = out;
--
--	put_unaligned_be64(ctx->digest[1], dst);
--	put_unaligned_be64(ctx->digest[0], dst + 8);
 -	return 0;
 -}
 -
--static int ghash_import(struct shash_desc *desc, const void *in)
+-static inline void
+-riscv64_ghash_blocks(const struct riscv64_ghash_tfm_ctx *tctx,
+-		     struct riscv64_ghash_desc_ctx *dctx,
+-		     const u8 *src, size_t srclen)
 -{
--	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
--	const u8 *src = in;
--
--	ctx->digest[1] = get_unaligned_be64(src);
--	ctx->digest[0] = get_unaligned_be64(src + 8);
--	return 0;
+-	/* The srclen is nonzero and a multiple of 16. */
+-	if (crypto_simd_usable()) {
+-		kernel_vector_begin();
+-		ghash_zvkg(&dctx->accumulator, &tctx->key, src, srclen);
+-		kernel_vector_end();
+-	} else {
+-		do {
+-			crypto_xor((u8 *)&dctx->accumulator, src,
+-				   GHASH_BLOCK_SIZE);
+-			gf128mul_lle(&dctx->accumulator, &tctx->key);
+-			src += GHASH_BLOCK_SIZE;
+-			srclen -= GHASH_BLOCK_SIZE;
+-		} while (srclen);
+-	}
 -}
 -
--static int ghash_finup(struct shash_desc *desc, const u8 *src,
--		       unsigned int len, u8 *dst)
+-static int riscv64_ghash_update(struct shash_desc *desc, const u8 *src,
+-				unsigned int srclen)
 -{
--	struct arm_ghash_desc_ctx *ctx = shash_desc_ctx(desc);
--	struct ghash_key *key = crypto_shash_ctx(desc->tfm);
+-	const struct riscv64_ghash_tfm_ctx *tctx = crypto_shash_ctx(desc->tfm);
+-	struct riscv64_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+-
+-	riscv64_ghash_blocks(tctx, dctx, src,
+-			     round_down(srclen, GHASH_BLOCK_SIZE));
+-	return srclen - round_down(srclen, GHASH_BLOCK_SIZE);
+-}
+-
+-static int riscv64_ghash_finup(struct shash_desc *desc, const u8 *src,
+-			       unsigned int len, u8 *out)
+-{
+-	const struct riscv64_ghash_tfm_ctx *tctx = crypto_shash_ctx(desc->tfm);
+-	struct riscv64_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
 -
 -	if (len) {
 -		u8 buf[GHASH_BLOCK_SIZE] = {};
 -
 -		memcpy(buf, src, len);
--		ghash_do_simd_update(1, ctx->digest, buf, key, NULL,
--				     pmull_ghash_update_p8);
+-		riscv64_ghash_blocks(tctx, dctx, buf, GHASH_BLOCK_SIZE);
 -		memzero_explicit(buf, sizeof(buf));
 -	}
--	return ghash_export(desc, dst);
-+		pmull_ghash_update_p64(blocks, dg, src, key->h, head);
- }
- 
- static void ghash_reflect(u64 h[], const be128 *k)
- {
- 	u64 carry = be64_to_cpu(k->a) & BIT(63) ? 1 : 0;
-@@ -149,45 +72,10 @@ static void ghash_reflect(u64 h[], const be128 *k)
- 
- 	if (carry)
- 		h[1] ^= 0xc200000000000000UL;
- }
- 
--static int ghash_setkey(struct crypto_shash *tfm,
--			const u8 *inkey, unsigned int keylen)
--{
--	struct ghash_key *key = crypto_shash_ctx(tfm);
 -
--	if (keylen != GHASH_BLOCK_SIZE)
--		return -EINVAL;
--
--	/* needed for the fallback */
--	memcpy(&key->k, inkey, GHASH_BLOCK_SIZE);
--
--	ghash_reflect(key->h[0], &key->k);
+-	memcpy(out, &dctx->accumulator, GHASH_DIGEST_SIZE);
 -	return 0;
 -}
 -
--static struct shash_alg ghash_alg = {
--	.base.cra_name		= "ghash",
--	.base.cra_driver_name	= "ghash-neon",
--	.base.cra_priority	= 150,
--	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY,
--	.base.cra_blocksize	= GHASH_BLOCK_SIZE,
--	.base.cra_ctxsize	= sizeof(struct ghash_key) + sizeof(u64[2]),
--	.base.cra_module	= THIS_MODULE,
--
--	.digestsize		= GHASH_DIGEST_SIZE,
--	.init			= ghash_init,
--	.update			= ghash_update,
--	.finup			= ghash_finup,
--	.setkey			= ghash_setkey,
--	.export			= ghash_export,
--	.import			= ghash_import,
--	.descsize		= sizeof(struct arm_ghash_desc_ctx),
--	.statesize		= sizeof(struct ghash_desc_ctx),
+-static struct shash_alg riscv64_ghash_alg = {
+-	.init = riscv64_ghash_init,
+-	.update = riscv64_ghash_update,
+-	.finup = riscv64_ghash_finup,
+-	.setkey = riscv64_ghash_setkey,
+-	.descsize = sizeof(struct riscv64_ghash_desc_ctx),
+-	.digestsize = GHASH_DIGEST_SIZE,
+-	.base = {
+-		.cra_blocksize = GHASH_BLOCK_SIZE,
+-		.cra_ctxsize = sizeof(struct riscv64_ghash_tfm_ctx),
+-		.cra_priority = 300,
+-		.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY,
+-		.cra_name = "ghash",
+-		.cra_driver_name = "ghash-riscv64-zvkg",
+-		.cra_module = THIS_MODULE,
+-	},
 -};
 -
- static int gcm_aes_setkey(struct crypto_aead *tfm, const u8 *inkey,
- 			  unsigned int keylen)
- {
- 	struct gcm_aes_ctx *ctx = crypto_aead_ctx(tfm);
- 	u8 key[GHASH_BLOCK_SIZE];
-@@ -238,13 +126,11 @@ static void gcm_update_mac(u64 dg[], const u8 *src, int count, u8 buf[],
- 
- 	if (count >= GHASH_BLOCK_SIZE || *buf_count == GHASH_BLOCK_SIZE) {
- 		int blocks = count / GHASH_BLOCK_SIZE;
- 
- 		ghash_do_simd_update(blocks, dg, src, &ctx->ghash_key,
--				     *buf_count ? buf : NULL,
--				     pmull_ghash_update_p64);
+-static int __init riscv64_ghash_mod_init(void)
+-{
+-	if (riscv_isa_extension_available(NULL, ZVKG) &&
+-	    riscv_vector_vlen() >= 128)
+-		return crypto_register_shash(&riscv64_ghash_alg);
 -
-+				     *buf_count ? buf : NULL);
- 		src += blocks * GHASH_BLOCK_SIZE;
- 		count %= GHASH_BLOCK_SIZE;
- 		*buf_count = 0;
- 	}
- 
-@@ -273,12 +159,11 @@ static void gcm_calculate_auth_mac(struct aead_request *req, u64 dg[], u32 len)
- 		len -= n;
- 	} while (len);
- 
- 	if (buf_count) {
- 		memset(&buf[buf_count], 0, GHASH_BLOCK_SIZE - buf_count);
--		ghash_do_simd_update(1, dg, buf, &ctx->ghash_key, NULL,
--				     pmull_ghash_update_p64);
-+		ghash_do_simd_update(1, dg, buf, &ctx->ghash_key, NULL);
- 	}
- }
- 
- static int gcm_encrypt(struct aead_request *req, char *iv, int assoclen)
- {
-@@ -503,26 +388,19 @@ static struct aead_alg gcm_aes_algs[] = {{
- 	.base.cra_module	= THIS_MODULE,
- }};
- 
- static int __init ghash_ce_mod_init(void)
- {
--	if (!cpu_have_named_feature(ASIMD))
-+	if (!cpu_have_named_feature(ASIMD) || !cpu_have_named_feature(PMULL))
- 		return -ENODEV;
- 
--	if (cpu_have_named_feature(PMULL))
--		return crypto_register_aeads(gcm_aes_algs,
--					     ARRAY_SIZE(gcm_aes_algs));
+-	return -ENODEV;
+-}
 -
--	return crypto_register_shash(&ghash_alg);
-+	return crypto_register_aeads(gcm_aes_algs, ARRAY_SIZE(gcm_aes_algs));
- }
- 
- static void __exit ghash_ce_mod_exit(void)
- {
--	if (cpu_have_named_feature(PMULL))
--		crypto_unregister_aeads(gcm_aes_algs, ARRAY_SIZE(gcm_aes_algs));
--	else
--		crypto_unregister_shash(&ghash_alg);
-+	crypto_unregister_aeads(gcm_aes_algs, ARRAY_SIZE(gcm_aes_algs));
- }
- 
- static const struct cpu_feature __maybe_unused ghash_cpu_feature[] = {
- 	{ cpu_feature(PMULL) }, { }
+-static void __exit riscv64_ghash_mod_exit(void)
+-{
+-	crypto_unregister_shash(&riscv64_ghash_alg);
+-}
+-
+-module_init(riscv64_ghash_mod_init);
+-module_exit(riscv64_ghash_mod_exit);
+-
+-MODULE_DESCRIPTION("GHASH (RISC-V accelerated)");
+-MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
+-MODULE_LICENSE("GPL");
+-MODULE_ALIAS_CRYPTO("ghash");
+diff --git a/include/crypto/gf128hash.h b/include/crypto/gf128hash.h
+index 650652dd6003..b798438cce23 100644
+--- a/include/crypto/gf128hash.h
++++ b/include/crypto/gf128hash.h
+@@ -42,10 +42,13 @@ struct polyval_elem {
+  */
+ struct ghash_key {
+ #if defined(CONFIG_CRYPTO_LIB_GF128HASH_ARCH) && defined(CONFIG_PPC64)
+ 	/** @htable: GHASH key format used by the POWER8 assembly code */
+ 	u64 htable[4][2];
++#elif defined(CONFIG_CRYPTO_LIB_GF128HASH_ARCH) && defined(CONFIG_RISCV)
++	/** @h_raw: The hash key H, in GHASH format */
++	u8 h_raw[GHASH_BLOCK_SIZE];
+ #endif
+ 	/** @h: The hash key H, in POLYVAL format */
+ 	struct polyval_elem h;
  };
+ 
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index f54add7d9070..027802e0de33 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -120,10 +120,12 @@ config CRYPTO_LIB_GF128HASH_ARCH
+ 	bool
+ 	depends on CRYPTO_LIB_GF128HASH && !UML
+ 	default y if ARM && KERNEL_MODE_NEON
+ 	default y if ARM64
+ 	default y if PPC64 && VSX
++	default y if RISCV && 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
++		     RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
+ 	default y if X86_64
+ 
+ config CRYPTO_LIB_MD5
+ 	tristate
+ 	help
 diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 8a06dd6a43ea..4ce0bac8fd93 100644
+index 8a9084188778..8950509833af 100644
 --- a/lib/crypto/Makefile
 +++ b/lib/crypto/Makefile
-@@ -157,11 +157,12 @@ libdes-y					:= des.o
- obj-$(CONFIG_CRYPTO_LIB_GF128HASH) += libgf128hash.o
- libgf128hash-y := gf128hash.o
- ifeq ($(CONFIG_CRYPTO_LIB_GF128HASH_ARCH),y)
- CFLAGS_gf128hash.o += -I$(src)/$(SRCARCH)
- libgf128hash-$(CONFIG_ARM) += arm/ghash-neon-core.o
--libgf128hash-$(CONFIG_ARM64) += arm64/polyval-ce-core.o
-+libgf128hash-$(CONFIG_ARM64) += arm64/ghash-neon-core.o \
-+				arm64/polyval-ce-core.o
- libgf128hash-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
+@@ -171,10 +171,11 @@ $(obj)/powerpc/ghashp8-ppc.S: $(src)/powerpc/ghashp8-ppc.pl FORCE
+ 	$(call if_changed,perlasm_ghash)
+ targets += powerpc/ghashp8-ppc.S
+ OBJECT_FILES_NON_STANDARD_powerpc/ghashp8-ppc.o := y
  endif
  
- ################################################################################
++libgf128hash-$(CONFIG_RISCV) += riscv/ghash-riscv64-zvkg.o
+ libgf128hash-$(CONFIG_X86) += x86/polyval-pclmul-avx.o
+ endif # CONFIG_CRYPTO_LIB_GF128HASH_ARCH
  
-diff --git a/lib/crypto/arm64/gf128hash.h b/lib/crypto/arm64/gf128hash.h
-index 796c36804dda..d5ef1b1b77e1 100644
---- a/lib/crypto/arm64/gf128hash.h
-+++ b/lib/crypto/arm64/gf128hash.h
-@@ -1,23 +1,27 @@
- /* SPDX-License-Identifier: GPL-2.0-or-later */
- /*
-- * POLYVAL library functions, arm64 optimized
-+ * GHASH and POLYVAL, arm64 optimized
-  *
-  * Copyright 2025 Google LLC
-  */
- #include <asm/simd.h>
- #include <linux/cpufeature.h>
- 
- #define NUM_H_POWERS 8
- 
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_asimd);
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pmull);
- 
- asmlinkage void polyval_mul_pmull(struct polyval_elem *a,
- 				  const struct polyval_elem *b);
- asmlinkage void polyval_blocks_pmull(struct polyval_elem *acc,
- 				     const struct polyval_key *key,
- 				     const u8 *data, size_t nblocks);
-+asmlinkage void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
-+				      const u8 *src,
-+				      const struct polyval_elem *k);
- 
- #define polyval_preparekey_arch polyval_preparekey_arch
- static void polyval_preparekey_arch(struct polyval_key *key,
- 				    const u8 raw_key[POLYVAL_BLOCK_SIZE])
- {
-@@ -39,19 +43,66 @@ static void polyval_preparekey_arch(struct polyval_key *key,
- 					    &key->h_powers[NUM_H_POWERS - 1]);
- 		}
- 	}
- }
- 
-+static void polyval_mul_arm64(struct polyval_elem *a,
-+			      const struct polyval_elem *b)
+ # clean-files must be defined unconditionally
+ clean-files += powerpc/ghashp8-ppc.S
+diff --git a/lib/crypto/riscv/gf128hash.h b/lib/crypto/riscv/gf128hash.h
+new file mode 100644
+index 000000000000..4301a0384f60
+--- /dev/null
++++ b/lib/crypto/riscv/gf128hash.h
+@@ -0,0 +1,57 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * GHASH, RISC-V optimized
++ *
++ * Copyright (C) 2023 VRULL GmbH
++ * Copyright (C) 2023 SiFive, Inc.
++ * Copyright 2026 Google LLC
++ */
++
++#include <asm/simd.h>
++#include <asm/vector.h>
++
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_zvkg);
++
++asmlinkage void ghash_zvkg(u8 accumulator[GHASH_BLOCK_SIZE],
++			   const u8 key[GHASH_BLOCK_SIZE],
++			   const u8 *data, size_t nblocks);
++
++#define ghash_preparekey_arch ghash_preparekey_arch
++static void ghash_preparekey_arch(struct ghash_key *key,
++				  const u8 raw_key[GHASH_BLOCK_SIZE])
 +{
-+	if (static_branch_likely(&have_asimd) && may_use_simd()) {
-+		static const u8 zeroes[GHASH_BLOCK_SIZE];
++	/* Save key in POLYVAL format for fallback */
++	ghash_key_to_polyval(raw_key, &key->h);
 +
-+		scoped_ksimd() {
-+			if (static_branch_likely(&have_pmull)) {
-+				polyval_mul_pmull(a, b);
-+			} else {
-+				/*
-+				 * Note that this is indeed equivalent to a
-+				 * POLYVAL multiplication, since it takes the
-+				 * accumulator and key in POLYVAL format, and
-+				 * byte-swapping a block of zeroes is a no-op.
-+				 */
-+				pmull_ghash_update_p8(1, a, zeroes, b);
-+			}
-+		}
-+	} else {
-+		polyval_mul_generic(a, b);
-+	}
-+}
-+
-+#define ghash_mul_arch ghash_mul_arch
-+static void ghash_mul_arch(struct polyval_elem *acc,
-+			   const struct ghash_key *key)
-+{
-+	polyval_mul_arm64(acc, &key->h);
-+}
-+
- #define polyval_mul_arch polyval_mul_arch
- static void polyval_mul_arch(struct polyval_elem *acc,
- 			     const struct polyval_key *key)
- {
--	if (static_branch_likely(&have_pmull) && may_use_simd()) {
--		scoped_ksimd()
--			polyval_mul_pmull(acc, &key->h_powers[NUM_H_POWERS - 1]);
-+	polyval_mul_arm64(acc, &key->h_powers[NUM_H_POWERS - 1]);
++	/* Save key in GHASH format for zvkg */
++	memcpy(key->h_raw, raw_key, GHASH_BLOCK_SIZE);
 +}
 +
 +#define ghash_blocks_arch ghash_blocks_arch
@@ -534,106 +396,68 @@ index 796c36804dda..d5ef1b1b77e1 100644
 +			      const struct ghash_key *key,
 +			      const u8 *data, size_t nblocks)
 +{
-+	if (static_branch_likely(&have_asimd) && may_use_simd()) {
-+		do {
-+			/* Allow rescheduling every 4 KiB. */
-+			size_t n =
-+				min_t(size_t, nblocks, 4096 / GHASH_BLOCK_SIZE);
++	if (static_branch_likely(&have_zvkg) && likely(may_use_simd())) {
++		u8 ghash_acc[GHASH_BLOCK_SIZE];
 +
-+			scoped_ksimd()
-+				pmull_ghash_update_p8(n, acc, data, &key->h);
-+			data += n * GHASH_BLOCK_SIZE;
-+			nblocks -= n;
-+		} while (nblocks);
- 	} else {
--		polyval_mul_generic(acc, &key->h_powers[NUM_H_POWERS - 1]);
++		polyval_acc_to_ghash(acc, ghash_acc);
++
++		kernel_vector_begin();
++		ghash_zvkg(ghash_acc, key->h_raw, data, nblocks);
++		kernel_vector_end();
++
++		ghash_acc_to_polyval(ghash_acc, acc);
++		memzero_explicit(ghash_acc, sizeof(ghash_acc));
++	} else {
 +		ghash_blocks_generic(acc, &key->h, data, nblocks);
- 	}
- }
- 
- #define polyval_blocks_arch polyval_blocks_arch
- static void polyval_blocks_arch(struct polyval_elem *acc,
-@@ -76,8 +127,11 @@ static void polyval_blocks_arch(struct polyval_elem *acc,
- }
- 
- #define gf128hash_mod_init_arch gf128hash_mod_init_arch
- static void gf128hash_mod_init_arch(void)
- {
--	if (cpu_have_named_feature(PMULL))
--		static_branch_enable(&have_pmull);
-+	if (cpu_have_named_feature(ASIMD)) {
-+		static_branch_enable(&have_asimd);
-+		if (cpu_have_named_feature(PMULL))
-+			static_branch_enable(&have_pmull);
 +	}
- }
-diff --git a/arch/arm64/crypto/ghash-neon-core.S b/lib/crypto/arm64/ghash-neon-core.S
-similarity index 93%
-rename from arch/arm64/crypto/ghash-neon-core.S
-rename to lib/crypto/arm64/ghash-neon-core.S
-index 6157135ad566..eadd6da47247 100644
---- a/arch/arm64/crypto/ghash-neon-core.S
-+++ b/lib/crypto/arm64/ghash-neon-core.S
-@@ -4,11 +4,10 @@
-  *
-  * Copyright (C) 2014 - 2018 Linaro Ltd. <ard.biesheuvel@linaro.org>
-  */
++}
++
++#define gf128hash_mod_init_arch gf128hash_mod_init_arch
++static void gf128hash_mod_init_arch(void)
++{
++	if (riscv_isa_extension_available(NULL, ZVKG) &&
++	    riscv_vector_vlen() >= 128)
++		static_branch_enable(&have_zvkg);
++}
+diff --git a/arch/riscv/crypto/ghash-riscv64-zvkg.S b/lib/crypto/riscv/ghash-riscv64-zvkg.S
+similarity index 91%
+rename from arch/riscv/crypto/ghash-riscv64-zvkg.S
+rename to lib/crypto/riscv/ghash-riscv64-zvkg.S
+index f2b43fb4d434..2839ff1a990c 100644
+--- a/arch/riscv/crypto/ghash-riscv64-zvkg.S
++++ b/lib/crypto/riscv/ghash-riscv64-zvkg.S
+@@ -48,25 +48,24 @@
+ .option arch, +zvkg
  
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
- #include <asm/assembler.h>
+ #define ACCUMULATOR	a0
+ #define KEY		a1
+ #define DATA		a2
+-#define LEN		a3
++#define NBLOCKS		a3
  
- 	SHASH		.req	v0
- 	SHASH2		.req	v1
- 	T1		.req	v2
-@@ -177,29 +176,24 @@
- 	ushr		T2.2d, T2.2d, #6
- 	ushr		XL.2d, XL.2d, #1
- 	.endm
+-// void ghash_zvkg(be128 *accumulator, const be128 *key, const u8 *data,
+-//		   size_t len);
+-//
+-// |len| must be nonzero and a multiple of 16 (GHASH_BLOCK_SIZE).
++// void ghash_zvkg(u8 accumulator[GHASH_BLOCK_SIZE],
++//		   const u8 key[GHASH_BLOCK_SIZE],
++//		   const u8 *data, size_t nblocks);
+ SYM_FUNC_START(ghash_zvkg)
+ 	vsetivli	zero, 4, e32, m1, ta, ma
+ 	vle32.v		v1, (ACCUMULATOR)
+ 	vle32.v		v2, (KEY)
+ .Lnext_block:
+ 	vle32.v		v3, (DATA)
+ 	vghsh.vv	v1, v2, v3
+ 	addi		DATA, DATA, 16
+-	addi		LEN, LEN, -16
+-	bnez		LEN, .Lnext_block
++	addi		NBLOCKS, NBLOCKS, -1
++	bnez		NBLOCKS, .Lnext_block
  
- 	/*
--	 * void pmull_ghash_update_p8(int blocks, u64 dg[], const char *src,
--	 *			      u64 const h[][2], const char *head)
-+	 * void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
-+	 *			      const u8 *src,
-+	 *			      const struct polyval_elem *k)
- 	 */
--SYM_TYPED_FUNC_START(pmull_ghash_update_p8)
-+SYM_FUNC_START(pmull_ghash_update_p8)
- 	ld1		{SHASH.2d}, [x3]
- 	ld1		{XL.2d}, [x1]
- 
- 	__pmull_pre_p8
- 
--	/* do the head block first, if supplied */
--	cbz		x4, 0f
--	ld1		{T1.2d}, [x4]
--	mov		x4, xzr
--	b		3f
--
- 0:	ld1		{T1.2d}, [x2], #16
--	sub		w0, w0, #1
-+	sub		x0, x0, #1
- 
--3:	/* multiply XL by SHASH in GF(2^128) */
-+	/* multiply XL by SHASH in GF(2^128) */
- CPU_LE(	rev64		T1.16b, T1.16b	)
- 
- 	ext		T2.16b, XL.16b, XL.16b, #8
- 	ext		IN1.16b, T1.16b, T1.16b, #8
- 	eor		T1.16b, T1.16b, T2.16b
-@@ -217,10 +211,10 @@ CPU_LE(	rev64		T1.16b, T1.16b	)
- 	__pmull_reduce_p8
- 
- 	eor		T2.16b, T2.16b, XH.16b
- 	eor		XL.16b, XL.16b, T2.16b
- 
--	cbnz		w0, 0b
-+	cbnz		x0, 0b
- 
- 	st1		{XL.2d}, [x1]
+ 	vse32.v		v1, (ACCUMULATOR)
  	ret
- SYM_FUNC_END(pmull_ghash_update_p8)
+ SYM_FUNC_END(ghash_zvkg)
 -- 
 2.53.0
 
