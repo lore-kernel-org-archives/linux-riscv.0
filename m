@@ -4,149 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB6F109022A
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 13:59:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B231D109022E
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 14:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=COxrGPaI3YuTEKg6P3UDvbhayOuADKtBXopE2scb3fY=; b=zQ+SWSlLU7rGg3
-	QQztg1PD35anljzi6p8C2SOzcqOX6U3bY9VJH/04ymIdVCXgBvAmB0XR948qtbB6LiB4YesGec+PR
-	lDDjSv51rmUunNqWwJuCkt8TyOpuLPFwDJdri8TernI3475d/DufIiEv4qwpiTYhdN5gYvUGIQDk7
-	2iC4AVdzt64Db4ag8tmTsDU2fKmXCJRXSyWig6MfHNBFPdlwfffqdzJ+H7Rh22unE8GVWUupht3o1
-	C3AOBKlqgnh0oVZWWSpAIHBEDocm2kdc2SIeMuRq5tIC8k+aNmvUfBN9UQCGPuzmWGZYLIpOpi3Gi
-	HgTLNGK6q16RKSuG1u8Q==;
+	List-Owner; bh=hQhskcCPpAGGTlV40SS6j0jxjvW1xjQF8KXm6gxclI4=; b=ns81Q/mxyix0Wj
+	SFliWXT/O1SnSAJYietxXggnlTE8zenBEriXW4tpD2ljKoC80poVPzkeS1e/iV1cu8SIU1ma+ITbU
+	JIpGmofKRaOKAZgLP173WwQ1jdcRR0kG1wPksSz6pdiCyl3yz2gyt2Eu1OqOuBok7T2pp/drnFaMG
+	SOGtkxFP+v6OblnSkkgeiXsCtN8d03/bFfW9SDRTIfmYKdz8H3CUcBpb8rAZkLmvcYppVzdVJ4+oa
+	ws1fI/VrWL0DHQXnN2WIVhooeDV76zR9J/68iPdPaWno0aLpOPiwVVAFyRkMrLVw4+uuTW+5YSHB7
+	7Dicz/pY8uY80KRkZgQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3DuT-0000000Aj5b-0lGk;
-	Thu, 19 Mar 2026 13:59:37 +0000
-Received: from mail-westcentralusazon11013032.outbound.protection.outlook.com ([40.93.201.32] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1w3E2H-0000000AjnM-0j8j;
+	Thu, 19 Mar 2026 14:07:41 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3DuQ-0000000Aj4i-0bTd;
-	Thu, 19 Mar 2026 13:59:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GyCPddHBpr/Y2iMT1U3I1QwupvK8vhimsBXSjzWatFjcXESkUcbHhGEMDRgIP6je/mnhIf46oYqc5L48nKTCJdVWKfd9n8lITxxin2jV/VBmEFnAvrTWgN52io8bKT6QT6WcLsRYAuXdFPVKbcUgvAkWehZiZSQ5t6WESsjnPTw05WBgJbt7kfLkU0qpAAyc7J7kdj95DFbVNpmEctCBXAY8/ZE1ClMKzA5pKfXT4rYADt3EpjPu6gwOYyWCen1yQS7bDdeEPS/FDbJGm7ctuLlkeYJueSLyKo6FyYRCdfVGjeUqx6Js5jUMrxTG4YyTr+Kteimw0EuUf7n7o60eVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PbnkeDegTtGlpTl1DhG+dvN17k89G4cK3h8wfBQ49co=;
- b=qRp6rYx4wfSQjX8KmMOjkEI32nhk8OMKGMFoxq37nwO8mu/qewOctfrIlvoR6lkFSw/hhwpHLBudhZoFovB6CDlvYRI7kyqmZFVtRZMHKdckeiHUad7jt3Jw7ZZaTiRQYhwuUdrHpmA0RtZUD6GxFYARG2U5NCZR9dz1XNH7XrtnqLgOmgvQP2uEfsRPWJ+ioJnee+diUSStUlBER25iYqdeJnk/TUUl25lZKD9q0Ot7hfgCBl0BGsCm3kCfg9vM6AKjOV+7lokvkugYpJEdL8z2HrEf0lmHpaV8FgqAIDSc6KMRiBB1mFzqQrEuOyRiTWZlEpADl5824Nl1WVSBKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PbnkeDegTtGlpTl1DhG+dvN17k89G4cK3h8wfBQ49co=;
- b=j6FPaD9LqzF2X5OC7OOAOT11uqNUS2ZY2UM9cd4p26XX+FAAYCblOAXAQAzuArpZh/bHpUQr5X4kmq2WU5XySL2Z49GycUotGaFUbFHuBBx5Kowkthw3sgMRO1ckB+50wT2gv57mj2unR7L3XvsqwR0mPdd1E5b+8Ye0wBcOVWXy62Tfap2P25pLoq7rgOouxlGhv0L5Z44q9ng9ZctOBHz/vGnShrZETA1JtiGUBhhdOmz/sfzjJ+bXoVoCHJE8hBGiQLnoC8gsUgNZnt2pK2vJHvfOmYKq657wx0xOf06vqmprpisI/orY8IkMP/ayMDaNkVp+INm5PuEAzjW7pQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
- SA1PR12MB999108.namprd12.prod.outlook.com (2603:10b6:806:4a2::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Thu, 19 Mar
- 2026 13:59:27 +0000
-Received: from DS7PR12MB9473.namprd12.prod.outlook.com
- ([fe80::f01d:73d2:2dda:c7b2]) by DS7PR12MB9473.namprd12.prod.outlook.com
- ([fe80::f01d:73d2:2dda:c7b2%4]) with mapi id 15.20.9723.016; Thu, 19 Mar 2026
- 13:59:27 +0000
-From: Zi Yan <ziy@nvidia.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
- Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>,
- Ying Huang <ying.huang@linux.alibaba.com>,
- Alistair Popple <apopple@nvidia.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-mm@kvack.org,
- linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
-Date: Thu, 19 Mar 2026 09:59:18 -0400
-X-Mailer: MailMate (2.0r6290)
-Message-ID: <3149685B-963F-473E-ABF8-916D41AEB4B7@nvidia.com>
-In-Reply-To: <20260319-config_migration-v1-1-42270124966f@kernel.org>
-References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
- <20260319-config_migration-v1-1-42270124966f@kernel.org>
-X-ClientProxiedBy: BYAPR06CA0043.namprd06.prod.outlook.com
- (2603:10b6:a03:14b::20) To DS7PR12MB9473.namprd12.prod.outlook.com
- (2603:10b6:8:252::5)
+	id 1w3E2D-0000000AjlV-29d7
+	for linux-riscv@lists.infradead.org;
+	Thu, 19 Mar 2026 14:07:40 +0000
+Received: from duge-virtual-machine (unknown [183.192.222.244])
+	by APP-03 (Coremail) with SMTP id rQCowABnieAaA7xpRC4mCw--.14810S3;
+	Thu, 19 Mar 2026 22:07:25 +0800 (CST)
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: krzk@kernel.org,
+	ulf.hansson@linaro.org,
+	adrian.hunter@intel.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	gaohan@iscas.ac.cn,
+	me@ziyao.cc,
+	Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v5 1/3] dt-bindings: mmc: Add sdhci support for Canaan k230
+Date: Thu, 19 Mar 2026 22:07:03 +0800
+Message-ID: <20260319140705.123502-2-jiayu.riscv@isrc.iscas.ac.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260319140705.123502-1-jiayu.riscv@isrc.iscas.ac.cn>
+References: <20260319140705.123502-1-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|SA1PR12MB999108:EE_
-X-MS-Office365-Filtering-Correlation-Id: 960d6495-a2fb-460c-b6a1-08de85bfbb91
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: yI4d3EWY+nRTmA2sUUBMYPx8nuD7Cf/jY1FbW0brj0jrlQg9kqDPTxdHFV8bMcJJ7Qq+Lt8gNLu7AkOjrFZAsItiNTN/L0s8U52/7aiCshLIKh0x+i5TWRxqYhCBh4ErsO6PaY0QMfgJ0cGWlcGB8hDAV9A77M9QdT5c97LUye9T4p2OVRfjC/BaDhO8aSQBdpWbxKqxT/VMcKyQF90qSmPhpLn7IS9Dn6emzf/MwAkJcNXCyrcl0D3coLEGU9crp/Ud1muQVM8vvo6JT+T1/n3alY/cGf6Tyj6toTL6lxPktsO1g58IAnGvRJUY9QDCx8mQD11E8KeP8K6ux2SARLilCnxHxSrdozw8WEoSUff8i+E5sWmKVgx88jsvubyFkRqDWo/yGwM0/PPNHfC+vLchaoDet0ijKXN3Xx5+n6KyitlTYLXjdaaZTU+IvR1/eVfeLyQNYuUcd4adfdh2NteTiO7nNQ6pj4uJXl22eeMGnuVsG+eETH9SZioc90+ImbTw3Lau8i8gggKVrz8lD30cZdZ/TCjLnrOkqk2nE7rrhSiNHA8WVePXpMKVn3DScJ5gaKD2MGXIKsx0LNLAigWBUmaSqM19wNt18DXNZmkffpKkhbx0DRatjXWV516/baRQEW8fHrPamvNJMtwSbiCpqwgNn0sCjW1PpFKqtsHKpn/czx3NU5YElH2F0WyFWxS3F0lmY1O0iKnWdeeUIt2pgCHQ/+jKv8lqOxi1R0U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tWlr7GM+Qbe0UFhRvCRS74i8dyqXLFtZDvTFrYS4/pEoD6CQFenMMKcr21VN?=
- =?us-ascii?Q?RbdXpEhSxiOEq0xESYH/YYfGwmZ5K5qfzjWXUOPzTuNfjQra/3DcYXsYOmQo?=
- =?us-ascii?Q?yApb6a8RKEMmfSgGWk6kkQ2ZOsQU7Zdw8d+ILzk3N/WXrcj4fzjWDvxhMbXq?=
- =?us-ascii?Q?6PZMpstQHjHmK/OrOQUqkTMWc5VbcfIqLglxqTbv3yS1LgrzlNlGhqmj4DdJ?=
- =?us-ascii?Q?5Fv9RSvOfFQ7GEKTUOPiVMq/E0IW4LoD7iJeaFcUBsDD4x95hgP2MRl+A9vY?=
- =?us-ascii?Q?GDL5uPd/L8hFjgE9c1A4ELTHias2DtvaOAYrZVQ+sWq/St7IK4Z1chFV3Bsu?=
- =?us-ascii?Q?IZU1pZsZ2uVh1ll3U+XllSTwILnzM0YPKmkNTIqKBSRMnTxd2h5dgZzpMiOj?=
- =?us-ascii?Q?2gmpuOdpbN5BlwmM6Jd//hihcEysiT9a/4JpBQj2DyLRcxCG0huQ77AvTXv/?=
- =?us-ascii?Q?riZMZooBLIaUUaQ4oLrpjH9O5BGoj1NjV4v9ghaeEUEe97D2G5p9iRiNjwD3?=
- =?us-ascii?Q?2fbvo9VBQAFuoYCHYaaYQSAHoulJhSLQe6In+eErXuyWE6A7htrUoNMfj3Y9?=
- =?us-ascii?Q?IsDDHqu+m9zXWvp3/hP07RRNjqjCWwG/ARbH4oJnsykhJaUNCrn47oXmx6Uz?=
- =?us-ascii?Q?N1qCh80j618E5hKGscqfdBgirQEJOk/7JVTxSTkbHLbh0u6/DByiSy4V6OW+?=
- =?us-ascii?Q?xbVpFouUbU3SFRVJyFVNVJTE01ox0oK9FetGQ1fxGXrWoaqfsO55tQCmyjp+?=
- =?us-ascii?Q?+jXy3816CvKr4pMvFST11s5KZCkn9qRUXbkdKpK4xBVFsZT5PebH3hWhklej?=
- =?us-ascii?Q?077Cr0CX1Ip/Ht02tHFk1gVx2FMohBCIOVzmboXbvl+HubukHYd9+lSrkcfm?=
- =?us-ascii?Q?5bsbOFPtQZp7CH4U1z6ZuxfJ2L4cCOaPRo6I2ZIppGQZ4WrnXpHbKPczOQ3s?=
- =?us-ascii?Q?bUckdlHpB9w0Pq2bUmon/Z6JIVLhEq3O/tEymtgGYIPN+24jaiwPnob8fUrx?=
- =?us-ascii?Q?IwUo80XL+DqT0ZGJX1Xstm4d/Q/YaC+3waf+sNYrg+9pABEKJAI/38kqgN/V?=
- =?us-ascii?Q?Jl+6+EUmuNzlEQ96SRom7aRSwzhyMKOExFFiQPS2FTibDEfevb0xiVm7IMLh?=
- =?us-ascii?Q?Blo185ZAc2erN7Ex8frktjkYHdO56DRmw8t81kLz3DbcHOuAOpkOu1wi9puv?=
- =?us-ascii?Q?1Ymnn2xqCnxSiPd08tm/plWft2NBoevmNwNsGK+vluCNbb9JtupIbkhCZOPP?=
- =?us-ascii?Q?rJxmuQRLuqQ+/v63Hzu9v2lMA9SISwL/sIGXmlDJuyOOQGJuAgo/mr8JdvXN?=
- =?us-ascii?Q?KidOvh9xWT9I0CvAf5PdVw/NNZMtjkA5QfeeJY+jK2X1Yjdk3dHqCbXmHl13?=
- =?us-ascii?Q?QHCBu+allyoV8WQEV8ArQuxEzaq/m2ve1LcdBa1VzNWTulYgk7a5s35zNsdm?=
- =?us-ascii?Q?VuTJgco1In8mza/jHbd+smurlC+o9pvOQDwWW0ZL+nPN4hqwImbmB1yT/Ihs?=
- =?us-ascii?Q?7ce33QXVYWbFj4X9USu3xLMaNilq7QdbfKvzWUi+wKSCO5siYZCx92EObNjx?=
- =?us-ascii?Q?e7LHj0TgEaL5tgTiOHD013XsiN+pVLhmsqjkRpbKf7e3PWEL86aoFJL+f03v?=
- =?us-ascii?Q?mTNFnz0O5CM/nJPjRXWgA/8387JGjSJara+8STF2CGLvgyENdw4VBnCNRoAs?=
- =?us-ascii?Q?lMk658LAYNW5uXKfhgQGr7AZOac5Lm7nB6kPf3erSJsM8MowJwpFYEqIR4qv?=
- =?us-ascii?Q?iQ7Xy2L7jw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 960d6495-a2fb-460c-b6a1-08de85bfbb91
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 13:59:27.2957
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ywYTzJGDYYjf6VoPyKO85bKBKhFdsBcSPj+10+PyWKiYnq2whU44+Z1zL3/dQtBL
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB999108
+X-CM-TRANSID: rQCowABnieAaA7xpRC4mCw--.14810S3
+X-Coremail-Antispam: 1UD129KBjvJXoW7tw4UWrWUur1DWw43CF13CFg_yoW8ArW8pF
+	Z3AF9xKr4rGF13Zw1ft3Wku3W3KF1vyr4Utr1aqr1xWFsYq3WUG3y3Kwn0qr13CF4xJa4a
+	9FW7ury5G342vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQ0b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY
+	1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
+	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCF
+	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFI
+	xGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l
+	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
+	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
+	cVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI
+	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
+	6r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2BMNUUUUU
+X-Originating-IP: [183.192.222.244]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_065934_532419_6BEA9E01 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260319_070737_930180_6555FBB2 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,35 +95,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19 Mar 2026, at 4:19, David Hildenbrand (Arm) wrote:
+The Canaan k230 uses the SDHCI from Synopsys. Add compatible strings
+to the k230. The k230 has two controllers. MMC0 supports eMMC, while
+MMC1 supports SDIO.
 
-> All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
-> select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
-> CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
->
-> For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
-> and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
-> CONFIG_CMA and CONFIG_COMPACTION already do).
->
-> We'll clean up CONFIG_MIGRATION next.
->
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
-> ---
->  arch/arm64/Kconfig     | 1 -
->  arch/loongarch/Kconfig | 1 -
->  arch/powerpc/Kconfig   | 1 -
->  arch/riscv/Kconfig     | 1 -
->  arch/s390/Kconfig      | 1 -
->  arch/x86/Kconfig       | 1 -
->  mm/Kconfig             | 9 +++------
->  7 files changed, 3 insertions(+), 12 deletions(-)
->
-Makes sense to me.
+Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../bindings/mmc/snps,dwcmshc-sdhci.yaml      | 28 +++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-Acked-by: Zi Yan <ziy@nvidia.com>
+diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+index 5cebe5eb1efb..2e3ac1053065 100644
+--- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
++++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+@@ -23,6 +23,8 @@ properties:
+           - const: sophgo,sg2044-dwcmshc
+           - const: sophgo,sg2042-dwcmshc
+       - enum:
++          - canaan,k230-emmc
++          - canaan,k230-sdio
+           - rockchip,rk3568-dwcmshc
+           - rockchip,rk3588-dwcmshc
+           - snps,dwcmshc-sdhci
+@@ -57,6 +59,11 @@ properties:
+     minItems: 4
+     maxItems: 5
+ 
++  canaan,usb-phy:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the Canaan K230 USB PHY node required for
++                 k230-emmc/sdio.
++
+   rockchip,txclk-tapnum:
+     description: Specify the number of delay for tx sampling.
+     $ref: /schemas/types.yaml#/definitions/uint8
+@@ -89,6 +96,27 @@ required:
+ allOf:
+   - $ref: mmc-controller.yaml#
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - canaan,k230-emmc
++              - canaan,k230-sdio
++    then:
++      properties:
++        clocks:
++          minItems: 5
++        clock-names:
++          items:
++            - const: core
++            - const: bus
++            - const: axi
++            - const: block
++            - const: timer
++      required:
++        - canaan,usb-phy
++
+   - if:
+       properties:
+         compatible:
+-- 
+2.53.0
 
-Best Regards,
-Yan, Zi
 
 _______________________________________________
 linux-riscv mailing list
