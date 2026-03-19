@@ -4,147 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14EF109022E
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 14:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837861090235
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 14:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9PtGGfU/wkprzOzO+qBNKTBWYCHVd/vAvmMgguC1uJQ=; b=sSBiF1aaGL2i/U
-	FWmTzh92fU6RO6dabMQwHXpiCPaTS2BKYMoPbGn1PUO72R9e2ZAGQ6Dg+2taEWDoVco5Qz8idth/E
-	R4mHYEhaTtFXsNNY3q1qg0vxT77LEi7/bNKSO0vuitM6KZpZtgikLFS+M+wC2ZztFSttFrEkNLwqC
-	mcFkecxt6Fqr15xFqMPMsUrbyCFJds8Ja26CGKuhY+i2it4GQs2bAO4JL6qSkRve3VikF4+UBvFnk
-	tYYGSlrMhVhlciALW8z0Cd+xhBqLaAe7rv/9tMOMRSZEtPqsSyAlBA10qXhpSGyUH3UpNhqFVVhWL
-	qopm6Ae3UWOfCiARMTZg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/E4Yn1I7mVHTCOBNV7SxXNbx7ASohDd80VAZlWUbaHI=; b=C83Q/D096IWNesneD2VW/a0nI2
+	k5fSNhRRlston5kUTL1jZRuBShHC7bMKVKMiOVfI3CNGIO0ZZ6BDk9WJqlPreDNLRU1FBdHuPG6Oe
+	g2r5og+tyoLZn6j25xyCeaferjU8zdbKq30KqDeY0XzQCsOttPUypl+tCHT+HNKXLjLPKdK4EK1Eu
+	gfD5beeWTYnNT2ShVnDgHIUgxqs3c3pydJOHuxFSMsJ40slyNlgzs/I0N5QqQDgTcWi+gtWQQOlz0
+	NkAclC+2PcKmoIlu+dTt0ap52rxfwmsw77B2FB5ZxMb1NVkBgKwDAeU8ndy4BFdQS+zYo9PPCn6Kd
+	zVg3P1xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3EST-0000000AoEW-0Byx;
-	Thu, 19 Mar 2026 14:34:45 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1w3ETw-0000000AoR1-1lax;
+	Thu, 19 Mar 2026 14:36:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ESQ-0000000AoDc-1cqa
+	id 1w3ETv-0000000AoQr-3wUZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Mar 2026 14:34:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W9LHZAi9fVoBM8zqFDI1m+cHjLeUEOEVRjU7mH3cErCya9F0k0ESv4cIPQP22QmLpAt6KOUplCbVEv4WY3k3SoXDs8Sh2DcuIwkY8Eokp6clXVWQHs3ee2dgssF3yivPL5OuE/DkBqgCfEJe7+w477Mq5eJhNbGOLcAA/YwrP+LcMwVBHRMYUMtXELuF6mxhZsibPCDLwTlkRGcrAUqtZBHARGgjzT/5RA/Vvb7C8K0LZnsxbSwnB+z0dOX8Fhe9big3JfOwgQzNm2BPIqk1MEWdcRSr3J9ozXwQPGkeSzS5rImOWbEVUUs9s6OXuc8MjPJt/Orin/UyyrX6uubX+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J4qbYp4r7dPG3qYJ8ExKGtJH0EIZYwxY22mo05bIKcE=;
- b=n5bWA/h4PAdkPLtaMJcI9xpnbtyDI1KwLyLULiSf/IOAWN4DEJltYPDXMkq7kimDur9ijx1Gwbm02OP5hNFNeqg1QZZ2DPzpHV1Vy6A/UsHn21AmkTBrDoH2mB2wepnD/AnRDta2kGVG9xhbZn5Lafj88TDgge9M9kyZivs4cxh+NhoJuXMfMLRu/xjnqe5IiU5Y8s6vLNnUj9Aant4wia3ZhjIGMYPQswCax5QhIMbNuXtF9Prxl29ouQ+fpZqTDe/vK6bUCK7jJKKwkw3K/FTdhEWKnmy8j5DpOFwv0AZkzPR1hGNTaHHIinDO8bi6GVu+KZcSjpc4Y8/gvfri0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J4qbYp4r7dPG3qYJ8ExKGtJH0EIZYwxY22mo05bIKcE=;
- b=X/doa5lV4AXu6N+U4/GQmeIg2RR7ZjNu0Wv/MhICT4w7hKxDk1a4mywdm0CfJkHmwN56VdGGiJamU4GpFCje5k3Q08NucjUYad0+bKxMZJxDB8W1HDPJ0ZS2tkV3RcHbblKmOZHEpKKtcqrNzk4MiYUnMVXpjpEOdXGeTVB5kzFwC9L/1jBrt8vVv2YCxQZV0HoJaubcsrtn+aZi1JT2tkl3AWmN3SZbPAVG5FTqcAggSvTEZTk24avkgl0j+FODfdbd9p460c+pQtjBzkr78zl6rEC4wDaF7Bwz0r5pWXguLGAEsFXj9rY+91+X0WhLFj2TsmUz4mCW+9XT3/dLQQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
- by CH2PR12MB9543.namprd12.prod.outlook.com (2603:10b6:610:27f::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 14:34:27 +0000
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989%6]) with mapi id 15.20.9745.007; Thu, 19 Mar 2026
- 14:34:27 +0000
-Date: Thu, 19 Mar 2026 23:34:24 +0900
-Message-Id: <DH6U0CO238C0.MHQ7TUBQTA9L@nvidia.com>
-Cc: "Danilo Krummrich" <dakr@kernel.org>, "Alice Ryhl"
- <aliceryhl@google.com>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
- "Maxime Ripard" <mripard@kernel.org>, "Thomas Zimmermann"
- <tzimmermann@suse.de>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng"
- <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
- Gross" <tmgross@umich.edu>, "John Hubbard" <jhubbard@nvidia.com>, "Alistair
- Popple" <apopple@nvidia.com>, "Joel Fernandes" <joelagnelf@nvidia.com>,
- "Timur Tabi" <ttabi@nvidia.com>, "Zhi Wang" <zhiw@nvidia.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-doc@vger.kernel.org>,
- <rust-for-linux@vger.kernel.org>
-Subject: Re: [PATCH 7/8] gpu: nova-core: convert falcon registers to kernel
- register macro
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-To: "Eliot Courtney" <ecourtney@nvidia.com>
-References: <20260318-b4-nova-register-v1-0-22a358aa4c63@nvidia.com>
- <20260318-b4-nova-register-v1-7-22a358aa4c63@nvidia.com>
- <DH6IJKX25H7H.28NWD4KJSXX73@nvidia.com>
-In-Reply-To: <DH6IJKX25H7H.28NWD4KJSXX73@nvidia.com>
-X-ClientProxiedBy: TYCP286CA0039.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:29d::13) To CH2PR12MB3990.namprd12.prod.outlook.com
- (2603:10b6:610:28::18)
+	Thu, 19 Mar 2026 14:36:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 60D9560053;
+	Thu, 19 Mar 2026 14:36:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F69AC19424;
+	Thu, 19 Mar 2026 14:36:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773930975;
+	bh=0sWepENTLCOfrxR5/+c2+51Ax84QGBYsq5KpzSjrIW8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mvUwICwbqieYDdbpxY5iLebUupFiC2wVL8ay+ylWDUNlIuiVGw8/F5wNm3tcOxksu
+	 RCp3W1hwcaffTSx66C0edF7Yh17YFHjch+ErvwR/Cdwl/zrbzfKGbhorLeBrgJv6HX
+	 Qi7utROptr6/Eg4YARflKNpC6eZIeFszZe6pMNQju5ASLMzui6VdzrRSgqQg1mPwwo
+	 OkFMbWehAhExqwlWkgZ0UdrRaa8KkqDesVAcEXtFUT9fH5GbzbS2T6mhBEHKM0wZ/0
+	 cwv/BbFBEMgkWe9/szEEGBWWpR/HzAHtwDLrvc6VSkNTUkp//hnT+VafrYCPmKofTW
+	 m4Qp3r1iojKlw==
+Date: Thu, 19 Mar 2026 14:36:09 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Junzhong Pan <junzhong.pan@spacemit.com>,
+	Inochi Amaoto <inochiama@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: usb: dwc3: spacemit: add support for K3
+ SoC
+Message-ID: <20260319-garbage-scrunch-37dc1b72d56c@spud>
+References: <20260317-02-k3-usb20-support-v1-0-d89f59062ad4@kernel.org>
+ <20260317-02-k3-usb20-support-v1-1-d89f59062ad4@kernel.org>
+ <20260317-shortness-gecko-72f14fbc79f2@spud>
+ <20260317214435-GKA453922@kernel.org>
+ <20260318-crock-tinderbox-ae12024627d9@spud>
+ <20260319024124-GKB489299@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|CH2PR12MB9543:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f98f920-1fbb-4ca7-41ad-08de85c49fa2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|10070799003|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: X4IGdTImngURu5AAdGWYIXyELdAkGOdfLTpXYlI0+L5i0yHY4kMUIG2MtZBKeu8MpGlr2eyKsgf8AbcqSXt3K7LcBrAXc/izf95TzpVJFlhTgnY/PJEvTn5jyVlF83yMrrSr4WhpClLYl1EsCVn10QKPl1C7Qim/xeaMEQEg9cbq+f4EO5A+wRltclJZcaAybhWvLGfV1oFT2XkSfB6p0+xaPQZ7Wpv+nuG0qy4LOcpQnmCKaEm++LU3SwtUGPXOvr6MZhhcLBHCOmZchbzlc8D5Q2EgX6Oo4nVl/Ffqiste9un5KOWLE2X/p8sEA0KC+9ejygFBIzOt029aVtHkIgREkJPdTpIdDA/45Vb1xC+1/b7XZuRakL/yMk87Fl2J1B00JwBGQprjHJBM9UvnDAl7DgTzGn9l0I5Tw8KcFDe09S8jut+rAAcMGPpeXXI/2+lQ7RKqgWxaOVtCNw/qS1zXjPNc3EqMlwU790dOETClbv2N7+7qTmgHoyrF3ESANRQIwOFwSS0iSaRXnOyrEvQoGJ71XGXUTO/2Iz5qbTOPN5CAohJN8f7+S3V10SZnP8sYcQZHUZTfvHK+eUqTvNR9my5BqpnLbZHtqC5EU8day6Q+B0wJOFoDwUpRpo2dBjAGE8XaYR7zy5NQw2eVVH6mYGMqYkfLznNxch9dg2MALd3p4iuFJ1C6SOf3V9rkko9Z0G1p60RWcrkCCIbR0MSunea9a10nj4OQ63dLhwvMYzmWuF00v+vt0DZz93eb
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(10070799003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0diS0V6di9PUUJYbHdBdTRZOHNoSDF2YUFSVW5XeW5Wb2xSQzdSY3JueitC?=
- =?utf-8?B?UE5meDE3UnY3R0ltZXlGWG5GMGR3UDBEVFFMOWhyd2IyemU1VGREai9vMG1i?=
- =?utf-8?B?dEh0UFY5eWc0RmRhSWJsM0V4eHd3Y3pPbUhCVEViaUQrQlYydTExQTFReXlT?=
- =?utf-8?B?aXFHamk5QVV0c1orL0t5bkxpRVlxbHVEYTZTQUlzR3dBQk41Y25ZRmpSWmZ3?=
- =?utf-8?B?MW0xL010L1grSjd1MFljRjlmTGEzU2t2ZUJHVUtrZncyMjZ6WGdwYWZnZmlG?=
- =?utf-8?B?Z085MGw4ZVJZVlFJTzhOM2dybG42NWgwSWY0aG9CWi8rRTA3ZDJ4OU1xMzZy?=
- =?utf-8?B?RlZIWEFZenhMUjNxbDhEUWxNbjlCVEw4UENjM09EeVBrZVhwaFZaQmw1N0pm?=
- =?utf-8?B?dklYUVRSQmo3SjhQUDc0cWlpYlh4cXdRTzY2UnhKdWdueUFuVVZnMFlQYUxZ?=
- =?utf-8?B?YXFYM3FNZVZwT0lJZjJkbXlYUDl6MG51ZmZiUXNsTllIS1dkaXF1TS9nbjUy?=
- =?utf-8?B?T25QYkk5OWp3YU4zOHdSNHd4emsyK0dJcTcxcmJldmgvZWYvRXlTN3I0M2M2?=
- =?utf-8?B?R1dpVDBUQ0h0YUNDWlh4b3BqUnlKWXp0TEVkM0JrNzA4Sk1qR2N6ZGRRUnYz?=
- =?utf-8?B?V05nbWFLcUZudWI2QjJSb2JBb1dFT1BDaGFMV0E4K1hVSUtOT042VnRFOXlI?=
- =?utf-8?B?TitDbzhYYm1BMStKcUNmeFNhT0xta0RsUjE1U2FkcW1ydVp1ZENKU1JLbnYw?=
- =?utf-8?B?S3ZUdzBwL0h2MWh1QTlHTWVwbnpvS0I5MTFuaGU3L3I5d2F1amtjb3VUN3Nj?=
- =?utf-8?B?SDVJZ0dXcjFxWDEwUG94c2UrR1ZGWmdFS0JBbGJFZGs1TGFaYWtJOXE2SG8x?=
- =?utf-8?B?SmxVT29DTXVZSVN2QnlXQU1sVmNjNHRKV3I0dWFVc045R2NpSUxLanhlNWNG?=
- =?utf-8?B?bFBQNlJUdGkxQUpYaGcwTVJVSUJmdmpWTUtvMVZ1V0pzQlJEQnh3dGt3N3hz?=
- =?utf-8?B?YmQvSTFGaE1pV2RNVkY5S2FVbHhnbmM4TmlaWWtsNTZUVjROSFdjSldza2NK?=
- =?utf-8?B?SFdkT2VLRTRwYTFseDBzV2FCbEpEZ0l6dmtybTA1VWpDVTMvV1hEdkJGdERV?=
- =?utf-8?B?NldtekRvVW16cmZVcDdwSnFRc2NObm1KbGl3NUNiYU5zRUoyRnFhaTkwaFND?=
- =?utf-8?B?eE83ZWxZWmFURit6NnpYL1VzK0xYRnJWSzdyaVp6RTFGOWFaZ09TcHV2ZEJ4?=
- =?utf-8?B?YnZrWUwzUkFleGQ5d2NDMjUyQXVGb1pBMkVadjZzWXBhbCtIRnl5SVlQemZl?=
- =?utf-8?B?Nm9mdktLYW90QXFrQ29tRGxpa2UyMUJsQnNoOG5HL1k3V1FRcVRsRHluZEdi?=
- =?utf-8?B?T2g0dG1uT1NuSGlISFBNdmQ0a0hIVmFnS2NNVVZONVRiY3FjWjA1enZzTlhF?=
- =?utf-8?B?QnEySUVaODhkTktlMlZkUXBpa1MvNjBWQlBQMDZ1RFY0SjdEd2FZdDhlSjRa?=
- =?utf-8?B?SkgxMjlKd3pRZTdwODRhN21nQUtiTjZ2WXI1VmdEOHB0azErRGxPZE56NXpm?=
- =?utf-8?B?Unp1Q3RvSE1rZ1FEUDNqU1VGODMwQWJOZUpMOStRRjBGNmhKeGpBSE1FRmQw?=
- =?utf-8?B?WFdpdUUzRVpyWVo2U3dCSlI5RktTa3pVOUdUbTBhWW5ST2NERkxSOW0rM0lh?=
- =?utf-8?B?RHhMemdFK2orYjZHbkRVVk5mektDNFhRZzNvSmNSc0VnYmFjOW92QUVyQ1RQ?=
- =?utf-8?B?dTUwWlMzVzJuVDJxN0VCQngwVEZmMk1XSEtQSVQ1ZFpaRzd6Ris3TGprTUFo?=
- =?utf-8?B?YVFGR2syZlBIb1BjN0VXMHJDZERIY2RIaytTbHZzZUhXOVNCOEVZWjFyVHY2?=
- =?utf-8?B?bHd5d1lTSzIvcXhBZFRkeDlYbmJwaDBNNnNWM0hzc3d3UHNvdlVPRm5WRW5S?=
- =?utf-8?B?NmtXOC8vL0hDL29TcVR3Z09mb3k2amJaUW1pYllDNHE2bUpJT0Q1MFplaXAw?=
- =?utf-8?B?RXFZS01TUFI3cWorSnJ0TFdWaGQ5NjRYZTRLdE1OdWRuM2M4cXZ1dFZNeTlq?=
- =?utf-8?B?ODZlV2R4Q2pwWjR1WHBGVWxzM3FjNlNaU2ZCOHRQelJsd1pGT0ZuWnBvQlFh?=
- =?utf-8?B?YkZHTVpCcVV5Vi9WTG14ZzRvekx2TTlsUW1DV0FZdnVodnBKd1JiZlozTElw?=
- =?utf-8?B?MXd4TTNaZlhicmxySFhBSEtmNm5iNXJzdGh1U29jL3hDYmVJbUxFSVpyTEo1?=
- =?utf-8?B?SldDaHdQNi90cmtqWmUzeEk1bTlIOGx2RmhEcDM0QStkSUpkL1VxOVNPcG1F?=
- =?utf-8?B?Um5aOTZZN0swaTJRSk02dkpzNmJHaGdJM1VpRlF5cWhqMVNBRlByM3BCZDJS?=
- =?utf-8?Q?czUFySgmc+30YIS+GHkeZL2Io+VZXyJD0euKPK2n+X3vy?=
-X-MS-Exchange-AntiSpam-MessageData-1: klcgmHn3ATX1BA==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f98f920-1fbb-4ca7-41ad-08de85c49fa2
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 14:34:27.3111
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dARSyek96yE+WZSNZMsn2pJdJ/RlJD125Cy+j9O1ZvoPgrELBWd93dRbBy4ciypCJhHgsqcmnFnA1brpJlWE4g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB9543
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_073442_480425_11FDBB63 
-X-CRM114-Status: GOOD (  20.63  )
+In-Reply-To: <20260319024124-GKB489299@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,503 +79,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0069722673913789799=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu Mar 19, 2026 at 2:35 PM JST, Eliot Courtney wrote:
-> On Wed Mar 18, 2026 at 5:06 PM JST, Alexandre Courbot wrote:
->> Convert all PFALCON, PFALCON2 and PRISCV registers to use the kernel's
->> register macro and update the code accordingly.
->>
->> Because they rely on the same types to implement relative registers,
->> they need to be updated in lockstep.
->>
->> nova-core's local register macro is now unused, so remove it.
->>
->> Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
->> ---
->>  drivers/gpu/nova-core/falcon.rs                    | 333 +++++-----
->>  drivers/gpu/nova-core/falcon/gsp.rs                |  22 +-
->>  drivers/gpu/nova-core/falcon/hal/ga102.rs          |  55 +-
->>  drivers/gpu/nova-core/falcon/hal/tu102.rs          |  12 +-
->>  drivers/gpu/nova-core/falcon/sec2.rs               |  17 +-
->>  drivers/gpu/nova-core/firmware/fwsec/bootloader.rs |  19 +-
->>  drivers/gpu/nova-core/regs.rs                      | 350 +++++-----
->>  drivers/gpu/nova-core/regs/macros.rs               | 739 ---------------------
->>  8 files changed, 421 insertions(+), 1126 deletions(-)
->>
->> diff --git a/drivers/gpu/nova-core/falcon.rs b/drivers/gpu/nova-core/falcon.rs
->> index 4721865f59d9..90afef40acd0 100644
->> --- a/drivers/gpu/nova-core/falcon.rs
->> +++ b/drivers/gpu/nova-core/falcon.rs
->> @@ -14,9 +14,14 @@
->>          DmaMask, //
->>      },
->>      io::{
->> -        poll::read_poll_timeout, //
->> +        poll::read_poll_timeout,
->> +        register::{
->> +            RegisterBase,
->> +            WithBase, //
->> +        },
->>          Io,
->>      },
->> +    num::Bounded,
->>      prelude::*,
->>      sync::aref::ARef,
->>      time::Delta,
->> @@ -33,7 +38,6 @@
->>          IntoSafeCast, //
->>      },
->>      regs,
->> -    regs::macros::RegisterBase, //
->>  };
->>  
->>  pub(crate) mod gsp;
->> @@ -44,11 +48,14 @@
->>  pub(crate) const MEM_BLOCK_ALIGNMENT: usize = 256;
->>  
->>  // TODO[FPRI]: Replace with `ToPrimitive`.
->> -macro_rules! impl_from_enum_to_u8 {
->> -    ($enum_type:ty) => {
->> -        impl From<$enum_type> for u8 {
->> +macro_rules! impl_from_enum_to_bounded {
->> +    ($enum_type:ty, $length:literal) => {
->> +        impl From<$enum_type> for Bounded<u32, $length> {
->>              fn from(value: $enum_type) -> Self {
->> -                value as u8
->> +                // Shift the value left by the number of unused bits.
->> +                let b = Bounded::<u32, 32>::from((value as u32) << (32 - $length));
->> +                // Shift back right to create a `Bounded` of the expected width.
->> +                b.shr::<{ 32 - $length }, $length>()
->>              }
->>          }
->>      };
->
-> This can silently truncate stuff if we typo the wrong bounded size.
-> Any reason not to use `Bounded::from_expr(value as u32)` for this?
 
-`from_expr` is tricky to use because it assumes the compiler optimizer
-has enough information to guarantee that the set of possible values will
-fit into the `Bounded` - and drops a very obscure build-time error if
-the proof cannot be established. So it is really for obvious cases like
-`if x < 0x10 { Bounded::<u8, 4>::new(x) }`.
+--===============0069722673913789799==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3mKkiWYjZ1K2L1Tq"
+Content-Disposition: inline
 
-Here we are converting from an enum, and in my experience `from_expr`
-does work, but I still prefer to avoid it if we can. The bit-shake
-method is another way of obtaining the right `Bounded` but in this case
-you are right we can lose data - although the use is purely local, and
-temporary until the `TryFrom` and `Into` derive macros [1] are
-available.
 
-The "correct" way to do this meanwhile would be to generate a match
-statement handling all valid values, but this is a bit more intrusive
-for something that is temporary.
+--3mKkiWYjZ1K2L1Tq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[1] https://lore.kernel.org/all/20260129-try-from-into-macro-v5-0-dd011008118c@gmail.com/
+On Thu, Mar 19, 2026 at 10:41:24AM +0800, Yixun Lan wrote:
+> Hi Conor,
+>=20
+> On 17:21 Wed 18 Mar     , Conor Dooley wrote:
+> > On Wed, Mar 18, 2026 at 05:44:35AM +0800, Yixun Lan wrote:
+> > > Hi Conor,
+> > >=20
+> > > On 12:55 Tue 17 Mar     , Conor Dooley wrote:
+> > > > On Tue, Mar 17, 2026 at 11:53:02AM +0000, Yixun Lan wrote:
+> > > > > Add compatible string for DWC3 USB controller found in SpacemiT K=
+3 SoC.
+> > > > > The USB2.0 host controller in K3 SoC actually use DWC3 IP but onl=
+y has
+> > > > > USB2.0 functionality, and requires only one USB2.0 PHY connected.
+> > > > >=20
+> > > > > Explicitly reduce number of phy property to minimal one.
+> > > >=20
+> > > > Is this valid for the existing compatible, will it work with only o=
+ne
+> > > > clock?
+> > > >=20
+> > > I didn't change clock binding, do you mean phy?
+> > >=20
+> > > Both k1 and k3 work with one clock (no change here)
+> > >=20
+> > > for phy, the existing k1 requires two. for k3, one controller requires
+> > > one phy due to only has USB2.0 support, other controllers requires two
+> > > phys - USB2, USB3 PHY
+> >=20
+> > Yep, phy is what I meant. Sorry bout that. Since you're relaxing the
+> > constraints for the k1, can you please add a conditional section to the
+> > binding to enforce 2 phys min for k1?
+> >=20
+>=20
+> To be explicit, the change should be applied to both K1 and K3, even in K1
+> use case, it's perfectly fine for designer to choose enabling USB2.0
+> only, and leave the comb phy to pcie contoller, so only one phy required
 
->
->> diff --git a/drivers/gpu/nova-core/regs.rs b/drivers/gpu/nova-core/regs.rs
->> index 4ac4e9126db8..08d9a9697adc 100644
->> --- a/drivers/gpu/nova-core/regs.rs
->> +++ b/drivers/gpu/nova-core/regs.rs
->> @@ -1,13 +1,10 @@
->>  // SPDX-License-Identifier: GPL-2.0
->>  
->> -// Required to retain the original register names used by OpenRM, which are all capital snake case
->> -// but are mapped to types.
->> -#![allow(non_camel_case_types)]
->> -
->> -#[macro_use]
->> -pub(crate) mod macros;
->> -
->>  use kernel::{
->> +    io::{
->> +        register::WithBase,
->> +        Io, //
->> +    },
->>      prelude::*,
->>      time, //
->>  };
->> @@ -314,60 +311,147 @@ pub(crate) fn vga_workspace_addr(self) -> Option<u64> {
->>  
->>  // PFALCON
->>  
->> -register!(NV_PFALCON_FALCON_IRQSCLR @ PFalconBase[0x00000004] {
->> -    4:4     halt as bool;
->> -    6:6     swgen0 as bool;
->> -});
->> +nv_reg! {
->> +    NV_PFALCON_FALCON_IRQSCLR @ PFalconBase + 0x00000004 {
->> +        4:4     halt => bool;
->> +        6:6     swgen0 => bool;
->> +    }
->>  
->> -register!(NV_PFALCON_FALCON_MAILBOX0 @ PFalconBase[0x00000040] {
->> -    31:0    value as u32;
->> -});
->> +    NV_PFALCON_FALCON_MAILBOX0 @ PFalconBase + 0x00000040 {
->> +        31:0    value => u32;
->> +    }
->>  
->> -register!(NV_PFALCON_FALCON_MAILBOX1 @ PFalconBase[0x00000044] {
->> -    31:0    value as u32;
->> -});
->> +    NV_PFALCON_FALCON_MAILBOX1 @ PFalconBase + 0x00000044 {
->> +        31:0    value => u32;
->> +    }
->>  
->> -// Used to store version information about the firmware running
->> -// on the Falcon processor.
->> -register!(NV_PFALCON_FALCON_OS @ PFalconBase[0x00000080] {
->> -    31:0    value as u32;
->> -});
->> +    /// Used to store version information about the firmware running
->> +    /// on the Falcon processor.
->> +    NV_PFALCON_FALCON_OS @ PFalconBase + 0x00000080 {
->> +        31:0    value => u32;
->> +    }
->>  
->> -register!(NV_PFALCON_FALCON_RM @ PFalconBase[0x00000084] {
->> -    31:0    value as u32;
->> -});
->> +    NV_PFALCON_FALCON_RM @ PFalconBase + 0x00000084 {
->> +        31:0    value => u32;
->> +    }
->>  
->> -register!(NV_PFALCON_FALCON_HWCFG2 @ PFalconBase[0x000000f4] {
->> -    10:10   riscv as bool;
->> -    12:12   mem_scrubbing as bool, "Set to 0 after memory scrubbing is completed";
->> -    31:31   reset_ready as bool, "Signal indicating that reset is completed (GA102+)";
->> -});
->> +    NV_PFALCON_FALCON_HWCFG2 @ PFalconBase + 0x000000f4 {
->> +        10:10   riscv => bool;
->> +        /// Set to 0 after memory scrubbing is completed.
->> +        12:12   mem_scrubbing => bool;
->> +        /// Signal indicating that reset is completed (GA102+).
->> +        31:31   reset_ready => bool;
->> +    }
->>  
->> -impl NV_PFALCON_FALCON_HWCFG2 {
->> -    /// Returns `true` if memory scrubbing is completed.
->> -    pub(crate) fn mem_scrubbing_done(self) -> bool {
->> -        !self.mem_scrubbing()
->> +    NV_PFALCON_FALCON_CPUCTL @ PFalconBase + 0x00000100 {
->> +        1:1     startcpu => bool;
->> +        4:4     halted => bool;
->> +        6:6     alias_en => bool;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_BOOTVEC @ PFalconBase + 0x00000104 {
->> +        31:0    value => u32;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_DMACTL @ PFalconBase + 0x0000010c {
->> +        0:0     require_ctx => bool;
->> +        1:1     dmem_scrubbing => bool;
->> +        2:2     imem_scrubbing => bool;
->> +        6:3     dmaq_num;
->> +        7:7     secure_stat => bool;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_DMATRFBASE @ PFalconBase + 0x00000110 {
->> +        31:0    base => u32;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_DMATRFMOFFS @ PFalconBase + 0x00000114 {
->> +        23:0    offs;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_DMATRFCMD @ PFalconBase + 0x00000118 {
->> +        0:0     full => bool;
->> +        1:1     idle => bool;
->> +        3:2     sec;
->> +        4:4     imem => bool;
->> +        5:5     is_write => bool;
->> +        10:8    size ?=> DmaTrfCmdSize;
->> +        14:12   ctxdma;
->> +        16:16   set_dmtag;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_DMATRFFBOFFS @ PFalconBase + 0x0000011c {
->> +        31:0    offs => u32;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_DMATRFBASE1 @ PFalconBase + 0x00000128 {
->> +        8:0     base;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_HWCFG1 @ PFalconBase + 0x0000012c {
->> +        /// Core revision.
->> +        3:0     core_rev ?=> FalconCoreRev;
->> +        /// Security model.
->> +        5:4     security_model ?=> FalconSecurityModel;
->> +        /// Core revision subversion.
->> +        7:6     core_rev_subversion => FalconCoreRevSubversion;
->> +    }
->> +
->> +    NV_PFALCON_FALCON_CPUCTL_ALIAS @ PFalconBase + 0x00000130 {
->> +        1:1     startcpu => bool;
->> +    }
->> +
->> +    /// IMEM access control register. Up to 4 ports are available for IMEM access.
->> +    NV_PFALCON_FALCON_IMEMC[4, stride = 16] @ PFalconBase + 0x00000180 {
->> +        /// IMEM block and word offset.
->> +        15:0      offs;
->> +        /// Auto-increment on write.
->> +        24:24     aincw => bool;
->> +        /// Access secure IMEM.
->> +        28:28     secure => bool;
->> +    }
->> +
->> +    /// IMEM data register. Reading/writing this register accesses IMEM at the address
->> +    /// specified by the corresponding IMEMC register.
->> +    NV_PFALCON_FALCON_IMEMD[4, stride = 16] @ PFalconBase + 0x00000184 {
->> +        31:0      data;
->> +    }
->> +
->> +    /// IMEM tag register. Used to set the tag for the current IMEM block.
->> +    NV_PFALCON_FALCON_IMEMT[4, stride = 16] @ PFalconBase + 0x00000188 {
->> +        15:0      tag;
->> +    }
->> +
->> +    /// DMEM access control register. Up to 8 ports are available for DMEM access.
->> +    NV_PFALCON_FALCON_DMEMC[8, stride = 8] @ PFalconBase + 0x000001c0 {
->> +        /// DMEM block and word offset.
->> +        15:0      offs;
->> +        /// Auto-increment on write.
->> +        24:24     aincw => bool;
->> +    }
->> +
->> +    /// DMEM data register. Reading/writing this register accesses DMEM at the address
->> +    /// specified by the corresponding DMEMC register.
->> +    NV_PFALCON_FALCON_DMEMD[8, stride = 8] @ PFalconBase + 0x000001c4 {
->> +        31:0      data;
->> +    }
->> +
->> +    /// Actually known as `NV_PSEC_FALCON_ENGINE` and `NV_PGSP_FALCON_ENGINE` depending on the
->> +    /// falcon instance.
->> +    NV_PFALCON_FALCON_ENGINE @ PFalconBase + 0x000003c0 {
->> +        0:0     reset => bool;
->> +    }
->> +
->> +    NV_PFALCON_FBIF_TRANSCFG[8] @ PFalconBase + 0x00000600 {
->> +        1:0     target ?=> FalconFbifTarget;
->> +        2:2     mem_type => FalconFbifMemType;
->> +    }
->> +
->> +    NV_PFALCON_FBIF_CTL @ PFalconBase + 0x00000624 {
->> +        7:7     allow_phys_no_ctx => bool;
->>      }
->>  }
->>  
->> -register!(NV_PFALCON_FALCON_CPUCTL @ PFalconBase[0x00000100] {
->> -    1:1     startcpu as bool;
->> -    4:4     halted as bool;
->> -    6:6     alias_en as bool;
->> -});
->> -
->> -register!(NV_PFALCON_FALCON_BOOTVEC @ PFalconBase[0x00000104] {
->> -    31:0    value as u32;
->> -});
->> -
->> -register!(NV_PFALCON_FALCON_DMACTL @ PFalconBase[0x0000010c] {
->> -    0:0     require_ctx as bool;
->> -    1:1     dmem_scrubbing as bool;
->> -    2:2     imem_scrubbing as bool;
->> -    6:3     dmaq_num as u8;
->> -    7:7     secure_stat as bool;
->> -});
->> -
->>  impl NV_PFALCON_FALCON_DMACTL {
->>      /// Returns `true` if memory scrubbing is completed.
->>      pub(crate) fn mem_scrubbing_done(self) -> bool {
->> @@ -375,147 +459,81 @@ pub(crate) fn mem_scrubbing_done(self) -> bool {
->>      }
->>  }
->>  
->> -register!(NV_PFALCON_FALCON_DMATRFBASE @ PFalconBase[0x00000110] {
->> -    31:0    base as u32;
->> -});
->> -
->> -register!(NV_PFALCON_FALCON_DMATRFMOFFS @ PFalconBase[0x00000114] {
->> -    23:0    offs as u32;
->> -});
->> -
->> -register!(NV_PFALCON_FALCON_DMATRFCMD @ PFalconBase[0x00000118] {
->> -    0:0     full as bool;
->> -    1:1     idle as bool;
->> -    3:2     sec as u8;
->> -    4:4     imem as bool;
->> -    5:5     is_write as bool;
->> -    10:8    size as u8 ?=> DmaTrfCmdSize;
->> -    14:12   ctxdma as u8;
->> -    16:16   set_dmtag as u8;
->> -});
->> -
->>  impl NV_PFALCON_FALCON_DMATRFCMD {
->>      /// Programs the `imem` and `sec` fields for the given FalconMem
->>      pub(crate) fn with_falcon_mem(self, mem: FalconMem) -> Self {
->> -        self.set_imem(mem != FalconMem::Dmem)
->> -            .set_sec(if mem == FalconMem::ImemSecure { 1 } else { 0 })
->> +        let this = self.with_imem(mem != FalconMem::Dmem);
->> +
->> +        match mem {
->> +            FalconMem::ImemSecure => this.with_const_sec::<1>(),
->> +            _ => this.with_const_sec::<0>(),
->> +        }
->>      }
->>  }
->>  
->> -register!(NV_PFALCON_FALCON_DMATRFFBOFFS @ PFalconBase[0x0000011c] {
->> -    31:0    offs as u32;
->> -});
->> -
->> -register!(NV_PFALCON_FALCON_DMATRFBASE1 @ PFalconBase[0x00000128] {
->> -    8:0     base as u16;
->> -});
->> -
->> -register!(NV_PFALCON_FALCON_HWCFG1 @ PFalconBase[0x0000012c] {
->> -    3:0     core_rev as u8 ?=> FalconCoreRev, "Core revision";
->> -    5:4     security_model as u8 ?=> FalconSecurityModel, "Security model";
->> -    7:6     core_rev_subversion as u8 ?=> FalconCoreRevSubversion, "Core revision subversion";
->> -});
->> -
->> -register!(NV_PFALCON_FALCON_CPUCTL_ALIAS @ PFalconBase[0x00000130] {
->> -    1:1     startcpu as bool;
->> -});
->> -
->> -// IMEM access control register. Up to 4 ports are available for IMEM access.
->> -register!(NV_PFALCON_FALCON_IMEMC @ PFalconBase[0x00000180[4; 16]] {
->> -    15:0      offs as u16, "IMEM block and word offset";
->> -    24:24     aincw as bool, "Auto-increment on write";
->> -    28:28     secure as bool, "Access secure IMEM";
->> -});
->> -
->> -// IMEM data register. Reading/writing this register accesses IMEM at the address
->> -// specified by the corresponding IMEMC register.
->> -register!(NV_PFALCON_FALCON_IMEMD @ PFalconBase[0x00000184[4; 16]] {
->> -    31:0      data as u32;
->> -});
->> -
->> -// IMEM tag register. Used to set the tag for the current IMEM block.
->> -register!(NV_PFALCON_FALCON_IMEMT @ PFalconBase[0x00000188[4; 16]] {
->> -    15:0      tag as u16;
->> -});
->> -
->> -// DMEM access control register. Up to 8 ports are available for DMEM access.
->> -register!(NV_PFALCON_FALCON_DMEMC @ PFalconBase[0x000001c0[8; 8]] {
->> -    15:0      offs as u16, "DMEM block and word offset";
->> -    24:24     aincw as bool, "Auto-increment on write";
->> -});
->> -
->> -// DMEM data register. Reading/writing this register accesses DMEM at the address
->> -// specified by the corresponding DMEMC register.
->> -register!(NV_PFALCON_FALCON_DMEMD @ PFalconBase[0x000001c4[8; 8]] {
->> -    31:0      data as u32;
->> -});
->> -
->> -// Actually known as `NV_PSEC_FALCON_ENGINE` and `NV_PGSP_FALCON_ENGINE` depending on the falcon
->> -// instance.
->> -register!(NV_PFALCON_FALCON_ENGINE @ PFalconBase[0x000003c0] {
->> -    0:0     reset as bool;
->> -});
->> -
->>  impl NV_PFALCON_FALCON_ENGINE {
->>      /// Resets the falcon
->>      pub(crate) fn reset_engine<E: FalconEngine>(bar: &Bar0) {
->> -        Self::read(bar, &E::ID).set_reset(true).write(bar, &E::ID);
->> +        bar.update(Self::of::<E>(), |r| r.with_reset(true));
->>  
->>          // TIMEOUT: falcon engine should not take more than 10us to reset.
->>          time::delay::fsleep(time::Delta::from_micros(10));
->>  
->> -        Self::read(bar, &E::ID).set_reset(false).write(bar, &E::ID);
->> +        bar.update(Self::of::<E>(), |r| r.with_reset(false));
->>      }
->>  }
->>  
->> -register!(NV_PFALCON_FBIF_TRANSCFG @ PFalconBase[0x00000600[8]] {
->> -    1:0     target as u8 ?=> FalconFbifTarget;
->> -    2:2     mem_type as bool => FalconFbifMemType;
->> -});
->> -
->> -register!(NV_PFALCON_FBIF_CTL @ PFalconBase[0x00000624] {
->> -    7:7     allow_phys_no_ctx as bool;
->> -});
->> +impl NV_PFALCON_FALCON_HWCFG2 {
->> +    /// Returns `true` if memory scrubbing is completed.
->> +    pub(crate) fn mem_scrubbing_done(self) -> bool {
->> +        !self.mem_scrubbing()
->> +    }
->> +}
->>  
->>  /* PFALCON2 */
->>  
->> -register!(NV_PFALCON2_FALCON_MOD_SEL @ PFalcon2Base[0x00000180] {
->> -    7:0     algo as u8 ?=> FalconModSelAlgo;
->> -});
->> +nv_reg! {
->> +    NV_PFALCON2_FALCON_MOD_SEL @ PFalcon2Base + 0x00000180 {
->> +        7:0     algo ?=> FalconModSelAlgo;
->> +    }
->>  
->> -register!(NV_PFALCON2_FALCON_BROM_CURR_UCODE_ID @ PFalcon2Base[0x00000198] {
->> -    7:0    ucode_id as u8;
->> -});
->> +    NV_PFALCON2_FALCON_BROM_CURR_UCODE_ID @ PFalcon2Base + 0x00000198 {
->> +        7:0    ucode_id => u8;
->> +    }
->>  
->> -register!(NV_PFALCON2_FALCON_BROM_ENGIDMASK @ PFalcon2Base[0x0000019c] {
->> -    31:0    value as u32;
->> -});
->> +    NV_PFALCON2_FALCON_BROM_ENGIDMASK @ PFalcon2Base + 0x0000019c {
->> +        31:0    value => u32;
->> +    }
->>  
->> -// OpenRM defines this as a register array, but doesn't specify its size and only uses its first
->> -// element. Be conservative until we know the actual size or need to use more registers.
->> -register!(NV_PFALCON2_FALCON_BROM_PARAADDR @ PFalcon2Base[0x00000210[1]] {
->> -    31:0    value as u32;
->> -});
->> +    /// OpenRM defines this as a register array, but doesn't specify its size and only uses its
->> +    /// first element. Be conservative until we know the actual size or need to use more registers.
->> +    NV_PFALCON2_FALCON_BROM_PARAADDR[1] @ PFalcon2Base + 0x00000210 {
->> +        31:0    value => u32;
->> +    }
->> +}
->>  
->>  // PRISCV
->>  
->> -// RISC-V status register for debug (Turing and GA100 only).
->> -// Reflects current RISC-V core status.
->> -register!(NV_PRISCV_RISCV_CORE_SWITCH_RISCV_STATUS @ PFalcon2Base[0x00000240] {
->> -    0:0     active_stat as bool, "RISC-V core active/inactive status";
->> -});
->> -
->>  // GA102 and later
->> -register!(NV_PRISCV_RISCV_CPUCTL @ PFalcon2Base[0x00000388] {
->> -    0:0     halted as bool;
->> -    7:7     active_stat as bool;
->> -});
->> +nv_reg! {
->> +    /// RISC-V status register for debug (Turing and GA100 only).
->> +    /// Reflects current RISC-V core status.
->> +    NV_PRISCV_RISCV_CORE_SWITCH_RISCV_STATUS @ PFalcon2Base + 0x00000240 {
->> +        /// RISC-V core active/inactive status.
->> +        0:0     active_stat => bool;
->> +    }
->
-> The above comment says "GA102 and later" but right after it has
-> "Turing and GA100 only" which seems incongruous.
+In that case, can you be more clear in the commit message about why this
+is also being done for the k1 please?
 
-Right, this comment was for `NV_PRISCV_RISCV_CPUCTL` but it likely had a
-copy/paste accident.
+--3mKkiWYjZ1K2L1Tq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabwJ1QAKCRB4tDGHoIJi
+0oqyAP4nXoDLetxoQs642+vVHye9yDClNXYMEPidUjtskTK5NwEA3z4OdmCZisdC
+OPflp/85AHIauaJjUPhuhi0GguyjGw0=
+=S1Ui
+-----END PGP SIGNATURE-----
+
+--3mKkiWYjZ1K2L1Tq--
+
+
+--===============0069722673913789799==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0069722673913789799==--
+
