@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0671093174
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD9F21093172
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d0vH6zCv/2GLgDh03b9erJbXr5hT1Px7m8rmk60nqik=; b=SxT31LDpYGjyr3
-	s7C/iKX8lLu43cg0pvcuPsgPnJXSvLU6dlmN/F+kTHfUOSehtyU+5vODT5K36+WkJa/omgZJd45ky
-	E2g3FMQfwak5nTQJaqIL4sc7+2RAV81JZrocCIfivZz5c9EtWe8/l6u979QXIajlNjOxCogyaZg1v
-	tEWGj7tW8QtX8NxkgE/uiBWZbDCe9Rfi3YQL5ufc8dQjNdcsQMMsmS2Wborb0J2wMYas9L5Wa0Btx
-	x27IxAOPIS2LEX+uPlVu9X1jouBVYWzfIuli/OvEN/JcVWfqiHlhms1mCKJdimRuWmEepFNl5OHn6
-	kwPRIsvhH9G91S78Ko+w==;
+	List-Owner; bh=xx2P/o2Rraj2djEm12XoCuOrulD6YNXoGdsbZ1OC2/s=; b=lEFP1QYoA8R++q
+	D3nrnmdzsSNqCu9lafGmhTC8awY3tyh17QibPq2Raf4Ol7AkernXRnR5uQaIo4U5cOuuyEpETDVpR
+	CAliVWwJp7nR9lH8mLL9Q/SdVSIzlgGsF8cBm6p4YLdsLyMre42lnjELo7G7vF8kj9CbOGONoqwly
+	zOm5dsVsuviuu/sdFo4fRVeYIAQuBjBzOIv9tqzlqHoEvmLblMjpTrwdMKc9XJUrq8gQkKojzt4uE
+	2tDYWMT1uGfDmLqi/48dngAC7SDFMFE0CGK8zU/l2494NW/zGw9TVzez9+zK7bYmRUCnTB6RYCQQm
+	9CF++S5uQB2Zjeexe40Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QN3-0000000BySV-22wa;
-	Fri, 20 Mar 2026 03:17:57 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1w3QNC-0000000ByYM-18Ql;
+	Fri, 20 Mar 2026 03:18:06 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QMz-0000000ByQu-2nsE;
-	Fri, 20 Mar 2026 03:17:55 +0000
+	id 1w3QN4-0000000BySP-2Y12;
+	Fri, 20 Mar 2026 03:18:00 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=BMMryEb1CdnOx2gMiVv+9iHKONhR3XK5c+5CZUibkPo=;
-	b=l/7oJpMqJuYSGHZyOqLiw5LD07h+45LWAipYVAvEt9pYxSp4UxJSqwXgX66M8/EZ74aeSBY3M
-	qLpVsSs+rpKpxDOoVmFTloYQFQ4DUIG80JTpBOmlHJ7rSI3KUDZxGFyGCXDxs8sVu0UH3BlI+It
-	fJwAj4fQtMaqP5gUwirfIBk=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4fcSL815VlzmV66;
-	Fri, 20 Mar 2026 11:12:48 +0800 (CST)
+	bh=/eBsZSTPYF/YtxnkPhtkEULxH4VEHo0dKDplLzt2h+U=;
+	b=ypbclQg4Iukdlkqpoizb0I/F7L+DePAd+M0//lXkMgfo2Tebtl3dWlIRb5T+BpmkoHuv3dAUf
+	q4obfVRqfYA+w4THr01Bmp7st54V9VWVLRFBbSiDcMjxC61DIiVgmZCmNOX7nmSXAg0dF57r5Ul
+	C2JQqU6Aei7BxV0EFNUv0ls=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4fcSK804FCz1K9Zv;
+	Fri, 20 Mar 2026 11:11:56 +0800 (CST)
 Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
-	by mail.maildlp.com (Postfix) with ESMTPS id B24234056B;
-	Fri, 20 Mar 2026 11:17:49 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 14B0940565;
+	Fri, 20 Mar 2026 11:17:56 +0800 (CST)
 Received: from localhost.localdomain (10.50.163.32) by
  kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 20 Mar 2026 11:17:47 +0800
+ 15.2.1544.11; Fri, 20 Mar 2026 11:17:54 +0800
 From: Chengwen Feng <fengchengwen@huawei.com>
 To: Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas
 	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J .
  Wysocki" <rafael@kernel.org>
-Subject: [PATCH v10 3/8] RISC-V: ACPI: Add acpi_get_cpu_uid() for unified ACPI CPU UID retrieval
-Date: Fri, 20 Mar 2026 11:17:32 +0800
-Message-ID: <20260320031737.35048-4-fengchengwen@huawei.com>
+Subject: [PATCH v10 7/8] ACPI: PPTT: Use acpi_get_cpu_uid() and remove get_acpi_id_for_cpu()
+Date: Fri, 20 Mar 2026 11:17:36 +0800
+Message-ID: <20260320031737.35048-8-fengchengwen@huawei.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20260320031737.35048-1-fengchengwen@huawei.com>
 References: <20260320031737.35048-1-fengchengwen@huawei.com>
@@ -58,8 +58,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  kwepemk500009.china.huawei.com (7.202.194.94)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_201754_057102_EC03B236 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20260319_201759_030531_95672F32 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,102 +77,209 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As a step towards unifying the interface for retrieving ACPI CPU UID
-across architectures, introduce a new function acpi_get_cpu_uid() for
-riscv. While at it, add input validation to make the code more robust.
-
-And also update acpi_numa.c and rhct.c to use the new interface instead
-of the legacy get_acpi_id_for_cpu().
+Update acpi/pptt.c to use acpi_get_cpu_uid() and remove unused
+get_acpi_id_for_cpu() from arm64/loongarch/riscv, completing PPTT's
+migration to the unified ACPI CPU UID interface
 
 Cc: stable@vger.kernel.org
 Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 ---
- arch/riscv/include/asm/acpi.h |  1 +
- arch/riscv/kernel/acpi.c      | 16 ++++++++++++++++
- arch/riscv/kernel/acpi_numa.c |  9 ++++++---
- drivers/acpi/riscv/rhct.c     |  7 ++++++-
- 4 files changed, 29 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/acpi.h     |  4 ---
+ arch/loongarch/include/asm/acpi.h |  5 ----
+ arch/riscv/include/asm/acpi.h     |  4 ---
+ drivers/acpi/pptt.c               | 50 +++++++++++++++++++++++--------
+ 4 files changed, 37 insertions(+), 26 deletions(-)
 
+diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
+index bdb0ecf95b5c..8a54ca6ba602 100644
+--- a/arch/arm64/include/asm/acpi.h
++++ b/arch/arm64/include/asm/acpi.h
+@@ -114,10 +114,6 @@ static inline bool acpi_has_cpu_in_madt(void)
+ }
+ 
+ struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu);
+-static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
+-{
+-	return	acpi_cpu_get_madt_gicc(cpu)->uid;
+-}
+ int get_cpu_for_acpi_id(u32 uid);
+ 
+ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+diff --git a/arch/loongarch/include/asm/acpi.h b/arch/loongarch/include/asm/acpi.h
+index 7376840fa9f7..eda9d4d0a493 100644
+--- a/arch/loongarch/include/asm/acpi.h
++++ b/arch/loongarch/include/asm/acpi.h
+@@ -40,11 +40,6 @@ extern struct acpi_madt_core_pic acpi_core_pic[MAX_CORE_PIC];
+ 
+ extern int __init parse_acpi_topology(void);
+ 
+-static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
+-{
+-	return acpi_core_pic[cpu_logical_map(cpu)].processor_id;
+-}
+-
+ #endif /* !CONFIG_ACPI */
+ 
+ #define ACPI_TABLE_UPGRADE_MAX_PHYS ARCH_LOW_ADDRESS_LIMIT
 diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index 6e13695120bc..f3520cc85af3 100644
+index 6e13695120bc..26ab37c171bc 100644
 --- a/arch/riscv/include/asm/acpi.h
 +++ b/arch/riscv/include/asm/acpi.h
-@@ -65,6 +65,7 @@ static inline u32 get_acpi_id_for_cpu(int cpu)
- {
- 	return acpi_cpu_get_madt_rintc(cpu)->uid;
- }
-+int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
+@@ -61,10 +61,6 @@ static inline void arch_fix_phys_package_id(int num, u32 slot) { }
+ 
+ void acpi_init_rintc_map(void);
+ struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu);
+-static inline u32 get_acpi_id_for_cpu(int cpu)
+-{
+-	return acpi_cpu_get_madt_rintc(cpu)->uid;
+-}
  
  int acpi_get_riscv_isa(struct acpi_table_header *table,
  		       unsigned int cpu, const char **isa);
-diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-index 71698ee11621..322ea92aa39f 100644
---- a/arch/riscv/kernel/acpi.c
-+++ b/arch/riscv/kernel/acpi.c
-@@ -337,3 +337,19 @@ int raw_pci_write(unsigned int domain, unsigned int bus,
- }
- 
- #endif	/* CONFIG_PCI */
-+
-+int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
-+{
-+	struct acpi_madt_rintc *rintc;
-+
-+	if (cpu >= nr_cpu_ids)
-+		return -EINVAL;
-+
-+	rintc = acpi_cpu_get_madt_rintc(cpu);
-+	if (!rintc)
-+		return -ENODEV;
-+
-+	*uid = rintc->uid;
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
-diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
-index 130769e3a99c..6a2d4289f806 100644
---- a/arch/riscv/kernel/acpi_numa.c
-+++ b/arch/riscv/kernel/acpi_numa.c
-@@ -37,11 +37,14 @@ static int __init acpi_numa_get_nid(unsigned int cpu)
- 
- static inline int get_cpu_for_acpi_id(u32 uid)
+diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+index de5f8c018333..7bd5bc1f225a 100644
+--- a/drivers/acpi/pptt.c
++++ b/drivers/acpi/pptt.c
+@@ -459,11 +459,14 @@ static void cache_setup_acpi_cpu(struct acpi_table_header *table,
  {
--	int cpu;
-+	u32 cpu_uid;
-+	int ret;
- 
--	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
--		if (uid == get_acpi_id_for_cpu(cpu))
-+	for (int cpu = 0; cpu < nr_cpu_ids; cpu++) {
-+		ret = acpi_get_cpu_uid(cpu, &cpu_uid);
-+		if (ret == 0 && uid == cpu_uid)
- 			return cpu;
-+	}
- 
- 	return -EINVAL;
- }
-diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
-index caa2c16e1697..8f3f38c64a88 100644
---- a/drivers/acpi/riscv/rhct.c
-+++ b/drivers/acpi/riscv/rhct.c
-@@ -44,10 +44,15 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
- 	struct acpi_rhct_isa_string *isa_node;
- 	struct acpi_table_rhct *rhct;
- 	u32 *hart_info_node_offset;
+ 	struct acpi_pptt_cache *found_cache;
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
 -	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
 +	u32 acpi_cpu_id;
-+	int ret;
+ 	struct cacheinfo *this_leaf;
+ 	unsigned int index = 0;
+ 	struct acpi_pptt_processor *cpu_node = NULL;
  
- 	BUG_ON(acpi_disabled);
- 
-+	ret = acpi_get_cpu_uid(cpu, &acpi_cpu_id);
-+	if (ret != 0)
-+		return ret;
++	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
++		return;
 +
- 	if (!table) {
- 		rhct = acpi_get_rhct();
- 		if (!rhct)
+ 	while (index < get_cpu_cacheinfo(cpu)->num_leaves) {
+ 		this_leaf = this_cpu_ci->info_list + index;
+ 		found_cache = acpi_find_cache_node(table, acpi_cpu_id,
+@@ -546,7 +549,10 @@ static int topology_get_acpi_cpu_tag(struct acpi_table_header *table,
+ 				     unsigned int cpu, int level, int flag)
+ {
+ 	struct acpi_pptt_processor *cpu_node;
+-	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	u32 acpi_cpu_id;
++
++	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
++		return -ENOENT;
+ 
+ 	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+ 	if (cpu_node) {
+@@ -614,18 +620,22 @@ static int find_acpi_cpu_topology_tag(unsigned int cpu, int level, int flag)
+  *
+  * Check the node representing a CPU for a given flag.
+  *
+- * Return: -ENOENT if the PPTT doesn't exist, the CPU cannot be found or
+- *	   the table revision isn't new enough.
++ * Return: -ENOENT if can't get CPU's ACPI Processor UID, the PPTT doesn't
++ *	   exist, the CPU cannot be found or the table revision isn't new
++ *	   enough.
+  *	   1, any passed flag set
+  *	   0, flag unset
+  */
+ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+ {
+ 	struct acpi_table_header *table;
+-	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	u32 acpi_cpu_id;
+ 	struct acpi_pptt_processor *cpu_node = NULL;
+ 	int ret = -ENOENT;
+ 
++	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
++		return -ENOENT;
++
+ 	table = acpi_get_pptt();
+ 	if (!table)
+ 		return -ENOENT;
+@@ -651,7 +661,8 @@ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+  * in the PPTT. Errors caused by lack of a PPTT table, or otherwise, return 0
+  * indicating we didn't find any cache levels.
+  *
+- * Return: -ENOENT if no PPTT table or no PPTT processor struct found.
++ * Return: -ENOENT if no PPTT table, can't get CPU's ACPI Process UID or no PPTT
++ *	   processor struct found.
+  *	   0 on success.
+  */
+ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
+@@ -671,7 +682,9 @@ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
+ 
+ 	pr_debug("Cache Setup: find cache levels for CPU=%d\n", cpu);
+ 
+-	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id))
++		return -ENOENT;
++
+ 	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+ 	if (!cpu_node)
+ 		return -ENOENT;
+@@ -780,8 +793,9 @@ int find_acpi_cpu_topology_package(unsigned int cpu)
+  * It may not exist in single CPU systems. In simple multi-CPU systems,
+  * it may be equal to the package topology level.
+  *
+- * Return: -ENOENT if the PPTT doesn't exist, the CPU cannot be found
+- * or there is no toplogy level above the CPU..
++ * Return: -ENOENT if the PPTT doesn't exist, can't get CPU's ACPI
++ * Processor UID, the CPU cannot be found or there is no toplogy level
++ * above the CPU.
+  * Otherwise returns a value which represents the package for this CPU.
+  */
+ 
+@@ -797,7 +811,9 @@ int find_acpi_cpu_topology_cluster(unsigned int cpu)
+ 	if (!table)
+ 		return -ENOENT;
+ 
+-	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
++		return -ENOENT;
++
+ 	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+ 	if (!cpu_node || !cpu_node->parent)
+ 		return -ENOENT;
+@@ -872,7 +888,9 @@ static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+ 	cpumask_clear(cpus);
+ 
+ 	for_each_possible_cpu(cpu) {
+-		acpi_id = get_acpi_id_for_cpu(cpu);
++		if (acpi_get_cpu_uid(cpu, &acpi_id) != 0)
++			continue;
++
+ 		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+ 
+ 		while (cpu_node) {
+@@ -966,10 +984,13 @@ int find_acpi_cache_level_from_id(u32 cache_id)
+ 	for_each_possible_cpu(cpu) {
+ 		bool empty;
+ 		int level = 1;
+-		u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++		u32 acpi_cpu_id;
+ 		struct acpi_pptt_cache *cache;
+ 		struct acpi_pptt_processor *cpu_node;
+ 
++		if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
++			continue;
++
+ 		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+ 		if (!cpu_node)
+ 			continue;
+@@ -1030,10 +1051,13 @@ int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
+ 	for_each_possible_cpu(cpu) {
+ 		bool empty;
+ 		int level = 1;
+-		u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++		u32 acpi_cpu_id;
+ 		struct acpi_pptt_cache *cache;
+ 		struct acpi_pptt_processor *cpu_node;
+ 
++		if (acpi_get_cpu_uid(cpu, &acpi_cpu_id) != 0)
++			continue;
++
+ 		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+ 		if (!cpu_node)
+ 			continue;
 -- 
 2.17.1
 
