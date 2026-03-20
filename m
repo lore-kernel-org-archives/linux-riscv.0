@@ -4,56 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC431099B2C
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 17:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4BD1099B2C
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 17:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SlJQ53h3dXLrGGMMjHyeDvSlLBgxerRW6WaEi1uxFNI=; b=qTChzQGmH4o+gv
-	zcIWstNlMjBN6w/mAhqAdF3MyQfUSlEdaSFsGIJnEBtGw1pMyhre34bKOPkIelHGROOK6hJj5Lu8S
-	ZsZmVbKfvytrTVWEKoIbYIUWAB+pKxUKekXpypTUVmZT5p0wbz3GIRdvp0YDabMbbmiLeUM+J92OB
-	90Xo63oe+BiJ5Nf2l9bfOgrYE0rQB2VXKsMs1MGTORdJy2A3JpwYimyGhGJaDSFZXqOr8ypviMNrS
-	WVS1sXoqitm+85XD6TZqLmM2CR7mRsjw8aZGFK6PoEoq/LXvvAnOLxIEWFIRgWbotO5GqU/OaE9QW
-	Zu4ez07kYHt3PoKvGvGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AJTaTMvLdLmqew5jFHGZnE+aggCUyB4Kdv5ZV6SceWY=; b=iNXKcsCGH065Uwl/U/frZA6tDU
+	N+tZM/wmtzOEoJXxJrdr/Fb39yngXfgis2YAQTYiJRewzGkOStJjXjnus7IosWiXGzDZluTPgwTgZ
+	hDHZk4QoBsD4HD2jFOnPqzs0JtjKmRFATFg8YhHl9kkF94/otzIgm9tW4BeWH902/UdJqKLytn8PF
+	0fXiicyjwuk+9bs0VQBOhXFGPJEzJ4v9ua9PIxaP55bzZ2MI7BBJOIV9T64Yd5+zS2aTMvOfayK48
+	bcS2DqGj5IRlNl/SFV6S4t3i7u/ignvr66xDmRgDuBlSMcitGvdcOXnk5jVBIVIR607/v/LVGN+Uh
+	zsJLMoSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dcR-0000000DF9w-1s4U;
-	Fri, 20 Mar 2026 17:26:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3dgN-0000000DGDp-2cCt;
+	Fri, 20 Mar 2026 17:30:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dcI-0000000DF6x-3GSk
+	id 1w3dgK-0000000DGCH-1CVO
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 17:26:40 +0000
+	Fri, 20 Mar 2026 17:30:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D21E060130;
-	Fri, 20 Mar 2026 17:26:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57D6CC2BC87;
-	Fri, 20 Mar 2026 17:26:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BEE8640B5A;
+	Fri, 20 Mar 2026 17:30:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D98F8C4CEF7;
+	Fri, 20 Mar 2026 17:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774027593;
-	bh=TCBFXsphVvwb9Dg/wEdcC11+4vRR3UYnV1stt+8g40o=;
+	s=k20201202; t=1774027843;
+	bh=W4IB0KIghH5BlR6smfsAiYWJPXaF2WzggB/xByUYJXA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SlSkPjNNOb/+Jo9X0CCO//QoRS1cc+hL4KH2yaDLPRTWGB1cx14CbMbnZE4WJc0rn
-	 mTBRE8McDmrW9Ldpd10K9KaO8gmUsdTW5R4s8lhQoMiVmoY9t1us2FSttu4bqjcb90
-	 L6FHcWByw1pgtb5/IObFe0qIOqWQZ0G2+SjQh+VU6xY8pmqGi5uqSRBFF3/yzRzVfn
-	 FoWVPewN07UHsXCEs5JlxG/Lq/bn8xoZbiDRmqFYanmyMqxAytr2EX2+tpkhxBBbYH
-	 OcJqNLKh59G0kOAImjNqTBmqla5wPtAtlPZkfA3UVXgCOy/22sOf+1K9l8oGP9K36W
-	 +XtOpp5lg9m7w==
-Date: Fri, 20 Mar 2026 10:26:31 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v3 2/2] riscv: dts: thead: th1520: add coefficients to
- the PVT node
-Message-ID: <ab2DR5v6DoqsFmbj@x1>
-References: <20260309162457.4128205-1-zhengxingda@iscas.ac.cn>
- <20260309162457.4128205-3-zhengxingda@iscas.ac.cn>
- <abWTh/HkVAiIjInt@x1>
+	b=pLV9ebbEeJiBIRsIU6LNMkM0fPKZZgFkx0VF9RBD1vN2HCShG8ZoRTRmha8W9iFwD
+	 NEmCARqbZ7qDuS306SS5i1psrb/8RlYsKUsB24PH9KQNgZ82MT0Gez1//M8B3l53QX
+	 Q5u35gAUQGowt9ZzSy+yY9NOXHW5yXl+RUqzHH+tsBpdfm4DxF4KKYrwXyLGaHxTQR
+	 0Er3a32Kbv7HFD+ZRbvpf222WssTkCTucO+b013KA13Guzp/MuH7iGrjxd7jspXq0t
+	 Zxb3MiBB2YH9Jl5Fz2rpdwxwtJSj6peRyHhJLfVkOtL1pxQq7MYIs+J1RGYl8a/QrE
+	 Zdt4pVQmnM71g==
+Date: Fri, 20 Mar 2026 17:30:38 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Junzhong Pan <junzhong.pan@spacemit.com>,
+	Inochi Amaoto <inochiama@gmail.com>, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: usb: dwc3: spacemit: add support for
+ K3 SoC
+Message-ID: <20260320-rival-distill-c9021491769a@spud>
+References: <20260320-02-k3-usb20-support-v2-0-308ea0e44038@kernel.org>
+ <20260320-02-k3-usb20-support-v2-1-308ea0e44038@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <abWTh/HkVAiIjInt@x1>
+In-Reply-To: <20260320-02-k3-usb20-support-v2-1-308ea0e44038@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_103045_538616_072E3FE1 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,61 +77,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-hwmon@vger.kernel.org, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Rahul Tanwar <rtanwar@maxlinear.com>, Guo Ren <guoren@kernel.org>, Han Gao <rabenda.cn@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Guenter Roeck <linux@roeck-us.net>, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3936243148277812989=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 14, 2026 at 09:57:43AM -0700, Drew Fustini wrote:
-> On Tue, Mar 10, 2026 at 12:24:57AM +0800, Icenowy Zheng wrote:
-> > The manual of TH1520 contains a set of coefficients a little different
-> > to the driver default ones.
-> > 
-> > Add them to the device tree node of PVT.
-> > 
-> > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > Reviewed-by: Drew Fustini <fustini@kernel.org>
-> > ---
-> > Changes in v3:
-> > - Added Drew's R-b.
-> > No changes in v2.
-> > 
-> >  arch/riscv/boot/dts/thead/th1520.dtsi | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> > index bd5d33840884e..2160c8b6c2261 100644
-> > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> > @@ -753,6 +753,10 @@ pvt: pvt@fffff4e000 {
-> >  			reg-names = "common", "ts", "pd", "vm";
-> >  			clocks = <&aonsys_clk>;
-> >  			#thermal-sensor-cells = <1>;
-> > +			moortec,ts-coeff-g = <42740>;
-> > +			moortec,ts-coeff-h = <220500>;
-> > +			moortec,ts-coeff-j = <(-160)>;
-> > +			moortec,ts-coeff-cal5 = <4094>;
-> >  		};
-> >  
-> >  		gpio@fffff52000 {
-> > -- 
-> > 2.52.0
-> >
-> 
-> I have applied this to thead-dt-for-next:
 
-I had removed this due to missing binding in next. However, it is now
-again applied to thead-dt-for-next as the binding change is now in
-linux-next via the hwmon tree.
+--===============3936243148277812989==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iISLEgBV6Hhio30Z"
+Content-Disposition: inline
 
-https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/commit/?h=thead-dt-for-next&id=a7aa874b69460896349985833059a764e688f1d0
 
-Thanks,
-Drew
+--iISLEgBV6Hhio30Z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Mar 20, 2026 at 07:15:37AM +0000, Yixun Lan wrote:
+> Add compatible string for DWC3 USB controller found in SpacemiT K3 SoC.
+>=20
+> The USB2.0 host controller in K3 SoC actually use DWC3 IP but only support
+> USB2.0 functionality, thus in the hardware layer, it has only one USB2 PH=
+Y.
+> While in K1 SoC, the USB controller has both USB2 and USB3 Combo PHY
+> connected, but able to work in a reduced USB2.0 mode which requres only
+> one USB2 PHY, leaves the USB3 Combo PHY to PCIe controller. So both K1
+> and K3 SoC are able to work in the USB2.0 mode which requires one PHY.
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+--iISLEgBV6Hhio30Z
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCab2EPgAKCRB4tDGHoIJi
+0joxAQC5+AAtgwRmBNAtvgPpwSU6oenwPm4CK2S4y2xpyBIyCwEAlWW9LD7E7Nu0
+eRC9bXUrVLtn+AyWk+Qy/EtcHcqKxQs=
+=Exu8
+-----END PGP SIGNATURE-----
+
+--iISLEgBV6Hhio30Z--
+
+
+--===============3936243148277812989==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3936243148277812989==--
+
