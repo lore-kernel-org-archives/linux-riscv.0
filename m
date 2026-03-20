@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A07D61099B3B
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 22:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4601099B47
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 22:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xlvdaVZWySeOLgPC2WdiOCKAp+9OLarMf8A8nUAfYCY=; b=0uqiwybwSm/vp0
-	y7HjONEMmihA43kkRTRp2SA3OexYOGMbwRCIB5Dcb+aWfuTK0xf0AD/eh1TdS4/NmPa0G5nHfD2/w
-	Bmo//fEqbdWR57U3Fcu14qDvE4avkoCuXDSta07XAfFmvT1mL+qrKDzKM6lSPaMK0ogBK0LktxXPu
-	Mn6CeyStNHiYWMwFPga6l+Y8qve9LgrrPHlCpyy56agiyFuTIp0XVlsVYbjxVxaw0VMBCRlkyG8Ks
-	NmFmMUT0Ljh8bcWGw0pKp4GZHFBB2Z6C7usYzxUyOXxGTuRLShL/brC8P0EYY9+zoVCtYWWo7KJJg
-	37eAHulURLp1gWAmnY4w==;
+	List-Owner; bh=JE5nbpgXp+/iMNTb3RHLeI+bmfeYSpWnXFo65SSndU0=; b=MjD0AgUUofxBYO
+	++V0kY10xbEKybfHxgQI9yFxnLtIj891Xb1MPzFqFk/4LZW+ALhahpYxUXfYjRb+v050/5BGi0eGg
+	nJ+oX0POc9/j5KtUOiiKWaAPnZ1x7idMCPC8/1BOd1fHiJOfdokpTHoKdgYrZAvJsjue+SFmSi01o
+	czGPDQ8hVBiw8+ccsr1z0B79ByORepwUWvvb5mQfErRGcguLgs/sYXvTTvUDqs4BF9JZpgptMDFvq
+	ZSgExMJSg3yIswabXezO5FM9bgWjyOJ/c7bzGUe8NIwX0mby4RSUBDCgB6zSAQqvWpcJh/wsigWof
+	vapBHAD/DrFmbm06ZAwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3i76-0000000Dfry-3MmT;
-	Fri, 20 Mar 2026 22:14:41 +0000
+	id 1w3i7A-0000000Dfw5-1fzA;
+	Fri, 20 Mar 2026 22:14:44 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3i75-0000000Dfq7-2IRb
+	id 1w3i79-0000000DfuK-1ec7
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 22:14:39 +0000
+	Fri, 20 Mar 2026 22:14:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1CE46111B;
+	by tor.source.kernel.org (Postfix) with ESMTP id CFBD76013A;
+	Fri, 20 Mar 2026 22:14:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0CE7C2BCAF;
 	Fri, 20 Mar 2026 22:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B066CC4CEF7;
-	Fri, 20 Mar 2026 22:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774044878;
-	bh=y3sgZkTrQ7ucF18Vg7qRa+O7aPCnDHgstTSd5M9UBOY=;
+	s=k20201202; t=1774044882;
+	bh=nAADk4O++zlIdaSsGnqecpm2JFYNOEQEolE0epkoJXM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TslszDhSAzMDVRIyuMv6paGVgSsd2CzTi2m+XDZauLL+oMPD8nN2y19WOg5QAxcN8
-	 MJkxnPJI13xWM/TQBuUVFa8i2WBfcrPqP1pN4JyiIYxzvSpK68kow0YUXzxMwjLIvA
-	 PZfMcLRp38aeBp/XZ/scY6XOVW8u6R2Vl2bxg7ZCjPYl5+Zw1cWeOJK9ueZjsjOuBI
-	 /f+WZSPbGmI8Ms+0wdaf/gI3Ef6Dwbp58ZS76mf9o54sv2J4dxehoWLmTRoayHRyve
-	 UXsBVGWUjpn8Bff33KBzLTvQ6RK33x76NgUJDEqM9svExTt2X8h0wOTNQ+4FrOCJLF
-	 6X7zc7Xpdr5tg==
+	b=Cx1QfJeiw+fJiVi+TEUgbrb9326n7iVHjUNLjnMKlj6iprB7t2rO+Imn/dWGqdEq7
+	 YfNIyImYbgavmRQUEAmCNUElbh5Kg1BFoe5ptLbRuN7ZuReCZI4rDY2a5jP7YFa8px
+	 3Dok4Agv9vTrsTBNtsOBpywS0B05t15ubKY0+5O73+1FriKKgr5AGs+05Tvmqv7AdU
+	 RyCJAM88Hs+79PzvgYeXn5SyIVMvqyy3JQ8WpvMDwEKL4HxAu0dR37XakI55NSR2rh
+	 eRrtwzRqU4cSFG1lF8DErPwB1lfPA7mQ94KCMiW+AgFVXhOqgZu5WkrNADCZ1pDXHB
+	 SiY7M3MEQJVBQ==
 From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Fri, 20 Mar 2026 23:13:45 +0100
-Subject: [PATCH v2 13/15] mm/sparse: move sparse_init_one_section() to
+Date: Fri, 20 Mar 2026 23:13:46 +0100
+Subject: [PATCH v2 14/15] mm/sparse: move __section_mark_present() to
  internal.h
 MIME-Version: 1.0
-Message-Id: <20260320-sparsemem_cleanups-v2-13-096addc8800d@kernel.org>
+Message-Id: <20260320-sparsemem_cleanups-v2-14-096addc8800d@kernel.org>
 References: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
 In-Reply-To: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
 To: linux-kernel@vger.kernel.org
@@ -78,102 +78,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While at it, convert the BUG_ON to a VM_WARN_ON_ONCE, avoid long lines, and
-merge sparse_encode_mem_map() into its only caller
-sparse_init_one_section().
+Let's prepare for moving memory hotplug handling from sparse.c to
+sparse-vmemmap.c by moving __section_mark_present() to internal.h.
 
-Clarify the comment a bit, pointing at page_to_pfn().
-
-Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
- include/linux/mmzone.h |  2 +-
- mm/internal.h          | 22 ++++++++++++++++++++++
- mm/sparse.c            | 24 ------------------------
- 3 files changed, 23 insertions(+), 25 deletions(-)
+ mm/internal.h | 9 +++++++++
+ mm/sparse.c   | 8 --------
+ 2 files changed, 9 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-index b694c69dee04..dcbbf36ed88c 100644
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -2008,7 +2008,7 @@ struct mem_section {
- 	/*
- 	 * This is, logically, a pointer to an array of struct
- 	 * pages.  However, it is stored with some other magic.
--	 * (see sparse.c::sparse_init_one_section())
-+	 * (see sparse_init_one_section())
- 	 *
- 	 * Additionally during early boot we encode node id of
- 	 * the location of the section here to guide allocation.
 diff --git a/mm/internal.h b/mm/internal.h
-index 5f5c45d80aca..2f188f7702f7 100644
+index 2f188f7702f7..b002c91e40a5 100644
 --- a/mm/internal.h
 +++ b/mm/internal.h
-@@ -965,6 +965,28 @@ void memmap_init_range(unsigned long, int, unsigned long, unsigned long,
-  */
- #ifdef CONFIG_SPARSEMEM
- void sparse_init(void);
+@@ -987,6 +987,15 @@ static inline void sparse_init_one_section(struct mem_section *ms,
+ 	ms->section_mem_map |= flags | SECTION_HAS_MEM_MAP;
+ 	ms->usage = usage;
+ }
 +
-+static inline void sparse_init_one_section(struct mem_section *ms,
-+		unsigned long pnum, struct page *mem_map,
-+		struct mem_section_usage *usage, unsigned long flags)
++static inline void __section_mark_present(struct mem_section *ms,
++		unsigned long section_nr)
 +{
-+	unsigned long coded_mem_map;
++	if (section_nr > __highest_present_section_nr)
++		__highest_present_section_nr = section_nr;
 +
-+	BUILD_BUG_ON(SECTION_MAP_LAST_BIT > PFN_SECTION_SHIFT);
-+
-+	/*
-+	 * We encode the start PFN of the section into the mem_map such that
-+	 * page_to_pfn() on !CONFIG_SPARSEMEM_VMEMMAP can simply subtract it
-+	 * from the page pointer to obtain the PFN.
-+	 */
-+	coded_mem_map = (unsigned long)(mem_map - section_nr_to_pfn(pnum));
-+	VM_WARN_ON(coded_mem_map & ~SECTION_MAP_MASK);
-+
-+	ms->section_mem_map &= ~SECTION_MAP_MASK;
-+	ms->section_mem_map |= coded_mem_map;
-+	ms->section_mem_map |= flags | SECTION_HAS_MEM_MAP;
-+	ms->usage = usage;
++	ms->section_mem_map |= SECTION_MARKED_PRESENT;
 +}
  #else
  static inline void sparse_init(void) {}
  #endif /* CONFIG_SPARSEMEM */
 diff --git a/mm/sparse.c b/mm/sparse.c
-index 5c9cad390282..ed5de1a25f04 100644
+index ed5de1a25f04..ecd4c41c0ff0 100644
 --- a/mm/sparse.c
 +++ b/mm/sparse.c
-@@ -256,30 +256,6 @@ static void __init memblocks_present(void)
- 		memory_present(nid, start, end);
- }
+@@ -161,14 +161,6 @@ static void __meminit mminit_validate_memmodel_limits(unsigned long *start_pfn,
+  * those loops early.
+  */
+ unsigned long __highest_present_section_nr;
+-static void __section_mark_present(struct mem_section *ms,
+-		unsigned long section_nr)
+-{
+-	if (section_nr > __highest_present_section_nr)
+-		__highest_present_section_nr = section_nr;
+-
+-	ms->section_mem_map |= SECTION_MARKED_PRESENT;
+-}
  
--/*
-- * Subtle, we encode the real pfn into the mem_map such that
-- * the identity pfn - section_mem_map will return the actual
-- * physical page frame number.
-- */
--static unsigned long sparse_encode_mem_map(struct page *mem_map, unsigned long pnum)
--{
--	unsigned long coded_mem_map =
--		(unsigned long)(mem_map - (section_nr_to_pfn(pnum)));
--	BUILD_BUG_ON(SECTION_MAP_LAST_BIT > PFN_SECTION_SHIFT);
--	BUG_ON(coded_mem_map & ~SECTION_MAP_MASK);
--	return coded_mem_map;
--}
--
--static void __meminit sparse_init_one_section(struct mem_section *ms,
--		unsigned long pnum, struct page *mem_map,
--		struct mem_section_usage *usage, unsigned long flags)
--{
--	ms->section_mem_map &= ~SECTION_MAP_MASK;
--	ms->section_mem_map |= sparse_encode_mem_map(mem_map, pnum)
--		| SECTION_HAS_MEM_MAP | flags;
--	ms->usage = usage;
--}
--
- static unsigned long usemap_size(void)
+ static inline unsigned long first_present_section_nr(void)
  {
- 	return BITS_TO_LONGS(SECTION_BLOCKFLAGS_BITS) * sizeof(unsigned long);
 
 -- 
 2.43.0
