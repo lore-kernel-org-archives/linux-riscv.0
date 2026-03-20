@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F4A21091914
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 09:37:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD05108B8E6
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 09:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n6q/quP9oiKpA2NOcMd8+5WM1AYPdYcczdrhoZy83zA=; b=rIt02TBH/5uEK6
-	JW8lcxxX9E14uY0FNAalXJJ9SGjLIHeY00otSgh2S6cOlJqgEkwvQ8G4JhSVN1E5Zj0xSg5dMwPFu
-	UHFGpmLEQ9O+d7BoZVEfXBwYJO/sJLue52dMt8usxLFoufwQ8YfvyiPZhHWuidSYE2Cgk3mnE5P2v
-	KgNzy1/xVvt1u5stG6aawlgUEFnk9uhQiqbCQfP8bVgvWdsShVXK+f/dfm0iFtikaegTGIO+MLCjW
-	8YoRS1OUHcpt0T+YDByoCtzxfPGQQjCk2ne/RHIocaRwkGU4UhIOOYuEPbUrG+zmpThw22GJnuqSb
-	g3WfgpL5Se2T6OzMQXow==;
+	List-Owner; bh=aqKjgaZdmILJ4CFnZdBSjCNQ8T+93uzFeWoAnJe3sf8=; b=2ELl3uDt5A53c0
+	aC+MSevRGyWPo4DeyXl2Fc/V28UkyY4Topbs9FRZmHEr5hHcMi8Yty1UVFe0s0vN4yQP7Bz4r2oOE
+	NW7mTAG6h/4BPkPaa+YpHpLTdsKRCX4SCqDSuedqwN5ZQik7aaoTlv5SApmWFKImjt833oEqCqL18
+	xCpaZW83NpYIcI/wwbL6XNImNAxBDhUNQtFsqq87mAq1boF0YLbYW+/2OHwak6c8o6d/49UxRv2Tz
+	zY2QK6g3rqlDuI59zQC11Imrd/s6kwa/r4ggEwiabNE8Qub8FzY3YLdfPXMAOlPIeVzP6vNdO6uH5
+	h+x6x1WNE5JOA7SdHaVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WIK-0000000CUTS-0N8O;
-	Fri, 20 Mar 2026 09:37:28 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WIH-0000000CURw-1JQD
+	id 1w3WQo-0000000CVyX-3lPL;
+	Fri, 20 Mar 2026 09:46:14 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3WQi-0000000CVy0-1Ufp
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 09:37:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=UoqLelab2uRRhZMugZLNRzB4MZHfmrDGO
-	eiZef67Q1I=; b=jLzX9JB7jUNIu1uG3QqxeTDTZKX2EnOd2aX/t33Z+IyL0e31F
-	sTpFimzgwnHklUEVzp69u/esjFUA7VPKvzbwdSIJg+2vyWUMsQd4xsxA+thRGEyk
-	7Ff9qDEfj6SWwAfdMxgjgjHbYtxfnbYGg+VSdhR/i7MxvEVwQnTc9I4kwM=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAXxSR+Fb1pMbQBAA--.1433S2;
-	Fri, 20 Mar 2026 17:38:06 +0800 (CST)
+	Fri, 20 Mar 2026 09:46:12 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w3WQO-0008JH-6B; Fri, 20 Mar 2026 10:45:48 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w3WQN-001Dhj-1Z;
+	Fri, 20 Mar 2026 10:45:47 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w3WQN-000000003mj-1jdq;
+	Fri, 20 Mar 2026 10:45:47 +0100
+Message-ID: <a3d34ebb16b9ce19c0b81ce07f26ed6b1f73bdaf.camel@pengutronix.de>
+Subject: Re: [PATCH v4] reset: spacemit: k3: Decouple composite reset lines
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Junzhong Pan <junzhong.pan@spacemit.com>, Guodong Xu
+ <guodong@riscstar.com>, 	devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, 	spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Date: Fri, 20 Mar 2026 10:45:47 +0100
+In-Reply-To: <20260320-01-k3-reset-usb-pci-v4-1-7b4950c1d9e2@kernel.org>
+References: <20260320-01-k3-reset-usb-pci-v4-1-7b4950c1d9e2@kernel.org>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Subject: Re: [PATCH 4/4] PCI: dwc: Add UltraRISC DP1000 PCIe rc driver
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Yao Zi <me@ziyao.cc>
-Cc: wangjia@ultrarisc.com, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
- Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
- devicetree@vger.kernel.org
-In-Reply-To: <abjnhn5sqnJv1fYY@pie>
-References: <20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com>
- <20260316-ultrarisc-pcie-v1-4-ef2946ede698@ultrarisc.com>
- <abjnhn5sqnJv1fYY@pie>
-Date: Fri, 20 Mar 2026 17:37:17 +0800
-Message-Id: <177399943728.868832.12341696974887547910.b4-reply@b4>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773999437; l=2134;
- i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=NdeAJwHndxZkVbweWJXMxDVFBvgZ0d6ruaeJgL3U5Xk=;
- b=Ae3Yhm2tB/fH01LoOqHKG2gik5SQv29ZG22KRTceRvFfRgS0vkU/5bOpjsF+st3uMWsqHgmUv
- HTNjzNkf+XbAh9je0AgaIs6VJADl0SS9/KvDWYasLrpzgDQuq/TqfDT
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwAXxSR+Fb1pMbQBAA--.1433S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CF1UKFykJr1rAw4DZF4ktFb_yoW8Zw45pa
-	yUKa1akF1xJF4aka1Sva48Ca43Jan7JrWDG39rGw13XF9xC34DW3srt3yFgF97Xr40vr1a
-	k3WYg3W7GF43Aa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9G14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJV
-	WxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMx
-	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
-	wI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
-	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
-	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
-	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sREPrc3UUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAMEWm844oAIgACsA
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_023725_770119_EB7A586D 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20260320_024608_439304_E3C7DACB 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,70 +74,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-17 05:32 +0000, Yao Zi wrote:
-> On Mon, Mar 16, 2026 at 03:07:00PM +0800, Jia Wang via B4 Relay wrote:
-> > From: Xincheng Zhang <zhangxincheng@ultrarisc.com>
-> > 
-> > Add DP1000 soc PCIe rc driver.
-> > 
-> > Signed-off-by: Xincheng Zhang <zhangxincheng@ultrarisc.com>
-> > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> > ---
-> >  drivers/pci/controller/dwc/Kconfig           |  15 ++
-> >  drivers/pci/controller/dwc/Makefile          |   1 +
-> >  drivers/pci/controller/dwc/pcie-designware.h |  22 +++
-> >  drivers/pci/controller/dwc/pcie-ultrarisc.c  | 202 +++++++++++++++++++++++++++
-> >  4 files changed, 240 insertions(+)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > index d0aa031397fa..0a33891bf7ef 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -548,4 +548,19 @@ config PCIE_VISCONTI_HOST
-> >  	  Say Y here if you want PCIe controller support on Toshiba Visconti SoC.
-> >  	  This driver supports TMPV7708 SoC.
-> >  
-> > +config PCIE_ULTRARISC
-> > +	bool "UltraRISC PCIe host controller"
-> 
-> Is there any reason preventing the driver being built as a module? If
-> no, it would be better to change it to "tristate", to allow distribution
-> to customize the configuration for image sizes, etc.
->
-
-Thanks for the suggestion. I will update PCIE_ULTRARISC to tristate.
- 
-> > +	depends on ARCH_ULTRARISC || COMPILE_TEST
-> > +	select PCIE_DW_HOST
-> > +	select PCI_MSI
-> > +	default y if ARCH_ULTRARISC
-> > +	help
-> > +	  Enables support for the PCIe controller in the UltraRISC SoC.
-> > +	  This driver supports UR-DP1000 SoC. When selected, it automatically
-> > +	  enables both `PCIE_DW_HOST` and `PCI_MSI`, ensuring proper support
-> > +	  for MSI-based interrupt handling in the PCIe controller.
-> > +	  By default, this symbol is enabled when `ARCH_ULTRARISC` is active,
-> > +	  requiring no further configuration on that platform.
-> > +
-> > +
-> >  endmenu
-> >  #define PORT_LOGIC_LTSSM_STATE_L0	0x11
-> 
-> Best regards,
-> Yao Zi
->
-
-Best regards,
-Jia 
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnIsIDIwMjYtMDMtMjAgYXQgMDY6NTEgKzAwMDAsIFlpeHVuIExhbiB3cm90ZToKPiBJbnN0
+ZWFkIG9mIGdyb3VwaW5nIHNldmVyYWwgZGlmZmVyZW50IHJlc2V0IGxpbmVzIGludG8gb25lIGNv
+bXBvc2l0ZQo+IHJlc2V0LCBkZWNvdXBsZSB0aGVtIHRvIGluZGl2aWR1YWwgb25lcyB3aGljaCBt
+YWtlIGl0IG1vcmUgYWxpZ25lZAo+IHdpdGggdW5kZXJseWluZyBoYXJkd2FyZS4gQW5kIGZvciBE
+V0MgVVNCIGRyaXZlciwgaXQgd2lsbCBtYXRjaCB3ZWxsCj4gd2l0aCB0aGUgbnVtYmVyIG9mIHRo
+ZSByZXNldCBwcm9wZXJ0eSBpbiB0aGUgRFQgYmluZGluZ3MuCj4gCj4gVGhlIERXQzMgVVNCIGhv
+c3QgY29udHJvbGxlciBpbiBLMyBTb0MgaGFzIHRocmVlIHJlc2V0IGxpbmVzIC0gQUhCLCBWQ0Ms
+Cj4gUEhZLiBUaGUgUENJZSBjb250cm9sbGVyIGFsc28gaGFzIHRocmVlIHJlc2V0IGxpbmVzIC0g
+REJJLCBTbGF2ZSwgTWFzdGVyLgo+IEFsc28gdGhyZWUgcmVzZXQgbGluZXMgZWFjaCBmb3IgVUNJ
+RSBhbmQgUkNQVSBibG9jay4KPiAKPiBBcyBhbiBhZ3JlZW1lbnQgd2l0aCBtYWludGFpbmVyLCB0
+aGUgcmVzZXQgSURzIGhhcyBiZWVuIHJlYXJyYW5nZWQgYXMKPiBjb250aWd1b3VzIG51bWJlciBi
+dXQga2VlcCBFTUFDIHBhcnQgdW5jaGFuZ2VkIHRvIGF2b2lkIGJyZWFrIHBhdGNoZXMKPiB3aGlj
+aCBhbHJlYWR5IHNlbnQgdG8gbWFpbGluZyBsaXN0LiBUaGUgY2hhbmdlcyBvZiBEVCBiaW5kaW5n
+IGhlYWRlciBmaWxlCj4gYW5kIHJlc2V0IGRyaXZlciBhcmUgbWVyZ2VkIHRvZ2V0aGVyIGFzIG9u
+ZSBzaW5nbGUgY29tbWl0IHRvIGF2b2lkCj4gZ2l0LWJpc2VjdCBicmVha2FnZS4KPiAKPiBGaXhl
+czogOTM4Y2UzYjE2NTgyICgicmVzZXQ6IHNwYWNlbWl0OiBBZGQgU3BhY2VtaVQgSzMgcmVzZXQg
+ZHJpdmVyIikKPiBGaXhlczogMjE2ZTBhNWU5OGU1ICgiZHQtYmluZGluZ3M6IHNvYzogc3BhY2Vt
+aXQ6IEFkZCBLMyByZXNldCBzdXBwb3J0IGFuZCBJRHMiKQo+IFNpZ25lZC1vZmYtYnk6IFlpeHVu
+IExhbiA8ZGxhbkBrZXJuZWwub3JnPgo+IC0tLQo+IFByZXZpb3VzbHksIHRoZSByZXNldCBvZiBU
+aGUgVVNCIGFuZCBQQ0llIHdhcyBzdWJtaXRlZCBhcyBhIGNvbXBvc2l0ZQo+IHJlc2V0LCB0cnkg
+dG8gZGVjb3VwbGUgdGhlbSBpbiB0aGlzIHNlcmllcy4KPiAKPiBUaGUgbW90aXZhdGlvbiBiZWhp
+bmQgaXMgdGhhdCBpdCB3aWxsIHdpbGwgbWFrZSB0aGUgcmVzdWx0IG1vcmUgYWxpZ25lZAo+IHdp
+dGggdGhlIGhhcmR3YXJlIHdoaWNoIGRlc2NyaWJlIHRoZW0gYXMgZGlmZmVyZW50IHJlc2V0IGxp
+bmVzLCBhbmQgYWxzbwo+IG1hdGNoIHdpdGggdGhlIEszIGR3YzMgRFQgYmluZGluZyB3aGljaCBy
+ZXF1ZXN0IGRpZmZlcmVudCByZXNldCwgCj4gSzEgYW5kIEszIFNvQyBzaGFyZSBzYW1lIHRvcG9s
+b2d5IG9mIHRoZSByZXNldCBsaW5lIGRlc2lnbi4KPiAKPiBTZWUgdGhlIHJlc2V0IHBhcnQgaW5m
+byBpbiBiaW5kaW5nIGRvYwo+IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy91c2Iv
+c3BhY2VtaXQsazEtZHdjMy55YW1sCj4gCj4gSW4gVjIsIEkndmUgdmlzaXRlZCB0aHJvdWdoIHdo
+b2xlIHJlc2V0IGRyaXZlciBhbmQgZGVjb3VwbGUgbW9yZSByZXNldHMsCj4gd2hpY2ggaW5jbHVk
+ZSB0aGUgYmxvY2sgLSBVQ0lFIGFuZCBSUENVLiBBbHNvIGFkZCBhbiBleHBsYW5hdGlvbiBvZiB3
+aHkKPiByZWFycmFuZ2UgdGhlIHJlc2V0IElEcyBhcyBjb250aWd1b3VzIG51bWJlci4KPiAKPiBJ
+biBWNCwgSSd2ZSByZWFycmFuZ2VkIGFsbCByZXNldCBJRHMgdG8ga2VlcCB0aGVtIGxpbmVhcihu
+byBob2xlKSwgd2hpbGUKPiBrZWVwIEVNQUMgcGFydCBJRHMgdW5jaGFuZ2VkLCB0aGlzIHN0aWxs
+IGJyaW5nIGxvdHMgY2hhbmdlcyB0byBJRCBudW1iZXIsCj4gbGV0IG1lIGtub3cgaWYgaXQncyBv
+ay4KCkl0IHdvdWxkIGJlIHNhZmVyIHRvIGp1c3Qga2VlcCBhbGwgcmVzZXTCoElEcyB0aGF0IGRv
+bid0IGhhdmUgdG8gYmUKc3BsaXQgdW5jaGFuZ2VkLiBQYXRjaGVzIHVzaW5nIHRoZW0gYXJlIHRy
+aWNrbGluZyBpbi4KClRoZSBzZWFyY2ggZm9yIGNoYW5nZWQgSURzIFsxXSBub3cgeWllbGRzIGEg
+dXNlciBvZiBSRVNFVF9BUE1VX0RNQSBbMl0uCgpbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+YWxsLz9xPWRmYjpSRVNFVF9BUE1VX1VTQjIlMjBPUiUyMGRmYjpSRVNFVF9BUE1VX1VTQjNfUE9S
+VEElMjBPUiUyMGRmYjpSRVNFVF9BUE1VX1VTQjNfUE9SVEIlMjBPUiUyMGRmYjpSRVNFVF9BUE1V
+X1VTQjNfUE9SVEMlMjBPUiUyMGRmYjpSRVNFVF9BUE1VX1VTQjNfUE9SVEQlMjBPUiUyMGRmYjpS
+RVNFVF9BUE1VX1FTUEklMjBPUiUyMGRmYjpSRVNFVF9BUE1VX1FTUElfQlVTJTIwT1IlMjBkZmI6
+UkVTRVRfQVBNVV9ETUElMjBPUiUyMGRmYjpSRVNFVF9BUE1VX0FFU19XVE0lMjBPUiUyMGRmYjpS
+RVNFVF9BUE1VX01DQl9EQ0xLJTIwT1IlMjBkZmI6UkVTRVRfQVBNVV9NQ0JfQUNMSyUyME9SJTIw
+ZGZiOlJFU0VUX0FQTVVfVlBVJTIwT1IlMjBkZmI6UkVTRVRfQVBNVV9EVEMlMjBPUiUyMGRmYjpS
+RVNFVF9BUE1VX0dQVSUyME9SJTIwZGZiOlJFU0VUX0FQTVVfQUxaTyUyME9SJTIwZGZiOlJFU0VU
+X0FQTVVfTUMlMjBPUiUyMGRmYjpSRVNFVF9BUE1VX0NQVTBfUE9QJTIwT1IlMjBkZmI6UkVTRVRf
+QVBNVV9DUFUwX1NXJTIwT1IlMjBkZmI6UkVTRVRfQVBNVV9DUFUxX1BPUCUyME9SJTIwZGZiOlJF
+U0VUX0FQTVVfQ1BVMV9TVyUyME9SJTIwZGZiOlJFU0VUX0FQTVVfQ1BVMl9QT1AlMjBPUiUyMGRm
+YjpSRVNFVF9BUE1VX0NQVTJfU1clMjBPUiUyMGRmYjpSRVNFVF9BUE1VX0NQVTNfUE9QJTIwT1Il
+MjBkZmI6UkVTRVRfQVBNVV9DUFUzX1NXJTIwT1IlMjBkZmI6UkVTRVRfQVBNVV9DMF9NUFNVQl9T
+VyUyME9SJTIwZGZiOlJFU0VUX0FQTVVfQ1BVNF9QT1AlMjBPUiUyMGRmYjpSRVNFVF9BUE1VX0NQ
+VTRfU1clMjBPUiUyMGRmYjpSRVNFVF9BUE1VX0NQVTVfUE9QJTIwT1IlMjBkZmI6UkVTRVRfQVBN
+VV9DUFU1X1NXJTIwT1IlMjBkZmI6UkVTRVRfQVBNVV9DUFU2X1BPUCUyME9SJTIwZGZiOlJFU0VU
+X0FQTVVfQ1BVNl9TVyUyME9SJTIwZGZiOlJFU0VUX0FQTVVfQ1BVN19QT1AlMjBPUiUyMGRmYjpS
+RVNFVF9BUE1VX0NQVTdfU1clMjBPUiUyMGRmYjpSRVNFVF9BUE1VX0MxX01QU1VCX1NXJTIwT1Il
+MjBkZmI6UkVTRVRfQVBNVV9NUFNVQl9EQkclMjBPUiUyMGRmYjpSRVNFVF9BUE1VX1VDSUUlMjBP
+UiUyMGRmYjpSRVNFVF9BUE1VX1JDUFUlMjBPUiUyMGRmYjpSRVNFVF9BUE1VX0RTSTRMTjJfRVND
+Q0xLJTIwT1IlMjBkZmI6UkVTRVRfQVBNVV9EU0k0TE4yX0xDRF9TVyUyME9SJTIwZGZiOlJFU0VU
+X0FQTVVfRFNJNExOMl9MQ0RfTUNMSyUyME9SJTIwZGZiOlJFU0VUX0FQTVVfRFNJNExOMl9MQ0Rf
+RFNDQ0xLJTIwT1IlMjBkZmI6UkVTRVRfQVBNVV9EU0k0TE4yX0RQVV9BQ0xLJTIwT1IlMjBkZmI6
+UkVTRVRfQVBNVV9EUFVfQUNMSyUyME9SJTIwZGZiOlJFU0VUX0FQTVVfVUZTX0FDTEslMjBPUiUy
+MGRmYjpSRVNFVF9BUE1VX0VEUDAlMjBPUiUyMGRmYjpSRVNFVF9BUE1VX0VEUDElMjBPUiUyMGRm
+YjpSRVNFVF9BUE1VX1BDSUVfUE9SVEElMjBPUiUyMGRmYjpSRVNFVF9BUE1VX1BDSUVfUE9SVEIl
+MjBPUiUyMGRmYjpSRVNFVF9BUE1VX1BDSUVfUE9SVEMlMjBPUiUyMGRmYjpSRVNFVF9BUE1VX1BD
+SUVfUE9SVEQlMjBPUiUyMGRmYjpSRVNFVF9BUE1VX1BDSUVfUE9SVEUKWzJdIGh0dHBzOi8vbG9y
+ZS5rZXJuZWwub3JnL2FsbC8yMDI2MDMxNy1rMy1wZG1hLXYxLTEtZjM5ZDNlOTdiNTNhQGxpbnV4
+LnNwYWNlbWl0LmNvbS8KCldoaWNoIG1lYW5zCgojZGVmaW5lIFJFU0VUX0FQTVVfRE1BICAgICAg
+ICAgICAyMwoKc2hvdWxkIHN0YXkgdW5jaGFuZ2VkIGFzIHdlbGwuCgpyZWdhcmRzClBoaWxpcHAK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
