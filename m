@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFAF1098797
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 15:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8106810987A2
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 16:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2uTlxTtFufoOocDbcW5Tp1YI0UlIGKb8IFui1CISMDE=; b=jkTesEIq544N5E
-	aBMkJ2fiN/wMQiP1kLSzWcnIOCHwx2Qux9+tJD21mOY4uEJnEn7P5BlIHzOET4xpOdjwDyn6Mp1Vf
-	nkqEnOJ9fAJMEu0QK1PXHSWCwRf5B+snqqceaTDhPH0tCs7Z0zZY65yQKIZAkXhKfu/NcZqFAxjpy
-	XiyFcw5bG+pLlt8oBVf+DCOqGf92Bje2pzlkrne576qKScqUqB1Ye8fXMKM6E7bQHfAosWLotgfw/
-	CQhGuUCVWvpCrymzB8CXQP5jzKouZo9enUjA1pwG5gstzFOlLyaHa8IL05c82QOQu06FT7QTShpnR
-	aA/Hk6Em/sk61dq6lTHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9UoEoJ1n9khCyW45Kf8dWi7I6A6pcqnb6K4O/Ffgcqw=; b=E/sb129q+ZySoc
+	o8yl0p4ZD3DqmNYvuiiQSFC5qD4bGXpKKMKWehq6pefye1ggteaf8xIEMxPijdAM0XzM1PWChKa4o
+	JLPc0IOSTehOtvRA36jqVT7bvqqq6E4AvY+ELfUVMX6OEfsqCGM4ufkjDOOw0iPD+v2pX6ZeZ39fO
+	VqNn/+TuKhQmpRvm8WYSIAnQa/KnpmUXAIfAjBeKSHTxfF7sqAD6MlESYyw19KgK06K7bWYZXT+G7
+	ktxE5j46yH4M2YIt2mzx0c+qn6hwUfL4CuGpKVtHVNcMgcZsTX0RYK1LFbm37MfvMKARkpJXUe7IR
+	ipIG/1vHRi8Z+AfBhE4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bQp-0000000D0BV-1898;
-	Fri, 20 Mar 2026 15:06:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3cHG-0000000D4wC-003w;
+	Fri, 20 Mar 2026 16:00:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bQk-0000000D0AV-2O5B;
-	Fri, 20 Mar 2026 15:06:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7D49042DAB;
-	Fri, 20 Mar 2026 15:06:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BB13C2BCB0;
-	Fri, 20 Mar 2026 15:06:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774019189;
-	bh=4U/RLB5BQTlqqUA+aRxQ/uoxRsEa6t8UeWu6iGAM7vU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c11vSApRocA25rRA6R1Rg5PoZbJKYkvTzPDMmIS8hDyX2AXYHd8mYvTvGHczpbW0e
-	 ZICqmAxAG7qjbn/OIwttlwgweqfJ3T6xWbF6Jn4Ykx0PlThw+3A3UFYPQkowwyM+MR
-	 xph2xDZ24qQOpQjw0PB/HBpsqSQshv8HCPxdObcRx0m/O9B6JgKfWn2YSzucm3bNUO
-	 LGc+GK60aJmwylKmXisUdB28GjM0TrMGRhwdo3hoTW7hoBzOgalk4j+n72KHrlUXBf
-	 swr5E6qUe0gXbEloU8Cxg7ZJR5ROhpNrWzLfTbBhCZSP8AXpxr+lme2+aRUwijSnnb
-	 jet5knkPIKlag==
-Message-ID: <7e2aea13-e047-4891-bd6f-ff6705c4fc28@kernel.org>
-Date: Fri, 20 Mar 2026 16:06:15 +0100
+	id 1w3cHC-0000000D4vr-2Mvd
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Mar 2026 16:00:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774022440;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=8yWdXXmCFKiAxvWiUii4eBbGeSCOI3DuI0otrKafgog=;
+	b=iGgRqP45LwDgwUz9jaillAintdDXB1Ea8B+ZPdQVjXz2Gj/RADSZHx3XrzIRGaD7r6gb88
+	UixGbk8d2DJ8La+TMfBZSvQK8U2JHbeE9LiZ21X+O8xRdnfZNWBOoD48QZgvpX3ldSVpBM
+	xlwPfrU2d/yPWhPxZPm8o/dCQleDWiE=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-214-pu8zbBcJOZ2ucDJsTPbYEA-1; Fri,
+ 20 Mar 2026 11:59:03 -0400
+X-MC-Unique: pu8zbBcJOZ2ucDJsTPbYEA-1
+X-Mimecast-MFC-AGG-ID: pu8zbBcJOZ2ucDJsTPbYEA_1774022342
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 556EA1800281;
+	Fri, 20 Mar 2026 15:59:01 +0000 (UTC)
+Received: from cmirabil.redhat.com (unknown [10.2.16.157])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 759B51953944;
+	Fri, 20 Mar 2026 15:58:58 +0000 (UTC)
+From: Charles Mirabile <cmirabil@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: Charles Mirabile <cmirabil@redhat.com>,
+	linux-riscv@lists.infradead.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v1] riscv: disable runtime constant support for XIP kernels
+Date: Fri, 20 Mar 2026 11:58:41 -0400
+Message-ID: <20260320155843.1848180-1-cmirabil@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 17/23] mm: convert do_brk_flags() to use vma_flags_t
-Content-Language: en-US
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Kees Cook <kees@kernel.org>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Dinh Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>,
- Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- Ondrej Mosnacek <omosnace@redhat.com>, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
-References: <cover.1773846935.git.ljs@kernel.org>
- <981ed1afcd19115432e61778e7d226a36f8f5c2b.1773846935.git.ljs@kernel.org>
- <1d300b3b-2476-4381-b8df-a680f486b284@kernel.org>
- <f47e24c4-3a11-4a58-96f5-871443660246@lucifer.local>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <f47e24c4-3a11-4a58-96f5-871443660246@lucifer.local>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: WZs0qFZHLdKcTS4DMiDzCai8rU9zYha8U0gx8WUoTcU_1774022342
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_080630_652569_326C3733 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20260320_090042_693963_A23BB487 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,139 +89,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/20/26 14:42, Lorenzo Stoakes (Oracle) wrote:
->>
->> More nits below:
->>
->> > diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
->> > index b39cc1127e1f..e25d0d18f6d7 100644
->> > --- a/arch/arm64/include/asm/page.h
->> > +++ b/arch/arm64/include/asm/page.h
->> > @@ -46,7 +46,12 @@ int pfn_is_map_memory(unsigned long pfn);
->> >
->> >  #endif /* !__ASSEMBLER__ */
->> >
->> > -#define VM_DATA_DEFAULT_FLAGS	(VM_DATA_FLAGS_TSK_EXEC | VM_MTE_ALLOWED)
->> > +#ifdef CONFIG_ARM64_MTE
->> > +#define VMA_DATA_DEFAULT_FLAGS	append_vma_flags(VMA_DATA_FLAGS_TSK_EXEC, \
->> > +						 VMA_MTE_ALLOWED_BIT)
->>
->> I wonder what's the bloat-o-meter impact of these #define's (this
->> arm64-specific one isn't the only one) being no longer compile-time-constants?
-> 
-> I mean there's a precedent for this, but the compiler _should_ figure out this
-> as a constant value, I have repeatedly confirmed that it's good at that in
-> godbolt, via make foo/bar.S etc.
+Runtime constant support is predicated on patching the kernel binary at
+runtime, which is fundamentally impossible for an XIP kernel whose text
+section is backed not by RAM but by memory mapped read-only storage.
 
-Great, thanks!
+If CONFIG_XIP_KERNEL is enabled, do not define riscv implementations of
+the relevant runtime constant macros so that the fallbacks which do not
+perform runtime constant optimization are used.
 
-> 
->>
->> >   */
->> >  #define vma_desc_set_flags(desc, ...) \
->> >  	vma_desc_set_flags_mask(desc, mk_vma_flags(__VA_ARGS__))
->> > @@ -4059,7 +4071,6 @@ extern int replace_mm_exe_file(struct mm_struct *mm, struct file *new_exe_file);
->> >  extern struct file *get_mm_exe_file(struct mm_struct *mm);
->> >  extern struct file *get_task_exe_file(struct task_struct *task);
->> >
->> > -extern bool may_expand_vm(struct mm_struct *, vm_flags_t, unsigned long npages);
->> >  extern void vm_stat_account(struct mm_struct *, vm_flags_t, long npages);
->> >
->> >  extern bool vma_is_special_mapping(const struct vm_area_struct *vma,
->> > diff --git a/mm/internal.h b/mm/internal.h
->> > index f98f4746ac41..80d8651441a7 100644
->>
->> > diff --git a/mm/mprotect.c b/mm/mprotect.c
->> > index 9681f055b9fc..eaa724b99908 100644
->> > --- a/mm/mprotect.c
->> > +++ b/mm/mprotect.c
->>
->> > @@ -773,19 +778,24 @@ mprotect_fixup(struct vma_iterator *vmi, struct mmu_gather *tlb,
->> >
->> >  	change_protection(tlb, vma, start, end, mm_cp_flags);
->> >
->> > -	if ((oldflags & VM_ACCOUNT) && !(newflags & VM_ACCOUNT))
->> > +	if (vma_flags_test(&old_vma_flags, VMA_ACCOUNT_BIT) &&
->> > +	    !vma_flags_test(&new_vma_flags, VMA_ACCOUNT_BIT))
->> >  		vm_unacct_memory(nrpages);
->> >
->> >  	/*
->> >  	 * Private VM_LOCKED VMA becoming writable: trigger COW to avoid major
->> >  	 * fault on access.
->> >  	 */
->> > -	if ((oldflags & (VM_WRITE | VM_SHARED | VM_LOCKED)) == VM_LOCKED &&
->> > -			(newflags & VM_WRITE)) {
->> > -		populate_vma_page_range(vma, start, end, NULL);
->> > +	if (vma_flags_test(&new_vma_flags, VMA_WRITE_BIT)) {
->> > +		const vma_flags_t mask =
->> > +			vma_flags_and(&old_vma_flags, VMA_WRITE_BIT,
->> > +				      VMA_SHARED_BIT, VMA_LOCKED_BIT);
->> > +
->> > +		if (vma_flags_same(&mask, VMA_LOCKED_BIT))
->>
->> That converts the original logic 1:1, but I wonder if it's now feasible to
->> write it more obviously as "VMA_LOCKED_BIT must be set, VM_WRITE_BIT and
->> VM_SHARED_BIT must not" ?
-> 
-> Hmm, I'm not sure if I can express this more clearly, it's a pain either
-> way. Could do:
-> 
-> 	if (vma_flags_test(&new_vma_flags, VMA_WRITE_BIT) &&
-> 	    !vma_flags_test_any(&old_vma_flags, VMA_WRITE_BIT, VMA_SHARED_BIT))
-> 		populate_vma_page_range(vma, start, end, NULL);
+Fixes: a44fb5722199 ("riscv: Add runtime constant support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Charles Mirabile <cmirabil@redhat.com>
+---
+ arch/riscv/include/asm/runtime-const.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-It would be a bit more:
-
-	if (vma_flags_test(&new_vma_flags, VMA_WRITE_BIT) &&
-	    vma_flags_test(&old_vma_flags, VMA_LOCKED_BIT) &&
- 	    !vma_flags_test_any(&old_vma_flags, VMA_WRITE_BIT, VMA_SHARED_BIT))
- 		populate_vma_page_range(vma, start, end, NULL);
-
-(or reordered in whatever way the short circuting works best here, the original
-code tested oldflags first).
-
-But yeah, at least to me it's more clear what that's testing and doesn't need to
-set up the intermediate mask variable, and VMA_LOCKED_BIT is there only once
-in the code now. The number of vma_flags_* operations is the same.
+diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
+index d766e2b9e6df1..05110bb7554e9 100644
+--- a/arch/riscv/include/asm/runtime-const.h
++++ b/arch/riscv/include/asm/runtime-const.h
+@@ -11,6 +11,9 @@
  
->>
->> > +			populate_vma_page_range(vma, start, end, NULL);
->> >  	}
->> >
->> > -	vm_stat_account(mm, oldflags, -nrpages);
->> > +	vm_stat_account(mm, vma_flags_to_legacy(old_vma_flags), -nrpages);
->> >  	vm_stat_account(mm, newflags, nrpages);
->> >  	perf_event_mmap(vma);
->> >  	return 0;
->>
->> > diff --git a/mm/vma.h b/mm/vma.h
->> > index cf8926558bf6..1f2de6cb3b97 100644
->> > --- a/mm/vma.h
->> > +++ b/mm/vma.h
->>
->> > +static inline bool is_data_mapping_vma_flags(const vma_flags_t *vma_flags)
->> > +{
->> > +	const vma_flags_t mask = vma_flags_and(vma_flags,
->> > +			VMA_WRITE_BIT, VMA_SHARED_BIT, VMA_STACK_BIT);
->> > +
->> > +	return vma_flags_same(&mask, VMA_WRITE_BIT);
->>
->> Ditto?
-> 
-> I may do both as a follow up patch given the series is a pain to rework at this point
-> and I want at least the first version to be like-for-like intentionally.
+ #include <linux/uaccess.h>
+ 
++/* patching of the kernel text is fundamentally impossible on XIP kernels */
++#ifndef CONFIG_XIP_KERNEL
++
+ #ifdef CONFIG_32BIT
+ #define runtime_const_ptr(sym)					\
+ ({								\
+@@ -265,4 +268,5 @@ static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
+ 	}
+ }
+ 
++#endif /* !CONFIG_XIP_KERNEL */
+ #endif /* _ASM_RISCV_RUNTIME_CONST_H */
 
-OK sure.
-
->>
->> > +}
->> >
->> >  static inline void vma_iter_config(struct vma_iterator *vmi,
->> >  		unsigned long index, unsigned long last)
->> > diff --git a/mm/vma_exec.c b/mm/vma_exec.c
->> > index 8134e1afca68..5cee8b7efa0f 100644
-> 
-> Thanks, Lorenzo
+base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
+-- 
+2.53.0
 
 
 _______________________________________________
