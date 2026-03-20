@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206E01093168
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D051093170
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LBIfW7JvIY5QGye04VCBNrLOTwcqH6mKqXBrVZ+02tQ=; b=dkgrL835Rue3p1
-	w+trgmYWl+vuAI9GlhSR2GGl7qlkjWN3EHHAyoAIoFZ0jNOI+e8LgDurA9L96O6Q2vasc4OQUB8Tg
-	xjddhS2zirabLtYKU3m9PgWrW0Y6vpVPotrcY6z5yjFyLhRjY4/37vYjxjuhKwwkjif6C5qZ1ezNi
-	DrE8Cb7r5xlePGHg0JG82yWX8D8ON6X6DNc5R6qbmOsDEBkFLc8uPIbvkz0mF8bkfD+skTNrphdFH
-	FDp4NSX1ONrPbPgpCi7phP9e7OackURfvHiRx0ekwDUl6yLQ/8ss8u6WLU23LuspneCPO4ExH36yV
-	4TK09sO/+UX3IohWdwfQ==;
+	List-Owner; bh=ZzyKEHOfB8rLXFZCVh7X9ks6uCYeQQE8VJfOpKm9hnI=; b=ellzgSJwtT8g8H
+	JpN93c0u1e4ppFl/1k8wrkjLi064JWHRM8o20fmAx+iZt4RarER4aUuGGKbID0+G+SwmjwEgrrplv
+	5Wia8JyY4RTkHZkNT8iM7KhVvl8GEH3kyUbyFziCTMGXxxZqEzNRQ0g6jnuqwYaVGa4HAQhbdQMqZ
+	DFxHmpSdYPnS+JlIVgOPW0IVsHw4po7Ic5EmUXzn0eosGMehQ71qkXR5QbVWhodelWjTDlkWOAh0P
+	imvvfZW6r6N/j2y29joaxCMYYIdU1zSVyOhlQOFw7qyVGOuJ0/zpk2Vv+Dw3aFBUExbB60zIzRrm6
+	GDcFWZLMB1YviT9QeAag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QEy-0000000BxyG-13wu;
-	Fri, 20 Mar 2026 03:09:36 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1w3QN6-0000000ByVd-3lT5;
+	Fri, 20 Mar 2026 03:18:00 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QEu-0000000BxxV-48CG;
-	Fri, 20 Mar 2026 03:09:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1773976170; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=VWrUuwn6/3D2jBpHTBrix7nCaDc+sDPWfC/Ra1XXa8Q=;
-	b=j7VGs8KjVuuuzQ1cQvvGaD/P/rZRDoIb2hSGGkSaYazWS9aMVrPy3EM/GFinsa3FmB7EW832UoPIAb/fL86fZER3F0IzAPD1PgXdbnNkseuF4Rbd+3Rol4vmur4hB+4+FPxap/HdH3kkREaQoCnvwpj4j0jLo6ern/fcRlfe6os=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R681e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X.K9Y71_1773976168;
-Received: from 30.74.144.136(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X.K9Y71_1773976168 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 20 Mar 2026 11:09:29 +0800
-Message-ID: <a745d7ad-5d6b-4bef-b102-09139f56556c@linux.alibaba.com>
-Date: Fri, 20 Mar 2026 11:09:28 +0800
+	id 1w3QN0-0000000ByQq-0QjK;
+	Fri, 20 Mar 2026 03:17:56 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=BAu9Jx0jggsoB9DdjhBMDzv6GW2fgZQZhQIfabnTV1w=;
+	b=0iNno9KssbzJIwOx46kM6OnZNBBxZqavG7rHHC5bdLxsRgIt4sx/XNjUZTTVDZXEoVFcegx0c
+	Yif2aSgMI7B+vjuMbgqzpMuvUrJW1SQ8yRstGcNtfNLWFUMM/xjzPhZAjZffDLNoeTFLUbEByDb
+	+8fyvzP5gn6CQVDmf4awY48=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4fcSK00QGxz1K96X;
+	Fri, 20 Mar 2026 11:11:48 +0800 (CST)
+Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1E5564056C;
+	Fri, 20 Mar 2026 11:17:48 +0800 (CST)
+Received: from localhost.localdomain (10.50.163.32) by
+ kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 20 Mar 2026 11:17:46 +0800
+From: Chengwen Feng <fengchengwen@huawei.com>
+To: Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J .
+ Wysocki" <rafael@kernel.org>
+Subject: [PATCH v10 2/8] LoongArch: Add acpi_get_cpu_uid() for unified ACPI CPU UID retrieval
+Date: Fri, 20 Mar 2026 11:17:31 +0800
+Message-ID: <20260320031737.35048-3-fengchengwen@huawei.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260320031737.35048-1-fengchengwen@huawei.com>
+References: <20260320031737.35048-1-fengchengwen@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] mm: change to return bool for
- pmdp_clear_flush_young()
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: akpm@linux-foundation.org, david@kernel.org, Liam.Howlett@oracle.com,
- vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
-References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
- <eb513ed809685f78e0abdeb7f7b6ebdec0fcca18.1773890510.git.baolin.wang@linux.alibaba.com>
- <60e7cc1b-1459-44d8-8088-30b7ba3e9b44@lucifer.local>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <60e7cc1b-1459-44d8-8088-30b7ba3e9b44@lucifer.local>
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk500009.china.huawei.com (7.202.194.94)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_200933_197327_91742D88 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260319_201754_480486_1F0C7136 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,105 +72,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, liuyonglong@huawei.com, anshuman.khandual@arm.com, linux-doc@vger.kernel.org, Kees Cook <kees@kernel.org>, linux-pci@vger.kernel.org, guohanjun@huawei.com, Eric.VanTassell@amd.com, fengchengwen@huawei.com, Somnath Kotur <somnath.kotur@broadcom.com>, Kai Huang <kai.huang@intel.com>, Kevin Loughlin <kevinloughlin@google.com>, punit.agrawal@oss.qualcomm.com, "H . Peter Anvin" <hpa@zytor.com>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, linux-riscv@lists.infradead.org, Thorsten Blum <thorsten.blum@linux.dev>, linux-acpi@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, masahiroy@kernel.org, Yanteng Si <si.yanteng@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, linux-arm-kernel@lists.infradead.org, xen-devel@lists.xenproject.org, Zheyun Shen <szy0127@sjtu.edu.cn>, Len Brown <lenb@kernel.org>, Tom Lendacky <thomas.lendacky@amd.com>, Thomas Huth <thuth@redhat.com>, ryan.roberts@arm.com, "Ahmed S . Darwish" <darwi@linutronix.de>, Ma Ke <make24@iscas.ac.cn>, suzuki.poulose@arm.com, James Clark <james.clark@linaro.org>, Wei Huang <wei.huang2@amd.com>, Besar Wicaksono <bwicaksono@nvidia.com>, Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev, Jonathan Cameron <jonathan.cameron@huawei.com>, Sohil Mehta <sohil.mehta@intel.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Xin Li <xin@zytor.com>, Andy Gospodarek <andrew.gospodarek@broadcom.com>, wanghuiqiang@huawei.com, Juergen Gross <jgross@suse.com>, wangyuquan1236@phytium.com.cn, Sean Christopherson <seanjc@google.com>, linux-kernel@vger.kernel.org, stable@vger.kernel.org, linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, Palmer Dabbelt <palmer@dabbelt.com>, heinrich.schuchardt@canonical.com, chenl311@chinatelecom.cn, Robin Murphy <robin.murphy@arm.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+As a step towards unifying the interface for retrieving ACPI CPU UID
+across architectures, introduce a new function acpi_get_cpu_uid() for
+loongarch. While at it, add input validation to make the code more
+robust.
 
+Cc: stable@vger.kernel.org
+Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+---
+ arch/loongarch/include/asm/acpi.h | 1 +
+ arch/loongarch/kernel/acpi.c      | 9 +++++++++
+ 2 files changed, 10 insertions(+)
 
-On 3/19/26 7:33 PM, Lorenzo Stoakes (Oracle) wrote:
-> On Thu, Mar 19, 2026 at 11:24:03AM +0800, Baolin Wang wrote:
->> The pmdp_clear_flush_young() is used to clear the young flag and flush the
->> TLB, returning whether the young flag was set for this PMD entry. Change
->> the return type to bool to make the intention clearer.
->>
->> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> 
-> Some nits, but otherwise LGTM, so:
-> 
-> Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-> 
->> ---
->>   arch/s390/include/asm/pgtable.h |  4 ++--
->>   arch/x86/include/asm/pgtable.h  |  4 ++--
->>   arch/x86/mm/pgtable.c           |  6 +++---
->>   include/linux/pgtable.h         | 10 +++++-----
->>   mm/pgtable-generic.c            |  7 ++++---
->>   5 files changed, 16 insertions(+), 15 deletions(-)
->>
->> diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
->> index 1f5efb7be71d..90bba85ca4b8 100644
->> --- a/arch/s390/include/asm/pgtable.h
->> +++ b/arch/s390/include/asm/pgtable.h
->> @@ -1693,8 +1693,8 @@ static inline bool pmdp_test_and_clear_young(struct vm_area_struct *vma,
->>   }
->>
->>   #define __HAVE_ARCH_PMDP_CLEAR_YOUNG_FLUSH
->> -static inline int pmdp_clear_flush_young(struct vm_area_struct *vma,
->> -					 unsigned long addr, pmd_t *pmdp)
->> +static inline bool pmdp_clear_flush_young(struct vm_area_struct *vma,
->> +					  unsigned long addr, pmd_t *pmdp)
-> 
-> Same indentation comment as with other patches, 2 tabs you know the drill :)
-> applies to all such in this patch.
-> 
->>   {
->>   	VM_BUG_ON(addr & ~HPAGE_MASK);
->>   	return pmdp_test_and_clear_young(vma, addr, pmdp);
->> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
->> index bd02ee730a23..f9439449c9bd 100644
->> --- a/arch/x86/include/asm/pgtable.h
->> +++ b/arch/x86/include/asm/pgtable.h
->> @@ -1301,8 +1301,8 @@ extern int pudp_test_and_clear_young(struct vm_area_struct *vma,
->>   				     unsigned long addr, pud_t *pudp);
->>
->>   #define __HAVE_ARCH_PMDP_CLEAR_YOUNG_FLUSH
->> -extern int pmdp_clear_flush_young(struct vm_area_struct *vma,
->> -				  unsigned long address, pmd_t *pmdp);
->> +extern bool pmdp_clear_flush_young(struct vm_area_struct *vma,
->> +				   unsigned long address, pmd_t *pmdp);
-> 
-> Drop the extern please!
+diff --git a/arch/loongarch/include/asm/acpi.h b/arch/loongarch/include/asm/acpi.h
+index 7376840fa9f7..8bb101b4557e 100644
+--- a/arch/loongarch/include/asm/acpi.h
++++ b/arch/loongarch/include/asm/acpi.h
+@@ -44,6 +44,7 @@ static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
+ {
+ 	return acpi_core_pic[cpu_logical_map(cpu)].processor_id;
+ }
++int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
+ 
+ #endif /* !CONFIG_ACPI */
+ 
+diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
+index 1367ca759468..058f0dbe8e8f 100644
+--- a/arch/loongarch/kernel/acpi.c
++++ b/arch/loongarch/kernel/acpi.c
+@@ -385,3 +385,12 @@ int acpi_unmap_cpu(int cpu)
+ EXPORT_SYMBOL(acpi_unmap_cpu);
+ 
+ #endif /* CONFIG_ACPI_HOTPLUG_CPU */
++
++int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
++{
++	if (cpu >= nr_cpu_ids)
++		return -EINVAL;
++	*uid = acpi_core_pic[cpu_logical_map(cpu)].processor_id;
++	return 0;
++}
++EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
+-- 
+2.17.1
 
-Ack.
-
->>   #define __HAVE_ARCH_PMDP_HUGE_GET_AND_CLEAR
->> diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
->> index 10a5e0b2be36..8c336edf0e65 100644
->> --- a/arch/x86/mm/pgtable.c
->> +++ b/arch/x86/mm/pgtable.c
->> @@ -503,10 +503,10 @@ bool ptep_clear_flush_young(struct vm_area_struct *vma,
->>   }
->>
->>   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->> -int pmdp_clear_flush_young(struct vm_area_struct *vma,
->> -			   unsigned long address, pmd_t *pmdp)
->> +bool pmdp_clear_flush_young(struct vm_area_struct *vma,
->> +			    unsigned long address, pmd_t *pmdp)
->>   {
->> -	int young;
->> +	bool young;
->>
->>   	VM_BUG_ON(address & ~HPAGE_PMD_MASK);
->>
->> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->> index e53220b0a9a3..8b8838f19af3 100644
->> --- a/include/linux/pgtable.h
->> +++ b/include/linux/pgtable.h
->> @@ -536,18 +536,18 @@ bool ptep_clear_flush_young(struct vm_area_struct *vma,
->>
->>   #ifndef __HAVE_ARCH_PMDP_CLEAR_YOUNG_FLUSH
->>   #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->> -extern int pmdp_clear_flush_young(struct vm_area_struct *vma,
->> -				  unsigned long address, pmd_t *pmdp);
->> +bool pmdp_clear_flush_young(struct vm_area_struct *vma,
->> +		unsigned long address, pmd_t *pmdp);
-> 
-> Ahh! Here you drop the extern :) AND use 2 tabs :)) thanks!
-
-Right. Because this is the mm subsystem, and I know the maintainers' 
-preferences:)
 
 _______________________________________________
 linux-riscv mailing list
