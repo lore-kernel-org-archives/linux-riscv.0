@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA8C6108B8F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 11:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF7B108B8F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 11:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=om64pHJOdRpvnIrmL2dLcPAe+EIhct09mPa9tvunzFQ=; b=i0PErS6Fm2UNzz
-	xGVvlyB6fF1i0yonMp2uwKCIGJPsIrIGNfINkm3M4zH/lRvjCs5l4OPsOf6DjleuP/hN9q930a9Uy
-	gt2qOe74uXGGId/sWYWvyE42qzqoh5hF3a/vKtmKR9gb8r+khS7w3xfzKUIm9o00wk4PeBijIXjdG
-	72EEaB8uep4n/Qxkw80gbmoS2xceclqv1LWle2TejRqrAmPBISlujLzB3VAIzMSR+3YkgYUb7vpc0
-	1ofwTbM7zoVf/r8lSWIYxwneh3XikdcKkFalySisWF4ldr+qtGmZCW/uaeiWzJc2Z/Rrm/KXkAGpu
-	fChAYYETcPus0y17l5RQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YdkuDKax5kabrdQKuWEGWBpKNGb+ukI9IDz9Ec3LD5g=; b=vsiqwPnTF6P8wT
+	BN43sVPA+rrJtjyaduiHUhuDP+a+rOyJt0qI0ajdXXyn1qkXhp/gqyQoN9XrSfk+7SAy7u4oflYrG
+	lCaKCckoU1aW3pqsULKpJmaqFTrH+ZfDtMs5c8GyZRKRFsnXNx7aFX+Wfi5gFiAaeX9iDBScYM3+A
+	A4bI4wfSsX42/yLnlFO1zvepLbZ4PlIsQ5AkhcXGp2AbY7VG87XBWsSSddhk7eJO3n89hGPTMMkO2
+	yMNkqenjAd0Ilt9cM93CGBLK9CZYsXNNA1ddaTy6GI8VINacxSXO25mZo883cRj5hKrTdxXwgzYWK
+	GNB53d3HCGoYWckVrVzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XgY-0000000CfdG-2F3M;
-	Fri, 20 Mar 2026 11:06:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3XiM-0000000Cfmg-41jb;
+	Fri, 20 Mar 2026 11:08:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XgX-0000000Cfd6-1QlZ
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 11:06:33 +0000
+	id 1w3XiK-0000000CfmK-3tlC;
+	Fri, 20 Mar 2026 11:08:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D4AC60121;
-	Fri, 20 Mar 2026 11:06:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E8E5C4CEF7;
-	Fri, 20 Mar 2026 11:06:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EB41D60121;
+	Fri, 20 Mar 2026 11:08:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E98DC4CEF7;
+	Fri, 20 Mar 2026 11:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774004792;
-	bh=WrHj/b8deWiGuar8cbaJPGBckgcFXuxHBpTnu7n5cRY=;
-	h=From:Date:Subject:To:Cc:From;
-	b=m+Bh1C2PTGcRjR5raKoibOrhkA6A7B8mUwamLcEwR24j8hwnmY8xC377b+c356uEY
-	 9lBerJRdLlflRG82pjQv6FPT7HzaieCmVyIJdYori21A3krqomfEtNP5hfnBmKo5Rw
-	 K8aa+tIHiqAK974fUxsawVzcJCpnR7KnMtzH3T6enQH86wVsIQ7JYpSlrjX/zDTpQz
-	 JpdicJDDmNlOKxbv9s4lODnzJJWJV8VeMX41m4WnQOG8ceeU3ReXR5/QFMrdXJV+EH
-	 4Nc/bJAEGQHZ6XG5ELpzOdUZyaic794RdnW491xmsfTIquoJkv4ouwSImFH3mRzUih
-	 /madpIkY47GVQ==
-From: Yixun Lan <dlan@kernel.org>
-Date: Fri, 20 Mar 2026 11:06:17 +0000
-Subject: [PATCH v5] reset: spacemit: k3: Decouple composite reset lines
+	s=k20201202; t=1774004903;
+	bh=IubUj+jqwRzKoQPj58xDc4nZfpvuDGr1R52SQV2ZLLA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lM0U/smadkBEflGyTvmy4GTZW1CFk/3otou6bjFy+dQmA00CHj/ypWe+e73C+zMZQ
+	 jhmmO/CjnbFULEMKZS8VBpTbomAMt/cjPAVKyMfPOEREZs8pQlH04qTV/9MvL9x8YN
+	 TrPExLO4WzXOykz6o15XYE3r5fRQKyGZ8l0sR0R7p7noB+1Xlz9xivuUpaESQBfpJp
+	 Uyof/p8lwb2nc+aKhxOi6BQIC0quLodlIc6P0Iz2eYTTYq69lyrHX9jDbzPea2sYop
+	 DmVdpjbcONP/eCN6f1cRlmFQAT+Qh0Z77PP3l/hk1KZKNUaP6VaiRb7tSkfT2VopkI
+	 oaRAH25ZcMSnA==
+Date: Fri, 20 Mar 2026 11:08:08 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Kees Cook <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin <xu.xin16@zte.com.cn>, 
+	Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, 
+	Stephen Smalley <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
+Subject: Re: [PATCH v3 22/23] mm/vma: convert vma_modify_flags[_uffd]() to
+ use vma_flags_t
+Message-ID: <7e22cc48-aa04-406d-b4d0-8ebb182b34b9@lucifer.local>
+References: <cover.1773846935.git.ljs@kernel.org>
+ <98a004bf89227ea9abaef5fef06ea7e584f77bcf.1773846935.git.ljs@kernel.org>
+ <0b5765da-67e9-4e2e-99d8-08501730bf76@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260320-01-k3-reset-usb-pci-v5-1-07f4a5ddd728@kernel.org>
-X-B4-Tracking: v=1; b=H4sIACgqvWkC/33NTWrDMBCG4asErTtlNBpZuKvco2Shn3EiUuwgp
- SYl+O5VsnKJ6fL9YJ65qyolS1Ufu7sqMueap7GFfdupePLjUSCn1oqQOjSaADWcDRSpcoXvGuA
- SM6SE6AfvbKe9apeXIkO+PdXPQ+tTrtep/DyfzPqx/u/NGhCQKBAHZxiH/VnKKF/vUzmqBzjTG
- uFthEBDnyL2rkuWWF4Qs0bcNmIaIhx6zya6xPYF4RVCuI1wQ1zg3mLUqRf6gyzL8guJO5L0hgE
- AAA==
-X-Change-ID: 20260312-01-k3-reset-usb-pci-dd00afa7561a
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Junzhong Pan <junzhong.pan@spacemit.com>, 
- Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11894; i=dlan@kernel.org;
- h=from:subject:message-id; bh=WrHj/b8deWiGuar8cbaJPGBckgcFXuxHBpTnu7n5cRY=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpvSow0FrXTNV49qZWKb4S4N0RUKbukUy+hVo4d
- 7Nj9IqzYIuJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCab0qMBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+1QTg//bN5yrW53KzKN987sAL6H5EgwH8Kk+xjfUdA2oTNhx8jdNcTrjhkmP
- BSF8+VyCU3lCMS7NKmPDevxLL848tKEsdC+yODv31GXoTNZIU3uXJF0tr1D1sCviW6s09WKwlmD
- LY2Sd+u3zCB2wGhXZAcc48mXXcPaXaOjNNx5hxtPt84Qq92ObIlJTnATKjzEWACd0nncr4NSRyA
- z1xl3P8GV5Ko+zyNvER351q4vG3yNQFS4ravdKJeUq/pwCkPhCUQKxovpkR9K95yfPldLInu9/n
- niaEzynV2FZJf3yztXtdZdNJJavXawI9N8hZQnJML/WhN2LpsVAgDmZ+5WBm96v/f7i9eKTu5Rc
- gl/gdbbB0dqP+jl/p6ny2gdpVSqslQAsr+LJPQU5inMyommhTHuH17FfW6de6sLv5kgjEY76RZX
- eG3c1UTPBixXEzdqj/rTtH2q/Z4IqSCR4lwEbJRCs9ka0vhoNpLb94r6H6uwGeUJZjLqxFhq2hr
- narr4CwYRNllG4ZgntweR0HtxD7zZ3Dw7qHCowaILMD8ZjtyZ6AGse8znhid/Wl+waXI1nKRtUa
- aaSuhQxq3xKtt9foz7UXzUY+eaiS7B1P30AIKMpK1i16VvUU8uiBOPdEAVuGxwiWUjECutC3AQX
- Y2IlMSWsMkUAtoECzSgAHuQo/BC4d4=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+Content-Disposition: inline
+In-Reply-To: <0b5765da-67e9-4e2e-99d8-08501730bf76@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,242 +96,234 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of grouping several different reset lines into one composite
-reset, decouple them to individual ones which make it more aligned
-with underlying hardware. And for DWC USB driver, it will match well
-with the number of the reset property in the DT bindings.
+On Fri, Mar 20, 2026 at 11:39:58AM +0100, Vlastimil Babka (SUSE) wrote:
+> On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
+> > Update the vma_modify_flags() and vma_modify_flags_uffd() functions to
+> > accept a vma_flags_t parameter rather than a vm_flags_t one, and propagate
+> > the changes as needed to implement this change.
+> >
+> > Finally, update the VMA tests to reflect this.
+> >
+> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+>
+> > --- a/mm/mlock.c
+> > +++ b/mm/mlock.c
+> > @@ -415,13 +415,14 @@ static int mlock_pte_range(pmd_t *pmd, unsigned long addr,
+> >   * @vma - vma containing range to be mlock()ed or munlock()ed
+> >   * @start - start address in @vma of the range
+> >   * @end - end of range in @vma
+> > - * @newflags - the new set of flags for @vma.
+> > + * @new_vma_flags - the new set of flags for @vma.
+> >   *
+> >   * Called for mlock(), mlock2() and mlockall(), to set @vma VM_LOCKED;
+> >   * called for munlock() and munlockall(), to clear VM_LOCKED from @vma.
+> >   */
+> >  static void mlock_vma_pages_range(struct vm_area_struct *vma,
+> > -	unsigned long start, unsigned long end, vm_flags_t newflags)
+> > +	unsigned long start, unsigned long end,
+> > +	vma_flags_t *new_vma_flags)
+> >  {
+> >  	static const struct mm_walk_ops mlock_walk_ops = {
+> >  		.pmd_entry = mlock_pte_range,
+> > @@ -439,18 +440,18 @@ static void mlock_vma_pages_range(struct vm_area_struct *vma,
+> >  	 * combination should not be visible to other mmap_lock users;
+> >  	 * but WRITE_ONCE so rmap walkers must see VM_IO if VM_LOCKED.
+> >  	 */
+> > -	if (newflags & VM_LOCKED)
+> > -		newflags |= VM_IO;
+> > +	if (vma_flags_test(new_vma_flags, VMA_LOCKED_BIT))
+> > +		vma_flags_set(new_vma_flags, VMA_IO_BIT);
+> >  	vma_start_write(vma);
+> > -	vm_flags_reset_once(vma, newflags);
+> > +	WRITE_ONCE(vma->flags, *new_vma_flags);
+>
+> It's not clear to me, how is switching from vm_flags_t to vma_flags_t
+> allowing us to simply do WRITE_ONCE() instead of the full logic of
+> vm_flags_reset_once()? Won't it fail to compile once once flags are more
+> than single word? Or worse, will compile but silently allow tearing?
 
-The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
-PHY. The PCIe controller also has three reset lines - DBI, Slave, Master.
-Also three reset lines each for UCIE and RCPU block.
+We only care about tearing in the flags that can be contained within a
+system word, but true we should probably do this more carefully, as I did
+for vm_flags_reset_once().
 
-As an agreement with maintainer, the reset IDs has been rearranged as
-contiguous number but keep most part unchanged to avoid break patches
-which already sent to mailing list. The changes of DT binding header file
-and reset driver are merged together as one single commit to avoid
-git-bisect breakage.
+I will reimplement this as a new, hideous, helper function.
 
-Fixes: 938ce3b16582 ("reset: spacemit: Add SpacemiT K3 reset driver")
-Fixes: 216e0a5e98e5 ("dt-bindings: soc: spacemit: Add K3 reset support and IDs")
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
-Previously, the reset of The USB and PCIe was submited as a composite
-reset, try to decouple them in this series.
+I am not a fan of this being a thing to handle races, it's a hack. But I
+guess that should be addressed separately.
 
-The motivation behind is that it will will make the result more aligned
-with the hardware which describe them as different reset lines, and also
-match with the K3 dwc3 DT binding which request different reset, 
-K1 and K3 SoC share same topology of the reset line design.
+>
+> >
+> >  	lru_add_drain();
+> >  	walk_page_range(vma->vm_mm, start, end, &mlock_walk_ops, NULL);
+> >  	lru_add_drain();
+> >
+> > -	if (newflags & VM_IO) {
+> > -		newflags &= ~VM_IO;
+> > -		vm_flags_reset_once(vma, newflags);
+> > +	if (vma_flags_test(new_vma_flags, VMA_IO_BIT)) {
+> > +		vma_flags_clear(new_vma_flags, VMA_IO_BIT);
+> > +		WRITE_ONCE(vma->flags, *new_vma_flags);
+>
+> Ditto.
 
-See the reset part info in binding doc
-Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+Yup.
 
-In V2, I've visited through whole reset driver and decouple more resets,
-which include the block - UCIE and RPCU. Also add an explanation of why
-rearrange the reset IDs as contiguous number.
+>
+> >  	}
+> >  }
+> >
+> > @@ -467,20 +468,22 @@ static int mlock_fixup(struct vma_iterator *vmi, struct vm_area_struct *vma,
+> >  	       struct vm_area_struct **prev, unsigned long start,
+> >  	       unsigned long end, vm_flags_t newflags)
+> >  {
+> > +	vma_flags_t new_vma_flags = legacy_to_vma_flags(newflags);
+> > +	const vma_flags_t old_vma_flags = vma->flags;
+> >  	struct mm_struct *mm = vma->vm_mm;
+> >  	int nr_pages;
+> >  	int ret = 0;
+> > -	vm_flags_t oldflags = vma->vm_flags;
+> >
+> > -	if (newflags == oldflags || vma_is_secretmem(vma) ||
+> > -	    !vma_supports_mlock(vma))
+> > +	if (vma_flags_same_pair(&old_vma_flags, &new_vma_flags) ||
+> > +	    vma_is_secretmem(vma) || !vma_supports_mlock(vma)) {
+> >  		/*
+> >  		 * Don't set VM_LOCKED or VM_LOCKONFAULT and don't count.
+> >  		 * For secretmem, don't allow the memory to be unlocked.
+> >  		 */
+> >  		goto out;
+> > +	}
+> >
+> > -	vma = vma_modify_flags(vmi, *prev, vma, start, end, &newflags);
+> > +	vma = vma_modify_flags(vmi, *prev, vma, start, end, &new_vma_flags);
+> >  	if (IS_ERR(vma)) {
+> >  		ret = PTR_ERR(vma);
+> >  		goto out;
+> > @@ -490,9 +493,9 @@ static int mlock_fixup(struct vma_iterator *vmi, struct vm_area_struct *vma,
+> >  	 * Keep track of amount of locked VM.
+> >  	 */
+> >  	nr_pages = (end - start) >> PAGE_SHIFT;
+> > -	if (!(newflags & VM_LOCKED))
+> > +	if (!vma_flags_test(&new_vma_flags, VMA_LOCKED_BIT))
+> >  		nr_pages = -nr_pages;
+> > -	else if (oldflags & VM_LOCKED)
+> > +	else if (vma_flags_test(&old_vma_flags, VMA_LOCKED_BIT))
+> >  		nr_pages = 0;
+> >  	mm->locked_vm += nr_pages;
+> >
+> > @@ -501,12 +504,13 @@ static int mlock_fixup(struct vma_iterator *vmi, struct vm_area_struct *vma,
+> >  	 * It's okay if try_to_unmap_one unmaps a page just after we
+> >  	 * set VM_LOCKED, populate_vma_page_range will bring it back.
+> >  	 */
+> > -	if ((newflags & VM_LOCKED) && (oldflags & VM_LOCKED)) {
+> > +	if (vma_flags_test(&new_vma_flags, VMA_LOCKED_BIT) &&
+> > +	    vma_flags_test(&old_vma_flags, VMA_LOCKED_BIT)) {
+> >  		/* No work to do, and mlocking twice would be wrong */
+> >  		vma_start_write(vma);
+> > -		vm_flags_reset(vma, newflags);
+> > +		vma->flags = new_vma_flags;
+>
+> This also does lot less than vm_flags_reset()?
 
-In V4, I've rearranged all reset IDs to keep them linear(no hole), while
-keep EMAC part IDs unchanged, this still bring lots changes to ID number,
-let me know if it's ok.
+Well let's look:
 
-In V5, keep most reset IDs that don't have to split unchanged, also fill
-the gap, leave no hole.
----
-Changes in v5:
-- keep IDs don't have to split unchanged
-- Link to v4: https://lore.kernel.org/r/20260320-01-k3-reset-usb-pci-v4-1-7b4950c1d9e2@kernel.org
+	VM_WARN_ON_ONCE(!pgtable_supports_soft_dirty() && (flags & VM_SOFTDIRTY));
 
-Changes in v4:
-- rearrange IDs but keep EMAC part unchanged
-- Link to v3: https://lore.kernel.org/r/20260317-01-k3-reset-usb-pci-v3-1-e4b9a43c7d45@kernel.org
+Are we really at a point where this is problematic? Do we hit this? Why are
+we specifically checking only this case on every single instance of
+resetting VMA flags?
 
-Changes in v3:
-- fix checkpatch.pl warning due to missing double quotes in Fixes tag
-- Link to v2: https://lore.kernel.org/r/20260314-01-k3-reset-usb-pci-v2-1-9dc0976d524e@kernel.org
+	vma_assert_write_locked(vma);
 
-Changes in v2:
-- squash the two patches to avoid git-biset breakage
-- rearrange the ID to make it contiguous
-- also decouple more reset IDs - UCIE and RPCU block
-- add Fixes tag explicitly
-- Link to v1: https://lore.kernel.org/r/20260312-01-k3-reset-usb-pci-v1-0-022b24b7340f@kernel.org
----
- drivers/reset/spacemit/reset-spacemit-k3.c     | 60 +++++++++++++++-----------
- include/dt-bindings/reset/spacemit,k3-resets.h | 48 +++++++++++++++------
- 2 files changed, 72 insertions(+), 36 deletions(-)
+Note the vma_start_write() line above. I want to separate vma_flags_t
+helpers from asserts like that, because:
 
-diff --git a/drivers/reset/spacemit/reset-spacemit-k3.c b/drivers/reset/spacemit/reset-spacemit-k3.c
-index e9e32e4c1ba5..9841f5e057b2 100644
---- a/drivers/reset/spacemit/reset-spacemit-k3.c
-+++ b/drivers/reset/spacemit/reset-spacemit-k3.c
-@@ -112,16 +112,21 @@ static const struct ccu_reset_data k3_apmu_resets[] = {
- 	[RESET_APMU_SDH0]	= RESET_DATA(APMU_SDH0_CLK_RES_CTRL,	0, BIT(1)),
- 	[RESET_APMU_SDH1]	= RESET_DATA(APMU_SDH1_CLK_RES_CTRL,	0, BIT(1)),
- 	[RESET_APMU_SDH2]	= RESET_DATA(APMU_SDH2_CLK_RES_CTRL,	0, BIT(1)),
--	[RESET_APMU_USB2]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
--				BIT(1)|BIT(2)|BIT(3)),
--	[RESET_APMU_USB3_PORTA]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
--				BIT(5)|BIT(6)|BIT(7)),
--	[RESET_APMU_USB3_PORTB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
--				BIT(9)|BIT(10)|BIT(11)),
--	[RESET_APMU_USB3_PORTC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
--				BIT(13)|BIT(14)|BIT(15)),
--	[RESET_APMU_USB3_PORTD]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0,
--				BIT(17)|BIT(18)|BIT(19)),
-+	[RESET_APMU_USB2_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(1)),
-+	[RESET_APMU_USB2_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(2)),
-+	[RESET_APMU_USB2_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(3)),
-+	[RESET_APMU_USB3_A_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(5)),
-+	[RESET_APMU_USB3_A_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(6)),
-+	[RESET_APMU_USB3_A_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(7)),
-+	[RESET_APMU_USB3_B_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(9)),
-+	[RESET_APMU_USB3_B_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(10)),
-+	[RESET_APMU_USB3_B_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(11)),
-+	[RESET_APMU_USB3_C_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(13)),
-+	[RESET_APMU_USB3_C_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(14)),
-+	[RESET_APMU_USB3_C_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(15)),
-+	[RESET_APMU_USB3_D_AHB]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(17)),
-+	[RESET_APMU_USB3_D_VCC]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(18)),
-+	[RESET_APMU_USB3_D_PHY]	= RESET_DATA(APMU_USB_CLK_RES_CTRL,	0, BIT(19)),
- 	[RESET_APMU_QSPI]	= RESET_DATA(APMU_QSPI_CLK_RES_CTRL,	0, BIT(1)),
- 	[RESET_APMU_QSPI_BUS]	= RESET_DATA(APMU_QSPI_CLK_RES_CTRL,	0, BIT(0)),
- 	[RESET_APMU_DMA]	= RESET_DATA(APMU_DMA_CLK_RES_CTRL,	0, BIT(0)),
-@@ -151,10 +156,12 @@ static const struct ccu_reset_data k3_apmu_resets[] = {
- 	[RESET_APMU_CPU7_SW]	= RESET_DATA(APMU_PMU_CC2_AP,		BIT(26), 0),
- 	[RESET_APMU_C1_MPSUB_SW]	= RESET_DATA(APMU_PMU_CC2_AP,	BIT(28), 0),
- 	[RESET_APMU_MPSUB_DBG]	= RESET_DATA(APMU_PMU_CC2_AP,		BIT(29), 0),
--	[RESET_APMU_UCIE]	= RESET_DATA(APMU_UCIE_CTRL,
--				BIT(1) | BIT(2) | BIT(3), 0),
--	[RESET_APMU_RCPU]	= RESET_DATA(APMU_RCPU_CLK_RES_CTRL,	0,
--				BIT(3) | BIT(2) | BIT(0)),
-+	[RESET_APMU_UCIE_IP]	= RESET_DATA(APMU_UCIE_CTRL,		BIT(1),  0),
-+	[RESET_APMU_UCIE_HOT]	= RESET_DATA(APMU_UCIE_CTRL,		BIT(2),  0),
-+	[RESET_APMU_UCIE_MON]	= RESET_DATA(APMU_UCIE_CTRL,		BIT(3),  0),
-+	[RESET_APMU_RCPU_AUDIO_SYS]	= RESET_DATA(APMU_RCPU_CLK_RES_CTRL,	0, BIT(0)),
-+	[RESET_APMU_RCPU_MCU_CORE]	= RESET_DATA(APMU_RCPU_CLK_RES_CTRL,	0, BIT(2)),
-+	[RESET_APMU_RCPU_AUDIO_APMU]	= RESET_DATA(APMU_RCPU_CLK_RES_CTRL,	0, BIT(3)),
- 	[RESET_APMU_DSI4LN2_ESCCLK]	= RESET_DATA(APMU_LCD_CLK_RES_CTRL3,	0, BIT(3)),
- 	[RESET_APMU_DSI4LN2_LCD_SW]	= RESET_DATA(APMU_LCD_CLK_RES_CTRL3,	0, BIT(4)),
- 	[RESET_APMU_DSI4LN2_LCD_MCLK]	= RESET_DATA(APMU_LCD_CLK_RES_CTRL4,	0, BIT(9)),
-@@ -164,16 +171,21 @@ static const struct ccu_reset_data k3_apmu_resets[] = {
- 	[RESET_APMU_UFS_ACLK]	= RESET_DATA(APMU_UFS_CLK_RES_CTRL,	0, BIT(0)),
- 	[RESET_APMU_EDP0]	= RESET_DATA(APMU_LCD_EDP_CTRL,		0, BIT(0)),
- 	[RESET_APMU_EDP1]	= RESET_DATA(APMU_LCD_EDP_CTRL,		0, BIT(16)),
--	[RESET_APMU_PCIE_PORTA]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_A,	0,
--				BIT(5) | BIT(4) | BIT(3)),
--	[RESET_APMU_PCIE_PORTB]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_B,	0,
--				BIT(5) | BIT(4) | BIT(3)),
--	[RESET_APMU_PCIE_PORTC]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_C,	0,
--				BIT(5) | BIT(4) | BIT(3)),
--	[RESET_APMU_PCIE_PORTD]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_D,	0,
--				BIT(5) | BIT(4) | BIT(3)),
--	[RESET_APMU_PCIE_PORTE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_E,	0,
--				BIT(5) | BIT(4) | BIT(3)),
-+	[RESET_APMU_PCIE_A_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_A,	0, BIT(3)),
-+	[RESET_APMU_PCIE_A_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_A,	0, BIT(4)),
-+	[RESET_APMU_PCIE_A_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_A,	0, BIT(5)),
-+	[RESET_APMU_PCIE_B_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_B,	0, BIT(3)),
-+	[RESET_APMU_PCIE_B_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_B,	0, BIT(4)),
-+	[RESET_APMU_PCIE_B_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_B,	0, BIT(5)),
-+	[RESET_APMU_PCIE_C_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_C,	0, BIT(3)),
-+	[RESET_APMU_PCIE_C_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_C,	0, BIT(4)),
-+	[RESET_APMU_PCIE_C_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_C,	0, BIT(5)),
-+	[RESET_APMU_PCIE_D_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_D,	0, BIT(3)),
-+	[RESET_APMU_PCIE_D_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_D,	0, BIT(4)),
-+	[RESET_APMU_PCIE_D_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_D,	0, BIT(5)),
-+	[RESET_APMU_PCIE_E_DBI]		= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_E,	0, BIT(3)),
-+	[RESET_APMU_PCIE_E_SLAVE]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_E,	0, BIT(4)),
-+	[RESET_APMU_PCIE_E_MASTER]	= RESET_DATA(APMU_PCIE_CLK_RES_CTRL_E,	0, BIT(5)),
- 	[RESET_APMU_EMAC0]	= RESET_DATA(APMU_EMAC0_CLK_RES_CTRL,	0, BIT(1)),
- 	[RESET_APMU_EMAC1]	= RESET_DATA(APMU_EMAC1_CLK_RES_CTRL,	0, BIT(1)),
- 	[RESET_APMU_EMAC2]	= RESET_DATA(APMU_EMAC2_CLK_RES_CTRL,	0, BIT(1)),
-diff --git a/include/dt-bindings/reset/spacemit,k3-resets.h b/include/dt-bindings/reset/spacemit,k3-resets.h
-index 79ac1c22b7b5..dc1ef009ba79 100644
---- a/include/dt-bindings/reset/spacemit,k3-resets.h
-+++ b/include/dt-bindings/reset/spacemit,k3-resets.h
-@@ -97,11 +97,11 @@
- #define RESET_APMU_SDH0          13
- #define RESET_APMU_SDH1          14
- #define RESET_APMU_SDH2          15
--#define RESET_APMU_USB2          16
--#define RESET_APMU_USB3_PORTA    17
--#define RESET_APMU_USB3_PORTB    18
--#define RESET_APMU_USB3_PORTC    19
--#define RESET_APMU_USB3_PORTD    20
-+#define RESET_APMU_USB2_AHB      16
-+#define RESET_APMU_USB2_VCC      17
-+#define RESET_APMU_USB2_PHY      18
-+#define RESET_APMU_USB3_A_AHB    19
-+#define RESET_APMU_USB3_A_VCC    20
- #define RESET_APMU_QSPI          21
- #define RESET_APMU_QSPI_BUS      22
- #define RESET_APMU_DMA           23
-@@ -132,8 +132,8 @@
- #define RESET_APMU_CPU7_SW       48
- #define RESET_APMU_C1_MPSUB_SW   49
- #define RESET_APMU_MPSUB_DBG     50
--#define RESET_APMU_UCIE          51
--#define RESET_APMU_RCPU          52
-+#define RESET_APMU_USB3_A_PHY    51	/* USB3 A */
-+#define RESET_APMU_USB3_B_AHB    52
- #define RESET_APMU_DSI4LN2_ESCCLK     53
- #define RESET_APMU_DSI4LN2_LCD_SW     54
- #define RESET_APMU_DSI4LN2_LCD_MCLK   55
-@@ -143,16 +143,40 @@
- #define RESET_APMU_UFS_ACLK      59
- #define RESET_APMU_EDP0          60
- #define RESET_APMU_EDP1          61
--#define RESET_APMU_PCIE_PORTA    62
--#define RESET_APMU_PCIE_PORTB    63
--#define RESET_APMU_PCIE_PORTC    64
--#define RESET_APMU_PCIE_PORTD    65
--#define RESET_APMU_PCIE_PORTE    66
-+#define RESET_APMU_USB3_B_VCC    62	/* USB3 B */
-+#define RESET_APMU_USB3_B_PHY    63
-+#define RESET_APMU_USB3_C_AHB    64
-+#define RESET_APMU_USB3_C_VCC    65
-+#define RESET_APMU_USB3_C_PHY    66
- #define RESET_APMU_EMAC0         67
- #define RESET_APMU_EMAC1         68
- #define RESET_APMU_EMAC2         69
- #define RESET_APMU_ESPI_MCLK     70
- #define RESET_APMU_ESPI_SCLK     71
-+#define RESET_APMU_USB3_D_AHB    72	/* USB3 D */
-+#define RESET_APMU_USB3_D_VCC    73
-+#define RESET_APMU_USB3_D_PHY    74
-+#define RESET_APMU_UCIE_IP       75
-+#define RESET_APMU_UCIE_HOT      76
-+#define RESET_APMU_UCIE_MON      77
-+#define RESET_APMU_RCPU_AUDIO_SYS     78
-+#define RESET_APMU_RCPU_MCU_CORE      79
-+#define RESET_APMU_RCPU_AUDIO_APMU    80
-+#define RESET_APMU_PCIE_A_DBI    81
-+#define RESET_APMU_PCIE_A_SLAVE  82
-+#define RESET_APMU_PCIE_A_MASTER 83
-+#define RESET_APMU_PCIE_B_DBI    84
-+#define RESET_APMU_PCIE_B_SLAVE  85
-+#define RESET_APMU_PCIE_B_MASTER 86
-+#define RESET_APMU_PCIE_C_DBI    87
-+#define RESET_APMU_PCIE_C_SLAVE  88
-+#define RESET_APMU_PCIE_C_MASTER 89
-+#define RESET_APMU_PCIE_D_DBI    90
-+#define RESET_APMU_PCIE_D_SLAVE  91
-+#define RESET_APMU_PCIE_D_MASTER 92
-+#define RESET_APMU_PCIE_E_DBI    93
-+#define RESET_APMU_PCIE_E_SLAVE  94
-+#define RESET_APMU_PCIE_E_MASTER 95
- 
- /* DCIU resets*/
- #define RESET_DCIU_HDMA          0
+1. We might be operating on a VMA that is not yet added to the tree
+2. We might be operating on a VMA that is now detached
+3. Really in all but core code, you should be using vma_desc_xxx().
+4. Other VMA fields are manipulated with no such checks.
+5. It'd be egregious to have to add variants of flag functions just to
+   account for cases such as the above, especially when we don't do so for
+   other VMA fields. Drivers are the problematic cases and why it was
+   especially important (and also for debug as VMA locks were introduced),
+   the mmap_prepare work is solving this generally.
 
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260312-01-k3-reset-usb-pci-dd00afa7561a
+	vm_flags_init(vma, flags);
 
-Best regards,
--- 
-Yixun Lan <dlan@kernel.org>
+Analysing what's in this function:
 
+	VM_WARN_ON_ONCE(!pgtable_supports_soft_dirty() && (flags & VM_SOFTDIRTY));
+
+Duplicated.
+
+	vma_flags_clear_all(&vma->flags);
+
+Only necessary while you're only setting the first system word of
+vma->flags.
+
+	vma_flags_overwrite_word(&vma->flags, flags);
+
+Again only necessary when you're only setting the first system word.
+
+So yeah it's doing the equivalent and (intentionally) eliminating some
+noise.
+
+But I'll add the S/D check back I guess.
+
+>
+> >  	} else {
+> > -		mlock_vma_pages_range(vma, start, end, newflags);
+> > +		mlock_vma_pages_range(vma, start, end, &new_vma_flags);
+> >  	}
+> >  out:
+> >  	*prev = vma;
+> > diff --git a/mm/mprotect.c b/mm/mprotect.c
+> > index eaa724b99908..2b8a85689ab7 100644
+> > --- a/mm/mprotect.c
+> > +++ b/mm/mprotect.c
+> > @@ -756,13 +756,11 @@ mprotect_fixup(struct vma_iterator *vmi, struct mmu_gather *tlb,
+> >  		vma_flags_clear(&new_vma_flags, VMA_ACCOUNT_BIT);
+> >  	}
+> >
+> > -	newflags = vma_flags_to_legacy(new_vma_flags);
+> > -	vma = vma_modify_flags(vmi, *pprev, vma, start, end, &newflags);
+> > +	vma = vma_modify_flags(vmi, *pprev, vma, start, end, &new_vma_flags);
+> >  	if (IS_ERR(vma)) {
+> >  		error = PTR_ERR(vma);
+> >  		goto fail;
+> >  	}
+> > -	new_vma_flags = legacy_to_vma_flags(newflags);
+> >
+> >  	*pprev = vma;
+> >
+> > @@ -771,7 +769,7 @@ mprotect_fixup(struct vma_iterator *vmi, struct mmu_gather *tlb,
+> >  	 * held in write mode.
+> >  	 */
+> >  	vma_start_write(vma);
+> > -	vm_flags_reset_once(vma, newflags);
+> > +	WRITE_ONCE(vma->flags, new_vma_flags);
+>
+> Ditto.
+
+I mean overall these cases are hacks in my opinion to work around code that
+should have solved their problem another way.
+
+But sure, as above I'll add a helper function or such.
+
+>
+> >  	if (vma_wants_manual_pte_write_upgrade(vma))
+> >  		mm_cp_flags |= MM_CP_TRY_CHANGE_WRITABLE;
+> >  	vma_set_page_prot(vma);
+> > @@ -796,6 +794,7 @@ mprotect_fixup(struct vma_iterator *vmi, struct mmu_gather *tlb,
+> >  	}
+> >
+> >  	vm_stat_account(mm, vma_flags_to_legacy(old_vma_flags), -nrpages);
+> > +	newflags = vma_flags_to_legacy(new_vma_flags);
+> >  	vm_stat_account(mm, newflags, nrpages);
+> >  	perf_event_mmap(vma);
+> >  	return 0;
+> > diff --git a/mm/mseal.c b/mm/mseal.c
+> > index 316b5e1dec78..603df53ad267 100644
 
 _______________________________________________
 linux-riscv mailing list
