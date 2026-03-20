@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE06109316E
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FEE1093170
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nTN6g8wZu+KLMBJcqhcEBx7gn2ajFKNmYih8cVcAVE8=; b=oFlasyW8MLVE6+
-	eYB2icV1IMa8PgvY8nQJHOUvvELvWys9GlU5Kad5OkUrcA8gwEuuu0DqGxJc4tEFnM9ASWyerWpH9
-	PBxBYlfjVAz1/Yp2qR7wxZFZa0jdKP03PrDAHi4aLtmmNSykcxQjOZOBrjn0u7Q69HP2QcswQq1gn
-	PEVces+2Kd90AL2WMJzENwqHs/RT2EXktANOrxPOWMUEZyAE9FHNB19JIuVBELh6BVwW6JqM/E2tM
-	7CnF1uMqqcZOuHYTlESCZiDMW+QA0vUI81cEOyiy+d2nlPfwXRRFGhVMB+BKJoXiQ17vQHAdl7d1m
-	CY+3H04++DHFfqWYVSpw==;
+	List-Owner; bh=XGsNyxmmQc4Vc7uAKI1z7OCuWTufZ+jkXiDkZK/tDYY=; b=dsLR2wDSXcpgcn
+	nmmivde80o25pf1lzcTzikSB6ue490k0IeblSYerZC0Suhdi0ov7htVF/b2T/WAV2uJcsJbyoUHP8
+	Qy9N1dEBJDRPiMD/fmNUgjlr6erx/TADL64aZT/lDqBrf3UCeGpcA91hVnMCQlMawFx6+jfHUMyH2
+	a5MMkKjD2lvpyDelroFGZucH540hEdm/l9EyjHsRtufEqokiYq3TvzBHQB0koJbDCdzHqFmIM4oRu
+	Z6Guxwyu0LII+fzjyo9GezSWWBglhfYCO0+k/N7lP+HTmTIi29gQPAFmgvrxTdGMaoYxb0b1niaBR
+	a+DyXzTeUolXQ79qNRdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QB9-0000000BxOM-0vWT;
-	Fri, 20 Mar 2026 03:05:39 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	id 1w3QD5-0000000Bxje-27HM;
+	Fri, 20 Mar 2026 03:07:39 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QB5-0000000BxMY-3SPn;
-	Fri, 20 Mar 2026 03:05:37 +0000
+	id 1w3QD2-0000000Bxiu-3Ry4;
+	Fri, 20 Mar 2026 03:07:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1773975932; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=VGXqSdrjifGxcMcDlLu7ZKp792LHAscB7o5xF4jfDt0=;
-	b=OwZa1HIiPI1M4xTkeYxsr/fkQioidrbvKK2HDh+1Sc5uzOx2hN0JUxn0KZEPJeC4GRzUfKVK0Q8yU1rUM7hticIGpEYTfC8il90aeZfnL+Taze15ryl19RayXIZ8dgSUSAPVLHzd5uGJ9ooKKHVwsoU1NoDwgQ7s87EJ77Mog04=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R271e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X.KE0mj_1773975927;
-Received: from 30.74.144.136(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X.KE0mj_1773975927 cluster:ay36)
+	t=1773976054; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=+pDqs44dkcjEkb8OYJpU6L+/Zb+sncdVx4zheks3ZXc=;
+	b=dYdHcERtYFyNDTA3+ZaSb0zhkINX++RF9JvBq39XHaTNKskbmntrB+vn38Plh0CJQ8M4rRNKMZ8wdWyajdB5G+jU77GwrnxHIAMTd7kNfr8ufDsZvm+VguuMIqoNLfEFry+kJX3yvWIW2gm66Tb8R7NKdA0PXdrRnjwoEZqzxl0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X.K9XTI_1773976052;
+Received: from 30.74.144.136(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X.K9XTI_1773976052 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 20 Mar 2026 11:05:28 +0800
-Message-ID: <f7831736-f48f-4b5f-908d-4acda5829403@linux.alibaba.com>
-Date: Fri, 20 Mar 2026 11:05:27 +0800
+          Fri, 20 Mar 2026 11:07:33 +0800
+Message-ID: <2ff1b860-ff76-48e6-98c5-28e517afd3f8@linux.alibaba.com>
+Date: Fri, 20 Mar 2026 11:07:32 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] mm: change to return bool for
- ptep_clear_flush_young()/clear_flush_young_ptes()
+Subject: Re: [PATCH 3/6] mm: change to return bool for
+ pmdp_test_and_clear_young()
 To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
 Cc: akpm@linux-foundation.org, david@kernel.org, Liam.Howlett@oracle.com,
  vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
@@ -49,13 +49,14 @@ Cc: akpm@linux-foundation.org, david@kernel.org, Liam.Howlett@oracle.com,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
 References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
- <5d24b34d8b7860dc2188408b3fa530193bcc5caa.1773890510.git.baolin.wang@linux.alibaba.com>
- <46390a7c-164c-4ffb-a1b2-fad21e3829df@lucifer.local>
+ <8025b898d0841a4bcbd766998959b4e2ae4d4abc.1773890510.git.baolin.wang@linux.alibaba.com>
+ <4cf8eac4-f601-4f39-8094-d904edbf454d@lucifer.local>
 From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <46390a7c-164c-4ffb-a1b2-fad21e3829df@lucifer.local>
+In-Reply-To: <4cf8eac4-f601-4f39-8094-d904edbf454d@lucifer.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_200536_498530_C0250B02 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20260319_200737_025627_1F0F965E 
+X-CRM114-Status: UNSURE (   5.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,57 +75,19 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 3/19/26 7:30 PM, Lorenzo Stoakes (Oracle) wrote:
-> On Thu, Mar 19, 2026 at 11:24:01AM +0800, Baolin Wang wrote:
->> The ptep_clear_flush_young() and clear_flush_young_ptes() are used to clear
->> the young flag and flush the TLB, returning whether the young flag was set.
->> Change the return type to bool to make the intention clearer.
+On 3/19/26 7:31 PM, Lorenzo Stoakes (Oracle) wrote:
+> On Thu, Mar 19, 2026 at 11:24:02AM +0800, Baolin Wang wrote:
+>> Callers use pmdp_test_and_clear_young() to clear the young flag and check
+>> whether it was set for this PMD entry. Change the return type to bool to
+>> make the intention clearer.
 >>
 >> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 > 
-> Couple nits but LGTM, so:
+> Some nits similar to before, otherwise LGTM so:
 > 
 > Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Thanks.
-
->> ---
->>   arch/arm64/include/asm/pgtable.h             | 15 +++++++--------
->>   arch/arm64/mm/contpte.c                      |  4 ++--
->>   arch/parisc/include/asm/pgtable.h            |  2 +-
->>   arch/parisc/kernel/cache.c                   |  8 ++++----
->>   arch/powerpc/include/asm/nohash/64/pgtable.h |  2 +-
->>   arch/riscv/include/asm/pgtable.h             |  4 ++--
->>   arch/s390/include/asm/pgtable.h              |  4 ++--
->>   arch/x86/include/asm/pgtable.h               |  4 ++--
->>   arch/x86/mm/pgtable.c                        |  4 ++--
->>   include/linux/pgtable.h                      |  8 ++++----
->>   mm/pgtable-generic.c                         |  7 ++++---
->>   11 files changed, 31 insertions(+), 31 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 8c651695204c..393a9d1873f6 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -1299,10 +1299,10 @@ static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
->>   	return pte_young(pte);
->>   }
->>
->> -static inline int __ptep_clear_flush_young(struct vm_area_struct *vma,
->> -					 unsigned long address, pte_t *ptep)
->> +static inline bool __ptep_clear_flush_young(struct vm_area_struct *vma,
->> +					    unsigned long address, pte_t *ptep)
-> 
-> I mean this is subjective stuff but can we just put 2nd line 2 tabs indented
-> underneath? Makes it easier for changes like this to not propagate.
-> 
-> Same comment for all of these!
-
-I usually use 2 tabs for indentation in the mm subsystem, but for other 
-subsystems, I try to follow the existing style since I'm unsure of other 
-maintainers' preferences:)
-
-Anyway, I can do this if no other objections.
+Thanks. And all comments acked.
 
 _______________________________________________
 linux-riscv mailing list
