@@ -4,148 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC9D108B913
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 12:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E053F1098783
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 13:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:In-Reply-To:
-	References:Message-Id:Subject:Date:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=92ByUJ1JJLNA7j0EOpggJM67NNZxBPk42NT9ZXcSzXg=; b=jYdQQnPSxTMRUsNenVLJgwfsSo
-	XuT62YAmsFVM4htm8irGUrrqPPUyHavPwwt5GSZPht3ktTGEP44KUiEb/n4AOWBiRAkHFQRY8EIid
-	IxnIMScRx5gZDNBYNQT0uJqrh2tG5IMLB6KxhVGKXB/ajfSmbsbutHHWRUokM8X8FH2K1ODY3K+4c
-	LyygvFEmWW3aru1gB9coQNei9oUmmxhXe+3WyxrEvDsDpN5+aMLgBvCorGQkXxhyU3vT9m0R/xTIS
-	bP1fHsVbP8mMxy7uaHjmLQZMRj09O9TPqzt3frKY3mNKUYnNTCqnJ4RhDuVd92Ewq4c96I3OafpJH
-	55lbhrlw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bFHO1+cISA+5XcUOjSQoKMNVgok97+geenNgYNCfkO4=; b=Fyt1hjKMC3xzwO
+	uOsdI7nr2AyD3BL1j+6zhoUKAwaqlyolsj7wuUkZvToRwfZa9hURxvoD9wrv9AIMngpkyRAakHD/8
+	V5JzNVzYKIuqMtOktTYvbg+wtkkXPpHMTH9xd1DGVBfCnrN7cqvaaI5cGbtOgjv19l4dIfhwvNjtO
+	V/iQEtZ+LrSmYfufkMLc9lYK0/ei1SL716VivlWsaAVPYRrklM4sCsCs7/5YhNLU1HFfyIr7AOf9j
+	bKynngFTal8ql+ZvbnNfl2/45Y61a+nRcuzQ3J62c93EobpGCMtDz7bCV3wQ0x+I/I6ns5i4febBH
+	W4OKmUK7CKaKtuJWtn9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Z4U-0000000CnFp-1gDB;
-	Fri, 20 Mar 2026 12:35:22 +0000
-Received: from mail-westcentralusazon11013045.outbound.protection.outlook.com ([40.93.201.45] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1w3ZTu-0000000Cosg-0BLA;
+	Fri, 20 Mar 2026 13:01:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Z4O-0000000CnFF-2Yx7
+	id 1w3ZTs-0000000Cos9-0YnI
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 12:35:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SKaaO1Q8KnJ05mHKkkUTEMoH4ZGaOWcT6RXn/W0yO8AxyvSxZs0zhXLlWvvyb6lTdxlvqRwbSPuCH+dXTvxLU7YTYeTUT1ehOKSEp2JbggKeO4UCdrYSe2lM7PJlzJWlBuDFS5rY+EpHhDG+VshZCCbtzr4VLAvAPOWDVZlmMMndM0OtZgWU+mVVVz3AtKb/XF309IWRG4e2+B7HsW3txOhdWs+YIMD/9P9vqrULQER3/RlEWCgf7Ti7R82inlHB/FGAs9LPBUV2MXflPwn/39XVQPgAUS13Lqctx1n3AEIHl6mI+VdwFrp5A4WQIiUaMNlmxO+RLX7L4/7kiZuCiA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fTUpNz9Wo6WLn/X/gFf9lJEjVCTMApAELVlqrQH1nlc=;
- b=uXIWTWBUlmc6mlJ+qNCW2cKtYjPTEXayYe/mAaYdKCnqbFQ9o+x2kqBCq6CIX/UDhp3Ickdx5Hs5+1IZXghtrjmb6Rbp3py2W8xLw1xF4PNEz3cdDrp09Gdo1GTRrzUDicm6Y8A5ZhvbUTLtWe9YK8WtRZnJdOFMW4H6zv5JIxQvv4pMLO+54opuQqITQjsbgdO5C5Hs3RZorIrisbJ++v1nDh+YZe0OFD605QM2VFe5IEi20c+N7idi6P6KgcQVZdLbsmSWqOBiaaD3UPge3wUcGytX5rue89jh2Rjdd2YSCmOAHqMyjEI6Es7IAC81JmsDA9zLNqM7T2hjhWUj1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fTUpNz9Wo6WLn/X/gFf9lJEjVCTMApAELVlqrQH1nlc=;
- b=DO9wmaUqVxK09FDFONOIfvpWVf98Zg7lQwp+GcnUGH0rlr/t1QhLMN5M0IR8cu5CfuM0wngt8NaO8meG93mR+Z5DGf0MP2Wtp2fAeU0hYCCLOaAg645GtrIFH3qkvbGGs2+XZQTUHfoEhSkIyO4sg5YefecOMYFvCBAAauUbmOy8uQlK3d47O1ycf7ZBKSGA8vWApj32gR61+XK/nqrf3/Qfu3VX64cnv8oebHVb9GttYYckwHrg16AjsWn/+tygshfZrI8tq+mP9/yY2ug/ZpJP74mqOxAN7Ebjli5tArU8nXnySDW+nqugpToPbBdLnWKXRLHZTs1FTbAX2xLNAQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
- by IA1PR12MB7519.namprd12.prod.outlook.com (2603:10b6:208:418::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.9; Fri, 20 Mar
- 2026 12:20:24 +0000
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989%6]) with mapi id 15.20.9745.007; Fri, 20 Mar 2026
- 12:20:24 +0000
-From: Alexandre Courbot <acourbot@nvidia.com>
-Date: Fri, 20 Mar 2026 21:19:56 +0900
-Subject: [PATCH v2 07/10] gpu: nova-core: falcon: introduce `bounded_enum`
- macro
-Message-Id: <20260320-b4-nova-register-v2-7-88fcf103e8d4@nvidia.com>
-References: <20260320-b4-nova-register-v2-0-88fcf103e8d4@nvidia.com>
-In-Reply-To: <20260320-b4-nova-register-v2-0-88fcf103e8d4@nvidia.com>
-To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Trevor Gross <tmgross@umich.edu>
-Cc: John Hubbard <jhubbard@nvidia.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Joel Fernandes <joelagnelf@nvidia.com>, Timur Tabi <ttabi@nvidia.com>, 
- Zhi Wang <zhiw@nvidia.com>, Eliot Courtney <ecourtney@nvidia.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
- rust-for-linux@vger.kernel.org, Alexandre Courbot <acourbot@nvidia.com>
-X-Mailer: b4 0.14.3
-X-ClientProxiedBy: TYCP286CA0122.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:2b6::8) To CH2PR12MB3990.namprd12.prod.outlook.com
- (2603:10b6:610:28::18)
+	Fri, 20 Mar 2026 13:01:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E791E4456B
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Mar 2026 13:01:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A29C2BCB8
+	for <linux-riscv@lists.infradead.org>; Fri, 20 Mar 2026 13:01:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774011694;
+	bh=ft9rf8Rf5SBMUWLWL9lzNo9iFxMUnMLxk5mkkO6wvkc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=p2FyKNYorQ1gZLgklkjlwb9uy1me9keQ2o80e1E6oIcNKVGmXVZyxSKrfXKNFP0Jw
+	 qlUST9ymdNR0GiUQPC+CQhXBVj9GD6vPOQrgtgWZcJ4Q4QVPyBprjXdZXxmPQCNTFF
+	 yKfV+mDBf5db2gC3mg66839cM52dvud/ny+H54C8aitmBjvncoHfdT1ryYLnVb5jHZ
+	 HMOV+7mPYKvRKi9m9BZTTiQJBGt1lDDaYcLMpZOYSNI8tzw87+xYZ5bWanSsIABSuI
+	 UfuUXS381wMOxkiAyY39rjiaav+/jabCgbRtaTj2xJJCvtIemCbHop15OJQDM8rdA+
+	 hCAmIqg8AGKUw==
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-78fc4425b6bso19678237b3.1
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Mar 2026 06:01:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVxhmC4yWPHIK+NR2knsGj4AvGgf0WeoDfnW7kiMEXfr95rz3p6YtGgwWvXBODUoUEftxHqWleMzSlSNQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzpr3vscRVvcHEQxGBJG8jGJFz0WnUutfihEGeJCnaTbRH7oUkv
+	u0/7AV4VWlXJmf/+khTRr0sTo2WtPnTGKsVrU3QkamMtybqh40gVP867J9N6K0Gaeb8O5FyiZSV
+	PU7RuhZThr0bFLhN2IBBt9/yNdUrUzDs=
+X-Received: by 2002:a05:690c:e059:b0:79a:8e70:e3e2 with SMTP id
+ 00721157ae682-79a90c1da1dmr24585607b3.50.1774011694012; Fri, 20 Mar 2026
+ 06:01:34 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|IA1PR12MB7519:EE_
-X-MS-Office365-Filtering-Correlation-Id: 54946cd8-0a26-4012-bdd8-08de867b1014
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|376014|7416014|366016|921020|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: /qpPO/+UC1wJHpdd/P5acuTdo65exk87yN/S+D0N+wONuin3+zny1/frDJME1NpfnspDt6VDvCCvK1VJ9S0mOdta3gCaC9ntGsJNOFW2i9kan0L57gQcj1gT+uc946A9gsEb6rdKY8yYE2NbFzUosAxbRM3Lxaal0QWh1J+zhunaNBxZpHxjBWj2fnbtyK21+nHEquV0Vig3+HBjClnk0xvoOywJjWUzJaKG+vAqU9+C1USuopAeRUUpSTmXm4b6LyV6qzQkTqhsFXCmV2XkVbgZBZwe05tGvzZio3uMwEbEdjzn8pStlcVe7KN0N/upbAqNoZt5xM3+vdKPqEutu5/tu22iVyW2PuTdDMuy8g+XcVZgEArCn0xJ1YXaDH1Ey1WeEY7gEjkYLYwPScnxwcE5iYCeZmiJRK2/2PhGeLiSyz5kmMbO4Fd4QewgQF/Eln8mVZduL7R2DmT7kDvA9O06d2Yu5AEDQaYNoRc6tsFQMeQtyj1a3hlxhg0evCUMFWJDWApJ2mueRGZD0mkPULlGUtyEDVCiXVJZB6i5MW1OtbwVrB3pnrAHpsoSL2cYyYThox0vd+SOjaTOkMu2VhpEEBLR/Eb0LGOp+pmzFF/3eYRv79jlVvcKxHixH16Euxd0DS59a4rjFlJrFjS7usc9IofiGGzhOF/Sr5MwNGlmG82TmHOXcW2U5Cz6qbUL7sV+kM5+WOVZJ41KSId+GL9ab6zlzpvJxOore7PQHr4wIL2AVjl8oVDKvUFXbVlv24XSXbs1yJ41c9V+ff7y4w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(376014)(7416014)(366016)(921020)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bk5HUE45WWhWT1BOdVFaUzVSTythNHUveDNpUDVPZy9DSnNkdGhoUGNTczRx?=
- =?utf-8?B?aG0vNmROWDdkb2hVckZFeUs1Q0oxUFZQSmkyN0V4aGN4N1hQejFCa0ZMMVA5?=
- =?utf-8?B?N0hFMU5GL3oxTlBVTW5ZdSt0aFo5TEM0aDYyMHU5NzZsUDRvYkRsWitQMnZx?=
- =?utf-8?B?NWpMS3drWUxITk1RdVJLSHRvYVU5dVZ3M3k4dGJkbDc4cE42YWhRUkozaTBK?=
- =?utf-8?B?VHBsdGlZUlhKSFBKdnc4RWMyU3NQbitINmN3eW1MdnFaa2tIcDIzSG8rTFEx?=
- =?utf-8?B?bEFZNmJPQXdZS3ZYbzZFNzBMZEp4cEc1c0w1Nm5WVHI2VXZkNlhHY1FMaE56?=
- =?utf-8?B?UllocGhDSU5lZTVJL1lXcHM1YTNGTEQrTk12cTdGQU16OGVpcGUwRFpncTJ6?=
- =?utf-8?B?aHA2NG80c3I1SVVqais5UW9vclM3T0dDMzlCQmIvcVdrTCs3UTFGQXgrQ0d6?=
- =?utf-8?B?ZVVKRy9xSVVqVk9nS1AwbHBKQUwrak55Y1RiVUlxZW5lUGJrTVNkeG5aRmVt?=
- =?utf-8?B?c3NPMUZETDl5MFVQUWZwQnZLam9qUE56czlJTTZhUDVMZmVRdEtaZFcvMVJh?=
- =?utf-8?B?cGpXbUpmRjZzWVBZK0s2aHpNdHlsejROU05yV3FlQ25xN2tzdlkvaHRQYjk4?=
- =?utf-8?B?eUNJK08zd2JKaG95L3dPZ0wzSTVTYXo3ZThOUmZDQlNBV3FnL3BrL3pYZHFu?=
- =?utf-8?B?WU5LT0M1TnBoT25sWHB0dFRaN3ZMSVBubDBhRXQvVG42cmQva29LZWlmSEpa?=
- =?utf-8?B?c1VKaFlSSWsweTJKOGY5L1U5VDh1Z0RuZ2FhNGNoU0ZSTzFaZHh0ZzF2RVFD?=
- =?utf-8?B?M3VXdGlmWUFyWE00U0lUNDR3VFcycmt3ZEF3elB0TUF3MW41ckVWWEJHM0Z2?=
- =?utf-8?B?R2VkbHFuaHZOYi9Ec1FpbStSL2hnTGJlRC84Smo2eXFjQlZnaXo5THZ1NmdI?=
- =?utf-8?B?aTNYdkQ1MHlIcVVESjNHL0JtV3J4dVlVS2pXWG5PWURwS1hQT1JqZjdqSExl?=
- =?utf-8?B?UTRkY0I0MUJPZlZnbGIrVnRiZlN3V2ZOd010Zlo1N0kvUmNjVHpMb1M0TktS?=
- =?utf-8?B?SklTREE5dndRWlB6SlpialRrQk5XVDRPOVBIOVR1ZUcvZDFaVkh6TmhVYWpL?=
- =?utf-8?B?bzhyUHNvSDBURm9INlU5bVlIc3IzYTVQTXlWV09ia0pUQkt2MFBpZFp4MkZk?=
- =?utf-8?B?dHJCZFhtemorbWwyWGFKOWtZS3ZFTjg1dGtDY1ptSkYwbGkxckZ4ZUlSa25z?=
- =?utf-8?B?TEMzekZVekdNUVN3ejdOT2VFUUp2U0FMVitqMVgyc3FoYlk3bEY0QXozTnVV?=
- =?utf-8?B?SkxFQ0NYL0tkNVZjU3lieDhkWWkwUEtqZnViUUV6Q1R5RXpBOWNpd3g2REk1?=
- =?utf-8?B?UW9tZkFxeSt5bUoxZ1B6ZlFLNkFzanNqV0paOW5XdDRrU1I5bG5sVGNqVVhv?=
- =?utf-8?B?RVduTk0yL21McmI1ZVl5Qy9rOHl4QUVBUjF2T1B2UkUxbFhjR08vSDc1OXBF?=
- =?utf-8?B?TGFGVm9pSks4dTJHTEFrYlpBQjBLbTArMjEweGw3QUxkdlpheE9VdlBTaFk1?=
- =?utf-8?B?RGVRVWovbE1XdmVqZTUyMHEzU3pGSVV6UXpqOVFYWXpxT3MybTU0eXJJL3ZK?=
- =?utf-8?B?ekNsRDdKakUwRGlxV1EwVmdiVmV2MWZWa0FWRGkyVWVoUVljc3VHUlhISXVB?=
- =?utf-8?B?Mk8ySVpNM2xhYWdCTS9hS3h6OEE4TXIrNE0vcXJlc0dTdTYySzZSeExKTVJE?=
- =?utf-8?B?NWZtdFlUZ1I2TmpsS3pocXkyRjhXOVNLdFFPUUJBY25pZnNOR3Bsa0lqTG0r?=
- =?utf-8?B?NjZRWExUUGNJQ3BiZEwxaG9WOUJ6bkIxQmZZUU9QUVRPZUR1SUIzSkp1V2tm?=
- =?utf-8?B?SGZtenFXdHJDOEJpeHhGRUZzaCtQTk9ZRlVsUGs0WWRsSng2Qmt1aGJiKy9l?=
- =?utf-8?B?a0ZjM1NWcGtkc2k3SGsrdkxFS0owUllUSjNrckV1YnlqWGZFZGNUQVoydVVp?=
- =?utf-8?B?eHRZclhaTDhYT1o5YlowQzBiVGI1cHY1dUlEaitTL2UzdUo1VjgyQmFWdk02?=
- =?utf-8?B?L09HRWUwOFZ2T0xGaVVYUVMwMEFqcmhOalV4MmhEc01nSDh0SlJ0M0sycjdQ?=
- =?utf-8?B?TFd3anVvaVhOZS8vcWg3a1VWWDVMeWdaWnNlSytMOUVUSDcrVEUwRVptTThR?=
- =?utf-8?B?ZUQyNWJacFVmZ0c4cWhJeFVacGlGR1Y0cVhFUGJBdGJOMEdpcDI5eG5Ca25U?=
- =?utf-8?B?QXhSLy9iNkh5cUJncUlYRDBkRGpCS0pnUFFmSU8xVWs0bFBkeU40MFhpUTBE?=
- =?utf-8?B?QlJERHVjRkpzYXlCSXZJSEJmQk5HekEwZkFJeXF2aVNtMTdZdHhwSEZkR3FR?=
- =?utf-8?Q?6ZImTvsupOKtdtVGOy+eOHF/F6cYC830PjSxlcK1Bz+9y?=
-X-MS-Exchange-AntiSpam-MessageData-1: Z5Fm5l2jJCokCw==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 54946cd8-0a26-4012-bdd8-08de867b1014
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 12:20:24.3435
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cg9KNuPyscXF7/GgigAkQ5VAJKTmVD8exyjKgdBkxN/p6ONedSgR64clCzpvN6Q3q/NngxjpuvgWI7fIMfNOJA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7519
+References: <20260318-gift-nearest-fd3ef3e4819b@spud> <20260318-fondly-tradition-90b8241f0cc8@spud>
+In-Reply-To: <20260318-fondly-tradition-90b8241f0cc8@spud>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 20 Mar 2026 14:01:23 +0100
+X-Gmail-Original-Message-ID: <CAD++jLncq3YPeAOi=2A+mVV=Z0nuoWS_1cGJP3gPUQ1C2=Nczw@mail.gmail.com>
+X-Gm-Features: AaiRm53Ce2l7MamKLYOuY5ZyQXcZOamVTEaSdvWkIylypWTwGTBZlqqQvGq_X8Y
+Message-ID: <CAD++jLncq3YPeAOi=2A+mVV=Z0nuoWS_1cGJP3gPUQ1C2=Nczw@mail.gmail.com>
+Subject: Re: [PATCH v13 1/5] dt-bindings: gpio: fix microchip,mpfs-gpio
+ interrupt documentation
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Herve Codina <herve.codina@bootlin.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Bartosz Golaszewski <brgl@kernel.org>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_053516_662485_5C164EBF 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20260320_060136_209958_40354C77 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,127 +83,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a powered-up version of our ad-hoc `impl_from_enum_to_u8`
-macro that allows the definition of an enum type associated to a
-`Bounded` of a given width, and provides the `From` and `TryFrom`
-implementations required to use that enum as a register field member.
-
-The next patch will make use of it to convert all falcon registers to
-the kernel register macro.
-
-The macro is unused in this patch: it is introduced ahead-of-time to
-avoid diff mingling in the next patch that would make it difficult to
-review.
-
-Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
----
- drivers/gpu/nova-core/falcon.rs | 82 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 82 insertions(+)
-
-diff --git a/drivers/gpu/nova-core/falcon.rs b/drivers/gpu/nova-core/falcon.rs
-index 5a4f7fc85160..5221e4476f90 100644
---- a/drivers/gpu/nova-core/falcon.rs
-+++ b/drivers/gpu/nova-core/falcon.rs
-@@ -54,6 +54,88 @@ fn from(value: $enum_type) -> Self {
-     };
- }
- 
-+/// Creates an enum type associated to a `Bounded`, with a `From` conversion to the associated
-+/// `Bounded` and either a `TryFrom` or `From` converting from the associated `Bounded`.
-+// TODO[FPRI]: This is a temporary solution to be replaced with the corresponding derive macros
-+// once they land.
-+#[expect(unused)]
-+macro_rules! bounded_enum {
-+    (
-+        $(#[doc = $enum_doc:expr])*
-+        enum $enum_type:ident with $from_impl:ident<Bounded<$width:ty, $length:literal>> {
-+            $( $(#[doc = $variant_doc:expr])* $variant:ident = $value:expr),* $(,)*
-+        }
-+    ) => {
-+        $(#[doc = $enum_doc])*
-+        #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
-+        pub(crate) enum $enum_type {
-+            $(
-+                $(#[doc = $variant_doc])*
-+                $variant = $value
-+            ),*
-+        }
-+
-+        impl From<$enum_type> for Bounded<$width, $length> {
-+            fn from(value: $enum_type) -> Self {
-+                match value {
-+                    $($enum_type::$variant => Bounded::<$width, _>::new::<$value>()),*
-+                }
-+            }
-+        }
-+
-+        bounded_enum!(@impl_from $enum_type with $from_impl<Bounded<$width, $length>> {
-+            $($variant = $value),*
-+        });
-+    };
-+
-+    // `TryFrom` implementation from associated `Bounded` to enum type.
-+    (@impl_from $enum_type:ident with TryFrom<Bounded<$width:ty, $length:literal>> {
-+        $($variant:ident = $value:expr),* $(,)*
-+    }) => {
-+        impl TryFrom<Bounded<$width, $length>> for $enum_type {
-+            type Error = Error;
-+
-+            fn try_from(value: Bounded<$width, $length>) -> Result<Self> {
-+                match value.get() {
-+                    $(
-+                        $value => Ok($enum_type::$variant),
-+                    )*
-+                    _ => Err(EINVAL),
-+                }
-+            }
-+        }
-+    };
-+
-+    // `From` implementation from associated `Bounded` to enum type. Triggers a `build_error` if
-+    // all possible values of the `Bounded` are not covered by the enum type.
-+    (@impl_from $enum_type:ident with From<Bounded<$width:ty, $length:literal>> {
-+        $($variant:ident = $value:expr),* $(,)*
-+    }) => {
-+        impl From<Bounded<$width, $length>> for $enum_type {
-+            fn from(value: Bounded<$width, $length>) -> Self {
-+                $(
-+                    // Ensure all enum values fit into the `Bounded` type.
-+                    const { assert!(
-+                        $value < (1 << $length),
-+                        "Enum variant doesn't fit into assigned `Bounded` type."
-+                    ); }
-+                )*
-+
-+                // Makes the compiler optimizer aware of the possible range of values.
-+                let value = value.get() & ((1 << $length) - 1);
-+                match value {
-+                    $(
-+                        $value => $enum_type::$variant,
-+                    )*
-+                    // We land here if the match didn't cover all possible values for the
-+                    // `Bounded`.
-+                    _ => build_error!("Enum doesn't cover all values of the `Bounded` type."),
-+                }
-+            }
-+        }
-+    }
-+}
-+
- /// Revision number of a falcon core, used in the [`crate::regs::NV_PFALCON_FALCON_HWCFG1`]
- /// register.
- #[repr(u8)]
-
--- 
-2.53.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBNYXIgMTgsIDIwMjYgYXQgMTI6MDTigK9QTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
+cm5lbC5vcmc+IHdyb3RlOgoKPiBGcm9tOiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNy
+b2NoaXAuY29tPgo+Cj4gVGhlIG1pY3JvY2hpcCxtcGZzLWdwaW8gYmluZGluZyBzdWZmZXJlZCBn
+cmVhdGx5IGR1ZSB0byBiZWluZyB3cml0dGVuCj4gd2l0aCBhIG5hcnJvdyBtaW5kZWQgdmlldyBv
+ZiB0aGUgY29udHJvbGxlciwgYW5kIHRoZSBpbnRlcnJ1cHQgYml0cwo+IGVuZGVkIHVwIGluY29y
+cmVjdC4gSXQgd2FzIG1pc3Rha2VubHkgYXNzdW1lZCB0aGF0IHRoZSBpbnRlcnJ1cHQKPiBjb25m
+aWd1cmF0aW9uIHdhcyBzZXQgYnkgcGxhdGZvcm0gZmlybXdhcmUsIGJhc2VkIG9uIHRoZSBGUEdB
+Cj4gY29uZmlndXJhdGlvbiwgYW5kIHRoYXQgdGhlIEdQSU8gRFQgbm9kZXMgd2VyZSB0aGUgb25s
+eSB3YXkgdG8gcmVhbGx5Cj4gY29tbXVuaWNhdGUgaW50ZXJydXB0IGNvbmZpZ3VyYXRpb24gdG8g
+c29mdHdhcmUuCj4KPiBJbnN0ZWFkLCB0aGUgbXV4IHNob3VsZCBiZSBhIGRldmljZSBpbiBpdHMg
+b3duIHJpZ2h0LCBhbmQgdGhlIEdQSU8KPiBjb250cm9sbGVycyBzaG91bGQgYmUgY29ubmVjdGVk
+IHRvIGl0LCByYXRoZXIgdGhhbiB0byB0aGUgUExJQy4KPiBOb3cgdGhhdCBhIGJpbmRpbmcgZXhp
+c3RzIGZvciB0aGF0IG11eCwgdHJ5IHRvIGZpeCB0aGUgbWlzY29uY2VwdGlvbnMKPiBpbiB0aGUg
+R1BJTyBjb250cm9sbGVyIGJpbmRpbmcuCj4KPiBGaXJzdGx5LCBpdCdzIG5vdCBwb3NzaWJsZSBm
+b3IgdGhpcyBjb250cm9sbGVyIHRvIGhhdmUgZmV3ZXIgdGhhbiAxNAo+IEdQSU9zLCBhbmQgdGh1
+cyAxNCBpbnRlcnJ1cHRzIGFsc28uIFRoZXJlIGFyZSB0aHJlZSBjb250cm9sbGVycywgd2l0aAo+
+IDE0LCAyNCAmIDMyIEdQSU9zIGVhY2guIFRoZSBmYWJyaWMgY29yZSwgQ29yZUdQSU8sIGNhbiBv
+ZiBjb3Vyc2UgaGF2ZQo+IGEgY3VzdG9taXNhYmxlIG51bWJlciBvZiBHUElPcy4KPgo+IFRoZSBl
+eGFtcGxlIGlzIHdhY2t5IHRvbyAtIGl0IGZvbGxvd3MgZnJvbSB0aGUgaW5jb3JyZWN0IHVuZGVy
+c3RhbmRpbmcKPiB0aGF0IHRoZSBHUElPIGNvbnRyb2xsZXJzIGFyZSBjb25uZWN0ZWQgdG8gdGhl
+IFBMSUMgZGlyZWN0bHkuIFRoZXkgYXJlCj4gbm90IGhvd2V2ZXIsIHdpdGggYSBtdXggc2l0dGlu
+ZyBpbiBiZXR3ZWVuLiBVcGRhdGUgdGhlIGV4YW1wbGUgdG8gdXNlCj4gdGhlIG11eCBhcyBhIHBh
+cmVudCwgYW5kIHRoZSBpbnRlcnJ1cHQgbnVtYmVycyBhdCB0aGUgbXV4IGZvciBHUElPMiBhcwo+
+IHRoZSBleGFtcGxlIC0gcmF0aGVyIHRoYW4gdGhlIHN0cmFuZ2UgbG9va2luZywgcmVwZWF0ZWQg
+PDUzPi4KPgo+IFNpZ25lZC1vZmYtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3Jv
+Y2hpcC5jb20+CgpNYWtlcyBzZW5zZSB0byBtZSEKUmV2aWV3ZWQtYnk6IExpbnVzIFdhbGxlaWog
+PGxpbnVzd0BrZXJuZWwub3JnPgoKWW91cnMsCkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
