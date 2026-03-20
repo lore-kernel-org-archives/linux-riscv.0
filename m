@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A441099B41
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 22:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6F21099B3B
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 22:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I+xT5p/njzhQlIf0lmCatw0LHRbyLvyuz0Zc5PW6HL4=; b=hyf4ibh1C2RcLu
-	4RxyywUkLnCwYpzuZeb2CWsaZogQ1u+ZZnMieAcYpbgFnN2DW1+YkgSisro4hNuA516dBfRNTTIgv
-	sqyuCvTe02poynNzkdP+T16Q5TTCQXdKMSErXqP1isfXnunjkIKcjUhPmq7/iUu2ZTDmwc0ju98wn
-	zdfJExAWqE+gI3i3sdkRj2qTbcxGMW/WYbV4Jkom0EIVF8mHx0Bk631C7bDwOPrvJwCvslYMHFWEL
-	o3c8pVtv7Ja0k6oOZv7rO4u8CF3x3PDvbuKpjGWdRWl9OA+eqm3OJ2mdT75yMNkb0w7p+L2Wy7aLt
-	+29pSGeIzHTCUvErlrSw==;
+	List-Owner; bh=0MVo4juxzeWuVksI6klPV3IAY30u30mWtuEs7I93cbQ=; b=pRcicgPnbRkW2o
+	W5WT4b7bTNRmi9CrU/rxLRmgm1TldGOqXFth1IT64pBS/V7jETNrkg1eFQVpoZuJeagifYIGNj75l
+	QF0JQCkIqj/zwuXO1yeWAcsa+JiYe/4d37m2cSe1mFFxiejiSr0Hgb14e06aEia3qNtVOqUeYBWQ1
+	cep8t+YtXgPKXxZEia6plUoxsbYk6f3sti3j5R6CQ7VzkIKQrKap9yTb3jHlfEEV4uu3wpQDDzSCh
+	/rVa3wq5oZ13fsoo4Jwfos6MJXE+NrXxSyGB51ntcAl5Rfg73PQCtKgsqdL2jHocklF1bja0vPHHk
+	eYBjUeKfQWjjeoBXVH0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3i6L-0000000DfKc-1zr1;
-	Fri, 20 Mar 2026 22:13:53 +0000
+	id 1w3i6M-0000000DfLS-3LfZ;
+	Fri, 20 Mar 2026 22:13:54 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3i6H-0000000DfKC-2i08
+	id 1w3i6L-0000000DfKa-0woC
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 22:13:51 +0000
+	Fri, 20 Mar 2026 22:13:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A55C960126;
+	by tor.source.kernel.org (Postfix) with ESMTP id A993E60126;
+	Fri, 20 Mar 2026 22:13:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CECA5C2BC87;
 	Fri, 20 Mar 2026 22:13:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B74D4C4CEF7;
-	Fri, 20 Mar 2026 22:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774044828;
-	bh=nHbTHkZVPmgr07xrNZlc6QBoO7DF8u1xsHWbyTYeiTQ=;
+	s=k20201202; t=1774044832;
+	bh=XBR2EPoKpXeNjq1txkLBTh/DgkCJHtoC1PlnginQxtA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tQfW0O52ZtyktIiPAk6j94DCE/TASe1TGKNwSCHH/AqiVoKikGBfFF3W4UcBK/nfw
-	 8V7Vb27Vcmrr0XvfznjhmwdnhGVPlZCBt7c1tUzBlzwi7wYWY0KR84ObQEtEz6uESv
-	 dRzL5KUAy9mEFD4GI/QVpkY+cklyuLv1v1lmUNE7D7i6zqVl2H/QaLAOr83tthbwZl
-	 jIT3N5KVDUM3OYBhJFn5GCC1nY/SIvLbps9ZcbkHdoN80Bzuh8s1eM7pV8Bva0XXDY
-	 h8kXTpPAdxsUhuyQ3Sg8Xd7BkRgiNQ4pgqYN84AN08nzdlaoP9hShigTqDXP9QruqH
-	 SbtczXznDUijA==
+	b=tInuY984yzdIEuaZJXpPPAPu/jx6o88MxmPXqoEhhmH9XAKSJMbP9JmVw7KDYMdYI
+	 cYFzrC3mXShUxMELrJRAOb8iFHCYRFYnMXADOypUly2tPI5LhdRJAlx6Y7vIsodwEE
+	 Tb8WTg9dueCXRj24fln2u12nVVjS4oL3Ny2O8BgKFv5WAfttURT/QkCV02wu1LukEt
+	 +WqU5eLPOYBtokHGt2yPjG/XvcY29bKMFzXiTW0vweT3cJdrcDYhDTgUwEXHa4yEL4
+	 Ov9DFUt9eHboVve5zoTrH8Bv9mnM+yD+kzQ6+YJzB4D+h8DGu8XFoU9yIoZlUTet3N
+	 5V0hxSVsZnYcA==
 From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Fri, 20 Mar 2026 23:13:33 +0100
-Subject: [PATCH v2 01/15] mm/memory_hotplug: fix possible race in
- scan_movable_pages()
+Date: Fri, 20 Mar 2026 23:13:34 +0100
+Subject: [PATCH v2 02/15] mm/memory_hotplug: remove for_each_valid_pfn()
+ usage
 MIME-Version: 1.0
-Message-Id: <20260320-sparsemem_cleanups-v2-1-096addc8800d@kernel.org>
+Message-Id: <20260320-sparsemem_cleanups-v2-2-096addc8800d@kernel.org>
 References: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
 In-Reply-To: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
 To: linux-kernel@vger.kernel.org
@@ -78,71 +78,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If a hugetlb folio gets freed while we are in scan_movable_pages(),
-folio_nr_pages() could return 0, resulting in or'ing "0 - 1 = -1"
-to the PFN, resulting in PFN = -1. We're not holding any locks or
-references that would prevent that.
+When offlining memory, we know that the memory range has no holes.
+Checking for valid pfns is not required.
 
-for_each_valid_pfn() would then search for the next valid PFN, and could
-return a PFN that is outside of the range of the original requested
-range. do_migrate_page() would then try to migrate quite a big range,
-which is certainly undesirable.
-
-To fix it, simply test for valid folio_nr_pages() values. While at it,
-as PageHuge() really just does a page_folio() internally, we can just
-use folio_test_hugetlb() on the folio directly.
-
-scan_movable_pages() is expected to be fast, and we try to avoid taking
-locks or grabbing references. We cannot use folio_try_get() as that does
-not work for free hugetlb folios. We could grab the hugetlb_lock, but
-that just adds complexity.
-
-The race is unlikely to trigger in practice, so we won't be CCing
-stable.
-
-Fixes: 16540dae959d ("mm/hugetlb: mm/memory_hotplug: use a folio in scan_movable_pages()")
+Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
- mm/memory_hotplug.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ mm/memory_hotplug.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
-index 86d3faf50453..969cd7ddf68f 100644
+index 969cd7ddf68f..0c26b1f2be6e 100644
 --- a/mm/memory_hotplug.c
 +++ b/mm/memory_hotplug.c
-@@ -1747,6 +1747,7 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
+@@ -1746,7 +1746,7 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
+ {
  	unsigned long pfn;
  
- 	for_each_valid_pfn(pfn, start, end) {
-+		unsigned long nr_pages;
+-	for_each_valid_pfn(pfn, start, end) {
++	for (pfn = start; pfn < end; pfn++) {
+ 		unsigned long nr_pages;
  		struct page *page;
  		struct folio *folio;
+@@ -1796,7 +1796,7 @@ static void do_migrate_range(unsigned long start_pfn, unsigned long end_pfn)
+ 	static DEFINE_RATELIMIT_STATE(migrate_rs, DEFAULT_RATELIMIT_INTERVAL,
+ 				      DEFAULT_RATELIMIT_BURST);
  
-@@ -1763,9 +1764,9 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
- 		if (PageOffline(page) && page_count(page))
- 			return -EBUSY;
+-	for_each_valid_pfn(pfn, start_pfn, end_pfn) {
++	for (pfn = start_pfn; pfn < end_pfn; pfn++) {
+ 		struct page *page;
  
--		if (!PageHuge(page))
--			continue;
- 		folio = page_folio(page);
-+		if (!folio_test_hugetlb(folio))
-+			continue;
- 		/*
- 		 * This test is racy as we hold no reference or lock.  The
- 		 * hugetlb page could have been free'ed and head is no longer
-@@ -1775,7 +1776,11 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
- 		 */
- 		if (folio_test_hugetlb_migratable(folio))
- 			goto found;
--		pfn |= folio_nr_pages(folio) - 1;
-+		nr_pages = folio_nr_pages(folio);
-+		if (unlikely(nr_pages < 1 || nr_pages > MAX_FOLIO_NR_PAGES ||
-+			     !is_power_of_2(nr_pages)))
-+			continue;
-+		pfn |= nr_pages - 1;
- 	}
- 	return -ENOENT;
- found:
+ 		page = pfn_to_page(pfn);
 
 -- 
 2.43.0
