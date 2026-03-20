@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D081093168
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0671093174
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eRIFWEUrDIZc6ifsfXv+fs/iqV3SW2fJLUKyJLwqStg=; b=iXr6UYHA2tlDnw
-	Kp47lwmJWHXrRMDz/i+PbEsi6R1tlb1aXeuC4hE/o1yS7rpUaKnW8CblxCQCiDoxAAAIa3D6Hug6N
-	rCvKY7F/GtVw70+isdiL02BD5s6SbA9zyCfrfTsfs5crBjtu+z/6mWdXzT7m4z8Da31vfalanP00s
-	5KKGwpr3N2u9UXDQUtJboVIFi1nCh3rYdycJAAzY+DPmfWbe4Bfdn5XSz3qfqVhWiuSUZY/Y0P0JR
-	HCO005ILs6z7uMvvv0jAnHJLFhmMlkwx0DwrDOaK+g5sC8nYcF+48nW5QcFQu4etJvN7ViGrTf+rZ
-	9UvMBtsX3z9d035ksdVQ==;
+	List-Owner; bh=d0vH6zCv/2GLgDh03b9erJbXr5hT1Px7m8rmk60nqik=; b=SxT31LDpYGjyr3
+	s7C/iKX8lLu43cg0pvcuPsgPnJXSvLU6dlmN/F+kTHfUOSehtyU+5vODT5K36+WkJa/omgZJd45ky
+	E2g3FMQfwak5nTQJaqIL4sc7+2RAV81JZrocCIfivZz5c9EtWe8/l6u979QXIajlNjOxCogyaZg1v
+	tEWGj7tW8QtX8NxkgE/uiBWZbDCe9Rfi3YQL5ufc8dQjNdcsQMMsmS2Wborb0J2wMYas9L5Wa0Btx
+	x27IxAOPIS2LEX+uPlVu9X1jouBVYWzfIuli/OvEN/JcVWfqiHlhms1mCKJdimRuWmEepFNl5OHn6
+	kwPRIsvhH9G91S78Ko+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QN8-0000000ByWL-1r9u;
-	Fri, 20 Mar 2026 03:18:03 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1w3QN3-0000000BySV-22wa;
+	Fri, 20 Mar 2026 03:17:57 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QN3-0000000ByS8-2JAs;
-	Fri, 20 Mar 2026 03:17:58 +0000
+	id 1w3QMz-0000000ByQu-2nsE;
+	Fri, 20 Mar 2026 03:17:55 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=ANvjKw/V+x/xgnK84bsEKs2slfuc72S2wtUZ6Ltd7AU=;
-	b=gAhZczIG65dC2yh+2aADvwVAp++19t5FyGF4ZzbeSLiKAirv37HFkiFuy/A1lWBlr5MpsM4Ut
-	Lnhv1/GDpeZI1w99rpED8gfQlunCOXOTiUjR1yp3rBy23eO6v/Ttq6ZYJsfo+fm/1xgWotDODEb
-	YV0jLZY6lrTP0qpYzZ1KoG4=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4fcSK46PmXz1K96X;
-	Fri, 20 Mar 2026 11:11:52 +0800 (CST)
+	bh=BMMryEb1CdnOx2gMiVv+9iHKONhR3XK5c+5CZUibkPo=;
+	b=l/7oJpMqJuYSGHZyOqLiw5LD07h+45LWAipYVAvEt9pYxSp4UxJSqwXgX66M8/EZ74aeSBY3M
+	qLpVsSs+rpKpxDOoVmFTloYQFQ4DUIG80JTpBOmlHJ7rSI3KUDZxGFyGCXDxs8sVu0UH3BlI+It
+	fJwAj4fQtMaqP5gUwirfIBk=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4fcSL815VlzmV66;
+	Fri, 20 Mar 2026 11:12:48 +0800 (CST)
 Received: from kwepemk500009.china.huawei.com (unknown [7.202.194.94])
-	by mail.maildlp.com (Postfix) with ESMTPS id E9F8040567;
-	Fri, 20 Mar 2026 11:17:52 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id B24234056B;
+	Fri, 20 Mar 2026 11:17:49 +0800 (CST)
 Received: from localhost.localdomain (10.50.163.32) by
  kwepemk500009.china.huawei.com (7.202.194.94) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 20 Mar 2026 11:17:51 +0800
+ 15.2.1544.11; Fri, 20 Mar 2026 11:17:47 +0800
 From: Chengwen Feng <fengchengwen@huawei.com>
 To: Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas
 	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J .
  Wysocki" <rafael@kernel.org>
-Subject: [PATCH v10 5/8] ACPI: Centralize acpi_get_cpu_uid() declaration in include/linux/acpi.h
-Date: Fri, 20 Mar 2026 11:17:34 +0800
-Message-ID: <20260320031737.35048-6-fengchengwen@huawei.com>
+Subject: [PATCH v10 3/8] RISC-V: ACPI: Add acpi_get_cpu_uid() for unified ACPI CPU UID retrieval
+Date: Fri, 20 Mar 2026 11:17:32 +0800
+Message-ID: <20260320031737.35048-4-fengchengwen@huawei.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20260320031737.35048-1-fengchengwen@huawei.com>
 References: <20260320031737.35048-1-fengchengwen@huawei.com>
@@ -58,8 +58,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  kwepemk500009.china.huawei.com (7.202.194.94)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_201757_925002_6CAFBD95 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260319_201754_057102_EC03B236 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +77,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Centralize acpi_get_cpu_uid() in include/linux/acpi.h (global scope) and
-remove arch-specific declarations from arm64/loongarch/riscv/x86
-asm/acpi.h. This unifies the interface across architectures and
-simplifies maintenance by eliminating duplicate prototypes.
+As a step towards unifying the interface for retrieving ACPI CPU UID
+across architectures, introduce a new function acpi_get_cpu_uid() for
+riscv. While at it, add input validation to make the code more robust.
+
+And also update acpi_numa.c and rhct.c to use the new interface instead
+of the legacy get_acpi_id_for_cpu().
 
 Cc: stable@vger.kernel.org
 Signed-off-by: Chengwen Feng <fengchengwen@huawei.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 ---
- arch/arm64/include/asm/acpi.h     |  1 -
- arch/loongarch/include/asm/acpi.h |  1 -
- arch/riscv/include/asm/acpi.h     |  1 -
- arch/x86/include/asm/acpi.h       |  2 --
- include/linux/acpi.h              | 11 +++++++++++
- 5 files changed, 11 insertions(+), 5 deletions(-)
+ arch/riscv/include/asm/acpi.h |  1 +
+ arch/riscv/kernel/acpi.c      | 16 ++++++++++++++++
+ arch/riscv/kernel/acpi_numa.c |  9 ++++++---
+ drivers/acpi/riscv/rhct.c     |  7 ++++++-
+ 4 files changed, 29 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
-index 2219a3301e72..bdb0ecf95b5c 100644
---- a/arch/arm64/include/asm/acpi.h
-+++ b/arch/arm64/include/asm/acpi.h
-@@ -118,7 +118,6 @@ static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
- {
- 	return	acpi_cpu_get_madt_gicc(cpu)->uid;
- }
--int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
- int get_cpu_for_acpi_id(u32 uid);
- 
- static inline void arch_fix_phys_package_id(int num, u32 slot) { }
-diff --git a/arch/loongarch/include/asm/acpi.h b/arch/loongarch/include/asm/acpi.h
-index 8bb101b4557e..7376840fa9f7 100644
---- a/arch/loongarch/include/asm/acpi.h
-+++ b/arch/loongarch/include/asm/acpi.h
-@@ -44,7 +44,6 @@ static inline u32 get_acpi_id_for_cpu(unsigned int cpu)
- {
- 	return acpi_core_pic[cpu_logical_map(cpu)].processor_id;
- }
--int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
- 
- #endif /* !CONFIG_ACPI */
- 
 diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index f3520cc85af3..6e13695120bc 100644
+index 6e13695120bc..f3520cc85af3 100644
 --- a/arch/riscv/include/asm/acpi.h
 +++ b/arch/riscv/include/asm/acpi.h
-@@ -65,7 +65,6 @@ static inline u32 get_acpi_id_for_cpu(int cpu)
+@@ -65,6 +65,7 @@ static inline u32 get_acpi_id_for_cpu(int cpu)
  {
  	return acpi_cpu_get_madt_rintc(cpu)->uid;
  }
--int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
++int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
  
  int acpi_get_riscv_isa(struct acpi_table_header *table,
  		       unsigned int cpu, const char **isa);
-diff --git a/arch/x86/include/asm/acpi.h b/arch/x86/include/asm/acpi.h
-index 92b5c27c4fea..a03aa6f999d1 100644
---- a/arch/x86/include/asm/acpi.h
-+++ b/arch/x86/include/asm/acpi.h
-@@ -157,8 +157,6 @@ static inline bool acpi_has_cpu_in_madt(void)
- 	return !!acpi_lapic;
+diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+index 71698ee11621..322ea92aa39f 100644
+--- a/arch/riscv/kernel/acpi.c
++++ b/arch/riscv/kernel/acpi.c
+@@ -337,3 +337,19 @@ int raw_pci_write(unsigned int domain, unsigned int bus,
  }
  
--int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
--
- #define ACPI_HAVE_ARCH_SET_ROOT_POINTER
- static __always_inline void acpi_arch_set_root_pointer(u64 addr)
- {
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index 4d2f0bed7a06..74a73f0e5944 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -324,6 +324,17 @@ int acpi_unmap_cpu(int cpu);
- 
- acpi_handle acpi_get_processor_handle(int cpu);
- 
-+/**
-+ * acpi_get_cpu_uid() - Get ACPI Processor UID of from MADT table
-+ * @cpu: Logical CPU number (0-based)
-+ * @uid: Pointer to store ACPI Processor UID
-+ *
-+ * Return: 0 on success (ACPI Processor ID stored in *uid);
-+ *         -EINVAL if CPU number is invalid or out of range;
-+ *         -ENODEV if ACPI Processor UID for the CPU is not found.
-+ */
-+int acpi_get_cpu_uid(unsigned int cpu, u32 *uid);
+ #endif	/* CONFIG_PCI */
 +
- #ifdef CONFIG_ACPI_HOTPLUG_IOAPIC
- int acpi_get_ioapic_id(acpi_handle handle, u32 gsi_base, u64 *phys_addr);
- #endif
++int acpi_get_cpu_uid(unsigned int cpu, u32 *uid)
++{
++	struct acpi_madt_rintc *rintc;
++
++	if (cpu >= nr_cpu_ids)
++		return -EINVAL;
++
++	rintc = acpi_cpu_get_madt_rintc(cpu);
++	if (!rintc)
++		return -ENODEV;
++
++	*uid = rintc->uid;
++	return 0;
++}
++EXPORT_SYMBOL_GPL(acpi_get_cpu_uid);
+diff --git a/arch/riscv/kernel/acpi_numa.c b/arch/riscv/kernel/acpi_numa.c
+index 130769e3a99c..6a2d4289f806 100644
+--- a/arch/riscv/kernel/acpi_numa.c
++++ b/arch/riscv/kernel/acpi_numa.c
+@@ -37,11 +37,14 @@ static int __init acpi_numa_get_nid(unsigned int cpu)
+ 
+ static inline int get_cpu_for_acpi_id(u32 uid)
+ {
+-	int cpu;
++	u32 cpu_uid;
++	int ret;
+ 
+-	for (cpu = 0; cpu < nr_cpu_ids; cpu++)
+-		if (uid == get_acpi_id_for_cpu(cpu))
++	for (int cpu = 0; cpu < nr_cpu_ids; cpu++) {
++		ret = acpi_get_cpu_uid(cpu, &cpu_uid);
++		if (ret == 0 && uid == cpu_uid)
+ 			return cpu;
++	}
+ 
+ 	return -EINVAL;
+ }
+diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
+index caa2c16e1697..8f3f38c64a88 100644
+--- a/drivers/acpi/riscv/rhct.c
++++ b/drivers/acpi/riscv/rhct.c
+@@ -44,10 +44,15 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
+ 	struct acpi_rhct_isa_string *isa_node;
+ 	struct acpi_table_rhct *rhct;
+ 	u32 *hart_info_node_offset;
+-	u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
++	u32 acpi_cpu_id;
++	int ret;
+ 
+ 	BUG_ON(acpi_disabled);
+ 
++	ret = acpi_get_cpu_uid(cpu, &acpi_cpu_id);
++	if (ret != 0)
++		return ret;
++
+ 	if (!table) {
+ 		rhct = acpi_get_rhct();
+ 		if (!rhct)
 -- 
 2.17.1
 
