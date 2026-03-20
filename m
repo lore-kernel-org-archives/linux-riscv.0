@@ -4,163 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769F11099B37
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 19:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB5D01099B3B
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 19:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=aWTCPa+N2b0kkfBIUNyoMJrjJ9s1eaBLLsGj04jNWhM=; b=w45yG6A9QHHOprBFhkfdLkh3l2
-	97QYBzSW2m13lO8rtzkjP4ccBedaZqbUFRfJZ6Di25sJhDpdMgNm+XvuWDusr5/AyHO3CXGR+r2X+
-	BzdNoefAli2htNxfg1bkiKSkw10fJm5Xw4b/bP474g91kjO13LzT2zO/KWu2i1DuRSCEyI3T3ZsdH
-	ppADBFJUC5taBjfdkoMM/P9XCVaQkk9kDwqAaRzmYcVT6pWS5U3nF+EjuJHjXrGYTUa8V9Tn34vqU
-	12rgk+6Pe3ll6eaZQojds6getti40C4K76JKTeoB0tiWvN7bsb97RFg5hQSgxYO04LSPaQps+s3eo
-	ZeN9lcNQ==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=D3O+jhi0ErsHeNRYvuQyx/Rv8lB26lvq5TLVPbhTvdM=; b=UW3jS3ljIU4efx
+	MKffHEcE7fgVcj6sjSyHdnBH7uD+yM7jR6lmHWjxL+7ENAQxZ57xuXxE3wQirkbvxeAJ6GEGLIsbc
+	RASPma0pPBl6uzOB9dweimtxGRUBKR+92azWuPGlwAMR2AP9Q7BattZosw5AL6sOwHP782RfPt7az
+	ygttwGYZCf+dXT6+wB0XpReI3LHVCljOLvEIsV8uN//jc7Lu33cEEbGwSfb1uy0dR3ilPFsc8BuIT
+	Elm5I8PkCZ3o9legtugIKh6T2+8/tiwP/jVJDSf8PsPrZJsWrr3blkwd+TrGDWMnSF/T8drlMOrSo
+	vLcKZ6qpUSc8eFYlzGUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ftx-0000000DWt9-17sn;
-	Fri, 20 Mar 2026 19:52:57 +0000
+	id 1w3fxu-0000000DXBu-0fpJ;
+	Fri, 20 Mar 2026 19:57:02 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ftv-0000000DWss-0XkO
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 20 Mar 2026 19:52:55 +0000
+	id 1w3fxo-0000000DXBQ-2NKA;
+	Fri, 20 Mar 2026 19:56:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:From:Date:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OgAycT+NP6XkjiM4QC0no7fRB7jXUuRI5hVb2LoIEHg=; b=glbnYwThUVwioPirYXVC8fFoUa
-	12DjosEzZG88/7cJc/fm77oTyVVfEmlBFGHoSazYxGufiwjHMHFwN9bzkqyGBZX96Y2ouLRMa3P4+
-	3WGJIzlI+WMAhUmdbx7jrBLF2nEGkeuHw8bQSRIGb1grSxhpywWb5GHI1Cmh9h5793mnSYdsrngTN
-	Yhp5n51m0dcb6XjCoapF9+Ez45Z0JmPYB6DsWQ0ZgfNU58tVaJK3U0lZKMWA78JwaGBowZ8K2CZLF
-	adsLDOakdYNP97WAfB0EelC54sGuFdCUDud1dq85PiBDs0d5LxPYAU9Km5iUEVNn7DaIyw5u9xSqY
-	NUEKneeA==;
-Received: from mail-northcentralusazon11012058.outbound.protection.outlook.com ([40.107.200.58] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	bh=eH+lF3DsYQg10YJACe8d4HP9oKGSpGl0WwoSsVRRUzI=; b=KenwioTcROwoXERQALWrr+8tRt
+	kdq5YH/uTYRLr09JZFMl8P3quM+zsgkSsWHv8leHdnyYBmWyjkf3LbqnGvzYRU3YV2ZLv8JffwJqJ
+	KGxOBs9k0GTHnRqJa0eBXIVZGlZ9RalWIWAZR1iJLpJRGjHKOgao4v0n2tjUVpZi/gcCMevOSGsDw
+	Yyp+xyDrA21eed9A2sinjzkrWIW5aeQopQ40+eeWidbGEri4vqZU2h4jbFgQ2i6fXHFGSG/axj+uD
+	nf+0euRhUqcvFA6yR2Ktp1LLo37AfUvfNQIBivIaC5Xr0EQVdP30J4ZA8OeItpW0T7Z7YQJUkU7Pe
+	DsIBNtjw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ftr-0000000GOzI-2Yit
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 19:52:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rlEP3vG8U5B9LtagJt3NFaY+Z4++eF6l3czB4G3fNmeAuhx28V+bmLb12/ogJ69X3XG5+OS2Y3ewq7auJyQCvCdRse5Q5Tump6OPQZdKadFtBGtPskDsDOrjiXb6UcWg6fYmS2ls5kV8GiPJS6DgOvQWNa3qIy5kFK5aQcKWzw5OkOn4PnVugyf7jC2TwiNYPJqw+B9jvm2jgwvT1zCQYWkoNmpaFC2oO0GCKrlJWF3TjnQOACwjtK4j+3QX+REND1Su7GUNS79GY2KJTFRyv9mm4UfrR8yyt6BWdxmEpthCUEj8K+11n3WNnjYWov5HAKOOqwJ5ZjB3InpcK36PBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OgAycT+NP6XkjiM4QC0no7fRB7jXUuRI5hVb2LoIEHg=;
- b=pvByIfSBpw8FkE0M2jhfNKQa6orT4usKISMQcHO9/5tE+B2qR0fDBshM/SH4dg5tLAYhJH5bPkH7BnTea2F0EE2IEO+RJKM8U3g70EfjGs6bQ7Zf8eXT+MWXIe+lRnGaCEHEY0rGXZCqkyPHbkaZc3edObR3ZI7pDwb+nmyxE5QEQHEoN4GGF1YGhcYCN4RRVFJi0Lw4Z61RxKo5DwYj7lwWx+nE9Yd7HJ8XO0gw25iWydebtnuGq3ir+XaEzlc6FL2/bBYURs5Cewvcish/pCTWC9kKrnhiYnolQEDumh8rwxh2NRiROr3/fpfHZw6QPDZ929OSzxmwMXT4Qg1OYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OgAycT+NP6XkjiM4QC0no7fRB7jXUuRI5hVb2LoIEHg=;
- b=TyICkKeCAmlg+jhmdXslmfX7w8nBKw6asxZh3jzUW7vafi5ZFH9k5NUCGL3EISnpieFrffflb4Jji+4Jv3UXfKabFg60OOy0o/T167SBcTEKFPNnCbSgYfYJtgyztvObJQK8XJ0Wmk1yDc7LxtbW3fFS5Puju9h4/CE7AJ6bKWVKm3e0wlRTLU6T2FQhaJyYzJO5e8VMrGmHHDCODtp086ATxz+3fV1w69ANOuxbRAAc8b/AwkmeMoV5ZNouwUl49XfBu9bxGlXTM4ZzbqKjaxJnCzSGu58x5of46CU1IDbzSQlN05mv3VRV8Lj0+4W/OqBYX1JeJvSIU1Xn1C/TAw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM3PR12MB9416.namprd12.prod.outlook.com (2603:10b6:0:4b::8) by
- SJ2PR12MB9006.namprd12.prod.outlook.com (2603:10b6:a03:540::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.12; Fri, 20 Mar
- 2026 19:52:43 +0000
-Received: from DM3PR12MB9416.namprd12.prod.outlook.com
- ([fe80::8cdd:504c:7d2a:59c8]) by DM3PR12MB9416.namprd12.prod.outlook.com
- ([fe80::8cdd:504c:7d2a:59c8%5]) with mapi id 15.20.9745.012; Fri, 20 Mar 2026
- 19:52:43 +0000
-Message-ID: <ba3c5689-5e34-4097-8823-c37a48a4f358@nvidia.com>
-Date: Fri, 20 Mar 2026 12:52:41 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/10] gpu: nova-core: convert falcon registers to
- kernel register macro
-To: Joel Fernandes <joelagnelf@nvidia.com>,
- Alexandre Courbot <acourbot@nvidia.com>, Danilo Krummrich <dakr@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>
-Cc: Alistair Popple <apopple@nvidia.com>, Timur Tabi <ttabi@nvidia.com>,
- Zhi Wang <zhiw@nvidia.com>, Eliot Courtney <ecourtney@nvidia.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
- rust-for-linux@vger.kernel.org
-References: <20260320-b4-nova-register-v2-0-88fcf103e8d4@nvidia.com>
- <20260320-b4-nova-register-v2-8-88fcf103e8d4@nvidia.com>
- <8f9da1e2-fb86-4653-b702-333fc920af58@nvidia.com>
-Content-Language: en-US
-From: John Hubbard <jhubbard@nvidia.com>
-In-Reply-To: <8f9da1e2-fb86-4653-b702-333fc920af58@nvidia.com>
-X-ClientProxiedBy: SJ0PR13CA0072.namprd13.prod.outlook.com
- (2603:10b6:a03:2c4::17) To DM3PR12MB9416.namprd12.prod.outlook.com
- (2603:10b6:0:4b::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM3PR12MB9416:EE_|SJ2PR12MB9006:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95100954-680a-47bb-3eed-08de86ba400b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|921020|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: BM28NfGgO2YUzCqn7Dh1fID3yk8RlOoWj0NNj1/a7HugfD9Kc7Fgre0E8cD47tAK3v5hy/Li2+BKcnEs0uQrkosiVlVAufPBTU8j+D05YP1bmqsKAo0vvfC3pSzxPVpfCn8O3GKkVOfBuUO82oqTah2RqcOh5nzzbL3oiGiqS0uE1+fu6fRmN1/ifMBKVXcyMmVEf8X6RvlwTjSOl2y9CbgsepRlW8PoTwUEBCuGyDHaqAlPvfCbM7kHjfTR7ksi4KglXfdz3NTi90uK6p08GU3JmBgcAg5kLOZRSxYQgR3t8v0WbUXoJan5gO/B/Jxrkrh4G4zzhTaf6RaqBqNS8jzrA7YZobPmPngbHvIPTd761EFdVWhfqKVHEQm4oCVs6t1noja6TtgGiSreqsWvIkw851U8AnBwAqG21vYVDYfGQ2HhP+QnEG79NvFyJkwraCb7uguPQAHiIqmGWwTvrmEux/9hIrWtEnzSomWx6xPsW4M78X8GPwinA35mVEhQYzB18RJjgTKSM9qaHhn4tJbfP4R6f76viQIlIuPQqt+nhEuql603xUX4p1k3UICOf4vVIpAfb2hnF8JeukknQuauynaNanKunahb3nuBC/4Jzz1duxzrV9dS+1Amt6I48mH8t0zTtGs1rsAZuck74TJpPFNry9VGjyE/K/YkmWWQI1dpPyWUf1xnYJr3oJX/NOkP9eDje4PZ5DTqx7YW3EKN1dELH8A5I0BdgcmnE0qoCBmh443bUew1Nz/PmMXgCZI0kLHDBll3ZMdVhkneCw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM3PR12MB9416.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(921020)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2xCWDZCK0JjMFFjQ2R0LzBrS1pDOWdhL2R3N2JlalhmM2gvYTkxNzdLSzEv?=
- =?utf-8?B?UEM3QlE4N2ZhZmtBUTZrcG1sWVQ1OGJXNktwZk5TdVBheFFXRW5NbE9tOWU0?=
- =?utf-8?B?RHl3ZWhjcll4QVFHMmZ3NnZlSVcydmNadU9DS09UcGpaclVEdk14Qkx1dnRt?=
- =?utf-8?B?Q2cxT042bEJDbEp4blBPY09iNERWdTZBOWJkV1VGcEpqYmUwREF2bTgxYlYw?=
- =?utf-8?B?YjJtSk1WRkhZYW1QY2luTDVyTkM3KytUTWFPcnFGU1ZHcFZEYmpualRaU0x4?=
- =?utf-8?B?UFBJaTJlUzgyNmVacTdybmZHbzZuaFpQenRKR1U0OUU2cnFPbXc3VFprV1Jh?=
- =?utf-8?B?WEVVM1J1WUlRNThOUk8xUjhrK1JKNnFlSEN6LzhnSkEvOFdqMTd6RDN6QUZn?=
- =?utf-8?B?S2t1R2VQWExwcVRTV0dDcmNJV1VoSk9JWVBQcFE0TUZnaVNlTzVNQVlWRS8w?=
- =?utf-8?B?ZSt4UnMwQXIxOFMzOXY4c3NTRVdTWVFuWGNJMTc0ck96S0VoTHlueVNPd3ZT?=
- =?utf-8?B?T0hUVEs1eHZNWFJWTnlmZFNXT1NBOWhBNkNNNWRBVWhGZ09tci91UmE3QzFQ?=
- =?utf-8?B?eWZUazNyU0xucU5EakFQUFF1TVl4L1FuVjdsSTFia3JDNlRxN0p1aFByVU9Q?=
- =?utf-8?B?S1JkMCtrcXZXSy9sMExWSlpqQXQ3U2c1YTBzTWZxR25Na0g0RjBEbmZhbktn?=
- =?utf-8?B?ZGFYM0lvSG9JTlRGU1VpWlNnRTQrZDBqbk9BNVVyVHVtY3Q0aUxOYVovT284?=
- =?utf-8?B?Z0QzMUtRSkNSc3dzOWNoL2M0bWhVK3ZQU2NzNTVBY0QvR1dHc2gwTWJrQmp4?=
- =?utf-8?B?SEs5MTlMS2NzRzdFekVwT29KcjFuZlVMZjBTMTdhTnNNV2M3NVlrNDVNQ0xS?=
- =?utf-8?B?cEZFOERrSS9ZQlQzRThONERMaEFGUHNMTzdOSUR5d0lwN3g0eHBmbkxRVWhQ?=
- =?utf-8?B?Q0dVMnh5K1M5d2dGNW1HTVZIbUl0TjlCM3BrUllmc2NNZFd1bDBiVThBUWdT?=
- =?utf-8?B?aE95TnNJQ2VVb1ZIM0NYNDRDMFRmYmNJT3JwUC9FaFlmS1huVTNRTXYxcE9I?=
- =?utf-8?B?WmlaOVRJczlJV2xLa3NkdTFacVVhd0hlMlZnRXIyMDd1RnNSUlUwMHNMa2ta?=
- =?utf-8?B?NlpNY2ZtOVVQaVh3SE45T0VMK2wrSmtGRnlMQkFpVXRON2ZwVmpxNmxrZGly?=
- =?utf-8?B?UnhzZXVUdTRxTmpndERrNlVwZ3ZpSEtybUVGVTU3OWRZcGYxWkpPWTZ2UHlV?=
- =?utf-8?B?anFwc1BET0pnQmxzOHp2UW1NNVV6cGd5eHRRcnFndVRjcU44aVNDVHhFQ3hp?=
- =?utf-8?B?bEhzMUV3Ui9TREErUFQ2aU5lQUcvb3ZwcEprV0VGNDZDMWFmczdTNHBpbEF6?=
- =?utf-8?B?T1JYdVdEZHNVaVhpSkdHR3VUdHJQeWdHSXVScnV1R0ZtelNkVzNuZndzTFVG?=
- =?utf-8?B?VUs1UTVXKzlJQWxadXdIejA1Z0JnNDgvMENmZUdrdStEVzQzTkFoNEJ5QllW?=
- =?utf-8?B?MXlZTWFEeDc3Y1lOaGdtQ0Q1VzhkR2MyVHZ4c2ptQVhTTnVkcXhyM1dRUXpt?=
- =?utf-8?B?SnpxVDkycWZ4R1FRQTZKK2ZKcTUzNkowYktSY05XNXVKM3lZK1d2emtCRHJR?=
- =?utf-8?B?SHdHTE5IMktyb2RIV1ZFc3ZaQmprN0VGTk0vMmJ0M2dsRGlnendlSzVJZ3Mz?=
- =?utf-8?B?TWxPV3dLZE1ScmJiWEdRRFREQXNxWkV1aEI4ODMrQWY2NTBmMEl5NFpSNzVP?=
- =?utf-8?B?SElrelRVaDIvTHZSa1dHaGhCZC9qbTNxL3VUSnJaV3d4ZWNETVpwci9RRmVa?=
- =?utf-8?B?cU00QzEyYnFWRFJkeSsvQ29XdDduYmEwS3JtVXBhb2U1Z1c0RWl6R2toRkFz?=
- =?utf-8?B?Z041ZnpvbmJPV2U4NHI0TWRMNTVxSEVRS2xLdmdnTWlPcm0ycWw0anN5ZTR6?=
- =?utf-8?B?MUpXWVM3cXJSMlpqaUNpRWJ2QUhuRWtvaUNGMmZncHBMWkZSSHdzSndTek9T?=
- =?utf-8?B?N0w3ek8yNEQydDdNQnh0d2hhenhrbitFUkJMSXI0UU9FenA2SU9TeEh4Z1Bm?=
- =?utf-8?B?RTZac0htZk8wc0xZeVFNR1RRK3cyZER0UUd3VjdYQnQ5c1FzTWtuTE9RZ1hu?=
- =?utf-8?B?VGdVeFRZM0Q1bkdRUm5KWi95K2xka2xUS3FLdVNVcmw1aE5UM2dYUXJVSHJ3?=
- =?utf-8?B?WGp0MzdkTnNXTU1RdEp5OUhSaFlySUxEOXlIcVFINXo5K1FYd3F0UlNRQzgz?=
- =?utf-8?B?b2hWUFpkM1QrdGdYeUdhZkQ4eXZEdlEwRHZVYW9NMnhqREE0dWpid2lWb21V?=
- =?utf-8?B?VDVOSjVySEFmc3ZhK0xyNTA5M0tBYmxkM0JuYWpYNXlxY21jU2w5dz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95100954-680a-47bb-3eed-08de86ba400b
-X-MS-Exchange-CrossTenant-AuthSource: DM3PR12MB9416.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 19:52:43.1947
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wlh+Xw+BHsimM3G92MPC8EKPWKH2MR4nVcO6zOQPgrxoprhiEIIUFCixPgrWgU8PUaCQfGpEEPWN/ARtbBCEpQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9006
+	id 1w3fxj-0000000GPc9-2IgX;
+	Fri, 20 Mar 2026 19:56:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F60841784;
+	Fri, 20 Mar 2026 19:56:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C5EEC4CEF7;
+	Fri, 20 Mar 2026 19:56:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1774036609;
+	bh=LKrgpfKwmWI5Hg0tjL/sG/ayUWE0EjUljcbdrX6qjaA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oHu1iIaD1c8+N5EEXiAifxJInrM70H4yjmiFgxSXgLi+71ohYV12gifq8+a2nU2px
+	 p48V9CZfD1mp4jyrfUp9eEy3Ga3ofXBh3zTM64zIa4xHEgSIzKpQTILlbDP/adsioC
+	 0Q1vxPdJ7/9HXC2iUZCdf9e1QCnOUsvW7RLc5H7o=
+Date: Fri, 20 Mar 2026 12:56:47 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>, "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn
+ <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Kees Cook
+ <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, Vineet
+ Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian
+ Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
+ <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh
+ Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily
+ Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin"
+ <hpa@zytor.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov
+ <anton.ivanov@cambridgegreys.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin
+ <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>, Michal
+ Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, Stephen Smalley
+ <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ selinux@vger.kernel.org
+Subject: Re: [PATCH v4 00/25] mm/vma: convert vm_flags_t to vma_flags_t in
+ vma code
+Message-Id: <20260320125647.f6be89a9f40b37b71e511423@linux-foundation.org>
+In-Reply-To: <cover.1774034900.git.ljs@kernel.org>
+References: <cover.1774034900.git.ljs@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_195251_695929_0172CE0E 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260320_195651_979733_1687A32F 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,42 +113,253 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/20/26 10:38 AM, Joel Fernandes wrote:
-> Hi Alex,
-> 
-> On 3/20/2026 8:19 AM, Alexandre Courbot wrote:
->>      /// Reset the controller, select the falcon core, and wait for memory scrubbing to complete.
->> @@ -616,9 +462,10 @@ pub(crate) fn reset(&self, bar: &Bar0) -> Result {
->>          self.hal.select_core(self, bar)?;
->>          self.hal.reset_wait_mem_scrubbing(bar)?;
->>  
->> -        regs::NV_PFALCON_FALCON_RM::default()
->> -            .set_value(bar.read(regs::NV_PMC_BOOT_0).into())
->> -            .write(bar, &E::ID);
->> +        bar.write(
->> +            WithBase::of::<E>(),
->> +            regs::NV_PFALCON_FALCON_RM::from(bar.read(regs::NV_PMC_BOOT_0).into_raw()),
->> +        );
->>  
-> 
-> Overall, I think the series is good improvement but I still feel this part is a
-> step back in readability, and we should come up with something better. I don't
-> think there's any chance anyone can memorize this syntax.
+On Fri, 20 Mar 2026 19:38:17 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
 
-I must reluctantly (because I know this conversation has gone very
-long, across so many versions) agree. That .write() statement is just
-brutal, and we will be relying on AI in order to even figure it out,
-I fear.
+> This series converts a lot of the existing use of the legacy vm_flags_t
+> data type to the new vma_flags_t type which replaces it.
 
-I'd hoped that there were other, simpler forms to express this,
-is that not the case here?
+Thanks, I updated mm.git's mm-unstable branch to this version.
 
-thanks,
--- 
-John Hubbard
+> v4:
+> * Propagated tags, thanks Vlasta!
+> * Removed superfluous parens around vma_test_any_mask() as per Vlasta.
+> * Converted masked functions into more understandable equivalent form as
+>   per Vlasta in 24/25.
+> * Redefined VM_SPECIAL using vma_flags_to_legacy() as per Vlasta.
+> * Fixed whitespace as per Vlasta.
+> * Added vma_flags_reset_once() as per Vlasta.
+> * Expanded 22/23 commit message to describe why I'm replacing things as
+>   per Vlasta.
+> * Added bitmap_copy() to test headers in order to implement
+>   vma_flags_reset_once().
 
-> 
-> What about using a macro to hide the boilerplate?
+Here's how v4 altered mm.git:
+
+
+ include/linux/mm.h              |   26 ++++++++++++--------------
+ mm/mlock.c                      |    4 ++--
+ mm/mprotect.c                   |   14 +++++---------
+ mm/vma.c                        |   11 +++++------
+ mm/vma.h                        |    6 ++----
+ tools/include/linux/bitmap.h    |   11 +++++++++++
+ tools/testing/vma/include/dup.h |   22 +++++++++++++---------
+ 7 files changed, 50 insertions(+), 44 deletions(-)
+
+--- a/include/linux/mm.h~b
++++ a/include/linux/mm.h
+@@ -554,10 +554,10 @@ enum {
+ /*
+  * Special vmas that are non-mergable, non-mlock()able.
+  */
+-#define VM_SPECIAL (VM_IO | VM_DONTEXPAND | VM_PFNMAP | VM_MIXEDMAP)
+ 
+ #define VMA_SPECIAL_FLAGS mk_vma_flags(VMA_IO_BIT, VMA_DONTEXPAND_BIT, \
+ 				       VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT)
++#define VM_SPECIAL vma_flags_to_legacy(VMA_SPECIAL_FLAGS)
+ 
+ /*
+  * Physically remapped pages are special. Tell the
+@@ -959,22 +959,20 @@ static inline void vm_flags_reset(struct
+ 	vm_flags_init(vma, flags);
+ }
+ 
+-static inline void vm_flags_reset_once(struct vm_area_struct *vma,
+-				       vm_flags_t flags)
++static inline void vma_flags_reset_once(struct vm_area_struct *vma,
++					vma_flags_t *flags)
+ {
+-	vma_assert_write_locked(vma);
+-	/*
+-	 * If VMA flags exist beyond the first system word, also clear these. It
+-	 * is assumed the write once behaviour is required only for the first
+-	 * system word.
+-	 */
++	const unsigned long word = flags->__vma_flags[0];
++
++	/* It is assumed only the first system word must be written once. */
++	vma_flags_overwrite_word_once(&vma->flags, word);
++	/* The remainder can be copied normally. */
+ 	if (NUM_VMA_FLAG_BITS > BITS_PER_LONG) {
+-		unsigned long *bitmap = vma->flags.__vma_flags;
++		unsigned long *dst = &vma->flags.__vma_flags[1];
++		const unsigned long *src = &flags->__vma_flags[1];
+ 
+-		bitmap_zero(&bitmap[1], NUM_VMA_FLAG_BITS - BITS_PER_LONG);
++		bitmap_copy(dst, src, NUM_VMA_FLAG_BITS - BITS_PER_LONG);
+ 	}
+-
+-	vma_flags_overwrite_word_once(&vma->flags, flags);
+ }
+ 
+ static inline void vm_flags_set(struct vm_area_struct *vma,
+@@ -1442,7 +1440,7 @@ static __always_inline void vma_desc_set
+  * vm_area_desc object describing a proposed VMA, e.g.:
+  *
+  * vma_desc_set_flags(desc, VMA_IO_BIT, VMA_PFNMAP_BIT, VMA_DONTEXPAND_BIT,
+- *              VMA_DONTDUMP_BIT);
++ * 		VMA_DONTDUMP_BIT);
+  */
+ #define vma_desc_set_flags(desc, ...) \
+ 	vma_desc_set_flags_mask(desc, mk_vma_flags(__VA_ARGS__))
+--- a/mm/mlock.c~b
++++ a/mm/mlock.c
+@@ -443,7 +443,7 @@ static void mlock_vma_pages_range(struct
+ 	if (vma_flags_test(new_vma_flags, VMA_LOCKED_BIT))
+ 		vma_flags_set(new_vma_flags, VMA_IO_BIT);
+ 	vma_start_write(vma);
+-	WRITE_ONCE(vma->flags, *new_vma_flags);
++	vma_flags_reset_once(vma, new_vma_flags);
+ 
+ 	lru_add_drain();
+ 	walk_page_range(vma->vm_mm, start, end, &mlock_walk_ops, NULL);
+@@ -451,7 +451,7 @@ static void mlock_vma_pages_range(struct
+ 
+ 	if (vma_flags_test(new_vma_flags, VMA_IO_BIT)) {
+ 		vma_flags_clear(new_vma_flags, VMA_IO_BIT);
+-		WRITE_ONCE(vma->flags, *new_vma_flags);
++		vma_flags_reset_once(vma, new_vma_flags);
+ 	}
+ }
+ 
+--- a/mm/mprotect.c~b
++++ a/mm/mprotect.c
+@@ -769,7 +769,7 @@ mprotect_fixup(struct vma_iterator *vmi,
+ 	 * held in write mode.
+ 	 */
+ 	vma_start_write(vma);
+-	WRITE_ONCE(vma->flags, new_vma_flags);
++	vma_flags_reset_once(vma, &new_vma_flags);
+ 	if (vma_wants_manual_pte_write_upgrade(vma))
+ 		mm_cp_flags |= MM_CP_TRY_CHANGE_WRITABLE;
+ 	vma_set_page_prot(vma);
+@@ -784,14 +784,10 @@ mprotect_fixup(struct vma_iterator *vmi,
+ 	 * Private VM_LOCKED VMA becoming writable: trigger COW to avoid major
+ 	 * fault on access.
+ 	 */
+-	if (vma_flags_test(&new_vma_flags, VMA_WRITE_BIT)) {
+-		const vma_flags_t mask =
+-			vma_flags_and(&old_vma_flags, VMA_WRITE_BIT,
+-				      VMA_SHARED_BIT, VMA_LOCKED_BIT);
+-
+-		if (vma_flags_same(&mask, VMA_LOCKED_BIT))
+-			populate_vma_page_range(vma, start, end, NULL);
+-	}
++	if (vma_flags_test(&new_vma_flags, VMA_WRITE_BIT) &&
++	    vma_flags_test(&old_vma_flags, VMA_LOCKED_BIT) &&
++	    !vma_flags_test_any(&old_vma_flags, VMA_WRITE_BIT, VMA_SHARED_BIT))
++		populate_vma_page_range(vma, start, end, NULL);
+ 
+ 	vm_stat_account(mm, vma_flags_to_legacy(old_vma_flags), -nrpages);
+ 	newflags = vma_flags_to_legacy(new_vma_flags);
+--- a/mm/vma.c~b
++++ a/mm/vma.c
+@@ -2343,7 +2343,6 @@ void mm_drop_all_locks(struct mm_struct
+ static bool accountable_mapping(struct mmap_state *map)
+ {
+ 	const struct file *file = map->file;
+-	vma_flags_t mask;
+ 
+ 	/*
+ 	 * hugetlb has its own accounting separate from the core VM
+@@ -2352,9 +2351,9 @@ static bool accountable_mapping(struct m
+ 	if (file && is_file_hugepages(file))
+ 		return false;
+ 
+-	mask = vma_flags_and(&map->vma_flags, VMA_NORESERVE_BIT, VMA_SHARED_BIT,
+-			     VMA_WRITE_BIT);
+-	return vma_flags_same(&mask, VMA_WRITE_BIT);
++	return vma_flags_test(&map->vma_flags, VMA_WRITE_BIT) &&
++		!vma_flags_test_any(&map->vma_flags, VMA_NORESERVE_BIT,
++				    VMA_SHARED_BIT);
+ }
+ 
+ /*
+@@ -3001,7 +3000,7 @@ retry:
+ 	gap += (info->align_offset - gap) & info->align_mask;
+ 	tmp = vma_next(&vmi);
+ 	/* Avoid prev check if possible */
+-	if (tmp && (vma_test_any_mask(tmp, VMA_STARTGAP_FLAGS))) {
++	if (tmp && vma_test_any_mask(tmp, VMA_STARTGAP_FLAGS)) {
+ 		if (vm_start_gap(tmp) < gap + length - 1) {
+ 			low_limit = tmp->vm_end;
+ 			vma_iter_reset(&vmi);
+@@ -3054,7 +3053,7 @@ retry:
+ 	gap_end = vma_iter_end(&vmi);
+ 	tmp = vma_next(&vmi);
+ 	 /* Avoid prev check if possible */
+-	if (tmp && (vma_test_any_mask(tmp, VMA_STARTGAP_FLAGS))) {
++	if (tmp && vma_test_any_mask(tmp, VMA_STARTGAP_FLAGS)) {
+ 		if (vm_start_gap(tmp) < gap_end) {
+ 			high_limit = vm_start_gap(tmp);
+ 			vma_iter_reset(&vmi);
+--- a/mm/vma.h~b
++++ a/mm/vma.h
+@@ -529,10 +529,8 @@ static inline bool is_data_mapping(vm_fl
+ 
+ static inline bool is_data_mapping_vma_flags(const vma_flags_t *vma_flags)
+ {
+-	const vma_flags_t mask = vma_flags_and(vma_flags,
+-			VMA_WRITE_BIT, VMA_SHARED_BIT, VMA_STACK_BIT);
+-
+-	return vma_flags_same(&mask, VMA_WRITE_BIT);
++	return vma_flags_test(vma_flags, VMA_WRITE_BIT) &&
++		!vma_flags_test_any(vma_flags, VMA_SHARED_BIT, VMA_STACK_BIT);
+ }
+ 
+ static inline void vma_iter_config(struct vma_iterator *vmi,
+--- a/tools/include/linux/bitmap.h~b
++++ a/tools/include/linux/bitmap.h
+@@ -55,6 +55,17 @@ static inline void bitmap_fill(unsigned
+ 	dst[nlongs - 1] = BITMAP_LAST_WORD_MASK(nbits);
+ }
+ 
++static __always_inline
++void bitmap_copy(unsigned long *dst, const unsigned long *src, unsigned int nbits)
++{
++	unsigned int len = bitmap_size(nbits);
++
++	if (small_const_nbits(nbits))
++		*dst = *src;
++	else
++		memcpy(dst, src, len);
++}
++
+ static inline bool bitmap_empty(const unsigned long *src, unsigned int nbits)
+ {
+ 	if (small_const_nbits(nbits))
+--- a/tools/testing/vma/include/dup.h~b
++++ a/tools/testing/vma/include/dup.h
+@@ -871,16 +871,20 @@ static inline void vm_flags_reset(struct
+ 	vm_flags_init(vma, flags);
+ }
+ 
+-static inline void vm_flags_reset_once(struct vm_area_struct *vma,
+-				       vm_flags_t flags)
++static inline void vma_flags_reset_once(struct vm_area_struct *vma,
++					vma_flags_t *flags)
+ {
+-	vma_assert_write_locked(vma);
+-	/*
+-	 * The user should only be interested in avoiding reordering of
+-	 * assignment to the first word.
+-	 */
+-	vma_flags_clear_all(&vma->flags);
+-	vma_flags_overwrite_word_once(&vma->flags, flags);
++	const unsigned long word = flags->__vma_flags[0];
++
++	/* It is assumed only the first system word must be written once. */
++	vma_flags_overwrite_word_once(&vma->flags, word);
++	/* The remainder can be copied normally. */
++	if (NUM_VMA_FLAG_BITS > BITS_PER_LONG) {
++		unsigned long *dst = &vma->flags.__vma_flags[1];
++		const unsigned long *src = &flags->__vma_flags[1];
++
++		bitmap_copy(dst, src, NUM_VMA_FLAG_BITS - BITS_PER_LONG);
++	}
+ }
+ 
+ static inline void vm_flags_set(struct vm_area_struct *vma,
+_
 
 
 _______________________________________________
