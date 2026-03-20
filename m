@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F461099B3B
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 22:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEEDD1099B43
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 22:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p2SIn8iwQtgVZEOroJnjCAjopICUeCW/pSMRHxdI88A=; b=L8PeyBDVV7kb9I
-	vrYOjwWZkiPeAQ79hPPCBLYwgE5PXambV237iF86rFgHKKBUwlmcREfFwXZ2S0fOA95mxYg4ENP/2
-	QJZgE44SltHRPtYCcpJ9NzkQZ3cBcaFhAWfL8YNuDqC5VYioiHX3r+lhazVZIsj5/VMlALML5E4Mw
-	DJlblxIza0LCJCBHJxqibdY570D61o/mATo/99MWe8KSQq8hve76ck3tCQ0Ll1+FbEkRlIHS/12gC
-	X/YXtUTljHoqxwLfReVXY/Kcu+1TnlK0T5Rl1VF+wI88Qncqhkc4/nGthQ21D6o77mKiFiYfWvSbV
-	+GCfnCld5NTt5bFrpyNg==;
+	List-Owner; bh=ZCc5NyErBxa9dAzyuuOOF150KrL2HWcDXcLy/Xsch2I=; b=ZdZFcindvvx7dq
+	vw4wY/xxyfydnQTwn8mUQFqBCuaE7IwQajC+BODUKZ6cOEk2dgOKMBn5bX/Jh+Z8AzTCdtbjT34eO
+	v2aEoMf3dVOMfoOdIuCZGjtHlfivuizINTUd8yOnxnbLmsHNGohJfFmz7V9VBcyZnELsc5FsfGfBN
+	NpUmxy6knxivh95tIAT5EPxs1+ogqGcxc1OqaNPvNHdSS75cvitiJF5smbITbGWYpKgjoMrGEOBPi
+	mo39l5DzDLFW+Tehadsjz57WIZOm+uxgg84pciHwAYtMEVRYkhVmdSUA5DtKH47dcaLmm7GmLYipq
+	xgsFGm/PZM7SNIJNV2aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3i6h-0000000DfTt-1JmX;
-	Fri, 20 Mar 2026 22:14:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3i6m-0000000DfXb-2dsj;
+	Fri, 20 Mar 2026 22:14:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3i6g-0000000DfT0-1QxS
+	id 1w3i6k-0000000DfVY-0F9h
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 22:14:14 +0000
+	Fri, 20 Mar 2026 22:14:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C10C660132;
+	by sea.source.kernel.org (Postfix) with ESMTP id AE2E840896;
+	Fri, 20 Mar 2026 22:14:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2CEAC2BC9E;
 	Fri, 20 Mar 2026 22:14:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD735C2BCB6;
-	Fri, 20 Mar 2026 22:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774044853;
-	bh=QZECcZOo9XU6VE0O+G1ptFNqIVCOuWAko6C1OasJr/U=;
+	s=k20201202; t=1774044857;
+	bh=0oSe+G0ox51l+rDc5XWCPrdWsQFUFWnEkGK5VjFVki8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BYJKP7zlv4jBTvu80a24WL8Ct5aU4DcbuPl7DomVKZQywcFSHmDul15sUSZzpOS9w
-	 VGpkVDDKudEKjzp330WynQpTZJarltWaw0dHJ3u7eeAic+bRO3z2vaoJXKeKE8CzXJ
-	 Hlir4vVzCgO/f2OKDKqS8rRg5eQw0Vi39t7NMLD4x1kMCvNqs1ghvWraXEpRmdgbkJ
-	 ouDmSeYe65LVeauMLiEz99LE6nUEBfU2ntRObRZhG73T8ceIv43bw4PDm71NWkHgYS
-	 M2POdUrqX1hIGxGX4jWTxYwJH7i/lYl4bma2SJk/M0epQ5B85WZGwtmdA9RUsRNrzD
-	 BZVwwK53Fv3qA==
+	b=H0/W1BGD21v37hv/vshpWeZPJIUG7Z+PAKpQpegkE2rMSL3nV8vmemwLkEqmGAqKE
+	 aIJLxod5bPaIFhk0JEsIr2N4weldzrcc3Zw0DZ3mmlFMdtwYshMcQDTU2fV+pEaEhl
+	 ZxWCkhqP3o9gcshisQvElHE8kAh8IjNxbkSoQ9R9CtK3DOCzidXm/vTlDvzpBAi59j
+	 6vFWDdibKp6aLhEqrtJX9ezac64PXtpbT0N87txVKuXyOR009EjU+zhfmYKViMllk5
+	 vce7g6QiPvGzq04BJqmkHud3AcOGsiQQsI7+czklwG/3ApFXHs15UsEjogrRFAzOBr
+	 KTMrQCRHHzHxQ==
 From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Fri, 20 Mar 2026 23:13:39 +0100
-Subject: [PATCH v2 07/15] mm/bootmem_info: remove handling for
- !CONFIG_SPARSEMEM_VMEMMAP
+Date: Fri, 20 Mar 2026 23:13:40 +0100
+Subject: [PATCH v2 08/15] mm/bootmem_info: avoid using
+ sparse_decode_mem_map()
 MIME-Version: 1.0
-Message-Id: <20260320-sparsemem_cleanups-v2-7-096addc8800d@kernel.org>
+Message-Id: <20260320-sparsemem_cleanups-v2-8-096addc8800d@kernel.org>
 References: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
 In-Reply-To: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
 To: linux-kernel@vger.kernel.org
@@ -62,6 +62,9 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  linux-cxl@vger.kernel.org, linux-riscv@lists.infradead.org, 
  "David Hildenbrand (Arm)" <david@kernel.org>
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_151418_126223_017DCC8E 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,74 +81,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is not immediately obvious that CONFIG_HAVE_BOOTMEM_INFO_NODE is
-only selected from CONFIG_MEMORY_HOTREMOVE, which itself depends on
-CONFIG_MEMORY_HOTPLUG that ... depends on CONFIG_SPARSEMEM_VMEMMAP.
+With SPARSEMEM_VMEMMAP, we can just do a pfn_to_page(). It is not super
+clear whether the start_pfn is properly aligned ... so let's just make
+sure it is properly aligned to the start of the section.
 
-Let's remove the !CONFIG_SPARSEMEM_VMEMMAP leftovers that are dead code.
+We will soon might try to remove the bootmem info completely, for now,
+just keep it working as is.
 
 Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
- mm/bootmem_info.c | 37 -------------------------------------
- 1 file changed, 37 deletions(-)
+ mm/bootmem_info.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
 diff --git a/mm/bootmem_info.c b/mm/bootmem_info.c
-index b0e2a9fa641f..e61e08e24924 100644
+index e61e08e24924..3d7675a3ae04 100644
 --- a/mm/bootmem_info.c
 +++ b/mm/bootmem_info.c
-@@ -40,42 +40,6 @@ void put_page_bootmem(struct page *page)
- 	}
- }
- 
--#ifndef CONFIG_SPARSEMEM_VMEMMAP
--static void __init register_page_bootmem_info_section(unsigned long start_pfn)
--{
--	unsigned long mapsize, section_nr, i;
--	struct mem_section *ms;
--	struct page *page, *memmap;
--	struct mem_section_usage *usage;
--
--	section_nr = pfn_to_section_nr(start_pfn);
--	ms = __nr_to_section(section_nr);
--
--	/* Get section's memmap address */
--	memmap = sparse_decode_mem_map(ms->section_mem_map, section_nr);
--
--	/*
--	 * Get page for the memmap's phys address
--	 * XXX: need more consideration for sparse_vmemmap...
--	 */
--	page = virt_to_page(memmap);
--	mapsize = sizeof(struct page) * PAGES_PER_SECTION;
--	mapsize = PAGE_ALIGN(mapsize) >> PAGE_SHIFT;
--
--	/* remember memmap's page */
--	for (i = 0; i < mapsize; i++, page++)
--		get_page_bootmem(section_nr, page, SECTION_INFO);
--
--	usage = ms->usage;
--	page = virt_to_page(usage);
--
--	mapsize = PAGE_ALIGN(mem_section_usage_size()) >> PAGE_SHIFT;
--
--	for (i = 0; i < mapsize; i++, page++)
--		get_page_bootmem(section_nr, page, MIX_SECTION_INFO);
--
--}
--#else /* CONFIG_SPARSEMEM_VMEMMAP */
- static void __init register_page_bootmem_info_section(unsigned long start_pfn)
+@@ -44,17 +44,16 @@ static void __init register_page_bootmem_info_section(unsigned long start_pfn)
  {
  	unsigned long mapsize, section_nr, i;
-@@ -100,7 +64,6 @@ static void __init register_page_bootmem_info_section(unsigned long start_pfn)
- 	for (i = 0; i < mapsize; i++, page++)
- 		get_page_bootmem(section_nr, page, MIX_SECTION_INFO);
- }
--#endif /* !CONFIG_SPARSEMEM_VMEMMAP */
+ 	struct mem_section *ms;
+-	struct page *page, *memmap;
+ 	struct mem_section_usage *usage;
++	struct page *page;
  
- void __init register_page_bootmem_info_node(struct pglist_data *pgdat)
- {
++	start_pfn = SECTION_ALIGN_DOWN(start_pfn);
+ 	section_nr = pfn_to_section_nr(start_pfn);
+ 	ms = __nr_to_section(section_nr);
+ 
+-	memmap = sparse_decode_mem_map(ms->section_mem_map, section_nr);
+-
+ 	if (!preinited_vmemmap_section(ms))
+-		register_page_bootmem_memmap(section_nr, memmap,
+-				PAGES_PER_SECTION);
++		register_page_bootmem_memmap(section_nr, pfn_to_page(start_pfn),
++					     PAGES_PER_SECTION);
+ 
+ 	usage = ms->usage;
+ 	page = virt_to_page(usage);
 
 -- 
 2.43.0
