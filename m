@@ -4,54 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB21109317D
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 07:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C8C71093180
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 07:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=p3ryHQQp1qY1YUa3dmh8kColEZ454QSc9NJmA5r12Ck=; b=ahbixGdes6L+Po
-	U5aOrGur33rn7k4OSRPSpWP26ZSaNut5IwWU/3patr3LX1VKRVQ38sC5TIpJQQPrs6BBNSTftZiOJ
-	FF6lfALBiIngB383G8TInyBIlECa3/fpOB5c9uUUjvF3Dc33jaIddbAxh5BZRR5fkOsSpZEldADbb
-	VfMTd7EGt3kkRe/WAlCZ3q/cueCcDpZthyP5jSIy//lUhA7UNJKYcj91l0uaDX3NW5uiKRYhFWAoK
-	X2Q+laZ44yuw46PJheWI2VEE3tljOt6bqqN5kqK2FueWsJP5hB4BINIvhPeGCahl49Vgyjj0jTfIW
-	5f8e+aKmvaSl5Xy3OyLg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=emP/G50M+fkcNTFr9XAVdjN4xCsqHfSlzgjKkCPiqkg=; b=nX+cSwicKKRJRs
+	TpfJwHqb3jEsm30x88+FJltGi1vlH7pfD18MKdzFYFsCg16tk9RaeOBmqahOWTnqjUn+QbRYBN3Kw
+	AJ+L0/LPc6Ku/datEWs0uSNUtz5VSpYbrUdjJMkkUqvZW5VEVcygNZupHJihyDbNIHTPF/qvQ7sle
+	uJy3yMWBWxkHDa489SLryCrxaE3LmMoErcluMzVkiGEOV66qV4fYdkoKkQbDRY9zQTZ/YmVrafIEh
+	S2mLwPKjMXKujX+rhCbeMy+D7hFMHso1guGOFOdD2w3LUqSMjn1+VNzuVxIcXwG8nEBtvjSCrwPSR
+	ATSVReqWOs79XqLJJ/gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3U5R-0000000CDi8-1SlX;
-	Fri, 20 Mar 2026 07:16:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3U5W-0000000CDjC-2pwi;
+	Fri, 20 Mar 2026 07:16:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3U5P-0000000CDhf-3taX
+	id 1w3U5S-0000000CDiF-24W9
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 07:16:00 +0000
+	Fri, 20 Mar 2026 07:16:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4532460130;
+	by sea.source.kernel.org (Postfix) with ESMTP id A602042ACD;
+	Fri, 20 Mar 2026 07:16:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63326C2BCB0;
 	Fri, 20 Mar 2026 07:15:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DEC9C4CEF7;
-	Fri, 20 Mar 2026 07:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773990958;
-	bh=zTJ7d5VKVBxYx9G690v21pJXq9vZUEBvG2Pesuk1GXs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=RdG1rvtCuMkHgoidJUY9NR1ArsoOYkW0gbTXHlENyloo3JbjAiuX0MLW7tGNGtQa9
-	 6mkYEVpZaV+zCHp8ylcOqyQdVRdA6fMYZGAShAW9NubKfCmzzTG++xUFHVolevxmm4
-	 ZnSjXg+3W8pYH+rkTDg2GLQw8/3VrQ9n8q587DMKof5Bq65gkGW+HguTY0r8Ecjy75
-	 VgOgCxZrdT+9+KhCEzX77W0WwMz3cUGHwBhJ8AtvrgIbLrOe+37DoT900XsNvhQX7e
-	 fiUsSSvCYsJ9zR6pSn9U9Nvw4KBCo/6qrrJHr/EUNl6NrmQmsHaVMDrRHMvuvb0Gmk
-	 AHnh+GnGnU+kA==
+	s=k20201202; t=1773990961;
+	bh=pA8rjgITY9/9C4neWkUKLPha7/LUfe12GHoN3SZqXs0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=o1g81gHoiHzofIfC3yPIXtZDvAX2QXZyeTZDcqULDe+OBlSZ7XDTNZHAB8N8YFi6t
+	 Kex7wxdRW9JpojPqoD3IcXZRHeP4gmUhiPRzbZTOuiD1srY3+4TAsz8bjsFC591Pc8
+	 OKsT2EBcy6gjGJIlaCWTc44BtfGQhhLjsI90snap8s6gIRvB9GfnZPRgVDRXf5TgkB
+	 PbQLBqu1CQtqSDJvUBERTP8X/KbUQSFmvfC3y2TRPM5Ev/D31Mr+FMYdCewX4c7WR+
+	 YgWt+n73xbYvGdXXagSDat/WAD3rnKJM1cWSDhVsapRSCtEIPLIUai6GAtGpVDJum6
+	 6EKVUcApuL7lw==
 From: Yixun Lan <dlan@kernel.org>
-Subject: [PATCH v2 0/2] usb: spacemit: k3: Add USB2.0 support
-Date: Fri, 20 Mar 2026 07:15:36 +0000
-Message-Id: <20260320-02-k3-usb20-support-v2-0-308ea0e44038@kernel.org>
+Date: Fri, 20 Mar 2026 07:15:37 +0000
+Subject: [PATCH v2 1/2] dt-bindings: usb: dwc3: spacemit: add support for
+ K3 SoC
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIABj0vGkC/22NQQ6CMBBFr0Jm7Zh2EKSuvIdhgXaABkPJFIiG9
- O5WEncu30v++xsEFscBLtkGwqsLzo8J6JDBo2/GjtHZxECKSpVrQkU45LiEOykMyzR5mdE0ujJ
- 5WRRsLKTlJNy611691Yl7F2Yv7/1k1V/7653/9laNCm1l2sKokhp7ug4sIz+PXjqoY4wf7XOid
- LcAAAA=
-X-Change-ID: 20260312-02-k3-usb20-support-9a1893655e9d
+Message-Id: <20260320-02-k3-usb20-support-v2-1-308ea0e44038@kernel.org>
+References: <20260320-02-k3-usb20-support-v2-0-308ea0e44038@kernel.org>
+In-Reply-To: <20260320-02-k3-usb20-support-v2-0-308ea0e44038@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>, 
@@ -63,24 +61,27 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1690; i=dlan@kernel.org;
- h=from:subject:message-id; bh=zTJ7d5VKVBxYx9G690v21pJXq9vZUEBvG2Pesuk1GXs=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpvPQgdaNu3Wa3jbP9tc8E4mFIqS1Z9+wxy0fb+
- pfbXdHleMqJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCabz0IBsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1549; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=pA8rjgITY9/9C4neWkUKLPha7/LUfe12GHoN3SZqXs0=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpvPQj2CwDTa2cSJE0SlNPoppwzSPhGvbE/P3SB
+ zYCBslWtiOJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCabz0IxsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+22zA/8Du+QshMhDvSF73PJ2xQzzcYyWaDWdOsRNSOBQQT0+XOff2NAyKsgm
- WZiXcs+DVp6R2/IX10Zp+agZvjKL2CLI1nvPf5moSAo3XreicjYxU0E5TbSg6qp2hXXc9dukh2U
- Nz82/6/iuFBA1ZOA1ADHgDYLXmq5U7VwarPp5vlLKCmvrHMTAKxHHevaJcsViLvZITnkOP6RzJo
- t51ZmY0jBv93PUy0wg8Ikz1pKSs2HyR+immJAsw9zT5yJTCY9W+XbFmgns/gDyLlUcDkNbYdalF
- EVPjcD35qtsS2t8R2yYKm6U6kgoApmEiMXoXqXJ0/kRn9pbBwbsckfiFqxdGLl612RYPstqUguK
- 59QwSud86A3GzG/RlSGlKq9lH4SADz6885Lij1fWQ/l7YsIDKSN9GYfGSGs3bwnuPvdS7JLIni+
- MwNhv+Qjy0YNQhFXXVoQalRZvbPtVPvNYGE6HF2bb1Cf2uP3aKwUFe3909YA4EU8AcR3l+2SwYS
- LQry7auFnvJApWr60hST/D4O/C2AVoZrclIWPSpjT+MDeodinyXMQRxAzHRQbNWUafuG6g2HDgn
- rLwmRspLQFTAI8j0HH7A9iKjSBPCGHJ46qqvTO35S/2l5cese5giYKFnByUXCcwLiJ5Z+oq0PwU
- /aao8112dM0NPxo18jb4m0d9Tn8mJc=
+ QACgkQMarqR1lNu+1E5hAAnNT98A/L7MqTpI6ZGi3laPlQZ1v5XiSkHQNYs/DSSOsvuAc0l8Mak
+ Sq9REYaAlrxbPx94ARjGAQYaXUHvv0asvDnoEU5+EfIAXMIYzUpY4loxoryA+19bxBqCN+OCOQE
+ G/Vxko/I68bG8w5KjRov68L7JPjUoQnRbBimVCsGlI3L/+nrBaGnMurCCnn7aK51ojgCJtO5SAF
+ zjaG2R185V4tM/DBmDM//lRetOEbrt5spCCfr48Fxc0qFNjKAj1iwz1Cc8NgDptcpiWV6DRXONc
+ LlPgBE93ip8Xs3WZ5oAh+eVEVxJ0LyPX+5pUVj5P8WJA158mmbhGAs8S2E00+cHJgxwGqTgCP35
+ kuIBuQKMQb7KLLpJxIF6sr0KtmducDocAL0J5J+wjb9aV6wKOzsVbn6BMQnqeOfr0vk6sypO8e/
+ JJYtshlHOo66BR3XkUaMP1RZlM6pqN92o/coiQgAF9jb6PRBpsaduru0UzisRnqQiLNtaAPG3rV
+ UXHhCzbMbKOBaqnlmAwl+VS5oG5P+/YydEP1Lm00iZumv+DTh68HqX80Q1P/czuSU/h1HM+dROT
+ QNp1ljWjNV9c3ZpSrHhvAbMp+LCqFmBbLV3zAltqnsSz2py6CQbOvqDuddJKsWczJMFWKknUx7I
+ Dqzi1jWFu1sQJg1kon2GXTunGoIewI=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_001602_676012_F591F20A 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +98,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is one USB2.0 host in K3 SoC which actually use DWC3 IP but only 
-provide USB2.0 functionality, and with only one USB2 PHY connected.
+Add compatible string for DWC3 USB controller found in SpacemiT K3 SoC.
 
-This series try to add USB2.0 support for SpacemiT K3 SoC, and will
-enable it for Pico-ITX board in a separate patch. There is a run-time
-dependency on USB phy[1], Hub[2] and reset[3] patches, but each series
-should be quite independent, so I intend to not add prerequisite id
-for the dependency here.
+The USB2.0 host controller in K3 SoC actually use DWC3 IP but only support
+USB2.0 functionality, thus in the hardware layer, it has only one USB2 PHY.
+While in K1 SoC, the USB controller has both USB2 and USB3 Combo PHY
+connected, but able to work in a reduced USB2.0 mode which requres only
+one USB2 PHY, leaves the USB3 Combo PHY to PCIe controller. So both K1
+and K3 SoC are able to work in the USB2.0 mode which requires one PHY.
 
-For people who interested, I've collected all patches and put a complete
-branch here[4].
-
-Link: https://lore.kernel.org/r/20260305-11-k3-usb2-phy-v4-0-15554fb933bc@kernel.org [1]
-Link: https://lore.kernel.org/r/20260317-03-usb-hub-fe1-v1-0-71ec3989f5be@kernel.org [2]
-Link: https://lore.kernel.org/r/20260314-01-k3-reset-usb-pci-v2-1-9dc0976d524e@kernel.org [3]
-Link: https://github.com/spacemit-com/linux/tree/WIP/k3/usb2 [4]
+Explicitly reduce number of phy property to minimal one.
 
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
-Changes in v2:
-- separate DT patch out, will send in another series
-- document for K1 about why also work with one PHY
-- collect tags
-- Link to v1: https://lore.kernel.org/r/20260317-02-k3-usb20-support-v1-0-d89f59062ad4@kernel.org
-
----
-Yixun Lan (2):
-      dt-bindings: usb: dwc3: spacemit: add support for K3 SoC
-      usb: dwc3: dwc3-generic-plat: spacemit: add support for K3 SoC
-
  Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml | 6 +++++-
- drivers/usb/dwc3/dwc3-generic-plat.c                        | 1 +
- 2 files changed, 6 insertions(+), 1 deletion(-)
----
-base-commit: c4c6e209dcf903ada6ddb4a0baca01ce8459a379
-change-id: 20260312-02-k3-usb20-support-9a1893655e9d
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+index 0f0b5e061ca1..cc27b363ca79 100644
+--- a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
++++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+@@ -27,7 +27,9 @@ allOf:
+ 
+ properties:
+   compatible:
+-    const: spacemit,k1-dwc3
++    enum:
++      - spacemit,k1-dwc3
++      - spacemit,k3-dwc3
+ 
+   reg:
+     maxItems: 1
+@@ -42,11 +44,13 @@ properties:
+     maxItems: 1
+ 
+   phys:
++    minItems: 1
+     items:
+       - description: phandle to USB2/HS PHY
+       - description: phandle to USB3/SS PHY
+ 
+   phy-names:
++    minItems: 1
+     items:
+       - const: usb2-phy
+       - const: usb3-phy
+
 -- 
-Yixun Lan <dlan@kernel.org>
+2.53.0
 
 
 _______________________________________________
