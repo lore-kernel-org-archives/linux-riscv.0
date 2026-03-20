@@ -4,58 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14823108B8E9
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 10:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3519A108B8F1
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 10:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O/B4ul+5OGC14lPTRzJ0B+nEik0Ea/sl5AB0QdCWUfc=; b=dRRSmyKy9Z7b8+
-	G4I3tnepyfpy1LpDuGqexDRCDH33u1q42InUMfrJeolUVjF4QZnRYgG6gr2fEAvKr8XHm5gqodvFB
-	icjhK5iBkzRYJAJnIPpbfWCkPAd2gfMSGBfxOaIoVIYzr1MOiY20cdboaHk8WD8cZFM68mXPPUjCC
-	/gPGJiukNi5opP2SVBupR1x6MACrHhFwdyRFmYNtltQOLtZDSmKgYdRwK7Ec9J6lGKVZi0vC+5vYG
-	gvDHmA5neZzRLZVNjsIM2oamxa7mU7JKYz8nB3Dw07+bZ4Pe4OTv7Px0Tzkoa3JGg09Ud41gOYj5B
-	XO7JaV0BYg5m3Bvc9SDw==;
+	List-Owner; bh=YuTAolLxYu8pfdx3RrufPDMk95HBo5JGUA13yNP9ygY=; b=Qhnruus5M02Rho
+	+Jblxyp8TBnbTL9CQuCQHB2cTRocwKIewlLj+Mta+XRvOMURuhGIGZ4OixuAOl5oy8zBhhnjNAGOp
+	1YvTEHM0uyZJWgTQwIIYSzUNWoDQDLS6U8EsNQRrX+la16bPVCQoXZyROgnK2qkc1R++5LTFFNU5s
+	1NKIi6s+kCliGuGkq05eW/F1glc3m+5sMeRm5mFCs9Lv51XF9TJhvQMxgSvm5isYRuj17ek7Pyndw
+	xEtlr8fJvHUqDrSGd/7MVRnVbulLxQY559i/Jbk3qizj14epRWBoGwUgLLa87yBP2Dc+5rPtdgzvv
+	KHxkvqRKzArdSqHw66NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XHS-0000000CdFx-3Evp;
-	Fri, 20 Mar 2026 10:40:38 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1w3XRt-0000000CeYf-2RN3;
+	Fri, 20 Mar 2026 10:51:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XHP-0000000CdEx-0vPC
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 10:40:37 +0000
-Received: from localhost.localdomain (unknown [116.25.95.187])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 37b41ebdf;
-	Fri, 20 Mar 2026 18:40:31 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: huang.ze@linux.dev
-Cc: amadeus@jmu.edu.cn,
-	dlan@kernel.org,
-	gregkh@linuxfoundation.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	thinh.nguyen@synopsys.com
-Subject: Re: [PATCH 1/1] usb: dwc3: dwc3-generic-plat: Add optional VBUS regulator support
-Date: Fri, 20 Mar 2026 18:40:26 +0800
-Message-Id: <20260320104026.1350571-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <DH7ILSL8DXBO.ZR74CL1QEUBU@linux.dev>
-References: <DH7ILSL8DXBO.ZR74CL1QEUBU@linux.dev>
+	id 1w3XRr-0000000CeYO-0UyL;
+	Fri, 20 Mar 2026 10:51:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D6D6F60132;
+	Fri, 20 Mar 2026 10:51:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3393BC4CEF7;
+	Fri, 20 Mar 2026 10:51:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774003881;
+	bh=1kycPrv8xITwEF0VVuzOopEOMjAdBs0UtmKgTytYl8w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fvQ6q+Lt6csXQ3LFLwYm6cnCeDtBGCr02CIsjl1UXjYlr3fZ8BMsG3AFhxo458ZCa
+	 +qYpGTorkZJUoSz2KLgM+8v53n1WJOnltl6z07l5stKzZpUnrWYEz5FYiN3Nd+Jdmh
+	 8SClfiC2LO/qPw7ZNAT9I5oEK8JjSkMNRE+Nrm7ekRgipBjhHQB3OmHjgPWwn3piDZ
+	 h9DkUtF/Zkavrff/L+X9y6IoV/GXTCjuHOFy4E/EZLIw/I9GYQQxnoeqCJ4GJE74BD
+	 X+Z2q8v5Urpdb/OoxHDRr56qpMqMhQXXZ8oYFfyAhWL2CpRfz05crij8p1GJ5Qo9Ia
+	 XZOMGmHBKHSXQ==
+Message-ID: <077b237c-32ab-46a0-947e-17657cca5b54@kernel.org>
+Date: Fri, 20 Mar 2026 11:51:08 +0100
 MIME-Version: 1.0
-X-HM-Tid: 0a9d0ad51abb03a2kunm01e649021f45a3
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCGh9JVkpDT0JJHUlLGUxMHVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk5VSkNMWVdZFhoPEhUdFFlBWU9LSFVKS0lCTUtKVUpLS1VLWQ
-	Y+
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_034035_446169_F8F66645 
-X-CRM114-Status: GOOD (  11.67  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 23/23] mm/vma: convert __mmap_region() to use
+ vma_flags_t
+Content-Language: en-US
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Kees Cook <kees@kernel.org>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>,
+ Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ Ondrej Mosnacek <omosnace@redhat.com>, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
+References: <cover.1773846935.git.ljs@kernel.org>
+ <c587f5ed177fd4f62b66cb8d5321fa56eeb6a69a.1773846935.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <c587f5ed177fd4f62b66cb8d5321fa56eeb6a69a.1773846935.git.ljs@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,34 +105,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
+> Update the mmap() implementation logic implemented in __mmap_region() and
+> functions invoked by it.  The mmap_region() function converts its input
+> vm_flags_t parameter to a vma_flags_t value which it then passes to
+> __mmap_region() which uses the vma_flags_t value consistently from then
+> on.
+> 
+> As part of the change, we convert map_deny_write_exec() to using
+> vma_flags_t (it was incorrectly using unsigned long before), and place it
+> in vma.h, as it is only used internal to mm.
+> 
+> With this change, we eliminate the legacy is_shared_maywrite_vm_flags()
+> helper function which is now no longer required.
+> 
+> We are also able to update the MMAP_STATE() and VMG_MMAP_STATE() macros to
+> use the vma_flags_t value.
+> 
+> Finally, we update the VMA tests to reflect the change.
+> 
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-> I think it's better to align the driver with the actual hardware. I'm not
-> opposed to managing any regulators in usb host/device drivers. But if we
-> do have an onboard hub, and regulator belongs to the downstream ports of
-> the hub, then it's hub's job, right?
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-> Many boards leave gpio controlled regulators always on, that's what we
-> want to solve. If we have to choose the parent of these regulators, why
-> not put them in the correct hierarchy?
-
-I think we can manage the regulator in the USB host driver first,
-and then use it after the onboard_usb_dev driver has been merged.
-This is better than keeping the regulator always on.
-
-> If such a board really need the regulator, IMO, your patch is the way to go.
->
-> OrangePi haven't released the schematic yet.
->
-> That's what I could find [1], which seems similar to RV2.
-
-There is no onboard USB hub. Just check the image:
-
-http://www.orangepi.org/img/r2s/details/17.png
-http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-R2S.html
-
-Thanks,
-Chukun
 
 _______________________________________________
 linux-riscv mailing list
