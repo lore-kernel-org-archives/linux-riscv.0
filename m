@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB261093188
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 08:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 189581093190
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 08:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6lXbjeIRhEF9hm1HnosVq42xi7qgbb6AMJ/+MmFXnfA=; b=FFoDJyUPWGpjpT
-	a/soyJNiuMxhOXAQwrDIkMZpsh+yGlgF74Ry7YXsWUZAj7nD+pOejKXFIVIqL9ucJf/b2MTW9uCni
-	25wJ8UX40tK1K7LNKqcwMViCSaON7x2i8jgueEdi4YMameZ1xLYJ6Q9VUlJl252LrYOyCHGpIS0L6
-	jyCINz8V7+iMjxysL/lppSxEWVeA1FzrDGP5b+3+6l4Uj5auGrHtr/tM+gfV1j6DvW3317uRpuMlD
-	a5eR7vf0cxrLmxtuLCnKz2pnfZFEk+uvkERN/IyQ/+HjkUxjwXga336FWwl2IOM+HdJ6S1fPs3azI
-	X5o+jzT9zdNV2m3pcDEA==;
+	List-Owner; bh=hVNs63OEtmE7w2DLEBO7ezP7Mz3F4xp4YwhZdBjWyl0=; b=VKg5MFUJtlHpYk
+	ODB4rstqwgNi3lrOAeJt06wVDq/ftChY6mzPzDiHosHRTARKPQfXNS6Y6uh9uSMfStphycscbFlua
+	GBAL33OapUPG7Bg5+agiXijxGbSl+so3Qw2GOpunCvIqF7ZorwEQJ5dZ6leLfhnbkK95FAHndvKd2
+	48HCYkeE8Kmdni4d5PVPbIRDVxxZzDK2Urqpt8yIz6+Wopb1tvpp9tlPklGnNovvxqzUcitg7Jtzg
+	8dBKAqyG8rh33SIlTRgM4E6EmtEYqwbjuwHsL6iUmwYy7Gvat+sLjup9OM1FA+qZAHsXj47+lCrsL
+	8Jei3dCuFajlzOLFkU+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VXN-0000000CPOs-0AQD;
-	Fri, 20 Mar 2026 08:48:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3Vhb-0000000CQMZ-17wZ;
+	Fri, 20 Mar 2026 08:59:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VXL-0000000CPOI-19WB;
-	Fri, 20 Mar 2026 08:48:55 +0000
+	id 1w3VhZ-0000000CQMJ-3NnY;
+	Fri, 20 Mar 2026 08:59:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D799E60121;
-	Fri, 20 Mar 2026 08:48:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69C6FC4CEF7;
-	Fri, 20 Mar 2026 08:48:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2603160121;
+	Fri, 20 Mar 2026 08:59:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99035C4CEF7;
+	Fri, 20 Mar 2026 08:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773996533;
-	bh=AVThdTFHSI3D63/uFwXEr2OGdo0OiWz7degFLaawtVQ=;
+	s=k20201202; t=1773997168;
+	bh=gZ7mo8VD+NAhXZQb0GYWny9AT9mHJxVOkGXSXRSlXkU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aVDuHUfdDD8S+qMhhcb+8iyq+IuTk2K0qpRAv1mnSPjQTT7GWau5uX1CNTdDtfR/0
-	 LFp++8Dnz2QwIE1kWsO/Av6uPpJORJ9xnJDFjFTcwzcgktO9VxcKv+wSUvrzz529wf
-	 Jleh6q8+Izcw8eTwQjx9H+19qhhqrrp8JH/iFcDfQPCQTH5ptvLmvsD0tj3RuwnSdm
-	 11tBmRkm8T9VJyB6mHacHEUYXp0QrFVfjmR41FNwWWw2f9UTt8GR5oY9fomV0MX3gt
-	 Xge1GZpeSPAeqwc5HQZYEgN6ad+xpQ+XJTcqZodE/t9TJgLMJDqXmC2Sy8iqPyspGC
-	 oOpqQ4TUqrEMQ==
-Message-ID: <7bd728dc-f370-4e64-a120-bd8fdcd3207a@kernel.org>
-Date: Fri, 20 Mar 2026 09:48:40 +0100
+	b=Vnv5g+fajJemAepqRKZRz47c22+umNsA8K+bcibnuhBXHBu1d5YmKqWsG7qOfUFHJ
+	 CztV2PyO5tXV2ndgWUvx38ZhYgi/lqkSfU/R+xvcHnxYaqLoT/e6BRXTA0NdY6badP
+	 onDLOW/x64CNFEUrBONrSFSXSn2B8FQntJuy/TT5vt3gBjuLsep153gxDZT/dirYhC
+	 CVXFpifY9igf7fwFZwHhAhTf6uDN0JdiB+PEafeRbGrcMqNb+21IkikxadesfcAOxw
+	 W1QaWfzU+BhIh3qR/LFIA31TyjFUkVqrJLl/fZ5m//RUqAkbCbCMSFvmboEAlRrHUw
+	 pulfK6egziujA==
+Message-ID: <c45932ed-844c-48ab-9481-9973bd0193c3@kernel.org>
+Date: Fri, 20 Mar 2026 09:59:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/23] mm/vma: introduce vma_test[_any[_mask]](), and
- make inlining consistent
+Subject: Re: [PATCH v3 15/23] mm: introduce vma_flags_count() and
+ vma[_flags]_test_single_mask()
 Content-Language: en-US
 To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>
@@ -86,9 +86,9 @@ Cc: David Hildenbrand <david@kernel.org>,
  linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
  linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
 References: <cover.1773846935.git.ljs@kernel.org>
- <7ea63af87bd35f20b204a14ad4912592e02b15a6.1773846935.git.ljs@kernel.org>
+ <02a6b26542ab70d60175e0125cff5fd00073c7ae.1773846935.git.ljs@kernel.org>
 From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <7ea63af87bd35f20b204a14ad4912592e02b15a6.1773846935.git.ljs@kernel.org>
+In-Reply-To: <02a6b26542ab70d60175e0125cff5fd00073c7ae.1773846935.git.ljs@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,18 +106,30 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
-> Introduce helper functions and macros to make it convenient to test flags
-> and flag masks for VMAs, specifically:
+> vma_flags_count() determines how many bits are set in VMA flags, using
+> bitmap_weight().
 > 
-> * vma_test() - determine if a single VMA flag is set in a VMA.
-> * vma_test_any_mask() - determine if any flags in a vma_flags_t value are
-> 			set in a VMA.
-> * vma_test_any() - Helper macro to test if any of specific flags are set.
+> vma_flags_test_single_mask() determines if a vma_flags_t set of flags
+> contains a single flag specified as another vma_flags_t value, or if the
+> sought flag mask is empty, it is defined to return false.
 > 
-> Also, there are a mix of 'inline's and '__always_inline's in VMA helper
-> function declarations, update to consistently use __always_inline.
+> This is useful when we want to declare a VMA flag as optionally a single
+> flag in a mask or empty depending on kernel configuration.
 > 
-> Finally, update the VMA tests to reflect the changes.
+> This allows us to have VM_NONE-like semantics when checking whether the
+> flag is set.
+> 
+> In a subsequent patch, we introduce the use of VMA_DROPPABLE of type
+> vma_flags_t using precisely these semantics.
+> 
+> It would be actively confusing to use vma_flags_test_any_single_mask() for
+> this (and vma_flags_test_all_mask() is not correct to use here, as it
+> trivially returns true when tested against an empty vma flags mask).
+> 
+> We introduce vma_flags_count() to be able to assert that the compared flag
+> mask is singular or empty, checked when CONFIG_DEBUG_VM is enabled.
+> 
+> Also update the VMA tests as part of this change.
 > 
 > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
