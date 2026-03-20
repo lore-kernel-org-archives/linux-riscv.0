@@ -4,99 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1763F1099B35
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 19:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B74FA1099B35
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 19:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=quf3IdkQXrlv2EO12vsGlmtCVvWEyMDc024py8Pu5fE=; b=TanCshMhM+vZbU
-	WAYcvMQmGxbcqwumnSRZJIfA693CLAPoT1HVeICZO6wjMDBoFUSA+laHPO4MgcYVD+O2dWsNEuSzE
-	lI7cR51fDfJ4Q+jytOOyukncZrsZvXWW2bPcFs3vF4Nn2IoxtdNO49q/9Ym6XfrWmeUdD5Ozs/0yV
-	O5EryOtc0f45A1oDkR2ITVYJPWuAgqStgLY/Im9W3afk9f4MOs0uaqfrlLyVVA4jjrW2MWOOZ/GAf
-	HFYA9rn0o7iLwbBaSCEC4w4IdjthxMjXvrdYQBvWjCX6V0mKzDB+cH/sSA3c1Y5QEcMUTX1cOU4z4
-	nixxqy5nxGRznB/K87MQ==;
+	List-Owner; bh=acQIxbfyHsLya11o7c09zVmvKAizNubDUHMnpSBl89o=; b=zdm8mIcfXSulRW
+	oCPEQ2350F1LRp0qUC6ze42KZI+rJyd5nvJxXHH+w1n85hdzkLaDJqHMV08FMSoKVu8BSs0JryY3+
+	wkSKJI//aG4z/1T/AQjyacSZYiRRlo4j/sUdHUHuyZQoNNo1Uf/MaSinpnEi3l4U4f/vVEEGJT5+I
+	vFr2bIkD1si85Hkgk11hrXZUA2mqZ2CiLqnQTYGwBRRBOPHTzObDKm8tuAt7rVar+xyeTkM6bvins
+	JSZ6SUAuQv60syZddBhz4ER39SeRCtHDiMJVpOWx/p0Hu1KK2nekiy9DgyVLwFKY0tQKTZQmziHVY
+	2meYPTWIkthdVnyw1KsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3fGp-0000000DQYd-1sdm;
-	Fri, 20 Mar 2026 19:12:31 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1w3fc7-0000000DSd0-2EJ4;
+	Fri, 20 Mar 2026 19:34:31 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3fGn-0000000DQXD-16Vr
+	id 1w3fc5-0000000DSc4-0JYW
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 19:12:30 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2b07069e2efso12630255ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Mar 2026 12:12:28 -0700 (PDT)
+	Fri, 20 Mar 2026 19:34:30 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-506a747448dso8058981cf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Mar 2026 12:34:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774033948; x=1774638748; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ux+DVa2N+/JaIwDNhsnggYM4bsW17uE79GBmRoiXmjI=;
-        b=RRzXwxgIZuAKP+l7G5WTyxnMjyVFNmsjY+/EnmXj4e0WTbrGq4/0ODljBJlTta3bNj
-         8Emsrx67HGgui2wJTbVqj9ninsHiLZYZWEPxRYsDcshNO8cbkqUvlCaaEy9k0vi9SEQX
-         Lr6l7GcuzySeQBFoh9tMqY/Lzm6lg/oJV7lp4nzyK7jXmT55UdN/gwyDDQPC05Bsu1Sm
-         +6uFb/lgpMtKOmMu7ATQLLaG7TfrtH+pyqzEZmvt+bntlvYFB2As/+kExA9Z4iJBHEv+
-         0nE4EHg1yeSpBQjn3WdfgjAcxpzO0lVAbTNjkFigthLpelzOLMcp/aZ4BmtsxjEKobXY
-         3qtQ==
+        d=gourry.net; s=google; t=1774035267; x=1774640067; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SPJ27qWkI5c96vhdp37WS6c9O6xFfPoS9NHL0cnjclQ=;
+        b=NZRDXPSdKE1JErnmCqTBGS91noxHo8TbmRuD8PSwbvS/4Ua2u/CtsK3N2aGAGh/V4G
+         /e7JzcZT1vb779Ju1tPkpzzs9CGXLM93C70S89KmRat7l6Ji1W3M1gHZEngRvDscwwTg
+         7rHt6E3WiJL1deAAqm1IqDRNIo0+UjQ6eahakq6fEkqrR8otBOGHw2hjuAJ6QVdSXYuw
+         tJ3sYwghkLQnmmBiAULPqO0TzFyPdqmx8iLlxpVQV24s5hU7FXj+OBltRuXhQWduzzxj
+         3uYvLPOfujw6Oa/FXLVMqNvLl9YcfGinqSn6DCpTwmRib0NuNf7vS2GiC9a8qPEOwlWy
+         IZGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774033948; x=1774638748;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ux+DVa2N+/JaIwDNhsnggYM4bsW17uE79GBmRoiXmjI=;
-        b=Loi0CbWnCNucWUKeMOhNi8qrf7FcYekilDeVNH1eMB1ItvIpCfIvhpo/blyYqylTUw
-         pgDCmQiybriAE+a/QwLJKYM1h1ykW91mnVF6VXQdxI05Du/vYPlwFycYABaYylQ99bIr
-         TYZw3oZSzCfeeTFcZZSXJGLL7jKwreA0e+VsZIhYheeifbmXdvD74OOaCjXbVRXQBra+
-         +IaSxpZ8t+uZRMyAmE3jcpsjJpyyglHgRs8WDDCTnervY27SQQXw7mgqyeyAmWGaYoAp
-         dv/x5Xwawg53W9qG2Wn8uNYLOIr5d+XEbHIuWHrfCcoPwRPKg1xolDopTEYgIqF9/MHQ
-         8Olg==
-X-Gm-Message-State: AOJu0YyqAH6ikd8fke3ilF3v7DtJIVR6fJipM/Fpo4rjwqULzuUma43E
-	PVebCqLzVFRg9nUpI1hB12r6txFg+yYges3xEezhNMIVhFUCC7sXU3TU
-X-Gm-Gg: ATEYQzyt2lSL1QN1/H/QSAkM075rCO31VpYIXewjzGVnlCCTmTUMZzt9JVYSLiL9Yjf
-	NAsTzwBjOpCX/KGt+oVDALylxE6kp4OsJGKRJkOBfVQnApTvpEMn33ftOxJcb5tbu6WyJj2amYo
-	6Oa+5i5On7g0htplT4IgiEdbukgoq5uqAwNezjvf85M32GBnYiTwMj2f+Y3U6aFaFEqVDf/3W24
-	BP31sN4+DRH4mJTToZK3JJivV9CFNGBlIzxQEt3aGnBBciLWv5Oj7K51E9K0DZVVM48nVWxblt4
-	Zs19aEFJPRb2B1vnoduDKypK/VGDrIrWqWkiBsNiY2duPO3UAiLx/yVQ2vh84MM5hpY23DON4gF
-	VTkyS04jA9k5vkpqJDYeVho++jIyZDH6O52QKZcxZ48i5Ynod/YR4Yim9whhg72Tyc5MPVB6+n5
-	dPndSjckcDo2als3ztIcj0vJ+ALz4gPSoj2ffs
-X-Received: by 2002:a17:902:ef52:b0:2b0:663f:6b4b with SMTP id d9443c01a7336-2b0827054d4mr34682875ad.18.1774033948205;
-        Fri, 20 Mar 2026 12:12:28 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.167.147.240])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083688ca4sm39599915ad.67.2026.03.20.12.12.24
+        d=1e100.net; s=20251104; t=1774035267; x=1774640067;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SPJ27qWkI5c96vhdp37WS6c9O6xFfPoS9NHL0cnjclQ=;
+        b=jEdR7YqeSGwd7ECBB848G7EzsAQta5qM8gMvKoXtUfXpDWugBbMLfOL5Aeq/o05kGP
+         85GKs9gjpcPCxgIUiLAV/dcxOgk17OfCKSUlPsVU8CVJUtfAuSTFJGIP+xHbQDaOU4+R
+         7wPpT/R0lWbtw0VRZzVkjHwcUEYsGXvsXePYLZPZiGzT9lhsSI4gcUPKfzvLiW7bmyip
+         CW4HHX1cKEbFkeldqiDD/w7kRjcs7Iud4bDAJmHZVI15bQk3vhpX1YLVpbVdjlMitBDP
+         OhRoSJydJurUotlmzg8CGH5YIuoJmRm27nUZkmA5pUF2qIt/YS3srBZU83BMElF7/OrU
+         yO6g==
+X-Forwarded-Encrypted: i=1; AJvYcCVcLjDrmrSXeG/7EoIqa2UpSQrWYEb32T6YDNWvh/2acDv1EvqAzTzZl6nyH8e13sd9oSJYUhLPJk+5xg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw2Jw241jDwoQl9BQtVPNbehF3ChujGHzQQI1Pq3+HBNTZ6FPy
+	E33GUvzw1rEP02Q2VUweyY0Xmu653t5i7OswpuiRTQ4PDBPFelhS3dqT60TPp1eNq0Y=
+X-Gm-Gg: ATEYQzxfIesTEgPnKlrF1JWBhUpwc20hlxfg0txD6oVfxCMYhzMK5A/68yfuT0nLvDm
+	H8AM3Nuh3R9/6gDKZPaP2GaKCCcENIjwyupGyZVuexntTly6J/qtrVoZeepwaRdSQjiOiYzI49B
+	RWdPHgWLwRElnQ0Tiy+YdHnij02a81YteUc2RcfdAJFKDsWBxw/hMpF5F084VWT+ZFM4hPszJ+v
+	4vEeF4YnlBIVGKk8OuUA2xvVNEkNbk8AsoIn6tdV7trEUfRngiVvip4AJW80XT0avOFFPznMtNe
+	QeVrR98HYj57meN8gEmc+BbczGzs42DU612pPteUWxHErdFhSjCa//cNfJM4E6NOZknnB7Sntaw
+	9tUvVCLI/BjP8rN9M7V5+mCZ8mYXLsv3WhV/n3S0cyBpG/U283CnyNDS5aMzVHtgkMbJKhYYN6m
+	5dczaBmOfngENXLcmHcz7yAYE5BW68AUZFIizVRPtuP6CSDqc9k/ppg2DYE34bCzrXsOAAu0XJY
+	/9vt661UDuYJRpHBHd+
+X-Received: by 2002:a05:622a:4512:b0:50b:36e4:a614 with SMTP id d75a77b69052e-50b373ea96dmr54489661cf.6.1774035267172;
+        Fri, 20 Mar 2026 12:34:27 -0700 (PDT)
+Received: from gourry-fedora-PF4VCD3F (pool-96-255-20-138.washdc.ftas.verizon.net. [96.255.20.138])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50b36d23237sm33063701cf.13.2026.03.20.12.34.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 12:12:27 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Sat, 21 Mar 2026 03:12:11 +0800
-Subject: [PATCH 2/2] drm/bridge: th1520-dw-hdmi: Fix remove() callback
+        Fri, 20 Mar 2026 12:34:26 -0700 (PDT)
+Date: Fri, 20 Mar 2026 15:34:24 -0400
+From: Gregory Price <gourry@gourry.net>
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Zi Yan <ziy@nvidia.com>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
+	Byungchul Park <byungchul@sk.com>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-mm@kvack.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH 1/2] mm: remove CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE
+Message-ID: <ab2hQHsCs2MwZqj2@gourry-fedora-PF4VCD3F>
+References: <20260319-config_migration-v1-0-42270124966f@kernel.org>
+ <20260319-config_migration-v1-1-42270124966f@kernel.org>
+ <abwVK8nLpSLVcT5G@gourry-fedora-PF4VCD3F>
+ <8ebdbdba-d0b5-4887-98e5-bc45f4565d51@lucifer.local>
 MIME-Version: 1.0
-Message-Id: <20260321-th1520-v1-2-ec877197770d@gmail.com>
-References: <20260321-th1520-v1-0-ec877197770d@gmail.com>
-In-Reply-To: <20260321-th1520-v1-0-ec877197770d@gmail.com>
-To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Icenowy Zheng <uwu@icenowy.me>
-Cc: linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774033935; l=1195;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=Iq/IF6LUudYr57iCsECUorrqheDDpz1NtopP1SQaLhI=;
- b=GX+DTp9uRhkW8/vmyR0grrfU+rSZbqh4XWzlbmadXi2TWUSN0llN144L4kkBfk70i1b317S+3
- 2XHAcJkfyuMDz9PgvWt7KQzxoWiCgZ+TY3AUqycUY7w+DTZGVesfOAQ
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+Content-Disposition: inline
+In-Reply-To: <8ebdbdba-d0b5-4887-98e5-bc45f4565d51@lucifer.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_121229_313365_C122416D 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260320_123429_204516_32D815C8 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,40 +138,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This driver stores struct th1520_hdmi * in platform drvdata, but
-th1520_dw_hdmi_remove() was reading it back as struct dw_hdmi *
-and passing it to dw_hdmi_remove(), so teardown runs on the wrong
-pointer.
+On Thu, Mar 19, 2026 at 04:34:04PM +0000, Lorenzo Stoakes (Oracle) wrote:
+> On Thu, Mar 19, 2026 at 11:24:27AM -0400, Gregory Price wrote:
+> > On Thu, Mar 19, 2026 at 09:19:40AM +0100, David Hildenbrand (Arm) wrote:
+> > > All architectures that select CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE also
+> > > select CONFIG_ARCH_ENABLE_MEMORY_HOTPLUG. So we can just remove
+> > > CONFIG_ARCH_ENABLE_MEMORY_HOTREMOVE.
+> > >
+> > > For CONFIG_MIGRATION, make it depend on CONFIG_MEMORY_HOTREMOVE instead,
+> > > and make CONFIG_MEMORY_HOTREMOVE select CONFIG_MIGRATION (just like
+> > > CONFIG_CMA and CONFIG_COMPACTION already do).
+> > >
+> > > We'll clean up CONFIG_MIGRATION next.
+> > >
+> > > Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> >
+> > HOTREMOVE has long been a thorn in my side, I appreciate you cleaning
+> > this up.
+> 
+> That is quite the HOTTAKE young Gregory!
+> 
+> (It seems my pun crimes are continuing)
+> 
 
-Retrieve struct th1520_hdmi * from platform drvdata and pass
-hdmi->dw_hdmi to dw_hdmi_remove().
+:P - it's just more config cruft that always catches me cross-platform
+when i poke around in dax and hotplug.  It'll be nice to get less
+automated reports from CI lol
 
-Fixes: 96f30ee0fb9d ("drm/bridge: add a driver for T-Head TH1520 HDMI controller")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/gpu/drm/bridge/th1520-dw-hdmi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/th1520-dw-hdmi.c b/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
-index c9968ec1823c..6ec9003a8f3f 100644
---- a/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
-+++ b/drivers/gpu/drm/bridge/th1520-dw-hdmi.c
-@@ -146,9 +146,9 @@ static int th1520_dw_hdmi_probe(struct platform_device *pdev)
- 
- static void th1520_dw_hdmi_remove(struct platform_device *pdev)
- {
--	struct dw_hdmi *hdmi = platform_get_drvdata(pdev);
-+	struct th1520_hdmi *hdmi = platform_get_drvdata(pdev);
- 
--	dw_hdmi_remove(hdmi);
-+	dw_hdmi_remove(hdmi->dw_hdmi);
- }
- 
- static const struct of_device_id th1520_dw_hdmi_of_table[] = {
-
--- 
-2.43.0
-
+~Gregory
 
 _______________________________________________
 linux-riscv mailing list
