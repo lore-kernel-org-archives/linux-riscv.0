@@ -4,147 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DEF1099B28
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 17:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717641099B2D
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 17:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=2YQNXzpjN2TReKIcZMCuBW3Fsw2XZkbMHvLvfbORe/M=; b=OVmELA/FGwbhF1IvXrJmREC4JF
-	AIvbJL4oMR3FHZ0kilxlLnhLzbkqJaSD12U0m/KCBPVHEdAwDAHBkoGlM5RshcTs1pZYvRg74z3VF
-	PzqD/lis1EVeeO5geRL6Q9MUHDpOROFuIxMEVg60m4ERwzHTYdxiy992EfVjJIg8kzraD+FLFPVzh
-	9mY6JJVaOfXyLkkhpB0nPmkDzvHvkHdWQQCkZ7fSoXo8y5c74LjkFOEjcOVGlhG2Tm4Q9DBDGWCgm
-	1aPtou63iJiTQNAPxiw1WxY/D2K10dm824mHz45CIwFEoBjx99Kiguy1wW9exXqKGTn0iySaEZRUI
-	FMIXY3pQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y42nKjaJSCI/uefpeCkzRVwqPVDM67W1wloCvEkES+8=; b=3b7axBM2nZbusqsCUYDzE9Pn++
+	WDDfWbea7PjbIVkbaWEPfOcMEpZz7zDT/ru9mMKrZFj9NRlNriKgzW/vbcWdzitQLnNWxR55BM2NU
+	PegTMzEnvS6ui+Jjv1uIK4K2+XyO3QxP9khaSPLxsrDPWYHZdpaDmCyeYLFa9FuJZlregY3vIZ6KE
+	bX+osGH75F3ZwoI71epJ07CN1c08GIrPW+o7+oJtraxsPor8pUgsw1Aatm/z9aguH6Cl7Y10NY9VU
+	stbF/ajG0HPd1aqwuIqig4O9yAByOCmd4GwYCgZTGoFRZ/XW1O+1CucT5h4stLFvkCoiDLnXhAOzJ
+	/uVAWCIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dny-0000000DHF4-3RN5;
-	Fri, 20 Mar 2026 17:38:38 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1w3e5w-0000000DKjZ-2h6u;
+	Fri, 20 Mar 2026 17:57:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dnw-0000000DHEi-0mJN
+	id 1w3e5v-0000000DKjT-0dtR
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 17:38:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bGTIgAxtvZKB+bZqKQ3dxRkm/JUFn9mxSQuwoJH+BhFn18NXUXg6O/5QTtD9egO4zZJbefe7nbji38ERvwsCdQ3PDs541xRcUSg4QAkjPsJJ/f1Kv1hYDq203SKphcIPLscF13gT60WkrMaRqDs1iPCQ1rLZYCMBbzo58GK4j+OrDD6CDqtIT7Y2OVu5kzpeNIE72DYU43JnNXhoAKr6rPkXc2Mk9HNM2JeIK5F/9wCHgyz28uqU5aiQkwC3/w1ePrU7aHB+NEtzY95XzpKH6hp3elSFXqoj3nRdy22KAIuD3q1KY7DTlGX2ILP5iqdLDYsIG4z1emaIRr0gKGQ+PQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K2EuNQJwE9QEAfSS+s30m6BxPiID3JHF9NC3YEGA4UM=;
- b=obqcCcHRljifzDGGXAxY6sB408JmQa+XmjJNeRfNnh3HIkEzdZDol1NV5+hFTUkn0YLKJcZ4k3Z547LUlVW/2PzBTq/mK+GYD72yrd4f9ktrvoPm1/BKTfI/jys7plGD8Ju6zbJBlct3DxXR1PSQjQQexle8gtlTPLWNCxTwq27jatQ70OOtLruEfvRsh/KerekJD9xvi9aPP8M8NX/WfAUJKuDXfL93Bt/mZ0wiE2nzTBgIUsiVuAqRuuLea7vCIgvuV/KPMKA7DLFUBhTmHAtTGWnpCNw5yhuw05U7kVuvPwnxTIecFilps7fvxtwfnt7d6a6x8kmUqrw8xjGlPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K2EuNQJwE9QEAfSS+s30m6BxPiID3JHF9NC3YEGA4UM=;
- b=hEURZlOBdYo37lfYIphaCQCPbAihkAsVJbW4X51s/lha5AwtOCuwkMkS5yly78AKhB/0yZlejChprzBgWGJpmZjdhbx2tR6F8XpFVDV5FwTOUYbahqzIpOy7Axe6+FIsBpKdp4h4txQPQwi/ZLgJl7lBDN1xP6yJPULsD0WwdaFO8mBm0YG7HGp/n4vdXVnHC7AtMlJOPPqgPDy4qkn1OPhk0aM48Q64qFUFhvGRqpeAme0sAwQAnfoW05CX9KDcnUZurZ/X4l2P5At8kwVm38ccbxGmyqZWOkq8LYWGOtUGUV9/sI1WSwRJzRtrSTuzRXMvVHOmIXF75haQLuuRlQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB6486.namprd12.prod.outlook.com (2603:10b6:8:c5::21) by
- IA1PR12MB7613.namprd12.prod.outlook.com (2603:10b6:208:42a::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.14; Fri, 20 Mar
- 2026 17:38:28 +0000
-Received: from DS0PR12MB6486.namprd12.prod.outlook.com
- ([fe80::88a9:f314:c95f:8b33]) by DS0PR12MB6486.namprd12.prod.outlook.com
- ([fe80::88a9:f314:c95f:8b33%4]) with mapi id 15.20.9745.007; Fri, 20 Mar 2026
- 17:38:27 +0000
-Message-ID: <8f9da1e2-fb86-4653-b702-333fc920af58@nvidia.com>
-Date: Fri, 20 Mar 2026 13:38:25 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/10] gpu: nova-core: convert falcon registers to
- kernel register macro
-To: Alexandre Courbot <acourbot@nvidia.com>,
- Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>
-Cc: John Hubbard <jhubbard@nvidia.com>, Alistair Popple <apopple@nvidia.com>,
- Timur Tabi <ttabi@nvidia.com>, Zhi Wang <zhiw@nvidia.com>,
- Eliot Courtney <ecourtney@nvidia.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-doc@vger.kernel.org, rust-for-linux@vger.kernel.org
-References: <20260320-b4-nova-register-v2-0-88fcf103e8d4@nvidia.com>
- <20260320-b4-nova-register-v2-8-88fcf103e8d4@nvidia.com>
-Content-Language: en-US
-From: Joel Fernandes <joelagnelf@nvidia.com>
-In-Reply-To: <20260320-b4-nova-register-v2-8-88fcf103e8d4@nvidia.com>
-X-ClientProxiedBy: BL1P223CA0025.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:208:2c4::30) To DS0PR12MB6486.namprd12.prod.outlook.com
- (2603:10b6:8:c5::21)
+	Fri, 20 Mar 2026 17:57:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 28EAA60126;
+	Fri, 20 Mar 2026 17:57:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98BF8C4CEF7;
+	Fri, 20 Mar 2026 17:57:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774029429;
+	bh=8glEvNnreBwR1w2oGJ8ufIdnmrUmRY35kJIHcmNZ0RY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TxPSODsGNorclc3tsg+OMczBTjPIbL0qdr0uUYVvgH4uGPxMgi0WpgOtPvboOW6Pb
+	 yt+QmKPoAITQQLJ0fkMUHOSmdJhU3Nj3XdIzHepscWJrC0nqiT5RFBgBFJeBQeBV6R
+	 07BPHLjUjXIcJFjJ7fjjKgXUjEKu8lD8GhPgj6bxZm/OfbhTmVmkgznZNUuPZgAYwE
+	 15HYrJBvZcfpSRyLLJx0X9mUM2gYuGPtc/RafwF5PGusO2/RwAtu8DYqS7wBZbpYyW
+	 ysuR0LIffpGD5DGpo9PnVGRWTZ+jqOh7AQnxaX5LdhqWv0F4m98XblMi7dddu88xoU
+	 DbUymsQ50Ob2Q==
+Date: Fri, 20 Mar 2026 17:57:05 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Junzhong Pan <junzhong.pan@spacemit.com>,
+	Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5] reset: spacemit: k3: Decouple composite reset lines
+Message-ID: <20260320-starlit-isolation-40c3c80e77a4@spud>
+References: <20260320-01-k3-reset-usb-pci-v5-1-07f4a5ddd728@kernel.org>
+ <272ed19e2c0d8c9f53b6e621c01dc09f0635bf9d.camel@pengutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB6486:EE_|IA1PR12MB7613:EE_
-X-MS-Office365-Filtering-Correlation-Id: 088b6f62-364c-49b6-6219-08de86a77eab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: ek/wpmKGui8rynEDY3pEekLfPNqQNTRfPedijBk2lsOvqF1WNAua9k42T//V02uz3J3NMhlKIP+jiYfXFsX9DSPmdXJcf+fX9xDWl5I4u8LLVlONQ8r23/Es7CwndFguGV4pzORlTRFag0iwqWXw4YWBNkehxB1R9l7ZZkHbp7JauPCTp56pCPAxzf8dI/gxG14s+AkXfrtX4PuYJQ/tD+L7TfxaJsR4cbLLsA35qCfVKWR9t59wsxDnynXbFqZCxL3KITh/oQRjD9e0DsGBBBD2kJhLApN9JYjQAw7M/VaM4bSbr/CXflTb6Dnma8iyrfSn/O65rYtiCqxp/kPKEXerzKeQ9iIkhpK7VkpS4UHcnjlLYDuJTNjfM51fyFdcDpEJzjpr02hwEWJlvO0kNDk6xurrJMQhhXjrnccm1MtSZVRENd/8zvfIZ0g6scHqxEpaRE9K5NlVPbTkC5/fFpm8N8v8qlnXQTB/YITuCFi60uKx/u5Fc/M0ODJmfiBN+TjDwvWJZjTsHHcwWvgzTXwHxA7CI8Ny0plTkUo8WnisZSN3IMixjkkU1Mld9ud0MfiuoF9IIx2BuDZb+4dajEWAkHRyFBNk4pxQZK87J9CdBQ4KOw8AEVKS+dTBNuoVyz0lrcqTwnGFE4KxORIRBOBnFj+f1jhyCAy0uD1m2rgTkzM0oY2hdd7RB2BuzPDbJ3rrIAljyK+pM1Hxndsbj1OnqKxQdaVbJ/DO/CvN9UHvFK52d1VUOOpu4+CbOL2OhpH/HiIkvlAiq0Q0deg53w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6486.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZC9XUUcxUmpkZmV2NDNNc1lLMDQyTzVWK2l4SDRtSDBjZURRMlhtUlBrMXVM?=
- =?utf-8?B?SEd5MzdYOUZHNHBDNWZScHFKSGVST2RnRlE1TUxZQW9iYkoxa1lFNlZNR0Ev?=
- =?utf-8?B?ejVLdEhYaTVES3N6YTFvWlBTOUsvU01Ud3FwcnhJVkJ4eFZIdUJRRWVaalpF?=
- =?utf-8?B?ZkVmRHArcXRFaWFVK3NkWjBTR2ZvMEN5R2FiK2R6SUJzNXJQdmo3Z05OMXlj?=
- =?utf-8?B?NjB5TEI1SmwrcHRhVDJJRTd1TE10MmRUbGpJdGdwZjA4ODFvdmxVcmQ4ZEl3?=
- =?utf-8?B?SGpMWTk4UGhoK1VaOW1EczNqMDdjRFFwdWVDdmh5cGlxQWZCdExhRldDRldN?=
- =?utf-8?B?V1dobW4vcWNlb3V3Rzc3WUt2MEFPQUFOSDQ0T3AzbklGMDcwaWZ5QTFtUzRP?=
- =?utf-8?B?M0pNbkx4YzlETjJIUFVRN3FOOTVaYll4VEdRdlJ4bUZXTXI0Wm55Z0drWTFx?=
- =?utf-8?B?OU50Rk1lSkFhZXFCQi9OZmx0c2JIMnd3Sy9uOFJpYlZsMVFUakZpOHdiSm5r?=
- =?utf-8?B?alVjTnFNeWdRQXl0dEkyd1cxY1ZtclBFTVpsTW5mMU1SZzdVWWo0QkllV2pt?=
- =?utf-8?B?ZzVWUTI2U0U3ejRKVW5teEdiMENlNVE1MTIyVitMcUJHOCtUS3cxaVdpc2pX?=
- =?utf-8?B?K3ZBZytOWGpJY3N3VnJFRlYzNmVLd2NlOVgwRnU5UUVhRDNsaVYyWlRFVHFU?=
- =?utf-8?B?NGdYWkJzZTlWY1pvRjJzK1o4VWpTQTlxTHU0MFJVR1hVQUFxaE5aSHF2ank1?=
- =?utf-8?B?MzlCaS9XdkN1cUtqSXR6cjlTamEycU1xdmYxTDlwNXZMdmZrWU4rcVFheGFo?=
- =?utf-8?B?eFdsTHA2bmNrMkpXVkVyRjhNSDRjdGtQZXJQMDdCM2RWd2RldUtqOGdlNjRR?=
- =?utf-8?B?b2l3U2lyaHVKakZpMi9SK2NFcHlwWVdGNGJjQlNZWkdvUzhOcnhsaCtmb3dH?=
- =?utf-8?B?OUV1Qzhua0p1SGluUzArNXZCWndqdGZ5ZUFQenBiS0Z1Q1FqbE1aRW5pWlFU?=
- =?utf-8?B?eFdYekdmVERxdjh4S0pCOWo5eituc2wvTVZjQVhBK1FSdGVBc2haUkpqdnlI?=
- =?utf-8?B?WCt0eHlpbmQ5bmttckN0V2ZiMys2WGdNQ29KS2VnYTZwS3B5TGdoK2hWdDRR?=
- =?utf-8?B?WlpWR3pOTGxiUEJsOFQ3Z05WcU1WMWRjYkR3SlU4QXpQQWM5QUF5cGFZaEZK?=
- =?utf-8?B?MitRRGgwWUl5cTE1YkpwSEZEQlNzVUJVaW9rZkNCZmJ2TWIyUC9xTERtSWFn?=
- =?utf-8?B?N3YrM1pua2d0K2cvZktYVmRQRzZpVWp2ZEM4ei9sUW82QmllRjl2eHBnQnZr?=
- =?utf-8?B?L2ZlNXdHMjkwc2ZtT2NoWWhWeFFISTU5Tks1WXJ0YjF0bkg5b1lISFVyU3p4?=
- =?utf-8?B?WHRtb2hIWHZmM1NjamVRa0NNRWFsY0lSaFVFeXRRUUN1SnRjU3BnaXcyUEc5?=
- =?utf-8?B?TG5Pc1JLUDhRYitXVjZUQmNQMlZpNGF4dHlGU0h3ck9JYndUbHhpTkxBS1Rt?=
- =?utf-8?B?eExFYXBLN1NhbDk5VExkZjFuYWdjRGxiMmhKaEJVTENYU2VmNXNlV01QVXJv?=
- =?utf-8?B?ek91YlR6clJKQ0xYSnlDckgzdG8zdDc2NURyS295cVNLZk1OSVUwR3RpM0tn?=
- =?utf-8?B?SDY2ZjA3Ujg3WW1HZHdodndnYzhLc2R6OGpGU3RReFd6SW5hczJjWDBCY2ZR?=
- =?utf-8?B?R0o2cEtYdHFMVFhEMExzenJDREVrbHA1czZ4L291ZUZTbFhVWGdhdTVkbEJX?=
- =?utf-8?B?Z0tqQ0dxNUkzZUlVZzl2MHhucHZJMnJQZkxVTmFIUFY3bGJCTUUrS3Q1MXMw?=
- =?utf-8?B?eDFpWS9JdjVyM2l0NFZWVFY3YTFsbVpEbnpkRE9aTHBobmFQNTZGUWV3eFJC?=
- =?utf-8?B?R1ZnRFVibWJmSGRWSG1YbzJQVVUxblVaU3NEQzhZSjdKcGI4cEdVVXIrS2xC?=
- =?utf-8?B?U3JWVE93QXIzQXkzSi9jUXdidTNKbkxoSng2eDBOWlR3Uld1MlVic1MxVDJZ?=
- =?utf-8?B?Tzc1ZWVWdm5OekEySGQwQ0s4USttc2oyT2cvNHhHcGc5aXVXVzRhaVRqTnBX?=
- =?utf-8?B?VllFM20rbHlrWjRRdlVVV3hYSXRNZXdJNUZuVHJseWlyTi9meExlczFnbk1E?=
- =?utf-8?B?LytnN2pzQlVkVGtoL3hDaHdhR2dpMUVveFZKSk8wYVR0MGpUNnhoSFpyNGpD?=
- =?utf-8?B?Zm9ydFdoZmZRUk9PS2tnS1ZSdmdkZ3ZXU0hCeWdEL1RiREw5eHN5RFM1TElJ?=
- =?utf-8?B?RGNBRTJmL3EzUTBRL29Ha2paSXZtUlBJbEhTNERyYVB6ekxUYzBoVVBsZElV?=
- =?utf-8?B?TW9veUlUSDg4dXhBTFZ3dS8xWjlyc2l2U0NTbTJXNTJhQTBRRGNIQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 088b6f62-364c-49b6-6219-08de86a77eab
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6486.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 17:38:27.7776
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V84cKV2axvsybhaut8lmbNshpXdQPxKDEKt5wWLeEQKg3wwn/4e4n7/Jdbc5ZA0clSKQUb4Vzs+s03IPcmq/Lw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7613
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_103836_252733_891A3370 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <272ed19e2c0d8c9f53b6e621c01dc09f0635bf9d.camel@pengutronix.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,68 +69,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2379347718328782147=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
 
-On 3/20/2026 8:19 AM, Alexandre Courbot wrote:
->      /// Reset the controller, select the falcon core, and wait for memory scrubbing to complete.
-> @@ -616,9 +462,10 @@ pub(crate) fn reset(&self, bar: &Bar0) -> Result {
->          self.hal.select_core(self, bar)?;
->          self.hal.reset_wait_mem_scrubbing(bar)?;
->  
-> -        regs::NV_PFALCON_FALCON_RM::default()
-> -            .set_value(bar.read(regs::NV_PMC_BOOT_0).into())
-> -            .write(bar, &E::ID);
-> +        bar.write(
-> +            WithBase::of::<E>(),
-> +            regs::NV_PFALCON_FALCON_RM::from(bar.read(regs::NV_PMC_BOOT_0).into_raw()),
-> +        );
->  
+--===============2379347718328782147==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hP8vo3n1R88/WzCL"
+Content-Disposition: inline
 
-Overall, I think the series is good improvement but I still feel this part is a
-step back in readability, and we should come up with something better. I don't
-think there's any chance anyone can memorize this syntax.
 
-What about using a macro to hide the boilerplate?
+--hP8vo3n1R88/WzCL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->          Ok(())
->      }
-> @@ -636,25 +483,27 @@ fn pio_wr_imem_slice(&self, bar: &Bar0, load_offsets: FalconPioImemLoadTarget<'_
->              return Err(EINVAL);
->          }
->  
-> -        regs::NV_PFALCON_FALCON_IMEMC::default()
-> -            .set_secure(load_offsets.secure)
-> -            .set_aincw(true)
-> -            .set_offs(load_offsets.dst_start)
-> -            .write(bar, &E::ID, Self::PIO_PORT);
-> +        bar.write(
-> +            WithBase::of::<E>().at(Self::PIO_PORT),
-> +            regs::NV_PFALCON_FALCON_IMEMC::zeroed()
-> +                .with_secure(load_offsets.secure)
-> +                .with_aincw(true)
-> +                .with_offs(load_offsets.dst_start),
-> +        );
-And bare minimum, probably the inner:
-> +            regs::NV_PFALCON_FALCON_IMEMC::zeroed()
-> +                .with_secure(load_offsets.secure)
-> +                .with_aincw(true)
-> +                .with_offs(load_offsets.dst_start),
+On Fri, Mar 20, 2026 at 01:02:04PM +0100, Philipp Zabel wrote:
+> On Fr, 2026-03-20 at 11:06 +0000, Yixun Lan wrote:
+> > Instead of grouping several different reset lines into one composite
+> > reset, decouple them to individual ones which make it more aligned
+> > with underlying hardware. And for DWC USB driver, it will match well
+> > with the number of the reset property in the DT bindings.
+> >=20
+> > The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
+> > PHY. The PCIe controller also has three reset lines - DBI, Slave, Maste=
+r.
+> > Also three reset lines each for UCIE and RCPU block.
+>=20
+> Although I can't validate correctness of the id-to-bit assignments, the
+> changes look consistent.
+>=20
+> I trust that the reason for the grouped reset lines was just
+> convenience, and not some hardware limitation that requires them to be
+> controlled at the same time.
+>=20
+> There are no patches using the USB/UCIE/RCPU/PCIE resets found on lore,
+> so this is not an ABI break.
+>=20
 
-Should be assigned to a separate variable for readability. I think otherwise it
-is quite unbeatable.
+Eh, I think it's an ABI break either way, but it is being done fast
+enough that there's no users since this is new as of -rc1.
 
-thanks,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
--- 
-Joel Fernandes
+Just be careful Yixun that U-Boot doesn't import and starting using it,
+I forget if they use -rc1 or released kernels as their import point.
 
+pw-bot: not-applicable
+
+Cheers,
+Conor.
+
+> > As an agreement with maintainer, the reset IDs has been rearranged as
+> > contiguous number but keep most part unchanged to avoid break patches
+> > which already sent to mailing list. The changes of DT binding header fi=
+le
+> > and reset driver are merged together as one single commit to avoid
+> > git-bisect breakage.
+> >=20
+> > Fixes: 938ce3b16582 ("reset: spacemit: Add SpacemiT K3 reset driver")
+> > Fixes: 216e0a5e98e5 ("dt-bindings: soc: spacemit: Add K3 reset support =
+and IDs")
+> > Signed-off-by: Yixun Lan <dlan@kernel.org>
+>=20
+> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+>=20
+> If there are no objections, I'll pick this up into reset/fixes for
+> v7.0-rc6.
+>=20
+> regards
+> Philipp
+
+--hP8vo3n1R88/WzCL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCab2KcQAKCRB4tDGHoIJi
+0n4FAQCnnReUmA8clg/MCzX+jyZCk7NbP4dF2JecIAuY7go4WgEAy9VobUGZbInL
+sYap5dRIMkC5Q4cA1ppov9UzFaiY5A4=
+=oCVp
+-----END PGP SIGNATURE-----
+
+--hP8vo3n1R88/WzCL--
+
+
+--===============2379347718328782147==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2379347718328782147==--
+
