@@ -4,143 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66516109192D
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Mar 2026 22:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B05B1093163
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 01:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iXRNCifvOU7h09bHm9uSW2CMzvJqkR1wB5UwJLLNt8A=; b=W+2r4QmrJLFRbj
-	hZx2xKDxRsWo+a6szcwYaOIY7COJhL5dyO6hpMAGqLAzOMufJE2W4ZizPmDwmKNvl8md9ufxa8677
-	QaBqoEaulFIOTJ9UhJhk8k5uzZrJOmnqYkFDnBTiajMxizija5Ivx3192TnvJ3JNxLhJj71Osb2DR
-	fugvChcHL/UtuO7Hc0HkD/Bys7T3fTZQPx7jPYVPGc16Qcb9IZAXZTll9CqSu7Wp9flE72Qa+fNjP
-	QpxztfEnzu/xqs+gJmatRmNQLwjkkHa+tE4d20i3//YENJTB2S3kbC6HJJUneISwgPyNQk8rXbFrE
-	DeMXChNIbhufMNDeJ5UQ==;
+	List-Owner; bh=0praR0OSpxSU6KK3hfhTxz/PHmbwumti+cO3wwK7YF8=; b=1O29I9PyGFlRgp
+	7dQsI4+JW7uN59ffUeHdq3RiYKYctBjVV1AjZ0aE/o3Rz8QvuKCG8rFo/2iBNZa+rhRP54XqISx1T
+	URQGvKjdjGArGGr73SxyN40S9NjygSh9Kn2CMHA5Q61il1DVtikE6Sseh74vyvVtGbfc8frbSZnCb
+	81724fv3nUwrcVyeMuqQgzNM8T6KAPOZbdNZwQRfu2HtLvJlyWAPbKjvClkmiEzt/dfXDQMLyanwI
+	rq4qMWXOfmrQE7Lx3RDB8K5MHdtTq8esJD1BYG8mYYwZqkLNb377hN6utV0rufadED2054eMl1mWd
+	l4S4WobtQ8mXsQPCl+xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Ly3-0000000BjIv-20rG;
-	Thu, 19 Mar 2026 22:35:51 +0000
-Received: from mail-westeuropeazon11013012.outbound.protection.outlook.com ([52.101.72.12] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w3OG7-0000000BrPv-2Pj6;
+	Fri, 20 Mar 2026 01:02:39 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3LwO-0000000BfTp-1mI9;
-	Thu, 19 Mar 2026 22:34:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cIdjFHDsL/47QAmjqErULxqRFrl1iUTpaJKDoor8L8OFSLN3Bn1+WgCtSX+VP2ZzIwk1KnwrpoLxzrQtVcR4lqZaerFesihKrOQVVlSHs7Sjz0/mGuy1EbsZ/ru7nzYKHH/US2fh7vXp5LyYHRbJMCwBGMRjFwzgsOJyXlExZl3tg7xZl++5yt/GCxB/8gb+bwfqDpIrmxVgYnn2Y818v2R4e9MlhLPfHdzQJyHDFy9iaj3+fD4DfFZqtPYBndK7EwadGa7btJ0tKKMlyL6Sbsz36AugI8lnI3QXo16k4yvAkDEMLeEl36XCUy7t77djORloZLTjBJpjEvHtKLhslw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tpcMpOj7EkX9LGxVXmbfajSEtxU0/+RWcEpKRZTsXRM=;
- b=v3mTn7XrNbHbVWFn7HQyZCPKiIGC+BYCoOx6zsZYiqr6pZTiH0YGF/VjIEACwkg8nENRAdsVRUf7gnQxU/bagK/HEmxOdv5hAYrxW8elH/SgDGU2uYCbtLo0qp1cIDY7kNxcuCkc7zJZRGVOhiXGfaBVRkpSHQjTUc41FYfhEy7QE0OtqfLW7jbN/jsHKAIKRLT1OfLV+YqigyqILhzE8D5bEKdSsk+yMIZvhiZQ4tdcQjKkC4i+drgF4ARDq4508LU4MMC74BMI9vN8en7flM0m92oXhCUeDgWin0o81wXcM6kmxkv6UHY6cZ7tGkgiKInsAGVuU3tLuARNATGv4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tpcMpOj7EkX9LGxVXmbfajSEtxU0/+RWcEpKRZTsXRM=;
- b=XR37Amug1oBl7LRouxRGD4KTPSHo9KXfZShSAtusBNIPsCz2u2Lfw4QqSsumqP8kSGIJC0+9aJDZmMtKFS2hJE34FSmdyWWM5pKT4GX/AmwvWTPYNrypnAmsWv0v78T4Aej6dmcWmPVS02IVUYCjho4/7ugzqaA/D+auuIjSQnQcj8UzYPeM00PpaSPdW0wY7tylJBaEnwWeBEKrkq2R6vWW/sJlfp8XFTHnZly1OrPVljQfCrOSPoaKVIIKCxMCyRoBLusQJHa7g292NWDN2BQ0d+QB8dY6mziXt15D9G+IRJuGY+tAigJUj3JEViaZMNAdohPIarNcdkZpVkl+ZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by PAXPR04MB8079.eurprd04.prod.outlook.com (2603:10a6:102:1cc::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 22:33:40 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 22:33:35 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: linux-phy@lists.infradead.org
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-can@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-ide@vger.kernel.org,
+	id 1w3OG4-0000000BrPI-1sXd;
+	Fri, 20 Mar 2026 01:02:38 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-03 (Coremail) with SMTP id rQCowABngdidnLxpInAyCw--.38047S2;
+	Fri, 20 Mar 2026 09:02:22 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: atish.patra@linux.dev
+Cc: ajones@ventanamicro.com,
+	alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	jiakaiPeanut@gmail.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	UNGLinuxDriver@microchip.com,
-	Joe Perches <joe@perches.com>
-Subject: [PATCH v5 phy-next 27/27] MAINTAINERS: add regexes for linux-phy
-Date: Fri, 20 Mar 2026 00:32:41 +0200
-Message-ID: <20260319223241.1351137-28-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
-References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
-X-ClientProxiedBy: VI1PR0502CA0015.eurprd05.prod.outlook.com
- (2603:10a6:803:1::28) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	xujiakai2025@iscas.ac.cn
+Subject: Re: [PATCH] RISC-V: KVM: Fix integer overflow in kvm_pmu_validate_counter_mask()
+Date: Fri, 20 Mar 2026 01:02:21 +0000
+Message-Id: <20260320010221.1052724-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <27ce6795-1bb2-437f-a3a9-0589c1d65cdc@linux.dev>
+References: <27ce6795-1bb2-437f-a3a9-0589c1d65cdc@linux.dev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|PAXPR04MB8079:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f155316-cf66-48a7-2bfe-08de86078eb6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|19092799006|10070799003|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: +upsZRuFux+K3Za4MDzyFPN1x5rH+PJrh420M2R5VGJDNHHr/TdCnsGLKHLyEtWu85S6TIRNB6dP965mPlJti5Ot5gC0tUieELO7VcwWoono3n4M8gWs71YxBwrPDyyocXXoL5B4CzkjwD8aqFeE/BCda42h3uu6Zfi1YKiomCMG2pC9t8gsPj3y4obYVXTbCUaybzIgsfQrwTrH3qk6hRcW+TRFxHRY9Jy/IAoVFjbAC5m9hBe2o33XVCvwiz+bxZk0wEq1rNl5b8UQfytQKsUKfXoy8ym0WeTvskCooZCjmpNEWG8P/mdEVNec+rmUN1i8RK79yU8nbWhNrnWk2aeCHyCq/g6W+Vxqqua7W2IZo56ybJTlEaoch1M4g11WEJVMcbunuDQnGU+FMvq30q8ZyQ5YP7/+HoNSIQkdU9W7HVJLMY/RLfOmVQ2upoYN5v/hmXpKszgaOlc/9m6FRNOY1xLLnBuwyuV0SVcuXlDiFv8Mqi9QxeRQUbIyoKhV6YZSziEwXwS602yoFLjhBRzrzm6pGV+sqp9rSApQ3VlAGgCqSoNnhwZjlkoZCJqv0JIEbxxmoX/f7FCtR9vxL7MLMC6wVqsEfTX1Sd3Y1Eo0/5Up2e7LFTwHSt5HlkmnIOqM3sObvp4e3lQmpcI0+pkTRcuSZ1BAnumXwDD47bA/Efxp5YR+vToivywgPPVyGqJh6bXNVXBtjaQw9xkYgCkq38t+bd5wIK0e9ZI/O6c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(19092799006)(10070799003)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BUVxklfbXaPgcEUOwJHmNzwgNVpQMJ3Tqzg/1ywEUGc3bclL5aimK7VkU3g3?=
- =?us-ascii?Q?4QPDOoFP9yx+GXcqI+fOLgWazng47f3Q0TDxNltke0/a0Pf8ACsrLfjxI3p0?=
- =?us-ascii?Q?4aCY9QVWpaH5dpUpBms6GwLQ/cktcQwnsMJKnN140zviitd+axivyual8q0a?=
- =?us-ascii?Q?iHUT2sk7+t9429mwAnx12CSzhnS2fIVnYJ5G+ixY/AuRSFoL8wyBuFTjiEkP?=
- =?us-ascii?Q?nwcY11OxLEjLgmMi811PZRc0ZKQFUVfVpJ5h8E0jCPCmQ8JsVoxXyHo7scI1?=
- =?us-ascii?Q?w/qJUq1FIxBuUva6riTzu77upXzaX4cOUWF+iHdasK+kpaULK55rguJTx7xC?=
- =?us-ascii?Q?6D7HKw3slmoABvFXg24+4QCOFMhMFwzSADBvDmTHpKuq15MPaJ5XFCWO+vNk?=
- =?us-ascii?Q?o8Wlnqv9xC893TsXZgYq5iqIRWwQWAUmxiZs0XACRL6AN2I9dJpMObF7vqTh?=
- =?us-ascii?Q?FMqPvBXse6L8uSncgjcEHaw8cq0aoWWA/gdkfYhvSGWEVnozF/vswl/Jt/7t?=
- =?us-ascii?Q?cn1BVIDhyitpYxxaRP162DYBPBrf5h1EtR+tkcaNxPpDkDMtJSj1cUDCOATL?=
- =?us-ascii?Q?GT4mWUpVygfPxCNncu6uhglg0LeQ0w4FxLNShUUThiqFn4fuSSM66VVztDtD?=
- =?us-ascii?Q?lOFKCurqZjx6wkfVF2VvAQ7YJ64QJ/wXmcF2h7xESFf/Zzhv/DdYgAqWwgiF?=
- =?us-ascii?Q?w+0K5E7LhEvmhc59XDMZboa1PvADHW+Dg4u+O1U1d5qRzlNmj7fOlyC4YNA0?=
- =?us-ascii?Q?vydq0OV/a4wZsdbrpmPpdNfeXxASJqnYHs7vX9yrE5AXcty8zOYTQ7qVyccN?=
- =?us-ascii?Q?yQCa7SBCdbrUr4NGsIoHlD7Db/u4jOunyxOVh/cWSojmp677WoLb6f+0nRiO?=
- =?us-ascii?Q?i4mnSI+vTABesd562KICBi7Jzm7ruwpWF/0NVZCFcg1dha4yVHkbMcdggYOj?=
- =?us-ascii?Q?Eh9NoiE0t0GYazL39Uw/Pz/ovZOAipQTRwZoeMPHhsAopVbSqTL1NVbZk1Q/?=
- =?us-ascii?Q?U99tBcj33n54ILo19pHdguESni1xCugMi7Eo5PW0rIyG4B/GIdwPzop+m6T3?=
- =?us-ascii?Q?ZT2gtILwCBbgKxHXS+RrhHtiwGUHFfj49FesomuEOC4d0jNFEwlgy1xZ9Dut?=
- =?us-ascii?Q?iT7mPlkNuyQh2dJ7pNDt3b2qXs3tkA5ESIjXxMq0ZC2HHCr6LIe7/soUnp/i?=
- =?us-ascii?Q?ZDFvaDxDbB5pgKyavHq+RL59moCp5Deb3L2iKUJdx8phW/4I4f1k29v4mAYN?=
- =?us-ascii?Q?ipE6bL2DlT4YoneKFLwJVohBEPZQTIgW+pQnb6fKUvI71eseCzKzbx4HsB74?=
- =?us-ascii?Q?9JfiKeRhxfr3tQrlHqhysihL3x0tAC3GEjnHWBzcEshfugwj1LiFqEkF9Yxn?=
- =?us-ascii?Q?sqnASDUel/SaL1rhVpdeyja0kuODHZKDIUPBThNrYwVfww7I47n7ff/mZr+o?=
- =?us-ascii?Q?wZI7EliTSWTGVcmAQIVCunkD4gNkqK4I2w6cURu1bH820QjeOU+fjDMaefnM?=
- =?us-ascii?Q?M4HdmGKkvcrDOUXRInNmeurSmTyUvKbVUoMSyYrC3MwEL72YW2LCfmoRQVu9?=
- =?us-ascii?Q?H0uxt9DxQ/2OAKqZwO0bRwY7FsIi85avDAMuU1QI2nBMEssW98iM2k68J4lS?=
- =?us-ascii?Q?qJUlkJwceOYz74dpNHV8HUELMT0dO1R9Z4urfPkOcLNxQ3vyL7PbcwP4jwPO?=
- =?us-ascii?Q?zD94jdZwFxDyzHuji38Dh/ojguNjTzRDpGB6n9cW7yfkC6IFChJy1dgGPLRc?=
- =?us-ascii?Q?OyIrsYaSTtWQ9sU24iD7QqwkVmDpwiVX6M3HEt1fCwoy/yNNJYdrWkC9dvDk?=
-X-MS-Exchange-AntiSpam-MessageData-1: wMK5jLXYNFIEB3Caef+8LcEsblTw55zklXQ=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f155316-cf66-48a7-2bfe-08de86078eb6
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 22:33:35.1356
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9Ya2j59DNYhEX2w7Y1AEtqKr/jDEBKWp8+4i4QMDCW8wm9ElNvrA4nVUDpopY9cW1EJhnjWjZAYNw+lsw2zAEA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8079
+X-CM-TRANSID: rQCowABngdidnLxpInAyCw--.38047S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Gw17uFyxur45CFWDJw1rtFb_yoWxZr4rpr
+	WUGF1UGr4rJFn7Gw12ywn8Xr1UKr4jk3W3Jr1UtryUtF1DKw18Zr95Kry7AryDJFyvvFy7
+	tryDWFWvkFW5JaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBI14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
+	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28Icx
+	kI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2Iq
+	xVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42
+	IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY
+	6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aV
+	CY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbQVy7UUUUU==
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwkMCWm8kisfWwAAsj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_153408_511984_BB557940 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260319_180236_865601_1252C5D5 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,76 +88,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some pragmatic shortcuts are being taken by PHY consumer driver authors,
-which put a burden on the framework. A lot of these can be caught during
-review.
+> > When a guest initiates an SBI_EXT_PMU_COUNTER_CFG_MATCH call with
+> > ctr_base=0xfffffffffffffffe, ctr_mask=0xeb5f and flags=0x1
+> > (SBI_PMU_CFG_FLAG_SKIP_MATCH), kvm_riscv_vcpu_pmu_ctr_cfg_match()
+> > first invokes kvm_pmu_validate_counter_mask() to verify whether
+> > ctr_base and ctr_mask are valid, by evaluating:
+> >   !ctr_mask || (ctr_base + __fls(ctr_mask) >= kvm_pmu_num_counters(kvpmu))
+> >
+> > With the above inputs, __fls(0xeb5f) equals 15, and adding 15 to
+> > 0xfffffffffffffffe causes an integer overflow, wrapping around to 13.
+> > Since 13 is less than kvm_pmu_num_counters(), the validation wrongly
+> > succeeds.
+> >
+> > Thereafter, since flags & SBI_PMU_CFG_FLAG_SKIP_MATCH is satisfied,
+> > the code evaluates:
+> >   !test_bit(ctr_base + __ffs(ctr_mask), kvpmu->pmc_in_use)
+> >
+> > Here __ffs(0xeb5f) equals 0, so test_bit() receives 0xfffffffffffffffe
+> > as the bit index and attempts to access the corresponding element of
+> > the kvpmu->pmc_in_use, which results in an invalid memory access. This
+> > triggers the following Oops:
+> >   Unable to handle kernel paging request at virtual address e3ebffff12abba89
+> >    generic_test_bit include/asm-generic/bitops/generic-non-atomic.h:128
+> >    kvm_riscv_vcpu_pmu_ctr_cfg_match arch/riscv/kvm/vcpu_pmu.c:758
+> >    kvm_sbi_ext_pmu_handler arch/riscv/kvm/vcpu_sbi_pmu.c:49
+> >    kvm_riscv_vcpu_sbi_ecall arch/riscv/kvm/vcpu_sbi.c:608
+> >    kvm_riscv_vcpu_exit arch/riscv/kvm/vcpu_exit.c:240
+> >
+> > The root cause is that kvm_pmu_validate_counter_mask() does not account
+> > for the case where ctr_base itself is out of range, allowing the
+> > subsequent addition to silently overflow and bypass the check.
+> >
+> > Fix this by explicitly validating ctr_base against kvm_pmu_num_counters()
+> > before performing the addition.
+> >
+> > This bug was found by fuzzing the KVM RISC-V PMU interface.
+> 
+> Thanks for fuzzing. Do you have a detailed report that you can share ?
 
-Make sure the linux-phy list is copied on as many keywords that regexes
-can reasonably catch.
+Yes, here is the detailed crash report:
 
-Some considerations that led to this solution and not a simpler one:
-- Consumers may be located anywhere, and their file naming provides no
-  indication whatsoever that they are PHY API consumers.
-- The network PHY API has similarly sounding API: phy_start(),
-  phy_connect(), etc. Similarly, matching on "phy" would hit
-  phys_addr_t, "cryptography", etc.
-- The header files themselves need attention to avoid matching on
-  include/linux/phy.h (network PHY), include/linux/usb/phy.h,
-  drivers/net/vendor/device/phy.h, etc.
-- At least for a transitional period, I suppose developers will still
-  try to add PHY providers outside the subsystem (which is discouraged).
+Unable to handle kernel paging request at virtual address e3ebffff12abba89
+Current syz.4.5087 pgtable: 4K pagesize, 57-bit VAs, pgdp=0x0000000130cbc000
+[e3ebffff12abba89] pgd=000000005fff6001, p4d=000000005fff5801, pud=000000005fff5401, pmd=000000005b4000e7
+Oops [#1]
+Modules linked in:
+CPU: 3 UID: 0 PID: 5789 Comm: syz.4.5087 Tainted: G        W           7.0.0-rc2-00014-gc61ec3e8cc5d #1 PREEMPT 
+Tainted: [W]=WARN
+Hardware name: riscv-virtio,qemu (DT)
+epc : generic_test_bit include/asm-generic/bitops/generic-non-atomic.h:128 [inline]
+epc : kvm_riscv_vcpu_pmu_ctr_cfg_match+0x31a/0xe12 arch/riscv/kvm/vcpu_pmu.c:758
+ ra : kvm_riscv_vcpu_pmu_ctr_cfg_match+0x2ee/0xe12 arch/riscv/kvm/vcpu_pmu.c:758
+epc : ffffffff8012f320 ra : ffffffff8012f2f4 sp : ff200000067275c0
+ gp : ffffffff8a382bc0 tp : ff60000095d03500 t0 : ff200000067276e0
+ t1 : fffffffff3f3f3f3 t2 : 0000000200004520 s0 : ff200000067277c0
+ s1 : ff20000006727740 a0 : 0000000000000007 a1 : 0000000000000000
+ a2 : 0000000000080000 a3 : 03ec000012abba89 a4 : fffffffffffffffe
+ a5 : e3ebffff12abba89 a6 : 0000000000000003 a7 : ffe3ffff00ce4ec4
+ s2 : 1f600000955dd448 s3 : ff600000955dace0 s4 : 0000000000000001
+ s5 : 0000000000000000 s6 : ff20000006727850 s7 : 0000000000000004
+ s8 : fffffffffffffffe s9 : 0000000000000000 s10: 1fe4000000ce4ec4
+ s11: 0000000000000003 t3 : cbdd65f600000000 t4 : 0000000000000000
+ t5 : 0000000000000000 t6 : 0000000000000000 ssp : 0000000000000000
+status: 0000000200000120 badaddr: e3ebffff12abba89 cause: 000000000000000d
+[<ffffffff8012f320>] generic_test_bit include/asm-generic/bitops/generic-non-atomic.h:128 [inline]
+[<ffffffff8012f320>] kvm_riscv_vcpu_pmu_ctr_cfg_match+0x31a/0xe12 arch/riscv/kvm/vcpu_pmu.c:758
+[<ffffffff80136b12>] kvm_sbi_ext_pmu_handler+0x266/0x630 arch/riscv/kvm/vcpu_sbi_pmu.c:49
+[<ffffffff80133636>] kvm_riscv_vcpu_sbi_ecall+0x11c/0x2f8 arch/riscv/kvm/vcpu_sbi.c:608
+[<ffffffff80122e50>] kvm_riscv_vcpu_exit+0x7b2/0x9ba arch/riscv/kvm/vcpu_exit.c:240
+[<ffffffff8011fa6e>] kvm_arch_vcpu_ioctl_run+0x13c6/0x3600 arch/riscv/kvm/vcpu.c:1008
+[<ffffffff800da0ae>] kvm_vcpu_ioctl+0x532/0x13e0 virt/kvm/kvm_main.c:4476
+[<ffffffff80d25228>] vfs_ioctl fs/ioctl.c:51 [inline]
+[<ffffffff80d25228>] __do_sys_ioctl fs/ioctl.c:597 [inline]
+[<ffffffff80d25228>] __se_sys_ioctl fs/ioctl.c:583 [inline]
+[<ffffffff80d25228>] __riscv_sys_ioctl+0x180/0x1e4 fs/ioctl.c:583
+[<ffffffff80078fc2>] syscall_handler+0x94/0x118 arch/riscv/include/asm/syscall.h:112
+[<ffffffff86693a68>] do_trap_ecall_u+0x39e/0x62e arch/riscv/kernel/traps.c:344
+[<ffffffff866be63e>] handle_exception+0x15e/0x16a arch/riscv/kernel/entry.S:232
+Code: 9793 0036 993e 07b7 e000 17fd 5693 0039 1782 97b6 (c783) 0007 
+---[ end trace 0000000000000000 ]---
+----------------
+Code disassembly (best guess):
+   0:	00369793          	slli	a5,a3,0x3
+   4:	993e                	add	s2,s2,a5
+   6:	e00007b7          	lui	a5,0xe0000
+   a:	17fd                	addi	a5,a5,-1 # 0xffffffffdfffffff
+   c:	00395693          	srli	a3,s2,0x3
+  10:	1782                	slli	a5,a5,0x20
+  12:	97b6                	add	a5,a5,a3
+* 14:	0007c783          	lbu	a5,0(a5) <-- trapping instruction
 
-So I used \b to try to match on actual word boundaries and I went for
-listing all markers of PHY API use as they may appear in patch contexts.
+<<<<<<<<<<<<<<< tail report >>>>>>>>>>>>>>>
 
-Bit rot is a valid concern. I will add a test to the build automation
-that newly introduced struct and function names in include/linux/phy.h,
-include/linux/phy-props.h and drivers/phy/phy-provider.h are matched by
-the MAINTAINERS entry K: patterns.
+SYZFAIL: failed to recv rpc
+fd=3 want=4 recv=0 n=0 (errno 9: Bad file descriptor)
 
-The keyword patterns were written with great help from Joe Perches
-<joe@perches.com>.
+<<<<<<<<<<<<<<< tail report >>>>>>>>>>>>>>>
 
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
-Cc: Joe Perches <joe@perches.com>
+> 
+> > Fixes: 0cb74b65d2e5e6 ("RISC-V: KVM: Implement perf support without sampling")
+> > Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+> > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+> > ---
+> >   arch/riscv/kvm/vcpu_pmu.c | 6 ++++--
+> >   1 file changed, 4 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+> > index e873430e596b2..a098a9b417ad8 100644
+> > --- a/arch/riscv/kvm/vcpu_pmu.c
+> > +++ b/arch/riscv/kvm/vcpu_pmu.c
+> > @@ -266,8 +266,10 @@ static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+> >   static int kvm_pmu_validate_counter_mask(struct kvm_pmu *kvpmu, unsigned long ctr_base,
+> >   					 unsigned long ctr_mask)
+> >   {
+> > -	/* Make sure the we have a valid counter mask requested from the caller */
+> > -	if (!ctr_mask || (ctr_base + __fls(ctr_mask) >= kvm_pmu_num_counters(kvpmu)))
+> > +	unsigned long num_ctrs = kvm_pmu_num_counters(kvpmu);
+> > +
+> > +	/* Make sure we have a valid counter mask requested from the caller */
+> > +	if (!ctr_mask || ctr_base >= num_ctrs || (ctr_base + __fls(ctr_mask) >= num_ctrs))
+> >   		return -EINVAL;
+> >   
+> >   	return 0;
+> 
+> Thanks for the fix.
+> 
+> Reviewed-by: Atish Patra <atish.patra@linux.dev>
 
-v3->v5: none
-v2->v3:
-- escape forward slash in linux/phy/phy.h in regex pattern:
-  https://lore.kernel.org/linux-phy/9fd14d166e860f26febfbc9061a6dcae6a166961.camel@perches.com/
-v1->v2:
-- split into multiple regex patterns
-- use matching-only (insted of capturing) regex patterns
-- adjust commit message to reflect the Q&A from v1
----
- MAINTAINERS | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Thanks for the review!
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 55af015174a5..cd920f14abde 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10713,6 +10713,17 @@ F:	Documentation/devicetree/bindings/phy/
- F:	drivers/phy/
- F:	include/dt-bindings/phy/
- F:	include/linux/phy/
-+K:	(?:linux\/phy\/phy\.h|phy-props\.h|phy-provider\.h)
-+K:	\b(?:__)?(?:devm_)?(?:of_)?phy_(?:create|destroy|provider_(?:un)?register)\b
-+K:	\bphy_(?:create|remove)_lookup\b
-+K:	\bphy_(?:get|set)_drvdata\b
-+K:	\b(?:devm_)?(?:of_)?phy_(?:optional_)?(?:get|put)(?:_by_index)?\b
-+K:	\bphy_pm_runtime_(?:get|put)(?:_sync)?\b
-+K:	\bphy_(?:init|exit|power_(?:on|off))\b
-+K:	\bphy_(?:get|set)_(?:mode(?:_ext)?|media|speed|bus_width|max_link_rate)\b
-+K:	\bphy_(?:reset|configure|validate|calibrate)\b
-+K:	\bphy_notify_(?:connect|disconnect|state)\b
-+K:	\bstruct\s+phy(?:_ops|_attrs|_lookup|_provider)?\b
- 
- GENERIC PINCTRL I2C DEMULTIPLEXER DRIVER
- M:	Wolfram Sang <wsa+renesas@sang-engineering.com>
--- 
-2.43.0
+Regards,
+Jiakai
 
 
 _______________________________________________
