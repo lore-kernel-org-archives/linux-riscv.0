@@ -4,90 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE823108B8E3
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 09:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB68108B8E4
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 10:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FCr/ZfzV7eWxRt/+J7sopvz2SEkWdfvREdxH7DReI8g=; b=j3F9223QD6C4YR
-	obzZWWelL/iy7h2zJU4P2lJAaRioJgdYNbOA3xMej/teyrmSzYC/wv8inCqNUEDG1kiPWMkFyeDVO
-	dCgL4G1GPensOKqoVSyLx50tacaPxOudoZEL5HkPzC2O0wg8Uz6dDUUSIWLlLqf4LoVx0dZDaLmBv
-	5rpvtiCOV4Li7oUxzLAtAXSnlD6vLCCgTtjTR3yYA8kA3sT7DXC225qXUEiIcmzRnnfJJXaCDrDp+
-	a3B0qmk/ltSUesMi4SStnKCaStzl+BbTOJmD7bG7483rXnPUAtOIcCuSqxIB4mJIHpic+uPDOZIC6
-	iIG1e8EZcDjCRMuTqcGA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9PuvDFXv0OS+Sa/36mJIcFBvy9UBAXFSv2qDHmEzmSY=; b=k/paIPdqath6wF
+	bhThA6+p4ojW6cTZ8nKgHCNRmZDJcP46URM0CDR51janawwrKCYNE9qsd5TBwXbcTlt/n7EqXnvVM
+	aOE4e+M9R2vNXHGTkq+JDCl+JnVWx+quTb8NUY5LhKshKKXpG7BKyerQXj0jhh4nFrfruQ9ijZiAX
+	4WksMMXsWAaA6zqD6KEnngCSWT2W1pCU9XxIRdb1a2eZ/2tKVgFOok6SLMRvo54u7/Wn8RHHW8BzG
+	pqaRbXhzIqCJaP3U09tlfRXnILjc8N+4fIY0mOmqR1TyeVM3rM5tHZ8Y2CYiLuKzexxhpiFCb2j8M
+	0ZjIZzLi+wXWG7f0aEuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Wc3-0000000CWv2-2NSm;
-	Fri, 20 Mar 2026 09:57:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3Wfo-0000000CXTx-278n;
+	Fri, 20 Mar 2026 10:01:46 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Wc1-0000000CWun-2dY6;
-	Fri, 20 Mar 2026 09:57:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 840DC60127;
-	Fri, 20 Mar 2026 09:57:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 857BBC4CEF7;
-	Fri, 20 Mar 2026 09:57:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774000668;
-	bh=BHH+c4Y1mXQAFcGaqGCCWfuTYkgGp//q1BrbsXIDSaQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QQRWsGQH7qeVicMQ3QSUVrL6+6ykgppWH2udWWMxJcvzUOilTI2D7Y834vvr9Cqyt
-	 icef8KeIyRBqnM8w4ArrDNWl6Ob6UJXBNgrvlMt/tBdIreYgyDBKMJlUoyuOasLmfa
-	 iMtWGY20neqLWTJ9QFVatHUq5kcOHBKCnWsq8XUDgm0NFAhoArRULvDwYK/kV6czLG
-	 7ILzyx2cbMCcr+fQ27sX6WdG5X0iCQZVcM/UkIyri/M4ayLGpsmDafgz5CXXcO9/eT
-	 NoXV7TLdZ3AryMYN76uq3e720RaA8DpDZue8f2q9/TUxNy/PRtDVcIeYSQDOm+3jmm
-	 Zksp5/xFc4XNg==
-Message-ID: <1d300b3b-2476-4381-b8df-a680f486b284@kernel.org>
-Date: Fri, 20 Mar 2026 10:57:32 +0100
+	id 1w3Wfk-0000000CXTd-2bpz
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Mar 2026 10:01:42 +0000
+Received: from localhost.localdomain (unknown [116.25.95.187])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 37b2f4e33;
+	Fri, 20 Mar 2026 18:01:35 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Yixun Lan <dlan@kernel.org>,
+	Ze Huang <huang.ze@linux.dev>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH v2 0/1] usb: dwc3: Add optional VBUS regulator support to SpacemiT K1
+Date: Fri, 20 Mar 2026 18:01:19 +0800
+Message-Id: <20260320100120.1343629-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 17/23] mm: convert do_brk_flags() to use vma_flags_t
-Content-Language: en-US
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Kees Cook <kees@kernel.org>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Dinh Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>,
- Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- Ondrej Mosnacek <omosnace@redhat.com>, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
-References: <cover.1773846935.git.ljs@kernel.org>
- <981ed1afcd19115432e61778e7d226a36f8f5c2b.1773846935.git.ljs@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <981ed1afcd19115432e61778e7d226a36f8f5c2b.1773846935.git.ljs@kernel.org>
+X-HM-Tid: 0a9d0ab1744c03a2kunm090bbcfb1f2c00
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDT09DVhhOQh5ISx8dHxhPHlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk5VSkNMWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09LVUpLS1VLWQ
+	Y+
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_030140_850585_0C3DC707 
+X-CRM114-Status: UNSURE (   4.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,196 +71,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
-> In order to be able to do this, we need to change VM_DATA_DEFAULT_FLAGS
-> and friends and update the architecture-specific definitions also.
-> 
-> We then have to update some KSM logic to handle VMA flags, and introduce
-> VMA_STACK_FLAGS to define the vma_flags_t equivalent of VM_STACK_FLAGS.
-> 
-> We also introduce two helper functions for use during the time we are
-> converting legacy flags to vma_flags_t values - vma_flags_to_legacy() and
-> legacy_to_vma_flags().
+The vbus-supply property has been declared in spacemit,k1-dwc3.yaml
+https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/usb/spacemit%2Ck1-dwc3.yaml#L71
 
-Nit: this was done by an earlier patch.
+Changes in v2:
+- Improve commit title and messages
+- Enable regulator only in host mode
+- Enable regulator when matching compatible "spacemit,k1-dwc3"
+- Link to v1: https://lore.kernel.org/lkml/20260316080000.3130372-1-amadeus@jmu.edu.cn/
 
-> This enables us to iteratively make changes to break these changes up into
-> separate parts.
-> 
-> We use these explicitly here to keep VM_STACK_FLAGS around for certain
-> users which need to maintain the legacy vm_flags_t values for the time
-> being.
-> 
-> We are no longer able to rely on the simple VM_xxx being set to zero if
-> the feature is not enabled, so in the case of VM_DROPPABLE we introduce
-> VMA_DROPPABLE as the vma_flags_t equivalent, which is set to
-> EMPTY_VMA_FLAGS if the droppable flag is not available.
-> 
-> While we're here, we make the description of do_brk_flags() into a kdoc
-> comment, as it almost was already.
-> 
-> We use vma_flags_to_legacy() to not need to update the vm_get_page_prot()
-> logic as this time.
-> 
-> Note that in create_init_stack_vma() we have to replace the BUILD_BUG_ON()
-> with a VM_WARN_ON_ONCE() as the tested values are no longer build time
-> available.
-> 
-> We also update mprotect_fixup() to use VMA flags where possible, though we
-> have to live with a little duplication between vm_flags_t and vma_flags_t
-> values for the time being until further conversions are made.
-> 
-> Finally, we update the VMA tests to reflect these changes.
-> 
-> Acked-by: Paul Moore <paul@paul-moore.com>	[SELinux]
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+Chukun Pan (1):
+  usb: dwc3: Add optional VBUS regulator support to SpacemiT K1
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+ drivers/usb/dwc3/dwc3-generic-plat.c | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
 
-More nits below:
+-- 
+2.34.1
 
-> diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-> index b39cc1127e1f..e25d0d18f6d7 100644
-> --- a/arch/arm64/include/asm/page.h
-> +++ b/arch/arm64/include/asm/page.h
-> @@ -46,7 +46,12 @@ int pfn_is_map_memory(unsigned long pfn);
->  
->  #endif /* !__ASSEMBLER__ */
->  
-> -#define VM_DATA_DEFAULT_FLAGS	(VM_DATA_FLAGS_TSK_EXEC | VM_MTE_ALLOWED)
-> +#ifdef CONFIG_ARM64_MTE
-> +#define VMA_DATA_DEFAULT_FLAGS	append_vma_flags(VMA_DATA_FLAGS_TSK_EXEC, \
-> +						 VMA_MTE_ALLOWED_BIT)
-
-I wonder what's the bloat-o-meter impact of these #define's (this
-arm64-specific one isn't the only one) being no longer compile-time-constants?
-
-> +#else
-> +#define VMA_DATA_DEFAULT_FLAGS	VMA_DATA_FLAGS_TSK_EXEC
-> +#endif
->  
->  #include <asm-generic/getorder.h>
->  
-
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-
->  
-> +#define VMA_STACK_FLAGS	append_vma_flags(VMA_STACK_DEFAULT_FLAGS,	\
-> +		VMA_STACK_BIT, VMA_ACCOUNT_BIT)
-> +
-> +/* Temporary until VMA flags conversion complete. */
-> +#define VM_STACK_FLAGS vma_flags_to_legacy(VMA_STACK_FLAGS)
-> +
->  #define VM_STARTGAP_FLAGS (VM_GROWSDOWN | VM_SHADOW_STACK)
->  
->  #ifdef CONFIG_MSEAL_SYSTEM_MAPPINGS
-> @@ -536,8 +547,6 @@ enum {
->  #define VM_SEALED_SYSMAP	VM_NONE
->  #endif
->  
-> -#define VM_STACK_FLAGS	(VM_STACK | VM_STACK_DEFAULT_FLAGS | VM_ACCOUNT)
-> -
->  /* VMA basic access permission flags */
->  #define VM_ACCESS_FLAGS (VM_READ | VM_WRITE | VM_EXEC)
->  #define VMA_ACCESS_FLAGS mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT)
-> @@ -547,6 +556,9 @@ enum {
->   */
->  #define VM_SPECIAL (VM_IO | VM_DONTEXPAND | VM_PFNMAP | VM_MIXEDMAP)
->  
-> +#define VMA_SPECIAL_FLAGS mk_vma_flags(VMA_IO_BIT, VMA_DONTEXPAND_BIT, \
-> +				       VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT)
-
-Should VM_SPECIAL be also redefined using vma_flags_to_legacy()?
-
-> +
->  /*
->   * Physically remapped pages are special. Tell the
->   * rest of the world about it:
-> @@ -1412,7 +1424,7 @@ static __always_inline void vma_desc_set_flags_mask(struct vm_area_desc *desc,
->   * vm_area_desc object describing a proposed VMA, e.g.:
->   *
->   * vma_desc_set_flags(desc, VMA_IO_BIT, VMA_PFNMAP_BIT, VMA_DONTEXPAND_BIT,
-> - *		VMA_DONTDUMP_BIT);
-> + *              VMA_DONTDUMP_BIT);
-
-Looks like spurious tabs-to-space change inconsistent with other instances.
-
->   */
->  #define vma_desc_set_flags(desc, ...) \
->  	vma_desc_set_flags_mask(desc, mk_vma_flags(__VA_ARGS__))
-> @@ -4059,7 +4071,6 @@ extern int replace_mm_exe_file(struct mm_struct *mm, struct file *new_exe_file);
->  extern struct file *get_mm_exe_file(struct mm_struct *mm);
->  extern struct file *get_task_exe_file(struct task_struct *task);
->  
-> -extern bool may_expand_vm(struct mm_struct *, vm_flags_t, unsigned long npages);
->  extern void vm_stat_account(struct mm_struct *, vm_flags_t, long npages);
->  
->  extern bool vma_is_special_mapping(const struct vm_area_struct *vma,
-> diff --git a/mm/internal.h b/mm/internal.h
-> index f98f4746ac41..80d8651441a7 100644
-
-> diff --git a/mm/mprotect.c b/mm/mprotect.c
-> index 9681f055b9fc..eaa724b99908 100644
-> --- a/mm/mprotect.c
-> +++ b/mm/mprotect.c
-
-> @@ -773,19 +778,24 @@ mprotect_fixup(struct vma_iterator *vmi, struct mmu_gather *tlb,
->  
->  	change_protection(tlb, vma, start, end, mm_cp_flags);
->  
-> -	if ((oldflags & VM_ACCOUNT) && !(newflags & VM_ACCOUNT))
-> +	if (vma_flags_test(&old_vma_flags, VMA_ACCOUNT_BIT) &&
-> +	    !vma_flags_test(&new_vma_flags, VMA_ACCOUNT_BIT))
->  		vm_unacct_memory(nrpages);
->  
->  	/*
->  	 * Private VM_LOCKED VMA becoming writable: trigger COW to avoid major
->  	 * fault on access.
->  	 */
-> -	if ((oldflags & (VM_WRITE | VM_SHARED | VM_LOCKED)) == VM_LOCKED &&
-> -			(newflags & VM_WRITE)) {
-> -		populate_vma_page_range(vma, start, end, NULL);
-> +	if (vma_flags_test(&new_vma_flags, VMA_WRITE_BIT)) {
-> +		const vma_flags_t mask =
-> +			vma_flags_and(&old_vma_flags, VMA_WRITE_BIT,
-> +				      VMA_SHARED_BIT, VMA_LOCKED_BIT);
-> +
-> +		if (vma_flags_same(&mask, VMA_LOCKED_BIT))
-
-That converts the original logic 1:1, but I wonder if it's now feasible to
-write it more obviously as "VMA_LOCKED_BIT must be set, VM_WRITE_BIT and
-VM_SHARED_BIT must not" ?
-
-> +			populate_vma_page_range(vma, start, end, NULL);
->  	}
->  
-> -	vm_stat_account(mm, oldflags, -nrpages);
-> +	vm_stat_account(mm, vma_flags_to_legacy(old_vma_flags), -nrpages);
->  	vm_stat_account(mm, newflags, nrpages);
->  	perf_event_mmap(vma);
->  	return 0;
-
-> diff --git a/mm/vma.h b/mm/vma.h
-> index cf8926558bf6..1f2de6cb3b97 100644
-> --- a/mm/vma.h
-> +++ b/mm/vma.h
-
-> +static inline bool is_data_mapping_vma_flags(const vma_flags_t *vma_flags)
-> +{
-> +	const vma_flags_t mask = vma_flags_and(vma_flags,
-> +			VMA_WRITE_BIT, VMA_SHARED_BIT, VMA_STACK_BIT);
-> +
-> +	return vma_flags_same(&mask, VMA_WRITE_BIT);
-
-Ditto?
-
-> +}
->  
->  static inline void vma_iter_config(struct vma_iterator *vmi,
->  		unsigned long index, unsigned long last)
-> diff --git a/mm/vma_exec.c b/mm/vma_exec.c
-> index 8134e1afca68..5cee8b7efa0f 100644
 
 _______________________________________________
 linux-riscv mailing list
