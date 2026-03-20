@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C9E1093168
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 02:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979B01093168
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 03:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gysn1LnAe6vp2I/z5d315o+lN/bx0hHYRu6567/YBjc=; b=fHvgETMDjE1Evk
-	qqSXvfWdTdcRueV5JEO59GXYduuCgI9b32FtSjCtedplDGdNhV7pae048IzVTy1NDHyvLNdrvzBVl
-	KO2ezuTUKG/25928Tj0HC+p/KPxLI0tLhA4VIQbKg08JywtIm4YOausPWm/gURMJcuLzBXDo2gG6d
-	R0Xzm8fR9+kUkg9/OJlnsnhOSBmZPLHFsKK9BmXLNg2HxeQpiGZAUIE4MVZW8zH5o69BwkDmVBtkT
-	0l+URFSM1KCNVf48IqvH92brtAjpM1J1t3drgGQC0wrGORs2Z11pLjQKpbQTkZmb8xLCIKTzQ+fBp
-	MoqSA/xvcqiEThcPRsKQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4ca0WwHQqAwfYieg+rfgHJ6G0oO9Kh6hiU6D+GNZgxM=; b=BDHz+bfLTcWYEo
+	qZCi5tOb1BFrTdZs1mn9lwqjJ8mByBMTCX8hLetThYZZGoRX/cmdqfLq1k0Iakj/NSbAlSVFFvFnr
+	NYdvVyu/FWbgP9UaxRsAS7yp0wQcLKYfDpA5XQuSTeGerxMNSWShtQrO5rxUh5q41OW7iDDDjTSfD
+	G3lngs8z7Gn1Kukarp1X5M8J/FW1IvbiZMDLzyR7Q22GYIK7NPk8G99qatX9PbB9rfrPswBe8zP6h
+	uQStAutbGjKfpOLAPEy1mrYoiEMzKctkZP2kAecfAvMeVJ5NwQ1SCYE92KltHcwWFNGK7C7vvXPJH
+	3J0sRpKs9tzHRJAN6Xrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3PSd-0000000Bval-3Hqo;
-	Fri, 20 Mar 2026 02:19:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3Q5d-0000000BwuT-0yRg;
+	Fri, 20 Mar 2026 02:59:57 +0000
+Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3PSc-0000000BvZf-10D1
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 20 Mar 2026 02:19:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Uf6nQ6Jy0jLh5fh6sls3tb0a5E6ZZvoqouURQ/6y+O0=; b=AmyxRWjP+d6JRxtXD87XRUO5RP
-	L0EKL683xBnVpyVtIYBRY5beEZ0uiX27syr0RDC2wEqGq14T0TTUG30/Sijr3YYHWjmKHJQT8iCbU
-	cSSlCmI/VLdgwuVRB2R0kDykAUgU60be+T40ChWkI6ZR767u8hu3tvB2+FssB6NtI1wf/wMRzC4Ee
-	yqfwEEC4la/13+1/87ET9JT636qVDNXP4Ct29knAOkpab7rHblKPtSOkH/Y/ukWkSSA4qgCgbwawc
-	eZKfzCSg62wDiHfDrNZ8QSb/E1rKor+YGwu0ykx8SDYgAVkdJ5SV7/gKvfDZSOvYMceULnqhEfuVQ
-	fk6ZvM0w==;
-Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3PSL-0000000EnMq-0QQX
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 02:19:35 +0000
+	id 1w3Q5Z-0000000Bwtl-2d8j;
+	Fri, 20 Mar 2026 02:59:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1773973145; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=Uf6nQ6Jy0jLh5fh6sls3tb0a5E6ZZvoqouURQ/6y+O0=;
-	b=i4RNOIEZYloYzHioHkJsuIASVE6tcUdiUUwgRo0XnsL4XMk1BuUqn4jdza4IGpbuJSrkCtk5Uib8LD7s1PxJNz2FCJ3edBwpdR6GpH3dvrSHG8Sn7BIYS83ZF8GleLDme3cAwxP0bUD3pPBGl03nmVgXGu7qNRfqy/M3YHin9E4=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0X.JxWBq_1773973139;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X.JxWBq_1773973139 cluster:ay36)
+	t=1773975588; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=lhUcYGT74pFt2SXoDhdjrHorGD5n36pkyqXtT2iygtA=;
+	b=hj4sD+mNaQ4TB/tpjizBbNt4jOA3IXOfZcKQr6UGmbT7skNmYuX3UsZ8oK2dJejcKthJ1nHILzrGiqjZ7ZEWbad5jrHF/Gtfq0Kbfu6bOxYx1o3jr2tK+OSRBLCbXrE3OEerAOszDmNCt+NsYBZkLUIxyFsGLYZKWWsQSQXtZ24=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R701e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X.KDEFk_1773975585;
+Received: from 30.74.144.136(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X.KDEFk_1773975585 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 20 Mar 2026 10:19:03 +0800
-From: cp0613@linux.alibaba.com
-To: pjw@kernel.org,
-	alex@ghiti.fr,
-	debug@rivosinc.com,
-	guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Pei <cp0613@linux.alibaba.com>
-Subject: [PATCH 0/2] riscv: vdso_cfi build cleanup improvements
-Date: Fri, 20 Mar 2026 10:18:48 +0800
-Message-ID: <20260320021850.1877-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
+          Fri, 20 Mar 2026 10:59:46 +0800
+Message-ID: <c01087cc-0e81-4284-850a-992c0abd5d32@linux.alibaba.com>
+Date: Fri, 20 Mar 2026 10:59:45 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] mm: change to return bool for
+ ptep_test_and_clear_young()
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: akpm@linux-foundation.org, david@kernel.org, Liam.Howlett@oracle.com,
+ vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
+References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
+ <3fa94c3c89fd93fe22c8cb59967f064787d686aa.1773890510.git.baolin.wang@linux.alibaba.com>
+ <1e664c93-603a-4c16-94f4-595a90744980@lucifer.local>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <1e664c93-603a-4c16-94f4-595a90744980@lucifer.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_021933_121645_97CE8A1B 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260319_195954_496970_1EA07F55 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,40 +67,266 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Pei <cp0613@linux.alibaba.com>
 
-This patch series addresses two issues with the RISC-V VDSO CFI build:
 
-1. Build artifacts were not cleaned properly during 'make clean'
-2. Copied source files were being tracked by git
+On 3/19/26 7:28 PM, Lorenzo Stoakes (Oracle) wrote:
+> On Thu, Mar 19, 2026 at 11:24:00AM +0800, Baolin Wang wrote:
+>> Callers use ptep_test_and_clear_young() to clear the young flag and check
+>> whether it was set. Change the return type to bool to make the intention
+>> clearer.
+>>
+>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> 
+> Couple nits about dropping externs below but otherwise LGTM, so:
+> 
+> Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-The first patch adds the clean-files variable to ensure that temporary
-source files copied from the main vdso directory are removed during
-make clean.
+Thanks for reviewing.
 
-The second patch adds a .gitignore file to prevent git from tracking
-build artifacts and copied source files in the vdso_cfi build directory.
+>> ---
+>>   arch/arm64/include/asm/pgtable.h             |  8 ++++----
+>>   arch/arm64/mm/contpte.c                      |  4 ++--
+>>   arch/microblaze/include/asm/pgtable.h        |  2 +-
+>>   arch/parisc/include/asm/pgtable.h            |  6 +++---
+>>   arch/powerpc/include/asm/book3s/32/pgtable.h |  4 ++--
+>>   arch/powerpc/include/asm/book3s/64/pgtable.h |  6 +++---
+>>   arch/powerpc/include/asm/nohash/pgtable.h    |  4 ++--
+>>   arch/riscv/include/asm/pgtable.h             |  4 ++--
+>>   arch/riscv/mm/pgtable.c                      |  8 ++++----
+>>   arch/s390/include/asm/pgtable.h              |  4 ++--
+>>   arch/x86/include/asm/pgtable.h               |  4 ++--
+>>   arch/x86/mm/pgtable.c                        |  6 +++---
+>>   arch/xtensa/include/asm/pgtable.h            |  6 +++---
+>>   include/linux/pgtable.h                      | 16 ++++++++--------
+>>   14 files changed, 41 insertions(+), 41 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index ab451d20e4c5..8c651695204c 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -1282,7 +1282,7 @@ static inline void __pte_clear(struct mm_struct *mm,
+>>   	__set_pte(ptep, __pte(0));
+>>   }
+>>
+>> -static inline int __ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> +static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
+>>   					      unsigned long address,
+>>   					      pte_t *ptep)
+>>   {
+>> @@ -1646,7 +1646,7 @@ extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
+>>   extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
+>>   				unsigned long addr, pte_t *ptep,
+>>   				unsigned int nr, int full);
+>> -int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>> +bool contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>>   				unsigned long addr, pte_t *ptep, unsigned int nr);
+>>   int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
+>>   				unsigned long addr, pte_t *ptep, unsigned int nr);
+>> @@ -1813,7 +1813,7 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>>   }
+>>
+>>   #define test_and_clear_young_ptes test_and_clear_young_ptes
+>> -static inline int test_and_clear_young_ptes(struct vm_area_struct *vma,
+>> +static inline bool test_and_clear_young_ptes(struct vm_area_struct *vma,
+>>   					    unsigned long addr, pte_t *ptep,
+>>   					    unsigned int nr)
+>>   {
+>> @@ -1824,7 +1824,7 @@ static inline int test_and_clear_young_ptes(struct vm_area_struct *vma,
+>>   }
+>>
+>>   #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+>> -static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> +static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+>>   				unsigned long addr, pte_t *ptep)
+>>   {
+>>   	return test_and_clear_young_ptes(vma, addr, ptep, 1);
+>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+>> index 1519d090d5ea..0b88278927a4 100644
+>> --- a/arch/arm64/mm/contpte.c
+>> +++ b/arch/arm64/mm/contpte.c
+>> @@ -508,7 +508,7 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
+>>   }
+>>   EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
+>>
+>> -int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>> +bool contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>>   					unsigned long addr, pte_t *ptep,
+>>   					unsigned int nr)
+>>   {
+>> @@ -525,7 +525,7 @@ int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>>   	 */
+>>
+>>   	unsigned long end = addr + nr * PAGE_SIZE;
+>> -	int young = 0;
+>> +	bool young = false;
+>>
+>>   	ptep = contpte_align_addr_ptep(&addr, &end, ptep, nr);
+>>   	for (; addr != end; ptep++, addr += PAGE_SIZE)
+>> diff --git a/arch/microblaze/include/asm/pgtable.h b/arch/microblaze/include/asm/pgtable.h
+>> index ea72291de553..7678c040a2fd 100644
+>> --- a/arch/microblaze/include/asm/pgtable.h
+>> +++ b/arch/microblaze/include/asm/pgtable.h
+>> @@ -318,7 +318,7 @@ static inline void set_pte(pte_t *ptep, pte_t pte)
+>>
+>>   #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+>>   struct vm_area_struct;
+>> -static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> +static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+>>   		unsigned long address, pte_t *ptep)
+>>   {
+>>   	return (pte_update(ptep, _PAGE_ACCESSED, 0) & _PAGE_ACCESSED) != 0;
+>> diff --git a/arch/parisc/include/asm/pgtable.h b/arch/parisc/include/asm/pgtable.h
+>> index f6fb99cb94d9..d5e39f2eb415 100644
+>> --- a/arch/parisc/include/asm/pgtable.h
+>> +++ b/arch/parisc/include/asm/pgtable.h
+>> @@ -438,16 +438,16 @@ static inline pte_t ptep_get(pte_t *ptep)
+>>   }
+>>   #define ptep_get ptep_get
+>>
+>> -static inline int ptep_test_and_clear_young(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
+>> +static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
+>>   {
+>>   	pte_t pte;
+>>
+>>   	pte = ptep_get(ptep);
+>>   	if (!pte_young(pte)) {
+>> -		return 0;
+>> +		return false;
+>>   	}
+>>   	set_pte_at(vma->vm_mm, addr, ptep, pte_mkold(pte));
+>> -	return 1;
+>> +	return true;
+>>   }
+>>
+>>   int ptep_clear_flush_young(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep);
+>> diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
+>> index 001e28f9eabc..2a889e2093e8 100644
+>> --- a/arch/powerpc/include/asm/book3s/32/pgtable.h
+>> +++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
+>> @@ -295,8 +295,8 @@ static inline pte_basic_t pte_update(struct mm_struct *mm, unsigned long addr, p
+>>    * for our hash-based implementation, we fix that up here.
+>>    */
+>>   #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+>> -static inline int __ptep_test_and_clear_young(struct mm_struct *mm,
+>> -					      unsigned long addr, pte_t *ptep)
+>> +static inline bool __ptep_test_and_clear_young(struct mm_struct *mm,
+>> +					       unsigned long addr, pte_t *ptep)
+>>   {
+>>   	unsigned long old;
+>>   	old = pte_update(mm, addr, ptep, _PAGE_ACCESSED, 0, 0);
+>> diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+>> index 1a91762b455d..25e3a86943e2 100644
+>> --- a/arch/powerpc/include/asm/book3s/64/pgtable.h
+>> +++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+>> @@ -349,13 +349,13 @@ static inline unsigned long pte_update(struct mm_struct *mm, unsigned long addr,
+>>    * For radix: H_PAGE_HASHPTE should be zero. Hence we can use the same
+>>    * function for both hash and radix.
+>>    */
+>> -static inline int __ptep_test_and_clear_young(struct mm_struct *mm,
+>> -					      unsigned long addr, pte_t *ptep)
+>> +static inline bool __ptep_test_and_clear_young(struct mm_struct *mm,
+>> +					       unsigned long addr, pte_t *ptep)
+>>   {
+>>   	unsigned long old;
+>>
+>>   	if ((pte_raw(*ptep) & cpu_to_be64(_PAGE_ACCESSED | H_PAGE_HASHPTE)) == 0)
+>> -		return 0;
+>> +		return false;
+>>   	old = pte_update(mm, addr, ptep, _PAGE_ACCESSED, 0, 0);
+>>   	return (old & _PAGE_ACCESSED) != 0;
+>>   }
+>> diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
+>> index e6da5eaccff6..43cf52f0c7d6 100644
+>> --- a/arch/powerpc/include/asm/nohash/pgtable.h
+>> +++ b/arch/powerpc/include/asm/nohash/pgtable.h
+>> @@ -101,8 +101,8 @@ static inline pte_basic_t pte_update(struct mm_struct *mm, unsigned long addr, p
+>>   }
+>>   #endif
+>>
+>> -static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> -					    unsigned long addr, pte_t *ptep)
+>> +static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> +					     unsigned long addr, pte_t *ptep)
+>>   {
+>>   	unsigned long old;
+>>
+>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>> index ab4ce1cc9d9c..fb010dcdf343 100644
+>> --- a/arch/riscv/include/asm/pgtable.h
+>> +++ b/arch/riscv/include/asm/pgtable.h
+>> @@ -659,8 +659,8 @@ static inline void pte_clear(struct mm_struct *mm,
+>>   extern int ptep_set_access_flags(struct vm_area_struct *vma, unsigned long address,
+>>   				 pte_t *ptep, pte_t entry, int dirty);
+>>   #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG	/* defined in mm/pgtable.c */
+>> -extern int ptep_test_and_clear_young(struct vm_area_struct *vma, unsigned long address,
+>> -				     pte_t *ptep);
+>> +extern bool ptep_test_and_clear_young(struct vm_area_struct *vma, unsigned long address,
+>> +				      pte_t *ptep);
+> 
+> Let's drop the extern.
 
-These changes improve the build system hygiene and maintain clean
-working directories for developers working with CFI support.
+Yes, I followed the original code style, but dropping the extern looks 
+reasonable to me. Will do.
 
-Chen Pei (2):
-  riscv: vdso_cfi: Add clean rule for copied sources
-  riscv: vdso_cfi: Add .gitignore for build artifacts
+>>   #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
+>>   static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>> diff --git a/arch/riscv/mm/pgtable.c b/arch/riscv/mm/pgtable.c
+>> index b1ed2f14dc3a..de24a19e8ebd 100644
+>> --- a/arch/riscv/mm/pgtable.c
+>> +++ b/arch/riscv/mm/pgtable.c
+>> @@ -29,12 +29,12 @@ int ptep_set_access_flags(struct vm_area_struct *vma,
+>>   	return true;
+>>   }
+>>
+>> -int ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> -			      unsigned long address,
+>> -			      pte_t *ptep)
+>> +bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> +			       unsigned long address,
+>> +			       pte_t *ptep)
+>>   {
+>>   	if (!pte_young(ptep_get(ptep)))
+>> -		return 0;
+>> +		return false;
+>>   	return test_and_clear_bit(_PAGE_ACCESSED_OFFSET, &pte_val(*ptep));
+>>   }
+>>   EXPORT_SYMBOL_GPL(ptep_test_and_clear_young);
+>> diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
+>> index 1c3c3be93be9..da1a7a31fa22 100644
+>> --- a/arch/s390/include/asm/pgtable.h
+>> +++ b/arch/s390/include/asm/pgtable.h
+>> @@ -1164,8 +1164,8 @@ pte_t ptep_xchg_direct(struct mm_struct *, unsigned long, pte_t *, pte_t);
+>>   pte_t ptep_xchg_lazy(struct mm_struct *, unsigned long, pte_t *, pte_t);
+>>
+>>   #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+>> -static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> -					    unsigned long addr, pte_t *ptep)
+>> +static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> +					     unsigned long addr, pte_t *ptep)
+>>   {
+>>   	pte_t pte = *ptep;
+>>
+>> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+>> index 54289f4587a4..563a6289ea44 100644
+>> --- a/arch/x86/include/asm/pgtable.h
+>> +++ b/arch/x86/include/asm/pgtable.h
+>> @@ -1232,8 +1232,8 @@ extern int ptep_set_access_flags(struct vm_area_struct *vma,
+>>   				 pte_t entry, int dirty);
+>>
+>>   #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+>> -extern int ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> -				     unsigned long addr, pte_t *ptep);
+>> +extern bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> +				      unsigned long addr, pte_t *ptep);
+> 
+> Let's drop the extern.
 
- arch/riscv/kernel/vdso_cfi/.gitignore | 8 ++++++++
- arch/riscv/kernel/vdso_cfi/Makefile   | 3 +++
- 2 files changed, 11 insertions(+)
- create mode 100644 arch/riscv/kernel/vdso_cfi/.gitignore
-
--- 
-2.50.1
-
+Ack.
 
 _______________________________________________
 linux-riscv mailing list
