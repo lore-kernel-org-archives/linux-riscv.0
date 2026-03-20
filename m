@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6F21099B3B
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 22:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D411099B43
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 22:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0MVo4juxzeWuVksI6klPV3IAY30u30mWtuEs7I93cbQ=; b=pRcicgPnbRkW2o
-	W5WT4b7bTNRmi9CrU/rxLRmgm1TldGOqXFth1IT64pBS/V7jETNrkg1eFQVpoZuJeagifYIGNj75l
-	QF0JQCkIqj/zwuXO1yeWAcsa+JiYe/4d37m2cSe1mFFxiejiSr0Hgb14e06aEia3qNtVOqUeYBWQ1
-	cep8t+YtXgPKXxZEia6plUoxsbYk6f3sti3j5R6CQ7VzkIKQrKap9yTb3jHlfEEV4uu3wpQDDzSCh
-	/rVa3wq5oZ13fsoo4Jwfos6MJXE+NrXxSyGB51ntcAl5Rfg73PQCtKgsqdL2jHocklF1bja0vPHHk
-	eYBjUeKfQWjjeoBXVH0Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LEdLNTdUGH+eMdb2So0ZNukpjwKpAwUVHwQQIGt27lI=; b=yVuDJ/DPJw/pH2
+	iG+eIfu4Dwsnube2Z0H3MAHdHsdBABQ3pt8/EfzOt4+l3Df+TB8e1ZHhgm5nuMCqsNjEOYttUbPzK
+	0gtRFLRyTxOSWyVH/kX9wCVBwVACzogkVVNyaYc1YaXNxRtnQXZ27WoMOtgdMsat42ED8nMczs+xD
+	//mPrt9i61rfiArWhRwvvo7EBoiXRHULDPfX+InaJZ8VO8BuXs8j9/iy12YtTzFxbbNaCeVHRhMa9
+	0XhRIM3I+BF3peHMeHZMwx8voXZVw6Ofc7GmYXWwt3y4wKVlL8voxfmoT1Td/yPS2lrkQsn0jOOPk
+	HPU0kL5v1xjCpjQ2rF8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3i6M-0000000DfLS-3LfZ;
-	Fri, 20 Mar 2026 22:13:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3i6E-0000000DfJs-0jYa;
+	Fri, 20 Mar 2026 22:13:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3i6L-0000000DfKa-0woC
+	id 1w3i6D-0000000DfJm-1fe3
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 22:13:53 +0000
+	Fri, 20 Mar 2026 22:13:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A993E60126;
-	Fri, 20 Mar 2026 22:13:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CECA5C2BC87;
-	Fri, 20 Mar 2026 22:13:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EF9160128;
+	Fri, 20 Mar 2026 22:13:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B76C4CEF7;
+	Fri, 20 Mar 2026 22:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774044832;
-	bh=XBR2EPoKpXeNjq1txkLBTh/DgkCJHtoC1PlnginQxtA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tInuY984yzdIEuaZJXpPPAPu/jx6o88MxmPXqoEhhmH9XAKSJMbP9JmVw7KDYMdYI
-	 cYFzrC3mXShUxMELrJRAOb8iFHCYRFYnMXADOypUly2tPI5LhdRJAlx6Y7vIsodwEE
-	 Tb8WTg9dueCXRj24fln2u12nVVjS4oL3Ny2O8BgKFv5WAfttURT/QkCV02wu1LukEt
-	 +WqU5eLPOYBtokHGt2yPjG/XvcY29bKMFzXiTW0vweT3cJdrcDYhDTgUwEXHa4yEL4
-	 Ov9DFUt9eHboVve5zoTrH8Bv9mnM+yD+kzQ6+YJzB4D+h8DGu8XFoU9yIoZlUTet3N
-	 5V0hxSVsZnYcA==
+	s=k20201202; t=1774044824;
+	bh=37kqOOQ/gFodAPx12yyeumULM8pbIZCoL7z8zOpqXf0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=edSADuQC1oEMW8dWWkRDylnwWgm554uxai5oA30QCHdfBcxx4gOYFfiqWlcULOlqU
+	 ncAaN3x4odTUE7sqhieG30e+G5T5QVoPrf7LOtIJ7zwdc+jYAjo3uQVMqrNJJeh1LB
+	 DefP7y/8KZQ3EQqwTivr2WJB8+ThJMSrvnvqxjBK48P30+vR6WyYgGnKflj4PDoN20
+	 fc+1htlMz3x4PfxkDaXOgkjLuHxDzWNJrNrvLmOg4S39caX01QjKalCc28jgt4VjTQ
+	 9M5CShjf0Cxm8//D6d5EnadKWZp4/rpCDYo+myXErcH2J+u377GWSp5NAWjvaKVldb
+	 +dnQ/VfibsdLA==
 From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Fri, 20 Mar 2026 23:13:34 +0100
-Subject: [PATCH v2 02/15] mm/memory_hotplug: remove for_each_valid_pfn()
- usage
+Subject: [PATCH v2 00/15] mm: memory hot(un)plug and SPARSEMEM cleanups
+Date: Fri, 20 Mar 2026 23:13:32 +0100
+Message-Id: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260320-sparsemem_cleanups-v2-2-096addc8800d@kernel.org>
-References: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
-In-Reply-To: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAIzGvWkC/x3MQQqEMBAF0atIrycQekTBq8ggMflqg2ZCGkUQ7
+ 25w+RZVFymyQKmrLso4ROUfC/hTkV9cnGEkFBNbbuyXrdHksmLDNvgVLu5JjUcdwsi+bgOohCl
+ jkvOd9r/7fgDwqvASZAAAAA==
 To: linux-kernel@vger.kernel.org
 Cc: Andrew Morton <akpm@linux-foundation.org>, 
  Oscar Salvador <osalvador@suse.de>, 
@@ -78,41 +78,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When offlining memory, we know that the memory range has no holes.
-Checking for valid pfns is not required.
+Some cleanups around memory hot(un)plug and SPARSEMEM. In essence,
+we can limit CONFIG_MEMORY_HOTPLUG to CONFIG_SPARSEMEM_VMEMMAP,
+remove some dead code, and move all the hotplug bits over to
+mm/sparse-vmemmap.c.
 
-Reviewed-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+Some further/related cleanups around other unnecessary code
+(memory hole handling and complicated usemap allocation).
+
+I have some further sparse.c cleanups lying around, and I'm planning
+on getting rid of bootmem_info.c entirely.
+
+Cross-compiled on a bunch of machines. Hot(un)plug tested with virtio-mem.
+
+v1 -> v2:
+* Added "mm/memory_hotplug: fix possible race in scan_movable_pages()"
+* Update the comment above section_deactivate()
+* Reordered the flags in sparse_init_one_section()
+* Patch description improvements
+
 ---
- mm/memory_hotplug.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+David Hildenbrand (Arm) (15):
+      mm/memory_hotplug: fix possible race in scan_movable_pages()
+      mm/memory_hotplug: remove for_each_valid_pfn() usage
+      mm/sparse: remove WARN_ONs from (online|offline)_mem_sections()
+      mm/Kconfig: make CONFIG_MEMORY_HOTPLUG depend on CONFIG_SPARSEMEM_VMEMMAP
+      mm/memory_hotplug: simplify check_pfn_span()
+      mm/sparse: remove !CONFIG_SPARSEMEM_VMEMMAP leftovers for CONFIG_MEMORY_HOTPLUG
+      mm/bootmem_info: remove handling for !CONFIG_SPARSEMEM_VMEMMAP
+      mm/bootmem_info: avoid using sparse_decode_mem_map()
+      mm/sparse: remove sparse_decode_mem_map()
+      mm/sparse: remove CONFIG_MEMORY_HOTPLUG-specific usemap allocation handling
+      mm: prepare to move subsection_map_init() to mm/sparse-vmemmap.c
+      mm/sparse: drop set_section_nid() from sparse_add_section()
+      mm/sparse: move sparse_init_one_section() to internal.h
+      mm/sparse: move __section_mark_present() to internal.h
+      mm/sparse: move memory hotplug bits to sparse-vmemmap.c
 
-diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
-index 969cd7ddf68f..0c26b1f2be6e 100644
---- a/mm/memory_hotplug.c
-+++ b/mm/memory_hotplug.c
-@@ -1746,7 +1746,7 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
- {
- 	unsigned long pfn;
- 
--	for_each_valid_pfn(pfn, start, end) {
-+	for (pfn = start; pfn < end; pfn++) {
- 		unsigned long nr_pages;
- 		struct page *page;
- 		struct folio *folio;
-@@ -1796,7 +1796,7 @@ static void do_migrate_range(unsigned long start_pfn, unsigned long end_pfn)
- 	static DEFINE_RATELIMIT_STATE(migrate_rs, DEFAULT_RATELIMIT_INTERVAL,
- 				      DEFAULT_RATELIMIT_BURST);
- 
--	for_each_valid_pfn(pfn, start_pfn, end_pfn) {
-+	for (pfn = start_pfn; pfn < end_pfn; pfn++) {
- 		struct page *page;
- 
- 		page = pfn_to_page(pfn);
+ include/linux/memory_hotplug.h |   2 -
+ include/linux/mmzone.h         |   6 +-
+ mm/Kconfig                     |   2 +-
+ mm/bootmem_info.c              |  46 +---
+ mm/internal.h                  |  47 ++++
+ mm/memory_hotplug.c            |  35 ++-
+ mm/mm_init.c                   |   2 +-
+ mm/sparse-vmemmap.c            | 304 +++++++++++++++++++++++
+ mm/sparse.c                    | 539 +----------------------------------------
+ 9 files changed, 377 insertions(+), 606 deletions(-)
+---
+base-commit: 3f4f1faa33544d0bd724e32980b6f211c3a9bc7b
+change-id: 20260320-sparsemem_cleanups-ce4ddb2c47de
 
+Best regards,
 -- 
-2.43.0
+David Hildenbrand (Arm) <david@kernel.org>
 
 
 _______________________________________________
