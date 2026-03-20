@@ -4,60 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717641099B2D
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 17:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898811099B34
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 18:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y42nKjaJSCI/uefpeCkzRVwqPVDM67W1wloCvEkES+8=; b=3b7axBM2nZbusqsCUYDzE9Pn++
-	WDDfWbea7PjbIVkbaWEPfOcMEpZz7zDT/ru9mMKrZFj9NRlNriKgzW/vbcWdzitQLnNWxR55BM2NU
-	PegTMzEnvS6ui+Jjv1uIK4K2+XyO3QxP9khaSPLxsrDPWYHZdpaDmCyeYLFa9FuJZlregY3vIZ6KE
-	bX+osGH75F3ZwoI71epJ07CN1c08GIrPW+o7+oJtraxsPor8pUgsw1Aatm/z9aguH6Cl7Y10NY9VU
-	stbF/ajG0HPd1aqwuIqig4O9yAByOCmd4GwYCgZTGoFRZ/XW1O+1CucT5h4stLFvkCoiDLnXhAOzJ
-	/uVAWCIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oSMmEANu2ARZIS1oBHX3g8v+I2qkL+7QstZ8vJzHzVM=; b=YTfLRS/WaMSYiv
+	MEZmxQWV0MqfsPVo7sxeRJ5emt5apSqNQ3w/R5PfjGg09hpdrBZ82lkxMG3e3VyXoRgP1w84B9vVu
+	OZhIg8GlYcGZSvuVerThH9s0UVmEbmhf7ni3g7ACUDqDDzmod+F6/x+iHXp39MTo+71JoIwymPtuJ
+	Dnl8XLM8tlYvBtdUcA7OtUsjUCwKh8iMDmAFLAeIVF4561AmAlXDT91s4TeFnVHqx7pI8JU/IpSvY
+	xAX+NEWRD7QSdrucA1TJizX7jBJDX3DEcTSG5kBo8jLfBREwQNygvxbos5Ml11cToxD4j+63jl7ol
+	XTrXYJAJXqiFTALUjhMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3e5w-0000000DKjZ-2h6u;
-	Fri, 20 Mar 2026 17:57:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3eaI-0000000DO6F-3VQU;
+	Fri, 20 Mar 2026 18:28:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3e5v-0000000DKjT-0dtR
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Mar 2026 17:57:11 +0000
+	id 1w3eaF-0000000DO5b-1bxr;
+	Fri, 20 Mar 2026 18:28:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 28EAA60126;
-	Fri, 20 Mar 2026 17:57:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98BF8C4CEF7;
-	Fri, 20 Mar 2026 17:57:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 125CC4059C;
+	Fri, 20 Mar 2026 18:28:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E703C4AF63;
+	Fri, 20 Mar 2026 18:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774029429;
-	bh=8glEvNnreBwR1w2oGJ8ufIdnmrUmRY35kJIHcmNZ0RY=;
+	s=k20201202; t=1774031309;
+	bh=Fv5VAaAi7lFFXaq+Zs2NQXEVg9yFBZfIimKqUJwizNI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TxPSODsGNorclc3tsg+OMczBTjPIbL0qdr0uUYVvgH4uGPxMgi0WpgOtPvboOW6Pb
-	 yt+QmKPoAITQQLJ0fkMUHOSmdJhU3Nj3XdIzHepscWJrC0nqiT5RFBgBFJeBQeBV6R
-	 07BPHLjUjXIcJFjJ7fjjKgXUjEKu8lD8GhPgj6bxZm/OfbhTmVmkgznZNUuPZgAYwE
-	 15HYrJBvZcfpSRyLLJx0X9mUM2gYuGPtc/RafwF5PGusO2/RwAtu8DYqS7wBZbpYyW
-	 ysuR0LIffpGD5DGpo9PnVGRWTZ+jqOh7AQnxaX5LdhqWv0F4m98XblMi7dddu88xoU
-	 DbUymsQ50Ob2Q==
-Date: Fri, 20 Mar 2026 17:57:05 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Junzhong Pan <junzhong.pan@spacemit.com>,
-	Guodong Xu <guodong@riscstar.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5] reset: spacemit: k3: Decouple composite reset lines
-Message-ID: <20260320-starlit-isolation-40c3c80e77a4@spud>
-References: <20260320-01-k3-reset-usb-pci-v5-1-07f4a5ddd728@kernel.org>
- <272ed19e2c0d8c9f53b6e621c01dc09f0635bf9d.camel@pengutronix.de>
+	b=gkHt0MCcBHLIQio/xzhZ3JYDqMoeggebPJgOlyMKl++IgyflAsadSjnR6ajO59T7W
+	 Bads34sP/a5yAm4Az5ZrzO6EFDu3djUgXqmf5qozSpDl0E+emDW/7MW3NjnJK8Slny
+	 OotgoXlSvtjugWgJaY9L6WhmqLGWE1/djXCDpUtueFL1T/RlRKAFXQq8l15zcyQNzg
+	 xjTOR7A8pPrNcxZlYg/qfRZqRoGr1vsLPFhe4Hd1TaAtSvhAOyzOMqZjEfVQNGp8Tp
+	 eyJrsI19HFTP1bsaOPJ+0b/i2opswgGS1tIHSoUImZmzyNRI2vbOkompeaDJUfnist
+	 DFKvOz84NKcEw==
+Date: Fri, 20 Mar 2026 18:28:28 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Kees Cook <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin <xu.xin16@zte.com.cn>, 
+	Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, 
+	Stephen Smalley <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
+Subject: Re: [PATCH v3 21/23] mm/vma: convert as much as we can in mm/vma.c
+ to vma_flags_t
+Message-ID: <5c61e8fc-f77d-4f9a-80b9-534978aa1840@lucifer.local>
+References: <cover.1773846935.git.ljs@kernel.org>
+ <44a952b98d68fc231ab231de6de04b077866bab8.1773846935.git.ljs@kernel.org>
+ <a7535063-abaa-4f67-a090-4a47098f10e7@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <272ed19e2c0d8c9f53b6e621c01dc09f0635bf9d.camel@pengutronix.de>
+Content-Disposition: inline
+In-Reply-To: <a7535063-abaa-4f67-a090-4a47098f10e7@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_112831_464112_BF555E0B 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,102 +94,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2379347718328782147=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 20, 2026 at 11:15:52AM +0100, Vlastimil Babka (SUSE) wrote:
+> On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
+> > Now we have established a good foundation for vm_flags_t to vma_flags_t
+> > changes, update mm/vma.c to utilise vma_flags_t wherever possible.
+> >
+> > We are able to convert VM_STARTGAP_FLAGS entirely as this is only used in
+> > mm/vma.c, and to account for the fact we can't use VM_NONE to make life
+> > easier, place the definition of this within existing #ifdef's to be
+> > cleaner.
+> >
+> > Generally the remaining changes are mechanical.
+> >
+> > Also update the VMA tests to reflect the changes.
+> >
+> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+>
+> Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
---===============2379347718328782147==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hP8vo3n1R88/WzCL"
-Content-Disposition: inline
+Thanks!
 
+>
+> Nits:
+>
+> > @@ -2338,8 +2339,11 @@ void mm_drop_all_locks(struct mm_struct *mm)
+> >   * We account for memory if it's a private writeable mapping,
+> >   * not hugepages and VM_NORESERVE wasn't set.
+> >   */
+> > -static bool accountable_mapping(struct file *file, vm_flags_t vm_flags)
+> > +static bool accountable_mapping(struct mmap_state *map)
+> >  {
+> > +	const struct file *file = map->file;
+> > +	vma_flags_t mask;
+> > +
+> >  	/*
+> >  	 * hugetlb has its own accounting separate from the core VM
+> >  	 * VM_HUGETLB may not be set yet so we cannot check for that flag.
+> > @@ -2347,7 +2351,9 @@ static bool accountable_mapping(struct file *file, vm_flags_t vm_flags)
+> >  	if (file && is_file_hugepages(file))
+> >  		return false;
+> >
+> > -	return (vm_flags & (VM_NORESERVE | VM_SHARED | VM_WRITE)) == VM_WRITE;
+> > +	mask = vma_flags_and(&map->vma_flags, VMA_NORESERVE_BIT, VMA_SHARED_BIT,
+> > +			     VMA_WRITE_BIT);
+> > +	return vma_flags_same(&mask, VMA_WRITE_BIT);
+>
+> Another case of possible refactor, if you agree with those pointed out in
+> earlier patch.
 
---hP8vo3n1R88/WzCL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Ack
 
-On Fri, Mar 20, 2026 at 01:02:04PM +0100, Philipp Zabel wrote:
-> On Fr, 2026-03-20 at 11:06 +0000, Yixun Lan wrote:
-> > Instead of grouping several different reset lines into one composite
-> > reset, decouple them to individual ones which make it more aligned
-> > with underlying hardware. And for DWC USB driver, it will match well
-> > with the number of the reset property in the DT bindings.
-> >=20
-> > The DWC3 USB host controller in K3 SoC has three reset lines - AHB, VCC,
-> > PHY. The PCIe controller also has three reset lines - DBI, Slave, Maste=
-r.
-> > Also three reset lines each for UCIE and RCPU block.
->=20
-> Although I can't validate correctness of the id-to-bit assignments, the
-> changes look consistent.
->=20
-> I trust that the reason for the grouped reset lines was just
-> convenience, and not some hardware limitation that requires them to be
-> controlled at the same time.
->=20
-> There are no patches using the USB/UCIE/RCPU/PCIE resets found on lore,
-> so this is not an ABI break.
->=20
+>
+> >  }
+> >
+> >  /*
+>
+> > @@ -2993,7 +2998,8 @@ unsigned long unmapped_area(struct vm_unmapped_area_info *info)
+> >  	gap = vma_iter_addr(&vmi) + info->start_gap;
+> >  	gap += (info->align_offset - gap) & info->align_mask;
+> >  	tmp = vma_next(&vmi);
+> > -	if (tmp && (tmp->vm_flags & VM_STARTGAP_FLAGS)) { /* Avoid prev check if possible */
+> > +	/* Avoid prev check if possible */
+> > +	if (tmp && (vma_test_any_mask(tmp, VMA_STARTGAP_FLAGS))) {
+>
+> The parentheses around function call not necessary?
 
-Eh, I think it's an ABI break either way, but it is being done fast
-enough that there's no users since this is new as of -rc1.
+True, can fix up.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>
+> >  		if (vm_start_gap(tmp) < gap + length - 1) {
+> >  			low_limit = tmp->vm_end;
+> >  			vma_iter_reset(&vmi);
+> > @@ -3045,7 +3051,8 @@ unsigned long unmapped_area_topdown(struct vm_unmapped_area_info *info)
+> >  	gap -= (gap - info->align_offset) & info->align_mask;
+> >  	gap_end = vma_iter_end(&vmi);
+> >  	tmp = vma_next(&vmi);
+> > -	if (tmp && (tmp->vm_flags & VM_STARTGAP_FLAGS)) { /* Avoid prev check if possible */
+> > +	 /* Avoid prev check if possible */
+> > +	if (tmp && (vma_test_any_mask(tmp, VMA_STARTGAP_FLAGS))) {
+>
+> Same.
 
-Just be careful Yixun that U-Boot doesn't import and starting using it,
-I forget if they use -rc1 or released kernels as their import point.
+True, will fix up.
 
-pw-bot: not-applicable
+>
+> >  		if (vm_start_gap(tmp) < gap_end) {
+> >  			high_limit = vm_start_gap(tmp);
+> >  			vma_iter_reset(&vmi);
 
-Cheers,
-Conor.
-
-> > As an agreement with maintainer, the reset IDs has been rearranged as
-> > contiguous number but keep most part unchanged to avoid break patches
-> > which already sent to mailing list. The changes of DT binding header fi=
-le
-> > and reset driver are merged together as one single commit to avoid
-> > git-bisect breakage.
-> >=20
-> > Fixes: 938ce3b16582 ("reset: spacemit: Add SpacemiT K3 reset driver")
-> > Fixes: 216e0a5e98e5 ("dt-bindings: soc: spacemit: Add K3 reset support =
-and IDs")
-> > Signed-off-by: Yixun Lan <dlan@kernel.org>
->=20
-> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
->=20
-> If there are no objections, I'll pick this up into reset/fixes for
-> v7.0-rc6.
->=20
-> regards
-> Philipp
-
---hP8vo3n1R88/WzCL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCab2KcQAKCRB4tDGHoIJi
-0n4FAQCnnReUmA8clg/MCzX+jyZCk7NbP4dF2JecIAuY7go4WgEAy9VobUGZbInL
-sYap5dRIMkC5Q4cA1ppov9UzFaiY5A4=
-=oCVp
------END PGP SIGNATURE-----
-
---hP8vo3n1R88/WzCL--
-
-
---===============2379347718328782147==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2379347718328782147==--
-
