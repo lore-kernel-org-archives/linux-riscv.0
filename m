@@ -4,81 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F121098782
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 13:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF221098796
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 15:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/RoRKh3zXArXfdmDGlQAhAtxRajOkOniE7qJZ8YP+Nc=; b=fP3nG7pjlZjBbY
-	2gIBE/yDxNRIAw0x/Ry8t60tf26JYOxO6AmE5W2otV1YO1uXNOAOO83NVkqF/bkQ0/1edqrcciUKo
-	dS+Y1TXyTjoOW0KmT5g7KzmNl066WyhCedLSsrMP74vOglFQRhl792MDkCTXJgXOYtEu6OwOExVPK
-	KG0v551tUqHrdR9YK7+nK82k2dHbc7PwBVIcieHKuzibASWNPS0v+onIXRfMpXDHXq/Q4KyM3qayu
-	V9ueY+nymyZuaMDPHxmYPmIYCyz9sTaeHlQ//QKaIQnBLNSaZVfGfgJLMlfD2nNa9/LwA3aCeXfIF
-	VqyXin3A3pFGpihOek5g==;
+	List-Owner; bh=tFolG3FTEMkhkY2lbkj/kKtJdDGShsa3DaX7hZcXAD8=; b=fy7PYc+tqNIuvH
+	4x15LNShgwFlncVYPqa0GAcj7mi/IKN8gZKpkJrw7cXR6MSXsUkWyH1691qJElKksZI0cT2k5JuiZ
+	hhjQKyJ19RkUOHFMP9DURCf+I8xG42CvXtYf9l7/RWR9NfBrZHwWB+6s5UZbOLmkxjd1DGFnb3meU
+	Zu2OzYLU2upAThPceFbEn9gI1z7hhOM4IRPyPU2M9yDH/4YFKcJ6v+Vl/fgM5VV7Gslmas3XNMMDN
+	D+ewaJ6qLbc26iQO8f7zZtSsaBG6pPRk4epiZtEg4gy6myAXfvuXbFh0tLKlJ9ofkkYQD0kwLQqi5
+	74EfRZT7DAIpSJec5mPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a8B-0000000CsK4-0dhV;
-	Fri, 20 Mar 2026 13:43:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3bQr-0000000D0DB-3CPL;
+	Fri, 20 Mar 2026 15:06:37 +0000
+Received: from out-178.mta0.migadu.com ([91.218.175.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a89-0000000CsJU-1y68;
-	Fri, 20 Mar 2026 13:43:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 575AB61860;
-	Fri, 20 Mar 2026 13:43:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADD9AC2BCB2;
-	Fri, 20 Mar 2026 13:42:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774014192;
-	bh=DyFuJFml7YVo8+/hTBGS9GQt/nh4Xv5125sbhWsDy3w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gK3cDFvh7dEcs9L3VC7fj0P6IM5YMZ5Mdb7e1aiwqcjRMNtOygIPq2gaIILFuUtTM
-	 vmqMlCjBU/8YqWSrn8GlSD1mbnyZvleBSG4NBi3zJJ69IUJMAI0DEdStZKy+UW0TaS
-	 RKgp2laFc8jVyXbKre2JResrGO8+VbexZHvQVEUDnIaYf1/UBEaFtXzWQkyAGtWvAC
-	 EC8EOzLMExEfD4QvcP/5iHkGjSQVu/uJiaSVg5HYyjsbtJBNdghidoAN6SiQA2nRu6
-	 m51U9AIWacLgoG0wrPS7G6Dn4d7v54+3rpqqUTSWe8f3RYfxZqr7UHrfRbAGSUWvmM
-	 y4Zk3Ov3DoF0w==
-Date: Fri, 20 Mar 2026 13:42:57 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
-	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Kees Cook <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, 
-	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin <xu.xin16@zte.com.cn>, 
-	Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, 
-	Stephen Smalley <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
-Subject: Re: [PATCH v3 17/23] mm: convert do_brk_flags() to use vma_flags_t
-Message-ID: <f47e24c4-3a11-4a58-96f5-871443660246@lucifer.local>
-References: <cover.1773846935.git.ljs@kernel.org>
- <981ed1afcd19115432e61778e7d226a36f8f5c2b.1773846935.git.ljs@kernel.org>
- <1d300b3b-2476-4381-b8df-a680f486b284@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1d300b3b-2476-4381-b8df-a680f486b284@kernel.org>
+	id 1w3bQo-0000000D0As-0pn4
+	for linux-riscv@lists.infradead.org;
+	Fri, 20 Mar 2026 15:06:36 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1774019191;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+gY0U88ZU3WFbE3S3UKhriDpSE3AB91y+8EwGdS+r/8=;
+	b=ru+5fBvcm+pEAo0/qfX05QZrWp0JkVZkWaK/eGQezaL3cnyirJyZv/JIfWcEZr2udZrJys
+	gL0u5/AscC8IMzlMsA/pii/52ijo4kxbVFlQM1NI/KKq0zjVsmDEwfSU0xz/UNh7xUJ8EN
+	tSAdsI23J8B4l9To3y/mCEgDpxusVNI=
+Date: Fri, 20 Mar 2026 23:05:33 +0800
+Message-Id: <DH7PARAFZS7V.1YIE6OED3NA6C@linux.dev>
+Subject: Re: [PATCH 1/1] usb: dwc3: dwc3-generic-plat: Add optional VBUS
+ regulator support
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Ze Huang" <huang.ze@linux.dev>
+To: "Chukun Pan" <amadeus@jmu.edu.cn>, <huang.ze@linux.dev>
+Cc: <dlan@kernel.org>, <gregkh@linuxfoundation.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <linux-usb@vger.kernel.org>, <spacemit@lists.linux.dev>,
+ <thinh.nguyen@synopsys.com>
+References: <DH7ILSL8DXBO.ZR74CL1QEUBU@linux.dev>
+ <20260320104026.1350571-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20260320104026.1350571-1-amadeus@jmu.edu.cn>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_080634_762929_28BBFFFD 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,231 +72,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 10:57:32AM +0100, Vlastimil Babka (SUSE) wrote:
-> On 3/18/26 16:50, Lorenzo Stoakes (Oracle) wrote:
-> > In order to be able to do this, we need to change VM_DATA_DEFAULT_FLAGS
-> > and friends and update the architecture-specific definitions also.
-> >
-> > We then have to update some KSM logic to handle VMA flags, and introduce
-> > VMA_STACK_FLAGS to define the vma_flags_t equivalent of VM_STACK_FLAGS.
-> >
-> > We also introduce two helper functions for use during the time we are
-> > converting legacy flags to vma_flags_t values - vma_flags_to_legacy() and
-> > legacy_to_vma_flags().
+On Fri Mar 20, 2026 at 6:40 PM CST, Chukun Pan wrote:
+> Hi,
 >
-> Nit: this was done by an earlier patch.
+>> I think it's better to align the driver with the actual hardware. I'm not
+>> opposed to managing any regulators in usb host/device drivers. But if we
+>> do have an onboard hub, and regulator belongs to the downstream ports of
+>> the hub, then it's hub's job, right?
+>
+>> Many boards leave gpio controlled regulators always on, that's what we
+>> want to solve. If we have to choose the parent of these regulators, why
+>> not put them in the correct hierarchy?
+>
+> I think we can manage the regulator in the USB host driver first,
+> and then use it after the onboard_usb_dev driver has been merged.
+> This is better than keeping the regulator always on.
+>
+>> If such a board really need the regulator, IMO, your patch is the way to go.
+>>
+>> OrangePi haven't released the schematic yet.
+>>
+>> That's what I could find [1], which seems similar to RV2.
+>
+> There is no onboard USB hub. Just check the image:
+>
+> http://www.orangepi.org/img/r2s/details/17.png
+> http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-R2S.html
+>
 
-Ack will fix up.
+That's fine, thanks.
 
->
-> > This enables us to iteratively make changes to break these changes up into
-> > separate parts.
-> >
-> > We use these explicitly here to keep VM_STACK_FLAGS around for certain
-> > users which need to maintain the legacy vm_flags_t values for the time
-> > being.
-> >
-> > We are no longer able to rely on the simple VM_xxx being set to zero if
-> > the feature is not enabled, so in the case of VM_DROPPABLE we introduce
-> > VMA_DROPPABLE as the vma_flags_t equivalent, which is set to
-> > EMPTY_VMA_FLAGS if the droppable flag is not available.
-> >
-> > While we're here, we make the description of do_brk_flags() into a kdoc
-> > comment, as it almost was already.
-> >
-> > We use vma_flags_to_legacy() to not need to update the vm_get_page_prot()
-> > logic as this time.
-> >
-> > Note that in create_init_stack_vma() we have to replace the BUILD_BUG_ON()
-> > with a VM_WARN_ON_ONCE() as the tested values are no longer build time
-> > available.
-> >
-> > We also update mprotect_fixup() to use VMA flags where possible, though we
-> > have to live with a little duplication between vm_flags_t and vma_flags_t
-> > values for the time being until further conversions are made.
-> >
-> > Finally, we update the VMA tests to reflect these changes.
-> >
-> > Acked-by: Paul Moore <paul@paul-moore.com>	[SELinux]
-> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
->
-> Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+> Thanks,
+> Chukun
 
-Thanks!
-
->
-> More nits below:
->
-> > diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-> > index b39cc1127e1f..e25d0d18f6d7 100644
-> > --- a/arch/arm64/include/asm/page.h
-> > +++ b/arch/arm64/include/asm/page.h
-> > @@ -46,7 +46,12 @@ int pfn_is_map_memory(unsigned long pfn);
-> >
-> >  #endif /* !__ASSEMBLER__ */
-> >
-> > -#define VM_DATA_DEFAULT_FLAGS	(VM_DATA_FLAGS_TSK_EXEC | VM_MTE_ALLOWED)
-> > +#ifdef CONFIG_ARM64_MTE
-> > +#define VMA_DATA_DEFAULT_FLAGS	append_vma_flags(VMA_DATA_FLAGS_TSK_EXEC, \
-> > +						 VMA_MTE_ALLOWED_BIT)
->
-> I wonder what's the bloat-o-meter impact of these #define's (this
-> arm64-specific one isn't the only one) being no longer compile-time-constants?
-
-I mean there's a precedent for this, but the compiler _should_ figure out this
-as a constant value, I have repeatedly confirmed that it's good at that in
-godbolt, via make foo/bar.S etc.
-
-So it should have no measureable impact at 64-bit VMA flags anyway, but I can
-give it a go and see before/after.
-
->
-> > +#else
-> > +#define VMA_DATA_DEFAULT_FLAGS	VMA_DATA_FLAGS_TSK_EXEC
-> > +#endif
-> >
-> >  #include <asm-generic/getorder.h>
-> >
->
-> > --- a/include/linux/mm.h
-> > +++ b/include/linux/mm.h
->
-> >
-> > +#define VMA_STACK_FLAGS	append_vma_flags(VMA_STACK_DEFAULT_FLAGS,	\
-> > +		VMA_STACK_BIT, VMA_ACCOUNT_BIT)
-> > +
-> > +/* Temporary until VMA flags conversion complete. */
-> > +#define VM_STACK_FLAGS vma_flags_to_legacy(VMA_STACK_FLAGS)
-> > +
-> >  #define VM_STARTGAP_FLAGS (VM_GROWSDOWN | VM_SHADOW_STACK)
-> >
-> >  #ifdef CONFIG_MSEAL_SYSTEM_MAPPINGS
-> > @@ -536,8 +547,6 @@ enum {
-> >  #define VM_SEALED_SYSMAP	VM_NONE
-> >  #endif
-> >
-> > -#define VM_STACK_FLAGS	(VM_STACK | VM_STACK_DEFAULT_FLAGS | VM_ACCOUNT)
-> > -
-> >  /* VMA basic access permission flags */
-> >  #define VM_ACCESS_FLAGS (VM_READ | VM_WRITE | VM_EXEC)
-> >  #define VMA_ACCESS_FLAGS mk_vma_flags(VMA_READ_BIT, VMA_WRITE_BIT, VMA_EXEC_BIT)
-> > @@ -547,6 +556,9 @@ enum {
-> >   */
-> >  #define VM_SPECIAL (VM_IO | VM_DONTEXPAND | VM_PFNMAP | VM_MIXEDMAP)
-> >
-> > +#define VMA_SPECIAL_FLAGS mk_vma_flags(VMA_IO_BIT, VMA_DONTEXPAND_BIT, \
-> > +				       VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT)
->
-> Should VM_SPECIAL be also redefined using vma_flags_to_legacy()?
-
-Could do! It should be a pretty clear indicator this is legacy.
-
->
-> > +
-> >  /*
-> >   * Physically remapped pages are special. Tell the
-> >   * rest of the world about it:
-> > @@ -1412,7 +1424,7 @@ static __always_inline void vma_desc_set_flags_mask(struct vm_area_desc *desc,
-> >   * vm_area_desc object describing a proposed VMA, e.g.:
-> >   *
-> >   * vma_desc_set_flags(desc, VMA_IO_BIT, VMA_PFNMAP_BIT, VMA_DONTEXPAND_BIT,
-> > - *		VMA_DONTDUMP_BIT);
-> > + *              VMA_DONTDUMP_BIT);
->
-> Looks like spurious tabs-to-space change inconsistent with other instances.
-
-Yeah that's a mistake, will fixup.
-
->
-> >   */
-> >  #define vma_desc_set_flags(desc, ...) \
-> >  	vma_desc_set_flags_mask(desc, mk_vma_flags(__VA_ARGS__))
-> > @@ -4059,7 +4071,6 @@ extern int replace_mm_exe_file(struct mm_struct *mm, struct file *new_exe_file);
-> >  extern struct file *get_mm_exe_file(struct mm_struct *mm);
-> >  extern struct file *get_task_exe_file(struct task_struct *task);
-> >
-> > -extern bool may_expand_vm(struct mm_struct *, vm_flags_t, unsigned long npages);
-> >  extern void vm_stat_account(struct mm_struct *, vm_flags_t, long npages);
-> >
-> >  extern bool vma_is_special_mapping(const struct vm_area_struct *vma,
-> > diff --git a/mm/internal.h b/mm/internal.h
-> > index f98f4746ac41..80d8651441a7 100644
->
-> > diff --git a/mm/mprotect.c b/mm/mprotect.c
-> > index 9681f055b9fc..eaa724b99908 100644
-> > --- a/mm/mprotect.c
-> > +++ b/mm/mprotect.c
->
-> > @@ -773,19 +778,24 @@ mprotect_fixup(struct vma_iterator *vmi, struct mmu_gather *tlb,
-> >
-> >  	change_protection(tlb, vma, start, end, mm_cp_flags);
-> >
-> > -	if ((oldflags & VM_ACCOUNT) && !(newflags & VM_ACCOUNT))
-> > +	if (vma_flags_test(&old_vma_flags, VMA_ACCOUNT_BIT) &&
-> > +	    !vma_flags_test(&new_vma_flags, VMA_ACCOUNT_BIT))
-> >  		vm_unacct_memory(nrpages);
-> >
-> >  	/*
-> >  	 * Private VM_LOCKED VMA becoming writable: trigger COW to avoid major
-> >  	 * fault on access.
-> >  	 */
-> > -	if ((oldflags & (VM_WRITE | VM_SHARED | VM_LOCKED)) == VM_LOCKED &&
-> > -			(newflags & VM_WRITE)) {
-> > -		populate_vma_page_range(vma, start, end, NULL);
-> > +	if (vma_flags_test(&new_vma_flags, VMA_WRITE_BIT)) {
-> > +		const vma_flags_t mask =
-> > +			vma_flags_and(&old_vma_flags, VMA_WRITE_BIT,
-> > +				      VMA_SHARED_BIT, VMA_LOCKED_BIT);
-> > +
-> > +		if (vma_flags_same(&mask, VMA_LOCKED_BIT))
->
-> That converts the original logic 1:1, but I wonder if it's now feasible to
-> write it more obviously as "VMA_LOCKED_BIT must be set, VM_WRITE_BIT and
-> VM_SHARED_BIT must not" ?
-
-Hmm, I'm not sure if I can express this more clearly, it's a pain either
-way. Could do:
-
-	if (vma_flags_test(&new_vma_flags, VMA_WRITE_BIT) &&
-	    !vma_flags_test_any(&old_vma_flags, VMA_WRITE_BIT, VMA_SHARED_BIT))
-		populate_vma_page_range(vma, start, end, NULL);
-
->
-> > +			populate_vma_page_range(vma, start, end, NULL);
-> >  	}
-> >
-> > -	vm_stat_account(mm, oldflags, -nrpages);
-> > +	vm_stat_account(mm, vma_flags_to_legacy(old_vma_flags), -nrpages);
-> >  	vm_stat_account(mm, newflags, nrpages);
-> >  	perf_event_mmap(vma);
-> >  	return 0;
->
-> > diff --git a/mm/vma.h b/mm/vma.h
-> > index cf8926558bf6..1f2de6cb3b97 100644
-> > --- a/mm/vma.h
-> > +++ b/mm/vma.h
->
-> > +static inline bool is_data_mapping_vma_flags(const vma_flags_t *vma_flags)
-> > +{
-> > +	const vma_flags_t mask = vma_flags_and(vma_flags,
-> > +			VMA_WRITE_BIT, VMA_SHARED_BIT, VMA_STACK_BIT);
-> > +
-> > +	return vma_flags_same(&mask, VMA_WRITE_BIT);
->
-> Ditto?
-
-I may do both as a follow up patch given the series is a pain to rework at this point
-and I want at least the first version to be like-for-like intentionally.
-
->
-> > +}
-> >
-> >  static inline void vma_iter_config(struct vma_iterator *vmi,
-> >  		unsigned long index, unsigned long last)
-> > diff --git a/mm/vma_exec.c b/mm/vma_exec.c
-> > index 8134e1afca68..5cee8b7efa0f 100644
-
-Thanks, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
