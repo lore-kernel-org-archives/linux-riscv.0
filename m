@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72775108B8FF
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Mar 2026 05:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC441093170
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Mar 2026 05:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
+	In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XqQmWjG76i6T2H/2TaULnMd1rZSw17cxRmZjsmVmR3w=; b=e5peT8Afuo+nCb
-	6GdLIwiXYTJcfZvk1gt9UvqIqft+eAAIP3ZTKQTSnoOQqxrsrvW0UG5ol4m9by5q/RrbqXUjc6hgE
-	43w/H3sgpAwtSJMCYOwcuAoyAYvXvmfvZYKMkQRQn4a8bGJmx1qE26PCIb7SoBMXM4zU/l823/7k/
-	7fdn8QLopHXu3r4bzW46iS9W8KFSE9xr55CKbkeXMqaj4iRLAeF93nVLSqbxGP0IBpFmDaoqMbO0G
-	AW7STKQ+5ongmrpDA5xiEI80c8Ricl50+fKir9Xtb809hG6asg3Fk4y0SVwK4wIiEIkULTG11Avt6
-	aclx+Q5bHPrCgnVDLdEw==;
+	List-Owner; bh=Ije0LPwFr6My3FEGUBma7t+5rx3ilUFzU29G2HE8d+Q=; b=PfUlPPZdZZ3Kly
+	SCkrwl7Y96m9kZ9vpUn/iJ+cqJYM2viT4u/yKDYim4N9yqsDYOHqPCelUSP7VceFiWozRbLgQkKTg
+	8zG4+6ecOzRTXkyuMNvTt8cTK2LJRpuQ/IaUJZma6+Gc51H528kim9JBl69O9kkCiT2bDuEyWMgvu
+	PflUg3I6z03noyyjB4nfdQoG/N6iVj+2mPDip4QwY/BHMpkZomOyEnnHmGy1FuL78PfFSmLscYY5p
+	ZpwQfzFJ9DG85L1+JxyhCpbqqGoherQVIkkS5O//RRvZ7PLsm1jMnubvZFqm0MbnbLtvhWYfESqMD
+	MUh5AXy1nRToBAeAwIiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3oWo-0000000E3kN-05pv;
-	Sat, 21 Mar 2026 05:05:38 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1w3ocN-0000000E400-3Y9v;
+	Sat, 21 Mar 2026 05:11:23 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3oWi-0000000E3jY-3bS3
+	id 1w3ocL-0000000E3yg-33cO
 	for linux-riscv@lists.infradead.org;
-	Sat, 21 Mar 2026 05:05:36 +0000
-Received: from [192.168.1.204] (unknown [112.94.102.202])
-	by APP-03 (Coremail) with SMTP id rQCowAC3m+IHJ75pwzRUCw--.57166S2;
-	Sat, 21 Mar 2026 13:05:12 +0800 (CST)
-Message-ID: <4180689d3426882dcac2eb74209d398477f88b90.camel@iscas.ac.cn>
-Subject: Re: [PATCH 0/2] drm/bridge: th1520-dw-hdmi: Two fixes
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Felix Gu <ustc.gu@gmail.com>, Drew Fustini <fustini@kernel.org>, Guo Ren
-	 <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Andrzej Hajda	
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman	 <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>
-Cc: linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org
-Date: Sat, 21 Mar 2026 13:05:10 +0800
-In-Reply-To: <20260321-th1520-v1-0-ec877197770d@gmail.com>
-References: <20260321-th1520-v1-0-ec877197770d@gmail.com>
-User-Agent: Evolution 3.58.3 
-MIME-Version: 1.0
-X-CM-TRANSID: rQCowAC3m+IHJ75pwzRUCw--.57166S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GF1fXFykWF4rAw13CF1DAwb_yoWxZrg_Za
-	9YyryqvrWUAFs3C3ZxZrn8Z3sYg345JFW5Ar1DK398G3yFyrnxW3WrW395Xry3uF4qkFy3
-	trn3A398C3W7ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbskYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Cr1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUVQ6pDUUUU
-X-Originating-IP: [112.94.102.202]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+	Sat, 21 Mar 2026 05:11:22 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c742d4df00cso1069272a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 20 Mar 2026 22:11:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1774069873; x=1774674673; darn=lists.infradead.org;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=7QxDv7wA5vy2wx/iALi99txiEfbwQ3ENlpnWZYhHz0A=;
+        b=bUB5JwHHYKYptmsax5FiwodWtbIJOAPGj6MtvcDZteioqwqjmo5pwzqwbJaUyZ7PsC
+         76Xmw50gDF6bG1eQmQ5aj9alPrGdmg4XqPO210FlxZdJSXD2agXM2FYGH7DOys/+2Ykt
+         C4prUM1KbQEho7jGjUJZCNGZHXhSs6F6/5+t4xvSq6q6dgZ1kwtxNY/aG34JZ/T54vLA
+         jCPw3WNAuyRyksrWmG5UJ2Yisic4Vn0qy7Cf3FT0XrFPSIyCLPfV26H2gr3wp+aQxtJk
+         tVPGnteyrN2RSsZ2i4r1XX06ky+AMTyjs60tqXQ+AasxrY3VB5b9TIkq83jlxZ05CRXd
+         E0Bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774069873; x=1774674673;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7QxDv7wA5vy2wx/iALi99txiEfbwQ3ENlpnWZYhHz0A=;
+        b=beiy0jJ4izpGrvcIR7DkDyrjlCSeX5nZmAqAZAXYIRGQFzk8ey3bNOkIP9X4XEQ23C
+         qjtpUV4D5frLvKxYqKq0zK1mt+LbZTt0S+jDV4D6Zcg2hSwh6K6BiK7Y0v/5linJapE4
+         anl9+u4q5F80ALsDajC8IvXsb1v1GsF+sYaq+eXc/nH8xRgEIH5vyuJsktAP5vq/79tn
+         tFUvb+HEqUgi1GrE2PhxhmZpoYOI6tVOOcpdT0/2VPPvSz4flwnCsnhxDZO8zWANFrAk
+         mGkI/J7mO7NO/MyrQbCbR0X4XK1bkMbFE62IYFpbklv8eJcO0allRcLo+MW0SedYocVp
+         i1zQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWhIFI5XIYvDSys2q9Irmeq5oXy0shS2l82NA6Y2o9WjpB6m1o6IzD14cMYyQe0HL0wtHYPdGtEBYbDxA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6QHgeh+AiW1cYCcvn3AKTdfsRYUyV4KBd6kvk5b316BlxmNus
+	SwuL/IX7EXwJrEurBjj7hGOz8Zru9X7aLkGGk2hfgepYcqJ/Oca/62Ix
+X-Gm-Gg: ATEYQzz03CAMdu1fE/OLK1Q/k63vcSO0yplNp5mpLWa4PXOr5HX19S93cVpOH+FTzUN
+	rV9hYCxGRADST7z7if22YDNrHs4QYNCCTb2E6T6mWQzrxX5huiuI+ufKtIiQHv7jafZGQRu2ogE
+	5e2dkv6LbtK2w40qwBwQqRzqiloyM8E3YctTYp76hYY719l6DAkIttN0WGknldfU01Nw2kogtQd
+	OCXnprJZX/uljZrHpbp7FkiTwBOMpto5VPPzIYfQlmDNwUO14cknNUSs18pPwtE4/oYA+u6r9QF
+	RYkPHRthjyaq3s2MQW1nAXsZvz0/QBKX0vsRA3uc3yIDzW6HqoBD0OiNxtiUW4bXL/FXzg5fGRL
+	ZVE7UDdtnZWq/1TjrtLnEb1FPObqwl5UrYjY+/87PfC1+FEXFdc6yhVSnelDcWUF7ht9v1ZmFfy
+	aog/k9KerJsBgS2sJUbc15xQ==
+X-Received: by 2002:a05:6a21:4cca:b0:39b:9c3a:f54f with SMTP id adf61e73a8af0-39bb25e7511mr8216718637.32.1774069873215;
+        Fri, 20 Mar 2026 22:11:13 -0700 (PDT)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c743a939af0sm2729778a12.16.2026.03.20.22.11.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Mar 2026 22:11:12 -0700 (PDT)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org, david@kernel.org
+Cc: ljs@kernel.org, Liam.Howlett@oracle.com, vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com, baolin.wang@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, x86@kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/6] mm: change to return bool for ptep_test_and_clear_young()
+In-Reply-To: <3fa94c3c89fd93fe22c8cb59967f064787d686aa.1773890510.git.baolin.wang@linux.alibaba.com>
+Date: Fri, 20 Mar 2026 11:27:48 +0530
+Message-ID: <ikarxctf.ritesh.list@gmail.com>
+References: <cover.1773890510.git.baolin.wang@linux.alibaba.com> <3fa94c3c89fd93fe22c8cb59967f064787d686aa.1773890510.git.baolin.wang@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_220533_284518_96EA22AF 
-X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-CacheID: sfid-20260320_221121_908234_FEFCC1D7 
+X-CRM114-Status: UNSURE (   7.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,23 +90,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDMtMjHlha3nmoQgMDM6MTIgKzA4MDDvvIxGZWxpeCBHdeWGmemBk++8mgo+IFNp
-Z25lZC1vZmYtYnk6IEZlbGl4IEd1IDx1c3RjLmd1QGdtYWlsLmNvbT4KPiAtLS0KPiBGZWxpeCBH
-dSAoMik6Cj4gwqDCoMKgwqDCoCBkcm0vYnJpZGdlOiB0aDE1MjAtZHctaGRtaTogRml4IGVycm9y
-IGNoZWNrIG9uIGR3X2hkbWlfcHJvYmUoKQo+IHJldHVybiB2YWx1ZQo+IMKgwqDCoMKgwqAgZHJt
-L2JyaWRnZTogdGgxNTIwLWR3LWhkbWk6IEZpeCByZW1vdmUoKSBjYWxsYmFjawoKQm90aCBmaXhl
-cyBsb29rIHRyaXZpYWwgYW5kIGxldCBtZSBzdGFydCB0byBkb3VidCBob3cgY291bGQgSSBtYWtl
-IHN1Y2gKbWlzdGFrZXMuCgpSZXZpZXdlZC1ieTogSWNlbm93eSBaaGVuZyA8emhlbmd4aW5nZGFA
-aXNjYXMuYWMuY24+Cgo+IAo+IMKgZHJpdmVycy9ncHUvZHJtL2JyaWRnZS90aDE1MjAtZHctaGRt
-aS5jIHwgOCArKysrLS0tLQo+IMKgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgNCBk
-ZWxldGlvbnMoLSkKPiAtLS0KPiBiYXNlLWNvbW1pdDogYjVkMDgzYTNlZDFlMjc5ODM5NmQ1ZTQ5
-MTQzMmU4ODdkYThkNGEwNgo+IGNoYW5nZS1pZDogMjAyNjAzMjEtdGgxNTIwLWY0MzI2MTM4Yzli
-Zgo+IAo+IEJlc3QgcmVnYXJkcywKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+Baolin Wang <baolin.wang@linux.alibaba.com> writes:
+
+> Callers use ptep_test_and_clear_young() to clear the young flag and check
+> whether it was set. Change the return type to bool to make the intention
+> clearer.
+>
+
+Right I checked all callers of ptep_test_and_clear_young(). I agree, we
+only need bool here. 
+
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> ---
+>  arch/arm64/include/asm/pgtable.h             |  8 ++++----
+>  arch/arm64/mm/contpte.c                      |  4 ++--
+>  arch/microblaze/include/asm/pgtable.h        |  2 +-
+>  arch/parisc/include/asm/pgtable.h            |  6 +++---
+>  arch/powerpc/include/asm/book3s/32/pgtable.h |  4 ++--
+>  arch/powerpc/include/asm/book3s/64/pgtable.h |  6 +++---
+>  arch/powerpc/include/asm/nohash/pgtable.h    |  4 ++--
+
+I looked at it because of powerpc changes, but ended up looking into all
+call sites anyways. So overall it LGTM (and I agree that we can remove
+the unnecessary externs from function declarations)
+
+With that please feel free to add:
+Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
