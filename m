@@ -4,74 +4,194 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B05B1093163
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 01:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57111093163
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Mar 2026 02:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:References:Message-ID
+	:In-Reply-To:From:Subject:Cc:To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0praR0OSpxSU6KK3hfhTxz/PHmbwumti+cO3wwK7YF8=; b=1O29I9PyGFlRgp
-	7dQsI4+JW7uN59ffUeHdq3RiYKYctBjVV1AjZ0aE/o3Rz8QvuKCG8rFo/2iBNZa+rhRP54XqISx1T
-	URQGvKjdjGArGGr73SxyN40S9NjygSh9Kn2CMHA5Q61il1DVtikE6Sseh74vyvVtGbfc8frbSZnCb
-	81724fv3nUwrcVyeMuqQgzNM8T6KAPOZbdNZwQRfu2HtLvJlyWAPbKjvClkmiEzt/dfXDQMLyanwI
-	rq4qMWXOfmrQE7Lx3RDB8K5MHdtTq8esJD1BYG8mYYwZqkLNb377hN6utV0rufadED2054eMl1mWd
-	l4S4WobtQ8mXsQPCl+xQ==;
+	List-Owner; bh=lPNbxBZ71K+pBtgDVdx3bDZwAfZuKdBTMyu3FKV774Q=; b=oFfxrvKVp6lnP3
+	EYTRVMg8wDHb2cbVkucfam35DrjiyJ4YdRJ/uIom32BmVsMCBdDdwAOpbJ6XDG2lRmjTccAvdQHsq
+	hDlIOFcFyfUF3VkfdnCy9lSBFHXgje57eVLoyh5/eTrvccOKHHD0pd7Gi3Cq9qM5jgjJL5J8AJeGo
+	uj3qoLcT+/oNcY7vg2CLgdjpicbSOnBAtI52DjmMCP8895V5iJ4d5w/oImGx20DDXSzpiDpVphhRm
+	YcomUmV7ysVdW3Ma151mEsPcd0ETp3O7/9P4CCl2FIY5rrpbiVSRtR4bunaQuj46X1KGK8VxJaA3/
+	5bvbJT393p+2ypivgsOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3OG7-0000000BrPv-2Pj6;
-	Fri, 20 Mar 2026 01:02:39 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1w3PKt-0000000BuNm-1Rir;
+	Fri, 20 Mar 2026 02:11:39 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3OG4-0000000BrPI-1sXd;
-	Fri, 20 Mar 2026 01:02:38 +0000
-Received: from fric.. (unknown [210.73.43.101])
-	by APP-03 (Coremail) with SMTP id rQCowABngdidnLxpInAyCw--.38047S2;
-	Fri, 20 Mar 2026 09:02:22 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: atish.patra@linux.dev
-Cc: ajones@ventanamicro.com,
-	alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	jiakaiPeanut@gmail.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	xujiakai2025@iscas.ac.cn
-Subject: Re: [PATCH] RISC-V: KVM: Fix integer overflow in kvm_pmu_validate_counter_mask()
-Date: Fri, 20 Mar 2026 01:02:21 +0000
-Message-Id: <20260320010221.1052724-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <27ce6795-1bb2-437f-a3a9-0589c1d65cdc@linux.dev>
-References: <27ce6795-1bb2-437f-a3a9-0589c1d65cdc@linux.dev>
+	id 1w3PKp-0000000BuNG-1vbw;
+	Fri, 20 Mar 2026 02:11:37 +0000
+Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62JFkZ5t975855;
+	Fri, 20 Mar 2026 02:11:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=cfZULZU1o9PFVTLrPk
+	Vat199EGoUtc7cdvZ9JnWt9m4=; b=r91JeBFatxBEumDgKXJeydEJP7/LMur6mT
+	a2m3gvZgbrpu1kZhTG6dYGfvkf2EeQE/GCAsFfmYRdW+7B8saAz0QBIAwj2AZJJV
+	3V9MxF9jfFHYVkZzjPx4zS9Fvgmapo63naMgd0wYAdzafkVLyuXHZFc0aeDhJST1
+	GF5OffMaQ3g5L1V2H14zvgG2vnfxKsCkbLj+tcRaFQfu5DvDnKNvIcdve9astBHG
+	5Kd9+xj2nW4eKRfcLZr0z353Mu2mycA5RTJliUXVWIgYmRzgtrAcX/fLX0wQ93Ow
+	HzgBr99r+3iDh78LRP19UfBicB+Qjb8p3hspsgQzDGb2Nv/yC61w==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4cw07rgym0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Mar 2026 02:11:25 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 62JMO4Wt003427;
+	Fri, 20 Mar 2026 02:11:24 GMT
+Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011017.outbound.protection.outlook.com [40.107.208.17])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4cvx4dnr2t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Mar 2026 02:11:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=S15PfkeybankWU96IdEUNgyiGy/esDIRJ9Jpa0w2jCJ5Ev/eLvpETeQZedxC/1cFqZsHONoQ/3aIvkNPw0YA5FuBgjFl55CBFtJee8taPs1ENaKz/vrn3GihjDus742i2QTS69/VD2axYHhje1y0K648nz9l+Km6tvPs1GaYPRcRp44PX1vqfSw7V5VfSVH5MnnvFqoGp5P3QHqLMpduB+PKdL5/vFlzQmuC7/UHsfh4uIAxVlvuGDLlrR/W4OAVJ6Nta4h6aG/XT5z/LukzJn2i/1g1IWmZM/UjqeC/EJAy+oKIqg5W5YZR/NuWLuIVSiBw6Z854cK5vNpzS2sAjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cfZULZU1o9PFVTLrPkVat199EGoUtc7cdvZ9JnWt9m4=;
+ b=B46fkJtp3QHlQ5j+C33hFqDskAkC3+/ezTpeMLD17zt1Z8ewYYu28sXKUB7F6vSkU8tpsbdtS3ycoJcHqI/THmo5oEGSP4gEnGMH+86twYMQc4eRp9ebU2lEpWrNzx6HHXezIRie6ruwcNG4tQL0LQcKm6/KdgCVT6WMqat/e588SeujTG4GZ0Xli9JcdNIPMgUN0rljpqupKiKLtNi9q9bez6u8NmIkRceC8eKxm/5UZjN/ev6Nf2IafB/AbKh2bIKpZRBE6jrBcE1Da8WK9sAO4h1f4ZpY5tv2uqj0RkWbUOc4Kh/KYMoOlbupoayZq8U6JbA/68YXmhnO0rF1Xw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cfZULZU1o9PFVTLrPkVat199EGoUtc7cdvZ9JnWt9m4=;
+ b=ibSuhE/b6MToemu7oHxvUSnzRl9+9RTo1oE/A5YS0CldEnIf0eEtOSt4mucwFsxkIoEvatIL1aFd/a5xjQEpAZZzOpMJHZYFAeOOIQ3PcsP13KqpXBV9wPrLdhlAgOPFVetRlgkd8abS17UiCWDOTqc+Lc5V6BgiBbpVUbp3q1g=
+Received: from CH0PR10MB5338.namprd10.prod.outlook.com (2603:10b6:610:cb::8)
+ by IA4PR10MB8587.namprd10.prod.outlook.com (2603:10b6:208:55c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
+ 2026 02:11:18 +0000
+Received: from CH0PR10MB5338.namprd10.prod.outlook.com
+ ([fe80::e525:dd71:b002:6ad5]) by CH0PR10MB5338.namprd10.prod.outlook.com
+ ([fe80::e525:dd71:b002:6ad5%6]) with mapi id 15.20.9723.019; Fri, 20 Mar 2026
+ 02:11:18 +0000
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: <linux-phy@lists.infradead.org>, Vinod Koul <vkoul@kernel.org>,
+        Neil
+ Armstrong <neil.armstrong@linaro.org>,
+        <dri-devel@lists.freedesktop.org>, <freedreno@lists.freedesktop.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <linux-can@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>, <linux-ide@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>,
+        <linux-pci@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
+        <linux-riscv@lists.infradead.org>,
+        <linux-rockchip@lists.infradead.org>,
+        <linux-samsung-soc@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
+        <linux-sunxi@lists.linux.dev>, <linux-tegra@vger.kernel.org>,
+        <linux-usb@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <spacemit@lists.linux.dev>, <UNGLinuxDriver@microchip.com>,
+        Alim Akhtar
+ <alim.akhtar@samsung.com>,
+        Peter Griffin <peter.griffin@linaro.org>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        "Martin
+ K. Petersen" <martin.petersen@oracle.com>,
+        Krzysztof Kozlowski
+ <krzk@kernel.org>,
+        Chanho Park <chanho61.park@samsung.com>
+Subject: Re: [PATCH v4 phy-next 09/24] ufs: exynos: stop poking into struct
+ phy guts
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+In-Reply-To: <20260317230500.2056077-10-vladimir.oltean@nxp.com> (Vladimir
+	Oltean's message of "Wed, 18 Mar 2026 01:04:45 +0200")
+Organization: Oracle Corporation
+Message-ID: <yq1fr5vl090.fsf@ca-mkp.ca.oracle.com>
+References: <20260317230500.2056077-1-vladimir.oltean@nxp.com>
+	<20260317230500.2056077-10-vladimir.oltean@nxp.com>
+Date: Thu, 19 Mar 2026 22:11:16 -0400
+X-ClientProxiedBy: YQZPR01CA0115.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:83::8) To CH0PR10MB5338.namprd10.prod.outlook.com
+ (2603:10b6:610:cb::8)
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABngdidnLxpInAyCw--.38047S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Gw17uFyxur45CFWDJw1rtFb_yoWxZr4rpr
-	WUGF1UGr4rJFn7Gw12ywn8Xr1UKr4jk3W3Jr1UtryUtF1DKw18Zr95Kry7AryDJFyvvFy7
-	tryDWFWvkFW5JaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBI14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
-	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28Icx
-	kI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2Iq
-	xVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42
-	IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY
-	6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aV
-	CY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbQVy7UUUUU==
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwkMCWm8kisfWwAAsj
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR10MB5338:EE_|IA4PR10MB8587:EE_
+X-MS-Office365-Filtering-Correlation-Id: c1734605-c481-4755-a09d-08de8625f8c1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: xMwfgJlCcIEbR2jPQOQMAidSQ9LdYrTnlSZF7ql7HVlbwksNwQYonA/WTWhITFSCdMwa73wTCJtHIjZpk0fQdTScUVmd0OB/6cPLPcJSe/TyqHK7ATRhaBPnxqtKG53B3JFc16x6n6qQvTDb8+YrMbz9rvtmuLrm1BEYmLGcXq9o4sMVIoAQ4eJXVupvtoNeraCfo+49OvC3hFQAzGaDZCPpQpszSwiLBaBeE3W+D5pDw8KwXCx8Tsybr+o6QblaIuPdLGMMc27+0/4LklC6xARFJOPhE8cKjRy+zJQRaMHCNrk1fvt1qNgQxttxuQXxqys2DcNtio5xG+C142Z4BkHdTrh2OeVJMkSQn7cYdT0Q6DQz/Zmn9K76a/7CqVVtm+/9z6L6GPhI0xF9syoX7HVstGYQFV1V9GYg5IG1MyulAlD8SuYq2tFH6ytopjlxkPbLaQo/F6MKNeVX+nod7iQgQXQT4Sv65fQnGr6m3/a1kgmp9+zKNcrIY1jlIfAqjsnCQ1XN3Z11x2m9kjycITSNNhG0sPXSUzcyqmSdmbfPJc4U27g6UEaIMElrj0aQZTe/BsAEQcM16eBijJn9y1dZhDQNIVQOAP4PSoPP5Kzm9EpR2LB6ZtStLwRM4k/HP0GUB6OhF0eMtYu/0HPlBxmFiiI9hI1R0zi1A5/ZIW7SyvOz12cpkEzxj3c5sjlnTDa7op0kfLjNtJTI4Wfve4GHTvP5zeAT4IIH9fgt0CY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR10MB5338.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wImPQe/cVJdVXrXLgy77MeKaWngDbfiuRgyPaL0izCmeTQKp3QA2cJWTn24q?=
+ =?us-ascii?Q?p8XCCLX8LssU1yJ7bgwHsHbaZtqdpz2HBRl6iDXcTXVfxlfv12qw42++WHQM?=
+ =?us-ascii?Q?YwRYWPM6JpMQvBcqzihb0xNrVak44GS3SaZX7xgEVlmZACIgVd1OgOxh0QTX?=
+ =?us-ascii?Q?kDFHX4EqqCtT8qWqJifpUEkjLL2bBomoqVyU3N0TkVNTw/lbwvEuq4nEBmz3?=
+ =?us-ascii?Q?edguLqSM3B2vndUqZ0P22rupDQftBRPJG+82QI1xTYZntCSDJKTXLRypkzbc?=
+ =?us-ascii?Q?N3m4KLpun9d/BAYahfbrDKTAd7p8BTQFatbnBp2p+SZ2W5l+y3IFwjn3RYkm?=
+ =?us-ascii?Q?PPdNnWI1HC5gasiqmi/3Yy+HKnWp40AalNDSktoa7PxMFWD3Hawi9Wd6WqQg?=
+ =?us-ascii?Q?b+GvwWvt4HjCN7SkBpPZ/w5xeHx0X29cHmEDeyg9fZEJibXpm+bXydnr2Jqr?=
+ =?us-ascii?Q?RU1bdKxmn8JmPGvqo9FNqAUBkXq2INfAgj4rI8wZN/q/dZ+A0DZEMgOLt7cY?=
+ =?us-ascii?Q?W+9tRMXifGUR4CORd6YPb7VnzkeAcaOQHDKPKeye1zWK6UYMi6NYUzQe2MKI?=
+ =?us-ascii?Q?wo3mcNEH9koJjGx/r0TWZqH5EDo7MlHHFT+RAf46riP5XI+0/RlRMMGmOFoh?=
+ =?us-ascii?Q?n+xS0XwUVUBMSIAJ0Bts3u3IXtwGep+HXRkTINipgnhT89DTm5zxeAJkx5Ek?=
+ =?us-ascii?Q?5pTZkV70HXQHfm+MfQ4bilE6wRLgFXtvLgE85ebC9honrPMUwVDFq64U8Ilw?=
+ =?us-ascii?Q?u58Ng5SsMIzWtX4rq4eBTo2+XH6MgM60oxSqdHcHWa30mZn2ZRKVltIbRiJ/?=
+ =?us-ascii?Q?NcsU50FS6QsWXMucKgMdgOrvE1GL+M7V91YLl7fbXNM6iHG7vz9/UA0pBw7s?=
+ =?us-ascii?Q?/+qqDNX0ZNQDvdKvwSP2MTi5wqdaAldmvneRsRaQqrHQalyaR64YRGKACqV9?=
+ =?us-ascii?Q?8vaoFrBIri9w370xgwBcCQV8UFDRj7jVNS1B5DgZCA/j7EINkr1idHevR/cM?=
+ =?us-ascii?Q?LDrUJOZLnMc0XHWZ/dcnwg6RGIkaWYZ600DxzNqG8ecv1vpwfuRtaqAS1eLv?=
+ =?us-ascii?Q?18cUbfdlzcs9qF00jcoCkvIPOdCDaWOhsu7snuqzJXdr45mSWqqsmxi4lrcn?=
+ =?us-ascii?Q?W8NMdYqqpk3eB1lrRg8k5bdsyJtsQT3n8RJJwDVxxX20piVcd66y1i5Rkt4l?=
+ =?us-ascii?Q?/xuvYHU4UMkx4sPMcu7XQKPPi1YXluoEWyMtVHokHpZDDyJ3SSf7hAvijOUd?=
+ =?us-ascii?Q?Fsfk6pnVeE6eXS3nLPD89gTL9Qf+p5GeXO/IsRJwypH5PXx+Bng/+LlNGv0j?=
+ =?us-ascii?Q?TmWzc9pVXXJV9IbTvcr6nUr4pMJgSt5CRUYGjFKi6l6366dfsgpPkyqlX39C?=
+ =?us-ascii?Q?Z5bJkqoVVOoPrJHF3m/3GxTh14R33iUiI87oyy0/bv0X1T2mSVHNVedn4iV7?=
+ =?us-ascii?Q?jav+CCOABWGNZEHniSkMxp3Hhx9kHwQkxtg3psID8dwnKVZEBUkFKRUuTEBQ?=
+ =?us-ascii?Q?XshJWJkyB5oTsmKfLGxUkYsFmuQ+ClVMpJyRTCADo+MBVhJk4TNxFCLAVK3a?=
+ =?us-ascii?Q?0UkvQge89NNwE245miV9DATvNjpNq7iQIablcy+0vsgjNGUawCV7dgRQYfIV?=
+ =?us-ascii?Q?VK3Yb/k7DSoEOKOEkha/VB3P/AuDWNwtbJnH7AOcXFQGdjSyggMRKI6iHOjh?=
+ =?us-ascii?Q?g7hkZL/LA54nsz/QCmjnZwOKN+HigMJAL/iFTfuT9yPt+73WMdap8DFBlzEn?=
+ =?us-ascii?Q?++n38EiSQO/WsdiaHrZTbBsxcNqHkXg=3D?=
+X-Exchange-RoutingPolicyChecked: H8jSffUDdFv7n2yLNHcylzLTTHp0DYK3tElbip+DnyGkaHgdk1ZKuwChvgXxVk/IvLkX5lQnYsUdLIXB4sqGgkrGIr/XhGT+dfRh1UKLrgDDeyGgisA9/NORCs3HvmePei4FdiP+99NOp+khitn++tqmarj+Ln7CtTHwhgVDFU5mVok7H22SsVX6zBtbmREe036ZoIX8wut6k0wmqIYVl+dhyBoHmk2c/NzKVkL8w1oSY7S+pk7kUJ7iFj2Mquy+oNtwW3yMIPyWOv6LQLx23PuWQdxdJNug6CDJuOKKsOVVJ9/jMzNUWsCx7q4YPB9r9fAm+v3A2Jxb69eSmeujPA==
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: v/L5Z1vlYvbsGQ7Jle3cH5CPiiBoSy03zr+i86+1aSwzkyQ0v1HwpLcc51vFmctej5saowQ533hpmq9sEsAE1tdxHXO755lfpCQ6D7DCQnPrpCFv+M9Pbt6CPN01zwBhhXi6SLapC4gq3kZ2RYkZlqMMB2e3W6V+q+OstQDk/qUpkRZ4hom5ZnW7woID8exFDM6SeRUU5896wl25QdF84HRi/PHfJsducCebLwogu+3yF8QmO9luIMvTPFDuC+FLWEeuDxgkkiNz2OrrImMinlSPF1TV2itx5jUjRwxHXhn8yR0xKes0rOnVZwmRLzN2PgZWEed4j81Bx3+FdEpQ+LXmLkAn+ZGN8VSpkKQKym4xHodKjlAOVy8iEIetm+6ghZm8MZ8hqZvJqjaYqBV0WqCWUTbrnoUWT03gmr+hHS/u9Jl8KjQdunC3os3b8iioKb4CSGUd7oLpQirjIx45nc5nsnNQgshWRbNBsPQVLXmaxthUrtijmjZxOTc0f4i4H6/VM16w1naKCpwLPHSZuk+9Dsy9wAqrXZcIFhDbi1WS5uezk6MIIjWHWo4fgYUx3wY5gQKOl7PXr6miSuMsrLIcuYspK9ssbZND0nm04uU=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1734605-c481-4755-a09d-08de8625f8c1
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR10MB5338.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 02:11:18.0043
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FyVfiNFG/T9yVSB9J0sMQoz8VeVKA2jmv/+tS0Z+0cau0gwE2NY32CAqTRc+W9OUNiAPySTptksh+n+7C1Msu4douSIGsjtZYlcwszxt9N4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB8587
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-19_04,2026-03-19_05,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 mlxlogscore=822
+ adultscore=0 phishscore=0 malwarescore=0 suspectscore=0 mlxscore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2603050001 definitions=main-2603200015
+X-Authority-Analysis: v=2.4 cv=HcsZjyE8 c=1 sm=1 tr=0 ts=69bcaccd cx=c_pps
+ a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=Yq5XynenixoA:10
+ a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
+ a=7Gl3-_t3PgB9XO-mQDs3:22 a=V9LyDDkgFULS-D7OFlMA:9
+X-Proofpoint-ORIG-GUID: rkXLPizU8Xhuq5wZntyuBHZEhnq6NBPM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIwMDAxNSBTYWx0ZWRfX9VqJ0sH0R86g
+ zzUtRMM3Beq0lXc4HDGDRYvYVErO62pqWKdDBq3lOs1EV3JYMv9PRCepbuhonp8QdPSXbGV9etu
+ pqGvG6uv3H4PrhrZcMvCaGGM7Ay5DPnx+XmfcBTQC/xDankt4CDH92uSkkpOJQFWtkVL4KVcmNm
+ y0iURWgrGo5BN65ARQLnozqj4M5OKSn5+UuLP9ECPy7SmTcojEgrHf0vzSKfe8ixD1yVrfFRAKV
+ kZRF6P8kKZonF2oYBEMVHWSLN3+jNKH69vFEv/bFRlEwomp5Nt2MvftYysK4VJhqlzRQB9llGp8
+ NM15itIIaDKkbBvSSR6cLsjwxL1HSC3dlAd07lbTslg9FzrmWfOE3uDGy/GnUeQqS7SKnFnHbpU
+ O3ZWlF7s0jGy6iwUFapvVfqUg+Yt6HxEClFpDCrdOaTmrdNSEHhswOmYAaaDVVjEycpor0kxxOl
+ 5QO7LQ7wLL6EKBcLGZA==
+X-Proofpoint-GUID: rkXLPizU8Xhuq5wZntyuBHZEhnq6NBPM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_180236_865601_1252C5D5 
-X-CRM114-Status: GOOD (  24.37  )
+X-CRM114-CacheID: sfid-20260319_191135_505874_6C4ABA60 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,138 +208,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > When a guest initiates an SBI_EXT_PMU_COUNTER_CFG_MATCH call with
-> > ctr_base=0xfffffffffffffffe, ctr_mask=0xeb5f and flags=0x1
-> > (SBI_PMU_CFG_FLAG_SKIP_MATCH), kvm_riscv_vcpu_pmu_ctr_cfg_match()
-> > first invokes kvm_pmu_validate_counter_mask() to verify whether
-> > ctr_base and ctr_mask are valid, by evaluating:
-> >   !ctr_mask || (ctr_base + __fls(ctr_mask) >= kvm_pmu_num_counters(kvpmu))
-> >
-> > With the above inputs, __fls(0xeb5f) equals 15, and adding 15 to
-> > 0xfffffffffffffffe causes an integer overflow, wrapping around to 13.
-> > Since 13 is less than kvm_pmu_num_counters(), the validation wrongly
-> > succeeds.
-> >
-> > Thereafter, since flags & SBI_PMU_CFG_FLAG_SKIP_MATCH is satisfied,
-> > the code evaluates:
-> >   !test_bit(ctr_base + __ffs(ctr_mask), kvpmu->pmc_in_use)
-> >
-> > Here __ffs(0xeb5f) equals 0, so test_bit() receives 0xfffffffffffffffe
-> > as the bit index and attempts to access the corresponding element of
-> > the kvpmu->pmc_in_use, which results in an invalid memory access. This
-> > triggers the following Oops:
-> >   Unable to handle kernel paging request at virtual address e3ebffff12abba89
-> >    generic_test_bit include/asm-generic/bitops/generic-non-atomic.h:128
-> >    kvm_riscv_vcpu_pmu_ctr_cfg_match arch/riscv/kvm/vcpu_pmu.c:758
-> >    kvm_sbi_ext_pmu_handler arch/riscv/kvm/vcpu_sbi_pmu.c:49
-> >    kvm_riscv_vcpu_sbi_ecall arch/riscv/kvm/vcpu_sbi.c:608
-> >    kvm_riscv_vcpu_exit arch/riscv/kvm/vcpu_exit.c:240
-> >
-> > The root cause is that kvm_pmu_validate_counter_mask() does not account
-> > for the case where ctr_base itself is out of range, allowing the
-> > subsequent addition to silently overflow and bypass the check.
-> >
-> > Fix this by explicitly validating ctr_base against kvm_pmu_num_counters()
-> > before performing the addition.
-> >
-> > This bug was found by fuzzing the KVM RISC-V PMU interface.
-> 
-> Thanks for fuzzing. Do you have a detailed report that you can share ?
 
-Yes, here is the detailed crash report:
+Vladimir,
 
-Unable to handle kernel paging request at virtual address e3ebffff12abba89
-Current syz.4.5087 pgtable: 4K pagesize, 57-bit VAs, pgdp=0x0000000130cbc000
-[e3ebffff12abba89] pgd=000000005fff6001, p4d=000000005fff5801, pud=000000005fff5401, pmd=000000005b4000e7
-Oops [#1]
-Modules linked in:
-CPU: 3 UID: 0 PID: 5789 Comm: syz.4.5087 Tainted: G        W           7.0.0-rc2-00014-gc61ec3e8cc5d #1 PREEMPT 
-Tainted: [W]=WARN
-Hardware name: riscv-virtio,qemu (DT)
-epc : generic_test_bit include/asm-generic/bitops/generic-non-atomic.h:128 [inline]
-epc : kvm_riscv_vcpu_pmu_ctr_cfg_match+0x31a/0xe12 arch/riscv/kvm/vcpu_pmu.c:758
- ra : kvm_riscv_vcpu_pmu_ctr_cfg_match+0x2ee/0xe12 arch/riscv/kvm/vcpu_pmu.c:758
-epc : ffffffff8012f320 ra : ffffffff8012f2f4 sp : ff200000067275c0
- gp : ffffffff8a382bc0 tp : ff60000095d03500 t0 : ff200000067276e0
- t1 : fffffffff3f3f3f3 t2 : 0000000200004520 s0 : ff200000067277c0
- s1 : ff20000006727740 a0 : 0000000000000007 a1 : 0000000000000000
- a2 : 0000000000080000 a3 : 03ec000012abba89 a4 : fffffffffffffffe
- a5 : e3ebffff12abba89 a6 : 0000000000000003 a7 : ffe3ffff00ce4ec4
- s2 : 1f600000955dd448 s3 : ff600000955dace0 s4 : 0000000000000001
- s5 : 0000000000000000 s6 : ff20000006727850 s7 : 0000000000000004
- s8 : fffffffffffffffe s9 : 0000000000000000 s10: 1fe4000000ce4ec4
- s11: 0000000000000003 t3 : cbdd65f600000000 t4 : 0000000000000000
- t5 : 0000000000000000 t6 : 0000000000000000 ssp : 0000000000000000
-status: 0000000200000120 badaddr: e3ebffff12abba89 cause: 000000000000000d
-[<ffffffff8012f320>] generic_test_bit include/asm-generic/bitops/generic-non-atomic.h:128 [inline]
-[<ffffffff8012f320>] kvm_riscv_vcpu_pmu_ctr_cfg_match+0x31a/0xe12 arch/riscv/kvm/vcpu_pmu.c:758
-[<ffffffff80136b12>] kvm_sbi_ext_pmu_handler+0x266/0x630 arch/riscv/kvm/vcpu_sbi_pmu.c:49
-[<ffffffff80133636>] kvm_riscv_vcpu_sbi_ecall+0x11c/0x2f8 arch/riscv/kvm/vcpu_sbi.c:608
-[<ffffffff80122e50>] kvm_riscv_vcpu_exit+0x7b2/0x9ba arch/riscv/kvm/vcpu_exit.c:240
-[<ffffffff8011fa6e>] kvm_arch_vcpu_ioctl_run+0x13c6/0x3600 arch/riscv/kvm/vcpu.c:1008
-[<ffffffff800da0ae>] kvm_vcpu_ioctl+0x532/0x13e0 virt/kvm/kvm_main.c:4476
-[<ffffffff80d25228>] vfs_ioctl fs/ioctl.c:51 [inline]
-[<ffffffff80d25228>] __do_sys_ioctl fs/ioctl.c:597 [inline]
-[<ffffffff80d25228>] __se_sys_ioctl fs/ioctl.c:583 [inline]
-[<ffffffff80d25228>] __riscv_sys_ioctl+0x180/0x1e4 fs/ioctl.c:583
-[<ffffffff80078fc2>] syscall_handler+0x94/0x118 arch/riscv/include/asm/syscall.h:112
-[<ffffffff86693a68>] do_trap_ecall_u+0x39e/0x62e arch/riscv/kernel/traps.c:344
-[<ffffffff866be63e>] handle_exception+0x15e/0x16a arch/riscv/kernel/entry.S:232
-Code: 9793 0036 993e 07b7 e000 17fd 5693 0039 1782 97b6 (c783) 0007 
----[ end trace 0000000000000000 ]---
-----------------
-Code disassembly (best guess):
-   0:	00369793          	slli	a5,a3,0x3
-   4:	993e                	add	s2,s2,a5
-   6:	e00007b7          	lui	a5,0xe0000
-   a:	17fd                	addi	a5,a5,-1 # 0xffffffffdfffffff
-   c:	00395693          	srli	a3,s2,0x3
-  10:	1782                	slli	a5,a5,0x20
-  12:	97b6                	add	a5,a5,a3
-* 14:	0007c783          	lbu	a5,0(a5) <-- trapping instruction
+> The Exynos host controller driver is clearly a PHY consumer (gets the
+> ufs->phy using devm_phy_get()), but pokes into the guts of struct phy
+> to get the generic_phy->power_count.
 
-<<<<<<<<<<<<<<< tail report >>>>>>>>>>>>>>>
+Looks OK to me but it would be good to get an ack from Samsung.
 
-SYZFAIL: failed to recv rpc
-fd=3 want=4 recv=0 n=0 (errno 9: Bad file descriptor)
+Applied to 7.1/scsi-staging, thanks!
 
-<<<<<<<<<<<<<<< tail report >>>>>>>>>>>>>>>
-
-> 
-> > Fixes: 0cb74b65d2e5e6 ("RISC-V: KVM: Implement perf support without sampling")
-> > Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-> > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> > ---
-> >   arch/riscv/kvm/vcpu_pmu.c | 6 ++++--
-> >   1 file changed, 4 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-> > index e873430e596b2..a098a9b417ad8 100644
-> > --- a/arch/riscv/kvm/vcpu_pmu.c
-> > +++ b/arch/riscv/kvm/vcpu_pmu.c
-> > @@ -266,8 +266,10 @@ static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
-> >   static int kvm_pmu_validate_counter_mask(struct kvm_pmu *kvpmu, unsigned long ctr_base,
-> >   					 unsigned long ctr_mask)
-> >   {
-> > -	/* Make sure the we have a valid counter mask requested from the caller */
-> > -	if (!ctr_mask || (ctr_base + __fls(ctr_mask) >= kvm_pmu_num_counters(kvpmu)))
-> > +	unsigned long num_ctrs = kvm_pmu_num_counters(kvpmu);
-> > +
-> > +	/* Make sure we have a valid counter mask requested from the caller */
-> > +	if (!ctr_mask || ctr_base >= num_ctrs || (ctr_base + __fls(ctr_mask) >= num_ctrs))
-> >   		return -EINVAL;
-> >   
-> >   	return 0;
-> 
-> Thanks for the fix.
-> 
-> Reviewed-by: Atish Patra <atish.patra@linux.dev>
-
-Thanks for the review!
-
-Regards,
-Jiakai
-
+-- 
+Martin K. Petersen
 
 _______________________________________________
 linux-riscv mailing list
