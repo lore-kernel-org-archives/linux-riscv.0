@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF96108B8FF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D591093170
 	for <linux-riscv@archiver.kernel.org>; Sat, 21 Mar 2026 04:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cw3NaGQG9YEQYa36LEzH0Fp2gXwx+IzD7Wc5zeWRf9c=; b=M4bek4i1VafKxm
-	skBb//1sVh5Nfzq53QfUb0Q4FKodfTKjyEp8CRbsZ05kfIoZ7VMCpKcGMVrfbnnl+i72W9xVpRnyy
-	mCdC8rdNED7Tp0LJVuJuTMNohBZqr5hLM+EWSGV0SukiF9c6ta1no7tWLjDoOgxM54woM1lBIkb21
-	DetYu1fN3ywr6mPxlp6/7H/p42Qr01CG+E6X84o2U4ruUVAcnRB7dO24mK0twrzfd+8PhKXhawjT3
-	zvc0wOYOr2cW91v4ZUMSawu7TFFpyO096mCqlGCxasMbNIrRqTDBmpXZi7NmSyn4chL1bbSMfQzlv
-	GhHEk72vheamTiYYKkAw==;
+	List-Owner; bh=WCLyEkNJjdgAc0eJMYzRsm+H0gjwZivLrEzvuheSdVE=; b=EkcaCjg91pvZK2
+	vUSWzROKyVI3DM7ED8AUucolXt6Uwn6tNRo4Vw2bHrs0tl8l7m7NawK44qD4jk5PUSidmAPPpj2ps
+	7Bi+KcOBLzMHdDEQuSAPdNFSPGd1WBqw3pdDOXSnHDTwNWDZetv8YKmAo0ZHVASgkP9YLEPY3MQ+b
+	285RekMPMz9KnFn7RMoRgShPrAy7wpeRXvJWr4fnInRLVfVN3RQhI/+VaNIhGlc8zuKJOM2JpsIM2
+	23FpffCGK/45U1vglF/uJWaMc8k0osuRMx+0YWQvqf9ucPQ1NnJpiV/aHR8RRbD4BcJOLczTM6it/
+	hFj0NuRiERKiUYFYk/Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3nhB-0000000DzYT-2ULg;
+	id 1w3nhB-0000000DzZS-43PC;
 	Sat, 21 Mar 2026 04:12:17 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ngv-0000000DzOV-04gH;
+	id 1w3ngv-0000000DzOU-0A0M;
 	Sat, 21 Mar 2026 04:12:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E7B1C4457E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C7D3437FD;
 	Sat, 21 Mar 2026 04:11:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E7B8C2BCB1;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16162C19425;
 	Sat, 21 Mar 2026 04:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1774066318;
-	bh=LFyrpEF3QvWGOvRWq/UotcrYPoPPntBBC70R8Z4P+no=;
+	bh=y/3un15qteBURfKcq9gIDYwg3DO/kIiH8GH2drBtg8Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PCF9OFR+8ZUEqZzBoCEQ4qqqtsIcx+/I1Dr26HxDTP/JPJwj7gMHMUNAUW4vRvRVb
-	 0vXwTN+980MajNK4yucFSoDA+fRIy87a9DWaK0wb4w5kzo+iaSJq4Jom4r49efuMx+
-	 Dz7gVTwF1G4iwhGJjLa/A5AfHPmZKZTCKuL1bcdcwwEWdZXlg1yiwiESCKd+zJtQCi
-	 t9zp1e4rKdIjn14c4UGu4e9ECKES4c/rzf21LQA5Rl5oxpz1M+8gum+NFnuSO06cO1
-	 drZpc8UEXTo/zci0sPWDFhCCQ+P5hWlXJr0HLDeGKOKNgsm16Ffwz9Zz/+jTWAv2jg
-	 Dj0N4A/N6zEPQ==
+	b=lsLA5d17opcaIkl94J2l95BEsSIVek2NJMQtNN7rxEInVMyW0bbawElreA1i4iQs6
+	 g+B54mANxslsTKe5cyTc+36PdFlRKrWF2WUi0o31a2KZRjaUefll7XuP0n769C0OV8
+	 yqvMZ/k0L2XibEFWudtKFq4FfWHluPhF3ur2Z65nuD5gfAFPiq5RmCGZsulPH9ZVQ+
+	 MLO0QaViqPGjUyQZO9hOhvS/cMKlXtc+HElCLn2fD0Sd5wzVgKBOx9WSSP3ROj0sfP
+	 JSkMixtBFOXKNZjpQuiZepSNAS3IAWpW6/3fESFjPoSu1TOo2/uJ46voavWCP4PItF
+	 5nRo/4WpNCnZg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,16 +52,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 02/12] crypto: sm3 - Remove sm3_zero_message_hash and SM3_T[1-2]
-Date: Fri, 20 Mar 2026 21:09:25 -0700
-Message-ID: <20260321040935.410034-3-ebiggers@kernel.org>
+Subject: [PATCH 01/12] crypto: sm3 - Fold sm3_init() into its caller
+Date: Fri, 20 Mar 2026 21:09:24 -0700
+Message-ID: <20260321040935.410034-2-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260321040935.410034-1-ebiggers@kernel.org>
 References: <20260321040935.410034-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_211201_081213_3321F89B 
-X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-CacheID: sfid-20260320_211201_102290_85A17B0B 
+X-CRM114-Status: UNSURE (   9.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,66 +79,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove these, since they are unused.
+Fold sm3_init() into its caller to free up the name for use in a library
+API mirroring the other hash function APIs.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- crypto/sm3_generic.c | 8 --------
- include/crypto/sm3.h | 5 -----
- 2 files changed, 13 deletions(-)
+ include/crypto/sm3.h      | 13 -------------
+ include/crypto/sm3_base.h | 12 +++++++++++-
+ 2 files changed, 11 insertions(+), 14 deletions(-)
 
-diff --git a/crypto/sm3_generic.c b/crypto/sm3_generic.c
-index 7529139fcc96..0c606f526347 100644
---- a/crypto/sm3_generic.c
-+++ b/crypto/sm3_generic.c
-@@ -12,18 +12,10 @@
- #include <crypto/sm3.h>
- #include <crypto/sm3_base.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
--const u8 sm3_zero_message_hash[SM3_DIGEST_SIZE] = {
--	0x1A, 0xB2, 0x1D, 0x83, 0x55, 0xCF, 0xA1, 0x7F,
--	0x8e, 0x61, 0x19, 0x48, 0x31, 0xE8, 0x1A, 0x8F,
--	0x22, 0xBE, 0xC8, 0xC7, 0x28, 0xFE, 0xFB, 0x74,
--	0x7E, 0xD0, 0x35, 0xEB, 0x50, 0x82, 0xAA, 0x2B
--};
--EXPORT_SYMBOL_GPL(sm3_zero_message_hash);
--
- static int crypto_sm3_update(struct shash_desc *desc, const u8 *data,
- 			  unsigned int len)
- {
- 	return sm3_base_do_update_blocks(desc, data, len, sm3_block_generic);
- }
 diff --git a/include/crypto/sm3.h b/include/crypto/sm3.h
-index c09f6bf4c0bf..918d318795ef 100644
+index c8d02c86c298..c09f6bf4c0bf 100644
 --- a/include/crypto/sm3.h
 +++ b/include/crypto/sm3.h
-@@ -14,24 +14,19 @@
+@@ -44,21 +44,8 @@ struct sm3_state {
+  * amounts of data as those APIs may be hw-accelerated.
+  *
+  * For details see lib/crypto/sm3.c
+  */
  
- #define SM3_DIGEST_SIZE	32
- #define SM3_BLOCK_SIZE	64
- #define SM3_STATE_SIZE	40
- 
--#define SM3_T1		0x79CC4519
--#define SM3_T2		0x7A879D8A
+-static inline void sm3_init(struct sm3_state *sctx)
+-{
+-	sctx->state[0] = SM3_IVA;
+-	sctx->state[1] = SM3_IVB;
+-	sctx->state[2] = SM3_IVC;
+-	sctx->state[3] = SM3_IVD;
+-	sctx->state[4] = SM3_IVE;
+-	sctx->state[5] = SM3_IVF;
+-	sctx->state[6] = SM3_IVG;
+-	sctx->state[7] = SM3_IVH;
+-	sctx->count = 0;
+-}
 -
- #define SM3_IVA		0x7380166f
- #define SM3_IVB		0x4914b2b9
- #define SM3_IVC		0x172442d7
- #define SM3_IVD		0xda8a0600
- #define SM3_IVE		0xa96f30bc
- #define SM3_IVF		0x163138aa
- #define SM3_IVG		0xe38dee4d
- #define SM3_IVH		0xb0fb0e4e
+ void sm3_block_generic(struct sm3_state *sctx, u8 const *data, int blocks);
  
--extern const u8 sm3_zero_message_hash[SM3_DIGEST_SIZE];
--
- struct sm3_state {
- 	u32 state[SM3_DIGEST_SIZE / 4];
- 	u64 count;
- 	u8 buffer[SM3_BLOCK_SIZE];
- };
+ #endif
+diff --git a/include/crypto/sm3_base.h b/include/crypto/sm3_base.h
+index 7c53570bc05e..9fa995617495 100644
+--- a/include/crypto/sm3_base.h
++++ b/include/crypto/sm3_base.h
+@@ -19,11 +19,21 @@
+ 
+ typedef void (sm3_block_fn)(struct sm3_state *sst, u8 const *src, int blocks);
+ 
+ static inline int sm3_base_init(struct shash_desc *desc)
+ {
+-	sm3_init(shash_desc_ctx(desc));
++	struct sm3_state *sctx = shash_desc_ctx(desc);
++
++	sctx->state[0] = SM3_IVA;
++	sctx->state[1] = SM3_IVB;
++	sctx->state[2] = SM3_IVC;
++	sctx->state[3] = SM3_IVD;
++	sctx->state[4] = SM3_IVE;
++	sctx->state[5] = SM3_IVF;
++	sctx->state[6] = SM3_IVG;
++	sctx->state[7] = SM3_IVH;
++	sctx->count = 0;
+ 	return 0;
+ }
+ 
+ static inline int sm3_base_do_update_blocks(struct shash_desc *desc,
+ 					    const u8 *data, unsigned int len,
 -- 
 2.53.0
 
