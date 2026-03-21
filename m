@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B81108B8FF
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Mar 2026 04:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BACB108B8FF
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Mar 2026 04:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qpkx1c00tnzc52ziPzYyksng+Q+NqvZ3cHTshjSrgyc=; b=2J9aVuYCAec1Jx
-	CF5LBVkVMOmFljxAwryFfPchg17M/UCKOpqZrazo2CMU38IItWc5pwEPcqKxnQeghWf1mL1JdFnZ3
-	H30nDg0pcrBCjdBV/4+vIntMDJJ9iu4L1hMnEBX7mOorv4PyFrjFmUJMhpKqwXKo/2xY/OTU0Zcee
-	+rwurIcrGOHWsx/vlBM68diuehefnaIra2uUJ+jLSd19RJtfG+PSn1IvzF5nqg294B9EWGx0zPmW8
-	NBHVH5ijta/gh4+Rtqsy2BbpRseAyMjgYd8pDoQQSZGQNLv6GETHJ2nZJMNUF26wvFRWuwsS86B90
-	FYPooBIq47zjJC2AyptA==;
+	List-Owner; bh=nyGcOe2Ku4Dlvbemxx8SgCsW9kgwvECH0hV6ICpzBgA=; b=VObjekhGMFNDjx
+	nOf2a4aPMl+AmDj5AMJViFsSxE7nygcUn6WEIb1HJPy1mSxw1zMf7+nK9fo72WhaLU3X0/TuanPIU
+	UjaStA8gU0TjfYUMqP15wJC3sM/gGHaUbzSuXweGLma5A3RWhfxrp2fGdA+t2YQclpjZ2ipID+ZVq
+	XW7ue9Re494UJy8Ccp1dBn9B3rU2LElx+RjZIrNY0GG+w5JQFAoigKqZl98aarxo5qLp290hoS8Ly
+	ns2rCAbkDFyNXGME2xP+p3hwrY7AjarOdfc5kx7xlbM4+4cGl6A6P4ZqnQj+gYh5wxaQAeFxr/cHP
+	iJt0k7XZftS/oOcZu5YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3nhZ-0000000DzxZ-0w7H;
-	Sat, 21 Mar 2026 04:12:44 +0000
+	id 1w3nhi-0000000E05u-373m;
+	Sat, 21 Mar 2026 04:12:51 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ngw-0000000DzPx-1TIy;
+	id 1w3ngw-0000000DzQC-2tks;
 	Sat, 21 Mar 2026 04:12:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 418E040114;
+	by sea.source.kernel.org (Postfix) with ESMTP id 247944465F;
+	Sat, 21 Mar 2026 04:12:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B34E8C2BCB3;
 	Sat, 21 Mar 2026 04:12:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3AD3C2BCB0;
-	Sat, 21 Mar 2026 04:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774066321;
-	bh=YW10uVd2NOXIvAeaMesS4TeFHv3aOha7K5DncxOyXD4=;
+	s=k20201202; t=1774066322;
+	bh=Z7X3CEAgl3dXN2F8cAlFv5bwr0TXDZ0BzcoXhcL/Vrg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gxRI9h+PiGlfUssVJ/ANjwz9oPux4fSSu8nEwUaUHSgdPLGgE8ut8izsvQXupb2rh
-	 u69G2HclNr4+yP0tH8PO3bbymNCKpT+KdOJcgEXMIIrzExfVthhslVIEWLECgm+rnm
-	 2qM0wTjkEVkkY+XUQUwfYMjxF0CoTpdeNhlxfr3Azv6HzJXqpGgbPUAufjyxjnEtUj
-	 gZQKPwrD3PBVCNTCLB6AyciIgCQK95h81dMPbpuGI5xxGQM+D1goGMihROhPYXrDUk
-	 2TZeirP1qCDjOpMPdfAqZZZkSnNAHsdiVWSsPtEWjGG1hOoXBw3IZrNKf8/6Qwm+IZ
-	 Mmkj/qQp2gecA==
+	b=mLg2c8EbUZGZV7Eej4tzRai+I4sdo2DDkwL00k5pj7z+Jl6xHe281kSPAtTsbhN2X
+	 AW8LVDq/ARj0QCu4t4SjYw3K7LI0tHiXbUtem7U6LcQnEQ7imxZXpEyrPHkKaGhZzS
+	 u66jNXD30u1xUjboE1bjXDAj+HzhAolFEcjhj8xGXGwm0yanFN3xibRDb4fnoQsBL+
+	 vnXWpN6aPHEn/48hjaokhu481ab3KrKEpynO6fdKjZef5gi0dsszYcZVOKpCxt3mi/
+	 /z27r9OTCPVgyg7pw7x0uBMA//YZl9ro9uDNkxqzKxEcZIUEJ5nVsjGyKB5jYwyTrH
+	 wLx0SjaNAhMkg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,16 +52,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 07/12] lib/crypto: arm64/sm3: Migrate optimized code into library
-Date: Fri, 20 Mar 2026 21:09:30 -0700
-Message-ID: <20260321040935.410034-8-ebiggers@kernel.org>
+Subject: [PATCH 09/12] lib/crypto: x86/sm3: Migrate optimized code into library
+Date: Fri, 20 Mar 2026 21:09:32 -0700
+Message-ID: <20260321040935.410034-10-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260321040935.410034-1-ebiggers@kernel.org>
 References: <20260321040935.410034-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_211202_472379_909535C6 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20260320_211202_830323_2895AC5A 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,467 +78,305 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of exposing the arm64-optimized SM3 code via arm64-specific
-crypto_shash algorithms, instead just implement the sm3_blocks() library
+Instead of exposing the x86-optimized SM3 code via an x86-specific
+crypto_shash algorithm, instead just implement the sm3_blocks() library
 function.  This is much simpler, it makes the SM3 library functions be
-arm64-optimized, and it fixes the longstanding issue where the
-arm64-optimized SM3 code was disabled by default.  SM3 still remains
+x86-optimized, and it fixes the longstanding issue where the
+x86-optimized SM3 code was disabled by default.  SM3 still remains
 available through crypto_shash, but individual architectures no longer
 need to handle it.
 
-Tweak the SM3 assembly function prototypes to match what the library
-expects, including changing the block count from 'int' to 'size_t'.
-sm3_ce_transform() had to be updated to access 'x2' instead of 'w2',
-while sm3_neon_transform() already used 'x2'.
-
-Remove the CFI stubs which are no longer needed because the SM3 assembly
-functions are no longer ever indirectly called.
-
-Remove the dependency on KERNEL_MODE_NEON.  It was unnecessary, because
-KERNEL_MODE_NEON is always enabled on arm64.
+Tweak the prototype of sm3_transform_avx() to match what the library
+expects, including changing the block count to size_t.  Note that the
+assembly code actually already treated this argument as size_t.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm64/configs/defconfig                  |  2 +-
- arch/arm64/crypto/Kconfig                     | 22 ------
- arch/arm64/crypto/Makefile                    |  6 --
- arch/arm64/crypto/sm3-ce-glue.c               | 70 -------------------
- arch/arm64/crypto/sm3-neon-glue.c             | 67 ------------------
- lib/crypto/Kconfig                            |  1 +
- lib/crypto/Makefile                           | 13 +++-
- .../crypto => lib/crypto/arm64}/sm3-ce-core.S | 11 ++-
- .../crypto/arm64}/sm3-neon-core.S             |  9 ++-
- lib/crypto/arm64/sm3.h                        | 41 +++++++++++
- 10 files changed, 62 insertions(+), 180 deletions(-)
- delete mode 100644 arch/arm64/crypto/sm3-ce-glue.c
- delete mode 100644 arch/arm64/crypto/sm3-neon-glue.c
- rename {arch/arm64/crypto => lib/crypto/arm64}/sm3-ce-core.S (93%)
- rename {arch/arm64/crypto => lib/crypto/arm64}/sm3-neon-core.S (98%)
- create mode 100644 lib/crypto/arm64/sm3.h
+ arch/x86/crypto/Kconfig                       |  13 ---
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/sm3_avx_glue.c                | 100 ------------------
+ lib/crypto/Kconfig                            |   1 +
+ lib/crypto/Makefile                           |   1 +
+ .../crypto/x86}/sm3-avx-asm_64.S              |  13 ++-
+ lib/crypto/x86/sm3.h                          |  39 +++++++
+ 7 files changed, 47 insertions(+), 123 deletions(-)
+ delete mode 100644 arch/x86/crypto/sm3_avx_glue.c
+ rename {arch/x86/crypto => lib/crypto/x86}/sm3-avx-asm_64.S (98%)
+ create mode 100644 lib/crypto/x86/sm3.h
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index b67d5b1fc45b..b4458bee767a 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1914,13 +1914,13 @@ CONFIG_CRYPTO_USER=y
- CONFIG_CRYPTO_CHACHA20=m
- CONFIG_CRYPTO_BENCHMARK=m
- CONFIG_CRYPTO_ECHAINIV=y
- CONFIG_CRYPTO_MICHAEL_MIC=m
- CONFIG_CRYPTO_SHA3=m
-+CONFIG_CRYPTO_SM3=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_GHASH_ARM64_CE=y
--CONFIG_CRYPTO_SM3_ARM64_CE=m
- CONFIG_CRYPTO_AES_ARM64_CE_BLK=y
- CONFIG_CRYPTO_AES_ARM64_BS=m
- CONFIG_CRYPTO_AES_ARM64_CE_CCM=y
- CONFIG_CRYPTO_DEV_SUN8I_CE=m
- CONFIG_CRYPTO_DEV_FSL_CAAM=m
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index 82794afaffc9..b595062fd842 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -13,32 +13,10 @@ config CRYPTO_GHASH_ARM64_CE
- 	  GCM GHASH function (NIST SP800-38D)
+diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
+index 7fb2319a0916..617494bd019f 100644
+--- a/arch/x86/crypto/Kconfig
++++ b/arch/x86/crypto/Kconfig
+@@ -329,23 +329,10 @@ config CRYPTO_AEGIS128_AESNI_SSE2
  
- 	  Architecture: arm64 using:
- 	  - ARMv8 Crypto Extensions
+ 	  Architecture: x86_64 using:
+ 	  - AES-NI (AES New Instructions)
+ 	  - SSE4.1 (Streaming SIMD Extensions 4.1)
  
--config CRYPTO_SM3_NEON
--	tristate "Hash functions: SM3 (NEON)"
--	depends on KERNEL_MODE_NEON
+-config CRYPTO_SM3_AVX_X86_64
+-	tristate "Hash functions: SM3 (AVX)"
+-	depends on 64BIT
 -	select CRYPTO_HASH
 -	select CRYPTO_LIB_SM3
 -	help
--	  SM3 (ShangMi 3) secure hash function (OSCCA GM/T 0004-2012)
+-	  SM3 secure hash function as defined by OSCCA GM/T 0004-2012 SM3
 -
--	  Architecture: arm64 using:
--	  - NEON (Advanced SIMD) extensions
+-	  Architecture: x86_64 using:
+-	  - AVX (Advanced Vector Extensions)
 -
--config CRYPTO_SM3_ARM64_CE
--	tristate "Hash functions: SM3 (ARMv8.2 Crypto Extensions)"
--	depends on KERNEL_MODE_NEON
--	select CRYPTO_HASH
--	select CRYPTO_LIB_SM3
--	help
--	  SM3 (ShangMi 3) secure hash function (OSCCA GM/T 0004-2012)
+-	  If unsure, say N.
 -
--	  Architecture: arm64 using:
--	  - ARMv8.2 Crypto Extensions
--
- config CRYPTO_AES_ARM64_CE_BLK
- 	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XTS (ARMv8 Crypto Extensions)"
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_AES
-diff --git a/arch/arm64/crypto/Makefile b/arch/arm64/crypto/Makefile
-index 8a8e3e551ed3..a169f9033401 100644
---- a/arch/arm64/crypto/Makefile
-+++ b/arch/arm64/crypto/Makefile
-@@ -3,16 +3,10 @@
- # linux/arch/arm64/crypto/Makefile
- #
- # Copyright (C) 2014 Linaro Ltd <ard.biesheuvel@linaro.org>
- #
+ config CRYPTO_GHASH_CLMUL_NI_INTEL
+ 	tristate "Hash functions: GHASH (CLMUL-NI)"
+ 	depends on 64BIT
+ 	select CRYPTO_CRYPTD
+ 	help
+diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
+index b21ad0978c52..9420b9ff51da 100644
+--- a/arch/x86/crypto/Makefile
++++ b/arch/x86/crypto/Makefile
+@@ -51,13 +51,10 @@ aesni-intel-$(CONFIG_64BIT) += aes-ctr-avx-x86_64.o \
+ 			       aes-xts-avx-x86_64.o
  
--obj-$(CONFIG_CRYPTO_SM3_NEON) += sm3-neon.o
--sm3-neon-y := sm3-neon-glue.o sm3-neon-core.o
--
--obj-$(CONFIG_CRYPTO_SM3_ARM64_CE) += sm3-ce.o
--sm3-ce-y := sm3-ce-glue.o sm3-ce-core.o
--
- obj-$(CONFIG_CRYPTO_SM4_ARM64_CE) += sm4-ce-cipher.o
- sm4-ce-cipher-y := sm4-ce-cipher-glue.o sm4-ce-cipher-core.o
+ obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
+ ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
  
- obj-$(CONFIG_CRYPTO_SM4_ARM64_CE_BLK) += sm4-ce.o
- sm4-ce-y := sm4-ce-glue.o sm4-ce-core.o
-diff --git a/arch/arm64/crypto/sm3-ce-glue.c b/arch/arm64/crypto/sm3-ce-glue.c
+-obj-$(CONFIG_CRYPTO_SM3_AVX_X86_64) += sm3-avx-x86_64.o
+-sm3-avx-x86_64-y := sm3-avx-asm_64.o sm3_avx_glue.o
+-
+ obj-$(CONFIG_CRYPTO_SM4_AESNI_AVX_X86_64) += sm4-aesni-avx-x86_64.o
+ sm4-aesni-avx-x86_64-y := sm4-aesni-avx-asm_64.o sm4_aesni_avx_glue.o
+ 
+ obj-$(CONFIG_CRYPTO_SM4_AESNI_AVX2_X86_64) += sm4-aesni-avx2-x86_64.o
+ sm4-aesni-avx2-x86_64-y := sm4-aesni-avx2-asm_64.o sm4_aesni_avx2_glue.o
+diff --git a/arch/x86/crypto/sm3_avx_glue.c b/arch/x86/crypto/sm3_avx_glue.c
 deleted file mode 100644
-index 24c1fcfae072..000000000000
---- a/arch/arm64/crypto/sm3-ce-glue.c
+index 6e8c42b9dc8e..000000000000
+--- a/arch/x86/crypto/sm3_avx_glue.c
 +++ /dev/null
-@@ -1,70 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
+@@ -1,100 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-or-later */
 -/*
-- * sm3-ce-glue.c - SM3 secure hash using ARMv8.2 Crypto Extensions
+- * SM3 Secure Hash Algorithm, AVX assembler accelerated.
+- * specified in: https://datatracker.ietf.org/doc/html/draft-sca-cfrg-sm3-02
 - *
-- * Copyright (C) 2018 Linaro Ltd <ard.biesheuvel@linaro.org>
+- * Copyright (C) 2021 Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
 - */
 -
+-#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+-
 -#include <crypto/internal/hash.h>
+-#include <crypto/internal/simd.h>
 -#include <crypto/sm3.h>
 -#include <crypto/sm3_base.h>
 -#include <linux/cpufeature.h>
 -#include <linux/kernel.h>
 -#include <linux/module.h>
 -
--#include <asm/simd.h>
+-asmlinkage void sm3_transform_avx(struct sm3_state *state,
+-			const u8 *data, int nblocks);
 -
--MODULE_DESCRIPTION("SM3 secure hash using ARMv8 Crypto Extensions");
--MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
--MODULE_LICENSE("GPL v2");
--
--asmlinkage void sm3_ce_transform(struct sm3_state *sst, u8 const *src,
--				 int blocks);
--
--static int sm3_ce_update(struct shash_desc *desc, const u8 *data,
+-static int sm3_avx_update(struct shash_desc *desc, const u8 *data,
 -			 unsigned int len)
 -{
 -	int remain;
 -
--	scoped_ksimd() {
--		remain = sm3_base_do_update_blocks(desc, data, len, sm3_ce_transform);
--	}
+-	/*
+-	 * Make sure struct sm3_state begins directly with the SM3
+-	 * 256-bit internal state, as this is what the asm functions expect.
+-	 */
+-	BUILD_BUG_ON(offsetof(struct sm3_state, state) != 0);
+-
+-	kernel_fpu_begin();
+-	remain = sm3_base_do_update_blocks(desc, data, len, sm3_transform_avx);
+-	kernel_fpu_end();
 -	return remain;
 -}
 -
--static int sm3_ce_finup(struct shash_desc *desc, const u8 *data,
--			unsigned int len, u8 *out)
+-static int sm3_avx_finup(struct shash_desc *desc, const u8 *data,
+-		      unsigned int len, u8 *out)
 -{
--	scoped_ksimd() {
--		sm3_base_do_finup(desc, data, len, sm3_ce_transform);
+-	kernel_fpu_begin();
+-	sm3_base_do_finup(desc, data, len, sm3_transform_avx);
+-	kernel_fpu_end();
+-	return sm3_base_finish(desc, out);
+-}
+-
+-static struct shash_alg sm3_avx_alg = {
+-	.digestsize	=	SM3_DIGEST_SIZE,
+-	.init		=	sm3_base_init,
+-	.update		=	sm3_avx_update,
+-	.finup		=	sm3_avx_finup,
+-	.descsize	=	SM3_STATE_SIZE,
+-	.base		=	{
+-		.cra_name	=	"sm3",
+-		.cra_driver_name =	"sm3-avx",
+-		.cra_priority	=	300,
+-		.cra_flags	 =	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SM3_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
 -	}
--	return sm3_base_finish(desc, out);
--}
--
--static struct shash_alg sm3_alg = {
--	.digestsize		= SM3_DIGEST_SIZE,
--	.init			= sm3_base_init,
--	.update			= sm3_ce_update,
--	.finup			= sm3_ce_finup,
--	.descsize		= SM3_STATE_SIZE,
--	.base.cra_name		= "sm3",
--	.base.cra_driver_name	= "sm3-ce",
--	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--				  CRYPTO_AHASH_ALG_FINUP_MAX,
--	.base.cra_blocksize	= SM3_BLOCK_SIZE,
--	.base.cra_module	= THIS_MODULE,
--	.base.cra_priority	= 400,
 -};
 -
--static int __init sm3_ce_mod_init(void)
+-static int __init sm3_avx_mod_init(void)
 -{
--	return crypto_register_shash(&sm3_alg);
+-	const char *feature_name;
+-
+-	if (!boot_cpu_has(X86_FEATURE_AVX)) {
+-		pr_info("AVX instruction are not detected.\n");
+-		return -ENODEV;
+-	}
+-
+-	if (!boot_cpu_has(X86_FEATURE_BMI2)) {
+-		pr_info("BMI2 instruction are not detected.\n");
+-		return -ENODEV;
+-	}
+-
+-	if (!cpu_has_xfeatures(XFEATURE_MASK_SSE | XFEATURE_MASK_YMM,
+-				&feature_name)) {
+-		pr_info("CPU feature '%s' is not supported.\n", feature_name);
+-		return -ENODEV;
+-	}
+-
+-	return crypto_register_shash(&sm3_avx_alg);
 -}
 -
--static void __exit sm3_ce_mod_fini(void)
+-static void __exit sm3_avx_mod_exit(void)
 -{
--	crypto_unregister_shash(&sm3_alg);
+-	crypto_unregister_shash(&sm3_avx_alg);
 -}
 -
--module_cpu_feature_match(SM3, sm3_ce_mod_init);
--module_exit(sm3_ce_mod_fini);
-diff --git a/arch/arm64/crypto/sm3-neon-glue.c b/arch/arm64/crypto/sm3-neon-glue.c
-deleted file mode 100644
-index 15f30cc24f32..000000000000
---- a/arch/arm64/crypto/sm3-neon-glue.c
-+++ /dev/null
-@@ -1,67 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-or-later
--/*
-- * sm3-neon-glue.c - SM3 secure hash using NEON instructions
-- *
-- * Copyright (C) 2022 Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
-- */
+-module_init(sm3_avx_mod_init);
+-module_exit(sm3_avx_mod_exit);
 -
--#include <asm/simd.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sm3.h>
--#include <crypto/sm3_base.h>
--#include <linux/cpufeature.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--
--asmlinkage void sm3_neon_transform(struct sm3_state *sst, u8 const *src,
--				   int blocks);
--
--static int sm3_neon_update(struct shash_desc *desc, const u8 *data,
--			   unsigned int len)
--{
--	scoped_ksimd()
--		return sm3_base_do_update_blocks(desc, data, len,
--						 sm3_neon_transform);
--}
--
--static int sm3_neon_finup(struct shash_desc *desc, const u8 *data,
--			  unsigned int len, u8 *out)
--{
--	scoped_ksimd()
--		sm3_base_do_finup(desc, data, len, sm3_neon_transform);
--	return sm3_base_finish(desc, out);
--}
--
--static struct shash_alg sm3_alg = {
--	.digestsize		= SM3_DIGEST_SIZE,
--	.init			= sm3_base_init,
--	.update			= sm3_neon_update,
--	.finup			= sm3_neon_finup,
--	.descsize		= SM3_STATE_SIZE,
--	.base.cra_name		= "sm3",
--	.base.cra_driver_name	= "sm3-neon",
--	.base.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--				  CRYPTO_AHASH_ALG_FINUP_MAX,
--	.base.cra_blocksize	= SM3_BLOCK_SIZE,
--	.base.cra_module	= THIS_MODULE,
--	.base.cra_priority	= 200,
--};
--
--static int __init sm3_neon_init(void)
--{
--	return crypto_register_shash(&sm3_alg);
--}
--
--static void __exit sm3_neon_fini(void)
--{
--	crypto_unregister_shash(&sm3_alg);
--}
--
--module_init(sm3_neon_init);
--module_exit(sm3_neon_fini);
--
--MODULE_DESCRIPTION("SM3 secure hash using NEON instructions");
--MODULE_AUTHOR("Jussi Kivilinna <jussi.kivilinna@iki.fi>");
--MODULE_AUTHOR("Tianjia Zhang <tianjia.zhang@linux.alibaba.com>");
 -MODULE_LICENSE("GPL v2");
+-MODULE_AUTHOR("Tianjia Zhang <tianjia.zhang@linux.alibaba.com>");
+-MODULE_DESCRIPTION("SM3 Secure Hash Algorithm, AVX assembler accelerated");
+-MODULE_ALIAS_CRYPTO("sm3");
+-MODULE_ALIAS_CRYPTO("sm3-avx");
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index c5819e2518f6..a4e55b6a03af 100644
+index b714f9cbd368..2824bfb0e30d 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -272,9 +272,10 @@ config CRYPTO_LIB_SM3
- 	  functions from <crypto/sm3.h>.
- 
- config CRYPTO_LIB_SM3_ARCH
+@@ -275,9 +275,10 @@ config CRYPTO_LIB_SM3_ARCH
  	bool
  	depends on CRYPTO_LIB_SM3 && !UML
-+	default y if ARM64
+ 	default y if ARM64
+ 	default y if RISCV && 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
+ 		     RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
++	default y if X86_64
  
  source "lib/crypto/tests/Kconfig"
  
  endmenu
 diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index a961615c8c7f..48ed6ee5e3c9 100644
+index 3019e6cbb10d..308ec3e93b54 100644
 --- a/lib/crypto/Makefile
 +++ b/lib/crypto/Makefile
-@@ -347,15 +347,22 @@ CFLAGS_sha3.o += -I$(src)/$(SRCARCH)
- libsha3-$(CONFIG_ARM64) += arm64/sha3-ce-core.o
- endif # CONFIG_CRYPTO_LIB_SHA3_ARCH
+@@ -354,10 +354,11 @@ libsm3-y := sm3.o
+ ifeq ($(CONFIG_CRYPTO_LIB_SM3_ARCH),y)
+ CFLAGS_sm3.o += -I$(src)/$(SRCARCH)
+ libsm3-$(CONFIG_ARM64) += arm64/sm3-ce-core.o \
+ 			  arm64/sm3-neon-core.o
+ libsm3-$(CONFIG_RISCV) += riscv/sm3-riscv64-zvksh-zvkb.o
++libsm3-$(CONFIG_X86) += x86/sm3-avx-asm_64.o
+ endif # CONFIG_CRYPTO_LIB_SM3_ARCH
  
  ################################################################################
  
-+obj-$(CONFIG_CRYPTO_LIB_SM3) += libsm3.o
-+libsm3-y := sm3.o
-+ifeq ($(CONFIG_CRYPTO_LIB_SM3_ARCH),y)
-+CFLAGS_sm3.o += -I$(src)/$(SRCARCH)
-+libsm3-$(CONFIG_ARM64) += arm64/sm3-ce-core.o \
-+			  arm64/sm3-neon-core.o
-+endif # CONFIG_CRYPTO_LIB_SM3_ARCH
-+
-+################################################################################
-+
  obj-$(CONFIG_MPILIB) += mpi/
- 
- obj-$(CONFIG_CRYPTO_SELFTESTS_FULL)		+= simd.o
- 
--obj-$(CONFIG_CRYPTO_LIB_SM3)			+= libsm3.o
--libsm3-y					:= sm3.o
--
- # clean-files must be defined unconditionally
- clean-files += arm/sha256-core.S arm/sha512-core.S
- clean-files += arm64/sha256-core.S arm64/sha512-core.S
-diff --git a/arch/arm64/crypto/sm3-ce-core.S b/lib/crypto/arm64/sm3-ce-core.S
-similarity index 93%
-rename from arch/arm64/crypto/sm3-ce-core.S
-rename to lib/crypto/arm64/sm3-ce-core.S
-index ca70cfacd0d0..9cef7ea7f34f 100644
---- a/arch/arm64/crypto/sm3-ce-core.S
-+++ b/lib/crypto/arm64/sm3-ce-core.S
-@@ -4,11 +4,10 @@
-  *
-  * Copyright (C) 2018 Linaro Ltd <ard.biesheuvel@linaro.org>
-  */
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
- #include <asm/assembler.h>
- 
- 	.irp		b, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
- 	.set		.Lv\b\().4s, \b
- 	.endr
-@@ -68,15 +67,15 @@
- 	sm3partw2	\s4\().4s, v7.4s, v6.4s
- 	.endif
- 	.endm
- 
- 	/*
--	 * void sm3_ce_transform(struct sm3_state *sst, u8 const *src,
--	 *                       int blocks)
-+	 * void sm3_ce_transform(struct sm3_block_state *state,
-+	 *			 const u8 *data, size_t nblocks)
- 	 */
- 	.text
--SYM_TYPED_FUNC_START(sm3_ce_transform)
-+SYM_FUNC_START(sm3_ce_transform)
- 	/* load state */
- 	ld1		{v8.4s-v9.4s}, [x0]
- 	rev64		v8.4s, v8.4s
- 	rev64		v9.4s, v9.4s
- 	ext		v8.16b, v8.16b, v8.16b, #8
-@@ -85,11 +84,11 @@ SYM_TYPED_FUNC_START(sm3_ce_transform)
- 	adr_l		x8, .Lt
- 	ldp		s13, s14, [x8]
- 
- 	/* load input */
- 0:	ld1		{v0.16b-v3.16b}, [x1], #64
--	sub		w2, w2, #1
-+	sub		x2, x2, #1
- 
- 	mov		v15.16b, v8.16b
- 	mov		v16.16b, v9.16b
- 
- CPU_LE(	rev32		v0.16b, v0.16b		)
-@@ -121,11 +120,11 @@ CPU_LE(	rev32		v3.16b, v3.16b		)
- 
- 	eor		v8.16b, v8.16b, v15.16b
- 	eor		v9.16b, v9.16b, v16.16b
- 
- 	/* handled all input blocks? */
--	cbnz		w2, 0b
-+	cbnz		x2, 0b
- 
- 	/* save state */
- 	rev64		v8.4s, v8.4s
- 	rev64		v9.4s, v9.4s
- 	ext		v8.16b, v8.16b, v8.16b, #8
-diff --git a/arch/arm64/crypto/sm3-neon-core.S b/lib/crypto/arm64/sm3-neon-core.S
+diff --git a/arch/x86/crypto/sm3-avx-asm_64.S b/lib/crypto/x86/sm3-avx-asm_64.S
 similarity index 98%
-rename from arch/arm64/crypto/sm3-neon-core.S
-rename to lib/crypto/arm64/sm3-neon-core.S
-index 4357e0e51be3..ad874af13802 100644
---- a/arch/arm64/crypto/sm3-neon-core.S
-+++ b/lib/crypto/arm64/sm3-neon-core.S
-@@ -7,11 +7,10 @@
-  * Copyright (C) 2021 Jussi Kivilinna <jussi.kivilinna@iki.fi>
-  * Copyright (c) 2022 Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
+rename from arch/x86/crypto/sm3-avx-asm_64.S
+rename to lib/crypto/x86/sm3-avx-asm_64.S
+index 503bab450a91..a1925b136010 100644
+--- a/arch/x86/crypto/sm3-avx-asm_64.S
++++ b/lib/crypto/x86/sm3-avx-asm_64.S
+@@ -10,14 +10,13 @@
+ /* Based on SM3 AES/BMI2 accelerated work by libgcrypt at:
+  *  https://gnupg.org/software/libgcrypt/index.html
   */
  
  #include <linux/linkage.h>
 -#include <linux/cfi_types.h>
- #include <asm/assembler.h>
+ #include <asm/frame.h>
  
- /* Context structure */
+-/* Context structure */
++/* State structure */
  
  #define state_h0 0
-@@ -343,18 +342,18 @@
- #define SCHED_W_W5W0W1W2W3W4_3(iop_num, round) \
- 	SCHED_W_3_##iop_num(round, W5, W0, W1, W2, W3, W4)
+ #define state_h1 4
+ #define state_h2 8
+ #define state_h3 12
+@@ -323,17 +322,17 @@
+ .text
  
- 
- 	/*
--	 * Transform blocks*64 bytes (blocks*16 32-bit words) at 'src'.
-+	 * Transform nblocks*64 bytes (nblocks*16 32-bit words) at 'data'.
- 	 *
--	 * void sm3_neon_transform(struct sm3_state *sst, u8 const *src,
--	 *                         int blocks)
-+	 * void sm3_neon_transform(struct sm3_block_state *state,
-+	 *			   const u8 *data, size_t nblocks)
+ /*
+  * Transform nblocks*64 bytes (nblocks*16 32-bit words) at DATA.
+  *
+- * void sm3_transform_avx(struct sm3_state *state,
+- *                        const u8 *data, int nblocks);
++ * void sm3_transform_avx(struct sm3_block_state *state,
++ *                        const u8 *data, size_t nblocks);
+  */
+-SYM_TYPED_FUNC_START(sm3_transform_avx)
++SYM_FUNC_START(sm3_transform_avx)
+ 	/* input:
+-	 *	%rdi: ctx, CTX
+-	 *	%rsi: data (64*nblks bytes)
++	 *	%rdi: state
++	 *	%rsi: data
+ 	 *	%rdx: nblocks
  	 */
- 	.text
- .align 3
--SYM_TYPED_FUNC_START(sm3_neon_transform)
-+SYM_FUNC_START(sm3_neon_transform)
- 	ldp		ra, rb, [RSTATE, #0]
- 	ldp		rc, rd, [RSTATE, #8]
- 	ldp		re, rf, [RSTATE, #16]
- 	ldp		rg, rh, [RSTATE, #24]
+ 	vzeroupper;
  
-diff --git a/lib/crypto/arm64/sm3.h b/lib/crypto/arm64/sm3.h
+ 	pushq %rbp;
+diff --git a/lib/crypto/x86/sm3.h b/lib/crypto/x86/sm3.h
 new file mode 100644
-index 000000000000..beb9cd82bb7d
+index 000000000000..3834780f2f6a
 --- /dev/null
-+++ b/lib/crypto/arm64/sm3.h
-@@ -0,0 +1,41 @@
++++ b/lib/crypto/x86/sm3.h
+@@ -0,0 +1,39 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
-+ * SM3 optimized for ARM64
++ * SM3 optimized for x86_64
 + *
 + * Copyright 2026 Google LLC
 + */
-+#include <asm/simd.h>
-+#include <linux/cpufeature.h>
++#include <asm/fpu/api.h>
++#include <linux/static_call.h>
 +
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_ce);
++asmlinkage void sm3_transform_avx(struct sm3_block_state *state,
++				  const u8 *data, size_t nblocks);
 +
-+asmlinkage void sm3_neon_transform(struct sm3_block_state *state,
-+				   const u8 *data, size_t nblocks);
-+asmlinkage void sm3_ce_transform(struct sm3_block_state *state,
-+				 const u8 *data, size_t nblocks);
-+
-+static void sm3_blocks(struct sm3_block_state *state,
-+		       const u8 *data, size_t nblocks)
++static void sm3_blocks_avx(struct sm3_block_state *state,
++			   const u8 *data, size_t nblocks)
 +{
-+	if (static_branch_likely(&have_neon) && likely(may_use_simd())) {
-+		scoped_ksimd() {
-+			if (static_branch_likely(&have_ce))
-+				sm3_ce_transform(state, data, nblocks);
-+			else
-+				sm3_neon_transform(state, data, nblocks);
-+		}
++	if (likely(irq_fpu_usable())) {
++		kernel_fpu_begin();
++		sm3_transform_avx(state, data, nblocks);
++		kernel_fpu_end();
 +	} else {
 +		sm3_blocks_generic(state, data, nblocks);
 +	}
 +}
 +
++DEFINE_STATIC_CALL(sm3_blocks_x86, sm3_blocks_generic);
++
++static void sm3_blocks(struct sm3_block_state *state,
++		       const u8 *data, size_t nblocks)
++{
++	static_call(sm3_blocks_x86)(state, data, nblocks);
++}
++
 +#define sm3_mod_init_arch sm3_mod_init_arch
 +static void sm3_mod_init_arch(void)
 +{
-+	if (cpu_have_named_feature(ASIMD)) {
-+		static_branch_enable(&have_neon);
-+		if (cpu_have_named_feature(SM3))
-+			static_branch_enable(&have_ce);
-+	}
++	if (boot_cpu_has(X86_FEATURE_AVX) && boot_cpu_has(X86_FEATURE_BMI2) &&
++	    cpu_has_xfeatures(XFEATURE_MASK_SSE | XFEATURE_MASK_YMM, NULL))
++		static_call_update(sm3_blocks_x86, sm3_blocks_avx);
 +}
 -- 
 2.53.0
