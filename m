@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97F71093170
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Mar 2026 04:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D68108B8FF
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Mar 2026 04:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K2vMPikk9p4hsMwaV8SsBxZGOdqQCfrj/LyM9bFv/Ys=; b=zYldb+T63BrjcP
-	Jppb7eSAHVfnEZUs121wZ0upOILTJjKL1oQCi3iGwIvObdEW4XC61FcKFLysWhETCHKscXi0BtbwU
-	6kiG3vQksziSVCtck9axoRz9cwxDSywLUxM83nqo56Yo12qThcm4B84vCATWtfp2Dm4PqMUFZb0T4
-	H1Y7UWVUHSjmS9SlSDY20sBdmLeJoKXizcrj6zX4CRfTFu0shWbAft4YGTiGnPSSd3u6t2AuGkhqJ
-	BJbqB+7gzj90NHhu+Uvf8J27a0a2uzS94kxCP/q7hrJHb4gWxczNFOavNuYtTff0UxGvP2tzT5nCs
-	SUqq4+FUqZbFTYymfO7Q==;
+	List-Owner; bh=XfmdaG0jDq9NSx68G07aWaSEJZ0EEris3R5bCRm2lMQ=; b=CsDNikEpstTmQE
+	hKtT7AxTBGpGSheNHgTSV5LwJn+BQk3GZ/BM9XAQSq0v0fRG3KrjK2LgNc/3B1YVuOVqF/45d4rU9
+	yOQe8J7CE+P/eTsQ5k0KfwAnlc2wgy2BorzD6DNmi/giw3GwJdE8yEqgXMgTB1PBAEBrqjEhJPiQb
+	Tu3W7LFON2tn1OEoxD3WZ7eL0m/NSXYf5W8kvYDrQXqO7hzPY6nWZdO26Q8f7r564r2LU0S21lI+o
+	+U4yyVRmeSR+EydO8DvhK8TMAAxsTrIVCQypASqiYaA43Gnblm1TPTrBoSIFFG/OVH6UloRsmSNOd
+	kKeE9Ph2ZaP4BSIGu1Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3nhx-0000000E0MZ-2cay;
-	Sat, 21 Mar 2026 04:13:05 +0000
+	id 1w3ni2-0000000E0RY-0Bvr;
+	Sat, 21 Mar 2026 04:13:10 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ngx-0000000DzRO-2o62;
+	id 1w3ngx-0000000DzRN-2jyu;
 	Sat, 21 Mar 2026 04:12:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8A1B44470E;
-	Sat, 21 Mar 2026 04:12:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 279C0C2BCB6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0239F446A8;
+	Sat, 21 Mar 2026 04:12:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9262BC19421;
 	Sat, 21 Mar 2026 04:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1774066322;
-	bh=YTCXNwCW0pq6MdfWR7uCz9B7vdUNcCWmKts2sjqXBG4=;
+	bh=aPexQl25sVpfd7KJG7INV55g5JGQD/xd4wrqdkbZ9eU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mxIeQ4nXmXOm+FC9A25/2GNvGqGXr3MsknSYssoxvx/2YrDB6qkriCl6SG6OujLq1
-	 wENn7p9NRFovoYtvcgvm0ObpcE1HckNEU5ixH5vIlSDwhWKf33m6fwxPcpyfj3lYgh
-	 K2E/PAlFCOBXsVlpuCC/4cBb46R8fKyYzyNDWif1QybebUP3dQCPNTG32TZmye1Yhr
-	 ykI1r/IJSZ32SsnhjxG4d95cZNc/hXaUEAJwZI6pWJvlpEEjETv69Jujd7IUFM5oil
-	 6BKgaTy+APxjb4I5mjDHeIBdc2tokUsSxfdqQODJ51V0pwACykij9VDeoibrhX/LLB
-	 oUw6/Dtz8p0qA==
+	b=IODjViXxp/PXolRvvTJOaPuZ4v3pS6wk/V5GOneRwdFYZJttusDpllhUTpsS12qkn
+	 ds01YusVFrDi7lLx5E1+gYG8y2OJ2BlHy0HQPt/1LeFJhVZYB8yUNpz18Ly5Noe0Sw
+	 HASZd5+U4IC55Na4SL3ZzTrGD5B+6BKJU8qzkFsIv/n5K0LE6qaa28kX+K2R8kcDeV
+	 10jjL4DtuvyjyJgfWI6JKFv08EhdZ+DWYnESx+rkykN9rI4uvmYcS4GpuBeWOhpjnE
+	 jGyL1pEy2WS+QBhWeR7ue0vxVxpMpHekJ/2UgJ47yUUjyX7v6vHuGb9wn3BReMxRWt
+	 /gLljYo/oHc6g==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 10/12] crypto: sm3 - Remove sm3_base.h
-Date: Fri, 20 Mar 2026 21:09:33 -0700
-Message-ID: <20260321040935.410034-11-ebiggers@kernel.org>
+Subject: [PATCH 11/12] crypto: sm3 - Remove the original "sm3_block_generic()"
+Date: Fri, 20 Mar 2026 21:09:34 -0700
+Message-ID: <20260321040935.410034-12-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260321040935.410034-1-ebiggers@kernel.org>
 References: <20260321040935.410034-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_211204_864351_661F1E20 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260320_211204_869899_A204C98D 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,113 +78,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove include/crypto/sm3_base.h, since it's no longer used.  The
-corresponding logic was reimplemented in a central place in lib/crypto/.
+Since the architecture-optimized SM3 code was migrated into lib/crypto/,
+sm3_block_generic() is no longer called.  Remove it.  Then, since this
+frees up the name, rename sm3_transform() to sm3_block_generic()
+(matching the naming convention used in other hash algorithms).
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- include/crypto/sm3_base.h | 92 ---------------------------------------
- 1 file changed, 92 deletions(-)
- delete mode 100644 include/crypto/sm3_base.h
+ include/crypto/sm3.h |  2 --
+ lib/crypto/sm3.c     | 19 +++----------------
+ 2 files changed, 3 insertions(+), 18 deletions(-)
 
-diff --git a/include/crypto/sm3_base.h b/include/crypto/sm3_base.h
-deleted file mode 100644
-index 9fa995617495..000000000000
---- a/include/crypto/sm3_base.h
-+++ /dev/null
-@@ -1,92 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * sm3_base.h - core logic for SM3 implementations
-- *
-- * Copyright (C) 2017 ARM Limited or its affiliates.
-- * Written by Gilad Ben-Yossef <gilad@benyossef.com>
-- */
+diff --git a/include/crypto/sm3.h b/include/crypto/sm3.h
+index 702c5326b4be..34d7eb32b7db 100644
+--- a/include/crypto/sm3.h
++++ b/include/crypto/sm3.h
+@@ -29,12 +29,10 @@ struct sm3_state {
+ 	u32 state[SM3_DIGEST_SIZE / 4];
+ 	u64 count;
+ 	u8 buffer[SM3_BLOCK_SIZE];
+ };
+ 
+-void sm3_block_generic(struct sm3_state *sctx, u8 const *data, int blocks);
 -
--#ifndef _CRYPTO_SM3_BASE_H
--#define _CRYPTO_SM3_BASE_H
--
--#include <crypto/internal/hash.h>
--#include <crypto/sm3.h>
--#include <linux/math.h>
--#include <linux/module.h>
--#include <linux/string.h>
--#include <linux/types.h>
--#include <linux/unaligned.h>
--
--typedef void (sm3_block_fn)(struct sm3_state *sst, u8 const *src, int blocks);
--
--static inline int sm3_base_init(struct shash_desc *desc)
+ /* State for the SM3 compression function */
+ struct sm3_block_state {
+ 	u32 h[SM3_DIGEST_SIZE / 4];
+ };
+ 
+diff --git a/lib/crypto/sm3.c b/lib/crypto/sm3.c
+index 20500cf4b8c0..b02b8a247adf 100644
+--- a/lib/crypto/sm3.c
++++ b/lib/crypto/sm3.c
+@@ -77,12 +77,12 @@ static const u32 ____cacheline_aligned K[64] = {
+ 			^ W[(i-9) & 0x0f]		\
+ 			^ rol32(W[(i-3) & 0x0f], 15))	\
+ 		^ rol32(W[(i-13) & 0x0f], 7)		\
+ 		^ W[(i-6) & 0x0f])
+ 
+-static void sm3_transform(struct sm3_block_state *state,
+-			  const u8 data[SM3_BLOCK_SIZE], u32 W[16])
++static void sm3_block_generic(struct sm3_block_state *state,
++			      const u8 data[SM3_BLOCK_SIZE], u32 W[16])
+ {
+ 	u32 a, b, c, d, e, f, g, h, ss1, ss2;
+ 
+ 	a = state->h[0];
+ 	b = state->h[1];
+@@ -175,30 +175,17 @@ static void sm3_transform(struct sm3_block_state *state,
+ #undef R2
+ #undef I
+ #undef W1
+ #undef W2
+ 
+-void sm3_block_generic(struct sm3_state *sctx, u8 const *data, int blocks)
 -{
--	struct sm3_state *sctx = shash_desc_ctx(desc);
+-	u32 W[16];
 -
--	sctx->state[0] = SM3_IVA;
--	sctx->state[1] = SM3_IVB;
--	sctx->state[2] = SM3_IVC;
--	sctx->state[3] = SM3_IVD;
--	sctx->state[4] = SM3_IVE;
--	sctx->state[5] = SM3_IVF;
--	sctx->state[6] = SM3_IVG;
--	sctx->state[7] = SM3_IVH;
--	sctx->count = 0;
--	return 0;
+-	do {
+-		sm3_transform((struct sm3_block_state *)sctx->state, data, W);
+-		data += SM3_BLOCK_SIZE;
+-	} while (--blocks);
+-
+-	memzero_explicit(W, sizeof(W));
 -}
+-EXPORT_SYMBOL_GPL(sm3_block_generic);
 -
--static inline int sm3_base_do_update_blocks(struct shash_desc *desc,
--					    const u8 *data, unsigned int len,
--					    sm3_block_fn *block_fn)
--{
--	unsigned int remain = len - round_down(len, SM3_BLOCK_SIZE);
--	struct sm3_state *sctx = shash_desc_ctx(desc);
--
--	sctx->count += len - remain;
--	block_fn(sctx, data, len / SM3_BLOCK_SIZE);
--	return remain;
--}
--
--static inline int sm3_base_do_finup(struct shash_desc *desc,
--				    const u8 *src, unsigned int len,
--				    sm3_block_fn *block_fn)
--{
--	unsigned int bit_offset = SM3_BLOCK_SIZE / 8 - 1;
--	struct sm3_state *sctx = shash_desc_ctx(desc);
--	union {
--		__be64 b64[SM3_BLOCK_SIZE / 4];
--		u8 u8[SM3_BLOCK_SIZE * 2];
--	} block = {};
--
--	if (len >= SM3_BLOCK_SIZE) {
--		int remain;
--
--		remain = sm3_base_do_update_blocks(desc, src, len, block_fn);
--		src += len - remain;
--		len = remain;
--	}
--
--	if (len >= bit_offset * 8)
--		bit_offset += SM3_BLOCK_SIZE / 8;
--	memcpy(&block, src, len);
--	block.u8[len] = 0x80;
--	sctx->count += len;
--	block.b64[bit_offset] = cpu_to_be64(sctx->count << 3);
--	block_fn(sctx, block.u8, (bit_offset + 1) * 8 / SM3_BLOCK_SIZE);
--	memzero_explicit(&block, sizeof(block));
--
--	return 0;
--}
--
--static inline int sm3_base_finish(struct shash_desc *desc, u8 *out)
--{
--	struct sm3_state *sctx = shash_desc_ctx(desc);
--	__be32 *digest = (__be32 *)out;
--	int i;
--
--	for (i = 0; i < SM3_DIGEST_SIZE / sizeof(__be32); i++)
--		put_unaligned_be32(sctx->state[i], digest++);
--	return 0;
--}
--
--#endif /* _CRYPTO_SM3_BASE_H */
+ static void __maybe_unused sm3_blocks_generic(struct sm3_block_state *state,
+ 					      const u8 *data, size_t nblocks)
+ {
+ 	u32 W[16];
+ 
+ 	do {
+-		sm3_transform(state, data, W);
++		sm3_block_generic(state, data, W);
+ 		data += SM3_BLOCK_SIZE;
+ 	} while (--nblocks);
+ 
+ 	memzero_explicit(W, sizeof(W));
+ }
 -- 
 2.53.0
 
