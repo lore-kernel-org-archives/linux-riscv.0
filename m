@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A77FC72C4
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Mar 2026 16:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE910D58CA1
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 Mar 2026 20:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fSYAJnfII8or2zP3n4N8dfqdP7OLg76aW4RTOaDSPXM=; b=eDGCScXE+5fw/p
-	3R8C0Wrvob/7t2LLbhYbmplyBm/3wxp4aaolePrPwlPTYZsOqQMuwCBCfAp+wqWIlvnKrmQC9N2gi
-	ulfZfKvMDux51n5BBny6zJrQwg12uGkFVHa739DutDKAiuHADUrD/+L56iVHho7oav4qaC57noxK7
-	cP+VlR6dKG2liF1MB6SzCzdDHBXq499Co0Tm56f0eLLnwE0o8cP5Krfgx5HJE45ybvY7C6hGfA5eR
-	HVzeLvbc/me7m9c4uJsc0tsTyNdo0cIz3mPsvDVbEhqUQud9Ia0VHNFY//52UqOQyugLp/F+qTHf2
-	ysfaF8rv2oawJ/ejA0SQ==;
+	List-Owner; bh=bOrJn16waq4JBpv97xSqpbg0aoRdZ4rwGQfyigqCA9o=; b=rNraIQiGGUusp8
+	VMdDf/18uPJcPFuqgEt4mui6qwiqIG52jz09JN6vjKHsz9Q6BcceHG37KBqHa3HQH+8dZh0kDDLFI
+	Ndpapzggn4S791ErHZn7MdNdZl/XN7/ZvNXwSem40LufZ6GrdKFeQYlE/LaB9wEORIffkczUzoRfs
+	MA8ZA0dHhLzi/pTbZRl83sZiyNhZeTi2IU3v6HxnXYZzkMZP8qyp673S4mekopIoEhMpfJNHfDcMZ
+	nAESyaTPhH0yisPIO/8r7HpEAkC4eaalYEFl/B7eqNUmeomHRizqkqcq2LdkDX1CmWQcSU6XaxDSm
+	j6zz+8EW6Lqz5vYabSiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4LFF-0000000FU8f-10tT;
-	Sun, 22 Mar 2026 16:01:41 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1w4PMT-0000000FdYN-0UsY;
+	Sun, 22 Mar 2026 20:25:25 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4LFB-0000000FU7r-2kvW
+	id 1w4PMQ-0000000FdXs-39er
 	for linux-riscv@lists.infradead.org;
-	Sun, 22 Mar 2026 16:01:40 +0000
-Received: from yzs (unknown [115.192.255.131])
-	by APP-01 (Coremail) with SMTP id qwCowADnkGw2EsBphWbRCg--.24488S2;
-	Mon, 23 Mar 2026 00:00:55 +0800 (CST)
-From: Zishun Yi <vulab@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>,
+	Sun, 22 Mar 2026 20:25:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
+	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
+	bh=bHa+8TMPMx1ILvk4E2TqNsND9CWODuS5VukkZ3jetbc=; b=EceHX5FBf1yLcFaOvIaQUrj8mf
+	LhUzcvUNoXEQRJYJhMi34WbFglOds//tWPthVD1OVHe7/tc1pXDMAK1GO6BsQ2QQnw3Du67YGKPkf
+	PRbSe2h0GACXQZlS/nvtzx+5pw0RYAfgocxGrKoyMGfL+FcS++J26r6xbUm32txJdJbCNCxEwzPOd
+	Cwx39wOFcxNSHDrqZYy8yEcL2NJ3lMBVdPgFC+H6PyfyKVXOYsVQGpn73rRR+Fjpxwidjba89hS2b
+	xV1VTH1Zk8UgaMlXR7xYuPrAOJp31Oe+0+kfqi+wtlEvFojwZY+O3R0F1U+h6l/BjIuiVoyS9ChiO
+	6cLHqLLQ==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1w4PMF-0000000AsAG-1Ndu;
+	Sun, 22 Mar 2026 21:25:11 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Zong Li <zong.li@sifive.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Nam Cao <namcao@linutronix.de>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Simon Schuster <schuster.simon@siemens-energy.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Zishun Yi <vulab@iscas.ac.cn>
-Subject: [PATCH] riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is not set
-Date: Mon, 23 Mar 2026 00:00:22 +0800
-Message-ID: <20260322160022.21908-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.51.2
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	Alex Elder <elder@riscstar.com>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
+Subject: [PATCH] riscv: dts: spacemit: drop incorrect pinctrl for combo PHY
+Date: Sun, 22 Mar 2026 21:25:01 +0100
+Message-ID: <20260322202502.2205755-1-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADnkGw2EsBphWbRCg--.24488S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtw4kWr4xZr4rur1kXFWrZrb_yoWDZwc_ua
-	1rZrnrury5JF4DXFyjkw4rGr4Yqw18KF1kua10vryIyrW5CrWav398tFySqrn8XFZYg3Wx
-	Xw17trZrCw12yjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb3xFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr
-	1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
-	C2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
-X-Originating-IP: [115.192.255.131]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwsOA2nABVwPNAAAsK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_090138_060742_C5B7CF4E 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20260322_132522_797668_75D9EFC0 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,36 +83,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In set_tagged_addr_ctrl(), when PR_TAGGED_ADDR_ENABLE is not set, pmlen
-is correctly set to 0, but it forgets to reset pmm. This results in the
-CPU pmm state not corresponding to the software pmlen state.
+The combo PHY on the Banana Pi F3 is used for the USB 3.0 port. The high
+speed differential lanes are always configured as such, and do not
+require a pinctrl entry.
 
-Fix this by resetting pmm along with pmlen.
+The existing pinctrl entry only configures PCIe secondary pins, which
+are unused for USB and instead routed to the MIPI CSI1 connector.
 
-Fixes: 2e1743085887 ("riscv: Add support for the tagged address ABI")
-Signed-off-by: Zishun Yi <vulab@iscas.ac.cn>
+Remove this incorrect pinctrl entry.
+
+Fixes: 0be016a4b5d1b9 ("riscv: dts: spacemit: PCIe and PHY-related updates")
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 ---
- arch/riscv/kernel/process.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index aacb23978f93..5957effab57c 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -347,8 +347,10 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
- 	if (arg & PR_TAGGED_ADDR_ENABLE && (tagged_addr_disabled || !pmlen))
- 		return -EINVAL;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 404b69c47b91f..5790d927b93db 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -81,8 +81,6 @@ usb3_hub_5v: regulator-usb3-hub-5v {
+ };
  
--	if (!(arg & PR_TAGGED_ADDR_ENABLE))
-+	if (!(arg & PR_TAGGED_ADDR_ENABLE)) {
- 		pmlen = PMLEN_0;
-+		pmm = ENVCFG_PMM_PMLEN_0;
-+	}
+ &combo_phy {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie0_3_cfg>;
+ 	status = "okay";
+ };
  
- 	if (mmap_write_lock_killable(mm))
- 		return -EINTR;
 -- 
-2.51.2
+2.51.0
 
 
 _______________________________________________
