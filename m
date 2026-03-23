@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E78CF532C1
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 00:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C171F532C1
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 00:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SkaWzkwCTL4Tnqsx9d/29CYbAJgZigSll1K2rJBM/Mw=; b=VOwU2ekFDh+l2A
-	jhCgyvDcxQlpzbu5MDxEikVZ0xUtgILDsIqb4TZ3pgQch8t487ioFeYTn9Z3JrS3Vy1Xjd8UXKFzQ
-	cWoZef8ubZiuh7eQFkt9RazXt53/7bg/FsWw+58O2EcXrek9WiNfU9obkieAj+0z/QogqlBpHsgcn
-	FFdrdptq/eMrpJgIlUL/atHT9uPGK939cto5PZSFWQNUk5ApLzGcM+Cuq3Y76p617liJCcgWOWvc+
-	DWIfEytEFuREcAaA0G5Jiz8F0vrsyzspr9S7r2M7uFzlNIO2yjPku+FxpH2HDbcewgDwzcZZEQN16
-	ioBQ7DdYMwVQ0F92wqfw==;
+	List-Owner; bh=T5D8AlO+2/TTPCpd+3JxjtSSRj5rj7jU5Y2fxRdyZeo=; b=T5Th8geJrrXDE9
+	2hs1o/z3oeGVm0VXSgMSTqZL9PRlUrNHeK7kEC2vb17B952KFCqHViXYIIDek/Sg8xVlD6T2CgQBP
+	i3SAGoyFLDfWkYweiOhql3Li2MtE14K2KwJfac3YG9eFMhu3q0DQ3zfLND/7wTdk+IWkfLMPyZL5I
+	CoZ3noykVeCY0X9I70vwyw/yMiRhLrtUbxR4qYNicMD2j1YbgVYg7mOrTynP98FGkqzEmZ4zRnGYx
+	5Gxxz7MrTCyTcYdduZR7sXOmszen2mOT2RaBaxDF3LoKf4WnF8t/Qh5krVQpeYTfQ45LzyYYSROOL
+	ya5o+9bEZBODkx8fsaGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4pBj-00000000CGU-3tBn;
-	Tue, 24 Mar 2026 00:00:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4pN5-00000000D7i-2YVd;
+	Tue, 24 Mar 2026 00:11:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4pBh-00000000CFt-0Fhc
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 00:00:02 +0000
+	id 1w4pN4-00000000D7H-0HCT;
+	Tue, 24 Mar 2026 00:11:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6914743E64;
-	Tue, 24 Mar 2026 00:00:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1770C4CEF7;
-	Mon, 23 Mar 2026 23:59:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B31D0600C4;
+	Tue, 24 Mar 2026 00:11:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57BE8C2BC9E;
+	Tue, 24 Mar 2026 00:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774310400;
-	bh=qJyAYAiz0wfqqJjBKxAwZyVPhPLmb0z+stL3H8W7gLA=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=WktLwMVCRwT//RKfGaOIGie0yC1L+3gfO2J4MiKAqc1VsIbigE8P9yyIgik6Gil4/
-	 vkxEmDTQvVABhmOuqnVEEBaWE+8fjg0CDeP2TMP97kNnJQTe1peOZUakyEKB6KdfoV
-	 3mWyIjfkhNfYczAKpzAix2J/Dcb3+mthcRIPVE2qB62TILoLSB0rJneC8d3NXPTHTH
-	 Nh2SZboIQNDovGcDkpflLA2gv0PS366BFGi34P2vo4ubM8JDtRkB5Spz1L3j63bffU
-	 byBhr7SB9hO9jum6QgyLJQiQBlQusp+sLW8iWzfg+9R/1L+LhdceZove1cSf7Py2hj
-	 qEQhk8f0q8kwA==
-Date: Mon, 23 Mar 2026 17:59:58 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: make runtime const not usable by modules
-In-Reply-To: <20260221023731.3476-1-jszhang@kernel.org>
-Message-ID: <94f9aad7-b31b-da59-46bc-0aed11941c3f@kernel.org>
-References: <20260221023731.3476-1-jszhang@kernel.org>
+	s=k20201202; t=1774311103;
+	bh=Di5mcPNb0r2N+QWMH4UxyuhE6p8fkYgO2pkH90SHdT4=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=f7r1JImQB/SRvnQqdQ62Ik0ATXOFu5eMEUFc4YTTBMHtSqYJ2gVutAKIN/VqjZyeF
+	 P2sWCb8H6rrSfm5Knf95lClTIk/6qD2abXnr5aBhHVu/X67jk+7F9AYilQBE84u2yA
+	 rT39OWjQR0xJvp7VaLbyF2OcpkWudRMK2uWc0MlRJDN9EvAQ0LyuFLkhCgUNPFBo/b
+	 1oxbwvUphkldddonytnk1kx6CJ8qHHZnUTDKibToHOrTSl1x+lGlVT1gCXFfpcXSq7
+	 SZtrQQi3Hgc7YNXvUJ+sD/K4XIhpBirnHXziunLrPKWxYxlEVUSz0YcQq0/YACipLq
+	 qa0h0Sq6mV5BQ==
+From: Mark Brown <broonie@kernel.org>
+To: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, openbmc@lists.ozlabs.org, 
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, Frank.Li@nxp.com, 
+ amelie.delaunay@foss.st.com, Pei Xiao <xiaopei01@kylinos.cn>
+In-Reply-To: <cover.1773885292.git.xiaopei01@kylinos.cn>
+References: <cover.1773885292.git.xiaopei01@kylinos.cn>
+Subject: Re: (subset) [PATCH v5 00/17] cleanup in spi by use
+ devm_clk_get_enabled
+Message-Id: <177429527684.757727.3178430227590182148.b4-ty@b4>
+Date: Mon, 23 Mar 2026 19:47:56 +0000
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_170001_145882_85FB620E 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-Mailer: b4 0.16-dev-17187
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2226; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Di5mcPNb0r2N+QWMH4UxyuhE6p8fkYgO2pkH90SHdT4=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpwda8CnOiOloYzFySgYbCE/6hff/7Co6oZovH/
+ NYX07fdL5eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCacHWvAAKCRAk1otyXVSH
+ 0NvUB/4tGt133fOvYsd5ccQQIQOzVbVHSDtwT2WLeR3+X0YErOBbugNfEdY+SSuDTTx5dvleDwv
+ RRu/m16aqCnbltqs+xqYo0EXuNKhb/EH7dIXDpbBvc/66u5FoNCTIqeF5Jfab/mZBDBQKddVugr
+ 5e0Weu5eT9FYS5UydoOJLtwKzXRKlT0OeLmLgYIV5CuL4HKShuJNQ4VHb1+VsVS74JesMhW3FZL
+ e9cayQAVBijhwh//ogTcJasWpFIG0iF14Lf9dGiYeeZalKEWH9KveHB6VChUAjuE75JWrl/xt0a
+ 8vEuC/a9d+boVY7I08rDLiYeqO164RdPm5UbQvrxTWXR5C9G
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,22 +83,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 21 Feb 2026, Jisheng Zhang wrote:
-
-> Similar as commit 284922f4c563 ("x86: uaccess: don't use runtime-const
-> rewriting in modules") does, make riscv's runtime const not usable by
-> modules too, to "make sure this doesn't get forgotten the next time
-> somebody wants to do runtime constant optimizations". The reason is
-> well explained in the above commit: "The runtime-const infrastructure
-> was never designed to handle the modular case, because the constant
-> fixup is only done at boot time for core kernel code."
+On Thu, 19 Mar 2026 10:03:56 +0800, Pei Xiao wrote:
+> cleanup in spi by use devm_clk_get_enabled
 > 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> I know that many old SPI drivers should not be modified for hardware
+> stability and to reduce maintenance effort. But I can't help cleaning them
+> up. To minimize the introduction of issues, I tried not to modify the
+> timing of those hardware clock enables.
+> 
+> [...]
 
-Thanks, queued for v7.0-rc.
+Applied to
 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.1
 
-- Paul
+Thanks!
+
+[02/17] spi: bcm63xx-hsspi: Simplify clock handling with devm_clk_get_enabled()
+        https://git.kernel.org/broonie/spi/c/e532e21a246d
+[03/17] spi: bcmbca-hsspi: Simplify clock handling with devm_clk_get_enabled()
+        https://git.kernel.org/broonie/spi/c/8b237cb10e32
+[09/17] spi: sifive: Simplify clock handling with devm_clk_get_enabled()
+        https://git.kernel.org/broonie/spi/c/140039c23aca
+[13/17] spi: stm32: Simplify clock handling with devm_clk_get_enabled()
+        https://git.kernel.org/broonie/spi/c/7da637804805
+[14/17] spi: sunplus-sp7021: Simplify clock handling with devm_clk_get_enabled()
+        https://git.kernel.org/broonie/spi/c/ea0e916de134
+[15/17] spi: uniphier: Simplify clock handling with devm_clk_get_enabled()
+        https://git.kernel.org/broonie/spi/c/fbf34af0c6eb
+[16/17] spi: zynq-qspi: Simplify clock handling with devm_clk_get_enabled()
+        https://git.kernel.org/broonie/spi/c/c9a4136c4746
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
 _______________________________________________
 linux-riscv mailing list
