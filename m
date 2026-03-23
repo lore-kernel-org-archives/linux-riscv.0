@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF3481061B2A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E772E1061B2B
 	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 00:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -13,95 +13,93 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=DwRUPUtisr2BRR2X2l5oJrgVPqNMteWE3R1R5aYl3UU=; b=n03Zj6z7eH706kTDjmsOCeykeb
-	v37rojeXKyujbyc1ksSMJoSwa05buWAfJIlxKZc5KdwofRveBbHV8BnGenqru+xffLiqARH1gcF/r
-	I6w2q2RHAK3nRM10f5L1w2DBiRIV2lusYMY3MyJDDdzSYmpklTNspWxpB7UxrjKlZGXCdsiM26Fho
-	JlTO9LCF0wbSLz2kwWDZeiZL7mJJWJdBjfwl4IOZ4ir0VCrepQxwej5n1jbVxkMSpNKGVc+5NziIe
-	PtdD44lcLR+858bNqqKXa76LHUAkTNnyEz5xIHgDAqvVT70+1VFKn/ZEz18oMuUwPsPKIH5Zcy2yF
-	KVsIuCng==;
+	bh=jldwKopeAA9U4oudJu4nb9hzfTeBOV/Nub0w4AnidNY=; b=mjSbyUvmm1teIk64HdXd4AyINY
+	VzDuJRFc0Lp9I9BpVy5BNYnCqSWUAD+41WmJz1ahrz6U/PrUNkV/3FOTd2kNisMEiCAZ6+sfKEsyG
+	GTnYISr6rQQIutn5CBHZWgqfvbB6SFsX/hzthY5fUmIutwURiCNVVziysnMEvetGPBuPsEheN931H
+	QI6pFNw6nIxpESbNN6+8UZJzac20n+ZQRUixhHiT9JCNrdmGPi2s0nMP/NzSmbZ9R8iodeh37ZbKR
+	ojvw5It3V2l1UrXJj5msfOWMGNWiw3BNXTENQzwk7Zbg2Opvs4HRF0KNZB/vGLbewwE87zQuQx7zB
+	Q24zagfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7MuW-0000000C40k-0dqj;
+	id 1w7MuW-0000000C40q-1s6v;
 	Tue, 31 Mar 2026 00:24:48 +0000
-Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
+Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4mBC-0000000HZzW-1kzr
+	id 1w4mcR-000000000O3-37Vi
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Mar 2026 20:47:20 +0000
-Received: by mail-ua1-x929.google.com with SMTP id a1e0cc1a2514c-94ac8cbf3feso289640241.0
-        for <linux-riscv@lists.infradead.org>; Mon, 23 Mar 2026 13:47:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774298837; cv=none;
+	Mon, 23 Mar 2026 21:15:29 +0000
+Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-950baad7b69so303390241.3
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Mar 2026 14:15:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774300526; cv=none;
         d=google.com; s=arc-20240605;
-        b=LfXzX0uYpImP9G+dtllpSv8dqMZkDli2pIPfrIJQH4BW09svvx4ICOAk9yIbnM2a54
-         Qv4mx8v4EDOIdJz0I8Hwdb9rXLIib2xQeVdsCnQ8fke1s0OvZKiPbwiaNRD9ICpBJ/cU
-         cTjYMdZqt4rgowtGIAy2ZfO16gRxm3q/gtXBv26f8EM9Q9zGdFPMae7YPxyVRyS748m4
-         yQZz3MnuM5FIJKj2tPbnDw4TuP/Ml13AJ8ozwg2cNlvysGV2VRtzyQzALnl458BCfFdB
-         FUnWQw7FJRT4bnN52MfEOhi21Y4fPJ7p+4OMEnj+uDQnN9bwUmBVY4EhJf+mY4Elm1hP
-         xxXQ==
+        b=cIkB7Hqx7Q2f0LG74UtAhufH9GLhTB58Nc1gMHpLmDgkNxiGvv68/7gN8Yet6PFU9j
+         GcShIwB4D64MxNpxamwkJvRj17C6hyDmkBQCTNDVGrPWRERKG3RTVNFZSck/KUQ7/ECo
+         9CyqF0hoCPDvrjJ6QAFcEz5Ct/jQ6pSpGp7XoXZnd6XZh4Boiyl2UZ7dPoNOmA4JmF7W
+         onKF/HlcA5OJMdVbLJ7eGedTXS7kFxdrNDnwrhAsvB6nWphJnxhidcQNN0+d31dn9ltz
+         i3Z8zTXipf46VQeI+dw1zOHpyHiGFLiEznnFfJVN72oSdgNKsNKKd1uQkEKeleF5xopd
+         2zIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:dkim-signature;
-        bh=yac1rrBqJSF3O+e4IwcngZ2ptSQxNGOfPE9KG9sOce8=;
-        fh=BLKz86eZdfzSLIbUZEcjwWWL1c9WZiX1UlWSnCvlfVE=;
-        b=B/dc8NqH6YwN1yyYOwkr+MdGVGURirP8Ij1Vubst72IAIJtwTzCRipgEiyms6QMDvA
-         hQmu6IaM6xRKlB71zDgxMF8OEwnqj2PSwTTvoIrze7BrdVqVUYmT5ByySo+EyMN7NcE7
-         oW92Tv2B8BPWbScTHSGTQt3HTr/Muikdo7aHKKegJ99Wdr0DDy/dOrPh3OKrweNDuPyg
-         P9bWNHG0zvyXZ0bubfDYXiA22eEiO4KAmWCH7O4LxNOFziLCCe86nFqzdvuDXsynodNr
-         I+crcW3U6x9R8V3ERs/BZypmbcNJNF+vk0mbgU2XJeUKNnlpmjefqZHohErJ8REeJDhG
-         JrCw==;
+        bh=eOYudi6RRVXGeHCIabojBlAXxTWtuPC09s4XfPfEePE=;
+        fh=M7VL1wRl3LyY2SzsH3m98K6vkWn426mbPIsORBBZ3YA=;
+        b=cXBb0EUwdwUJpRVBo4CCXgEdQApycAp9ouwr4U4xGqeQv91q/sH5OccAs3wYqhdSuw
+         qbgwbJ+9mkctlRItRX/b8Iaaofpvb9soVeYwVY3zamV9CnxMPbU1GxOYdhWeLsuxWzni
+         oW6VE3dMFrrSv3dIrKck5gr5T468wamolj1z/0t+JL3oo6ppYszRtN1hQaFsbcGQOUJg
+         /hmuiGqq2Xac2ySaeq1id/c2G/NBlRdzdsEbaA+LNAMQ9bZrXkyKOc0v6L/4JS3Q5IVC
+         GxXI8+ydi+zJF/eZpRExpF+z85y5i+pDLroL8oMKkr2RGC2UG8s/r86ySAqgzvha6zKo
+         S7EA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774298837; x=1774903637; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1774300526; x=1774905326; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yac1rrBqJSF3O+e4IwcngZ2ptSQxNGOfPE9KG9sOce8=;
-        b=S7DdI9PO7XM4pmUM3n33NetbBEu73MwiSmoEOUGpYDPUx/WPbkfHG7AmLj+ZrSmZKK
-         UqewpopqqVSwNLMCfZX25LXsvHMXZKBwJK+83kfgHpkEWfCq9kBx1HGKyvgcrdlL/teM
-         MSMSni+cdg3TdDSc6ieC8+MpGNQ3HZtKNhUGyCa2lkDJZ2K5QPUeu+l/SVPXq0ku0IN+
-         hMBadVLsuilngwvsgIy35XgyQ3yUJ5NWgn7ZpzjAHrip3/Mh7GMqGBKLg0hUMkFyHoad
-         hTqmB6spfSxAwReXiSvtNjz0rxc01Nc2UEpdIL+EqfZJ4pvEtYDCLycefj42Lq26j+HG
-         1n/w==
+        bh=eOYudi6RRVXGeHCIabojBlAXxTWtuPC09s4XfPfEePE=;
+        b=SNEXrLg4xDE5rnYp0gOJVP3wrOR9HXYeHIy7q6JONLk4NykzwVlGthZpVuD9gK8aDe
+         CEsorghGOu/rdrONRrB0YuFoxDxRREhSwiYcD5UjjagL8C/FKLDGmPFy8GVWjIk0K/sM
+         nAsbQcuI+5yZdn/B6/axGKza3Uth6BAEO9rmNZ5my8Q3N/oLGOhpHbgGyJa9VxrUwXqW
+         I4uX8jNO02yYN/6okrwAPAAydPR81uuTXtTHdP6k9RS+oOyYhu2SDw+I628kx0xzUhOA
+         qo2Wh/BoIwFABqBg9hI63cgHYA0D9DaszK/CFToXasmYabVcVn6pHGQRYoy0/Zi8mUXX
+         EyNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774298837; x=1774903637;
+        d=1e100.net; s=20251104; t=1774300526; x=1774905326;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=yac1rrBqJSF3O+e4IwcngZ2ptSQxNGOfPE9KG9sOce8=;
-        b=PMR4dEnUcS3ExYbBFrVZdG9pjAtK9lxceUpm4Pku82OD+T5ueiODAwhK/aMbwK5/T2
-         1M6U0uXca2JHrsaBhN4wJ1E7bUQnF1VFLD/fj01xVR7m1dB/buAtUEENcNt+HgUnHtpF
-         fZvpcfNemruGY2XmDHNwe8H8q/FNv3YpDgxdZXxiXaN+ByrMx6zdXWfZQeyAY8k4KkJP
-         iiK3KS2tykM8mi6dqxrLv4m9ZDe8skOb8NKSVuIosHBGfOi1Gdf7/lfNsMn8MI+Mw/3S
-         xWXjmTIXooXWPCbLq4mgQ5GU4cfc8lrOoPv78ZrbNHGK9axl8KjM39SlcDbRJ2AoJPff
-         hogw==
-X-Forwarded-Encrypted: i=1; AJvYcCXxybV/DKanXV6HZunWkuwBckRBF+gHfGE0M95IbwDZ2ao1CCIbuMZCS8/hL2opDZ8Wlx2EUcseXMT/Uw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9wz/XgP2AjmRuf0houWHl/zi06bgR1elz5dhvoJ4JoYVoRc6S
-	xPP8TO5ATuOEe45yqWro9qfFHbu5+aZc7nsktT/5jS2ZdlgTMZ4jlqbwdeT6hKFLpkRsIRmFL+F
-	K8RL9IW/7jSx21PyAAxD9HG1u41wN5WToushSYiPU
-X-Gm-Gg: ATEYQzy2UK4pEjtIl0ZM1l86X8rVDQGwwEhJv/AiCsy2YYEJ32Vxx+TEitDWr3RtN3y
-	nVJXSPMXcizL7/YfAjTcA/mNBO9d5ndLJEZ6cTkpcOHpiPkQDkfx0e4MkXopAo0g62g51m11J7/
-	dm1Zt8+a/EThXCyYHjBGJxLfECerCSqCsZDPmgeNa/cECTcRDPxqh6/p8met0oeg1w9L6RhnZyi
-	sGPXsVVTg5qBIxYNclpnRlwKm1l9QvWEAurhejVdZJyZ4CMdL5D+U0XuWVQl7QVurXdcBMP/rBt
-	4i9KPjMXARuWilevYNoL4tUsOxRYTA/kuPIyGIa2IPEtDC2FvloVKcLLJsLU/JEIC4WkhQ==
-X-Received: by 2002:a05:6102:4a86:b0:5ef:ac78:3c77 with SMTP id
- ada2fe7eead31-602aecd2a05mr6404753137.18.1774298836454; Mon, 23 Mar 2026
- 13:47:16 -0700 (PDT)
+        bh=eOYudi6RRVXGeHCIabojBlAXxTWtuPC09s4XfPfEePE=;
+        b=nD0jyrMq56ft+iqi1mQHlHE4QsjNpdqyYMaWW8X7pINzz3IH6nviucpRxjc+e7ehXv
+         EEn/aDhxtDh9D1kNIvuO/tJU+GFkqX1PlebIiP8E+P0PeDz7ZwXx3/lhmxeOkNTu8tq7
+         laSRasMpUo7zwunC+9B3pQzL7Hd382L9aJpaLn+LrkR2bkwguZKiGcYU69n4UIW6krLr
+         bVG75isaxEAMHmy2v4AZJx5pCDgSkVje7rm80REp89nrdj0HKC+hv25SG0ruI16MZOGA
+         Dd7P6beB0rRG9g0eNPZAgalfKOAjH5AsaknVqYwlfe7y7u2s67kudScEdpRqJEraVLWH
+         3Cnw==
+X-Forwarded-Encrypted: i=1; AJvYcCUmgtNOgQmfl5XWW8iisR5R21xZ+oPMw+mNAzpozz4DX/0gAcPAeHgS7fiw0CjebVpJNJ1bnozYkwnP5Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6fk+dMNJQzoNXVEE7XDCEvfiFOtpCTwgkLV6nlWZ2Sd4HqTVj
+	8ttGvDyuhfUWhnecXN+dF/7fUfg44xvT1eyICu5P5nAYx0ddkHtZbCTdFEY9m6e2KY3g6qtueT+
+	mlsbPYpKDHO7GueYWh1PxQNKItO5oJ4io0NIYzlAt
+X-Gm-Gg: ATEYQzwtO/zpCrX5UaOZpZBLtYKOGMQ4rhcTB+xjmxtlH2+WU/cMHVxSLjlqht8g/sP
+	xo8FTrS8e6DJC18yIokRshIV3ypdZm0VUpDLblUkh/TJtdRfDYHJYCuSJ9LihiqrfA0oiqvp3Mp
+	HJlH2M5zyrACDxWoDCrhInsIK8a0Sbqs64sVTop2JKHS+RT+2U6I7kbTjaZJGmL9ZQgNiS/pUkV
+	kFOGF3Qey46pOhGKHhxx8JBqYeIbiE5oOsn+CuV/VfFWIdPE/H/Qa+H833MnBdBisu56FwiBWTc
+	cTibGsgYIKd8qjUwYIwz4hpWfjLzwIVDIks8x/xChUGGRMdVBPQuXo95gLNQqF0eQ4sOzg==
+X-Received: by 2002:a05:6102:c86:b0:602:8894:b770 with SMTP id
+ ada2fe7eead31-602aead01admr6510052137.4.1774300525553; Mon, 23 Mar 2026
+ 14:15:25 -0700 (PDT)
 Received: from 176938342045 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 23 Mar 2026 13:47:15 -0700
+ HTTPREST; Mon, 23 Mar 2026 14:15:24 -0700
 Received: from 176938342045 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 23 Mar 2026 13:47:15 -0700
+ HTTPREST; Mon, 23 Mar 2026 14:15:24 -0700
 From: Ackerley Tng <ackerleytng@google.com>
-In-Reply-To: <50bfaeb5-551e-403f-bd00-a7d8b6bbf6e2@kernel.org>
+In-Reply-To: <20260317141031.514-11-kalyazin@amazon.com>
 References: <20260317141031.514-1-kalyazin@amazon.com> <20260317141031.514-11-kalyazin@amazon.com>
- <50bfaeb5-551e-403f-bd00-a7d8b6bbf6e2@kernel.org>
 MIME-Version: 1.0
-Date: Mon, 23 Mar 2026 13:47:15 -0700
-X-Gm-Features: AQROBzB7NM0e-Hubu0XRJL2ihJNatUocmuhRQlqLx8a7dgTL41taW0scozymRvQ
-Message-ID: <CAEvNRgEXp6busURR20cazeG2DQWdU5=ZaJv21OcSq+mhVKwJ4g@mail.gmail.com>
+Date: Mon, 23 Mar 2026 14:15:24 -0700
+X-Gm-Features: AQROBzCF2PwLv08LGPIvZtVRv2cQA-zzDMITL8yo-SXZFcfoxiXCsTVqhJQCkhk
+Message-ID: <CAEvNRgGb95C3uRxPy2_Uj7SmTW45hNNdJxi5RR209s5KYcHgBw@mail.gmail.com>
 Subject: Re: [PATCH v11 10/16] KVM: guest_memfd: Add flag to remove from
  direct map
-To: "David Hildenbrand (Arm)" <david@kernel.org>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, 
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
 	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
 	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
@@ -113,10 +111,10 @@ To: "David Hildenbrand (Arm)" <david@kernel.org>, "Kalyazin, Nikita" <kalyazin@a
 	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, 
 	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
 	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
-Cc: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "osalvador@suse.de" <osalvador@suse.de>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>
+Cc: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "osalvador@suse.de" <osalvador@suse.de>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_134718_481606_235686DB 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20260323_141527_799158_78A00B34 
+X-CRM114-Status: GOOD (  14.17  )
 X-Mailman-Approved-At: Mon, 30 Mar 2026 17:24:46 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,70 +132,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"David Hildenbrand (Arm)" <david@kernel.org> writes:
+"Kalyazin, Nikita" <kalyazin@amazon.co.uk> writes:
 
 >
 > [...snip...]
 >
->> +static int kvm_gmem_folio_zap_direct_map(struct folio *folio)
->> +{
->> +	u64 gmem_flags = GMEM_I(folio_inode(folio))->flags;
->> +	int r = 0;
->> +
->> +	if (kvm_gmem_folio_no_direct_map(folio) || !(gmem_flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP))
+>  static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
+>  {
+>  	struct inode *inode = file_inode(vmf->vma->vm_file);
+>  	struct folio *folio;
+>  	vm_fault_t ret = VM_FAULT_LOCKED;
+> +	int err;
 >
-> The function is only called when
+>  	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
+>  		return VM_FAULT_SIGBUS;
+> @@ -418,6 +454,14 @@ static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
+>  		folio_mark_uptodate(folio);
+>  	}
 >
-> 	kvm_gmem_no_direct_map(folio_inode(folio))
->
-> Does it really make sense to check for GUEST_MEMFD_FLAG_NO_DIRECT_MAP again?
->
-
-Good point that GUEST_MEMFD_FLAG_NO_DIRECT_MAP was already checked in
-the caller. I think we can drop this second check.
-
-> If, at all, it should be a warning if GUEST_MEMFD_FLAG_NO_DIRECT_MAP is
-> not set?
->
-> Further, kvm_gmem_folio_zap_direct_map() uses the folio lock to
-> synchronize, right? Might be worth pointing that out somehow (e.g.,
-> lockdep check if possible).
->
->> +		goto out;
->> +
->> +	r = folio_zap_direct_map(folio);
->> +	if (!r)
->> +		folio->private = (void *)((u64)folio->private | KVM_GMEM_FOLIO_NO_DIRECT_MAP);
->> +
->> +out:
->> +	return r;
->> +}
->> +
->> +static void kvm_gmem_folio_restore_direct_map(struct folio *folio)
->> +{
->
-> kvm_gmem_folio_zap_direct_map() is allowed to be called on folios that
-> already have the directmap remove, kvm_gmem_folio_restore_direct_map()
-> cannot be called if the directmap was already restored.
+> +	if (kvm_gmem_no_direct_map(folio_inode(folio))) {
+> +		err = kvm_gmem_folio_zap_direct_map(folio);
+> +		if (err) {
+> +			ret = vmf_error(err);
+> +			goto out_folio;
+> +		}
+> +	}
+> +
+>  	vmf->page = folio_file_page(folio, vmf->pgoff);
 >
 
-This inconsistency was probably introduced by my comments [1] (sorry!)
+Sashiko pointed out that kvm_gmem_populate() might try and write to
+direct-map-removed folios, but I think that's handled because populate
+will first try and GUP folios, which is already blocked for
+direct-map-removed folios.
 
-I think the inconsistency here is mostly because
-kvm_gmem_folio_zap_direct_map() is called from two places but restore is
-only called from one place :P
+>  out_folio:
+> @@ -528,6 +572,9 @@ static void kvm_gmem_free_folio(struct folio *folio)
+>  	kvm_pfn_t pfn = page_to_pfn(page);
+>  	int order = folio_order(folio);
+>
+> +	if (kvm_gmem_folio_no_direct_map(folio))
+> +		kvm_gmem_folio_restore_direct_map(folio);
+> +
+>  	kvm_arch_gmem_invalidate(pfn, pfn + (1ul << order));
+>  }
+>
 
-[1] https://lore.kernel.org/all/CAEvNRgEzVhEzr-3GWTsE7GSBsPdvVLq7WFEeLHzcmMe=R9S51w@mail.gmail.com/
+Sashiko says to invalidate then restore direct map, I think in this case
+it doesn't matter since if the folio needed invalidation, it must be
+private, and the host shouldn't be writing to the private pages anyway.
 
-> Should we make that more consistent?
+One benefit of retaining this order (restore, invalidate) is that it
+opens the invalidate hook to possibly do something regarding memory
+contents?
+
+Or perhaps we should just take the suggestion (invalidate, restore) and
+align that invalidate should not touch memory contents.
+
+> @@ -591,6 +638,9 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+>  	/* Unmovable mappings are supposed to be marked unevictable as well. */
+>  	WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
 >
+> +	if (flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP)
+> +		mapping_set_no_direct_map(inode->i_mapping);
+> +
+>  	GMEM_I(inode)->flags = flags;
 >
-> Hoping Sean can find some time to review
+>  	file = alloc_file_pseudo(inode, kvm_gmem_mnt, name, O_RDWR, &kvm_gmem_fops);
+> @@ -803,13 +853,22 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+>  	}
 >
-> --
-> Cheers,
+>  	r = kvm_gmem_prepare_folio(kvm, slot, gfn, folio);
+> +	if (r)
+> +		goto out_unlock;
 >
-> David
+> +	if (kvm_gmem_no_direct_map(folio_inode(folio))) {
+> +		r = kvm_gmem_folio_zap_direct_map(folio);
+> +		if (r)
+> +			goto out_unlock;
+> +	}
+> +
+>
+> [...snip...]
+>
+
+Preparing a folio used to involve zeroing, but that has since been
+refactored out, so I believe zapping can come before preparing.
+
+Similar to the above point on invalidation: perhaps we should take the
+suggestion to zap then prepare
+
++ And align that preparation should not touch memory contents
++ Avoid needing to undo the preparation on zapping failure (.free_folio
+  is not called on folio_put(), it is only called folio on removal from
+  filemap).
 
 _______________________________________________
 linux-riscv mailing list
