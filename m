@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDFEF46139
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 15:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED2CF4613C
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 15:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-ID:Date
-	:Subject:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CwrUXKDcTfizP9kSBLkfOy+X8eRVyqokfoMJ3uDol8Q=; b=y8qy2DlAnTgTa1
-	jAhEssH7rgOcJU7pNuuTTIMBud168xZ2QK0Xf1Y5wXjL2MCGxyXfFjSro4+iGTH1+OCM9KsbKJp3W
-	ACAjzHwFDqtFldmOSDQ1DhritQEnAHYGusqmirK1C8UWetoDVJnaVLK5vl3mNoI9G8+MaehsIFKzz
-	A01UmuTieKcSGI/WP90MPv4WjXDlGRcyVwoupDsgYB6aRBB6N+jJEPddI33E7EdFyd9nehjsKMdJQ
-	8JI9Hk/XV+KNUUxtr2L1Jl0fqet8jGhktuIqq72m4pUGyCGRczTKFeISMNwCVQfOlL1gvALMHBTt2
-	HRr8q2afATZSgF19BmjA==;
+	List-Owner; bh=Wz6JdVmX1cg2lNp+G5raoM0+y3DRL1eJlNbCBlwcBLs=; b=nh65/c8YSd7MX8
+	vc3kpPbSvNgXtOQu2p3RucR9vDLpwFmkffpPHuJReVTPQgUQ9lAF5gDs4OzvK5fSv/3/Aa95OpTBe
+	BJ/Eqv9bkhvyO4AeuQDTav6H9WmLhA21nF5u9hoyxuTaAbvtDWJbYIV+/21FR2PuIo/DMcthp1DuI
+	MYTteALpQw9DEgtcO8EPH2XWZzfCm2Y0vY6MC6iPncpBjYhQBJl7M+ubl55rpOxs+kM01adtLqOgA
+	nC9WAV8DE+SLpn5Izde6O0z/XsvW8VvMaBr2+tQKCuevI+Osxw2R35luyo0+Jrs/I6PW51cpHJ+w3
+	wNrq3aT49N8+pUTwwWjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hMH-0000000H31o-1Ikl;
-	Mon, 23 Mar 2026 15:38:25 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1w4hVP-0000000H3sU-0JVQ;
+	Mon, 23 Mar 2026 15:47:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hM2-0000000H2yB-2ZxB
-	for linux-riscv@lists.infradead.org;
-	Mon, 23 Mar 2026 15:38:13 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260323153802epoutp015730136413a84ce1191cf32fd83395b4~fgoQ3Wrsh0287802878epoutp01G
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Mar 2026 15:38:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260323153802epoutp015730136413a84ce1191cf32fd83395b4~fgoQ3Wrsh0287802878epoutp01G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1774280282;
-	bh=MYU9K1BczlLtBMfJPDu28QIk9pzoA+hXl3yf17nC2HI=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=mgU9aFrC+5Kx+21CCBQ48vtUtevP0XGV5aHjupTGFTw7s0wbx2FYZ7piHu2gEGNx9
-	 7FiJ9iRzTsn7N6OtZVcQFwqx9+/yRy1FbPgDJReQh76dJWCUi3xQdbS9llr9OgF8ia
-	 3KFTDuksHm5/ZDwJUU6SICm8wW+RY1yai4quNiMM=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20260323153802epcas5p1bb1e979594c5257c037cdf6411e7a177~fgoQZrLX82373723737epcas5p1t;
-	Mon, 23 Mar 2026 15:38:02 +0000 (GMT)
-Received: from epcpadp2new (unknown [182.195.40.142]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ffckf0KMvz3hhT4; Mon, 23 Mar
-	2026 15:38:02 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20260323123542epcas5p349d0e7c45d02ccaa06c84dbdf1777126~feJElRtj12139221392epcas5p34;
-	Mon, 23 Mar 2026 12:35:42 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260323123538epsmtip2099c850de3b514ee4ac3f5a0092dd02a~feJAkDKG92361023610epsmtip2P;
-	Mon, 23 Mar 2026 12:35:38 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Vladimir Oltean'" <vladimir.oltean@nxp.com>, "'Martin K. Petersen'"
-	<martin.petersen@oracle.com>
-Cc: <linux-phy@lists.infradead.org>, "'Vinod Koul'" <vkoul@kernel.org>,
-	"'Neil	Armstrong'" <neil.armstrong@linaro.org>,
-	<dri-devel@lists.freedesktop.org>, <freedreno@lists.freedesktop.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
-	<linux-can@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-	<linux-ide@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-media@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-renesas-soc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-rockchip@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-scsi@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <spacemit@lists.linux.dev>,
-	<UNGLinuxDriver@microchip.com>, "'Bart Van Assche'" <bvanassche@acm.org>,
-	"'Peter Griffin'" <peter.griffin@linaro.org>, "'James E.J. Bottomley'"
-	<James.Bottomley@HansenPartnership.com>, "'Krzysztof	Kozlowski'"
-	<krzk@kernel.org>, "'Chanho Park'" <chanho61.park@samsung.com>
-In-Reply-To: <20260323115848.ghdu4sbk75tvggfb@skbuf>
-Subject: RE: [PATCH v5 phy-next 09/27] scsi: ufs: exynos: stop poking into
- struct phy guts
-Date: Mon, 23 Mar 2026 18:05:36 +0530
-Message-ID: <1891546521.01774280282025.JavaMail.epsvc@epcpadp2new>
+	id 1w4hVL-0000000H3rj-369Y;
+	Mon, 23 Mar 2026 15:47:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DE7743B0D;
+	Mon, 23 Mar 2026 15:47:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1465C2BC9E;
+	Mon, 23 Mar 2026 15:47:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774280866;
+	bh=ykDj0Ppke/lrsvnXc74bDdUkqngFPXP4WoK/RTIL1I0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KPjnpfdELqJbpC4ncfqddvGU9IIIkup26qddC2aNixhFBIb9mHkF5A7epXJQ3KmSH
+	 MuLQQp032z1JuZmOTzDCg5uhT0pMXLmk69mazn1wBoES5rRXYs+2i01B39tCb0fgwm
+	 eMVmp2zxvVNKgA6OUptqx23bwS7Xpo/9N86ZlA8ang/MlqIECTmX5MKUewXXQzMnmh
+	 QUNRieF4AKOOU9JlQtW5hTno4YlkFFGvDEgeAtLrbiTNsDF5KI83hQ66Af3sBzXk2x
+	 2EQzT+rnWcdOU/touJNZDWaVify96eKObV19ON47GNNYH2ceCv+xCHG57JoxHjqvXU
+	 vAON7QUwQBDNQ==
+Message-ID: <cd30724b-15e3-4642-b19e-c464d0978282@kernel.org>
+Date: Mon, 23 Mar 2026 16:47:32 +0100
 MIME-Version: 1.0
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJoz1sM+EbPjkyDopxrfJVWkMJWdwI9AyWpAaSC6pgB9ZOp/gJXIgBltGJxFXA=
-Content-Language: en-us
-X-CMS-MailID: 20260323123542epcas5p349d0e7c45d02ccaa06c84dbdf1777126
-X-Msg-Generator: CA
-CMS-TYPE: 105P
-X-CPGSPASS: Y
-X-Hop-Count: 3
-X-CMS-RootMailID: 20260323115859epcas5p10177db12a2e8aee9578271ff1411137b
-References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
-	<20260319223241.1351137-10-vladimir.oltean@nxp.com>
-	<yq1a4w3l04g.fsf@ca-mkp.ca.oracle.com>
-	<CGME20260323115859epcas5p10177db12a2e8aee9578271ff1411137b@epcas5p1.samsung.com>
-	<20260323115848.ghdu4sbk75tvggfb@skbuf>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 23/25] mm/vma: convert vma_modify_flags[_uffd]() to use
+ vma_flags_t
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Kees Cook <kees@kernel.org>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>,
+ Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ Ondrej Mosnacek <omosnace@redhat.com>, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
+References: <cover.1774034900.git.ljs@kernel.org>
+ <51afbb2b8c3681003cc7926647e37335d793836e.1774034900.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Content-Language: en-US
+In-Reply-To: <51afbb2b8c3681003cc7926647e37335d793836e.1774034900.git.ljs@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_083811_964539_2BF8B217 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20260323_084747_822794_52414421 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,55 +108,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir
-
-> -----Original Message-----
-> From: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Sent: Monday, March 23, 2026 5:29 PM
-> To: Martin K. Petersen <martin.petersen@oracle.com>
-> Cc: linux-phy@lists.infradead.org; Vinod Koul <vkoul@kernel.org>; Neil
-> Armstrong <neil.armstrong@linaro.org>; dri-devel@lists.freedesktop.org;
-> freedreno@lists.freedesktop.org; linux-arm-kernel@lists.infradead.org;
-> linux-arm-msm@vger.kernel.org; linux-can@vger.kernel.org; linux-
-> gpio@vger.kernel.org; linux-ide@vger.kernel.org; linux-
-> kernel@vger.kernel.org; linux-media@vger.kernel.org; linux-
-> pci@vger.kernel.org; linux-renesas-soc@vger.kernel.org; linux-
-> riscv@lists.infradead.org; linux-rockchip@lists.infradead.org;
-linux-samsung-
-> soc@vger.kernel.org; linux-scsi@vger.kernel.org;
-linux-sunxi@lists.linux.dev;
-> linux-tegra@vger.kernel.org; linux-usb@vger.kernel.org;
-> netdev@vger.kernel.org; spacemit@lists.linux.dev;
-> UNGLinuxDriver@microchip.com; Bart Van Assche <bvanassche@acm.org>;
-> Alim Akhtar <alim.akhtar@samsung.com>; Peter Griffin
-> <peter.griffin@linaro.org>; James E.J. Bottomley
-> <James.Bottomley@HansenPartnership.com>; Krzysztof Kozlowski
-> <krzk@kernel.org>; Chanho Park <chanho61.park@samsung.com>
-> Subject: Re: [PATCH v5 phy-next 09/27] scsi: ufs: exynos: stop poking into
-> struct phy guts
+On 3/20/26 8:38 PM, Lorenzo Stoakes (Oracle) wrote:
+> Update the vma_modify_flags() and vma_modify_flags_uffd() functions to
+> accept a vma_flags_t parameter rather than a vm_flags_t one, and propagate
+> the changes as needed to implement this change.
 > 
-> On Thu, Mar 19, 2026 at 10:15:17PM -0400, Martin K. Petersen wrote:
-> > Vladimir,
-> >
-> > > The Exynos host controller driver is clearly a PHY consumer (gets
-> > > the
-> > > ufs->phy using devm_phy_get()), but pokes into the guts of struct
-> > > ufs->phy
-> > > to get the generic_phy->power_count.
-> >
-> > Ah, newer version. Would still like an ack from Samsung.
-> >
-> > And I hit the wrong key, I did not actually apply this...
+> Also add vma_flags_reset_once() in replacement of vm_flags_reset_once(). We
+> still need to be careful here because we need to avoid tearing, so maintain
+> the assumption that the first system word set of flags are the only ones
+> that require protection from tearing, and retain this functionality.
 > 
-> I will have to resend v6 because of an armv7 build error I've caused for
-ufs-
-> qcom.c (which doesn't #include <linux/interrupt.h>, and relies on a
-transitive
-> inclusion from <linux/phy/phy.h>). It would be nice to get the ack from
-> Samsung, but I'll send the next version in the upcoming hours regardless.
-Will review and possibly test on one of the board later tonight
+> We can copy the remainder of VMA flags above 64 bits normally. But
+> hopefully by the time that happens, we will have replaced the logic that
+> requires these WRITE_ONCE()'s with something else.
+> 
+> We also replace instances of vm_flags_reset() with a simple write of VMA
+> flags. We are no longer perform a number of checks, most notable of all the
+> VMA flags asserts becase:
+> 
+> 1. We might be operating on a VMA that is not yet added to the tree.
+> 
+> 2. We might be operating on a VMA that is now detached.
+> 
+> 3. Really in all but core code, you should be using vma_desc_xxx().
+> 
+> 4. Other VMA fields are manipulated with no such checks.
+> 
+> 5. It'd be egregious to have to add variants of flag functions just to
+>    account for cases such as the above, especially when we don't do so for
+>    other VMA fields. Drivers are the problematic cases and why it was
+>    especially important (and also for debug as VMA locks were introduced),
+>    the mmap_prepare work is solving this generally.
+> 
+> Additionally, we can fairly safely assume by this point the soft dirty
+> flags are being set correctly, so it's reasonable to drop this also.
+> 
+> Finally, update the VMA tests to reflect this.
+> 
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
 
 _______________________________________________
