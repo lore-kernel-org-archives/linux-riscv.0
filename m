@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D695F483DD
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 17:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B80F483E5
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 19:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ok0L9LLoZ091tngTpIi7KjZrXcuh95HSqrcAu/cMq+A=; b=mYrYKfdws6ENwg
-	qql0HJNPUxClOWYO+Vq0q7lyaNIyLVz46+LE2nlIde13MeCaTV7W1jjKmejFTNPH7qoiWw5gIKwvY
-	+C/KbzgDITWLOTiOquV8v/4QEzjtl9DoFXmx91C+pR2M2/mw9TyS/redDI3Uu9mxyyglrP5F29prk
-	5+ykA++QI3u3ZyNMsrmJp8rbC7msMRwn7K+MI3VQbiZUythH9VT58KvCv8czTPmWRoOzCdzfdzXnb
-	cnOODqdK0F3JIrr5eqIrTQ7gnJ1anaWim35f4ARpvTzjU/BC2WK7SqFPKxuh6HnI6DrNuFMT8hJhZ
-	Mb/CTfgN4TD+7T8zTYKg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H938tg9gWA+w/7KvVyYrhK4vcWNa0g0NFtreA8tisgQ=; b=hFJRyH3Blx17sD
+	WyWqibpT9ETOTTFkm7yHmA5+wP4l4U+XucvWfUjVYcTN0vye+bytKX+/ZD9zRj1O0vPlyr4I6JFt/
+	lbCMHYrD2tcVJGskXKts7hq2nH682kqCMcQ7zAZLpQSauLPf11W3GdhS9PC/7maWjHokTUV9TKN9w
+	TuKVVZ2CK3R3jDJxu8hxs+9/XaCvlbS6KQqzKCAlZ+vX4JdxsybpWSI7Wtd8vDlmKej9ifeKcJVTy
+	wP/xS9eIed/WB604OV9qnP94aRbk5E3wtqu0GkE2zCek74vZSR0B0mGqiioiP/cLLeFIJDpo3Swec
+	Y3t0PhIr6OpS27PQ0wcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4j5o-0000000HEKA-11Lz;
-	Mon, 23 Mar 2026 17:29:32 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1w4kcW-0000000HQ0i-0QBl;
+	Mon, 23 Mar 2026 19:07:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4j5l-0000000HEJc-0Ds2
-	for linux-riscv@lists.infradead.org;
-	Mon, 23 Mar 2026 17:29:31 +0000
-Received: from yzs (unknown [115.192.255.131])
-	by APP-01 (Coremail) with SMTP id qwCowADnj2tueMFpkovqCg--.13525S2;
-	Tue, 24 Mar 2026 01:29:18 +0800 (CST)
-From: Zishun Yi <vulab@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Zishun Yi <vulab@iscas.ac.cn>
-Subject: [PATCH] riscv: misaligned: Restore epc in error path
-Date: Tue, 24 Mar 2026 01:28:26 +0800
-Message-ID: <20260323172826.69428-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.51.2
+	id 1w4kcU-0000000HQ08-3npu;
+	Mon, 23 Mar 2026 19:07:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5147860130;
+	Mon, 23 Mar 2026 19:07:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5743C4CEF7;
+	Mon, 23 Mar 2026 19:07:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774292842;
+	bh=k6BhAGxLMFl7NhzH/eXpQ1O6oylKp7QR8k5ui8nFSuY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pp5aJvVLMskMT+uHs+8toanS07SNVmScgY4HSZwxwVtCMSxkqe/cl1nwC+NrDzzL7
+	 EX7lkaLUhURW2iUOMK2TBztiG09AN+WqeLTQR/m+GqX4uBMt+DSW/QT85CC2TZJBOn
+	 zknjGTx9FBb4/d3pnkvTZ8ywMM4I3mHrtZwsB+HNU8G65s3fTS+JjaijntUWGYtUN6
+	 wA6CtKzZ6NXUOFvyP4Y7xjk8taLp51T06KbQ9eV2zvr4guwBNzUU/gWEPQt58Ok7fO
+	 O/rRVxRvASHHvTOEJj65e4zOQZd519YAOO4mwXTXbVIt5dFH1oRisWNyNkAR8pnGH9
+	 ThTjzjl6agDGw==
+Date: Mon, 23 Mar 2026 14:07:21 -0500
+From: Rob Herring <robh@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: interrupt-controller: aspeed: Add
+ AST2700-A2 support
+Message-ID: <20260323190721.GA1013496-robh@kernel.org>
+References: <20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com>
+ <20260306-irqchip-v2-1-f8512c09be63@aspeedtech.com>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADnj2tueMFpkovqCg--.13525S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uFy5ZFy8Kry3Kry7JF15XFb_yoW8ZF45pF
-	47G39ayrWxt3W2qF4avr4vgFWfZwn3uryxJrsrG34rCF45XryrX395u3Z0vry0gFykWr48
-	KFWYqF43WFs8A3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
-	W8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [115.192.255.131]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgwPA2nBLYtDnwABsV
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_102929_484800_7B074A83 
-X-CRM114-Status: GOOD (  10.36  )
+Content-Disposition: inline
+In-Reply-To: <20260306-irqchip-v2-1-f8512c09be63@aspeedtech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +76,251 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In handle_scalar_misaligned_{store, load}, regs->epc is temporarily set
-to 0. While it is properly restored in the instruction decoding error
-path, it is not restored in the subsequent error paths. This causes the
-epc to be corrupted.
+On Fri, Mar 06, 2026 at 04:07:23PM +0800, Ryan Chen wrote:
+> Introduce a new binding describing the AST2700 interrupt controller
+> architecture implemented in the A2 production silicon.
+> 
+> The AST2700 SoC has undergone multiple silicon revisions (A0, A1, A2)
+> prior to mass production. The interrupt architecture was substantially
+> reworked after the A0 revision for A1, and the A1 design is retained
+> unchanged in the A2 production silicon.
+> 
+> The existing AST2700 interrupt controller binding was written against
+> the pre-production A0 design. That binding does not accurately describe
+> the interrupt hierarchy and routing model present in A1/A2, where
+> interrupts can be routed to multiple processor-local interrupt
+> controllers (Primary Service Processor (PSP) GIC, Secondary Service
+> Processor (SSP)/Tertiary Service Processor (TSP) NVICs, and BootMCU
+> APLIC) depending on the execution context.
 
-Fix this by restoring regs->epc in the unsupported fp and
-copy_{from,to}_user error paths.
+Unless you intend to maintain both bindings for some period, then you 
+should just squash the removal here. If both are going to be maintained 
+then patch 5 should not be applied yet.
 
-Fixes: 7c586a555a48 ("riscv: add floating point insn support to misaligned access emulation")
-Fixes: 441381506ba7 ("riscv: misaligned: remove CONFIG_RISCV_M_MODE specific code")
-Signed-off-by: Zishun Yi <vulab@iscas.ac.cn>
----
-To be honest, I am not entirely sure about the purpose of setting
-regs->epc = 0 early in these functions. I suspect that simply removing
-this line might be a better fix.
+> 
+> Hardware connectivity between interrupt controllers is expressed using
+> the aspeed,interrupt-ranges property.
+> 
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> 
+> ---
+> Changes in v2:
+> - Describe AST2700 A0/A1/A2 design evolution.
+> - Drop the redundant '-ic' suffix from compatible strings.
+> - Expand commit message to match the series cover letter context.
+> - fix ascii diagram
+> - remove intc0 label
+> - remove spaces before >
+> - drop intc1 example
+> ---
+>  .../aspeed,ast2700-interrupt.yaml                  | 189 +++++++++++++++++++++
+>  1 file changed, 189 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml
+> new file mode 100644
+> index 000000000000..13398ff8be12
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml
+> @@ -0,0 +1,189 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-interrupt.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ASPEED AST2700 Interrupt Controllers (INTC0/INTC1)
+> +
+> +description: |
+> +  The ASPEED AST2700 SoC integrates two interrupt controller designs:
+> +
+> +    - INTC0: Primary controller that routes interrupt sources to upstream,
+> +      processor-specific interrupt controllers
+> +
+> +    - INTC1: Secondary controller whose interrupt outputs feed into
+> +      INTC0
 
- arch/riscv/kernel/traps_misaligned.c | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+Wrap lines at 80 char.
 
-diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-index 2a27d3ff4ac6..24f898853bba 100644
---- a/arch/riscv/kernel/traps_misaligned.c
-+++ b/arch/riscv/kernel/traps_misaligned.c
-@@ -307,13 +307,17 @@ static int handle_scalar_misaligned_load(struct pt_regs *regs)
- 		return -1;
- 	}
- 
--	if (!IS_ENABLED(CONFIG_FPU) && fp)
-+	if (!IS_ENABLED(CONFIG_FPU) && fp) {
-+		regs->epc = epc;
- 		return -EOPNOTSUPP;
-+	}
- 
- 	val.data_u64 = 0;
- 	if (user_mode(regs)) {
--		if (copy_from_user(&val, (u8 __user *)addr, len))
-+		if (copy_from_user(&val, (u8 __user *)addr, len)) {
-+			regs->epc = epc;
- 			return -1;
-+		}
- 	} else {
- 		memcpy(&val, (u8 *)addr, len);
- 	}
-@@ -409,12 +413,16 @@ static int handle_scalar_misaligned_store(struct pt_regs *regs)
- 		return -1;
- 	}
- 
--	if (!IS_ENABLED(CONFIG_FPU) && fp)
-+	if (!IS_ENABLED(CONFIG_FPU) && fp) {
-+		regs->epc = epc;
- 		return -EOPNOTSUPP;
-+	}
- 
- 	if (user_mode(regs)) {
--		if (copy_to_user((u8 __user *)addr, &val, len))
-+		if (copy_to_user((u8 __user *)addr, &val, len)) {
-+			regs->epc = epc;
- 			return -1;
-+		}
- 	} else {
- 		memcpy((u8 *)addr, &val, len);
- 	}
--- 
-2.51.2
+> +
+> +  The SoC contains four processors to which interrupts can be routed:
+> +
+> +    - PSP: Primary Service Processor (Cortex-A35)
+> +    - SSP: Secondary Service Processor (Cortex-M4)
+> +    - TSP: Tertiary Sevice Processor (Cortex-M4)
+> +    - BMCU: Boot MCU (a RISC-V microcontroller)
+> +
+> +  The following diagram illustrates the overall architecture of the
+> +  ASPEED AST2700 interrupt controllers:
+> +
+> +                  +-----------+                +-----------+
+> +                  |   INTC0   |                | INTC1(0)  |
+> +                  +-----------+                +-----------+
+> +                  |   Router  | +-----------+  |   Router  |
+> +                  | out   int | +Peripheral +  | out   int |
+> +  +-----------+   |  0     0  <-+Controllers+  | INTM      | +-----------+
+> +  |PSP GIC  <-|---+  .     .  | +-----------+  |  .     .  <-+Peripheral +
+> +  +-----------+   |  .     .  |                |  .     .  | +Controllers+
+> +  +-----------+   |  .     .  |                |  .     .  | +-----------+
+> +  |SSP NVIC <-|---+  .     .  <----------------+  .     .  |
+> +  +-----------+   |  .     .  |                |  .     .  |
+> +  +-----------+   |  .     .  <--------        |  .     .  |
+> +  |TSP NVIC <-|---+  .     .  |       |    ----+  .     .  |
+> +  +-----------+   |  .     .  |       |    |   |  O     P  |
+> +                  |  .     .  |       |    |   +-----------+
+> +                  |  .     .  <----   |    --------------------
+> +                  |  .     .  |   |   |        +-----------+  |
+> +                  |  M     N  |   |   ---------+  INTC1(1) |  |
+> +                  +-----------+   |            +-----------+  |
+> +                                  |                  .        |
+> +                                  |            +-----------+  |
+> +                                  -------------+  INTC1(N) |  |
+> +                                               +-----------+  |
+> +  +--------------+                                            |
+> +  + BMCU APLIC <-+---------------------------------------------
+> +  +--------------+
+> +
+> +  INTC0 supports:
+> +    - 128 local peripheral interrupt inputs
+> +    - Fan-in from up to three INTC1 instances via banked interrupt lines (INTM)
+> +    - Local peripheral interrupt outputs
+> +    - Merged interrupt outputs
+> +    - Software interrupt outputs (SWINT)
+> +    - Configurable interrupt routes targeting the PSP, SSP, and TSP
+> +
+> +  INTC1 supports:
+> +    - 192 local peripheral interrupt inputs
+> +    - Banked interrupt outputs (INTM, 5 x 6 banks x 32 interrupts per bank)
+> +    - Configurable interrupt routes targeting the PSP, SSP, TSP, and BMCU
+> +
+> +  One INTC1 instance is always present, on the SoC's IO die. A further two
+> +  instances may be attached to the SoC's one INTC0 instance via LTPI (LVDS
+> +  Tunneling Protocol & Interface).
+> +
+> +  Interrupt numbering model
+> +  -------------------------
+> +  The binding uses a controller-local numbering model. Peripheral device
+> +  nodes use the INTCx local interrupt number (hwirq) in their 'interrupts' or
+> +  'interrupts-extended' properties.
+> +
+> +  For AST2700, INTC0 exposes the following (inclusive) input ranges:
+> +
+> +    - 000..479: Independent interrupts
+> +    - 480..489: INTM0-INTM9
+> +    - 490..499: INTM10-INTM19
+> +    - 500..509: INTM20-INTM29
+> +    - 510..519: INTM30-INTM39
+> +    - 520..529: INTM40-INTM49
+> +
+> +  INTC0's (inclusive) output ranges are as follows:
+> +
+> +    - 000..127: 1:1 local peripheral interrupt output to PSP
+> +    - 144..151: Software interrupts from the SSP output to PSP
+> +    - 152..159: Software interrupts from the TSP output to PSP
+> +    - 192..201: INTM0-INTM9 banked outputs to PSP
+> +    - 208..217: INTM30-INTM39 banked outputs to PSP
+> +    - 224..233: INTM40-INTM49 banked outputs to PSP
+> +    - 256..383: 1:1 local peripheral interrupt output to SSP
+> +    - 384..393: INTM10-INTM19 banked outputs to SSP
+> +    - 400..407: Software interrupts from the PSP output to SSP
+> +    - 408..415: Software interrupts from the TSP output to SSP
+> +    - 426..553: 1:1 local peripheral interrupt output to TSP
+> +    - 554..563: INTM20-INTM29 banked outputs to TSP
+> +    - 570..577: Software interrupts from the PSP output to TSP
+> +    - 578..585: Software interrupts from the SSP output to TSP
+> +
+> +  Inputs and outputs for INTC1 instances are context-dependent. However, for the
+> +  first instance of INTC1, the (inclusive) output ranges are:
+> +
+> +    - 00..05: INTM0-INTM5
+> +    - 10..15: INTM10-INTM15
+> +    - 20..25: INTM20-INTM25
+> +    - 30..35: INTM30-INTM35
+> +    - 40..45: INTM40-INTM45
+> +    - 50..50: BootMCU
+> +
+> +maintainers:
+> +  - ryan_chen@aspeedtech.com
+> +  - andrew@codeconstruct.com.au
 
+Name and email address please.
+
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - aspeed,ast2700-intc0
+> +      - aspeed,ast2700-intc1
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  '#interrupt-cells':
+> +    const: 1
+> +    description: Single cell encoding the INTC local interrupt number (hwirq).
+> +
+> +  aspeed,interrupt-ranges:
+> +    description: |
+> +      Describes how ranges of controller output pins are routed to a parent
+> +      interrupt controller.
+> +
+> +      Each range entry is encoded as:
+> +
+> +        <out count phandle parent-specifier...>
+> +
+> +      where:
+> +        - out:     First controller interrupt output index in the range.
+> +        - count:   Number of consecutive controller interrupt outputs and parent
+> +                   interrupt inputs in this range.
+> +        - phandle: Phandle to the parent interrupt controller node.
+> +        - parent-specifier: Interrupt specifier, as defined by the parent
+> +                            interrupt controller binding.
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 3
+> +    items:
+> +      description: Range descriptors with a parent interrupt specifier.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupt-controller
+> +  - '#interrupt-cells'
+> +  - aspeed,interrupt-ranges
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    interrupt-controller@12100000 {
+> +        compatible = "aspeed,ast2700-intc0";
+> +        reg = <0x12100000 0x3b00>;
+> +        interrupt-parent = <&gic>;
+> +        interrupt-controller;
+> +        #interrupt-cells = <1>;
+> +
+> +        aspeed,interrupt-ranges =
+> +          <0 128 &gic GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>,
+> +          <144 8 &gic GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>,
+> +          <152 8 &gic GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>,
+> +          <192 10 &gic GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
+> +          <208 10 &gic GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>,
+> +          <224 10 &gic GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>,
+> +          <256 128 &ssp_nvic 0 0>,
+> +          <384 10 &ssp_nvic 160 0>,
+> +          <400 8 &ssp_nvic 144 0>,
+> +          <408 8 &ssp_nvic 152 0>,
+> +          <426 128 &tsp_nvic 0 0>,
+> +          <554 10 &tsp_nvic 160 0>,
+> +          <570 8 &tsp_nvic 144 0>,
+> +          <578 8 &tsp_nvic 152 0>;
+> +    };
+> 
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
