@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD87BF483EA
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 19:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35162F483E7
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 19:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YuOZW79hWIR86M4m9U+JtFcjj+krs00wTGW+X4Xj1n0=; b=XC4fClBDHiSovXu4xjfDa0n+7i
-	686kZhHXnB5M1LYqLZVM5V9YbJ4Lrvg7o8ATjNFB0LoOa9Am2BUxaBEi9R/TaQ/J9nipNWlHEggYn
-	Gah6mm/Mg+7hCoNOz+dYRNM7RqEEMvCm38Zp0bemicDU451sNjpqlNXrDhsbDbxDqRqRTXfucQmGX
-	uaZ5/LiG7fOJ+ANK/Gc8P1EbfcktP7k5TyRE+bV7XXYsWLis3VepW/Biaz4EIas/gcWcWx/sEQbcU
-	DvZTySt6AmPAg1q4TeGF8NXou3gRmwCFGBdAg4UV8yf7eajMORHa+9xCy6q0BggE6Ew8xmw2JNyR2
-	b2zFnJHA==;
+	bh=9H/p3O1f93qqKqH5ZD9bndAjRoQOiGBZscO7MzptUiI=; b=XEKW4oIfSnVw6aP/KPDwmIjwEV
+	ipBqcUDjwzX8uZGXZnsfc9MgvWJ9dGR8vIwbHsvGKbML+FZGTowzWJcwpAMtHGUAa4bXZYGLo7bMp
+	GpeuofpfTF9UsRxwqSdCaEanZy7VFDGGop033rd1gxSI+H+WQYTbjg6Wbtvsh7cQdoPcWL3SNa789
+	WKNln+E8cHn05DzoqLurbrKgyhuFZ4I8qDXCo1IkefxfdhIEhCEUDrtuvuJy62eTy77hgqF1/oSJJ
+	05YuvG3bp/ZiQmvEjBi51LsiS3YA2iLAlutquXDWgb0Z/kK3ajrZwMBqWWh//nCfoLNVbFbVjz8EE
+	JZ4Gk/wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4l9M-0000000HTIL-1fye;
-	Mon, 23 Mar 2026 19:41:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4lAd-0000000HTfq-1Ryp;
+	Mon, 23 Mar 2026 19:42:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4l9K-0000000HTH9-0gF4;
-	Mon, 23 Mar 2026 19:41:18 +0000
+	id 1w4lAa-0000000HTem-29iX;
+	Mon, 23 Mar 2026 19:42:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82ECB600AC;
-	Mon, 23 Mar 2026 19:41:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B06B0C4CEF7;
-	Mon, 23 Mar 2026 19:41:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D2F7434D7;
+	Mon, 23 Mar 2026 19:42:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 167B4C4CEF7;
+	Mon, 23 Mar 2026 19:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774294877;
-	bh=zr8+lYtKw72pHAPt5RM+e4aIZvvehLBMSQxMXfk5GvA=;
+	s=k20201202; t=1774294955;
+	bh=11j9z/1fJKiQVdJE20P4e+j+9ToUEls87BE6rvgPEnQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tq+oxJt2YMht2bBZTFfKphF7mn6pccuIjaZ2WdoGqND03PSfnBcBQB1NIgNl3z61/
-	 UYjZvaYvOqOLA7E7yYH/HWnze2466c1O7qr8kwURq3Awqez0yJLns68n/QUpifX44i
-	 NGciV5iFQONI6v29a9Le0gLcVfC1bx1VYglGZLg2GWEDvGnLbMY3SkICaK5hKK5XkD
-	 avgro6JAqTPWd/CiQqwSpmCTGS3nwGJk6qZqYH1oieE5MsIqFiCjJFlwAJAuUrVFLV
-	 CmAIhZkRT5QaFJoHBEaM4h8+RF8SJRC4ha1+uWRl2AUhuZrju5id589FaWrhR+9y4I
-	 k2MF7ywBcuyyg==
-Date: Mon, 23 Mar 2026 19:41:11 +0000
+	b=FgPX3A5wg1iUr/7tQS9xp5e6w0B25P8zSkCFksilaSdtWF0zDITP+MM+ylpxRhqqN
+	 z1RrpGJ0rkK+G2tQr65a2/Xwv7EiFqD6PuLMWp6NIgNgWPZTiDGxPpc7mIWDXI+lVj
+	 WazCdp1gkd01GY8XHb75ph0A9LOKxkfuKGbvWtCEABYmHzURaMEXJmTzb8e3FF9HZm
+	 Yd94MYFdCPEkY0FJN62BvsxE7q/dbpPH7fE+CcgiWdhHVGeKHch8avzFVVHAHBzTai
+	 26KyXPjH454gkbq++sACIjU4amKyHo63ZwM2pIugLnvvDU+/lf1hAcY1Y2JEWVzJnR
+	 x0lY5DPsSmnIQ==
+Date: Mon, 23 Mar 2026 19:42:30 +0000
 From: Mark Brown <broonie@kernel.org>
 To: Pei Xiao <xiaopei01@kylinos.cn>
 Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -50,14 +50,18 @@ Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com, Frank.Li@nxp.com,
 	amelie.delaunay@foss.st.com
-Subject: Re: [PATCH v5 05/17] spi: imx: Simplify clock handling with
+Subject: Re: [PATCH v5 07/17] spi: orion: Simplify clock handling with
  devm_clk_get_enabled()
-Message-ID: <3fcb0dd7-ff17-4d09-b8ad-15f0f1211f42@sirena.org.uk>
+Message-ID: <7e9fc388-cdc3-4810-9136-9a1f33fed7f7@sirena.org.uk>
 References: <cover.1773885292.git.xiaopei01@kylinos.cn>
- <9d0fa929a4158e7f4e9adec21dd351e6cdd2984d.1773885292.git.xiaopei01@kylinos.cn>
+ <387f2fa1b3e1a356c524bb36eab07e1b431b6382.1773885292.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-In-Reply-To: <9d0fa929a4158e7f4e9adec21dd351e6cdd2984d.1773885292.git.xiaopei01@kylinos.cn>
+In-Reply-To: <387f2fa1b3e1a356c524bb36eab07e1b431b6382.1773885292.git.xiaopei01@kylinos.cn>
 X-Cookie: The only perfect science is hind-sight.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_124236_569632_528D7CEC 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,48 +73,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5179531162893129351=="
+Content-Type: multipart/mixed; boundary="===============3615620874369127043=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5179531162893129351==
+--===============3615620874369127043==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/sLNV2LkpKlEA+Pv"
+	protocol="application/pgp-signature"; boundary="ETAL/F05848nVpj1"
 Content-Disposition: inline
 
 
---/sLNV2LkpKlEA+Pv
+--ETAL/F05848nVpj1
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Thu, Mar 19, 2026 at 10:04:01AM +0800, Pei Xiao wrote:
+On Thu, Mar 19, 2026 at 10:04:03AM +0800, Pei Xiao wrote:
 > Replace devm_clk_get() followed by clk_prepare_enable() with
-> devm_clk_get_enabled() for both "ipg" and "per" clocks. This reduces
+> devm_clk_get_enabled() for the "axi" clock. This reduces
 > boilerplate code and error handling, as the managed API automatically
-> disables the clocks when the device is removed or if probe fails.
+> disables the clock when the device is removed or if probe fails.
 
-This one also uses runtime PM.
+Another runtime PM clock managment one.
 
---/sLNV2LkpKlEA+Pv
+--ETAL/F05848nVpj1
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBl1YACgkQJNaLcl1U
-h9ALkQf+MCWziHjA3VCeQ6Z0O3ebkwfUwmCcxHPAsV+PSLGPTi2YbR/I9ctOMekg
-tXlv5rI17nBcZCGCxil1OEOnjgOC7jRGuVmWaApY5nSEx2X4GZRS3GDna8dUsAJN
-xQVd9DSQEfJv1mEe/jXE+eCG6eoVIPoltsgeEEIhZVAtQ1tkszyzlURiBKoteOLU
-O4khFyG2m6n7gfyTKD6aRl3n8L8fhLz8Kd+75V58qWN711xIsaoqhyXSfJbucEgX
-/CR+2K4QdEZFmVfW5zRzRMlbi6QniSd9lc/ROJWYjvQovVpyckuvH31KgwID8IHx
-qLpvFYg7YLU7kgQy/nI7ksShV4LZsg==
-=Gpc2
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBl6UACgkQJNaLcl1U
+h9BT8Qf/dtJjSArsGgU+y0yVED55+m8067SuMbN7WPDUHaKFWCm0BD0AB2I7w1wo
+Q2eV7b7mCT9le7uw8d9NPBabofnVmISnVSpguFgRIG7YVtcz6uVBHSV78j6gcMvk
+kruWd2xH7oETY56WXrEH08IbyT7W1URHbuWrZ8rHqszSMdKsqCx7ASMx8O92IOx4
+JX2u0m/PftCpz/ebstkEkS86e37+yNik2jfo4cb+HhAkYYkgYUzeocNaWEixMslH
+FcajN7OlPOnfeey4e2Fj7/C/S62tLwDD1HckZI9Ja3rE252BzECQ9E0U/4Ocf7ZD
+kMKNWTPNhkr71ULS8mV6P4nVuyLAgA==
+=fMon
 -----END PGP SIGNATURE-----
 
---/sLNV2LkpKlEA+Pv--
+--ETAL/F05848nVpj1--
 
 
---===============5179531162893129351==
+--===============3615620874369127043==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -121,5 +125,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5179531162893129351==--
+--===============3615620874369127043==--
 
