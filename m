@@ -4,126 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C12D58CC5
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 03:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E24D58CBE
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 04:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aILfj84PUwe4tf53dmY+pkZwPaB+4zmBTV0O2q4bwIA=; b=Tw8JfOuxCkCuj3
-	0tiAHB9xRxw+7v/8WYXQv4zW1iwXLGjnfLkN4ZppDGQ8qBNFHOUYDPLkEGLEyTOkjWyJsuDcTpDgJ
-	VIMJgooYf1FVeNpCMs+RyTTtifdRsWkXY0mZQU8aXWWxBrkI7kJGe6syVifFjcff1LbW2PqLe/Ljq
-	oenDh933yxVkTsZbEkwnchC/PAo3EEWj/oGBlEzWTuvT7T5KZZEBJbAyn1a/s+TmbLifx/mZQ7Yf4
-	nWkukwNGbKGMjPURp2Q8clkyEpsJFf4SrXGa+hxB9vCibzTbvr89X9Re09ZuPNJUb/1cgI3nk5Sf4
-	HLW+irQ83G2zr7BZCY2A==;
+	List-Owner; bh=/12KKAPew6RDAceBrwPhAjWTcNGqOSeKNGR1okhdZvE=; b=Hso/VDVRYhKzQ+
+	TFor/79LepL16SUE9mTB+nv2A6rfj+tyfCf0NclqIUaVixN/CrMR4tpykm3jnXdcKMn+n56YUw/Nh
+	gtDTxkv44FzSOkULLgZmJNHYSWvVBzsub49vrElpMUOKPACadkPrApuZpXjuAPV8ThpxYQcDkgmrF
+	43s3UUsNzebZ49SEVyImTFaURaVVsGYxYm5tkogcB7NQlt0VBV+OJN4iZVRH094Ry6IX45zQJED+8
+	gvt4YShiqG9LPuya+P6XSklyxB5hQHJ1whZltZP8T5Gw3xBNTgF2Dje3QR0VhWVcxzKDik9xfRTjy
+	pIGPSDB800xppHLkg65g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4WLu-0000000FxyT-3Yj0;
-	Mon, 23 Mar 2026 03:53:18 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w4WYi-0000000FyiE-0HvP;
+	Mon, 23 Mar 2026 04:06:32 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4WLr-0000000Fxy5-39Tp
+	id 1w4WYf-0000000Fyht-15eW
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Mar 2026 03:53:17 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62MLtbcc3385863
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Mar 2026 03:53:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=BRaKz/q5ql6Zi63D2ehAc+ss
-	ZqrmS3p79ukhpAexd8M=; b=kmEDGuXRymGHdsP0ecxqA9+LdWHaJO/4NtUdWjho
-	sEphS0i9NpVaEs4FEZ0jMeh3zUSxajqlELWcz8WhnoMpno0utxKRQ/zskgCZLk7o
-	1l8+UvnjA4qSyOpJ0xqssG9viNSef6H4s/rv7EivgWypphIhKbGtA0uGs6hwAFOG
-	YoMpYclPKWX68qZH3vvZtouS6mEe1r7c9FwRTNetvSIKJPCfTl8brb2MGaX//q0i
-	N0xob/f8vVbhPVfU1J4zFFRV+M9vhwNGj2LOpvf6t2w41b3KZvSlWEMfMKQRkLt/
-	4VqqXVy5KPu5PPCkkuOOev6pTbEroXSTn8Q5adpsN55JTA==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d2ca8hjcq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Mar 2026 03:53:15 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50b4661881eso24101441cf.0
-        for <linux-riscv@lists.infradead.org>; Sun, 22 Mar 2026 20:53:15 -0700 (PDT)
+	Mon, 23 Mar 2026 04:06:30 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-79a2ee65171so21325847b3.2
+        for <linux-riscv@lists.infradead.org>; Sun, 22 Mar 2026 21:06:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774237994; x=1774842794; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BRaKz/q5ql6Zi63D2ehAc+ssZqrmS3p79ukhpAexd8M=;
-        b=fmsw+oKi/2fdELtTvxw6G4KF+QAjWMi26qnnFm0QJT60oJ63cvFLw3qhuf4Sf2JNuV
-         wXEWJNjUxhinwP5qp2TZaFS022RZFvVLOSbtfLllqYq33juPyarqfBLAe6z1yjDx78LE
-         THy5zYFhkipcNP8a+PyDE33OwhZ0eauVOcLxo7sJn0QJukETyJZhYhfuhzL0hwpuQmzr
-         rX0jwyoB8L3hgqSRogWD1A/9EAQo1JhmRpaFV0fSqJ+qTrt5YvJWlUNJ3ZQH66xfZqb/
-         eRhPtTArCldsNQkXAAHvSJdRCwMDI7vLaDX7/vQ+9ne2oVe7hzkVxufuZ3qM5eDI/aJV
-         BikQ==
+        d=sifive.com; s=google; t=1774238788; x=1774843588; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CE+AGCF2MuXLVsZ+yjsvQBn30B0qx2f1EamJgwm3EgI=;
+        b=QXmfnbGf8I9fMLrqjsThRkvY/pQn0jvQlweAK0x6xNG1+P0wtCx9ybpIdP6A3AV0CR
+         J6paHNPpxURBAFwMV0L6kLayDH2kI7meBFJK0tm2bPnWC1umhvIKGl5i0fHUXEYnRkag
+         zKU4A9lrazuFctqnu90i+nsZ6+ztoo+jg02sWZ7h6V+sZRjVxAVk15zA3kgLYtTFYiDR
+         8rOiaBORxRMHQn75h6QSIuwwjsN0s9p08CfH/9TfIh5URzEfHpP8p+SepJdYU2cYXs/s
+         Z8YtwBHeEjSCX4UeY74sECRx36phKLNAh1JYON/GvIBgtikthzQdXy/Bi30+WNgVZcO0
+         IHoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774237994; x=1774842794;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BRaKz/q5ql6Zi63D2ehAc+ssZqrmS3p79ukhpAexd8M=;
-        b=DUpiAadXlYZQDFxymnyJn6+E4+jHXGUuP0Y6Yrat+9YDyI+ihPgtIXt50cm5eercd/
-         UuA6lpxbjqBEQ9tOReC9EKY+BjUn5pfSkk8DqZGRAocF3Z5fIRkfytjKCooRx1R4a2JH
-         jhYlamD/fA1vSiFTsgXofV62HU3UryyaCvKQXI+zT8T7s6cqBTORKl6ar1+tzU9MKiMa
-         LTlJ1aF1hhoNJcfyjRBMOTIDjk7et+YQj89VqQnmtKijWPzKNDfS0V3+hrI5c1C4eyvl
-         TNXMswnYbY0lPZyTTAza9tNTb6xL3vtyFXGgkwgLWyYDOP2urpsv8b+OwT4JHDybcfxL
-         87PQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWe4Hr1JoKowxU6KC/r1Z+LMpoFUeNWmdP2WdBGmlozHn4h6a3cuHGQHdB/C4XmDRaucMWFot63y5keXw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqEQNi9nS+5bE4iuaUs7YxZpOJsmPYOuqw6ljJ1v2d3hiCi85D
-	/97yJbDQx+z1PuKgtpm4j0cUML12zclPG1Yo3xhXCBig3rm3nkzOV2e3Wvv/gCoUBSFhU+eY/Gu
-	k2TQTBBQsvLDYhc92h7oQRsRdTHY/d+XJ5X2s82VqNYDqplc+iiOHDokDQYyXtyelaCZ2MRM=
-X-Gm-Gg: ATEYQzyUWGFsF9ZU9r3HeatiIRwe0FJD35rw69xCzQjtewFjIy7cmDbDUYDyBF38bcd
-	ePdFV9jNWwLeqhguOGNVIJy8V8WSuIOVhOQ45CP89kYyy7xd+7FEtSEGIk9QmJuVSpKo2JdgCvV
-	ZRLP0OLDoCrK0Zru23PkmfrMJPzLsQQis1YMhKQG4od7XFPEctNPnkE7Fv0BasOczohPxv8rv/G
-	zTEB/UpDkD/frT3oHQyGWb/ga7HfIovwWGR3k6oa/bQJTp3UeNEJersOnKAxuEJGShq76mrwGGI
-	x8oX8gIyMNl/lc+spvaPdTJNnUyok2Vb3666ckNv3uyfXDqAzL3O02EZa+YLTulzZv23ZmrWQqO
-	kh14Nlj063PwtbTDxOE7aIekBkBidiwKBvw7gHfpPnksJLgpsnZV+F7ylCuScFp4s8mlh1LAlgX
-	F0RRLNR8O1wDO0LeGdu2eQKDXVsw7s2YubC84=
-X-Received: by 2002:a05:622a:1899:b0:50b:50a5:d61e with SMTP id d75a77b69052e-50b50a5dcd8mr77271791cf.17.1774237994156;
-        Sun, 22 Mar 2026 20:53:14 -0700 (PDT)
-X-Received: by 2002:a05:622a:1899:b0:50b:50a5:d61e with SMTP id d75a77b69052e-50b50a5dcd8mr77271501cf.17.1774237993683;
-        Sun, 22 Mar 2026 20:53:13 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38bf97594bdsm22624371fa.14.2026.03.22.20.53.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Mar 2026 20:53:12 -0700 (PDT)
-Date: Mon, 23 Mar 2026 05:53:09 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Felix Gu <ustc.gu@gmail.com>
-Subject: Re: [PATCH 2/2] drm/bridge: th1520-dw-hdmi: Fix remove() callback
-Message-ID: <443mi7an5qyyjol4s2wen6oten56advyzs5sbxxl5tbdzcoork@farulzm4ygsj>
-References: <20260321-th1520-v1-0-ec877197770d@gmail.com>
- <20260321-th1520-v1-2-ec877197770d@gmail.com>
+        d=1e100.net; s=20251104; t=1774238788; x=1774843588;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CE+AGCF2MuXLVsZ+yjsvQBn30B0qx2f1EamJgwm3EgI=;
+        b=ZUILdbMR7uWrORIqI9ihoW7SoFRZ1bZ808EmeJ11Rq5mbvWitazgipVGu5Pr4J4xjG
+         yjD8sgls4DBbrqwJCNNEV5E71S+lgjNNqnYLYvpFHITe4nnAV3/tR+qJtngLlgQrJxe3
+         cetDpS7TlEmTXim1tlxOfhN+X+86A1TxcClxiVVyzGUMeOdY+WnDmbRuOiZXDljxywsN
+         KgkiF+pe+JJ/z2FVWiAcxdA9ln6+44ZpV8F7Gqf4byJbaTHx7GvjOPkf5B04DYQQnMA1
+         wTBC+3ZIGe0aUEqBVwCuo9oA3ClkO8clDYMa/RBk74KZuj+z+519cJAtEtg3FzMpWOBB
+         R+Aw==
+X-Forwarded-Encrypted: i=1; AJvYcCXv47mCyoqOKxuMJG5nd4kzHcTreKj9s2mcxL4pFPuT5F75XXfGUmEqQmQUPGVL9kgJDPDGOYI/8vmslw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzx8qhyn7004DiDHy45iM/WG0NXjsjrbNVqRP1evnHsYLO1jAJl
+	5FGnHet4cQDdDyAN4YXbJKl/4ey6LNzfrcxsFfsyF5TGUtZ3f/AqK0PKst3QKQXAHGc=
+X-Gm-Gg: ATEYQzzknLz0/XktEZXeGsiWnSA9lT7L73o2ofnEl8FY8lPB2XHPXkZvpKF4Gp0isEi
+	/QIYem+K9RlLn0oMWbeqfQMbUH/THa+nT/OEWptX3g0Ee+OVbsGZb2b76TmqdJ1OWmkQHsjDFHQ
+	lbjtiHFxA7crANTwVfugfiDxwhoW6sRdWaIM+jHCCBa3vsiIewTOKd0pU2rz/dhuCAnvkL49ZRC
+	2bgJQ9QPQbYHxudPBXg/0cSqg7Sp3gJsKhVoSF27riNnk/eiaD1N+M357VePZf4ISUbXp+Mg3lw
+	r+LmXZqrsOlQ5BQAZEAQVny5PutrActyzMgDK1Nc/3SWheadsggyb5COAPlnIE6ST0MpFg+ctya
+	yUJKFkS5D6hwtGW+RDNjVZTiEesF+W8yUq5LKFnv1wQMMYMzgIWE7aIRwMFw9AJXhhKlMVrRlJg
+	mrk/ZdDIgz528ATT+Yu2Gcp3h8fg==
+X-Received: by 2002:a05:690c:8:b0:79a:ba98:9b7f with SMTP id 00721157ae682-79aba98a71fmr6480097b3.58.1774238787747;
+        Sun, 22 Mar 2026 21:06:27 -0700 (PDT)
+Received: from [100.64.0.1] ([170.85.102.252])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-79a903a33acsm52232707b3.3.2026.03.22.21.06.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Mar 2026 21:06:27 -0700 (PDT)
+Message-ID: <e0357439-08f7-4bbd-bdac-f525c6805570@sifive.com>
+Date: Sun, 22 Mar 2026 23:06:25 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260321-th1520-v1-2-ec877197770d@gmail.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIzMDAyNiBTYWx0ZWRfX0nPXmjlqX/Fk
- 2y1SOBXKCzrpBe3T+B0OHSIcvhJdkoge+Hvr9ciaCfB5OsbhuRDRSiFyQ9+Rptj/dv5yBTxFrrH
- bNjNV/1Ip+iCycfz/8LpGlBKi5LO379dKDr1O304ZqEF/hpBIXEK6/JLt4zJLItGyadwhegs/UA
- P1yV0Ofjra1aQzNoxlSDQJBYQI4P9sqPhOwQgH2QebwdcIBTDyQYe9lE8UkqC0Ayax5zTJQH0dC
- 0x79fMdsb4d6tKUxf08yOtPn8YXwX97OMbOYXLX+V+1GMXXpP+HrtSnz8Re3ZJZJkXcHlijgymy
- 5nXpjdCbjAlyTIF2jfsOICXSJ5luookZHfvrwlBFKkFyo+QdIoh3SryaWZ0CUpkaozGizY4JILn
- eZPm4sHctVj7dch9FBQaABIlNuk8CS7xmUn7qYJMmJ2BF6NJjX+cjne/DZ0+oRA9mEgl8f45ief
- MPaEg6WwH6ZjxAx7ExQ==
-X-Authority-Analysis: v=2.4 cv=cf3fb3DM c=1 sm=1 tr=0 ts=69c0b92b cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=pGLkceISAAAA:8
- a=EUspDBNiAAAA:8 a=ZRtV3Kz9z0tY375oaq0A:9 a=CjuIK1q_8ugA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: 8t-6ko7DeTAi6LymOhcGISGsw9TrjvWH
-X-Proofpoint-GUID: 8t-6ko7DeTAi6LymOhcGISGsw9TrjvWH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-23_01,2026-03-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
- malwarescore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603230026
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is not set
+To: Zishun Yi <vulab@iscas.ac.cn>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Deepak Gupta <debug@rivosinc.com>,
+ Zong Li <zong.li@sifive.com>, Thomas Gleixner <tglx@kernel.org>,
+ Charlie Jenkins <charlie@rivosinc.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?=
+ <cleger@rivosinc.com>, Nam Cao <namcao@linutronix.de>,
+ Simon Schuster <schuster.simon@siemens-energy.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260322160022.21908-1-vulab@iscas.ac.cn>
+Content-Language: en-US
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20260322160022.21908-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_205315_807068_B6BC61A9 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260322_210629_324478_BEB50CF5 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,34 +101,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Maxime Ripard <mripard@kernel.org>, Drew Fustini <fustini@kernel.org>, Robert Foss <rfoss@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, Neil Armstrong <neil.armstrong@linaro.org>, Simona Vetter <simona@ffwll.ch>, Jonas Karlman <jonas@kwiboo.se>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 21, 2026 at 03:12:11AM +0800, Felix Gu wrote:
-> This driver stores struct th1520_hdmi * in platform drvdata, but
-> th1520_dw_hdmi_remove() was reading it back as struct dw_hdmi *
-> and passing it to dw_hdmi_remove(), so teardown runs on the wrong
-> pointer.
+On 2026-03-22 11:00 AM, Zishun Yi wrote:
+> In set_tagged_addr_ctrl(), when PR_TAGGED_ADDR_ENABLE is not set, pmlen
+> is correctly set to 0, but it forgets to reset pmm. This results in the
+> CPU pmm state not corresponding to the software pmlen state.
 > 
-> Retrieve struct th1520_hdmi * from platform drvdata and pass
-> hdmi->dw_hdmi to dw_hdmi_remove().
+> Fix this by resetting pmm along with pmlen.
 > 
-> Fixes: 96f30ee0fb9d ("drm/bridge: add a driver for T-Head TH1520 HDMI controller")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> Fixes: 2e1743085887 ("riscv: Add support for the tagged address ABI")
+> Signed-off-by: Zishun Yi <vulab@iscas.ac.cn>
+
+Thanks for the fix!
+
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+
 > ---
->  drivers/gpu/drm/bridge/th1520-dw-hdmi.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  arch/riscv/kernel/process.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index aacb23978f93..5957effab57c 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -347,8 +347,10 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
+>  	if (arg & PR_TAGGED_ADDR_ENABLE && (tagged_addr_disabled || !pmlen))
+>  		return -EINVAL;
+>  
+> -	if (!(arg & PR_TAGGED_ADDR_ENABLE))
+> +	if (!(arg & PR_TAGGED_ADDR_ENABLE)) {
+>  		pmlen = PMLEN_0;
+> +		pmm = ENVCFG_PMM_PMLEN_0;
+> +	}
+>  
+>  	if (mmap_write_lock_killable(mm))
+>  		return -EINTR;
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-
-
--- 
-With best wishes
-Dmitry
 
 _______________________________________________
 linux-riscv mailing list
