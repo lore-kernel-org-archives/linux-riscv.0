@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D931FC72A8
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 06:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18F6FC72C5
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 07:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0dY4Ae2cdiRdAcptxurTQZpou18Fd5jijOyi7aNkRhs=; b=hDRfM2vyYZkHXL
-	zzSVR3EiRLlOwh5pbN8YdNkb6d2wX80NfLX3G3GlZfoViXLVKUxpFVXFYzbb/PJ0Cz+IaWrLKIg7M
-	bnhpdh92/mD2n87OSWihuLjuE7JUu/GgtWIoVfIswN0NHS3JSD9Dr8xH96ebWn7o1lXyjYNak4x/y
-	NHaxJ6cUysne72EuJMBKx4MG3/EbdlWKc3DeBWsf9WQYy+IvZXFwWqcL5Nl0YRaJl9roEs0o5VGPk
-	EiF6klMd3Pd2TwTOeR9W/AcvALwU+JE6vsvyflWSUTykzGagIyepTUktunDxPlbcICeN/Y9+QFlFV
-	22TjPHRM+X2Gf6rbl0jA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8D4sQN12261oLXvjtbx01o+ZsyAKDZJFbDWHa3l0KX4=; b=SRftZH+uJIOp1u
+	uPDsdHoMkjRSoouvirwutu/zO3lfYq5xoQSJ4y8/17IhM4D9C+CitNnPRmhmwjqGlYonI/ruHGXit
+	sO9N60Q8c9VW1/GZwG7kgyldSUC3zlZY/ZSSDtpHRUUhFOfgsulSxYY9Og8Yn/JCyzymMzvVbuss3
+	C7AqIKerWT4p5hYAgeJS5ykwrB/D1VF16PHx2qX7Xmy4G0swbVbFb+qAEtM7ZJxlzFOJVLaS5CPeL
+	/1RtjEgnoAE9oHFHpF7ga57EgX1qUTQn7y9b85Mtiy+cA0drfD8X+5XQ7fDZ9QCzvD3snlamB1qql
+	CpYuwCkus4YlUjl/5aOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ZDT-0000000G9Tt-0xbu;
-	Mon, 23 Mar 2026 06:56:47 +0000
-Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
+	id 1w4ZgG-0000000GBl6-0ha7;
+	Mon, 23 Mar 2026 07:26:32 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ZDQ-0000000G9TS-3URp
-	for linux-riscv@lists.infradead.org;
-	Mon, 23 Mar 2026 06:56:46 +0000
-Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-2c0ea57fea7so4532129eec.0
-        for <linux-riscv@lists.infradead.org>; Sun, 22 Mar 2026 23:56:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1774249003; x=1774853803; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=FEUgpMoi6RQXdkbzwH6UTh57axD9lljhqGUS+7Ma/Ts=;
-        b=fvEhs1UTer2hG2kbKkaf28DdV14HBd2L7kYtFhffsilYSwZYEpvPANyup6dMpdgok6
-         7+WpU6MV5gXqYVo2qbw5SH1GpuzAyjntO9iWGJmjosQENCMK21memlwF+d+BB4TU0NwW
-         R2SzK/2UahLjbVJOVgShJMZgtQJxMGxC5D+ljKfUvzhJi1+zhsNNe9/mxps1DMSs1Me+
-         GaDnpG7EYi7MKERumNoQc6/0dho+OryA8k0bHhCUD2/VzgW5LsDUx9yI0Q3TKUwjFoyg
-         /3HXnJh8WNDqQXJo3qCOwUfGfi26Q6GNsDX/eLRsgCcm03Zs6WuyicBgfzH2MJdF1nA5
-         Vivg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774249003; x=1774853803;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FEUgpMoi6RQXdkbzwH6UTh57axD9lljhqGUS+7Ma/Ts=;
-        b=H3TqN9KhhpGqXUtXBZAWChEZ0ywfY/o7hGb8ijAV26abIbvqCte9D8x4fvI492bCzT
-         iHhrKbq4OjS1uYiGlzamndvHWqZ3SVaGmomkgQQ541ZDZIHZLR+K8KFIJD11YRqA2glk
-         VP3AhBDE9SjmGoLvILzADZ+SqEl6ir9G1/DmqXoJf5IJF4uxi2i6Z6i/xnPb11C8Hsh9
-         g3C0xM157utggXM8pmj/5XkAavUxygHHnppdM26gzcwQyMWUpazc4WUwJm37qZCUWJG9
-         6MlpeLaq171/2ZQZ99FLfKU01svR282R+F3FFtfjUP/1nZRiEsyJ8PH+eADI4PY+lELI
-         0UsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWjiXNVF146tnb5VAgQYXxp8NyPYdz1fdlw0svGal/gXhNyKp2LB5u4Z4DqCpDuQ3hPtFxL0/I+yPmVCA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjyJJR4I4Pb7FBFoUkjltUPSifTjuwpSuauwgrGp1T0H/0YI3N
-	LRExN0KA6W6AXjo1mEanCAVB2mQrPKeupDJ8lKDQyPuHO9srqjj/Nro59S01Bz9J9AM=
-X-Gm-Gg: ATEYQzzjZayfH6B05XmgY7+leVxGExBpuG48jbEm8RZN84IESJzq/9EZjGUDWngmZw3
-	3rb0AzucgVoqcDwB+0X+fcGJl0MPuRWxt915K6CREIDvqAGCYfp7dwdFc/y3/lazhQuNAgMTq+O
-	YAD09n67nzg7PKzJDfIqXR/zXAllVbTRjM2Bk9Xdl+hp4WteEuFyXkOLHjikAbLyKiZyKxQWcyi
-	iniyOT41d2XqXYrxDFXkEssjne8nHJFum39Zy3ibaeKjdatDgAYtMadeHgHrQSztDYN2KLp9vsy
-	g5QdHyNyQEQcZPDBX/4Q2Gy3bI7S7wLH2KhWLn1E6bqgv4HAK4hnZd2ueorbcJnM0ni+fwHxiw0
-	2O6z2Jr6elkkPdpZ9pRpd+GH4/209ynNTjLSrgazIP7n1GHfgtWXhB5+Vinly7V9rQhm2z1P8Xu
-	SxVJyRyR3q1RoK9jRe07qux1PnB8s76YzbFQib70SmT1DpHg==
-X-Received: by 2002:a05:693c:3104:b0:2c0:c767:b6b with SMTP id 5a478bee46e88-2c10980a596mr4585216eec.32.1774249003306;
-        Sun, 22 Mar 2026 23:56:43 -0700 (PDT)
-Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2c10b31ebd5sm11766899eec.27.2026.03.22.23.56.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Mar 2026 23:56:42 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	debug@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v2] riscv: cif: clear CFI lock status in start_thread
-Date: Sun, 22 Mar 2026 23:56:40 -0700
-Message-ID: <20260323065640.4045713-1-zong.li@sifive.com>
-X-Mailer: git-send-email @GIT_VERSION@
+	id 1w4ZgC-0000000GBjd-0iWS;
+	Mon, 23 Mar 2026 07:26:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=LN3XXiXdQIjEqV28MGsUKiJ1rwzSL0+/rvdOwW8fCQg=;
+	b=Id4q8VpFGKdX5KMd/vJbS0/sIoSWOx8d8tpUPNqWpM/DQC60eEaIs/+lQk5409afRNpHSLSE8
+	cnTdKe9m1uC56iz8bgyxPTizP4OpC2pE3LYi8HH2Yy05V1G2fi/3SChSvOCqK97IDlrnXZUq98v
+	TM5wu8BS6+82fj+fTuLSkhs=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4ffPhD1l3Rz1prM1;
+	Mon, 23 Mar 2026 15:20:12 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 561C640567;
+	Mon, 23 Mar 2026 15:26:19 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 23 Mar
+ 2026 15:26:16 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
+	<dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
+	<feng.tang@linux.alibaba.com>, <pawan.kumar.gupta@linux.intel.com>,
+	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
+	<paulmck@kernel.org>, <lirongqing@baidu.com>, <ruanjinjie@huawei.com>,
+	<safinaskar@gmail.com>, <rppt@kernel.org>, <ardb@kernel.org>,
+	<leitao@debian.org>, <jbohac@suse.cz>, <cfsworks@gmail.com>,
+	<osandov@fb.com>, <tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
+	<ritesh.list@gmail.com>, <eajames@linux.ibm.com>,
+	<songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
+	<samuel.holland@sifive.com>, <vishal.moola@gmail.com>,
+	<junhui.liu@pigmoral.tech>, <coxu@redhat.com>, <liaoyuanhong@vivo.com>,
+	<fuqiang.wang@easystack.cn>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kexec@lists.infradead.org>
+Subject: [PATCH v9 1/5] powerpc/crash: sort crash memory ranges before preparing elfcorehdr
+Date: Mon, 23 Mar 2026 15:27:41 +0800
+Message-ID: <20260323072745.2481719-2-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260323072745.2481719-1-ruanjinjie@huawei.com>
+References: <20260323072745.2481719-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_235644_900163_A88A7D35 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20260323_002628_990283_0AF67DCA 
+X-CRM114-Status: GOOD (  25.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,132 +97,193 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When libc locks the CFI status through the following prctl:
- - PR_LOCK_SHADOW_STACK_STATUS
- - PR_LOCK_INDIR_BR_LP_STATUS
+From: Sourabh Jain <sourabhjain@linux.ibm.com>
 
-A newly execd address space will inherit the lock status
-if it does not clear the lock bits. Since the lock bits
-remain set, libc will later fail to enable the landing
-pad and shadow stack.
+During a memory hot-remove event, the elfcorehdr is rebuilt to exclude
+the removed memory. While updating the crash memory ranges for this
+operation, the crash memory ranges array can become unsorted. This
+happens because remove_mem_range() may split a memory range into two
+parts and append the higher-address part as a separate range at the end
+of the array.
 
-Signed-off-by: Zong Li <zong.li@sifive.com>
+So far, no issues have been observed due to the unsorted crash memory
+ranges. However, this could lead to problems once crash memory range
+removal is handled by generic code, as introduced in the upcoming
+patches in this series.
+
+Currently, powerpc uses a platform-specific function,
+remove_mem_range(), to exclude hot-removed memory from the crash memory
+ranges. This function performs the same task as the generic
+crash_exclude_mem_range() in crash_core.c. The generic helper also
+ensures that the crash memory ranges remain sorted. So remove the
+redundant powerpc-specific implementation and instead call
+crash_exclude_mem_range_guarded() (which internally calls
+crash_exclude_mem_range()) to exclude the hot-removed memory ranges.
+
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Baoquan he <bhe@redhat.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Hari Bathini <hbathini@linux.ibm.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Mahesh Salgaonkar <mahesh@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Cc: Shivang Upadhyay <shivangu@linux.ibm.com>
+Cc: linux-kernel@vger.kernel.org
+Acked-by: Baoquan He <bhe@redhat.com>
+Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
+ arch/powerpc/include/asm/kexec_ranges.h |  4 +-
+ arch/powerpc/kexec/crash.c              |  5 +-
+ arch/powerpc/kexec/ranges.c             | 87 +------------------------
+ 3 files changed, 7 insertions(+), 89 deletions(-)
 
-Changed in v1:
-- Refining the commit descriptions as suggested by Deepak
-
- arch/riscv/include/asm/usercfi.h |  8 ++++----
- arch/riscv/kernel/process.c      |  2 ++
- arch/riscv/kernel/usercfi.c      | 12 ++++++------
- 3 files changed, 12 insertions(+), 10 deletions(-)
-
-diff --git a/arch/riscv/include/asm/usercfi.h b/arch/riscv/include/asm/usercfi.h
-index 7495baae1e3c..f56966edbf5c 100644
---- a/arch/riscv/include/asm/usercfi.h
-+++ b/arch/riscv/include/asm/usercfi.h
-@@ -39,7 +39,7 @@ void set_active_shstk(struct task_struct *task, unsigned long shstk_addr);
- bool is_shstk_enabled(struct task_struct *task);
- bool is_shstk_locked(struct task_struct *task);
- bool is_shstk_allocated(struct task_struct *task);
--void set_shstk_lock(struct task_struct *task);
-+void set_shstk_lock(struct task_struct *task, bool lock);
- void set_shstk_status(struct task_struct *task, bool enable);
- unsigned long get_active_shstk(struct task_struct *task);
- int restore_user_shstk(struct task_struct *tsk, unsigned long shstk_ptr);
-@@ -47,7 +47,7 @@ int save_user_shstk(struct task_struct *tsk, unsigned long *saved_shstk_ptr);
- bool is_indir_lp_enabled(struct task_struct *task);
- bool is_indir_lp_locked(struct task_struct *task);
- void set_indir_lp_status(struct task_struct *task, bool enable);
--void set_indir_lp_lock(struct task_struct *task);
-+void set_indir_lp_lock(struct task_struct *task, bool lock);
+diff --git a/arch/powerpc/include/asm/kexec_ranges.h b/arch/powerpc/include/asm/kexec_ranges.h
+index 14055896cbcb..ad95e3792d10 100644
+--- a/arch/powerpc/include/asm/kexec_ranges.h
++++ b/arch/powerpc/include/asm/kexec_ranges.h
+@@ -7,7 +7,9 @@
+ void sort_memory_ranges(struct crash_mem *mrngs, bool merge);
+ struct crash_mem *realloc_mem_ranges(struct crash_mem **mem_ranges);
+ int add_mem_range(struct crash_mem **mem_ranges, u64 base, u64 size);
+-int remove_mem_range(struct crash_mem **mem_ranges, u64 base, u64 size);
++int crash_exclude_mem_range_guarded(struct crash_mem **mem_ranges,
++				    unsigned long long mstart,
++				    unsigned long long mend);
+ int get_exclude_memory_ranges(struct crash_mem **mem_ranges);
+ int get_reserved_memory_ranges(struct crash_mem **mem_ranges);
+ int get_crash_memory_ranges(struct crash_mem **mem_ranges);
+diff --git a/arch/powerpc/kexec/crash.c b/arch/powerpc/kexec/crash.c
+index a325c1c02f96..898742a5205c 100644
+--- a/arch/powerpc/kexec/crash.c
++++ b/arch/powerpc/kexec/crash.c
+@@ -431,7 +431,7 @@ static void update_crash_elfcorehdr(struct kimage *image, struct memory_notify *
+ 	struct crash_mem *cmem = NULL;
+ 	struct kexec_segment *ksegment;
+ 	void *ptr, *mem, *elfbuf = NULL;
+-	unsigned long elfsz, memsz, base_addr, size;
++	unsigned long elfsz, memsz, base_addr, size, end;
  
- #define PR_SHADOW_STACK_SUPPORTED_STATUS_MASK (PR_SHADOW_STACK_ENABLE)
+ 	ksegment = &image->segment[image->elfcorehdr_index];
+ 	mem = (void *) ksegment->mem;
+@@ -450,7 +450,8 @@ static void update_crash_elfcorehdr(struct kimage *image, struct memory_notify *
+ 	if (image->hp_action == KEXEC_CRASH_HP_REMOVE_MEMORY) {
+ 		base_addr = PFN_PHYS(mn->start_pfn);
+ 		size = mn->nr_pages * PAGE_SIZE;
+-		ret = remove_mem_range(&cmem, base_addr, size);
++		end = base_addr + size - 1;
++		ret = crash_exclude_mem_range_guarded(&cmem, base_addr, end);
+ 		if (ret) {
+ 			pr_err("Failed to remove hot-unplugged memory from crash memory ranges\n");
+ 			goto out;
+diff --git a/arch/powerpc/kexec/ranges.c b/arch/powerpc/kexec/ranges.c
+index 867135560e5c..6c58bcc3e130 100644
+--- a/arch/powerpc/kexec/ranges.c
++++ b/arch/powerpc/kexec/ranges.c
+@@ -553,7 +553,7 @@ int get_usable_memory_ranges(struct crash_mem **mem_ranges)
+ #endif /* CONFIG_KEXEC_FILE */
  
-@@ -69,7 +69,7 @@ void set_indir_lp_lock(struct task_struct *task);
- 
- #define is_shstk_allocated(task) false
- 
--#define set_shstk_lock(task) do {} while (0)
-+#define set_shstk_lock(task, lock) do {} while (0)
- 
- #define set_shstk_status(task, enable) do {} while (0)
- 
-@@ -79,7 +79,7 @@ void set_indir_lp_lock(struct task_struct *task);
- 
- #define set_indir_lp_status(task, enable) do {} while (0)
- 
--#define set_indir_lp_lock(task) do {} while (0)
-+#define set_indir_lp_lock(task, lock) do {} while (0)
- 
- #define restore_user_shstk(tsk, shstk_ptr) -EINVAL
- 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index aacb23978f93..596662de82e0 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -163,11 +163,13 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
- 	set_shstk_status(current, false);
- 	set_shstk_base(current, 0, 0);
- 	set_active_shstk(current, 0);
-+	set_shstk_lock(current, false);
- 	/*
- 	 * disable indirect branch tracking on exec.
- 	 * libc will enable it later via prctl.
- 	 */
- 	set_indir_lp_status(current, false);
-+	set_indir_lp_lock(current, false);
- 
- #ifdef CONFIG_64BIT
- 	regs->status &= ~SR_UXL;
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index 1adba746f164..9052171c1a8c 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -74,9 +74,9 @@ void set_shstk_status(struct task_struct *task, bool enable)
- 	csr_write(CSR_ENVCFG, task->thread.envcfg);
- }
- 
--void set_shstk_lock(struct task_struct *task)
-+void set_shstk_lock(struct task_struct *task, bool lock)
+ #ifdef CONFIG_CRASH_DUMP
+-static int crash_exclude_mem_range_guarded(struct crash_mem **mem_ranges,
++int crash_exclude_mem_range_guarded(struct crash_mem **mem_ranges,
+ 					   unsigned long long mstart,
+ 					   unsigned long long mend)
  {
--	task->thread_info.user_cfi_state.ubcfi_locked = 1;
-+	task->thread_info.user_cfi_state.ubcfi_locked = lock;
+@@ -641,89 +641,4 @@ int get_crash_memory_ranges(struct crash_mem **mem_ranges)
+ 		pr_err("Failed to setup crash memory ranges\n");
+ 	return ret;
  }
- 
- bool is_indir_lp_enabled(struct task_struct *task)
-@@ -104,9 +104,9 @@ void set_indir_lp_status(struct task_struct *task, bool enable)
- 	csr_write(CSR_ENVCFG, task->thread.envcfg);
- }
- 
--void set_indir_lp_lock(struct task_struct *task)
-+void set_indir_lp_lock(struct task_struct *task, bool lock)
- {
--	task->thread_info.user_cfi_state.ufcfi_locked = 1;
-+	task->thread_info.user_cfi_state.ufcfi_locked = lock;
- }
- /*
-  * If size is 0, then to be compatible with regular stack we want it to be as big as
-@@ -452,7 +452,7 @@ int arch_lock_shadow_stack_status(struct task_struct *task,
- 	    !is_shstk_enabled(task) || arg != 0)
- 		return -EINVAL;
- 
--	set_shstk_lock(task);
-+	set_shstk_lock(task, true);
- 
- 	return 0;
- }
-@@ -502,7 +502,7 @@ int arch_lock_indir_br_lp_status(struct task_struct *task,
- 	    !is_indir_lp_enabled(task) || arg != 0)
- 		return -EINVAL;
- 
--	set_indir_lp_lock(task);
-+	set_indir_lp_lock(task, true);
- 
- 	return 0;
- }
+-
+-/**
+- * remove_mem_range - Removes the given memory range from the range list.
+- * @mem_ranges:    Range list to remove the memory range to.
+- * @base:          Base address of the range to remove.
+- * @size:          Size of the memory range to remove.
+- *
+- * (Re)allocates memory, if needed.
+- *
+- * Returns 0 on success, negative errno on error.
+- */
+-int remove_mem_range(struct crash_mem **mem_ranges, u64 base, u64 size)
+-{
+-	u64 end;
+-	int ret = 0;
+-	unsigned int i;
+-	u64 mstart, mend;
+-	struct crash_mem *mem_rngs = *mem_ranges;
+-
+-	if (!size)
+-		return 0;
+-
+-	/*
+-	 * Memory range are stored as start and end address, use
+-	 * the same format to do remove operation.
+-	 */
+-	end = base + size - 1;
+-
+-	for (i = 0; i < mem_rngs->nr_ranges; i++) {
+-		mstart = mem_rngs->ranges[i].start;
+-		mend = mem_rngs->ranges[i].end;
+-
+-		/*
+-		 * Memory range to remove is not part of this range entry
+-		 * in the memory range list
+-		 */
+-		if (!(base >= mstart && end <= mend))
+-			continue;
+-
+-		/*
+-		 * Memory range to remove is equivalent to this entry in the
+-		 * memory range list. Remove the range entry from the list.
+-		 */
+-		if (base == mstart && end == mend) {
+-			for (; i < mem_rngs->nr_ranges - 1; i++) {
+-				mem_rngs->ranges[i].start = mem_rngs->ranges[i+1].start;
+-				mem_rngs->ranges[i].end = mem_rngs->ranges[i+1].end;
+-			}
+-			mem_rngs->nr_ranges--;
+-			goto out;
+-		}
+-		/*
+-		 * Start address of the memory range to remove and the
+-		 * current memory range entry in the list is same. Just
+-		 * move the start address of the current memory range
+-		 * entry in the list to end + 1.
+-		 */
+-		else if (base == mstart) {
+-			mem_rngs->ranges[i].start = end + 1;
+-			goto out;
+-		}
+-		/*
+-		 * End address of the memory range to remove and the
+-		 * current memory range entry in the list is same.
+-		 * Just move the end address of the current memory
+-		 * range entry in the list to base - 1.
+-		 */
+-		else if (end == mend)  {
+-			mem_rngs->ranges[i].end = base - 1;
+-			goto out;
+-		}
+-		/*
+-		 * Memory range to remove is not at the edge of current
+-		 * memory range entry. Split the current memory entry into
+-		 * two half.
+-		 */
+-		else {
+-			size = mem_rngs->ranges[i].end - end + 1;
+-			mem_rngs->ranges[i].end = base - 1;
+-			ret = add_mem_range(mem_ranges, end + 1, size);
+-		}
+-	}
+-out:
+-	return ret;
+-}
+ #endif /* CONFIG_CRASH_DUMP */
 -- 
-2.43.7
+2.34.1
 
 
 _______________________________________________
