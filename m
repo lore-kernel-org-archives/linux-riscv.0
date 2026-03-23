@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E24D58CBE
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 04:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B36D58CB1
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 06:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/12KKAPew6RDAceBrwPhAjWTcNGqOSeKNGR1okhdZvE=; b=Hso/VDVRYhKzQ+
-	TFor/79LepL16SUE9mTB+nv2A6rfj+tyfCf0NclqIUaVixN/CrMR4tpykm3jnXdcKMn+n56YUw/Nh
-	gtDTxkv44FzSOkULLgZmJNHYSWvVBzsub49vrElpMUOKPACadkPrApuZpXjuAPV8ThpxYQcDkgmrF
-	43s3UUsNzebZ49SEVyImTFaURaVVsGYxYm5tkogcB7NQlt0VBV+OJN4iZVRH094Ry6IX45zQJED+8
-	gvt4YShiqG9LPuya+P6XSklyxB5hQHJ1whZltZP8T5Gw3xBNTgF2Dje3QR0VhWVcxzKDik9xfRTjy
-	pIGPSDB800xppHLkg65g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qVcz1vJap3dtZ2ETETyBvUXNWeCWcYHdDtLw4IHngbk=; b=pXIQ40JNLp3LYc
+	HQnLJv79zdAwtJXROL16dFYINxkwRJzbl2eArQgKLltfCuRrXFdRpqR1h4Imd1HvKn1Ni5Ku1Pp1y
+	wwJZ0vN6F1P5+Jkbcehe2CZxedL+jLPIMkQlGaq9rA7cR3gaIbovZqXNuwRWKSjT/bgG7IPVKJVcN
+	C59KEe3Jv4Pr+YdG3dIh5c8BNdHAw8P1QIf5HborL1Ra4htQIak0BdcmncXf5I6Y8Z0DGMNRmLllH
+	UFiArototUI9VF1zRCvkpbV3/a3lMduTH7TwsAwrQOTnTatkFDt3Zwvh7h89yTDh7Of0vquHEkANT
+	h4TNL8gN++z4+sIa1nkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4WYi-0000000FyiE-0HvP;
-	Mon, 23 Mar 2026 04:06:32 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1w4Ypv-0000000G8E3-1qw3;
+	Mon, 23 Mar 2026 06:32:27 +0000
+Received: from [218.30.115.80] (helo=mail115-80.sinamail.sina.com.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4WYf-0000000Fyht-15eW
+	id 1w4Ypq-0000000G8AS-3euJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Mar 2026 04:06:30 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-79a2ee65171so21325847b3.2
-        for <linux-riscv@lists.infradead.org>; Sun, 22 Mar 2026 21:06:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1774238788; x=1774843588; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=CE+AGCF2MuXLVsZ+yjsvQBn30B0qx2f1EamJgwm3EgI=;
-        b=QXmfnbGf8I9fMLrqjsThRkvY/pQn0jvQlweAK0x6xNG1+P0wtCx9ybpIdP6A3AV0CR
-         J6paHNPpxURBAFwMV0L6kLayDH2kI7meBFJK0tm2bPnWC1umhvIKGl5i0fHUXEYnRkag
-         zKU4A9lrazuFctqnu90i+nsZ6+ztoo+jg02sWZ7h6V+sZRjVxAVk15zA3kgLYtTFYiDR
-         8rOiaBORxRMHQn75h6QSIuwwjsN0s9p08CfH/9TfIh5URzEfHpP8p+SepJdYU2cYXs/s
-         Z8YtwBHeEjSCX4UeY74sECRx36phKLNAh1JYON/GvIBgtikthzQdXy/Bi30+WNgVZcO0
-         IHoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774238788; x=1774843588;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CE+AGCF2MuXLVsZ+yjsvQBn30B0qx2f1EamJgwm3EgI=;
-        b=ZUILdbMR7uWrORIqI9ihoW7SoFRZ1bZ808EmeJ11Rq5mbvWitazgipVGu5Pr4J4xjG
-         yjD8sgls4DBbrqwJCNNEV5E71S+lgjNNqnYLYvpFHITe4nnAV3/tR+qJtngLlgQrJxe3
-         cetDpS7TlEmTXim1tlxOfhN+X+86A1TxcClxiVVyzGUMeOdY+WnDmbRuOiZXDljxywsN
-         KgkiF+pe+JJ/z2FVWiAcxdA9ln6+44ZpV8F7Gqf4byJbaTHx7GvjOPkf5B04DYQQnMA1
-         wTBC+3ZIGe0aUEqBVwCuo9oA3ClkO8clDYMa/RBk74KZuj+z+519cJAtEtg3FzMpWOBB
-         R+Aw==
-X-Forwarded-Encrypted: i=1; AJvYcCXv47mCyoqOKxuMJG5nd4kzHcTreKj9s2mcxL4pFPuT5F75XXfGUmEqQmQUPGVL9kgJDPDGOYI/8vmslw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzx8qhyn7004DiDHy45iM/WG0NXjsjrbNVqRP1evnHsYLO1jAJl
-	5FGnHet4cQDdDyAN4YXbJKl/4ey6LNzfrcxsFfsyF5TGUtZ3f/AqK0PKst3QKQXAHGc=
-X-Gm-Gg: ATEYQzzknLz0/XktEZXeGsiWnSA9lT7L73o2ofnEl8FY8lPB2XHPXkZvpKF4Gp0isEi
-	/QIYem+K9RlLn0oMWbeqfQMbUH/THa+nT/OEWptX3g0Ee+OVbsGZb2b76TmqdJ1OWmkQHsjDFHQ
-	lbjtiHFxA7crANTwVfugfiDxwhoW6sRdWaIM+jHCCBa3vsiIewTOKd0pU2rz/dhuCAnvkL49ZRC
-	2bgJQ9QPQbYHxudPBXg/0cSqg7Sp3gJsKhVoSF27riNnk/eiaD1N+M357VePZf4ISUbXp+Mg3lw
-	r+LmXZqrsOlQ5BQAZEAQVny5PutrActyzMgDK1Nc/3SWheadsggyb5COAPlnIE6ST0MpFg+ctya
-	yUJKFkS5D6hwtGW+RDNjVZTiEesF+W8yUq5LKFnv1wQMMYMzgIWE7aIRwMFw9AJXhhKlMVrRlJg
-	mrk/ZdDIgz528ATT+Yu2Gcp3h8fg==
-X-Received: by 2002:a05:690c:8:b0:79a:ba98:9b7f with SMTP id 00721157ae682-79aba98a71fmr6480097b3.58.1774238787747;
-        Sun, 22 Mar 2026 21:06:27 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.102.252])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-79a903a33acsm52232707b3.3.2026.03.22.21.06.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Mar 2026 21:06:27 -0700 (PDT)
-Message-ID: <e0357439-08f7-4bbd-bdac-f525c6805570@sifive.com>
-Date: Sun, 22 Mar 2026 23:06:25 -0500
+	Mon, 23 Mar 2026 06:32:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sina.cn; s=201208; t=1774247543;
+	bh=w/6QTn2RrWbgNuU6QaGGcFWM01G6XO+tMUvHhd4TYjY=;
+	h=From:Subject:Date:Message-Id;
+	b=puzK6tzY07icD22ddXeQyRX1x/Jx35ozbZdbc6dc3o77W+ubHf0GsPik79WCwOeDS
+	 L8+8LhPH9xehjyRUbM8Kz0pQTZCvE1cGGyvrvrFiRUKIMKJsDMXUB+QvfQr1fwOzPK
+	 ooL0mysds5d7+/3q5rcnC9Tcijhaek0qpdYJ0U10=
+X-SMAIL-HELO: NTT-kernel-dev
+Received: from unknown (HELO NTT-kernel-dev)([60.247.85.88])
+	by sina.cn (10.185.250.23) with ESMTP
+	id 69C0DE330000165C; Mon, 23 Mar 2026 14:31:19 +0800 (CST)
+X-Sender: jianqkang@sina.cn
+X-Auth-ID: jianqkang@sina.cn
+Authentication-Results: sina.cn;
+	 spf=none smtp.mailfrom=jianqkang@sina.cn;
+	 dkim=none header.i=none;
+	 dmarc=none action=none header.from=jianqkang@sina.cn
+X-SMAIL-MID: 6027208913430
+X-SMAIL-UIID: F608F980582B4633BEBF41786CA6AB3D-20260323-143119-1
+From: Jianqiang kang <jianqkang@sina.cn>
+To: gregkh@linuxfoundation.org,
+	stable@vger.kernel.org,
+	zhangchunyan@iscas.ac.cn
+Cc: patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	xujiakai2025@iscas.ac.cn,
+	linux-riscv@lists.infradead.org,
+	pjw@kernel.org
+Subject: [PATCH 6.1.y] riscv: stacktrace: Disable KASAN checks for non-current tasks
+Date: Mon, 23 Mar 2026 14:31:14 +0800
+Message-Id: <20260323063115.3555043-1-jianqkang@sina.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is not set
-To: Zishun Yi <vulab@iscas.ac.cn>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Deepak Gupta <debug@rivosinc.com>,
- Zong Li <zong.li@sifive.com>, Thomas Gleixner <tglx@kernel.org>,
- Charlie Jenkins <charlie@rivosinc.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?=
- <cleger@rivosinc.com>, Nam Cao <namcao@linutronix.de>,
- Simon Schuster <schuster.simon@siemens-energy.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260322160022.21908-1-vulab@iscas.ac.cn>
-Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20260322160022.21908-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_210629_324478_BEB50CF5 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20260322_233223_816718_3CB3C893 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +81,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-22 11:00 AM, Zishun Yi wrote:
-> In set_tagged_addr_ctrl(), when PR_TAGGED_ADDR_ENABLE is not set, pmlen
-> is correctly set to 0, but it forgets to reset pmm. This results in the
-> CPU pmm state not corresponding to the software pmlen state.
-> 
-> Fix this by resetting pmm along with pmlen.
-> 
-> Fixes: 2e1743085887 ("riscv: Add support for the tagged address ABI")
-> Signed-off-by: Zishun Yi <vulab@iscas.ac.cn>
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 
-Thanks for the fix!
+[ Upstream commit 060ea84a484e852b52b938f234bf9b5503a6c910 ]
 
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Unwinding the stack of a task other than current, KASAN would report
+"BUG: KASAN: out-of-bounds in walk_stackframe+0x41c/0x460"
 
-> ---
->  arch/riscv/kernel/process.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index aacb23978f93..5957effab57c 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -347,8 +347,10 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
->  	if (arg & PR_TAGGED_ADDR_ENABLE && (tagged_addr_disabled || !pmlen))
->  		return -EINVAL;
->  
-> -	if (!(arg & PR_TAGGED_ADDR_ENABLE))
-> +	if (!(arg & PR_TAGGED_ADDR_ENABLE)) {
->  		pmlen = PMLEN_0;
-> +		pmm = ENVCFG_PMM_PMLEN_0;
-> +	}
->  
->  	if (mmap_write_lock_killable(mm))
->  		return -EINTR;
+There is a same issue on x86 and has been resolved by the commit
+84936118bdf3 ("x86/unwind: Disable KASAN checks for non-current tasks")
+The solution could be applied to RISC-V too.
+
+This patch also can solve the issue:
+https://seclists.org/oss-sec/2025/q4/23
+
+Fixes: 5d8544e2d007 ("RISC-V: Generic library routines and assembly")
+Co-developed-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Link: https://lore.kernel.org/r/20251022072608.743484-1-zhangchunyan@iscas.ac.cn
+[pjw@kernel.org: clean up checkpatch issues]
+Signed-off-by: Paul Walmsley <pjw@kernel.org>
+[ Minor conflict resolved. ]
+Signed-off-by: Jianqiang kang <jianqkang@sina.cn>
+---
+ arch/riscv/kernel/stacktrace.c | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 10e311b2759d..4f78b7962651 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -16,6 +16,22 @@
+ 
+ #ifdef CONFIG_FRAME_POINTER
+ 
++/*
++ * This disables KASAN checking when reading a value from another task's stack,
++ * since the other task could be running on another CPU and could have poisoned
++ * the stack in the meantime.
++ */
++#define READ_ONCE_TASK_STACK(task, x)			\
++({							\
++	unsigned long val;				\
++	unsigned long addr = x;				\
++	if ((task) == current)				\
++		val = READ_ONCE(addr);			\
++	else						\
++		val = READ_ONCE_NOCHECK(addr);		\
++	val;						\
++})
++
+ extern asmlinkage void ret_from_exception(void);
+ 
+ static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+@@ -68,8 +84,9 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 			fp = frame->ra;
+ 			pc = regs->ra;
+ 		} else {
+-			fp = frame->fp;
+-			pc = ftrace_graph_ret_addr(current, &graph_idx, frame->ra,
++			fp = READ_ONCE_TASK_STACK(task, frame->fp);
++			pc = READ_ONCE_TASK_STACK(task, frame->ra);
++			pc = ftrace_graph_ret_addr(current, &graph_idx, pc,
+ 						   &frame->ra);
+ 			if (pc == (unsigned long)ret_from_exception) {
+ 				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
+-- 
+2.34.1
 
 
 _______________________________________________
