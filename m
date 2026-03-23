@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D67D58CBE
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 01:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E36D58CB0
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 01:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lkmahLWQbd+t6ljjOfbe3uNAPak4s44a+AU062dXB6Q=; b=DaMwVu8SY6X2uY
-	nEYqxlgjoI69zlSTShsSIs5kcvSTCH4PNiP7q3DrLovNyz1XTF31bg80V4FppjVeYT/6/S/YuiJVt
-	/2iIsTMHfJuoq38jgfprBqytKpbtNM4BjtSjehmz/fSusNCzBf4gW44f1Yo0ZP2/OXt3Qk0QO+KZd
-	xDzRWv/PslnhHNf6C2Temy0O+L9OulmSm6Dmg0sv0tMH4LaW11j9pXMX1jjCMNe9u2PeyoSI013JM
-	rCs7zXFP2tl95zRIVfmdpXAGLy/u9SHLHOTZMUbQGsgtnuCvWsajeJRi18IS8HEMiz1oMIVVUliE9
-	YDNoKenKVWfZ1XKHwV1Q==;
+	List-Owner; bh=tDEnmMlmo299GXh/kiO0/QkZvwqCsOJJ9orYeueXJog=; b=ggsxJ/39fSNAQc
+	1s2/4IZ5eGQ9LJeF2cZ7M/VOxY0c7KmfKxxAVd1UFLd6tuRC6wLu6Blo+xS39ZPBjGKifqg0b8rYK
+	1rw/JNeTrwwT3uk9PDSAsZ+92/Be18IqztJ4Im/vXzr98zJFvjOcWuIEhCUzCpNGmjvKviMUifAH3
+	BjrU5H+SkTeRU7OmlK4ObPEd1QVyK4V+aV1I8JP7wR1i1B0H4xIdgpH3JdkcCV4nIb9qwbSKOi8H0
+	h2mmo01WTtIXvj+Ji8/Cjjjx51nlsEhOaJUy0V8oEdjd/in+zki5u649m/sl2mumPqVJR6I/pfluS
+	fY+CGhsn+EKJYDQ1qClA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ULV-0000000FqtS-0Ii8;
-	Mon, 23 Mar 2026 01:44:45 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1w4UYm-0000000FsQV-2VDq;
+	Mon, 23 Mar 2026 01:58:28 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ULQ-0000000Fqsi-2fzA;
-	Mon, 23 Mar 2026 01:44:42 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=pSMsxgVPNUNI/+qvUNa5KlapyBTF883qZfslgr8BRmc=;
-	b=APNd9D7y2JNHp4D4QOOD++LuCQoXp2QHGLVpl/YYZBBISWJ4nCvGXpi11BSZy4k87VAZexJaK
-	DmZQwZXpcskLul5yIs2ECY31UOgkgDmF+7RBLtrOpvZZtNV6++VEVf15kNxt/OZz+Dny78134bp
-	B+Weax2Qis1460o5BUYRBJI=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4ffG5q0HjQzRhRZ;
-	Mon, 23 Mar 2026 09:38:23 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3283840567;
-	Mon, 23 Mar 2026 09:44:27 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 23 Mar 2026 09:44:22 +0800
-Message-ID: <ce99a024-f910-cd83-c60a-28e60db318d3@huawei.com>
-Date: Mon, 23 Mar 2026 09:44:21 +0800
+	id 1w4UYi-0000000FsQ9-20K4
+	for linux-riscv@lists.infradead.org;
+	Mon, 23 Mar 2026 01:58:27 +0000
+Received: from [10.213.22.113] (unknown [210.73.43.101])
+	by APP-03 (Coremail) with SMTP id rQCowACXueAtnsBp4nSBCw--.51109S2;
+	Mon, 23 Mar 2026 09:58:06 +0800 (CST)
+Message-ID: <347c918e-6682-455c-ba08-096d9b7b89e4@iscas.ac.cn>
+Date: Mon, 23 Mar 2026 09:58:05 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v8 0/5] arm64/riscv: Add support for crashkernel CMA
- reservation
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: patch: Avoid early page_to_phys()
+To: Paul Walmsley <pjw@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, "Mike Rapoport (Microsoft)"
+ <rppt@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+References: <20260310-riscv-sparsemem-alternatives-fix-v1-1-659d5dd257e2@iscas.ac.cn>
+ <6ec5d4d4-f171-d41b-2705-a051bcb794e9@kernel.org>
 Content-Language: en-US
-To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
-	<dyoung@redhat.com>, <rdunlap@infradead.org>, <pmladek@suse.com>,
-	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <paulmck@kernel.org>,
-	<lirongqing@baidu.com>, <fvdl@google.com>, <rppt@kernel.org>,
-	<ardb@kernel.org>, <leitao@debian.org>, <sourabhjain@linux.ibm.com>,
-	<jbohac@suse.cz>, <cfsworks@gmail.com>, <osandov@fb.com>,
-	<tangyouling@kylinos.cn>, <ritesh.list@gmail.com>, <hbathini@linux.ibm.com>,
-	<eajames@linux.ibm.com>, <songshuaishuai@tinylab.org>,
-	<kevin.brodsky@arm.com>, <samuel.holland@sifive.com>,
-	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
-	<liaoyuanhong@vivo.com>, <fuqiang.wang@easystack.cn>, <brgerst@gmail.com>,
-	<x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-References: <20260302035315.3892241-1-ruanjinjie@huawei.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260302035315.3892241-1-ruanjinjie@huawei.com>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <6ec5d4d4-f171-d41b-2705-a051bcb794e9@kernel.org>
+X-CM-TRANSID: rQCowACXueAtnsBp4nSBCw--.51109S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZF1xur1DJr1rWFyDCw1Dtrb_yoW8Crykpa
+	yfua1rKFyFqr48JwnFyw18ZFWUWrsY9rWrWF1Iqrn8Z34jvw40vrn293y7ua47Aw1kK3yj
+	ya13ZFyYv3WDZ37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvjb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxkF7I0En4kS14v26r1q6r43MxkI
+	ecxEwVAFwVWkMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8
+	ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUgp
+	nQDUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_184441_403209_C77CB856 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260322_185824_894041_8E49F2EB 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,83 +79,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-If there are no other review comments, I'd like to ask if this is ready
-to be merged.
-
-On 2026/3/2 11:53, Jinjie Ruan wrote:
-> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
-> and crashk_cma memory are almost identical across different architectures,
-> This patch set handle them in crash core in a general way, which eliminate
-> a lot of duplication code.
-> 
-> And add support for crashkernel CMA reservation for arm64 and riscv.
-> 
-> Rebased on v7.0-rc1.
-> 
-> Basic second kernel boot test were performed on QEMU platforms for x86,
-> ARM64, and RISC-V architectures with the following parameters:
-> 
-> 	"cma=256M crashkernel=256M crashkernel=64M,cma"
-> 
-> Changes in v8:
-> - Fix the build issues reported by kernel test robot and Sourabh.
-> - Link to v7: https://lore.kernel.org/all/20260226130437.1867658-1-ruanjinjie@huawei.com/
-> 
-> Changes in v7:
-> - Correct the inclusion of CMA-reserved ranges for kdump kernel in of/kexec
->   for arm64 and riscv.
-> - Add Acked-by.
-> - Link to v6: https://lore.kernel.org/all/20260224085342.387996-1-ruanjinjie@huawei.com/
-> 
-> Changes in v6:
-> - Update the crash core exclude code as Mike suggested.
-> - Rebased on v7.0-rc1.
-> - Add acked-by.
-> - Link to v5: https://lore.kernel.org/all/20260212101001.343158-1-ruanjinjie@huawei.com/
-> 
-> Changes in v5:
-> - Fix the kernel test robot build warnings.
-> - Sort crash memory ranges before preparing elfcorehdr for powerpc
-> - Link to v4: https://lore.kernel.org/all/20260209095931.2813152-1-ruanjinjie@huawei.com/
-> 
-> Changes in v4:
-> - Move the size calculation (and the realloc if needed) into the
->   generic crash.
-> - Link to v3: https://lore.kernel.org/all/20260204093728.1447527-1-ruanjinjie@huawei.com/
-> 
-> Jinjie Ruan (4):
->   crash: Exclude crash kernel memory in crash core
->   crash: Use crash_exclude_core_ranges() on powerpc
->   arm64: kexec: Add support for crashkernel CMA reservation
->   riscv: kexec: Add support for crashkernel CMA reservation
-> 
-> Sourabh Jain (1):
->   powerpc/crash: sort crash memory ranges before preparing elfcorehdr
-> 
->  .../admin-guide/kernel-parameters.txt         |  16 +--
->  arch/arm64/kernel/machine_kexec_file.c        |  39 +++----
->  arch/arm64/mm/init.c                          |   5 +-
->  arch/loongarch/kernel/machine_kexec_file.c    |  39 +++----
->  arch/powerpc/include/asm/kexec_ranges.h       |   1 -
->  arch/powerpc/kexec/crash.c                    |   5 +-
->  arch/powerpc/kexec/ranges.c                   | 101 +-----------------
->  arch/riscv/kernel/machine_kexec_file.c        |  38 +++----
->  arch/riscv/mm/init.c                          |   5 +-
->  arch/x86/kernel/crash.c                       |  89 +++------------
->  drivers/of/fdt.c                              |   9 +-
->  drivers/of/kexec.c                            |   9 ++
->  include/linux/crash_core.h                    |   9 ++
->  kernel/crash_core.c                           |  89 ++++++++++++++-
->  14 files changed, 178 insertions(+), 276 deletions(-)
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW5kcmV3IGFuZCBQYXVsLAoKT24gMy8xOS8yNiAwMTo0MiwgUGF1bCBXYWxtc2xleSB3cm90
+ZToKPiBPbiBUdWUsIDEwIE1hciAyMDI2LCBWaXZpYW4gV2FuZyB3cm90ZToKPgo+PiBTaW1pbGFy
+bHkgdG8gY29tbWl0IDhkMDllMmQ1NjlmNiAoImFybTY0OiBwYXRjaGluZzogYXZvaWQgZWFybHkK
+Pj4gcGFnZV90b19waHlzKCkiKSwgYXZvaWQgdXNpbmcgcGh5c190b19wYWdlKCkgZm9yIHRoZSBr
+ZXJuZWwgYWRkcmVzcyBjYXNlCj4+IGluIHBhdGNoX21hcCgpLgo+Pgo+PiBTaW5jZSB0aGlzIGlz
+IGNhbGxlZCBmcm9tIGFwcGx5X2Jvb3RfYWx0ZXJuYXRpdmVzKCkgaW4gc2V0dXBfYXJjaCgpLCBh
+bmQKPj4gY29tbWl0IDQyNjc3MzljYWJiOCAoImFyY2gsIG1tOiBjb25zb2xpZGF0ZSBpbml0aWFs
+aXphdGlvbiBvZiBTUEFSU0UKPj4gbWVtb3J5IG1vZGVsIikgaGFzIG1vdmVkIHNwYXJzZV9pbml0
+KCkgdG8gYWZ0ZXIgc2V0dXBfYXJjaCgpLAo+PiBwaHlzX3RvX3BhZ2UoKSBpcyBub3QgYXZhaWxh
+YmxlIHRoZXJlIHlldCwgYW5kIGl0IHBhbmljcyBvbiBib290IHdpdGgKPj4gU1BBUlNFTUVNIG9u
+IFJWMzIsIHdoaWNoIGRvZXMgbm90IHVzZSBTUEFSU0VNRU1fVk1FTU1BUC4KPj4KPj4gUmVwb3J0
+ZWQtYnk6IFRob21hcyBXZWnDn3NjaHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRl
+Pgo+PiBDbG9zZXM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNjAyMjMxNDQxMDgtZGNh
+Y2UwYjktMDJlOC00YjY3LWE3Y2UtZjI2M2JlZDM2ZjI2QGxpbnV0cm9uaXguZGUvCj4+IEZpeGVz
+OiA0MjY3NzM5Y2FiYjggKCJhcmNoLCBtbTogY29uc29saWRhdGUgaW5pdGlhbGl6YXRpb24gb2Yg
+U1BBUlNFIG1lbW9yeSBtb2RlbCIpCj4+IFN1Z2dlc3RlZC1ieTogTWlrZSBSYXBvcG9ydCA8cnBw
+dEBrZXJuZWwub3JnPgo+PiBTaWduZWQtb2ZmLWJ5OiBWaXZpYW4gV2FuZyA8d2FuZ3J1aWthbmdA
+aXNjYXMuYWMuY24+Cj4gVGhhbmtzLCBxdWV1ZWQgZm9yIHY3LjAtcmMuCgpJIGhhdmUgb25seSBq
+dXN0IG5vdGljZWQgdGhhdCB0aGlzIHBhdGNoIHdhcyBjb21taXRlZCB0byBib3RoCm1tLWhvdGZp
+eGVzLXN0YWJsZSBbMV0gYnkgQW5kcmV3IGFuZCByaXNjdiBmaXhlcyBbMl0gYnkgUGF1bC4gSXMg
+dGhpcwppbnRlbmRlZD8KCldoaWxlIHdlJ3JlIGF0IGl0LCBQYXVsJ3Mgc3ViamVjdCBjb3JyZWN0
+aW9uIGlzIGNvcnJlY3QgLSBpdCBzaG91bGQgaGF2ZQpzYWlkIHBoeXNfdG9fcGFnZSgpLCBub3Qg
+cGFnZV90b19waHlzKCkuIE5vdCB0aGF0IEkgY2FuIGJsYW1lIHRoaXMgb24KYW55b25lIGVsc2Us
+IGJ1dCBhcHBhcmVudGx5IEkgd3JvdGUgaXQgd2hpbGUgbG9va2luZyBhdCB0aGUgYXJtNjQgY29t
+bWl0CndpdGhvdXQgbm90aWNpbmcuCgpUaGFua3MgYW5kIHNvcnJ5IGZvciB0aGUgaG9wZWZ1bGx5
+IG1pbm9yIGluY29udmVuaWVuY2UuCgpWaXZpYW4gImRyYW1mb3JldmVyIiBXYW5nCgpbMV06IGh0
+dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2FrcG0vbW0uZ2l0
+L2NvbW1pdC8/aD1tbS1ob3RmaXhlcy1zdGFibGUmaWQ9YWM1ZjJjMTI1NmVkZThiMGFjYjI2NjFm
+NjQ0MTUzMGQ1M2Q4ZjEyNgpbMl06IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51
+eC9rZXJuZWwvZ2l0L3Jpc2N2L2xpbnV4LmdpdC9jb21taXQvP2g9Zml4ZXMmaWQ9M2E4NzY1MDFm
+ZDlhYWFlOTg0NTAyNmYwNDYzNzljOTUwNzM2NWJiNQoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
