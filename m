@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70712F483EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC0DF483ED
 	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 19:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NpdRZFrk2EXso5OsE++OBlmXDaeg+D1xypFVZO/GJvw=; b=jICUok2y5Ltm7a
-	jhuyTJ9RIPFH66u047Gr6WbIYbKq0mn4fpSRF/IGNdoPIE0k2u0iVTnVXyYikeU7wOtfnqQA4RNnv
-	+mnnqiRlE4uha8w1AJlc67zvSJQYGOt453NL/cOqo0ShIGf+WxewRblPSkZKm9xYv/C+9Hs3D1B5n
-	uJ74qO7RgIWForqwLsZB/oo5rNa1kUJRpJM1slsZbJ5lgGgPPGa4YZokdp0i1jBuV87KPO3uQ607X
-	NfHOIQN/Tffc1s6Ol1N9wtl7Fd+AVHuBL3si35k6slv9CDjJv92dOZIJX4nOrS8uspANXUJUQkM6U
-	+BeOvQhu5uVHfGlylBlw==;
+	List-Owner; bh=QW+1AZDgKvVeFAq05XHJJpZsVqDHScWcPPtotq/3los=; b=h0BMQas7PY8iuF
+	tby1suTv0Z+gqAa9BMKGP6joOwadcIvghEDh67FOfgs9CC431ZKvshRYh6A+RczQS5A5/8MGKaXkr
+	czx+kEsa4UzVu5PP7UgZq5cBqbiHgs2T+AP69VUL/yxaKCiEBRss627+WYYRKA0vZ9CgKeQv8SDN+
+	wDlaKIaqx9Tb7AqHm6KoWO2PgOeRFxE7ZVOnBzT4jkw/tnYkxTli4NK+mQxihIduf03Ee8p5OVMmx
+	vnUuz+7xVD25UPseK4kS18sfbbh9l6pV01wmLnsTUBm2Bp1DntUy0Inq+925BA902MIwYeLZrxwiO
+	vT2AUhDOLoi8+Se7/zRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lJ1-0000000HVZu-1zb2;
-	Mon, 23 Mar 2026 19:51:19 +0000
+	id 1w4lJ0-0000000HVZB-3XZl;
+	Mon, 23 Mar 2026 19:51:18 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jVH-0000000HHjO-31RZ;
-	Mon, 23 Mar 2026 17:55:52 +0000
+	id 1w4jRZ-0000000HGoe-2F3A;
+	Mon, 23 Mar 2026 17:52:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D9014177A;
-	Mon, 23 Mar 2026 17:55:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A54FC2BCB0;
-	Mon, 23 Mar 2026 17:55:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D035D407AA;
+	Mon, 23 Mar 2026 17:52:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D040BC4CEF7;
+	Mon, 23 Mar 2026 17:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774288551;
-	bh=VbCHYIuEB3QD6Shd9lNFnvrZhPFSCzFNxS26OEzV4YQ=;
+	s=k20201202; t=1774288320;
+	bh=5hK0lEzqKpD6B7ugeP6Y6wm+od5B652rwYVrsebBxYw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EH+kk9F4cET+6hBw+hfgT1O7mgwe2YVYpi8ON4Hlqv3UBhAP+D7aSImBMsunnA01j
-	 yXqborcZqNAgukb+/+AAioUQf9oJZXLqF5hly5DXoOzydpkwkZSqQ85B+tSp1xo7JT
-	 HYDKHEL95p8nIWwf6mEuq0/D+KciFk1I8OcDuoXSk4lC7gqvvYxeHgML63sAromxSY
-	 f2JqjC5lFuuzOgwPnO6R5Y8bHVGb/8KMbvUuq0JuIhtm6NDya0gZmeuFVD4dYBTF9y
-	 NmC57B/yOKTlM/7Rkzld0yyndRA4qk40CIOpFo0H+rpWeYk3SULQMJmL6A9sQ+jZjm
-	 bmQVJInFNb7FA==
-Message-ID: <0a14c10d-0dab-4b9c-85ec-e0ee25cd0db8@kernel.org>
-Date: Mon, 23 Mar 2026 18:55:22 +0100
+	b=hRTaRylFaKiULg4U5aE4ktkU7BRuQLdv1usSIlvOyM3oyxczdRVbPv+Pr3eENuc0B
+	 eNT73uQH0QPu3oY+IbPuS1dvOyK2mZihmZ0UpnDjsoN8FJqzyWvG2A0tXjGZiG317m
+	 tbP8sYYAGc0NkxOd7poaHGmvnhf8U6+WFBQ85I1eRmcmFu4ftMRKHaF8L7SIv5/s8c
+	 ZF/oYLz912UjohFG0YBksMiYmu4/SHJUsawsDt9nBkWWWBO4KkprZa8ALqadxd81RG
+	 BgvMsAmxJ9MvZD3XqCHx4Uwwxf7Zu0a7PHi6AjCOgSDlC4eZ5n/FpnMXZI9VnY0H39
+	 pINsESfKgcnZg==
+Message-ID: <54f9b5a7-b8a9-486a-9c12-a910f5287947@kernel.org>
+Date: Mon, 23 Mar 2026 18:51:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 05/16] mm/gup: drop local variable in
- gup_fast_folio_allowed
+Subject: Re: [PATCH v11 02/16] set_memory: add folio_{zap,restore}_direct_map
+ helpers
 To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
  "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
  "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
@@ -65,7 +65,7 @@ To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>,
  "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
 Cc: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "osalvador@suse.de" <osalvador@suse.de>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>
 References: <20260317141031.514-1-kalyazin@amazon.com>
- <20260317141031.514-6-kalyazin@amazon.com>
+ <20260317141031.514-3-kalyazin@amazon.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -112,10 +112,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260317141031.514-6-kalyazin@amazon.com>
+In-Reply-To: <20260317141031.514-3-kalyazin@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_105551_813310_BDC0F969 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20260323_105201_620209_39342DAE 
+X-CRM114-Status: GOOD (  21.86  )
 X-Mailman-Approved-At: Mon, 23 Mar 2026 12:51:17 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -133,65 +133,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/17/26 15:11, Kalyazin, Nikita wrote:
+On 3/17/26 15:10, Kalyazin, Nikita wrote:
 > From: Nikita Kalyazin <kalyazin@amazon.com>
 > 
-> Move the check for pinning closer to where the result is used.
-> No functional changes.
+> Let's provide folio_{zap,restore}_direct_map helpers as preparation for
+> supporting removal of the direct map for guest_memfd folios.
+> In folio_zap_direct_map(), flush TLB to make sure the data is not
+> accessible.
+> 
+> The new helpers need to be accessible to KVM on architectures that
+> support guest_memfd (x86 and arm64).
+> 
+> Direct map removal gives guest_memfd the same protection that
+> memfd_secret does, such as hardening against Spectre-like attacks
+> through in-kernel gadgets.
+
+Maybe mention that there might be a double TLB flush on some
+architectures, but that that is something to figure out later. Same
+behavior in secretmem code where this will be used next.
+
 > 
 > Signed-off-by: Nikita Kalyazin <kalyazin@amazon.com>
 > ---
->  mm/gup.c | 23 ++++++++++++-----------
->  1 file changed, 12 insertions(+), 11 deletions(-)
+>  include/linux/set_memory.h | 13 ++++++++++++
+>  mm/memory.c                | 42 ++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 55 insertions(+)
 > 
-> diff --git a/mm/gup.c b/mm/gup.c
-> index 5856d35be385..869d79c8daa4 100644
-> --- a/mm/gup.c
-> +++ b/mm/gup.c
-> @@ -2737,18 +2737,9 @@ EXPORT_SYMBOL(get_user_pages_unlocked);
->   */
->  static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
->  {
-> -	bool reject_file_backed = false;
->  	struct address_space *mapping;
->  	unsigned long mapping_flags;
+> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
+> index 1a2563f525fc..24caea2931f9 100644
+> --- a/include/linux/set_memory.h
+> +++ b/include/linux/set_memory.h
+> @@ -41,6 +41,15 @@ static inline int set_direct_map_valid_noflush(const void *addr,
+>  	return 0;
+>  }
 >  
-> -	/*
-> -	 * If we aren't pinning then no problematic write can occur. A long term
-> -	 * pin is the most egregious case so this is the one we disallow.
-> -	 */
-> -	if ((flags & (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)) ==
-> -	    (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE))
-> -		reject_file_backed = true;
-> -
->  	/* We hold a folio reference, so we can safely access folio fields. */
->  	if (WARN_ON_ONCE(folio_test_slab(folio)))
->  		return false;
-> @@ -2793,8 +2784,18 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
->  	 */
->  	if (secretmem_mapping(mapping))
->  		return false;
-> -	/* The only remaining allowed file system is shmem. */
-> -	return !reject_file_backed || shmem_mapping(mapping);
+> +static inline int folio_zap_direct_map(struct folio *folio)
+> +{
+> +	return 0;
+
+Should we return -ENOSYS here or similar?
+
+> +}
 > +
-> +	/*
-> +	 * If we aren't pinning then no problematic write can occur. A writable
-> +	 * long term pin is the most egregious case, so this is the one we
-> +	 * allow only for ...
-> +	 */
-> +	if ((flags & (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE)) !=
-> +	    (FOLL_PIN | FOLL_LONGTERM | FOLL_WRITE))
-> +		return true;
+> +static inline void folio_restore_direct_map(struct folio *folio)
+> +{
+> +}
 > +
-> +	/* ... hugetlb (which we allowed above already) and shared memory. */
-> +	return shmem_mapping(mapping);
+>  static inline bool kernel_page_present(struct page *page)
+>  {
+>  	return true;
+> @@ -57,6 +66,10 @@ static inline bool can_set_direct_map(void)
+>  }
+>  #define can_set_direct_map can_set_direct_map
+>  #endif
+> +
+> +int folio_zap_direct_map(struct folio *folio);
+> +void folio_restore_direct_map(struct folio *folio);
+> +
+>  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
+>  
+>  #ifdef CONFIG_X86_64
+> diff --git a/mm/memory.c b/mm/memory.c
+> index 07778814b4a8..cab6bb237fc0 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -78,6 +78,7 @@
+>  #include <linux/sched/sysctl.h>
+>  #include <linux/pgalloc.h>
+>  #include <linux/uaccess.h>
+> +#include <linux/set_memory.h>
+>  
+>  #include <trace/events/kmem.h>
+>  
+> @@ -7478,3 +7479,44 @@ void vma_pgtable_walk_end(struct vm_area_struct *vma)
+>  	if (is_vm_hugetlb_page(vma))
+>  		hugetlb_vma_unlock_read(vma);
+>  }
+> +
+> +#ifdef CONFIG_ARCH_HAS_SET_DIRECT_MAP
+> +/**
+> + * folio_zap_direct_map - remove a folio from the kernel direct map
+> + * @folio: folio to remove from the direct map
+> + *
+> + * Removes the folio from the kernel direct map and flushes the TLB.  This may
+> + * require splitting huge pages in the direct map, which can fail due to memory
+> + * allocation.
+
+Best to mention
+
+"So far, only order-0 folios are supported." and then ...
+
+> + *
+> + * Return: 0 on success, or a negative error code on failure.
+> + */
+> +int folio_zap_direct_map(struct folio *folio)
+> +{
+> +	const void *addr = folio_address(folio);
+> +	int ret;
+> +
+
+if (folio_test_large(folio))
+	return -EINVAL;
+
+
+With that,
 
 Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-
-I'm wondering if it would be a good idea to check for a hugetlb mapping
-here instead of having the folio_test_hugetlb() check above.
-
-Something to ponder about :)
 
 -- 
 Cheers,
