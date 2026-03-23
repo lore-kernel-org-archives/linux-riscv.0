@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B80F483E5
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 19:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5EAF483E9
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 19:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H938tg9gWA+w/7KvVyYrhK4vcWNa0g0NFtreA8tisgQ=; b=hFJRyH3Blx17sD
-	WyWqibpT9ETOTTFkm7yHmA5+wP4l4U+XucvWfUjVYcTN0vye+bytKX+/ZD9zRj1O0vPlyr4I6JFt/
-	lbCMHYrD2tcVJGskXKts7hq2nH682kqCMcQ7zAZLpQSauLPf11W3GdhS9PC/7maWjHokTUV9TKN9w
-	TuKVVZ2CK3R3jDJxu8hxs+9/XaCvlbS6KQqzKCAlZ+vX4JdxsybpWSI7Wtd8vDlmKej9ifeKcJVTy
-	wP/xS9eIed/WB604OV9qnP94aRbk5E3wtqu0GkE2zCek74vZSR0B0mGqiioiP/cLLeFIJDpo3Swec
-	Y3t0PhIr6OpS27PQ0wcQ==;
+	List-Owner; bh=gimudw3Hr6e9rx/fg7ZSXZUH5XKe2d8sD56vkgGCEsA=; b=4v7lrdYLBtLIsQ
+	IdgIc04aR5wg8q4uK1JO4oH6hwZWtzFrF7mbjsTNFtE0oIDZN6TiMMjEFVrxru8oJQIxUCME2lEXZ
+	p0FdfI3qfAcOM/1gORShAXDOehinZROVQ1xS1RYbhdQfycHhdj2L0jceKMnbDYlDNppkSn8vCyM9a
+	x5rF5ZUDFDY+xZZHP3bC3fH1AtYlGveQBzhatuUYlq1RwUGz4WbQgU4Ie3xRidFgnp+miDKdZvKId
+	7OOXoF9lP0sNXNTp/AdHiAugrQqVTCINzDEb4Dtyv7i2cdlPRsTKsfX5LvCtHTKppI4fpEPGeYL3H
+	HaAdUqbutsI2eIy72e+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kcW-0000000HQ0i-0QBl;
-	Mon, 23 Mar 2026 19:07:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4l5R-0000000HSVm-0E8e;
+	Mon, 23 Mar 2026 19:37:17 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kcU-0000000HQ08-3npu;
-	Mon, 23 Mar 2026 19:07:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5147860130;
-	Mon, 23 Mar 2026 19:07:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5743C4CEF7;
-	Mon, 23 Mar 2026 19:07:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774292842;
-	bh=k6BhAGxLMFl7NhzH/eXpQ1O6oylKp7QR8k5ui8nFSuY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pp5aJvVLMskMT+uHs+8toanS07SNVmScgY4HSZwxwVtCMSxkqe/cl1nwC+NrDzzL7
-	 EX7lkaLUhURW2iUOMK2TBztiG09AN+WqeLTQR/m+GqX4uBMt+DSW/QT85CC2TZJBOn
-	 zknjGTx9FBb4/d3pnkvTZ8ywMM4I3mHrtZwsB+HNU8G65s3fTS+JjaijntUWGYtUN6
-	 wA6CtKzZ6NXUOFvyP4Y7xjk8taLp51T06KbQ9eV2zvr4guwBNzUU/gWEPQt58Ok7fO
-	 O/rRVxRvASHHvTOEJj65e4zOQZd519YAOO4mwXTXbVIt5dFH1oRisWNyNkAR8pnGH9
-	 ThTjzjl6agDGw==
-Date: Mon, 23 Mar 2026 14:07:21 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: interrupt-controller: aspeed: Add
- AST2700-A2 support
-Message-ID: <20260323190721.GA1013496-robh@kernel.org>
-References: <20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com>
- <20260306-irqchip-v2-1-f8512c09be63@aspeedtech.com>
+	id 1w4l5O-0000000HSVS-1RwV
+	for linux-riscv@lists.infradead.org;
+	Mon, 23 Mar 2026 19:37:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1774294617; x=1774899417; i=markus.elfring@web.de;
+	bh=5BGRcdA36LVVKtAvAJ9aNHJv8AVUrsJIiR0mMu+qOvE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=pNr69tbB3/OOivG7FZ33Rh3Tj9AFoHUqUC7S4VVyZ1ufpqhbAlIwaNr2aviUSrJP
+	 oIUNjY3zFqCaCo4lTTkawY4ZTjrB+Cyc6d/Uk+Zekja8kvm7/O7ILJqWeghS7X6b7
+	 DFuVCggolcigx08qyzTL5+yFz8b1Eci66rIxyby6y29ddOO6arWXgldBzJQrdQMxq
+	 eLejpHNb3+0vURdnjmXITrBigBEJ6foVPbuE7Nsbu5PNUwoAfDVAL6GjlwmIdQ3eO
+	 IroBYuTZyFiLkZpj3NnR1FORqBcc2M5shgxb9oj4iUWx85nVgwRVSyRKHjJgBX7aH
+	 xBFHdjIhALwhP/StJA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MUCz3-1vwKss1YOJ-00Uy3r; Mon, 23
+ Mar 2026 20:36:57 +0100
+Message-ID: <f4fba38e-c2b8-4e08-a958-ea433a7cbe05@web.de>
+Date: Mon, 23 Mar 2026 20:36:55 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260306-irqchip-v2-1-f8512c09be63@aspeedtech.com>
+User-Agent: Mozilla Thunderbird
+To: vulab@iscas.ac.cn, linux-riscv@lists.infradead.org,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>
+Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ kernel-janitors@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>,
+ Atish Patra <atish.patra@linux.dev>
+References: <20260323115957.38348-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH] riscv: cacheinfo: Fix node reference leak in
+ populate_cache_leaves
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260323115957.38348-1-vulab@iscas.ac.cn>
+X-Provags-ID: V03:K1:CQVB+hFlhabYUDW5vlLRbBoHdaQuObik5nMXbbjjSFzLGBUjRSd
+ nol6OqL+8vKR4Cio7t23jxicfcdwwbJIIZj/MbtIWyqL6Ca7qoY+ayZ80HClgc6vTWna9tk
+ +Mqi8I9TvmGZjdLeb8y/CaUX387EDGGCtyELf1OoAMAWVEzxvHNWklJeC+Cruo9FPp29Ja9
+ shLtMHSGIFaxBemaIs9HA==
+UI-OutboundReport: notjunk:1;M01:P0:6Tkw9uzrKYE=;Cw8vSLP8bjcw3BmegK/oimulbj5 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 DH1HvRfttQsPYi3WQMlb7jzcxWLj6t7Cw==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_123714_686887_64926D93 
+X-CRM114-Status: UNSURE (   5.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,258 +81,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 04:07:23PM +0800, Ryan Chen wrote:
-> Introduce a new binding describing the AST2700 interrupt controller
-> architecture implemented in the A2 production silicon.
-> 
-> The AST2700 SoC has undergone multiple silicon revisions (A0, A1, A2)
-> prior to mass production. The interrupt architecture was substantially
-> reworked after the A0 revision for A1, and the A1 design is retained
-> unchanged in the A2 production silicon.
-> 
-> The existing AST2700 interrupt controller binding was written against
-> the pre-production A0 design. That binding does not accurately describe
-> the interrupt hierarchy and routing model present in A1/A2, where
-> interrupts can be routed to multiple processor-local interrupt
-> controllers (Primary Service Processor (PSP) GIC, Secondary Service
-> Processor (SSP)/Tertiary Service Processor (TSP) NVICs, and BootMCU
-> APLIC) depending on the execution context.
-
-Unless you intend to maintain both bindings for some period, then you 
-should just squash the removal here. If both are going to be maintained 
-then patch 5 should not be applied yet.
-
-> 
-> Hardware connectivity between interrupt controllers is expressed using
-> the aspeed,interrupt-ranges property.
-> 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> 
-> ---
-> Changes in v2:
-> - Describe AST2700 A0/A1/A2 design evolution.
-> - Drop the redundant '-ic' suffix from compatible strings.
-> - Expand commit message to match the series cover letter context.
-> - fix ascii diagram
-> - remove intc0 label
-> - remove spaces before >
-> - drop intc1 example
-> ---
->  .../aspeed,ast2700-interrupt.yaml                  | 189 +++++++++++++++++++++
->  1 file changed, 189 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml
-> new file mode 100644
-> index 000000000000..13398ff8be12
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml
-> @@ -0,0 +1,189 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-interrupt.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASPEED AST2700 Interrupt Controllers (INTC0/INTC1)
-> +
-> +description: |
-> +  The ASPEED AST2700 SoC integrates two interrupt controller designs:
-> +
-> +    - INTC0: Primary controller that routes interrupt sources to upstream,
-> +      processor-specific interrupt controllers
-> +
-> +    - INTC1: Secondary controller whose interrupt outputs feed into
-> +      INTC0
-
-Wrap lines at 80 char.
-
-> +
-> +  The SoC contains four processors to which interrupts can be routed:
-> +
-> +    - PSP: Primary Service Processor (Cortex-A35)
-> +    - SSP: Secondary Service Processor (Cortex-M4)
-> +    - TSP: Tertiary Sevice Processor (Cortex-M4)
-> +    - BMCU: Boot MCU (a RISC-V microcontroller)
-> +
-> +  The following diagram illustrates the overall architecture of the
-> +  ASPEED AST2700 interrupt controllers:
-> +
-> +                  +-----------+                +-----------+
-> +                  |   INTC0   |                | INTC1(0)  |
-> +                  +-----------+                +-----------+
-> +                  |   Router  | +-----------+  |   Router  |
-> +                  | out   int | +Peripheral +  | out   int |
-> +  +-----------+   |  0     0  <-+Controllers+  | INTM      | +-----------+
-> +  |PSP GIC  <-|---+  .     .  | +-----------+  |  .     .  <-+Peripheral +
-> +  +-----------+   |  .     .  |                |  .     .  | +Controllers+
-> +  +-----------+   |  .     .  |                |  .     .  | +-----------+
-> +  |SSP NVIC <-|---+  .     .  <----------------+  .     .  |
-> +  +-----------+   |  .     .  |                |  .     .  |
-> +  +-----------+   |  .     .  <--------        |  .     .  |
-> +  |TSP NVIC <-|---+  .     .  |       |    ----+  .     .  |
-> +  +-----------+   |  .     .  |       |    |   |  O     P  |
-> +                  |  .     .  |       |    |   +-----------+
-> +                  |  .     .  <----   |    --------------------
-> +                  |  .     .  |   |   |        +-----------+  |
-> +                  |  M     N  |   |   ---------+  INTC1(1) |  |
-> +                  +-----------+   |            +-----------+  |
-> +                                  |                  .        |
-> +                                  |            +-----------+  |
-> +                                  -------------+  INTC1(N) |  |
-> +                                               +-----------+  |
-> +  +--------------+                                            |
-> +  + BMCU APLIC <-+---------------------------------------------
-> +  +--------------+
-> +
-> +  INTC0 supports:
-> +    - 128 local peripheral interrupt inputs
-> +    - Fan-in from up to three INTC1 instances via banked interrupt lines (INTM)
-> +    - Local peripheral interrupt outputs
-> +    - Merged interrupt outputs
-> +    - Software interrupt outputs (SWINT)
-> +    - Configurable interrupt routes targeting the PSP, SSP, and TSP
-> +
-> +  INTC1 supports:
-> +    - 192 local peripheral interrupt inputs
-> +    - Banked interrupt outputs (INTM, 5 x 6 banks x 32 interrupts per bank)
-> +    - Configurable interrupt routes targeting the PSP, SSP, TSP, and BMCU
-> +
-> +  One INTC1 instance is always present, on the SoC's IO die. A further two
-> +  instances may be attached to the SoC's one INTC0 instance via LTPI (LVDS
-> +  Tunneling Protocol & Interface).
-> +
-> +  Interrupt numbering model
-> +  -------------------------
-> +  The binding uses a controller-local numbering model. Peripheral device
-> +  nodes use the INTCx local interrupt number (hwirq) in their 'interrupts' or
-> +  'interrupts-extended' properties.
-> +
-> +  For AST2700, INTC0 exposes the following (inclusive) input ranges:
-> +
-> +    - 000..479: Independent interrupts
-> +    - 480..489: INTM0-INTM9
-> +    - 490..499: INTM10-INTM19
-> +    - 500..509: INTM20-INTM29
-> +    - 510..519: INTM30-INTM39
-> +    - 520..529: INTM40-INTM49
-> +
-> +  INTC0's (inclusive) output ranges are as follows:
-> +
-> +    - 000..127: 1:1 local peripheral interrupt output to PSP
-> +    - 144..151: Software interrupts from the SSP output to PSP
-> +    - 152..159: Software interrupts from the TSP output to PSP
-> +    - 192..201: INTM0-INTM9 banked outputs to PSP
-> +    - 208..217: INTM30-INTM39 banked outputs to PSP
-> +    - 224..233: INTM40-INTM49 banked outputs to PSP
-> +    - 256..383: 1:1 local peripheral interrupt output to SSP
-> +    - 384..393: INTM10-INTM19 banked outputs to SSP
-> +    - 400..407: Software interrupts from the PSP output to SSP
-> +    - 408..415: Software interrupts from the TSP output to SSP
-> +    - 426..553: 1:1 local peripheral interrupt output to TSP
-> +    - 554..563: INTM20-INTM29 banked outputs to TSP
-> +    - 570..577: Software interrupts from the PSP output to TSP
-> +    - 578..585: Software interrupts from the SSP output to TSP
-> +
-> +  Inputs and outputs for INTC1 instances are context-dependent. However, for the
-> +  first instance of INTC1, the (inclusive) output ranges are:
-> +
-> +    - 00..05: INTM0-INTM5
-> +    - 10..15: INTM10-INTM15
-> +    - 20..25: INTM20-INTM25
-> +    - 30..35: INTM30-INTM35
-> +    - 40..45: INTM40-INTM45
-> +    - 50..50: BootMCU
-> +
-> +maintainers:
-> +  - ryan_chen@aspeedtech.com
-> +  - andrew@codeconstruct.com.au
-
-Name and email address please.
-
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - aspeed,ast2700-intc0
-> +      - aspeed,ast2700-intc1
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  '#interrupt-cells':
-> +    const: 1
-> +    description: Single cell encoding the INTC local interrupt number (hwirq).
-> +
-> +  aspeed,interrupt-ranges:
-> +    description: |
-> +      Describes how ranges of controller output pins are routed to a parent
-> +      interrupt controller.
-> +
-> +      Each range entry is encoded as:
-> +
-> +        <out count phandle parent-specifier...>
-> +
-> +      where:
-> +        - out:     First controller interrupt output index in the range.
-> +        - count:   Number of consecutive controller interrupt outputs and parent
-> +                   interrupt inputs in this range.
-> +        - phandle: Phandle to the parent interrupt controller node.
-> +        - parent-specifier: Interrupt specifier, as defined by the parent
-> +                            interrupt controller binding.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    minItems: 3
-> +    items:
-> +      description: Range descriptors with a parent interrupt specifier.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupt-controller
-> +  - '#interrupt-cells'
-> +  - aspeed,interrupt-ranges
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    interrupt-controller@12100000 {
-> +        compatible = "aspeed,ast2700-intc0";
-> +        reg = <0x12100000 0x3b00>;
-> +        interrupt-parent = <&gic>;
-> +        interrupt-controller;
-> +        #interrupt-cells = <1>;
-> +
-> +        aspeed,interrupt-ranges =
-> +          <0 128 &gic GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>,
-> +          <144 8 &gic GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>,
-> +          <152 8 &gic GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>,
-> +          <192 10 &gic GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
-> +          <208 10 &gic GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>,
-> +          <224 10 &gic GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>,
-> +          <256 128 &ssp_nvic 0 0>,
-> +          <384 10 &ssp_nvic 160 0>,
-> +          <400 8 &ssp_nvic 144 0>,
-> +          <408 8 &ssp_nvic 152 0>,
-> +          <426 128 &tsp_nvic 0 0>,
-> +          <554 10 &tsp_nvic 160 0>,
-> +          <570 8 &tsp_nvic 144 0>,
-> +          <578 8 &tsp_nvic 152 0>;
-> +    };
-> 
-> -- 
-> 2.34.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+4oCmCj4gRml4IHRoaXMgYnkgY2hhbmdpbmcgdGhlIGZpbmFsIGBvZl9ub2RlX3B1dChucClgIHRv
+IGBvZl9ub2RlX3B1dChwcmV2KWAuCgpIb3cgZG8geW91IHRoaW5rIGFib3V0IHRvIHVzZSBhIHdv
+cmRpbmcgYXBwcm9hY2ggbGlrZSDigJxUaHVzIHJlcGxhY2UKdGhlIHBhc3NlZCB2YXJpYWJsZSBu
+cCBieSBwcmV2IGluIGFuIG9mX25vZGVfcHV0KCkgY2FsbCBhdCB0aGUgZW5kIG9mCnRoaXMgZnVu
+Y3Rpb24gaW1wbGVtZW50YXRpb27igJ0/CgoK4oCmCj4gU2lnbmVkLW9mZi1ieTogWmlzaHVuIFlp
+IDx2dWxhYkBpc2Nhcy5hYy5jbj4KCkNhbiBmdXJ0aGVyIGNsYXJpZmljYXRpb25zIGJlY29tZSBo
+ZWxwZnVsIGFsc28gZm9yIHRoZSBzYWZlIHVzYWdlIG9mCnRoZSBEZXZlbG9wZXIncyBDZXJ0aWZp
+Y2F0ZSBvZiBPcmlnaW4/CgpSZWdhcmRzLApNYXJrdXMKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
