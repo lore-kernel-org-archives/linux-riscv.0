@@ -4,83 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6229FC72CA
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 07:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3C5EC01A2
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Mar 2026 08:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JTXo4W0DGEMJqMA7ImxBpJ29vMvoWOxcpDI+89MsFng=; b=1UZeMw279FqAyQ
-	4OnDZDUOw/NKZxfkqszwIANyRaK5F4TDnJpnIXtNMzg80i98DUdEzYnnGRlZwWfqkb0dRzh4npWwc
-	vMWCDeM3yRriQdoTXO3tgu37SAuA/+bkIdycxRYRW+CJemFc7uXYRDplTfNpQLqhhjKubK0kOOqX+
-	JCrbDpKws2IaWR2Bu+x4gCALNqYQzRctDeYSgJOrKzPqNJQ97v1iODT7aGDNgoFqZoD+lDvGVa4Ey
-	YAKoyvtwWir6NuklEjUQSwLGvHczAwRUyLR5sR7zM5+OaAMz9e4rJh0mRatYWcZPnmETBuOoZ/XSc
-	S5URcsXuKJgbYc27FkRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ij3gu2i9L861lIhRDRZHb+2wPvIM8OoE/YK+oox0aPo=; b=OChykQ7Hkm5fFbIBkqwKeOQKdF
+	QDysgVOrrEPsR61lgdmk8tXphR+hNX4W7q9ru5krv2DZcOZXeNwrCwZ7a8Jskmi4qyI1b4AEQ5/wx
+	xJjKIMSNFz/lGJrQGbizIegLnJ4LjRx+rX9Gk6anbqtiUfuJ+N3b22U2UOGgQCb2XqWKIfwGJ9XhK
+	qh0Yta46Y4gU+VMxp1bmMLPt/thjDDdG2edYYikLZuBkz6v27t2AO5/RQjb0Rjj8Du766L6s61hC2
+	EZLXV5gTGWTp1l3tv0uLFVsIhQQoIHW8WRFv2Ko1dyV4L6nOeDdGF9afPihtHZWsLsBDcWFIAhbaz
+	f7VKVocQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ZgT-0000000GBtc-2O91;
-	Mon, 23 Mar 2026 07:26:45 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1w4axF-0000000GIn1-218P;
+	Mon, 23 Mar 2026 08:48:09 +0000
+Received: from mail-koreacentralazolkn19013074.outbound.protection.outlook.com ([52.103.74.74] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ZgI-0000000GBkh-0ve8;
-	Mon, 23 Mar 2026 07:26:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=fRs26x5PVFIXD+ndJGiOsEX2kERkgkUkq8NjmEwgyMw=;
-	b=K5XnaPINDD2o4cwI2CzPN/3antiUjOJ9GTRYvR9saJoMo39kBwx/DIkA6CffxwFpXpF03Ol0/
-	QfYyujmTFtysip2gyKZKJABUZ2jCJofC88zwmwln5TQkhCX7DL/hNW2TIGt+S8lctGttzRQTn/F
-	1N9spQ6ViUJRzVXHaCM7hL4=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4ffPhn4Xsyzcb44;
-	Mon, 23 Mar 2026 15:20:41 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id A2E8C4056A;
-	Mon, 23 Mar 2026 15:26:29 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 23 Mar
- 2026 15:26:27 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
-	<dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
-	<feng.tang@linux.alibaba.com>, <pawan.kumar.gupta@linux.intel.com>,
-	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
-	<paulmck@kernel.org>, <lirongqing@baidu.com>, <ruanjinjie@huawei.com>,
-	<safinaskar@gmail.com>, <rppt@kernel.org>, <ardb@kernel.org>,
-	<leitao@debian.org>, <jbohac@suse.cz>, <cfsworks@gmail.com>,
-	<osandov@fb.com>, <tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
-	<ritesh.list@gmail.com>, <eajames@linux.ibm.com>,
-	<songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
-	<samuel.holland@sifive.com>, <vishal.moola@gmail.com>,
-	<junhui.liu@pigmoral.tech>, <coxu@redhat.com>, <liaoyuanhong@vivo.com>,
-	<fuqiang.wang@easystack.cn>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-Subject: [PATCH v9 5/5] riscv: kexec: Add support for crashkernel CMA reservation
-Date: Mon, 23 Mar 2026 15:27:45 +0800
-Message-ID: <20260323072745.2481719-6-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260323072745.2481719-1-ruanjinjie@huawei.com>
-References: <20260323072745.2481719-1-ruanjinjie@huawei.com>
+	id 1w4axD-0000000GImU-0t9o;
+	Mon, 23 Mar 2026 08:48:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pHQRnK1S45EFaBId5sEATyABizwd4Zx9xm0W/31Fh+q/SE3aQ07wMubUh/hE8ciBDSHLfySBapXRrk5MnEEdPoVobL7jbQKuuEgdVIApNx7pTbXXJ3l2FZKG5xT1KwIn6ldTeWdArNfBxYcyI5mCD23of7DjzOEdKz1qt3OVaneFcIhegBT9OQrwUjD7eS8L0eFGu7PuOmoQOxTYDKVGABEXYO4RM0RkPvMGzzkCRihUKhMKMo9wfAnHJybD4elLZPbtx6sj/GV/1CWfYJzRt/4dzmKg+ENzyKjDyl8eRw1Sl/MwqsR2O+D6fhayT6/IYo1e/noy0RAtowUAVOwbWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vjjSDlFCyfFN0cVrIV23AxHPYr4vJdFAjOK8UG+DIaA=;
+ b=YmraX9xGVYI9VgTLu8jYjGvswSAUTqzvpi0gr5NIG7TkxMVoQ4jki+1MBGgvhj/cPUz7YExjrz42Q9qK091FjPgfo0K8CSt42d7OlXPEv7pPIpqCkkvd0qBiZ792uyOdkPPZoQyY2ZH7HVw+tdzgKTGzJLe0eQ51WovusvPbhGKuJCvGszvyrfI5FudD/NQqu/reI9ClnEDmiAwm1ieNPGb1pWNYkk3ag0FgfxzfKPH5oWVh/WtSdlu1hi1dACaD5kDGOXH7OZrk2cOHbLYRnZV1GDhDjRO5woXu6m5Bexid7W+JljB8/uQ/MJaI4lcigdWhGLYDbkkTfmThwp7TCw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vjjSDlFCyfFN0cVrIV23AxHPYr4vJdFAjOK8UG+DIaA=;
+ b=hZAxQOv0Iv+29p4Nv8jtmSX2IJWBOSsvGCs2xMPVtuAF/d16kHFi4FMGXuNZioaPXcOlePcDGH8Gq9DV9fAARMR4nyN4K35e0un11XUbmwN98QakRRzGjpYWZWzJ/jeCJVZpOTX8kUwg3PQHKfN7JAkp19lq8hCb+PtSCxQqIyUkjLesIpR6wSqdvd4lr7AW9AMKpOgpffKCUrtyBzXrluAv30vwLXDqaO7eG88wpPk1ls/YUa4zY7twc0SRGeUVG8M2Qw+weCeysGG6sWbj0CAf3uCuqnIqSceI4cOHDckaUHmeYyCY6IdDEGQP5k0U5zypatOZRImK64Ox592H5Q==
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
+ by TYQPR04MB8969.apcprd04.prod.outlook.com (2603:1096:405:2f9::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.29; Mon, 23 Mar
+ 2026 08:47:59 +0000
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58]) by SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58%6]) with mapi id 15.20.9723.022; Mon, 23 Mar 2026
+ 08:47:58 +0000
+Message-ID: <SE3PR04MB8922DB627EF47A77082B7874F34BA@SE3PR04MB8922.apcprd04.prod.outlook.com>
+Date: Mon, 23 Mar 2026 16:47:51 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] RISC-V: KVM: Fix integer overflow in
+ kvm_pmu_validate_counter_mask()
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>, kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@linux.dev>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Jiakai Xu <jiakaiPeanut@gmail.com>
+References: <20260319035902.924661-1-xujiakai2025@iscas.ac.cn>
+Content-Language: en-US
+From: "Nutty.Liu" <nutty.liu@hotmail.com>
+In-Reply-To: <20260319035902.924661-1-xujiakai2025@iscas.ac.cn>
+X-ClientProxiedBy: TPYP295CA0031.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:7::9)
+ To SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
+X-Microsoft-Original-Message-ID: <2ba71d51-cb99-4d48-a182-9c9b41e7ffe0@hotmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SE3PR04MB8922:EE_|TYQPR04MB8969:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b275ebe-785b-4323-8887-08de88b8e199
+X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799012|23021999003|41001999006|461199028|8060799015|7042599007|6090799003|5072599009|12121999013|19110799012|51005399006|3412199025|440099028|40105399003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?L29IQnN6bzRBV0U4SlBFUnpQY3JYY3o2WWJzVk9wN2FIeXd5OVE3NDZQMjYy?=
+ =?utf-8?B?NTFhR1V5Y3dlMnZ2dGZNc2hnc1NMUUZrdlI0bUlKMnJXV2lJb1JzQ0NOY2JV?=
+ =?utf-8?B?WGtwNmc3TVVZaE9TWC9qUjNVVy9jWVlLLzFFSEFwYUxQVjVCaXU1VWhEZmI2?=
+ =?utf-8?B?TnVyZGRvbDduREs5bkkxN2ErTVlNelNnQnBNcjJKa0VmcW5qakY3WGR1VlhJ?=
+ =?utf-8?B?WUJvZkh5eTBPQmcwcnZMMFVPWk1VdlMxL1I5WGZHOUx2MWFRVXV0ZlhOOTg0?=
+ =?utf-8?B?aXhxa2NPeHU4SHZwbFhOTENkdVkrVUFTbk42dERpTkZzR3RqVTk3UkFUZmtF?=
+ =?utf-8?B?dFc5UEcrTE4xMFRFS05hdEZ0S2o0Ym9EdjhFSTNsWUJUeDdkZi85eFo1aFBm?=
+ =?utf-8?B?THBlRWwwVDN0NjdCZ2Rtd0tzdm85Y2t4dndXZzBDZENmN1dMbjhkcTRRWlRR?=
+ =?utf-8?B?ZDQreEZraWtFOS82V0JhR0NGeUxsbCtIQXhFVXlBN1VISy9tU3Y3Y1dYV3Bo?=
+ =?utf-8?B?OGhFcHNURXZzQXFYRFp2azBQSnJxWGhKSlVQd1doL0tza2Vic1g2TnBWRmJv?=
+ =?utf-8?B?V0pld3dVVDJkU21Pclk2eHZPNFQraEUzV05FUklLOWh2NmVsN1ZQaEF5cDNF?=
+ =?utf-8?B?TXJZYlliZVM2R1V2cVlNTG1wcjZpR01pcGx6VTBtTW9ZMmhqeGkxaUkyUXpH?=
+ =?utf-8?B?ejRQOXFNTWwxSnhRVzB2VUl3U2xlMjM5aHhaTVVtMzlqWjVMMFNEYUxidHdQ?=
+ =?utf-8?B?QWkvNVg3NWYzNEc1bFh5cTBkZWlqQWdvVVFUejBTc2tROC9ELzZ6UG9HWkxx?=
+ =?utf-8?B?N2p4L21LVjBSS3lDNjBwT3Z5V1NYSGlXbTh3T2dDc003K2x4b0NlU2o4WXdZ?=
+ =?utf-8?B?WnMrWUNxWVZ4RzJydHJGMXJYc0I3Y2NhTGRnWXZZeXdOci9nUER1MmZ5V2Vl?=
+ =?utf-8?B?RVdiZVpwakFPWVRXOVlQK0lWUUVOVE5Ud2grNEIwZXA4OEZGaXVPYXdsRkpw?=
+ =?utf-8?B?Vm1kQzZkWmN0eG8wSVRzbmpWRWJRaVE4enFEWGRMY0xCc2tycXcvOTRZd2hk?=
+ =?utf-8?B?L0ljL3VBU1lNaCswb2RmMUtFR3A0T0x2MnVBWVM0dmxvUmNpdGNxdXJZSG5T?=
+ =?utf-8?B?YmNLdzQrKzlZaTVYTXQvaUtzL1RLTHFIc0hUNEV0WVk3QjF3SHpwTXptQWQy?=
+ =?utf-8?B?UjNBcUVNdDU2bjZ2a2tVMnJwcktlanhUQzVKSzFOMURPMC9FYnNJckZtcGFE?=
+ =?utf-8?B?QUl1bThxb3BzdzhYV0Fnem9qVWZERkprNVNrYVh5Uld4WHN4YmsyQVV0MU5a?=
+ =?utf-8?B?RmxrdTZRWWd4R2NOZDdwSVRzbVRhZDBtNlVITDVTS1pzT1F5ZXRUZW1UM20y?=
+ =?utf-8?B?bEdLMUtYWnNkUGc9PQ==?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MFBnNEJBZE44Rll3RW53NXBveVR3eCszdnM2dXdFdXo5a2FDUzdXMTVKN0lv?=
+ =?utf-8?B?dE9SSVNIUWZIc0RvSGh1WDBnNXQyYndRMUxrQmpuZWNUYTZoNFArcEpLcXlk?=
+ =?utf-8?B?RDlBZHVNQXYyYlM2aTd0Vk51TUlPNUtSSUhWUTBmSGo1Njh4bHNiSmZMZEF0?=
+ =?utf-8?B?ZzMzS1drTlEzTmk3MUMyVFVwQ3B1NjYrckNIRTVkbmJxSnIxZjlIQklxbzVC?=
+ =?utf-8?B?OFBzdWFiRGJRQkRXdE9uY3VrRWNqNXBMZUM5akVkZnFhdFJRTk0xbWhvQ202?=
+ =?utf-8?B?a0hjak5jY2lMSGlHVnVtTkdDVnRZUVYwQnFyd3ZiZCtrbStZMFBiSW1LRTNu?=
+ =?utf-8?B?R1hLTE1zUERwVW1lLzBhc29PTGJjQnpXOGdFWUZoQjVIRDRNNzdNTjNqVUdR?=
+ =?utf-8?B?aWxPaCsrc0ZxcG51TFhrNGhwQTBKekJCY2ZhekNJM081M0FDNTVKd1hJYUdr?=
+ =?utf-8?B?amlVTzhhMkxyYVFUUkI1NWZDbjhCTThDR0MrOVdPaGRPUUdGODhXN2lGK2x4?=
+ =?utf-8?B?WXBTeXEyQjZkajlUanQza1NDSC9jb1BZOXphSnZiRHA0U3ZTVm1Fd3E1Slhx?=
+ =?utf-8?B?ajlFdW1Db0ljS2tqemhwUjl3ZzdJSjRqWVU5TmJqclVwbXp3cmFMZWNhYVdR?=
+ =?utf-8?B?ejlvbklIMGdMVCsxZGNPbERQaTlIQ2lhZDc5R3dBaVFWNGNrZ0V3c0g0MXV6?=
+ =?utf-8?B?RXBMTzY1YVNHc2lTdy9Xa3NDdnhieUgxeDdPc1pxVExRQ2VualZnUnVJY1pT?=
+ =?utf-8?B?QWsvZ0JkQWJUUnMzdUtXRFp3SUQ0Qm53NU5vS0hkL0ZkVGdIbVh3cXp5eDAx?=
+ =?utf-8?B?QVBpem03d0xBWHdYdEdiVUdpTDJiT0E3Mm1CVGxCd0M0RDc4K1pON3B4TEtL?=
+ =?utf-8?B?cW9kdlcvVXdtSWNvaGJxcHZ2MmJneVFZOCtnSmg5bjlIeGdmMGNUMXEvRk1G?=
+ =?utf-8?B?eklHYk9nQ0dMU0dKdU80clN2QWRzaXJkeS8yUTFVVkx2YTZQRngrU1lPV1RP?=
+ =?utf-8?B?YTdUVnhhY1p3UG1WaE1aYnlkaUEwQnl6ZHR2ejQ0TDZiajlqeE1VNVl2V0FK?=
+ =?utf-8?B?KzZtNU5ENm9rVTAwdmpiNWJrcjVueXUxdVJ0UFV5L1pRRUNaZVJEUzNmQytr?=
+ =?utf-8?B?WW10TXBJWmtOS2ZKTW9Vc2p4OEV1WjdWQzFPS2czTXhQaWNxU01iRjNIbFBj?=
+ =?utf-8?B?dk9wK05zS0lkZ1krTGtpU2t5OCtjbkhHRVpzQ1ZFWUdDYXBvci9WMkVFVXQr?=
+ =?utf-8?B?YmtubmF1WWdDNG5WTDZsQTByS04zOFVCU3lkZ0ZkS1ExRENCL0Q0ays2bGN5?=
+ =?utf-8?B?YmN4dzBFRGNTZ2hqVGJlL3Y2TGY5U1FBMkpjS3ZtOUZlUGhuWE14LzZIVXJl?=
+ =?utf-8?B?LzdVb3gwT0JHWVVqWkpTaGFkbUhNRko1eTR3OWthSmJ5MUVnV2N2VmZDbjhj?=
+ =?utf-8?B?UXdwUVZWVDFmMStxMTUvRUg3NG5FdWpsL3NBVi9SekZPVjNrL1VER2plbFoz?=
+ =?utf-8?B?TStoMkh0N3hRU21yMXJWbEJleWJLL2pWUkNRWkgrTTJSWmVFaWI0cU9XQlFY?=
+ =?utf-8?B?RnNSTXQ4SzZEMEdIMUdud2tCbzMwbk5HT0MrY3N3WVlETFE0SGpLTVAzeWUw?=
+ =?utf-8?B?dXFIcFlvSUNWSEtzVDBkZ05pYjZBSG8yOWJFWkJqT1g5c3FiaDQ2em9HVjBz?=
+ =?utf-8?B?WHh0NzlDWFVlQ3VJTnZ3RmxUbkxkUGx5bHpiQWlNYjVlSU1OY2ZYLzY5cHZM?=
+ =?utf-8?B?eGx4RU1UbHZndlhPYjNHMlZkbzg0b0Jsak5EK29nckJYWGRobGduNXJQcWFG?=
+ =?utf-8?B?eFJpZ211RWtWVTZzS2lhZHpoeUlreHdFbnh2eUROeE1rV0ZleXhGczNlNHNS?=
+ =?utf-8?Q?cQaq96AnUUJfh?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-c3e7a.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b275ebe-785b-4323-8887-08de88b8e199
+X-MS-Exchange-CrossTenant-AuthSource: SE3PR04MB8922.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 08:47:58.4502
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYQPR04MB8969
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_002634_669425_3F84F2BF 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20260323_014807_311408_A0127032 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,113 +155,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 35c18f2933c5 ("Add a new optional ",cma" suffix to the
-crashkernel= command line option") and commit ab475510e042 ("kdump:
-implement reserve_crashkernel_cma") added CMA support for kdump
-crashkernel reservation. This allows the kernel to dynamically allocate
-contiguous memory for crash dumping when needed, rather than permanently
-reserving a fixed region at boot time.
 
-So extend crashkernel CMA reservation support to riscv. The following
-changes are made to enable CMA reservation:
+On 3/19/2026 11:59 AM, Jiakai Xu wrote:
+> When a guest initiates an SBI_EXT_PMU_COUNTER_CFG_MATCH call with
+> ctr_base=0xfffffffffffffffe, ctr_mask=0xeb5f and flags=0x1
+> (SBI_PMU_CFG_FLAG_SKIP_MATCH), kvm_riscv_vcpu_pmu_ctr_cfg_match()
+> first invokes kvm_pmu_validate_counter_mask() to verify whether
+> ctr_base and ctr_mask are valid, by evaluating:
+>   !ctr_mask || (ctr_base + __fls(ctr_mask) >= kvm_pmu_num_counters(kvpmu))
+>
+> With the above inputs, __fls(0xeb5f) equals 15, and adding 15 to
+> 0xfffffffffffffffe causes an integer overflow, wrapping around to 13.
+> Since 13 is less than kvm_pmu_num_counters(), the validation wrongly
+> succeeds.
+>
+> Thereafter, since flags & SBI_PMU_CFG_FLAG_SKIP_MATCH is satisfied,
+> the code evaluates:
+>   !test_bit(ctr_base + __ffs(ctr_mask), kvpmu->pmc_in_use)
+>
+> Here __ffs(0xeb5f) equals 0, so test_bit() receives 0xfffffffffffffffe
+> as the bit index and attempts to access the corresponding element of
+> the kvpmu->pmc_in_use, which results in an invalid memory access. This
+> triggers the following Oops:
+>   Unable to handle kernel paging request at virtual address e3ebffff12abba89
+>    generic_test_bit include/asm-generic/bitops/generic-non-atomic.h:128
+>    kvm_riscv_vcpu_pmu_ctr_cfg_match arch/riscv/kvm/vcpu_pmu.c:758
+>    kvm_sbi_ext_pmu_handler arch/riscv/kvm/vcpu_sbi_pmu.c:49
+>    kvm_riscv_vcpu_sbi_ecall arch/riscv/kvm/vcpu_sbi.c:608
+>    kvm_riscv_vcpu_exit arch/riscv/kvm/vcpu_exit.c:240
+>
+> The root cause is that kvm_pmu_validate_counter_mask() does not account
+> for the case where ctr_base itself is out of range, allowing the
+> subsequent addition to silently overflow and bypass the check.
+>
+> Fix this by explicitly validating ctr_base against kvm_pmu_num_counters()
+> before performing the addition.
+>
+> This bug was found by fuzzing the KVM RISC-V PMU interface.
+>
+> Fixes: 0cb74b65d2e5e6 ("RISC-V: KVM: Implement perf support without sampling")
+> Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 
-- Parse and obtain the CMA reservation size along with other crashkernel
-  parameters.
-- Call reserve_crashkernel_cma() to allocate the CMA region for kdump.
-- Include the CMA-reserved ranges for kdump kernel to use, which was
-  already done in of_kexec_alloc_and_setup_fdt().
-- Exclude the CMA-reserved ranges from the crash kernel memory to
-  prevent them from being exported through /proc/vmcore, which was
-  already done in the crash core.
-
-Update kernel-parameters.txt to document CMA support for crashkernel on
-riscv architecture.
-
-Acked-by: Baoquan He <bhe@redhat.com>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- Documentation/admin-guide/kernel-parameters.txt | 16 ++++++++--------
- arch/riscv/kernel/machine_kexec_file.c          |  2 +-
- arch/riscv/mm/init.c                            |  5 +++--
- 3 files changed, 12 insertions(+), 11 deletions(-)
-
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index afb3112510f7..3fe5724d6e39 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -1121,14 +1121,14 @@ Kernel parameters
- 			It will be ignored when crashkernel=X,high is not used
- 			or memory reserved is below 4G.
- 	crashkernel=size[KMG],cma
--			[KNL, X86, ARM64, PPC] Reserve additional crash kernel memory from
--			CMA. This reservation is usable by the first system's
--			userspace memory and kernel movable allocations (memory
--			balloon, zswap). Pages allocated from this memory range
--			will not be included in the vmcore so this should not
--			be used if dumping of userspace memory is intended and
--			it has to be expected that some movable kernel pages
--			may be missing from the dump.
-+			[KNL, X86, ARM64, RISCV, PPC] Reserve additional crash
-+			kernel memory from CMA. This reservation is usable by
-+			the first system's userspace memory and kernel movable
-+			allocations (memory balloon, zswap). Pages allocated
-+			from this memory range will not be included in the vmcore
-+			so this should not be used if dumping of userspace memory
-+			is intended and it has to be expected that some movable
-+			kernel pages may be missing from the dump.
- 
- 			A standard crashkernel reservation, as described above,
- 			is still needed to hold the crash kernel and initrd.
-diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
-index d0e331d87155..297b910e4116 100644
---- a/arch/riscv/kernel/machine_kexec_file.c
-+++ b/arch/riscv/kernel/machine_kexec_file.c
-@@ -46,7 +46,7 @@ static int get_nr_ram_ranges_callback(struct resource *res, void *arg)
- 
- unsigned int arch_get_system_nr_ranges(void)
- {
--	unsigned int nr_ranges = 1; /* For exclusion of crashkernel region */
-+	unsigned int nr_ranges = 1 + crashk_cma_cnt; /* For exclusion of crashkernel region */
- 
- 	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
- 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 811e03786c56..4cd49afa9077 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1398,7 +1398,7 @@ static inline void setup_vm_final(void)
-  */
- static void __init arch_reserve_crashkernel(void)
- {
--	unsigned long long low_size = 0;
-+	unsigned long long low_size = 0, cma_size = 0;
- 	unsigned long long crash_base, crash_size;
- 	bool high = false;
- 	int ret;
-@@ -1408,11 +1408,12 @@ static void __init arch_reserve_crashkernel(void)
- 
- 	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
- 				&crash_size, &crash_base,
--				&low_size, NULL, &high);
-+				&low_size, &cma_size, &high);
- 	if (ret)
- 		return;
- 
- 	reserve_crashkernel_generic(crash_size, crash_base, low_size, high);
-+	reserve_crashkernel_cma(cma_size);
- }
- 
- void __init paging_init(void)
--- 
-2.34.1
-
+Thanks,
+Nutty
+> ---
+>   arch/riscv/kvm/vcpu_pmu.c | 6 ++++--
+>   1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+> index e873430e596b2..a098a9b417ad8 100644
+> --- a/arch/riscv/kvm/vcpu_pmu.c
+> +++ b/arch/riscv/kvm/vcpu_pmu.c
+> @@ -266,8 +266,10 @@ static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+>   static int kvm_pmu_validate_counter_mask(struct kvm_pmu *kvpmu, unsigned long ctr_base,
+>   					 unsigned long ctr_mask)
+>   {
+> -	/* Make sure the we have a valid counter mask requested from the caller */
+> -	if (!ctr_mask || (ctr_base + __fls(ctr_mask) >= kvm_pmu_num_counters(kvpmu)))
+> +	unsigned long num_ctrs = kvm_pmu_num_counters(kvpmu);
+> +
+> +	/* Make sure we have a valid counter mask requested from the caller */
+> +	if (!ctr_mask || ctr_base >= num_ctrs || (ctr_base + __fls(ctr_mask) >= num_ctrs))
+>   		return -EINVAL;
+>   
+>   	return 0;
 
 _______________________________________________
 linux-riscv mailing list
