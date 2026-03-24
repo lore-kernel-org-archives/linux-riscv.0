@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E13F54ADA
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 17:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF6BFEC0E6
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 17:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=km0E8ulNdFr9zBHu2vLxbNgxTmNXHCZ/HOOwkkFNpWs=; b=b/JvIncolvh0fa
-	ox068A/CqY+nNxkAeE48ETbi1E1NI7HEtWW6rG/nNFkZfPxTszphxTF1hqRTEyJN44B4NU+5KNJMt
-	vPpu5s+c4znJ20Y3LOU684EBdoh7BRBoW6wMIEqZ8RZv4TFhBkJroQrp7nTb4km0tpEqUYLTBGTwq
-	tdsdc+Hg6aFUovin1mrvfshm8D7YX2OUz28mvX4DETm7PTwbyn1nycR8W0OOP1Dyua1lEo9j8XUnt
-	9KwXQ1bxubOZgroZ6cEtM1M5M+f2ia2MF/pNIOvHAoaR7EbzTKJOEeSV9mBhCCalGwhBvULyp/Bjm
-	iPzazBhbnMZIKcr3dXSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xJAVooUPiNQfMb0QIQij39qaNqwZb9p+FzXypiDhA3s=; b=SPrMwOcYjBqIbm3DCgUH+ZRiO2
+	JLt/0kzred8haIorZLM3S3SvowUKC4IBjHV7mq/QW7RjyQ3GSlkSu8IictiEjjFwzX7/z+yoch1ka
+	F/vVPDDJw/g0rPV1DpVpkwPKBliDfZ2g3D/TJtbnKK/WXA9CtmAlYGhYlpCcJ3+a4B2e/fgf/NOPl
+	0ZBEPhFkW4cg2M0626nBXz8qvFTktSm1YRXayKbQSvRRaGZBAt9apZiaYLI9b2LZxyqf9Br/IwbPG
+	Tw3/OjugEVGXJ3Ye/00ymjYDnK3mO5QSMZMrxhCDu41fiLZnib3jMIe6Wv6qd2EBJbN5xyvmW3kGJ
+	MYWTEAug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w55Et-00000001yZL-0pS2;
-	Tue, 24 Mar 2026 17:08:23 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1w55p4-000000021LD-3cUF;
+	Tue, 24 Mar 2026 17:45:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w55Er-00000001yYz-0Hgk
+	id 1w55p2-000000021Kd-3t8X
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 17:08:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774372085; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MYHkYxhl1kzsmMPu+YSWcmmrZLgIFDepwqCYYTJVmnWBBiOSPXoeNy7/5b6gDQStizKS9VNvUz0zjveuguJXJy48VYplJsPVWgklwVT/ZTpA7Xgj25ODq6uSVtM48MaZPDcGlI8RdTVY/+QFb4VMHF70YGAHtj0MY8bpOPx1zBM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774372085; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=yis1W3CG/QCQD456WDjoHGPyDG1Mp4/onsEgXHy2b14=; 
-	b=T5telFO8kWN0M5y2Oyx5U4Te9xi+q909DUtU0a0LNq9Jo5NvPuhd+Whw4dmsIv6ifHjE2ljzkysofhhV/fumQjCJeMFo/9UgZPlkCkty3OXEiNo+/3NRF5Mq40ONsdLlD33U+d2ckXkefX5tGrRseF/TxjjK+mcoDEoi7hJQ0lQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774372085;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=yis1W3CG/QCQD456WDjoHGPyDG1Mp4/onsEgXHy2b14=;
-	b=iDX/j8WOlY/iWQX7G/cLaG8bbz1UIdDs5XuFY4SgibTZIcUKEEuV2I2ZwrebApkN
-	HoT00F82R+5XhE8SrHQp+xK0kIyp2RpaGW8cHuycHMacYW5H65pxZUolcj8VYEwT4UC
-	kT62Rtc39TNjWUTBsLoSunrHGoVql1JyUy1aw0j8=
-Received: by mx.zohomail.com with SMTPS id 1774372083024696.6013806809772;
-	Tue, 24 Mar 2026 10:08:03 -0700 (PDT)
-Date: Tue, 24 Mar 2026 17:07:51 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Yixun Lan <dlan@kernel.org>, Aurelien Jarno <aurelien@aurel32.net>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Tue, 24 Mar 2026 17:45:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E9B7435B9;
+	Tue, 24 Mar 2026 17:45:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F335AC19424;
+	Tue, 24 Mar 2026 17:45:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774374344;
+	bh=upGFHp7lyoGcE1KG0T65EXU8eX+EfmbRVqdvqDeIAUI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q53Uk/5NNGvIwCylp+3SADOvVjiS9lI19E4nwffc+W+jPguD3LZXlfftiMeo5crNU
+	 TgX2WXgSwVn3XLcam/6EC6/4KEqZf4nDLCX92j+I8yEWZr+hjxLh8h7pVUKYecONEz
+	 qdWCrjPj1iBBNV9Yq+3s2AZrM2G9CT1iupVi5obIom5M5JiUKE6ViZGY9tlfGYh48Z
+	 e3hsjZF+Wc68XDsUhinxv0FoV/RqQkOqblpzRRwQ2ZOn2YjSgYZ8DY8KLdEOX2UBMW
+	 86yKUKKwTyPvehziOoiVWCZpTEIsgT+kdKFoLM6WGwqvso1Rky4DZEFiZ2OhOMlqNw
+	 B/2KA7mdl51ag==
+Date: Tue, 24 Mar 2026 17:45:38 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: linux-gpio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH 4/6] riscv: dts: spacemit: enable QSPI and add SPI NOR on
- Milk-V Jupiter
-Message-ID: <acLE5xnEBoCtW4Vw@pie>
-References: <20260322203356.2206927-1-aurelien@aurel32.net>
- <20260322203356.2206927-5-aurelien@aurel32.net>
- <20260324090220-GKA739629@kernel.org>
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>
+Subject: Re: (subset) [PATCH v13 0/5] PolarFire SoC GPIO interrupt support
+Message-ID: <20260324-grub-finless-bacbd4d6ff94@spud>
+References: <20260318-gift-nearest-fd3ef3e4819b@spud>
+ <177425976898.21144.1074460491522922532.b4-ty@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260324090220-GKA739629@kernel.org>
-X-ZohoMailClient: External
+In-Reply-To: <177425976898.21144.1074460491522922532.b4-ty@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_100821_151678_8ED24A99 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20260324_104544_992036_AE83ECC0 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +76,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8279711824885127205=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 05:02:20PM +0800, Yixun Lan wrote:
-> Hi Aurelien,
-> 
-> On 21:28 Sun 22 Mar     , Aurelien Jarno wrote:
-> > Add the QSPI controller node for the Milk-V Jupiter board and describe
-> > the attached SPI NOR flash (GD25Q64E).
-> > 
-> > The flash supports a frequency up to 133MHz (80 MHz for reads), and the
-> > SoC supports a frequency up to 104 MHz. However tests have shown that
-> > the flash is not reliably detected above 26.5 MHz, consistent with
-> > frequency used in the vendor kernel. Therefore, use this frequency.
-> > 
-> ..
-> > The m25p,fast-read properties is taken from the vendor kernel.
-> > 
-> So long as this is verified and works fine on board?
-> 
-> > Add a corresponding flash partition layout, matching the layout and the
-> > names used in the vendor U-Boot.
-> > 
-> ..
-> > Also add the bootph-pre-ram property to make the device tree usable by
-> > early firmware/bootloaders without modification, as U-Boot is stored on
-> > this NOR flash.
-> Is the dtb file actually used by U-Boot? I'd highly doubt about this,
-> if not the case or has not been tested, I'd suggest then not to add
-> this property..
 
-Currently no, but it would be a bogus if we could do it at introduction
-of the device, if it's really necessary in pre-DRAM stages of
-bootloaders, e.g. U-Boot SPL. This would reduce the duplicated work of
-downstream projects if they decide to switch to Linux upstream
-devicetree.
+--===============8279711824885127205==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="BcLAMXhdpy+bmO3t"
+Content-Disposition: inline
 
-As SpacemiT K1 supports booting from flash, the description of flash
-nodes are likely useful for pre-DRAM bootloaders.
 
-> > 
-> > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+--BcLAMXhdpy+bmO3t
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Yao Zi
+On Mon, Mar 23, 2026 at 10:56:20AM +0100, Bartosz Golaszewski wrote:
+>=20
+> On Wed, 18 Mar 2026 11:04:31 +0000, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > Yo,
+> >=20
+> > Here's a v3 with an extra patch updating the gpio binding from fished
+> > out from my old branch, fixing the examples and setting the permitted
+> > values of gpios for the controllers on polarfire soc and the existing
+> > binding patch's example fixed.
+> >=20
+> > [...]
+>=20
+> Applied, thanks!
+>=20
+> [1/5] dt-bindings: gpio: fix microchip,mpfs-gpio interrupt documentation
+>       https://git.kernel.org/brgl/c/ececb46fc947705f22cc8c1f9182224e7ec4b=
+b97
+
+Am I to interpret this being all you applied and the driver getting an
+ack as meaning I should take the driver change with the mux driver
+through the soc tree?
+
+Cheers,
+Conor.
+
+--BcLAMXhdpy+bmO3t
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacLNwgAKCRB4tDGHoIJi
+0v92AP9QtYZ5z+bPYKGuedxGPgH9ZXMFl7PX5WuGUMEFrWPrSAD/c15IGtL/CEKi
+ha8FmsQczul0R8gZyiQtGTaBH23qAwA=
+=/NsT
+-----END PGP SIGNATURE-----
+
+--BcLAMXhdpy+bmO3t--
+
+
+--===============8279711824885127205==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8279711824885127205==--
+
