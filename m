@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB941F54AAC
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 13:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD43F54AAA
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 13:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zPDLZJTY+u2HFZAzW+UGS/3ZBzqsDozxMTUeiEwkLL8=; b=TEK1ois8rqhz8H
-	eBmK8LXtaBN+m/4O6eU6Jrwl5hkYghOmrDUBWIjqXm3Qy4u8IDofMjic+wJa/W3pvw6WCjEoQfVD6
-	1Wsb5H85y0DYA+gJcRh78ym2iL5Y74DjPy7Q/5PW51djTReHkDODjMjI0tnyyrR7R7i+GMm+oLss3
-	xyVj0Qbs1we7/4wDkkQ2KKkdDwU1KFJcSzWOw6HOB03SwRiuCDYxIO5eiTp94nlnUUZYoawDzOemW
-	LBy5cgYUswEJnwUWeyweaMijEsKxU8EpSsqwo6ZQV+9IsnJ7dAm4Ktf8wsJ3nwGtULMpi0gvpsN0R
-	vMSadxMetY2w2qpmKqcA==;
+	List-Owner; bh=rVItpMC7iHb0ELqaEbt7ax4bx2CSV5/bmPPyx4ACBX8=; b=DAitZKqQPdYY/y
+	+xKR9DoMEHkRQrz/emMo+GnCdrduQOj5ui6kWx6b8+OdpufmHslA7Q8ekcKfK95vyc2+4FsFQJ0Hb
+	QmWkdlX4fAmjiQAdenvJoV/RhGlZM18kb8xZiMtf7oZszOA6SjoyafvzqG9cGjgamLdYaqPV8ujqP
+	sH2iFhgtywtQRW1yjveC8tq9Ebex4dD4KlWPzol9OIXr+Q8LTeLtMiDQQkl8gOFxn5zTH6BAS5CNU
+	C4xc1xnDjou1yCnjbrN4/haQm1pQLifOc5J/ySd1ub0V4U81gEaZnZ3Xsh6BnYs6M7GjxvN7falb3
+	7dXiPF3Jyu47NfxT73cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51PM-00000001U2g-0nBf;
-	Tue, 24 Mar 2026 13:02:56 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1w51QA-00000001UA1-0VSa;
+	Tue, 24 Mar 2026 13:03:46 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51PJ-00000001U1l-1iQM
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 13:02:55 +0000
-Received: from Vostro-3710.lan (unknown [116.25.95.101])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 381dc3069;
-	Tue, 24 Mar 2026 21:02:36 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: thinh.nguyen@synopsys.com
-Cc: amadeus@jmu.edu.cn,
-	dlan@kernel.org,
-	gregkh@linuxfoundation.org,
-	huang.ze@linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 1/1] usb: dwc3: Add optional VBUS regulator support to SpacemiT K1
-Date: Tue, 24 Mar 2026 21:02:28 +0800
-Message-Id: <20260324130228.2913662-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260324014144.yq7s46fmo5gx72ym@synopsys.com>
-References: <20260324014144.yq7s46fmo5gx72ym@synopsys.com>
+	id 1w51Q6-00000001U8q-05JK;
+	Tue, 24 Mar 2026 13:03:44 +0000
+Received: from duge-virtual-machine (unknown [183.192.222.244])
+	by APP-03 (Coremail) with SMTP id rQCowAAnSeCTi8JpkXyqCw--.7469S2;
+	Tue, 24 Mar 2026 21:03:16 +0800 (CST)
+Date: Tue, 24 Mar 2026 21:03:15 +0800
+From: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
+To: robh@kernel.org
+Cc: neil.armstrong@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-phy@lists.infradead.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/4] dt-bindings: usb: dwc2: Add support for Canaan
+ K230 SoC
+Message-ID: <acKLk3fbIj7hdsWr@duge-virtual-machine>
+References: <20260121145526.14672-1-jiayu.riscv@isrc.iscas.ac.cn>
+ <20260121145526.14672-3-jiayu.riscv@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-X-HM-Tid: 0a9d1ff09f9903a2kunmd38b0164305f11
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSRpNVk9CSExLSRhISk1JQlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk5VSktKWVdZFhoPEhUdFFlBWU9LSFVKS0lCTUtKVUpLS1VLWQ
-	Y+
+Content-Disposition: inline
+In-Reply-To: <20260121145526.14672-3-jiayu.riscv@isrc.iscas.ac.cn>
+X-CM-TRANSID: rQCowAAnSeCTi8JpkXyqCw--.7469S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7Jw1Dur1DtF1DGF47Xr18Zrb_yoWkCwc_Z3
+	ZrCw4rCa9xJF9Yqw4qyFs2yw1Yyw42gas7uF1qqFn8Gw40krs8Wayktw1ayry5CF4Uurn3
+	WFn3Xrn2gFsFgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbsxYjsxI4VWkKwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z2
+	80aVCY1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
+	ZFpf9x07betCcUUUUU=
+X-Originating-IP: [183.192.222.244]
+X-CM-SenderInfo: 5mld534oul2uny6l223fol2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_060253_672077_0C2A8212 
-X-CRM114-Status: UNSURE (   4.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_060342_429150_782DE1CC 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +83,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jan 21, 2026 at 10:55:23PM +0800, Jiayu Du wrote:
+> Add 'canaan,k230-usb' compatible string with 'snps,dwc2' as fallback
+> for the DWC2 IP which is used by Canaan K230.
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Jiayu Du <jiayu.riscv@isrc.iscas.ac.cn>
 
-> Set .properties = DWC3_DEFAULT_PROPERTIES,
+Hi Rob,
 
-I missed it. I'll add it in the next patch.
+Will this patch2 be applied for next?
 
-> Any reason for moving this to the bottom? To avoid cherry-pick/rebase
-> conflict in the future, can we place this where it was before?
+Best regards,
+Jiayu Du
 
-Sure, I'll move it back to the original place.
+> ---
+>  Documentation/devicetree/bindings/usb/dwc2.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/usb/dwc2.yaml b/Documentation/devicetree/bindings/usb/dwc2.yaml
+> index 6c3a10991b8b..352487c6392a 100644
+> --- a/Documentation/devicetree/bindings/usb/dwc2.yaml
+> +++ b/Documentation/devicetree/bindings/usb/dwc2.yaml
+> @@ -17,6 +17,9 @@ properties:
+>    compatible:
+>      oneOf:
+>        - const: brcm,bcm2835-usb
+> +      - items:
+> +          - const: canaan,k230-usb
+> +          - const: snps,dwc2
+>        - const: hisilicon,hi6220-usb
+>        - const: ingenic,jz4775-otg
+>        - const: ingenic,jz4780-otg
+> -- 
+> 2.52.0
+> 
+> 
+> -- 
+> linux-phy mailing list
+> linux-phy@lists.infradead.org
+> https://lists.infradead.org/mailman/listinfo/linux-phy
 
-Thanks,
-Chukun
 
 _______________________________________________
 linux-riscv mailing list
