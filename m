@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA71EF532DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9BFF532E1
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ErR0oRhF07SJEEqqhIIar9376uZrlyu/IKgmbH56fE=; b=MnOxMY/hi8mGUT
-	YW2Ys+YPvf6J5hGtOzC0iEEidDNfkutnuu1JMfft5KWUz5hFOiOo4Sk4D39SQJGLSxGrWxzkzs7TV
-	gdNPxGLXVyIRk4l/qDvXFMDeE3ji0eF29UZDShsauJ77sJDZrDm26mVTB0h2GVg7SaRYA7nV9LQ84
-	ItsGIyUd/tEsNg96ys6AsmAmMWlZp2jvZAQMn4dur5osZE8WEqliMh7RSWiKLWPwTYpKiYMzEFWXD
-	d1SBBvXd7tN9Ez48ZcO1ksv0iRZnLoyeiNtl3IAomC22jlkOYP46s2lyeLT3oexo2n5FMh9QXM/YK
-	BLSA0RxDp+TQ2FVQB0KA==;
+	List-Owner; bh=lwF9y2OWZTsOLWAYOjH6EG4Mnx5C4rhy91qh8TsWpao=; b=ZowxCelIV89wjJ
+	oYzyd8XBPd1QYBmewYwECddXbPaL+yAk6jClEUTmJ0oilyee5aEoAMBdHDyYpAeScgkAeNfOKpnIz
+	1iSzzVLuf3QUvgZaWDFU1SIGA/ynnm1CzQ8+9P+GM6Ioz+87xZ7PU9SIG4f28BNZ5AxNkZXt5Z3U1
+	iszrLmarvld37O2P62foNsUejP84rYka9yjKoa2wn3HslFv0nbb5aydklPlIc3UZBXKNGXpgpazAd
+	QwXicsaLEPg2CRNaaaNbPpkGe1F5tu4Ezjx7zzcGqcZJMHzQNM6zm4LWlBwGKV/So3+NrE9ZTf7QK
+	h/dq8rnJNghsCLMm8yXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvd-00000000dRu-3bKQ;
-	Tue, 24 Mar 2026 06:07:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4uvf-00000000dU5-1AWE;
+	Tue, 24 Mar 2026 06:07:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvY-00000000dLh-3CY1;
-	Tue, 24 Mar 2026 06:07:44 +0000
+	id 1w4uva-00000000dOK-3RsV;
+	Tue, 24 Mar 2026 06:07:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 19FFF60154;
-	Tue, 24 Mar 2026 06:07:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9F80C2BCB2;
-	Tue, 24 Mar 2026 06:07:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CC4F4439C;
+	Tue, 24 Mar 2026 06:07:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F883C2BCB4;
+	Tue, 24 Mar 2026 06:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774332463;
-	bh=qbtmamIzBSBJ7lpyvZvoyrHXaqJIdPVwSL2Ans8iygw=;
+	s=k20201202; t=1774332466;
+	bh=z4J3ormmSXU+X7jeV6FkQUS7GtywJzymGFhiKVjbDaU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=T25GCUMXCJbgJNXbwA+0n5tbTiAl//E0VrJFT0gZialhbokB2EymjYWj2mUVvpoe7
-	 4X/cQehNhSFYLbgNYGso68/1gnjInlilS5gkzOuRhP6R3A2ZY5OwYE2S8nKgoJ3mKi
-	 iaHaHXNV/rXqHya6c2TBvMpULR87MOI5IqKk7aj1W8mm9l6Uj3B3tb+zEbZpqFQjAr
-	 mIZxnNXG1oFfR3uvT0+JZ7Mem7/qpcZdGy9+5M0ntGFakAS6wazJnm4EKpONIs2ywJ
-	 Hm3HSib9PW2HT7scszTKUWJbqYweow2uJz50p71WaqwxkHAlQfjsTabaoEUPv/vvsh
-	 nmMEt0uJDwm1w==
+	b=Hwoz5YsjR1PACl+UQNn+HH+FllIaPq/7dXZ7ML29dJvWcP3Sy7qtE65yX0PVwt496
+	 C50KSpIsgEURb5xPAiG3GJPawXBZBTkfae3QvOjntb5DRvqWxRXTXnPYnoimUQSUbQ
+	 gvDMLUTf1JPzXzHl6NetEwiAtjXr6rCbJzlBDFRHcZJ21Vtrep7uhj0ZNP1NrHQJWI
+	 bmqjM+5n4g0s2XeL7NL7xnHxTLmRpAL8gqYjG9CAC1LwILx+yARKcV7UQ9MrF6TnTq
+	 kuM1HGFpLCFQjB4oq+KUm61KUg+q0SW6jfcLA/yq5JAbXkZ7Ti0FY08zRUFUGMMUAY
+	 xEi/TQdsPaMbw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 2EEB63808200;
-	Tue, 24 Mar 2026 06:07:33 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9E9E3808200;
+	Tue, 24 Mar 2026 06:07:35 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [Patch v3 0/4] Perf tools: perf-regs bug fix and optimization
+Subject: Re: [PATCH v2] RISC-V: KVM: Fix null pointer dereference in
+ kvm_riscv_vcpu_aia_rmw_topei()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177433245177.469836.2784785880641063798.git-patchwork-notify@kernel.org>
-Date: Tue, 24 Mar 2026 06:07:31 +0000
-References: <20260203024356.444942-1-dapeng1.mi@linux.intel.com>
-In-Reply-To: <20260203024356.444942-1-dapeng1.mi@linux.intel.com>
-To: Mi@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	Dapeng <dapeng1.mi@linux.intel.com>
-Cc: linux-riscv@lists.infradead.org, peterz@infradead.org, mingo@redhat.com,
- acme@kernel.org, namhyung@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, alexander.shishkin@linux.intel.com,
- john.g.garry@oracle.com, will@kernel.org, james.clark@linaro.org,
- mike.leach@linaro.org, guoren@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-kernel@vger.kernel.org, zide.chen@intel.com, thomas.falcon@intel.com,
- dapeng1.mi@intel.com, xudong.hao@intel.com
+Message-Id: <177433245454.469836.16737695875391376252.git-patchwork-notify@kernel.org>
+Date: Tue, 24 Mar 2026 06:07:34 +0000
+References: <20260226085119.643295-1-xujiakai2025@iscas.ac.cn>
+In-Reply-To: <20260226085119.643295-1-xujiakai2025@iscas.ac.cn>
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, alex@ghiti.fr,
+ aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ atish.patra@linux.dev, anup@brainfault.org, jiakaiPeanut@gmail.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_230746_899670_477E74EE 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +79,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
-by Arnaldo Carvalho de Melo <acme@redhat.com>:
+This patch was applied to riscv/linux.git (for-next)
+by Anup Patel <anup@brainfault.org>:
 
-On Tue,  3 Feb 2026 10:43:52 +0800 you wrote:
-> Changes:
->  v2 -> v3:
->   * Fix the abort issue for "-I" or "--user-regs" options. (Patch 1/4)
->   * Address Ian's comments.
+On Thu, 26 Feb 2026 08:51:19 +0000 you wrote:
+> kvm_riscv_vcpu_aia_rmw_topei() assumes that the per-vCPU IMSIC state has
+> been initialized once AIA is reported as available and initialized at
+> the VM level. This assumption does not always hold.
 > 
->  v1 -> v2:
->   * Fixing "PERF_REG_EXTENDED_MASK" redefinition building error by
->     changing the "asm/perf_regs.h" header path to relative UAPI path.
->     (Patch 1/3)
->   * Spliting xxx_reg_mask() and xxx_sdt_arg_parse_op() conversion into 2
->     patches.
+> Under fuzzed ioctl sequences, a guest may access the IMSIC TOPEI CSR
+> before the vCPU IMSIC state is set up. In this case,
+> vcpu->arch.aia_context.imsic_state is still NULL, and the TOPEI RMW path
+> dereferences it unconditionally, leading to a host kernel crash.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,1/4] perf regs: Fix abort for "-I" or "--user-regs" options
-    https://git.kernel.org/riscv/c/c2e28ae2946f
-  - [v3,2/4] perf arch: Update arch headers to use relative UAPI paths
-    https://git.kernel.org/riscv/c/e716e69cf67b
-  - [v3,3/4] perf regs: Remove __weak attributive arch__xxx_reg_mask() functions
-    (no matching commit)
-  - [v3,4/4] perf regs: Remove __weak attributive arch_sdt_arg_parse_op() function
-    (no matching commit)
+  - [v2] RISC-V: KVM: Fix null pointer dereference in kvm_riscv_vcpu_aia_rmw_topei()
+    https://git.kernel.org/riscv/c/c28eb189e481
 
 You are awesome, thank you!
 -- 
