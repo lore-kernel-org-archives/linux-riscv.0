@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCCAF532E4
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC82AF532E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Q803wnsa8AJ9X21nOHpg6wmCuheyL8igJobn59DprI=; b=lLtH4QLAd7lJfv
-	2B/K4iWKI19k4dEpq5Qe/hfwHLUPwi4vkjLP6PfWPykIoSiQzhYT9s5qNIOwSNCbkkHu37YhefAI/
-	Xp4gV73I/VZGC/15zQEMxcx+rMlwawDkeW47EAfio8AKJQ3IjsfBnFlicX5CLpxId1chq5AUu+3QE
-	A0YVoed5XcqCgLna399gK8AmlrdclVqJEpqCETzBLyAi8XUyGR9I43OZVd85m4qUT9B7cKj5myARu
-	TFIfAgqzbDwky/1FoaR2pJQOK+WYRVD5DR7clO02YdZGaiEgarmR963r5hFEkbiZ5EHKxLJjDYgL2
-	UEfnbNw95nMRy2tNt7xQ==;
+	List-Owner; bh=IMGXame2sHojSsJjxUyIJnasYZJm3aXDnfuL5ndpukc=; b=iI4x0m4uD5vQXH
+	GYSjRvVOyG5XyIJ5/8OUyOjXo2PPgfWmiL23mNRJGXbolgN+W0EOIdqPRnb0jf2pCX7kLSuWiG03G
+	ik6l5IrWfbMUq4Y89WjKNyO1VGEdRhCkCdmKXcG47pei6hlTcyrYfwB8ExQwkpeyLgXxdf2Q3jnfF
+	e7FsdpbhAirT4DN8+SJeJp5lyIsAGvaQcwgzXd8/2IVDsNtfc77glZgH4HGjh+t7OBCbYd0paZHoa
+	ZgdUW2HGdOxD9oHFtxB4Y2PgRWDfAP5nGy4nXpOCqrBQOLcrgR35CKnaXi0J51lKTAX2nqbekEbim
+	rdG3i8j4Ha3Hdy4v3Qcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vAD-00000000grJ-49sR;
-	Tue, 24 Mar 2026 06:22:53 +0000
+	id 1w4vAQ-00000000gzJ-0uIJ;
+	Tue, 24 Mar 2026 06:23:06 +0000
 Received: from 2a02-8389-2341-5b80-d601-7564-c2e0-491c.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:d601:7564:c2e0:491c] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vAB-00000000gl8-2AN8;
-	Tue, 24 Mar 2026 06:22:51 +0000
+	id 1w4vAN-00000000gqj-1d2d;
+	Tue, 24 Mar 2026 06:23:03 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Richard Henderson <richard.henderson@linaro.org>,
@@ -84,9 +84,9 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: [PATCH 02/26] arm/xor: remove in_interrupt() handling
-Date: Tue, 24 Mar 2026 07:21:38 +0100
-Message-ID: <20260324062211.3216301-3-hch@lst.de>
+Subject: [PATCH 03/26] um/xor: cleanup xor.h
+Date: Tue, 24 Mar 2026 07:21:39 +0100
+Message-ID: <20260324062211.3216301-4-hch@lst.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260324062211.3216301-1-hch@lst.de>
 References: <20260324062211.3216301-1-hch@lst.de>
@@ -107,94 +107,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-xor_blocks can't be called from interrupt context, so remove the
-handling for that.
+Since commit c055e3eae0f1 ("crypto: xor - use ktime for template
+benchmarking") the benchmarking works just fine even for TT_MODE_INFCPU,
+so drop the workarounds.  Note that for CPUs supporting AVX2, which
+includes almost everything built in the last 10 years, the AVX2
+implementation is forced anyway.
+
+CONFIG_X86_32 is always correctly set for UM in arch/x86/um/Kconfig,
+so don't override it either.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
+Acked-by: Richard Weinberger <richard@nod.at>
 ---
- arch/arm/include/asm/xor.h | 41 +++++++++++---------------------------
- 1 file changed, 12 insertions(+), 29 deletions(-)
+ arch/um/include/asm/xor.h | 16 ----------------
+ 1 file changed, 16 deletions(-)
 
-diff --git a/arch/arm/include/asm/xor.h b/arch/arm/include/asm/xor.h
-index 934b549905f5..bca2a6514746 100644
---- a/arch/arm/include/asm/xor.h
-+++ b/arch/arm/include/asm/xor.h
-@@ -4,7 +4,6 @@
-  *
-  *  Copyright (C) 2001 Russell King
-  */
--#include <linux/hardirq.h>
- #include <asm-generic/xor.h>
- #include <asm/hwcap.h>
- #include <asm/neon.h>
-@@ -156,13 +155,9 @@ static void
- xor_neon_2(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p2)
- {
--	if (in_interrupt()) {
--		xor_arm4regs_2(bytes, p1, p2);
--	} else {
--		kernel_neon_begin();
--		xor_block_neon_inner.do_2(bytes, p1, p2);
--		kernel_neon_end();
--	}
-+	kernel_neon_begin();
-+	xor_block_neon_inner.do_2(bytes, p1, p2);
-+	kernel_neon_end();
- }
+diff --git a/arch/um/include/asm/xor.h b/arch/um/include/asm/xor.h
+index 647fae200c5d..99e5c7e1f475 100644
+--- a/arch/um/include/asm/xor.h
++++ b/arch/um/include/asm/xor.h
+@@ -2,23 +2,7 @@
+ #ifndef _ASM_UM_XOR_H
+ #define _ASM_UM_XOR_H
  
- static void
-@@ -170,13 +165,9 @@ xor_neon_3(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p2,
- 	   const unsigned long * __restrict p3)
- {
--	if (in_interrupt()) {
--		xor_arm4regs_3(bytes, p1, p2, p3);
--	} else {
--		kernel_neon_begin();
--		xor_block_neon_inner.do_3(bytes, p1, p2, p3);
--		kernel_neon_end();
--	}
-+	kernel_neon_begin();
-+	xor_block_neon_inner.do_3(bytes, p1, p2, p3);
-+	kernel_neon_end();
- }
+-#ifdef CONFIG_64BIT
+-#undef CONFIG_X86_32
+-#define TT_CPU_INF_XOR_DEFAULT (AVX_SELECT(&xor_block_sse_pf64))
+-#else
+-#define CONFIG_X86_32 1
+-#define TT_CPU_INF_XOR_DEFAULT (AVX_SELECT(&xor_block_8regs))
+-#endif
+-
+ #include <asm/cpufeature.h>
+ #include <../../x86/include/asm/xor.h>
+-#include <linux/time-internal.h>
+-
+-#ifdef CONFIG_UML_TIME_TRAVEL_SUPPORT
+-#undef XOR_SELECT_TEMPLATE
+-/* pick an arbitrary one - measuring isn't possible with inf-cpu */
+-#define XOR_SELECT_TEMPLATE(x)	\
+-	(time_travel_mode == TT_MODE_INFCPU ? TT_CPU_INF_XOR_DEFAULT : x)
+-#endif
  
- static void
-@@ -185,13 +176,9 @@ xor_neon_4(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p3,
- 	   const unsigned long * __restrict p4)
- {
--	if (in_interrupt()) {
--		xor_arm4regs_4(bytes, p1, p2, p3, p4);
--	} else {
--		kernel_neon_begin();
--		xor_block_neon_inner.do_4(bytes, p1, p2, p3, p4);
--		kernel_neon_end();
--	}
-+	kernel_neon_begin();
-+	xor_block_neon_inner.do_4(bytes, p1, p2, p3, p4);
-+	kernel_neon_end();
- }
- 
- static void
-@@ -201,13 +188,9 @@ xor_neon_5(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p4,
- 	   const unsigned long * __restrict p5)
- {
--	if (in_interrupt()) {
--		xor_arm4regs_5(bytes, p1, p2, p3, p4, p5);
--	} else {
--		kernel_neon_begin();
--		xor_block_neon_inner.do_5(bytes, p1, p2, p3, p4, p5);
--		kernel_neon_end();
--	}
-+	kernel_neon_begin();
-+	xor_block_neon_inner.do_5(bytes, p1, p2, p3, p4, p5);
-+	kernel_neon_end();
- }
- 
- static struct xor_block_template xor_block_neon = {
+ #endif
 -- 
 2.47.3
 
