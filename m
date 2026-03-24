@@ -4,104 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA18F532E4
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A472F532D4
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZSwQFMmIZ8B8wNocYJYSOAHXP7kzc+crAkSeaYYse14=; b=1/I3+50HRk6cA2
-	kApZNV+V+H7f/popd1P5WoKI2L/XoUzQhuhaJtO2b5hBMEl9oToiARAPFZZL3wPOUIIzoGdsYggcy
-	N6S94jzPRhL3GkuuVL4ypvrPA8b6jGBcNfXzOihtbWYPgQtAKxZZ+lcmvPcoFGe7hYJa72pkgCbPT
-	5+BMJGmN/Fs7zsp/GfTpJABNxD+yqSGs6+xBPhLkogp6YFE2HtRPGAD0TFln4ukiO7yXG9wnmzM7U
-	iN4bVKKMGhqFCXvzuGM7ffBN2JiLj+hQFgZxfoxp98nIntWzN/2eRSg2NDUPukqLSGIbmRT1yT9SL
-	4AkLssaIYh6ukQMWsfZg==;
+	List-Owner; bh=he21ETSi2guAiPvBcM0VW2tduE5bdSwk5yCFLO3q6GU=; b=3qAsI6NtnuMGe0
+	WL2EDfoEYWZn31fal0HWu2H+AJ8MYJ8jpaE8wAUbVBgR8GX8FV6ZmC35zPz9JgiiGNpAjlCzZYyqn
+	uWkwG+rw7Z4pW74VtHkZzYYyAzv1sdIHePupDKYMoVcYxEnCIYWYesQyqrsNI4JDkJGOmY/wjjA10
+	fsiYOUIOYlF9+SwMZxp9M4oBgsZDegOGYGpJhIUeKHxpxow3dX0YOmBSimHJQwyZWlDnlOqXLgckn
+	Yefg8PvO/oh84dQS8HJ3pzpOxmrxwWA2D8BBFutQ5efMxLgDrQSeh+fcfxrB8QpGvWdAqve4ZaegO
+	yI6Rt+MKHG6/SbjJ0lqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4v2a-00000000fce-0m3m;
-	Tue, 24 Mar 2026 06:15:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w4v6y-00000000gDy-3Yvj;
+	Tue, 24 Mar 2026 06:19:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4v2X-00000000fac-2tec;
-	Tue, 24 Mar 2026 06:14:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qfaMojy4YCJI6x7hn3yLKKO+h1WPTwEnl4yVpQYK7UQ=; b=AlNPbq+92yYcp6cnb5kk/aLQxd
-	in7+YMXScLmg+R2no6KntNPs5fpeZtzKroo7yaaUS3eKPPbzaZ9gfAmCVEokPYMOFvhaHvND01Z2W
-	886dY+SsUyRHYYtkpuV5DjiAxk7hLX4vG57Q0Q6oBQjZNoylPraCnlgIN4VIbExWdV8GAQy2UJB9Q
-	F4iMkXSCUgYl4q1L2y/cJK5H/FwkUsnR1586QLVw1WJSw2oaZ+GZA+sj3eAATs62rl/NXOj+yb20x
-	Eq3jea/IUJB6xM71lU6tnhJa+DXLywgiTblfUBE66Khsx06NdznE2M+iySE5hNCWVjfRJxfsmm+gN
-	ZTZR2voA==;
-Received: from [113.46.200.219] (helo=canpmsgout04.his.huawei.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4v2J-00000003GNW-34mF;
-	Tue, 24 Mar 2026 06:14:51 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=qfaMojy4YCJI6x7hn3yLKKO+h1WPTwEnl4yVpQYK7UQ=;
-	b=jpV0OS8P669YME8Q51wZE1sJYxg0mWoQB30y8MPrPMbvQ22ehAAXuIqteUT/3sIxyL1MmSP7h
-	RbyG9KeFJGYgssJdZyGAsROKKri5Ypb8c7977na6j8YwpXxHoqMP1oXnnOWDxdKrCxthN2TlvfT
-	lJ1A1OOOgmTlVrMeRWDFqEE=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4fg02m0NPjz1prkX;
-	Tue, 24 Mar 2026 14:08:16 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id B7AF22012A;
-	Tue, 24 Mar 2026 14:14:23 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 24 Mar 2026 14:14:20 +0800
-Message-ID: <e51d5a5d-40d4-950b-274f-229e1d72e60d@huawei.com>
-Date: Tue, 24 Mar 2026 14:14:18 +0800
+	id 1w4v6x-00000000gCy-17uZ
+	for linux-riscv@lists.infradead.org;
+	Tue, 24 Mar 2026 06:19:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 68DC0600AC;
+	Tue, 24 Mar 2026 06:19:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6EFBC2BCB2;
+	Tue, 24 Mar 2026 06:19:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774333170;
+	bh=qC4zRPgfJw4GdAT6RWn4GSvlf72KS3ejTqxByDrvnGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t6TsVHhlCqXv/31bMMuluDcP1waOS9n3f6iBrj+yNTfXx49Uo2IDMESZ+JVnjSN9U
+	 k8UMjR/S/0Yim3edkxfkP0tGn/QOV+oYMW28+U3fwHgmJ+d/Dv1IutvPsGcc4V5UVA
+	 Coehx0UQy6VQug1LOtTNoJiRLTr6yllZXEsw/relqgDtIKq/ezs7gDxMsf0pVZTQ92
+	 qM5m+dYTfeyisQ973bmiDREmXb1mWRPUh8B31j9RSFWOvmGrvztSPQeITM9vtjR5XD
+	 JwGXycfrEc8uJiYd2oUBabCBt/by2pcGszQtNMm+1AEGe2Y4Pma2Asgp0enfgLhmVI
+	 lXhduj8Lkri1Q==
+Date: Tue, 24 Mar 2026 14:19:27 +0800
+From: Yixun Lan <dlan@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Richard Cochran <richardcochran@gmail.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v4] riscv: dts: spacemit: Add ethernet device for K3
+Message-ID: <20260324061927-GKB533070@kernel.org>
+References: <20260323221552.79937-1-inochiama@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v9 0/5] arm64/riscv: Add support for crashkernel CMA
- reservation
-Content-Language: en-US
-To: Sourabh Jain <sourabhjain@linux.ibm.com>, Andrew Morton
-	<akpm@linux-foundation.org>
-CC: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>, <bhe@redhat.com>,
-	<vgoyal@redhat.com>, <dyoung@redhat.com>, <rdunlap@infradead.org>,
-	<peterz@infradead.org>, <feng.tang@linux.alibaba.com>,
-	<pawan.kumar.gupta@linux.intel.com>, <dapeng1.mi@linux.intel.com>,
-	<kees@kernel.org>, <elver@google.com>, <paulmck@kernel.org>,
-	<lirongqing@baidu.com>, <safinaskar@gmail.com>, <rppt@kernel.org>,
-	<ardb@kernel.org>, <leitao@debian.org>, <jbohac@suse.cz>,
-	<cfsworks@gmail.com>, <osandov@fb.com>, <tangyouling@kylinos.cn>,
-	<ritesh.list@gmail.com>, <eajames@linux.ibm.com>,
-	<songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
-	<samuel.holland@sifive.com>, <vishal.moola@gmail.com>,
-	<junhui.liu@pigmoral.tech>, <coxu@redhat.com>, <liaoyuanhong@vivo.com>,
-	<fuqiang.wang@easystack.cn>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-References: <20260323072745.2481719-1-ruanjinjie@huawei.com>
- <20260323095548.fa4e13d6e8ae5005ae585e13@linux-foundation.org>
- <4cfde40c-673a-12b0-dfc5-703d582d6ea9@huawei.com>
- <595e793d-adc3-4acb-af18-f0a3cf2d5e73@linux.ibm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <595e793d-adc3-4acb-af18-f0a3cf2d5e73@linux.ibm.com>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_061447_009014_81DEC6E9 
-X-CRM114-Status: GOOD (  21.25  )
+Content-Disposition: inline
+In-Reply-To: <20260323221552.79937-1-inochiama@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,82 +71,285 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI2LzMvMjQgMTI6MjksIFNvdXJhYmggSmFpbiB3cm90ZToKPiAKPiAKPiBPbiAyNC8w
-My8yNiAwOTozMiwgSmluamllIFJ1YW4gd3JvdGU6Cj4+Cj4+IE9uIDIwMjYvMy8yNCAwOjU1LCBB
-bmRyZXcgTW9ydG9uIHdyb3RlOgo+Pj4gT24gTW9uLCAyMyBNYXIgMjAyNiAxNToyNzo0MCArMDgw
-MCBKaW5qaWUgUnVhbgo+Pj4gPHJ1YW5qaW5qaWVAaHVhd2VpLmNvbT4gd3JvdGU6Cj4+Pgo+Pj4+
-IFRoZSBjcmFzaCBtZW1vcnkgYWxsb2NhdGlvbiwgYW5kIHRoZSBleGNsdWRlIG9mIGNyYXNoa19y
-ZXMsCj4+Pj4gY3Jhc2hrX2xvd19yZXMKPj4+PiBhbmQgY3Jhc2hrX2NtYSBtZW1vcnkgYXJlIGFs
-bW9zdCBpZGVudGljYWwgYWNyb3NzIGRpZmZlcmVudAo+Pj4+IGFyY2hpdGVjdHVyZXMsCj4+Pj4g
-VGhpcyBwYXRjaCBzZXQgaGFuZGxlIHRoZW0gaW4gY3Jhc2ggY29yZSBpbiBhIGdlbmVyYWwgd2F5
-LCB3aGljaAo+Pj4+IGVsaW1pbmF0ZQo+Pj4+IGEgbG90IG9mIGR1cGxpY2F0aW9uIGNvZGUuCj4+
-Pj4KPj4+PiBBbmQgYWRkIHN1cHBvcnQgZm9yIGNyYXNoa2VybmVsIENNQSByZXNlcnZhdGlvbiBm
-b3IgYXJtNjQgYW5kIHJpc2N2Lgo+Pj4gVGhhbmtzLsKgIEFJIHJldmlldyBoYXMgY29tcGxldGVk
-IGFuZCBpdCBhc2tzIHF1ZXN0aW9uczoKPj4+IMKgwqDCoMKgaHR0cHM6Ly9zYXNoaWtvLmRldi8j
-L3BhdGNoc2V0LzIwMjYwMzIzMDcyNzQ1LjI0ODE3MTktMS1ydWFuamluamllQGh1YXdlaS5jb20K
-Pj4gSSBiZWxpZXZlIGl0IGlkZW50aWZpZWQgNCB2YWxpZCBpc3N1ZXM6Cj4+Cj4+IC0gVGhlIGFs
-cmVhZHkgZGlzY292ZXJlZCBjcmFzaGtfbG93X3JlcyBub3QgZXhjbHVkZWQgYnVnIGluIHRoZSBl
-eGlzdGluZwo+PiBSSVNDLVYgY29kZS4KPj4KPj4gLSBBbiBleGlzdGluZyBtZW1vcnkgbGVhayBp
-c3N1ZSBpbiB0aGUgZXhpc3RpbmcgUG93ZXJQQyBjb2RlLgo+IAo+IFllcyBhbmQgc3VnZ2VzdGVk
-IGFwcHJvYWNoIHRvIGZpeCB0aGUgaXNzdWUgbG9va3MgZ29vZC4KPiBXaGljaCBpcyBiYXNpY2Fs
-bHkgcmVwbGFjZSByZXR1cm4gd2l0aCBnb3RvIG91dC4KPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9w
-b3dlcnBjL2tleGVjL2NyYXNoLmMgYi9hcmNoL3Bvd2VycGMva2V4ZWMvY3Jhc2guYwo+IGluZGV4
-IDg5ODc0MmE1MjA1Yy4uMTQyNmQyMDk5YmFkIDEwMDY0NAo+IC0tLSBhL2FyY2gvcG93ZXJwYy9r
-ZXhlYy9jcmFzaC5jCj4gKysrIGIvYXJjaC9wb3dlcnBjL2tleGVjL2NyYXNoLmMKPiBAQCAtNDQw
-LDcgKzQ0MCw3IEBAIHN0YXRpYyB2b2lkIHVwZGF0ZV9jcmFzaF9lbGZjb3JlaGRyKHN0cnVjdCBr
-aW1hZ2UKPiAqaW1hZ2UsIHN0cnVjdCBtZW1vcnlfbm90aWZ5ICoKPiDCoCDCoCDCoCDCoCByZXQg
-PSBnZXRfY3Jhc2hfbWVtb3J5X3JhbmdlcygmY21lbSk7Cj4gwqAgwqAgwqAgwqAgaWYgKHJldCkg
-ewo+IMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIHByX2VycigiRmFpbGVkIHRvIGdldCBjcmFzaCBt
-ZW0gcmFuZ2VcbiIpOwo+IC3CoCDCoCDCoCDCoCDCoCDCoCDCoCDCoHJldHVybjsKPiArwqAgwqAg
-wqAgwqAgwqAgwqAgwqAgwqBnb3RvIG91dDsKPiDCoCDCoCDCoCDCoCB9Cj4gCj4gwqAgwqAgwqAg
-wqAgLyoKPiAKPiBBcmUgeW91IHBsYW5uaW5nIHRvIGhhbmRsZSB0aGlzIGluIHRoaXMgcGF0Y2gg
-c2VyaWVzPyBPciBkbyB5b3Ugd2FudCBtZQo+IHRvIHNlbmQgYSBzZXBhcmF0ZSBmaXggcGF0Y2g/
-CgpZZXMsIHdpbGwgZml4IGl0IGluIHYxMCwgdGhhbmtzIGZvciB0aGUgY2xhcmlmaWNhdGlvbi4K
-CkJlc3QgcmVnYXJkcywKSmluamllCgo+IAo+IAo+Pgo+PiAtIFRoZSBvcmRlcmluZyBpc3N1ZSBv
-ZiBhZGRpbmcgQ01BIHJhbmdlcyB0byAibGludXgsdXNhYmxlLW1lbW9yeS1yYW5nZSIuCj4+Cj4+
-IC0gQW4gZXhpc3RpbmcgY29uY3VycmVuY3kgaXNzdWUuIEEgQ29uY3VycmVudCBtZW1vcnkgaG90
-cGx1ZyBtYXkgb2NjdXIKPj4gYmV0d2VlbiByZWFkaW5nIG1lbWJsb2NrIGFuZCBhdHRlbXB0aW5n
-IHRvIGZpbGwgY21lbSBkdXJpbmcga2V4ZWNfbG9hZCgpCj4+IGZvciBhbG1vc3QgYWxsIGV4aXN0
-aW5nIGFyY2hpdGVjdHVyZXPvvIxJJ20gbm90IHN1cmUgaWYgdGhpcyBpcyBhCj4+IHByYWN0aWNh
-bCBpc3N1ZSBpbiByZWFsaXR5Li4KCldoYXQgYXJlIHlvdXIgdGhvdWdodHMgb24gdGhpcyBjb25j
-dXJyZW5jeSBpc3N1ZT8KCj4+Cj4+IMKgIFJhY2UgQ29uZGl0aW9uIFNjZW5hcmlvCj4+Cj4+IMKg
-wqAgVGltZWxpbmU6Cj4+IMKgwqAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+IMKgwqAgVDE6IGtleGVjX2xvYWQo
-KSBzeXNjYWxsIHN0YXJ0cwo+PiDCoMKgIFQyOiBrZXhlY190cnlsb2NrKCkgYWNxdWlyZXMga2V4
-ZWNfbG9jawo+PiDCoMKgIFQzOiBjcmFzaF9wcmVwYXJlX2hlYWRlcnMoKSBpcyBjYWxsZWQKPj4g
-wqDCoCBUNDogYXJjaF9nZXRfc3lzdGVtX25yX3JhbmdlcygpIHF1ZXJpZXMgbWVtYmxvY2sg4oaS
-IGZpbmRzIDEwMCBtZW1vcnkKPj4gcmFuZ2VzCj4+IMKgwqAgVDU6IGNtZW0gPSBhbGxvY19jbWVt
-KDEwMCkgYWxsb2NhdGVzIGJ1ZmZlciBmb3IgMTAwIHJhbmdlcwo+PiDCoMKgIFQ2OiBbUkFDRSBX
-SU5ET1ddIEFub3RoZXIgcHJvY2VzcyB0cmlnZ2VycyBtZW1vcnkgaG90cGx1Zwo+PiDCoMKgIFQ3
-OiBhZGRfbWVtb3J5KCkg4oaSIGxvY2tfZGV2aWNlX2hvdHBsdWcoKSDihpIgbWVtYmxvY2tfYWRk
-X25vZGUoKQo+PiDCoMKgIFQ4OiBOZXcgbWVtb3J5IHJlZ2lvbiBhZGRlZCB0byBtZW1ibG9jawo+
-PiDCoMKgIFQ5OiBhcmNoX2NyYXNoX3BvcHVsYXRlX2NtZW0oKSBpdGVyYXRlczogbm93IGZpbmRz
-IDEwMiByYW5nZXMKPj4gwqDCoCBUMTA6IGNtZW0tPnJhbmdlc1sxMDBdIOKGkiBPVVQgT0YgQk9V
-TkRTIFdSSVRFIQo+PiDCoMKgIFQxMTogY21lbS0+cmFuZ2VzWzEwMV0g4oaSIE9VVCBPRiBCT1VO
-RFMgV1JJVEUhCj4+IMKgwqAgVDEyOiBLZXJuZWwgY3Jhc2ggb3IgbWVtb3J5IGNvcnJ1cHRpb24K
-Pj4KPj4gwqDCoCBXaHkgVGhpcyBIYXBwZW5zCj4+Cj4+IMKgwqAgMS4gRGlmZmVyZW50IGxvY2tz
-IHVzZWQ6Cj4+IMKgwqDCoMKgIC0ga2V4ZWNfbG9hZCgpIHVzZXMga2V4ZWNfdHJ5bG9jayAoYXRv
-bWljX3QpCj4+IMKgwqDCoMKgIC0gTWVtb3J5IGhvdHBsdWcgdXNlcyBkZXZpY2VfaG90cGx1Z19s
-b2NrIChtdXRleCkKPj4gwqDCoCAyLiBObyBzeW5jaHJvbml6YXRpb24gYmV0d2VlbiB0aGVzZSB0
-d28gb3BlcmF0aW9ucwo+PiDCoMKgIDMuIFRpbWUtb2YtY2hlY2sgdG8gdGltZS1vZi11c2UgKFRP
-Q1RPVSkgaXNzdWU6Cj4+IMKgwqDCoMKgIC0gU3RlcCBUNC1UNTogV2UgcXVlcnkgdGhlIG51bWJl
-ciBvZiByYW5nZXMgYW5kIGFsbG9jYXRlIGJ1ZmZlcgo+PiDCoMKgwqDCoCAtIFN0ZXAgVDYtVDk6
-IE1lbW9yeSBob3RwbHVnIGFkZHMgbmV3IHJhbmdlcyBiZXR3ZWVuIHF1ZXJ5IGFuZAo+PiBwb3B1
-bGF0aW9uCj4+Cj4+Cj4+Cj4+IEFueSBjb21tZW50cyBvciBzdWdnZXN0aW9ucyBvbiB0aGUgZm9s
-bG93aW5nIGFwcHJvYWNoPwo+Pgo+Pgo+PiBpbnQgY3Jhc2hfcHJlcGFyZV9oZWFkZXJzKC4uLikK
-Pj4gwqDCoCB7Cj4+IMKgwqDCoMKgwqDCoCB1bnNpZ25lZCBpbnQgbWF4X25yX3JhbmdlczsKPj4g
-wqDCoMKgwqDCoMKgIHN0cnVjdCBjcmFzaF9tZW0gKmNtZW07Cj4+IMKgwqDCoMKgwqDCoCBpbnQg
-cmV0Owo+Pgo+PiDCoMKgwqDCoMKgwqAgbG9ja19kZXZpY2VfaG90cGx1ZygpOwo+Pgo+PiDCoMKg
-wqDCoMKgwqAgbWF4X25yX3JhbmdlcyA9IGFyY2hfZ2V0X3N5c3RlbV9ucl9yYW5nZXMoKTsKPj4g
-wqDCoMKgwqDCoMKgIC8vIC4uLgo+PiDCoMKgwqDCoMKgwqAgcmV0ID0gYXJjaF9jcmFzaF9wb3B1
-bGF0ZV9jbWVtKGNtZW0pOwo+PiDCoMKgwqDCoMKgwqAgLy8gLi4uCj4+Cj4+IMKgwqDCoMKgwqDC
-oCB1bmxvY2tfZGV2aWNlX2hvdHBsdWcoKTsKPj4gwqDCoMKgwqDCoMKgIHJldHVybiByZXQ7Cj4+
-IMKgwqAgfQo+Pgo+Pgo+IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+Hi Inochi, 
+
+thanks for the patch, I have few minor comments below..
+
+On 06:15 Tue 24 Mar     , Inochi Amaoto wrote:
+> Add all ethernet device nodes for K3 SoC.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+> Require the following patch series:
+> 1. Basic DT device patch
+> https://lore.kernel.org/spacemit/20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org
+> 2. Ethernet driver patch
+> https://lore.kernel.org/spacemit/20260316010041.164360-1-inochiama@gmail.com
+> 
+> Changed from v3:
+> 1. Separate the pin as RGMII pin and INT pin.
+> 2. Add comment for pin usage.
+> 3. Rename the ethernet pinctrl node to address it is RGMII node.
+> 
+> Changed from v2:
+> 1. keep aliases in alphabetical order.
+> 
+> Changed from v1:
+> 1. remove interrupt-parents property
+> 2. add aliases for ethernet node
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts |  24 +++++
+>  arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi |  44 ++++++++
+>  arch/riscv/boot/dts/spacemit/k3.dtsi         | 104 +++++++++++++++++++
+>  3 files changed, 172 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> index b691304d4b74..b63d86b72be6 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> @@ -4,13 +4,19 @@
+>   * Copyright (c) 2026 Guodong Xu <guodong@riscstar.com>
+>   */
+> 
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+>  #include "k3.dtsi"
+> +#include "k3-pinctrl.dtsi"
+> 
+>  / {
+>  	model = "SpacemiT K3 Pico-ITX";
+>  	compatible = "spacemit,k3-pico-itx", "spacemit,k3";
+> 
+>  	aliases {
+> +		ethernet0 = &eth0;
+..
+> +		ethernet1 = &eth1;
+> +		ethernet2 = &eth2;
+I insist not to add the alias if the device is disabled..
+
+>  		serial0 = &uart0;
+>  	};
+> 
+> @@ -24,6 +30,24 @@ memory@100000000 {
+>  	};
+>  };
+> 
+> +&eth0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac0_rgmii_0_cfg>, <&gmac0_phy_0_cfg>;
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&phy0>;
+> +	status = "okay";
+> +
+> +	mdio {
+> +		phy0: phy@1 {
+> +			compatible = "ethernet-phy-ieee802.3-c22";
+> +			reg = <1>;
+> +			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
+> +			reset-assert-us = <10000>;
+> +			reset-deassert-us = <10000>;
+> +		};
+> +	};
+> +};
+> +
+>  &uart0 {
+>  	status = "okay";
+>  };
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+> new file mode 100644
+> index 000000000000..e02254961764
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+> @@ -0,0 +1,44 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +#define K3_PADCONF(pin, func) (((pin) << 16) | (func))
+> +
+> +&pinctrl {
+> +	gmac0_rgmii_0_cfg: gmac0-rgmii-0-cfg {
+..
+> +		gmac-rgmii-0-pins {
+for consistency, here should name it as gmac0-rgmii-0-pins, to show
+explicitly these pins from gmac0 controller
+
+> +			pinmux = <K3_PADCONF(0, 1)>,	/* gmac0_rxdv */
+> +				 <K3_PADCONF(1, 1)>,	/* gmac0_rx_d0 */
+> +				 <K3_PADCONF(2, 1)>,	/* gmac0_rx_d1 */
+> +				 <K3_PADCONF(3, 1)>,	/* gmac0_rx_clk */
+> +				 <K3_PADCONF(4, 1)>,	/* gmac0_rx_d2 */
+> +				 <K3_PADCONF(5, 1)>,	/* gmac0_rx_d3 */
+> +				 <K3_PADCONF(6, 1)>,	/* gmac0_tx_d0 */
+> +				 <K3_PADCONF(7, 1)>,	/* gmac0_tx_d1 */
+> +				 <K3_PADCONF(8, 1)>,	/* gmac0_tx_clk */
+> +				 <K3_PADCONF(9, 1)>,	/* gmac0_tx_d2 */
+> +				 <K3_PADCONF(10, 1)>,	/* gmac0_tx_d3 */
+> +				 <K3_PADCONF(11, 1)>,	/* gmac0_tx_en */
+> +				 <K3_PADCONF(12, 1)>,	/* gmac0_mdc */
+> +				 <K3_PADCONF(13, 1)>;	/* gmac0_mdio */
+> +
+> +			bias-disable;
+> +			drive-strength = <25>;
+> +			power-source = <1800>;
+> +		};
+> +
+> +	};
+> +
+> +	gmac0_phy_0_cfg: gmac0-phy-0-cfg {
+> +		gmac0-3-pins {
+or gmac0-int-pins? I'm not sure if better to embed the number here?
+(whether you want to change it here, please keep consistency with
+previous one)
+
+> +			pinmux = <K3_PADCONF(14, 1)>;   /* gmac0_int */
+> +
+> +			bias-disable;
+> +			drive-strength = <25>;
+> +			power-source = <1800>;
+> +		};
+> +	};
+> +};
+> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> index 6cc31e94c13a..4c0cc135dc09 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> @@ -5,6 +5,7 @@
+>   */
+> 
+>  #include <dt-bindings/clock/spacemit,k3-clocks.h>
+> +#include <dt-bindings/reset/spacemit,k3-resets.h>
+>  #include <dt-bindings/interrupt-controller/irq.h>
+> 
+>  /dts-v1/;
+> @@ -437,6 +438,109 @@ soc: soc {
+>  		dma-noncoherent;
+>  		ranges;
+> 
+> +		gmac_axi_setup: stmmac-axi-config {
+> +			snps,wr_osr_lmt = <0xf>;
+> +			snps,rd_osr_lmt = <0xf>;
+> +			/* max axi burst len is 256 */
+> +			snps,blen = <256 128 64 32 16 0 0>;
+> +		};
+> +
+> +		eth0: ethernet@cac80000 {
+> +			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
+> +			reg = <0x0 0xcac80000 0x0 0x2000>;
+> +			clocks = <&syscon_apmu CLK_APMU_EMAC0_BUS>,
+> +				 <&syscon_apmu CLK_APMU_EMAC0_1588>,
+> +				 <&syscon_apmu CLK_APMU_EMAC0_RGMII_TX>;
+> +			clock-names = "stmmaceth", "ptp_ref", "tx";
+> +			interrupts = <131 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <276 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq", "eth_wake_irq";
+> +			resets = <&syscon_apmu RESET_APMU_EMAC0>;
+> +			reset-names = "stmmaceth";
+> +			rx-fifo-depth = <8192>;
+> +			tx-fifo-depth = <8192>;
+> +			snps,multicast-filter-bins = <64>;
+> +			snps,perfect-filter-entries = <32>;
+> +			snps,aal;
+> +			snps,tso;
+> +			snps,txpbl = <8>;
+> +			snps,rxpbl = <8>;
+> +			snps,force_sf_dma_mode;
+> +			snps,axi-config = <&gmac_axi_setup>;
+> +			spacemit,apmu = <&syscon_apmu 0x3e4 0x3e8>;
+> +			status = "disabled";
+> +
+> +			mdio {
+> +				compatible = "snps,dwmac-mdio";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+> +		};
+> +
+> +		eth1: ethernet@cac82000 {
+> +			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
+> +			reg = <0x0 0xcac82000 0x0 0x2000>;
+> +			clocks = <&syscon_apmu CLK_APMU_EMAC1_BUS>,
+> +				 <&syscon_apmu CLK_APMU_EMAC1_1588>,
+> +				 <&syscon_apmu CLK_APMU_EMAC1_RGMII_TX>;
+> +			clock-names = "stmmaceth", "ptp_ref", "tx";
+> +			interrupts = <133 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <277 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq", "eth_wake_irq";
+> +			resets = <&syscon_apmu RESET_APMU_EMAC1>;
+> +			reset-names = "stmmaceth";
+> +			rx-fifo-depth = <8192>;
+> +			tx-fifo-depth = <8192>;
+> +			snps,multicast-filter-bins = <64>;
+> +			snps,perfect-filter-entries = <32>;
+> +			snps,aal;
+> +			snps,tso;
+> +			snps,txpbl = <8>;
+> +			snps,rxpbl = <8>;
+> +			snps,force_sf_dma_mode;
+> +			snps,axi-config = <&gmac_axi_setup>;
+> +			spacemit,apmu = <&syscon_apmu 0x3ec 0x3f0>;
+> +			status = "disabled";
+> +
+> +			mdio {
+> +				compatible = "snps,dwmac-mdio";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+> +		};
+> +
+> +		eth2: ethernet@cac8e000 {
+> +			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
+> +			reg = <0x0 0xcac8e000 0x0 0x2000>;
+> +			clocks = <&syscon_apmu CLK_APMU_EMAC2_BUS>,
+> +				 <&syscon_apmu CLK_APMU_EMAC2_1588>,
+> +				 <&syscon_apmu CLK_APMU_EMAC2_RGMII_TX>;
+> +			clock-names = "stmmaceth", "ptp_ref", "tx";
+> +			interrupts = <130 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <278 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq", "eth_wake_irq";
+> +			resets = <&syscon_apmu RESET_APMU_EMAC2>;
+> +			reset-names = "stmmaceth";
+> +			rx-fifo-depth = <4096>;
+> +			tx-fifo-depth = <4096>;
+> +			snps,multicast-filter-bins = <64>;
+> +			snps,perfect-filter-entries = <32>;
+> +			snps,aal;
+> +			snps,tso;
+> +			snps,txpbl = <8>;
+> +			snps,rxpbl = <8>;
+> +			snps,force_sf_dma_mode;
+> +			snps,axi-config = <&gmac_axi_setup>;
+> +			spacemit,apmu = <&syscon_apmu 0x248 0x24c>;
+> +			status = "disabled";
+> +
+> +			mdio {
+> +				compatible = "snps,dwmac-mdio";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+> +		};
+> +
+>  		syscon_apbc: system-controller@d4015000 {
+>  			compatible = "spacemit,k3-syscon-apbc";
+>  			reg = <0x0 0xd4015000 0x0 0x1000>;
+> --
+> 2.53.0
+> 
+> 
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
