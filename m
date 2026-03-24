@@ -4,95 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BA4F532C8
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 02:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B3FF532CE
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 04:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-ID:Date
-	:Subject:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MjOfa71bM3gK3fGh7wQY5+UvCzb8vDoN8Cuav4/sLkA=; b=tCSSGVBZX+IhKm
-	IiN5vYeFJDF+t64zKY7lQceydMWLd+hgYDN/0NiHJ8uzZh8lO2BVuL/Hl2BOp7GXuwUthVjIcWnm2
-	e+rpO4OduIt2F+N3nwTafyEM3WBXgCjE84GjeBWVFncbY3KMlSHXjLsCBY7Cp3ZP3uiiW0AESjydO
-	fUMPxW87Lw0z33y7SAdbjUz9YtDU6QnTWpJsVU1LKV7ZcWXkovn6MPrv8ZHFG2U0uW5iqQxFyOKgd
-	jwPe5p9MRYpCaeQsCy58CUoE1FUpOhYjf5VPB5xwodMLuUsYxiRB7MjtTl6gqVwMIf65EhOymUTd8
-	SCdyZCMlYPb8pLxCP/QA==;
+	List-Owner; bh=srlOM3pjCTmepkx3eBfUhaTWmfsmC/lteNJk+VbVNw0=; b=ZkUF9iu3ZzYmbg
+	sw7V9VDbDDvDFssZO/XW8GcLApoHRqJn3FGxW53Oz1ytekLpeyVMeQgxE7cRgsyJbGF5BeVujTcsB
+	ERopWXF6EB+EkyvbyqtEAfID6MK2ooTHjRn7+X3POMMtZ74dI1OA/Dm1AJdWazztXIYjBKDhobVES
+	QKmiJX8tZi0ymxxhuCeMb0C3mlCcGuQiZuvHI4GVt26xUX9zcakXseWCHjOLtW9z4UIniXjKXPIRe
+	J+CQUXDzEPRo/bHOHN3hZKZOK5lfnf3WNSgA0jfw1MX07XpJOTkeD+z2bxHQzptia1+IjdQGQQ871
+	1iEDeo2oWDf4B/dd83xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rX8-00000000P5H-0JE1;
-	Tue, 24 Mar 2026 02:30:18 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1w4sz0-00000000WYq-2l4V;
+	Tue, 24 Mar 2026 04:03:10 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rX3-00000000Oxe-1KVh
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 02:30:16 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260324023002epoutp0307a54842b94e2e17422ad5e3a67d0f6f~fphiPieGf2439824398epoutp03Y
-	for <linux-riscv@lists.infradead.org>; Tue, 24 Mar 2026 02:30:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260324023002epoutp0307a54842b94e2e17422ad5e3a67d0f6f~fphiPieGf2439824398epoutp03Y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1774319402;
-	bh=xiEG8fs8U4waGFe76frAqj8GUGT8PfbUsJqfEpDU4H0=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=RTFBubUceVdG5dBZjg2EJuOun+7AvU7K1xXJVOiY75v5S6AwPDX0GCIymngOFAphd
-	 E4RA3K/kK+gtTKLgy3khdnDiPmc2cGWIz79uHvHB6IujWAiNQY1L9e+YM2hT5hM2cb
-	 67/UCzZXuKEnGh+5DWuT53H601jKazX4GP44bHGA=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20260324023002epcas5p3c3a08032a55b26ba4a7023fdeaebf3cd~fphhsTMXr1327213272epcas5p3T;
-	Tue, 24 Mar 2026 02:30:02 +0000 (GMT)
-Received: from epcpadp1new (unknown [182.195.40.141]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4ffvBx72xwz2SSKf; Tue, 24 Mar
-	2026 02:30:01 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20260323172713epcas5p4dd04df01adb71b7563e1cac14b927632~fiHlqRiPK1063110631epcas5p4A;
-	Mon, 23 Mar 2026 17:27:13 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260323172656epsmtip1078ac64ab1a734cd90e8019874a7de3a~fiHV3p2Rc1639516395epsmtip1L;
-	Mon, 23 Mar 2026 17:26:55 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Vladimir Oltean'" <vladimir.oltean@nxp.com>,
-	<linux-phy@lists.infradead.org>
-Cc: "'Vinod Koul'" <vkoul@kernel.org>, "'Neil Armstrong'"
-	<neil.armstrong@linaro.org>, <dri-devel@lists.freedesktop.org>,
-	<freedreno@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-arm-msm@vger.kernel.org>, <linux-can@vger.kernel.org>,
-	<linux-gpio@vger.kernel.org>, <linux-ide@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-tegra@vger.kernel.org>,
-	<linux-usb@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<spacemit@lists.linux.dev>, <UNGLinuxDriver@microchip.com>, "'Bart Van
- Assche'" <bvanassche@acm.org>, "'Peter Griffin'" <peter.griffin@linaro.org>,
-	"'James E.J. Bottomley'" <James.Bottomley@HansenPartnership.com>, "'Martin
- K. Petersen'" <martin.petersen@oracle.com>, "'Krzysztof Kozlowski'"
-	<krzk@kernel.org>, "'Chanho Park'" <chanho61.park@samsung.com>
-In-Reply-To: <20260319223241.1351137-10-vladimir.oltean@nxp.com>
-Subject: RE: [PATCH v5 phy-next 09/27] scsi: ufs: exynos: stop poking into
- struct phy guts
-Date: Mon, 23 Mar 2026 22:56:51 +0530
-Message-ID: <1891546521.01774319401971.JavaMail.epsvc@epcpadp1new>
+	id 1w4syw-00000000WYQ-0b24;
+	Tue, 24 Mar 2026 04:03:08 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=bDy1WqzyWZ4QXi9V76+nhfaX5tyIvisESl1ex2cgViU=;
+	b=ZdiH1pglApVl4a6IeiYB/RNIPfMQalqh1J1N6H54h+m4wVAkBIL12akP2v0PgO4JxJv57h8AL
+	Sz/Bww8R1NtzLrMTjBlHDOVrLDCImsP+6ecp+QIQd2fWrygKLGWJO1InyvsolTRvUDIfiWTeLx6
+	ALNTxdX6ngOuZZaJRk7Pqc4=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4ffx7B5xTXzRhRB;
+	Tue, 24 Mar 2026 11:56:54 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id A0A44404AD;
+	Tue, 24 Mar 2026 12:02:59 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 24 Mar 2026 12:02:57 +0800
+Message-ID: <4cfde40c-673a-12b0-dfc5-703d582d6ea9@huawei.com>
+Date: Tue, 24 Mar 2026 12:02:51 +0800
 MIME-Version: 1.0
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJoz1sM+EbPjkyDopxrfJVWkMJWdwIGLiEOAj0DJam0ghnJMA==
-Content-Language: en-us
-X-CMS-MailID: 20260323172713epcas5p4dd04df01adb71b7563e1cac14b927632
-X-Msg-Generator: CA
-CMS-TYPE: 105P
-X-CPGSPASS: Y
-X-Hop-Count: 3
-X-CMS-RootMailID: 20260319223312epcas5p183a1e0c31206025da8cf00b5d745a0ce
-References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
-	<CGME20260319223312epcas5p183a1e0c31206025da8cf00b5d745a0ce@epcas5p1.samsung.com>
-	<20260319223241.1351137-10-vladimir.oltean@nxp.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v9 0/5] arm64/riscv: Add support for crashkernel CMA
+ reservation
+Content-Language: en-US
+To: Andrew Morton <akpm@linux-foundation.org>
+CC: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>, <bhe@redhat.com>,
+	<vgoyal@redhat.com>, <dyoung@redhat.com>, <rdunlap@infradead.org>,
+	<peterz@infradead.org>, <feng.tang@linux.alibaba.com>,
+	<pawan.kumar.gupta@linux.intel.com>, <dapeng1.mi@linux.intel.com>,
+	<kees@kernel.org>, <elver@google.com>, <paulmck@kernel.org>,
+	<lirongqing@baidu.com>, <safinaskar@gmail.com>, <rppt@kernel.org>,
+	<ardb@kernel.org>, <leitao@debian.org>, <jbohac@suse.cz>,
+	<cfsworks@gmail.com>, <osandov@fb.com>, <tangyouling@kylinos.cn>,
+	<sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
+	<eajames@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+	<kevin.brodsky@arm.com>, <samuel.holland@sifive.com>,
+	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
+	<liaoyuanhong@vivo.com>, <fuqiang.wang@easystack.cn>, <x86@kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>
+References: <20260323072745.2481719-1-ruanjinjie@huawei.com>
+ <20260323095548.fa4e13d6e8ae5005ae585e13@linux-foundation.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260323095548.fa4e13d6e8ae5005ae585e13@linux-foundation.org>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_193013_669991_BF3884EA 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20260323_210306_854967_59797CDB 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,78 +97,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-HI Vladimir,
-
-> -----Original Message-----
-> From: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Sent: Friday, March 20, 2026 4:02 AM
-> To: linux-phy@lists.infradead.org
-> Cc: Vinod Koul <vkoul@kernel.org>; Neil Armstrong
-> <neil.armstrong@linaro.org>; dri-devel@lists.freedesktop.org;
-> freedreno@lists.freedesktop.org; linux-arm-kernel@lists.infradead.org;
-> linux-arm-msm@vger.kernel.org; linux-can@vger.kernel.org; linux-
-> gpio@vger.kernel.org; linux-ide@vger.kernel.org; linux-
-> kernel@vger.kernel.org; linux-media@vger.kernel.org; linux-
-> pci@vger.kernel.org; linux-renesas-soc@vger.kernel.org; linux-
-> riscv@lists.infradead.org; linux-rockchip@lists.infradead.org;
-linux-samsung-
-> soc@vger.kernel.org; linux-scsi@vger.kernel.org;
-linux-sunxi@lists.linux.dev;
-> linux-tegra@vger.kernel.org; linux-usb@vger.kernel.org;
-> netdev@vger.kernel.org; spacemit@lists.linux.dev;
-> UNGLinuxDriver@microchip.com; Bart Van Assche <bvanassche@acm.org>;
-> Alim Akhtar <alim.akhtar@samsung.com>; Peter Griffin
-> <peter.griffin@linaro.org>; James E.J. Bottomley
-> <James.Bottomley@HansenPartnership.com>; Martin K. Petersen
-> <martin.petersen@oracle.com>; Krzysztof Kozlowski <krzk@kernel.org>;
-> Chanho Park <chanho61.park@samsung.com>
-> Subject: [PATCH v5 phy-next 09/27] scsi: ufs: exynos: stop poking into
-struct
-> phy guts
-> 
-> The Exynos host controller driver is clearly a PHY consumer (gets the
-> ufs->phy using devm_phy_get()), but pokes into the guts of struct phy
-> to get the generic_phy->power_count.
-> 
-> The UFS core (specifically ufshcd_link_startup()) may call the variant
-> operation exynos_ufs_pre_link() -> exynos_ufs_phy_init() multiple times if
-> the link startup fails and needs to be retried.
-> 
-> However ufs-exynos shouldn't be doing what it's doing, i.e. looking at the
-> generic_phy->power_count, because in the general sense of the API, a
-> single Generic PHY may have multiple consumers. If ufs-exynos looks at
-> generic_phy->power_count, there's no guarantee that this ufs-exynos
-> instance is the one who previously bumped that power count. So it may be
-> powering down the PHY on behalf of another consumer.
-> 
-> The correct way in which this should be handled is ufs-exynos should
-> *remember* whether it has initialized and powered up the PHY before, and
-> power it down during link retries. Not rely on the power_count (which,
-btw,
-> on the writer side is modified under &phy->mutex, but on the reader side
-is
-> accessed unlocked). This is a discouraged pattern even if here it doesn't
-> cause functional problems.
-> 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Reviewed-by: Bart Van Assche <bvanassche@acm.org>
-> ---
-Thanks for the patch
-Acked-by: Alim Akhtar <alim.akhtar@samsung.com>
-
-Tested this patch for basic UFS functionality, UFS still works. 
-Feel free to add
-Tested-by: Alim Akhtar <alim.akhtar@samsung.com>
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDI2LzMvMjQgMDo1NSwgQW5kcmV3IE1vcnRvbiB3cm90ZToKPiBPbiBNb24sIDIzIE1h
+ciAyMDI2IDE1OjI3OjQwICswODAwIEppbmppZSBSdWFuIDxydWFuamluamllQGh1YXdlaS5jb20+
+IHdyb3RlOgo+IAo+PiBUaGUgY3Jhc2ggbWVtb3J5IGFsbG9jYXRpb24sIGFuZCB0aGUgZXhjbHVk
+ZSBvZiBjcmFzaGtfcmVzLCBjcmFzaGtfbG93X3Jlcwo+PiBhbmQgY3Jhc2hrX2NtYSBtZW1vcnkg
+YXJlIGFsbW9zdCBpZGVudGljYWwgYWNyb3NzIGRpZmZlcmVudCBhcmNoaXRlY3R1cmVzLAo+PiBU
+aGlzIHBhdGNoIHNldCBoYW5kbGUgdGhlbSBpbiBjcmFzaCBjb3JlIGluIGEgZ2VuZXJhbCB3YXks
+IHdoaWNoIGVsaW1pbmF0ZQo+PiBhIGxvdCBvZiBkdXBsaWNhdGlvbiBjb2RlLgo+Pgo+PiBBbmQg
+YWRkIHN1cHBvcnQgZm9yIGNyYXNoa2VybmVsIENNQSByZXNlcnZhdGlvbiBmb3IgYXJtNjQgYW5k
+IHJpc2N2Lgo+IAo+IFRoYW5rcy4gIEFJIHJldmlldyBoYXMgY29tcGxldGVkIGFuZCBpdCBhc2tz
+IHF1ZXN0aW9uczoKPiAJaHR0cHM6Ly9zYXNoaWtvLmRldi8jL3BhdGNoc2V0LzIwMjYwMzIzMDcy
+NzQ1LjI0ODE3MTktMS1ydWFuamluamllQGh1YXdlaS5jb20KCkkgYmVsaWV2ZSBpdCBpZGVudGlm
+aWVkIDQgdmFsaWQgaXNzdWVzOgoKLSBUaGUgYWxyZWFkeSBkaXNjb3ZlcmVkIGNyYXNoa19sb3df
+cmVzIG5vdCBleGNsdWRlZCBidWcgaW4gdGhlIGV4aXN0aW5nClJJU0MtViBjb2RlLgoKLSBBbiBl
+eGlzdGluZyBtZW1vcnkgbGVhayBpc3N1ZSBpbiB0aGUgZXhpc3RpbmcgUG93ZXJQQyBjb2RlLgoK
+LSBUaGUgb3JkZXJpbmcgaXNzdWUgb2YgYWRkaW5nIENNQSByYW5nZXMgdG8gImxpbnV4LHVzYWJs
+ZS1tZW1vcnktcmFuZ2UiLgoKLSBBbiBleGlzdGluZyBjb25jdXJyZW5jeSBpc3N1ZS4gQSBDb25j
+dXJyZW50IG1lbW9yeSBob3RwbHVnIG1heSBvY2N1cgpiZXR3ZWVuIHJlYWRpbmcgbWVtYmxvY2sg
+YW5kIGF0dGVtcHRpbmcgdG8gZmlsbCBjbWVtIGR1cmluZyBrZXhlY19sb2FkKCkKZm9yIGFsbW9z
+dCBhbGwgZXhpc3RpbmcgYXJjaGl0ZWN0dXJlc++8jEknbSBub3Qgc3VyZSBpZiB0aGlzIGlzIGEK
+cHJhY3RpY2FsIGlzc3VlIGluIHJlYWxpdHkuLgoKIFJhY2UgQ29uZGl0aW9uIFNjZW5hcmlvCgog
+IFRpbWVsaW5lOgogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogIFQxOiBrZXhlY19sb2FkKCkgc3lzY2FsbCBzdGFy
+dHMKICBUMjoga2V4ZWNfdHJ5bG9jaygpIGFjcXVpcmVzIGtleGVjX2xvY2sKICBUMzogY3Jhc2hf
+cHJlcGFyZV9oZWFkZXJzKCkgaXMgY2FsbGVkCiAgVDQ6IGFyY2hfZ2V0X3N5c3RlbV9ucl9yYW5n
+ZXMoKSBxdWVyaWVzIG1lbWJsb2NrIOKGkiBmaW5kcyAxMDAgbWVtb3J5IHJhbmdlcwogIFQ1OiBj
+bWVtID0gYWxsb2NfY21lbSgxMDApIGFsbG9jYXRlcyBidWZmZXIgZm9yIDEwMCByYW5nZXMKICBU
+NjogW1JBQ0UgV0lORE9XXSBBbm90aGVyIHByb2Nlc3MgdHJpZ2dlcnMgbWVtb3J5IGhvdHBsdWcK
+ICBUNzogYWRkX21lbW9yeSgpIOKGkiBsb2NrX2RldmljZV9ob3RwbHVnKCkg4oaSIG1lbWJsb2Nr
+X2FkZF9ub2RlKCkKICBUODogTmV3IG1lbW9yeSByZWdpb24gYWRkZWQgdG8gbWVtYmxvY2sKICBU
+OTogYXJjaF9jcmFzaF9wb3B1bGF0ZV9jbWVtKCkgaXRlcmF0ZXM6IG5vdyBmaW5kcyAxMDIgcmFu
+Z2VzCiAgVDEwOiBjbWVtLT5yYW5nZXNbMTAwXSDihpIgT1VUIE9GIEJPVU5EUyBXUklURSEKICBU
+MTE6IGNtZW0tPnJhbmdlc1sxMDFdIOKGkiBPVVQgT0YgQk9VTkRTIFdSSVRFIQogIFQxMjogS2Vy
+bmVsIGNyYXNoIG9yIG1lbW9yeSBjb3JydXB0aW9uCgogIFdoeSBUaGlzIEhhcHBlbnMKCiAgMS4g
+RGlmZmVyZW50IGxvY2tzIHVzZWQ6CiAgICAtIGtleGVjX2xvYWQoKSB1c2VzIGtleGVjX3RyeWxv
+Y2sgKGF0b21pY190KQogICAgLSBNZW1vcnkgaG90cGx1ZyB1c2VzIGRldmljZV9ob3RwbHVnX2xv
+Y2sgKG11dGV4KQogIDIuIE5vIHN5bmNocm9uaXphdGlvbiBiZXR3ZWVuIHRoZXNlIHR3byBvcGVy
+YXRpb25zCiAgMy4gVGltZS1vZi1jaGVjayB0byB0aW1lLW9mLXVzZSAoVE9DVE9VKSBpc3N1ZToK
+ICAgIC0gU3RlcCBUNC1UNTogV2UgcXVlcnkgdGhlIG51bWJlciBvZiByYW5nZXMgYW5kIGFsbG9j
+YXRlIGJ1ZmZlcgogICAgLSBTdGVwIFQ2LVQ5OiBNZW1vcnkgaG90cGx1ZyBhZGRzIG5ldyByYW5n
+ZXMgYmV0d2VlbiBxdWVyeSBhbmQKcG9wdWxhdGlvbgoKCgpBbnkgY29tbWVudHMgb3Igc3VnZ2Vz
+dGlvbnMgb24gdGhlIGZvbGxvd2luZyBhcHByb2FjaD8KCgppbnQgY3Jhc2hfcHJlcGFyZV9oZWFk
+ZXJzKC4uLikKICB7CiAgICAgIHVuc2lnbmVkIGludCBtYXhfbnJfcmFuZ2VzOwogICAgICBzdHJ1
+Y3QgY3Jhc2hfbWVtICpjbWVtOwogICAgICBpbnQgcmV0OwoKICAgICAgbG9ja19kZXZpY2VfaG90
+cGx1ZygpOwoKICAgICAgbWF4X25yX3JhbmdlcyA9IGFyY2hfZ2V0X3N5c3RlbV9ucl9yYW5nZXMo
+KTsKICAgICAgLy8gLi4uCiAgICAgIHJldCA9IGFyY2hfY3Jhc2hfcG9wdWxhdGVfY21lbShjbWVt
+KTsKICAgICAgLy8gLi4uCgogICAgICB1bmxvY2tfZGV2aWNlX2hvdHBsdWcoKTsKICAgICAgcmV0
+dXJuIHJldDsKICB9CgoKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
