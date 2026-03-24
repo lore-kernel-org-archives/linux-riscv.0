@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26DE7FEC11B
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 22:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7FBF54ADD
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 23:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N/x47qKNzjkc3jZO/DZ5UIGR7X2V59yFvndtQtSWet0=; b=w0EacbWzHu3qsP
-	3GSTlmXbVnLC7zvnCdxtKHdJnHzNYgVACBlnKtqnymBMKKbDJMQB9dJUmtdowwtdYNb8BdTnrleFW
-	qJwUyZxeS+Hlo26SfJPeYN3E1YxLAmKD41j8pZXdYy6RNG2rXcs8+RE10zpmC13f2kstH4yjW5GW2
-	LzFZQzZeUssj58o9+Ft8O1Ap0DmS1G8ySIxLedXofx2UqRwsX7NTKDYCswd9cidx9T0mPvZHeday0
-	+w80fhzm/fM/tL8NnYNRlhocwVxVkHE0034s4LIjC9pzZB46Uuecpvcph/8xvewCOPy+nYd0QBAag
-	nMA0ljq8X5Si2iAdFZxg==;
+	List-Owner; bh=/uUmjbJcKchWi605WkyV22SvCalDxPWQYNkY9LMR/iA=; b=z77G3Rt0JlJLlS
+	BStHx7JwE+Jw2oNSvoTFSKnnoLHL1GL8p3SWUp5y8w28ZkUsWepf+h5gK49Gskhk4anqJTRV/jGub
+	CIM7YyhUUxue3wcY4IF6o2BXmUQGcfMnDwfaN0063/qD9quddpklFWxAjgh9XIM4FnUqDn3yS1Fyp
+	oU3EU8Hswyh8Q/u4tlKgmANMKDV6GgOdsUFX2cbEdtvWXulI8aKBS04Nmvbaw+TRcdp8x+mr02/po
+	ygt+36LIBCtC59JaQhk7mGUeJkIrXPBpL4PrWObOgCLDylR41Y8We3+JpE6TFpi0XXOG3iIk2YhLc
+	wLmZztsm9Y+DKOYOiWug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w59wh-00000002HoU-2Cmy;
-	Tue, 24 Mar 2026 22:09:55 +0000
+	id 1w5B9h-00000002M62-1a2m;
+	Tue, 24 Mar 2026 23:27:25 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w59wf-00000002Hne-08tO
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 22:09:54 +0000
+	id 1w5B9e-00000002M5O-3ikU;
+	Tue, 24 Mar 2026 23:27:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FB404442F;
-	Tue, 24 Mar 2026 22:09:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4452C19424;
-	Tue, 24 Mar 2026 22:09:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8737643448;
+	Tue, 24 Mar 2026 23:27:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 233C6C19424;
+	Tue, 24 Mar 2026 23:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774390192;
-	bh=7j8Ky5lso1k7J2uDYMW9hlAWHsxyR7vRQ7da5WAJfEw=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=tuXinN2+A68pMTzb1oX5TWUcCu3BHM7Gkw0cdO5VaoJiw0yAVW+FaC1osUUNSIjvO
-	 yKfi2qeDVFViC2Iuja2kaNFYuUCpfaE4RZ46wRugPwNGxOZPwiPoYRYVhdfOj/14DL
-	 jBCyZo7wMmgy6DX3fcOGsXlEzY7pB0uw7N1M2ElDyjq8T1F0B66qD5TbRJb43LU0s9
-	 IA7J5U+zJcSwWBGT4m+XhD9mOI9sGWlJ/YOsjklMtuuv23Om6JACnH+3YvLptzoQf0
-	 YR9ZS++mfRRaOHfK1hcRgw9xgiOwG2VsaOYRY5iofCsOlRHFnJUeTVJF7OAKhQwQT+
-	 9gMcSwhW4QQoQ==
-Date: Wed, 25 Mar 2026 06:09:50 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH 4/6] riscv: dts: spacemit: enable QSPI and add SPI NOR on
- Milk-V Jupiter
-Message-ID: <20260324220950-GKB767626@kernel.org>
-References: <20260322203356.2206927-1-aurelien@aurel32.net>
- <20260322203356.2206927-5-aurelien@aurel32.net>
- <20260324090220-GKA739629@kernel.org>
- <acL_xPYiGXUp_Tir@aurel32.net>
+	s=k20201202; t=1774394842;
+	bh=7Vksh/TZbAbO2ZdMTl4B7tAMqUDtCF8BMGNIcRTQQSg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n4Up3lKqsTJ3zA02PVZEJYOgzoUtGJISGUakPl4rAUImUrn+UgsknQlJHaRjt57lL
+	 8JWg8RWsV4B0DKiXiKQj4ruMsCnTFfp2DZ6VPmpx+EVpkyylr4eNa2eBM1EB04qYbE
+	 cgUn6EaeXjb8IRyke2xPHl48rwxIgKkfKqU7RMlyrwbLTcndVJ13JPflqV7/Q9kBL8
+	 Vm7ml0IaPzD24ag4Th1J0lkTTd+t6EiJ8hI3W2P6VS9fu3o9c1BsUFkYxxsOLAioYB
+	 fsrmsTXqx87TXptkHPy0kFW1xkhve7dVL93RwuLXwBU6feouEQQT6QFdwZ3ifla6q6
+	 WFZPq95BI9Y/A==
+Date: Tue, 24 Mar 2026 16:27:20 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Tianjia Zhang <tianjia.zhang@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org
+Subject: Re: [PATCH 00/12] SM3 library
+Message-ID: <20260324232720.GA3622@quark>
+References: <20260321040935.410034-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <acL_xPYiGXUp_Tir@aurel32.net>
+In-Reply-To: <20260321040935.410034-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_150953_089794_1A029117 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20260324_162722_963620_E059729A 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +75,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelien, 
-
-On 22:19 Tue 24 Mar     , Aurelien Jarno wrote:
-> Hi Yixun,
+On Fri, Mar 20, 2026 at 09:09:23PM -0700, Eric Biggers wrote:
+> This series is targeting libcrypto-next.  It can also be retrieved from:
 > 
-> On 2026-03-24 17:02, Yixun Lan wrote:
-> > Hi Aurelien,
-..
-> > ..
-> > > Also add the bootph-pre-ram property to make the device tree usable by
-> > > early firmware/bootloaders without modification, as U-Boot is stored on
-> > > this NOR flash.
-> > Is the dtb file actually used by U-Boot? I'd highly doubt about this,
-> > if not the case or has not been tested, I'd suggest then not to add
-> > this property..
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sm3-lib-v1
 > 
-> It is currently not used by U-Boot, currently SPL support is not 
-> available, but patches have been posted to added it. I just wanted to 
-> anticipate the addition of the Milk-V Jupiter board in U-boot, but if 
-> that hurt, i can remove it (or you can removed it when merging).
-Not hurt since it isn't really used in Kernel, but I just don't
-want to add things without test..
+> This series cleans up the kernel's existing SM3 hashing code:
+> 
+> - First, it updates lib/crypto/sm3.c to implement the full SM3 instead
+>   of just SM3's compression function.
+> 
+> - Next, it adds a KUnit test suite for the new library API.
+> 
+> - Next, it replaces the "sm3-generic" crypto_shash with a wrapper around
+>   the new library API.
+> 
+> - Finally, it accelerates the API using the existing SM3 assembly code
+>   for arm64, riscv, and x86.  The architecture-specific crypto_shash
+>   glue code for SM3 is no longer needed and is removed.
+> 
+> This should look quite boring.  It's the same cleanup that I've already
+> done for the other hash functions.
+> 
+> Note: I don't recommend using SM3.  There also don't appear to be any
+> immediate candidate users of the SM3 library other than crypto_shash.
+> 
+> Still, this seems like the clear way to go.  It's simpler, and it gets
+> the hash algorithms integrated in a consistent way.  We won't have to
+> keep track of two quite different ways of doing things.  With KUnit the
+> code becomes much easier to test and benchmark, as well.
 
-I can remove it if there is no other changes, then no iteration needed.
-Let's wait a few more days to see if people have additional comments for
-this series
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
 
--- 
-Yixun Lan (dlan)
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
