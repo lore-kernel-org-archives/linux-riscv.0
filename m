@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADB2F532D4
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C74F532E5
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jpomb7P2kETuicbslEXaxnMOQWgVX+sDaj9taD7JSCY=; b=yzYu2B+imwM2Vt
-	4yVXCFrT+RTS24ztrRPsf3FamakWNRHcZ5gvWA2gbfFK0Gqncc5Oe+TuQUULz4b7KlXCm+FbZ4Maf
-	RzNN4zLFtBnOtLIMscSNG6HQpVkORmzO5fNYenpPskdvuTGOYRW3hbbOxvn+Rj5DnQcZxND8WGHpK
-	mf0tREKUG/1hrVkslG+FhigKf90p1wuxUPkayGfnxWlUFOo9CtmYy77MtuXoArcxw9U+Emqifx7J/
-	rVGNkYNIJ4dLdqx8g4h16CPbc4f44uV0jtRsUFKpZJIGu/ClieTjn/XKHxgiGGPD5+vSHCsy+ETct
-	iJxpJPSG3fRn83tBV/7Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=65jD+EReI+CO/oV+NxKnFuZRVf5WOGYp30bRLDji964=; b=k6eD3BuyZUwrNv
+	8FzocVX4AEz0BL3JHV917s8jlbpdVjVHt5U9Xpa1yeoZ7aErefVaY3uNOOJElDfj1y+vWtgMNYpnP
+	Wkv/o4vagHZNN2ouFpsVrZq2PJ3kzCxxZAwyXeVa1kfD4vAnLsqCVYlXI040kx03TwgTmwv42+5O6
+	fovk8kqm0CEV6gKKRChCgtc66XgwWKQGC+nPrsZPtYS0pTwUbIMD+UNIwNY6WK9w1Vz2Spv446+lu
+	Y5um837Hc+D2lvjnMCemKpNCqSwirg7BRgnHSUwbHburRr0RCPg3KZX1WpVPBM0KWI6y9UO0of+w1
+	nd64WRaeMQ3CfVR79VDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vQ3-00000000lqK-1frg;
-	Tue, 24 Mar 2026 06:39:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vQ1-00000000lq0-3PSU
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 06:39:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC3A8600AC;
-	Tue, 24 Mar 2026 06:39:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE645C19424;
-	Tue, 24 Mar 2026 06:39:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774334352;
-	bh=iGOx98UP1vpKG7YZd8YE9BQwS0A7jTMzxUvXgeGAHSI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MIYAFh2g2nIzaNuvfWL9VyTrtDpxmGBSHkZhSvtgc+x75Fglabmstk1493Y4Z663v
-	 LQtXlwI4E7l98/786lVYUJJzg7G5dO0Zq2oFBEVBTfQ9JNM83h0gWzw1JRbXp3ML6V
-	 iazVL0QdPBYBlwL2M9Hr4VwFpnyZvJvb7hMN38yDruQvIK63NuTSwUIpj+v8owHEtk
-	 Lb22TfPqBTuAm0NfBgP6xARy/CUduJRtlJm94WbwUXw6P31GKjuGU6Vib+vY5OdGjQ
-	 oluiuJOpxlgcitfDyO1rjuzS8lIrO3xKC4FzMIMvj6W4fM57Sgs4Hz6ENFRxnkof3n
-	 YDu7B7fqbcsBg==
-From: Yixun Lan <dlan@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Yixun Lan <dlan@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	id 1w4vSH-00000000m3N-1am2;
+	Tue, 24 Mar 2026 06:41:33 +0000
+Received: from 2a02-8389-2341-5b80-d601-7564-c2e0-491c.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:d601:7564:c2e0:491c] helo=localhost)
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4vSD-00000000m23-3thG;
+	Tue, 24 Mar 2026 06:41:30 +0000
+From: Christoph Hellwig <hch@lst.de>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH 1/1] riscv: dts: spacemit: reorder phy nodes for K1
-Date: Tue, 24 Mar 2026 06:39:02 +0000
-Message-ID: <177433411962.241042.5017156711988723087.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260318100000.3934516-1-amadeus@jmu.edu.cn>
-References: <20260318100000.3934516-1-amadeus@jmu.edu.cn>
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: cleanup the RAID6 P/Q library
+Date: Tue, 24 Mar 2026 07:40:35 +0100
+Message-ID: <20260324064115.3217136-1-hch@lst.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,22 +91,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi all,
 
-On Wed, 18 Mar 2026 18:00:00 +0800, Chukun Pan wrote:
-> Reorder the PHY nodes of USB and PCIe to the correct positions based on
-> the register address. This improves the readability and maintainability
-> of the DT. No functional change is introduced by this reordering.
-> 
-> 
+this series cleans up the RAID6 P/Q library to match the recent updates
+to the RAID 5 XOR library and other CRC/crypto libraries.  This includes
+providing properly documented external interfaces, hiding the internals,
+using static_call instead of indirect calls and turning the user space
+test suite into an in-kernel kunit test which is also extended to
+improve coverage.
 
-Applied, thanks!
+Note that this changes registration so that non-priority algorithms are
+not registered, which greatly helps with the benchmark time at boot time.
+I'd like to encourage all architecture maintainers to see if they can
+further optimized this by registering as few as possible algorithms when
+there is a clear benefit in optimized or more unrolled implementations.
 
-[1/1] riscv: dts: spacemit: reorder phy nodes for K1
-      https://github.com/spacemit-com/linux/commit/eac600d5cc42b04e799fb65169b8f4060773381b
+This series sits on top of the "cleanup the RAID5 XOR library v3" series.
 
-Best regards,
--- 
-Yixun Lan <dlan@kernel.org>
+A git tree is also available here:
+
+    git://git.infradead.org/users/hch/misc.git lib-raid6
+
+Gitweb:
+
+    https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/lib-raid6
+
+Diffstat:
+ b/Documentation/crypto/async-tx-api.rst           |    4 
+ b/crypto/async_tx/async_pq.c                      |    9 
+ b/crypto/async_tx/async_raid6_recov.c             |    9 
+ b/drivers/dma/bcm-sba-raid.c                      |    1 
+ b/drivers/md/raid5.c                              |    4 
+ b/fs/btrfs/raid56.c                               |    8 
+ b/include/linux/raid/pq.h                         |  216 ------------
+ b/include/linux/raid/pq_tables.h                  |   19 +
+ b/lib/Kconfig                                     |   11 
+ b/lib/Makefile                                    |    1 
+ b/lib/raid/Kconfig                                |   33 +
+ b/lib/raid/Makefile                               |    2 
+ b/lib/raid/raid6/Makefile                         |  124 +++++++
+ b/lib/raid/raid6/algos.c                          |  381 ++++++++++++++++++++++
+ b/lib/raid/raid6/algos.h                          |   41 ++
+ b/lib/raid/raid6/arm/neon.c                       |   23 -
+ b/lib/raid/raid6/arm/pq_arch.h                    |   22 +
+ b/lib/raid/raid6/arm/recov_neon.c                 |   25 -
+ b/lib/raid/raid6/int.uc                           |   10 
+ b/lib/raid/raid6/loongarch/loongarch_simd.c       |   31 -
+ b/lib/raid/raid6/loongarch/pq_arch.h              |   23 +
+ b/lib/raid/raid6/loongarch/recov_loongarch_simd.c |   39 --
+ b/lib/raid/raid6/mktables.c                       |   28 -
+ b/lib/raid/raid6/powerpc/altivec.uc               |   32 -
+ b/lib/raid/raid6/powerpc/pq_arch.h                |   31 +
+ b/lib/raid/raid6/powerpc/vpermxor.uc              |   29 -
+ b/lib/raid/raid6/recov.c                          |   62 ---
+ b/lib/raid/raid6/riscv/pq_arch.h                  |   21 +
+ b/lib/raid/raid6/riscv/recov_rvv.c                |   14 
+ b/lib/raid/raid6/riscv/rvv.h                      |   26 -
+ b/lib/raid/raid6/s390/pq_arch.h                   |   15 
+ b/lib/raid/raid6/s390/recov_s390xc.c              |   14 
+ b/lib/raid/raid6/s390/s390vx.uc                   |   15 
+ b/lib/raid/raid6/tests/Makefile                   |    3 
+ b/lib/raid/raid6/tests/raid6_kunit.c              |  307 +++++++++++++++++
+ b/lib/raid/raid6/x86/avx2.c                       |   47 --
+ b/lib/raid/raid6/x86/avx512.c                     |   57 +--
+ b/lib/raid/raid6/x86/mmx.c                        |   39 --
+ b/lib/raid/raid6/x86/pq_arch.h                    |   96 +++++
+ b/lib/raid/raid6/x86/recov_avx2.c                 |   22 -
+ b/lib/raid/raid6/x86/recov_avx512.c               |   26 -
+ b/lib/raid/raid6/x86/recov_ssse3.c                |   23 -
+ b/lib/raid/raid6/x86/sse1.c                       |   49 --
+ b/lib/raid/raid6/x86/sse2.c                       |   47 --
+ lib/raid6/Makefile                                |   83 ----
+ lib/raid6/algos.c                                 |  291 ----------------
+ lib/raid6/loongarch.h                             |   38 --
+ lib/raid6/test/.gitignore                         |    3 
+ lib/raid6/test/Makefile                           |  156 ---------
+ lib/raid6/test/test.c                             |  152 --------
+ lib/raid6/x86.h                                   |   75 ----
+ 51 files changed, 1329 insertions(+), 1508 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
