@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE687F532E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC793F532DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QYhJmJ7OoBUqpO/1wNU4IwYneD1FZeS47x39GGvZFsM=; b=lVClbBsmnLPB8R
-	r5AIhD0Y1zOH+pdvbIYrme5vG5IuHoSYaNsvTYI2Jtjzo6yyQeRybykRuUNmtwTJtiDAlD6LTSwX1
-	qQhz4b5K9tgaLKdDNGls8Dfvki3CaP7HixgenUKsq3C1hSaYXc61wdYLAtD2VzmT9oXPKp88+LTqN
-	89ElrqhATUW0ywsWzHZrwpJpewl8YMv53yXZvvrVP+vFXONlh6khFiZN/tEllXbNszDZRMnG+3Gzs
-	Optrq3KfoKAJbz1vqFy8dHxwLa4SXLZpv/DumQFZJNPP25ZGNb+KiICP6qmpRD+Lu1chDDv97unrD
-	9TatJehzwt8yG9s91dJQ==;
+	List-Owner; bh=+tjHPX5m2Alu1xAIXOw7AS7lkvBsc0jdtPK7tr5wvcQ=; b=lF03X1OIQnoLiZ
+	7s4w2lDo55K6OOtAuCwgnk/IbpjGNuAwb3xhWujVzT+76F1R+KERonizQ6vlXghMkvFcd3/lFAO4v
+	uFF0kb9dzU/xnPtYgw5TtvdRsTzGqueUUFfkFNmU52llfnh8O/q+/PGLDClfLVVwfWadvzP1zE43Z
+	m2nbBlbCMkW1ltC4GkFhQ0v8XJ+jlTfLMph8aX6xziwu95mnm0ARXcDzgzYxqJ8j69IC0axprY7DV
+	8mCQZpL4snwoKSZ+iEpnKOCm+HtSbGX1ra21yHyYQIf9TLwCSLZ6NnFuvVziFvOhz5VqhL+gQiZkL
+	iqOZNDStxFU7uXU0GATQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvV-00000000dIf-3Vqk;
-	Tue, 24 Mar 2026 06:07:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4uvW-00000000dJF-1gEf;
+	Tue, 24 Mar 2026 06:07:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvU-00000000dHl-0UqI
-	for linux-riscv@lists.infradead.org;
+	id 1w4uvT-00000000dH0-2Rfm;
 	Tue, 24 Mar 2026 06:07:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8BAB760103;
-	Tue, 24 Mar 2026 06:07:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 587FAC2BCB2;
-	Tue, 24 Mar 2026 06:07:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4908940D56;
+	Tue, 24 Mar 2026 06:07:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 272E5C19424;
+	Tue, 24 Mar 2026 06:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774332459;
-	bh=TT5lBm7eFK7nQkMzbSkiD0ZpgTSP9lB6Y+WQbG92bDY=;
+	s=k20201202; t=1774332458;
+	bh=5TiSu/asBer7FpjtJQ/4BOedGtXXS9dtYnxsawzLT50=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=c9IMZw96dsnhrnQzBOWLIHmAeVarlxgOqtcYTgQpm/uaayVF5dZgHWnhRtPboRxPw
-	 TwpVCDMR8eKbMqpWaVlUfIpq7EVXV3Oa8OT7E6GE4OSc/BWiJIX4xAyOn5d2eB6aXf
-	 cclMkEnuVmUoHGXln6w5FP45wk5y1F4PoFP/SqH7j3l3+NpsnZVGbhsdRP452FTr+G
-	 10BxTjY6AgjaVTTtPY5oL//mbl30alGLpHi5Eou7X0fQPj/PRwVIUTbXimCx5npmBT
-	 wSAs+dVLF64bV2hzNChgy1w2Zj0nmMYAjwJBb6cZOOqtP1Egib4TNKHZxkIcMEFl9F
-	 dHL3xPVZah3iw==
+	b=e/dAlcelitlNgqMX3PV9hN3qEIImYy80941mmwKTFHdM70zinBHDdDtYi0OQLW3SZ
+	 AxtzJBOaToA0pkYIiu6pUMdH5vPoYGCXeoNMPvORWXTYsFmlOjgDCSpAI4KLogLBDs
+	 NicpDBqeiF8S7CCPzVRvTia5NWI2FZvXTK8Eg1hXhExpOwZukr4EkA4diTfZtrXbcC
+	 PuddORW7REuHe7Wv/iNvIi6fcdYTxfs/3QvcBy1aN+a9aSlxL8RplWJhLSC91iAMN0
+	 WloP4eQO3SqdyF/W3+AKkDT3TUuuObJMheCgUPT+IJHKNW4NGRkisWfyQtrk+otWqX
+	 MA3nP66Gvc8iw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AC3F43808200;
-	Tue, 24 Mar 2026 06:07:28 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 6F9333808200;
+	Tue, 24 Mar 2026 06:07:27 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v4 0/3] bpf: fsession support for riscv
+Subject: Re: [PATCH] RISC-V: KVM: Fix potential UAF in
+ kvm_riscv_aia_imsic_has_attr()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177433244748.469836.11256130083444261497.git-patchwork-notify@kernel.org>
-Date: Tue, 24 Mar 2026 06:07:27 +0000
-References: <20260208053311.698352-1-dongml2@chinatelecom.cn>
-In-Reply-To: <20260208053311.698352-1-dongml2@chinatelecom.cn>
-To: Menglong Dong <menglong8.dong@gmail.com>
-Cc: linux-riscv@lists.infradead.org, ast@kernel.org, bjorn@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
- eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
- john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
- haoluo@google.com, jolsa@kernel.org, pulehui@huawei.com, puranjay@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org, jiang.biao@linux.dev
+Message-Id: <177433244628.469836.354325363149940595.git-patchwork-notify@kernel.org>
+Date: Tue, 24 Mar 2026 06:07:26 +0000
+References: <20260304080804.2281721-1-xujiakai2025@iscas.ac.cn>
+In-Reply-To: <20260304080804.2281721-1-xujiakai2025@iscas.ac.cn>
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, anup@brainfault.org,
+ atish.patra@linux.dev, pjw@kernel.org, aou@eecs.berkeley.edu,
+ palmer@dabbelt.com, alex@ghiti.fr, jiakaiPeanut@gmail.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_230739_640362_774098F7 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +79,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
-by Alexei Starovoitov <ast@kernel.org>:
+This patch was applied to riscv/linux.git (for-next)
+by Anup Patel <anup@brainfault.org>:
 
-On Sun,  8 Feb 2026 13:33:08 +0800 you wrote:
-> Implement bpf fsession for the riscv architecture.
+On Wed,  4 Mar 2026 08:08:04 +0000 you wrote:
+> The KVM_DEV_RISCV_AIA_GRP_APLIC branch of aia_has_attr() was identified
+> to have a race condition with concurrent KVM_SET_DEVICE_ATTR ioctls,
+> leading to a use-after-free bug.
 > 
-> Changes v4 -> v3:
-> * fix the build error
-> * v3: https://lore.kernel.org/bpf/20260206122002.1494125-1-dongml2@chinatelecom.cn/
-> 
-> Changes v3 -> v2:
-> * fix some comments.
-> * v2: https://lore.kernel.org/bpf/20260206115823.1070354-1-dongml2@chinatelecom.cn/T/#t
+> Upon analyzing the code, it was discovered that the
+> KVM_DEV_RISCV_AIA_GRP_IMSIC branch of aia_has_attr() suffers from the same
+> lack of synchronization. It invokes kvm_riscv_aia_imsic_has_attr() without
+> holding dev->kvm->lock.
 > 
 > [...]
 
 Here is the summary with links:
-  - [bpf-next,v4,1/3] bpf, riscv: introduce emit_store_stack_imm64() for trampoline
-    https://git.kernel.org/riscv/c/93fd420d71be
-  - [bpf-next,v4,2/3] bpf, riscv: add fsession support for trampolines
-    https://git.kernel.org/riscv/c/35b3515be0ec
-  - [bpf-next,v4,3/3] selftests/bpf: enable fsession_test on riscv64
-    (no matching commit)
+  - RISC-V: KVM: Fix potential UAF in kvm_riscv_aia_imsic_has_attr()
+    https://git.kernel.org/riscv/c/7120a9d9e023
 
 You are awesome, thank you!
 -- 
