@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A472F532D4
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1060DF532E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=he21ETSi2guAiPvBcM0VW2tduE5bdSwk5yCFLO3q6GU=; b=3qAsI6NtnuMGe0
-	WL2EDfoEYWZn31fal0HWu2H+AJ8MYJ8jpaE8wAUbVBgR8GX8FV6ZmC35zPz9JgiiGNpAjlCzZYyqn
-	uWkwG+rw7Z4pW74VtHkZzYYyAzv1sdIHePupDKYMoVcYxEnCIYWYesQyqrsNI4JDkJGOmY/wjjA10
-	fsiYOUIOYlF9+SwMZxp9M4oBgsZDegOGYGpJhIUeKHxpxow3dX0YOmBSimHJQwyZWlDnlOqXLgckn
-	Yefg8PvO/oh84dQS8HJ3pzpOxmrxwWA2D8BBFutQ5efMxLgDrQSeh+fcfxrB8QpGvWdAqve4ZaegO
-	yI6Rt+MKHG6/SbjJ0lqA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/+wtMqMzBvNu2Oe9vJgl2VGhpxSL0u/f7M76ZXePRHE=; b=RObYu7Wa7GzOUt
+	VA1jXsz02PCaz2uy5cWYdKTxbm6HA9sC+wHGAGObwsySHO3qqDvX9iRm1VMpc7WCIy417fR/OTf4q
+	sdCSsAglIpHjzrXM+2fKPaD2+ZZfD655CXoERtHAy4jui8R9g9X31cUW4EZwK+OWFlTZa8VYgTQtu
+	m36JpgEvbTvcaESvzfNKncpyLxguE77uynHKKVEjE0UDhnwq2+e62MThb0VxPeZZlk7FM5h01w6te
+	HMzSB00ITcOx6ABc9aMh6hWr+cZK8QUce3U+/gjRFIJwbKoi8uXS89OyTx5oCeStIy+s6bR60PWL/
+	ASdSTyyuOBg6ayL7Mxow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4v6y-00000000gDy-3Yvj;
-	Tue, 24 Mar 2026 06:19:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4v6x-00000000gCy-17uZ
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 06:19:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 68DC0600AC;
-	Tue, 24 Mar 2026 06:19:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6EFBC2BCB2;
-	Tue, 24 Mar 2026 06:19:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774333170;
-	bh=qC4zRPgfJw4GdAT6RWn4GSvlf72KS3ejTqxByDrvnGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t6TsVHhlCqXv/31bMMuluDcP1waOS9n3f6iBrj+yNTfXx49Uo2IDMESZ+JVnjSN9U
-	 k8UMjR/S/0Yim3edkxfkP0tGn/QOV+oYMW28+U3fwHgmJ+d/Dv1IutvPsGcc4V5UVA
-	 Coehx0UQy6VQug1LOtTNoJiRLTr6yllZXEsw/relqgDtIKq/ezs7gDxMsf0pVZTQ92
-	 qM5m+dYTfeyisQ973bmiDREmXb1mWRPUh8B31j9RSFWOvmGrvztSPQeITM9vtjR5XD
-	 JwGXycfrEc8uJiYd2oUBabCBt/by2pcGszQtNMm+1AEGe2Y4Pma2Asgp0enfgLhmVI
-	 lXhduj8Lkri1Q==
-Date: Tue, 24 Mar 2026 14:19:27 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	id 1w4v9t-00000000giX-14mT;
+	Tue, 24 Mar 2026 06:22:33 +0000
+Received: from 2a02-8389-2341-5b80-d601-7564-c2e0-491c.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:d601:7564:c2e0:491c] helo=localhost)
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4v9l-00000000ggz-358i;
+	Tue, 24 Mar 2026 06:22:26 +0000
+From: Christoph Hellwig <hch@lst.de>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4] riscv: dts: spacemit: Add ethernet device for K3
-Message-ID: <20260324061927-GKB533070@kernel.org>
-References: <20260323221552.79937-1-inochiama@gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>,
+	"Theodore Ts'o" <tytso@mit.edu>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: cleanup the RAID5 XOR library v3
+Date: Tue, 24 Mar 2026 07:21:36 +0100
+Message-ID: <20260324062211.3216301-1-hch@lst.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260323221552.79937-1-inochiama@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,278 +105,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi, 
+Hi all,
 
-thanks for the patch, I have few minor comments below..
+the XOR library used for the RAID5 parity is a bit of a mess right now.
+The main file sits in crypto/ despite not being cryptography and not
+using the crypto API, with the generic implementations sitting in
+include/asm-generic and the arch implementations sitting in an asm/
+header in theory.  The latter doesn't work for many cases, so
+architectures often build the code directly into the core kernel, or
+create another module for the architecture code.
 
-On 06:15 Tue 24 Mar     , Inochi Amaoto wrote:
-> Add all ethernet device nodes for K3 SoC.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
-> Require the following patch series:
-> 1. Basic DT device patch
-> https://lore.kernel.org/spacemit/20260304-01-dts-uart-full-v1-0-50a0aa53a245@kernel.org
-> 2. Ethernet driver patch
-> https://lore.kernel.org/spacemit/20260316010041.164360-1-inochiama@gmail.com
-> 
-> Changed from v3:
-> 1. Separate the pin as RGMII pin and INT pin.
-> 2. Add comment for pin usage.
-> 3. Rename the ethernet pinctrl node to address it is RGMII node.
-> 
-> Changed from v2:
-> 1. keep aliases in alphabetical order.
-> 
-> Changed from v1:
-> 1. remove interrupt-parents property
-> 2. add aliases for ethernet node
-> ---
->  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts |  24 +++++
->  arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi |  44 ++++++++
->  arch/riscv/boot/dts/spacemit/k3.dtsi         | 104 +++++++++++++++++++
->  3 files changed, 172 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> index b691304d4b74..b63d86b72be6 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> @@ -4,13 +4,19 @@
->   * Copyright (c) 2026 Guodong Xu <guodong@riscstar.com>
->   */
-> 
-> +#include <dt-bindings/gpio/gpio.h>
-> +
->  #include "k3.dtsi"
-> +#include "k3-pinctrl.dtsi"
-> 
->  / {
->  	model = "SpacemiT K3 Pico-ITX";
->  	compatible = "spacemit,k3-pico-itx", "spacemit,k3";
-> 
->  	aliases {
-> +		ethernet0 = &eth0;
-..
-> +		ethernet1 = &eth1;
-> +		ethernet2 = &eth2;
-I insist not to add the alias if the device is disabled..
+Changes this to a single module in lib/ that also contains the
+architecture optimizations, similar to the library work Eric Biggers
+has done for the CRC and crypto libraries later.  After that it changes
+to better calling conventions that allow for smarter architecture
+implementations (although none is contained here yet), and uses
+static_call to avoid indirection function call overhead.
 
->  		serial0 = &uart0;
->  	};
-> 
-> @@ -24,6 +30,24 @@ memory@100000000 {
->  	};
->  };
-> 
-> +&eth0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac0_rgmii_0_cfg>, <&gmac0_phy_0_cfg>;
-> +	phy-mode = "rgmii-id";
-> +	phy-handle = <&phy0>;
-> +	status = "okay";
-> +
-> +	mdio {
-> +		phy0: phy@1 {
-> +			compatible = "ethernet-phy-ieee802.3-c22";
-> +			reg = <1>;
-> +			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
-> +			reset-assert-us = <10000>;
-> +			reset-deassert-us = <10000>;
-> +		};
-> +	};
-> +};
-> +
->  &uart0 {
->  	status = "okay";
->  };
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-> new file mode 100644
-> index 000000000000..e02254961764
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-> @@ -0,0 +1,44 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
-> + */
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +#define K3_PADCONF(pin, func) (((pin) << 16) | (func))
-> +
-> +&pinctrl {
-> +	gmac0_rgmii_0_cfg: gmac0-rgmii-0-cfg {
-..
-> +		gmac-rgmii-0-pins {
-for consistency, here should name it as gmac0-rgmii-0-pins, to show
-explicitly these pins from gmac0 controller
+A git tree is also available here:
 
-> +			pinmux = <K3_PADCONF(0, 1)>,	/* gmac0_rxdv */
-> +				 <K3_PADCONF(1, 1)>,	/* gmac0_rx_d0 */
-> +				 <K3_PADCONF(2, 1)>,	/* gmac0_rx_d1 */
-> +				 <K3_PADCONF(3, 1)>,	/* gmac0_rx_clk */
-> +				 <K3_PADCONF(4, 1)>,	/* gmac0_rx_d2 */
-> +				 <K3_PADCONF(5, 1)>,	/* gmac0_rx_d3 */
-> +				 <K3_PADCONF(6, 1)>,	/* gmac0_tx_d0 */
-> +				 <K3_PADCONF(7, 1)>,	/* gmac0_tx_d1 */
-> +				 <K3_PADCONF(8, 1)>,	/* gmac0_tx_clk */
-> +				 <K3_PADCONF(9, 1)>,	/* gmac0_tx_d2 */
-> +				 <K3_PADCONF(10, 1)>,	/* gmac0_tx_d3 */
-> +				 <K3_PADCONF(11, 1)>,	/* gmac0_tx_en */
-> +				 <K3_PADCONF(12, 1)>,	/* gmac0_mdc */
-> +				 <K3_PADCONF(13, 1)>;	/* gmac0_mdio */
-> +
-> +			bias-disable;
-> +			drive-strength = <25>;
-> +			power-source = <1800>;
-> +		};
-> +
-> +	};
-> +
-> +	gmac0_phy_0_cfg: gmac0-phy-0-cfg {
-> +		gmac0-3-pins {
-or gmac0-int-pins? I'm not sure if better to embed the number here?
-(whether you want to change it here, please keep consistency with
-previous one)
+    git://git.infradead.org/users/hch/misc.git xor-improvements
 
-> +			pinmux = <K3_PADCONF(14, 1)>;   /* gmac0_int */
-> +
-> +			bias-disable;
-> +			drive-strength = <25>;
-> +			power-source = <1800>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> index 6cc31e94c13a..4c0cc135dc09 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> @@ -5,6 +5,7 @@
->   */
-> 
->  #include <dt-bindings/clock/spacemit,k3-clocks.h>
-> +#include <dt-bindings/reset/spacemit,k3-resets.h>
->  #include <dt-bindings/interrupt-controller/irq.h>
-> 
->  /dts-v1/;
-> @@ -437,6 +438,109 @@ soc: soc {
->  		dma-noncoherent;
->  		ranges;
-> 
-> +		gmac_axi_setup: stmmac-axi-config {
-> +			snps,wr_osr_lmt = <0xf>;
-> +			snps,rd_osr_lmt = <0xf>;
-> +			/* max axi burst len is 256 */
-> +			snps,blen = <256 128 64 32 16 0 0>;
-> +		};
-> +
-> +		eth0: ethernet@cac80000 {
-> +			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
-> +			reg = <0x0 0xcac80000 0x0 0x2000>;
-> +			clocks = <&syscon_apmu CLK_APMU_EMAC0_BUS>,
-> +				 <&syscon_apmu CLK_APMU_EMAC0_1588>,
-> +				 <&syscon_apmu CLK_APMU_EMAC0_RGMII_TX>;
-> +			clock-names = "stmmaceth", "ptp_ref", "tx";
-> +			interrupts = <131 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <276 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "macirq", "eth_wake_irq";
-> +			resets = <&syscon_apmu RESET_APMU_EMAC0>;
-> +			reset-names = "stmmaceth";
-> +			rx-fifo-depth = <8192>;
-> +			tx-fifo-depth = <8192>;
-> +			snps,multicast-filter-bins = <64>;
-> +			snps,perfect-filter-entries = <32>;
-> +			snps,aal;
-> +			snps,tso;
-> +			snps,txpbl = <8>;
-> +			snps,rxpbl = <8>;
-> +			snps,force_sf_dma_mode;
-> +			snps,axi-config = <&gmac_axi_setup>;
-> +			spacemit,apmu = <&syscon_apmu 0x3e4 0x3e8>;
-> +			status = "disabled";
-> +
-> +			mdio {
-> +				compatible = "snps,dwmac-mdio";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
-> +		eth1: ethernet@cac82000 {
-> +			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
-> +			reg = <0x0 0xcac82000 0x0 0x2000>;
-> +			clocks = <&syscon_apmu CLK_APMU_EMAC1_BUS>,
-> +				 <&syscon_apmu CLK_APMU_EMAC1_1588>,
-> +				 <&syscon_apmu CLK_APMU_EMAC1_RGMII_TX>;
-> +			clock-names = "stmmaceth", "ptp_ref", "tx";
-> +			interrupts = <133 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <277 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "macirq", "eth_wake_irq";
-> +			resets = <&syscon_apmu RESET_APMU_EMAC1>;
-> +			reset-names = "stmmaceth";
-> +			rx-fifo-depth = <8192>;
-> +			tx-fifo-depth = <8192>;
-> +			snps,multicast-filter-bins = <64>;
-> +			snps,perfect-filter-entries = <32>;
-> +			snps,aal;
-> +			snps,tso;
-> +			snps,txpbl = <8>;
-> +			snps,rxpbl = <8>;
-> +			snps,force_sf_dma_mode;
-> +			snps,axi-config = <&gmac_axi_setup>;
-> +			spacemit,apmu = <&syscon_apmu 0x3ec 0x3f0>;
-> +			status = "disabled";
-> +
-> +			mdio {
-> +				compatible = "snps,dwmac-mdio";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
-> +		eth2: ethernet@cac8e000 {
-> +			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
-> +			reg = <0x0 0xcac8e000 0x0 0x2000>;
-> +			clocks = <&syscon_apmu CLK_APMU_EMAC2_BUS>,
-> +				 <&syscon_apmu CLK_APMU_EMAC2_1588>,
-> +				 <&syscon_apmu CLK_APMU_EMAC2_RGMII_TX>;
-> +			clock-names = "stmmaceth", "ptp_ref", "tx";
-> +			interrupts = <130 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <278 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "macirq", "eth_wake_irq";
-> +			resets = <&syscon_apmu RESET_APMU_EMAC2>;
-> +			reset-names = "stmmaceth";
-> +			rx-fifo-depth = <4096>;
-> +			tx-fifo-depth = <4096>;
-> +			snps,multicast-filter-bins = <64>;
-> +			snps,perfect-filter-entries = <32>;
-> +			snps,aal;
-> +			snps,tso;
-> +			snps,txpbl = <8>;
-> +			snps,rxpbl = <8>;
-> +			snps,force_sf_dma_mode;
-> +			snps,axi-config = <&gmac_axi_setup>;
-> +			spacemit,apmu = <&syscon_apmu 0x248 0x24c>;
-> +			status = "disabled";
-> +
-> +			mdio {
-> +				compatible = "snps,dwmac-mdio";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
->  		syscon_apbc: system-controller@d4015000 {
->  			compatible = "spacemit,k3-syscon-apbc";
->  			reg = <0x0 0xd4015000 0x0 0x1000>;
-> --
-> 2.53.0
-> 
-> 
+Gitweb:
 
--- 
-Yixun Lan (dlan)
+    https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/xor-improvements
+
+Changes since v2:
+ - drop use of CONFIG_KERNEL_MODE_NEON for arm64
+ - drop the new __limit_random_u32_below for the unit test
+ - require 64-bit alignment because sparc64 requires it
+ - use DEFINE_STATIC_CALL_NULL to avoid exposing a specific xor_gen
+   routine
+ - keep CONFIG_XOR_BLOCKS_ARCH self-contained in lib/raid/
+ - don't select library option from kunit test and add a .kunitconfig
+   instead
+ - fix the module description for the kunit test
+ - add a case where buffers are at the end of the allocation in the kunit test
+ - use separate src/dst alignment in the kunit test
+ - fix and improve the kunit assert message
+
+Changes since v1:
+ - use lockdep_assert_preemption_enabled()
+ - improve the commit message for the initial um xor.h cleanup
+ - further clean up the um arch specific header
+ - add SPDX identifier to the new build system files
+ - use bool for xor_forced
+ - fix an incorrect printk level conversion from warn to info
+ - include xor_impl.h in xor-neon.c
+ - remove unused exports for riscv
+ - simply move the sparc code instead of splititng it
+ - simplify the makefile for the x86-specific implementations
+ - remove stray references to xor_blocks in crypto/async_tx
+ - rework __DO_XOR_BLOCKS to avoid (theoretical) out of bounds references
+ - improve the kerneldoc API documentration for xor_gen()
+ - spell the name of the srcs argument to xor_gen correctly in xor.h
+ - add a kunit test, and a new random helper for it.
+
+Diffstat:
+ arch/arm64/include/asm/xor.h              |   73 --
+ arch/loongarch/include/asm/xor.h          |   68 --
+ arch/loongarch/include/asm/xor_simd.h     |   34 -
+ arch/loongarch/lib/xor_simd_glue.c        |   72 --
+ arch/powerpc/include/asm/xor.h            |   47 -
+ arch/powerpc/include/asm/xor_altivec.h    |   22 
+ arch/powerpc/lib/xor_vmx.h                |   22 
+ arch/powerpc/lib/xor_vmx_glue.c           |   63 --
+ arch/riscv/include/asm/xor.h              |   68 --
+ arch/s390/include/asm/xor.h               |   21 
+ arch/sparc/include/asm/xor.h              |    9 
+ arch/um/include/asm/xor.h                 |   24 
+ arch/x86/include/asm/xor_64.h             |   28 -
+ b/arch/arm/lib/Makefile                   |    5 
+ b/arch/arm64/lib/Makefile                 |    6 
+ b/arch/loongarch/lib/Makefile             |    2 
+ b/arch/powerpc/lib/Makefile               |    5 
+ b/arch/riscv/lib/Makefile                 |    1 
+ b/arch/s390/lib/Makefile                  |    2 
+ b/arch/sparc/include/asm/asm-prototypes.h |    1 
+ b/arch/sparc/lib/Makefile                 |    2 
+ b/crypto/Kconfig                          |    2 
+ b/crypto/Makefile                         |    1 
+ b/crypto/async_tx/async_xor.c             |   34 -
+ b/fs/btrfs/raid56.c                       |   27 -
+ b/include/asm-generic/Kbuild              |    1 
+ b/include/linux/raid/xor.h                |   27 -
+ b/lib/Kconfig                             |    1 
+ b/lib/Makefile                            |    2 
+ b/lib/raid/.kunitconfig                   |    3 
+ b/lib/raid/Kconfig                        |   30 +
+ b/lib/raid/Makefile                       |    3 
+ b/lib/raid/xor/Makefile                   |   42 +
+ b/lib/raid/xor/alpha/xor.c                |   46 -
+ b/lib/raid/xor/alpha/xor_arch.h           |   22 
+ b/lib/raid/xor/arm/xor-neon-glue.c        |   19 
+ b/lib/raid/xor/arm/xor-neon.c             |   22 
+ b/lib/raid/xor/arm/xor.c                  |  105 ----
+ b/lib/raid/xor/arm/xor_arch.h             |   22 
+ b/lib/raid/xor/arm64/xor-neon-glue.c      |   26 +
+ b/lib/raid/xor/arm64/xor-neon.c           |   94 +--
+ b/lib/raid/xor/arm64/xor-neon.h           |    6 
+ b/lib/raid/xor/arm64/xor_arch.h           |   21 
+ b/lib/raid/xor/loongarch/xor_arch.h       |   33 +
+ b/lib/raid/xor/loongarch/xor_simd_glue.c  |   37 +
+ b/lib/raid/xor/powerpc/xor_arch.h         |   22 
+ b/lib/raid/xor/powerpc/xor_vmx.c          |   40 -
+ b/lib/raid/xor/powerpc/xor_vmx.h          |   10 
+ b/lib/raid/xor/powerpc/xor_vmx_glue.c     |   28 +
+ b/lib/raid/xor/riscv/xor-glue.c           |   25 +
+ b/lib/raid/xor/riscv/xor.S                |    4 
+ b/lib/raid/xor/riscv/xor_arch.h           |   17 
+ b/lib/raid/xor/s390/xor.c                 |   15 
+ b/lib/raid/xor/s390/xor_arch.h            |   13 
+ b/lib/raid/xor/sparc/xor-sparc32.c        |   32 -
+ b/lib/raid/xor/sparc/xor-sparc64-glue.c   |   48 -
+ b/lib/raid/xor/sparc/xor-sparc64.S        |   10 
+ b/lib/raid/xor/sparc/xor_arch.h           |   35 +
+ b/lib/raid/xor/tests/Makefile             |    3 
+ b/lib/raid/xor/tests/xor_kunit.c          |  187 +++++++
+ b/lib/raid/xor/um/xor_arch.h              |    2 
+ b/lib/raid/xor/x86/xor-avx.c              |   52 --
+ b/lib/raid/xor/x86/xor-mmx.c              |  120 +---
+ b/lib/raid/xor/x86/xor-sse.c              |  105 +---
+ b/lib/raid/xor/x86/xor_arch.h             |   36 +
+ b/lib/raid/xor/xor-32regs-prefetch.c      |  267 ++++++++++
+ b/lib/raid/xor/xor-32regs.c               |  217 ++++++++
+ b/lib/raid/xor/xor-8regs-prefetch.c       |  146 +++++
+ b/lib/raid/xor/xor-8regs.c                |  103 ++++
+ b/lib/raid/xor/xor-core.c                 |  192 +++++++
+ b/lib/raid/xor/xor_impl.h                 |   56 ++
+ crypto/xor.c                              |  174 -------
+ include/asm-generic/xor.h                 |  738 ------------------------------
+ 73 files changed, 1831 insertions(+), 2067 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
