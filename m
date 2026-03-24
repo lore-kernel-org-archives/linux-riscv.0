@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 321C3FEC0EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 17:49:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD9C9FEC0FC
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 21:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/1uh5NXE6UEOfp1vlWOO0gb0/TSpqX9tcHnFwamwN4=; b=cH01DdDHflTuhStodwTjNOcVH0
-	I22J9BiamBYYkWPJ8BaT9LRqGL/QQe7Avct0nVxzm76bhXd8tzi9t7ZMaHZRXEPp2uQ5gPA0ntpPI
-	ogxPq2Jm8JoQbSo9ZfaaAWnVptL6jyQsXIVDb1EEGMqyaxLmMcxEtG3LJaINzk9cQQMRZd2c7NeNE
-	yOewV++OspitKR/tKGg/99tePJbNAByGNZZsUMt12MndOk1RoxuTaJhrZ8iLiJ5eqeL2yND+yu7HU
-	EQ1kbjf7rxNvGuRENKljnPWj2EOtG8NXdv3dYJ6MAJcH4TM0NsYnLScjQZVoWg4TTp3qpkx1lA453
-	yfcK5V7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/5Eh+WueXREuiPTGiNq4zK4BdrmePoOyEpHshLof7aI=; b=x/yq828pkSGsfv
+	E403LH07sxc9y+7Suz3WjHAEWUGyUR7OhUH6W66DgfmLIldXJ1RKoVwFCm4y1GxW3hMp5bXa+Iw9t
+	RHSh9oB1UFJlEVeYy1rN2ldwq27jJlUf5VLmvNF3bIMhD/IUFOWv8LD+l7kcV5Srht++yxgTM7Xt3
+	uPHXNOMOw9VrdYwtPtNzNUQBejSK7TAWXHt7g7Pz4pl1lmdP+7Sof+G/Csn1yod3GGa1iXVbaTkMb
+	hCwORih0gcmyN799qdqfVitwDlrAOZoMVPjaw1Ch7s1vunU32r0lt6Q7u4oIb2n4SLBFXJevcqGrL
+	fXgxytFbFEl/6U3Csxvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w55so-000000021bS-2TzJ;
-	Tue, 24 Mar 2026 17:49:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w599d-00000002FZZ-3CT2;
+	Tue, 24 Mar 2026 21:19:13 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w55sn-000000021bM-2hpR
+	id 1w599a-00000002FYk-2mrS
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 17:49:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C32AF600AC;
-	Tue, 24 Mar 2026 17:49:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D022C19424;
-	Tue, 24 Mar 2026 17:49:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774374576;
-	bh=P6CGa5PVaMof53EJnc/g5F3lxqSTKqEjKLDeUbeIEQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tZ7okAZvzXoZlJdnFoy5gkgve+n0JCiGqjEdWscu0+i0fo7hEq74jtgvLdfYrETg4
-	 jE/M7OEA8PvOfcUGOBonmgTUEuQT4si45Ad3dnREsJk5YOdtYTSBWqjyJNSJz+xYdG
-	 UZpkDubxJBgU1R4sGJEn5RKayktuOj775WlCga6A9VHuXW7WheE6/51FSKK7kt8f6+
-	 bC2JTcpHKJsqbEVp4L8RDf+Ke6WpdQESV6cUCYkoFMhGx7ETfl7QnRZlsom48Wf6Aq
-	 zHHz13ycpLhT7BRd8X7flTomUeHympcSqstlni1fssQ67L87roMn7uk8NO7TGJkBBw
-	 gm14L3RL++Nnw==
-Date: Tue, 24 Mar 2026 17:49:31 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bo Gan <ganboing@gmail.com>
-Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
-	david@redhat.com, palmer@dabbelt.com, pjw@kernel.org,
-	gaohan@iscas.ac.cn, me@ziyao.cc, lizhi2@eswincomputing.com,
-	hal.feng@starfivetech.com, marcel@ziswiler.com, kernel@esmil.dk,
-	devicetree@vger.kernel.org
-Subject: Re: [RFC PATCH v2 0/3] riscv: support EIC770X/JH7110 noncoherent
- devices with XPbmtUC
-Message-ID: <20260324-marshland-stretch-cc21ae7fdc2e@spud>
-References: <20260316060328.1173634-1-ganboing@gmail.com>
- <ee2b42b0-1489-478d-8c88-ced6b77824b3@gmail.com>
+	Tue, 24 Mar 2026 21:19:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=5Qp9pw/xlq5gZ1dNLakBcf07LSncdySe5C25zgQ+rzs=; b=u200+ftT1ds3+6px7BRODPNqvZ
+	IHKW0PZUmrbtdyv/qJjFSCFSZQ6DOMsG3eCE64bHiHAzqOZsh0qcfr/6+4gpmJps67ePBMFveTWWy
+	8GV6lCGQZ+v8fS6VDr7m8R3dbHPXBMnFb+gI16Kg46ZvRyqZwl86vGh1y289pQ3YQMvHJtAYiSM48
+	uj35dv0WXBNDb1hSbBjmNOfzvMY56r9Qdm811Kxzz05hJ7RvOQacKsE3vPX9x6VuBNenyvz/hjVpZ
+	gbhgDM6e4RPJGifCUJaJ/6vRTNuQs78QrL7JtydJKYqgYRMa9TGZOCyGPM9XXSseHTx7kSqUAuzbJ
+	By3Y5zVQ==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1w599Q-0000000Dcjf-2TLc;
+	Tue, 24 Mar 2026 22:19:00 +0100
+Date: Tue, 24 Mar 2026 22:19:00 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Yixun Lan <dlan@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH 4/6] riscv: dts: spacemit: enable QSPI and add SPI NOR on
+ Milk-V Jupiter
+Message-ID: <acL_xPYiGXUp_Tir@aurel32.net>
+Mail-Followup-To: Yixun Lan <dlan@kernel.org>, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20260322203356.2206927-1-aurelien@aurel32.net>
+ <20260322203356.2206927-5-aurelien@aurel32.net>
+ <20260324090220-GKA739629@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <ee2b42b0-1489-478d-8c88-ced6b77824b3@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20260324090220-GKA739629@kernel.org>
+User-Agent: Mutt/2.2.13 (2024-03-09)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_141910_708878_DA470E89 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,53 +87,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3630329243437066397=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Yixun,
 
---===============3630329243437066397==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VG78Oqy1pPQ6mjx/"
-Content-Disposition: inline
+On 2026-03-24 17:02, Yixun Lan wrote:
+> Hi Aurelien,
+> 
+> On 21:28 Sun 22 Mar     , Aurelien Jarno wrote:
+> > Add the QSPI controller node for the Milk-V Jupiter board and describe
+> > the attached SPI NOR flash (GD25Q64E).
+> > 
+> > The flash supports a frequency up to 133MHz (80 MHz for reads), and the
+> > SoC supports a frequency up to 104 MHz. However tests have shown that
+> > the flash is not reliably detected above 26.5 MHz, consistent with
+> > frequency used in the vendor kernel. Therefore, use this frequency.
+> > 
+> ..
+> > The m25p,fast-read properties is taken from the vendor kernel.
+> > 
+> So long as this is verified and works fine on board?
 
+Yes, it's works. And the datasheet also mentions fast read being 
+supported.
 
---VG78Oqy1pPQ6mjx/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> > Add a corresponding flash partition layout, matching the layout and the
+> > names used in the vendor U-Boot.
+> > 
+> ..
+> > Also add the bootph-pre-ram property to make the device tree usable by
+> > early firmware/bootloaders without modification, as U-Boot is stored on
+> > this NOR flash.
+> Is the dtb file actually used by U-Boot? I'd highly doubt about this,
+> if not the case or has not been tested, I'd suggest then not to add
+> this property..
 
-On Mon, Mar 23, 2026 at 04:08:33PM -0700, Bo Gan wrote:
-> Hi All,
->=20
-> Any suggestions/comments on this?
+It is currently not used by U-Boot, currently SPL support is not 
+available, but patches have been posted to added it. I just wanted to 
+anticipate the addition of the Milk-V Jupiter board in U-boot, but if 
+that hurt, i can remove it (or you can removed it when merging).
 
-I'll get to it at some point, just busy sorry!
+Regards
+Aurelien
 
---VG78Oqy1pPQ6mjx/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacLOqwAKCRB4tDGHoIJi
-0oReAP933a6p+CD1qNpOIbLbNSQ5Y9tHlbaabrnfLZrKwvMNUAD/XXmlLOeKBLgh
-ipUx/vkgnh4p5eodwkoKB57ytGcaswQ=
-=hzvl
------END PGP SIGNATURE-----
-
---VG78Oqy1pPQ6mjx/--
-
-
---===============3630329243437066397==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3630329243437066397==--
-
