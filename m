@@ -4,102 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 050C4F532E9
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 08:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E74F532ED
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 08:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GAJQxpuYbGQTD3+RDwF5uGfc2sNAPs9OD6CRlQnnNUQ=; b=Yrrmy2cRAhaMYp
-	uQP1Je/bAOhc2M4N4vQ+fkNh0dbPGBKcg4WyssvY+EvRPjN+J5F2ddJ1i72/v15q7nKqp8pI6fvId
-	5nmk57nIVwf5CROmRlD9uPeW4jlc7bBX9Wt988SH1yJXgpd3TspETrRobZYxefsq2SKSN7B9guEHh
-	toiUdkAP4AbLQpIyuyHVyhXaj/nQs9uxRm43CZdOTaHzaTuukQuolrxMvr4XKQND4v+0+zouBcQLS
-	eyQsjggRpdWzvUjXDcQQ0PPW0x75xSy23vWUSydJ9EuD/1yT6gnnsevh0JUWITEohDeu/rDRsr85I
-	LgVVNPiSdZIC7KNdubvQ==;
+	List-Owner; bh=aQvgUl4cn6ORWg5Pal5EXJZtNqyU0OFmxU+W7XZa2hg=; b=SXKkLJBuk8+aZB
+	QjxIAm+c+eB3sIPh00VfACcqRxmni120QPF62DIi3kS7+ec/elC9IX0ELSGeKBA94TTT1Kw0IyLVr
+	wybqQLWW2VLdcx0XL/Ll3PUn5QJN/9Oka6RTdAQ7BllEDzIYayXFgO8s4Hd1vjrqv9OajuZepIZaR
+	gnnLQ756bHny9N5/6gTYcKJdDQPvefF/Wcwx3jEiw9q2Z6UCOqgI48nmHUE6H5TeMmqsX8++4++DS
+	uM/30b8hCbeU7q7x8N61S5acscih0rvxKYZ7ws43PvM6W/1jsfBizvzKM5j3Y3EISTvKOVpQcAaq7
+	9Y2maZjGiu3PWTbzJ3eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wik-00000000wof-16kA;
-	Tue, 24 Mar 2026 08:02:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1w4xNP-0000000113A-2Too;
+	Tue, 24 Mar 2026 08:44:39 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wih-00000000wne-1GoY
+	id 1w4xNM-00000001113-36ZA
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 08:02:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774339354;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JZkji+aeo/J3L7vBsxBs/MQaHOamVQrNiki5qdjf+wY=;
-	b=fT7zaNj1M0Od/gk3bNPpl3Vbhm3G2O1ANXoxrFvaxvUQ8KGR/E1A+ONp+P0FQcjbBMQSyv
-	g8qh3qxvR5eTSfIy3PdBP/oOeHbhEIljYYAJtBzjlC4JkPNXxOLWfNjld5P6Es92LV0F29
-	wg9Y94ByhtFHchL9mlknG4nJGHBZWao=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-515-JTHDNdYAMvKn2rW3zzFftA-1; Tue, 24 Mar 2026 04:02:33 -0400
-X-MC-Unique: JTHDNdYAMvKn2rW3zzFftA-1
-X-Mimecast-MFC-AGG-ID: JTHDNdYAMvKn2rW3zzFftA_1774339352
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-486fa07f2bbso20508775e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Mar 2026 01:02:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774339352; x=1774944152;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JZkji+aeo/J3L7vBsxBs/MQaHOamVQrNiki5qdjf+wY=;
-        b=mg55XLRLkaTLG3oGabp4o8OOHGfmAlX3HD/Fg26Lz5Iih2QrsKy+CKNvU9YLAvkxtd
-         imJ8av0xwPdiqLDajGQ4R27EnxSopmm76tZW0wqqcH4cmPz+RiBKK+xYBuiDE+20vCLw
-         yzAvipcxHUCkNMGHbj667XnnecGOD5uQrqnBWc9vGM+btZjxkEuwliFEvP4ZuYcOeQnN
-         ChmXlSUi7EmkeI+V39CDZyKFREA7oHy5x9oPZXWFki9Gv72objxxRhlEBCRCj1IixIlN
-         rl8srgqjHhaVLE8d52p2barmfYI7UepJAdFaFyydXmjAt2t3VJVXRnP6XimWgz0LpK82
-         gbyg==
-X-Forwarded-Encrypted: i=1; AJvYcCWrPCNoG89rTTcRZmzHxy1xo3xkkt/LtRoR5UuOmI+fRmlk0ijAah7gTxhrtWw2kZZKCN4TFJALmcz/mg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMLPxILrwhdjCcpOdynrbuUTFsicJFejzR+411todIRiHVRs2s
-	GfApzaNGhObiHhfJD/aAwqq4SER7VZE5qOljH61ww38LC6UdxcAoKtfuQsdYXsxHdY6RuQHt5Nn
-	bKdRvnzvVRppLFhHdatpDM3hsWeVdIwnL5CWlPNWL/5raXrCwlhzWbyxDUqqzKUg5uivqLQ==
-X-Gm-Gg: ATEYQzwK0G7ua6203eF35ytW2SQjPxX5PDFrq7ZofLO5iwUN3YTfYnKau/sO9ZRIfvw
-	vF0B60qrGOOxMbUWExToXXfyKr1lLC6Cv8HCJKKBFmkpoZWQuVenQBGaYAu6EtTkfU717l+P5fl
-	mbgPEsmRcJa5cqdn8hUdaBBgm7d3YDTN1W6wGnFJb5D4XPONM92k6kG8TRPSbQb3xq7kJCP2nxt
-	f3rpbSENkyCrks6DOyl7ry5ahO+aeLl9mTHBNBmerfwN8rr9vlKhOl6UMUYFaSsccc+dYNvwx9n
-	PIgBqklZNF4E9AdAnm0yuDdG9xgNbS9A8OWMcDik35BBLXxPIj+qzKBgrweNTSACJ3NlFmZ0xG+
-	2r3Nt4A0jdjOLqEqiy9Qc34NNAcUeYPAXGJddYRpYoTaBvJjkTftW0Dx5iyWBEcHBYaaMbEG4bw
-	wO1CHF
-X-Received: by 2002:a05:600c:8b32:b0:485:4394:b0e with SMTP id 5b1f17b1804b1-486fedbad16mr202978755e9.12.1774339350318;
-        Tue, 24 Mar 2026 01:02:30 -0700 (PDT)
-X-Received: by 2002:a05:600c:8b32:b0:485:4394:b0e with SMTP id 5b1f17b1804b1-486fedbad16mr202978115e9.12.1774339349760;
-        Tue, 24 Mar 2026 01:02:29 -0700 (PDT)
-Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b6470393fsm36915974f8f.17.2026.03.24.01.02.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 01:02:29 -0700 (PDT)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Aurelien Jarno <aurelien@aurel32.net>, "open list:OPEN FIRMWARE AND
- FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, "open
- list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>, "open
- list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH 6/6] riscv: dts: spacemit: enable PCIe ports on Milk-V
- Jupiter
-In-Reply-To: <20260322203356.2206927-7-aurelien@aurel32.net>
-References: <20260322203356.2206927-1-aurelien@aurel32.net>
- <20260322203356.2206927-7-aurelien@aurel32.net>
-Date: Tue, 24 Mar 2026 09:02:28 +0100
-Message-ID: <87341p8xkb.fsf@ocarina.mail-host-address-is-not-set>
-MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jqDwRHMdr39F36S_ncmbL7w8BNHY5gtxaOBF4Z2XaxU_1774339352
-X-Mimecast-Originator: redhat.com
+	Tue, 24 Mar 2026 08:44:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1774341812;
+	bh=0YvANwo0IIKUqL+qEoGQdaKoDGB4cYehMUWEEPhPQKA=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=qdYg+cTZcdJp80mbc+BukO97/LQ3trjlCj4lJ9g8uOCO7C0qCWBzqW8ldTYea5nUV
+	 vHdhhrxclvMW3C9SJCLLH847im6eGMtq8aq0q/YfF4LAGFDknoc6ZchGDSNf0b25SA
+	 hywzihie2nWJA5eIcpzXLbYFRAsbaUsqd+KuMzWU=
+X-QQ-mid: esmtpgz10t1774341810te82cbcf8
+X-QQ-Originating-IP: Tkqsk5ZBeYEfXLsi7Obys+UNNLFSDV+KwfMkR4d5z8M=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 24 Mar 2026 16:43:28 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3668339084073543840
+EX-QQ-RecipientCnt: 13
+Mime-Version: 1.0
+Date: Tue, 24 Mar 2026 16:43:28 +0800
+Message-Id: <DHAVODVZL2KG.1NVQFF3B99WV8@linux.spacemit.com>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: dts: spacemit: Add PDMA controller node for K3
+ SoC
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Yixun Lan" <dlan@kernel.org>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260317-k3-pdma-v1-1-f39d3e97b53a@linux.spacemit.com>
+ <20260320091936-GKB525649@kernel.org>
+In-Reply-To: <20260320091936-GKB525649@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: N8Jy6PtD39R8Dfa0ZQzLpgo9QpuWadc0Vlouiu/MVjGBJJr9yT5bfYm/
+	43KNO2cwgzmIYbwsCFR9OwLFC+uGErtLjnL/EjO53LsgzfnV6NuW3jnBtdZ4r0bUdJbs7JF
+	XFvzDBZ85yfeE1NEe1z/0K++X3Cr4V5YkLGQAtCbOwMSJ4/PZqUdI2WZuT0GmkRfRLiNfuO
+	9yb6t1ei/Bv3/xe7pzOmpIkt0nYW0EewxeCPRhQVq2zRocXaPg0rG/YhXvay1c2JSyZ6HSi
+	Uy4fKqAuhlCGy3ad35M1UbGXlDxPHSPgeGeyKs1bbTpeIHbCZLTQbx7kR3Y1RIX6NNIyCLD
+	qwxlvMhM045VcFuYKtrJ4pDCkVIQj9XyJoE3CZeNmzOawZAtlKBmgiwivtSwOCv6TA1zUAG
+	lE0CwbHlojRErxEVme0sRU9IQLZZJpCbemNngd1r15mAkXLxM1LEy8dnqTVApuHSue4xWX6
+	Prs1vQBsDud5ed7HIW8/QfDoOE8BJyyol1NtC6yB+bN0RrbO0P7315mRdNxtbPBBO2H6GND
+	VxJarxuigEs5AjKHJoQHZszhd9OyrU9FdZFldancUhO1UVsUOQpg5lXST/8XBol1QRLtw3a
+	DdXCaM74iQfvnIDWMzVak+qmqMTBaejsisPw0QBrUIZuF7k3kAaNEArMtWcUXyDXO+Nx6QB
+	kZZDqSQkeIsJs4YYciRzMyY6MVHH4QKGHX7Q2pr2KFHuuuRoJp0r9iwEK7PwjkL2s0C0TRI
+	7XfOu+G9LuL4Wr7SWCXRrMeSRACOl3e6Fyid57of5Vgb86dH31ooR0+YL9cfkFvqngftoXm
+	YZdF9/QIS/lTUY84LVlVOxTHQUkIYuG4iGDOP9ssnRJ2yi/260Ic4eX9qFIjW4l1X/H097R
+	2RVaMprowMX1dFikOlYPZmLF6g/C2Hkmy9VgWju9B4vLs0FBUPMqe+81uD1GXlElDlNeHr5
+	QhvE7RFtkIHziGFy4DuweflRNteL+hM7nR6aibuLrSenfIVEcJmT3iJwAx2GbYE9/hAjEj4
+	IIAAj2T1EEa3rjoQ7uZTclmSwufm97+aX/IkjjgLsLgetOGIqR
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_010235_427686_2275C61F 
-X-CRM114-Status: UNSURE (   6.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_014437_698134_AD96B736 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,25 +100,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Aurelien Jarno <aurelien@aurel32.net> writes:
-
-> Enable the two PCIe controller along with and their associated PHY. They
-> are routed to the M.2 M-key connector and to the the PCIe x8 slot.
+On Fri Mar 20, 2026 at 5:19 PM CST, Yixun Lan wrote:
+> Hi Troy,
 >
-> Add an always-on regulator sourcing 3.3V from the DC-IN input, to power
-> the PCIe ports.
+> On 15:55 Tue 17 Mar     , Troy Mitchell wrote:
+>> Add the Peripheral DMA (PDMA) controller node for the SpacemiT K3 SoC.
+>> The PDMA controller provides general-purpose DMA capabilities for various
+>> peripheral devices across the system to offload CPU data transfers.
+>> 
+>> Unlike the previous K1 SoC, where some DMA masters had memory addressing
+>> limitations (e.g. restricted to the 0-4GB space) requiring a dedicated dma-bus
+>> with dma-ranges to restrict memory allocations, the K3 DMA masters have
+>> full memory addressing capabilities. Therefore, the PDMA node is now
+>> instantiated directly under the main soc bus.
+>> 
+> ..
+>> This configuration defines the essential hardware properties:
+>> - Register base address and size
+>> - High-level triggered interrupt
+>> - Associated APMU clock and reset controls
+>> - 16 hardware DMA channels
+>> 
+>> The node is disabled by default and should be enabled by specific
+>> board device trees as needed.
+> I would suggest to drop above, as they are quite obvious, and easy for 
+> people to grab from the code..
+I'll remove them in the next version.
+>> 
+>> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+>> ---
+>>  arch/riscv/boot/dts/spacemit/k3.dtsi | 11 +++++++++++
+>>  1 file changed, 11 insertions(+)
+>> 
+>> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+>> index a3a8ceddabec..f90d34a81be0 100644
+>> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
+>> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+>> @@ -438,6 +438,17 @@ soc: soc {
+>>  		dma-noncoherent;
+>>  		ranges;
+>>  
+>> +		pdma: dma-controller@d4000000 {
+>> +			compatible = "spacemit,k1-pdma";
+> I think here we should introduce a new compatible for K3 SoC,
+> it would avoid ABI breakage if something different with K1?
+> cases exist even same PDMA IP integrated into different SoC..
 >
-> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> ---
+> The commit message tells some difference, although no code changes
+> introduced so far..
+Nice point.
 
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
-
--- 
-Best regards,
-
-Javier Martinez Canillas
-Core Platforms
-Red Hat
+                            - Troy
+>
+>> +			reg = <0x0 0xd4000000 0x0 0x4000>;
+>> +			clocks = <&syscon_apmu CLK_APMU_DMA>;
+>> +			resets = <&syscon_apmu RESET_APMU_DMA>;
+>> +			interrupts = <72 IRQ_TYPE_LEVEL_HIGH>;
+>> +			dma-channels = <16>;
+>> +			#dma-cells = <1>;
+>> +			status = "disabled";
+>> +		};
+>> +
+>>  		syscon_apbc: system-controller@d4015000 {
+>>  			compatible = "spacemit,k3-syscon-apbc";
+>>  			reg = <0x0 0xd4015000 0x0 0x1000>;
+>> 
+>> ---
+>> base-commit: 95c541ddfb0815a0ea8477af778bb13bb075079a
+>> change-id: 20260317-k3-pdma-7c1734431436
+>> 
+>> Best regards,
+>> -- 
+>> Troy Mitchell <troy.mitchell@linux.spacemit.com>
+>> 
 
 
 _______________________________________________
