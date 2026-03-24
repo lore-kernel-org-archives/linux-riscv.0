@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFACCF532E1
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:07:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885FFF532DE
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NrTOPpz086Ikwy7SMbk+x97jpGnvYQnHJl/CuVA6/M4=; b=SBKRDvFrUjs+de
-	LIw8bT0mDZtiQx3UAUT/Bv7l8I8ifl5U8bdZ2VT0C0teuOAucWBMeNAzLRxucsz1KrUAr0WvGG7Hd
-	zL5bcnaYCSfTZUBxGo7W7NL00EwCyMRv6PakAN4R4dwzsdV5LV8ecBE42keKHRP5qQRvQXbvTjNFv
-	UETQVF3URCpTzo1nPU9LhDbVRq5Hk9zoT8gsL81le8G42bkD3sGsKJhwEDRAr8D0NuQj2wBfwgvMN
-	2FIX1cBiJX6K188RVmxszPhFAIjQZHaSsneDz5rc2xaR2QLqnPpn6/ffp9HXlQ2fFDL6oDXkZf/Ew
-	TKU40Qmm5XlCDzOYBdaA==;
+	List-Owner; bh=v83LmiCNvAti/mL4cKlHrw0sF+PvXITNW+huEbhy84k=; b=CmPuHyXpQDDqiJ
+	N968+hVa9wzCkfjXI4XD/0pOIq30hINb40DSOsnJKLmHrq5E2FYH+V3Gr8homhmol+M25kQlAEn9W
+	TJzZy3M0ZjKcXgjAHJ/I9j96cbpMg/1WDXRcOJK/Wi7ZECTL4LLHXpOw+T0mBOWu6+DPJWTtTDZgN
+	U2irPNRnPga4IZmZ8i2t2/otHe5Vn0wuR7oQccF6IQBo8n7PTU64wXBr/KyreXxZZxKIoRLZ+PZfN
+	1cHJxriWfEKd7YZh62v8AeD2fcUDAn89tEcxcVoCkkZUoNN8W+6/oLNe2igwnRRAqjOJtvVWzI3SP
+	g9W+JZdDlgLPxL+JwXRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvZ-00000000dN6-3pb5;
-	Tue, 24 Mar 2026 06:07:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4uve-00000000dSS-0w40;
+	Tue, 24 Mar 2026 06:07:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvV-00000000dIV-2lL8;
-	Tue, 24 Mar 2026 06:07:41 +0000
+	id 1w4uvX-00000000dJg-1i8a;
+	Tue, 24 Mar 2026 06:07:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E4056013A;
-	Tue, 24 Mar 2026 06:07:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E10D0C2BCB2;
-	Tue, 24 Mar 2026 06:07:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A4AC41AD2;
+	Tue, 24 Mar 2026 06:07:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69F02C2BCB2;
+	Tue, 24 Mar 2026 06:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774332460;
-	bh=JP9ahby6Ly1VVw7RxM4srHWXaEIozlGHAWmdpUP2jJ8=;
+	s=k20201202; t=1774332462;
+	bh=5zNUfjCbe4xMMri1P2HaByUJAkjQzA8Nb9ip9FvYKes=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=UbNGnKO/tp6ai6834ydA1lQ5PukSdo9guTKRu0aT7uQ94/PBq34Vo08i3GzwU1a7R
-	 Cjj86a0rKtbPKnF+oVKFGyOV87WahqlGOu4eDV+h+S5j7x4aPhqGuz+E/DJGQoXOGA
-	 wBe47f8pbr/WXEHhTZzzJBCJP9XHj+6UqfGOLICI3RcjHw+35Cz5SRZZcw7k7C/zYj
-	 XUieDNECgaPKML2nc7pDk7PgesQln2TdJXIciFo+QXEQm2NonZFnC2+3B6gKw1+DHm
-	 Z40BPILv5vYzesqn1zNeeb326JjYakJK+jDAuKVLcvEKgQfH7daPPDxWve9mnoaYbH
-	 fSR6hO6kwysDw==
+	b=byrCHLeFhkP2m2kqESbzXZCxNMNC//4fVSFc9OeISJD1jNXl+AxwmfLgRdod4s1oA
+	 Oa72XoY5nRRjIvgFlTXq0Vi64GALRTxTUZvjB4l2/2o2eiMUv86OyfTtFQRnnnc84Z
+	 cnPBrH5NSBZbBdFMhHQurVK8qLDbgjZpM8kEkZ2nwz5lvqfVGa6IwLDxNPmI/lKtMl
+	 C4x4ei+7qwP2MIzEAzo6VgyvQZPsB+JHpK8TvHvAiyqZEer5QShnK/Fl59vZADpGme
+	 QiIA0Kz4We8WXDmOFR0/fH8YvVu9A9ABD5T6VdX+IzjWeY3aB/j7liGA4P+8xPNWE/
+	 eB1ZlnfTnv+Qg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE5D3808200;
-	Tue, 24 Mar 2026 06:07:30 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B72183808200;
+	Tue, 24 Mar 2026 06:07:31 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
+Subject: Re: [PATCH v2 0/4] KVM: riscv: Fix Spectre-v1 vulnerabilities in
+ register access
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177433244873.469836.2501898935183219197.git-patchwork-notify@kernel.org>
-Date: Tue, 24 Mar 2026 06:07:28 +0000
-References: <20251205232655.445294-1-seanjc@google.com>
-In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: linux-riscv@lists.infradead.org, maz@kernel.org, oupton@kernel.org,
- zhaotianrui@loongson.cn, maobibo@loongson.cn, chenhuacai@kernel.org,
- maddy@linux.ibm.com, anup@brainfault.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, borntraeger@linux.ibm.com, frankja@linux.ibm.com,
- imbrenda@linux.ibm.com, pbonzini@redhat.com,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, gustavoars@kernel.org
+Message-Id: <177433245028.469836.11061694721898939145.git-patchwork-notify@kernel.org>
+Date: Tue, 24 Mar 2026 06:07:30 +0000
+References: <20260303-kvm-riscv-spectre-v1-v2-0-192caab8e0dc@cispa.de>
+In-Reply-To: <20260303-kvm-riscv-spectre-v1-v2-0-192caab8e0dc@cispa.de>
+To: Lukas Gerlach <lukas.gerlach@cispa.de>
+Cc: linux-riscv@lists.infradead.org, anup@brainfault.org,
+ atish.patra@linux.dev, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, ajones@ventanamicro.com,
+ radim.krcmar@oss.qualcomm.com, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ daniel.weber@cispa.de, michael.schwarz@cispa.de, marton.bognar@kuleuven.be,
+ jo.vanbulck@kuleuven.be
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_230743_484096_6E5C2970 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +82,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
-by Sean Christopherson <seanjc@google.com>:
+This series was applied to riscv/linux.git (for-next)
+by Anup Patel <anup@brainfault.org>:
 
-On Fri,  5 Dec 2025 15:26:55 -0800 you wrote:
-> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
-> aliases the flexible name[] in the uAPI definition with a fixed-size array
-> of the same name.  The unusual embedded structure results in compiler
-> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
-> extra level of dereferencing in KVM.  To avoid the "overlay", define the
-> uAPI structure to have a fixed-size name when building for the kernel.
+On Tue, 3 Mar 2026 15:19:40 +0100 you wrote:
+> This series adds array_index_nospec() to RISC-V KVM to prevent
+> speculative out-of-bounds access to kernel memory.
+> 
+> Similar fixes exist for x86 (ioapic, lapic, PMU) and arm64 (vgic).
+> 
+> Signed-off-by: Lukas Gerlach <lukas.gerlach@cispa.de>
 > 
 > [...]
 
 Here is the summary with links:
-  - KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
-    https://git.kernel.org/riscv/c/da142f3d373a
+  - [v2,1/4] KVM: riscv: Fix Spectre-v1 in ONE_REG register access
+    https://git.kernel.org/riscv/c/f9e26fc32541
+  - [v2,2/4] KVM: riscv: Fix Spectre-v1 in AIA CSR access
+    https://git.kernel.org/riscv/c/ec87a82ca874
+  - [v2,3/4] KVM: riscv: Fix Spectre-v1 in floating-point register access
+    https://git.kernel.org/riscv/c/8f0c15c4b14f
+  - [v2,4/4] KVM: riscv: Fix Spectre-v1 in PMU counter access
+    https://git.kernel.org/riscv/c/2dda6a9e09ee
 
 You are awesome, thank you!
 -- 
