@@ -4,182 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AEEFF532E5
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 07:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC57F532E5
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 07:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=pQlDGCdFajol00CPxc15oXzj/29wD+SF8z0/CwlZ41s=; b=YLgtdOo34mwq0Mz9Od0kRO2nbQ
-	PZbhvhuyf5WR/APZEK0fbUWsngA+WxzmvzirSE78J3pEVL7BSX5RVQWhuZPumavejYXU1NyFhnHR3
-	Q0CbOuRAau5lugs0Z/MhR6tW5N/rHS8H44WNVS/z+nASKCr/UjOQ+DaZj9bnRsIMC6nR+b49EXv7T
-	fbrLw4eLErOLWJEweYDXLyuKs6mdJqYMNvcvb7+UiUvILYYkYr6501+VOWhSYhSBbLkT4cStcTOth
-	jsZHnaTomzQhYcnrDSlTKruL60cy0po6uKJwaCipQvNvtFZmIQEVI7Cm4RFKDvzDZ33azJoJvNYl7
-	BjSZuxiw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BUmDgWFz/DeFlQpaau41A8OyEZgvynRDleew7jINvGk=; b=K9amMKvv4O6oAz
+	S2jMMkkgNsG3hWXgRqbVtljEcTPpRy37c5pDkX2S5UK1pTRKoXZOERQMJRlPK8th+XX+suFE9gLIw
+	aDoHzgmW+ZgiwJQAmLLC0hut7Eb+CeHtZzJn8445XArdjqyxW5pWw5eW59iVmgE/SB1pj95yycKkm
+	G3RnbCBVUNADVKeAHuYmSPS5fbFUhBvdzHL66C4D3TH17VCvY6yZbriNdjvDkIAvuLE556v9EQvD2
+	DpgjN+zzx9h9ChtHIKLKombX96bqGz4VdrHxpHKIJ6ZEFZMeD6dmTERLIgZwaOUpSZd5TczU3rXPl
+	OenfhzHeGUD1vx+N8Fow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wSy-00000000uyC-3OL3;
-	Tue, 24 Mar 2026 07:46:20 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1w4wap-00000000viQ-00nS;
+	Tue, 24 Mar 2026 07:54:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wSv-00000000uxZ-3hhO
+	id 1w4wal-00000000vhy-2Ng5
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 07:46:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774338377; x=1805874377;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=WMrp7yWo2b2zLD+Z2P7FKVAtvjVkjpr7TKHF/K2iPPY=;
-  b=Ua2dHhEPnFD4YBAJAMn81nf9KbUIY0tLfPR537sUwp333JStzmL3iWuN
-   DOsrU7MvXNVV+AGyfFZOzMSuvnxpsNUrKdv5Y0Or1u/IwJj90IqI7nPll
-   6wTXHpveLL8HhQ/vNCeva9wBz8w3mosGvUJy7jnqf4nn/maWE6MC3enCa
-   otyr+dA3djJ27FJq2+YaeX8KJIsWWvp8HzTRpiuY2K2PeO1PJbW5/23DF
-   Gb6lUKjyHmpY97ImD05hiwsg4hcApSpOxhwQ/S+0KEnEw1QaG9ZRuNkIq
-   tIP/EuNz6+/Rm/oqva2wwXLMOcLAiBnWtu5JjCc9hhujeYLZylOyHNM0h
-   A==;
-X-CSE-ConnectionGUID: uyVI1MU1QEKB43/S0lKfUQ==
-X-CSE-MsgGUID: zNyrrnvARp6YlLD/dge/oQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11738"; a="75228229"
-X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="75228229"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 00:46:16 -0700
-X-CSE-ConnectionGUID: kpER+ZUHQvOkVencvUprWQ==
-X-CSE-MsgGUID: ggiBvS+bQEerlg3FLxttCg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="223492703"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 00:46:16 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 24 Mar 2026 00:46:16 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Tue, 24 Mar 2026 00:46:16 -0700
-Received: from CH4PR04CU002.outbound.protection.outlook.com (40.107.201.38) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 24 Mar 2026 00:46:14 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ezk0qcWQfrXgoMKaBe/LJTcNZtVfB/+hd659+S6Z+YmUS0FOYR3hPuCDDOcYTCxgyQrE+Go5cQmzAzGZ7LGphkYy8+Wp7+bSneHNeffmXbTq9y6H+Fe2ShISQ9XInP2c7so3ZVsUvpjx68bf2NSVPxeUAZXDfjpHE1y7LJHrYE/062Jb6ZRN6FYvC/9k6Pt4rxhEc4xzgFlPC3oB0VKpIhIjNiWPZYDUoPc7/EWMsa2dmqQ/GaIpWUV5RnXYWMAE3iOfK25GDMIxhMhFkMH1YpSe7tMKogRkixraLJdR/7MuVzvskTy25ohFj+A3RvJ0Q/nW38VNEj+8WzyBnMRUvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rcwEVjjO7xuIYhgbKZzYe1EcMex837KeHk6KcIwRX1U=;
- b=nOrU8FU2ZzS8+Mt4ZTzg8Mlwn81IWVr/9lNePZHlY+15m1SIXdIoq6tBqMAC8u6EAoNVla9TCL+MJst67zTueiC1Fr0ULa2MIqe2jpqQCF4aXN7VOsHjBBgakyCkNYheP2oZzjykN62iC/NN4+UZoNZbQddeaCzlCn3Siu2GfVsOCZYHJW86T00JjpHVxw3Ja95MjbPxT8gbEpuXpqLjQbk+wxRo7EoOvkI9+fRKfdjH6tqNsyfO3VL9n0QNnvV6+qb8/e6pbjvz/I9Gy/xEz4xqWZ1taJuwXCqIMQZKf90wMQrC8949AE1nnOltiMmBA3L6cxYLahlssRi/FJCbAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by CO1PR11MB5058.namprd11.prod.outlook.com (2603:10b6:303:99::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Tue, 24 Mar
- 2026 07:46:11 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%6]) with mapi id 15.20.9745.019; Tue, 24 Mar 2026
- 07:46:11 +0000
-Message-ID: <00bf0bb1-f769-4102-aa1b-e2804e62ccb3@intel.com>
-Date: Tue, 24 Mar 2026 09:46:05 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/8] mmc: sdhci-of-k1: add regulator and pinctrl
- voltage switching support
-To: Iker Pedrosa <ikerpedrosam@gmail.com>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan
-	<dlan@kernel.org>
-CC: Michael Opdenacker <michael.opdenacker@rootcommit.com>, "Javier Martinez
- Canillas" <javierm@redhat.com>, <linux-mmc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Anand Moon
-	<linux.amoon@gmail.com>, Trevor Gamblin <tgamblin@baylibre.com>
-References: <20260323-orangepi-sd-card-uhs-v4-0-567c9775fd0e@gmail.com>
- <20260323-orangepi-sd-card-uhs-v4-2-567c9775fd0e@gmail.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20260323-orangepi-sd-card-uhs-v4-2-567c9775fd0e@gmail.com>
-X-ClientProxiedBy: DB9PR05CA0030.eurprd05.prod.outlook.com
- (2603:10a6:10:1da::35) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	Tue, 24 Mar 2026 07:54:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774338861;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NY5nUJKxwLcdpu7HOgzJTvPCYPrPJwn2RF0wTsX1HlA=;
+	b=MKKcE1ucy68NU005ab8WiudbQfggMago0W/Vtd0bL71H9Nni6ZokyCl/3N1kp3tqYA/Q0s
+	Q2gMfrHdFqiPr9J02oPqMCEJvoPGA2qodteskRPMbpuGO0QDeQE55bydTDZz6sSFnO/Cr9
+	ofqEhf2OxyTzokadFTmXjzhYHGuffHY=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-472-gEDbStGzOnGsGnQrZUxO9w-1; Tue, 24 Mar 2026 03:54:19 -0400
+X-MC-Unique: gEDbStGzOnGsGnQrZUxO9w-1
+X-Mimecast-MFC-AGG-ID: gEDbStGzOnGsGnQrZUxO9w_1774338858
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-43b4a9a3bf6so1618514f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 24 Mar 2026 00:54:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774338858; x=1774943658;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NY5nUJKxwLcdpu7HOgzJTvPCYPrPJwn2RF0wTsX1HlA=;
+        b=VREYBHKsIPk9Al8GxwYdvb9PAePEqgVaejctKOf6htQo/8yNgdD3/0rdVxei2B5jYv
+         FbdXmvDyj8X3+6wdL9U33YG2XiHxdg20VP/bLamrcIA5BC8PAjI+PsIagnhv7D5y90PE
+         Wsnvf2yZgOQoFCtP3KorITrOnrdzZAArTmIEbP/6JivYb2+1bDYVp0b3aImTOzltfv05
+         //gggRidX4Lee8fwvbfbQ5tpc29tS+0jPp1uLRTKlG5/tdPyIMUby8P5ZC9Fm2j8EjhN
+         IbaY8f59E+EZsCNnhWEJm5kB2Kp5nTODfRGqxT9LAEnDjuFx4itljRyLJiw9wB36HJKI
+         OMiw==
+X-Forwarded-Encrypted: i=1; AJvYcCVspo7tHOYWxLUw4nmMDpKwqxptepgJrrFy25mb9Vg88NnRBQEkuJk9GHaD5NN6gUusK97jvPlsyQGyCw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMDWUpHfXfLxdsUKDwRl9sizRDEIzB/QP+d69EIeFh5rUiOUgo
+	JlA4xd6AnUP3jo1G1lo2S5SYeTgY1oZqM5M1K1PI7B3CkrN4r2oXRqhZbZdxmIav4uHDGgBJ8sO
+	pkxEjYJB+hnKD3KoWl8KLZfmMcjtbWQ05g6gccfNCk82ywIG4kjKNYpboItxlR9IsJyF4CA==
+X-Gm-Gg: ATEYQzxAwd43U+ysffpsQQCk3yV4h7UuH9gYtuX9+NzM5QNhba8AteaoLyouAlEEf70
+	zvH7RuYzPnZ0sLFvlwjYHZsRTHN5tG/d1FyRFRjYwQuoWFxGhxt7tOId1Ee8iqg6tBkRkeBXVCC
+	x9E92zNfTonvDeKuzF2mIiuL/PM/P9tSD4cT7s21wKPdrMucHAZZ95IDDSv3L4fVTOdfqpu0b1k
+	3Te4CvZIQZ02GHOVudcCnVDkffDgdrVeW39lgy5vZQW108LKh/H5oCW1Zf+FN2Y1r7ZqQjDJ1nr
+	97W7xk7SgKds5kej+GknwwUWy6g03gsuGU7vxw2WGmzAEjDktanTTykZlGOj/urP+JgOWE5wqWi
+	h7NpztADxj5xPCtP6hakbqKRupVQifkQDlrCExYBcurdWVIm9f3PTZNc95tPiMxIkYjw8QglraO
+	n2L06c
+X-Received: by 2002:a05:600c:a6a8:b0:487:12c:e7e1 with SMTP id 5b1f17b1804b1-487012ce8b0mr126639355e9.11.1774338858159;
+        Tue, 24 Mar 2026 00:54:18 -0700 (PDT)
+X-Received: by 2002:a05:600c:a6a8:b0:487:12c:e7e1 with SMTP id 5b1f17b1804b1-487012ce8b0mr126639145e9.11.1774338857718;
+        Tue, 24 Mar 2026 00:54:17 -0700 (PDT)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4871174f2desm38779755e9.9.2026.03.24.00.54.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Mar 2026 00:54:16 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Aurelien Jarno <aurelien@aurel32.net>, linux-kernel@vger.kernel.org, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Aurelien Jarno <aurelien@aurel32.net>, "open list:OPEN FIRMWARE AND
+ FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, "open
+ list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, "open
+ list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH 1/6] riscv: dts: spacemit: add LEDs for Milk-V Jupiter
+ board
+In-Reply-To: <20260322203356.2206927-2-aurelien@aurel32.net>
+References: <20260322203356.2206927-1-aurelien@aurel32.net>
+ <20260322203356.2206927-2-aurelien@aurel32.net>
+Date: Tue, 24 Mar 2026 08:54:15 +0100
+Message-ID: <87ikal8xy0.fsf@ocarina.mail-host-address-is-not-set>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|CO1PR11MB5058:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b657516-b8a8-43bd-4af5-08de89796b07
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|921020|22082099003|18002099003|7053199007|56012099003;
-X-Microsoft-Antispam-Message-Info: tDZEntDjRMc9uMX6eKvYPKvcqma0jFWoBIxFGP56ccsvMD6YfkEjHg6U4v1k+pyJ4lwRRZZsnlRD99Dhe0qgM59yHyNquaudCHj2GxbqYZ3tvqZoBqUchzYrOYPxwm/tGpmB6GvIk6cwO2JAWwgmDivN6r4u74GCbjkH//kEELgcEDxnpN7ch8RgfP4mVAJCGwQRTqhYHIyE6DFfQ/jmBoO982hxbAw7epS3H3FRX6gi9eDj/vTRB6q5Tm09MrFqJgk3RYd9rvf5CmYrwn5ijO+qawwR1vhOnaof6aErO8QjwYJtc35ZfwESMWX+v6F1/z8Kag3za84g5kfEd6IlWCWnzYAU7sJYyRga8YhdnwjrLwn7tCgrvQt7mkttDo9HMTOkkEACIbrC7FUrwT1FcqZD3zzfrTXXiJzVS6FmPkUGBCG+g+951ip/1XlU8t8zzWMXr+DlILZXyyQEimUPYuAYsgLOaMba5RVHN0sdndxSUyLfuHZfDIr46UZGBT+VNB2Ps+TpO2jNBE98DMC7wQ4+uhWrW4G5WD0GYF04Go6pAS2UgKYiHfg3vU7ybWXGHwJoe9Fk3Q/fcc9PSmgzPRJD7pph8pN2hr/UeprhXDnJ9A6BwEnUwCQSNGDE2+ouYLQUVabmmTql+1NoeQPeRP5nKLFqHtgVU0I7GwI5sY3iC0Yua6LL+/9rH9N+5lG6QwKoHtuShjQ/q//rgmhgRrbgH7L0CJh2Lqe/QIEEIs+KCtv5UCpwTVPAWJfjezV0C9bKcCRD011E5wJejJJduQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(921020)(22082099003)(18002099003)(7053199007)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eUlMRnVsTHQvR1crMXZmNGQ3d3pNV2hwV2tCSEVXQkdIM3IwbS9aWjI3TExq?=
- =?utf-8?B?Q245QTFZc0k1LyswR2ZSQWoyeS9wd2UyTVBEbVpFRVcwTSt1NmtRTFJJQURt?=
- =?utf-8?B?VVJzUUVkbjJMOGpWRW91QkJpaGhraDZaUFhoN0lSd3FMMkhYNVhkVTdhU2hz?=
- =?utf-8?B?Nmd3anBCUWpjYVZ6ZEJxallBRjY4TGdOUW1tWUNyVG44VlQ1MThwWnF2NEFK?=
- =?utf-8?B?UGRPMUI1UWJMNTNxRXdYRzZzWFdCdjJ4T3FyY3N2YmRkMDNEUys0N2d3ZHlp?=
- =?utf-8?B?b051WExCOTJYZ1JxVXN6eHRsZ1JFRTYzOWhRY0dDTlhMaEN2NHJxdmNVRDV4?=
- =?utf-8?B?REw0U0NGeENqTUhiSGRsVWFKQ3VWanU2eVRpZnI2VWVqMTVTb1V1WG9sVkI1?=
- =?utf-8?B?ZEVGMCt1eS9NS2tuRytPY0ppaWdoTnY0ZEpCQS9ncmdzeGVpVFVieVl0QmEv?=
- =?utf-8?B?T2dURGQwUUx0b0VpSjZWNzNrYlR1aGZIeDRldDVJVWl3cmRDaUZvdXlRV1Vu?=
- =?utf-8?B?UklYcmNDZU9aMEtydldtbWFqcHJzdzhxeW9VdEFpMm9vZDArUFB2WjZUZHFC?=
- =?utf-8?B?VjZiOUVBbHdwRmRLMlI0dERqLzJLcmkxb0syc1hETXlVVndTVGVJemMxc1Zo?=
- =?utf-8?B?ekFNMlQ2MU8rSG40aHplbWYrNzlYejVDc241NnhPS014YTdwSE1TUVBRZTNs?=
- =?utf-8?B?d0pVSlAzNTlTUnJqVXhpcGxwbHE1N0tMbTFWSmNBOEdqd1VNZEhXaEZ1MUpq?=
- =?utf-8?B?Y21kdVJ2L2FCelJrcVY0UGYrUlFhMkpXMDNOdEFBK1RQd3BZQVF5ZENOTDVM?=
- =?utf-8?B?R2drc3U0VzRPVllrdjd0dVJHclo3TGJZR1k0VHNyOC9SRTVianBEWUc0Ny9Z?=
- =?utf-8?B?T3RJS2pCdlAzdzlQK0JDV0REL3lqYitDRkRCS3VKeGFCYVg5SUlramFTTTJM?=
- =?utf-8?B?UjNjWmQzZFRMN2FZU0RYbU51cnZEeTUxdTRtcm10K0ZFN1QwMnViSldUY2tY?=
- =?utf-8?B?QXZjTlZUWk1seUJNRklVN0YyM0NlTDNFcnB0dFAyZDdMOGRUWnI4WVVCZGsr?=
- =?utf-8?B?aG9DVGtveTc5cThnY1RWem8zUnBScjNrNWQ4bjN3WVcxcTdXTm9kT2pvSHNx?=
- =?utf-8?B?aEVvdVNPWXV1L1FMNkFXT2Jhcyt4T0FiS0srTW44Z1l6OTFpNC9NY2ViMnY2?=
- =?utf-8?B?WnNWWHkvckYzTXl3UDRBdnZPVnBpNHBQNEtvOTNOSG9mQWtyaFNpR3FsdUVx?=
- =?utf-8?B?NUlwZDFHUUZHNXhvRVVsVGJiTXREWEFaVUNOdUxURzVwSDkxV0xEUHduczc3?=
- =?utf-8?B?cFZ5ZUZRZlJXTDRNbXZ5U3ZtK0tKZDJXK0EvcjVHWmExaFh0OFAvY005T1o1?=
- =?utf-8?B?ZExJbDREMlRpbUJpY0FieFpQbzA4NTZQTzJ6Vng2NXpqcFdUYnFGNHVFK2h4?=
- =?utf-8?B?U2twVGl0ZEExcmxQb3MzMThRMi9peWxjaHBOT1BQcC94QlYxUTN4R3lVZGky?=
- =?utf-8?B?cGlKSTRZZXhwT0kzNEFBKzgyODFYQzBDUWF5OGx1VTBlN2JPZG9mcGRYWExM?=
- =?utf-8?B?UzdrUHBHMVBKa2ozcVBrQVV0RjNpSnlFWHoyTVE0VFVKT3hHS21IUGdhVVlh?=
- =?utf-8?B?T2NwMXlhWjh0UlJ6bUhtMjl6SWFWYmh1V0UxUE5LNjBsWUM4eFBNRWpKNWlv?=
- =?utf-8?B?MnBsYjZGM1RiOFlZcGZkYnVqVGI3V09WMjNTak5HZDNnUUdPaElFWXI3b000?=
- =?utf-8?B?a2NYUGFkU1NHbkFHOUc3OXQxRUF3ME1EYTlKcnVsd21HTnZoeldobDc5QklG?=
- =?utf-8?B?SnlwRjFqTytJSnpjVkpzTS9FUWEyeXFFSFRUdGNXaGhyUUJTdk9Vby9PNHc2?=
- =?utf-8?B?eUkwUWZnY2FGMm8wRlV6V0dvNG95d1FTRnQzdFpmd3ZuczJWZUlIdm5LZnQv?=
- =?utf-8?B?SkExcDBiaEc2SXo0cE03UXdYbU9UTDdoVTgxalZlL3BTM2h1Vis5M1NPdjhK?=
- =?utf-8?B?ZEY4S1dBc3JDWGdoNi8xREc3L0FXT0k4V3pWeDROUVBnRksrbE9tRXFybU81?=
- =?utf-8?B?cmVyMFdMYndKT09PNlhMMi9BYmM0blNmWVp3dzBDbXhRY2FZODZGVzBBRUhr?=
- =?utf-8?B?aENoS2RoMWNYTjk5MlkwYmkyaDJ6MGx6RWhKeEQ1OTVQckFZSU52SWprakds?=
- =?utf-8?B?M3ZXZ3R0T21jWmlHZ1ZCSXU0Yi84dFV5dzNTTExiRk9weEU3WVlPOXVzWWMv?=
- =?utf-8?B?ZTJzNVlRSE55ZGtyK0tiZ0k5MEJraVNodmEvWFY0SjZYZ2JSQVJBZzM0TWo0?=
- =?utf-8?B?akticDdXTThJUWRRYUNEY0d2c2N6S0xDN1RNNFVGRTVpYjZHOFhhVVhzVHdk?=
- =?utf-8?Q?6mvulqKpSpUk7ei8=3D?=
-X-Exchange-RoutingPolicyChecked: uHXWIsDRbKPzd2sKUJP3SIdPAgksnVDyksF7n2JpGXKA3royldQQrzdcB/86/njKeDeooXASWg8XpHIt1WtcxxUB/uCio7FFatfAFCvX5pasan+b+zRolSH3vXMq/WEHRFnHuClESLaU4JzvtwVWzsTZQAUnAM6sIhWc38IRRXu4F6JN9p8YPuULd2vrwvBRNNA0fSDWI+yu+KvtqEbWjS7m7/OiFURqz0xdrdhvMQgxXk+kmkelMTD2IeQ7NBSW0BPXfywVWjDgbKYPtsmZm0hlpZTD2ldbl57D8EUxiO4lSrxA+ZNoGgLpssk5oksNkj44hE7oFRyXklcEdFm+zw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b657516-b8a8-43bd-4af5-08de89796b07
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 07:46:11.5485
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RD3giygGinFSSpzfyfzNNpxLdeo+LfSu1bE4MqR8ej9hLSS3NZ/2q3K+Dhf+osd5JqATvHp6G0zNp3YLjLel0A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB5058
-X-OriginatorOrg: intel.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: x6p7nd6Bg_JOzFf4MTZZFvXqNYvLnyM6qgq1H4M8o6Y_1774338858
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_004618_049972_D84EA2EF 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20260324_005423_681928_2BFB1F31 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,141 +116,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23/03/2026 12:19, Iker Pedrosa wrote:
-> Add voltage switching infrastructure for UHS-I modes by integrating both
-> regulator framework (for supply voltage control) and pinctrl state
-> switching (for pin drive strength optimization).
-> 
-> - Add regulator supply parsing and voltage switching callback
-> - Add optional pinctrl state switching between "default" (3.3V) and
->   "state_uhs" (1.8V) configurations
-> - Enable coordinated voltage and pin configuration changes for UHS modes
-> 
-> This provides complete voltage switching support while maintaining
-> backward compatibility when pinctrl states are not defined.
-> 
-> Tested-by: Anand Moon <linux.amoon@gmail.com>
-> Tested-by: Trevor Gamblin <tgamblin@baylibre.com>
-> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+Aurelien Jarno <aurelien@aurel32.net> writes:
 
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Hello Aurelien,
 
+> The Milk-V Jupiter board provides support for two LEDs through the front
+> panel header. The "Power LED" indicates the system is running, and the
+> "HDD LED" shows disk activity. Configure the corresponding LED triggers
+> accordingly.
+>
+> Caveats:
+> - The LEDs are driven through a 4.7k series resistor, making them
+>   quite faint.
+> - The disk activity trigger requires a storage controller on the M.2 or
+>   PCIe interface. That said, it matches the purpose and the vendor
+>   kernel.
+>
+> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 > ---
->  drivers/mmc/host/sdhci-of-k1.c | 72 ++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 72 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-> index 0dd06fc19b8574ae1b00f7e5d09b7d4c87d06770..234e258af25996e7bbcd0b70366c7480bf62bee7 100644
-> --- a/drivers/mmc/host/sdhci-of-k1.c
-> +++ b/drivers/mmc/host/sdhci-of-k1.c
-> @@ -16,6 +16,7 @@
->  #include <linux/of.h>
->  #include <linux/of_device.h>
->  #include <linux/reset.h>
-> +#include <linux/pinctrl/consumer.h>
->  #include <linux/platform_device.h>
->  
->  #include "sdhci.h"
-> @@ -71,6 +72,9 @@
->  struct spacemit_sdhci_host {
->  	struct clk *clk_core;
->  	struct clk *clk_io;
-> +	struct pinctrl *pinctrl;
-> +	struct pinctrl_state *pinctrl_default;
-> +	struct pinctrl_state *pinctrl_uhs;
->  };
->  
->  /* All helper functions will update clr/set while preserve rest bits */
-> @@ -219,6 +223,46 @@ static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
->  			       SPACEMIT_SDHC_PHY_CTRL_REG);
->  }
->  
-> +static int spacemit_sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
-> +						      struct mmc_ios *ios)
-> +{
-> +	struct sdhci_host *host = mmc_priv(mmc);
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-> +	struct pinctrl_state *state;
-> +	int ret;
-> +
-> +	ret = sdhci_start_signal_voltage_switch(mmc, ios);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!sdhst->pinctrl)
-> +		return 0;
-> +
-> +	/* Select appropriate pinctrl state based on signal voltage */
-> +	switch (ios->signal_voltage) {
-> +	case MMC_SIGNAL_VOLTAGE_330:
-> +		state = sdhst->pinctrl_default;
-> +		break;
-> +	case MMC_SIGNAL_VOLTAGE_180:
-> +		state = sdhst->pinctrl_uhs;
-> +		break;
-> +	default:
-> +		dev_warn(mmc_dev(mmc), "unsupported voltage %d\n", ios->signal_voltage);
-> +		return 0;
-> +	}
-> +
-> +	ret = pinctrl_select_state(sdhst->pinctrl, state);
-> +	if (ret) {
-> +		dev_warn(mmc_dev(mmc), "failed to select pinctrl state: %d\n", ret);
-> +		return 0;
-> +	}
-> +	dev_dbg(mmc_dev(mmc), "switched to %s pinctrl state\n",
-> +		ios->signal_voltage == MMC_SIGNAL_VOLTAGE_180 ? "UHS" : "default");
-> +
-> +	return 0;
-> +}
-> +
->  static inline int spacemit_sdhci_get_clocks(struct device *dev,
->  					    struct sdhci_pltfm_host *pltfm_host)
->  {
-> @@ -252,6 +296,30 @@ static inline int spacemit_sdhci_get_resets(struct device *dev)
->  	return 0;
->  }
->  
-> +static inline void spacemit_sdhci_get_pins(struct device *dev,
-> +					   struct sdhci_pltfm_host *pltfm_host)
-> +{
-> +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-> +
-> +	sdhst->pinctrl = devm_pinctrl_get(dev);
-> +	if (IS_ERR(sdhst->pinctrl)) {
-> +		sdhst->pinctrl = NULL;
-> +		dev_dbg(dev, "pinctrl not available, voltage switching will work without it\n");
-> +		return;
-> +	}
-> +
-> +	sdhst->pinctrl_default = pinctrl_lookup_state(sdhst->pinctrl, "default");
-> +	if (IS_ERR(sdhst->pinctrl_default))
-> +		sdhst->pinctrl_default = NULL;
-> +
-> +	sdhst->pinctrl_uhs = pinctrl_lookup_state(sdhst->pinctrl, "state_uhs");
-> +	if (IS_ERR(sdhst->pinctrl_uhs))
-> +		sdhst->pinctrl_uhs = NULL;
-> +
-> +	dev_dbg(dev, "pinctrl setup: default=%p, uhs=%p\n",
-> +		sdhst->pinctrl_default, sdhst->pinctrl_uhs);
-> +}
-> +
->  static const struct sdhci_ops spacemit_sdhci_ops = {
->  	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
->  	.reset			= spacemit_sdhci_reset,
-> @@ -324,6 +392,10 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
->  
->  	host->mmc->caps |= MMC_CAP_NEED_RSP_BUSY;
->  
-> +	spacemit_sdhci_get_pins(dev, pltfm_host);
-> +
-> +	host->mmc_host_ops.start_signal_voltage_switch = spacemit_sdhci_start_signal_voltage_switch;
-> +
->  	ret = spacemit_sdhci_get_clocks(dev, pltfm_host);
->  	if (ret)
->  		goto err_pltfm;
-> 
+
+Looks good to me.
+
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+
+-- 
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
 
 
 _______________________________________________
