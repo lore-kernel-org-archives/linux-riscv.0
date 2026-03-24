@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92530F532E6
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22BEF532C4
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Mar 2026 06:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=79I9gqT5KIFkNh4xJEzvie5aVsf/9/hPv+mO5p+EBZs=; b=13xa3bV0UxP6tL
-	Id2VeuC6Dm6936uo6EBe0S/iIKkezrLcF0R57DrGaLgIoeXxlIgRI4ps3yE5/0KHa8EHeOUcLDaJn
-	c+34u+HuMmBkssYTEmN9rYj9iXasL+88p746gLsNa29kuN5SPzAIv2g9igwdDpA+It82Ayx86I9y1
-	IwUoFNpiXwKfFBp89m85EyWPv7EE9DwvJYlQ1KAgosAQVj0iOZHuHzNDsJf4EWYGh50t8Jj1KANNr
-	Zkr7eoc78xQiOmx/fr21pjgbmWdev/OPKP9azAfntkjhRQcW0vwHN0ZYjoLGbWDsI4fSQp8li5SET
-	RRamWB2FxXKit7H2tw0A==;
+	List-Owner; bh=moZWrp+dyv4BpxBaHgJn9j4HeGFFpaRgGmYaLp9zxas=; b=sgOG7IS55r6Xur
+	LvNIVrYASvtMVkmlW7ZjdnnlKjofYYqJlfOL9kGnakV+hIntW9HulzIZQhbF0628O+46v/6QXKZR9
+	1qNmpPQZGcUyV94+JB0d/Z42/nUpgA9p/kDO8KDpoSIs196ifxYVYKujbpYHc7DNk6jUZQJh3yhVj
+	KnA7Tgo8cnY75jHYXnH6LLnQtYDSW45WiTB/T3iGvE/MASsWog93Fmu73z9C/VpFmI9eJwtJpf4r1
+	Jjflo+FYZpPUfe5hpI+eiNk7vPolyPwhNS4EV0drzdCMkZm59Lg2HMpPV6/RugXz84id/eoxhppGR
+	SG9WXyqhovwN8kUSO1VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vWY-00000000pdt-2FTk;
-	Tue, 24 Mar 2026 06:45:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4vZ9-00000000q1b-1gUD;
+	Tue, 24 Mar 2026 06:48:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vWT-00000000paq-2FhK
+	id 1w4vZ7-00000000q1J-3kSn
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Mar 2026 06:45:56 +0000
+	Tue, 24 Mar 2026 06:48:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF5D040247;
-	Tue, 24 Mar 2026 06:45:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90481C2BC9E;
-	Tue, 24 Mar 2026 06:45:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 44F01600C4;
+	Tue, 24 Mar 2026 06:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE76C19424;
+	Tue, 24 Mar 2026 06:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774334752;
-	bh=nQSem+Qa3va54hpcGSLu2gvFmVM0Xt6MgljRrmslJ3k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=roYKMvggSyOEL70JurnNN864sl1cuSmTR0YBbOycah9QlYqV/hyQ8V+fKmyz4piNf
-	 ZdgqPH7QiFEfb9gHxjrVQrW+LObU8EfzzhwWo40Zz+Vy6IBlSo/zufAU5oacRn2sa2
-	 py+3XAk3RGnJCQ38e8FQnXWJB7+6We/cfISCuHdTJNIWbv2zSlyo8EcrpCdae1Ae5f
-	 lVkoD6CHqSadWO0gEEM4Yuh2a2VrbKnU2P1tMecx7YzAxAA/FshCeqIF40AKKcSJjb
-	 OpyuV2409Gf6Wd80oHRQycQRQaBwi3lUT9DQJBuP/jGIoS1ARBNc8VXZUMISSG3qlW
-	 3Pqu5TW5R6Y0A==
+	s=k20201202; t=1774334917;
+	bh=odvQZT5+RQNdWSOpTEVg/D+eh/9ZL9qJd+SCdaLEbWc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bzsvAMTtHq02M8vTpvj4+z3C//6/rTk0CvNXkWZfWGgDXl+UthVLSfzAUgytZFmo0
+	 xx/36ErRwBTVzMPxLlJPNLzKK0sMDldnKRHqOvVtgPzEP6E0UXd+ctxTVRcluCM6AX
+	 KccT28tnAz3SJXQyWHQMPzr/AkTVjPVDKBgvspu+PuWH9vLKtaDcvoLQ6TFCSDpYUh
+	 BtBLWc0iCQUX/C0uIv3FD/uCGQkz8fcuAZII5ng7U0tr/zRf//8jIJTvDljaR0UoKm
+	 burhCtW/stTZv0rw+RxPXM1yGj39USxc2hvcmGvQFVh/wCL2yBS5gutEYnvsIdbaWT
+	 OXs+ge+SE25Gg==
+Date: Tue, 24 Mar 2026 14:48:33 +0800
 From: Yixun Lan <dlan@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Alex Elder <elder@riscstar.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Haylen Chu <heylenay@4d2.org>,
-	Shuwei Wu <shuwei.wu@mailbox.org>
-Cc: Yixun Lan <dlan@kernel.org>,
-	linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: spacemit: ccu_mix: fix inverted condition in ccu_mix_trigger_fc()
-Date: Tue, 24 Mar 2026 06:45:38 +0000
-Message-ID: <177433463997.242902.739790871603648740.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260305-k1-clk-fix-v1-1-abca85d6e266@mailbox.org>
-References: <20260305-k1-clk-fix-v1-1-abca85d6e266@mailbox.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Richard Cochran <richardcochran@gmail.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v5] riscv: dts: spacemit: Add ethernet device for K3
+Message-ID: <20260324064833-GKA736590@kernel.org>
+References: <20260324063714.750428-1-inochiama@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_234553_616074_BE6C4159 
-X-CRM114-Status: UNSURE (   4.50  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20260324063714.750428-1-inochiama@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +76,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Inochi, 
 
-On Thu, 05 Mar 2026 20:46:08 +0800, Shuwei Wu wrote:
-> Fix inverted condition that skips frequency change trigger,
-> causing kernel panics during cpufreq scaling.
+On 14:37 Tue 24 Mar     , Inochi Amaoto wrote:
+> Add all ethernet device nodes for K3 SoC.
 > 
-> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 
-Applied, thanks! Will send to clk maintainer as v7.0 fix
+Looks good to me, thanks
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-[1/1] clk: spacemit: ccu_mix: fix inverted condition in ccu_mix_trigger_fc()
-      https://github.com/spacemit-com/linux/commit/54e97360b44bed6b4399dd3be3d65f392df940fa
-
-Best regards,
 -- 
-Yixun Lan <dlan@kernel.org>
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
