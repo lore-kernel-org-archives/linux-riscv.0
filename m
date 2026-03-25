@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B81106B526
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 12:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48674106B533
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 13:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s3qai4cUsq0F8SZOShO7qlBFOZ66cLkgPwHA774c3fU=; b=a1Rw847mWhKx6z
-	qWnOWYkoC5L05t4TfZJItN/AoBB7+/QemTsHJdyws2qLf9bzQ8LberbGg002RPh+HHhaKXvTlMPJJ
-	KspJ14cIR51zEZ9SfaItpGfJSROA9u3Xq/SsuifTNpvwCEXYWqrf1rVj4+WxhO64nAxJCRQxGeeQK
-	lJ7ijxa5oIiGRNr25D5GrhXiw56Z4s2MhLDYoUATQ+K1csUqbnyIgmeHfs1Zbke9YR15MxtgNzkzt
-	XrYQJltjCj+geXcJrZty+bB3oslJVeddt69XsBLoQIYIPFoU0GDyH64WLxmmkes8cE4tz50PGM0Kn
-	f9zopxyfRCEz2WngDvYQ==;
+	List-Owner; bh=daDvw7K6YZxNldKubYJqrxg4F72/x+PsGX9Nc1sxd4k=; b=IUW1Kpgprje+cZ
+	9327GeJR7V3g5H1mcxDv5UnucZ0ihl1dJouwWn6y93jqISgsjRH/Gk1uup1vra97yaR0FarZw27YS
+	MVHKaOFqpMREHyS2NDAxo6b8Qf+YNT9bZxWLGkzcqacN+gqvdmm9RQrusuLkcuGUd+zdFN4vPvlmT
+	pqCV6Vhq62e9Uq7AGQBp1XrXYL/xy13EyA4YUZylRGEADdf110yOgxCDgNbIKc03J4ucQVjHdpNUJ
+	2dbIEcuxXOmSY5WLojh16xRF7OVAz7CR8kBbYt88vW+e0KkGuQjWFXVX7Yk+Ed4+g4KDbYZZlW4TR
+	cdW5uczW5a3a/pbSNpMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NfB-00000003P8j-0mZZ;
-	Wed, 25 Mar 2026 12:48:45 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1w5O9q-00000003S1R-3OO1;
+	Wed, 25 Mar 2026 13:20:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Nf7-00000003P7o-2Ml2
+	id 1w5O9n-00000003S0P-2C2s
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 12:48:43 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 3A50D4E4270B;
-	Wed, 25 Mar 2026 12:48:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0C5CE601E2;
-	Wed, 25 Mar 2026 12:48:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 38C7110451386;
-	Wed, 25 Mar 2026 13:48:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1774442914; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=vrUb56OKoILRudzSP2HC6iXbV4b/pdrYXylo4VOm6Ak=;
-	b=cg24GlqAq71cIWMFccmLB7wrDVQ2wuWCHWIU+/af6+vNtyEkQQCG6DGEkUwuzkQnElrMZC
-	cpS++ZFELbzorBzb0J085cw25rOBXyejUBnbeRjlJnMXAMRSCfZgAg7LbPn2nMVjanskG3
-	a+BLte2WxI8w+RszzA933t1RjOXb7zlFAmbKdreK+zrXvUvZu4Hg6JgYyHL9FWtS57rKEj
-	Yd4yP0zv+XH1dzA2wb0myTUcswAQg7Tz7xOU1WeRBMIKndT3aQ+v1mD8McvWePoYIDTzZ+
-	PG1eDykT94b8yVmxt6VrlyzsffJf7dCvs7okzo9UvcAusXqn0rWEpc+doOILYg==
-From: =?UTF-8?B?QmVub8OudA==?= Monin <benoit.monin@bootlin.com>
-To: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Conor Dooley <conor+dt@kernel.org>,
- Gregory CLEMENT <gregory.clement@bootlin.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- =?UTF-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>,
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
- Stephen Boyd <sboyd@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Tawfik Bayouk <tawfik.bayouk@mobileye.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-mips@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Sari Khoury <sari.khoury@mobileye.com>, Brian Masney <bmasney@redhat.com>
-Subject: Re: [PATCH v5 00/10] Add clock and reset support for Mobileye EyeQ7H
-Date: Wed, 25 Mar 2026 13:48:28 +0100
-Message-ID: <2786053.vuYhMxLoTh@benoit.monin>
-In-Reply-To: <177431268711.5403.12519723172593766522@lazor>
-References: <20260317-clk-eyeq7-v5-0-6f6daa2c2367@bootlin.com>
- <177431268711.5403.12519723172593766522@lazor>
+	Wed, 25 Mar 2026 13:20:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774444821;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KRyCtRyiP2wwgn3R3NnCHPYbolki/Fqd18W5MnkvIrE=;
+	b=Xhdmwi/iYh0GAn1nsV/kcPC/fmamov9YSJMLQIYEnGBHDh6Dc7mmtTIdpyFQnxTMjVEBD4
+	c+Ha0bq3D2dJKsgWNwH573LWK0s+SiHsQ1spor1h+j3my2fWIwiFzZvRNqRhb6WRdKqzN0
+	gVjzBjXQq+Q3LvflyW1NeI423T+G0rc=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-461-fMlzukSCORyc4ztc4nC4MA-1; Wed, 25 Mar 2026 09:20:17 -0400
+X-MC-Unique: fMlzukSCORyc4ztc4nC4MA-1
+X-Mimecast-MFC-AGG-ID: fMlzukSCORyc4ztc4nC4MA_1774444816
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-439af7ba802so4825590f8f.2
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Mar 2026 06:20:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774444816; x=1775049616;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KRyCtRyiP2wwgn3R3NnCHPYbolki/Fqd18W5MnkvIrE=;
+        b=ndtn1yTkHiz3x1pk5b1bcqAqAOzSAspLO7cOqPGeTXR9goD2eGfeRtsY9C58awG5DO
+         SnTtDLzMfeXoEGsm9CLB/mX0GvfIusu5aZ4zvu8tlkrZWNzw0G9JgJKQ+oS2ymu3/xud
+         SGHi2DlAIN+8n21enVvHzW4OPJje0aV9PHGPTDTEqH3pERxgb5wblhAwwBw462vbA1sT
+         Urs00VIVLBq66TOcREfUumBHFVPjsYbBq1dvNLaoqnAVZL135CFqXM6phAxqFSbrD7mg
+         r65B2ih/UYObLhp/DjMtRJ/RfXsZPltWiSqKZWGePFD8ovTm8TeJxa7BZBHcI1i6AjEA
+         JmBA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKPoa5sw3cOeBVIfDpB6LUNr+0NzW7HeB6Fji0M5xHITvS6fiQSShmKy1//fY5Nz7Y7dh+5ABr1LmD7Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhZP8FEYp5YI3tB4Cwo13cbqxj3A4fHVMfhYyPCvLVexsKtuSo
+	7dnrUGr3wToqU1FcRFqEIvSWfVQ46oUe/D1BzvdS4pc10WIyjtbEO1MZwq9rz3tHP1yA2CAw7fs
+	3CTm6KpfaxBBLFm+XD1BWhf8c8sdhVyR6mLf+UIDgGW0VeLAXrGRBvrjjUQBU4Me04iijDg==
+X-Gm-Gg: ATEYQzylXb8OkrsT3hcx3pWDctpt1j6MeDcMp8RXKsmfdh74dnNVFddaM3dqwLjeXOc
+	mOBp8WVrU40OtYxpn1fC61Jgs5geoD20iUdGuJ7ZxMCCwVhi+YzAqry6yoVFLcIlpUwYGgx3CJD
+	LLS3ahdtQGF8ZsTgIZxhlZ5OhyAds9zvoUvPD8FmInY228GJ7USvxjv5t4TOJciQr1h3dyt2fW7
+	woLBAX8sLozsknK+tWHssasyyqHHej4le6z8AXRUKWJvaMMorsn7Yxi4zTKZSydDURV4koRNkgO
+	ay6LEpwDSnsKr8ZZyk807MAM9xxSOgWWq6+ppme2oxv0OKDr3eFjY7Qlixr81C45eshJ/ZqZuPz
+	2xEo62O3p5n0wD0sqqoRvUxEQy06YuQz3hbQqj2EF9M6z8wg8qTXNI++x4foUCugFGckAo/G0La
+	jMIc+u
+X-Received: by 2002:a05:6000:2dc6:b0:43b:6955:54c5 with SMTP id ffacd0b85a97d-43b889a872bmr5150951f8f.17.1774444815977;
+        Wed, 25 Mar 2026 06:20:15 -0700 (PDT)
+X-Received: by 2002:a05:6000:2dc6:b0:43b:6955:54c5 with SMTP id ffacd0b85a97d-43b889a872bmr5150862f8f.17.1774444815376;
+        Wed, 25 Mar 2026 06:20:15 -0700 (PDT)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b8567b2e2sm11278629f8f.33.2026.03.25.06.20.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Mar 2026 06:20:14 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Yixun Lan <dlan@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: i2c: spacemit: k3: Add compatible
+In-Reply-To: <20260325-02-k3-i2c-v1-1-78f29c83d9ac@kernel.org>
+References: <20260325-02-k3-i2c-v1-0-78f29c83d9ac@kernel.org>
+ <20260325-02-k3-i2c-v1-1-78f29c83d9ac@kernel.org>
+Date: Wed, 25 Mar 2026 14:20:13 +0100
+Message-ID: <87zf3w6o6q.fsf@ocarina.mail-host-address-is-not-set>
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: szA9vVt9cAjmLOxWR2-_YhP91QEZS22jwlPwOJ1-cxo_1774444816
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_054841_870915_CA0FAB6D 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20260325_062023_633760_32A72524 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +109,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlc2RheSwgMjQgTWFyY2ggMjAyNiBhdCAwMTozODowNyBDRVQsIFN0ZXBoZW4gQm95ZCB3
-cm90ZToKPiBRdW90aW5nIEJlbm/DrnQgTW9uaW4gKDIwMjYtMDMtMTcgMDY6MzM6MDIpCj4gPiBU
-aGlzIHBhdGNoc2V0IGJyaW5ncyB0aGUgc3VwcG9ydCBvZiB0aGUgT3RoZXIgTG9naWMgQmxvY2tz
-IChPTEIpCj4gPiBmb3VuZCBpbiB0aGUgZmlyc3QgTW9iaWxleWUgU29DIGJhc2VkIG9uIHRoZSBS
-SVNDLVYgYXJjaGl0ZWN0dXJlLCB0aGUKPiA+IEV5ZVE3SC4gRGVzcGl0ZSB0aGUgY2hhbmdlIGZy
-b20gTUlQUyB0byBSSVNDLVYsIHRoZSBPdGhlciBMb2dpYyBCbG9ja3MKPiA+IHByb3ZpZGUgc2lt
-aWxhciBjbG9jayBhbmQgcmVzZXQgZnVuY3Rpb25zIHRvIHRoZSBjb250cm9sbGVycyBvZiB0aGUK
-PiA+IGNoaXAuIFRoaXMgc2VyaWVzIGludHJvZHVjZXMgdGhlIGRldmljZSB0cmVlIGJpbmRpbmdz
-IG9mIHRoZSBTb0MgYW5kCj4gPiB0aGUgbmVjZXNzYXJ5IGNoYW5nZXMgdG8gdGhlIGNsb2NrIGFu
-ZCByZXNldCBleWVxIGRyaXZlcnMuCj4gPgo+IFsuLi5dCj4gPiAKPiA+IFRoaXMgc2VyaWVzIGRl
-cGVuZHMgb24gdGhlIEV5ZVE2THBsdXMgc3VwcG9ydCBwYXRjaHNldCBwb3N0ZWQKPiA+IHByZXZp
-b3VzbHlbMV0sIHdoaWNoIGluIHR1cm4gZGVwZW5kcyBvbiBUaMOpbydzIHNlcmllc1syXS4gSW4g
-cGFydGljdWxhciwKPiA+IHRoZSBjaGFuZ2VzIG1hZGUgdG8gdGhlIGNsay1leWVxIGRyaXZlciBp
-biB0aGlzIHBhdGNoc2V0IGRlcGVuZCBvbiB0aGUKPiA+IGNoYW5nZXMgZG9uZSBpbiB0aGVzZSB0
-d28gc2VyaWVzLgo+IAo+IElzIGl0IGEgYnVpbGQgdGltZSBkZXBlbmRlbmN5IG9yIGEgcnVuIHRp
-bWUgZGVwZW5kZW5jeT8gQXJlIHlvdQo+IGV4cGVjdGluZyBtZSB0byBhcHBseSBhbGwgdGhyZWUg
-c2VyaWVzIHRvIHRoZSBjbGsgdHJlZT8KPiAKSXQgaXMgYSBidWlsZCBkZXBlbmRlbmN5IGZvciB0
-aGUgY2hhbmdlcyB0byB0aGUgY2xrLWV5ZXEgZHJpdmVyLiBJIGFtCnRyeWluZyB0byBmaWd1cmUg
-b3V0IHRoZSBiZXN0IG1lcmdlIHN0cmF0ZWd5LiBJIHByb3Bvc2UgdG8gc3BsaXQgdGhlCnBhdGNo
-ZXMgYmV0d2VlbiB0aGUgbWlwcyB0cmVlIGFuZCB0aGUgY2xvY2sgdHJlZS4gVGhlIGNoYW5nZXMg
-dG8gdGhlCmNsay1leWVxIGRyaXZlciBhbmQgdGhlIGF1eGlsaWFyeSBwaW5jdHJsLWV5ZXE1IGFu
-ZCByZXNldC1leWVxIGRyaXZlcnMKY291bGQgZ28gdGhyb3VnaCB0aGUgY2xrIHRyZWUuIEluIGRl
-dGFpbCwgdGhlIGZvbGxvd2luZyBwYXRjaGVzIGNhbgpiZSBhcHBsaWVkIGluIG9yZGVyIHRvIGF2
-b2lkIG1lcmdlIGNvbmZsaWN0cyBhbmQgdGhlIHNlcmllcyBpcyBmdWxseQpiaXNlY3RhYmxlOgoK
-QWxsIHRoZSBwYXRjaGVzIGZyb20gVGjDqW8ncyBzZXJpZXNbMV06CiAgICAgICAgW1BBVENIIHY3
-IDEvM10gY2xrOiBleWVxOiB1c2UgdGhlIGF1eGlsaWFyeSBkZXZpY2UgY3JlYXRpb24gaGVscGVy
-CiAgICAgICAgW1BBVENIIHY3IDIvM10gY2xrOiBleWVxOiBhZGQgRXllUTUgY2hpbGRyZW4gYXV4
-aWxpYXJ5IGRldmljZSBmb3IgZ2VuZXJpYyBQSFlzCiAgICAgICAgW1BBVENIIHY3IDMvM10gcmVz
-ZXQ6IGV5ZXE6IGRyb3AgZGV2aWNlX3NldF9vZl9ub2RlX2Zyb21fZGV2KCkgZG9uZSBieSBwYXJl
-bnQKClRoZSBmb2xsb3dpbmcgcGF0Y2hlcyBmcm9tIHRoZSBleWVxNmxwbHVzIHNlcmllc1syXToK
-ICAgICAgICBbUEFUQ0ggdjQgMDIvMTNdIGR0LWJpbmRpbmdzOiBzb2M6IG1vYmlsZXllOiBBZGQg
-RXllUTZMcGx1cyBPTEIKICAgICAgICBbUEFUQ0ggdjQgMDQvMTNdIHJlc2V0OiBleWVxOiBBZGQg
-TW9iaWxleWUgRXllUTZMcGx1cyBPTEIKICAgICAgICBbUEFUQ0ggdjQgMDUvMTNdIHBpbmN0cmw6
-IGV5ZXE1OiBVc2UgbWF0Y2ggZGF0YQogICAgICAgIFtQQVRDSCB2NCAwNi8xM10gcGluY3RybDog
-ZXllcTU6IEFkZCBNb2JpbGV5ZSBFeWVRNkxwbHVzIE9MQgogICAgICAgIFtQQVRDSCB2NCAwNy8x
-M10gY2xrOiBleWVxOiBTa2lwIHBvc3QtZGl2aXNvciB3aGVuIGNvbXB1dGluZyBQTEwgZnJlcXVl
-bmN5CiAgICAgICAgW1BBVENIIHY0IDA4LzEzXSBjbGs6IGV5ZXE6IEFkanVzdCBQTEwgYWNjdXJh
-Y3kgY29tcHV0YXRpb24KICAgICAgICBbUEFUQ0ggdjQgMDkvMTNdIGNsazogZXllcTogQWRkIE1v
-YmlsZXllIEV5ZVE2THBsdXMgT0xCCgpBbmQgdGhlIHBhdGNoZXMgZnJvbSB0aGlzIHNlcmllczoK
-ICAgICAgICBbUEFUQ0ggdjUgMDEvMTBdIGR0LWJpbmRpbmdzOiBzb2M6IG1vYmlsZXllOiBBZGQg
-RXllUTdIIE9MQgogICAgICAgIFtQQVRDSCB2NSAwMi8xMF0gcmVzZXQ6IGV5ZXE6IEFkZCBFeWVR
-N0ggY29tcGF0aWJsZXMKICAgICAgICBbUEFUQ0ggdjUgMDMvMTBdIGNsazogZml4ZWQtZmFjdG9y
-OiBSZXdvcmsgaW5pdGlhbGl6YXRpb24gd2l0aCBwYXJlbnQgY2xvY2tzCiAgICAgICAgW1BBVENI
-IHY1IDA0LzEwXSBjbGs6IGZpeGVkLWZhY3RvcjogRXhwb3J0IF9fY2xrX2h3X3JlZ2lzdGVyX2Zp
-eGVkX2ZhY3RvcigpCiAgICAgICAgW1BBVENIIHY1IDA1LzEwXSBjbGs6IGV5ZXE6IFByZWZpeCB0
-aGUgUExMIHJlZ2lzdGVycyB3aXRoIHRoZSBQTEwgdHlwZQogICAgICAgIFtQQVRDSCB2NSAwNi8x
-MF0gY2xrOiBleWVxOiBJbnRyb2R1Y2UgYSBnZW5lcmljIGNsb2NrIHR5cGUKICAgICAgICBbUEFU
-Q0ggdjUgMDcvMTBdIGNsazogZXllcTogQ29udmVydCBjbG9ja3MgZGVjbGFyYXRpb24gdG8gZXFj
-X2Nsb2NrCiAgICAgICAgW1BBVENIIHY1IDA4LzEwXSBjbGs6IGV5ZXE6IERyb3AgUExMLCBkaXZp
-ZGVycywgYW5kIGZpeGVkIGZhY3RvcnMgc3RydWN0cwogICAgICAgIFtQQVRDSCB2NSAwOS8xMF0g
-Y2xrOiBleWVxOiBBZGQgRXllUTdIIGNvbXBhdGlibGVzCgpUaGUgbGFzdCBwYXRjaCB0byB0aGUg
-TUFJTlRBSU5FUlMgZmlsZSBjYW4gYmUgbGVmdCBhc2lkZSBmb3Igbm93LCBJIGNhbgppbmNsdWRl
-IGl0IGluIHRoZSBzZXJpZXMgaW50cm9kdWNpbmcgdGhlIEV5ZVE3SCBTb0MgKG5vdCB5ZXQgcG9z
-dGVkKS4KCgpbMV06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyNjAyMjUtbWFjYi1w
-aHktdjctMC02NjViZDg2MTlkNTFAYm9vdGxpbi5jb20vIApbMl06IGh0dHBzOi8vbG9yZS5rZXJu
-ZWwub3JnL2FsbC8yMDI2MDMxNi1leWVxNmxwbHVzLXY0LTAtYmY0NGRmYzdhMjYxQGJvb3RsaW4u
-Y29tLwoKCkJlc3QgcmVnYXJkcywKLS0gCkJlbm/DrnQgTW9uaW4sIEJvb3RsaW4KRW1iZWRkZWQg
-TGludXggYW5kIEtlcm5lbCBlbmdpbmVlcmluZwpodHRwczovL2Jvb3RsaW4uY29tCgoKCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Yixun Lan <dlan@kernel.org> writes:
+
+> Add a compatible string for the I2C controller found in SpacemiT K3 SoC
+> which use same I2C IP as K1, so make it fallback to K1 compatible.
+>
+
+If is the same IP as K1, shouldn't the "spacemit,k1-i2c" compatible be
+used in the k3.dtsi instead? My understanding is that this is the meaning
+of compatible, and there's no need to add another compatible string for k3.
+
+-- 
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
