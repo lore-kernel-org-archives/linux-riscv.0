@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8F0103A9A0
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 02:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A496FEA803
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 04:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fiAUAkqm9fv+fnOaLULls7UOCs5LujFGmjOxosbRLBU=; b=XqFBG5YEa8O67z
-	USrIYVY4LxF8FImIPuTr66i/SzYDggrFxb5FGeyjSCp0hvRI+V+h9BM3aqQKnNf/wg+wGeOeKqpLx
-	UIV0HcSPTkoxM9x5jV6PajQYsfunWxFQam3MqKGJ9y0+ywGpcUqwasHliq7ZHG359AqMT6LtM4mA1
-	35sibWK+oJoczpqWnr4JKNgfN8mfr7wcoHIpbwF3vN2Ri0X4+lsLHWdmlHMj0xcu9JyNJ20HAHmQS
-	TnshG963fYNtnHTu61iG7fw7eCu8i44/5sM5ItJxHNne4NxVfm5cEr42u0GVFDVAoQ1Imnr7dDe65
-	7qDRrIOCxqgliN0TP5ng==;
+	List-Owner; bh=BSil0i+Cz6rB7d4XgSRCH+FiglJR50GIjhWtJKGDqRo=; b=t+fGGie01Ybr6Y
+	ncD9RAxLgWJMZ7YgJGJo+HYUq3X0W3mgTEnIsHrSV3o0gdMYqeeUtnqn3NB8H2UdN0kQ+Wkr7FMrC
+	qsBwO4p+gFcI8zbS9URxVnsnwST75ZjOtu2THs3TPV0vBwjcd4N+emm7ad7RQjwpQ3nJ6rjrVxoJo
+	/2WWznstpUcHXphAxsJHW7aVqfU6BzfNyVT5WZKQ/hI2ILcr+p0+ojTTUfI+KezBs1ugKUB1UfcZl
+	BNaB/WZV6X6X7rxJG1HF3jvquh4YROLFskSdn3i1j3zc/9+i/ZhwPGFSOwi8kMgHZdqal+RuBLQGi
+	COUo3CE2xBiV5+iEW2hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ERd-00000002YwG-3LDK;
-	Wed, 25 Mar 2026 02:58:09 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1w5Fdl-00000002fGU-3Wvn;
+	Wed, 25 Mar 2026 04:14:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ERc-00000002Yv5-1LXd;
-	Wed, 25 Mar 2026 02:58:08 +0000
+	id 1w5Fdk-00000002fGC-2nz2;
+	Wed, 25 Mar 2026 04:14:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=Ebteczkk5kbZsg2+9vzUFg/0NoNIOGUrhFMDnELcrPk=; b=dOBurZndqeCuq+eTQg4Xez7FoA
-	6x01dc+akvyWg2Sx948S4ei6GDmqc1FfCZg1hPLNfqUUdhB8C3eWvQCFp2GqhGLyedFWO2u4qDWQ/
-	zhZSDgC+p0yDf/H1XCINwN+sXHeMEObvG/1+SyS+fgyJq7Sj1P+qqggUberFdnOVnSSuiOYUoHC2Q
-	Vl5rT4VI7nC0uQfoQivwrpI6ekoV8B/EFBgdJwx7jjUjuslkVJj0z6KOUas6CjVzNtmGylHC6nPrU
-	8zNpVkH8dU3d4oKk8hRsFthA8iwX99mM1OzrYV8lliy+Etp4YZv6uGOy1FkWt4LR5g+1rySOwokR1
-	nqK6WPiw==;
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ERU-0000000F8uT-367O;
-	Wed, 25 Mar 2026 02:58:05 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Ebteczkk5kbZsg2+9vzUFg/0NoNIOGUrhFMDnELcrPk=;
-	b=qwMocirhWPXDEjC//a8+dhZPXdg8YO8ASf/5rn8oQX7mvey7/t+fIPEntFqTl1V+nihOg59jH
-	1k7TOA9iLOO4RXjqkBJ6C2MInAn+QOuyOjGsiEbVgSGHX8OqtBq5UxbFsgQ5o0vCfX1AeevJDCU
-	66pZu/lCmC8qNFixGnquk0Y=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fgWf41gzzznTWc;
-	Wed, 25 Mar 2026 10:52:12 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 097D94055B;
-	Wed, 25 Mar 2026 10:57:40 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 25 Mar
- 2026 10:57:36 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
-	<dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
-	<pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
-	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
-	<paulmck@kernel.org>, <lirongqing@baidu.com>, <ruanjinjie@huawei.com>,
-	<rppt@kernel.org>, <ardb@kernel.org>, <leitao@debian.org>, <osandov@fb.com>,
-	<cfsworks@gmail.com>, <tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
-	<ritesh.list@gmail.com>, <eajames@linux.ibm.com>,
-	<songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
-	<samuel.holland@sifive.com>, <vishal.moola@gmail.com>,
-	<junhui.liu@pigmoral.tech>, <coxu@redhat.com>, <liaoyuanhong@vivo.com>,
-	<jbohac@suse.cz>, <fuqiang.wang@easystack.cn>, <guoren@kernel.org>,
-	<chenjiahao16@huawei.com>, <hbathini@linux.ibm.com>, <james.morse@arm.com>,
-	<takahiro.akashi@linaro.org>, <lizhengyu3@huawei.com>, <x86@kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>
-Subject: [PATCH v10 5/8] crash: Use crash_exclude_core_ranges() on powerpc
-Date: Wed, 25 Mar 2026 10:59:01 +0800
-Message-ID: <20260325025904.2811960-6-ruanjinjie@huawei.com>
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=27fWtX4e+LV3z70kuuRuZ5e8ys9OszIAeG99fDZYuvA=; b=pFghz8EzegyyVLdw26KGcoes3s
+	dz3UmM1HQKq+rvfUtUWDTt00RObY7ZnF5FO3UWdYJfq6ZX/VFRRHIpgfcJLbIkaimSxkZwjgUEFA3
+	bbS0TMoLsluXp0B8uU5g0eo/xGTZ+odoMXxR5/k83Es80YZ3tKOG234Vc+dOJbq4NQmwYLyqQSUqm
+	ZFzPBzG5+mwYkBEGZwX3AvhGEpqpW2sH67GFIgCdX2zk7QcrBPZQHFsBqd/h/0NgUhlAtSq3JQdWs
+	5Z4uEWAesQT4k66Is43485c5dYWv4UT1X337UsoiZxQJgSn6OzDG9Nd3KH4fLqFqhNCTUID4dtVdJ
+	EP5mX7YQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5Fde-00000005PsG-4Ahe;
+	Wed, 25 Mar 2026 04:14:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E09BA44182;
+	Wed, 25 Mar 2026 04:14:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3C4AC4CEF7;
+	Wed, 25 Mar 2026 04:14:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774412074;
+	bh=DjQNBELJeTo8/+IvhIZ195gGXomNRX+U9eI4gj1CDvQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SRN8ph0pe1XZdbFseT7tE70r/KjEUXruc5OYrwNk9RqqxCpNBz3lKttBmjvyR/V+F
+	 LtJrTZ+7anfXtgnic7l5VIoLbzWClqhGy86LYc5jTJ5WiLlspuvWPVcH7tVEo3bTZQ
+	 B3/V2PjFQujB3TmjH/YZDXYjGSvefpMLSF6ujW4kNal6dqlrgdyZy3xe5uuN8qioVt
+	 C5T8kZxf9GojeAa9XddOx6PZakiiMDHaZ25yl5D3ZSoIxAugmHnvVJo6l2b5/Lv/S0
+	 upiARQ+JCWrFKrTEs9313xFN7iKFbUBGQMZ2Z6A7i8ktSdEYDHgVOSA3WjPwRHv5Xc
+	 ZaeMKZnXKgm0Q==
+From: Kees Cook <kees@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	David Laight <david.laight.linux@gmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>
+Cc: Kees Cook <kees@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v5 0/2] Fix bugs and performance of kstack offset randomisation
+Date: Tue, 24 Mar 2026 21:14:20 -0700
+Message-Id: <177441205756.1333400.7749975219620417508.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260325025904.2811960-1-ruanjinjie@huawei.com>
-References: <20260325025904.2811960-1-ruanjinjie@huawei.com>
+In-Reply-To: <20260303150840.3789438-1-ryan.roberts@arm.com>
+References: <20260303150840.3789438-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_025801_571785_3758EB2A 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20260325_041439_468182_D7DB68CA 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,165 +113,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The crash memory exclude of crashk_res and crashk_cma memory on powerpc
-are almost identical to the generic crash_exclude_core_ranges().
+On Tue, 03 Mar 2026 15:08:37 +0000, Ryan Roberts wrote:
+> [Kees; I'm hoping this is now good-to-go via your hardening tree? It would be
+> good to get some linux-next testing.]
+> 
+> Hi All,
+> 
+> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
+> and, on arm64 at least, the performance is poor. This series attempts to fix
+> both; patch 1 provides back-portable fixes for the functional bugs. Patch 2
+> proposes a performance improvement approach.
+> 
+> [...]
 
-By introducing the architecture-specific arch_crash_exclude_mem_range()
-function with a default implementation of crash_exclude_mem_range(),
-and using crash_exclude_mem_range_guarded as powerpc's separate
-implementation, the generic crash_exclude_core_ranges() helper function
-can be reused.
+Sorry for the delay! Applied to for-next/hardening, thanks. :)
 
-Acked-by: Baoquan He <bhe@redhat.com>
-Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/powerpc/include/asm/kexec_ranges.h |  3 ---
- arch/powerpc/kexec/crash.c              |  2 +-
- arch/powerpc/kexec/ranges.c             | 16 ++++------------
- include/linux/crash_core.h              |  4 ++++
- kernel/crash_core.c                     | 19 +++++++++++++------
- 5 files changed, 22 insertions(+), 22 deletions(-)
+[1/2] randomize_kstack: Maintain kstack_offset per task
+      https://git.kernel.org/kees/c/37beb4256016
+[2/2] randomize_kstack: Unify random source across arches
+      https://git.kernel.org/kees/c/a96ef5848cb0
 
-diff --git a/arch/powerpc/include/asm/kexec_ranges.h b/arch/powerpc/include/asm/kexec_ranges.h
-index ad95e3792d10..8489e844b447 100644
---- a/arch/powerpc/include/asm/kexec_ranges.h
-+++ b/arch/powerpc/include/asm/kexec_ranges.h
-@@ -7,9 +7,6 @@
- void sort_memory_ranges(struct crash_mem *mrngs, bool merge);
- struct crash_mem *realloc_mem_ranges(struct crash_mem **mem_ranges);
- int add_mem_range(struct crash_mem **mem_ranges, u64 base, u64 size);
--int crash_exclude_mem_range_guarded(struct crash_mem **mem_ranges,
--				    unsigned long long mstart,
--				    unsigned long long mend);
- int get_exclude_memory_ranges(struct crash_mem **mem_ranges);
- int get_reserved_memory_ranges(struct crash_mem **mem_ranges);
- int get_crash_memory_ranges(struct crash_mem **mem_ranges);
-diff --git a/arch/powerpc/kexec/crash.c b/arch/powerpc/kexec/crash.c
-index 1426d2099bad..52992309e28c 100644
---- a/arch/powerpc/kexec/crash.c
-+++ b/arch/powerpc/kexec/crash.c
-@@ -451,7 +451,7 @@ static void update_crash_elfcorehdr(struct kimage *image, struct memory_notify *
- 		base_addr = PFN_PHYS(mn->start_pfn);
- 		size = mn->nr_pages * PAGE_SIZE;
- 		end = base_addr + size - 1;
--		ret = crash_exclude_mem_range_guarded(&cmem, base_addr, end);
-+		ret = arch_crash_exclude_mem_range(&cmem, base_addr, end);
- 		if (ret) {
- 			pr_err("Failed to remove hot-unplugged memory from crash memory ranges\n");
- 			goto out;
-diff --git a/arch/powerpc/kexec/ranges.c b/arch/powerpc/kexec/ranges.c
-index 6c58bcc3e130..e5fea23b191b 100644
---- a/arch/powerpc/kexec/ranges.c
-+++ b/arch/powerpc/kexec/ranges.c
-@@ -553,9 +553,9 @@ int get_usable_memory_ranges(struct crash_mem **mem_ranges)
- #endif /* CONFIG_KEXEC_FILE */
- 
- #ifdef CONFIG_CRASH_DUMP
--int crash_exclude_mem_range_guarded(struct crash_mem **mem_ranges,
--					   unsigned long long mstart,
--					   unsigned long long mend)
-+int arch_crash_exclude_mem_range(struct crash_mem **mem_ranges,
-+				 unsigned long long mstart,
-+				 unsigned long long mend)
- {
- 	struct crash_mem *tmem = *mem_ranges;
- 
-@@ -604,18 +604,10 @@ int get_crash_memory_ranges(struct crash_mem **mem_ranges)
- 			sort_memory_ranges(*mem_ranges, true);
- 	}
- 
--	/* Exclude crashkernel region */
--	ret = crash_exclude_mem_range_guarded(mem_ranges, crashk_res.start, crashk_res.end);
-+	ret = crash_exclude_core_ranges(mem_ranges);
- 	if (ret)
- 		goto out;
- 
--	for (i = 0; i < crashk_cma_cnt; ++i) {
--		ret = crash_exclude_mem_range_guarded(mem_ranges, crashk_cma_ranges[i].start,
--					      crashk_cma_ranges[i].end);
--		if (ret)
--			goto out;
--	}
--
- 	/*
- 	 * FIXME: For now, stay in parity with kexec-tools but if RTAS/OPAL
- 	 *        regions are exported to save their context at the time of
-diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
-index 033b20204aca..dbec826dc53b 100644
---- a/include/linux/crash_core.h
-+++ b/include/linux/crash_core.h
-@@ -68,6 +68,7 @@ extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_ma
- 				       void **addr, unsigned long *sz);
- extern int crash_prepare_headers(int need_kernel_map, void **addr,
- 				 unsigned long *sz, unsigned long *nr_mem_ranges);
-+extern int crash_exclude_core_ranges(struct crash_mem **cmem);
- 
- struct kimage;
- struct kexec_segment;
-@@ -88,6 +89,9 @@ extern int kimage_crash_copy_vmcoreinfo(struct kimage *image);
- extern unsigned int arch_get_system_nr_ranges(void);
- extern int arch_crash_populate_cmem(struct crash_mem *cmem);
- extern int arch_crash_exclude_ranges(struct crash_mem *cmem);
-+extern int arch_crash_exclude_mem_range(struct crash_mem **mem,
-+					unsigned long long mstart,
-+					unsigned long long mend);
- 
- #else /* !CONFIG_CRASH_DUMP*/
- struct pt_regs;
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index 96a96e511f5a..300d44ad5471 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -287,24 +287,31 @@ unsigned int __weak arch_get_system_nr_ranges(void) { return 0; }
- int __weak arch_crash_populate_cmem(struct crash_mem *cmem) { return -1; }
- int __weak arch_crash_exclude_ranges(struct crash_mem *cmem) { return 0; }
- 
--static int crash_exclude_core_ranges(struct crash_mem *cmem)
-+int __weak arch_crash_exclude_mem_range(struct crash_mem **mem,
-+					unsigned long long mstart,
-+					unsigned long long mend)
-+{
-+	return crash_exclude_mem_range(*mem, mstart, mend);
-+}
-+
-+int crash_exclude_core_ranges(struct crash_mem **cmem)
- {
- 	int ret, i;
- 
- 	/* Exclude crashkernel region */
--	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
-+	ret = arch_crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
- 	if (ret)
- 		return ret;
- 
- 	if (crashk_low_res.end) {
--		ret = crash_exclude_mem_range(cmem, crashk_low_res.start, crashk_low_res.end);
-+		ret = arch_crash_exclude_mem_range(cmem, crashk_low_res.start, crashk_low_res.end);
- 		if (ret)
- 			return ret;
- 	}
- 
- 	for (i = 0; i < crashk_cma_cnt; ++i) {
--		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
--					      crashk_cma_ranges[i].end);
-+		ret = arch_crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
-+						   crashk_cma_ranges[i].end);
- 		if (ret)
- 			return ret;
- 	}
-@@ -331,7 +338,7 @@ int crash_prepare_headers(int need_kernel_map, void **addr, unsigned long *sz,
- 	if (ret)
- 		goto out;
- 
--	ret = crash_exclude_core_ranges(cmem);
-+	ret = crash_exclude_core_ranges(&cmem);
- 	if (ret)
- 		goto out;
- 
+Take care,
+
 -- 
-2.34.1
+Kees Cook
 
 
 _______________________________________________
