@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74FA109C036
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2BF109C033
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xEKgWPlJjOwTJXFpO+rA6xtqUtVSIBXl8xYPNEZQdPc=; b=NgxJ/MGWFPpusf
-	KOfEs/sMBseEgIrijNtQUon2RXpQuS4lWs9d40VNn03aQVo7bL2G1oL6KcQzHiyBSprcd4m/pxkur
-	uqimuRTIRnj4QHYbmvPLodv62KekDGZbpQo6X/27XO/jFNDmK7TazB7zlRUuNCgxO/8tKUa9I1dLZ
-	k4VDNzNFME1r0TMFwdbFocUmxj5+O5kGCcSPrad/4I6PgyB2fUv091JS6vktxX3DyDiM6cAfP80VV
-	H0VGZmABTlXoHTjFBwRrAuv4mZf29qdzrJ/EJiM+hnybqzogr8YTl8rlU+SaOlYLGG1fu8w/bWj9R
-	pBG1QT2oZZrEY7LTO4uw==;
+	List-Owner; bh=/M2Z9/wmmtggq3fcDxRXQrIP4HtJMeq3oUukl+SiNqQ=; b=K9Tz6/3QhOZEC9
+	BTDVIq84YwK1I+5QVzhIxyEsh4Vt1a2Y+4W3IEQndc7+Muo0nKDVMRfqdXraN0TavGCD1zPvC5RvP
+	UpQRUAIOGrbuaDnWdW313R+fEEylnTuzGv+vOXFqspc7L0XyK907Y0v+I74HjmIpBu/cgHkqoM8iH
+	XYSDBCHzjvnBgeSLKYup+dn3pDz6b7W0Yusa6coDeKr15ASeuOMNDqX9HKjFZkv0cHx1/Vmi4PU+t
+	T0iXp5WvkOEEvlzjDG16nnZe00mzHKGMot1RLMu44ssM+OCXcfspa026BD+7DA8t48bLCDZaSQNe9
+	ZUcuVYss1MZnlHdBtGYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R6I-00000003sxH-2fWX;
-	Wed, 25 Mar 2026 16:28:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5R6O-00000003szk-3w3M;
+	Wed, 25 Mar 2026 16:29:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R6H-00000003swh-2ITm
+	id 1w5R6M-00000003syn-2fuM
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 16:28:57 +0000
+	Wed, 25 Mar 2026 16:29:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7164A600AC;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2877540354;
+	Wed, 25 Mar 2026 16:29:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91272C4CEF7;
 	Wed, 25 Mar 2026 16:28:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B359EC19423;
-	Wed, 25 Mar 2026 16:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774456136;
-	bh=/GOCQoMgSCnMdAsfootrNAXNB36Qw+5kApOdsouWTrg=;
+	s=k20201202; t=1774456142;
+	bh=sIsBFeb3KZOx+9CaK6nReqYaT2Bs7FjZ70XRq/nm1LQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mhjsYCkmXPLXlS5hIkSmVNAP9VL07zgHD3Zvx6um6gLb2T2EbGKWBzhhpiCdDkwVH
-	 CNs2Ur2EP9voDypZrBSYCRQ6CFQQAdpJvPSVxamUi/yL5mcEI0BFoHdmdRXwdSB+cs
-	 KuZu840UFgZhQqrjUl/EKSqeUYRVNYCiyg7LdYmIDmeEqhA/WJ5xlx8l/v62l73tad
-	 Hka8/Ac9LcvCV7kEKxQ8H02tV1euEgPYX451LKp9Uu2syurqtOLP0OVoOuiLvk3DjA
-	 56mhXsAm+NYKqfnYtDZnOCJDa72GqgVIOaQOYQHcbAnqIcrQHxJRcuH1+CbQHITQ7p
-	 RG+WSwXdWHw8A==
+	b=g3YD66HM5yTpZewBdW9bOuwy4S5lmiW9H19JeLXXBNWTnAQsIbmhQcpD/8Q0KEHwg
+	 JD+Jdn5Xu3lBukFpO8ELGoRBEoMsgJPD+GK/htrX1JPbEukkHDt27gHniq5+9aUdo1
+	 4Aywc/dVWGrKOC1EzpkSAcSOoW6Jo/CqGDdQ/Xj2cHgIFAcBQ2T8Pjz4/sQMaXhvtP
+	 bfMHaWZzpa7qr8zOWLCaRB8tekbrV//j4359kH+JhfZsGUISGDe+xDE5xQzhpDZCEi
+	 CsCvhY03pxoC8vBlSjQJiZX4gE8MW+td18kqNCMsAVf3Ws6jopZnaFpWvtJIgmtoXW
+	 QLg1uwlytxXUQ==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -74,15 +74,18 @@ Cc: conor@kernel.org,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
 	Ryan.Wanner@microchip.com,
 	Kevin Hao <haokexin@gmail.com>
-Subject: [PATCH net-next v5 01/14] Revert "net: macb: Clean up the .usrio settings in macb_config instances"
-Date: Wed, 25 Mar 2026 16:28:05 +0000
-Message-ID: <20260325-rundown-unrushed-dd82c9f5c56c@spud>
+Subject: [PATCH net-next v5 02/14] net: macb: rename macb_default_usrio to at91_default_usrio as not all platforms have mii mode control in usrio
+Date: Wed, 25 Mar 2026 16:28:06 +0000
+Message-ID: <20260325-landowner-preformed-2922ce736337@spud>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260325-unsterile-flail-4c7729750dc4@spud>
 References: <20260325-unsterile-flail-4c7729750dc4@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5036; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=wNAu33LueieiL9BYBWizySOKUamk9hJkFHlIq4AwGik=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlHeE0M1P3X3Lq4yPVBftIztQarf4oTjyQv+SL0ovecz eJJfG+dO0pZGMS4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjARPmVGhuvZOTemRWg/+3KW y/zZ35tNDjWPLmVvfDbhlaBPiezMpwmMDB2zt82KDGoImPDn8fx3/Kn9ixYdb9Z+EzRNpX1HgYP GRC4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10230; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=CeO2TghHg4sCYeNQ+bvHpMtUsEKz3Xd7QRxVowdYzU0=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlHeE2TebQWnji/af7r2jcr8vT7g26Eee4qEVI9/mi/v UJx0XHhjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzE5Akjw5IHq6t5H6afy/r2 21Pe6q6n/fwrE0XaTtaH6/w+vV+qt5zhn+nyY9LJl04FebxO/Cm3tHruew/lI1N6wm7vVf1pb+n YxwMA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_092902_719975_26A301E2 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,152 +104,291 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Commit 0ae998c4efd69 ("net: macb: Clean up the .usrio settings in
-macb_config instances") was a misguided attempt to clean up the driver
-that actually just propagated problematic code. The default for usrio is
-actually no usrio, and already there are issues with people using the
-problematically named "macb_default_usrio" on platforms where the usrio
-does not have this so-called default behaviour. usrio is platform
-specific and using the default at91 usrio settings should be opt-in
-only. Revert the "cleanup" patch.
+Calling this structure macb_default_usrio is misleading, I believe, as
+it implies that it should be used if your platform has nothing special
+to do in usrio. Since usrio is platform dependent, the default here is
+probably for each usrio to do nothing, with the macb documentation I
+have access to prescribing no standard behaviour here. We noticed that
+this was problematic because on mpfs, a bit that macb_default_usrio
+sets to deal with the MII mode actually changes the source for the
+tsu_clk to something with how the majority of mpfs devices are actually
+configured!
+
+Rename it to at91_default_usrio, since that's where the values actually
+come from for these. I have no idea if any of the other platforms that
+use the default actually copied at91's usrio configuration or if they
+have usrio configurations where what the driver does has no impact.
+
+Gate touching these bits behind a capability, like the clken refclock
+usrio knob, so that platforms without the MII mode stuff can avoid
+running this code.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/net/ethernet/cadence/macb_main.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/cadence/macb.h      |   1 +
+ drivers/net/ethernet/cadence/macb_main.c | 108 +++++++++++++----------
+ 2 files changed, 63 insertions(+), 46 deletions(-)
 
+diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
+index c69828b27dae6..32217de5e0730 100644
+--- a/drivers/net/ethernet/cadence/macb.h
++++ b/drivers/net/ethernet/cadence/macb.h
+@@ -786,6 +786,7 @@
+ #define MACB_CAPS_RSC				BIT(23)
+ #define MACB_CAPS_NO_LSO			BIT(24)
+ #define MACB_CAPS_EEE				BIT(25)
++#define MACB_CAPS_USRIO_HAS_MII			BIT(26)
+ 
+ /* LSO settings */
+ #define MACB_LSO_UFO_ENABLE			0x01
 diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 1cb49252abf5a..a48160da6e672 100644
+index a48160da6e672..05a2df6e3e41d 100644
 --- a/drivers/net/ethernet/cadence/macb_main.c
 +++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -5513,31 +5513,37 @@ static const struct macb_config fu540_c000_config = {
+@@ -4884,13 +4884,15 @@ static int macb_init_dflt(struct platform_device *pdev)
+ 
+ 	if (!(bp->caps & MACB_CAPS_USRIO_DISABLED)) {
+ 		val = 0;
+-		if (phy_interface_mode_is_rgmii(bp->phy_interface))
+-			val = bp->usrio->rgmii;
+-		else if (bp->phy_interface == PHY_INTERFACE_MODE_RMII &&
+-			 (bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
+-			val = bp->usrio->rmii;
+-		else if (!(bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
+-			val = bp->usrio->mii;
++		if (bp->caps & MACB_CAPS_USRIO_HAS_MII) {
++			if (phy_interface_mode_is_rgmii(bp->phy_interface))
++				val = bp->usrio->rgmii;
++			else if (bp->phy_interface == PHY_INTERFACE_MODE_RMII &&
++				 (bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
++				val = bp->usrio->rmii;
++			else if (!(bp->caps & MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII))
++				val = bp->usrio->mii;
++		}
+ 
+ 		if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
+ 			val |= bp->usrio->refclk;
+@@ -4917,13 +4919,6 @@ static int macb_init(struct platform_device *pdev,
+ 		return macb_init_dflt(pdev);
+ }
+ 
+-static const struct macb_usrio_config macb_default_usrio = {
+-	.mii = MACB_BIT(MII),
+-	.rmii = MACB_BIT(RMII),
+-	.rgmii = GEM_BIT(RGMII),
+-	.refclk = MACB_BIT(CLKEN),
+-};
+-
+ #if defined(CONFIG_OF)
+ /* 1518 rounded up */
+ #define AT91ETHER_MAX_RBUFF_SZ	0x600
+@@ -5498,6 +5493,13 @@ static int eyeq5_init(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
++static const struct macb_usrio_config at91_default_usrio = {
++	.mii = MACB_BIT(MII),
++	.rmii = MACB_BIT(RMII),
++	.rgmii = GEM_BIT(RGMII),
++	.refclk = MACB_BIT(CLKEN),
++};
++
+ static const struct macb_usrio_config sama7g5_usrio = {
+ 	.mii = 0,
+ 	.rmii = 1,
+@@ -5508,85 +5510,95 @@ static const struct macb_usrio_config sama7g5_usrio = {
+ 
+ static const struct macb_config fu540_c000_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
+-		MACB_CAPS_GEM_HAS_PTP,
++		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
  	.clk_init = fu540_c000_clk_init,
  	.init = fu540_c000_init,
  	.jumbo_max_len = 10240,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config at91sam9260_config = {
- 	.caps = MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
-+	.usrio = &macb_default_usrio,
+-	.caps = MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
+-	.usrio = &macb_default_usrio,
++	.caps = MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
++		MACB_CAPS_USRIO_HAS_MII,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config sama5d3macb_config = {
  	.caps = MACB_CAPS_SG_DISABLED |
- 		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
-+	.usrio = &macb_default_usrio,
+-		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
+-	.usrio = &macb_default_usrio,
++		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
++		MACB_CAPS_USRIO_HAS_MII,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config pc302gem_config = {
- 	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE,
+-	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE,
++	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 16,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config sama5d2_config = {
- 	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
+-	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
++	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 16,
  	.jumbo_max_len = 10240,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config sama5d29_config = {
- 	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_GEM_HAS_PTP,
+-	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_GEM_HAS_PTP,
++	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_GEM_HAS_PTP |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 16,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config sama5d3_config = {
-@@ -5545,21 +5551,25 @@ static const struct macb_config sama5d3_config = {
- 		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
+ 	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE |
+-		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
++		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 16,
  	.jumbo_max_len = 10240,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config sama5d4_config = {
- 	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
+-	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
++	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 4,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config emac_config = {
- 	.caps = MACB_CAPS_NEEDS_RSTONUBR | MACB_CAPS_MACB_IS_EMAC,
+-	.caps = MACB_CAPS_NEEDS_RSTONUBR | MACB_CAPS_MACB_IS_EMAC,
++	.caps = MACB_CAPS_NEEDS_RSTONUBR | MACB_CAPS_MACB_IS_EMAC |
++		MACB_CAPS_USRIO_HAS_MII,
  	.clk_init = at91ether_clk_init,
  	.init = at91ether_init,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config np4_config = {
  	.caps = MACB_CAPS_USRIO_DISABLED,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config zynqmp_config = {
-@@ -5569,12 +5579,14 @@ static const struct macb_config zynqmp_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
+ 		MACB_CAPS_JUMBO |
+-		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH,
++		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 16,
  	.init = init_reset_optional,
  	.jumbo_max_len = 10240,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config zynq_config = {
  	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_NO_GIGABIT_HALF |
- 		MACB_CAPS_NEEDS_RSTONUBR,
+-		MACB_CAPS_NEEDS_RSTONUBR,
++		MACB_CAPS_NEEDS_RSTONUBR |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 16,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config mpfs_config = {
-@@ -5583,6 +5595,7 @@ static const struct macb_config mpfs_config = {
+@@ -5595,7 +5607,7 @@ static const struct macb_config mpfs_config = {
  		MACB_CAPS_GEM_HAS_PTP,
  	.dma_burst_length = 16,
  	.init = init_reset_optional,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  	.max_tx_length = 4040, /* Cadence Erratum 1686 */
  	.jumbo_max_len = 4040,
  };
-@@ -5611,6 +5624,7 @@ static const struct macb_config versal_config = {
+@@ -5603,7 +5615,8 @@ static const struct macb_config mpfs_config = {
+ static const struct macb_config sama7g5_gem_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_CLK_HW_CHG |
+ 		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
+-		MACB_CAPS_MIIONRGMII | MACB_CAPS_GEM_HAS_PTP,
++		MACB_CAPS_MIIONRGMII | MACB_CAPS_GEM_HAS_PTP |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.usrio = &sama7g5_usrio,
+ };
+@@ -5611,7 +5624,8 @@ static const struct macb_config sama7g5_gem_config = {
+ static const struct macb_config sama7g5_emac_config = {
+ 	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
+ 		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_MIIONRGMII |
+-		MACB_CAPS_GEM_HAS_PTP,
++		MACB_CAPS_GEM_HAS_PTP |
++		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+ 	.usrio = &sama7g5_usrio,
+ };
+@@ -5620,11 +5634,12 @@ static const struct macb_config versal_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
+ 		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH |
+ 		MACB_CAPS_NEED_TSUCLK | MACB_CAPS_QUEUE_DISABLE |
+-		MACB_CAPS_QBV,
++		MACB_CAPS_QBV |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 16,
  	.init = init_reset_optional,
  	.jumbo_max_len = 10240,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config eyeq5_config = {
-@@ -5620,6 +5634,7 @@ static const struct macb_config eyeq5_config = {
+@@ -5634,16 +5649,17 @@ static const struct macb_config eyeq5_config = {
  	.dma_burst_length = 16,
  	.init = eyeq5_init,
  	.jumbo_max_len = 10240,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  };
  
  static const struct macb_config raspberrypi_rp1_config = {
-@@ -5628,6 +5643,7 @@ static const struct macb_config raspberrypi_rp1_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_CLK_HW_CHG |
+ 		MACB_CAPS_JUMBO |
  		MACB_CAPS_GEM_HAS_PTP |
- 		MACB_CAPS_EEE,
+-		MACB_CAPS_EEE,
++		MACB_CAPS_EEE |
++		MACB_CAPS_USRIO_HAS_MII,
  	.dma_burst_length = 16,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  	.jumbo_max_len = 10240,
  };
  
-@@ -5675,6 +5691,7 @@ static const struct macb_config default_gem_config = {
+@@ -5691,7 +5707,7 @@ static const struct macb_config default_gem_config = {
  		MACB_CAPS_JUMBO |
  		MACB_CAPS_GEM_HAS_PTP,
  	.dma_burst_length = 16,
-+	.usrio = &macb_default_usrio,
+-	.usrio = &macb_default_usrio,
++	.usrio = &at91_default_usrio,
  	.jumbo_max_len = 10240,
  };
  
-@@ -5761,7 +5778,7 @@ static int macb_probe(struct platform_device *pdev)
- 	bp->wol = 0;
- 	device_set_wakeup_capable(&pdev->dev, 1);
- 
--	bp->usrio = macb_config->usrio ? : &macb_default_usrio;
-+	bp->usrio = macb_config->usrio;
- 
- 	/* By default we set to partial store and forward mode for zynqmp.
- 	 * Disable if not set in devicetree.
 -- 
 2.53.0
 
