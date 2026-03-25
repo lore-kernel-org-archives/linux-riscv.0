@@ -4,70 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBAFE106B502
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 11:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113F3106B50C
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 11:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bhaD0D5YUP7g+H4S6yGhsNG9GqsaZrjzMNxOtUCpX/s=; b=5A4Wx6P4+toTYQ
-	4sPQh1DSzWPDC1evudTR+C5363aIBJQbstfSaeV/H1dHqnShSkzUrCS2zoXxJrF1fpG25tok1MpC5
-	LAq0EG384oq9cSqfxC+3GwJh/ftAI7BVd7PEd/OfbCcgMHVpDM+vK9jdT/erN17vE9Ju0W7y0uqMr
-	t+IVhyQHSmmO54TQgA51QuFMFePnVU14VKHYNu95IBLTGVeX8wS2mDJaowgxqMJYlBLGIQw8XA5OO
-	a+kgkYeiMfVvO76KzJq3/NvK2zE5SVdkzIh/HRhNP4pugs5AiCNSfGlz7zFElLm3unxuna/+m3bkQ
-	4+kONB+UEO+BQo3G3AkA==;
+	List-Owner; bh=0e39Y0PHJv77bCdmiRD/3brKpcXU/cOewj8l7rVUfmc=; b=l55XfDr15obYNz
+	Z8YmDO2D7L8EdGKrq7+iXYvkyG65hAq0WzS0imjaBJD1LdIencmPc9ZsccxQPF4A1T4UEH1bS2+oV
+	gpM++SHgATMG/wfc93soFNkYwSHTvluSrIJovebkv/A25F1KAQIkB+dpe/QZlK8ZDP4bKAs5e0K+u
+	svbSR2tTh18VSYWR+PamqW3wQMo52jocgoqHeP6ZQfWF6Ls733fnytzd96w7DZrNgWtAgnk50APLD
+	A54ZffO0SDO8ggdw3XOrbeIVtx/lJAk0qHWEhxExPMq3yga0x3R1x3JNTQ/pAQHZ2+pcw09auN13D
+	buhWdwn6Ak6IW2/yX4mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Mm4-00000003JcM-2dz7;
-	Wed, 25 Mar 2026 11:51:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5Mro-00000003Kia-1Un3;
+	Wed, 25 Mar 2026 11:57:44 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Mlj-00000003JCv-2CT8;
-	Wed, 25 Mar 2026 11:51:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3E2143A4F;
-	Wed, 25 Mar 2026 11:51:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F905C2BCB2;
-	Wed, 25 Mar 2026 11:51:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774439486;
-	bh=ijQZYkQ8huX8bzZfiuwKK5l/O+taUFGXBf7mUcCwX/o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F8VoBQpQxXDFHPLwjgn+FimF064VYiGnb02ISTZuo7sMCK/Or3p4aIxqTZnuLA+uL
-	 /r3T+Vz7lEc5yc54KjVTpnI+VbV4XN+l9Nl46axhDOOVHgzVdpo/UGmLK8hQXPEUNR
-	 ynBx5dd5yG3uJQWeeWTgH1cW2In1W0YVJ8QoBnAUk6K4WIL8a0REi+e01oXpRwalXe
-	 gSeFc6w+k+DbJNNIa/GojyKKWjfTcx03289D4/2LfiEs6Mel5pKCUogETaR2OKLgYy
-	 1ahoOxct2eimH12qdt9HBRcDZVXFXVZm9/7QyfTkESgul2vKzgUyr+V1bDmNBkVBYO
-	 nsJxO9bsBzs0w==
-Date: Wed, 25 Mar 2026 17:21:14 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
-	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
+	id 1w5Mrl-00000003Khx-32ax;
+	Wed, 25 Mar 2026 11:57:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iE7KrCvPNjlIMWriz+VIv8px5Zv75wKeteSvNoiD1JNwqJZCCNAL/fGJpCamcJb1hrzBXUTvqeW2FkydfIHQ9GO/uGcBI09mwHkr1XsupGP5yx9f+JEtUaEdRN4CaEMzoufNO18qReVDJlBJyItsGliu+UnKSIbSXIJ0F3XVK96Mfa/bPBsJpMH/FnPHhPsIHnBuDLyZgdmYFr+RNBqvI71db8CxKmr7rLYOknvbJY/DF5C5Epf1PSnD7uVqVYUNh5JH5HFCQnbq8XD2jyuerMg2hMKHU9ddlb/6lE3YDd5HjLNzc+kfc6FJG47JKMjtaSZLdMev0rwt33qufikD3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cmFCg14aIOrsp9YqHLUFfcdR0ddKLw/xENfR7EBqn6E=;
+ b=i7kTE0umVr+uCpwQqcnIRdaOdf3f/PqhAvfFxHaq4zC3hEwenlNYJaGtzunVqzH2PEIrXUnTbFlFOr82PebS6T8zCMztFjqKVoB6s+A3s59Whvl6vF2Xybmze8aBrahOmHKdNVeHyJeZNo/MH/sDgsovCGbXSb3eAi2OJ0wxz855fw0XgjdWjIe9b3XWuLbqNK69qpPzLtjoFU9WFcwfCVtqgfTBj+81Ml+/msQUHL2frhVw4xW7UJwTgL4WrnF5u6sMKNUOuxlf9wb8Bct0HQUgtKhV5A2CW9ssv7Ts79GMo95HWaz69CNDfhglkuPzSfRUp6T8uMfbM1dYfk3ycg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cmFCg14aIOrsp9YqHLUFfcdR0ddKLw/xENfR7EBqn6E=;
+ b=EiQ7QhjIGBHWTNJZ3cM1+8bBO5nUKPFALiWY3ExVWmQl1Z7nKof0hVZUQ1axTkUO8pPt3GdJeaPdsosBGwemsTsGXfogZaT8wZLOSKFrLwHPki5kFkkwHrNrhIGnBauHQErH6LSjeVCmDJA4+jgkaNO03zQa4JlF1j977w9LXVuRXhtn7/xdPbTyxyeXyc0fcQAtcnth6UV2LAK0nWD/TINg1+b3YRfL32iQjDk8mHN9Xov9+Mb4aLRkpdYWQGhgoBJDcwEw6G8JqQe7asnopkAHXAMD607I5gIZaaY9lPq6ok9zIC2c/ixTIEIx5wTprcVvGdXiOKLCNhugPNwdnQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by AM8PR04MB7331.eurprd04.prod.outlook.com (2603:10a6:20b:1c7::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
+ 2026 11:57:36 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9723.030; Wed, 25 Mar 2026
+ 11:57:36 +0000
+Date: Wed, 25 Mar 2026 13:57:31 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+	linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
 	Nitin Rawat <quic_nitirawa@quicinc.com>
 Subject: Re: [PATCH v5 phy-next 10/27] scsi: ufs: qcom: keep parallel track
  of PHY power state
-Message-ID: <vu3cxpynr5mu2fzkrtmjcwijc5jz323wlnbc3r7lp2wxqmhydx@z5xhgf4myw2d>
+Message-ID: <20260325115731.genmq2yew2p4dvbs@skbuf>
 References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
  <20260319223241.1351137-11-vladimir.oltean@nxp.com>
  <ezrcjjwtg5n76w4m65l27szu5mywx66ti3xuprkfcp3x6quvbf@2rew4zrnnbt2>
  <20260325114309.3k7xkfrffpxp5xq4@skbuf>
-MIME-Version: 1.0
+ <vu3cxpynr5mu2fzkrtmjcwijc5jz323wlnbc3r7lp2wxqmhydx@z5xhgf4myw2d>
 Content-Disposition: inline
-In-Reply-To: <20260325114309.3k7xkfrffpxp5xq4@skbuf>
+In-Reply-To: <vu3cxpynr5mu2fzkrtmjcwijc5jz323wlnbc3r7lp2wxqmhydx@z5xhgf4myw2d>
+X-ClientProxiedBy: WA2P291CA0021.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1e::29) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|AM8PR04MB7331:EE_
+X-MS-Office365-Filtering-Correlation-Id: 46e1f118-c396-4740-51c6-08de8a65b4be
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|1800799024|10070799003|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: IoZA7Yrlz/oL4780ip4y5mVba2IlYCaP6Smft6r2tF7zhyQ7Cvo0NHk4wVtd1gAgQ7Ft5awHf+JddSAiQPJPvnF5AayEEG7iS62dizV5bBzYxVGEMrZ8IBs8xRVoK43NICWFEm3x3tUGVNhL5nLLflkjdTCEyezqVlltleqjg5a2YTp4IuC2Zg5+CX26kKPSeMOgkQUjET3gDo+P5QRGOpVPKiuL0u90plnKfbtEknbVoH+ahzSz5u7C9g9O4xKEHIkcs7jCixq4pQ4YSHJ7Mi4J63rPe1KBBxqPI6GCYpbAUm4ButyjewkGZdZ4VzUSPOYVNhx9gAHvsx03Vprut5Z4+BclcYnDlCEYV397D9XGuSb9d7UpMJURxaJKrMjgafiHygT6us8mgMWqw+1NVYGtVBOwEKxkW1rlqfXbiZVDkRrq6/Hw0IMin9TvoT+M69Xt9mwd+iJfmBo04l91W+TOB2CoysK3zc6VrxQNXoOyRYrzoKvQaDrSja9Kq19tSFQQMDwcp3uFWcawjvQZynj1g8JUwgRoPIQn6AsIdKCvcvb/n98oTCr2MccRkr9Og7v0t1xTB4H4vv1ZiTrYWmWrjx+Y5+/14lAR+4oHDH1qJMa0taw51dmTKPEd04UC4FS5lXnkWjcKBeKPnfBNQhgcMJ+6m/VmiqrBTN6GgP2CIsHiYSyMPMtFjR+bu3UmhukXr1mfoGGWK+X9O/+e6Bn1xoaGC9SYTDEdALhU1p0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(1800799024)(10070799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?H8bXtPpsiaS0QFwRBaSe+8t4gr8HCUz/rqs3SagV2Mc61pB5+Z/0ZIKE4zjl?=
+ =?us-ascii?Q?vVFaFQljnxfiRTYZ+SZZGX4GEn8T+mYqxmt+NHIMGYBP1U4KE5tFM9DENojv?=
+ =?us-ascii?Q?2BPs2bjE65uKnsclh0t7cva1HkghbwUjtU8dlLLg2mAqUHkb1q1zcX31TsyS?=
+ =?us-ascii?Q?SmL8lMoFIkQnXN4audsz287JF4/l4mnUv9e0PAh/PQX4sRuf3g6uGsQ41HUe?=
+ =?us-ascii?Q?rWEDe4UzhrBvk5ODkLAQHPZFb/Ug1flyWnrAI9J/DYamaT+tt3ViXVkaU+Sh?=
+ =?us-ascii?Q?8XhvR+7/wcJa54huKekal+DBJWvnB+Zk+w4h3IH4gU6bZMqH4Xa3uZVlV+da?=
+ =?us-ascii?Q?yqh1Vmaf3hyNNRdmDZigq086GMsJz8bT6eR8YPxR6Z2YXaAS42cL9PxKfSXY?=
+ =?us-ascii?Q?Fd12ImQIN33mPo63VKDD7i4ijsAXDsowq5JyOZo7S5iX8ya6+VnYNBpLNmNG?=
+ =?us-ascii?Q?3gbbBXOGza7Sbo4k7terffTaAptvBIL8hs8q+hMBZGMMMygVQ6DTaHvjxf4w?=
+ =?us-ascii?Q?Pq9ZFFGA3pSvctJoYSCLlaarfxNnBO+aKzyUcw6IYef8Ydqbk28Fomc5dCXW?=
+ =?us-ascii?Q?M2aX2sQrW7x/wkv9GwxdEbcIBCM9xF52DMUwBBjAjIlPzavt4C41RvSOdiQ1?=
+ =?us-ascii?Q?3qRB1/ard4mKd9EljMXfIobSpN7e5kyiH7mXwKP9X38raI77RnE0IzZhZ0IB?=
+ =?us-ascii?Q?a10UXpjrBrEjvle80euqbxiYQB21hP823NXwUo2zO5BFvbWqfnLw3ovIYjv/?=
+ =?us-ascii?Q?PMGJ0zuDp5Qrj1BkhgtPCra5NtuAy4mOUP/HQSyx/KgQ8Pi5UDWHPOr6uMVF?=
+ =?us-ascii?Q?fsqKZQLrNm/zlYaItNjNLlOibCwigoQxBDKCEY8q9uYMcP3I8KUgtwkLzx/W?=
+ =?us-ascii?Q?GuuFFAfMmLqMRJv6a2iGQrAHaOyZPsR+44Js3z6ecoWzUqFclLjWuLHUtX0M?=
+ =?us-ascii?Q?24AJdLXaP486H+nVq4wgHmHg4iHXCz7UaA77ed3FCR7cNBp//4lTiyzl4jea?=
+ =?us-ascii?Q?U+LGRW4u/+qgNAZ/pgzDf5RehrqnVd+JMmwjc2lu8UwEeyL4DLJwNbKn/HjA?=
+ =?us-ascii?Q?gtcTgGCUJ7QuPMf3ucELKjmZfgao2zUa3rZTeF9agCxmVX60f2FIx/lTC6aR?=
+ =?us-ascii?Q?8QB1EtKwHt4TV3iNVPqxhGgGhlW71Gy4AiYfLSMz1859ukN9PKOr/rJDmCAH?=
+ =?us-ascii?Q?eCxg8pwlzJ3Z1GF2VlbGHLSGdqMhgXhsgHx5AbmLtYmdNNDc0Zha76jk09Lc?=
+ =?us-ascii?Q?j1VYsW1jJzAlVJElJwN8AW3mRZKDcXwEgyYgv5byOPUpnQtGy4cB0YNv1oZR?=
+ =?us-ascii?Q?Z3pv0jVRpHhmw7+WAC4oKOvmqsE5uY70gz+NwuLcZFcuE9h3c2oJsC1SsSHm?=
+ =?us-ascii?Q?CYMbeB9/eHlacYHZnYmwixA8Xjlh3m9txMk9BM0THrx/q47hWKgoWyT+rSth?=
+ =?us-ascii?Q?HK9YpxvwrE8XL3tPLdZcgvMhftxlKVy36eYYqHldGEdEY1na58Kb8Q/ruflr?=
+ =?us-ascii?Q?wW6zWmPGBcfDL2QH92RAU71bP9fg5EPF8rne0fG/NYyEvOK4L8zsyo2i4QBR?=
+ =?us-ascii?Q?R0UP2YJbc6u7568qNadlXwvIbqM7yxSb11lQP/HWNdWOOYkqjO4JX72ajY5K?=
+ =?us-ascii?Q?IJuc11wpGd0D8Br+VXSejU3IfA6KPkfnXX4PB+ph8rMhfGMmAT0CwReEomfT?=
+ =?us-ascii?Q?PXWZdRZVGjL8RkDz1OkOpmCTxWh651vvtyqN/aoFhI8cz+u2CZV/l3hUZYVD?=
+ =?us-ascii?Q?tKbT0MtaxvmbnxqyLeB7zISHKWAmUiROY9C9xQ8K1mz9gW+GEs+Ck8zm0IoA?=
+X-MS-Exchange-AntiSpam-MessageData-1: lHYTgBURCo07Dg==
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 46e1f118-c396-4740-51c6-08de8a65b4be
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 11:57:36.5157
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: X7v1y9qYxV8YT6EmZZKzHl3RX3sYDXvGJBEFp7J2LnQloCllziPvFVFuycDyeeC/OVyg+qV4+4xEbw7wlq4dBQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_045127_619889_E2614978 
-X-CRM114-Status: GOOD (  27.78  )
+X-CRM114-CacheID: sfid-20260325_045741_767846_216DC7FD 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +150,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMjUsIDIwMjYgYXQgMDE6NDM6MDlQTSArMDIwMCwgVmxhZGltaXIgT2x0ZWFu
-IHdyb3RlOgo+IE9uIFR1ZSwgTWFyIDI0LCAyMDI2IGF0IDExOjAwOjEwQU0gKzA1MzAsIE1hbml2
-YW5uYW4gU2FkaGFzaXZhbSB3cm90ZToKPiA+IE9uIEZyaSwgTWFyIDIwLCAyMDI2IGF0IDEyOjMy
-OjI0QU0gKzAyMDAsIFZsYWRpbWlyIE9sdGVhbiB3cm90ZToKPiA+ID4gQXMgZXhwbGFpbmVkIGlu
-IHRoZSBzaW1pbGFyIHVmcy1leHlub3MuYyBjaGFuZ2UsIFBIWSBjb25zdW1lciBkcml2ZXJzCj4g
-PiA+IHNob3VsZCBub3QgbG9vayBhdCB0aGUgcGh5LT5wb3dlcl9jb3VudCwgYmVjYXVzZSBpbiB0
-aGUgZ2VuZXJhbCBjYXNlCj4gPiA+IHRoZXJlIG1pZ2h0IGFsc28gYmUgb3RoZXIgY29uc3VtZXJz
-IHdobyBoYXZlIGNhbGxlZCBwaHlfcG93ZXJfb24oKSB0b28sCj4gPiA+IHNvIHRoZSBmYWN0IHRo
-YXQgdGhlIHBvd2VyX2NvdW50IGlzIG5vbi16ZXJvIGRvZXMgbm90IG1lYW4gdGhhdCB3ZSBkaWQu
-Cj4gPiA+IAo+ID4gPiBNb3Jlb3Zlciwgc3RydWN0IHBoeSB3aWxsIGJlY29tZSBvcGFxdWUgc29v
-biwgc28gdGhlIHFjb20gVUZTIGRyaXZlcgo+ID4gPiB3aWxsIG5vdCBiZSBhYmxlIHRvIGFwcGx5
-IHRoaXMgcGF0dGVybi4gS2VlcCBwYXJhbGxlbCB0cmFjayBvZiB0aGUgUEhZCj4gPiA+IHBvd2Vy
-IHN0YXRlLCBpbnN0ZWFkIG9mIGxvb2tpbmcgYXQgYSBmaWVsZCB3aGljaCB3aWxsIGJlY29tZSB1
-bmF2YWlsYWJsZQo+ID4gPiAocGh5LT5wb3dlcl9jb3VudCkuCj4gPiA+IAo+ID4gPiBBYm91dCB0
-cmVhdGluZyB0aGUgcGh5X3Bvd2VyX29mZigpIHJldHVybiBjb2RlOiBmcm9tIGFuIEFQSSBwZXJz
-cGVjdGl2ZSwKPiA+ID4gdGhpcyBzaG91bGQgaGF2ZSBwcm9iYWJseSByZXR1cm5lZCB2b2lkLCBv
-dGhlcndpc2UgY29uc3VtZXJzIHdvdWxkIGJlCj4gPiA+IHN0dWNrIGluIGEgc3RhdGUgdGhleSBj
-YW4ndCBlc2NhcGUuIFRoZSBwcm92aWRlciwgcGh5LXFjb20tcW1wLXVmcy5jLAo+ID4gPiBkb2Vz
-IHJldHVybiAwIGluIGl0cyBwb3dlcl9vZmYoKSBpbXBsZW1lbnRhdGlvbi4gSSBjb25zaWRlciBp
-dCBzYWZlIHRvCj4gPiA+IGRpc2NhcmQgcG90ZW50aWFsIGVycm9ycyBmcm9tIHBoeV9wb3dlcl9v
-ZmYoKSBpbnN0ZWFkIG9mIGNvbXBsaWNhdGluZwo+ID4gPiB0aGUgcGh5X3Bvd2VyZWRfb24gbG9n
-aWMuCj4gPiA+IAo+ID4gCj4gPiBZb3UgY291bGQgZXZlbiBzaW1wbGlmeSB0aGUgY29kZSBieSBn
-ZXR0aW5nIHJpZCBvZiB0aGUgJ3BoeV9wb3dlcmVkX29uJyBjaGVjawo+ID4gYWx0b2dldGhlci4g
-VGhlcmUgaXMgbm8gcmVhbCBuZWVkIHRvIHRyYWNrIHRoZSBQSFkgcG93ZXIgc3RhdGUgaW4gdGhp
-cyBkcml2ZXIuCj4gPiBJdCBpcyBzYWZlIHRvIGNhbGwgcGh5X3Bvd2VyX29mZigpIHdpdGhvdXQg
-YW55IGNoZWNrcy4KPiA+IAo+ID4gLSBNYW5pCj4gCj4gT2suLiBhcyB0aGUgYXV0aG9yIG9mIGNv
-bW1pdCA3YmFjNjU2ODc1MTAgKCJzY3NpOiB1ZnM6IHFjb206IFBvd2VyIG9mZgo+IHRoZSBQSFkg
-aWYgaXQgd2FzIGFscmVhZHkgcG93ZXJlZCBvbiBpbiB1ZnNfcWNvbV9wb3dlcl91cF9zZXF1ZW5j
-ZSgpIiksCj4gSSBhc3N1bWUgeW91IGhhdmUgaGFyZHdhcmUgdG8gdGVzdC4gV291bGQgeW91IG1p
-bmQgd3JpdGluZyBhIHBhdGNoIHRoYXQKPiBJIGNvdWxkIHBpY2sgdXAgdG8gcmVwbGFjZSB0aGlz
-IG9uZSB3aXRoPwo+IAoKU3VyZSwgd2lsbCBkby4KCj4gSSBzdXBwb3NlIHRoYXQgdGhlIHBvd2Vy
-X2NvdW50IHRlc3QgaXMgc29tZWhvdyBubyBsb25nZXIgbmVjZXNzYXJ5IGFmdGVyCj4gY29tbWl0
-IDc3ZDJmYTU0YTk0NSAoInNjc2k6IHVmczogcWNvbSA6IFJlZmFjdG9yIHBoeV9wb3dlcl9vbi9v
-ZmYKPiBjYWxscyIpLCBidXQgZnJhbmtseSBJIGRvbid0IHNlZSBpdCAtIHRoZSB1ZnNoY2Qgc3Rh
-dGUgbWFjaGluZSBpcyBhIGJpdAo+IHRvbyBjb21wbGljYXRlZCBmb3IgbWUgdG8ganVzdCBzdGF0
-aWNhbGx5IGFuYWx5emUuCgpJIGJlbGlldmUgSSBhZGRlZCB0aGUgcG93ZXJfY291bnQgY2hlY2sg
-Zm9yIHBoeV9leGl0KCkuIEJ1dCBzaW5jZSB0aGF0IGdvdAptb3ZlZCwgdGhlIGNoZWNrIGJlY29t
-ZXMgbm8gbG9uZ2VyIG5lY2Vzc2FyeS4KCi0gTWFuaQoKLS0gCuCuruCuo+Cuv+CuteCuo+CvjeCu
-o+CuqeCvjSDgrprgrqTgrr7grprgrr/grrXgrq7gr40KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Mar 25, 2026 at 05:21:14PM +0530, Manivannan Sadhasivam wrote:
+> I believe I added the power_count check for phy_exit(). But since that got
+> moved, the check becomes no longer necessary.
+
+FYI, the power_count keeps track of the balance of phy_power_on() and
+phy_power_off() calls, whereas it is the init_count keeps track of
+phy_init() and phy_exit() calls. They are only related to the extent
+that you must respect the phy_init() -> phy_power_on() -> phy_power_off()
+-> phy_exit() sequence. But in any case, both should be considered
+PHY-internal fields. The "Order of API calls" section from
+Documentation/driver-api/phy/phy.rst mentions the order that I just
+described above, and consumers should just ensure they follow that.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
