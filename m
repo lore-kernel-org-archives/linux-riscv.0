@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5619E109C033
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407C6109C036
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wKIYi72VgKaziTdRR0jB4o1Sj14b8pSkDNIE4ctQIvY=; b=oNVEGljSfc68JZ
-	L6I6vpK9GH9PHRmQoc00iQWnDXghSA5sY/dJtJNInXKPF5qpfIkWL31+j8BR4A3FG+Lk8QOFFPv3C
-	8RJ9SFzgEbyMlVXUzSl/mjmOldnEoxNjOLeelJkqjWTMab7xn4gnG2vtnfUoKVyAsyxmHjjkIWeZc
-	Er+YckQfd3RZRXlCLqKwxjNVuytKxwM2B23wkTnl8BIUjBgxcKsIvyGts9ujs9G98pFZoW/OyKyp6
-	0wboWmQmQ4fUx3PC+Ikq5Mvx0FNIaDP3xEAkjU1wp4QBio4B/X6U9t386gFdQSPu4xbODC9UcyRwn
-	Qo40gtJeLbv47hORvcug==;
+	List-Owner; bh=6iygirikJI/Ip71hGeyYJCZIGNU/A7GvPOhAQR+1GiI=; b=1KLRdQdCnf5+nV
+	b+RRqfclFpKNJDqnZdglmfivYY7mOZ5yTfEecAXbVg/r9S6YzYMenLwnq86ssd7OFzGNysPo+/pzV
+	jAOK5e2saLUG66ocrVU+LunTQgf194h9vIA/FKhNR0Mfv+tB3THaJdLaTuUcsCghTNbB/PN7xEu7I
+	3Bz79DrVfKQ9t/G6hQ9M+0gYgGeq519NHyqTMhHd0i7l7YcELEaZDoJoEwxyX5YoyfxVf7ALipSEC
+	SGfNdzvXz9K93RJ2zKS9kCBGs902STVWkkRzLh46oZO/63Z4B7dLbo6EXx4vzFIqZ9DAy6Ex4YDfe
+	GYV37MT9TMs/PdeoCTUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R6Z-00000003t54-2Jd6;
-	Wed, 25 Mar 2026 16:29:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5R6f-00000003t87-3bI0;
+	Wed, 25 Mar 2026 16:29:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R6Y-00000003t4Y-2lrh
+	id 1w5R6e-00000003t7H-3Ea1
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 16:29:14 +0000
+	Wed, 25 Mar 2026 16:29:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B52160103;
+	by tor.source.kernel.org (Postfix) with ESMTP id DECDB60120;
+	Wed, 25 Mar 2026 16:29:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AF36C4CEF7;
 	Wed, 25 Mar 2026 16:29:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D3B0C19423;
-	Wed, 25 Mar 2026 16:29:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774456153;
-	bh=tPzeJ8v456m2d30UqE73B+UaLtNZYD7FTrsxSwqJZFU=;
+	s=k20201202; t=1774456159;
+	bh=mignoRYRLHHjX6SoWI2N00JC2HYzX1D05cl4aW7C2tI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s9/qQCEVLFbmPvNpERJrwz34LiGRHyf+wBv5b4IFmOPsydwwoYAIkT+n+qT9W/idh
-	 38nIKQbaKClV4Hq4ngTp0RSLqSrxxr+VaCPhsvaVkkATzYP9uKOYpfsN/36iAJjwoT
-	 eSDiL71bYElvrdyRduA/Nq7UMzop1RMmPqyS+eWtwBEqNIziofKcuJ54geUWJ6toAv
-	 TrENIsMFkgY7N9Kwu4Pk6FaxhAOfugGJycF6DQYuBTxMCw3VMcpUR5UcdXVYbXZmIc
-	 Kusm0RE44pvfTnjpjzudhB5jnV059ZfAYrJJZBHIejFsB4/h2+n2Ta13ecSVaumXpw
-	 b3UwBh8aGGmAA==
+	b=lZWaqqXRtM1Zpz9+5WAz2NTimIltca+VqNPf+FXtspLv6JsN2gzoUPPiGu1l8Hj5F
+	 sYs1w/+geL4GAmvsxiyCujjqRhgdKTZtNe9Gp2cMWdvkAPACTV4bv/fcu7Vf/qgKcw
+	 6KUkuebGc/jBeeCfVqRygmS7ov7tBZM9VpbJW/ZDBzG+QcV4wsrWtQERCme7VVpMBx
+	 p+Y0hAWOXcYe80cTdYrEhKmhTBEPHxr0asNWWRYsQLkD9HeEs8N0sNGKP2N0VFceaa
+	 FOWBEPdHgtkaur44vdZmUFhODtuhwTkz+x5LM3QTzdX+HaGKhIVg9tli/fSb6b8SqH
+	 WfkQXhA+7gUew==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -74,14 +74,14 @@ Cc: conor@kernel.org,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
 	Ryan.Wanner@microchip.com,
 	Kevin Hao <haokexin@gmail.com>
-Subject: [PATCH net-next v5 04/14] dt-bindings: net: cdns,macb: replace cdns,refclk-ext with cdns,refclk-source
-Date: Wed, 25 Mar 2026 16:28:08 +0000
-Message-ID: <20260325-savior-untainted-03057ee0a917@spud>
+Subject: [PATCH net-next v5 05/14] net: macb: rework usrio refclk selection code
+Date: Wed, 25 Mar 2026 16:28:09 +0000
+Message-ID: <20260325-tarantula-bullring-6ac44b39dd52@spud>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260325-unsterile-flail-4c7729750dc4@spud>
 References: <20260325-unsterile-flail-4c7729750dc4@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3148; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=YuZA+9uk1ysSY/NdJLuuoPLcf0q4cp5LYDFkeULhb80=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlHeE07fxsurH4u2hT09IVDXFnKih7xKc6PzIV+PbyhY /3c6IJhRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbiEcTwV/jll+PbTz2tOfLt dtKd/fm6WXIdP57Z5ucaBHlfVeDc+p/hD0+Hp9gz83c50mtjHlTevO7y9umR3IZ304QWeTytaF+ RxQYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5438; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=ycgYzkRjtwYgivLvrVnZHFBsUBSJrE0ZCfPhkRXsTQU=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlHeE3vRe5euGKW3gUfX+YzIv2XViwN1G29t++ldIPBm ngN5XyHjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEyk6gvD/1oRd8sNOavC1lSm PZytqNT1Vk48Nue2WvXLv/VXHj4T5GT4w/snN2qiCpfscbnLIS7belgOqgm0fG2Szby2xLx87iV TBgA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,101 +101,161 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Ryan added cdns,refclk-ext with the intent of decoupling the source of
-the reference clock on sama7g5 (and related platforms) from the
-compatible. Unfortunately, the default for sama7g5-emac is an external
-reference clock, so this property had no effect there, so that
-compatibility with older devicetrees is preserved.
-Replace cdns,refclk-ext with one that supports both default states and
-therefore is usable for sama7g5-emac.
+The USRIO based refclk selection code abuses a capability flag to set
+the refclk to an external source based on match data/compatible on
+sama7g5-emac and use an internal source for the gmac.
 
-For now, limit it to only the platforms that have USRIO controlled
-reference clock selection, but this could be generalised in the future.
+Ryan previously added a property in an attempt to decouple the refclk
+source from the compatible, because this is not fixed by compatible
+and there's variance based on the choices made by board designers.
 
-The existing property only works on devices that are compatible with
-sama7g5-gem, so mark it deprecated, and limit its use to that specific
-scenario.
+Originally when Ryan added it, he removed the capability flag entirely
+from match data, but this changed the default for the sama7g5-emac and
+the removal had to be reverted for these devices. Because these devices
+default to an external refclk, and the current property is only capable
+of communicating external refclks, there's no way to make the
+sama7g5-emac use an internal refclk.
+
+Additionally, this property has no limiting based on compatible, and
+if used on a platform with an external refclk that is not controlled
+by USRIO the capability would be erroneously set. Because of the reuse
+of the at91_default_usrio struct by non-at91 devices, this could cause
+the refclk bit to be set in error, on a system where the refclk is
+externally provided without usrio settings being required.
+
+Change the new capability flag so that it actually represents the
+hardware being capable of controlling the refclk source via USRIO,
+and move the selection of default behaviour into the macb_usrio_config
+struct provided as part of match data.
+Modify the devicetree code to support a new property,
+"cdns,refclk-source" which will support devices with either default,
+retaining support for "cdns,refclk-external" for compatibility reasons.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/net/cdns,macb.yaml    | 56 ++++++++++++++++++-
- 1 file changed, 53 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/cadence/macb.h      |  1 +
+ drivers/net/ethernet/cadence/macb_main.c | 55 ++++++++++++++++++------
+ 2 files changed, 44 insertions(+), 12 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-index feb1683858374..50490acbb6fc4 100644
---- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
-+++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-@@ -130,10 +130,23 @@ properties:
+diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
+index 35b7129d7c1ee..1bdbe66b05590 100644
+--- a/drivers/net/ethernet/cadence/macb.h
++++ b/drivers/net/ethernet/cadence/macb.h
+@@ -1229,6 +1229,7 @@ struct macb_usrio_config {
+ 	u32 refclk;
+ 	u32 clken;
+ 	u32 hdfctlen;
++	bool refclk_default_external;
+ };
  
-   cdns,refclk-ext:
-     type: boolean
-+    deprecated: true
-+    description: |
-+     This selects if the REFCLK for RMII is provided by an external source.
-+     For RGMII mode this selects if the 125MHz REF clock is provided by an external
-+     source.
-+
-+     This property has been replaced by cdns,refclk-source, as it only works
-+     for devices that use an internal reference clock by default.
-+
-+  cdns,refclk-source:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    enum:
-+      - internal
-+      - external
-     description:
--      This selects if the REFCLK for RMII is provided by an external source.
--      For RGMII mode this selects if the 125MHz REF clock is provided by an external
--      source.
-+      Select whether or not the refclk for RGMII or RMII is provided by an
-+      internal or external source. The default is device specific.
+ struct macb_config {
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 859d03502666a..a436521460683 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -4576,12 +4576,8 @@ static const struct net_device_ops macb_netdev_ops = {
+ static void macb_configure_caps(struct macb *bp,
+ 				const struct macb_config *dt_conf)
+ {
+-	struct device_node *np = bp->pdev->dev.of_node;
+-	bool refclk_ext;
+ 	u32 dcfg;
  
-   cdns,rx-watermark:
-     $ref: /schemas/types.yaml#/definitions/uint32
-@@ -215,6 +228,43 @@ allOf:
-       properties:
-         mdio: false
+-	refclk_ext = of_property_read_bool(np, "cdns,refclk-ext");
+-
+ 	if (dt_conf)
+ 		bp->caps = dt_conf->caps;
  
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - microchip,sama7g5-gem
-+                - microchip,sama7g5-emac
-+    then:
-+      properties:
-+        cdns,refclk-source: false
-+
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              const: microchip,sama7g5-gem
-+    then:
-+      properties:
-+        cdns,refclk-ext: false
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - microchip,sama7g5-emac
-+    then:
-+      properties:
-+        cdns,refclk-source:
-+          default: external
-+    else:
-+      properties:
-+        cdns,refclk-source:
-+          default: internal
-+
- unevaluatedProperties: false
+@@ -4614,9 +4610,6 @@ static void macb_configure_caps(struct macb *bp,
+ 		}
+ 	}
  
- examples:
+-	if (refclk_ext)
+-		bp->caps |= MACB_CAPS_USRIO_HAS_REFCLK_SOURCE;
+-
+ 	dev_dbg(&bp->pdev->dev, "Cadence caps 0x%08x\n", bp->caps);
+ }
+ 
+@@ -4897,8 +4890,36 @@ static int macb_init_dflt(struct platform_device *pdev)
+ 		if (bp->caps & MACB_CAPS_USRIO_HAS_CLKEN)
+ 			val |= bp->usrio->clken;
+ 
+-		if (bp->caps & MACB_CAPS_USRIO_HAS_REFCLK_SOURCE)
+-			val |= bp->usrio->refclk;
++		if (bp->caps & MACB_CAPS_USRIO_HAS_REFCLK_SOURCE) {
++			const char *prop;
++			bool refclk_ext;
++			int ret;
++
++			/* Default to whatever was set in the match data for
++			 * this device. There's two properties for refclk
++			 * control, but the boolean one is deprecated so is
++			 * a lower priority to check, no device should have
++			 * both.
++			 */
++			refclk_ext = bp->usrio->refclk_default_external;
++
++			ret = of_property_read_string(pdev->dev.of_node,
++						      "cdns,refclk-source", &prop);
++			if (!ret) {
++				if (!strcmp(prop, "external"))
++					refclk_ext = true;
++				else
++					refclk_ext = false;
++			} else {
++				ret = of_property_read_bool(pdev->dev.of_node,
++							    "cdns,refclk-ext");
++				if (ret)
++					refclk_ext = true;
++			}
++
++			if (refclk_ext)
++				val |= bp->usrio->refclk;
++		}
+ 
+ 		macb_or_gem_writel(bp, USRIO, val);
+ 	}
+@@ -5503,11 +5524,21 @@ static const struct macb_usrio_config at91_default_usrio = {
+ 	.clken = MACB_BIT(CLKEN),
+ };
+ 
+-static const struct macb_usrio_config sama7g5_usrio = {
++static const struct macb_usrio_config sama7g5_gem_usrio = {
+ 	.mii = 0,
+ 	.rmii = 1,
+ 	.rgmii = 2,
+ 	.refclk = BIT(2),
++	.refclk_default_external = false,
++	.hdfctlen = BIT(6),
++};
++
++static const struct macb_usrio_config sama7g5_emac_usrio = {
++	.mii = 0,
++	.rmii = 1,
++	.rgmii = 2,
++	.refclk = BIT(2),
++	.refclk_default_external = true,
+ 	.hdfctlen = BIT(6),
+ };
+ 
+@@ -5622,7 +5653,7 @@ static const struct macb_config sama7g5_gem_config = {
+ 		MACB_CAPS_MIIONRGMII | MACB_CAPS_GEM_HAS_PTP |
+ 		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+-	.usrio = &sama7g5_usrio,
++	.usrio = &sama7g5_gem_usrio,
+ };
+ 
+ static const struct macb_config sama7g5_emac_config = {
+@@ -5632,7 +5663,7 @@ static const struct macb_config sama7g5_emac_config = {
+ 		MACB_CAPS_GEM_HAS_PTP |
+ 		MACB_CAPS_USRIO_HAS_MII,
+ 	.dma_burst_length = 16,
+-	.usrio = &sama7g5_usrio,
++	.usrio = &sama7g5_emac_usrio,
+ };
+ 
+ static const struct macb_config versal_config = {
 -- 
 2.53.0
 
