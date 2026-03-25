@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADCE106B522
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 12:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A1E106B526
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 12:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jQWG3CnS/VihY+o5vBgNQtBrB2csmS/a4KOun8Z6Opg=; b=sFYY/bg2tx+e1q
-	VwQiZPHcelYN5h5kB6jS1iHiSds1fgjbSiJVsv6XiuRvyyIgnPevcf5NcSexoqwUH4F4eheWb40UL
-	JhKaVAAC8f4vQ8YYPf6kjyVWINuM8fWg00DqrBmsqKXS/PJSNOsMKYEVUvKktaksQtxJo+D5xZ9GS
-	Ax00EDm92/UqcusXjp/rVhQKirLTzKJgEEUpvk1ccY0YyswNygOtNmNyAACBzM6k/TDsztWqwK04l
-	2scXZJHrb96HMCL/XTWMvQVGfdsgWWVHGEja8v1WcfAgwEY5SmGlDNncsCJbGseEiySNAwocATnJm
-	NgWvxPdL1Z5aheyXFOBA==;
+	List-Owner; bh=z8VKsGEu+WR2GIX8N9ehniYD1XVto+06Sr8LZ3klwfk=; b=QcQyOB99vcaQPu
+	Zj+auj6hV0hpthxPqkW1a+jPWRuARleo0LD9iOweIJknlSVaSCqWL2hAQ3IhE6ZvT3X7vwOoFuJgB
+	aHPgxHkP7f4lhJsxb+C2gm4IHed322yceISa3tdWpV3SQb05bYJVdoQsMrKGDocLTfHnqOb0cCv7X
+	C5kawzhqs6WL81xXTwxf1qRnFcHQqEyFftL3NMi5++vEvmEOBajtlHCsTj5OMBneXR8DQwIyKM8kz
+	m1aSXtMcSSG21IkkF6xuKxmdrDnayNo88YNhAd1yXnGJMYZiwOK6JX7LwpkjLkc7zIqvnTjF47Llh
+	vvO/vtYeiJqoiHFAe/7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NZE-00000003OYX-1Unv;
-	Wed, 25 Mar 2026 12:42:36 +0000
+	id 1w5Nb1-00000003Ohe-234K;
+	Wed, 25 Mar 2026 12:44:27 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NZD-00000003OYN-219q;
-	Wed, 25 Mar 2026 12:42:35 +0000
+	id 1w5Naz-00000003OhU-1zpX;
+	Wed, 25 Mar 2026 12:44:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 986A060121;
-	Wed, 25 Mar 2026 12:42:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E418FC4CEF7;
-	Wed, 25 Mar 2026 12:42:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B8646012A;
+	Wed, 25 Mar 2026 12:44:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DED05C2BCB0;
+	Wed, 25 Mar 2026 12:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774442554;
-	bh=w7OzwCqt8SyLebOkd0ga04DG/iV8dPT4IUIMUesHAhk=;
+	s=k20201202; t=1774442664;
+	bh=38j766JVLWUVIfHDcaPtLgkhnG/XuRx89Jd0+IxYN6A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kqEhZy0KWeBErR981dacfREdOZWMmz6qOIxI4/aT7/aolwxv4kqXgQoqF3yfj/NNW
-	 qgGHWlfdf7fya7BTe6mmtyKuBxTwb8JRvk8QJK4RagZwcDRCTeDpS43812XcQjA2fE
-	 xkWy5aAn2w1MBXjPWyj+48XlvnssAxxrCjCI8ZK1sME1Sq+CNkRXJf+NW4CwA+iLF0
-	 4/e+TmLS5G9HIh/K2I27R5Ahbm5eBBLcd4KNdpwhs3CPjw669K1nE6SpkZrWp7/j1C
-	 bIjJAauviZ79LmzBEAAEmH1UTErdMS3unexGlTUMbIgrVB90vexkMKwZ7Jc/uAM6lJ
-	 pSCoDpRuXkrQQ==
-Message-ID: <85818080-c267-4c80-851e-daf050de97a0@kernel.org>
-Date: Wed, 25 Mar 2026 13:42:06 +0100
+	b=RWUiB70lJFQ/lpRX5ksJCMQaC56Th+eO7hm7aEUDuy8Ob3y3O7RE3g6phJID+Lfs6
+	 jJoNnBN0IEh0AGkpcqImx42ObH5KMT847+f9FuhtO2tu7w6ZBVEnYvtsx8zYc0tSnz
+	 rCpd3E2bWxETBccTKvwfETKakB/9HkkiB3MOerBfdXxIdKLMxPsINHg0m0uAZzuToA
+	 pL904zdxnfHpI7n0laL8d4SLqpVJNkflxG6B5rx+JMm/Dr2U5xLknl4TT1rvYIe+tX
+	 NYS6ubeQS63LL1C8hS6xb+4klYgl6SgyxzxX2QiYY2Mln941/2SsK8/iuNHMI7qpT2
+	 7mY4W/DCGAH+w==
+Message-ID: <98a7e267-4162-42a1-9f4e-557897700e1b@kernel.org>
+Date: Wed, 25 Mar 2026 13:44:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/9] arm: configs: remove obsolete assignments to
- SND_SOC_ROCKCHIP
+Subject: Re: [PATCH 9/9] arm64: defconfig: remove obsolete assignment to
+ SLIM_QCOM_CTRL
 To: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
 Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -113,9 +113,9 @@ Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Anna Schumaker <anna.schumaker@oracle.com>
 References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
- <20260317-arm_defconf_cleanup-v1-5-8eecb7fdd24d@kernel.org>
- <febd0f7e-59f3-4ba4-8706-53c7353e3fe5@kernel.org>
- <3ec53a2e-a8e1-43d3-abdb-c00433e7675c@kernel.org>
+ <20260317-arm_defconf_cleanup-v1-9-8eecb7fdd24d@kernel.org>
+ <9545b66c-f223-48a3-96fe-c906d2307654@kernel.org>
+ <d7ba53bd-e484-4ea1-b90b-e44321eef4c3@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -161,7 +161,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <3ec53a2e-a8e1-43d3-abdb-c00433e7675c@kernel.org>
+In-Reply-To: <d7ba53bd-e484-4ea1-b90b-e44321eef4c3@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,55 +173,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjUvMDMvMjAyNiAxMjoyNywgVmluY2VudCBNYWlsaG9sIChBcm0pIHdyb3RlOgo+ICtDQzog
-c29jQGxpc3RzLmxpbnV4LmRldgoKUGxlYXNlIGRvbid0LiBUaGlzIGlzIG5vdCBhIHBhdGNoIHJl
-dmlldyBtYWlsaW5nIGxpc3QuCgo+IAo+IE9uIDMvMTcvMjYgMTI6MjgsIEtyenlzenRvZiBLb3ps
-b3dza2kgd3JvdGU6Cj4+IE9uIDE3LzAzLzIwMjYgMTA6MTMsIFZpbmNlbnQgTWFpbGhvbCAoQXJt
-KSB3cm90ZToKPj4+IENPTkZJR19TTkRfU09DX1JPQ0tDSElQIHdhcyByZW1vdmVkIGluIGNvbW1p
-dCBjYWUzY2M0MzVkYjUgKCJBU29DOgo+Pj4gcm9ja2NoaXA6IFN0YW5kYXJkaXplIEFTb0MgbWVu
-dSIpLiBIb3dldmVyIGl0IGlzIHN0aWxsIHJlZmVyZW5jZWQgaW4KPj4+IHNvbWUgZGVmY29uZmln
-cy4KPj4+Cj4+PiBSZW1vdmUgYW55IHJlZmVyZW5jZXMgdG8gQ09ORklHX1NORF9TT0NfUk9DS0NI
-SVAuCj4+Pgo+Pj4gRllJLCB0aGUgc3VwcHJlc3Npb25zIHdlcmUgZG9uZSB1c2luZzoKPj4+Cj4+
-PiAgIGdpdCBscy1maWxlcyAteiAnYXJjaC8qL2NvbmZpZ3MvKmRlZmNvbmZpZycgfFwKPj4+ICAg
-ICB4YXJncyAtMCBzZWQgLWkgLUUgJy9eQ09ORklHX1NORF9TT0NfUk9DS0NISVAvZCcKPj4+Cj4+
-PiBGaXhlczogY2FlM2NjNDM1ZGI1ICgiQVNvQzogcm9ja2NoaXA6IFN0YW5kYXJkaXplIEFTb0Mg
-bWVudSIpCj4+PiBTaWduZWQtb2ZmLWJ5OiBWaW5jZW50IE1haWxob2wgKEFybSkgPG1haWxob2xA
-a2VybmVsLm9yZz4KPj4+IC0tLQo+Pj4gIGFyY2gvYXJtL2NvbmZpZ3MvbXVsdGlfdjdfZGVmY29u
-ZmlnIHwgMSAtCj4+PiAgYXJjaC9hcm02NC9jb25maWdzL2RlZmNvbmZpZyAgICAgICAgfCAxIC0K
-Pj4KPj4gVGhpcyB3YXMgYWxyZWFkeSBwb3N0ZWQ6Cj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2FsbC8yMDI2MDMxMy1yb2NrY2hpcC1zbmQtY2xlYW51cC12MS0xLTc3ZDlhOTUzZmQxYkBzY2hu
-d2FsdGVyLmV1Lwo+PiBidXQganVzdCBsaWtlIHRoYXQgcGF0Y2ggeW91IGRpZCBub3Qgc2VuZCBp
-dCB0byBzb2NAIChpZiBJIGFtIG5vdAo+PiBtaXN0YWtlbi4uLiBDQyBsaXN0IGlzIGVub3Jtb3Vz
-KS4KPiAKPiBPSywgSSB3aWxsIGFkZCBzb2NAbGlzdHMubGludXguZGV2IHRvIHRoZSByZWNpcGll
-bnQgbGlzdCBpbiB2Mi4KCkNvdWxkIGJlLCBidXQgaXNuJ3QgdGhpcyBzcGVjaWZpYyB0byBnaXZl
-biBTb0M/IGRlZmNvbmZpZ3MgZ28gdmlhIFNvQwpwbGF0Zm9ybSB0cmVlcyAobWFpbnRhaW5lciBz
-b2MgcHJvZmlsZSkuCgo+IAo+PiBJIHRoaW5rIHlvdSBhcmUgbWl4aW5nIGhlcmUgaW5kZXBlbmRl
-bnQgd29ya3MsIGxpa2Uga2NvbmZpZyBhbmQgcGVyLWFyY2gKPj4gZGVmY29uZmlnIGNoYW5nZXMu
-IFBsZWFzZSBzcGxpdCB0aGVzZSBwZXIgYXJjaCBkZWZjb25maWcgbWFpbnRhaW5lcnMgLQo+PiBw
-YXRjaGVzIGFuZCBwYXRjaHNldCwgc28geW91IHdvbid0IGJlIENjLWluZyA1MCBhZGRyZXNzZXMu
-Cj4gCj4gVGhlIGNvbmZpZyBpc3N1ZXMgd2hpY2ggSSBhbSBhZGRyZXNzaW5nIGFyZSB0cmFuc3Zl
-cnNhbCBwcm9ibGVtcyBzbyBJCj4gd2FzIGV4cGVjdGluZyB0byBqdXN0IGdldCB0aGUgQWNrZWQt
-YnkgZnJvbSB0aGUgb3RoZXIgYXJjaGl0ZWN0dXJlIGFuZAoKV2VsbCwgc3VyZSwgSU1PIHRoaXMg
-b25seSBzdGFsbHMgdGhlIHBhdGNoc2V0IGJ1dCBmaW5lIHdpdGggbWUuCgo+IGhhdmUgYWxsIHRo
-aXMgZ28gdGhyb3VnaCB0aGUgc2FtZSB0cmVlLgoKQnV0IHdoaWNoIHRyZWU/CgoKPiAKPiBBcyBJ
-IGV4cGxhaW5lZCBpbiBteSBjb3ZlciBsZXR0ZXIsIHRoaXMgaXMgbm90IGRvaW5nIGFueSBmdW5j
-dGlvbmFsIGNoYW5nZXMuCj4gCj4gQnV0IGlmIHRoaXMgaXMgbm90IGFjY2VwdGFibGUsIEkgd2ls
-bCBqdXN0IHJlZHVjZSB0aGUgc2NvcGUgdG8gYXJtL2FybTY0Cj4gdGhlbi4gRG9pbmcgYSBwZXIg
-YXJjaCBzcGxpdCBhcyB5b3Ugc3VnZ2VzdGVkIHdvdWxkIGJlIHRvbyBtdWNoIG92ZXJoZWFkCj4g
-KG1vcmUgdGhhbiB3aGF0IEnCoGFtIHJlYWR5IHRvIGludmVzdCBvbiB0aGlzIGNsZWFuLXVwKS4K
-ClRoZSBmaXJzdCB0aGluZyB5b3VyIGNvdmVyIGxldHRlciBzaG91bGQgZXhwbGFpbiBpcyB0aGUK
-bWVyZ2luZy9kZXBlbmRlbmNpZXMgb3Igb3RoZXIgZXhwZWN0YXRpb25zIHlvdSBoYXZlLiBUaGF0
-J3MgdGhlIG1vc3QKaW1wb3J0YW50IHRoaW5nIHdoZW4gbWFpbnRhaW5lcnMgZ2l2ZSB5b3VyIHBh
-dGNoc2V0IDE1IHNlY29uZHMgaW4gdGhlaXIKbWFpbGJveC4gT3Igd2hlbiB5b3Ugd2FudCB0byBv
-cHRpbWl6ZSBtYWludGFpbmVycyBwcm9jZXNzLCBtYWtpbmcgYWxzbwp5b3VyIHBhdGNoc2V0IGVh
-c2llciB0byBnZXQgaW4uCgpUaGVyZSBpcyBhIGxvdCBvZiB0ZXh0IGluIHRoZSBjb3ZlciBsZXR0
-ZXIgYnV0IG5vdGhpbmcgZXhwbGFpbmluZyB3aGF0CnlvdSB3cm90ZSBoZXJlLgoKQmVzdCByZWdh
-cmRzLApLcnp5c3p0b2YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On 25/03/2026 12:31, Vincent Mailhol (Arm) wrote:
+>>
+>> Exactly that case also encouraged me to document this, since we do not
+>> know how to fix get_maintainers. See commit
+>> 6efe5322f060099c8bc51aaee83b857394e42dd5
+> I read the thread in which you posted that patch. Thanks for updating
+> the documentation, but as people anticipated, as long as the tool
+> doesn't do the right thing, there will be people like me who will mess
+> up the recipient list.
+> 
+> Anyway, sorry for that.
+
+No worries. I wished the tool was improved because I believe in the
+toolset, not remembering thousand rules of different subsystems...
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
