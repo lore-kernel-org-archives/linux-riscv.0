@@ -4,100 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48674106B533
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 13:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29475106B538
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 13:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=daDvw7K6YZxNldKubYJqrxg4F72/x+PsGX9Nc1sxd4k=; b=IUW1Kpgprje+cZ
-	9327GeJR7V3g5H1mcxDv5UnucZ0ihl1dJouwWn6y93jqISgsjRH/Gk1uup1vra97yaR0FarZw27YS
-	MVHKaOFqpMREHyS2NDAxo6b8Qf+YNT9bZxWLGkzcqacN+gqvdmm9RQrusuLkcuGUd+zdFN4vPvlmT
-	pqCV6Vhq62e9Uq7AGQBp1XrXYL/xy13EyA4YUZylRGEADdf110yOgxCDgNbIKc03J4ucQVjHdpNUJ
-	2dbIEcuxXOmSY5WLojh16xRF7OVAz7CR8kBbYt88vW+e0KkGuQjWFXVX7Yk+Ed4+g4KDbYZZlW4TR
-	cdW5uczW5a3a/pbSNpMA==;
+	List-Owner; bh=zDTjYrFTJaneDtxHrYyfxaOz+7oe+BCE9JBqml/U2c8=; b=i0k96zUUqZ3yw9
+	E06d/YqyS4r/F0i3LXvVHA3corUcrTsU+bx7J+W2UwEpW+YU0EwqX1kpBtu/tkbiuU18JxGXuMyIK
+	RAHPkzCv8kkOt7FbrVEzjoqiGIWP7vEBqvnYZqr+VETtfzm3K56sEk8hjoENGX0qsQVt0EVUpucJb
+	2tFvR126cwEgZc7cbPjYtmS5YW4Pp/R5PshSqNkjtu+/SyFkrm7vk7slE9TjOnvyaMPMJf6CuJjUh
+	GkartPdPjeQAJgyvhFRJO4cTw0qtLWQUUp7Gh5e8+Ewyr/4GZ8qFHUfVXVu3V+lLCymhJbQns2j6N
+	U/0KFxb2UTOxhKB0TzzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5O9q-00000003S1R-3OO1;
-	Wed, 25 Mar 2026 13:20:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1w5OhL-00000003VOg-2AcX;
+	Wed, 25 Mar 2026 13:55:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5O9n-00000003S0P-2C2s
+	id 1w5OhK-00000003VOY-28Qv
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 13:20:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774444821;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KRyCtRyiP2wwgn3R3NnCHPYbolki/Fqd18W5MnkvIrE=;
-	b=Xhdmwi/iYh0GAn1nsV/kcPC/fmamov9YSJMLQIYEnGBHDh6Dc7mmtTIdpyFQnxTMjVEBD4
-	c+Ha0bq3D2dJKsgWNwH573LWK0s+SiHsQ1spor1h+j3my2fWIwiFzZvRNqRhb6WRdKqzN0
-	gVjzBjXQq+Q3LvflyW1NeI423T+G0rc=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-461-fMlzukSCORyc4ztc4nC4MA-1; Wed, 25 Mar 2026 09:20:17 -0400
-X-MC-Unique: fMlzukSCORyc4ztc4nC4MA-1
-X-Mimecast-MFC-AGG-ID: fMlzukSCORyc4ztc4nC4MA_1774444816
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-439af7ba802so4825590f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Mar 2026 06:20:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774444816; x=1775049616;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KRyCtRyiP2wwgn3R3NnCHPYbolki/Fqd18W5MnkvIrE=;
-        b=ndtn1yTkHiz3x1pk5b1bcqAqAOzSAspLO7cOqPGeTXR9goD2eGfeRtsY9C58awG5DO
-         SnTtDLzMfeXoEGsm9CLB/mX0GvfIusu5aZ4zvu8tlkrZWNzw0G9JgJKQ+oS2ymu3/xud
-         SGHi2DlAIN+8n21enVvHzW4OPJje0aV9PHGPTDTEqH3pERxgb5wblhAwwBw462vbA1sT
-         Urs00VIVLBq66TOcREfUumBHFVPjsYbBq1dvNLaoqnAVZL135CFqXM6phAxqFSbrD7mg
-         r65B2ih/UYObLhp/DjMtRJ/RfXsZPltWiSqKZWGePFD8ovTm8TeJxa7BZBHcI1i6AjEA
-         JmBA==
-X-Forwarded-Encrypted: i=1; AJvYcCUKPoa5sw3cOeBVIfDpB6LUNr+0NzW7HeB6Fji0M5xHITvS6fiQSShmKy1//fY5Nz7Y7dh+5ABr1LmD7Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhZP8FEYp5YI3tB4Cwo13cbqxj3A4fHVMfhYyPCvLVexsKtuSo
-	7dnrUGr3wToqU1FcRFqEIvSWfVQ46oUe/D1BzvdS4pc10WIyjtbEO1MZwq9rz3tHP1yA2CAw7fs
-	3CTm6KpfaxBBLFm+XD1BWhf8c8sdhVyR6mLf+UIDgGW0VeLAXrGRBvrjjUQBU4Me04iijDg==
-X-Gm-Gg: ATEYQzylXb8OkrsT3hcx3pWDctpt1j6MeDcMp8RXKsmfdh74dnNVFddaM3dqwLjeXOc
-	mOBp8WVrU40OtYxpn1fC61Jgs5geoD20iUdGuJ7ZxMCCwVhi+YzAqry6yoVFLcIlpUwYGgx3CJD
-	LLS3ahdtQGF8ZsTgIZxhlZ5OhyAds9zvoUvPD8FmInY228GJ7USvxjv5t4TOJciQr1h3dyt2fW7
-	woLBAX8sLozsknK+tWHssasyyqHHej4le6z8AXRUKWJvaMMorsn7Yxi4zTKZSydDURV4koRNkgO
-	ay6LEpwDSnsKr8ZZyk807MAM9xxSOgWWq6+ppme2oxv0OKDr3eFjY7Qlixr81C45eshJ/ZqZuPz
-	2xEo62O3p5n0wD0sqqoRvUxEQy06YuQz3hbQqj2EF9M6z8wg8qTXNI++x4foUCugFGckAo/G0La
-	jMIc+u
-X-Received: by 2002:a05:6000:2dc6:b0:43b:6955:54c5 with SMTP id ffacd0b85a97d-43b889a872bmr5150951f8f.17.1774444815977;
-        Wed, 25 Mar 2026 06:20:15 -0700 (PDT)
-X-Received: by 2002:a05:6000:2dc6:b0:43b:6955:54c5 with SMTP id ffacd0b85a97d-43b889a872bmr5150862f8f.17.1774444815376;
-        Wed, 25 Mar 2026 06:20:15 -0700 (PDT)
-Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b8567b2e2sm11278629f8f.33.2026.03.25.06.20.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 06:20:14 -0700 (PDT)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Yixun Lan <dlan@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: i2c: spacemit: k3: Add compatible
-In-Reply-To: <20260325-02-k3-i2c-v1-1-78f29c83d9ac@kernel.org>
-References: <20260325-02-k3-i2c-v1-0-78f29c83d9ac@kernel.org>
- <20260325-02-k3-i2c-v1-1-78f29c83d9ac@kernel.org>
-Date: Wed, 25 Mar 2026 14:20:13 +0100
-Message-ID: <87zf3w6o6q.fsf@ocarina.mail-host-address-is-not-set>
+	Wed, 25 Mar 2026 13:55:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 52F8D60103;
+	Wed, 25 Mar 2026 13:55:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 804F1C116C6;
+	Wed, 25 Mar 2026 13:54:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774446901;
+	bh=Z9OfmJpuHFza4LIZVZ6/U5jEyQQM+7F8FOIIjQt9Zx4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Pa2m6FvSc771+pz5L+Lk1SdlWr3gwPXklZ7dXVPi3bAtICp/cUYSPEX750+8WxjJz
+	 TnDqo3RnGSy+z8e5uLgtCGRW1BIIAdxrnfxIFBHHka5UOBJXgTFbG7JieqiArDUqLo
+	 L2qol6FIo6zgFlqDP6VFBExLk3lNYTbrVnbOv20r0rJ38IcVht4kvXsh48dMUfyoCS
+	 ijVC4oJnda0yvOMhHDVVNse/H4VXlPTFclEe8g4nFc6Ini6HQtjRuIfzs2ltNIG8XE
+	 EJxjMgimzxiBLg+Ex6cWHtzksuP+lxqWikSuxDHVrrBTgg1zfKRQlYYDmHB5sZM8LS
+	 SyGLJNLjUcHNw==
+Message-ID: <6530526f-59ca-4753-a068-46c62a1a1fed@kernel.org>
+Date: Wed, 25 Mar 2026 14:54:56 +0100
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: szA9vVt9cAjmLOxWR2-_YhP91QEZS22jwlPwOJ1-cxo_1774444816
-X-Mimecast-Originator: redhat.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_062023_633760_32A72524 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dts: riscv: spacemit: k3: add P1 PMIC regulator tree
+To: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260325-02-k3-i2c-v1-1-a793776b88bc@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260325-02-k3-i2c-v1-1-a793776b88bc@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,23 +117,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Yixun Lan <dlan@kernel.org> writes:
+On 25/03/2026 10:56, Yixun Lan wrote:
+> Add the P1 PMIC's regulator topology tree for pico-itx board.
+> 
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+> This series try to add a regulator power tree from P1 PMIC,
+> the PMIC is controlled via an I2C interface.
+> 
+> To test this patch, it will need the I2C patch series [1]
+> 
+> Link: https://lore.kernel.org/all/20260325-02-k3-i2c-v1-0-78f29c83d9ac@kernel.org [1]
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 185 +++++++++++++++++++++++++++
+>  arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi |  11 ++
+>  2 files changed, 196 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> index b098dbd0e7a1..5b59c569dbde 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> @@ -23,6 +23,191 @@ memory@100000000 {
+>  		device_type = "memory";
+>  		reg = <0x1 0x00000000 0x4 0x00000000>;
+>  	};
+> +
+> +	reg_dc_in: regulator-dc-in-12v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "dc_in_12v";
+> +		regulator-min-microvolt = <12000000>;
+> +		regulator-max-microvolt = <12000000>;
+> +		regulator-boot-on;
+> +		regulator-always-on;
+> +	};
 
-> Add a compatible string for the I2C controller found in SpacemiT K3 SoC
-> which use same I2C IP as K1, so make it fallback to K1 compatible.
->
+This is a pointless supply. It's non-controllable and serves no devices,
+so it only bloats the DTB and slows down boot process without any benefits.
 
-If is the same IP as K1, shouldn't the "spacemit,k1-i2c" compatible be
-used in the k3.dtsi instead? My understanding is that this is the meaning
-of compatible, and there's no need to add another compatible string for k3.
 
--- 
+
+> +
+> +	reg_aux_vcc3v3: regulator-aux-vcc3v3 {
+
+This is even more pointless because there is no user. Dead code.
+
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "AUX_VCC3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-always-on;
+> +		vin-supply = <&reg_dc_in>;
+> +	};
+> 
+
+
 Best regards,
-
-Javier Martinez Canillas
-Core Platforms
-Red Hat
-
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
