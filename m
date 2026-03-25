@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF6EFEC11F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA405109C035
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dLpuFvfr0PEtzX10NrhQdrU6sYKvSmfWxq+t7xGtCQ4=; b=jCk5sfPuraR6zV
-	/h9Iq3tdo+iT+O2JRO9ceNTXOj5pebg4MXECLJvNrm7pwXd5X0w6fxoRivObW+NrCZCzzUWUNA+Aa
-	7qHYBYu8T7c6meXOpq9aihdwd2jcMLiV4PnJgU+J2Z8iWOGxrDEuZUf7241cxBvXNoe/EMIoK1i0n
-	FsrzVwEFjCA94qlXn0LEpg+jE2xAIuyV9ef0EjgNNe9IPZCPwoQ8rdCQ2xPxvpPVKK51+LV9i3LCT
-	j3wyamzyor6N6FFhWu88aLtGOndp1ovuullTatO94aM6GFvCIeIUGf0SV4Vco1p3zT8XVzDlpq06r
-	KD9KGy4zaXBSUs+4OSEQ==;
+	List-Owner; bh=8pc8Sfyp7wXO71Xu1jES/J0C7FqAGrvObwyL1XeJ+eo=; b=qhcL/aFiIFXF87
+	HdLoXChSH9ufJx4TsFwViFclYaZd8aNN4B+Yu8Uf/nUy0uwkrkVieMKb6bRL3shqZkfsyjfwqqTw8
+	JkTldmad0r1LofdWo9I0HQ7qFLNzAZgLGfo6l+K6chYBgE+bZQlKAk6yI5zyHbU2/RSNIr/NN5KXS
+	6ieQsqJ0h1iDtfl2r/VlvJ0KvBh+XT2NttgR9pBlA9WgWLHJRwivW6K4s2Q6Fnze2G+1FFQ8+Odj2
+	OQRvzb7QvkyL7zsK475egBw4f38OG4po8HQ4gyTiuzt9Q9LBgHDBJgtxpP/oUo2/+ejHiDKMVAbA0
+	pG6wBBGkjfgYOiDOfGZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R7E-00000003tSi-3V83;
-	Wed, 25 Mar 2026 16:29:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5R7M-00000003tXq-0ZzK;
+	Wed, 25 Mar 2026 16:30:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R7D-00000003tRz-3OkP
+	id 1w5R7J-00000003tVf-1U4e
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 16:29:55 +0000
+	Wed, 25 Mar 2026 16:30:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D587600AC;
+	by sea.source.kernel.org (Postfix) with ESMTP id E80D540931;
+	Wed, 25 Mar 2026 16:30:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BB96C2BCB0;
 	Wed, 25 Mar 2026 16:29:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D603C19423;
-	Wed, 25 Mar 2026 16:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774456194;
-	bh=DVwy/SiED1aUxG3GP52kN89RSs8GgqpP4611q2+C8S4=;
+	s=k20201202; t=1774456200;
+	bh=8wFQT0scIZH4MoUOnJP+cg31O9j6k3cRCJbdld+VpGk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HPc/4aTDLITG0PNefDLdDWiTkQObOQxOwedpjrYDouUexkm1Ukh3SegG+qh8xfFRw
-	 yZHIBiq6eb/HqmBnTRyFqULAmHI/B66dr14N1tBbFqUG3d3/u9T4aGaVKQ5raLiBcq
-	 CVpmBI3U7iIudADuyAgU54pSqfX1VyPLjM2q5AzKRc7ANVOdao/qIkrFcZ/J0g0lOF
-	 5GRDW7mCXodlVAFx9e35PV+gcz0DCR2YRMC+m8slG/dqZwhyQy/wy67lenV+nVY7jm
-	 N/BS//AXLAmDEuTyfVml6nwqRrqslBxOCbkrI0B00pQiPYySdgcPb3kFy4iWbWYciS
-	 Tacf5F0sMHIfQ==
+	b=OdwSgWBvgGBOmPe+dNJnjV4t34qvmdH8AHx1XYdA1Sox/Wtcpp+9i/KQctVOBXmpD
+	 SacGnBJkzucQTgg1Gf1TCv0ebJsC9+//YtyDQzoNWQyqPWHYfr0FqehCxftP3rCu9a
+	 LW9VLTCbLs1/TXIpxPj9Dy23qzig5baukpNkMwflRSul4uNPCmuclrm+XHE70/8pNr
+	 ezlRe5JeKeRE4qOaMCFKILuggxfhVJNbSyplXYQhsIZenQorCNS2Wu8cZiO60YSZzP
+	 3OSdL7r7GsYMrrbOpGba+iJd5CTT8yRh4IZaFJBe7zuVTYJRTz9ZbfUdcbOlK+OnRH
+	 DFK+t7oiuZCLw==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -74,15 +74,18 @@ Cc: conor@kernel.org,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
 	Ryan.Wanner@microchip.com,
 	Kevin Hao <haokexin@gmail.com>
-Subject: [PATCH net-next v5 11/14] net: macb: timer adjust mode is not supported
-Date: Wed, 25 Mar 2026 16:28:15 +0000
-Message-ID: <20260325-facebook-chop-cf792c53f1da@spud>
+Subject: [PATCH net-next v5 12/14] net: macb: runtime detect MACB_CAPS_USRIO_DISABLED
+Date: Wed, 25 Mar 2026 16:28:16 +0000
+Message-ID: <20260325-compactly-glue-f426a2e68904@spud>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260325-unsterile-flail-4c7729750dc4@spud>
 References: <20260325-unsterile-flail-4c7729750dc4@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1214; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=im8X4CvHY/qWpTRXmAP5CqBJbYe51EIu9ctXDYbqxgw=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlHeM1rp67OPT7jieVu+R6hYxpTKkoEJZ69f57+ZdW5+ bO/lVTu6yhlYRDjYpAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBEjuox/NP+FhPBefNM3PrF Tikl3z893qFcU6OSfPFw65IYxtUyFRsYGR4FTWJbo3DPROyB8otIRxPPG4Emp4/73zzvoFOV++D 8BQYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2022; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=NgI/Gdg2EZ/vK6ibYq/phTDUhc8w3AlLuS5OcuYYPjI=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlHeM3Fzpk1/ptRdej3Ppez2nwZR/kvS1cua0+1npH5e Xb2/Lh1HaUsDGJcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZgI1wNGhoknijZ277QNEter ZUp1Ofvyizfb7ZDg159Nt59/sCs7LpuRoW1nnFzC89VR+jOW9P8PXe71b8Vq/f1HahsYb/72yFa bxAIA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_093001_439906_37297DDA 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,47 +97,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-The ptp portion of this driver controls the tsu's timer using the
-controls for "increment mode", which is not compatible with the hardware
-trying to control it via the gem_tsu_inc_ctrl and gem_tsu_ms inputs in
-"timer adjust mode". Abort probe if the property signalling that the
-relevant signals have been wired up is present.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/net/ethernet/cadence/macb_main.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index b28fb771e03ba..58d89b9e2f08e 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -5838,6 +5838,13 @@ static int macb_probe(struct platform_device *pdev)
- 
- 	bp->usrio = macb_config->usrio;
- 
-+	if (of_property_read_bool(bp->pdev->dev.of_node, "cdns,timer-adjust") &&
-+			IS_ENABLED(CONFIG_MACB_USE_HWSTAMP)) {
-+		dev_err(&pdev->dev, "Timer adjust mode is not supported\n");
-+		err = -EINVAL;
-+		goto err_out_free_netdev;
-+	}
-+
- 	/* By default we set to partial store and forward mode for zynqmp.
- 	 * Disable if not set in devicetree.
- 	 */
--- 
-2.53.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogVGjDqW8gTGVicnVuIDx0aGVvLmxlYnJ1bkBib290bGluLmNvbT4KCkRDRkcxIChkZXNp
+Z24gY29uZmlnIDEgcmVnaXN0ZXIpIGNhcnJpZXMgYSBiaXQgaW5kaWNhdGluZyB3aGV0aGVyIFVz
+ZXIKSS9PIGZlYXR1cmUgaGFzIGJlZW4gZW5hYmxlZCBvciBub3QuIFRoZSBNQUNCL0dFTSBkcml2
+ZXIgaGFzIGEgY2FwIGZsYWcKaW5kaWNhdGluZyB0aGF0IEhXIGhhcyB0aGUgZmVhdHVyZSBkaXNh
+YmxlZCAoZGVmYXVsdCBpcyBlbmFibGVkKS4gQWRkCnRoZSBtaXNzaW5nIGNvbm5lY3Rpb24gYmV0
+d2VlbiBEQ0ZHMSBiaXQgYW5kIE1BQ0JfQ0FQU19VU1JJT19ESVNBQkxFRC4KCkluZGlyZWN0IGlt
+cGFjdDogYXZvaWQgdXNlbGVzcyB3cml0ZWwoKSBvbiBVU0VSSU8gcmVnaXN0ZXI7IHRoaXMgaXMg
+bm90CmFuIGltcG9ydGFudCBmaXggYmVjYXVzZSBVU0VSSU8gaXMgYW55d2F5IHJlYWQtb25seSB3
+aGVuIGZlYXR1cmUgaXMKZGlzYWJsZWQuCgpJZiBmb3Igc29tZSByZWFzb24gYSBjb21wYXRpYmxl
+IHNldHMgVVNSSU9fRElTQUJMRUQgYnV0IERDRkcxIGluZGljYXRlcwppdCBpcyBlbmFibGVkLCB3
+ZSBzdGlsbCBrZWVwIHRoZSBkaXNhYmxlZCBjYXBhYmlsaXR5IGZsYWcuIFRoaXMgZW5zdXJlcwp3
+ZSBkb24ndCBicmVhayAiY2RucyxucDQtbWFjYiIgdGhhdCBzZXRzIHRoZSBmbGFnIGZyb20gY29t
+cGF0aWJsZSBtYXRjaApkYXRhLgoKU2lnbmVkLW9mZi1ieTogVGjDqW8gTGVicnVuIDx0aGVvLmxl
+YnJ1bkBib290bGluLmNvbT4KU2lnbmVkLW9mZi1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
+ZXlAbWljcm9jaGlwLmNvbT4KLS0tCiBkcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2Iu
+aCAgICAgIHwgMiArKwogZHJpdmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiX21haW4uYyB8
+IDIgKysKIDIgZmlsZXMgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiLmggYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9j
+YWRlbmNlL21hY2IuaAppbmRleCA4ZTUzMDVmOWE3NTQ1Li4xNjUyN2RiYWI4NzVkIDEwMDY0NAot
+LS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2IuaAorKysgYi9kcml2ZXJzL25l
+dC9ldGhlcm5ldC9jYWRlbmNlL21hY2IuaApAQCAtNTI0LDYgKzUyNCw4IEBACiAjZGVmaW5lIEdF
+TV9JUlFDT1JfU0laRQkJCQkxCiAjZGVmaW5lIEdFTV9EQldERUZfT0ZGU0VUCQkJMjUKICNkZWZp
+bmUgR0VNX0RCV0RFRl9TSVpFCQkJCTMKKyNkZWZpbmUgR0VNX1VTRVJJT19PRkZTRVQJCQk5Cisj
+ZGVmaW5lIEdFTV9VU0VSSU9fU0laRQkJCQkxCiAjZGVmaW5lIEdFTV9OT19QQ1NfT0ZGU0VUCQkJ
+MAogI2RlZmluZSBHRU1fTk9fUENTX1NJWkUJCQkJMQogCmRpZmYgLS1naXQgYS9kcml2ZXJzL25l
+dC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jIGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvY2Fk
+ZW5jZS9tYWNiX21haW4uYwppbmRleCA1OGQ4OWI5ZTJmMDhlLi5iOTc5MWJiYmVjOGJmIDEwMDY0
+NAotLS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jCisrKyBiL2Ry
+aXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYl9tYWluLmMKQEAgLTQ1ODgsNiArNDU4OCw4
+IEBAIHN0YXRpYyB2b2lkIG1hY2JfY29uZmlndXJlX2NhcHMoc3RydWN0IG1hY2IgKmJwLAogCQkJ
+YnAtPmNhcHMgfD0gTUFDQl9DQVBTX0lTUl9DTEVBUl9PTl9XUklURTsKIAkJaWYgKEdFTV9CRkVY
+VChOT19QQ1MsIGRjZmcpID09IDApCiAJCQlicC0+Y2FwcyB8PSBNQUNCX0NBUFNfUENTOworCQlp
+ZiAoIShkY2ZnICYgR0VNX0JJVChVU0VSSU8pKSkKKwkJCWJwLT5jYXBzIHw9IE1BQ0JfQ0FQU19V
+U1JJT19ESVNBQkxFRDsKIAkJZGNmZyA9IGdlbV9yZWFkbChicCwgRENGRzEyKTsKIAkJaWYgKEdF
+TV9CRkVYVChISUdIX1NQRUVELCBkY2ZnKSA9PSAxKQogCQkJYnAtPmNhcHMgfD0gTUFDQl9DQVBT
+X0hJR0hfU1BFRUQ7Ci0tIAoyLjUzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
