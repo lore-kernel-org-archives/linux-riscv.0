@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D5C103A9AD
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 11:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B86103A9AD
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 11:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SsGyX6P4YQGbhJNisTKOnBVCNhFYrBvSMY2EKukDyN0=; b=alfdqoFhBAh7SR
-	m2qjE1MPh9uigOCCEBsMaM//r6svOmWAQoGQRStby5GJXHd7kjqacwOidfjvQM/JAn8KsQqQOTYWK
-	lA0DUy8T6IajUXPBFxjQOkyCL5I9szkwlEAV/seHaMTk4wLdTc3ttgTgEDejCOX7gP1U5qKa+rpsE
-	agle6HQW0eO1KIMJ7UeCvMQVIgzrm+z06m2Xga8Z1XPc5XleuS3G2qDlQ1YX9qZbO7yAKvv/6/Gi+
-	Qq0wHBNMBQz0YuZQOI2advnqitcC+THBR06Si3dcXdl+P/QJU8G9sbNHlnuBADxoICFN5uak0bS2F
-	2hh23Q8dgGe9qlK+x4TA==;
+	List-Owner; bh=3NA4n2Ozloj0/VSeTpXElMmIh/BsEIjmIhJDfHez3Kc=; b=dY/mHE2VJsK1NY
+	yZPWpoCBpUdF3StIYlr2SjrKFTrzCC7kw29+Lz5rjWVbIHCqH8livtD0Dbo+YxLuNfLQSAg5b2v51
+	XVbtdTYzepLQKhXtqS85ASS3qHiI6WO3FMg9g6qDB/v0886UZ+6Y+AtC4Nlv74y7wu7MXbdQW3Ezp
+	/RfFZPOTMf/3X7SlVqcAy8rbnMwTnDCoagSSnam9Dis4s7jRtPU7e0sNNZMUGv9kbgeVhNVDKtu5k
+	0ax4FSBGB3eXt5IPDyyTNjpRw+ff1LFij3cby+6fSsAVCDTaj9q+iMlKnfHPCgeEjz07HBi0fnVfa
+	dxPxv6GKbSrLzallalwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MSa-00000003GDM-3Aev;
-	Wed, 25 Mar 2026 11:31:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w5MTB-00000003GL3-3Vf0;
+	Wed, 25 Mar 2026 11:32:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MSY-00000003GDD-2U3v;
-	Wed, 25 Mar 2026 11:31:38 +0000
+	id 1w5MTA-00000003GKi-0zWS;
+	Wed, 25 Mar 2026 11:32:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 098F560120;
-	Wed, 25 Mar 2026 11:31:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89274C4CEF7;
-	Wed, 25 Mar 2026 11:31:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4272160127;
+	Wed, 25 Mar 2026 11:32:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35258C2BC9E;
+	Wed, 25 Mar 2026 11:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774438296;
-	bh=ylRm2gYh1SSNTms1TdIe/v1LeEn6b9whQkZPd++l0EY=;
+	s=k20201202; t=1774438335;
+	bh=UHl6aIxvtuzZoFfPKn0m6HqE+Ix+jQLwOiO6mcxm7gc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q7AMjbL5W0jOhmMe9L0gOLKFEqzai/JPUxmdE2mOpoQ36iaMfFZZLITyNzxhZlevK
-	 rA0SbrRURTtaztJltjjMS5YPxpAJmm/omGpFo3nDqFaJ37FJP4x4MIc5TH6RDrtCZ6
-	 +nUxPxPDn0Uc4uffmUPwMTzhwm8enjtoGEKl4XHmKc0Zq0dwCdpLgIqp7d6DrOZ7NL
-	 VvSnhuHBd0UkpP4vcl2ZxbmbBm0pA8yz1q/sjOs91mTiMNwSVhPHygkMwdAX3hVzTE
-	 a6rHjx1MiPC03K9uIW/rbqvMgTfTHiljj5xIVSJAw2Sm/y0jE0atJzrh4/qaZiCMEw
-	 TCsVxjvF/0UXQ==
-Message-ID: <efec4a41-3889-44f9-adbb-c74fddd63ae8@kernel.org>
-Date: Wed, 25 Mar 2026 12:31:15 +0100
+	b=p9xj+yQrGXkpoAF0fY9H5IaPcoHqI+j6qFDwyvc4yO1C747biO/reuY8t3d94mmup
+	 yQMdUZgPvj2v9edGgjvwa44Pe6FwmdZ43t/G8cYYldfmo7YsAt7eQsYUOQchWN8tEp
+	 lxT4aSMwTa3Lg9zV/TmzInC2IVkU8yAXXMuWflmPLvFoKuR5BI2SX5CUo5rJVYT1a9
+	 QJSXMoguTPIulqY0xz7WbsLHtpKTLSiyneymYrRj8U6WWUrJxGfwFv6fjWC6LeaTQu
+	 meTzpjdQXm6htU8OLApZ7jlovVUK4NVBzdOcUYZm4Uly3jpcZL4fYc0zooZuxOTQqt
+	 7cnUszMPYt6sQ==
+Message-ID: <d7ba53bd-e484-4ea1-b90b-e44321eef4c3@kernel.org>
+Date: Wed, 25 Mar 2026 12:31:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/9] arm64: defconfig: remove obsolete assignment to
- SENSORS_SA67MCU
+Subject: Re: [PATCH 9/9] arm64: defconfig: remove obsolete assignment to
+ SLIM_QCOM_CTRL
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -113,11 +113,11 @@ Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Anna Schumaker <anna.schumaker@oracle.com>
 References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
- <20260317-arm_defconf_cleanup-v1-8-8eecb7fdd24d@kernel.org>
- <fa1e4d72-50e2-49d4-a458-1e3d300cce4f@kernel.org>
+ <20260317-arm_defconf_cleanup-v1-9-8eecb7fdd24d@kernel.org>
+ <9545b66c-f223-48a3-96fe-c906d2307654@kernel.org>
 From: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
 Content-Language: en-US
-In-Reply-To: <fa1e4d72-50e2-49d4-a458-1e3d300cce4f@kernel.org>
+In-Reply-To: <9545b66c-f223-48a3-96fe-c906d2307654@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,25 +134,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/17/26 12:33, Krzysztof Kozlowski wrote:
+On 3/17/26 12:35, Krzysztof Kozlowski wrote:
 > On 17/03/2026 10:13, Vincent Mailhol (Arm) wrote:
->> The Kontron SMARC-sAM67 board management controller is not in the
->> kernel tree anymore. Clean-up the leftover reference to
->> CONFIG_SENSORS_SA67MCU which was left in the defconfig.
+>> The Qcom Slimbus controller driver is not in the kernel tree
+>> anymore. Clean-up the leftover reference to CONFIG_SLIM_QCOM_CTRL
+>> which was left in the defconfig.
 >>
->> Fixes: e710b2283725 ("Revert "hwmon: add SMARC-sAM67 support"")
+>> Fixes: 7cbba32a2d62 ("slimbus: qcom: remove unused qcom controller driver")
 >> Signed-off-by: Vincent Mailhol (Arm) <mailhol@kernel.org>
 >> ---
 >>  arch/arm64/configs/defconfig | 1 -
 >>  1 file changed, 1 deletion(-)
 > 
-> https://lore.kernel.org/all/20260302122540.1377444-3-mwalle@kernel.org/
+> https://lore.kernel.org/all/20251223140645.3545658-1-mikko.rapeli@linaro.org/
 
-Meanwhile, that patch was picked. It has already landed in linux-next.
-So I will remove it from my series.
+I will add that this was initially reported by Mikko.
 
-> It is said to see that multiple people did the same work twice and did
-> work which was not sent to right addresses. :(
+> I even asked there to send it to qcom maintainers :/
+> 
+> Exactly that case also encouraged me to document this, since we do not
+> know how to fix get_maintainers. See commit
+> 6efe5322f060099c8bc51aaee83b857394e42dd5
+I read the thread in which you posted that patch. Thanks for updating
+the documentation, but as people anticipated, as long as the tool
+doesn't do the right thing, there will be people like me who will mess
+up the recipient list.
+
+Anyway, sorry for that.
 
 
 Yours sincerely,
