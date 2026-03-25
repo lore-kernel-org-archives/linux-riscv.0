@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E9B103A9A0
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 02:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBDC103A9A3
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 02:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Lr1lISutR7UbUTgxUaDghhVlT/7znZmMPL4TGSpcHZ4=; b=EnUYgEbgrnnlYF
-	cFWd5v70kKHSL0ebH+wtRKX0xrYGY5xo3xskJ03fKB6uvkovs97tU7D6pkeQWJ+4FZlGCYW5kBGI7
-	7Y6qbZHhMHv3P1mrf5JD2gPJ8wOv11+OKxJAqPiROgQF0sR0OOrKIZrp5Lbzk+jBX7wyWzcb2S8tI
-	LZyX+4jp9RJqa1gGXIAtlxAtGeutwOEcRM74cN/D1C/NueTpJBxxl3+u03HOOcY8rrZfJHXiywlo+
-	Nff/B17GnqFVh9lESW9YznjCqfidXbl0k7cwqzCk4hzzUwS/s8uaI4U4J6zZJNrcEZMY7+04AKrgh
-	p+WLIFpfChZHY2cd1Qwg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:In-Reply-To:
+	References:Message-Id:Subject:Date:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=TG59IghpJV2PKHseKoUm/o7McmMZAaB8wumTHxSaW/c=; b=t/bbkH3s0ok5V1UHX4hfO+ysZi
+	Wl2UuJMc3mG3ig8LWFK8e0BCKNwsBAeZr6V3SfRY16umec+eR+rjX4H/3GiX5a3hIuZBliB6znVLy
+	fQxvLDH1PXqm2nliWDIo28eYZq/t0gN1mi6RK0IKgxJAbrP4CA6sPToIPtfSVyoYD01E9yrlNFbQF
+	MYW8j3TkUUq+YTK/dBHhJSdpeZIkiFRhOF93WR2WKXRQg4H2+6nvmWyrpZ1rJ4paQRkq4Fw6Ao3oz
+	pIg4wB1gd5puIdAqnJS1Pkv3H4kDCs7zSHeof1UPAGMUlAt81xREYNw6YjfmuU1Cm7u3UdXdY31c0
+	YBFmJwTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EGc-00000002Wco-2Ugb;
-	Wed, 25 Mar 2026 02:46:46 +0000
+	id 1w5EGg-00000002WeO-11kn;
+	Wed, 25 Mar 2026 02:46:50 +0000
 Received: from mail-centralusazon11010054.outbound.protection.outlook.com ([52.101.61.54] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EGa-00000002Wbh-08Cl
+	id 1w5EGd-00000002Wbh-1mc8
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 02:46:45 +0000
+	Wed, 25 Mar 2026 02:46:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y5+jhSNcdJ3+9GuM2ITDjtaD5Fo0BhQ5DfVI69W8dr54tWIoHF6eI67qcZ32C/iSVjU00Vo+SX+RnKtCfnqyT/RmZqUUQYm3DASFuoDVsh1pSfB+d5m/jd+/S0Mxqsjjo8BPw8t/1VzWkEXvsht1YuU1/q7ylClMfVZhKhIn72WvAq28WEoOZyHwwO2nZ3+OMhZafARq+GPPu0IgP8dLKFt1dyqlHxzoi5/e9g8cMDxi1KrV7oA2BOc7V4Deka1SqAAJlSwdRKxGM87QCFboINjStZl6UqUbVaQ1f7uek4eQCfkCyubWi31jaj3AquzoYQJkg4HdJn+B0iYZJDOk3w==
+ b=Q5FRJVoOk6gbiyYx/3ojm8WdtjTzNthRbdagE6Rx60tmUHvWy7kOemNCQyLRRT5xhIvsiI08k7PQRgcnWvCWd5qmcvPpQh2oT7IYvPUJxyrBjlfAVa6HogzdIM9vdV3eDsk4I82ECURf3dsbz3jpj6w/MkZcilsBIi/+r7LKWvlqpJ7XXfIMCvR2cGg2VbePz8O2AWfQ6o18b6yOEeElX7PgRZ3CXI9uK+r/f/R68M1b1gXaJ6sv3ib/GMuAgDNyTDh/V/Os/2vp7HIn+uBDzQyFsgZtvlVGcWbsOMRM22VGGXIrGC/7a8kBDuzdNzZ9EbdwBdjd+n9k7wUiaVqAoQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XCyzMHTuglVxHCUkiMo1jjtGWa/5XmDyWTSgmJXnY+w=;
- b=DyMN6cm/lzCt/3eTAfq+sBOqd/LE/GWUJgeYZStLgRVD9WsQtb6eiG/N8hK9nCyyMWWWyBTMsHE7rc2Gk6bdm9g4u+v/Ka/OtrjeaSyLqqUnJpLO1n02nf8h776+gIcLiblcLzKQwQy+5EyxZDXdW7i6BmAQoFsZ4iWg9ro4ThAOt+w9d1UN+43j8pg1focM5ZXvpO+FZryRU8Bd3OZNrr7MEhQ8vuwYWvjPCA2x1DKJLkxjWpqDidRKL1nnYkQAeReGK9CC5voybulg5oeTFl8fvDSFGCodjb8dlysTnVEbKOZV4zrQ5LKWMtu+jua8MNJvtUcfwL4QLmaudWTt9g==
+ bh=i87tw0CP6+DwVTbX2oaTNDcsDo/zBdPZfdbSy8ffZRY=;
+ b=iJRnih/iKdJxd6xRu39tw681ykSsfNvRYLi9roFhL0o5nnHC2TkT22XQ6mxKP0MKBUnRN8N372lOepx3+a+z26wL5in7FRtcM/J6f3GuJ1PStfopWc3KrlfHlDLu30jZTl/hfFOwsaQlmOAkzchIC+d97IBjmGkdTNTTVZQ819B+Oour/zlYMp+HK95VBuzMmY8GJZVaj8HfZ6gAndOIkVA8o+1IpnjulxK+5x4PsSKzqAju8+iu81Y9k9ouwjhPtypzW3LoZYm4jPayAd/G4lT947VGlojh75HRf5U4+RVE2L4op85Bd/J6eB56ikbEW8VEutxd/fldZs3PpatCNA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XCyzMHTuglVxHCUkiMo1jjtGWa/5XmDyWTSgmJXnY+w=;
- b=RblwkSh0lFxEmAANPT0DD9YDlovzOaIyEHI5WaZv6jLHFh4re+TDzM1BJARM1Zx4zCSlQXxhBAU+qrZdztWOCiJyrJFH///rTAlhtyRmZrpwqQ/KrceM1/ixturfCtwhxbQoh3nR4RQnEtL7uuMDjfqrhUfFU/UZeAFNpNnImik2yVNk+vbo9E37juSO0mykfIr5WH05HlRvoaqr2zj8FziJZlwfWZ+KDPXU9Dp7WRk3lR0bZ3HilOzuHGggOGKyKnzDfXt+ghswAWgclqPaekDIbE0Upt+HN6XcKzWeG7wjQSE6u9Fw/vAqxc6Y/3tY3FIcpvI9lC0rzM5n6Hjtjw==
+ bh=i87tw0CP6+DwVTbX2oaTNDcsDo/zBdPZfdbSy8ffZRY=;
+ b=MbGieoZiSuOyyFkR5Yw/L/rW0v2VxchcB6RxqUZOi5tCZuka8FMOX7Ori0ytavObYdUwrvW9h+81DnFJd9gtJYNc57/ryYVbprlMmgpzYunfSgxUEFSvIWpjDkPbAKGx2vFQFFXfM6IRwIuRyIpp3S5Rm8RLZ0TVbhLFg0cO/d01BbK0zl/K4iZuEQh49hqCNZofypNlHQGOkKaXMREDgksPWdiQJG4wgUVrI5TvNUv7caNnfBdnE+vAllTTDE5Yv6xlH1m2/6/B5xYSpj6VgCJDy7xa83sROo92GM7tzPq7dhqN7z5yvc5W5xllEOFqvKWk0lvRToWdXSbXwyRsMw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
  by PH8PR12MB7448.namprd12.prod.outlook.com (2603:10b6:510:214::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
- 2026 02:46:36 +0000
+ 2026 02:46:43 +0000
 Received: from CH2PR12MB3990.namprd12.prod.outlook.com
  ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
  ([fe80::7de1:4fe5:8ead:5989%6]) with mapi id 15.20.9745.007; Wed, 25 Mar 2026
- 02:46:36 +0000
+ 02:46:43 +0000
 From: Alexandre Courbot <acourbot@nvidia.com>
-Subject: [PATCH v4 00/10] gpu: nova-core: convert registers to use the
- kernel register macro
-Date: Wed, 25 Mar 2026 11:46:13 +0900
-Message-Id: <20260325-b4-nova-register-v4-0-bdf172f0f6ca@nvidia.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NwQ7CIAyA4VdZOIuBwgh68j2MB8bKxkEwYIhm2
- bvLdppx8fg37deJZEweMzk3E0lYfPYx1JCHhtjRhAGp72sTYKCY4Jp2koZYDE04+PzERNWJ6a7
- lXLctkHr2SOj8ayWvt9pjXYvpvX4ofJn+wQqnjAIY0WpjpFXiEorvvTnaeCeLVmAjANsRoApaO
- +s4E6h7+SOIrSB2BFEFgyC1QouOd1/CPM8f87jKPjUBAAA=
-X-Change-ID: 20260318-b4-nova-register-6908b5118552
+Date: Wed, 25 Mar 2026 11:46:15 +0900
+Subject: [PATCH v4 02/10] gpu: nova-core: convert PMC registers to kernel
+ register macro
+Message-Id: <20260325-b4-nova-register-v4-2-bdf172f0f6ca@nvidia.com>
+References: <20260325-b4-nova-register-v4-0-bdf172f0f6ca@nvidia.com>
+In-Reply-To: <20260325-b4-nova-register-v4-0-bdf172f0f6ca@nvidia.com>
 To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -80,74 +78,74 @@ Cc: John Hubbard <jhubbard@nvidia.com>,
  linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
  rust-for-linux@vger.kernel.org, Alexandre Courbot <acourbot@nvidia.com>
 X-Mailer: b4 0.15.0
-X-ClientProxiedBy: TYCP286CA0369.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:79::13) To CH2PR12MB3990.namprd12.prod.outlook.com
+X-ClientProxiedBy: TYCP286CA0172.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:3c6::10) To CH2PR12MB3990.namprd12.prod.outlook.com
  (2603:10b6:610:28::18)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|PH8PR12MB7448:EE_
-X-MS-Office365-Filtering-Correlation-Id: 500ff0a9-b14f-4f16-7d81-08de8a18bb4e
+X-MS-Office365-Filtering-Correlation-Id: f81a0070-eb8d-42ac-e051-08de8a18bfbd
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|10070799003|366016|921020|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 2jkK8aEzi4O1us4+PDajwUF2t0E0N1Q4Gr9ZVQCZqPJRrLqtu4LEQciP7ZQEUA+zXvLjD9/SImVBcJ9k0/ulNFQefUfirP2LuVCY1LxVNw9Scr0LWo1SzJFsGnux8J2fWHnoexFQpy8t6DXl+nrJmNbzo6oDHjfwiFKENQlQv04L8EV292Ix5fch2eMReZw6sbsur/C/csxTXeguTMe+8tQAMY7ztM3xnjZo02QcpR3SuRRjnyPpWuFgeFPTMOJIM4EWJAZs6YbrV3BXYYHTaTFt4HlScn0wZvR/IFbTf/mE546v5kFZDR6Ph08M//coWKba3RUPVV0faOB1tsiEk3No25aHff/apquv0M8dHIrBFu5IXxJrEISNehmUL4lOCChBcJI9BBfIysbsuQH6ArW33ccib41WNazxFBGhBLiDVKReoZqyhfeFIiyyfY4OTblmmZf59f725Sw6m1Do7AhIPODXiVeT/xT4+P7GEUxODhRX9ZyDwmKViBK9Zqg7vM6nJ8hDaygnsXSjw2mSUFtiBFTQw7qWfbb5yasktzLPN15mR2RLdW4qe19WU+J/BHsfJPqf7EydsoeJ+hHnO68zmo00hw1aiGLSBgBDvJ3Y0u3VIz9cuX3oiE/RrpMRFkG30+wOQ3LEJob6+kU7VRCwF+Q1pNXvkhKUKIKtv3DEqyUMEVskYwi3L301Ukude6ITuHFnQ6b5PMTEFARjNyuZEQVlWXVceZeWmoO+q2ihOXqrhGm7EDP7QgTaQ8uW/fe0OS1M0OheS10bLxUxO4vp8Js4XlQxRpsZNCQiJH0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(10070799003)(366016)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|10070799003|366016|921020|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ChuIcITufuVEPnq2NfTReUmKip1Bm2zUl7r7PujGpgrJ86AkDhTxlnsnb/g3mrZVeAJrd44ZQtC/q6ct7vFWfIKj1C0+EzXkoXvV0qZC0EiV0ho8b+PMj7S7lfjaSxaCG2kedgY7DknpmdXLGVPkchL7AtjvkXvEMFaWINeZExf++BAG3XbBFvCOh5J/jztkqJNWyCf28+SgvuFaR0XfLAaQr4UmscX9FG0wrJcNIMTmZ8hALCLcfuO/0Qxy372JSFot8X/UQSkSj0MC37qnTn41pFFpf+AFi4bHkv24kDf9/xqnolYXpG7cdWbsjI+Zg7cGiIQvEuEWUcQGXeiUUrfgaNOFTlEk0z4rCkuk8HM0zESiLwwb7AXedDCZKScHg1+8aZ71+vR9yq3aIbSiH6BzYg6vdilKnPfRtbTwaO8n96Z5tZvzFlae4XX9Deq6m4OomejvypY4FqTMWFvtodZ3i8Fl7Kfu8OC/5qwJckMX6cGD8/gVD1pYrJCjZhVmYuH7x4DGq9F+WV13maTKLE6ColTMjnLmu76SHBQdNODAZWGoucC6rF5JFWrrYDVhLwJDwOPrgfj/Iyq2T8cJNLKTMVQxBr2wMeZANcmXLKNXpEJlGmhOFLfQaX0I4BL66W1QEVSXAScq1qj85nrypQ1XMzgDJbWRQ63foVDq0lRecywPsRTBhoPSu3MSqr6HxFpR655mstpLVCi+s2ohQettbo9Xw3RMJqyk20FNRdVCz/H/UbrneO800QxrgeCz6rZikmkL5NnCCv+iRURj+Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(10070799003)(366016)(921020)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dmxrQzNoSW5WM1BkZmdxazlFR0ZhUEFUUW1tRFd2Q1RDRXZxRkIwK2dWbGh0?=
- =?utf-8?B?Y3NRWmt4N1hNN2RIeGQ4eGNKZXNJbDVqZjYydXlCT2ZHdmpzWnV0M0diSitD?=
- =?utf-8?B?S1RrVWxEVG5QcFlqYWNGbnduMkh2YitXSG5JT29LbGR2OTdqMWhtaFdzQTEz?=
- =?utf-8?B?SWk3ZlBGZzhBWnlZQjhxNlVHcDNYV0w1WGpGcVdncUI5NUwyR3VidFdOL28r?=
- =?utf-8?B?cGtOc1BHTTlHV0l4YTlETlpYdkVsQ3htQ1lzQy9WU3FteldGT3NVc2lwRHQr?=
- =?utf-8?B?alEvamNOZEphMDdlazNKTlRKclJUMTJSc3JMNEdEL0lLaTN2SWc5T1RTd0pv?=
- =?utf-8?B?RWp1dWpxZjdlT0NyVnJvb3JEcHlzUVVvV2VnVHZlblB3U0FwNmpGWHZXMlIw?=
- =?utf-8?B?WUtldVo2L0RyM3lZS05MZG5ndktvQnQ4MXhpTU0vOFN0VEx0aDZTQnhrbXl5?=
- =?utf-8?B?dWZQZ2RZM0QvZWF2K2ZhMFJNTXkrRFlLdmpxdEFiNnU2YnhTYUx3U3VuNGd4?=
- =?utf-8?B?ZzdZL2J4am9iYzB1WlN4OWpsSldCT2xIZS9uU2pYTDNDck0xTHRRNHBMKzlE?=
- =?utf-8?B?eWxFeU9SUXZCQTFWanIrL2VjUldxdFVPU3E0Q3FiSENVc09MamxPY2h3bElI?=
- =?utf-8?B?emdRYnVPUlN6ME44WG9aTjhOMUtCUWZyTzZiYWQyWFlBY3h6U3BSVXZlK1RF?=
- =?utf-8?B?UjlvaDNZbHgyVjA3UzJ0VEtVc051TjdZMndZMmFCajJ6c0t1cVBRR25yY1FQ?=
- =?utf-8?B?cUZOYnhMUWF2TkFFMElSS1ZYck82aW96eElFMUl0dzFEbnNrRStoMTVJUEN0?=
- =?utf-8?B?aGd6eW9FVEhXUVNPZWZkdFluV3p0VHpBVXhUVTZpUjlzb2M4TW5kcWR3blhx?=
- =?utf-8?B?bk01R2NMYlNMbDdlRnV4TjljVXV4bFAwd0NuZWp6YURVNU5xUlh6MHF3NWZF?=
- =?utf-8?B?MEJoaDl3WFdjdW85Y1RBQjFuOTZoVjlndTZJUHJZMXhib3BuWDRHa3BQUG5G?=
- =?utf-8?B?Y0h5YzJxcEo3OXV3bVB0UDNsa0RxNU0vbGd5emY3UStvYUEvZUVlSmxQMHdL?=
- =?utf-8?B?cG5PQitHYzBoK1loOHJKa3VydnlteWpDb2w5c3cwdUh1cUdsZjNJTVBkTktl?=
- =?utf-8?B?TW5lL3NFbEF5ZDlYcFNkaEJ6YU1KTS9JOUZidlBsU3d4MlM2TWtTMmpLa2hY?=
- =?utf-8?B?VmNMejlpWU1FS2ZXZzgwK3psT1pZRmVVYmo2dzgzSGUvdk1aZ09RbkdSUUxP?=
- =?utf-8?B?eFYwWGkrQWVEU09wSkZKVjBucmhCMlVjSnp6UGRGblZ3T2h4QzErM0VxZzdk?=
- =?utf-8?B?bDFSYko0OStOeU5OMkd5Z2Vpd3puQXVDaFFjdXRpcjlscFpxam5wZWtoVjA1?=
- =?utf-8?B?RjBJN1ZHeFliRnl3WEpaUTBtNEwwZFpMaEhqaGhnRkY5RG5qMjd0LytCNmZ3?=
- =?utf-8?B?d0JyQkZGUWljcnhLZzU3WVRDTzJKU2E3N1dnZk1CNkx3SVRLalhGT0pVdTBv?=
- =?utf-8?B?KzZGUFc3cXAxZkVNb0J2cnpabHV3d20zWnBkNDcrTHdhcldMNlVJTFV4Y01t?=
- =?utf-8?B?eUs1T25DZDU0eDU3UmlVRzV6c3g5cmpucUZSYXBZNmJvUlJsc2FrWFZqbFRm?=
- =?utf-8?B?WWhBWUZSVlZoN2l1RDhiRmsvd2pqVG1TS1ZvSU4ySWx0UHR3bjBrbWdXQS9N?=
- =?utf-8?B?ZnVMemhsZUcrSDJOZ2ZSWVJkUWpZZzdYYlM2SWp1a2RSL3NIN2Zid0U4VURC?=
- =?utf-8?B?WitmdmQ0clVsS1BzZ04zbi8vU2MrL1ZKcVpUU2Z0dDRrZk9hZ1NvSFpCZHhN?=
- =?utf-8?B?YUFNVG9ZSld2YWlSSGtKNTFsTGF4eCs2M09mbklIZmRPZnlienF1QkhXSWxI?=
- =?utf-8?B?dzNvZTllK3ZUcTF3dkZ5Wm5tNkVXK1kwRGZueUxCWkZRcVF4WHVLY3NhVndS?=
- =?utf-8?B?Um93Y09sajUvcmVCNlZtZktjR1EzQkl5VTI1Z1g3L3N5TW40SUIxdTUzS3FC?=
- =?utf-8?B?ejI3anpNRml2ZG5CY3hwZTdCRTJqQ2RKRm9Eb0czbDBDMjlDUkpDS0xWL2tI?=
- =?utf-8?B?Q1ZNbHRtYmc0eHBTQ3JKdm13aTN2bEJxZHR2cmI2djBBenVzZ2dFc2FNeUJM?=
- =?utf-8?B?K3p6WWVnQ3Y3RWxaSy9GbzFLcFNmTndtdjBBNkYzUlRqdGtZSXcvUG1mbEdH?=
- =?utf-8?B?S3FyNTEwOUxzRWtWaFZvcUdyemNSQTBGbTQwekpMVFp6ZjAyWFNMeHQvQ3Qw?=
- =?utf-8?B?bUQwVGhPZG5xZ244bDJFNGdZNERnUThqT1RPaVJnYTBNU2RXa2kwSHg3dk91?=
- =?utf-8?B?eTBCOXM3a0ZucnpFZ1hscEF2bUU0WEZxa0VaSk14YU9vWERibnJkNkloOW5V?=
- =?utf-8?Q?EDTrkztY4hbb2L0cfbjOBjdroZyFgq2PcfwRE7wakSs2O?=
-X-MS-Exchange-AntiSpam-MessageData-1: x5SlJ+liG6kL0Q==
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QTZEQVlYcE5NUzJUR3ZQTDZUOEJzazVqWjJzcC8vanVPbXlpOThqTmxHOGZl?=
+ =?utf-8?B?b05pVWxZdkp1RHUvajFDQU40dS9JZ3RLOURYZk92aDA5VjBkamYzMVgwYTFX?=
+ =?utf-8?B?WkVaTEVuQklLV0JNUlBVQURJMUkyMXkzYkFyc1BZeE12ZFhVMjA0VG1xdjdo?=
+ =?utf-8?B?RXRmWVY3R0p5QzV6SWY2Uk9DKzJtNk1vVVJBL291cnp5NWs3U3BaUitCUFIx?=
+ =?utf-8?B?d0JFdFJpYXY5N05nMW5BaWJ6QytNVnFtS3hzZEVJMmU2V2x1OFV5U2VMbEpw?=
+ =?utf-8?B?bmFFL2d1ZmZCdW9UK1V3ejFucW9reUdaSXp6bmE1YkJkcFVsN3pidTZ2V0hJ?=
+ =?utf-8?B?ZjVjdjZnblRhelJ2WmU1L1djRndNNS9tbmRBdzJpS3ZUcnFkU1Z0UDVQRTNL?=
+ =?utf-8?B?bUFCVXZjUDNFLzN1YjdOMlJhL1R2NzRSZHRxK2ZUL1E1T3o5bnlRWGZWMFkx?=
+ =?utf-8?B?YXV0aUhwQlhmeWpjNG55RFEvdE5mc202SWVPYTBsRWdnZ1c0dXlCSjhqeU0y?=
+ =?utf-8?B?dWI2ZENGcjBOUEttL0hlcDFQcWh4cWhNYnJjdXE3NUg0SjlWeDFQSUFIRGVz?=
+ =?utf-8?B?NnVRbmV1WSt5L01acCtIU3ZwaTYxTHBzMnhRY3ZaNkVYT01tNkRXRE1LaDNB?=
+ =?utf-8?B?VkFzeit6eWp3ZG5KdG5sM3ZONmtQMzdhbkRydXdscTh2bTVTU1pIbjFpZVl1?=
+ =?utf-8?B?SVZURTdQMWFsN3JLV09lVEh2TWZWcDRZeTg0R2NlSklGdExmVEhUMGY3N1RX?=
+ =?utf-8?B?L2RFejQ2NERoUC9JcEhnaEVUM3BRQmRvajVoTjlMVW5UdHBOdnZnQTFOOUE5?=
+ =?utf-8?B?bHJnNWlqRUw5eDR2SkZiOXFaRW45RldwMHczd1R6RXYrVW51SFB4dHE5bDBw?=
+ =?utf-8?B?ZlJYZ1I0aWNMdnZGTkRqUmI0MGhBakpXZWdNWDVwNWJHNEdTUUNwWGduaGlJ?=
+ =?utf-8?B?cm13T3Rya3dZSFdxcDFGTUtEU0N4Tlk1VHpDS280TEl1WU80NlNnRVZ1R1M5?=
+ =?utf-8?B?WUpPRWpiNjdETzRMZEFobnNnUlJuNURiYWRUdFFkbWRQOVQ4SjFhT05PUGc1?=
+ =?utf-8?B?Wkg1SEpXYkxEK2ZRUGFZV05rYlB6T2lPUGVOUVdSMXU5cUtJZHpkNnpuS2lX?=
+ =?utf-8?B?RVlOM1U4Qm9ERTF1bTR6NHBLWkF0S0crQ0s1ODYvNU1EQjNsQVpmZUltQnJP?=
+ =?utf-8?B?WDk2bitpNnJCUmNUdE5ZeFg4a1NWanNIQVNDS3dMQlFYRnpjREtuYUxoVVZu?=
+ =?utf-8?B?Z1hJQ1dSaGhHZGphTVBHbmhzSk9LR1BVUXNaM3pmMkNTckhOYjQ1RG5NYVVD?=
+ =?utf-8?B?aDNWaHVScFpnQ2hrTU1FUFJ5QW80NGZtQXk2WmdtdjRvQ3hHNUdwKzkvZ2xO?=
+ =?utf-8?B?cFUrelU0K0MzMXErY0tQcERFVXVXdHZQQnpLVWxFWDd1R0VVNHVZV1phY3Z3?=
+ =?utf-8?B?eUFJTllQMUZsOHU2SGRtbmwvNnlIVmp5MFZkSnpvTmlINU1SRmM4S0o1RnA2?=
+ =?utf-8?B?M1pjQ0hPdDFZYXlhQXAyejUwbnpwZjlYOTUyMUd5UkFhUmFhMHI4Y3Iwa0Fa?=
+ =?utf-8?B?VUpqdTF3QXUxKzZ3aE53Zlg0YzUzWWwzR0VocnF5Z3pJaXlOY2hCVHBxNHVS?=
+ =?utf-8?B?MVBPWEdwSEJUUWtyQzBjdm4wUkJVL2s3LzM4VEZsZUhCeTI1SXhMT24vaW9k?=
+ =?utf-8?B?Yy9rLzNyNTZ5K2oxVGpZVldueU1qZGhsU00rMnFrTGxML1VKV2tSVCs2eEFI?=
+ =?utf-8?B?S2VKaVR4VDRhSWtMMGZHdnVtRFc0NTZRMm9aUmlEUFcwTmxQQkFLa1lsM29E?=
+ =?utf-8?B?c3R0enpUbHFrNUlzNDZwL3BEWmtqdThQZlMyc0czT0w1OEY4endIazdWTlEy?=
+ =?utf-8?B?SjM3NU9ZY0NNVWl3aGpPK2x2K2hoQURpSWJNVTVOT2J4N2lRditZdWIxT1lX?=
+ =?utf-8?B?ckRBQk00ZlFMM3dKSXBLdDR1MUsxSzlFMmczUXpKUlgwc1I5aUpFWFgzV2Nu?=
+ =?utf-8?B?WmJDTFMzN25rSmJwRCsrcHFqTmFXR01QU2ZDczF4VjRFbFFsSVR2dGZPVWtt?=
+ =?utf-8?B?QmY2eDIzdldwdllWeUpyOXcrSFhTL28zd1RSV21LVkRaVHVFQnJRVGdld21W?=
+ =?utf-8?B?Z1RNcjdmMnl2Uzl5OXBxNEZJc1ozRjJpa1pWbUlhdHBOSHFRZ1hPRFRqV3gw?=
+ =?utf-8?B?K0QrRXpjWFhBZ3QzUlNZVkxNbStmMzkwN0lneU5oeGRQQkhPVTZ3d2JibkR4?=
+ =?utf-8?B?ME9ISGpxM2xLWkRnWEx1THQxbXNxVHZSdlFwMEFWa1U1c0JYLzRaUXJEQ0NR?=
+ =?utf-8?B?RmlYY1pjRVIxQ2pyYy8yNTRoSWd6c0k2QUUyZFhrT0wzTDc4cGE1VFJKV0oy?=
+ =?utf-8?Q?Mq+USSzg3goloXjOJEsNrYagbUt3R4bxyw2mhUkHRAQDy?=
+X-MS-Exchange-AntiSpam-MessageData-1: HZH9DGKY6403Jg==
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 500ff0a9-b14f-4f16-7d81-08de8a18bb4e
+X-MS-Exchange-CrossTenant-Network-Message-Id: f81a0070-eb8d-42ac-e051-08de8a18bfbd
 X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 02:46:36.1851
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 02:46:43.5604
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V1YnQ3489fu6jqm8alGjnwu+yuGUyzd/Le08dDJ5BLvhGQrWI2FA23+29b83bct2cFgl0C0g/SZT9eEo6fFrFw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: WsjKLP8u49bnSZzm3L6UUJAK5fD8v/WtGBXpp/BILION5P3eZl8jxXK3RHsrI4cJ0eZmyIXzCt8+3QUPVT4bEA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7448
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_194644_075465_842608D6 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20260324_194647_516711_1E90F266 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,93 +162,237 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-nova-core carried its own helper macro to declare register types. Its
-purpose was to be temporary since the beginning, and to serve as a
-testbed to develop an equivalent that could be used kernel-wide.
+Convert all PMC registers to use the kernel's register macro and update
+the code accordingly.
 
-That equivalent has now been merged, so it is time to retire the
-nova-core local version.
-
-The kernel register macro has evolved into something significantly
-different from the one in nova-core, so it cannot be used as a drop-in
-replacement. All declarations and sites using registers need to be
-updated. No semantic change should happen as a result.
-
-All the patches in this series could also be squashed into a single one
-without altering their reviewability significantly.
-
-I hope to be able to merge this quickly so we can rebase in-flight
-series to use the updated register syntax.
-
-This series is based on drm-rust-next as of 2026-03-25 and has been
-tested on Turing.
-
+Reviewed-by: Eliot Courtney <ecourtney@nvidia.com>
+Reviewed-by: Gary Guo <gary@garyguo.net>
 Signed-off-by: Alexandre Courbot <acourbot@nvidia.com>
 ---
-Changes in v4:
-- Fix incorrect squash of `bounded_enum` code into the wrong patch.
-- Move `bounded_enum` macro to `num` module and use it to generate
-  `Architecture.`
-- Link to v3: https://patch.msgid.link/20260323-b4-nova-register-v3-0-ae2486ecef1b@nvidia.com
+ drivers/gpu/nova-core/falcon.rs |  7 ++++--
+ drivers/gpu/nova-core/gpu.rs    | 53 +++++++++++++----------------------------
+ drivers/gpu/nova-core/regs.rs   | 50 ++++++++++++++++++++++++--------------
+ 3 files changed, 53 insertions(+), 57 deletions(-)
 
-Changes in v3:
-- Remove obsolete part of PMC commit message.
-- Add { } brackets around const expression used in `Bounded`
-  constructor.
-- Use `MAX..` arm to `bounded_enum` to catch missing values in the
-  required range of the `From` implementation. (thanks Gary!)
-- Remove unneeded const asserts that are already caught by `Bounded::new`.
-- Link to v2: https://patch.msgid.link/20260320-b4-nova-register-v2-0-88fcf103e8d4@nvidia.com
+diff --git a/drivers/gpu/nova-core/falcon.rs b/drivers/gpu/nova-core/falcon.rs
+index 5bf8da8760bf..123de6c55b45 100644
+--- a/drivers/gpu/nova-core/falcon.rs
++++ b/drivers/gpu/nova-core/falcon.rs
+@@ -13,7 +13,10 @@
+         DmaAddress,
+         DmaMask, //
+     },
+-    io::poll::read_poll_timeout,
++    io::{
++        poll::read_poll_timeout,
++        Io, //
++    },
+     prelude::*,
+     sync::aref::ARef,
+     time::Delta,
+@@ -531,7 +534,7 @@ pub(crate) fn reset(&self, bar: &Bar0) -> Result {
+         self.hal.reset_wait_mem_scrubbing(bar)?;
+ 
+         regs::NV_PFALCON_FALCON_RM::default()
+-            .set_value(regs::NV_PMC_BOOT_0::read(bar).into())
++            .set_value(bar.read(regs::NV_PMC_BOOT_0).into())
+             .write(bar, &E::ID);
+ 
+         Ok(())
+diff --git a/drivers/gpu/nova-core/gpu.rs b/drivers/gpu/nova-core/gpu.rs
+index 8579d632e717..0f6fe9a1b955 100644
+--- a/drivers/gpu/nova-core/gpu.rs
++++ b/drivers/gpu/nova-core/gpu.rs
+@@ -4,12 +4,15 @@
+     device,
+     devres::Devres,
+     fmt,
++    io::Io,
++    num::Bounded,
+     pci,
+     prelude::*,
+     sync::Arc, //
+ };
+ 
+ use crate::{
++    bounded_enum,
+     driver::Bar0,
+     falcon::{
+         gsp::Gsp as GspFalcon,
+@@ -128,50 +131,26 @@ fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+     }
+ }
+ 
+-/// Enum representation of the GPU generation.
+-///
+-/// TODO: remove the `Default` trait implementation, and the `#[default]`
+-/// attribute, once the register!() macro (which creates Architecture items) no
+-/// longer requires it for read-only fields.
+-#[derive(fmt::Debug, Default, Copy, Clone)]
+-#[repr(u8)]
+-pub(crate) enum Architecture {
+-    #[default]
+-    Turing = 0x16,
+-    Ampere = 0x17,
+-    Ada = 0x19,
+-}
+-
+-impl TryFrom<u8> for Architecture {
+-    type Error = Error;
+-
+-    fn try_from(value: u8) -> Result<Self> {
+-        match value {
+-            0x16 => Ok(Self::Turing),
+-            0x17 => Ok(Self::Ampere),
+-            0x19 => Ok(Self::Ada),
+-            _ => Err(ENODEV),
+-        }
+-    }
+-}
+-
+-impl From<Architecture> for u8 {
+-    fn from(value: Architecture) -> Self {
+-        // CAST: `Architecture` is `repr(u8)`, so this cast is always lossless.
+-        value as u8
++bounded_enum! {
++    /// Enum representation of the GPU generation.
++    #[derive(fmt::Debug, Copy, Clone)]
++    pub(crate) enum Architecture with TryFrom<Bounded<u32, 6>> {
++        Turing = 0x16,
++        Ampere = 0x17,
++        Ada = 0x19,
+     }
+ }
+ 
+ pub(crate) struct Revision {
+-    major: u8,
+-    minor: u8,
++    major: Bounded<u8, 4>,
++    minor: Bounded<u8, 4>,
+ }
+ 
+ impl From<regs::NV_PMC_BOOT_42> for Revision {
+     fn from(boot0: regs::NV_PMC_BOOT_42) -> Self {
+         Self {
+-            major: boot0.major_revision(),
+-            minor: boot0.minor_revision(),
++            major: boot0.major_revision().cast(),
++            minor: boot0.minor_revision().cast(),
+         }
+     }
+ }
+@@ -208,13 +187,13 @@ fn new(dev: &device::Device, bar: &Bar0) -> Result<Spec> {
+         //     from an earlier (pre-Fermi) era, and then using boot42 to precisely identify the GPU.
+         //     Somewhere in the Rubin timeframe, boot0 will no longer have space to add new GPU IDs.
+ 
+-        let boot0 = regs::NV_PMC_BOOT_0::read(bar);
++        let boot0 = bar.read(regs::NV_PMC_BOOT_0);
+ 
+         if boot0.is_older_than_fermi() {
+             return Err(ENODEV);
+         }
+ 
+-        let boot42 = regs::NV_PMC_BOOT_42::read(bar);
++        let boot42 = bar.read(regs::NV_PMC_BOOT_42);
+         Spec::try_from(boot42).inspect_err(|_| {
+             dev_err!(dev, "Unsupported chipset: {}\n", boot42);
+         })
+diff --git a/drivers/gpu/nova-core/regs.rs b/drivers/gpu/nova-core/regs.rs
+index 53f412f0ca32..58fb807605dd 100644
+--- a/drivers/gpu/nova-core/regs.rs
++++ b/drivers/gpu/nova-core/regs.rs
+@@ -8,6 +8,7 @@
+ pub(crate) mod macros;
+ 
+ use kernel::{
++    io,
+     prelude::*,
+     time, //
+ };
+@@ -37,18 +38,38 @@
+ 
+ // PMC
+ 
+-register!(NV_PMC_BOOT_0 @ 0x00000000, "Basic revision information about the GPU" {
+-    3:0     minor_revision as u8, "Minor revision of the chip";
+-    7:4     major_revision as u8, "Major revision of the chip";
+-    8:8     architecture_1 as u8, "MSB of the architecture";
+-    23:20   implementation as u8, "Implementation version of the architecture";
+-    28:24   architecture_0 as u8, "Lower bits of the architecture";
+-});
++io::register! {
++    /// Basic revision information about the GPU.
++    pub(crate) NV_PMC_BOOT_0(u32) @ 0x00000000 {
++        /// Lower bits of the architecture.
++        28:24   architecture_0;
++        /// Implementation version of the architecture.
++        23:20   implementation;
++        /// MSB of the architecture.
++        8:8     architecture_1;
++        /// Major revision of the chip.
++        7:4     major_revision;
++        /// Minor revision of the chip.
++        3:0     minor_revision;
++    }
++
++    /// Extended architecture information.
++    pub(crate) NV_PMC_BOOT_42(u32) @ 0x00000a00 {
++        /// Architecture value.
++        29:24   architecture ?=> Architecture;
++        /// Implementation version of the architecture.
++        23:20   implementation;
++        /// Major revision of the chip.
++        19:16   major_revision;
++        /// Minor revision of the chip.
++        15:12   minor_revision;
++    }
++}
+ 
+ impl NV_PMC_BOOT_0 {
+     pub(crate) fn is_older_than_fermi(self) -> bool {
+         // From https://github.com/NVIDIA/open-gpu-doc/tree/master/manuals :
+-        const NV_PMC_BOOT_0_ARCHITECTURE_GF100: u8 = 0xc;
++        const NV_PMC_BOOT_0_ARCHITECTURE_GF100: u32 = 0xc;
+ 
+         // Older chips left arch1 zeroed out. That, combined with an arch0 value that is less than
+         // GF100, means "older than Fermi".
+@@ -56,13 +77,6 @@ pub(crate) fn is_older_than_fermi(self) -> bool {
+     }
+ }
+ 
+-register!(NV_PMC_BOOT_42 @ 0x00000a00, "Extended architecture information" {
+-    15:12   minor_revision as u8, "Minor revision of the chip";
+-    19:16   major_revision as u8, "Major revision of the chip";
+-    23:20   implementation as u8, "Implementation version of the architecture";
+-    29:24   architecture as u8 ?=> Architecture, "Architecture value";
+-});
+-
+ impl NV_PMC_BOOT_42 {
+     /// Combines `architecture` and `implementation` to obtain a code unique to the chipset.
+     pub(crate) fn chipset(self) -> Result<Chipset> {
+@@ -76,8 +90,8 @@ pub(crate) fn chipset(self) -> Result<Chipset> {
+ 
+     /// Returns the raw architecture value from the register.
+     fn architecture_raw(self) -> u8 {
+-        ((self.0 >> Self::ARCHITECTURE_RANGE.start()) & ((1 << Self::ARCHITECTURE_RANGE.len()) - 1))
+-            as u8
++        ((self.into_raw() >> Self::ARCHITECTURE_RANGE.start())
++            & ((1 << Self::ARCHITECTURE_RANGE.len()) - 1)) as u8
+     }
+ }
+ 
+@@ -86,7 +100,7 @@ fn fmt(&self, f: &mut kernel::fmt::Formatter<'_>) -> kernel::fmt::Result {
+         write!(
+             f,
+             "boot42 = 0x{:08x} (architecture 0x{:x}, implementation 0x{:x})",
+-            self.0,
++            self.inner,
+             self.architecture_raw(),
+             self.implementation()
+         )
 
-Changes in v2:
-- Reorder register fields in descending order.
-- Drop `nv_reg` macro and use the kernel `register` macro directly.
-- Make `FUSE_UCODE1_VERSION` registers return a u16 directly.
-- Use `into_raw` instead of accessing the inner value of registers directly.
-- Use safer macro to generate the `From` and `TryFrom` implementations
-  of falcon enum types.
-- Link to v1: https://patch.msgid.link/20260318-b4-nova-register-v1-0-22a358aa4c63@nvidia.com
-
----
-Alexandre Courbot (10):
-      gpu: nova-core: introduce `bounded_enum` macro
-      gpu: nova-core: convert PMC registers to kernel register macro
-      gpu: nova-core: convert PBUS registers to kernel register macro
-      gpu: nova-core: convert PFB registers to kernel register macro
-      gpu: nova-core: convert GC6 registers to kernel register macro
-      gpu: nova-core: convert FUSE registers to kernel register macro
-      gpu: nova-core: convert PDISP registers to kernel register macro
-      gpu: nova-core: convert falcon registers to kernel register macro
-      gpu: nova-core: remove `io::` qualifier to register macro invocations
-      Documentation: nova: remove register abstraction task
-
- Documentation/gpu/nova/core/todo.rst               |  76 ---
- drivers/gpu/nova-core/falcon.rs                    | 524 ++++++---------
- drivers/gpu/nova-core/falcon/gsp.rs                |  27 +-
- drivers/gpu/nova-core/falcon/hal/ga102.rs          |  70 +-
- drivers/gpu/nova-core/falcon/hal/tu102.rs          |  12 +-
- drivers/gpu/nova-core/falcon/sec2.rs               |  17 +-
- drivers/gpu/nova-core/fb.rs                        |   6 +-
- drivers/gpu/nova-core/fb/hal/ga100.rs              |  37 +-
- drivers/gpu/nova-core/fb/hal/ga102.rs              |   7 +-
- drivers/gpu/nova-core/fb/hal/tu102.rs              |  17 +-
- drivers/gpu/nova-core/firmware/fwsec/bootloader.rs |  19 +-
- drivers/gpu/nova-core/gfw.rs                       |  11 +-
- drivers/gpu/nova-core/gpu.rs                       |  53 +-
- drivers/gpu/nova-core/gsp/boot.rs                  |  11 +-
- drivers/gpu/nova-core/gsp/cmdq.rs                  |   9 +-
- drivers/gpu/nova-core/nova_core.rs                 |   1 +
- drivers/gpu/nova-core/num.rs                       |  80 +++
- drivers/gpu/nova-core/regs.rs                      | 601 +++++++++--------
- drivers/gpu/nova-core/regs/macros.rs               | 739 ---------------------
- 19 files changed, 779 insertions(+), 1538 deletions(-)
----
-base-commit: dff8302ca1d0e773c90dbeeb05e759f995c95482
-change-id: 20260318-b4-nova-register-6908b5118552
-
-Best regards,
---  
-Alexandre Courbot <acourbot@nvidia.com>
+-- 
+2.53.0
 
 
 _______________________________________________
