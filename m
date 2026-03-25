@@ -4,62 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E2E5109E521
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 21:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63596109E522
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 22:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/4BL5c8DDWAbm7ikZ6PBwRjEMgi1DvUgpxK/I8w26ms=; b=PSFAb9LsG+4/kW
-	AMj1MccZv6czyOs3zyrKQy8H2gKRrsrohkmoq7AZP/c4zLi5+DJu7Cw1kyXaB1m5yHiDoLsXLORGk
-	eJyE30ZJgVPgQdoZkScgujIk+XzAK3SP41LZKrtXpGoZtrxp+JZE+QtR3XU0V8fQyeBCeH3C4QNOS
-	ZHT3SUi7SL6A0mDtQ07sDfvcl32hMJIu1SecgZRH20dXXmkC8kyhEgMnPNDUF42gwG98h6bNXfGIp
-	FUfZaDZQnQUDiyzhqyZuzq84zP9mmA4vs2ySuaS4dL3NdQ39ua9Uc1keQmdA/1qjZemFX+8QrNaBI
-	ooXYw08sPGYlrrcYk1lA==;
+	List-Owner; bh=YzmbQEaP2Rb2YDIN5ukX8ECNaXjNUknW7vz3wagILJM=; b=aNiGOG2+4nmtSH
+	gwbVUQaAv22FMDxBTZThR5DJM8QA1k7slO3cW40LXObWsiOieiRHXK39Rp+tkPvDahmhxC2+7aVyA
+	t7jZ8VhbiY9quvdvMC9Ts9GsIahqDBQ0V4krSI+lu9GCEQu4c3Uag+jx5eZita8hfr5rfith2HMnB
+	8GBIm5IyHwqAGtFrPDPzwxsV6o/HJxwZzkPmzFNyf/lXFw32YTEvOE9jgv+RZtzIw/UeSf8wFah03
+	drCjJMAWUhXWCpJey1i8F3dGUsBmK058ZhNZ1rFLk54Jjh0ZD0IXKfI+YTBOyKh7O3RChDAG9f5TX
+	sKKJ3cwAIZrssxkZgKdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WEA-00000004J0C-19eT;
-	Wed, 25 Mar 2026 21:57:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5WGv-00000004JCB-34wP;
+	Wed, 25 Mar 2026 22:00:17 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WE9-00000004J01-17th
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 21:57:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C96F60053;
-	Wed, 25 Mar 2026 21:57:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94F8EC4CEF7;
-	Wed, 25 Mar 2026 21:57:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774475843;
-	bh=4ookYp8NfrvQO5CddLtBdIKFZGpiutFEIETmwjM++Xg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dwVOGOrM+YLpZrjU3ok11DrNV1A6E9ho+SqCC54G1If/RdQzgOzs0lQVJe521dgCc
-	 hqiGgviM1JuZZcUtX/O6r1ePXXt7Y4W0+ZlHZMpL0K4RbBx7HsLSw7C01YLOHPObKQ
-	 aiypy9aHfpurRjIMOSdk/z11VWnkRBr6YrUaVcsuWmoXvVP6aNNshuYc/mFk1bckYd
-	 Sh2Lr1wjqZnwNVOFzG5m4srSAJYIP0BEDhthneOS2Mq0pa2hniyQFHYZsGYNzjpwS8
-	 pVBHBwnrlKzJL2R8yyCAcrLreWnDzaEqsjupy/HdtAJ+iS1EriU5FGj0vRScqfr22l
-	 LNwkTx2A4l8Yg==
-Date: Wed, 25 Mar 2026 14:57:22 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Robert Mazur <robert.mazur@imgtec.com>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	id 1w5WGs-00000004JB9-05cV;
+	Wed, 25 Mar 2026 22:00:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Xhr1D24nKivYP/3T0AfCxVIkR9YFjI1CmvRMS0ErUhs=; b=5tawHl3e+uz9eT1sXa8Trr9UO3
+	ROaHbvVci5+1x1gHnzDm2slDD0JaznmGKOrxGbVFDkZMzS+rmgkpFFIzI8uoZ8Vm3HM5sU74Lbgg9
+	/PopU1JjeSWjAX4u00eOPjCt0e4mbNvr581G0kAg+1PHB+QCwy6hnY76o/2fmt4nVWL0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w5WGR-00DMmg-Oz; Wed, 25 Mar 2026 22:59:47 +0100
+Date: Wed, 25 Mar 2026 22:59:47 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: thead: beaglev-ahead: enable HDMI output
-Message-ID: <acRaQgAIp6W0pWol@x1>
-References: <20260325-hdmi-beaglev-ahead-v1-1-e71b41b98dca@imgtec.com>
- <acQTGPHvoMDvLtDf@x1>
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-mips@vger.kernel.org, imx@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH net-next v9 2/6] net: stmmac: qcom-ethqos: use generic
+ device properties
+Message-ID: <ba85f84e-740d-47d6-a8a0-97823bf2c4d7@lunn.ch>
+References: <20260316-qcom-sa8255p-emac-v9-0-c58934e76ff2@oss.qualcomm.com>
+ <20260316-qcom-sa8255p-emac-v9-2-c58934e76ff2@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <acQTGPHvoMDvLtDf@x1>
+In-Reply-To: <20260316-qcom-sa8255p-emac-v9-2-c58934e76ff2@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_150014_082945_CCD11749 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +106,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 09:53:44AM -0700, Drew Fustini wrote:
-> On Wed, Mar 25, 2026 at 09:18:59AM +0100, Robert Mazur wrote:
-> > The BeagleV Ahead board includes a micro HDMI connector (Type-D)
-> > wired to the TH1520 SoC's HDMI transmitter.
-> > 
-> > Enable the display pipeline by adding the HDMI connector node,
-> > connecting it to the HDMI controller, and activating the DPU
-> > and HDMI nodes.
-> > 
-> > Signed-off-by: Robert Mazur <robert.mazur@imgtec.com>
-> > ---
-> > This patch enables HDMI output on the BeagleV-Ahead board by wiring up
-> > the DPU and HDMI nodes added in the following series:
-> > 
-> > Depends-on: https://lore.kernel.org/r/20260129023922.1527729-7-zhengxingda@iscas.ac.cn/
-> > 
-> > The patch has been tested on BeagleV-Ahead hardware with the above
-> > series applied. HDMI output is functional.
-> > ---
-> >  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 25 ++++++++++++++++++++++
-> >  1 file changed, 25 insertions(+)
+On Mon, Mar 16, 2026 at 01:05:07PM +0100, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> Reviewed-by: Drew Fustini <fustini@kernel.org>
-> 
-> Thanks for getting this working for the BeagleV Ahead and sending the
-> patch.
+> In order to drop the dependency on CONFIG_OF, convert all device property
+> getters from OF-specific to generic device properties and stop pulling
+> in any linux/of.h symbols.
 
-I have applied this to thead-dt-for-next:
+Adding to what Russell said, please document your new binding. e.g. in
+Documentation/firmware-guide/acpi/dsd.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/fustini/linux.git/log/?h=thead-dt-for-next
-
-There may still be time for me to send a second v7.1 pull request for
-thead dt so I'd like to have this patch in next for a few days.
-
-Drew
+	Andrew
 
 _______________________________________________
 linux-riscv mailing list
