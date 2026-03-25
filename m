@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8CF103A9AC
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 11:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D5C103A9AD
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 11:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ecXRPw0cEhVObQqVFlVX6gKR1qXRMJI+X+U6gv5HyiQ=; b=4mLne62nAqSy/Q
-	TFNUsa9xfOqLYhfu1yEmA9sb/nzBHZGf1xzaO1+bTdrlUCFNaZesvhzROsjcEvIJ/gUPh5Ek4/+sC
-	wlKKJ+rMnlJuXy7XsZBTFks7kXkGtXE2iqR+5NSm+4iH1DNtqGCK8cHUL86ALyTFzL9ti/XOgYHVw
-	In66a2aVKZvx4mqn2QZ57cMUHtbfOIVJuygSXciE5+WKaRCt6HWGfjv6VKnzsbVQZQHcc9ziBERd3
-	L0NqP2ANRbsF0ZTXeWK5TGtlpHL5Xk4YoUdcldyUBTzr/YDlXwWTzMZPX5a6TPI56NeIxX8aM/xEJ
-	dh9r/e+HJuaQKdezZ1sg==;
+	List-Owner; bh=SsGyX6P4YQGbhJNisTKOnBVCNhFYrBvSMY2EKukDyN0=; b=alfdqoFhBAh7SR
+	m2qjE1MPh9uigOCCEBsMaM//r6svOmWAQoGQRStby5GJXHd7kjqacwOidfjvQM/JAn8KsQqQOTYWK
+	lA0DUy8T6IajUXPBFxjQOkyCL5I9szkwlEAV/seHaMTk4wLdTc3ttgTgEDejCOX7gP1U5qKa+rpsE
+	agle6HQW0eO1KIMJ7UeCvMQVIgzrm+z06m2Xga8Z1XPc5XleuS3G2qDlQ1YX9qZbO7yAKvv/6/Gi+
+	Qq0wHBNMBQz0YuZQOI2advnqitcC+THBR06Si3dcXdl+P/QJU8G9sbNHlnuBADxoICFN5uak0bS2F
+	2hh23Q8dgGe9qlK+x4TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MOh-00000003FsZ-35bg;
-	Wed, 25 Mar 2026 11:27:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5MSa-00000003GDM-3Aev;
+	Wed, 25 Mar 2026 11:31:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MOe-00000003FrZ-22Vk;
-	Wed, 25 Mar 2026 11:27:37 +0000
+	id 1w5MSY-00000003GDD-2U3v;
+	Wed, 25 Mar 2026 11:31:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C80143B22;
-	Wed, 25 Mar 2026 11:27:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE08C4CEF7;
-	Wed, 25 Mar 2026 11:27:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 098F560120;
+	Wed, 25 Mar 2026 11:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89274C4CEF7;
+	Wed, 25 Mar 2026 11:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774438055;
-	bh=aD1JvDIfq0GE0tWPZnEpoteUQl9LKVoUeLp+4KiP+wI=;
+	s=k20201202; t=1774438296;
+	bh=ylRm2gYh1SSNTms1TdIe/v1LeEn6b9whQkZPd++l0EY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gek2NIF+50ZmqIFXo3Abwewv4G7+nnsW9VSMv0MJSvCqE0QYQCxE0tBmFgJRBRECp
-	 Gcc7YZXcn6ZVjnnOFNPWxF9MXqXyhFMV2/rtAU9seEjQdh1t6qZiZ0is2C0JPXPhBn
-	 2cYzSNQ+wv0QUFUGa/aTz2gJSJZJA4ed1dMrx9K6NARl0UOWe3qrF1pRaeGcjSPDkw
-	 D4ktPFXCkzERe/9x5RNai4KmjZT+sqqQPICvXI7s+TI3/NID3cRU0cs8f4vrDqo6yN
-	 THmNV9Nu9oWReHHUKBYPcvAflG6BahJmiGo3mGEaRVmOB4tsJAqcsgQbvaJ4aWQ8Xg
-	 08DYkx/Hy2gVA==
-Message-ID: <3ec53a2e-a8e1-43d3-abdb-c00433e7675c@kernel.org>
-Date: Wed, 25 Mar 2026 12:27:13 +0100
+	b=q7AMjbL5W0jOhmMe9L0gOLKFEqzai/JPUxmdE2mOpoQ36iaMfFZZLITyNzxhZlevK
+	 rA0SbrRURTtaztJltjjMS5YPxpAJmm/omGpFo3nDqFaJ37FJP4x4MIc5TH6RDrtCZ6
+	 +nUxPxPDn0Uc4uffmUPwMTzhwm8enjtoGEKl4XHmKc0Zq0dwCdpLgIqp7d6DrOZ7NL
+	 VvSnhuHBd0UkpP4vcl2ZxbmbBm0pA8yz1q/sjOs91mTiMNwSVhPHygkMwdAX3hVzTE
+	 a6rHjx1MiPC03K9uIW/rbqvMgTfTHiljj5xIVSJAw2Sm/y0jE0atJzrh4/qaZiCMEw
+	 TCsVxjvF/0UXQ==
+Message-ID: <efec4a41-3889-44f9-adbb-c74fddd63ae8@kernel.org>
+Date: Wed, 25 Mar 2026 12:31:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/9] arm: configs: remove obsolete assignments to
- SND_SOC_ROCKCHIP
+Subject: Re: [PATCH 8/9] arm64: defconfig: remove obsolete assignment to
+ SENSORS_SA67MCU
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -111,16 +111,13 @@ Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
  "Rob Herring (Arm)" <robh@kernel.org>,
  Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Anna Schumaker <anna.schumaker@oracle.com>, soc@lists.linux.dev
+ Anna Schumaker <anna.schumaker@oracle.com>
 References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
- <20260317-arm_defconf_cleanup-v1-5-8eecb7fdd24d@kernel.org>
- <febd0f7e-59f3-4ba4-8706-53c7353e3fe5@kernel.org>
+ <20260317-arm_defconf_cleanup-v1-8-8eecb7fdd24d@kernel.org>
+ <fa1e4d72-50e2-49d4-a458-1e3d300cce4f@kernel.org>
 From: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
 Content-Language: en-US
-In-Reply-To: <febd0f7e-59f3-4ba4-8706-53c7353e3fe5@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_042736_569704_78EEA824 
-X-CRM114-Status: GOOD (  17.22  )
+In-Reply-To: <fa1e4d72-50e2-49d4-a458-1e3d300cce4f@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,42 +129,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-K0NDOiBzb2NAbGlzdHMubGludXguZGV2CgpPbiAzLzE3LzI2IDEyOjI4LCBLcnp5c3p0b2YgS296
-bG93c2tpIHdyb3RlOgo+IE9uIDE3LzAzLzIwMjYgMTA6MTMsIFZpbmNlbnQgTWFpbGhvbCAoQXJt
-KSB3cm90ZToKPj4gQ09ORklHX1NORF9TT0NfUk9DS0NISVAgd2FzIHJlbW92ZWQgaW4gY29tbWl0
-IGNhZTNjYzQzNWRiNSAoIkFTb0M6Cj4+IHJvY2tjaGlwOiBTdGFuZGFyZGl6ZSBBU29DIG1lbnUi
-KS4gSG93ZXZlciBpdCBpcyBzdGlsbCByZWZlcmVuY2VkIGluCj4+IHNvbWUgZGVmY29uZmlncy4K
-Pj4KPj4gUmVtb3ZlIGFueSByZWZlcmVuY2VzIHRvIENPTkZJR19TTkRfU09DX1JPQ0tDSElQLgo+
-Pgo+PiBGWUksIHRoZSBzdXBwcmVzc2lvbnMgd2VyZSBkb25lIHVzaW5nOgo+Pgo+PiAgIGdpdCBs
-cy1maWxlcyAteiAnYXJjaC8qL2NvbmZpZ3MvKmRlZmNvbmZpZycgfFwKPj4gICAgIHhhcmdzIC0w
-IHNlZCAtaSAtRSAnL15DT05GSUdfU05EX1NPQ19ST0NLQ0hJUC9kJwo+Pgo+PiBGaXhlczogY2Fl
-M2NjNDM1ZGI1ICgiQVNvQzogcm9ja2NoaXA6IFN0YW5kYXJkaXplIEFTb0MgbWVudSIpCj4+IFNp
-Z25lZC1vZmYtYnk6IFZpbmNlbnQgTWFpbGhvbCAoQXJtKSA8bWFpbGhvbEBrZXJuZWwub3JnPgo+
-PiAtLS0KPj4gIGFyY2gvYXJtL2NvbmZpZ3MvbXVsdGlfdjdfZGVmY29uZmlnIHwgMSAtCj4+ICBh
-cmNoL2FybTY0L2NvbmZpZ3MvZGVmY29uZmlnICAgICAgICB8IDEgLQo+IAo+IFRoaXMgd2FzIGFs
-cmVhZHkgcG9zdGVkOgo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI2MDMxMy1yb2Nr
-Y2hpcC1zbmQtY2xlYW51cC12MS0xLTc3ZDlhOTUzZmQxYkBzY2hud2FsdGVyLmV1Lwo+IGJ1dCBq
-dXN0IGxpa2UgdGhhdCBwYXRjaCB5b3UgZGlkIG5vdCBzZW5kIGl0IHRvIHNvY0AgKGlmIEkgYW0g
-bm90Cj4gbWlzdGFrZW4uLi4gQ0MgbGlzdCBpcyBlbm9ybW91cykuCgpPSywgSSB3aWxsIGFkZCBz
-b2NAbGlzdHMubGludXguZGV2IHRvIHRoZSByZWNpcGllbnQgbGlzdCBpbiB2Mi4KCj4gSSB0aGlu
-ayB5b3UgYXJlIG1peGluZyBoZXJlIGluZGVwZW5kZW50IHdvcmtzLCBsaWtlIGtjb25maWcgYW5k
-IHBlci1hcmNoCj4gZGVmY29uZmlnIGNoYW5nZXMuIFBsZWFzZSBzcGxpdCB0aGVzZSBwZXIgYXJj
-aCBkZWZjb25maWcgbWFpbnRhaW5lcnMgLQo+IHBhdGNoZXMgYW5kIHBhdGNoc2V0LCBzbyB5b3Ug
-d29uJ3QgYmUgQ2MtaW5nIDUwIGFkZHJlc3Nlcy4KClRoZSBjb25maWcgaXNzdWVzIHdoaWNoIEkg
-YW0gYWRkcmVzc2luZyBhcmUgdHJhbnN2ZXJzYWwgcHJvYmxlbXMgc28gSQp3YXMgZXhwZWN0aW5n
-IHRvIGp1c3QgZ2V0IHRoZSBBY2tlZC1ieSBmcm9tIHRoZSBvdGhlciBhcmNoaXRlY3R1cmUgYW5k
-CmhhdmUgYWxsIHRoaXMgZ28gdGhyb3VnaCB0aGUgc2FtZSB0cmVlLgoKQXMgSSBleHBsYWluZWQg
-aW4gbXkgY292ZXIgbGV0dGVyLCB0aGlzIGlzIG5vdCBkb2luZyBhbnkgZnVuY3Rpb25hbCBjaGFu
-Z2VzLgoKQnV0IGlmIHRoaXMgaXMgbm90IGFjY2VwdGFibGUsIEkgd2lsbCBqdXN0IHJlZHVjZSB0
-aGUgc2NvcGUgdG8gYXJtL2FybTY0CnRoZW4uIERvaW5nIGEgcGVyIGFyY2ggc3BsaXQgYXMgeW91
-IHN1Z2dlc3RlZCB3b3VsZCBiZSB0b28gbXVjaCBvdmVyaGVhZAoobW9yZSB0aGFuIHdoYXQgScKg
-YW0gcmVhZHkgdG8gaW52ZXN0IG9uIHRoaXMgY2xlYW4tdXApLgoKCllvdXJzIHNpbmNlcmVseSwK
-VmluY2VudCBNYWlsaG9sCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+On 3/17/26 12:33, Krzysztof Kozlowski wrote:
+> On 17/03/2026 10:13, Vincent Mailhol (Arm) wrote:
+>> The Kontron SMARC-sAM67 board management controller is not in the
+>> kernel tree anymore. Clean-up the leftover reference to
+>> CONFIG_SENSORS_SA67MCU which was left in the defconfig.
+>>
+>> Fixes: e710b2283725 ("Revert "hwmon: add SMARC-sAM67 support"")
+>> Signed-off-by: Vincent Mailhol (Arm) <mailhol@kernel.org>
+>> ---
+>>  arch/arm64/configs/defconfig | 1 -
+>>  1 file changed, 1 deletion(-)
+> 
+> https://lore.kernel.org/all/20260302122540.1377444-3-mwalle@kernel.org/
+
+Meanwhile, that patch was picked. It has already landed in linux-next.
+So I will remove it from my series.
+
+> It is said to see that multiple people did the same work twice and did
+> work which was not sent to right addresses. :(
+
+
+Yours sincerely,
+Vincent Mailhol
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
