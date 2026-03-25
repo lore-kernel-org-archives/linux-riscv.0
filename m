@@ -4,86 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A42B6FEC11B
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 10:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8CF103A9AC
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 11:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QbXiQMSm1d5KIGIAmD/6YkxOZu2cbvWb1KLJtyY61LU=; b=MQFSippJ1WaiKh
-	wMexauozXlpsQuS1kXxvWnuXds9KzHnESo17JL062q/Iuwn1ydbmrDz9vRTdNlFzK1JMq7RhJrbHi
-	WQrg5a2cKyLU+pSJ4OxhraLNZKgiqQxieNAKCuEoZHghZjHQJ/T+gzmmGiWkMC8V3/VnXMnNsajUZ
-	Yckb3o4AUHhP8xEiDUjiSRBL1hTf/+9IfOk2Z/2T4SELKgdg9EPXCpa6ocBACQa3k41jqZX+WLzij
-	nCQe9v6il3nmrw3aWgjTEF2hmB8QLfuFlc8suOW0XPC1eQHsBjxnyokFhBJgeAiluGcTpKS2o9tKK
-	pwWdb4fVy7wdhgWG9vtA==;
+	List-Owner; bh=ecXRPw0cEhVObQqVFlVX6gKR1qXRMJI+X+U6gv5HyiQ=; b=4mLne62nAqSy/Q
+	TFNUsa9xfOqLYhfu1yEmA9sb/nzBHZGf1xzaO1+bTdrlUCFNaZesvhzROsjcEvIJ/gUPh5Ek4/+sC
+	wlKKJ+rMnlJuXy7XsZBTFks7kXkGtXE2iqR+5NSm+4iH1DNtqGCK8cHUL86ALyTFzL9ti/XOgYHVw
+	In66a2aVKZvx4mqn2QZ57cMUHtbfOIVJuygSXciE5+WKaRCt6HWGfjv6VKnzsbVQZQHcc9ziBERd3
+	L0NqP2ANRbsF0ZTXeWK5TGtlpHL5Xk4YoUdcldyUBTzr/YDlXwWTzMZPX5a6TPI56NeIxX8aM/xEJ
+	dh9r/e+HJuaQKdezZ1sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5LiB-00000003AyU-0jWI;
-	Wed, 25 Mar 2026 10:43:43 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1w5MOh-00000003FsZ-35bg;
+	Wed, 25 Mar 2026 11:27:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Li8-00000003Ava-1JhP
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 10:43:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1774435368;
-	bh=arsbVOQqNrFGFD4zXyvy20fOvHwbaNRzAN3h/Bf6owg=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=gCg/FYiQEZn58bCOmPlpHc99N7wygx26Wav6/AQJDR2lTIN742w6Kr8i38jAy2pMr
-	 wW+hiJSXp0OXRzrsxCgFAq7PAeooTC9ZF44EDWR1CDFNXIFrQC3GkbPURs+B/shDEY
-	 pmvpze1MFq6b0OrJ0OugE/tPziwoLfvFtFkkoTUM=
-X-QQ-mid: esmtpgz15t1774435360t08c25bdb
-X-QQ-Originating-IP: 7OPY19mGtSlo4kPWwupOktdlSC4sswfnQ7F5LXLlhdE=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 25 Mar 2026 18:42:38 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7138833924869601224
-EX-QQ-RecipientCnt: 15
-Mime-Version: 1.0
-Date: Wed, 25 Mar 2026 18:42:38 +0800
-Message-Id: <DHBSU6889P61.4IKB55N20GPQ@linux.spacemit.com>
-Subject: Re: [PATCH 1/2] dt-bindings: i2c: spacemit: k3: Add compatible
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Yixun Lan" <dlan@kernel.org>, "Andi Shyti" <andi.shyti@kernel.org>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
- <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
- <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>
-Cc: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260325-02-k3-i2c-v1-0-78f29c83d9ac@kernel.org>
- <20260325-02-k3-i2c-v1-1-78f29c83d9ac@kernel.org>
-In-Reply-To: <20260325-02-k3-i2c-v1-1-78f29c83d9ac@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: M9hLKyYEi/OGb0wl/8O9C54tHplv8rjOgqKYqZ8mzG+AHZA73QpSh+lT
-	BmH436CA4XM2hhJNP7Qg5ISG9Q6kXg2JQSUp7a0Z3WO4DRPazLHJHV8+7elyTHhpHsQwYVL
-	i9e3pvQyrTtXAOj1xOJJJ/wLn6YoghLA1newpx/yzNRlHCpqnzYtzxfqtuvTVps3NipbLzf
-	P00WP7g5cazYiZAXNfwcM9WNKqLD7Slp7OQnxI+onTXXEBXhI3ZRCN66by9W2bT8V9t76wa
-	JI5IvHWo+GNl76OgpJ509Q86uMAY/VuwxVkO74/pW+SrXWulDG615sfckMOs3flpxjUxUJp
-	z93zKuqilmg0i6pRL61zEswPui0xw6aXbtXlgqcmS0DDCoISnPgINuYHOYLajM87yIk4MOm
-	MFWjmXKMilCl6XoQ9QfviUKvS67a3/gJMp8KB+yTIujHfOHmlq18UvobIRMj46UtyOtG70W
-	QUZ1LXyPUqDbg4T+9BhrIMqac2CnyY2RchsjHhO5VVh7sJsd6nFVzemM4u/zXkz0U7Vvu7w
-	mDRtYs+F0hagASLOJyQOfINNcNTBIHvLTjgPdq1/3WUPA7zoMEOqATK8TFWU2YYOaAykWN4
-	mKwaza/NWkAG1ME80kWvaMDLo6zNWTXbCgBRIAXo3BwjYpysneAfRD6vasccxjfGiOno8eO
-	odMK8SSFBkeG9k/v996RYBiiDNlwp8BiWes4iSCMJr9KxT6Oo7Y8KenI19GKAlZpZZcekEC
-	5e2YnwL0ax7ktWPYmT8HOHStgOTWwA7DI8P2iWPnUxbGNU7MObOzXK3AOP5aLzRTLynNetU
-	cHb5kJxljmAdxZNxsvnoqizIt+as9JFR0Hc5zjxGtPsNPb+C1VXu5YdCusygU2W53cyhtHQ
-	kUG/jCpe/g419zcUyn02gzE1oKbOrgtQ1m5zADjJh6zE+ZxBs5LSN8TTv5xYfPhZR93f2b5
-	dKAg1L1322tl2r9B8JjMULDJHocEA8yzJnDFXQ8hBa4pD7fV/bOEVj4SSXNeR2RmVtG5SAl
-	MRvF3FwlDHjdKBmiJNzXEJJ4YnZ0fgRC0gkdgtCk6aWFzzYzVVxzDAkwiy3TQ=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+	id 1w5MOe-00000003FrZ-22Vk;
+	Wed, 25 Mar 2026 11:27:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C80143B22;
+	Wed, 25 Mar 2026 11:27:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE08C4CEF7;
+	Wed, 25 Mar 2026 11:27:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774438055;
+	bh=aD1JvDIfq0GE0tWPZnEpoteUQl9LKVoUeLp+4KiP+wI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Gek2NIF+50ZmqIFXo3Abwewv4G7+nnsW9VSMv0MJSvCqE0QYQCxE0tBmFgJRBRECp
+	 Gcc7YZXcn6ZVjnnOFNPWxF9MXqXyhFMV2/rtAU9seEjQdh1t6qZiZ0is2C0JPXPhBn
+	 2cYzSNQ+wv0QUFUGa/aTz2gJSJZJA4ed1dMrx9K6NARl0UOWe3qrF1pRaeGcjSPDkw
+	 D4ktPFXCkzERe/9x5RNai4KmjZT+sqqQPICvXI7s+TI3/NID3cRU0cs8f4vrDqo6yN
+	 THmNV9Nu9oWReHHUKBYPcvAflG6BahJmiGo3mGEaRVmOB4tsJAqcsgQbvaJ4aWQ8Xg
+	 08DYkx/Hy2gVA==
+Message-ID: <3ec53a2e-a8e1-43d3-abdb-c00433e7675c@kernel.org>
+Date: Wed, 25 Mar 2026 12:27:13 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/9] arm: configs: remove obsolete assignments to
+ SND_SOC_ROCKCHIP
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alexandre Gonzalo <alexandre.gonzalo@arm.com>,
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+ linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
+ linux-renesas-soc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ openbmc@lists.ozlabs.org, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>, Mikko Rapeli <mikko.rapeli@linaro.org>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ Pablo Neira Ayuso <pablo@netfilter.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>,
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+ Gregory CLEMENT <gregory.clement@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+ =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Arnd Bergmann <arnd@arndb.de>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Mark Brown <broonie@kernel.org>, Eric Biggers <ebiggers@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Sricharan Ramabadhran <quic_srichara@quicinc.com>,
+ Bjorn Andersson <andersson@kernel.org>, Michael Walle <mwalle@kernel.org>,
+ Guenter Roeck <linux@roeck-us.net>,
+ Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+ "Rob Herring (Arm)" <robh@kernel.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Anna Schumaker <anna.schumaker@oracle.com>, soc@lists.linux.dev
+References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org>
+ <20260317-arm_defconf_cleanup-v1-5-8eecb7fdd24d@kernel.org>
+ <febd0f7e-59f3-4ba4-8706-53c7353e3fe5@kernel.org>
+From: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
+Content-Language: en-US
+In-Reply-To: <febd0f7e-59f3-4ba4-8706-53c7353e3fe5@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_034340_940104_25160524 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260325_042736_569704_78EEA824 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,41 +132,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Mar 25, 2026 at 5:49 PM CST, Yixun Lan wrote:
-> Add a compatible string for the I2C controller found in SpacemiT K3 SoC
-> which use same I2C IP as K1, so make it fallback to K1 compatible.
->
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> index 5896fb120501..8c04c675b25e 100644
-> --- a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> @@ -14,7 +14,11 @@ allOf:
->  
->  properties:
->    compatible:
-> -    const: spacemit,k1-i2c
-> +    oneOf:
-> +      - items:
-> +          - const: spacemit,k3-i2c
-> +          - const: spacemit,k1-i2c
-> +      - const: spacemit,k1-i2c
->  
->    reg:
->      maxItems: 1
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+K0NDOiBzb2NAbGlzdHMubGludXguZGV2CgpPbiAzLzE3LzI2IDEyOjI4LCBLcnp5c3p0b2YgS296
+bG93c2tpIHdyb3RlOgo+IE9uIDE3LzAzLzIwMjYgMTA6MTMsIFZpbmNlbnQgTWFpbGhvbCAoQXJt
+KSB3cm90ZToKPj4gQ09ORklHX1NORF9TT0NfUk9DS0NISVAgd2FzIHJlbW92ZWQgaW4gY29tbWl0
+IGNhZTNjYzQzNWRiNSAoIkFTb0M6Cj4+IHJvY2tjaGlwOiBTdGFuZGFyZGl6ZSBBU29DIG1lbnUi
+KS4gSG93ZXZlciBpdCBpcyBzdGlsbCByZWZlcmVuY2VkIGluCj4+IHNvbWUgZGVmY29uZmlncy4K
+Pj4KPj4gUmVtb3ZlIGFueSByZWZlcmVuY2VzIHRvIENPTkZJR19TTkRfU09DX1JPQ0tDSElQLgo+
+Pgo+PiBGWUksIHRoZSBzdXBwcmVzc2lvbnMgd2VyZSBkb25lIHVzaW5nOgo+Pgo+PiAgIGdpdCBs
+cy1maWxlcyAteiAnYXJjaC8qL2NvbmZpZ3MvKmRlZmNvbmZpZycgfFwKPj4gICAgIHhhcmdzIC0w
+IHNlZCAtaSAtRSAnL15DT05GSUdfU05EX1NPQ19ST0NLQ0hJUC9kJwo+Pgo+PiBGaXhlczogY2Fl
+M2NjNDM1ZGI1ICgiQVNvQzogcm9ja2NoaXA6IFN0YW5kYXJkaXplIEFTb0MgbWVudSIpCj4+IFNp
+Z25lZC1vZmYtYnk6IFZpbmNlbnQgTWFpbGhvbCAoQXJtKSA8bWFpbGhvbEBrZXJuZWwub3JnPgo+
+PiAtLS0KPj4gIGFyY2gvYXJtL2NvbmZpZ3MvbXVsdGlfdjdfZGVmY29uZmlnIHwgMSAtCj4+ICBh
+cmNoL2FybTY0L2NvbmZpZ3MvZGVmY29uZmlnICAgICAgICB8IDEgLQo+IAo+IFRoaXMgd2FzIGFs
+cmVhZHkgcG9zdGVkOgo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI2MDMxMy1yb2Nr
+Y2hpcC1zbmQtY2xlYW51cC12MS0xLTc3ZDlhOTUzZmQxYkBzY2hud2FsdGVyLmV1Lwo+IGJ1dCBq
+dXN0IGxpa2UgdGhhdCBwYXRjaCB5b3UgZGlkIG5vdCBzZW5kIGl0IHRvIHNvY0AgKGlmIEkgYW0g
+bm90Cj4gbWlzdGFrZW4uLi4gQ0MgbGlzdCBpcyBlbm9ybW91cykuCgpPSywgSSB3aWxsIGFkZCBz
+b2NAbGlzdHMubGludXguZGV2IHRvIHRoZSByZWNpcGllbnQgbGlzdCBpbiB2Mi4KCj4gSSB0aGlu
+ayB5b3UgYXJlIG1peGluZyBoZXJlIGluZGVwZW5kZW50IHdvcmtzLCBsaWtlIGtjb25maWcgYW5k
+IHBlci1hcmNoCj4gZGVmY29uZmlnIGNoYW5nZXMuIFBsZWFzZSBzcGxpdCB0aGVzZSBwZXIgYXJj
+aCBkZWZjb25maWcgbWFpbnRhaW5lcnMgLQo+IHBhdGNoZXMgYW5kIHBhdGNoc2V0LCBzbyB5b3Ug
+d29uJ3QgYmUgQ2MtaW5nIDUwIGFkZHJlc3Nlcy4KClRoZSBjb25maWcgaXNzdWVzIHdoaWNoIEkg
+YW0gYWRkcmVzc2luZyBhcmUgdHJhbnN2ZXJzYWwgcHJvYmxlbXMgc28gSQp3YXMgZXhwZWN0aW5n
+IHRvIGp1c3QgZ2V0IHRoZSBBY2tlZC1ieSBmcm9tIHRoZSBvdGhlciBhcmNoaXRlY3R1cmUgYW5k
+CmhhdmUgYWxsIHRoaXMgZ28gdGhyb3VnaCB0aGUgc2FtZSB0cmVlLgoKQXMgSSBleHBsYWluZWQg
+aW4gbXkgY292ZXIgbGV0dGVyLCB0aGlzIGlzIG5vdCBkb2luZyBhbnkgZnVuY3Rpb25hbCBjaGFu
+Z2VzLgoKQnV0IGlmIHRoaXMgaXMgbm90IGFjY2VwdGFibGUsIEkgd2lsbCBqdXN0IHJlZHVjZSB0
+aGUgc2NvcGUgdG8gYXJtL2FybTY0CnRoZW4uIERvaW5nIGEgcGVyIGFyY2ggc3BsaXQgYXMgeW91
+IHN1Z2dlc3RlZCB3b3VsZCBiZSB0b28gbXVjaCBvdmVyaGVhZAoobW9yZSB0aGFuIHdoYXQgScKg
+YW0gcmVhZHkgdG8gaW52ZXN0IG9uIHRoaXMgY2xlYW4tdXApLgoKCllvdXJzIHNpbmNlcmVseSwK
+VmluY2VudCBNYWlsaG9sCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
