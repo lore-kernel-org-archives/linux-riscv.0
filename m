@@ -4,107 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A879103A9A1
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 10:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FF0FEC11B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 10:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=dbNLeZkWc5uJdyQzIVuTSqtcsdWwn7sAduwIWYzBudo=; b=uk3pYjpESEOsLZ2et5QFVqGLoH
-	49g9sGLoZxJ+aXY5gD5adZEceaiFpo235mccwpNGoTQ93uRHJeoMyj7LFZW7Tzcz/pSrunP5C3dBQ
-	OSNnsoEcLVa6v1ALXp2uPguJYbxro3azgBsMQ/osrsH6t4xnf5XnND2hR7vudqZhcRZuLCKVRG/FX
-	YSUeHyTVCQaOFNkAfkzm2yI8YTIXuUwNVpS+WpDuAMY0lBNDJx9pxV1YLjvH82sz8OBTYi09FAzxp
-	mIn5GHsMBxfMsQ0sIBDps64ZLmDr08Z/AdEISIWNM5OKAFgYhHyUnUS8G00uJAoEHZcXpV058quyH
-	bAwYFeyQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Rh+ZEAZz6oIB8DuPtf/o5araod66Tj8oGg6WaGNVj3s=; b=fjlaulfIF9tuCt
+	7O1eUDs58lWxnedJ6/dS29Z4z0qCWuI6aF1wzuKE1LOwOQMCmNZlYe9NvUN/ob1xpbrLioUmSgYwb
+	r3kFq4WBnnuG1S9x+I2cY5O7cIC59t0GMhiixOPstezOEaWq0/OKwpWzSI4kgGIyDdYnppZ6dKSMb
+	lxSANaJxaXeOannbe8CyN5qmwTPYqgyjYmR0xqQPmK8Hr9xTaOJIBdMB8Xu5GL+qr3d7hx99+P0Tb
+	wiPoAKA8vZQZb14PnBFOXokDHdDBmsO4irf+e7fvimQFMHpvo/DvcRJ+0QxhRQLqO8DYGbT7rrvfs
+	L1BL1a4gSnj/Mr7X6HIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Lg2-00000003Agf-1lT0;
-	Wed, 25 Mar 2026 10:41:30 +0000
-Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
+	id 1w5LhU-00000003AtU-3UiY;
+	Wed, 25 Mar 2026 10:43:00 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Lfz-00000003Ag1-0GO2;
-	Wed, 25 Mar 2026 10:41:28 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 1C8E3EC008B;
-	Wed, 25 Mar 2026 06:41:26 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Wed, 25 Mar 2026 06:41:26 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1774435286;
-	 x=1774521686; bh=AcUhwk3rqiMKPq50OnIJ7QU2UyvK/5IjslJpVaZ0nD0=; b=
-	hIoYTVwGI4bcbO/0Hx0OtkRaT8drsHoKSzEN8QOGDKPfFe8F2vVTCbe5xuRjFgP/
-	JMVbH3ojmaK//XjifU5t8mCLi9VjCbqASladM+m8eTUtHUjlKlf2gSeYUNE0ru6y
-	Jdk1UBGPN1/SZQepX9KIUnxkt52gpAwRmsyB6t+uVfOn7BIilQ4rYIBnhZltzMud
-	NDrKql+R9pTAY8ZrWgzKl3HVN1fwl3sqrsX8881k52GoESgrzsSp7nGWl9R5nBTc
-	6EeuOrkPQtBPtZ1zik6NRVUS3hiUVZYrykLIlSoGZ1VsEpnoUgrNBuImRPgrmU6W
-	68rCn917tNpr+q1GMNsvZg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774435286; x=
-	1774521686; bh=AcUhwk3rqiMKPq50OnIJ7QU2UyvK/5IjslJpVaZ0nD0=; b=k
-	9JBfeyUy8ot9s/AZfT7qTXN5rh9CO/6AjTyssorp2ri8SNdME0RCx/qoy71B3Aly
-	6a7A8egyk3uuNS9O84iDGZdbcGLK8BUeou16lkOyrDdJ9rd5t/mWCduol51WgDkW
-	b2VfzPLKnw875J4AbhTbQPpgAUYVHb0TQxnpHcIK+dZPuORvUeKojHE/bsJsg0ap
-	7M0PsVcFWDmBp22G09z7ZdNmVvG9bSBuVZR5V21jMTrdxLzkA7g9LEoqyBW0ZuZc
-	Gn88KmTbE+tOwlGY8qbHBcOtoNFEwQGaF+ruP/y7Tx93Rjgk4yg8m0QZMd2l8/Ug
-	SuSzAOQDHuY97MdzHvL7Q==
-X-ME-Sender: <xms:1bvDaQYe3JeM4UhvQ0OEwfI2WcDl8Cb9je97ZH7zCZ9vo-lurQsdpg>
-    <xme:1bvDaWMAySiHuSbfamQuNRq-GDG4nnBo4NdedVngBgswu_7aMHJTjU_wAtW3SuZcC
-    IovSnk9E_kYrjC6uVcJHroTxRH2belNxltTHtOaz7c71Pn9DbyySVE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdegvdehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddvpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhose
-    gtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepmhgrthhthhhirghsrdgsghhgsehg
-    mhgrihhlrdgtohhmpdhrtghpthhtoheprghrnhgusehkvghrnhgvlhdrohhrghdprhgtph
-    htthhopegsrhhglheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepughlrghnsehkvghr
-    nhgvlhdrohhrghdprhgtphhtthhopehlihhnuhhsfieskhgvrhhnvghlrdhorhhgpdhrtg
-    hpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggv
-    rggurdhorhhgpdhrtghpthhtoheplhhinhhugidqmhgvughirghtvghksehlihhsthhsrd
-    hinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhi
-    shhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:1bvDaSIidv0VH9EqpFf7lWU1nrpoHrkHXYrXOzJdVXpZFb5gLuDrnQ>
-    <xmx:1bvDad0HFZ81O1XtnWeWv6r8TXTtnnJOzlDE4Z__qYZagt-_I-HKeg>
-    <xmx:1bvDabU0OE4KgWfODjpt6QQ1J95WS496bcfA2IdkFOtSBvhmn963qw>
-    <xmx:1bvDaYxWpYq_wG9aRdGmys5MZZo3ErIccxXv68CwfEcbRYrTfWWkNg>
-    <xmx:1rvDaZgl7b-ZsH3SppgAoMe344kDy9kVd7DXZZcbGKYahqqXS0YhL3Z1>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CD83E700065; Wed, 25 Mar 2026 06:41:25 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: AK0r1PqEPgIR
-Date: Wed, 25 Mar 2026 11:41:04 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Bartosz Golaszewski" <brgl@kernel.org>, "Arnd Bergmann" <arnd@kernel.org>
-Cc: "Yixun Lan" <dlan@kernel.org>,
- "Matthias Brugger" <matthias.bgg@gmail.com>,
- "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, "Linus Walleij" <linusw@kernel.org>
-Message-Id: <1789ce66-5a18-4b54-bbad-3b2049f2c26d@app.fastmail.com>
-In-Reply-To: <CAMRc=Mdwu85gghDjQEu4eP2HZxHjBFpph07q9SOfAifSDMtpVw@mail.gmail.com>
-References: <20260325100144.1696731-1-arnd@kernel.org>
- <CAMRc=Mdwu85gghDjQEu4eP2HZxHjBFpph07q9SOfAifSDMtpVw@mail.gmail.com>
-Subject: Re: [PATCH] gpio: fix up CONFIG_OF dependencies
+	id 1w5LhQ-00000003Aqy-1ljt
+	for linux-riscv@lists.infradead.org;
+	Wed, 25 Mar 2026 10:42:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1774435316;
+	bh=5h9Gm4hE034FUJ+tLsF/4KbhVSlEW2L6viFtWACnUaA=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=FX1nOJErc/4O648Y8jKsufMDQB9W2Pd7Aom7hNDbHNpYS74tKjxRkoY1Brk5yStBj
+	 ZWGbUF7FZHsBENwf7pyDmQYtm8Sfe/sm3ZR2Mp+MDeEHwSLDfXcjLiDIO2jJi4iGWd
+	 wcgL7n/g/C2fXwIUDbWEZbHscjAlikpaeuiKCX9w=
+X-QQ-mid: zesmtpgz5t1774435308te51a1058
+X-QQ-Originating-IP: 5V2fvYPK8sKaEEHdU11yJxTASq+yaMttfYnhxI/4Q00=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Mar 2026 18:41:45 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2505999498786661497
+EX-QQ-RecipientCnt: 15
+Mime-Version: 1.0
+Date: Wed, 25 Mar 2026 18:41:45 +0800
+Message-Id: <DHBSTI0A3SOW.PCIP544HUYP4@linux.spacemit.com>
+Cc: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] dts: riscv: spacemit: k3: Add i2c nodes
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Yixun Lan" <dlan@kernel.org>, "Andi Shyti" <andi.shyti@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260325-02-k3-i2c-v1-0-78f29c83d9ac@kernel.org>
+ <20260325-02-k3-i2c-v1-2-78f29c83d9ac@kernel.org>
+In-Reply-To: <20260325-02-k3-i2c-v1-2-78f29c83d9ac@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MWUV83kUVZmkTcPZvQnJVXADEVzzRBCYGyLUwXlURTVAtdU0D8mgKNaC
+	lXqkyar3qafbBxPn+FwWNzJg6+QPoHhVyJWTyxZP7iPtP1KG+3S0kIXV7wCySD5RHDh4W57
+	9y/l7RKZaM6G/rpQxXdQjn2MAMrxoT9CScSotTe4XiMXUpRJPAfyAzuivTAhNwC9sjmf+IO
+	54RNaE8MH6yRGSoseBV2pdh3NJjhTOjJLEpEo/U+q3wvzOt82bxHIfuRKjzlU32ZBoc3ixD
+	nT543/HUz3A9qR+VFN8sFLFAsVVjuoSlXrRvYmpzZAK7yoPhChsaYf8qpQbRrKBR3cGf7Dc
+	db2v8jVL4jl0ycqHeTH5oV7iGyhzz3zY2JV/CWR1HHZYdrZkmab70gKamlapxNdIIKBXu+h
+	GEJ35Tkzd2CV3CpaINQhRXwn+0lRjC46n5acfAlFfnZ0Mawsl5MfWXGYlL0g1HWGhphyzhc
+	a42oCfonWnf6b9Zq2dbw1hSRr2rij+of3qgDpsScBh9t/QDGnotOWHLVjK682gRuvUR1Ume
+	uBBB1R5TbVUd9K+ySdkUV8u2ytfBxPTbHLXFEV/QybwRzjcUaswaA2bA+fwRYyJ+I8EgJLc
+	pD72xfqhE76QEOBK+ibJGU4zJZPIzQoO7BNuV31DlEOJqz8eWvnLaQHRfT+2WwGk5UeBtr0
+	yYphnNKfoyfsD2lAP4giqwYcwCQeW8RJg4lot+9bftG33nkm6ftmkb8h8Cw9UIl04g1aLAU
+	Jp6XJQSfT2qBSss4rSW72c10qcyTQbbZMg3HHz7uyjHfLVtVQCELrXuEqcWlfToPQTJ7xBX
+	e2CiGd80pK/Kq2CN/ok9oSqupH7GzrOBYnRTYLOPh+GyO0XsAFBGap7zNP5MH3Psv1gztXm
+	taph+h0wfkjaOeMzbzlmui+Ku9vroS8UPx9Z0DWRsz090JwI2sr/NN+HhBRBbRsH6BpTZJj
+	GBU5q+bT1WKf2tAZDN9m9YdnHoyJUWbWQnvWg2a2vQDYZ6oSbBFH7g920bMbQY/vMuKY57+
+	yfs7769J7w6oghvYYJWTq+CQobI09A/nNUMNxTj4E1AtXf9+YKCuf38x41fTA=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_034127_175077_2AA9D750 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20260325_034258_425204_CB1B48FB 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,38 +100,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026, at 11:32, Bartosz Golaszewski wrote:
-> On Wed, 25 Mar 2026 11:01:14 +0100, Arnd Bergmann <arnd@kernel.org> said:
->>
->> WARNING: unmet direct dependencies detected for GPIO_SYSCON
->>   Depends on [n]: GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && OF [=n]
->>   Selected by [y]:
->>   - GPIO_SAMA5D2_PIOBU [=y] && GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && (ARCH_AT91 || COMPILE_TEST [=y])
->>
+On Wed Mar 25, 2026 at 5:49 PM CST, Yixun Lan wrote:
+> Populate all I2C devicetree nodes for SpacemiT K3 SoC.
 >
-> Thanks and sorry for the breakage. However, I'm wondering if it wouldn't make
-> sense to do the following:
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  arch/riscv/boot/dts/spacemit/k3.dtsi | 98 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 98 insertions(+)
 >
->
-> -#if defined(CONFIG_OF_GPIO)
->  	/*
->  	 * If CONFIG_OF_GPIO is enabled, then all GPIO controllers described in
->  	 * the device tree automatically may have an OF translation
-...
-> Symbols from linux/of.h are stubbed out and these drivers can build just fine
-> with !CONFIG_OF. This would naturally increase the build coverage.
+> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> index a3a8ceddabec..cab72591b7f1 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> @@ -438,6 +438,76 @@ soc: soc {
+>  		dma-noncoherent;
+>  		ranges;
+>  
+> +		i2c0: i2c@d4010800 {
+> +			compatible = "spacemit,k3-i2c", "spacemit,k1-i2c";
+> +			reg = <0x0 0xd4010800 0x0 0x38>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <36 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&syscon_apbc CLK_APBC_TWSI0>,
+> +				 <&syscon_apbc CLK_APBC_TWSI0_BUS>;
+> +			clock-names = "func", "bus";
+> +			clock-frequency = <400000>;
+> +			resets = <&syscon_apbc RESET_APBC_TWSI0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c1: i2c@d4011000 {
+> +			compatible = "spacemit,k3-i2c", "spacemit,k1-i2c";
+> +			reg = <0x0 0xd4011000 0x0 0x38>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <37 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&syscon_apbc CLK_APBC_TWSI1>,
+> +				 <&syscon_apbc CLK_APBC_TWSI1_BUS>;
+> +			clock-names = "func", "bus";
+> +			clock-frequency = <400000>;
+> +			resets = <&syscon_apbc RESET_APBC_TWSI1>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c2: i2c@d4012000 {
+> +			compatible = "spacemit,k3-i2c", "spacemit,k1-i2c";
+> +			reg = <0x0 0xd4012000 0x0 0x38>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			interrupts = <38 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&syscon_apbc CLK_APBC_TWSI2>,
+> +				 <&syscon_apbc CLK_APBC_TWSI2_BUS>;
+> +			clock-names = "func", "bus";
+> +			clock-frequency = <400000>;
+> +			resets = <&syscon_apbc RESET_APBC_TWSI2>;
+> +			status = "disabled";
+> +		};
+I think we should add a comment here to explain why there isn't i2c3.
+Otherwise, LGTM.
 
-I don't think we need to worry about the build coverage here, CONFIG_OF
-is still included in x86 allmodconfig and half the randconfig builds,
-so the drivers get enough exposure either way.
-
-On the other hand, dropping the build time check may help avoid
-future Kconfig dependency issues, so that still sounds like a
-reasonable suggestion. At least CONFIG_GPIO_SAMA5D2_PIOBU
-is going to need the 'depends on OF' regardless though to work
-around the other build error I cited above.
-
-     Arnd
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 _______________________________________________
 linux-riscv mailing list
