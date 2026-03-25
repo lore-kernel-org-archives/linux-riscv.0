@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D787E109C035
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4990CFEC11F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wQchSVGR0+oWi1fFHUv9o+Gb7WxkbLiL4bqta5D8XpI=; b=Yqr8k1dO2Yud/q
-	8UWPaSTESXmBVhqKaWs5sr08uoqbFneCCODOI79gus6opU2RujIgMCT7AsR8pZW9BGbsULBzgPjiK
-	NwLjuyNXsUnHOBEPOnwLI0lT51yA9iOzOo1HArSIj1duReIy2P5cEXpyZPv9FOtyBYJt/JqKcEvFy
-	WxTlYaRYkuup83m3XL3YnoMxJnDq0jqLmpfhjgzPHuIIvp9V1XfTwaSiZ27Lnk0dIn+Fk8JPTGlhK
-	lQWBBorCea+IdwzbnR0LvPoj9gFeZlB9G2pKKDXWGB7HVz8MLwXGu8BGlCCS4pCVtc92YoxvnTCAI
-	OZE6UoSY13qbL/Q9IX0Q==;
+	List-Owner; bh=62QL+LE4GJTMEjkOZMnyQdfKN0m4EeeBGE94daRc0iQ=; b=QLhD8P5lZLmdlz
+	NvldnZHB5rQP0i10gRcZAKSH9pZRx+dAd/lhEtsqXPFKaBd3QcJi3WVmtKxw4MbQJH71xT7m/o5uq
+	1UFk8qeV3qe5V3qL8Frj5TBAfYfcoiusS/KtHC02SV4T6vTC/T152GOCCgAdUf+SjykpuPxX9Ckzr
+	kQRcvAr7WZphO68ZY5vF94FY7/z08z+IUPgwqmsQ5eQAmECkdVRwEqYztrZT2T/jYK+hawGqMkJ+z
+	/+Xz7JgeLjO8HOW3PT+lfUoz8OgYzL2hO+oh4qidePvMaewNgpQ2t9McwnyXMWe+jy8fNpm8v89hw
+	Eu/XYsbDO/BYLnCveDAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R7X-00000003tgA-3Co8;
-	Wed, 25 Mar 2026 16:30:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5R7v-00000003tu8-0Var;
+	Wed, 25 Mar 2026 16:30:39 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R7U-00000003teQ-41bB
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 16:30:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7BE542AD5;
-	Wed, 25 Mar 2026 16:30:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CD29C2BCB1;
-	Wed, 25 Mar 2026 16:30:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774456212;
-	bh=oW12N519I0kw0CyJPWIc3UJsn8XZap0iK40b96AjYO4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V0Enm9LUCor7mkbEYMlAspxh+4ssXfuyMAB4T80S4vBA79yXJ4uDnxdcipaQX5fow
-	 inH6fah38iAnVXp8C8Sy2EZ2UEr7zA9EyHQrLwJ/5LX2dG2T1sqRJvlB6vz6QcomrH
-	 oWurYSCQjYWWSoJYIpLnKRAARXhcu+YcYCNMirusBEbK6giYgwxKvG0wc/MEzCnebH
-	 D17xoDPb0sCPzruPSixZDfIKDD+BsAtg52WZWzVDWKvsjQQhORapqPvP2uYesv91EF
-	 AiFt6hrRsNg3jh4EYgd4cVjO1ijyXAUCKH4SYCDn+1E5ZjeJHUuazrNY3Sj538kY6j
-	 gpYLygGCVp+ug==
-From: Conor Dooley <conor@kernel.org>
-To: netdev@vger.kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Valentina.FernandezAlanis@microchip.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
-	Abin Joseph <abin.joseph@amd.com>,
-	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
-	Ryan.Wanner@microchip.com,
-	Kevin Hao <haokexin@gmail.com>
-Subject: [PATCH net-next v5 14/14] net: macb: drop usrio pointer on EyeQ5 config
-Date: Wed, 25 Mar 2026 16:28:18 +0000
-Message-ID: <20260325-stillness-undertake-d83054057b8d@spud>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260325-unsterile-flail-4c7729750dc4@spud>
-References: <20260325-unsterile-flail-4c7729750dc4@spud>
+	id 1w5R7s-00000003tsR-3QdF;
+	Wed, 25 Mar 2026 16:30:37 +0000
+Received: from [IPV6:2601:646:8081:9481:619:3ffd:957c:6748] ([IPv6:2601:646:8081:9481:619:3ffd:957c:6748])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 62PGDMNL3153560
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Wed, 25 Mar 2026 09:13:22 -0700
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 62PGDMNL3153560
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2026022301; t=1774455208;
+	bh=v2u7ExN5eifBevZeC2xb3xyOceea1RmqMBZtOrcYzMg=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=J5ymzmT6BQR65DUAALhhSYjcHADheoqS/Y1TB20cnYBvtYJoCBoHEmdHJLu/Si20r
+	 6rz3J3dMJE/DEAiYOO3Fx6vfsrD2MnYD1ixgvwprxcGhIEVWzMLmCHreu1sLIn5SNP
+	 6VBBW2+SCSgr4uOYIIcCe+9jSspVTz7NsGduU1IHGnQyH3sgnggWaXIAuTY0sSScDJ
+	 hy7fCQlaHvFN3juiyk0mVo/l0cAc4F3B4clshklYM45be69gwY6re6ju8/GDKmI3HX
+	 ln5NoZUdBqzuxxOWGyGyQysV8OXGXSO4zB7ByDmwCtm51dOIhtQh0z8KO6LEy/vgUL
+	 bF7T6QJ+oA0WA==
+Message-ID: <fa11e4d3-1c70-4fa7-9f03-8772c002be6a@zytor.com>
+Date: Wed, 25 Mar 2026 09:13:16 -0700
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1026; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=YLNmb5rNBu+3WxSgWsYJIDPAPqu1Vv3xiiURVvdAoto=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlHeC3Emjm1Hs1pF9lfnDEt3PIeQ2dw5PYA5RmzL/zZG u0+/0hlRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACayfinDP2v+biUjYfY1PmJy zbJhEQtW7Xa3+ih6rmvpvanvMuYK/GH4K/hl5+ErJ09ZMseIRMbffJGtN/egWL3BcmOj3eKiswO /sAEA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/17] raid6: remove __KERNEL__ ifdefs
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: Christoph Hellwig <hch@lst.de>, Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+        David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+        Song Liu <song@kernel.org>,
+        Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
+        Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+        linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-raid@vger.kernel.org
+References: <20260324064115.3217136-1-hch@lst.de>
+ <20260324064115.3217136-3-hch@lst.de>
+ <59d1d178-c141-4229-81e9-a6c23fa81f2f@zytor.com>
+Content-Language: en-US, sv-SE
+In-Reply-To: <59d1d178-c141-4229-81e9-a6c23fa81f2f@zytor.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_093013_040115_055280E3 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20260325_093036_861908_3A67B706 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,30 +94,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogVGjDqW8gTGVicnVuIDx0aGVvLmxlYnJ1bkBib290bGluLmNvbT4KClVTUklPIGlzIGRp
-c2FibGVkIG9uIHRoaXMgcGxhdGZvcm0sIGRyb3AgaXRzIGluaGVyaXRlZCB1c3JpbyBjb25maWcu
-CldlIHdpbGwgZW5kIHVwIHdpdGggTUFDQl9DQVBTX1VTUklPX0RJU0FCTEVEIG9uIHRoaXMgcGxh
-dGZvcm06CiAtIFdlIGhhdmUgbm8gY29uZmlnLT51c3JpbyBzbyBtYWNiX2NvbmZpZ3VyZV9jYXBz
-KCkgZGVkdWNlcyB0aGF0IHRoZQogICBmZWF0dXJlIGlzIGRpc2FibGVkLgogLSBBbmVjZG90YWxs
-eSwgd2Ugd291bGQgYWxzbyBsYW5kIGluIHRoZSBydW50aW1lIGRldGVjdGlvbiBjb2RlcGF0aAog
-ICB0aGF0IHJlYWRzIERDRkcxLgoKU2lnbmVkLW9mZi1ieTogVGjDqW8gTGVicnVuIDx0aGVvLmxl
-YnJ1bkBib290bGluLmNvbT4KU2lnbmVkLW9mZi1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
-ZXlAbWljcm9jaGlwLmNvbT4KLS0tCiBkcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2Jf
-bWFpbi5jIHwgMSAtCiAxIGZpbGUgY2hhbmdlZCwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBh
-L2RyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYl9tYWluLmMgYi9kcml2ZXJzL25ldC9l
-dGhlcm5ldC9jYWRlbmNlL21hY2JfbWFpbi5jCmluZGV4IDliZWZiMjY4ZWQ3OWUuLjEyZTJiMmY0
-YWFmODggMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYl9tYWlu
-LmMKKysrIGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiX21haW4uYwpAQCAtNTY5
-NSw3ICs1Njk1LDYgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCBtYWNiX2NvbmZpZyBleWVxNV9jb25m
-aWcgPSB7CiAJLmRtYV9idXJzdF9sZW5ndGggPSAxNiwKIAkuaW5pdCA9IGV5ZXE1X2luaXQsCiAJ
-Lmp1bWJvX21heF9sZW4gPSAxMDI0MCwKLQkudXNyaW8gPSAmYXQ5MV9kZWZhdWx0X3VzcmlvLAog
-fTsKIAogc3RhdGljIGNvbnN0IHN0cnVjdCBtYWNiX2NvbmZpZyByYXNwYmVycnlwaV9ycDFfY29u
-ZmlnID0gewotLSAKMi41My4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On 2026-03-25 08:13, H. Peter Anvin wrote:
+> On 2026-03-23 23:40, Christoph Hellwig wrote:
+>> With the test code ported to kernel space, none of this is required.
+> 
+> I really *really* don't like this.
+> 
+> The ability of running in user space is really useful when it comes to
+> developing new code for new platforms, which happens often enough for this code.
+> 
+
+That being said -- and I do say this as the original author of this code --
+this should be reduced to the maximum extent possible to a (minimal) set of
+#ifndef __KERNEL__, which should be localized as much as possible. The actual
+user space components, even such a thing as a simple #include, should be moved
+to a separate user space header.
+
+But pretty please do leave the ability to debug the algorithms in user space.
+This is hard code to write and debug; it is not just about regression testing.
+
+	-hpa
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
