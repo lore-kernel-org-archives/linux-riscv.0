@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC153109C033
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74FA109C036
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 16:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bBO6EaGwM4T2UsnVB5ywWldHJH0DLJX8XiOfN3mCMHI=; b=BaPBfEACPgHJ12
-	x2ZmXeGSccJY9Q9cxrTdW77rYzazzP8PCWABJ9i8puYfKnCpnel6v1Oqth9ijQo9/du5E2ahYDJFP
-	2WXSN0dQKbG0JQsMBcz1Cthdz35196TbxZXonXV1s5QS9CMqF3+ZdVxoY0a+/522j6/AXowwB+53E
-	rgNxztokgAvPgdyy4u8/NOogSRwbxssg+VRN7RfI8lX8LvtWXN/1AibYRC9K/UUk79g0GBEAb1R4I
-	UMuiEmnOrp798VdBBCWXA4AVpUAtAbuVR0HnvhEUkRrp+liIJGkg+bXptGs4GhQq3TK7WhWjW0NLt
-	I8mpwA6On4lE/bFt0OzA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xEKgWPlJjOwTJXFpO+rA6xtqUtVSIBXl8xYPNEZQdPc=; b=NgxJ/MGWFPpusf
+	KOfEs/sMBseEgIrijNtQUon2RXpQuS4lWs9d40VNn03aQVo7bL2G1oL6KcQzHiyBSprcd4m/pxkur
+	uqimuRTIRnj4QHYbmvPLodv62KekDGZbpQo6X/27XO/jFNDmK7TazB7zlRUuNCgxO/8tKUa9I1dLZ
+	k4VDNzNFME1r0TMFwdbFocUmxj5+O5kGCcSPrad/4I6PgyB2fUv091JS6vktxX3DyDiM6cAfP80VV
+	H0VGZmABTlXoHTjFBwRrAuv4mZf29qdzrJ/EJiM+hnybqzogr8YTl8rlU+SaOlYLGG1fu8w/bWj9R
+	pBG1QT2oZZrEY7LTO4uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R6D-00000003svi-1NP0;
-	Wed, 25 Mar 2026 16:28:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5R6I-00000003sxH-2fWX;
+	Wed, 25 Mar 2026 16:28:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R6B-00000003sui-2cea
+	id 1w5R6H-00000003swh-2ITm
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 16:28:52 +0000
+	Wed, 25 Mar 2026 16:28:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E4F341AB0;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7164A600AC;
+	Wed, 25 Mar 2026 16:28:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B359EC19423;
 	Wed, 25 Mar 2026 16:28:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0C4EC4CEF7;
-	Wed, 25 Mar 2026 16:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774456130;
-	bh=WNZw/U2oAU4OJgjB6cQyLDNDoaTNtsOZD/HEuVp7Pbg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=uMKrcgGaSeQelsRUAZyRupsU/0sDVUnoYKyXghFybejtUT7kmuR8QC5S8FYhYt6Ha
-	 UzebkfnfGQy7goGDYwTxTce/sELGBItC5a/x23ug59n7I+gOnizw9bpxoBEOGnsSd3
-	 y/xQG1kIaCGJBlIrfOSXIfaD7aOi/mvLC2BPx7C13lEq2kDzvs6cRcXRhA12G+RTIx
-	 zzUney5Ia8mH2+tkFayK7g+16QyVAZFXt5uzcVtEzWHXwu0MLn56Yy7hvvoaOOtNgM
-	 DPgYbq/3QnOywhxv5IKvKvD6ZMNqWidtKKKjQsmW9MXpFyZO33oH+rlYm1xNk9kUjB
-	 DqkSo0to6t89A==
+	s=k20201202; t=1774456136;
+	bh=/GOCQoMgSCnMdAsfootrNAXNB36Qw+5kApOdsouWTrg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mhjsYCkmXPLXlS5hIkSmVNAP9VL07zgHD3Zvx6um6gLb2T2EbGKWBzhhpiCdDkwVH
+	 CNs2Ur2EP9voDypZrBSYCRQ6CFQQAdpJvPSVxamUi/yL5mcEI0BFoHdmdRXwdSB+cs
+	 KuZu840UFgZhQqrjUl/EKSqeUYRVNYCiyg7LdYmIDmeEqhA/WJ5xlx8l/v62l73tad
+	 Hka8/Ac9LcvCV7kEKxQ8H02tV1euEgPYX451LKp9Uu2syurqtOLP0OVoOuiLvk3DjA
+	 56mhXsAm+NYKqfnYtDZnOCJDa72GqgVIOaQOYQHcbAnqIcrQHxJRcuH1+CbQHITQ7p
+	 RG+WSwXdWHw8A==
 From: Conor Dooley <conor@kernel.org>
 To: netdev@vger.kernel.org
 Cc: conor@kernel.org,
@@ -74,16 +74,15 @@ Cc: conor@kernel.org,
 	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
 	Ryan.Wanner@microchip.com,
 	Kevin Hao <haokexin@gmail.com>
-Subject: [PATCH net-next v5 00/14] macb usrio/tsu patches
-Date: Wed, 25 Mar 2026 16:28:04 +0000
-Message-ID: <20260325-unsterile-flail-4c7729750dc4@spud>
+Subject: [PATCH net-next v5 01/14] Revert "net: macb: Clean up the .usrio settings in macb_config instances"
+Date: Wed, 25 Mar 2026 16:28:05 +0000
+Message-ID: <20260325-rundown-unrushed-dd82c9f5c56c@spud>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260325-unsterile-flail-4c7729750dc4@spud>
+References: <20260325-unsterile-flail-4c7729750dc4@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3571; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=5hpAVVar6EkPWWk4KHTwXKK+B0QHyBaC3geYzz7Ou/8=; b=kA0DAAoWeLQxh6CCYtIByyZiAGnEDRuhaR9JXeci/JTJe64cbKNvK3MidPDXlfqb8tM0zwQJO oh1BAAWCgAdFiEEYduOhBqv/ES4Q4zteLQxh6CCYtIFAmnEDRsACgkQeLQxh6CCYtLP0AD9EHMJ WLBuCuRRdOGegE5UsqxhTzQGypqZxpzLluDWJ+gBAKrF1vYL4b44YQx+jeawhi2N1KBVnLftH3v lv6ZVLvAB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5036; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=wNAu33LueieiL9BYBWizySOKUamk9hJkFHlIq4AwGik=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlHeE0M1P3X3Lq4yPVBftIztQarf4oTjyQv+SL0ovecz eJJfG+dO0pZGMS4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjARPmVGhuvZOTemRWg/+3KW y/zZ35tNDjWPLmVvfDbhlaBPiezMpwmMDB2zt82KDGoImPDn8fx3/Kn9ixYdb9Z+EzRNpX1HgYP GRC4A
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_092851_701145_FF89034F 
-X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,73 +94,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KCkhleSBmb2xr
-cywKCkF0IHRoZSB2ZXJ5IGxlYXN0LCBpdCdkIGJlIGdvb2Qgb2YgdGhlIHNvYyB2ZW5kb3IgZm9s
-a3MgY291bGQgY2hlY2sKdGhlaXIgcGxhdGZvcm1zIGFuZCBzZWUgaWYgdGhlaXIgdXNyaW8gc3R1
-ZmYgYWN0dWFsbHkgbGluZXMgdXAgd2l0aCB3aGF0CnRoZSBkcml2ZXIgY3VycmVudGx5IGNhbGxz
-ICJtYWNiX2RlZmF1bHRfdXNyaW8iLiBPdXJzIGRpZG4ndCBhbmQgaXQgd2FzCmEgbmFzdHkgc3Vy
-cHJpc2UuCgpSeWFuIGFuZCBJIGZpZ3VyZWQgb3V0IHRoYXQgdGhlIHNhbWE3ZzUgc3R1ZmYgaXMg
-bm90IGFjdHVhbGx5IHVzaW5nIHRoZQpzYW1lIHVzcmlvIGJpdHMgYXMgZWFybGllciBkZXZpY2Vz
-LCBzbyB0aGVyZSdzIG5vdyBtb3JlIHBhdGNoZXMgaW4gdGhpcwpzZXJpZXMgdG8gc3BsaXQgdGhl
-bSBhcGFydC4gSSd2ZSBub3QgdGVzdGVkIHRoZSBzcGxpdCBvciB0aGUgbmV3CnByb3BlcnR5IGR1
-ZSB0byBsYWNrIG9mIGhhcmR3YXJlLCBidXQgUnlhbiBoYXMuCgpNYXJraW5nIHRoaXMgc3R1ZmYg
-bmV0LW5leHQsIGJlY2F1c2UgYWx0aG91Z2ggdGhleSdyZSBmaXhlcyBJIGRvbid0IHNlZQphbnkg
-cGFydGljdWxhciB1cmdlbmN5LCBhbmQgaXQgYXZvaWRzIGNyZWF0aW5nIHNvbWUgZGVwZW5kZW5j
-aWVzIGJldHdlZW4KY2xlYW51cCBpdGVtcyBhbmQgdGhlIGZpeGVzLgoKQ2hlZXJzLApDb25vci4K
-CnY1OgotIHJlYmFzZSBvbiBuZXQtbmV4dAotIHJldmVydCBvbmUgb2YgdGhlIGNvbW1pdHMgdGhh
-dCBsYW5kZWQgaW4gbmV0LW5leHQgaW4gdGhlIG1lYW50aW1lCgp2NDoKLSBkZXByZWNhdGUgaW5z
-dGVhZCBvZiByZW1vdmUgZXhpc3RpbmcgZGV2aWNldHJlZSBwcm9wZXJ0eQotIHBpY2sgdXAgVGhl
-bydzIHBhdGNoZXMKCnYzOgotIHJlb3JkZXIgcGF0Y2hlcwotIGZpeCBzbWF0Y2ggaXNzdWUgcmVw
-b3J0ZWQgYnkgU2ltb24KLSBhZGQgcGF0Y2hlcyByZXdvcmtpbmcgdXNyaW8gaGFuZGxpbmcgb2Yg
-Y2xrZW4vcmVmY2xrIChhbmQgcmVtb3ZlIHRoZQogIGlzc3VlIHRoZSBsbG0gcmVwb3J0ZWQgaW4g
-dGhlIHByb2Nlc3MpCi0gYWRkIGEgbmV3IGRldmljZXRyZWUgcHJvcGVydHkgZm9yIHJlZmNsayBz
-ZWxlY3Rpb24sIHJlcGxhY2luZyB0aGUKICBleGlzdGluZyBvbmUuCi0gZHJvcCB0aGUgZHRzIHBh
-dGNoCgpDQzogVmFsZW50aW5hLkZlcm5hbmRlekFsYW5pc0BtaWNyb2NoaXAuY29tCkNDOiBBbmRy
-ZXcgTHVubiA8YW5kcmV3K25ldGRldkBsdW5uLmNoPgpDQzogRGF2aWQgUy4gTWlsbGVyIDxkYXZl
-bUBkYXZlbWxvZnQubmV0PgpDQzogRXJpYyBEdW1hemV0IDxlZHVtYXpldEBnb29nbGUuY29tPgpD
-QzogSmFrdWIgS2ljaW5za2kgPGt1YmFAa2VybmVsLm9yZz4KQ0M6IFBhb2xvIEFiZW5pIDxwYWJl
-bmlAcmVkaGF0LmNvbT4KQ0M6IFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5vcmc+CkNDOiBLcnp5
-c3p0b2YgS296bG93c2tpIDxrcnprK2R0QGtlcm5lbC5vcmc+CkNDOiBDb25vciBEb29sZXkgPGNv
-bm9yK2R0QGtlcm5lbC5vcmc+CkNDOiBEYWlyZSBNY05hbWFyYSA8ZGFpcmUubWNuYW1hcmFAbWlj
-cm9jaGlwLmNvbT4KQ0M6IFBhdWwgV2FsbXNsZXkgPHBqd0BrZXJuZWwub3JnPgpDQzogUGFsbWVy
-IERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4KQ0M6IEFsYmVydCBPdSA8YW91QGVlY3MuYmVy
-a2VsZXkuZWR1PgpDQzogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgpDQzogTmljb2xh
-cyBGZXJyZSA8bmljb2xhcy5mZXJyZUBtaWNyb2NoaXAuY29tPgpDQzogQ2xhdWRpdSBCZXpuZWEg
-PGNsYXVkaXUuYmV6bmVhQHR1eG9uLmRldj4KQ0M6IFJpY2hhcmQgQ29jaHJhbiA8cmljaGFyZGNv
-Y2hyYW5AZ21haWwuY29tPgpDQzogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2
-ZS5jb20+CkNDOiBuZXRkZXZAdmdlci5rZXJuZWwub3JnCkNDOiBkZXZpY2V0cmVlQHZnZXIua2Vy
-bmVsLm9yZwpDQzogbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwpDQzogbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpDQzogRGF2ZSBTdGV2ZW5zb24gPGRhdmUuc3RldmVuc29uQHJh
-c3BiZXJyeXBpLmNvbT4KQ0M6IFNlYW4gQW5kZXJzb24gPHNlYW4uYW5kZXJzb25AbGludXguZGV2
-PgpDQzogVmluZWV0aCBLYXJ1bWFuY2hpIDx2aW5lZXRoLmthcnVtYW5jaGlAYW1kLmNvbT4KQ0M6
-IEFiaW4gSm9zZXBoIDxhYmluLmpvc2VwaEBhbWQuY29tPgpDQzogVGjDqW8gTGVicnVuIDx0aGVv
-LmxlYnJ1bkBib290bGluLmNvbT4KQ0M6IFJ5YW4uV2FubmVyQG1pY3JvY2hpcC5jb20KQ0M6IEtl
-dmluIEhhbyA8aGFva2V4aW5AZ21haWwuY29tPgoKQ29ub3IgRG9vbGV5ICgxMSk6CiAgUmV2ZXJ0
-ICJuZXQ6IG1hY2I6IENsZWFuIHVwIHRoZSAudXNyaW8gc2V0dGluZ3MgaW4gbWFjYl9jb25maWcK
-ICAgIGluc3RhbmNlcyIKICBuZXQ6IG1hY2I6IHJlbmFtZSBtYWNiX2RlZmF1bHRfdXNyaW8gdG8g
-YXQ5MV9kZWZhdWx0X3VzcmlvIGFzIG5vdCBhbGwKICAgIHBsYXRmb3JtcyBoYXZlIG1paSBtb2Rl
-IGNvbnRyb2wgaW4gdXNyaW8KICBuZXQ6IG1hY2I6IHNwbGl0IFVTUklPX0hBU19DTEtFTiBjYXBh
-YmlsaXR5IGluIHR3bwogIGR0LWJpbmRpbmdzOiBuZXQ6IGNkbnMsbWFjYjogcmVwbGFjZSBjZG5z
-LHJlZmNsay1leHQgd2l0aAogICAgY2RucyxyZWZjbGstc291cmNlCiAgbmV0OiBtYWNiOiByZXdv
-cmsgdXNyaW8gcmVmY2xrIHNlbGVjdGlvbiBjb2RlCiAgbmV0OiBtYWNiOiBucDQgZG9lc24ndCBu
-ZWVkIGEgdXNyaW8gcG9pbnRlcgogIG5ldDogbWFjYjogYWRkIG1wZnMgc3BlY2lmaWMgdXNyaW8g
-Y29uZmlndXJhdGlvbgogIG5ldDogbWFjYjogd2FybiBvbiBwY2xrIHVzZSBhcyBhIHRzdV9jbGsg
-ZmFsbGJhY2sKICBuZXQ6IG1hY2I6IGNsZWFuIHVwIHRzdSBjbGsgcmF0ZSBhY3F1aXNpdGlvbgog
-IGR0LWJpbmRpbmdzOiBuZXQ6IG1hY2I6IGFkZCBwcm9wZXJ0eSBpbmRpY2F0aW5nIHRpbWVyIGFk
-anVzdCBtb2RlCiAgbmV0OiBtYWNiOiB0aW1lciBhZGp1c3QgbW9kZSBpcyBub3Qgc3VwcG9ydGVk
-CgpUaMOpbyBMZWJydW4gKDMpOgogIG5ldDogbWFjYjogcnVudGltZSBkZXRlY3QgTUFDQl9DQVBT
-X1VTUklPX0RJU0FCTEVECiAgbmV0OiBtYWNiOiBzZXQgTUFDQl9DQVBTX1VTUklPX0RJU0FCTEVE
-IGlmIG5vIHVzcmlvIGNvbmZpZyBpcyBwcm92aWRlZAogIG5ldDogbWFjYjogZHJvcCB1c3JpbyBw
-b2ludGVyIG9uIEV5ZVE1IGNvbmZpZwoKIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL25ldC9jZG5z
-LG1hY2IueWFtbCAgICB8ICA3MSArKysrKystCiBkcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNl
-L21hY2IuaCAgICAgICAgICAgfCAgIDggKwogZHJpdmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9t
-YWNiX21haW4uYyAgICAgIHwgMTg3ICsrKysrKysrKysrKystLS0tLQogMyBmaWxlcyBjaGFuZ2Vk
-LCAyMTIgaW5zZXJ0aW9ucygrKSwgNTQgZGVsZXRpb25zKC0pCgotLSAKMi41My4wCgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+Commit 0ae998c4efd69 ("net: macb: Clean up the .usrio settings in
+macb_config instances") was a misguided attempt to clean up the driver
+that actually just propagated problematic code. The default for usrio is
+actually no usrio, and already there are issues with people using the
+problematically named "macb_default_usrio" on platforms where the usrio
+does not have this so-called default behaviour. usrio is platform
+specific and using the default at91 usrio settings should be opt-in
+only. Revert the "cleanup" patch.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ drivers/net/ethernet/cadence/macb_main.c | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 1cb49252abf5a..a48160da6e672 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -5513,31 +5513,37 @@ static const struct macb_config fu540_c000_config = {
+ 	.clk_init = fu540_c000_clk_init,
+ 	.init = fu540_c000_init,
+ 	.jumbo_max_len = 10240,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config at91sam9260_config = {
+ 	.caps = MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d3macb_config = {
+ 	.caps = MACB_CAPS_SG_DISABLED |
+ 		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config pc302gem_config = {
+ 	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE,
+ 	.dma_burst_length = 16,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d2_config = {
+ 	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
+ 	.dma_burst_length = 16,
+ 	.jumbo_max_len = 10240,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d29_config = {
+ 	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_GEM_HAS_PTP,
+ 	.dma_burst_length = 16,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d3_config = {
+@@ -5545,21 +5551,25 @@ static const struct macb_config sama5d3_config = {
+ 		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
+ 	.dma_burst_length = 16,
+ 	.jumbo_max_len = 10240,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config sama5d4_config = {
+ 	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
+ 	.dma_burst_length = 4,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config emac_config = {
+ 	.caps = MACB_CAPS_NEEDS_RSTONUBR | MACB_CAPS_MACB_IS_EMAC,
+ 	.clk_init = at91ether_clk_init,
+ 	.init = at91ether_init,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config np4_config = {
+ 	.caps = MACB_CAPS_USRIO_DISABLED,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config zynqmp_config = {
+@@ -5569,12 +5579,14 @@ static const struct macb_config zynqmp_config = {
+ 	.dma_burst_length = 16,
+ 	.init = init_reset_optional,
+ 	.jumbo_max_len = 10240,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config zynq_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_NO_GIGABIT_HALF |
+ 		MACB_CAPS_NEEDS_RSTONUBR,
+ 	.dma_burst_length = 16,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config mpfs_config = {
+@@ -5583,6 +5595,7 @@ static const struct macb_config mpfs_config = {
+ 		MACB_CAPS_GEM_HAS_PTP,
+ 	.dma_burst_length = 16,
+ 	.init = init_reset_optional,
++	.usrio = &macb_default_usrio,
+ 	.max_tx_length = 4040, /* Cadence Erratum 1686 */
+ 	.jumbo_max_len = 4040,
+ };
+@@ -5611,6 +5624,7 @@ static const struct macb_config versal_config = {
+ 	.dma_burst_length = 16,
+ 	.init = init_reset_optional,
+ 	.jumbo_max_len = 10240,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config eyeq5_config = {
+@@ -5620,6 +5634,7 @@ static const struct macb_config eyeq5_config = {
+ 	.dma_burst_length = 16,
+ 	.init = eyeq5_init,
+ 	.jumbo_max_len = 10240,
++	.usrio = &macb_default_usrio,
+ };
+ 
+ static const struct macb_config raspberrypi_rp1_config = {
+@@ -5628,6 +5643,7 @@ static const struct macb_config raspberrypi_rp1_config = {
+ 		MACB_CAPS_GEM_HAS_PTP |
+ 		MACB_CAPS_EEE,
+ 	.dma_burst_length = 16,
++	.usrio = &macb_default_usrio,
+ 	.jumbo_max_len = 10240,
+ };
+ 
+@@ -5675,6 +5691,7 @@ static const struct macb_config default_gem_config = {
+ 		MACB_CAPS_JUMBO |
+ 		MACB_CAPS_GEM_HAS_PTP,
+ 	.dma_burst_length = 16,
++	.usrio = &macb_default_usrio,
+ 	.jumbo_max_len = 10240,
+ };
+ 
+@@ -5761,7 +5778,7 @@ static int macb_probe(struct platform_device *pdev)
+ 	bp->wol = 0;
+ 	device_set_wakeup_capable(&pdev->dev, 1);
+ 
+-	bp->usrio = macb_config->usrio ? : &macb_default_usrio;
++	bp->usrio = macb_config->usrio;
+ 
+ 	/* By default we set to partial store and forward mode for zynqmp.
+ 	 * Disable if not set in devicetree.
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
