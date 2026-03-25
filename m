@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A061FEA839
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 09:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 602D3FEA824
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 10:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wqPl/6fLeMFOGiCSXFFOtg+4PV+LQ8W+FMXXmZnzhRY=; b=KAdQhXhWskWAOS
-	ioCNHC99Z9vP0rp8u57hU3vweqGiLeDIERwFWnv1Umu65gL6+cOuj09BOfollQDzXruoR/Ao8pc6J
-	PuzoLqnlaq5B8N5rOGYzjKH1AO3nNhNfU0CYlaQSHAylJmiqIn7mpupw9GFftoUfsUk1QIKdDU662
-	alo9zDHwIpJAX1QEZhS41dKEHzoIo9LUArJDDf0flBO35cmrEbW8uEs7rqF4zM9MYoFjmd5xsuuBV
-	nY3fux15X8zlG9jpcGkK9ZjOqRuaBxP2wHbeIUFuRCXHNgZOufU2VzBxgvP8gi/vnLtebGRvg6+Lj
-	/1pM4EhheU1QHiXDdF2Q==;
+	List-Owner; bh=KBYuc21LRyOujqHtI8c2EirDuGVrBitA6j637QABn5s=; b=zwZjhekqjSTPjv
+	S9quKA+olMci3ddf4snJw2VP769NqTM/x0FKk/uM1Y5T2FCErN/mJV8LeKyY3581aSzygVxvlouZ1
+	XBpIT/lIgn+WPLcSBe6D4giY3XhGxT83Bu3yzDpeOypWnisL3LQr/Xul8/IEAgzZt+uC3PC8IYMVr
+	4WVLyZ/G+if1lupZX4gKEHDAsiHGU87Pi+nIS64Tx206GZv+2P1qH49IkBSJ2TA48K7Nb9XslAfhw
+	WbOm/avBb6Pf5/n/yfUrHUEl9+K5W8SE6wbjReBbFbUuu6FfXBwP+mRrNPa5bwfX2TskMuHdLHV8I
+	8VG5kGxbwY8TKY4uekKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5KzK-000000035hm-0EnU;
-	Wed, 25 Mar 2026 09:57:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5L3j-0000000367Z-0oFf;
+	Wed, 25 Mar 2026 10:01:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5KzH-000000035hG-1IZl
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Mar 2026 09:57:20 +0000
+	id 1w5L3f-0000000366Y-0rw7;
+	Wed, 25 Mar 2026 10:01:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9902A42A28;
-	Wed, 25 Mar 2026 09:57:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1BE5C2BC9E;
-	Wed, 25 Mar 2026 09:57:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 460AF600C4;
+	Wed, 25 Mar 2026 10:01:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 778C0C4CEF7;
+	Wed, 25 Mar 2026 10:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774432638;
-	bh=UaK4kp/jgRet12pBpUQgnuyYitr4HafAGvSJFjFI8VE=;
-	h=From:Date:Subject:To:Cc:From;
-	b=b1ovKzqJwTtySah2BE1iUQjVaeYlN/iOJjf4FsppaiTAcA0zr8TlXq/vRBDU4oaTi
-	 Ny9PAXXshwfYjMdm9/RYuEXlldmjfl3AxnWx8u/aFOU1DXR0boXJXzia7bVszrqu6J
-	 yU3Ai0TJVwe6et5M/q7kyXEUOhjWWfwoiiL4a8DwubzKfbDBzGFp4KsObJUeIk/TAl
-	 dzyEt+v1hLpuv9miteXTB1Zn+ZFadE5YwA5iev/zixlEjtVcoNMKh/D9sN5f7V2pyx
-	 W7mDzcZjm4d4qDS34D0gTub+n7FRTIK3xt7ptFaPR+1PUMzOj1eu7SCFkSRY49p0ho
-	 lDqKRinb9sipw==
-From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 25 Mar 2026 09:56:56 +0000
-Subject: [PATCH] dts: riscv: spacemit: k3: add P1 PMIC regulator tree
+	s=k20201202; t=1774432910;
+	bh=Q0y68Sh0drunIWBrbPQGi+mpNZ+3qNgyIEg6q1TJwSs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Do3onyXUBuQV8Yzx8HEV2pWDywWlNUTdMFucTiA8sKEuTSZvjsuXkZiBhYiQBaNmf
+	 Y+iVbspzq7WTgkCMPSfxwxyi7w+7hHkkLLOB9NRbgED2iF9PPm2TNAPqZpTShZ53sF
+	 n80ZlTQ/6JXPKKVXoqDZ8H5NPvaGXc0XJ4RPboju1yAO0nOEJLmcn0OigEXJsKfLJd
+	 bwHdtB8hgcryXtQkHLLX4dIp1PBRGLb22la0NEWVU+BnEfVZYG3IL7V1b9s8fhDyPb
+	 hoSezUtwX0s+IBr73BbBMYs53KjrQxvgNDQo6tgcpCPCM61TncIyZKAlTES5nR+Rbs
+	 +3BSYEOXGF5vA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Yixun Lan <dlan@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] gpio: fix up CONFIG_OF dependencies
+Date: Wed, 25 Mar 2026 11:01:14 +0100
+Message-Id: <20260325100144.1696731-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Message-Id: <20260325-02-k3-i2c-v1-1-a793776b88bc@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAGexw2kC/4XMSwqEMBBF0a2EGluQVDBgtiIOglZ3Fw1+EhVB3
- LtBBw4d3sfj7JA4CifwaofIqyQZ+hymUND+Qv9llC43kCanrTGoCf8WhVp0oSupdC5UwUL+j5E
- /sl1W3dwdeVoyOd/jI3r14vnVQHMcJ7YFbZGfAAAA
-X-Change-ID: 20260311-02-k3-i2c-6ad52566a9a3
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Yixun Lan <dlan@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6607; i=dlan@kernel.org;
- h=from:subject:message-id; bh=UaK4kp/jgRet12pBpUQgnuyYitr4HafAGvSJFjFI8VE=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBpw7F4wS77Ol1nOYAlCRaSkJzcfa69PgpifZaSQ
- Enu18kaoRaJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCacOxeBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMSwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0nihAAhj+307J1gNjwTMZLlNsIaXeVz1SE4OwLgtz+r4NC4pRjzBxs3apfy
- ogR++J52q7PCEtk14Cg+IVwLfi5G3/PVf6gh0ta+2XP/s2AeX+QNlzKRNWniTHKIWBzTNCa+QVo
- +gI2etrdhrNSFY4Kmv4xm5l8vPAVh+RzNlHNBDsqJNtYMSc4WQQUuCTEnRd/LOe9beaENHPiaeI
- LPsIe3d4e2lv6h1jTabKRyqrWu8FjQ5DNWJwJzR+YVgErPNK8nImck3zGCT2OO5GHF3IWi8wPTC
- Tmx6f6HWyWr/nOrZjesugDWJGzP+LRZUNS+TkzOJPuIq3DwZEZlJN2DWldq9Blelf+mxluX/1Mx
- 6HXMMFFJL+SZfrZmjxlTzFdUzXwSHF8AUv7DcCxSO4wI1Q+mmvkZ4YkFZGicrZtseIsV1vUVp6I
- W765YZX5SLfRWZyXLhdEm01/Git+jzWrtSalW+ypN5XS3hbAA2Kx3CtpSi7SuuiPlWD/mrzllCN
- dom2ZRzD6B/fPmtBtd9d5ZdxKKHs53P1OdozA/OkQm2FQWIk6/G2KJuP4jHB9bCDY06sqdgvYXJ
- LZiqtlAl1QjYZ8vfUYd8mjAOqL/37djlUgow25AobbZnE9r1SoJ1D+HcIZud1OYZ1QucU+BnuCT
- SLGmVgxtUPuoszi6Ke5x1V8f1BRZQY=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_025719_417283_3948E06B 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,250 +75,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the P1 PMIC's regulator topology tree for pico-itx board.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Signed-off-by: Yixun Lan <dlan@kernel.org>
+A number of GPIO drivers that used to have a CONFIG_OF_GPIO dependency now fail
+to build on targets without CONFIG_OF:
+
+WARNING: unmet direct dependencies detected for GPIO_SYSCON
+  Depends on [n]: GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && OF [=n]
+  Selected by [y]:
+  - GPIO_SAMA5D2_PIOBU [=y] && GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && (ARCH_AT91 || COMPILE_TEST [=y])
+
+drivers/gpio/gpio-mt7621.c: In function 'mediatek_gpio_bank_probe':
+drivers/gpio/gpio-mt7621.c:254:20: error: 'struct gpio_chip' has no member named 'of_gpio_n_cells'
+  254 |         rg->chip.gc.of_gpio_n_cells = 2;
+      |                    ^
+drivers/gpio/gpio-tegra186.c: In function 'tegra186_gpio_of_xlate':
+drivers/gpio/gpio-tegra186.c:502:25: error: 'struct gpio_chip' has no member named 'of_gpio_n_cells'
+  502 |         if (WARN_ON(chip->of_gpio_n_cells < 2))
+      |                         ^~
+drivers/gpio/gpio-lpc32xx.c: In function 'lpc32xx_gpio_probe':
+drivers/gpio/gpio-lpc32xx.c:523:49: error: 'struct gpio_chip' has no member named 'of_xlate'
+  523 |                         lpc32xx_gpiochip[i].chip.of_xlate = lpc32xx_of_xlate;
+      |                                                 ^
+drivers/gpio/gpio-spacemit-k1.c: In function 'spacemit_gpio_add_bank':
+drivers/gpio/gpio-spacemit-k1.c:234:11: error: 'struct gpio_chip' has no member named 'of_gpio_n_cells'
+  234 |         gc->of_gpio_n_cells     = 3;
+      |           ^~
+
+Bring that back as a dependency.
+
+Fixes: 7803501e5754 ("gpio: drop unneeded Kconfig dependencies on OF_GPIO")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-This series try to add a regulator power tree from P1 PMIC,
-the PMIC is controlled via an I2C interface.
-
-To test this patch, it will need the I2C patch series [1]
-
-Link: https://lore.kernel.org/all/20260325-02-k3-i2c-v1-0-78f29c83d9ac@kernel.org [1]
+There may be more fallout from the change, this is just what I found immediately,
+but you could already fold the changes into the broken patch while I look
+for additional ones.
 ---
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 185 +++++++++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi |  11 ++
- 2 files changed, 196 insertions(+)
+ drivers/gpio/Kconfig | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index b098dbd0e7a1..5b59c569dbde 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -23,6 +23,191 @@ memory@100000000 {
- 		device_type = "memory";
- 		reg = <0x1 0x00000000 0x4 0x00000000>;
- 	};
-+
-+	reg_dc_in: regulator-dc-in-12v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dc_in_12v";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_aux_vcc3v3: regulator-aux-vcc3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "AUX_VCC3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_dc_in>;
-+	};
-+
-+	reg_aux_vcc5v: regulator-aux-vcc5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "AUX_VCC5V";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_dc_in>;
-+	};
-+
-+	reg_main_vcc1v8: regulator-main-vcc1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "MAIN_VCC1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_dc_in>;
-+	};
-+
-+	reg_main_vcc3v3: regulator-main-vcc3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "MAIN_VCC3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_dc_in>;
-+	};
-+
-+};
-+
-+&i2c8 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c8_cfg>;
-+	status = "okay";
-+
-+	p1@41 {
-+		compatible = "spacemit,p1";
-+		reg = <0x41>;
-+		interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
-+		vin1-supply = <&reg_aux_vcc5v>;
-+		vin2-supply = <&reg_aux_vcc5v>;
-+		vin3-supply = <&reg_aux_vcc5v>;
-+		vin4-supply = <&reg_aux_vcc5v>;
-+		vin5-supply = <&reg_aux_vcc5v>;
-+		vin6-supply = <&reg_aux_vcc5v>;
-+		aldoin-supply = <&reg_aux_vcc5v>;
-+		dldoin1-supply = <&buck4>;
-+		dldoin2-supply = <&buck4>;
-+
-+		regulators {
-+			buck1: buck1 {
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck2: buck2 {
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck3: buck3 {
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <800000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck4: buck4 {
-+				regulator-min-microvolt = <2100000>;
-+				regulator-max-microvolt = <2100000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck5: buck5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			buck6: buck6 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <500000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			aldo1: aldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			aldo2: aldo2 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			aldo3: aldo3 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+			};
-+
-+			aldo4: aldo4 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo1: dldo1 {
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo2: dldo2 {
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo3: dldo3 {
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo4: dldo4 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+			};
-+
-+			dldo5: dldo5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo6: dldo6 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			dldo7: dldo7 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+		};
-+	};
- };
+diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+index e1e48e432133..bcb8ce89396c 100644
+--- a/drivers/gpio/Kconfig
++++ b/drivers/gpio/Kconfig
+@@ -236,6 +236,7 @@ config GPIO_BRCMSTB
+ 	tristate "BRCMSTB GPIO support"
+ 	default y if (ARCH_BRCMSTB || BMIPS_GENERIC)
+ 	depends on ARCH_BRCMSTB || ARCH_BCM2835 || BMIPS_GENERIC || COMPILE_TEST
++	depends on OF
+ 	select GPIO_GENERIC
+ 	select IRQ_DOMAIN
+ 	help
+@@ -450,6 +451,7 @@ config GPIO_LPC18XX
+ config GPIO_LPC32XX
+ 	tristate "NXP LPC32XX GPIO support"
+ 	depends on ARCH_LPC32XX || COMPILE_TEST
++	depends on OF
+ 	help
+ 	  Select this option to enable GPIO driver for
+ 	  NXP LPC32XX devices.
+@@ -492,6 +494,7 @@ config GPIO_MPC8XXX
+ config GPIO_MT7621
+ 	bool "Mediatek MT7621 GPIO Support"
+ 	depends on SOC_MT7620 || SOC_MT7621 || COMPILE_TEST
++	depends on OF
+ 	select GPIO_GENERIC
+ 	select GPIOLIB_IRQCHIP
+ 	help
+@@ -632,6 +635,7 @@ config GPIO_RTD
  
- &uart0 {
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-index efb0f1572188..dd99909e9044 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-@@ -11,6 +11,17 @@
- #define K3_GPIO(x)	(x / 32) (x % 32)
- 
- &pinctrl {
-+	/omit-if-no-ref/
-+	i2c8_cfg: i2c8-cfg {
-+		i2c8-pins {
-+			pinmux = <K3_PADCONF(128, 0)>,	/* i2c8 scl */
-+				 <K3_PADCONF(129, 0)>;	/* i2c8 sda */
-+
-+			bias-pull-up = <0>;
-+			drive-strength = <25>;
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	uart0_0_cfg: uart0-0-cfg {
- 		uart0-0-pins {
-
----
-base-commit: 43a2ce590c0364ddb28377218b3268f9cd722bde
-change-id: 20260311-02-k3-i2c-6ad52566a9a3
-prerequisite-change-id: 20260311-02-k3-i2c-6ad52566a9a3:v1
-prerequisite-patch-id: 9a6b8f6968935c8ed5c9acd8ecb778be2d1a3faa
-prerequisite-patch-id: d43e077460cb3ea4e391fb7c528b6ffa80f35574
-
-Best regards,
+ config GPIO_SAMA5D2_PIOBU
+ 	tristate "SAMA5D2 PIOBU GPIO support"
++	depends on OF
+ 	depends on MFD_SYSCON
+ 	depends on ARCH_AT91 || COMPILE_TEST
+ 	select GPIO_SYSCON
+@@ -672,6 +676,7 @@ config GPIO_SNPS_CREG
+ config GPIO_SPACEMIT_K1
+ 	tristate "SPACEMIT K1 GPIO support"
+ 	depends on ARCH_SPACEMIT || COMPILE_TEST
++	depends on OF
+ 	select GPIO_GENERIC
+ 	select GPIOLIB_IRQCHIP
+ 	help
+@@ -737,6 +742,7 @@ config GPIO_TEGRA186
+ 	tristate "NVIDIA Tegra186 GPIO support"
+ 	default ARCH_TEGRA_186_SOC || ARCH_TEGRA_194_SOC || ARCH_TEGRA_234_SOC
+ 	depends on ARCH_TEGRA_186_SOC || ARCH_TEGRA_194_SOC || ARCH_TEGRA_234_SOC || COMPILE_TEST
++	depends on OF
+ 	select GPIOLIB_IRQCHIP
+ 	select IRQ_DOMAIN_HIERARCHY
+ 	help
 -- 
-Yixun Lan <dlan@kernel.org>
+2.39.5
 
 
 _______________________________________________
