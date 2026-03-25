@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE3B1109C04F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 18:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF49109C050
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Mar 2026 18:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ae+gwZucbtzYDkcCfxLtlNNal+U35TmrOn+GFcVV880=; b=oqKrm2Sg4s9AYM
-	cSG0dbL/ld4GMd1UMw5syLXmcmQvkZynRUnyqR1AW/hejIK1KLgp2dQa6sZ/L3MZ2ol+35tI5f2zs
-	x33911YLz6hOuJR8M1bsA2bxKZs3QHPNYL/9KjX4LX1/ty7kNvqjJgeh86zVHQcX58in6GtKfdxJv
-	J87F4wYZPlJLcI/QWbkZkzWO/sqA9rkHGtK0ooD3vgJfN3BIXHmk78CoC/emAPcfYjRSbF6BOyUCb
-	r1qEVkvVON9ATMRRo2HLRm1T/8AxoS1lA3lIn+uaL5r1TeXZu38oPhkwy7VbZRZnGWuCX7G+T4GAe
-	ksNdbSpDHI4HsUOe0y7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=urklhuc9Ytz0mlnPSiTNSEr+w+JRcT6Qf6NPG8l9JVg=; b=dNKawJK+KorLWCL7xG1vwjXH9s
+	RBAE6zu2FNG+24calSo+PhbStQkKbj77+AJfqWaDMAlM1AJZMxwQO9Rc/17DfqbA4PNCVODKU++Kq
+	fbULXQfZ5tVFfX+oB1wA7I72OBPQu6W4MzgOMkyLujFeZVASTWSE2/it1S1qYHzrRexezMY+ZQIrL
+	T6k4cK9A3pwbgRn0rRF4fMgpfiMKRlbeJZrc8XRrZiYlCo9S+2fNjbgL/iHIOzzhbJxRYCFNJGoQD
+	FjWspolQG3/H6BD+YwVBtuOJs8u5g7Ah/wdNP+PTkrXdgWu15lPY401gtQBoNhN+KO+2MKJJenbAF
+	Oq0yaTxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Sa0-000000042Kt-1tGk;
-	Wed, 25 Mar 2026 18:03:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5Sml-000000043ro-0wYj;
+	Wed, 25 Mar 2026 18:16:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5SZv-000000042KE-12GY;
-	Wed, 25 Mar 2026 18:03:40 +0000
+	id 1w5Smg-000000043qc-0H2N
+	for linux-riscv@lists.infradead.org;
+	Wed, 25 Mar 2026 18:16:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BAC5044529;
-	Wed, 25 Mar 2026 18:03:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E8DAC4CEF7;
-	Wed, 25 Mar 2026 18:03:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F1F5F443A3;
+	Wed, 25 Mar 2026 18:16:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA426C4CEF7;
+	Wed, 25 Mar 2026 18:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774461817;
-	bh=z+3MKcnaVgxUUEFrOwwtAjO55jdTD/Aap52HWyvjU10=;
+	s=k20201202; t=1774462608;
+	bh=Rnj85twtesCZWmRKlew1BUMysMtURXXKALXyvov6u7I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cgbXDzFKuEwm0erfN2A14a6MqFPpdOFQ+JZrgxmk4/cS1JbAJDF8DZga7kHsEW5bZ
-	 zDYC9Jir/eUEG4lbfiVZe4uP96ssgyIY6mC9r3aGjmXQ+dEfU+oewxtydbBUifUGEg
-	 qTuY79FjkjNFPwzlz+1D0lSMPKb0UQ/USGXaohr0W/6ZhTtG4INz1/q9/UDHusbsr+
-	 tfkSjgKZdLFKfiygvCDhjoEEIJ4WTeYnnVLTNA2ZfTTtVLbiBJUxuK0ALluwhxtlfH
-	 5QX5ElCYZzn8oYIv/rLT+1Y7hF027n1q3Xh4asYYc2UnGeCba+yIuvBc+ygqYIvYKQ
-	 ZZNqfjEBOpdLw==
-Date: Wed, 25 Mar 2026 18:03:30 +0000
-From: Simon Horman <horms@kernel.org>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: [PATCH net-next v5 3/3] riscv: dts: eswin:
- eic7700-hifive-premier-p550: enable Ethernet controller
-Message-ID: <20260325180330.GL111839@horms.kernel.org>
-References: <20260324073017.376-1-lizhi2@eswincomputing.com>
- <20260324073408.439-1-lizhi2@eswincomputing.com>
+	b=IuF3YWGvw9rVb3ip9/c+ttWK8jvlcYjD58J0u3wjHwEpPltSf/Z0JkY8yWhjz+qWy
+	 jnMQFZDSIJBUFv8xAOzHXhAjoVtTNl1L3o6VHHBFZfe6yTuUK5GV32jbHQp9irWkEj
+	 uC9voQAZ8/X4cBkx6JSVQHDN1oD19BNIcNRYMNfnA5/KSM256P+WzmPAHU+tiSH7mi
+	 brD9gtRfEGVKxoayq8J1j0bBjMEB/xh8pK9q2h6veOtdh7qG0axatgkK403KD9Dy+1
+	 4LTarJwt7+6zLvHUcodyUwxzmvYQM19r71R3nnWtPIXsLqKlzTbomfdSmSgSroRoBf
+	 G83DjrqHzuHNg==
+Date: Wed, 25 Mar 2026 18:16:43 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Javier Martinez Canillas <javierm@redhat.com>
+Cc: Yixun Lan <dlan@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: i2c: spacemit: k3: Add compatible
+Message-ID: <20260325-thinning-apricot-c156914803d6@spud>
+References: <20260325-02-k3-i2c-v1-0-78f29c83d9ac@kernel.org>
+ <20260325-02-k3-i2c-v1-1-78f29c83d9ac@kernel.org>
+ <87zf3w6o6q.fsf@ocarina.mail-host-address-is-not-set>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260324073408.439-1-lizhi2@eswincomputing.com>
+In-Reply-To: <87zf3w6o6q.fsf@ocarina.mail-host-address-is-not-set>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_110339_310412_A967C267 
-X-CRM114-Status: UNSURE (   8.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_111650_119002_2305124C 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +76,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3063522585267587748=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 03:34:08PM +0800, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
-> 
-> Enable the on-board Gigabit Ethernet controller on the
-> HiFive Premier P550 development board.
-> 
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> ---
->  .../dts/eswin/eic7700-hifive-premier-p550.dts | 42 ++++++++++++
->  arch/riscv/boot/dts/eswin/eic7700.dtsi        | 66 +++++++++++++++++++
->  2 files changed, 108 insertions(+)
 
-Unfortunately this does not compile:
+--===============3063522585267587748==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="PJMmZAkwfk4triIZ"
+Content-Disposition: inline
 
-$ ARCH=riscv make allmodconfig dtbs
-...
-  DTC     arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dtb
-arch/riscv/boot/dts/eswin/eic7700.dtsi:300.28-330.5: ERROR (phandle_references): /soc/ethernet@50400000: Reference to non-existent node or label "clk"
-...
 
--- 
-pw-bot: changes-requested
+--PJMmZAkwfk4triIZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Mar 25, 2026 at 02:20:13PM +0100, Javier Martinez Canillas wrote:
+> Yixun Lan <dlan@kernel.org> writes:
+>=20
+> > Add a compatible string for the I2C controller found in SpacemiT K3 SoC
+> > which use same I2C IP as K1, so make it fallback to K1 compatible.
+> >
+>=20
+> If is the same IP as K1, shouldn't the "spacemit,k1-i2c" compatible be
+> used in the k3.dtsi instead? My understanding is that this is the meaning
+> of compatible, and there's no need to add another compatible string for k=
+3.
+
+Your understanding is incorrect! What Yixun has done here is what we
+want people to do, because even if the IP is the same there can be
+differences due to integration that are problematic. Having a device
+specific compatible allows us to handle these kinds of problems if they
+crop up in the future.
+
+--PJMmZAkwfk4triIZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacQmiwAKCRB4tDGHoIJi
+0qthAP9kd3bs5AG5Rmqrqov+rI1UksYOg3k8ZWPEl0SafVYBvwD8Cxm5AxliDjKs
+5EwdvAOJXa8tCAw3rTT0sMwtNvkREwk=
+=lc5S
+-----END PGP SIGNATURE-----
+
+--PJMmZAkwfk4triIZ--
+
+
+--===============3063522585267587748==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3063522585267587748==--
+
