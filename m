@@ -4,135 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1EED106F303
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 08:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B82106F303
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 08:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gBWunGbBsXC6Otw4+4QnpqkQ/wUmyXouAOZY5j6LydY=; b=hppQO+qlxFw8HX
-	kkVJnDCN108+FvNcWea1dw7f0Utz/9h9Eff6Y26RNFEwr7YGDsteg+BABHsQTxFtl9Bw3KO5nejSh
-	2rsJfTTaNB4s0ytvjpoE1X1UG6+u4/skl+Gb2OMeOem9F3sYgNTh/aIuUV7dKQlNiADzpwf3EcFrx
-	tE/UeY6h7xbhvj/GyNDA/hltrrME+NTs3BtgH1b8X/kAR+Rjd5LLV4RmxDkGDkh2Dp/o77rshDgqr
-	Pbx9keONzLGR4VkqHLNq1XVojrMyYcBE/r9zh2IRnikj00LqmcJ5SC2pMv8huJnihIIGJ7CjHd2zi
-	fy8O4GGffWzvt17VXBOA==;
+	List-Owner; bh=Nurn+udZidh2ymAZUyewOufXofQxu3PDJOD9RT/9qQg=; b=YHzkvld8SsdfU6
+	34RZB+GJX5zmWh4jovR0OpSnLAqF5OwM7olAkYNS01HX2Wdt4mclNHTl+9Cxt1ZR3XtHxGvRliAyk
+	G/VgGLA2jpXK34wF3z1pmU8nqZ+CfQbVSusKzEHxv/gfto7wa7TXa6PtfOcXgyHzXoj+3o+CmjJES
+	rxew+T1VCZWStz32bR2zL09jDVz0tQTApc6sGnyVlcQFyuWJnmsVBvozf5hsnozicVQfn193arqql
+	QU7DUwgz8WF14IYV1xi8unA3GdbNAGVdLp8tjJ0y+Cr4b7K4bFR+cd8z+8izoQrFU2YmSljuOmzyc
+	BlvNUJmiQ8kDfPonbvtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gH8-000000052sK-2DMz;
-	Thu, 26 Mar 2026 08:41:10 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1w5gIn-000000053G0-0sEj;
+	Thu, 26 Mar 2026 08:42:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gH3-000000052qh-2LZJ
+	id 1w5gIl-000000053Fj-2t3q
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 26 Mar 2026 08:42:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=5KrwW45sM5ZLNWZHKd/Qx/J976PKoiXqfS4hEKQAF+k=; b=R2AuZnMpjPJnW+OkuOdXzJiAVD
+	kcVd2Lb54+6Hk2rKUifcHCB3DXbShqclPqMi3aQSyo8G77JTlSH1+84UDRzROskqYc4f1I8PCpxE4
+	dt+EYboAbR5v0zuL9BxfnMioO9US15adNTvngE10Fcq+dm5lmbZBIusa/GBJqqwDVIRxB4xvL7ArR
+	Gh0OZDt60RHijf82I1EvjS8xfhfVUe0NSP/Gc37/eb26adaBuHPdtbm4iz2AfF2eT2eG9tDBhBe1F
+	7HYEJ0UJM6upW9MHQGVN89zklcWXyYlFCl61KrFHcvOv1huxRzRXj1Ui8FOk8IHa3oQ9EkxjJwTpI
+	vuI1sdGA==;
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5gIi-00000007mFE-1a4I
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Mar 2026 08:41:08 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62Q8aW303958516
-	for <linux-riscv@lists.infradead.org>; Thu, 26 Mar 2026 08:41:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	UahLMjjXP4HmY+1teJYFwYlE8SFM1tviQgqBvsmUzcw=; b=kwqFVl0va4Ro4+rt
-	fFgR1pQCzXvp8Mms5DBXi0Ow2aYvPUaXH6hlIhO16WnSpOV8MwbNlmWjKWe9TKJE
-	J5coywcqs7VMaFOehqKnkiVjfyGA84VV0WzF2crMLMozmnJHtB31gFvTLueSbfT2
-	oJz/npWpybSJK7bmwLETA+J1htz3aqgcjl5OnJrb18YiV84BH13+p0O7sLaLxWWp
-	qjvKUy1ZBqwJmFSvaZsWvbGKJlGUI/ksvGuSF852jMxu8vFHlEnGMIjHl/YKvGZ1
-	YDL7/rX9w/6AkkPIYPuiFYRcd6YJpfYxMRNWh6hNffJVdy8pY1E6zmtANkTByNj1
-	7zCBdw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d4tjahc1n-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 26 Mar 2026 08:41:04 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8cfdc479f68so121953385a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Mar 2026 01:41:04 -0700 (PDT)
+	Thu, 26 Mar 2026 08:42:50 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-439af7d77f0so529514f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Mar 2026 01:42:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774514464; x=1775119264; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UahLMjjXP4HmY+1teJYFwYlE8SFM1tviQgqBvsmUzcw=;
-        b=esFW+z7sDsnt2/deeBnQpFnxlrsAEtHdGxkrVkRznLIFo85Um9rRPWThdkg3mzSl3C
-         uRTlmquJ+H6fddRgVVInC6PZeXvQGu3nuG4fUVNDWpN7Qx27LMa6pWkRSLJtUo7/wcw7
-         3EgFA2u95Nrg8fIV1ZhRoUDvv5Q3TM+snBL0XZ3HjTxmtoLzZZ5eOTyxRcnsz8AxBCMd
-         nmxandvjzSugIrPmBPaxDRX/CNoWcZatqWefzYQ0zoUiWW3izX0wc8eOCvlAbkFwwx/B
-         Kmw6AhnKM/mji42jK1T2brq9Tb3BkIZvEv8wx14MpvGRIw0MjVwNnNCMGjNdWNSHca8u
-         i4ZQ==
+        d=linaro.org; s=google; t=1774514566; x=1775119366; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5KrwW45sM5ZLNWZHKd/Qx/J976PKoiXqfS4hEKQAF+k=;
+        b=ZYd+4s+xZe31nZnbQGVe2rvyRz3y2Om4HJ/r0EI0VSMnic85o4XM1nzYnfzhhDw8ff
+         VigOxMfkXKOdo3lmoAb1Qw4uTsAderjALEAIuPjovc744jQ72gjdmAEWbFTlKTcl49Mn
+         OFg3qXeAT0Q0y1bMoJrZgJLSEbZJq5UdgzkzZEUa0Lugu7KTdybsRpOb5BRxBoVnJF+c
+         4+8FZd9R89wB4E5ia17VnzSeVftEWLWotFnhkv7QQG4rfk4b6aGX5sqPpkBAjABxQ/pK
+         H7dIggiI2DRoqu5MbVe2d+SfnQx4uqNVXQEdn6MA0vPFmA7IN69wi1wuAHqNRyDmiZcY
+         qnjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774514464; x=1775119264;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=UahLMjjXP4HmY+1teJYFwYlE8SFM1tviQgqBvsmUzcw=;
-        b=jPs052lroPQBmUNzvAe7iIsfKESxMKRS2R13YD1NtrG6o3DYiBR6sJqNvvp9rJeoIC
-         9pU8d8FWDbgmgxgnq9slY3oH7bjN/gxchK4csG/MVuMr8RgB+khrMEOwwceA8egiVOQ2
-         KNt9jHtX9ZPAxgTRtptkVPPBq6j2iHdTu76IByFmxqHmo5qOZRBBjH7oWyfAO4a2AjgT
-         oa+2KJg1SsftYXEMpgjVlQXLvUK3jFqNFGAogVlxXVAdaMSoLjPeRYfakttEUp3M7bsf
-         xPspa/akGNQc6QdeMbId5xtt/KxbLSDSaKkIv1RjDoy7H+vvbzMHvPfH56UvNvUV21EC
-         W+/w==
-X-Forwarded-Encrypted: i=1; AJvYcCW2FNgVuVYAHEme861o11koTKRYaBiTFbYKFz5Dq8/wBT7+fIB845KP2gDHY56IYl4/CRYI34HEIkZA2A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5K0RwuvrIBad4c7jgSmiDYCTvxvQhDuqPDiPhsTk1me90oolV
-	12Zp26VrhRljUWQ4LhY8r+6rjbrL2qP0N4jE2tsV82G4Fj74eDIfi9ajIyi8DKAZDNLp2o+ZQnB
-	DeZfYs2I97kcO9Wc1csMW2daHnPu8liSqs9gi6X2BMODHhGxOKP1PCWwocUC887KHiQYRUok=
-X-Gm-Gg: ATEYQzzTQwiAHqEnaFBo8VoKxgkOg4dNor7NZJ469m4B/Tt/LA2npYIdjpcP2i7VQJk
-	OIW9qwsPMu1/PHfDbelc+oQ7Z9BxxvGZ443gJLS6gMbPmkhQ2ep3IZO2TfRQ7k/I1n/O7LUTHOe
-	pxkW3eDcv/m2YjfCBG492GoEGhjVsXWY1Wi1ciCQqN68gFw7F1EcpEoATRhZbPZ1fRxHWMCrU4J
-	fn2C424wDHdbTKl+G9IqernRtL5rBKgq/pOL8iaOBGhx6ysKW+U4Zgn9dFY3My6Y7UipPjyxcjM
-	KxffaVYNiFPHGeGQEmQYXxZLXCtXThJCaAYoI3UMxTsckE249G5pDwh/9lx/Cl+wgJDWb7EXfKs
-	FWQML+uhYczpqWlChcbzokJW0IQ8cFaQaJ8dBZcxZ0X4WQjZaJDY=
-X-Received: by 2002:ac8:7e92:0:b0:50b:44cc:2a95 with SMTP id d75a77b69052e-50b80e36ab3mr91222331cf.36.1774514463719;
-        Thu, 26 Mar 2026 01:41:03 -0700 (PDT)
-X-Received: by 2002:ac8:7e92:0:b0:50b:44cc:2a95 with SMTP id d75a77b69052e-50b80e36ab3mr91222121cf.36.1774514463190;
-        Thu, 26 Mar 2026 01:41:03 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:92a5:ac13:cd81:9625])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722c845b8sm16608955e9.4.2026.03.26.01.41.01
+        d=1e100.net; s=20251104; t=1774514566; x=1775119366;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5KrwW45sM5ZLNWZHKd/Qx/J976PKoiXqfS4hEKQAF+k=;
+        b=E2qDhwshk6/wmELsRdrE8XHRt0t4ujjxyR7RK4H+gbhNH8RLogeI529lsVz+ZT6wNi
+         vQBFBIUGxa4HVCrE3MnpshRIejNwHmv7zMMHygwrasKKOZdR9/AUP72OpJ04nJl4HoNT
+         TAK8OQek98zsMUj8WSVSsafPqRTytx5TOtQOjiPF+AhjxXwimlxxvcAVeOXHbYpeOJNo
+         lbfpDdKRQmtrMOautJJpcUz6Hb9CbVA0a5CYpsxFuXebpsbjKuPocoL5vtUgzDR9VZae
+         Ll1dneNgSD/F9wNBmQxjPiD8Xcj6vM/8XRlJnqrJECH5nnfAT/7X9JRwRTeApFxtpaKB
+         2TCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVOsVAV7klzmWqQ2uOntmDstdB/IIoQB2U6jleSf/8ClKkalZX41g+5W3zSiL8rzrze6dLE35lRoei+5g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRST2BgCO7qF1tZfbZSI/mT8mRksUwHK1JIrKMGqilPj8u16Hm
+	WHr4kWW/kMAuwXCkE6Lxc2Zz70kusTE/dsiQgUvb2D/6U6E2DDBe2AZpA+JQjM/8VRo=
+X-Gm-Gg: ATEYQzyue1LbuDi92wxR6UDYYiXddZ5VOR64mbOJaTBU1vryZkvWd7zQm//vRCHKYm/
+	0ZLBXzWkSMZF9PcWeyF4ddbpoB9KDtv5fUNgtTxSBUUqCrF46oe/2T2SMQ1uyq9tjvVw5Q0oj5m
+	+6/u8mo2Gto/7rvKEsps7ixx5CU3ijiJVuVmOXH2EFofu94/l4x0dRhNNFu6sTc0nhRSxRTa7N0
+	JLr2QQmHCWuKsAqFeIxXjKfPqWhbGfA7EeptxB+LRg8nBZmyEmReD2XxxDYULl3R+NDWYc5BGBh
+	CFsdR7VJm3vQ8YhDXi/LJ9NWYMtTSCgautSFJ4I0J5aTxJoedAVdDFqISvr+3bJXaZMpriaYQ+/
+	XP+NXxEjCXJNP4i7PUdC4qE9PtxCl8uaNsn+OjI4gSUiRM/Ft3UOMotZVHJTmzJo1c7GgaYlp7z
+	EqsAvK9XcPInNXyVC+dS2yDAUBxiES
+X-Received: by 2002:a05:6000:2385:b0:43b:4396:674f with SMTP id ffacd0b85a97d-43b88a0d0b0mr10208058f8f.55.1774514566156;
+        Thu, 26 Mar 2026 01:42:46 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b919e7372sm7729788f8f.34.2026.03.26.01.42.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 01:41:02 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Arnd Bergmann <arnd@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Arnd Bergmann <arnd@arndb.de>, Yixun Lan <dlan@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] gpio: fix up CONFIG_OF dependencies
-Date: Thu, 26 Mar 2026 09:41:00 +0100
-Message-ID: <177451445822.5060.11939390617609457696.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260325100144.1696731-1-arnd@kernel.org>
-References: <20260325100144.1696731-1-arnd@kernel.org>
+        Thu, 26 Mar 2026 01:42:45 -0700 (PDT)
+Date: Thu, 26 Mar 2026 11:42:37 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
+	ulf.hansson@linaro.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1] firmware: thead: Fix buffer overflow and use standard
+ endian macros
+Message-ID: <acTxfcRffVT6SuBm@stanley.mountain>
+References: <CGME20250403131056eucas1p16076c6e4dce1f1217dc327250c419e37@eucas1p1.samsung.com>
+ <20250403131051.1097423-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Proofpoint-ORIG-GUID: 2k0OJ_Zg-r8QnW0LkapLcvlrRXeetm3v
-X-Authority-Analysis: v=2.4 cv=Nr3cssdJ c=1 sm=1 tr=0 ts=69c4f120 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=faeRYzTSnDSNNYB9Nk0A:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-GUID: 2k0OJ_Zg-r8QnW0LkapLcvlrRXeetm3v
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI2MDA2MiBTYWx0ZWRfX5BPSF691mRNN
- t8oFH2rWSPnYBk3Hh8y0sHq4QUF1PtiKb9PFl0/UTcGRIUbu5Wm+Ir4P3Kp1DrqdmBFttPkMciM
- 3bbEt40oR8hB+nFyp3w8tnVaVCUW/onXySXUtEL+S6d8mijeFoFI1FpsKMBJAxcVZx2RME9h+Hw
- lRsV61ln4kcIE30RbXUWuATeUIqmnASV60MWjQTm+sti4GSJdMmRjqmya1DN2URMVPX/qUDQzwc
- rMxbzcOTEnIAUj4TDlsnIJCS+ajgoPa3yHJSxNr0yj0G33l+S5oQzs5t+PTpAflAwCws2aunVig
- BD2ZW8g/8CQYa+o97oUi1Wvl67Vsqak2uxN3TQn6D/mx1QBSAfq2JR9x/LUB1Fi3HQuY//od9tj
- Zl8z5T7t2vNm0Ldc5PRRbH4ATiw+oNR9J1T9IiXQ++bdxil2of85dVp+bzXttfTe1DfkELOslXN
- Gnx31d9XsoVoiG0DZWQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-26_02,2026-03-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 impostorscore=0 bulkscore=0 adultscore=0
- priorityscore=1501 lowpriorityscore=0 phishscore=0 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603260062
+Content-Disposition: inline
+In-Reply-To: <20250403131051.1097423-1-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_014105_730594_43A8EDF1 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260326_084248_521672_0EBCFB49 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,26 +116,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 25 Mar 2026 11:01:14 +0100, Arnd Bergmann wrote:
-> A number of GPIO drivers that used to have a CONFIG_OF_GPIO dependency now fail
-> to build on targets without CONFIG_OF:
+On Thu, Apr 03, 2025 at 03:10:51PM +0200, Michal Wilczynski wrote:
+> Addresses two issues in the TH1520 AON firmware protocol driver:
 > 
-> WARNING: unmet direct dependencies detected for GPIO_SYSCON
->   Depends on [n]: GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && OF [=n]
->   Selected by [y]:
->   - GPIO_SAMA5D2_PIOBU [=y] && GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && (ARCH_AT91 || COMPILE_TEST [=y])
+> 1. Fix a potential buffer overflow where the code used unsafe pointer
+>    arithmetic to access the 'mode' field through the 'resource' pointer
+>    with an offset. This was flagged by Smatch static checker as:
+>    "buffer overflow 'data' 2 <= 3"
 > 
-> [...]
+> 2. Replace custom RPC_SET_BE* and RPC_GET_BE* macros with standard
+>    kernel endianness conversion macros (cpu_to_be16, etc.) for better
+>    portability and maintainability.
+> 
+> The functionality was re-tested with the GPU power-up sequence,
+> confirming the GPU powers up correctly and the driver probes
+> successfully.
+> 
+> [   12.702370] powervr ffef400000.gpu: [drm] loaded firmware
+> powervr/rogue_36.52.104.182_v1.fw
+> [   12.711043] powervr ffef400000.gpu: [drm] FW version v1.0 (build
+> 6645434 OS)
+> [   12.719787] [drm] Initialized powervr 1.0.0 for ffef400000.gpu on
+> minor 0
+> 
+> Fixes: e4b3cbd840e5 ("firmware: thead: Add AON firmware protocol driver")
+> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Closes: https://lore.kernel.org/all/17a0ccce-060b-4b9d-a3c4-8d5d5823b1c9@stanley.mountain/
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
 
-Applied, thanks!
+This is nice.
 
-[1/1] gpio: fix up CONFIG_OF dependencies
-      https://git.kernel.org/brgl/c/af475c16bc02a08ed6af6ca0c920f98a45611fe6
+Reviewed-by: Dan Carpenter <dan.carpenter@linaro.org>
 
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+regards,
+dan carpenter
+
 
 _______________________________________________
 linux-riscv mailing list
