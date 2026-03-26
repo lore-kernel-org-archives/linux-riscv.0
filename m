@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 794C810AB801
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 18:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD24610AB80C
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 19:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MCk+OqiVWC0ji3fbHLpm7O5oNLTTAwyZPSv4O660s90=; b=VacmOkMcM0TlZJ
-	47to5GAlf/vM2hIxEeJcoyR7zmM/TrmdaEnfmcWjuPpMqmAk9ecelt+kfboNCt/0JvMom53pafGGl
-	CtCRidWwkZlk3JxKuFBICFxFk8ZYwI7R7nxDr2GKIUPgE8aPIGZwgcKgDv3/s7eyN8F0s5xeT5WLD
-	B9QC9OH+wDZrc8xbNGelgZ8/KQEjUHakAmXronQps5vH/EgCEgWPkCNVa2EAmtazsFuTFugLdZc5M
-	91Yk+dvDtO3KxZz+N58LT1/A/ocv8OCYsLvbe1bEo8fthQMDlhSy1oMU985yk/aEqFNP887iSHNXQ
-	zct1H6nk5vBk5xupJbwg==;
+	List-Owner; bh=9x1xrcQvYRJR3sB9up3RUiZQVb5+DT98nxlF+gw+LDs=; b=jcbfktRJAHD/Nb
+	ghLKGTIQZHnUQJPLs3cAA3v1RCBae67jIB7i9zYs2GOH9CPpGRAKI4t7pi45ALG5Qcj+/gPMHxGd5
+	cWDt+4/w5CxdJM7rje83UtSil8LLBrRoz2axazgAG1/0UIumUUfmBmQkLD3MlwNgl9iliuX5BI34M
+	jaiLqztRo87hGHnc1tWNwNEJZ0y1Rsbb1/G0PCUtHMFNxb+xOIcVIzzFjTElgvKLB3AIboZFEO265
+	Yv9SGk4kY0K1Th7u6B2ZiuMRBsjQJTv7qSXrp13fe/P9wX5KX5IqOPbJR3MW+5Kso6seKKmqYefMS
+	waIp5N+67uV19nRz/sDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pau-000000063AI-1kYA;
-	Thu, 26 Mar 2026 18:38:12 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1w5q9n-000000065q0-08LE;
+	Thu, 26 Mar 2026 19:14:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pap-00000006363-3qoO
+	id 1w5q9k-000000065pe-0UOM
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Mar 2026 18:38:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=3on1Dl9hWGjs68TWWHrwVaSnOV+T0jR1PO3sYA88TQ4=; b=hJiSQDphQUuf9rSArYSlR5Vsg/
-	b+fDKy2WRFniSRVCyGy1MsMD9ZV4dgerQvWFf8dj0B3XpDkpaNXzuqPiZuKoU6ByffzbXdf/pGVK5
-	lv5CY8DjUE9hFZ4b6hSflsGSvY5vqQsq3g9dC6SKrCvv3bUcxZ2DUa04dHcZLWGEmLds9sqQKiapj
-	GNuNZweiAogLQ0WroozF2sgJqtoOXjaja/48syRRpBRbGn13fQ8ZTYMgRO1lP5KePgl2wCCZ5Wvor
-	rcZRJcS0P6J2JecOm+Vgs9xmGmU70EXGzMg+VMdb4w0b7EFw0hBDnSYmoXaNr9nleLXB3T9Ci6G+I
-	ZEqg9OhQ==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1w5pan-0000000GAjq-1QCF;
-	Thu, 26 Mar 2026 19:38:05 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>
-Cc: Aurelien Jarno <aurelien@aurel32.net>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
-	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Subject: [PATCH v2 4/6] riscv: dts: spacemit: enable QSPI and add SPI NOR on Milk-V Jupiter
-Date: Thu, 26 Mar 2026 19:35:32 +0100
-Message-ID: <20260326183745.1370642-5-aurelien@aurel32.net>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260326183745.1370642-1-aurelien@aurel32.net>
-References: <20260326183745.1370642-1-aurelien@aurel32.net>
+	Thu, 26 Mar 2026 19:14:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D060D40AE2;
+	Thu, 26 Mar 2026 19:14:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87833C116C6;
+	Thu, 26 Mar 2026 19:14:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774552450;
+	bh=XPkKuAmS1FrAmeq9f1O5w4bxL4MZd+YzwQlOdwFrkPk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KgQvVG3XTA98t5PzoqUFDpF70q2V7DDzuagpZKMg0BWvc0V8aSlc8lMS+zmamJdzA
+	 KL0XM0h9wbssXGphYfGXwIZZpcukb1mPktrz1GRgafewDqqw45wChxvUKM9QV9Daib
+	 ogqrg7+SjZWBgOTo2b645BIS+fW4xN4ULZABC3mQ6Q3GV8tcJDpUYrrJoQocQFT6ms
+	 JlhjV/V89y00ClsG32bwh1S+CysEv96xb43lxCkVdjj2LQfMlcF6yOX7kupEsM7vUX
+	 k4uvw7J07BK4Pk3v6oB6V/2zQvX3fTZ5BfslWoeBvVr7EXpjuF+7xwn9JHZULNkyne
+	 KtzBMMxiE+kcw==
+Date: Thu, 26 Mar 2026 12:14:09 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
+	ulf.hansson@linaro.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Dan Carpenter <dan.carpenter@linaro.org>
+Subject: Re: [PATCH v1] firmware: thead: Fix buffer overflow and use standard
+ endian macros
+Message-ID: <acWFgZ8swY60lfDV@x1>
+References: <CGME20250403131056eucas1p16076c6e4dce1f1217dc327250c419e37@eucas1p1.samsung.com>
+ <20250403131051.1097423-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250403131051.1097423-1-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_113808_076587_BA706C01 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20260326_121412_180600_178F0954 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,95 +77,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the QSPI controller node for the Milk-V Jupiter board and describe
-the attached SPI NOR flash (GD25Q64E).
+On Thu, Apr 03, 2025 at 03:10:51PM +0200, Michal Wilczynski wrote:
+> Addresses two issues in the TH1520 AON firmware protocol driver:
+> 
+> 1. Fix a potential buffer overflow where the code used unsafe pointer
+>    arithmetic to access the 'mode' field through the 'resource' pointer
+>    with an offset. This was flagged by Smatch static checker as:
+>    "buffer overflow 'data' 2 <= 3"
+> 
+> 2. Replace custom RPC_SET_BE* and RPC_GET_BE* macros with standard
+>    kernel endianness conversion macros (cpu_to_be16, etc.) for better
+>    portability and maintainability.
+> 
+> The functionality was re-tested with the GPU power-up sequence,
+> confirming the GPU powers up correctly and the driver probes
+> successfully.
+> 
+> [   12.702370] powervr ffef400000.gpu: [drm] loaded firmware
+> powervr/rogue_36.52.104.182_v1.fw
+> [   12.711043] powervr ffef400000.gpu: [drm] FW version v1.0 (build
+> 6645434 OS)
+> [   12.719787] [drm] Initialized powervr 1.0.0 for ffef400000.gpu on
+> minor 0
+> 
+> Fixes: e4b3cbd840e5 ("firmware: thead: Add AON firmware protocol driver")
+> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Closes: https://lore.kernel.org/all/17a0ccce-060b-4b9d-a3c4-8d5d5823b1c9@stanley.mountain/
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 
-The flash supports a frequency up to 133MHz (80 MHz for reads), and the
-SoC supports a frequency up to 104 MHz. However tests have shown that
-the flash is not reliably detected above 26.5 MHz, consistent with
-frequency used in the vendor kernel. Therefore, use this frequency.
+Acked-by: Drew Fustini <fustini@kernel.org>
 
-The m25p,fast-read properties is taken from the vendor kernel, and the
-GD25Q64E datasheet confirms tha the fast read opcodes are supported.
+Is Ulf the person that would take this fix?
 
-Add a corresponding flash partition layout, matching the layout and the
-names used in the vendor U-Boot.
-
-Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
----
- .../boot/dts/spacemit/k1-milkv-jupiter.dts    | 43 ++++++++++++++++++-
- 1 file changed, 42 insertions(+), 1 deletion(-)
-
-v2:
- - Remove bootph-pre-ram property from SPI NOR flash and update the patch description accordingly
- - Mention that the fast read opcodes is marked as supported in the datasheet
- - Collect Reviewed-by:
-
-diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-index 836311c3f035c..bac6438c67532 100644
---- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-@@ -173,7 +173,7 @@ buck3_1v8: buck3 {
- 				regulator-always-on;
- 			};
- 
--			buck4 {
-+			buck4_3v3: buck4 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3300000>;
- 				regulator-ramp-delay = <5000>;
-@@ -256,6 +256,47 @@ dldo7 {
- 	};
- };
- 
-+&qspi {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&qspi_cfg>;
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <26500000>;
-+		spi-rx-bus-width = <4>;
-+		spi-tx-bus-width = <4>;
-+		vcc-supply = <&buck4_3v3>; /* QSPI_VCC1833 */
-+		m25p,fast-read;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			bootinfo@0 {
-+				reg = <0x0 0x10000>;
-+			};
-+			private@10000 {
-+				reg = <0x10000 0x10000>;
-+			};
-+			fsbl@20000 {
-+				reg = <0x20000 0x40000>;
-+			};
-+			env@60000 {
-+				reg = <0x60000 0x10000>;
-+			};
-+			opensbi@70000 {
-+				reg = <0x70000 0x30000>;
-+			};
-+			uboot@a00000 {
-+				reg = <0xa0000 0x760000>;
-+			};
-+		};
-+	};
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_2_cfg>;
--- 
-2.51.0
-
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
