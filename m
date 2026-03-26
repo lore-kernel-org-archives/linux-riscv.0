@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAA310AB82B
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 22:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E8A10AB82A
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 22:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KpgaWh3U1MIwrl+9jx/9AgNRk0Wowo7CiXKpo9JxWjo=; b=bUdyDD+kgWs5l1
-	Z+VQ2xtKS/YvezNS77Ua9I2T4Y5J6JDZXska9JxNfqhtYO9ceQqq6sUHikeNGmrgIY3wTJpKxDrIP
-	yYAehjj4HU4/Q02a2Z0FdpndiNzwiy4Hl6fhGWgDMNJhtXWrPUsXnbc3q32MStZLF9tRMzpI+wzHZ
-	SF70L+xk+cHbInt/sml/sJmQsnu1FwO8jPFbw2Q4dsHBMTEg3jEoKPG6LhYChDzjFqFlqEfQe57NL
-	8KPZ9xP8V5a8NMqbAH8Uku+ABouWI016ts0Z9EGEpLUYZPZq1OOIzJD/X2vmLdRz2CZmJwaWypz8n
-	7oZfO9iCZ/GwIeE+1MxA==;
+	List-Owner; bh=4kv0cYB1D6cev46vxA+kplQeOJozek+2Gaou22Qw4Kk=; b=BLZ0RlkiGvScUa
+	ofapOLjQjG2TNSeBYoeoTPUQ7DT6KRX3weZYOZuOgErZeBPbfQzjl0jC/hvrhLSlIHMcID0bM0CEk
+	IRHxJ7bimq3xMso5XZIZ+Tx3C/YHIu6QSg2HmaoDLGO1mpobS3ROSfNUFcl4SlTkDRxvSwAHtVKNn
+	fr+K2DRTvP/unGrGddortJ5kNEG3DBjwoCCRj2yoN//4m58WMbaKzfLND0U2ZO1E2QUQK5naptIwS
+	zDNvoQzg6b6od4iIzOVqxCfP9oFP7q7+Vwi9PliQqWnmMtAk6GqG+RmXb4of5VZ2I8FA6Wf1epGRo
+	pzpOg9LA6O+VKbEKR81Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5t6a-00000006Jh0-1qkk;
-	Thu, 26 Mar 2026 22:23:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w5t8O-00000006Juo-0GBJ;
+	Thu, 26 Mar 2026 22:25:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5t6Z-00000006Jgp-32xD
+	id 1w5t8L-00000006Jta-3ZPR
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Mar 2026 22:23:07 +0000
+	Thu, 26 Mar 2026 22:24:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E07D60054;
-	Thu, 26 Mar 2026 22:23:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69B46C116C6;
-	Thu, 26 Mar 2026 22:23:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 71D8944593;
+	Thu, 26 Mar 2026 22:24:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5274FC4AF11;
+	Thu, 26 Mar 2026 22:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774563786;
-	bh=ROCHNfrbiVNl5Zqs4yioqi28PWLJ543gNykCvWuEADI=;
+	s=k20201202; t=1774563890;
+	bh=vXuZILi71R68LcfYH5ZVtFEJI1fOBMAeL2azpItnV38=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DIWyTSD0T/3wABk4ooxkzUF574ktOvykn2aryCP3u7klsq9jEusnhLa6oukJffs0/
-	 ILiyudB+C3dg9zvHm/DyzoqIdXN1TZbGXXnjFgWkNRa1Ekk88VeKZzNmpma+0mg2eZ
-	 9UEF9QoUqsHNsCHi6V6MC2mQqGEKwhE64xAuIi9ZlcRGOvbg8mgS+SFxINzzxFOCMo
-	 g72Rpt3Q9Zb5jb+Xeyotj65zN5W7RfKr0Mp4j52VOc0uVYzZV3pic6IWRrF0ntsLrQ
-	 /1XHnnHfudzKwLr3MSK2LgOF0vWSqe/Qh3UDoOXNQTJmGBZjwqxpub8TFkHLheCtEC
-	 A3d5LMj2AeKgQ==
-Date: Thu, 26 Mar 2026 23:23:03 +0100
+	b=X2iLVf4Tpjd7p1ZSPkG5AUk1EyB0jDrUVuaqqZhpeym2Eh5ODVnN46NA2Iw0BGcwq
+	 /Y9KXrhYIqTwBGYWpEbhoMkaa8B0HY1VEOxGn8cvMDn5vNlLNO1N0z4O8bp3Uo0MZo
+	 rh/1YukX9BqVYG7qDCW9qm9ng0XIikbZxtzhdddm8sW8emc6ELg4jYegR9mXG9bPz6
+	 qjESwrjhBkXCG7yV+0YucrABtn4kJLKLP6krPJCXofasuixxaqRI4RN4evTnuOhnp2
+	 lF+c87aVcSaBq2w/8z1sgPTSBDuBKl9tOCtC+2ljFevbkUUMJOCHkSg3nVVpghgpuT
+	 lO7vu3LtSX4qg==
+Date: Thu, 26 Mar 2026 23:24:45 +0100
 From: Andi Shyti <andi.shyti@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, 
+To: Yixun Lan <dlan@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-i2c@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH 2/2] dts: riscv: spacemit: k3: Add i2c nodes
-Message-ID: <acWxqkR8Z0rwe4hI@zenone.zhora.eu>
+Message-ID: <acWx_31uT2ffcaSN@zenone.zhora.eu>
 References: <20260325-02-k3-i2c-v1-0-78f29c83d9ac@kernel.org>
  <20260325-02-k3-i2c-v1-2-78f29c83d9ac@kernel.org>
- <DHBSTI0A3SOW.PCIP544HUYP4@linux.spacemit.com>
+ <acWxJNK_vZca_xCZ@zenone.zhora.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <DHBSTI0A3SOW.PCIP544HUYP4@linux.spacemit.com>
+In-Reply-To: <acWxJNK_vZca_xCZ@zenone.zhora.eu>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_152457_930625_559E2FA7 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +78,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yixun,
+Hi agagin,
 
-> > +		i2c2: i2c@d4012000 {
-> > +			compatible = "spacemit,k3-i2c", "spacemit,k1-i2c";
-> > +			reg = <0x0 0xd4012000 0x0 0x38>;
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +			interrupts = <38 IRQ_TYPE_LEVEL_HIGH>;
-> > +			clocks = <&syscon_apbc CLK_APBC_TWSI2>,
-> > +				 <&syscon_apbc CLK_APBC_TWSI2_BUS>;
-> > +			clock-names = "func", "bus";
-> > +			clock-frequency = <400000>;
-> > +			resets = <&syscon_apbc RESET_APBC_TWSI2>;
-> > +			status = "disabled";
-> > +		};
-> I think we should add a comment here to explain why there isn't i2c3.
-> Otherwise, LGTM.
+On Thu, Mar 26, 2026 at 11:22:31PM +0100, Andi Shyti wrote:
+> On Wed, Mar 25, 2026 at 09:49:25AM +0000, Yixun Lan wrote:
+> > Populate all I2C devicetree nodes for SpacemiT K3 SoC.
+> > 
+> > Signed-off-by: Yixun Lan <dlan@kernel.org>
+> 
+> this second patch does not apply on my i2c branch. I'm missing
+> some other patches on k3.
+> 
+> Can you please rebase it on top of my i2c/i2c-host branch,
+> otherwise I will need to wait for the merge window to open in
+> order to take this.
 
-are you going to add a comment here?
+sorry, this has to go through some other path, I'm going to take
+patch 1.
 
-> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Andi
 
 _______________________________________________
 linux-riscv mailing list
