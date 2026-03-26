@@ -4,102 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B82106F303
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 08:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E086106F307
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 08:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
+	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nurn+udZidh2ymAZUyewOufXofQxu3PDJOD9RT/9qQg=; b=YHzkvld8SsdfU6
-	34RZB+GJX5zmWh4jovR0OpSnLAqF5OwM7olAkYNS01HX2Wdt4mclNHTl+9Cxt1ZR3XtHxGvRliAyk
-	G/VgGLA2jpXK34wF3z1pmU8nqZ+CfQbVSusKzEHxv/gfto7wa7TXa6PtfOcXgyHzXoj+3o+CmjJES
-	rxew+T1VCZWStz32bR2zL09jDVz0tQTApc6sGnyVlcQFyuWJnmsVBvozf5hsnozicVQfn193arqql
-	QU7DUwgz8WF14IYV1xi8unA3GdbNAGVdLp8tjJ0y+Cr4b7K4bFR+cd8z+8izoQrFU2YmSljuOmzyc
-	BlvNUJmiQ8kDfPonbvtg==;
+	List-Owner; bh=LpRFp8sbJiU094KeHPI2EeQdo/5MRsJehBPLOMueooM=; b=vDw0NaKQmmblTz
+	v7lsE7Lw5iBWwNjwqK0uPfxHkpRHoLOw9+pH/MCTNDByIVbGnob5DEBuiJwZQQaCD2P5rRNV4zRbG
+	V3azW80bKvu/2V6O7sr9HeMkFnGA0p1L7llpAJlArNTfnN+qR9gG8pQboYdasNhxPByg7CeYIAaTz
+	qsEvWmXPkVe3MQXg+fAMYpPqxWTXFrmG1k8f3giJUusv2URgPsBRv36OQh9CJQePINGBiyFqpQ9jL
+	67b/LTGBjFaG+maYMOQlffD4a8praG2w5YWYp/Z7k3IZuqw2Kedpkc3k8qnzL7OAUTh3a68neMNKx
+	zj/LXQb1P19CQb3/WNrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gIn-000000053G0-0sEj;
-	Thu, 26 Mar 2026 08:42:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w5gXH-0000000559o-2WDW;
+	Thu, 26 Mar 2026 08:57:51 +0000
+Received: from out-174.mta1.migadu.com ([95.215.58.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gIl-000000053Fj-2t3q
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 26 Mar 2026 08:42:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5KrwW45sM5ZLNWZHKd/Qx/J976PKoiXqfS4hEKQAF+k=; b=R2AuZnMpjPJnW+OkuOdXzJiAVD
-	kcVd2Lb54+6Hk2rKUifcHCB3DXbShqclPqMi3aQSyo8G77JTlSH1+84UDRzROskqYc4f1I8PCpxE4
-	dt+EYboAbR5v0zuL9BxfnMioO9US15adNTvngE10Fcq+dm5lmbZBIusa/GBJqqwDVIRxB4xvL7ArR
-	Gh0OZDt60RHijf82I1EvjS8xfhfVUe0NSP/Gc37/eb26adaBuHPdtbm4iz2AfF2eT2eG9tDBhBe1F
-	7HYEJ0UJM6upW9MHQGVN89zklcWXyYlFCl61KrFHcvOv1huxRzRXj1Ui8FOk8IHa3oQ9EkxjJwTpI
-	vuI1sdGA==;
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gIi-00000007mFE-1a4I
+	id 1w5gXF-0000000556x-0wmm
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Mar 2026 08:42:50 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-439af7d77f0so529514f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Mar 2026 01:42:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774514566; x=1775119366; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5KrwW45sM5ZLNWZHKd/Qx/J976PKoiXqfS4hEKQAF+k=;
-        b=ZYd+4s+xZe31nZnbQGVe2rvyRz3y2Om4HJ/r0EI0VSMnic85o4XM1nzYnfzhhDw8ff
-         VigOxMfkXKOdo3lmoAb1Qw4uTsAderjALEAIuPjovc744jQ72gjdmAEWbFTlKTcl49Mn
-         OFg3qXeAT0Q0y1bMoJrZgJLSEbZJq5UdgzkzZEUa0Lugu7KTdybsRpOb5BRxBoVnJF+c
-         4+8FZd9R89wB4E5ia17VnzSeVftEWLWotFnhkv7QQG4rfk4b6aGX5sqPpkBAjABxQ/pK
-         H7dIggiI2DRoqu5MbVe2d+SfnQx4uqNVXQEdn6MA0vPFmA7IN69wi1wuAHqNRyDmiZcY
-         qnjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774514566; x=1775119366;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5KrwW45sM5ZLNWZHKd/Qx/J976PKoiXqfS4hEKQAF+k=;
-        b=E2qDhwshk6/wmELsRdrE8XHRt0t4ujjxyR7RK4H+gbhNH8RLogeI529lsVz+ZT6wNi
-         vQBFBIUGxa4HVCrE3MnpshRIejNwHmv7zMMHygwrasKKOZdR9/AUP72OpJ04nJl4HoNT
-         TAK8OQek98zsMUj8WSVSsafPqRTytx5TOtQOjiPF+AhjxXwimlxxvcAVeOXHbYpeOJNo
-         lbfpDdKRQmtrMOautJJpcUz6Hb9CbVA0a5CYpsxFuXebpsbjKuPocoL5vtUgzDR9VZae
-         Ll1dneNgSD/F9wNBmQxjPiD8Xcj6vM/8XRlJnqrJECH5nnfAT/7X9JRwRTeApFxtpaKB
-         2TCg==
-X-Forwarded-Encrypted: i=1; AJvYcCVOsVAV7klzmWqQ2uOntmDstdB/IIoQB2U6jleSf/8ClKkalZX41g+5W3zSiL8rzrze6dLE35lRoei+5g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRST2BgCO7qF1tZfbZSI/mT8mRksUwHK1JIrKMGqilPj8u16Hm
-	WHr4kWW/kMAuwXCkE6Lxc2Zz70kusTE/dsiQgUvb2D/6U6E2DDBe2AZpA+JQjM/8VRo=
-X-Gm-Gg: ATEYQzyue1LbuDi92wxR6UDYYiXddZ5VOR64mbOJaTBU1vryZkvWd7zQm//vRCHKYm/
-	0ZLBXzWkSMZF9PcWeyF4ddbpoB9KDtv5fUNgtTxSBUUqCrF46oe/2T2SMQ1uyq9tjvVw5Q0oj5m
-	+6/u8mo2Gto/7rvKEsps7ixx5CU3ijiJVuVmOXH2EFofu94/l4x0dRhNNFu6sTc0nhRSxRTa7N0
-	JLr2QQmHCWuKsAqFeIxXjKfPqWhbGfA7EeptxB+LRg8nBZmyEmReD2XxxDYULl3R+NDWYc5BGBh
-	CFsdR7VJm3vQ8YhDXi/LJ9NWYMtTSCgautSFJ4I0J5aTxJoedAVdDFqISvr+3bJXaZMpriaYQ+/
-	XP+NXxEjCXJNP4i7PUdC4qE9PtxCl8uaNsn+OjI4gSUiRM/Ft3UOMotZVHJTmzJo1c7GgaYlp7z
-	EqsAvK9XcPInNXyVC+dS2yDAUBxiES
-X-Received: by 2002:a05:6000:2385:b0:43b:4396:674f with SMTP id ffacd0b85a97d-43b88a0d0b0mr10208058f8f.55.1774514566156;
-        Thu, 26 Mar 2026 01:42:46 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b919e7372sm7729788f8f.34.2026.03.26.01.42.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 01:42:45 -0700 (PDT)
-Date: Thu, 26 Mar 2026 11:42:37 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
-	ulf.hansson@linaro.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1] firmware: thead: Fix buffer overflow and use standard
- endian macros
-Message-ID: <acTxfcRffVT6SuBm@stanley.mountain>
-References: <CGME20250403131056eucas1p16076c6e4dce1f1217dc327250c419e37@eucas1p1.samsung.com>
- <20250403131051.1097423-1-m.wilczynski@samsung.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250403131051.1097423-1-m.wilczynski@samsung.com>
+	Thu, 26 Mar 2026 08:57:50 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1774515456;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LeMHr0vQhEqNCiIKwsjdNZuAZi/ehFggVflJyU2swJM=;
+	b=oymjH/VJae0r8yWcQwTxer+tBfPHSqNf+gIzDk0yXoYH5lcNkO0Vg8qvcUcjsXrjoHqD+F
+	8GFTSup1x5vIqCLYxdt4IIY82haWJmX1XZXytWYyZLHALrJzvph/hTIDlUi1BkGilaYGwF
+	4RVcFbq9nf/9fyq6EYl0DdatxeU0xH0=
+Date: Thu, 26 Mar 2026 16:56:20 +0800
+Message-Id: <DHCL7BLD4KP9.2W648STZ3YV7E@linux.dev>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Ze Huang" <huang.ze@linux.dev>
+To: "Felix Gu" <ustc.gu@gmail.com>, "Vinod Koul" <vkoul@kernel.org>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Yixun Lan" <dlan@kernel.org>, "Ze
+ Huang" <huang.ze@linux.dev>
+Cc: <linux-phy@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] phy: spacemit: Remove incorrect clk_disable() in
+ spacemit_usb2phy_init()
+References: <20260326-k1-usb3-v1-1-0c2b6adf5185@gmail.com>
+In-Reply-To: <20260326-k1-usb3-v1-1-0c2b6adf5185@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_084248_521672_0EBCFB49 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260326_015749_418019_B33B3394 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,42 +71,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 03:10:51PM +0200, Michal Wilczynski wrote:
-> Addresses two issues in the TH1520 AON firmware protocol driver:
-> 
-> 1. Fix a potential buffer overflow where the code used unsafe pointer
->    arithmetic to access the 'mode' field through the 'resource' pointer
->    with an offset. This was flagged by Smatch static checker as:
->    "buffer overflow 'data' 2 <= 3"
-> 
-> 2. Replace custom RPC_SET_BE* and RPC_GET_BE* macros with standard
->    kernel endianness conversion macros (cpu_to_be16, etc.) for better
->    portability and maintainability.
-> 
-> The functionality was re-tested with the GPU power-up sequence,
-> confirming the GPU powers up correctly and the driver probes
-> successfully.
-> 
-> [   12.702370] powervr ffef400000.gpu: [drm] loaded firmware
-> powervr/rogue_36.52.104.182_v1.fw
-> [   12.711043] powervr ffef400000.gpu: [drm] FW version v1.0 (build
-> 6645434 OS)
-> [   12.719787] [drm] Initialized powervr 1.0.0 for ffef400000.gpu on
-> minor 0
-> 
-> Fixes: e4b3cbd840e5 ("firmware: thead: Add AON firmware protocol driver")
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Closes: https://lore.kernel.org/all/17a0ccce-060b-4b9d-a3c4-8d5d5823b1c9@stanley.mountain/
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+On Thu Mar 26, 2026 at 12:23 AM CST, Felix Gu wrote:
+> When clk_enable() fails, the clock was never enabled. Calling
+> clk_disable() in this error path is incorrect.
+>
+> Remove the spurious clk_disable() call from the error handling
+> in spacemit_usb2phy_init().
+>
+> Fixes: fe4bc1a08638 ("phy: spacemit: support K1 USB2.0 PHY controller")
+> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 > ---
+>  drivers/phy/spacemit/phy-k1-usb2.c | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
+> index 9215d0b223b2..e8c1e26428a9 100644
+> --- a/drivers/phy/spacemit/phy-k1-usb2.c
+> +++ b/drivers/phy/spacemit/phy-k1-usb2.c
+> @@ -97,7 +97,6 @@ static int spacemit_usb2phy_init(struct phy *phy)
+>  	ret = clk_enable(sphy->clk);
+>  	if (ret) {
+>  		dev_err(&phy->dev, "failed to enable clock\n");
+> -		clk_disable(sphy->clk);
+>  		return ret;
+>  	}
+>  
+>
+> ---
+> base-commit: 85964cdcad0fac9a0eb7b87a0f9d88cc074b854c
+> change-id: 20260326-k1-usb3-f6a52f413616
+>
+> Best regards,
 
-This is nice.
+Indeed, thanks for catching this.
 
-Reviewed-by: Dan Carpenter <dan.carpenter@linaro.org>
-
-regards,
-dan carpenter
-
+Reviewed-by: Ze Huang <huang.ze@linux.dev>
 
 _______________________________________________
 linux-riscv mailing list
