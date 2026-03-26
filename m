@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD7C109E540
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 03:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7094C109E543
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 04:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v0sfGsORcEEHF9NDBKgeba/2J4sx0YgS+DtGKbuFDUs=; b=gCviX2ynJBXqy1
-	EStcVEBYhLmkuhOabDfSxmfjREDbhFaelpdJM4DZGLsC1Y/YADkNIz0gFkjYlc+2g0lLlNcPX133r
-	AeXkiJI4NIegXsD34irv7XGJuydQjocJaN+zs1KyH4ipMWug2UozkIRsfFYvw4Xgs9MpjihfJSElk
-	mtWeQYzQnxno7DkYGYf8QhF7LZA8AAWnFTWgJtyXLVqjMX7K1iQ+N/hDLOGi5b/FW/3PXHjx8SI4J
-	VLA6Sh1YdMpn4FyYoiQH4hc/b2lEaA4PBs+yGS/vqq0I4laUBnsK2GNFb0ePQt8YHbiecUELHp8+z
-	pv37WCDFRN5jmO0wsIcQ==;
+	List-Owner; bh=y17oJuUbA6vneI9BGrcha1+sfPv9IBxH2eiml4LrMV8=; b=IbXcrNazMAcRxy
+	wNQOBaKDZyfYY0dwC7jgVJSwjcmnSEYieounUar8bE1gIC3nQsYZF7Q37PO5JhS20Ixz5azaRa7Ey
+	HeI8xmLUikVhWZ/rszkxRBNO+7Ju7o5alxOZwh95iEIZi2H9HeWGawQW2PbVtxscqAQIINQeDso5H
+	a5et0vu/iYs/v5ZswiaeSPMe4Byd5OwxYZ8UBuUQeLiH0IOGVySkY8cRk98A5e2OWC1zHkh8qJ0SC
+	vlN1vet5aIVyZz8kiWJtlivMnft8p8Pt08ryTnGm3VvSvoWpHduSjEumjLEtliUhao1JgmbuKXksy
+	3Nj8EV8oJuuheVoNWgsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5bC5-00000004cbi-04ko;
-	Thu, 26 Mar 2026 03:15:37 +0000
-Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5bC1-00000004cbH-0dTC;
-	Thu, 26 Mar 2026 03:15:35 +0000
-Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
- ajax-webmail-app1 (Coremail) ; Thu, 26 Mar 2026 11:14:45 +0800 (GMT+08:00)
-X-Originating-IP: [10.11.96.26]
-Date: Thu, 26 Mar 2026 11:14:45 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-To: "Simon Horman" <horms@kernel.org>
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: Re: [PATCH net-next v5 3/3] riscv: dts: eswin:
- eic7700-hifive-premier-p550: enable Ethernet controller
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <20260325180330.GL111839@horms.kernel.org>
-References: <20260324073017.376-1-lizhi2@eswincomputing.com>
- <20260324073408.439-1-lizhi2@eswincomputing.com>
- <20260325180330.GL111839@horms.kernel.org>
-MIME-Version: 1.0
-Message-ID: <2a12c839.5e64.19d28232537.Coremail.lizhi2@eswincomputing.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: TAJkCgDHaXOlpMRpqdYLAA--.3593W
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgERDGnEDooA3QADsp
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_201533_569261_DACF981D 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+	id 1w5btx-00000004eIo-0BvJ;
+	Thu, 26 Mar 2026 04:00:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5btu-00000004eIZ-22Zi;
+	Thu, 26 Mar 2026 04:00:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CC7760053;
+	Thu, 26 Mar 2026 04:00:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EADB9C19424;
+	Thu, 26 Mar 2026 04:00:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1774497652;
+	bh=a9nj8mR0F2lI5537jnvwaS2ZWg+dPzAdFfkxncY9zlI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=h2qifna9aaXJnfak9+pSw26tlqsP2LAwzpD3dGgF05NQHoCHdNDKGEZMoI/Wk5xcR
+	 KnLZv/LqxdRIns2Nlqb3FxRXxGoEPhC72JtyPQx0VyGaV3MLE4ojcsuotrtL3JM21n
+	 PkhEdBR8W4hregCpzSCNr/8OKlRFhBrzKXyzsukU=
+Date: Wed, 25 Mar 2026 21:00:49 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+ <catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
+ <kernel@xen0n.name>, <maddy@linux.ibm.com>, <mpe@ellerman.id.au>,
+ <npiggin@gmail.com>, <chleroy@kernel.org>, <pjw@kernel.org>,
+ <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+ <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+ <dave.hansen@linux.intel.com>, <hpa@zytor.com>, <robh@kernel.org>,
+ <saravanak@kernel.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
+ <dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
+ <pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
+ <dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
+ <paulmck@kernel.org>, <lirongqing@baidu.com>, <rppt@kernel.org>,
+ <ardb@kernel.org>, <leitao@debian.org>, <osandov@fb.com>,
+ <cfsworks@gmail.com>, <tangyouling@kylinos.cn>,
+ <sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
+ <eajames@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+ <kevin.brodsky@arm.com>, <samuel.holland@sifive.com>,
+ <vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
+ <liaoyuanhong@vivo.com>, <jbohac@suse.cz>, <fuqiang.wang@easystack.cn>,
+ <guoren@kernel.org>, <chenjiahao16@huawei.com>, <hbathini@linux.ibm.com>,
+ <james.morse@arm.com>, <takahiro.akashi@linaro.org>,
+ <lizhengyu3@huawei.com>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+ <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <kexec@lists.infradead.org>
+Subject: Re: [PATCH v10 0/8] arm64/riscv: Add support for crashkernel CMA
+ reservation
+Message-Id: <20260325210049.28cca592a001e745954b3241@linux-foundation.org>
+In-Reply-To: <20260325025904.2811960-1-ruanjinjie@huawei.com>
+References: <20260325025904.2811960-1-ruanjinjie@huawei.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,54 +85,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgoKPiAtLS0tLeWOn+Wni+mCruS7ti0tLS0tCj4g5Y+R5Lu25Lq6OiAiU2ltb24gSG9ybWFuIiA8
-aG9ybXNAa2VybmVsLm9yZz4KPiDlj5HpgIHml7bpl7Q6MjAyNi0wMy0yNiAwMjowMzozMCAo5pif
-5pyf5ZubKQo+IOaUtuS7tuS6ujogbGl6aGkyQGVzd2luY29tcHV0aW5nLmNvbQo+IOaKhOmAgTog
-ZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmcsIGFuZHJldytuZXRkZXZAbHVubi5jaCwgZGF2ZW1A
-ZGF2ZW1sb2Z0Lm5ldCwgZWR1bWF6ZXRAZ29vZ2xlLmNvbSwga3ViYUBrZXJuZWwub3JnLCByb2Jo
-QGtlcm5lbC5vcmcsIGtyemsrZHRAa2VybmVsLm9yZywgY29ub3IrZHRAa2VybmVsLm9yZywgbmV0
-ZGV2QHZnZXIua2VybmVsLm9yZywgcGFiZW5pQHJlZGhhdC5jb20sIG1jb3F1ZWxpbi5zdG0zMkBn
-bWFpbC5jb20sIGFsZXhhbmRyZS50b3JndWVAZm9zcy5zdC5jb20sIHJtaytrZXJuZWxAYXJtbGlu
-dXgub3JnLnVrLCBwandAa2VybmVsLm9yZywgcGFsbWVyQGRhYmJlbHQuY29tLCBhb3VAZWVjcy5i
-ZXJrZWxleS5lZHUsIGFsZXhAZ2hpdGkuZnIsIGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcsIGxpbnV4LXN0bTMyQHN0LW1kLW1haWxtYW4uc3Rvcm1yZXBseS5jb20sIGxpbnV4LWFybS1r
-ZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZywgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZywg
-bWF4aW1lLmNoZXZhbGxpZXJAYm9vdGxpbi5jb20sIG5pbmd5dUBlc3dpbmNvbXB1dGluZy5jb20s
-IGxpbm1pbkBlc3dpbmNvbXB1dGluZy5jb20sIHBpbmtlc2gudmFnaGVsYUBlaW5mb2NoaXBzLmNv
-bSwgcHJpdGVzaC5wYXRlbEBlaW5mb2NoaXBzLmNvbSwgd2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0
-aW5nLmNvbQo+IOS4u+mimDogUmU6IFtQQVRDSCBuZXQtbmV4dCB2NSAzLzNdIHJpc2N2OiBkdHM6
-IGVzd2luOiBlaWM3NzAwLWhpZml2ZS1wcmVtaWVyLXA1NTA6IGVuYWJsZSBFdGhlcm5ldCBjb250
-cm9sbGVyCj4gCj4gT24gVHVlLCBNYXIgMjQsIDIwMjYgYXQgMDM6MzQ6MDhQTSArMDgwMCwgbGl6
-aGkyQGVzd2luY29tcHV0aW5nLmNvbSB3cm90ZToKPiA+IEZyb206IFpoaSBMaSA8bGl6aGkyQGVz
-d2luY29tcHV0aW5nLmNvbT4KPiA+IAo+ID4gRW5hYmxlIHRoZSBvbi1ib2FyZCBHaWdhYml0IEV0
-aGVybmV0IGNvbnRyb2xsZXIgb24gdGhlCj4gPiBIaUZpdmUgUHJlbWllciBQNTUwIGRldmVsb3Bt
-ZW50IGJvYXJkLgo+ID4gCj4gPiBTaWduZWQtb2ZmLWJ5OiBaaGkgTGkgPGxpemhpMkBlc3dpbmNv
-bXB1dGluZy5jb20+Cj4gPiAtLS0KPiA+ICAuLi4vZHRzL2Vzd2luL2VpYzc3MDAtaGlmaXZlLXBy
-ZW1pZXItcDU1MC5kdHMgfCA0MiArKysrKysrKysrKysKPiA+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRz
-L2Vzd2luL2VpYzc3MDAuZHRzaSAgICAgICAgfCA2NiArKysrKysrKysrKysrKysrKysrCj4gPiAg
-MiBmaWxlcyBjaGFuZ2VkLCAxMDggaW5zZXJ0aW9ucygrKQo+IAo+IFVuZm9ydHVuYXRlbHkgdGhp
-cyBkb2VzIG5vdCBjb21waWxlOgo+IAo+ICQgQVJDSD1yaXNjdiBtYWtlIGFsbG1vZGNvbmZpZyBk
-dGJzCj4gLi4uCj4gICBEVEMgICAgIGFyY2gvcmlzY3YvYm9vdC9kdHMvZXN3aW4vZWljNzcwMC1o
-aWZpdmUtcHJlbWllci1wNTUwLmR0Ygo+IGFyY2gvcmlzY3YvYm9vdC9kdHMvZXN3aW4vZWljNzcw
-MC5kdHNpOjMwMC4yOC0zMzAuNTogRVJST1IgKHBoYW5kbGVfcmVmZXJlbmNlcyk6IC9zb2MvZXRo
-ZXJuZXRANTA0MDAwMDA6IFJlZmVyZW5jZSB0byBub24tZXhpc3RlbnQgbm9kZSBvciBsYWJlbCAi
-Y2xrIgo+IC4uLgo+IAo+IC0tIAo+IHB3LWJvdDogY2hhbmdlcy1yZXF1ZXN0ZWQKCkhpIFNpbW9u
-LAoKVGhhbmtzIGZvciB5b3VyIHJldmlldy4KCllvdSdyZSByaWdodCwgdGhpcyBidWlsZCBmYWls
-dXJlIGlzIGR1ZSB0byBhbiBpbnZhbGlkIGNsb2NrIHJlZmVyZW5jZQooImNsayIpIGluIHRoZSBF
-dGhlcm5ldCBub2RlLCB3aGljaCBkb2VzIG5vdCBjb3JyZXNwb25kIHRvIGFuIGV4aXN0aW5nCmNs
-b2NrIHByb3ZpZGVyIGxhYmVsIGluIHRoZSBjdXJyZW50IERUUy4KCkZvciBjb250ZXh0LCB0aGlz
-IHdhcyBkaXNjdXNzZWQgZHVyaW5nIGFuIGVhcmxpZXIgcmV2aXNpb246Cmh0dHBzOi8vbG9yZS5r
-ZXJuZWwub3JnL2xrbWwvNWRlYThjZTAuNDQzNS4xOWM0NzEyMzFmNS5Db3JlbWFpbC5saXpoaTJA
-ZXN3aW5jb21wdXRpbmcuY29tLwoKVGhlIEVJQzc3MDAgY2xvY2sgY29udHJvbGxlciBzdXBwb3J0
-IGhhcyBzaW5jZSBiZWVuIGFwcGxpZWQsIHNvIEkgd2lsbAp1cGRhdGUgdGhlIERUUyB0byByZWZl
-cmVuY2UgdGhlIGNvcnJlY3QgY2xvY2sgcHJvdmlkZXIgYW5kIGVuc3VyZSB0aGUKYnVpbGQgcGFz
-c2VzIGNsZWFubHkuCgpJIHdpbGwgZml4IHRoaXMgaW4gdGhlIG5leHQgcmV2aXNpb24gKHY2KS4K
-ClRoYW5rcywKWmhpIExpCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Wed, 25 Mar 2026 10:58:56 +0800 Jinjie Ruan <ruanjinjie@huawei.com> wrote:
+
+> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
+> and crashk_cma memory are almost identical across different architectures,
+> This patch set handle them in crash core in a general way, which eliminate
+> a lot of duplication code.
+> 
+> And add support for crashkernel CMA reservation for arm64 and riscv.
+
+So who is patchmonkey for this.
+
+>  .../admin-guide/kernel-parameters.txt         |  16 +--
+>  arch/arm64/kernel/machine_kexec_file.c        |  39 ++-----
+>  arch/arm64/mm/init.c                          |   5 +-
+>  arch/loongarch/kernel/machine_kexec_file.c    |  39 ++-----
+>  arch/powerpc/include/asm/kexec_ranges.h       |   1 -
+>  arch/powerpc/kexec/crash.c                    |   7 +-
+>  arch/powerpc/kexec/ranges.c                   | 101 +----------------
+>  arch/riscv/kernel/machine_kexec_file.c        |  38 ++-----
+>  arch/riscv/mm/init.c                          |   5 +-
+>  arch/x86/kernel/crash.c                       |  89 ++-------------
+>  drivers/of/fdt.c                              |   9 +-
+>  drivers/of/kexec.c                            |   9 ++
+>  include/linux/crash_core.h                    |   9 ++
+>  kernel/crash_core.c                           | 105 +++++++++++++++++-
+
+Me, I guess, with as many arch acks as I can gather, please.
+
+I'm seriously trying to slow things down now, but I guess I can make an
+exception for non-MM material.
+
+AI review asks a few questions:
+	https://sashiko.dev/#/patchset/20260325025904.2811960-1-ruanjinjie@huawei.com
+
+Can you please check these?  And I'm interested in learning how many of
+these are valid.  Thanks.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
