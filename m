@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B001109E536
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 05:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12AAB109E55B
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 06:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DqlFK4GiWNduU98iwplkJ19rLy3BzFTPURwR5GLB3T8=; b=rt3Fd8yuzHfFx6
-	+myYfHC4sg8N4vE3dFqcN+MIbwWBrN/5SMusbr4y+YpeP8uwW5ledKRFZ9SRBGICf0JChuPQr/ODB
-	1zX9TuH1kAUvAbxcWHFucQ5Mm+C6rGOGTn80/kVtCG63UCQBG/X+vxz8vzmkYFYKZOzZlfNLMEHye
-	mWnSF9jlJi7kt2gJYnPTFATN1oDWHEwQ2YSgBSNLmrpbTphQ0qrVxYwo5ylJ/AGIXfQvhvdcZ75ZG
-	BRagXDBZtTf0g7Ifwykfu1SK7sLbEjTCga4R4y7MKozlFR85Y0+Sm+MgMR4ivulPzqJglaT8cYzq7
-	+s/RKczsfW4OFCmDH6wg==;
+	List-Archive:List-Unsubscribe:List-Id:CC:To:MIME-Version:Message-ID:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yhROPGJKxtTTFUqM6tU+ZPPVLDG4f/ahyOOB00bUbhg=; b=Utk5MehKGgfNDh
+	ygitzAX/5YBSSxPScYl+CkynBIipEy3FJ5fg1uii/tX+z8Up35vIHxcZibWBmYyMc3OXUgbvdxQHv
+	/e5wk0hMITnGsjIb1axOxQ/FeS/CpsR5sFWUMqitSpTqszsIq2CkXigmPmHeAlMMSPLS8qxv/I6Vp
+	2vtKv9d07yYTjJLxrMO2WLWoNf22skyZvs4woUEKlp3q6Vjwlvu5r+Z3qfKBaBq6QZVzPu0vAKBAW
+	QLr8J/dcYNF9tbk5iKiX9s42sK5DpCjxcx5iuSQvoRMiGzmKmLmXa35ZFzkbobbB1W10Evy9RcMAh
+	FsR92xSKg5XTtVieydpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5dE3-00000004jmY-3VP8;
-	Thu, 26 Mar 2026 05:25:47 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1w5e4a-00000004nYl-0d3W;
+	Thu, 26 Mar 2026 06:20:04 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5dE0-00000004jls-2qfX;
-	Thu, 26 Mar 2026 05:25:46 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 2636068BEB; Thu, 26 Mar 2026 06:25:38 +0100 (CET)
-Date: Thu, 26 Mar 2026 06:25:37 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: "H. Peter Anvin" <hpa@zytor.com>, Christoph Hellwig <hch@lst.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
-	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: Re: [PATCH 02/17] raid6: remove __KERNEL__ ifdefs
-Message-ID: <20260326052537.GA23044@lst.de>
-References: <20260324064115.3217136-1-hch@lst.de> <20260324064115.3217136-3-hch@lst.de> <59d1d178-c141-4229-81e9-a6c23fa81f2f@zytor.com> <fa11e4d3-1c70-4fa7-9f03-8772c002be6a@zytor.com> <20260325195821.GD2305@quark>
+	id 1w5e4V-00000004nXi-0XXR;
+	Thu, 26 Mar 2026 06:20:02 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 26 Mar
+ 2026 14:19:50 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 26 Mar 2026 14:19:50 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: [PATCH v3 0/4] AST2700-A2 interrupt controller hierarchy and route
+ support
+Date: Thu, 26 Mar 2026 14:19:49 +0800
+Message-ID: <20260326-irqchip-v3-0-366739f57acf@aspeedtech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260325195821.GD2305@quark>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+X-B4-Tracking: v=1; b=H4sIAAXQxGkC/2WMOw6DMBAFr4K2jqO1HQykyj2iFGCWeIvwsZGVC
+ HH3GBoKynl6MwsE8kwB7tkCniIHHvoE+pKBdXX/JsFtYlCoDCrMBfvJOh5FQTV12hS3lipI79F
+ Tx9+99Hwldhzmwf/2cJTbem5EKVA0qCUSGotl8ajDSNTOZN3VDh/YQlEdskZzyCrJXZlLZbFqy
+ OiTvK7rH/UL7ejgAAAA
+X-Change-ID: 20260205-irqchip-7eaef3674de9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Alexandre Ghiti" <alex@ghiti.fr>, Thomas Gleixner <tglx@kernel.org>, Thomas
+ Gleixner <tglx@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774505990; l=5361;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=BIt9hgPUvjsR7ItE2e6BaaXA2SZmzphhLgSTD3XwEHg=;
+ b=wO5NJ6eQWuhXQN17x6Dqhvp5FsYrP376HX0bnpVY3SzsbEQQPA50eE7Z8EjLbqvR+fnqzZO4J
+ Fjp75oldXtaBBp1u2GLK7aR/idCAZaDLcohqgPaMyw4JItHRN+oB56n
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_222545_012096_DC19DD96 
-X-CRM114-Status: GOOD (  28.86  )
+X-CRM114-CacheID: sfid-20260325_232000_363300_2C889BFC 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +80,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 12:58:21PM -0700, Eric Biggers wrote:
-> While I do like developing code in userspace as well, I've been doing it
-> less over time as the kernel's tests and benchmarks have been improved.
-> Running the KUnit tests is pretty straightforward and fast.
+The AST2700 SoC has undergone multiple silicon revisions (A0, A1, A2)
+prior to mass production.
 
-Yes.  I would have totally subscribed to hpa's position when he initially
-wrote the code, but 20+ years later things look different.  In fact these
-days I often write code intended for userspace in the kernel first to
-benefit from lockdep primarily, but also other checkers that are in theory
-available in userspace but as easy to use.  Now of course lockdep doesn't
-really matter for the algorithms here, but the rest still stands.
+A0 laid the ground-work with a split controller design (INTC0 and
+INTC1) used for early development and bring-up. The interrupt
+architecture was substantially reworked in the A1 to introduce an
+explicit routing model and clearer hierarchy, though the split
+controllers remained. The A1 interrupt architecture is unchanged in A2.
 
-I also find the point of developing new code for new platforms
-interesting: in this decade we had two new platforms added: loongarch
-and riscv and all other changes were to the wiring up and not the
-algorithms.  And of those riscv only had the compile in userspace
-support added 8 month after the algorithm, so it doesn't really look
-like development was aided by it.  We also plan to add new optimized
-code, and getting the library in shape and dropping the hard to
-maintain userspace code is actually prep work for making that not
-painful.
+A2 is the production design. A0 and A1 are pre-production silicon and
+are no longer intended for deployment outside of ASPEED.
 
-> 
-> The issues with providing userspace build support in the tree are that:
-> 
-> - It has to be maintained.
-> - It's fundamentally a bit of a hack that is used only by developers
->   (who always have the option of doing something locally that is
->   tailored to the specific function they're working on)
-> - It diverts effort from the kernel's actual test and benchmark.
-> 
-> So while the faster iteration speed that userspace development enables
-> is definitely nice, I do think we should be cautious with committing to
-> maintain it in the kernel tree.  If it's causing problems for the
-> ongoing refactoring, dropping it for now seems reasonable to me.
-> 
-> I would suggest adding a benchmark to the KUnit test similar to the
-> crypto and CRC ones, though.
+The existing binding and driver were written against A0 prior to the A1
+rework. The A0 design directly wired INTC1 instances to INTC0, and
+INTC0 to the GIC of the Primary Service Processor (PSP, a Cortex-A35).
+The A0 binding and driver therefore do not account for the alternative
+destinations of the Secondary and Tertiary Service Processors (SSP,
+TSP) and BootMCU, or the necessary route selection logic present in the
+production design.
 
-The code already has a benchmark used for runtime selection, although
-that could be improved on and run for bigger data sets from kunit.
+With the above context, this series replaces the existing binding and
+driver.
+
+It is not necessary for projects to maintain support for A0 due to its
+pre-production nature, and between Linux, U-Boot and Zephyr there are
+no upstream devicetree users of the current binding.
+
+The new binding uses localised interrupt numbers and models the
+hardware connectivity between interrupt controllers using the
+aspeed,interrupt-ranges property. It is introduced in a new file before
+the existing binding is removed in order to keep the diff readable.
+
+The INTC0 driver creates a hierarchical irqdomain under the selected
+upstream interrupt controller and implements route resolution logic.
+INTC1 driver instances defer route selection to INTC0 and expose a
+linear interrupt namespace to their parent.
+
+A brief history of related submissions
+--------------------------------------
+
+Some modifications to the existing binding were sent to the lists in
+the past. Due to process choices the revisions were difficult to track.
+They are listed below.
+
+The approaches took several forms but ended in the minor adjustment in
+v6 being applied. This enabled use of the A1 design but requires
+assumptions about platform route configuration defined in firmware.
+These assumptions are removed by this current series.
+
+* [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700 binding description and example
+  https://lore.kernel.org/all/20250714071753.2653620-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v2] dt-bindings: interrupt-controller: aspeed: Add parent node compatibles and refine documentation
+  https://lore.kernel.org/all/20250715024258.2304665-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v3 0/2] irqchip: aspeed: Add AST2700 INTC debugfs support and yaml update
+  https://lore.kernel.org/all/20250722095156.1672873-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v4 0/2] irqchip/ast2700-intc: Add AST2700 INTC debugfs support and yaml update
+  https://lore.kernel.org/all/20250812100830.145578-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v5 0/3] AST2700 interrupt controller hierarchy support
+  https://lore.kernel.org/all/20251022065507.1152071-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v6 0/1] Update correct AST2700 interrupt controller binding
+  https://lore.kernel.org/all/20251030060155.2342604-1-ryan_chen@aspeedtech.com/
+
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+Changes in v3:
+- 1/4 Squash patch 5/5 and 1/5.
+- 1/4 modify wrap lines at 80 char.
+- 1/4 modify maintainers name and email.
+- 1/4 modify typo Sevice-> Service
+- Link to v2: https://lore.kernel.org/r/20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com
+
+Changes in v2:
+- Change suject to "AST2700-A2 interrupt controller hierarchy and route
+  support".
+- Describe timeline for (pre-)production design evolution and
+  binding development to support the break in compatibility.
+- fix "make dt_binding_check" compatible string consistance with
+  example.
+- Split KUnit coverage out of the main driver patch.
+- Link to v1: https://lore.kernel.org/r/20260205-irqchip-v1-0-b0310e06c087@aspeedtech.com
+
+---
+Ryan Chen (4):
+      dt-bindings: interrupt-controller: Describe AST2700-A2 hardware instead of A0
+      irqchip/ast2700-intc: Add AST2700-A2 support
+      irqchip/ast2700-intc: Add KUnit tests for route resolution
+      irqchip/aspeed-intc: Remove AST2700-A0 support
+
+ .../interrupt-controller/aspeed,ast2700-intc.yaml  |  90 ----
+ .../aspeed,ast2700-interrupt.yaml                  | 188 +++++++
+ drivers/irqchip/.kunitconfig                       |   5 +
+ drivers/irqchip/Kconfig                            |  23 +
+ drivers/irqchip/Makefile                           |   3 +-
+ drivers/irqchip/irq-aspeed-intc.c                  | 139 -----
+ drivers/irqchip/irq-ast2700-intc0-test.c           | 473 +++++++++++++++++
+ drivers/irqchip/irq-ast2700-intc0.c                | 584 +++++++++++++++++++++
+ drivers/irqchip/irq-ast2700-intc1.c                | 282 ++++++++++
+ drivers/irqchip/irq-ast2700.c                      | 106 ++++
+ drivers/irqchip/irq-ast2700.h                      |  47 ++
+ 11 files changed, 1710 insertions(+), 230 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260205-irqchip-7eaef3674de9
+
+Best regards,
+-- 
+Ryan Chen <ryan_chen@aspeedtech.com>
 
 
 _______________________________________________
