@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0923D10A88FF
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 18:34:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FA310A3D96
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 18:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dZleAHWZHufPjyCVfh7euB9FQeSZwZ/VpzNpGS587JE=; b=R0UFjD4SMPbftzP7/D+BC9wT6j
-	6wBu1L5fX+LlX8vh2KPfyf+r3jT3s2/fm5UQwPqfUSrjLtUozSEBhR004WzPgKtIRX1JQ2WbmcNkf
-	+fjQq/U4MpfPxBsFwFvBl8bSiguRsk4lYLbz0l4AHgtWXh5N/IDTtZkPk/QwuQhGjXcnXMg/bhQZQ
-	SkfOXpNfJTVzbXOWMHXdCBZB61jwoqq3ity29eStvF3xBaTsNssjBFvxPeBI0MUsj1bFHska8o2iG
-	3wlqvijmq1ZTF3reTNKCNR1kzJSAH/IsteoLBD3DRUXLlIBYdxnWxQfpum7ceApwKNB0ee3h/I9vU
-	4h6q7wXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pz41GYC8gbijW6ni+kMLUuTD43yFLch4Ouf4zcucMLs=; b=xChYsGPZw5ec8N
+	egRV+ztbkETxvBDUAx3LGR44IOrgOFI3iTrKg6MIVZVElN5BwSHmQY/qU3FBKG+4XOUGCTrwAC2Bk
+	77dUFiqNhPcUPo3B6W4DWIVOhcd7DH6M1CNGd1bVtQapz6ymgV8vmMMl9KYYZdff7mfN/llqzB5bW
+	YgsMrC/1JlunxkN5YWZF93FO8APanTolM/zHZa2MIj8GasBuzxp5FBaWrORUMExlpPyNt9Ktq7fbB
+	tWdmwT1aeEioXEQIRO/8kl1l8cpoCYtIR7I5yNwGBmV+qZ7jU+32EfKnEBg5o6JN+bkACB5qhYWRX
+	SaxKTgJxPwcpaZ7FVkQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pXa-000000062mV-1J8M;
-	Thu, 26 Mar 2026 18:34:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5paq-0000000637i-1odI;
+	Thu, 26 Mar 2026 18:38:08 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pXY-000000062mA-1035
+	id 1w5pao-0000000635Q-0p0G
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Mar 2026 18:34:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2128143C29;
-	Thu, 26 Mar 2026 18:34:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 588ACC116C6;
-	Thu, 26 Mar 2026 18:34:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774550083;
-	bh=+WFhHAP+I6U56ZY1SPoQXhOLT+bdcm5oHSlV3lm2fRk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YLQ8s2Ys1REk6EW7Qhg3mlYZf3hKzj8IindqDfPFSPV9j2xX5TipAVNqRAUNL+Wea
-	 x4Y0N8d3LK8wCT2DArdswnWLaR795pWrpELuTVswjw2gttc7K7J4eNtCdjcjpqbJlz
-	 yK/HKpZlVj7Z37+hYHahAhIkr6dwVwIfBpaLT3hLCoQEgAeJNgF7DSLH3zUsKsCDi2
-	 ckkp3Xk9BU37wOBORGkLpHEm38eeWkBZRrpzO5xlZPT4MNuBpD4kU3BAl74GVvgSo5
-	 NsK/KDCX/pTx8/NsY9pHgcp5u+/sfcKA5UVl8fiQSP8dqqxQ67uoL7JcWFreNn9cnY
-	 ZF0JxhevI/KOQ==
-Date: Thu, 26 Mar 2026 18:34:37 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Thu, 26 Mar 2026 18:38:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
+	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
+	bh=pKYF2U3blSKdPTf4iCctXPVsD9JEXM2IleXwM15XUQE=; b=xpIkWgL1inn8tnUCcEBJQlSlRc
+	1WIwWlcU0VvqrlGmv31oKz0EYEmCtP49fD4qV/qbDEd6XNqkHfJx/hBZss6EgkHK75s6NjDNKv/bE
+	reA1bb2TMU0TMLQplE1/xB0sDnKDNgCLgOcQrPJs8Hx7ZjARpWiQTwUNBa/fyTihZzqlCVoxe5oc5
+	catug6YBFqjDl8gGOTon1Yhd4R6bIG7Oc/lddSP3uOkYbC2uIDVZwD2oDSmuq3jt8vrrVg5+RvlH9
+	qIHvVOiYkat2ULrOJ93A2oNiQ2T/5HZ4eDqq3YJ7ysNfFEqFAuSiZcWaM9UUG46t9Ev1DGDSvJHkh
+	pcG+r0rw==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1w5pad-0000000GAiw-2Nke;
+	Thu, 26 Mar 2026 19:37:55 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>, Guodong Xu <guodong@riscstar.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 2/7] dt-bindings: dmaengine: Add SpacemiT K3 DMA
- compatible string
-Message-ID: <20260326-explode-surplus-24c0e0813099@spud>
-References: <20260326-k3-pdma-v2-0-ca94ca7bb595@linux.spacemit.com>
- <20260326-k3-pdma-v2-2-ca94ca7bb595@linux.spacemit.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE:Keyword:riscv),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit)
+Subject: [PATCH v2 0/6] riscv: dts: spacemit: enable more devices on Milk-V Jupiter
+Date: Thu, 26 Mar 2026 19:35:28 +0100
+Message-ID: <20260326183745.1370642-1-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-In-Reply-To: <20260326-k3-pdma-v2-2-ca94ca7bb595@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_113444_301843_508F08D1 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260326_113806_236730_8B48B6D4 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,85 +73,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3484425524730795214=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patchset improves support of the Milk-V Jupiter board by enabling
+more devices. Most notably the NOR flash (useful for upgrading the
+bootloader), the USB 3 ports and the PCIe ports.
 
---===============3484425524730795214==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3c5c3SbeQ5J8Cvcr"
-Content-Disposition: inline
-
-
---3c5c3SbeQ5J8Cvcr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Mar 26, 2026 at 04:17:17PM +0800, Troy Mitchell wrote:
-> From: Guodong Xu <guodong@riscstar.com>
->=20
-> Add k3 compatible string.
-
-That's obvious. What you need to explain is why it is not compatible with
-the existing k1.
-pw-bot: changes-requested
-Cheers,
-Conor.
-
->=20
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
->  Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml =
-b/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml
-> index ec06235baf5c..62ce6d81526b 100644
-> --- a/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml
-> +++ b/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml
-> @@ -14,7 +14,9 @@ allOf:
-> =20
->  properties:
->    compatible:
-> -    const: spacemit,k1-pdma
-> +    enum:
-> +      - spacemit,k1-pdma
-> +      - spacemit,k3-pdma
-> =20
->    reg:
->      maxItems: 1
->=20
-> --=20
-> 2.53.0
->=20
-
---3c5c3SbeQ5J8Cvcr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacV8PQAKCRB4tDGHoIJi
-0iSJAQCYik/5JNh07McaFHFAtO7PKvqeDrCRfWwv0LzCc+MAOQD+I6kaG8JvSER/
-6z5GZ8MFkLGErIBUFMmIqZJuwKZldAo=
-=sPth
------END PGP SIGNATURE-----
-
---3c5c3SbeQ5J8Cvcr--
+It was inspired by the Banana Pi F3 device tree file. It is based
+against the k1/dt-for-next branch and does not have any other
+dependency.
 
 
---===============3484425524730795214==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Changes between version 1 and version 2:
+ - Collect Reviewed-by:
+ - Remove bootph-pre-ram property from SPI NOR flash
+ - Mention that the fast read opcodes is marked as supported in the SPI NOR flash datasheet
+ - Fix typo in the description of patch 6
+
+Version 1 of this series is available here:
+  https://lore.kernel.org/lkml/20260322203356.2206927-1-aurelien@aurel32.net
+
+
+Aurelien Jarno (6):
+  riscv: dts: spacemit: add LEDs for Milk-V Jupiter board
+  riscv: dts: spacemit: add 24c04 eeprom on Milk-V Jupiter
+  riscv: dts: spacemit: add i2c aliases on Milk-V Jupiter
+  riscv: dts: spacemit: enable QSPI and add SPI NOR on Milk-V Jupiter
+  riscv: dts: spacemit: enable USB 3 ports on Milk-V Jupiter
+  riscv: dts: spacemit: enable PCIe ports on Milk-V Jupiter
+
+ .../boot/dts/spacemit/k1-milkv-jupiter.dts    | 188 +++++++++++++++++-
+ 1 file changed, 187 insertions(+), 1 deletion(-)
+
+-- 
+2.51.0
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3484425524730795214==--
-
