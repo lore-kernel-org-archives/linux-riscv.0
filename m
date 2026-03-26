@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3904A10A3D8C
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 12:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09CA10A62CA
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 13:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ap6m6W3lrqtTYp07iXLnKocx3lflx1kM0yuOTONBUt8=; b=iZSEZca2Havnr6
-	5fXyPwWkq2sNDqYnJQ1izNBXbfVESQD45XIG5wlo/jqymTGHWtg84J/qvtvUDDmPSz8+4HXMB9kJn
-	iY0Y8IeiStf/nCBtZP6QFNy6yRutmdTFHvI+0r/RhKZPrCEtNHbmeLBLYSeN8E0Mid070fsSuC316
-	9zPSDccDWemCPTV+7weNyt/vh6p05jPaQi9wpVwbUiXVuLSzOqEhk+I3ISDG/TEMk11cr7NDBpUAL
-	g3oCEem2OHe8lJJosD5E3vPol/McgBd4kHnEfyf1oUIlAj9qNlgvmKtG45VS4Z0DmUTXMMfacpLV0
-	7pozrG5w+TPYmQoeEsVA==;
+	List-Owner; bh=88hk3I7mY2mPrXFfzcvJsXALKWo/ygO/g7qVrIWAGi0=; b=GVPw/tn0k2z0Jz
+	bkqKDBO3nRdhXcffpKjERUm8+TBtSWNEnF9SCZTxjZwbenVwSsgAV06oyQdALEbmlvQ7i7CLj5mzM
+	5vEd/e1QaxFp6nsw9vPM1HY8QpzaOIeg7iG4DBSXyk53tt4KLFUCrQQ9DgbTRmTLvPVdbZgKd3G9q
+	u+LUsJeJYzpUOTxh8BDRpse2UynhZN28lCuNaoQEi5wFt+t8YkP0JPsiAOArFztU7qEAow9lSkuXg
+	QsRxB68vGAPH356cipgSJKURyij2EGx0XDujPLw8zV6KxzqaK5GC5BF+6IG/gGM9Otnem8uxZBLym
+	eUqaScfKCiBIUKC9y2vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5jtB-00000005RlP-2BBv;
-	Thu, 26 Mar 2026 12:32:41 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1w5kT4-00000005WKe-0mit;
+	Thu, 26 Mar 2026 13:09:46 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5jt9-00000005Rkb-2d9F
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Mar 2026 12:32:40 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7d7fdb922a5so748021a34.3
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Mar 2026 05:32:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774528358; cv=none;
-        d=google.com; s=arc-20240605;
-        b=OKCUT8VxsQaewvT2/zJnwbOqTal2dIesdRDg69ox48tqW+pE5Rqh5y9IBzPhJWMGE+
-         adkudfwydJEYsyd6xcLrYbk4DCIumr3rFUrnua2mtKZxDb6MOAG/cWsgHHIsepLnzuhx
-         ZvIkVSIZab33cj4UjDkOVnIUMsopCfWLj3VH9fEh4ngtVD+xZl/LSC6sLyUStR2WuyPI
-         1NteN+99zgZz6LpCfpX5sXYF/KAK3Ssj2qcyGUFx/0BuiXEz5fE5i5QU8A1UC2NC0RUY
-         X00A1lQJItoHDsdqa6ehPf1JRMzVDmdh4j7F6eszt9qAO84au50Obtg3WiQ4JiXzQ4UR
-         7zNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=s5A1++5OwfMTff2//26cMDXzML41vSjWdt7IxBVidyI=;
-        fh=gvfNPCjlpxQ4I1PWZjAobBqaEZX5pf8inSM1UFaS9ZU=;
-        b=eb/SrjA4EUNZN79ydaKsdRLEPrk8KBRNV3LOvZDf/OoG3y3qkltKFnrwScXhCcUoim
-         CWoZxJEXNyanUAHax5jIQ+eJta5o+nmcP+SrJWy2LSuaGkJLm0Ucx8oJ8MM4g6uZQMWW
-         6213l2aWF1K1bOoO4XsBHtOHCkHA7l+fu+fHAhB6xOOUS6LHr1ZXV3POQG4H77xNbwvB
-         /Uh1feWh3i4GKsBhQQ0EAkrTqcoUTUTUXkbIUfBOBTfUToB00WreiZWMfosgM6eSCvmC
-         Dc4RHgEJJ1WzjWrkMquwR0Zv40qQOiTwZ+temzBUti9L5sSYYV49zTfOVPkUP6SMS5X3
-         taCA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1774528358; x=1775133158; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s5A1++5OwfMTff2//26cMDXzML41vSjWdt7IxBVidyI=;
-        b=V4fv+Emq4wOZcYOQe/jfFFVakJWaATLt5UmWwDT8yIZ1kj6qfB9bbc+NBrpZOehJTv
-         1ZTboNNSIFDFWoK8aZG+hrXXKn1CHaM5CWRd1a+z8d8o2m4ty5HE0ARASzzNmxPTLBew
-         +kEXiOCORIq1qH/RSuiD7ArlP/7GVvVWDJkYS9LD9o+D2DdFS311K4W6vjbHJl1gIvoN
-         ZwYQjZFGCZUJPuFyKrVqARfA3oN2eOffFwGvM0YbrTYsa2PzRxDQBXP8d2NWLs3UKxaE
-         PpHJuTDdHTpo1gWgqXvXPxC+ZbTSOUoEw7oAIBQnCElsp8HEqh4ZyaqNZ0ZxqesYr1bC
-         6ATQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774528358; x=1775133158;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=s5A1++5OwfMTff2//26cMDXzML41vSjWdt7IxBVidyI=;
-        b=gIQYjDw2YAQteLn9r4TKzSa2D/qIrsTA23ro9xsmrhaqFiQew46FYlkbY2fQLkt3KJ
-         278kboZjKlgmhQTD4edWdCk8Y/DA6rZMawf6KY5yNgh967FczWKhMSLzvJT9Yiojgg5r
-         RLD9f7UH1o2bg0H15TQGAgzmHyXbQa03LjawBl+nZ26Ia3IisgBnGA9pIxfPvZ2PD95q
-         cwrLP2BEUdZXrm60c9BIMTHyjvUDqZMr7ymcv/wdpEgx9J5x5T9kYuaVRUWkctenxsS8
-         UliP6Dk/knEzEbj4MwNtpBcfksJZe/RtQiRA6jh6YJpLKI4YCoJmNV+0gCaNtbbl3PE0
-         edrA==
-X-Forwarded-Encrypted: i=1; AJvYcCV0X2fxSyX0lZ0AIFk691jZvSm6ge7UUYlbouUlYk0Q3aJtfq72TkLIZzrfcZjvfYY1aRbcI9NxNEef2Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlUzpdacNwwEUqGR7VRXO5SIyAMYhkBH33BalM4R3kxdHFWRDh
-	+FFY81Y0lvmMM2QhY5vVORH1fguxSUqBwoBMW8iWPtEuambMUS/Ofd2Me7vNSGsuaX6wBP835QK
-	iTSZiC+HRX9hVn2EMVIqfhW4hwn5+JoD0djijdgIs0g==
-X-Gm-Gg: ATEYQzw2mlaGeoL/hiU4NEuqALCDkq+AZjICKCTJCr2iSxBZgmJXnfNZndEsSxu3bxp
-	mXBd6xY0WJ33PA02kM9j6hykTSfUFoKUvLBqSlKY65JtwnN8Onyydpho433A5moFL0hN9BwPUI7
-	WnwiF5JCplhcbqACJ+unjJb09x47wsZz600qbs8eDukhFefiS8OvcwppM6AU6zx2EwOA01GBsun
-	0XGMCDldKdgoaDFZ8o7WY85mxNGwKtNOqNh74GdbhvYuGYX4TNZm4GIi4nkY2faVLBO/3WxT6du
-	JasLWCCCxMmvhjRbYFSKezUPjwb2Ce47uOE4GCR13C5/PvJ48toOOav9m2gmroMCdcrgDOMwF3k
-	0n3EiUERdap07x81W4koj1Rh21nU=
-X-Received: by 2002:a4a:edcd:0:b0:67d:e836:2e32 with SMTP id
- 006d021491bc7-67dff511512mr3387545eaf.35.1774528358402; Thu, 26 Mar 2026
- 05:32:38 -0700 (PDT)
+	id 1w5kT0-00000005WIh-2DVo;
+	Thu, 26 Mar 2026 13:09:44 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=jLyfKSEzGPeE1dJtR15Kc0eOwoYz6wTxdsqltUK1s+8=;
+	b=r27NhnWJDoBRU0BLviPWrzC48eoWH2aXc39RU0NNg9RfVmkYMPQAakNbwupG9o1vLSlUZgi3I
+	9q6pjI1LWhogcfA3FIhnuqdaqvSt3N0ef5hNY4GTFUKrfjR9jw+KWWzREvNA4nYdsjVC61P8MMl
+	7eCWHr3D/yJXJKgUr+I5ku0=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4fhP8m1T9zzRhQP;
+	Thu, 26 Mar 2026 21:03:20 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 757E14056A;
+	Thu, 26 Mar 2026 21:09:26 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Mar 2026 21:09:22 +0800
+Message-ID: <b82f26e6-adac-e921-6547-94d3284d2678@huawei.com>
+Date: Thu, 26 Mar 2026 21:09:16 +0800
 MIME-Version: 1.0
-References: <20260204134507.33912-1-fangyu.yu@linux.alibaba.com> <20260204134507.33912-3-fangyu.yu@linux.alibaba.com>
-In-Reply-To: <20260204134507.33912-3-fangyu.yu@linux.alibaba.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 26 Mar 2026 18:02:26 +0530
-X-Gm-Features: AQROBzBjp1ya48QrrJubnKGHIPLce4xzbTMR8-Rif6cPLDOdnUusNCgeyKu5kPs
-Message-ID: <CAAhSdy2uMY+-9W34G3QJ3m9XWg2dq_PeNB_9j9B3viZaRg=SUQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/3] RISC-V: KVM: Detect and expose supported HGATP
- G-stage modes
-To: fangyu.yu@linux.alibaba.com
-Cc: pbonzini@redhat.com, corbet@lwn.net, atish.patra@linux.dev, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, guoren@kernel.org, 
-	radim.krcmar@oss.qualcomm.com, andrew.jones@oss.qualcomm.com, 
-	linux-doc@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v10 0/8] arm64/riscv: Add support for crashkernel CMA
+ reservation
+Content-Language: en-US
+To: Andrew Morton <akpm@linux-foundation.org>
+CC: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>, <bhe@redhat.com>,
+	<vgoyal@redhat.com>, <dyoung@redhat.com>, <rdunlap@infradead.org>,
+	<peterz@infradead.org>, <pawan.kumar.gupta@linux.intel.com>,
+	<feng.tang@linux.alibaba.com>, <dapeng1.mi@linux.intel.com>,
+	<kees@kernel.org>, <elver@google.com>, <paulmck@kernel.org>,
+	<lirongqing@baidu.com>, <rppt@kernel.org>, <ardb@kernel.org>,
+	<leitao@debian.org>, <osandov@fb.com>, <cfsworks@gmail.com>,
+	<tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
+	<ritesh.list@gmail.com>, <eajames@linux.ibm.com>,
+	<songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
+	<samuel.holland@sifive.com>, <vishal.moola@gmail.com>,
+	<junhui.liu@pigmoral.tech>, <coxu@redhat.com>, <liaoyuanhong@vivo.com>,
+	<jbohac@suse.cz>, <fuqiang.wang@easystack.cn>, <guoren@kernel.org>,
+	<chenjiahao16@huawei.com>, <hbathini@linux.ibm.com>, <james.morse@arm.com>,
+	<takahiro.akashi@linaro.org>, <lizhengyu3@huawei.com>, <x86@kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>
+References: <20260325025904.2811960-1-ruanjinjie@huawei.com>
+ <20260325210049.28cca592a001e745954b3241@linux-foundation.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260325210049.28cca592a001e745954b3241@linux-foundation.org>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_053239_679470_E88AC2E8 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20260326_060942_951592_EAE59988 
+X-CRM114-Status: GOOD (  23.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,107 +98,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBGZWIgNCwgMjAyNiBhdCA3OjE14oCvUE0gPGZhbmd5dS55dUBsaW51eC5hbGliYWJh
-LmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBGYW5neXUgWXUgPGZhbmd5dS55dUBsaW51eC5hbGliYWJh
-LmNvbT4KPgo+IEV4dGVuZCBrdm1fcmlzY3ZfZ3N0YWdlX21vZGVfZGV0ZWN0KCkgdG8gcHJvYmUg
-YWxsIEhHQVRQLk1PREUgdmFsdWVzCj4gc3VwcG9ydGVkIGJ5IHRoZSBob3N0IGFuZCByZWNvcmQg
-dGhlbSBpbiBhIGJpdG1hc2suIEtlZXAgdHJhY2tpbmcgdGhlCj4gbWF4aW11bSBzdXBwb3J0ZWQg
-Ry1zdGFnZSBwYWdlIHRhYmxlIGxldmVsIGZvciBleGlzdGluZyBpbnRlcm5hbCB1c2Vycy4KPgo+
-IEFsc28gcHJvdmlkZSBsaWdodHdlaWdodCBoZWxwZXJzIHRvIHJldHJpZXZlIHRoZSBzdXBwb3J0
-ZWQtbW9kZSBiaXRtYXNrCj4gYW5kIHZhbGlkYXRlIGEgcmVxdWVzdGVkIEhHQVRQLk1PREUgYWdh
-aW5zdCBpdC4KPgo+IFNpZ25lZC1vZmYtYnk6IEZhbmd5dSBZdSA8ZmFuZ3l1Lnl1QGxpbnV4LmFs
-aWJhYmEuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9nc3RhZ2UuaCB8
-IDExICsrKysrKysrCj4gIGFyY2gvcmlzY3Yva3ZtL2dzdGFnZS5jICAgICAgICAgICAgIHwgNDMg
-KysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0KPiAgMiBmaWxlcyBjaGFuZ2VkLCAzNCBpbnNl
-cnRpb25zKCspLCAyMCBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2t2bV9nc3RhZ2UuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2dzdGFn
-ZS5oCj4gaW5kZXggYjEyNjA1ZmJjYTQ0Li43NmMzN2I1ZGMwMmQgMTAwNjQ0Cj4gLS0tIGEvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fZ3N0YWdlLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2t2bV9nc3RhZ2UuaAo+IEBAIC0zMCw2ICszMCw3IEBAIHN0cnVjdCBrdm1fZ3N0YWdl
-X21hcHBpbmcgewo+ICAjZW5kaWYKPgo+ICBleHRlcm4gdW5zaWduZWQgbG9uZyBrdm1fcmlzY3Zf
-Z3N0YWdlX21heF9wZ2RfbGV2ZWxzOwo+ICtleHRlcm4gdTMyIGt2bV9yaXNjdl9nc3RhZ2VfbW9k
-ZV9tYXNrOwoKcy91MzIvdW5zaWduZWQgbG9uZy8Kcy9rdm1fcmlzY3ZfZ3N0YWdlX21vZGVfbWFz
-ay9rdm1fcmlzY3ZfZ3N0YWdlX3N1cHBvcnRlZF9tb2RlX21hc2svCgo+Cj4gICNkZWZpbmUga3Zt
-X3Jpc2N2X2dzdGFnZV9wZ2RfeGJpdHMgICAgIDIKPiAgI2RlZmluZSBrdm1fcmlzY3ZfZ3N0YWdl
-X3BnZF9zaXplICAgICAgKDFVTCA8PCAoSEdBVFBfUEFHRV9TSElGVCArIGt2bV9yaXNjdl9nc3Rh
-Z2VfcGdkX3hiaXRzKSkKPiBAQCAtNzUsNCArNzYsMTQgQEAgdm9pZCBrdm1fcmlzY3ZfZ3N0YWdl
-X3dwX3JhbmdlKHN0cnVjdCBrdm1fZ3N0YWdlICpnc3RhZ2UsIGdwYV90IHN0YXJ0LCBncGFfdCBl
-bmQKPgo+ICB2b2lkIGt2bV9yaXNjdl9nc3RhZ2VfbW9kZV9kZXRlY3Qodm9pZCk7Cj4KPiArc3Rh
-dGljIGlubGluZSB1MzIga3ZtX3Jpc2N2X2dldF9oZ2F0cF9tb2RlX21hc2sodm9pZCkKPiArewo+
-ICsgICAgICAgcmV0dXJuIGt2bV9yaXNjdl9nc3RhZ2VfbW9kZV9tYXNrOwo+ICt9Cj4gKwo+ICtz
-dGF0aWMgaW5saW5lIGJvb2wga3ZtX3Jpc2N2X2hnYXRwX21vZGVfaXNfdmFsaWQodW5zaWduZWQg
-bG9uZyBtb2RlKQo+ICt7Cj4gKyAgICAgICByZXR1cm4ga3ZtX3Jpc2N2X2dzdGFnZV9tb2RlX21h
-c2sgJiBCSVQobW9kZSk7Cj4gK30KPiArCj4gICNlbmRpZgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2t2bS9nc3RhZ2UuYyBiL2FyY2gvcmlzY3Yva3ZtL2dzdGFnZS5jCj4gaW5kZXggMmQwMDQ1
-ZjUwMmQxLi4zMjhkNDEzOGYxNjIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vZ3N0YWdl
-LmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS9nc3RhZ2UuYwo+IEBAIC0xNiw2ICsxNiw4IEBAIHVu
-c2lnbmVkIGxvbmcga3ZtX3Jpc2N2X2dzdGFnZV9tYXhfcGdkX2xldmVscyBfX3JvX2FmdGVyX2lu
-aXQgPSAzOwo+ICAjZWxzZQo+ICB1bnNpZ25lZCBsb25nIGt2bV9yaXNjdl9nc3RhZ2VfbWF4X3Bn
-ZF9sZXZlbHMgX19yb19hZnRlcl9pbml0ID0gMjsKPiAgI2VuZGlmCj4gKy8qIEJpdG1hc2sgb2Yg
-c3VwcG9ydGVkIEhHQVRQLk1PREUgZW5jb2RpbmdzIChCSVQoSEdBVFBfTU9ERV8qKSkuICovCj4g
-K3UzMiBrdm1fcmlzY3ZfZ3N0YWdlX21vZGVfbWFzayBfX3JvX2FmdGVyX2luaXQ7Cj4KPiAgI2Rl
-ZmluZSBnc3RhZ2VfcHRlX2xlYWYoX19wdGVwKSAgICAgICAgXAo+ICAgICAgICAgKHB0ZV92YWwo
-KihfX3B0ZXApKSAmIChfUEFHRV9SRUFEIHwgX1BBR0VfV1JJVEUgfCBfUEFHRV9FWEVDKSkKPiBA
-QCAtMzE1LDQyICszMTcsNDMgQEAgdm9pZCBrdm1fcmlzY3ZfZ3N0YWdlX3dwX3JhbmdlKHN0cnVj
-dCBrdm1fZ3N0YWdlICpnc3RhZ2UsIGdwYV90IHN0YXJ0LCBncGFfdCBlbmQKPiAgICAgICAgIH0K
-PiAgfQo+Cj4gK3N0YXRpYyBib29sIF9faW5pdCBrdm1fcmlzY3ZfaGdhdHBfbW9kZV9zdXBwb3J0
-ZWQodW5zaWduZWQgbG9uZyBtb2RlKQo+ICt7Cj4gKyAgICAgICBjc3Jfd3JpdGUoQ1NSX0hHQVRQ
-LCBtb2RlIDw8IEhHQVRQX01PREVfU0hJRlQpOwo+ICsgICAgICAgcmV0dXJuICgoY3NyX3JlYWQo
-Q1NSX0hHQVRQKSA+PiBIR0FUUF9NT0RFX1NISUZUKSA9PSBtb2RlKTsKPiArfQo+ICsKPiAgdm9p
-ZCBfX2luaXQga3ZtX3Jpc2N2X2dzdGFnZV9tb2RlX2RldGVjdCh2b2lkKQo+ICB7Cj4gKyAgICAg
-ICBrdm1fcmlzY3ZfZ3N0YWdlX21vZGVfbWFzayA9IDA7Cj4gKyAgICAgICBrdm1fcmlzY3ZfZ3N0
-YWdlX21heF9wZ2RfbGV2ZWxzID0gMDsKPiArCj4gICNpZmRlZiBDT05GSUdfNjRCSVQKPiAtICAg
-ICAgIC8qIFRyeSBTdjU3eDQgRy1zdGFnZSBtb2RlICovCj4gLSAgICAgICBjc3Jfd3JpdGUoQ1NS
-X0hHQVRQLCBIR0FUUF9NT0RFX1NWNTdYNCA8PCBIR0FUUF9NT0RFX1NISUZUKTsKPiAtICAgICAg
-IGlmICgoY3NyX3JlYWQoQ1NSX0hHQVRQKSA+PiBIR0FUUF9NT0RFX1NISUZUKSA9PSBIR0FUUF9N
-T0RFX1NWNTdYNCkgewo+IC0gICAgICAgICAgICAgICBrdm1fcmlzY3ZfZ3N0YWdlX21heF9wZ2Rf
-bGV2ZWxzID0gNTsKPiAtICAgICAgICAgICAgICAgZ290byBkb25lOwo+ICsgICAgICAgLyogVHJ5
-IFN2Mzl4NCBHLXN0YWdlIG1vZGUgKi8KPiArICAgICAgIGlmIChrdm1fcmlzY3ZfaGdhdHBfbW9k
-ZV9zdXBwb3J0ZWQoSEdBVFBfTU9ERV9TVjM5WDQpKSB7Cj4gKyAgICAgICAgICAgICAgIGt2bV9y
-aXNjdl9nc3RhZ2VfbW9kZV9tYXNrIHw9IEJJVChIR0FUUF9NT0RFX1NWMzlYNCk7Cj4gKyAgICAg
-ICAgICAgICAgIGt2bV9yaXNjdl9nc3RhZ2VfbWF4X3BnZF9sZXZlbHMgPSAzOwo+ICAgICAgICAg
-fQo+Cj4gICAgICAgICAvKiBUcnkgU3Y0OHg0IEctc3RhZ2UgbW9kZSAqLwo+IC0gICAgICAgY3Ny
-X3dyaXRlKENTUl9IR0FUUCwgSEdBVFBfTU9ERV9TVjQ4WDQgPDwgSEdBVFBfTU9ERV9TSElGVCk7
-Cj4gLSAgICAgICBpZiAoKGNzcl9yZWFkKENTUl9IR0FUUCkgPj4gSEdBVFBfTU9ERV9TSElGVCkg
-PT0gSEdBVFBfTU9ERV9TVjQ4WDQpIHsKPiArICAgICAgIGlmIChrdm1fcmlzY3ZfaGdhdHBfbW9k
-ZV9zdXBwb3J0ZWQoSEdBVFBfTU9ERV9TVjQ4WDQpKSB7Cj4gKyAgICAgICAgICAgICAgIGt2bV9y
-aXNjdl9nc3RhZ2VfbW9kZV9tYXNrIHw9IEJJVChIR0FUUF9NT0RFX1NWNDhYNCk7Cj4gICAgICAg
-ICAgICAgICAgIGt2bV9yaXNjdl9nc3RhZ2VfbWF4X3BnZF9sZXZlbHMgPSA0Owo+IC0gICAgICAg
-ICAgICAgICBnb3RvIGRvbmU7Cj4gICAgICAgICB9Cj4KPiAtICAgICAgIC8qIFRyeSBTdjM5eDQg
-Ry1zdGFnZSBtb2RlICovCj4gLSAgICAgICBjc3Jfd3JpdGUoQ1NSX0hHQVRQLCBIR0FUUF9NT0RF
-X1NWMzlYNCA8PCBIR0FUUF9NT0RFX1NISUZUKTsKPiAtICAgICAgIGlmICgoY3NyX3JlYWQoQ1NS
-X0hHQVRQKSA+PiBIR0FUUF9NT0RFX1NISUZUKSA9PSBIR0FUUF9NT0RFX1NWMzlYNCkgewo+IC0g
-ICAgICAgICAgICAgICBrdm1fcmlzY3ZfZ3N0YWdlX21heF9wZ2RfbGV2ZWxzID0gMzsKPiAtICAg
-ICAgICAgICAgICAgZ290byBkb25lOwo+ICsgICAgICAgLyogVHJ5IFN2NTd4NCBHLXN0YWdlIG1v
-ZGUgKi8KPiArICAgICAgIGlmIChrdm1fcmlzY3ZfaGdhdHBfbW9kZV9zdXBwb3J0ZWQoSEdBVFBf
-TU9ERV9TVjU3WDQpKSB7Cj4gKyAgICAgICAgICAgICAgIGt2bV9yaXNjdl9nc3RhZ2VfbW9kZV9t
-YXNrIHw9IEJJVChIR0FUUF9NT0RFX1NWNTdYNCk7Cj4gKyAgICAgICAgICAgICAgIGt2bV9yaXNj
-dl9nc3RhZ2VfbWF4X3BnZF9sZXZlbHMgPSA1Owo+ICAgICAgICAgfQo+ICAjZWxzZSAvKiBDT05G
-SUdfMzJCSVQgKi8KPiAgICAgICAgIC8qIFRyeSBTdjMyeDQgRy1zdGFnZSBtb2RlICovCj4gLSAg
-ICAgICBjc3Jfd3JpdGUoQ1NSX0hHQVRQLCBIR0FUUF9NT0RFX1NWMzJYNCA8PCBIR0FUUF9NT0RF
-X1NISUZUKTsKPiAtICAgICAgIGlmICgoY3NyX3JlYWQoQ1NSX0hHQVRQKSA+PiBIR0FUUF9NT0RF
-X1NISUZUKSA9PSBIR0FUUF9NT0RFX1NWMzJYNCkgewo+ICsgICAgICAgaWYgKGt2bV9yaXNjdl9o
-Z2F0cF9tb2RlX3N1cHBvcnRlZChIR0FUUF9NT0RFX1NWMzJYNCkpIHsKPiArICAgICAgICAgICAg
-ICAga3ZtX3Jpc2N2X2dzdGFnZV9tb2RlX21hc2sgfD0gQklUKEhHQVRQX01PREVfU1YzMlg0KTsK
-PiAgICAgICAgICAgICAgICAga3ZtX3Jpc2N2X2dzdGFnZV9tYXhfcGdkX2xldmVscyA9IDI7Cj4g
-LSAgICAgICAgICAgICAgIGdvdG8gZG9uZTsKPiAgICAgICAgIH0KPiAgI2VuZGlmCj4KPiAtICAg
-ICAgIC8qIEtWTSBkZXBlbmRzIG9uICFIR0FUUF9NT0RFX09GRiAqLwo+IC0gICAgICAga3ZtX3Jp
-c2N2X2dzdGFnZV9tYXhfcGdkX2xldmVscyA9IDA7Cj4gLQo+IC1kb25lOgoKSGVyZSBhcmUgc29t
-ZSBzdGF0ZW1lbnRzIGZyb20gUklTQy1WIHByaXZpbGVnZSBzcGVjaWZpY2F0aW9uOgoiSW1wbGVt
-ZW50YXRpb25zIHRoYXQgc3VwcG9ydCBTdjQ4IG11c3QgYWxzbyBzdXBwb3J0IFN2MzkuIgoiSW1w
-bGVtZW50YXRpb25zIHRoYXQgc3VwcG9ydCBTdjU3IG11c3QgYWxzbyBzdXBwb3J0IFN2NDguIgoi
-VGhlIGNvbnZlcnNpb24gb2YgYW4gU3YzMng0LCBTdjM5eDQsIFN2NDh4NCwgb3IgU3Y1N3g0IGd1
-ZXN0IHBoeXNpY2FsCmFkZHJlc3MgaXMgYWNjb21wbGlzaGVkIHdpdGggdGhlCnNhbWUgYWxnb3Jp
-dGhtIHVzZWQgZm9yIFN2MzIsIFN2MzksIFN2NDgsIG9yIFN2NTcsIGFzIHByZXNlbnRlZCBpbgpT
-ZWN0aW9uIDEyLjMuMiwgZXhjZXB0IHRoYXQ6IgoiaGdhdHAgc3Vic3RpdHV0ZXMgZm9yIHRoZSB1
-c3VhbCBzYXRwOyIKCkJhc2VkIG9uIGFib3ZlIGl0IGlzIGEgd2FzdGUgdG8gdHJ5IGVhY2ggYW5k
-IGV2ZXJ5IG1vZGUuCkZvciBleGFtcGxlOiBpZiBtb2RlIFN2NDh4NCBpcyBzdXBwb3J0ZWQgdGhl
-biBTdjM5eDQgaXMgYWxzbyBzdXBwb3J0ZWQuCgpSZWdhcmRzLApBbnVwCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 2026/3/26 12:00, Andrew Morton wrote:
+> On Wed, 25 Mar 2026 10:58:56 +0800 Jinjie Ruan <ruanjinjie@huawei.com> wrote:
+> 
+>> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
+>> and crashk_cma memory are almost identical across different architectures,
+>> This patch set handle them in crash core in a general way, which eliminate
+>> a lot of duplication code.
+>>
+>> And add support for crashkernel CMA reservation for arm64 and riscv.
+> 
+> So who is patchmonkey for this.
+> 
+>>  .../admin-guide/kernel-parameters.txt         |  16 +--
+>>  arch/arm64/kernel/machine_kexec_file.c        |  39 ++-----
+>>  arch/arm64/mm/init.c                          |   5 +-
+>>  arch/loongarch/kernel/machine_kexec_file.c    |  39 ++-----
+>>  arch/powerpc/include/asm/kexec_ranges.h       |   1 -
+>>  arch/powerpc/kexec/crash.c                    |   7 +-
+>>  arch/powerpc/kexec/ranges.c                   | 101 +----------------
+>>  arch/riscv/kernel/machine_kexec_file.c        |  38 ++-----
+>>  arch/riscv/mm/init.c                          |   5 +-
+>>  arch/x86/kernel/crash.c                       |  89 ++-------------
+>>  drivers/of/fdt.c                              |   9 +-
+>>  drivers/of/kexec.c                            |   9 ++
+>>  include/linux/crash_core.h                    |   9 ++
+>>  kernel/crash_core.c                           | 105 +++++++++++++++++-
+> 
+> Me, I guess, with as many arch acks as I can gather, please.
+> 
+> I'm seriously trying to slow things down now, but I guess I can make an
+> exception for non-MM material.
+> 
+> AI review asks a few questions:
+> 	https://sashiko.dev/#/patchset/20260325025904.2811960-1-ruanjinjie@huawei.com
+> 
+> Can you please check these?  And I'm interested in learning how many of
+> these are valid.  Thanks.
+
+Thanks for the feedback. At the very least, the issue highlighted below
+remains valid and needs to be addressed, which can be fixed with below
+fixed number usable ranges.
+
++#define MAX_USABLE_RANGES		(6)
+
+"
+> */
+> -#define MAX_USABLE_RANGES		2
+> +#define MAX_USABLE_RANGES		(2 + CRASHKERNEL_CMA_RANGES_MAX)
+Could this silently drop crash memory if the crash kernel is built without
+CONFIG_CMA?
+If the main kernel is compiled with CONFIG_CMA, it might append up to 6
+regions to the linux,usable-memory-range property (2 standard + 4 CMA).
+If the crash kernel is compiled without CONFIG_CMA,
+CRASHKERNEL_CMA_RANGES_MAX
+evaluates to 0. During boot, the crash kernel's FDT parsing logic limits the
+ranges to MAX_USABLE_RANGES (which would be 2). This truncates the ranges
+and drops all the CMA-backed crash memory.
+Since the crash kernel only registers these regions as normal RAM, it
+doesn't
+require CONFIG_CMA to use them. Should MAX_USABLE_RANGES unconditionally
+accommodate the maximum possible ranges any sender might provide?"
+
+
+
+Regarding the concurrency issue mentioned below, as noted in my v9
+response, could we confirm if this is indeed a bug? If so, I believe
+each affected architecture might need a separate fix, as this issue
+already exists in the current code and likely requires a more
+comprehensive solution. Does anyone have thoughts on whether this is a
+valid concern or suggestions on how to address it?
+
+
+Link:
+https://lore.kernel.org/all/4cfde40c-673a-12b0-dfc5-703d582d6ea9@huawei.com/
+
+
+"
+> --- a/kernel/crash_core.c
+> +++ b/kernel/crash_core.c
+> @@ -326,15 +326,25 @@ int crash_prepare_headers(int need_kernel_map,
+void **addr, unsigned long *sz,
+>  	struct crash_mem *cmem;
+>  	int ret;
+>
+> +	if (IS_ENABLED(CONFIG_MEMORY_HOTPLUG))
+> +		lock_device_hotplug();
+Can this cause a self-deadlock during memory hotplug?
+When memory is onlined or offlined via sysfs (for example, in state_store()
+calling lock_device_hotplug_sysfs()), the device_hotplug_lock is already
+acquired before initiating the hotplug sequence.
+Since crash_prepare_headers() can be invoked by the crash_memhp_notifier
+during these memory hotplug operations, acquiring device_hotplug_lock again
+here would cause a recursive mutex acquisition.
+> +
+>  	max_nr_ranges = arch_get_system_nr_ranges();
+> -	if (!max_nr_ranges)
+> -		return -ENOMEM;
+> +	if (!max_nr_ranges) {
+> +		ret = -ENOMEM;
+> +		goto unlock;
+> +	}
+>
+>  	cmem = alloc_cmem(max_nr_ranges);
+> -	if (!cmem)
+> -		return -ENOMEM;
+> +	if (!cmem) {
+> +		ret = -ENOMEM;
+> +		goto unlock;
+> +	}
+>
+>  	ret = arch_crash_populate_cmem(cmem);
+While the locking attempts to address the race, is it possible that the
+architecture specific population callbacks could still write out of bounds?
+The callbacks appear to unconditionally write to
+cmem->ranges[cmem->nr_ranges]
+without verifying if cmem->nr_ranges >= cmem->max_nr_ranges.
+Would it be safer to also add explicit bounds checking inside the populate
+callbacks to return an error like -ENOMEM when the array capacity is
+exceeded?"
+
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
