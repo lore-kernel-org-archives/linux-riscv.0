@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CF7109E52F
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 00:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D43109E537
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 01:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3fWRiU+kwieA+HvQ0XI4e9vtBcbiK0uP6bx7/XrJODo=; b=BjGewQMAy2Stk6
-	E/uZ2y967Tz5cnkgpQAJXbo1I+hnQ6wvw8voIb9Ogv0bli9wiPDjC7FRGjve+3xR7HCOdyL9BVMF4
-	0qBzqERRPrVZdUI+fti8guPkfQ/UgxzNemQiOZJoOLpq/FF8DF0NXK1OfsRBgE95HjKQPRMTC0Mdr
-	lYLzlY0f1t0i/dCGSFRveUTnV+nfVR9t7qInW9kg3mZBWEcs+JhbFDDcAOFqMyZOH6S7itysC6unn
-	p8q3Nldus3FVG85ymI2DJBTV/fvxSQrnf5pf/QGdMmZF3EnVsOKCPt1HY17QuqTtBiQ+Y3qDKYBeJ
-	99p2UJiCpqu3j4QvP6Yg==;
+	List-Owner; bh=ONCqKtK8v9JozKtZZLImYRwgOBfKeaRpkCnMT57OSg0=; b=E9T4RrP5sJUs+I
+	FMZKzFQ2vQOjVeCYRHe9v24Nd+LoaFHJTDRqQZ75OVcpagUo820KiI1R0amwGwNZcFmI5ZjD0ueQ9
+	fv8aTR4VCkSxkWiC/zOM3xpyrVKoMNGMhbOrXt7cS0b7G9x1pJJiFvL4OFpFcj6Ta2ADfLErG2QnU
+	3OLdrMZ804BaRBNXUNyhzXDcUxzoINHc+2gOxgBxGi8AI+SZg0IWBSOz7FxqHPY3HEH397Dy5TAHH
+	yUXoxYvekkqkSWiXR2eO+MTjXF61Ks6khj+Cqb2GuNTrIkl+k8s4XaHxTF5FEZQhKPOy2wXBLz24f
+	olERptxn18AqcisZHG2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5YN7-00000004Swt-1a8Z;
-	Thu, 26 Mar 2026 00:14:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5ZDR-00000004VFq-1B9j;
+	Thu, 26 Mar 2026 01:08:53 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5YN4-00000004SwQ-35pz;
-	Thu, 26 Mar 2026 00:14:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D690B43912;
-	Thu, 26 Mar 2026 00:14:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ADF5C4CEF7;
-	Thu, 26 Mar 2026 00:14:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774484085;
-	bh=/TUBF7g8mB34338ES/5O1dCvr9AmdaH2HsuPF9BFNDo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lcW6accb/PkHae4TeIC9U03nq4FvAa+PoKqsRDJCrNv8pNUCYvh9Heb0KwJ/x/jNA
-	 DpFTn5iZ9UcxnGxfajphEQJ7nAVlx4N/fFr/QojmFQTUErB2+ayRVtcfCL6sxl6656
-	 HdSE/mqRdkxEvsrj7/d93dhIV0ZbCDSjpzzN7Eju+SjOx9aPzKQ76X+pEk3B/DaWbG
-	 DqmQnSiV9DMB7hFJ261R0JrhgnnVfUWv0lCi+Vwx8cyOKbmN29w9+rs+c4kJhTG0L9
-	 ag2V7di+vHu7fo6Ds7p2NMyqprMu7dtOYqk0PjNkuJFEwGDpHyapka3hD2NGHBSdR8
-	 UvYxzHgS3jbLA==
-Date: Thu, 26 Mar 2026 08:14:43 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
+	id 1w5ZDN-00000004VEr-2bLJ;
+	Thu, 26 Mar 2026 01:08:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=HZk9cX6zPb++VDwxFCjztWsZ6cPWXsFQhOd6PIpC+jg=; b=3k+TjSE4T5siYJvmjf+q67z7Bo
+	blgq/01N77awBnx7m8dxKS+XWCjvcdDITItvnD/oPHPgdpnl/fYTwqn9SZnLpumvD+4pQ9MuXPyJz
+	LLcgWn8WmSKGBEQCaDnMeONlaYVoPwlRLHNuJiDEDQk8r41BKPWSIExdHBN5qyXIf2iA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w5ZD0-00DNsG-6i; Thu, 26 Mar 2026 02:08:26 +0100
+Date: Thu, 26 Mar 2026 02:08:26 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>
-Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Yao Zi <me@ziyao.cc>
-Subject: Re: [PATCH v4 0/2] phy: spacemit: Add USB2 PHY support for K3 SoC
-Message-ID: <20260326001443-GKB777612@kernel.org>
-References: <20260305-11-k3-usb2-phy-v4-0-15554fb933bc@kernel.org>
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-mips@vger.kernel.org, imx@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH net-next v9 2/6] net: stmmac: qcom-ethqos: use generic
+ device properties
+Message-ID: <409265d8-532a-44d4-abc6-02ac5a19d286@lunn.ch>
+References: <20260316-qcom-sa8255p-emac-v9-0-c58934e76ff2@oss.qualcomm.com>
+ <20260316-qcom-sa8255p-emac-v9-2-c58934e76ff2@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260305-11-k3-usb2-phy-v4-0-15554fb933bc@kernel.org>
+In-Reply-To: <20260316-qcom-sa8255p-emac-v9-2-c58934e76ff2@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_171446_796985_4DA7437C 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_180849_682894_2FE290AE 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +105,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod Koul,
+On Mon, Mar 16, 2026 at 01:05:07PM +0100, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> In order to drop the dependency on CONFIG_OF, convert all device property
+> getters from OF-specific to generic device properties and stop pulling
+> in any linux/of.h symbols.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/Kconfig             | 2 +-
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 9 ++++-----
+>  2 files changed, 5 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> index 07088d03dbab5bd1abf66e9460613b839c1d565e..e2af4fdd654340d618477ed87d3889dbb9aab456 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> @@ -135,7 +135,7 @@ config DWMAC_MESON
+>  config DWMAC_QCOM_ETHQOS
+>  	tristate "Qualcomm ETHQOS support"
+>  	default ARCH_QCOM
+> -	depends on OF && (ARCH_QCOM || COMPILE_TEST)
+> +	depends on ARCH_QCOM || COMPILE_TEST
+>  	help
+>  	  Support for the Qualcomm ETHQOS core.
 
-On 01:00 Thu 05 Mar     , Yixun Lan wrote:
-> The series trys to add USB2 PHY support for SpacemiT K3 SoC, while 
-> patch [1/2] implement a disconnect function which is needed during
-> next connection.
-> 
-> No DTS part has been inclueded in this series, instead I plan to
-> submit them later while adding USB host support.
-> 
-> I've collected all patches and pushed a complete review branch here[1],
-> for people who interested to test easily, which include DTS and necessary
-> changes, other patches may still need to improve, but sufficient for
-> verifying the functionality.
-> 
-> Link: https://github.com/spacemit-com/linux/tree/WIP/k3/usb2 [1]
-> 
+Are you sure you want to do that?
 
-Just want to ping this, Can you queue it for v7.1? Thanks
+static int qcom_ethqos_probe(struct platform_device *pdev)
+{
+	struct device_node *np = pdev->dev.of_node;
+	const struct ethqos_emac_driver_data *data;
+	struct plat_stmmacenet_data *plat_dat;
+	struct stmmac_resources stmmac_res;
+	struct device *dev = &pdev->dev;
+	struct qcom_ethqos *ethqos;
+	int ret, i;
 
--- 
-Yixun Lan (dlan)
+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+	if (ret)
+		return dev_err_probe(dev, ret,
+				     "Failed to get platform resources\n");
+
+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+	if (IS_ERR(plat_dat)) {
+		return dev_err_probe(dev, PTR_ERR(plat_dat),
+				     "dt configuration failed\n");
+	}
+
+https://elixir.bootlin.com/linux/v6.19.9/source/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c#L684
+
+
+#else
+struct plat_stmmacenet_data *
+devm_stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+{
+	return ERR_PTR(-EINVAL);
+}
+#endif /* CONFIG_OF */
+
+It seems like this is just going to result in the probe failing with
+-EINVAL.
+
+	Andrew
 
 _______________________________________________
 linux-riscv mailing list
