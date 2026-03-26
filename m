@@ -4,95 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F2510A88F9
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 17:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0923D10A88FF
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 18:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=J4NNH++2TkBKkSb0aJWbDT1tfDmssRAFh3w+tLPc8MM=; b=RKd7rZ9wAs4QlZ
-	d0YR4BWfab25wybQZULWk52mZdI7+1XTrh1d5kA4wBAXMBSVDehFFp4SNRkS11YBm2+RjW3tu3tqd
-	W52iywGLz57sxNtrJ8sOOdP0g3XDwX+KStKV3KfALnsNcoq543hiuEUX1vB8tvdaIYSqkCqGlCfi2
-	X86MliF8HoDlA4rXa/o6hJ72PjY/rzsD6zgqVoavIim87RjcnxyGFiBx6P2yE4viw7OuXhDs6GuXA
-	dlJbldGHztTfKI6KFIh18bOlBD1rp4aloDumMaPQUFkbSXpNB91e/YCraV0Tf1XZ0gccQ5NomayDb
-	kxV9HDwuPKAd7MW/Tuuw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dZleAHWZHufPjyCVfh7euB9FQeSZwZ/VpzNpGS587JE=; b=R0UFjD4SMPbftzP7/D+BC9wT6j
+	6wBu1L5fX+LlX8vh2KPfyf+r3jT3s2/fm5UQwPqfUSrjLtUozSEBhR004WzPgKtIRX1JQ2WbmcNkf
+	+fjQq/U4MpfPxBsFwFvBl8bSiguRsk4lYLbz0l4AHgtWXh5N/IDTtZkPk/QwuQhGjXcnXMg/bhQZQ
+	SkfOXpNfJTVzbXOWMHXdCBZB61jwoqq3ity29eStvF3xBaTsNssjBFvxPeBI0MUsj1bFHska8o2iG
+	3wlqvijmq1ZTF3reTNKCNR1kzJSAH/IsteoLBD3DRUXLlIBYdxnWxQfpum7ceApwKNB0ee3h/I9vU
+	4h6q7wXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5oxm-00000005zXi-0DsH;
-	Thu, 26 Mar 2026 17:57:46 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1w5pXa-000000062mV-1J8M;
+	Thu, 26 Mar 2026 18:34:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5oxj-00000005zXK-3GMN
+	id 1w5pXY-000000062mA-1035
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Mar 2026 17:57:44 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-79495b1aaa7so12971117b3.1
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Mar 2026 10:57:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774547862; x=1775152662; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DkV/sS5NXQeiPjlp9UyXTqzIZIBKvql5Nx/cBjkpGbc=;
-        b=rkYamIOZKDm0sRRmrH8dFI1Jq2SKPrlJqbC8obfauvZiT73lHCPOeC2HzB5NjEURGE
-         Cc2toOneTg3pY/IdFyoLyS3ID6cjIbmyE8i6INCmSyjY2cQG9kUv68oJ05M9UBREpDrl
-         XlGwnIZ0uoisAqr3LOcQmgG1Q9AULqYnAJ4mW0ESpG1p7gk3bHkD1lYjEemm+AXGaxE3
-         oubYE90Z3NtuI3XiTpjlcSVNHIyxom4cR3vL/lsF4GeY+28lX5gXUXMfxbTj5XRnsf4H
-         JPHoBgHPYY6+7TSXrYLiwqpw2QNi9ol/A9z3QCSuqlKwrh1E57oIup9GFq/cwBtHNrKQ
-         nRSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774547862; x=1775152662;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DkV/sS5NXQeiPjlp9UyXTqzIZIBKvql5Nx/cBjkpGbc=;
-        b=cgWJDUtLFvYTuQqUjs6X2ggbdx8lOmu9O7TwFwWQhEhBF2BIG2pWwZq0u+i++9Fm79
-         Os0txrNxU1yEnBzE4/5ivHGi8UdxH+ewdVUNQlz1ePOR7Cbo1ABzyoMu7VNaV5fhe3BS
-         7WHkkew+ZADjuUFr/0yhfj8zL3xKmv2PtunoMiWwk9uEa3+nKybzdvgLD+odvJ6jOnmS
-         EtYYQZPe5pBv3hIwxjSrhKxAm8ou4tpB56VSOGiigQWU7tZsbmbCcsHi6rHy9SKQ0c/E
-         GthMz0ETun8aQUfTzy58Ed7FiahuaiRfTz/6e4getAgPshrYp70SVEKQTGD2EINKGq7W
-         Vs8w==
-X-Forwarded-Encrypted: i=1; AJvYcCXCsB/PdtOB8buCbKcLJ5ORE84GaBYmHREohgpgPE0tYYWgaoF5QMp1zbNHEbFVcYA9qLllQsWd7kCevg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoTSIq4neKS0vC4s/jlTWAGnMXg1kYMzlmNW4MyVl439QdbPYB
-	NvXuJ7BkwD1wZq8qNSpn4Pj8dcfHszhO65/b2UUz8MZuG7DljU79qjq4
-X-Gm-Gg: ATEYQzwXyd+w3APv+KGZB7TpX4AaOOdUKbGLG9D393Jh3QK4PMWuZ3FBtlqJDtwyq/q
-	rc4R7wulDccq3dl9+V/irn7jatb8f3E3I0nbbLJZWRMBekmXN7SF+6mgnN0Mszpj+HzWatxU9Ub
-	Hpc286mcNkK3lZ1LPOqAc6WFNaIJtzdue+19JezkouU/AYSH8GKNi2YQyJfuw6XZim94lvFKd59
-	b3CRyoXmsGqGA6vLwGbQglU0v3BzH+xjdSBrcOWbDYjIZnXz3L2yjWq6hC2+1jlIjJqrMNdF/iP
-	dGmF6ZXPp88etD1HZh9HzmXiNdqtcBhFPX4IiKtjMZrj3sn1+S3vy9FLL+d6SyxJFjXzCB+T5Ng
-	0HdiMHS05jsUkDGfAfO4N9BPtiu6UejFifGOhRi6XkBfXu0iwgBwdf98sBlBO5SrkISEb9xsTeD
-	YjrJSMG9OoNPCSfi9VQmYLVoxLv2+fOFhfMOilyP1FDmvZkCSeF7uCQ42zDFgy1uHJd3bCgFkEG
-	zgn+p8ZyKFkJ+22a5qBIpIJ
-X-Received: by 2002:a05:690c:e4e7:b0:79a:ad57:f93f with SMTP id 00721157ae682-79acf647c7emr72115717b3.39.1774547862224;
-        Thu, 26 Mar 2026 10:57:42 -0700 (PDT)
-Received: from tux ([2601:7c0:c37e:2360::17e2])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-79b1e3bdd89sm16277137b3.29.2026.03.26.10.57.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 10:57:41 -0700 (PDT)
-From: Ethan Tidmore <ethantidmore06@gmail.com>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
+	Thu, 26 Mar 2026 18:34:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2128143C29;
+	Thu, 26 Mar 2026 18:34:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 588ACC116C6;
+	Thu, 26 Mar 2026 18:34:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774550083;
+	bh=+WFhHAP+I6U56ZY1SPoQXhOLT+bdcm5oHSlV3lm2fRk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YLQ8s2Ys1REk6EW7Qhg3mlYZf3hKzj8IindqDfPFSPV9j2xX5TipAVNqRAUNL+Wea
+	 x4Y0N8d3LK8wCT2DArdswnWLaR795pWrpELuTVswjw2gttc7K7J4eNtCdjcjpqbJlz
+	 yK/HKpZlVj7Z37+hYHahAhIkr6dwVwIfBpaLT3hLCoQEgAeJNgF7DSLH3zUsKsCDi2
+	 ckkp3Xk9BU37wOBORGkLpHEm38eeWkBZRrpzO5xlZPT4MNuBpD4kU3BAl74GVvgSo5
+	 NsK/KDCX/pTx8/NsY9pHgcp5u+/sfcKA5UVl8fiQSP8dqqxQ67uoL7JcWFreNn9cnY
+	 ZF0JxhevI/KOQ==
+Date: Thu, 26 Mar 2026 18:34:37 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Nick Kossifidis <mick@ics.forth.gr>,
-	Sebastien Boeuf <seb@rivosinc.com>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	iommu@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ethan Tidmore <ethantidmore06@gmail.com>
-Subject: [PATCH v2] iommu/riscv: Fix signedness bug
-Date: Thu, 26 Mar 2026 12:57:38 -0500
-Message-ID: <20260326175738.750060-1-ethantidmore06@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, Guodong Xu <guodong@riscstar.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 2/7] dt-bindings: dmaengine: Add SpacemiT K3 DMA
+ compatible string
+Message-ID: <20260326-explode-surplus-24c0e0813099@spud>
+References: <20260326-k3-pdma-v2-0-ca94ca7bb595@linux.spacemit.com>
+ <20260326-k3-pdma-v2-2-ca94ca7bb595@linux.spacemit.com>
 MIME-Version: 1.0
+In-Reply-To: <20260326-k3-pdma-v2-2-ca94ca7bb595@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_105743_824944_5A250FE5 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260326_113444_301843_508F08D1 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,58 +77,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3484425524730795214=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The function platform_irq_count() returns negative error codes and
-iommu->irqs_count is an unsigned integer, so the check
-(iommu->irqs_count <= 0) is always impossible.
 
-Make the return value of platform_irq_count() be assigned to ret, check
-for error, and then assign iommu->irqs_count to ret.
+--===============3484425524730795214==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3c5c3SbeQ5J8Cvcr"
+Content-Disposition: inline
 
-Detected by Smatch:
-drivers/iommu/riscv/iommu-platform.c:119 riscv_iommu_platform_probe() warn:
-'iommu->irqs_count' unsigned <= 0
 
-Fixes: 5c0ebbd3c6c6 ("iommu/riscv: Add RISC-V IOMMU platform device driver")
-Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
-Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
----
-v2: 
-- Add correct Fixes tag.
-- Add RB tag from Andrew Jones
+--3c5c3SbeQ5J8Cvcr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- drivers/iommu/riscv/iommu-platform.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+On Thu, Mar 26, 2026 at 04:17:17PM +0800, Troy Mitchell wrote:
+> From: Guodong Xu <guodong@riscstar.com>
+>=20
+> Add k3 compatible string.
 
-diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
-index 8f15b06e8499..399ba8fe1b3e 100644
---- a/drivers/iommu/riscv/iommu-platform.c
-+++ b/drivers/iommu/riscv/iommu-platform.c
-@@ -115,10 +115,13 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
- 		fallthrough;
- 
- 	case RISCV_IOMMU_CAPABILITIES_IGS_WSI:
--		iommu->irqs_count = platform_irq_count(pdev);
--		if (iommu->irqs_count <= 0)
-+		ret = platform_irq_count(pdev);
-+		if (ret <= 0)
- 			return dev_err_probe(dev, -ENODEV,
- 					     "no IRQ resources provided\n");
-+
-+		iommu->irqs_count = ret;
-+
- 		if (iommu->irqs_count > RISCV_IOMMU_INTR_COUNT)
- 			iommu->irqs_count = RISCV_IOMMU_INTR_COUNT;
- 
--- 
-2.53.0
+That's obvious. What you need to explain is why it is not compatible with
+the existing k1.
+pw-bot: changes-requested
+Cheers,
+Conor.
 
+>=20
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
+>  Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml =
+b/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml
+> index ec06235baf5c..62ce6d81526b 100644
+> --- a/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml
+> +++ b/Documentation/devicetree/bindings/dma/spacemit,k1-pdma.yaml
+> @@ -14,7 +14,9 @@ allOf:
+> =20
+>  properties:
+>    compatible:
+> -    const: spacemit,k1-pdma
+> +    enum:
+> +      - spacemit,k1-pdma
+> +      - spacemit,k3-pdma
+> =20
+>    reg:
+>      maxItems: 1
+>=20
+> --=20
+> 2.53.0
+>=20
+
+--3c5c3SbeQ5J8Cvcr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacV8PQAKCRB4tDGHoIJi
+0iSJAQCYik/5JNh07McaFHFAtO7PKvqeDrCRfWwv0LzCc+MAOQD+I6kaG8JvSER/
+6z5GZ8MFkLGErIBUFMmIqZJuwKZldAo=
+=sPth
+-----END PGP SIGNATURE-----
+
+--3c5c3SbeQ5J8Cvcr--
+
+
+--===============3484425524730795214==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3484425524730795214==--
+
