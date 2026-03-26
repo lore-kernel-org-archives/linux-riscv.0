@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9807F109C047
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 07:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED258109E556
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Mar 2026 07:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5FVyxTCxey+CAU6I4cGpJrDeXM9TdPM8w7pBrfiCNGo=; b=X90tBhw141vmm0
-	qpHtWOs+WNB8IZoPBFKbMVy5qtIV046U5uTH+SJ4hq/TpVfM8woKr5ijAamjBhvagMo9/byh0ZQlf
-	jrHXGtSbqmO6x1PDdtB0BFt1W/4elcG3sEJDVRDgzM8igJ3Ev+XBV8potPIlWSIU87sJoWaNv7XmX
-	H8IDhtRgJSb6xc+L1sxDbAImmf+Nl26aye99Ou8uQujhMoVlos03wnCNlydfiEOgHwepjozjuWCY6
-	D6iZRGJB4th2XOdDO6TB6QeB+IurVcCJL8e1hJSbWlKs9hDnVkAn/xbchQxYKMSal4WJkGacmJhyH
-	S4vxpbNwtmUOEfcJyACw==;
+	List-Owner; bh=XQC7+4NWPvHOvJ6mxrm2MBasgY5m2Gu3LF6AMjW+x8c=; b=sQR7O1HHc72k4J
+	VgaNQbzKF3atLB354se8Mmrl9fQy5VGso/iMCHK8lQy8yqBnRh80d/KdJaG8jH6TMzrU/aVE0XBn2
+	FHqGqHLt/Q1MKKHpbkcKW4xQ+OsxqllBbgO41nK6OjsiryP+FL61co3guqI7DVLb7kqWNHbFBdaCv
+	CBigtO/6gWjR8Zg+D8ear9Mvq/eSaBzxp9CUSr4iVA6m+/hLgeZdTmD+sqCJ5uZpFjzc9fDT558or
+	AKDOhc60pd6McMkPseQUAmERptGuZA8JOIWbOyUrgqUx8A3Np1xmP697/u1gEC0JW8cbLa+hlkuBP
+	JJsJ9hA3SQWA5qeT0QtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5f8O-00000004vk6-1P87;
-	Thu, 26 Mar 2026 07:28:04 +0000
+	id 1w5fF7-00000004wgb-1yyD;
+	Thu, 26 Mar 2026 07:35:01 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5f8L-00000004viE-1n4u
+	id 1w5fF5-00000004wgA-2KBv
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Mar 2026 07:28:02 +0000
+	Thu, 26 Mar 2026 07:34:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B43260130;
-	Thu, 26 Mar 2026 07:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFA48C2BCB4;
-	Thu, 26 Mar 2026 07:27:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A25D760053;
+	Thu, 26 Mar 2026 07:34:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF12C116C6;
+	Thu, 26 Mar 2026 07:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774510080;
-	bh=w6bpMofaVIfUfpdCyZUipXkkuDkxq39ED9TKBQJNgu8=;
+	s=k20201202; t=1774510498;
+	bh=i9G0GSY9TeIGOxDzdr8Ir22Ps+YtLJcsSy7NDz39L5Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jiVgwS511+pR6Ojx6jhNRTBzk+/zVt5jMh1FNAnXe75DJrYvgxT+Nz9H78h/tUwEj
-	 5odxiIoYv/QMzJ8IzdL1lN6HL/4fN15uHZAdmeO5Vg4HQTGFlTnoFDRQRIL1hzIJxx
-	 6Y5Y4NO5fPv0oBFKkDebPl7FXIf3mBCnut1yT3LFqHKz1KEJWNOWWlzo2sop6PHNY5
-	 oPg/mv8oWBSy5WvPC3nfy/c5HqZvGzUeUrxwpSsQbSmiLa+svuLpt0OBF9+Bitau2D
-	 Dt1Fw+yPyC5LekiUkORJ6o2oRaH43yw93AzqIT37Fs2wI9XsG2fV7456uj7seD4hlp
-	 zGw+RDgiff8TA==
-Date: Thu, 26 Mar 2026 15:27:57 +0800
+	b=D2EdTM1jIZcDuLvJ/zWbxKykGQvqYDbXRLb2ZNFKKDdyswvTxeXfZjFOdeDQRileN
+	 UL2jfl0J4Gp93lVIy1b34lTV0gvnTUfWZ1Pf8QmaSQzwonocfyPDYfVZGXVVulth7J
+	 7fMTY/HIayOAdqw0lIvDkDljMlmRL8A8kHZ/JigGMs1NisYOVrxy/1bw8I150RwUAV
+	 EL8J8bhLOSyp2VFp1BJYKdhHNIKzI7kv8qjvdUtN1N4HaPpgejk1wCns4yVj0Nl0IM
+	 4X0GYI8RkSNjTJhz/LyCd6Tgr9tZsaL/WPMm95FRfIswRHlJUVJvOxm9C/NqdyOv1D
+	 XlsnHt7SCGCag==
+Date: Thu, 26 Mar 2026 15:34:56 +0800
 From: Yixun Lan <dlan@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Aurelien Jarno <aurelien@aurel32.net>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dts: riscv: spacemit: k3: add P1 PMIC regulator tree
-Message-ID: <20260326072757-GKG777612@kernel.org>
-References: <20260325-02-k3-i2c-v1-1-a793776b88bc@kernel.org>
- <6530526f-59ca-4753-a068-46c62a1a1fed@kernel.org>
- <20260325234835-GKA777612@kernel.org>
- <2d0ef51c-c0c1-4670-9221-e0b62ca75fae@kernel.org>
- <20260326071405-GKE777612@kernel.org>
- <4377b748-9604-4470-931a-3b970e213735@kernel.org>
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH 6/6] riscv: dts: spacemit: enable PCIe ports on Milk-V
+ Jupiter
+Message-ID: <20260326073456-GKH777612@kernel.org>
+References: <20260322203356.2206927-1-aurelien@aurel32.net>
+ <20260322203356.2206927-7-aurelien@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <4377b748-9604-4470-931a-3b970e213735@kernel.org>
+In-Reply-To: <20260322203356.2206927-7-aurelien@aurel32.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +77,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof, 
+Hi Aurelien, 
 
-On 08:15 Thu 26 Mar     , Krzysztof Kozlowski wrote:
-> On 26/03/2026 08:14, Yixun Lan wrote:
-> > Hi Krzysztof, 
-> > 
-> > On 08:02 Thu 26 Mar     , Krzysztof Kozlowski wrote:
-> >> On 26/03/2026 00:48, Yixun Lan wrote:
-> >>>>
-> >>>>
-> >>>>> +
-> >>>>> +	reg_aux_vcc3v3: regulator-aux-vcc3v3 {
-> >>>>
-> >>>> This is even more pointless because there is no user. Dead code.
-> >>>>
-> >>> reg_aux_vcc3v3 is used by various devices, but I can drop it too,
-> >>
-> >> Which ones?
-> > To be precise, I should say reg_aux_vcc3v3 will be used by various
-> > devices in future, but not in current device tree of mainline, e.g, 
-> > USB2.0, PCIe, 10G Ethernet, Audio..
+On 21:28 Sun 22 Mar     , Aurelien Jarno wrote:
+> Enable the two PCIe controller along with and their associated PHY. They
+> are routed to the M.2 M-key connector and to the the PCIe x8 slot.
+                                               ~~~~~~drop one
 > 
-> So it is not used by various devices. I just wrote - THERE IS NO USER.
-Ok, I got your point, thanks for the review
+> Add an always-on regulator sourcing 3.3V from the DC-IN input, to power
+> the PCIe ports.
+> 
+> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+
+Can you re-spin one more version? along with previous bootph-pre-ram
+change, you might also wanna adjust the commit message accordingly..
+
+P.S, It's easy for me to pick from the list instead of amending locally
 
 -- 
 Yixun Lan (dlan)
