@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8E110BA432
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 07:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329D610BA431
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 07:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LvfsWXBO6wvdxT4XxWHSHAb84dmgfs5c7IZkM9EPhzk=; b=tqOZZLP6PhEdSQ
-	2P9/PojeftbzmkPPPMEIz279HcsqWhAnqwFQe34tYTUWNp+NCfsQxcfIOFumk9UTtDiA+O9mAErBG
-	wVSYd5I37cSH7Uto6rcE/fCTja/z9eiY4tCWpHG0RChvmHtoTJl7YeXoE44kzJ1gsjne1tZoTvVsv
-	f9xuB6kzbTiKHf1h9OsoJra+Gl5/LdTdXMfE7Ad9AV9ShuVp0Ijry74EAaTNcnqEpOw+UhDblmzbK
-	hXdX/ltY9PW4GxKuI0drIfsqTtMJ614SHWdHmHaXL0hDz33WB9k7jLWF3aBE8oVH2u2qrpwzhwxeO
-	MHw9S2xRuGKhkdaRSyow==;
+	List-Owner; bh=cBgRTVMxcOLxFbzJiU/V34zR5PAL/+QDA7a7qDkNpz0=; b=nZ9ZHGVM7nmqTv
+	2C/CMzx6S5YqaCVNPCIyePc7T/StSp48T9jM4Gssu7j96V43p7eT1zVqCyHrDO4uSduqwMZGL8Xby
+	TzMqnGLx9c8SMVHYOG+ZY8qJ8YAsu9O6aJnPkNgan7xCnO5RsrY+fTFO1svnGBp2LWicIs6qR9nQ5
+	CC37x3r0mTO6gzTPsb6B6sfOobIZGU8IoOijIZGPRva3szxelMdvSOwdxdzr0o+YWQzsYmV27LaTD
+	NNPzEuVdPYxtztWZU2Xn91MBSiTsEBYgwtzlJoM9S0FpsTdfqWE6VYfL737GMNn/YWNokOLTKAK8G
+	aji2CLGW1trUY55tfxlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w61bg-00000006sxc-33RI;
-	Fri, 27 Mar 2026 07:27:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w61cU-00000006t31-0GaY;
+	Fri, 27 Mar 2026 07:28:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w61bf-00000006sxM-3WVM
+	id 1w61cR-00000006t2I-21Ql
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Mar 2026 07:27:47 +0000
+	Fri, 27 Mar 2026 07:28:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29A8F60133;
-	Fri, 27 Mar 2026 07:27:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EF35C19423;
-	Fri, 27 Mar 2026 07:27:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B782541AE7;
+	Fri, 27 Mar 2026 07:28:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 127E1C19423;
+	Fri, 27 Mar 2026 07:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774596466;
-	bh=MCVzKj0IwMKiyZBuXwlPOEx7tDkpVOQV0iBLV4nD+0k=;
+	s=k20201202; t=1774596514;
+	bh=kBoaD+Y3WUsK9eFptmTNmn+4Xv38yoT0ql97BiTIliU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OzR1m7VU+m3n7hqd0FwRCWj8NCiLUYdas3mWtiJjg4l2PnT9Qv6C5wNAGfA7eMPWl
-	 GOpxUp5hJHh+walrfJIjJAVtxPY4AU3vi6OcO4IPoWsUyhnrlxHpoewAU5h5RlWROj
-	 fZ6mUZVL2XNCVd7a0Wh3k4LK6X35KXZ0MXxdgxJQpkdfuAo1x2V3YubNatIUEX9CRC
-	 WZMyvhmNtFpF7J0nIrkyoABiLAdK8HO8DZZFGgnbdj/A1F9iHoE+FGpSi9hWLi/7XV
-	 hlUuTIdFaPNPQrTw2DMPrpjMJC92lqsf0NZMUa8KmaR9v7G5CVm0pSLpKijmwmkWOX
-	 y28lUHMq15c+Q==
-Date: Fri, 27 Mar 2026 08:27:44 +0100
+	b=gsiRKPQZkPr7ICtM79AfrIIH9+ubEj+iignxoxh6euOjXkN7XzFbzfnbXfxO+b3PK
+	 DH8sEul55Y8uqWLqwlzlP14b2QXb0mufoujgXaKxEY743M6IVZVF0R/Hk8Z8Z7gUiX
+	 n4643OUtJtSTTm3OhngU0doMvovGeb/BJ6DRH/9sldF1R1ftgBYENKg8DjB4tA3q+R
+	 toJZBQNHX3llI4iHdYHK7k/VEX1rcq8bCseRat/kuR5ioPMx/uCEK9C2D7Eqyweq8A
+	 qJqJeBQ5KMuCtENhlQN2mxIOgDeEMJBewvQp5LH12V8CT7HPHVnf3bvMCQIbYdo53u
+	 QDv4NN7VCjM5A==
+Date: Fri, 27 Mar 2026 08:28:32 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -56,12 +56,16 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-clk@vger.kernel.org
 Subject: Re: [PATCH v2 1/7] dt-bindings: dmaengine: Add SpacemiT K1 DMA
  request definitions
-Message-ID: <20260327-fancy-nondescript-mouse-cfd6f3@quoll>
+Message-ID: <20260327-silkworm-of-algebraic-aurora-e9bd1c@quoll>
 References: <20260326-k3-pdma-v2-0-ca94ca7bb595@linux.spacemit.com>
  <20260326-k3-pdma-v2-1-ca94ca7bb595@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20260326-k3-pdma-v2-1-ca94ca7bb595@linux.spacemit.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_002835_538936_646EFEA5 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +91,9 @@ On Thu, Mar 26, 2026 at 04:17:16PM +0800, Troy Mitchell wrote:
 > Signed-off-by: Guodong Xu <guodong@riscstar.com>
 > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > ---
-
-No changelog - neither here, nor in commit msg.
-
 >  include/dt-bindings/dma/k1-pdma.h | 56 +++++++++++++++++++++++++++++++++++++++
 
-So previous review applies, no? Was there such?
-
->  1 file changed, 56 insertions(+)
-> 
-> diff --git a/include/dt-bindings/dma/k1-pdma.h b/include/dt-bindings/dma/k1-pdma.h
-> new file mode 100644
-> index 000000000000..061748c177dc
-> --- /dev/null
-> +++ b/include/dt-bindings/dma/k1-pdma.h
-> @@ -0,0 +1,56 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * This header provides DMA request number for non-secure peripherals of
-> + * SpacemiT K1 PDMA.
-> + *
-> + * Copyright (c) 2025 Guodong Xu <guodong@riscstar.com>
-> + */
-> +
-> +#ifndef __DT_BINDINGS_DMA_K1_PDMA_H__
-> +#define __DT_BINDINGS_DMA_K1_PDMA_H__
-> +
-> +#define K1_PDMA_UART0_TX	3
-
-abstract IDs start from 0 or 1.
+Also, this is not a separate commit.
 
 Best regards,
 Krzysztof
