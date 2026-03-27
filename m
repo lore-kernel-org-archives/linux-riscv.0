@@ -4,117 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1CD10BA436
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 08:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE72D10BA439
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 08:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BFfNRuB57H3+qeHA3zGgJ/RH0+jsOBzca+q2ZPDkjfc=; b=18Rsq5FlTNXZT7
-	bcnve+HgMbxBb5h49ZTHDLhIsqAapU2DGVUHUUMLczXwpgfaS1eGpi3c8DzQyg9PINzD3r7zv1N2s
-	OYDid6cfjEpN6NxbwFIxPgHwurBp8jd7qXJov83zMQtmwvIXsTCIUhv53Qm5+VSYAa2JXdfILvdSp
-	eC3jVMXSmNebk3oUmsz62t67Oy0PXL9zeFdhXz0MiTyKBLuLAwdW/TjPFP/MQAJiiBaH7VNoC6UzM
-	1UJeR2i20v26nG5AgLE1XcNHSJ4W3sCP11eCdTV6wEiQMq8XoTZYNJPffAYwGIE6oRH9Sqqu197d8
-	DRcoukAlPFZhUilQZ3SA==;
+	List-Owner; bh=LgePaZGjK6t6W/gImZnFcrjbkATWbh4RTLPFrbBQn0g=; b=z7Z/jFhUKEIfH8
+	HiWdHPgI5TBlBrykMXaLlDuTrk67+pJZWMOEVP64p+6dBiEKMpGVX2hEAuavEat5pTqEK19KcxdCI
+	wIJL0HmQhb3pMsFw1X/laZIVDfN1sq0UUlCEdnCJz3kS96zm5kl1s71b7tEvj5wAiz4uOZYZpR1Xj
+	B7WeFdC406+rpuW4lSKONXsVExjPKxwcQsBelFOYETS8rNhageum18z0SM47VgRjrHgI3DjECVXXj
+	sAUfO6Gpbl4E0GrzKEnZjfyVYYiDMlOfIzBtoOU7AYYc87fMc42dIBJC2Y+QP+aNkIHUGyn3pMo+O
+	QowK2qfnoujOm6IdjQaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6287-00000006vEi-1Oxj;
-	Fri, 27 Mar 2026 08:01:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w62Pw-00000006xHL-3Q2b;
+	Fri, 27 Mar 2026 08:19:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w627s-00000006v7i-2r3Q
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 27 Mar 2026 08:01:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=QlVyZgwbk35jZ7E4LjSb7Hh9QtkNRjrn39+Y58oA5YM=; b=ZR2kAfA6DeEPpVOs8xU4BVrm8v
-	a6SKAHk1F31LiiR3IkPtBMviOAJaEzT1F+UHWmyuWr1++qTRe629wZklvD5wmrARKkzTLCJt7eiDf
-	6lMW8R8oa1/7h/u5mdBIk6k2CVoNihR+37GUzT4ZbnaE0vb8B209K7xrNqMBTNV4ajv4PCuCPoJQk
-	aPMfaeperZvnf4cW1LNJeG8i9aKAb38yO3CZoiFLf74lYrpdBkMX6WTM/l6e7KiLkjMAL66e9e1vq
-	CMZkroIzt3z+y+clWWcs4boAokz2tE7qa5jCku1OvnC3GttjBXcni95LO8QW+/Y+Tzq7YcuGFfkVz
-	QSa34uPA==;
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w627o-00000009vKY-2Hma
+	id 1w62Pu-00000006xGv-1M8t
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Mar 2026 08:01:03 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-48540d21f7dso19829725e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Mar 2026 01:01:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1774598459; x=1775203259; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QlVyZgwbk35jZ7E4LjSb7Hh9QtkNRjrn39+Y58oA5YM=;
-        b=Plu77CUATJP79Ph8b81mGg7OgnaCJkWtBA9YAOSwPfvgXuxaBBIM4Y3YXte/6jzHf7
-         tPEYpR0Ir0tZOTAQMJaISfny0kw6CwwemVOwc88En1IkiBzf7D7fsCwgojcl8xZG1JoJ
-         jcaT1kl1u20A5S3YG/vaCsF+AT2g+rreodbFvo7t36/tIa6/Cd/M30OZDc7WcFQPRz94
-         0BjNQpMf+l9/lwtSFmMqzk6DDVLpp66X7Vpl120wUtUMiOpZ6uCCWtYYlhXbU1SzOu6v
-         jnBjjD0WOkg8GWHWZNFbnQRkqS/4285wBN45dk7PfCBDx5Yq5bYynzVp6hmoYCI0tsnQ
-         kmOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774598459; x=1775203259;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QlVyZgwbk35jZ7E4LjSb7Hh9QtkNRjrn39+Y58oA5YM=;
-        b=BFDtXf1buYsWUyQjucHQL3fhNtZx3BXQ3rO0zpWsJc4nWzMCvQA70ZuNAErLNU6sXl
-         f9DDRQZaQdQVZOOmZ0m21Ap2xM+H875DnNLb11tYvb1Q6KiUG+KB8He7desSlU5WyPsm
-         ups8m1/LsuuX2/009LtLBlCSVFS0xv8BG84M9dDPnAG704sGEXtaP+sTAQgC2C5TJB5C
-         2qaMXuhCh0jkuZVdBFRW5gtY8DfCDdxc1AQaASALkAK8CAex/xhmH12zrEP71iNYjRDI
-         GjFMtchbAV0p8prW7Rbf5lJWEWaVhsoUMEoJw38jZQv43Gfi3hQ65Il6F8yZj+YMULcN
-         KcWA==
-X-Forwarded-Encrypted: i=1; AJvYcCVZKXn+aP43wwziXpeipbRsxLJofXzw3jiLY8iD68XnwbrfE6B4x48LMFdFNd8iLfe5YOcnmXDau5JQMQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUxalU705Lq397ca9PqgFgX4oucw+bqgk1wwTowSAZeO/3UGXL
-	sJ720h+/yNxPLqV6eT5TUIWpnp00aT+4SxzrQLSRfXtQV/IWOw42k34KSX8RMmgB9G4=
-X-Gm-Gg: ATEYQzwjgYQ2cEjhe3YbmBIXafiE1MjoprSWHy0RXyuLTmsvuYGmus5nEGnG712yBVi
-	e2mGFFX+alufMYbQdCz3snXoFxsGcNjhQ/JsPcLCDAi3pYFIZC7+zHDBbmX8LzuHXMAMEimW2F+
-	U7/30lk0yTJ8fLsaHKZXFMVWL8CLuA93T0MCsE/AyIWjqgI3qEwMxdLI0ces4SG2gR+r4FS/aQR
-	Lv2VnObuvPFNckpqSED4InC7x8S/8wmn8FQlVIh4EU/RFPRft266ga6/M6IjsXpwOjksf6wuRrX
-	p7ieNwY77upTvMPmsLtW5lgFapKC/ZJO19A22NaHckX+i8/IjUa0vovD7prhz3luoobDsiYrAvi
-	n0bCG3no7y/q2PigQBAzTzMVTbK79dumQJkYmpS2qyIwCZVr7VziZe+iweytKkT3U0OM1dQP3/d
-	dWq/s/Jlx/mT34y9oN3KUFc2zXu/8BpXZXYWlud76Q
-X-Received: by 2002:a05:600c:5304:b0:485:f1d1:8f3d with SMTP id 5b1f17b1804b1-48727d67a43mr23844745e9.6.1774598458837;
-        Fri, 27 Mar 2026 01:00:58 -0700 (PDT)
-Received: from zovi.suse.cz (nat2.prg.suse.com. [195.250.132.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48725fc4827sm12089735e9.11.2026.03.27.01.00.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 01:00:58 -0700 (PDT)
-From: Petr Pavlu <petr.pavlu@suse.com>
-To: Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sami Tolvanen <samitolvanen@google.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Daniel Gomez <da.gomez@kernel.org>,
-	Aaron Tomlin <atomlin@atomlin.com>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-riscv@lists.infradead.org,
-	linux-modules@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] module, riscv: force sh_addr=0 for arch-specific sections
-Date: Fri, 27 Mar 2026 08:59:03 +0100
-Message-ID: <20260327080023.861105-5-petr.pavlu@suse.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260327080023.861105-1-petr.pavlu@suse.com>
-References: <20260327080023.861105-1-petr.pavlu@suse.com>
+	Fri, 27 Mar 2026 08:19:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A88AE438C6;
+	Fri, 27 Mar 2026 08:19:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D48C2BC87;
+	Fri, 27 Mar 2026 08:19:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774599581;
+	bh=Tlrf9YQPpCEgfXEni1AJghCk6IXwsSp1qRIuz6TrIYI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=e99zTECUo1GWDxJCQjbuZr14lTWUZG8QtA6IbyQJ1NYaNHhOIyAzZ+kNtv+WOupiO
+	 j1RrXWhKXc2wtT67tHlF9lhiFVDpbE159fs6IrFkbE0VktjG1hBxBbKOEl+pGlOMZP
+	 s8g2F1v9aMv8Vb4MBQukTAKy8PxRO9+4QJ9hvWQLnv97WY4UIe0rAJQ93Dv0JI1eDe
+	 DC4EPqXv0cWg4tip0AKbKE2gudNKoBVvFNor0xeBgxv4v4hqcfmJ4cFEQYQVwpjaPI
+	 0w08T2QiXydDvbbnMpwBX4F55GSUk2Pw9eD+U+Gr61hEbW4c7dgxVKZKbBh7NtMx8c
+	 UFVXkvLUfgEig==
+Message-ID: <d7eb716d-9b9c-4474-a9ca-d44e96c46fc8@kernel.org>
+Date: Fri, 27 Mar 2026 09:19:37 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] ~RISC-V~Starfive devicetrees fixes for v7.0-rc6
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+ E Shattow <e@freeshell.de>
+Cc: soc@kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>,
+ Ilya Sorochan <k0tran@altlinux.org>, Conor Dooley <conor@kernel.org>
+References: <20260326-astrology-rephrase-836ec663228b@spud>
+ <4dd4ffe6-307a-442b-ae99-50c88d4e5b84@freeshell.de>
+ <20260326-viscous-rigor-4beb18f77eec@spud>
+ <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_080100_951166_DA056E66 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_011942_414829_478FF7A3 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,39 +121,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When linking modules with 'ld.bfd -r', sections defined without an address
-inherit the location counter, resulting in non-zero sh_addr values in the
-resulting .ko files. Relocatable objects are expected to have sh_addr=0 for
-all sections. Non-zero addresses are confusing in this context, typically
-worse compressible, and may cause tools to misbehave [1].
+On 26/03/2026 16:44, Heinrich Schuchardt wrote:
+>>
+>>> I have done an ~80%+ analysis on Ghidra decompilation of the JH-7110
+>>> BootROM, and openly invite anyone that would like to help get this
+>>> effort to 100% is welcome to so that we may publish and refer to this
+>>> for technical competence. I do not object to the community supporting
+>>> this deprecated capability if there is any real documentation not based
+>>> on rumors and memes; but no one has offered to do take a moment to do
+>>> this most basic of fact finding. Evidently the StarFive maintainer(s)
+>>> have refused to support this, GPL non-compliance persists and only a
+>>> rough description from Hal has been written to the U-Boot developer mail
+>>> list that does not match my analysis, all while complaining about the
+>>> capability not being supported going forward.
+>>>
+>>> I object to this PR it is NAK from me on the basis of stuffing this in
+>>> sideways without technical justification or review. Also I do object to
+> 
+> Concerning technical justification it is clear:
+> 
+> Distro images have been supplied with U-Boot on SD-card for years and 
+> the recent work in Linux and U-Boot broke booting them. This needs to be 
+> fixed.
+> 
+>>
+>> The technical justification seemed to me to be multiple people saying "we
+>> need this added so that u-boot can use the sd-card". The patch has been
+>> on the list for over three weeks at this point, so there was definitely
+>> opportunity to comment on it. I don't think I have been unreasonable
+>> here. If current U-Boot needs it, then I'd still like to have it merged.
+>> If you work pulls through and this becomes no-longer required, then I'd
+>> be happy to take it back out again.
+>>
+>>> "riscv: dts: starfive: Milk-V Mars CM Lite broken-cd" as this goes the
+>>> wrong way around, it does not describe the hardware; if some external
+>>> carrier boards cannot deal with the capability of the Mars CM
+>>> system-on-module having card detect line then that should be dealt with
+>>> as a dtbo per-carrier board and not be replaced in the dts by a
+>>> broken-cd, although at least we had this discussion and Conor made a
+>>> decision with all the facts and discussion available.
+>>>
+> 
+> As my patch points out the CD line is broken because it does not conform 
+> to the standard established by Raspberry.
 
-Force sh_addr=0 for all riscv-specific module sections.
+Initial E Shattow answer is not placed under specific commit, so I can
+only guess that it is about "riscv: dts: starfive: Milk-V Mars CM Lite
+broken-cd".
 
-Link: https://sourceware.org/bugzilla/show_bug.cgi?id=33958 [1]
-Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
----
- arch/riscv/include/asm/module.lds.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+The commit touches only DTS, not DTSO, so how can you claim that a DTS
+file change breaks some completely other board (Raspberry)?
 
-diff --git a/arch/riscv/include/asm/module.lds.h b/arch/riscv/include/asm/module.lds.h
-index 1075beae1ac6..9ced27c8ccb6 100644
---- a/arch/riscv/include/asm/module.lds.h
-+++ b/arch/riscv/include/asm/module.lds.h
-@@ -2,8 +2,8 @@
- /* Copyright (C) 2017 Andes Technology Corporation */
- #ifdef CONFIG_MODULE_SECTIONS
- SECTIONS {
--	.plt : { BYTE(0) }
--	.got : { BYTE(0) }
--	.got.plt : { BYTE(0) }
-+	.plt 0 : { BYTE(0) }
-+	.got 0 : { BYTE(0) }
-+	.got.plt 0 : { BYTE(0) }
- }
- #endif
--- 
-2.53.0
+This DTS file is nowhere included (and should not be).
 
+Of course maybe the true question would be why anyone described a hat as
+DTS file...
+
+> 
+> E. we know that by chance you have found a base board that ignores the 
+> standard.
+> 
+> Your patch 4cce8b2503ab5 made my standard compliant baseboard unusable. 
+
+DTS of some board is a final product, so it cannot be applied to a
+baseboard, that's pretty messed DTS tree...
+
+> My patch in the pull request does not stop your board from booting but 
+> re-enables mine.
+> 
+> Best regards
+> 
+> Heinrich
+
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
