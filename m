@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA1210F2862
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 17:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C073210F2862
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 17:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
 	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=49BX1TEZk/uJ7lCi2dLQEQIHNzfYz5ovJ5+tkLNIwuI=; b=SEHsNm1sBdh7PE
-	JU8IaX9jWgq21RaapbBk5KB7YeveM/H2Bzh7/Mv7/Eggsc1KmltldJ+sp1qb3K//zqDcr6VRfHVd6
-	BnxBzo+C8LUNCvrvhA3Aq6gqPiKxlCKlR7138l91rfLt0ZXoqk2MhzrPNX/1/V2XXcB6+IOgQx8Bq
-	sbaXMlwgV94ZdM/uXT6QsHdoYiLQVlO7TxotEP623DGs9y9hcqL85rJGa9+GANeBj78GlD0QhsbGl
-	l5i5JBkWpumL5ZUjqKAqqJcQ2HZiaRsL3GB4S0fqBT6UKJRJ8cn2fNUeLc+oqD0fao/SB67lctpZn
-	hwclk6wFLZiHA7NN6Hag==;
+	List-Owner; bh=0gbWk4dAM5PgmKrDRBy5SkheNX/zRlrOlF6EtXs9AVY=; b=nU/ygOmEsV5tF1
+	ODEUGeT362ue+fBgB3ZpBhAyxY+ZPCCOrgV41cSwuaS6ab7NDp8pp6DJVTX2Ff0QKgh2rH+PCJv0E
+	TQByBPmMs6sefNuwGkJ+cHSn6xCeJfv6QujxxHsi+/3dkyux+m+SKvF0feANbdAKkjhqkL3EccnXo
+	qlWbNeCY0OkElogyw8HA6pn1lFt8kqf/vWzjsa+5kmbhmDKVrl65FH+3XvB6IdTnffPV0sIUUy2+a
+	1tbEA1RkFAeWNm47/P9fDpHqIqcJy1nymnQ3szVjgbNHbgXXBuT6ABo4tBNGm4yQ/UCs7s3kKQGI6
+	+qGGps+8GR7PMUnfK/xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6BJm-00000007ssa-3RLq;
-	Fri, 27 Mar 2026 17:49:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w6BLJ-00000007t36-0fws;
+	Fri, 27 Mar 2026 17:51:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6BJl-00000007ssN-14WV;
-	Fri, 27 Mar 2026 17:49:57 +0000
+	id 1w6BLG-00000007t2F-1E5a;
+	Fri, 27 Mar 2026 17:51:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D192860054;
-	Fri, 27 Mar 2026 17:49:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D99ECC19423;
-	Fri, 27 Mar 2026 17:49:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8BA7343C23;
+	Fri, 27 Mar 2026 17:51:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF370C19423;
+	Fri, 27 Mar 2026 17:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1774633795;
-	bh=fvV+eUnldLQbPdva1eQggufDFhZTLIQCCYJJa9ryFGE=;
+	s=korg; t=1774633889;
+	bh=ut3C5Oibhu02lZBarl5gtLhPMmjWlwAPsAficDpw9oU=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Xukem7pwvHhzUBxAXhQ9NUugrvHjO83NuPglCq+AOxMC7jcj5knJ1iWiLSA3qMyPR
-	 XN8WgX2Ez7pjNH1P4TD8C2yL80THz5zSN5msmXHHVRwpdESPm9OS0FEtlzvOIU70KT
-	 MQ9zvWTqdnQj4+10/Ab7Ocs563lJZMmYcKdIZNc0=
-Date: Fri, 27 Mar 2026 10:49:53 -0700
+	b=tDB0MgLHz5uhVLWEaFReNs99y5u/YY74Iml33dpseoOBD0A8VJRFFQYeU9FvqxCuP
+	 nyqAUmYCNk1T74zARlT1dAb3bA7OmvIjh9mNwh7l1JQENaDWThwxkEsSuzSKK+Qc4+
+	 obJODpvlMAd7z/q0AZNLNKGt9R6dV77UeQmuFqzk=
+Date: Fri, 27 Mar 2026 10:51:27 -0700
 From: Andrew Morton <akpm@linux-foundation.org>
 To: Christoph Hellwig <hch@lst.de>
 Cc: Richard Henderson <richard.henderson@linaro.org>, Matt Turner
@@ -71,12 +71,16 @@ Cc: Richard Henderson <richard.henderson@linaro.org>, Matt Turner
  sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
  linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
  linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: cleanup the RAID5 XOR library v4
-Message-Id: <20260327104953.b91d7a4a71b1c1cd202e5a1c@linux-foundation.org>
-In-Reply-To: <20260327061704.3707577-1-hch@lst.de>
+Subject: Re: [PATCH 23/28] xor: add a better public API
+Message-Id: <20260327105127.1a1f3895adb14681141a0a30@linux-foundation.org>
+In-Reply-To: <20260327061704.3707577-24-hch@lst.de>
 References: <20260327061704.3707577-1-hch@lst.de>
+	<20260327061704.3707577-24-hch@lst.de>
 X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_105130_357183_E7BEA20F 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,25 +97,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Mar 2026 07:16:32 +0100 Christoph Hellwig <hch@lst.de> wrote:
+On Fri, 27 Mar 2026 07:16:55 +0100 Christoph Hellwig <hch@lst.de> wrote:
 
-> the XOR library used for the RAID5 parity is a bit of a mess right now.
-> The main file sits in crypto/ despite not being cryptography and not
-> using the crypto API, with the generic implementations sitting in
-> include/asm-generic and the arch implementations sitting in an asm/
-> header in theory.  The latter doesn't work for many cases, so
-> architectures often build the code directly into the core kernel, or
-> create another module for the architecture code.
+> xor_blocks is very annoying to use, because it is limited to 4 + 1
+> sources / destinations, has an odd argument order and is completely
+> undocumented.
 > 
-> Changes this to a single module in lib/ that also contains the
-> architecture optimizations, similar to the library work Eric Biggers
-> has done for the CRC and crypto libraries later.  After that it changes
-> to better calling conventions that allow for smarter architecture
-> implementations (although none is contained here yet), and uses
-> static_call to avoid indirection function call overhead.
+> Lift the code that loops around it from btrfs and async_tx/async_xor into
+> common code under the name xor_gen and properly document it.
 
-Thanks, I've updated mm.git's mm-nonmm-unstable to this version of the
-patchset.
+Something funny here - two different patches with the same title and
+changelog.
+
+If you can send over new versions of title&changelog I can paste that in.
 
 _______________________________________________
 linux-riscv mailing list
