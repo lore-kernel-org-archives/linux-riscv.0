@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 879C410BA43D
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 08:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8F510BA445
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 08:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PY/QA/yqkoS5O8eohwDyowu7mGgl2IRqko/6nRUInRg=; b=1OeFoBxoqy4HVG
-	yW+qEN29YC3hwSSnumZNV0PXsXErM44mXbmmH1UN7MIJoxzufbqQsA9b+fV5PKEesz5pFB0sB909K
-	86Lgmu41oaOgovfITQdFS8Y339bdp2RHi6k/psgZJ5SPE2N6/NtjzSh5nPQWGQVbNpTg9GuHx81OW
-	7DKsQe5Vtq2BzzuLPhrRSuEfJvqLbposZaNlvaTxkOXP1ekVyv9450YbBVEKsWUeGLXNLQB5MhUii
-	TODY/dJmKkY2j6Phibs2FawfhBFY7YR1hNNwX/fzcg92fBaCHlttcUSMXbC+Jw+ojLbzcxACzGxow
-	2J/1njwWS/ygmYkfyT6w==;
+	List-Owner; bh=5eB/cT0U0zKsdGtSMbfwzVHFiO8biIudHFTbye4o4VI=; b=bFbvCxFhI3xwl7
+	Ktwbn0wx9IHje7ZOSUIPMjQ2d0NmeJrQgi+ko+YHoq/nADKhDfdKqX/bUfttEce+yh9forvyPbn13
+	81qabrTOpNYqq/uXEX30LdW2w+/lQAbxVe6oqyqRUk8MChmqucihvgzdS8o6pZ4ph0O1oPzpAksTu
+	+f33GY77HgILTlaeMmzghR+xmzhgEzx64h6oQe7JgFEfvMWU+11zhhM0RHnwszXXqxIMiHF5/zlI7
+	FxvQWJfR235H/2SgKPGydLVJeQmwawHpPcjY1DJgM0N2AUQ5A2PLktkFt0lGwFKD1Dp1WNKK72fw4
+	u526Zj7lswcBWCM7hlcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62XV-00000006y1g-2Jy1;
-	Fri, 27 Mar 2026 08:27:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62XT-00000006y1Q-3Qwf;
-	Fri, 27 Mar 2026 08:27:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3DE7C6132B;
-	Fri, 27 Mar 2026 08:27:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE27CC2BC87;
-	Fri, 27 Mar 2026 08:27:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774600050;
-	bh=rkUuEott97cRG5EOSGam/2vURy0iz3AdOFQvnDvFuRk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=R1FdErCmpRUfW0Lp5ZacGDOniuT0AwJlAxVfVuljmrw2wCU7cAUPkqPI98IpTty16
-	 NBIRt4fVUPiLgcyTUvdyX/EfQJaP/Fn+rUGOf8JpxGhClHrnG7f8KRPoQz2OYh1WaJ
-	 H5o9DZM6WUru2OjwRibUTWgPS0u+3sPFUJBa/UzXV6LBqi+UjomHjJiBFcJiETq+MT
-	 87z1mRd67LAk1ZwXpjMe9nbD7JZY1/qttMJlLYp/x5WS7qVfoyPw2boeixrn5xIQMI
-	 FsKHOJV0ipEd+DPBQwi0B3HVifAvbXhgvRqUcdTuwlnZX1A9XjKSccTw9hYhAHIm+3
-	 pgbO2wr7F/yFQ==
-Message-ID: <c9bec45c-3312-46a7-a7bc-a7dba95bcda7@kernel.org>
-Date: Fri, 27 Mar 2026 09:27:16 +0100
+	id 1w62ew-00000006yuI-0Jca;
+	Fri, 27 Mar 2026 08:35:14 +0000
+Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w62et-00000006ytJ-095I
+	for linux-riscv@lists.infradead.org;
+	Fri, 27 Mar 2026 08:35:12 +0000
+Received: from 8bytes.org (p4ffe051a.dip0.t-ipconnect.de [79.254.5.26])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 4842C1A62FE;
+	Fri, 27 Mar 2026 09:35:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1774600506;
+	bh=Bmlj2evGzvCDdXu2zq4w5fQ4NVFEoYZiaircgvtA79A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DIgjQjuyYayoXKvqB+948SitiIzqSV+efXrNqpt51iCznBGPtadZ1Vxv+iPSnc707
+	 Xhu5v7axyumulbmQvOoOVXCqZwZBLY1sFe7YkXcav+0V0UyYoRVjFJNtJUkhVcAROA
+	 AibN2Q0XeLDG2ehsRwcYCmo/DncWzE4lWfvrPgh42GZs9TPF9iYAW7ucE6Bn9/HogS
+	 5dtJjcyGgextBm9DQuUm+TuEbJ1QlL4MDvqm4dJ71fj2u5hfW4FiahDDJ+oGNNUvwz
+	 L8u9uknJ/2s0k0aOGpbX7iGnAe6uFh90plpJS9b+Cv4zRBzYR7qq5DVfnpFRYr1hI8
+	 1EycyFgheibUQ==
+Date: Fri, 27 Mar 2026 09:35:05 +0100
+From: Joerg Roedel <joro@8bytes.org>
+To: Ethan Tidmore <ethantidmore06@gmail.com>
+Cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Robin Murphy <robin.murphy@arm.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yaxing Guo <guoyaxing@bosc.ac.cn>, 
+	Andrew Jones <andrew.jones@oss.qualcomm.com>, iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/riscv: Fix signedness bug
+Message-ID: <gbresi4jgjmt3cydjftumy7f3afrk2ondap4mx6xfjmrtdnvsq@fpv4htqzdcvz>
+References: <20260319182644.1082740-1-ethantidmore06@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/25] mm/vma: convert vm_flags_t to vma_flags_t in vma
- code
-Content-Language: en-US
-To: Andrew Morton <akpm@linux-foundation.org>,
- "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Kees Cook <kees@kernel.org>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Brian Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Dinh Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>,
- Michal Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- Ondrej Mosnacek <omosnace@redhat.com>, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, selinux@vger.kernel.org
-References: <cover.1774034900.git.ljs@kernel.org>
- <20260326225031.87e04d2c652923bc10aef0ee@linux-foundation.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <20260326225031.87e04d2c652923bc10aef0ee@linux-foundation.org>
+Content-Disposition: inline
+In-Reply-To: <20260319182644.1082740-1-ethantidmore06@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_013511_292628_67F96717 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,21 +78,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/27/26 06:50, Andrew Morton wrote:
-> On Fri, 20 Mar 2026 19:38:17 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
-> 
->> This series converts a lot of the existing use of the legacy vm_flags_t
->> data type to the new vma_flags_t type which replaces it.
-> 
-> Series has nine unreviewed patches.
+On Thu, Mar 19, 2026 at 01:26:44PM -0500, Ethan Tidmore wrote:
+>  drivers/iommu/riscv/iommu-platform.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
 
-I think I only skipped those that were tools/testing only, because I'm lazy.
-In case a tag is missing in a non-test patch, let me know please.
-
-> Again, I plan to upstream this as-is - lots of Lorenzopatches remain
-> unreviewed and I'm OK with that.
-
-Ack, thanks!
+Applied, thanks.
 
 _______________________________________________
 linux-riscv mailing list
