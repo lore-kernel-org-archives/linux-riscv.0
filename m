@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31F110BA432
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 06:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2201410BA431
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 06:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AGyveeNPId0WSFCugwmRgm94l1gMJfFN6djDsWU7ouE=; b=E7eZOIv0YDNVxD
-	Cz4RYZ6syExpQyLbaZb44uxf4a4TA8HjhDhgCZZEJq7J8ZdwD1iwRw8pwH19jB5pMjwlpGRCoMcTV
-	/52ZTOduOHFUPxRjt+AIXFZkoFcfRaI1iASNSnIyIRi5/Uh/+hiCLIXqgAUn1d0MWgTBj+sI672YO
-	enAYhpXshk6L/IGMz7pRiT+SIE/AoSX95Tfaz7JcL3SLeaCdt/Dio3mbYLFQpuYy8imR5AttOFHuJ
-	/qxv+CmIOrcsH8EkHL1QLhCPE6PdbOIi5EAm+9vPRYIv/BteWIfTYuDj+OXhE53sfSnjgKeya+Hen
-	dAU1C1MSwzNXXgFKLFjg==;
+	List-Owner; bh=VyH+9vZRgw8MhEND0I3JD5jz6u2w79BVKjlflyfEdH8=; b=eOcsPoZFkYXFs1
+	RIo8aUAcZt+y8pbWY9xdHpSTQzFDgeVlcTIcgcgih79/ET3OzG8q22CLip/nzpdKMWh46xL4eowsZ
+	RsiBtdsT+5sVpL0e72rZK4T7iC125KDNJBuiXMuFPv6t3ChB17pPGrwl0wQICJ35ymqmEdFcMtG/H
+	aYlzjkGWnCQWZHVQ6s5hR4HKaIKiEnMqKD0D4k9U2mcJ3jCHyS05OT99aDDlsIL+xCsNRe+Khg6yI
+	fQuooNARSYpLo4Zd4Sas9FoQ3m/Tsuu8l3jb8s+4UM5DKkVTR1BpGQVS1DmGoJJj2+g7lO7RJt0xq
+	Ju2d68Bh4RN3gFNL4+Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60au-00000006nyC-0HJx;
-	Fri, 27 Mar 2026 06:22:56 +0000
+	id 1w60b6-00000006o74-11ip;
+	Fri, 27 Mar 2026 06:23:08 +0000
 Received: from 2a02-8389-2341-5b80-d601-7564-c2e0-491c.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:d601:7564:c2e0:491c] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60ar-00000006nnW-1SZC;
-	Fri, 27 Mar 2026 06:22:53 +0000
+	id 1w60b3-00000006nwZ-2BNW;
+	Fri, 27 Mar 2026 06:23:05 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Richard Henderson <richard.henderson@linaro.org>,
@@ -84,9 +84,9 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: [PATCH 24/28] async_xor: use xor_gen
-Date: Fri, 27 Mar 2026 07:16:56 +0100
-Message-ID: <20260327061704.3707577-25-hch@lst.de>
+Subject: [PATCH 25/28] btrfs: use xor_gen
+Date: Fri, 27 Mar 2026 07:16:57 +0100
+Message-ID: <20260327061704.3707577-26-hch@lst.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260327061704.3707577-1-hch@lst.de>
 References: <20260327061704.3707577-1-hch@lst.de>
@@ -107,84 +107,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace use of the loop around xor_blocks with the easier to use xor_gen
-API.
+Use the new xor_gen helper instead of open coding the loop around
+xor_blocks.  This helper is very similar to the existing run_xor helper
+in btrfs, except that the destination buffer is passed explicitly.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
+Acked-by: David Sterba <dsterba@suse.com>
 ---
- crypto/async_tx/async_xor.c | 34 ++++++++++------------------------
- 1 file changed, 10 insertions(+), 24 deletions(-)
+ fs/btrfs/raid56.c | 27 ++++-----------------------
+ 1 file changed, 4 insertions(+), 23 deletions(-)
 
-diff --git a/crypto/async_tx/async_xor.c b/crypto/async_tx/async_xor.c
-index 2c499654a36c..84458375b202 100644
---- a/crypto/async_tx/async_xor.c
-+++ b/crypto/async_tx/async_xor.c
-@@ -103,7 +103,6 @@ do_sync_xor_offs(struct page *dest, unsigned int offset,
- {
- 	int i;
- 	int xor_src_cnt = 0;
--	int src_off = 0;
- 	void *dest_buf;
- 	void **srcs;
+diff --git a/fs/btrfs/raid56.c b/fs/btrfs/raid56.c
+index 02105d68accb..ad091c56ce77 100644
+--- a/fs/btrfs/raid56.c
++++ b/fs/btrfs/raid56.c
+@@ -617,26 +617,6 @@ static void cache_rbio(struct btrfs_raid_bio *rbio)
+ 	spin_unlock(&table->cache_lock);
+ }
  
-@@ -117,23 +116,12 @@ do_sync_xor_offs(struct page *dest, unsigned int offset,
- 		if (src_list[i])
- 			srcs[xor_src_cnt++] = page_address(src_list[i]) +
- 				(src_offs ? src_offs[i] : offset);
--	src_cnt = xor_src_cnt;
-+
- 	/* set destination address */
- 	dest_buf = page_address(dest) + offset;
+-/*
+- * helper function to run the xor_blocks api.  It is only
+- * able to do MAX_XOR_BLOCKS at a time, so we need to
+- * loop through.
+- */
+-static void run_xor(void **pages, int src_cnt, ssize_t len)
+-{
+-	int src_off = 0;
+-	int xor_src_cnt = 0;
+-	void *dest = pages[src_cnt];
 -
- 	if (submit->flags & ASYNC_TX_XOR_ZERO_DST)
- 		memset(dest_buf, 0, len);
--
--	while (src_cnt > 0) {
--		/* process up to 'MAX_XOR_BLOCKS' sources */
+-	while(src_cnt > 0) {
 -		xor_src_cnt = min(src_cnt, MAX_XOR_BLOCKS);
--		xor_blocks(xor_src_cnt, len, dest_buf, &srcs[src_off]);
+-		xor_blocks(xor_src_cnt, len, dest, pages + src_off);
 -
--		/* drop completed sources */
 -		src_cnt -= xor_src_cnt;
 -		src_off += xor_src_cnt;
 -	}
+-}
 -
-+	xor_gen(dest_buf, srcs, xor_src_cnt, len);
- 	async_tx_sync_epilog(submit);
- }
+ /*
+  * Returns true if the bio list inside this rbio covers an entire stripe (no
+  * rmw required).
+@@ -1434,7 +1414,8 @@ static void generate_pq_vertical_step(struct btrfs_raid_bio *rbio, unsigned int
+ 	} else {
+ 		/* raid5 */
+ 		memcpy(pointers[rbio->nr_data], pointers[0], step);
+-		run_xor(pointers + 1, rbio->nr_data - 1, step);
++		xor_gen(pointers[rbio->nr_data], pointers + 1, rbio->nr_data - 1,
++				step);
+ 	}
+ 	for (stripe = stripe - 1; stripe >= 0; stripe--)
+ 		kunmap_local(pointers[stripe]);
+@@ -2034,7 +2015,7 @@ static void recover_vertical_step(struct btrfs_raid_bio *rbio,
+ 		pointers[rbio->nr_data - 1] = p;
  
-@@ -168,11 +156,10 @@ dma_xor_aligned_offsets(struct dma_device *device, unsigned int offset,
-  *
-  * honored flags: ASYNC_TX_ACK, ASYNC_TX_XOR_ZERO_DST, ASYNC_TX_XOR_DROP_DST
-  *
-- * xor_blocks always uses the dest as a source so the
-- * ASYNC_TX_XOR_ZERO_DST flag must be set to not include dest data in
-- * the calculation.  The assumption with dma engines is that they only
-- * use the destination buffer as a source when it is explicitly specified
-- * in the source list.
-+ * xor_gen always uses the dest as a source so the ASYNC_TX_XOR_ZERO_DST flag
-+ * must be set to not include dest data in the calculation.  The assumption with
-+ * dma engines is that they only use the destination buffer as a source when it
-+ * is explicitly specified in the source list.
-  *
-  * src_list note: if the dest is also a source it must be at index zero.
-  * The contents of this array will be overwritten if a scribble region
-@@ -259,11 +246,10 @@ EXPORT_SYMBOL_GPL(async_xor_offs);
-  *
-  * honored flags: ASYNC_TX_ACK, ASYNC_TX_XOR_ZERO_DST, ASYNC_TX_XOR_DROP_DST
-  *
-- * xor_blocks always uses the dest as a source so the
-- * ASYNC_TX_XOR_ZERO_DST flag must be set to not include dest data in
-- * the calculation.  The assumption with dma engines is that they only
-- * use the destination buffer as a source when it is explicitly specified
-- * in the source list.
-+ * xor_gen always uses the dest as a source so the ASYNC_TX_XOR_ZERO_DST flag
-+ * must be set to not include dest data in the calculation.  The assumption with
-+ * dma engines is that they only use the destination buffer as a source when it
-+ * is explicitly specified in the source list.
-  *
-  * src_list note: if the dest is also a source it must be at index zero.
-  * The contents of this array will be overwritten if a scribble region
+ 		/* Xor in the rest */
+-		run_xor(pointers, rbio->nr_data - 1, step);
++		xor_gen(p, pointers, rbio->nr_data - 1, step);
+ 	}
+ 
+ cleanup:
+@@ -2672,7 +2653,7 @@ static bool verify_one_parity_step(struct btrfs_raid_bio *rbio,
+ 	} else {
+ 		/* RAID5. */
+ 		memcpy(pointers[nr_data], pointers[0], step);
+-		run_xor(pointers + 1, nr_data - 1, step);
++		xor_gen(pointers[nr_data], pointers + 1, nr_data - 1, step);
+ 	}
+ 
+ 	/* Check scrubbing parity and repair it. */
 -- 
 2.47.3
 
