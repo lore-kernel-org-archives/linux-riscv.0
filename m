@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8F510BA445
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 08:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64A010BA43D
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 08:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5eB/cT0U0zKsdGtSMbfwzVHFiO8biIudHFTbye4o4VI=; b=bFbvCxFhI3xwl7
-	Ktwbn0wx9IHje7ZOSUIPMjQ2d0NmeJrQgi+ko+YHoq/nADKhDfdKqX/bUfttEce+yh9forvyPbn13
-	81qabrTOpNYqq/uXEX30LdW2w+/lQAbxVe6oqyqRUk8MChmqucihvgzdS8o6pZ4ph0O1oPzpAksTu
-	+f33GY77HgILTlaeMmzghR+xmzhgEzx64h6oQe7JgFEfvMWU+11zhhM0RHnwszXXqxIMiHF5/zlI7
-	FxvQWJfR235H/2SgKPGydLVJeQmwawHpPcjY1DJgM0N2AUQ5A2PLktkFt0lGwFKD1Dp1WNKK72fw4
-	u526Zj7lswcBWCM7hlcg==;
+	List-Owner; bh=DXB33kf+6OIfRsrt04x46dOrWa4vjIWkJEZli6c6DEw=; b=O1PBCc6j84P6pm
+	FDH3A9wBuxQYHN/16+WdHhPwWkCwzKENKsRSJW0xo9q6zDk1zHGh+Q0p9a5xnXy4rsItNgvBCC4Vy
+	ou2KHK+Yh+WWKZQRLSxqrNDEqPZNdPeOGmyvZ/hap7IJFlDSQBZg79Q0CNeeYhp8RXsJwWpz2fn66
+	ID5TD77uXVbdgRnjqFFM5qAJr3DQlbqjxoA81nkKTeEpUeXtpqwTpKOF3RZ9OoGwZQmBCEd2fOoev
+	zuN+PfSSKr3ssDNVpPovcz108+jrf5qFcBFWHET3s+8OwC0z8PiXCsLKC+VPjCWqg9tJXCugnNt+F
+	PO64A7Vgb1+YTL72D0vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62ew-00000006yuI-0Jca;
-	Fri, 27 Mar 2026 08:35:14 +0000
-Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62et-00000006ytJ-095I
+	id 1w62w1-0000000716f-2GMe;
+	Fri, 27 Mar 2026 08:52:53 +0000
+Received: from mail-lf1-f42.google.com ([209.85.167.42])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w62vy-0000000715s-1m65
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Mar 2026 08:35:12 +0000
-Received: from 8bytes.org (p4ffe051a.dip0.t-ipconnect.de [79.254.5.26])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 4842C1A62FE;
-	Fri, 27 Mar 2026 09:35:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1774600506;
-	bh=Bmlj2evGzvCDdXu2zq4w5fQ4NVFEoYZiaircgvtA79A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DIgjQjuyYayoXKvqB+948SitiIzqSV+efXrNqpt51iCznBGPtadZ1Vxv+iPSnc707
-	 Xhu5v7axyumulbmQvOoOVXCqZwZBLY1sFe7YkXcav+0V0UyYoRVjFJNtJUkhVcAROA
-	 AibN2Q0XeLDG2ehsRwcYCmo/DncWzE4lWfvrPgh42GZs9TPF9iYAW7ucE6Bn9/HogS
-	 5dtJjcyGgextBm9DQuUm+TuEbJ1QlL4MDvqm4dJ71fj2u5hfW4FiahDDJ+oGNNUvwz
-	 L8u9uknJ/2s0k0aOGpbX7iGnAe6uFh90plpJS9b+Cv4zRBzYR7qq5DVfnpFRYr1hI8
-	 1EycyFgheibUQ==
-Date: Fri, 27 Mar 2026 09:35:05 +0100
-From: Joerg Roedel <joro@8bytes.org>
-To: Ethan Tidmore <ethantidmore06@gmail.com>
-Cc: Tomasz Jeznach <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Robin Murphy <robin.murphy@arm.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Yaxing Guo <guoyaxing@bosc.ac.cn>, 
-	Andrew Jones <andrew.jones@oss.qualcomm.com>, iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/riscv: Fix signedness bug
-Message-ID: <gbresi4jgjmt3cydjftumy7f3afrk2ondap4mx6xfjmrtdnvsq@fpv4htqzdcvz>
-References: <20260319182644.1082740-1-ethantidmore06@gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260319182644.1082740-1-ethantidmore06@gmail.com>
+	Fri, 27 Mar 2026 08:52:51 +0000
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5a1438649b2so264036e87.2
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Mar 2026 01:52:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774601568; x=1775206368;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IRXASae8rN7IgVnVI5FCS0dcfVmSoJg6Qz5lniabiXI=;
+        b=DR0q+LZBRnnIKvCVZm/zvH1TjiRqtV7/XlZfJnk4Lw2+AyZ5V7V6x88CHLj+Cb1300
+         l9gYAZ6P1n3opLEst+3wiScGZ7gx4zeGwF5vIK4wGizH51+iOEKe4II8HAT24yz8IWZ4
+         Y0+7tIzgYgdKL/FwgYFf9a4vqQVDfVESRBz6B1g/mjLMRAGTUCz2ZEdpOJ6VjqYlxD+6
+         TX/yz/97bmWXXSEiDnbbvB1c3pRmSjkNgUhJNXXVClZnAZALZIbJm5QNbkC2/KZG8bAN
+         E/70T301JxgCH2XBZCyIBfGvNMxRuCgsk1+H8eP5yolJ3A73AcwkC4iX7PJUhXSxGvgY
+         4QKg==
+X-Forwarded-Encrypted: i=1; AJvYcCW0OW2PF08DajA11G1ws1SWa3950eX17yjzaYKmjPqJb5HdpUpSsNfZqbBFGezsFnyWILNFC89hVd46TA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8TkR72SYgBfqmUvoY3lhti0S4hXUbJVMnPR07MvVo2ghxNsRx
+	EP9Qedx3vVPfWVy00h8GOdcaG4kA2JjC4Ax0tZbtLCR+1626Vwxxl0CC
+X-Gm-Gg: ATEYQzzguJly21tMiuxSWYI6a7v3AFyRVrTePbGZSgS4Da4N/ZgrBmMheNnYIylA9gR
+	Wfovu0JbzBLwJBFMQIl6iOBcpmr1jfSnCpLVSXZWFah0xBhO5xvG8Ls0EXKCgfuNIBGfajIJcWK
+	BrqK0mfTDNEToqgxj7dfa8Ry858kiJAsMXa9XuFPx+yIPxbAyUkHn32Go3pfX6ghG13ENiGhbAP
+	5MtvPPKVlpcpLufFRDQtuYKqDSEA216HGuoawOpPjIZuItRBLNyv98b6WheHQtmj/cc2RHTitmp
+	K2WW0aZp+O5IU9ifdw8etJgMrKcfC86h+uRlLjCh/y+fwrF395QCb7eSXbpn0qnPENrtsaJisa2
+	sYjuekVil9OGfjCc94VX2zuRc5+DOYOvd/pRPPcfWjaJ9FwGN7EUg92OKNrMAJhSZdBRogjJi01
+	w179UeCKj+EX/b6gQDP+an8IIRkaCTjzLI3kh4vGPpA8uH1z4=
+X-Received: by 2002:a05:6512:124b:b0:5a1:38c4:424e with SMTP id 2adb3069b0e04-5a2ab92aa0amr336078e87.7.1774601567731;
+        Fri, 27 Mar 2026 01:52:47 -0700 (PDT)
+Received: from localhost ([176.106.245.85])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a2a0689283sm1252299e87.44.2026.03.27.01.52.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Mar 2026 01:52:47 -0700 (PDT)
+Mime-Version: 1.0
+Date: Fri, 27 Mar 2026 11:52:45 +0300
+Message-Id: <DHDFR4K758TP.291K17J2J5VL7@altlinux.org>
+Cc: <soc@kernel.org>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, "Hal Feng" <hal.feng@starfivetech.com>,
+ "Conor Dooley" <conor@kernel.org>, "Heinrich Schuchardt"
+ <heinrich.schuchardt@canonical.com>
+Subject: Re: [GIT PULL] ~RISC-V~Starfive devicetrees fixes for v7.0-rc6
+From: "Ilya Sorochan" <k0tran@altlinux.org>
+To: "E Shattow" <e@freeshell.de>
+X-Mailer: aerc
+References: <20260326-astrology-rephrase-836ec663228b@spud>
+ <4dd4ffe6-307a-442b-ae99-50c88d4e5b84@freeshell.de>
+ <20260326-viscous-rigor-4beb18f77eec@spud>
+ <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
+ <DHCYMK8FEH10.1Y1YWLL3J1HSK@altlinux.org>
+ <ff792101-61e3-4470-9c5c-eea375edc9fa@freeshell.de>
+In-Reply-To: <ff792101-61e3-4470-9c5c-eea375edc9fa@freeshell.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_013511_292628_67F96717 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_015250_486937_1A6512B1 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,11 +94,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 01:26:44PM -0500, Ethan Tidmore wrote:
->  drivers/iommu/riscv/iommu-platform.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
+> On 3/26/26 12:27, Ilya Sorochan wrote:
+>> On Thu, Mar 26, 2026 at 07:36:07AM -0700, E Shattow wrote:
+>>> ...
+>>> I have done an ~80%+ analysis on Ghidra decompilation of the JH-7110
+>>> BootROM, and openly invite anyone that would like to help get this
+>>> ... 
+>> Appreciate the effort!
+>> However I can't see how this is related.
+>
+> Your patch was sent to a minimum audience which perhaps if you are a
+> first time contributor is understandable but I would have hoped between
+> you, Heinrich reviewing, and Conor accepting the patch someone would
+> have noticed that scripts/get_maintainer.pl was either not used or some
+> overzealous trimming of CC is going on! Also this is probably the
+> dozenth time I have explained at great length to Heinrich my concerns so
+> it is deeply disappointing to miss this opportunity for contributing, I
+> guess I consider it disrespectful though maybe no fault of your own
+> there Ilya for wanting your hardware to continue working as you
+> expected? I get that... there is in no way any desire to discourage
+> anyone from posting patches or fixes, this particular situation is a
+> headache for me... maybe I'm the problem okay because I cannot reverse
+> engineer a whole BootROM on my own, I only get to 80% and then people
+> have their own motivations and reasons for not wanting to spend any time
+> to do this properly? :)
 
-Applied, thanks.
+Sorry, I'm not trying to be disrespectful. Yes, it's my first time. Kernel docs
+bewarn of spamming therefore I trimmed CC based on the assumption that those who
+interested in devicetrees are present in devicetree lists. I guess it is not
+true which seems strange to me, but okay.
+
+I'm not asking to support this feature properly. It would be nice to have but
+it is hard and StarFive is not making it any easier. However I'm asking to keep
+it working while you can if you can. It worked for me and other people and we
+would appreciate if you can delay breaking it as long as possible.
+
+>> I traced this property a little in the U-Boot repo:
+>> - 503fc8548197 Hal added it to VisionFive v1.3b (with mmc pins)
+>> - 6bbe95ef7208 Hal moved it (and other common things) into
+>>   jh7110-common-u-boot.dtsi
+>> - 27f617019dd0 E removed it with jh7110-common-u-boot.dtsi
+>> - 762f85bb2e36 Tom squash-updated upstream dts
+>> 
+>> New device trees did not contain this property. This is how they were introduced
+>> into the Linux: b127dbf9e1ebbfbcded4 ("riscv: dts: starfive: Add mmc nodes on
+>> VisionFive 2 board")
+>> 
+>> I do not know if this miss is intentional or not. However it would be nice to
+>> be able to boot from SD-card again.
+>
+> There is already nothing to prevent you from booting Linux from SD-card,
+> with U-Boot SPL and U-Boot Main located in SPI Flash as is recommended
+> by StarFive officially.
+
+Yes. However I'm implying the deprecated SDIO3.0 way. I agree that this would be
+nice to have in the commit message - if this what are you talking about.
+
+> I'm glad you sent a patch, but I still object for the other reasons
+> mentioned.
+
+I'm glad to talk to competent people in this space, however I still hope that
+the kernel will refrain from breaking this feature until it is really necessary.
 
 _______________________________________________
 linux-riscv mailing list
