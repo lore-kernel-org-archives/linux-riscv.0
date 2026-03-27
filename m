@@ -4,131 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96FED10F2840
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 15:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C3DC10F2848
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 15:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IS7ieFHpis284oVRxg2KmdTvkS4GI0kBdteen1nqlsQ=; b=IDUcs3AIYqUD9v
-	13V1+XrPYK6Pl9roaMU65N/6H3XXqrxkft/itD5yYKvI1i6hvghl/isVmHHlJqk12Bu8DwXgcxa2V
-	OWvf+WNPRsifOUO29Ze9XhF0AnBhvuBOPATYcNdlR5MIGmoCCsRZC/pCF356IWt3PcpT+wZjXs4Sp
-	qNX11gI2Yh/Q8DtagAR+2VFxUiOAT36xqLb7vAZs0Y6xA3rJpCw6EWryIFmZ6OwCm8RYFaDC8z/fi
-	zH7KLdpKA46gOuYVynH56RnME53nQxlUDHgIcDCjC12AKFdpBbWJF/7jy8IaBdIiLsMmhD+P1xTq/
-	xx6M8+72nGmYDn27+nPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/OhF/X33CU31hSdZkcM9VDoF5eadJMLJrS/8qDP0Cvc=; b=FMvy7Ogu4NzDfZ
+	r/ih69sA5XrDsBTh/Un16nbCqhz/Th7Ktw+iR0NcyczePzfENbszMP5TGFzcIrgw78yQHQOYUNh59
+	O4wZUrDFbRriD/b3xLs3oAVPbQle7KHvIchag1PVGAHUPUUr1Yrm1Y2UpbFNaUCL6XnnpLSxXMpbx
+	37EMNAHnfjR6fFE3daayRorj24l2NtTxJj24mtTDnFUDaKdLRA5c1CspDU5b7fm9f0RJyVj6L51Iu
+	ahfPGOtUqgQk6l46wCEiyyIGnicSqZuBZ35DTarAAr9PkYl7k6cB66GwwiJtsNyALKnhCDkNplApe
+	gX+Flxq0alx9gY/UBctg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6910-00000007ghf-37dC;
-	Fri, 27 Mar 2026 15:22:26 +0000
-Received: from mail-northcentralusazon11012044.outbound.protection.outlook.com ([40.107.200.44] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1w69QR-00000007inY-0F1t;
+	Fri, 27 Mar 2026 15:48:43 +0000
+Received: from 013.lax.mailroute.net ([199.89.1.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w690y-00000007ghJ-3zwE
+	id 1w69QO-00000007imn-2IOR
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Mar 2026 15:22:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rgS40XO4YJpYwGyTWThMTvli18bOiACq/lxwAwZ9Xnma0VOvGHnblB563ftJJ2hbob+1vnIszqujifjC3w/SvThKU8OvdsHwhCwDmov8EOTOKqUGNIbzk6Oh2/Vbs+pNMyqhk4uLwS/Li8Dj7S/YR6sOiXDN1GpJHlw7Z91GMs5vLafdEjdci8S2hL1rK8HOqzyK8U6W0r93kwvUDbfJxPUcUGMEq0R68vq1sYd6asePg+TvBbEX5+CK7ovP1QrprzjUynEuXYcumiL+fecDgQsxiGlvGRj8++ps9Oyadu1GzB3V5SPp4ZGp1eYYTqkpqhwMCYxQFDE+d/pXC9hQPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bugBieCFpxf9d71FemlXVLsvdnmyChW3ZG0vbB9Zpo8=;
- b=UVGRPxewXYLrsXoPa+ZEPNlltgXszmnzwrhkkpYYEAByLHcRWW/y+qCu62a5GEq2LPWuq/BYgFgSFATn0ZyuUTIgDbKXUaPEaOa0GdQxv8sBYcVlYsDjS/Y/NtpplbsxXYND+idu09YSJzHKKwr0oiw1+Fa+KChWzXeEk3vvjOhaNt2sZuqMMbg9XMnOUnF5IS/CmLkghMSNzAX7OSo/dxtmZvMnfnkGoPVvDUCW1VVgKhHZ4kFHIK7K/RIt5CPYGMm1KRYioa0ihh6e7uMZc3fdKnbli0H/IKtdfEpXGTrWF16xnjrQZBlNi0sO+ifjo6REDrrE60B/LcZxeWhQ+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bugBieCFpxf9d71FemlXVLsvdnmyChW3ZG0vbB9Zpo8=;
- b=WXFKs4DRP/EqiwcPXFyp6XSISg0eRBytbBePXatoLweijZKmwf6lHn7Oh45USWAtjesiFYnYPTIIbVnRfoxGEDlMfFeboS7kPCxbZn8JnpPjF7DKmErMEIG863QRvFu62OgSfRmCPlsfjeFRzHxK5E+Zz+ooh4yKSWSy86/iUkzmCk0X5TgJFlVx1jDgk8VwrJFLVHkTMFkI6iyFtOcII5d+UA4JhL1NGaft8q/BpUQ04b65G4UcqqFVINYchnKPagLVNOHDJ+FuJXy/T3/GVf3ZuTImZRC+JcGAug4BLn5H903xzmzRPmacVpxOfZsiEi8QDLYKuzr+q/ekY1UGZw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB7186.namprd12.prod.outlook.com (2603:10b6:510:202::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.8; Fri, 27 Mar
- 2026 15:22:11 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9769.006; Fri, 27 Mar 2026
- 15:22:11 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-riscv@lists.infradead.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	patches@lists.linux.dev,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Zong Li <zong.li@sifive.com>
-Subject: [PATCH] iommu/riscv: Remove overflows on the invalidation path
-Date: Fri, 27 Mar 2026 12:22:10 -0300
-Message-ID: <0-v1-0f76ffba5af6+11540-iommupt_inv_riscv_jgg@nvidia.com>
-X-ClientProxiedBy: BN9PR03CA0982.namprd03.prod.outlook.com
- (2603:10b6:408:109::27) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 27 Mar 2026 15:48:41 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4fj4n20nQszlgqw5;
+	Fri, 27 Mar 2026 15:48:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1774626506; x=1777218507; bh=daYKBfZtVRE0Up+JvW4epS91
+	zfI0bi2LU/4qn3ihDck=; b=y/CwjrgZaYZ8yuyWAm7DVpesBmImJ3qmESbF7Oph
+	7bcSW56maohK9flTVqvLGyUEPvzPHCsVBaSRD5PgFlANNFQ6DetOqlymgFOyuKvS
+	G89BGNB0HUcVwyVUe46i6iHpNQlkj5DsVwoGrohq040AglGJ3JeqHX/MMontyRBJ
+	65d0Fcz2pHeDO8DjVZeswp9C1voPLPXmsJsVY91BEF/Gd8SJHnUrsy48ZWUH/Tan
+	DFRKTzh13diapZrM5bsErlqCXq8j5qrB9X/68kkcaBjRZqmpN7atVfy9TfuTbcRU
+	ZW/e6waW9YBYz7gNn3Afjj1xTwahBjjBsBMu0LamPIoevA==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id XR9mbTQNfkjy; Fri, 27 Mar 2026 15:48:26 +0000 (UTC)
+Received: from [100.119.48.131] (unknown [104.135.180.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4fj4mf33mJzlfwHS;
+	Fri, 27 Mar 2026 15:48:18 +0000 (UTC)
+Message-ID: <91bacd7d-6ec0-4888-be0d-f11a6607f38f@acm.org>
+Date: Fri, 27 Mar 2026 08:48:17 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB7186:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79ad601c-a26a-402a-519f-08de8c149dd8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: mxrQHR0FboM7t2XNd4I6htpaXpK333PJjGLv5qNhBcNFGU4alCEJSp5uDZuqoKdACsQP0Fq1GVuuNQpdbRJImPpQaXHX8EEAfA5bj/DlohVm3+A3AjaHmk4VGDZuQ8YJbEduUe7pupcYRxCyI+WMpKi9M2y4bZk4ERXPw5bdBxd8w8ZCERg8+07iKYj2Mqew86oDqRWFYNOHDz/4k/0FKT2FBrcQKV5e93X8DWTBeQk0sh26dYNS/DOfT2JER2f/npPCDiF1yxl3M4m3uI+tuoXUCxF2spcC2hhKGcf27fjtOxWT34uRI1o/GERBcxi2nWaTjbYe4xBq9aPn75I5olT4NvACn2yWdCs7QxAjsgRWqhYixTDyrBIk4+PpzZy5Q8XYsGv2CXMBlhp+wXdG3Pq5N/LScDSkyyzEnkJvFjtpoxunhB954w3VJF+/+8Uj9kzkyMF4DbpDW7t5afDX601SmikGADNiKGow8MXQxvtZJLC9oGQo11GrVBzqw7+rCQ/TxgQN0Ux8Lz5VOsiCk8MQnulkTwZvnncY9Ro1hmv8dMWD8/WxJ4XHBebfJoemKa9pwWOcTbfpsmdEtJUbr2DeZ0Cwn61Em/DEaLZhGiXr5Qp3NRMDhEWMH5Uc16mOwdHJcSlkC7dVkZUTC5icOz+8zH0n5Wo/MsnqT/vibJ7dFaxsRFFzs8MRzFREft4usEX8z/SUbkJ5E5D+h2DxBM5w423lMqRSSVtPyX3skw0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jh8d64rS2yu6gQCqDXmjo64pDlKJHvsCXA9fvBBRBVpgd/5/G53W4kZVFjCc?=
- =?us-ascii?Q?uWjDbly1S11SznciqQoFde8oEf9h9zgb6zuLKdcXOXWGoc0be2z8/tl/9UC8?=
- =?us-ascii?Q?XCqJsLW4J0WJQFyii18wD5QfiJvR+mD5RuwBBR557rCFhM8d0swH/vEIuXMs?=
- =?us-ascii?Q?xpQOZvIiWBL4GJ1FCx+UMUPPS671IbShB0977hJh1IzXRFMll1mcGb+xU3Ru?=
- =?us-ascii?Q?axEuzOHcjgAb7GywKCCjLCcZ0AjT/sKv5+mmaZWxsrDJi53m/iLBVfIVoNPW?=
- =?us-ascii?Q?EjQ9JKzJmWbhMGllQrACRg19E+jY5aEbMrE1wBa/w0o1PgBHmeS7SO5Puks9?=
- =?us-ascii?Q?gQYVo5v747SpyV9Lafx7MCM89xGecXd/JL4mphvMnm2P3cVfD/tncW8X0GJD?=
- =?us-ascii?Q?f5OPbxtACJOCTFfuM/tjyiueD7FeQC9AFRyGgZPMBuLXq8vkonM11rgoATs3?=
- =?us-ascii?Q?xB4kyNewzr+pzWMKquMsrxds6sAOWWJ6MKe3uC/RCgy2sNZuX1eD2BlOxP/5?=
- =?us-ascii?Q?bRfJAcK23xt/b3neSJ1i4sCLv74akG6bsSGpoucvfm6S/dTAw9IrVLYsObJm?=
- =?us-ascii?Q?+IPZXYr34TPmhL3qDxscC9HrxS8+EZS7zjzzJZnNfGHlGSSNFpcDNTUlYuOp?=
- =?us-ascii?Q?Q6KorsGWVs1/EuGlcdcLwy3007HL1WZI4efDqUzFS2HgOd3iJMaTpKhGoD41?=
- =?us-ascii?Q?jP895zavxQax7naNoEMEpVsFnjSg4IGShg3ctac5wUFpqcXXx4cLtR1ODdLr?=
- =?us-ascii?Q?e+RgcJHBJ+awEfB1Yme/CE07UCNqb1V9sfv3SlrVrReLF4QL2XRafOIwXJhH?=
- =?us-ascii?Q?1iu7Rd3aWAxniLds9v0yrqXBT+X7oeSHBmnfmRED4vdtWY/HlPV+Y5U4ppPx?=
- =?us-ascii?Q?hrh6C8B5WxXu9/3xUkc4qczLOM7kH4I/CZM8HvFz2mRt4mkpWgNDlBHF4noH?=
- =?us-ascii?Q?7ayCBq3vg2WoM+P9t67ocjBm7pgu4tWHnhC1CPDUOXb1tu8pyWcH/+LQ4e/V?=
- =?us-ascii?Q?LM1zxIQ7Hd5QOqrDH0aHO/cIXoRZN2T4QYAfqEmSAqatb0OWNNzyzI7izODL?=
- =?us-ascii?Q?zZS8xvqCTLteQr0EeDt+/CPa5uCGzgb4bdgZGfSuOGlTila1EC/6LMlvbYRN?=
- =?us-ascii?Q?x2M4YFXGpWmnGGJaOf7zdypDIEz2q5/eRcWfhYNdz3D0ZwLKEsHXVd3ktMIQ?=
- =?us-ascii?Q?FQj9hSANRtvTUhAbgD+h31+WGWHhkm+KdLehBYepWWvVj0EbzrcQrkrqVW34?=
- =?us-ascii?Q?DphZPkG2XII/goMn9KxkC2c4T+uhwKzrQ9yQxNWHdPDxNLVZD0HxQnRGJKAy?=
- =?us-ascii?Q?6y+MA0VKRqj1F0rM7KbMocP7w/A4ictz8k28AM9CFxzUEc+6udTQhAfX/Urr?=
- =?us-ascii?Q?HqEHN+F3KcYO1rJPkhiIAkR1B2SVrIfOjWnrFruUGGInFoIIwqY1GikdP8o4?=
- =?us-ascii?Q?cArFPX7ruBKAi9qd8VMdJZ/+ddGcaQYs3kF8pPrG7Ack8rzuKvg8mtn1z/sL?=
- =?us-ascii?Q?2uh6GpYYBH2YZFZni0tGAGI5K4xRyKdkPwhV1wGxGO8CeuvpgDn93i+b544X?=
- =?us-ascii?Q?NhklyKWlnc5ZSRZZQPbm7UZqyHIUF4RNLg7fEdUiJqA2Gs5BZHBGIclvX1ZN?=
- =?us-ascii?Q?lcttkWLr+wSVf4+/yYULj8hf7r5xjMMWVV5VKPS6bLn1zCMGyrRVDECNd9oC?=
- =?us-ascii?Q?5jpqTJ4vl3aknTl8FP4z9W8eb1NX2CPFISLjA7n5UQZxFwPQ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79ad601c-a26a-402a-519f-08de8c149dd8
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 15:22:11.0477
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MxMP1IEkDqOs0q6QBuERVAtJ4OQTloPpOSuHihHXsc04OqYeXThHFUb4LK6JEjAl
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7186
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC 0/2] block: Introduce a BPF-based I/O scheduler
+To: Chengkaitao <pilgrimtao@gmail.com>, axboe@kernel.dk, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, ojeda@kernel.org,
+ boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com,
+ lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com,
+ tmgross@umich.edu, dakr@kernel.org, nathan@kernel.org,
+ nick.desaulniers+lkml@gmail.com, morbo@google.com, justinstitt@google.com
+Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, rust-for-linux@vger.kernel.org,
+ bpf@vger.kernel.org, llvm@lists.linux.dev,
+ Kaitao Cheng <chengkaitao@kylinos.cn>
+References: <20260327114741.91500-1-pilgrimtao@gmail.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20260327114741.91500-1-pilgrimtao@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_082224_988423_B81FB257 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_084840_604732_8248902D 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,60 +85,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since RISC-V supports a sign extended page table it should support
-a gather->end of ULONG_MAX, but if this happens it will infinite loop
-because of the overflow.
+On 3/27/26 4:47 AM, Chengkaitao wrote:
+> I have been working on adding a new BPF-based I/O scheduler. It has both
+> kernel and user-space parts. In kernel space, using per-ctx,
 
-Also avoid overflow computing the length by moving the +1 to the other
-side of the <
+Does "ctx" perhaps refer to struct blk_mq_hw_ctx? If so, please use the 
+abbreviation "hctx" to prevent confusion with struct blk_mq_ctx (block
+layer software queue).
 
-Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/riscv/iommu.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+For what type of block devices is this new type of I/O scheduler 
+intended? This new type of I/O scheduler is not appropriate for hard
+disks. To schedule I/O effectively for harddisks, an I/O scheduler must
+be aware of all pending I/O requests. This is why the mq-deadline I/O
+scheduler maintains a single list of requests across all hardware
+queues.
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 368f3cbd2d0a96..a31f50bbad3535 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -934,8 +934,6 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
- 	struct riscv_iommu_bond *bond;
- 	struct riscv_iommu_device *iommu, *prev;
- 	struct riscv_iommu_command cmd;
--	unsigned long len = end - start + 1;
--	unsigned long iova;
- 
- 	/*
- 	 * For each IOMMU linked with this protection domain (via bonds->dev),
-@@ -978,11 +976,14 @@ static void riscv_iommu_iotlb_inval(struct riscv_iommu_domain *domain,
- 
- 		riscv_iommu_cmd_inval_vma(&cmd);
- 		riscv_iommu_cmd_inval_set_pscid(&cmd, domain->pscid);
--		if (len && len < RISCV_IOMMU_IOTLB_INVAL_LIMIT) {
--			for (iova = start; iova < end; iova += PAGE_SIZE) {
-+		if (end - start < RISCV_IOMMU_IOTLB_INVAL_LIMIT - 1) {
-+			unsigned long iova = start;
-+
-+			do {
- 				riscv_iommu_cmd_inval_set_addr(&cmd, iova);
- 				riscv_iommu_cmd_send(iommu, &cmd);
--			}
-+			} while (!check_add_overflow(iova, PAGE_SIZE, &iova) &&
-+				 iova < end);
- 		} else {
- 			riscv_iommu_cmd_send(iommu, &cmd);
- 		}
+Additionally, this new I/O scheduler is not appropriate for the fastest
+block devices. For very fast block devices, any I/O scheduler incurs a
+measurable overhead.
 
-base-commit: cbb4dc8cd574b387c7811af91006476c5fa98285
--- 
-2.43.0
+> I implemented
+> a simple elevator that exposes a set of BPF hooks. The goal is to move the
+> policy side of I/O scheduling out of the kernel and into user space,
 
+What does "into user space" mean in this context? As you know BPF code
+runs in kernel context.
+
+Thanks,
+
+Bart.
 
 _______________________________________________
 linux-riscv mailing list
