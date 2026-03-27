@@ -4,107 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE72D10BA439
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 08:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA5A10BA43C
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 08:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LgePaZGjK6t6W/gImZnFcrjbkATWbh4RTLPFrbBQn0g=; b=z7Z/jFhUKEIfH8
-	HiWdHPgI5TBlBrykMXaLlDuTrk67+pJZWMOEVP64p+6dBiEKMpGVX2hEAuavEat5pTqEK19KcxdCI
-	wIJL0HmQhb3pMsFw1X/laZIVDfN1sq0UUlCEdnCJz3kS96zm5kl1s71b7tEvj5wAiz4uOZYZpR1Xj
-	B7WeFdC406+rpuW4lSKONXsVExjPKxwcQsBelFOYETS8rNhageum18z0SM47VgRjrHgI3DjECVXXj
-	sAUfO6Gpbl4E0GrzKEnZjfyVYYiDMlOfIzBtoOU7AYYc87fMc42dIBJC2Y+QP+aNkIHUGyn3pMo+O
-	QowK2qfnoujOm6IdjQaw==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=KCN2GAb4LyFbZSpch6MlxIR1Ejn0shbaIKz/SN2aLWM=; b=4R393sL1kOLZZhUBtHRskpNyX6
+	9APgOdveiUWGDhahGjis2TgC01IIuy88xn5nN/onIUQViJfz6q20WEd8T/eU/yxI4W7UNQpRev8v7
+	/RGx3356ilB+WvZo/lU3AVnq+wZJ2W5IzvN7UXZ29GUgtBeSxPoT7xbxGtJiucQl/fUBdqJwcWcTQ
+	DlZ2F55q7UWNmcv/6wal0bLcNpO3gck3RwLrgx9CckwdhoQNkyu1JTBQmp3fYcrAN9DiwkeCTRJIB
+	7RFWhqKXfTM3PqSkTOhl5Hw8cNuF/H5mhwXPcpF4wTp3fAsOPIfFTOBksOYEng3qYje3zb8jBaeee
+	HV12LaqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62Pw-00000006xHL-3Q2b;
-	Fri, 27 Mar 2026 08:19:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w62Vp-00000006xmq-0vDT;
+	Fri, 27 Mar 2026 08:25:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62Pu-00000006xGv-1M8t
-	for linux-riscv@lists.infradead.org;
-	Fri, 27 Mar 2026 08:19:43 +0000
+	id 1w62Vn-00000006xm9-1LpP;
+	Fri, 27 Mar 2026 08:25:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A88AE438C6;
-	Fri, 27 Mar 2026 08:19:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D48C2BC87;
-	Fri, 27 Mar 2026 08:19:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C5CB6132B;
+	Fri, 27 Mar 2026 08:25:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A409AC4AF0E;
+	Fri, 27 Mar 2026 08:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774599581;
-	bh=Tlrf9YQPpCEgfXEni1AJghCk6IXwsSp1qRIuz6TrIYI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=e99zTECUo1GWDxJCQjbuZr14lTWUZG8QtA6IbyQJ1NYaNHhOIyAzZ+kNtv+WOupiO
-	 j1RrXWhKXc2wtT67tHlF9lhiFVDpbE159fs6IrFkbE0VktjG1hBxBbKOEl+pGlOMZP
-	 s8g2F1v9aMv8Vb4MBQukTAKy8PxRO9+4QJ9hvWQLnv97WY4UIe0rAJQ93Dv0JI1eDe
-	 DC4EPqXv0cWg4tip0AKbKE2gudNKoBVvFNor0xeBgxv4v4hqcfmJ4cFEQYQVwpjaPI
-	 0w08T2QiXydDvbbnMpwBX4F55GSUk2Pw9eD+U+Gr61hEbW4c7dgxVKZKbBh7NtMx8c
-	 UFVXkvLUfgEig==
-Message-ID: <d7eb716d-9b9c-4474-a9ca-d44e96c46fc8@kernel.org>
-Date: Fri, 27 Mar 2026 09:19:37 +0100
+	s=k20201202; t=1774599946;
+	bh=oGcTlThlcrf/a6X6Pba0yaQBbOhK2gU5HD6vMRqLYbw=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=SCw3XSmbAGspl1ahHzR9hENTHY5uIP6pHK1EXM1nnwDzeWfDylaqquE35acjrRHH3
+	 vT5m5lC8gw0DpNVnep9R6Cf8dWPJRqPdlBYjgXEwesSwyqhicWBhuGMtDvIgsBo5Si
+	 5GZ+3p66/qiFFP29Pq3mrBCtr5TAMQHsbD5/ZhCQgajJrfYK/tHYkIqP2t3WhAvW9I
+	 YjMhP1C3LRL73un2ThsrILuHl5NiW8hZc9VxUHbCMcCc1aPK1Gl/rRWGS9BBltb5CI
+	 pFy5jE8lNsiivmtQLHgH9N7mkJOw0GGtYne0MS8Obhh9TxXnLT7bc0+v/h4aZUiKHT
+	 z21HAUIPUYQ2w==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 6F5B9F4006E;
+	Fri, 27 Mar 2026 04:25:43 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Fri, 27 Mar 2026 04:25:43 -0400
+X-ME-Sender: <xms:Bz_GaeV3zNaSpHJHySYxTNOI14Bf1EmJgTqGji8Tx6XrdR-ly4fPVA>
+    <xme:Bz_GaVaecSFZVaUx_LS_q-dDchW3x2ph_U-FNZZvjkVa-2Cbgvi2qQJJQEWm1pEen
+    o2Nmsvazvbril7mJ2bFLAHoL0kR_6ydzStl4XH8vMJ4O7DQEb3zgw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdelkedtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeei
+    jeefudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    grrhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeel
+    qdeffedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrh
+    gurdgtohhmpdhnsggprhgtphhtthhopeehtddpmhhouggvpehsmhhtphhouhhtpdhrtghp
+    thhtohepsghpsegrlhhivghnkedruggvpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrh
+    hinhgrshesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidr
+    ohhrghdruhhkpdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtphhtthhope
+    grnhhtohhnrdhivhgrnhhovhestggrmhgsrhhiughgvghgrhgvhihsrdgtohhmpdhrtghp
+    thhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtohepuggrvhgvmh
+    esuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhk
+    vghlvgihrdgvughupdhrtghpthhtohepmhhpvgesvghllhgvrhhmrghnrdhiugdrrghu
+X-ME-Proxy: <xmx:Bz_GadcJkX20GupXEUp-1Bp1i56g4LWcqwmuAAUTXMfU5fJkgo7Tdw>
+    <xmx:Bz_Gae4Ua-AeB83mS_pFrGVbAUqLQoAnmgxrDbHOol1S2B-duVR5XQ>
+    <xmx:Bz_GaRnLH2iPqmlmio84hLTWA0CS_wnMOI2-h11M3d92fo7SmGfrqA>
+    <xmx:Bz_GaUbPhoo7c5hIYcd0gM0CfIgT0rg3SwoJSuxv9v4EumISMkIDVQ>
+    <xmx:Bz_GafNBX4aAxc6vxqjfi2htd4zy-WLnaQnlHHZvUG3bWFOqd9K8W1h7>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 3B247700065; Fri, 27 Mar 2026 04:25:43 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] ~RISC-V~Starfive devicetrees fixes for v7.0-rc6
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- E Shattow <e@freeshell.de>
-Cc: soc@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>,
- Ilya Sorochan <k0tran@altlinux.org>, Conor Dooley <conor@kernel.org>
-References: <20260326-astrology-rephrase-836ec663228b@spud>
- <4dd4ffe6-307a-442b-ae99-50c88d4e5b84@freeshell.de>
- <20260326-viscous-rigor-4beb18f77eec@spud>
- <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_011942_414829_478FF7A3 
-X-CRM114-Status: GOOD (  23.71  )
+X-ThreadId: ALG_cRBuf6HF
+Date: Fri, 27 Mar 2026 09:25:22 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Christoph Hellwig" <hch@lst.de>,
+ "Andrew Morton" <akpm@linux-foundation.org>
+Cc: "Richard Henderson" <richard.henderson@linaro.org>,
+ "Matt Turner" <mattst88@gmail.com>,
+ "Magnus Lindholm" <linmag7@gmail.com>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "WANG Xuerui" <kernel@xen0n.name>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Richard Weinberger" <richard@nod.at>,
+ "Anton Ivanov" <anton.ivanov@cambridgegreys.com>,
+ "Johannes Berg" <johannes@sipsolutions.net>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>,
+ "Herbert Xu" <herbert@gondor.apana.org.au>,
+ "Dan Williams" <dan.j.williams@intel.com>, "Chris Mason" <clm@fb.com>,
+ "David Sterba" <dsterba@suse.com>, "Arnd Bergmann" <arnd@arndb.de>,
+ "Song Liu" <song@kernel.org>, "Yu Kuai" <yukuai@fnnas.com>,
+ "Li Nan" <linan122@huawei.com>, "Theodore Ts'o" <tytso@mit.edu>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
+Message-Id: <e7979928-b33a-4132-b08b-d95b91b14295@app.fastmail.com>
+In-Reply-To: <20260327061704.3707577-4-hch@lst.de>
+References: <20260327061704.3707577-1-hch@lst.de>
+ <20260327061704.3707577-4-hch@lst.de>
+Subject: Re: [PATCH 03/28] arm64/xor: fix conflicting attributes for xor_block_template
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,81 +142,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/03/2026 16:44, Heinrich Schuchardt wrote:
->>
->>> I have done an ~80%+ analysis on Ghidra decompilation of the JH-7110
->>> BootROM, and openly invite anyone that would like to help get this
->>> effort to 100% is welcome to so that we may publish and refer to this
->>> for technical competence. I do not object to the community supporting
->>> this deprecated capability if there is any real documentation not based
->>> on rumors and memes; but no one has offered to do take a moment to do
->>> this most basic of fact finding. Evidently the StarFive maintainer(s)
->>> have refused to support this, GPL non-compliance persists and only a
->>> rough description from Hal has been written to the U-Boot developer mail
->>> list that does not match my analysis, all while complaining about the
->>> capability not being supported going forward.
->>>
->>> I object to this PR it is NAK from me on the basis of stuffing this in
->>> sideways without technical justification or review. Also I do object to
-> 
-> Concerning technical justification it is clear:
-> 
-> Distro images have been supplied with U-Boot on SD-card for years and 
-> the recent work in Linux and U-Boot broke booting them. This needs to be 
-> fixed.
-> 
->>
->> The technical justification seemed to me to be multiple people saying "we
->> need this added so that u-boot can use the sd-card". The patch has been
->> on the list for over three weeks at this point, so there was definitely
->> opportunity to comment on it. I don't think I have been unreasonable
->> here. If current U-Boot needs it, then I'd still like to have it merged.
->> If you work pulls through and this becomes no-longer required, then I'd
->> be happy to take it back out again.
->>
->>> "riscv: dts: starfive: Milk-V Mars CM Lite broken-cd" as this goes the
->>> wrong way around, it does not describe the hardware; if some external
->>> carrier boards cannot deal with the capability of the Mars CM
->>> system-on-module having card detect line then that should be dealt with
->>> as a dtbo per-carrier board and not be replaced in the dts by a
->>> broken-cd, although at least we had this discussion and Conor made a
->>> decision with all the facts and discussion available.
->>>
-> 
-> As my patch points out the CD line is broken because it does not conform 
-> to the standard established by Raspberry.
 
-Initial E Shattow answer is not placed under specific commit, so I can
-only guess that it is about "riscv: dts: starfive: Milk-V Mars CM Lite
-broken-cd".
+On Fri, 27 Mar 2026, at 07:16, Christoph Hellwig wrote:
+> Commit 2c54b423cf85 ("arm64/xor: use EOR3 instructions when available")
+> changes the definition to __ro_after_init instead of const, but failed to
+> update the external declaration in xor.h.  This was not found because
+> xor-neon.c doesn't include <asm/xor.h>, and can't easily do that due to
+> current architecture of the XOR code.
+>
 
-The commit touches only DTS, not DTSO, so how can you claim that a DTS
-file change breaks some completely other board (Raspberry)?
+Even if it did, it wouldn't matter - __ro_after_init has no effect on declarations, only on definitions - it only controls the placement of the object in the .data..ro_after_init section (and declarations don't generate any code)
 
-This DTS file is nowhere included (and should not be).
-
-Of course maybe the true question would be why anyone described a hat as
-DTS file...
-
-> 
-> E. we know that by chance you have found a base board that ignores the 
-> standard.
-> 
-> Your patch 4cce8b2503ab5 made my standard compliant baseboard unusable. 
-
-DTS of some board is a final product, so it cannot be applied to a
-baseboard, that's pretty messed DTS tree...
-
-> My patch in the pull request does not stop your board from booting but 
-> re-enables mine.
-> 
-> Best regards
-> 
-> Heinrich
-
-
-Best regards,
-Krzysztof
+> Fixes: 2c54b423cf85 ("arm64/xor: use EOR3 instructions when available")
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  arch/arm64/include/asm/xor.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
 
 _______________________________________________
 linux-riscv mailing list
