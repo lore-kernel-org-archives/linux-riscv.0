@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B402D10BA431
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 06:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8799110BA433
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 06:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3bvMQQ0blLGbpaxDO+Cp5WtOhxELMlHDH32mu/1rpEE=; b=ERBC0a9xtSBvSh
-	1S74chOK/tIJzjcbgnIlkCY4cnJlD0K9CjUACQ/fVzZNnS46pWeqdjko8rcSOBy/UzRaWGMfVLZub
-	cnQ+AJPJcZJi6HAiYUwk76oXJlvOnOaV1V5ClK+TCSFuycHT7eaCY2mhCKDBGufAjaSu0fs0iRExv
-	vavjDbec0JqP9B3+Pri3FYQj8xRojc4sRQMwlI9y8TTxphZPhdJoZTSelodwugopUxQOOCGwq7k1p
-	+lF72VjM4f9i74NBWeQtxH5aqZ0l2VSeT7V7KX6chCyoTV3ofZNtnVM3EOdEcXq1j2EifQ/XiF9CY
-	rpvGaNfA5Z60nAgEnlXA==;
+	List-Owner; bh=dWXiH0hwfFvjOA6IU1eMzkUuOHVqVOYchZPBScm4HyM=; b=DQb+D0C7d21JyC
+	gCdLG1DHZcDIt5GYYoQeNE/1ABbgW9O99k0emukD2HTBei1JQzwDW2W7iCJ5Zrrj7t6dcI6/YMRi3
+	/minpv+BpDHUDM4WojGdamEB/KFsZdCXtyHDXF+5azebOrSAQaR/i6fgPlH/bEJcgvCZviENlTSs0
+	MiPS1edpuUO1UE6qICsHZ6u8uZ/3He6PbZTV7EqFQtM0BKPusvkHGPNeeU5yNm0/We3FQzZ4hLhJJ
+	KtUMnIAD8wT4+wZ5XkTHVghS5QyfQKa8xFoCReVgqgc/RcXaBKyU3wxGgiFpTMR7Umh6WGyD2lP7u
+	+HANkUvY/p4H40q7XJbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60bg-00000006oVl-3aiO;
-	Fri, 27 Mar 2026 06:23:44 +0000
-Received: from 2a02-8389-2341-5b80-d601-7564-c2e0-491c.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:d601:7564:c2e0:491c] helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60be-00000006oNA-00Me;
-	Fri, 27 Mar 2026 06:23:42 +0000
-From: Christoph Hellwig <hch@lst.de>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>,
-	"Theodore Ts'o" <tytso@mit.edu>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: [PATCH 28/28] xor: add a kunit test case
-Date: Fri, 27 Mar 2026 07:17:00 +0100
-Message-ID: <20260327061704.3707577-29-hch@lst.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260327061704.3707577-1-hch@lst.de>
-References: <20260327061704.3707577-1-hch@lst.de>
+	id 1w6148-00000006qLl-1JF2;
+	Fri, 27 Mar 2026 06:53:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w6144-00000006qL4-2o0k;
+	Fri, 27 Mar 2026 06:53:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EF2E340AB1;
+	Fri, 27 Mar 2026 06:53:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5247EC19423;
+	Fri, 27 Mar 2026 06:52:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774594383;
+	bh=+6taD/KYX6s6aOGsQO53ivGa0KI2dG/K2GEdTZ29IxI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uM9tWBQSBzeOskmqaDM0QvWoV4jUNiC4DsBlIKIFg7In21qbXcrgvL+npIdvVsRu4
+	 qrE69iQ+kiDSqXlcivHy16z+fEY80xVdn90vInQTF9nPU0Nfe7+PBampXS2wO/gG+p
+	 NgAISEoCyX1+VSpZjmfa/Wk2xePLkgGitS5duT/iqLt2Xz6gmhtYoyq/3bAsUtsGq+
+	 2OtE88H/kNHCxHKSKe13LzCtkcFHYUQtieBVLEZ/RgfH2fMVrGZXCU2jVD0wDWvbDI
+	 /UHVNy1S2RfsSIT/lKpdHdy0Vk/hccjI1KCqeAffyJ+BOUCNvP4IiTCz7QCM5HVlUz
+	 YXDRsPrcv0reg==
+Date: Fri, 27 Mar 2026 12:22:46 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
+	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
+	Nitin Rawat <quic_nitirawa@quicinc.com>
+Subject: Re: [PATCH v5 phy-next 10/27] scsi: ufs: qcom: keep parallel track
+ of PHY power state
+Message-ID: <gq4sswslkjaoe5hhxe2mz6z57uiumotqknkryadvfsstj4srx4@qgenqekgrqv4>
+References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
+ <20260319223241.1351137-11-vladimir.oltean@nxp.com>
+ <ezrcjjwtg5n76w4m65l27szu5mywx66ti3xuprkfcp3x6quvbf@2rew4zrnnbt2>
+ <20260325114309.3k7xkfrffpxp5xq4@skbuf>
+ <vu3cxpynr5mu2fzkrtmjcwijc5jz323wlnbc3r7lp2wxqmhydx@z5xhgf4myw2d>
+ <20260325115731.genmq2yew2p4dvbs@skbuf>
+ <20260326080444.gbesciaa5zwvcgoy@skbuf>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260326080444.gbesciaa5zwvcgoy@skbuf>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_235304_751871_FFEDF6FD 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,274 +82,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a test case for the XOR routines loosely based on the CRC kunit
-test.
-
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- lib/raid/.kunitconfig          |   3 +
- lib/raid/Kconfig               |  11 ++
- lib/raid/xor/Makefile          |   2 +-
- lib/raid/xor/tests/Makefile    |   3 +
- lib/raid/xor/tests/xor_kunit.c | 187 +++++++++++++++++++++++++++++++++
- 5 files changed, 205 insertions(+), 1 deletion(-)
- create mode 100644 lib/raid/.kunitconfig
- create mode 100644 lib/raid/xor/tests/Makefile
- create mode 100644 lib/raid/xor/tests/xor_kunit.c
-
-diff --git a/lib/raid/.kunitconfig b/lib/raid/.kunitconfig
-new file mode 100644
-index 000000000000..351d22ed1954
---- /dev/null
-+++ b/lib/raid/.kunitconfig
-@@ -0,0 +1,3 @@
-+CONFIG_KUNIT=y
-+CONFIG_BTRFS_FS=y
-+CONFIG_XOR_KUNIT_TEST=y
-diff --git a/lib/raid/Kconfig b/lib/raid/Kconfig
-index 81cb3f9c0a7b..5ab2b0a7be4c 100644
---- a/lib/raid/Kconfig
-+++ b/lib/raid/Kconfig
-@@ -17,3 +17,14 @@ config XOR_BLOCKS_ARCH
- 	default y if X86_32
- 	default y if X86_64
- 	bool
-+
-+config XOR_KUNIT_TEST
-+	tristate "KUnit tests for xor_gen" if !KUNIT_ALL_TESTS
-+	depends on KUNIT
-+	depends on XOR_BLOCKS
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Unit tests for the XOR library functions.
-+
-+	  This is intended to help people writing architecture-specific
-+	  optimized versions.  If unsure, say N.
-diff --git a/lib/raid/xor/Makefile b/lib/raid/xor/Makefile
-index df55823c4d82..4d633dfd5b90 100644
---- a/lib/raid/xor/Makefile
-+++ b/lib/raid/xor/Makefile
-@@ -29,7 +29,7 @@ xor-$(CONFIG_SPARC64)		+= sparc/xor-sparc64.o sparc/xor-sparc64-glue.o
- xor-$(CONFIG_S390)		+= s390/xor.o
- xor-$(CONFIG_X86_32)		+= x86/xor-avx.o x86/xor-sse.o x86/xor-mmx.o
- xor-$(CONFIG_X86_64)		+= x86/xor-avx.o x86/xor-sse.o
--
-+obj-y				+= tests/
- 
- CFLAGS_arm/xor-neon.o		+= $(CC_FLAGS_FPU)
- CFLAGS_REMOVE_arm/xor-neon.o	+= $(CC_FLAGS_NO_FPU)
-diff --git a/lib/raid/xor/tests/Makefile b/lib/raid/xor/tests/Makefile
-new file mode 100644
-index 000000000000..661e8f6ffd1f
---- /dev/null
-+++ b/lib/raid/xor/tests/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_XOR_KUNIT_TEST) += xor_kunit.o
-diff --git a/lib/raid/xor/tests/xor_kunit.c b/lib/raid/xor/tests/xor_kunit.c
-new file mode 100644
-index 000000000000..0c2a3a420bf9
---- /dev/null
-+++ b/lib/raid/xor/tests/xor_kunit.c
-@@ -0,0 +1,187 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Unit test the XOR library functions.
-+ *
-+ * Copyright 2024 Google LLC
-+ * Copyright 2026 Christoph Hellwig
-+ *
-+ * Based on the CRC tests by Eric Biggers <ebiggers@google.com>.
-+ */
-+#include <kunit/test.h>
-+#include <linux/prandom.h>
-+#include <linux/string_choices.h>
-+#include <linux/vmalloc.h>
-+#include <linux/raid/xor.h>
-+
-+#define XOR_KUNIT_SEED			42
-+#define XOR_KUNIT_MAX_BYTES		16384
-+#define XOR_KUNIT_MAX_BUFFERS		64
-+#define XOR_KUNIT_NUM_TEST_ITERS	1000
-+
-+static struct rnd_state rng;
-+static void *test_buffers[XOR_KUNIT_MAX_BUFFERS];
-+static void *test_dest;
-+static void *test_ref;
-+static size_t test_buflen;
-+
-+static u32 rand32(void)
-+{
-+	return prandom_u32_state(&rng);
-+}
-+
-+/* Reference implementation using dumb byte-wise XOR */
-+static void xor_ref(void *dest, void **srcs, unsigned int src_cnt,
-+		unsigned int bytes)
-+{
-+	unsigned int off, idx;
-+	u8 *d = dest;
-+
-+	for (off = 0; off < bytes; off++) {
-+		for (idx = 0; idx < src_cnt; idx++) {
-+			u8 *src = srcs[idx];
-+
-+			d[off] ^= src[off];
-+		}
-+	}
-+}
-+
-+/* Generate a random length that is a multiple of 512. */
-+static unsigned int random_length(unsigned int max_length)
-+{
-+	return round_up((rand32() % max_length) + 1, 512);
-+}
-+
-+/* Generate a random alignment that is a multiple of 64. */
-+static unsigned int random_alignment(unsigned int max_alignment)
-+{
-+	return ((rand32() % max_alignment) + 1) & ~63;
-+}
-+
-+static void xor_generate_random_data(void)
-+{
-+	int i;
-+
-+	prandom_bytes_state(&rng, test_dest, test_buflen);
-+	memcpy(test_ref, test_dest, test_buflen);
-+	for (i = 0; i < XOR_KUNIT_MAX_BUFFERS; i++)
-+		prandom_bytes_state(&rng, test_buffers[i], test_buflen);
-+}
-+
-+/* Test that xor_gen gives the same result as a reference implementation. */
-+static void xor_test(struct kunit *test)
-+{
-+	void *aligned_buffers[XOR_KUNIT_MAX_BUFFERS];
-+	size_t i;
-+
-+	for (i = 0; i < XOR_KUNIT_NUM_TEST_ITERS; i++) {
-+		unsigned int nr_buffers =
-+			(rand32() % XOR_KUNIT_MAX_BUFFERS) + 1;
-+		unsigned int len = random_length(XOR_KUNIT_MAX_BYTES);
-+		unsigned int max_alignment, align = 0;
-+		void *buffers;
-+
-+		if (rand32() % 8 == 0)
-+			/* Refresh the data occasionally. */
-+			xor_generate_random_data();
-+
-+		/*
-+		 * If we're not using the entire buffer size, inject randomize
-+		 * alignment into the buffer.
-+		 */
-+		max_alignment = XOR_KUNIT_MAX_BYTES - len;
-+		if (max_alignment == 0) {
-+			buffers = test_buffers;
-+		} else if (rand32() % 2 == 0) {
-+			/* Use random alignments mod 64 */
-+			int j;
-+
-+			for (j = 0; j < nr_buffers; j++)
-+				aligned_buffers[j] = test_buffers[j] +
-+					random_alignment(max_alignment);
-+			buffers = aligned_buffers;
-+			align = random_alignment(max_alignment);
-+		} else {
-+			/* Go up to the guard page, to catch buffer overreads */
-+			int j;
-+
-+			align = test_buflen - len;
-+			for (j = 0; j < nr_buffers; j++)
-+				aligned_buffers[j] = test_buffers[j] + align;
-+			buffers = aligned_buffers;
-+		}
-+
-+		/*
-+		 * Compute the XOR, and verify that it equals the XOR computed
-+		 * by a simple byte-at-a-time reference implementation.
-+		 */
-+		xor_ref(test_ref + align, buffers, nr_buffers, len);
-+		xor_gen(test_dest + align, buffers, nr_buffers, len);
-+		KUNIT_EXPECT_MEMEQ_MSG(test, test_ref + align,
-+				test_dest + align, len,
-+				"Wrong result with buffers=%u, len=%u, unaligned=%s, at_end=%s",
-+				nr_buffers, len,
-+				str_yes_no(max_alignment),
-+				str_yes_no(align + len == test_buflen));
-+	}
-+}
-+
-+static struct kunit_case xor_test_cases[] = {
-+	KUNIT_CASE(xor_test),
-+	{},
-+};
-+
-+static int xor_suite_init(struct kunit_suite *suite)
-+{
-+	int i;
-+
-+	/*
-+	 * Allocate the test buffer using vmalloc() with a page-aligned length
-+	 * so that it is immediately followed by a guard page.  This allows
-+	 * buffer overreads to be detected, even in assembly code.
-+	 */
-+	test_buflen = round_up(XOR_KUNIT_MAX_BYTES, PAGE_SIZE);
-+	test_ref = vmalloc(test_buflen);
-+	if (!test_ref)
-+		return -ENOMEM;
-+	test_dest = vmalloc(test_buflen);
-+	if (!test_dest)
-+		goto out_free_ref;
-+	for (i = 0; i < XOR_KUNIT_MAX_BUFFERS; i++) {
-+		test_buffers[i] = vmalloc(test_buflen);
-+		if (!test_buffers[i])
-+			goto out_free_buffers;
-+	}
-+
-+	prandom_seed_state(&rng, XOR_KUNIT_SEED);
-+	xor_generate_random_data();
-+	return 0;
-+
-+out_free_buffers:
-+	while (--i >= 0)
-+		vfree(test_buffers[i]);
-+	vfree(test_dest);
-+out_free_ref:
-+	vfree(test_ref);
-+	return -ENOMEM;
-+}
-+
-+static void xor_suite_exit(struct kunit_suite *suite)
-+{
-+	int i;
-+
-+	vfree(test_ref);
-+	vfree(test_dest);
-+	for (i = 0; i < XOR_KUNIT_MAX_BUFFERS; i++)
-+		vfree(test_buffers[i]);
-+}
-+
-+static struct kunit_suite xor_test_suite = {
-+	.name		= "xor",
-+	.test_cases	= xor_test_cases,
-+	.suite_init	= xor_suite_init,
-+	.suite_exit	= xor_suite_exit,
-+};
-+kunit_test_suite(xor_test_suite);
-+
-+MODULE_DESCRIPTION("Unit test for the XOR library functions");
-+MODULE_LICENSE("GPL");
--- 
-2.47.3
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBNYXIgMjYsIDIwMjYgYXQgMTA6MDQ6NDRBTSArMDIwMCwgVmxhZGltaXIgT2x0ZWFu
+IHdyb3RlOgo+IE9uIFdlZCwgTWFyIDI1LCAyMDI2IGF0IDAxOjU3OjMxUE0gKzAyMDAsIFZsYWRp
+bWlyIE9sdGVhbiB3cm90ZToKPiA+IE9uIFdlZCwgTWFyIDI1LCAyMDI2IGF0IDA1OjIxOjE0UE0g
+KzA1MzAsIE1hbml2YW5uYW4gU2FkaGFzaXZhbSB3cm90ZToKPiA+ID4gSSBiZWxpZXZlIEkgYWRk
+ZWQgdGhlIHBvd2VyX2NvdW50IGNoZWNrIGZvciBwaHlfZXhpdCgpLiBCdXQgc2luY2UgdGhhdCBn
+b3QKPiA+ID4gbW92ZWQsIHRoZSBjaGVjayBiZWNvbWVzIG5vIGxvbmdlciBuZWNlc3NhcnkuCj4g
+PiAKPiA+IEZZSSwgdGhlIHBvd2VyX2NvdW50IGtlZXBzIHRyYWNrIG9mIHRoZSBiYWxhbmNlIG9m
+IHBoeV9wb3dlcl9vbigpIGFuZAo+ID4gcGh5X3Bvd2VyX29mZigpIGNhbGxzLCB3aGVyZWFzIGl0
+IGlzIHRoZSBpbml0X2NvdW50IGtlZXBzIHRyYWNrIG9mCj4gPiBwaHlfaW5pdCgpIGFuZCBwaHlf
+ZXhpdCgpIGNhbGxzLiBUaGV5IGFyZSBvbmx5IHJlbGF0ZWQgdG8gdGhlIGV4dGVudAo+ID4gdGhh
+dCB5b3UgbXVzdCByZXNwZWN0IHRoZSBwaHlfaW5pdCgpIC0+IHBoeV9wb3dlcl9vbigpIC0+IHBo
+eV9wb3dlcl9vZmYoKQo+ID4gLT4gcGh5X2V4aXQoKSBzZXF1ZW5jZS4gQnV0IGluIGFueSBjYXNl
+LCBib3RoIHNob3VsZCBiZSBjb25zaWRlcmVkCj4gPiBQSFktaW50ZXJuYWwgZmllbGRzLiBUaGUg
+Ik9yZGVyIG9mIEFQSSBjYWxscyIgc2VjdGlvbiBmcm9tCj4gPiBEb2N1bWVudGF0aW9uL2RyaXZl
+ci1hcGkvcGh5L3BoeS5yc3QgbWVudGlvbnMgdGhlIG9yZGVyIHRoYXQgSSBqdXN0Cj4gPiBkZXNj
+cmliZWQgYWJvdmUsIGFuZCBjb25zdW1lcnMgc2hvdWxkIGp1c3QgZW5zdXJlIHRoZXkgZm9sbG93
+IHRoYXQuCj4gCj4gT2ssIHNvIHdlIGNhbiBjbG9zZSB0aGlzIHRvcGljIG9mICJjaGVja2luZyB0
+aGUgcG93ZXJfY291bnQgbm90IG5lZWRlZCIKPiBieSBsaW5raW5nIHRvIHRoZSBjb252ZXJzYXRp
+b24gd2hpY2ggc3B1biBvZmYgaGVyZToKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIw
+MjYwMzI1MTIwMTIyLjI2NTk3My0xLW1hbml2YW5uYW4uc2FkaGFzaXZhbUBvc3MucXVhbGNvbW0u
+Y29tLwo+IAoKU3VyZS4KCj4gTWFuaSwgSSBzcGVudCBzb21lIG1vcmUgdGltZSB0byBmaWd1cmUg
+b3V0IHdoYXQncyByZWFsbHkgZ29pbmcgb24gd2l0aAo+IHRoaXMgdW5leHBlY3RlZCBwaHlfcG93
+ZXJfb2ZmKCkgY2FsbC4gRG8geW91IHRoaW5rIHlvdSBjb3VsZAo+IHJlZ3Jlc3Npb24tdGVzdCB0
+aGUgcGF0Y2ggYXR0YWNoZWQ/Cj4gCgpJIHRlc3RlZCB0aGUgcGF0Y2guIEJ1dCBpdCBmYWlscyB1
+ZnNfcWNvbV9wb3dlcl91cF9zZXF1ZW5jZSgpIGlmIFBIWSB3YXMgYWxyZWFkeQpwb3dlcmVkIG9u
+OgoKWyAgIDMxLjUxMzMyMV0gcWNvbS1xbXAtdWZzLXBoeSAxZDg3MDAwLnBoeTogcGh5IGluaXRp
+YWxpemF0aW9uIHRpbWVkLW91dApbICAgMzEuNTEzMzM1XSB1ZnNoY2QtcWNvbSAxZDg0MDAwLnVm
+c2hjOiBGYWlsZWQgdG8gY2FsaWJyYXRlIFBIWTogLTExMApbICAgMzEuNTY1MjczXSB1ZnNoY2Qt
+cWNvbSAxZDg0MDAwLnVmc2hjOiBFbmFibGluZyB0aGUgY29udHJvbGxlciBmYWlsZWQKCkZ1bm55
+IHRoaW5nIGlzLCBpdCBkaWRuJ3QgYWZmZWN0IHRoZSBmdW5jdGlvbmFsaXR5IHNpbmNlIHRoZSBV
+RlMgY29yZSByZXRyaWVzCnVmc2hjZF9oYmFfZW5hYmxlKCkgYW5kIGluIHRoZSBlcnJvciBwYXRo
+IG9mIHVmc19xY29tX3Bvd2VyX3VwX3NlcXVlbmNlKCksCnBoeV9wb3dlcl9vZmYoKSBnZXRzIGNh
+bGxlZCBhbmQgdGhhdCBjYXVzZXMgdGhlIG5leHQgdHJ5IHRvIHN1Y2NlZWQuIFNvIGl0IGlzCmV2
+aWRlbnQgdGhhdCwgaWYgUEhZIHdhcyBhbHJlYWR5IHBvd2VyZWQgT04sIGl0IHNob3VsZCBiZSBw
+b3dlcmVkIG9mZiBiZWZvcmUKdWZzX3Fjb21fcGh5X3Bvd2VyX29uKCkuIEFuZCBkdWUgdG8gdGhl
+IFVGUyBkcml2ZXIgZGVzaWduLAp1ZnNfcWNvbV9wb3dlcl91cF9zZXF1ZW5jZSgpIGNhbiBnZXQg
+Y2FsbGVkIG11bHRpcGxlIHRpbWVzLiBTbyB3ZSBjYW5ub3QganVzdApyZW1vdmUgcGh5X3Bvd2Vy
+X29mZigpLgoKQmVsb3cgZGlmZiBvbiB0b3Agb2YgeW91ciBwYXRjaCBmaXhlcyB0aGUgaXNzdWU6
+CgpgYGAKZGlmZiAtLWdpdCBhL2RyaXZlcnMvdWZzL2hvc3QvdWZzLXFjb20uYyBiL2RyaXZlcnMv
+dWZzL2hvc3QvdWZzLXFjb20uYwppbmRleCBlZDA2NzI0N2Q3MmEuLjJjOWZlMDNmMzQ5ZSAxMDA2
+NDQKLS0tIGEvZHJpdmVycy91ZnMvaG9zdC91ZnMtcWNvbS5jCisrKyBiL2RyaXZlcnMvdWZzL2hv
+c3QvdWZzLXFjb20uYwpAQCAtNTY3LDYgKzU2Nyw4IEBAIHN0YXRpYyBpbnQgdWZzX3Fjb21fcG93
+ZXJfdXBfc2VxdWVuY2Uoc3RydWN0IHVmc19oYmEgKmhiYSkKICAgICAgICBpZiAocmV0KQogICAg
+ICAgICAgICAgICAgcmV0dXJuIHJldDsKIAorICAgICAgIHVmc19xY29tX3BoeV9wb3dlcl9vZmYo
+aG9zdCk7CisKICAgICAgICByZXQgPSB1ZnNfcWNvbV9waHlfc2V0X2dlYXIoaG9zdCwgbW9kZSk7
+CiAgICAgICAgaWYgKHJldCkgewogICAgICAgICAgICAgICAgZGV2X2VycihoYmEtPmRldiwgIiVz
+OiBwaHlfc2V0X21vZGVfZXh0KCkgZmFpbGVkLCByZXQgPSAlZFxuIiwKYGBgCgotIE1hbmkKCi0t
+IArgrq7grqPgrr/grrXgrqPgr43grqPgrqngr40g4K6a4K6k4K6+4K6a4K6/4K614K6u4K+NCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
