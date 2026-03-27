@@ -4,73 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8799110BA433
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 06:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B81210BA430
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 07:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dWXiH0hwfFvjOA6IU1eMzkUuOHVqVOYchZPBScm4HyM=; b=DQb+D0C7d21JyC
-	gCdLG1DHZcDIt5GYYoQeNE/1ABbgW9O99k0emukD2HTBei1JQzwDW2W7iCJ5Zrrj7t6dcI6/YMRi3
-	/minpv+BpDHUDM4WojGdamEB/KFsZdCXtyHDXF+5azebOrSAQaR/i6fgPlH/bEJcgvCZviENlTSs0
-	MiPS1edpuUO1UE6qICsHZ6u8uZ/3He6PbZTV7EqFQtM0BKPusvkHGPNeeU5yNm0/We3FQzZ4hLhJJ
-	KtUMnIAD8wT4+wZ5XkTHVghS5QyfQKa8xFoCReVgqgc/RcXaBKyU3wxGgiFpTMR7Umh6WGyD2lP7u
-	+HANkUvY/p4H40q7XJbA==;
+	List-Owner; bh=XZpqvw14Kc6F7W9qCyFrc78QZP8/dXr8JUDux8NIwsg=; b=h8O6pBM5Wi3yb6
+	JwEWcKWy1Hb7yr4ymQXH0+nwUcQPr046tEIfmrWC5shvQeHF+/r+a1NxO02XiZL0cF3LIsYWRiBha
+	psjHUZzeCQev1W0+lNwSfizCR7ZEFhzJp+m2u+aCgQ8t54QHjCXPAkTZ8gGCTbexfjMXYzWb3fYJy
+	IG8kgrle3vGCWhsx54vlH/1vb0Ca83jgg2MmmF9ngGoBAXx0cJZMazlj+hMECfBU3Fc3wFsctG/vs
+	xUwSeA1oSoQw1Fnui755sUoRtZXBKut4/1KnzQkrh/BE7H47TMo8/xmB5WO5CvxfIiel9IkJ7/7b8
+	tyjuIbBkt6xcW2sUJQ0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6148-00000006qLl-1JF2;
-	Fri, 27 Mar 2026 06:53:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w61GD-00000006r8I-1XHn;
+	Fri, 27 Mar 2026 07:05:37 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6144-00000006qL4-2o0k;
-	Fri, 27 Mar 2026 06:53:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF2E340AB1;
-	Fri, 27 Mar 2026 06:53:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5247EC19423;
-	Fri, 27 Mar 2026 06:52:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774594383;
-	bh=+6taD/KYX6s6aOGsQO53ivGa0KI2dG/K2GEdTZ29IxI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uM9tWBQSBzeOskmqaDM0QvWoV4jUNiC4DsBlIKIFg7In21qbXcrgvL+npIdvVsRu4
-	 qrE69iQ+kiDSqXlcivHy16z+fEY80xVdn90vInQTF9nPU0Nfe7+PBampXS2wO/gG+p
-	 NgAISEoCyX1+VSpZjmfa/Wk2xePLkgGitS5duT/iqLt2Xz6gmhtYoyq/3bAsUtsGq+
-	 2OtE88H/kNHCxHKSKe13LzCtkcFHYUQtieBVLEZ/RgfH2fMVrGZXCU2jVD0wDWvbDI
-	 /UHVNy1S2RfsSIT/lKpdHdy0Vk/hccjI1KCqeAffyJ+BOUCNvP4IiTCz7QCM5HVlUz
-	 YXDRsPrcv0reg==
-Date: Fri, 27 Mar 2026 12:22:46 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
-	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
-	Nitin Rawat <quic_nitirawa@quicinc.com>
-Subject: Re: [PATCH v5 phy-next 10/27] scsi: ufs: qcom: keep parallel track
- of PHY power state
-Message-ID: <gq4sswslkjaoe5hhxe2mz6z57uiumotqknkryadvfsstj4srx4@qgenqekgrqv4>
-References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
- <20260319223241.1351137-11-vladimir.oltean@nxp.com>
- <ezrcjjwtg5n76w4m65l27szu5mywx66ti3xuprkfcp3x6quvbf@2rew4zrnnbt2>
- <20260325114309.3k7xkfrffpxp5xq4@skbuf>
- <vu3cxpynr5mu2fzkrtmjcwijc5jz323wlnbc3r7lp2wxqmhydx@z5xhgf4myw2d>
- <20260325115731.genmq2yew2p4dvbs@skbuf>
- <20260326080444.gbesciaa5zwvcgoy@skbuf>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260326080444.gbesciaa5zwvcgoy@skbuf>
+	id 1w61G9-00000006r6q-19R8
+	for linux-riscv@lists.infradead.org;
+	Fri, 27 Mar 2026 07:05:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1774595091;
+	bh=C5sPPhxc2ESUsfKZcmePqfZSGtd39KSgY9EBT4h19Z4=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=oJT4MR45zGFsDiQoi7e3V7hweAfxTuleEh3YMiT8E1pJVzLnTy7gQkvT3j/L9hsBT
+	 8hOTgyJ3jYWn8Snir6f6LKegADFzc6U8jLNeX1bOOYZg5wbx4a2oQwhFloMOjjkgl8
+	 dQsJpnoncULL7vYfFXAsEaGIh18sbWqT0gY9dWAI=
+X-QQ-mid: zesmtpsz9t1774595088tae86de95
+X-QQ-Originating-IP: w/WyDemxcbjpJuaCt1YW/wsPI2c2ZYwcqhNJMRnh9EA=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 27 Mar 2026 15:04:46 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1752965271814094096
+EX-QQ-RecipientCnt: 21
+Mime-Version: 1.0
+Date: Fri, 27 Mar 2026 15:04:46 +0800
+Message-Id: <DHDDGG4TDFOS.2DPHBA6U2JMVE@linux.spacemit.com>
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan"
+ <dlan@kernel.org>, "Vinod Koul" <vkoul@kernel.org>, "Frank Li"
+ <Frank.Li@kernel.org>, "Guodong Xu" <guodong@riscstar.com>, "Michael
+ Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <dmaengine@vger.kernel.org>, <linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v2 2/7] dt-bindings: dmaengine: Add SpacemiT K3 DMA
+ compatible string
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Conor Dooley" <conor@kernel.org>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260326-k3-pdma-v2-0-ca94ca7bb595@linux.spacemit.com>
+ <20260326-k3-pdma-v2-2-ca94ca7bb595@linux.spacemit.com>
+ <20260326-explode-surplus-24c0e0813099@spud>
+In-Reply-To: <20260326-explode-surplus-24c0e0813099@spud>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: McJfg7Aee/FZuqgBLJa/xaD93ptxSj5gtrQRlr2BHMhaSuQ7Hmc7FSVm
+	nIbSM/Gn9ozMbLDAzyDH+vq5F/k9zjNFar+BG0Flj5Fv5Qb3kLBOQgep/HUvaEWm+0REQgk
+	utQdzLZlWXNyZv2nn0GyzOdluz6WiLSYfnDkvmLzrjDA1IDE7LTjtyNcunyenvlBbjYaBL7
+	mEa7uvvsPio6wr4K+A8wHylXqbN1xA5Omj74pPKdJ+wtE1q9+WC3rVp1Ss5BsRB8d2ghPly
+	NbCS9jz/nQTk4C2cOLP4oNcXZ+C7rrA3EYWGj3tICHboN6UMAl1rPf7fA6NKoqLBaPD6a6E
+	b8X62kTE4p8pepTCHO0caY5TYjyPWGFznU+M06CCNS9yzqWnErMdhJQ0Pdnr5gazRMTq+kj
+	bnz6JW7yTTJ0OBaE2grKZjRUb5XfmfCOPkzi6RQoXsJ34mtxevGQKnXfUufsCCM+TasNNYF
+	bmlQf+G7vCOo+Rt952DsFtLZt4xuH05ppyLSgnFQOjXzZoj3TKEj6EOfwrfnivwaDImWGpm
+	twhLEFYC552lvFErafayaB9W64nfLbRea2jgYNRNxNK5sckvJ7IXERvCT9xDZXp2JkrZ9Zb
+	jqB9h5NezcuFHQzSd92GpEx4yB/mqPX325JDsllEaoxHm9z8tEJ1YK3mSklNr67A943Uze0
+	/Q/lTzNybK/WbckQe+DCVkk7TxkHPwmGxNgNiMgH8lSBQnZ+tTJKbnK8L+G8dDgusUS6Fps
+	CIhnSCyOr1nlHKL/tWEwK2sBNzt6DfcW4XD37Cv9CTWqQgyThhGlnVSSivvBYDqR7pOlC9V
+	herj0wt6QAME/Q62DeFPxjHm17xsYWWc9J2Eo8WvZYcI0n2BCp+4lN9f7mebQTwbtq/QSrg
+	uzgfBsa5kTO7UaFg/BDsF3Ye+YSMuI7L7nG0z6YKHWVrcOUa2Ni5leJnuDmxQb7EAaY9Slv
+	t0l42y7QZtI8y6/adItDuv1OjHxF5HeXI15wNe7gmfFLcCNbxu45AngCu038T5mo/mFAQcL
+	DTr/SpmtZPiOILKrFUksajYQkjbJT0oAAB4HCDo8zzeQQm2O8g
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_235304_751871_FFEDF6FD 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20260327_000534_365048_077F5F0C 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,59 +101,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBNYXIgMjYsIDIwMjYgYXQgMTA6MDQ6NDRBTSArMDIwMCwgVmxhZGltaXIgT2x0ZWFu
-IHdyb3RlOgo+IE9uIFdlZCwgTWFyIDI1LCAyMDI2IGF0IDAxOjU3OjMxUE0gKzAyMDAsIFZsYWRp
-bWlyIE9sdGVhbiB3cm90ZToKPiA+IE9uIFdlZCwgTWFyIDI1LCAyMDI2IGF0IDA1OjIxOjE0UE0g
-KzA1MzAsIE1hbml2YW5uYW4gU2FkaGFzaXZhbSB3cm90ZToKPiA+ID4gSSBiZWxpZXZlIEkgYWRk
-ZWQgdGhlIHBvd2VyX2NvdW50IGNoZWNrIGZvciBwaHlfZXhpdCgpLiBCdXQgc2luY2UgdGhhdCBn
-b3QKPiA+ID4gbW92ZWQsIHRoZSBjaGVjayBiZWNvbWVzIG5vIGxvbmdlciBuZWNlc3NhcnkuCj4g
-PiAKPiA+IEZZSSwgdGhlIHBvd2VyX2NvdW50IGtlZXBzIHRyYWNrIG9mIHRoZSBiYWxhbmNlIG9m
-IHBoeV9wb3dlcl9vbigpIGFuZAo+ID4gcGh5X3Bvd2VyX29mZigpIGNhbGxzLCB3aGVyZWFzIGl0
-IGlzIHRoZSBpbml0X2NvdW50IGtlZXBzIHRyYWNrIG9mCj4gPiBwaHlfaW5pdCgpIGFuZCBwaHlf
-ZXhpdCgpIGNhbGxzLiBUaGV5IGFyZSBvbmx5IHJlbGF0ZWQgdG8gdGhlIGV4dGVudAo+ID4gdGhh
-dCB5b3UgbXVzdCByZXNwZWN0IHRoZSBwaHlfaW5pdCgpIC0+IHBoeV9wb3dlcl9vbigpIC0+IHBo
-eV9wb3dlcl9vZmYoKQo+ID4gLT4gcGh5X2V4aXQoKSBzZXF1ZW5jZS4gQnV0IGluIGFueSBjYXNl
-LCBib3RoIHNob3VsZCBiZSBjb25zaWRlcmVkCj4gPiBQSFktaW50ZXJuYWwgZmllbGRzLiBUaGUg
-Ik9yZGVyIG9mIEFQSSBjYWxscyIgc2VjdGlvbiBmcm9tCj4gPiBEb2N1bWVudGF0aW9uL2RyaXZl
-ci1hcGkvcGh5L3BoeS5yc3QgbWVudGlvbnMgdGhlIG9yZGVyIHRoYXQgSSBqdXN0Cj4gPiBkZXNj
-cmliZWQgYWJvdmUsIGFuZCBjb25zdW1lcnMgc2hvdWxkIGp1c3QgZW5zdXJlIHRoZXkgZm9sbG93
-IHRoYXQuCj4gCj4gT2ssIHNvIHdlIGNhbiBjbG9zZSB0aGlzIHRvcGljIG9mICJjaGVja2luZyB0
-aGUgcG93ZXJfY291bnQgbm90IG5lZWRlZCIKPiBieSBsaW5raW5nIHRvIHRoZSBjb252ZXJzYXRp
-b24gd2hpY2ggc3B1biBvZmYgaGVyZToKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIw
-MjYwMzI1MTIwMTIyLjI2NTk3My0xLW1hbml2YW5uYW4uc2FkaGFzaXZhbUBvc3MucXVhbGNvbW0u
-Y29tLwo+IAoKU3VyZS4KCj4gTWFuaSwgSSBzcGVudCBzb21lIG1vcmUgdGltZSB0byBmaWd1cmUg
-b3V0IHdoYXQncyByZWFsbHkgZ29pbmcgb24gd2l0aAo+IHRoaXMgdW5leHBlY3RlZCBwaHlfcG93
-ZXJfb2ZmKCkgY2FsbC4gRG8geW91IHRoaW5rIHlvdSBjb3VsZAo+IHJlZ3Jlc3Npb24tdGVzdCB0
-aGUgcGF0Y2ggYXR0YWNoZWQ/Cj4gCgpJIHRlc3RlZCB0aGUgcGF0Y2guIEJ1dCBpdCBmYWlscyB1
-ZnNfcWNvbV9wb3dlcl91cF9zZXF1ZW5jZSgpIGlmIFBIWSB3YXMgYWxyZWFkeQpwb3dlcmVkIG9u
-OgoKWyAgIDMxLjUxMzMyMV0gcWNvbS1xbXAtdWZzLXBoeSAxZDg3MDAwLnBoeTogcGh5IGluaXRp
-YWxpemF0aW9uIHRpbWVkLW91dApbICAgMzEuNTEzMzM1XSB1ZnNoY2QtcWNvbSAxZDg0MDAwLnVm
-c2hjOiBGYWlsZWQgdG8gY2FsaWJyYXRlIFBIWTogLTExMApbICAgMzEuNTY1MjczXSB1ZnNoY2Qt
-cWNvbSAxZDg0MDAwLnVmc2hjOiBFbmFibGluZyB0aGUgY29udHJvbGxlciBmYWlsZWQKCkZ1bm55
-IHRoaW5nIGlzLCBpdCBkaWRuJ3QgYWZmZWN0IHRoZSBmdW5jdGlvbmFsaXR5IHNpbmNlIHRoZSBV
-RlMgY29yZSByZXRyaWVzCnVmc2hjZF9oYmFfZW5hYmxlKCkgYW5kIGluIHRoZSBlcnJvciBwYXRo
-IG9mIHVmc19xY29tX3Bvd2VyX3VwX3NlcXVlbmNlKCksCnBoeV9wb3dlcl9vZmYoKSBnZXRzIGNh
-bGxlZCBhbmQgdGhhdCBjYXVzZXMgdGhlIG5leHQgdHJ5IHRvIHN1Y2NlZWQuIFNvIGl0IGlzCmV2
-aWRlbnQgdGhhdCwgaWYgUEhZIHdhcyBhbHJlYWR5IHBvd2VyZWQgT04sIGl0IHNob3VsZCBiZSBw
-b3dlcmVkIG9mZiBiZWZvcmUKdWZzX3Fjb21fcGh5X3Bvd2VyX29uKCkuIEFuZCBkdWUgdG8gdGhl
-IFVGUyBkcml2ZXIgZGVzaWduLAp1ZnNfcWNvbV9wb3dlcl91cF9zZXF1ZW5jZSgpIGNhbiBnZXQg
-Y2FsbGVkIG11bHRpcGxlIHRpbWVzLiBTbyB3ZSBjYW5ub3QganVzdApyZW1vdmUgcGh5X3Bvd2Vy
-X29mZigpLgoKQmVsb3cgZGlmZiBvbiB0b3Agb2YgeW91ciBwYXRjaCBmaXhlcyB0aGUgaXNzdWU6
-CgpgYGAKZGlmZiAtLWdpdCBhL2RyaXZlcnMvdWZzL2hvc3QvdWZzLXFjb20uYyBiL2RyaXZlcnMv
-dWZzL2hvc3QvdWZzLXFjb20uYwppbmRleCBlZDA2NzI0N2Q3MmEuLjJjOWZlMDNmMzQ5ZSAxMDA2
-NDQKLS0tIGEvZHJpdmVycy91ZnMvaG9zdC91ZnMtcWNvbS5jCisrKyBiL2RyaXZlcnMvdWZzL2hv
-c3QvdWZzLXFjb20uYwpAQCAtNTY3LDYgKzU2Nyw4IEBAIHN0YXRpYyBpbnQgdWZzX3Fjb21fcG93
-ZXJfdXBfc2VxdWVuY2Uoc3RydWN0IHVmc19oYmEgKmhiYSkKICAgICAgICBpZiAocmV0KQogICAg
-ICAgICAgICAgICAgcmV0dXJuIHJldDsKIAorICAgICAgIHVmc19xY29tX3BoeV9wb3dlcl9vZmYo
-aG9zdCk7CisKICAgICAgICByZXQgPSB1ZnNfcWNvbV9waHlfc2V0X2dlYXIoaG9zdCwgbW9kZSk7
-CiAgICAgICAgaWYgKHJldCkgewogICAgICAgICAgICAgICAgZGV2X2VycihoYmEtPmRldiwgIiVz
-OiBwaHlfc2V0X21vZGVfZXh0KCkgZmFpbGVkLCByZXQgPSAlZFxuIiwKYGBgCgotIE1hbmkKCi0t
-IArgrq7grqPgrr/grrXgrqPgr43grqPgrqngr40g4K6a4K6k4K6+4K6a4K6/4K614K6u4K+NCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Conor,
+
+On Fri Mar 27, 2026 at 2:34 AM CST, Conor Dooley wrote:
+> On Thu, Mar 26, 2026 at 04:17:17PM +0800, Troy Mitchell wrote:
+>> From: Guodong Xu <guodong@riscstar.com>
+>> 
+>> Add k3 compatible string.
+>
+> That's obvious. What you need to explain is why it is not compatible with
+> the existing k1.
+>
+Thanks for the review.
+
+The SpacemiT K3 PDMA requires a new compatible string because it is not fully
+backward compatible with the K1 implementation due to two main hardware differences:
+- Variable extended DRCMR base: The DRCMR (DMA Request/Command Register) base
+  address for extended DMA request numbers (>= 64) is different in the K3 hardware
+  implementation.
+- Memory addressing capabilities: Unlike the K1 SoC, where some DMA masters had
+  memory addressing limitations (restricted to the 0-4GB space) and required a
+  dedicated dma-bus, the K3 DMA masters have full memory addressing capabilities.
+
+I will update the commit message in the v3 series.
+
+                                              -Troy
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
