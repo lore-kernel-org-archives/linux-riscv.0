@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB3D10BA426
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 04:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE8110BA42B
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 05:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z4KEagbiWRZ2mMxJWHzaFiOucO9Lza0oI/iO8xVNWPk=; b=iue0lTnoWVWtV5
-	EjZKzynE8hC9MmVnyC8GSxwJ/hwT5zjfbG6SvGNk74oT7Fo2xwEGyZqAf3ywWOSArYP+3bLM8HZex
-	yp2ZCKkorIa5ncVn8NO4ok15AgU1hAjW+nOAEE1V9UtxKZ5l3w9C8eG8AaftxtiX+dTGR37wUhLyd
-	G+8IW+BXxMegFz8mrTp7i2AlSQ+Y4pg4l5JL4U9DfAI6+aHCB9pqNaCaLdT8JI4sAZ9nqJqvwWHKa
-	E0sbpL7oOp2QCoJ4kZFPb/YZwGfeobML3IC2k7I+nhsmHCm+6r1mtcDjRotAm9gHIuSf+Sm6ZrqHe
-	H2twDUQ5RcKxz6OWQKsQ==;
+	List-Owner; bh=Rba45Svd/BkhtXmeN2Zy96eFLex+RSv7boEV4N1eLZI=; b=Lev9Bij39olLaQ
+	yMsgOzBFIPqFnLwDOZHHkXLb7iOe3d07MUCg0AxnICpmiqwufWg0xq64FcIjiXU+ABrlO4HodBNm6
+	glGeP5teAjt8cr+FC6DjvTvp+Q5VWZKAJTPyxGd99Fusv/YNuOln5QmMamSrrvdIh18Vyk/WNidXh
+	fCyWp/3y0zuJLUX+Pb8Xx370u9P3fjLaXyvzl0XQQruoMHxnvKz4gIo1kH+0KqePCdueQKg3JI681
+	Hwsf6lGfmWtObvH26CDqbV4lVg/UB2uzVCWKdiWGjLWTm22SEDOQjDGvkk6DnjW6IEPa2471Xku/T
+	UZJIGPpkoc6087jE9/cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5zCi-00000006gIV-1J8x;
-	Fri, 27 Mar 2026 04:53:52 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1w605b-00000006j5C-3Aky;
+	Fri, 27 Mar 2026 05:50:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5zCe-00000006gHD-2XeR
-	for linux-riscv@lists.infradead.org;
-	Fri, 27 Mar 2026 04:53:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1774587209;
-	bh=GacKySgXwVQnK1/JgDDi8JTXaHTJw1QGc55Q9UaAup8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OyzFOOoAV5xMXpE5AkXHOA1ejBPYQz33BATOcj2a/jD25b6xna8biBzzMa0eITz+F
-	 f9Cpv+oPYk/NHDZt7RAiPDOHnBSjUTC8qVYGdQMNEUpLIsAxEzJUCGiyFRvZAiNasB
-	 DR66UNHXbCneTZWtS/iSIgaNT7ClAtVMNLlwraYIYTkSAylftzVvC+nSrBstLjjZ9s
-	 mYvnT5JWtbj+NhFRTWh6NDuzmBtTzsLB8Tf3cTlvp5hbPo/g977Jz4StRGLUUI9djJ
-	 Ov+uKCrjhscHyyICDpst2ayJeYhQWtYfHeu7weFE5d+t+zjI2EWoEaBeYUu0QngEqO
-	 MEGhqi4egpb7w==
-Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 1C767B220220;
-	Fri, 27 Mar 2026 05:53:27 +0100 (CET)
-Message-ID: <ff792101-61e3-4470-9c5c-eea375edc9fa@freeshell.de>
-Date: Thu, 26 Mar 2026 21:53:24 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] ~RISC-V~Starfive devicetrees fixes for v7.0-rc6
-To: Ilya Sorochan <k0tran@altlinux.org>
-Cc: soc@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>,
- Conor Dooley <conor@kernel.org>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-References: <20260326-astrology-rephrase-836ec663228b@spud>
- <4dd4ffe6-307a-442b-ae99-50c88d4e5b84@freeshell.de>
- <20260326-viscous-rigor-4beb18f77eec@spud>
- <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
- <DHCYMK8FEH10.1Y1YWLL3J1HSK@altlinux.org>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <DHCYMK8FEH10.1Y1YWLL3J1HSK@altlinux.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_215349_136979_39411B3E 
-X-CRM114-Status: GOOD (  49.93  )
+	id 1w605b-00000006j4t-06vV;
+	Fri, 27 Mar 2026 05:50:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B84FC60134;
+	Fri, 27 Mar 2026 05:50:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACF49C2BCB1;
+	Fri, 27 Mar 2026 05:50:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1774590633;
+	bh=dlWPsRZ5eg4ebr0CP6MSk8XH8PhzWTV6BknR665dbRI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Z1oPSHRysMy+6wXBJFXG9mFzlDuQc+AG+9J9n6b3eqNtsV8pZVMQ81vG2zjJgE3r9
+	 Vwk8DGJTLM5wMJYNlTCMV3P4HxBM5Fzh2kN4K4FctjtR5IEakY8OgdYhQKEYI2Hecn
+	 asywffkE1Ac9oHnjQ0d+0ALgtZqNzZ21R6Hlrgko=
+Date: Thu, 26 Mar 2026 22:50:31 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>, "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn
+ <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Kees Cook
+ <kees@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, Vineet
+ Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Brian
+ Cain <bcain@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
+ <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh
+ Nguyen <dinguyen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily
+ Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin"
+ <hpa@zytor.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov
+ <anton.ivanov@cambridgegreys.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Xu Xin
+ <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>, Michal
+ Hocko <mhocko@suse.com>, Paul Moore <paul@paul-moore.com>, Stephen Smalley
+ <stephen.smalley.work@gmail.com>, Ondrej Mosnacek <omosnace@redhat.com>,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ selinux@vger.kernel.org
+Subject: Re: [PATCH v4 00/25] mm/vma: convert vm_flags_t to vma_flags_t in
+ vma code
+Message-Id: <20260326225031.87e04d2c652923bc10aef0ee@linux-foundation.org>
+In-Reply-To: <cover.1774034900.git.ljs@kernel.org>
+References: <cover.1774034900.git.ljs@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,179 +96,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/26/26 08:14, Conor Dooley wrote:
-...
-> All the patch does is tell bootloaders what stage of the boot they
-> should should pay attention to the node, and the link was to a big
-> mechanical deletion, with a reasonable comment from someone that
-> has a track record.
->
+On Fri, 20 Mar 2026 19:38:17 +0000 "Lorenzo Stoakes (Oracle)" <ljs@kernel.org> wrote:
 
-Yes, there is nothing about this (bootph-pre-ram hint) to do with
-booting Linux. All boards support the official recommended SPI Flash
-location for StarFive Loader in BootROM to boot Secondary Program
-Loader, which in the case of U-Boot SPL with filtered devicetree has all
-it needs to load U-Boot Main from SPI Flash which has full devicetree
-(and so boot from network, UART, SD/eMMC, USB, PCIe... whatever).
+> This series converts a lot of the existing use of the legacy vm_flags_t
+> data type to the new vma_flags_t type which replaces it.
 
-Only for a subset of board is it possible to set the RGPIO0 RGPIO1
-signal lines to a configuration that will trigger the StarFive Loader in
-BootROM code path to attempt to load from the VisionFive2 1.2a or 1.3b
-reference board arrangement of mmc interfaces, which are hard-coded
-configured as SD Card and MMC. The MMC hardware setup does not "flip"
-based on the RGPIO0 RGPIO1 configuration, so boards with opposite
-connection order of SD Card and MMC to what the VisionFive2 has are
-unable to work with this even if they are able to set those signals.
+Series has nine unreviewed patches.
 
-All newer board designs than the VisionFive2 follow official StarFive
-design advice that StarFive Loader in BootROM function to load Secondary
-Program Loader from MMC is unreliable. It may work, it may not, there's
-no further description published about this topic.
-
->
-> I'm sorry, but I have only a passing familiarity with your work there
-> (as in, I have seen you talk about it on IRC and paid no attention), and
-> there's no way I would have associated it with this change.
-> I definitely was not ignoring a wider conversation by merging this
-> patch, I was not aware this was controversial at all!
-
-For that, I'm disappointed to have missed an opportunity to participate,
-but also want to know if I'm expected to also regularly scan the
-linux-devicetree mailing list for this very situation where a starfive
-devicetree "fix" is absent from the "open list:STARFIVE DEVICETREES"
-linux-riscv mailing list?
-
-If I had been asked to review this then I would have done so. If it was
-mailed per scripts/get_maintainer.pl then I would have opted to at least
-reply asking for a better commit message and clarification about what
-specific hardware this has been tested for. As it is now I was not aware
-of this until the PR.
-
->> ...
->> I object to this PR it is NAK from me on the basis of stuffing this in
->> sideways without technical justification or review. Also I do object to
->
-> The technical justification seemed to me to be multiple people saying "we
-> need this added so that u-boot can use the sd-card". The patch has been
-> on the list for over three weeks at this point, so there was definitely
-
-I missed this entirely as there was not CC'd linux-riscv or lkml mailing
-lists what I monitor for "starfive" in the subject.
-
-> opportunity to comment on it. I don't think I have been unreasonable
-> here. If current U-Boot needs it, then I'd still like to have it merged.
-> If you work pulls through and this becomes no-longer required, then I'd
-> be happy to take it back out again.
->
-
-On 3/26/26 08:44, Heinrich Schuchardt wrote:
-...
-> Concerning technical justification it is clear:
->
-> Distro images have been supplied with U-Boot on SD-card for years and
-> the recent work in Linux and U-Boot broke booting them. This needs to be
-> fixed.
->
-
-Okay, Heinrich:
-
-https://freeshell.de/e/riscv64/hrv-jhre-JH-7110%20BootROM%20analysis_2026_02_22.gar
-
-Load the project archive file (above) with Ghidra 12.x
-
-https://github.com/NationalSecurityAgency/ghidra/releases
-
-Tell us what you find about why this 'bootph-pre-ram' is needed, with
-code excerpts. I want to believe...
-
->>
-...
->>> "riscv: dts: starfive: Milk-V Mars CM Lite broken-cd" as this goes the
->>> wrong way around, it does not describe the hardware; if some external
->>> carrier boards cannot deal with the capability of the Mars CM
->>> system-on-module having card detect line then that should be dealt with
->>> as a dtbo per-carrier board and not be replaced in the dts by a
->>> broken-cd, although at least we had this discussion and Conor made a
->>> decision with all the facts and discussion available.
->>>
->
-> As my patch points out the CD line is broken because it does not conform
-> to the standard established by Raspberry.
->
-> E. we know that by chance you have found a base board that ignores the
-> standard.
-
-Two of two base boards, here, are compatible with this CD signal (and
-some others that I did find schematics for).
-
-We did identify that the CM4 IO Compute carrier board follows the
-official Raspberry Pi Foundation published standard.
-
-Obviously this depends on the base board. I don't believe that disabling
-a valid signal should be the default, that is dtb overlay subject matter.
-
->
-> Your patch 4cce8b2503ab5 made my standard compliant baseboard unusable.
-> My patch in the pull request does not stop your board from booting but
-> re-enables mine.
->
-> Best regards
->
-> Heinrich
-
-I don't want SD polled when there's a perfectly good card detect line in
-the hardware as it was designed! Don't break my card detect due to your
-hardware being non-compatible with radxa cm3, fix your broken (if
-"standards compliant") board with an overlay.
-
-On 3/26/26 12:27, Ilya Sorochan wrote:
-> On Thu, Mar 26, 2026 at 07:36:07AM -0700, E Shattow wrote:
->> ...
->> I have done an ~80%+ analysis on Ghidra decompilation of the JH-7110
->> BootROM, and openly invite anyone that would like to help get this
->> ... 
-> Appreciate the effort!
-> However I can't see how this is related.
-
-Your patch was sent to a minimum audience which perhaps if you are a
-first time contributor is understandable but I would have hoped between
-you, Heinrich reviewing, and Conor accepting the patch someone would
-have noticed that scripts/get_maintainer.pl was either not used or some
-overzealous trimming of CC is going on! Also this is probably the
-dozenth time I have explained at great length to Heinrich my concerns so
-it is deeply disappointing to miss this opportunity for contributing, I
-guess I consider it disrespectful though maybe no fault of your own
-there Ilya for wanting your hardware to continue working as you
-expected? I get that... there is in no way any desire to discourage
-anyone from posting patches or fixes, this particular situation is a
-headache for me... maybe I'm the problem okay because I cannot reverse
-engineer a whole BootROM on my own, I only get to 80% and then people
-have their own motivations and reasons for not wanting to spend any time
-to do this properly? :)
-
-> 
-> I traced this property a little in the U-Boot repo:
-> - 503fc8548197 Hal added it to VisionFive v1.3b (with mmc pins)
-> - 6bbe95ef7208 Hal moved it (and other common things) into
->   jh7110-common-u-boot.dtsi
-> - 27f617019dd0 E removed it with jh7110-common-u-boot.dtsi
-> - 762f85bb2e36 Tom squash-updated upstream dts
-> 
-> New device trees did not contain this property. This is how they were introduced
-> into the Linux: b127dbf9e1ebbfbcded4 ("riscv: dts: starfive: Add mmc nodes on
-> VisionFive 2 board")
-> 
-> I do not know if this miss is intentional or not. However it would be nice to
-> be able to boot from SD-card again.
-
-There is already nothing to prevent you from booting Linux from SD-card,
-with U-Boot SPL and U-Boot Main located in SPI Flash as is recommended
-by StarFive officially.
-
-I'm glad you sent a patch, but I still object for the other reasons
-mentioned.
-
--E
+Again, I plan to upstream this as-is - lots of Lorenzopatches remain
+unreviewed and I'm OK with that.
 
 _______________________________________________
 linux-riscv mailing list
