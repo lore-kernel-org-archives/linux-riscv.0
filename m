@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329D610BA431
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 07:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9F410BA430
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Mar 2026 07:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cBgRTVMxcOLxFbzJiU/V34zR5PAL/+QDA7a7qDkNpz0=; b=nZ9ZHGVM7nmqTv
-	2C/CMzx6S5YqaCVNPCIyePc7T/StSp48T9jM4Gssu7j96V43p7eT1zVqCyHrDO4uSduqwMZGL8Xby
-	TzMqnGLx9c8SMVHYOG+ZY8qJ8YAsu9O6aJnPkNgan7xCnO5RsrY+fTFO1svnGBp2LWicIs6qR9nQ5
-	CC37x3r0mTO6gzTPsb6B6sfOobIZGU8IoOijIZGPRva3szxelMdvSOwdxdzr0o+YWQzsYmV27LaTD
-	NNPzEuVdPYxtztWZU2Xn91MBSiTsEBYgwtzlJoM9S0FpsTdfqWE6VYfL737GMNn/YWNokOLTKAK8G
-	aji2CLGW1trUY55tfxlg==;
+	List-Owner; bh=KwCOJbIlGU/XfoxmJDqFQb2Sf17OswNUmTQ6YaUcbyM=; b=c+6BDKsEJ2pZyR
+	4Xh16rFK7Lr4Dig0VSCJ6RG/dL140WXj05VIUsGjl3hxG4HVVl3aiKRDSrH3Vh+Ij0smK2uELkL0h
+	Kaaa86ZHfIn7C0fAWqy/bvZE3hP6YO48vzJhsnhB8oPB70XsGlaBww/G4M6feam3ARea+3Xw4Rcpe
+	xgwbTtXUbhmHu4Or8ranckb36Xwd3MHLaKN5cDDWukT4cKlUw2LdM/CnBWHIIh/zNNIUrPwggB1Az
+	2fZ3ewfUoMpZk2n3tWKDYVO5W8TPKQEHlLZxne9L9eZJIAau2p94oVb+bjJ91deYKBycQy3a/m7jx
+	rAf11EwUCSOLxIOPcBlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w61cU-00000006t31-0GaY;
-	Fri, 27 Mar 2026 07:28:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w61eQ-00000006tKq-1Yvt;
+	Fri, 27 Mar 2026 07:30:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w61cR-00000006t2I-21Ql
+	id 1w61eO-00000006tKi-3Swo
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Mar 2026 07:28:36 +0000
+	Fri, 27 Mar 2026 07:30:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B782541AE7;
-	Fri, 27 Mar 2026 07:28:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 127E1C19423;
-	Fri, 27 Mar 2026 07:28:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CE31361334;
+	Fri, 27 Mar 2026 07:30:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB64DC19423;
+	Fri, 27 Mar 2026 07:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774596514;
-	bh=kBoaD+Y3WUsK9eFptmTNmn+4Xv38yoT0ql97BiTIliU=;
+	s=k20201202; t=1774596635;
+	bh=Nhd4cukWDVjhukk+y+jGGeey4ytNdYgdQ3woWAlYkmU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gsiRKPQZkPr7ICtM79AfrIIH9+ubEj+iignxoxh6euOjXkN7XzFbzfnbXfxO+b3PK
-	 DH8sEul55Y8uqWLqwlzlP14b2QXb0mufoujgXaKxEY743M6IVZVF0R/Hk8Z8Z7gUiX
-	 n4643OUtJtSTTm3OhngU0doMvovGeb/BJ6DRH/9sldF1R1ftgBYENKg8DjB4tA3q+R
-	 toJZBQNHX3llI4iHdYHK7k/VEX1rcq8bCseRat/kuR5ioPMx/uCEK9C2D7Eqyweq8A
-	 qJqJeBQ5KMuCtENhlQN2mxIOgDeEMJBewvQp5LH12V8CT7HPHVnf3bvMCQIbYdo53u
-	 QDv4NN7VCjM5A==
-Date: Fri, 27 Mar 2026 08:28:32 +0100
+	b=CD5kpQKplHtxUMkwh4qNh5ubCb+ekeCi+qMhmdW1hCwzBbHTMJh6ObRgztqu1hpD2
+	 dHtsCYBHEr4o1AkbmeeWNQeLw1/Nwb6GE6TA1X4Dw0zY6cmabMamS8mkPN6B9V99k9
+	 SpJh3NdbwgKAElQUPv0iTSR2naNIiaJLtYinIr2RnS4wyxfV/vf9FQzHUT1wiNdVbR
+	 wJwnGY3k6tK7EuZyQ1z43FqBxwl+brHEMJcVl/eMYS9+wIcKNYGvunCpSveFYWJuxO
+	 qqO7HHpI/9qJ5m8j9rtBWzTgsJZWmzxi+3eWVTWbLx3LEocQXm8wivxCG2Qizdm73e
+	 Cncg2qzUbAjMQ==
+Date: Fri, 27 Mar 2026 08:30:33 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -53,19 +53,15 @@ Cc: Rob Herring <robh@kernel.org>,
 	Guodong Xu <guodong@riscstar.com>, Michael Turquette <mturquette@baylibre.com>, 
 	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, 
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 1/7] dt-bindings: dmaengine: Add SpacemiT K1 DMA
+	linux-clk@vger.kernel.org, liyeshan <yeshan.li@spacemit.com>
+Subject: Re: [PATCH v2 3/7] dt-bindings: dmaengine: Add SpacemiT K3 DMA
  request definitions
-Message-ID: <20260327-silkworm-of-algebraic-aurora-e9bd1c@quoll>
+Message-ID: <20260327-granite-giraffe-of-infinity-ff49a3@quoll>
 References: <20260326-k3-pdma-v2-0-ca94ca7bb595@linux.spacemit.com>
- <20260326-k3-pdma-v2-1-ca94ca7bb595@linux.spacemit.com>
+ <20260326-k3-pdma-v2-3-ca94ca7bb595@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260326-k3-pdma-v2-1-ca94ca7bb595@linux.spacemit.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_002835_538936_646EFEA5 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260326-k3-pdma-v2-3-ca94ca7bb595@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,18 +78,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 04:17:16PM +0800, Troy Mitchell wrote:
-> From: Guodong Xu <guodong@riscstar.com>
+On Thu, Mar 26, 2026 at 04:17:18PM +0800, Troy Mitchell wrote:
+> From: liyeshan <yeshan.li@spacemit.com>
 > 
-> Add the DMA request numbers for non-secure peripherals of the K1 SoC
-> from SpacemiT.
+> Add device tree binding header for SpacemiT k3 DMA request numbers. This
+
+Why?
+
+> defines the DMA request mapping for non-secure peripherals including UART,
+> I2C, SSP/SPI, CAN, and QSPI.
 > 
+> Signed-off-by: liyeshan <yeshan.li@spacemit.com>
+
+Name looks close to login name?
+
 > Signed-off-by: Guodong Xu <guodong@riscstar.com>
 > Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > ---
->  include/dt-bindings/dma/k1-pdma.h | 56 +++++++++++++++++++++++++++++++++++++++
+>  include/dt-bindings/dma/k3-pdma.h | 83 +++++++++++++++++++++++++++++++++++++++
 
-Also, this is not a separate commit.
+I am already confused what is happening in this patchset - so which
+device are you adding? K1 or K3?
+
+>  1 file changed, 83 insertions(+)
+> 
+> diff --git a/include/dt-bindings/dma/k3-pdma.h b/include/dt-bindings/dma/k3-pdma.h
+> new file mode 100644
+> index 000000000000..05541a9a9973
+> --- /dev/null
+> +++ b/include/dt-bindings/dma/k3-pdma.h
+> @@ -0,0 +1,83 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * This header provides DMA request number for non-secure peripherals of
+> + * SpacemiT K3 PDMA.
+> + *
+> + * Copyright (c) 2025 SpacemiT
+> + * Copyright (c) 2025 Guodong Xu <guodong@riscstar.com>
+> + */
+> +
+> +#ifndef __DT_BINDINGS_DMA_K3_PDMA_H__
+> +#define __DT_BINDINGS_DMA_K3_PDMA_H__
+> +
+> +/* UART DMA request numbers */
+> +#define K3_PDMA_UART0_TX	3
+
+This starts from 0 or 1.
 
 Best regards,
 Krzysztof
