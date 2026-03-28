@@ -4,67 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9688610F3DCA
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Mar 2026 04:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F86110BA45E
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Mar 2026 07:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MKs8bNvMT/WHEWqJuKCAzf1DZY9McJi+oTBl19+dTQY=; b=L4XDqPC/QzLRjs
-	ck6FzNUiF2aMZaDtA0n98aCCoKU4oqZvyxSgZuteINqWCt/o76rAxhAa+ymMdOUmcf0E0sOHkZr2e
-	odihZPlWjPmL0QsQXAc8ZX9HwHmI/aSfOVXGeOEpPP6ujvZmcwUVITaYeG4fNL1gvX+FC0JnVa6Lr
-	xST6SLrkEk9HUUa6fIL7PkjbMOqdfeofziZJR8ab2FpvJVd+n1HYU1bKPOVpSh2bs3OkJWSex3LN9
-	AfRh0u/oFaxuZxzMymAp45mAsuyIBPK/QjLaLM74P2pTdWNfiZDUKXz1gV++VlsSjYB+tHqai9sNG
-	is26PenV58TR2RaS2Uhg==;
+	List-Owner; bh=etxfB9/lNod4Qs71HRpIbhA91hH8/DzoT2rKxo3KS58=; b=HaKb7AWC8+lIb0
+	a3w4emvYFEJ30qX/fM+RAGw2wfOKef1bz95Xz0FVtQUm9lf4vU+2ivJvkismITj/VYnpaP7/36+3Y
+	dyXPfLYTjlzFpoLhu4mSKlDBRMUlD1nyuEuihUBEsRYGvkG2dNALujrKrN+kAOInOmlGS8c5WPlsa
+	fSqSNJF0x+V1o4ouw2iRTKblbk2C7j/RE8vrbPGanPvS55xSo5pG+JlPw3wOA+bgGw/Qcnh0onibN
+	9HdizKGVl2FrRTt1MNB48ULNSn5QLaRn/sr9kfPYd5XonyVIFglTfM+kYbECggRm3DevODt93U/dz
+	zBW0QYZftQ87++wuUeUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6LCn-00000008WpV-3lvx;
-	Sat, 28 Mar 2026 04:23:25 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1w6OIa-00000008gbY-0ZAo;
+	Sat, 28 Mar 2026 07:41:36 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6LCk-00000008Wp0-2gRr
-	for linux-riscv@lists.infradead.org;
-	Sat, 28 Mar 2026 04:23:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1774671777;
-	bh=M0l99A/V2N8MyiyZ5jgq9vmlvDdHEYTtZ2s5QSsSKlQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MdXDd4tUEVjyBkWp6U3wTHCIU6ms9cOUC7Sr3hG8AC7C0TyL1zo90tscG2WSnLS5k
-	 KcmdkxYNOolPoy6xbKYJn8JP0S5NdBFBoIvdWbtWTpQTfq67OVI/GwyhZoRAjIIfNp
-	 ga+R5AOdRx5JLhly/Qd2OaBz+xObUaQcTV9pshMzTWnzeXTdYqTiEhrkc97nteWxFy
-	 hiAVkiia3lD7vKmVTbptqHXG/F1FJyLhG2+Bo5rAsAo0fjZJVLj3vw7Zt/OCznwI+2
-	 cuvV5wLtu5zbmpJedh7T3FzKEB3txFNj7DkGDQwsFeHx7nSauVeVx1PoqAVpQfyGCY
-	 ln2Ljb4qypIeQ==
-Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 8783BB220345;
-	Sat, 28 Mar 2026 05:22:55 +0100 (CET)
-Message-ID: <72aef644-73c9-462b-9034-01e076a46e25@freeshell.de>
-Date: Fri, 27 Mar 2026 21:22:52 -0700
+	id 1w6OIV-00000008gYF-44Sz;
+	Sat, 28 Mar 2026 07:41:33 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=7Ej/nGP6D4OZlN2NP0wOiKbhFa+CLfU7f01IuTLoNYc=;
+	b=PCikQ7pIzeaKrzAs1XH/O8ZmZYPB9pV0fBIUYs2VLOstWE8QiBMRuVM3CIvEXipATIGW3TQ8X
+	gcrx6UYl2RFLLYRjDgwBg3lAQFmP1VJZr1v/vi26ia8fHvOPtkTiccABS/ORh8k+igGZUfzsNYX
+	1sRHQpEli+zR1tX+CITCvDo=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fjTnL4BJGzLlsZ;
+	Sat, 28 Mar 2026 15:35:18 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1B7C44056C;
+	Sat, 28 Mar 2026 15:41:25 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 28 Mar
+ 2026 15:41:22 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
+	<dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
+	<feng.tang@linux.alibaba.com>, <pawan.kumar.gupta@linux.intel.com>,
+	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
+	<paulmck@kernel.org>, <lirongqing@baidu.com>, <rppt@kernel.org>,
+	<leitao@debian.org>, <ardb@kernel.org>, <cfsworks@gmail.com>,
+	<osandov@fb.com>, <jbohac@suse.cz>, <tangyouling@kylinos.cn>,
+	<sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
+	<eajames@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+	<kevin.brodsky@arm.com>, <vishal.moola@gmail.com>,
+	<junhui.liu@pigmoral.tech>, <coxu@redhat.com>, <fuqiang.wang@easystack.cn>,
+	<liaoyuanhong@vivo.com>, <guoren@kernel.org>, <chenjiahao16@huawei.com>,
+	<hbathini@linux.ibm.com>, <takahiro.akashi@linaro.org>,
+	<james.morse@arm.com>, <lizhengyu3@huawei.com>, <x86@kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v11 03/11] x86/kexec: Fix potential buffer overflow in prepare_elf_headers()
+Date: Sat, 28 Mar 2026 15:40:05 +0800
+Message-ID: <20260328074013.3589544-4-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260328074013.3589544-1-ruanjinjie@huawei.com>
+References: <20260328074013.3589544-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] ~RISC-V~Starfive devicetrees fixes for v7.0-rc6
-To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, soc@kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Hal Feng <hal.feng@starfivetech.com>, Ilya Sorochan <k0tran@altlinux.org>
-References: <20260326-astrology-rephrase-836ec663228b@spud>
- <4dd4ffe6-307a-442b-ae99-50c88d4e5b84@freeshell.de>
- <20260326-viscous-rigor-4beb18f77eec@spud>
- <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
- <d7eb716d-9b9c-4474-a9ca-d44e96c46fc8@kernel.org>
- <20260327-tapestry-frightful-de17113da7d3@spud>
- <c88af06a-596c-4793-a043-dcb018c2c95b@kernel.org>
- <8c411e55-7043-4987-bd6b-cb5b139902c5@kernel.org>
- <20260327-duress-swoop-81695580967f@spud>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20260327-duress-swoop-81695580967f@spud>
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_212323_124730_B6E388CF 
-X-CRM114-Status: GOOD (  35.39  )
+X-CRM114-CacheID: sfid-20260328_004132_387500_B8FE18E9 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,161 +100,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+There is a race condition between the kexec_load() system call
+(crash kernel loading path) and memory hotplug operations that can lead
+to buffer overflow and potential kernel crash.
 
-On 3/27/26 05:16, Conor Dooley wrote:
-> On Fri, Mar 27, 2026 at 11:50:39AM +0100, Krzysztof Kozlowski wrote:
->> On 27/03/2026 10:49, Krzysztof Kozlowski wrote:
->>> On 27/03/2026 10:45, Conor Dooley wrote:
->>>>
->>>>> The commit touches only DTS, not DTSO, so how can you claim that a DTS
->>>>> file change breaks some completely other board (Raspberry)?
->>>>>
->>>>> This DTS file is nowhere included (and should not be).
->>>>>
->>>>> Of course maybe the true question would be why anyone described a hat as
->>>>> DTS file...
->>>>>
->>>>>>
->>>>>> E. we know that by chance you have found a base board that ignores the 
->>>>>> standard.
->>>>>>
->>>>>> Your patch 4cce8b2503ab5 made my standard compliant baseboard unusable. 
->>>>>
->>>>> DTS of some board is a final product, so it cannot be applied to a
->>>>> baseboard, that's pretty messed DTS tree...
->>>>
->>>> The cm-lite is a rpi compute module compatible device, the base boards
->>>> don't have any devices on them in a lot of cases and just provide
->>>> physical connectors, so there's no point having a distinct dts for every
->>>> baseboard of that type.
->>>> https://www.waveshare.com/product/cm4-io-base-a.htm
->>>>
->>> I saw the picture and it looked like it should never be a DTS, because
->>> it is not usable on its own. You cannot run it.
->>
->>
->> ... although what I found earlier was different. I typed the model name
->> from DTS "Milk-V Mars CM Lite" and it gave me this:
->>
->> https://milkv.io/mars-cm
->> which misses the "Lite" suffix.
-> 
-> Lite is the same thing without an emmc.
-> 
+During prepare_elf_headers(), the following steps occur:
+1. get_nr_ram_ranges_callback() queries current System RAM memory ranges
+2. Allocates buffer based on queried count
+3. prepare_elf64_ram_headers_callback() populates ranges from memblock
 
-The eMMC part is populated on Mars CM system-on-module and is absent on
-Mars CM Lite system-on-module. Either has the same pin connections on
-the high-density base board connector available for an optional SD Card
-holder (or eMMC module) of any attached base board design; use of SD
-Card conflicts with eMMC use when both are present on this connection to
-the primary mmc interface.
+If memory hotplug occurs between step 1 and step 3, the number of ranges
+can increase, causing out-of-bounds write when populating cmem->ranges[].
 
-The secondary mmc interface is (according to the VisionFive 2 1.3b
-reference design) expected for connection to SD Card use and here
-instead is routed for optioned on-board SDIO WiFi module. Mars CM or
-Mars CM Lite are a derivative hybrid design of both Radxa CM3 and
-VisionFive 2 1.3b, as evident in the earlier schematic revisions
-containing copy+paste of those reference schematic. Radxa CM3 as a
-reference design is the origin of Card Detect being routed to that pin
-and not any Raspberry Pi CM4 specification.
+This happens because kexec_load() uses kexec_trylock (atomic_t) while
+memory hotplug uses device_hotplug_lock (mutex), so they don't serialize
+with each other.
 
-The "Lite" suffix in the Mars CM model name refers to System-on-Module
-onboard presence or absence of the eMMC part at the primary mmc
-interface and independent of any optioned on-board SDIO WiFi module at
-the secondary mmc interface. There is an additional "WiFi" product
-naming suffix for that System-on-Module and the known AP6256 wireless
-SDIO module populated that features additional serial data connections
-for integrated Bluetooth radio routed to UART lines which are also
-exposed as pins on the base board connector.
+Just add bounds checking in prepare_elf64_ram_headers_callback() to
+prevent out-of-bounds (OOB) access,
 
->>
->> What you pasted is called "Mini Base Board (A) Designed for Raspberry Pi
->> Compute Module 4" and it also does not have "Lite" in the name and
->> picture does not have the SoM.
->>
->> I am confused now and I do not know what the DTS "Milk-V Mars CM Lite"
->> is. Answering to this is crucial, because it determines whether this
->> particular deviec has broken-cd or not.
-> 
-> It's an Raspberry Pi compatible SoM, what you linked.
-> I was linking to the kind of base-board that Heinrich has, to show that
-> it pretty much is a connector to the SoM and the physical connectors for
-> ethernet etc and nothing else on the board.
+Fixes: 8d5f894a3108 ("x86: kexec_file: lift CRASH_MAX_RANGES limit on crash_mem buffer")
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/x86/kernel/crash.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-The description I authored for initial Mars CM and Mars CM Lite support
-in Linux does repeat the marketing claim of compatibility with the
-Raspberry Pi Compute Module CM4 IO Board. I missed then this detail
-about card detect for the named base board in the same context as
-describing to add Mars CM Lite support of SD Card.
+diff --git a/arch/x86/kernel/crash.c b/arch/x86/kernel/crash.c
+index 335fd2ee9766..7fa6d45ebe3f 100644
+--- a/arch/x86/kernel/crash.c
++++ b/arch/x86/kernel/crash.c
+@@ -225,6 +225,9 @@ static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
+ {
+ 	struct crash_mem *cmem = arg;
+ 
++	if (cmem->nr_ranges >= cmem->max_nr_ranges)
++		return -ENOMEM;
++
+ 	cmem->ranges[cmem->nr_ranges].start = res->start;
+ 	cmem->ranges[cmem->nr_ranges].end = res->end;
+ 	cmem->nr_ranges++;
+-- 
+2.34.1
 
-My advice, questions, and changes requested to Heinrich's proposed patch:
-
-https://lore.kernel.org/lkml/3225628d-2546-44c1-bc9d-1607aa3d6c90@freeshell.de/
-
-The functionality of the proposed patch:
-
-https://lore.kernel.org/lkml/3166f7d5-b526-411d-b337-27981a7ed14d@canonical.com/
-
-I disapprove the above because it lacks the associated comments that I
-asked for as changes requested. There is information loss in this
-situation. The hardware is perfectly capable of card detect but we just
-delete this in the hardware description without even a comment I have
-asked for, that is wrong.
-
-My review feedback remains as I wrote it, we should implement overlay
-support and I personally have no clue how to do this but doing so is the
-technically correct way to resolve these base board support concerns.
-
-> 
-> The dts was done the way it was, IIRC, to permit using overlays on top
-> of the $som.dts file to describe the minor differences between the
-> pretty trivial I/O boards, such as the one I linked to or the standard
-> RPi one: https://www.raspberrypi.com/products/compute-module-4-io-board/
-> 
-> It's akin to having "jh7110-milkv-marscm-lite-generic-trivial-base-board.dts"
-> which I think isn't problematic. There's a jh7110-milkv-marscm.dtsi that
-> is what actually describes the bulk of the SoM.
-> 
-
-This should have had review questions and changes requested addressed
-before applying. I'm not surprised that Heinrich would avoid if at all
-possible the work of implementing overlays. At least put the comments in
-like I requested though, it is postured like there's some kind of
-standards violation which is made up nonsense or at best a bad inference
-of my error in the commit for initial support for missing the
-discrepancy of marketing materials versus the schematic.
-
->> Arguments that something else has broken-cd, thus you add such property
->> to "Milk-V Mars CM Lite" are obviously wrong.
-> 
-> The argument is that "broken-cd" is the standard for RPi compute module
-> baseboards, so the rare baseboard that doesn't do that is the one which
-> would have to use an overlay to function.
-> I think that that is the right approach to take, in a world where having
-> a dts for the SoM is permitted.
-
-Logically as Mars CM or Mars CM Lite System-on-Module are not adhering
-to the Raspberry Pi CM4 System-on-Module specification, there should be
-written an overlay that implement the Raspberry Pi CM4 standard (and so,
-"broken-cd") applied for use with base boards.
-
-Overlays are not going to implement themselves. I have no idea how to do
-this either, though. There's some UART line assignments for serial
-console peripheral of the Home Assistant Yellow base board that I would
-like to write an overlay for if that was something I would understand
-how to do... it seems to need actual programmer though for the initial
-effort.
-
--E
-
-P.S. Possibly off-topic I was hopeful that for the broader JH-7110
-support we would get some bare-minimum JH-7110 generic board dts with
-EEPROM and USB Fastboot and USB/UART serial console supported, nothing
-else, for use as a fail-safe in U-Boot or as a basis for overlays and
-modular support. Presently for U-Boot we just halt and so the advice in
-board documentation is to use the vendor BSP in recovery situations. The
-utility of overlays with JH-7110 related board support is not restricted
-to this system-on-module scenario.
 
 _______________________________________________
 linux-riscv mailing list
