@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C8A10F3DEF
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Mar 2026 17:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5453F10F3DED
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Mar 2026 17:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BL0Ednh7KdJCLiVnZvTOJTLdj8pXChz6VlvZ2VIzNZo=; b=1M9lO2kDRTrYcd
-	W1mvZXB9I2AzJxJUFEEpWX9UCjGUFEwhZuUQlR2mCDsDcW/ZcUv9fv1ferBhuBUBTIQX28zCMCU8A
-	9F4EMGdpQI+l9VZL3m2+ofVl0XUwoFxATsRzc7Z8redzRL0JdBIyHXaPsEEG6JWNWs2y2gxUrNDs4
-	PddJ0P4sAUaPHtq7FUnyA16RIIDBRUtPzYa79vK8EZv0VosM7e5vyXeLzPNTpwn+7GvCRQeWeJC2H
-	8iXMJcJS9gP/jmEW/PkyjqUr9MULkoD2CC2jpGkwhHby/rlBYaqIt7KKcH/ON8PVrMosGMorOgulQ
-	IPHta5FFLDXeUdFAt8HQ==;
+	List-Owner; bh=d/HnWJYSOKO7MnABME+1/ziyVc2n8dSlCAkPB4LD8YI=; b=U+xYgDBYa2J+QY
+	IaqhjoMkwvBDxI5JtJ+EO7LpyWW8mBK37r68eZOP7p4ZK/wlMtEw3zOvdoVSgNCEHdOEVuPsU3ntd
+	V2U5/zddKd4Sb63Xq0QcTcYJCpPKeYk7SPn0XD5nYzoANEeDlo3lHD2wCrwI0OtCQBm7gInjDRU/N
+	vOJa91QNpvDPKw6jMbDl1uzsQgy3ytVqXzTLi6UDUWb0VfIe0LqnYVzNVikPxlorVEvjFaVdfvW1E
+	dDn4FJtRobkdNsF0BOn4Zif4GVp10fUFgybAOJPv8EVaTPTLODvHbD5zxvsugtdOf/WNlg6xOzeZb
+	CsiB7f24+/MBr+CANqQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Xbc-000000099lv-3Q1z;
-	Sat, 28 Mar 2026 17:37:52 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1w6Xbf-000000099ne-1tPq;
+	Sat, 28 Mar 2026 17:37:55 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6XbZ-000000099kv-2c4w
+	id 1w6Xbd-000000099lt-0Nq5
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Mar 2026 17:37:50 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-50b268fba9aso28616841cf.3
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Mar 2026 10:37:49 -0700 (PDT)
+	Sat, 28 Mar 2026 17:37:54 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50912a097b0so18740481cf.1
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Mar 2026 10:37:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774719468; x=1775324268; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774719472; x=1775324272; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UFgcVH5XOq5/mrXaXDYrCpNPEGJCtaK+pfMk8iob1+k=;
-        b=XR4PtI56yHZwoWzgwoMFw6dtkK6r6kipFGBp2UeREQzWpZDWxYR/Sa1m/O+QamLk20
-         9STm6NqoOaVNvJfToRAQq6tdpQnJZOag9WHaIAP/OfceP2FC62pdtN/zI4imb7svKKT+
-         vaoKuqxDARzYrLzEu0s9sp06teIyAMTsVNxrolMP0D/cPBL3B8bLMcMHB6cM8/KBBCDP
-         Uy3QjckejpTka2mbYSBQlQqcwNQcO32L3iaCm1NHBMAY90Ui8nC3zeROwMxyZs+Ybs/d
-         fQhonDQGsbK34RcZTZZcE070ew4gTMaaWz40mWuWjltXdaFYz/KKXkIxGIIlRoVDnxLX
-         rsdw==
+        bh=NICNW7Co3viLg/bgtUjVDeGjmH93cilbK6h9R5fkil0=;
+        b=AFume9M+5CFVMrRk92qG5D8nm45rALdSKVPFDqEI3zvGHAANZICO8bCKTcyMhbH5kX
+         VvkVXZHhlk+azqeTktdQ3b0JasmSwdLOpsfmK5xyZW+eKXBsmDgL8IkyacSbanXPUfPw
+         xwme950DkGFcxMalUjiH/Epw6GYOojAQ/t5LrDTSVXKqUPctU8auoTEuTTSAXAF/C+0n
+         z1JNBvelSuHBMbmdyf57vSwcmWEGS8sVR13Im2Mu0eymLXmndQYJNjW//faTfEzzmYx4
+         +90di75KqIA6jcFRT2rqBWk/C8ovT43DpF1UPuO/zWYxKAvIolvAHR25UzMUJhab7kSI
+         /cfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774719468; x=1775324268;
+        d=1e100.net; s=20251104; t=1774719472; x=1775324272;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=UFgcVH5XOq5/mrXaXDYrCpNPEGJCtaK+pfMk8iob1+k=;
-        b=Y1nr+5hQKEk1r2fB8u1cARnYoMs77AGYWs9F1BVVDRkr1c+2mdMVSc6HP1HLSaxtBl
-         zYrDn9p66DJurU/jOOy4J7VgwFe3ENUVE/q0+1HDl3isCqMFOJttnFls3wqCvn5wguYn
-         +6wa+zys7lu84niR6MDv8k0MAdgTRAptAEz1qxEzLnZ7HpZ+8PaTqVNwzWCS7Npt+N71
-         rMxGsk08cCmCO3/P2AvtfTJuztCeUYfWHkdhxAL0ZWQExDBYABgQur1gJE3LaJw4oKNA
-         zANBHNKQ0DMv0B9i5eoSaCuQMFanMBy+RBy8jIdRo+PNY/zPNi2s+CC2e4eJe8xMoWNZ
-         LHsw==
-X-Forwarded-Encrypted: i=1; AJvYcCVp+LEOKjN0CeIkZSmb7yInWd7znLCnZCPPE5P9EWCKhenYaeq+MczBhT6PQJxMfSD0QaJb3oO79GMpNw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQG4CAy24w+nQvcVDgn2PuNCSd9JvwDGeUto7GJhdE5CXRzzla
-	LMRr2mSBU7Lch0BFRdwXS9wX/mJfM4U/UFBDX4LTKfegt4QOGOhdszlf
-X-Gm-Gg: ATEYQzxnh0S2I+ryqu7sAN4aW1mCsgaqEz0txXaDQ+bdQu3W0ci0fJKi5xIUiuXp56R
-	aKgjD2d99THBoyyAT/JBd7CiOvr9ifkPZ3+JR16bUHAv+eP2jh1wzqZnvR9u2KVaOI2aV53jcto
-	VmVwu9ALJA+2fdOa5v5J1kaB5barDOC+DejShhutLQQYK5qIIEOZWyXaO9cqHPlq9z1xv9qgI8k
-	PBVYHnkPGFyk/Vt7nqFfMO+DNQGLUvXU9I8XBKnDLHfyVPvlqqz3VxeEVRIXwUnsFRDfl/jkY+N
-	qDqkLqyJhyZ6qofjRK6wfAIIgZnrAMBs1UX/KJyLeiCWtdgcKAhdVEqcfYtgYMq3XuiEykY/evw
-	d67zeyYdOp12I9dGCq/xbIWn/PJthEThoEhaEeJ6m+Va6shNn+EIPT269FIqnIPblnWZP3MOXJu
-	+xFZwtyriUurYwrPbyHs/+cEMWBtFQanMV+ylUMkMtyeC8T/q8+uRGzbyd
-X-Received: by 2002:ac8:7f0d:0:b0:50b:3be7:afd with SMTP id d75a77b69052e-50ba39fffe4mr97544421cf.65.1774719468311;
-        Sat, 28 Mar 2026 10:37:48 -0700 (PDT)
+        bh=NICNW7Co3viLg/bgtUjVDeGjmH93cilbK6h9R5fkil0=;
+        b=NSgbtaR89WL4wZpTJMvADUiEG2kjWX6tjkh1I4gjQq+dciLSigiqlIxGLsTNUm5mTx
+         +v9sn1wSyHA6NE7dkleiopckOrsSarRKZ9i9rdq/vCPHNDhz9HzxlfFJiq7n8mK4lxag
+         8BDCfoqip9CbDLeUuUYbe6YSjey62DPS0ILKmWemNqRlvkA+AZZEUhHjTX+PG/o6KKcL
+         S+l4au058YSz+ex5suaE1QF8aK24LNekFhPekXXRyrbmzYUrTaevJCZY5GX6cUlMjFAY
+         PRuG8QM2XRePoeEMQnvU2zVo4OK4hJTueB7k3t+g+qIwoTTaNQlRVtuPPin8Qs/aPA0F
+         FoAw==
+X-Forwarded-Encrypted: i=1; AJvYcCVcTqFX0hhtQuc/+5AGXW4r9uX7z21vXNzCJhuZwktwdtxqHfZbxlJGmB7DBtxSYVm3JmOBESHPRu4P9A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUvGRJk4bCL/5/GuMdmFYcWdhD5YkvHDlPEm/BQSF5ASZwv43I
+	Ma7rfGBOk/UutqjesKqHl+3Qa2TVrb/d+rCyJtn9cYbvOYWWU8FEYHr2
+X-Gm-Gg: ATEYQzxKN/fCvyCggZgG6upciffLiY5EysQnVmi2CJRD4NSC7gmb6TP7E21JfJ8A7Jd
+	q37b3U2AO784eXliijPFV8NHPDIRGXWx8QcpFIpMOg3zM0+dnJq7/ATzkbUgYIVe1uJTYHasQts
+	APEy+XYrJFITyM/ZTjz9bN3+AutsWoGgN1rRbUCwnGTMdhCXMMZFdPodBwkLpcTJ5fO3VrdsYiJ
+	yRhlgYWtRZ06klXZrNygNPVOTtcLtatM9JQcnfEefUuaZT89Iw6qcjgKcyYcuhqTHJRn04X+hi8
+	j3nwNtnLHFQ9uhVMXZvIPU0kYxsUKwOpNeGhTUXgvmPKDXAFEEZ5KXT5vqLIU37stKX3pRjkJyw
+	Q2JG0/cS1UJm1JEnbyb0fHntXjD9nTxaIyLwTT5LxeqdUJQg7MyYaHGqyz3NH79SO2WcHRtzxk+
+	Ee2DukUKHRDUl934Yy4/j0VtCRFDm9mMJ6Gg435N+ezjUeRONLjmumTdCt
+X-Received: by 2002:a05:622a:514:b0:506:217e:b0e5 with SMTP id d75a77b69052e-50ba369ec17mr96131411cf.0.1774719471720;
+        Sat, 28 Mar 2026 10:37:51 -0700 (PDT)
 Received: from sleek (d-23-244-200-70.nh.cpe.atlanticbb.net. [23.244.200.70])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50bb2c9c93asm26629641cf.7.2026.03.28.10.37.47
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50bb2c9c93asm26629641cf.7.2026.03.28.10.37.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Mar 2026 10:37:48 -0700 (PDT)
+        Sat, 28 Mar 2026 10:37:51 -0700 (PDT)
 From: Joshua Milas <josh.milas@gmail.com>
 To: tglx@kernel.org,
 	robh@kernel.org,
@@ -95,16 +95,16 @@ Cc: josh.milas@gmail.com,
 	sophgo@lists.linux.dev,
 	hanguidong02@gmail.com,
 	michael.opdenacker@rootcommit.com
-Subject: [PATCH v4 1/5] dt-bindings: soc: sophgo: add Milk-V Duo S board compatibles
-Date: Sat, 28 Mar 2026 13:34:46 -0400
-Message-ID: <20260328173450.219664-2-josh.milas@gmail.com>
+Subject: [PATCH v4 3/5] dt-bindings: soc: sophgo: add sg2000 plic and clint documentation
+Date: Sat, 28 Mar 2026 13:34:48 -0400
+Message-ID: <20260328173450.219664-4-josh.milas@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260328173450.219664-1-josh.milas@gmail.com>
 References: <20260328173450.219664-1-josh.milas@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_103749_663054_1E8ECA3F 
-X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-CacheID: sfid-20260328_103753_141795_0E578416 
+X-CRM114-Status: UNSURE (   8.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,31 +122,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the compatible strings for the Milk-V Duo S board [1]
-which uses the SOPHGO SG2000 SoC.
-
-Link: https://milkv.io/duo-s [1]
+Document the compatible strings for the sg2000 interrupt
+controller and timer.
 
 Signed-off-by: Joshua Milas <josh.milas@gmail.com>
 ---
- Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml        | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-index 1c502618de51f..0b6fbab48b743 100644
---- a/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-+++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-@@ -31,6 +31,10 @@ properties:
-               - milkv,duo-module-01-evb
-           - const: milkv,duo-module-01
-           - const: sophgo,sg2000
-+      - items:
-+          - enum:
-+              - milkv,duo-s
-+          - const: sophgo,sg2000
-       - items:
-           - enum:
-               - sipeed,licheerv-nano-b
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index e0267223887ec..decc43df3c839 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -73,6 +73,7 @@ properties:
+               - allwinner,sun20i-d1-plic
+               - sophgo,cv1800b-plic
+               - sophgo,cv1812h-plic
++              - sophgo,sg2000-plic
+               - sophgo,sg2002-plic
+               - sophgo,sg2042-plic
+               - sophgo,sg2044-plic
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index 3bab40500df9b..54266b3c2a185 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -50,6 +50,7 @@ properties:
+               - allwinner,sun20i-d1-clint
+               - sophgo,cv1800b-clint
+               - sophgo,cv1812h-clint
++              - sophgo,sg2000-clint
+               - sophgo,sg2002-clint
+               - thead,th1520-clint
+           - const: thead,c900-clint
 -- 
 2.53.0
 
