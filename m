@@ -4,66 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8B510F3DE2
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Mar 2026 10:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4349310F3DCE
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Mar 2026 11:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xUd7YsprAEBU4TDajbI8jjnqzU51me2ykv6KxUikduI=; b=3dwZHxxzFk60Du
-	vzgxJtKLFjlIzWUi2EHz/k4QxkStluswBWX5x7+ATRHKcqTMiU6G3we8Tbr+9DAyp3/LvTdgyUR9f
-	xs6vWs5vNDJ2NAd44juIba/dJMSg9VW+xpvPHKxaNfWz+9ng/r3gseDJuwSk6xxcB0ikW67aK4BX+
-	j38XjOdxI+qxgQTzoPWGcYBylmUscM8yZLnQq90IiK5fWDBplG/KA+Du18f28m+hwaFVUOY5mTn6+
-	K54Z7HVLoyN6TvOadkP5Rr+zKkWwyddsWjf9fHsxC0XxaQnLLOc/fiKHnRv4nfs2Lu0rshOxMip5a
-	H1M55FAzhM6Kv1XyNTyQ==;
+	List-Owner; bh=PA4xY1CL7vqt+ffj3lq1HoTgtQ+bJ+P/2/NS+Zd7JDU=; b=1Ur6D6QYOLduTB
+	6Hw1JBthxzkTBKU1S2ZLyCoGW5GK1mFkE5p6ZWmMyQJATs8lcGckDYb3OuamoOw5uMz5cJu7JTaoP
+	ju+S0DGSAZ/N2ICPHILSDLzsHd3lGwuMZlVHoNhBwM4ev53ZnhobvE8+49P9s0zUUADZpmRsSXxYH
+	pT+cPvrFqxhsFHcKjeuRrkMECMy9TI91xZEuIfdMMCk/fi37BogkORfVcJ+O7KEfJIhDVj5S8GoaG
+	EVn7QEjxotlp4byDNhAxqZeJFFZmXXlDVhGHd1Awa/AF9PEfxSFzr25C0JK7jAMgMT7HV4cj5OrnQ
+	KC63YKAygQoOsC2fxyvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6QZh-00000008oAe-3ids;
-	Sat, 28 Mar 2026 10:07:25 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1w6Rws-00000008t9l-1rkk;
+	Sat, 28 Mar 2026 11:35:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6QZf-00000008oA5-1Lmi
+	id 1w6Rwq-00000008t9f-1SAY
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Mar 2026 10:07:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1774692426;
-	bh=0cKj4w/RJV1m1gcNIGNio+JSd8YlUtnzI9F2nKGcT7M=;
+	Sat, 28 Mar 2026 11:35:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F01060008;
+	Sat, 28 Mar 2026 11:35:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72712C4CEF7;
+	Sat, 28 Mar 2026 11:35:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774697721;
+	bh=x2Q7TtSxnkpOxsk9uvttseI3MIL3MaS4Sz0bjXpBehk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Hw0DqWWhur0gexv3gtWUongGMUClFHEkv2c0X51pRwzqgXk8slMSFDIk/Ne/b78LJ
-	 kWoT0chyignLYAJ/DaeP+pj+F97AIiiZMiYKNit8PFB+qrjipuEx//+YGAPGAa1e1N
-	 oPzva9MS0FUzQMdhCBMfs2C0DnT2vwMjLRpzarfRxra4rYhJc48ISePjCPum5qf5pP
-	 29gM8/YFhZGRwNVuydF5pKoK2D9xYN6BW7jsuCMpCyS8LBsO1AybXw+D5PrN+SCovn
-	 VkYuMfxELSEtDiBLqQg6USwk36L/08ehbxbxQXqXC/dt3K7/cwUxRlfexbXZcvdRkt
-	 DACxNIKOqvMTA==
-Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id D35C4B22177E;
-	Sat, 28 Mar 2026 11:07:04 +0100 (CET)
-Message-ID: <a77f7c9c-4357-47df-95e1-f6e0f5a7c02f@freeshell.de>
-Date: Sat, 28 Mar 2026 03:07:01 -0700
+	b=ENP4S5V5/kQIJ+6S8KKx9gONUM0FRDkVeOEZrAlBt/10uNTGp1FWEvUN6BrdsKJz1
+	 JRUl87DCANnQWHKtvsMTzP/BK0IF7JEUO0kqT/JMnaJQGIRrt/Y2zL+g2JDWNtK4sZ
+	 KtH0bK+wreBB7VhoOIwHlAogBDfOVWleY4A4ZjHk94CRqEvmThK8r1emMsU8TAQN+u
+	 OfbP1RphpYmLb2P3u/zSSsvxzt3/btC93d4fpK6Wt8Pbs37kNYXoJbs/1yb9WJzu+Y
+	 /jCpe45q/C+lrMm+yAeocXgcnbBBY/+lX8g7sOba6B24AqujjW8bpOg+zNpJEgaWGV
+	 fLchJ/Bte7X9Q==
+Message-ID: <bce1e593-fecb-42d4-92a6-891db05a191e@kernel.org>
+Date: Sat, 28 Mar 2026 12:35:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] ~RISC-V~Starfive devicetrees fixes for v7.0-rc6
-To: Ilya Sorochan <k0tran@altlinux.org>
-Cc: soc@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>,
- Conor Dooley <conor@kernel.org>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-References: <20260326-astrology-rephrase-836ec663228b@spud>
- <4dd4ffe6-307a-442b-ae99-50c88d4e5b84@freeshell.de>
- <20260326-viscous-rigor-4beb18f77eec@spud>
- <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
- <DHCYMK8FEH10.1Y1YWLL3J1HSK@altlinux.org>
- <ff792101-61e3-4470-9c5c-eea375edc9fa@freeshell.de>
- <DHDFR4K758TP.291K17J2J5VL7@altlinux.org>
+Subject: Re: [PATCH v2 3/7] dt-bindings: dmaengine: Add SpacemiT K3 DMA
+ request definitions
+To: Troy Mitchell <troymitchell988@gmail.com>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+ Guodong Xu <guodong@riscstar.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+ linux-clk@vger.kernel.org, liyeshan <yeshan.li@spacemit.com>
+References: <20260326-k3-pdma-v2-0-ca94ca7bb595@linux.spacemit.com>
+ <20260326-k3-pdma-v2-3-ca94ca7bb595@linux.spacemit.com>
+ <20260327-granite-giraffe-of-infinity-ff49a3@quoll>
+ <DHEBS4TLJV5W.3AO0UY2JXWAFE@linux.spacemit.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <DHDFR4K758TP.291K17J2J5VL7@altlinux.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_030723_825436_0CEE583A 
-X-CRM114-Status: GOOD (  23.51  )
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <DHEBS4TLJV5W.3AO0UY2JXWAFE@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,99 +127,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ilya,
-
-On 3/27/26 01:52, Ilya Sorochan wrote:
->> On 3/26/26 12:27, Ilya Sorochan wrote:
->>> On Thu, Mar 26, 2026 at 07:36:07AM -0700, E Shattow wrote:
->> ...
-> 
-> Sorry, I'm not trying to be disrespectful. Yes, it's my first time. Kernel docs
-> bewarn of spamming therefore I trimmed CC based on the assumption that those who
-> interested in devicetrees are present in devicetree lists. I guess it is not
-> true which seems strange to me, but okay.
-
-$ scripts/get_maintainer.pl arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-...Conor... (maintainer:STARFIVE DEVICETREES)
-...linux-riscv... (open list:STARFIVE DEVICETREES)
-...devicetree... (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE
-BINDINGS)
-...linux-kernel... (open list)
-RISC-V ARCHITECTURE status: Supported
-
-Not all maintainers are subscribed to all lists or even any lists. Some
-just occasionally search lore mailing list archives
-
-https://lore.kernel.org/linux-riscv
-https://lore.kernel.org/linux-devicetree
-https://lore.kernel.org/lkml/
-
-if there's not CC directly to them.
-
-Additionally to making sure your patch reaches its audience for review,
-there are automated testing "Patchwork" which for LKML RISC-V
-
-https://patchwork.kernel.org/project/linux-riscv/list/
-
-breaks if you are not CC at least linux-riscv mail list. Threading
-breaks in multi-patch series or series with cover letter if any of the
-messages have different recipient ordering. Broken threading and missing
-automated testing equals confused reviewers.
-
-Note that special for StarFive SoC is Conor has responsibility for this
-whereas the more recent usual delegation of responsibility to SoC or
-vendor specific mail lists and git trees. SpacemiT development as a
-recent example following the new pattern of delegation has its own
-spacemit mailing list and git repo whereas starfive development sits on
-linux-devicetree mailing list and co-habitation of Conor's devicetree
-git repo because Conor is both a devicetree maintainer and adopted this
-responsibility years ago when the StarFive SoC's were new.
-
-Congratulations on your first patch to Linux Kernel :)
-
-> 
-> I'm not asking to support this feature properly. It would be nice to have but
-> it is hard and StarFive is not making it any easier. However I'm asking to keep
-> it working while you can if you can. It worked for me and other people and we
-> would appreciate if you can delay breaking it as long as possible.
-> 
->>> I traced this property a little in the U-Boot repo:
->>> - 503fc8548197 Hal added it to VisionFive v1.3b (with mmc pins)
->>> - 6bbe95ef7208 Hal moved it (and other common things) into
->>>   jh7110-common-u-boot.dtsi
->>> - 27f617019dd0 E removed it with jh7110-common-u-boot.dtsi
->>> - 762f85bb2e36 Tom squash-updated upstream dts
+On 28/03/2026 10:58, Troy Mitchell wrote:
+> On Fri Mar 27, 2026 at 3:30 PM CST, Krzysztof Kozlowski wrote:
+>> On Thu, Mar 26, 2026 at 04:17:18PM +0800, Troy Mitchell wrote:
+>>> From: liyeshan <yeshan.li@spacemit.com>
 >>>
->>> New device trees did not contain this property. This is how they were introduced
->>> into the Linux: b127dbf9e1ebbfbcded4 ("riscv: dts: starfive: Add mmc nodes on
->>> VisionFive 2 board")
->>>
->>> I do not know if this miss is intentional or not. However it would be nice to
->>> be able to boot from SD-card again.
+>>> Add device tree binding header for SpacemiT k3 DMA request numbers. This
 >>
->> There is already nothing to prevent you from booting Linux from SD-card,
->> with U-Boot SPL and U-Boot Main located in SPI Flash as is recommended
->> by StarFive officially.
-> 
-> Yes. However I'm implying the deprecated SDIO3.0 way. I agree that this would be
-> nice to have in the commit message - if this what are you talking about.
-> 
->> I'm glad you sent a patch, but I still object for the other reasons
->> mentioned.
-> 
-> I'm glad to talk to competent people in this space, however I still hope that
-> the kernel will refrain from breaking this feature until it is really necessary.
+>> Why?
+> The DMA request mappings are hardware-hardwired and differ between the K1 and K3 SoCs.
+> Therefore, separate header files are required to define these unique constants for each
+> platform to ensure correct DMA channel allocation in the device tree.
 
-I hope you'll continue on to review the BootROM r.e. effort and cite its
-code snippets in patches so adding bootph-pre-ram hints covering the
-eMMC SPL boot method from StarFive Loader, retrospectively describing
-the SD Card SPL boot method from StarFive Loader, and/or secure boot
-crypto accelerator functionality in the starfive crypto driver (what
-does command=8 and command=9 do exactly?) The exact nature of the bug in
-StarFive Loader UART XMODEM incompatibility could use a proper
-description, and SPI Flash configuration parameter analysis, too.
+Nothing explains why we want this as ABI. Header does not ensure correct
+DMA channel allocation.
 
--E
+
+>>
+>>> defines the DMA request mapping for non-secure peripherals including UART,
+>>> I2C, SSP/SPI, CAN, and QSPI.
+>>>
+>>> Signed-off-by: liyeshan <yeshan.li@spacemit.com>
+>>
+>> Name looks close to login name?
+> I will contact her and confirm.
+>>
+>>> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+>>> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+>>> ---
+>>>  include/dt-bindings/dma/k3-pdma.h | 83 +++++++++++++++++++++++++++++++++++++++
+>>
+>> I am already confused what is happening in this patchset - so which
+>> device are you adding? K1 or K3?
+> Aside from this K1-related patch, the rest of the series focuses on adding support for
+> the K3 SoC. I included the K1 header because I noticed it was missing in the upstream
+> tree while working on the K3 support.
+
+So k3 is the new device? Then this is not a separate commit, but belongs
+to the bindings patch.
+
+> 
+> It seems my attempt to 'clean up' K1 while adding K3 has caused unnecessary confusion.
+> Would you prefer me to remove the K1 patch from this series and submit it as a separate
+> patch?
+
+I expect explaining in commit msg why you are doing things.
+
+So far none of these are bindings, so drop both headers from bindings.
+Feel free to provide explanation what part of Linux SW you are binding here.
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
