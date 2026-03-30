@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF481061B13
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 16:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743CD1061B0F
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 16:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ypWHvdFf1tbLwxZCJpNOo8RJgi/57p9w2FxlHWDtKWU=; b=CGZNNlHUfipejFmDKb2wFdK5zK
-	1KLYPaYkH5CetUWyTuM7BTJrCKCvwKRHhEz+HGnBx/dPXcwTtTrZ9pvpw76xcHMJoD6STAFDJyGGG
-	LsPGDsj/5CMLLCwGJooO9ePgEdatDt3TioBHvcVrhmMI5GHikJ+wgjS0wYUBw/DK3w9/7UD+JbL2R
-	egRsZmuhJdnh9sGyuI3kff40EuqDCVvsx6eutjHQLPwgsmcB/qA5T/hz+wBnAdRwYlZ+Fju+37nBV
-	q8dGMzTV6+TUrODGR0DF/ZwPXrq1H7SxJykCmhYZ1y4yqHoT4CjwjeUCfZ2MjeH2Ko7v8oJ+ma6QV
-	IWIOeFzw==;
+	bh=6lveZv+A/D9r1Mh71bBP8vvh1n2TR3GSkdRsPDX1s6k=; b=scNl9kl7dIKUoXCKGIP4elmmVv
+	IXlBSr5hSbvf0Vnb11dFCVovVsYx9uagw+hsCnDRD0cNlO0D6ZsoqDOGmsK6Xi0P1kIxPofWK5RW+
+	nkRClrvMBWA3hdQUxWqHV4igot+uIBj9aSG6H6kTfwA/Uk2etSFi2Bl//kZG1iI6S+mYF50PWigR2
+	GEKPySiqytjUULsqUfaH3+55Q9qipos6TMLhGlhfCyqZ8p42JuXKgQl7ifv20uqMUunA3ubDs7xw+
+	19TDxFVLAgV7Mc7QZaMSUD8XwmKJ4XsW0dA9uYi6lPPrL3i7CPTnF8yqNyRHLkaUa2Sz7ktJHL0im
+	ogNHrlhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7F7t-0000000Bc5h-1Di2;
-	Mon, 30 Mar 2026 16:06:05 +0000
+	id 1w7FHq-0000000Bd4R-1OzS;
+	Mon, 30 Mar 2026 16:16:22 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7F7r-0000000Bc5O-3hav
+	id 1w7FHo-0000000Bd4I-3D2y
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 16:06:04 +0000
+	Mon, 30 Mar 2026 16:16:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9E96660127;
-	Mon, 30 Mar 2026 16:06:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74EAAC4CEF7;
-	Mon, 30 Mar 2026 16:05:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 925E8600CB;
+	Mon, 30 Mar 2026 16:16:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3848C4CEF7;
+	Mon, 30 Mar 2026 16:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774886762;
-	bh=3KmiI1lPn7iSBaliwjqcS6nkGR19lrJfQ+T5KRXeUJU=;
+	s=k20201202; t=1774887378;
+	bh=RNuQc1FXJX0gJoQdRCwM4KulnZVJtsA3YzsnFaTWbis=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EtfqK31+p3ceD6qtEJo2zlJwoNdBpD4IShTTmFnLsidWjHJucJl/TTvUjyei7I4XW
-	 4I9gYj2w6asg4hjFgQlmHNGPgI8qSmdUFvGJMW+d1cag2vGP8yUu4O8VC1b3nyfie9
-	 iTqMv+A9FYP7iOPbqQXWkEWG5SOlQdSqvJED32X0A2XJ3dmJy8dJoa6S7pGnksrR4+
-	 ynTPH+62aOX30vuGNqj/u3zTsbwyW0IfY3d4KCCTtoQI1Sjnt9MhcdUtOk5nOHr1Wm
-	 dTLnBE84FyCsEiHU43cwVunV9nnFIyfOJG/AmJu66XO34Q4QSzJsWTmI1of+6QZB3Y
-	 C9NeEBwkJojTA==
-Date: Mon, 30 Mar 2026 17:05:56 +0100
+	b=hlOfYQHGvmyl+YASSPWeBu0+faicc1SdY23zADSiBarF8FLIkq/3nvTAfzS6RMqA/
+	 UNO6MK+76XjCh353k+DyDZiUSDbIdpZJO1NKn2BehuNr7ndrDL1GwG06N+iyU25zBi
+	 sbA04h0rmNiS18tfAFCGaelOPfdg6gqLZuwQ2fFYMEhjp20yVKlF+9p7cRPlHSe6kJ
+	 Amr3FaucncVV4iaMMlWg91Itd+GRDVf+S5Adi7hgKpEC42PhhzmUeP5HQMhq5UnR6K
+	 SKE3FdVZmPmKwXd4Ygar15vG3DXagjguCYgddHTQSUGwNddXcswSW5YMqKs3F28d8x
+	 LJgKh3ZTkiTbw==
+Date: Mon, 30 Mar 2026 17:16:13 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Hui Min Mina Chou <minachou@andestech.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, geert+renesas@glider.be,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, magnus.damm@gmail.com,
-	ben717@andestech.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, jonathan.cameron@huawei.com,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	tim609@andestech.com, alex749@andestech.com, az70021@gmail.com
-Subject: Re: [PATCH 2/7] cache: andes_llcache: refactor initialization and
- cache operations
-Message-ID: <20260330-profane-blighted-ac25a752164e@spud>
-References: <20260330102724.1012470-1-minachou@andestech.com>
- <20260330102724.1012470-3-minachou@andestech.com>
+To: Charles Perry <charles.perry@microchip.com>
+Cc: Nick Hu <nick.hu@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3] dt-bindings: timer: Add SiFive CLINT2
+Message-ID: <20260330-relative-hardened-5ce35fe1ef57@spud>
+References: <20250321083507.25298-1-nick.hu@sifive.com>
+ <acWdSsAtmyTTFVHb@bby-cbu-swbuild03.eng.microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <20260330102724.1012470-3-minachou@andestech.com>
+In-Reply-To: <acWdSsAtmyTTFVHb@bby-cbu-swbuild03.eng.microchip.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,185 +72,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5098750870984579002=="
+Content-Type: multipart/mixed; boundary="===============6170223388355069510=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5098750870984579002==
+--===============6170223388355069510==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZBMHEz/e3KVIxzdl"
+	protocol="application/pgp-signature"; boundary="j4xEBCRS2Ch7EH1t"
 Content-Disposition: inline
 
 
---ZBMHEz/e3KVIxzdl
+--j4xEBCRS2Ch7EH1t
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Mar 30, 2026 at 06:27:19PM +0800, Hui Min Mina Chou wrote:
-> This patch cleans up the Andes LLC cache driver:
->  - improved error handling in andes_cache_init() by using goto labels
-
-I don't agree that this is an improvement. There's no meaningful
-teardown shared.
-
->  - updated andes_dma_cache_inv/wback() to check for !size instead of
->    start =3D=3D end
->  - cache-line-size mismatch from an error to a warning
->  - Use ALIGN and ALIGN_DOWN helpers instead of the alignment logic in
->    andes_dma_cache_inv() and andes_dma_cache_wback().
+On Thu, Mar 26, 2026 at 01:55:38PM -0700, Charles Perry wrote:
+> On Fri, Mar 21, 2025 at 04:35:06PM +0800, Nick Hu wrote:
+> > Add compatible string and property for the SiFive CLINT v2. The SiFive
+> > CLINT v2 is incompatible with the SiFive CLINT v0 due to differences
+> > in their control methods.
 >=20
-> Signed-off-by: Hui Min Mina Chou <minachou@andestech.com>
-> ---
->  drivers/cache/andes_llcache.c | 56 ++++++++++++++++++-----------------
->  1 file changed, 29 insertions(+), 27 deletions(-)
+> Hello Nick,
 >=20
-> diff --git a/drivers/cache/andes_llcache.c b/drivers/cache/andes_llcache.c
-> index d5e382f3c801..d318b8009f7f 100644
-> --- a/drivers/cache/andes_llcache.c
-> +++ b/drivers/cache/andes_llcache.c
-> @@ -111,21 +111,17 @@ static void andes_dma_cache_inv(phys_addr_t paddr, =
-size_t size)
->  {
->  	unsigned long start =3D (unsigned long)phys_to_virt(paddr);
->  	unsigned long end =3D start + size;
-> -	unsigned long line_size;
-> +	unsigned long line_size =3D andes_priv.andes_cache_line_size;
->  	unsigned long flags;
-> =20
-> -	if (unlikely(start =3D=3D end))
-> +	if (unlikely(!size))
->  		return;
-> =20
-> -	line_size =3D andes_priv.andes_cache_line_size;
-> -
-> -	start =3D start & (~(line_size - 1));
-> -	end =3D ((end + line_size - 1) & (~(line_size - 1)));
-> +	start =3D ALIGN_DOWN(start, line_size);
-> +	end =3D ALIGN(end, line_size);
-> =20
->  	local_irq_save(flags);
-> -
->  	andes_cpu_dcache_inval_range(start, end);
-> -
->  	local_irq_restore(flags);
->  }
-> =20
-> @@ -133,15 +129,15 @@ static void andes_dma_cache_wback(phys_addr_t paddr=
-, size_t size)
->  {
->  	unsigned long start =3D (unsigned long)phys_to_virt(paddr);
->  	unsigned long end =3D start + size;
-> -	unsigned long line_size;
-> +	unsigned long line_size =3D andes_priv.andes_cache_line_size;
->  	unsigned long flags;
-> =20
-> -	if (unlikely(start =3D=3D end))
-> +	if (unlikely(!size))
->  		return;
-> =20
-> -	line_size =3D andes_priv.andes_cache_line_size;
-> -	start =3D start & (~(line_size - 1));
-> -	end =3D ((end + line_size - 1) & (~(line_size - 1)));
-> +	start =3D ALIGN_DOWN(start, line_size);
-> +	end =3D ALIGN(end, line_size);
-> +
->  	local_irq_save(flags);
->  	andes_cpu_dcache_wb_range(start, end);
->  	local_irq_restore(flags);
-> @@ -159,14 +155,13 @@ static int andes_get_llc_line_size(struct device_no=
-de *np)
-> =20
->  	ret =3D of_property_read_u32(np, "cache-line-size", &andes_priv.andes_c=
-ache_line_size);
->  	if (ret) {
-> -		pr_err("Failed to get cache-line-size, defaulting to 64 bytes\n");
-> +		pr_err("Cache: Failed to get cache-line-size\n");
->  		return ret;
->  	}
-> =20
->  	if (andes_priv.andes_cache_line_size !=3D ANDES_CACHE_LINE_SIZE) {
-> -		pr_err("Expected cache-line-size to be 64 bytes (found:%u)\n",
-> -		       andes_priv.andes_cache_line_size);
-> -		return -EINVAL;
-> +		pr_warn("Cache: Expected cache-line-size to be 64 bytes (found:%u)\n",
-> +			andes_priv.andes_cache_line_size);
->  	}
-> =20
->  	return 0;
-> @@ -186,16 +181,18 @@ static const struct of_device_id andes_cache_ids[] =
-=3D {
->  static int __init andes_cache_init(void)
->  {
->  	struct resource res;
-> -	int ret;
-> +	int ret =3D 0;
-> =20
->  	struct device_node *np __free(device_node) =3D
->  		of_find_matching_node(NULL, andes_cache_ids);
-> -	if (!of_device_is_available(np))
-> -		return -ENODEV;
-> +	if (!of_device_is_available(np)) {
-> +		ret =3D -ENODEV;
-> +		goto err_ret;
-> +	}
-> =20
->  	ret =3D of_address_to_resource(np, 0, &res);
->  	if (ret)
-> -		return ret;
-> +		goto err_ret;
-> =20
->  	/*
->  	 * If IOCP is present on the Andes AX45MP core riscv_cbom_block_size
-> @@ -208,17 +205,22 @@ static int __init andes_cache_init(void)
->  		return 0;
-> =20
->  	andes_priv.llc_base =3D ioremap(res.start, resource_size(&res));
-> -	if (!andes_priv.llc_base)
-> -		return -ENOMEM;
-> +	if (!andes_priv.llc_base) {
-> +		ret =3D -ENOMEM;
-> +		goto err_ret;
-> +	}
-> =20
->  	ret =3D andes_get_llc_line_size(np);
-> -	if (ret) {
-> -		iounmap(andes_priv.llc_base);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		goto err_unmap;
-> =20
->  	riscv_noncoherent_register_cache_ops(&andes_cmo_ops);
-> =20
->  	return 0;
-> +
-> +err_unmap:
-> +	iounmap(andes_priv.llc_base);
-> +err_ret:
-> +	return ret;
->  }
->  early_initcall(andes_cache_init);
-> --=20
-> 2.34.1
->=20
+> Can you help me understand what is this different control method? I've
+> found that both OpenSBI [1] and U-Boot [2] use the same match data in the=
+ir
+> clint driver which would indicate that they are compatible.
 
---ZBMHEz/e3KVIxzdl
+Hmm, good point. I didn't see that the drivers were not doing anything
+different. I guess really the clintv2 should fall back to the clintv0,
+and the difference in hardware should be elaborated on.
+
+I think I also dropped the ball on sifive,fine-ctr-bits, and that should
+be removed and the counter width determined from the compatible.
+There's no users for that yet I think, and there's no valid users of the
+clintv2 compatible /at all/ so maybe it can just get culled.
+
+>=20
+> Also, do you know if there's an easy way to tell if a sifive clint is a v0
+> or v2?
+>=20
+> Thanks,
+> Charles
+>=20
+> [1]: https://elixir.bootlin.com/opensbi/v1.8.1/source/lib/utils/timer/fdt=
+_timer_mtimer.c#L163
+> [2]: https://elixir.bootlin.com/u-boot/v2026.01/source/drivers/timer/risc=
+v_aclint_timer.c#L86
+>=20
+> >=20
+> > Signed-off-by: Nick Hu <nick.hu@sifive.com>
+> > Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+> > ---
+> > - v3 changes:
+> >   - Add the reason for the incompatibility between sifive,clint2 and
+> >     sifive,clint0.
+> > - v2 changes:
+> >   - Don't allow sifive,clint2 by itself. Add '-{}' to the first entry
+> >   - Mark the sifive,fine-ctr-bits as the required property when
+> >     the compatible includes the sifive,clint2
+> >=20
+> >  .../bindings/timer/sifive,clint.yaml          | 22 +++++++++++++++++++
+> >  1 file changed, 22 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml =
+b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> > index 76d83aea4e2b..34684cda8b15 100644
+> > --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> > +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+> > @@ -36,6 +36,12 @@ properties:
+> >                - starfive,jh7110-clint   # StarFive JH7110
+> >                - starfive,jh8100-clint   # StarFive JH8100
+> >            - const: sifive,clint0        # SiFive CLINT v0 IP block
+> > +      - items:
+> > +          - {}
+> > +          - const: sifive,clint2        # SiFive CLINT v2 IP block
+> > +        description:
+> > +          SiFive CLINT v2 is the HRT that supports the Zicntr. The con=
+trol of sifive,clint2
+> > +          differs from that of sifive,clint0, making them incompatible.
+> >        - items:
+> >            - enum:
+> >                - allwinner,sun20i-d1-clint
+> > @@ -62,6 +68,22 @@ properties:
+> >      minItems: 1
+> >      maxItems: 4095
+> > =20
+> > +  sifive,fine-ctr-bits:
+> > +    maximum: 15
+> > +    description: The width in bits of the fine counter.
+> > +
+> > +if:
+> > +  properties:
+> > +    compatible:
+> > +      contains:
+> > +        const: sifive,clint2
+> > +then:
+> > +  required:
+> > +    - sifive,fine-ctr-bits
+> > +else:
+> > +  properties:
+> > +    sifive,fine-ctr-bits: false
+> > +
+> >  additionalProperties: false
+> > =20
+> >  required:
+> > --=20
+> > 2.17.1
+> >=20
+> >=20
+
+--j4xEBCRS2Ch7EH1t
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacqfZAAKCRB4tDGHoIJi
-0kz6AP4/zEmts2e0+M/fAroAyx+sLV51S7xrbbnjNktcQtOHYAEAk4e7IdDPibBJ
-S85lySDSCIasXH72w3gC7DVKQ97pWwQ=
-=Ys/x
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacqhzQAKCRB4tDGHoIJi
+0pKhAQCapYKXxoh7wLs86sKi36P+NYNvUj+JVTLeJMg/NjRWRQD/beEA2e9dqea5
+uOIwS0m2yYSUNtMrp2iaJ77+8nu8Kww=
+=jl1X
 -----END PGP SIGNATURE-----
 
---ZBMHEz/e3KVIxzdl--
+--j4xEBCRS2Ch7EH1t--
 
 
---===============5098750870984579002==
+--===============6170223388355069510==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -260,5 +209,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5098750870984579002==--
+--===============6170223388355069510==--
 
