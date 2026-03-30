@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C214FC72A3
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 08:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C27F3D61E
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 08:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qxktsPD6MzMv1QMHfWJW8IlIbSePxZPPbIYV9Ha4r6k=; b=0vl7pDuQbsiFjD
-	VXLh7QXGHtVHTaeZ+6LlhQauPNebG2zAnkdC83PsYWthFULYqOXsJh0SjHg39Tv+GOdnGVzH3ufRF
-	uBXoZY5W80aMVmRA/CHMmymXrhuaGJEm3MhDDc0ZUqEpRiNqRaeKU63uCUaYlppOHPuJN3L8WfzJA
-	b5dXjZPjmc/SatxJyY4X4RSgbZfz8/NBt6SIiQP3b27NL/MdosWK8wTIChXvFeWz+2qAFoVz30Pp9
-	VrqUD/164EyAVQWx9H6NVIS8yF4mqFRJ8u9g8B6enWD7RDYDoMkHLcp7mjw+yL+4GGqxcK3Pp2agZ
-	9v30DYEfN9l9EnDRNC4w==;
+	List-Owner; bh=vKqtAi19DDdZBLvytxtlIE3lsEUHdA/aOBhQ+jSqI9I=; b=ZSdY2UxHLFNMW1
+	rtPpA9uR5jY/DtJy1xziIyQQkoN6kB0pWskHoHlFQI5oaoIAoLq/NYrOMUFsgDkRWBTLSsf1IHjRz
+	3qTxtxIWL4kzKyx1nOIb8A0v0TcIlfxR9QLvHE09GAJVfN29jlFbJN98At2JfXis0xqzW44HPSgGB
+	MFy45/m4jaIcGWtXC7WD3aLLhQZBLJFj3otFydj36UvJQvl9JAB1Slts1Su9gDpA8xzDCCjeQ1Yfj
+	p89uRlJ+XvsQLHoR7sehxLL/jofMnWtQO3R5zUNdQRSlz4Ts0PLiLyqx+OENLuq4DF34f3TNz6/Xp
+	wgJ8JP5lLEex5rkTs8Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w788v-0000000At0W-11c1;
-	Mon, 30 Mar 2026 08:38:41 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1w788y-0000000At3Q-2fyl;
+	Mon, 30 Mar 2026 08:38:44 +0000
+Received: from mail-wm1-f46.google.com ([209.85.128.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w788r-0000000Asw4-2H81
+	id 1w788t-0000000AsyL-30X3
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 08:38:38 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-483487335c2so44271095e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Mar 2026 01:38:36 -0700 (PDT)
+	Mon, 30 Mar 2026 08:38:40 +0000
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-487012ce896so25202615e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Mar 2026 01:38:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774859916; x=1775464716; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774859917; x=1775464717; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1LbwR62Ox4pP35TzcC1/kMlb8rYdhZytDukagY2Rkq4=;
-        b=nABRkIyw7Bxj1hs/RxCAsH1RF72hrOqzIKz7Ev6JC7qJ85N8IpIetXPWnoIlw7o/Oi
-         zmnPpgJTnNmhoMoak1ryNbbXvWVM/apfCsslqduRyHW1SqvH6QJPLUqCNKLBGupJMHNj
-         K1frXu/QYIL0x6OciSW1ZY0qvO2RSlyx+7G3GvP60l0Tg9Qi2DywrzZaToBIxQ12Wtru
-         51BQgfqmZi/yijF0jeWEiV567HQeQRxgXaszWzf4Ekz2gsYZUVgEEC1EPDLZPdjqiTRt
-         xbtqd6tV4mUD7dGJTq6qmyP6uWDFbgmRp2GPXH+y/TGlqveSl6arnMJcqGHGWlFpt0wG
-         YYtg==
+        bh=YWssdxlHALW3Qgq+7Nkzy7T5aM2eq9AsrkcjeZdUOek=;
+        b=ZH2B48F1D5rgMVJvydy7oBaHPITcsL3ZJCB9y56VB5AoPbPOL1F8gNoHC4yxlidbq1
+         xpEVRGx4V1u3Ykt5hQZlwwqG/jmyHootV9bsqqbARtbbzegh4qWc2rHQokLWYkxYBZDv
+         NtD3puw1XSvsZ66q/grKY7rR2hqwPfyGjwC7BF/HYmPzhe0dkfKvdiEKoclaoVbMGLP1
+         JCR1MRwatGyVgTsRuE5SwusDK3kkibF6fYUmeyjMMYTiAOS5nWGBwsxA0M2RxA5fd1U2
+         YksbJ8PqSvLgF0r/lcB/8sNwEFEO8z2Z2FhT9Aqeg36doVihfvn5JbTiKDxqzKP+hnPH
+         CK5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774859916; x=1775464716;
+        d=1e100.net; s=20251104; t=1774859917; x=1775464717;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=1LbwR62Ox4pP35TzcC1/kMlb8rYdhZytDukagY2Rkq4=;
-        b=bJAtTB6eJyz80lWU0BsbEpYfqqUzTtretHzaiVyW6YkTyIObAOdkpzvAWsj5+mhaiX
-         /iO/1DXcN889U4wX0RppMFTagHGAkrtcUBaNMQkFd7RCsHJd0jr5mCdXHGgDVxoh/hTl
-         6WrC+fMbIV9Wl4doXmlFiy4YzU3UGRdXxIQHy7ElceI3ijHK42cIKb3njKCd8h4rts7E
-         h96KlFqD90MK+wi/B4CX/OPEGMhNzSPfv6bvg9tNNgSObD+WpraXpnbBXMxlS3056JM5
-         J2P7PDAHRqd9VkwEvTTXUw/jr4N4y3aiVba9G6bMu/1+7Obz1Ornvak+uunfN9kxqJqb
-         gvAA==
-X-Forwarded-Encrypted: i=1; AJvYcCVw+TJPWeKVsoRhJkNHNLko9R4GVg18ihXDbUiPDWWLAHmBkg/ZJ0G6T6T8v28HZp1jP8icePxLJbfQFg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE+SHKnPh5W1+b/RXTvt4zhvF7KV6yCgUpxFWLlA75rC6b7xF3
-	rXSeRVjQFYZ44JrtHFJ3TfwoBjRNYer/IC9wmOY0K9J0Z7FsccvnWKNy
-X-Gm-Gg: ATEYQzxu3q6g8qbjyiOXmpWXn9RaI+mRlm1QgPopkVnkvj/1t0k2Qb0iaJv/xYq2bWA
-	ep768kGyMjiJIgoXdnZ1zF+Kh3FKmxWgn398DJ82h7z6Y33wAXLOa3rkWWxFgZHmI00vsh/skCR
-	o73L3pxzT6JntcSnqlsLo3/n5CXuAqNBe7+uFAW34TYcgwmohdUZq5XpJuPxlzT87vWCO7YQSIJ
-	Z56ObTFAelrn4yzgEZP75UqMU9oKZv9z/HzbGIR1fapyJOHZl7jkV2rNdUlacq1azPEpsLPF8GS
-	Om/tFZkcV6N59AwDptMQnYYURQ+OQNzogL+TY4/DPv1SfE4Ym3sZPDdkkIVe9usTa3podgDiTZQ
-	o5CpwgdOQx7/cAuHzNJ1O8vzs+b4BE9LAL04kVDq4yAzr1FSoNjrGv0JWiD3bK3PHu9mua822bf
-	Cwf8qzFimh/nrrYo7vlbU0npjSTVLgJYL7Wzqx8gG0Vr0GY3ttmvOA0PClIwZCJn5Z
-X-Received: by 2002:a05:600c:5249:b0:487:386:3714 with SMTP id 5b1f17b1804b1-48727f7bb08mr213736895e9.17.1774859915529;
-        Mon, 30 Mar 2026 01:38:35 -0700 (PDT)
+        bh=YWssdxlHALW3Qgq+7Nkzy7T5aM2eq9AsrkcjeZdUOek=;
+        b=W428wXsVuC1Keanj4Ul0R2FBmpUfSjhBWlHXyTcRxyf3wXn7W9Sam9FnGIkGyQfBr8
+         5TYZ6ySGoFi6eXlWjMiHOvQGZ8wW/GbNm7a4nnDZS9IVvVPOV36FX2s2DKjQl3Tlgtb9
+         sYcwlZpPjiIHn8L1v9KY8UjDeRFR0lU/3l9LKWjx0FZ3vj/V74/0Mr71jQVV8YB7JVXJ
+         /IY+cUjdzRj+pIAbuifhiVwqIxJD3TxhqN9XAqndDidcpKgeP8aEpAPzvXBg9qcy6ETU
+         80dWbkHD3gdt1uUa+jCyEt3AtczdabKMwULVTftQzRznx2XydLrvwjDD2beqoLKlxapy
+         Aukg==
+X-Forwarded-Encrypted: i=1; AJvYcCWmXhbXK+i+dRaw+QCDHPkqbx7nmDxu/M8bfS5BP6XtJAfahrPW74yrPDkgA3ScWUGCZQdGDM2syhwzxw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpZKdqj3m4lq6/OZJ4Bcv+186iu0YdBLe/RVCx2CViVOpoqDCx
+	AbKe3hRqm2SJfj/PPxxhW7+RsyVLwuN4di61iXGmep232tznqqXOg/Yt
+X-Gm-Gg: ATEYQzwtNDnPcrOcQA/anFzMcBWEhGH6M86RSOujmuWiZGNl5fbD7KurDKJOg61R9z8
+	VMuAXZQjnoDm+m8gkPqyZu+Bs6H356C0LN4NFBCJI+oE4XnFKDJLtPmICUFwaCe5WkhVqXsqBXn
+	r1xz5KLS9EvWlOsIqoIISLbLGqgDfIkFuX/wmpPa8/IrYsrMKF6nDSAbCw53FchshHJMXF33l+l
+	b0mX38LUgJX6atFt4VI6XgECzY8daLQwq3xMnpyEjeCEw5+ksPQj0s76CHGX8bj6fTi3gCcVTcQ
+	khqWtdvNV+/8MJXTmZto2g6V6XQXtdjgWdtWBvPKRWELkusSp8sOQBdMtSJ0ldP2cLEMNp2/l/l
+	AofVlIsB1GrJum9cHIqyUXzfzw3LFl9mMw5t3wpYezDgDeCgFkwOhYP4pA15XYvVM1XdC9dK91C
+	p7dxL2+DMRGvPotxnsQ+qwowTo5Bf3LPsSwTJxp56AiCKmfuVmQbNB/SRogCCc10E0Fd6AeDolU
+	zM=
+X-Received: by 2002:a05:600c:4f91:b0:486:f634:ef1 with SMTP id 5b1f17b1804b1-48727eda549mr197940965e9.17.1774859917344;
+        Mon, 30 Mar 2026 01:38:37 -0700 (PDT)
 Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.232.54])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4872712c236sm74063315e9.14.2026.03.30.01.38.33
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4872712c236sm74063315e9.14.2026.03.30.01.38.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 01:38:35 -0700 (PDT)
+        Mon, 30 Mar 2026 01:38:36 -0700 (PDT)
 From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Mon, 30 Mar 2026 10:38:08 +0200
-Subject: [PATCH v5 7/9] riscv: dts: spacemit: k1-orangepi-rv2: add SD card
+Date: Mon, 30 Mar 2026 10:38:09 +0200
+Subject: [PATCH v5 8/9] riscv: dts: spacemit: k1-bananapi-f3: add SD card
  support with UHS modes
 MIME-Version: 1.0
-Message-Id: <20260330-orangepi-sd-card-uhs-v5-7-bd853604322d@gmail.com>
+Message-Id: <20260330-orangepi-sd-card-uhs-v5-8-bd853604322d@gmail.com>
 References: <20260330-orangepi-sd-card-uhs-v5-0-bd853604322d@gmail.com>
 In-Reply-To: <20260330-orangepi-sd-card-uhs-v5-0-bd853604322d@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -87,12 +88,11 @@ Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
  Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Iker Pedrosa <ikerpedrosam@gmail.com>, Anand Moon <linux.amoon@gmail.com>, 
- Trevor Gamblin <tgamblin@baylibre.com>
+ Iker Pedrosa <ikerpedrosam@gmail.com>, Anand Moon <linux.amoon@gmail.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_013837_601468_60E21BF4 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20260330_013839_780847_97694820 
+X-CRM114-Status: UNSURE (   9.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,20 +122,37 @@ Add complete SD card controller support with UHS high-speed modes.
 This enables full SD card functionality including high-speed UHS modes
 for improved performance.
 
+Suggested-by: Anand Moon <linux.amoon@gmail.com>
 Tested-by: Anand Moon <linux.amoon@gmail.com>
-Tested-by: Trevor Gamblin <tgamblin@baylibre.com>
-Tested-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
 Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 ---
- arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 24 ++++++++++++++++++++++--
+ 1 file changed, 22 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-index 9c417a483f6bad6e60617cf8d5400ca079588726..5f823611c969eb0e15546862228ae4f65375675a 100644
---- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-@@ -140,3 +140,22 @@ aldo1: aldo1 {
- 		};
+diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+index 5790d927b93db350c8f53aa0f314183b3173fd76..a5bd63976a4ff772ae9a9f983042e9b032ecff95 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+@@ -220,7 +220,7 @@ buck3_1v8: buck3 {
+ 				regulator-always-on;
+ 			};
+ 
+-			buck4 {
++			buck4: buck4 {
+ 				regulator-min-microvolt = <500000>;
+ 				regulator-max-microvolt = <3300000>;
+ 				regulator-ramp-delay = <5000>;
+@@ -241,7 +241,7 @@ buck6 {
+ 				regulator-always-on;
+ 			};
+ 
+-			aldo1 {
++			aldo1: aldo1 {
+ 				regulator-min-microvolt = <500000>;
+ 				regulator-max-microvolt = <3400000>;
+ 				regulator-boot-on;
+@@ -367,3 +367,23 @@ hub_3_0: hub@2 {
+ 		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
  	};
  };
 +
@@ -146,6 +163,7 @@ index 9c417a483f6bad6e60617cf8d5400ca079588726..5f823611c969eb0e15546862228ae4f6
 +	bus-width = <4>;
 +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
 +	cd-inverted;
++	broken-cd;
 +	no-mmc;
 +	no-sdio;
 +	disable-wp;
