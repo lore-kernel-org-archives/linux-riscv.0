@@ -4,89 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E328FF493A
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 03:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CBFFF4939
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 04:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7C+DU3WXFFsQfjO82v299gFe4AP81c5IKe0wsEWC8jI=; b=hvqwH/2GgQuR86
-	LE2ezA6Wc0IKrU0V5DpjGUhn00WiU/QbdDY5BzvAeBFTPbrFkG/Vxvp6cWE2MGB7iTRE3TgCPVgHm
-	AKqOZb+ZMRE1iUwgNRRQTiCYdjC3qX4WQhSNZ7EPoSISyalmNp6TyT43T4bcFV2CTJkOVWWcW2F7w
-	T/1/1pYATUIYc+3L7xBSU0tNEW9WbeL9TKDzYXgQmMxJ2lTKX6G3e2weD56E57spKrO6ZAAexEBT6
-	07I0zSz1s6XIElCXvHZK9ik6YjEuTIk2VE0PGubEKxNIVXEPbnrTIVf+zNSym5O7bcipOtYvk3Dca
-	G44eeO/bLOwN5TOSDV2A==;
+	List-Owner; bh=gamH08gJF7GXCz9lz6M9jo92rLVTukUlO7FvUSORhSk=; b=V4v+bWguoTY4vi
+	YhvOvoq/CXIbZDacWXS3dZDYgRJwO1EOllt5eCcUBS3mFjoxv2zbjJqfXEvdJm/tr8YjegB3z3vq0
+	HHBCjYxsK5lTV5My4w9pFqg7lYeg7UN+3I+VgmeoMD09uhSncZgoGOzIWnkh0mvp5iVhFsV1YLHgI
+	YK3aihu5FF6xZ8u8ZnSlEoBCfLoRzbefFtuiGnwii5sB3M5B1t8yu4XBuNLNx8N8wRiHXJTub7/aV
+	MAOJj5tiSJ41YBMvGAknUgnpNsGciKHVU2M80fBE/Sj8ENf+zhpFgDk5+Fk+0Shlglb3Ci4NuvmNq
+	lLxrBL/xVqL5ZKgPC8bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w73dR-0000000AZUr-0aBD;
-	Mon, 30 Mar 2026 03:49:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w73ve-0000000Aa6Y-0Ruv;
+	Mon, 30 Mar 2026 04:08:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w73dO-0000000AZTs-0N8M
-	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 03:49:51 +0000
+	id 1w73vY-0000000Aa5s-2sWY;
+	Mon, 30 Mar 2026 04:08:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E7D64449E
-	for <linux-riscv@lists.infradead.org>; Mon, 30 Mar 2026 03:49:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65457C2BCB5
-	for <linux-riscv@lists.infradead.org>; Mon, 30 Mar 2026 03:49:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 80C04419B5;
+	Mon, 30 Mar 2026 04:08:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFE31C2BCB0;
+	Mon, 30 Mar 2026 04:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774842589;
-	bh=obCDFOyxCbjX0f8M408do6wNaHwmsZQneN83knIeC68=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=eoZ8B/stmhNenV55/GZwaY1J2F6+Mdl80yqD9NRcEWBOsoYl+9c7bLnMbhuDm8UCy
-	 /HdFRjzUQbmAk/UyPSD+aNwyk+7+AXRsactruboxv4TBhmx7ZVUw3PnXCFXHbt/2Tv
-	 8gPyg7oqfxDRPwPwOxonENTYb7rY2pfqtB3H6lN+8wTRbtHFo5byuP+ppf4WRnAd5Y
-	 XciAnSMYuc3D6bWIB/pXvfsgHa26rnCnF4gtv6axbQIdyVpVlSoEdBsZ3ZtXIwQJfW
-	 magEl9/ciAmyJ46LOqRQucXon3Rz5vlKU6TS+JdRCMl0FTU+kXQTbAQM34dEaStji4
-	 KbhEz4mM9Fraw==
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-43cfd1f9fd1so336444f8f.3
-        for <linux-riscv@lists.infradead.org>; Sun, 29 Mar 2026 20:49:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW80gchv2GozMArQWUjcDM9bp4z+Vww2N1tRa2iON/9dXa5jI/7r7+Lo3wEVPQwQGwgTc8tVyaJcZ3iQA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN0OQUQdA6k3fysgaWGDxKwFzujrp3yUo727tjpj9Nv/HqNSm1
-	lQyfTMTMDUUsN9zgczHWU7RD+RO1IiOJwcYTfkyIYcIAJBUZS6ETezCpzRdXFFst7cVrt2EHfXF
-	YP+GBBQF3hrT+tKWlf2kNYuX3P+xew0I=
-X-Received: by 2002:a05:6000:250f:b0:43c:f4df:923c with SMTP id
- ffacd0b85a97d-43cf4dfaca4mr10913170f8f.49.1774842587366; Sun, 29 Mar 2026
- 20:49:47 -0700 (PDT)
+	s=k20201202; t=1774843715;
+	bh=+A5NQMhCBBRKzoUSudLKLJZAfA7+8FwRJRitDmnyubY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rk5v/EL75EZ+hbfqEshAQz2QQe+iuSZNg84JSHBgQeHC7MQpiAlomNcv0214mZuA/
+	 gbjlTaVuay4FRB4MdNSX8Dc51tayHV0e0emc/xX42elGiN+vJjajX0Mj+DjRgCotku
+	 NJi0Cx4TsK5vFwnV0mTb3dWliU8/DvykqoMFl4Ne60JHqqLvWC6hKlA59DG+0Ub0mK
+	 i/RlQXksnWCqxo0T2LZaEiVWOLa6KPURQ9Z4xB+WBPWlEQnWDb+1w70onILoyinJz8
+	 gZZx9gSRcK/J1hwQTRHyR8albh/f2o81y7CxFJD3rwa1khO6zG0Hxaks+qBoOStyxZ
+	 Du8I3EdOFGAig==
+Date: Sun, 29 Mar 2026 21:07:24 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Christoph Hellwig <hch@lst.de>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>, Theodore Ts'o <tytso@mit.edu>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
+Subject: Re: cleanup the RAID5 XOR library v4
+Message-ID: <20260330040724.GA647721@sol>
+References: <20260327061704.3707577-1-hch@lst.de>
+ <20260329213119.GA2106@quark>
+ <20260329155126.a01a5729b7d8376712182851@linux-foundation.org>
 MIME-Version: 1.0
-References: <20260328074013.3589544-1-ruanjinjie@huawei.com> <20260328074013.3589544-2-ruanjinjie@huawei.com>
-In-Reply-To: <20260328074013.3589544-2-ruanjinjie@huawei.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 30 Mar 2026 11:49:33 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRN=RpgzQsQ7QDbwjDmyQZP9anQZ+CaK2r-Mrz9dQbohQ@mail.gmail.com>
-X-Gm-Features: AQROBzDiH9EGqvtsmkvuTI8F_a_MxhnUfiDn46oBgBr7JyKcMW8nH_9Y5zS6MkE
-Message-ID: <CAJF2gTRN=RpgzQsQ7QDbwjDmyQZP9anQZ+CaK2r-Mrz9dQbohQ@mail.gmail.com>
-Subject: Re: [PATCH v11 01/11] riscv: kexec_file: Fix crashk_low_res not
- exclude bug
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com, 
-	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name, 
-	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
-	chleroy@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, hpa@zytor.com, robh@kernel.org, 
-	saravanak@kernel.org, akpm@linux-foundation.org, bhe@redhat.com, 
-	vgoyal@redhat.com, dyoung@redhat.com, rdunlap@infradead.org, 
-	peterz@infradead.org, feng.tang@linux.alibaba.com, 
-	pawan.kumar.gupta@linux.intel.com, dapeng1.mi@linux.intel.com, 
-	kees@kernel.org, elver@google.com, paulmck@kernel.org, lirongqing@baidu.com, 
-	rppt@kernel.org, leitao@debian.org, ardb@kernel.org, cfsworks@gmail.com, 
-	osandov@fb.com, jbohac@suse.cz, tangyouling@kylinos.cn, 
-	sourabhjain@linux.ibm.com, ritesh.list@gmail.com, eajames@linux.ibm.com, 
-	songshuaishuai@tinylab.org, kevin.brodsky@arm.com, vishal.moola@gmail.com, 
-	junhui.liu@pigmoral.tech, coxu@redhat.com, fuqiang.wang@easystack.cn, 
-	liaoyuanhong@vivo.com, chenjiahao16@huawei.com, hbathini@linux.ibm.com, 
-	takahiro.akashi@linaro.org, james.morse@arm.com, lizhengyu3@huawei.com, 
-	x86@kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, kexec@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20260329155126.a01a5729b7d8376712182851@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_204950_169490_B3321F6B 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260329_210836_768784_1EBF6095 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +107,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXIgMjgsIDIwMjYgYXQgMzo0MeKAr1BNIEppbmppZSBSdWFuIDxydWFuamluamll
-QGh1YXdlaS5jb20+IHdyb3RlOgo+Cj4gQXMgZG9uZSBpbiBjb21taXQgOTQ0YTQ1YWJmYWJjICgi
-YXJtNjQ6IGtkdW1wOiBSZWltcGxlbWVudCBjcmFzaGtlcm5lbD1YIikKPiBhbmQgY29tbWl0IDQ4
-MzFiZTcwMmI5NSAoImFybTY0L2tleGVjOiBGaXggbWlzc2luZyBleHRyYSByYW5nZSBmb3IKPiBj
-cmFzaGtyZXNfbG93LiIpIGZvciBhcm02NCwgd2hpbGUgaW1wbGVtZW50aW5nIGNyYXNoa2VybmVs
-PVgsW2hpZ2gsbG93XSwKPiByaXNjdiBzaG91bGQgaGF2ZSBleGNsdWRlZCB0aGUgImNyYXNoa19s
-b3dfcmVzIiByZXNlcnZlZCByYW5nZXMgZnJvbQo+IHRoZSBjcmFzaCBrZXJuZWwgbWVtb3J5IHRv
-IHByZXZlbnQgdGhlbSBmcm9tIGJlaW5nIGV4cG9ydGVkIHRocm91Z2gKPiAvcHJvYy92bWNvcmUs
-IGFuZCB0aGUgZXhjbHVzaW9uIHdvdWxkIG5lZWQgYW4gZXh0cmEgY3Jhc2hfbWVtIHJhbmdlLgo+
-Cj4gQ2M6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+IENjOiBCYW9xdWFuIEhlIDxiaGVA
-cmVkaGF0LmNvbT4KPiBGaXhlczogNTg4MmU1YWNmMThkICgicmlzY3Y6IGtkdW1wOiBJbXBsZW1l
-bnQgY3Jhc2hrZXJuZWw9WCxbaGlnaCxsb3ddIikKPiBTaWduZWQtb2ZmLWJ5OiBKaW5qaWUgUnVh
-biA8cnVhbmppbmppZUBodWF3ZWkuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9tYWNo
-aW5lX2tleGVjX2ZpbGUuYyB8IDE0ICsrKysrKysrKysrLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAx
-MSBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
-Y3Yva2VybmVsL21hY2hpbmVfa2V4ZWNfZmlsZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvbWFjaGlu
-ZV9rZXhlY19maWxlLmMKPiBpbmRleCA1NGUyZDk1NTJlOTMuLjNmNzc2NjA1N2NhYyAxMDA2NDQK
-PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9tYWNoaW5lX2tleGVjX2ZpbGUuYwo+ICsrKyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL21hY2hpbmVfa2V4ZWNfZmlsZS5jCj4gQEAgLTYxLDcgKzYxLDcgQEAg
-c3RhdGljIGludCBwcmVwYXJlX2VsZl9oZWFkZXJzKHZvaWQgKiphZGRyLCB1bnNpZ25lZCBsb25n
-ICpzeikKPiAgICAgICAgIHVuc2lnbmVkIGludCBucl9yYW5nZXM7Cj4gICAgICAgICBpbnQgcmV0
-Owo+Cj4gLSAgICAgICBucl9yYW5nZXMgPSAxOyAvKiBGb3IgZXhjbHVzaW9uIG9mIGNyYXNoa2Vy
-bmVsIHJlZ2lvbiAqLwo+ICsgICAgICAgbnJfcmFuZ2VzID0gMjsgLyogRm9yIGV4Y2x1c2lvbiBv
-ZiBjcmFzaGtlcm5lbCByZWdpb24gKi8KPiAgICAgICAgIHdhbGtfc3lzdGVtX3JhbV9yZXMoMCwg
-LTEsICZucl9yYW5nZXMsIGdldF9ucl9yYW1fcmFuZ2VzX2NhbGxiYWNrKTsKPgo+ICAgICAgICAg
-Y21lbSA9IGttYWxsb2NfZmxleCgqY21lbSwgcmFuZ2VzLCBucl9yYW5nZXMpOwo+IEBAIC03Niw4
-ICs3NiwxNiBAQCBzdGF0aWMgaW50IHByZXBhcmVfZWxmX2hlYWRlcnModm9pZCAqKmFkZHIsIHVu
-c2lnbmVkIGxvbmcgKnN6KQo+Cj4gICAgICAgICAvKiBFeGNsdWRlIGNyYXNoa2VybmVsIHJlZ2lv
-biAqLwo+ICAgICAgICAgcmV0ID0gY3Jhc2hfZXhjbHVkZV9tZW1fcmFuZ2UoY21lbSwgY3Jhc2hr
-X3Jlcy5zdGFydCwgY3Jhc2hrX3Jlcy5lbmQpOwo+IC0gICAgICAgaWYgKCFyZXQpCj4gLSAgICAg
-ICAgICAgICAgIHJldCA9IGNyYXNoX3ByZXBhcmVfZWxmNjRfaGVhZGVycyhjbWVtLCB0cnVlLCBh
-ZGRyLCBzeik7Cj4gKyAgICAgICBpZiAocmV0KQo+ICsgICAgICAgICAgICAgICBnb3RvIG91dDsK
-PiArCj4gKyAgICAgICBpZiAoY3Jhc2hrX2xvd19yZXMuZW5kKSB7Cj4gKyAgICAgICAgICAgICAg
-IHJldCA9IGNyYXNoX2V4Y2x1ZGVfbWVtX3JhbmdlKGNtZW0sIGNyYXNoa19sb3dfcmVzLnN0YXJ0
-LCBjcmFzaGtfbG93X3Jlcy5lbmQpOwpFeGNsdWRlIGNyYXNoa19sb3dfcmVzIGlzIHJlYXNvbmFi
-bGUsIGJ1dCBoYXZlIHlvdSB0ZXN0ZWQgdGhpcz8KCj4gKyAgICAgICAgICAgICAgIGlmIChyZXQp
-Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgZ290byBvdXQ7Cj4gKyAgICAgICB9Cj4gKwo+ICsg
-ICAgICAgcmV0ID0gY3Jhc2hfcHJlcGFyZV9lbGY2NF9oZWFkZXJzKGNtZW0sIHRydWUsIGFkZHIs
-IHN6KTsKPgo+ICBvdXQ6Cj4gICAgICAgICBrZnJlZShjbWVtKTsKPiAtLQo+IDIuMzQuMQo+CgoK
-LS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Sun, Mar 29, 2026 at 03:51:26PM -0700, Andrew Morton wrote:
+> > 
+> > Reviewed-by: Eric Biggers <ebiggers@kernel.org>
+> 
+> Great, thanks, added to all changelogs.
+> 
+> > But yes, as Andrew mentioned there are two "xor: add a better public
+> > API" patches.  They should be folded together.
+> 
+> I folded them.
+> 
+> I'm a bit wobbly about upstreaming all this for 7.1-rc1.  It hits on a
+> lot of stuff and I don't think we've heard a lot from the affected
+> maintainers.
+> 
+> otoh, we're unlikely to learn much from an additional nine weeks in
+> linux-next so at some point one has to forge ahead and rely on seven
+> weeks of -rc to address any remaining niggles.  And I'm confident that
+> Christoph will support his work well.
+> 
+> But still, hearing some reassuring words about this would be
+> appreciated ;)
+
+The architecture-optimized crypto and CRC code has been the same way.
+I've been working on it across architectures, and most of the arch
+maintainers don't pay much attention to it.
+
+I've seen engagement from a few of them, for example s390.  But as a
+general rule it's a separate group of people working on this code.
+
+I think seeing the same for lib/raid/ is expected.  So while the arch
+maintainers are always welcome to chime in, I don't think we need to
+wait for all of them, as then we'd be waiting forever.
+
+Re testing, I've been running the crypto, CRC, and now the XOR KUnit
+tests in QEMU for 8 architectures (arm, arm64, mips, powerpc, riscv,
+s390, sparc, and x86), and over 40 variants within those (e.g. varying
+CONFIG_64BIT, CONFIG_CPU_BIG_ENDIAN, and QEMU's "-cpu" flag).  They are
+all passing, including the XOR test that Christoph added in this series.
+
+(So I guess feel free to add:
+
+    Tested-by: Eric Biggers <ebiggers@kernel.org>
+
+to all the patches in this series as well.)
+
+That still doesn't cover all the arch-optimized code, due to me missing
+various combinations or QEMU not supporting them.  But it's something.
+
+I'm also hoping that with the move to standard KUnit tests, we'll get a
+larger group of people, including projects like KernelCI, that simply
+run *all* the kernel's KUnit tests on whatever platforms they care
+about.  That approach is more scalable.
+
+- Eric
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
