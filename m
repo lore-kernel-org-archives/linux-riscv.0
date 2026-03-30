@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6B910D14AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 13:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0720610D14AC
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 13:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IlHyzAUX5ekESefawJld/GjHYZEaoRS+ZuKyhxjnK+I=; b=ufWZTbx1iPhFSa
-	cWrO8ez5Cno062Q8VrPXOw1I7pmvRU9qreQnoMN2EtfDzjq0uGRHOL0wE6ZXu/JDGYV6Dg3sFo351
-	0o1a7r4AAwA8FAjjH+72Zc+sZo03kBzLsdAoMkAGNiQe2iwUV173WiH1OkE+lHn+GniPDOy7cFdXc
-	l7OwrmVDygMY+RejN0/0lcirAwUt5IpPji0J4owbn9hSYEThpd0ws3ns32z0ADbLTQPx+2Th2x+ut
-	daLPCa91i4LpU7xM5wwFk9gx55kGiasHMbVbPZ1s6olDebfbCg3U5M+1NlkTEVsWnj06Mm3EgE+MP
-	fUSFDxIVcofYYDdK5aig==;
+	List-Owner; bh=6EuPNP3Tg22+CLZA7WEyizkXZofz6Ua757UaJcZOoQ8=; b=riLZRU2YsmxqgT
+	q0mKHD3P3wA/WKs9euKPGZ4VVzlOrzz1R41yndABLHqUtj/KkatkOZ/RPDctg8PVkqDR+hLi5Uo9P
+	GD0BoMj8BmacWRUi8UWfl+Gg0Hd9BFsKZ2LchyVb9HAZxgnYW/xPcaHVU4/64H4Hx+uGQ+kQni8Wk
+	+cPrfwb0EUuUPRqWy2yuBlW4IEIyY5l6Fj5SvR+NzdarH8HEBO37gfE1zoyUEvGdmKD+e5CUJYc8G
+	3PY6txGwfHnHiR3EHg6gDc4iIDpfe+38REG55jf7yuwH0M8eL88BsIt5+vcg6jsmjFWnQ94qp7t3H
+	opginKlbeD2K06yLdTHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CEc-0000000BIud-2fEu;
-	Mon, 30 Mar 2026 13:00:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7CFP-0000000BJ1U-0CaG;
+	Mon, 30 Mar 2026 13:01:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CEb-0000000BIuS-0IsD
+	id 1w7CFN-0000000BJ1F-3G3K
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 13:00:49 +0000
+	Mon, 30 Mar 2026 13:01:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 821E6600CB;
-	Mon, 30 Mar 2026 13:00:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2499DC4AF0B;
-	Mon, 30 Mar 2026 13:00:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C89760054;
+	Mon, 30 Mar 2026 13:01:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C6A6C2BCB0;
+	Mon, 30 Mar 2026 13:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774875648;
-	bh=eCL11sUYqGfX4+w9+NSYE4ebyTa02GK7fnwK/9ZxG+4=;
+	s=k20201202; t=1774875696;
+	bh=46hgEsoVh7DWB3Qb+l89sRe9XPzOO381zEYqmnaR2ZQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FpvBk6Z9TpkMj4F5C0mRLG/COVbR16Yb7RTcoCgMU7I1mCd13rAZsbOrDoyUfXjK0
-	 S58pMUjK6DVz+NOfxPWyT1NQ+VT89ShT+V90ndiHwLQoWFKv1sfDyJDRENTbaRjDAv
-	 kLvTZP/rX6YA+yu8vmvGdZg7wYIRxczlEv+aeAzbeFBucSREwPEm6qAFhT+eZ6OfVM
-	 0xYj+aAdaf2qFWrRQ7rngcsPTpe+jc5hZbPI/hIT+osGbkBPa2VYWZjHTPQPxCRRZb
-	 RmG9if8eAIBYPjHsh9gVqbCyfGbbWfs/HellT1GXVsQe1o3+gKhZZPZ5B8OgoLzgOG
-	 jE7jUT0xwbdvg==
-Message-ID: <c2a135eb-c8fa-47d6-b774-430ccc4fbda4@kernel.org>
-Date: Mon, 30 Mar 2026 15:00:41 +0200
+	b=Bc2H5JIBV6OXdB5IVgmhTLdoaHeAQQcalOkaTPOpg2BsknEyq1C+h1vwryd2BWk3N
+	 c0xu+g0UE6jugkQddc6L6kFTPas/fUs7MUN6BEB/V0M9fJxsCcbam0Ntx83Ud+lv9w
+	 S/hTiNqcYi5RYOLjk3fIxXHsWi/AVEraa7qZL1/HnaQlPHi5ffUf+kW/FS7PtolKxw
+	 tZBk8SC/YdNa6HoQpopFbgByU2OOWXneHrDltgkx70sFYBDivX7//WwE0wqOcF89FM
+	 67XlR1Z8CEhjgGz6Ftru+DQXx3FWj91viaoeBsnydVoAZtgbRNcVFAIqgwQEGzkf6p
+	 5armVUPByaGdA==
+Message-ID: <0a8598aa-5207-4ff4-b4d9-034b6910bcaf@kernel.org>
+Date: Mon, 30 Mar 2026 15:01:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] dt-bindings: cache: ax45mp-cache: rename ax45mp-cache
- to llcache
+Subject: Re: [PATCH 1/7] cache: ax45mp_cache: refactor cache driver for
+ generic Andes platform support
 To: Hui Min Mina Chou <minachou@andestech.com>, pjw@kernel.org,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
  geert+renesas@glider.be, prabhakar.mahadev-lad.rj@bp.renesas.com,
@@ -55,9 +55,10 @@ To: Hui Min Mina Chou <minachou@andestech.com>, pjw@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, jonathan.cameron@huawei.com,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Cc: tim609@andestech.com, alex749@andestech.com, az70021@gmail.com
+Cc: tim609@andestech.com, alex749@andestech.com, az70021@gmail.com,
+ charles <dminus@andestech.com>
 References: <20260330102724.1012470-1-minachou@andestech.com>
- <20260330102724.1012470-6-minachou@andestech.com>
+ <20260330102724.1012470-2-minachou@andestech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260330102724.1012470-6-minachou@andestech.com>
+In-Reply-To: <20260330102724.1012470-2-minachou@andestech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,17 +122,17 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 30/03/2026 12:27, Hui Min Mina Chou wrote:
-> The AX45MP-specific cache binding is renamed to a generic Last Level
-> Cache (LLC) schema, as the driver now supports more Andes CPU cores
-> beyond just AX45MP.
-> 
-> Updated compatible strings:
->   andestech,qilai-ax45mp-cache    -> andestech,qilai-llcache
->   renesas,r9a07g043f-ax45mp-cache -> renesas,r9a07g043f-llcache
->   andestech,ax45mp-cache          -> andestech,llcache
+> -
+> -static const struct riscv_nonstd_cache_ops ax45mp_cmo_ops __initdata = {
+> -	.wback = &ax45mp_dma_cache_wback,
+> -	.inv = &ax45mp_dma_cache_inv,
+> -	.wback_inv = &ax45mp_dma_cache_wback_inv,
+> -};
+> -
+> -static const struct of_device_id ax45mp_cache_ids[] = {
+> -	{ .compatible = "andestech,ax45mp-cache" },
 
-Why? No explanations and that is clear ABI break.
-=
+NAK, actual ABI break.
 
 Best regards,
 Krzysztof
