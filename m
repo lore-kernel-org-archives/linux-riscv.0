@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75551FB3CE4
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 09:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFC4FB3CE5
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 09:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8sVdnyTIyTOIjkIlNbPtrAETVLGuWItRo2tLNt3iO/s=; b=xyGbiZmiXiyYQW
-	fvktmMvJYfM+nVxyNiff51oeMc69ekKjGAhDAfdDXdFFmOEaUnjxaSqVxvlf68hIFEfj5El1o7zuW
-	OIUqy6RPc+k8FRCDR0OwchQVT6J9x8n6c6SnvmQqnPxQgHtTaehU4cUWz5Tu2+eDeoaIME7+mu1fw
-	mUsiX+MC4C/xA+DvhkYELhrnvNSX5zZDkbGhhrWHYsbpCZgUwcrYItXi9n2DmPCIhJ1ApzE4cVY/P
-	NCJEdr/wXBpOlGPXqzQqtB67nivGM9BFy9USTt1cbWiZeZ3bq8onFixRkuVh9zAG6ee49hce6zfT0
-	TtGTdGmIb+1eSUcfWHPg==;
+	List-Owner; bh=e9yXvwoeCp7Xjn55z87lu7RnFKbGLH0YTrChaTAVJXo=; b=OKFBsayP/blQ43
+	1UjbZzlLl3MviwLFE8ma/8Ql1mA2V+x+QnKUfoLznuZtWYAmh+aKYI5sAJ9Tw+gzA1f6WGaFWM0Co
+	CbdBeZ1zVL5A8xbNiU6ngKNG1W0o2jTKnMPn06Eg5LQ49XjwXN2jIaabFhhJ9j0YJRIUAiHzCWAKh
+	El+rHF86aJDv5wBFvNGfgKXnJ8TpNvhoAy/wN23mAioVQXIzegirWILZ2z3uqge6M0cRLsid4xxPE
+	nR/Xc0kQ61sAKN6g/9EbTmNRpissuAM9OU3Icj+RjVzAGGEMGjzBMYy68b4EytZ0gkeweRLaBGILk
+	J7BsRBWf1L4Cy3ahUs2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78ec-0000000AwBI-1Hhx;
-	Mon, 30 Mar 2026 09:11:26 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	id 1w78iq-0000000Awd2-20Yq;
+	Mon, 30 Mar 2026 09:15:48 +0000
+Received: from out-183.mta0.migadu.com ([91.218.175.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78ea-0000000AwAk-21E7
+	id 1w78in-0000000Awc1-0hxY
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 09:11:25 +0000
-Date: Mon, 30 Mar 2026 17:11:09 +0800
+	Mon, 30 Mar 2026 09:15:46 +0000
+Date: Mon, 30 Mar 2026 17:15:34 +0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1774861881;
+	t=1774862142;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=RWLL1ngJTwQYwWnnu+CvoNT76JVvFYBiVINVvbGMfIs=;
-	b=LqTHpS3Oy8BE0FVueb0+OHKZbGIzEIAXz/ujG5sEIXVN1V7nvBUViVznOfte/SHGMNMtiW
-	+F2FkUKLqtfkLudR9xNPOI/J2hEeDfEMZB64Ef0LSBUjhLFoylMdCt9B93lqr7U62ffDuf
-	lPpbhVfPpXC1GUl9MYoC2/zkjR+brJw=
+	bh=ffNey6SOjj6PKeMnJLurYQewyxdkCi4z/62Wjxr/TDg=;
+	b=lxRPe8ndEyU517wIcgrl2IHaTXvpw4dbrzkXLqhOImcJA1Z/hSzUM6VLjXmAqBlFWoeSXU
+	2UblgqPB0rl3E6gSUr9lMritOmbjAkUdGa27ie9MMebNPGClDFgHJ/Nqp/ZZujsEsftLsA
+	VmYg3LRd4F+Q8Nz738sYapqFq3A6c8U=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Troy Mitchell <troy.mitchell@linux.dev>
 To: Iker Pedrosa <ikerpedrosam@gmail.com>,
@@ -54,18 +54,18 @@ Cc: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
 	linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>,
 	Trevor Gamblin <tgamblin@baylibre.com>,
 	Troy Mitchell <troy.mitchell@linux.dev>
-Subject: Re: [PATCH v5 2/9] mmc: sdhci-of-k1: enable essential clock
- infrastructure for SD operation
-Message-ID: <aco-LZmy7iTTFG9v@kernel.org>
+Subject: Re: [PATCH v5 3/9] mmc: sdhci-of-k1: add regulator and pinctrl
+ voltage switching support
+Message-ID: <aco_NocWwrkGdTaK@kernel.org>
 References: <20260330-orangepi-sd-card-uhs-v5-0-bd853604322d@gmail.com>
- <20260330-orangepi-sd-card-uhs-v5-2-bd853604322d@gmail.com>
+ <20260330-orangepi-sd-card-uhs-v5-3-bd853604322d@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260330-orangepi-sd-card-uhs-v5-2-bd853604322d@gmail.com>
+In-Reply-To: <20260330-orangepi-sd-card-uhs-v5-3-bd853604322d@gmail.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_021124_669118_1C287F4F 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20260330_021545_379556_C2B12E8F 
+X-CRM114-Status: UNSURE (   7.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,23 +83,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 16:38:03 CST, Iker Pedrosa wrote:
-> Ensure SD card pins receive clock signals by enabling pad clock
-> generation and overriding automatic clock gating. Required for all SD
-> operation modes.
+On Mon, Mar 30, 2026 at 16:38:04 CST, Iker Pedrosa wrote:
+> Add voltage switching infrastructure for UHS-I modes by integrating both
+> regulator framework (for supply voltage control) and pinctrl state
+> switching (for pin drive strength optimization).
 > 
-> The SDHC_GEN_PAD_CLK_ON setting in LEGACY_CTRL_REG is safe for both SD
-> and eMMC operation as both protocols use the same physical MMC interface
-> pins and require proper clock signal generation at the hardware level
-> for signal integrity and timing.
+> - Add regulator supply parsing and voltage switching callback
+> - Add optional pinctrl state switching between "default" (3.3V) and
+>   "state_uhs" (1.8V) configurations
+> - Enable coordinated voltage and pin configuration changes for UHS modes
 > 
-> Additional SD-specific clock overrides (SDHC_OVRRD_CLK_OEN and
-> SDHC_FORCE_CLK_ON) are conditionally applied only for SD-only
-> controllers to handle removable card scenarios.
+> This provides complete voltage switching support while maintaining
+> backward compatibility when pinctrl states are not defined.
 > 
 > Tested-by: Anand Moon <linux.amoon@gmail.com>
-> Acked-by: Adrian Hunter <adrian.hunter@intel.com>
 > Tested-by: Trevor Gamblin <tgamblin@baylibre.com>
+> Acked-by: Adrian Hunter <adrian.hunter@intel.com>
 > Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
 
