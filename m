@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A9DFF4954
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 06:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6D0FF494D
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 06:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bAAwccWidiCw78j2HUBHK5Su6Uh/U65ohCuKWFYowZc=; b=yPN1FmUIVoxUBW
-	7SbwC5K1/TnhCZiHuwi9MV4SOugjCtG+iBMaNduSllbldbb9EPCirOvkFDiP+CRiymIImUoY8sP5l
-	2ZaFCJfPK9aLv94HZLdBhPLWQQN+ZGhugpAlEKhLjgT3Rn77yUCz9p2sudbndG5H0SBcLYfq0SzHP
-	+DnephxTB+p9cZGppguzvd4w37mxPtuMJueCxMh4MOk9CmtpVolRhc4ag4YD3fzD+hBvpBe8Jo88T
-	fONoWtOFGSTpPAHOmDoWDdufHMjG7wS6jI+y3+wix+P7hK20JgxLK6hduP9ZQurYcp+oxuYpvh8pD
-	Fbzery/Cqb2902jh4WRw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1V64YzT2CEZrxyJp0SVhjzRy9WVGybJDmDB2w1qUIyE=; b=ApjBU4PYCQWTnt
+	hvc4Wi5VIgRhqErWfGX0lWhTQpTocgG6qoJj2NZdNhshGDs8WaqYSMGMSjnY6uGdhzAG2T/CpZf+e
+	GQroTb3wrkOu+Lu/Ot0jBd0qu+vxMtIwgKST/D/8YuU5J4JPsZjHbW2RIHLPnRqQEUbVrSPITvz8g
+	VD/LGsLcxk2f9Fg+STxtoCLdg8j30ikrYQDePCthWaw4gUaemE6nQMraYNziC6XaFjzzKJmpgtYuY
+	aLkCe5FdaUh5HkC9fwFF0MERpH2KA3wO9w4Sgk7GLntyDWjdGhDO+NlQWBvJ5d5WUkt9ejAVxIW0J
+	4RCKbqRGwMdtJ6+rzemQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w76B8-0000000AhJk-07AP;
-	Mon, 30 Mar 2026 06:32:50 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1w76PT-0000000AiSa-1GXl;
+	Mon, 30 Mar 2026 06:47:39 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w76Aq-0000000Ah5s-0sxE;
-	Mon, 30 Mar 2026 06:32:33 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 30 Mar
- 2026 14:32:11 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Mon, 30 Mar 2026 14:32:11 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Mon, 30 Mar 2026 14:32:13 +0800
-Subject: [PATCH v4 4/4] irqchip/aspeed-intc: Remove AST2700-A0 support
+	id 1w76PQ-0000000AiSA-0JAZ
+	for linux-riscv@lists.infradead.org;
+	Mon, 30 Mar 2026 06:47:37 +0000
+Received: from [127.0.0.2] (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowAA34Wx_HMppusGcCw--.2032S2;
+	Mon, 30 Mar 2026 14:47:28 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Mon, 30 Mar 2026 14:47:15 +0800
+Subject: [PATCH] riscv: misaligned: Make enabling delegation depend on
+ BROKEN
 MIME-Version: 1.0
-Message-ID: <20260330-irqchip-v4-4-3c0f1620cc06@aspeedtech.com>
-References: <20260330-irqchip-v4-0-3c0f1620cc06@aspeedtech.com>
-In-Reply-To: <20260330-irqchip-v4-0-3c0f1620cc06@aspeedtech.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>, Thomas Gleixner <tglx@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+Message-Id: <20260330-riscv-misaligned-dont-delegate-v1-1-68b089b306c3@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAHIcymkC/x3NSwqEMBBF0a1IjbsgbcBPb0V6EJJnLNAoKRFB3
+ LvB4Znce5EiC5R+1UUZh6isqeD7qchPLkWwhGKqTd0Yaw1nUX/wIupmiQmBw5p2DpgR3Q62fuw
+ 73zaA6ahEtoxRzncw/O/7AZTxU/lwAAAA
+X-Change-ID: 20260330-riscv-misaligned-dont-delegate-3cf98c76ee08
+To: =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <cleger@rivosinc.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Songsong Zhang <U2FsdGVkX1@gmail.com>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774852330; l=5800;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=dDHK26Pv3om1nVVi9t4wNhYIZIKE7ffity4S2AcBKdE=;
- b=xcVlBcqWDoLrSv7zDQxLudTGqsYv9nGiPqMSGDAnUQk9iwdLNXt8pdbYnxcVyhlGGRtRLG9z2
- izzl076YyejAR3X4wsT0KVZMGmDQYcuQlguDA5651cJq9HXtaED4K81
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+X-CM-TRANSID: qwCowAA34Wx_HMppusGcCw--.2032S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZw4kuw4xXr13Xw1DAry5Arb_yoW5CryDpr
+	WUCFs0grWUJrn7ZFWSq3s2gF45Z3s5Gry3Gr42q34FkFW5ZryxZrZ2qry7XFyUGr1kX3y0
+	9Fyakr109Fy5Wa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
+	Jw0_GFylc2xSY4AK67AK6r47MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73Uj
+	IFyTuYvjfU8D7aUUUUU
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_233232_260661_4EA0BD50 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20260329_234736_517019_2238CD6B 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,195 +80,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The existing AST2700 interrupt controller driver
-("aspeed,ast2700-intc-ic") was written against the A0 pre-production
-design.
-
-From A1 onwards (retained in the A2 production silicon), the interrupt
-fabric was re-architected: interrupt routing is programmable and
-interrupt outputs can be directed to multiple upstream controllers
-(PSP GIC, Secondary Service Processor (SSP) NVIC, Tertiary Service
-Processor (TSP) NVIC, and Boot MCU interrupt controller). This design
-requires route resolution and a controller hierarchy model which the
-A0 driver cannot represent.
-
-Remove driver support for A0 in favour of the driver for the A2
-production design.
-
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/irqchip/Makefile          |   1 -
- drivers/irqchip/irq-aspeed-intc.c | 139 --------------------------------------
- 2 files changed, 140 deletions(-)
-
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index ac04a4b97797..3d02441b3ee6 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -92,7 +92,6 @@ obj-$(CONFIG_LS_SCFG_MSI)		+= irq-ls-scfg-msi.o
- obj-$(CONFIG_ASPEED_AST2700_INTC)	+= irq-ast2700.o irq-ast2700-intc0.o irq-ast2700-intc1.o
- obj-$(CONFIG_ASPEED_AST2700_INTC_TEST)	+= irq-ast2700-intc0-test.o
- obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-vic.o irq-aspeed-i2c-ic.o irq-aspeed-scu-ic.o
--obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-intc.o
- obj-$(CONFIG_STM32MP_EXTI)		+= irq-stm32mp-exti.o
- obj-$(CONFIG_STM32_EXTI) 		+= irq-stm32-exti.o
- obj-$(CONFIG_QCOM_IRQ_COMBINER)		+= qcom-irq-combiner.o
-diff --git a/drivers/irqchip/irq-aspeed-intc.c b/drivers/irqchip/irq-aspeed-intc.c
-deleted file mode 100644
-index 4fb0dd8349da..000000000000
---- a/drivers/irqchip/irq-aspeed-intc.c
-+++ /dev/null
-@@ -1,139 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- *  Aspeed Interrupt Controller.
-- *
-- *  Copyright (C) 2023 ASPEED Technology Inc.
-- */
--
--#include <linux/bitops.h>
--#include <linux/irq.h>
--#include <linux/irqchip.h>
--#include <linux/irqchip/chained_irq.h>
--#include <linux/irqdomain.h>
--#include <linux/of_address.h>
--#include <linux/of_irq.h>
--#include <linux/io.h>
--#include <linux/spinlock.h>
--
--#define INTC_INT_ENABLE_REG	0x00
--#define INTC_INT_STATUS_REG	0x04
--#define INTC_IRQS_PER_WORD	32
--
--struct aspeed_intc_ic {
--	void __iomem		*base;
--	raw_spinlock_t		gic_lock;
--	raw_spinlock_t		intc_lock;
--	struct irq_domain	*irq_domain;
--};
--
--static void aspeed_intc_ic_irq_handler(struct irq_desc *desc)
--{
--	struct aspeed_intc_ic *intc_ic = irq_desc_get_handler_data(desc);
--	struct irq_chip *chip = irq_desc_get_chip(desc);
--
--	chained_irq_enter(chip, desc);
--
--	scoped_guard(raw_spinlock, &intc_ic->gic_lock) {
--		unsigned long bit, status;
--
--		status = readl(intc_ic->base + INTC_INT_STATUS_REG);
--		for_each_set_bit(bit, &status, INTC_IRQS_PER_WORD) {
--			generic_handle_domain_irq(intc_ic->irq_domain, bit);
--			writel(BIT(bit), intc_ic->base + INTC_INT_STATUS_REG);
--		}
--	}
--
--	chained_irq_exit(chip, desc);
--}
--
--static void aspeed_intc_irq_mask(struct irq_data *data)
--{
--	struct aspeed_intc_ic *intc_ic = irq_data_get_irq_chip_data(data);
--	unsigned int mask = readl(intc_ic->base + INTC_INT_ENABLE_REG) & ~BIT(data->hwirq);
--
--	guard(raw_spinlock)(&intc_ic->intc_lock);
--	writel(mask, intc_ic->base + INTC_INT_ENABLE_REG);
--}
--
--static void aspeed_intc_irq_unmask(struct irq_data *data)
--{
--	struct aspeed_intc_ic *intc_ic = irq_data_get_irq_chip_data(data);
--	unsigned int unmask = readl(intc_ic->base + INTC_INT_ENABLE_REG) | BIT(data->hwirq);
--
--	guard(raw_spinlock)(&intc_ic->intc_lock);
--	writel(unmask, intc_ic->base + INTC_INT_ENABLE_REG);
--}
--
--static struct irq_chip aspeed_intc_chip = {
--	.name			= "ASPEED INTC",
--	.irq_mask		= aspeed_intc_irq_mask,
--	.irq_unmask		= aspeed_intc_irq_unmask,
--};
--
--static int aspeed_intc_ic_map_irq_domain(struct irq_domain *domain, unsigned int irq,
--					 irq_hw_number_t hwirq)
--{
--	irq_set_chip_and_handler(irq, &aspeed_intc_chip, handle_level_irq);
--	irq_set_chip_data(irq, domain->host_data);
--
--	return 0;
--}
--
--static const struct irq_domain_ops aspeed_intc_ic_irq_domain_ops = {
--	.map = aspeed_intc_ic_map_irq_domain,
--};
--
--static int __init aspeed_intc_ic_of_init(struct device_node *node,
--					 struct device_node *parent)
--{
--	struct aspeed_intc_ic *intc_ic;
--	int irq, i, ret = 0;
--
--	intc_ic = kzalloc_obj(*intc_ic);
--	if (!intc_ic)
--		return -ENOMEM;
--
--	intc_ic->base = of_iomap(node, 0);
--	if (!intc_ic->base) {
--		pr_err("Failed to iomap intc_ic base\n");
--		ret = -ENOMEM;
--		goto err_free_ic;
--	}
--	writel(0xffffffff, intc_ic->base + INTC_INT_STATUS_REG);
--	writel(0x0, intc_ic->base + INTC_INT_ENABLE_REG);
--
--	intc_ic->irq_domain = irq_domain_create_linear(of_fwnode_handle(node), INTC_IRQS_PER_WORD,
--						    &aspeed_intc_ic_irq_domain_ops, intc_ic);
--	if (!intc_ic->irq_domain) {
--		ret = -ENOMEM;
--		goto err_iounmap;
--	}
--
--	raw_spin_lock_init(&intc_ic->gic_lock);
--	raw_spin_lock_init(&intc_ic->intc_lock);
--
--	/* Check all the irq numbers valid. If not, unmaps all the base and frees the data. */
--	for (i = 0; i < of_irq_count(node); i++) {
--		irq = irq_of_parse_and_map(node, i);
--		if (!irq) {
--			pr_err("Failed to get irq number\n");
--			ret = -EINVAL;
--			goto err_iounmap;
--		}
--	}
--
--	for (i = 0; i < of_irq_count(node); i++) {
--		irq = irq_of_parse_and_map(node, i);
--		irq_set_chained_handler_and_data(irq, aspeed_intc_ic_irq_handler, intc_ic);
--	}
--
--	return 0;
--
--err_iounmap:
--	iounmap(intc_ic->base);
--err_free_ic:
--	kfree(intc_ic);
--	return ret;
--}
--
--IRQCHIP_DECLARE(ast2700_intc_ic, "aspeed,ast2700-intc-ic", aspeed_intc_ic_of_init);
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIHVuYWxpZ25lZCBhY2Nlc3MgZW11bGF0aW9uIGNvZGUgaW4gTGludXggaGFzIHZhcmlvdXMg
+ZGVmaWNpZW5jaWVzLgpGb3IgZXhhbXBsZSwgaXQgZG9lc24ndCBlbXVsYXRlIHZlY3RvciBpbnN0
+cnVjdGlvbnMgWzFdLCBhbmQgZG9lc24ndAplbXVsYXRlIEtWTSBndWVzdCBhY2Nlc3Nlcy4gVGhl
+cmVmb3JlLCByZXF1ZXN0aW5nIG1pc2FsaWduZWQgZXhjZXB0aW9uCmRlbGVnYXRpb24gd2l0aCBT
+QkkgRldGVCBhY3R1YWxseSByZWdyZXNzZXMgdXNlcnNwYWNlIGFuZCBLVk0gZ3Vlc3QKYmVoYXZp
+b3IuIFVudGlsIExpbnV4IGNhbiBoYW5kbGUgaXQgcHJvcGVybHksIGd1YXJkIHRoZXNlIHNiaV9m
+d2Z0X3NldCgpCmNhbGxzIGJlaGluZCBSSVNDVl9TQklfRldGVF9ERUxFR0FURV9NSVNBTElHTkVE
+LCB3aGljaCBpbiB0dXJuIGRlcGVuZHMKb24gQlJPS0VOLgoKVGhlIHJlc3Qgb2YgdGhlIGV4aXN0
+aW5nIGNvZGUgcHJvY2VlZHMgYXMgYmVmb3JlLCBleGNlcHQgYXMgaWYKU0JJX0ZXRlRfTUlTQUxJ
+R05FRF9FWENfREVMRUcgaXMgbm90IGF2YWlsYWJsZSwgdG8gaGFuZGxlIGFueSByZW1haW5pbmcK
+YWRkcmVzcyBtaXNhbGlnbmVkIGV4Y2VwdGlvbnMgb24gYSBiZXN0LWVmZm9ydCBiYXNpcy4gVGhl
+IEtWTSBTQkkgRldGVAppbXBsZW1lbnRhdGlvbiBpcyBhbHNvIG5vdCB0b3VjaGVkLCBidXQgaXQg
+aXMgZGlzYWJsZWQgaWYgdGhlIGZpcm13YXJlCmVtdWxhdGVzIHVuYWxpZ25lZCBhY2Nlc3Nlcy4K
+CkNjOiBzdGFibGVAdmdlci5rZXJuZWwub3JnCkZpeGVzOiBjZjVhOGFiYzY1NjAgKCJyaXNjdjog
+bWlzYWxpZ25lZDogcmVxdWVzdCBtaXNhbGlnbmVkIGV4Y2VwdGlvbiBmcm9tIFNCSSIpClJlcG9y
+dGVkLWJ5OiBTb25nc29uZyBaaGFuZyA8VTJGc2RHVmtYMUBnbWFpbC5jb20+ICMgS1ZNCkxpbms6
+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzM4Y2U0NGMxLTA4Y2YtNGUzZi04
+YWRlLTIwZGEyMjRmNTI5Y0Bpc2Nhcy5hYy5jbi8gWzFdClNpZ25lZC1vZmYtYnk6IFZpdmlhbiBX
+YW5nIDx3YW5ncnVpa2FuZ0Bpc2Nhcy5hYy5jbj4KLS0tCkNsw6ltZW50OiBTb3JyeSB0byBjYWxs
+IHdoYXQgeW91IGRpZCBicm9rZW4sIGJ1dCBpdCByZWFsbHkgaXMgYnJlYWtpbmcKb24gcmVhbCBo
+YXJkd2FyZSBvdXQgdGhlcmUuIEkgdGhpbmsgdGhpcyBpcyB0aGUgcmlnaHQgd2F5IGZvciBub3cu
+Ci0tLQogYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICAgIHwgMTQgKysrKysrKysr
+KysrKysKIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYyB8ICAyICstCiAyIGZp
+bGVzIGNoYW5nZWQsIDE1IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKCmRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKaW5kZXggOTBjNTMxZTZh
+YmY1Li44YWQxZjEzYzE3MGUgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZworKysgYi9h
+cmNoL3Jpc2N2L0tjb25maWcKQEAgLTk0MSw2ICs5NDEsMjAgQEAgY29uZmlnIFJJU0NWX1ZFQ1RP
+Ul9NSVNBTElHTkVECiAJaGVscAogCSAgRW5hYmxlIGRldGVjdGluZyBzdXBwb3J0IGZvciB2ZWN0
+b3IgbWlzYWxpZ25lZCBsb2FkcyBhbmQgc3RvcmVzLgogCitjb25maWcgUklTQ1ZfU0JJX0ZXRlRf
+REVMRUdBVEVfTUlTQUxJR05FRAorCWJvb2wgIlJlcXVlc3QgZmlybXdhcmUgZGVsZWdhdGlvbiBv
+ZiB1bmFsaWduZWQgYWNjZXNzIGV4Y2VwdGlvbnMiCisJZGVwZW5kcyBvbiBSSVNDVl9TQkkKKwlk
+ZXBlbmRzIG9uIEJST0tFTgorCWhlbHAKKwkgIFVzZSBTQkkgRldGVCB0byByZXF1ZXN0IGRlbGVn
+YXRpb24gb2YgbG9hZCBhZGRyZXNzIG1pc2FsaWduZWQgYW5kCisJICBzdG9yZSBhZGRyZXNzIG1p
+c2FsaWduZWQgZXhjZXB0aW9ucywgaWYgcG9zc2libGUsIGFuZCBwcmVmZXIgTGludXgKKwkgIGtl
+cm5lbCBlbXVsYXRpb24gb2YgdGhlc2UgYWNjZXNzZXMgdG8gZmlybXdhcmUgZW11bGF0aW9uLgor
+CisJICBTaW5jZSB0aGUgTGludXgga2VybmVsJ3MgZW11bGF0aW9uIGlzIGluY29tcGxldGUsIGVu
+YWJsaW5nIHRoaXMgbWF5CisJICBjYXVzZSB1bmV4cGVjdGVkIHVzZXJzcGFjZSBhbmQgS1ZNIGd1
+ZXN0IGNyYXNoZXMuCisKKwkgIElmIHlvdSBkb24ndCBrbm93IHdoYXQgdG8gZG8gaGVyZSwgc2F5
+IE4uCisKIGNob2ljZQogCXByb21wdCAiVW5hbGlnbmVkIEFjY2Vzc2VzIFN1cHBvcnQiCiAJZGVm
+YXVsdCBSSVNDVl9QUk9CRV9VTkFMSUdORURfQUNDRVNTCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNh
+bGlnbmVkLmMKaW5kZXggMmEyN2QzZmY0YWM2Li44MWI3NjgyZTZjNmQgMTAwNjQ0Ci0tLSBhL2Fy
+Y2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5l
+bC90cmFwc19taXNhbGlnbmVkLmMKQEAgLTU4NCw3ICs1ODQsNyBAQCBzdGF0aWMgaW50IGNwdV9v
+bmxpbmVfY2hlY2tfdW5hbGlnbmVkX2FjY2Vzc19lbXVsYXRlZCh1bnNpZ25lZCBpbnQgY3B1KQog
+CiBzdGF0aWMgYm9vbCBtaXNhbGlnbmVkX3RyYXBzX2RlbGVnYXRlZDsKIAotI2lmZGVmIENPTkZJ
+R19SSVNDVl9TQkkKKyNpZiBkZWZpbmVkKENPTkZJR19SSVNDVl9TQklfRldGVF9ERUxFR0FURV9N
+SVNBTElHTkVEKQogCiBzdGF0aWMgaW50IGNwdV9vbmxpbmVfc2JpX3VuYWxpZ25lZF9zZXR1cCh1
+bnNpZ25lZCBpbnQgY3B1KQogewoKLS0tCmJhc2UtY29tbWl0OiBmMzM4ZTc3MzgzNzg5YzBjYWUy
+M2NhM2Q0OGFkY2M1ZTllMTM3ZTNjCmNoYW5nZS1pZDogMjAyNjAzMzAtcmlzY3YtbWlzYWxpZ25l
+ZC1kb250LWRlbGVnYXRlLTNjZjk4Yzc2ZWUwOAoKQmVzdCByZWdhcmRzLAotLSAKVml2aWFuICJk
+cmFtZm9yZXZlciIgV2FuZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
