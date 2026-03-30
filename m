@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9449FB3D03
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 10:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECF0FB3D18
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 10:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=McOXVFi+FAQ4Se+EFPq28o0RAehcsarqtHNVtoSuA64=; b=G47hGsBq0SF/hc
-	nTx4e21K9zQYIQV3Sq6kYq/1Kruoj69slS8svgap1iiRcym07JVyuKE+Q4J5WlX16l2bkaocc/gqS
-	e7v5mtXLWiVUHWw2fftaIVqHbGLgF7cgn0fg7kPQWaErTPMCA3MQmCYnZGYeBWvieOcAyluapIB+b
-	h6SMxNLSA0gHi7riSyZkH60FkzLU4y3v3CyvWMnd3HZ7wHch3S5i/kO/+99i1PjOoLX9AtP0g5sKK
-	7PQehxeODGv7P441BJ8ZZoOfckZKse0cEUjFN60ubwFeVgT72qrXS9yozjfyAZVWbOAh0hr1Mr4Bk
-	XYpRgC3Ac+maG9c/Tuug==;
+	List-Owner; bh=5OOmNcaus7r2wUGcOcIsTSmQdeW2pN3OA+chk0FehyA=; b=W7/u7XKRmxGmya
+	Z/FxIV3uUDosnHHjeg41eJ3gpHbhj0FZRNDifNdc0oI+L4TFw+XlKykbHBrIuGkDk9hvPUloc77hs
+	9rR56kYRAJOpwbGAnFcGor+okFMrmq11q8ifA9RHDxhxuqABwiYFeY77cokEHZIIYW+ED0krZZdjJ
+	iUgOgAJDCVuFLWzEQZqnBo8sTHe9gdwEd3jt2/UAAoyHcHCuQT4zMEz4PdXDVVQPpp9HlGIb5tMQH
+	z/RDRYRXKl7TyRDOMjNWRHIWN/aEy3iVO5bFT9sC+hU0lRnt6bPrzHWfZeddD7mzf2O5xpjyCVJlQ
+	eBg4hHAINQ+oOQsMTHqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7A1B-0000000B51r-3TUz;
-	Mon, 30 Mar 2026 10:38:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7A2s-0000000B5Jz-4592;
+	Mon, 30 Mar 2026 10:40:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7A19-0000000B50U-1uiH
+	id 1w7A2q-0000000B5Je-0TuT
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 10:38:48 +0000
+	Mon, 30 Mar 2026 10:40:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C725743C7E;
-	Mon, 30 Mar 2026 10:38:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78123C2BCB1;
-	Mon, 30 Mar 2026 10:38:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD0D042DEA;
+	Mon, 30 Mar 2026 10:40:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10133C2BCB2;
+	Mon, 30 Mar 2026 10:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774867126;
-	bh=Up2jSL42UaI/x/7sZuYAASmrStypwv5klvrtpgOj6Tc=;
+	s=k20201202; t=1774867231;
+	bh=WI4ukfgrdJ8n+H+kW01DlgPU2gCxoy2XvlEt4tloRJA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LAsYXpaPQU8s0/0/r5BVU1VyflN60Ib28AvHL7Z0UP1tsU7+y7TXWL0S+cyhKLIV5
-	 bcLKML+0309w5N1OVqszb4td+g5E/RLBzulS0opvYqP7iTwequom5MTuH4jl8w2dFY
-	 4qtvLDpJs1hJFAf7q6zliGdOfrqM8nXEpUop653D4Yj3N4UzrxL17ncsBqfQrPwZiU
-	 NDNSRy1KHVnMLTNtGXILkb/CNPDhsQfabqHBKM+sFHHw0zvsgwWVfr/8u938t7xzCb
-	 bEtJACkZoPqCwhmchB1LtLSGQNft4cW/OnEcJhijk1xqci6y8xCny/atBBzBbrWU1z
-	 dVtEm2x+dr9oA==
+	b=FRFokuwRfN3G/akBM9G6Qm4KOBYQp+oriDOqFDZZcjdjKdkkXBAmQUSC/7VqVO/jh
+	 6rocVehmkfTyKqpjzsAqPml4PPbCVFC1LrfP1vNzApCMfxU26qyevggNmL2jiJypQI
+	 2pGWPNYob4qGdUrF1yclTua/kTvBLYSFggVLt3WJGlnCPb3eEDeEljt1J+nNUcL29L
+	 hRbJhCBjqhWgrfqI6S0rtuuAooJzgsbjVZkTOS7765cJu1ZHqgj727oPMHVFjetDJz
+	 zRBEMf3N1SMMjSGnJDPI3ULCG42hIeb7jlmcxtRN+By3mqsZFZKVLVd4Fa/XRn91sJ
+	 8sUVG9wHCpelA==
 From: Yixun Lan <dlan@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -51,20 +51,20 @@ To: Rob Herring <robh@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Yixun Lan <dlan@kernel.org>
-Cc: spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org,
+Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dts: riscv: spacemit: k3: Add i2c nodes
-Date: Mon, 30 Mar 2026 10:38:40 +0000
-Message-ID: <177486686484.1895179.11451358903582402960.b4-ty@kernel.org>
+Subject: Re: [PATCH v2] dts: riscv: spacemit: k3: add P1 PMIC regulator tree
+Date: Mon, 30 Mar 2026 10:40:26 +0000
+Message-ID: <177486715861.1896649.7165378709637841817.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260327-02-k3-i2c-v2-1-2119c0918868@kernel.org>
-References: <20260327-02-k3-i2c-v2-1-2119c0918868@kernel.org>
+In-Reply-To: <20260327-02-k3-i2c-v2-1-9c6b374470c6@kernel.org>
+References: <20260327-02-k3-i2c-v2-1-9c6b374470c6@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_033847_517621_D4DC9D36 
-X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-CacheID: sfid-20260330_034032_193797_A1FCE78A 
+X-CRM114-Status: UNSURE (   5.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,18 +83,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 27 Mar 2026 11:40:40 +0000, Yixun Lan wrote:
-> Populate all I2C devicetree nodes for SpacemiT K3 SoC. The controller of
-> i2c3 is reserved for secure domain, and not available from Linux. The
-> controller of i2c7 simply doesn't exist from hardware perspective, as
-> vendor directly name the i2c controller used for PMIC as i2c8.
+On Fri, 27 Mar 2026 11:51:18 +0000, Yixun Lan wrote:
+> Add the P1 PMIC's regulator topology tree for pico-itx board.
 > 
 > 
 
 Applied, thanks!
 
-[1/1] dts: riscv: spacemit: k3: Add i2c nodes
-      https://github.com/spacemit-com/linux/commit/cb322cbffb1e70b4ca1be7955ed19fe486de8295
+[1/1] dts: riscv: spacemit: k3: add P1 PMIC regulator tree
+      https://github.com/spacemit-com/linux/commit/af62a095eb0c3359d477b55ef72d2afd94c83c8f
 
 Best regards,
 -- 
