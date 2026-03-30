@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B14FB3D02
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 10:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9449FB3D03
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 10:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iH85pPw+lAaoGPew9D5mAifNVNXvdoUKFUzWnfZDyfI=; b=VMYGv9gY+IGnvz
-	HaJ+WseD+K9MJu4R9kOQlbHHuHEY4Jicr+YBEk3sb0Yxpdw2xswdVJUG6Z7bO4OXPrHIWWM6elc8V
-	Rvkg7eLTlNYG46WdH9btKQzFqSZ3aaFA0B779a4Ve26Bm2wd7QX/Gli0KaU19ttoc84lxwNWfyRfU
-	Xw/XdnCyUMWZdi05rwz3bb/vBT4fcyGaZPq7TrKXtQxzg2P7fLJ+zACfivChULUyrFYlZl3+nUM+X
-	xUpwASbpZiSij6BDwGRJSaoyqAsJ7OfX1VW2QGV+ExhMUBGBQrtRXKf0qDse9IDUu6VdRh4B8RfH4
-	BhxKObDZhZRSwkB2oZjA==;
+	List-Owner; bh=McOXVFi+FAQ4Se+EFPq28o0RAehcsarqtHNVtoSuA64=; b=G47hGsBq0SF/hc
+	nTx4e21K9zQYIQV3Sq6kYq/1Kruoj69slS8svgap1iiRcym07JVyuKE+Q4J5WlX16l2bkaocc/gqS
+	e7v5mtXLWiVUHWw2fftaIVqHbGLgF7cgn0fg7kPQWaErTPMCA3MQmCYnZGYeBWvieOcAyluapIB+b
+	h6SMxNLSA0gHi7riSyZkH60FkzLU4y3v3CyvWMnd3HZ7wHch3S5i/kO/+99i1PjOoLX9AtP0g5sKK
+	7PQehxeODGv7P441BJ8ZZoOfckZKse0cEUjFN60ubwFeVgT72qrXS9yozjfyAZVWbOAh0hr1Mr4Bk
+	XYpRgC3Ac+maG9c/Tuug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w79sI-0000000B3q2-1Z4s;
-	Mon, 30 Mar 2026 10:29:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7A1B-0000000B51r-3TUz;
+	Mon, 30 Mar 2026 10:38:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w79sH-0000000B3p0-2vTd
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 30 Mar 2026 10:29:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7JYDL0DEs18bvH+bx4jI+vxQlpNvbJ7A49OFmkp3rYk=; b=dn0y1wo6P7EDKdvSGAlRaDe1vk
-	eY4dVTyEU5+nmJFInnxtBXxkZPIciLWHWHyMmCnqZx8+IKXGOje/ZHeRT7w9xir+wQDX2k9cb/adM
-	S5W20gmFdeN6ETDinwUqbj6+dc+RDT06mIJZvO+9GpGIVH3PkcVnkFZNCuw948NxFCvtB7EGJTfED
-	xqwQSjETfGURxUQulGneu2SVYAYLihWxCqM0dd9dwfTdBM7IenTC+mOEHHXQmNDkuL1PRcWFFvjZR
-	2JRbDqTPT0ODm9Xcg9hMbYekfE1nG9Mw43jPbhUKFyKl6dvaIMBLJ/75ZB8/s2AZIXDEmh6gfGiwz
-	xslAhgew==;
-Received: from exmail.andestech.com ([60.248.187.195] helo=Atcsqr.andestech.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w79sD-0000000Da3b-36Nd
+	id 1w7A19-0000000B50U-1uiH
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 10:29:36 +0000
-Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
-	by Atcsqr.andestech.com with ESMTP id 62UASI1F038289;
-	Mon, 30 Mar 2026 18:28:18 +0800 (+08)
-	(envelope-from minachou@andestech.com)
-Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS34.andestech.com
- (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 30 Mar
- 2026 18:28:18 +0800
-From: Hui Min Mina Chou <minachou@andestech.com>
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <alex@ghiti.fr>, <geert+renesas@glider.be>,
-        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <magnus.damm@gmail.com>,
-        <ben717@andestech.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <jonathan.cameron@huawei.com>,
-        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>
-CC: <tim609@andestech.com>, <alex749@andestech.com>, <az70021@gmail.com>,
-        "Hui
- Min Mina Chou" <minachou@andestech.com>
-Subject: [PATCH 6/7] dts: riscv: update cache compatible strings to LLC
-Date: Mon, 30 Mar 2026 18:27:23 +0800
-Message-ID: <20260330102724.1012470-7-minachou@andestech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260330102724.1012470-1-minachou@andestech.com>
-References: <20260330102724.1012470-1-minachou@andestech.com>
+	Mon, 30 Mar 2026 10:38:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C725743C7E;
+	Mon, 30 Mar 2026 10:38:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78123C2BCB1;
+	Mon, 30 Mar 2026 10:38:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774867126;
+	bh=Up2jSL42UaI/x/7sZuYAASmrStypwv5klvrtpgOj6Tc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=LAsYXpaPQU8s0/0/r5BVU1VyflN60Ib28AvHL7Z0UP1tsU7+y7TXWL0S+cyhKLIV5
+	 bcLKML+0309w5N1OVqszb4td+g5E/RLBzulS0opvYqP7iTwequom5MTuH4jl8w2dFY
+	 4qtvLDpJs1hJFAf7q6zliGdOfrqM8nXEpUop653D4Yj3N4UzrxL17ncsBqfQrPwZiU
+	 NDNSRy1KHVnMLTNtGXILkb/CNPDhsQfabqHBKM+sFHHw0zvsgwWVfr/8u938t7xzCb
+	 bEtJACkZoPqCwhmchB1LtLSGQNft4cW/OnEcJhijk1xqci6y8xCny/atBBzBbrWU1z
+	 dVtEm2x+dr9oA==
+From: Yixun Lan <dlan@kernel.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>
+Cc: spacemit@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dts: riscv: spacemit: k3: Add i2c nodes
+Date: Mon, 30 Mar 2026 10:38:40 +0000
+Message-ID: <177486686484.1895179.11451358903582402960.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260327-02-k3-i2c-v2-1-2119c0918868@kernel.org>
+References: <20260327-02-k3-i2c-v2-1-2119c0918868@kernel.org>
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.183]
-X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
- ATCPCS34.andestech.com (10.0.1.134)
-X-DKIM-Results: atcpcs34.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 62UASI1F038289
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_112934_478248_54E10B0B 
-X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-CacheID: sfid-20260330_033847_517621_D4DC9D36 
+X-CRM114-Status: UNSURE (   7.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,48 +82,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the cache driver compatible strings from ax45mp-cache to llcache
-for both Qilai and RZ/Five platforms.
-This follows the Andes cache driver refactoring to use more generic
-Last Level Cache (LLC) naming.
 
-Signed-off-by: Hui Min Mina Chou <minachou@andestech.com>
----
- arch/riscv/boot/dts/andes/qilai.dtsi        | 4 ++--
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+On Fri, 27 Mar 2026 11:40:40 +0000, Yixun Lan wrote:
+> Populate all I2C devicetree nodes for SpacemiT K3 SoC. The controller of
+> i2c3 is reserved for secure domain, and not available from Linux. The
+> controller of i2c7 simply doesn't exist from hardware perspective, as
+> vendor directly name the i2c controller used for PMIC as i2c8.
+> 
+> 
 
-diff --git a/arch/riscv/boot/dts/andes/qilai.dtsi b/arch/riscv/boot/dts/andes/qilai.dtsi
-index de3de32f8c39..a7436cbf6f69 100644
---- a/arch/riscv/boot/dts/andes/qilai.dtsi
-+++ b/arch/riscv/boot/dts/andes/qilai.dtsi
-@@ -137,8 +137,8 @@ plmt: timer@100000 {
- 		};
- 
- 		l2_cache: cache-controller@200000 {
--			compatible = "andestech,qilai-ax45mp-cache",
--				     "andestech,ax45mp-cache", "cache";
-+			compatible = "andestech,qilai-llcache",
-+				     "andestech,llcache", "cache";
- 			reg = <0x0 0x00200000 0x0 0x100000>;
- 			interrupts = <16 IRQ_TYPE_LEVEL_HIGH>;
- 			cache-line-size = <64>;
-diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-index 571de3cafa82..83a5d4d41f8e 100644
---- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-+++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-@@ -144,7 +144,7 @@ plic: interrupt-controller@12c00000 {
- 	};
- 
- 	l2cache: cache-controller@13400000 {
--		compatible = "renesas,r9a07g043f-ax45mp-cache", "andestech,ax45mp-cache",
-+		compatible = "renesas,r9a07g043f-llcache", "andestech,llcache",
- 			     "cache";
- 		reg = <0x0 0x13400000 0x0 0x100000>;
- 		interrupts = <SOC_PERIPHERAL_IRQ(476) IRQ_TYPE_LEVEL_HIGH>;
+Applied, thanks!
+
+[1/1] dts: riscv: spacemit: k3: Add i2c nodes
+      https://github.com/spacemit-com/linux/commit/cb322cbffb1e70b4ca1be7955ed19fe486de8295
+
+Best regards,
 -- 
-2.34.1
-
+Yixun Lan <dlan@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
