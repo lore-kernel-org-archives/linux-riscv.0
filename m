@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0720610D14AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 13:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A097510D14AD
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 13:02:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6EuPNP3Tg22+CLZA7WEyizkXZofz6Ua757UaJcZOoQ8=; b=riLZRU2YsmxqgT
-	q0mKHD3P3wA/WKs9euKPGZ4VVzlOrzz1R41yndABLHqUtj/KkatkOZ/RPDctg8PVkqDR+hLi5Uo9P
-	GD0BoMj8BmacWRUi8UWfl+Gg0Hd9BFsKZ2LchyVb9HAZxgnYW/xPcaHVU4/64H4Hx+uGQ+kQni8Wk
-	+cPrfwb0EUuUPRqWy2yuBlW4IEIyY5l6Fj5SvR+NzdarH8HEBO37gfE1zoyUEvGdmKD+e5CUJYc8G
-	3PY6txGwfHnHiR3EHg6gDc4iIDpfe+38REG55jf7yuwH0M8eL88BsIt5+vcg6jsmjFWnQ94qp7t3H
-	opginKlbeD2K06yLdTHQ==;
+	List-Owner; bh=gD+CHEnDqHmm2Hmv4EGklYseDjNwP4QXGUOggG3Nhiw=; b=EdMydeUMYb0xlT
+	yU1cZYBszHnnFUoIRYJEAcnS5HB/EGAS4zha2X46FsUxWS0cPgBQBKS2pq45QTqR0geQlujDchN6p
+	tEMDNMe3nmb4Z+KdA4xuJ1kSJw4drS7DMNFjK2fLgQIS5odbDlbel39t/Akw9D99H5RQLuNbiXGZz
+	7/oJ6ylnHS9ucCFpJnP9bmFlP940lo5FSZfsgBDrFOMzPNXdrZJlSr4gmhryKDhLt6E9Bwf0JhLIT
+	7y4B7hMBn9ByL6k5SDoYl/VRE9Z3tK3hZov39/g8AxF+e7z9ICm8VgrZleRbpKA1YkSnHN2NVoR9b
+	2VFHnZ8WlibNb5t5gIaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CFP-0000000BJ1U-0CaG;
-	Mon, 30 Mar 2026 13:01:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7CG3-0000000BJ89-2FUs;
+	Mon, 30 Mar 2026 13:02:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CFN-0000000BJ1F-3G3K
+	id 1w7CG2-0000000BJ7g-0F1I
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 13:01:37 +0000
+	Mon, 30 Mar 2026 13:02:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0C89760054;
-	Mon, 30 Mar 2026 13:01:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C6A6C2BCB0;
-	Mon, 30 Mar 2026 13:01:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 60F1243794;
+	Mon, 30 Mar 2026 13:02:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E77DC4CEF7;
+	Mon, 30 Mar 2026 13:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774875696;
-	bh=46hgEsoVh7DWB3Qb+l89sRe9XPzOO381zEYqmnaR2ZQ=;
+	s=k20201202; t=1774875737;
+	bh=kw6JkL3fkTeQ2AvlrTTSoLDXGz1GhOI3fV5Nyp70Uls=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Bc2H5JIBV6OXdB5IVgmhTLdoaHeAQQcalOkaTPOpg2BsknEyq1C+h1vwryd2BWk3N
-	 c0xu+g0UE6jugkQddc6L6kFTPas/fUs7MUN6BEB/V0M9fJxsCcbam0Ntx83Ud+lv9w
-	 S/hTiNqcYi5RYOLjk3fIxXHsWi/AVEraa7qZL1/HnaQlPHi5ffUf+kW/FS7PtolKxw
-	 tZBk8SC/YdNa6HoQpopFbgByU2OOWXneHrDltgkx70sFYBDivX7//WwE0wqOcF89FM
-	 67XlR1Z8CEhjgGz6Ftru+DQXx3FWj91viaoeBsnydVoAZtgbRNcVFAIqgwQEGzkf6p
-	 5armVUPByaGdA==
-Message-ID: <0a8598aa-5207-4ff4-b4d9-034b6910bcaf@kernel.org>
-Date: Mon, 30 Mar 2026 15:01:30 +0200
+	b=ToBj58cwIW9MtOjqy2f1q/neD+/R79uMrsKv+YY90AnbI9gyPb/FgUSOo1MiC/tYE
+	 1QcijRB3YbGPtj+zmrVqgeZxzdll+ULPi3XcsqkzSMkeBtzLmfVk3AEK7wu9A+UB8W
+	 NSbFeQE7CkuiHwjvZHBNId0ujCtpwFpx1+h7kOSmP7ibT5aO0/KyodVNCweoJYlp4o
+	 oJwoUVZ7GyMasjSaEckWqF5I31Qbp1RDsgH+Wc1n3tF4oIqFNynzRexdG6OWkHjeEV
+	 JQ56v+7YDRhCq/Gjkcg4hO95DwGdAH0T93W+Ej/6989UvxJLonuMSsL41V+fav+qXu
+	 V5sSh6o1N+RXg==
+Message-ID: <8c01c910-21b4-4a16-98e4-197c20883d23@kernel.org>
+Date: Mon, 30 Mar 2026 15:02:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] cache: ax45mp_cache: refactor cache driver for
- generic Andes platform support
+Subject: Re: [PATCH 2/7] cache: andes_llcache: refactor initialization and
+ cache operations
 To: Hui Min Mina Chou <minachou@andestech.com>, pjw@kernel.org,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
  geert+renesas@glider.be, prabhakar.mahadev-lad.rj@bp.renesas.com,
@@ -55,10 +55,9 @@ To: Hui Min Mina Chou <minachou@andestech.com>, pjw@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, jonathan.cameron@huawei.com,
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Cc: tim609@andestech.com, alex749@andestech.com, az70021@gmail.com,
- charles <dminus@andestech.com>
+Cc: tim609@andestech.com, alex749@andestech.com, az70021@gmail.com
 References: <20260330102724.1012470-1-minachou@andestech.com>
- <20260330102724.1012470-2-minachou@andestech.com>
+ <20260330102724.1012470-3-minachou@andestech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +103,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260330102724.1012470-2-minachou@andestech.com>
+In-Reply-To: <20260330102724.1012470-3-minachou@andestech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_060218_151786_A363FDBB 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,17 +125,16 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 30/03/2026 12:27, Hui Min Mina Chou wrote:
-> -
-> -static const struct riscv_nonstd_cache_ops ax45mp_cmo_ops __initdata = {
-> -	.wback = &ax45mp_dma_cache_wback,
-> -	.inv = &ax45mp_dma_cache_inv,
-> -	.wback_inv = &ax45mp_dma_cache_wback_inv,
-> -};
-> -
-> -static const struct of_device_id ax45mp_cache_ids[] = {
-> -	{ .compatible = "andestech,ax45mp-cache" },
+> This patch cleans up the Andes LLC cache driver:
+>  - improved error handling in andes_cache_init() by using goto labels
+>  - updated andes_dma_cache_inv/wback() to check for !size instead of
+>    start == end
+>  - cache-line-size mismatch from an error to a warning
+>  - Use ALIGN and ALIGN_DOWN helpers instead of the alignment logic in
+>    andes_dma_cache_inv() and andes_dma_cache_wback().
 
-NAK, actual ABI break.
+Please read submitting patches document. One thing per commit with
+proper rationale WHY you are doing this.
 
 Best regards,
 Krzysztof
