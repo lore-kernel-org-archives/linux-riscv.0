@@ -4,98 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CBFFF4939
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 04:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7262DFF493F
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 04:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gamH08gJF7GXCz9lz6M9jo92rLVTukUlO7FvUSORhSk=; b=V4v+bWguoTY4vi
-	YhvOvoq/CXIbZDacWXS3dZDYgRJwO1EOllt5eCcUBS3mFjoxv2zbjJqfXEvdJm/tr8YjegB3z3vq0
-	HHBCjYxsK5lTV5My4w9pFqg7lYeg7UN+3I+VgmeoMD09uhSncZgoGOzIWnkh0mvp5iVhFsV1YLHgI
-	YK3aihu5FF6xZ8u8ZnSlEoBCfLoRzbefFtuiGnwii5sB3M5B1t8yu4XBuNLNx8N8wRiHXJTub7/aV
-	MAOJj5tiSJ41YBMvGAknUgnpNsGciKHVU2M80fBE/Sj8ENf+zhpFgDk5+Fk+0Shlglb3Ci4NuvmNq
-	lLxrBL/xVqL5ZKgPC8bQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aFblYvJEQO9nDF7Ody7bwB/yusu1YIUwzS6NZht2yCY=; b=Yr4h28pUnv/fJL
+	2W777+WXhCI3fsIPjhHG7pCOwsBpf+0CKEc0qUzUfQxaA1NLI6YskuMZM5BiqfdfipAKwCia5em8O
+	+RUO04s7qwwZqFMjdd4DvXoKlX/43wrJtGRl1BW+RtUZSjctESPDmAvpSovFvYjuaupIwuiPxgxxR
+	982y+k5H1Ga3FyMYj03a1GXof9lmRtU2y3X1Ml3JJjfxcmz1RKal5CP3MR1FT52dFLSXap6FVdRG+
+	7NnwBONnzJpMZTQCVLnOOtuDIj5AA2nHtobcC8YWBtQwHiyuhD7ndXoYkuoIaTjEDoiSQLJfSxrmp
+	DsAGElElOdzsbSNnZG0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w73ve-0000000Aa6Y-0Ruv;
-	Mon, 30 Mar 2026 04:08:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w74Ky-0000000AbY9-0gUI;
+	Mon, 30 Mar 2026 04:34:52 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w73vY-0000000Aa5s-2sWY;
-	Mon, 30 Mar 2026 04:08:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 80C04419B5;
-	Mon, 30 Mar 2026 04:08:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFE31C2BCB0;
-	Mon, 30 Mar 2026 04:08:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774843715;
-	bh=+A5NQMhCBBRKzoUSudLKLJZAfA7+8FwRJRitDmnyubY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rk5v/EL75EZ+hbfqEshAQz2QQe+iuSZNg84JSHBgQeHC7MQpiAlomNcv0214mZuA/
-	 gbjlTaVuay4FRB4MdNSX8Dc51tayHV0e0emc/xX42elGiN+vJjajX0Mj+DjRgCotku
-	 NJi0Cx4TsK5vFwnV0mTb3dWliU8/DvykqoMFl4Ne60JHqqLvWC6hKlA59DG+0Ub0mK
-	 i/RlQXksnWCqxo0T2LZaEiVWOLa6KPURQ9Z4xB+WBPWlEQnWDb+1w70onILoyinJz8
-	 gZZx9gSRcK/J1hwQTRHyR8albh/f2o81y7CxFJD3rwa1khO6zG0Hxaks+qBoOStyxZ
-	 Du8I3EdOFGAig==
-Date: Sun, 29 Mar 2026 21:07:24 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Christoph Hellwig <hch@lst.de>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, Theodore Ts'o <tytso@mit.edu>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
-Subject: Re: cleanup the RAID5 XOR library v4
-Message-ID: <20260330040724.GA647721@sol>
-References: <20260327061704.3707577-1-hch@lst.de>
- <20260329213119.GA2106@quark>
- <20260329155126.a01a5729b7d8376712182851@linux-foundation.org>
+	id 1w74Kv-0000000AbXj-2YuX
+	for linux-riscv@lists.infradead.org;
+	Mon, 30 Mar 2026 04:34:50 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82c20f1e890so2809717b3a.3
+        for <linux-riscv@lists.infradead.org>; Sun, 29 Mar 2026 21:34:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774845288; x=1775450088; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2Jh8RjPwPB56bdE2HifgsXtOaKLdHd9fm9iG5LMOIb4=;
+        b=LqbVvyYMivJLZOH3ss8HN7/4lW8hZYDerRAcwWmv89KrQwpMq/6OoIj8nJH+kXc9sK
+         HadQW9EFYT3ZvR5pIB09XmemTtcCx9Vvx9kmTK1zwLdVW//siOT5Yc/cke/W4IPHBM2L
+         ClAOlOXrhnSVt1o6GFuhyR2/fK8kOKW5Y/v/VfUomMxqHLUnR4cf183hp7PH71SCcCrl
+         5qDvujPLyOEkEErQ8x/gx87UBbnF/ASFRAwc7GUQoQcb5XPZidh3U8wMmPGvL7PP3pu8
+         LPKlBzEWRFi7K/JxP3bRuf7zE0D4STTsGR6oJLWB2e3JUTzfO7eWs+UrY9zTXZFi0Ncc
+         4zeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774845288; x=1775450088;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2Jh8RjPwPB56bdE2HifgsXtOaKLdHd9fm9iG5LMOIb4=;
+        b=U1aEyOSVZNMDirEzkct78HZUr5AP7d4iaxx0wTHiORjkzQZyA6mpVQm58dvwWFg8v+
+         k0WfMSy0SAUL6dv6sPzRNFWaONBYfBkDP6E1AfHqtQVifc0TQpxEK5vgFdXVfWOLgTAe
+         r+dNf/i4HdLViYV0G36ATcJYvoDheXngyxCKklDum6kdU8v9RSUWppZs6ejvUl/VP7Q8
+         9aodWYG4V/VMkI89VEMp2M/isORjsaaIX4BisJZYRifr1lmqp2Lm1Bu1tJQUC7yWtTIX
+         9X5MQDCQudErdMFzrNYC+SWyR7+COlLXISXRmmc4MLKSM+vImsTsvsmAP+JuFtGLbTg5
+         B6ug==
+X-Gm-Message-State: AOJu0Yy3RJ/1jZjvymVu5PEYITclntJTqYnxRiwm9QmAfh0lgLJZeb7q
+	dsjtOhzXZRCDojwGItCt5NwqETNfWGWOUv7oIWtZTeRRolVGq8rzg7Hw
+X-Gm-Gg: ATEYQzwoP0Vyi0a4WxES6speLGX+z8h4fYV+uZ6iIVgsmkCEIJJFq6X/dXk8cyM6+y4
+	afa6pNlAhjBuDeR/wQgXK+xdSmDgWgRaS0n36NkbE/hnwMzqAVRMkokvvwz4JYjVNyopw+EyVEq
+	qK4mgtUNhLjBXXGbGifK/ewxTRlfvsAexU4QufA5GP1TyZ1VeooIQ4vuhsWCdrEz7AKTxh0ddEA
+	XvlHpzVONsXMsZXaHfxbI58CV7UViEZPq6BNx58N1sizEOGwUExGiC6KQy+x7NONdUv0543F8Ud
+	uYL54Bnn1quJjCyoS79j2uY4OBh+C27wTFoXvTtkExiRD3DPdvIjHG8ZdNcT3vnOjgSCrzX2mzn
+	xw/wxLcGAdLrAU5WbDIA6Mzatyvyvv4itGFb2mKRhRtkVo9Wqaox38fSybpmBi+2fSm8uoQuENh
+	8GEtgcdVpLtq4KBsZUcLONSnXv9Kv0BsSgsgaSpB8=
+X-Received: by 2002:a05:6a00:bc93:b0:82a:17ee:3c1a with SMTP id d2e1a72fcca58-82c9604fcccmr10472534b3a.53.1774845287982;
+        Sun, 29 Mar 2026 21:34:47 -0700 (PDT)
+Received: from adminpc-PowerEdge-R7525 ([27.122.242.81])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82ca8628f44sm5857160b3a.57.2026.03.29.21.34.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Mar 2026 21:34:47 -0700 (PDT)
+Date: Mon, 30 Mar 2026 13:34:42 +0900
+From: Austin Kim <austindh.kim@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	austindh.kim@gmail.com
+Subject: [PATCH] riscv: signal: refactor debug logging to use macros
+Message-ID: <acn9Yha4JufGcQah@adminpc-PowerEdge-R7525>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260329155126.a01a5729b7d8376712182851@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_210836_768784_1EBF6095 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20260329_213449_651538_7A0A8885 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,61 +96,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 29, 2026 at 03:51:26PM -0700, Andrew Morton wrote:
-> > 
-> > Reviewed-by: Eric Biggers <ebiggers@kernel.org>
-> 
-> Great, thanks, added to all changelogs.
-> 
-> > But yes, as Andrew mentioned there are two "xor: add a better public
-> > API" patches.  They should be folded together.
-> 
-> I folded them.
-> 
-> I'm a bit wobbly about upstreaming all this for 7.1-rc1.  It hits on a
-> lot of stuff and I don't think we've heard a lot from the affected
-> maintainers.
-> 
-> otoh, we're unlikely to learn much from an additional nine weeks in
-> linux-next so at some point one has to forge ahead and rely on seven
-> weeks of -rc to address any remaining niggles.  And I'm confident that
-> Christoph will support his work well.
-> 
-> But still, hearing some reassuring words about this would be
-> appreciated ;)
+From: Austin Kim <austin.kim@lge.com>
 
-The architecture-optimized crypto and CRC code has been the same way.
-I've been working on it across architectures, and most of the arch
-maintainers don't pay much attention to it.
+Replace manual #if DEBUG_SIG blocks with a unified DEBUGP macro.
+This will improve code readability.
 
-I've seen engagement from a few of them, for example s390.  But as a
-general rule it's a separate group of people working on this code.
+Signed-off-by: Austin Kim <austin.kim@lge.com>
+---
+ arch/riscv/kernel/compat_signal.c | 10 ++++++----
+ arch/riscv/kernel/signal.c        | 10 ++++++----
+ 2 files changed, 12 insertions(+), 8 deletions(-)
 
-I think seeing the same for lib/raid/ is expected.  So while the arch
-maintainers are always welcome to chime in, I don't think we need to
-wait for all of them, as then we'd be waiting forever.
+diff --git a/arch/riscv/kernel/compat_signal.c b/arch/riscv/kernel/compat_signal.c
+index 6ec4e3425..c82235be7 100644
+--- a/arch/riscv/kernel/compat_signal.c
++++ b/arch/riscv/kernel/compat_signal.c
+@@ -12,7 +12,11 @@
+ #include <asm/ucontext.h>
+ #include <asm/vdso.h>
+ 
+-#define COMPAT_DEBUG_SIG 0
++#ifdef DEBUG_SIG
++#  define DEBUGP(fmt, args...) pr_info("%s: " fmt, __func__, ##args)
++#else
++#  define DEBUGP(fmt, args...)
++#endif
+ 
+ struct compat_sigcontext {
+ 	struct compat_user_regs_struct sc_regs;
+@@ -233,11 +237,9 @@ int compat_setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ 	regs->a1 = (unsigned long)(&frame->info); /* a1: siginfo pointer */
+ 	regs->a2 = (unsigned long)(&frame->uc);   /* a2: ucontext pointer */
+ 
+-#if COMPAT_DEBUG_SIG
+-	pr_info("SIG deliver (%s:%d): sig=%d pc=%p ra=%p sp=%p\n",
++	DEBUGP("SIG deliver (%s:%d): sig=%d pc=%p ra=%p sp=%p\n",
+ 		current->comm, task_pid_nr(current), ksig->sig,
+ 		(void *)regs->epc, (void *)regs->ra, frame);
+-#endif
+ 
+ 	return 0;
+ }
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index 59784dc11..1d7fddcff 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -30,7 +30,11 @@ extern u32 __user_rt_sigreturn[2];
+ static size_t riscv_v_sc_size __ro_after_init;
+ static size_t riscv_zicfiss_sc_size __ro_after_init;
+ 
+-#define DEBUG_SIG 0
++#ifdef DEBUG_SIG
++#  define DEBUGP(fmt, args...) pr_info("%s: " fmt, __func__, ##args)
++#else
++#  define DEBUGP(fmt, args...)
++#endif
+ 
+ struct rt_sigframe {
+ 	struct siginfo info;
+@@ -471,11 +475,9 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ 	regs->a1 = (unsigned long)(&frame->info); /* a1: siginfo pointer */
+ 	regs->a2 = (unsigned long)(&frame->uc);   /* a2: ucontext pointer */
+ 
+-#if DEBUG_SIG
+-	pr_info("SIG deliver (%s:%d): sig=%d pc=%p ra=%p sp=%p\n",
++	DEBUGP("SIG deliver (%s:%d): sig=%d pc=%p ra=%p sp=%p\n",
+ 		current->comm, task_pid_nr(current), ksig->sig,
+ 		(void *)regs->epc, (void *)regs->ra, frame);
+-#endif
+ 
+ 	return 0;
+ }
+-- 
+2.34.1
 
-Re testing, I've been running the crypto, CRC, and now the XOR KUnit
-tests in QEMU for 8 architectures (arm, arm64, mips, powerpc, riscv,
-s390, sparc, and x86), and over 40 variants within those (e.g. varying
-CONFIG_64BIT, CONFIG_CPU_BIG_ENDIAN, and QEMU's "-cpu" flag).  They are
-all passing, including the XOR test that Christoph added in this series.
-
-(So I guess feel free to add:
-
-    Tested-by: Eric Biggers <ebiggers@kernel.org>
-
-to all the patches in this series as well.)
-
-That still doesn't cover all the arch-optimized code, due to me missing
-various combinations or QEMU not supporting them.  But it's something.
-
-I'm also hoping that with the move to standard KUnit tests, we'll get a
-larger group of people, including projects like KernelCI, that simply
-run *all* the kernel's KUnit tests on whatever platforms they care
-about.  That approach is more scalable.
-
-- Eric
 
 _______________________________________________
 linux-riscv mailing list
