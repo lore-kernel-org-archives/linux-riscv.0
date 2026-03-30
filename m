@@ -4,117 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A01FB3CE5
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 09:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB8BFB3CE8
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 09:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FNB7hbQxx50fOW71YwwU8xgODGXHUJueLrLTh8B0mF4=; b=jyxyL3sgdLIFnzSZFdvcqKVI1/
-	4QLIOSe6r2UQuwJgF3rQxIWQQ6rbh7RPWfm8Cn9oexA6cJPU3L6jfPI/R87eFWpUiNkbZs8ZtXYdV
-	GkaRTgOESnywsI41eJYh+jvNXBpvqeKbX1t+5/PVZ7df0xz3Jmp0ZCAyKACCpEVCkmniJoVH/RHz3
-	Aa4mG09N/kFwSa29BMlw8Kij6jLEzHqm+iSNUnR3JF0P1h/3AFYSQZ6N3D7JUF0aC+4t4jmNRBosD
-	TTia0sHJT5n6kkLvr8j2gKFuMqTjxl9aMS+9FlqDxTATNBIO8b/xox2hbgPj97o53514/ZtxCsyvM
-	oMCzL5lw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Xc/LC0cxh0/7Kk2mYPZbM6N0i0YgDZqaFltSbsVqWwU=; b=uxMzQKBrkxqz1A
+	bKwWGMSd5kt50ZZZ/82Eou+GmoLmzdcMJ1R8T04UTtZY5KpH13c+cErJUFEpVS77Spi7TwGTv8M90
+	JnBGs1gfuSS49ue3yolFa2cWfbeh9Eb/eBLixaLqsO4O2GxoQPBegzWsH0J2OnbAhmrdilBZfcHiN
+	Y/N3vtF5CcWjl/KdLpxXjlU7+mD6+SeaY4vE1BcYWdpmpHDdXSELzDhx797xBfr52OVEuvGRV4YIs
+	qa3tjmTrIJoPGBXIfeSz2HhkdGLwu+GqVkFdNtna9ishnOrCfXh5QjGQF4weGAgvhPVFoJ/fuwGus
+	hZFJ+8h/d7iCdsO2SU1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78mt-0000000AxE8-1opU;
-	Mon, 30 Mar 2026 09:19:59 +0000
-Received: from slateblue.cherry.relay.mailchannels.net ([23.83.223.168])
+	id 1w78rM-0000000AxWK-0Os9;
+	Mon, 30 Mar 2026 09:24:36 +0000
+Received: from mail-lf1-f45.google.com ([209.85.167.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78mp-0000000AxDE-33T2
+	id 1w78rI-0000000AxVj-2hHF
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 09:19:58 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id F405A8A2DE6;
-	Mon, 30 Mar 2026 09:19:53 +0000 (UTC)
-Received: from de-fra-smtpout1.hostinger.io (100-122-165-184.trex-nlb.outbound.svc.cluster.local [100.122.165.184])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id B80098A2893;
-	Mon, 30 Mar 2026 09:19:49 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1774862393;
-	b=Ojv4nw/nJ2FlBl7DACVPMLFpgUl3ZMZFtXPXJTa59gkUXwtQXcgS9PoGTpYpVwXiOGgLM7
-	PYbLDeijs24UXvtuW4CUM0x1EUkgMjSlGe4u7VFS1oN8YV+Yr0klPUS6BGyErfbP113Wdc
-	011i7GqZwVAu1wbTJfzpQXkLm9nhEFJei2m1bGyaZTBcBdtljZWlWjSZY3JKDTUx/0MoCz
-	+Ackpwny/+cJZ4qH93UVjY82cJ4xK8PRYfdg7KhLNuOun/aQaWXM67l4/UkLNC0Qtg1RVi
-	hOec+jsFzcqm1op9Jx5kJdmnAki6FVNZcZ+48ry7icPb7eOPvFu1Y/SlsQj0RA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1774862393;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=xn8ytO1cIDErWyKt0Aui97W2ei8LosNrt38/Xqsonzc=;
-	b=RUp95xcfeT5Z9+ljYt05kwCrTwtBCXfTEkHyH8dGF/ILePW0DugnsFy8Ve6112GsSk9mj+
-	4cKXWTvOl9A4ykYVZl00wIg8Tmy69Yj5HKFKsIVguKHvR3Jt1Hc/hhF4PPnyk6LuqByZ46
-	i7TiugtxnN1Z3eUV4BfMkcGYzL1hvDcwh5cp5tntzcJ6Q2Srihb4KcxGAkX+WfPEF22W8g
-	W/GrtYb4HzdorcQBl9ymFp6v8SpfPYvk2mDGfQ8Aj49j3DHqvGpeKN3LFZM93udYIl9H3m
-	zSnAS4ivnT+LI5dPlFL50pW4J/V+D6YYG1LXnFlhpBfG2ukFdL2L6oSpQ5L2/w==
-ARC-Authentication-Results: i=1;
-	rspamd-7f98bb5847-j2s98;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Cooperative-Gusty: 181656a42e71f35d_1774862393775_183899981
-X-MC-Loop-Signature: 1774862393774:2731040531
-X-MC-Ingress-Time: 1774862393774
-Received: from de-fra-smtpout1.hostinger.io (de-fra-smtpout1.hostinger.io
- [148.222.55.8])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.122.165.184 (trex/7.1.5);
-	Mon, 30 Mar 2026 09:19:53 +0000
-Received: from [IPV6:2001:861:4450:d360:dd36:70ba:d0ec:421] (unknown [IPv6:2001:861:4450:d360:dd36:70ba:d0ec:421])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4fkm0z1Vp2z3x5h;
-	Mon, 30 Mar 2026 09:19:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1774862388;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xn8ytO1cIDErWyKt0Aui97W2ei8LosNrt38/Xqsonzc=;
-	b=EsU/fRpB4bMNr1MbcjiJcFxFaQrImPdZP8Esq/9JO/3pYYnkpDwzzei3vtoSLw4TGqJ9Q+
-	TNmzMMMjaO57rvtNuIeBP58jf00XaB0KWEpAusBlaZBmzNEAzfQsR5LYAusd9T76XwYYYF
-	DgAn+A5DSahBLtvY4N6wz/MWQor5m4DCe4Y9rUN2Rr23LyUhJoNvI1cv4mQ9GZQMgvtgbW
-	9+ylL8QYrtLYLOWLNwiUWCEReIJiKHjsiUq3B/9DiwyGpCQEVOr4kUAVQFiYT80CH31YR9
-	1wNxXYV5rejUx0twMXT9FiqHulqymKbIrDFsa4NYodEO5fakub07vMFEWnQiwQ==
-Message-ID: <17eb09e8-280d-4a41-8a8c-8c8287160e97@rootcommit.com>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com,
- Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Anand Moon <linux.amoon@gmail.com>, Trevor Gamblin <tgamblin@baylibre.com>
-Subject: Re: [PATCH v5 0/9] riscv: spacemit: enable SD card support with UHS
- modes for OrangePi RV2
-To: Iker Pedrosa <ikerpedrosam@gmail.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Yixun Lan <dlan@kernel.org>
-References: <20260330-orangepi-sd-card-uhs-v5-0-bd853604322d@gmail.com>
-Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-In-Reply-To: <20260330-orangepi-sd-card-uhs-v5-0-bd853604322d@gmail.com>
-Date: Mon, 30 Mar 2026 09:19:47 +0000 (UTC)
-X-CM-Envelope: MS4xfAFrx90go/FDvQ2bCCAciVHZL0elbEQjsnIdsRspr6lsybI6rwV23lYlEa2ApzbvkTfe89o15JrIn57IsD7safNPyhyROCHNc3oWDPM8tqByr5qxkPCt N3cQlUyVDJxYfM80eMvfYbsJ1FGwCJ7ejYjJAkAoFJA7FC25rvWdm0IIeAdFGpq8m14+p6O4Eim/8vOdn1M/WK+43lQmNsAlNaknEzm4mRBa9zn/INJ/1PmR VPkeWM0QNjDPNRY8AMEMY9+GQWWf3lUZ+6vWTOuC+R2evMO4JyXUTxNKoKaWeYpo5WGW81yfsiYOYV7lOTGaButPF7e+/zBFx8TbbNu870v4U3d0NCp0ca9j O8LPNwbs9O59fhMxe4CElqmqn7lj69GmTatAWistWMsC1R3PDJYXi7LS3ARNv58JmfSuxhh3Q+rhnnpAiRwwEA8upv3oUsyya3S3/N/J3z5yz29NFy8Tkiyv D4++CwJMR7mJY0sQETdD2XzKvDgfm+q/NU6hO1Tt8B/L039PqEXVVBj5imzVGsoVwvCsOEiY0g5Z9PlfM8XiZXtjXrLuNxvCqor0lrfF2vQJyj0rAnDHHvIH vpTwCGah5jhet9ix3dmQt7FQMl3haN9C12FhnU+3CrFySGdgv6boOmxRgrG4Kw+RfkXpg7Wl+ycoNpH+uPFmhTbFseqWkfKhK9h8CbZsgDxG1ce8yLIJyamv GVZbdVU2Sgm9NifCORf6pVE0vGKKTtPu9AYanBW2z9D943JQovtJOeVZNZCCHAoVritoDEmWW83RPfjUQNWGE3Xp4ir6KWSQsj7xyjZa/+mey9Kxo+M7Jq3B UgbmtygCKATLhIeqPzrji1a+AX7iEzoyDo912b0lJTeZPw2NkIl4x+UFvKWnGUWiVGIHKZHo9/n1PBdt3dLX1A2sPdi7l2OsXhu9/NS41ehwK4/qwaX7fPS+ +ecuYw==
-X-CM-Analysis: v=2.4 cv=ALriHGRn c=1 sm=1 tr=0 ts=69ca4033 a=UGNOvlGp38Csz17LMCzH0g==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=d70CFdQeAAAA:8 a=np_wIC4uXEsaGhWusoMA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+	Mon, 30 Mar 2026 09:24:34 +0000
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5a2b081e87eso280214e87.3
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Mar 2026 02:24:31 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774862670; x=1775467470;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CbJf9Iw+tHrCrJt1ufQhWH5yjcoDbD42PT8F9ETtZDY=;
+        b=lTCPSD0NZmYIGByb2S9A7rJxbFNBv2JPgCDcJzLn8rXVph72UeNYxmxF+1diBPJp1I
+         9J1cec6R+2TnXFiDvDQ3Ah5gsI3m2aboRifx9TdjXd5a/W217Reti7n9voc+HoR4hwWm
+         tjgYzoX14Zge4PBjBNGDWkdt/h3n0myu88lQIoClARqYrE/hgkSOvhsxqMsbvdlkqyua
+         qkfAgDob7dN5g4q1pI68Eg6FjULa8zslSsimScXihFYLzV1w6SbtbezNzsJGOV/ZYkzy
+         dqINZoiKQP7miLPTqWtW8RwlcwTOsQp0QVImxGrgEe6a6wJ5XDspzfsOHoGBTwvzCckb
+         EqjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU7xGOQgOqbNTjtRsBVriKJbUc1KMCqQiRhqtPjJJ2oRXfHRMt3O19z9dFMli139GIU4yvydnWVCakh/g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2vDuvYulXO56CYVsCb6EfAlH18M2B2sxh6uyKGmq5j43FBGDL
+	nox0hYhXAzoTB4jOeGOOl707AlXauJL4qigCMIvHq3U48pJ5bS2MtOLkHUq8akhE
+X-Gm-Gg: ATEYQzzihFRyrWOk6nP27KLiejwZkndtGv8ZClpszU8JE1ypYRsmhdCKQgNh9RYavZB
+	PEaQuvF24GXsYV/H9t09h02o+TgMcXeN7ZUpnY9gYBdUw/BRfsru+TN00J88ChB4tK8/d4pyZ+2
+	KpsEbd6kgmR5yHiEqSICRSWsKSJdAtD73HTRQt0fMBGhTgIIImrbDZm2gVohgqTtP+xqG0RUtXm
+	nNdxruJVbGnMkkQTdAYdEjIgZSvH0tq4iiJiKpMI5TIcaUBuDNQEff3JkxDSfDGWsI3J2fxHInV
+	sIrQDakbVPDjeoAL0YL0/R/ERL9W+HrTqDZwKaBuINbQ1wKO46uwcZzGfAOqaeHZsIP/u6Tup4J
+	u1PXGKkNbAE9k6mT/go30CxoQeBJJsjVWTtq+wlkrY/nfoJQaKexdHJeYswdHSFxesc7uq+xOl1
+	7WdikbeoAjwn59efSIZrqKUU16UKpkkXp35ZZIFi3eOJBA310=
+X-Received: by 2002:a05:6512:3096:b0:5a2:7ce7:e3c1 with SMTP id 2adb3069b0e04-5a2ab92ae38mr2553569e87.8.1774862669672;
+        Mon, 30 Mar 2026 02:24:29 -0700 (PDT)
+Received: from localhost ([176.106.245.85])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a2b13b13bbsm1534889e87.0.2026.03.30.02.24.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 30 Mar 2026 02:24:29 -0700 (PDT)
+Mime-Version: 1.0
+Date: Mon, 30 Mar 2026 12:24:24 +0300
+Message-Id: <DHG0B03HM9S2.2QXKTJEGPI65B@altlinux.org>
+Cc: <soc@kernel.org>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, "Hal Feng" <hal.feng@starfivetech.com>,
+ "Conor Dooley" <conor@kernel.org>, "Heinrich Schuchardt"
+ <heinrich.schuchardt@canonical.com>
+Subject: Re: [GIT PULL] ~RISC-V~Starfive devicetrees fixes for v7.0-rc6
+From: "Ilya Sorochan" <k0tran@altlinux.org>
+To: "E Shattow" <e@freeshell.de>
+X-Mailer: aerc
+References: <20260326-astrology-rephrase-836ec663228b@spud>
+ <4dd4ffe6-307a-442b-ae99-50c88d4e5b84@freeshell.de>
+ <20260326-viscous-rigor-4beb18f77eec@spud>
+ <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
+ <DHCYMK8FEH10.1Y1YWLL3J1HSK@altlinux.org>
+ <ff792101-61e3-4470-9c5c-eea375edc9fa@freeshell.de>
+ <DHDFR4K758TP.291K17J2J5VL7@altlinux.org>
+ <a77f7c9c-4357-47df-95e1-f6e0f5a7c02f@freeshell.de>
+In-Reply-To: <a77f7c9c-4357-47df-95e1-f6e0f5a7c02f@freeshell.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_021956_813236_9AA61E06 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20260330_022432_709237_5A4D7F92 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,67 +91,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Iker
-
-On 3/30/26 10:38 AM, Iker Pedrosa wrote:
-> This series enables complete SD card support for the Spacemit K1-based
-> OrangePi RV2 board, including UHS (Ultra High Speed) modes for
-> high-performance SD card operation.
+On Sat Mar 28, 2026 at 1:07 PM MSK, E Shattow wrote:
+>>> I'm glad you sent a patch, but I still object for the other reasons
+>>> mentioned.
+>> 
+>> I'm glad to talk to competent people in this space, however I still hope that
+>> the kernel will refrain from breaking this feature until it is really necessary.
 >
-> Background
->
-> The Spacemit K1 SoC includes an SDHCI controller capable of supporting
-> SD cards up to UHS-I speeds (SDR104 at 208MHz). However, mainline
-> currently lacks basic SD controller configuration, SDHCI driver
-> enhancements for voltage switching and tuning, and power management
-> infrastructure.
->
-> Implementation
->
-> The series enables SD card support through coordinated layers:
->
-> - Hardware infrastructure (patches 1-2): Device tree bindings for voltage
-> switching hardware and essential clock infrastructure.
-> - SDHCI driver enhancements (patches 3-7): Regulator framework
-> integration, pinctrl state switching for voltage domains, AIB register
-> programming, and comprehensive SDR tuning support for reliable UHS
-> operation.
-> - SoC and board integration (patches 8-10): Complete K1 SoC controller
-> definitions, PMIC power infrastructure, and OrangePi RV2 board enablement
-> with full UHS support.
->
-> This transforms the OrangePi RV2 from having no SD card support to full
-> UHS-I capability, enabling high-performance storage up to 208MHz.
->
-> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-> ---
-> Changes in v5:
-> - Document optional pinctrl-names property supporting "default" and
->    "state_uhs" pinctrl states for coordinating pin configuration changes
->    during UHS-I voltage switching.
-> - Link to v4: https://lore.kernel.org/r/20260323-orangepi-sd-card-uhs-v4-0-567c9775fd0e@gmail.com
+> I hope you'll continue on to review the BootROM r.e. effort and cite its
+> code snippets in patches so adding bootph-pre-ram hints covering the
+> eMMC SPL boot method from StarFive Loader, retrospectively describing
+> the SD Card SPL boot method from StarFive Loader, and/or secure boot
+> crypto accelerator functionality in the starfive crypto driver (what
+> does command=8 and command=9 do exactly?) The exact nature of the bug in
+> StarFive Loader UART XMODEM incompatibility could use a proper
+> description, and SPI Flash configuration parameter analysis, too.
 
-
-Thanks for the update!
-Successfully tested on OrangePi RV2 (on top of mmc-next... doesn't work 
-on top of master).
-
-Tested-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-
-I'm excited to have this feature in the next kernel.
-Cheers
-Michael.
-
--- 
-Root Commit
-Embedded Linux Training and Consulting
-https://rootcommit.com
-
+Unfortunately this is beyond my competence. This exact issue was fixed without
+any r.e. only using git bisect. And while it might be interesting diving into
+learning how things are I'm not sure I will.
 
 _______________________________________________
 linux-riscv mailing list
