@@ -4,50 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A097510D14AD
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 13:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 506D010D14AD
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 13:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gD+CHEnDqHmm2Hmv4EGklYseDjNwP4QXGUOggG3Nhiw=; b=EdMydeUMYb0xlT
-	yU1cZYBszHnnFUoIRYJEAcnS5HB/EGAS4zha2X46FsUxWS0cPgBQBKS2pq45QTqR0geQlujDchN6p
-	tEMDNMe3nmb4Z+KdA4xuJ1kSJw4drS7DMNFjK2fLgQIS5odbDlbel39t/Akw9D99H5RQLuNbiXGZz
-	7/oJ6ylnHS9ucCFpJnP9bmFlP940lo5FSZfsgBDrFOMzPNXdrZJlSr4gmhryKDhLt6E9Bwf0JhLIT
-	7y4B7hMBn9ByL6k5SDoYl/VRE9Z3tK3hZov39/g8AxF+e7z9ICm8VgrZleRbpKA1YkSnHN2NVoR9b
-	2VFHnZ8WlibNb5t5gIaQ==;
+	List-Owner; bh=oMnvU4CaEkSZqZ71mtT8kXymBs9S4t3ND9LXZtn8Hkk=; b=GVRcK4eTg80YRZ
+	4AhCvb97zmG0I9U65eNsliWqteVVgRWmCaplZZ+Z2Zbqa/v2r2weSpuHakiMMRY2SFA3mjGrOvzal
+	78ssoZmTPF+EbhM/mmQF/moAU5A6TWjFAVuiQ5t9PI/yaJaDZc6ZpwJHPPUefsAO73Z+LbbrgTS+f
+	Xpeq7TfWtnYn6mN4BHD3ki0zTVbNune63xOenE61Y5PcVEjOYYRwiN7PAIeyQiETTUeHnWNt52sY/
+	QBsEOjmMdm3Jy8awXPl18pkQUgXaC2LnYUFTp0Jn2WV83dXj4A9SDuIgzZ32NEYkHQzdb3qrC8HcE
+	ZJMUQ61uYVBLxVZab7HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CG3-0000000BJ89-2FUs;
-	Mon, 30 Mar 2026 13:02:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7CH2-0000000BJKI-0y72;
+	Mon, 30 Mar 2026 13:03:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CG2-0000000BJ7g-0F1I
+	id 1w7CH0-0000000BJJp-2gnp
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 30 Mar 2026 13:03:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=/olVqTWG50vKfg4BySu0yrzwQXPEUAF5N02G0NIlKaU=; b=NwRCCa2M1insrnI99MhmC8Rq3Q
+	cGZyo6x/vKM/XtZ5kOZBeqe8fqSxYlhwT8TaVJwUVHhQgo7mJo6awq1t0txM2EoxMmgVR193vT1OL
+	UqmFjBS5mDqGNI2T/uwl0cq0QH5wAbDWvma3V5620Be8/7aRGDLm6IJkIOrXo3deKFMSO6YJVOlVH
+	JXL7M5gtzU0mzbhq16Sg2we78+d1DLfLdheLV2G1y/xXsDit8nHq/+jELW9KHqMKlPUirGvHyr5KK
+	MPfGYrfi3ZMw2QeDt3fK8KQZJ6bsiHlMm4i1LXib5eG/f46/Tu7buB1X8EVCT1IXgJoP1PKZIFp58
+	8Ew0XFGw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7CGw-0000000DtDJ-0nH6
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 13:02:19 +0000
+	Mon, 30 Mar 2026 13:03:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 60F1243794;
-	Mon, 30 Mar 2026 13:02:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E77DC4CEF7;
-	Mon, 30 Mar 2026 13:02:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC7FC401CA;
+	Mon, 30 Mar 2026 13:03:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5AB6C4CEF7;
+	Mon, 30 Mar 2026 13:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774875737;
-	bh=kw6JkL3fkTeQ2AvlrTTSoLDXGz1GhOI3fV5Nyp70Uls=;
+	s=k20201202; t=1774875791;
+	bh=buW5ym+8RQaRtIvbELFiYVgvwj/WNdl9xTYdSHbICn4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ToBj58cwIW9MtOjqy2f1q/neD+/R79uMrsKv+YY90AnbI9gyPb/FgUSOo1MiC/tYE
-	 1QcijRB3YbGPtj+zmrVqgeZxzdll+ULPi3XcsqkzSMkeBtzLmfVk3AEK7wu9A+UB8W
-	 NSbFeQE7CkuiHwjvZHBNId0ujCtpwFpx1+h7kOSmP7ibT5aO0/KyodVNCweoJYlp4o
-	 oJwoUVZ7GyMasjSaEckWqF5I31Qbp1RDsgH+Wc1n3tF4oIqFNynzRexdG6OWkHjeEV
-	 JQ56v+7YDRhCq/Gjkcg4hO95DwGdAH0T93W+Ej/6989UvxJLonuMSsL41V+fav+qXu
-	 V5sSh6o1N+RXg==
-Message-ID: <8c01c910-21b4-4a16-98e4-197c20883d23@kernel.org>
-Date: Mon, 30 Mar 2026 15:02:11 +0200
+	b=l+4o+hVuGg84UyWGcBU55bHC2VHtto/ovSeHge18YcY8YOfWEE1tXApIxUf2UMXn1
+	 yBOE7OGxVVpLwtGD9/zVyHvMpd/eRhUEg128J/DxUabhGRpDGxi9dBMmad6U3NVEUd
+	 bcolMqNTf93CApKIX6xkgFq+yjDJ6EAppmrEWBFnUC4y+7YbJxtizp0k8pFxIAQCXE
+	 I2yFy0FXt4ZbtYMvwMDn/hqif4T0JxiyzM6/Nm9p0g1d2+JOSKttuZU3yJEsTL8920
+	 Ha+BcbWEW54C7l8gzgCWQ4OISWV+0izOHCegtKLGrhHH0bnDb7TFVEG7NWJ2rIzFWf
+	 QhtrHxrrvD+Gg==
+Message-ID: <bef394b6-00a6-4cab-be39-437a5d39bde5@kernel.org>
+Date: Mon, 30 Mar 2026 15:03:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] cache: andes_llcache: refactor initialization and
- cache operations
+Subject: Re: [PATCH 6/7] dts: riscv: update cache compatible strings to LLC
 To: Hui Min Mina Chou <minachou@andestech.com>, pjw@kernel.org,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
  geert+renesas@glider.be, prabhakar.mahadev-lad.rj@bp.renesas.com,
@@ -57,7 +71,7 @@ To: Hui Min Mina Chou <minachou@andestech.com>, pjw@kernel.org,
  linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
 Cc: tim609@andestech.com, alex749@andestech.com, az70021@gmail.com
 References: <20260330102724.1012470-1-minachou@andestech.com>
- <20260330102724.1012470-3-minachou@andestech.com>
+ <20260330102724.1012470-7-minachou@andestech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,11 +117,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260330102724.1012470-3-minachou@andestech.com>
+In-Reply-To: <20260330102724.1012470-7-minachou@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_060218_151786_A363FDBB 
-X-CRM114-Status: UNSURE (   7.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260330_140314_864121_3BE3E1C2 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,16 +138,37 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 30/03/2026 12:27, Hui Min Mina Chou wrote:
-> This patch cleans up the Andes LLC cache driver:
->  - improved error handling in andes_cache_init() by using goto labels
->  - updated andes_dma_cache_inv/wback() to check for !size instead of
->    start == end
->  - cache-line-size mismatch from an error to a warning
->  - Use ALIGN and ALIGN_DOWN helpers instead of the alignment logic in
->    andes_dma_cache_inv() and andes_dma_cache_wback().
+> Update the cache driver compatible strings from ax45mp-cache to llcache
 
-Please read submitting patches document. One thing per commit with
-proper rationale WHY you are doing this.
+Driver? DTS is for hardware.
+
+> for both Qilai and RZ/Five platforms.
+> This follows the Andes cache driver refactoring to use more generic
+
+Nope, driver changes cannot be the reason to change DTS.
+
+> Last Level Cache (LLC) naming.
+> 
+> Signed-off-by: Hui Min Mina Chou <minachou@andestech.com>
+> ---
+>  arch/riscv/boot/dts/andes/qilai.dtsi        | 4 ++--
+>  arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 2 +-
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/dts/andes/qilai.dtsi b/arch/riscv/boot/dts/andes/qilai.dtsi
+> index de3de32f8c39..a7436cbf6f69 100644
+> --- a/arch/riscv/boot/dts/andes/qilai.dtsi
+> +++ b/arch/riscv/boot/dts/andes/qilai.dtsi
+> @@ -137,8 +137,8 @@ plmt: timer@100000 {
+>  		};
+>  
+>  		l2_cache: cache-controller@200000 {
+> -			compatible = "andestech,qilai-ax45mp-cache",
+> -				     "andestech,ax45mp-cache", "cache";
+> +			compatible = "andestech,qilai-llcache",
+> +				     "andestech,llcache", "cache";
+
+NAK, actual impact on users.
 
 Best regards,
 Krzysztof
