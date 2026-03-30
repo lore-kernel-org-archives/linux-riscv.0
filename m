@@ -4,82 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB8BFB3CE8
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 09:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3978FFB3CED
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Mar 2026 09:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xc/LC0cxh0/7Kk2mYPZbM6N0i0YgDZqaFltSbsVqWwU=; b=uxMzQKBrkxqz1A
-	bKwWGMSd5kt50ZZZ/82Eou+GmoLmzdcMJ1R8T04UTtZY5KpH13c+cErJUFEpVS77Spi7TwGTv8M90
-	JnBGs1gfuSS49ue3yolFa2cWfbeh9Eb/eBLixaLqsO4O2GxoQPBegzWsH0J2OnbAhmrdilBZfcHiN
-	Y/N3vtF5CcWjl/KdLpxXjlU7+mD6+SeaY4vE1BcYWdpmpHDdXSELzDhx797xBfr52OVEuvGRV4YIs
-	qa3tjmTrIJoPGBXIfeSz2HhkdGLwu+GqVkFdNtna9ishnOrCfXh5QjGQF4weGAgvhPVFoJ/fuwGus
-	hZFJ+8h/d7iCdsO2SU1w==;
+	List-Owner; bh=GbU43yt7sYpkWsuOJ3aFfxGKNqFYWXu0Vnu2TeGiT+c=; b=x/GfVoubFxwVZn
+	tGgH/tMh4f9saubOroRcqw555KCmM5SM2ayBiHMq0UGsnU3NeiYh7sQCEE/SSRW9MaBswP18opW+H
+	4XNiQ+qVhI36y87q7rLbpLxwtT+8FyIjKo8S98EX+kIRzu3Hky8DRKulDartf1YPmn4A0mmsxX5wr
+	k5Xn6ahhoPnal09rxrtGYQgktD54SzKj9tvfXlsMFcZxwNl0nIYPNrlRBzZF/7yXII9D9QChrQsvV
+	zXWL4rchNXi1zATm+kbC+sHV87nwIWNYhJ+Wiv6uU9FJCxCzU8AiYjpOafN2SfF7FF8hF3cf+IM2y
+	SJmwQsD3mPpjYK05fLNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78rM-0000000AxWK-0Os9;
-	Mon, 30 Mar 2026 09:24:36 +0000
-Received: from mail-lf1-f45.google.com ([209.85.167.45])
+	id 1w79A5-0000000AzCo-1Spb;
+	Mon, 30 Mar 2026 09:43:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78rI-0000000AxVj-2hHF
+	id 1w79A3-0000000AzCh-1Udj
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 30 Mar 2026 09:43:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=mTpQwvg5Mz9FjX0WddBd0PpBVlFM1npPuFntNiLEgxA=; b=h6bFyh8yKzbs/3Lc8pP52GXDS4
+	YZO3CEexzy/P8FM/khHj5HwUAZ9Fjq3PiIkQciL1Obem0skI8wNYb8zK77v3Pq/MTM6EsU+aPcyYE
+	/kbZKcnjHxcXoyhGuQHJD3QZzr2ndlXtXcRx+wge+iOarjSYWR1NGYsew8iOrxkC5YWsGMCj02VC4
+	Hw7uyk6lBuRdXVXl/xRgarH7NoEKmxQTd1m6obD2AOPA2dsS8EpUUCZL9YSerX8YWHPWNQlX83rqk
+	KlQ0hoFwCoKmOu4CKZLREQAWX6h9fFNFkWAhaXSKBTCCUY7YzPip/dryBNG8X5v3qIDfaByS3Siqw
+	XqxzAh+w==;
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w799s-0000000DT3E-3pCh
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Mar 2026 09:24:34 +0000
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5a2b081e87eso280214e87.3
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Mar 2026 02:24:31 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774862670; x=1775467470;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=CbJf9Iw+tHrCrJt1ufQhWH5yjcoDbD42PT8F9ETtZDY=;
-        b=lTCPSD0NZmYIGByb2S9A7rJxbFNBv2JPgCDcJzLn8rXVph72UeNYxmxF+1diBPJp1I
-         9J1cec6R+2TnXFiDvDQ3Ah5gsI3m2aboRifx9TdjXd5a/W217Reti7n9voc+HoR4hwWm
-         tjgYzoX14Zge4PBjBNGDWkdt/h3n0myu88lQIoClARqYrE/hgkSOvhsxqMsbvdlkqyua
-         qkfAgDob7dN5g4q1pI68Eg6FjULa8zslSsimScXihFYLzV1w6SbtbezNzsJGOV/ZYkzy
-         dqINZoiKQP7miLPTqWtW8RwlcwTOsQp0QVImxGrgEe6a6wJ5XDspzfsOHoGBTwvzCckb
-         EqjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU7xGOQgOqbNTjtRsBVriKJbUc1KMCqQiRhqtPjJJ2oRXfHRMt3O19z9dFMli139GIU4yvydnWVCakh/g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2vDuvYulXO56CYVsCb6EfAlH18M2B2sxh6uyKGmq5j43FBGDL
-	nox0hYhXAzoTB4jOeGOOl707AlXauJL4qigCMIvHq3U48pJ5bS2MtOLkHUq8akhE
-X-Gm-Gg: ATEYQzzihFRyrWOk6nP27KLiejwZkndtGv8ZClpszU8JE1ypYRsmhdCKQgNh9RYavZB
-	PEaQuvF24GXsYV/H9t09h02o+TgMcXeN7ZUpnY9gYBdUw/BRfsru+TN00J88ChB4tK8/d4pyZ+2
-	KpsEbd6kgmR5yHiEqSICRSWsKSJdAtD73HTRQt0fMBGhTgIIImrbDZm2gVohgqTtP+xqG0RUtXm
-	nNdxruJVbGnMkkQTdAYdEjIgZSvH0tq4iiJiKpMI5TIcaUBuDNQEff3JkxDSfDGWsI3J2fxHInV
-	sIrQDakbVPDjeoAL0YL0/R/ERL9W+HrTqDZwKaBuINbQ1wKO46uwcZzGfAOqaeHZsIP/u6Tup4J
-	u1PXGKkNbAE9k6mT/go30CxoQeBJJsjVWTtq+wlkrY/nfoJQaKexdHJeYswdHSFxesc7uq+xOl1
-	7WdikbeoAjwn59efSIZrqKUU16UKpkkXp35ZZIFi3eOJBA310=
-X-Received: by 2002:a05:6512:3096:b0:5a2:7ce7:e3c1 with SMTP id 2adb3069b0e04-5a2ab92ae38mr2553569e87.8.1774862669672;
-        Mon, 30 Mar 2026 02:24:29 -0700 (PDT)
-Received: from localhost ([176.106.245.85])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a2b13b13bbsm1534889e87.0.2026.03.30.02.24.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Mar 2026 02:24:29 -0700 (PDT)
-Mime-Version: 1.0
-Date: Mon, 30 Mar 2026 12:24:24 +0300
-Message-Id: <DHG0B03HM9S2.2QXKTJEGPI65B@altlinux.org>
-Cc: <soc@kernel.org>, <linux-riscv@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, "Hal Feng" <hal.feng@starfivetech.com>,
- "Conor Dooley" <conor@kernel.org>, "Heinrich Schuchardt"
- <heinrich.schuchardt@canonical.com>
-Subject: Re: [GIT PULL] ~RISC-V~Starfive devicetrees fixes for v7.0-rc6
-From: "Ilya Sorochan" <k0tran@altlinux.org>
-To: "E Shattow" <e@freeshell.de>
-X-Mailer: aerc
-References: <20260326-astrology-rephrase-836ec663228b@spud>
- <4dd4ffe6-307a-442b-ae99-50c88d4e5b84@freeshell.de>
- <20260326-viscous-rigor-4beb18f77eec@spud>
- <9ec329b9-144f-4896-a89c-3af0b23e631e@canonical.com>
- <DHCYMK8FEH10.1Y1YWLL3J1HSK@altlinux.org>
- <ff792101-61e3-4470-9c5c-eea375edc9fa@freeshell.de>
- <DHDFR4K758TP.291K17J2J5VL7@altlinux.org>
- <a77f7c9c-4357-47df-95e1-f6e0f5a7c02f@freeshell.de>
-In-Reply-To: <a77f7c9c-4357-47df-95e1-f6e0f5a7c02f@freeshell.de>
+	Mon, 30 Mar 2026 09:43:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1774863763;
+	bh=mTpQwvg5Mz9FjX0WddBd0PpBVlFM1npPuFntNiLEgxA=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version;
+	b=OHTh3sQYXm+rK3EPV3AyeF22RqnCrg94S6xu8CfhCh8ZijApaWkB/gUET0yCk4t/Z
+	 CvtXfjSvcfliYuuQ7izJdYFUznlbKoAun/vP5FDuErT1QoPzw3E+cYIxH1105iC6me
+	 9QM6M/xNfEwJrh8ZpH29814IdwIzoBH4rDzLyB3A=
+X-QQ-mid: esmtpgz16t1774863753te80528ff
+X-QQ-Originating-IP: R17bfHIhJDpspnCPy1NFP2dyutidDbHlsa0JPjeHPGk=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 30 Mar 2026 17:42:30 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17267774757820905902
+EX-QQ-RecipientCnt: 20
+Date: Mon, 30 Mar 2026 17:42:29 +0800
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+To: Shuwei Wu <shuweiwoo@163.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH v3 2/3] thermal: spacemit: k1: Add thermal sensor support
+Message-ID: <DF4450E7F5A1BB56+acpFhalHxjbA3d1v@kernel.org>
+References: <20260119-patchv2-k1-thermal-v3-0-3d82c9ebe8a4@163.com>
+ <20260119-patchv2-k1-thermal-v3-2-3d82c9ebe8a4@163.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260119-patchv2-k1-thermal-v3-2-3d82c9ebe8a4@163.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MlFTQbf74c0X8ovUWACn7Iogmr2oHDUhdSQLmQ5YLl1VxtGvXD3XGnU8
+	3+2iI4SwvsXwB2uBfjgh8YCGE1Lp5XWrAxOe1uwUJj49KseKyARv90LsGskj/lW9N2bVnjz
+	kq5AFyPeo7lMqwMPYOlD493y5X0GhTiY9pwLhjTBuph1KywbsDInuEY+2Nq5MSZXcTbFRGu
+	0YxOSCNtX8ee56nrbubOHA6U0QjhgAazr6MA/Ji6WMUTuspUhnXs3n4/JLetnA+ZHPTuYdX
+	L0mITTQzDArtwQDFPtBCUOC2gIxVgKimrCUlbO3J7eSrmNUlEN8CH9rJ5qKOdjVyEnMG7zD
+	ZGDWR7i1G2RTf5fYUHV8B6DYbdnEdP78NBX4aL8ragIh3wOu8T7dGGT0p5iBpRzFZRgSuNg
+	oWuCbarZjlq6f6laGhW66zmabJ4OM+4GpBOdit4w6feGzhzRyUmp4+dNbHARZ8oiv0gDk4l
+	5a0E3z/5pd7QGrRbLuY7x1nhmVnz8lUUFJvYtD0Ri4/KdE80VaDzVqzhfWYqKCag7dswXJ8
+	ZQWI3+pJvhUKdaqzj8XqBmxPXj+wnTR/Z7he7q2Lo42JWEkc/e/kZWfBZRaWr0k6wltNwO3
+	5s/hAXSBqTdKHDyeNpnAexOoFhsYkI6B8JFSDKhG3T2VIfnYVfWenIDUz1rR0qSij/nAk7B
+	5fjZ/sHgrbap98qI4GdXmtkPvsg+NjBqurQ7V5RvOu2Veg92MkH/qI4T849LAeMd6GP1hpQ
+	3FsNJqDVpOeXf3Ct2JXTfL72OSrUFeu6k3/fQuKMj9HAYtA+UlazORbWXahGr5J+yVv9Y10
+	n2pjCGiUzoFLP6DhT1Yff60kN15I9ZAerBJlRwBxB5yC9A+ntxneg6nsXdozC6uOTj27RPj
+	BXjnqnpbnwT9usC9dmzaZIvb1Leb3KVn01NTcVDoDKEe6X+KSa2EjHjAtacv2dGaHfpXoiF
+	hIdwMpK4OUl4saukKVGVRGMPq+rsyJ2TUC6VS5CVxXvEfYXbPxFkt/j9YLb4oaZkiRDAXhW
+	ezwZVk8/eeiSgjcUTIUakpbTh6kHOWj7gJi8KPhgleuCufvqNh1Tkod54ZfArxG+3Mangwi
+	4F5jb4u14uL+VZwCRsSxlzSOKkUK0qOyLHbIWsWbGoG/8OShA6wDg4=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_022432_709237_5A4D7F92 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260330_104347_610627_84CD701F 
+X-CRM114-Status: UNSURE (   6.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,25 +121,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat Mar 28, 2026 at 1:07 PM MSK, E Shattow wrote:
->>> I'm glad you sent a patch, but I still object for the other reasons
->>> mentioned.
->> 
->> I'm glad to talk to competent people in this space, however I still hope that
->> the kernel will refrain from breaking this feature until it is really necessary.
->
-> I hope you'll continue on to review the BootROM r.e. effort and cite its
-> code snippets in patches so adding bootph-pre-ram hints covering the
-> eMMC SPL boot method from StarFive Loader, retrospectively describing
-> the SD Card SPL boot method from StarFive Loader, and/or secure boot
-> crypto accelerator functionality in the starfive crypto driver (what
-> does command=8 and command=9 do exactly?) The exact nature of the bug in
-> StarFive Loader UART XMODEM incompatibility could use a proper
-> description, and SPI Flash configuration parameter analysis, too.
+On Mon, Jan 19, 2026 at 10:41:22 CST, Shuwei Wu wrote:
+> The thermal sensor on K1 supports monitoring five temperature zones.
+> The driver registers these sensors with the thermal framework
+> and supports standard operations:
+> - Reading temperature (millidegree Celsius)
+> - Setting high/low thresholds for interrupts
+> 
+> Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
+Thanks for your patch.
 
-Unfortunately this is beyond my competence. This exact issue was fixed without
-any r.e. only using git bisect. And while it might be interesting diving into
-learning how things are I'm not sure I will.
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 _______________________________________________
 linux-riscv mailing list
