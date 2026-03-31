@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAE910F92FC
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 20:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B971310F9301
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 20:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5rP4PZLj1rotEZcK3Ch09EtuuVEUqcJIW9yWeJzAGuc=; b=XU7Vce5Lk7GiSC
-	YiKAhrQEefdSzOM/+o9f+Ejb/C2xc3sZ+kEwXSKifumydkINk9QJHFTzkHLVsLAnJ8Vy4A6DEsNve
-	NIkHs6lUhc5azvoz9Vo3X+xt2KYo66Tv5hx1i94UXY2MQ333BP129RijRGV+dQXFNUaFhCFqPaUbb
-	wHP3mk6GCQz7jUzJURA6WP5hr34V/0TztNP+5JHHGcI+/JerSK39E6Qz/wcbHUprH/4et8nE3rkFo
-	w8tw1wjuO7ql0TwQAYqxgCPOT7rs1QJWaWvV8Svp5vIA5Ramy/0bygCD385z2iVXHEU7ITVqY3Tu5
-	+s/lu4TJ45o449Qstvjw==;
+	List-Owner; bh=VMRgjmosM9sDyjDGg7gxW3kcQoiTOblLWHlXKcBorUY=; b=uLJtvWnAa6n75i
+	cj41NwRgTOH9+JMtkUOODhpmktTBoe71c/w1vSVd5gcNJqOzEG9Axe78eje+rrzOpxgFaXK2hUyMu
+	EafILHEWI/vWModvndedY1Wf0zkTuVrARfek28SMWFs7k0xhFVIIs/CSyAQ0scoqQbWBzbHZKOkRP
+	cx+Of6SUv4depJtUmSRZafzwrqDLit2ICbThPCg+HI2L0nl3KryU0fV+V9Uplti50ymJvS8lm1p8k
+	UvCyLFr6VwgD7g1Ii1VrF+ld3m2293Ypjdx3q7XlIB00WSLWJIS7uzqVl0Hzc5U1B3vu3uorxynFg
+	EPXrC6UU06fl1PSnonWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7frf-0000000DXD3-0vuZ;
-	Tue, 31 Mar 2026 20:39:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7fv6-0000000DXYv-1ZtP;
+	Tue, 31 Mar 2026 20:42:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7frc-0000000DXCb-1y9b;
-	Tue, 31 Mar 2026 20:39:05 +0000
+	id 1w7fv4-0000000DXYV-2Tjl;
+	Tue, 31 Mar 2026 20:42:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C033243CDE;
-	Tue, 31 Mar 2026 20:39:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFCBCC19423;
-	Tue, 31 Mar 2026 20:39:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 585D460133;
+	Tue, 31 Mar 2026 20:42:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BDFBC19423;
+	Tue, 31 Mar 2026 20:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774989543;
-	bh=UshFWwx0qjigZqehF4ng5XUMVtYphhYyBW0Ri1qyVZg=;
+	s=k20201202; t=1774989757;
+	bh=lzItpDMUFe9IIz3v9bFnYpmMsgPI8d54FF5k3tmR9SU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T4pC/ntyfTxVxy8aiC+/N8BGp6ZpEmpqTEUyjIbh6w86S2k0b3rTVrGTJn+nrnQd3
-	 IxAYDk+PR4IwlCVpNcMX4k9im8PPbaQX0YcdwrB/fR9LXLcNFKjeU8faHyXcAbjG5v
-	 dvKdW7Rp4aP5d9ICvFkxrLWORI8RZKAXMyAiZC0ZAXcs5Pk6HS11t3UbFjFr3qJfq0
-	 YER4YtAyH9HdAqgKw3NYfGX5fd6hUuS0pg4AxoP0BFjf+al4fpGzHneMF3ePfPaK3e
-	 PL6WorDgNJmO0LoqlUBxcSiNhK4i3ycNA8DzSwTIKaUkYdl0ZRDqWGMoqe+aShVfFt
-	 YtCoXblOKIAgQ==
-Date: Tue, 31 Mar 2026 17:38:59 -0300
+	b=QaU4OE10H056EqgLekISQyTNMKqmyYtiHbhYw/Mj0n67L4i/yoT+My5/qCjmIbN3y
+	 o6yu+46tw9DoMzXZyUXh5brNEE13qqrrr83zFHVZithqigjgUnjpVYgNJ48fCyGSIv
+	 pzSymJnWUvnRkUrftay1tRwghIyT1bcoekEnMpU1UUsWU5p5w+cHDCa66G8vJYRIrT
+	 if0NpVydS2POlOW1DMA8RndiVKGuvJh2jJ2qu/Wh+5Iq6X2zWn0gw5pgD5n+uoqurK
+	 M0drrE9Y5JiQ68bO9qEGI1FDLaRDlZsFcdjcORbwv/91cUj8DrBWAPH1Sx+F3eVHSj
+	 7eQ9fYNHmocZQ==
+Date: Tue, 31 Mar 2026 17:42:32 -0300
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Ian Rogers <irogers@google.com>
 Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr,
@@ -59,16 +59,13 @@ Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr,
 	yuzhuo@google.com
 Subject: Re: [PATCH v2 1/8] perf unwind: Refactor get_entries to allow
  dynamic libdw/libunwind selection
-Message-ID: <acww47MH3wdNvYxR@x1>
+Message-ID: <acwxuPAo8g6C867R@x1>
 References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
  <20260305221927.3237145-1-irogers@google.com>
  <20260305221927.3237145-2-irogers@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20260305221927.3237145-2-irogers@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_133904_560966_480CCB65 
-X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -211,10 +208,251 @@ On Thu, Mar 05, 2026 at 02:19:20PM -0800, Ian Rogers wrote:
 > +
 > +	UNWIND_STYLE_LIBUNWIND,
 > +
+> +};
+> +
+> +#define MAX_UNWIND_STYLE (UNWIND_STYLE_LIBUNWIND + 1)
+> +
+> +
+>  enum a2l_style {
+>  	A2L_STYLE_UNKNOWN = 0,
+>  	A2L_STYLE_LIBDW,
+> @@ -80,6 +93,7 @@ struct symbol_conf {
+>  			*bt_stop_list_str;
+>  	const char		*addr2line_path;
+>  	enum a2l_style	addr2line_style[MAX_A2L_STYLE];
+> +	enum unwind_style unwind_style[MAX_UNWIND_STYLE];
+>  	unsigned long	time_quantum;
+>         struct strlist	*dso_list,
+>  			*comm_list,
+> @@ -103,3 +117,4 @@ struct symbol_conf {
+>  extern struct symbol_conf symbol_conf;
+>  
+>  #endif // __PERF_SYMBOL_CONF
+> +
+> diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+> index 05e8e68bd49c..d8a5b7d54192 100644
+> --- a/tools/perf/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw.c
+> @@ -339,7 +339,7 @@ frame_callback(Dwfl_Frame *state, void *arg)
+>  	       DWARF_CB_ABORT : DWARF_CB_OK;
+>  }
+>  
+> -int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+> +int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
+>  			struct thread *thread,
+>  			struct perf_sample *data,
+>  			int max_stack,
+> diff --git a/tools/perf/util/unwind-libunwind.c b/tools/perf/util/unwind-libunwind.c
+> index cb8be6acfb6f..a0016b897dae 100644
+> --- a/tools/perf/util/unwind-libunwind.c
+> +++ b/tools/perf/util/unwind-libunwind.c
+> @@ -79,7 +79,7 @@ void unwind__finish_access(struct maps *maps)
+>  		ops->finish_access(maps);
+>  }
+>  
+> -int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+> +int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
+>  			 struct thread *thread,
+>  			 struct perf_sample *data, int max_stack,
+>  			 bool best_effort)
+> diff --git a/tools/perf/util/unwind.c b/tools/perf/util/unwind.c
+> new file mode 100644
+> index 000000000000..9ae7d5ad246d
+> --- /dev/null
+> +++ b/tools/perf/util/unwind.c
+> @@ -0,0 +1,102 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include "debug.h"
+> +#include "symbol_conf.h"
+> +#include "unwind.h"
+> +#include <linux/string.h>
+> +#include <string.h>
+> +#include <stdlib.h>
+> +
+> +int unwind__get_entries(unwind_entry_cb_t cb __maybe_unused, void *arg __maybe_unused,
+> +			struct thread *thread __maybe_unused,
+> +			struct perf_sample *data __maybe_unused,
+> +			int max_stack __maybe_unused,
+> +			bool best_effort __maybe_unused)
+> +{
+> +	int ret = 0;
+> +
+> +#if defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
+> +	if (symbol_conf.unwind_style[0] == UNWIND_STYLE_UNKNOWN) {
+> +		int i = 0;
+> +#ifdef HAVE_LIBDW_SUPPORT
+> +		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBDW;
+> +#endif
+> +#ifdef HAVE_LIBUNWIND_SUPPORT
+> +		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBUNWIND;
+> +#endif
+> +	}
+> +#endif //defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
+> +
+> +	for (size_t i = 0; i < ARRAY_SIZE(symbol_conf.unwind_style); i++) {
+> +		switch (symbol_conf.unwind_style[i]) {
+> +		case UNWIND_STYLE_LIBDW:
+> +#ifdef HAVE_LIBDW_SUPPORT
+> +			ret = libdw__get_entries(cb, arg, thread, data, max_stack, best_effort);
+> +#endif
+> +			break;
+> +		case UNWIND_STYLE_LIBUNWIND:
+> +#ifdef HAVE_LIBUNWIND_SUPPORT
+> +			ret = libunwind__get_entries(cb, arg, thread, data, max_stack, best_effort);
+> +#endif
+> +			break;
 
-Please remove the blank lines.
+
+What if the user asks for one of the unwinders, symbol_conf.unwind_style
+will be populated with the user's choices, but then here in
+unwind__get_entries() we end up returning 0 because the user choice is
+not built-in?
+
+Also no warning will be emitted that what was asked for is not
+available?
+
+Maybe remove the ifdefs here and have a dummy libdw__get_entries() when
+HAVE_LIBDW_SUPPORT ins't defined that emits the warning and returns -1?
+Ditto for UNWIND_STYLE_LIBUNWIND?
 
 - Arnaldo
+
+> +		case UNWIND_STYLE_UNKNOWN:
+> +		default:
+> +#if !defined(HAVE_LIBDW_SUPPORT) && !defined(HAVE_LIBUNWIND_SUPPORT)
+> +			pr_warning_once(
+> +				"Error: dwarf unwinding not supported, build perf with libdw or libunwind.\n");
+> +#endif
+> +			ret = -1;
+> +			break;
+> +		}
+> +		if (ret == 0)
+> +			break;
+> +	}
+> +	return ret;
+> +}
+> +
+> +int unwind__configure(const char *var, const char *value, void *cb __maybe_unused)
+> +{
+> +	static const char * const unwind_style_names[] = {
+> +		[UNWIND_STYLE_LIBDW] = "libdw",
+> +		[UNWIND_STYLE_LIBUNWIND] = "libunwind",
+> +		NULL
+> +	};
+> +	char *s, *p, *saveptr;
+> +	size_t i = 0;
+> +
+> +	if (strcmp(var, "unwind.style"))
+> +		return 0;
+> +
+> +	if (!value)
+> +		return -1;
+> +
+> +	s = strdup(value);
+> +	if (!s)
+> +		return -1;
+> +
+> +	p = strtok_r(s, ",", &saveptr);
+> +	while (p && i < ARRAY_SIZE(symbol_conf.unwind_style)) {
+> +		bool found = false;
+> +		char *q = strim(p);
+> +
+> +		for (size_t j = UNWIND_STYLE_LIBDW; j < MAX_UNWIND_STYLE; j++) {
+> +			if (!strcasecmp(q, unwind_style_names[j])) {
+> +				symbol_conf.unwind_style[i++] = j;
+> +				found = true;
+> +				break;
+> +			}
+> +		}
+> +		if (!found)
+> +			pr_warning("Unknown unwind style: %s\n", q);
+> +		p = strtok_r(NULL, ",", &saveptr);
+> +	}
+> +
+> +	free(s);
+> +	return 0;
+> +}
+> +
+> +int unwind__option(const struct option *opt __maybe_unused,
+> +		   const char *arg,
+> +		   int unset __maybe_unused)
+> +{
+> +	return unwind__configure("unwind.style", arg, NULL);
+> +}
+> diff --git a/tools/perf/util/unwind.h b/tools/perf/util/unwind.h
+> index 9f7164c6d9aa..581d042e170a 100644
+> --- a/tools/perf/util/unwind.h
+> +++ b/tools/perf/util/unwind.h
+> @@ -7,6 +7,7 @@
+>  #include "util/map_symbol.h"
+>  
+>  struct maps;
+> +struct option;
+>  struct perf_sample;
+>  struct thread;
+>  
+> @@ -26,7 +27,9 @@ struct unwind_libunwind_ops {
+>  			   struct perf_sample *data, int max_stack, bool best_effort);
+>  };
+>  
+> -#ifdef HAVE_DWARF_UNWIND_SUPPORT
+> +int unwind__configure(const char *var, const char *value, void *cb);
+> +int unwind__option(const struct option *opt, const char *arg, int unset);
+> +
+>  /*
+>   * When best_effort is set, don't report errors and fail silently. This could
+>   * be expanded in the future to be more permissive about things other than
+> @@ -36,8 +39,20 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+>  			struct thread *thread,
+>  			struct perf_sample *data, int max_stack,
+>  			bool best_effort);
+> -/* libunwind specific */
+> +
+> +#ifdef HAVE_LIBDW_SUPPORT
+> +int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
+> +		       struct thread *thread,
+> +		       struct perf_sample *data, int max_stack,
+> +		       bool best_effort);
+> +#endif
+> +
+>  #ifdef HAVE_LIBUNWIND_SUPPORT
+> +/* libunwind specific */
+> +int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
+> +			   struct thread *thread,
+> +			   struct perf_sample *data, int max_stack,
+> +			   bool best_effort);
+>  #ifndef LIBUNWIND__ARCH_REG_ID
+>  #define LIBUNWIND__ARCH_REG_ID(regnum) libunwind__arch_reg_id(regnum)
+>  #endif
+> @@ -57,26 +72,5 @@ static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+>  static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
+>  static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
+>  #endif
+> -#else
+> -static inline int
+> -unwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
+> -		    void *arg __maybe_unused,
+> -		    struct thread *thread __maybe_unused,
+> -		    struct perf_sample *data __maybe_unused,
+> -		    int max_stack __maybe_unused,
+> -		    bool best_effort __maybe_unused)
+> -{
+> -	return 0;
+> -}
+> -
+> -static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+> -					 struct map *map __maybe_unused,
+> -					 bool *initialized __maybe_unused)
+> -{
+> -	return 0;
+> -}
+>  
+> -static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
+> -static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
+> -#endif /* HAVE_DWARF_UNWIND_SUPPORT */
+>  #endif /* __UNWIND_H */
+> -- 
+> 2.53.0.473.g4a7958ca14-goog
 
 _______________________________________________
 linux-riscv mailing list
