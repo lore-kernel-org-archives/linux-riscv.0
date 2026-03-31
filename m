@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD3F10F92E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 17:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22FB2FF60F4
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 17:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=U6YaV9D+Wz4qw9Kl2ijVfKsgkcz+2LTGIZKruJ50SaU=; b=TSEaW0TgsUufe+
-	KAA+myiBKpBK9kXZtWkPSMI6Di3AdincnRRYPYwehdohyr19oEetgScQgJyDLhr+Yw0t1bAfItysT
-	uwoknqtGbK0LKgfElRZtpniHwQZlwi8gFjAXAoLUhilxdj6TBQVmvC/Uq4Calf9t5c3Uu1JyjTPJe
-	kWotN7tjco6r4nue3nGlbAVTNGuvtgD8GQTt8TsSLVcwgaGFKnLvv/+pga/hc1ibQzBNgc+XE0MPl
-	wmnxLAzQn0ri3m5lDGCF1Td+U6jJpzc3/z3IxpxqMcOq6Qn5f/Q2pe06rJ9rVzwHECR1Ew7qTWILi
-	DRC+uLUvINz5WRfIvAHg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Qdkw+QS0UQZBp73dxNU5YIneg+fdU4/dOms7XO21eFM=; b=GGqR89cD2SWSsq
+	m9qOxrec/MDbKH3dyT34JhqTx8s2YUO3oaJ4A+5J50rqMBBn3ZXnZthyAFNaMpQvE7ur0O/Ez3o0c
+	eiPAV6WNbCQtYwv8z16a4bgwqafHnXb+u1owFhfaHod/DhzsMw/OxqHYpjGRlCQ4lAUgRB1KP5834
+	Naag4vOJ1SlLlJRS2poOBiGmci6gdGQ+O+bIR/rlTBP27F2QrtHTTa+l9cCc/jdLbdp1TUTpe09vF
+	kf1O3nQuzcBYVykyvOAxoyFpmQ4iXM8ohwsmB7nfOsDg8du4bK/yqkW8U/eszVf0Entzj6gZSjj1Y
+	jyVEuftS9V9gLUktKmzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ceD-0000000DK3U-26Kh;
-	Tue, 31 Mar 2026 17:13:01 +0000
+	id 1w7ceH-0000000DK4J-3KId;
+	Tue, 31 Mar 2026 17:13:05 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ceA-0000000DK2R-08px
+	id 1w7ceA-0000000DK2V-2BCp
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Mar 2026 17:12:59 +0000
+	Tue, 31 Mar 2026 17:13:00 +0000
 Received: from localhost.localdomain (unknown [223.166.95.230])
-	by APP-03 (Coremail) with SMTP id rQCowABnhdyRAMxpydRzDA--.42156S2;
-	Wed, 01 Apr 2026 01:12:50 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABnhdyRAMxpydRzDA--.42156S3;
+	Wed, 01 Apr 2026 01:12:51 +0800 (CST)
 From: Han Gao <gaohan@iscas.ac.cn>
 To: Bjorn Helgaas <bhelgaas@google.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -52,31 +52,36 @@ Cc: linux-pci@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Han Gao <rabenda.cn@gmail.com>
-Subject: [PATCH 0/2] riscv: sophgo: sg2042: Enable PCIe DMA coherence
-Date: Wed,  1 Apr 2026 01:12:46 +0800
-Message-ID: <20260331171248.973014-1-gaohan@iscas.ac.cn>
+Subject: [PATCH 1/2] dt-bindings: pci: sophgo: Add dma-coherent property for SG2042
+Date: Wed,  1 Apr 2026 01:12:47 +0800
+Message-ID: <20260331171248.973014-2-gaohan@iscas.ac.cn>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260331171248.973014-1-gaohan@iscas.ac.cn>
+References: <20260331171248.973014-1-gaohan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABnhdyRAMxpydRzDA--.42156S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYm7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E
-	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
-	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8I
-	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2js
-	IEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAK
-	zVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx
-	8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIF
-	xwACI402YVCY1x02628vn2kIc2xKxwCF04k20xvY0x0EwIxGrwCF54CYxVCY1x0262kKe7
-	AKxVW8ZVWrXwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I
-	3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIx
-	AIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAI
-	cVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2js
-	IEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUQvtAUUUUU=
+X-CM-TRANSID: rQCowABnhdyRAMxpydRzDA--.42156S3
+X-Coremail-Antispam: 1UD129KBjvdXoWrKr17Wr17XFW8Gw1UJr1rtFb_yoWfKwb_W3
+	WfAF4kZrs8ArWYgrn0yw48GFW5Zw42vryDCw15Ka1F934IqrWDKa4kJas8AF17Grs8uFyf
+	uwn3ZrykuwsrWjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbQAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
+	0Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwA2z4
+	x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCF54CYxVCY1x0262kKe7AK
+	xVW8ZVWrXwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I
+	0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAI
+	cVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcV
+	CF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIE
+	c7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRMfOzDUUUU
 X-Originating-IP: [223.166.95.230]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBg0DDGnL4ih7xAAAsT
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBg0DDGnL4ih7xQABsT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_101258_437283_D08790BD 
-X-CRM114-Status: UNSURE (   5.56  )
+X-CRM114-CacheID: sfid-20260331_101258_951554_3BC52DFF 
+X-CRM114-Status: UNSURE (   7.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,20 +99,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SG2042 hardware design supports cache-coherent PCIe.
+Add dma-coherent as an allowed property in the SG2042 PCIe host
+controller binding. SG2042's PCIe root complexes are cache-coherent
+with the CPU.
 
-With recent firmware updates [1], it allows to use DMA coherent.
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ .../devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml       | 3 +++
+ 1 file changed, 3 insertions(+)
 
-[1] https://github.com/sophgo/edk2-non-osi/commit/017a5aea26a066fd2bf501b7893937183165af36
-
-Han Gao (2):
-  dt-bindings: pci: sophgo: Add dma-coherent property for SG2042
-  riscv: dts: sophgo: Add dma-coherent to SG2042 PCIe controllers
-
- .../devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml      | 3 +++
- arch/riscv/boot/dts/sophgo/sg2042.dtsi                        | 4 ++++
- 2 files changed, 7 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+index f8b7ca57fff1..ab482488b047 100644
+--- a/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
++++ b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+@@ -30,6 +30,8 @@ properties:
+   device-id:
+     const: 0x2042
+ 
++  dma-coherent: true
++
+   msi-parent: true
+ 
+ allOf:
+@@ -60,5 +62,6 @@ examples:
+       vendor-id = <0x1f1c>;
+       device-id = <0x2042>;
+       cdns,no-bar-match-nbits = <48>;
++      dma-coherent;
+       msi-parent = <&msi>;
+     };
 -- 
 2.47.3
 
