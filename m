@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBD7109B463
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 13:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939E3109B468
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 13:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FGnXC/1gh9C9rGMY/qe5CXQ1B1MfOuUCAh4eD9um0V0=; b=LCn72XIDE1QZKS
-	I5+kgaAdQFyDuF34DpgDYuBKTZEDspjiduWtexg4Sm9o5BXoqBEn037R+Apah6FlKh/LklmrNXW4E
-	7gaiJUONdrRkPwwKwQy2A9wKEjQiXXslEHnenAtZosKGM5OIeOx1vt8oI4MsL/1aJkM/8iIiRxKVP
-	IpmCfJR0n8Xb3ZvZhc3w1gnJ/m0+ZxyNXMjGj+uxhL1hlAwaum8aUa6FgiITotRarTEbhbjxJMrGU
-	Iy1IbMYP1Q0HTllspGek1EE8Yd2P+Io1KihUrDoU0e7qZon/89CmRl1oydVYNrMfQ2tq8QEtPLXYM
-	0lM5AEqDc27EILMNauhQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4giWkob2xtqMtT4sqlgupgAtGnoWSKDe4X1kLIdLh/Q=; b=vVizQmJiW7R4TX
+	oUQRj2qHTRGyK9k0kxC14E1eQsZt66al7otMnyA/xOwFNRcmF+Zg+VwYkn+lOScdZ7EHR6I9nd2qM
+	eWJYSsnb6kd6Zf4QHSuK+vHQffM8NddD5ZsSf4vKXr4S5KHL0bnhaqJaPiF6pPNmWKIUZ4/7FgEAM
+	BWt5L4bYOxH87EkuRqlJPRIoa+5KwznztqoUomPiRvJ3EqIBxT0ivbTpC5Kc+Uo2TJokek5TaeD2n
+	i38U9b94xzy6rK06I4qBsl9XMAbpXGtTVPbpTbnkHgriZNc2kpwze522f4nvD+UYeSWvk/b1dBdRl
+	EqgCDzxG3oGrL7nma16w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Yld-0000000CygA-2Odf;
-	Tue, 31 Mar 2026 13:04:25 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1w7Yrq-0000000Cz6C-2ww8;
+	Tue, 31 Mar 2026 13:10:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Yla-0000000CyfI-1qe6
+	id 1w7Yrp-0000000Cz65-2wtO
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Mar 2026 13:04:23 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b980c65b97aso841317166b.0
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 06:04:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774962260; cv=none;
-        d=google.com; s=arc-20240605;
-        b=eCCo51kf03kXB2SrDo6udNEiH7JdY/MHawU5DjI90aRF0i8O1pdEVUIc6mUt2ZJPyh
-         EosMrdNsZsZUTfilQuVsiv2z+aZ362b1q6hnIK/VWYqTj3wzm88k00BHJI59u0GiP7CE
-         ntS59ZXtgNNfdxtZdf+G4v1jlu6WRfo2AbtL7d/rPO59x/pOXHet7+/+T9ErI4bHwrJn
-         /nAbUePRLshBudlPI7xdnstLiKS+pLJ2pP+e/WkKC5iSpUxgIdiX/twYSoBd2/tDmeGf
-         Q/nxO92rT1UMIRDS7hgSVemL6Lt0jmRMvEyPaVVla74sBiFiiVFCxXDrwcrwyQvz+rrY
-         08dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Ecvm3yTkU0AMe9t2ouHPkvyA6VqwLu70kRxdHhHfCas=;
-        fh=iI55NoEyq+PdW0H8tHuf72JRkys4xhnPUDIG9VfJurg=;
-        b=Ow4VuwzAy/gI7Aefy9sv9jx8YXZWcwxR5e+jYGHPDZAyoBgcyUjsGedBnW3ppUu3SB
-         QIFpqongAkWKObIfRFI2BHrETtjLoLhL8bMTbJ1+8v0xBpdlFM6aEIrwn+D9k4QR5cH4
-         LHUOJcThMn7RQiFUWY/wuF+FssxVxbaEZWlU9fyqfM5QtZm7j+wgtPXFpKBmDOqdnhCC
-         KHdATZjPGC/YW8inCaWqp7LIsZXFhbsffwfHeuOHsOEVx6bXRO9GClslghuc0Wsgq5ig
-         LFOkkad+lgV4P1NMALFfxY3Hfs1FjVlipucmLBUW5a7CSaJ8pHEMvxDH+5haa5CA5IqY
-         07NQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774962260; x=1775567060; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ecvm3yTkU0AMe9t2ouHPkvyA6VqwLu70kRxdHhHfCas=;
-        b=rYvFik1ntUbe1C4N2RNoY5pXQyL6CjPyoct5Ke1Uzf+V0gTHNabjqR3ufjmAVhcTfJ
-         zfO6kMOgp639zQicq8sB2jvKq0Vmhrs00PCVbztgHHCBU17kEZoMJEEU2yqS1CBQwemA
-         VIHLncXr/bC7NGoYZJPnj8gzM6CV7FS1ZjFTbMVvIxdE5QG+z2qeW7XsH+iay5aSgqu3
-         bREzXj7OLpeWU+zpnC3WbKZnsrYmLZBdLmScySShUcEgO2CcTZ6tTT84ZahUZa2rUHHo
-         hQnaAKpNSFnNhu2mOcHqUaKC0TzkUt13lZS6THbQTGTEOb1fLsQ0Zrbt4u2w+NHgKWwn
-         3GGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774962260; x=1775567060;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Ecvm3yTkU0AMe9t2ouHPkvyA6VqwLu70kRxdHhHfCas=;
-        b=gC1JUyAFT/tjPjDe/C5D7VKhh1Z7pQjUqa63Mn74G9Qiff3KgPTukUFwJsZr2Wc93C
-         LfF8a6w8OkOZQ0D/GQRPm1km/IooP3s10yNhGCl5B8ESAS60HHaRqDCB7V5XxZa33NbA
-         SRKTKlIWZ2gR1oDWHoa5UMeoh+34a+qT9GptdQKPnXe14G+Tnji1sVZ1sK0ZmUmhfE84
-         eC2WxkceMa2S5T03eHu5koakthDpRiFFnxEBp+1xYaCRb/1GWlcw4JtFdgaZ7YxdqIeL
-         YvbG2E9VzPIkD8C4sF2hG5FubWY24kk073LJWqTv8IYYvB93UYEILPt0P8IZihuV2bgf
-         6J7A==
-X-Forwarded-Encrypted: i=1; AJvYcCXltoud3+WqFBEM8T3JCW4iKnTdMxXjhwAGpJeiD9X60R7iNxRSXH0AnGYj8jT9tV1y9E9J/n4arq4MPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBLl0kB3b+QzvHAPCFtrDQ0nthurwgFUd7LsGjP6ovAAzL629J
-	OHJiQzI9WFQR2rLKsvrCYgOULWaju99Utpbq1PhhIyt9gc5GZbv1rCHKJBE/aLH+KByIyDt6ENL
-	JHmR2aR78tuglk4eqzH4dxnP8ala6R8M=
-X-Gm-Gg: ATEYQzwRc8FSZRRP3zQSj4kdSu+hg1PQACPG3IpgJFtErwKsdxGO7/4ppZPzgcBrdxM
-	BPBsgJNQvIhHo0PthXhp430oWaIYRNtPbsNMogzp8ZAsswoddZSXGyxQTW4iaoqB7SvBXWCQ7G2
-	rnAErBGrdsNJhPZBmz9OT7y8+mRKpTlDD2g7Hx9lrU+XZvMfc/W0tQF6B4nYdDZX1N2bR6WUGrE
-	oaywgyuB3vZCls6o62DEfdpKOBxxGyyc7sSYqyGDHPXPFYV+OhpBfz0Qjz1xkFXdSR5GeSxm5Sq
-	RlmIjq4=
-X-Received: by 2002:a17:907:cb1e:b0:b9b:1f3f:dd80 with SMTP id
- a640c23a62f3a-b9b50312610mr680480766b.1.1774962259673; Tue, 31 Mar 2026
- 06:04:19 -0700 (PDT)
+	Tue, 31 Mar 2026 13:10:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B0AB560133;
+	Tue, 31 Mar 2026 13:10:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9772FC19423;
+	Tue, 31 Mar 2026 13:10:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774962648;
+	bh=H0eVMKEWi51A1OOnFbl4r5rkAhTgLqp8o3RwpipEpKY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=l9YZCM+puP/uyhhRfSMUh+dBedmeyvh7H4LNp9JqVQ5qaZjZdTn8TbWvfGca3nT9Q
+	 U3SFo+eYmiYBwAnAJ1yPP/CsOgDcCnv/GKmkaMpPMXuGH6xtxN+vud/psvx+n26pQS
+	 VQHiUoJkJJon08lc9MtZC7oHExp9x/mInpJO4snchj5o90af6jj/K44qK0R7uvIpmQ
+	 zGFwuz7/6Lt9vI17D7Qip1liGsoNLUiY5zSTu/xjXN5oP7yVnVmgm57tgL4sGwm/qi
+	 hulicRD8oqAewXzvJ7TYnl93wFIxArRBQ3k0UJsF4fHrqdRvVRWLNUNe7l5o/B6YIn
+	 mJmxr0rhaUosw==
+From: Conor Dooley <conor@kernel.org>
+To: netdev@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	kernel test robot <lkp@intel.com>,
+	Jiawen Wu <jiawenwu@trustnetic.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH net-next v2] net: macb: fix use of at91_default_usrio without CONFIG_OF
+Date: Tue, 31 Mar 2026 14:10:21 +0100
+Message-ID: <20260331-enroll-sensation-50901318a419@spud>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260329203249.563434-1-julianbraha@gmail.com>
-In-Reply-To: <20260329203249.563434-1-julianbraha@gmail.com>
-From: Jesse T <mr.bossman075@gmail.com>
-Date: Tue, 31 Mar 2026 09:03:42 -0400
-X-Gm-Features: AQROBzDBuMjX5kNXwiuBU-eUGbvIngufrlEpri2R3IjCABLf6WLJus2y94Gwy_8
-Message-ID: <CAJFTR8QwfJ2aGnqeVou1y=UZsvXr=4TPFUO_bxgwi82nw7nVrg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: dead code cleanup in kconfig for RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
-To: Julian Braha <julianbraha@gmail.com>
-Cc: charlie@rivosinc.com, palmer@rivosinc.com, alexghiti@rivosinc.com, 
-	pjw@kernel.org, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_060422_492893_CFFE0D80 
-X-CRM114-Status: GOOD (  17.61  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2898; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=uqiW7t5PqCoWnIG6QJ1cWBX3j3b9KsdAUQtWJ0U1YJo=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJmnj+99+qdU3kXiVJNWc5Xenb+JmWbBX3LfPjaQC1+of 7Hq4ottHaUsDGJcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhI1yOG//kfIzWn+YYv3N8V vXBG9Z8JHwsMDL8dvfJD6drO7RfY5s9lZPjLcKGF0eXt1It2j+ue8N86oL8tsjzv3sHrl96bpH0 36GIGAA==
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +76,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBNYXIgMjksIDIwMjYgYXQgNDozMuKAr1BNIEp1bGlhbiBCcmFoYSA8anVsaWFuYnJh
-aGFAZ21haWwuY29tPiB3cm90ZToKPgo+IFRoZSBzYW1lIEtjb25maWcgc3RhdGVtZW50ICdkZXBl
-bmRzIG9uIFJJU0NWX0lTQV9WJyBhcHBlYXJzIHR3aWNlIGZvcgo+IFJJU0NWX1BST0JFX1ZFQ1RP
-Ul9VTkFMSUdORURfQUNDRVNTLiBUaGUgZmlyc3QgaW5zdGFuY2UgaXMgaW4gaXRzIGNob2ljZQo+
-IG1lbnUsICJWZWN0b3IgdW5hbGlnbmVkIEFjY2Vzc2VzIFN1cHBvcnQiLCBtYWtpbmcgdGhlIHNl
-Y29uZCBpbnN0YW5jZSBpbgo+IGl0cyBzcGVjaWZpYyBLY29uZmlnIGRlZmluaXRpb24gZGVhZCBj
-b2RlLiBJIHByb3Bvc2UgcmVtb3ZpbmcgdGhpcyBzZWNvbmQKPiBpbnN0YW5jZS4KPgo+IFRoaXMg
-ZGVhZCBjb2RlIHdhcyBmb3VuZCBieSBrY29uZmlybSwgYSBzdGF0aWMgYW5hbHlzaXMgdG9vbCBm
-b3IgS2NvbmZpZy4KPgo+IFNpZ25lZC1vZmYtYnk6IEp1bGlhbiBCcmFoYSA8anVsaWFuYnJhaGFA
-Z21haWwuY29tPgpSZXZpZXdlZC1ieTogSmVzc2UgVGF1YmUgPG1yLmJvc3NtYW4wNzVAZ21haWwu
-Y29tPgoKVGhhbmtzLApKZXNzZSBUYXViZQoKPiAtLS0KPiAgYXJjaC9yaXNjdi9LY29uZmlnIHwg
-MSAtCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJj
-aC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9LY29uZmlnCj4gaW5kZXggNjFhOWQ4ZDNlYTY0
-Li4zNWEyOTI2NDk0ZTEgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCj4gKysrIGIv
-YXJjaC9yaXNjdi9LY29uZmlnCj4gQEAgLTEwMDQsNyArMTAwNCw2IEBAIGNob2ljZQo+ICBjb25m
-aWcgUklTQ1ZfUFJPQkVfVkVDVE9SX1VOQUxJR05FRF9BQ0NFU1MKPiAgICAgICAgIGJvb2wgIlBy
-b2JlIHNwZWVkIG9mIHZlY3RvciB1bmFsaWduZWQgYWNjZXNzZXMiCj4gICAgICAgICBzZWxlY3Qg
-UklTQ1ZfVkVDVE9SX01JU0FMSUdORUQKPiAtICAgICAgIGRlcGVuZHMgb24gUklTQ1ZfSVNBX1YK
-PiAgICAgICAgIGhlbHAKPiAgICAgICAgICAgRHVyaW5nIGJvb3QsIHRoZSBrZXJuZWwgd2lsbCBy
-dW4gYSBzZXJpZXMgb2YgdGVzdHMgdG8gZGV0ZXJtaW5lIHRoZQo+ICAgICAgICAgICBzcGVlZCBv
-ZiB2ZWN0b3IgdW5hbGlnbmVkIGFjY2Vzc2VzIGlmIHRoZXkgYXJlIHN1cHBvcnRlZC4gVGhpcyBw
-cm9iaW5nCj4gLS0KPiAyLjUxLjIKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+If CONFIG_OF is not enabled, at91_default_usrio is used undeclared in
+gem_default_config. Move at91_default_usrio back above the CONFIG_OF
+section where macb_default_usrio used to be, so that it is unconditionally
+defined and defined prior to any of the users.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202603280028.wQjUrIvv-lkp@intel.com/
+Reported-by: Jiawen Wu <jiawenwu@trustnetic.com>
+Closes: https://lore.kernel.org/all/06a701dcc014$86def5b0$949ce110$@trustnetic.com/
+Fixes: a17871778ee28 ("net: macb: rename macb_default_usrio to at91_default_usrio as not all platforms have mii mode control in usrio")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+lkp also reported this over the weekend, but against the dev copy in my
+tree. I had thought that CONFIG_OF was standard off on x86, but I guess
+it isn't, given lkp didn't catch it until randconfigs.
+
+Seem to have come down with some sort of bug, hopefully I haven't cocked
+this v2 up somehow in my addled state.
+
+v2:
+- Do the boring thing that works... Probably worth a revisit later, cos
+  there's a bunch of confusing naming here still - "default_gem_config"
+  is used for cdns,macb and of course "at91_default_usrio" is used on
+  things where I am reasonably confident it shouldn't, like the Xilinx
+  boards.
+
+CC: Andrew Lunn <andrew+netdev@lunn.ch>
+CC: David S. Miller <davem@davemloft.net>
+CC: Eric Dumazet <edumazet@google.com>
+CC: Jakub Kicinski <kuba@kernel.org>
+CC: Paolo Abeni <pabeni@redhat.com>
+CC: Nicolas Ferre <nicolas.ferre@microchip.com>
+CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+CC: netdev@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-riscv@lists.infradead.org
+---
+ drivers/net/ethernet/cadence/macb_main.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 12e2b2f4aaf88..3e37b0a3e7e4b 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -4949,6 +4949,13 @@ static int macb_init(struct platform_device *pdev,
+ 		return macb_init_dflt(pdev);
+ }
+ 
++static const struct macb_usrio_config at91_default_usrio = {
++	.mii = MACB_BIT(MII),
++	.rmii = MACB_BIT(RMII),
++	.rgmii = GEM_BIT(RGMII),
++	.clken = MACB_BIT(CLKEN),
++};
++
+ #if defined(CONFIG_OF)
+ /* 1518 rounded up */
+ #define AT91ETHER_MAX_RBUFF_SZ	0x600
+@@ -5523,13 +5530,6 @@ static int eyeq5_init(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
+-static const struct macb_usrio_config at91_default_usrio = {
+-	.mii = MACB_BIT(MII),
+-	.rmii = MACB_BIT(RMII),
+-	.rgmii = GEM_BIT(RGMII),
+-	.clken = MACB_BIT(CLKEN),
+-};
+-
+ static const struct macb_usrio_config mpfs_usrio = {
+ 	.tsu_source = 0,
+ };
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
