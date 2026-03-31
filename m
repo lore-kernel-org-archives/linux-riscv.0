@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84D51061B2C
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 01:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0020B1061B2D
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 03:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QFEKTWaF4v/b57zFaT8NSsomINXwl8aMJW8gEFUQJ7I=; b=llPxRHJ+LW6txt
-	tm2golkEbwJzVa8tTZQ4kN/Hb1xE2xerExEbi1SE4TR/mAy5QnTb3B3rDpoc/CQt9gyrw93sQOz67
-	r/H+yGCMCBQMdRHj+DnGYVEZaJkj0AGypg8Wa5zv4oUFE+G/Hx5FpqHbsyc7A5MXFMK4VtHJwjinI
-	dE/tFTWUBNHVRaMleRyu8eGNtELZyBjIlWw7l7JTdHvNZYqqfCpzZxZkrOD5zhr/vZFqr6uqflH1n
-	wZ/gBioik4o/CezVXJ3dShfT9FDBMNWKsEa0j/A/9LsKQMGOb4ayqFi7wpm7NlBaTxeV6d2LhkoCW
-	sgqjYaH/5dYNmCag3riA==;
+	List-Owner; bh=HSxIaNIPrB7lyaJ0pZ43SByBJwz32k9+A5eiHGFp25Y=; b=ligQfykUC/0UZj
+	0veDwey+kxpb6p/9JeXPeve212fBOkNCstRVog2n86V3v50KWhv4qxTQaDAIDhUjsMyZYRFt5j7/u
+	4bFs52G7D9KA6hjhA0LuLpc15gwZLikRVgQz6eqV2pER3ljZtR02qRS37BD5VHBCkTlTejGcTC40h
+	wlXZQq5KHH6HG3ettU20NihhzotY5LzPtGTs3Ae3O4CCdssAHSJBKHcCWd1lmNtXRGv55U9epbxtL
+	o542kD6M1MEfwhxnhoGZTzoaPl+ayKDAt9G0E6QfS6QTuYPyAvjmgjq9LFMQ4SGkGQb6ZZnYxUeHV
+	fRBsO4TInmG0wn3IGtdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ON8-0000000C9mu-0lRU;
-	Tue, 31 Mar 2026 01:58:26 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1w7Pe0-0000000CDxM-1m1z;
+	Tue, 31 Mar 2026 03:19:56 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ON4-0000000C9kh-2gxc
+	id 1w7Pdw-0000000CDwI-3DdH
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Mar 2026 01:58:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1774922246;
-	bh=XtgU7u3m8ATvONww0EjKILjjpqHOKR3iuEbKdN8Zh18=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version;
-	b=kNFYXLoo43sI7yOa4HgQf+ZpzEqgmz0c0YifIp8z4mxDRC8QABKZQtTGzQvR/beD0
-	 /62wdLfZpSaVcqJhnY840Vws74eQuMRg68EU+hx8IIc+lCyiltIbMIldXTMCmNVqu8
-	 p4G0iyN5sJnZQAYR0vUgpqwLqxF9ENMXBvmKnKBQ=
-X-QQ-mid: zesmtpgz6t1774922244tcdd95944
-X-QQ-Originating-IP: 6YTJ4mxqFD3mYgJQ7VaqcOKTTPDpfV95ifWMMz/gHXs=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 31 Mar 2026 09:57:22 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16396334203676912159
-EX-QQ-RecipientCnt: 10
-Date: Tue, 31 Mar 2026 09:57:22 +0800
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Chukun Pan <amadeus@jmu.edu.cn>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: Yixun Lan <dlan@kernel.org>, Ze Huang <huang.ze@linux.dev>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org, spacemit@lists.linux.dev,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH v3 1/1] usb: dwc3: Add optional VBUS regulator support to
- SpacemiT K1
-Message-ID: <BC093802795A0616+acsqAiB_4ptd2k3t@kernel.org>
-References: <20260326100010.3588454-1-amadeus@jmu.edu.cn>
- <20260326100010.3588454-2-amadeus@jmu.edu.cn>
+	Tue, 31 Mar 2026 03:19:55 +0000
+Received: from [192.168.0.104] (unknown [123.118.218.47])
+	by APP-03 (Coremail) with SMTP id rQCowACXstlPPctph81iDA--.55901S2;
+	Tue, 31 Mar 2026 11:19:44 +0800 (CST)
+Message-ID: <b9fd95f4-91d2-4af5-9239-6fca2ce77892@iscas.ac.cn>
+Date: Tue, 31 Mar 2026 11:19:43 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260326100010.3588454-2-amadeus@jmu.edu.cn>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: N71rnkwxYMwyqDkeb55/NvMDEqSgm7/4SH7D0+05HAhIygSSF/ipEuiQ
-	ZPRO8cfgoX8QxnALzWS1U1fFKcEhNjprWwfeWVv56OjHCC0QKv9IncbeCkZK6+Dhgg+E9o6
-	cx0NsceGNWe7GvUXcSzoOp/rHUH4dg3tbTJ1jnW5pDi9oIq0rFytivjLmSUBfy4Dopm8jV0
-	fwue1smcxzuASeSXjMDrICUYsOZxTT5fiK2EbQQhCKehNXRnRDwo+EY4wyKyaSxx+Hd+CLq
-	PfgTrD+12hyOWVh/CEWMpgud+LyN2ZNwixsyCSvAjzfhInPSNKrxjqr1LZPKozyoqYGevCs
-	EVbPQFoymdSVnHfvwDc3QCAizMzqqAdZWnqcZsT7+Qwb7taHr/HsDiyC8zCawtcI6RUDPNt
-	9R7v42TUjzsjOi1donsy6n/+tqoEJ8qI1YRBtBjaQlZi5ktejNkOrb5s7TeCrCa7uIneynv
-	h8V+0LLhfyYt6GabARAErSFcNbU9jR8bZsMyk9M8Ya/1/SM7CHqW7zF/Ep0uAPmRdLrybG2
-	Iw6AUn1R2xI09vuwzAEglKTCmXHaPgrhHoE2uYJ0SWLdXi8sLbvu8dNxsuqFxrwVkgMdZz8
-	7kYcw23dfPO32mprJlWP9w+Cr/iyfyAwcIYwBL0Y1iaajYNx93g6Li/3txxHqPFFK2dJdXH
-	ymbYcPAv2tfTbn+XWYIN50hRcQF9SudADoK04BelcRQ+dS4Vm219gy9DXHAn6gmsnDZgIqO
-	9ChUMcqFUCEbBNDjvRzOrCzR9X5Q29VvendhleXaOckG/Y+hTqBOUD60l2rNMEXmXi01mfI
-	HcqGh9TbqJfNEKghEkMmZCzpPQ+2hF9tdbWhaU34lwRWITfd+J5NIcZsBcWHv1f920f62kG
-	MHWfLV98RmTrhz5rWZQ41kzH4wa/wWTM33A6DVhTvWGPja32E4Erj/Kj6D8XjpHht4E3P+k
-	zmLo7RpA3TvWpiHDrDEacan2AsY18P1V0wT8T3wYf7OqM1QCxXmdAHMBqx1B29pl3DuNxzn
-	Pvd6ZWu8hOMcvPw/8m2uKsnasVMkYxQLvmW7w7Bq1QcGuV2rqVmYvEWPSHNTw=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: misaligned: Make enabling delegation depend on
+ BROKEN
+To: Conor Dooley <conor@kernel.org>
+Cc: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Songsong Zhang <U2FsdGVkX1@gmail.com>
+References: <20260330-riscv-misaligned-dont-delegate-v1-1-68b089b306c3@iscas.ac.cn>
+ <20260330-sensation-pronounce-98f8b14836ed@spud>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20260330-sensation-pronounce-98f8b14836ed@spud>
+X-CM-TRANSID: rQCowACXstlPPctph81iDA--.55901S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCF1UAry7WF43trW3CryrCrg_yoW5Wr1Upa
+	yUGF4DKry5trnrZr4Sg3yIgF45X395GryrGrsxt34Fvr98Zry7uF92qrWUua4DCr1vv340
+	vryrW3Wj9a45Aa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkIb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
+	C2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCY1x0262kKe7AKxVWUtVW8ZwCF
+	04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r
+	18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vI
+	r41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr
+	1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvE
+	x4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU56yI5UUUUU==
+X-Originating-IP: [123.118.218.47]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_185823_517673_9D1067ED 
-X-CRM114-Status: UNSURE (   7.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260330_201953_172710_D05A7706 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +79,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 18:00:10 CST, Chukun Pan wrote:
-> Some SpacemiT K1 boards (like OrangePi R2S) provide USB VBUS
-> through a controllable regulator. Add support for the optional
-> vbus-supply property so the regulator can be properly managed
-> in host mode instead of left always-on. Note that this doesn't
-> apply to USB Hub downstream ports with different VBUS supplies.
-> 
-> The enabled and disabled actions of the regulator are handled
-> automatically by devm_regulator_get_enable_optional().
-> 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-Thanks for the patch.
-
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMy8zMC8yNiAyMDo1OSwgQ29ub3IgRG9vbGV5IHdyb3RlOgoKPiBPbiBNb24sIE1hciAzMCwg
+MjAyNiBhdCAwMjo0NzoxNVBNICswODAwLCBWaXZpYW4gV2FuZyB3cm90ZToKPj4gVGhlIHVuYWxp
+Z25lZCBhY2Nlc3MgZW11bGF0aW9uIGNvZGUgaW4gTGludXggaGFzIHZhcmlvdXMgZGVmaWNpZW5j
+aWVzLgo+PiBGb3IgZXhhbXBsZSwgaXQgZG9lc24ndCBlbXVsYXRlIHZlY3RvciBpbnN0cnVjdGlv
+bnMgWzFdLCBhbmQgZG9lc24ndAo+PiBlbXVsYXRlIEtWTSBndWVzdCBhY2Nlc3Nlcy4gVGhlcmVm
+b3JlLCByZXF1ZXN0aW5nIG1pc2FsaWduZWQgZXhjZXB0aW9uCj4+IGRlbGVnYXRpb24gd2l0aCBT
+QkkgRldGVCBhY3R1YWxseSByZWdyZXNzZXMgdXNlcnNwYWNlIGFuZCBLVk0gZ3Vlc3QKPj4gYmVo
+YXZpb3IuIFVudGlsIExpbnV4IGNhbiBoYW5kbGUgaXQgcHJvcGVybHksIGd1YXJkIHRoZXNlIHNi
+aV9md2Z0X3NldCgpCj4+IGNhbGxzIGJlaGluZCBSSVNDVl9TQklfRldGVF9ERUxFR0FURV9NSVNB
+TElHTkVELCB3aGljaCBpbiB0dXJuIGRlcGVuZHMKPj4gb24gQlJPS0VOLgo+Pgo+PiBUaGUgcmVz
+dCBvZiB0aGUgZXhpc3RpbmcgY29kZSBwcm9jZWVkcyBhcyBiZWZvcmUsIGV4Y2VwdCBhcyBpZgo+
+PiBTQklfRldGVF9NSVNBTElHTkVEX0VYQ19ERUxFRyBpcyBub3QgYXZhaWxhYmxlLCB0byBoYW5k
+bGUgYW55IHJlbWFpbmluZwo+PiBhZGRyZXNzIG1pc2FsaWduZWQgZXhjZXB0aW9ucyBvbiBhIGJl
+c3QtZWZmb3J0IGJhc2lzLiBUaGUgS1ZNIFNCSSBGV0ZUCj4+IGltcGxlbWVudGF0aW9uIGlzIGFs
+c28gbm90IHRvdWNoZWQsIGJ1dCBpdCBpcyBkaXNhYmxlZCBpZiB0aGUgZmlybXdhcmUKPj4gZW11
+bGF0ZXMgdW5hbGlnbmVkIGFjY2Vzc2VzLgo+Pgo+PiBDYzogc3RhYmxlQHZnZXIua2VybmVsLm9y
+Zwo+PiBGaXhlczogY2Y1YThhYmM2NTYwICgicmlzY3Y6IG1pc2FsaWduZWQ6IHJlcXVlc3QgbWlz
+YWxpZ25lZCBleGNlcHRpb24gZnJvbSBTQkkiKQo+PiBSZXBvcnRlZC1ieTogU29uZ3NvbmcgWmhh
+bmcgPFUyRnNkR1ZrWDFAZ21haWwuY29tPiAjIEtWTQo+PiBMaW5rOiBodHRwczovL2xvcmUua2Vy
+bmVsLm9yZy9saW51eC1yaXNjdi8zOGNlNDRjMS0wOGNmLTRlM2YtOGFkZS0yMGRhMjI0ZjUyOWNA
+aXNjYXMuYWMuY24vIFsxXQo+PiBTaWduZWQtb2ZmLWJ5OiBWaXZpYW4gV2FuZyA8d2FuZ3J1aWth
+bmdAaXNjYXMuYWMuY24+Cj4+IC0tLQo+PiBDbMOpbWVudDogU29ycnkgdG8gY2FsbCB3aGF0IHlv
+dSBkaWQgYnJva2VuLCBidXQgaXQgcmVhbGx5IGlzIGJyZWFraW5nCj4+IG9uIHJlYWwgaGFyZHdh
+cmUgb3V0IHRoZXJlLiBJIHRoaW5rIHRoaXMgaXMgdGhlIHJpZ2h0IHdheSBmb3Igbm93Lgo+PiAt
+LS0KPj4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICB8IDE0ICsrKysrKysr
+KysrKysrCj4+ICBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMgfCAgMiArLQo+
+PiAgMiBmaWxlcyBjaGFuZ2VkLCAxNSBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4+Cj4+
+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4g
+aW5kZXggOTBjNTMxZTZhYmY1Li44YWQxZjEzYzE3MGUgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlz
+Y3YvS2NvbmZpZwo+PiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gQEAgLTk0MSw2ICs5NDEs
+MjAgQEAgY29uZmlnIFJJU0NWX1ZFQ1RPUl9NSVNBTElHTkVECj4+ICAJaGVscAo+PiAgCSAgRW5h
+YmxlIGRldGVjdGluZyBzdXBwb3J0IGZvciB2ZWN0b3IgbWlzYWxpZ25lZCBsb2FkcyBhbmQgc3Rv
+cmVzLgo+PiAgCj4+ICtjb25maWcgUklTQ1ZfU0JJX0ZXRlRfREVMRUdBVEVfTUlTQUxJR05FRAo+
+PiArCWJvb2wgIlJlcXVlc3QgZmlybXdhcmUgZGVsZWdhdGlvbiBvZiB1bmFsaWduZWQgYWNjZXNz
+IGV4Y2VwdGlvbnMiCj4+ICsJZGVwZW5kcyBvbiBSSVNDVl9TQkkKPj4gKwlkZXBlbmRzIG9uIEJS
+T0tFTgo+IE1ha2luZyBpdCBoYXJkIHRvIGVuYWJsZSBJIHRoaW5rIG1ha2VzIGEgbG90IG9mIHNl
+bnNlLCBnaXZlbiB0aGUgaXNzdWVzCj4geW91J3JlIHJlcG9ydGluZyBidXQgSSB0YWNraW5nIG9u
+IEJST0tFTiB3aWxsIHJlbW92ZSBlZmZlY3RpdmVseSBhbGwKPiBidWlsZCBjb3ZlcmFnZSBvZiBp
+dCogYW5kIHdpbGwgZGVmaW5pdGVseSBzdG9wIGFsbW9zdCBhbnlvbmUgdXNpbmcgaXQuCj4gU2hv
+dWxkIGl0IGJlIGp1c3QgbWFkZSBOT05QT1JUQUJMRSB3aXRoIHRoZSB0ZXh0IGFib3V0IGJlaW5n
+IGluY29tcGxldGUKPiBleHBhbmRlZCBhIHdlZSBiaXQgdG8gc2F5IHdoYXQgaXMgYnJva2VuIHNv
+IHRoYXQgcGVvcGxlIGNhbiBtYWtlIGEKPiBkZWNpc2lvbj8KCkhhdmluZyB0aG91Z2h0IGFib3V0
+IGl0IG1vcmUsIEkgdGhpbmsgTk9OUE9SVEFCTEUgZG9lcyBtYWtlIHNlbnNlLiBUaGVyZQppcyBz
+dGlsbCBhIG5vdGljaWJsZSBhbW91bnQgb2Ygb2xkZXIgbm9uLUggYW5kIG5vbi1SVlYgaGFyZHdh
+cmUgb3V0CnRoZXJlIHRoYXQgcmVtYWluIHF1aXRlIHBvcHVsYXIsIGFuZCBvbiB0aGVzZSBtYWNo
+aW5lcyB0aGlzIHdpbGwgd29yawpmaW5lLCBhbnkgZnVydGhlciBidWdzIG5vdHdpdGhzdGFuZGlu
+Zy4KCkknbGwgY2hhbmdlIGl0IHRvIE5PTlBPUlRBQkxFIGluIHYyLCBhbmQsIGFzIHlvdSBzYWlk
+LCBleHBhbmQgb24ga25vd24KaXNzdWVzLgoKVGhhbmtzLApWaXZpYW4gImRyYW1mb3JldmVyIiBX
+YW5nCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
