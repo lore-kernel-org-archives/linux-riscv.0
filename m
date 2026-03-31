@@ -4,68 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B971310F9301
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 20:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684BE10F930A
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 21:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VMRgjmosM9sDyjDGg7gxW3kcQoiTOblLWHlXKcBorUY=; b=uLJtvWnAa6n75i
-	cj41NwRgTOH9+JMtkUOODhpmktTBoe71c/w1vSVd5gcNJqOzEG9Axe78eje+rrzOpxgFaXK2hUyMu
-	EafILHEWI/vWModvndedY1Wf0zkTuVrARfek28SMWFs7k0xhFVIIs/CSyAQ0scoqQbWBzbHZKOkRP
-	cx+Of6SUv4depJtUmSRZafzwrqDLit2ICbThPCg+HI2L0nl3KryU0fV+V9Uplti50ymJvS8lm1p8k
-	UvCyLFr6VwgD7g1Ii1VrF+ld3m2293Ypjdx3q7XlIB00WSLWJIS7uzqVl0Hzc5U1B3vu3uorxynFg
-	EPXrC6UU06fl1PSnonWw==;
+	List-Owner; bh=W3nyurnwhSdZcvmBL4jU/SnuT/Kv2K+YVxRZj4mbcV0=; b=YStUvEyQ3dGGF3
+	Q+L9Rao7sJVnWmQpTpmoAd4DacLcKj/kCqOaExEPuGhj3c6UcHEKqhZ44SSlsP9QG+S7vNuZrKFwR
+	QvNJI2Ni65R9Zkwu26kplgyofYuQTZYWohd6HVjAwRsjxx4SH82iM4dLxBWcDcUs7r9Yx+JaiEaYK
+	sIH+beu7YDmwiM2ALOx/JSUXo5zBEqU0aWkt/tCyvmIlFHxxSfHh92rIAN4ANAUTZvCK9ztoLOd2G
+	FuGyjlegiXcLZ6sgBF142GSDymKyRwgH4iXKGkE1h5xbuvcduokaCqvlypEu7OCPFpSXvMSPr+uyw
+	PdVnZidQC+fdUgsHvlzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7fv6-0000000DXYv-1ZtP;
-	Tue, 31 Mar 2026 20:42:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7gWY-0000000DZXT-3fWA;
+	Tue, 31 Mar 2026 21:21:22 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7fv4-0000000DXYV-2Tjl;
-	Tue, 31 Mar 2026 20:42:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 585D460133;
-	Tue, 31 Mar 2026 20:42:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BDFBC19423;
-	Tue, 31 Mar 2026 20:42:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774989757;
-	bh=lzItpDMUFe9IIz3v9bFnYpmMsgPI8d54FF5k3tmR9SU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QaU4OE10H056EqgLekISQyTNMKqmyYtiHbhYw/Mj0n67L4i/yoT+My5/qCjmIbN3y
-	 o6yu+46tw9DoMzXZyUXh5brNEE13qqrrr83zFHVZithqigjgUnjpVYgNJ48fCyGSIv
-	 pzSymJnWUvnRkUrftay1tRwghIyT1bcoekEnMpU1UUsWU5p5w+cHDCa66G8vJYRIrT
-	 if0NpVydS2POlOW1DMA8RndiVKGuvJh2jJ2qu/Wh+5Iq6X2zWn0gw5pgD5n+uoqurK
-	 M0drrE9Y5JiQ68bO9qEGI1FDLaRDlZsFcdjcORbwv/91cUj8DrBWAPH1Sx+F3eVHSj
-	 7eQ9fYNHmocZQ==
-Date: Tue, 31 Mar 2026 17:42:32 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr,
-	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com,
-	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com,
-	blakejones@google.com, ctshao@google.com,
-	dapeng1.mi@linux.intel.com, howardchu95@gmail.com,
-	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org,
-	leo.yan@linux.dev, libunwind-devel@nongnu.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com,
-	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com,
-	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org,
-	yuzhuo@google.com
-Subject: Re: [PATCH v2 1/8] perf unwind: Refactor get_entries to allow
- dynamic libdw/libunwind selection
-Message-ID: <acwxuPAo8g6C867R@x1>
-References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
- <20260305221927.3237145-1-irogers@google.com>
- <20260305221927.3237145-2-irogers@google.com>
+	id 1w7gWV-0000000DZWm-25Cv
+	for linux-riscv@lists.infradead.org;
+	Tue, 31 Mar 2026 21:21:21 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2b0c12be0ecso156695ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 14:21:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774992078; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Uva7rpF4wxBeK+bntuVXZaz+t8hq6WPfU0qJATAvPhG7Y9Fxzsn6PUGToaF3zR20GX
+         GDpLME0jp4OA4aSyEkudwWf+f+fqv17KgsIcYaCA5WS3utHI2F1w4Ffc5NEWBZcavWfR
+         6dDhS1AWohLZ0rgxTy/PJFctd7J7PmK422PX0uZYfTxnYpN3GfBDZQ388XDeM0alg5vw
+         ZVFOFS/kGzcqPHDXtT78o4l+D8GrDEREkbA6C06Q3A4x9UoQWFH7Fge5CYfSWwT2RXSj
+         QhAfoWwtbzGu/6o+J1BxcBcye8OBZ2smw8rR1UZnQ7+c57pp42j5460Wmkzf7HNdyrFE
+         l3rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GnS75n7UJaS2ddyRBNP9q5l7UtTm6b8DgT2o9RDojQ4=;
+        fh=/4HiCb224CHueFNLlAuZjk7XFz3Tu9G8FB0b+PaI20w=;
+        b=ZTCCVtWqqiY2v8oF/YwPYhtZLFJ2yt2EoLYL5Pa7WfhrGoAAG5NMJlE2fJORbDCpMe
+         J2yo20GUkWoWhf3A7L/rnbyq6NejWLLpLt2UBtpQEKlOBnlJzmheGCOOLYushPx4nPUU
+         uBlvvS3KoBPcsmlCwkXzXOhG/DSIjFY8TJ8iRN6EtUq+deOThR/1y+Poj2WBn3iucpXE
+         GlAeJVsTMQRhzi/XJYJmfSsYCEwew/PgHnaZsuA0Ef0F+An4+YekMw5TLbrP+cH7Y2KM
+         nfxTFALUhxFVV8/wtKXZKkQd9N8LTkHuisFwyJ8ZufB4eOvG3CD5KNcqBZAecGGPg3vN
+         hBpA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774992078; x=1775596878; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GnS75n7UJaS2ddyRBNP9q5l7UtTm6b8DgT2o9RDojQ4=;
+        b=HuuITDQpeSwlw8OJfuJKz3/Tmabu6qO2MKBaBmRxB0xF3MQCzMkWLNljM4gHCJ+yPC
+         PN2YWjEYn9jGAGtsolwhT+peehfgZoqT+5wWvveq+4+XggQjqOsLi/DMlkZqhFoY6CBw
+         sf1Z0scI1gYq0MnC7FZKGaol2P4zxLasyLsLKUOzBJWpQO94H+zHmus3EO/loAUSlOk+
+         qhEsOhU2u1zI4zHT9hcg6pGVcINu8ANNLl8NcNPRU2/I3ugB8BuivmAzqx6o82Y4k3Eo
+         hwA3m+Qtp4Lq32yqWMej+prVQyqgAIda8/wIqhM56EubBAMcs5CXZw18B7AOSRoNJPW4
+         LZ+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774992078; x=1775596878;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GnS75n7UJaS2ddyRBNP9q5l7UtTm6b8DgT2o9RDojQ4=;
+        b=NEcbFUxkUixmshtj00tHFZFi9YoyL/TPNqXcD0fAGNr2JuxD/AFM7D97tZEmpFxgBK
+         jFlvCRN1k2i6idqRvAhgRpJbzXNhvM/UyYfAsbYUGwM6AuKNZw1jU7T4AZm6dU/DhvUg
+         9fwEgtouozZnyQDQBau5kvy0oL6UAPR0uK5Ffttz3dq0rZoeTOwEKgZpZlEaHCIaz8oZ
+         d9V4mpue54uifdJfjhpwc5neVFwQyJaIBbzJ3ntJiJ4lhXr8FxChFVd4WzFvPMMlBbKm
+         9cUxhkN969Qgzb4mrFF/3pTa1wYkC+YzKpLiYZVfWQzNDOY+2bBFSyOUdZDjbQuWooVM
+         p5Hw==
+X-Forwarded-Encrypted: i=1; AJvYcCVHPtcxOT4zkwdP5zypmWHSRSXfNkOYDh4+eZR4tpSa+tLLrx72rV52PCW6uc9GSfmLUAuAl13m4uBcRQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVV886N++Znoi5nh8wygLqnaSyqo6C8P4Oq50i4ZuhIVhwtJ1w
+	NcFUiRXZlf6v/wcrMLw8ZwlYw4G1ZIYF4plL/qcbOLFSerku9cDj+A1/NgA0zrNTnj9wHvJ5peD
+	h8m/FTF0DusreaFnzhc+SyZ1O70DKuKJr1jFymlG1
+X-Gm-Gg: ATEYQzyQXhccZQWXUL838H6G5WpQlq3ZgCg2slPyrQrU5Gj/XMPlGuqBkHTSTRQ39ud
+	Z6Z5Wf0K6VolVLN07zmjHaheMMT8LqSlKeyFInvooTkMsOPygm5ET4Yt8wYP0PK/S8UoDytVuUO
+	JLp8lJx+caAjEIy5F63LOzbzuZT+hPX84AH44RwDcG2oRkmmOQyJFxfOcJnOfUWe4E9g3EdF9lk
+	yEDr4WyNWLVRQF0pzGxvtW0mHbeRBDGSCjxnMGyT4sI57ba8VX+nT8b4uwB4Xhh2li/QDWtFPDk
+	9rg1W6Jtrm7RfgactDTYf7cbePv26GAlFc38dA==
+X-Received: by 2002:a17:903:b0b:b0:2a7:6c4e:5914 with SMTP id
+ d9443c01a7336-2b26b19268amr164775ad.6.1774992078005; Tue, 31 Mar 2026
+ 14:21:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260305221927.3237145-2-irogers@google.com>
+References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
+ <20260305221927.3237145-1-irogers@google.com> <20260305221927.3237145-2-irogers@google.com>
+ <acwxuPAo8g6C867R@x1>
+In-Reply-To: <acwxuPAo8g6C867R@x1>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 31 Mar 2026 14:21:06 -0700
+X-Gm-Features: AQROBzDbOw0ON8Mz97jk-SmsyhRJF1m_3_IhoXpTax6bYQx2IUJMMWJYWTEZhQA
+Message-ID: <CAP-5=fXHfCqdgSWh4o8uqwwJ1BvKiDm5dY38cgu87G8AaDHudQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/8] perf unwind: Refactor get_entries to allow dynamic
+ libdw/libunwind selection
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
+	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
+	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
+	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
+	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org, 
+	leo.yan@linux.dev, libunwind-devel@nongnu.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
+	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
+	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260331_142119_910251_DFA9C9D2 
+X-CRM114-Status: GOOD (  34.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,384 +123,283 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 05, 2026 at 02:19:20PM -0800, Ian Rogers wrote:
-> Currently, both libdw and libunwind define 'unwind__get_entries'. This
-> causes a duplicate symbol build failure when both are compiled into
-> perf.
-> 
-> This commit refactors the DWARF unwind post-processing to be
-> configurable at runtime via the .perfconfig file option
-> 'unwind.style', or using the argument '--unwind-style' in the commands
-> 'perf report', 'perf script' and 'perf inject', in a similar manner to
-> the addr2line or the disassembler style.
-> 
-> The file 'tools/perf/util/unwind.c' adds the top-level dispatch
-> function 'unwind__get_entries'. The backend implementations are
-> renamed to 'libdw__get_entries' and 'libunwind__get_entries'. Both are
-> attempted as fallbacks if not configured, or if the primary backend
-> fails.
-> 
-> Fixes: 2e9191573a69 ("perf build: Remove NO_LIBDW_DWARF_UNWIND option")
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/builtin-inject.c        |   4 ++
->  tools/perf/builtin-report.c        |   4 ++
->  tools/perf/builtin-script.c        |   4 ++
->  tools/perf/util/Build              |   1 +
->  tools/perf/util/symbol_conf.h      |  15 +++++
->  tools/perf/util/unwind-libdw.c     |   2 +-
->  tools/perf/util/unwind-libunwind.c |   2 +-
->  tools/perf/util/unwind.c           | 102 +++++++++++++++++++++++++++++
->  tools/perf/util/unwind.h           |  40 +++++------
->  9 files changed, 149 insertions(+), 25 deletions(-)
->  create mode 100644 tools/perf/util/unwind.c
-> 
-> diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
-> index 5b29f4296861..9ad681b3c0dc 100644
-> --- a/tools/perf/builtin-inject.c
-> +++ b/tools/perf/builtin-inject.c
-> @@ -26,6 +26,7 @@
->  #include "util/synthetic-events.h"
->  #include "util/thread.h"
->  #include "util/namespaces.h"
-> +#include "util/unwind.h"
->  #include "util/util.h"
->  #include "util/tsc.h"
->  
-> @@ -2539,6 +2540,9 @@ int cmd_inject(int argc, const char **argv)
->  		OPT_STRING(0, "guestmount", &symbol_conf.guestmount, "directory",
->  			   "guest mount directory under which every guest os"
->  			   " instance has a subdir"),
-> +		OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
-> +			     "unwind styles (libdw,libunwind)",
-> +			     unwind__option),
->  		OPT_BOOLEAN(0, "convert-callchain", &inject.convert_callchain,
->  			    "Generate callchains using DWARF and drop register/stack data"),
->  		OPT_END()
-> diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
-> index 3b81f4b3dc49..ae20c0679990 100644
-> --- a/tools/perf/builtin-report.c
-> +++ b/tools/perf/builtin-report.c
-> @@ -48,6 +48,7 @@
->  #include "util/time-utils.h"
->  #include "util/auxtrace.h"
->  #include "util/units.h"
-> +#include "util/unwind.h"
->  #include "util/util.h" // perf_tip()
->  #include "ui/ui.h"
->  #include "ui/progress.h"
-> @@ -1455,6 +1456,9 @@ int cmd_report(int argc, const char **argv)
->  	OPT_CALLBACK(0, "addr2line-style", NULL, "addr2line style",
->  		     "addr2line styles (libdw,llvm,libbfd,addr2line)",
->  		     report_parse_addr2line_config),
-> +	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
-> +		     "unwind styles (libdw,libunwind)",
-> +		     unwind__option),
->  	OPT_BOOLEAN(0, "demangle", &symbol_conf.demangle,
->  		    "Symbol demangling. Enabled by default, use --no-demangle to disable."),
->  	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
-> diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-> index 9f8b0fd27a0a..b6c7c164d02d 100644
-> --- a/tools/perf/builtin-script.c
-> +++ b/tools/perf/builtin-script.c
-> @@ -63,6 +63,7 @@
->  #include <linux/err.h>
->  #include "util/dlfilter.h"
->  #include "util/record.h"
-> +#include "util/unwind.h"
->  #include "util/util.h"
->  #include "util/cgroup.h"
->  #include "util/annotate.h"
-> @@ -4164,6 +4165,9 @@ int cmd_script(int argc, const char **argv)
->  			"Enable symbol demangling"),
->  	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
->  			"Enable kernel symbol demangling"),
-> +	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
-> +		     "unwind styles (libdw,libunwind)",
-> +		     unwind__option),
->  	OPT_STRING(0, "addr2line", &symbol_conf.addr2line_path, "path",
->  			"addr2line binary to use for line numbers"),
->  	OPT_STRING(0, "time", &script.time_str, "str",
-> diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-> index bcccad7487a9..6190a8f5b0fa 100644
-> --- a/tools/perf/util/Build
-> +++ b/tools/perf/util/Build
-> @@ -218,6 +218,7 @@ ifndef CONFIG_SETNS
->  perf-util-y += setns.o
->  endif
->  
-> +perf-util-y += unwind.o
->  perf-util-$(CONFIG_LIBDW) += probe-finder.o
->  perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
->  perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
-> diff --git a/tools/perf/util/symbol_conf.h b/tools/perf/util/symbol_conf.h
-> index 71bb17372a6c..25d92bbbfee7 100644
-> --- a/tools/perf/util/symbol_conf.h
-> +++ b/tools/perf/util/symbol_conf.h
-> @@ -9,6 +9,19 @@
->  struct strlist;
->  struct intlist;
->  
-> +enum unwind_style {
-> +
-> +	UNWIND_STYLE_UNKNOWN = 0,
-> +
-> +	UNWIND_STYLE_LIBDW,
-> +
-> +	UNWIND_STYLE_LIBUNWIND,
-> +
-> +};
-> +
-> +#define MAX_UNWIND_STYLE (UNWIND_STYLE_LIBUNWIND + 1)
-> +
-> +
->  enum a2l_style {
->  	A2L_STYLE_UNKNOWN = 0,
->  	A2L_STYLE_LIBDW,
-> @@ -80,6 +93,7 @@ struct symbol_conf {
->  			*bt_stop_list_str;
->  	const char		*addr2line_path;
->  	enum a2l_style	addr2line_style[MAX_A2L_STYLE];
-> +	enum unwind_style unwind_style[MAX_UNWIND_STYLE];
->  	unsigned long	time_quantum;
->         struct strlist	*dso_list,
->  			*comm_list,
-> @@ -103,3 +117,4 @@ struct symbol_conf {
->  extern struct symbol_conf symbol_conf;
->  
->  #endif // __PERF_SYMBOL_CONF
-> +
-> diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
-> index 05e8e68bd49c..d8a5b7d54192 100644
-> --- a/tools/perf/util/unwind-libdw.c
-> +++ b/tools/perf/util/unwind-libdw.c
-> @@ -339,7 +339,7 @@ frame_callback(Dwfl_Frame *state, void *arg)
->  	       DWARF_CB_ABORT : DWARF_CB_OK;
->  }
->  
-> -int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
-> +int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
->  			struct thread *thread,
->  			struct perf_sample *data,
->  			int max_stack,
-> diff --git a/tools/perf/util/unwind-libunwind.c b/tools/perf/util/unwind-libunwind.c
-> index cb8be6acfb6f..a0016b897dae 100644
-> --- a/tools/perf/util/unwind-libunwind.c
-> +++ b/tools/perf/util/unwind-libunwind.c
-> @@ -79,7 +79,7 @@ void unwind__finish_access(struct maps *maps)
->  		ops->finish_access(maps);
->  }
->  
-> -int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
-> +int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
->  			 struct thread *thread,
->  			 struct perf_sample *data, int max_stack,
->  			 bool best_effort)
-> diff --git a/tools/perf/util/unwind.c b/tools/perf/util/unwind.c
-> new file mode 100644
-> index 000000000000..9ae7d5ad246d
-> --- /dev/null
-> +++ b/tools/perf/util/unwind.c
-> @@ -0,0 +1,102 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include "debug.h"
-> +#include "symbol_conf.h"
-> +#include "unwind.h"
-> +#include <linux/string.h>
-> +#include <string.h>
-> +#include <stdlib.h>
-> +
-> +int unwind__get_entries(unwind_entry_cb_t cb __maybe_unused, void *arg __maybe_unused,
-> +			struct thread *thread __maybe_unused,
-> +			struct perf_sample *data __maybe_unused,
-> +			int max_stack __maybe_unused,
-> +			bool best_effort __maybe_unused)
-> +{
-> +	int ret = 0;
-> +
-> +#if defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
-> +	if (symbol_conf.unwind_style[0] == UNWIND_STYLE_UNKNOWN) {
-> +		int i = 0;
-> +#ifdef HAVE_LIBDW_SUPPORT
-> +		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBDW;
-> +#endif
-> +#ifdef HAVE_LIBUNWIND_SUPPORT
-> +		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBUNWIND;
-> +#endif
-> +	}
-> +#endif //defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
-> +
-> +	for (size_t i = 0; i < ARRAY_SIZE(symbol_conf.unwind_style); i++) {
-> +		switch (symbol_conf.unwind_style[i]) {
-> +		case UNWIND_STYLE_LIBDW:
-> +#ifdef HAVE_LIBDW_SUPPORT
-> +			ret = libdw__get_entries(cb, arg, thread, data, max_stack, best_effort);
-> +#endif
-> +			break;
-> +		case UNWIND_STYLE_LIBUNWIND:
-> +#ifdef HAVE_LIBUNWIND_SUPPORT
-> +			ret = libunwind__get_entries(cb, arg, thread, data, max_stack, best_effort);
-> +#endif
-> +			break;
-
-
-What if the user asks for one of the unwinders, symbol_conf.unwind_style
-will be populated with the user's choices, but then here in
-unwind__get_entries() we end up returning 0 because the user choice is
-not built-in?
-
-Also no warning will be emitted that what was asked for is not
-available?
-
-Maybe remove the ifdefs here and have a dummy libdw__get_entries() when
-HAVE_LIBDW_SUPPORT ins't defined that emits the warning and returns -1?
-Ditto for UNWIND_STYLE_LIBUNWIND?
-
-- Arnaldo
-
-> +		case UNWIND_STYLE_UNKNOWN:
-> +		default:
-> +#if !defined(HAVE_LIBDW_SUPPORT) && !defined(HAVE_LIBUNWIND_SUPPORT)
-> +			pr_warning_once(
-> +				"Error: dwarf unwinding not supported, build perf with libdw or libunwind.\n");
-> +#endif
-> +			ret = -1;
-> +			break;
-> +		}
-> +		if (ret == 0)
-> +			break;
-> +	}
-> +	return ret;
-> +}
-> +
-> +int unwind__configure(const char *var, const char *value, void *cb __maybe_unused)
-> +{
-> +	static const char * const unwind_style_names[] = {
-> +		[UNWIND_STYLE_LIBDW] = "libdw",
-> +		[UNWIND_STYLE_LIBUNWIND] = "libunwind",
-> +		NULL
-> +	};
-> +	char *s, *p, *saveptr;
-> +	size_t i = 0;
-> +
-> +	if (strcmp(var, "unwind.style"))
-> +		return 0;
-> +
-> +	if (!value)
-> +		return -1;
-> +
-> +	s = strdup(value);
-> +	if (!s)
-> +		return -1;
-> +
-> +	p = strtok_r(s, ",", &saveptr);
-> +	while (p && i < ARRAY_SIZE(symbol_conf.unwind_style)) {
-> +		bool found = false;
-> +		char *q = strim(p);
-> +
-> +		for (size_t j = UNWIND_STYLE_LIBDW; j < MAX_UNWIND_STYLE; j++) {
-> +			if (!strcasecmp(q, unwind_style_names[j])) {
-> +				symbol_conf.unwind_style[i++] = j;
-> +				found = true;
-> +				break;
-> +			}
-> +		}
-> +		if (!found)
-> +			pr_warning("Unknown unwind style: %s\n", q);
-> +		p = strtok_r(NULL, ",", &saveptr);
-> +	}
-> +
-> +	free(s);
-> +	return 0;
-> +}
-> +
-> +int unwind__option(const struct option *opt __maybe_unused,
-> +		   const char *arg,
-> +		   int unset __maybe_unused)
-> +{
-> +	return unwind__configure("unwind.style", arg, NULL);
-> +}
-> diff --git a/tools/perf/util/unwind.h b/tools/perf/util/unwind.h
-> index 9f7164c6d9aa..581d042e170a 100644
-> --- a/tools/perf/util/unwind.h
-> +++ b/tools/perf/util/unwind.h
-> @@ -7,6 +7,7 @@
->  #include "util/map_symbol.h"
->  
->  struct maps;
-> +struct option;
->  struct perf_sample;
->  struct thread;
->  
-> @@ -26,7 +27,9 @@ struct unwind_libunwind_ops {
->  			   struct perf_sample *data, int max_stack, bool best_effort);
->  };
->  
-> -#ifdef HAVE_DWARF_UNWIND_SUPPORT
-> +int unwind__configure(const char *var, const char *value, void *cb);
-> +int unwind__option(const struct option *opt, const char *arg, int unset);
-> +
->  /*
->   * When best_effort is set, don't report errors and fail silently. This could
->   * be expanded in the future to be more permissive about things other than
-> @@ -36,8 +39,20 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
->  			struct thread *thread,
->  			struct perf_sample *data, int max_stack,
->  			bool best_effort);
-> -/* libunwind specific */
-> +
-> +#ifdef HAVE_LIBDW_SUPPORT
-> +int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
-> +		       struct thread *thread,
-> +		       struct perf_sample *data, int max_stack,
-> +		       bool best_effort);
-> +#endif
-> +
->  #ifdef HAVE_LIBUNWIND_SUPPORT
-> +/* libunwind specific */
-> +int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
-> +			   struct thread *thread,
-> +			   struct perf_sample *data, int max_stack,
-> +			   bool best_effort);
->  #ifndef LIBUNWIND__ARCH_REG_ID
->  #define LIBUNWIND__ARCH_REG_ID(regnum) libunwind__arch_reg_id(regnum)
->  #endif
-> @@ -57,26 +72,5 @@ static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
->  static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
->  static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
->  #endif
-> -#else
-> -static inline int
-> -unwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
-> -		    void *arg __maybe_unused,
-> -		    struct thread *thread __maybe_unused,
-> -		    struct perf_sample *data __maybe_unused,
-> -		    int max_stack __maybe_unused,
-> -		    bool best_effort __maybe_unused)
-> -{
-> -	return 0;
-> -}
-> -
-> -static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
-> -					 struct map *map __maybe_unused,
-> -					 bool *initialized __maybe_unused)
-> -{
-> -	return 0;
-> -}
->  
-> -static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
-> -static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
-> -#endif /* HAVE_DWARF_UNWIND_SUPPORT */
->  #endif /* __UNWIND_H */
-> -- 
-> 2.53.0.473.g4a7958ca14-goog
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXIgMzEsIDIwMjYgYXQgMTo0MuKAr1BNIEFybmFsZG8gQ2FydmFsaG8gZGUgTWVs
+bwo8YWNtZUBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFRodSwgTWFyIDA1LCAyMDI2IGF0IDAy
+OjE5OjIwUE0gLTA4MDAsIElhbiBSb2dlcnMgd3JvdGU6Cj4gPiBDdXJyZW50bHksIGJvdGggbGli
+ZHcgYW5kIGxpYnVud2luZCBkZWZpbmUgJ3Vud2luZF9fZ2V0X2VudHJpZXMnLiBUaGlzCj4gPiBj
+YXVzZXMgYSBkdXBsaWNhdGUgc3ltYm9sIGJ1aWxkIGZhaWx1cmUgd2hlbiBib3RoIGFyZSBjb21w
+aWxlZCBpbnRvCj4gPiBwZXJmLgo+ID4KPiA+IFRoaXMgY29tbWl0IHJlZmFjdG9ycyB0aGUgRFdB
+UkYgdW53aW5kIHBvc3QtcHJvY2Vzc2luZyB0byBiZQo+ID4gY29uZmlndXJhYmxlIGF0IHJ1bnRp
+bWUgdmlhIHRoZSAucGVyZmNvbmZpZyBmaWxlIG9wdGlvbgo+ID4gJ3Vud2luZC5zdHlsZScsIG9y
+IHVzaW5nIHRoZSBhcmd1bWVudCAnLS11bndpbmQtc3R5bGUnIGluIHRoZSBjb21tYW5kcwo+ID4g
+J3BlcmYgcmVwb3J0JywgJ3BlcmYgc2NyaXB0JyBhbmQgJ3BlcmYgaW5qZWN0JywgaW4gYSBzaW1p
+bGFyIG1hbm5lciB0bwo+ID4gdGhlIGFkZHIybGluZSBvciB0aGUgZGlzYXNzZW1ibGVyIHN0eWxl
+Lgo+ID4KPiA+IFRoZSBmaWxlICd0b29scy9wZXJmL3V0aWwvdW53aW5kLmMnIGFkZHMgdGhlIHRv
+cC1sZXZlbCBkaXNwYXRjaAo+ID4gZnVuY3Rpb24gJ3Vud2luZF9fZ2V0X2VudHJpZXMnLiBUaGUg
+YmFja2VuZCBpbXBsZW1lbnRhdGlvbnMgYXJlCj4gPiByZW5hbWVkIHRvICdsaWJkd19fZ2V0X2Vu
+dHJpZXMnIGFuZCAnbGlidW53aW5kX19nZXRfZW50cmllcycuIEJvdGggYXJlCj4gPiBhdHRlbXB0
+ZWQgYXMgZmFsbGJhY2tzIGlmIG5vdCBjb25maWd1cmVkLCBvciBpZiB0aGUgcHJpbWFyeSBiYWNr
+ZW5kCj4gPiBmYWlscy4KPiA+Cj4gPiBGaXhlczogMmU5MTkxNTczYTY5ICgicGVyZiBidWlsZDog
+UmVtb3ZlIE5PX0xJQkRXX0RXQVJGX1VOV0lORCBvcHRpb24iKQo+ID4gU2lnbmVkLW9mZi1ieTog
+SWFuIFJvZ2VycyA8aXJvZ2Vyc0Bnb29nbGUuY29tPgo+ID4gLS0tCj4gPiAgdG9vbHMvcGVyZi9i
+dWlsdGluLWluamVjdC5jICAgICAgICB8ICAgNCArKwo+ID4gIHRvb2xzL3BlcmYvYnVpbHRpbi1y
+ZXBvcnQuYyAgICAgICAgfCAgIDQgKysKPiA+ICB0b29scy9wZXJmL2J1aWx0aW4tc2NyaXB0LmMg
+ICAgICAgIHwgICA0ICsrCj4gPiAgdG9vbHMvcGVyZi91dGlsL0J1aWxkICAgICAgICAgICAgICB8
+ICAgMSArCj4gPiAgdG9vbHMvcGVyZi91dGlsL3N5bWJvbF9jb25mLmggICAgICB8ICAxNSArKysr
+Kwo+ID4gIHRvb2xzL3BlcmYvdXRpbC91bndpbmQtbGliZHcuYyAgICAgfCAgIDIgKy0KPiA+ICB0
+b29scy9wZXJmL3V0aWwvdW53aW5kLWxpYnVud2luZC5jIHwgICAyICstCj4gPiAgdG9vbHMvcGVy
+Zi91dGlsL3Vud2luZC5jICAgICAgICAgICB8IDEwMiArKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKwo+ID4gIHRvb2xzL3BlcmYvdXRpbC91bndpbmQuaCAgICAgICAgICAgfCAgNDAgKysrKyst
+LS0tLS0KPiA+ICA5IGZpbGVzIGNoYW5nZWQsIDE0OSBpbnNlcnRpb25zKCspLCAyNSBkZWxldGlv
+bnMoLSkKPiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi91dGlsL3Vud2luZC5jCj4g
+Pgo+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3BlcmYvYnVpbHRpbi1pbmplY3QuYyBiL3Rvb2xzL3Bl
+cmYvYnVpbHRpbi1pbmplY3QuYwo+ID4gaW5kZXggNWIyOWY0Mjk2ODYxLi45YWQ2ODFiM2MwZGMg
+MTAwNjQ0Cj4gPiAtLS0gYS90b29scy9wZXJmL2J1aWx0aW4taW5qZWN0LmMKPiA+ICsrKyBiL3Rv
+b2xzL3BlcmYvYnVpbHRpbi1pbmplY3QuYwo+ID4gQEAgLTI2LDYgKzI2LDcgQEAKPiA+ICAjaW5j
+bHVkZSAidXRpbC9zeW50aGV0aWMtZXZlbnRzLmgiCj4gPiAgI2luY2x1ZGUgInV0aWwvdGhyZWFk
+LmgiCj4gPiAgI2luY2x1ZGUgInV0aWwvbmFtZXNwYWNlcy5oIgo+ID4gKyNpbmNsdWRlICJ1dGls
+L3Vud2luZC5oIgo+ID4gICNpbmNsdWRlICJ1dGlsL3V0aWwuaCIKPiA+ICAjaW5jbHVkZSAidXRp
+bC90c2MuaCIKPiA+Cj4gPiBAQCAtMjUzOSw2ICsyNTQwLDkgQEAgaW50IGNtZF9pbmplY3QoaW50
+IGFyZ2MsIGNvbnN0IGNoYXIgKiphcmd2KQo+ID4gICAgICAgICAgICAgICBPUFRfU1RSSU5HKDAs
+ICJndWVzdG1vdW50IiwgJnN5bWJvbF9jb25mLmd1ZXN0bW91bnQsICJkaXJlY3RvcnkiLAo+ID4g
+ICAgICAgICAgICAgICAgICAgICAgICAgICJndWVzdCBtb3VudCBkaXJlY3RvcnkgdW5kZXIgd2hp
+Y2ggZXZlcnkgZ3Vlc3Qgb3MiCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgIiBpbnN0YW5j
+ZSBoYXMgYSBzdWJkaXIiKSwKPiA+ICsgICAgICAgICAgICAgT1BUX0NBTExCQUNLKDAsICJ1bndp
+bmQtc3R5bGUiLCBOVUxMLCAidW53aW5kIHN0eWxlIiwKPiA+ICsgICAgICAgICAgICAgICAgICAg
+ICAgICAgICJ1bndpbmQgc3R5bGVzIChsaWJkdyxsaWJ1bndpbmQpIiwKPiA+ICsgICAgICAgICAg
+ICAgICAgICAgICAgICAgIHVud2luZF9fb3B0aW9uKSwKPiA+ICAgICAgICAgICAgICAgT1BUX0JP
+T0xFQU4oMCwgImNvbnZlcnQtY2FsbGNoYWluIiwgJmluamVjdC5jb252ZXJ0X2NhbGxjaGFpbiwK
+PiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIkdlbmVyYXRlIGNhbGxjaGFpbnMgdXNpbmcg
+RFdBUkYgYW5kIGRyb3AgcmVnaXN0ZXIvc3RhY2sgZGF0YSIpLAo+ID4gICAgICAgICAgICAgICBP
+UFRfRU5EKCkKPiA+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL2J1aWx0aW4tcmVwb3J0LmMgYi90
+b29scy9wZXJmL2J1aWx0aW4tcmVwb3J0LmMKPiA+IGluZGV4IDNiODFmNGIzZGM0OS4uYWUyMGMw
+Njc5OTkwIDEwMDY0NAo+ID4gLS0tIGEvdG9vbHMvcGVyZi9idWlsdGluLXJlcG9ydC5jCj4gPiAr
+KysgYi90b29scy9wZXJmL2J1aWx0aW4tcmVwb3J0LmMKPiA+IEBAIC00OCw2ICs0OCw3IEBACj4g
+PiAgI2luY2x1ZGUgInV0aWwvdGltZS11dGlscy5oIgo+ID4gICNpbmNsdWRlICJ1dGlsL2F1eHRy
+YWNlLmgiCj4gPiAgI2luY2x1ZGUgInV0aWwvdW5pdHMuaCIKPiA+ICsjaW5jbHVkZSAidXRpbC91
+bndpbmQuaCIKPiA+ICAjaW5jbHVkZSAidXRpbC91dGlsLmgiIC8vIHBlcmZfdGlwKCkKPiA+ICAj
+aW5jbHVkZSAidWkvdWkuaCIKPiA+ICAjaW5jbHVkZSAidWkvcHJvZ3Jlc3MuaCIKPiA+IEBAIC0x
+NDU1LDYgKzE0NTYsOSBAQCBpbnQgY21kX3JlcG9ydChpbnQgYXJnYywgY29uc3QgY2hhciAqKmFy
+Z3YpCj4gPiAgICAgICBPUFRfQ0FMTEJBQ0soMCwgImFkZHIybGluZS1zdHlsZSIsIE5VTEwsICJh
+ZGRyMmxpbmUgc3R5bGUiLAo+ID4gICAgICAgICAgICAgICAgICAgICJhZGRyMmxpbmUgc3R5bGVz
+IChsaWJkdyxsbHZtLGxpYmJmZCxhZGRyMmxpbmUpIiwKPiA+ICAgICAgICAgICAgICAgICAgICBy
+ZXBvcnRfcGFyc2VfYWRkcjJsaW5lX2NvbmZpZyksCj4gPiArICAgICBPUFRfQ0FMTEJBQ0soMCwg
+InVud2luZC1zdHlsZSIsIE5VTEwsICJ1bndpbmQgc3R5bGUiLAo+ID4gKyAgICAgICAgICAgICAg
+ICAgICJ1bndpbmQgc3R5bGVzIChsaWJkdyxsaWJ1bndpbmQpIiwKPiA+ICsgICAgICAgICAgICAg
+ICAgICB1bndpbmRfX29wdGlvbiksCj4gPiAgICAgICBPUFRfQk9PTEVBTigwLCAiZGVtYW5nbGUi
+LCAmc3ltYm9sX2NvbmYuZGVtYW5nbGUsCj4gPiAgICAgICAgICAgICAgICAgICAiU3ltYm9sIGRl
+bWFuZ2xpbmcuIEVuYWJsZWQgYnkgZGVmYXVsdCwgdXNlIC0tbm8tZGVtYW5nbGUgdG8gZGlzYWJs
+ZS4iKSwKPiA+ICAgICAgIE9QVF9CT09MRUFOKDAsICJkZW1hbmdsZS1rZXJuZWwiLCAmc3ltYm9s
+X2NvbmYuZGVtYW5nbGVfa2VybmVsLAo+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3BlcmYvYnVpbHRp
+bi1zY3JpcHQuYyBiL3Rvb2xzL3BlcmYvYnVpbHRpbi1zY3JpcHQuYwo+ID4gaW5kZXggOWY4YjBm
+ZDI3YTBhLi5iNmM3YzE2NGQwMmQgMTAwNjQ0Cj4gPiAtLS0gYS90b29scy9wZXJmL2J1aWx0aW4t
+c2NyaXB0LmMKPiA+ICsrKyBiL3Rvb2xzL3BlcmYvYnVpbHRpbi1zY3JpcHQuYwo+ID4gQEAgLTYz
+LDYgKzYzLDcgQEAKPiA+ICAjaW5jbHVkZSA8bGludXgvZXJyLmg+Cj4gPiAgI2luY2x1ZGUgInV0
+aWwvZGxmaWx0ZXIuaCIKPiA+ICAjaW5jbHVkZSAidXRpbC9yZWNvcmQuaCIKPiA+ICsjaW5jbHVk
+ZSAidXRpbC91bndpbmQuaCIKPiA+ICAjaW5jbHVkZSAidXRpbC91dGlsLmgiCj4gPiAgI2luY2x1
+ZGUgInV0aWwvY2dyb3VwLmgiCj4gPiAgI2luY2x1ZGUgInV0aWwvYW5ub3RhdGUuaCIKPiA+IEBA
+IC00MTY0LDYgKzQxNjUsOSBAQCBpbnQgY21kX3NjcmlwdChpbnQgYXJnYywgY29uc3QgY2hhciAq
+KmFyZ3YpCj4gPiAgICAgICAgICAgICAgICAgICAgICAgIkVuYWJsZSBzeW1ib2wgZGVtYW5nbGlu
+ZyIpLAo+ID4gICAgICAgT1BUX0JPT0xFQU4oMCwgImRlbWFuZ2xlLWtlcm5lbCIsICZzeW1ib2xf
+Y29uZi5kZW1hbmdsZV9rZXJuZWwsCj4gPiAgICAgICAgICAgICAgICAgICAgICAgIkVuYWJsZSBr
+ZXJuZWwgc3ltYm9sIGRlbWFuZ2xpbmciKSwKPiA+ICsgICAgIE9QVF9DQUxMQkFDSygwLCAidW53
+aW5kLXN0eWxlIiwgTlVMTCwgInVud2luZCBzdHlsZSIsCj4gPiArICAgICAgICAgICAgICAgICAg
+InVud2luZCBzdHlsZXMgKGxpYmR3LGxpYnVud2luZCkiLAo+ID4gKyAgICAgICAgICAgICAgICAg
+IHVud2luZF9fb3B0aW9uKSwKPiA+ICAgICAgIE9QVF9TVFJJTkcoMCwgImFkZHIybGluZSIsICZz
+eW1ib2xfY29uZi5hZGRyMmxpbmVfcGF0aCwgInBhdGgiLAo+ID4gICAgICAgICAgICAgICAgICAg
+ICAgICJhZGRyMmxpbmUgYmluYXJ5IHRvIHVzZSBmb3IgbGluZSBudW1iZXJzIiksCj4gPiAgICAg
+ICBPUFRfU1RSSU5HKDAsICJ0aW1lIiwgJnNjcmlwdC50aW1lX3N0ciwgInN0ciIsCj4gPiBkaWZm
+IC0tZ2l0IGEvdG9vbHMvcGVyZi91dGlsL0J1aWxkIGIvdG9vbHMvcGVyZi91dGlsL0J1aWxkCj4g
+PiBpbmRleCBiY2NjYWQ3NDg3YTkuLjYxOTBhOGY1YjBmYSAxMDA2NDQKPiA+IC0tLSBhL3Rvb2xz
+L3BlcmYvdXRpbC9CdWlsZAo+ID4gKysrIGIvdG9vbHMvcGVyZi91dGlsL0J1aWxkCj4gPiBAQCAt
+MjE4LDYgKzIxOCw3IEBAIGlmbmRlZiBDT05GSUdfU0VUTlMKPiA+ICBwZXJmLXV0aWwteSArPSBz
+ZXRucy5vCj4gPiAgZW5kaWYKPiA+Cj4gPiArcGVyZi11dGlsLXkgKz0gdW53aW5kLm8KPiA+ICBw
+ZXJmLXV0aWwtJChDT05GSUdfTElCRFcpICs9IHByb2JlLWZpbmRlci5vCj4gPiAgcGVyZi11dGls
+LSQoQ09ORklHX0xJQkRXKSArPSBkd2FyZi1hdXgubwo+ID4gIHBlcmYtdXRpbC0kKENPTkZJR19M
+SUJEVykgKz0gZHdhcmYtcmVncy5vCj4gPiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi91dGlsL3N5
+bWJvbF9jb25mLmggYi90b29scy9wZXJmL3V0aWwvc3ltYm9sX2NvbmYuaAo+ID4gaW5kZXggNzFi
+YjE3MzcyYTZjLi4yNWQ5MmJiYmZlZTcgMTAwNjQ0Cj4gPiAtLS0gYS90b29scy9wZXJmL3V0aWwv
+c3ltYm9sX2NvbmYuaAo+ID4gKysrIGIvdG9vbHMvcGVyZi91dGlsL3N5bWJvbF9jb25mLmgKPiA+
+IEBAIC05LDYgKzksMTkgQEAKPiA+ICBzdHJ1Y3Qgc3RybGlzdDsKPiA+ICBzdHJ1Y3QgaW50bGlz
+dDsKPiA+Cj4gPiArZW51bSB1bndpbmRfc3R5bGUgewo+ID4gKwo+ID4gKyAgICAgVU5XSU5EX1NU
+WUxFX1VOS05PV04gPSAwLAo+ID4gKwo+ID4gKyAgICAgVU5XSU5EX1NUWUxFX0xJQkRXLAo+ID4g
+Kwo+ID4gKyAgICAgVU5XSU5EX1NUWUxFX0xJQlVOV0lORCwKPiA+ICsKPiA+ICt9OwoKSSdsbCBy
+ZW1vdmUgdGhlIGJsYW5rIGxpbmVzIGluIHRoZSBuZXh0IHZlcnNpb24uCgo+ID4gKwo+ID4gKyNk
+ZWZpbmUgTUFYX1VOV0lORF9TVFlMRSAoVU5XSU5EX1NUWUxFX0xJQlVOV0lORCArIDEpCj4gPiAr
+Cj4gPiArCj4gPiAgZW51bSBhMmxfc3R5bGUgewo+ID4gICAgICAgQTJMX1NUWUxFX1VOS05PV04g
+PSAwLAo+ID4gICAgICAgQTJMX1NUWUxFX0xJQkRXLAo+ID4gQEAgLTgwLDYgKzkzLDcgQEAgc3Ry
+dWN0IHN5bWJvbF9jb25mIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAqYnRfc3RvcF9saXN0
+X3N0cjsKPiA+ICAgICAgIGNvbnN0IGNoYXIgICAgICAgICAgICAgICphZGRyMmxpbmVfcGF0aDsK
+PiA+ICAgICAgIGVudW0gYTJsX3N0eWxlICBhZGRyMmxpbmVfc3R5bGVbTUFYX0EyTF9TVFlMRV07
+Cj4gPiArICAgICBlbnVtIHVud2luZF9zdHlsZSB1bndpbmRfc3R5bGVbTUFYX1VOV0lORF9TVFlM
+RV07Cj4gPiAgICAgICB1bnNpZ25lZCBsb25nICAgdGltZV9xdWFudHVtOwo+ID4gICAgICAgICBz
+dHJ1Y3Qgc3RybGlzdCAgICAgICAgKmRzb19saXN0LAo+ID4gICAgICAgICAgICAgICAgICAgICAg
+ICpjb21tX2xpc3QsCj4gPiBAQCAtMTAzLDMgKzExNyw0IEBAIHN0cnVjdCBzeW1ib2xfY29uZiB7
+Cj4gPiAgZXh0ZXJuIHN0cnVjdCBzeW1ib2xfY29uZiBzeW1ib2xfY29uZjsKPiA+Cj4gPiAgI2Vu
+ZGlmIC8vIF9fUEVSRl9TWU1CT0xfQ09ORgo+ID4gKwo+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Bl
+cmYvdXRpbC91bndpbmQtbGliZHcuYyBiL3Rvb2xzL3BlcmYvdXRpbC91bndpbmQtbGliZHcuYwo+
+ID4gaW5kZXggMDVlOGU2OGJkNDljLi5kOGE1YjdkNTQxOTIgMTAwNjQ0Cj4gPiAtLS0gYS90b29s
+cy9wZXJmL3V0aWwvdW53aW5kLWxpYmR3LmMKPiA+ICsrKyBiL3Rvb2xzL3BlcmYvdXRpbC91bndp
+bmQtbGliZHcuYwo+ID4gQEAgLTMzOSw3ICszMzksNyBAQCBmcmFtZV9jYWxsYmFjayhEd2ZsX0Zy
+YW1lICpzdGF0ZSwgdm9pZCAqYXJnKQo+ID4gICAgICAgICAgICAgIERXQVJGX0NCX0FCT1JUIDog
+RFdBUkZfQ0JfT0s7Cj4gPiAgfQo+ID4KPiA+IC1pbnQgdW53aW5kX19nZXRfZW50cmllcyh1bndp
+bmRfZW50cnlfY2JfdCBjYiwgdm9pZCAqYXJnLAo+ID4gK2ludCBsaWJkd19fZ2V0X2VudHJpZXMo
+dW53aW5kX2VudHJ5X2NiX3QgY2IsIHZvaWQgKmFyZywKPiA+ICAgICAgICAgICAgICAgICAgICAg
+ICBzdHJ1Y3QgdGhyZWFkICp0aHJlYWQsCj4gPiAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0
+IHBlcmZfc2FtcGxlICpkYXRhLAo+ID4gICAgICAgICAgICAgICAgICAgICAgIGludCBtYXhfc3Rh
+Y2ssCj4gPiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi91dGlsL3Vud2luZC1saWJ1bndpbmQuYyBi
+L3Rvb2xzL3BlcmYvdXRpbC91bndpbmQtbGlidW53aW5kLmMKPiA+IGluZGV4IGNiOGJlNmFjZmI2
+Zi4uYTAwMTZiODk3ZGFlIDEwMDY0NAo+ID4gLS0tIGEvdG9vbHMvcGVyZi91dGlsL3Vud2luZC1s
+aWJ1bndpbmQuYwo+ID4gKysrIGIvdG9vbHMvcGVyZi91dGlsL3Vud2luZC1saWJ1bndpbmQuYwo+
+ID4gQEAgLTc5LDcgKzc5LDcgQEAgdm9pZCB1bndpbmRfX2ZpbmlzaF9hY2Nlc3Moc3RydWN0IG1h
+cHMgKm1hcHMpCj4gPiAgICAgICAgICAgICAgIG9wcy0+ZmluaXNoX2FjY2VzcyhtYXBzKTsKPiA+
+ICB9Cj4gPgo+ID4gLWludCB1bndpbmRfX2dldF9lbnRyaWVzKHVud2luZF9lbnRyeV9jYl90IGNi
+LCB2b2lkICphcmcsCj4gPiAraW50IGxpYnVud2luZF9fZ2V0X2VudHJpZXModW53aW5kX2VudHJ5
+X2NiX3QgY2IsIHZvaWQgKmFyZywKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IHRo
+cmVhZCAqdGhyZWFkLAo+ID4gICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcGVyZl9zYW1w
+bGUgKmRhdGEsIGludCBtYXhfc3RhY2ssCj4gPiAgICAgICAgICAgICAgICAgICAgICAgIGJvb2wg
+YmVzdF9lZmZvcnQpCj4gPiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi91dGlsL3Vud2luZC5jIGIv
+dG9vbHMvcGVyZi91dGlsL3Vud2luZC5jCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4gaW5k
+ZXggMDAwMDAwMDAwMDAwLi45YWU3ZDVhZDI0NmQKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBi
+L3Rvb2xzL3BlcmYvdXRpbC91bndpbmQuYwo+ID4gQEAgLTAsMCArMSwxMDIgQEAKPiA+ICsvLyBT
+UERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+ID4gKyNpbmNsdWRlICJkZWJ1Zy5oIgo+
+ID4gKyNpbmNsdWRlICJzeW1ib2xfY29uZi5oIgo+ID4gKyNpbmNsdWRlICJ1bndpbmQuaCIKPiA+
+ICsjaW5jbHVkZSA8bGludXgvc3RyaW5nLmg+Cj4gPiArI2luY2x1ZGUgPHN0cmluZy5oPgo+ID4g
+KyNpbmNsdWRlIDxzdGRsaWIuaD4KPiA+ICsKPiA+ICtpbnQgdW53aW5kX19nZXRfZW50cmllcyh1
+bndpbmRfZW50cnlfY2JfdCBjYiBfX21heWJlX3VudXNlZCwgdm9pZCAqYXJnIF9fbWF5YmVfdW51
+c2VkLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCB0aHJlYWQgKnRocmVhZCBfX21h
+eWJlX3VudXNlZCwKPiA+ICsgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcGVyZl9zYW1wbGUg
+KmRhdGEgX19tYXliZV91bnVzZWQsCj4gPiArICAgICAgICAgICAgICAgICAgICAgaW50IG1heF9z
+dGFjayBfX21heWJlX3VudXNlZCwKPiA+ICsgICAgICAgICAgICAgICAgICAgICBib29sIGJlc3Rf
+ZWZmb3J0IF9fbWF5YmVfdW51c2VkKQo+ID4gK3sKPiA+ICsgICAgIGludCByZXQgPSAwOwo+ID4g
+Kwo+ID4gKyNpZiBkZWZpbmVkKEhBVkVfTElCRFdfU1VQUE9SVCkgfHwgZGVmaW5lZChIQVZFX0xJ
+QlVOV0lORF9TVVBQT1JUKQo+ID4gKyAgICAgaWYgKHN5bWJvbF9jb25mLnVud2luZF9zdHlsZVsw
+XSA9PSBVTldJTkRfU1RZTEVfVU5LTk9XTikgewo+ID4gKyAgICAgICAgICAgICBpbnQgaSA9IDA7
+Cj4gPiArI2lmZGVmIEhBVkVfTElCRFdfU1VQUE9SVAo+ID4gKyAgICAgICAgICAgICBzeW1ib2xf
+Y29uZi51bndpbmRfc3R5bGVbaSsrXSA9IFVOV0lORF9TVFlMRV9MSUJEVzsKPiA+ICsjZW5kaWYK
+PiA+ICsjaWZkZWYgSEFWRV9MSUJVTldJTkRfU1VQUE9SVAo+ID4gKyAgICAgICAgICAgICBzeW1i
+b2xfY29uZi51bndpbmRfc3R5bGVbaSsrXSA9IFVOV0lORF9TVFlMRV9MSUJVTldJTkQ7Cj4gPiAr
+I2VuZGlmCj4gPiArICAgICB9Cj4gPiArI2VuZGlmIC8vZGVmaW5lZChIQVZFX0xJQkRXX1NVUFBP
+UlQpIHx8IGRlZmluZWQoSEFWRV9MSUJVTldJTkRfU1VQUE9SVCkKPiA+ICsKPiA+ICsgICAgIGZv
+ciAoc2l6ZV90IGkgPSAwOyBpIDwgQVJSQVlfU0laRShzeW1ib2xfY29uZi51bndpbmRfc3R5bGUp
+OyBpKyspIHsKPiA+ICsgICAgICAgICAgICAgc3dpdGNoIChzeW1ib2xfY29uZi51bndpbmRfc3R5
+bGVbaV0pIHsKPiA+ICsgICAgICAgICAgICAgY2FzZSBVTldJTkRfU1RZTEVfTElCRFc6Cj4gPiAr
+I2lmZGVmIEhBVkVfTElCRFdfU1VQUE9SVAo+ID4gKyAgICAgICAgICAgICAgICAgICAgIHJldCA9
+IGxpYmR3X19nZXRfZW50cmllcyhjYiwgYXJnLCB0aHJlYWQsIGRhdGEsIG1heF9zdGFjaywgYmVz
+dF9lZmZvcnQpOwo+ID4gKyNlbmRpZgo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+
+ID4gKyAgICAgICAgICAgICBjYXNlIFVOV0lORF9TVFlMRV9MSUJVTldJTkQ6Cj4gPiArI2lmZGVm
+IEhBVkVfTElCVU5XSU5EX1NVUFBPUlQKPiA+ICsgICAgICAgICAgICAgICAgICAgICByZXQgPSBs
+aWJ1bndpbmRfX2dldF9lbnRyaWVzKGNiLCBhcmcsIHRocmVhZCwgZGF0YSwgbWF4X3N0YWNrLCBi
+ZXN0X2VmZm9ydCk7Cj4gPiArI2VuZGlmCj4gPiArICAgICAgICAgICAgICAgICAgICAgYnJlYWs7
+Cj4KPgo+IFdoYXQgaWYgdGhlIHVzZXIgYXNrcyBmb3Igb25lIG9mIHRoZSB1bndpbmRlcnMsIHN5
+bWJvbF9jb25mLnVud2luZF9zdHlsZQo+IHdpbGwgYmUgcG9wdWxhdGVkIHdpdGggdGhlIHVzZXIn
+cyBjaG9pY2VzLCBidXQgdGhlbiBoZXJlIGluCj4gdW53aW5kX19nZXRfZW50cmllcygpIHdlIGVu
+ZCB1cCByZXR1cm5pbmcgMCBiZWNhdXNlIHRoZSB1c2VyIGNob2ljZSBpcwo+IG5vdCBidWlsdC1p
+bj8KPgo+IEFsc28gbm8gd2FybmluZyB3aWxsIGJlIGVtaXR0ZWQgdGhhdCB3aGF0IHdhcyBhc2tl
+ZCBmb3IgaXMgbm90Cj4gYXZhaWxhYmxlPwo+Cj4gTWF5YmUgcmVtb3ZlIHRoZSBpZmRlZnMgaGVy
+ZSBhbmQgaGF2ZSBhIGR1bW15IGxpYmR3X19nZXRfZW50cmllcygpIHdoZW4KPiBIQVZFX0xJQkRX
+X1NVUFBPUlQgaW5zJ3QgZGVmaW5lZCB0aGF0IGVtaXRzIHRoZSB3YXJuaW5nIGFuZCByZXR1cm5z
+IC0xPwo+IERpdHRvIGZvciBVTldJTkRfU1RZTEVfTElCVU5XSU5EPwoKTWFrZXMgc2Vuc2UsIEkn
+bGwgYWRkIGl0IHRvIHRoZSBuZXh0IHZlcnNpb24uIFNpbmNlIHRoZSBsYXRlciBwYXRjaGVzCmFy
+ZSBsYXJnZXIgSSdsbCB3YWl0IHRvIGFkZHJlc3MgcmV2aWV3IGZlZWRiYWNrIHRoZXJlIGJlZm9y
+ZSBzZW5kaW5nCm91dCB0aGUgbmV4dCB2ZXJzaW9uIC0gdGhpcyB3aWxsIGF2b2lkIHVubmVjZXNz
+YXJ5IG1haWxpbmcgbGlzdCBjaHVybi4KClRoYW5rcywKSWFuCgo+IC0gQXJuYWxkbwo+Cj4gPiAr
+ICAgICAgICAgICAgIGNhc2UgVU5XSU5EX1NUWUxFX1VOS05PV046Cj4gPiArICAgICAgICAgICAg
+IGRlZmF1bHQ6Cj4gPiArI2lmICFkZWZpbmVkKEhBVkVfTElCRFdfU1VQUE9SVCkgJiYgIWRlZmlu
+ZWQoSEFWRV9MSUJVTldJTkRfU1VQUE9SVCkKPiA+ICsgICAgICAgICAgICAgICAgICAgICBwcl93
+YXJuaW5nX29uY2UoCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiRXJyb3I6IGR3
+YXJmIHVud2luZGluZyBub3Qgc3VwcG9ydGVkLCBidWlsZCBwZXJmIHdpdGggbGliZHcgb3IgbGli
+dW53aW5kLlxuIik7Cj4gPiArI2VuZGlmCj4gPiArICAgICAgICAgICAgICAgICAgICAgcmV0ID0g
+LTE7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gPiArICAgICAgICAgICAgIH0K
+PiA+ICsgICAgICAgICAgICAgaWYgKHJldCA9PSAwKQo+ID4gKyAgICAgICAgICAgICAgICAgICAg
+IGJyZWFrOwo+ID4gKyAgICAgfQo+ID4gKyAgICAgcmV0dXJuIHJldDsKPiA+ICt9Cj4gPiArCj4g
+PiAraW50IHVud2luZF9fY29uZmlndXJlKGNvbnN0IGNoYXIgKnZhciwgY29uc3QgY2hhciAqdmFs
+dWUsIHZvaWQgKmNiIF9fbWF5YmVfdW51c2VkKQo+ID4gK3sKPiA+ICsgICAgIHN0YXRpYyBjb25z
+dCBjaGFyICogY29uc3QgdW53aW5kX3N0eWxlX25hbWVzW10gPSB7Cj4gPiArICAgICAgICAgICAg
+IFtVTldJTkRfU1RZTEVfTElCRFddID0gImxpYmR3IiwKPiA+ICsgICAgICAgICAgICAgW1VOV0lO
+RF9TVFlMRV9MSUJVTldJTkRdID0gImxpYnVud2luZCIsCj4gPiArICAgICAgICAgICAgIE5VTEwK
+PiA+ICsgICAgIH07Cj4gPiArICAgICBjaGFyICpzLCAqcCwgKnNhdmVwdHI7Cj4gPiArICAgICBz
+aXplX3QgaSA9IDA7Cj4gPiArCj4gPiArICAgICBpZiAoc3RyY21wKHZhciwgInVud2luZC5zdHls
+ZSIpKQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gMDsKPiA+ICsKPiA+ICsgICAgIGlmICghdmFs
+dWUpCj4gPiArICAgICAgICAgICAgIHJldHVybiAtMTsKPiA+ICsKPiA+ICsgICAgIHMgPSBzdHJk
+dXAodmFsdWUpOwo+ID4gKyAgICAgaWYgKCFzKQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gLTE7
+Cj4gPiArCj4gPiArICAgICBwID0gc3RydG9rX3IocywgIiwiLCAmc2F2ZXB0cik7Cj4gPiArICAg
+ICB3aGlsZSAocCAmJiBpIDwgQVJSQVlfU0laRShzeW1ib2xfY29uZi51bndpbmRfc3R5bGUpKSB7
+Cj4gPiArICAgICAgICAgICAgIGJvb2wgZm91bmQgPSBmYWxzZTsKPiA+ICsgICAgICAgICAgICAg
+Y2hhciAqcSA9IHN0cmltKHApOwo+ID4gKwo+ID4gKyAgICAgICAgICAgICBmb3IgKHNpemVfdCBq
+ID0gVU5XSU5EX1NUWUxFX0xJQkRXOyBqIDwgTUFYX1VOV0lORF9TVFlMRTsgaisrKSB7Cj4gPiAr
+ICAgICAgICAgICAgICAgICAgICAgaWYgKCFzdHJjYXNlY21wKHEsIHVud2luZF9zdHlsZV9uYW1l
+c1tqXSkpIHsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN5bWJvbF9jb25mLnVu
+d2luZF9zdHlsZVtpKytdID0gajsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZv
+dW5kID0gdHJ1ZTsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4g
+KyAgICAgICAgICAgICAgICAgICAgIH0KPiA+ICsgICAgICAgICAgICAgfQo+ID4gKyAgICAgICAg
+ICAgICBpZiAoIWZvdW5kKQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIHByX3dhcm5pbmcoIlVu
+a25vd24gdW53aW5kIHN0eWxlOiAlc1xuIiwgcSk7Cj4gPiArICAgICAgICAgICAgIHAgPSBzdHJ0
+b2tfcihOVUxMLCAiLCIsICZzYXZlcHRyKTsKPiA+ICsgICAgIH0KPiA+ICsKPiA+ICsgICAgIGZy
+ZWUocyk7Cj4gPiArICAgICByZXR1cm4gMDsKPiA+ICt9Cj4gPiArCj4gPiAraW50IHVud2luZF9f
+b3B0aW9uKGNvbnN0IHN0cnVjdCBvcHRpb24gKm9wdCBfX21heWJlX3VudXNlZCwKPiA+ICsgICAg
+ICAgICAgICAgICAgY29uc3QgY2hhciAqYXJnLAo+ID4gKyAgICAgICAgICAgICAgICBpbnQgdW5z
+ZXQgX19tYXliZV91bnVzZWQpCj4gPiArewo+ID4gKyAgICAgcmV0dXJuIHVud2luZF9fY29uZmln
+dXJlKCJ1bndpbmQuc3R5bGUiLCBhcmcsIE5VTEwpOwo+ID4gK30KPiA+IGRpZmYgLS1naXQgYS90
+b29scy9wZXJmL3V0aWwvdW53aW5kLmggYi90b29scy9wZXJmL3V0aWwvdW53aW5kLmgKPiA+IGlu
+ZGV4IDlmNzE2NGM2ZDlhYS4uNTgxZDA0MmUxNzBhIDEwMDY0NAo+ID4gLS0tIGEvdG9vbHMvcGVy
+Zi91dGlsL3Vud2luZC5oCj4gPiArKysgYi90b29scy9wZXJmL3V0aWwvdW53aW5kLmgKPiA+IEBA
+IC03LDYgKzcsNyBAQAo+ID4gICNpbmNsdWRlICJ1dGlsL21hcF9zeW1ib2wuaCIKPiA+Cj4gPiAg
+c3RydWN0IG1hcHM7Cj4gPiArc3RydWN0IG9wdGlvbjsKPiA+ICBzdHJ1Y3QgcGVyZl9zYW1wbGU7
+Cj4gPiAgc3RydWN0IHRocmVhZDsKPiA+Cj4gPiBAQCAtMjYsNyArMjcsOSBAQCBzdHJ1Y3QgdW53
+aW5kX2xpYnVud2luZF9vcHMgewo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBw
+ZXJmX3NhbXBsZSAqZGF0YSwgaW50IG1heF9zdGFjaywgYm9vbCBiZXN0X2VmZm9ydCk7Cj4gPiAg
+fTsKPiA+Cj4gPiAtI2lmZGVmIEhBVkVfRFdBUkZfVU5XSU5EX1NVUFBPUlQKPiA+ICtpbnQgdW53
+aW5kX19jb25maWd1cmUoY29uc3QgY2hhciAqdmFyLCBjb25zdCBjaGFyICp2YWx1ZSwgdm9pZCAq
+Y2IpOwo+ID4gK2ludCB1bndpbmRfX29wdGlvbihjb25zdCBzdHJ1Y3Qgb3B0aW9uICpvcHQsIGNv
+bnN0IGNoYXIgKmFyZywgaW50IHVuc2V0KTsKPiA+ICsKPiA+ICAvKgo+ID4gICAqIFdoZW4gYmVz
+dF9lZmZvcnQgaXMgc2V0LCBkb24ndCByZXBvcnQgZXJyb3JzIGFuZCBmYWlsIHNpbGVudGx5LiBU
+aGlzIGNvdWxkCj4gPiAgICogYmUgZXhwYW5kZWQgaW4gdGhlIGZ1dHVyZSB0byBiZSBtb3JlIHBl
+cm1pc3NpdmUgYWJvdXQgdGhpbmdzIG90aGVyIHRoYW4KPiA+IEBAIC0zNiw4ICszOSwyMCBAQCBp
+bnQgdW53aW5kX19nZXRfZW50cmllcyh1bndpbmRfZW50cnlfY2JfdCBjYiwgdm9pZCAqYXJnLAo+
+ID4gICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCB0aHJlYWQgKnRocmVhZCwKPiA+ICAgICAg
+ICAgICAgICAgICAgICAgICBzdHJ1Y3QgcGVyZl9zYW1wbGUgKmRhdGEsIGludCBtYXhfc3RhY2ss
+Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgYm9vbCBiZXN0X2VmZm9ydCk7Cj4gPiAtLyogbGli
+dW53aW5kIHNwZWNpZmljICovCj4gPiArCj4gPiArI2lmZGVmIEhBVkVfTElCRFdfU1VQUE9SVAo+
+ID4gK2ludCBsaWJkd19fZ2V0X2VudHJpZXModW53aW5kX2VudHJ5X2NiX3QgY2IsIHZvaWQgKmFy
+ZywKPiA+ICsgICAgICAgICAgICAgICAgICAgIHN0cnVjdCB0aHJlYWQgKnRocmVhZCwKPiA+ICsg
+ICAgICAgICAgICAgICAgICAgIHN0cnVjdCBwZXJmX3NhbXBsZSAqZGF0YSwgaW50IG1heF9zdGFj
+aywKPiA+ICsgICAgICAgICAgICAgICAgICAgIGJvb2wgYmVzdF9lZmZvcnQpOwo+ID4gKyNlbmRp
+Zgo+ID4gKwo+ID4gICNpZmRlZiBIQVZFX0xJQlVOV0lORF9TVVBQT1JUCj4gPiArLyogbGlidW53
+aW5kIHNwZWNpZmljICovCj4gPiAraW50IGxpYnVud2luZF9fZ2V0X2VudHJpZXModW53aW5kX2Vu
+dHJ5X2NiX3QgY2IsIHZvaWQgKmFyZywKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1
+Y3QgdGhyZWFkICp0aHJlYWQsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IHBl
+cmZfc2FtcGxlICpkYXRhLCBpbnQgbWF4X3N0YWNrLAo+ID4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgIGJvb2wgYmVzdF9lZmZvcnQpOwo+ID4gICNpZm5kZWYgTElCVU5XSU5EX19BUkNIX1JFR19J
+RAo+ID4gICNkZWZpbmUgTElCVU5XSU5EX19BUkNIX1JFR19JRChyZWdudW0pIGxpYnVud2luZF9f
+YXJjaF9yZWdfaWQocmVnbnVtKQo+ID4gICNlbmRpZgo+ID4gQEAgLTU3LDI2ICs3Miw1IEBAIHN0
+YXRpYyBpbmxpbmUgaW50IHVud2luZF9fcHJlcGFyZV9hY2Nlc3Moc3RydWN0IG1hcHMgKm1hcHMg
+X19tYXliZV91bnVzZWQsCj4gPiAgc3RhdGljIGlubGluZSB2b2lkIHVud2luZF9fZmx1c2hfYWNj
+ZXNzKHN0cnVjdCBtYXBzICptYXBzIF9fbWF5YmVfdW51c2VkKSB7fQo+ID4gIHN0YXRpYyBpbmxp
+bmUgdm9pZCB1bndpbmRfX2ZpbmlzaF9hY2Nlc3Moc3RydWN0IG1hcHMgKm1hcHMgX19tYXliZV91
+bnVzZWQpIHt9Cj4gPiAgI2VuZGlmCj4gPiAtI2Vsc2UKPiA+IC1zdGF0aWMgaW5saW5lIGludAo+
+ID4gLXVud2luZF9fZ2V0X2VudHJpZXModW53aW5kX2VudHJ5X2NiX3QgY2IgX19tYXliZV91bnVz
+ZWQsCj4gPiAtICAgICAgICAgICAgICAgICB2b2lkICphcmcgX19tYXliZV91bnVzZWQsCj4gPiAt
+ICAgICAgICAgICAgICAgICBzdHJ1Y3QgdGhyZWFkICp0aHJlYWQgX19tYXliZV91bnVzZWQsCj4g
+PiAtICAgICAgICAgICAgICAgICBzdHJ1Y3QgcGVyZl9zYW1wbGUgKmRhdGEgX19tYXliZV91bnVz
+ZWQsCj4gPiAtICAgICAgICAgICAgICAgICBpbnQgbWF4X3N0YWNrIF9fbWF5YmVfdW51c2VkLAo+
+ID4gLSAgICAgICAgICAgICAgICAgYm9vbCBiZXN0X2VmZm9ydCBfX21heWJlX3VudXNlZCkKPiA+
+IC17Cj4gPiAtICAgICByZXR1cm4gMDsKPiA+IC19Cj4gPiAtCj4gPiAtc3RhdGljIGlubGluZSBp
+bnQgdW53aW5kX19wcmVwYXJlX2FjY2VzcyhzdHJ1Y3QgbWFwcyAqbWFwcyBfX21heWJlX3VudXNl
+ZCwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBtYXAg
+Km1hcCBfX21heWJlX3VudXNlZCwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIGJvb2wgKmluaXRpYWxpemVkIF9fbWF5YmVfdW51c2VkKQo+ID4gLXsKPiA+IC0gICAg
+IHJldHVybiAwOwo+ID4gLX0KPiA+Cj4gPiAtc3RhdGljIGlubGluZSB2b2lkIHVud2luZF9fZmx1
+c2hfYWNjZXNzKHN0cnVjdCBtYXBzICptYXBzIF9fbWF5YmVfdW51c2VkKSB7fQo+ID4gLXN0YXRp
+YyBpbmxpbmUgdm9pZCB1bndpbmRfX2ZpbmlzaF9hY2Nlc3Moc3RydWN0IG1hcHMgKm1hcHMgX19t
+YXliZV91bnVzZWQpIHt9Cj4gPiAtI2VuZGlmIC8qIEhBVkVfRFdBUkZfVU5XSU5EX1NVUFBPUlQg
+Ki8KPiA+ICAjZW5kaWYgLyogX19VTldJTkRfSCAqLwo+ID4gLS0KPiA+IDIuNTMuMC40NzMuZzRh
+Nzk1OGNhMTQtZ29vZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
