@@ -4,171 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F15AFF60F4
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 17:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F1CFF60F4
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 17:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yIyZSMY0x98x2ZRNj3oiMAujf0doGMHpai6osNMnl4o=; b=xQi60fNzTakD7u
-	jtgMxQagTEREwKRZCDrJwNjYsvUnr97QEHbAXZG+rx/lswcvAEi5KiwO6tsN4F3sqkQUNQ5F2o2Dh
-	qcz6lBkeMsiAiyg7aKsCY1q4VEVn5UDeUrMXB0s64xaUptWxZ5IjgTV1aLs7zJuwJ4LFQeS0Uv+IL
-	hU2nTN1xOpkeqEXq91cQaiZN4U7b3OpLL5WHGAegzLTMSwRSiiov2GB4AVUSPjgh4+ryUb5RKbSLf
-	AT4SeJGQ+KfcINsvWdvqp7pK3w4QrIwAm97uYGWhmbYemTqoD3N2/W0+dk038FDwDEzrHsVVcP5eT
-	9UWmEWKPq+nXztJkzq6w==;
+	List-Owner; bh=tXGzRHItFO0Pl08FpK8oR2qMtN7v29RHTI8DhVPU1j0=; b=E5Dafcfn32DlRp
+	/E6PoVsaD33YzLAhMmQct/cU2SU2UN6UVmGzH+bzfflkVwJwxwdCrV+cfX9cXaB2to6+Er/Z/iqJt
+	8AX5YPVATfpyYmiW3Lo4j+22KQF0CjTU/S+0TE2QgV8A/ylS/J0UK6ByGS2ppQscdHy3+8PVnCKgX
+	wc8XmNvgjoA+LOrC4isnKZutFbMPvtNmA5kEvBpGIpUFXJZMWs2vtxmx7kcnMMTd2S2Fi8AMLyfzD
+	GU0hWEBHmpd3o+g11aCNXo1JHQGyVz/rYBnV4UMJsWMAT2UctNuyyhPs5FyURcMulES3az5gJ2pv4
+	Pqcl6oZ+pgcgDVan6uGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7dCg-0000000DMl3-3Df3;
-	Tue, 31 Mar 2026 17:48:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w7dKx-0000000DNQi-03AP;
+	Tue, 31 Mar 2026 17:57:11 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7dCe-0000000DMkW-1xCS
+	id 1w7dKt-0000000DNOh-3RY1
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Mar 2026 17:48:37 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62VGdm5r3663951
-	for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 17:48:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9tkluilWSFi/zwAvCgNgh5sc8znVExg6yAujw+zfcHE=; b=IgBJukjVHVlVxAeC
-	uka8zQLMz3Hpa6J1fgfMtCBZI89mTZ68ZtodlMEERZAKZUcKVnWH2l//Tha7AD1f
-	WJiujnb3gxO/PKyKDmp9G/vPf5MR5sA9PDr1GksgOsatL2SsqGph9AArDf6S8z8/
-	3LhvgwRX/pBIY9Gef6MJTWA8nwyImw6Wy+Cl8dhw5lLukZhh0KKPCWQgYtFC53bv
-	MESSzTiyrq/ozH2s9JhocgnIsND7Lsq38ZOvTw4BgrCOb+iHWVpOic3FVqhhpmSF
-	sUnufd0QpedVrTnqkCXm7EzO8vDAMTO7aJOwphbYyvy+uqWOaAZ9MrSAlyztHnLn
-	oVnf1g==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d89ga2xrm-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 17:48:35 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-509070bda13so3759741cf.1
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 10:48:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774979315; x=1775584115; darn=lists.infradead.org;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9tkluilWSFi/zwAvCgNgh5sc8znVExg6yAujw+zfcHE=;
-        b=igsjMUslaalRrVKlhzJJTRY18zKvyX9BG8nGK4J9Ux6BgnQK31BMvfdO4gAThst34l
-         4nOcBg0XWRXePN+tpr7G/5nPPbMFLXvUmPz7LwOq4U/Cd41IaX5QllO9iwA6ny3TFYxl
-         3Qbh/b7flggFLtUWfEagO1l15VKKR61+iIkvz+TbENPctpNcaoOf4SHs00tm6l+Ckbzv
-         sbwU8i1qs6TxFHGzsJWn3M50vs+z3wV1ZW+rB9EgcXiP1BC6AVOxIPQiqfhok02y7cfB
-         clfBFwoYD3BI0nlW2UQOr/Eih9i6ueA1Kenstnz9AelRTZTdVp42N5a0O8eB1mKuZlnN
-         C50A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774979315; x=1775584115;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9tkluilWSFi/zwAvCgNgh5sc8znVExg6yAujw+zfcHE=;
-        b=hEKRHqE5UMl3BZWnABuKxiJBl6Hq5zfM/3dpxRNAnJKVfCPEcz9JYSqUeZuHmnvLOS
-         vtBGCVEM2S1F21lg2WyLrl1Z9xASPxRQ2r5s3heHIiPmVVjJN+zXhkNkUIFv3Od3ZuLZ
-         IyG5b2eh6zgAkXF/p2An3pXV4VZYdrO6Ec/BUyA+5t2RXgmm4awJq99G7dq/zVL0m7pu
-         gr9T4qwOJpoe9gvN9/XfLs/vHHdbkrXz275uduJU5Q/7Y6Bc1ccuV4/imYWF6HlqeL1r
-         0kal4xTzOsW6MT9KMxP4c9Kt8KZOOMg9P3Q2OsADSGnOnru54kzWekcZ0/0eyNitPQ64
-         mn1g==
-X-Forwarded-Encrypted: i=1; AJvYcCWM7Sl7wMg4f6evLI7B6+H4mu24iALTASW26fH+9MtgIFcKy+8dZE2HcTRTBLaFcNKOX13xLL4DVgjJ0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyahNm2mKNzmNGxloixDK2jJu6sbmqOCVnqoZ+xJ5VzmuvidKAG
-	pRqEEiDa4vxTETGxu7yeHwhXXfwRhh6tvG+0oJrpHfDodusUx3nLtZAaUyQAd3nxh+0cLUaDZSG
-	QqG5pmPD927XVyiY6Mev177xQIyukoQlMiQh54ldIJi0spBMchrvep/CPjzUmpfT1/Al/0+c=
-X-Gm-Gg: ATEYQzy5Fy4xd8F/A5Zvv12DQXSBRqVbJ6+THmxgyVtzjdNOo9v8HRgwfMUI6BN3L6Z
-	bG7Ld4QEY9lz2xqmZ9SqkaFHRPRs9wdGuRtqzrGTonAQQ7Jhqkfv26HBKPPeiUlDVradm8j0XG+
-	REtO/CO1gf6mr4yIzAPfQJxeQm8/K+i25BqrNdjWMZoN3vS/xvr0OlYz1XusNkuxKpU9++OlAkd
-	o3CKO2x7/464Acgx96z/x1eWuVqp0nlNqpENIYr3vL2gbyuMhNTCAFY1Jat++xI9lRkrDEn9QPr
-	MfWdq13RObpk1Tv79c1WFtx6BMPmks+y1WqrbUbS61kEYRHpwzd3EBKbZrLq09+GvmPVeAlastj
-	kVknjIh/Toxhs5MEQ0X9hk/cheOO9hXavOBvmz3+q+JS6lGrMyNSLQT5hs47j
-X-Received: by 2002:a05:622a:a045:b0:509:144a:43bd with SMTP id d75a77b69052e-50d2c5b718bmr43353461cf.3.1774979314910;
-        Tue, 31 Mar 2026 10:48:34 -0700 (PDT)
-X-Received: by 2002:a05:622a:a045:b0:509:144a:43bd with SMTP id d75a77b69052e-50d2c5b718bmr43350401cf.3.1774979309635;
-        Tue, 31 Mar 2026 10:48:29 -0700 (PDT)
-Received: from localhost (ip-86-49-249-15.bb.vodafone.cz. [86.49.249.15])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b9c091331e0sm50383566b.8.2026.03.31.10.48.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 10:48:28 -0700 (PDT)
-Mime-Version: 1.0
-Date: Tue, 31 Mar 2026 19:48:27 +0200
-Message-Id: <DHH5NGQGQYBE.31X8OI8AKTYRU@oss.qualcomm.com>
-Subject: Re: [PATCH RFC v2 08/17] RISC-V: QoS: add resctrl interface for
- CBQRI controllers
-Cc: "Paul Walmsley" <paul.walmsley@sifive.com>, <linux-acpi@vger.kernel.org>,
-        <acpica-devel@lists.linux.dev>, <devicetree@vger.kernel.org>,
-        "linux-riscv"
- <linux-riscv-bounces@lists.infradead.org>
-To: "Drew Fustini" <fustini@kernel.org>, "Paul Walmsley" <pjw@kernel.org>,
-        "Palmer Dabbelt" <palmer@dabbelt.com>,
-        "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
-        "Samuel Holland"
- <samuel.holland@sifive.com>,
-        "Adrien Ricciardi" <aricciardi@baylibre.com>,
-        "Nicolas Pitre" <npitre@baylibre.com>,
-        =?utf-8?q?Kornel_Dul=C4=99ba?=
- <mindal@semihalf.com>,
-        "Atish Patra" <atish.patra@linux.dev>,
-        "Atish Kumar
- Patra" <atishp@rivosinc.com>,
-        "Vasudevan Srinivasan" <vasu@rivosinc.com>,
-        "Ved Shanbhogue" <ved@rivosinc.com>,
-        "yunhui cui"
- <cuiyunhui@bytedance.com>,
-        "Chen Pei" <cp0613@linux.alibaba.com>,
-        "Liu
- Zhiwei" <zhiwei_liu@linux.alibaba.com>,
-        "Weiwei Li" <liwei1518@gmail.com>, <guo.wenjia23@zte.com.cn>,
-        <liu.qingtao2@zte.com.cn>,
-        "Reinette Chatre"
- <reinette.chatre@intel.com>,
-        "Tony Luck" <tony.luck@intel.com>, "Babu
- Moger" <babu.moger@amd.com>,
-        "Peter Newman" <peternewman@google.com>,
-        "Fenghua Yu" <fenghua.yu@intel.com>,
-        "James Morse" <james.morse@arm.com>, "Ben Horgan" <ben.horgan@arm.com>,
-        "Dave Martin" <Dave.Martin@arm.com>, <linux-kernel@vger.kernel.org>,
-        <linux-riscv@lists.infradead.org>, <x86@kernel.org>,
-        "Rob Herring" <robh@kernel.org>,
-        "Rafael J. Wysocki"
- <rafael@kernel.org>,
-        "Len Brown" <lenb@kernel.org>,
-        "Robert Moore"
- <robert.moore@intel.com>,
-        "Sunil V L" <sunilvl@ventanamicro.com>,
-        "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-        "Conor Dooley"
- <conor+dt@kernel.org>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?=
- <radim.krcmar@oss.qualcomm.com>
-References: <20260128-ssqosid-cbqri-v2-0-dca586b091b9@kernel.org>
- <20260128-ssqosid-cbqri-v2-8-dca586b091b9@kernel.org>
-In-Reply-To: <20260128-ssqosid-cbqri-v2-8-dca586b091b9@kernel.org>
-X-Authority-Analysis: v=2.4 cv=KJpXzVFo c=1 sm=1 tr=0 ts=69cc08f4 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=fuErIE+P63Icv3tqjtEZBw==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=M51BFTxLslgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=VwQbUJbxAAAA:8 a=IpJZQVW2AAAA:8 a=1RoDV13bKi5nvpdD3ZQA:9 a=QEXdDO2ut3YA:10
- a=dawVfQjAaf238kedN5IG:22 a=IawgGOuG5U0WyFbmm1f5:22
-X-Proofpoint-GUID: wK4trmFdJ0jL54x36WFCWMxaQcyGStMn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzMxMDE2OSBTYWx0ZWRfX9YWEil1sDP7i
- WD7GBzlrNu61yyYNTkDjK9PmKAmTaZBlR/7Kz76N200Xt2nlKPNG2a+oS1I4RFS/GdBAuYMGasF
- OgYixkqQjXf6zA20A4uAIVZvnummGfY4NlLrix9/2rIxRs8x4fz+ii/0kGjkPGRUHXG4HUdpEkY
- apJQ1t4p0XLdsVP444R5R9Mo+bhTAv52zXX2ZWcoaJ5d9bhI40INqVaQPvOKEAlC8u7i119r0Mp
- O9ots+PJFbSeeDo/S62UZl2F7RcYGlWNgMTnt3McT7YB1ti/G2QoIahb7Uh16YZB0Gk52IQZ9B/
- tBO/qQInOtVcwp4FwslFdk0ReFojQbDNnWVrgfnvj42xmW7hqG6tJIgnzTCVu1Z2spgXeH+LKDH
- sBL6R/QipGOnRQFQjFw54JAu2uqe8L/fXmSHSXFO9DUR1EqLsaH3mzJkvoG/9eN42aCH427ZUgW
- nI3WJtkD+IwNDBZCuWw==
-X-Proofpoint-ORIG-GUID: wK4trmFdJ0jL54x36WFCWMxaQcyGStMn
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-31_04,2026-03-31_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 adultscore=0 spamscore=0
- suspectscore=0 malwarescore=0 clxscore=1015 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603310169
+	Tue, 31 Mar 2026 17:57:09 +0000
+Received: from localhost.localdomain (unknown [223.166.95.230])
+	by APP-01 (Coremail) with SMTP id qwCowABH8GvrCsxpCP3GCw--.20050S3;
+	Wed, 01 Apr 2026 01:57:00 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+To: Bjorn Helgaas <bhelgaas@google.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Lukas Wunner <lukas@wunner.de>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Kees Cook <kees@kernel.org>,
+	Han Gao <gaohan@iscas.ac.cn>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: linux-pci@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Han Gao <rabenda.cn@gmail.com>,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Yao Zi <me@ziyao.cc>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] PCI: Add per-device flag to disable native PCIe port services
+Date: Wed,  1 Apr 2026 01:56:57 +0800
+Message-ID: <20260331175658.1015829-2-gaohan@iscas.ac.cn>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260331175658.1015829-1-gaohan@iscas.ac.cn>
+References: <20260331175658.1015829-1-gaohan@iscas.ac.cn>
+MIME-Version: 1.0
+X-CM-TRANSID: qwCowABH8GvrCsxpCP3GCw--.20050S3
+X-Coremail-Antispam: 1UD129KBjvJXoW7tw43CFWrXr1rKw4UAw4fXwb_yoW8AFykpF
+	WvkFykKrWrKFyUWw4qy3W3Ca4rWan8ZrWSkrWUWwnxuFWayryrZF9rtFyaqrsxGFW0vFy5
+	GrZxGry5CF47ZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQ2b7Iv0xC_KF4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIE
+	c7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzV
+	Aqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S
+	6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxw
+	ACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxG
+	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4
+	vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IY
+	x2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26c
+	xKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAF
+	wI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRwL0rUUUUU
+X-Originating-IP: [223.166.95.230]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBg0DDGnL4iiZtwAAsC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_104836_507889_6709F7D4 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20260331_105708_229891_E2F7EE78 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,47 +96,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-2026-01-28T12:27:29-08:00, Drew Fustini <fustini@kernel.org>:
-> Add interface for CBQRI controller drivers to make use of the resctrl
-> filesystem.
->
-> Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
-> Signed-off-by: Drew Fustini <fustini@kernel.org>
-> ---
+Add PCI_DEV_FLAGS_NO_PORT_SERVICES to allow quirks to prevent the PCIe
+port service driver from probing specific devices. This provides a
+per-device equivalent of the global pcie_ports=compat kernel parameter.
 
-Hi Drew, I have just a few minor comments as I noticed that you plan to
-send a new version soon, so I'll try for a review then...
+Some platforms have PCIe root ports that break MSI delivery to downstream
+devices when native port services (AER, PME, bwctrl, etc.) are active.
+The existing pci_host_bridge native_* flags do not cover all services
+(notably bwctrl), so a mechanism to skip port driver probing entirely
+on a per-device basis is needed.
 
-> diff --git a/arch/riscv/kernel/qos/qos_resctrl.c b/arch/riscv/kernel/qos/qos_resctrl.c
-> +static int cbqri_probe_controller(struct cbqri_controller_info *ctrl_info,
-> +				  struct cbqri_controller *ctrl)
-> +{
-> +	int err = 0, status;
-> +	u64 reg;
-[...]
-> +	ctrl->base = ioremap(ctrl_info->addr, ctrl_info->size);
-> +	if (!ctrl->base) {
-> +		pr_warn("%s(): goto err_release_mem_region", __func__);
+Cc: stable@vger.kernel.org
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ drivers/pci/pcie/portdrv.c | 3 +++
+ include/linux/pci.h        | 2 ++
+ 2 files changed, 5 insertions(+)
 
-Missing "err = -E...".
+diff --git a/drivers/pci/pcie/portdrv.c b/drivers/pci/pcie/portdrv.c
+index 2d6aa488fe7b..3386818d200d 100644
+--- a/drivers/pci/pcie/portdrv.c
++++ b/drivers/pci/pcie/portdrv.c
+@@ -685,6 +685,9 @@ static const struct dev_pm_ops pcie_portdrv_pm_ops = {
+ static int pcie_portdrv_probe(struct pci_dev *dev,
+ 					const struct pci_device_id *id)
+ {
++	if (dev->dev_flags & PCI_DEV_FLAGS_NO_PORT_SERVICES)
++		return -ENODEV;
++
+ 	int type = pci_pcie_type(dev);
+ 	int status;
+ 
+diff --git a/include/linux/pci.h b/include/linux/pci.h
+index 1c270f1d5123..e038fe14ef78 100644
+--- a/include/linux/pci.h
++++ b/include/linux/pci.h
+@@ -253,6 +253,8 @@ enum pci_dev_flags {
+ 	 * integrated with the downstream devices and doesn't use real PCI.
+ 	 */
+ 	PCI_DEV_FLAGS_PCI_BRIDGE_NO_ALIAS = (__force pci_dev_flags_t) (1 << 14),
++	/* Do not use native PCIe port services (equivalent to pcie_ports=compat) */
++	PCI_DEV_FLAGS_NO_PORT_SERVICES = (__force pci_dev_flags_t) (1 << 15),
+ };
+ 
+ enum pci_irq_reroute_variant {
+-- 
+2.47.3
 
-> +		goto err_release_mem_region;
-> +	}
-[...]
-> +		ctrl->ver_minor = reg & CBQRI_CC_CAPABILITIES_VER_MINOR_MASK;
-> +		ctrl->ver_major = reg & CBQRI_CC_CAPABILITIES_VER_MAJOR_MASK;
-
-Major version is shifted.
-
-> +
-> +		ctrl->cc.supports_alloc_op_flush_rcid = (reg >> CBQRI_CC_CAPABILITIES_FRCID_SHIFT)
-> +			& CBQRI_CC_CAPABILITIES_FRCID_MASK;
-
-FIELD_GET() could be used to make the mask+shift pattern nicer when
-defined by GENMASK().
-
-Thanks.
 
 _______________________________________________
 linux-riscv mailing list
