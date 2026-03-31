@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1179F10F92E3
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 16:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F9A10F92E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 16:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EnMTgjP52SKiBNQG3cJ6x83y6/UMbiQn1CW1kioGcjs=; b=EGFPc54wARwFrV
-	MndFDJ8D4kxIlnCwMOipNQAMwnQ/dQdJ6F4uxc4/NeywUEEtR9XOEjdKIFbxLcM6qRMw7Cjir2l6Y
-	waKJSToKV6kjrvOSO7mg2u7ZwLEpqAua5fAeaKyphBmELdpTMUBhLzuLyVsyyyfxDOuPhXGget1i3
-	Kt3pas670gEfvwXi4mw6TdowP2TWwruTGjYizWRJnrdwCdHK7BsgU+6tekFx6Q2+qyEEqJqPqj9XI
-	cGh9C87MHUQYVxYxeFco6pgugfKTFistGfAFDIWFBtYktAYtyFQZCugBGz2/0qyl/jpTV1T+/kM7r
-	GVAfCvizpxClL+i9Ka6A==;
+	List-Owner; bh=DzxUzO+6Apb0lbnHNJXRLVfhbg1OfV+E74d6YSCPTV4=; b=niq2v3xvp+4GXy
+	XkOR9HWO1K9g+iThzgYhNPtQCtlpZEfi/EaoI3c+Eg26/9/TcANgiJc8LFIdvzp9YDN00lz+6Rg57
+	NOs8+WAnSDGTJpttox8BRSZ/E4Fe+KyYhY8j9LrJgYB1b3k+g80ltZZcCMxpoAzjRMAmhZ5Xi3eSR
+	XSqijUkqNuw9AZC7RH6wMZ3EYU5iTtKd4VO7NDiWvhGdXogpdasbo/kKu9QwXW5NscAdYSdPS+71j
+	Ptwe43keMEhGwqXxKefJkMx+w6WhH9odgrggmh4Ug3EhKUHuqa/qxV9SQSo0gH3Gtzu9pwMln9zHR
+	sABtsAernk1UFEfMXtaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7bfU-0000000DEel-34p7;
-	Tue, 31 Mar 2026 16:10:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7bws-0000000DG1T-2ABk;
+	Tue, 31 Mar 2026 16:28:14 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7bfS-0000000DEeH-04hi;
-	Tue, 31 Mar 2026 16:10:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03EA1417F5;
-	Tue, 31 Mar 2026 16:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 336A5C19423;
-	Tue, 31 Mar 2026 16:10:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774973412;
-	bh=ijpDo/7JDayOQ1D9eDJjCZ11/E2WfbQpZeWsZEqb6ww=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=rQI73jqXU6YI2gkO3mK+iz8h5EIxdGh44HXO3c1FtbeD3FDDwWl7IWu8703NDHEob
-	 LhJNtt5HQRbebcFdvfX7gid3ym3Lf6UOsPdBPBVRpAucPdSpc69l/qDMWpKsyM9mlS
-	 xIiF+1IR3jKxi+b81z9psAZGWpPT6XRQXSP5B1hp3/naLfjosz/ze3RkgiK9Nieqo6
-	 fK0LLxoihbzuVGdXoZKVMzuHLXfaJWHjMi+RHa2dELqC1QNjZlahKUDiOkTLoyFo6W
-	 BA7vhj+kPd7x1OWadIzRBTH3YyxIXIMcNu2LcDwA0r5V3p9SlxKB12q28gL8bgqjx9
-	 CKBur4Mj/yn5w==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew
- Jeffery <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH v4 2/4] irqchip/ast2700-intc: Add AST2700-A2 support
-In-Reply-To: <20260330-irqchip-v4-2-3c0f1620cc06@aspeedtech.com>
-References: <20260330-irqchip-v4-0-3c0f1620cc06@aspeedtech.com>
- <20260330-irqchip-v4-2-3c0f1620cc06@aspeedtech.com>
-Date: Tue, 31 Mar 2026 18:10:08 +0200
-Message-ID: <87tstw7zfj.ffs@tglx>
+	id 1w7bwm-0000000DG00-2rcT
+	for linux-riscv@lists.infradead.org;
+	Tue, 31 Mar 2026 16:28:11 +0000
+Received: from localhost.localdomain (unknown [223.166.95.230])
+	by APP-05 (Coremail) with SMTP id zQCowAC3TBAO9stphZUSDA--.56709S3;
+	Wed, 01 Apr 2026 00:27:59 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Han Gao <rabenda.cn@gmail.com>,
+	Han Gao <gaohan@iscas.ac.cn>
+Subject: [PATCH v4 1/3] riscv: dts: spacemit: Enable i2c8 adapter for OrangePi RV2
+Date: Wed,  1 Apr 2026 00:27:54 +0800
+Message-ID: <894c94e9d087c6a924146bda9a5649c424de320b.1774974017.git.gaohan@iscas.ac.cn>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1774974017.git.gaohan@iscas.ac.cn>
+References: <cover.1774974017.git.gaohan@iscas.ac.cn>
 MIME-Version: 1.0
+X-CM-TRANSID: zQCowAC3TBAO9stphZUSDA--.56709S3
+X-Coremail-Antispam: 1UD129KBjvdXoW7Xry5AF4DWFyxCFyDZFyxZrb_yoW3GrX_CF
+	13Gay0vFyUGFWvkFnrXr1rtayxu3y5KrWSywnaqr1UGasYgrWrKFWUKF4kJw1rurWYvrW3
+	Jw48tFyxJwnIkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbk8FF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
+	0Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwA2z4
+	x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY1x0267AKxVW8JVW8Jr1le2I2
+	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
+	AFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG
+	0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI
+	1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
+	Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17
+	CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0
+	I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I
+	8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73
+	UjIFyTuYvjfU8XdbUUUUU
+X-Originating-IP: [223.166.95.230]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiDAgDDGnL4tU3VwAAs+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_091014_083394_69215BE9 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260331_092809_085979_922A3378 
+X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +93,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30 2026 at 14:32, Ryan Chen wrote:
-> +static int resolve_parent_range_for_output(const struct aspeed_intc0 *intc0,
-> +					   const struct fwnode_handle *parent,
-> +					   u32 output,
-> +					   struct aspeed_intc_interrupt_range *resolved)
+The adapter is used to access the SpacemiT P1 PMIC present in this board.
 
-Please reduce the number of line breaks. You still have 100 characters.
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> +{
-> +	for (size_t i = 0; i < intc0->ranges.nranges; i++) {
-> +		struct aspeed_intc_interrupt_range range =
-> +			intc0->ranges.ranges[i];
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+index 7b7331cb3c72..93880ba7bdfe 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+@@ -87,6 +87,12 @@ &pdma {
+ 	status = "okay";
+ };
+ 
++&i2c8 {
++	pinctrl-0 = <&i2c8_cfg>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_2_cfg>;
+-- 
+2.47.3
 
-No line break required.
-
-> +static int aspeed_intc1_irq_domain_activate(struct irq_domain *domain,
-> +					    struct irq_data *data, bool reserve)
-> +{
-> +	struct aspeed_intc1 *intc1 = irq_data_get_irq_chip_data(data);
-> +	struct aspeed_intc_interrupt_range resolved;
-> +	int rc, bank, bit;
-> +	u32 mask;
-> +
-> +	if (WARN_ON_ONCE((data->hwirq >> INTC1_ROUTE_SHIFT) >= ARRAY_SIZE(aspeed_intc1_routes)))
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * outpin may be an error if the upstream is the BootMCU APLIC node, or
-> +	 * anything except a valid intc0 driver instance
-> +	 */
-> +	rc = aspeed_intc0_resolve_route(intc1->upstream, INTC1_ROUTE_NUM,
-> +					aspeed_intc1_routes[data->hwirq >> INTC1_ROUTE_SHIFT],
-> +					intc1->ranges.nranges,
-> +					intc1->ranges.ranges, &resolved);
-
-Please test your code with CONFIG_PROVE_LOCKING=y, which is mandatory
-for submission according to documentation.
-
-This is invoked with the interrupt descriptor lock held and interrupts
-disabled.
-
-       aspeed_intc0_resolve_route()
-                ....
-                irq_find_matching_fwspec()
-                	mutex_lock(&irq_domain_mutex); <---- FAIL
-
-Thanks,
-
-        tglx
-
-        
 
 _______________________________________________
 linux-riscv mailing list
