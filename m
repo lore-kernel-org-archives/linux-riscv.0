@@ -4,104 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D742109B492
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 16:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1179F10F92E3
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 16:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y0v4bucneJzIHd+YMYUXL3+kKkn6GHi5jcEheQDfMeI=; b=xG7s7Llz3eUpkU
-	MbnN0Pmn4PbFpNH2GwVx2hdVj6e6Bs/BijKrDG2wWFDS6jRCIx7sBq5+XytfYVx1+/BmqthSsck7c
-	azSh7YP6032Bog96wVPJ6DJRviAqbAkOmi4/ERIZveXYo2ascmgM1Z7MWMCHQ1+oyazJmNADlc4V9
-	tPxQ97gUPvj3S/bBu2cmLQ8Pd0741c8rGyY5GwhchgluRYPr/wMOhldCbxE+H9mG+kwKF2H4+Mo/w
-	DIJpUXc3AwyCRSkbIrbe77Zi0CGJAMjNVqVcQ11+uNDq9nUNHI0Eh14f8hzrksj6DBQ/VP5iQRB42
-	XTRw7t0GuklKCOEtzblQ==;
+	List-Owner; bh=EnMTgjP52SKiBNQG3cJ6x83y6/UMbiQn1CW1kioGcjs=; b=EGFPc54wARwFrV
+	MndFDJ8D4kxIlnCwMOipNQAMwnQ/dQdJ6F4uxc4/NeywUEEtR9XOEjdKIFbxLcM6qRMw7Cjir2l6Y
+	waKJSToKV6kjrvOSO7mg2u7ZwLEpqAua5fAeaKyphBmELdpTMUBhLzuLyVsyyyfxDOuPhXGget1i3
+	Kt3pas670gEfvwXi4mw6TdowP2TWwruTGjYizWRJnrdwCdHK7BsgU+6tekFx6Q2+qyEEqJqPqj9XI
+	cGh9C87MHUQYVxYxeFco6pgugfKTFistGfAFDIWFBtYktAYtyFQZCugBGz2/0qyl/jpTV1T+/kM7r
+	GVAfCvizpxClL+i9Ka6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7bZ9-0000000DE6E-0ezU;
-	Tue, 31 Mar 2026 16:03:43 +0000
-Received: from mail-yx1-xb12a.google.com ([2607:f8b0:4864:20::b12a])
+	id 1w7bfU-0000000DEel-34p7;
+	Tue, 31 Mar 2026 16:10:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7bZ6-0000000DE5R-24uz
-	for linux-riscv@lists.infradead.org;
-	Tue, 31 Mar 2026 16:03:41 +0000
-Received: by mail-yx1-xb12a.google.com with SMTP id 956f58d0204a3-6501547d7edso6287017d50.0
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 09:03:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774973019; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HFcUGamCVliNmOnUF7M9eKSz5uV2HbKhMtJiKhWNb2EUKy33/kNkE7IwEYKBIIv78N
-         gR4+nEZf40cnbxWws8XvZ2QAGyg3Qduh/9XrVXpqJDb2FbPo05ceqo9u7s8AhGmJfJ3D
-         MDNl/vpjVw0BCQWjK8tjmy9E/vFBfZ3MAOTfgVJ/KYmwZIJE/cps+0VyIdLnwv2uGlBC
-         1vwyBXJvSR04gzOIDDKGImKsWokOdzF1K1cuKPx2d4r4sSBKuuchBFHHPHXpufXe+WUq
-         cCweVhJ5/bhibpXEukmY4xpq7u+aml0qEkgvmcME6yj+8iOavopJqo+PcB5do3g7QBBb
-         Zidw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=gTFqMEJEMzM0XIbzFOykqgkUDJ1lTvPSHBB5j7hFuM0=;
-        fh=M/g8EA4QRYMLw4+0TSPL6Pr+wdu6rMtvJ1f0qEDLp04=;
-        b=eDS7Tvvy/Ueip6ficmiwqsWP4PKQeyveJzaHuPbpDg8QxTqfM65AmkuqgTeYzG/nVp
-         9vMd0GBM/hj+RYBu0NXOMvU+/zqzs+otxUEgf6GzHtYpM30UNX3j4IkNQGSqA2Sshztf
-         /rTvnTY8KuO+FZHs0K/HIfVzpcNVFWnD7G/Pb37fwkiVnxEJ+QDczl8N817zlgU6bNHQ
-         POJdwGKLtztJqEwWveuMQt1AHF7DPC0sD0+N1bOrCr0h/MGXXQ0tYO2ySMlRL5hkNb0L
-         WCtZKDwPSmoJDNsoOwwR2b9g56t+SnUS1TMoWeUweaoxb5P4lCCZLVASrVmjfr1vCGsi
-         syBg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774973019; x=1775577819; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=gTFqMEJEMzM0XIbzFOykqgkUDJ1lTvPSHBB5j7hFuM0=;
-        b=FOzIXyG8wNAvz8MYwbk+svYV2DHoTokaF0uzmmvHR7y2pK7KvuaPKM1n0q2e9gxdl4
-         EKquocWPA+sZF6OaS1kDUWlMA2LDWU3OiWYDUCpid/GPfw17UIZCnFtjYlWQwKeMWpWP
-         rqKxln4fSxi7JPp3guk/Lxi/xmuwxXYN1kZ5yqgo4o2zAislh8rq0vulT0qy4nbK+s6A
-         GdScTSA8UPLTBBEdCHZrnnxkg7CAqhVq7hcKfVOl3E9sLh8Mvn8KcxC9teik5IVe3CkN
-         KNGBsjBNSDOsq/hfBTeTptBy5ITsWNcCJyUbd/c6N+FsoEdxzi149cFdq0f2Z2o8QtcU
-         +k1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774973019; x=1775577819;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gTFqMEJEMzM0XIbzFOykqgkUDJ1lTvPSHBB5j7hFuM0=;
-        b=A2+hGwHzFU3CMA/xlciRa4/ke5b/kxvA4fu1Q5+Z7hl7wGAUu3SrsOI7Rv2fyn3RW4
-         9mlqFDotgBwJ7IH9HhHpR11ltOqC6rwCasl8+U7yAIQbIk0bpDNLDuu4N5y0ARYtg+pP
-         hA6HPN1PGbGzhTT0IjkSd8MzSjFvzyHQdJyGeHKUKSBE4zmxCrK8eF9ANmsdV6d0OtOj
-         RlzgR0fDsGOIfV33WD7nijhjuizeyl4hEWP3D4dt2lVkPPqzbU2J21JCcXBn92affuga
-         y2IO28ltvRlZi+U1V2iBlWDGJQYyOMgVy0U2Rv+xbRyURtcd1DXrj6H+U123ikACvnPI
-         KA4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWBNILw9xOS9jZ4xrHdQM1j3SWXwmrLh+rhCemFMjcqnjZB6tn8Su6o0IEqFwsVns0F4k1v7Vmd/riP5A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwK4EcQ6HJSy2j33nH4BtRZbrLB1we9Ir1+2+pJgZL4+wucSnzW
-	dc8RgcyjCBgVrAUW68Y5h06oKn7S8A0ONJIBBT+BNWKipqmEO4wnfP03V3EwpyR56RykELzoXEE
-	Ib2KeJ8LX0cF0dmGa/GY4dnvdfq+FVHbwHSuaaacfCxXZ0VQhCyco
-X-Gm-Gg: ATEYQzzbuse1ZWCPJpaWO/r41v9TzUnx37cSRGuUb7KKKZNYwvVJOylLeroSztE2ct8
-	dAunRhUNyLswUyYrFYbS4R+4y4hzh9lBj7fyh/WYKE06XNLdPYC7p+Cf2kRkw8zeLqXi1z1aSHG
-	Xyjotxigl5SlYuyOFbeA2l1PCW3MAvd5N7B2v2SobqNA8y1YZcMkHZRv4M5WTWwNFlpLojHAt9t
-	/mgSr2qxLFuKY5wHyejcV88aGmooIDUm2Nr+KclwuHiq6MAf5Gt1r1pXry5vwGtKm1+GKl89JVC
-	sTAQoaAQ
-X-Received: by 2002:a53:b08f:0:b0:64e:a397:5864 with SMTP id
- 956f58d0204a3-64ff73d1a87mr13492211d50.46.1774973019048; Tue, 31 Mar 2026
- 09:03:39 -0700 (PDT)
+	id 1w7bfS-0000000DEeH-04hi;
+	Tue, 31 Mar 2026 16:10:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 03EA1417F5;
+	Tue, 31 Mar 2026 16:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 336A5C19423;
+	Tue, 31 Mar 2026 16:10:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774973412;
+	bh=ijpDo/7JDayOQ1D9eDJjCZ11/E2WfbQpZeWsZEqb6ww=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=rQI73jqXU6YI2gkO3mK+iz8h5EIxdGh44HXO3c1FtbeD3FDDwWl7IWu8703NDHEob
+	 LhJNtt5HQRbebcFdvfX7gid3ym3Lf6UOsPdBPBVRpAucPdSpc69l/qDMWpKsyM9mlS
+	 xIiF+1IR3jKxi+b81z9psAZGWpPT6XRQXSP5B1hp3/naLfjosz/ze3RkgiK9Nieqo6
+	 fK0LLxoihbzuVGdXoZKVMzuHLXfaJWHjMi+RHa2dELqC1QNjZlahKUDiOkTLoyFo6W
+	 BA7vhj+kPd7x1OWadIzRBTH3YyxIXIMcNu2LcDwA0r5V3p9SlxKB12q28gL8bgqjx9
+	 CKBur4Mj/yn5w==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew
+ Jeffery <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: Re: [PATCH v4 2/4] irqchip/ast2700-intc: Add AST2700-A2 support
+In-Reply-To: <20260330-irqchip-v4-2-3c0f1620cc06@aspeedtech.com>
+References: <20260330-irqchip-v4-0-3c0f1620cc06@aspeedtech.com>
+ <20260330-irqchip-v4-2-3c0f1620cc06@aspeedtech.com>
+Date: Tue, 31 Mar 2026 18:10:08 +0200
+Message-ID: <87tstw7zfj.ffs@tglx>
 MIME-Version: 1.0
-References: <CGME20250403131056eucas1p16076c6e4dce1f1217dc327250c419e37@eucas1p1.samsung.com>
- <20250403131051.1097423-1-m.wilczynski@samsung.com> <acWFgZ8swY60lfDV@x1> <a548b0ca-b8f7-4e9e-8ad7-0465e463ab05@samsung.com>
-In-Reply-To: <a548b0ca-b8f7-4e9e-8ad7-0465e463ab05@samsung.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 31 Mar 2026 18:02:59 +0200
-X-Gm-Features: AQROBzAPoKMMLJqX5fsrr8dHp_KP3UPkNR1VPho2SCITD0qvGCvnQkn7Qsm_j1g
-Message-ID: <CAPDyKFo=2UTpCC4sswXDbxm+iwpbL-yR_O5fNKVm-LUtWtXWDQ@mail.gmail.com>
-Subject: Re: [PATCH v1] firmware: thead: Fix buffer overflow and use standard
- endian macros
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Drew Fustini <fustini@kernel.org>, drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Dan Carpenter <dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_090340_577256_7A2FBCAF 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20260331_091014_083394_69215BE9 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,59 +77,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Mar 2026 at 13:15, Michal Wilczynski
-<m.wilczynski@samsung.com> wrote:
->
->
->
-> On 3/26/26 20:14, Drew Fustini wrote:
-> > On Thu, Apr 03, 2025 at 03:10:51PM +0200, Michal Wilczynski wrote:
-> >> Addresses two issues in the TH1520 AON firmware protocol driver:
-> >>
-> >> 1. Fix a potential buffer overflow where the code used unsafe pointer
-> >>    arithmetic to access the 'mode' field through the 'resource' pointer
-> >>    with an offset. This was flagged by Smatch static checker as:
-> >>    "buffer overflow 'data' 2 <= 3"
-> >>
-> >> 2. Replace custom RPC_SET_BE* and RPC_GET_BE* macros with standard
-> >>    kernel endianness conversion macros (cpu_to_be16, etc.) for better
-> >>    portability and maintainability.
-> >>
-> >> The functionality was re-tested with the GPU power-up sequence,
-> >> confirming the GPU powers up correctly and the driver probes
-> >> successfully.
-> >>
-> >> [   12.702370] powervr ffef400000.gpu: [drm] loaded firmware
-> >> powervr/rogue_36.52.104.182_v1.fw
-> >> [   12.711043] powervr ffef400000.gpu: [drm] FW version v1.0 (build
-> >> 6645434 OS)
-> >> [   12.719787] [drm] Initialized powervr 1.0.0 for ffef400000.gpu on
-> >> minor 0
-> >>
-> >> Fixes: e4b3cbd840e5 ("firmware: thead: Add AON firmware protocol driver")
-> >> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> >> Closes: https://lore.kernel.org/all/17a0ccce-060b-4b9d-a3c4-8d5d5823b1c9@stanley.mountain/
-> >> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> >
-> > Acked-by: Drew Fustini <fustini@kernel.org>
-> >
-> > Is Ulf the person that would take this fix?
-> >
-> > Thanks,
-> > Drew
-> >
->
-> Hi,
-> I think it would be great if Ulf could take the patch.
->
-> Best regards,
-> --
-> Michal Wilczynski <m.wilczynski@samsung.com>
+On Mon, Mar 30 2026 at 14:32, Ryan Chen wrote:
+> +static int resolve_parent_range_for_output(const struct aspeed_intc0 *intc0,
+> +					   const struct fwnode_handle *parent,
+> +					   u32 output,
+> +					   struct aspeed_intc_interrupt_range *resolved)
 
-I have picked up the patch as fix for v7.0-rc[n] via my pmdomain tree, thanks!
+Please reduce the number of line breaks. You still have 100 characters.
 
-Kind regards
-Uffe
+> +{
+> +	for (size_t i = 0; i < intc0->ranges.nranges; i++) {
+> +		struct aspeed_intc_interrupt_range range =
+> +			intc0->ranges.ranges[i];
+
+No line break required.
+
+> +static int aspeed_intc1_irq_domain_activate(struct irq_domain *domain,
+> +					    struct irq_data *data, bool reserve)
+> +{
+> +	struct aspeed_intc1 *intc1 = irq_data_get_irq_chip_data(data);
+> +	struct aspeed_intc_interrupt_range resolved;
+> +	int rc, bank, bit;
+> +	u32 mask;
+> +
+> +	if (WARN_ON_ONCE((data->hwirq >> INTC1_ROUTE_SHIFT) >= ARRAY_SIZE(aspeed_intc1_routes)))
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * outpin may be an error if the upstream is the BootMCU APLIC node, or
+> +	 * anything except a valid intc0 driver instance
+> +	 */
+> +	rc = aspeed_intc0_resolve_route(intc1->upstream, INTC1_ROUTE_NUM,
+> +					aspeed_intc1_routes[data->hwirq >> INTC1_ROUTE_SHIFT],
+> +					intc1->ranges.nranges,
+> +					intc1->ranges.ranges, &resolved);
+
+Please test your code with CONFIG_PROVE_LOCKING=y, which is mandatory
+for submission according to documentation.
+
+This is invoked with the interrupt descriptor lock held and interrupts
+disabled.
+
+       aspeed_intc0_resolve_route()
+                ....
+                irq_find_matching_fwspec()
+                	mutex_lock(&irq_domain_mutex); <---- FAIL
+
+Thanks,
+
+        tglx
+
+        
 
 _______________________________________________
 linux-riscv mailing list
