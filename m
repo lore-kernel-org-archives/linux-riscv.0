@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB48DFF60F4
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 17:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBAEFF60F4
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 17:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eEhDKSWi2EQGIP/yG86a8pnfClfPRlFwgZ8Or14ABxU=; b=Y5CnI7joLGZInG
-	VOZq/iiDqJEDtRg40cAKSFfaRLKOOi0h8TrCfeaTomyS+YfEzYhOomSGoBaFYFQIJ4qNJTp0K2z1c
-	97SMUdGtHqMMgYesPrBxPU4pBoI8w4lL2+0i6JqxZtImWJoYbGh6P0bdGsd94xINyiAUHwnNCAyjG
-	L69WB9ASvixFI4lnWH091SzI2CebbTOLJY2fsIzbXL4S+XYSo9eOekpXqSpVdShI9gRc1MtvUdKMB
-	j2E2f5aY9M1NSVDthJnrmR/RJ8n2Jf9nfsZ0aDb3k3ZDE4fOPCPzd5YQs9D2wpdh0QcRMw7sWulMW
-	ieS60XNdQEU18Oi05z4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mr5P0vKatiaRsykFLUCAHyeNlKPf0EVbbk8FZghww5M=; b=u0SXbrfiKPTBGFTu7Dw/F3uEZ3
+	Hc++Xt+/CwZ8KE35XgtG490BS5hBK3P4AhEzjMqt+pSWAz/pNCAcVEJYCkCXiIx0o0B6dvRlUEW91
+	2Xrf0VpdhXm77aROxLecWIViHA2/KFWTEAR7XWTl//T/uliLBVUKV3WeZNoJ845U2AClTdkbMW/4u
+	IPct+mfZld8mXiM6Be8bpga+AiD0sKVNn4cB+ImbmfURPk7JLJMK79/7NwhPpHRqUYCQW6evYPW66
+	pual0Fb35cYTQzgzgGoFkSuKQpno0+14zBeYCJ6t3TEftzLskNnnL8LpILVaQtJeuo75Ge2WU5ttQ
+	6O2Nwl4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7dKw-0000000DNQN-2ufu;
-	Tue, 31 Mar 2026 17:57:10 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1w7dLV-0000000DNiC-48jQ;
+	Tue, 31 Mar 2026 17:57:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7dKs-0000000DNNq-43pN
+	id 1w7dLU-0000000DNhA-100B
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Mar 2026 17:57:08 +0000
-Received: from localhost.localdomain (unknown [223.166.95.230])
-	by APP-01 (Coremail) with SMTP id qwCowABH8GvrCsxpCP3GCw--.20050S2;
-	Wed, 01 Apr 2026 01:57:00 +0800 (CST)
-From: Han Gao <gaohan@iscas.ac.cn>
-To: Bjorn Helgaas <bhelgaas@google.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Lukas Wunner <lukas@wunner.de>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Kees Cook <kees@kernel.org>,
-	Han Gao <gaohan@iscas.ac.cn>,
+	Tue, 31 Mar 2026 17:57:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A6ACE600AD;
+	Tue, 31 Mar 2026 17:57:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F3D1C19423;
+	Tue, 31 Mar 2026 17:57:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774979863;
+	bh=jRshRvrfE1K59jC2hI9BuHoXj8it76oESI+BdTN4Kgc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pRSW3mjQ48Dt/YlOJZnRKmYJu7Y2M4fgwblouezDaGCDM0um5+fik1vNIg59W0cXj
+	 0cZvXUClUM4+UNePXX4WB0SJFTDN8iEHo9f56aJmOlDiOql3qGRKcRcMvN/mAiQOBZ
+	 VaeXT05O0+C63Whi7bzNO0ZHVmRr2euuM7MUrrStZPJd64SaT0OxUec/z+YugZWkVA
+	 77YgXyRYuSHmOf3M/WdQjfZG3fc0voAk9b1MBaMWAHYYMx8EFUO+P7800CuoUx7bkj
+	 JJ7anQ/lJlIEO6+6J8f9y9IQfLGjiF7jGcUDogoN0t6y8G+pDwaohQ0l7Xw8PAiFt6
+	 LvER2PUbeI4ug==
+Date: Tue, 31 Mar 2026 18:57:37 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Han Gao <gaohan@iscas.ac.cn>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Chen Wang <unicorn_wang@outlook.com>,
-	Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-pci@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Han Gao <rabenda.cn@gmail.com>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Yao Zi <me@ziyao.cc>
-Subject: [PATCH 0/2] PCI: Allow disabling port services on broken root ports
-Date: Wed,  1 Apr 2026 01:56:56 +0800
-Message-ID: <20260331175658.1015829-1-gaohan@iscas.ac.cn>
-X-Mailer: git-send-email 2.47.3
+	Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Zixian Zeng <sycamoremoon376@gmail.com>, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Han Gao <rabenda.cn@gmail.com>, stable@vger.kernel.org
+Subject: Re: [PATCH 2/2] riscv: dts: sophgo: Add dma-coherent to SG2042 PCIe
+ controllers
+Message-ID: <20260331-outlet-molehill-939c0daacd06@spud>
+References: <20260331171248.973014-1-gaohan@iscas.ac.cn>
+ <20260331171248.973014-3-gaohan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABH8GvrCsxpCP3GCw--.20050S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7JryxXF1ktFykZF18tF4DCFg_yoW8JryfpF
-	WrWF9YyrWfKryUKwsrX3WUCFy3WF4kAryrC34DGw47urW3AryrXF9rtF93tFsrGr4xAa4Y
-	vr95C3W5uFyDZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr
-	0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
-	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
-	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x0pRHUDLUUUUU=
-X-Originating-IP: [223.166.95.230]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBwkDDGnL4t55SwABss
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_105707_380287_76D6A0BE 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260331171248.973014-3-gaohan@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +78,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2418044071087719074=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some PCIe root ports break MSI delivery to downstream devices when
-native port services (AER, PME, bwctrl, etc.) are active. The existing
-pcie_ports=compat kernel parameter works around this globally, but
-affects all ports on the system.
 
-This series adds a per-device mechanism to skip port service probing:
-  1. Introduce PCI_DEV_FLAGS_NO_PORT_SERVICES flag and wire it into
-     the PCIe port driver
-  2. Apply it via quirk to Sophgo SG2042 root ports [1f1c:2042], which
-     fail to deliver MSI interrupts when port services are enabled
+--===============2418044071087719074==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="m8oXAjQqyBqcuv3C"
+Content-Disposition: inline
 
-SG2042's PCIe root ports only support MSI, not MSI-X. The MSI
-controller provides only 32 vectors shared across all devices behind
-each root port. When native port services claim vectors from this
-limited pool, downstream devices are starved of interrupts, resulting
-in zero interrupts delivered and driver timeouts (e.g. amdgpu fence
-fallback timer expired on all rings).
 
-Han Gao (2):
-  PCI: Add per-device flag to disable native PCIe port services
-  PCI: Add quirk to disable PCIe port services on Sophgo SG2042
+--m8oXAjQqyBqcuv3C
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- drivers/pci/pcie/portdrv.c |  3 +++
- drivers/pci/quirks.c       | 12 ++++++++++++
- include/linux/pci.h        |  2 ++
- include/linux/pci_ids.h    |  2 ++
- 4 files changed, 19 insertions(+)
+On Wed, Apr 01, 2026 at 01:12:48AM +0800, Han Gao wrote:
+> SG2042's PCIe root complexes are cache-coherent with the CPU. Mark all
+> four PCIe controller nodes (pcie_rc0 through pcie_rc3) as dma-coherent
+> so the kernel uses coherent DMA mappings instead of non-coherent bounce
+> buffering.
 
--- 
-2.47.3
+Worth pointing out I guess that this property is needed, despite riscv
+being coherent by default, because the whole bus is marked
+dma-noncoherent.
 
+>=20
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> ---
+>  arch/riscv/boot/dts/sophgo/sg2042.dtsi | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts=
+/sophgo/sg2042.dtsi
+> index 9fddf3f0b3b9..3af770549742 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> @@ -417,6 +417,7 @@ pcie_rc0: pcie@7060000000 {
+>  			vendor-id =3D <0x1f1c>;
+>  			device-id =3D <0x2042>;
+>  			cdns,no-bar-match-nbits =3D <48>;
+> +			dma-coherent;
+>  			msi-parent =3D <&msi>;
+>  			status =3D "disabled";
+>  		};
+> @@ -439,6 +440,7 @@ pcie_rc1: pcie@7060800000 {
+>  			vendor-id =3D <0x1f1c>;
+>  			device-id =3D <0x2042>;
+>  			cdns,no-bar-match-nbits =3D <48>;
+> +			dma-coherent;
+>  			msi-parent =3D <&msi>;
+>  			status =3D "disabled";
+>  		};
+> @@ -461,6 +463,7 @@ pcie_rc2: pcie@7062000000 {
+>  			vendor-id =3D <0x1f1c>;
+>  			device-id =3D <0x2042>;
+>  			cdns,no-bar-match-nbits =3D <48>;
+> +			dma-coherent;
+>  			msi-parent =3D <&msi>;
+>  			status =3D "disabled";
+>  		};
+> @@ -483,6 +486,7 @@ pcie_rc3: pcie@7062800000 {
+>  			vendor-id =3D <0x1f1c>;
+>  			device-id =3D <0x2042>;
+>  			cdns,no-bar-match-nbits =3D <48>;
+> +			dma-coherent;
+>  			msi-parent =3D <&msi>;
+>  			status =3D "disabled";
+>  		};
+> --=20
+> 2.47.3
+>=20
+
+--m8oXAjQqyBqcuv3C
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacwLDgAKCRB4tDGHoIJi
+0rArAP4jBTmKxYWxfFJLKueDpo+mSl4SPqf6k8s8stuypnj0hgD+KEB3KaSC2+G8
+0eWLoouJWr9QngLJgCKU1PJoXs9bvA8=
+=eHvS
+-----END PGP SIGNATURE-----
+
+--m8oXAjQqyBqcuv3C--
+
+
+--===============2418044071087719074==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2418044071087719074==--
+
