@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC695109B462
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 13:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3386E109B46C
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Mar 2026 13:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9dJ1KEdrAGrZv9tjNtv3bel2xrP+PObrFdo9JQFzQrY=; b=XyWBUtj7Ts9Ox7
-	Hzv7f7+OL+xuVslBn1dfpJtFb+nAalu/gwj5f/ZDVhO8yhIJQr/nfp6XcNkjzQxfpeftd6+B/qMfk
-	6QhuAu8Lxa4U2K+xE2UYRY/JrAD9JTadvLyNOAku7vUm5y6JCUik3e9+j9XKxmjxR7g4OIjvCnmaj
-	DgYdCm9jNAWSpeaRBPJw5o8UaF9SiuQCDmosGeibqCh1i0DM2MzIpWnK+tTFbLCicq3Sj1sL1U9OR
-	NzH60dkZyNBoVjF45C2iMTxPuidiitlPN0pYvhNVZinfIhPd+KE0H1pH/wu7yks0bBFSdNuK5GDtE
-	Kt6bWn+2lc8RHe1PK89A==;
+	List-Owner; bh=nrnZzQz6sZIri+aDLtlT5y9ygsWfPOi2VMiJYaFIDVI=; b=wxJb4E7rHXAfPx
+	7JCWcW3dzSiYwFX2Lo52vXIYq90gUpFUZfHg5eMmm9Mch8N1KLvd/87GrInnsyVyvRWESIGt9x1z7
+	yzLBkqC+JumkZo80QUiHpiEeYqnILmU6asWCpVz0BKyGf9sPFWoSBkTLppg7zOS/Vx2f2gzWSucDb
+	OG2qYuMMNMGCVLjTpDCsWwX1hNVFpcO9+g6avJgoTDodbJM+Ml8tsAUnwg+KXEmklusmUTXjZK5f8
+	Hgh7UCKB1Zq+cVDxU+LQZtj1iBoSLuxp44+ArlhziKD1JIIuyhorH+qQZm3xvEbVhoqfmJtr4kYuQ
+	SemzFfZGT/yhfo8n84WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7YwP-0000000CzLo-12d4;
-	Tue, 31 Mar 2026 13:15:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7Z5t-0000000D0Y7-3FgZ;
+	Tue, 31 Mar 2026 13:25:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7YwM-0000000CzLU-0lLf
+	id 1w7Z5s-0000000D0Xo-26c3
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Mar 2026 13:15:31 +0000
+	Tue, 31 Mar 2026 13:25:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 734DC40955;
-	Tue, 31 Mar 2026 13:15:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CF33C19423;
-	Tue, 31 Mar 2026 13:15:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 98D0160133
+	for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 13:25:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E232C2BCB4
+	for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 13:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774962929;
-	bh=N9U9Gngl2zsYLg9hbnhmxsUnpHqzZ9ArTNxcIheBEMk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d0/Mp2KD1+SHhoVMmrPN7U0nPS3F0FXhLKOS51MQIBpNEs56cUwq+TeQEtmlygyQ+
-	 DJ3zr2CpPvwUmg0UCIqwuG+HfsTk4+GzxclYkcPVpZMJc5bexA/1AU2MzFoayWqrD3
-	 qCzf8WTfD7Ruzgwp6x3AZcfTOkMI5Y116/bZK6KmdDK5rcLz4vDACGjymqnw8yIhlP
-	 feN1Qot7CeMRe0BcM+wTI6QPuBQ1XYjvEvNnuQO/ZAC/t3sGoiwXCYJn7URmQR8OUK
-	 71OMK1JEAzkD+pACUks2m+NvWKTsL0xiL3NzTSqBrkH9uajFshQKTIFLvymSDsBrvU
-	 lN3vEKEBLDHog==
-From: Conor Dooley <conor@kernel.org>
-To: linux-gpio@vger.kernel.org,
-	Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Thomas Gleixner <tglx@kernel.org>
-Subject: Re: (subset) [PATCH v13 0/5] PolarFire SoC GPIO interrupt support
-Date: Tue, 31 Mar 2026 14:14:45 +0100
-Message-ID: <20260331-dominion-conjoined-c87ec5bc7db2@spud>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260318-gift-nearest-fd3ef3e4819b@spud>
-References: <20260318-gift-nearest-fd3ef3e4819b@spud>
+	s=k20201202; t=1774963519;
+	bh=JJjEn2iUPSf4WRGWtUsXPbnxCbplNNFpjO81ol5F2rM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZM21eHI6xZODtooYh0mRdZxdkIYM29ObMGGYF+6Dtt+FMubi2pKylWYY+DpBcUFyW
+	 s8lp+pZN7vOeFa0YzvWn6lxy+07OSbeaZAxgGkX5qXtvO2g/SfINVJEGzvX45l2olU
+	 Vm7OvdkPnTyUC5llUqS+6DClYyT1NpvvR873nDpHErD4EEf3QFt+YAX97jC4UXS9Ck
+	 sEJIIwMoYSr4xo9E5BDpiI8K/YmxJMn9l+W2v9AJcE7tzjm+BkEE07GGEsRcZhboU0
+	 w65oGdlkxxbjDzG/CEB7i7ApTEYDAaAxHYGdG7qV6/DCBP6YoE0jXsqQc1K6V9RLKP
+	 7VjB4z4aGDYow==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-38be66a9fc0so57930351fa.1
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Mar 2026 06:25:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWmW9EyymcAjMNug3EDPdqZtYvyhumsVYeBGib2oZh5XREIsGT0WXg4j1QvkSbF7MrDW/uWD/lIgsrvRA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtThMIo+JUVFIecCd/Za5f1feOes3zYa5FcJrmGoRXSGZ3gbHC
+	hPTGP80EuuJdpDi6t9nJtzHPzK1Uqt0nUU7qpsW1iagavq1XQXsD1gErkk2y18hzHDme2l/dQ9o
+	ciDlSLxTwpBb//Iy4HEPWm/ETlQnf2z8/utY8ue4Yaw==
+X-Received: by 2002:a05:651c:98f:b0:38a:f5a6:9173 with SMTP id
+ 38308e7fff4ca-38c7327714cmr48990831fa.27.1774963517984; Tue, 31 Mar 2026
+ 06:25:17 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=784; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=La/xA4DusqX4r/5LF/aVUUmPtgQGBCIF7OcFbPPMG+Q=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJmnTxw5+OC3SizjVmlzhoLCtucfPfkFH//arGZYeIo31 mbLsUCvjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzk+hmG/8m2+VuqLtxNOVF3 UFnw4EzGrYZGZpktV6frTLty/eLaqTcY/gedUD/iOK21dPvmzM962q0Cb4O0wqbtlen4GJW8oen hHkYA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_061530_249668_D2FCF5A1 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+References: <20260318-gift-nearest-fd3ef3e4819b@spud> <20260331-dominion-conjoined-c87ec5bc7db2@spud>
+In-Reply-To: <20260331-dominion-conjoined-c87ec5bc7db2@spud>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Tue, 31 Mar 2026 15:25:06 +0200
+X-Gmail-Original-Message-ID: <CAMRc=Mfx7ydjbxonz3FL3s9WQ+y54kjzBTFy=dVm5o9Zmbb5Cw@mail.gmail.com>
+X-Gm-Features: AQROBzACLRfJow72U-jm039a1d3t4rocpkEZVCM2cWqqZAHN7AaCnQuWh8wdx0M
+Message-ID: <CAMRc=Mfx7ydjbxonz3FL3s9WQ+y54kjzBTFy=dVm5o9Zmbb5Cw@mail.gmail.com>
+Subject: Re: (subset) [PATCH v13 0/5] PolarFire SoC GPIO interrupt support
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+	Herve Codina <herve.codina@bootlin.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Linus Walleij <linusw@kernel.org>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Thomas Gleixner <tglx@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +79,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-On Wed, 18 Mar 2026 11:04:31 +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Yo,
-> 
-> Here's a v3 with an extra patch updating the gpio binding from fished
-> out from my old branch, fixing the examples and setting the permitted
-> values of gpios for the controllers on polarfire soc and the existing
-> binding patch's example fixed.
-> 
-> [...]
-
-Gonna interpret the ack and lack of response to me asking if the gpio
-change was mine to take as it being the case.
-Applied to riscv-soc-for-next, thanks!
-
-[2/5] gpio: mpfs: Add interrupt support
-      https://git.kernel.org/conor/c/e57b53f0f36a
-[3/5] dt-bindings: soc: microchip: document PolarFire SoC's gpio interrupt mux
-      https://git.kernel.org/conor/c/5f3575cc73dc
-[4/5] soc: microchip: add mpfs gpio interrupt mux driver
-      https://git.kernel.org/conor/c/bd34cdd6d214
-
-Thanks,
-Conor.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXIgMzEsIDIwMjYgYXQgMzoxNeKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBGcm9tOiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNy
+b2NoaXAuY29tPgo+Cj4gT24gV2VkLCAxOCBNYXIgMjAyNiAxMTowNDozMSArMDAwMCwgQ29ub3Ig
+RG9vbGV5IHdyb3RlOgo+ID4gRnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9j
+aGlwLmNvbT4KPiA+Cj4gPiBZbywKPiA+Cj4gPiBIZXJlJ3MgYSB2MyB3aXRoIGFuIGV4dHJhIHBh
+dGNoIHVwZGF0aW5nIHRoZSBncGlvIGJpbmRpbmcgZnJvbSBmaXNoZWQKPiA+IG91dCBmcm9tIG15
+IG9sZCBicmFuY2gsIGZpeGluZyB0aGUgZXhhbXBsZXMgYW5kIHNldHRpbmcgdGhlIHBlcm1pdHRl
+ZAo+ID4gdmFsdWVzIG9mIGdwaW9zIGZvciB0aGUgY29udHJvbGxlcnMgb24gcG9sYXJmaXJlIHNv
+YyBhbmQgdGhlIGV4aXN0aW5nCj4gPiBiaW5kaW5nIHBhdGNoJ3MgZXhhbXBsZSBmaXhlZC4KPiA+
+Cj4gPiBbLi4uXQo+Cj4gR29ubmEgaW50ZXJwcmV0IHRoZSBhY2sgYW5kIGxhY2sgb2YgcmVzcG9u
+c2UgdG8gbWUgYXNraW5nIGlmIHRoZSBncGlvCj4gY2hhbmdlIHdhcyBtaW5lIHRvIHRha2UgYXMg
+aXQgYmVpbmcgdGhlIGNhc2UuCj4gQXBwbGllZCB0byByaXNjdi1zb2MtZm9yLW5leHQsIHRoYW5r
+cyEKPgo+IFsyLzVdIGdwaW86IG1wZnM6IEFkZCBpbnRlcnJ1cHQgc3VwcG9ydAo+ICAgICAgIGh0
+dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvY29ub3IvYy9lNTdiNTNmMGYzNmEKPiBbMy81XSBkdC1iaW5k
+aW5nczogc29jOiBtaWNyb2NoaXA6IGRvY3VtZW50IFBvbGFyRmlyZSBTb0MncyBncGlvIGludGVy
+cnVwdCBtdXgKPiAgICAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL2Nvbm9yL2MvNWYzNTc1Y2M3
+M2RjCj4gWzQvNV0gc29jOiBtaWNyb2NoaXA6IGFkZCBtcGZzIGdwaW8gaW50ZXJydXB0IG11eCBk
+cml2ZXIKPiAgICAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL2Nvbm9yL2MvYmQzNGNkZDZkMjE0
+Cj4KPiBUaGFua3MsCj4gQ29ub3IuCgpBaCwgeWVzIHNvcnJ5LCB5b3VyIGVtYWlsIHdlbnQgdW5k
+ZXIgbXkgcmFkYXIuIEZlZWwgZnJlZSB0byB0YWtlIHRoZW0uCgpCYXJ0CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
