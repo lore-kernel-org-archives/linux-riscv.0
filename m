@@ -4,122 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8B2D35171
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9004D35179
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nGColcpcJcQoE0BFUITP93fEFEVo5TCyMrpG2eH5FTw=; b=WwlqiSYzupD4fO
-	vIxs7ZmrHU4abF2C09rhGYDclOEUhsavJr+i0NAE1E4oDVUSxS6CF3JXdru7Xbr+3KCADJRkNSpyD
-	ByDxPMFq5Fy+MBhDFO8Qhqo8DiXaJP5g2czOJPQKx9niqWoKSv9UEgHwJkGhL6pLIZoAwqddMIqrs
-	VhD2QOTWHCQh/wpFzist8rEsKXQPJAYnvD7qeb+HX3fknpPf49j6nnBQU3Wi1QrxUx5H3bp6+VlK2
-	fWfgSbVdP0Wzi+GW4bJxOGdNlpLNVRjA79lj+0vlTbIHrvE6sXHCreyN3/FBpmv94i6LMjnHCJysw
-	+GV7qOkuyZEXbaeA2l5g==;
+	List-Owner; bh=ILWHwfmLEAKoZ+e9vW1dRSnvXuPwlU2nHcI6I7cBgTM=; b=fKH9Ashk1KZyc4
+	i6LpAvPXIYd5v+aVG07/G7qUPv3MZzYedoNkGOe3WTmDXePn8u8W0tSLYOJMtW4lViiWg5PxRHESY
+	Z3Mg+TIhaz2+bMe/I7m2wGOBzmP8G4Ob+vGi+C120i4cIUWqAjEQ/XHnA13LTIftTWyMKO6KnyD1t
+	wwaxKzP6hOFF9+S2LEwBzc40KZMV+8zkH2UIzpeWOodL62/ch1m4ltry3VQtYesE2tIO70fTDmCmg
+	lXnrkCdB16k8/1oU/EzoYn/VTxsmt5Zpg2RC9L/3FadmxfTXNwoPy4Q1NiS3zBzEDP0KmXE/lLN/Q
+	q3+URJlbijdGqMmOuB5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tfj-0000000EdMP-1vOF;
-	Wed, 01 Apr 2026 11:23:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7tzW-0000000Efdy-2f6c;
+	Wed, 01 Apr 2026 11:44:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tfi-0000000EdKv-04xw
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 01 Apr 2026 11:23:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=; b=BbfW5gmCUaW2/+Yo+P1he/WkJe
-	ZUaKiUUJmYKCuHOOS+5z751R8P1qLNQv8Az6YZ4aL5z4Pdj1V52pE4iaxO5fJZP23qwXnbjwSM2JB
-	2SWogrRBAboJ4+Q2jdhFVmOoClaLeAuIA86m09OJApYUFEqDHFHkO+bbJX5LcwpI1bZjwXpKV/ZRL
-	PFM4jiuRkT8BbdgRXDiS0DDG1dYazvuXI+hZq49IEtMeXSvnMc2ZH+5HtmOReHqPVYRnh9Pl1MOjC
-	dspIawSXY3ZODnNx9CGbT7HWjXRBroMx+HILGGXqR+ev+gDK5PKdhb/QL2RJ9l1t0v83lj5oiiMoz
-	97rl2UBg==;
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tfe-00000000BSs-49H2
+	id 1w7tzU-0000000EfdY-03Xh
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Apr 2026 11:23:40 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2b0b260d309so166165ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Apr 2026 04:23:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775042616; x=1775647416; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=;
-        b=AlR96aZuenuYYNVVRaA2bkaazoK/5q4O4+sro4/1cCx1WMHL6oF+sWS8I+BMeKBruN
-         JrJher1L2PucxuhDmzwS/dg3Ur1Y5FQ4fngNxQf+WbMebB02DF/MTPWAtm0eT9QK3d0R
-         2s8TB17Vw0ZR7quIoYNTZDXk79PlyssdNyX8Ju+u/DtZyMCp4RpzuAA3uYHHIvBIThGB
-         IrSKGaX8D1BJCGGH+DIydwpNdtha+W4s/RZqWZVVBi8ZeOtfmSICrfC91m3ZGkXXS2Ni
-         ow1soaCkS0vpNACBiCoP42jltuA4mFZSG/dKITkgRXk9GAj/wgtdoCUocOj1oR9zheXh
-         Yohg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775042616; x=1775647416;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=;
-        b=BmuAobruJsCC0GNJUcE7DEDsgdPOBrUstip84fJVMlnsLL2EcYoj0ND32keDD+CYox
-         SJswskQff3ahspruKbqloaCBhB6HHr4kFMOCZIRSlZ6N1cQoj2ssvNBW/FE99xi2U0+l
-         Rcn5t1RPJ39fskwuCV8BXHe8rPjxqHcoQFZYrzh3OwNmbdC+H/DD1YljwYi19SzYufuR
-         xC7z/4baVsIapG4FVXFi2uca03gcVfHfyvt8+TIrA0wFabSvR7KnImEqYtO9ARYLwRzv
-         tya8dU0yNp6KHFO4BrE4OeTcPqd77yvDarnmDeV8kqaizDqvYJT8vuTRlJCKE+z/iNhb
-         6xtA==
-X-Forwarded-Encrypted: i=1; AJvYcCUAgsZ5NwlrC+96uIyJ7j1CGDGK9SJtevcwZw+9xVyQM9TVCehGcXFBIYZwq73xEhVQZ091/zYP7aLejA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkMPkn2fKan4bcPKTp6rWzTPRjkKMDnR45yQtcrIAxjqofedF+
-	jxij1RzATwnBYjUl5fDaOyAVmuDfbj3D0l1NF9orrvxjV1hXqbUINn8mKML6jXCwMQ==
-X-Gm-Gg: ATEYQzw9TNn1F2Cg6p3o8xtTOjmnDInpCiAt7947w1ZM/7UHOrZVM64pX/YoXaxXg2d
-	eZHVDFzd8KP9qgRhiMHVyomQI38rqdJAIScDmw2d5EAVCt6JNmtbpzEDp+dL3Ss8DBy1qs48+rD
-	DvxEqhp+chGiukK8Yf2iO1xhw86hWLl38QyVPP2z1bhGJPKNgnCRjQUGjnebuG/tDliAjzYtVYu
-	R08HV6B0GIfCJBRIKGaW1njCZ4BJ/DEzlDhaY7Cw/Drkb+CMWhmXf4YKzSguJzD6hStZ673WHjd
-	1MAmt17Rxpx1Ry9GL3QpI9eL7/nPqCy3psHL3dxjteyG/k6s9YE2LZnAObNFZxs7RNPcwHk0iW/
-	VDZvhXpaklugw/Tf4Nt+GyuI/VlZ/yEN2s9ZXfMlRuRhDyBRfEC/IdAbedXaVROl5bVUY++OZGR
-	kp3zvymckehYRrWPvCK8MRa1c5XsfZQfLAnDdiPFIQ7c5Jpm1hyDQd+4uS3w==
-X-Received: by 2002:a17:902:ccca:b0:2ae:44db:570c with SMTP id d9443c01a7336-2b26b2b089amr2189835ad.12.1775042615401;
-        Wed, 01 Apr 2026 04:23:35 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe606dd2sm6533691a91.3.2026.04.01.04.23.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Apr 2026 04:23:34 -0700 (PDT)
-Date: Wed, 1 Apr 2026 11:23:23 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, Sven Peter <sven@kernel.org>,
-	virtualization@lists.linux.dev, Chen-Yu Tsai <wens@kernel.org>,
-	Will Deacon <will@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Jon Hunter <jonathanh@nvidia.com>, patches@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: Re: [PATCH] iommu: Always fill in gather when unmapping
-Message-ID: <ac0AKyvHMYHlqL5i@google.com>
-References: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
+	Wed, 01 Apr 2026 11:44:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4ABD84090A
+	for <linux-riscv@lists.infradead.org>; Wed,  1 Apr 2026 11:44:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2FB0C116C6;
+	Wed,  1 Apr 2026 11:44:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775043847;
+	bh=msYVK4Utdiqx9U2vKN4AsAcQwo+MGyKaSM3z3gcoNPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qSF3OmF9Gh5QP08gC3sEz7Qg7lNGlacb1ZwnTpz4+WXuiZ0eiUIe1iNsBuFdlwufb
+	 hfygd6sG1d5RDZ5RtYlaJZSmsvWpf46u+xbQa9+kJPFPIsf+0opQAnNAaTbdoaf90e
+	 k8OmvpcTJsfT9ff0R2uNyS1nX1h5m7d5XvWVYgcvpWIb6OS5gRNl6otlmEOSnCFdky
+	 J87pk73eLGbdkWtaAnJYwN67g1gLzMGt+3ftaD6WPMBsbfSZjzCyfpQS+UYLr6C2Lk
+	 ryRbKfgKX7gcNVIIMmJPlrWYkEB8FYtL1i0Eo/Rce7d/AcxMVYsYGhVsyJ5yllo1NC
+	 /1qrzOq2EpqYQ==
+Date: Wed, 1 Apr 2026 13:44:04 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: soc@kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [GIT PULL] ~RISC-V~Microchip soc fixes for v7.0-rc6
+Message-ID: <20260401-bold-positive-flounder-6e7b0d@quoll>
+References: <20260326-vertebrae-relatable-adfa3baabfd6@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
+In-Reply-To: <20260326-vertebrae-relatable-adfa3baabfd6@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_122339_198753_DA862F46 
-X-CRM114-Status: GOOD (  28.21  )
+X-CRM114-CacheID: sfid-20260401_044408_077262_AD82ABD3 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,75 +72,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 04:56:22PM -0300, Jason Gunthorpe wrote:
-> The fixed commit assumed that the gather would always be populated if
-> an iotlb_sync was required.
+On Thu, Mar 26, 2026 at 11:21:39AM +0000, Conor Dooley wrote:
+> Hey folks,
 > 
-> arm-smmu-v3, amd, VT-d, riscv, s390, mtk all use information from the
-> gather during their iotlb_sync() and this approach works for them.
+> Another small PR here, worth pointing out that the exact contents has
+> been in linux-next but not as these commit hashes yet, I squashed a
+> fixup patch just now that I hadn't realised got pushed without being
+> squashed. Might be worth letting it marinate for a few days if that's
+> a concern.
 > 
-> However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio,
-> apple-dart all ignore the gather during their iotlb_sync(). They
-> mostly issue a full flush.
+> Cheers,
+> Conor.
 > 
-> Unfortunately the latter set of drivers often don't bother to add
-> anything to the gather since they don't intend on using it. Since the
-> core code now blocks gathers that were never filled, this caused those
-> drivers to stop getting their iotlb_sync() calls and breaks them.
+> The following changes since commit 0528a348b04b327a4611e29589beb4c9ae81304a:
 > 
-> Since it is impossible to tell the difference between gathers that are
-> empty because there is nothing to do and gathers that are empty
-> because they are not used, fill in the gathers for the missing cases.
+>   cache: ax45mp: Fix device node reference leak in ax45mp_cache_init() (2026-02-06 19:54:40 +0000)
 > 
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-soc-fixes-for-v7.0-rc6
+> 
+> for you to fetch changes up to c7596f9001e2b83293e3658e4e1addde69bb335d:
+> 
+>   firmware: microchip: fail auto-update probe if no flash found (2026-03-26 11:14:11 +0000)
 
-I believe the problem is a fundamental disagreement between the core
-layer and these drivers. The core assumes an empty gather means there
-is no work to do, while these drivers expect a sync regardless. With
-this, it seems we're forcing the drivers to lie to the core by 
-populating a gather they don't actually use just to trigger the sync.
+Thanks, applied
 
-I was wondering if, as a longer-term direction, having an explicit flag
-for these drivers to indicate they always require a sync would be a
-cleaner way to handle this than the trivial population?
+Probably better if the fixes branch would move to v7.0-rc1, not
+continuing the v6.19.
 
-Just a thought, not a hard disagreement with the current approach..
+Best regards,
+Krzysztof
 
-> io-pgtable might have intended to allow the driver to choose between
-> gather or immediate flush because it passed gather to
-> ops->tlb_add_page(), however no driver does anything with it.
-> 
-> mtk uses io-pgtable-arm-v7s but added the range to the gather in the
-> unmap callback. Move this into the io-pgtable-arm unmap itself. That
-> will fix all the armv7 using drivers (arm-smmu, qcom_iommu,
-> ipmmu-vmsa).
-> 
-> arm-smmu uses both ARM_V7S and ARM LPAE formats. The LPAE formats
-> already have the gather population because SMMUv3 requires it, so it
-> becomes consistent.
-> 
-> Add a trivial gather population to io-pgtable-dart.
-> 
-> Add trivial populations to sprd, sun50i and virtio-iommu in their
-> unmap functions.
-> 
-> Fixes: 90c5def10bea ("iommu: Do not call drivers for empty gathers")
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Closes: https://lore.kernel.org/r/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia.com
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  drivers/iommu/io-pgtable-arm.c  | 4 +++-
->  drivers/iommu/io-pgtable-dart.c | 3 +++
->  drivers/iommu/mtk_iommu.c       | 1 -
->  drivers/iommu/sprd-iommu.c      | 1 +
->  drivers/iommu/sun50i-iommu.c    | 1 +
->  drivers/iommu/virtio-iommu.c    | 2 ++
->  6 files changed, 10 insertions(+), 2 deletions(-)
->
-
-Acked-by: Pranjal Shrivastava <praan@google.com>
-
-Thanks,
-Praan
 
 _______________________________________________
 linux-riscv mailing list
