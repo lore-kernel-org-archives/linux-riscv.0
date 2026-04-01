@@ -4,124 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95ECE107638D
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 17:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8B310FCADC
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 21:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oIx1Q2X4smmfcWJkTnkd9hM3ks5sHGqguAdzR8mkhp0=; b=Kz2z0uEKBWmgZV
-	vUq1Tm6v+2N8dGfk0YQFyZyPh0aKlAm51a+eiPXzc8ePS9oSM1+FXIEa2Je2qdhWS2WLEZ846HL+h
-	j3W0TlCmo677+juzK9I4BehUjZLxw67rSmCEe0avOByeI+5oVXRxQmfKEJFxXd2dZnfn4FRRNLscE
-	vzGm9m0RR8Y6dDPrFqnpbyLQc9VSRm4TLVH+jsrST/I7Pcf7HTt/3n1eWArJSZtbINbmXxq1FWQw/
-	7tXl/OYzx78yLewCVnd+f+ccIwXltv2VWYLYDm8DaVq5K/rTzftPjblbMIzaEG/l7Yoyz+s99UpD3
-	v4SGiJ3Sv6Aik5rqNQ7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HEwY2bSEirQIk+ZVFxXbXKDCIZuzHkWAB9xyWuwzXB0=; b=v+NH46cjz6kxqLq+cj7imaU11B
+	V6XIQf5TSqVSS0lIHA1DQ/kgPTnJdFTny6t71H/ImpN15Y0ukdYimpv2sSosD5vUfBzXgoLQawDiX
+	Q+J4tPQKd20sNjJgAtZBWrfYpMYW51Lzop+/GCDv+X36IV9PJgjURWzUKXsmGU1iwsE9k960MVNv5
+	GlqGuqT+Yy6uiOBNMSK+50q5Tv7V8J96vYnhMli6q3aDCFT1R1VI9U0YhYXvaW70twWKorvOK2lMH
+	VOUcKOk9Nc7+ufg+/snjvHysAXcmHLnMkr6/s3UjtgpzsQsMas88NTi52FWfl9tI66hjT4XWICmnb
+	rCtqycug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zdj-0000000FspN-23GE;
-	Wed, 01 Apr 2026 17:46:03 +0000
-Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
+	id 1w82m7-0000000G5jJ-0axJ;
+	Wed, 01 Apr 2026 21:06:55 +0000
+Received: from seashell.cherry.relay.mailchannels.net ([23.83.223.162])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zdg-0000000FsoY-3QIm
+	id 1w82m4-0000000G5is-11qd
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Apr 2026 17:46:02 +0000
-Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-2c98928e4bfso5259eec.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Apr 2026 10:46:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775065560; cv=none;
-        d=google.com; s=arc-20240605;
-        b=MWGIlCICjmyRLQmMikg0n1ylmWX087SrMeAwApT7iULmI+2G9laUh5A9ZsPbkQq3J0
-         hvWb7Dmjy7UnwGiLwtLRYvNYf1UKZPTjQogFEszepYn2slGHl+SgBXUGZmOkK+uMhvNi
-         pDF/fKt2YdYHx7qwoXUDA0sK+K6wc8ec2EH7Yvm/0YJb/CBR69yTF+j7+ckEoQBlkRqJ
-         VHZg9T4rImzKQPFXjeLVtxv4ddM4gjMxCT7HqRbcayRKm24znYrLL/CZnVo8TDPLnSaO
-         cLUBKowX56CRu6+kP5Vc05Ey5oYkg9p9HcP0i7PVtlUhYa1p3tCKdQmR4YrEvoHs3cSD
-         Kxzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=QI4ZvYmbpYFMS5F4DxWr2Qtcv3EtByJoEsfGF8Isxow=;
-        fh=BHUIiKKUwmJ74o/JzMAPlOHgO5dv/hZ63OyKYyncYHk=;
-        b=fHEdLFMNP6zRPXQzSlG3B60ewGbZwbDwkgi3r1XdC6RH1JcsF3uM746lXcJY2cX2D7
-         IzY19ocCRffcqcfszAUJWeCBit2ATyGxyXimAGRUEmJFLc8dPszCnafK2DQnF+CHCeFh
-         62HMJYAekoAlBQQCuSSKmndXYTHsodceC2COyFmAt8YhOQ0qY7UyTgTgdN8C28WPL02O
-         ooTogX9Lyq28GWGFVAvrzh1kdsOVsq635XjJMXU8pf5rLTBzSk3LRcg4rg/tGUffkYmf
-         tXt9Ih61EUA9xTw1cL3WlerBBgdpNotwtw8RVy2XLDTllMiPRlCYeeaYUlmuYde7i7ZA
-         zA4w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775065560; x=1775670360; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QI4ZvYmbpYFMS5F4DxWr2Qtcv3EtByJoEsfGF8Isxow=;
-        b=Er1sJ3DoQvvVHidqEv5JK29LEsVCrhyCQDeQHToCvlQJDXUcwk/zDt9UL/AgCy82vN
-         SN57bRaCSl1EXyPcHqqp6SnEtrwAIbdYlFOByMlRmFvL+jwWZ6RUFIapavVGS+bPawzt
-         goVVaNLimX2uHEhutyrTAzRBmBzg9R+CNfL1o7mIJ3k4q3hAIksp4Rtg9nW8jqOoqbru
-         keibLA0kSSsb0sD7p5TfBfncxmDcjlU/fQpdMXQN9KP83avX3eFmPLS5gLyFpPzGBCEz
-         gnuqGDJSg/cF/Tn0vW5229ZwuxPBCHz2rjYcKYBsH5hQPnc4fFYV3jR4tq5obn+4rll1
-         XL2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775065560; x=1775670360;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QI4ZvYmbpYFMS5F4DxWr2Qtcv3EtByJoEsfGF8Isxow=;
-        b=QDaJWJr1B9s5CleBk6WfBJ0yF8D+WhqiFpuZ3HE0oqQ2O3VDWjPipwEK41yv/nwmRW
-         SQ/a3snLhfAkyzR0ZyxGIVI5+k0nf6GiU4fR7xpP1ZqMHE5FtfiMtGEBFX+qO5A01HV9
-         WCqyd6DHfH3dladiSs1/14+A29S9k5Ao/7/ZureX+Fe1uveLtBiFwwa9GoWtlz+XRQnZ
-         aNzpj8LjU5tBLO/cO121X9OhbHmwLuGERXgOi3vrs4bWERVthC2Jv+Kp610nZ5VCiwXs
-         7BckOWdZsykhL1anF9urkk4NB0YX420WnqQoO7iw9E89o7wz2BBv3ugZZWNgYLhS3JWy
-         6XOA==
-X-Forwarded-Encrypted: i=1; AJvYcCVKcmWjDWP1n3VWaZLisS4BbCQs87d/paHO3chGjJe5XKBJg16CWYnZZiqzx4bg8bI1T93+NiJ5xkNBnA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw787z5CMUK5JwS9v4+CO8hlIBnCNhZQ2hFeZqA24nb1URHDvF1
-	EUrDjaZ3pfSK8Keb7fxIFdLXKdCoK+vKqyH6TqmiiR7TvByFr9ejwYiZxPqYyI45HBUOXHj8HBn
-	4GFhcybZtjv4SwKE0j6sKIB+ZrkE6BCI=
-X-Gm-Gg: ATEYQzz/XvmpSDL2lZxY4jqdsJ+9js3OJ00zJauteww/URsi251y9kh45TrzPM5qB/7
-	x8pqKD4abI7Nf7Q4id4ZWIujDDGM6iKRO3H5f22blNas4KKhUKes7MRdIo0EkIr16SIgi67cL5h
-	kDqTXjcwJcKJWPBdiAoTXhbRgag/MFnb5OXA86CXjDEBS+y0x5oQQ5Z/ahdw6oyT754hNeAVu5C
-	GN/aNHP8JLxZPw0+vZCFZ7AsxOgm+bt+lSrps8axk979c/PoPI6GkUJctrgzKx64RSQUn/hPuhk
-	pQ2+Gy7cqLHyNhg8Qg9kUPe6k3M8a4YWlqU60BT5XAa2brKR56JFRoJ5UX99Jd4S+NNRzDUUxCk
-	VOsEz0yQO9VOqD3IjxkO7nqpB9A45w+XSfA==
-X-Received: by 2002:a05:7301:2c05:b0:2c6:7f49:a840 with SMTP id
- 5a478bee46e88-2c930798a4dmr1033595eec.1.1775065559731; Wed, 01 Apr 2026
- 10:45:59 -0700 (PDT)
+	Wed, 01 Apr 2026 21:06:53 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id CF5594C22D1;
+	Wed, 01 Apr 2026 21:06:43 +0000 (UTC)
+Received: from fr-int-smtpout30.hostinger.io (trex-green-0.trex.outbound.svc.cluster.local [100.98.67.68])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id D381D4C318F;
+	Wed, 01 Apr 2026 21:06:40 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1775077603;
+	b=VA/PL+V8L4E2bCyG9SOLTRJY7f8deP5Q9MtcokcpTZyzBuYLZFbLCbcphn23R1y7AwhB4n
+	XpZM7k4DXgPbbEgQkcLO5JPf6YmJ3CcxXvMwy4OkElCVNWaVIWg9H3P83ws1wcpmnny12p
+	nzSlCimcY6KAoOiqVoFXhhgdxC+Ln5FUBxjNLe3n50F/IexkdhEAqkAp4PMOq9oxc6dwcJ
+	DCC+Ctm9VdPc0QC3X3jj3nIGzPL8OZieQQRUqIpkOwJqqSo5sWT88zdckZQPwMJwLoiJdb
+	K//psJ6GS4Dt/95x7PDP4aDdcih4FaDYuJgCXBMnR7rpUuhdnWiatgyjuD5rIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1775077603;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=NWOt+A5DoBbZU4MDhyWwRpo5TFnWZBhqa/iD6NJpi2M=;
+	b=vjSe0P3ATitWVh3zaKgpceIee35SUakQfAwXf6Pzre61aIrWsPbMTI12OCUaObJK17l7fd
+	xmBUdyswAyQ8ARCEm3ZsWEuho1DCoQwX2vsgu8eDhSNP9JvQsJBDmF1jGXAGBPb39lMOPv
+	vbaj6psAhOHDHtFiZCYk8WNvsvWebd+qQrsULUTVQFYO722Bg2kaxnFJjDkQdnDTNMJZSH
+	YX2/8tmsRJU7ur2BGRuVRJnQCsg+eU22KmLNY1No8L5vmsNM1K5P37cRJ6nqkTKShFLDUa
+	A48DOW0ja25SOhCOxEcRWx8+Gv6+pYQLKZCSkrC1GqfV/03bgK7zP4ywjwDh5w==
+ARC-Authentication-Results: i=1;
+	rspamd-bd48b9d95-5bmzq;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Coil-Exultant: 77a73e0363d089c2_1775077603610_3843726031
+X-MC-Loop-Signature: 1775077603610:1334320305
+X-MC-Ingress-Time: 1775077603610
+Received: from fr-int-smtpout30.hostinger.io (fr-int-smtpout30.hostinger.io
+ [148.222.54.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.98.67.68 (trex/7.1.5);
+	Wed, 01 Apr 2026 21:06:43 +0000
+Received: from [IPV6:2001:861:4450:d360:e8fa:1ded:d686:98f3] (unknown [IPv6:2001:861:4450:d360:e8fa:1ded:d686:98f3])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4fmHbf0jwcz364N;
+	Wed,  1 Apr 2026 21:06:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1775077599;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NWOt+A5DoBbZU4MDhyWwRpo5TFnWZBhqa/iD6NJpi2M=;
+	b=iM5+0XMph5QpjN/3nMVL4m1lV1Oxrs4W7+KpXmossgzN+u+aVQW8uzg/D6Z9i7vjDFAbNo
+	Jl2tlWxBkGOgL3Mp5ZQkbrTEG1eQffBHRdHyPe7ucIyPSaE9hwKC6TQ/YnaI/1YAFX3cLY
+	/8dSrB4JM+Rej6jo+j1gJ4rsLNQ/LPIabcHTqZaT/230hY9jbT+Oci27dklGIvOJdjpS3R
+	BbosmM0jS5dv4WhMm/O1bd2WF14r4xqOP9GGtg9stc+F3zZY0FppM0iq5TQJqGj2/fRXHh
+	oioktSASh5ZBhjOIbP9NA8oOYvNPmg/0LLxqF30dNelnHJ2qGHKHQM9htg815g==
+Message-ID: <f6b0b867-c37f-47da-b04a-f8bc88727f1a@rootcommit.com>
 MIME-Version: 1.0
-References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-13-ojeda@kernel.org>
- <DHHVSX66206Y.3E7I9QUNTCJ8I@garyguo.net>
-In-Reply-To: <DHHVSX66206Y.3E7I9QUNTCJ8I@garyguo.net>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Wed, 1 Apr 2026 19:45:44 +0200
-X-Gm-Features: AQROBzDasvNfwm3irNcxLclKgLrVzocIHNQudR_c4deB-93-CSbalwIa-aYY_TU
-Message-ID: <CANiq72=8eVKk0gqyvgWM_-VSsRZY1s2e7gx9AbAg+q0dRRYO=Q@mail.gmail.com>
-Subject: Re: [PATCH 12/33] rust: macros: update `extract_if` MSRV TODO comment
-To: Gary Guo <gary@garyguo.net>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
-	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
-	Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
-	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
-	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
-	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>
+Subject: Re: [PATCH v4 3/3] riscv: dts: spacemit: Enable USB3.0/PCIe on
+ OrangePi RV2
+To: Han Gao <gaohan@iscas.ac.cn>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>,
+ Chukun Pan <amadeus@jmu.edu.cn>
+References: <cover.1774974017.git.gaohan@iscas.ac.cn>
+ <0ec229e2fb138092672773f134d0739e70740ce0.1774974017.git.gaohan@iscas.ac.cn>
+Content-Language: en-US
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+In-Reply-To: <0ec229e2fb138092672773f134d0739e70740ce0.1774974017.git.gaohan@iscas.ac.cn>
+Date: Wed,  1 Apr 2026 21:06:37 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=ZbRPNdVA c=1 sm=1 tr=0 ts=69cd88df a=E2FlaUaLzEUwfBssy7un6A==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=N2QTJkzpoG2ymMjQJkQA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
+X-CM-Envelope: MS4xfHLB0AFcx0PJZBSV6rZVLaebVYPolfbqqKGbNYeNloUgp6yCDdSlkpPugBc+2qmnfW7J3R45ET7ti5Af7QAza8Js7sNxc1uKI3vbG55g49j8DCmG9V5P J5t27P1WsJQwxtpEyRs+Uqjxrw4iHhuijYNA78GS3b8h2a13qNSw6txERabWudbiGhgKsRGXUU5g6icQkAhV2mqNyLrOGllZqrr7/0LJsRhgWl+xMhJYNfN1 rVlp4/2aqnMiD3oUu113NK0yulz762PqAWX3uLc2oXE3kKPzZe2vE8aj2wk8J6tnYiqzoLBUfMQopQi2tJbUg6OAFLUnrqG52LLQ2JamGaHQnwv6ui4KR2DA wBvMG54Ci0frLbtnpv82l1ydz4FIwYIP0uDR/wGtKNpm80q6N5Fjp9YhaV2E03n8bdjT90QsRSvt+r1tMV2xKcH318++IyhKNOWwvuMKaPoCzvMUI3kALO0s BYqj/oSF/ncW9z0tD2NDDkdPtHXk6KBVlYxjI1cTxq/b26Wa9xA5gDl2/xc1wS/Zz200bkNtQdVcng3uLzEeJAPN+rV2RU0ISgJ04qkyJepteYXANaofBsjo TnOOjnqi7/r3lhki8C8GNqEM9Ac/AOriPOvy8HKn+aEz/ysb7ZQb1EDqOeauvdCmUfpXpgSArhkdvEYg3d1Q5dZSFrYTPv5x8B48cjIe2Ag5TzRXMMJHsmth QRBFbkTkCK0B0W3Dupu2DY+JJZzNrMLPyQNGvcMFY+FHP+pcgt9i5pFMCq4Aqm9LIrm7JiFWBdF0NpICtH/5XLYveayr1ntZ
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_104600_877680_8BA3585E 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260401_140652_418874_12A98803 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,19 +125,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBcHIgMSwgMjAyNiBhdCA0OjE44oCvUE0gR2FyeSBHdW8gPGdhcnlAZ2FyeWd1by5u
-ZXQ+IHdyb3RlOgo+Cj4gV2hlbiBJIHdyaXRlIHRoZSBjb21tZW50IHRoZSBpbnRlbnRpb24gaXMg
-dG8gZW5hYmxlIHRoZSB1bnN0YWJsZSBmZWF0dXJlIGFuZAo+IHN3aXRjaC4KClllYWgsIHRoYXQg
-aXMgd2hhdCBJIG1lYW50IGFzIHRoZSBhbHRlcm5hdGl2ZSBpbiB0aGUgY29tbWl0IG1lc3NhZ2Uu
-CgpJIGFtIE9LIHdpdGggZWl0aGVyLgoKKEJ5IHRoZSB3YXksIEkgd29uZGVyZWQgd2h5IHlvdSBt
-ZW50aW9uZWQgMS44NSBpbiB0aGUgY29tbWVudCwgSSBndWVzcwppdCB3YXMgc3VwcG9zZWQgdG8g
-YmUgMS44NiBpbnN0ZWFkIG9yaWdpbmFsbHksIGkuZS4gImFib3ZlIiBhcyBpbiA+CjEuODYpCgpD
-aGVlcnMsCk1pZ3VlbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Hi Han
+
+On 3/31/26 6:27 PM, Han Gao wrote:
+> Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
+> OrangePi RV2 board.
+>
+> The board utilizes a Genesys Logic GL3523 USB3.0 hub.
+>
+> Define a 3.3v fixed voltage regulator for PCIe and enable PCIe and
+> PHY-related Device Tree nodes for the OrangePi RV2.
+
+Fantastic! On OrangePi RV2 "lsusb" shows the USB3 host:
+
+# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 05e3:0610 Genesys Logic, Inc. Hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 002 Device 002: ID 05e3:0620 Genesys Logic, Inc. GL3523 Hub
+
+I haven't been able to access devices yet, but I guess I'm missing some 
+kernel modules....
+
+And on PCIe, I could read the contents of a Raspberry Pi SSD disk:# dd 
+if=/dev/nvme0n1 of=/dev/null status=progress bs=4M
+255730909184 bytes (256 GB, 238 GiB) copied, 664 s, 385 MB/s
+61049+1 records in
+61049+1 records out
+256060514304 bytes (256 GB, 238 GiB) copied, 672.782 s, 381 MB/s
+
+The SSD was freaking hot though :}
+
+Tested-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+I'm excited to have these features in the mainline kernel, hopefully soon.
+Thanks again,
+Michael.
+
+-- 
+Root Commit
+Embedded Linux Training and Consulting
+https://rootcommit.com
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
