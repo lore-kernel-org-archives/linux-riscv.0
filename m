@@ -4,158 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B12D3517E
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 13:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D21DD2ED0A
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 13:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fxUpAOMlTFey8wGRdjn4s/GDCMNW2d9wNtKN4yAoF4Y=; b=DuRvmyacbb+Mrb
-	TdOCT+uGlBCoXLFQEp4nSpFqBIceMCRZy3ZdzUK0a55RJta5zY7yTuvsFf16m+LhZPfq0eCHonEqL
-	kOf1u0C7q5AnenrTntnHyvNtHIYPROOjEUoS9PA9vFYJaJ33fj+hZNmes0fBmwsymnoQSTuPm4WaR
-	fq0n3GPd89ASKXBTRAfmhWHQHFDHSWLh4QVxWaKBAWzNOEhKo44vl9/1OLC6cLLXAYF/wGXMZZ9zc
-	W07yVBank3C1yn9FYQDvLIVA458zcATyRF3ScSuFCjPNaYSdNj01YH/C2tNo8FL8MPKgDm+smIdGW
-	x1FqMUEgjYQJnYqSHfDg==;
+	List-Owner; bh=NlBFQ8Am4HCfLrjumgSIklAsH0I2O1Bqg6KcEFYL/6Q=; b=o97GwyQH8tT1WT
+	2KwAQSL3QWuMU15tqb4ac+FXfRhwQJd3FnOjRRCn2nm2x2u7jPD8WGp1w9Zr7pOUbEUZofK2cwqlg
+	hdb6p7iNBl0FIAcR7ZXpciVQxXwtszwEr4y62Vggoj2s/2XEgAmmoNUtmDigIDWfRuLXgioOR6rs1
+	qJt+xnxhxhVr/C/N9laVVAuFbu5Zx1DN0KHg52OnS30YCvpN4MLZyzJH74PwUS1/dBWNBquLC5jmA
+	QxbRpDE70BCeEPPYCE/JJFtiPPXVyWezq8ley+7QXMsx4XYSAg7pbZya6x0hpvdBkxUTSOfsXbQt3
+	dADGjiXFToBSa+5ORnHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vcN-0000000FJCA-3PS5;
-	Wed, 01 Apr 2026 13:28:23 +0000
-Received: from mail-uksouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c205::1] helo=LO3P265CU004.outbound.protection.outlook.com)
+	id 1w7vfq-0000000FJfG-1fUq;
+	Wed, 01 Apr 2026 13:31:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vcK-0000000FJAs-2edz;
-	Wed, 01 Apr 2026 13:28:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ONAMzrYdTF5D1mj99HKr6E5VWiTeq5eJkeNOHm1RfHuZ+OhDTcTk3TCkWCkd7oZTKDluRRdtv7pYJQiup4kcpzdloUG/0K99jR1UuQhmU6VFy6+ztWofq7Vrs8/fOHrDGGw6SnhToDJR2wu1dI9GrYAiuFPztm18K0HXkotOdV63Jo48zueZju7L1LXbcAJTzBTenpWusEOCpO14/2KQAY0Pd2CJtj3YuHFQwUyIVFuwdqHMZZGDQamP4toq2u7MipI/hd6gkfGu0QoMXYX5pAkUO/OrLGdyatOtpuXpItn9Qo8IKMYWpfMVxMm5eaPk98OW8lBB5yczKZUYDnu1Sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bD5QxgfQNuk28UyZBunkjD2cuPT3HwKYLpY8sumN+QU=;
- b=gYrmmxUsoIBlbxn126wOnqJes0NnKE0iJCUqfbYYIXcyieo9BU8cMlZJ6Gvrz/px/Gi7JHtGXYXKHiAtkd3mc/QLxjM4Rexw5kMKcs0NlF2Yem1ZCM1J4EfLev4eH3mJWBrvUe/46AUEyIN9bwvlePxmql1nh/5PpBhLaZ4L9ct+6TdTh1ZzKv6r46WKoFHVxW3pf8oHmfq9EcEm0XUtr2G8IdyRLqoj2UzsiqGhA/jVhnggad144YR95je1mzJ95E4DVoQwv6QiXaAle/toOBZtGLNZ72AHwgO6fIv6Q8aaIHpEdTi7bwsZQ9g6E/UgbvrckLfXyFE8Zus1ILbmOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bD5QxgfQNuk28UyZBunkjD2cuPT3HwKYLpY8sumN+QU=;
- b=NcWiwd7VAVl74dMjp/EemsevBNIMM4qz7iS1Cy37qfVXkPkwCJH63jPRRetxlI6bx4a4hh6ZP7CiLwfB+n/7sTMkG0oJszGuycXyoLu3BsWuMXGQD12Jj7PJ4iWE0bNceG5Oc6nY7v4O1dsx/bgHLcmNEvccM/ZBNmBRwOy7l8Y=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LO4P265MB6837.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:34b::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 13:28:14 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 13:28:14 +0000
-Date: Wed, 01 Apr 2026 14:28:12 +0100
-Message-Id: <DHHUQRB9ZL54.VQZ7OUZNSYDS@garyguo.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
- Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
- <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
- "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
- <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
- Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
- <kunit-dev@googlegroups.com>, "Nick Desaulniers"
- <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
- <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to
- 1.85.0 (Debian Trixie)
-From: "Gary Guo" <gary@garyguo.net>
-To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
- <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
- <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
- <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
- Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
- "Jonathan Corbet" <corbet@lwn.net>
-X-Mailer: aerc 0.21.0
-References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-2-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-2-ojeda@kernel.org>
-X-ClientProxiedBy: LO4P123CA0520.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:272::16) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+	id 1w7vfn-0000000FJeT-0Onn
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 01 Apr 2026 13:31:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Pxwyobpuf86TQi+f2j4+wIWXBQigp/e8eZSaPuRG5TU=; b=FmUyyEnCuaqLqchdTzuxqtOYnG
+	BQXbGgUi80x3R8qYfWXjtFkgDu4jkfXj/F3CIRFZ/VA0ZrIzh7cuC6MuONcSNrp1r7DSh6keAFgSH
+	M5eWXQpZft5+YdObYyp4x+AUsWMhrcemin9zumTKm8j8S6IEhc6S/+LOc5aVLUS8S2vkElTIziMG+
+	6aC4ik3OW0x7Ri/H/ifPTODZI3u/kkHankS5+O6iFg33Ai+y14d7XCP9MqkSfVhn11LmALzsfayzk
+	8G3F5Dvg/sodNUwdz0BOTIzvvEyHik/yaCDhP7/NXsPyAlxjTr1MdOzlPxXy4GTiycnyBVieAas9k
+	NVUMCjEA==;
+Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7vfk-00000000T3j-1SNa
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Apr 2026 13:31:54 +0000
+Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-2c6f5574d07so109605eec.0
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Apr 2026 06:31:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775050310; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O4YqTaFxPLe6J63Y4s0JKgxF5vh9kIKN+xcOpZhAnWxg/XKlUJMkgszxdWNhhpi9FE
+         uXMeNddEpwtwWPRK4KsWmRirK7x+YrNe79DNXfPHxjDdANwDD1lNYixGG1GvYEehD1jl
+         txUwgO3crOYPuibIYXZnCBaZRYSg3GkAkwKvFd0xuSEA8A1QR5qLjYonrhSCtpDy9TNb
+         SyxVVZmDf6LEbV+BAsb4L2CLjPtYwrlZFhDWtknPWgIHrwK1TqKKXF96Tbq2hM0iA4GX
+         1f1ESodM8MD7o/peemFRKUWUAN0xGf+qRRBUy6mg1G2WRSUMVDJhN4LUyB5npQk2namw
+         D0XA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Pxwyobpuf86TQi+f2j4+wIWXBQigp/e8eZSaPuRG5TU=;
+        fh=ssNPdEDClqVyBXPnze0vor1G8uSUgRXjb3nFywPXJdc=;
+        b=EbxMsgC8yjCk7AyBwgobsY1fjwalOVE7z9bBRorP7269oHhbd2Sw9m6g/0wXmvLD7t
+         vR1nXA1qmq7696AT4o+7Dan8WeaqIGP46HZUNWNy4whQBFLGSriD1x7ux6yR8O+GVU3I
+         Igy7mhWnXyIVPbQZQm0EmjJNKtqceV2+4isSJGrHzhjLKxUA3kLCixYaMkscwgFtp57j
+         6GLohKTKWRt7Bjuq2/M7FKo9l9i+YQA+tcCbawTcMiP4VURvkdpl+JAgCQNQxAWxC0uV
+         shVCdsvh7F7UMkWJw2yPvuxZj/b6D0xrt25ZdSkyYkejv2jVI/VReqW8jlc2l+LjY7Cw
+         xOtA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775050310; x=1775655110; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Pxwyobpuf86TQi+f2j4+wIWXBQigp/e8eZSaPuRG5TU=;
+        b=SCgR0gvuCjobaq9a9ZFi5Bsp5GabYzSyQ2nsqnL5+i3+12XIMqdV1qoIBIndTOBz9E
+         UjT6ubnVI4IDJOKjgBPeLNxbSrBj7+nd00hCA0/4bYQ2mHX7FDMyRPetq9X0fDst7tjt
+         fp7XV/1ZuQGhB+yiZbAxf+O5qkLjAnkzeW3oJ+OeUHYWyve+JBCJ8OvZWyyLSJgZW+3s
+         syqSre9BxIapR0DD82IyMr1G4yTzPEJraEJdlgzjwxV4S5UFTlnaW1ZsWWOFq0+uwnYs
+         AScAGHWhiRm3pPdwuMQP7Sv40CazaXEziCwSFy1Iw8PEC54gHSgKrt8wX6UVnCEqgvZp
+         btXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775050310; x=1775655110;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Pxwyobpuf86TQi+f2j4+wIWXBQigp/e8eZSaPuRG5TU=;
+        b=JO5vaXaiFnh3p7oRMldUJRGZeGc1ScPPbtukHg0HaHO4E5+Q+AqBtAkoXn2IaEpS0C
+         D6XfsT1+dUjxDtNx8vV9pdtL6GwH+MxxBEyCW4PhTZn2R0Vpo0XOxwMvFClMogUsoay0
+         oXcccfO8NJlHe0OsrnjdDpWkzLq9e6YxF/JQp3SdKSjepemXx8Zr0fN91ARhxuO3sbgr
+         /LuCM/KThrJdcW/k6D+RXZgyKcZdwfU7bXyYVPYjtPpbaDYO6vHUDd6eVVRKTlsOlEGs
+         AqkWErhwkLl0Yz84oMVHlRxaFmVw9mmMuCwi99cgaLTj3Zewxr+/cxF1S59jA0WnmQAA
+         qC7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXULckWdUDorhLn59H8us5pimrMuw9SSzbtRkdkV06Ah2mz+nwZMbnxHsD6VjYgQeb76y+s8VZ8hRrSdQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXu29dPhUIs8NgMZYVBtAjrACpzmEfPMBdEbtjm1X6RFBf8UTH
+	diVbkfjl4bqb9KoozhD5Fx1ILfF3lXpTqj+CLMuqlV11VWbcIIggi4RBsK09alKRmx8hf3SfjkY
+	YFrux/910VSTHCNkOmTm5sUoQs8EcqbM=
+X-Gm-Gg: ATEYQzy8/A4QmjXS0d/rHcfk2sEn0Znml8kQqOz6tPPsHhAFoA860Tu3iaj21T5IhI2
+	bUoOa3b7HJwDpLJVGQ+2rQgkgWRnAi4k6f9M/hfv3jjoMowedLMugfqn9YHqJCPAlzDn9R8mOVO
+	zqFbEoREGFH/fmJGbk/CRN7uYJk+T8itnI11J/exRM/XrBwOmf5EheqaE12DGsR1P7skNQR9/Vi
+	7//Af2Nj70Kfb64aDAeOnY4f52vPD8AAIIrUlhr4rb32oOE+1hoq750IYUsg9k7aG5fnltUunls
+	h18HlZ8u2GKDLApnNAWvtOuTUwPbyH341j4BUedJQkIciwLSF5TBZ/0z3KwsKhQrhBINf0YatA3
+	BA3jGSwyC1AelOECCIhmYS/9tCuRKMpmS4g==
+X-Received: by 2002:a05:7300:fd16:b0:2c4:6ec:141e with SMTP id
+ 5a478bee46e88-2c932bab66bmr849425eec.7.1775050310241; Wed, 01 Apr 2026
+ 06:31:50 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO4P265MB6837:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7052c31-f176-4839-abee-08de8ff286bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|366016|1800799024|22082099003|921020|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 3IV4a9u4tY+Sm6e3Bc9NS2Cl1vDT3wtenBA97zbBmC16TLVc/WCSZkRWAqLj+Aodz/iKqnpwFIdTv9R9pUkB/n4RRrz8yjWa3tolZ7+GGa6XB5jpciz7GJtd/Z3lxR9DkbPMOALT5/lvyRM4IKMAdDUywq+kyG4ncrOCRa2zh/ZgLWFsm3CGyWJssSUrdzJCd6EJhhSUFVwdItTGXs7kfKmRRSrTHkmxKFH2pOWEUakGkku1aLBHhBxKhg53f3Yn+rAUrhHWaYm7Dt4OWBv4iKPMojW0uBMewHWi+X7HaDe152Mdq4GyVh0c21bjZKkcWV+J88t12UJiONsd83U4f0TbyoKNcTocNRlfJI1kRlKF1UkFEzRAtgoSifpYzgOWUbYQKzTMMHs3Qak9UEOZCONWriVp29dU6Q2Se9xKuy9wmBmuXzzUfuqxeFsgCo19P5Jd8gbEg88W1sVx+HSOMGToQCMvKD/uSu1pxosQUnilMKE3GXBceVe1n2sv3/b3GFue9zevHi/002RmeChr4NbRAnPXfeZM7g30/9XI7cNan77wyxbI2d5Kvrcj+eKAj0r4tMV7+syoy/5I/a9ICFMPxKbEyc6W8rqVy6hvU2XGkUiRJxn+icqtUW6dZzt/srt6Py3QJbmPG0vxhTyPsUW420UGhBnqTc6Ki9zsaohPFzNcpxd6GrLLW+WslWhLUJbdpEMpoKriaTbWVmuh8d2eg9JYzk3GJFVqCEIuC5o=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(366016)(1800799024)(22082099003)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WXJyczc5MmFhVzFyaFhlYVNYMlFDa1p3WlNaRStHT0lrVllEUVlVZHlXNDNI?=
- =?utf-8?B?V1hhWWRxdSt6Y3ZZemFGTGNsamdqeDlRSk5BeURzZFUxTFp3Vi8wdnlBOE1U?=
- =?utf-8?B?WFlFdk9wQXowdUNRTTBybGowV3hsemhYc1orWFl4WXlVWWxFTmR4dG0rbUNY?=
- =?utf-8?B?bG5LWFN2VEFIQlZnNEFodWRUM2NvVHNlL1BZYk5OejJ0TnVrWlZSUmx4aDdO?=
- =?utf-8?B?OHVSUVZiSVZIaXdXUUlJcVVwc1ZOY1hMeWI0RUNPTVdQTVdxNDVrVVlBb2o5?=
- =?utf-8?B?TFRUWWdCSmFRdDRJSEZJN0xBMExlL1Jkd2Jwd2tNb0F4MEJOdll5SHUxT243?=
- =?utf-8?B?NnJTblhxdnFuVWs1c3NRRmlBakM3TStIUWZaR2prT3BQNDZBR0o5blBjNU0y?=
- =?utf-8?B?aS84RGd2cXdVMmFuRVpBeU9VSjhWcGU0ZFFOSTVtckE4eGFLM05NczVpNXpY?=
- =?utf-8?B?bTFhZkwveTJsVFp3ZlVPaUoyWHZQOW5tSzd2Z0Z2QjI2dllGUGRLeTJvSXFo?=
- =?utf-8?B?Wkp4MjNGOWl1RFRMajd3c1dVUkd5SU1GWHFseWJIU1BkMVFTNksvQ0U1Y2pk?=
- =?utf-8?B?QldzQXUzdnZqOHQrbUtyRUg2R1pXOGl2dVZVd1NWcjZWdEFZRThTUjR5UXdD?=
- =?utf-8?B?UmE2REl2akxhb0I1UHBFdUI3dkhWa2JHNVc5QlZJQ21ZaFZ4UEZsK0JOSjJm?=
- =?utf-8?B?ZE1aaEllN1d5QmlZSEFzeUtiUXRqV0dxbjhzMVFKc242QVR3MTB1bmQ0QXBK?=
- =?utf-8?B?aHFzSTdkRDllbG1aWWgvZlluSDN3RTlFYTcrNXNvRWhrSTJhYlFRNjVLVDFu?=
- =?utf-8?B?ZC9QVnJaTDBiVjZlK3g3dW9pMXJRVU8rWXlKR0lPRjJrNnlzeVREVWFqK2lK?=
- =?utf-8?B?LzNQVThBMUNURWVJQWNQbFFzTlBRbWxNNy8zVFRwaVNaVnd0Wms0UGpaY1VC?=
- =?utf-8?B?aUhFMlNVdVM3WnVWcVZaN3RyZ0JqMENkQzRGWG0ybjVIVHp6a0psblRzbzhR?=
- =?utf-8?B?M21kUDJidHJlRkxud0dGdU5Ic3F4YTg2YUhNNkN2dVlQK0VOYU1zbXF2VVpG?=
- =?utf-8?B?UnJUUjBPblNJT0JxRm8xM095OXEwcFZHR1h2RFZ6M0xna0dKN041OUpXUk9P?=
- =?utf-8?B?aVh2bWVIc3B5SW8xR1lnQkhhK1VuNGtuNjYxYzVMZWlacTIrQmlJUktuRDcz?=
- =?utf-8?B?MGx2OG9FRksraFNyelpjVkNBWU5KRnlpajA1b1lBbUdQWEQyaE5ZbDJ3c0ZY?=
- =?utf-8?B?UGwwcHhHbFBYaVJ4WENBWUZYM2dVOEdqaTR4OU80RStoU3gzaDhMaTJoQ0pj?=
- =?utf-8?B?eHpBQjBkZXhtTWpralQ0bGpaTE5CZy81Q0VnOHpZRmR2Yi9rOGNnSDJlT3FQ?=
- =?utf-8?B?ZXhURmQySkZyMVRkRFJRZC9DSTJUVHFoZk96ai9rWG9WSmRKVnRndCtyclhU?=
- =?utf-8?B?NWk5eUdrYW9HeXd3QU1vTHNuRHdIaG9FZDdJTVNnWXlhL3luR1RaRmpRZVRC?=
- =?utf-8?B?N1ArOHFaMHZLRjJOcEF1cm4yN3pZcVZGcGFMQ1p4TVZHOU5DZ2FKS0VVY3FC?=
- =?utf-8?B?Tlhxb2tTWmxXTFRwc0VoL2grY0M1YTJVWmwxb3h4QUo4SDVKTW00cHg3anZX?=
- =?utf-8?B?NWh0c1M5Z09rNGRzY3VybHZ6ajFqTEdqM2RERldtVTNUSXhwYVR1aGcwMmVR?=
- =?utf-8?B?L2ZSS2U5WmdvM0lSdDhEQUxTTDBLQWkxTlVBai82eWFwWlYyL25NTEI5ekpG?=
- =?utf-8?B?K2xLMnR0eWVRQ1l6UWlGSmJtQlhLYW1BUG92c0JmNi94c0ZIaG5CU2NxelV6?=
- =?utf-8?B?TnZ6YktxWnhZR0xtaTFTQTFhY2RtY2syWkdqZ1daRW40V1NJSXR5N3ZGNHBw?=
- =?utf-8?B?SGFOeXY1L2Q3UEpIMHpmMlZkdXFRdm1SRkJhRWR1Tm9XYlZjUTd6YjNYTjJ1?=
- =?utf-8?B?NmZhVndodzE5Tks3VWNXWlJRWGpTV0tDMDdTWCtNbjZFYlQ4bGh6TTdPcFhl?=
- =?utf-8?B?Vy8wR21GUTFmSDMzWURxOXE0SUowRUtCT0FnWVZWR2RCdGR1RDRqbzlYVzd3?=
- =?utf-8?B?d0w3ajJGUUhNbW9FVjdLTktqSjJOT3RWajZaR016NU15SnNlYzBlNHVRK2V3?=
- =?utf-8?B?bjh2aW52MHdWeTZBRjhGYzNPNEJ6d2tGbyttT01laFJnZTBiWmZyUjM0dlF5?=
- =?utf-8?B?SFJRUFlJT3crZVVDbFB2Z3k4SDliUU90eW9ZanQ5bmRqVitFTXAyRkZLUzRk?=
- =?utf-8?B?V24zcStldG5yT2JISnh1VGRVWjhiMHp3Y1c3MW1pdTdRVFRmeWtsQmowTnI3?=
- =?utf-8?B?Q1Y5RnBkeWIzRjZFSGZTaUlYaE5KTjNSU2JQaWZUeStJdGNUMUVzZz09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7052c31-f176-4839-abee-08de8ff286bd
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:28:13.9409
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NH7Z09LyQ6eDsKc5pS2JBl++0iejE+oFHhupkoHi53BqIVHONGa0erT2BaLIi2lK/vgqE9FxUiOuwrlo+W2JCg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO4P265MB6837
+References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-2-ojeda@kernel.org>
+ <DHHUQRB9ZL54.VQZ7OUZNSYDS@garyguo.net>
+In-Reply-To: <DHHUQRB9ZL54.VQZ7OUZNSYDS@garyguo.net>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Wed, 1 Apr 2026 15:31:36 +0200
+X-Gm-Features: AQROBzD4KmXruNHpjUyy0X5nLhLhXQUuTTY9eP3fb4LBTyRyQ4wVkUjvlUGGI0w
+Message-ID: <CANiq72=FBbJ--jrzYyKe3T56YqT5eU+0DXzPG3Ho7a+D9rfu=Q@mail.gmail.com>
+Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to 1.85.0
+ (Debian Trixie)
+To: Gary Guo <gary@garyguo.net>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
+	Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
+	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_062820_675666_29875F5A 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20260401_143152_446357_FB4F1805 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,87 +150,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
-> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
-> we are going to follow Debian Stable's Rust versions as our minimum
-> supported version.
->
-> Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
-> still uses to this day [3] (i.e. no update to Rust 1.85.1).
->
-> Debian Trixie's release happened on 2025-08-09 [4], which means that a
-> fair amount of time has passed since its release for kernel developers
-> to upgrade.
->
-> Thus bump the minimum to the new version.
->
-> Then, in later commits, clean up most of the workarounds and other bits
-> that this upgrade of the minimum allows us.
->
-> pin-init was left as-is since the patches come from upstream. And the
-> vendored crates are unmodified, since we do not want to change those.
->
-> Note that the minimum LLVM major version for Rust 1.85.0 is LLVM 18 (the
-> Rust upstream binaries use LLVM 19.1.7), thus e.g. `RUSTC_LLVM_VERSION`
-> tests can also be updated, but there are no suitable ones to simplify.
->
-> Ubuntu 25.10 also has a recent enough Rust toolchain [5], and they also
-> provide versioned packages with a Rust 1.85.1 toolchain even back to
-> Ubuntu 22.04 LTS [6].
->
-> Link: https://lwn.net/Articles/1050174/ [1]
-> Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.html#desktops-and-well-known-packages [2]
-> Link: https://packages.debian.org/trixie/rustc [3]
-> Link: https://www.debian.org/releases/trixie/ [4]
-> Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=rustc [5]
-> Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [6]
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> ---
->  Documentation/process/changes.rst | 2 +-
->  scripts/min-tool-version.sh       | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
-> index 6b373e193548..474594bd4831 100644
-> --- a/Documentation/process/changes.rst
-> +++ b/Documentation/process/changes.rst
-
-This diff fails to apply on linux-next, due to conflict with ece7e57afd51
-("docs: changes.rst and ver_linux: sort the lists").
-
-Best,
-Gary
-
-> @@ -31,7 +31,7 @@ you probably needn't concern yourself with pcmciautils.
->  ====================== ===============  ========================================
->  GNU C                  8.1              gcc --version
->  Clang/LLVM (optional)  15.0.0           clang --version
-> -Rust (optional)        1.78.0           rustc --version
-> +Rust (optional)        1.85.0           rustc --version
->  bindgen (optional)     0.65.1           bindgen --version
->  GNU make               4.0              make --version
->  bash                   4.2              bash --version
-> diff --git a/scripts/min-tool-version.sh b/scripts/min-tool-version.sh
-> index 99b5575c1ef7..a270ec761f64 100755
-> --- a/scripts/min-tool-version.sh
-> +++ b/scripts/min-tool-version.sh
-> @@ -31,7 +31,7 @@ llvm)
->  	fi
->  	;;
->  rustc)
-> -	echo 1.78.0
-> +	echo 1.85.0
->  	;;
->  bindgen)
->  	echo 0.65.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBBcHIgMSwgMjAyNiBhdCAzOjI44oCvUE0gR2FyeSBHdW8gPGdhcnlAZ2FyeWd1by5u
+ZXQ+IHdyb3RlOgo+Cj4gVGhpcyBkaWZmIGZhaWxzIHRvIGFwcGx5IG9uIGxpbnV4LW5leHQsIGR1
+ZSB0byBjb25mbGljdCB3aXRoIGVjZTdlNTdhZmQ1MQo+ICgiZG9jczogY2hhbmdlcy5yc3QgYW5k
+IHZlcl9saW51eDogc29ydCB0aGUgbGlzdHMiKS4KClllYWgsIHNvcnJ5LCBJIHNob3VsZCBoYXZl
+IGFkZGVkIGAtLWJhc2UtY29tbWl0YCAtLSBpdCBpcyBgcnVzdC1uZXh0YCwKaS5lLiAzYTI0ODZj
+YzFkYTUgKCJrYnVpbGQ6IHJ1c3Q6IHByb3ZpZGUgYW4gb3B0aW9uIHRvIGlubGluZSBDCmhlbHBl
+cnMgaW50byBSdXN0IikuCgpUaGVyZSB3aWxsIGJlIG90aGVyIGNvbmZsaWN0cyB0b28sIGUuZy4g
+aW4gdGhlIGxpc3Qgb2YgZmVhdHVyZXMgaW4KYHNjcmlwdHMvTWFrZWZpbGUuYnVpbGRgLgoKQ2hl
+ZXJzLApNaWd1ZWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
