@@ -4,116 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20750D3517A
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C10AD35177
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 12:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yZhg2Uwb62X3ObVgyK2hTri/rkJr1qoJBij5uI4iyP4=; b=5AizvX6r0lK4If
-	yGjgLKRi6Q8jeR9GaWnkioTiNbSXDYGNYFKBzvM2jV39rmMxrArf/QPnSjLUur/hOUMTGqIOo7A85
-	hMxbaABoFJsFu/Rz46TrWM2ckUaTMUlfH4JhENuARkOCLnsY/VeWg76FuhSElbfLOvIp4DoqEb6I1
-	OVCsCFGhvE/0y8UK1spUI1nCOiRgS7V9uVJZLfomzWzp6lG2nD7JyH91xH6r87MaiLBpUhCZDnF8P
-	Lct0EsB4faEtK56HSi+Y7uZRengU9rakDDSoTOhHw4sGw3MyA8NzL2nUIkDM9olcR1Aw5uvclqK+3
-	CLrr+d0C+PZB0aWfsyFw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oc6Ew69puDu3K9Uge0ZaZd9aYHmnN2LrPYFOccdJNuw=; b=Rak0JdCNp8DigG3EbNX+vNkeuM
+	wYshzYHKAH/ztHHppgaCpfx/KwXGobMvfquGXw6o089PEz/4M48ZthFAph2XLuVXDENpZjwMIc6pb
+	QqYj3Gqvts3RrNhqf/3lGdbYqsYEJIRcRXPEpKt4osAjO7kBg3e7YJE8HPq7KHWwW/VCtEsEgwto+
+	QfoptJQlCpkoP+dJ5tFJ1n5hW2/wu/BMRxBjKaReQ1rZVHVXRACYnM3SaApD2u6eGuznWSB4HwRfR
+	Q0rNGx/CusHqirQr/1FAJDTK2ncYXPb/7yzCNPIC8GeKNfyRcWJrDVwODyxuLTXfUASQ6ArVtIeIo
+	2mT53Heg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u7k-0000000Ekot-2cgr;
-	Wed, 01 Apr 2026 11:52:40 +0000
+	id 1w7uni-0000000FB5w-2NMW;
+	Wed, 01 Apr 2026 12:36:02 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u7i-0000000EkmW-1mvz;
-	Wed, 01 Apr 2026 11:52:38 +0000
+	id 1w7uRo-0000000EuFc-0iUk
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 01 Apr 2026 12:13:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=HE89pqyRZix4hwK5R5aBac1yReoh+t6e8O8dTFuGWvU=; b=ZHiuyaiq+ZvNJH/KT9xP826xtV
-	V4UGfuZdnr0E+gxchg+cuUe06zdNTbPt9MCZLCWqha1uUVNFmWRqRW8zLJHr8DYlsav0Wdwztq4Uv
-	8kVeV8YA5ZkXnRDxgiyxbnmTh3L3RvHZRU3vJqDEWXS04zP4nSW+/ATY7f2K9HZjZjYEdoFe3TUF6
-	rr0pCTvo3FxOOBNBd6yJwq+V8djlJbR+LSG17U9Q5PjWJ1vebgaiQ/myXZVs0W/bBIKwTU+4dtsw8
-	TMmX0N0G/MCC8ihiEJmPdsQSYWtfc9hdU3cVGcBT/1X+PMXabmYfk0mJcKFeoO93VSrZmfbPEvaSN
-	hgBmFkXg==;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KJhQIZeVkIrhOM7OqSbKMruxwd2qCLEXuLSacKa0N3s=; b=LhzktUKhVO44BXgJloCW0YVjlu
+	CaSs2hk9lk67fmK5YzuY88T+IA7V8Y0CdseA7gkjRlz0MM8CIteMWC6+MRKhO9+f1p4UjY9UJgXpu
+	f/aupeVigBsCcvoWLvPnPH7mmplw7n2CCygVdsIWZ7Tgldc3GkiP1dK66YpWqA8dDnSfzfWBHYlae
+	d+IQgc+w9Vgc05zSYE4a4uS4rw7Y+ZRveGLDj6fd4VMwJzCMtiYw1673/ScU5XnZKm/oiDqyvgd8A
+	hn8R0qOhwtXnO1nVRCB1EhMwqOQgwueIPrQ8T/50lybqNTVMZnOoUK+M+kXdUyzb8tfiWx6FxLYgK
+	+k7kAg7Q==;
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u7f-00000000GIZ-0fT3;
-	Wed, 01 Apr 2026 11:52:37 +0000
+	id 1w7uRk-00000000JA6-42iD
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Apr 2026 12:13:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C15FF40914;
-	Wed,  1 Apr 2026 11:52:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D18AC116C6;
-	Wed,  1 Apr 2026 11:52:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F671408C5
+	for <linux-riscv@lists.infradead.org>; Wed,  1 Apr 2026 12:13:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A39CC4CEF7;
+	Wed,  1 Apr 2026 12:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044353;
-	bh=63eNaBb7HhBHNGZHs2ck4m5j8n+byLJscGHPx3NKsmQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=P4KiRkYx+9pR8FcDn58eZ58Tl+l8DaXIaKnBFFMxFh3P+IXQUnqgEGZH8vAunNvs4
-	 BLd1TybjNwHbXADCPR4z7Vj6dtmKy7ji1oU2bzwWLnPbbnFVZYCEMjSB2UQpls/Ouo
-	 pYPJfGFA7EPUSZecOxj+EVb7CtgpF1zN5Tw8IewblUNyc/Ie7LYX5Lt+C5FMZplSJ6
-	 xbIWlfeyv6YRSlqqa7C9IoWKbjP/NbQH9T4QOWe/CgvypooqpdHo0TWO2wHyf2zcvI
-	 RVJtUt/y5WBbMgeocVhCwVhlVD3aiintQfQGjzicRa8XTpUjFXmucwr/KWim4JVpaV
-	 E6XIy24XYnOiA==
-From: Miguel Ojeda <ojeda@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	David Gow <david@davidgow.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?= <arve@android.com>,
-	Todd Kjos <tkjos@android.com>,
-	Christian Brauner <christian@brauner.io>,
-	Carlos Llamas <cmllamas@google.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	rust-for-linux@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	linux-block@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers),
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	nouveau@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	Rae Moar <raemoar63@gmail.com>,
-	linux-kselftest@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH 33/33] rust: kbuild: allow `clippy::precedence` for Rust < 1.86.0
-Date: Wed,  1 Apr 2026 13:45:40 +0200
-Message-ID: <20260401114540.30108-34-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
-References: <20260401114540.30108-1-ojeda@kernel.org>
+	s=k20201202; t=1775045596;
+	bh=6br/MLePdMI3AkPJbIOmW9UoWVIoX/scxBnPpD+TQBA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d9Q/Yehy+MCwQqApK5wqRTtUjb7sPykHR74PeUlkOjbo6qRI9wnfELafl/3pUOb1h
+	 p73wYJWDVCGDuIPlCg8r4nkwNdTkcUJhmz0Dk7IrOAHiylMFeSK5qmD3OOffCuQec6
+	 lkzc0+nT2C2Q/VOZ2KGztDlkwj1zOvhnrXeWfaBSU7M4Jh+/J0zFMi/03EtLUu1f6X
+	 4inBTo7hKwG9+A+Y/ryQWaJ/FhVOnKS5Tgp2t2aFdYdXxw2kIdPGcEjmJ0JqiKmma6
+	 K4w2QbCahPetqz6EkRTkvbj46EJoPnHflFLmTIuh9ScGKaV4GYULn4V1YpLtGjvQEN
+	 h/1Z+crOOGdWg==
+Date: Wed, 1 Apr 2026 13:13:13 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: soc@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [GIT PULL] ~RISC-V~Microchip soc fixes for v7.0-rc6
+Message-ID: <20260401-proving-recede-80a274af26f7@spud>
+References: <20260326-vertebrae-relatable-adfa3baabfd6@spud>
+ <20260401-bold-positive-flounder-6e7b0d@quoll>
 MIME-Version: 1.0
+In-Reply-To: <20260401-bold-positive-flounder-6e7b0d@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_125235_501150_02718C26 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20260401_131321_268967_9F18ED14 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,94 +82,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7911532171682989383=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Clippy `precedence` lint was extended in Rust 1.85.0 to include
-bitmasking and shift operations [1]. However, because it generated
-many hits, in Rust 1.86.0 it was split into a new `precedence_bits`
-lint which is not enabled by default [2].
 
-In other words, only Rust 1.85 has a different behavior. For instance,
-it reports:
+--===============7911532171682989383==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pT0cUuiUhHUhFJ/x"
+Content-Disposition: inline
 
-    warning: operator precedence can trip the unwary
-      --> drivers/gpu/nova-core/fb/hal/ga100.rs:16:5
-       |
-    16 | /     u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR::read(bar).adr_39_08()) << FLUSH_SYSMEM_ADDR_SHIFT
-    17 | |         | u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR_HI::read(bar).adr_63_40())
-    18 | |             << FLUSH_SYSMEM_ADDR_SHIFT_HI
-       | |_________________________________________^
-       |
-       = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence
-       = note: `-W clippy::precedence` implied by `-W clippy::all`
-       = help: to override `-W clippy::all` add `#[allow(clippy::precedence)]`
-    help: consider parenthesizing your expression
-       |
-    16 ~     (u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR::read(bar).adr_39_08()) << FLUSH_SYSMEM_ADDR_SHIFT) | (u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR_HI::read(bar).adr_63_40())
-    17 +             << FLUSH_SYSMEM_ADDR_SHIFT_HI)
-       |
 
-    warning: operator precedence can trip the unwary
-       --> drivers/gpu/nova-core/vbios.rs:511:17
-        |
-    511 | /                 u32::from(data[29]) << 24
-    512 | |                     | u32::from(data[28]) << 16
-    513 | |                     | u32::from(data[27]) << 8
-        | |______________________________________________^
-        |
-        = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence
-    help: consider parenthesizing your expression
-        |
-    511 ~                 u32::from(data[29]) << 24
-    512 +                     | u32::from(data[28]) << 16 | (u32::from(data[27]) << 8)
-        |
+--pT0cUuiUhHUhFJ/x
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-    warning: operator precedence can trip the unwary
-       --> drivers/gpu/nova-core/vbios.rs:511:17
-        |
-    511 | /                 u32::from(data[29]) << 24
-    512 | |                     | u32::from(data[28]) << 16
-        | |_______________________________________________^ help: consider parenthesizing your expression: `(u32::from(data[29]) << 24) | (u32::from(data[28]) << 16)`
-        |
-        = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence
+On Wed, Apr 01, 2026 at 01:44:04PM +0200, Krzysztof Kozlowski wrote:
+> On Thu, Mar 26, 2026 at 11:21:39AM +0000, Conor Dooley wrote:
+> > Hey folks,
+> >=20
+> > Another small PR here, worth pointing out that the exact contents has
+> > been in linux-next but not as these commit hashes yet, I squashed a
+> > fixup patch just now that I hadn't realised got pushed without being
+> > squashed. Might be worth letting it marinate for a few days if that's
+> > a concern.
+> >=20
+> > Cheers,
+> > Conor.
+> >=20
+> > The following changes since commit 0528a348b04b327a4611e29589beb4c9ae81=
+304a:
+> >=20
+> >   cache: ax45mp: Fix device node reference leak in ax45mp_cache_init() =
+(2026-02-06 19:54:40 +0000)
+> >=20
+> > are available in the Git repository at:
+> >=20
+> >   https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags=
+/riscv-soc-fixes-for-v7.0-rc6
+> >=20
+> > for you to fetch changes up to c7596f9001e2b83293e3658e4e1addde69bb335d:
+> >=20
+> >   firmware: microchip: fail auto-update probe if no flash found (2026-0=
+3-26 11:14:11 +0000)
+>=20
+> Thanks, applied
+>=20
+> Probably better if the fixes branch would move to v7.0-rc1, not
+> continuing the v6.19.
 
-While so far we try our best to keep all versions Clippy-clean, the
-minimum (which is now Rust 1.85.0 after the bump) and the latest stable
-are the most important ones; and this may be considered "false positives"
-with respect to the behavior in other versions.
+Yeah, I probably could have moved it to a -rc, cos there was some
+fiddling about when my week2 merge window fixes PR got merged I opted to
+leave my branch on top of that tag, lest there are conflicts caused by
+later fixes patches. Ordinarily, I fast forward to -rc1.
 
-Thus allow this lint for this version using the per-version flags
-mechanism introduced in the previous commit.
+Thanks,
+Conor.
 
-Link: https://github.com/rust-lang/rust-clippy/issues/14097 [1]
-Link: https://github.com/rust-lang/rust-clippy/pull/14115 [2]
-Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
----
- Makefile | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+--pT0cUuiUhHUhFJ/x
+Content-Type: application/pgp-signature; name="signature.asc"
 
-diff --git a/Makefile b/Makefile
-index 20c8179d96ee..a0d6ed050c8a 100644
---- a/Makefile
-+++ b/Makefile
-@@ -836,7 +836,8 @@ export WARN_ON_UNUSED_TRACEPOINTS
- 
- # Per-version Rust flags. These are like `rust_common_flags`, but may
- # depend on the Rust compiler version (e.g. using `rustc-min-version`).
--rust_common_flags_per_version :=
-+rust_common_flags_per_version := \
-+    $(if $(call rustc-min-version,108600),,-Aclippy::precedence)
- 
- rust_common_flags += $(rust_common_flags_per_version)
- KBUILD_HOSTRUSTFLAGS += $(rust_common_flags_per_version)
--- 
-2.53.0
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCac0L1AAKCRB4tDGHoIJi
+0j/5AQCWgbbodhrF2m/5RCiOWgYx4FeqAmURWJ5fRsnGdvRshgEAoODMTonwPO9k
+5q9LlitJftSma4GUt8JDxbtcNpwEKgk=
+=nKh7
+-----END PGP SIGNATURE-----
+
+--pT0cUuiUhHUhFJ/x--
+
+
+--===============7911532171682989383==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7911532171682989383==--
+
