@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB74D35162
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A0AD35162
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=etH1WCUrt6EbDjiczkTiEBsK2OOHgTNDPdocLNyJbsc=; b=MBKc0KoPOqxwCk
-	chzAJQcXi0bR38FfTvTWIVkf+r3aRN/EE07wo5v/oe4umyarmn6jd7wUd9/G8dt+SFA9e57aQDRHy
-	VLpx1C40Dw6090fWo9DmEnMrUHUZN2DXX8M1W0J825AAIk0aUy/U7ed+C6jOnHIPWVQ9yWlbjZksa
-	pDbaeOFs391WU1w/GztRNSAcN4fcVGQ2HpgJBiAeK/XPgDxwkmtKsbEXq2UNU4CHUnc2QJmEJSFVv
-	UVbMaSAzqy4rQxbkxP+uGaw6GKIaExe3dWxrb8Nj9RMrO4n8wV628h5P07zCq8CoRzJiCoahEUQiP
-	AQcPRsY8AzCTNEs7Q/4Q==;
+	List-Owner; bh=WUEB1AhLuFSVde2u0vgVQXDMa0h105pcz0Eddmb1f/g=; b=2fslvaH3O214qg
+	P3f5J/2JIA/5lR9LKBEGS3D93iDmG7V/5Pfap9HxD0kVYZuFtgTCRnZIOekuBBBt7eB4nt+aTp4Up
+	PCwyKZIsyzO5S/llVZ6nUxg//YaH+vMQlglr6Z/tHxeLiOuAHo1WJDNXDwGrLeX5qZS+b5E4pMcPy
+	Nd3k6DLAreupC2tSVpLuUemaiu6rfmPOIDfcx6/IY7dAhA0ONU9+s7FsiXaX8f2k8NB1bn2No3tp/
+	9sVum6KZlqQBZ3f59Oy7eDiin8vK2Cy4vPys/o5P0fDdzQHcUBcJoKkd3efae5q+au42P8YsBe/hH
+	tIH6xh2oQndRySBq7lCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u5D-0000000Eiav-0Fy5;
-	Wed, 01 Apr 2026 11:50:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7u5T-0000000EipE-0LbW;
+	Wed, 01 Apr 2026 11:50:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u5A-0000000EiYB-3JTN;
-	Wed, 01 Apr 2026 11:50:00 +0000
+	id 1w7u5R-0000000EinL-0vyu;
+	Wed, 01 Apr 2026 11:50:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=n0NBfAnIQSN6Y7GA4eu7XZT+oa2B4bEOQjyXTTgYNgI=; b=klUmzbW8aoTRXnb+ZCX+GoWIya
+	lkK5eLQBkbd7YHUE6mh8EdgQgLsYND+KojNZv4a4w+KJebxb15OSfRVFb4k90a5W6rFunWDur9tcm
+	gg1MHAL4UGSx+kd9FFBfIKfOHMfxryuZpG6Pbr/RTQY9zktBHAR/cRf4/ahd0DGMm2IPeg0I4f88g
+	Lvtzt0I8sOE1U7W6JgbMS7Isp3AuAby032yyuhBUHqpCRsUEFOdYQHvE3+/5hhV3V61qOAeGMEyFN
+	/5CPjyog3s45pZ9pDcdutS+eRY3IgtU8UlWok/ovpX5lp9PImKpyHPSzjQm/3Jz9PCJsed9xhm9SR
+	U56eJQPw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7u5M-00000000FNw-3rHM;
+	Wed, 01 Apr 2026 11:50:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CAC6560154;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9BFD0407BD;
+	Wed,  1 Apr 2026 11:50:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A1EFC4AF09;
 	Wed,  1 Apr 2026 11:49:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A22C4CEF7;
-	Wed,  1 Apr 2026 11:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044199;
-	bh=wcbQRLM9qTKpTFYFEosr/1QG1mBAWkf0/gok9PQzPf0=;
+	s=k20201202; t=1775044211;
+	bh=iISLHJsJQiyE5V1a4iQF3ymUr2P6zTU39tNtCIX5lU0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KLZvlL/XgCiazZjeX/Y8Xsx+YBTjea4SwD1HWIceKRTwgPjL3m8jDIKob1H4JBDVK
-	 Qv/gfay0rXXO8p6eOYCpHlnWtMyICts5OWSd/EChkJgjnopuAIv2sUN1fDAaxML48n
-	 9TIoL+dFCzSt6wkaesp6HqT6gd69LLUqI/fxVyWnZIsvBy/1WzuOrn5BZUxz1qMYIo
-	 gaQDh06efSy/bIy5G9jpxAOh5JyNttJWHRH4Q+dopWG8qMbViy2UJZMZeohpUyx+Jz
-	 +RDMOn+Rr4uDTVxWPo738niiObo6baL76z0Nght9kLTnVeXGgAA20Xj4aKleoK+drH
-	 N2UWk3KxrLXug==
+	b=JwH43iMXpXDQcRy4+AMfSoYea42pNLVjzuMUPXqV9lyKyZIS7rRAiS9cIgTsQsdyd
+	 j6B+J+/pu75uzOpJdnOhGJFNMudRyhbVI5dSzB4BiQVbTcwkXAFXR8xUeur9CaaAtt
+	 JILD8rNL8BETCD7dVZ00oT076Wj2GzJGGKGV6CXrVenq2zJx1Lq8ByMqTLw1UKAF4R
+	 wf7/Ah1lAE4c15DAF/slU0ZwiQvEKjx+rSuvc5YXtnnEw53F1u8bcFjkR9SONe1CBC
+	 +R4ZEzhNp4MYwVjW3Cv+ubljVX44Z9Rv2JtwQix1BCDgnfWCo1kCfKXLTfhQHkzxsH
+	 iTdb7Dl5K7QVw==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -91,12 +105,16 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 20/33] rust: kbuild: remove unneeded old `allow`s for generated layout tests
-Date: Wed,  1 Apr 2026 13:45:27 +0200
-Message-ID: <20260401114540.30108-21-ojeda@kernel.org>
+Subject: [PATCH 21/33] gpu: nova-core: bindings: remove unneeded `cfg_attr`
+Date: Wed,  1 Apr 2026 13:45:28 +0200
+Message-ID: <20260401114540.30108-22-ojeda@kernel.org>
 In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_125014_703529_5399A4ED 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,50 +131,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The issue that required `allow`s for `cfg(test)` code generated by
-`bindgen` for layout testing was fixed back in `bindgen` 0.60.0 [1],
-so it could have been removed even before the version bump, but it does
-not hurt.
+These were likely copied from the `bindings` and `uapi` crates, but are
+unneeded since there are no `cfg(test)`s in the bindings.
 
-Thus remove it now.
+In addition, the issue that triggered the addition in those crates
+originally is also fixed in `bindgen` (please see the previous commit).
 
-Link: https://github.com/rust-lang/rust-bindgen/pull/2203 [1]
+Thus remove them.
+
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- rust/bindings/lib.rs | 4 ----
- rust/uapi/lib.rs     | 4 ----
- 2 files changed, 8 deletions(-)
+ drivers/gpu/nova-core/gsp/fw/r570_144.rs | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/rust/bindings/lib.rs b/rust/bindings/lib.rs
-index 19f57c5b2fa2..e18c160dad17 100644
---- a/rust/bindings/lib.rs
-+++ b/rust/bindings/lib.rs
-@@ -9,10 +9,6 @@
- //! using this crate.
+diff --git a/drivers/gpu/nova-core/gsp/fw/r570_144.rs b/drivers/gpu/nova-core/gsp/fw/r570_144.rs
+index e99d315ae74c..2e6f0d298756 100644
+--- a/drivers/gpu/nova-core/gsp/fw/r570_144.rs
++++ b/drivers/gpu/nova-core/gsp/fw/r570_144.rs
+@@ -7,9 +7,6 @@
+ //! This module may not be directly used. Please abstract or re-export the needed symbols in the
+ //! parent module instead.
  
- #![no_std]
--// See <https://github.com/rust-lang/rust-bindgen/issues/1651>.
 -#![cfg_attr(test, allow(deref_nullptr))]
 -#![cfg_attr(test, allow(unaligned_references))]
 -#![cfg_attr(test, allow(unsafe_op_in_unsafe_fn))]
  #![allow(
+     dead_code,
      clippy::all,
-     missing_docs,
-diff --git a/rust/uapi/lib.rs b/rust/uapi/lib.rs
-index 1d5fd9efb93e..821e286e0daa 100644
---- a/rust/uapi/lib.rs
-+++ b/rust/uapi/lib.rs
-@@ -8,10 +8,6 @@
- //! userspace APIs.
- 
- #![no_std]
--// See <https://github.com/rust-lang/rust-bindgen/issues/1651>.
--#![cfg_attr(test, allow(deref_nullptr))]
--#![cfg_attr(test, allow(unaligned_references))]
--#![cfg_attr(test, allow(unsafe_op_in_unsafe_fn))]
- #![allow(
-     clippy::all,
-     clippy::cast_lossless,
 -- 
 2.53.0
 
