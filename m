@@ -4,150 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD231076386
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 17:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC911076389
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 17:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zYYOvIre6kHNzXAWR70BTj5g9WiLdweDPr4uSeVmZXQ=; b=C8K5AVRhSHzeA2
-	hXSgtUmvWChmPqVyb9liPVWR4LlCAuUY/uUf9p3cBY4HU8VDCEb+Qv3sNjPmNcJagqHB1H7yxTocN
-	QVQLhaEa+gyk9CvGN/88i3RP1+NyOABulG0+H4ueDJKCtLp/at4lXT/GO+PTjsEMaNC/Q11Nbov8O
-	2vz1Kg4KWp7jbzi+whaUhMbRNh0GmqOTZf94m9YOvzQjb6y2g6gUJDHueyPb8a04pkRGn4qaEIHGr
-	ayse7oz9Vj7gGe/d3Tvk97WLzYCjp4t8y80WBQ2xgHyAzSr/YyG3LonTRp9tA2BGsEUn+Y0znlJuI
-	EDmlapO8DYVYstOcWvwQ==;
+	List-Owner; bh=Oogmcqiu2YosCCi5XxuiO5sOBGw29/ODb7vapO6DcDo=; b=aNhorDpjsfuyrn
+	Xu168XYI1aLLcCPtSSfl0DV3SqQmVBe/vh0NidXL6fmbqK/lDJFjrXwiemlV43G5d0CZaGQQHLIym
+	tvkzXa1IRb2H9zXBILc3iCUBP6n/SvZdxBJ9GuFlOiLAAgP8KeCX0IqRxAa+cNGoKS/okovcTBBdh
+	/h1VgZagGVl0/qKHsHOEmvDwz/hrJPw2qxE9WBYWD8E85CrIhOhcUYYDBDz8lzQgI12qG8xrPkA8Q
+	T+S9I1aqUmuNZGj2CQlQPBCzewseJDeR3s4b8pouNNzqoex5uFwr+MzLNPpuGJDhhOvt5QtwtZzdi
+	M4mzdc/UtCFOngGgOcdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7z6y-0000000Fp4n-0SSQ;
-	Wed, 01 Apr 2026 17:12:12 +0000
-Received: from mail-westusazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d001::1] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1w7zUj-0000000FrQN-47oN;
+	Wed, 01 Apr 2026 17:36:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7z6v-0000000Fp44-1UOq;
-	Wed, 01 Apr 2026 17:12:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fz2Vwo6t4m2PCCb3fLado9rjYZnD2KMwGqlzhCnvi0XU8SrK6fvC73UX4t99XoDiAFt4vtuVMKfS0VE3HJ8bMv9MGdkKoCIVru5izh5z9yPBbHqYyv2Y5iJfKLjZpRIyPXuUv0XtbsUNz1xfjgntt3utKEJRCTp2W4swLl51wiVLdwU1wnS+84K844Cu3quAx8g4TjLljnCFAWsdCQ4WjXNc4l9DHJhesSD30pxCrqVt6lqBAsAW9vuqlj3QlUp3zRKwAYJrYKXLxei7u0nk+DqODJmd4P4HXN9rll6aLrmH4KbyZcNZXtboGSrOokuRFdUop4cCtDfiYVlurfZyNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xo6+N6+VCrJRYzXtm6SF+5TNIUrSiBCHYfB9eXITMCA=;
- b=VesAVe8U2J4w0L+m7ZJ8LeKm0SFeFvDqs+QXr5LLsktWcOIaHxCo7GYgGah3wLUNToaTlr70CP/IsxwYlEPWra4pkdUVnod3OJcXuBtPl97Ibd6ipRU2B7GAiLANneNTX9YiHGcOL3LzCvkiRokbVypI7yLF4LzVkjhSD8fOXtzbFA6xv+LpU6PJJCtzPeEV+C4h2giV9X1trzykRPwZJNDImwRqsTEurhX3v/Fegi8j13VjD61M5/+7sQIZbDVTwTxd8W2F78V2l+T8kGMMSXjUTaEB/tJQdqy3q1QvnP6X1puvaHZ1y8sx2osHAUBiDascIJKcN74//P7cB8jkiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xo6+N6+VCrJRYzXtm6SF+5TNIUrSiBCHYfB9eXITMCA=;
- b=JWwB0+Vr4f9QBpD84/xmJONnuy9NTg95mZtBhT2k2z7CYJ8brvYNEZIZsemjYxPEOJ+F5HC1JSIWiWbrT2smNI6gGqfo6uD808lKdYqGK3zGgIY3yqhvdY3KLz1sTuCV7T90Gl7vvTsBwfQpqImJV2eY2a79fBUkQ4Ccd7h+xG5HgzBBTtSizDw+JmUcX8SBl6bijheSG+R6lh7l3Pxkvbqa3i9W49+ZSORj3eDDofB1nXL5kisxm7kcvJ4FKxlzb/uqFjK2l9hIVABEqDHXjtV34Af4cA1eApAj4NpsOPF3R3B2UnMP+xONmwRhbzhzhs8T9FCjNb8dvISkVTJGNQ==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by MN2PR02MB6701.namprd02.prod.outlook.com (2603:10b6:208:1d3::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 1 Apr
- 2026 16:56:34 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 16:56:34 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
-	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
-	<wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li
-	<longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H . Peter
- Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, mrigendrachaubey
-	<mrigendra.chaubey@gmail.com>, "ssengar@linux.microsoft.com"
-	<ssengar@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH 04/11] Drivers: hv: Refactor mshv_vtl for ARM64 support to
- be added
-Thread-Topic: [PATCH 04/11] Drivers: hv: Refactor mshv_vtl for ARM64 support
- to be added
-Thread-Index: AQHctT5V2BuRVBWyKkCpWfaIbANGJbXKhn/g
-Date: Wed, 1 Apr 2026 16:56:34 +0000
-Message-ID: <SN6PR02MB41573C4A21BA96A534E5429CD450A@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260316121241.910764-1-namjain@linux.microsoft.com>
- <20260316121241.910764-5-namjain@linux.microsoft.com>
-In-Reply-To: <20260316121241.910764-5-namjain@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MN2PR02MB6701:EE_
-x-ms-office365-filtering-correlation-id: c79b5d5b-b5ba-4c3a-3ba4-08de900fa175
-x-ms-exchange-slblob-mailprops: znQPCv1HvwXZ5XHxNrJCjRnjimRBgM6SHOTtrW+lBXVoS+Ao++RiO/3/Eqn5LMb+M6lQ2y8Pje8T9KuKx8ZL0u93Ez8xcbLpP+D5aHB7SmBY7rffJWax9HDOjGf9mqYNHkF6bJDk9p1TRChZxgdpIPmJRW2ljBzy8h38NzMxgTNxLcdRUPkg+SeBw5ovDamYMldcLXFJdTEYiUpUlcjo4xZ7Wmf9SbasJn2mMbsK3aEWkUYzzNcyr0YL+sAAkm26phxMsuXiCZ7FohngeIz3KIOQmGcdqGNTB6PINs+kDy2qYXFRG5rjcUi5XEAbw3jvRUFTaG1gd9ZpIGpySTNPu2B+YT0UX8Y65LLZZKxFVy/uj/7up5NrwKyxHWRtphxTpl5XYyi8lXaCtFjdYBbi++uwZln42ZnwrNNtWRYDw2NkKPkDP/Wiz3cvc4fzrgj8EukBnnHNInYz9ilAYUdNeKo5bKEynuRu1c2Ak4uf/BoI23u9wyI+qe6+tN3ZgFb9LFllqv5rYAv8ZthxmbpQU9EF+eEPa8n+eXr9cmDtsaT5kM+26IGjzjWJ2BDT+KDWXv6/ORDKlCLIO6pIbEn9Taa8zRJaE+/RCa+27EUlgCNuOloRB1NYGYpGDa0b6TWYHDs/0r5Hs7VOpg+ZBdnXQWTLNeHxMWfPhsK1ZgVjOsziswwhacBGF0aAMTMDwxYr2aX2AqAy7E5WuxibC51nYKRy0ubSdjvYjfY2+lKRht5/WruvyUOJvv4QKowQueUYgt4n7iFV4fw=
-x-microsoft-antispam: BCL:0;ARA:14566002|8060799015|8062599012|19110799012|37011999003|31061999003|461199028|41001999006|51005399006|15080799012|13091999003|440099028|3412199025|26121999003|102099032|40105399003|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Ne+eZC/tVYEGQBa4rGD6c/xp3ZCwrRwbXNsUftwgBsdTXlLV6+2AGBRWAQdN?=
- =?us-ascii?Q?UWUwST4ml0KLfeJyLF2usMU6h/e5QxSjFiKX0cZanONA2bUqM4cjsWELv7Od?=
- =?us-ascii?Q?Lnx4j3HXUc4i0/p2lmcVmC+hKLulDU7CCL7xqQ8KTHDRStT0Chuz+gQzCJAs?=
- =?us-ascii?Q?svBG6w9lgb4KrK1IXy5fWSoz/8vPuuD1Z/HCUXRPZjqk0MwqJOUXwXcMuD6E?=
- =?us-ascii?Q?bodbs0CC7kKCzAxh+8dwAvJGVcvU3EgfBHuv6V0bJl+DII1FzD/9cFrTknoK?=
- =?us-ascii?Q?in1/Z4ece5F25c5PakPZL5JJPo0LExirPyxMIws/m8BxE6llzlGrKBOqqZFd?=
- =?us-ascii?Q?wSlergAph/OSZlJ9F5hPWGW4X+LSFuvMZKe2afuLKaZJCqekXiT2UcYEvyO8?=
- =?us-ascii?Q?eHDoDZjeFUfYZyFepgE5PQqPp7hZKcXLh2lNggqcqBfrVXm6TMJCv6M/CT8h?=
- =?us-ascii?Q?588O+Ewo7+LJsBkLsrn1ov5OjQ+nHWQjuPeQV1PVvdPk1RlApXwgFlxakrYp?=
- =?us-ascii?Q?F2aK0kn8hEFAArpN06SlYbcUH9PlcietxQMrM3jPeBne3NmahwvAAelZDdLq?=
- =?us-ascii?Q?zmmAPU2vHewDILx8lr5RucTZPgYwyqpGcJcVX1WV99Tvsvh2a9Az6ijTvHTv?=
- =?us-ascii?Q?+KOAEO4C2WmGPrUY95kOj4leU5XAgn05SnaOMPO1ZLB/1/g/eN3OM/Y09qse?=
- =?us-ascii?Q?H9fXmFm2P8xs6YEEtDzw4JOUvr97h6czK0rYyrOuD/SBr2Ymta1jgGIz5AGC?=
- =?us-ascii?Q?hHeSPm2GlBFdmeRCuglpfVSdxOOyIFk0Jyfpm4EJOndHfzrTM9U4JvcTkQ0Y?=
- =?us-ascii?Q?AO3x5H5WBBMsrTQWZs7IcHvaSV0aYKx3pIiS58PRPrx3Hoer9ib5OMfCuZ+l?=
- =?us-ascii?Q?TAYkQTCfaB7rMmiKVoTgvlnq1+fJuVSuUjo4SgKWBn2cQfDnHZJDV1AHZlC8?=
- =?us-ascii?Q?WTMCciV9wpXDEaXIisCZGghVxX8DwIap1RC4T7pfMfmhFFWWB9IJgg0ODiTD?=
- =?us-ascii?Q?Z+r81D55edWxYpYRAjvD4cF1LHrakxQ4vx24wdFnS5z5tqqjHgWO+VRcr4Y7?=
- =?us-ascii?Q?k1cxcnLq?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Po8XvPk2QSNGDAN/4h7XtNAJsdNtrp7pxW0OaE0UE7PsBMWhC3iv5t4gUDlU?=
- =?us-ascii?Q?eE+l0FLRIKZz8/rHwnCTQgR4qHQi3DCXPmoqwM6Z2sQm/PnCCMK8dd0HTHQO?=
- =?us-ascii?Q?vaziy+7YNyurywODBrwsIVg4N9gsapxW7ICpwri2ablAY6XsicbueksTK3YZ?=
- =?us-ascii?Q?28XWQbbj4yNeChGVduNbqG7fMhYUKAfMFFCcMmk771y8z8DewHL1MgzIjiFa?=
- =?us-ascii?Q?SWE5OtfvvoA1Jw16+k0U+7HYqOh0nTDnyrtro0G7QeKEebFDIuMCOPBp9Bi7?=
- =?us-ascii?Q?Ue7/ufL1IRIrFiQiZiNqUGOoLKPf7mDpbNHtFcfHX6+xnGLtJrCRkSoP90gP?=
- =?us-ascii?Q?7Zm+qxIJlK2ek1NTEZGR3Pz7Yl6FBKllLDFVzmR2KSg5g6hq+rEd4LmFuprf?=
- =?us-ascii?Q?6EVE3bNu4XjCeHg8XZdxc8NglvxdbrQjfqFd59PWjhBC8xprm969gxhE0hsW?=
- =?us-ascii?Q?AAI57bSKjaMwY0uVP6UH4eOfoCEmlE7ttNxRLXj8MLp+FQTHtdOjeIOa9/CW?=
- =?us-ascii?Q?2qhEWiHDfJOEIZc0dO5bzH1MPf1Y9Mr+ba9XzXn3gm8rDRT46TW9xxRpj3LR?=
- =?us-ascii?Q?MCq5MR5nGwDfL8Fvf8aFVGSL+JrZ32HLPEhsvP0zI99F/2pBmYmOZ7UACnJy?=
- =?us-ascii?Q?84BZjn8ZUNHpcp4Kl9HYdgH1c2ZaKBhZhWMVeiQ8InrW/BM8g21WEmwL0ctF?=
- =?us-ascii?Q?bcU3V3ZfJdouT27evHn/8ThgagkO+HTEIOV84WEhG6JPwXaTlqJjTBq4dz+2?=
- =?us-ascii?Q?ClRrtHH9RAa5yZBDg7SHi9GhEGfdV+iEKsG/zjlojZ1sJj4Gs4fReQcmI+Lf?=
- =?us-ascii?Q?8qPesWx7Iz46tH5lr8EKziK6Slrg8A2a+uRP430F5iFyd40AgA1wszz2ViG8?=
- =?us-ascii?Q?S/ZoIh32TuYqoy92eExWIgGtHGt41PRyErGWXRY/ZJEvtB08xlH8mphs/SwI?=
- =?us-ascii?Q?UFF9wHjtVibo1gmMIPnuiIj/W3oAeMgfnmFzBHkK4lcpIpEv7Cs1l2jnOc8G?=
- =?us-ascii?Q?mTQOxTQzcvawH01i6v1lizEDa71dP47yHY8hRq07Zpuuu4OSXx5BWg1P/DYb?=
- =?us-ascii?Q?aOWlnv+0jVqpa3yC0ENDCViTTRwSbwlTJs0jnbbHDPbIWOM6ZoWa8WjgASmL?=
- =?us-ascii?Q?+CE0opPQHKEwPOJFUrBPrecHaLJ1XM/rk30irMLNnDSRVpUkD6TKP7xER53t?=
- =?us-ascii?Q?Agb4hRHk3MSiU+rd7Glr9oSo2j7oBYQRdKkWULc78kzH4QTk+uvCioH5oZMK?=
- =?us-ascii?Q?lLf7OUNxWzfs9xpXNalxwve8IvY1SG3lPxX4WLiTBlOEuGvrBtO4g9LEiKKt?=
- =?us-ascii?Q?9veO2Kipj4KUHM6Fr61t7W0dcxLY7G21henQb1PGYJDgpxUIndhuXjoYiK9W?=
- =?us-ascii?Q?2FkNXfs=3D?=
+	id 1w7zUh-0000000FrPy-3i4u
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 01 Apr 2026 17:36:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=; b=OYyc/+nzIkA2nAzuw/4g4tm5A3
+	PvGoCH0JpCdkhq5yKxtK09dAQdo2EFIYotXoCLf4Rmnu+hoEOl1pkA6L2foI/tSAkqdLRSCxDoL97
+	ZZkKaU9rgheUz/JOiT03FBvqpYvd5lxD1hkfCskoe8GofvGtLkgtu3fiQXw0Puvouol2uGSJ2R/vP
+	dQUdXx0vVcKuglM1dReHenpa2d6SYIWvSqUa/YDoq6p0eMZyvOvlOAvwe8iIMg4SKngaVQeIALcLI
+	//qT1f+CXCpE4uGtLvbvcYXmR4YqYl0SNWK3/Udd+6Xd+lOSuxuu7Yso1HIYbsNi1xgSvGvHpW7h+
+	zfVHP+pA==;
+Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7zUe-000000011K7-3ecW
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Apr 2026 17:36:42 +0000
+Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-124a7216c9cso5560c88.0
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Apr 2026 10:36:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775064998; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AIcwAZIIUDRwPYc112gsVQpoK++Uusw0s9mddC/tRA/3V1H+cFJTkfmALyOtwNwrRS
+         GFWrrpsfEh4zAYFoK1gE3MgzrMwZOfYVUKH7CDbR+V8bLeTXbGyFhR/sXuYUeXeAst18
+         ZQT90cp35uQqHHi5shBRYmsZ5/dq/un6vzU2Gh/8ut1dV409yDGf4yqkTTt42dMTj1nK
+         KcF6/5qmK9Hn/FQvsxA0XkB8SgvjA4AK/c7Br3fDK1knaZMOqzjAwbydBBx2cfebtgen
+         UIa/0UTWSY/I3UH77Otk7eJ9llM4YHz3bpZOjZkt5p1a8E8Bc35TcVak9ZvMzCK15cQl
+         0oEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=;
+        fh=tL0sq/vPb4MnMSZOcGZfY3WL8QqEwtVJ++64AwSVk3g=;
+        b=RAOJFm33dQK28qeKf+XUdf543+A8lMvGRdu1EHXw1DDOsdGy4Hf6bkluM4Mfad3hBl
+         e5uQLZ4QB2wroCpBnG5JaUuZMrROe/uU4Uydtowe9kZgw+0FLLHkS5inX11u9k6TjX97
+         cyX6SMy6wC2TAxTq5Yn5yJnROUR2QfYnr3Seono07HcnJzywYzY8V3QFec+jOFK0wL1v
+         AoDV1W/7lsUaju26qzpeMck/fc4wm7OTOwS8yHM618FhpQx8imxiX24w4Vhg/zgeF/W8
+         WfhQ0xSgb8+OhBmXxNj+qeDe3JiD8IegWL99l81cn1+rwJtmNRUa0vJzV22KXwIJoWTZ
+         MzNg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775064998; x=1775669798; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=;
+        b=GkBCFewdTgEzJcAZ8RiLJvlTlOTXa/qqQgMztyQsMq64VdJBY4JSwtDq7Y60ow95MN
+         2V2JggLro89vqIpn7oy4R47ZWXKIP9Zg5KdBGmA/F2/KsG8Kn2i93MSbgPIz29ddpyq2
+         K4tPuXCJRnqIuYt2Kzwo9DwM2UYsvb6Td3mpWhX+vElyMk8PBsaSxUxY71y3wvLlBVzH
+         AS4yVlVFmxjsEzc2EHNZieK5BhgJKHKZEYrAbOjztP9/GT4lg2ov4yOJNRstRUynLOmO
+         K1jAwwx2I9G4cgdHyyQgBkVOqUUBWXp9dvcibI9Fk3FxK+JmK0z5PDQOZbfB4hSCpzot
+         WcLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775064998; x=1775669798;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=;
+        b=UfWmaQHnu0PP+92DC43LpuzhT3aAxvCYTxTUhDPvMKrhGAKOQk82KtlD8yosifuh0u
+         UkhQv2SxJxq6nBKv9c0RikKW1W4SQN0TU21m1bGq2TXMi9IlCqDKT5C8Vn692lql144P
+         TusM8UxDyDHaT63uh7Y0tUXJRjhju9+BjPruo843PNn2hZLtMF4DcNNNbksBZUs3JtKn
+         FhOG1zIA8QkPnzjg9aQE8Ekn51K7EnIG9xM2IVfpx42nN4T6PQyKZhTtLmUiwQvH+wcl
+         dfnTeCsz6RzhwghxpiQyLlyrnf99U3VXeMebCxuH3avXTyyZ/M157rXIIazt0SRLJFdF
+         Y5LA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVOi8i8bg8sXZBF8WuoE9M8SP3fv5P0jxReT+cP/sAZzcT4XhUpvCdMzK6iLH3KTnlt/uwK7jfQkrISw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YylgoJ0/8tHqLXK2YfqqZTb0phwJjTH6X00UGJdLHzRntFgO7Fx
+	8Gx6wcIr7Yaz2I+RmzagySzd0tERZouB2k9dnJknxejuJXqeYpm/K0da7beisw+5TLeUlvlP0rD
+	J+CKdjhX1UwQQe+RJCKViR4SR1R3/Q2A=
+X-Gm-Gg: ATEYQzwoBWWUaenZe+t+nkHtAq7xZlg5cTCA1FxLGMx0tSvFKK/RBmkhroVKJkzA3RB
+	G4VpW+aSw2xciKBxYu4OvzzwYjfnRsKPOutTjsDoYMR/VCr0wIvWXvBRe0tMVivwftd9U0artH7
+	y6DBK4c4m5svWYqc7hi4eGpVyntrhAuHMDHPp0/a5Sx+aeshMQreknIYTytiKCCXcEXhzelTKN4
+	kOaifWWP29fL/yliQX5B841+F67M09LjZsRpsAgBE3YaJvnPNxfVn5gjvp3B92gsYwWFcPDdhMO
+	b4d4pw6VJaEZVKsxfiiNqTmbZiPxmfmAUonRLxglOauzWYO+UtJu6fw/AKqj1+Jb2Zga8ul5GEx
+	fZPzZ227qUHK25GkrYwc7jbA=
+X-Received: by 2002:a05:693c:2c97:b0:2c7:2cac:8162 with SMTP id
+ 5a478bee46e88-2c9326aa500mr1010168eec.5.1775064998156; Wed, 01 Apr 2026
+ 10:36:38 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: c79b5d5b-b5ba-4c3a-3ba4-08de900fa175
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 16:56:34.0290
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR02MB6701
+References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-9-ojeda@kernel.org>
+ <DHHVEPJHLGDW.1E6KDP9BUFG5U@garyguo.net>
+In-Reply-To: <DHHVEPJHLGDW.1E6KDP9BUFG5U@garyguo.net>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Wed, 1 Apr 2026 19:36:25 +0200
+X-Gm-Features: AQROBzBeO_yfCUmMruxpBPrHPRt9Z-RBtWsQqT4MIRVUyc-eOkOj6bAx0WG8aNs
+Message-ID: <CANiq72mnnro6UD3SYgTOG+kipwkTBvbEAGH+jXUa3kLTUNje2A@mail.gmail.com>
+Subject: Re: [PATCH 08/33] rust: kbuild: simplify `--remap-path-prefix` workaround
+To: Gary Guo <gary@garyguo.net>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
+	Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
+	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_101209_398690_7A2CB778 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20260401_183641_011764_5B53B8FB 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,320 +148,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
-> 
-> Refactor MSHV_VTL driver to move some of the x86 specific code to arch
-> specific files, and add corresponding functions for arm64.
-> 
-> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
-> ---
->  arch/arm64/include/asm/mshyperv.h |  10 +++
->  arch/x86/hyperv/hv_vtl.c          |  98 ++++++++++++++++++++++++++++
->  arch/x86/include/asm/mshyperv.h   |   1 +
->  drivers/hv/mshv_vtl_main.c        | 102 +-----------------------------
->  4 files changed, 111 insertions(+), 100 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/mshyperv.h
-> b/arch/arm64/include/asm/mshyperv.h
-> index b721d3134ab6..804068e0941b 100644
-> --- a/arch/arm64/include/asm/mshyperv.h
-> +++ b/arch/arm64/include/asm/mshyperv.h
-> @@ -60,6 +60,16 @@ static inline u64 hv_get_non_nested_msr(unsigned int reg)
->  				ARM_SMCCC_SMC_64,		\
->  				ARM_SMCCC_OWNER_VENDOR_HYP,	\
->  				HV_SMCCC_FUNC_NUMBER)
-> +#ifdef CONFIG_HYPERV_VTL_MODE
-> +/*
-> + * Get/Set the register. If the function returns `1`, that must be done via
-> + * a hypercall. Returning `0` means success.
-> + */
-> +static inline int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u64 shared)
-> +{
-> +	return 1;
-> +}
-> +#endif
-> 
->  #include <asm-generic/mshyperv.h>
-> 
-> diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
-> index 9b6a9bc4ab76..72a0bb4ae0c7 100644
-> --- a/arch/x86/hyperv/hv_vtl.c
-> +++ b/arch/x86/hyperv/hv_vtl.c
-> @@ -17,6 +17,8 @@
->  #include <asm/realmode.h>
->  #include <asm/reboot.h>
->  #include <asm/smap.h>
-> +#include <uapi/asm/mtrr.h>
-> +#include <asm/debugreg.h>
->  #include <linux/export.h>
->  #include <../kernel/smpboot.h>
->  #include "../../kernel/fpu/legacy.h"
-> @@ -281,3 +283,99 @@ void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0)
->  	kernel_fpu_end();
->  }
->  EXPORT_SYMBOL(mshv_vtl_return_call);
-> +
-> +/* Static table mapping register names to their corresponding actions */
-> +static const struct {
-> +	enum hv_register_name reg_name;
-> +	int debug_reg_num;  /* -1 if not a debug register */
-> +	u32 msr_addr;       /* 0 if not an MSR */
-> +} reg_table[] = {
-> +	/* Debug registers */
-> +	{HV_X64_REGISTER_DR0, 0, 0},
-> +	{HV_X64_REGISTER_DR1, 1, 0},
-> +	{HV_X64_REGISTER_DR2, 2, 0},
-> +	{HV_X64_REGISTER_DR3, 3, 0},
-> +	{HV_X64_REGISTER_DR6, 6, 0},
-> +	/* MTRR MSRs */
-> +	{HV_X64_REGISTER_MSR_MTRR_CAP, -1, MSR_MTRRcap},
-> +	{HV_X64_REGISTER_MSR_MTRR_DEF_TYPE, -1, MSR_MTRRdefType},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE0, -1, MTRRphysBase_MSR(0)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE1, -1, MTRRphysBase_MSR(1)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE2, -1, MTRRphysBase_MSR(2)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE3, -1, MTRRphysBase_MSR(3)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE4, -1, MTRRphysBase_MSR(4)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE5, -1, MTRRphysBase_MSR(5)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE6, -1, MTRRphysBase_MSR(6)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE7, -1, MTRRphysBase_MSR(7)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE8, -1, MTRRphysBase_MSR(8)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE9, -1, MTRRphysBase_MSR(9)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEA, -1, MTRRphysBase_MSR(0xa)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEB, -1, MTRRphysBase_MSR(0xb)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEC, -1, MTRRphysBase_MSR(0xc)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASED, -1, MTRRphysBase_MSR(0xd)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEE, -1, MTRRphysBase_MSR(0xe)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEF, -1, MTRRphysBase_MSR(0xf)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK0, -1, MTRRphysMask_MSR(0)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK1, -1, MTRRphysMask_MSR(1)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK2, -1, MTRRphysMask_MSR(2)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK3, -1, MTRRphysMask_MSR(3)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK4, -1, MTRRphysMask_MSR(4)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK5, -1, MTRRphysMask_MSR(5)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK6, -1, MTRRphysMask_MSR(6)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK7, -1, MTRRphysMask_MSR(7)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK8, -1, MTRRphysMask_MSR(8)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK9, -1, MTRRphysMask_MSR(9)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKA, -1, MTRRphysMask_MSR(0xa)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKB, -1, MTRRphysMask_MSR(0xb)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKC, -1, MTRRphysMask_MSR(0xc)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKD, -1, MTRRphysMask_MSR(0xd)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKE, -1, MTRRphysMask_MSR(0xe)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKF, -1, MTRRphysMask_MSR(0xf)},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX64K00000, -1, MSR_MTRRfix64K_00000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX16K80000, -1, MSR_MTRRfix16K_80000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX16KA0000, -1, MSR_MTRRfix16K_A0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KC0000, -1, MSR_MTRRfix4K_C0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KC8000, -1, MSR_MTRRfix4K_C8000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KD0000, -1, MSR_MTRRfix4K_D0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KD8000, -1, MSR_MTRRfix4K_D8000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KE0000, -1, MSR_MTRRfix4K_E0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KE8000, -1, MSR_MTRRfix4K_E8000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KF0000, -1, MSR_MTRRfix4K_F0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KF8000, -1, MSR_MTRRfix4K_F8000},
-> +};
-> +
-> +int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u64 shared)
-> +{
-> +	u64 *reg64;
-> +	enum hv_register_name gpr_name;
-> +	int i;
-> +
-> +	gpr_name = regs->name;
-> +	reg64 = &regs->value.reg64;
-> +
-> +	/* Search for the register in the table */
-> +	for (i = 0; i < ARRAY_SIZE(reg_table); i++) {
-> +		if (reg_table[i].reg_name != gpr_name)
-> +			continue;
-> +		if (reg_table[i].debug_reg_num != -1) {
-> +			/* Handle debug registers */
-> +			if (gpr_name == HV_X64_REGISTER_DR6 && !shared)
-> +				goto hypercall;
-> +			if (set)
-> +				native_set_debugreg(reg_table[i].debug_reg_num, *reg64);
-> +			else
-> +				*reg64 = native_get_debugreg(reg_table[i].debug_reg_num);
-> +		} else {
-> +			/* Handle MSRs */
-> +			if (set)
-> +				wrmsrl(reg_table[i].msr_addr, *reg64);
-> +			else
-> +				rdmsrl(reg_table[i].msr_addr, *reg64);
-> +		}
-> +		return 0;
-> +	}
-> +
-> +hypercall:
-> +	return 1;
-> +}
-> +EXPORT_SYMBOL(hv_vtl_get_set_reg);
-> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
-> index f64393e853ee..d5355a5b7517 100644
-> --- a/arch/x86/include/asm/mshyperv.h
-> +++ b/arch/x86/include/asm/mshyperv.h
-> @@ -304,6 +304,7 @@ void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
->  void mshv_vtl_return_call_init(u64 vtl_return_offset);
->  void mshv_vtl_return_hypercall(void);
->  void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
-> +int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u64 shared);
-
-Can this move to asm-generic/mshyperv.h?  The function is no longer specific
-to x86/x64, so one would want to not declare it in the arch/x86 version
-of mshyperv.h. But maybe moving it to asm-generic/mshyperv.h breaks
-compilation on arm64 because there's also the static inline stub there.
-
->  #else
->  static inline void __init hv_vtl_init_platform(void) {}
->  static inline int __init hv_vtl_early_init(void) { return 0; }
-> diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
-> index 5856975f32e1..b607b6e7e121 100644
-> --- a/drivers/hv/mshv_vtl_main.c
-> +++ b/drivers/hv/mshv_vtl_main.c
-> @@ -19,10 +19,8 @@
->  #include <linux/poll.h>
->  #include <linux/file.h>
->  #include <linux/vmalloc.h>
-> -#include <asm/debugreg.h>
->  #include <asm/mshyperv.h>
->  #include <trace/events/ipi.h>
-> -#include <uapi/asm/mtrr.h>
->  #include <uapi/linux/mshv.h>
->  #include <hyperv/hvhdk.h>
-> 
-> @@ -505,102 +503,6 @@ static int mshv_vtl_ioctl_set_poll_file(struct mshv_vtl_set_poll_file __user *us
->  	return 0;
->  }
-> 
-> -/* Static table mapping register names to their corresponding actions */
-> -static const struct {
-> -	enum hv_register_name reg_name;
-> -	int debug_reg_num;  /* -1 if not a debug register */
-> -	u32 msr_addr;       /* 0 if not an MSR */
-> -} reg_table[] = {
-> -	/* Debug registers */
-> -	{HV_X64_REGISTER_DR0, 0, 0},
-> -	{HV_X64_REGISTER_DR1, 1, 0},
-> -	{HV_X64_REGISTER_DR2, 2, 0},
-> -	{HV_X64_REGISTER_DR3, 3, 0},
-> -	{HV_X64_REGISTER_DR6, 6, 0},
-> -	/* MTRR MSRs */
-> -	{HV_X64_REGISTER_MSR_MTRR_CAP, -1, MSR_MTRRcap},
-> -	{HV_X64_REGISTER_MSR_MTRR_DEF_TYPE, -1, MSR_MTRRdefType},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE0, -1, MTRRphysBase_MSR(0)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE1, -1, MTRRphysBase_MSR(1)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE2, -1, MTRRphysBase_MSR(2)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE3, -1, MTRRphysBase_MSR(3)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE4, -1, MTRRphysBase_MSR(4)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE5, -1, MTRRphysBase_MSR(5)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE6, -1, MTRRphysBase_MSR(6)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE7, -1, MTRRphysBase_MSR(7)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE8, -1, MTRRphysBase_MSR(8)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE9, -1, MTRRphysBase_MSR(9)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEA, -1, MTRRphysBase_MSR(0xa)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEB, -1, MTRRphysBase_MSR(0xb)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEC, -1, MTRRphysBase_MSR(0xc)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASED, -1, MTRRphysBase_MSR(0xd)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEE, -1, MTRRphysBase_MSR(0xe)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEF, -1, MTRRphysBase_MSR(0xf)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK0, -1, MTRRphysMask_MSR(0)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK1, -1, MTRRphysMask_MSR(1)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK2, -1, MTRRphysMask_MSR(2)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK3, -1, MTRRphysMask_MSR(3)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK4, -1, MTRRphysMask_MSR(4)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK5, -1, MTRRphysMask_MSR(5)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK6, -1, MTRRphysMask_MSR(6)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK7, -1, MTRRphysMask_MSR(7)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK8, -1, MTRRphysMask_MSR(8)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK9, -1, MTRRphysMask_MSR(9)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKA, -1, MTRRphysMask_MSR(0xa)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKB, -1, MTRRphysMask_MSR(0xb)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKC, -1, MTRRphysMask_MSR(0xc)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKD, -1, MTRRphysMask_MSR(0xd)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKE, -1, MTRRphysMask_MSR(0xe)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKF, -1, MTRRphysMask_MSR(0xf)},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX64K00000, -1, MSR_MTRRfix64K_00000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX16K80000, -1, MSR_MTRRfix16K_80000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX16KA0000, -1, MSR_MTRRfix16K_A0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KC0000, -1, MSR_MTRRfix4K_C0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KC8000, -1, MSR_MTRRfix4K_C8000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KD0000, -1, MSR_MTRRfix4K_D0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KD8000, -1, MSR_MTRRfix4K_D8000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KE0000, -1, MSR_MTRRfix4K_E0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KE8000, -1, MSR_MTRRfix4K_E8000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KF0000, -1, MSR_MTRRfix4K_F0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KF8000, -1, MSR_MTRRfix4K_F8000},
-> -};
-> -
-> -static int mshv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set)
-> -{
-> -	u64 *reg64;
-> -	enum hv_register_name gpr_name;
-> -	int i;
-> -
-> -	gpr_name = regs->name;
-> -	reg64 = &regs->value.reg64;
-> -
-> -	/* Search for the register in the table */
-> -	for (i = 0; i < ARRAY_SIZE(reg_table); i++) {
-> -		if (reg_table[i].reg_name != gpr_name)
-> -			continue;
-> -		if (reg_table[i].debug_reg_num != -1) {
-> -			/* Handle debug registers */
-> -			if (gpr_name == HV_X64_REGISTER_DR6 &&
-> -			    !mshv_vsm_capabilities.dr6_shared)
-> -				goto hypercall;
-> -			if (set)
-> -				native_set_debugreg(reg_table[i].debug_reg_num, *reg64);
-> -			else
-> -				*reg64 = native_get_debugreg(reg_table[i].debug_reg_num);
-> -		} else {
-> -			/* Handle MSRs */
-> -			if (set)
-> -				wrmsrl(reg_table[i].msr_addr, *reg64);
-> -			else
-> -				rdmsrl(reg_table[i].msr_addr, *reg64);
-> -		}
-> -		return 0;
-> -	}
-> -
-> -hypercall:
-> -	return 1;
-> -}
-> -
->  static void mshv_vtl_return(struct mshv_vtl_cpu_context *vtl0)
->  {
->  	struct hv_vp_assist_page *hvp;
-> @@ -720,7 +622,7 @@ mshv_vtl_ioctl_get_regs(void __user *user_args)
->  			   sizeof(reg)))
->  		return -EFAULT;
-> 
-> -	ret = mshv_vtl_get_set_reg(&reg, false);
-> +	ret = hv_vtl_get_set_reg(&reg, false, mshv_vsm_capabilities.dr6_shared);
->  	if (!ret)
->  		goto copy_args; /* No need of hypercall */
->  	ret = vtl_get_vp_register(&reg);
-> @@ -751,7 +653,7 @@ mshv_vtl_ioctl_set_regs(void __user *user_args)
->  	if (copy_from_user(&reg, (void __user *)args.regs_ptr, sizeof(reg)))
->  		return -EFAULT;
-> 
-> -	ret = mshv_vtl_get_set_reg(&reg, true);
-> +	ret = hv_vtl_get_set_reg(&reg, true, mshv_vsm_capabilities.dr6_shared);
->  	if (!ret)
->  		return ret; /* No need of hypercall */
->  	ret = vtl_set_vp_register(&reg);
-> --
-> 2.43.0
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBBcHIgMSwgMjAyNiBhdCAzOjU54oCvUE0gR2FyeSBHdW8gPGdhcnlAZ2FyeWd1by5u
+ZXQ+IHdyb3RlOgo+Cj4gSSdtIG5vdCBzdXJlIHRoYXQgSSBwYXJzZSB0aGlzLiBZb3UgZG8gcmVt
+b3ZlIHRoZSBmaWx0ZXItb3V0IGNvbXBsZXRlbHkgYmVsb3c/CgooSSBzZWUgeW91IHNhdyB0aGUg
+b3RoZXIgY29tbWl0KQoKPiBMb29rcyBsaWtlIHRoaXMgaXMgZ29pbmcgdG8gY29uZmxpY3Qgd2l0
+aCBydXN0LWZpeGVzICh3aGljaCBhZGRzIHRoZQo+IC0tcmVtYXAtcGF0aC1zY29wZSkuIFBlcmhh
+cHMgd29ydGggZG9pbmcgYSBiYWNrIG1lcmdlPwoKSXQgd291bGQgYmUgb25seSBhIGNvdXBsZSBs
+aW5lcyBjb25mbGljdGluZywgc28gaXQgc2hvdWxkIGJlIGZpbmUuCgpIYXZpbmcgc2FpZCB0aGF0
+LCB3aGVuIEkgd2FzIGRvaW5nIHRoaXMsIEkgd29uZGVyZWQgaWYgd2Ugc2hvdWxkIGV2ZW4KY29u
+c2lkZXIga2VlcGluZyB0aGUgd29ya2Fyb3VuZC4gSW4gb3RoZXIgd29yZHMsIGxvY2FsbHkgZm9y
+CmBydXN0LW5leHRgLCB0aGUgIm5vcm1hbCIgY29tbWl0IHdvdWxkIGJlIHRvIHJlbW92ZSB0aGUg
+d29ya2Fyb3VuZAplbnRpcmVseSBiZWNhdXNlIHRoZXJlIHRoZSBmbGFnIGRvZXNuJ3QgZXhpc3Qg
+dG8gYmVnaW4gd2l0aCAoaS5lLiB0aGUKd29ya2Fyb3VuZCBzaG91bGQgaGF2ZSBiZWVuIHJlbW92
+ZWQgYmFjayB3aGVuIHRoZSByZXZlcnQgbGFuZGVkKS4KClRoZW4sIHdoZW4gY29uZmxpY3QgaGFw
+cGVucyBpbiBsaW51eC1uZXh0LCB3ZSBjYW4ganVzdCBrZWVwIHRoZQphZGRpdGlvbiBvZiB0aGUg
+ZmxhZyBmcm9tIHlvdXIgY29tbWl0IC0tIHRoZSByZXN0IGNhbiBzYXkgYXMtaXMsIGkuZS4Kbm8g
+d29ya2Fyb3VuZCBuZWVkZWQsIGJlY2F1c2UgeW91IG9ubHkgZW5hYmxlIGJvdGggZmxhZ3MgaW4g
+YSB2ZXJzaW9uCigxLjk1LjApIHdoZXJlIHRoZXJlIGlzIG5vIG5lZWQgZm9yIHRoZSB3b3JrYXJv
+dW5kICh3aGljaCB3YXMgZm9yIDwKMS44Ny4wKS4KCkl0IGlzIGFsc28gd2h5IEkgYWRkZWQgdGhl
+IHNlY29uZCBjb21taXQgaGVyZSwgaS5lLiB0aGUgIm1ha2UgaXQKY29uZGl0aW9uYWwiLCBiZWNh
+dXNlIEkgd2FzIHRlc3RpbmcgdGhhdCBpbmRlZWQgd2UgZGlkbid0IG5lZWQgdGhlCndvcmthcm91
+bmQgYW55bW9yZS4KClNvIGl0IG1heSBqdXN0IHNpbXBsZXIgdG8gZG8gdGhhdC4gV2hhdCBJIHRo
+b3VnaHQgd2FzIHRoYXQgcGVyaGFwcyB0aGUKd29ya2Fyb3VuZCBpcyBnb29kIGV2ZW4gaWYgd2Ug
+b3Vyc2VsdmVzIGRvbid0IHBhc3MgdGhlIGZsYWcsIGUuZy4Kc29tZW9uZSBlbHNlIG1heSBiZSBw
+YXNzaW5nIGl0LiBCdXQgdGhlIGNoYW5jZXMgYXJlIHZlcnkgbG93LApyZXN0cmljdGVkIHRvIGEg
+Y291cGxlIHZlcnNpb25zLCBhbmQgdGhlIGVycm9yIGlzIG9idmlvdXMgYW5kIGF0IGJ1aWxkCnRp
+bWUgYW55d2F5LgoKQ2hlZXJzLApNaWd1ZWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
