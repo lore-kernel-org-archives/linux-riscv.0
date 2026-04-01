@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2599510F92EC
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 02:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2331061B31
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 04:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iy7bql+1WC2yqZfLYFA3E1wGkW+uyL07ARUAA+z41DQ=; b=HTid4Y1EdV7LC2
-	b8BoznmklVZr3I+MEv59NwkJPFAVFxJXG6pfUIEc96pz3YpyiP+xmLVVHHNvgf0DsAzTSCIUaISOL
-	e169Ev/HfV59zSfOD0I39whftOKddyaZjrTLl0veatVC0Lb+UPcfmKPuPoNqBRspCIaJ3k1To6LSj
-	oFpT9VxWRc82JZyRhEQTqWuZo+B+l6UEssWMqCJiRyfTffUfvxazFkD0hoeX70TNFzqXFVZl9lzwK
-	4tzb1hKpg3mN7DsZRYc2XgGDmbemYec62k4xAiuhm/oTqwPSUDLnmXz3X1FmViK/x/6IB8n1PF8tz
-	KObRmBb7RZIvd4tFbspQ==;
+	List-Owner; bh=6v47QZ2MLa4b4hDC/CAnsQhcP1VlMyk0rUXradrO8Ao=; b=jDh6qqqmtXCAhY
+	ux7YOWzK+sCwgNoj+YjEp1cvmr0hU8LLasH5yTifIYyDXf5bS+tpif59XvWcoGRBQ5dl7QjuR47Sn
+	xTmY43FkOYXePkyZoQleiP/u1tjuhHk/R4sHvgbzXmAoHu+ELywTSAev+5ninI9AXhJqo5Sw0Z17W
+	5D+DDk/dtGSD4tGCdg52cAzrG56PiL9wYKG29U2uOeX4U1I+j9sok7HTRIGFDdEI9ILc1Y1FG5njn
+	m2L3rLUvfe/8Gf3fUxJdi7Va7EXmwZBKkav29jtkrfpIKwzbrwH8SkQYy6P8bP/DYrtlTIAaJaugr
+	hPYk1QRaMl2K0Fn28ggg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7lNG-0000000Dqjl-0HqR;
-	Wed, 01 Apr 2026 02:32:06 +0000
-Received: from exmail.andestech.com ([60.248.187.195] helo=Atcsqr.andestech.com)
+	id 1w7mob-0000000DvQA-2npG;
+	Wed, 01 Apr 2026 04:04:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7lND-0000000DqjA-0PPW
+	id 1w7moZ-0000000DvPp-0FiY
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Apr 2026 02:32:04 +0000
-Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
-	by Atcsqr.andestech.com with ESMTP id 6312UmNv071240;
-	Wed, 1 Apr 2026 10:30:48 +0800 (+08)
-	(envelope-from minachou@andestech.com)
-Received: from atcsi01.andestech.com (10.0.15.32) by ATCPCS34.andestech.com
- (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 1 Apr
- 2026 10:30:48 +0800
-Date: Wed, 1 Apr 2026 10:30:41 +0800
-From: Mina Chou <minachou@andestech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <alex@ghiti.fr>, <geert+renesas@glider.be>,
-        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <magnus.damm@gmail.com>,
-        <ben717@andestech.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <jonathan.cameron@huawei.com>,
-        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-        <tim609@andestech.com>, <alex749@andestech.com>, <az70021@gmail.com>
-Subject: Re: [PATCH 1/7] cache: ax45mp_cache: refactor cache driver for
- generic Andes platform support
-Message-ID: <acyDUU3FdAAPWfnS@atcsi01.andestech.com>
-References: <20260330102724.1012470-1-minachou@andestech.com>
- <20260330102724.1012470-2-minachou@andestech.com>
- <20260330-oxford-chevy-5f5a6f0a5be4@spud>
+	Wed, 01 Apr 2026 04:04:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4108F40114;
+	Wed,  1 Apr 2026 04:04:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A25A4C4CEF7;
+	Wed,  1 Apr 2026 04:04:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775016262;
+	bh=ScayOH1vtYXF2K7sunI/tM6mb4FVHyGKqqVATORwRxA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OCeq2Mai12RS1qTR9GvoeNmKuwmzoWUAPCrGXdkVBqc4lIsSDEZMczQyFQpPHSP7y
+	 FlMIcvuNkrRphHe4Rt4cEZY/xlHLTa7OSfQFDhBgQ3aRbickkqOk19dpXVwqDmf5MM
+	 6u2K2CDWSa+f6quD3wbRDm1JqmGRC+LlOSvS+gckSe+xMkRBQ/XWNzntlii90YUmj+
+	 HEdJOy95SMpksOuKLVq1LisKAZ2ByjVZlSPbLpQ3vuxDLhddKI2BDUQI8OsNLPQ8Oi
+	 IppT7OyI/TYBDiz5l73wssioFc/UwFpkXWeLhifsQ/0k/CmfAZJVuWAvWiPevd9ESy
+	 yFe3pQyZCjItQ==
+Date: Wed, 1 Apr 2026 12:04:19 +0800
+From: Yixun Lan <dlan@kernel.org>
+To: Han Gao <gaohan@iscas.ac.cn>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>
+Subject: Re: [PATCH v4 3/3] riscv: dts: spacemit: Enable USB3.0/PCIe on
+ OrangePi RV2
+Message-ID: <20260401040419-GKC976850@kernel.org>
+References: <cover.1774974017.git.gaohan@iscas.ac.cn>
+ <0ec229e2fb138092672773f134d0739e70740ce0.1774974017.git.gaohan@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260330-oxford-chevy-5f5a6f0a5be4@spud>
-User-Agent: Mutt/2.1.4 (2021-12-11)
-X-Originating-IP: [10.0.15.32]
-X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
- ATCPCS34.andestech.com (10.0.1.134)
-X-DKIM-Results: atcpcs34.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 6312UmNv071240
+In-Reply-To: <0ec229e2fb138092672773f134d0739e70740ce0.1774974017.git.gaohan@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_193203_476820_6F8F6408 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20260331_210423_144565_EE5A80A1 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +79,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thank you both, Krzysztof and Conor, for the detailed review.
-I appreciate the feedback and admit this series needed more work
-before sending. I will address all the issues in the next version.
- 
-A bit of background on the motivation: the main goal of this series
-was to prepare the Andes cache driver for a SoC Allwinner Avaotaf1 V821,
-which uses the Andes A27L2 CPU. We wanted to share a single cache driver
-across different Andes CPU variants, which is why we tried to move toward
-more generic naming in both the driver and the compatible strings.
- 
-We have two questions we'd appreciate guidance on:
-  a) On compatible string naming: We'll drop patch [5/7][6/7] and won't
-     rename any existing compatible strings. But we'd like to confirm
-     the preferred approach for A27L2: would it be acceptable to add
-     a generic compatible (andestech,andes-llcache) as an addition?
-     If so, would a CPU-specific compatible (andestech,a27l2-cache)
-     still be required alongside it?
- 
-  b) On Avaotaf1 V821 support: We are not in a position to submit the
-     DTS on behalf of Allwinner. However, we would like to add the
-     corresponding compatible strings to the existing binding
-     documents (andestech,andes-llcache.yaml, sifive,plic-1.0.0.yaml,
-     and riscv/cpus.yaml) in advance, so that the bindings are ready
-     when Allwinner eventually submits their DTS.
-     Would it be acceptable to upstream binding-only changes without
-     an accompanying DTS at this stage?
- 
-For the next version, we're thinking of keeping only the changes
-needed to generalize the cache driver, and dropping the improvements
-for now to keep things focused. If you have any suggestion on how
-to approach this, we'd love to hear it.
- 
-Thanks again for your patience.
- 
-Best regards,
-Mina
+Hi Han,
+
+On 00:27 Wed 01 Apr     , Han Gao wrote:
+> Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
+> OrangePi RV2 board.
+> 
+> The board utilizes a Genesys Logic GL3523 USB3.0 hub.
+> 
+> Define a 3.3v fixed voltage regulator for PCIe and enable PCIe and
+> PHY-related Device Tree nodes for the OrangePi RV2.
+> 
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> ---
+>  .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 68 +++++++++++++++++++
+>  1 file changed, 68 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> index e5e358d49c09..e93e7f660820 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> @@ -23,6 +23,15 @@ chosen {
+>  		stdout-path = "serial0";
+>  	};
+>  
+> +	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "pcie_vcc3v3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		gpio = <&gpio K1_GPIO(116) GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
+> +
+
+I've noticed you dropped usb3_hub_5v which actually provide vbus supply..
+so in current version, it will leave vbus as undetermined state - whether
+vbus is on or not will depend on bootloader to enable it or not?
+
+The best choice would be waiting for Marco's onboard-dev vbus patch[1],
+while in K1 platform, we workaround it by force enabling vbus after power on
+(set regulator as always-on)..
+
+Link: https://lore.kernel.org/all/20260223-v6-16-topic-usb-onboard-dev-v5-0-28d3018a8026@pengutronix.de/ [1]
+
+>  	reg_vcc_4v: regulator-vcc-4v {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "vcc4v0";
+> @@ -44,6 +53,10 @@ led1 {
+>  	};
+>  };
+>  
+> +&combo_phy {
+> +	status = "okay";
+> +};
+> +
+>  &eth0 {
+>  	phy-handle = <&rgmii0>;
+>  	phy-mode = "rgmii-id";
+> @@ -190,8 +203,63 @@ dldo6 {
+>  	};
+>  };
+>  
+> +&pcie1_phy {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pcie1_3_cfg>;
+> +	status = "okay";
+> +};
+> +
+> +&pcie1_port {
+> +	phys = <&pcie1_phy>;
+> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+> +};
+> +
+> +&pcie1 {
+> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+> +	status = "okay";
+> +};
+> +
+> +&pcie2_phy {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pcie2_4_cfg>;
+> +	status = "okay";
+> +};
+> +
+> +&pcie2_port {
+> +	phys = <&pcie2_phy>;
+> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+> +};
+> +
+> +&pcie2 {
+> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
+> +	status = "okay";
+> +};
+> +
+>  &uart0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&uart0_2_cfg>;
+>  	status = "okay";
+>  };
+> +
+> +&usbphy2 {
+> +	status = "okay";
+> +};
+> +
+> +&usb_dwc3 {
+> +	dr_mode = "host";
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	status = "okay";
+> +
+> +	hub_2_0: hub@1 {
+> +		compatible = "usb5e3,610";
+> +		reg = <0x1>;
+> +		peer-hub = <&hub_3_0>;
+> +	};
+> +
+> +	hub_3_0: hub@2 {
+> +		compatible = "usb5e3,620";
+> +		reg = <0x2>;
+> +		peer-hub = <&hub_2_0>;
+Can you confirm all usb ports work fine with this?
+
+> +	};
+> +};
+> -- 
+> 2.47.3
+> 
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
