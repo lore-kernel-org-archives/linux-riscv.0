@@ -4,150 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBEB1076386
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 17:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD231076386
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 17:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MJn/N7Esmc7q9cBt1A3MDyivjlwWJMzrCj7BFhzvW0E=; b=PZzSlBdV5PMwYE
-	IXaPWmW+NPUutBgohC3RJ9PfMAG5V7G4nXgNXnIzawWRggGH6aWHPugZtTP9jwKJchsd9CgtSKrrO
-	PWxeUsTi815rLGjGXiyWB06t2yXjLyZxu2BgX+eqbFoaYPb1DJ7NaPJuVVzOFhRGptxmLR+3qpUh2
-	9HGGRLPRVj01KhUpMbANj/Gx2+jxtbAdwWgT2U6d7ZLEy+27GT8ltV+9HhmtqbcTQblx947KT1NV7
-	u2URvCDNNyNob6J+3PodaNZsmzNRlPnrWkMWceKTXoFULfc0rLInp7LYJSqfoyvUKy8pnNSnfvlhL
-	iOCuhEl6Lsa25XqkRy9g==;
+	List-Owner; bh=zYYOvIre6kHNzXAWR70BTj5g9WiLdweDPr4uSeVmZXQ=; b=C8K5AVRhSHzeA2
+	hXSgtUmvWChmPqVyb9liPVWR4LlCAuUY/uUf9p3cBY4HU8VDCEb+Qv3sNjPmNcJagqHB1H7yxTocN
+	QVQLhaEa+gyk9CvGN/88i3RP1+NyOABulG0+H4ueDJKCtLp/at4lXT/GO+PTjsEMaNC/Q11Nbov8O
+	2vz1Kg4KWp7jbzi+whaUhMbRNh0GmqOTZf94m9YOvzQjb6y2g6gUJDHueyPb8a04pkRGn4qaEIHGr
+	ayse7oz9Vj7gGe/d3Tvk97WLzYCjp4t8y80WBQ2xgHyAzSr/YyG3LonTRp9tA2BGsEUn+Y0znlJuI
+	EDmlapO8DYVYstOcWvwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7z4a-0000000FoeK-1okS;
-	Wed, 01 Apr 2026 17:09:44 +0000
-Received: from mail-westcentralusazolkn19010022.outbound.protection.outlook.com ([52.103.7.22] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1w7z6y-0000000Fp4n-0SSQ;
+	Wed, 01 Apr 2026 17:12:12 +0000
+Received: from mail-westusazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d001::1] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7z4X-0000000FodK-3kqM;
-	Wed, 01 Apr 2026 17:09:43 +0000
+	id 1w7z6v-0000000Fp44-1UOq;
+	Wed, 01 Apr 2026 17:12:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ujlKI2/lFVp/KB+FQjXkwmsPsCRrWxMNlFU1qUaCDJfEccFieqlFBYWJiOZ9sCsrhtJoxaE6cCiHlxUjtczyMJ+kOBJHV4YVdRuARG54e8VwVZ9maRHdY1jzWgOUAiubn6bw2n9YfXLJu9k7f5u/0wB7qJ/tLjMJtstn80a6VCpZP4v/ijYEn7JM+MzkzJbOpibH5+9tiwfwi0E+w2ZIevSqfqtYUSWovH60jpS4bitqLergCMmA+5YI7nePfPNMDV0rgyzgngS4ZjYYKeryh/VYqHN3/U2fKQzAKGA4lPFPFgNxNSe0jhqKTZKsW5dqMIGC/XWfiK9egEdzZ8ukiw==
+ b=fz2Vwo6t4m2PCCb3fLado9rjYZnD2KMwGqlzhCnvi0XU8SrK6fvC73UX4t99XoDiAFt4vtuVMKfS0VE3HJ8bMv9MGdkKoCIVru5izh5z9yPBbHqYyv2Y5iJfKLjZpRIyPXuUv0XtbsUNz1xfjgntt3utKEJRCTp2W4swLl51wiVLdwU1wnS+84K844Cu3quAx8g4TjLljnCFAWsdCQ4WjXNc4l9DHJhesSD30pxCrqVt6lqBAsAW9vuqlj3QlUp3zRKwAYJrYKXLxei7u0nk+DqODJmd4P4HXN9rll6aLrmH4KbyZcNZXtboGSrOokuRFdUop4cCtDfiYVlurfZyNQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NutvBLGJY5J0hyDIdU373LHUwi9m4sK0zyAh9qj7Mo8=;
- b=Pps1sN7domdZWEwkkB5c/1SP+GXs2MbwRogKY01Zoz4GeBAI/E3iR+8FdEq4ymHkPt1cM8C2ptTLrxWBNA0b3KXR9qH/IjJNCyeUlrt1XpJdvRm41K8e4qppCgIhTwsOkvPT4lApxDH3sr9GI6LsKQmAf69Tj8EFgg0+JK9/ny7fSShil2BGbReP1TltABs+QOrBt3XB0/iaooiVRlbZef3l9k5pVIZzlzNZM+epfunX/ipQ1hCFU3D9G3+Y1UnoIdFYBiqdx4Ya2oxfPfzkGDX7tQmUpt+j6Yrdua6HRauZVUfuiVwmgzYHyN8A+bZgu+hh4i71CjSHdwTdg1FZyg==
+ bh=Xo6+N6+VCrJRYzXtm6SF+5TNIUrSiBCHYfB9eXITMCA=;
+ b=VesAVe8U2J4w0L+m7ZJ8LeKm0SFeFvDqs+QXr5LLsktWcOIaHxCo7GYgGah3wLUNToaTlr70CP/IsxwYlEPWra4pkdUVnod3OJcXuBtPl97Ibd6ipRU2B7GAiLANneNTX9YiHGcOL3LzCvkiRokbVypI7yLF4LzVkjhSD8fOXtzbFA6xv+LpU6PJJCtzPeEV+C4h2giV9X1trzykRPwZJNDImwRqsTEurhX3v/Fegi8j13VjD61M5/+7sQIZbDVTwTxd8W2F78V2l+T8kGMMSXjUTaEB/tJQdqy3q1QvnP6X1puvaHZ1y8sx2osHAUBiDascIJKcN74//P7cB8jkiQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NutvBLGJY5J0hyDIdU373LHUwi9m4sK0zyAh9qj7Mo8=;
- b=lV/Qq3CTFLCGOODUYVGiNvSfSkAA7fmIinZ3jAq2cI8ZZD6xflrLeQ8RxW+JAzCH0kVYKrwU+0rSDBi1EPwt4NkPlO9TAIoHFTHHSXjN4KriUPXqgkn/1KEC4LNoC3qD8vKC2/vJXxhxPofeMenYpv6OuYOG1ecikJ7NUqdhF0byh1t/u0Ud9uaj4GZsgJYBcRIeVw97W/x6Vm2sC45/CZ+gHvvr5HhEzJT8Q/ao6Zxrdi1FNnc4Vhtn0Wq0KzeV/lVVL+zl4v1nDlCJN8lZ1QE3P4pPPNRNjmv3GnxGhyH3wH+FmlcOgL1ga3Fh3owEd1q72sF0imDHT0J/9AyRcQ==
+ bh=Xo6+N6+VCrJRYzXtm6SF+5TNIUrSiBCHYfB9eXITMCA=;
+ b=JWwB0+Vr4f9QBpD84/xmJONnuy9NTg95mZtBhT2k2z7CYJ8brvYNEZIZsemjYxPEOJ+F5HC1JSIWiWbrT2smNI6gGqfo6uD808lKdYqGK3zGgIY3yqhvdY3KLz1sTuCV7T90Gl7vvTsBwfQpqImJV2eY2a79fBUkQ4Ccd7h+xG5HgzBBTtSizDw+JmUcX8SBl6bijheSG+R6lh7l3Pxkvbqa3i9W49+ZSORj3eDDofB1nXL5kisxm7kcvJ4FKxlzb/uqFjK2l9hIVABEqDHXjtV34Af4cA1eApAj4NpsOPF3R3B2UnMP+xONmwRhbzhzhs8T9FCjNb8dvISkVTJGNQ==
 Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by SN4PR0201MB8808.namprd02.prod.outlook.com (2603:10b6:806:203::12) with
+ by MN2PR02MB6701.namprd02.prod.outlook.com (2603:10b6:208:1d3::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 1 Apr
- 2026 16:54:42 +0000
+ 2026 16:56:34 +0000
 Received: from SN6PR02MB4157.namprd02.prod.outlook.com
  ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
  ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 16:54:42 +0000
+ 16:56:34 +0000
 From: Michael Kelley <mhklinux@outlook.com>
-To: Naman Jain <namjain@linux.microsoft.com>, Michael Kelley
-	<mhklinux@outlook.com>, "K . Y . Srinivasan" <kys@microsoft.com>, Haiyang
- Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui
-	<decui@microsoft.com>, Long Li <longli@microsoft.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner
-	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann
-	<arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>
+To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
+	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
+	<wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li
+	<longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H . Peter
+ Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
 CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>, mrigendrachaubey
 	<mrigendra.chaubey@gmail.com>, "ssengar@linux.microsoft.com"
-	<ssengar@linux.microsoft.com>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<ssengar@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
 	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
 	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
 	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
 	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH 00/11] Drivers: hv: Add ARM64 support in mshv_vtl
-Thread-Topic: [PATCH 00/11] Drivers: hv: Add ARM64 support in mshv_vtl
-Thread-Index: AQHctT5MQUy+plR6RkKYTgy6jJBWJ7WzSSyAgABqPgCAFtKMgA==
-Date: Wed, 1 Apr 2026 16:54:41 +0000
-Message-ID: <SN6PR02MB4157E4E088F39106979BE4EDD450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+Subject: RE: [PATCH 04/11] Drivers: hv: Refactor mshv_vtl for ARM64 support to
+ be added
+Thread-Topic: [PATCH 04/11] Drivers: hv: Refactor mshv_vtl for ARM64 support
+ to be added
+Thread-Index: AQHctT5V2BuRVBWyKkCpWfaIbANGJbXKhn/g
+Date: Wed, 1 Apr 2026 16:56:34 +0000
+Message-ID: <SN6PR02MB41573C4A21BA96A534E5429CD450A@SN6PR02MB4157.namprd02.prod.outlook.com>
 References: <20260316121241.910764-1-namjain@linux.microsoft.com>
- <SN6PR02MB4157DFC7B7CE94500C89664BD441A@SN6PR02MB4157.namprd02.prod.outlook.com>
- <a8f856a0-49a8-4041-9036-4e9ade79532b@linux.microsoft.com>
-In-Reply-To: <a8f856a0-49a8-4041-9036-4e9ade79532b@linux.microsoft.com>
+ <20260316121241.910764-5-namjain@linux.microsoft.com>
+In-Reply-To: <20260316121241.910764-5-namjain@linux.microsoft.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SN4PR0201MB8808:EE_
-x-ms-office365-filtering-correlation-id: e548d502-4543-4392-c2df-08de900f5ed7
-x-ms-exchange-slblob-mailprops: /UmSaZDmfYCy6WZBtXjyg4e4+qWcxdNA95Bgev0rEII1KwYQxxEhsl3B26tAzlCZYm273wN3byQ6quIEg9XCN5sIxI6Mp49x6i8jrL4WcAuytV/a9A05pgYcK8H9gNkgLzB1QhKs7obyWc0W9optx2+RFnXTl9/6ITldEhvb/SkI7kT1zH6+7BESthygGjbTQPqPcjgEeVDgDW/fyBbK9DWnWzG2uyArk135ennTqMGN5askxisvEHZDnx1d7dJVcdSyKAMQ48YfvyRphNfgNeUiBbbTe+Q/TDbQ26Nra+jk/vtjW10ZkZH4tMglcAFkIgUJKdafbRqLnWcGCiXtrtzfbnbQNDDRf7eGse/Ngx4ve1azCdJFvEkA2N7AKl9A3wqYm7yQTKpHIMnugg9+G61r2Xi2O+I8pCIF5aHlJR7qcpnVcitRQn7hnWAp2nWDQ8v1KGWNenCRb7YfnMmtuEbwKr0JxnEGha75qIrLJNQzW43jKG3afSZ+e4ClSs5cOtTFW7W9Yk7PudvnNhjNbTlOqrik9OHlwc56QAo80/CGhTIbxSbsvYRhgzdiWkjxq6T0ClW0DLZfiRIk3NwE6FQuJdOQgYzM3C0ja1JmCQV+pviOtrs6QqoQXq2v1HaAhu7CaRtupuOcVLCwgU+aCIg6ClJAlAjgeUwzVDvTnQmHSMK8UxtqlPInyRZxZCE/0UB5ygg7qskJFddjVhJ5qRHVtVIfLj36sMlt+88wvFLEsiy/n0AsDtaEzeFE6x8M+MbLN8tFaHUf9sGqlb4nTBPYh/Nl2UNj4ac1jTwa9tEDEom4dCKvsbwPKy3Dz395gCYODYzOOtdc9q+n0nF7zw==
-x-microsoft-antispam: BCL:0;ARA:14566002|13091999003|31061999003|12121999013|37011999003|19110799012|8062599012|8060799015|15080799012|461199028|51005399006|1602099012|40105399003|4302099013|102099032|440099028|3412199025|26121999003|10035399007|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?JX7pPG1YugHhGi9je6ClIoGBEFuyWa72SR8z8sDcWg3hLVCC0SSkqLLtviec?=
- =?us-ascii?Q?LfJoFnoohJFbJKCwuIXieKccEJ7/HbZzvWMaTzsMLnEa9KL0EMHuvwrkm+o5?=
- =?us-ascii?Q?B9rr6S+mzGW0ZF+Pv9toPtOiX8C4ggh7PIqK7/vhky5Wa7K7jdATvmeBGt9r?=
- =?us-ascii?Q?7e1BQDoPgmIvlUIdw5Y+MQYFMr+rsLWNPNUrvQS5cYtk50M/cLPgBSQ+UT0m?=
- =?us-ascii?Q?ZnqXhiAB75/KU/t94RZKMgAgncfEl+QzWvv57GNeqZT2SgsP9coQnQQMvDsA?=
- =?us-ascii?Q?KOQfH6hXY4qhcoDOo7usETUw1Q+yUtukKx2LjzXjSN0CAoB2lsjN01CzRvjk?=
- =?us-ascii?Q?S2zT6/iF+rj9bx8cAIE136VsMPJ1fMfMWjmXORcxd5ExEClKcAYzK9jZKvnD?=
- =?us-ascii?Q?AJLCS7KCgWvwp4cSyTp2jcNOdjrpbU/DQe5IQUkqzR8ZasbepvwoymfuupQk?=
- =?us-ascii?Q?tkpqRMOEmS65GC8kB3B/pcc9AIsHb+BYXk1u0r2XRwShFiVz6Bi6lnL/zicM?=
- =?us-ascii?Q?ULfZvVoSN8jHYiK2cOiNrQgAY+yg/QJ00sH/XXnrapCsh3r2Ho3ypsHoV8WY?=
- =?us-ascii?Q?O0z+Pl9IW/7A3sFmdGU4phOEnMJfwgS4MZiwT0VaeCJxEHcOs+c4608clk3P?=
- =?us-ascii?Q?c2fmTYoEXGMU+GmzJJTFWdz6EN+hYDviAlF9vPRxkDzX9mCisrcqvz5Hq8jq?=
- =?us-ascii?Q?h+jijqopx2gHSdQt7dq6xECYCpdGnwMQd3Amd28P6GbZVkjmmSQkCDdVTJOS?=
- =?us-ascii?Q?b8vk9Gn40qGL7of0ykP0rvvUjWLllmvsvJ8F+WwaCZ36ayuW8nqgwcHJ3x30?=
- =?us-ascii?Q?/5Mr9HwOHbXMGTI3h2Lq+n1/Xjmn67mK2pVeqiM3KQlYiNUcMS4TMA+ujrXZ?=
- =?us-ascii?Q?uwMndGIVHm42iWySRHZb1e4hIL+Mm4EW7VPc5ifSYDW/1MZZTNGcdr5XZHbh?=
- =?us-ascii?Q?n2sXaVWQLP88StoiGGIkFWE2vW85JD5/eNjma9EuF5BTuD/reJMo87AHhyxB?=
- =?us-ascii?Q?nENJzE/l9blWfF3F4eQezmztplFsduaaQ+DZvjfDRG8b8Pn/p/AxbAomutKW?=
- =?us-ascii?Q?78GWTwI4Gn8YgceIK41nAvNFDE7pPQYjZQhrsex2BmX1HTTSko3AXe6vu1cp?=
- =?us-ascii?Q?lR66Spw0RKod?=
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MN2PR02MB6701:EE_
+x-ms-office365-filtering-correlation-id: c79b5d5b-b5ba-4c3a-3ba4-08de900fa175
+x-ms-exchange-slblob-mailprops: znQPCv1HvwXZ5XHxNrJCjRnjimRBgM6SHOTtrW+lBXVoS+Ao++RiO/3/Eqn5LMb+M6lQ2y8Pje8T9KuKx8ZL0u93Ez8xcbLpP+D5aHB7SmBY7rffJWax9HDOjGf9mqYNHkF6bJDk9p1TRChZxgdpIPmJRW2ljBzy8h38NzMxgTNxLcdRUPkg+SeBw5ovDamYMldcLXFJdTEYiUpUlcjo4xZ7Wmf9SbasJn2mMbsK3aEWkUYzzNcyr0YL+sAAkm26phxMsuXiCZ7FohngeIz3KIOQmGcdqGNTB6PINs+kDy2qYXFRG5rjcUi5XEAbw3jvRUFTaG1gd9ZpIGpySTNPu2B+YT0UX8Y65LLZZKxFVy/uj/7up5NrwKyxHWRtphxTpl5XYyi8lXaCtFjdYBbi++uwZln42ZnwrNNtWRYDw2NkKPkDP/Wiz3cvc4fzrgj8EukBnnHNInYz9ilAYUdNeKo5bKEynuRu1c2Ak4uf/BoI23u9wyI+qe6+tN3ZgFb9LFllqv5rYAv8ZthxmbpQU9EF+eEPa8n+eXr9cmDtsaT5kM+26IGjzjWJ2BDT+KDWXv6/ORDKlCLIO6pIbEn9Taa8zRJaE+/RCa+27EUlgCNuOloRB1NYGYpGDa0b6TWYHDs/0r5Hs7VOpg+ZBdnXQWTLNeHxMWfPhsK1ZgVjOsziswwhacBGF0aAMTMDwxYr2aX2AqAy7E5WuxibC51nYKRy0ubSdjvYjfY2+lKRht5/WruvyUOJvv4QKowQueUYgt4n7iFV4fw=
+x-microsoft-antispam: BCL:0;ARA:14566002|8060799015|8062599012|19110799012|37011999003|31061999003|461199028|41001999006|51005399006|15080799012|13091999003|440099028|3412199025|26121999003|102099032|40105399003|1710799026;
+x-microsoft-antispam-message-info: =?us-ascii?Q?Ne+eZC/tVYEGQBa4rGD6c/xp3ZCwrRwbXNsUftwgBsdTXlLV6+2AGBRWAQdN?=
+ =?us-ascii?Q?UWUwST4ml0KLfeJyLF2usMU6h/e5QxSjFiKX0cZanONA2bUqM4cjsWELv7Od?=
+ =?us-ascii?Q?Lnx4j3HXUc4i0/p2lmcVmC+hKLulDU7CCL7xqQ8KTHDRStT0Chuz+gQzCJAs?=
+ =?us-ascii?Q?svBG6w9lgb4KrK1IXy5fWSoz/8vPuuD1Z/HCUXRPZjqk0MwqJOUXwXcMuD6E?=
+ =?us-ascii?Q?bodbs0CC7kKCzAxh+8dwAvJGVcvU3EgfBHuv6V0bJl+DII1FzD/9cFrTknoK?=
+ =?us-ascii?Q?in1/Z4ece5F25c5PakPZL5JJPo0LExirPyxMIws/m8BxE6llzlGrKBOqqZFd?=
+ =?us-ascii?Q?wSlergAph/OSZlJ9F5hPWGW4X+LSFuvMZKe2afuLKaZJCqekXiT2UcYEvyO8?=
+ =?us-ascii?Q?eHDoDZjeFUfYZyFepgE5PQqPp7hZKcXLh2lNggqcqBfrVXm6TMJCv6M/CT8h?=
+ =?us-ascii?Q?588O+Ewo7+LJsBkLsrn1ov5OjQ+nHWQjuPeQV1PVvdPk1RlApXwgFlxakrYp?=
+ =?us-ascii?Q?F2aK0kn8hEFAArpN06SlYbcUH9PlcietxQMrM3jPeBne3NmahwvAAelZDdLq?=
+ =?us-ascii?Q?zmmAPU2vHewDILx8lr5RucTZPgYwyqpGcJcVX1WV99Tvsvh2a9Az6ijTvHTv?=
+ =?us-ascii?Q?+KOAEO4C2WmGPrUY95kOj4leU5XAgn05SnaOMPO1ZLB/1/g/eN3OM/Y09qse?=
+ =?us-ascii?Q?H9fXmFm2P8xs6YEEtDzw4JOUvr97h6czK0rYyrOuD/SBr2Ymta1jgGIz5AGC?=
+ =?us-ascii?Q?hHeSPm2GlBFdmeRCuglpfVSdxOOyIFk0Jyfpm4EJOndHfzrTM9U4JvcTkQ0Y?=
+ =?us-ascii?Q?AO3x5H5WBBMsrTQWZs7IcHvaSV0aYKx3pIiS58PRPrx3Hoer9ib5OMfCuZ+l?=
+ =?us-ascii?Q?TAYkQTCfaB7rMmiKVoTgvlnq1+fJuVSuUjo4SgKWBn2cQfDnHZJDV1AHZlC8?=
+ =?us-ascii?Q?WTMCciV9wpXDEaXIisCZGghVxX8DwIap1RC4T7pfMfmhFFWWB9IJgg0ODiTD?=
+ =?us-ascii?Q?Z+r81D55edWxYpYRAjvD4cF1LHrakxQ4vx24wdFnS5z5tqqjHgWO+VRcr4Y7?=
+ =?us-ascii?Q?k1cxcnLq?=
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?X/ZZGrR7P9PCeSTgFG/AudO2BuRNJ74osmeS9Aea0IDJloHt0UGX/P3AxpCI?=
- =?us-ascii?Q?rsJdSt2AWZ1R8U7k/l08ndJcz2arXie3JAfUrdnBjhkkZYid5R+jRWJ6GXZ9?=
- =?us-ascii?Q?ssJKQHyL8d1M/G1MO7TNTnQqmZ3/6S201p6Jf1BuYrUS+eYyjaGcVUsP7c/+?=
- =?us-ascii?Q?JkMB3De+4+E5Cul8IZYRGXdGIdyNVNixX6/s4+awPbVRFEmYHpqaxDsZar5l?=
- =?us-ascii?Q?XupGgAt9LqW284fu3wW9qWYYmIkGuuZuXy1hJn/fr0rzJgFrTRXeEu9DjPer?=
- =?us-ascii?Q?MU3FRmiM03vVn6lbxfVP3f84pr3TqcdcosaMOvAnyw2Cmumz2OtyHMcdT3q7?=
- =?us-ascii?Q?4eSLD6pH0s0Kr0mz2Qj9ANYze2WjwUw6syqDzi7iLBOngJPt9yPUEVXEzxFr?=
- =?us-ascii?Q?kbheMufuHSPolzkdp+2qqxBQuoxUKNHZ/74/yCoiMk/+j4+PlS3FR83mLI6b?=
- =?us-ascii?Q?B/FWxjHcFSspsBQCWvyDtxWiue8Q2Nne6+DdQcipwpmn4xsSn/jjNNRyhH7m?=
- =?us-ascii?Q?QMIOhcABmc5I0qfPvtUGb/8FujVraaevzX3TLTnzH3iGkZWpRWXxGWYMDM4m?=
- =?us-ascii?Q?q0Hf1xnpV28PwLQPWkntPdguTRM4Ht337WzjCEKxLOg2AuPGDNSKX/p8SdjV?=
- =?us-ascii?Q?f/jaY2uwuoi04TIGCpxD94ShRzsryBP8VeHBc/tG0eV/Zkrt8rISQvKstHms?=
- =?us-ascii?Q?G550ASU3VC/hBG8AYa07dHC8cTZEVZ1ZPNZJkDwyPT/eUbTe8Xdsp3jZg4QP?=
- =?us-ascii?Q?kuo0bdIXHCntmYZ3YzKcSWKwevujLAYtS5KubDDfpXB+QM6946EMkh8C/vM4?=
- =?us-ascii?Q?5HJeh+2RYpD+V+9Ys/aVu6z4Awrqru8fiXbNpzVaxOCW+oI4DuJXabcEmNQE?=
- =?us-ascii?Q?j7UoaTlGsMR9rlBxNwAokROkU3uhLmekyFPsjhcjWpqNBCE/ZobPDSYV6Pej?=
- =?us-ascii?Q?dVks7rRzZq+T18ao4jIXdCRLkZE2M3qDrNKRUQS+06UnzaFuoE9p0yaER9n9?=
- =?us-ascii?Q?d4+sM32uFFu2Bfgr94XBjerWpzlZTWj1YvZ7Jb2sdVKIQtP6qvjEGcrHX4RK?=
- =?us-ascii?Q?w8uaRkqYxhPEpBtVL1FHU9sr6b1SwwI8ONabfcs+8zDPfZVevxlLdMTyzXoH?=
- =?us-ascii?Q?D1j/YIqHMgVKwuwWkT5yjb4Ko8v+l/Qw6SWelb005bTD/ptlX72MGuTBZciZ?=
- =?us-ascii?Q?aI3kAqqynwYnh3FhlfbQCnuUQTKKVK2HBp+piZEJ0AaQzSRFvb9woC5ubuLC?=
- =?us-ascii?Q?quYFjISo5qbGKIVC7DtPc1hsH0Twm+QCIAcXazugt8ts+M+MWFgeHTYBSs3P?=
- =?us-ascii?Q?iP2h1GkUMTpqW0yuUCb1Df+WJY+LubDHR+dfd/+P8F7HveWK9EBVRzIspgRZ?=
- =?us-ascii?Q?p1gcFA8=3D?=
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Po8XvPk2QSNGDAN/4h7XtNAJsdNtrp7pxW0OaE0UE7PsBMWhC3iv5t4gUDlU?=
+ =?us-ascii?Q?eE+l0FLRIKZz8/rHwnCTQgR4qHQi3DCXPmoqwM6Z2sQm/PnCCMK8dd0HTHQO?=
+ =?us-ascii?Q?vaziy+7YNyurywODBrwsIVg4N9gsapxW7ICpwri2ablAY6XsicbueksTK3YZ?=
+ =?us-ascii?Q?28XWQbbj4yNeChGVduNbqG7fMhYUKAfMFFCcMmk771y8z8DewHL1MgzIjiFa?=
+ =?us-ascii?Q?SWE5OtfvvoA1Jw16+k0U+7HYqOh0nTDnyrtro0G7QeKEebFDIuMCOPBp9Bi7?=
+ =?us-ascii?Q?Ue7/ufL1IRIrFiQiZiNqUGOoLKPf7mDpbNHtFcfHX6+xnGLtJrCRkSoP90gP?=
+ =?us-ascii?Q?7Zm+qxIJlK2ek1NTEZGR3Pz7Yl6FBKllLDFVzmR2KSg5g6hq+rEd4LmFuprf?=
+ =?us-ascii?Q?6EVE3bNu4XjCeHg8XZdxc8NglvxdbrQjfqFd59PWjhBC8xprm969gxhE0hsW?=
+ =?us-ascii?Q?AAI57bSKjaMwY0uVP6UH4eOfoCEmlE7ttNxRLXj8MLp+FQTHtdOjeIOa9/CW?=
+ =?us-ascii?Q?2qhEWiHDfJOEIZc0dO5bzH1MPf1Y9Mr+ba9XzXn3gm8rDRT46TW9xxRpj3LR?=
+ =?us-ascii?Q?MCq5MR5nGwDfL8Fvf8aFVGSL+JrZ32HLPEhsvP0zI99F/2pBmYmOZ7UACnJy?=
+ =?us-ascii?Q?84BZjn8ZUNHpcp4Kl9HYdgH1c2ZaKBhZhWMVeiQ8InrW/BM8g21WEmwL0ctF?=
+ =?us-ascii?Q?bcU3V3ZfJdouT27evHn/8ThgagkO+HTEIOV84WEhG6JPwXaTlqJjTBq4dz+2?=
+ =?us-ascii?Q?ClRrtHH9RAa5yZBDg7SHi9GhEGfdV+iEKsG/zjlojZ1sJj4Gs4fReQcmI+Lf?=
+ =?us-ascii?Q?8qPesWx7Iz46tH5lr8EKziK6Slrg8A2a+uRP430F5iFyd40AgA1wszz2ViG8?=
+ =?us-ascii?Q?S/ZoIh32TuYqoy92eExWIgGtHGt41PRyErGWXRY/ZJEvtB08xlH8mphs/SwI?=
+ =?us-ascii?Q?UFF9wHjtVibo1gmMIPnuiIj/W3oAeMgfnmFzBHkK4lcpIpEv7Cs1l2jnOc8G?=
+ =?us-ascii?Q?mTQOxTQzcvawH01i6v1lizEDa71dP47yHY8hRq07Zpuuu4OSXx5BWg1P/DYb?=
+ =?us-ascii?Q?aOWlnv+0jVqpa3yC0ENDCViTTRwSbwlTJs0jnbbHDPbIWOM6ZoWa8WjgASmL?=
+ =?us-ascii?Q?+CE0opPQHKEwPOJFUrBPrecHaLJ1XM/rk30irMLNnDSRVpUkD6TKP7xER53t?=
+ =?us-ascii?Q?Agb4hRHk3MSiU+rd7Glr9oSo2j7oBYQRdKkWULc78kzH4QTk+uvCioH5oZMK?=
+ =?us-ascii?Q?lLf7OUNxWzfs9xpXNalxwve8IvY1SG3lPxX4WLiTBlOEuGvrBtO4g9LEiKKt?=
+ =?us-ascii?Q?9veO2Kipj4KUHM6Fr61t7W0dcxLY7G21henQb1PGYJDgpxUIndhuXjoYiK9W?=
+ =?us-ascii?Q?2FkNXfs=3D?=
 MIME-Version: 1.0
 X-OriginatorOrg: outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: e548d502-4543-4392-c2df-08de900f5ed7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 16:54:42.2851
+X-MS-Exchange-CrossTenant-Network-Message-Id: c79b5d5b-b5ba-4c3a-3ba4-08de900fa175
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 16:56:34.0290
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR0201MB8808
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR02MB6701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_100941_948267_574571C3 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20260401_101209_398690_7A2CB778 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,52 +164,313 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Naman Jain <namjain@linux.microsoft.com> Sent: Tuesday, March 17, 2026 9:23 PM
+From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
 > 
-> On 3/18/2026 3:33 AM, Michael Kelley wrote:
-> > From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
-> >>
-> >> The series intends to add support for ARM64 to mshv_vtl driver.
-
-No need to be tentative. :-)  Just write as:
-
-"The series adds support for ARM64 to the mshv_vtl driver."
-
-> >> For this, common Hyper-V code is refactored, necessary support is added,
-> >> mshv_vtl_main.c is refactored and then finally support is added in
-> >> Kconfig.
-> >>
-> >> Based on commit 1f318b96cc84 ("Linux 7.0-rc3")
-> >
-> > There's now an online LLM-based tool that is automatically reviewing
-> > kernel patches. For this patch set, the results are here:
-> >
-> > https://sashiko.dev/#/patchset/20260316121241.910764-1-namjain%40linux.microsoft.com
-> >
-> > It has flagged several things that are worth checking, but I haven't
-> > reviewed them to see if they are actually valid.
-> >
-> > FWIW, the announcement about sashiko.dev is here:
-> >
-> > https://lore.kernel.org/lkml/7ia4o6kmpj5s.fsf@castle.c.googlers.com/
-> >
-> > Michael
+> Refactor MSHV_VTL driver to move some of the x86 specific code to arch
+> specific files, and add corresponding functions for arm64.
 > 
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+> ---
+>  arch/arm64/include/asm/mshyperv.h |  10 +++
+>  arch/x86/hyperv/hv_vtl.c          |  98 ++++++++++++++++++++++++++++
+>  arch/x86/include/asm/mshyperv.h   |   1 +
+>  drivers/hv/mshv_vtl_main.c        | 102 +-----------------------------
+>  4 files changed, 111 insertions(+), 100 deletions(-)
 > 
-> Thanks for sharing Michael,
-> I'll check it out and do the needful.
+> diff --git a/arch/arm64/include/asm/mshyperv.h
+> b/arch/arm64/include/asm/mshyperv.h
+> index b721d3134ab6..804068e0941b 100644
+> --- a/arch/arm64/include/asm/mshyperv.h
+> +++ b/arch/arm64/include/asm/mshyperv.h
+> @@ -60,6 +60,16 @@ static inline u64 hv_get_non_nested_msr(unsigned int reg)
+>  				ARM_SMCCC_SMC_64,		\
+>  				ARM_SMCCC_OWNER_VENDOR_HYP,	\
+>  				HV_SMCCC_FUNC_NUMBER)
+> +#ifdef CONFIG_HYPERV_VTL_MODE
+> +/*
+> + * Get/Set the register. If the function returns `1`, that must be done via
+> + * a hypercall. Returning `0` means success.
+> + */
+> +static inline int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u64 shared)
+> +{
+> +	return 1;
+> +}
+> +#endif
+> 
+>  #include <asm-generic/mshyperv.h>
+> 
+> diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
+> index 9b6a9bc4ab76..72a0bb4ae0c7 100644
+> --- a/arch/x86/hyperv/hv_vtl.c
+> +++ b/arch/x86/hyperv/hv_vtl.c
+> @@ -17,6 +17,8 @@
+>  #include <asm/realmode.h>
+>  #include <asm/reboot.h>
+>  #include <asm/smap.h>
+> +#include <uapi/asm/mtrr.h>
+> +#include <asm/debugreg.h>
+>  #include <linux/export.h>
+>  #include <../kernel/smpboot.h>
+>  #include "../../kernel/fpu/legacy.h"
+> @@ -281,3 +283,99 @@ void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0)
+>  	kernel_fpu_end();
+>  }
+>  EXPORT_SYMBOL(mshv_vtl_return_call);
+> +
+> +/* Static table mapping register names to their corresponding actions */
+> +static const struct {
+> +	enum hv_register_name reg_name;
+> +	int debug_reg_num;  /* -1 if not a debug register */
+> +	u32 msr_addr;       /* 0 if not an MSR */
+> +} reg_table[] = {
+> +	/* Debug registers */
+> +	{HV_X64_REGISTER_DR0, 0, 0},
+> +	{HV_X64_REGISTER_DR1, 1, 0},
+> +	{HV_X64_REGISTER_DR2, 2, 0},
+> +	{HV_X64_REGISTER_DR3, 3, 0},
+> +	{HV_X64_REGISTER_DR6, 6, 0},
+> +	/* MTRR MSRs */
+> +	{HV_X64_REGISTER_MSR_MTRR_CAP, -1, MSR_MTRRcap},
+> +	{HV_X64_REGISTER_MSR_MTRR_DEF_TYPE, -1, MSR_MTRRdefType},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE0, -1, MTRRphysBase_MSR(0)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE1, -1, MTRRphysBase_MSR(1)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE2, -1, MTRRphysBase_MSR(2)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE3, -1, MTRRphysBase_MSR(3)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE4, -1, MTRRphysBase_MSR(4)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE5, -1, MTRRphysBase_MSR(5)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE6, -1, MTRRphysBase_MSR(6)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE7, -1, MTRRphysBase_MSR(7)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE8, -1, MTRRphysBase_MSR(8)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE9, -1, MTRRphysBase_MSR(9)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEA, -1, MTRRphysBase_MSR(0xa)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEB, -1, MTRRphysBase_MSR(0xb)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEC, -1, MTRRphysBase_MSR(0xc)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASED, -1, MTRRphysBase_MSR(0xd)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEE, -1, MTRRphysBase_MSR(0xe)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEF, -1, MTRRphysBase_MSR(0xf)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK0, -1, MTRRphysMask_MSR(0)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK1, -1, MTRRphysMask_MSR(1)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK2, -1, MTRRphysMask_MSR(2)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK3, -1, MTRRphysMask_MSR(3)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK4, -1, MTRRphysMask_MSR(4)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK5, -1, MTRRphysMask_MSR(5)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK6, -1, MTRRphysMask_MSR(6)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK7, -1, MTRRphysMask_MSR(7)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK8, -1, MTRRphysMask_MSR(8)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK9, -1, MTRRphysMask_MSR(9)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKA, -1, MTRRphysMask_MSR(0xa)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKB, -1, MTRRphysMask_MSR(0xb)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKC, -1, MTRRphysMask_MSR(0xc)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKD, -1, MTRRphysMask_MSR(0xd)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKE, -1, MTRRphysMask_MSR(0xe)},
+> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKF, -1, MTRRphysMask_MSR(0xf)},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX64K00000, -1, MSR_MTRRfix64K_00000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX16K80000, -1, MSR_MTRRfix16K_80000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX16KA0000, -1, MSR_MTRRfix16K_A0000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KC0000, -1, MSR_MTRRfix4K_C0000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KC8000, -1, MSR_MTRRfix4K_C8000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KD0000, -1, MSR_MTRRfix4K_D0000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KD8000, -1, MSR_MTRRfix4K_D8000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KE0000, -1, MSR_MTRRfix4K_E0000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KE8000, -1, MSR_MTRRfix4K_E8000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KF0000, -1, MSR_MTRRfix4K_F0000},
+> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KF8000, -1, MSR_MTRRfix4K_F8000},
+> +};
+> +
+> +int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u64 shared)
+> +{
+> +	u64 *reg64;
+> +	enum hv_register_name gpr_name;
+> +	int i;
+> +
+> +	gpr_name = regs->name;
+> +	reg64 = &regs->value.reg64;
+> +
+> +	/* Search for the register in the table */
+> +	for (i = 0; i < ARRAY_SIZE(reg_table); i++) {
+> +		if (reg_table[i].reg_name != gpr_name)
+> +			continue;
+> +		if (reg_table[i].debug_reg_num != -1) {
+> +			/* Handle debug registers */
+> +			if (gpr_name == HV_X64_REGISTER_DR6 && !shared)
+> +				goto hypercall;
+> +			if (set)
+> +				native_set_debugreg(reg_table[i].debug_reg_num, *reg64);
+> +			else
+> +				*reg64 = native_get_debugreg(reg_table[i].debug_reg_num);
+> +		} else {
+> +			/* Handle MSRs */
+> +			if (set)
+> +				wrmsrl(reg_table[i].msr_addr, *reg64);
+> +			else
+> +				rdmsrl(reg_table[i].msr_addr, *reg64);
+> +		}
+> +		return 0;
+> +	}
+> +
+> +hypercall:
+> +	return 1;
+> +}
+> +EXPORT_SYMBOL(hv_vtl_get_set_reg);
+> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+> index f64393e853ee..d5355a5b7517 100644
+> --- a/arch/x86/include/asm/mshyperv.h
+> +++ b/arch/x86/include/asm/mshyperv.h
+> @@ -304,6 +304,7 @@ void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
+>  void mshv_vtl_return_call_init(u64 vtl_return_offset);
+>  void mshv_vtl_return_hypercall(void);
+>  void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
+> +int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u64 shared);
+
+Can this move to asm-generic/mshyperv.h?  The function is no longer specific
+to x86/x64, so one would want to not declare it in the arch/x86 version
+of mshyperv.h. But maybe moving it to asm-generic/mshyperv.h breaks
+compilation on arm64 because there's also the static inline stub there.
+
+>  #else
+>  static inline void __init hv_vtl_init_platform(void) {}
+>  static inline int __init hv_vtl_early_init(void) { return 0; }
+> diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
+> index 5856975f32e1..b607b6e7e121 100644
+> --- a/drivers/hv/mshv_vtl_main.c
+> +++ b/drivers/hv/mshv_vtl_main.c
+> @@ -19,10 +19,8 @@
+>  #include <linux/poll.h>
+>  #include <linux/file.h>
+>  #include <linux/vmalloc.h>
+> -#include <asm/debugreg.h>
+>  #include <asm/mshyperv.h>
+>  #include <trace/events/ipi.h>
+> -#include <uapi/asm/mtrr.h>
+>  #include <uapi/linux/mshv.h>
+>  #include <hyperv/hvhdk.h>
+> 
+> @@ -505,102 +503,6 @@ static int mshv_vtl_ioctl_set_poll_file(struct mshv_vtl_set_poll_file __user *us
+>  	return 0;
+>  }
+> 
+> -/* Static table mapping register names to their corresponding actions */
+> -static const struct {
+> -	enum hv_register_name reg_name;
+> -	int debug_reg_num;  /* -1 if not a debug register */
+> -	u32 msr_addr;       /* 0 if not an MSR */
+> -} reg_table[] = {
+> -	/* Debug registers */
+> -	{HV_X64_REGISTER_DR0, 0, 0},
+> -	{HV_X64_REGISTER_DR1, 1, 0},
+> -	{HV_X64_REGISTER_DR2, 2, 0},
+> -	{HV_X64_REGISTER_DR3, 3, 0},
+> -	{HV_X64_REGISTER_DR6, 6, 0},
+> -	/* MTRR MSRs */
+> -	{HV_X64_REGISTER_MSR_MTRR_CAP, -1, MSR_MTRRcap},
+> -	{HV_X64_REGISTER_MSR_MTRR_DEF_TYPE, -1, MSR_MTRRdefType},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE0, -1, MTRRphysBase_MSR(0)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE1, -1, MTRRphysBase_MSR(1)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE2, -1, MTRRphysBase_MSR(2)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE3, -1, MTRRphysBase_MSR(3)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE4, -1, MTRRphysBase_MSR(4)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE5, -1, MTRRphysBase_MSR(5)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE6, -1, MTRRphysBase_MSR(6)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE7, -1, MTRRphysBase_MSR(7)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE8, -1, MTRRphysBase_MSR(8)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE9, -1, MTRRphysBase_MSR(9)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEA, -1, MTRRphysBase_MSR(0xa)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEB, -1, MTRRphysBase_MSR(0xb)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEC, -1, MTRRphysBase_MSR(0xc)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASED, -1, MTRRphysBase_MSR(0xd)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEE, -1, MTRRphysBase_MSR(0xe)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEF, -1, MTRRphysBase_MSR(0xf)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK0, -1, MTRRphysMask_MSR(0)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK1, -1, MTRRphysMask_MSR(1)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK2, -1, MTRRphysMask_MSR(2)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK3, -1, MTRRphysMask_MSR(3)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK4, -1, MTRRphysMask_MSR(4)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK5, -1, MTRRphysMask_MSR(5)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK6, -1, MTRRphysMask_MSR(6)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK7, -1, MTRRphysMask_MSR(7)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK8, -1, MTRRphysMask_MSR(8)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK9, -1, MTRRphysMask_MSR(9)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKA, -1, MTRRphysMask_MSR(0xa)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKB, -1, MTRRphysMask_MSR(0xb)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKC, -1, MTRRphysMask_MSR(0xc)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKD, -1, MTRRphysMask_MSR(0xd)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKE, -1, MTRRphysMask_MSR(0xe)},
+> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKF, -1, MTRRphysMask_MSR(0xf)},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX64K00000, -1, MSR_MTRRfix64K_00000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX16K80000, -1, MSR_MTRRfix16K_80000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX16KA0000, -1, MSR_MTRRfix16K_A0000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KC0000, -1, MSR_MTRRfix4K_C0000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KC8000, -1, MSR_MTRRfix4K_C8000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KD0000, -1, MSR_MTRRfix4K_D0000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KD8000, -1, MSR_MTRRfix4K_D8000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KE0000, -1, MSR_MTRRfix4K_E0000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KE8000, -1, MSR_MTRRfix4K_E8000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KF0000, -1, MSR_MTRRfix4K_F0000},
+> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KF8000, -1, MSR_MTRRfix4K_F8000},
+> -};
+> -
+> -static int mshv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set)
+> -{
+> -	u64 *reg64;
+> -	enum hv_register_name gpr_name;
+> -	int i;
+> -
+> -	gpr_name = regs->name;
+> -	reg64 = &regs->value.reg64;
+> -
+> -	/* Search for the register in the table */
+> -	for (i = 0; i < ARRAY_SIZE(reg_table); i++) {
+> -		if (reg_table[i].reg_name != gpr_name)
+> -			continue;
+> -		if (reg_table[i].debug_reg_num != -1) {
+> -			/* Handle debug registers */
+> -			if (gpr_name == HV_X64_REGISTER_DR6 &&
+> -			    !mshv_vsm_capabilities.dr6_shared)
+> -				goto hypercall;
+> -			if (set)
+> -				native_set_debugreg(reg_table[i].debug_reg_num, *reg64);
+> -			else
+> -				*reg64 = native_get_debugreg(reg_table[i].debug_reg_num);
+> -		} else {
+> -			/* Handle MSRs */
+> -			if (set)
+> -				wrmsrl(reg_table[i].msr_addr, *reg64);
+> -			else
+> -				rdmsrl(reg_table[i].msr_addr, *reg64);
+> -		}
+> -		return 0;
+> -	}
+> -
+> -hypercall:
+> -	return 1;
+> -}
+> -
+>  static void mshv_vtl_return(struct mshv_vtl_cpu_context *vtl0)
+>  {
+>  	struct hv_vp_assist_page *hvp;
+> @@ -720,7 +622,7 @@ mshv_vtl_ioctl_get_regs(void __user *user_args)
+>  			   sizeof(reg)))
+>  		return -EFAULT;
+> 
+> -	ret = mshv_vtl_get_set_reg(&reg, false);
+> +	ret = hv_vtl_get_set_reg(&reg, false, mshv_vsm_capabilities.dr6_shared);
+>  	if (!ret)
+>  		goto copy_args; /* No need of hypercall */
+>  	ret = vtl_get_vp_register(&reg);
+> @@ -751,7 +653,7 @@ mshv_vtl_ioctl_set_regs(void __user *user_args)
+>  	if (copy_from_user(&reg, (void __user *)args.regs_ptr, sizeof(reg)))
+>  		return -EFAULT;
+> 
+> -	ret = mshv_vtl_get_set_reg(&reg, true);
+> +	ret = hv_vtl_get_set_reg(&reg, true, mshv_vsm_capabilities.dr6_shared);
+>  	if (!ret)
+>  		return ret; /* No need of hypercall */
+>  	ret = vtl_set_vp_register(&reg);
+> --
+> 2.43.0
 > 
 
-I've done a full review of this patch set and provided comments in the
-individual patches. Some of my comments reference the Sashiko AI
-comments, but there are still some Sashiko AI comments to consider
-that I haven't referenced.
-
-FWIW, the Sashiko AI comments are quite good -- it found some things
-here that I missed on my own, and in my earlier reviews of the original VTL
-code. :-(
-
-Michael
 
 _______________________________________________
 linux-riscv mailing list
