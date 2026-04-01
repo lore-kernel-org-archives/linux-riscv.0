@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A0AD35162
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E339D35177
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WUEB1AhLuFSVde2u0vgVQXDMa0h105pcz0Eddmb1f/g=; b=2fslvaH3O214qg
-	P3f5J/2JIA/5lR9LKBEGS3D93iDmG7V/5Pfap9HxD0kVYZuFtgTCRnZIOekuBBBt7eB4nt+aTp4Up
-	PCwyKZIsyzO5S/llVZ6nUxg//YaH+vMQlglr6Z/tHxeLiOuAHo1WJDNXDwGrLeX5qZS+b5E4pMcPy
-	Nd3k6DLAreupC2tSVpLuUemaiu6rfmPOIDfcx6/IY7dAhA0ONU9+s7FsiXaX8f2k8NB1bn2No3tp/
-	9sVum6KZlqQBZ3f59Oy7eDiin8vK2Cy4vPys/o5P0fDdzQHcUBcJoKkd3efae5q+au42P8YsBe/hH
-	tIH6xh2oQndRySBq7lCg==;
+	List-Owner; bh=2JsOcrfhrJDH03yrDv/2y8Xt+Sizkk/zBYWyRZlpGV0=; b=N86T0mI6AUgsTY
+	yihGzQkMtotIqt9/+6TcfSfaCn2ssjMWCOKZT4Eq1aZjzx0CoJUWuZwA5MPSPRCjGhLJHsbXVEotV
+	XeqZI+X/7J8M9D2by0fYT8JlpV+e0mGOSh0SPaAgVKf3x2RnmH8WVY71HJRFUCSnwOKaezZNoBiUC
+	0ATm695eQx5Hk8+6hb4t6q+jQSkQ4u9tm0UdCZk5p2JXqSO1eUzeL/lyme38JCC8/7pmD3fmCGw/w
+	ChGuhdrNEA7mr1K9YcT4uTTqdYdYBGDPpSVWM7HHF7YZzY3vBP/7xJE6oYitIUbkAXPHomt2rOZEb
+	CBPApyqE8CovphROPDKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u5T-0000000EipE-0LbW;
-	Wed, 01 Apr 2026 11:50:19 +0000
+	id 1w7u5f-0000000Eixj-32s2;
+	Wed, 01 Apr 2026 11:50:31 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u5R-0000000EinL-0vyu;
-	Wed, 01 Apr 2026 11:50:17 +0000
+	id 1w7u5e-0000000EiwM-3TWJ;
+	Wed, 01 Apr 2026 11:50:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=n0NBfAnIQSN6Y7GA4eu7XZT+oa2B4bEOQjyXTTgYNgI=; b=klUmzbW8aoTRXnb+ZCX+GoWIya
-	lkK5eLQBkbd7YHUE6mh8EdgQgLsYND+KojNZv4a4w+KJebxb15OSfRVFb4k90a5W6rFunWDur9tcm
-	gg1MHAL4UGSx+kd9FFBfIKfOHMfxryuZpG6Pbr/RTQY9zktBHAR/cRf4/ahd0DGMm2IPeg0I4f88g
-	Lvtzt0I8sOE1U7W6JgbMS7Isp3AuAby032yyuhBUHqpCRsUEFOdYQHvE3+/5hhV3V61qOAeGMEyFN
-	/5CPjyog3s45pZ9pDcdutS+eRY3IgtU8UlWok/ovpX5lp9PImKpyHPSzjQm/3Jz9PCJsed9xhm9SR
-	U56eJQPw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	bh=JxXn14BS+Kqq/oucH24B3ORTRUASx2APtAiY7561IWY=; b=BOgGu+NtTj/3UqKaGddSZpm0P0
+	bfhbpxVwF4at8j3vhUZYPSCPU5ojLZHr28b/Is4wDM8oBHaWH9NJSxo89g924S0pI/nwb+QL+ja/o
+	NNAkiVAeAl5eI/VC1XmZYIpD1G/2yREUl70cYu9LrZKalGVWVTXsz8wEElUaDdsrl6MJ0w1yAuYup
+	mJh3JzntfckiYW8FxqHwg74qiKqNYwQB/OeLXFGHH6Gq46boJFwac04Yg3LgK+DbfyphHXD8mIL5G
+	6fLXCHyWUdb9H6iQJJ//jup6aEZbhSdAG1soeXuTGSdJfBP6I2soRh9OP8WDB+GIDQ8fAJ19RPAK4
+	53FpXXlA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u5M-00000000FNw-3rHM;
-	Wed, 01 Apr 2026 11:50:16 +0000
+	id 1w7u5Z-00000000FUE-0aQF;
+	Wed, 01 Apr 2026 11:50:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BFD0407BD;
+	by sea.source.kernel.org (Postfix) with ESMTP id 77B4340437;
+	Wed,  1 Apr 2026 11:50:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DFE8C4CEF7;
 	Wed,  1 Apr 2026 11:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A1EFC4AF09;
-	Wed,  1 Apr 2026 11:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044211;
-	bh=iISLHJsJQiyE5V1a4iQF3ymUr2P6zTU39tNtCIX5lU0=;
+	s=k20201202; t=1775044223;
+	bh=PqI1bYJ4FCrbIrmuEKTmldqC0slnhQrUlTQ7imeH2Xw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JwH43iMXpXDQcRy4+AMfSoYea42pNLVjzuMUPXqV9lyKyZIS7rRAiS9cIgTsQsdyd
-	 j6B+J+/pu75uzOpJdnOhGJFNMudRyhbVI5dSzB4BiQVbTcwkXAFXR8xUeur9CaaAtt
-	 JILD8rNL8BETCD7dVZ00oT076Wj2GzJGGKGV6CXrVenq2zJx1Lq8ByMqTLw1UKAF4R
-	 wf7/Ah1lAE4c15DAF/slU0ZwiQvEKjx+rSuvc5YXtnnEw53F1u8bcFjkR9SONe1CBC
-	 +R4ZEzhNp4MYwVjW3Cv+ubljVX44Z9Rv2JtwQix1BCDgnfWCo1kCfKXLTfhQHkzxsH
-	 iTdb7Dl5K7QVw==
+	b=ItR6p4/Yc+nHji3wl3KUxbJ33NmAJHpvcFwT9PTjg2oSVZNOz37/llD5plurOUFoq
+	 Rj6XsVPjrS6u+JCfyT85bUeamLAjiNB1oNaiT+axluC0s7Pj+FYmYV9FQ/2oWjP4aF
+	 iGV+rsJMoa6gIkSBun+AUqT6C9iqAHuOVER7yU3112+mdIBnu+/20YfgG7i69Ez91E
+	 1AIAC0coViVeE3+NwZ/w559DeJFlj8LnLoYci2Po4dRc4UCIPMEV4azENLjsOb2DOF
+	 P6Ab7+maJovrhEV9zROgky/+XmWAkK6Do+/7vX0TEA0Ll+1deRn2AEoMvHaLb4Y+sg
+	 MqtWGiRHh4hng==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -105,15 +105,15 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 21/33] gpu: nova-core: bindings: remove unneeded `cfg_attr`
-Date: Wed,  1 Apr 2026 13:45:28 +0200
-Message-ID: <20260401114540.30108-22-ojeda@kernel.org>
+Subject: [PATCH 22/33] docs: rust: quick-start: openSUSE provides `rust-src` package nowadays
+Date: Wed,  1 Apr 2026 13:45:29 +0200
+Message-ID: <20260401114540.30108-23-ojeda@kernel.org>
 In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_125014_703529_5399A4ED 
-X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-CacheID: sfid-20260401_125025_556571_45BF76AB 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,33 +131,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These were likely copied from the `bindings` and `uapi` crates, but are
-unneeded since there are no `cfg(test)`s in the bindings.
+Both openSUSE Tumbleweed and Slowroll provide the `rust-src` package
+nowadays [1].
 
-In addition, the issue that triggered the addition in those crates
-originally is also fixed in `bindgen` (please see the previous commit).
+Thus remove the version-specific one from the Quick Start guide.
 
-Thus remove them.
-
+Link: https://software.opensuse.org/package/rust-src?search_term=rust-src [1]
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- drivers/gpu/nova-core/gsp/fw/r570_144.rs | 3 ---
- 1 file changed, 3 deletions(-)
+ Documentation/rust/quick-start.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/nova-core/gsp/fw/r570_144.rs b/drivers/gpu/nova-core/gsp/fw/r570_144.rs
-index e99d315ae74c..2e6f0d298756 100644
---- a/drivers/gpu/nova-core/gsp/fw/r570_144.rs
-+++ b/drivers/gpu/nova-core/gsp/fw/r570_144.rs
-@@ -7,9 +7,6 @@
- //! This module may not be directly used. Please abstract or re-export the needed symbols in the
- //! parent module instead.
+diff --git a/Documentation/rust/quick-start.rst b/Documentation/rust/quick-start.rst
+index 152289f0bed2..642efce04ee8 100644
+--- a/Documentation/rust/quick-start.rst
++++ b/Documentation/rust/quick-start.rst
+@@ -84,7 +84,7 @@ openSUSE
+ openSUSE Slowroll and openSUSE Tumbleweed provide recent Rust releases and thus
+ they should generally work out of the box, e.g.::
  
--#![cfg_attr(test, allow(deref_nullptr))]
--#![cfg_attr(test, allow(unaligned_references))]
--#![cfg_attr(test, allow(unsafe_op_in_unsafe_fn))]
- #![allow(
-     dead_code,
-     clippy::all,
+-	zypper install rust rust1.79-src rust-bindgen clang
++	zypper install rust rust-src rust-bindgen clang
+ 
+ 
+ Ubuntu
 -- 
 2.53.0
 
