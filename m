@@ -4,73 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C10AD35177
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 12:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B3FD3517C
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 12:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oc6Ew69puDu3K9Uge0ZaZd9aYHmnN2LrPYFOccdJNuw=; b=Rak0JdCNp8DigG3EbNX+vNkeuM
-	wYshzYHKAH/ztHHppgaCpfx/KwXGobMvfquGXw6o089PEz/4M48ZthFAph2XLuVXDENpZjwMIc6pb
-	QqYj3Gqvts3RrNhqf/3lGdbYqsYEJIRcRXPEpKt4osAjO7kBg3e7YJE8HPq7KHWwW/VCtEsEgwto+
-	QfoptJQlCpkoP+dJ5tFJ1n5hW2/wu/BMRxBjKaReQ1rZVHVXRACYnM3SaApD2u6eGuznWSB4HwRfR
-	Q0rNGx/CusHqirQr/1FAJDTK2ncYXPb/7yzCNPIC8GeKNfyRcWJrDVwODyxuLTXfUASQ6ArVtIeIo
-	2mT53Heg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=xKQJ/XLhaccJf3nvXE7YDgwcevnXKR3YA6K/p8dicuE=; b=Fe7C5zZIZRHg0kRXpmjeUEu+el
+	5xijbKpsAKHf+8WJyDH9sG1lW9M+Ze5U90gzT/CIFgr6P+N3ofDk9taUblQilTAf+z0rgFMm8kWeh
+	xPrybUkKRpjU3J/sZjEsJQcYgXCVUgYaTaDLyWM3LLuSMSh53O4yb7+J1KByBU+oiWPxSMS2n3jP6
+	h/zpZffytencUfYZZ7KZxuaYPjLOHZDiq/Ei/KIanuBrRoB1Sx+OFBsrrCuEu9oCnZ0zxFfg5WxqC
+	VMFzNEqlmLnCEnPo/KpmrxgWxuucplj2xpg/u3bivmrJMaShiixAlj32kl3/+oFhSf4KgaaPC6bEY
+	kgm3MLHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uni-0000000FB5w-2NMW;
-	Wed, 01 Apr 2026 12:36:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7upW-0000000FCOA-0C71;
+	Wed, 01 Apr 2026 12:37:54 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uRo-0000000EuFc-0iUk
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 01 Apr 2026 12:13:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KJhQIZeVkIrhOM7OqSbKMruxwd2qCLEXuLSacKa0N3s=; b=LhzktUKhVO44BXgJloCW0YVjlu
-	CaSs2hk9lk67fmK5YzuY88T+IA7V8Y0CdseA7gkjRlz0MM8CIteMWC6+MRKhO9+f1p4UjY9UJgXpu
-	f/aupeVigBsCcvoWLvPnPH7mmplw7n2CCygVdsIWZ7Tgldc3GkiP1dK66YpWqA8dDnSfzfWBHYlae
-	d+IQgc+w9Vgc05zSYE4a4uS4rw7Y+ZRveGLDj6fd4VMwJzCMtiYw1673/ScU5XnZKm/oiDqyvgd8A
-	hn8R0qOhwtXnO1nVRCB1EhMwqOQgwueIPrQ8T/50lybqNTVMZnOoUK+M+kXdUyzb8tfiWx6FxLYgK
-	+k7kAg7Q==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uRk-00000000JA6-42iD
+	id 1w7ud2-0000000F336-12Wy
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Apr 2026 12:13:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F671408C5
-	for <linux-riscv@lists.infradead.org>; Wed,  1 Apr 2026 12:13:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A39CC4CEF7;
-	Wed,  1 Apr 2026 12:13:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775045596;
-	bh=6br/MLePdMI3AkPJbIOmW9UoWVIoX/scxBnPpD+TQBA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d9Q/Yehy+MCwQqApK5wqRTtUjb7sPykHR74PeUlkOjbo6qRI9wnfELafl/3pUOb1h
-	 p73wYJWDVCGDuIPlCg8r4nkwNdTkcUJhmz0Dk7IrOAHiylMFeSK5qmD3OOffCuQec6
-	 lkzc0+nT2C2Q/VOZ2KGztDlkwj1zOvhnrXeWfaBSU7M4Jh+/J0zFMi/03EtLUu1f6X
-	 4inBTo7hKwG9+A+Y/ryQWaJ/FhVOnKS5Tgp2t2aFdYdXxw2kIdPGcEjmJ0JqiKmma6
-	 K4w2QbCahPetqz6EkRTkvbj46EJoPnHflFLmTIuh9ScGKaV4GYULn4V1YpLtGjvQEN
-	 h/1Z+crOOGdWg==
-Date: Wed, 1 Apr 2026 13:13:13 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [GIT PULL] ~RISC-V~Microchip soc fixes for v7.0-rc6
-Message-ID: <20260401-proving-recede-80a274af26f7@spud>
-References: <20260326-vertebrae-relatable-adfa3baabfd6@spud>
- <20260401-bold-positive-flounder-6e7b0d@quoll>
-MIME-Version: 1.0
-In-Reply-To: <20260401-bold-positive-flounder-6e7b0d@quoll>
+	Wed, 01 Apr 2026 12:25:01 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b97a3f9ebfaso538047866b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Apr 2026 05:24:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775046298; x=1775651098; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ycc6WMg7OLshR/yyfU2jpKKLPa+z0xOJ3hTWvecsxRM=;
+        b=M5WkMcl+EKvMFwXo1qHb0SV2ZheUhpewleyOhyw0g+kPB0Tpk89Cwck805J/rrF40g
+         eYovGqcGpQ3XLMDq4VNi+ivmWwZ8MAGt/ly0BqQlJca98p+/ZA41KSo9wm/f0/FHcENE
+         uM7p5UWOaKo1tJ2qan6/Um9XI1OSOXD2n5J/z05jpObqfTcU5xuctPKn1ZDjvesSOFew
+         FAplWuHMvXkJsWW7wFlg0ZHybpusSxXrsVuLBB62vjSPFXFlflpRAqxbZ3aF/wy3ax1x
+         n5grSUy+UG/J27aQ/upV1xQ1yl7r8cPzJ5bEeGyceqvSqV1ldUaIUfbQW0MIl2vCUEYI
+         rpig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775046298; x=1775651098;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ycc6WMg7OLshR/yyfU2jpKKLPa+z0xOJ3hTWvecsxRM=;
+        b=T1YZsAESSvfQCZB4fH2o5NWW8i/Czwf6Sq+DuuRaH9EGOZnGfNMYAxrPd3/DPYDHkN
+         m7TDJMDKur4nzCc+5WqM4ED2tYCEd4Xd3j98Ft8F8Fl9lE9/CzoS8/DI2xT85MZlImg0
+         6bE9m6PpcZ9qzUtxqW/I417FIzRM090A2Slp3AkqfuLCrE9CAAm3ta3HNrsBPA7H2rEB
+         1Acc5wPQ3ILLjMrbB+2BlARwbLdbjYco0aQ+b7nCGoHaMzTc89MHuRKjKO7FRzMs+a7A
+         IC8GT5YmrNG4B0rqZUyGUVzLjZI9dQulJi5fdc10xP+w2DP2fppswdKuO31D0YcaAKvR
+         r5hg==
+X-Forwarded-Encrypted: i=1; AJvYcCV6QYyp4bjSUrqrE7NdmZ1erEWJhnpqBOTFJEjyrE/+DExmqQcR6FEXqrgjlNeHiwP8gQx9tZjhuGwaUg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxguS/JVhnqRRZhdP9EUFr7+69I9/DpqB6Bnm17g3vdX7O23cn/
+	rzxjV5btja+wmMCOVxDonFWnTPQuphqfN36kELS/fIarriStd/axYyFdIAj98d+EbAqpGO6PAqw
+	XTRcqjPC0C4VSKa+ITw==
+X-Received: from ejcbp3.prod.google.com ([2002:a17:907:26c3:b0:b9b:54ac:688a])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:907:c448:b0:b99:5f69:9ee2 with SMTP id a640c23a62f3a-b9c13cf93e8mr221111666b.52.1775046297024;
+ Wed, 01 Apr 2026 05:24:57 -0700 (PDT)
+Date: Wed, 1 Apr 2026 12:24:55 +0000
+In-Reply-To: <20260401114540.30108-2-ojeda@kernel.org>
+Mime-Version: 1.0
+References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-2-ojeda@kernel.org>
+Message-ID: <ac0Ol1PaRTWNK6O9@google.com>
+Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to 1.85.0
+ (Debian Trixie)
+From: Alice Ryhl <aliceryhl@google.com>
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Arve =?utf-8?B?SGrDuG5uZXbDpWc=?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
+	Christian Brauner <christian@brauner.io>, Carlos Llamas <cmllamas@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?B?QmrDtnJu?= Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
+	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_131321_268967_9F18ED14 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20260401_052500_293445_26991634 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,88 +105,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7911532171682989383=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 01, 2026 at 01:45:08PM +0200, Miguel Ojeda wrote:
+> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
+> we are going to follow Debian Stable's Rust versions as our minimum
+> supported version.
+> 
+> Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
+> still uses to this day [3] (i.e. no update to Rust 1.85.1).
 
---===============7911532171682989383==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pT0cUuiUhHUhFJ/x"
-Content-Disposition: inline
+Debian really *should* pick up 1.85.1. It contains bugfixes serious
+enough that the Rust team decided it was reasonble to release a point
+release.
 
+> Debian Trixie's release happened on 2025-08-09 [4], which means that a
+> fair amount of time has passed since its release for kernel developers
+> to upgrade.
+> 
+> Thus bump the minimum to the new version.
+> 
+> Then, in later commits, clean up most of the workarounds and other bits
+> that this upgrade of the minimum allows us.
+> 
+> pin-init was left as-is since the patches come from upstream. And the
+> vendored crates are unmodified, since we do not want to change those.
+> 
+> Note that the minimum LLVM major version for Rust 1.85.0 is LLVM 18 (the
+> Rust upstream binaries use LLVM 19.1.7), thus e.g. `RUSTC_LLVM_VERSION`
+> tests can also be updated, but there are no suitable ones to simplify.
+> 
+> Ubuntu 25.10 also has a recent enough Rust toolchain [5], and they also
+> provide versioned packages with a Rust 1.85.1 toolchain even back to
+> Ubuntu 22.04 LTS [6].
+> 
+> Link: https://lwn.net/Articles/1050174/ [1]
+> Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.html#desktops-and-well-known-packages [2]
+> Link: https://packages.debian.org/trixie/rustc [3]
+> Link: https://www.debian.org/releases/trixie/ [4]
+> Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=rustc [5]
+> Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [6]
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
---pT0cUuiUhHUhFJ/x
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Acked-by: Alice Ryhl <aliceryhl@google.com>
 
-On Wed, Apr 01, 2026 at 01:44:04PM +0200, Krzysztof Kozlowski wrote:
-> On Thu, Mar 26, 2026 at 11:21:39AM +0000, Conor Dooley wrote:
-> > Hey folks,
-> >=20
-> > Another small PR here, worth pointing out that the exact contents has
-> > been in linux-next but not as these commit hashes yet, I squashed a
-> > fixup patch just now that I hadn't realised got pushed without being
-> > squashed. Might be worth letting it marinate for a few days if that's
-> > a concern.
-> >=20
-> > Cheers,
-> > Conor.
-> >=20
-> > The following changes since commit 0528a348b04b327a4611e29589beb4c9ae81=
-304a:
-> >=20
-> >   cache: ax45mp: Fix device node reference leak in ax45mp_cache_init() =
-(2026-02-06 19:54:40 +0000)
-> >=20
-> > are available in the Git repository at:
-> >=20
-> >   https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags=
-/riscv-soc-fixes-for-v7.0-rc6
-> >=20
-> > for you to fetch changes up to c7596f9001e2b83293e3658e4e1addde69bb335d:
-> >=20
-> >   firmware: microchip: fail auto-update probe if no flash found (2026-0=
-3-26 11:14:11 +0000)
->=20
-> Thanks, applied
->=20
-> Probably better if the fixes branch would move to v7.0-rc1, not
-> continuing the v6.19.
-
-Yeah, I probably could have moved it to a -rc, cos there was some
-fiddling about when my week2 merge window fixes PR got merged I opted to
-leave my branch on top of that tag, lest there are conflicts caused by
-later fixes patches. Ordinarily, I fast forward to -rc1.
-
-Thanks,
-Conor.
-
---pT0cUuiUhHUhFJ/x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCac0L1AAKCRB4tDGHoIJi
-0j/5AQCWgbbodhrF2m/5RCiOWgYx4FeqAmURWJ5fRsnGdvRshgEAoODMTonwPO9k
-5q9LlitJftSma4GUt8JDxbtcNpwEKgk=
-=nKh7
------END PGP SIGNATURE-----
-
---pT0cUuiUhHUhFJ/x--
-
-
---===============7911532171682989383==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7911532171682989383==--
-
