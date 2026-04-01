@@ -4,85 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A471C10F6FDC
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 16:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7714DD35165
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 16:55:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0YXuyqDs4GSRIIFgBk8i7fI8p/H0iHwasJ8ecu4GKl0=; b=YTDCUrCzQGAyCK
-	G3lCYEysbnrvjnZTLeKMV9l58ORml2Umxw3qtVpp0I/q4EwMxazALhDivv/OPgWhMW7i9NL5WI8+n
-	uulVGa9hTKRvYdWH3BFvPP3OpLTup6bhRFGe12MucJeKk7I5i9Ni0eBq969+su4Ni6fKAPTH6bq8m
-	yz3zYaUjDA8xAmmkWNbnRFV996aK3VRWK2qrDlTfce+TEgQ7W7gaRTNsZrjhXVRMNnJ100ClBKLyw
-	N46npxDe0ca1q79dLbp9xbYx6Ct1QfH7A5T3Y+ZM4WPQcZtGe+FSx6uKtON3ziXF6AGbifbDucKmu
-	M5b3BlpoKphm4906zL4A==;
+	List-Owner; bh=e2OGImUzVHwo6Kg/UMbcLDcWWrNkXX1sZI378CbGHA0=; b=Cer71KrYd3uaaO
+	mHiexA/Xy4yw/AjH4SchmNqJ+o7guIjC9nwSpntL/RDq+cZjP7hdztvyUoj/Tl1XzOaaJYLgogxck
+	3kl+11PMTQltuSQBZkpIoxY7rizMpgC1EMpBqc49yvJFhCa6YHQ7UkBRBuYrc889KX7u9f6O05f9y
+	hACXvC7kchhAe7LfFr7V08Vsa0ra60+wAlAs6hmzYBJmyGYjlrLuTbBUCq8gtw7yiA2mstEggQzRR
+	mdbL9GDy971p20oqEHur7erBvoK5xbzj+FUkeFF5m7FsgqbDFlO/T7G75DkxHKxaEr3Gtq3YR5nDA
+	ICeJRSF0kmhg/RPI1TRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7yVj-0000000FjnR-2Fcr;
-	Wed, 01 Apr 2026 16:33:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7yqQ-0000000FlwC-2zih;
+	Wed, 01 Apr 2026 16:55:06 +0000
+Received: from mail-eastusazolkn19012020.outbound.protection.outlook.com ([52.103.11.20] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7yVi-0000000Fjmy-1A8b;
-	Wed, 01 Apr 2026 16:33:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=i38POLkOCg+yN9zpEbP1Avd2qL+0BuIaDgiB5Ed9P7g=; b=efc/XBUqN6NA4d0CfwPsLqqvIr
-	mfpNW9UP3LyTqVaN7IFE+hfhw5sH6HIwo+8xN7pyuXpgnarOY5mvF9PEqsN9atA3Ry9lWLhV2t/bg
-	VMa1Yq7iKVbgHC3P44rjYqwGrijn6iCdXlxU6bgfIwUxz9F89TWgjk/GCmVJQ0n0VJt9d8uKIaV+v
-	AbmIVCgpenZUPA2kCySfgXyjb02HDYr6UJ7mnTVAQL0qFgRMujDtjo1qIKaEQsxWv+QlglwSaMwIK
-	f18z3A7wA267v6zpSY1E9iST6qlF9fgARynN0TZCacKa6i/FTyBg5w8HoUah/EJWAH37AOcoE3mCW
-	lKWyXhLQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7yVe-00000000trD-2KrO;
-	Wed, 01 Apr 2026 16:33:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66E2E1D6F;
-	Wed,  1 Apr 2026 09:33:30 -0700 (PDT)
-Received: from [10.57.77.192] (unknown [10.57.77.192])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD4483F7D8;
-	Wed,  1 Apr 2026 09:33:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775061216; bh=bbGQgXq3CFYt+VX0sV+aCx31FLqKgRb0Qy92VqwuNGQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GwWe2F6BfmTxsuY29owznO9HTvvEW56dJwVfyzV+5uN0GBcLYF7hpaKkCZDOcPPBz
-	 TEcBqhEj+P8QyYRv1a/8cQy7DGKWuggpAfXXgXY+enYSwr4zFfe3AYZpwJmO6CKo0b
-	 fnsDhTf4cmHiD1S89CGVZJpbWm2Pb2eppj60v/Lw=
-Message-ID: <ee2c2044-e329-4cdd-ac35-9365824d3677@arm.com>
-Date: Wed, 1 Apr 2026 17:33:28 +0100
+	id 1w7yqO-0000000Flvg-17Sg;
+	Wed, 01 Apr 2026 16:55:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bl/SmAOACCAx2H5eJCeViZrMRV8e+EhQQMi0bm3NfE6xM0B1JBfIwsteD5/dYYZ6CsIDzJkD0SyERv5uiTFQy6TcBqynRGTVGGlaLpaMoyX/AAjGfVFz1d0kSOcZy5ymuCV0EC9V2nh5ZS9+vk1kUFCDEvCUp9PK8TYBJUM9GpkhNomWrr+3xnM7meQaeurRxqrV0GArkB1bNaXC5E9ZZJ3apremjgZsFICT9AQh+UCZvIHNAottiAsPT6DBMDaR+wdkCiGyEf0Gg95FfFfXB0ZlZvaxeXtdDIugKqDnjPCnLvU6ORsKg0pcF6wXd/YcaQLcfqGl8MNoCIemEZsukQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ritCHsA/eLYR3EGweodEJnzJadd/QkugcIkMpQry5Bk=;
+ b=xTfmFJ60tgentXAfUC9sxS7B54pOABO/OB1kDUQgm+kKcf13Mx640WQQW/ASW2jMo7QEys8Lc1ot2gxM8IGNpo27bYnrotMIZF8gYqu7jHeojuKrlc4VkTSrg7FaXHDDBsjaM0Y5DVyB2EJDllnZQaawy/v40SKYhLv4D4sThR2/liACDI/FLxIAho59NjhoQGL942ZWw4ajFrci7UPOUROzKLYhDI7kEfyFesWh4Kzqtl8t0dM19jZ5pTp61SPI/uigfBR0WuTIPEZw4FA2z3vPLxIIz8Gsfl3xI1hpXWpbW4dOGZTw00/8cmz7PH3XKvfweQ6T4FUSXDbq0UEIAQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ritCHsA/eLYR3EGweodEJnzJadd/QkugcIkMpQry5Bk=;
+ b=QlwvUqv7NJ9jH/1vKMSpEs41Mvs/OOa2FTg7QK++tnphOOvlXaQMEPRXnR6uVQ6dEZxvUUhDi/oLoyZcuGKHINF+9muSKaMfzxEwoyQui3lToRh6KJnvJENXgSkVDn5qVajlPxQTY1wF9GBoaz0zkhlQKfux1ZV8RhQH1I3KScSnhnBCa+8/CltteuAmuvurLUKiQifyCWBsXjuIVPzooqUUvO5FrXRddc5g0WeBHMPckA3XgjF7SvWO8xsUlW+vRqb+VeA5vkMxjWeib7IWTuUulsXg4ZjHEcOhB6T4rtLXJY0k8gUELNpnsQpyWO1uvLCS8USS5ukCapbz3hx7DQ==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by MN2PR02MB6701.namprd02.prod.outlook.com (2603:10b6:208:1d3::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 1 Apr
+ 2026 16:54:59 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 16:54:59 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
+	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
+	<wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li
+	<longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H . Peter
+ Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, mrigendrachaubey
+	<mrigendra.chaubey@gmail.com>, "ssengar@linux.microsoft.com"
+	<ssengar@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH 01/11] arch: arm64: Export arch_smp_send_reschedule for
+ mshv_vtl module
+Thread-Topic: [PATCH 01/11] arch: arm64: Export arch_smp_send_reschedule for
+ mshv_vtl module
+Thread-Index: AQHctT5EbNtOyKWv/EOiHTab61OuerXKhg5A
+Date: Wed, 1 Apr 2026 16:54:59 +0000
+Message-ID: <SN6PR02MB41570A9050B3EB6A905DFF56D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20260316121241.910764-1-namjain@linux.microsoft.com>
+ <20260316121241.910764-2-namjain@linux.microsoft.com>
+In-Reply-To: <20260316121241.910764-2-namjain@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MN2PR02MB6701:EE_
+x-ms-office365-filtering-correlation-id: 0441daff-219a-43bd-5eb0-08de900f690b
+x-ms-exchange-slblob-mailprops: Vs63Iqe4sQmnDmlsl/vneQbmorDq9Hf2UGMXAmyq6JbocoBh7E6vmXsoAzvGNPbipTcETE3dUY9RcTaxTpvxRyUJEOlYQm+LYOSLBgVt5+GjVelHCZ6ksityk6n+GcVIcHWgvnz+lk4Cli3WKy4JJfF/cCjFtq+zNkqu34t2CH1AZkyfjKexkj2HZ9ls/j/La7GA8o7OQKy5fzcUq24R41e+FL4ewUDPKiq60r81lCsBZ66YIHnf/aN7TYfGN6JgI+JhfmpUrTF80Lf4+gmdTo3q9gbj57tLrCg8IsW7UYpDBOJ2GDHKLltzgfg6kEV1SHsXLRMWJziFXuP63OVg7ZofOIT3z75cHnTyt0L1nVCkYh6BqgW3Fn8d5JEBgyCV8ln/sII3XTHWzTWc4UBTrAAYSFO4XS33M47xNG0zbMNdN/0vCJZPS/glUL6PYRfpr35bGDSzthdFDHQxQw4v2i3HrcR/ETSyOrjlGSmqPLuU7kryqopuQj/mJzeGdDvqOM1upbj91jdm+cHDHQqMxsifBAZ+5pGs7hB5n4YurpzdYcIF30UkP1zbyR7DCB/QKrs17rtQ1zzcqSGQKNDkoBixHiOKYao76vBYcY+whfjEARy54POUxuFEx7IOJIW1Z3xoUBiSLe2vmJFn833yCOOEvhz9hQVKGbTRXulRIAD3nKOmZ3wFwaDSWzctFfbWgNw+G6PxJ2ayLwi1FdQ7Ws+R6WDyM1cFWPQt0dhfYw0=
+x-microsoft-antispam: BCL:0;ARA:14566002|8060799015|8062599012|19110799012|37011999003|31061999003|461199028|41001999006|51005399006|15080799012|13091999003|440099028|3412199025|26121999003|102099032|13041999003|40105399003|1710799026;
+x-microsoft-antispam-message-info: =?us-ascii?Q?oWz92/C1edlgqAYLHz+IYSqz+C2H1Vb6jhArZBeiMhkwiloyt7slKI4qZ4zl?=
+ =?us-ascii?Q?FpkMSRCbhM6ZpdsLC9J7mQGpoI4IS/zNDhvpX7IqO+IXqlHykSqCMSN1NtjS?=
+ =?us-ascii?Q?nW7wwZ1PzlpQQhncgW2LSIhKUXhLJ7HyoTrbkjAjmdcE4skCKNPVAUJ9kgkb?=
+ =?us-ascii?Q?2JIf6Go3RlBylIEGPEcHgZF6j8VeOUsVno/H5o6C5Khe6xR1MujC98QeyFt1?=
+ =?us-ascii?Q?ubYoshyJDQuB48kvwTaSv8owQCM22fG0azEqa3RwEfIFsJeFWre7ea95CUaF?=
+ =?us-ascii?Q?HdjpZl9N59AR6/Ui8TfO3EoDpelNQZMf32uyQiGw3NEduvZMIOYeLl+i5tha?=
+ =?us-ascii?Q?hZBZPpYiK74XLCbFnrrhIyYy4ynYqrwBPm2QXb7ztNToYxTdNvh85NT/g+Nb?=
+ =?us-ascii?Q?q5vx3+2X1BKKjeTTILRyNxdFUKwmWaGamYAeu5Lfv0RnrAZfTQ82ReCOPIxa?=
+ =?us-ascii?Q?kbtDOLNSYWWJXYU3VpzhVS7xdGOjoLMhIrARHuuqnjaNWPNZs5u+B/py1i97?=
+ =?us-ascii?Q?KsFRTXZdXdrtiITxCuuXJIIzmB76xSIEai6vPX0yWaPpuon+BY5ySFxE6+ti?=
+ =?us-ascii?Q?B377/96TYEdK34/XC3wwJFzBRRkIEIwkXpcAdXKYe1Scd4bCFkxliysKmC0K?=
+ =?us-ascii?Q?AIxv5LlcDBNw9cCOxU4Qyhdmi+f0/GzM4fOCmZBnaswGoNH0Jx8f9q6fkRlT?=
+ =?us-ascii?Q?H4NUWnMjRSXdaZBZQbAa5bn9mi+R2A+C2DSNIL9LfueFr16SoFoEa8G2Xnjf?=
+ =?us-ascii?Q?TjAs2b352uTsillwM5y+9fJCszDZFyL0ANgbx7H+1S5dSuW+moV62d4jvM5P?=
+ =?us-ascii?Q?o872Pluio3uYA+oAx3Zoq4xDAUJEm/jaYpvNvn5T33Hcnql9aJUEaVbFjR6M?=
+ =?us-ascii?Q?yFyYyyyR2y7HaXI5J+xteBYA/v3UOxfWi2SSzOwCniosELQ1zV6Noc3nwRq0?=
+ =?us-ascii?Q?GkDHZwowFv4ajt0pkrWn5LgQP9JOOcbdp7rz4m7jso9bCgpmspZrhhhV1odQ?=
+ =?us-ascii?Q?ySeCMWa2V2Vg7DlWhxvAt8VV9gDRNt8WhP1L9w/wDhvIFwZKECxE231u4IK7?=
+ =?us-ascii?Q?3CWTLV0lBvkPJTXNF1wdiQSO50R14IweCo/zOGAK2DRtOBP3lTo=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?VPaXk+dmcfXbBvL3Dl6sIkWtF5EdF0tyG9aOyR1+bjf7QmTD5cIf6Gu2WWJz?=
+ =?us-ascii?Q?IRMPiTyaEolPTTwHINp90QBmGZW4LSwpR0f1DiBtfpHrhRcugSjGhwMzxu8z?=
+ =?us-ascii?Q?VhUrLwjxZEO9e87NFuttFQoFQKt6hRNR7kjz3WN88GDwOwFALZg840AmVhTM?=
+ =?us-ascii?Q?J99zFeLy6Fi0TffR18yvjLGtbS8b0pNvTZ7VCzsrprYw/tBZxeCDgcGPXB82?=
+ =?us-ascii?Q?cuaaZEqHO2UJm54AQ9nnrv708WuPGKfvzvluGhv0h9KORHWBWwC5wNKU60NV?=
+ =?us-ascii?Q?nwhqmFxeaiNG4tgjKGiCQxRp9JQzWIpRWK6ThmK3oB1ScxpWQdusyyE3rKcf?=
+ =?us-ascii?Q?m5d0S/6IJ42FrsV9NthFTn/lsxchxynkR+lNpi8euBSgW4SrPhisIXHRZnPD?=
+ =?us-ascii?Q?Gexo1gEvHmbrTyV9T/ko+/++cBr+J+C1siNEAHiYOFyxMxZmCOUuc0QkgRWb?=
+ =?us-ascii?Q?h8KY8BcqbVuM+s5BckGhLxomZOvq5NFfirzfybXgSqO/hvzibEpOHhKYuJzu?=
+ =?us-ascii?Q?kunAHPM7z2W8gZo/GwcNw1viB384X2nexAU9AiwckR7IMs2UqDwQC0UKWspW?=
+ =?us-ascii?Q?aYzAtQnhcxCxuHyEVzqM8tXHkH+3EbJhkwFFjY5JXbV1wt5cv/vWze1OB3gJ?=
+ =?us-ascii?Q?97iaUoRTEtThozM+nYRnV1qV3s0RzalXRnCN4Kq5RfoGK3wxMY60aRe3bFmi?=
+ =?us-ascii?Q?4Iuqph3v9Lv4SHKfafA8R3HP4lGPd1tiw07LA79vcy5PQpou4++arRGmNYrN?=
+ =?us-ascii?Q?xNweQhk/Tx9iNLDojKxbwSNndggZ0/dSOateUxHmMjO3zl6oTCWm+Voh7jUR?=
+ =?us-ascii?Q?ps+TlgnrmePNHaMc2I7Pf7F7A2aC+CPrIlblB0F9SQe7ZtZomei2oIdgWI3S?=
+ =?us-ascii?Q?7OnK5NG3DvIWvtMQvlOMZrtCEmxJRuKC4VLmFpVv3gk3f60aNakTjjkq/U8Q?=
+ =?us-ascii?Q?auUC8bQeFkbtX+V3llz3ZISc0hfzcEtOC2NBqhTo3KOvuAyIuadZBPOpclcF?=
+ =?us-ascii?Q?uhvfWVyJw4Gx0ggJeYvgo1xxmmmoDeHJvQzq8eX0v3/QcpW/bPdPzKnAGMFT?=
+ =?us-ascii?Q?gvhrkpLjfboy8ufmBpHvSya1VcunpQSOkPC/HFN9HfcIunujgV0Bq5PbWHE3?=
+ =?us-ascii?Q?DXto75Q9k5cHnFybeeDiwbNUeZHQ6Phs1qSJmn8uQcNWBnAlb0PpmVIn4xrE?=
+ =?us-ascii?Q?hQZu/jiJdj0FUtSniEqk/wBHwdt3/8/UeuvGSjFUn5d/+neDFFJC7lwsLZ1c?=
+ =?us-ascii?Q?RbINc3ifTfhuTqWTeMXJWw8V1LUh5tbHQP1YeIA2TXIDj6U45a14WCJDl9lX?=
+ =?us-ascii?Q?QKRNXVSkQubm6b3TctkRIetBgQuMYtdMwS0gEcsZ3YFPqQFsSWbiobWKdiYm?=
+ =?us-ascii?Q?pBl21r4=3D?=
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu: Always fill in gather when unmapping
-To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
- Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
- Janne Grunau <j@jannau.net>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Joerg Roedel <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Matthias Brugger <matthias.bgg@gmail.com>, Neal Gompa <neal@gompa.dev>,
- Orson Zhai <orsonzhai@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Sven Peter <sven@kernel.org>, virtualization@lists.linux.dev,
- Chen-Yu Tsai <wens@kernel.org>, Will Deacon <will@kernel.org>,
- Yong Wu <yong.wu@mediatek.com>, Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>,
- Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
- Joerg Roedel <joerg.roedel@amd.com>, Jon Hunter <jonathanh@nvidia.com>,
- patches@lists.linux.dev, Samiullah Khawaja <skhawaja@google.com>,
- stable@vger.kernel.org, Vasant Hegde <vasant.hegde@amd.com>
-References: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0441daff-219a-43bd-5eb0-08de900f690b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 16:54:59.3844
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR02MB6701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_173338_943637_FA0D6183 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20260401_095504_523814_8C9B1D47 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +159,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-31 8:56 pm, Jason Gunthorpe wrote:
-> The fixed commit assumed that the gather would always be populated if
-> an iotlb_sync was required.
+From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
 > 
-> arm-smmu-v3, amd, VT-d, riscv, s390, mtk all use information from the
-> gather during their iotlb_sync() and this approach works for them.
+
+Nit: For the patch "Subject", the most common prefix for the file
+arch/arm64/kernel/smp.c is "arm64: smp:".  I'd suggest using that
+prefix for historical consistency.
+
+> mshv_vtl_main.c calls smp_send_reschedule() which expands to
+> arch_smp_send_reschedule(). When CONFIG_MSHV_VTL=m, the module cannot
+> access this symbol since it is not exported on arm64.
 > 
-> However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio,
-> apple-dart all ignore the gather during their iotlb_sync(). They
-> mostly issue a full flush.
+> smp_send_reschedule() is used in mshv_vtl_cancel() to interrupt a vCPU
+> thread running on another CPU. When a vCPU is looping in
+> mshv_vtl_ioctl_return_to_lower_vtl(), it checks a per-CPU cancel flag
+> before each VTL0 entry. Setting cancel=1 alone is not enough if the
+> target CPU thread is sleeping - the IPI from smp_send_reschedule() kicks
+> the remote CPU out of idle/sleep so it re-checks the cancel flag and
+> exits the loop promptly.
 > 
-> Unfortunately the latter set of drivers often don't bother to add
-> anything to the gather since they don't intend on using it. Since the
-> core code now blocks gathers that were never filled, this caused those
-> drivers to stop getting their iotlb_sync() calls and breaks them.
+> Other architectures (riscv, loongarch, powerpc) already export this
+> symbol. Add the same EXPORT_SYMBOL_GPL for arm64. This is required
+> for adding arm64 support in MSHV_VTL.
 > 
-> Since it is impossible to tell the difference between gathers that are
-> empty because there is nothing to do and gathers that are empty
-> because they are not used, fill in the gathers for the missing cases.
+> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+> ---
+>  arch/arm64/kernel/smp.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> io-pgtable might have intended to allow the driver to choose between
-> gather or immediate flush because it passed gather to
-> ops->tlb_add_page(), however no driver does anything with it.
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 1aa324104afb..26b1a4456ceb 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -1152,6 +1152,7 @@ void arch_smp_send_reschedule(int cpu)
+>  {
+>  	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+>  }
+> +EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+> 
+>  #ifdef CONFIG_ARM64_ACPI_PARKING_PROTOCOL
+>  void arch_send_wakeup_ipi(unsigned int cpu)
+> --
+> 2.43.0
+> 
 
-Apart from arm-smmu-v3...
+The "Subject" nit notwithstanding,
 
-> mtk uses io-pgtable-arm-v7s but added the range to the gather in the
-> unmap callback. Move this into the io-pgtable-arm unmap itself. That
-> will fix all the armv7 using drivers (arm-smmu, qcom_iommu,
-> ipmmu-vmsa).
-
-io-pgtable-arm-v7s != io-pgtable-arm. You're *breaking* MTK (and failing
-to fix the other v7s user, which is MSM).
-
-> arm-smmu uses both ARM_V7S and ARM LPAE formats. The LPAE formats
-> already have the gather population because SMMUv3 requires it, so it
-> becomes consistent.
-
-Huh? arm-smmu-v3 invokes iommu_iotlb_gather_add_page() itself, because
-arm-smmu-v3 uses gathers; arm-smmu does not. io-pgtable-arm has nothing
-to do with it. Invoking add range before add_page will end up defeating
-the iommu_iotlb_gather_is_disjoint() check and making SMMUv3
-overinvalidate between disjoint ranges.
-
-I guess now I remember why we weren't validating gathers in core code
-before :(
-
-However, if it is for the sake of a core code check, why not just make
-the core code robust itself?
-
-Thanks,
-Robin.
-
------>8-----
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 35db51780954..9ca23f89a279 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -2714,6 +2714,10 @@ static size_t __iommu_unmap(struct iommu_domain *domain,
-  		pr_debug("unmapped: iova 0x%lx size 0x%zx\n",
-  			 iova, unmapped_page);
-  
-+		/* If the driver itself isn't using the gather, mark it used */
-+		if (iotlb_gather->end <= iotlb_gather->start)
-+			iommu_iotlb_gather_add_range(&iotlb_gather, iova, unmapped_page);
-+
-  		iova += unmapped_page;
-  		unmapped += unmapped_page;
-  	}
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 
 
 _______________________________________________
