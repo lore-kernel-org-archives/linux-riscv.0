@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7EED35177
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7274CD35162
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EgPzUNOUqsSGnZQH85kFFtMl+R7kNKVG2Yh8d6f4ug8=; b=zdIPtk5YDNLGD8
-	q+oztV/r7/i2s/u1Ll9AmG8kWNCJNEFk4LXl+bMsU+qXkmDFeHrpqr2eJYpLCvvzHYj4sfeWGOcCM
-	GXTHtAro60BlHb7cF9i81ul8U1pz62lxcFWxRwPp6KY55hzh5dp7S5eU3hcXobLIeYMFassrLQBZJ
-	NvdFXhOtvlAN8kLHO9m8ynugyBKGDyCXsPVF20wD/kYP0nPxNygOnpjruM6xthxMTvWxlONAl4Qf9
-	UKJrFtXesafJF6C/25lcc/tKwUUcbRp3E6l9l7GPVmCxSVHXX6oRradFy69Q0DuJsIU4MhZ9Ip3/l
-	/kyJ2u68zMkoECbkxbAA==;
+	List-Owner; bh=BJ2KmcCr1FrNSNyTltx5LtUFt4EzuWnF6HfqT4tp5fU=; b=XmsHE6TeYi0kf7
+	kfHDtOuOlEKXjNnEv591acR1QkF0XRg/ltVPuFfoe2ESQFfO6UXVCjZwnfB478kkUH+VCcf0/ox/g
+	oZygzNN+N55PVYOWVIlFjHsq09rRQllafEQh8uKntjhtdBJ5//vg2ntnsoLoMyqe4UzEcpOq4ctnH
+	EpyxJZhjJnFVNWi1V5qbFAMlVYNrbDpQDGBbGlqH5bKmHnXzn5VX+cNbxG5RYEJK003gOa/PqSNo6
+	l+RheLVpgjv3StJyfpDHIN7nkSorl4SZElGYSBvQN5QCN1HoUWfgC5/lNsnuMCmv19XoW3Sv96/Ug
+	yJLJZacKU2TzdAffZZDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u3U-0000000Eh80-1G3x;
-	Wed, 01 Apr 2026 11:48:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7u3m-0000000EhN9-3oSe;
+	Wed, 01 Apr 2026 11:48:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u3S-0000000Eh61-1N1R;
-	Wed, 01 Apr 2026 11:48:14 +0000
+	id 1w7u3l-0000000EhLM-426L;
+	Wed, 01 Apr 2026 11:48:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=4NeP3MH2AtPdcWLmckwtGvj7Vmo/dD7G6Ej9iUZzn4s=; b=eTaOF1B/kuhy8mnrUoNfuE2sB+
+	3Rb12mUTZaC09BRVY/897T+cqGp/+6TOaIg0V5wRdB+7viNhNCGd6TbV+3XE8DCXtIdWVtPs9e4/X
+	aLH3/6aCOSffpuVoM6jESCuGbz79sj5w2puV/Ct8oZkxY4KG++YrJgXW2qlbWR8LEGA+v0xklKnpA
+	mjge4+hvVVbcXsZT9LErJT5Xhf4s3XCXWHmMvsQeC3nfxDzhjKfUbVx8iXZe77THBVVELgZYLMrrQ
+	TwnEo8O+qSya1Ph3AWPgDWAz9Si0b7t1Ijqmc0Y8w05RfPWInnK44aRVLgFlR1Ukyb93KaS7t40eX
+	R6XW/Sbg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7u3f-00000000Ehd-1m0Y;
+	Wed, 01 Apr 2026 11:48:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B495060180;
+	by sea.source.kernel.org (Postfix) with ESMTP id 48326408F5;
+	Wed,  1 Apr 2026 11:48:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F04AFC4CEF7;
 	Wed,  1 Apr 2026 11:48:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30F73C4CEF7;
-	Wed,  1 Apr 2026 11:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044093;
-	bh=Pc5ewSafnPFxKHksepcgeyeiYuBuOzddWiUYOLo44fc=;
+	s=k20201202; t=1775044105;
+	bh=oCOOGcyyszcaXC31455V0be0QqdPMZoxWheuEK3ZCSA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BctafedQl739LjER8MXut5f/UHQmwOMgY8eiBY9GPjZTa6UhwF33xTqKAsv/k9Jpr
-	 UXZVhOtcmmlzZOYf7Vb8QT5b+Sj/g3QrIBGXZxTM3uNlk/xWwz3doBmOs5UrfpKtV3
-	 BYeIBH88Jfn81A8lOQUe/b7L+LFkxTKWrdN5PeuA4bvB3G5atuDiVtTQLpJHRcGIi8
-	 078hXEr/7kYFNT7XsI7KvwhnIDxnv/Nf9IHI6ZwVq+LPtCR1GNMcpgdXOerf3ytBI9
-	 Tm7z4+ydsRwNHDCQkzUS7eKrnLuo9suwO47RZoBJZ7m1nD1AfOYKE0TTcQdbVpDSUj
-	 Rk7BTlqek9WZw==
+	b=GoxIk+02vJe18xjAgrD81txVK4wtRlTfUWrhHLGDRSQiV+me/fjnLC+7phHDlesuL
+	 J7Hq1xhTdOPfCfF8DlMkdOt8rrbVHMirjmXItItYHfBPD25cX4fMo/GBYwdrbRu7fZ
+	 0AkU4tct54K8WMu16YFOTGOQcGE3qx2fKQnsmkDzl/vyf61S0QPF9vcb0C1gkRPnMR
+	 e+5uOE14VQelGq2Cq0xHw4LUMkQ9WlkXANUH0HKCMdNXt3l1xPhuNuUmuYpg9lJb/A
+	 TRD5Link8UuZH9tLBuJ6KDPuIvaQ52PV5omvSLGJvk5BLHki1ajJnBJ5vuJsGi1ltQ
+	 c73r0TDlYXWnA==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -91,12 +105,16 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 11/33] rust: alloc: simplify with `NonNull::add()` now that it is stable
-Date: Wed,  1 Apr 2026 13:45:18 +0200
-Message-ID: <20260401114540.30108-12-ojeda@kernel.org>
+Subject: [PATCH 12/33] rust: macros: update `extract_if` MSRV TODO comment
+Date: Wed,  1 Apr 2026 13:45:19 +0200
+Message-ID: <20260401114540.30108-13-ojeda@kernel.org>
 In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_124827_917946_E990A7F5 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,38 +131,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently we need to go through raw pointers and then re-create the
-`NonNull` from the result of offsetting the raw pointer.
+`feature(extract_if)` was stabilized in Rust 1.87.0 [1].
 
-Thus, now that we bump the Rust minimum version, simplify using
-`NonNull::add()` and clean the TODO note.
+Thus update the comment to reflect that.
 
+Alternatively, we could use it unstably already.
+
+Link: https://github.com/rust-lang/rust/pull/137109 [1]
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- rust/kernel/alloc/allocator/iter.rs | 8 +-------
- 1 file changed, 1 insertion(+), 7 deletions(-)
+ rust/macros/kunit.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/rust/kernel/alloc/allocator/iter.rs b/rust/kernel/alloc/allocator/iter.rs
-index 5759f86029b7..e0a70b7a744a 100644
---- a/rust/kernel/alloc/allocator/iter.rs
-+++ b/rust/kernel/alloc/allocator/iter.rs
-@@ -42,15 +42,9 @@ fn next(&mut self) -> Option<Self::Item> {
-             return None;
-         }
+diff --git a/rust/macros/kunit.rs b/rust/macros/kunit.rs
+index 6be880d634e2..6f6d746b8dbb 100644
+--- a/rust/macros/kunit.rs
++++ b/rust/macros/kunit.rs
+@@ -87,7 +87,7 @@ pub(crate) fn kunit_tests(test_suite: Ident, mut module: ItemMod) -> Result<Toke
+             continue;
+         };
  
--        // TODO: Use `NonNull::add()` instead, once the minimum supported compiler version is
--        // bumped to 1.80 or later.
--        //
-         // SAFETY: `offset` is in the interval `[0, (self.page_count() - 1) * page::PAGE_SIZE]`,
-         // hence the resulting pointer is guaranteed to be within the same allocation.
--        let ptr = unsafe { self.buf.as_ptr().add(offset) };
--
--        // SAFETY: `ptr` is guaranteed to be non-null given that it is derived from `self.buf`.
--        let ptr = unsafe { NonNull::new_unchecked(ptr) };
-+        let ptr = unsafe { self.buf.add(offset) };
- 
-         // SAFETY:
-         // - `ptr` is a valid pointer to a `Vmalloc` allocation.
+-        // TODO: Replace below with `extract_if` when MSRV is bumped above 1.85.
++        // TODO: Replace with `extract_if` when MSRV is >= 1.87.0.
+         let before_len = f.attrs.len();
+         f.attrs.retain(|attr| !attr.path().is_ident("test"));
+         if f.attrs.len() == before_len {
 -- 
 2.53.0
 
