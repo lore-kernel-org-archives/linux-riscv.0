@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4664ED35162
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 09:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FBAD35175
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 10:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hIR4nK/Ak3LwFSHtZqQTcGaoJ+ttmFzFdG4mtAs5q/g=; b=fBF5CwVnWol1afU00tjzvsgMCR
-	U7dAY/2BmlUHg8jLeXoViZBaLajtpnOmIKFZ4GuSWVGSsFGUJWPz2feGY8m2H52B5F+3A5Xv7dNec
-	mNmo/r8wOSsLmuDhidUsvJsdaTV2y8uQB+MqakM2X5Unv3vaInOw/C4g+ard3vwC1Jv+gVUjGqcFO
-	6AArPT01WoW4n0B2NzwLSAK+2KoxX4zXvjfgwNN6yYt3TefU2mXsbbtqcg3zwANoJybTnLsXYdwpW
-	SEAXpZupWCZNY+aLbuLBCxNOOHm/l94hXU0xgghcXp0yLS+xTMhxZHMAUsczJHtCJ7FAkH88zqEoG
-	kj6ClGTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nocyUui+mGVxcSQo3iGRI30qsKYLqfceDVe5QtDGRfI=; b=CY7nIjLRXHfSId
+	a9twFHHDXDwR+ywcuP0Ic6rQUwj/+biiC2qebjmzTCIS/KiFomVCCjBg++E+7q70BuBK19bQLYMne
+	rcnFaMRaMcEtAGJH7O6KLpNB9VNQmJqQ1T/171EoCst7QeHeYqd9VWHkFFKSffp0lWGQo17jDqS5I
+	R7DqII9ME2UOVVeL+wjBsEsSNYEEaeVEvAd7WBNIzZVkaOUmLXRRKLvNlCRYOhzDkqL/X06EJhjfi
+	VYPy4Ury1Wvp+D36W+qxBocO6SO38r64EOdj5Q7o3xftRMX6K2oM9kN2EdDrHLMN9rlSW16XfhefS
+	5LE5o5lPBf5va95Zq8PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7rpD-0000000EPeR-1yBj;
-	Wed, 01 Apr 2026 09:25:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7t8N-0000000EYCZ-49gy;
+	Wed, 01 Apr 2026 10:49:15 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7rpB-0000000EPeJ-40z0
-	for linux-riscv@lists.infradead.org;
-	Wed, 01 Apr 2026 09:25:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0ABE560120;
-	Wed,  1 Apr 2026 09:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19E31C4CEF7;
-	Wed,  1 Apr 2026 09:25:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775035520;
-	bh=Z6txjY6hf1yR8CgQITKxdy5tMrTpvR6xPb8mxk3Zkyc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sQlXkrQjTZE7TXWPULCInfcgxjuvt7HuQ/K5AqX5u1qnTXBU770lRQYKwUFzkVaBV
-	 2V0fY5gAop2ShTiiLFKVRyBihQT1RHB/vct4sqjW3UlC4wUhaP/gmQlETTpPqCPkcK
-	 +Hg5FdK+oD5Jt4aK1MBqWv8Hjy6E2OhXLjXe77aozp8dM4Y5fNyOsdhWPSCF4uOTzv
-	 WFnIWiCYydZhjPF8I8OwrGwZbmKJjzJfEXYqovwaEVcMFhK6Y4PnFV0d08ptB/VR77
-	 QsDnFY7sZ+BpdxHZ55sT2Ism3O1B+KVKfPC1XIQ8qdEeWeZypHcgRYc2q0U7cCWMC7
-	 ejlH6XMNumx1g==
-Date: Wed, 1 Apr 2026 10:25:14 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Mina Chou <minachou@andestech.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, geert+renesas@glider.be,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, magnus.damm@gmail.com,
-	ben717@andestech.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, jonathan.cameron@huawei.com,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	tim609@andestech.com, alex749@andestech.com, az70021@gmail.com
-Subject: Re: [PATCH 1/7] cache: ax45mp_cache: refactor cache driver for
- generic Andes platform support
-Message-ID: <20260401-hulk-retract-2d4bd7f42f14@spud>
-References: <20260330102724.1012470-1-minachou@andestech.com>
- <20260330102724.1012470-2-minachou@andestech.com>
- <20260330-oxford-chevy-5f5a6f0a5be4@spud>
- <acyDUU3FdAAPWfnS@atcsi01.andestech.com>
+	id 1w7t8K-0000000EYBU-3Waq;
+	Wed, 01 Apr 2026 10:49:15 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-03 (Coremail) with SMTP id rQCowABng9oe+Mxp7D+IDA--.28909S2;
+	Wed, 01 Apr 2026 18:49:03 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: anup@brainfault.org
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	jiakaiPeanut@gmail.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	xujiakai2025@iscas.ac.cn
+Subject: Re: [PATCH v2] RISC-V: KVM: Fix use-after-free in kvm_riscv_gstage_get_leaf()
+Date: Wed,  1 Apr 2026 10:49:02 +0000
+Message-Id: <20260401104902.716329-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <CAAhSdy3V2kipH8sPzXkmnXP=Sh=7wwqhHaAWDyucJnytbL+qtw@mail.gmail.com>
+References: <CAAhSdy3V2kipH8sPzXkmnXP=Sh=7wwqhHaAWDyucJnytbL+qtw@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <acyDUU3FdAAPWfnS@atcsi01.andestech.com>
+X-CM-TRANSID: rQCowABng9oe+Mxp7D+IDA--.28909S2
+X-Coremail-Antispam: 1UD129KBjvJXoWrZryDJr47CF17Ar13JryDtrb_yoW8JF1Upr
+	Z5K3y3uFn8Ww4UZrs7J3WkArW5u3yxWr15Ga4DG3Z3Cw45XrW3Wr4I9ryqv3Z8Cr1SvFZI
+	vF1Ut34DZw48Z3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7V
+	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
+	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6x
+	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAI
+	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
+	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjEoGDUUUUU==
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwsECWnM0NKVfQAAsO
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_034913_260054_56A2948F 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,107 +83,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0134616194691529879=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Anup,
 
---===============0134616194691529879==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="sbo2IIo6dvwkqyP3"
-Content-Disposition: inline
+I've been fuzzing the latest kvm-riscv with the spin_trylock() fix 
+applied, and I can still reproduce the use-after-free bug in 
+kvm_riscv_gstage_get_leaf(). This indicates the current fix is 
+insufficient.
 
+The current code does:
+    mmu_locked = spin_trylock(&kvm->mmu_lock);
+    kvm_riscv_gstage_unmap_range(...);
+    if (mmu_locked)
+        spin_unlock(&kvm->mmu_lock);
+When spin_trylock() fails (lock held by another CPU), the code still 
+proceeds to access the gstage page table without any protection, 
+leading to UAF when concurrent with kvm_riscv_mmu_free_pgd().
 
---sbo2IIo6dvwkqyP3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The fundamental issue is that spin_trylock() returns false in two 
+different cases:
+1. Lock held by current thread (we should continue)
+2. Lock held by another thread (we should NOT continue)
+But the current code doesn't distinguish between them.
 
-On Wed, Apr 01, 2026 at 10:30:41AM +0800, Mina Chou wrote:
-> Thank you both, Krzysztof and Conor, for the detailed review.
-> I appreciate the feedback and admit this series needed more work
-> before sending. I will address all the issues in the next version.
+My proposed fix:
+Use lock_is_held_type() to check if current thread already holds the 
+lock:
+    bool need_unlock = false;
+    if (!lock_is_held_type(&kvm->mmu_lock, LOCK_STATE_HELD)) {
+        spin_lock(&kvm->mmu_lock);
+        need_unlock = true;
+    }
+    kvm_riscv_gstage_unmap_range(...);
+    if (need_unlock)
+        spin_unlock(&kvm->mmu_lock);
 
-People making mistakes is whatever, as long as they don't keep making
-them!
+However, I'm not sure if this is the best approach. What do you think?
 
-> A bit of background on the motivation: the main goal of this series
-> was to prepare the Andes cache driver for a SoC Allwinner Avaotaf1 V821,
-> which uses the Andes A27L2 CPU. We wanted to share a single cache driver
-> across different Andes CPU variants, which is why we tried to move toward
+Thanks,
+Jiakai
 
-I don't mind the kernel-side renaming all that much, the compatible
-rename is what's problematic.
-
-> more generic naming in both the driver and the compatible strings.
-> =20
-> We have two questions we'd appreciate guidance on:
->   a) On compatible string naming: We'll drop patch [5/7][6/7] and won't
->      rename any existing compatible strings. But we'd like to confirm
->      the preferred approach for A27L2: would it be acceptable to add
->      a generic compatible (andestech,andes-llcache) as an addition?
-
->      If so, would a CPU-specific compatible (andestech,a27l2-cache)
->      still be required alongside it?
-
-Yes. I think that this cpu-specific compatible is what actually has
-value, and adding something generic to all andes CPUs is a "nice to
-have" convenience. Also, "andestech,andes-llcache" is a bit of a weak
-name, repeating "andes" has no value. There's no code-name or something
-for the IP that we could use instead of the second "andes" here?
-
->   b) On Avaotaf1 V821 support: We are not in a position to submit the
->      DTS on behalf of Allwinner. However, we would like to add the
->      corresponding compatible strings to the existing binding
->      documents (andestech,andes-llcache.yaml, sifive,plic-1.0.0.yaml,
->      and riscv/cpus.yaml) in advance, so that the bindings are ready
->      when Allwinner eventually submits their DTS.
-
->      Would it be acceptable to upstream binding-only changes without
->      an accompanying DTS at this stage?
-
-Yes, of course. You're not willing to submit the dts, which is
-understandable, but for the cache and plic bindings, you are able to add
-the soc-specific compatibles for this device, right?
-
-> For the next version, we're thinking of keeping only the changes
-> needed to generalize the cache driver, and dropping the improvements
-> for now to keep things focused. If you have any suggestion on how
-> to approach this, we'd love to hear it.
-
-Whatever you want. The improvements (or at least the things I think
-are improvements) seem worth having. The problem was just patches doing
-multiple things at once. If you decide to only do the generalisation,
-that's fine, just make sure it is broken down so that each of your
-bullet points in the commit messages.
-
-Cheers,
-Conor.
-
---sbo2IIo6dvwkqyP3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaczkegAKCRB4tDGHoIJi
-0p/3AP9MhWxlPEw8n3QW6A/6cTZLy+yRXFhEp8X0UZlTyXt6iQEAk7Hd6y35epTY
-ItppUELACW21zZee02p2FyHaoiH0pws=
-=hc9k
------END PGP SIGNATURE-----
-
---sbo2IIo6dvwkqyP3--
-
-
---===============0134616194691529879==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0134616194691529879==--
-
