@@ -4,116 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8B310FCADC
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 21:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FA010FCAF2
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 22:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HEwY2bSEirQIk+ZVFxXbXKDCIZuzHkWAB9xyWuwzXB0=; b=v+NH46cjz6kxqLq+cj7imaU11B
-	V6XIQf5TSqVSS0lIHA1DQ/kgPTnJdFTny6t71H/ImpN15Y0ukdYimpv2sSosD5vUfBzXgoLQawDiX
-	Q+J4tPQKd20sNjJgAtZBWrfYpMYW51Lzop+/GCDv+X36IV9PJgjURWzUKXsmGU1iwsE9k960MVNv5
-	GlqGuqT+Yy6uiOBNMSK+50q5Tv7V8J96vYnhMli6q3aDCFT1R1VI9U0YhYXvaW70twWKorvOK2lMH
-	VOUcKOk9Nc7+ufg+/snjvHysAXcmHLnMkr6/s3UjtgpzsQsMas88NTi52FWfl9tI66hjT4XWICmnb
-	rCtqycug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MEhDgusrRga9upMgbPRl1rPTAZzTdL+XtsocJ0mIaD0=; b=wMs7+9n27nyDSi
+	r75+KMboWvJcszHaqwuo/LVJcePE+xINpfuUnUyHrKxvU3v5p2bXX6De+OAP+DbTdkTVzevFgGUyP
+	i8hf8CfeWLWwp+rXl0NAZGlu4eI7b/jIqq+06OU0mjMEBPuH10xb27C65CIROjRUYaFFDqICN8Iav
+	PJMoG9qkbrB2EDSzn+8PGafErtrD1gQ2vyZoanuwNKTBwbpIWzHNXMBj6SK6FbMq1E66JuN5H8v3H
+	YTULD1QvuG8yz8CcuKhuldF4jlx1v5ow7ouvpjuo3GvY4A3u3N7iGcLjxJEZ9J02YcPRLLg/QcvXp
+	uOMZ7ZbfEqgL1pRXEVTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w82m7-0000000G5jJ-0axJ;
-	Wed, 01 Apr 2026 21:06:55 +0000
-Received: from seashell.cherry.relay.mailchannels.net ([23.83.223.162])
+	id 1w84Wz-0000000GLOD-31Gd;
+	Wed, 01 Apr 2026 22:59:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w82m4-0000000G5is-11qd
-	for linux-riscv@lists.infradead.org;
-	Wed, 01 Apr 2026 21:06:53 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id CF5594C22D1;
-	Wed, 01 Apr 2026 21:06:43 +0000 (UTC)
-Received: from fr-int-smtpout30.hostinger.io (trex-green-0.trex.outbound.svc.cluster.local [100.98.67.68])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id D381D4C318F;
-	Wed, 01 Apr 2026 21:06:40 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1775077603;
-	b=VA/PL+V8L4E2bCyG9SOLTRJY7f8deP5Q9MtcokcpTZyzBuYLZFbLCbcphn23R1y7AwhB4n
-	XpZM7k4DXgPbbEgQkcLO5JPf6YmJ3CcxXvMwy4OkElCVNWaVIWg9H3P83ws1wcpmnny12p
-	nzSlCimcY6KAoOiqVoFXhhgdxC+Ln5FUBxjNLe3n50F/IexkdhEAqkAp4PMOq9oxc6dwcJ
-	DCC+Ctm9VdPc0QC3X3jj3nIGzPL8OZieQQRUqIpkOwJqqSo5sWT88zdckZQPwMJwLoiJdb
-	K//psJ6GS4Dt/95x7PDP4aDdcih4FaDYuJgCXBMnR7rpUuhdnWiatgyjuD5rIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1775077603;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=NWOt+A5DoBbZU4MDhyWwRpo5TFnWZBhqa/iD6NJpi2M=;
-	b=vjSe0P3ATitWVh3zaKgpceIee35SUakQfAwXf6Pzre61aIrWsPbMTI12OCUaObJK17l7fd
-	xmBUdyswAyQ8ARCEm3ZsWEuho1DCoQwX2vsgu8eDhSNP9JvQsJBDmF1jGXAGBPb39lMOPv
-	vbaj6psAhOHDHtFiZCYk8WNvsvWebd+qQrsULUTVQFYO722Bg2kaxnFJjDkQdnDTNMJZSH
-	YX2/8tmsRJU7ur2BGRuVRJnQCsg+eU22KmLNY1No8L5vmsNM1K5P37cRJ6nqkTKShFLDUa
-	A48DOW0ja25SOhCOxEcRWx8+Gv6+pYQLKZCSkrC1GqfV/03bgK7zP4ywjwDh5w==
-ARC-Authentication-Results: i=1;
-	rspamd-bd48b9d95-5bmzq;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Coil-Exultant: 77a73e0363d089c2_1775077603610_3843726031
-X-MC-Loop-Signature: 1775077603610:1334320305
-X-MC-Ingress-Time: 1775077603610
-Received: from fr-int-smtpout30.hostinger.io (fr-int-smtpout30.hostinger.io
- [148.222.54.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.98.67.68 (trex/7.1.5);
-	Wed, 01 Apr 2026 21:06:43 +0000
-Received: from [IPV6:2001:861:4450:d360:e8fa:1ded:d686:98f3] (unknown [IPv6:2001:861:4450:d360:e8fa:1ded:d686:98f3])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4fmHbf0jwcz364N;
-	Wed,  1 Apr 2026 21:06:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1775077599;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NWOt+A5DoBbZU4MDhyWwRpo5TFnWZBhqa/iD6NJpi2M=;
-	b=iM5+0XMph5QpjN/3nMVL4m1lV1Oxrs4W7+KpXmossgzN+u+aVQW8uzg/D6Z9i7vjDFAbNo
-	Jl2tlWxBkGOgL3Mp5ZQkbrTEG1eQffBHRdHyPe7ucIyPSaE9hwKC6TQ/YnaI/1YAFX3cLY
-	/8dSrB4JM+Rej6jo+j1gJ4rsLNQ/LPIabcHTqZaT/230hY9jbT+Oci27dklGIvOJdjpS3R
-	BbosmM0jS5dv4WhMm/O1bd2WF14r4xqOP9GGtg9stc+F3zZY0FppM0iq5TQJqGj2/fRXHh
-	oioktSASh5ZBhjOIbP9NA8oOYvNPmg/0LLxqF30dNelnHJ2qGHKHQM9htg815g==
-Message-ID: <f6b0b867-c37f-47da-b04a-f8bc88727f1a@rootcommit.com>
+	id 1w84Wy-0000000GLNn-2WPd;
+	Wed, 01 Apr 2026 22:59:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5278A600CB;
+	Wed,  1 Apr 2026 22:59:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B649C2BC9E;
+	Wed,  1 Apr 2026 22:59:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775084363;
+	bh=MKMHrhf5f3swVCJiQ9ck1suDitt1z6bHk5UKf3dOC/c=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
+	b=nvht4maVaLSV0yBm+MGm9onlGFeh24Taql7u+JCMSZ+g5gvpvU8mAknzbdq86McXn
+	 JVFsi99dCPNCcvkZX62r31+ef491iTuBuXXJ83buTG/uADO5bLDsBf/r7h+qv+4u6Q
+	 p1BPRdifVrDxipq70UWVVgsiso/wWEEMPfu2jAS21y9N0J1kMHkHidCFxBM9k854gv
+	 g+yBgTQVMUwFe7hd7zX3Mo3uXOeQMmjBV8Mfp+DYqJ8B6aZPD9rRtwUVzxSulDAPPm
+	 GX2AaWB6iZF9YlMWzAvsWasloWD/D7+a5Dfnjbb/mxDPk3su9g6uZsi28PLD210hoO
+	 FCnhq9DLd8Bkg==
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>
-Subject: Re: [PATCH v4 3/3] riscv: dts: spacemit: Enable USB3.0/PCIe on
- OrangePi RV2
-To: Han Gao <gaohan@iscas.ac.cn>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>,
- Chukun Pan <amadeus@jmu.edu.cn>
-References: <cover.1774974017.git.gaohan@iscas.ac.cn>
- <0ec229e2fb138092672773f134d0739e70740ce0.1774974017.git.gaohan@iscas.ac.cn>
-Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-In-Reply-To: <0ec229e2fb138092672773f134d0739e70740ce0.1774974017.git.gaohan@iscas.ac.cn>
-Date: Wed,  1 Apr 2026 21:06:37 +0000 (UTC)
-X-CM-Analysis: v=2.4 cv=ZbRPNdVA c=1 sm=1 tr=0 ts=69cd88df a=E2FlaUaLzEUwfBssy7un6A==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=N2QTJkzpoG2ymMjQJkQA:9 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-CM-Envelope: MS4xfHLB0AFcx0PJZBSV6rZVLaebVYPolfbqqKGbNYeNloUgp6yCDdSlkpPugBc+2qmnfW7J3R45ET7ti5Af7QAza8Js7sNxc1uKI3vbG55g49j8DCmG9V5P J5t27P1WsJQwxtpEyRs+Uqjxrw4iHhuijYNA78GS3b8h2a13qNSw6txERabWudbiGhgKsRGXUU5g6icQkAhV2mqNyLrOGllZqrr7/0LJsRhgWl+xMhJYNfN1 rVlp4/2aqnMiD3oUu113NK0yulz762PqAWX3uLc2oXE3kKPzZe2vE8aj2wk8J6tnYiqzoLBUfMQopQi2tJbUg6OAFLUnrqG52LLQ2JamGaHQnwv6ui4KR2DA wBvMG54Ci0frLbtnpv82l1ydz4FIwYIP0uDR/wGtKNpm80q6N5Fjp9YhaV2E03n8bdjT90QsRSvt+r1tMV2xKcH318++IyhKNOWwvuMKaPoCzvMUI3kALO0s BYqj/oSF/ncW9z0tD2NDDkdPtHXk6KBVlYxjI1cTxq/b26Wa9xA5gDl2/xc1wS/Zz200bkNtQdVcng3uLzEeJAPN+rV2RU0ISgJ04qkyJepteYXANaofBsjo TnOOjnqi7/r3lhki8C8GNqEM9Ac/AOriPOvy8HKn+aEz/ysb7ZQb1EDqOeauvdCmUfpXpgSArhkdvEYg3d1Q5dZSFrYTPv5x8B48cjIe2Ag5TzRXMMJHsmth QRBFbkTkCK0B0W3Dupu2DY+JJZzNrMLPyQNGvcMFY+FHP+pcgt9i5pFMCq4Aqm9LIrm7JiFWBdF0NpICtH/5XLYveayr1ntZ
-X-AuthUser: michael.opdenacker@rootcommit.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_140652_418874_12A98803 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to
+ 1.85.0 (Debian Trixie)
+From: Tamir Duberstein <tamird@kernel.org>
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Courbot <acourbot@nvidia.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, 
+ Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
+ Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+ rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Vlastimil Babka <vbabka@kernel.org>, 
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+ Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>, 
+ linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
+ linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+In-Reply-To: <20260401114540.30108-2-ojeda@kernel.org>
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-2-ojeda@kernel.org>
+Date: Wed, 01 Apr 2026 18:59:04 -0400
+Message-Id: <177508434432.73816.7258683763340014270.b4-review@b4>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=493; i=tamird@kernel.org;
+ h=from:subject:message-id; bh=MKMHrhf5f3swVCJiQ9ck1suDitt1z6bHk5UKf3dOC/c=;
+ b=owGbwMvMwCV2wYdPVfy60HTG02pJDJlnF9uu5jzYVN60XXfVY8vseiml5kOtXVV7TlzOeLLgo
+ ez3pZyPOyayMIhxMViKKbIkih7am556e49s5rvjMHNYmUCGSIs0MAABCwNfbmJeqZGOkZ6ptqGe
+ oZGOgY4xAxenAEy1/RKGP5yzCi/r99xe1ee1SZiNcVeQjPHv5Nttf3S94iJ15B+7xjD8zyyxiDs
+ t9DLK9fBe5gViIafPPih+skZuZ/Qmxtim3akzmQE=
+X-Developer-Key: i=tamird@kernel.org; a=openpgp;
+ fpr=5A6714204D41EC844C50273C19D6FF6092365380
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,52 +100,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Han
+On Wed, 01 Apr 2026 13:45:08 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
+> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
+> we are going to follow Debian Stable's Rust versions as our minimum
+> supported version.
+> 
+> Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
+> still uses to this day [3] (i.e. no update to Rust 1.85.1).
+> 
+> [...]
 
-On 3/31/26 6:27 PM, Han Gao wrote:
-> Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
-> OrangePi RV2 board.
->
-> The board utilizes a Genesys Logic GL3523 USB3.0 hub.
->
-> Define a 3.3v fixed voltage regulator for PCIe and enable PCIe and
-> PHY-related Device Tree nodes for the OrangePi RV2.
-
-Fantastic! On OrangePi RV2 "lsusb" shows the USB3 host:
-
-# lsusb
-Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 001 Device 002: ID 05e3:0610 Genesys Logic, Inc. Hub
-Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-Bus 002 Device 002: ID 05e3:0620 Genesys Logic, Inc. GL3523 Hub
-
-I haven't been able to access devices yet, but I guess I'm missing some 
-kernel modules....
-
-And on PCIe, I could read the contents of a Raspberry Pi SSD disk:# dd 
-if=/dev/nvme0n1 of=/dev/null status=progress bs=4M
-255730909184 bytes (256 GB, 238 GiB) copied, 664 s, 385 MB/s
-61049+1 records in
-61049+1 records out
-256060514304 bytes (256 GB, 238 GiB) copied, 672.782 s, 381 MB/s
-
-The SSD was freaking hot though :}
-
-Tested-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-I'm excited to have these features in the mainline kernel, hopefully soon.
-Thanks again,
-Michael.
+Acked-by: Tamir Duberstein <tamird@kernel.org>
 
 -- 
-Root Commit
-Embedded Linux Training and Consulting
-https://rootcommit.com
-
+Tamir Duberstein <tamird@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
