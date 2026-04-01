@@ -4,68 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D677D35162
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8B2D35171
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9QxCVFHo0D+Xdbnv5SkvwXp1JIAJ6iuip6rn8hyaqDI=; b=RI4Ljpw9UOcDTf
-	lClIYVwJHRrVDaP+fAfLBKHjImNoelSi4LBy7HKkO82JFkqeKu4m22+DbygPzcsZbiACYCWmh7Hw5
-	YY7HlCU12qsyI0DF5AP7w0A/paE/68tHlu/b/GZGBpAhHV/GMaJ3dpF2akmPAz9FT3YwFQNuf3FZ8
-	hmZVDLN5F2SjwoXdgFeA9/STot0SBIotjhekfEVtwdx4emp/lvUzeODn8sFyJ1VyUJ+pWwcIRsofT
-	RHedN40loTPWCl83oULr9LqMh6Ntl6mtrXilt56w1YrWdlJcCvV/abARtEmd+2Jf0QF23zuwq+h0S
-	vTPbvJMt/kNPNL1sfKOw==;
+	List-Owner; bh=nGColcpcJcQoE0BFUITP93fEFEVo5TCyMrpG2eH5FTw=; b=WwlqiSYzupD4fO
+	vIxs7ZmrHU4abF2C09rhGYDclOEUhsavJr+i0NAE1E4oDVUSxS6CF3JXdru7Xbr+3KCADJRkNSpyD
+	ByDxPMFq5Fy+MBhDFO8Qhqo8DiXaJP5g2czOJPQKx9niqWoKSv9UEgHwJkGhL6pLIZoAwqddMIqrs
+	VhD2QOTWHCQh/wpFzist8rEsKXQPJAYnvD7qeb+HX3fknpPf49j6nnBQU3Wi1QrxUx5H3bp6+VlK2
+	fWfgSbVdP0Wzi+GW4bJxOGdNlpLNVRjA79lj+0vlTbIHrvE6sXHCreyN3/FBpmv94i6LMjnHCJysw
+	+GV7qOkuyZEXbaeA2l5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tbk-0000000Ecla-2cuC;
-	Wed, 01 Apr 2026 11:19:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7tfj-0000000EdMP-1vOF;
+	Wed, 01 Apr 2026 11:23:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tbj-0000000EclL-00Ex
+	id 1w7tfi-0000000EdKv-04xw
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 01 Apr 2026 11:23:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=; b=BbfW5gmCUaW2/+Yo+P1he/WkJe
+	ZUaKiUUJmYKCuHOOS+5z751R8P1qLNQv8Az6YZ4aL5z4Pdj1V52pE4iaxO5fJZP23qwXnbjwSM2JB
+	2SWogrRBAboJ4+Q2jdhFVmOoClaLeAuIA86m09OJApYUFEqDHFHkO+bbJX5LcwpI1bZjwXpKV/ZRL
+	PFM4jiuRkT8BbdgRXDiS0DDG1dYazvuXI+hZq49IEtMeXSvnMc2ZH+5HtmOReHqPVYRnh9Pl1MOjC
+	dspIawSXY3ZODnNx9CGbT7HWjXRBroMx+HILGGXqR+ev+gDK5PKdhb/QL2RJ9l1t0v83lj5oiiMoz
+	97rl2UBg==;
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7tfe-00000000BSs-49H2
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Apr 2026 11:19:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 727C260131;
-	Wed,  1 Apr 2026 11:19:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C80C4CEF7;
-	Wed,  1 Apr 2026 11:19:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775042374;
-	bh=MUw9F7L0J9ORxUWBcBPbTTFGPGevrUNSWpXB+OHXCuM=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=IeatE6BhXvOPtlR5BL/B3g8KiwutSpzA+lAIq3i1KJqMCnl6KvqFrrGyqV5TrxFDF
-	 HG+F+fp3brjvWi820RtywzsDd6aSNnke0I6q0jEKO67YveDW/w7Zi8crY7j9X+wotL
-	 USZylAZr7JE2xB5OE+TKhRyMEL1Ofx+q/Jx20RTkvfWNb1UwmGDm0pYQjH1CdA3XSk
-	 SQhrjwH5npoOnGhC4ysABRL1geNFGj5PwDTmBazE41gZLotuYLlKa5wPLrIc2tdySq
-	 YL12VJCl9xalT/uGJOFT+kldw3ZcBMOTAR2cs8mShAmpuV58kSERWSsQn35NJkO01u
-	 QCwjic5jSh1CA==
-Date: Wed, 1 Apr 2026 12:19:28 +0100
-From: Lee Jones <lee@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	linux-kernel@vger.kernel.org, Sebastian Reichel <sre@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-pm@vger.kernel.org
-Subject: Re: (subset) [PATCH v5 0/2] driver: reset: spacemit-p1: add driver
- for poweroff/reboot
-Message-ID: <20260401111928.GM3795166@google.com>
-References: <20251102230352.914421-1-aurelien@aurel32.net>
- <176213091347.301408.11587695003687450479.b4-ty@collabora.com>
- <FA447DF1D2398A79+aQlVuEbrLMCiGMpc@kernel.org>
- <20251105093347.GD8064@google.com>
- <E205F88FB1EE06C5+aQscI0Uy7pgiMzEt@kernel.org>
- <20251105100856.GG8064@google.com>
- <20251105101149.GH8064@google.com>
- <acxInP3_rU9H8Q5V@aurel32.net>
+	Wed, 01 Apr 2026 11:23:40 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2b0b260d309so166165ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Apr 2026 04:23:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775042616; x=1775647416; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=;
+        b=AlR96aZuenuYYNVVRaA2bkaazoK/5q4O4+sro4/1cCx1WMHL6oF+sWS8I+BMeKBruN
+         JrJher1L2PucxuhDmzwS/dg3Ur1Y5FQ4fngNxQf+WbMebB02DF/MTPWAtm0eT9QK3d0R
+         2s8TB17Vw0ZR7quIoYNTZDXk79PlyssdNyX8Ju+u/DtZyMCp4RpzuAA3uYHHIvBIThGB
+         IrSKGaX8D1BJCGGH+DIydwpNdtha+W4s/RZqWZVVBi8ZeOtfmSICrfC91m3ZGkXXS2Ni
+         ow1soaCkS0vpNACBiCoP42jltuA4mFZSG/dKITkgRXk9GAj/wgtdoCUocOj1oR9zheXh
+         Yohg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775042616; x=1775647416;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=;
+        b=BmuAobruJsCC0GNJUcE7DEDsgdPOBrUstip84fJVMlnsLL2EcYoj0ND32keDD+CYox
+         SJswskQff3ahspruKbqloaCBhB6HHr4kFMOCZIRSlZ6N1cQoj2ssvNBW/FE99xi2U0+l
+         Rcn5t1RPJ39fskwuCV8BXHe8rPjxqHcoQFZYrzh3OwNmbdC+H/DD1YljwYi19SzYufuR
+         xC7z/4baVsIapG4FVXFi2uca03gcVfHfyvt8+TIrA0wFabSvR7KnImEqYtO9ARYLwRzv
+         tya8dU0yNp6KHFO4BrE4OeTcPqd77yvDarnmDeV8kqaizDqvYJT8vuTRlJCKE+z/iNhb
+         6xtA==
+X-Forwarded-Encrypted: i=1; AJvYcCUAgsZ5NwlrC+96uIyJ7j1CGDGK9SJtevcwZw+9xVyQM9TVCehGcXFBIYZwq73xEhVQZ091/zYP7aLejA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkMPkn2fKan4bcPKTp6rWzTPRjkKMDnR45yQtcrIAxjqofedF+
+	jxij1RzATwnBYjUl5fDaOyAVmuDfbj3D0l1NF9orrvxjV1hXqbUINn8mKML6jXCwMQ==
+X-Gm-Gg: ATEYQzw9TNn1F2Cg6p3o8xtTOjmnDInpCiAt7947w1ZM/7UHOrZVM64pX/YoXaxXg2d
+	eZHVDFzd8KP9qgRhiMHVyomQI38rqdJAIScDmw2d5EAVCt6JNmtbpzEDp+dL3Ss8DBy1qs48+rD
+	DvxEqhp+chGiukK8Yf2iO1xhw86hWLl38QyVPP2z1bhGJPKNgnCRjQUGjnebuG/tDliAjzYtVYu
+	R08HV6B0GIfCJBRIKGaW1njCZ4BJ/DEzlDhaY7Cw/Drkb+CMWhmXf4YKzSguJzD6hStZ673WHjd
+	1MAmt17Rxpx1Ry9GL3QpI9eL7/nPqCy3psHL3dxjteyG/k6s9YE2LZnAObNFZxs7RNPcwHk0iW/
+	VDZvhXpaklugw/Tf4Nt+GyuI/VlZ/yEN2s9ZXfMlRuRhDyBRfEC/IdAbedXaVROl5bVUY++OZGR
+	kp3zvymckehYRrWPvCK8MRa1c5XsfZQfLAnDdiPFIQ7c5Jpm1hyDQd+4uS3w==
+X-Received: by 2002:a17:902:ccca:b0:2ae:44db:570c with SMTP id d9443c01a7336-2b26b2b089amr2189835ad.12.1775042615401;
+        Wed, 01 Apr 2026 04:23:35 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe606dd2sm6533691a91.3.2026.04.01.04.23.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Apr 2026 04:23:34 -0700 (PDT)
+Date: Wed, 1 Apr 2026 11:23:23 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Sven Peter <sven@kernel.org>,
+	virtualization@lists.linux.dev, Chen-Yu Tsai <wens@kernel.org>,
+	Will Deacon <will@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Jon Hunter <jonathanh@nvidia.com>, patches@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
+	Vasant Hegde <vasant.hegde@amd.com>
+Subject: Re: [PATCH] iommu: Always fill in gather when unmapping
+Message-ID: <ac0AKyvHMYHlqL5i@google.com>
+References: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <acxInP3_rU9H8Q5V@aurel32.net>
+In-Reply-To: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_122339_198753_DA862F46 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +131,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAwMSBBcHIgMjAyNiwgQXVyZWxpZW4gSmFybm8gd3JvdGU6Cgo+IEhpIExlZSwKPiAK
-PiBPbiAyMDI1LTExLTA1IDEwOjExLCBMZWUgSm9uZXMgd3JvdGU6Cj4gPiBPbiBXZWQsIDA1IE5v
-diAyMDI1LCBMZWUgSm9uZXMgd3JvdGU6Cj4gPiAKPiA+ID4gT24gV2VkLCAwNSBOb3YgMjAyNSwg
-VHJveSBNaXRjaGVsbCB3cm90ZToKPiA+ID4gCj4gPiA+ID4gT24gV2VkLCBOb3YgMDUsIDIwMjUg
-YXQgMDk6MzQ6MjFBTSArMDAwMCwgTGVlIEpvbmVzIHdyb3RlOgo+ID4gPiA+ID4gT24gVHVlLCAw
-NCBOb3YgMjAyNSwgVHJveSBNaXRjaGVsbCB3cm90ZToKPiA+ID4gPiA+IAo+ID4gPiA+ID4gPiBP
-biBNb24sIE5vdiAwMywgMjAyNSBhdCAwMTo0ODozM0FNICswMTAwLCBTZWJhc3RpYW4gUmVpY2hl
-bCB3cm90ZToKPiA+ID4gPiA+ID4gPiAKPiA+ID4gPiA+ID4gPiBPbiBNb24sIDAzIE5vdiAyMDI1
-IDAwOjAxOjU4ICswMTAwLCBBdXJlbGllbiBKYXJubyB3cm90ZToKPiA+ID4gPiA+ID4gPiA+IFRo
-aXMgYWRkcyBwb3dlcm9mZi9yZWJvb3Qgc3VwcG9ydCBmb3IgdGhlIFNwYWNlbWlUIFAxIFBNSUMg
-Y2hpcCwgd2hpY2ggaXMKPiA+ID4gPiA+ID4gPiA+IGNvbW1vbmx5IHBhaXJlZCB3aXRoIHRoZSBT
-cGFjZW1pVCBLMSBTb0MuCj4gPiA+ID4gPiA+ID4gPiAKPiA+ID4gPiA+ID4gPiA+IE5vdGU6IEZv
-ciByZWxpYWJsZSBvcGVyYXRpb24sIHRoaXMgZHJpdmVyIGRlcGVuZHMgb24gYSB0aGlzIHBhdGNo
-IHRoYXQgYWRkcwo+ID4gPiA+ID4gPiA+ID4gYXRvbWljIHRyYW5zZmVyIHN1cHBvcnQgdG8gdGhl
-IFNwYWNlbWlUIEkyQyBjb250cm9sbGVyIGRyaXZlcjoKPiA+ID4gPiA+ID4gPiA+ICAgaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvc3BhY2VtaXQvMjAyNTEwMDktazEtaTJjLWF0b21pYy12NC0xLWE4
-OTM2Nzg3MDI4NkBsaW51eC5zcGFjZW1pdC5jb20vCj4gPiA+ID4gXl5eXl5eXl5eXl5eXl5eXl5e
-Xl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl4KPiA+ID4gPiBkZXBlbmRl
-bmN5IGlzIGhlcmUuCj4gPiA+ID4gPiA+ID4gPiAKPiA+ID4gPiA+ID4gPiA+IFsuLi5dCj4gPiA+
-ID4gPiA+ID4gCj4gPiA+ID4gPiA+ID4gQXBwbGllZCwgdGhhbmtzIQo+ID4gPiA+ID4gPiA+IAo+
-ID4gPiA+ID4gPiA+IFsxLzJdIGRyaXZlcjogcmVzZXQ6IHNwYWNlbWl0LXAxOiBhZGQgZHJpdmVy
-IGZvciBwb3dlcm9mZi9yZWJvb3QKPiA+ID4gPiA+ID4gPiAgICAgICBjb21taXQ6IDI4MTI0Y2Mw
-ZmI4YzdkYzAxYTY4MzRkMjI3MzUxZTI1ZDlhOTJjNTgKPiA+ID4gPiA+ID4gU2hvdWxkIHdlIGFw
-cGx5IGl0IG5vdz8gVGhlIGRlcGVuZGVuY3kgcGF0Y2ggaGFzbuKAmXQgYmVlbiBtZXJnZWQgeWV0
-Li4uCj4gPiA+ID4gPiAKPiA+ID4gPiA+IFdoYXQgaXMgdGhlIGRlcGVuZGVuY3k/Cj4gPiA+ID4g
-SSBwb2ludCBpdCBvdXQgYWJvdmUuCj4gPiA+ID4gV2l0aG91dCB0aGlzIHBhdGNoLCByZWJvb3Qg
-YW5kIHNodXRkb3duIHdvdWxkIGVuZCB1cCBjYWxsaW5nIHRoZSBub24tYXRvbWljIGkyY190cmFu
-c2Zlci4KPiA+ID4gCj4gPiA+IE9rYXksIHRoYW5rcy4gIEkgd2FzIG1vc3RseSBjaGVja2luZyB0
-aGF0IHlvdSB3ZXJlbid0IHJlZmVycmluZyB0byB0aGUKPiA+ID4gTUZEIHBhdGNoLCB3aGljaCBk
-b2Vzbid0IHJlcHJlc2VudCBhIHRydWUgZGVwZW5kZW5jeS4KPiA+IAo+ID4gVG8gc2F2ZSBTZWJh
-c3RpYW4gc29tZSB0cm91YmxlLCBsZXQncyBrZWVwIHRoZSByZWJvb3QgcGF0Y2ggYXBwbGllZC4K
-PiA+IAo+ID4gSSdsbCBob2xkIG9mZiBvbiB0aGUgTUZEIG9uZSwgd2hpY2ggd2lsbCBlbnN1cmUg
-dGhhdCByZWJvb3QgaXNuJ3QgcHJvYmVkLgo+ID4gCj4gPiBMZXQgbWUga25vdyB3aGVuIHRoZSBk
-ZXAgaXMgbWVyZ2VkIGFuZCBJJ2xsIGhvb3ZlciB1cCB0aGUgcmVzdCBvZiB0aGUgc2V0Lgo+IAo+
-IFRoZSBkZXBlbmRlbmN5IGlzIHN0aWxsIG5vdCB5ZXQgbWVyZ2VkLCBhbHRob3VnaCBpdCBoYXMg
-YmVlbiByZWFkeSBmb3IgCj4gd2Vla3MsIGFuZCBJIGFtIGp1c3QgY3Jvc3NpbmcgZmluZ2VycyB0
-aGF0IGl0IHdpbGwgZ2V0IHBpY2tlZC11cCBmb3IKPiBmb3IgNy4xLgo+IAo+IFRoYXQgc2FpZCBp
-dCdzIG5vdCBhIGhhcmQgZGVwZW5kZW5jeSwgaW4gbW9zdCBjYXNlcyByZWJvb3Qgd2lsbCB3b3Jr
-LCAKPiB3aGljaCBpcyBhbiBpbXByb3ZlbWVudCBvdmVyIG5vIHJlYm9vdCBkcml2ZXIuIFRoZSBt
-aXNzaW5nIEkyQyBQSU8gCj4gcGF0Y2hlcyBhcmUganVzdCB0aGVyZSB0byBtYWtlIGl0IHJlbGlh
-YmxlLgo+IAo+IFRoZXJlZm9yZSBnaXZlbiB0aGUgNy4xIG1lcmdlIHdpbmRvdyBhcHByb2FjaGlu
-ZywgSSBiZWxpZXZlIGl0J3MgYmV0dGVyIAo+IHRvIG1lcmdlIHRoaXMgc2ltcGxlIE1GRCBwYXRj
-aCBhbmQgdG8gbm90IHdhaXQgbW9yZS4KCkl0J3MgdG9vIGxhdGUgZm9yIHY3LjEgbm93LgoKSSB0
-aGluayB0aGlzIHNldCBoYXMgYmVlbiB3ZWxsIGFuZCB0cnVseSBmb3Jnb3R0ZW4uCgpQbGVhc2Ug
-cmViYXNlIGFuZCBzdWJtaXQgYSBbUkVTRU5EXSB3aXRoIHRoZSBpbmZvIGluIHRoZSBjb3ZlciBs
-ZXR0ZXIuCgotLSAKTGVlIEpvbmVzIFvmnY7nkLzmlq9dCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Mar 31, 2026 at 04:56:22PM -0300, Jason Gunthorpe wrote:
+> The fixed commit assumed that the gather would always be populated if
+> an iotlb_sync was required.
+> 
+> arm-smmu-v3, amd, VT-d, riscv, s390, mtk all use information from the
+> gather during their iotlb_sync() and this approach works for them.
+> 
+> However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio,
+> apple-dart all ignore the gather during their iotlb_sync(). They
+> mostly issue a full flush.
+> 
+> Unfortunately the latter set of drivers often don't bother to add
+> anything to the gather since they don't intend on using it. Since the
+> core code now blocks gathers that were never filled, this caused those
+> drivers to stop getting their iotlb_sync() calls and breaks them.
+> 
+> Since it is impossible to tell the difference between gathers that are
+> empty because there is nothing to do and gathers that are empty
+> because they are not used, fill in the gathers for the missing cases.
+> 
+
+I believe the problem is a fundamental disagreement between the core
+layer and these drivers. The core assumes an empty gather means there
+is no work to do, while these drivers expect a sync regardless. With
+this, it seems we're forcing the drivers to lie to the core by 
+populating a gather they don't actually use just to trigger the sync.
+
+I was wondering if, as a longer-term direction, having an explicit flag
+for these drivers to indicate they always require a sync would be a
+cleaner way to handle this than the trivial population?
+
+Just a thought, not a hard disagreement with the current approach..
+
+> io-pgtable might have intended to allow the driver to choose between
+> gather or immediate flush because it passed gather to
+> ops->tlb_add_page(), however no driver does anything with it.
+> 
+> mtk uses io-pgtable-arm-v7s but added the range to the gather in the
+> unmap callback. Move this into the io-pgtable-arm unmap itself. That
+> will fix all the armv7 using drivers (arm-smmu, qcom_iommu,
+> ipmmu-vmsa).
+> 
+> arm-smmu uses both ARM_V7S and ARM LPAE formats. The LPAE formats
+> already have the gather population because SMMUv3 requires it, so it
+> becomes consistent.
+> 
+> Add a trivial gather population to io-pgtable-dart.
+> 
+> Add trivial populations to sprd, sun50i and virtio-iommu in their
+> unmap functions.
+> 
+> Fixes: 90c5def10bea ("iommu: Do not call drivers for empty gathers")
+> Reported-by: Jon Hunter <jonathanh@nvidia.com>
+> Closes: https://lore.kernel.org/r/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia.com
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/io-pgtable-arm.c  | 4 +++-
+>  drivers/iommu/io-pgtable-dart.c | 3 +++
+>  drivers/iommu/mtk_iommu.c       | 1 -
+>  drivers/iommu/sprd-iommu.c      | 1 +
+>  drivers/iommu/sun50i-iommu.c    | 1 +
+>  drivers/iommu/virtio-iommu.c    | 2 ++
+>  6 files changed, 10 insertions(+), 2 deletions(-)
+>
+
+Acked-by: Pranjal Shrivastava <praan@google.com>
+
+Thanks,
+Praan
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
