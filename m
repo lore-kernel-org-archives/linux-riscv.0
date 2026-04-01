@@ -4,62 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 019F5D3517C
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 12:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B324D3517C
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 12:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
 	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w/hL4bvT/nNOk8qU1/64WAwOq70U9FXUQPQZNJwdw7w=; b=G7PRfvuIvbBLm/
-	YAMmNcAKcztACGD1ljMw2kYa9GBapS9ccRBVLFsd3C4YmsaGcvWHH3feYdo2+W7RXUu1+7gSbJGpY
-	KADkySdVuB8xJrjHfizN34t6A97fuBiyBCBpCP9fw4lwTTyu8Muy4fgO42ha1viSH2cNPiHFZX99i
-	dZt/c4z2G6QIARJKEwbesQmaQa3hTPQtC3G9GEEDAEmxwps62icWdMagVsQih7iZOm02+8DGSrXVc
-	Z1QxQm6SBHxbaccwyoaTRJlhFRJMipxJ9YVW/BKEHTgp8TF1DKoy/Ycl6jc0gmRcqsSGWtvYxAP6r
-	jh4yHp4C4FSdcMDFy3lg==;
+	List-Owner; bh=yOqQtyjxrPmmOuxbcmzeEl8CMTHikAJtdkjGwIPo87U=; b=XXi52dPNvqQs+l
+	YkMbCvVvmYpDjawY/IdC4WmUDTrbn0ruaDWVDK7E+B8qTD94xUPLcr9Vwo9NPackePAJ0ooJ4cDel
+	pqLNnpVmfbo3iJALNOcv+15RRhRHuBvlGEAxmO8bveBVyuGkRleP9PJJhYvfgtQ8Z17yRHjgKr72V
+	x9bPA/TJjoGcrpKb/Fd+d8SUNu2aRsMBWZ++cXI0QEwaAlaVLTY3iZt2yfOHrTBL4DBKely3Ws1uc
+	zh7jJNDJReTnZLdH3QHUzRLlXYmQDOCuM9Ax+VcJg6kEYyfMzSIdxY99Xoz6M0u+BujVCbb/wcq24
+	L4U1rQAQRUxm6Pt8CghA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uqJ-0000000FDGt-2O4d;
-	Wed, 01 Apr 2026 12:38:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ugU-0000000F5au-1LLG;
-	Wed, 01 Apr 2026 12:28:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=O49vJGP71LPrseQ1w4juo0EGvmtjLkksjiwhQfOJK5w=; b=HFo6XlJXozwDpxBB5c4YirWF+8
-	g1jcb92oh1Kgzw+B6jKlM2fYXwtI3lO+wCImnrTuLld3HKPk8L2qyJzjYzHNWO3D5+CwgpTGhTtba
-	aKpSfOv8AEg4o0KHY9jNhOHGy1jQv/bdki4A7R38fck9ZG7OCz9QvVV+iwXluXDVdTz/vRt9UVJMr
-	EpFxeYPF7r707uz3QDEvykkMgQBww4mFAJ1xZXYhpbqZuxymdEJMtmr6KHH+ZY1oDVUbqwQfg1xvc
-	A14ydFv+1i+kIobCbJP06qOUS/T6aHOnXrVDhovR/herc5BfOc61b0AD1EN78VKdoPG70333yQlvJ
-	u9qIkkyg==;
+	id 1w7uqO-0000000FDNG-3hN6;
+	Wed, 01 Apr 2026 12:38:48 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ugQ-00000000LBe-3zZD;
-	Wed, 01 Apr 2026 12:28:33 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7ugn-0000000F5rR-3qc6;
+	Wed, 01 Apr 2026 12:28:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B88140991;
-	Wed,  1 Apr 2026 12:28:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAC72C4CEF7;
-	Wed,  1 Apr 2026 12:28:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 608BD40426;
+	Wed,  1 Apr 2026 12:28:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95ACFC4CEF7;
+	Wed,  1 Apr 2026 12:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775046507;
-	bh=O49vJGP71LPrseQ1w4juo0EGvmtjLkksjiwhQfOJK5w=;
+	s=k20201202; t=1775046533;
+	bh=w4X2oTeHPwofjcCjXVHAsGKLZH0M7KYtRRJFptC0o0k=;
 	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
-	b=i5g8QBjfWYqqmsY/6gikqA6VbYsTKPt6jYNlzfpt/hlVZvLZ7Yn2f9Mwwgt8dN5JF
-	 7e7Bu4PEukyqxho1Ov2DafoQWs/xAn5PyAA7wQfHztq+mToGswliWO1C8h+mCo/M0g
-	 ZDUIUvfuznGAoXZ/R4cv7RB50+ZN/NfWxx4BZrHyPKoFBNIRsjNXeBYTY0YXrxvvU+
-	 DIZiEH11EwNiHdEjrJOtdyAMP2YqgPWrwOMB/i50mlpWFgru/5oCRwkwc4Gyy0y4KL
-	 quf6mM7Red2FCTxsn4Y7v8Pxo924hk9y06klCwIJgrCXLohvnRWCfLw6KmUlq0kYB2
-	 65aA7u/x+0Ang==
+	b=QoxKM2E0FznBdrqLUroXBUcpq++H3iETgkbmtxPbXWli73gy45BOAXwReJ/pysLlZ
+	 lKricJ+MGB/je7Up+zjdR1v7MbSKYe+J8pxIsHFtRYGKQC3bNMA9MS5+08WJnT+rPL
+	 Ppgb3GqnQ6Z4U40uUKY3432VB123kqZR2ipI3hyansbPOK/WflsxTnOw3P6NtIPZXB
+	 C7nm+qDrzc9a2bt+DauoTSRBJAUYKKLtIJco/Gpp0HcTHg8dmMZTp63NzuR0FalLbT
+	 LZqlCyaZSk/UZmt3ZMGDtbvzj3qlFotttWsAtv5+RJzGW4DzcH9QKBm8deTyqcVdRT
+	 0jKh6asjo9NUw==
 Mime-Version: 1.0
-Date: Wed, 01 Apr 2026 14:28:16 +0200
-Message-Id: <DHHTGV6SRX8I.1M533HK3LQLLD@kernel.org>
-Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to
- 1.85.0 (Debian Trixie)
+Date: Wed, 01 Apr 2026 14:28:42 +0200
+Message-Id: <DHHTH79TJEDH.137G03BC8HHM7@kernel.org>
+Subject: Re: [PATCH 11/33] rust: alloc: simplify with `NonNull::add()` now
+ that it is stable
 Cc: "Nathan Chancellor" <nathan@kernel.org>, "Nicolas Schier"
  <nsc@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
  Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
@@ -91,11 +77,12 @@ Cc: "Nathan Chancellor" <nathan@kernel.org>, "Nicolas Schier"
 To: "Miguel Ojeda" <ojeda@kernel.org>
 From: "Danilo Krummrich" <dakr@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-2-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-2-ojeda@kernel.org>
+ <20260401114540.30108-12-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-12-ojeda@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_132831_390985_0F5115CA 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260401_052853_981261_0147C350 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,39 +100,12 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Wed Apr 1, 2026 at 1:45 PM CEST, Miguel Ojeda wrote:
-> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
-> we are going to follow Debian Stable's Rust versions as our minimum
-> supported version.
+> Currently we need to go through raw pointers and then re-create the
+> `NonNull` from the result of offsetting the raw pointer.
 >
-> Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
-> still uses to this day [3] (i.e. no update to Rust 1.85.1).
+> Thus, now that we bump the Rust minimum version, simplify using
+> `NonNull::add()` and clean the TODO note.
 >
-> Debian Trixie's release happened on 2025-08-09 [4], which means that a
-> fair amount of time has passed since its release for kernel developers
-> to upgrade.
->
-> Thus bump the minimum to the new version.
->
-> Then, in later commits, clean up most of the workarounds and other bits
-> that this upgrade of the minimum allows us.
->
-> pin-init was left as-is since the patches come from upstream. And the
-> vendored crates are unmodified, since we do not want to change those.
->
-> Note that the minimum LLVM major version for Rust 1.85.0 is LLVM 18 (the
-> Rust upstream binaries use LLVM 19.1.7), thus e.g. `RUSTC_LLVM_VERSION`
-> tests can also be updated, but there are no suitable ones to simplify.
->
-> Ubuntu 25.10 also has a recent enough Rust toolchain [5], and they also
-> provide versioned packages with a Rust 1.85.1 toolchain even back to
-> Ubuntu 22.04 LTS [6].
->
-> Link: https://lwn.net/Articles/1050174/ [1]
-> Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.html#desktops-and-well-known-packages [2]
-> Link: https://packages.debian.org/trixie/rustc [3]
-> Link: https://www.debian.org/releases/trixie/ [4]
-> Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=rustc [5]
-> Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [6]
 > Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
 Acked-by: Danilo Krummrich <dakr@kernel.org>
