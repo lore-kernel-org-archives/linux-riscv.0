@@ -4,58 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9004D35179
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20B9D35162
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Apr 2026 11:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ILWHwfmLEAKoZ+e9vW1dRSnvXuPwlU2nHcI6I7cBgTM=; b=fKH9Ashk1KZyc4
-	i6LpAvPXIYd5v+aVG07/G7qUPv3MZzYedoNkGOe3WTmDXePn8u8W0tSLYOJMtW4lViiWg5PxRHESY
-	Z3Mg+TIhaz2+bMe/I7m2wGOBzmP8G4Ob+vGi+C120i4cIUWqAjEQ/XHnA13LTIftTWyMKO6KnyD1t
-	wwaxKzP6hOFF9+S2LEwBzc40KZMV+8zkH2UIzpeWOodL62/ch1m4ltry3VQtYesE2tIO70fTDmCmg
-	lXnrkCdB16k8/1oU/EzoYn/VTxsmt5Zpg2RC9L/3FadmxfTXNwoPy4Q1NiS3zBzEDP0KmXE/lLN/Q
-	q3+URJlbijdGqMmOuB5Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tl3IqxtAjDsmku94l1hrCZZZqEliKwaU/HhZuMGQQKc=; b=F0ZMzSaDcw2/ZO
+	gocpymSu/YehLd9NBC/51YgDueUDW7R5Gy4adBA2XOX2C/7ZVSreyK3k04NNdKv874gRm8DPLyoxh
+	mZWl5oZnklmjtW/dS/ODl/llVIQudN5OGKB3/1Apo3/reqaRIiFN0JMFPOmw7i5eUc3mXqw2LtUyY
+	EKgD9TIW3l4Yu5bkfibWBB5kd/6ZT6LqvJq09NMh8+zRbF+ovkFl7Q2d8z0yt8Xz6b9u4ewkUE15d
+	3a6wDjgwUg0/xlh0oNYw4bRT4JFKu5miYOlKLZTJY8ihXzX2UoSRl6I3qlo5ncIYSl2LR+6eSn222
+	Z0NgrDktnWq0+JuZNe4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tzW-0000000Efdy-2f6c;
-	Wed, 01 Apr 2026 11:44:10 +0000
+	id 1w7u1Q-0000000EfpE-0Mf4;
+	Wed, 01 Apr 2026 11:46:08 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tzU-0000000EfdY-03Xh
-	for linux-riscv@lists.infradead.org;
-	Wed, 01 Apr 2026 11:44:09 +0000
+	id 1w7u1M-0000000EfoI-25QT;
+	Wed, 01 Apr 2026 11:46:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4ABD84090A
-	for <linux-riscv@lists.infradead.org>; Wed,  1 Apr 2026 11:44:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2FB0C116C6;
-	Wed,  1 Apr 2026 11:44:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0ED740508;
+	Wed,  1 Apr 2026 11:46:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3116EC116C6;
+	Wed,  1 Apr 2026 11:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775043847;
-	bh=msYVK4Utdiqx9U2vKN4AsAcQwo+MGyKaSM3z3gcoNPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qSF3OmF9Gh5QP08gC3sEz7Qg7lNGlacb1ZwnTpz4+WXuiZ0eiUIe1iNsBuFdlwufb
-	 hfygd6sG1d5RDZ5RtYlaJZSmsvWpf46u+xbQa9+kJPFPIsf+0opQAnNAaTbdoaf90e
-	 k8OmvpcTJsfT9ff0R2uNyS1nX1h5m7d5XvWVYgcvpWIb6OS5gRNl6otlmEOSnCFdky
-	 J87pk73eLGbdkWtaAnJYwN67g1gLzMGt+3ftaD6WPMBsbfSZjzCyfpQS+UYLr6C2Lk
-	 ryRbKfgKX7gcNVIIMmJPlrWYkEB8FYtL1i0Eo/Rce7d/AcxMVYsYGhVsyJ5yllo1NC
-	 /1qrzOq2EpqYQ==
-Date: Wed, 1 Apr 2026 13:44:04 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: soc@kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [GIT PULL] ~RISC-V~Microchip soc fixes for v7.0-rc6
-Message-ID: <20260401-bold-positive-flounder-6e7b0d@quoll>
-References: <20260326-vertebrae-relatable-adfa3baabfd6@spud>
+	s=k20201202; t=1775043963;
+	bh=apDv3G69tLYZxT0bsmSXFtUS1fsRBTuuV0MdIXy1tSE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=UKtBIcp6XElrr1armeetFGSTEl8V4WONvd6rK4wvltL6YwavS1wFRnN7GpYLEHceN
+	 1WbY+wtKHDLemajvmizAsRcZNLu6IBBbkMjRD+ZxpQHOYdzxmcTRqUrQPNLkHG9G1I
+	 JhbACz6m0h9hIYsdf6/u0BqrMh/IzmOVno+iZyKwE9XuciKRg3kRCdpMGJRHL+z75U
+	 gf+thvdBUY8rXoqFg5PKG9M0+8tFcZiB9pPlGXEEBqnrgJTFOZevdkklUbnUWAQbOW
+	 A3Okudgp0+6IACGDs+Fy3Mfyl2ug75BV8kmRZaKVtZzx9GCX2MnTESl/o9lq/ct0OO
+	 wSZvnFKBbOrQQ==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	David Gow <david@davidgow.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?= <arve@android.com>,
+	Todd Kjos <tkjos@android.com>,
+	Christian Brauner <christian@brauner.io>,
+	Carlos Llamas <cmllamas@google.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	rust-for-linux@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	linux-block@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers),
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org,
+	nouveau@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	Rae Moar <raemoar63@gmail.com>,
+	linux-kselftest@vger.kernel.org,
+	kunit-dev@googlegroups.com,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-doc@vger.kernel.org
+Subject: [PATCH 00/33] rust: bump minimum Rust and `bindgen` versions
+Date: Wed,  1 Apr 2026 13:45:07 +0200
+Message-ID: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260326-vertebrae-relatable-adfa3baabfd6@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_044408_077262_AD82ABD3 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20260401_044604_582011_A4DFA1D7 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +114,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 11:21:39AM +0000, Conor Dooley wrote:
-> Hey folks,
-> 
-> Another small PR here, worth pointing out that the exact contents has
-> been in linux-next but not as these commit hashes yet, I squashed a
-> fixup patch just now that I hadn't realised got pushed without being
-> squashed. Might be worth letting it marinate for a few days if that's
-> a concern.
-> 
-> Cheers,
-> Conor.
-> 
-> The following changes since commit 0528a348b04b327a4611e29589beb4c9ae81304a:
-> 
->   cache: ax45mp: Fix device node reference leak in ax45mp_cache_init() (2026-02-06 19:54:40 +0000)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-soc-fixes-for-v7.0-rc6
-> 
-> for you to fetch changes up to c7596f9001e2b83293e3658e4e1addde69bb335d:
-> 
->   firmware: microchip: fail auto-update probe if no flash found (2026-03-26 11:14:11 +0000)
+As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
+we are going to follow Debian Stable's Rust versions as our minimum
+supported version.
 
-Thanks, applied
+Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
+still uses to this day [3] (i.e. no update to Rust 1.85.1).
 
-Probably better if the fixes branch would move to v7.0-rc1, not
-continuing the v6.19.
+Debian Trixie was released with `bindgen` 0.71.1, which it also still
+uses to this day [4].
 
-Best regards,
-Krzysztof
+Debian Trixie's release happened on 2025-08-09 [5], which means that a
+fair amount of time has passed since its release for kernel developers
+to upgrade.
 
+Thus bump the minimum to the new versions, i.e.
+
+  - Rust: 1.78.0 -> 1.85.0
+  - bindgen: 0.65.1 -> 0.71.1
+
+There are a few main parts to the series, in this order:
+
+  - The Rust bump (and cleanups).
+  - The bindgen bump (and cleanups).
+  - Documentation updates.
+  - The `cfi_encoding` patch, added here, which needs the bump.
+  - The per-version flags support and a Clippy cleanup on top.
+
+Link: https://lwn.net/Articles/1050174/ [1]
+Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.html#desktops-and-well-known-packages [2]
+Link: https://packages.debian.org/trixie/rustc [3]
+Link: https://packages.debian.org/trixie/bindgen [4]
+Link: https://www.debian.org/releases/trixie/ [5]
+---
+The cleanups should cover most of it -- there may be more we can do
+later e.g. in linux-next.
+
+Most patches are optional, so if there are concerns with any, they can
+be dropped or be done later. Most are straightforward, though, and e.g.
+a couple of them update TODO comments to keep the series even simpler.
+
+The patches have been split as much as possible to be able to add as
+much context as possible and to make it easier to review and to drop any
+if needed.
+
+All in all, it is a nice `--stat` of deletions I think :)
+
+Alice Ryhl (1):
+  rust: declare cfi_encoding for lru_status
+
+Miguel Ojeda (32):
+  rust: bump Rust minimum supported version to 1.85.0 (Debian Trixie)
+  rust: bump Clippy's MSRV and clean `incompatible_msrv` allows
+  rust: simplify `RUSTC_VERSION` Kconfig conditions
+  rust: remove `RUSTC_HAS_SLICE_AS_FLATTENED` and simplify code
+  rust: remove `RUSTC_HAS_COERCE_POINTEE` and simplify code
+  rust: kbuild: remove skipping of `-Wrustdoc::unescaped_backticks`
+  rust: kbuild: remove `feature(...)`s that are now stable
+  rust: kbuild: simplify `--remap-path-prefix` workaround
+  rust: kbuild: make `--remap-path-prefix` workaround conditional
+  rust: transmute: simplify code with Rust 1.80.0 `split_at_*checked()`
+  rust: alloc: simplify with `NonNull::add()` now that it is stable
+  rust: macros: update `extract_if` MSRV TODO comment
+  rust: block: update `const_refs_to_static` MSRV TODO comment
+  rust: bump `bindgen` minimum supported version to 0.71.1 (Debian
+    Trixie)
+  rust: rust_is_available: remove warning for 0.66.[01] buggy versions
+  rust: rust_is_available: remove warning for < 0.69.5 && libclang >=
+    19.1
+  rust: kbuild: update `bindgen --rust-target` version and replace
+    comment
+  rust: kbuild: remove "dummy parameter" workaround for `bindgen` <
+    0.71.1
+  rust: kbuild: remove "`try` keyword" workaround for `bindgen` < 0.59.2
+  rust: kbuild: remove unneeded old `allow`s for generated layout tests
+  gpu: nova-core: bindings: remove unneeded `cfg_attr`
+  docs: rust: quick-start: openSUSE provides `rust-src` package nowadays
+  docs: rust: quick-start: update Ubuntu versioned packages
+  docs: rust: quick-start: update minimum Ubuntu version
+  docs: rust: quick-start: add Ubuntu 26.04 LTS and remove subsection
+    title
+  docs: rust: quick-start: remove Gentoo "testing" note
+  docs: rust: quick-start: remove Nix "unstable channel" note
+  docs: rust: quick-start: remove GDB/Binutils mention
+  docs: rust: general-information: simplify Kconfig example
+  docs: rust: general-information: use real example
+  rust: kbuild: support global per-version flags
+  rust: kbuild: allow `clippy::precedence` for Rust < 1.86.0
+
+ .clippy.toml                                  |  2 +-
+ Documentation/process/changes.rst             |  4 +-
+ Documentation/rust/general-information.rst    |  4 +-
+ Documentation/rust/quick-start.rst            | 52 +++++++----------
+ Makefile                                      |  9 +++
+ arch/Kconfig                                  |  3 +-
+ arch/arm64/Kconfig                            |  8 ---
+ arch/riscv/Kconfig                            |  3 -
+ drivers/android/binder/Makefile               |  3 +-
+ drivers/android/binder/page_range.rs          |  6 +-
+ drivers/android/binder/page_range_helper.c    | 24 --------
+ drivers/android/binder/page_range_helper.h    | 15 -----
+ drivers/gpu/nova-core/gsp/cmdq.rs             |  6 +-
+ drivers/gpu/nova-core/gsp/fw/r570_144.rs      |  3 -
+ init/Kconfig                                  | 15 +----
+ rust/Makefile                                 | 36 ++++--------
+ rust/bindgen_parameters                       |  8 +--
+ rust/bindings/bindings_helper.h               |  1 -
+ rust/bindings/lib.rs                          |  5 +-
+ rust/kernel/alloc/allocator/iter.rs           |  8 +--
+ rust/kernel/alloc/kbox.rs                     | 29 +---------
+ rust/kernel/block/mq/gen_disk.rs              |  4 +-
+ rust/kernel/lib.rs                            | 30 +---------
+ rust/kernel/list/arc.rs                       | 22 +------
+ rust/kernel/prelude.rs                        |  3 -
+ rust/kernel/ptr.rs                            |  1 -
+ rust/kernel/slice.rs                          | 49 ----------------
+ rust/kernel/sync/arc.rs                       | 21 +------
+ rust/kernel/transmute.rs                      | 35 ++---------
+ rust/macros/kunit.rs                          |  2 +-
+ rust/uapi/lib.rs                              |  5 +-
+ scripts/Makefile.build                        |  6 +-
+ scripts/min-tool-version.sh                   |  4 +-
+ scripts/rust_is_available.sh                  | 36 +-----------
+ scripts/rust_is_available_bindgen_0_66.h      |  2 -
+ ...ust_is_available_bindgen_libclang_concat.h |  3 -
+ scripts/rust_is_available_test.py             | 58 +------------------
+ 37 files changed, 79 insertions(+), 446 deletions(-)
+ delete mode 100644 drivers/android/binder/page_range_helper.c
+ delete mode 100644 drivers/android/binder/page_range_helper.h
+ delete mode 100644 rust/kernel/slice.rs
+ delete mode 100644 scripts/rust_is_available_bindgen_0_66.h
+ delete mode 100644 scripts/rust_is_available_bindgen_libclang_concat.h
+
+--
+2.53.0
 
 _______________________________________________
 linux-riscv mailing list
