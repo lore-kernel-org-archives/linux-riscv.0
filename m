@@ -4,53 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C19FD3941A
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 12:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 997E7D3941D
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 12:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=266oj+ubfk9fTV9sqs25YndWJsrg3shyAFmNJkPe604=; b=sfFYWQh3mUCad8x6uxn9snJe01
-	rv3OAcUJ/qayhClMgp3nmfn98aLugpRCQc/JtmvaH1TYp5ktLSBHl4E7nHrzRtV1Nd8VSqrnoiX+J
-	LyJdk+t3g4QJDUVo5jWP9XTDxLYehD52HHfOmFcCpNaWcC49XSSRmQRIqJ0iW83WrdNJQYUGhr3pG
-	OsOab8Jgddjntofuv/Dus3D7i5WzOrGX6OkIFyyig4o0uZHp2I+UZBYS1GZkvNxbR0L8ScYZQozM+
-	IIlZj/x4dutgFJtsM6ImiKPziy6qgQ3HWI20vdEFvEcVGb24d40sDNBIC0GKB8xT9kIAkORAB+JfU
-	5JyBUGRQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lscqkOzm/m9uJazQmakuEgpgx7H8qowGQwdLe5sJwTw=; b=2fVtSnaVk9QEkO
+	676ajcgbsUZJ6wDBObJybrmlcuoCo8FPsLxDlIARVRTc2sVOtQjtr7udzZLrKFzC9IbJnnC60lZmI
+	uAlyIxvQSLTEp3nlzLFEJ6Yw4mO4VrlTFz/8k7Rm8u52pNjTflAdJUMf5qd1GLg4De4buxh3Dc8Qw
+	mNCxruJ8z0Ex97s7k5VyeXKzjZNMaVWkqLqvgzSYPG1Ha6ngS8eN4LjcbRiDeXK54bm2zcLzpaC2L
+	5TkDPYUyBRCOjjiSDuDwiWXWXEgcFHY1rczIBUHStnH/SSV5NQXR0/+xRYHZMrIV9kwCALoe4WV6g
+	nrUCLN0ZGhNI0AfxBlRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8H7P-0000000HaxP-3fkz;
-	Thu, 02 Apr 2026 12:25:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w8HAq-000000003AU-37Dg;
+	Thu, 02 Apr 2026 12:29:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8H7N-0000000Hat8-3Z2w
+	id 1w8HAp-000000003AN-1iCI
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 02 Apr 2026 12:29:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=vcXn6b67rRj+CqXQSR9AVzCdCSKAtKskjZ3iuSBT3lw=; b=Q9B6zXj9O6qSdV8+VNsRseGsPf
+	mWgFkZxYOGGczhsUk5kH2SVpwNOxSQIExeceqSN9XmnCW/8quGo57WooKGXK/868o2uom+DZ8chMH
+	YiuDGW9yLJxgSvIQWX27TyRFjVzJCrec0DnF5z8N1sqWkJfLSdA3j8cI/HOkelqGhNt4/9ILKrnr+
+	VKOXRy871tQzN/hN1IW3tjrXnkoGTz1+d52tqh6OwQWpYJiUJayQdM2wK282C10Mt/0aiSwAhrTej
+	5QncOeAnWYkN7V5cz2teKDh8ukq2Z+vlEihkpfq9GGVrzWdDezLi9k7RXu5eslvjS9VXmyKFjQt9J
+	dTiLbYPQ==;
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8HAi-00000002ROW-2LWV
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 12:25:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E1A76187D;
-	Thu,  2 Apr 2026 12:25:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88CD2C116C6;
-	Thu,  2 Apr 2026 12:25:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775132748;
-	bh=A9qss19id8aEDS/Daora8wd8YySFOi8TeljTFjT0/8I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pjnTwmg9tl0xtuonCUtnkNri70pDB+DgXb/5scOyiB9f6uu3ZDGdibxZIDFbUb9af
-	 NgU749vIN9syriB5I91U1otBebcBVNoZo8o48rQuHGbAMifpJ2nAi5hXbcrAwuWt3k
-	 0TNdk1lwQHMh4cbZedqXLbhZvAtgz44GV5fYqe2sQ97foFS8PXNmpnEaCL0ZXjmkIP
-	 w5sLzeGvPxPII9sxopuKBbPuBEgu/LLbx4g/FcPEkdd4BqCkG0vatmSiLW9Wshb6v+
-	 Kjy3DUPuQfkYjhqrGzt0xeRdxZlF0ufUOr52IbHff6OhyRcDh72TnlTq1XVM/dp/ue
-	 DrXS1s4vpmxvQ==
-Date: Thu, 2 Apr 2026 13:25:41 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: Re: [PATCH v1 5/5] riscv: dts: starfive: jhb100: Add JHB100 base DT
-Message-ID: <20260402-shakable-hefty-0164a042b748@spud>
-References: <20260402084019.440708-1-changhuang.liang@starfivetech.com>
- <20260402084019.440708-6-changhuang.liang@starfivetech.com>
+	Thu, 02 Apr 2026 12:29:22 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8d006a80ccbso105546085a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 05:29:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775132954; x=1775737754; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vcXn6b67rRj+CqXQSR9AVzCdCSKAtKskjZ3iuSBT3lw=;
+        b=QwyrMmA9gu0H+C7RIJpgog5Ta4cgfCm7lnM9iAQQ50LP9xGy+zZeFBi5S6OCuFkETy
+         xOhNJJwEul6O9vSdaLlphQgFD4TAkLlvP5D/UI1YEIvJwuL2AiZyOXoB8Jtq80iIBOHc
+         LkbrgugNYoORIC0mp7lTSOsmA8VyK5IjrIMWsImONsfT7QksyMydTAYhsoSynBBKgRfs
+         C+AxeImYYZOLvoG/a/q94VWJgEQpJkBfalcGwxwG5j28zRBozo+oLkYsb/Xri0s+irwT
+         JlGiDEH3nlrZeN0HSTcDICzaYnlxPBx3lW+qSdtT3dI5wJpWrlfB17Daiq36DHhmSwKC
+         2/uA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775132954; x=1775737754;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vcXn6b67rRj+CqXQSR9AVzCdCSKAtKskjZ3iuSBT3lw=;
+        b=QVXNDh5tK9G7JfwsNfgsH92B0E/9HWwm9rZ8VGYh2hpmax1K+LPAg4P9UaHt82v3uH
+         d0PKohdyC7z9mts0moqHZC3jIs59SjE5186F1R5BHhF/fXXgqLWjRg9hyZBzHJsMB8Y2
+         UH7wm3BZdOCCdNzsqkFeZgtePlg4TxLTG7RzXsjpQB9JG1RKd37by6jAJ7ONivRuPs2D
+         ZfF/1E/rMqQGAEoXCqAF4tfKzBwEf+fRZj+UhG6AaG37oV9xYhtvu2/tlc1xZ8/IYh9q
+         yMiYHl6+BWkYabQAJYGXSmtiEAS/0SexFWJoS0s7lQViAjg2MoRNhEe7Yy+jvtu7knpv
+         GzDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWqJfCewZspAjD4jNgB0C+vG525GsPXmX87hwAsEtwFytW7SvBqzh19wyZkwKLJKq+IGzxvK6Lqt4FMlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0i3Y/QsgfsuhZZrns+WVZ5Bxo3GUNKo1UV/toHk5i2KEcFcFT
+	uLmppGc9apoOSSEHsL+IsZcDDIRm7d3ck2DmZ8MumJnydnjg7vtAo4G9
+X-Gm-Gg: ATEYQzwNB/qJptVL+XXcobQMiAS5/K6pCT5uLW5f/R7MVv/SICSm/I1t4aIF9KhVVxm
+	2Ht0cLOpJmcoU4F34kbDlYJIC0/QXrCH22coM2qliMRBsiVLERSVYTTzTLMhesj6y3vGlf/tyZF
+	+r58DQrbfOfacV1Zeg6Qfb4iK+Dfeaf4u70u5BG/YADaW2prw7bSN125WdkFG4H+gQ5hESVrlfh
+	DLzUID+rtrmJdVIfnXL09hbsz+aXsEBAwkLpFcfeR0xru+cQIOcW+u6X1frodJKq4FDNPgoYgdV
+	g26kK/1vBeaZaUuGdN5Yjmqn7fuqgkJtI5vRupPZiwVHxED9ndYY7R7XUB09b7YaIdrjX58b+vV
+	I1XznrWpvoQA75kvWtBjNKAD47CBh/M3U2MGBRxZ7CWnlZUTAonAT3LCG009SPx1X/7snm702/7
+	hR76WEGfhCnSuVRwb2VKC10hQlJDQ+Ein8tuYGx2FF2VxtXRK4WrRjS1q4
+X-Received: by 2002:a05:620a:4802:b0:8cd:b38d:be7a with SMTP id af79cd13be357-8d1b5aac3a6mr1091790485a.4.1775132953851;
+        Thu, 02 Apr 2026 05:29:13 -0700 (PDT)
+Received: from sleek (d-23-244-200-70.nh.cpe.atlanticbb.net. [23.244.200.70])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8d2a8647b4esm202845285a.32.2026.04.02.05.29.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Apr 2026 05:29:13 -0700 (PDT)
+Date: Thu, 2 Apr 2026 08:29:10 -0400
+From: Joshua Milas <josh.milas@gmail.com>
+To: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Cc: tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, pjw@kernel.org, samuel.holland@sifive.com,
+	unicorn_wang@outlook.com, inochiama@gmail.com,
+	daniel.lezcano@linaro.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, liujingqi@lanxincomputing.com,
+	alexander.sverdlin@gmail.com, rabenda.cn@gmail.com, dlan@kernel.org,
+	chao.wei@sophgo.com, anup@brainfault.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
+	hanguidong02@gmail.com
+Subject: Re: [PATCH v4 0/5] Add initial Milk-V Duo S board support
+Message-ID: <ac5hFgLav_4oB2QA@sleek>
+References: <20260328173450.219664-1-josh.milas@gmail.com>
+ <88400fa8-4545-49eb-af04-d82b94a89757@rootcommit.com>
 MIME-Version: 1.0
-In-Reply-To: <20260402084019.440708-6-changhuang.liang@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <88400fa8-4545-49eb-af04-d82b94a89757@rootcommit.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_132916_769602_7F230C94 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,207 +117,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Joel Stanley <jms@oss.tenstorrent.com>, Drew Fustini <dfustini@oss.tenstorrent.com>, Darshan Prajapati <darshan.prajapati@einfochips.com>, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Hal Feng <hal.feng@starfivetech.com>, Guodong Xu <guodong@riscstar.com>, Yixun Lan <dlan@kernel.org>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, E Shattow <e@freeshell.de>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Junhui Liu <junhui.liu@pigmoral.tech>, Daniel Lezcano <daniel.lezcano@kernel.org>, Michal Simek <michal.simek@amd.com>, Paul Walmsley <pjw@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Michael Zhu <michael.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: multipart/mixed; boundary="===============2980477994677642867=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Michael,
 
---===============2980477994677642867==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="37H7PQhY4CmOWSPg"
-Content-Disposition: inline
+Thanks for testing this. I am not seeing that issue on my arm64 or riscv side.
+I am able to add an IP and do anything I can think of on the arm64 side.
 
+[   96.618687] stmmaceth 4070000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
+[   96.633977] stmmaceth 4070000.ethernet eth0: PHY [mdio_mux-0.0:01] driver [Generic PHY] (irq=POLL)
+[   96.676436] dwmac1000: Master AXI performs any burst length
+[   96.702852] stmmaceth 4070000.ethernet eth0: No Safety Features support found
+[   96.748740] stmmaceth 4070000.ethernet eth0: IEEE 1588-2002 Timestamp supported
+[   96.772880] stmmaceth 4070000.ethernet eth0: configuring for phy/internal link mode
+[ 1359.377528] stmmaceth 4070000.ethernet eth0: Link is Up - 100Mbps/Full - flow control off
 
---37H7PQhY4CmOWSPg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I can do the same on the riscv side but get a unhandled signal for TLS traffic
+which I believe is unrelated as it doesn't happen on adding an IP.
 
-On Thu, Apr 02, 2026 at 01:40:19AM -0700, Changhuang Liang wrote:
-> From: Ley Foon Tan <leyfoon.tan@starfivetech.com>
->=20
-> Add JHB100 base dtsi and dts. Consist of 4 Dubhe-70 cores, CLINT, PLIC,
-> PMU, UART and 1GB DDR.
->=20
-> Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> ---
->  MAINTAINERS                                   |   6 +
->  arch/riscv/boot/dts/starfive/Makefile         |   2 +
->  .../boot/dts/starfive/jhb100-evb1-eth.dts     |   6 +
->  arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi |  32 ++
->  arch/riscv/boot/dts/starfive/jhb100.dtsi      | 326 ++++++++++++++++++
->  5 files changed, 372 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
->  create mode 100644 arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi
->  create mode 100644 arch/riscv/boot/dts/starfive/jhb100.dtsi
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 7d10988cbc62..b1892a480c31 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25306,6 +25306,12 @@ S:	Supported
->  F:	Documentation/devicetree/bindings/interrupt-controller/starfive,jh810=
-0-intc.yaml
->  F:	drivers/irqchip/irq-starfive-jh8100-intc.c
-> =20
-> +STARFIVE JHB100 DEVICETREES
-> +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-> +L:	linux-riscv@lists.infradead.org
-> +S:	Maintained
+I'll send over my configs to see if that helps.
 
-Supported, no?
-
-> +F:	arch/riscv/boot/dts/starfive/jhb100*
-> +
->  STATIC BRANCH/CALL
->  M:	Peter Zijlstra <peterz@infradead.org>
->  M:	Josh Poimboeuf <jpoimboe@kernel.org>
-> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/=
-starfive/Makefile
-> index 3dd1f05283f7..7cdb75788053 100644
-> --- a/arch/riscv/boot/dts/starfive/Makefile
-> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> @@ -18,3 +18,5 @@ dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7110-starfive-vision=
-five-2-lite.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7110-starfive-visionfive-2-lite-emmc.=
-dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7110-starfive-visionfive-2-v1.2a.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7110-starfive-visionfive-2-v1.3b.dtb
-> +
-> +dtb-$(CONFIG_ARCH_STARFIVE) +=3D jhb100-evb1-eth.dtb
-> diff --git a/arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts b/arch/risc=
-v/boot/dts/starfive/jhb100-evb1-eth.dts
-> new file mode 100644
-> index 000000000000..62cd046e1224
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
-> @@ -0,0 +1,6 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (c) 2024-2026 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#include "jhb100-evb1.dtsi"
-
-What is the point of this file? Is this the base-board?
-Shouldn't it have a specific compatible?
-
-Can the SoM be used without a base board? I've got no info about this
-board appearing on google, do you even have pictures of it or any
-documentation?
-I see this
-https://www.starfivetech.com/en/index.php?s=3Dhardware&c=3Dshow&id=3D22
-and
-https://www.starfivetech.com/en/index.php?s=3Dhardware&c=3Dshow&id=3D23
-but the former doesn't look like it needs a base-board and the latter is
-called "evb3", so is not what's here?
-
-Not got enough info to really do any kind of review here.
-
-> diff --git a/arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi b/arch/riscv/b=
-oot/dts/starfive/jhb100-evb1.dtsi
-> new file mode 100644
-> index 000000000000..462b6fb7953b
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi
-> @@ -0,0 +1,32 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (c) 2024-2026 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#include "jhb100.dtsi"
-> +
-> +/ {
-> +	model =3D "StarFive JHB100 EVB-1";
-> +	compatible =3D "starfive,jhb100-evb1", "starfive,jhb100";
-> +
-> +	aliases {
-> +		serial6 =3D &uart6;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path =3D "serial6:115200n8";
-> +	};
-> +
-> +	cpus {
-> +		timebase-frequency =3D <5000000>;
-> +	};
-> +
-> +	memory@40000000 {
-> +		device_type =3D "memory";
-> +		reg =3D <0x0 0x40000000 0x0 0x40000000>;	/* 1GB */
-> +	};
-> +};
-> +
-> +&uart6 {
-> +	status =3D "okay";
-> +};
-
-> +		cpu2: cpu@2 {
-> +			compatible =3D "starfive,dubhe-70", "riscv";
-> +			riscv,isa =3D "rv64imafdcbh";
-> +			riscv,isa-base =3D "rv64i";
-> +			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "b", "h", "zba=
-", "zbb",
-> +					       "zbc", "zbs", "zicbom", "zicbop", "zicboz", "zicntr",
-> +					       "zicond", "zicsr", "zifencei", "zihintpause",
-> +					       "zihpm", "svinval", "svnapot", "sscofpmf";
-> +			riscv,cbom-block-size =3D <64>;
-> +			riscv,cbop-block-size =3D <64>;
-> +			riscv,cboz-block-size =3D <64>;
-> +			d-cache-block-size =3D <64>;
-> +			d-cache-sets =3D <512>;
-> +			d-cache-size =3D <32768>;
-> +			d-tlb-sets =3D <1>;
-> +			d-tlb-size =3D <16>;
-> +			device_type =3D "cpu";
-> +			i-cache-block-size =3D <64>;
-> +			i-cache-sets =3D <512>;
-> +			i-cache-size =3D <32768>;
-> +			i-tlb-sets =3D <1>;
-> +			i-tlb-size =3D <24>;
-> +			mmu-type =3D "riscv,sv48";
-> +			next-level-cache =3D <&l2c2>;
-> +			reg =3D <0x2>;
-
-reg after compatible please.
-
-> +			tlb-split;
-> +
-> +			cpu2_intc: interrupt-controller {
-> +				compatible =3D "riscv,cpu-intc";
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <1>;
-> +			};
-> +		};
-
---37H7PQhY4CmOWSPg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCac5gRQAKCRB4tDGHoIJi
-0mq/AQCdGRhH7fMsETbsHy/7XAwGdd6dyCgef5Ry/G9ZUAIsYQD/QcGn7v8E4xpq
-1187O7K4oldFt4xV97meM3SOU86bkAI=
-=u85q
------END PGP SIGNATURE-----
-
---37H7PQhY4CmOWSPg--
-
-
---===============2980477994677642867==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Have a great day,
+- Joshua Milas
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2980477994677642867==--
-
