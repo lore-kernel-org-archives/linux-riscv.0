@@ -4,79 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA53CC6B19
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 07:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A689CC6B32
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 08:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VGsUSLW4szXotPi7/j+K2TXMsHBmQ4n/6amoqPhpFWg=; b=ydJm3ckLB0bE1o
-	qmyx+ZQEiZWS5pAIfsMM/vG/tguBtcycZjM7Yy/TuZResbl37ROaPiJfgpRa09zIJ55jm4CZHCKIZ
-	/lv+1c0ZH0zGjoUzocTc3VST3xU6PztHyFvPgcHIU2Xi7rutxIV4X/7eTBIz7wUVW94g6qV30DVAD
-	vdXmqrpvSclX2+k15mw4LxZ/0IR3ssM0+SGmBr97EP0B+hPYLmAN9iU1A0l18yj3kQn7T2CU+O1J8
-	hH7gp7HflQ93M35VMIMv+h7YP75pArJ6Pa0/qu9a7biF92Iis6gsak1m5/h4M3QEVqRFwoXGdMhBD
-	m0knslTWoIwLZknyXEOg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tMsO8cNVNri2vYUo/yGGp8Nl7haSXNu1BFRlwfsR4Y4=; b=yOvwfBMsKoKlMH
+	10lQqZhFF/pKZosyAQAixecNSSsitA6uk7GQacqIEaXpARI0GIRZn4rPsI39+OcfAXJ1xR36SQREh
+	aLVBtVKahRZdR8aYNGzP7tUFkSIg3G5A7U6dege0ZO/ZXhz2z2QgduVAZV78vg+8j7CqOFKCQku45
+	+Tqo36vAW1aX3ER1HjdLqIX2n75v74fBk1ZuAb3kQQPrzOKrjmAjcjUZFFD6/yK/kpgB4N1OmfxTr
+	u165ajjfTvgO4g5VT4xdv5tucz9mk/QaYoThKyqzAH9Ry90eClbRB/IhZNzvSyB7BmfT+GwJXRxHY
+	UiD5gEd3D9jS9WdYGC9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8CbD-0000000H6Ep-2yOr;
-	Thu, 02 Apr 2026 07:36:19 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1w8Dbk-0000000HBjq-30CA;
+	Thu, 02 Apr 2026 08:40:56 +0000
+Received: from mail-bjschn02on2122.outbound.protection.partner.outlook.cn ([139.219.17.122] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8CbB-0000000H6EN-3OQV
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 02 Apr 2026 07:36:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=OIoXTKZ+dmpo3ix24iVvbhvRgEH7wx4E6DmDpzMxfIQ=; b=OJaoChg/eM47m6dMT7ykUMurm3
-	ljjCsqv47kAKXdFUmXF/yrWwo2V8QdoaSBmlxXUFJ8QT5zyPey9is70Laiiu8VLcru5S45iCNAkmU
-	W6+mgTiyhbmf3TeqW3CNJ++QtNv8tycUwxSt5v2Q/JIgj1BayQXcrVe6eiVVmCCeakfOgXlbRcduP
-	OHGClqcQOhuTYrVxQsz+WWltRlkSruhvJLFnmA4wn/5fr1MiEn1XYatVAvwZbijMWFivG8m/LZCE2
-	E5NnIQ5jc5yPfHXbDvTz2HohtMEZHCmOFOXY02zet0OMyFGvZuVbaibmHSxc/hhG/u/iPzVtMw/CD
-	f6zG6MdA==;
-Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Cb8-0000000Bq72-3dwc
+	id 1w8Dbh-0000000HBjI-3boS
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 07:36:16 +0000
-Received: from 8bytes.org (p4ffe051a.dip0.t-ipconnect.de [79.254.5.26])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id A0DBA1A7158;
-	Thu,  2 Apr 2026 09:36:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1775115369;
-	bh=mqWV3JlY3aJsYMOVTGFTC7ckdC9nkLHFj2myWjU9Byg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LEi2RUUyCAMWWB9Gsz8YvnhcVw3I5hwB2NV5rigwkJ/+yRO1P/7E/eR8igXqMfSAe
-	 ibGReGFjxDZ/dVSEzNQLqpWEjfHeujCq+AWH5+Cw6a/7sySJjHS/BnqBWhQ9/QM27+
-	 0ifdcl6Bj4ZL4ajQCgB3VMHXd2+aSxTuoi68gPj5UERqHw5okU5X6/i0zW3VH6K3Dj
-	 hOmjyQFNZIs5sv+5gGQGuDtNClodIgUlOP3PmJJVsfkK8cdihuq5Qv6IcgN/uaSpaa
-	 hvuSryrAzIjNSRPrcNXrruevbfBXplO+/sqiXAM1nkKkJNw0PmcITKaT0bKTzSba3d
-	 HJUx5TBas7Ngg==
-Date: Thu, 2 Apr 2026 09:36:09 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>, 
-	iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, 
-	Lu Baolu <baolu.lu@linux.intel.com>, Joerg Roedel <jroedel@suse.de>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev, Tomasz Jeznach <tjeznach@rivosinc.com>, 
-	Zong Li <zong.li@sifive.com>
-Subject: Re: [PATCH] iommu/riscv: Remove overflows on the invalidation path
-Message-ID: <necasbrohxayccg2jlgqjnmvwewlur2beiqf45hac5rc3xj6ww@6fmz3arzbbub>
-References: <0-v1-0f76ffba5af6+11540-iommupt_inv_riscv_jgg@nvidia.com>
+	Thu, 02 Apr 2026 08:40:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=iZ7GxBnLjhmhSFWmhTtWVhggsm/LSfJvuRJrBMqsN2MIHmIZmVb30IzpDWuOTOoKbtzQNPWIX2dAI+IIkEP0PQZhAqk34kPau9ZBqqV8CHHwKb+fJpy2lepM9MfzidUJKFfZs5o9ZgQP9Xj6Zgu0aqXlHUQ7YPCRk3j28Q7J+pbAJsTfyHW6s8jGiMdC9NOoGiUB7DtxG5IoGLg0SD27Y6y9J5Xiv5TUISTiSdXyFmQif6JGG9baOU8t27yyUAhST+zw83aky8EAiv0fMUEIJbYsQf61eGRuy5GGiKhN4Z4giTnbQHppTkNXNoVlHQI07m8dj9emh95Sa6jx+AE4EA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wB2f+gXuMSuDeqrIDhWIoPAASyeJZUgXlPiGbHYZhNU=;
+ b=WU9QhlBLtiYASV1+HVLSGEIuaU/3UZGnt9KxSoY+ZI9okkZrjxbkmjS5Ahgri2f/U89SAIh8/DUiAAUj4oRGyzqWknK5kfXLo0TML3tshdfyiZaEPQ0xHw7V+iLQWgjCZC8X1jseK6mBvtpH2oipBPf6bsq0A6/3Y2G/7+wi5LZGKIc6eYJoCs7I5TgurOl0NPy0MjBD53+3+3RWrMykuSq9X/ITysw0g1mx8LZ1wSDl4bi8g9HyvDKXul8S9Q6m/QEpJgiiNpEMSjieoNGb8y+wL8+P2LETJoiTExP5ipceXcro9vsaCesexQ8o1PuMgsZBfnJJag51eFhoOBIz5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1235.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:15::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Thu, 2 Apr
+ 2026 08:40:28 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9769.018; Thu, 2 Apr 2026 08:40:28 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>
+Subject: [PATCH v1 0/5] Initial device tree support for StarFive JHB100 SoC
+Date: Thu,  2 Apr 2026 01:40:14 -0700
+Message-Id: <20260402084019.440708-1-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: SHXPR01CA0023.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1b::32) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0-v1-0f76ffba5af6+11540-iommupt_inv_riscv_jgg@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1235:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4fab3c0b-65cb-4cdf-ae87-08de90937dc3
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|56012099003|18002099003|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: pdG38pNeSQYXxk1KeBH0Ou0SG9Zg0eGXFqjk6VFagyPm+PaWOzhc+HLbR9z2GFQ+mp5Crf50R5RFxuj7oULS7dZ28sMu+lRbFYiJ2R1RKQuXyu/MFHHly6H8vb8hXYFDTGKDHHIIpd3go9wz+WfG+W3HwDvlCdvIkYuTUg8B/HHk5Pu6/lIL1M3N1Rc3eeCMOwk4kgYpFumnKhd8zklVebHiDDHjAe9Td+Zle93SjnirylFXPGGV6Ewg/1DnvS9CaIKwaG/92i1w7v7W7MP20lW4iZGm+DSxpdDDTSJO47l1Hn7hg80+n/ier7H1nPMEbu5Ea37R6M1QpI2/ymHiUIZrqmNkpUH0/Ug63RzYn8tigXRDbaHmn3ROpYMnlxdlmZLZXl02Rlqjsz6B3AWY5G4pOyDDc68MdwE79Ui1ziMHSS9huEMEhChqaithmG80er5wKCY11Qg3gP5yDPNI1lXHtm3XEWZRm8jVSHsN+NminWrPvCCA/dQZTcHdaTdWozggLFnm59c80JgeDFfzx6K7Zy+Xv9MUyBtk+c/hLTrfAjuWZMrsoBRwSH/TucISlLEEfla3OK8uxv2TbY+UsZmcO3UPML5E32N4lqoO1/c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(56012099003)(18002099003)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ABsMQ6vEZnEsmZmUd/qxyy2CsAxR6Knlg+E93IBgI8e2XSlc4oEUHgPYH5hy?=
+ =?us-ascii?Q?Ybv4f0UVLrNOVLch5DXStNGRp/4iXNtFvyp9LWCRbCwd82MgZTI/7xaImnFs?=
+ =?us-ascii?Q?g4Yt0mtEbHVppikPE0miQFaVaaPH6YrfgiMMGq/jGYNh3ls1PTGLuKZ5D3ha?=
+ =?us-ascii?Q?knuerxJDtFcI0CXpyWOYMFup0c1C13epUTXZdNBok19emz0wxzz8lJwdkb1o?=
+ =?us-ascii?Q?rdFlm5mZmArUSdU0D88Hgire8eYpGyT2IcMarwDPOsncWjO4Eu4Zj8vUssQV?=
+ =?us-ascii?Q?XFd/zuu3BGNDM0IyNsZHPjD5dfkFEKbnh/BNohmrxWH/l/dRAjLzpFp/8fSU?=
+ =?us-ascii?Q?BbvjFOFpXPAZFKBAI3Y29XMMoKIg5WPiR48R70BkdZ1FqOsffAauIdkguNOo?=
+ =?us-ascii?Q?oX7gIlMDsZlhqoAA10kptujb9j8xBkI1xSSB88QD7X/xpGXeqxEcGQm96oqF?=
+ =?us-ascii?Q?JgJTnUgyi/Sf/LiIX08o/lAjzmvpU9DJUY699a3zQmYLphPkfWFcABZgm8on?=
+ =?us-ascii?Q?wPy+1zG3EK5sirNP1xj9s1+rlU+zmQC1JOmQwVFEH8gn7hEfC8FJ0Kxvha8k?=
+ =?us-ascii?Q?s0KV88BhhS9AFBbishaZi4/MIVOyyTEBtwNlEEeOZEPTgUtPJyLgNoJ4+zWI?=
+ =?us-ascii?Q?YPdtH+QTpTDZX38vefj/I5QQF43idxylRJRy5E9+HwA9P7SJiYhvzBVkzJNP?=
+ =?us-ascii?Q?iSruX/69Af8bPjgtuRmk+nDLv1LfRg7qth2L9Mtp2h6bXk64Aw8YPLpueXeD?=
+ =?us-ascii?Q?Z14ZhmBATH/XSupMF8vcOdh19GBxPuZGKsiGvvUjgHH0l30vthBxJeUlfK2D?=
+ =?us-ascii?Q?bOxpEi0ADiSqTTVPMslIlutCdEHxawUKLAjqu/nYG+jmzb8PquCNikwftQh6?=
+ =?us-ascii?Q?hF88WPw/FOh4hsSXOvWKsQEerPUEZI84c0DtDTFPeO7LhEhxc9pmAEvehXHc?=
+ =?us-ascii?Q?dhRZWiuuF2TJqEaYGkkR9vZOJ2GYH6cdBOUmQM39EmnN7aj2VSDnTyUo5WFg?=
+ =?us-ascii?Q?Ts7UgILEuxesg5CyAhCTRANOKp7DPedJM0UV1jodhTZBv2vnK8CpgCuqQnex?=
+ =?us-ascii?Q?Ncc3Fio5bN/3WtWjFOmfOhM0MhAB+kqbHPVMsrAc3P+Q4qk6yBcQh2big2UO?=
+ =?us-ascii?Q?ewHu3FnDrS0yg/VCLQm8fxAxVviIYk0CBz3Nl+VOHuSnOE3i4/XMvfUwrs6w?=
+ =?us-ascii?Q?YrEy1M9DDLpMap9OcwTTwjlMeMetSnsS8Z5zKVeaCQ+EV1t3AXGz9TFEp6sd?=
+ =?us-ascii?Q?ffiy8KZn6P0vkXnqjsiwZe7phg1p0Ex/sdruIKAPSSCsqpkldjF2Ur3CL+BV?=
+ =?us-ascii?Q?l8NScY2GgfIz3rCWxJ6LFxOIs1HVwqhob0GePIBAL6OZvwaHmRBS80o4egQ0?=
+ =?us-ascii?Q?2176UYj11OyG9plf5eui9MWE7U4hdmCu7/1q2uSkTbR3UXweh30ottqe3vP5?=
+ =?us-ascii?Q?SUlltYivasNQXGForh4oOHL7oQR3ENz1k9P7VsQpDC1W4HmyKp774JqkWwNq?=
+ =?us-ascii?Q?o8xbOucVTzAnorBDRdwHsxd6FQNzw9u8EThPtu40qXjEdEaXSbGWABFx1PIR?=
+ =?us-ascii?Q?5lKyxdJJQRJ82fC6FvgG/wLd9TYiIoKNZqFNmTUVyIUWVE0IwVRX8kcpdMww?=
+ =?us-ascii?Q?GVpaFC/1VvsY9YQZkA1mE8RD01KKKPRB2B0BwTdDb7qSGrScvrhy+j58XHeS?=
+ =?us-ascii?Q?qjqUIjqA23mW1sizgyT0foEcZBrD7EiULWl6jNz5Jbj2Vg0R/8zazne2SePC?=
+ =?us-ascii?Q?mig535lp7gQxQnUGxL89jNTLNumdMda3C/W11e3nLlr7AL0MzJHd?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fab3c0b-65cb-4cdf-ae87-08de90937dc3
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 08:40:28.0685
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e0Qvomk6FljTXkqzgG4BJBSWVGGH3H2fHnASo3ztKe4zbHt5NgbMQB7JTuQ1Uf17rA0Le7fnmnPU2kAvUJtBV33iYVjuaRll3dy6vmMPGNC36h23YQlJQUfyALTUoKtO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1235
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_083614_995471_0AB5C837 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20260402_014053_903028_570FA557 
+X-CRM114-Status: UNSURE (   9.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,16 +132,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Michael Zhu <michael.zhu@starfivetech.com>, Junhui Liu <junhui.liu@pigmoral.tech>, E Shattow <e@freeshell.de>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, Joel Stanley <jms@oss.tenstorrent.com>, linux-kernel@vger.kernel.org, Drew Fustini <dfustini@oss.tenstorrent.com>, Guodong Xu <guodong@riscstar.com>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Darshan Prajapati <darshan.prajapati@einfochips.com>, Yixun Lan <dlan@kernel.org>, Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, linux-riscv@lists.infradead.org, Hal Feng <hal.feng@starfivetech.com>, Michal Simek <michal.simek@amd.com>, Changhuang Liang <changhuang.liang@starfivetech.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 12:22:10PM -0300, Jason Gunthorpe wrote:
->  drivers/iommu/riscv/iommu.c | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
+StarFive JHB100 SoC consists of 4 RISC-V low power Cores (Dubhe-70). It
+also features various interfaces such as I2C, SPI, CAN, USB, MMC, Uart,
+etc.
 
-Applied, thanks.
+This patch series introduces initial SoC DTSI support for the StarFive
+JHB100 SoC. The relevant dt-binding documentation has been updated
+accordingly. Below is the list of IP blocks added in the initial SoC DTSI.
+
+- StarFive Dubhe-70 CPU
+- PMU
+- PLIC
+- CLINT
+- UART
+
+This patch series is based on tag 7.0-rc5 and has been tested on the
+StarFive JHB100 EVB-1.
+
+Ji Sheng Teoh (1):
+  dt-bindings: riscv: Add StarFive Dubhe-70 compatibles
+
+Ley Foon Tan (4):
+  dt-bindings: timer: Add StarFive JHB100 clint
+  dt-bindings: interrupt-controller: Add StarFive JHB100 plic
+  dt-bindings: riscv: Add StarFive JHB100 SoC
+  riscv: dts: starfive: jhb100: Add JHB100 base DT
+
+ .../sifive,plic-1.0.0.yaml                    |   1 +
+ .../devicetree/bindings/riscv/cpus.yaml       |   1 +
+ .../devicetree/bindings/riscv/starfive.yaml   |   5 +
+ .../bindings/timer/sifive,clint.yaml          |   1 +
+ MAINTAINERS                                   |   6 +
+ arch/riscv/boot/dts/starfive/Makefile         |   2 +
+ .../boot/dts/starfive/jhb100-evb1-eth.dts     |   6 +
+ arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi |  32 ++
+ arch/riscv/boot/dts/starfive/jhb100.dtsi      | 326 ++++++++++++++++++
+ 9 files changed, 380 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi
+ create mode 100644 arch/riscv/boot/dts/starfive/jhb100.dtsi
+
+
+base-commit: c369299895a591d96745d6492d4888259b004a9e
+prerequisite-patch-id: 5735e71493da6858decc510a0e75967744b66b39
+--
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
