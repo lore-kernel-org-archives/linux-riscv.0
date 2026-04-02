@@ -4,117 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE29D6AAF2
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 16:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D26E7D6AAF5
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 16:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=KUJowdQukqy4enIMM8XjePCowYJyWs9CI0i1H99/xBA=; b=ZYoVCz7D4KdDmeMtQKoUfezPA6
-	l3VHre7zBGEjFR5RoWbuL1JC7d+iNt653PzoT6/Tk9ZKa1RCIrN+akFxEZsN4yadcziyr8sFXWd1G
-	T4SYWPPeigUqH2A30YskGbcMqMDPUUwrt1mK7zxraDNRRnJXQeIojbbxVNDFywSRdTdiHrC1/eHKn
-	HPAF9ZMvjp0yc+wUZzgrGTE3LGF3npnGlbihhcigCJO97VqPt6aZPZrOqpZ2Mv8jkQuV8KLpPgGif
-	YCyjjeEN1frmhRbHV6zYWq0g4JWqfwb1pyR/08LEtdx61jpKD2bri82uYnaLY5hSe7datTjZTfXtd
-	ciLZ4kSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VRpiVkKZtIsQ34ZD1jTxBdS9CS+/Y7wzyZXYS7Qm//w=; b=b3ID2uklwiUEXk
+	sbeDhHvMpUe16okeN8C0U0u8VFQvZSlf2G7Q5WRQdGFUMDRpHrk7wHur1bMtreWtKWp+bzuHkMzQ1
+	uDKM3jlBlvOK0RTil+FoyPpW+ESoIyoBm0jjjePIVVUNeB4NT6Ju2dDhwaMX70ZSwHuCZ4jyfm8GK
+	HM52osZqUcAGnoGjgjzcrs/tEwnAaS/SrOGshL+1s5BvaYgRo9vwiGCnfNuQeEPFmF/TfIjnBoCaS
+	0/LC7RWpYhy7SbL3+SLTwc7B5oK/JM22oRryQwM7QAA9cGWdO5tyeoJKumbQbvFlM5mL/3AuvI7Sv
+	ULpr8RdXFSARJIjPw2JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LEM-00000000XfT-0WDS;
-	Thu, 02 Apr 2026 16:49:18 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1w8LGZ-00000000XzQ-0uoO;
+	Thu, 02 Apr 2026 16:51:35 +0000
+Received: from mail-westus2azon11010071.outbound.protection.outlook.com ([52.101.46.71] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LEI-00000000Xee-2Hju;
-	Thu, 02 Apr 2026 16:49:16 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id F0B3C7A00DC;
-	Thu,  2 Apr 2026 12:49:11 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 02 Apr 2026 12:49:12 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1775148551;
-	 x=1775234951; bh=lYV/HE/eaLjj4haLdqZX1D55ej4Hm/J5ZQp8Ipwz81U=; b=
-	SbNsQGJrGjnB8ek6JMQE3rHUQ2eUZ2jW9OQWsaMHhAu3T8VI5iSevjK4RHN3QMKD
-	/kjRkhCWK7n6krz5Y5jUWRRobjA+NsF+nMuB8Jb3+gNaX/jWelDwsEInvt4JxRSv
-	sLX1i72t3HMmj+kjDeWBHol2RF4kFmJJYjLcOSilVLOoyMLrWBp7m03iF/MWqrlR
-	UmhV9T97QFqNQGogOFD9CRI85tnJEOgaJSGr4F0R5o8fHrhnkhdaOyTsNmcIQbdp
-	kj41b6kGgeK/K2S7uWRHV2iXi+9kUz8TIhmoDkAjLzBnpZWciM6atk51S5QC2CwO
-	f6ilWCBh6l8kEHQVfmXC0Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1775148551; x=
-	1775234951; bh=lYV/HE/eaLjj4haLdqZX1D55ej4Hm/J5ZQp8Ipwz81U=; b=j
-	ekHnRJIb57zb6LNOJw/r5P4rlGsJAg3yyh9+jR8fDFI3oMOD4JBygyuuyKyhE8FL
-	LIieQ5o8+IapaBHO8Kfv10zCNuLkTlagAYq6qpFi61cuv54UXNpUic6uR4ZlYRRc
-	61vOt+0wa/qbp6RufGXIfm8lggh9zOUC2+XO4Oh336G7NcN5O5aIB72koZKkdxFr
-	DWbVXav9gZgiQAQThSVmbmtzlGczE+qqFyouqpYWnOReOOYqe1OT++8ORlsunYws
-	r79VWh6bCXLiK08tza93I3YRq/bk9LfdIl7MssNZWGv5kqRbhgDmXdX2Vul9ftlk
-	ChEIlBFRarXY8yq+mrJOA==
-X-ME-Sender: <xms:B57Oaah1IAVM1MpqVucregry5V56_mF6D_tfVj0QyHv3UO9mypWXSQ>
-    <xme:B57OaV3c9VoVWeV8baNic297CVGm1HWc3HargMvcEsE5WTlW8umiBCVlgCSHWlBuq
-    6gvBHj2nKSaoztXPOPqff5CZH8oSnPjesjCD5X4vLXFn_c1pVXrH7N5>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeiheehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    ephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdeinecu
-    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
-    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdp
-    rhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghirhhlih
-    gvugesghhmrghilhdrtghomhdprhgtphhtthhopeguvghllhgvrhesghhmgidruggvpdhr
-    tghpthhtoheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegthhgvnhhhuh
-    grtggriheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtohepfigvihdrlhhiuheskhgvrhhnvghlrdhorhhgpdhrtg
-    hpthhtohepihhlihgrshdrrghprghlohguihhmrghssehlihhnrghrohdrohhrghdprhgt
-    phhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrd
-    gtohhm
-X-ME-Proxy: <xmx:B57OaXq7Fq8tP7x6l5dBAWWWbFxGc72eT4nZc1Ez2R9yelqsIbe0iw>
-    <xmx:B57OadGA3pgF6EIjYalsXy3pJ2CMHaefryWrCjjpq2PpqIhrBWtQFA>
-    <xmx:B57OaS7FFU3NE9O5REXDd6c-ZPeED_eMbfTPjk8ySEwf_duLCEL7kA>
-    <xmx:B57OaYB3dmTgiRgVub4R4xNil6GrnUqBFP0V5-YXn9cE-BSTBYwEqA>
-    <xmx:B57OaVNHy5qQPJxXUY3g2qeqnNDg8D1RrXtmnTXvVchJ2_tkVfjYL5Pz>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id EE7BE700065; Thu,  2 Apr 2026 12:49:10 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w8LGW-00000000Xy8-19pG;
+	Thu, 02 Apr 2026 16:51:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YxVgv/a5FBKUEMGOwAyZZQ+/9ATFx1rxCHbK2fXsszMd9I/Oz6wFdYMxcbYVQtn6EiB/jPzdYvI+48gmNFm8xJmpGwW3sIPfr48J4p4SIsyz7E+sVJ2/exJaZ2RSqmV0NyFyU75LNGqT37xZZOU4xBcUZ470ocPBo15lmjphKmUBei4RtYQSsWTiDlFbVg94oV8joP+XdJ+yDL247JUk6rRgka4NZ1tAf2R1x1DRbw92b4LZsXLxrSXkWAYWGfDvVXF7lHyrmIJNawZ3TCMszvGZlUULsKlGjI5DinhIRcabdSseEKa9eNm3/ecMuHcgD0PyOHwdCtO040OD0U8Czg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RBizT6dITzOWs3PxefUJhuMVHGKPHsRS7LDlIgolVHA=;
+ b=T2GzLxBtOdF1SM6L0TtHSIZXsj/HYSzYP2UWfIpXDUOgfGbDpXHEV6UD30Yxm1pKG+4WGmD5PIxcRvGKo2WoptfHQYiAIAYKZYpprwqUgAkGACcI6T8ratzPu9IvynuGB0D2SxYMsK6ueGB+ONhe9txfS9Tr81ORwzS7MBJcoqb+kMEGQUgT48nsBoZtMG80TmQqF1oLuHKx+Z3umgdtXzl98FUw8tIm3WJOZd2Nqbli55rzLRSV9Hh12RqOEOrh9t6AP3hKyBvSEuEMf2AYh8b4RQrdT/d3DKDP3Ckvn7cpqwUnB8mAlv/bRiyOqTpZSqrmH9XdnDEkQR3xpozsfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RBizT6dITzOWs3PxefUJhuMVHGKPHsRS7LDlIgolVHA=;
+ b=fQDyJAqSkJyMHoiYKTaK32SJvdJQCDaUpLB7molXDt67shG25G/IDhdZMnvZBUNJYdR3eqkPuRY45T6410bkmzo5QUud2JAe7GqdT8nVqPalZCO9CjUCOj1lDWp9+y/mc2qxOgBBOPjIpjcxpGQ9MyRjEXyL6MIdbFSymTUTbhzTvnlypWSXvbwF7y2SRmEBU9nKYAPntiYaZaiClSO/iQw0Mf4/titxp/Bm+gy28cgzf7/iMt/uAkTwH4Z8xGgBI4zlnj89tAwNVgHLCOg9Ffm9IOLxNun5+3oqGRPOojh0hEzDYrwpggrJRYtoNWqu1FmXrY4Oxpgw//ZBN2v9fw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SJ2PR12MB7918.namprd12.prod.outlook.com (2603:10b6:a03:4cc::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 2 Apr
+ 2026 16:51:25 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9769.017; Thu, 2 Apr 2026
+ 16:51:25 +0000
+Date: Thu, 2 Apr 2026 13:51:23 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Sven Peter <sven@kernel.org>,
+	virtualization@lists.linux.dev, Chen-Yu Tsai <wens@kernel.org>,
+	Will Deacon <will@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Jon Hunter <jonathanh@nvidia.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
+	Vasant Hegde <vasant.hegde@amd.com>
+Subject: Re: [PATCH v2] iommu: Always fill in gather when unmapping
+Message-ID: <20260402165123.GG310919@nvidia.com>
+References: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
+ <70a128f9-d6f0-41b6-8fef-e249c0507149@arm.com>
+Content-Disposition: inline
+In-Reply-To: <70a128f9-d6f0-41b6-8fef-e249c0507149@arm.com>
+X-ClientProxiedBy: YT4PR01CA0221.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:eb::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-X-ThreadId: ATYY62_w4Fts
-Date: Thu, 02 Apr 2026 18:47:01 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Thomas Zimmermann" <tzimmermann@suse.de>,
- "Javier Martinez Canillas" <javierm@redhat.com>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
- "Maxime Ripard" <mripard@kernel.org>, "Dave Airlie" <airlied@gmail.com>,
- "Simona Vetter" <simona@ffwll.ch>, "K. Y. Srinivasan" <kys@microsoft.com>,
- "Haiyang Zhang" <haiyangz@microsoft.com>, "Wei Liu" <wei.liu@kernel.org>,
- "Dexuan Cui" <decui@microsoft.com>, longli@microsoft.com,
- "Helge Deller" <deller@gmx.de>
-Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-fbdev@vger.kernel.org
-Message-Id: <295a43ce-92fb-435d-a82f-d1cfa8f4f28d@app.fastmail.com>
-In-Reply-To: <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
-References: <20260402092305.208728-1-tzimmermann@suse.de>
- <20260402092305.208728-4-tzimmermann@suse.de>
- <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
- <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
- <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
- <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
-Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable option
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ2PR12MB7918:EE_
+X-MS-Office365-Filtering-Correlation-Id: 12a523e2-26d5-4294-88b9-08de90d8134d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: nv3eWcfPVgqpwumndzHvGpmiicpJDjcAupVRIpfFppJ2h7nneXAjiVLiFGyeE4haqMRus50NmE12DLDx17tyEnunLBqV8UmPT4tLbrneF0rT/eAV21uGRn/GuBvUFqUsmC1sqhCpuvVNT7VLjmq/FM+unJaz4ODfhfFYcGFmXhekMU0Mcbv/yhEGWNTLNSCvbJ7dctJLsoFVEHdBAaYo1Bs6sgpibI6hiH5bFCd/wlGalQVwCP4wyYb1ei2oo13wmYFHTl17b5UracBRe/KJXNIw/ytFWpS3PwldMhUm+0lBo4KB8bW+S3I5fcZmmYUeZvcHJLaJ9KS4MiWwcDF1ffU9GmRsKc4FbHh7dNVf14pDCqURXkhcPpiYYTZKBoymIaQwV/S47darmEMQlQppF3EgCRVv/U4t9Ggv4XmG9PRBNekTnIrsGNDRcu/HnnWsMktw3VZw0ChZhv75Py//1uwfnJnLadX6ida5RGFhzBc0dHhkNbV3GR+2Q+4FB1tLQuBL3zWxY5WLrTpsS9AfytOh70B2mAlw8DW3SVk2/E5NanfFOZhhjELsEdMXnfy32biCvThZP6+JZS4Qi2vh3LVAwrd6Njs5hbm9nEkugeB1MWsdxlWfxD7pcv7ZJpiKKpARakWf9ltiPzp8iXJrD8qBQNE8u9YyhYIdJtIEYZyjPDCDuDO7VyIOqk8U9HzmRGwJbnp/EOX3+dh6ZCsUpoaDjukpn3QBshEgQFya3gc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pdbny2mjmDm0DkpF0XzFDwQxA68zQu5QwbhUMLKNfLKme00Sg/a6r5XvOfes?=
+ =?us-ascii?Q?im0OPbWN1UvQ8UCgyrT1j12USyPoFHyHs/Fx/SkIj6ApzeE2vWV1X0mud7Y7?=
+ =?us-ascii?Q?gR00yHrP1ZyNESt8HjZs3pU6/DWjo1vScfe6Uqo/6lEWzhAdfi16MX1eLVwY?=
+ =?us-ascii?Q?cY3L78dmNLtarQb4N3GcnqRcKWxKihxU0wTMkv+kK3oQ/vgaVvW7M1jWmtWC?=
+ =?us-ascii?Q?KROIBGArjPls1SzS23QiCEukolq4jRYALAskNgWVw/R05nG8YfwdCbNgQvJ4?=
+ =?us-ascii?Q?ZRZeGqgChoLIorgKfx/1KOBOP9maqIY4ZJvPdIaLBsIpBimo76uYfGW4r65O?=
+ =?us-ascii?Q?pg5X45F++0cejh5ZeyauVHKAKDZgoJdty7fVH1o+nsDSHFV1IMBsh35Ik5yp?=
+ =?us-ascii?Q?CPfY+CLr6MMJTiFwgCiIhp74zNzT7oOFlQVfPiLbVgNWmJNXu+lJq5mfaKp1?=
+ =?us-ascii?Q?d2a+5NwxpCL9NQzMrAyFCgY/ryZWc5i1XKfftV+i6ZkkbUKRaa/wE8sUcFRN?=
+ =?us-ascii?Q?aQ864kCbB5iIcqsGCV19D6LPwCKxnwzTQJrBk1Ks1oqojGYLTv93qphcevcg?=
+ =?us-ascii?Q?YjiDyhigMkpDDmb4oMhOYEKFG/AFgcW8S+QlICtl4oOTJsLqOWlMP9N3HAtg?=
+ =?us-ascii?Q?AVSRJU+kQ598+yfbKxAYwDEaHYfBhY8luoV5f5mYbqd0cwMn4gm9iLdyQ7of?=
+ =?us-ascii?Q?lYK3yx8mLA8LyOSzgQoHSLGy7jd+WgB1B8Oib5nWd4skxBDFuugYKl4wWnwd?=
+ =?us-ascii?Q?Wfa4uMj4YFUPNUdVEGjq2DO5u5wFtoEoCs4bzXsctQoBlR141JLOY0wY+RaB?=
+ =?us-ascii?Q?eB1vYcjNHXJ+nPbqAsEUIMQ6DQuu/WAns4gZxNzP2K3OF3oKfkkUnJwvcjrF?=
+ =?us-ascii?Q?TPF40m68jGlpJndufvibmvEj25qpctsdic6YdnzTh8nIHRZ5nuGBdWQAQZAz?=
+ =?us-ascii?Q?cM9/aYtN4qPo+9JWu0m5OPThky/7gOyUbuZAGkowR/2WsxiUHamuV4llEvHJ?=
+ =?us-ascii?Q?FcbqvdqlAALlw7JZxzNyCWtmkzF97aLTsB/NmVzOADgg+A0R/Nw/tW0RhZYC?=
+ =?us-ascii?Q?HaXILRGz91th53gEY1KibxpohW7jStXl1RLunTbPtO7984Vu4fwI9rWD0+L1?=
+ =?us-ascii?Q?0hO5nrr3RMWn1hw4QzWBrL90bWGoikfu+kZd9e0JMsM/hw13s8qrq2BsqUvD?=
+ =?us-ascii?Q?OCDsL5gAf2VX3eXswdqaT4CibT9ZneNWIIdVh4LDenzpLxOVocYa3307kj6P?=
+ =?us-ascii?Q?yKyYt4JMfbI8YucN9AI+BywLGCEgrfF5TCNIwOgVtHj1KYHBzwvzE3NfC2CN?=
+ =?us-ascii?Q?p0CMEOa7JBS/meGYrMSy9hCtBEsiY5ROZuGYTLXuTNoUleY1ZXS4ES5DCQ8Y?=
+ =?us-ascii?Q?wGrb3AgZ1wr1hgu8E6NNJH8ood37t/cEW5jDyZW2e9DQuOWiouGE4TWEWn0v?=
+ =?us-ascii?Q?x9zXnl+zijnvb8gCzMxm6t1t66xbtu7RMqfgeVHePsDS8B3YRGPiXmafAeOC?=
+ =?us-ascii?Q?g/d09J0jN/Ob9A7Jxl2J/8lFhsTjfAEq+jBct5tsYjyByiSxquBn7AKJHz3a?=
+ =?us-ascii?Q?6ZapIxGHhDG/msQYrybHwvI/aWpv9ZBOVWaBaVSB33NRPIiMZZKp81JCNV8t?=
+ =?us-ascii?Q?zwj//5BOBrS25GQpRohQKKE3wcpsRz1AJ2w9lVnRUXUhqQxxPF37EsLdD7E0?=
+ =?us-ascii?Q?qVrkwoV4aVjNm71KJR9mNtY1xHmbhYD7Kqdf9hQrrxGc+9Vh?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12a523e2-26d5-4294-88b9-08de90d8134d
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 16:51:24.8765
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tcdTlflq2fhu3zOHc9hj1v+tRAfHusMO9e0IMxmC8dO1XOBn7eHcnxYH4UWKaoji
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7918
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_094915_249121_5ADEA32F 
-X-CRM114-Status: GOOD (  38.85  )
+X-CRM114-CacheID: sfid-20260402_095132_322848_2DE6E214 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,129 +158,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 2, 2026, at 17:27, Thomas Zimmermann wrote:
-> Am 02.04.26 um 16:59 schrieb Arnd Bergmann:
->> On Thu, Apr 2, 2026, at 16:10, Thomas Zimmermann wrote:
->>> Am 02.04.26 um 15:08 schrieb Arnd Bergmann:
->>>> On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
->>>> I don't really like this part of the series and would prefer
->>>> to keep CONFIG_SYSFB hidden as much as possible as an x86
->>>> (and EFI) specific implementation detail, with the hope
->>>> of eventually seperating out the x86 bits from the EFI ones.
->>> You mean, you want to use the EFI-provided framebuffers without the
->>> intermediate step of going through sysfb_primary_display?
->>>
->>> In that case, CONFIG_SYSFB would become an x86-internal thing, right?
->> The part that is still needed from sysfb is the arbitration
->> between DRM_EFI and the PCI device driver for the same hardware,
->> so I think some part of sysfb is clearly needed, in particular
->> the sysfb_disable() function that removes the EFI framebuffer
->> when there is a conflicting simpledrm or hardware specific
->> driver.
->
-> We do most of that in the aperture-helper module. (see 
-> <linux/aperture.h>). Calling sysfb_disable() from there is a workaround 
-> for some corner cases. We can have an EFI-specific function that does 
-> the same.
+On Thu, Apr 02, 2026 at 04:59:29PM +0100, Robin Murphy wrote:
+> > @@ -666,9 +666,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+> >   		/* Clear the remaining entries */
+> >   		__arm_lpae_clear_pte(ptep, &iop->cfg, i);
+> > -		if (gather && !iommu_iotlb_gather_queued(gather))
+> > -			for (int j = 0; j < i; j++)
+> > -				io_pgtable_tlb_add_page(iop, gather, iova + j * size, size);
+> > +		if (gather && !iommu_iotlb_gather_queued(gather)) {
+> > +			if (iop->cfg.tlb && iop->cfg.tlb->tlb_add_range) {
+> > +				iop->cfg.tlb->tlb_add_range(gather, iova,
+> > +							    i * size, size,
+> > +							    iop->cookie);
+> > +
+> > +			} else {
+> > +				iommu_iotlb_gather_add_range(gather, iova,
+> > +							     i * size);
+> > +
+> > +				for (int j = 0; j < i; j++)
+> > +					io_pgtable_tlb_add_page(iop, gather,
+> > +								iova + j * size,
+> > +								size);
+> > +			}
+> > +		}
+> 
+> NAK, this is insane.
 
-That sounds good, yes. The same change would need to go into
-of_platform_default_populate_init() then.
+This quite an optimization for SMMUv3 so it doesn't have to fit into
+the ill fitting add_page api. What is "insane" here?
 
-> BTW, simpledrm-on-EFI/VESA is considered obsolete and should preferably 
-> be removed from that driver. Simpledrm should become a driver for 
-> Devicetree nodes of type simple-framebuffer (as it originally has been 
-> intended).
+> If you'd rather make gathers mandatory for all drivers than fix it in the
+> core code, then for goodness' sake just add the trivial one-liner to the
+> handful of .unamp_pages implementations which need it, 
 
-Sure, I was only thinking of the case where there are both
-sysfb (from Arm/riscv UEFI) and simpledrm (from devicetree)
-objects referring to the same one, not the simpledrm
-device created by sysfb_simplefb.
+Do I understand this right, you want to not touch io-pgtable and
+instead the unmap trampolines will fix the gather like mkt is doing?
 
->> The parts that I want to keep out of that is anything
->> related to the x86 boot protocol, non-EFI framebuffers,
->> text console, and kexec handoff, which we don't need on
->> non-x86 UEFI systems.
->>
->> I don't mind the idea of having a sysfb_primary_display
->> in the EFI code if that helps keep EFI sane on x86,
->> but it would be good to make that local to
->> drivers/firmware/efi and (eventually) detached from
->> include/uapi/linux/screen_info.h.
->
-> Efidrm retrieves the framebuffer settings from the contained struct 
-> screen_info. Disconnecting from screen_info would require separate 
-> graphics drivers for x86 and non-x86. If we split off EFI from sysfb, 
-> we'd likely need a sysfbdrm driver of some sort. Just saying.
-
-Yes, I saw that as well and don't have an immediate idea for how
-to best do it. I saw that you already abstracted the access to
-the screen_info members in drm_sysfb_screen_info.c, which I think
-is a step in that direction.
-
-I also noticed that efidrm is mostly a subset of vesadrm, so
-in theory they could be merged back into an x86 drm driver
-along with the drm_sysfb_screen_info helpers, and have a non-x86
-driver that constructs a drm_sysfb_device directly from the
-EFI structures.
-
-> I think we'd also have to duplicate the framebuffer-relocation code that 
-> currently works on anything using struct screen_info (see patch 5).
-
-You mean the code from include/linux/screen_info.h? I think
-it would make sense to have an x86 specific version of that
-to operate on the x86 screen_info, and a simpler version
-that just updates the resource for the efirdrm driver, but
-that could also be done one level higher or lower.
-
->>>> In general, I am always in favor of properly using Kconfig
->>>> dependencies over 'select' statements, for the same reasons
->>>> you describe, but I don't want the the x86 logic for
->>>> the legacy VESA and VGA console handling to leak into more
->>>> architectures than necessary.
->>>>
->>>> Do you think we could instead move the sysfb_init()
->>>> function into the same two places that contain the
->>>> sysfb_primary_display definition (arch/x86/kernel/setup.c,
->>>> drivers/firmware/efi/efi-init.c) and simplify the efi version
->>>> to take out the x86 bits? That would reduce the rest
->>>> of sysfb-primary.c to the logic to unregister the device,
->>>> and that could then be selected by both x86 and EFI.
->>> No, I'm more than happy that sysfb finally consolidates all the
->>> init-framebuffer setup and detection that floated around in the kernel.
->>> I would not want it to be duplicated again.
->>>
->>> For now, we could certainly keep CONFIG_SYSFB hidden and autoselected.
->>> Although I think this will require soem sort of solution at a later point.
->> Can you clarify which problem you are trying to solve
->> with that?
->
-> One thing is that some users simply what control over their kernel build.
->
-> I also think that there might be systems that want to use 
-> sysfb_primary_display (plus the relocation feature), but not create the 
-> framebuffer device. Say for efi-earlycon. It needs user-control over the 
-> SYSFB option to do that.
-
-I'm still not following, sorry. efi-earlycon doesn't require
-CONFIG_SYSFB today, and I don't see why that would need to change,
-or why it couldn't just 'select SYSFB' if it it does change.
-
-> As a side-effect, user-configurable SYSFB gives us a nice place to put 
-> SYSFB_SIMPLEFB and FIRMWARE_EDID; two options that currently float 
-> around in the config somewhat arbitrarily.
-
-You said that SYSFB_SIMPLEFB should get phased out in the future,
-right?
-
-I'm also missing your plan for CONFIG_FIRMWARE_EDID. I only
-see three legacy drivers using the old fb_firmware_edid()
-interface, so I assume this is not what you are interested in. 
-
-For the global copy that is filled by x86 and efi, and
-consumed by vesadrm and efidrm, does that even need to
-be a configuration option rather than get always enabled?
-
-       Arnd
+Jason
 
 _______________________________________________
 linux-riscv mailing list
