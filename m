@@ -4,72 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED5FD6AAE6
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 15:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D1DD6AAE5
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 16:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S4gt/ZCEhqV+6T9CwsNWZ0vRXoMjAiK/U6Zu2A3lmvQ=; b=JiIlR9mW5ZQTdL
-	VMhnFzR4/6kr+dJWmbDp6vuNwcnYfGi6uSBV/Lh6n1LK0EbS3kSzOu/jMBBjmcp9eKnJjEuWNSuAz
-	5iP/p6U35y6V5NDvC9ab0f8hyvK9cB12vAdCI8SPN0K1Tg/JtjWUZ65Th4FGcrBLHyyad5+C3/MFt
-	SmHTi8ZwhhXy8YrgVM7bL7pYzmM4rghDBLPU8sriZoK5nTJKFtZZyy1XthbQDGJlk23E1gCCLVgFn
-	+lEp9YPFXL4C4p8IlxcaZbNT2VlSfPFhs3v9kp+mEcDF5wjZgPR4HwfzgtlIAP9riDynI5RDQVcyA
-	8+j6wH2enGDQ2A6N5ibA==;
+	List-Owner; bh=+3chXQ0HEO6aws9heHSuBu832QmLPacotjt5XnD4OGo=; b=dJP3M067wqU+Sv
+	oG4Yp9zIyPCXqa1enAEECUCwy+WW9PtJIJnQxFD1sE9Q73TYDQPLHGvcOOKQHAgqifAIIAFG8kiME
+	ZfcuBVk+DSjlnqyrHHSaTXBpDEhtigMds6Zzwle9x2tiZ5cVQdll6rugWPz1uaKM9HA8xl+jGZNgR
+	AcJStEuQA9GitbCTPJb0q/RMf/ScmPhHX8sdEs3fWH2HISV0GhZKBleiRhT+MlwNVqVM5pdNo5RM6
+	9eT07VTIvcHYuhyjWwlWGxeVX7axNfuHYQYJ416WaKar/v8NbE5vptX9UqhNNABuzW6qqpxzn/m56
+	OrwWBVO6m9kRGBMX1Xeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8KSO-00000000Tme-2luX;
-	Thu, 02 Apr 2026 15:59:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8KSL-00000000Tli-0jGI;
-	Thu, 02 Apr 2026 15:59:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF68119F6;
-	Thu,  2 Apr 2026 08:59:31 -0700 (PDT)
-Received: from [10.57.75.194] (unknown [10.57.75.194])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE0733F7D8;
-	Thu,  2 Apr 2026 08:59:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775145577; bh=i132jaYTi+ixjxc06WKFSsZBQkYSpy9Al36njUn136A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X1fFpyjZioXy4emzPkjym3elHmat0r+NzfnNyuFOL1OkZZkHFO799zWiDOc+QsG89
-	 RvckoTATbUkXYGvBcdbyyGatOV5TQ8U7m5+c3/BHSMv29HSpGqfCfDH9T1FFCyGT6l
-	 ixQ85owst4jhClEz/N9TGMke5/DtJjAEVGacLBjw=
-Message-ID: <70a128f9-d6f0-41b6-8fef-e249c0507149@arm.com>
-Date: Thu, 2 Apr 2026 16:59:29 +0100
+	id 1w8KTC-00000000Tye-0RCR;
+	Thu, 02 Apr 2026 16:00:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8KTA-00000000Txm-1TPj
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 02 Apr 2026 16:00:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=WtM2gelQtlkDLtUyeOY/RQAEzxS8kBtRhg00qUrjMDQ=; b=gJE56CRwpPhsJwsbM1Tkm589Ye
+	CszSR7D+mjGAGUMbUKDFbibb8yNPadmDDqYHIHvmnAntDMWgmYo2b6a8ZZPV7LJXbZYJ1tFlqF6j8
+	BziICFKHTvR4n8CJCCge9eAW7SLFfTT6rIyrnLpAFP5jYz3dSdTYrGx2ORwf/tAAA9u11ZAZji7uW
+	ixpTHf7Ru7qLoG23xda1onWimhkoY+pJzVlgUS9niM7vmhZ5aMc9opl5mOTx6Afvr+C3pIq4XFYWl
+	+bI1jd8elf14UqjFsHoaAjv0KcYriXOI+5wOuMAsm2XK8NT6jeLiGwFlOOMgXnIKD1Qv9pqmPur5j
+	EnTnGukA==;
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8KT7-00000002pot-2Cdz
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 Apr 2026 16:00:31 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-67c20ed3076so624671eaf.1
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 09:00:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775145627; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dzgf5EQLZ7UfoyryD99wa8/mPovmj6Evnr/EdT39D+iFmlZ4j6ksofyQa839Z7f977
+         e1qpV03YNxlBmRK0NMN9SMfGYgtIQXy6kmMW1oCdZf8O3hGIDS1GhZ0KKm1fljh2WOSo
+         fZdOW4D4w9c6gwk2mw1K6Hp8dVdpDW8jOd3z/8dHnLUm3IGoAz/35ulV2lFreZnZxzwH
+         dXwIrLfzTtil7WOxgGq4spvBlD5qiZGqDEfhEL3Y5+9PezCdtCNDhQCUTNkovWhS5tng
+         LCmWCGfWeyHq/qGKgCMiBZa+xkWIk6XGAISBUuNNG9Jf++ERUsU84A/QaQtPROwE8CBy
+         gMcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=WtM2gelQtlkDLtUyeOY/RQAEzxS8kBtRhg00qUrjMDQ=;
+        fh=eIs4VVzi3KGiLGNIMqs0qdTrx2HTO4FIPoLRcR7wJ60=;
+        b=ERIfZODhThkrngpwbEaayjfm6WimeAJ0lUD+t31wSySAygY9uTmeXTG2bLf/9Gsegt
+         7AKj5A8bI55Eitt1IWBg9ie+zTzBufTglKzvEo97jktM/9ZMkJWJahZVKTDRpzRNYnqK
+         wT+ggC+7CSfe9xgQPT++l4O01yfSp9HELHqBSgaGdGy2g1a2i3WSVOcULCHsNzAUy9pZ
+         wWseumk/zwGMNQdYcFTDwBype8VNzzsQQNkYKIvl5wa0Gyj0FFoVoOC1ofGTum98fwGg
+         O2AcgVHmvSIb/AlZzFy8cnKnPYS9eA9qG0sapT3Ip09/H7pm4A7XPS/iU2gUODeOv9Js
+         e1Eg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1775145627; x=1775750427; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WtM2gelQtlkDLtUyeOY/RQAEzxS8kBtRhg00qUrjMDQ=;
+        b=XTHncYozAkL9Yl5OSyeJw2+3v2CFJzVvmWn8caMEn1hHRNfDKiGlc1zRpAvK9oWE4L
+         eqmkD7O8mZoYZUk05uONIfTQAAA7hS2NC7CQNPQakL54wC+C0JY3u7oOn5lK+C5DQTZV
+         TzX9AplE66LGE+OQA2P9UugD27WEik+1A5HCSTcPn0YciwoLJOnZzYm7jxVaM1uUvMq+
+         njHmfqA627Q/6Cw6Gk6IEQ0H8nB900FD/AAgBJPCpVGd9R6mBlB4irsSgthL2GVKIk3n
+         t0qIdhVaQ7M+QGxe/7jOxdtJoaJNi7IYaMU84+3URQK3TjP3pQ5P76SjEwhRKFmM9UR+
+         /79Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775145627; x=1775750427;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=WtM2gelQtlkDLtUyeOY/RQAEzxS8kBtRhg00qUrjMDQ=;
+        b=f/Pa7C9jgf12nU9ZdmKQbmhi0XP2JRT8KSm8jqIrejXSzFTUUnof9iXKcczhgICZ+l
+         9qaD8CO1kEPOimcRwCXaoQLQpdo1bfpPgZqXGivUajO7txu8xDpTIQ1ZUZqTPHe3qpY5
+         8zx/GL3URoxAXxDJM13YWnrGfyFXW39bbIMhXI1I3WsUsKBOE4j1DXgPDjMYqI/3HiKE
+         Uym+5lmaMTCq9S3+Y8ogTLSnNnnRLViM53Qoy6acHLZxr1udstsGJf6maKH8UjfDlDMo
+         jmmBiDAFYkbFIlv3LnjNoXP5t6ZawXCchCoY+AhtB/Wx9LPIbsbvDG8BMoNtVRnaMKOD
+         QN2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUYTpcc+lLc6qFPI8P4bt1mnk1IMZ++NOTPu8FM0p1GvupdBCzzwE5vDpNB3wKc8E4hkkVMZkudDLwWJQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzu3kiWb9LRHAKnRJTgzorMdhW0lt9AuYSCugLvS2ZYxvzxmRfY
+	yh87Z2t52KwQDbKWDQdHru16IbpTzGP8RDXxB+7go2DdTervuIwzweRpItOEo8C2MDpdk0k5Tbe
+	aPtW9rhnHo0o52Hiz5WsWabtGMWAVm0TwXvw/yEtEIw==
+X-Gm-Gg: ATEYQzyhZMH2iDIePvmg+Z+UsPZJOQKgBMcEhBYObOKFF9Xaj1ePzNaaesD+Vdieo1X
+	FpSoah5/xa1twhTyQx9cm1FII5ro8zyUbxvfCTBwRcqym8kiHZJbhwRxvv3J5Iq/9xmI59I6E4t
+	ewUu27zOzyRf88zqZRCI3n2SEMrNJI75mDVM4w5iiQvsrs8LYJphcXtbZEA9LBe/KyE0t1AXALK
+	uxT5HbmQXj9IIppWCV8ODX72xpQ4Kjov2dEXciKILz3TpZoJh84NcNHcnl8IvXYrkKhyA3CI2Au
+	9O/UsJ4gSQshzMaPZlhhgpEItkCKmHMbo3JjCCvdkS2jlTtXONZwG24gIX/0x8Taj9YRWuj+UUL
+	a6fr+sLQV6i0m1JaTUs1zzIPn/Q==
+X-Received: by 2002:a05:6820:1992:b0:67e:16b4:aa07 with SMTP id
+ 006d021491bc7-67fabd02b7emr4353699eaf.61.1775145627522; Thu, 02 Apr 2026
+ 09:00:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu: Always fill in gather when unmapping
-To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
- Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
- Janne Grunau <j@jannau.net>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Joerg Roedel <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Matthias Brugger <matthias.bgg@gmail.com>, Neal Gompa <neal@gompa.dev>,
- Orson Zhai <orsonzhai@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Sven Peter <sven@kernel.org>, virtualization@lists.linux.dev,
- Chen-Yu Tsai <wens@kernel.org>, Will Deacon <will@kernel.org>,
- Yong Wu <yong.wu@mediatek.com>, Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>,
- Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
- Joerg Roedel <joerg.roedel@amd.com>, Jon Hunter <jonathanh@nvidia.com>,
- patches@lists.linux.dev, Pranjal Shrivastava <praan@google.com>,
- Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
- Vasant Hegde <vasant.hegde@amd.com>
-References: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
+References: <20260402101818.2982071-1-mayuresh.chitale@oss.qualcomm.com>
+In-Reply-To: <20260402101818.2982071-1-mayuresh.chitale@oss.qualcomm.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 2 Apr 2026 21:30:15 +0530
+X-Gm-Features: AQROBzAd1C5PJZt0gGUQZy-ZILEi3rG_cTSfqG4yBNpRYZjiqBUpj0qc4P6OGJA
+Message-ID: <CAAhSdy0FP=-KQV_QaMVWJz9gwEzm2BdVH857MWx28Jej+S+vMw@mail.gmail.com>
+Subject: Re: [PATCH] KVM: riscv: selftests: Implement kvm_arch_has_default_irqchip
+To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+Cc: Atish Patra <atish.patra@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_085941_410028_D7A30521 
-X-CRM114-Status: GOOD (  42.47  )
+X-CRM114-CacheID: sfid-20260402_170029_758479_B86E41F8 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,293 +132,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-02 3:25 pm, Jason Gunthorpe wrote:
-> The fixed commit assumed that the gather would always be populated if an
-> iotlb_sync was required.
-> 
-> arm-smmu-v3, amd, VT-d, riscv, s390, and mtk all use information from the
-> gather during their iotlb_sync() and this approach works for them.
-> 
-> However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio, and
-> apple-dart all ignore the gather during their iotlb_sync(). They mostly
-> issue a full flush.
-> 
-> Unfortunately the latter set of drivers often don't bother to add anything
-> to the gather since they don't intend on using it. Since the core code now
-> blocks gathers that were never filled, this caused those drivers to stop
-> getting their iotlb_sync() calls and breaks them.
-> 
-> Since it is impossible to tell the difference between gathers that are
-> empty because there is nothing to do and gathers that are empty because
-> they are not used, fill in the gathers for the missing cases.
-> 
-> mtk uses io-pgtable-arm-v7s but added the range to the gather in the unmap
-> callback. Move this into the io-pgtable-arm-v7s unmap itself. That will
-> fix all the armv7 using drivers (arm-smmu, qcom_iommu, ipmmu-vmsa).
-> 
-> io-pgtable-arm needs to accommodate drivers like arm-smmu that don't want
-> to use the gather by just adding a simple range, and drivers like SMMUv3
-> that need to use gather->pgsize and also have a disjoint check. Move
-> SMMUv3 to a new tlb_add_range() op which replaces calling
-> iommu_iotlb_gather_add_page() in a loop with a single call to update the
-> gather with the range and required pgsize.
-> 
-> iommu_iotlb_gather_add_page() is repurposed since nothing but SMMUv3 uses it
-> now that amd, VT-d and riscv are using iommupt.
-> 
-> Add a trivial gather population to io-pgtable-dart.
-> 
-> Add trivial populations to sprd, sun50i and virtio-iommu in their unmap
-> functions.
-> 
-> Fixes: 90c5def10bea ("iommu: Do not call drivers for empty gathers")
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Closes: https://lore.kernel.org/r/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia.com
-> Tested-by: Jon Hunter <jonathanh@nvidia.com>
-> Acked-by: Pranjal Shrivastava <praan@google.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 ++++++-----
->   drivers/iommu/io-pgtable-arm-v7s.c          |  4 ++++
->   drivers/iommu/io-pgtable-arm.c              | 19 ++++++++++++++++---
->   drivers/iommu/io-pgtable-dart.c             |  3 +++
->   drivers/iommu/mtk_iommu.c                   |  1 -
->   drivers/iommu/sprd-iommu.c                  |  1 +
->   drivers/iommu/sun50i-iommu.c                |  1 +
->   drivers/iommu/virtio-iommu.c                |  2 ++
->   include/linux/io-pgtable.h                  |  3 +++
->   include/linux/iommu.h                       | 19 ++++++++++---------
->   10 files changed, 46 insertions(+), 18 deletions(-)
-> 
-> v2:
->   - Add missed hunk for io-pgtable-armv7
->   - Revise the commit message to fix the miss about smmuv3's gather flow
->   - Make smmuv3 push its gather with a range instead of per-page
-> v1: https://patch.msgid.link/r/0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com
-> 
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index e8d7dbe495f030..97e78a351cf35b 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -2775,14 +2775,15 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
->   	rcu_read_unlock();
->   }
->   
-> -static void arm_smmu_tlb_inv_page_nosync(struct iommu_iotlb_gather *gather,
-> -					 unsigned long iova, size_t granule,
-> -					 void *cookie)
-> +static void arm_smmu_tlb_inv_range_nosync(struct iommu_iotlb_gather *gather,
-> +					  unsigned long iova, size_t size,
-> +					  size_t granule, void *cookie)
->   {
->   	struct arm_smmu_domain *smmu_domain = cookie;
->   	struct iommu_domain *domain = &smmu_domain->domain;
->   
-> -	iommu_iotlb_gather_add_page(domain, gather, iova, granule);
-> +	iommu_iotlb_gather_add_range_pgsize(domain, gather, iova, size,
-> +					    granule);
->   }
->   
->   static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
-> @@ -2796,7 +2797,7 @@ static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
->   static const struct iommu_flush_ops arm_smmu_flush_ops = {
->   	.tlb_flush_all	= arm_smmu_tlb_inv_context,
->   	.tlb_flush_walk = arm_smmu_tlb_inv_walk,
-> -	.tlb_add_page	= arm_smmu_tlb_inv_page_nosync,
-> +	.tlb_add_range	= arm_smmu_tlb_inv_range_nosync,
->   };
->   
->   static bool arm_smmu_dbm_capable(struct arm_smmu_device *smmu)
-> diff --git a/drivers/iommu/io-pgtable-arm-v7s.c b/drivers/iommu/io-pgtable-arm-v7s.c
-> index 40e33257d3c2c5..87292a7f094687 100644
-> --- a/drivers/iommu/io-pgtable-arm-v7s.c
-> +++ b/drivers/iommu/io-pgtable-arm-v7s.c
-> @@ -596,6 +596,10 @@ static size_t __arm_v7s_unmap(struct arm_v7s_io_pgtable *data,
->   
->   		__arm_v7s_set_pte(ptep, 0, num_entries, &iop->cfg);
->   
-> +		if (!iommu_iotlb_gather_queued(gather))
-> +			iommu_iotlb_gather_add_range(gather, iova,
-> +						     num_entries * blk_size);
-> +
->   		for (i = 0; i < num_entries; i++) {
->   			if (ARM_V7S_PTE_IS_TABLE(pte[i], lvl)) {
->   				/* Also flush any partial walks */
-> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-> index 0208e5897c299a..d51531330f8dea 100644
-> --- a/drivers/iommu/io-pgtable-arm.c
-> +++ b/drivers/iommu/io-pgtable-arm.c
-> @@ -666,9 +666,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->   		/* Clear the remaining entries */
->   		__arm_lpae_clear_pte(ptep, &iop->cfg, i);
->   
-> -		if (gather && !iommu_iotlb_gather_queued(gather))
-> -			for (int j = 0; j < i; j++)
-> -				io_pgtable_tlb_add_page(iop, gather, iova + j * size, size);
-> +		if (gather && !iommu_iotlb_gather_queued(gather)) {
-> +			if (iop->cfg.tlb && iop->cfg.tlb->tlb_add_range) {
-> +				iop->cfg.tlb->tlb_add_range(gather, iova,
-> +							    i * size, size,
-> +							    iop->cookie);
-> +
-> +			} else {
-> +				iommu_iotlb_gather_add_range(gather, iova,
-> +							     i * size);
-> +
-> +				for (int j = 0; j < i; j++)
-> +					io_pgtable_tlb_add_page(iop, gather,
-> +								iova + j * size,
-> +								size);
-> +			}
-> +		}
-
-NAK, this is insane.
-
-If you'd rather make gathers mandatory for all drivers than fix it in 
-the core code, then for goodness' sake just add the trivial one-liner to 
-the handful of .unamp_pages implementations which need it, consistenly 
-with those which already exist, plus the ones you're also adding here 
-anyway. The entire diff should still be smaller than this absurd hunk 
-alone...
-
-Thanks,
-Robin.
-
->   		return i * size;
->   	} else if (iopte_leaf(pte, lvl, iop->fmt)) {
-> diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-> index cbc5d6aa2daa23..75d699dc28e7b0 100644
-> --- a/drivers/iommu/io-pgtable-dart.c
-> +++ b/drivers/iommu/io-pgtable-dart.c
-> @@ -330,6 +330,9 @@ static size_t dart_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
->   		i++;
->   	}
->   
-> +	if (i && !iommu_iotlb_gather_queued(gather))
-> +		iommu_iotlb_gather_add_range(gather, iova, i * pgsize);
-> +
->   	return i * pgsize;
->   }
->   
-> diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-> index 2be990c108de2b..a2f80a92f51f2c 100644
-> --- a/drivers/iommu/mtk_iommu.c
-> +++ b/drivers/iommu/mtk_iommu.c
-> @@ -828,7 +828,6 @@ static size_t mtk_iommu_unmap(struct iommu_domain *domain,
->   {
->   	struct mtk_iommu_domain *dom = to_mtk_domain(domain);
->   
-> -	iommu_iotlb_gather_add_range(gather, iova, pgsize * pgcount);
->   	return dom->iop->unmap_pages(dom->iop, iova, pgsize, pgcount, gather);
->   }
->   
-> diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
-> index c1a34445d244fb..893ea67d322644 100644
-> --- a/drivers/iommu/sprd-iommu.c
-> +++ b/drivers/iommu/sprd-iommu.c
-> @@ -340,6 +340,7 @@ static size_t sprd_iommu_unmap(struct iommu_domain *domain, unsigned long iova,
->   	spin_lock_irqsave(&dom->pgtlock, flags);
->   	memset(pgt_base_iova, 0, pgcount * sizeof(u32));
->   	spin_unlock_irqrestore(&dom->pgtlock, flags);
-> +	iommu_iotlb_gather_add_range(iotlb_gather, iova, size);
->   
->   	return size;
->   }
-> diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-> index be3f1ce696ba29..b9aa4bbc82acad 100644
-> --- a/drivers/iommu/sun50i-iommu.c
-> +++ b/drivers/iommu/sun50i-iommu.c
-> @@ -655,6 +655,7 @@ static size_t sun50i_iommu_unmap(struct iommu_domain *domain, unsigned long iova
->   
->   	memset(pte_addr, 0, sizeof(*pte_addr));
->   	sun50i_table_flush(sun50i_domain, pte_addr, 1);
-> +	iommu_iotlb_gather_add_range(gather, iova, SZ_4K);
->   
->   	return SZ_4K;
->   }
-> diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
-> index 587fc13197f122..5865b8f6c6e67a 100644
-> --- a/drivers/iommu/virtio-iommu.c
-> +++ b/drivers/iommu/virtio-iommu.c
-> @@ -897,6 +897,8 @@ static size_t viommu_unmap_pages(struct iommu_domain *domain, unsigned long iova
->   	if (unmapped < size)
->   		return 0;
->   
-> +	iommu_iotlb_gather_add_range(gather, iova, unmapped);
-> +
->   	/* Device already removed all mappings after detach. */
->   	if (!vdomain->nr_endpoints)
->   		return unmapped;
-> diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
-> index e19872e37e067f..b109c95b5ff53d 100644
-> --- a/include/linux/io-pgtable.h
-> +++ b/include/linux/io-pgtable.h
-> @@ -42,6 +42,9 @@ struct iommu_flush_ops {
->   			       void *cookie);
->   	void (*tlb_add_page)(struct iommu_iotlb_gather *gather,
->   			     unsigned long iova, size_t granule, void *cookie);
-> +	void (*tlb_add_range)(struct iommu_iotlb_gather *gather,
-> +			      unsigned long iova, size_t size, size_t granule,
-> +			      void *cookie);
->   };
->   
->   /**
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index e587d4ac4d3310..d8fcdb61e44c42 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -1034,30 +1034,31 @@ static inline void iommu_iotlb_gather_add_range(struct iommu_iotlb_gather *gathe
->   }
->   
->   /**
-> - * iommu_iotlb_gather_add_page - Gather for page-based TLB invalidation
-> + * iommu_iotlb_gather_add_range_pgsize - Include pgsize in the gather
->    * @domain: IOMMU domain to be invalidated
->    * @gather: TLB gather data
->    * @iova: start of page to invalidate
->    * @size: size of page to invalidate
-> + * @pgsize: page granularity of the invalidation
->    *
-> - * Helper for IOMMU drivers to build invalidation commands based on individual
-> - * pages, or with page size/table level hints which cannot be gathered if they
-> - * differ.
-> + * Helper for IOMMU drivers to build invalidation commands when using the pgsize
-> + * hint. Unlike iommu_iotlb_gather_add_range() this also flushes if the range is
-> + * disjoint.
->    */
-> -static inline void iommu_iotlb_gather_add_page(struct iommu_domain *domain,
-> -					       struct iommu_iotlb_gather *gather,
-> -					       unsigned long iova, size_t size)
-> +static inline void iommu_iotlb_gather_add_range_pgsize(
-> +	struct iommu_domain *domain, struct iommu_iotlb_gather *gather,
-> +	unsigned long iova, size_t size, size_t pgsize)
->   {
->   	/*
->   	 * If the new page is disjoint from the current range or is mapped at
->   	 * a different granularity, then sync the TLB so that the gather
->   	 * structure can be rewritten.
->   	 */
-> -	if ((gather->pgsize && gather->pgsize != size) ||
-> +	if ((gather->pgsize && gather->pgsize != pgsize) ||
->   	    iommu_iotlb_gather_is_disjoint(gather, iova, size))
->   		iommu_iotlb_sync(domain, gather);
->   
-> -	gather->pgsize = size;
-> +	gather->pgsize = pgsize;
->   	iommu_iotlb_gather_add_range(gather, iova, size);
->   }
->   
-> 
-> base-commit: 23f3682fd3605da81b90738ad3d2a30f18c46e98
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMiwgMjAyNiBhdCAzOjUz4oCvUE0gTWF5dXJlc2ggQ2hpdGFsZQo8bWF5dXJl
+c2guY2hpdGFsZUBvc3MucXVhbGNvbW0uY29tPiB3cm90ZToKPgo+IGt2bV9hcmNoX2hhc19kZWZh
+dWx0X2lycWNoaXAgaXMgcmVxdWlyZWQgZm9yIGlycWZkX3Rlc3QgYW5kIHJldHVybnMKPiB0cnVl
+IGlmIGFuIGluLWtlcm5lbCBpbnRlcnJ1cHQgY29udHJvbGxlciBpcyBzdXBwb3J0ZWQuCj4KPiBG
+aXhlczogYTEzMzA1MjY2NmJlZCAoIktWTTogc2VsZnRlc3RzOiBGaXggaXJxZmRfdGVzdCBmb3Ig
+bm9uLXg4NiBhcmNoaXRlY3R1cmVzIikKPiBTaWduZWQtb2ZmLWJ5OiBNYXl1cmVzaCBDaGl0YWxl
+IDxtYXl1cmVzaC5jaGl0YWxlQG9zcy5xdWFsY29tbS5jb20+CgpMR1RNLgoKUmV2aWV3ZWQtYnk6
+IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpUaGFua3MsCkFudXAKCj4gLS0tCj4g
+IHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9saWIvcmlzY3YvcHJvY2Vzc29yLmMgfCA1ICsr
+KysrCj4gIDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS90
+b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vbGliL3Jpc2N2L3Byb2Nlc3Nvci5jIGIvdG9vbHMv
+dGVzdGluZy9zZWxmdGVzdHMva3ZtL2xpYi9yaXNjdi9wcm9jZXNzb3IuYwo+IGluZGV4IDUxZGQ0
+NTVmZjUyYy4uMDY3YzZiMmMxNWIwIDEwMDY0NAo+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRl
+c3RzL2t2bS9saWIvcmlzY3YvcHJvY2Vzc29yLmMKPiArKysgYi90b29scy90ZXN0aW5nL3NlbGZ0
+ZXN0cy9rdm0vbGliL3Jpc2N2L3Byb2Nlc3Nvci5jCj4gQEAgLTU2NiwzICs1NjYsOCBAQCB1bnNp
+Z25lZCBsb25nIHJpc2N2NjRfZ2V0X3NhdHBfbW9kZSh2b2lkKQo+Cj4gICAgICAgICByZXR1cm4g
+dmFsOwo+ICB9Cj4gKwo+ICtib29sIGt2bV9hcmNoX2hhc19kZWZhdWx0X2lycWNoaXAodm9pZCkK
+PiArewo+ICsgICAgICAgcmV0dXJuIGt2bV9jaGVja19jYXAoS1ZNX0NBUF9JUlFDSElQKTsKPiAr
+fQo+IC0tCj4gMi40My4wCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
