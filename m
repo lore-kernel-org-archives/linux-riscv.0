@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17AF4D39418
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 12:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5DED39418
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 12:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MiDVNVWAf/lqj6tuN7IN2N1K65A/LyBuibIxfvXHvxU=; b=Xq/wBj8XVaP1oh
-	eKsVlrT/v8lQA8ep/VndapsfWux060ES1wrW83n1i9oMzTBGndCaiXP8TcRRziatQdjc0p+G49DLF
-	r0uy0tkmt0QRdc7yqTjaXiONR1oQharzb7usUniMeedzFxwz+fLjK7imDd4o8TjUhY6ON5hR5T0Iv
-	9RFVpOriFfxbZbVrJ4BVz6kFNXfAkvZqZZ1JyoCe9rjph1YDHMnBPwJYQCrDxa4jE1s1biQeQudl2
-	j7JghEx6xDBB9XSJGtEBrS2R+/bvUTC45sY7apMwmKZ7Vv1qDH2l6k2kEZcV/rzw1kDsz2zeG0+z+
-	iawivGz9Pxz6qk1RAU4w==;
+	List-Owner; bh=BRWFRUIjwHDbvuWYTzy37ihLsrIxis9Gd73HeR7gBCw=; b=q1CH6CymUhaI2R
+	h9omhYBmeWvaSH1/UYfcGfhwvhqmBqNyxl6cVe6rKPYLjxjX3zsrLsB7C8ukZizYnyySlc8916PgS
+	pdyttsf1nqq0hIk9+Rm7unOY0BJX9ElAy5PBDubV9gZDhTKkfkPRUEIM00y5s00RS/M32qCpopEhI
+	XixSwA76XMb4WJSIp2f7SVeXd8QEw2OcoJxudrgI96HvaPfW2iXUKqzpABVsk8Z+NzyZKSFKVWc4/
+	H1Q+VmcATgK0ZqY/kvZsYdRWaKrsWZ4K8mRpKLwSqxLR31csO5shEdKTWhbTk+/neeTwtVDLDBDYI
+	UAu2IarmEqw/JhB13DZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8H2Z-0000000HZrs-1sfU;
-	Thu, 02 Apr 2026 12:20:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w8H4S-0000000Ha04-3aG9;
+	Thu, 02 Apr 2026 12:22:48 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8H2X-0000000HZrN-1O17
+	id 1w8H4Q-0000000HZzk-1xWI
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 12:20:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEBA440A5B;
-	Thu,  2 Apr 2026 12:20:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68727C19423;
-	Thu,  2 Apr 2026 12:20:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775132448;
-	bh=Oh1AVW120dvv/mRAOesK1dOxVK8tD3RCPIJ1/D57Za8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WhxzViMSwXjtwwYYhrFmM8kZBO6+E5idYMSjGyOsI+tRS02KxxifluBX5pPFG/CfO
-	 b6ZVRTWUD2Gm44BnkqbzDUa0r7wPWDqRxoTteAxacIn0uIJ6VQbvs+iqNqsAGPypxa
-	 5e6HPOjz/876/q/j0xgmIh/iFzVlS2SBoB1Kzvsb9dLmT9JvVOVWcQyOUVZMydj16x
-	 wA56KI941t/SHEc3+iSlC5ki32xrNHtXexIVuevW1XHOV7ou57Eg4i4pbrZy87FRe4
-	 WlPwyZ4QV8VlGBhmMPTl0uY7yqZfzoNriPTkn1XePuNqZC1RBJZixw9OXZTwoAHiET
-	 Ez3LXl4s2qrYg==
-Date: Thu, 2 Apr 2026 20:20:45 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 3/3] riscv: dts: spacemit: enable USB3 on OrangePi RV2
-Message-ID: <20260402122045-GKA1016296@kernel.org>
-References: <20260402100007.110201-1-amadeus@jmu.edu.cn>
- <20260402100007.110201-4-amadeus@jmu.edu.cn>
+	Thu, 02 Apr 2026 12:22:47 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w8H4B-0002P0-Bs; Thu, 02 Apr 2026 14:22:31 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w8H49-003N51-1P;
+	Thu, 02 Apr 2026 14:22:29 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w8H49-000000009AC-1Nzj;
+	Thu, 02 Apr 2026 14:22:29 +0200
+Message-ID: <2d3ef7359f63fb364cb7bc13b721132894428874.camel@pengutronix.de>
+Subject: Re: [PATCH v1 05/22] dt-bindings: clock: Add StarFive JHB100
+ System-0 clock and reset generator
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>, Michael Turquette	
+ <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Stephen Boyd	 <sboyd@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt	 <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti	 <alex@ghiti.fr>, Emil Renner Berthing <kernel@esmil.dk>, Kees Cook	
+ <kees@kernel.org>, "Gustavo A . R . Silva" <gustavoars@kernel.org>, Richard
+ Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-hardening@vger.kernel.org, netdev@vger.kernel.org, Sia Jee Heng
+	 <jeeheng.sia@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>, Ley
+ Foon Tan <leyfoon.tan@starfivetech.com>
+Date: Thu, 02 Apr 2026 14:22:29 +0200
+In-Reply-To: <20260402105523.447523-6-changhuang.liang@starfivetech.com>
+References: <20260402105523.447523-1-changhuang.liang@starfivetech.com>
+	 <20260402105523.447523-6-changhuang.liang@starfivetech.com>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260402100007.110201-4-amadeus@jmu.edu.cn>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_052049_567879_2F336A3D 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20260402_052246_510691_E080EFD7 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,72 +88,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
-
-On 18:00 Thu 02 Apr     , Chukun Pan wrote:
-> Enable the DWC3 USB3.0 controller and its associated PHY on
-> the OrangePi RV2. The onboard GENESYS GL3523 Hub provides 3
-> USB3 Type-A ports. Enable the corresponding VBUS regulator.
-
-Can you work with Han for adding USB support[1]? this will simply
-distribute our effort, and make the review process even harder
-
-https://lore.kernel.org/all/0ec229e2fb138092672773f134d0739e70740ce0.1774974017.git.gaohan@iscas.ac.cn/ [1]
+On Do, 2026-04-02 at 03:55 -0700, Changhuang Liang wrote:
+> Add bindings for the System-0 clocks and reset generator (SYS0CRG) on
+> JHB100 SoC.
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
->  .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 24 +++++++++++++++++++
->  1 file changed, 24 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> index 929b70d384b5..ab835c30dd86 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> @@ -52,6 +52,20 @@ vcc4v0: regulator-vcc4v0 {
->  		regulator-max-microvolt = <4000000>;
->  		vin-supply = <&vcc_5v0>;
->  	};
+>  .../clock/starfive,jhb100-sys0crg.yaml        | 63 +++++++++++++++++++
+>  .../dt-bindings/clock/starfive,jhb100-crg.h   | 56 +++++++++++++++++
+>  .../dt-bindings/reset/starfive,jhb100-crg.h   | 30 +++++++++
+>  3 files changed, 149 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb100-sys0crg.yaml
+>  create mode 100644 include/dt-bindings/clock/starfive,jhb100-crg.h
+>  create mode 100644 include/dt-bindings/reset/starfive,jhb100-crg.h
+>
+[...]
+> diff --git a/include/dt-bindings/reset/starfive,jhb100-crg.h b/include/dt-bindings/reset/starfive,jhb100-crg.h
+> new file mode 100644
+> index 000000000000..71affdcdf733
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/starfive,jhb100-crg.h
+> @@ -0,0 +1,30 @@
+> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+> +/*
+> + * Copyright (C) 2024 StarFive Technology Co., Ltd.
+> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> + *
+> + */
 > +
-> +	vcc5v0_usb30: regulator-vcc5v0-usb30 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc5v0_usb30";
-> +		enable-active-high;
-> +		gpios = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vcc_5v0>;
-> +	};
-> +};
+> +#ifndef __DT_BINDINGS_RESET_STARFIVE_JHB100_CRG_H__
+> +#define __DT_BINDINGS_RESET_STARFIVE_JHB100_CRG_H__
 > +
-> +&combo_phy {
-> +	status = "okay";
->  };
->  
->  &eth0 {
-> @@ -111,3 +125,13 @@ &uart0 {
->  	pinctrl-0 = <&uart0_2_cfg>;
->  	status = "okay";
->  };
-> +
-> +&usbphy2 {
-> +	status = "okay";
-> +};
-> +
-> +&usb_dwc3 {
-> +	dr_mode = "host";
-> +	vbus-supply = <&vcc5v0_usb30>;
-IMO, the vbus doesn't directly tie to dwc3 host, but to HUB's port
-so I think this is still wrong, although it may work on the board..
+> +/* SYS0CRG resets */
+> +#define JHB100_SYS0RST_RESOURCE_ARB					0
 
-> +	status = "okay";
-> +};
-> -- 
-> 2.34.1
-> 
-> 
+Where are resets 1 and 2, ...
 
--- 
-Yixun Lan (dlan)
+> +#define JHB100_SYS0RST_SYS0_IOMUX_PRESETN				3
+> +#define JHB100_SYS0RST_SYS0H_IOMUX_PRESETN				4
+> +#define JHB100_SYS0RST_RST_ADAPTOR_TIMEOUT_RSTN				5
+
+... where are 6-13?
+
+> +
+> +#define JHB100_SYS0RST_BMCPCIERP_RSTN_BUS				14
+[...]
+
+If there are non-reset bits in these registers, please enumerate reset
+controls in a contiguous range for this binding and add a mapping table
+in the driver.
+
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
