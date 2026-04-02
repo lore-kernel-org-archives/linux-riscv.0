@@ -4,125 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6698AD3941D
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 13:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A239D3941D
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 13:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HufiQe2AWs94/fePWiDhmBMDJ7Ry2Hb1BWJmmChH2sM=; b=DpdkU8vmFcb1ab
-	BuSgItSIYkBGHyBRUsFMEnr4fVJSFSkKA5t6nynPhtqMoggBkXZp6pC36SUqEcrdYTsm5BH0cPDG+
-	jr50wJmJFWbaJPdSPJdFIgo1i0Aa4ZoDmTyb7nNWy/24WWqHbrMQy7Eg/OsLnV/4aaRYa5zfb5J7P
-	5O4DuppATrzeBg/10rKTPYqheZUpuFYUncrx/YwWqCD1jVd6R20LMJ4B4KrpuXTRTPmPU3kQ1nJ80
-	QssghHXwB3f1yM48wy0rYQ+UHldIS1hfsTnvdR+9PVq/HGj6fFGvO1/ag5vk5GfSUakRgF7fqTn7z
-	tRi2Y8hrHMCSE/eRoLQQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=leMwQIMDXVZbcPP/6nA3Z8Q6NdeMo08p/pwNOjSPCfU=; b=WavvZLll4e25i/aldXaAP9YwSL
+	6Jul6WVwkgucgczy6pbOt648msDr4Pqi/RWAcaJ173vucr12VaIy3yqK4Si4pTP000DVlgyxINAGr
+	GvqYmZ9RM2Wsy/Vrx1Kk3bXAOoy6hseoiiNfcnj1qJZKTeUFJ8m1nalVXTci2/QV70NUbkSdmXG7A
+	CmkOQm5xZzL7cxHlvpRcqsQ6xrIL1wX+NqxsoqmLQbcXRp+qpQDXzzuTMOerhBRuv+Yb2St8YxbQr
+	YkOuXQsjPmGyoeJT8MsYpYV//RGlWDDD9eYE4yVTMc1MjXx5KgafGfgofp2k9Rml2z/nZnm+vm8UP
+	8If8KjXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HmK-000000008oW-0doj;
-	Thu, 02 Apr 2026 13:08:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8Hnf-000000008wE-43he;
+	Thu, 02 Apr 2026 13:09:31 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HmI-000000008o2-1aTC
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 02 Apr 2026 13:08:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KWxJTOWQkri5jmv5ZKMT+tNuIWsfKgbRVKTEMtbqloY=; b=CDwX3BtvLfxDq550vF7PnQT12C
-	8h642zMmL+uqq4RaqFmnlYW9qZrNtVphWkD948VJSmV5LwVni9tgaFnwA1UTzlgSYqCmWY7WOH7nb
-	HBWC39WipUQAm7WZ06Eg0reLpXlxPgM+mnca7uP/h/wYG2QxJkQ5IujS5asojkz8cYJrfhRMcVp3O
-	kkl6A5uHm1Cv3jypQDoeQdKjgYtIAFxofWLCrw1ywSvf7vtlqpATJJZA+SJTO6Ta0yOuNq1ufVcVO
-	W7+H8/NqUwzepa3qo4nA2mqS6dOD+m2N2p+sJwn3htOkD8H+SUFuIZBYNgfbwgVdamCE4oKJUg0+y
-	mOyEpchQ==;
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HmF-00000002V8G-2z4o
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 13:08:05 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-35d9f68d011so535038a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 06:08:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775135281; x=1775740081; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KWxJTOWQkri5jmv5ZKMT+tNuIWsfKgbRVKTEMtbqloY=;
-        b=KdCQxl3xZcTvwf/ge78doEjn+mHpzSrYGXSwfJo3ORUsvwJjXTg7UF94Jq1ZycwQnl
-         tbCQFYLs0jjul5E35FODm8eIe4FQwXW/cHtDp7r1agwWcpRu/SPQXfpXcr4BaUUt4y80
-         MrJo3kLtGHMobWTQiBA9z5n6gyhpMmGbWypdtyMhKxeX+XCK9oFG9wOFqyDCZiIl66b3
-         ate5kJOfg21qhWLWENosvZK2Wh0NzXBeeNHLQQvJjZdqZfgA8HRjqjg7bVKd6st5XUEd
-         HDKPa5+6VWJ965400bzTL4YaYGL52VMA0ss139/EUKryGu9pKB8gWK7xanP/fiJPYWaG
-         SK+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775135281; x=1775740081;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KWxJTOWQkri5jmv5ZKMT+tNuIWsfKgbRVKTEMtbqloY=;
-        b=q+fFFsx2vaKul7INuCNZqKZ6nuuWfCTcIuV/1Tn1e4JVZoAOrlyRLfYlBO3GrSWcOc
-         Iq6rXFkZa/YklE2p2s0f7XH8JLxqH5w1JyEgfdKQi/+rvM08ZCZjAvvTSZ87Cv3DFaij
-         Mg7Phkw8fwuJqlpKjOjaPVS2LtJZAwvccudjFg6N3BwLVdtVgGx3nvr7XOgiPwUEh1PT
-         TUmzKakFCm9SQNNBxUwZvJrdH9aciBmw+LO6SudxSGlZfuMFP+PnKabATLjSVlFndH+1
-         g4tYWlWXRZmBuV2lDgHGJfJKHdF+1HI4wQkJnzJ9zr8Ym3Mjtrmus2xvTl0A4DXODkV8
-         EtZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWuCOUIBNkhjFdZsYiiPTKbAOiI1ECt3NpPzhOl8CKxBXbMbIh8ft0HwlLVlgvVS1+j9lGSzO1G0djDIg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhawFz6UETVxRV4Fh9KRM0kO0ueQksaEXH5kyRgd8ADL3uDc2w
-	PNzUbAZcYl/gYS5hd8KcYw1MTIBbeXWQ8FCJGJNICnBL+bnBN3YhnVs5
-X-Gm-Gg: AeBDiesMjqNSb7mVFz3GWLmtc2TYe87BRVp60Xm73+F+6vfeMvlVncoxVRg+SyYarFd
-	cEzH70AkyghQKnILFV7DWtLTabGdIhO3xuuHF6Zuh+PeXLuC6PaZBTtLb29ZSluSbxpvOauXBqO
-	7XM5KvihE7QM2mxh/2jcWEm/6Rc1h/DyqiceMrB1gi4Fsn4VyqWwPpnizQ4c19TznU8b6/Szvoe
-	gCk98E74HpW/Mib24zUaFbMZr5I6w5sF+uQ+ap1bY6h8hVrwLVYyml4ANYe3cnVsxen9b2xr0OP
-	sg95q5ppftQy9PfXv04j1xozkvvsPGzX+s1sUaJTj2yCM4j+z37Eexhiw+Tl/kqdcQtOzlu2aIr
-	QqgbL6qC+foSwpfyEAr/usODYQ0jtqm3fq+BRkHv2UL4DjZKN44onchLEon4OofMQkTJcdzBLdK
-	CKs7YyeYEKkBaGOZ64WFW7DNqrK2U=
-X-Received: by 2002:a17:90b:4d81:b0:35d:a412:3c79 with SMTP id 98e67ed59e1d1-35dc7079cb6mr6805318a91.30.1775135280985;
-        Thu, 02 Apr 2026 06:08:00 -0700 (PDT)
-Received: from fedora ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe41b11fsm7822915a91.0.2026.04.02.06.07.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Apr 2026 06:08:00 -0700 (PDT)
-Date: Thu, 2 Apr 2026 13:07:45 +0000
-From: Hangbin Liu <liuhangbin@gmail.com>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Brian Cain <bcain@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-hexagon@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	Jakub Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH] cmpxchg: allow const-qualified old value in cmpxchg()
-Message-ID: <ac5qIUS5azbWAc9q@fedora>
-References: <20260402-cmpxchg-v1-1-4561e2c05d2c@gmail.com>
- <20260402095747.6efbd456@pumpkin>
+	id 1w8Hnc-000000008vX-3q0Y;
+	Thu, 02 Apr 2026 13:09:30 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 4567A7A011F;
+	Thu,  2 Apr 2026 09:09:26 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 02 Apr 2026 09:09:27 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1775135366;
+	 x=1775221766; bh=44e76YJxkd5q+hgUlWAXtOLYIJKiZNYp0nUsEzVCRk0=; b=
+	FBxYlgk5LwTbC6Hd0pYsekY+cj/43xfDic3Nq5KUYXIuAByjWcQC/4MynK8EvGyv
+	Uexk61LrbgEEKfXkfTlK/shMDYl5tyAn5shj5yTVpfPkur7h2UHMqxssu5nPxFoa
+	8vRfS2ciCetboKjFIxSqY/FCKB4xHDco2m54AOjrLpQIp74wqvRjCB/NWCddnFbT
+	0OTw/HpU2+VuBssb4bSjrLHtUqxuTg6rsGhW5fhjLiN2JmVBTYGLY7+coU3dR9Xh
+	kqkSyJqdDab0AXssZVE+URd2eVr0yDCGcxJxKLmiq6mHj7HSPdlt4CCQUxUTgVUD
+	sPIHM0gA5KivuyxhzN/y+w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1775135366; x=
+	1775221766; bh=44e76YJxkd5q+hgUlWAXtOLYIJKiZNYp0nUsEzVCRk0=; b=a
+	gPYXQIZnT60HzAt2D0PVne9tKUzCK0FsozqUq7cu6ndYiCt4Z/zV7H3GR6snL8YH
+	Nia8I0kaiAnShNcTT/6fGyjj95fpYvgUCc2AH+6xSurhsnlZ0/6xukuewVctmEsx
+	caolHX6d3alkzc44sfHAEk/0YOY+sjm4Ulbwnunt1Z9c/aHUj2GGIQ5OaUk7ZUqB
+	qY8rSjZg92tjU6RaPqkWQnkAXLL5Jlys5BzrZH/DGIlwyuvhzujN3faH5snylGiP
+	c8fS9Rb3CO+ArMxP1zOFsIDznAp7cTRsV6Szkag3nisaBKJyi+L/Guz8OyI468i/
+	XwUvWnLeDj7G6x+YHKoMg==
+X-ME-Sender: <xms:hWrOacBTCxdDYIcJJmzYbVFEnnKq3VZJ2svW2EbxtuMV_IEV78GleA>
+    <xme:hWrOaZX8n43r1AuPAp20ZIPd-3JBc8md8Q2lCb8q6ld8xW__eIdTD4wKGkj2WLlkC
+    RaGDhtaQ6b9vmBnJwRoYLO0DM2MVb-fENcE3LIWtDZK0VG9hguYe8wA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeiudduucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
+    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
+    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
+    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
+    ephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdeinecu
+    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
+    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdp
+    rhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghirhhlih
+    gvugesghhmrghilhdrtghomhdprhgtphhtthhopeguvghllhgvrhesghhmgidruggvpdhr
+    tghpthhtoheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegthhgvnhhhuh
+    grtggriheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhn
+    vghlrdhorhhgpdhrtghpthhtohepfigvihdrlhhiuheskhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtohepihhlihgrshdrrghprghlohguihhmrghssehlihhnrghrohdrohhrghdprhgt
+    phhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrd
+    gtohhm
+X-ME-Proxy: <xmx:hWrOaRJECYk7puPdfEJsTZFmLUHJ2_Z9AuyoEdU1gXrkS-yMyi0yeQ>
+    <xmx:hWrOaYk5-wfc0FB5RtkxmKUuvjk5TSISjWQ-QCF72nf8aIeKlC4K2A>
+    <xmx:hWrOaYa75UPVpD3coPM_gSmGfD7moZUk6STsXIaichwb1GQ5apWUDA>
+    <xmx:hWrOafhqdbusxY3d9sJNkItrflm8nihdTYsks40u3x14gzVAeZ__yw>
+    <xmx:hmrOaavXLi6cH6_83S9pbfjqCQNQGiA5wxCo72vsfMgeAep0jKjdGOSp>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 462A2700065; Thu,  2 Apr 2026 09:09:25 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260402095747.6efbd456@pumpkin>
+X-ThreadId: ATYY62_w4Fts
+Date: Thu, 02 Apr 2026 15:08:43 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>,
+ "Javier Martinez Canillas" <javierm@redhat.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>,
+ "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+ "Maxime Ripard" <mripard@kernel.org>, "Dave Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "K. Y. Srinivasan" <kys@microsoft.com>,
+ "Haiyang Zhang" <haiyangz@microsoft.com>, "Wei Liu" <wei.liu@kernel.org>,
+ "Dexuan Cui" <decui@microsoft.com>, longli@microsoft.com,
+ "Helge Deller" <deller@gmx.de>
+Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org
+Message-Id: <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
+In-Reply-To: <20260402092305.208728-4-tzimmermann@suse.de>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-4-tzimmermann@suse.de>
+Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable option
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_140803_794889_736127FF 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20260402_060929_545475_3DAEB415 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,29 +127,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 09:57:47AM +0100, David Laight wrote:
-> > diff --git a/arch/alpha/include/asm/cmpxchg.h b/arch/alpha/include/asm/cmpxchg.h
-> > index ae1b96479d0c..b4b8dac759c4 100644
-> > --- a/arch/alpha/include/asm/cmpxchg.h
-> > +++ b/arch/alpha/include/asm/cmpxchg.h
-> > @@ -234,7 +234,7 @@ ____cmpxchg(volatile void *ptr, unsigned long old, unsigned long new,
-> >  
-> >  #define arch_cmpxchg_local(ptr, o, n)					\
-> >  ({									\
-> > -	__typeof__(*(ptr)) _o_ = (o);					\
-> > +	__typeof__(*(ptr)) _o_ = (__typeof__(*(ptr)))(o);		\
-> >  	__typeof__(*(ptr)) _n_ = (n);					\
-> >  	(__typeof__(*(ptr))) ____cmpxchg((ptr), (unsigned long)_o_,	\
-> >  					  (unsigned long)_n_,		\
-> 
-> That looks like it loses the check that 'o' has the same type as '*ptr'.
-> Maybe this works?
-> 	auto _o_ = 1 ? (o) : *(ptr);
-> 
-Oh, I didn't notice this. Thanks for the comment!
+On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
+> Add a descriptive string and help text to CONFIG_SYSFB, so that users
+> can modify it. Flip all implicit selects in the Kconfig options into
+> dependencies. This avoids cyclic dependencies in the config.
+>
+> Enabling CONFIG_SYSFB makes the kernel provide a device for the firmware
+> framebuffer. As this can (slightly) affect system behavior, having a
+> user-facing option seems preferable. Some users might also want to set
+> every detail of their kernel config.
+>
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-Best Regards
-Hangbin
+I don't really like this part of the series and would prefer
+to keep CONFIG_SYSFB hidden as much as possible as an x86
+(and EFI) specific implementation detail, with the hope
+of eventually seperating out the x86 bits from the EFI ones.
+
+In general, I am always in favor of properly using Kconfig
+dependencies over 'select' statements, for the same reasons
+you describe, but I don't want the the x86 logic for
+the legacy VESA and VGA console handling to leak into more
+architectures than necessary.
+
+Do you think we could instead move the sysfb_init()
+function into the same two places that contain the
+sysfb_primary_display definition (arch/x86/kernel/setup.c,
+drivers/firmware/efi/efi-init.c) and simplify the efi version
+to take out the x86 bits? That would reduce the rest
+of sysfb-primary.c to the logic to unregister the device,
+and that could then be selected by both x86 and EFI.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
