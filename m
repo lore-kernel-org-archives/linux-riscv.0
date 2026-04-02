@@ -4,61 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8E8D39402
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 09:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438ACD39403
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 09:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0YGcbgdE4Y3IO2hfSIKhAx6GqpjOxDJs3H+1DiGDfjY=; b=XUtBAz83xDvU/I
-	HlPd0FLbcTcckQ9eL3iwoGatXoCayzIqo/GYuGaHhlgou+iZnx2Mw3B2rKnak52+F1ip9S0TGUjy0
-	jqdCZCyXspqZ25M2XJb1UTWcQIFxNVPDsICoo982vQpe9F9+s1dydw4h2sMzNF1iUCyxRBg/OVgXC
-	6IgbhkXnDVbCn96gy2ccA29BluwdMz4Qt94mCkZrm8qGP1fRl/CZCN7Cu2S7dQBBf5lpk74eBXKT8
-	KhLQP2aqtRO6Nu4u8d8pvcU+LKQrhdmkAZd56wK3L3ffcfbE1mW0+XQ1rdYBzuM6SsyIQJDhxhtD6
-	5MQrZTzCT++vdhmZij0A==;
+	List-Owner; bh=Yi7GoYjpivE+h87Lsr8ZuRN1w4eGjv7TnylvsR85Ldk=; b=aJQ+DEA/0PL3lw
+	xayhCUtRZ3O7xr+K9DcVlS2o5shKZR1NTkUEgaPX7L9yPL7HoVq54hDKLdP+hu4vQKNExA64JwbgG
+	dX2DY1LOfPz1LEvwDFaRDaMzuHZfE9Pj0qKKVULA7H0vdOoufbmyQYnIm+cUCi0Zj2xdaiqC+bhZu
+	40r8dl9VMLIwrHWHKnT/pVH/eYRL0hciN5IPziFiC/vuMyUZaS1mderFBQLf/29hKjDs/Roi/CaPi
+	mxE0AOQyPUAZwzOnluYaELODLHQvcpEZjUOF1ZlPYXVe6pNAn0l1RleLZROowLV1Lu6vvo4PUXSmU
+	JUHDgsHbrp7juZg35GLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EH0-0000000HFEg-1Ne9;
-	Thu, 02 Apr 2026 09:23:34 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EGx-0000000HFAW-1XFh
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 02 Apr 2026 09:23:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=li1HaXS/PqQPfvh1Q87+F1vvQNzLcQL0CfzzGT6JwFc=; b=X/oVc4zA3ORnYB3U3/NSV6N4p5
-	zO+YExH2q2es0KBhmIrB2tQk+qMSy+M4Y4hSWDLkc2kgUrsna2QprQWGhiJHVwUBmbvujM0ipgpb5
-	ZTlaraEVZJNyZUn8Z8Vq6N4qBaS67wM7E/TLmdvKkvaQ86yQyiiDeVOnt2P8DSzgRvF0NyZnZo6LU
-	4PFTemXrpky5sxHg5X84XvZMrK/qvDs5c6ZHEiFVGG53pcEZbbSlrMaBUtPAdyg4myrjjXAteqY8g
-	8ingpi/wF281Jo2ZWBRP6sCyA98uWHNFDK2c2y24HiA+TuiCH1fOcAWSvdvdJBAedg3nQzh63BuVq
-	2f2paSHw==;
+	id 1w8EH4-0000000HFLB-1eUN;
+	Thu, 02 Apr 2026 09:23:38 +0000
 Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EGu-0000000C38h-1RFH
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8EH0-0000000HFDZ-33iG
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 09:23:30 +0000
+	Thu, 02 Apr 2026 09:23:36 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id E71FA4D320;
-	Thu,  2 Apr 2026 09:23:14 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 831024D322;
+	Thu,  2 Apr 2026 09:23:15 +0000 (UTC)
 Authentication-Results: smtp-out1.suse.de;
 	none
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5DBBA4A0B1;
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EE2D64A0B0;
 	Thu,  2 Apr 2026 09:23:14 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id KHStFYI1zmlVYAAAD6G6ig
+	id wEq8OII1zmlVYAAAD6G6ig
 	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 09:23:14 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: javierm@redhat.com,
@@ -85,9 +70,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-hyperv@vger.kernel.org,
 	linux-fbdev@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 7/8] firmware: efi: Make CONFIG_EFI_EARLYCON depend on CONFIG_SYSFB; clean up
-Date: Thu,  2 Apr 2026 11:09:21 +0200
-Message-ID: <20260402092305.208728-8-tzimmermann@suse.de>
+Subject: [PATCH 8/8] firmware: sysfb: Move CONFIG_FIRMWARE_EDID to firmware options
+Date: Thu,  2 Apr 2026 11:09:22 +0200
+Message-ID: <20260402092305.208728-9-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260402092305.208728-1-tzimmermann@suse.de>
 References: <20260402092305.208728-1-tzimmermann@suse.de>
@@ -95,17 +80,17 @@ MIME-Version: 1.0
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
-X-Rspamd-Queue-Id: E71FA4D320
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[]
+X-Rspamd-Queue-Id: 831024D322
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
 X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_102328_448069_4F12777D 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20260402_022335_103465_DA85609A 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,140 +107,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Efi-earlycon uses sysfb_primary_display. Therefore make it depend on
-the corresponding config symbol. With this in place, go through the
-source files and reduce tests to CONFIG_SYSFB. Efi-earlycon is now
-just another regular user of sysfb.
+Move the Kconfig option for CONFIG_FIRMWARE_EDID to the firmware
+subsystem. The option controls architecture and firmware code, so
+it fits here better than in video.
 
-This also enables the screen_info relocation feature for efi-earlycon.
-Systems might move the framebuffer aperture while booting the kernel. PCI
-bridges sometimes do this as part of relocating the sub-bus aperture.
+Also make it depend on CONFIG_SYSFB. The EDID data is stored in
+sysfb_primary_display and only useful with a sysfb framebuffer. This
+further allows for removing an explicit test for CONFIG_FIRMWARE_EDID
+from the EFI init code. For loongson, select CONFIG_SYSFB in the
+defconfig files.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 ---
- arch/arm64/kernel/image-vars.h                | 2 +-
- arch/loongarch/kernel/efi.c                   | 4 ++--
- arch/loongarch/kernel/image-vars.h            | 2 +-
- arch/riscv/kernel/image-vars.h                | 2 +-
- drivers/firmware/efi/Kconfig                  | 3 ++-
- drivers/firmware/efi/efi-init.c               | 6 ++----
- drivers/firmware/efi/libstub/efi-stub-entry.c | 4 +---
- 7 files changed, 10 insertions(+), 13 deletions(-)
+ arch/loongarch/configs/loongson32_defconfig |  1 +
+ arch/loongarch/configs/loongson64_defconfig |  1 +
+ drivers/firmware/Kconfig                    | 20 ++++++++++++++++++++
+ drivers/firmware/efi/efi-init.c             |  2 +-
+ drivers/video/Kconfig                       | 19 -------------------
+ 5 files changed, 23 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index d7b0d12b1015..7e0e61385286 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -37,7 +37,7 @@ PROVIDE(__efistub__text			= _text);
- PROVIDE(__efistub__end			= _end);
- PROVIDE(__efistub___inittext_end       	= __inittext_end);
- PROVIDE(__efistub__edata		= _edata);
--#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
-+#if defined(CONFIG_SYSFB)
- PROVIDE(__efistub_sysfb_primary_display	= sysfb_primary_display);
- #endif
- PROVIDE(__efistub__ctype		= _ctype);
-diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
-index 69dd83f8082f..6c25e2ecf45f 100644
---- a/arch/loongarch/kernel/efi.c
-+++ b/arch/loongarch/kernel/efi.c
-@@ -74,7 +74,7 @@ bool efi_poweroff_required(void)
+diff --git a/arch/loongarch/configs/loongson32_defconfig b/arch/loongarch/configs/loongson32_defconfig
+index 276b1577e0be..1c0897723247 100644
+--- a/arch/loongarch/configs/loongson32_defconfig
++++ b/arch/loongarch/configs/loongson32_defconfig
+@@ -786,6 +786,7 @@ CONFIG_DRM_VIRTIO_GPU=m
+ CONFIG_DRM_LOONGSON=y
+ CONFIG_FB=y
+ CONFIG_FB_RADEON=y
++CONFIG_SYSFB=y
+ CONFIG_FIRMWARE_EDID=y
+ CONFIG_LCD_CLASS_DEVICE=y
+ CONFIG_LCD_PLATFORM=m
+diff --git a/arch/loongarch/configs/loongson64_defconfig b/arch/loongarch/configs/loongson64_defconfig
+index a14db1a95e7e..38340537dfd4 100644
+--- a/arch/loongarch/configs/loongson64_defconfig
++++ b/arch/loongarch/configs/loongson64_defconfig
+@@ -816,6 +816,7 @@ CONFIG_DRM_VIRTIO_GPU=m
+ CONFIG_DRM_LOONGSON=y
+ CONFIG_FB=y
+ CONFIG_FB_RADEON=y
++CONFIG_SYSFB=y
+ CONFIG_FIRMWARE_EDID=y
+ CONFIG_LCD_CLASS_DEVICE=y
+ CONFIG_LCD_PLATFORM=m
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index 52f8253a46b1..edfb171d9eab 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -225,6 +225,26 @@ config SYSFB_SIMPLEFB
  
- unsigned long __initdata primary_display_table = EFI_INVALID_TABLE_ADDR;
+ 	  If unsure, say Y.
  
--#if defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON)
-+#if defined(CONFIG_SYSFB)
- struct sysfb_display_info sysfb_primary_display __section(".data");
- EXPORT_SYMBOL_GPL(sysfb_primary_display);
- #endif
-@@ -129,7 +129,7 @@ void __init efi_init(void)
- 
- 	set_bit(EFI_CONFIG_TABLES, &efi.flags);
- 
--	if (IS_ENABLED(CONFIG_EFI_EARLYCON) || IS_ENABLED(CONFIG_SYSFB))
-+	if (IS_ENABLED(CONFIG_SYSFB))
- 		init_primary_display();
- 
- 	if (boot_memmap == EFI_INVALID_TABLE_ADDR)
-diff --git a/arch/loongarch/kernel/image-vars.h b/arch/loongarch/kernel/image-vars.h
-index e557ebd46c2b..c43f9326f344 100644
---- a/arch/loongarch/kernel/image-vars.h
-+++ b/arch/loongarch/kernel/image-vars.h
-@@ -11,7 +11,7 @@ __efistub_strcmp		= strcmp;
- __efistub_kernel_entry		= kernel_entry;
- __efistub_kernel_asize		= kernel_asize;
- __efistub_kernel_fsize		= kernel_fsize;
--#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
-+#if defined(CONFIG_SYSFB)
- __efistub_sysfb_primary_display	= sysfb_primary_display;
- #endif
- 
-diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
-index 3bd9d06a8b8f..3ab2529c4154 100644
---- a/arch/riscv/kernel/image-vars.h
-+++ b/arch/riscv/kernel/image-vars.h
-@@ -28,7 +28,7 @@ __efistub__start_kernel		= _start_kernel;
- __efistub__end			= _end;
- __efistub__edata		= _edata;
- __efistub___init_text_end	= __init_text_end;
--#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
-+#if defined(CONFIG_SYSFB)
- __efistub_sysfb_primary_display	= sysfb_primary_display;
- #endif
- 
-diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
-index 29e0729299f5..925ded080eb4 100644
---- a/drivers/firmware/efi/Kconfig
-+++ b/drivers/firmware/efi/Kconfig
-@@ -219,8 +219,9 @@ config EFI_DISABLE_PCI_DMA
- config EFI_EARLYCON
- 	def_bool y
- 	depends on SERIAL_EARLYCON && !ARM
--	select FONT_SUPPORT
++config FIRMWARE_EDID
++	bool "Enable firmware EDID"
 +	depends on SYSFB
- 	select ARCH_USE_MEMREMAP_PROT
-+	select FONT_SUPPORT
- 
- config EFI_CUSTOM_SSDT_OVERLAYS
- 	bool "Load custom ACPI SSDT overlay from an EFI variable"
++	depends on EFI_GENERIC_STUB || X86
++	help
++	  This enables access to the EDID transferred from the firmware.
++	  On EFI systems, the EDID comes from the same device as the
++	  primary GOP. On x86 with BIOS, it comes from the VESA BIOS.
++	  DRM display drivers will be able to export the information
++	  to userspace.
++
++	  Also enable this if DDC/I2C transfers do not work for your driver
++	  and if you are using nvidiafb, i810fb or savagefb.
++
++	  In general, choosing Y for this option is safe.  If you
++	  experience extremely long delays while booting before you get
++	  something on your display, try setting this to N.  Matrox cards in
++	  combination with certain motherboards and monitors are known to
++	  suffer from this problem.
++
+ config TH1520_AON_PROTOCOL
+ 	tristate "Always-On firmware protocol"
+ 	depends on ARCH_THEAD || COMPILE_TEST
 diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
-index 6103b1a082d2..002518b642ed 100644
+index 002518b642ed..c4088fb8482b 100644
 --- a/drivers/firmware/efi/efi-init.c
 +++ b/drivers/firmware/efi/efi-init.c
 @@ -60,7 +60,7 @@ extern __weak const efi_config_table_type_t efi_arch_tables[];
   * x86 defines its own instance of sysfb_primary_display and uses
   * it even without EFI, everything else can get them from here.
   */
--#if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_FIRMWARE_EDID))
-+#if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_FIRMWARE_EDID))
+-#if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_FIRMWARE_EDID))
++#if !defined(CONFIG_X86) && defined(CONFIG_SYSFB)
  struct sysfb_display_info sysfb_primary_display __section(".data");
  EXPORT_SYMBOL_GPL(sysfb_primary_display);
  #endif
-@@ -271,8 +271,6 @@ void __init efi_init(void)
- 	memblock_reserve(data.phys_map & PAGE_MASK,
- 			 PAGE_ALIGN(data.size + (data.phys_map & ~PAGE_MASK)));
+diff --git a/drivers/video/Kconfig b/drivers/video/Kconfig
+index a7144d275f54..1c9ac3b029a7 100644
+--- a/drivers/video/Kconfig
++++ b/drivers/video/Kconfig
+@@ -62,25 +62,6 @@ config HDMI
  
--	if (IS_ENABLED(CONFIG_X86) ||
--	    IS_ENABLED(CONFIG_SYSFB) ||
--	    IS_ENABLED(CONFIG_EFI_EARLYCON))
-+	if (IS_ENABLED(CONFIG_X86) || IS_ENABLED(CONFIG_SYSFB))
- 		init_primary_display();
- }
-diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
-index aa85e910fe59..214fa4d84df0 100644
---- a/drivers/firmware/efi/libstub/efi-stub-entry.c
-+++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
-@@ -19,9 +19,7 @@ struct sysfb_display_info *alloc_primary_display(void)
- 	if (IS_ENABLED(CONFIG_ARM))
- 		return __alloc_primary_display();
+ endif # HAS_IOMEM
  
--	if (IS_ENABLED(CONFIG_X86) ||
--	    IS_ENABLED(CONFIG_EFI_EARLYCON) ||
--	    IS_ENABLED(CONFIG_SYSFB))
-+	if (IS_ENABLED(CONFIG_X86) || IS_ENABLED(CONFIG_SYSFB))
- 		return kernel_image_addr(&sysfb_primary_display);
- 
- 	return NULL;
+-config FIRMWARE_EDID
+-	bool "Enable firmware EDID"
+-	depends on EFI_GENERIC_STUB || X86
+-	help
+-	  This enables access to the EDID transferred from the firmware.
+-	  On EFI systems, the EDID comes from the same device as the
+-	  primary GOP. On x86 with BIOS, it comes from the VESA BIOS.
+-	  DRM display drivers will be able to export the information
+-	  to userspace.
+-
+-	  Also enable this if DDC/I2C transfers do not work for your driver
+-	  and if you are using nvidiafb, i810fb or savagefb.
+-
+-	  In general, choosing Y for this option is safe.  If you
+-	  experience extremely long delays while booting before you get
+-	  something on your display, try setting this to N.  Matrox cards in
+-	  combination with certain motherboards and monitors are known to
+-	  suffer from this problem.
+-
+ if VT
+ 	source "drivers/video/console/Kconfig"
+ endif
 -- 
 2.53.0
 
