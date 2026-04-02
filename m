@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94266D6AAEC
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 18:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E62D6AAF7
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 18:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TKTfzdcA+sb+2oFo4yjIk36t2O0AWHG9dXHeF+y4YBo=; b=Hp1UnHPYpFLFI5
-	sFVwB/pKlCozoLWP1U4YjwL1IFyLhrTFbId//+OIPPIZkKKar0GwrWnW1hMvU48ZxHGphXCEYbyPy
-	UoeqOHcfH988nJZNmz6azHUGftNLY+NKD33IVzTbpnMyZY/LsPJv8dU2UvQE1/vCKh5Xlpvn97qxu
-	MdOY2PsQfm43BXqrlW2olzdbtxCKXNxYST9Hpuu8TiP0KIQiK3duGmqNlLp/ahOUT9eZ0OVZzkWx0
-	SCz8YgbfukqBvB3FZe18wbQG7vaxwspJ9ME0rnAMmf84KdOFiTXQHarK1xAEfBqHjAbmKyeydCne6
-	/ZjFMfGLSQ4qYOwejKnQ==;
+	List-Owner; bh=B8+viuDXghFqdWRm9ee8LrOVcelE2WQxrRNlKxeqpIU=; b=uf7DGrwFlilfCp
+	ToFl+3GR/N5ArActHWDrfdRbbwD5c/5vAI51ssyWVRwvnP10KMqTdAxu27395bp64NLP2sxfT0FW0
+	8blKmuzXY8HPnhyHjPYQn0aMkpsW1XwxZIlh4cfC6kR7Qzh79Z6quk32F9xPWdZ+iRluaGhs5DcD3
+	Idj5kjgS+PaLqdcYOwc3ekq4E9OP/Sd4wOPcgxGYf3Olj7BDqOXYRxiqP1woZ6GNSr2rhH/WwzaB2
+	BU+mBV83iIWJp/V/QlF1w53eXs7LCLvYa/Bu6tTM3ecZesauVR5blGXeQT4s6edu5Y2aryvVtzlf1
+	GoUT2+OJnCUoZR6T7dkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8MQV-00000000dLC-01Fz;
-	Thu, 02 Apr 2026 18:05:55 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8MQR-00000000dKl-1tiv
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 18:05:53 +0000
-Received: from [192.168.0.106] (unknown [123.118.218.47])
-	by APP-01 (Coremail) with SMTP id qwCowAB3IW36r85pZCYADA--.23346S2;
-	Fri, 03 Apr 2026 02:05:46 +0800 (CST)
-Message-ID: <c0e59772-77b3-4144-8876-b7c462824fb7@iscas.ac.cn>
-Date: Fri, 3 Apr 2026 02:05:46 +0800
+	id 1w8MVs-00000000dfJ-1OVo;
+	Thu, 02 Apr 2026 18:11:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8MVo-00000000deQ-0Vxq;
+	Thu, 02 Apr 2026 18:11:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 978AE1570;
+	Thu,  2 Apr 2026 11:11:16 -0700 (PDT)
+Received: from [10.57.75.194] (unknown [10.57.75.194])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0787B3F915;
+	Thu,  2 Apr 2026 11:11:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775153482; bh=lWwySeUuucnSqrRMaEssqv+qa77TPxUWW5jml+8ovZo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nI+zbstndSHKJ/mynYHRuC64m8Z4xHAi45TXEjGH5rMJxTMtKiuXxjyjbxLarmMYn
+	 hXXkhX8l35nrPiZyzp+ZgYDe4uw+iI8Bv/L+f2xWNIa+OiQyxnU8y+avrnVGEPKVGX
+	 +wUG0AxZTOalhJkOHOlwae27JD/n0ccdlbnChrhg=
+Message-ID: <ec51ef14-e360-43a6-ae62-44a939ec8027@arm.com>
+Date: Thu, 2 Apr 2026 19:11:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [BUG] riscv: Kernel panic in free_initmem when driver triggers
- modprobe
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-To: guibing <guibing@nucleisys.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>
-Cc: palmer <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Alexandre Ghiti <alex@ghiti.fr>, =?UTF-8?B?5pa55Y2O5ZCv?=
- <hqfang@nucleisys.com>
-References: <3D34B48DF08573FE+e70f68e9-59f7-4b41-bcce-3c58d4cea05b@nucleisys.com>
- <819bb897-3bce-4c8e-81f0-1f36956cdf2e@iscas.ac.cn>
-Content-Language: en-US
-In-Reply-To: <819bb897-3bce-4c8e-81f0-1f36956cdf2e@iscas.ac.cn>
-X-CM-TRANSID: qwCowAB3IW36r85pZCYADA--.23346S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCw1rArWxKF4fJF4xAry3CFg_yoWrKr13pF
-	1kJ3y5Kr48trs7t3yxX3WjvryUJF4rCa4DGrnFka4rZFsxWr1v9w1jv342gasxXr4xuw1F
-	qF42kw1av3y5ZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkSb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1l
-	42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
-	WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAK
-	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
-	4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY
-	6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUgcTQUUUUU
-X-Originating-IP: [123.118.218.47]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+Subject: Re: [PATCH] iommu: Always fill in gather when unmapping
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
+ Janne Grunau <j@jannau.net>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Joerg Roedel <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Matthias Brugger <matthias.bgg@gmail.com>, Neal Gompa <neal@gompa.dev>,
+ Orson Zhai <orsonzhai@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Sven Peter <sven@kernel.org>, virtualization@lists.linux.dev,
+ Chen-Yu Tsai <wens@kernel.org>, Will Deacon <will@kernel.org>,
+ Yong Wu <yong.wu@mediatek.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
+ Lu Baolu <baolu.lu@linux.intel.com>,
+ Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
+ Joerg Roedel <joerg.roedel@amd.com>, Jon Hunter <jonathanh@nvidia.com>,
+ patches@lists.linux.dev, Samiullah Khawaja <skhawaja@google.com>,
+ stable@vger.kernel.org, Vasant Hegde <vasant.hegde@amd.com>
+References: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
+ <ee2c2044-e329-4cdd-ac35-9365824d3677@arm.com>
+ <20260401173650.GD310919@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260401173650.GD310919@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_110551_881795_EAA92C11 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20260402_111124_351539_43368D3B 
+X-CRM114-Status: GOOD (  30.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,93 +83,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNC8zLzI2IDAxOjQ1LCBWaXZpYW4gV2FuZyB3cm90ZToKCj4gT24gNC8yLzI2IDE5OjAyLCBn
-dWliaW5nIHdyb3RlOgo+Cj4+IEhpIGFsbCwKPj4KPj4gSSBlbmNvdW50ZXJlZCBhIGtlcm5lbCBw
-YW5pYyBvbiBSSVNDLVYgMzItYml0IChydjMyKSBkdXJpbmcgdGhlIGJvb3QKPj4gcHJvY2Vzcywg
-c3BlY2lmaWNhbGx5IGluc2lkZSBmcmVlX2luaXRtZW0oKS4gVGhpcyBoYXBwZW5zIHdoZW4gYQo+
-PiBidWlsdC1pbiBldGhlcm5ldCBkcml2ZXIgdHJpZ2dlcnMgYSBmaXJtd2FyZSByZXF1ZXN0IHRo
-YXQgZmFsbHMgYmFjawo+PiB0byBjYWxsaW5nIC9zYmluL21vZHByb2JlLgo+Pgo+PiBJIGhhdmUg
-Y3JlYXRlZCBhIG1pbmltYWwgZHVtbXkgZHJpdmVyICh0cmlnZ2VyX2J1ZykgdG8gcmVwcm9kdWNl
-IHRoaXMKPj4gaXNzdWUgcmVsaWFibHkgb24gUUVNVS4KPj4KPj4gRW52aXJvbm1lbnQKPj4gwqBL
-ZXJuZWw6IExpbnV4IDYuMS4xNjYKPj4gwqBBcmNoaXRlY3R1cmU6IFJJU0MtViAzMi1iaXQgKHJ2
-MzIpCj4+IMKgSGFyZHdhcmU6IFFFTVUgdmlydCBtYWNoaW5lCj4+Cj4+IFsuLi5dCj4+Cj4+IFvC
-oMKgwqAgMC45NzY1ODNdIFVuYWJsZSB0byBoYW5kbGUga2VybmVsIHBhZ2luZyByZXF1ZXN0IGF0
-IHZpcnR1YWwKPj4gYWRkcmVzcyBjMDgwMDAwMAo+PiBbwqDCoMKgIDAuOTc4MzE0XSBPb3BzIFsj
-MV0KPj4gW8KgwqDCoCAwLjk3ODQ2MV0gTW9kdWxlcyBsaW5rZWQgaW46Cj4+IFvCoMKgwqAgMC45
-Nzg4MjNdIENQVTogMCBQSUQ6IDEgQ29tbTogc3dhcHBlci8wIE5vdCB0YWludGVkIDYuMS4xNjYg
-IzIKPj4gW8KgwqDCoCAwLjk3OTI0MF0gSGFyZHdhcmUgbmFtZTogcmlzY3YtdmlydGlvLHFlbXUg
-KERUKQo+PiBbwqDCoMKgIDAuOTc5NjE2XSBlcGMgOiBfX21lbXNldCsweDU4LzB4ZjQKPj4gW8Kg
-wqDCoCAwLjk3OTk2NV3CoCByYSA6IGZyZWVfcmVzZXJ2ZWRfYXJlYSsweDE2Ni8weDFjMAo+PiBb
-wqDCoMKgIDAuOTgwMjI5XSBlcGMgOiBjMDc5MmFiMCByYSA6IGMwMTZjMzNlIHNwIDogYzFjNDNm
-MzAKPj4gW8KgwqDCoCAwLjk4MDQ4OF3CoCBncCA6IGMxOGI4NjEwIHRwIDogYzFjMjgwMDAgdDAg
-OiBjMDgwMDAwMAo+PiBbwqDCoMKgIDAuOTgwNzQ0XcKgIHQxIDogYzBjMTIwMDAgdDIgOiBjMThi
-YTg2OCBzMCA6IGMxYzQzZjUwCj4+IFvCoMKgwqAgMC45ODEwMDBdwqAgczEgOiAwMDAwMDAwMCBh
-MCA6IGMwODAwMDAwIGExIDogY2NjY2NjY2MKPj4gW8KgwqDCoCAwLjk4MTI0OF3CoCBhMiA6IDAw
-MDAxMDAwIGEzIDogYzA4MDEwMDAgYTQgOiAwMDAwMDAwMAo+PiBbwqDCoMKgIDAuOTgxNTA3XcKg
-IGE1IDogODBjMDAwMDAgYTYgOiAwMDAwMDgwMCBhNyA6IDAwMDAwMGNjCj4+IFvCoMKgwqAgMC45
-ODE3NThdwqAgczIgOiBjMTEyMWIxOCBzMyA6IDAwMDAwMDAwIHM0IDogMDAwMDAwMDAKPj4gW8Kg
-wqDCoCAwLjk4MjAwOV3CoCBzNSA6IDAwMDAwMDAwIHM2IDogMDAwMDAwMDAgczcgOiAwMDAwMDAw
-MAo+PiBbwqDCoMKgIDAuOTgyMjU1XcKgIHM4IDogMDAwMDAwMDAgczkgOiAwMDAwMDAwMCBzMTA6
-IDAwMDAwMDAwCj4+IFvCoMKgwqAgMC45ODI1MDZdwqAgczExOiAwMDAwMDAwMCB0MyA6IDAwMDgw
-NDAwIHQ0IDogYzExYTViMjAKPj4gW8KgwqDCoCAwLjk4Mjc2M13CoCB0NSA6IDAwMDAwMGZmIHQ2
-IDogYzAwMDAwMDAKPj4gW8KgwqDCoCAwLjk4Mjk2NV0gc3RhdHVzOiAwMDAwMDEyMCBiYWRhZGRy
-OiBjMDgwMDAwMCBjYXVzZTogMDAwMDAwMGYKPj4gW8KgwqDCoCAwLjk4MzM5N10gWzxjMDc5MmFi
-MD5dIF9fbWVtc2V0KzB4NTgvMHhmNAo+PiBbwqDCoMKgIDAuOTgzNzU1XSBbPGMwMDAzZjQyPl0g
-ZnJlZV9pbml0bWVtKzB4NzQvMHg4Mgo+PiBbwqDCoMKgIDAuOTgzOTY1XSBbPGMwNzlkMmVhPl0g
-a2VybmVsX2luaXQrMHgzYS8weDEwNgo+PiBbwqDCoMKgIDAuOTg0MjA4XSBbPGMwMDAzNDkwPl0g
-cmV0X2Zyb21fZXhjZXB0aW9uKzB4MC8weDE2Cj4+IFvCoMKgwqAgMC45ODUxMTZdIC0tLVsgZW5k
-IHRyYWNlIDAwMDAwMDAwMDAwMDAwMDAgXS0tLQo+PiBbwqDCoMKgIDAuOTg1NjgzXSBLZXJuZWwg
-cGFuaWMgLSBub3Qgc3luY2luZzogQXR0ZW1wdGVkIHRvIGtpbGwgaW5pdCEKPj4gZXhpdGNvZGU9
-MHgwMDAwMDAwYgo+PiBbwqDCoMKgIDAuOTg2Mzg1XSAtLS1bIGVuZCBLZXJuZWwgcGFuaWMgLSBu
-b3Qgc3luY2luZzogQXR0ZW1wdGVkIHRvIGtpbGwKPj4gaW5pdCEgZXhpdGNvZGU9MHgwMDAwMDAw
-YiBdLS0tCj4+Cj4gSSBubyBsb25nZXIgcmVwcm9kdWNlIHRoaXMgb24gdjYuNysuIEkgYmVsaWV2
-ZSB0aGlzIGlzIGZpeGVkIGJ5IGNvbW1pdAo+IDA1OTQyZjc4MGFjNiAoIk1lcmdlIHBhdGNoIHNl
-cmllcyAicmlzY3Y6IEZpeCBzZXRfbWVtb3J5X1hYKCkgYW5kCj4gc2V0X2RpcmVjdF9tYXBfWFgo
-KSIiKSwgcHJvYmFibHkgc3BlY2lmaWNhbGx5IDYyOWRiMDFjNjRmZiAoInJpc2N2Ogo+IERvbid0
-IHVzZSBQR0QgZW50cmllcyBmb3IgdGhlIGxpbmVhciBtYXBwaW5nIiksIHdoaWNoIGlzIGFsc28g
-YmFja3BvcnRlZAo+IHRvIHY2LjYuMzYrLiBUaGUgc2VyaWVzIGlzIGF0Ogo+Cj4gwqAgwqAgaHR0
-cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMzExMDgwNzU5MzAuNzE1Ny0xLWFs
-ZXhnaGl0aUByaXZvc2luYy5jb20vCj4KPiBQYXRjaCAxIGRvZXNuJ3QgYXBwbHkgdG8gNi4xLCB3
-aGljaCB3YXMgcHJvYmFibHkgd2h5IGl0J3Mgbm90Cj4gYmFja3BvcnRlZCwgYnV0IHlvdSBzaG91
-bGQgYmUgYWJsZSB0byBkbyBqdXN0IHNvbWV0aGluZyBsaWtlOgo+Cj4gZGlmZiAtLWdpdCBhL2Fy
-Y2gvcmlzY3YvbW0vaW5pdC5jIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiBpbmRleCA1MGExYjZl
-ZGQ0OTEuLmFmMzI2YWEzODNiYyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYwo+
-ICsrKyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gQEAgLTY3MSw2ICs2NzEsMTMgQEAgdm9pZCBf
-X2luaXQgY3JlYXRlX3BnZF9tYXBwaW5nKHBnZF90ICpwZ2RwLAo+ICAKPiAgc3RhdGljIHVpbnRw
-dHJfdCBfX2luaXQgYmVzdF9tYXBfc2l6ZShwaHlzX2FkZHJfdCBiYXNlLCBwaHlzX2FkZHJfdCBz
-aXplKQo+ICB7Cj4gKwkvKgo+ICsJICogT24gMzItYml0LCBhdm9pZCBQR0QgKGkuZS4gUE1EKSBz
-aXplZCBtYXBwaW5ncywgc2luY2Ugd2UgYXJlIG5vdAo+ICsJICogZ29pbmcgdG8gcHJvcGFnYXRl
-IFBHRCBsZXZlbCBjaGFuZ2VzLgo+ICsJICovCj4gKwlpZiAoIUlTX0VOQUJMRUQoQ09ORklHXzY0
-QklUKSkKPiArCQlyZXR1cm4gUEFHRV9TSVpFOwo+ICsKPiAgCS8qIFVwZ3JhZGUgdG8gUE1EX1NJ
-WkUgbWFwcGluZ3Mgd2hlbmV2ZXIgcG9zc2libGUgKi8KPiAgCWlmICgoYmFzZSAmIChQTURfU0la
-RSAtIDEpKSB8fCAoc2l6ZSAmIChQTURfU0laRSAtIDEpKSkKPiAgCQlyZXR1cm4gUEFHRV9TSVpF
-Owo+Cj4+IENhdXNlIEFuYWx5c2lzCj4+Cj4+IER1cmluZyBrZXJuZWwgYm9vdCwgYmVmb3JlIGZy
-ZWVfaW5pdG1lbSgpIGlzIGNhbGxlZCwgaWYgYW55IGRldmljZQo+PiBkcml2ZXIgdHJpZ2dlcnMg
-L3NiaW4vbW9kcHJvYmUgZXhlY3V0aW9uLCB0aGUgY3VycmVudCBwcm9jZXNzJ3MKPj4gbW1fc3Ry
-dWN0IHN3aXRjaGVzIGZyb20gaW5pdF9tbSB0byB0aGUgdXNlci1zcGFjZSBtb2Rwcm9iZSBwcm9j
-ZXNzLgo+PiBUaGlzIGNhdXNlcyBhIHBhZ2UgdGFibGUgY29udGV4dCBzd2l0Y2gsIHVwZGF0aW5n
-IHRoZSBzYXRwIChwYWdlIHRhYmxlCj4+IGJhc2UgYWRkcmVzcyByZWdpc3RlcikuCj4+Cj4+IFRo
-ZSBmcmVlX2luaXRtZW0oKSBmdW5jdGlvbiBjYWxscyBzZXRfbWVtb3J5X3J3X254KCkgdG8gbW9k
-aWZ5IHBhZ2UKPj4gYXR0cmlidXRlcyB0byBSVywgbm9uLVggb2YgdGhlIF9faW5pdF9iZWdpbiBz
-ZWN0aW9uLiBidXQsCj4+IHNldF9tZW1vcnlfcndfbngoKSBvcGVyYXRlcyBvbiBpbml0X21tJ3Mg
-cGFnZSB0YWJsZXMgKHN3YXBwZXJfcGdfZGlyKS4KPj4gSG93ZXZlciwgdGhlIHN1YnNlcXVlbnQg
-ZnJlZV9pbml0bWVtX2RlZmF1bHQgbWVtc2V0KCkgdGhhdCBwb2lzb25zIHRoZQo+PiBtZW1vcnkg
-cmVnaW9uIHVzZXMgc2F0cCB0aGF0IGlzIHRoZSBjdXJyZW50IHByb2Nlc3MncyBtbV9zdHJ1Y3Qg
-KHRoZQo+PiBtb2Rwcm9iZSBwcm9jZXNzKSB0byB0cmFuc2xhdGUgdGhlIHZpcnR1YWwgYWRkcmVz
-cy4KPj4KPiBJIGNvdWxkbid0IHJlYWxseSBpbW1lZGlhdGVseSBmaWd1cmUgb3V0IHdoYXQgdGhp
-cyBjYXVzZSBhbmFseXNpcyBpcwo+IGFib3V0LCBidXQgeWVzLCBpdCBtYWtlcyBzZW5zZSB0aGF0
-IHRoZSBQR0QgaS5lLiBQTUQgbGV2ZWwgbWFwcGluZ3Mgbm90Cj4gYmVpbmcgcHJvcGFnYXRlZCBw
-cm9wZXJseSB3b3VsZCBjYXVzZSB0aGlzIGFuZCBjYXVzZXMgbWFwcGluZyBwcm9ibGVtcy4KCk9r
-YXksIEkgZ2V0IHdoYXQgeW91IG1lYW50IG5vdy4gSSB0aGluayBzYXRwIGNoYW5naW5nIGhlcmUg
-aXMgZXhwZWN0ZWQKc2luY2Uga2VybmVsX2luaXQoKSBydW5zIGluIHRoZSBuZXdseSBzcGF3bmVk
-IFBJRCAxLCBzbyB0aGlzIHdhc24ndCB0aGUKcHJvYmxlbS4gVGhlIHByb2JsZW0gd2FzIGtlZXBp
-bmcgYWxsIHRoZSBwZ2RpcnMgaW4gc3luYywgd2hpY2ggbm90IHVzaW5nClBHRCBmb3IgdGhlIGxp
-bmVhciBtYXAgc2hvdWxkIHRha2UgY2FyZSBvZi4KCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2026-04-01 6:36 pm, Jason Gunthorpe wrote:
+> On Wed, Apr 01, 2026 at 05:33:28PM +0100, Robin Murphy wrote:
+>>> io-pgtable might have intended to allow the driver to choose between
+>>> gather or immediate flush because it passed gather to
+>>> ops->tlb_add_page(), however no driver does anything with it.
+>>
+>> Apart from arm-smmu-v3...
+> 
+> Bah, I did my research on the wrong tree and missed this.
+> 
+>>> mtk uses io-pgtable-arm-v7s but added the range to the gather in the
+>>> unmap callback. Move this into the io-pgtable-arm unmap itself. That
+>>> will fix all the armv7 using drivers (arm-smmu, qcom_iommu,
+>>> ipmmu-vmsa).
+>>
+>> io-pgtable-arm-v7s != io-pgtable-arm. You're *breaking* MTK (and failing
+>> to fix the other v7s user, which is MSM).
+> 
+> I was very confused what you were talking about, but I see now that
+> the hunk adding iommu_iotlb_gather_add_range() to v7 got lost somehow!
+> 
+> @@ -596,6 +596,9 @@ static size_t __arm_v7s_unmap(struct arm_v7s_io_pgtable *data,
+>   
+>                  __arm_v7s_set_pte(ptep, 0, num_entries, &iop->cfg);
+>   
+> +               if (!iommu_iotlb_gather_queued(gather))
+> +                       iommu_iotlb_gather_add_range(gather, iova, size);
+> +
+>                  for (i = 0; i < num_entries; i++) {
+>                          if (ARM_V7S_PTE_IS_TABLE(pte[i], lvl)) {
+>                                  /* Also flush any partial walks */
+> 
+>>> arm-smmu uses both ARM_V7S and ARM LPAE formats. The LPAE formats
+>>> already have the gather population because SMMUv3 requires it, so it
+>>> becomes consistent.
+>>
+>> Huh? arm-smmu-v3 invokes iommu_iotlb_gather_add_page() itself, because
+>> arm-smmu-v3 uses gathers
+> 
+> Yeah, I missed this whole bit, it needs some changes.
+> 
+>> Invoking add range before add_page will end up defeating the
+>> iommu_iotlb_gather_is_disjoint() check and making SMMUv3
+>> overinvalidate between disjoint ranges.
+> 
+> Right, that flow needs fixing.
+> 
+>> I guess now I remember why we weren't validating gathers in core code
+>> before :(
+> 
+> My point is not filling the gather is a micro-optimization that
+> benefits a few drivers. I think it is so small compared to an IOTLB
+> flush that it isn't worth worrying about.
+
+It's hardly a "micro-optimisation" for drivers to just not touch an 
+optional mechanism which offers no benefit to them, especially when in 
+many cases said mechanism is newer than the code that isn't using it 
+anyway. The only required semantic of .iotlb_sync is to ensure that any 
+previous .unmap_pages calls are complete and their associated 
+translations invalidated. The entire concept of gathering and deferred 
+invalidation is irrelevant to many IOMMU designs where it would only 
+stand to make overall invalidation performance worse.
+
+I'm starting to wish I'd been able to page all this context back in 
+before reviewing the first patch, as I too only really had Intel and 
+SMMUv3 in mind at the time... :(
+
+> So, I'd like to make everything the same and populate the gather
+> correctly in all flows. I'll fix the SMMUv3 thing and lets look again,
+> this patch is not so scary to make me think we shouldn't do that.
+> 
+>> @@ -2714,6 +2714,10 @@ static size_t __iommu_unmap(struct iommu_domain *domain,
+>>   		pr_debug("unmapped: iova 0x%lx size 0x%zx\n",
+>>   			 iova, unmapped_page);
+>> +		/* If the driver itself isn't using the gather, mark it used */
+>> +		if (iotlb_gather->end <= iotlb_gather->start)
+>> +			iommu_iotlb_gather_add_range(&iotlb_gather, iova, unmapped_page);
+> 
+> The gathers can be joined across unmaps and now we are inviting subtly
+> ill-formed gathers as only the first unmap will get included.
+
+Ill-formed? It's a perfectly valid range for the purposes of any 
+subsequent generic check - which couldn't realistically be anything 
+beyond empty vs. non-empty anyway - and it's only being set at all in 
+the case where we know the driver doesn't care, because if the driver 
+*was* going to look at gather->start or gather->end in its .iotlb_sync 
+then it must have already set them to meaningful values in the prior 
+successful .unmap_pages call. I think we can safely consider it invalid 
+for a driver to suddenly decide to start using a gather mid-way through 
+an unmap (or indeed to use start/end in any intentionally non-obvious 
+manner either).
+
+> We do have error cases where the gather is legitimately empty, and
+> this would squash that, it probably needs to check unmapped_page for 0
+> too, at least.
+
+Maybe try looking at the rest of the code around these lines...
+
+Thanks,
+Robin.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
