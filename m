@@ -4,102 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2CBD39410
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 11:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB2BD39418
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 12:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zlJYIQbTVKiHHF+qTepEjSTUEfPPMAUCT+uFx0PMlPg=; b=wSuhipCwT1SWtz
-	DTf4c9mP5LA2P4UCCEwz+rMvCyON6yS5EijqsI/l3h+cXSGSd0uCv9LSfjL/1sYqiQn9/YbRi3/DD
-	pbKWLEw1/QnzPuJy8GA6SPYuJFC4GbRoP2KrPTnnG+H/+y55y8qpeaPA4gVcaHInWndZ7f2m8eZ1e
-	59iJkhPzofZH/cOO3757oRhBxZp3GW4xNIPKQjfKRqVpic1hdWikP8ou9vtO93THAEaZ2V7IUrp92
-	kuInNolCTbr3MxrZXZUhWBq9HtmtV5sC/GBfHwyCzOFQhDrhjcmbsEIqj4i4KvbMZtfT4yHAK69OD
-	LGS3RfxDYOUjBMQzn1OA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UPsCzv2QRuj0wmoaQIj3aEaTSaHM6SkMPHvlQ5v30OE=; b=nfbFg7+0hKye+dt6G3xA5IGsM7
+	RpmpMhxnqOcV5Z43IYyN3S9j5FvzR0kcW8zGlSIp2Cg4KhaLLO7YrfQacStfTPuPvyDcNEaK+0KIW
+	ILXx0QXsoScVGT7chTRItmqmd0Wv1hKqjbi5mSm8EPIwlZWio6dhHgfL2eYByTEb2nxMc9r358NvZ
+	YYc6vosLpr01mfN2QyhLMhIst4hWdo79PwNBw6gt2qKioXqP2NY0t41QCfdop6ImrLCbreebig9Gn
+	9gedinhuKT1StJyJfNZNXps2xDK6t6mX713XWZiQa388SzeJBpUZfBDyxOEoiYumaYok8/9E9rDVE
+	6iV+IhEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8GXB-0000000HXtM-3H8I;
-	Thu, 02 Apr 2026 11:48:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8Gwo-0000000HZNN-1Oqs;
+	Thu, 02 Apr 2026 12:14:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8GX9-0000000HXt2-1wd6;
-	Thu, 02 Apr 2026 11:48:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=o0BfAq2trtfASNnVxf9HHtrEQCspzeSBvKkdxZfJnW4=; b=anL2rxKT/d/Psn/8YSU5z4fe5j
-	0ASEv8TELKat+QpH0bV2zT4Qak6pV3wyZBecE5x+ahyvUltV/eCIu5PVSjXNvaHUfvQbssp8lavu3
-	xSagocHYBbk27jesycTG98UFI7lUzkljDpZtnEVtt1BMBRFBk+jHfGS0yv9XsIJUOVro1gCEkEFCp
-	do/ZMGQ4/91hAUtVsmami9IRkgO/fIYEPIeFJ3rScZHlTqsB65rueEOjooBrRUNDRhOoTqrZFBFgh
-	tfOi5Hq+mhgBOOnkMdW2c3BizPRxD+vcp0gyg4RYb1nBIi/qQ45lGIG5i81lIptktaG8fZ3wosQ/E
-	LrzpAELg==;
-Received: from [113.46.200.221] (helo=canpmsgout06.his.huawei.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8GX4-00000002MCp-3hRz;
-	Thu, 02 Apr 2026 11:48:21 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=o0BfAq2trtfASNnVxf9HHtrEQCspzeSBvKkdxZfJnW4=;
-	b=Luc54heStVP+Ks1cf/+9Mie8Lxo+t9KmOQfujBmJXRPKkSvo/HJW2BgtlkbawbWBfCN9tRiOC
-	MhfDfIGw5pwHoccffo+jZsj9vgYRqDLMIwGS/b1ztYLuinQEB7Mzu9JGS+etuJoT2GPKebOkefi
-	174duOCnXseF0u2OAWDwFu0=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4fmg1R065LzRhSg;
-	Thu,  2 Apr 2026 19:41:47 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 771BE40561;
-	Thu,  2 Apr 2026 19:47:57 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 2 Apr 2026 19:47:55 +0800
-Message-ID: <c6eb858c-5275-6fdc-b6e9-bd6d4b169e05@huawei.com>
-Date: Thu, 2 Apr 2026 19:47:53 +0800
+	id 1w8Gwm-0000000HZNC-3PVL
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 Apr 2026 12:14:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E723361879;
+	Thu,  2 Apr 2026 12:14:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59337C19423;
+	Thu,  2 Apr 2026 12:14:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775132091;
+	bh=EqYl1q6OHzj9GF2+s+7JBq9ShRG/TNsV61jcIPYVR9U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oqIp9oK/CmPGFtTrYHBXVTt3YRR7hvL/Lj8X/qA4v6UR4032SX75xrawsWktC3F/k
+	 DqXrln9xWd7/rAYk5YlSaKL2NorONWEC7QstrmLMww5lHQv+fYRj3rw39v7b2uk+e4
+	 hZ/8+zV6pf/uLAXgGLuW5mJg5Oz2wRmYs/UUPF+oy/TETpwV0KVuo1s9+dj9fiQ9Ed
+	 YiojNiERmlBXh/fSNwIqZpk5tnX5IUGwLeIFo4P+8wtPr09MIGImnfaWcEmEbPj++/
+	 +ftgRIUYnchCsI2dhmx3SiJ4kcLBqa/DyTzBJpSAxvDX44c38LX0eexi21Fs/Wuu0+
+	 GQrx7liM/DJ8w==
+Date: Thu, 2 Apr 2026 13:14:44 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>, Kees Cook <kees@kernel.org>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-hardening@vger.kernel.org, netdev@vger.kernel.org,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Subject: Re: [PATCH v1 22/22] riscv: dts: starfive: jhb100: Add clocks and
+ resets nodes
+Message-ID: <20260402-fox-overhand-9a45ec670bce@spud>
+References: <20260402105523.447523-1-changhuang.liang@starfivetech.com>
+ <20260402105523.447523-23-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v12 00/15] arm64/riscv: Add support for crashkernel CMA
- reservation
-Content-Language: en-US
-To: Borislav Petkov <bp@alien8.de>
-CC: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <dave.hansen@linux.intel.com>, <hpa@zytor.com>,
-	<robh@kernel.org>, <saravanak@kernel.org>, <akpm@linux-foundation.org>,
-	<bhe@redhat.com>, <vgoyal@redhat.com>, <dyoung@redhat.com>,
-	<rdunlap@infradead.org>, <peterz@infradead.org>,
-	<pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
-	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
-	<paulmck@kernel.org>, <lirongqing@baidu.com>, <rppt@kernel.org>,
-	<leitao@debian.org>, <ardb@kernel.org>, <jbohac@suse.cz>,
-	<cfsworks@gmail.com>, <tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
-	<ritesh.list@gmail.com>, <hbathini@linux.ibm.com>, <eajames@linux.ibm.com>,
-	<guoren@kernel.org>, <songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
-	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
-	<fuqiang.wang@easystack.cn>, <liaoyuanhong@vivo.com>,
-	<takahiro.akashi@linaro.org>, <james.morse@arm.com>, <lizhengyu3@huawei.com>,
-	<x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-References: <20260402072701.628293-1-ruanjinjie@huawei.com>
- <20260402113137.GAac5Tmc5b7SL98KdY@fat_crate.local>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260402113137.GAac5Tmc5b7SL98KdY@fat_crate.local>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_124819_565003_DCE2740A 
-X-CRM114-Status: GOOD (  12.61  )
+In-Reply-To: <20260402105523.447523-23-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,61 +79,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2440561849228280803=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============2440561849228280803==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="i9/X0Hs31jPOYl+N"
+Content-Disposition: inline
 
-On 2026/4/2 19:31, Borislav Petkov wrote:
-> On Thu, Apr 02, 2026 at 03:26:46PM +0800, Jinjie Ruan wrote:
->> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
->> and crashk_cma memory are almost identical across different architectures,
->> This patch set handle them in crash core in a general way, which eliminate
->> a lot of duplication code.
-> 
-> From: Documentation/process/submitting-patches.rst
-> 
-> "Don't get discouraged - or impatient
-> ------------------------------------
-> 
-> After you have submitted your change, be patient and wait.  Reviewers are
-> busy people and may not get to your patch right away.
-> 
-> Once upon a time, patches used to disappear into the void without comment,
-> but the development process works more smoothly than that now.  You should
-> receive comments within a week or so; if that does not happen, make sure
-> that you have sent your patches to the right place.  Wait for a minimum of
-> 						     ^^^^^^^^^^^^^^^^^^^^^
-> 
-> one week before resubmitting or pinging reviewers - possibly longer during
-> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 
-> busy times like merge windows."
-> 
-> You need to be patient and send once a week and not spam people:
 
-Thank you for the reminder and for your patience. I apologize for the
-frequent updates; I am becoming more familiar with the community's
-workflow. I will follow your advice, limit my follow-ups to once a week,
-and avoid resending during busy periods like the merge window. I'll wait
-for further feedback before taking the next step.
+--i9/X0Hs31jPOYl+N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> Feb 04 Jinjie Ruan ( :1.0K|) [PATCH v3 0/3] arm64/riscv: Add support for crashkernel CMA reservation
-> Feb 09 Jinjie Ruan ( :1.5K|) [PATCH v4 0/3] arm64/riscv: Add support for crashkernel CMA reservation
-> Feb 12 Jinjie Ruan ( :2.1K|) [PATCH v5 0/4] arm64/riscv: Add support for crashkernel CMA reservation
-> Feb 24 Jinjie Ruan ( :2.3K|) [PATCH v6 0/5] arm64/riscv: Add support for crashkernel CMA reservation
-> Feb 26 Jinjie Ruan ( :2.5K|) [PATCH v7 0/5] arm64/riscv: Add support for crashkernel CMA reservation
-> Mar 02 Jinjie Ruan ( :2.8K|) [PATCH v8 0/5] arm64/riscv: Add support for crashkernel CMA reservation
-> Mar 23 Jinjie Ruan ( :2.9K|) [PATCH v9 0/5] arm64/riscv: Add support for crashkernel CMA reservation
-> Mar 25 Jinjie Ruan ( :3.7K|) [PATCH v10 0/8] arm64/riscv: Add support for crashkernel CMA reservation
-> Mar 28 Jinjie Ruan ( :4.3K|) [PATCH v11 00/11] arm64/riscv: Add support for crashkernel CMA reservation
-> Apr 02 Jinjie Ruan ( :4.5K|) [PATCH v12 00/15] arm64/riscv: Add support for crashkernel CMA reservation
-> 
+On Thu, Apr 02, 2026 at 03:55:23AM -0700, Changhuang Liang wrote:
+> Add clocks and resets nodes for JHB100 RISC-V BMC SoC. They contain
+> sys0crg/sys1crg/sys2crg/per0crg/per1crg/per2crg/per3crg.
+>=20
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jhb100.dtsi | 198 ++++++++++++++++++++++-
+>  1 file changed, 195 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/arch/riscv/boot/dts/starfive/jhb100.dtsi b/arch/riscv/boot/d=
+ts/starfive/jhb100.dtsi
+> index 4d03470f78ab..700d00f800bc 100644
+> --- a/arch/riscv/boot/dts/starfive/jhb100.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jhb100.dtsi
+> @@ -4,6 +4,8 @@
+>   */
+> =20
+>  /dts-v1/;
+> +#include <dt-bindings/clock/starfive,jhb100-crg.h>
+> +#include <dt-bindings/reset/starfive,jhb100-crg.h>
+> =20
+>  / {
+>  	compatible =3D "starfive,jhb100";
+> @@ -268,12 +270,96 @@ pmu {
+>  			<0x00 0x22 0xFFFFFFFF 0xFFFFFF22 0x00007FF8>;	/* Event ID 34 */
+>  	};
+> =20
+> -	clk_uart: clk-uart {
+> -		compatible =3D "fixed-clock"; /* Initial clock handler for UART */
+> +	osc: osc {
+> +		compatible =3D "fixed-clock";
+>  		#clock-cells =3D <0>;
+>  		clock-frequency =3D <25000000>;
+>  	};
+
+Is this really on the SoC?
+
+> =20
+> +	pll0: pll0 {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <2400000000>;
+> +	};
+
+What's providing all of these PLLs? Are they all fixed-frequency on-chip
+PLLs without an off-chip reference? I find that somewhat unlikely.
+
+Since devicetrees are now being imported into U-Boot, it's important to
+make sure that I'm not merging fixed-clocks that later get replaced by
+dedicated drivers that U-Boot won't have.
+
+To that end, I won't apply the series this depends on without this patch
+being applied at the same time.
+
+> +
+> +	pll1: pll1 {
+
+Also, none of these follow the preferred naming scheme for
+fixed-frequency clocks. Go look at the binding for how they should be,
+if they are too be kept.
+
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <1000000000>;
+> +	};
+
+Cheers,
+Conor.
+
+--i9/X0Hs31jPOYl+N
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCac5dtAAKCRB4tDGHoIJi
+0uQHAP0WzBeqVfuYIxoQ5RQ7zJEaN6Xi9MLvyjrUg80WfHDtYwEAlx6dQ13WnFUI
+p3u5nsP2s7rO8KPeaaFAN2sMynSwWg4=
+=1yvc
+-----END PGP SIGNATURE-----
+
+--i9/X0Hs31jPOYl+N--
+
+
+--===============2440561849228280803==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2440561849228280803==--
+
