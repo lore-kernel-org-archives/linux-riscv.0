@@ -4,54 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EF2D6AB17
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 21:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1D4D6AB10
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 21:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=elryESHtXj2FqjsAUss+We8XZpsWLkPqD/y+1kyz10A=; b=TqACVwPQjPIaMB
-	r7eTshJ0MueLbvOexYsel9ZjycZbvy7cqHug/FBKO30BUfRkNAuvJsOLD35Ss2CHk/6duV49p0zMt
-	9nxUynmuWtA8dBOzwqQo++Wr2Trry9HawFNg7UpxgWZy+VjoJHtV8DDk9uFkg+O+JI/u8LDdYzlxq
-	oDtG8+mVC3IGpXiPhVL0ZvmBwaWvbpuIWFde0MhTJM1CHvIg1wY/KG21i4OwfSo7lXp/XNm/BaP71
-	7RfECV3jKpug+VcWp0HZyp+gMQiIu+c8PomJk9EvW1Xq/KJPdmn8zOdr5UWqO9xFslXrI2q9I14lX
-	iwYfYtWbDywedTR2fQig==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Mmra3jseIqoIpxC/gouxjRnjOs0136gwizn1daxgAlE=; b=bpb3FzPb6bjzb7uqYG86qOPu0g
+	yFuGYTEcTIMdRZIPMg9kkyegm+XCkswvR0yJPN/y+6p5+m1J7eRV9ObPFEc0VlYxfS09NRlgJhOTj
+	MlRTN9yAdKFy27Rb2+52A6P1pBneNJuuhd2Zo5584S0NFBIqEBnSIUKMnI8DgMtB0iRBT7HnOFz6l
+	sTdDGgqiSIbUlN2lQXl26c2MkIwodB52+8gM1j9nZI9iWcR2NcLuICHfyg+QNEJy/s0qmFWH4Iaoe
+	2aQ2MJpUTdkEVuZkfZZdQPCymtTUvca4f4u7Jc04eLgZ8tqFpKLikX4xjzrHs7MLUJ6zGn2NoJCW6
+	RjmJoIwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Pdt-00000000nSA-1Kju;
-	Thu, 02 Apr 2026 21:31:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w8Pph-00000000pBw-0LrN;
+	Thu, 02 Apr 2026 21:44:09 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Pdr-00000000nRl-3ivK
+	id 1w8Ppe-00000000pBd-1JMM
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 21:31:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1870960008;
-	Thu,  2 Apr 2026 21:31:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FB0DC116C6;
-	Thu,  2 Apr 2026 21:31:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775165514;
-	bh=jT5N5puUXD0Mrt65ONYcgDH7TNm3QJ6jxgMZJyRwxew=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=sHv8PvHqqSh4BiskHrgktglKwp8MJBaWmkufhHJbTJhgjogmhjEG4QAVyAllgUnhY
-	 GrKYChFOS+bD4G8ls//2JsxxmZ1QDMuTVeK1yADuDKGO8ax8lGAy9vpWMzbYQ5j0rx
-	 2i9efUkcQqgyiEt7IJ1btK9W1Pv/M7atufr6JnUlh2wejfJQD8HQmpziatdhmWl26c
-	 J1LfVKnk9xoUzF1ueu3DDoERR6MWaPSuR4aup4su7WUdvEgZjivrXvjHLjgPkIVndB
-	 u381/NGJcgBaxxzbsXCb2HAWVxnm5jjgvYdgdCis4woZtjm26IGbEnQJMIvt7dE/CN
-	 eDurMJ23g/RBQ==
-Date: Thu, 2 Apr 2026 15:31:51 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org, 
-    linux-kernel@vger.kernel.org, alex@ghiti.fr
-Subject: Re: [PATCH] RISC-V: ACPI: fix two __iomem cast warnings
-In-Reply-To: <20260311102217.409376-1-ben.dooks@codethink.co.uk>
-Message-ID: <df1a84c9-e039-f81b-eb46-04203990981d@kernel.org>
-References: <20260311102217.409376-1-ben.dooks@codethink.co.uk>
+	Thu, 02 Apr 2026 21:44:07 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 420E77A017D;
+	Thu,  2 Apr 2026 17:44:04 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 02 Apr 2026 17:44:04 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1775166244;
+	 x=1775252644; bh=OYQnpeSzoHqE/ynjfzXJ1D5WN7qoO0KuXUY/6t2eV9s=; b=
+	DMmqEN9LJwU6m6OMVajvyXqoA3+xsORQyUIMf1jEF/XgxjoQr7xmV6LsP55wzMKg
+	yiqXSJ7yC/jbS0IHzxcCr5fJbaJZcam0P7E5sdGhwDwAoRlN8BLIBTzYX0XgX18P
+	8Z7bYLwV0pPOSuCy9z+IeNGMbrNvHXNsMEtDw09lI7m0bwCCZQeNcSTQjCBVKK2g
+	i3QOW9ic1D7DzWIpTQ0L1mV/AabBdnm3+QCv13iIjie04U1NaCNZvQGhRlzL8Jhk
+	0Nrt86Q/eE5Q5B8ypHpPVpoOxqShkupPqWv2k9vAsElj2JViUCuaylDjaSZS8ywz
+	CKkzM9hqu43O2rji/P2Bgw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1775166244; x=
+	1775252644; bh=OYQnpeSzoHqE/ynjfzXJ1D5WN7qoO0KuXUY/6t2eV9s=; b=F
+	rOjsqKrBxfhkRT7+s77dBlRZ16gLlgO5KU83UuqcB14SPqMewIhADV5z13LAQT+e
+	olwj9uiLpJW8Txll/Mx3j2zHOWhMWegsM2tly2syVOJtC4t3K0DvvLQkxlyK0J4B
+	STu1xvsq7Ya+pMrAJhQFmWSr3dufd3kOUPVXNKYQFpPJyRTiWPdqLxBCAxcjmGHI
+	Ou6iu/cuNhRA5hrz7acIwZtPxTbaOb8aNSdtA8aLiNuPN0OxKnMoTNNJCtyeGlfj
+	JeOo2Qkb0oFj/flIuOO4tBwQyiLk3tphh+xmOPxna/79bPi1GOKM3L98/7jR5X91
+	7UHLXXVKIVFiCxiob0dlg==
+X-ME-Sender: <xms:I-POabSNu7d0vgRDjY5BYmF2CVb2Jwy5PaBcpLObJ8Z2j7fU_MZVkQ>
+    <xme:I-POaXnhqVHgwuD_8hQdcLueuP99dG_5gVy9rufuttHh4jWn4RE4KdkoUysEJBphK
+    Db8aYsmI3Lg0rHWXu1G51wz-mtmUS28w4MWjHDdSF6EnXO4uY0v4lB6>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdejudegucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
+    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
+    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
+    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
+    ephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdeinecu
+    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
+    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepiedpmhhouggvpehsmhhtphhouhhtpdhr
+    tghpthhtohepihhnohgthhhirghmrgesghhmrghilhdrtghomhdprhgtphhtthhopegtoh
+    hnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhotgeskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrg
+    guvggrugdrohhrghdprhgtphhtthhopehsohhphhhgoheslhhishhtshdrlhhinhhugidr
+    uggvvhdprhgtphhtthhopehunhhitghorhhnpgifrghnghesohhuthhlohhokhdrtghomh
+X-ME-Proxy: <xmx:I-POabT2NWajPAxYA0xneUgLH1zNW2z1dwNxUIAwfxHpIRoRGz5xTw>
+    <xmx:I-POaXvhvxUoERQJMG5qRDvr_UnpPaxPORkuhtxeCFYNtzGuRRmuaQ>
+    <xmx:I-POaf35szzbGLpLGzavim2sRFYZwO1afPzc-_FjJuK_IjtJLtOgXg>
+    <xmx:I-POaQXDRGXbjEGsqk-uJkQDraDsX7vu68GkcbZx5FF4Sn6TNfId2Q>
+    <xmx:JOPOaS0CBzvUmAUN_voBkRA9zXVJ9Amt5SNQH-kmmbvCAXokWzD_Wxo1>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id B3EE7700065; Thu,  2 Apr 2026 17:44:03 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: AaZlO9rjbYwJ
+Date: Thu, 02 Apr 2026 23:43:43 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Chen Wang" <unicorn_wang@outlook.com>, soc@kernel.org
+Cc: "Conor Dooley" <conor+dt@kernel.org>,
+ "Inochi Amaoto" <inochiama@gmail.com>,
+ "sophgo@lists.linux.dev" <sophgo@lists.linux.dev>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Message-Id: <f99471c2-4b7e-4475-af71-5c0ac4c92809@app.fastmail.com>
+In-Reply-To: <MA5PR01MB1250079A8884D4F6245B955B9FE51A@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
+References: <MA5PR01MB1250079A8884D4F6245B955B9FE51A@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
+Subject: Re: [GIT PULL] RISC-V Sophgo Devicetrees for v7.1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_144406_713566_6D2D830E 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,31 +115,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+On Thu, Apr 2, 2026, at 04:39, Chen Wang wrote:
+> For CV18xx serials:
+> Just a minor patch to replace the compatible for
+> dma-controller to allow setting DMA channel number.
+> New bindings and driver part change are picked by
+> DMA subsytem and this patch handles the left dts
+> part change.
+>
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+>
+> ----------------------------------------------------------------
+> Inochi Amaoto (1):
+>        riscv: dts: sophgo: cv180x: Allow the DMA multiplexer to set 
+> channel number for DMA controller
 
-On Wed, 11 Mar 2026, Ben Dooks wrote:
+Doesn't this change break backwards compatibility with
+all existing kernels?
 
-> The __acpi_map_table() and __acpi_unmap_table() return and
-> take __iomem tagged pointers. Add a cast to fix the sparse
-> warnings:
-> 
-> arch/riscv/kernel/acpi.c:216:30: warning: incorrect type in return expression (different address spaces)
-> arch/riscv/kernel/acpi.c:216:30:    expected void [noderef] __iomem *
-> arch/riscv/kernel/acpi.c:216:30:    got void *
-> arch/riscv/kernel/acpi.c:224:24: warning: incorrect type in argument 1 (different address spaces)
-> arch/riscv/kernel/acpi.c:224:24:    expected void *addr
-> arch/riscv/kernel/acpi.c:224:24:    got void [noderef] __iomem *map
-> 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+I did not take this one for now, need clarification, or
+a new patch that keeps the old compatible string along
+with the new one, if that is possible.
 
-Thanks for taking a look at this.  It appears that some of the other 
-architectures have the same issue.  Could you come up with a series that 
-addresses the others as well?  You might need to get the ACPI folks 
-involved; it's not really clear to me why __acpi_map_table() needs to 
-return an __iomem *.
-
-
-- Paul
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
