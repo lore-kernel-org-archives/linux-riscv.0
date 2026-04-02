@@ -4,108 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 997E7D3941D
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 12:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6698AD3941D
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 13:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lscqkOzm/m9uJazQmakuEgpgx7H8qowGQwdLe5sJwTw=; b=2fVtSnaVk9QEkO
-	676ajcgbsUZJ6wDBObJybrmlcuoCo8FPsLxDlIARVRTc2sVOtQjtr7udzZLrKFzC9IbJnnC60lZmI
-	uAlyIxvQSLTEp3nlzLFEJ6Yw4mO4VrlTFz/8k7Rm8u52pNjTflAdJUMf5qd1GLg4De4buxh3Dc8Qw
-	mNCxruJ8z0Ex97s7k5VyeXKzjZNMaVWkqLqvgzSYPG1Ha6ngS8eN4LjcbRiDeXK54bm2zcLzpaC2L
-	5TkDPYUyBRCOjjiSDuDwiWXWXEgcFHY1rczIBUHStnH/SSV5NQXR0/+xRYHZMrIV9kwCALoe4WV6g
-	nrUCLN0ZGhNI0AfxBlRw==;
+	List-Owner; bh=HufiQe2AWs94/fePWiDhmBMDJ7Ry2Hb1BWJmmChH2sM=; b=DpdkU8vmFcb1ab
+	BuSgItSIYkBGHyBRUsFMEnr4fVJSFSkKA5t6nynPhtqMoggBkXZp6pC36SUqEcrdYTsm5BH0cPDG+
+	jr50wJmJFWbaJPdSPJdFIgo1i0Aa4ZoDmTyb7nNWy/24WWqHbrMQy7Eg/OsLnV/4aaRYa5zfb5J7P
+	5O4DuppATrzeBg/10rKTPYqheZUpuFYUncrx/YwWqCD1jVd6R20LMJ4B4KrpuXTRTPmPU3kQ1nJ80
+	QssghHXwB3f1yM48wy0rYQ+UHldIS1hfsTnvdR+9PVq/HGj6fFGvO1/ag5vk5GfSUakRgF7fqTn7z
+	tRi2Y8hrHMCSE/eRoLQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HAq-000000003AU-37Dg;
-	Thu, 02 Apr 2026 12:29:24 +0000
+	id 1w8HmK-000000008oW-0doj;
+	Thu, 02 Apr 2026 13:08:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HAp-000000003AN-1iCI
+	id 1w8HmI-000000008o2-1aTC
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 02 Apr 2026 12:29:23 +0000
+	Thu, 02 Apr 2026 13:08:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=vcXn6b67rRj+CqXQSR9AVzCdCSKAtKskjZ3iuSBT3lw=; b=Q9B6zXj9O6qSdV8+VNsRseGsPf
-	mWgFkZxYOGGczhsUk5kH2SVpwNOxSQIExeceqSN9XmnCW/8quGo57WooKGXK/868o2uom+DZ8chMH
-	YiuDGW9yLJxgSvIQWX27TyRFjVzJCrec0DnF5z8N1sqWkJfLSdA3j8cI/HOkelqGhNt4/9ILKrnr+
-	VKOXRy871tQzN/hN1IW3tjrXnkoGTz1+d52tqh6OwQWpYJiUJayQdM2wK282C10Mt/0aiSwAhrTej
-	5QncOeAnWYkN7V5cz2teKDh8ukq2Z+vlEihkpfq9GGVrzWdDezLi9k7RXu5eslvjS9VXmyKFjQt9J
-	dTiLbYPQ==;
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	bh=KWxJTOWQkri5jmv5ZKMT+tNuIWsfKgbRVKTEMtbqloY=; b=CDwX3BtvLfxDq550vF7PnQT12C
+	8h642zMmL+uqq4RaqFmnlYW9qZrNtVphWkD948VJSmV5LwVni9tgaFnwA1UTzlgSYqCmWY7WOH7nb
+	HBWC39WipUQAm7WZ06Eg0reLpXlxPgM+mnca7uP/h/wYG2QxJkQ5IujS5asojkz8cYJrfhRMcVp3O
+	kkl6A5uHm1Cv3jypQDoeQdKjgYtIAFxofWLCrw1ywSvf7vtlqpATJJZA+SJTO6Ta0yOuNq1ufVcVO
+	W7+H8/NqUwzepa3qo4nA2mqS6dOD+m2N2p+sJwn3htOkD8H+SUFuIZBYNgfbwgVdamCE4oKJUg0+y
+	mOyEpchQ==;
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HAi-00000002ROW-2LWV
+	id 1w8HmF-00000002V8G-2z4o
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 12:29:22 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8d006a80ccbso105546085a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 05:29:15 -0700 (PDT)
+	Thu, 02 Apr 2026 13:08:05 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-35d9f68d011so535038a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 06:08:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775132954; x=1775737754; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1775135281; x=1775740081; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vcXn6b67rRj+CqXQSR9AVzCdCSKAtKskjZ3iuSBT3lw=;
-        b=QwyrMmA9gu0H+C7RIJpgog5Ta4cgfCm7lnM9iAQQ50LP9xGy+zZeFBi5S6OCuFkETy
-         xOhNJJwEul6O9vSdaLlphQgFD4TAkLlvP5D/UI1YEIvJwuL2AiZyOXoB8Jtq80iIBOHc
-         LkbrgugNYoORIC0mp7lTSOsmA8VyK5IjrIMWsImONsfT7QksyMydTAYhsoSynBBKgRfs
-         C+AxeImYYZOLvoG/a/q94VWJgEQpJkBfalcGwxwG5j28zRBozo+oLkYsb/Xri0s+irwT
-         JlGiDEH3nlrZeN0HSTcDICzaYnlxPBx3lW+qSdtT3dI5wJpWrlfB17Daiq36DHhmSwKC
-         2/uA==
+        bh=KWxJTOWQkri5jmv5ZKMT+tNuIWsfKgbRVKTEMtbqloY=;
+        b=KdCQxl3xZcTvwf/ge78doEjn+mHpzSrYGXSwfJo3ORUsvwJjXTg7UF94Jq1ZycwQnl
+         tbCQFYLs0jjul5E35FODm8eIe4FQwXW/cHtDp7r1agwWcpRu/SPQXfpXcr4BaUUt4y80
+         MrJo3kLtGHMobWTQiBA9z5n6gyhpMmGbWypdtyMhKxeX+XCK9oFG9wOFqyDCZiIl66b3
+         ate5kJOfg21qhWLWENosvZK2Wh0NzXBeeNHLQQvJjZdqZfgA8HRjqjg7bVKd6st5XUEd
+         HDKPa5+6VWJ965400bzTL4YaYGL52VMA0ss139/EUKryGu9pKB8gWK7xanP/fiJPYWaG
+         SK+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775132954; x=1775737754;
+        d=1e100.net; s=20251104; t=1775135281; x=1775740081;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vcXn6b67rRj+CqXQSR9AVzCdCSKAtKskjZ3iuSBT3lw=;
-        b=QVXNDh5tK9G7JfwsNfgsH92B0E/9HWwm9rZ8VGYh2hpmax1K+LPAg4P9UaHt82v3uH
-         d0PKohdyC7z9mts0moqHZC3jIs59SjE5186F1R5BHhF/fXXgqLWjRg9hyZBzHJsMB8Y2
-         UH7wm3BZdOCCdNzsqkFeZgtePlg4TxLTG7RzXsjpQB9JG1RKd37by6jAJ7ONivRuPs2D
-         ZfF/1E/rMqQGAEoXCqAF4tfKzBwEf+fRZj+UhG6AaG37oV9xYhtvu2/tlc1xZ8/IYh9q
-         yMiYHl6+BWkYabQAJYGXSmtiEAS/0SexFWJoS0s7lQViAjg2MoRNhEe7Yy+jvtu7knpv
-         GzDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWqJfCewZspAjD4jNgB0C+vG525GsPXmX87hwAsEtwFytW7SvBqzh19wyZkwKLJKq+IGzxvK6Lqt4FMlw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0i3Y/QsgfsuhZZrns+WVZ5Bxo3GUNKo1UV/toHk5i2KEcFcFT
-	uLmppGc9apoOSSEHsL+IsZcDDIRm7d3ck2DmZ8MumJnydnjg7vtAo4G9
-X-Gm-Gg: ATEYQzwNB/qJptVL+XXcobQMiAS5/K6pCT5uLW5f/R7MVv/SICSm/I1t4aIF9KhVVxm
-	2Ht0cLOpJmcoU4F34kbDlYJIC0/QXrCH22coM2qliMRBsiVLERSVYTTzTLMhesj6y3vGlf/tyZF
-	+r58DQrbfOfacV1Zeg6Qfb4iK+Dfeaf4u70u5BG/YADaW2prw7bSN125WdkFG4H+gQ5hESVrlfh
-	DLzUID+rtrmJdVIfnXL09hbsz+aXsEBAwkLpFcfeR0xru+cQIOcW+u6X1frodJKq4FDNPgoYgdV
-	g26kK/1vBeaZaUuGdN5Yjmqn7fuqgkJtI5vRupPZiwVHxED9ndYY7R7XUB09b7YaIdrjX58b+vV
-	I1XznrWpvoQA75kvWtBjNKAD47CBh/M3U2MGBRxZ7CWnlZUTAonAT3LCG009SPx1X/7snm702/7
-	hR76WEGfhCnSuVRwb2VKC10hQlJDQ+Ein8tuYGx2FF2VxtXRK4WrRjS1q4
-X-Received: by 2002:a05:620a:4802:b0:8cd:b38d:be7a with SMTP id af79cd13be357-8d1b5aac3a6mr1091790485a.4.1775132953851;
-        Thu, 02 Apr 2026 05:29:13 -0700 (PDT)
-Received: from sleek (d-23-244-200-70.nh.cpe.atlanticbb.net. [23.244.200.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8d2a8647b4esm202845285a.32.2026.04.02.05.29.12
+        bh=KWxJTOWQkri5jmv5ZKMT+tNuIWsfKgbRVKTEMtbqloY=;
+        b=q+fFFsx2vaKul7INuCNZqKZ6nuuWfCTcIuV/1Tn1e4JVZoAOrlyRLfYlBO3GrSWcOc
+         Iq6rXFkZa/YklE2p2s0f7XH8JLxqH5w1JyEgfdKQi/+rvM08ZCZjAvvTSZ87Cv3DFaij
+         Mg7Phkw8fwuJqlpKjOjaPVS2LtJZAwvccudjFg6N3BwLVdtVgGx3nvr7XOgiPwUEh1PT
+         TUmzKakFCm9SQNNBxUwZvJrdH9aciBmw+LO6SudxSGlZfuMFP+PnKabATLjSVlFndH+1
+         g4tYWlWXRZmBuV2lDgHGJfJKHdF+1HI4wQkJnzJ9zr8Ym3Mjtrmus2xvTl0A4DXODkV8
+         EtZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWuCOUIBNkhjFdZsYiiPTKbAOiI1ECt3NpPzhOl8CKxBXbMbIh8ft0HwlLVlgvVS1+j9lGSzO1G0djDIg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhawFz6UETVxRV4Fh9KRM0kO0ueQksaEXH5kyRgd8ADL3uDc2w
+	PNzUbAZcYl/gYS5hd8KcYw1MTIBbeXWQ8FCJGJNICnBL+bnBN3YhnVs5
+X-Gm-Gg: AeBDiesMjqNSb7mVFz3GWLmtc2TYe87BRVp60Xm73+F+6vfeMvlVncoxVRg+SyYarFd
+	cEzH70AkyghQKnILFV7DWtLTabGdIhO3xuuHF6Zuh+PeXLuC6PaZBTtLb29ZSluSbxpvOauXBqO
+	7XM5KvihE7QM2mxh/2jcWEm/6Rc1h/DyqiceMrB1gi4Fsn4VyqWwPpnizQ4c19TznU8b6/Szvoe
+	gCk98E74HpW/Mib24zUaFbMZr5I6w5sF+uQ+ap1bY6h8hVrwLVYyml4ANYe3cnVsxen9b2xr0OP
+	sg95q5ppftQy9PfXv04j1xozkvvsPGzX+s1sUaJTj2yCM4j+z37Eexhiw+Tl/kqdcQtOzlu2aIr
+	QqgbL6qC+foSwpfyEAr/usODYQ0jtqm3fq+BRkHv2UL4DjZKN44onchLEon4OofMQkTJcdzBLdK
+	CKs7YyeYEKkBaGOZ64WFW7DNqrK2U=
+X-Received: by 2002:a17:90b:4d81:b0:35d:a412:3c79 with SMTP id 98e67ed59e1d1-35dc7079cb6mr6805318a91.30.1775135280985;
+        Thu, 02 Apr 2026 06:08:00 -0700 (PDT)
+Received: from fedora ([209.132.188.88])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe41b11fsm7822915a91.0.2026.04.02.06.07.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Apr 2026 05:29:13 -0700 (PDT)
-Date: Thu, 2 Apr 2026 08:29:10 -0400
-From: Joshua Milas <josh.milas@gmail.com>
-To: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Cc: tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, pjw@kernel.org, samuel.holland@sifive.com,
-	unicorn_wang@outlook.com, inochiama@gmail.com,
-	daniel.lezcano@linaro.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, liujingqi@lanxincomputing.com,
-	alexander.sverdlin@gmail.com, rabenda.cn@gmail.com, dlan@kernel.org,
-	chao.wei@sophgo.com, anup@brainfault.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
-	hanguidong02@gmail.com
-Subject: Re: [PATCH v4 0/5] Add initial Milk-V Duo S board support
-Message-ID: <ac5hFgLav_4oB2QA@sleek>
-References: <20260328173450.219664-1-josh.milas@gmail.com>
- <88400fa8-4545-49eb-af04-d82b94a89757@rootcommit.com>
+        Thu, 02 Apr 2026 06:08:00 -0700 (PDT)
+Date: Thu, 2 Apr 2026 13:07:45 +0000
+From: Hangbin Liu <liuhangbin@gmail.com>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>, Brian Cain <bcain@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-hexagon@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	Jakub Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH] cmpxchg: allow const-qualified old value in cmpxchg()
+Message-ID: <ac5qIUS5azbWAc9q@fedora>
+References: <20260402-cmpxchg-v1-1-4561e2c05d2c@gmail.com>
+ <20260402095747.6efbd456@pumpkin>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <88400fa8-4545-49eb-af04-d82b94a89757@rootcommit.com>
+In-Reply-To: <20260402095747.6efbd456@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_132916_769602_7F230C94 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260402_140803_794889_736127FF 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,26 +139,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+On Thu, Apr 02, 2026 at 09:57:47AM +0100, David Laight wrote:
+> > diff --git a/arch/alpha/include/asm/cmpxchg.h b/arch/alpha/include/asm/cmpxchg.h
+> > index ae1b96479d0c..b4b8dac759c4 100644
+> > --- a/arch/alpha/include/asm/cmpxchg.h
+> > +++ b/arch/alpha/include/asm/cmpxchg.h
+> > @@ -234,7 +234,7 @@ ____cmpxchg(volatile void *ptr, unsigned long old, unsigned long new,
+> >  
+> >  #define arch_cmpxchg_local(ptr, o, n)					\
+> >  ({									\
+> > -	__typeof__(*(ptr)) _o_ = (o);					\
+> > +	__typeof__(*(ptr)) _o_ = (__typeof__(*(ptr)))(o);		\
+> >  	__typeof__(*(ptr)) _n_ = (n);					\
+> >  	(__typeof__(*(ptr))) ____cmpxchg((ptr), (unsigned long)_o_,	\
+> >  					  (unsigned long)_n_,		\
+> 
+> That looks like it loses the check that 'o' has the same type as '*ptr'.
+> Maybe this works?
+> 	auto _o_ = 1 ? (o) : *(ptr);
+> 
+Oh, I didn't notice this. Thanks for the comment!
 
-Thanks for testing this. I am not seeing that issue on my arm64 or riscv side.
-I am able to add an IP and do anything I can think of on the arm64 side.
-
-[   96.618687] stmmaceth 4070000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
-[   96.633977] stmmaceth 4070000.ethernet eth0: PHY [mdio_mux-0.0:01] driver [Generic PHY] (irq=POLL)
-[   96.676436] dwmac1000: Master AXI performs any burst length
-[   96.702852] stmmaceth 4070000.ethernet eth0: No Safety Features support found
-[   96.748740] stmmaceth 4070000.ethernet eth0: IEEE 1588-2002 Timestamp supported
-[   96.772880] stmmaceth 4070000.ethernet eth0: configuring for phy/internal link mode
-[ 1359.377528] stmmaceth 4070000.ethernet eth0: Link is Up - 100Mbps/Full - flow control off
-
-I can do the same on the riscv side but get a unhandled signal for TLS traffic
-which I believe is unrelated as it doesn't happen on adding an IP.
-
-I'll send over my configs to see if that helps.
-
-Have a great day,
-- Joshua Milas
+Best Regards
+Hangbin
 
 _______________________________________________
 linux-riscv mailing list
