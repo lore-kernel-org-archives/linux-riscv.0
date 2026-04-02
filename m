@@ -4,74 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E62D6AAF7
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 18:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52613D6AAEC
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 18:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:From:To:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B8+viuDXghFqdWRm9ee8LrOVcelE2WQxrRNlKxeqpIU=; b=uf7DGrwFlilfCp
-	ToFl+3GR/N5ArActHWDrfdRbbwD5c/5vAI51ssyWVRwvnP10KMqTdAxu27395bp64NLP2sxfT0FW0
-	8blKmuzXY8HPnhyHjPYQn0aMkpsW1XwxZIlh4cfC6kR7Qzh79Z6quk32F9xPWdZ+iRluaGhs5DcD3
-	Idj5kjgS+PaLqdcYOwc3ekq4E9OP/Sd4wOPcgxGYf3Olj7BDqOXYRxiqP1woZ6GNSr2rhH/WwzaB2
-	BU+mBV83iIWJp/V/QlF1w53eXs7LCLvYa/Bu6tTM3ecZesauVR5blGXeQT4s6edu5Y2aryvVtzlf1
-	GoUT2+OJnCUoZR6T7dkg==;
+	List-Owner; bh=sxhACTXGxhLZIINbwxWIk9GMoxFvW1FbKtTEmHn4lhQ=; b=LjFGgvGDr/MBMt
+	i3Xvv+qQB9T93+d07NtWRcq/hcsIsU+Xe3tql9DTZzjvj1ROgwlUfnWHlqBUynMDT2uALNVT/L4ad
+	yLbPgMVFYdnaP5sUMu7XsE3/XBTex83OWC7GIvyjNKpxyiIlq54aHUlkeAMeWRoeUZ7j2p+g4BObE
+	gDn8GFy+LSEpfLtECYKBXj9E4gFgJGzfPYuQOksagysTti7F0dagCna4l4bMp1Nglc7TdthEcBxPu
+	b0/GET5TS9l6/v4KR3GunKKfWTqPJhb4gdUyEowZjHdtknnRykzvzZUWfonfmMXipWJdD7IrsZeO9
+	+iKy3f5y14kWWux2ctlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8MVs-00000000dfJ-1OVo;
-	Thu, 02 Apr 2026 18:11:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8MVo-00000000deQ-0Vxq;
-	Thu, 02 Apr 2026 18:11:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 978AE1570;
-	Thu,  2 Apr 2026 11:11:16 -0700 (PDT)
-Received: from [10.57.75.194] (unknown [10.57.75.194])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0787B3F915;
-	Thu,  2 Apr 2026 11:11:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775153482; bh=lWwySeUuucnSqrRMaEssqv+qa77TPxUWW5jml+8ovZo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nI+zbstndSHKJ/mynYHRuC64m8Z4xHAi45TXEjGH5rMJxTMtKiuXxjyjbxLarmMYn
-	 hXXkhX8l35nrPiZyzp+ZgYDe4uw+iI8Bv/L+f2xWNIa+OiQyxnU8y+avrnVGEPKVGX
-	 +wUG0AxZTOalhJkOHOlwae27JD/n0ccdlbnChrhg=
-Message-ID: <ec51ef14-e360-43a6-ae62-44a939ec8027@arm.com>
-Date: Thu, 2 Apr 2026 19:11:13 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu: Always fill in gather when unmapping
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
- Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
- Janne Grunau <j@jannau.net>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Joerg Roedel <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Matthias Brugger <matthias.bgg@gmail.com>, Neal Gompa <neal@gompa.dev>,
- Orson Zhai <orsonzhai@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Sven Peter <sven@kernel.org>, virtualization@lists.linux.dev,
- Chen-Yu Tsai <wens@kernel.org>, Will Deacon <will@kernel.org>,
- Yong Wu <yong.wu@mediatek.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Lu Baolu <baolu.lu@linux.intel.com>,
- Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
- Joerg Roedel <joerg.roedel@amd.com>, Jon Hunter <jonathanh@nvidia.com>,
- patches@lists.linux.dev, Samiullah Khawaja <skhawaja@google.com>,
- stable@vger.kernel.org, Vasant Hegde <vasant.hegde@amd.com>
-References: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
- <ee2c2044-e329-4cdd-ac35-9365824d3677@arm.com>
- <20260401173650.GD310919@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260401173650.GD310919@nvidia.com>
+	id 1w8Me3-00000000eB4-1Jet;
+	Thu, 02 Apr 2026 18:19:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8Me0-00000000eAI-2r1M
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 Apr 2026 18:19:53 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 632G4SAP462602
+	for <linux-riscv@lists.infradead.org>; Thu, 2 Apr 2026 18:19:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	wiDkn4M6EeOZO6HfXfs1fLrNAiZ96hbYdrTrvNXFkyM=; b=dYc0L+M/7pKMzfsJ
+	Xxh2RKcWwrM1NMLt7U9a1q/qJ8EUI4G1em6m584wOhh2e5MRjqxDvWnj2rSW4YWA
+	pWMx3EtqUW7MWn+AlPactqXGo8LxbLsmeD4m5hpdoFqmZtKB5TvpfYyHHot7ABsK
+	y8pKqzeWw9pnnF8teo5Lfc+ltfck6i0+fN9YQJqbCrBFxGComSp9JzdU3G02GR01
+	zJ2Ff4dVxsGLydLlF78ZyMnLobclfcZf6NUCGL8k+nMkqP8gTPN0b5uOo5tuNfoU
+	GlBardYOabKU5XtR+g0ZF4G33Yji6oyFNaFovSOQYfnzFPXwYhYxAuHATSOD03k9
+	QtEboA==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9b9h4hru-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 18:19:51 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50b3544bc7bso16906491cf.2
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 11:19:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1775153991; x=1775758791; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:from:to:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wiDkn4M6EeOZO6HfXfs1fLrNAiZ96hbYdrTrvNXFkyM=;
+        b=BVSqRHDHyoUlTONJaMaGTHRhTgOLXmibibkHlvgd0cHsQSFa59nfc7TTI1s7njHpjY
+         F/XjmE260G/VP0/xPA9Nw5Yyen0XOMgIuWyK0/1NFTeg43wy27yPge40RJREENcCPesQ
+         wd/bLR7pGnyFun6aNRhbRUE6clsD88s2opBInXmIAC+fId/q34o26lOtIwRtv8YKigqO
+         q1eu1MjKGPEmPq3f1le15/naD6BLB40yQfbawMWXDVrCU+/3qRdoTx7mVn0Rkf808Jv8
+         ASIFYjuQoXpMnVRIXPV/pB3tDi+SkkImAqpqcIdqF//Dm+rOV4kbYDpYTQH8id/kACwD
+         WxmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775153991; x=1775758791;
+        h=in-reply-to:references:subject:from:to:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wiDkn4M6EeOZO6HfXfs1fLrNAiZ96hbYdrTrvNXFkyM=;
+        b=gOl69mZXGwJAjNAhUKtilzhnptkS54yogInjVdYPBAks/Id0w8Xec0aRbBkgsnuL/Z
+         aYZSuw74qPt5b2Gun7fJlp2gzqDy87HOu6+nJaUe/qDSQNTeQl5njX6KRsOxfopD3rTY
+         VcWaEwl+rYS3w31vV7wMTSU+aELFjSu3Tkpsge9WLOULOMzcweJXibLDsVVQUL7qv3Ms
+         hzbG0o/3C/P9J3B+1Et4Pg09jX7ZOhnHpCy1OlVUXDeXvPxcUC7CH0TMWAxL0XtUCcwV
+         MTl2wesVk7TQfIW212BUukRcOJpzLzf5qd5cu4XKJ/1DJj4Sgw4Xe0tyHPNnl7OxNAKj
+         6Szw==
+X-Forwarded-Encrypted: i=1; AJvYcCXK0yoiGRnbl8qwtQytiitNDG0od3n9prwqylPiSceCo9ixOOqdFEsMol6qfcJvkuO7GkuSmRjltr9HmQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIdpWp2KhMo41FKnrjzZ427IbOn2X2TVX90P+OFA+scRsvDK0K
+	aN/CV/T3erCe3s0MOWhLfeXoHVJnk959U/+O72FTOWJOSlHwfCvQz/C4cbB2txUlDrl10EcGapl
+	DzVPh1DQyvuBv8S3qhDCvoMqP2BikSS+FJbt/K3MtaFvbnopLvpZjrQhPIy+A980zicIiixg=
+X-Gm-Gg: ATEYQzz8eX+O/7NKz7IhAWCmApIqQxr1CM2DR9IQ6u1XBz7YjsUQDL//uzSXvA8sgKk
+	L3jL/TJO5g1jv5K8a5xReZnTXiiPP5g9HRVzEm8WMUB9XnjrmWDUcy+XY4vlnJzgyHnG0ta1Lrl
+	n/zsTykVZjLNctgN6sUDN6z5WjI/Jeft+KhVB3Dn8ZjqguTfE2i4V9z/L6d3H7JXxpwhLYDSCHN
+	kFv123ERd+r4KD/5WutMOe2+D9sy/fZ1BI1bUzZxyPu4xJko8wivKFIEEPNVOywHV+yRX9vudAk
+	l7hcqL1BWNzOmMGk50e8hfe+Q0G/tmazd0eNdP2lZWdiM9ZU2f5Rgyzv+ZxEQ93nmAaoid3XjfX
+	6FArAox8RErOCLkEZkMyKEs03IhX0Hb2O4ylBX4XFIq3GDr+RVdlaIzYB3pyo
+X-Received: by 2002:a05:622a:aa12:20b0:50d:4199:8c88 with SMTP id d75a77b69052e-50d62772bddmr5001901cf.1.1775153990877;
+        Thu, 02 Apr 2026 11:19:50 -0700 (PDT)
+X-Received: by 2002:a05:622a:aa12:20b0:50d:4199:8c88 with SMTP id d75a77b69052e-50d62772bddmr5001461cf.1.1775153990314;
+        Thu, 02 Apr 2026 11:19:50 -0700 (PDT)
+Received: from localhost (ip-86-49-249-15.bb.vodafone.cz. [86.49.249.15])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b9c3c971f03sm114386766b.7.2026.04.02.11.19.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Apr 2026 11:19:49 -0700 (PDT)
+Mime-Version: 1.0
+Date: Thu, 02 Apr 2026 20:19:48 +0200
+Message-Id: <DHIVKK81LLM2.3VTYW1UXM6USQ@oss.qualcomm.com>
+Cc: <guoren@kernel.org>, <andrew.jones@oss.qualcomm.com>,
+        <linux-doc@vger.kernel.org>, <kvm@vger.kernel.org>,
+        <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+To: <fangyu.yu@linux.alibaba.com>, <pbonzini@redhat.com>, <corbet@lwn.net>,
+        <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+        <skhan@linuxfoundation.org>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?=
+ <radim.krcmar@oss.qualcomm.com>
+Subject: Re: [PATCH v7 3/4] RISC-V: KVM: Detect and expose supported HGATP
+ G-stage modes
+References: <20260402132303.6252-1-fangyu.yu@linux.alibaba.com>
+ <20260402132303.6252-4-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20260402132303.6252-4-fangyu.yu@linux.alibaba.com>
+X-Authority-Analysis: v=2.4 cv=TqLrRTXh c=1 sm=1 tr=0 ts=69ceb347 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=fuErIE+P63Icv3tqjtEZBw==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=M51BFTxLslgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=SRrdq9N9AAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=qHmfJlKEtTjsIq712WoA:9
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-ORIG-GUID: YuPrpLKni2FkxughX5BrR4_ngnx1qfwE
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDE2NCBTYWx0ZWRfX0w/JyyQC/zSh
+ mzQ6pF0lrir42SxK3TLdaqVGys4TLDmlvtVnQqcISsEuP1vTtEbhYlOy+hZuc2XlQDH3oT2Nq0P
+ oqycHyuGad/h6sGFlqc6Cp5nhuEyrHqiCzyQXgYKuErWj/TDJQkRsajM/+TVE9Xt0EF9Nic2++B
+ o5ziMQrC0jYvEgJxSRmCzqRR3IK9zRnMGwETALdvWu44aA54TBixWTH1Soexz4iMpXWfRSDL9L7
+ i20ut/wq4UJVfeU7Hikc6r+42aqf8GGvHeuAk/sRYxh0wluKsXjSfQEiV6E2k/p2ULrSyyiOZhx
+ EOPhDHHx/ElxZcZiVufoi56FWpVcHslDa9U5rT5pycT0rYjs4dZ7r0Vjn8hQKbiQAfrFYmArI0+
+ kc3oZ4u6kN+h0Z8VMHjKC1vXV3Bct9JRlkTBCUTu3IB422bai5x2S3lMN4GI9pMoTZ6SHNItfHt
+ yXlb9d3O1tRyfw2Cc+w==
+X-Proofpoint-GUID: YuPrpLKni2FkxughX5BrR4_ngnx1qfwE
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-02_03,2026-04-02_05,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 suspectscore=0 priorityscore=1501
+ clxscore=1015 malwarescore=0 spamscore=0 adultscore=0 phishscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2604020164
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_111124_351539_43368D3B 
-X-CRM114-Status: GOOD (  30.47  )
+X-CRM114-CacheID: sfid-20260402_111952_748927_18128F53 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,111 +145,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-01 6:36 pm, Jason Gunthorpe wrote:
-> On Wed, Apr 01, 2026 at 05:33:28PM +0100, Robin Murphy wrote:
->>> io-pgtable might have intended to allow the driver to choose between
->>> gather or immediate flush because it passed gather to
->>> ops->tlb_add_page(), however no driver does anything with it.
->>
->> Apart from arm-smmu-v3...
-> 
-> Bah, I did my research on the wrong tree and missed this.
-> 
->>> mtk uses io-pgtable-arm-v7s but added the range to the gather in the
->>> unmap callback. Move this into the io-pgtable-arm unmap itself. That
->>> will fix all the armv7 using drivers (arm-smmu, qcom_iommu,
->>> ipmmu-vmsa).
->>
->> io-pgtable-arm-v7s != io-pgtable-arm. You're *breaking* MTK (and failing
->> to fix the other v7s user, which is MSM).
-> 
-> I was very confused what you were talking about, but I see now that
-> the hunk adding iommu_iotlb_gather_add_range() to v7 got lost somehow!
-> 
-> @@ -596,6 +596,9 @@ static size_t __arm_v7s_unmap(struct arm_v7s_io_pgtable *data,
->   
->                  __arm_v7s_set_pte(ptep, 0, num_entries, &iop->cfg);
->   
-> +               if (!iommu_iotlb_gather_queued(gather))
-> +                       iommu_iotlb_gather_add_range(gather, iova, size);
-> +
->                  for (i = 0; i < num_entries; i++) {
->                          if (ARM_V7S_PTE_IS_TABLE(pte[i], lvl)) {
->                                  /* Also flush any partial walks */
-> 
->>> arm-smmu uses both ARM_V7S and ARM LPAE formats. The LPAE formats
->>> already have the gather population because SMMUv3 requires it, so it
->>> becomes consistent.
->>
->> Huh? arm-smmu-v3 invokes iommu_iotlb_gather_add_page() itself, because
->> arm-smmu-v3 uses gathers
-> 
-> Yeah, I missed this whole bit, it needs some changes.
-> 
->> Invoking add range before add_page will end up defeating the
->> iommu_iotlb_gather_is_disjoint() check and making SMMUv3
->> overinvalidate between disjoint ranges.
-> 
-> Right, that flow needs fixing.
-> 
->> I guess now I remember why we weren't validating gathers in core code
->> before :(
-> 
-> My point is not filling the gather is a micro-optimization that
-> benefits a few drivers. I think it is so small compared to an IOTLB
-> flush that it isn't worth worrying about.
+2026-04-02T21:23:02+08:00, <fangyu.yu@linux.alibaba.com>:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>
+> Extend kvm_riscv_gstage_mode_detect() to record HGATP.MODE values in a
+> bitmask. Keep tracking the maximum supported G-stage page table level
+> for existing internal users.
+>
+> Also provide lightweight helpers to retrieve the supported-mode bitmask
+> and validate a requested HGATP.MODE against it.
+>
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+> Reviewed-by: Guo Ren <guoren@kernel.org>
+> ---
+> diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
+> @@ -102,4 +103,14 @@ static inline void kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *
+> +static inline bool kvm_riscv_hgatp_mode_is_valid(unsigned long mode)
+> +{
+> +	return kvm_riscv_gstage_supported_mode_mask & BIT(mode);
 
-It's hardly a "micro-optimisation" for drivers to just not touch an 
-optional mechanism which offers no benefit to them, especially when in 
-many cases said mechanism is newer than the code that isn't using it 
-anyway. The only required semantic of .iotlb_sync is to ensure that any 
-previous .unmap_pages calls are complete and their associated 
-translations invalidated. The entire concept of gathering and deferred 
-invalidation is irrelevant to many IOMMU designs where it would only 
-stand to make overall invalidation performance worse.
+Shifting by more than the bit width is undefined behavior in C.
+RV64 effectively translates BIT(mode) to 1UL << (mode & 0x3f), so this
+could allow values larger than the mask.
 
-I'm starting to wish I'd been able to page all this context back in 
-before reviewing the first patch, as I too only really had Intel and 
-SMMUv3 in mind at the time... :(
-
-> So, I'd like to make everything the same and populate the gather
-> correctly in all flows. I'll fix the SMMUv3 thing and lets look again,
-> this patch is not so scary to make me think we shouldn't do that.
-> 
->> @@ -2714,6 +2714,10 @@ static size_t __iommu_unmap(struct iommu_domain *domain,
->>   		pr_debug("unmapped: iova 0x%lx size 0x%zx\n",
->>   			 iova, unmapped_page);
->> +		/* If the driver itself isn't using the gather, mark it used */
->> +		if (iotlb_gather->end <= iotlb_gather->start)
->> +			iommu_iotlb_gather_add_range(&iotlb_gather, iova, unmapped_page);
-> 
-> The gathers can be joined across unmaps and now we are inviting subtly
-> ill-formed gathers as only the first unmap will get included.
-
-Ill-formed? It's a perfectly valid range for the purposes of any 
-subsequent generic check - which couldn't realistically be anything 
-beyond empty vs. non-empty anyway - and it's only being set at all in 
-the case where we know the driver doesn't care, because if the driver 
-*was* going to look at gather->start or gather->end in its .iotlb_sync 
-then it must have already set them to meaningful values in the prior 
-successful .unmap_pages call. I think we can safely consider it invalid 
-for a driver to suddenly decide to start using a gather mid-way through 
-an unmap (or indeed to use start/end in any intentionally non-obvious 
-manner either).
-
-> We do have error cases where the gather is legitimately empty, and
-> this would squash that, it probably needs to check unmapped_page for 0
-> too, at least.
-
-Maybe try looking at the rest of the code around these lines...
-
-Thanks,
-Robin.
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
