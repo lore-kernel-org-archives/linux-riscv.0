@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8EA2111227A
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 03:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77AECC6B00
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 04:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XKrWTIgTYfDVOTpmsRi0QDcshEKvJMz4RjFghwJl6N4=; b=BTDMF2PV9l9fz2
-	7E7YhzaXQNsHvmga++LY2WbOQ8JdZOXcDc7ob6uI4xSsRsxNVLu0okgwKjB0256zMAax7w5HMPPiM
-	OTyoxX+PfwP+qjd+RAzxp/Aolt9+pbtiSNMFdNvIrNzyTICtyLHKtmLH21/GqmSuiPeyTMTAShVl7
-	4uQ0rocQbUDzaQ8BJTCJR/2GWe40GXmhqZHxqp73Th4tLX6q+g6FT4Sn4tbfPNBl+OHXMkk2276Y9
-	WGj9X1H4v5piH3zPGO5jlEk3mvYCBQN8mCUxLUqqafiojnSo3kntpzJMDySMsYadoOCjFKOKzP+2X
-	tiidcMm/nY6GtrlgGH0g==;
+	List-Owner; bh=Faqh/Z8/E/OSI2oaWpRVVrbcmni5acs83GqCHhj6q1Y=; b=uy/YjfBfi89Yih
+	l/hzNCleZJbcu+TXFDgW533AQhkrNZ/ftvM/Xiu5GO19SJSQQlSs6UVEpV3IsgfOiXsC/3a89iDYm
+	9YyPb9A9zLe20tXgJ3B3qniEjaU+SQthMfCr/JqAk6SxmNIWEUx8CG6QP5U0/50Ff4rWXwukfTnK4
+	ltTH0NeQD5TXDntgo1W14/5+QqwZvthV/vueqTK7yIQsTh2jmJdA15Y4nRq64S2SgS7tHpRQrgeH7
+	Ek/G7f0ZQKR821u2FCQLypnl5Aqngj0VqfzTlOOj5BB3f0QFsdIr05vi3H+sBC9R23kcW4LNnCFEq
+	WuZlVRi7vfrTqIZ2vyhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w88lG-0000000GfNC-1jlP;
-	Thu, 02 Apr 2026 03:30:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w88lE-0000000GfMd-25sG
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 03:30:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C415842AF4;
-	Thu,  2 Apr 2026 03:30:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E770C4CEF7;
-	Thu,  2 Apr 2026 03:30:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775100622;
-	bh=9fgfxHGvBZIq07MRUZR8GJsU2l1aH5ay0pKgQs/ybow=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Ezlf/nFNW1xBkwlS/tOKV8648orliI9baU+us/DOBiraA7RNIkmlRYnGWp0wFEKA6
-	 jZ0SbMDwGJSHTeKODFwjR7a51tTwFVgbxOt/+Jas7rOHZaWCzq3FoULLipBJWXRFhc
-	 hOrMOTCEVuIIRbFSXmpUKQwYdugXzmW/kti0L3Ec5Uq4XUx1g4V9u9O8edDR/h9D4F
-	 ChMBxsn2brac/6lmbw4rdoOPkiazJDgILs5L2JNEDdHUufGHOMlBxhiWz2ny3cd4Ev
-	 pFaECSDjb45k6B119UGa07ATSRy6bID3IZH8t5YEKl3ZqkkMyfff3Fbl68UqxwMb5f
-	 hLpoMOTLbBBrw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CE193808203;
-	Thu,  2 Apr 2026 03:30:06 +0000 (UTC)
+	id 1w89FQ-0000000GhUG-1dd4;
+	Thu, 02 Apr 2026 04:01:36 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w89FM-0000000GhTM-44i3;
+	Thu, 02 Apr 2026 04:01:34 +0000
+Received: from [10.95.66.83] (unknown [167.220.238.19])
+	by linux.microsoft.com (Postfix) with ESMTPSA id A6ED220B710C;
+	Wed,  1 Apr 2026 21:01:24 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A6ED220B710C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1775102490;
+	bh=T6sBwsFb445Pp7249L79ufDRpJqZshHczUisxFI3JEo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eAnUARNlHoU7VXFylRE5DLFJrHd/bTFZfsva8Frd/0OaQNP+H5HBfDGUsKXcWK4j9
+	 DCORtz3WkyAFjVZSBnLcBSqP1locZaGVeOkTYl3BxmW0xAd4W4kkTI8UTh5/aLonrY
+	 7Rk51EmzcAbubl0WKZf4Ni57dSE1fX82drzW4uFo=
+Message-ID: <b093e70f-1ee2-4ba1-a934-581326a7abe8@linux.microsoft.com>
+Date: Thu, 2 Apr 2026 09:31:21 +0530
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v2] net: macb: fix use of at91_default_usrio
- without
- CONFIG_OF
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177510060529.3975901.11122963939632572331.git-patchwork-notify@kernel.org>
-Date: Thu, 02 Apr 2026 03:30:05 +0000
-References: <20260331-enroll-sensation-50901318a419@spud>
-In-Reply-To: <20260331-enroll-sensation-50901318a419@spud>
-To: Conor Dooley <conor@kernel.org>
-Cc: netdev@vger.kernel.org, conor.dooley@microchip.com, lkp@intel.com,
- jiawenwu@trustnetic.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/11] Drivers: hv: Add ARM64 support in mshv_vtl
+To: Michael Kelley <mhklinux@outlook.com>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <20260316121241.910764-1-namjain@linux.microsoft.com>
+ <SN6PR02MB4157DFC7B7CE94500C89664BD441A@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <a8f856a0-49a8-4041-9036-4e9ade79532b@linux.microsoft.com>
+ <SN6PR02MB4157E4E088F39106979BE4EDD450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157E4E088F39106979BE4EDD450A@SN6PR02MB4157.namprd02.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_203024_562547_A87F7969 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_210133_046944_C814BCBE 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +84,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 31 Mar 2026 14:10:21 +0100 you wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On 4/1/2026 10:24 PM, Michael Kelley wrote:
+> From: Naman Jain <namjain@linux.microsoft.com> Sent: Tuesday, March 17, 2026 9:23 PM
+>>
+>> On 3/18/2026 3:33 AM, Michael Kelley wrote:
+>>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
+>>>>
+>>>> The series intends to add support for ARM64 to mshv_vtl driver.
 > 
-> If CONFIG_OF is not enabled, at91_default_usrio is used undeclared in
-> gem_default_config. Move at91_default_usrio back above the CONFIG_OF
-> section where macb_default_usrio used to be, so that it is unconditionally
-> defined and defined prior to any of the users.
+> No need to be tentative. :-)  Just write as:
 > 
-> [...]
+> "The series adds support for ARM64 to the mshv_vtl driver."
+> 
+>>>> For this, common Hyper-V code is refactored, necessary support is added,
+>>>> mshv_vtl_main.c is refactored and then finally support is added in
+>>>> Kconfig.
+>>>>
+>>>> Based on commit 1f318b96cc84 ("Linux 7.0-rc3")
+>>>
+>>> There's now an online LLM-based tool that is automatically reviewing
+>>> kernel patches. For this patch set, the results are here:
+>>>
+>>> https://sashiko.dev/#/patchset/20260316121241.910764-1-namjain%40linux.microsoft.com
+>>>
+>>> It has flagged several things that are worth checking, but I haven't
+>>> reviewed them to see if they are actually valid.
+>>>
+>>> FWIW, the announcement about sashiko.dev is here:
+>>>
+>>> https://lore.kernel.org/lkml/7ia4o6kmpj5s.fsf@castle.c.googlers.com/
+>>>
+>>> Michael
+>>
+>>
+>> Thanks for sharing Michael,
+>> I'll check it out and do the needful.
+>>
+> 
+> I've done a full review of this patch set and provided comments in the
+> individual patches. Some of my comments reference the Sashiko AI
+> comments, but there are still some Sashiko AI comments to consider
+> that I haven't referenced.
+> 
+> FWIW, the Sashiko AI comments are quite good -- it found some things
+> here that I missed on my own, and in my earlier reviews of the original VTL
+> code. :-(
+> 
+> Michael
 
-Here is the summary with links:
-  - [net-next,v2] net: macb: fix use of at91_default_usrio without CONFIG_OF
-    https://git.kernel.org/netdev/net-next/c/cee10a01e286
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Thank you so much Michael for reviewing these. I was also trying to 
+address review comments from Sashiko, and noticed some of them were 
+false positives in the sense that these were existing issues and not 
+introduced by arm64 changes. I thought of keeping them separate from the 
+scope of this series for future.
 
+I'll review your comments and address them.
 
+Regards,
+Naman
 
 _______________________________________________
 linux-riscv mailing list
