@@ -4,101 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1D4D6AB10
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 21:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB504D6AB16
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 21:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Mmra3jseIqoIpxC/gouxjRnjOs0136gwizn1daxgAlE=; b=bpb3FzPb6bjzb7uqYG86qOPu0g
-	yFuGYTEcTIMdRZIPMg9kkyegm+XCkswvR0yJPN/y+6p5+m1J7eRV9ObPFEc0VlYxfS09NRlgJhOTj
-	MlRTN9yAdKFy27Rb2+52A6P1pBneNJuuhd2Zo5584S0NFBIqEBnSIUKMnI8DgMtB0iRBT7HnOFz6l
-	sTdDGgqiSIbUlN2lQXl26c2MkIwodB52+8gM1j9nZI9iWcR2NcLuICHfyg+QNEJy/s0qmFWH4Iaoe
-	2aQ2MJpUTdkEVuZkfZZdQPCymtTUvca4f4u7Jc04eLgZ8tqFpKLikX4xjzrHs7MLUJ6zGn2NoJCW6
-	RjmJoIwg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fhuQTgohgCxs33MLAsswAJ9cNVS7yS7Le7qTauFI6wk=; b=ihZCG30s00gdki
+	qgeI53XhgijqCklgEh/sKiGBGWcj/jc2Lk4lSqWwsV01Lt186amKkOXKTAhDmv3uT/hdZI3zKdpSq
+	/2HaQCIQ0ib0TT3jiM62HPPmPzTKV4PzfdbdCeTY3LHh+9ZLTGCZOJD3tTDSsUQhyN9hysxLPcNpd
+	UA7i+DaheOnA11VM6VhXWrtdMaL9zLtsD6vhxvGcG91KyMu0beFvbAfpdeg0bEur08RRkuy3b4Cyw
+	YghIIEsOJIzVm0VVAHIUwFZvb5cjEVYf+i3J5jDz92brYuKq4P2g7YQB2lLe0G1tiQaJ0SRplC7UJ
+	QA1klrUKFwhB/7/c3OnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Pph-00000000pBw-0LrN;
-	Thu, 02 Apr 2026 21:44:09 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1w8PwQ-00000000pXf-16oD;
+	Thu, 02 Apr 2026 21:51:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Ppe-00000000pBd-1JMM
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 21:44:07 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 420E77A017D;
-	Thu,  2 Apr 2026 17:44:04 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 02 Apr 2026 17:44:04 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1775166244;
-	 x=1775252644; bh=OYQnpeSzoHqE/ynjfzXJ1D5WN7qoO0KuXUY/6t2eV9s=; b=
-	DMmqEN9LJwU6m6OMVajvyXqoA3+xsORQyUIMf1jEF/XgxjoQr7xmV6LsP55wzMKg
-	yiqXSJ7yC/jbS0IHzxcCr5fJbaJZcam0P7E5sdGhwDwAoRlN8BLIBTzYX0XgX18P
-	8Z7bYLwV0pPOSuCy9z+IeNGMbrNvHXNsMEtDw09lI7m0bwCCZQeNcSTQjCBVKK2g
-	i3QOW9ic1D7DzWIpTQ0L1mV/AabBdnm3+QCv13iIjie04U1NaCNZvQGhRlzL8Jhk
-	0Nrt86Q/eE5Q5B8ypHpPVpoOxqShkupPqWv2k9vAsElj2JViUCuaylDjaSZS8ywz
-	CKkzM9hqu43O2rji/P2Bgw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1775166244; x=
-	1775252644; bh=OYQnpeSzoHqE/ynjfzXJ1D5WN7qoO0KuXUY/6t2eV9s=; b=F
-	rOjsqKrBxfhkRT7+s77dBlRZ16gLlgO5KU83UuqcB14SPqMewIhADV5z13LAQT+e
-	olwj9uiLpJW8Txll/Mx3j2zHOWhMWegsM2tly2syVOJtC4t3K0DvvLQkxlyK0J4B
-	STu1xvsq7Ya+pMrAJhQFmWSr3dufd3kOUPVXNKYQFpPJyRTiWPdqLxBCAxcjmGHI
-	Ou6iu/cuNhRA5hrz7acIwZtPxTbaOb8aNSdtA8aLiNuPN0OxKnMoTNNJCtyeGlfj
-	JeOo2Qkb0oFj/flIuOO4tBwQyiLk3tphh+xmOPxna/79bPi1GOKM3L98/7jR5X91
-	7UHLXXVKIVFiCxiob0dlg==
-X-ME-Sender: <xms:I-POabSNu7d0vgRDjY5BYmF2CVb2Jwy5PaBcpLObJ8Z2j7fU_MZVkQ>
-    <xme:I-POaXnhqVHgwuD_8hQdcLueuP99dG_5gVy9rufuttHh4jWn4RE4KdkoUysEJBphK
-    Db8aYsmI3Lg0rHWXu1G51wz-mtmUS28w4MWjHDdSF6EnXO4uY0v4lB6>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdejudegucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    ephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdeinecu
-    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
-    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepiedpmhhouggvpehsmhhtphhouhhtpdhr
-    tghpthhtohepihhnohgthhhirghmrgesghhmrghilhdrtghomhdprhgtphhtthhopegtoh
-    hnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhotgeskhgvrhhnvghl
-    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrg
-    guvggrugdrohhrghdprhgtphhtthhopehsohhphhhgoheslhhishhtshdrlhhinhhugidr
-    uggvvhdprhgtphhtthhopehunhhitghorhhnpgifrghnghesohhuthhlohhokhdrtghomh
-X-ME-Proxy: <xmx:I-POabT2NWajPAxYA0xneUgLH1zNW2z1dwNxUIAwfxHpIRoRGz5xTw>
-    <xmx:I-POaXvhvxUoERQJMG5qRDvr_UnpPaxPORkuhtxeCFYNtzGuRRmuaQ>
-    <xmx:I-POaf35szzbGLpLGzavim2sRFYZwO1afPzc-_FjJuK_IjtJLtOgXg>
-    <xmx:I-POaQXDRGXbjEGsqk-uJkQDraDsX7vu68GkcbZx5FF4Sn6TNfId2Q>
-    <xmx:JOPOaS0CBzvUmAUN_voBkRA9zXVJ9Amt5SNQH-kmmbvCAXokWzD_Wxo1>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B3EE7700065; Thu,  2 Apr 2026 17:44:03 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w8PwO-00000000pXO-1dOs;
+	Thu, 02 Apr 2026 21:51:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B02160121;
+	Thu,  2 Apr 2026 21:51:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81CFAC116C6;
+	Thu,  2 Apr 2026 21:50:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775166660;
+	bh=+iWo8G+lGLAR0AEWKadkwlt32LjzfIOHKPITuBCakWs=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=uh7N/3FRUjqua+aPCo/hGr/AdrmusEl1H/a3Cy2K3ax/7zWAaowq7QLQao9luVbWo
+	 hhp+ELOy56vNZgWo/30UXJ+R+KNwAUX+g9t5upzBm19UO38qCmclRomH9W9JilFn3g
+	 1M3od6tckFksVcXsO4otmEq7oBs2ncVax1WS/48Gk7Y/jRGn5aI6Ty0S32Qrtb3v+N
+	 FCfqxPCfuHXXK+tb8kOeAkmUobWREiK7V0IqzM0OnWy9oCVbOYxajs4XGYlWHY2x7t
+	 AkBA5ON0TiTxqW6AtiPnUW+DWm5PHRBPUIiBBcwzXpeViYkdJ68cXcODxvoTFEl/DM
+	 YZIYLd1IONOQA==
+Date: Thu, 2 Apr 2026 15:50:54 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
+cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+    Mikko Rapeli <mikko.rapeli@linaro.org>, 
+    Richard Henderson <richard.henderson@linaro.org>, 
+    Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+    Russell King <linux@armlinux.org.uk>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+    Andreas Kemnade <andreas@kemnade.info>, 
+    Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
+    Tony Lindgren <tony@atomide.com>, Huacai Chen <chenhuacai@kernel.org>, 
+    WANG Xuerui <kernel@xen0n.name>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Madhavan Srinivasan <maddy@linux.ibm.com>, 
+    Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+    "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+    Alexander Gordeev <agordeev@linux.ibm.com>, 
+    Christian Borntraeger <borntraeger@linux.ibm.com>, 
+    Sven Schnelle <svens@linux.ibm.com>, 
+    Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+    Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+    x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+    Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+    Clark Williams <clrkwllms@kernel.org>, 
+    Steven Rostedt <rostedt@goodmis.org>, 
+    Pablo Neira Ayuso <pablo@netfilter.org>, 
+    Krzysztof Kozlowski <krzk@kernel.org>, 
+    Alim Akhtar <alim.akhtar@samsung.com>, Frank Li <Frank.Li@nxp.com>, 
+    Sascha Hauer <s.hauer@pengutronix.de>, 
+    Pengutronix Kernel Team <kernel@pengutronix.de>, 
+    Fabio Estevam <festevam@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>, 
+    Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+    Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+    Geert Uytterhoeven <geert+renesas@glider.be>, 
+    Magnus Damm <magnus.damm@gmail.com>, 
+    Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+    Gregory CLEMENT <gregory.clement@bootlin.com>, 
+    =?ISO-8859-15?Q?Th=E9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+    "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+    Helge Deller <deller@gmx.de>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
+    =?ISO-8859-15?Q?Jonathan_Neusch=E4fer?= <j.neuschaefer@gmx.net>, 
+    Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+    Thomas Zimmermann <tzimmermann@suse.de>, Arnd Bergmann <arnd@arndb.de>, 
+    Heiko Stuebner <heiko@sntech.de>, 
+    Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+    Mark Brown <broonie@kernel.org>, Eric Biggers <ebiggers@kernel.org>, 
+    Ard Biesheuvel <ardb@kernel.org>, 
+    Sricharan Ramabadhran <quic_srichara@quicinc.com>, 
+    Bjorn Andersson <andersson@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+    Guenter Roeck <linux@roeck-us.net>, 
+    Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>, 
+    "Rob Herring (Arm)" <robh@kernel.org>, 
+    Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    Anna Schumaker <anna.schumaker@oracle.com>, 
+    Alexandre Gonzalo <alexandre.gonzalo@arm.com>, 
+    linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-omap@vger.kernel.org, loongarch@lists.linux.dev, 
+    linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+    linux-sh@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
+    linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
+    linux-renesas-soc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+    openbmc@lists.ozlabs.org
+Subject: Re: [PATCH 2/9] configs: remove orphan dependencies of
+ NETFILTER_XTABLES_LEGACY
+In-Reply-To: <20260317-arm_defconf_cleanup-v1-2-8eecb7fdd24d@kernel.org>
+Message-ID: <576cec38-a5e4-5391-2a57-b164e84a813f@kernel.org>
+References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org> <20260317-arm_defconf_cleanup-v1-2-8eecb7fdd24d@kernel.org>
 MIME-Version: 1.0
-X-ThreadId: AaZlO9rjbYwJ
-Date: Thu, 02 Apr 2026 23:43:43 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Chen Wang" <unicorn_wang@outlook.com>, soc@kernel.org
-Cc: "Conor Dooley" <conor+dt@kernel.org>,
- "Inochi Amaoto" <inochiama@gmail.com>,
- "sophgo@lists.linux.dev" <sophgo@lists.linux.dev>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Message-Id: <f99471c2-4b7e-4475-af71-5c0ac4c92809@app.fastmail.com>
-In-Reply-To: <MA5PR01MB1250079A8884D4F6245B955B9FE51A@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
-References: <MA5PR01MB1250079A8884D4F6245B955B9FE51A@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
-Subject: Re: [GIT PULL] RISC-V Sophgo Devicetrees for v7.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_144406_713566_6D2D830E 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,29 +134,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 2, 2026, at 04:39, Chen Wang wrote:
-> For CV18xx serials:
-> Just a minor patch to replace the compatible for
-> dma-controller to allow setting DMA channel number.
-> New bindings and driver part change are picked by
-> DMA subsytem and this patch handles the left dts
-> part change.
->
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
->
-> ----------------------------------------------------------------
-> Inochi Amaoto (1):
->        riscv: dts: sophgo: cv180x: Allow the DMA multiplexer to set 
-> channel number for DMA controller
+On Tue, 17 Mar 2026, Vincent Mailhol (Arm) wrote:
 
-Doesn't this change break backwards compatibility with
-all existing kernels?
+> Since its introduction in commit 9fce66583f06 ("netfilter: Exclude
+> LEGACY TABLES on PREEMPT_RT."), the configurations below all depend,
+> either directly or indirectly, on CONFIG_NETFILTER_XTABLES_LEGACY:
+> 
+>   - CONFIG_NETFILTER_XT_TARGET_CHECKSUM
+>   - CONFIG_IP_NF_FILTER
+>   - CONFIG_IP_NF_TARGET_REJECT
+>   - CONFIG_IP_NF_NAT
+>   - CONFIG_IP_NF_TARGET_MASQUERADE
+>   - CONFIG_IP_NF_MANGLE
+>   - CONFIG_IP6_NF_FILTER
+>   - CONFIG_IP6_NF_TARGET_REJECT
+>   - CONFIG_IP6_NF_MANGLE
+>   - CONFIG_IP6_NF_NAT
+>   - CONFIG_IP6_NF_TARGET_MASQUERADE
+> 
+> This new dependency caused many symbols to become orphaned, meaning
+> their dependencies are no longer satisfied and Kconfig drops them from
+> the final configuration.
+> 
+> Note that CONFIG_NFT_COMPAT is another parent dependency, so the
+> above-listed symbols would not become orphaned as long as NFT_COMPAT
+> is present.
+> 
+> Considering that these are legacy options and that nobody complained
+> in recent kernel releases when these options were already missing, it
+> is safe to assume they can be removed.
+> 
+> Suppress all these configuration symbols in all the defconfig files
+> that have neither CONFIG_NETFILTER_XTABLES_LEGACY nor
+> CONFIG_NFT_COMPAT set.
+> 
+> FYI, the suppressions were done using:
+> 
+>   git grep -z -L -E '^CONFIG_(NETFILTER_XTABLES_LEGACY|NFT_COMPAT)=(y|m)$' -- 'arch/*/configs/*defconfig' |\
+>     xargs -0 sed -i -E '/^CONFIG_(NETFILTER_XT_TARGET_CHECKSUM|IP_NF_FILTER|IP_NF_TARGET_REJECT|IP_NF_NAT|IP_NF_TARGET_MASQUERADE|IP_NF_MANGLE|IP6_NF_FILTER|IP6_NF_TARGET_REJECT|IP6_NF_MANGLE|IP6_NF_NAT|IP6_NF_TARGET_MASQUERADE)=(y|m)$/d'
+> 
+> Fixes: 9fce66583f06 ("netfilter: Exclude LEGACY TABLES on PREEMPT_RT.")
+> Signed-off-by: Vincent Mailhol (Arm) <mailhol@kernel.org>
 
-I did not take this one for now, need clarification, or
-a new patch that keeps the old compatible string along
-with the new one, if that is possible.
+Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
 
-       Arnd
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
