@@ -4,168 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2876D3942D
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 14:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4195D3942F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 14:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iKrAuDYHvjn/y6WYNVcLm7QG33SqwyepdFfmIoNzOc4=; b=vRQgFazZqu22bw
-	HuoG7pn8ESZeuttn3Lh7NtVkP8OzNA/LknVnTEa4RZsdXazzfP17Y5wnGQalbs7CmJjP1xe+6K/8S
-	DzFl88mWRfbRlglnzCey4ozrfbsAi59ll+yF3YkXctw7pmOx9WTG8PtBvtYRVa8YRdzprAfzdxPG4
-	3Qftl9tjJVzG07ILspHwjTd36553OER1bKPpJutx56vLGWYdTCn0sV0JwtYNDQVtFyO/GP9Zq63jo
-	t22xGakvz86BgvRd3MYJdTsbC01ht0+ZZc/E8WuoxzopZJSwwye7oxBT+JYbg4wFhYMPzlw3Z8Cmp
-	hQ2sPRrlI3Aha2LknbSg==;
+	List-Unsubscribe:List-Id:Date:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0ySF4krpqru6NdMv9+lWUs0yiM6J4Oz8RMlO37nkOZU=; b=fHVW3gSN62Ito7SlF9HL1b/lRw
+	sJFRtwqoAHEeGp4yIhmagnIrcqlW0GZM2c0KnWE0rasVzLIqSIDtsT9xnIhkJD1FBp6X75r92xC5Y
+	3aVmwbVlZpg84vrpogLV7+U/jXZJU2VRlD4S6pcN3tHv0PfyPAOJrQE7FhQ9Xzymc56oIT+FA1APb
+	auL/6RojAJmsWywqtOxFNdKxhM36gma6BQXggB4pBEK+8psQ4XMGoJ61i2TVxWmIV4O8UA8y9YEZx
+	t7JSXrese13V3xWZfG2I6sQyaH69H0XvF+0w+Po3I2LoaglHqWBqV/z4JTNbAtJoTi8X7jfyJ/61N
+	O+ANavng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Ikw-00000000Fo4-3eIU;
-	Thu, 02 Apr 2026 14:10:46 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1w8Iyt-00000000K0H-02ov;
+	Thu, 02 Apr 2026 14:25:11 +0000
+Received: from firebrick.ash.relay.mailchannels.net ([23.83.222.59])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Ikt-00000000Fn3-33qa
+	id 1w8Iyp-00000000Jzf-3Kvb
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 14:10:45 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id C9A994D34D;
-	Thu,  2 Apr 2026 14:10:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775139041; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
+	Thu, 02 Apr 2026 14:25:09 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 789127E25A2;
+	Thu, 02 Apr 2026 14:25:06 +0000 (UTC)
+Received: from fr-int-smtpout17.hostinger.io (trex-valgrind-0.trex.outbound.svc.cluster.local [100.118.167.158])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 464F17E2DA3;
+	Thu, 02 Apr 2026 14:25:02 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1775139906;
+	b=RWqIoB6+6ZEG4sfij5TSKrx9k+g72G6AbqTorKbpUbgRhzlKAmBZq+yggRytt+S/zGTttI
+	mU1k1Klj3lBhDpQXPyUhFGf4kf1C68ZBMeQH7I0u0ztFKvuAZ+iX4Jz+hP+CCNNanGzbq1
+	Xl/ZBC8C/kj6qJg471nIWmMtRPyPUKxSFBg8EwPb5uSLCfVeA/HofcxK4kQNH+/OIBny/J
+	SaYOLVI8qFwe+s7dMUB1kCcRiWZWIpmzCqQLy1VijlXseoa8U94kuyIXLC/q1kPRSXL6fy
+	jyuQy2bV63Dh1aqRlxnnl34XPC5b+HT+lPI+8bltnJtKUTgeVnKYz7DoF8FkiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1775139906;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ATIJ2JvCqHvnjxC2zyn8h0bvReSf5DUv55srIKdqy/4=;
-	b=ghmTCk2lxbNH98lYvz6tJH1dU3F3OuYSLO4M53l2lcvJjYjE9T+DydC+s7tDr0jsLsFz8a
-	6JBS04HYJcWpK7ShUP3ZXyXt0SvnEQOzCyINVRi7RMOQH/p2mmD0V89ks5MZ91hVHIy6sr
-	dKnnxR/gk5tFxNMkKRY+2YfECcgSd4w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775139041;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=iRsEpdPW7+SIeBtY9Lplguj5RbobZmydSNjJFOfI+O4=;
+	b=MUFVqgYpVXEE53t9Ue515uIDlxhIt0CqqbqkPw8SaMc2z056wtRwSRs4kr/L6KywtzF75+
+	lgXuJygnhVRyA3Tf7mh6HchsE/T9fB/IFKuKBrUd/ZTAkIiEjo0Wx7ls9MmFXlmgdt5kAU
+	ZG6C+UBwAj4yhaF1IjolDrfxiEx//Q/gNeACwLLFznyLkVdHDjrgyjpexNTWwbpDN733Vk
+	eEzXzbJecAp5VT9zxnCNWliOPXEikERBujIcFS6bvhkUJ4H8e345e/o38TX0aiytinRuYg
+	5jj+CrKda20+boD70YFhqjItJMFbJi4S4T92+/GM/RtrmexLIeO0EstIh3oNuA==
+ARC-Authentication-Results: i=1;
+	rspamd-7d86dcc447-5m55v;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Obese-Bitter: 5647d20a77c26db9_1775139906302_1133818014
+X-MC-Loop-Signature: 1775139906302:1529237009
+X-MC-Ingress-Time: 1775139906301
+Received: from fr-int-smtpout17.hostinger.io (fr-int-smtpout17.hostinger.io
+ [148.222.54.37])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.118.167.158 (trex/7.1.3);
+	Thu, 02 Apr 2026 14:25:06 +0000
+Received: from [IPV6:2001:861:4450:d360:ab76:cd75:446d:1407] (unknown [IPv6:2001:861:4450:d360:ab76:cd75:446d:1407])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4fmkdc4GyNz1xy6;
+	Thu,  2 Apr 2026 14:24:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1775139893;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ATIJ2JvCqHvnjxC2zyn8h0bvReSf5DUv55srIKdqy/4=;
-	b=AdSg+hiNNCy/NCHR9ueIRcJIk0qYOYToQKtIbfNFJX05e3E4ijc4tznQTYASBbTyTjZCp2
-	mV3qUgSp+3LOOqBw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ghmTCk2l;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=AdSg+hiN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775139041; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ATIJ2JvCqHvnjxC2zyn8h0bvReSf5DUv55srIKdqy/4=;
-	b=ghmTCk2lxbNH98lYvz6tJH1dU3F3OuYSLO4M53l2lcvJjYjE9T+DydC+s7tDr0jsLsFz8a
-	6JBS04HYJcWpK7ShUP3ZXyXt0SvnEQOzCyINVRi7RMOQH/p2mmD0V89ks5MZ91hVHIy6sr
-	dKnnxR/gk5tFxNMkKRY+2YfECcgSd4w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775139041;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ATIJ2JvCqHvnjxC2zyn8h0bvReSf5DUv55srIKdqy/4=;
-	b=AdSg+hiNNCy/NCHR9ueIRcJIk0qYOYToQKtIbfNFJX05e3E4ijc4tznQTYASBbTyTjZCp2
-	mV3qUgSp+3LOOqBw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 31D374A0B0;
-	Thu,  2 Apr 2026 14:10:41 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 7zb4CuF4zmlFBgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 14:10:41 +0000
-Message-ID: <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
-Date: Thu, 2 Apr 2026 16:10:40 +0200
+	 in-reply-to:in-reply-to:references:references;
+	bh=iRsEpdPW7+SIeBtY9Lplguj5RbobZmydSNjJFOfI+O4=;
+	b=q4KTQIfyV6mUv2D/mHBqapOxdrsBRCkQQAiVGGhq8sXnNutVACh6xkk3wtFjk3sBF1Bgr0
+	vy5HAWzmIg35efgKzMrS4m7KjA+1hS6QYujMmVgo3oNaKUKdd/s60N2w+PWvxKhIMHyJYC
+	5n/VFNFGIS6wt45syfV1epnOh6aNtejwa/2RvtHoUKiC/2f2gqYiKY+Wrukd4dU0DBZ7SH
+	MwxhgfzGkmaQ5jvTwFaz4jEZzfxy67QZ/p+4fc0meYWh4ea+s2QyZdTE3REzsm8HAU6tT2
+	xLqg9Ott98cdQygJZ7MkkIENEQ4uVq8CzFjRLIFggmiSCV0VjI1xYAyB1jF9CA==
+Message-ID: <46e715a4-0fd7-4692-9a25-a44d469b17b0@rootcommit.com>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable
- option
-To: Arnd Bergmann <arnd@arndb.de>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Dave Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, "K. Y. Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, longli@microsoft.com,
- Helge Deller <deller@gmx.de>
-Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-fbdev@vger.kernel.org
-References: <20260402092305.208728-1-tzimmermann@suse.de>
- <20260402092305.208728-4-tzimmermann@suse.de>
- <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
+Cc: michael.opdenacker@rootcommit.com, Rob Herring <robh@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ spacemit@lists.linux.dev
+Subject: Re: [PATCH v2 2/3] riscv: dts: spacemit: enable USB3 on OrangePi R2S
+To: Chukun Pan <amadeus@jmu.edu.cn>, Yixun Lan <dlan@kernel.org>
+References: <20260402100007.110201-1-amadeus@jmu.edu.cn>
+ <20260402100007.110201-3-amadeus@jmu.edu.cn>
 Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[arndb.de,redhat.com,kernel.org,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,microsoft.com,gmx.de];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[23];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Queue-Id: C9A994D34D
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+In-Reply-To: <20260402100007.110201-3-amadeus@jmu.edu.cn>
+Date: Thu,  2 Apr 2026 14:24:52 +0000 (UTC)
+X-CM-Envelope: MS4xfPDXEePllkhuoeqIL+DyxWKIqpegzAhCFxiofxIqzjZ6A0uiNW1WQtYkvmLegmBzTWvino8TuCvKMsrdzpihyWjP6c6/PplqLSIVnFpqPdYabSbnWP1a yMBkLSCR3ES3xmlhYHtYGDa4jKEB3lTpkCSKWyemIZYWBW/+xeCDaZyU5g1jdUlq34jYt318xdRZranLSIcqsGMvETt8VGWTlBdUEfUctWdsuOTea5tQIVZ2 8RDpWIY0VM3b6Sw93QIlsrwyJMl6fr3Oi/Y1oXCEUsczGV33Y3pHuKLVfO5tY1PVaNLKba+TcaKpNJV3DSFbpi0sc+WI75BxZWN3Q5gilAwke9AHjRhbQ2ic cxebfG1+lyBMXMRZly9TQ0OT7T4qu8qqOLw/CP+9Uh7ANLyMF6mxexJIpci4ZRuln2wbbJT9M1A5SqKCppH9YfhmsL+ApJk1+60MV8HBZ8uH0ga6/QOqqHqc ppjRQ3wuX89LFRABo/gAlnvX66y6+aWJnbu16f3702xcigjnAcWLLxkG/z5NDBYzOJWln2q7xA6CmAX76hDxWY1oOuNT3zwndHxFiiW3CEo7OirSj3Bi/4sR Wbm029XthwTpHNFsj2m3jtBbB20fw5E3UpQHTFv+qTS/yUiQzqGwDEDsRRsXwlqi6TlIYymVzoWRe7zDxr2vzpn3RK7QQGYYyk/JB9Nd5OmkazhqOU6pV2Me GMvI5FlKJxEq8Jl5kgBi/xsqHqNuHxup
+X-CM-Analysis: v=2.4 cv=Gq4Q+V1C c=1 sm=1 tr=0 ts=69ce7c35 a=KpaUJEZuatzsP5AJPIWeNw==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=uwRAlWvI_YLGMtlX8kEA:9 a=QEXdDO2ut3YA:10 a=QaCz1EEGLN5M2vlY9-U9:22 a=NcxpMcIZDGm-g932nG_k:22
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_071044_056956_D06CF496 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20260402_072508_056274_3197A8DF 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,53 +122,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkKCkFtIDAyLjA0LjI2IHVtIDE1OjA4IHNjaHJpZWIgQXJuZCBCZXJnbWFubjoKPiBPbiBUaHUs
-IEFwciAyLCAyMDI2LCBhdCAxMTowOSwgVGhvbWFzIFppbW1lcm1hbm4gd3JvdGU6Cj4+IEFkZCBh
-IGRlc2NyaXB0aXZlIHN0cmluZyBhbmQgaGVscCB0ZXh0IHRvIENPTkZJR19TWVNGQiwgc28gdGhh
-dCB1c2Vycwo+PiBjYW4gbW9kaWZ5IGl0LiBGbGlwIGFsbCBpbXBsaWNpdCBzZWxlY3RzIGluIHRo
-ZSBLY29uZmlnIG9wdGlvbnMgaW50bwo+PiBkZXBlbmRlbmNpZXMuIFRoaXMgYXZvaWRzIGN5Y2xp
-YyBkZXBlbmRlbmNpZXMgaW4gdGhlIGNvbmZpZy4KPj4KPj4gRW5hYmxpbmcgQ09ORklHX1NZU0ZC
-IG1ha2VzIHRoZSBrZXJuZWwgcHJvdmlkZSBhIGRldmljZSBmb3IgdGhlIGZpcm13YXJlCj4+IGZy
-YW1lYnVmZmVyLiBBcyB0aGlzIGNhbiAoc2xpZ2h0bHkpIGFmZmVjdCBzeXN0ZW0gYmVoYXZpb3Is
-IGhhdmluZyBhCj4+IHVzZXItZmFjaW5nIG9wdGlvbiBzZWVtcyBwcmVmZXJhYmxlLiBTb21lIHVz
-ZXJzIG1pZ2h0IGFsc28gd2FudCB0byBzZXQKPj4gZXZlcnkgZGV0YWlsIG9mIHRoZWlyIGtlcm5l
-bCBjb25maWcuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IFRob21hcyBaaW1tZXJtYW5uIDx0emltbWVy
-bWFubkBzdXNlLmRlPgo+IEkgZG9uJ3QgcmVhbGx5IGxpa2UgdGhpcyBwYXJ0IG9mIHRoZSBzZXJp
-ZXMgYW5kIHdvdWxkIHByZWZlcgo+IHRvIGtlZXAgQ09ORklHX1NZU0ZCIGhpZGRlbiBhcyBtdWNo
-IGFzIHBvc3NpYmxlIGFzIGFuIHg4Ngo+IChhbmQgRUZJKSBzcGVjaWZpYyBpbXBsZW1lbnRhdGlv
-biBkZXRhaWwsIHdpdGggdGhlIGhvcGUKPiBvZiBldmVudHVhbGx5IHNlcGVyYXRpbmcgb3V0IHRo
-ZSB4ODYgYml0cyBmcm9tIHRoZSBFRkkgb25lcy4KCllvdSBtZWFuLCB5b3Ugd2FudCB0byB1c2Ug
-dGhlIEVGSS1wcm92aWRlZCBmcmFtZWJ1ZmZlcnMgd2l0aG91dCB0aGUgCmludGVybWVkaWF0ZSBz
-dGVwIG9mIGdvaW5nIHRocm91Z2ggc3lzZmJfcHJpbWFyeV9kaXNwbGF5PwoKSW4gdGhhdCBjYXNl
-LCBDT05GSUdfU1lTRkIgd291bGQgYmVjb21lIGFuIHg4Ni1pbnRlcm5hbCB0aGluZywgcmlnaHQ/
-Cgo+Cj4gSW4gZ2VuZXJhbCwgSSBhbSBhbHdheXMgaW4gZmF2b3Igb2YgcHJvcGVybHkgdXNpbmcg
-S2NvbmZpZwo+IGRlcGVuZGVuY2llcyBvdmVyICdzZWxlY3QnIHN0YXRlbWVudHMsIGZvciB0aGUg
-c2FtZSByZWFzb25zCj4geW91IGRlc2NyaWJlLCBidXQgSSBkb24ndCB3YW50IHRoZSB0aGUgeDg2
-IGxvZ2ljIGZvcgo+IHRoZSBsZWdhY3kgVkVTQSBhbmQgVkdBIGNvbnNvbGUgaGFuZGxpbmcgdG8g
-bGVhayBpbnRvIG1vcmUKPiBhcmNoaXRlY3R1cmVzIHRoYW4gbmVjZXNzYXJ5Lgo+Cj4gRG8geW91
-IHRoaW5rIHdlIGNvdWxkIGluc3RlYWQgbW92ZSB0aGUgc3lzZmJfaW5pdCgpCj4gZnVuY3Rpb24g
-aW50byB0aGUgc2FtZSB0d28gcGxhY2VzIHRoYXQgY29udGFpbiB0aGUKPiBzeXNmYl9wcmltYXJ5
-X2Rpc3BsYXkgZGVmaW5pdGlvbiAoYXJjaC94ODYva2VybmVsL3NldHVwLmMsCj4gZHJpdmVycy9m
-aXJtd2FyZS9lZmkvZWZpLWluaXQuYykgYW5kIHNpbXBsaWZ5IHRoZSBlZmkgdmVyc2lvbgo+IHRv
-IHRha2Ugb3V0IHRoZSB4ODYgYml0cz8gVGhhdCB3b3VsZCByZWR1Y2UgdGhlIHJlc3QKPiBvZiBz
-eXNmYi1wcmltYXJ5LmMgdG8gdGhlIGxvZ2ljIHRvIHVucmVnaXN0ZXIgdGhlIGRldmljZSwKPiBh
-bmQgdGhhdCBjb3VsZCB0aGVuIGJlIHNlbGVjdGVkIGJ5IGJvdGggeDg2IGFuZCBFRkkuCgpObywg
-SSdtIG1vcmUgdGhhbiBoYXBweSB0aGF0IHN5c2ZiIGZpbmFsbHkgY29uc29saWRhdGVzIGFsbCB0
-aGUgCmluaXQtZnJhbWVidWZmZXIgc2V0dXAgYW5kIGRldGVjdGlvbiB0aGF0IGZsb2F0ZWQgYXJv
-dW5kIGluIHRoZSBrZXJuZWwuIApJIHdvdWxkIG5vdCB3YW50IGl0IHRvIGJlIGR1cGxpY2F0ZWQg
-YWdhaW4uCgpGb3Igbm93LCB3ZSBjb3VsZCBjZXJ0YWlubHkga2VlcCBDT05GSUdfU1lTRkIgaGlk
-ZGVuIGFuZCBhdXRvc2VsZWN0ZWQuIApBbHRob3VnaCBJIHRoaW5rIHRoaXMgd2lsbCByZXF1aXJl
-IHNvZW0gc29ydCBvZiBzb2x1dGlvbiBhdCBhIGxhdGVyIHBvaW50LgoKQmVzdCByZWdhcmRzClRo
-b21hcwoKPgo+ICAgICAgICBBcm5kCgotLSAKLS0KVGhvbWFzIFppbW1lcm1hbm4KR3JhcGhpY3Mg
-RHJpdmVyIERldmVsb3BlcgpTVVNFIFNvZnR3YXJlIFNvbHV0aW9ucyBHZXJtYW55IEdtYkgKRnJh
-bmtlbnN0ci4gMTQ2LCA5MDQ2MSBOw7xybmJlcmcsIEdlcm1hbnksIHd3dy5zdXNlLmNvbQpHRjog
-Sm9jaGVuIEphc2VyLCBBbmRyZXcgTWNEb25hbGQsIFdlcm5lciBLbm9ibGljaCwgKEhSQiAzNjgw
-OSwgQUcgTsO8cm5iZXJnKQoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+Hi Chukun
+
+On 4/2/26 12:00 PM, Chukun Pan wrote:
+> Enable the DWC3 USB3.0 controller and its associated PHY on the
+> OrangePi R2S. The USB regulator provides VBUS for USB2 and USB3
+> ports, but the USB2 ports are handled by a separate controller.
+>
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>   .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 24 +++++++++++++++++++
+>   1 file changed, 24 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+> index 409a6db269ae..bc68721e6263 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+> @@ -40,6 +40,20 @@ vcc4v0: regulator-vcc4v0 {
+>   		regulator-max-microvolt = <4000000>;
+>   		vin-supply = <&vcc_5v0>;
+>   	};
+> +
+> +	vcc5v0_usb: regulator-vcc5v0-usb {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpios = <&gpio K1_GPIO(126) GPIO_ACTIVE_HIGH>;
+> +		regulator-name = "vcc5v0_usb";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vcc_5v0>;
+> +	};
+> +};
+> +
+> +&combo_phy {
+> +	status = "okay";
+>   };
+>   
+>   &emmc {
+> @@ -109,3 +123,13 @@ &uart0 {
+>   	pinctrl-0 = <&uart0_2_cfg>;
+>   	status = "okay";
+>   };
+> +
+> +&usbphy2 {
+> +	status = "okay";
+> +};
+> +
+> +&usb_dwc3 {
+> +	dr_mode = "host";
+> +	vbus-supply = <&vcc5v0_usb>;
+> +	status = "okay";
+> +};
+
+
+Thanks a lot for the patch!
+Would you mind sharing your configuration with me (in PM?).
+
+I can list the USB 3 hub, but I can't see the USB mass storage device 
+plugged in the USB3 port.
+
+# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+
+Thanks in advance
+Cheers
+Michael.
+
+-- 
+Root Commit
+Embedded Linux Training and Consulting
+https://rootcommit.com
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
