@@ -4,156 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B55CC6B35
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 08:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A9BCC6B35
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 08:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+UCkigUy7FCDyftMP6lSmmMMvhQelGTD9v95zmYln4Y=; b=USyvJfqzNOoYfnHQ561PyOyjyt
-	UPrkS6T0cgV/oNcSXLDJM6gVwR5g1XWSY8p2duSa8tYARyJ0vKqL//GhlTzxXyX/s4MNwudoi0UQG
-	uFhCRBuk9EQ+85jbe8WGWH7RfcfE8hSZF05+BSe6DvyANFQDSft1Ov7JUWW4EGEAKoIma5KgsLRvZ
-	Yr/LBdwf+wBujQ35bcjPSGb4Lfa7/EzieKBnjdBlISirB/BRo7Vi7beh8MHY3NLPSYoYR8zzttFey
-	MTV7JyFxjMx0FAmLwnnZ95vLWKSdvaYipNr5SBkL69Bm3Jx6gG35PtWW6Eunw1JL/iA8iL4a6oqDs
-	iTfknYgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XiHii9Ybck2uSvdavJ/g38l28V3gp1qvWw68SfOb/yA=; b=fd3XQPDOoYsiYW
+	LGjRlvx3jNlsiReRIiDiXQI6+XFZwBqyJO+HHwDjajtp98VbLpJfbx5mSu4YRRGPhXaNebek1I6iX
+	DExSLZ5l20IOrkOLc+UKLtV7pgLCHmUXqfvRfjAt1IJm004Q1CNlOYgIjoBFyzs4J5/++42Q1ARQu
+	mNJg/iPLW0Ze3iU8GpabmUAq8OtDhAr8JG1+5Gb0nzhTaHI+IqPgOoqBIz8Zdtf0kA6zPA7Kk2qBE
+	HmKJW4+32w+MKPj2w3tjTq94RhDflhuCH811g8F9e+k9M13YkRHMOkAXBJWM86Ate2xGfcdxiOeZI
+	mXqGBJy29b9G6MV1kUQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Df4-0000000HCON-16Kp;
-	Thu, 02 Apr 2026 08:44:22 +0000
-Received: from mail-southindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d408::] helo=MA0PR01CU009.outbound.protection.outlook.com)
+	id 1w8DsN-0000000HDU4-1HjG;
+	Thu, 02 Apr 2026 08:58:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Df1-0000000HCNv-2Mmw
+	id 1w8DsM-0000000HDTv-0jkE
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 02 Apr 2026 08:58:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LnQTQFMkaspyfTBlP7NJBNzFuL146lWNPT7LvqeL2XU=; b=jfd3rcbb1Layc7/jXfyEGQflnB
+	ACQ1z3fjDNjjwW03THjpdEXzhkg52mN7QQqaZNUjgfduqnSNC/UrkacFqJOtwxez7Ab96IhEohYjf
+	B0BKH22uXtngd1boXxUwFHH9h3DyV+PasPjdrVfHsc2suIkrGz2QMfPMF7OA/8AuZPZo5/NHfg2aw
+	UPaZIxfnxmG2iN+MoM/nW/tocV1PKMc6VPY9+PMT08hP606hQVF2RmD7FmmRQCHMo/8oYrHS4ruv9
+	UXSH9qvNwvR038huDLKh7cHPxfEz87UZqJ0U448T0gxVDUQ1Vxfg/oPGw+LAxr1U4K8udSnyZLeB+
+	flUYF0zA==;
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8Ds8-000000024V7-0qUA
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 08:44:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g8sUXR9SjguuKqAV9wwza4MwMnsfUlBRontiQ+5kn1a03uaY7ToOUacmLNd6r0S41YyHWKPL+yOeqDbWArWnxqNjOPtqZR9n3LIy+zvEsDtd/5QdHaMtRyzRq6QSo771RKIGtDmX08TO+qIPexPTp76srlb6x3VwgHrQb5mupiqGf5KiyskKLOcB6ex5B+fYZWgCwcP2ZeiGzBMt89dwpthXN2bBEXs6W8Y7uwl5JkKGMxpznC3SzYeNKUzMORcWxrPI0hG4C9lCulqKQ0HMLbxwFSca0EbSs6/Vgi8ZcQh00IIa44G0R0Tq4/52TVfHvuidfrAE65eLNBAXN4sR7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LRciRWlqlnspWMjJwx73hG1h8KCJqU/eHDniAAWDfMo=;
- b=x4WXeNzAg/s1cRd2FqIiA8NoGAjCIzfz0lJi683dlvRage3sHchOloB6eqGBSp2p87nBzof9VUF+vXQt+l9Cg15b6iaf488WnMXW8OwalCRQW7Qk/HeWuNZExa8cgbIVStj6jkkVHWB+JlEZ1SGkBq979IBSL83lfTySV0KqVsH0YE7u3x4pQ4BVkUijOVYIa+SkA4jCRv14KnX7b6p4p8GXfNXIFZ7ih6lXT/Pko0uI8RTB+cGTOqsXS94cLhjc9KeNDfQbmk8NS0DYu3JjG8qx8Hcw/5e2tPOl88CpNdN0JnoTWItH0JfEGHw9RM0LmYhIuFSNH+K8Y4hEQcXx1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LRciRWlqlnspWMjJwx73hG1h8KCJqU/eHDniAAWDfMo=;
- b=YcP1igHcMhnRMQqhMYVKSXg7F/KIFHno50dbRoKqOrdC4sc/jYVTVbRfenrZbYrMJcdFl8PJ7xIhqPLW8u79L4faeoVD0TAN34zYLGm/HpK83Y3yXaz5++7aXwPleYTo9QoIv6G1HLWc8oYhvRMsJUXjTo5Lrk2qp2ucCoVdXwhYkLrF11qRZ179R0o10WeYqSvf6SSf5+tv9CKQpfUqoIUNFnX8BlzHmCpHOkDuIFmZbOUWOH0xDK+O7d0DdM32wLJhy+1p7zSyfhAdcJHJSd7tNjwfIMitlG3xy71p2G8X+yZWEmRtMJPTFibw1gRFplRAYs88d/ZWlNWsnvsuHw==
-Received: from MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1e9::18) by PN0PR01MB9119.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:169::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Thu, 2 Apr
- 2026 08:44:06 +0000
-Received: from MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::8a6b:3853:1bc:67e4]) by MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::8a6b:3853:1bc:67e4%6]) with mapi id 15.20.9769.016; Thu, 2 Apr 2026
- 08:44:05 +0000
-Message-ID: <MA5PR01MB12500707BE1C6E11EC3F4B94FFE51A@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
-Date: Thu, 2 Apr 2026 16:43:58 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] riscv: dts: sophgo: Add dma-coherent to SG2042 PCIe
- controllers
-To: Han Gao <gaohan@iscas.ac.cn>, Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Zixian Zeng <sycamoremoon376@gmail.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Han Gao <rabenda.cn@gmail.com>,
- stable@vger.kernel.org
-References: <20260331171248.973014-1-gaohan@iscas.ac.cn>
- <20260331171248.973014-3-gaohan@iscas.ac.cn>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20260331171248.973014-3-gaohan@iscas.ac.cn>
-X-ClientProxiedBy: TP0P295CA0015.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:2::13) To MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1e9::18)
-X-Microsoft-Original-Message-ID: <25947a4c-b000-4548-810b-60dc4572713a@outlook.com>
+	Thu, 02 Apr 2026 08:58:00 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso5220095e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 01:57:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775120270; x=1775725070; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LnQTQFMkaspyfTBlP7NJBNzFuL146lWNPT7LvqeL2XU=;
+        b=nc+iquM/NgxY2f2+whZGx2BqnoFNpCCgF4Z9oqFCaxoRX7m4RuafI685+rou8v7EO/
+         Eiv7BcmfIjmTGmEQEyrWJsaEK2PDq8eGnR+WV+wOiDc2q4GG6GzeSNYDmSZHJPG7j437
+         /+jMZGAWkAFoxAMmLyiK26oATqRqisfBHmPcsSbyn9TU9DX4Iup3IHX/0eJneIhY88Mo
+         5sOUGvgQFKbizHjqVa/AKPWHKHwXynKOKR7qunxbSoq04XTrTJQuZ5qqKJLUPphHcxxC
+         vDihPiLa8kLX/cNrk7JLwQv1bZPCJzEs/Bicx3NXQaZq2YZv98/ian4PcJ9JKu9Qe2oh
+         TYXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775120270; x=1775725070;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=LnQTQFMkaspyfTBlP7NJBNzFuL146lWNPT7LvqeL2XU=;
+        b=KmmQ1cJttfcjtkecQNphmgMEXDq15jISSc3QnWoTMuwYOu1DtXANJpXf6Aac0iRFcQ
+         ZcKMzJGH6MLPH3kmLSaAjHfOYATKfIOJ979+ISklbPAEZPsLvOutEHvpRZ2Uw6a7hOf7
+         8ZJVotNqgOI8bxxBaFQUmsGoznUaTj/kRAgsHS2PVmR0sZqB7QVNk5SjXu9pLiTD9LQH
+         ehgYRW8AI0DuM3lJtcSPiUhKoscXXi0XCKHOQTFJXF2vWGJZQPjGEQHESvuvcgzM9qg+
+         GUH3SItuLtduoDDVr+o7f1H5WPVyKuuSIL0TWRIvY02q16jd0MRsq4WqFYiU9afNvmNx
+         6aeg==
+X-Forwarded-Encrypted: i=1; AJvYcCX3bzZG4pyUmLxfrx5P88s6A1C2CWsvhi2hKna48Qcp1mE/71zc1t5fRLe2zfKow4mmB3g6NeoZYOU4bA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZtKJyvoXVg+mzCkjLdxXc5SRnRXWNUyx063KndAytdvP4HTE/
+	Vx88urOJLkw6c36Gjoind60oIvat+p2VoFmR+ZAUVVNVJI/mlf8TwwwF
+X-Gm-Gg: ATEYQzyXWyWrPgpsxkVShv7rYAb1ja5S6yKfJK7ZxFIo00OzIAIlZVAWJ2DVBgdHMwm
+	W1pcpoV1jwyfk4GMtyedu7X1zSh2hrqLOVhKBuMsBevrRwMqxok8yw9ta4O6vtP3VB1Bl42JCs1
+	ikaLrj12j5IomRoOoJ1lXchnV4XyP5rMaxF4QQb9UkgxmJKuswlrj4o8P22l2adusbeWsfKstUX
+	vsTadKxwL0oY5JKlzOntd7qHQy2EeLXemjpU9dAgjYH/ENegB5XznupQnrkAl6z6ZVdzxZdNcsv
+	dvLlJhWZEyAj5GW8m86d50G6puBDSeOg3zLqHKXn8coR85VRAjhgx1lLuD0WHsKoZ/E/bHg3hoZ
+	Vto4Xfs/+dVb+kA2KgXBy+oQZcFbZWu/Xv+ULcPXKUK504QxcTvtkaxI2L7sBjofilWVX9/g+pR
+	g1rHfTMAtjtU7XvwRvslUU2cECmrU/LBRjiZVBrhUCr1kPMgQVqKlp+1n9gBlL
+X-Received: by 2002:a05:600c:630f:b0:487:288:1198 with SMTP id 5b1f17b1804b1-4888359da58mr102555095e9.22.1775120270131;
+        Thu, 02 Apr 2026 01:57:50 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887e735532sm217845265e9.0.2026.04.02.01.57.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Apr 2026 01:57:49 -0700 (PDT)
+Date: Thu, 2 Apr 2026 09:57:47 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Hangbin Liu <liuhangbin@gmail.com>
+Cc: Richard Henderson <richard.henderson@linaro.org>, Matt Turner
+ <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, Vineet Gupta
+ <vgupta@kernel.org>, Brian Cain <bcain@kernel.org>, "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, "Christophe
+ Leroy (CS GROUP)" <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yoshinori Sato
+ <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, John Paul
+ Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "David S. Miller"
+ <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Thomas
+ Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, Max
+ Filippov <jcmvbkbc@gmail.com>, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-hexagon@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, Jakub Kicinski
+ <kuba@kernel.org>
+Subject: Re: [PATCH] cmpxchg: allow const-qualified old value in cmpxchg()
+Message-ID: <20260402095747.6efbd456@pumpkin>
+In-Reply-To: <20260402-cmpxchg-v1-1-4561e2c05d2c@gmail.com>
+References: <20260402-cmpxchg-v1-1-4561e2c05d2c@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA5PR01MB12500:EE_|PN0PR01MB9119:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5c54316-acdd-492e-5758-08de9093ff7e
-X-Microsoft-Antispam: BCL:0;ARA:14566002|25031999004|22091999003|24121999003|19110799012|8060799015|6090799003|23021999003|15080799012|461199028|5072599009|40105399003|52005399003|440099028|3412199025|26121999003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aEdnTHZhcTYwME5jQXI0N0J1Yy9KUlhxR0lMUE5EUVB3WVBqUkZSTXV4R1hZ?=
- =?utf-8?B?bWVQS2h4OExJMDRxWWs2ZnQzNDNVZjZuejBOZklMdktZU3h0czRBTngzbm9O?=
- =?utf-8?B?TlBMa2hZZ0I5YmRHdThwbks5Q1ZMY0NNakNOUTRUcWpiQWQ4dDZvanUzZlFa?=
- =?utf-8?B?RytoRVhyV2cvVkJRc2U3NU5GNjM4YklUS3Mvc3M0M0RnY2hMNVR6dk9zc1JY?=
- =?utf-8?B?R3pwRThzbkZjZHdrK2VnZXVxL0xIN2h6NXdTeUk5NTZFNWMvclhSN1A2TmxD?=
- =?utf-8?B?bGFZZStROE5NeHNQb2RZZlJMMHl3SEx4SW5OM2swdEp5UTBaSHpTMUF1MXdh?=
- =?utf-8?B?Mkc1bkNvaXQvWnVlSm1sd0o4RmQ0T1FrajVGQmJyWjBMdHVpR0tBaUNWS3R3?=
- =?utf-8?B?dEN0ajZLdUlXTE8rK2VFd3N3U1ZjY3ZxTThJRFZlbVJSWFNFKy9zY0lkTDVV?=
- =?utf-8?B?U0tYMy9UN0dRVERKWE5ocTdmVkF6SVF4V1pZbEw1czBnSlNoaDVSL3hncXFs?=
- =?utf-8?B?ZndORGZlbEZHcHBJYXBkUGE4UTkydWl2ZytzRUd5cVVhMDFZcWlabmpNUFZM?=
- =?utf-8?B?blcwZnlVSS9tNCs4WVczdTlaQW9MZGhKR2R3aWRrakdMSUtPN1dVb1NlRkY3?=
- =?utf-8?B?SjVkV0VkeU1rLzVjOW1iK2FTMXRXcXBEcDBOcExTVzE2Y09iQTY1emRCVjJV?=
- =?utf-8?B?YTVHcWFBSGYwMjVkcW13YkhYdkU0RXhKUjdwZTFwZDBwYUplTjVsT1RBNk11?=
- =?utf-8?B?cXZseEc4ekxvYlorQWFpakhkOTd4cjRWTFBHRnk0d2tpVHJMRUp2YXphU2Rq?=
- =?utf-8?B?dmpsb1Y4S2I0bUF5S2lTNDQwQ0FJSENqcVkxemY5c1ZrK25FMkdDRTNwc0Fa?=
- =?utf-8?B?UGJWNmdmRDZpaDRUYXdXL3ZUaFdIT3E2Q2hDbksxa0RlMlhZK0FOdGt6SUVU?=
- =?utf-8?B?bmhCMDc3K1NEUnRtNk9SV3NabVFZRHN6UEhVNGJsWitZbE5Jbm5tSkFrSGQy?=
- =?utf-8?B?MkxWOXNsM3NQNUVWbFhzMGRDV3lQOUNQVmZBR1JHaHJwWnp0STNzOXhMMWYv?=
- =?utf-8?B?cmlRZ3QrREl5ZXNsMEx6b01YYnZLbFAxMWY3aWJEZCtSdWFkUUU1L21UZmFS?=
- =?utf-8?B?Q1hsbXB6TlV5MzlNWWxUS3IrVmJVTTZnUnhydkg1ekVMQ3QzcjRnTFJRN3Bq?=
- =?utf-8?B?QmVMQWNjbnhYYlJic2xreDdNV204WUR0SEFKV3NITDZKbjNMbVI2alFYRGQ5?=
- =?utf-8?B?SGhPNURMZG1ud0lETUs1MkFxektoOC9Fd3RBdzdQT3UwOE13NEFrVUI4VER5?=
- =?utf-8?B?OTdSVFpVQW9KcUxqUnQyeU9ldGwxMVBGejNId0JKZW9aWXJoeW9qUUhKSW5M?=
- =?utf-8?B?aDVpbUlYbllhY1RWUlp4YmVLeE4zcHI4TC9EUG83QUtUdExXbjdMSEkwVU9P?=
- =?utf-8?Q?qb1nMGlT?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WnV4RHlRR2oxZDcrNG5RcjhRNHc2S3dpUlRISVUzRVZQNVlRSUhkSjJoZUla?=
- =?utf-8?B?a3UwbUt2bjkxL3hZL3ZuTVJ3cVM0SDBwYVphTGRHTncrTU1oeUdHVXhkaDNs?=
- =?utf-8?B?N3l3b1NVbjE1emlsc3VVUm12MmhZZW9HQTJ5WGxNWTc3T1RlcFkyelJTMUpW?=
- =?utf-8?B?VHZ5dC8xNmJ1c0ZZVTQwSG9nVlFoZkZqUEVadEFwUEZpaWFTZlhwdDFTalF3?=
- =?utf-8?B?cUtxUW5DVUFIQzhITkE2TGgvQ21vU0IxUkc4U01ZYUFIUE90MnBpUUtmcVZU?=
- =?utf-8?B?bGRWSjJrNlpPcUxtV0pIVDZ1MU5VMDZIN0hXTFhmbktxZHdRYWhHKy9SUGc4?=
- =?utf-8?B?MFlxY0tsMVR1VlFLeW9pNjJxWGIxMGcrN1NMWnQ4cjdPWXpjM28veVdwVjAv?=
- =?utf-8?B?WG1SR0RHdVRBLy9TQmxCbW9qRWVxbnRwcGZnUVNYNFlBY0NTNFRlU3hNMWRp?=
- =?utf-8?B?eFF5cjRQb1kxd1BVQ21PTUg3V1RLamdtbHRmMWdncjJKTTZEUUhQMUZQaFRR?=
- =?utf-8?B?Nk0xcHBQZVNxZVRFd21vWEZnOElYMmwweEFra0IrVmtoUmdJSXB0KzFFTVNl?=
- =?utf-8?B?MTYzdnprMEZFWTlSZVdhaTg1aHBLMDZQdUhwVExTS1cxZkhjZkI1c0ZCeVNH?=
- =?utf-8?B?ZDBGNTcxVlhHSkFORzNqdkc1NXkvc0x2eHR5TWxqNVc1K21LQzFWMFRTRC9u?=
- =?utf-8?B?N1RFa0lXRkVNLzhPbnd5MmFqcDZsZ2VyM2l3OVUvakNNN0VPV01XRmg0aURY?=
- =?utf-8?B?RklBenJ3Njk1SHErTGl5bVgreVQ3UmR1T2ZrNjNJaGl6eTBMOEZWZHBjZ0J2?=
- =?utf-8?B?NHd1WDM5NVEvZTVoVUNVRE12RW9rWENheXdQMzNoUVFMdFpDZXh4S2U4RFNQ?=
- =?utf-8?B?SnBiV3NPampsMUxYekt1RG15eGc0SjdSZTNSSHl2V2Q1Rm90eDJRcFRGVXZE?=
- =?utf-8?B?MDV5b0llNVFoOXZTM2gxcHptcG1WYnEybzJrUlU2NGtQQ2NENkJUYU9DYnYr?=
- =?utf-8?B?VzZpZ0p4OXpPcStpcUgySHZaQWFIQm95V01EVWNpWC9qV1JDMkFDWUxTSXhG?=
- =?utf-8?B?YVFlSG0wZ3h2Y2FWZ1RDbDdZcmxINTVUNTVMeHRlTnBZTjZXMVVUNGl5LzlM?=
- =?utf-8?B?Yk5ORm1MY3kzNUVrS2xVU2VIOEFEcmlhZ0R1SWIrR3lPZ1V6b2NkMVpoakxu?=
- =?utf-8?B?UVRud3ZOWFBIQzhLLzNYeVRyTk1Cd29aYWhwTlRRVlBwQW05cVFqSlJ6b0Ra?=
- =?utf-8?B?aS9aRW9RdmhyMUJhMFJDK1RpY2RkUkdDSlpnNzBaSDFOWE9Tc3Y1UGJ4UWti?=
- =?utf-8?B?QlhXT2RVcnM2a2hSeUk4c2swcFRLdzRUT2pvWnFtcUs0QTRDS0JHVEsybHZF?=
- =?utf-8?B?V1k5TFQ0dWRrK09Pc2FGM0VONk5BbmtNTGswZHp2QU13RkRrdXFLM3ljWGdz?=
- =?utf-8?B?ZDRHZ0traWYwUXVUS0NkaFlBYzhxbTlXd1NCRnN3bUJzODZPckg5ODhaMUxn?=
- =?utf-8?B?b3VoaENHVHhjcnZTc2pxRFVNcThXb3BRTThsdmtuZ2hIbG5kcmRoUzIycDJW?=
- =?utf-8?B?cEd5VjdnSTNrSXlsbm5ndEpYMHhXdGVXWXhnZlg0bjVya3I2ZEM0SUFEVkps?=
- =?utf-8?B?ZEQ3WmpCK3JYT21kbFdML0tZRG15Qm40b1VKZzFZTVAxd0p2RW5sOTl2WWxB?=
- =?utf-8?B?VUIyd3pGZTJROURYK3hCM1lvSnRUM2hteVk3UzRjTVdJM0VjT0hqeDViQ29B?=
- =?utf-8?B?MWpOUmJad2swTFVVcVhRcE1tQU5nZ0E2NVFvR3pWVzZUL0hlRFRRVTU4OTVk?=
- =?utf-8?B?aThubEpuMTNlL05ZeDBLbUpndjFraFB1OEQ4UUJ1SStHMFI3S0Y4UDJURmpC?=
- =?utf-8?B?Y2UwZm5rQjdFamZxNk1id0JxUC8zU0NROTJhS2dwVGhRN0o2VmxOeFVKNUE0?=
- =?utf-8?Q?yXfyYc9tkEVaHpDGrpmVTFBHQS0vw0lI?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5c54316-acdd-492e-5758-08de9093ff7e
-X-MS-Exchange-CrossTenant-AuthSource: MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 08:44:05.6430
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB9119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_014419_612525_039145C0 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20260402_095758_815811_92EE4168 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,80 +128,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 02 Apr 2026 14:56:01 +0800
+Hangbin Liu <liuhangbin@gmail.com> wrote:
 
-On 4/1/2026 1:12 AM, Han Gao wrote:
-> SG2042's PCIe root complexes are cache-coherent with the CPU. Mark all
-> four PCIe controller nodes (pcie_rc0 through pcie_rc3) as dma-coherent
-> so the kernel uses coherent DMA mappings instead of non-coherent bounce
-> buffering.
->
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> ---
->   arch/riscv/boot/dts/sophgo/sg2042.dtsi | 4 ++++
->   1 file changed, 4 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> index 9fddf3f0b3b9..3af770549742 100644
-> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> @@ -417,6 +417,7 @@ pcie_rc0: pcie@7060000000 {
->   			vendor-id = <0x1f1c>;
->   			device-id = <0x2042>;
->   			cdns,no-bar-match-nbits = <48>;
-> +			dma-coherent;
->   			msi-parent = <&msi>;
->   			status = "disabled";
->   		};
-> @@ -439,6 +440,7 @@ pcie_rc1: pcie@7060800000 {
->   			vendor-id = <0x1f1c>;
->   			device-id = <0x2042>;
->   			cdns,no-bar-match-nbits = <48>;
-> +			dma-coherent;
->   			msi-parent = <&msi>;
->   			status = "disabled";
->   		};
-> @@ -461,6 +463,7 @@ pcie_rc2: pcie@7062000000 {
->   			vendor-id = <0x1f1c>;
->   			device-id = <0x2042>;
->   			cdns,no-bar-match-nbits = <48>;
-> +			dma-coherent;
->   			msi-parent = <&msi>;
->   			status = "disabled";
->   		};
-> @@ -483,6 +486,7 @@ pcie_rc3: pcie@7062800000 {
->   			vendor-id = <0x1f1c>;
->   			device-id = <0x2042>;
->   			cdns,no-bar-match-nbits = <48>;
-> +			dma-coherent;
->   			msi-parent = <&msi>;
->   			status = "disabled";
->   		};
-For binding changes, LGTM. But I have a question regarding this change 
-in dtsi.
+> The old value passed to cmpxchg() is semantically read-only: it is
+> only loaded into a register as a comparand and is never written back.
+> However, the macro currently assigns it implicitly to a local variable
+> of type __typeof__(*(ptr)), which triggers -Werror=discarded-qualifiers
+> when old is a const-qualified pointer and ptr points to a non-const type.
+> 
+> To avoid this, let's add an explicit cast to __typeof__(*(ptr)) for the
+> old local variable in the cmpxchg macros. This explicit cast suppresses
+> the -Wdiscarded-qualifiers diagnostic.
+> 
+> The new value is intentionally left without a cast: new will be stored
+> into *ptr, so silently accepting a const-qualified new would allow
+> callers to store a pointer-to-const into a non-const location without
+> any compiler warning.
+> 
+> Suggested-by: Jakub Kicinski <kuba@kernel.org>
+> Signed-off-by: Hangbin Liu <liuhangbin@gmail.com>
+...
+> 
+> diff --git a/arch/alpha/include/asm/cmpxchg.h b/arch/alpha/include/asm/cmpxchg.h
+> index ae1b96479d0c..b4b8dac759c4 100644
+> --- a/arch/alpha/include/asm/cmpxchg.h
+> +++ b/arch/alpha/include/asm/cmpxchg.h
+> @@ -234,7 +234,7 @@ ____cmpxchg(volatile void *ptr, unsigned long old, unsigned long new,
+>  
+>  #define arch_cmpxchg_local(ptr, o, n)					\
+>  ({									\
+> -	__typeof__(*(ptr)) _o_ = (o);					\
+> +	__typeof__(*(ptr)) _o_ = (__typeof__(*(ptr)))(o);		\
+>  	__typeof__(*(ptr)) _n_ = (n);					\
+>  	(__typeof__(*(ptr))) ____cmpxchg((ptr), (unsigned long)_o_,	\
+>  					  (unsigned long)_n_,		\
 
- From your patch description, I understand that enabling the 
-`dma-coherent` attribute requires upgrading the firmware `fip.bin`. If a 
-user only updates the kernel (which is relatively easy) but forgets or 
-doesn't know how to upgrade the firmware, enabling `coherent` might 
-cause the kernel to skip all explicit cache maintenance operations. 
-Could this pose a subtle risk?
+That looks like it loses the check that 'o' has the same type as '*ptr'.
+Maybe this works?
+	auto _o_ = 1 ? (o) : *(ptr);
 
-Wouldn't it be safer to leave the upstream unchanged in dtsi and allow 
-users to add the `dma-coherent` attribute themselves after they upgrade 
-the firmware?
-
-I would greatly appreciate your guidance.
-
-Thanks,
-
-Chen
-
+  David
 
 
 _______________________________________________
