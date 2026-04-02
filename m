@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E7BBD39403
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 09:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95466D39401
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 09:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=I07GQPt96khForpz/4+1f1knMvEhDOwx4VKyvo7kdio=; b=EAerETLUYFIKCQ
-	fQ0AtuBjkH7gY2xNk26Kkml+GTWEfZh9q9QKq4P82I/0dDR/4ElXpzsWsBxe1gfQdbXv0vC1uhk9T
-	aCmUJziDQWx9QQwA5QP3n0rMj8ylm6FQDLeKbI3N18plTcalS/s/Sbb8Tuq8YE1r0Zg245uv3IxEU
-	RxR4+h7NUhp5lFIfVGcK77YDkHpma/gx7YkIsbeXPEd1jtE1idAKT6NV+2JvGI3j+I8pRk5QI6e1m
-	nac8erAJyETzh+EewgfHXmhVCF8vSrEgUqPhA1tL5cUISNDrqaRlkCmLyl4eKbN3Hbt8qogkuibGv
-	3GUgV4p+1gDCatD+t/kA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6dRyvQSMO2B9QDCbatJ67mBn1FP1BDo4MuaQoKeeUlI=; b=oG+Hl8xgeapz2J
+	kn9hN7cWbUgfTSRhIySA4BQD9ZxkMWid6wD2SNunr/C2Wojpv9IjfAL8q/Av/2zbHG6Jyq+SWSjyA
+	bXbfgtprnzDpcTt4bqvUwt6HexDxX9LtNifT/UET7noajuomR7U1EB028a9IitPV6bCSmTPyGS+vR
+	V3fFGQFpl4IQAoJdL98paUfiCN99M4TpNpV8xR07ein0Eer5ZbXa0ak0MtGGyryXqgs2FbmtB7oWr
+	JwLjL4YtfmKt1IP1GPhUSfjA1Kb9Vjs1LyOXXgCaHqvjx4shihmNfJEgLs3PbcDwsNSRFStGLjMEj
+	suwKRg4+UA86wK0KFk1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EGi-0000000HF0Q-2Gnz;
-	Thu, 02 Apr 2026 09:23:16 +0000
+	id 1w8EGv-0000000HF9H-3JcH;
+	Thu, 02 Apr 2026 09:23:30 +0000
 Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EGf-0000000HEyc-3Aen
+	id 1w8EGr-0000000HF5S-3KIF
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 09:23:15 +0000
+	Thu, 02 Apr 2026 09:23:27 +0000
 Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id A0F135BD6C;
-	Thu,  2 Apr 2026 09:23:10 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id E489C5BD96;
+	Thu,  2 Apr 2026 09:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775121790; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=kSnvgggqRkoalA14gFVa+si+vwQUWHJ4fW14t/f7Flc=;
-	b=gsm5A9WwczrN8KBvtiNgHReeh6vzRdEDmvSkijVERMrM96Lrh6k+dyva2m3YxaelxhrbVJ
-	KmhYowDyFSzzrxzl1OCQcxRSJIP4/VTXKA7fgnVL0rPfVQf2b6vPsCCk6n+DCc9xF6dLed
-	n/+MIHFlpnr1oXZMTTwA7SkzEcD3ot8=
+	t=1775121792; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rfrLgokIg3L0iceqJ6PsoKUIoDRPjoCqB2eCvr3lsRs=;
+	b=pD3FSHRvM0KZAHAOQzoqZpc+gAB8qOmUGFx02vmEpApKvrFID7BzoB7TPc3wdcwT3mrFFv
+	URChAye1Sd36sVMkni5Fou36URn3wOlo62N31/IBfha88WqOWg7DGiLsZ0FQlFmRRwTK8m
+	F4AOhP0p9Xff20ZAHfCNR7XfSfyGeSw=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775121790;
+	s=susede2_ed25519; t=1775121792;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=kSnvgggqRkoalA14gFVa+si+vwQUWHJ4fW14t/f7Flc=;
-	b=E+OksCf8Wp6yroWxHqGqPDGC0Wa+UhIKpl9J5/QANWV+4vcCfsixYIPCh8etEBI6NDxiIE
-	Egm7Jn5mWLpqyeBA==
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rfrLgokIg3L0iceqJ6PsoKUIoDRPjoCqB2eCvr3lsRs=;
+	b=PTaVefmbBpYwy+OsrLt0KtkbJxoehAWVJ3zMjh1XpamKNNQ6S1ckCoHIAvNMOg9bkFHm44
+	eYmUjrSdAr+kOyDQ==
 Authentication-Results: smtp-out2.suse.de;
 	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775121790; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=kSnvgggqRkoalA14gFVa+si+vwQUWHJ4fW14t/f7Flc=;
-	b=gsm5A9WwczrN8KBvtiNgHReeh6vzRdEDmvSkijVERMrM96Lrh6k+dyva2m3YxaelxhrbVJ
-	KmhYowDyFSzzrxzl1OCQcxRSJIP4/VTXKA7fgnVL0rPfVQf2b6vPsCCk6n+DCc9xF6dLed
-	n/+MIHFlpnr1oXZMTTwA7SkzEcD3ot8=
+	t=1775121791; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rfrLgokIg3L0iceqJ6PsoKUIoDRPjoCqB2eCvr3lsRs=;
+	b=00grH+7I/DTkU2uwMtWbrrlw3bKOhylBOG+KO7sk7gu28zSN2VPONMNt/jMEb3RqGrzJQE
+	YdRpcSMa0dBaPmMC4P3c6amJcPq0Qjk3DG4yNcl+WpjvSiHAm4vuvxU1Efwq5AYCtldDYr
+	GJ2zpKwo1QdUuwkIcvCQu70TTByUwwM=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775121790;
+	s=susede2_ed25519; t=1775121791;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=kSnvgggqRkoalA14gFVa+si+vwQUWHJ4fW14t/f7Flc=;
-	b=E+OksCf8Wp6yroWxHqGqPDGC0Wa+UhIKpl9J5/QANWV+4vcCfsixYIPCh8etEBI6NDxiIE
-	Egm7Jn5mWLpqyeBA==
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rfrLgokIg3L0iceqJ6PsoKUIoDRPjoCqB2eCvr3lsRs=;
+	b=ZqrP0jGahPdOSlrrW3s4HNbA3pcA8w1X2aA1Zb9lvXkdfLuWAd7c+cwB+R2u9grKNw5DKy
+	FrkHrqUyh+v9jfBA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 07D344A0B0;
-	Thu,  2 Apr 2026 09:23:10 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 55E3B4A0B0;
+	Thu,  2 Apr 2026 09:23:11 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id SQWwAH41zmlVYAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 09:23:10 +0000
+	id MKK/E381zmlVYAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 09:23:11 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: javierm@redhat.com,
 	arnd@arndb.de,
@@ -97,37 +105,42 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	dri-devel@lists.freedesktop.org,
 	linux-hyperv@vger.kernel.org,
 	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 0/8] firmware: sysfb: Consolidate config/code wrt. sysfb_primary_screen
-Date: Thu,  2 Apr 2026 11:09:14 +0200
-Message-ID: <20260402092305.208728-1-tzimmermann@suse.de>
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH 2/8] firmware: efi: Never declare sysfb_primary_display on x86
+Date: Thu,  2 Apr 2026 11:09:16 +0200
+Message-ID: <20260402092305.208728-3-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260402092305.208728-1-tzimmermann@suse.de>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-2.80 / 50.00];
+X-Spamd-Result: default: False [-6.80 / 50.00];
+	REPLY(-4.00)[];
 	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
 	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.996];
+	NEURAL_HAM_SHORT(-0.20)[-0.994];
 	MIME_GOOD(-0.10)[text/plain];
 	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[arndb.de:email,suse.de:mid,suse.de:email,linaro.org:email,intel.com:email];
+	RCPT_COUNT_TWELVE(0.00)[25];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
 	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
 	FREEMAIL_TO(0.00)[redhat.com,arndb.de,kernel.org,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,microsoft.com,gmx.de];
 	RCVD_COUNT_TWO(0.00)[2];
-	RCPT_COUNT_TWELVE(0.00)[24];
-	MIME_TRACE(0.00)[0:+];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TO_DN_SOME(0.00)[];
 	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLykjg6e7ifkwtw7jmpw7b9yio)];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_022314_100033_42BF2F4F 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260402_022326_132254_4CAB5CFC 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,69 +157,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The global state sysfb_primary_screen holds information about the
-framebuffer provided by EFI/BIOS systems. It is part of the sysfb
-module, but used in several places without direct connection to
-sysfb. Fix this by making users of sysfb_primary_screen depend on
-CONFIG_SYSFB. Fix a few issues in the process.
+The x86 architecture comes with its own instance of the global
+state variable sysfb_primary_display. Never declare it in the EFI
+subsystem. Fix the test for CONFIG_FIRMWARE_EDID accordingly.
 
-Patches 1 and 2 fix general errors in the Kconfig rules. In any case,
-these patches should be considered even without the rest of the series.
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Fixes: e65ca1646311 ("efi: export sysfb_primary_display for EDID")
+Cc: kernel test robot <lkp@intel.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Cc: linux-efi@vger.kernel.org
+---
+ drivers/firmware/efi/efi-init.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Patch 3 makes CONFIG_SYSFB a user-controlled option, which gives users
-more control over the configuration.
-
-Patches 4 to 6 slightly refactor the sysfb code. The PCI helpers are
-now in a separate source file. Support for relocating the PCI framebuffer
-is now located in sysfb, where it belongs.
-
-Patches 7 and 8 make earlycon and the firmware EDID depend on sysfb. Both
-rely on sysfb_primary_display to work correctly.
-
-Smoke-tested with bochs on qemu. Built with/without CONFIG_SYSFB enabled.
-
-Note: vgaarb still guards sysfb_primary_display with CONFIG_X86 instead
-of CONFIG_SYSFB. That works reliably and is left in place, as a change to
-guard with SYSFB_SYSFB might affect non-x86 systems in unknown ways.
-
-Thomas Zimmermann (8):
-  hv: Select CONFIG_SYSFB only for CONFIG_HYPERV_VMBUS
-  firmware: efi: Never declare sysfb_primary_display on x86
-  firmware: sysfb: Make CONFIG_SYSFB a user-selectable option
-  firmware: sysfb: Split sysfb.c into sysfb_primary.c and sysfb_pci.c
-  firmware: sysfb: Implement screen_info relocation for primary display
-  firmware: sysfb: Avoid forward-declaring sysfb_parent_dev()
-  firmware: efi: Make CONFIG_EFI_EARLYCON depend on CONFIG_SYSFB; clean
-    up
-  firmware: sysfb: Move CONFIG_FIRMWARE_EDID to firmware options
-
- arch/arm64/kernel/image-vars.h                |   2 +-
- arch/loongarch/configs/loongson32_defconfig   |   1 +
- arch/loongarch/configs/loongson64_defconfig   |   1 +
- arch/loongarch/kernel/efi.c                   |   4 +-
- arch/loongarch/kernel/image-vars.h            |   2 +-
- arch/riscv/kernel/image-vars.h                |   2 +-
- drivers/firmware/Kconfig                      |  38 ++++-
- drivers/firmware/Makefile                     |   7 +-
- drivers/firmware/efi/Kconfig                  |   3 +-
- drivers/firmware/efi/efi-init.c               |   6 +-
- drivers/firmware/efi/libstub/efi-stub-entry.c |   4 +-
- drivers/firmware/sysfb.h                      |  24 ++++
- drivers/firmware/sysfb_pci.c                  | 132 ++++++++++++++++++
- drivers/firmware/{sysfb.c => sysfb_primary.c} |  70 ++++------
- drivers/gpu/drm/sysfb/Kconfig                 |   4 +-
- drivers/hv/Kconfig                            |   2 +-
- drivers/video/Kconfig                         |  19 ---
- drivers/video/fbdev/Kconfig                   |   5 +-
- drivers/video/screen_info_pci.c               | 110 ---------------
- include/linux/screen_info.h                   |   3 -
- 20 files changed, 241 insertions(+), 198 deletions(-)
- create mode 100644 drivers/firmware/sysfb.h
- create mode 100644 drivers/firmware/sysfb_pci.c
- rename drivers/firmware/{sysfb.c => sysfb_primary.c} (90%)
-
-
-base-commit: 5d36e6d54e963f0c1137aaf2249d2baa781f08c2
+diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
+index 5a595d026f58..6103b1a082d2 100644
+--- a/drivers/firmware/efi/efi-init.c
++++ b/drivers/firmware/efi/efi-init.c
+@@ -60,7 +60,7 @@ extern __weak const efi_config_table_type_t efi_arch_tables[];
+  * x86 defines its own instance of sysfb_primary_display and uses
+  * it even without EFI, everything else can get them from here.
+  */
+-#if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON)) || defined(CONFIG_FIRMWARE_EDID)
++#if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_FIRMWARE_EDID))
+ struct sysfb_display_info sysfb_primary_display __section(".data");
+ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+ #endif
 -- 
 2.53.0
 
