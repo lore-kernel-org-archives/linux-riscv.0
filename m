@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB504D6AB16
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 21:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620C5D6AB10
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 21:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fhuQTgohgCxs33MLAsswAJ9cNVS7yS7Le7qTauFI6wk=; b=ihZCG30s00gdki
-	qgeI53XhgijqCklgEh/sKiGBGWcj/jc2Lk4lSqWwsV01Lt186amKkOXKTAhDmv3uT/hdZI3zKdpSq
-	/2HaQCIQ0ib0TT3jiM62HPPmPzTKV4PzfdbdCeTY3LHh+9ZLTGCZOJD3tTDSsUQhyN9hysxLPcNpd
-	UA7i+DaheOnA11VM6VhXWrtdMaL9zLtsD6vhxvGcG91KyMu0beFvbAfpdeg0bEur08RRkuy3b4Cyw
-	YghIIEsOJIzVm0VVAHIUwFZvb5cjEVYf+i3J5jDz92brYuKq4P2g7YQB2lLe0G1tiQaJ0SRplC7UJ
-	QA1klrUKFwhB/7/c3OnA==;
+	List-Owner; bh=J90VJ/3kOSzIevd1nF6+aR8Rcnx2YYoJeB8XFQRwNXU=; b=WcQqAS7E6h6Nvl
+	dQhpT33ZgGNzQxvfvtd+ARrZBmnARFLbeHJnFfD05ADdiZ0kpYwbV35o5c5wXDIyvx1ifvvbwfA5L
+	2aHNJL1CTXCCESiZhto9HOeXU149+9t1KhUvFxlLEJU373OrY0Ch45B8F4cXnRQnwIsvPaaYBXEZK
+	U+nqyw28+agTGzAmpz23BPXppLjOvH76DwUUBaprDTgUSriAwuYDajjjsPAOCueElVUoGvTdhMzpc
+	2G4/fJb3hC0O8LLOiaP6Zd7E4MXmT/VFiHJ6ieRTz5z/HBlMTqFFf5cg1jxfrHNDQvBUJt2EzAkna
+	fGSioyIehDv887Gj5j2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8PwQ-00000000pXf-16oD;
-	Thu, 02 Apr 2026 21:51:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w8Pxg-00000000peB-2DFb;
+	Thu, 02 Apr 2026 21:52:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8PwO-00000000pXO-1dOs;
-	Thu, 02 Apr 2026 21:51:04 +0000
+	id 1w8Pxe-00000000pdO-1TtF;
+	Thu, 02 Apr 2026 21:52:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B02160121;
-	Thu,  2 Apr 2026 21:51:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81CFAC116C6;
-	Thu,  2 Apr 2026 21:50:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D587C43B7D;
+	Thu,  2 Apr 2026 21:52:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A9D9C116C6;
+	Thu,  2 Apr 2026 21:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775166660;
-	bh=+iWo8G+lGLAR0AEWKadkwlt32LjzfIOHKPITuBCakWs=;
+	s=k20201202; t=1775166740;
+	bh=v9zJEeNVmz7NcsMkpOPkdYk7q2EoPoCfcmjxBRbg/Gw=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=uh7N/3FRUjqua+aPCo/hGr/AdrmusEl1H/a3Cy2K3ax/7zWAaowq7QLQao9luVbWo
-	 hhp+ELOy56vNZgWo/30UXJ+R+KNwAUX+g9t5upzBm19UO38qCmclRomH9W9JilFn3g
-	 1M3od6tckFksVcXsO4otmEq7oBs2ncVax1WS/48Gk7Y/jRGn5aI6Ty0S32Qrtb3v+N
-	 FCfqxPCfuHXXK+tb8kOeAkmUobWREiK7V0IqzM0OnWy9oCVbOYxajs4XGYlWHY2x7t
-	 AkBA5ON0TiTxqW6AtiPnUW+DWm5PHRBPUIiBBcwzXpeViYkdJ68cXcODxvoTFEl/DM
-	 YZIYLd1IONOQA==
-Date: Thu, 2 Apr 2026 15:50:54 -0600 (MDT)
+	b=PTB78iuKGtB1jnCLkrdAAEbFdUBu6bIVdFt5Wka6j9T73o4DOPCGZwiNrnq4PiEr6
+	 mBFN0TFFR6noe6wbi63LOXrgXpdD106UW3pCqKSxrNzj8GxdtV8MQyp2Vy1SAsdp3d
+	 M6xKXlZbCh0YABGR2JZ5uus7RZzPqgGZDTd9cRTDxhbH89DrUCD35i7ucql2BdpP2E
+	 7ULjB46nbQkz0boFssqZvNz1786uWfD+aGTkjAGmooYiXv+ruQ7/oxb1SnuN7wMHKS
+	 dZy72w3QSkA4WUNCLllLtT+k1bSnFq6cedLa+/KrtjYL9V2SlHZOhBUsWcX1NjRLrv
+	 DcESm7m/FmPPA==
+Date: Thu, 2 Apr 2026 15:52:15 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: "Vincent Mailhol (Arm)" <mailhol@kernel.org>
 cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
@@ -112,12 +112,15 @@ cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
     linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
     linux-renesas-soc@vger.kernel.org, linux-parisc@vger.kernel.org, 
     openbmc@lists.ozlabs.org
-Subject: Re: [PATCH 2/9] configs: remove orphan dependencies of
- NETFILTER_XTABLES_LEGACY
-In-Reply-To: <20260317-arm_defconf_cleanup-v1-2-8eecb7fdd24d@kernel.org>
-Message-ID: <576cec38-a5e4-5391-2a57-b164e84a813f@kernel.org>
-References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org> <20260317-arm_defconf_cleanup-v1-2-8eecb7fdd24d@kernel.org>
+Subject: Re: [PATCH 3/9] configs: remove obsolete assignments to
+ CONFIG_NFS_V4_1
+In-Reply-To: <20260317-arm_defconf_cleanup-v1-3-8eecb7fdd24d@kernel.org>
+Message-ID: <2a5bb9cf-3f0c-6069-6412-cd4c5c4e8b78@kernel.org>
+References: <20260317-arm_defconf_cleanup-v1-0-8eecb7fdd24d@kernel.org> <20260317-arm_defconf_cleanup-v1-3-8eecb7fdd24d@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_145222_444952_35431572 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,44 +139,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Tue, 17 Mar 2026, Vincent Mailhol (Arm) wrote:
 
-> Since its introduction in commit 9fce66583f06 ("netfilter: Exclude
-> LEGACY TABLES on PREEMPT_RT."), the configurations below all depend,
-> either directly or indirectly, on CONFIG_NETFILTER_XTABLES_LEGACY:
+> CONFIG_NFS_V4_1 was revomed in commit 7537db24806f ("NFS: Merge
+> CONFIG_NFS_V4_1 with CONFIG_NFS_V4"). However, some defconfigs are
+> still referring the old configuration.
 > 
->   - CONFIG_NETFILTER_XT_TARGET_CHECKSUM
->   - CONFIG_IP_NF_FILTER
->   - CONFIG_IP_NF_TARGET_REJECT
->   - CONFIG_IP_NF_NAT
->   - CONFIG_IP_NF_TARGET_MASQUERADE
->   - CONFIG_IP_NF_MANGLE
->   - CONFIG_IP6_NF_FILTER
->   - CONFIG_IP6_NF_TARGET_REJECT
->   - CONFIG_IP6_NF_MANGLE
->   - CONFIG_IP6_NF_NAT
->   - CONFIG_IP6_NF_TARGET_MASQUERADE
-> 
-> This new dependency caused many symbols to become orphaned, meaning
-> their dependencies are no longer satisfied and Kconfig drops them from
-> the final configuration.
-> 
-> Note that CONFIG_NFT_COMPAT is another parent dependency, so the
-> above-listed symbols would not become orphaned as long as NFT_COMPAT
-> is present.
-> 
-> Considering that these are legacy options and that nobody complained
-> in recent kernel releases when these options were already missing, it
-> is safe to assume they can be removed.
-> 
-> Suppress all these configuration symbols in all the defconfig files
-> that have neither CONFIG_NETFILTER_XTABLES_LEGACY nor
-> CONFIG_NFT_COMPAT set.
+> Clean-up all the leftover references to CONFIG_NFS_V4_1.
 > 
 > FYI, the suppressions were done using:
 > 
->   git grep -z -L -E '^CONFIG_(NETFILTER_XTABLES_LEGACY|NFT_COMPAT)=(y|m)$' -- 'arch/*/configs/*defconfig' |\
->     xargs -0 sed -i -E '/^CONFIG_(NETFILTER_XT_TARGET_CHECKSUM|IP_NF_FILTER|IP_NF_TARGET_REJECT|IP_NF_NAT|IP_NF_TARGET_MASQUERADE|IP_NF_MANGLE|IP6_NF_FILTER|IP6_NF_TARGET_REJECT|IP6_NF_MANGLE|IP6_NF_NAT|IP6_NF_TARGET_MASQUERADE)=(y|m)$/d'
+>   git grep -z -l '^CONFIG_NFS_V4=' -- 'arch/*/configs/*defconfig' |\
+>     xargs -0 sed -i -E '/^CONFIG_NFS_V4_1=/d'
 > 
-> Fixes: 9fce66583f06 ("netfilter: Exclude LEGACY TABLES on PREEMPT_RT.")
+> CONFIG_NFS_V4_1_IMPLEMENTATION_ID_DOMAIN and CONFIG_NFS_V4_1_MIGRATION
+> were not in scope of the renaming and still use V4_1 in their name, so
+> keep those two untouched.
+> 
+> Fixes: 7537db24806f ("NFS: Merge CONFIG_NFS_V4_1 with CONFIG_NFS_V4")
 > Signed-off-by: Vincent Mailhol (Arm) <mailhol@kernel.org>
 
 Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
