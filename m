@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342EAD39401
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8E8D39402
 	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 09:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8Lt3ycGz2KKz1769XOvxhqddHXmyh5PmykCX47QzqOE=; b=ko26+nvero52UE
-	qn5YOgpEp2OoEShn7EkLOjHB/1V+dK1P/pff3fn+iUWpV74I9WOw3vm+ocidVyfZqqXWACc4RdB0m
-	K3EUzCvFkOhzNZ1q1lcWXh2qCgYglAc2cQ3MK8hexe6bVSaNA1sU1HX/VUK45qbGHVkwPOxt4Yr9z
-	pMBCNaZ7PZfuaPjUyvZzkJ+OzL+SvKGJlCvETfp2nXYSeMqmBKLs1Z2Qfr5QT0zKLji/FEiLeBwts
-	wICaXrvL2Zyj5EkMdCsd2hS0xHNypTQ8wTie/ix8z34Mynoe3ks9ZNsCRQfVP6urVUOp8VBL5JV0K
-	dUWaROQJR82u7dBD4g0w==;
+	List-Owner; bh=0YGcbgdE4Y3IO2hfSIKhAx6GqpjOxDJs3H+1DiGDfjY=; b=XUtBAz83xDvU/I
+	HlPd0FLbcTcckQ9eL3iwoGatXoCayzIqo/GYuGaHhlgou+iZnx2Mw3B2rKnak52+F1ip9S0TGUjy0
+	jqdCZCyXspqZ25M2XJb1UTWcQIFxNVPDsICoo982vQpe9F9+s1dydw4h2sMzNF1iUCyxRBg/OVgXC
+	6IgbhkXnDVbCn96gy2ccA29BluwdMz4Qt94mCkZrm8qGP1fRl/CZCN7Cu2S7dQBBf5lpk74eBXKT8
+	KhLQP2aqtRO6Nu4u8d8pvcU+LKQrhdmkAZd56wK3L3ffcfbE1mW0+XQ1rdYBzuM6SsyIQJDhxhtD6
+	5MQrZTzCT++vdhmZij0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EH2-0000000HFIW-3D5R;
-	Thu, 02 Apr 2026 09:23:36 +0000
+	id 1w8EH0-0000000HFEg-1Ne9;
+	Thu, 02 Apr 2026 09:23:34 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EH0-0000000HFEQ-3dmZ
+	id 1w8EGx-0000000HFAW-1XFh
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 02 Apr 2026 09:23:35 +0000
+	Thu, 02 Apr 2026 09:23:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=ZAUcCbq0747VRGXrl4OKTIDn+MJrONajR1O33hye3n4=; b=Oed2cwQwsrzGf7Qfebm+qpVWVH
-	tDcMesZC1hnPZE56tFx4xVKjCtddKU+3mVeieWOXW/nt/41qVTuEi1A9vMcutE3M/bPD6PYJhQs8R
-	Z8afoN9HoZoo83UA8uJbwO/fYEXm4ngttQqhyo+o38Sb4KFdapYCHgjCcQsYpTAf+aUmAgnaldDHf
-	G8jpgQDaNknzv+Q977jiv1O91SZ4iA0NptBVpYOSyYoMRo1+xWCNxvDf6tKnadVZfQdqpLd79Yc3J
-	dotnQ1p/n0+9O+w3FjwWU8m6IjfRTSQfxlnLovz0k7AcNyInRgjkLBXfLy8vBKhpsxWoWR568MX5r
-	2VFKqQ5Q==;
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	bh=li1HaXS/PqQPfvh1Q87+F1vvQNzLcQL0CfzzGT6JwFc=; b=X/oVc4zA3ORnYB3U3/NSV6N4p5
+	zO+YExH2q2es0KBhmIrB2tQk+qMSy+M4Y4hSWDLkc2kgUrsna2QprQWGhiJHVwUBmbvujM0ipgpb5
+	ZTlaraEVZJNyZUn8Z8Vq6N4qBaS67wM7E/TLmdvKkvaQ86yQyiiDeVOnt2P8DSzgRvF0NyZnZo6LU
+	4PFTemXrpky5sxHg5X84XvZMrK/qvDs5c6ZHEiFVGG53pcEZbbSlrMaBUtPAdyg4myrjjXAteqY8g
+	8ingpi/wF281Jo2ZWBRP6sCyA98uWHNFDK2c2y24HiA+TuiCH1fOcAWSvdvdJBAedg3nQzh63BuVq
+	2f2paSHw==;
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EGx-0000000C39x-2qax
+	id 1w8EGu-0000000C38h-1RFH
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 09:23:33 +0000
+	Thu, 02 Apr 2026 09:23:30 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 84A0D5BD9A;
-	Thu,  2 Apr 2026 09:23:12 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
+	by smtp-out1.suse.de (Postfix) with ESMTPS id E71FA4D320;
+	Thu,  2 Apr 2026 09:23:14 +0000 (UTC)
+Authentication-Results: smtp-out1.suse.de;
 	none
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EC1F84A0B1;
-	Thu,  2 Apr 2026 09:23:11 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5DBBA4A0B1;
+	Thu,  2 Apr 2026 09:23:14 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id UGM3OH81zmlVYAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 09:23:11 +0000
+	id KHStFYI1zmlVYAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 09:23:14 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: javierm@redhat.com,
 	arnd@arndb.de,
@@ -85,9 +85,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-hyperv@vger.kernel.org,
 	linux-fbdev@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable option
-Date: Thu,  2 Apr 2026 11:09:17 +0200
-Message-ID: <20260402092305.208728-4-tzimmermann@suse.de>
+Subject: [PATCH 7/8] firmware: efi: Make CONFIG_EFI_EARLYCON depend on CONFIG_SYSFB; clean up
+Date: Thu,  2 Apr 2026 11:09:21 +0200
+Message-ID: <20260402092305.208728-8-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260402092305.208728-1-tzimmermann@suse.de>
 References: <20260402092305.208728-1-tzimmermann@suse.de>
@@ -95,17 +95,17 @@ MIME-Version: 1.0
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: 84A0D5BD9A
+X-Rspamd-Queue-Id: E71FA4D320
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
 X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_102331_784586_371C99D1 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260402_102328_448069_4F12777D 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,139 +122,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a descriptive string and help text to CONFIG_SYSFB, so that users
-can modify it. Flip all implicit selects in the Kconfig options into
-dependencies. This avoids cyclic dependencies in the config.
+Efi-earlycon uses sysfb_primary_display. Therefore make it depend on
+the corresponding config symbol. With this in place, go through the
+source files and reduce tests to CONFIG_SYSFB. Efi-earlycon is now
+just another regular user of sysfb.
 
-Enabling CONFIG_SYSFB makes the kernel provide a device for the firmware
-framebuffer. As this can (slightly) affect system behavior, having a
-user-facing option seems preferable. Some users might also want to set
-every detail of their kernel config.
+This also enables the screen_info relocation feature for efi-earlycon.
+Systems might move the framebuffer aperture while booting the kernel. PCI
+bridges sometimes do this as part of relocating the sub-bus aperture.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 ---
- drivers/firmware/Kconfig      | 18 ++++++++++++++++--
- drivers/gpu/drm/sysfb/Kconfig |  4 ++--
- drivers/hv/Kconfig            |  2 +-
- drivers/video/fbdev/Kconfig   |  5 +++--
- 4 files changed, 22 insertions(+), 7 deletions(-)
+ arch/arm64/kernel/image-vars.h                | 2 +-
+ arch/loongarch/kernel/efi.c                   | 4 ++--
+ arch/loongarch/kernel/image-vars.h            | 2 +-
+ arch/riscv/kernel/image-vars.h                | 2 +-
+ drivers/firmware/efi/Kconfig                  | 3 ++-
+ drivers/firmware/efi/efi-init.c               | 6 ++----
+ drivers/firmware/efi/libstub/efi-stub-entry.c | 4 +---
+ 7 files changed, 10 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index bbd2155d8483..52f8253a46b1 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -179,14 +179,28 @@ config MTK_ADSP_IPC
- 	  Client might use shared memory to exchange information with ADSP.
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index d7b0d12b1015..7e0e61385286 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -37,7 +37,7 @@ PROVIDE(__efistub__text			= _text);
+ PROVIDE(__efistub__end			= _end);
+ PROVIDE(__efistub___inittext_end       	= __inittext_end);
+ PROVIDE(__efistub__edata		= _edata);
+-#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
++#if defined(CONFIG_SYSFB)
+ PROVIDE(__efistub_sysfb_primary_display	= sysfb_primary_display);
+ #endif
+ PROVIDE(__efistub__ctype		= _ctype);
+diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
+index 69dd83f8082f..6c25e2ecf45f 100644
+--- a/arch/loongarch/kernel/efi.c
++++ b/arch/loongarch/kernel/efi.c
+@@ -74,7 +74,7 @@ bool efi_poweroff_required(void)
  
- config SYSFB
--	bool
-+	bool "Enable system framebuffer provided by boot loader"
- 	select BOOT_VESA_SUPPORT
- 	select SCREEN_INFO
-+	help
-+	  Use the system framebuffer provided by the boot loader. This will
-+	  create a device representing the framebuffer. The output depends on
-+	  EFI, VESA, VGA, or some other firmware-based interface.
-+
-+	  The firmware or boot loader sets the display resolution and color
-+	  mode. See your boot loader's documentation on how to do this. On
-+	  some systems the display can also be configured during boot with
-+	  the kernel's video= or vga= parameters.
-+
-+	  Besides this option, you also have to enable a compatible graphics
-+	  driver, such as efidrm or vesadrm.
-+
-+	  If unsure, say Y.
+ unsigned long __initdata primary_display_table = EFI_INVALID_TABLE_ADDR;
  
- config SYSFB_SIMPLEFB
- 	bool "Mark VGA/VBE/EFI FB as generic system framebuffer"
-+	depends on SYSFB
- 	depends on X86 || EFI
--	select SYSFB
- 	help
- 	  Firmwares often provide initial graphics framebuffers so the BIOS,
- 	  bootloader or kernel can show basic video-output during boot for
-diff --git a/drivers/gpu/drm/sysfb/Kconfig b/drivers/gpu/drm/sysfb/Kconfig
-index 2559ead6cf1f..74be3c8e6657 100644
---- a/drivers/gpu/drm/sysfb/Kconfig
-+++ b/drivers/gpu/drm/sysfb/Kconfig
-@@ -26,12 +26,12 @@ config DRM_COREBOOTDRM
- config DRM_EFIDRM
- 	tristate "EFI framebuffer driver"
- 	depends on DRM && MMU && EFI && (!SYSFB_SIMPLEFB || COMPILE_TEST)
-+	depends on SYSFB
- 	select APERTURE_HELPERS
- 	select DRM_CLIENT_SELECTION
- 	select DRM_GEM_SHMEM_HELPER
- 	select DRM_KMS_HELPER
- 	select DRM_SYSFB_HELPER
--	select SYSFB
- 	help
- 	  DRM driver for EFI framebuffers.
+-#if defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON)
++#if defined(CONFIG_SYSFB)
+ struct sysfb_display_info sysfb_primary_display __section(".data");
+ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+ #endif
+@@ -129,7 +129,7 @@ void __init efi_init(void)
  
-@@ -76,12 +76,12 @@ config DRM_SIMPLEDRM
- config DRM_VESADRM
- 	tristate "VESA framebuffer driver"
- 	depends on DRM && MMU && X86 && (!SYSFB_SIMPLEFB || COMPILE_TEST)
-+	depends on SYSFB
- 	select APERTURE_HELPERS
- 	select DRM_CLIENT_SELECTION
- 	select DRM_GEM_SHMEM_HELPER
- 	select DRM_KMS_HELPER
- 	select DRM_SYSFB_HELPER
--	select SYSFB
- 	help
- 	  DRM driver for VESA framebuffers.
+ 	set_bit(EFI_CONFIG_TABLES, &efi.flags);
  
-diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
-index 2d0b3fcb0ff8..af0ac6516159 100644
---- a/drivers/hv/Kconfig
-+++ b/drivers/hv/Kconfig
-@@ -60,8 +60,8 @@ config HYPERV_BALLOON
- config HYPERV_VMBUS
- 	tristate "Microsoft Hyper-V VMBus driver"
- 	depends on HYPERV
-+	depends on SYSFB if EFI && !HYPERV_VTL_MODE
- 	default HYPERV
--	select SYSFB if EFI && !HYPERV_VTL_MODE
- 	help
- 	  Select this option to enable Hyper-V Vmbus driver.
+-	if (IS_ENABLED(CONFIG_EFI_EARLYCON) || IS_ENABLED(CONFIG_SYSFB))
++	if (IS_ENABLED(CONFIG_SYSFB))
+ 		init_primary_display();
  
-diff --git a/drivers/video/fbdev/Kconfig b/drivers/video/fbdev/Kconfig
-index ac9ac4287c6a..6f55bec8c207 100644
---- a/drivers/video/fbdev/Kconfig
-+++ b/drivers/video/fbdev/Kconfig
-@@ -333,6 +333,7 @@ config FB_IMSTT
- config FB_VGA16
- 	tristate "VGA 16-color graphics support"
- 	depends on FB && X86
+ 	if (boot_memmap == EFI_INVALID_TABLE_ADDR)
+diff --git a/arch/loongarch/kernel/image-vars.h b/arch/loongarch/kernel/image-vars.h
+index e557ebd46c2b..c43f9326f344 100644
+--- a/arch/loongarch/kernel/image-vars.h
++++ b/arch/loongarch/kernel/image-vars.h
+@@ -11,7 +11,7 @@ __efistub_strcmp		= strcmp;
+ __efistub_kernel_entry		= kernel_entry;
+ __efistub_kernel_asize		= kernel_asize;
+ __efistub_kernel_fsize		= kernel_fsize;
+-#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
++#if defined(CONFIG_SYSFB)
+ __efistub_sysfb_primary_display	= sysfb_primary_display;
+ #endif
+ 
+diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+index 3bd9d06a8b8f..3ab2529c4154 100644
+--- a/arch/riscv/kernel/image-vars.h
++++ b/arch/riscv/kernel/image-vars.h
+@@ -28,7 +28,7 @@ __efistub__start_kernel		= _start_kernel;
+ __efistub__end			= _end;
+ __efistub__edata		= _edata;
+ __efistub___init_text_end	= __init_text_end;
+-#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
++#if defined(CONFIG_SYSFB)
+ __efistub_sysfb_primary_display	= sysfb_primary_display;
+ #endif
+ 
+diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
+index 29e0729299f5..925ded080eb4 100644
+--- a/drivers/firmware/efi/Kconfig
++++ b/drivers/firmware/efi/Kconfig
+@@ -219,8 +219,9 @@ config EFI_DISABLE_PCI_DMA
+ config EFI_EARLYCON
+ 	def_bool y
+ 	depends on SERIAL_EARLYCON && !ARM
+-	select FONT_SUPPORT
 +	depends on SYSFB
- 	select APERTURE_HELPERS
- 	select FB_CFB_FILLRECT
- 	select FB_CFB_COPYAREA
-@@ -424,9 +425,9 @@ config FB_UVESA
- config FB_VESA
- 	bool "VESA VGA graphics support"
- 	depends on (FB = y) && X86
-+	depends on SYSFB
- 	select APERTURE_HELPERS
- 	select FB_IOMEM_HELPERS
--	select SYSFB
- 	help
- 	  This is the frame buffer device driver for generic VESA 2.0
- 	  compliant graphic cards. The older VESA 1.2 cards are not supported.
-@@ -436,10 +437,10 @@ config FB_VESA
- config FB_EFI
- 	bool "EFI-based Framebuffer Support"
- 	depends on (FB = y) && EFI
-+	depends on SYSFB
- 	select APERTURE_HELPERS
- 	select DRM_PANEL_ORIENTATION_QUIRKS
- 	select FB_IOMEM_HELPERS
--	select SYSFB
- 	help
- 	  This is the EFI frame buffer device driver. If the firmware on
- 	  your platform is EFI 1.10 or UEFI 2.0, select Y to add support for
+ 	select ARCH_USE_MEMREMAP_PROT
++	select FONT_SUPPORT
+ 
+ config EFI_CUSTOM_SSDT_OVERLAYS
+ 	bool "Load custom ACPI SSDT overlay from an EFI variable"
+diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
+index 6103b1a082d2..002518b642ed 100644
+--- a/drivers/firmware/efi/efi-init.c
++++ b/drivers/firmware/efi/efi-init.c
+@@ -60,7 +60,7 @@ extern __weak const efi_config_table_type_t efi_arch_tables[];
+  * x86 defines its own instance of sysfb_primary_display and uses
+  * it even without EFI, everything else can get them from here.
+  */
+-#if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_FIRMWARE_EDID))
++#if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_FIRMWARE_EDID))
+ struct sysfb_display_info sysfb_primary_display __section(".data");
+ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+ #endif
+@@ -271,8 +271,6 @@ void __init efi_init(void)
+ 	memblock_reserve(data.phys_map & PAGE_MASK,
+ 			 PAGE_ALIGN(data.size + (data.phys_map & ~PAGE_MASK)));
+ 
+-	if (IS_ENABLED(CONFIG_X86) ||
+-	    IS_ENABLED(CONFIG_SYSFB) ||
+-	    IS_ENABLED(CONFIG_EFI_EARLYCON))
++	if (IS_ENABLED(CONFIG_X86) || IS_ENABLED(CONFIG_SYSFB))
+ 		init_primary_display();
+ }
+diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
+index aa85e910fe59..214fa4d84df0 100644
+--- a/drivers/firmware/efi/libstub/efi-stub-entry.c
++++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
+@@ -19,9 +19,7 @@ struct sysfb_display_info *alloc_primary_display(void)
+ 	if (IS_ENABLED(CONFIG_ARM))
+ 		return __alloc_primary_display();
+ 
+-	if (IS_ENABLED(CONFIG_X86) ||
+-	    IS_ENABLED(CONFIG_EFI_EARLYCON) ||
+-	    IS_ENABLED(CONFIG_SYSFB))
++	if (IS_ENABLED(CONFIG_X86) || IS_ENABLED(CONFIG_SYSFB))
+ 		return kernel_image_addr(&sysfb_primary_display);
+ 
+ 	return NULL;
 -- 
 2.53.0
 
