@@ -4,142 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5510D39401
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 09:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3ACD3940B
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 10:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QUtzithCxsdiKq0R9YPGPmB0R8bK7WGUnR1zWjRmrsA=; b=BTECTp99dbGC6+
-	6M9Iuv+2MUdhWGYBiZ8Nj+yAdylGTMFV2OVJuwuOhHM/nX6B4lZCg0RvExX1fEvV4ZAW3lCfkBfVs
-	zYKdJOTnO8MYWh5bustTUEXk/JkYv9WyKNRRi+CJv/s0wM7VOyq3RgVaitp4phxb+R8Z42wADQzTp
-	a9wczE+jSyNpAjNXRjrISjTmiEMJCZUiGRAYwJ8CKKx6eXoS2bas9eQqWBIocXsEW/bFyw23xKPpt
-	GjhpTJxkcpBrmlgy+DV6FSuY9pO25xSXIi4xy1bATqveqSa6iBmgtG4acUFZ4qnkB7BCe4JZdQroK
-	HESpiO2/ZRhUszjCSAZQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gxQab2DLLHetYLretYD+5YEUvLAyaNL4zJIYvcB8xJY=; b=fBp3m2Z93vwyAB
+	k/Tvf3r5eGBwCgptIU1zCF9FfSTGc4nuasceRcbkl7lazl0lxdLrO89u2e+0xQbPqL1Kl/xvZTrof
+	WdPaSjWU+MeUjTMbWFdwkPCMyXOHZGiqczZh7BfrdhJIw1NCS/d3UD0OX/I5OYQmoSfH3/x9FyBd9
+	9DmbxF0G+8y1qEF4S29Hkdt4M7qoI9H0R5vTl5KnwqCLC99po+NYtBbs8drvDGWr3OBX+vcLmrYPg
+	2PSGkFmQVCmIn3hgfrhr8pAV8L83I7FRghFrKwXeDfIooeiZIPQdSZTN0q8CLgsYH+SnL3SORGPm5
+	ykKHHl1FkmdEkf/Yx1pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EH9-0000000HFQe-3tSc;
-	Thu, 02 Apr 2026 09:23:43 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1w8Eqp-0000000HKhf-2xdH;
+	Thu, 02 Apr 2026 10:00:35 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EH4-0000000HFIZ-0WWE
+	id 1w8Eql-0000000HKg8-2JaF
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Apr 2026 09:23:39 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id BCFC65BDAC;
-	Thu,  2 Apr 2026 09:23:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775121793; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YPCEYbiGOCpx2zUalDos08LGZhiPvMU5VsFjS8QK76U=;
-	b=0js1rDWnH9smqDqLDvIAKHV8/eXXpqQLMMmO2TI8gDpO96XoYOJ31GNYVGDIhbudXFZi9G
-	RQ/O7aJULE82Ey6TA6L6DSH8P2yEi8bpC87AmYkQUvPUMU9qrvfDUU3Q8uptTAtDg3jYPP
-	Io9AeuySbfgnMZqPfHt6jtJYVMlHoo0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775121793;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YPCEYbiGOCpx2zUalDos08LGZhiPvMU5VsFjS8QK76U=;
-	b=Tyx81et7F7PdaU5+qsAtZ653DbZ7+SrFuesp7ACsEj//SHAzWobwR7Yrj7KdApo1hOLQaG
-	JiNq8qBG9bZiwyDQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775121793; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YPCEYbiGOCpx2zUalDos08LGZhiPvMU5VsFjS8QK76U=;
-	b=0js1rDWnH9smqDqLDvIAKHV8/eXXpqQLMMmO2TI8gDpO96XoYOJ31GNYVGDIhbudXFZi9G
-	RQ/O7aJULE82Ey6TA6L6DSH8P2yEi8bpC87AmYkQUvPUMU9qrvfDUU3Q8uptTAtDg3jYPP
-	Io9AeuySbfgnMZqPfHt6jtJYVMlHoo0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775121793;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YPCEYbiGOCpx2zUalDos08LGZhiPvMU5VsFjS8QK76U=;
-	b=Tyx81et7F7PdaU5+qsAtZ653DbZ7+SrFuesp7ACsEj//SHAzWobwR7Yrj7KdApo1hOLQaG
-	JiNq8qBG9bZiwyDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2C4C74A0B1;
-	Thu,  2 Apr 2026 09:23:13 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id oLbDCIE1zmlVYAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 09:23:13 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: javierm@redhat.com,
-	arnd@arndb.de,
-	ardb@kernel.org,
-	ilias.apalodimas@linaro.org,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	longli@microsoft.com,
-	deller@gmx.de
-Cc: linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-efi@vger.kernel.org,
+	Thu, 02 Apr 2026 10:00:32 +0000
+Received: from localhost.localdomain (unknown [116.25.95.185])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 394e0eafe;
+	Thu, 2 Apr 2026 18:00:18 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-hyperv@vger.kernel.org,
-	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 5/8] firmware: sysfb: Implement screen_info relocation for primary display
-Date: Thu,  2 Apr 2026 11:09:19 +0200
-Message-ID: <20260402092305.208728-6-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260402092305.208728-1-tzimmermann@suse.de>
-References: <20260402092305.208728-1-tzimmermann@suse.de>
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH v2 0/3] riscv: dts: spacemit: enable USB3 on OrangePi
+Date: Thu,  2 Apr 2026 18:00:04 +0800
+Message-Id: <20260402100007.110201-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-6.80 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.995];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email];
-	RCPT_COUNT_TWELVE(0.00)[24];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_TO(0.00)[redhat.com,arndb.de,kernel.org,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,microsoft.com,gmx.de];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLykjg6e7ifkwtw7jmpw7b9yio)];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
+X-HM-Tid: 0a9d4da2f36c03a2kunmcba6113b55c18d
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDHkodVkoeH05DGR4YTENPH1YeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk5VSkNOWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
+	tLWQY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_022338_482092_6344D3CC 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20260402_030031_794024_AC011FF8 
+X-CRM114-Status: UNSURE (   4.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,347 +75,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the relocation tracking for screen_info from the screen_info
-helpers to sysfb. The relocation code operates on sysfb_primary_display,
-which belongs to sysfb. The remaining screen_info helpers are now free
-from global state.
+Changes in v2:
+- Drop common board dtsi and PCIe regulator
+- Enable USB3 on OrangePi R2S and RV2 boards
+- Link to v1: https://lore.kernel.org/lkml/20260116100001.208334-2-amadeus@jmu.edu.cn/
 
-Adapt some symbol names. Now prefer early returns in the helper
-sysfb_apply_screen_info_fixup() over nested branching. Also return an
-errno code from sysfb_apply_screen_info_fixup() if the relocation
-failed. In this case, do not create a device for the framebuffer.
-The original code advertised this behavior in a comment but never
-implemented it.
+There is no publicly available schematic for the OrangePi R2S.
+The schematic of OrangePi RV2 is available at:
+https://drive.google.com/drive/folders/1pcI_U0C3VJKTCg8A1zj08CwNbohnONSR
 
-Framebuffer aperture relocation can happen during boot if the PCI
-graphics device is located behind a PCI bridge. If the bridge's sub-
-bus gets relocated, the framebuffer aperture moves accordingly. The
-helper for tracking these relocations fixes up the values stored in
-sysfb_primary_display so that they refer to the correct address range
-again. Generic system-framebuffer drivers would not work otherwise.
+Chukun Pan (3):
+  riscv: dts: spacemit: add fixed regulators for OrangePi
+  riscv: dts: spacemit: enable USB3 on OrangePi R2S
+  riscv: dts: spacemit: enable USB3 on OrangePi RV2
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- drivers/firmware/sysfb.h         |   5 ++
- drivers/firmware/sysfb_pci.c     | 111 +++++++++++++++++++++++++++++++
- drivers/firmware/sysfb_primary.c |   9 ++-
- drivers/video/screen_info_pci.c  | 110 ------------------------------
- include/linux/screen_info.h      |   3 -
- 5 files changed, 123 insertions(+), 115 deletions(-)
+ .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 43 +++++++++++++++++++
+ .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 43 +++++++++++++++++++
+ 2 files changed, 86 insertions(+)
 
-diff --git a/drivers/firmware/sysfb.h b/drivers/firmware/sysfb.h
-index 9f7fe2e03f68..1eaa3b0fa364 100644
---- a/drivers/firmware/sysfb.h
-+++ b/drivers/firmware/sysfb.h
-@@ -8,8 +8,13 @@
- struct pci_dev;
- 
- #ifdef CONFIG_PCI
-+int sysfb_apply_screen_info_fixups(void);
- bool sysfb_pci_dev_is_enabled(struct pci_dev *pdev);
- #else
-+static inline int sysfb_apply_screen_info_fixups(void)
-+{
-+	return 0;
-+}
- static inline bool sysfb_pci_dev_is_enabled(struct pci_dev *pdev)
- {
- 	return false;
-diff --git a/drivers/firmware/sysfb_pci.c b/drivers/firmware/sysfb_pci.c
-index 8f3adeef4fb1..d972750c6bc6 100644
---- a/drivers/firmware/sysfb_pci.c
-+++ b/drivers/firmware/sysfb_pci.c
-@@ -1,9 +1,120 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- 
- #include <linux/pci.h>
-+#include <linux/printk.h>
-+#include <linux/screen_info.h>
-+#include <linux/sysfb.h>
- 
- #include "sysfb.h"
- 
-+static struct pci_dev *sysfb_lfb_pdev;
-+static size_t sysfb_lfb_bar;
-+static resource_size_t sysfb_lfb_res_start; // original start of resource
-+static resource_size_t sysfb_lfb_offset; // framebuffer offset within resource
-+
-+static bool __sysfb_relocation_is_valid(const struct screen_info *si, struct resource *pr)
-+{
-+	u64 size = __screen_info_lfb_size(si, screen_info_video_type(si));
-+
-+	if (sysfb_lfb_offset > resource_size(pr))
-+		return false;
-+	if (size > resource_size(pr))
-+		return false;
-+	if (resource_size(pr) - size < sysfb_lfb_offset)
-+		return false;
-+
-+	return true;
-+}
-+
-+int sysfb_apply_screen_info_fixups(void)
-+{
-+	struct screen_info *si = &sysfb_primary_display.screen;
-+	struct resource *pr;
-+
-+	if (!sysfb_lfb_pdev)
-+		return 0; /* primary display is not on a PCI device */
-+
-+	pr = &sysfb_lfb_pdev->resource[sysfb_lfb_bar];
-+
-+	if (pr->start == sysfb_lfb_res_start)
-+		return 0; /* no relocation took place */
-+
-+	if (!__sysfb_relocation_is_valid(si, pr))
-+		return -ENXIO;
-+
-+	/*
-+	 * Only update base if we have an actual relocation to a valid I/O range.
-+	 */
-+	__screen_info_set_lfb_base(si, pr->start + sysfb_lfb_offset);
-+	pr_info("Relocating firmware framebuffer to offset %pa[d] within %pr\n",
-+		&sysfb_lfb_offset, pr);
-+
-+	return 0;
-+}
-+
-+static int __screen_info_lfb_pci_bus_region(const struct screen_info *si, unsigned int type,
-+					    struct pci_bus_region *r)
-+{
-+	u64 base, size;
-+
-+	base = __screen_info_lfb_base(si);
-+	if (!base)
-+		return -EINVAL;
-+
-+	size = __screen_info_lfb_size(si, type);
-+	if (!size)
-+		return -EINVAL;
-+
-+	r->start = base;
-+	r->end = base + size - 1;
-+
-+	return 0;
-+}
-+
-+static void sysfb_fixup_lfb(struct pci_dev *pdev)
-+{
-+	unsigned int type;
-+	struct pci_bus_region bus_region;
-+	int ret;
-+	struct resource r = {
-+		.flags = IORESOURCE_MEM,
-+	};
-+	const struct resource *pr;
-+	const struct screen_info *si = &sysfb_primary_display.screen;
-+
-+	if (sysfb_lfb_pdev)
-+		return; // already found
-+
-+	type = screen_info_video_type(si);
-+	if (!__screen_info_has_lfb(type))
-+		return; // only applies to EFI; maybe VESA
-+
-+	ret = __screen_info_lfb_pci_bus_region(si, type, &bus_region);
-+	if (ret < 0)
-+		return;
-+
-+	/*
-+	 * Translate the PCI bus address to resource. Account for an offset if
-+	 * the framebuffer is behind a PCI host bridge.
-+	 */
-+	pcibios_bus_to_resource(pdev->bus, &r, &bus_region);
-+
-+	pr = pci_find_resource(pdev, &r);
-+	if (!pr)
-+		return;
-+
-+	/*
-+	 * We've found a PCI device with the framebuffer resource. Store away
-+	 * the parameters to track relocation of the framebuffer aperture.
-+	 */
-+	sysfb_lfb_pdev = pdev;
-+	sysfb_lfb_bar = pr - pdev->resource;
-+	sysfb_lfb_offset = r.start - pr->start;
-+	sysfb_lfb_res_start = bus_region.start;
-+}
-+DECLARE_PCI_FIXUP_CLASS_HEADER(PCI_ANY_ID, PCI_ANY_ID, PCI_BASE_CLASS_DISPLAY, 16,
-+			       sysfb_fixup_lfb);
-+
- bool sysfb_pci_dev_is_enabled(struct pci_dev *pdev)
- {
- 	/*
-diff --git a/drivers/firmware/sysfb_primary.c b/drivers/firmware/sysfb_primary.c
-index ab8d7fc468bb..298f87a43a7e 100644
---- a/drivers/firmware/sysfb_primary.c
-+++ b/drivers/firmware/sysfb_primary.c
-@@ -32,6 +32,7 @@
- #include <linux/pci.h>
- #include <linux/platform_data/simplefb.h>
- #include <linux/platform_device.h>
-+#include <linux/printk.h>
- #include <linux/screen_info.h>
- #include <linux/sysfb.h>
- 
-@@ -127,11 +128,15 @@ static __init int sysfb_init(void)
- 	struct simplefb_platform_data mode;
- 	const char *name;
- 	bool compatible;
--	int ret = 0;
-+	int ret;
- 
--	screen_info_apply_fixups();
-+	ret = sysfb_apply_screen_info_fixups();
- 
- 	mutex_lock(&disable_lock);
-+	if (ret) {
-+		pr_warn("Invalid relocation, disabling system framebuffer\n");
-+		disabled = true; /* screen_info relocation failed */
-+	}
- 	if (disabled)
- 		goto unlock_mutex;
- 
-diff --git a/drivers/video/screen_info_pci.c b/drivers/video/screen_info_pci.c
-index 8f34d8a74f09..d8985a54ce71 100644
---- a/drivers/video/screen_info_pci.c
-+++ b/drivers/video/screen_info_pci.c
-@@ -1,117 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- 
- #include <linux/pci.h>
--#include <linux/printk.h>
- #include <linux/screen_info.h>
--#include <linux/string.h>
--#include <linux/sysfb.h>
--
--static struct pci_dev *screen_info_lfb_pdev;
--static size_t screen_info_lfb_bar;
--static resource_size_t screen_info_lfb_res_start; // original start of resource
--static resource_size_t screen_info_lfb_offset; // framebuffer offset within resource
--
--static bool __screen_info_relocation_is_valid(const struct screen_info *si, struct resource *pr)
--{
--	u64 size = __screen_info_lfb_size(si, screen_info_video_type(si));
--
--	if (screen_info_lfb_offset > resource_size(pr))
--		return false;
--	if (size > resource_size(pr))
--		return false;
--	if (resource_size(pr) - size < screen_info_lfb_offset)
--		return false;
--
--	return true;
--}
--
--void screen_info_apply_fixups(void)
--{
--	struct screen_info *si = &sysfb_primary_display.screen;
--
--	if (screen_info_lfb_pdev) {
--		struct resource *pr = &screen_info_lfb_pdev->resource[screen_info_lfb_bar];
--
--		if (pr->start != screen_info_lfb_res_start) {
--			if (__screen_info_relocation_is_valid(si, pr)) {
--				/*
--				 * Only update base if we have an actual
--				 * relocation to a valid I/O range.
--				 */
--				__screen_info_set_lfb_base(si, pr->start + screen_info_lfb_offset);
--				pr_info("Relocating firmware framebuffer to offset %pa[d] within %pr\n",
--					&screen_info_lfb_offset, pr);
--			} else {
--				pr_warn("Invalid relocating, disabling firmware framebuffer\n");
--			}
--		}
--	}
--}
--
--static int __screen_info_lfb_pci_bus_region(const struct screen_info *si, unsigned int type,
--					    struct pci_bus_region *r)
--{
--	u64 base, size;
--
--	base = __screen_info_lfb_base(si);
--	if (!base)
--		return -EINVAL;
--
--	size = __screen_info_lfb_size(si, type);
--	if (!size)
--		return -EINVAL;
--
--	r->start = base;
--	r->end = base + size - 1;
--
--	return 0;
--}
--
--static void screen_info_fixup_lfb(struct pci_dev *pdev)
--{
--	unsigned int type;
--	struct pci_bus_region bus_region;
--	int ret;
--	struct resource r = {
--		.flags = IORESOURCE_MEM,
--	};
--	const struct resource *pr;
--	const struct screen_info *si = &sysfb_primary_display.screen;
--
--	if (screen_info_lfb_pdev)
--		return; // already found
--
--	type = screen_info_video_type(si);
--	if (!__screen_info_has_lfb(type))
--		return; // only applies to EFI; maybe VESA
--
--	ret = __screen_info_lfb_pci_bus_region(si, type, &bus_region);
--	if (ret < 0)
--		return;
--
--	/*
--	 * Translate the PCI bus address to resource. Account
--	 * for an offset if the framebuffer is behind a PCI host
--	 * bridge.
--	 */
--	pcibios_bus_to_resource(pdev->bus, &r, &bus_region);
--
--	pr = pci_find_resource(pdev, &r);
--	if (!pr)
--		return;
--
--	/*
--	 * We've found a PCI device with the framebuffer
--	 * resource. Store away the parameters to track
--	 * relocation of the framebuffer aperture.
--	 */
--	screen_info_lfb_pdev = pdev;
--	screen_info_lfb_bar = pr - pdev->resource;
--	screen_info_lfb_offset = r.start - pr->start;
--	screen_info_lfb_res_start = bus_region.start;
--}
--DECLARE_PCI_FIXUP_CLASS_HEADER(PCI_ANY_ID, PCI_ANY_ID, PCI_BASE_CLASS_DISPLAY, 16,
--			       screen_info_fixup_lfb);
- 
- static struct pci_dev *__screen_info_pci_dev(struct resource *res)
- {
-diff --git a/include/linux/screen_info.h b/include/linux/screen_info.h
-index c022403c599a..2adbe25b88d8 100644
---- a/include/linux/screen_info.h
-+++ b/include/linux/screen_info.h
-@@ -140,11 +140,8 @@ u32 __screen_info_lfb_bits_per_pixel(const struct screen_info *si);
- int screen_info_pixel_format(const struct screen_info *si, struct pixel_format *f);
- 
- #if defined(CONFIG_PCI)
--void screen_info_apply_fixups(void);
- struct pci_dev *screen_info_pci_dev(const struct screen_info *si);
- #else
--static inline void screen_info_apply_fixups(void)
--{ }
- static inline struct pci_dev *screen_info_pci_dev(const struct screen_info *si)
- {
- 	return NULL;
 -- 
-2.53.0
+2.34.1
 
 
 _______________________________________________
