@@ -4,150 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE62D39430
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 14:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A5FD39434
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Apr 2026 14:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6Tr5vsAzfCPS+2//x+C264vfYx4GShSVGaV690ZHyCk=; b=Sami+rjlgal0sA
-	qPC2UKovKLr46bDYG7qAIKY42DETKQUKYCuKZDj+RMRlTBVajU6AwqRYHUGfe2tBiY5me1ZwPXZmV
-	s0Mnb+EycAqjqVuQuft5HH6QWmfvTcdrL9162awT81lcQGCTAghPj9DMD4nkQ0lC+1A2fR/X+KrJ7
-	wFpnigbw7Qxpe7/eAafETun5LcXisT2dtdGR+9bFBpsDXnHgURMXoWDo4rypIpdsoCING5jhrkAh3
-	HfiQcrMwh1NCpbRRKEvqNqiPYlK7cpOuFCQ/A9SMUr5rL8lRD3Cgq8gYuzKyqNfoU/Db+QYJ3tp4I
-	Eg6gS+1Kh9G59BIr5x0g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=j6WbKt27J3lRuP7ParmVv6+mun7ld7xq0QEfMKTLyR0=; b=PYn1o9+32uKK76
+	KaGmicv/Zt5uHVLvdjthsRi1HDVR4inqljeeTV89W526dD+OlBC0r17ypIvOLUmUaaRdChw6b34OE
+	BvSWX2iKEdOFrdYUgbQgdTyltfEDmM584Ci7SgToZjAGoaJukRaUeIbfsC+Q53YK22j5bIFz0nVOh
+	TMCtWuUUFwbtVHFzS/Hrjv1lzI/XNU3Zh0Q5lbNJCIXj15U/wRuzC3cyrrtNe0ZGXg19HlN1bHwCa
+	OveKrfDiJfzh4A1uOlgUMNAd0IcV4YORnnSekZ+7fHumJj6If/uWA1UEtXTfqo5d2/FZre7Ka/wll
+	Eac2zCItBIN8aVqZgNlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Iz9-00000000K3S-47kZ;
-	Thu, 02 Apr 2026 14:25:27 +0000
-Received: from mail-westusazon11010034.outbound.protection.outlook.com ([52.101.85.34] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1w8JDr-00000000Mca-359R;
+	Thu, 02 Apr 2026 14:40:39 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Iz6-00000000K1n-1SSK;
-	Thu, 02 Apr 2026 14:25:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DU4w9ALpR49Gjm4or4X8gRoy0O8XKhymqx/p3w4VatCUF2ssisf6p562LJvfw+zdR7fDvud1GteKiLWQFsHH9U1FMt0zF94sxANybFbYW+Zrf4ZUZzpuU3hrTRjo8KaKSYKjx2LppJH3l5+Bg7e9VSFKxdYxvVBESehrPCLQXYYfG7L9UQYKgTRaPGCsFgAfJSm5WJgT3T9cTSqgYjx3JSXrfwCaa62qtf44witgeQSXLuXolxFXKgx+9t7H74J/TX0tmgHiIF9SUOub6M+xtnX8gA5MFFMqPMpM+81bS7VM1BhOxiA2hKAJDYLhr66OvknqTlUgMSt+w9J8464wKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iOla05PLOF0VALlFp8vJFniRVqdzSLQHLlw5Gf6sb/0=;
- b=eaCKfTUKDCVBQg+9md6hEm/ynuqa9M/u+6dm409HBcgsjHc9kBBq0WqzbQ/bTRGCjkF1Pwkc5IoR75cj/+yC7QM0wAMmfcKYgEd4smLzSY82vPVoXZKp9TqQ6J0ZZ78xeob4qitDYYyMjQ7PgC7uK8WE1io00ZwaSlhvWNJIxaDJPUQT7w/S4PKtQH4aoZuOWLST4X3qjJYmjwfZjo+vNJch0jUnPzqWa3ye1PHe7QG1qxqkRTM5mp1JhqYF1CTynJJX479lG3gjR0AxWiwrZ661L7VUPpkMAoE2vAOqSil8BcpYAh4vwE0cDLQW4gG7V3t468Y+XmvWmGMBTy7M6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iOla05PLOF0VALlFp8vJFniRVqdzSLQHLlw5Gf6sb/0=;
- b=PijJggiolscYQJmq/0Rf4sJHI39umcCLhsmpsiC78VTdHii/zfPD0x+SapL1D5AvriCRuohJoEFApX3HQTQuhj8xP9/WzCaKKV+CznvKDIYCBpTB1O1CNc5hwvDBjxpFS6D+CO7Y4/nsLyG2l2zpAzPgs0dFvO/reX3mSoQAhqhc8VVGDz2b6y7GQ43Ow81BUmM8y7k7j31nxMHFxUa4HehLy4NwF4wJqmAvwnte52L/8ch/wSverJJc0Wi8ur3umPNcDxTmHmzfqD+P+bHhtmaFOjixp8+laeIbZJwHfMRKHksBhuxw5K2G0Ac/7li3hy+n6U31S/x3h6jZprjtLg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CYYPR12MB8870.namprd12.prod.outlook.com (2603:10b6:930:bb::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Thu, 2 Apr
- 2026 14:25:18 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9769.017; Thu, 2 Apr 2026
- 14:25:17 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Neal Gompa <neal@gompa.dev>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Sven Peter <sven@kernel.org>,
-	virtualization@lists.linux.dev,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>,
-	Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	stable@vger.kernel.org,
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: [PATCH v2] iommu: Always fill in gather when unmapping
-Date: Thu,  2 Apr 2026 11:25:16 -0300
-Message-ID: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
-X-ClientProxiedBy: YT4PR01CA0155.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:ac::8) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1w8JDo-00000000MbP-1v09
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 Apr 2026 14:40:38 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-67e23011c93so348138eaf.3
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Apr 2026 07:40:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775140835; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QxPygnnZxzU711X1dGgChd02cm76ZZ4evIZT8dssjlKvoW1ez1esspFbKMBgXOrs69
+         F+6VRaeSBWX0w654jSCj7ibWbaTGR0+mUoxDuBsxDjfmhGCCKr499tI5BNdfTaPygChL
+         qpoLoLwn9fwXM2MVbnBUzUusNXBNMaiX4j0fF+z+kivH1lGYDzbWlSt7pbjPKlAAV6H0
+         mw8ugnz/opLhmCEjxCq/mh37tFGDZqVs5A22vxYE+h1xM83TPBI5aFfgr9kLQZLmiYt2
+         mJzNp6u38TZxJvqjx6vRilYW/GwjVPr+btKSxYZavsVJFKKxb/G1BNkxeSXs1jY3zOWA
+         RRWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=CgXVgNr9LcoHCMvR/4QMuJnwtL2EPpKXdJ8rG5+UP24=;
+        fh=F6IHguSEbs7CzbDmeIsMlJR20FnzCy0Zg5EpTxHQunw=;
+        b=jHHFD0Ryg8z0+L+0a4hRnAIyrJ+zy670VS4diU2C92bcmB412pqpfdO0w0vvgzNKxL
+         AHzxrx0XK6Hz2w7pOEwXCcxMNKj8pMZqYrkrOBcdYGvOM5/JBKC34mjgYMS/Ox/vaPfA
+         dQUmjTkGtkZj6mv8uwBdRKdFf7PNa5SbkB9h/sq65BFGFeJ58jjY3V8qwpAB3ixzZ7OW
+         lKOpvHZYj2L1akFN03hb211WgxGJ/o9YUcDg5/yYZ10imRNOIF6KMy+8J4psgvOE/D58
+         TkG6CfGPM7Red/RNv7TlDgsN5KwFl+oZKzb1NlVN0d8+CmoRiIQPi+s2YXBxRpYMkXUM
+         hQ6A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1775140835; x=1775745635; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CgXVgNr9LcoHCMvR/4QMuJnwtL2EPpKXdJ8rG5+UP24=;
+        b=P+JXMoj32E8c0bZMj7bun6rXV5wXErZ2WengQYL540up0fKqljwta1bn8aS7viukdr
+         pIoVUFBO5Sl+e/kyrwpY7/89cXQlEdgxX5RvIn1PG01zfpkHt63Tvg2eKueSzBrHWAUc
+         SZmj5O5F2MMkMRWvsyLLpptL3wp3zyybni/p91Z8AvYB0fWuIbl0AtO7fW8IH+vQnsiB
+         s6YGGxLFFCr5Lyb/GKAJBENjTl+qosOy074qaJYIWTtnXvi1J2dwYqclmyc9MR/SFq/x
+         XfSHhUU8e7XTEm452PkBImv1lgjoT2xahtCs1brQV+OfznKDT10SDIQtYm9EmfKJ2Cn8
+         6SJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775140835; x=1775745635;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CgXVgNr9LcoHCMvR/4QMuJnwtL2EPpKXdJ8rG5+UP24=;
+        b=aHCb7wxo3mpgfCdXxb/vVpVM1OyhLMMxz/SChQjys0YEThasCXnurbbSX2Ahl0vJRM
+         uHdFSXbuFdCxbbMElqcEb5b5JeIKp7kTOakMC7zUAtlwrRIqnhk9KQctSGJLuGDM5FIU
+         G8WbU+Czz5WBJgB+n47sZCVjpAA7v9cgw1tsA+IEMVXf+BE5XorcMjPOhR3R0Jdd+DZk
+         e1bMOLUstWfMOlmGmizCajUYheQ5SHEXvKt6d2ngAzsYC5aboHvzTXMnHVg4+S7+QSWO
+         z2fWO78YaW133FMApuRvj5dIYmwJv5zleUjzZXkkd7uxmAYqDOgE69yNKTwZBs9stDLR
+         095w==
+X-Forwarded-Encrypted: i=1; AJvYcCWcq+koqnUnq2o1ZeVZNiF/09orEONykmH4sEq7CvubErCjgF9ad2hzx089Ha59YcWI2ik0YacG0hPj4A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF94SG6I54/pU6LA3ivLjnbeAuRmHadmC9pqzoWbS+1c9cq5YP
+	D+ickWe9fqdCvWjdOXLa5NSI+NbmIuAED/jDw+slW81SZC2juSYyWlpv49kChxIa3KnLAFFwk6l
+	3ZV9XEh10dQ6+iem8eHfEUrJ/uqQ52bYEGT2cnPnx4A==
+X-Gm-Gg: ATEYQzybNEBfTCYc/YEtqC9X+ZVpoZuMaorZLpZC4MLAjEBb4a8M6cnKdNE+Butko6o
+	kYenZyf+8EwRtt0fQ0f0/XGJxCFKH1W9wTN+DvcLthESSZYuKvNq/MDEr5xOIg+Lc3Qi/xHnUNb
+	ce+EMjRXl1Guv1ARajhVih/9lsIhBWOT0u57pZ6G/2cox/ZTXn6J00K9PL390adV5Co0RsgeX7E
+	PaPg4pzmfJEPrFWKv42eEMqhNcmdDc6zdsxqQoiNeEYauD5gviRJAgqSnmxyyHZhODm2ew5RpDs
+	GhWQ2KShUfYG78VoshTtQ308KAKup1FhKgibpfM3S6F/6+xTpRKbrYZrbxmc4NEQ9I1Eo79m2lx
+	xJqhSjfnNqDvWP0erF55tR+mTSw==
+X-Received: by 2002:a05:6820:828:b0:67e:244a:7dd5 with SMTP id
+ 006d021491bc7-67fabcd8e2dmr3743192eaf.51.1775140835100; Thu, 02 Apr 2026
+ 07:40:35 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CYYPR12MB8870:EE_
-X-MS-Office365-Filtering-Correlation-Id: 232e9ee0-b52b-4a80-7c9b-08de90c3a9bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|921020|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: YH8D7WLaU4qdRlHYZUPvxyyNv7AFQAzP83JgCE1LQXT9JgvRxC4OHGcZyAQmUZazbphGfvFpFzlzsZmBzPMZMenHfb691PHj+kqLqexPbFxJh3sFvOr5ITawjnc4rM51/V+yhPWjXPGnpc4dIUuUjewC4lkEmDhGK2bIani0SgmKzUTLMj+xrXrBJpIIUBbYbPM1r8Lcod0K0gFeSTPmI+FGERc3C2UItYXJSO/ecjVL70bV8R9aiDJkZdcmQ8fwOgGMFKMy9wutELBnjZZoeGNqxNIVE1fd4kLMus4FvgTQ+/l0nc0/3DzMD4e61sOQZuAG4tJE1H+fbTOuOqpjFwRWZRCPi7eJLWaoyhlMijvD0+lHaZxbkCLspcw6IRxJ+oaCZe2M5hcWcOeusrXit0GvvbKPeUX47GM3EKCaYwCjOWbkAakBkyO5ow74L45WJD0cJxjbUPOE5fj11U+cPfm4PbbGBnlxQRGokSP3+wTwqusOEjLNvyvCJSr8SKLMTb2nwZNS7mFjElMeRbnB1x0BU9b664e6QbnYt3WOC2VdqK/4z1AqYmkZgzH9YNKjrzQwCaqLHFcdx8wuvfWm8yWAija4rE48Lfd7+Jppf59qWHg6acrzzrpwKnnHR4zYEJF2uKbd/965gzLtEDjr75rKCCK5Ka+r4WwB4ZkIiWjKSLOOxJo7gx6TrIy0rxdp+adT+OMNXND0QNuNZs3RYMEnmHGEjFKQWo1wejxnSoBWX0/6WxMi5K0XtuuRd6mW9x7kmrkp/FWkZ4p4jiR3fwcFBULP5o1ObDncyj2I2/I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?19tT4B57Ciz++iIzGYDa5r5O17NDli9YhNLe+gIRcG29CsS0pcfhz+4L38bH?=
- =?us-ascii?Q?stYoyzujMPUsILaaZ0GGuYAdhTt/oc7QCEvNjzZo1m/I1lvZXsLv8ZjgitFn?=
- =?us-ascii?Q?VOXzH2NiDzNRhiFlfk685agikys4/oQAAnum21qq0pi4tNXh25JySLXcNPqI?=
- =?us-ascii?Q?rN90vSfQ87muq4FfxDu3JAzA95plfRHrOGRAsDq44TYdSfiO5BKtCYQywes4?=
- =?us-ascii?Q?2f92GtUgvSyDiCZO6TKlQ6wXuSkkbQl+LCPIPnC85lrRhuxZ+bM00jUHAG1h?=
- =?us-ascii?Q?IvpY2sFkzdy3nOMZzLF3rNrmV3RQ+LxPw0uoLQH/NHyDcEGd152zXhcsDUmP?=
- =?us-ascii?Q?hQGQoOLhEGdH6ZYZ6LydbbzXCr9HeCCRXnbDX5imAaNK7Gh69uW4AlLqj24P?=
- =?us-ascii?Q?X9G2Celz0LNpWM5v/N8UcCDj5cX04SByZ/TKy/7drErjIR/oszG9ee/0dqHb?=
- =?us-ascii?Q?+sSkc6+x5qPEffS42nOjUma+BQMu97ukYhA+8g63GvnNfCJbZN/KsyR92P0W?=
- =?us-ascii?Q?Kuu2ApN5EUYI0kINlV8JO0se9D9OMO76DG3A1lm5BnuaGS6McDc4KWMePc2m?=
- =?us-ascii?Q?vjnIOV+yaeD0/6WiVgeihcocyGQqNP5lyKTvOQUiObTNmL8dbXwxXUy8CR8g?=
- =?us-ascii?Q?UbB6Eo46pgdzifkKQWDl2eYF3nhQJGh5YwyksAw2NZWZI7n5Xv5YZ7WtBY7J?=
- =?us-ascii?Q?CzeFpp6qEwt2dJuv9fGXPU4jiwEZuwzyKmydV2rmjTk4Av5886a+UACMtlyM?=
- =?us-ascii?Q?Zs2bbOt7wPa/6CIhgaAnhYzUBF+MkFAk8Zwc/areAbtiXW+1MyIZsCldxKNQ?=
- =?us-ascii?Q?BOgyE8rL4iu3JLdNurIWLLu4+GsPh7iQrzwVDk5twrTG39QrzOJrGLXZRfIi?=
- =?us-ascii?Q?asYrBp6sjnbWoNWOmk49h7u5fDrlOutIkqBSCG5VawYELh683QHz3Z2cLpd3?=
- =?us-ascii?Q?CaHhQxleXwzx6GJqkQh+VNiVq1r9FhCPyJeXX9G4WmVKkRDkHOYRmDonUP8V?=
- =?us-ascii?Q?Hs0fqp5BsqLKkiQgRRmcOBjpY8nzydjMlIU1K4yiZtVfdSXv8G2Nh8RUCy6V?=
- =?us-ascii?Q?/qRjrzeqyb+P3690HF+AJTs9tQ4aM71QpQy2yy4JoKboeill7C5cLBxFqCkH?=
- =?us-ascii?Q?R+fKdmm3+WEB9k+n8Llp/jGinxZdbBppYbYqL6xAE01sXvm7v2/eD7tQHiis?=
- =?us-ascii?Q?1OykGAwgmHA8ycjQzLNpRohH6W0sRxmNkGXkoGoaKTj5qzcPsVYCk9QbVPLj?=
- =?us-ascii?Q?P3i443Cy9F0n8YCO4lgwUyp/8XVrFSOsg/fe0O5yNjRLVYlIluv/4WbmyCMn?=
- =?us-ascii?Q?t7kmNbOcx/LLeAfIpm39stZ/1fg77erQ1Ba/z+8MUyWgV08weaAEt9K5zCJy?=
- =?us-ascii?Q?esnH94NM3hf4difs6ahscx+oZBso54yqpM13hyS8TCO2DerNDqAtxK6Oo89O?=
- =?us-ascii?Q?xl+zYbyFUldTJSJI0Jst44s4XqeYTDBs5bSiegnrzdnRMpJ2XwLDN8JqaOmi?=
- =?us-ascii?Q?DO6Mp8SA1XtGxDkBm4k1r/3voVYjtXh6ALfnNrMC60NWQOLICWh4RT0olkGO?=
- =?us-ascii?Q?E3LBHgVRaag8qxz9qc/79CtsvdhpP/uOBGhWI+W+CF6yLZkLMhk5YYpxhdZE?=
- =?us-ascii?Q?bmNaUQMpr25UViYlk9NLU+D6tN2UE07zyWDSD/y5AzVfgXIcN20p0p2J8KdW?=
- =?us-ascii?Q?TOGCKKQDr1wqxTI33bLDqw/2TefAEiKXQaVf4xLFbpaGoy/2?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 232e9ee0-b52b-4a80-7c9b-08de90c3a9bd
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 14:25:17.7758
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: S/7j2dw+12E1v97J7QR05Cz1ZuGMwo+0oEgU30otKne+JVoAJ9l8erXG9pj1vO7c
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8870
+References: <20260402132303.6252-1-fangyu.yu@linux.alibaba.com> <20260402132303.6252-4-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20260402132303.6252-4-fangyu.yu@linux.alibaba.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 2 Apr 2026 20:10:23 +0530
+X-Gm-Features: AQROBzDhVdJ-Rk6tIUeOmOBsDek_WXlm04aASx05OVR5rTbB0T6p0wGRWJFy36Q
+Message-ID: <CAAhSdy3fVrw+=TgtgttQwnjUBy2s4OdhNcKZ+wK8pJFDi+Y89A@mail.gmail.com>
+Subject: Re: [PATCH v7 3/4] RISC-V: KVM: Detect and expose supported HGATP
+ G-stage modes
+To: fangyu.yu@linux.alibaba.com
+Cc: pbonzini@redhat.com, corbet@lwn.net, atish.patra@linux.dev, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	skhan@linuxfoundation.org, guoren@kernel.org, radim.krcmar@oss.qualcomm.com, 
+	andrew.jones@oss.qualcomm.com, linux-doc@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_072524_392993_0E3E00A4 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20260402_074036_645504_775F5A8F 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,282 +117,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The fixed commit assumed that the gather would always be populated if an
-iotlb_sync was required.
-
-arm-smmu-v3, amd, VT-d, riscv, s390, and mtk all use information from the
-gather during their iotlb_sync() and this approach works for them.
-
-However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio, and
-apple-dart all ignore the gather during their iotlb_sync(). They mostly
-issue a full flush.
-
-Unfortunately the latter set of drivers often don't bother to add anything
-to the gather since they don't intend on using it. Since the core code now
-blocks gathers that were never filled, this caused those drivers to stop
-getting their iotlb_sync() calls and breaks them.
-
-Since it is impossible to tell the difference between gathers that are
-empty because there is nothing to do and gathers that are empty because
-they are not used, fill in the gathers for the missing cases.
-
-mtk uses io-pgtable-arm-v7s but added the range to the gather in the unmap
-callback. Move this into the io-pgtable-arm-v7s unmap itself. That will
-fix all the armv7 using drivers (arm-smmu, qcom_iommu, ipmmu-vmsa).
-
-io-pgtable-arm needs to accommodate drivers like arm-smmu that don't want
-to use the gather by just adding a simple range, and drivers like SMMUv3
-that need to use gather->pgsize and also have a disjoint check. Move
-SMMUv3 to a new tlb_add_range() op which replaces calling
-iommu_iotlb_gather_add_page() in a loop with a single call to update the
-gather with the range and required pgsize.
-
-iommu_iotlb_gather_add_page() is repurposed since nothing but SMMUv3 uses it
-now that amd, VT-d and riscv are using iommupt.
-
-Add a trivial gather population to io-pgtable-dart.
-
-Add trivial populations to sprd, sun50i and virtio-iommu in their unmap
-functions.
-
-Fixes: 90c5def10bea ("iommu: Do not call drivers for empty gathers")
-Reported-by: Jon Hunter <jonathanh@nvidia.com>
-Closes: https://lore.kernel.org/r/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia.com
-Tested-by: Jon Hunter <jonathanh@nvidia.com>
-Acked-by: Pranjal Shrivastava <praan@google.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 ++++++-----
- drivers/iommu/io-pgtable-arm-v7s.c          |  4 ++++
- drivers/iommu/io-pgtable-arm.c              | 19 ++++++++++++++++---
- drivers/iommu/io-pgtable-dart.c             |  3 +++
- drivers/iommu/mtk_iommu.c                   |  1 -
- drivers/iommu/sprd-iommu.c                  |  1 +
- drivers/iommu/sun50i-iommu.c                |  1 +
- drivers/iommu/virtio-iommu.c                |  2 ++
- include/linux/io-pgtable.h                  |  3 +++
- include/linux/iommu.h                       | 19 ++++++++++---------
- 10 files changed, 46 insertions(+), 18 deletions(-)
-
-v2:
- - Add missed hunk for io-pgtable-armv7
- - Revise the commit message to fix the miss about smmuv3's gather flow
- - Make smmuv3 push its gather with a range instead of per-page
-v1: https://patch.msgid.link/r/0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com
-
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e8d7dbe495f030..97e78a351cf35b 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2775,14 +2775,15 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 	rcu_read_unlock();
- }
- 
--static void arm_smmu_tlb_inv_page_nosync(struct iommu_iotlb_gather *gather,
--					 unsigned long iova, size_t granule,
--					 void *cookie)
-+static void arm_smmu_tlb_inv_range_nosync(struct iommu_iotlb_gather *gather,
-+					  unsigned long iova, size_t size,
-+					  size_t granule, void *cookie)
- {
- 	struct arm_smmu_domain *smmu_domain = cookie;
- 	struct iommu_domain *domain = &smmu_domain->domain;
- 
--	iommu_iotlb_gather_add_page(domain, gather, iova, granule);
-+	iommu_iotlb_gather_add_range_pgsize(domain, gather, iova, size,
-+					    granule);
- }
- 
- static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
-@@ -2796,7 +2797,7 @@ static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
- static const struct iommu_flush_ops arm_smmu_flush_ops = {
- 	.tlb_flush_all	= arm_smmu_tlb_inv_context,
- 	.tlb_flush_walk = arm_smmu_tlb_inv_walk,
--	.tlb_add_page	= arm_smmu_tlb_inv_page_nosync,
-+	.tlb_add_range	= arm_smmu_tlb_inv_range_nosync,
- };
- 
- static bool arm_smmu_dbm_capable(struct arm_smmu_device *smmu)
-diff --git a/drivers/iommu/io-pgtable-arm-v7s.c b/drivers/iommu/io-pgtable-arm-v7s.c
-index 40e33257d3c2c5..87292a7f094687 100644
---- a/drivers/iommu/io-pgtable-arm-v7s.c
-+++ b/drivers/iommu/io-pgtable-arm-v7s.c
-@@ -596,6 +596,10 @@ static size_t __arm_v7s_unmap(struct arm_v7s_io_pgtable *data,
- 
- 		__arm_v7s_set_pte(ptep, 0, num_entries, &iop->cfg);
- 
-+		if (!iommu_iotlb_gather_queued(gather))
-+			iommu_iotlb_gather_add_range(gather, iova,
-+						     num_entries * blk_size);
-+
- 		for (i = 0; i < num_entries; i++) {
- 			if (ARM_V7S_PTE_IS_TABLE(pte[i], lvl)) {
- 				/* Also flush any partial walks */
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 0208e5897c299a..d51531330f8dea 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -666,9 +666,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
- 		/* Clear the remaining entries */
- 		__arm_lpae_clear_pte(ptep, &iop->cfg, i);
- 
--		if (gather && !iommu_iotlb_gather_queued(gather))
--			for (int j = 0; j < i; j++)
--				io_pgtable_tlb_add_page(iop, gather, iova + j * size, size);
-+		if (gather && !iommu_iotlb_gather_queued(gather)) {
-+			if (iop->cfg.tlb && iop->cfg.tlb->tlb_add_range) {
-+				iop->cfg.tlb->tlb_add_range(gather, iova,
-+							    i * size, size,
-+							    iop->cookie);
-+
-+			} else {
-+				iommu_iotlb_gather_add_range(gather, iova,
-+							     i * size);
-+
-+				for (int j = 0; j < i; j++)
-+					io_pgtable_tlb_add_page(iop, gather,
-+								iova + j * size,
-+								size);
-+			}
-+		}
- 
- 		return i * size;
- 	} else if (iopte_leaf(pte, lvl, iop->fmt)) {
-diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-index cbc5d6aa2daa23..75d699dc28e7b0 100644
---- a/drivers/iommu/io-pgtable-dart.c
-+++ b/drivers/iommu/io-pgtable-dart.c
-@@ -330,6 +330,9 @@ static size_t dart_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
- 		i++;
- 	}
- 
-+	if (i && !iommu_iotlb_gather_queued(gather))
-+		iommu_iotlb_gather_add_range(gather, iova, i * pgsize);
-+
- 	return i * pgsize;
- }
- 
-diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-index 2be990c108de2b..a2f80a92f51f2c 100644
---- a/drivers/iommu/mtk_iommu.c
-+++ b/drivers/iommu/mtk_iommu.c
-@@ -828,7 +828,6 @@ static size_t mtk_iommu_unmap(struct iommu_domain *domain,
- {
- 	struct mtk_iommu_domain *dom = to_mtk_domain(domain);
- 
--	iommu_iotlb_gather_add_range(gather, iova, pgsize * pgcount);
- 	return dom->iop->unmap_pages(dom->iop, iova, pgsize, pgcount, gather);
- }
- 
-diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
-index c1a34445d244fb..893ea67d322644 100644
---- a/drivers/iommu/sprd-iommu.c
-+++ b/drivers/iommu/sprd-iommu.c
-@@ -340,6 +340,7 @@ static size_t sprd_iommu_unmap(struct iommu_domain *domain, unsigned long iova,
- 	spin_lock_irqsave(&dom->pgtlock, flags);
- 	memset(pgt_base_iova, 0, pgcount * sizeof(u32));
- 	spin_unlock_irqrestore(&dom->pgtlock, flags);
-+	iommu_iotlb_gather_add_range(iotlb_gather, iova, size);
- 
- 	return size;
- }
-diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-index be3f1ce696ba29..b9aa4bbc82acad 100644
---- a/drivers/iommu/sun50i-iommu.c
-+++ b/drivers/iommu/sun50i-iommu.c
-@@ -655,6 +655,7 @@ static size_t sun50i_iommu_unmap(struct iommu_domain *domain, unsigned long iova
- 
- 	memset(pte_addr, 0, sizeof(*pte_addr));
- 	sun50i_table_flush(sun50i_domain, pte_addr, 1);
-+	iommu_iotlb_gather_add_range(gather, iova, SZ_4K);
- 
- 	return SZ_4K;
- }
-diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
-index 587fc13197f122..5865b8f6c6e67a 100644
---- a/drivers/iommu/virtio-iommu.c
-+++ b/drivers/iommu/virtio-iommu.c
-@@ -897,6 +897,8 @@ static size_t viommu_unmap_pages(struct iommu_domain *domain, unsigned long iova
- 	if (unmapped < size)
- 		return 0;
- 
-+	iommu_iotlb_gather_add_range(gather, iova, unmapped);
-+
- 	/* Device already removed all mappings after detach. */
- 	if (!vdomain->nr_endpoints)
- 		return unmapped;
-diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
-index e19872e37e067f..b109c95b5ff53d 100644
---- a/include/linux/io-pgtable.h
-+++ b/include/linux/io-pgtable.h
-@@ -42,6 +42,9 @@ struct iommu_flush_ops {
- 			       void *cookie);
- 	void (*tlb_add_page)(struct iommu_iotlb_gather *gather,
- 			     unsigned long iova, size_t granule, void *cookie);
-+	void (*tlb_add_range)(struct iommu_iotlb_gather *gather,
-+			      unsigned long iova, size_t size, size_t granule,
-+			      void *cookie);
- };
- 
- /**
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index e587d4ac4d3310..d8fcdb61e44c42 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -1034,30 +1034,31 @@ static inline void iommu_iotlb_gather_add_range(struct iommu_iotlb_gather *gathe
- }
- 
- /**
-- * iommu_iotlb_gather_add_page - Gather for page-based TLB invalidation
-+ * iommu_iotlb_gather_add_range_pgsize - Include pgsize in the gather
-  * @domain: IOMMU domain to be invalidated
-  * @gather: TLB gather data
-  * @iova: start of page to invalidate
-  * @size: size of page to invalidate
-+ * @pgsize: page granularity of the invalidation
-  *
-- * Helper for IOMMU drivers to build invalidation commands based on individual
-- * pages, or with page size/table level hints which cannot be gathered if they
-- * differ.
-+ * Helper for IOMMU drivers to build invalidation commands when using the pgsize
-+ * hint. Unlike iommu_iotlb_gather_add_range() this also flushes if the range is
-+ * disjoint.
-  */
--static inline void iommu_iotlb_gather_add_page(struct iommu_domain *domain,
--					       struct iommu_iotlb_gather *gather,
--					       unsigned long iova, size_t size)
-+static inline void iommu_iotlb_gather_add_range_pgsize(
-+	struct iommu_domain *domain, struct iommu_iotlb_gather *gather,
-+	unsigned long iova, size_t size, size_t pgsize)
- {
- 	/*
- 	 * If the new page is disjoint from the current range or is mapped at
- 	 * a different granularity, then sync the TLB so that the gather
- 	 * structure can be rewritten.
- 	 */
--	if ((gather->pgsize && gather->pgsize != size) ||
-+	if ((gather->pgsize && gather->pgsize != pgsize) ||
- 	    iommu_iotlb_gather_is_disjoint(gather, iova, size))
- 		iommu_iotlb_sync(domain, gather);
- 
--	gather->pgsize = size;
-+	gather->pgsize = pgsize;
- 	iommu_iotlb_gather_add_range(gather, iova, size);
- }
- 
-
-base-commit: 23f3682fd3605da81b90738ad3d2a30f18c46e98
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMiwgMjAyNiBhdCA2OjUz4oCvUE0gPGZhbmd5dS55dUBsaW51eC5hbGliYWJh
+LmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBGYW5neXUgWXUgPGZhbmd5dS55dUBsaW51eC5hbGliYWJh
+LmNvbT4KPgo+IEV4dGVuZCBrdm1fcmlzY3ZfZ3N0YWdlX21vZGVfZGV0ZWN0KCkgdG8gcmVjb3Jk
+IEhHQVRQLk1PREUgdmFsdWVzIGluIGEKPiBiaXRtYXNrLiBLZWVwIHRyYWNraW5nIHRoZSBtYXhp
+bXVtIHN1cHBvcnRlZCBHLXN0YWdlIHBhZ2UgdGFibGUgbGV2ZWwKPiBmb3IgZXhpc3RpbmcgaW50
+ZXJuYWwgdXNlcnMuCj4KPiBBbHNvIHByb3ZpZGUgbGlnaHR3ZWlnaHQgaGVscGVycyB0byByZXRy
+aWV2ZSB0aGUgc3VwcG9ydGVkLW1vZGUgYml0bWFzawo+IGFuZCB2YWxpZGF0ZSBhIHJlcXVlc3Rl
+ZCBIR0FUUC5NT0RFIGFnYWluc3QgaXQuCj4KPiBTaWduZWQtb2ZmLWJ5OiBGYW5neXUgWXUgPGZh
+bmd5dS55dUBsaW51eC5hbGliYWJhLmNvbT4KPiBSZXZpZXdlZC1ieTogQW5kcmV3IEpvbmVzIDxh
+bmRyZXcuam9uZXNAb3NzLnF1YWxjb21tLmNvbT4KPiBSZXZpZXdlZC1ieTogR3VvIFJlbiA8Z3Vv
+cmVuQGtlcm5lbC5vcmc+CgpMR1RNLgoKUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJh
+aW5mYXVsdC5vcmc+CgpUaGFua3MsCkFudXAKCj4gLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20va3ZtX2dzdGFnZS5oIHwgMTEgKysrKysrKysrKysKPiAgYXJjaC9yaXNjdi9rdm0vZ3N0YWdl
+LmMgICAgICAgICAgICAgfCAxNSArKysrKysrKysrKystLS0KPiAgMiBmaWxlcyBjaGFuZ2VkLCAy
+MyBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20va3ZtX2dzdGFnZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1f
+Z3N0YWdlLmgKPiBpbmRleCA3MGQ5ZDQ4MzM2NWUuLmJiZjhmNDVjNjU2MyAxMDA2NDQKPiAtLS0g
+YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9nc3RhZ2UuaAo+ICsrKyBiL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20va3ZtX2dzdGFnZS5oCj4gQEAgLTMxLDYgKzMxLDcgQEAgc3RydWN0IGt2bV9n
+c3RhZ2VfbWFwcGluZyB7Cj4gICNlbmRpZgo+Cj4gIGV4dGVybiB1bnNpZ25lZCBsb25nIGt2bV9y
+aXNjdl9nc3RhZ2VfbWF4X3BnZF9sZXZlbHM7Cj4gK2V4dGVybiB1MzIga3ZtX3Jpc2N2X2dzdGFn
+ZV9zdXBwb3J0ZWRfbW9kZV9tYXNrOwo+Cj4gICNkZWZpbmUga3ZtX3Jpc2N2X2dzdGFnZV9wZ2Rf
+eGJpdHMgICAgIDIKPiAgI2RlZmluZSBrdm1fcmlzY3ZfZ3N0YWdlX3BnZF9zaXplICAgICAgKDFV
+TCA8PCAoSEdBVFBfUEFHRV9TSElGVCArIGt2bV9yaXNjdl9nc3RhZ2VfcGdkX3hiaXRzKSkKPiBA
+QCAtMTAyLDQgKzEwMywxNCBAQCBzdGF0aWMgaW5saW5lIHZvaWQga3ZtX3Jpc2N2X2dzdGFnZV9p
+bml0KHN0cnVjdCBrdm1fZ3N0YWdlICpnc3RhZ2UsIHN0cnVjdCBrdm0gKgo+ICAgICAgICAgZ3N0
+YWdlLT5wZ2RfbGV2ZWxzID0ga3ZtLT5hcmNoLnBnZF9sZXZlbHM7Cj4gIH0KPgo+ICtzdGF0aWMg
+aW5saW5lIHUzMiBrdm1fcmlzY3ZfZ2V0X2hnYXRwX21vZGVfbWFzayh2b2lkKQo+ICt7Cj4gKyAg
+ICAgICByZXR1cm4ga3ZtX3Jpc2N2X2dzdGFnZV9zdXBwb3J0ZWRfbW9kZV9tYXNrOwo+ICt9Cj4g
+Kwo+ICtzdGF0aWMgaW5saW5lIGJvb2wga3ZtX3Jpc2N2X2hnYXRwX21vZGVfaXNfdmFsaWQodW5z
+aWduZWQgbG9uZyBtb2RlKQo+ICt7Cj4gKyAgICAgICByZXR1cm4ga3ZtX3Jpc2N2X2dzdGFnZV9z
+dXBwb3J0ZWRfbW9kZV9tYXNrICYgQklUKG1vZGUpOwo+ICt9Cj4gKwo+ICAjZW5kaWYKPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vZ3N0YWdlLmMgYi9hcmNoL3Jpc2N2L2t2bS9nc3RhZ2Uu
+Ywo+IGluZGV4IDdjNGMzNGJjMTkxYi4uOTIwNGU2NDI3ZDJkIDEwMDY0NAo+IC0tLSBhL2FyY2gv
+cmlzY3Yva3ZtL2dzdGFnZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vZ3N0YWdlLmMKPiBAQCAt
+MTYsNiArMTYsOCBAQCB1bnNpZ25lZCBsb25nIGt2bV9yaXNjdl9nc3RhZ2VfbWF4X3BnZF9sZXZl
+bHMgX19yb19hZnRlcl9pbml0ID0gMzsKPiAgI2Vsc2UKPiAgdW5zaWduZWQgbG9uZyBrdm1fcmlz
+Y3ZfZ3N0YWdlX21heF9wZ2RfbGV2ZWxzIF9fcm9fYWZ0ZXJfaW5pdCA9IDI7Cj4gICNlbmRpZgo+
+ICsvKiBCaXRtYXNrIG9mIHN1cHBvcnRlZCBIR0FUUC5NT0RFIGVuY29kaW5ncyAoQklUKEhHQVRQ
+X01PREVfKikpLiAqLwo+ICt1MzIga3ZtX3Jpc2N2X2dzdGFnZV9zdXBwb3J0ZWRfbW9kZV9tYXNr
+IF9fcm9fYWZ0ZXJfaW5pdDsKPgo+ICAjZGVmaW5lIGdzdGFnZV9wdGVfbGVhZihfX3B0ZXApICAg
+ICAgICBcCj4gICAgICAgICAocHRlX3ZhbCgqKF9fcHRlcCkpICYgKF9QQUdFX1JFQUQgfCBfUEFH
+RV9XUklURSB8IF9QQUdFX0VYRUMpKQo+IEBAIC0zMTcsMTEgKzMxOSwxNyBAQCB2b2lkIGt2bV9y
+aXNjdl9nc3RhZ2Vfd3BfcmFuZ2Uoc3RydWN0IGt2bV9nc3RhZ2UgKmdzdGFnZSwgZ3BhX3Qgc3Rh
+cnQsIGdwYV90IGVuZAo+Cj4gIHZvaWQgX19pbml0IGt2bV9yaXNjdl9nc3RhZ2VfbW9kZV9kZXRl
+Y3Qodm9pZCkKPiAgewo+ICsgICAgICAga3ZtX3Jpc2N2X2dzdGFnZV9zdXBwb3J0ZWRfbW9kZV9t
+YXNrID0gMDsKPiArICAgICAgIGt2bV9yaXNjdl9nc3RhZ2VfbWF4X3BnZF9sZXZlbHMgPSAwOwo+
+ICsKPiAgI2lmZGVmIENPTkZJR182NEJJVAo+ICAgICAgICAgLyogVHJ5IFN2NTd4NCBHLXN0YWdl
+IG1vZGUgKi8KPiAgICAgICAgIGNzcl93cml0ZShDU1JfSEdBVFAsIEhHQVRQX01PREVfU1Y1N1g0
+IDw8IEhHQVRQX01PREVfU0hJRlQpOwo+ICAgICAgICAgaWYgKChjc3JfcmVhZChDU1JfSEdBVFAp
+ID4+IEhHQVRQX01PREVfU0hJRlQpID09IEhHQVRQX01PREVfU1Y1N1g0KSB7Cj4gICAgICAgICAg
+ICAgICAgIGt2bV9yaXNjdl9nc3RhZ2VfbWF4X3BnZF9sZXZlbHMgPSA1Owo+ICsgICAgICAgICAg
+ICAgICBrdm1fcmlzY3ZfZ3N0YWdlX3N1cHBvcnRlZF9tb2RlX21hc2sgfD0gQklUKEhHQVRQX01P
+REVfU1Y1N1g0KSB8Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBCSVQoSEdBVFBfTU9ERV9TVjQ4WDQpIHwKPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEJJVChIR0FUUF9NT0RFX1NW
+MzlYNCk7Cj4gICAgICAgICAgICAgICAgIGdvdG8gZG9uZTsKPiAgICAgICAgIH0KPgo+IEBAIC0z
+MjksNiArMzM3LDggQEAgdm9pZCBfX2luaXQga3ZtX3Jpc2N2X2dzdGFnZV9tb2RlX2RldGVjdCh2
+b2lkKQo+ICAgICAgICAgY3NyX3dyaXRlKENTUl9IR0FUUCwgSEdBVFBfTU9ERV9TVjQ4WDQgPDwg
+SEdBVFBfTU9ERV9TSElGVCk7Cj4gICAgICAgICBpZiAoKGNzcl9yZWFkKENTUl9IR0FUUCkgPj4g
+SEdBVFBfTU9ERV9TSElGVCkgPT0gSEdBVFBfTU9ERV9TVjQ4WDQpIHsKPiAgICAgICAgICAgICAg
+ICAga3ZtX3Jpc2N2X2dzdGFnZV9tYXhfcGdkX2xldmVscyA9IDQ7Cj4gKyAgICAgICAgICAgICAg
+IGt2bV9yaXNjdl9nc3RhZ2Vfc3VwcG9ydGVkX21vZGVfbWFzayB8PSBCSVQoSEdBVFBfTU9ERV9T
+VjQ4WDQpIHwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIEJJVChIR0FUUF9NT0RFX1NWMzlYNCk7Cj4gICAgICAgICAgICAgICAgIGdvdG8g
+ZG9uZTsKPiAgICAgICAgIH0KPgo+IEBAIC0zMzYsNiArMzQ2LDcgQEAgdm9pZCBfX2luaXQga3Zt
+X3Jpc2N2X2dzdGFnZV9tb2RlX2RldGVjdCh2b2lkKQo+ICAgICAgICAgY3NyX3dyaXRlKENTUl9I
+R0FUUCwgSEdBVFBfTU9ERV9TVjM5WDQgPDwgSEdBVFBfTU9ERV9TSElGVCk7Cj4gICAgICAgICBp
+ZiAoKGNzcl9yZWFkKENTUl9IR0FUUCkgPj4gSEdBVFBfTU9ERV9TSElGVCkgPT0gSEdBVFBfTU9E
+RV9TVjM5WDQpIHsKPiAgICAgICAgICAgICAgICAga3ZtX3Jpc2N2X2dzdGFnZV9tYXhfcGdkX2xl
+dmVscyA9IDM7Cj4gKyAgICAgICAgICAgICAgIGt2bV9yaXNjdl9nc3RhZ2Vfc3VwcG9ydGVkX21v
+ZGVfbWFzayB8PSBCSVQoSEdBVFBfTU9ERV9TVjM5WDQpOwo+ICAgICAgICAgICAgICAgICBnb3Rv
+IGRvbmU7Cj4gICAgICAgICB9Cj4gICNlbHNlIC8qIENPTkZJR18zMkJJVCAqLwo+IEBAIC0zNDMs
+MTMgKzM1NCwxMSBAQCB2b2lkIF9faW5pdCBrdm1fcmlzY3ZfZ3N0YWdlX21vZGVfZGV0ZWN0KHZv
+aWQpCj4gICAgICAgICBjc3Jfd3JpdGUoQ1NSX0hHQVRQLCBIR0FUUF9NT0RFX1NWMzJYNCA8PCBI
+R0FUUF9NT0RFX1NISUZUKTsKPiAgICAgICAgIGlmICgoY3NyX3JlYWQoQ1NSX0hHQVRQKSA+PiBI
+R0FUUF9NT0RFX1NISUZUKSA9PSBIR0FUUF9NT0RFX1NWMzJYNCkgewo+ICAgICAgICAgICAgICAg
+ICBrdm1fcmlzY3ZfZ3N0YWdlX21heF9wZ2RfbGV2ZWxzID0gMjsKPiArICAgICAgICAgICAgICAg
+a3ZtX3Jpc2N2X2dzdGFnZV9zdXBwb3J0ZWRfbW9kZV9tYXNrIHw9IEJJVChIR0FUUF9NT0RFX1NW
+MzJYNCk7Cj4gICAgICAgICAgICAgICAgIGdvdG8gZG9uZTsKPiAgICAgICAgIH0KPiAgI2VuZGlm
+Cj4KPiAtICAgICAgIC8qIEtWTSBkZXBlbmRzIG9uICFIR0FUUF9NT0RFX09GRiAqLwo+IC0gICAg
+ICAga3ZtX3Jpc2N2X2dzdGFnZV9tYXhfcGdkX2xldmVscyA9IDA7Cj4gLQo+ICBkb25lOgo+ICAg
+ICAgICAgY3NyX3dyaXRlKENTUl9IR0FUUCwgMCk7Cj4gICAgICAgICBrdm1fcmlzY3ZfbG9jYWxf
+aGZlbmNlX2d2bWFfYWxsKCk7Cj4gLS0KPiAyLjUwLjEKPgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
