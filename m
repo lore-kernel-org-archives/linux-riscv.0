@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27564E7E36C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB229E7E370
 	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 10:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CA1blhYsMG2A3b0z8ypjAqD8YsiDzUNmYLWAGwte0DA=; b=g4+TjIlhg7j74+
-	LrbdiOuQvD/qfE1r+CxcV59GPI/rQcijI2c27eg7XrdUD+hXYJQGKTi/g/8xq/kaYiteYmINF1Zyq
-	Le5+nEy3DOeleiIVuKfXCWugYT/PbX2ckhSD+PhpckrSvn0/O+iGHyIKeiUAx27uz1Tt7dHIbzAVR
-	ylEAtFygpnQS6wE+NhHP3358t2pXHx6e+T3k9shkSijLc0c6d5V3EPHXu/Jyc9KeueTh0a7g9GBKM
-	RByvtuyoluT0YDZMLhLJ1vdZim+41J14fLK16LoFeT/R3HIoU84nq67tZs98LeUCLR4ChsDfmcJum
-	gnJRyZ0xtOyAcI5Zkijw==;
+	List-Owner; bh=5RPBWlAhhg6BXByvBrvPZRNOb1fEwZwxkDOgq4NTW4o=; b=TJGpzjxOA6ZCMp
+	T+25xQHkmRF/7H20OBvGsSL9qqg/RkPGALsgo4Lsnxz7/sB0KtHMtZJtRk5VsUc6NgIXIqFHNQRYm
+	BBJ1lPBYdAAkkFJGR3l496cXjICNNAblL/WAiIjwRBpIRL4wSAplC1fnpEsbarGfcd91CFfV1mI0K
+	VXdBS5MiJwbRWJoJaZRrscJHAu7IEgQeK623wjECmtvFuK5llnZwTd6K7AErWLfkYnOBQGbwO+IL0
+	Kmiq2MUR+a+GlUw0voc+NQzu7y6xjmINckpSU0LTUH1yAM1bsga7XE2+5lrksFvZqQ+exUq4Tg2UN
+	SOabZl1Ikjn50o+5G41g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bqh-00000001tcI-0CdJ;
-	Fri, 03 Apr 2026 10:33:59 +0000
-Received: from forward103b.mail.yandex.net ([178.154.239.150])
+	id 1w8bqg-00000001tbx-39sc;
+	Fri, 03 Apr 2026 10:33:58 +0000
+Received: from forward100d.mail.yandex.net ([2a02:6b8:c41:1300:1:45:d181:d100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bqZ-00000001tZS-35Vj
+	id 1w8bqa-00000001tZP-0NNg
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 10:33:56 +0000
+	Fri, 03 Apr 2026 10:33:55 +0000
 Received: from mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net [IPv6:2a02:6b8:c0c:489d:0:640:baa6:0])
-	by forward103b.mail.yandex.net (Yandex) with ESMTPS id A3CFEC009C;
-	Fri, 03 Apr 2026 13:33:45 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id eXaKrQ9QICg0-xEmDvXXS;
-	Fri, 03 Apr 2026 13:33:45 +0300
+	by forward100d.mail.yandex.net (Yandex) with ESMTPS id BB59DC00B7;
+	Fri, 03 Apr 2026 13:33:47 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id eXaKrQ9QICg0-RcVrQBiO;
+	Fri, 03 Apr 2026 13:33:47 +0300
 X-Yandex-Fwd: 1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1775212425; bh=peXAvbHHMNdi+4DDTZjijkzFy7TF4SEQhEppGxAPuVY=;
+	t=1775212427; bh=7ca1fZMmWTMdlSKBrBQjmsvVq/wZ571jbt66Zhf0g7M=;
 	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=pmIjvSZ5fDwqiioCyGst5BMtp78q/CNGIOMkJzW2jtE5KNtu1f24IEmq8Y4xgWEMp
-	 TR3BhHNDRFGOuJIvlX306k0WYpGsiNPbsd6YTvMqFwVn7khxTVG2KmTnkrbTlsHvJD
-	 PHd8lscoDa9+6PGVnBQdYYCwFSebZxlUP19fsFsE=
+	b=MFBLG+Ez67O8OjmYiRPcXVD6Og7bZ0QW/mxvttFYFIhOpq8geqyWKd2e4sktArDrC
+	 2R0LfOeZLn+/b8yPBoY2ENJefAUv04fYjkq5A5SI3vM+cADdy1jCYajGr568cyWWhZ
+	 i5Jo8giqxWR0iHVzluPnX5U3xUSbOMMg/dQteiBo=
 Authentication-Results: mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
 From: Dmitry Antipov <dmantipov@yandex.ru>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -53,16 +53,16 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
 	Ard Biesheuvel <ardb@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH v9 2/6] lib: fix memparse() to handle overflow
-Date: Fri,  3 Apr 2026 13:33:34 +0300
-Message-ID: <20260403103338.1122415-3-dmantipov@yandex.ru>
+Subject: [PATCH v9 4/6] lib/cmdline_kunit: add test case for memparse()
+Date: Fri,  3 Apr 2026 13:33:36 +0300
+Message-ID: <20260403103338.1122415-5-dmantipov@yandex.ru>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260403103338.1122415-1-dmantipov@yandex.ru>
 References: <20260403103338.1122415-1-dmantipov@yandex.ru>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_033352_055642_50C3197C 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260403_033352_302150_B40CCF64 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,84 +79,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since '_parse_integer_limit()' (and so 'simple_strtoull()') is now
-capable to handle overflow, adjust 'memparse()' to handle overflow
-(denoted by ULLONG_MAX) returned from 'simple_strtoull()'. Also
-use 'check_shl_overflow()' to catch an overflow possibly caused
-by processing size suffix and denote it with ULLONG_MAX as well.
+Better late than never, now there is a long-awaited basic
+test for 'memparse()' which is provided by cmdline.c.
 
+Suggested-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
 ---
-v9: bump version to match the series
-v8: do not use temporary in check_shl_overflow()
-v7: do not double-adjust endptr and drop
-    redundant check against ULLONG_MAX
-v6: handle valid-suffix-only string like "k"
-    as unrecognized, minor style adjustments
-v5: initial version to join the series
+v7 and upwards: bump version to match the series
+v6: tests to check whether valid-suffix-only string is handled as unrecognized
+v5: even more tests to trigger overflow with size suffix
+v4: move actual overflow tests to test-kstrtox.c
+v3: adjust style as suggested by Andy
+v2: few more test cases to trigger overflows
 ---
- lib/cmdline.c | 23 +++++++++++++++--------
- 1 file changed, 15 insertions(+), 8 deletions(-)
+ lib/tests/cmdline_kunit.c | 56 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/lib/cmdline.c b/lib/cmdline.c
-index 90ed997d9570..f6e4b113ca9f 100644
---- a/lib/cmdline.c
-+++ b/lib/cmdline.c
-@@ -150,39 +150,46 @@ EXPORT_SYMBOL(get_options);
- unsigned long long memparse(const char *ptr, char **retptr)
- {
- 	char *endptr;	/* local pointer to end of parsed string */
--
- 	unsigned long long ret = simple_strtoull(ptr, &endptr, 0);
-+	unsigned int shl = 0;
+diff --git a/lib/tests/cmdline_kunit.c b/lib/tests/cmdline_kunit.c
+index c1602f797637..18b19c85baef 100644
+--- a/lib/tests/cmdline_kunit.c
++++ b/lib/tests/cmdline_kunit.c
+@@ -6,6 +6,7 @@
+ #include <kunit/test.h>
+ #include <linux/kernel.h>
+ #include <linux/random.h>
++#include <linux/sizes.h>
+ #include <linux/string.h>
  
-+	/* Consume valid suffix even in case of overflow. */
- 	switch (*endptr) {
- 	case 'E':
- 	case 'e':
--		ret <<= 10;
-+		shl += 10;
- 		fallthrough;
- 	case 'P':
- 	case 'p':
--		ret <<= 10;
-+		shl += 10;
- 		fallthrough;
- 	case 'T':
- 	case 't':
--		ret <<= 10;
-+		shl += 10;
- 		fallthrough;
- 	case 'G':
- 	case 'g':
--		ret <<= 10;
-+		shl += 10;
- 		fallthrough;
- 	case 'M':
- 	case 'm':
--		ret <<= 10;
-+		shl += 10;
- 		fallthrough;
- 	case 'K':
- 	case 'k':
--		ret <<= 10;
--		endptr++;
-+		shl += 10;
- 		fallthrough;
- 	default:
- 		break;
- 	}
+ static const char *cmdline_test_strings[] = {
+@@ -139,11 +140,66 @@ static void cmdline_test_range(struct kunit *test)
+ 	} while (++i < ARRAY_SIZE(cmdline_test_range_strings));
+ }
  
-+	if (shl && likely(ptr != endptr)) {
-+		/* Have valid suffix with preceding number. */
-+		if (unlikely(check_shl_overflow(ret, shl, &ret)))
-+			ret = ULLONG_MAX;
-+		endptr++;
-+	}
++struct cmdline_test_memparse_entry {
++	const char *input;
++	const char *unrecognized;
++	unsigned long long result;
++};
 +
- 	if (retptr)
- 		*retptr = endptr;
++static const struct cmdline_test_memparse_entry testdata[] = {
++	{ "0",				"",	0ULL },
++	{ "1",				"",	1ULL },
++	{ "a",				"a",	0ULL },
++	{ "k",				"k",	0ULL },
++	{ "E",				"E",	0ULL },
++	{ "0xb",			"",	11ULL },
++	{ "0xz",			"x",	0ULL },
++	{ "1234",			"",	1234ULL },
++	{ "04567",			"",	2423ULL },
++	{ "0x9876",			"",	39030LL },
++	{ "05678",			"8",	375ULL },
++	{ "0xabcdefz",			"z",	11259375ULL },
++	{ "0cdba",			"c",	0ULL },
++	{ "4K",				"",	SZ_4K },
++	{ "0x10k@0xaaaabbbb",		"@",	SZ_16K },
++	{ "32M",			"",	SZ_32M },
++	{ "067m:foo",			":",	55 * SZ_1M },
++	{ "2G;bar=baz",			";",	SZ_2G },
++	{ "07gz",			"z",	7ULL * SZ_1G },
++	{ "3T+data",			"+",	3 * SZ_1T },
++	{ "04t,ro",			",",	SZ_4T },
++	{ "012p",			"",	11258999068426240ULL },
++	{ "7P,sync",			",",	7881299347898368ULL },
++	{ "0x2e",			"",	46ULL },
++	{ "2E and more",		" ",	2305843009213693952ULL },
++	{ "18446744073709551615",	"",	ULLONG_MAX },
++	{ "0xffffffffffffffff0",	"",	ULLONG_MAX },
++	{ "1111111111111111111T",	"",	ULLONG_MAX },
++	{ "222222222222222222222G",	"",	ULLONG_MAX },
++	{ "3333333333333333333333M",	"",	ULLONG_MAX },
++};
++
++static void cmdline_test_memparse(struct kunit *test)
++{
++	const struct cmdline_test_memparse_entry *e;
++	unsigned long long ret;
++	char *retptr;
++
++	for (e = testdata; e < testdata + ARRAY_SIZE(testdata); e++) {
++		ret = memparse(e->input, &retptr);
++		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
++				    "    when parsing '%s'", e->input);
++		KUNIT_EXPECT_EQ_MSG(test, *retptr, *e->unrecognized,
++				    "    when parsing '%s'", e->input);
++	}
++}
++
+ static struct kunit_case cmdline_test_cases[] = {
+ 	KUNIT_CASE(cmdline_test_noint),
+ 	KUNIT_CASE(cmdline_test_lead_int),
+ 	KUNIT_CASE(cmdline_test_tail_int),
+ 	KUNIT_CASE(cmdline_test_range),
++	KUNIT_CASE(cmdline_test_memparse),
+ 	{}
+ };
  
 -- 
 2.53.0
