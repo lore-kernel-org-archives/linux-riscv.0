@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 864A9E88D72
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 23:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7064E88D6E
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 23:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=SUrzV7QsRVvKXNRFVp9k5YRkepK0JQC6jj/6pNPdPwc=; b=LJ0+kZYZeZyk6zveu+uY3UglcJ
-	0Eg6lcCkxsSNWEmFAEJW7VwPGho+Jyk+zM6LOfJhc6RbcYMx57XQcw48ZQkqPrTkH42DiIsPP04fa
-	rjuhGcYbnQ1dLhecawx9PicXgWWPYe+znFCgdfc5cxGOOE0+b6p2zlD7BKSkqVClFpfgzspFpfU3m
-	cASXCCXP9nPCgvBaUHxaoNMvdQUzyaF6HXMiD7tjYsXtAQ6NxSfUFwAsTnwiHzIuTIu1MeBf7/3kI
-	h9EHp8LK5cIcyJQHRzOpBQ2OxCbBi8061EwcJeYJU/cXzhz/mPCVPNP6YDSXALIygX0kcw/89pNso
-	mbWJ1iOg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mEtP3fFRR38Ma/uJe2/vPwmbfN3LKWnhFp6RIWN3CNg=; b=PuDI2dwbh3s9H0
+	WcIx82hayIGBDUIa0g5a3NW6Nwc4GRVMA77b/9WT1A6qmHZzA1CKBdGMpvEJ45QjoAFAhT5Z1ppY3
+	HuRi1BtwUmJg8FhJuivQkC2gorUKpAaVe1FbGMEgDv0ibmFkuI3a3AfeNAQD9+F8BKtu5cQRRhO09
+	uR+PPqNmDNgtBc+SsnCy8V3HDJv6ZHda2A/vXqSDAGbL8kl+Q9zCXx8UrvnNMMS4llo3zum1e/Yn4
+	VzQRMRrnf2s5BOis42dTtcCCV/yy9qG5dBWHLqHq7MwhCaiEFdDrK+FugIaXrwRC8Q9EwdA0mTWjZ
+	lTM8/HFvkxfida+22u4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ngZ-00000002iSh-3XuO;
-	Fri, 03 Apr 2026 23:12:20 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1w8noP-00000002j16-3mjO;
+	Fri, 03 Apr 2026 23:20:25 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ngW-00000002iRE-3VoE
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 23:12:18 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-82c6929bd26so3070620b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2026 16:12:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775257935; x=1775862735; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qdgYiNCpCVITKt4WdfY63SIPUYiDMIfHM1afvBz0ai8=;
-        b=Q43SF2jTYFnmbALfIiw1+Tl/g5ggoL8TyGgqYV5w/muG/y3GzsY7lhMYSYddCnOsAA
-         0fFHlTMJ7Sj2622mcM7D3S8mv4p0aT3cX1pmBjbTvG7WKf0v1342oqbL/P6XFJ3dnCMu
-         l/UnZSdzT+YVlYLazICJKfI1bJX1TUk9+rSlgKXuPzqhF8301PSV0442ynQZQZnyCBcD
-         HRrlPPUYccNSIwRUpHO6JWusBTUVCdlD0zCwjLXQcaz20P0K7PfjHcqY1jx+iXJwi+qF
-         go+j1zcjIqCYPo1KA8HlbSpOijMZDyWQ5OJAdErqBkDUV198zMkzlkRbZmqjuhdyYF71
-         IU/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775257935; x=1775862735;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qdgYiNCpCVITKt4WdfY63SIPUYiDMIfHM1afvBz0ai8=;
-        b=Q2+2fLq5BQS59pemBEnj1qN4nU3noCbyafTi2Qn5aO3PoyMlyQK88Rgz3BzNFs/93h
-         SjmpG8dLo7SbJfYBYjdRrtMNEA9a+dKVX8PXdetm4xQSE9PN+y+cwrLBQEI9AYwWzgo6
-         nsFLb96ztIMqOuBLr6dQQIsMgriV3FP6POIVdrHLxegWBHmIrHvgW5JcP8MikOKRzBLS
-         09PKwYf7TXJ0OMybhbxcfTtf1f/58Av/8r7VFvt6If10T2XUFMpc4HSBQohcppYnNPV+
-         1zIRkYlHY9lIkIKsSqgp0Mb/ElbMXe2EpyFIW/UaXVsJIxcWAoaMSjH9I7Cih++tStYo
-         PZSA==
-X-Forwarded-Encrypted: i=1; AJvYcCVCWSgTHy3fZFPN+KGDXXhKIVMVtHfosmFNBHQxyrCKyyTyrdWRik98ZA0Jeh/slT3hfDZpBHTL0SuPoA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLgaQWMFXYdbU8kkiPBPVK+71eWINjZa3Owgt5nG/8QZ/E38O3
-	nwVo+GlGZgH9A7GENQcae4QlX6TknCEHauovsVn7L/u8eqbTAzBuEpY69R6OyzCq5oKUpO23hgZ
-	s9bOfxw==
-X-Received: from pfmu23.prod.google.com ([2002:aa7:8397:0:b0:829:7ce4:7fcc])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:ac82:b0:82c:daa4:ce2b
- with SMTP id d2e1a72fcca58-82d0dbcfa01mr4616677b3a.49.1775257934902; Fri, 03
- Apr 2026 16:12:14 -0700 (PDT)
-Date: Fri, 3 Apr 2026 16:12:13 -0700
-In-Reply-To: <66e78b59-f96c-4277-b7d7-473b68ed413f@linux.alibaba.com>
-Mime-Version: 1.0
-References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
- <545847c132da5d957cfc74ab19e849b16127aa8f.1773890510.git.baolin.wang@linux.alibaba.com>
- <67c670e2-c98f-490b-bbb9-2960f8175b5a@lucifer.local> <66e78b59-f96c-4277-b7d7-473b68ed413f@linux.alibaba.com>
-Message-ID: <adBJTXeE6G2vQNKX@google.com>
-Subject: Re: [PATCH 6/6] mm: change to return bool for the MMU notifier's
- young flag check
-From: Sean Christopherson <seanjc@google.com>
-To: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>, akpm@linux-foundation.org, david@kernel.org, 
-	Liam.Howlett@oracle.com, vbabka@kernel.org, rppt@kernel.org, 
-	surenb@google.com, mhocko@suse.com, linux-arm-kernel@lists.infradead.org, 
-	x86@kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
+	id 1w8noM-00000002j0W-1zlp;
+	Fri, 03 Apr 2026 23:20:24 +0000
+Received: from fric.. (unknown [210.73.43.101])
+	by APP-01 (Coremail) with SMTP id qwCowADHb2ssS9BpDqMbDA--.3154S2;
+	Sat, 04 Apr 2026 07:20:12 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
+	Jiakai Xu <jiakaiPeanut@gmail.com>
+Subject: [PATCH v2] RISC-V: KVM: Fix shift-out-of-bounds in make_xfence_request()
+Date: Fri,  3 Apr 2026 23:20:11 +0000
+Message-Id: <20260403232011.2394966-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+X-CM-TRANSID: qwCowADHb2ssS9BpDqMbDA--.3154S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tFy7try3tw1UXF4rWr45Jrb_yoW8XryDpr
+	4kuFsa9Fs5GFnFya47ArZ5WF18Ar1kK34jvrW3uF48Jr4qqry8ArsY93s8Wry3JFsYqryF
+	krnIqFyfua1DAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67
+	AK6FWl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AK
+	xVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrx
+	kI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v2
+	6r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
+	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU0sqXDUUU
+	U
+X-Originating-IP: [210.73.43.101]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBwkGCWnP11+pggAAsE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_161216_870355_5BC80299 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20260403_162022_893856_1265BF46 
+X-CRM114-Status: UNSURE (   8.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,28 +87,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026, Baolin Wang wrote:
-> > > -static __always_inline int kvm_age_hva_range(struct mmu_notifier *mn,
-> > > -						unsigned long start,
-> > > -						unsigned long end,
-> > > -						gfn_handler_t handler,
-> > > -						bool flush_on_ret)
-> > > +static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
-> > > +					      unsigned long start,
-> > > +					      unsigned long end,
-> > > +					      gfn_handler_t handler,
-> > > +					      bool flush_on_ret)
-> > 
-> > Can we please fix this terrrible indentation while we're here :)?
-> > 
-> > static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
-> > 		unsigned long start, unsigned long end, gfn_handler_t handler,
-> > 		bool flush_on_ret)
-> > 
-> > Would be nicer, thanks!
+The make_xfence_request() function uses a shift operation to check if a
+vCPU is in the hart mask:
 
-No, please keep this as-is.  KVM's preferred style is exactly this (and I personally
-find mm's style much harder to parse).
+  if (!(hmask & (1UL << (vcpu->vcpu_id - hbase))))
+
+However, when the difference between vcpu_id and hbase
+is >= BITS_PER_LONG, the shift operation causes undefined behavior.
+
+This was detected by UBSAN:
+  UBSAN: shift-out-of-bounds in arch/riscv/kvm/tlb.c:343:23
+  shift exponent 256 is too large for 64-bit type 'long unsigned int'
+
+Fix this by adding a bounds check before the shift operation.
+
+This bug was found by fuzzing the KVM RISC-V interface.
+
+Fixes: 13acfec2dbcc ("RISC-V: KVM: Add remote HFENCE functions based on VCPU requests")
+Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
+Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+---
+V1 -> V2:
+- Dropped 'idx' variable and compared vcpu_id against hbase directly,
+  as suggested by Andrew Jones.
+---
+ arch/riscv/kvm/tlb.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+index ff1aeac4eb8eb..439c20c2775ab 100644
+--- a/arch/riscv/kvm/tlb.c
++++ b/arch/riscv/kvm/tlb.c
+@@ -338,7 +338,8 @@ static void make_xfence_request(struct kvm *kvm,
+ 	bitmap_zero(vcpu_mask, KVM_MAX_VCPUS);
+ 	kvm_for_each_vcpu(i, vcpu, kvm) {
+ 		if (hbase != -1UL) {
+-			if (vcpu->vcpu_id < hbase)
++			if (vcpu->vcpu_id < hbase ||
++				vcpu->vcpu_id >= hbase + BITS_PER_LONG)
+ 				continue;
+ 			if (!(hmask & (1UL << (vcpu->vcpu_id - hbase))))
+ 				continue;
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
