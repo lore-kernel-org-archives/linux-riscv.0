@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5569BE7E36D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E56E7E36F
 	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 10:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4qUvYMMcjZBM/rtnIqf3E39MK8S7Y9fa1rK1qxHNI+8=; b=xIbdqFu/bcvg/x
-	EKL8TOWm6dGZU7VzJ1bw407TvLV8zCqTpKJJ3gZkm1UCHQyRW1P8V5o6OPivlN1jP/CzIqhlrNhxo
-	A5SRG7CpFVAuMG0MEpDJdiYEy//NCN+v5qphB65uXdMBtC2On7x33GPtOwJBgRT6fJwEf/fXmiEiy
-	YCAXAyZcdoavgIhlXQNyrNLksmgmSX7e6ZryB6UfdTKQJaW5xCFYGpvL5CeRse2x76UGsckbJFH1e
-	WoqcbGAIkN2qjMsjaFbIsTXNgwEUGxN/HOAF0ZKGU6d5Hb+In6Zhjw61EkwAlfvGQQrtepDJmjxP4
-	Y7aJ57NR8QugkXW7JCcA==;
+	List-Owner; bh=L7bDkiHe0U2DaHSFNMGtuXW3BxZGT2srkBK9f5YuSXA=; b=SUZ/NWk71njqtw
+	fu76CgpyOy6sIe7LyDps2j29TwoNrwMlgaDzYTRVOoqSeO7GKUaV0EUBu42l2Kj8pQ6gXy5e3H8wl
+	lo//dggeN+R5yiRPDCe2z/5qb1HMzyJ4NoCPQYcZMHt6KJHbVZsyA/Tb3Y0OKQOyXt22ODaNY5CE1
+	zpoqjxWh10RtkAOdAdP8GXhERfa5WF0BriGo+KN73zLk/u3l3PsIUzqf3ryU1wEDNwkKTuq0Yu717
+	utS/Y7AcjBSvAxTXS6FSpDIB4vDBZzPmC7O8nnfcoRcEVkzz1fPF07pHZoLzAou8Eh9w3CUgJEVEh
+	KrCWF3JYvzaSe4294ObA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bqh-00000001tdd-3yfW;
+	id 1w8bqh-00000001tcO-1Qra;
 	Fri, 03 Apr 2026 10:33:59 +0000
-Received: from forward100a.mail.yandex.net ([178.154.239.83])
+Received: from forward103d.mail.yandex.net ([178.154.239.214])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bqd-00000001taa-2mOt
+	id 1w8bqZ-00000001tZQ-34FU
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 10:33:57 +0000
+	Fri, 03 Apr 2026 10:33:56 +0000
 Received: from mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net [IPv6:2a02:6b8:c0c:489d:0:640:baa6:0])
-	by forward100a.mail.yandex.net (Yandex) with ESMTPS id E3F3CC020D;
-	Fri, 03 Apr 2026 13:33:49 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id eXaKrQ9QICg0-t2eKy0Mk;
-	Fri, 03 Apr 2026 13:33:49 +0300
+	by forward103d.mail.yandex.net (Yandex) with ESMTPS id 95825C46BB;
+	Fri, 03 Apr 2026 13:33:44 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id eXaKrQ9QICg0-wX7joaVz;
+	Fri, 03 Apr 2026 13:33:43 +0300
 X-Yandex-Fwd: 1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1775212429; bh=/7MT8XCjlc7FF5IGrcSKtOgIgzFNhDc8+wpVXfTxUXw=;
+	t=1775212423; bh=ncxwhMnYcfDz/IbmN8Vn1rR/34OkCH6lqvEbxlPKowI=;
 	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=f+wmL+Zn+Nnlp7z587DYK7S1OluJjbML4Yjf3bCpuIxlx87X3+3Rbc1it3q6EBHAx
-	 uTCJK6JXhoFlTAWlCqGd9J+ZfPtByo5zbuwuOzPaKXRlvHiFoVkczQhFEtMYt0Ji2u
-	 KZW4gtsuDHIoEnng0+t9G7DxUkf2y0fPNH8a4hwU=
+	b=g1OgL5nT+1E04IpTTqGNoRz1zpEJ6tMzmA1pmCra/GxwWnz8S7jvtj7H3vyt+X6DK
+	 9tlIxJz7nfX31L3PT8yZ4KfwkpkGoTX8UMUHaTnAtdIx8DWg7V9nWcvtoQC53pxjjJ
+	 jQzJEbo3sqJl1rT+tQ+ghh0VTHcc+AsxE2u9TZLM=
 Authentication-Results: mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
 From: Dmitry Antipov <dmantipov@yandex.ru>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -52,18 +52,17 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Ard Biesheuvel <ardb@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	Dmitry Antipov <dmantipov@yandex.ru>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v9 6/6] riscv: export symbols needed for riscv32 EFI stub
-Date: Fri,  3 Apr 2026 13:33:38 +0300
-Message-ID: <20260403103338.1122415-7-dmantipov@yandex.ru>
+	Dmitry Antipov <dmantipov@yandex.ru>
+Subject: [PATCH v9 1/6] lib: fix _parse_integer_limit() to handle overflow
+Date: Fri,  3 Apr 2026 13:33:33 +0300
+Message-ID: <20260403103338.1122415-2-dmantipov@yandex.ru>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260403103338.1122415-1-dmantipov@yandex.ru>
 References: <20260403103338.1122415-1-dmantipov@yandex.ru>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_033355_892117_57B73B2D 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260403_033352_055380_0C6AE7E3 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +79,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fix the following link error observed when building EFI-enabled
-kernel with CONFIG_EFI_STUB=y and CONFIG_EFI_GENERIC_STUB=y:
+In '_parse_integer_limit()', adjust native integer arithmetic
+with near-to-overflow branch where 'check_mul_overflow()' and
+'check_add_overflow()' are used to check whether an intermediate
+result goes out of range, and denote such a case with ULLONG_MAX,
+thus making the function more similar to standard C library's
+'strtoull()'. Adjust comment to kernel-doc style as well.
 
-riscv32-linux-gnu-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
-__efistub_cmdline.c:(.init.text+0x1f2): undefined reference to `__efistub___ashldi3'
-riscv32-linux-gnu-ld: __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
-
-Note: compile (gcc 15.2.1 and clang 21.1.8) tested only.
-
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202603041925.KLKqpK6N-lkp@intel.com
-Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
 ---
-v9: initial version to join the series
+v9: bump version to match the series
+v8: do not use explicit temporary in check_xxx_overflow()
+    calls and handle overflow flag using separate variable
+v7: drop redundant check against ULLONG_MAX and restore
+    original comment
+v6: more compact for-loop and minor style adjustments again
+v5: minor brace style adjustment
+v4: restore plain integer arithmetic and use check_xxx_overflow()
+    on near-to-overflow branch only
+v3: adjust commit message and comments as suggested by Andy
+v2: initial version to join the series
 ---
- arch/riscv/kernel/image-vars.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ lib/kstrtox.c | 37 ++++++++++++++++++++++---------------
+ 1 file changed, 22 insertions(+), 15 deletions(-)
 
-diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
-index 3bd9d06a8b8f..888bb1ddf945 100644
---- a/arch/riscv/kernel/image-vars.h
-+++ b/arch/riscv/kernel/image-vars.h
-@@ -32,6 +32,15 @@ __efistub___init_text_end	= __init_text_end;
- __efistub_sysfb_primary_display	= sysfb_primary_display;
- #endif
+diff --git a/lib/kstrtox.c b/lib/kstrtox.c
+index 97be2a39f537..edc4eb7c1bca 100644
+--- a/lib/kstrtox.c
++++ b/lib/kstrtox.c
+@@ -39,25 +39,30 @@ const char *_parse_integer_fixup_radix(const char *s, unsigned int *base)
+ 	return s;
+ }
  
-+#ifdef CONFIG_CC_IS_GCC
-+/*
-+ * Double-word integer shifts are used by the library code and so EFI stub as
-+ * well. Not needed for clang and please let me know if anyone understands why.
-+ */
-+PROVIDE(__efistub___lshrdi3    = __lshrdi3);
-+PROVIDE(__efistub___ashldi3    = __ashldi3);
-+#endif /* CONFIG_CC_IS_GCC */
-+
- #endif
+-/*
+- * Convert non-negative integer string representation in explicitly given radix
+- * to an integer. A maximum of max_chars characters will be converted.
++/**
++ * _parse_integer_limit - Convert integer string representation to an integer
++ * @s: Integer string representation
++ * @base: Radix
++ * @p: Where to store result
++ * @max_chars: Maximum amount of characters to convert
++ *
++ * Convert non-negative integer string representation in explicitly given
++ * radix to an integer. If overflow occurs, value at @p is set to ULLONG_MAX.
+  *
+- * Return number of characters consumed maybe or-ed with overflow bit.
+- * If overflow occurs, result integer (incorrect) is still returned.
++ * This function is the workhorse of other string conversion functions and it
++ * is discouraged to use it explicitly. Consider kstrto*() family instead.
+  *
+- * Don't you dare use this function.
++ * Return: Number of characters consumed, maybe ORed with overflow bit
+  */
+ noinline
+ unsigned int _parse_integer_limit(const char *s, unsigned int base, unsigned long long *p,
+ 				  size_t max_chars)
+ {
++	unsigned int rv, overflow = 0;
+ 	unsigned long long res;
+-	unsigned int rv;
  
- #endif /* __RISCV_KERNEL_IMAGE_VARS_H */
+ 	res = 0;
+-	rv = 0;
+-	while (max_chars--) {
++	for (rv = 0; rv < max_chars; rv++, s++) {
+ 		unsigned int c = *s;
+ 		unsigned int lc = _tolower(c);
+ 		unsigned int val;
+@@ -76,15 +81,17 @@ unsigned int _parse_integer_limit(const char *s, unsigned int base, unsigned lon
+ 		 * it in the max base we support (16)
+ 		 */
+ 		if (unlikely(res & (~0ull << 60))) {
+-			if (res > div_u64(ULLONG_MAX - val, base))
+-				rv |= KSTRTOX_OVERFLOW;
++			if (check_mul_overflow(res, base, &res) ||
++			    check_add_overflow(res, val, &res)) {
++				res = ULLONG_MAX;
++				overflow = KSTRTOX_OVERFLOW;
++			}
++		} else {
++			res = res * base + val;
+ 		}
+-		res = res * base + val;
+-		rv++;
+-		s++;
+ 	}
+ 	*p = res;
+-	return rv;
++	return rv | overflow;
+ }
+ 
+ noinline
 -- 
 2.53.0
 
