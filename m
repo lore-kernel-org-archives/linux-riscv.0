@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBE7E85366
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 12:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE48E85361
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 12:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Gi5cx7xAWOpT/nrFwi0/BUqM+UpfqJ9/VW0gN6aLLpI=; b=iDB0GBOIGOJYJP
-	eMkwESDtjtL3484CtEO8Gasd5WsHgOoxEr7D8Rxh6hyjVea7vbu7WLmhRQw7w/v5Qx+qdVJZtRpdl
-	pirsm+EgtIojN+wtYH4T6rvsgH+YEshU7kfYuhv1eIgE/14C+ibPvx+/WjHSayk/3kGNbFqfg1pUR
-	Hy5oiY3WcsUMC21NU/owoKwPvMEHR+Jti3vtaZFrOKi2rgyrEqoNi7pstLvrkpxshaQ3SDda2TAYQ
-	6TyG/WssMoBROfhq1dmwCpJxGPlRVmlhkYDGMi3A+HKUNnwVzzh+2ypcXoLucQ0t641FCUWMz6qHS
-	rMyPZ7ErTDQsPYl60p8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:From:To:In-Reply-To:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=jzx3qixpFi+mtVEnzYmTqRLQb5QX0iplWdyEFjr95RQ=; b=u6rx3zbNGXUvj/zZk9vIDEDAH/
+	Qs7O0RUl/PxhOJGFhJ3dTAC1Gf+2euNbQ1Ck/pndQ/QOG+4FL8W+V3gBArWNBw3ffVvdznmffGHXH
+	Zy3mVId8yi8b51+j7T1pvWqKWqIDpKGLYsyC0r89QGKKJYdAQzKE8IL6NK5TPF6dslu+Yhz222LPs
+	g/UlGJlGjPin9VXf6K0QI2Fne5uR27UYiznyqnYF4YpTvqqtNvCx3BJFSB1PGnnT4N1f61pG/kNKf
+	Jz9otVARzmyd2X/qSckyp507A3faHci0VqbRWXgHZyS1Upr+a9qFlR8JwQ7r8Wts9LWb+NzGUNqtZ
+	AoKg/FDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8e0F-000000021xp-2Hdw;
-	Fri, 03 Apr 2026 12:51:59 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1w8e67-000000022Ym-0z4w;
+	Fri, 03 Apr 2026 12:58:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8e0C-000000021wo-24Ap
+	id 1w8e66-000000022Ye-1oid
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 03 Apr 2026 12:58:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Subject:From:To:In-Reply-To:MIME-Version:Date:Message-ID:Sender:Reply-To:Cc:
+	Content-ID:Content-Description:References;
+	bh=AtgPaP/DZ3OP99cCtZH3atx7GOUtVsIAtaewyw1CAz4=; b=mb7/qQwmo0epUIn/q+YIZqNXsf
+	i/bqmr0e2oaekcyk5dRrFDOPNxm8kQGWjdGbpB01k1qIQf0SfAVVkCbYBbB0J8sJF8EGNo2cppnRg
+	FAZveSUnWzIuPW55qsT1rPnpsuaydfWsZalnXRXbjnWy8GDFnURdEiZaxIedsBH+Bz8z2L/m+ZpcV
+	pUbMG4/o69LlYWYHxE35YpkYbZ7CpQiG6P04NMuHin1LPNu9oIleWyItwHP4hkvFfqCY1i4ST7WQs
+	At1UskdUyn3aHO8OWKpJE9g35jeRMEFRMZcvsvDIEnLyZRXsBNht9HKaYUzVpiIce11XGvl+tyDbF
+	ZIY0TujQ==;
+Received: from smtp5-g21.free.fr ([2a01:e0c:1:1599::14])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8e62-000000048pu-0sHJ
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 12:51:58 +0000
-Received: from localhost.localdomain (unknown [223.166.95.230])
-	by APP-01 (Coremail) with SMTP id qwCowABnDWnlt89pEvwRDA--.20275S2;
-	Fri, 03 Apr 2026 20:51:50 +0800 (CST)
-From: Han Gao <gaohan@iscas.ac.cn>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Han Gao <rabenda.cn@gmail.com>,
-	Han Gao <gaohan@iscas.ac.cn>
-Subject: [PATCH v8 0/3] riscv: dts: spacemit: Add PMIC regulators usb pcie
-Date: Fri,  3 Apr 2026 20:51:45 +0800
-Message-ID: <cover.1775220547.git.gaohan@iscas.ac.cn>
-X-Mailer: git-send-email 2.47.3
+	Fri, 03 Apr 2026 12:58:00 +0000
+Received: from [10.0.0.2] (unknown [82.65.243.93])
+	(Authenticated sender: legoll@free.fr)
+	by smtp5-g21.free.fr (Postfix) with ESMTPSA id 8B5F36014E;
+	Fri,  3 Apr 2026 14:57:26 +0200 (CEST)
+Message-ID: <36cca49c-0cb4-42b9-87ae-702df825a4a4@online.fr>
+Date: Fri, 3 Apr 2026 14:57:26 +0200
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABnDWnlt89pEvwRDA--.20275S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFykKF1DtF4DXF4kurWfZrb_yoW5Xr4fpr
-	y29r43uw45Xw42ya93uws8Gr1agF1rAr9agr1jgw18ArnFgay7Za1xtr47Zr98Zr45KFsr
-	trs7Ar4xur47ZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
-	JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x0JUZYFZUUUUU=
-X-Originating-IP: [223.166.95.230]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiDAcGDGnPqxAVHwACsU
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+In-Reply-To: <20260119-patchv2-k1-thermal-v3-0-3d82c9ebe8a4@163.com>
+To: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org,
+ daniel.lezcano@linaro.org, devicetree@vger.kernel.org, dlan@gentoo.org,
+ krzk+dt@kernel.org, krzysztof.kozlowski@oss.qualcomm.com,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, lukasz.luba@arm.com,
+ p.zabel@pengutronix.de, palmer@dabbelt.com, pjw@kernel.org,
+ rafael@kernel.org, robh@kernel.org, rui.zhang@intel.com,
+ spacemit@lists.linux.dev, gsh517025@gmail.com
+From: Vincent Legoll <legoll@online.fr>
+Subject: Re: [PATCH v3 0/3] thermal: spacemit: Add support for SpacemiT K1 SoC
+ thermal sensor
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_055156_915682_0A818CA4 
-X-CRM114-Status: UNSURE (   4.24  )
+X-CRM114-CacheID: sfid-20260403_135758_429656_878792FE 
+X-CRM114-Status: UNSURE (   3.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,68 +78,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changes in v7:
- - patch 3:
-   rename usb_dwc3 from vdd-supply to vbus-supply
- - Link to v7: https://lore.kernel.org/linux-riscv/cover.1775219669.git.gaohan@iscas.ac.cn
-
-Changes in v6:
- - patch 1:
-   reorder i2c8
- - patch 3:
-   restore vcc5v0_usb30
-   remove vin-supply from pcie_vcc3v3
-   restore vpcie3v3-supply from pcie2
-   update hub vdd-supply
- - Link to v6: https://lore.kernel.org/linux-riscv/cover.1775214644.git.gaohan@iscas.ac.cn/
-
-Changes in v5:
- - patch 2:
-   restore floating nodes and mark as 'not connected'
- - patch 3:
-   remove vcc5v0_usb30
-   reorder pcie_vcc3v3 and add vin-supply
-   remove redundant vpcie3v3-supply from pcie2
-   update hub vdd-supply based on Chukun's patch
- - Link to v5: https://lore.kernel.org/linux-riscv/cover.1775148159.git.gaohan@iscas.ac.cn/
-
-Han Gao (3):
-  riscv: dts: spacemit: Enable i2c8 adapter for OrangePi RV2
-  riscv: dts: spacemit: Define the P1 PMIC regulators for OrangePi RV2
-  riscv: dts: spacemit: Enable USB3.0/PCIe on OrangePi RV2
-
- .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 218 ++++++++++++++++++
- 1 file changed, 218 insertions(+)
+Hello,
 
 
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-prerequisite-patch-id: ef6e9c7b5854d0c08066b72f9a7868db8c2140eb
-prerequisite-patch-id: cfe3800f8c791ec4c63e070af9628e88e0fc31b9
-prerequisite-patch-id: b76493e625ae257c8adcd67874178458420e4d47
-prerequisite-patch-id: 88e01dc92c83bd88ddeb78891d3088209fed8d6b
-prerequisite-patch-id: 60336d10ab8322c70596d0f046b6b5c54bb24b54
-prerequisite-patch-id: 68c4d869548687dc115dd91e2ffb8f4c11482d86
-prerequisite-patch-id: fdadcf964c2cb3406160edb579d99a8d5695f8e6
-prerequisite-patch-id: 73b9e745338b0499b849fa4f7f9508987ab39a59
-prerequisite-patch-id: cd26770c2160c3c31a406bd8a6b01ab666180ae0
-prerequisite-patch-id: e5dfddc32cefae195692da8b80e19adf086e4ad7
-prerequisite-patch-id: 7fd53cbe4977598f26148a4bb1cf692bbdb79a09
-prerequisite-patch-id: 96ebac57bb29619b97fe95422206a685825618e9
-prerequisite-patch-id: 00fac16b52f60383db3140e2885f3f7f8d14dd1a
-prerequisite-patch-id: 3b7a60047b922c48e93599f621cb738856f42354
-prerequisite-patch-id: 275c030b963be05dd1041451f539a130ce614277
-prerequisite-patch-id: 93963424b0871e64276af0e0b2199b52e29b4603
-prerequisite-patch-id: 8383188b1c01ed6280629faaa29c37d699ade241
-prerequisite-patch-id: 5f8126b912b924d63d4a1e0c5eb42d212eb0d369
-prerequisite-patch-id: e80af628a2e0b5f2eeb3cb1b5e7133d08bdd2c4e
-prerequisite-patch-id: 0234a6dca15eb91f98a45a46604ce5b4935048a5
--- 
-2.47.3
+I applied this series on top of:
+
+- next-20260402
+
+- 
+https://patchwork.kernel.org/project/linux-riscv/patch/20260330-orangepi-sd-card-uhs-v5-9-bd853604322d@gmail.com/
+
+I need the the SD card series to boot from SD card.
+
+
+I'm also seeing the same "it works" state as Gong Shuai.
+
+So you can add another:
+
+Tested-by: Vincent Legoll <legoll@online.fr> # OrangePi-RV2
+
+Regards
+
+Thanks
 
 
 _______________________________________________
