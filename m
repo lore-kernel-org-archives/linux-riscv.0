@@ -4,59 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB3CD7308A
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 04:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA27D7309C
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 05:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:Message-ID:Date
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Subject:Date:From:
+	Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=c+Vrmgcrc4u5xsERNd9+b1snyCvLGJkS6SNR8K6rbRQ=; b=Od694rNIiZZcW1
-	oxHFR/wzEdYu1n8DPukqjryGEazDDSJd4ncBHaeV/UXk52g8PtPNDV90ft3Pypiz6Ds4KUlixyV8J
-	ohd5thd6i9tDuTR8xnq3c2tfJNE90AvSWovnsRVHMeGI9gjD8peloN3lan28GAToLKwVFFq3xPP+f
-	sElBfRtDOAlc7iuXv3hajj03jSIHza4HUinpSvKweaXpbMuM5fxNdYddha63vcRKlKHAb55rT+20K
-	Sfcw36z0BlAv8rgom9xWvtYYTX/PCF6CUtD379k4o7KdP2FYCQWL0TAzf/ZX66tMA7uSEdIOD3IPQ
-	89m/e22kzwMxbHYVs75g==;
+	List-Owner; bh=0UtueNOii6GJbkOk9K21x5BWwpy1S1wHuOcENN64F2Q=; b=3/+aA/7RIDwzuP
+	vb4FxHlrmIapY9jEkTgHRCNNNaJKYa7qYErhmY5OWg6zfSjWEL7Ymtx9ioHwy/T0FdLtQXrfcgf35
+	qJsKRwJ7DsCUw2A4U3lUlHF6ZFRJ36fb9pxEIG40torq1yfliI9iWmn0lFbJAq0XHRKkG01zOIS9G
+	7i+0fEJ6JHjgTVbvWaR3/1DJV9vgtTsV/GQ3BaJLrk9fg2Q3E4iYrs47A6+OXUf5emAFuJ5to245j
+	zYtHsc3f1pLB/GYeYjLoJmpxnCbB1OIXXQqdZMikFVJccZHxyWzJDDpzjZ1pwfVZB/2FQVpk/auPO
+	VSWs259Um5thzKDsiCvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8VoT-00000001AuY-2emv;
-	Fri, 03 Apr 2026 04:07:17 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8VoR-00000001Atu-0OWR
+	id 1w8XLP-00000001L0m-1vGV;
+	Fri, 03 Apr 2026 05:45:23 +0000
+Received: from [111.196.245.197] (helo=hppdeMacBook-Pro.local)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8XLL-00000001Kzf-3Q3h
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 04:07:16 +0000
-Received: from 0003-riscv-pi.eml (unknown [111.196.245.197])
-	by APP-05 (Coremail) with SMTP id zQCowAAnfhHtPM9pGU1XDA--.12440S2;
-	Fri, 03 Apr 2026 12:07:09 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Date: Fri, 3 Apr 2026 11:55:50 +0800
-Message-ID: <20260403143003.3-riscv-pi-bootargs-pengpeng@iscas.ac.cn>
+	Fri, 03 Apr 2026 05:45:21 +0000
+Received: by hppdeMacBook-Pro.local (Postfix, from userid 501)
+	id 8904D166EA5F; Fri,  3 Apr 2026 08:59:04 +0800 (CST)
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, pengpeng@iscas.ac.cn
-Subject: [PATCH] riscv: pi: validate early bootargs before string use
-X-CM-TRANSID: zQCowAAnfhHtPM9pGU1XDA--.12440S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tFW8trWUCFyktF4rGF1rJFb_yoW8WF1xpr
-	s8GFnavr4rZFyUt34YqanY9w48uwsxtwnFyas5uryrGa13Jry3Jw4FgrWUur1aqF48ZrW5
-	KF4a9a4rAFy5AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkq14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IY64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r126r1D
-	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
-	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0E
-	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JV
-	WxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
-	cVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjMqcUUUUUU==
-X-Originating-IP: [111.196.245.197]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Nutty Liu <liujingqi@lanxincomputing.com>, Junhui Liu <junhui.liu@pigmoral.tech>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, pengpeng@iscas.ac.cn
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Date: Fri, 3 Apr 2026 08:47:58 +0800
+Subject: [PATCH] riscv: pi: validate early FDT string properties before string
+ use
+Message-Id: <20260403005904.8904D166EA5F@hppdeMacBook-Pro.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_210715_523456_BF167843 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20260402_224520_078230_19FDA6E4 
+X-CRM114-Status: UNSURE (   6.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,50 +57,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-get_early_cmdline() fetches bootargs directly from the FDT and
-immediately passes the raw property pointer to strlen() before copying
-it into the early command-line buffer. Flat DT properties are external
-boot input, and this path does not prove that bootargs is
-NUL-terminated within its declared bounds.
+The early RISC-V FDT parser reads status, riscv,isa, and mmu-type
+directly from the DTB and then passes them to strcmp() or
+isa_string_contains(), which in turn uses strlen() and other C string
+helpers. DT string properties come from external firmware input and are
+not locally proven to be NUL-terminated within the property bounds.
 
-Use fdt_stringlist_get() so malformed unterminated bootargs are
-rejected before any C-string helpers walk them.
+Use fdt_stringlist_get() before treating these properties as C strings
+so malformed unterminated properties are rejected instead of being read
+past their declared length.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- arch/riscv/kernel/pi/cmdline_early.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+ arch/riscv/kernel/pi/fdt_early.c | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/kernel/pi/cmdline_early.c b/arch/riscv/kernel/pi/cmdline_early.c
-index 389d086a0718..ac55f1c7ca70 100644
---- a/arch/riscv/kernel/pi/cmdline_early.c
-+++ b/arch/riscv/kernel/pi/cmdline_early.c
-@@ -13,16 +13,17 @@ static char early_cmdline[COMMAND_LINE_SIZE];
- static char *get_early_cmdline(uintptr_t dtb_pa)
+diff --git a/arch/riscv/kernel/pi/fdt_early.c b/arch/riscv/kernel/pi/fdt_early.c
+index a12ff8090f19..a44afd460d70 100644
+--- a/arch/riscv/kernel/pi/fdt_early.c
++++ b/arch/riscv/kernel/pi/fdt_early.c
+@@ -38,16 +38,13 @@ u64 get_kaslr_seed(uintptr_t dtb_pa)
+ static bool fdt_device_is_available(const void *fdt, int node)
  {
- 	const char *fdt_cmdline = NULL;
--	unsigned int fdt_cmdline_size = 0;
-+	int fdt_cmdline_size = 0;
- 	int chosen_node;
+ 	const char *status;
+-	int statlen;
  
- 	if (!IS_ENABLED(CONFIG_CMDLINE_FORCE)) {
- 		chosen_node = fdt_path_offset((void *)dtb_pa, "/chosen");
- 		if (chosen_node >= 0) {
--			fdt_cmdline = fdt_getprop((void *)dtb_pa, chosen_node,
--						  "bootargs", NULL);
--			if (fdt_cmdline) {
--				fdt_cmdline_size = strlen(fdt_cmdline);
-+			fdt_cmdline = fdt_stringlist_get((void *)dtb_pa,
-+							 chosen_node,
-+							 "bootargs", 0,
-+							 &fdt_cmdline_size);
-+			if (fdt_cmdline && fdt_cmdline_size > 0) {
- 				strscpy(early_cmdline, fdt_cmdline,
- 					COMMAND_LINE_SIZE);
- 			}
+-	status = fdt_getprop(fdt, node, "status", &statlen);
++	status = fdt_stringlist_get(fdt, node, "status", 0, NULL);
+ 	if (!status)
+ 		return true;
+ 
+-	if (statlen > 0) {
+-		if (!strcmp(status, "okay") || !strcmp(status, "ok"))
+-			return true;
+-	}
++	if (!strcmp(status, "okay") || !strcmp(status, "ok"))
++		return true;
+ 
+ 	return false;
+ }
+@@ -137,14 +134,14 @@ static bool isa_string_contains(const char *isa_str, const char *ext_name)
+  */
+ static bool early_cpu_isa_ext_available(const void *fdt, int node, const char *ext_name)
+ {
+-	const void *prop;
++	const char *prop;
+ 	int len;
+ 
+ 	prop = fdt_getprop(fdt, node, "riscv,isa-extensions", &len);
+ 	if (prop && fdt_stringlist_contains(prop, len, ext_name))
+ 		return true;
+ 
+-	prop = fdt_getprop(fdt, node, "riscv,isa", &len);
++	prop = fdt_stringlist_get(fdt, node, "riscv,isa", 0, &len);
+ 	if (prop && isa_string_contains(prop, ext_name))
+ 		return true;
+ 
+@@ -210,7 +207,7 @@ u64 set_satp_mode_from_fdt(uintptr_t dtb_pa)
+ 		if (!fdt_device_is_available(fdt, node))
+ 			continue;
+ 
+-		mmu_type = fdt_getprop(fdt, node, "mmu-type", NULL);
++		mmu_type = fdt_stringlist_get(fdt, node, "mmu-type", 0, NULL);
+ 		if (!mmu_type)
+ 			break;
+ 
 -- 
 2.50.1 (Apple Git-155)
-
 
 _______________________________________________
 linux-riscv mailing list
