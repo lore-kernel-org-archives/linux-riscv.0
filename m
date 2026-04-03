@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC19E7E363
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 10:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F2BE7E36A
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 10:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VTclKR0oTOSVIyS++cPKZ4Z1SOj4S4SXVqGgRonjMmc=; b=Yeogi0vTUMaO2h
-	RlAlyjWlbTJERmfxT4Y0ft+Akw80TtCwQVVz/vxKejrNJK/WkEmOU0k9Xff3MiEDf9jHpuJdTYNJE
-	IgohUeLgwOxDud0OHmM1tbzm96ky5Ktxok94aQWDlctTbo8l6h2rnFgoIqapRycusSaTurMu89JOX
-	XbALReXByFAlmlVUVb8U6mrlzjm2EEW/iO2Nx/WuY2gaWahmDORgtOdr0xDDqT2KVA/wmkG8JbTuQ
-	JRElIqfKj1r+85ARSgndWFPCOycGD9KwqcKtvEI6HDG71NFZFcSp3/OFkD/rxJUkVYSmQhHQy+V1s
-	b401QXY8ViJcpxN9WMiA==;
+	List-Owner; bh=8j+wIdgnR37qvBKaN/4rtGi8+0xIMP+hVi118UdkvQI=; b=RZ+kPcznbTVGZI
+	f4lJUruOLtoJuGhXwdSDPBBFSHgUC0jqaNk/Cw1KniJ53GDeDVMm3nn/8azZiLAnNRX5Da2eB9Hgf
+	0R+CsGrSmNdkXWue0t0wTeoNVk8cTgUXZkkYDQDSg9AxNEyGHtfLbrqY6Pg6uWe8VvxPrQpbJGD+n
+	n8gd+WAgMfT5qJM5C8Eua/YkRyZMPK/1S+ZvfUV+cOPkU++HQMiu9WyeP9uoFsA3N3raMAvhlnOmS
+	4v7SRw7VuJ7uRcVeVQIrOzN0LK7aXdnAx6EN34pO//6h/pss4hQDH3t+hlFWK1HoTrNdn47isdr9L
+	z3W6AJAxoQOk+VTg783g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bQ9-00000001rTO-47RR;
-	Fri, 03 Apr 2026 10:06:34 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1w8bqe-00000001tbm-1dfm;
+	Fri, 03 Apr 2026 10:33:56 +0000
+Received: from forward100d.mail.yandex.net ([2a02:6b8:c41:1300:1:45:d181:d100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bQ6-00000001rSv-0WvK
+	id 1w8bqZ-00000001tYx-1yH9
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 10:06:32 +0000
-Received: from [10.213.19.33] (unknown [210.73.43.101])
-	by APP-01 (Coremail) with SMTP id qwCowACHLGgZkc9pk38PDA--.5212S2;
-	Fri, 03 Apr 2026 18:06:18 +0800 (CST)
-Message-ID: <00ddad5a-02f5-474e-af9c-11ce7716ddfc@iscas.ac.cn>
-Date: Fri, 3 Apr 2026 18:06:17 +0800
+	Fri, 03 Apr 2026 10:33:54 +0000
+Received: from mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net [IPv6:2a02:6b8:c0c:489d:0:640:baa6:0])
+	by forward100d.mail.yandex.net (Yandex) with ESMTPS id 7204CC0094;
+	Fri, 03 Apr 2026 13:33:43 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id eXaKrQ9QICg0-IBvZbH4J;
+	Fri, 03 Apr 2026 13:33:42 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
+	t=1775212422; bh=o31dgXkAWDJ6BGs1YfSlPFlehE6i4ZqjuBg4lS/peO4=;
+	h=Message-ID:Date:Cc:Subject:To:From;
+	b=iRK//pXEF0MNHgioaONLqrrhk4K7wPX44o1b5/aWsgW9V+3u6X9ow8R5nvUyGimZJ
+	 /uXsUD3YGDx64fYNcVG+JyfWGgdtioglqVKyH1ds8CBsqmSTTh+A1G7QKkmSim/8Xe
+	 i3VIk0FUMcpYZdtEfTJjfYdt5EJEjWfj1R3RXrb4=
+Authentication-Results: mail-nwsmtp-smtp-production-main-59.iva.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
+From: Dmitry Antipov <dmantipov@yandex.ru>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+	David Laight <david.laight.linux@gmail.com>,
+	Kees Cook <kees@kernel.org>,
+	"Darrick J . Wong" <djwong@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	Dmitry Antipov <dmantipov@yandex.ru>
+Subject: [PATCH v9 0/6] lib and lib/cmdline enhancements
+Date: Fri,  3 Apr 2026 13:33:32 +0300
+Message-ID: <20260403103338.1122415-1-dmantipov@yandex.ru>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Subject: Devicetree spec: Specifying /cpus/cpu@* unit address format?
-To: devicetree-spec@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- sophgo@lists.linux.dev
-Content-Language: en-US
-X-CM-TRANSID: qwCowACHLGgZkc9pk38PDA--.5212S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrWUAF15WF18Cr4kJFWUurg_yoW5JrWrpr
-	s7uFyUtryqyF48Jw42q3WUX3y3AFWkWw4UtF95J34kAFZ8WFykZFna9wn0gFyUCF1xXa45
-	Zws09a4UC3ZrZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Ib7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4j6F4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_Gw1l42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
-	IYCTnIWIevJa73UjIFyTuYvjxUgvJmDUUUU
-X-Originating-IP: [210.73.43.101]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_030630_560944_4306B16A 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20260403_033352_055779_AD46F7D6 
+X-CRM114-Status: UNSURE (   6.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,55 +73,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KEFsc28gcG9zdGVkIGF0OiBodHRwczovL2dpdGh1Yi5jb20vZGV2aWNldHJlZS1vcmcvZGV2aWNl
-dHJlZS1zcGVjaWZpY2F0aW9uL2lzc3Vlcy84NiApCgpIaSBhbGwsCgpQcmVzZW50bHksIHRoZXJl
-IHNlZW1zIHRvIGJlIHNvbWUgY29uZnVzaW9uIGluIHRoZSBjb21tdW5pdHkgYWJvdXQgdGhlCmZv
-cm1hdCBvZiB1bml0IGFkZHJlc3NlcyBmb3IgIi9jcHVzL2NwdUAqIiBub2RlcyBmb3IgYSBDUFUg
-d2l0aCBJRCA+IDksIGUuZy4KCsKgIMKgIGNwdUA/Pz8gewrCoCDCoCDCoCDCoCByZWcgPSA8MTA+
-OwrCoCDCoCDCoCDCoCAvKiByZWcgPSA8MHhhPjsgKi8gLyogVGhpcyBzaG91bGQgYmUgZXF1aXZh
-bGVudCAqLwrCoCDCoCB9CgoKU2hvdWxkIHRoaXMgYmUgYSBkZWNpbWFsICJjcHVAMTAiLCBvciBo
-ZXhhZGVjaW1hbCAiY3B1QGEiPyBJIGNhbid0IGZpbmQKYW55IGV4cGxpY2l0IHNwZWNpZmljYXRp
-b24uCgogICogTW9zdCBvdGhlciBub2RlcyBzcGVjaWZ5IGEgaGV4IHVuaXQgYWRkcmVzcwogICog
-SSBjb3VsZCBub3QgZmluZCBhbnl0aGluZyBzcGVjaWZ5aW5nIHRoaXMgZ2VuZXJpY2FsbHkKICAg
-ICAgbyBBRkFJQ1QsIHRoZXJlJ3Mgbm8gL2NwdXMgaW4gSUVFRSAxMjc1CiAgICAgIG8gZVBBUFIg
-ZG9lc24ndCBzYXkgYW55dGhpbmcgYWJvdXQgdGhpcwogICAgICBvIFByZXNlbnRseSwgRFRTcGVj
-IGRvZXNuJ3Qgc2F5IGFueXRoaW5nIGFib3V0IHRoaXMuCiAgKiBkdC1zY2hlbWEgc2F5cyBpdCdz
-IF5jcHVAWzAtOWEtZl0rJCwgc2VlbWluZ2x5IGludGVuZGluZyB0byB1c2UKICAgIGhleGFkZWNp
-bWFsLCBidXQgbm90IGZvcmJpZGRpbmcgZGVjaW1hbC4gWzFdCiAgKiBPZiB0aGUgYC9jcHVzYCBz
-Y2hlbWFzIGluIExpbnV4CiAgICAoRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3th
-cm0sbWlwcyxyaXNjdixsb29uZ2FyY2h9L2NwdXMueWFtbCksCiAgICBub25lIG1lbnRpb24gdGhl
-IG5vZGUgdW5pdCBhZGRyZXNzCgpBcyBvZiBjdXJyZW50IHVzYWdlOgoKICAqIE9mIGFsbCB0aGUg
-RFRTIGZpbGVzIGluIChtYWlubGluZSkgTGludXgsIG1vc3QgZWl0aGVyIHVzZSBoZXgsIG9yCiAg
-ICBoYXZlIHJlZyA8IDkgZm9yIGFsbCBDUFVzLgogICAgICBvIEFGQUlDVCBmcm9tIGdyZXBwaW5n
-LCBhcm0gYW5kIGFybTY0IGNvbnNpc3RlbnRseSB1c2VzIGhleC4KICAgICAgbyBNb3N0IHJpc2N2
-IFNvQ3MgaGF2ZSA8PSA5IENQVXMuIFRoZSB0d28gdGhhdCBkb24ndCB1c2UgZGVjaW1hbDoKICAg
-ICAgICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby97c2cyMDQyLHNnMjA0NH0tY3B1cy5kdHNp
-CiAgICAgIG8gTm8gb3RoZXIgYXJjaCBoYXMgaW4tdHJlZSBEVFMgd2l0aCBDUFUgcmVnID4gOQog
-ICogT2YgYWxsIHRoZSBkdC1iaW5kaW5ncyBleGFtcGxlcyBpbiBMaW51eCwgb25seSBvbmUgdXNl
-cyBkZWNpbWFsLCBidXQKICAgIGl0IHNlZW1zIHRvIGJlIHVuaW50ZW50aW9uYWw6CiAgICBEb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvb3BwL29wcC12Mi55YW1sCiAgKiBRRU1VIGdl
-bmVyYXRlcyBkZWNpbWFsIGZvciBtdWx0aXBsZSBhcmNocyBpbiBlLmcuCiAgICBgaHcve2FybSxy
-aXNjdn0vdmlydC5jYCBhbmQgb3RoZXIgcGxhY2VzIChncmVwIC1SICJjcHVAIikKICAqIFNwaWtl
-IChSSVNDLVYgZW11bGF0b3IpIGdlbmVyYXRlcyBkZWNpbWFsIFszXQoKSXQgY291bGQgYmUgYSBn
-b29kIGlkZWEgdG8gaGF2ZSB0aGlzIHN0YW5kYXJkaXplZCwgbGlrZSBhbGwgb3RoZXIgdW5pdAph
-ZGRyZXNzZXMuCgpEVFNwZWMgc2F5czoKCsKgIFRoZSBiaW5kaW5nIGZvciBhIHBhcnRpY3VsYXIg
-YnVzIG1heSBzcGVjaWZ5IGFkZGl0aW9uYWwsIG1vcmUgc3BlY2lmaWMKcmVxdWlyZW1lbnRzIGZv
-ciB0aGUgZm9ybWF0IG9mIHJlZyBhbmQgdGhlIHVuaXQtYWRkcmVzcy4KClNpbmNlIC9jcHVzIGFu
-ZCAvY3B1cy9jcHVAKiBhcmUgZ2VuZXJpY2FsbHkgZGVmaW5lZCBpbiBEVFNwZWMgYW5kCnNwZWNp
-YWxpemVkIGZvciB2YXJpb3VzIGFyY2hpdGVjdHVyZXMsIEkgYmVsaWV2ZSB0aGlzIGlzIHRoZSBy
-aWdodCBwbGFjZQp0byBzdGFydCBzdGFuZGFyZGl6aW5nIHRoaXMuIEV2ZW4gaWYgYXJjaC1zcGVj
-aWZpYyBkZWZpbml0aW9ucyBhcmUKcmVxdWlyZWQsIGF0IGxlYXN0IERUU3BlYyBjYW4gZ2l2ZSBh
-IHJlY29tbWVuZGF0aW9uIG9uIHdoZXRoZXIgdG8gdXNlCmRlY2ltYWwgb3IgaGV4YWRlY2ltYWwu
-CgpUaGFua3MsClZpdmlhbiAiZHJhbWZvcmV2ZXIiIFdhbmcKClsxXTogaHR0cHM6Ly9naXRodWIu
-Y29tL2RldmljZXRyZWUtb3JnL2R0LXNjaGVtYS9ibG9iL3YyMDI1LjEyL2R0c2NoZW1hL3NjaGVt
-YXMvY3B1cy55YW1sI0w1Mi1MNTQKWzJdOiBodHRwczovL2dpdGh1Yi5jb20vcmlzY3Ytc29mdHdh
-cmUtc3JjL3Jpc2N2LWlzYS1zaW0vYmxvYi81ZWVlYjkxZWZhOTY2OTM2ZWY3Yjk4MGY1ZThkZDAw
-ZmZiZTcwNzg2L3Jpc2N2L2R0cy5jYyNMNjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Adjust '_parse_integer_limit()' and 'memparse()' to not ignore overflows,
+extend string to 64-bit integer conversion tests, add KUnit-based test
+for 'memparse()', fix kernel-doc glitches found in lib/cmdline.c and
+adjust riscv32 linker script to export symbols needed for EFI stub.
+
+Dmitry Antipov (6):
+  lib: fix _parse_integer_limit() to handle overflow
+  lib: fix memparse() to handle overflow
+  lib: add more string to 64-bit integer conversion overflow tests
+  lib/cmdline_kunit: add test case for memparse()
+  lib/cmdline: adjust a few comments to fix kernel-doc -Wreturn warnings
+  riscv: export symbols needed for riscv32 EFI stub
+
+ arch/riscv/kernel/image-vars.h |  9 ++++++
+ lib/cmdline.c                  | 30 ++++++++++++------
+ lib/kstrtox.c                  | 37 +++++++++++++---------
+ lib/test-kstrtox.c             |  6 ++++
+ lib/tests/cmdline_kunit.c      | 56 ++++++++++++++++++++++++++++++++++
+ 5 files changed, 113 insertions(+), 25 deletions(-)
+
+-- 
+2.53.0
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
