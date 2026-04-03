@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AC7E7E36C
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 11:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1DAE7E371
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 11:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ANbM+ikWIL3aX85S07f0iZTchUC2Kyu7iO8O+vlt7RA=; b=PtUAekwubz7py2
-	E0cjQ9WG35KRK+G0thS6IltNRPberN861+yAFJ4kvzwws6XPDqwM4UqrUV4EaxfBSxxlwm9ggggxg
-	5i5Drt4NZ0D0oztnYQRBEO9PRHrRNRQ+tSQ8fsLNYjmcSm7cu2VeTHAbpKJE7lj2ir+D+5xPK2KQl
-	zf0J2B4bNaCZlDI2OAbuNV+nzgXIbwubNFhK2T9c+fEtDTxuPDQbMYbTtKaYZOyHA48Y1YfDDPpqF
-	lOA8RCdbJ2HO9hQF35m/n1r0cATM1s8VaXI/QrqVutyiXRLUAoB6Y+jr7mkR6C3iuOhmfpVDJ7s4K
-	w+TqOQN/OaL7+Ks4I8fQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fLMDHJjP8vwFKT7IwcViaXmxXOElybv2xfxGt0FiKp4=; b=d7wbkIM15XnY/o
+	UcrnVL1Ctb7tG0gBRDGG4fLJmxZDP+Nj5RR34LOaybYVHNlWXHzcSOWyzTdPapvOsn/6bnTeCx94Y
+	5D3AusVd4iDPYTTDrLbhGb2b04DPW29VgMwKKytWKuyur+PP4jdP7YFhM259m+n7njKr/GoM373Sg
+	qxu/0hxOkGjdFIyJub6yleVTIrdaSXrVFgELPlnLbztr4qrBxn42ixV30zIZi1gWQDta6icS4olJN
+	B7fP1R2Fm6+ZxvaidqRPDJaErabzq3tjNXCIWasdRpMiw8/cmaBNKOkIRsh/wn2gS4xRQxotezQiK
+	dmW8cEKzvwmNKedSzM9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8cVO-00000001vlv-3u1k;
-	Fri, 03 Apr 2026 11:16:02 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1w8cVS-00000001vnY-2KFZ;
+	Fri, 03 Apr 2026 11:16:06 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8cVM-00000001vlH-1GCg
+	id 1w8cVP-00000001vlp-0YdI
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 11:16:01 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-8a093c784b0so25370166d6.3
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2026 04:15:59 -0700 (PDT)
+	Fri, 03 Apr 2026 11:16:04 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-50babbce85fso21307791cf.2
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2026 04:16:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775214959; x=1775819759; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VScxEqB1ufMX1zFMz0Kwtu1aZDayJH9mecM8OM4h8BQ=;
-        b=XZajp07YFhORfDhZ2V6ptasbQ25T0G9VrT0G7yOaxn9QpCuc6+OtJo98Gi20DK8sa3
-         lZzs90tLiNaDINDjYSX9183LqG9g9SAC/SymTY4vc2IrS4hL8ORzRJM9fEgrTCMaLQC7
-         fePlHVAXyt1wApP+dQKTjixgvQuQpXIqCM+ENayqUwt511e0jzsVC4xHD6Nb399nzD9+
-         4x57D/Kjf+Fp6xYJxdVUZL0acn7jv9Gm3jzBQisg/n6g+3U5sk0A/X0CNvC9m5PaIO/k
-         Od8GlM0/pfugIolUQlnyQsWJrPgbhgISjDAZfN5MmbftgqxjIAw3Ail+/m5SAbpZ1gwp
-         RmiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775214959; x=1775819759;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1775214962; x=1775819762; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VScxEqB1ufMX1zFMz0Kwtu1aZDayJH9mecM8OM4h8BQ=;
-        b=ibCNWxqzi4/esT7NoKqULYy0gVqpqfjZBLZ9nnN18r5H9qVDv1LpEtTHwpAc+4ax1R
-         25baY++bIzXrSrLJX3Qu06plolHOHNKxwxYth0REYY8jsocJ93ouEb6qHXAtweq04B9T
-         kqVhJOCYi4xvxCzMjxlKdl2q5a2AgXVCYFR0+hOoG6F0aLV4HNymObs6kju5uvpUdlwq
-         nveg2+C9HNOoAbv5layESscRflw8XeQPCXG0/FsuzPNc81bR0urHTo4IDvJ0v37moVGC
-         9skIDOfjKz+ZUZutJywouTPCDMGPGZeX4CDoNunOou3pkNZGGxgc1IQEx0mhbeVJpsEI
-         FXmA==
-X-Forwarded-Encrypted: i=1; AJvYcCUTRqHtPXhSed/4YWOJA/eS2YYcnipd9dy0io5XCTSqzeV9QxrG5YL1P0lNbjMPUdHXmT92xyfxtSATmg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxacCs/KQswn8wJNkzID3E+qBVSZvUYSEwpS/41kzIBfNKMAQ/7
-	VEy6prQbG1st4nQISdqqpL7oG9UPwYOrJNAphA9emqWk8OS3XJned58v
-X-Gm-Gg: AeBDievQS6tmuK6eN4UGGunKGYA7RHkxn+sOzJRT+6upEsCukEP7ROKKDR+nctHV5TG
-	aDaq/LvG1AARbeFLvV3nMwHsGGG11I07adKKVxDYYFGU9KiQPoIAvCt4t7+9xgTG62ENm5J5QgU
-	oKnOAkMLF4zwPRFNlscVJyLdYW7MGtamU2xnqsJpTG5vULDxZnhEXfz0YF99uqTtkaEDIc+xcGu
-	FpRllBGFuH/CquMq9iHGAzOnzyLpCSV9D4aYjXFQ+JpQPS7hmVpVU9wLL9VnXsay/Cwc9ti+F5A
-	IFQFmB5pHdh8a8tDZT3QIhSI41RY32ATCI9ePG2dPZ5K4m0GKY9+OB6SrJUsPHmiSCf/LT3QPib
-	6JoB///DxqVrb6MFkMKc4P/Ssufp3a3dg9C83BtdLnDCS9AZsgbvhPXxgF0Lt3z37go0XcRWvVv
-	h/Uy9S7uTrq/2TJsOGds1cVcX9g1SGt9xmUwhAtNQ=
-X-Received: by 2002:a05:6214:226c:b0:89c:d7e3:7f01 with SMTP id 6a1803df08f44-8a704ea730bmr37757456d6.48.1775214958204;
-        Fri, 03 Apr 2026 04:15:58 -0700 (PDT)
+        bh=e1iXfEJhkoJc89mTL/JJu7oRdlYA/T+hX/oQJz+ARaI=;
+        b=q6hDTjdWxiCC0sIfPZHxrcj36srOABJWcbSpOyeadgFom5grrCmiKZ4tIJFC1B+omJ
+         OKBL55UKSQwWDltURqM9zeYiUIPmF6tWiy4CAfXzspoDiBCiLF+d1trccuD1Pslm8eE9
+         MK7wEfTvVIkkBnK5/8NVEMgAU0hxuv2Xz5QKhB4vXz7CsCPXooSiUToMKDA2wHCPP4zN
+         RVyk/1mOpuDhIHa9SjHes5lB0lW0HhQtcqYA+To7fbo70TTY2qlnRABnI52gcF5+BQvS
+         GEznD2YyxmozlPEBtcRrjmbcLZjJSs8oqqrBFN7tKgKNnsMjNhh50bgZxOoF3QjiMzpS
+         +Eug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775214962; x=1775819762;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=e1iXfEJhkoJc89mTL/JJu7oRdlYA/T+hX/oQJz+ARaI=;
+        b=ZCgaDc0Kj3WjDeeI9dFZWY9IdcJ6Pb+qkS8pqUjA6RnS/ebpeLGPkt/LpUiQYg4pOt
+         xg7SLThloroj9ho5tc0pe8FxRx27Cq/BAUM95rhmuWc/luLDkzDCIeNESyAXow1gkP53
+         m/pgE18UWde9OncuC53ntwQghUPYAzFvQhuej0kg6/IGjpBNsbappwqHZc6HBpc5c9YW
+         KCK4xX1iszfNUjoO1ZZsire1Bz5QMKyxDvvvWEQebMwtHvFfC0iSmuU6li17TeI/2lzS
+         XTG5oOCqtMVDY0UfdHLVnR/HcvztwD85M5lVejoUT7cLSlKWOfKg9rh+ans3a7USrb13
+         VNWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU70BpAnVTVcxMRXUO/MqNq2I+Cn/A7wlIrSD1nLFPO53UlwaGIf6ga0xkKerNoFpEmXSmZeusEDna41g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YypVRQ2G7RUiE1+e4vYCtlkGSUWiX8NrTaQ5c+nqmif0ewDdM9W
+	B+lygtwFW6gtA3jSkdM4CzvKDzZmDzoiCa1oEdN8LfL74Eh2eMSqvg1i
+X-Gm-Gg: ATEYQzyBoVCyMUV5jxqLGgsqhCnb1U0/785FgI3Lva9sZK/2nHO6Ftg+eyGIEN5e1mI
+	FrpoxkDUe1jZzk3oNIcbDFtup1iADdvcEFDQRLtOkaexZ2udIDCHdW0z2k5auwwwkfdmJQppSIg
+	Keee0hA53BnKf+BjAh+pZgFUj+DxyoCorBQz1C6vPXvIkHipSw5JqT5eq8LF8y+Aiw7McY8tdeA
+	3cPPyV2Bli512VCmqVjqUo6kEM8zheGsgTGau2mD54yTe50uwI5bHzf/rXFwzPZsKRyHqXBpY3Q
+	s7zEfSfg+dUv9SBK3z91xNrxrT2K1W3pfFAOHNJFy3yRQngW5FbK+JV2lfBU1YIhtpYzpFq/5Jd
+	OmzoudymY/xeT2VHleRyI1eCoR2gNqU25a76BVPsd6fl/bKeCSS97hbGznLECDIDw6prXNtIXuk
+	qoebfd8Uow1dSpIIsWS29M1YWgB/cy
+X-Received: by 2002:a05:622a:244a:b0:509:4342:9980 with SMTP id d75a77b69052e-50d62a3e46amr38156841cf.33.1775214961635;
+        Fri, 03 Apr 2026 04:16:01 -0700 (PDT)
 Received: from sleek.hsd1.nh.comcast.net ([2603:3005:1473:4000::71a3])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8a5974e8e8esm45319836d6.43.2026.04.03.04.15.56
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8a5974e8e8esm45319836d6.43.2026.04.03.04.16.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 04:15:57 -0700 (PDT)
+        Fri, 03 Apr 2026 04:16:01 -0700 (PDT)
 From: Joshua Milas <josh.milas@gmail.com>
 To: tglx@kernel.org,
 	robh@kernel.org,
@@ -94,14 +95,16 @@ Cc: josh.milas@gmail.com,
 	sophgo@lists.linux.dev,
 	hanguidong02@gmail.com,
 	michael.opdenacker@rootcommit.com
-Subject: [PATCH v5 0/5] Add initial Milk-V Duo S board support
-Date: Fri,  3 Apr 2026 07:15:11 -0400
-Message-ID: <20260403111516.379795-1-josh.milas@gmail.com>
+Subject: [PATCH v5 2/5] arm64: dts: sophgo: add initial Milk-V Duo S board support
+Date: Fri,  3 Apr 2026 07:15:13 -0400
+Message-ID: <20260403111516.379795-3-josh.milas@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260403111516.379795-1-josh.milas@gmail.com>
+References: <20260403111516.379795-1-josh.milas@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_041600_368796_331413E1 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20260403_041603_178284_4E3D6C0E 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,67 +121,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds an initial device tree for the Milk-V Duo S board
-with support for reading from the SD card and network over
-Ethernet. This is continued work from Michael Opdenacker's
-v6 series [1] on the ARM64 and RISCV side. It has been tested
-with ARM64 and RISCV64 to boot from an SD card, have networking,
-and read I2C slave devices over i2c4.
+Adds initial arm64 support for the Milk-V Duo S board
+[1] making it possible to boot Linux to the command line.
 
+Link: https://milkv.io/duo-s [1]
+
+Signed-off-by: Joshua Milas <josh.milas@gmail.com>
 ---
-
-v5
-- Fixes spaces at beginning of line in &usb node of DTS
-
-v4: https://lore.kernel.org/sophgo/20260328173450.219664-2-josh.milas@gmail.com/
-- Rebased to latest sophogo/for-next
-- Added usb node to arm64 and riscv DTS
-- Removed sg200x link in commit messages
-- Added missing change to v3 and removed link from v2
-
-v3: https://lore.kernel.org/sophgo/20251029001052.36774-1-josh.milas@gmail.com/
-- Added sg2000 interrupt controller and timer to documentation
-- Added sg2000.dtsi for RISCV and moved DTS over to use it
-- remove devices from DTS's to match what is available in the
-  default pinmux config. spi0-2, i2c0-3, uart1-4
-- Added i2c4 and spi3 aliases
-- Removed milkv,duo-s from sophgo,cv1812h in documentation
-
-v2: https://lore.kernel.org/sophgo/20251011014811.28521-1-josh.milas@gmail.com/
-- Made new entry in docs to avoid DTC error
-- "Milk-V DuoS" -> "Milk-V Duo S"
-- Sorting of aliases
-- Added uart*, emmc, mdio, gmac0, i2c*, spi*, dmac, saradc
-  to device tree matching what is available on the pinout
-- Removal of 'no-mmc' and 'no-sdio' for sdhci0 as it works without
-- Added riscv device tree
-
-v1: https://lore.kernel.org/sophgo/20250927173619.89768-1-josh.milas@gmail.com/
-
-Link: https://lore.kernel.org/linux-riscv/20240421055710.143617-1-michael.opdenacker@bootlin.com/ [1]
-
-Joshua Milas (5):
-  dt-bindings: soc: sophgo: add Milk-V Duo S board compatibles
-  arm64: dts: sophgo: add initial Milk-V Duo S board support
-  dt-bindings: soc: sophgo: add sg2000 plic and clint documentation
-  riscv64: dts: sophgo: add SG2000 dtsi
-  riscv64: dts: sophgo: add initial Milk-V Duo S board support
-
- .../sifive,plic-1.0.0.yaml                    |  1 +
- .../bindings/soc/sophgo/sophgo.yaml           |  4 +
- .../bindings/timer/sifive,clint.yaml          |  1 +
  arch/arm64/boot/dts/sophgo/Makefile           |  1 +
  .../boot/dts/sophgo/sg2000-milkv-duo-s.dts    | 85 +++++++++++++++++++
- arch/riscv/boot/dts/sophgo/Makefile           |  1 +
- .../boot/dts/sophgo/sg2000-milkv-duo-s.dts    | 85 +++++++++++++++++++
- arch/riscv/boot/dts/sophgo/sg2000.dtsi        | 53 ++++++++++++
- 8 files changed, 231 insertions(+)
+ 2 files changed, 86 insertions(+)
  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2000-milkv-duo-s.dts
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2000.dtsi
 
-
-base-commit: 9aa6068586a9b4cd34cf04f8dee72a7283ab4ae4
+diff --git a/arch/arm64/boot/dts/sophgo/Makefile b/arch/arm64/boot/dts/sophgo/Makefile
+index 94f52cd7d994b..68aace728223a 100644
+--- a/arch/arm64/boot/dts/sophgo/Makefile
++++ b/arch/arm64/boot/dts/sophgo/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-module-01-evb.dtb
++dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-s.dtb
+diff --git a/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
+new file mode 100644
+index 0000000000000..8632470f43ab0
+--- /dev/null
++++ b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-s.dts
+@@ -0,0 +1,85 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++
++/dts-v1/;
++
++#include "sg2000.dtsi"
++
++/ {
++	model = "Milk-V Duo S";
++	compatible = "milkv,duo-s", "sophgo,sg2000";
++
++	aliases {
++		i2c4 = &i2c4;
++		mmc0 = &sdhci0;
++		serial0 = &uart0;
++		spi3 = &spi3;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++};
++
++&osc {
++	clock-frequency = <25000000>;
++};
++
++&dmac {
++	status = "okay";
++};
++
++&emmc {
++	bus-width = <4>;
++	no-1-8-v;
++	cap-mmc-hw-reset;
++	no-sd;
++	no-sdio;
++	non-removable;
++	status = "okay";
++};
++
++&gmac0 {
++	status = "okay";
++};
++
++&i2c4 {
++	status = "okay";
++};
++
++&mdio {
++	status = "okay";
++};
++
++&saradc {
++	status = "okay";
++};
++
++&sdhci0 {
++	bus-width = <4>;
++	no-1-8-v;
++	disable-wp;
++	status = "okay";
++};
++
++&sdhci1 {
++	bus-width = <4>;
++	cap-sdio-irq;
++	no-mmc;
++	no-sd;
++	non-removable;
++	status = "okay";
++};
++
++&spi3 {
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
++
++&usb {
++	dr_mode = "host";
++	status = "okay";
++};
++
 -- 
 2.53.0
 
