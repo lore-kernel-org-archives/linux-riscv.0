@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C170FE7E36C
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 11:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3907AE7E371
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 11:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BL0Ednh7KdJCLiVnZvTOJTLdj8pXChz6VlvZ2VIzNZo=; b=XpB59tjfr5hsux
-	2GQuT/IKhK3xD+47HkAiBMjsQHXgU9YtEq1/8VKBk7Wgcan4ajEtVqoRc0l/wJTpFUQwZAe6II9yX
-	l1eytODqWYFqAO3NuMy/SUxkGwoFEo/DkFpmXQlFXNi7uD9t3lO5v+lAw2RnDROLEHUvltI2qZPnU
-	Q3NQwImJJ0mKueAChlskhjJjWZLMo3GhCmy9R1gR+AuFSqSjT8VNjDO1Ykp1hZWeheEtcjOdYtxeO
-	B/1rfhGLoSWEui7PpLwq8JmxIwB2xnwg/r1y90dV6aVv3h5Lm2IykYlKlld/Axy1T0ixUkPbgJabV
-	1GCTpchw1vzzCzrMcUrg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yER44izbMjimxsY5cR9cSXitTtFd0m7/ZVtk898RcJ8=; b=Yz9AyT+HmPRNpZ
+	dJko3I8vu+oB6kzC3nze9zpJjz3CFjkjVvgYU724xHUuitWUBZUZQAsX8hcHJpEYnKX9G33/JUJBw
+	ap9KEHLh+5wAbfhIcCM3eLPvGKFoL+AQMZY2btZTdgtxk/pIr+PxReutmi7RTQZgqE4cPpj6X1EvA
+	6YBPhdvGiGkMqZDsKxTYIO4a4yxwYycWOxsmgQTMTXEpf+nS4GTFx7FsGKUsmnBodRSUO4Usn8Bo6
+	SF9P0rjta/poyiLPQuV5Q2aCbuduyvvDWmGp7cttVKilCgo3vq+Av6huBsiOG7VUG45ND0WzEQdsa
+	gLGY4dsfogXwJ4PrXVdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8cVQ-00000001vmN-0wYQ;
-	Fri, 03 Apr 2026 11:16:04 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1w8cXw-00000001wMI-0G6D;
+	Fri, 03 Apr 2026 11:18:40 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8cVN-00000001vlW-1EC4
+	id 1w8cXt-00000001wLs-0WUi
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 11:16:02 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-8a23f802e0cso30024606d6.1
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2026 04:16:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775214960; x=1775819760; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UFgcVH5XOq5/mrXaXDYrCpNPEGJCtaK+pfMk8iob1+k=;
-        b=PArbSFR5bBcNTu/WNb9xuTUhKPgFmTeR+aPcK/FAhzGonYhFbNiE2YeqVn6l2RGoJ0
-         iKJG/RSDbmU6wtrdLzFjwjDUZGBF3NYkiT1XF+u8ktx3dvElkyxdriOa+sTuotqz8Sqa
-         A9I1cQ9BdWG0aHy4DT8cAzI/BPrW1/Eg7fIqqSqP0ZWFq2Xa8h6ZbyWWtk9M92MJ43gY
-         xlEvaLyjuDZ/4ldhhDxMd4Q7N19LZ46J2RIzLqOelprc2VG439C7Ea+6akn79qObOPii
-         NGzVI8a8lxj9RCurQn5htO2FZY8jBs+YcSxO9jip+96FDB5QemEaf8m2el+lvTCJgaOZ
-         d+hQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775214960; x=1775819760;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=UFgcVH5XOq5/mrXaXDYrCpNPEGJCtaK+pfMk8iob1+k=;
-        b=NainsLzalPW3Q1MEch7awyP9gw9MDWEl8JGE3zorCGJaQTjmjEPMvy8Xz6wRKnotVe
-         iyzBnTs4/D1y8FU3H1EylRzAEQy/CLHEnkQI/f7fScZR5MATt4KvJ9BoLXia4icNgI7h
-         LwsCF3QgU3hFhxr53RviU6xXQ4iVS2KGjS6ByJkYFdt43ntzp+3d9qyW/f2wDljN401s
-         fN1YFj5C3zEboPAHQiJzNCtCl/P71sPNOp44NOgmqY4zBN8ueM+3NgSvJHnyd1HDnvM3
-         Q7yGa2s65fyl5RjLYocka0d56oHeneO9Afe/H619K1FIA6cITz1QozXtOsdtEvkqeTS7
-         oNcw==
-X-Forwarded-Encrypted: i=1; AJvYcCU5agV5DC9d2eM/M8KSe1ipWO0/D7RG+iclfCi0f4HoOCsBcl9otuyADWrcmyulaCsEVGS2/t4RtyRiMg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY6x/zmJoJ4lQIWpT1F1VY+I/eSGip+UcuM82Ngql19MBRafum
-	a1hESEBrkC6AbeIe2T9y1Ep6Tk31YRDv6fDf22or2qnRwpRlYMR59dWj
-X-Gm-Gg: AeBDietHa9UOGvHbI/2UdIpGxr6Ww6T2B8ZXoD1pJfUtz0wFUJuRDqntKUWZZZQKJwN
-	QOtTDgMucPwepDqM53mCo4Pq9CgUukd81XqzZOkSccjmrreKJ7HTdXv1bxShJajw1wN0NBACGDd
-	Z0TtsivuVcRV61roubmGYt3rQEgjoftufXKzsn0gVOLGyfKHUi0l+97hIk3d4Ul7mbWHdVcfszL
-	XIisN4+H3tHkcHxXduswYWTErY3YIMebYUCmmHsCJMQ3iMP/Zwyw4ei4C1k8fRLMYqc7pdyZP9c
-	VHpN1X9+NCvVapQ2odtPLkDKYYS0XslNyjdslKQtoIDo1hOfb+8qjtugSAEHfyB1sMGup2rVtZH
-	6m29t3gfWBdKpJYO0xlNIBap5DZHbMsLorjIUVeuIStW6ZqYRuokBcuW+J1stSOUbEZV0i06PBH
-	gr+X8/zIpzO29FlAqh/VlWlf6mj0gi
-X-Received: by 2002:a05:6214:5b03:b0:89c:cacd:244a with SMTP id 6a1803df08f44-8a7020c0f64mr41263286d6.5.1775214959993;
-        Fri, 03 Apr 2026 04:15:59 -0700 (PDT)
-Received: from sleek.hsd1.nh.comcast.net ([2603:3005:1473:4000::71a3])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8a5974e8e8esm45319836d6.43.2026.04.03.04.15.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 04:15:59 -0700 (PDT)
-From: Joshua Milas <josh.milas@gmail.com>
-To: tglx@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	pjw@kernel.org,
-	samuel.holland@sifive.com,
-	unicorn_wang@outlook.com,
-	inochiama@gmail.com,
-	daniel.lezcano@linaro.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	liujingqi@lanxincomputing.com,
-	alexander.sverdlin@gmail.com,
-	rabenda.cn@gmail.com,
-	dlan@kernel.org,
-	chao.wei@sophgo.com,
-	anup@brainfault.org
-Cc: josh.milas@gmail.com,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Fri, 03 Apr 2026 11:18:39 +0000
+Received: from localhost.localdomain (unknown [223.166.95.230])
+	by APP-03 (Coremail) with SMTP id rQCowABngdgFos9pderADA--.36082S2;
+	Fri, 03 Apr 2026 19:18:29 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	hanguidong02@gmail.com,
-	michael.opdenacker@rootcommit.com
-Subject: [PATCH v5 1/5] dt-bindings: soc: sophgo: add Milk-V Duo S board compatibles
-Date: Fri,  3 Apr 2026 07:15:12 -0400
-Message-ID: <20260403111516.379795-2-josh.milas@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260403111516.379795-1-josh.milas@gmail.com>
-References: <20260403111516.379795-1-josh.milas@gmail.com>
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Han Gao <rabenda.cn@gmail.com>,
+	Han Gao <gaohan@iscas.ac.cn>
+Subject: [PATCH v6 0/3] riscv: dts: spacemit: Add PMIC regulators usb pcie
+Date: Fri,  3 Apr 2026 19:18:20 +0800
+Message-ID: <cover.1775214644.git.gaohan@iscas.ac.cn>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+X-CM-TRANSID: rQCowABngdgFos9pderADA--.36082S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AF1UCFWkKr48JFWkuFyfJFb_yoW8tF13pr
+	y2vr43uw45Xw12y393uws8Jrya9Fn5Ar9xWr1UKw18ArnFgay7Za1xtr42vF9xur45tFnx
+	trs7Ar4xuw4xXF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
+	C2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
+X-Originating-IP: [223.166.95.230]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBg0GDGnPX2XmNQAAsO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_041601_355430_E0FDAA6F 
-X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-CacheID: sfid-20260403_041837_534389_4A8F03E4 
+X-CRM114-Status: UNSURE (   3.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,33 +90,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the compatible strings for the Milk-V Duo S board [1]
-which uses the SOPHGO SG2000 SoC.
+Changes in v5:
+ - patch 2:
+   restore floating nodes and mark as 'not connected'
+ - patch 3:
+   remove vcc5v0_usb30
+   reorder pcie_vcc3v3 and add vin-supply
+   remove redundant vpcie3v3-supply from pcie2
+   update hub vdd-supply based on Chukun's patch
+ - Link to v5: https://lore.kernel.org/linux-riscv/cover.1775148159.git.gaohan@iscas.ac.cn/
 
-Link: https://milkv.io/duo-s [1]
+Han Gao (3):
+  riscv: dts: spacemit: Enable i2c8 adapter for OrangePi RV2
+  riscv: dts: spacemit: Define the P1 PMIC regulators for OrangePi RV2
+  riscv: dts: spacemit: Enable USB3.0/PCIe on OrangePi RV2
 
-Signed-off-by: Joshua Milas <josh.milas@gmail.com>
----
- Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 206 ++++++++++++++++++
+ 1 file changed, 206 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-index 1c502618de51f..0b6fbab48b743 100644
---- a/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-+++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-@@ -31,6 +31,10 @@ properties:
-               - milkv,duo-module-01-evb
-           - const: milkv,duo-module-01
-           - const: sophgo,sg2000
-+      - items:
-+          - enum:
-+              - milkv,duo-s
-+          - const: sophgo,sg2000
-       - items:
-           - enum:
-               - sipeed,licheerv-nano-b
+
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+prerequisite-patch-id: ef6e9c7b5854d0c08066b72f9a7868db8c2140eb
+prerequisite-patch-id: cfe3800f8c791ec4c63e070af9628e88e0fc31b9
+prerequisite-patch-id: b76493e625ae257c8adcd67874178458420e4d47
+prerequisite-patch-id: 88e01dc92c83bd88ddeb78891d3088209fed8d6b
+prerequisite-patch-id: 60336d10ab8322c70596d0f046b6b5c54bb24b54
+prerequisite-patch-id: 68c4d869548687dc115dd91e2ffb8f4c11482d86
+prerequisite-patch-id: fdadcf964c2cb3406160edb579d99a8d5695f8e6
+prerequisite-patch-id: 73b9e745338b0499b849fa4f7f9508987ab39a59
+prerequisite-patch-id: cd26770c2160c3c31a406bd8a6b01ab666180ae0
+prerequisite-patch-id: e5dfddc32cefae195692da8b80e19adf086e4ad7
+prerequisite-patch-id: 7fd53cbe4977598f26148a4bb1cf692bbdb79a09
+prerequisite-patch-id: 96ebac57bb29619b97fe95422206a685825618e9
+prerequisite-patch-id: 00fac16b52f60383db3140e2885f3f7f8d14dd1a
+prerequisite-patch-id: 3b7a60047b922c48e93599f621cb738856f42354
+prerequisite-patch-id: 275c030b963be05dd1041451f539a130ce614277
+prerequisite-patch-id: 93963424b0871e64276af0e0b2199b52e29b4603
+prerequisite-patch-id: 8383188b1c01ed6280629faaa29c37d699ade241
+prerequisite-patch-id: 5f8126b912b924d63d4a1e0c5eb42d212eb0d369
+prerequisite-patch-id: e80af628a2e0b5f2eeb3cb1b5e7133d08bdd2c4e
+prerequisite-patch-id: 0234a6dca15eb91f98a45a46604ce5b4935048a5
 -- 
-2.53.0
+2.47.3
 
 
 _______________________________________________
