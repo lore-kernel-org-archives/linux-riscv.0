@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CC2D6AB1B
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 00:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F55D6AB1B
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Apr 2026 00:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K/sfRRywV2pYPdImmAIi4pPTCrAOUxSiWMcVp4sV1KI=; b=vimjcU35fa6LaV
-	JEDm/BG7wE0bzb9jvheKDW1vSZTCU0X74MX27BCqtBzEqrRKd1abZkDfjkctSJS0Mv8ByIzq37N8M
-	f61AFH/1dvXgEzS/sOfPWlW9HlFkTovPAwrzD0LYDGjHmsQCsMUVb1bWjai4smGFpLYCLVLBQupIv
-	1pUzWthnTplMGCi+EErItSirGfEGYBsJL84yBSMm4scQd0oLsvtp0ZZF/Tqi8aTmRbjobyMZEgtUg
-	0Kp/9juwmEynj37cBIxVRTIRKHIfwiVqiDqWxDAd/2SuMddFf2EGk0o9j7unBTUA37QME9ZxpxDtN
-	szpAKZ4OCzPLsUHw9lgQ==;
+	List-Owner; bh=TsrBYfN2/DIDmLFs/AFu+cJ9dW1GUvPX79MQ3iPRrm8=; b=gWPYJO+6fJKeMo
+	7CjMcHsoqtkFIcoywlvK9Hmf6wjUbQdxKYKPEC6MbsyXkepTUWI3vK+pc6Hkin9P6lKUkKK3YOyAy
+	ermfpdwCrte2IqWhXUm4HL948yILYfX6Lb5V41URdt0qLmxYCvb50x7HJ7IX7uKrRtdEtuhXwhi76
+	9LeAfL/Mg1sXon5muqGPPjRxdXZhEvm7vMZgZnSyX6gzJTzGpeWKQ+HjZqbmJu0wtDtGmx9avBp2b
+	wHlmsRGIIZz5ivDPG+gZQM3FNfNrHvfih7nA8La90eRpX8ZQwplcmnkYQBrzdg/DUuU1mtZIpSuZ8
+	VNELZZlADsrb0esFJcBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8S2i-00000000xj1-0zhG;
-	Fri, 03 Apr 2026 00:05:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w8SDS-00000000y9Q-269J;
+	Fri, 03 Apr 2026 00:16:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8S2h-00000000xiv-1I5x
+	id 1w8SDP-00000000y8u-3x1w
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Apr 2026 00:05:43 +0000
+	Fri, 03 Apr 2026 00:16:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60FD360123;
-	Fri,  3 Apr 2026 00:05:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9332C116C6;
-	Fri,  3 Apr 2026 00:05:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BCA7E42AFE;
+	Fri,  3 Apr 2026 00:16:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 452B4C116C6;
+	Fri,  3 Apr 2026 00:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775174742;
-	bh=DDsPrUWRkqkmQ41FPpxMfl/fi+0OAAZHRX0ngFqdtlM=;
+	s=k20201202; t=1775175406;
+	bh=nJRCuS1ixM/gb++UPGhHZf3hIcGTNYq+PUNd5HIN53Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZbciE94MPpLqbarbdytrfVxhnGPoXIzDHr0xpgX6lWDZAc2KdPYoMU7KugmxL5qv2
-	 WzP/gKxPz/skbJgSK2u6pbzCdnk9aSMfotyhzJ1D7/PDljRAWYeovHmreTE/9QTnYm
-	 NS4ZIwBO8nwD8sD3QZ1Ywyrju9AOBYu8H2JU6RhUDZObKaEzZVF3wQM8B5rmQY6yv8
-	 gBUCiJhyPntOiCUX93lc6p2Kc/vwMKgH84qf8Qe28jxUeRcMAO7wsZNizSuX8ltMFb
-	 1yWxlPGxTXci/sunZ3jL6UuOMZkTU4JHl36A7q7ghsIAirUJFP//wXRkUXwAWl7YOT
-	 ns8uNwXkdjR8g==
-Date: Fri, 3 Apr 2026 08:05:39 +0800
+	b=HDb8U9Nlw/oJEJOToA5jMnNzJLXrkuwEVyYkzJVipDUt1AB6XbhnR551DaQfXeO93
+	 MFjozAow6sn8JZ3JSQ4GUMNcBK4QiIdMQBCiRUdQPBl6XGhK2lzgjGcd8XuSIfNaMX
+	 WkqjkDH9496cIoEjiItuY8DDgmkP3ftdP2xNfQqvFDRxkhCAYgYY5pNvdnlRr4YAFU
+	 /DpVqEFyZE113+oPFj11qOyxBRjj4QdAPznjxpCrb5mRa4gqirCyN9CB+OSeYMuzzX
+	 xkv3HZQYtaZODhrCjTVii/WfF0OkG+Q0jefgIhZOy8HKsX25cicZquA2TQbeZD7KWs
+	 rt8zS6Z2iTH5g==
+Date: Fri, 3 Apr 2026 08:16:44 +0800
 From: Yixun Lan <dlan@kernel.org>
-To: Han Gao <gaohan@iscas.ac.cn>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>
-Subject: Re: [PATCH v5 3/3] riscv: dts: spacemit: Enable USB3.0/PCIe on
- OrangePi RV2
-Message-ID: <20260403000539-GKB1016296@kernel.org>
-References: <cover.1775148159.git.gaohan@iscas.ac.cn>
- <cfe646a5549a2b3fc8a4335c3ab4918599615369.1775148159.git.gaohan@iscas.ac.cn>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org,
+	devicetree@vger.kernel.org, krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, pjw@kernel.org, robh@kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v2 3/3] riscv: dts: spacemit: enable USB3 on OrangePi RV2
+Message-ID: <20260403001644-GKC1016296@kernel.org>
+References: <20260402122045-GKA1016296@kernel.org>
+ <20260402130608.133154-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <cfe646a5549a2b3fc8a4335c3ab4918599615369.1775148159.git.gaohan@iscas.ac.cn>
+In-Reply-To: <20260402130608.133154-1-amadeus@jmu.edu.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_171648_004847_8F5F5847 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,150 +76,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Han, 
+Hi Chukun,
 
-On 00:54 Fri 03 Apr     , Han Gao wrote:
-> Enable the DWC3 USB 3.0 controller and its associated usbphy2 on the
-> OrangePi RV2 board.
+On 21:06 Thu 02 Apr     , Chukun Pan wrote:
+> Hi,
 > 
-> The board utilizes a Genesys Logic GL3523 USB3.0 hub.
+> > Can you work with Han for adding USB support[1]? this will simply
+> > distribute our effort, and make the review process even harder
 > 
-> Define a 3.3v fixed voltage regulator for PCIe and enable PCIe and
-> PHY-related Device Tree nodes for the OrangePi RV2.
+> Sorry, I didn't consider this. 
+> Could you drop this patch ([PATCH v2 3/3]...)? 
+> The first two patches should not cause conflicts.
 > 
-> Co-developed-by: Chukun Pan <amadeus@jmu.edu.cn>
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> ---
->  .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 80 +++++++++++++++++++
->  1 file changed, 80 insertions(+)
+> > > +	vbus-supply = <&vcc5v0_usb30>;
+> > IMO, the vbus doesn't directly tie to dwc3 host, but to HUB's port
+> > so I think this is still wrong, although it may work on the board..
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> index a6de3753b876..c19952e70c31 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-> @@ -23,6 +23,15 @@ chosen {
->  		stdout-path = "serial0";
->  	};
->  
-> +	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "pcie_vcc3v3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		gpio = <&gpio K1_GPIO(116) GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +	};
-> +
->  	vcc_5v0: regulator-vcc-5v0 {
->  		compatible = "regulator-fixed";
->  		regulator-name = "vcc_5v0";
-> @@ -42,6 +51,16 @@ vcc4v0: regulator-vcc4v0 {
->  		vin-supply = <&vcc_5v0>;
->  	};
->  
-> +	vcc5v0_usb30: regulator-vcc5v0-usb30 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc5v0_usb30";
-> +		enable-active-high;
-> +		gpios = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vcc_5v0>;
-> +	};
-> +
->  	leds {
->  		compatible = "gpio-leds";
->  
-> @@ -54,6 +73,10 @@ led1 {
->  	};
->  };
->  
-> +&combo_phy {
-> +	status = "okay";
-> +};
-> +
->  &eth0 {
->  	phy-handle = <&rgmii0>;
->  	phy-mode = "rgmii-id";
-> @@ -200,8 +223,65 @@ dldo6 {
->  	};
->  };
->  
-> +&pcie1_phy {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie1_3_cfg>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie1_port {
-> +	phys = <&pcie1_phy>;
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
-> +};
-> +
-> +&pcie1 {
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie2_phy {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie2_4_cfg>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie2_port {
-> +	phys = <&pcie2_phy>;
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
-> +};
-> +
-> +&pcie2 {
-> +	vpcie3v3-supply = <&pcie_vcc_3v3>;
-> +	status = "okay";
-> +};
-> +
->  &uart0 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&uart0_2_cfg>;
->  	status = "okay";
->  };
-> +
-> +&usbphy2 {
-> +	status = "okay";
-> +};
-> +
-> +&usb_dwc3 {
-> +	dr_mode = "host";
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	status = "okay";
-Can you put vbus-supply here? see Chukun's patch
-http://lore.kernel.org/r/20260402100007.110201-4-amadeus@jmu.edu.cn
+> We can switch to the onboard_usb_dev driver after it's merged.
+Sure, I think that's a more elegant solution
 
-> +
-> +	hub_2_0: hub@1 {
-> +		compatible = "usb5e3,610";
-> +		reg = <0x1>;
-> +		peer-hub = <&hub_3_0>;
-..
-> +		vdd-supply = <&vcc5v0_usb30>;
-I think the vdd is vcc_5v0, while vcc5v0_usb30 is the vbus, if we check
-page 16 of RV2 schematics, GL3523-QFN75 (USB HUB)'s pin V5, VDDP directly
-connect to VCC_5V0
+> Keeping vbus always-on may cause unnecessary waste.
+> I won't insist if you think this is wrong.
+Currently either way isn't ideal.. but binding vbus to the host is kind
+of acceptable to me, if no ojection, I can take this, then we can adjust
+later once the USB HUB vbus support[1] landing in tree
+https://lore.kernel.org/all/20260223-v6-16-topic-usb-onboard-dev-v5-0-28d3018a8026@pengutronix.de/ [1]
 
-> +	};
-> +
-> +	hub_3_0: hub@2 {
-> +		compatible = "usb5e3,620";
-> +		reg = <0x2>;
-> +		peer-hub = <&hub_2_0>;
-> +		vdd-supply = <&vcc5v0_usb30>;
-> +	};
-> +};
-> -- 
-> 2.47.3
+btw, Could you take a look at Han's patch? if you have final say?
+https://lore.kernel.org/spacemit/20260403000539-GKB1016296@kernel.org/ [2]
+
+I'd like to push this series to v7.1, it's almost running out of time..
+
 > 
-> 
+> Thanks,
+> Chukun
 
 -- 
 Yixun Lan (dlan)
