@@ -4,66 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97587E88D8B
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 11:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F98E88D8B
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 12:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vv+52QhWeneGTENnkEAULYyKFNqdP2G6lkxR8f63hv8=; b=yLM7x6kKWqfs7U
-	wGEM1E/UuMjNJsID/WV+WyZVgrxg54mAFSnFLMg7IWixD5ObRnqPDvWYa+11e5jdhZX9+XU2ZovGA
-	99FTQDun2FELE3lFg8jEYkT3j97AQiFtr8SXYBvLoB/New3ChPfVkhHHNajmbuf+Y6n2nbQ8BFljB
-	j5XS6us9GLAPBSYlEyZV3yD/UNAgqqTfMtXqcscybITpA0b9+Z6Q8je8XP6JtACJCX+52qzmKjjXG
-	cXvNCPY3UqjpAe+Zqg1GqabqmSUk4qMCgABCEjoO6JGP4RCgTbthxWH25IbOYfvuFaaX/izDHVApr
-	4UrglaSx3od09mbBFxdA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/zVWJyVpHd2ZEi4enUfO6v+r5Z0frWnqPRuEQVvZsxg=; b=qL2Sv1mct0F3In
+	TcAPkaK0+ecqkvBV9wmFlAkAwdXUPUoGrlnJ+0dS01JRTlOEyrcyNUCcCMKn3Tv3YYarh/c+/RgVi
+	DkuOgnAwMOHBkCyg3mRves11PFZihXapQKm62mvcJ+kB9fZ2xBt2b1NMRsixL01UDXF7oW5gWy0kV
+	yaZgzjN1ydwBOXXtl0pcOm0gurCIw8vyStDtuRmRP9GZTqkJAUEcE0PyXqwmF6AP8JVreuRvsfbY+
+	Bas+8ELqIYKnI2uEhzfbaKsROzz5JcWybNMu2f6qbD9xejBQEk7spbbI3JMQy8RJ3suZiCfsjBreP
+	XZGBc3WEyPSfsZRSAvig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8zHB-00000003QKu-26zV;
-	Sat, 04 Apr 2026 11:34:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w900B-00000003S2J-2iem;
+	Sat, 04 Apr 2026 12:21:23 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8zHA-00000003QKn-1Aha
+	id 1w9007-00000003S1b-3B1K
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 11:34:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C27560008;
-	Sat,  4 Apr 2026 11:34:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4093FC19421;
-	Sat,  4 Apr 2026 11:34:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775302490;
-	bh=Ow9QhO9wfoF7Vmg/G2JX4vIid+D5TO7M8+RE/T6ptQw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JmZ68RU39l6GEIZun8e6WzYdbO86be3EcpU17/EAfhJZv347v/TM+QxiPaMbFpeHc
-	 K4bMxLwFJBq8bSrHeAVv63/rAX7/V7gFMMrtBnIlHT8gwOMNuAu5ju0PhDxH1JOkhq
-	 BE1T2BXRI+aqfuAxSUg53sxoPCgXYtlSSogEHojPe4us+ppePsvedzZsAqsQaZvOfW
-	 vDYeAQo33yt4zz+qbu0bfCvEuKd/pZkQlAEDiD+bgI1QtXRUBqIfESa50DAJcehylR
-	 mPuikA8MEO8zbOed65evwcniqk6g07jgYhNr1Gd2xm7T9zyZ/Uj9ST/tkOnjHCvMG6
-	 QuZsP5sMcUIqQ==
-Date: Sat, 4 Apr 2026 13:34:48 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-hardening@vger.kernel.org, netdev@vger.kernel.org, 
-	Sia Jee Heng <jeeheng.sia@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>, 
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Subject: Re: [PATCH v1 17/22] dt-bindings: clock: Add StarFive JHB100
- Peripheral-2 clock and reset generator
-Message-ID: <20260404-valiant-auburn-raven-c24be6@quoll>
-References: <20260402105523.447523-1-changhuang.liang@starfivetech.com>
- <20260402105523.447523-18-changhuang.liang@starfivetech.com>
+	Sat, 04 Apr 2026 12:21:21 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-82cd5c07f93so1181801b3a.1
+        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 05:21:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1775305278; x=1775910078; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XmD+wUZmRVhtkrDT5Nt1vWAFME2ljMO3CvkEWHIVAgE=;
+        b=DdvCmZ/yH8UBxGfBqhB24Sv5jvISVnHVdhgjmXihz/wzho306l+wA2z1yjITNvygR+
+         cpUbec7Sji/DyfzNIfWKgWFdpjmAavoQ4F94xoOoyMnhTCKMXMiMJnNk9cAc/RcyQoml
+         a3vvzwRD7Jz4E3VMPsqjpANY5un1rq64s5bELwZDfl8Hafglf5XpA1bHNPJPCzM5VPGP
+         ZdAoqoIEwS8RRDzhQ15Oa4hY1HGVrO1qwymWatwMJSz+rAC9A6l+WPbwXIHJD3c5Xi1q
+         0JRIFhowNguAYm068Z3sShAI5FdcU6IMmR7G0HgnSLVzURzBp4R5qk13yoxKLwnSsN2w
+         6XgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775305278; x=1775910078;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XmD+wUZmRVhtkrDT5Nt1vWAFME2ljMO3CvkEWHIVAgE=;
+        b=cSqgW87wtVnrugeOSbYc9TLCAfPwIApDc3sr8s/Aa8NgLY9YUhB2HboYUE6pp+JbdN
+         Cxk6Hml/FSmCw7YqefKvxGGX95lUrGl2TrpUMuY2kRh2+nLsLbPaYeGR+uhrFGUIDBV8
+         Okn2MImoQGPoU89PJEK+9Q3RWczOoJkmKEPG8b2tC3YfyZj5V0Sh+wLgJmJjFMNHCR0/
+         L33eqKCF7pzSj4i0jStJbBPdiAY34FbSHKReWihQewsOu0k3ku7T4pU0+Of+6NdrtMar
+         Lr5KoKKQ/OkKAd7qcjcvKF3q4RnNij7slPCrbpX+HQg1nHLKXpEnA69SUpoA9AA4/DFK
+         Hlhg==
+X-Forwarded-Encrypted: i=1; AJvYcCW1zgMcYJU2e4fM6LT8ihIdHENooXdM8PqRcf+KXwR6MmcKs5Y8+JzmkZ6GtjqPdCQs3mZ+KSeTWu98lw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwegLCbIwce/lBry8ycGeqKHXaGsmYlrYYWeQ+QfJBzMnnL1gGt
+	lufjuAagiBtIa9Cc2wCZkBc7yvqxspG7aZau7u9iJ496woZhSxW+i2kb/bxHHhWtiSA=
+X-Gm-Gg: AeBDievilqJC5JS6Ga5bMp2mS4pqwq7PLewWSyGzicQBbijXQzTb5rkc/wrrqAlC1ER
+	Z+OaxHRwxw6LxcIG4vxA1Lc2vYdsDPmFZsdjDXbZsPUNTiMFNDrcZiFulNNp6100yAQjrswYih5
+	7bHnnF+6Gk3NFMFOMQGGduKfKec9mOpn2a2LaxR5xxYSfAxF/c7pxMUKt078xzE6ooq6KlrucHM
+	RjJEEL4XrKMzGCQZwh0moy9GAaBDRhae5xc4hzv7rDkmeKPpcveuSAeieU0a7x7i3SEwc2Q4JNm
+	7oNkkO5ib8c1pKR2lVXgCYmSkIGUTbBieLhSt/VnUn5Epl/WcILmruWM4ByoC2eRsJkd/NeVF0d
+	5rDnAA0jGIk73S6DwGMqBmSTHVVdkqwVOi9zzHK2IbPoXCzbhkzqvqhi+gj6qZOF4DsZoKQ7sHg
+	dWkDBpxylopZzQmFh3A5tK9OHiJNfWCqzp/D8ZFjDXFTQe8XUo28ZqwA==
+X-Received: by 2002:a05:6a00:ab87:b0:82c:24a9:d5f1 with SMTP id d2e1a72fcca58-82d0db3f376mr5931662b3a.30.1775305277918;
+        Sat, 04 Apr 2026 05:21:17 -0700 (PDT)
+Received: from n232-176-004.byted.org ([36.110.163.98])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cfebe5b23sm8327063b3a.59.2026.04.04.05.21.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 04 Apr 2026 05:21:17 -0700 (PDT)
+From: Muchun Song <songmuchun@bytedance.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>
+Cc: linux-mm@kvack.org,
+	Muchun Song <songmuchun@bytedance.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Austin Kim <austin.kim@lge.com>,
+	Chengkaitao <chengkaitao@kylinos.cn>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Alex Shi <alexs@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org
+Subject: [PATCH v2 0/5] mm/sparse-vmemmap: provide generic vmemmap_set_pmd() and vmemmap_check_pmd()
+Date: Sat,  4 Apr 2026 20:20:53 +0800
+Message-Id: <20260404122105.3989557-1-songmuchun@bytedance.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260402105523.447523-18-changhuang.liang@starfivetech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260404_052120_173735_AE093A61 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,43 +133,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 03:55:18AM -0700, Changhuang Liang wrote:
-> +  clocks:
-> +    items:
-> +      - description: Peripheral-2 600MHz
-> +      - description: Peripheral-2 400MHz
-> +      - description: Peripheral-2 125MHz
-> +      - description: Peripheral-2 GMAC2 RGMII RX
-> +      - description: Peripheral-2 GMAC2 RMII Reference
-> +      - description: Peripheral-2 GMAC3 SGMII TX
-> +      - description: Peripheral-2 GMAC3 SGMII RX
-> +      - description: Main Oscillator (25 MHz)
-> +
-> +  clock-names:
-> +    items:
-> +      - const: per2_600
+The two weak functions vmemmap_set_pmd() and vmemmap_check_pmd() are
+currently no-ops on every architecture, forcing each platform that needs
+them to duplicate the same handful of lines. Provide a generic implementation:
 
-Does not have any meaningful name in datasheet / clock hierarchy?
+- vmemmap_set_pmd() simply sets a huge PMD with PAGE_KERNEL protection.
 
-> +      - const: per2_400
-> +      - const: per2_125
-> +      - const: per2_gmac2_rgmii_rx
-> +      - const: per2_gmac2_rmii_ref
-> +      - const: per2_gmac3_sgmii_tx
-> +      - const: per2_gmac3_sgmii_rx
+- vmemmap_check_pmd() verifies that the PMD is present and leaf,
+  then calls the existing vmemmap_verify() helper.
 
-per2 is redundant. Name these according to clock input names.
+Architectures that need special handling can continue to override the
+weak symbols; everyone else gets the standard version for free.
 
-Same for your patch for per3.
+This series drops the custom implementations in arm64, riscv, loongarch,
+and sparc, replacing them with the generic implementation introduced
+in the first patch.
 
-> +      - const: osc
-> +
-> +
+v1 -> v2:
+- Fixed a tooling issue in v1 where duplicate/conflicting patches
+  were incorrectly sent to the mailing list. No code changes compared
+  to the intended v1.
 
-Just one blank line
 
-Best regards,
-Krzysztof
+Muchun Song (5):
+  mm/sparse-vmemmap: provide generic vmemmap_set_pmd() and
+    vmemmap_check_pmd()
+  arm64/mm: drop vmemmap_pmd helpers and use generic code
+  riscv/mm: drop vmemmap_pmd helpers and use generic code
+  loongarch/mm: drop vmemmap_check_pmd helper and use generic code
+  sparc/mm: drop vmemmap_check_pmd helper and use generic code
+
+ arch/arm64/mm/mmu.c      | 14 --------------
+ arch/loongarch/mm/init.c | 11 -----------
+ arch/riscv/mm/init.c     | 13 -------------
+ arch/sparc/mm/init_64.c  | 11 -----------
+ mm/sparse-vmemmap.c      |  7 ++++++-
+ 5 files changed, 6 insertions(+), 50 deletions(-)
+
+-- 
+2.20.1
 
 
 _______________________________________________
