@@ -4,131 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B1BE63FE5
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 18:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2ADE63FF5
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 18:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GBHqma77O2PruBa4m3+u8Hzz0hmgvKWEuFQonT5vu14=; b=Ip0nwo7t+yCYVx
-	bnz6ayWxwBsDD1OPmEeuwoDAFsjVndUncuPnx5ULvG0lnt0+eQ9Gfnv5sDy/0R4YmvXLS4pAlXSmW
-	yLPbcNuUA0muq5IhChm5cM8MyT7ZMzgX2lc8uVtmPo4u1XQteeOP5y/HqLH2A89+EanWyf6OyLW2o
-	UaELPBqr4OqJ32mHboKEci5Fa8aNoaDq1OcmqdrgOt+Gcpe6/4DNOGLm10MRPGaV55J2qeISWuveG
-	020QWiJHBEeFXAT6F/16DtM3ZjsRh9UE0f2BZniaiJM+ag2cfmXzKid1M5oGvxMtU+KejKwbYyz5M
-	cq1UN+1Excq5geIKEBPA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Bg7wJZ9ipE4PKQxAkcJcWC9kqbO5nevTBn1kSX/qT9s=; b=Pm4sXIxswrJu91
+	bhZz9EXONqt1pMcdJDdk6OSg9Bc+NENoxcl2k12+TIa9YW3s1wraPMliqnKrsgnALGhIkVEaXM7Ja
+	odUYdoKLmyQPEsgbAQx1kMkUCjxzuAVFWu71UMJ7il2urjQ1+GSLIKRdPoupGGlMjixdz4zX4PEJp
+	awUYTvpCtVcq4MK21KzatmANCKA9lW7iAudOxB/6QibHnIiWd3SIOUUO6BsfCFDgqpkP2LllH4cPl
+	kQ65BNPn5lH2AFMqC8jut8o/6fKLuCibFzIM4d5FLpDVK/A+xbMlGjYf9jdhvF9pnbpRWpODmRKCB
+	2lFovhtf7qjV+Az5dHEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w95lF-00000003fN6-3Bid;
-	Sat, 04 Apr 2026 18:30:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w969d-00000003gHX-2j84;
+	Sat, 04 Apr 2026 18:55:33 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w95lD-00000003fMJ-2APX
+	id 1w969b-00000003gHB-14qi
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 18:30:20 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6344BZeT3883559
-	for <linux-riscv@lists.infradead.org>; Sat, 4 Apr 2026 18:30:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=xZAhnUMRLmcuKZOyI5wbt1Fs
-	LKvLY6ymjIDrFpm94Vo=; b=AaTvDD/AaECxzOw+j83T3cVf42tZqXUnRXqztmtq
-	wJaY6vJ2KBjBvOfLbJHaF1Ae24UmRJ1iSIqm+WJioy+YNJEJqlE9AXJRHCw5GjmL
-	bfaOSkfQscEj3GtG2r/PZt6iLu5PymAMA1ip4zTDuQKxqHNSq/sxFXrMLIWghFLf
-	daEtT1D8GYSiezX/btwQaUC6nzgB2CtEpTH3CthxUWZ+34YFUomghvBQVdO7bM7C
-	+GhSvcl4n3uX4w0W/hBLE6W0aCzSEZSgi+Y7Yq/MpbOl1qujcZckGAzynKsDC1jy
-	C/UkMC4375wTZLDfOrzqyGJG15avBFTt6U8m50jaA0ZUsg==
-Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4daudd17cb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 18:30:17 +0000 (GMT)
-Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-7dbb97a2b6eso4145040a34.3
-        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 11:30:17 -0700 (PDT)
+	Sat, 04 Apr 2026 18:55:32 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-488ab2db91aso976445e9.3
+        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 11:55:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775327416; x=1775932216; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xZAhnUMRLmcuKZOyI5wbt1FsLKvLY6ymjIDrFpm94Vo=;
-        b=QIeyc7NnOWNlTLpFH3ZpTCsGgMaL2Hzai4j0uKWFJUICwYXSnXt3O8b59Z/4ku18tM
-         YncnsxkveQm0w7Ags5iXnl3wCXQgBOho7QvN7wcvRrGVOvBJTj57RVj1+Js0L79COAVC
-         emzyikpGQzuJoyv2ZBUxtrbKdAv/+6AGQLTSc6Nqbr8Z4Vre7jSzWzXvnSPWYKM4LKnD
-         ZZfhfAZzPJLFz7B5IvZa8tUu/tLyGI+g9vaTZGs4HF+YQADIwWuVz4oUoSucslWHjZts
-         09MOk+3LSyjHdwqpSp5NUdKyo4/4xwjsDvPda/ZmItTNrxGO7D9LZNq1EVWwWNc85/ZP
-         CuwQ==
+        d=gmail.com; s=20251104; t=1775328929; x=1775933729; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vuojKUDIjsIoi1AVAujgC/QVlgeGpJowX7gCMqW5wRI=;
+        b=jmAuAVw9z55dUFZRBmBrTmDGOisbo6mv2CkSWr6UJXZlLKXjYdG5vAxwuhUrywUU1Z
+         +Glnb1VPJMyajtubI6sYjq4ck91b74/C0kvK1dXMHAH3jUyS+Rq033CbOqMZ0t+x3RUb
+         rgoeiA9Kd8qGyJo+kDL3kiUOnHgeLMxGFVyQRrnfk06DNAm5rwWSwAfdvaP2w/yRnKGL
+         ds76pI3pXgEb/INIF4u7Oo6DIOinDTJqQPvjT3x7SbvCZcvQCbXENleZ7BRJL/Yzx4U1
+         2t40cAymeuL3Soim2J7MHkB4DY4vcTSvTK4rYRpjcHhnEwrTXFAAfo6xbX0ngBrUGgn5
+         SDqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775327416; x=1775932216;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xZAhnUMRLmcuKZOyI5wbt1FsLKvLY6ymjIDrFpm94Vo=;
-        b=ZFlg0jki3SJEuSOtHxv/ytyjK/qFicUsRmNQezpxkdaDTvsbRKPe2J/rtSrqEWjLGo
-         U9Q02Nr+5j/g7B88gUbsskYL6gfM0AO5uG+QOAGmg0q6xHdYjXevNqgXFGW6c+uV/g//
-         L7XIC/gQN+2+FLziGjUP6gPzamq5iw6jorgkO5P42FVFcy4x30iEeJ54E4wlQrJzQUDG
-         Y+vOSgnIi9ZtbeDxp30x5FbeI4nRbnwZyIWsKa1nvz7PoS2ZJlreArkHhDykhNYv+9+a
-         zRGTPelpjINOUNtsO6RYaRmZe6fc9fAFqpMadURaiYmIeGM0BZE/oFpg+JDL6I2Tq6iI
-         m8rA==
-X-Forwarded-Encrypted: i=1; AJvYcCUMxReJWIeBOWvBBTrV3SALiG8M3MheHVZfGjqWUofQRphlYMNcIPUVgJEyy1FZVVgDLTKzRwxVYAEbng==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4u9oRWZVMZlyhtEdnEG3JPXUA65ramlXiDWDDQeE1cDhRwHfW
-	eA4gAtjSC6icrk5EKjZn4HRE/7AtVS5wlFWtqJSNpSvn4vghUrEr7t+M8lN/h5J8NbYv938Z70j
-	st+VgOHgm3VswG+M8KNIbbUf+BWkHmhVGIv85KP8/admXRIgohF+QYz8nhV0u9yMGQYI4unk=
-X-Gm-Gg: AeBDieuvZ2SsiXBGJc+kr0MbNuRvqvIRCXORNMLiBDwnygHe1TbzD6CnuIb7O1PzSf0
-	pjV1rd9c2tQL46gW3FgC7mRzzgGj2VZWmMsb98xkCwZZz7H/KnQmc19QroQZCj+jo0IeBJ98ore
-	L6y9riVwBLTq00HPpb0x/fdNDfjmeurfnG70OzRZwwiy+/HO4JcKVuuSExcm+vNClOlSo54Ja9Y
-	OKi26TkXB7pArdV/2Nny6B6rUmpgThZnXe7FhwkNb8h/b3iyE/bS7pNtM7NOTALvfONS1wNZAVa
-	xRXXuEMchgTgVq2x2mMNxzAufBWalzd4k07mrxNQgaawfMFnCate21kHXwt9Vt5Us7uXS7SP3qg
-	hgHA4/53Kyb7TpTUQS6NUqUdlOjfyP4o=
-X-Received: by 2002:a05:6830:34a3:b0:7d7:fba1:f950 with SMTP id 46e09a7af769-7dbb7177bd4mr4168297a34.26.1775327416480;
-        Sat, 04 Apr 2026 11:30:16 -0700 (PDT)
-X-Received: by 2002:a05:6830:34a3:b0:7d7:fba1:f950 with SMTP id 46e09a7af769-7dbb7177bd4mr4168287a34.26.1775327416085;
-        Sat, 04 Apr 2026 11:30:16 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7dbd663a4a5sm420968a34.25.2026.04.04.11.30.15
+        d=1e100.net; s=20251104; t=1775328929; x=1775933729;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vuojKUDIjsIoi1AVAujgC/QVlgeGpJowX7gCMqW5wRI=;
+        b=D90LlRS91nsZDiHXyD8HbU78lud2qVBsERzSxGV3Fdsc+8l7vQa4Lc/S13Or5E7s6b
+         j88drKibOKVXqWsVxwNvRNAdT6/h63xAll4sI+QjOtYl+K9YNXqywgwvWj4T2a82jrgE
+         w0WZuZ0vHpiJPuyf6rzDM8ISPkqOw5/bygZ/ZAdYHuJDEMFQ8mg50odzdhdbFEFEd/BN
+         eE/Tf4Q10XpuRWVopRKughrl/w3RMGZrvv5RqkwyHYzWaSmuPgZOR4AeYdkGBUf7Iyhy
+         rpxUEy2FU7EWqop380Xws8nWRbjFbApkjeacp/G7hNJTTckSym62/22DsYrWpp4G5FQe
+         ef6g==
+X-Forwarded-Encrypted: i=1; AJvYcCUaEMgrlM/cKr3DkZL24xhTGC3DDDOifpeCU36MlcWUEBZ8rVPEOXR0ShzlMFP3cNHpwOahvf75rHEx7g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuITxL6NTrec+SWUkmjWADTY3qoWJioqIEqfoYhtvD7cxDq5Nc
+	5jjBcz3vEAPYeHwwRyEv959ZkqMZJN2KDfw1XYsaVRWgGKtg11eyuIGq
+X-Gm-Gg: AeBDietyeEExXZvs1e9nex+Q/3wmfFdP7Bf/mPDgu+lodvbzR+qRl4ZfQRsySu/jNDy
+	kosGIbtlaKdRjShwS9jPQwp12y1HkN/+V5DGpLXIdpT6kpBzOm2jZTVhsCsvacy8aR4zAKUCNu3
+	/GGxh5E4upz7IEJ9aGt5dxOIItfRzPcpPlpbb7KnrBeXpIHqWDpIt4/FGXxq1huwT5NG57T7mgW
+	N0ZEHN+RgAiuvUgWB1xU15e3a8vUI348nqefIzogHdT03kX0dcxE3BnlhWTqsSLVoDIJCsdAJ7K
+	sEMIAKQioGknZGphi7owjrA5W8LoizXzV571NUuwNEo2pyfBnV8Y0kmOU+jCgNS9tKJd66nshob
+	pVmbmX1jut0G2G704pFXq2+YJo4X7K4ueZqEMKSLhzlVeooKym3Wl0ujnS/cqKf4mjGPx9NXW/0
+	95j7e0Qt1LldHqmZej0PfjoCcrfTpnIbk2lLPyIY9LcjbhXOEFTzY2iAS/h9rC
+X-Received: by 2002:a05:600c:630a:b0:488:8840:e5ae with SMTP id 5b1f17b1804b1-488997eed8bmr112205745e9.24.1775328928602;
+        Sat, 04 Apr 2026 11:55:28 -0700 (PDT)
+Received: from osama.. ([2a02:908:1b6:8980:2817:10ce:a533:4101])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4888a65635fsm231622955e9.6.2026.04.04.11.55.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Apr 2026 11:30:15 -0700 (PDT)
-Date: Sat, 4 Apr 2026 13:30:15 -0500
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: Re: [PATCH v2] RISC-V: KVM: Fix shift-out-of-bounds in
- make_xfence_request()
-Message-ID: <uqj5bh45tsakyjwswvjb6mv3esvui4eq5tic65o3b7ljoev45e@s5rlgtdi5dlf>
-References: <20260403232011.2394966-1-xujiakai2025@iscas.ac.cn>
+        Sat, 04 Apr 2026 11:55:28 -0700 (PDT)
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Osama Abdelkader <osama.abdelkader@gmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] riscv: panic if IRQ handler stacks cannot be allocated
+Date: Sat,  4 Apr 2026 20:55:20 +0200
+Message-ID: <20260404185522.21767-1-osama.abdelkader@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260403232011.2394966-1-xujiakai2025@iscas.ac.cn>
-X-Proofpoint-ORIG-GUID: HFpJfMON5n7-GdXEJZ1EqLfBW4vR2eJs
-X-Authority-Analysis: v=2.4 cv=JZ2xbEKV c=1 sm=1 tr=0 ts=69d158b9 cx=c_pps
- a=z9lCQkyTxNhZyzAvolXo/A==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
- a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=xswxI8Vr1sjf9FmkDDsA:9 a=CjuIK1q_8ugA:10
- a=EyFUmsFV_t8cxB2kMr4A:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA0MDE3NSBTYWx0ZWRfX0IXuww39MIyI
- nvzt25qOF9bLjvYoD4oHFUEOIbOL4+5mCioTpqpjSPdYBfqq+Hh0gapotYqji61HBlXLOVmuw87
- i1oKyjibVn7N7ecb2KC6s+YPq9n6kCbpcsJvpZUSkmuRvgis1yfA6Ci8zTQd4TpFvIgeZ0P1u8v
- HHP+KR+gebVoVA50M+sHxhFWrae3TeNxVUv4ZjopRmC5Q3vQvGQDwLLSynWAKbfoH0sJ30bkja7
- XoFUyX/ptHSaGp/ytQZhqOoTPZ6xB2tuq+gnrjP0vdKfLo2ZY5FQn4VvnVYJCftwGu71YvOkRxk
- y4fNGB5ZxAYFomhLnq2SShQzf4P+tQcSUut8YetcUq2k8UmqLMhzxfM4WcZy9Ng2r1yL4PlqbRh
- NzasMv8bjrFjAETnoeDHx3P248CzdkwYTk1uOR6sW34y0NWrsE43II0Zc2kZyvyhrQf1lZw1SY8
- KZQkDTCxZq+CKQQakAw==
-X-Proofpoint-GUID: HFpJfMON5n7-GdXEJZ1EqLfBW4vR2eJs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-04_03,2026-04-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 malwarescore=0 suspectscore=0 adultscore=0
- priorityscore=1501 lowpriorityscore=0 spamscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604040175
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_113019_554639_56C83FDF 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20260404_115531_310767_C7ACE9E1 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,53 +102,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 11:20:11PM +0000, Jiakai Xu wrote:
-> The make_xfence_request() function uses a shift operation to check if a
-> vCPU is in the hart mask:
-> 
->   if (!(hmask & (1UL << (vcpu->vcpu_id - hbase))))
-> 
-> However, when the difference between vcpu_id and hbase
-> is >= BITS_PER_LONG, the shift operation causes undefined behavior.
-> 
-> This was detected by UBSAN:
->   UBSAN: shift-out-of-bounds in arch/riscv/kvm/tlb.c:343:23
->   shift exponent 256 is too large for 64-bit type 'long unsigned int'
-> 
-> Fix this by adding a bounds check before the shift operation.
-> 
-> This bug was found by fuzzing the KVM RISC-V interface.
-> 
-> Fixes: 13acfec2dbcc ("RISC-V: KVM: Add remote HFENCE functions based on VCPU requests")
-> Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> ---
-> V1 -> V2:
-> - Dropped 'idx' variable and compared vcpu_id against hbase directly,
->   as suggested by Andrew Jones.
-> ---
->  arch/riscv/kvm/tlb.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-> index ff1aeac4eb8eb..439c20c2775ab 100644
-> --- a/arch/riscv/kvm/tlb.c
-> +++ b/arch/riscv/kvm/tlb.c
-> @@ -338,7 +338,8 @@ static void make_xfence_request(struct kvm *kvm,
->  	bitmap_zero(vcpu_mask, KVM_MAX_VCPUS);
->  	kvm_for_each_vcpu(i, vcpu, kvm) {
->  		if (hbase != -1UL) {
-> -			if (vcpu->vcpu_id < hbase)
-> +			if (vcpu->vcpu_id < hbase ||
-> +				vcpu->vcpu_id >= hbase + BITS_PER_LONG)
->  				continue;
->  			if (!(hmask & (1UL << (vcpu->vcpu_id - hbase))))
->  				continue;
-> -- 
-> 2.34.1
->
+init_irq_stacks() and init_irq_scs() may fail when arch_alloc_vmap_stack
+or scs_alloc return NULL, call panic() in this case.
 
-Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+---
+v2:
+- call panic() in place instead of return -ENOMEM
+---
+ arch/riscv/kernel/irq.c | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
+
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index b6af20bc300f..017d42e778be 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -75,28 +75,34 @@ DECLARE_PER_CPU(ulong *, irq_shadow_call_stack_ptr);
+ DEFINE_PER_CPU(ulong *, irq_shadow_call_stack_ptr);
+ #endif
+ 
+-static void init_irq_scs(void)
++static void __init init_irq_scs(void)
+ {
+ 	int cpu;
++	void *s;
+ 
+ 	if (!scs_is_enabled())
+ 		return;
+ 
+-	for_each_possible_cpu(cpu)
+-		per_cpu(irq_shadow_call_stack_ptr, cpu) =
+-			scs_alloc(cpu_to_node(cpu));
++	for_each_possible_cpu(cpu) {
++		s = scs_alloc(cpu_to_node(cpu));
++		if (!s)
++			panic("Failed to allocate IRQ shadow call stack resources\n");
++		per_cpu(irq_shadow_call_stack_ptr, cpu) = s;
++	}
+ }
+ 
+ DEFINE_PER_CPU(ulong *, irq_stack_ptr);
+ 
+ #ifdef CONFIG_VMAP_STACK
+-static void init_irq_stacks(void)
++static void __init init_irq_stacks(void)
+ {
+ 	int cpu;
+ 	ulong *p;
+ 
+ 	for_each_possible_cpu(cpu) {
+ 		p = arch_alloc_vmap_stack(IRQ_STACK_SIZE, cpu_to_node(cpu));
++		if (!p)
++			panic("Failed to allocate IRQ stack resources\n");
+ 		per_cpu(irq_stack_ptr, cpu) = p;
+ 	}
+ }
+@@ -104,7 +110,7 @@ static void init_irq_stacks(void)
+ /* irq stack only needs to be 16 byte aligned - not IRQ_STACK_SIZE aligned. */
+ DEFINE_PER_CPU_ALIGNED(ulong [IRQ_STACK_SIZE/sizeof(ulong)], irq_stack);
+ 
+-static void init_irq_stacks(void)
++static void __init init_irq_stacks(void)
+ {
+ 	int cpu;
+ 
+@@ -129,8 +135,8 @@ void do_softirq_own_stack(void)
+ #endif /* CONFIG_SOFTIRQ_ON_OWN_STACK */
+ 
+ #else
+-static void init_irq_scs(void) {}
+-static void init_irq_stacks(void) {}
++static void __init init_irq_scs(void) {}
++static void __init init_irq_stacks(void) {}
+ #endif /* CONFIG_IRQ_STACKS */
+ 
+ int arch_show_interrupts(struct seq_file *p, int prec)
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
