@@ -4,98 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A1FE88D8D
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 09:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9789EE88D80
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 11:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AHn8FrDQ4nZzp4sn4HE0yGqnpZW9U/NLgnSi+pVDMIM=; b=PECtqmvTcVScjN/L/uAQHcYVXh
-	PbEgSFT61CytfmTQtrnYJwil2NzYrChJqRDiB+WlGOIqtfK4pL5BhwFy1Lx5lv1clgLEHMAaVZlv4
-	IpM44iaq9TZWJnh1MyAzjm7yluNP53JbFPTG4vYT+C2N97kvu/rqH9/kTcbusJGjaJq1ETU3hskOW
-	23jTCEH9nnX+ihgi7HKLm5DUIhwhp9pvid7lfQ1w2mJeMA5Y1ZgM+FvvmyXQSW8HU45x1LMkd6J6Q
-	KZGVsK22NwtX3VRThowEmVMzap2564NysEWHMcTW36gPKdZMHkLi4/1bEuzhYZKrJT+Ee2Fnq1A+/
-	xwWpd9ug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0Ga5BKKQaRfnuMsGFLD6jO8ZsxtZVz4L2qQEi5qaJ8s=; b=aUafqDuSRCM6a3
+	12QfTmPCiyp0ixfTWeMrx0VCyXHrDf203PDvtFOfCL05Xr1R0SX/zp1bDYk4SWDU7vS9DXfgtgJHb
+	MpbiVRZ+WlqNNskBor0gUhynPnuFJlS02ii+WYpW6AUx6tLRZuU4+4Aiiydgs9IzE4uPTaVGYlCO4
+	yAldYaXfTk9/XECi+FVnIZ3MfU3GMVBKVZ2dJsBbd2Wn1WcKrRImQFyUoVfxpTCoqRKnVSOw0CIK8
+	iFDRCxJSDpw7b8VBdpU2F1f3tceql027EdzYklJ96ECWeKfPiExSZCWx7+IZpPUEvCy6g8KUw3UdL
+	tNHHJInvFr0o2mNLKgtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8xAk-00000003K0x-0adP;
-	Sat, 04 Apr 2026 09:20:06 +0000
-Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
+	id 1w8ym9-00000003PGS-3WZD;
+	Sat, 04 Apr 2026 11:02:49 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8xAg-00000003Jzm-1h7T
+	id 1w8ym6-00000003PFa-09EN
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 09:20:04 +0000
-Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-2c15849aa2cso2953024eec.0
-        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 02:20:01 -0700 (PDT)
+	Sat, 04 Apr 2026 11:02:47 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-7dbd23bc684so69870a34.2
+        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 04:02:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775300564; cv=none;
+        d=google.com; s=arc-20240605;
+        b=WSjhYPUzc3Ok+gEOoBV7AFFleIMjsVcH0IYG5QO4FjnpC+nAHorANSUfp+9VpSfWQf
+         GOBr8SIs9+2WGql2t/BlE1BO3EX91q90ih6ChmvWVwNrghYgsyByLjtevKfHN6J7MJRK
+         izi8YVV1QbVSn+PmMNO1VrfbTFy3dfHvRT02I8oMkuHdD7XOexlJUSCe10KcYbPv/qar
+         pxTTQCgp3jHmAxT/xEQSG2nEiAIYKkTDEchQfO3Z0lsuE+1v5m8llTkVOq5o6In5Tw/S
+         yTifCePH42Rmu8DspCGOkCi0JIke8khpFbgW351m8Aw2d15drnNU7HEEnsgkd1wENCHW
+         tm0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Zfu5+ZoRr42kiqQcxjxD/Vr+HX1maiYTYcsoR4uKhiw=;
+        fh=F0YZ4uxJAidmwpnhOsLqwZSfQsVkE7WqxI7gEn94lJ4=;
+        b=LW7Npge7SB/zygOyzXFzhRqJaftrxhkBxu2DsOcbfBE/xzfT9AdJzGtvgmipegnuoO
+         1JVcevE0yGfWoyIheVfwnkgiCMGFPGjWN8eTX0wvNb1liUW8Xj/UkLImKQbjHGrlveyD
+         2+RyYtGghAtJ/UkEIXBFpMOG3ZAXOCH4uFjll8AqfDfQU7PwOwmLxO0bfszLCdCG+a02
+         c/ixJ3gz7L55UImO4RJmZne6ObNgVnG7yaAehHiDD+01y0qrnEcd5HbgaFRllrSOmU/R
+         wZcxJ+VLawdTnew6H6C9sLxYB61KnchJMWKWirbYZhz4mgv//pUJ3nHS7UpTb7x0YJPp
+         RTKw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775294401; x=1775899201; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=brainfault-org.20251104.gappssmtp.com; s=20251104; t=1775300564; x=1775905364; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=m4D9KIHfQ19G+ih5n0VIDlQHW6gYQM9spmrNFkW8GpA=;
-        b=kzJRjqPRO3iqvbBoy1hkMGkKt0FHtJCAhox6eOANC9AfFCfnDk050lvqwi8G3v9Iwh
-         nQT2Ud22fw2MHruDvuJHusPimV7Dtg3vMT1Awbz3RogAt8dO3uozZvxiuCHZWeZGEKQd
-         3QpASqLJ1a8OBtZwr23cYnvJy/G7IC0fKQ9B7YrS5wrAXy6xkhM+6Qb+gbenSkgZdnEU
-         hjsEb4VpmpPKIyXvSxa8rC3xPN60M2WEISukkgq+L2oyTjpQBHtzNYY2qJEPmLsB8CK0
-         ZryPYr+zVf7YY3u7NRvOiy7rYj8W9dxY2PgM9+vVYZI8HM5e13FZC4OOB67MpsAlN8r+
-         vkug==
+        bh=Zfu5+ZoRr42kiqQcxjxD/Vr+HX1maiYTYcsoR4uKhiw=;
+        b=tyvrz5k10fywmvgCJtwQRTwJIx+2d3tqlS3IBX0H2kjPUT8meyE0SxPe1gME/tIP9p
+         ipYyZD9OplTzQTbc3UFJM/eCgS25XIheNWOsDendjLZ9m9qXHsIcaH+eZWXm3lJaacv8
+         BlNcsJPQy4phzl5eBEsLlJbdABC4Xvm+O6UZtN8bdjSiqOfRd7OvAP936QJRtZ+MbxeH
+         hsZwTkjs2ro+rAiTUaaqbpl72SFCLcE+7qhZJPxs+To+1KRPag1PzCmkMdDSLjVtrfmV
+         DsamwzBrhZ30SVIvRjkBOl6jxrRYsM0Y5i4HY20I6IGmw7qTFJGiMXSPkIZE6YpdO4se
+         mHAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775294401; x=1775899201;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20251104; t=1775300564; x=1775905364;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=m4D9KIHfQ19G+ih5n0VIDlQHW6gYQM9spmrNFkW8GpA=;
-        b=q5qgoHNNrQPABKlJrr4AMIk8Ttw6QG1nJXSF1wnR0kkc1gFOlHf6QQid2oNopgXpu1
-         1hUfhs0AcnkQEfJwpKeV0mbj5lBCf161RIaqlH1/PqaurbJZcylHY/uaWgtk152TQU2y
-         qjgG7BHwBKz+6hJISzhe+OdXlw3wN+e9VDDbbA4EW8LgTv9IGSSHaZsRQcZLxJ2kcmUV
-         e1BkA6wwOz8XIG8XVYdKBHnbb4JIeiih/yr8XiuNWGLl0fMWl/1iVPxuXxRBkwtOLEGI
-         4W7WZZrQS36qEve6V2WvVs6yZrCz3ycEN585VZ9URBFIlbcEZbopl40B61+n5nNMXxdo
-         O+lQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXOVLf+j9Utv230Tn7pgWhtjhCslnbFiUnygd1yHawvqY6mcqZyPkumGQErE8wopsZfYoot1oPLtfa20A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnpbYcoSx3kWiezzYWtP5+bCdBsvHZ4NQafLskkhIEf+u6DES2
-	YJOJwpDGdRMukkTonukAVM6HqVRIX3k8dz54m8411fJ767v1w+ZZ8xTB
-X-Gm-Gg: AeBDietg3R0gaCmsadgO6vWt8mFvfG6WNPBZM6sa/6JDS9FBQq3+uh1YdRe76bgur8Z
-	8z3w8J+SDLtpHtsLbCkbch71SAdAsSUIbU6E8a+xjPnaYZA8teE7Zw1fQdlBsvJeKuYhs7CWans
-	e7FmOUA64CGJEcycnhP3l8nT9/GGaLXj+OjyGHuXRxkhIFh7SxdhzisiumNrBMCdHF1tFNoBBL1
-	SOXWdvTT9igqXMm4wLgZ5jakMzSnM+fJmVN3A13fQMioTpcaaSSK54USdLRazY9LQefICY7JYB+
-	KjyGwk79yMuV6PK94A6yrwVh585Qf41LEG/+ImlSn4kjctd3rlleGBypV7b4O6MPVnPqDjKhCu5
-	jluAJg1IXSTjDSEbY4YItoDwpbijmD6MALRrEVFCYHm2sumFeeRO4CdZ6XPteg0urRwr0UBvtmZ
-	fNTzIYv7W6tcI0dVOnmp2Dzvw=
-X-Received: by 2002:a05:7300:a287:b0:2c1:74ad:2cd7 with SMTP id 5a478bee46e88-2cbfbf760c4mr2791873eec.27.1775294400761;
-        Sat, 04 Apr 2026 02:20:00 -0700 (PDT)
-Received: from localhost.localdomain ([2607:f130:0:11a::31])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ca78df3b84sm7176920eec.5.2026.04.04.02.19.55
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 04 Apr 2026 02:20:00 -0700 (PDT)
-From: wang lian <lianux.mm@gmail.com>
-To: 21cnbao@gmail.com
-Cc: akpm@linux-foundation.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	surenb@google.com,
-	willy@infradead.org,
-	wang lian <lianux.mm@gmail.com>,
-	Wang Lian <wanglian@kylinos.cn>,
-	Kunwu Chan <chentao@kylinos.cn>,
-	Kunwu Chan <kunwu.chan@gmail.com>
-Subject: Re: [RFC PATCH 0/2] mm: continue using per-VMA lock when retrying page faults after I/O
-Date: Sat,  4 Apr 2026 17:19:32 +0800
-Message-ID: <20260404091936.51961-1-lianux.mm@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <CAGsJ_4wnwAet4svDrxT4sTdp24sweAU-2VyYn3iNPOoaKdXxPw@mail.gmail.com>
-References: <CAGsJ_4wnwAet4svDrxT4sTdp24sweAU-2VyYn3iNPOoaKdXxPw@mail.gmail.com>
+        bh=Zfu5+ZoRr42kiqQcxjxD/Vr+HX1maiYTYcsoR4uKhiw=;
+        b=UfCdUBF1aMDcImZe/FIoap9cBnvZd4Qm8QlE37Zw3grQACGOVvcKDs2j9uTXknYK13
+         wZDru/7T2NZ59wPkOmkX2XwHy5WT/jJmYArVpfwA16E92Tr65NP1b7LwNlHta3WZyI4U
+         IDWXuxKjbJpMrwIOddqamV9zFBEjHnYSy2hOFtLhTDQ2WnoygvuNPqRUbbO8aNn68wE7
+         LHXz0u1Y2AfUxyaXCMI9mekbVja1Mlo2I/cumHrjwfDtihrHsHfgG2buxFzkqcNOwUtJ
+         K6CwtxTLR32w+kGt35f2St/qwQFbYqJI/I4fFXHO7rNF6r78LhFaIZzeDXx5o3wQ7UtP
+         z5ew==
+X-Forwarded-Encrypted: i=1; AJvYcCUt8tu8F56VgqPEAmy4E2e250O1Xtx+AED1eXAU8HorluStJveG/Zbc5kKcXq9wP4cb06l+phWVpEJH+w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwW8K6P7yl4JckcFrsyDtbBInuErH80YZ4xRNFwXiPWRvM1SOb4
+	zkO8jP1e6mJ5u5spAErjaMQuqLAHJLc6PGp9on1Ob18YC8I0hNOlNoOaQDN+yQlWmD5rJM1icsY
+	2CRdPvxJQ/LhhPN5mXp6sKHS6XZv7YSogZ3cN34KIww==
+X-Gm-Gg: AeBDievo/ynHeNtfpIIt40Yc7x8dKLoo0+rIc2FmnCiiPkn7/cF4wGDxGDcwP2fEt++
+	NF4L3Ig6dwTM4oLNegk7C+Djw46CfuZ8N+/7LY2xv4LVI9MfSirz0alB2xYBxNGCYM+Z8XyN/TX
+	Gj5U9qNH07LxDVLSglzTkJraLcnkqHHo9aRY29LAb2gCQsBJVKg2675kYnJ7FnjFDZVo/gCSCfp
+	WP7b96EbsZzgKi7FmPY72409dg2BXI/OXxgG0HYe6xCdu3YTXb/YDuRvifN9VW/y+IKtSK5ygsq
+	xu1nzHI5Xj7nsoCmAVQOVbSaF5/zziy50o4MeHJ8e1i/x2Nxo3d/NcrM9S+3pzp/H0Ex1sPSaOZ
+	do3+3Gfkz5ii0bLYTSD9PsQfKYg==
+X-Received: by 2002:a05:6820:1ca8:b0:67e:3b11:89ed with SMTP id
+ 006d021491bc7-6821e66a08bmr3527858eaf.10.1775300564107; Sat, 04 Apr 2026
+ 04:02:44 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260403153019.9916-1-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20260403153019.9916-1-fangyu.yu@linux.alibaba.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 4 Apr 2026 16:32:32 +0530
+X-Gm-Features: AQROBzDcUt7d2zmN-LgKMz3EEMCzhGSvhLBkGZy88YajEYGJjZyDS4lDfZXa79I
+Message-ID: <CAAhSdy2t2WukRG7mHckY5=+J4+vPU1jvkrG9vqXoDxcMPbiEJg@mail.gmail.com>
+Subject: Re: [PATCH v8 0/3] Support runtime configuration for per-VM's HGATP mode
+To: fangyu.yu@linux.alibaba.com
+Cc: pbonzini@redhat.com, corbet@lwn.net, atish.patra@linux.dev, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	skhan@linuxfoundation.org, guoren@kernel.org, radim.krcmar@oss.qualcomm.com, 
+	andrew.jones@oss.qualcomm.com, linux-doc@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_022002_442008_7674DC9E 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20260404_040246_332753_51418144 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,196 +116,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8418261870289922443=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8418261870289922443==
-Content-Type: text/plain; charset=y
-Content-Transfer-Encoding: 8bit
-
-Hi Barry,
-
-> If either you or Matthew have a reproducer for this issue, I’d be
-> happy to try it out.
-
-Kunwu and I evaluated this series ("mm: continue using per-VMA lock when
-retrying page faults after I/O") under a stress scenario specifically
-designed to expose the retry behavior in filemap_fault(). This models
-the exact situation described by Matthew Wilcox [1], where retries after
-I/O fail to make forward progress under memory pressure.
-
-The scenario targets the critical window between I/O completion and
-mmap_lock reacquisition. This workload deliberately includes frequent
-mmap/munmap operations to simulate a highly contended mmap_lock
-environment alongside severe memory pressure (1GB memcg limit). Under
-this pressure, folios instantiated by the I/O can be aggressively
-reclaimed before the delayed task can re-acquire the lock and install
-the PTE, forcing retries to repeat the entire work.
-
-To make this behavior reproducible, we constructed a stress setup that
-intentionally extends this interval:
-* 256-core x86 system
-* 1GB memory cgroup
-* 500 threads continuously faulting on a 16MB file
-
-The core reproducer and the execution command are provided below:
-
-#define _GNU_SOURCE 
-#include <errno.h> 
-#include <fcntl.h> 
-#include <pthread.h> 
-#include <stdatomic.h> 
-#include <stdint.h> 
-#include <stdio.h> 
-#include <stdlib.h> 
-#include <string.h> 
-#include <sys/mman.h> 
-#include <unistd.h> 
-#include <time.h> 
-
-#define THREADS 500 
-#define FILE_SIZE (16 * 1024 * 1024) /* 16MB */ 
-
-static _Atomic int g_stop = 0; 
-#define RUN_SECONDS 600 
-
-struct worker_arg { 
-        long id; 
-        uint64_t *counts; 
-}; 
-
-void *worker(void *arg) 
-{ 
-        struct worker_arg *wa = (struct worker_arg *)arg; 
-        long id = wa->id; 
-        char path[64]; 
-        uint64_t local_rounds = 0; 
-
-        snprintf(path, sizeof(path), "./test_file_%d_%ld.dat", 
-                 getpid(), id); 
-        int fd = open(path, O_RDWR | O_CREAT | O_TRUNC, 0666); 
-        if (fd < 0) return NULL; 
-        if (ftruncate(fd, FILE_SIZE) < 0) { 
-                close(fd); return NULL; 
-        } 
-
-        while (!atomic_load_explicit(&g_stop, memory_order_relaxed)) { 
-                char *f_map = mmap(NULL, FILE_SIZE, PROT_READ, 
-                                   MAP_SHARED, fd, 0); 
-                if (f_map != MAP_FAILED) { 
-                        /* Pure page cache thrashing */ 
-                        for (int i = 0; i < FILE_SIZE; i += 4096) { 
-                                volatile unsigned char c = 
-                                        (unsigned char)f_map[i]; 
-                                (void)c; 
-                        } 
-                        munmap(f_map, FILE_SIZE); 
-                        local_rounds++; 
-                } 
-        } 
-        wa->counts[id] = local_rounds; 
-        close(fd); 
-        unlink(path); 
-        return NULL; 
-} 
-
-int main(void) 
-{ 
-        printf("Pure File Thrashing Started. PID: %d\n", getpid()); 
-        pthread_t t[THREADS]; 
-        uint64_t local_counts[THREADS]; 
-        memset(local_counts, 0, sizeof(local_counts)); 
-        struct worker_arg args[THREADS]; 
-
-        for (long i = 0; i < THREADS; i++) { 
-                args[i].id = i; 
-                args[i].counts = local_counts; 
-                pthread_create(&t[i], NULL, worker, &args[i]); 
-        } 
-
-        sleep(RUN_SECONDS); 
-        atomic_store_explicit(&g_stop, 1, memory_order_relaxed); 
-
-        for (int i = 0; i < THREADS; i++) pthread_join(t[i], NULL); 
-
-        uint64_t total = 0; 
-        for (int i = 0; i < THREADS; i++) total += local_counts[i]; 
-
-        printf("Total rounds     : %llu\n", (unsigned long long)total); 
-        printf("Throughput       : %.2f rounds/sec\n", 
-               (double)total / RUN_SECONDS); 
-        return 0; 
-}
-
-Command line used for the test:
-systemd-run --scope -p MemoryHigh=1G -p MemoryMax=1.2G -p MemorySwapMax=0 \
---unit=mmap-thrash-$$ ./mmap_lock & \
-TEST_PID=$!
-
-We also added temporary counters in page fault retries [2]:
-- RETRY_IO_MISS   : folio not present after I/O completion
-- RETRY_MMAP_DROP : retry fallback due to waiting for I/O
-
-We report representative runs from our 600-second test iterations 
-(kernel v7.0-rc3):
-
-| Case                | Total Rounds | Throughput | Miss/Drop(%) | RETRY_MMAP_DROP | RETRY_IO_MISS |
-| ------------------- | ------------ | ---------- | ------------ | --------------- | ------------- |
-| Baseline (Run 1)    | 22,711       | 37.85 /s   | 45.04        | 970,078         | 436,956       |
-| Baseline (Run 2)    | 23,530       | 39.22 /s   | 44.96        | 972,043         | 437,077       |
-| With Series (Run A) | 54,428       | 90.71 /s   | 1.69         | 1,204,124       | 20,398        |
-| With Series (Run B) | 35,949       | 59.91 /s   | 0.03         | 327,023         | 99            |
-
-
-Notes:
-1. Throughput Improvement: During the 600-second testing window, overall 
-   workload throughput can more than double (e.g., Run A jumped from ~38 
-   to 90.71 rounds/sec).
-2. Elimination of Race Condition: Without the patch, ~45% of retries 
-   were invalid because newly fetched folios were evicted during the 
-   mmap_lock reacquisition delay. With the per-VMA retry path, the 
-   invalidation ratio plummeted to near zero (0.03% - 1.69%).
-3. Counter Scaling and Variance: In Run A, because the I/O wait 
-   bottleneck is eliminated, the threads advance much faster. Thus, the 
-   absolute number of mmap_lock drops naturally scales up with the 
-   increased throughput. In Run B, the primary bottleneck shifts to the 
-   mmap write-lock contention (lock convoying), causing throughput and 
-   total drops to fluctuate. Crucially, the Miss/Drop ratio remains near 
-   zero regardless of this variance.
-
-Without this series, almost half of the retries fail to observe
-completed I/O results, causing severe CPU and I/O waste. With the
-finer-grained VMA lock, the faulting threads bypass the heavily
-contended mmap_lock entirely during retries, completing the fault
-almost instantly.
-
-This scenario perfectly aligns with the exact concern raised, and these
-results show that the patch not only successfully eliminates the retry
-inefficiency but also tangibly boosts macro-level system throughput.
-
-[1] https://lore.kernel.org/linux-mm/aSip2mWX13sqPW_l@casper.infradead.org/
-[2] https://github.com/lianux-mm/ioretry_test/
-
-Tested-by: Wang Lian <wanglian@kylinos.cn>
-Tested-by: Kunwu Chan <chentao@kylinos.cn>
-Reviewed-by: Wang Lian <lianux.mm@gmail.com>
-Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-
---
-Best Regards,
-wang lian
-
-
---===============8418261870289922443==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8418261870289922443==--
+T24gRnJpLCBBcHIgMywgMjAyNiBhdCA5OjAw4oCvUE0gPGZhbmd5dS55dUBsaW51eC5hbGliYWJh
+LmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBGYW5neXUgWXUgPGZhbmd5dS55dUBsaW51eC5hbGliYWJh
+LmNvbT4KPgo+IEN1cnJlbnRseSwgUklTQy1WIEtWTSBoYXJkY29kZXMgdGhlIEctc3RhZ2UgcGFn
+ZSB0YWJsZSBmb3JtYXQgKEhHQVRQIG1vZGUpCj4gdG8gdGhlIG1heGltdW0gbW9kZSBkZXRlY3Rl
+ZCBhdCBib290IHRpbWUgKGUuZy4sIFNWNTd4NCBpZiBzdXBwb3J0ZWQpLiBidXQKPiBvZnRlbiBz
+dWNoIGEgd2lkZSBHUEEgaXMgdW5uZWNlc3NhcnksIGp1c3QgYXMgYSBob3N0IHNvbWV0aW1lcyBk
+b2Vzbid0IG5lZWQKPiBzdjU3Lgo+Cj4gVGhpcyBwYXRjaCByZXVzZSBLVk1fQ0FQX1ZNX0dQQV9C
+SVRTIHRvIHNlbGVjdCBIR0FUUC5NT0RFLiBVc2VyLXNwYWNlIGNhbgo+IG5vdyBleHBsaWNpdGx5
+IHJlcXVlc3QgYSBzcGVjaWZpYyBIR0FUUCBtb2RlIChTVjM5eDQsIFNWNDh4NCwgU1Y1N3g0IG9y
+Cj4gU1YzMng0KSBkdXJpbmcgVk0gY3JlYXRpb24uCj4KPiAtLS0KPiBDaGFuZ2VzIGluIHY4Ogo+
+ICAgICAtIFJldXNlIEtWTV9DQVBfVk1fR1BBX0JJVFMgdG8gYWR2ZXJ0aXNlIGFuZCBzZWxlY3Qg
+dGhlIGVmZmVjdGl2ZSBHUEEgd2lkdGgKPiAgICAgICBmb3IgYSBWTSAoQW51cCdzIHN1Z2dlc3Rp
+b24pLgo+ICAgICAtIEhhbmRsZSB0aGUga3ZtID09IE5VTEwgY2FzZSBhbmQgdGFzayBrdm0tPmxv
+Y2sgYW5kIGt2bS0+c2xvdHNfbG9jayB0byBzZXJpYWxpemUKPiAgICAgICBhZ2FpbnN0IGNvbmN1
+cnJlbnQgdkNQVSBjcmVhdGlvbiBhbmQgbWVtc2xvdCB1cGRhdGVzIChSYWRpbSdzIHN1Z2dlc3Rp
+b24pLgo+ICAgICAtIExpbmsgdG8gdjc6Cj4gICAgICAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+bGludXgtcmlzY3YvMjAyNjA0MDIxMzIzMDMuNjI1Mi0xLWZhbmd5dS55dUBsaW51eC5hbGliYWJh
+LmNvbS8KPiAtLS0KPiBDaGFuZ2VzIGluIHY3IChBbnVwJ3Mgc3VnZ2VzdGlvbnMpOgo+ICAgICAt
+IEtlZXAgdGhlIG9yaWdpbmFsIEhHQVRQIG1vZGUgcHJvYmluZyBsb2dpYy4KPiAgICAgLSBMaW5r
+IHRvIHY2Ogo+ICAgICAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjYw
+MzMwMTIyNjAxLjIyMTQwLTEtZmFuZ3l1Lnl1QGxpbnV4LmFsaWJhYmEuY29tLwo+IC0tLQo+IENo
+YW5nZXMgaW4gdjYgKEFudXAncyBzdWdnZXN0aW9ucyk6Cj4gICAgIC0gUmV3b3JrZWQga3ZtX3Jp
+c2N2X2dzdGFnZV9ncGFfYml0cygpIGFuZCBrdm1fcmlzY3ZfZ3N0YWdlX2dwYV9zaXplKCkgdG8K
+PiAgICAgICB0YWtlICJ1bnNpZ25lZCBsb25nIHBnZF9sZXZlbHMiIGluc3RlYWQgb2YgInN0cnVj
+dCBrdm1fYXJjaCAqIi4KPiAgICAgLSBNb3ZlZCBrdm1fcmlzY3ZfZ3N0YWdlX21vZGUoKSBoZWxw
+ZXIgZnJvbSBrdm1faG9zdC5oIHRvIGt2bV9nc3RhZ2UuaC4KPiAgICAgLSBSZW5hbWVkIGt2bS0+
+YXJjaC5rdm1fcmlzY3ZfZ3N0YWdlX3BnZF9sZXZlbHMgdG8ga3ZtLT5hcmNoLnBnZF9sZXZlbHMu
+Cj4gICAgIC0gQWRkZWQgcGdkX2xldmVscyB0byBzdHJ1Y3Qga3ZtX2dzdGFnZSB0byBhdm9pZCBy
+ZXBlYXRlZAo+ICAgICAgIGdzdGFnZS0+a3ZtLT5hcmNoIHBvaW50ZXIgY2hhc2luZy4KPiAgICAg
+LSBMaW5rIHRvIHY1Ogo+ICAgICAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2
+LzIwMjYwMjA0MTM0NTA3LjMzOTEyLTEtZmFuZ3l1Lnl1QGxpbnV4LmFsaWJhYmEuY29tLwo+IC0t
+LQo+IENoYW5nZXMgaW4gdjU6Cj4gICAgIC0gVXNlIGFyY2hpdGVjdHVyYWwgSEdBVFAuTU9ERSBl
+bmNvZGluZ3MgYXMgdGhlIGJpdCBpbmRleCBmb3IgdGhlIHN1cHBvcnRlZC1tb2RlCj4gICAgICAg
+Yml0bWFwIGFuZCBmb3IgdGhlIFZNLW1vZGUgc2VsZWN0aW9uIFVBUEk7IG5vIG5ldyBVQVBJIG1v
+ZGUvYml0IGRlZmluZXMgYXJlCj4gICAgICAgaW50cm9kdWNlZChwZXIgUmFkaW0pLgo+ICAgICAt
+IEFsbG93IEtWTV9DQVBfUklTQ1ZfU0VUX0hHQVRQX01PREUgb24gUlYzMiBhcyB3ZWxsKHBlciBE
+cmV3KS4KPiAgICAgLSBMaW5rIHRvIHY0Ogo+ICAgICAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2xpbnV4LXJpc2N2LzIwMjYwMjAyMTQwNzE2LjM0MzIzLTEtZmFuZ3l1Lnl1QGxpbnV4LmFsaWJh
+YmEuY29tLwo+IC0tLQo+IENoYW5nZXMgaW4gdjQ6Cj4gICAgIC0gRXh0ZW5kIGt2bV9yaXNjdl9n
+c3RhZ2VfbW9kZV9kZXRlY3QoKSB0byBwcm9iZSBhbGwgSEdBVFAuTU9ERSB2YWx1ZXMKPiAgICAg
+ICBzdXBwb3J0ZWQgYnkgdGhlIGhvc3QgYW5kIHJlY29yZCB0aGVtIGluIGEgYml0bWFzay4KPiAg
+ICAgLSBUcmVhdCB1bmV4cGVjdGVkIHBnZF9sZXZlbHMgaW4ga3ZtX3Jpc2N2X2dzdGFnZV9tb2Rl
+KCkgYXMgYW4gaW50ZXJuYWwgZXJyb3IKPiAgICAgICAoZS5nLiBXQVJOX09OX09OQ0UoKSkocGVy
+IFJhZGltKS4KPiAgICAgLSBNb3ZlIGt2bV9yaXNjdl9nc3RhZ2VfZ3BhX2JpdHMoKSBhbmQga3Zt
+X3Jpc2N2X2dzdGFnZV9ncGFfc2l6ZSgpIHRvIGhlYWRlcgo+ICAgICAgIGFzIHN0YXRpYyBpbmxp
+bmUgaGVscGVycyhwZXIgUmFkaW0pLgo+ICAgICAtIERyb3AgZ3N0YWdlX21vZGVfdXNlcl9pbml0
+aWFsaXplZCBhbmQgUmVtb3ZlIHRoZSBrdm1fZGVidWcoKSBtZXNzYWdlIGZyb20KPiAgICAgICBL
+Vk1fQ0FQX1JJU0NWX1NFVF9IR0FUUF9NT0RFKHBlciBSYWRpbSkuCj4gICAgIC0gTGluayB0byB2
+MzoKPiAgICAgICBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI2MDEyNTE1
+MDQ1MC4yNzA2OC0xLWZhbmd5dS55dUBsaW51eC5hbGliYWJhLmNvbS8KPiAtLS0KPiBDaGFuZ2Vz
+IGluIHYzOgo+ICAgICAtIFJld29ya2VkIHRoZSBwYXRjaCBmb3JtYXR0aW5nIChwZXIgRHJldyku
+Cj4gICAgIC0gRHJvcHBlZCBrdm0tPmFyY2gua3ZtX3Jpc2N2X2dzdGFnZV9tb2RlIGFuZCBkZXJp
+dmUgSEdBVFAuTU9ERSBmcm9tCj4gICAgICAga3ZtX3Jpc2N2X2dzdGFnZV9wZ2RfbGV2ZWxzIHZp
+YSBhIGhlbHBlciwgYXZvaWRpbmcgcmVkdW5kYW50IHBlci1WTSBzdGF0ZShwZXIgRHJldykuCj4g
+ICAgIC0gUmVtb3ZlZCBrdm1fcmlzY3ZfZ3N0YWdlX21heF9tb2RlIGFuZCBrZWVwIG9ubHkga3Zt
+X3Jpc2N2X2dzdGFnZV9tYXhfcGdkX2xldmVscwo+ICAgICAgIGZvciBob3N0IGNhcGFiaWxpdHkg
+ZGV0ZWN0aW9uKHBlciBEcmV3KS4KPiAgICAgLSBPdGhlciBpbml0aWFsaXphdGlvbiBhbmQgcmV0
+dXJuIHZhbHVlIGlzc3VlcyhwZXIgRHJldykuCj4gICAgIC0gRW5mb3JjZSB0aGF0IEtWTV9DQVBf
+UklTQ1ZfU0VUX0hHQVRQX01PREUgY2FuIG9ubHkgYmUgZW5hYmxlZCBiZWZvcmUgYW55IHZDUFVz
+Cj4gICAgICAgYXJlIGNyZWF0ZWQgYnkgcmVqZWN0aW5nIHRoZSBpb2N0bCBvbmNlIGt2bS0+Y3Jl
+YXRlZF92Y3B1cyBpcyBub24temVybyhwZXIgUmFkaW0pLgo+ICAgICAtIEFkZCBhIG1lbXNsb3Qg
+c2FmZXR5IGNoZWNrIGFuZCByZWplY3QgdGhlIGNhcGFiaWxpdHkgdW5sZXNzCj4gICAgICAga3Zt
+X2FyZV9hbGxfbWVtc2xvdHNfZW1wdHkoa3ZtKSBpcyB0cnVlLCBlbnN1cmluZyB0aGUgRy1zdGFn
+ZSBmb3JtYXQgaXMgbm90Cj4gICAgICAgY2hhbmdlZCBhZnRlciBhbnkgbWVtc2xvdHMgaGF2ZSBi
+ZWVuIGluc3RhbGxlZChwZXIgUmFkaW0pLgo+ICAgICAtIExpbmsgdG8gdjI6Cj4gICAgICAgaHR0
+cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyNjAxMDUxNDMyMzIuNzY3MTUtMS1m
+YW5neXUueXVAbGludXguYWxpYmFiYS5jb20vCj4KPiBGYW5neXUgWXUgKDMpOgo+ICAgUklTQy1W
+OiBLVk06IFN1cHBvcnQgcnVudGltZSBjb25maWd1cmF0aW9uIGZvciBwZXItVk0ncyBIR0FUUCBt
+b2RlCj4gICBSSVNDLVY6IEtWTTogQ2FjaGUgZ3N0YWdlIHBnZF9sZXZlbHMgaW4gc3RydWN0IGt2
+bV9nc3RhZ2UKPiAgIFJJU0MtVjogS1ZNOiBSZXVzZSBLVk1fQ0FQX1ZNX0dQQV9CSVRTIHRvIHNl
+bGVjdCBIR0FUUC5NT0RFCj4KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fZ3N0YWdlLmgg
+fCA0NyArKysrKysrKysrKysrKysrLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2hv
+c3QuaCAgIHwgIDEgKwo+ICBhcmNoL3Jpc2N2L2t2bS9nc3RhZ2UuYyAgICAgICAgICAgICB8IDY1
+ICsrKysrKysrKysrKystLS0tLS0tLS0tLS0tLQo+ICBhcmNoL3Jpc2N2L2t2bS9tYWluLmMgICAg
+ICAgICAgICAgICB8IDEyICsrLS0tCj4gIGFyY2gvcmlzY3Yva3ZtL21tdS5jICAgICAgICAgICAg
+ICAgIHwgNzAgKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAgYXJjaC9yaXNjdi9rdm0v
+dm0uYyAgICAgICAgICAgICAgICAgfCA0OSArKysrKysrKysrKysrKysrKystLQo+ICBhcmNoL3Jp
+c2N2L2t2bS92bWlkLmMgICAgICAgICAgICAgICB8ICAzICstCj4gIDcgZmlsZXMgY2hhbmdlZCwg
+MTQ4IGluc2VydGlvbnMoKyksIDk5IGRlbGV0aW9ucygtKQo+Cj4gLS0KPiAyLjUwLjEKPgoKUXVl
+dWVkIHRoaXMgc2VyaWVzIGZvciBMaW51eC03LjEKClRoYW5rcywKQW51cAoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
