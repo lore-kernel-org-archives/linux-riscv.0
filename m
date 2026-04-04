@@ -4,98 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B26E88D8B
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 12:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85A7E88D9F
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 15:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=crIHbJxcSZW2VUQDhjUIwBBehLaYFagsb+zA2wzaQQ8=; b=NJIwBd9bQWTjEu
-	eAPmSryKF7wJOnj2YAoibP7KaEQpCikF2ctfTa5Y1niVkmtki0t3/aFseJ9uOEZc9ymDDshPPUj15
-	MT6iGWMn7If0GgcKGXcbFxHAGj70PwGUAUVnVEOgZtFEN5H9Bf8bz4cBkE+YFFEkJwJqm5c2JRXqG
-	/w7TRdMbr1AstC6y3ZlzfoqBxigOyHJVUJRbY0hGHYv4lD6ZJ/haix5Vw3Kk+h7rcpDqYA5RAXZdM
-	twiNmFo/vVxNwCBRgCtJIJ0zo4UMzX27F7DWxLfLNFNuo7g7E6IRc2hkBSktS215WAzY5OceBkuhE
-	fghzot6IMiyDPS8ThcLg==;
+	List-Owner; bh=E9tvKhJ5VT0xv33rLYdZPOeQAbI9cqyt4uBDtVbBiS4=; b=no0Wr+2eXGKaLB
+	v0Ek/kTvw2MuPCb6eyjfae/XwmrS4zZTb2x/XQiHdnIxf0ITih6AnObsnebojAoYuW9QhAL9JpHQ9
+	Ml+RCewfrJOPimbZca1qrcfW1PSClHre4go5kGwMzbLnkFKS9loRBEuNiCe1BMMPlRhAiYXiQX8/L
+	VH+uUIUdDkyIci1eIKwb8NzH0o2U7sbabC6EnPN0btwCWup84KJhc9FXDhUT3mYIWFXOUtCVd0LjN
+	+zZquR6CK4eoTI5MTWhtUcWx/aci5SQdvfiKqzEE2Ku0pEmFGfl/IBVMKfwdJe0OJigQjvu1DPLFV
+	37k80p+FuNFT/BRMVO7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w900P-00000003S5z-18Kk;
-	Sat, 04 Apr 2026 12:21:37 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1w92lg-00000003YIv-3Ljg;
+	Sat, 04 Apr 2026 15:18:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w900N-00000003S5A-1D3W
+	id 1w92lf-00000003YIp-2Avt
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 12:21:36 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c736261ee8dso840270a12.1
-        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 05:21:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1775305294; x=1775910094; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qxbGgf4+lSuSxIXzDbxhYHMBptayAf1Wj0PvoCJF+ME=;
-        b=kOtuTes/JDh71Tt4jHzWWxxV75axFMKnsr2Mpqro49YXeQd9iyEPKWreWEbGGtE3Hk
-         B4kb2rm6H2dh1ewhoM4q9oQpFN8Qw5zQwZi99jMV+d2vw69mhSQjVJGh0iHmVzsDSx2v
-         KDwdWvNHCCWtMlvtfL7H4iKgmI9mbFYsNorl9ezXplKVBc3BdQH4pIb4JUyrLvzKktXh
-         FowXpO1tfeZdL8Urx55Keg0W7uT+oJRtZp6/KSkr8zIn+PxkpnHCc8YRK9L19z8b8EXN
-         w1tzfSt1BdASK4N+NapTdglCXYt5wITYChu6ofrz9Ayn4D/tYKhHx46sLr4IXGQpFaoH
-         hkTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775305294; x=1775910094;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qxbGgf4+lSuSxIXzDbxhYHMBptayAf1Wj0PvoCJF+ME=;
-        b=UQt+4mjpS5woAwmZ72d+syzBNCawFtVYLsXr+HwKRA7A/7chmui7AM0RRCyjLpHa3f
-         yhmZwlvzbjG53y95Bqw9pprfCTJRx4PMbcL5a4sM6BamLdFxA2O0oKLNcEl15ibk2DJa
-         8dAG4PAldi2cqO9mCmwHeoLxOF45eUPu/klP1cZmFG2PmmtdSoH1RVqKDjtHLo7YGRa/
-         EiF9bLIZ1tp40weNAMbCAneqAZ86LfEBBFg2S74E64pEMvyvzpnIrIKa66bodIcIbB7z
-         EpQod9jNKx76blXLqu7fdWY8+kAS1UAHd/zhCHvUerKt9bfaPmEfX6rMgGnIC7fjFkSF
-         N92w==
-X-Forwarded-Encrypted: i=1; AJvYcCX93YNaRUJ06HLWLJnPptjIrrmhjh8QjaQh5CuZ2G9dc3gaWsODfiEXa5bikgz+tc0JuP0qqriuoJPksQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyvto25S+55n4Zws3MjCgOdAtz7Y2Rw2ja5pRwDyzyawhgM0EJW
-	dRdHBc666NwINcvAs3Ne1+WYmgkkydBr0QlmL5ji0gpzKQOpzZefBTNXoB9x2yGTGso=
-X-Gm-Gg: AeBDietrt4/htmqs/2Ojrk2ZLj/kf50JwtrdQJwW594OwQvmaopIRDXj9ki06qo10MF
-	AP3ptEJe1B2t0WqCrknnT3w95CmGo5JGIqsqIU0bf4dB+uLv2QB2uMWTRVjYF7l6oHxzKL/nP5y
-	abg6diPn7a3Bu7blJ0UsAOJvP/08ZMyoCfhibNKsHnVutTsRHziVNTTUMAzl8WCDZXr+9+bxMRo
-	DWMdjU5rZ0/J4vsIthTuUftdzlB+CmMlsFoVDMd7znhF3ynBBxf9LvbgCATipp6yXPaIAhK2Epp
-	gmxpMXRZBhRVFm4S2YJGONfHhAQq5YgIboHnhY84qVPj+2hxX+uTE+8FKIuuHbeVhYgMKxBU0xp
-	/lt1P8cDTw/vQJH0magBYXJYg9VuJS6S8BW3lnsw+B+Xla6RfSzHDtLrVRKmiq0GFIJ+laqg7zH
-	aJ+kbyytnIAIpIpKioZlYDVznWSOH+QZpQFCW3K1Xg/TQ=
-X-Received: by 2002:a05:6a20:430a:b0:39f:2dd0:65d5 with SMTP id adf61e73a8af0-39f2f07e2fcmr6795719637.39.1775305294226;
-        Sat, 04 Apr 2026 05:21:34 -0700 (PDT)
-Received: from n232-176-004.byted.org ([36.110.163.98])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cfebe5b23sm8327063b3a.59.2026.04.04.05.21.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Apr 2026 05:21:33 -0700 (PDT)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-mm@kvack.org,
-	akpm@linux-foundation.org,
-	Muchun Song <songmuchun@bytedance.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Austin Kim <austin.kim@lge.com>,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/5] riscv/mm: drop vmemmap_pmd helpers and use generic code
-Date: Sat,  4 Apr 2026 20:20:56 +0800
-Message-Id: <20260404122105.3989557-4-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20260404122105.3989557-1-songmuchun@bytedance.com>
-References: <20260404122105.3989557-1-songmuchun@bytedance.com>
+	Sat, 04 Apr 2026 15:18:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A5CC60008;
+	Sat,  4 Apr 2026 15:18:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3592C19421;
+	Sat,  4 Apr 2026 15:18:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775315914;
+	bh=sfics3gcx6ewjjKwTOJ2rCkuCBEKr9GefJzlW0cJEQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m34AcMyJ0jEtOTzP9OesH/iBIpXGqfXSA/nU28tl7SZvejC4IJTQxodPPy85sJM2K
+	 5mkufD9/tjy81w+oPkSd19B+bTst5z/HuMblhTpsU3HNe5O2ri3d2o835npA7iv56V
+	 LlRqy4KUcuxhunxaV2kB1FHvfKPiV1BX2NM4Rtf1BHCT3rnjASMxIzEr6fP8ZdDblS
+	 XQC0XA8lgBY3QpLBZFRYox5yW4xbf54uaK80waqlB3gSRw40junHAm3YaYqMaP2NIF
+	 OqF1ULpuGhSgV/zZZZYLwcDk8I02zgVjvqMZbit3kwoD6ixOx+Kby/t/G66xN5Yxo1
+	 YNZ7GdOdttt+Q==
+Date: Sat, 4 Apr 2026 17:18:31 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chen Wang <unicorn_wang@outlook.com>
+Cc: soc@kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>, 
+	"sophgo@lists.linux.dev" <sophgo@lists.linux.dev>, linux-riscv <linux-riscv@lists.infradead.org>
+Subject: Re: [GIT PULL] RISC-V Sophgo Devicetrees for v7.1
+Message-ID: <20260404-humongous-mayfly-of-fortitude-5f087f@quoll>
+References: <MA5PR01MB1250079A8884D4F6245B955B9FE51A@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_052135_322130_BAAC69F5 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <MA5PR01MB1250079A8884D4F6245B955B9FE51A@MA5PR01MB12500.INDPRD01.PROD.OUTLOOK.COM>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +70,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The generic implementations now suffice; remove the riscv copies.
+On Thu, Apr 02, 2026 at 10:39:51AM +0800, Chen Wang wrote:
+> Hey Arnd,
+> 
+> Please pull this dt changes for RISC-V/Sophgo.
+> 
+> BTW: I'm still waiting for my key to be added into the pgpkeys.git and
+> hoping this will not block my PR.
+> 
+> Thanks,
+> 
+> Chen
+> 
+> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+> 
+>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+> 
+> are available in the Git repository at:
+> 
+>   https://github.com/sophgo/linux.git tags/riscv-sophgo-dt-for-v7.1
+> 
+> for you to fetch changes up to 7b159ed9c81cf7e0d0b75666e6548ceface2e1b5:
+> 
+>   riscv: dts: sophgo: cv180x: Allow the DMA multiplexer to set channel
+> number for DMA controller (2026-02-26 06:12:22 +0800)
+> 
+> ----------------------------------------------------------------
+> RISC-V Devicetrees for v7.1
+> 
+> Sophgo:
+> 
+> For CV18xx serials:
+> Just a minor patch to replace the compatible for
+> dma-controller to allow setting DMA channel number.
+> New bindings and driver part change are picked by
+> DMA subsytem and this patch handles the left dts
+> part change.
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> 
+> ----------------------------------------------------------------
+> Inochi Amaoto (1):
+>       riscv: dts: sophgo: cv180x: Allow the DMA multiplexer to set channel
+> number for DMA controller
 
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
----
- arch/riscv/mm/init.c | 13 -------------
- 1 file changed, 13 deletions(-)
+Commit has messed DCO chain. I suggest using b4 to handle patches.
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 5142ca80be6f..f7e7d7c2e97f 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1429,19 +1429,6 @@ void __init misc_mem_init(void)
- }
- 
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
--void __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
--			       unsigned long addr, unsigned long next)
--{
--	pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL);
--}
--
--int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
--				unsigned long addr, unsigned long next)
--{
--	vmemmap_verify((pte_t *)pmdp, node, addr, next);
--	return 1;
--}
--
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 			       struct vmem_altmap *altmap)
- {
--- 
-2.20.1
+Best regards,
+Krzysztof
 
 
 _______________________________________________
