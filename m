@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6846BE88D70
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 07:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1304E88D87
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 07:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=crIHbJxcSZW2VUQDhjUIwBBehLaYFagsb+zA2wzaQQ8=; b=T2RL2ych3RtjwF
-	2RFqKJSpdP175x6VRWcqH1YrTAiVTTF8kv68fbV6uZLQ41Ij51IUZ8IH+MJpm3W4cNvM6MTbEvvYr
-	PBg7jymYLSDKJeC06DvO0ISNUAMx3D/dyVzC8m/gryunonOmbCZiGME7b3kkeBXFg71Agu05tYghC
-	m1WL74RTo+m0tJOCTd7G3t3zXsVCJ0pKS1Z4s1O9EgOWcPygClLPGlPiKRA6JJC72w6ahnOktUoMd
-	XT+UM7EhbWcP+aKptEw+U6l6LW3OHlxrIEgHm+Yo8X9ATNQ3k72Qmbr6H6DlXsDNBHCr+cDDA/OMm
-	kj8otaUvaSstpituAJng==;
+	List-Owner; bh=crIHbJxcSZW2VUQDhjUIwBBehLaYFagsb+zA2wzaQQ8=; b=tU2juMuE+BRKO6
+	M7rKrRzn19slHlgoc62H7Sy/d+emb3mLQWp0UyEbHktjFksX1CRIuk29/YCTDhCdEywMds59xNCUK
+	jsYa2/8TevLLmZRahw4Mgtfbr1NnARHqP040c2b1N8ZaxGsDQKYE+Ufs3/gs+qRCcuDVNxBL5vnKT
+	hSZH9oV+f907jDBOAGxPENV3KJee6Xs8Awpp3jzplBtCt1/IsMeVM1gChJO4PtH9ljifM4O334tP9
+	NPbgcdr5EZX40sB/iMAHTsKrZRCHd+5N96EplT+z7aAK0jhYQyxZggYTVi8ipJwoqQ0VNH0tjyNWo
+	bvJ5HUG7XtGwmmwvmAQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8vGc-00000003EeK-1Pfs;
-	Sat, 04 Apr 2026 07:18:02 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1w8vGo-00000003EjD-2fkb;
+	Sat, 04 Apr 2026 07:18:14 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8vGZ-00000003EdA-3p8y
+	id 1w8vGm-00000003Ei3-1oyY
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 07:18:00 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2aae146b604so15421425ad.3
-        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 00:17:59 -0700 (PDT)
+	Sat, 04 Apr 2026 07:18:13 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b25cf1b5f0so15262475ad.3
+        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 00:18:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1775287079; x=1775891879; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1775287092; x=1775891892; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
         bh=qxbGgf4+lSuSxIXzDbxhYHMBptayAf1Wj0PvoCJF+ME=;
-        b=JeBNLf1RHTC1icQL8I8gm1jUKmYPGURNHq8D/FWkx5fQDgwLoyXNCui1qpVH7XEcsj
-         8nDCIPQ/kKOhsxoYYGkKtBgyXqDEWcCkqy/xCcRfm0iL8ExtPecw0DJwzjEmHC3W5Ip2
-         InVJjFxtAKqTICQqVeu7Tu30TS98wy6je/JzIJToB1GPlszf9tSpIfzWDUBOjTfGpymI
-         iHvvbbd5YDYn7TSY8mJOmL5IWf/8Qk8uem45t+I1Sv49wIRI+eSjr/+1MxwpPZEAqsG4
-         4vFvDad++hoGj6GsLMEqWo+lrQdLUbCvDvlAQ+HdSl3xemHAc1oxEteYlNwR4/YAwFwr
-         wmgA==
+        b=YXcy7DXxQLZOFqSRDODGYtNcww4xm4J+0eq3jp9OgKPrZP02uVd/AKgDsrNv6sYpHe
+         IsuUPu/XyqodFW8F/RFzgTukUxVU+XGSSZ+Hypcil6RrUiRyNRvvR26iEq/aTbDnxY9N
+         nJc8FN8iTXZ2B0ym3bm4FdaRxiJcYolsJTk4i8nm5pCaBnZI3FnqweZbTxu2KXrvfppg
+         xBcwdoIMGqUVdGibXGiOPPJ8M19f+v6P6ql0G3uHKMjCBJQY2E4kbD4vQ2zEXAPZ9zgn
+         V8yNB21cDhfwz78fNua7sqL6jFi/TmuG6cfYgfm0ey1dITlEFzAYKLP5+lHLrdSHDMk3
+         Id3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775287079; x=1775891879;
+        d=1e100.net; s=20251104; t=1775287092; x=1775891892;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
         bh=qxbGgf4+lSuSxIXzDbxhYHMBptayAf1Wj0PvoCJF+ME=;
-        b=Snj32xLnEJ67R67l8WudJqYIQvS5pGmA8IdjU3JcWczeGg8gYEbX+26CCeqLIaIcyt
-         btypmVgdMyLNrfuO24g3Mhtffq2DXeiwwptg7mp9q7crIfkSKz/7oChi3Mn8hsVfWVDq
-         k+tzpNaAqnMv6Cat9eQyZJBpQtghprvOWyU2f1VCO8CYlnS3EhxKCaxIl5bTUtstFogZ
-         QCbqFlTyOkIam9eXx32obZZ6s6JEJ0AwSNAXlb66IrWszMz2DXVZsARN0pbEQTVPXiSA
-         Yugke9GzTVUIt2hOZRRxKsnmd4SiJyTC/OMvVhdbncVUSI/9W2c+Tw4xvhH5BuGx3xxc
-         2Ybw==
-X-Forwarded-Encrypted: i=1; AJvYcCUcm09uOi0ifA49RLxcwRerjdlQptS3rcmLIgzuVY2e+alhuswp5BJ/1uPSitQo2QJ72DsawNrAnuRUoA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YysjQkglguRhr9gnPTWivD5gmlFqhOhH+2UrcnRe6oaK+yQaI2S
-	j2WLMAnTngT/TGOrCWX0Smm72K58xoCtvLaslAZ2+Rm58UbWc9AombshegoB9l9pcTE=
-X-Gm-Gg: AeBDieuZNzQUuJoPWUq364e67QC5WK/va/bvBAyhOf7noEr/zXI3hge17a/1pGYJgis
-	A2FngX7d0L24OU6YMYtAGMYgBEbkg92BBobeYyZ35WODbn4qEojJ0GiCqDJLmwe4JO110tMYs+l
-	TIHICE1Alvh8P2olZb/VMYVVa4yz3Nq31iMoMCGbPinFhA/Wj32qgDC07NMAwtXkgQyAce9Z9f3
-	RAW6GONI904Q9ACMC8FWcdLvr5QwWwbOx4myOl5GXWmhxvkbRAXZbXcjIh2o70bb5tXd5TW1AkJ
-	Dqrp2e4qDtNWZpp+qgU9LNR/WZx08npp0Ct9WdBQF0KfCLejbXOlzU5XLD9Yst9LSqr3aD2IM4z
-	5uzVPbYmJe4CCwU8tsdvOGRIYr82pfLrfW/N2gZoPdwP7o6Vauz1/xnRx/X3ud8FH03pMoeWp+U
-	ZXoRFZXScyu+s7Nz5SoB3mW2JxZXLZb0bwxeqP5islCtE=
-X-Received: by 2002:a17:903:9ce:b0:2b0:54dc:63e with SMTP id d9443c01a7336-2b28193257amr60394315ad.33.1775287078939;
-        Sat, 04 Apr 2026 00:17:58 -0700 (PDT)
+        b=M0jpseJX9/NTUb1WQXq6xEsWptIN0sQoMEMQIC8ZooNNQVrnyNHfV4ynQ3EpZnKkuL
+         WRi65f+wrB+qH5ko9EyeNdRtyEmbNcN/zXhVGre6gXQzJUDS8d4/fd97TJloq2gLCyjg
+         mxl8cAsK4mKFG/fHM05DqVtUSXf7ocaHV4i2vEFkZm7i9qDxz5IvDEux+D+1MTSeSpc0
+         zSKyC3X/5EiTc7UCiGH7Leu21bNUmq9DQYrouW6GftfQ2D+c3tF3ijzTyOvpv/29KxNn
+         DDCZCf/XP9+UlNgEueXgSdJlBYqvdi+hXXvgspP7V3Ll9Fi3eoVSE8eZ9m7IHkFGY7RG
+         o0+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXmF0ZBT3ffxfKNyAn3fUnJggL2mDSU2zvlnK15bo3DtCgS1ffFR6KcmOpI6AYDzpH1XinVhdPS/MC6Dw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDYUq/YVORSC0PcBJhc/x4dZOBniEzkXpBmA5isW7L/bu8IIiD
+	SWg5Jyp+qR3IpUpJPnNavkjXWELj9NCxxjKxDvLDiG5hYduIA776D9bb4X9watAghE8=
+X-Gm-Gg: AeBDiet/qmyh2WWMAMewB43UZ4+RugXuCQooXYZs3fbrXlS4P+HA9NTjQq3x6FS7Kg3
+	PV17SlSjJSVWOldwFvXGXQaT5UguALuICpyAajnpsgdFlFKs1pFoFW2KMZa9cc6JIrZ1D3KplTq
+	xjkFg4n7JPYw7cYmK+ziC+zDLoaZ/aZzgdlszOn9FHY9L9iEbOgnXnEHCwZLOPQEeYIUz9K5BsG
+	6zkDUO+f8SQi9Zq6sZo0MlvXu436Lg78G1DarV8252psmLng5CsMg4uq/Qq4pPP4ch5dl1gs+UI
+	xyufjH1DS8mGJILw/lFRShRvAnCpmhWs9Y5YUH5l52bHYGUE5Vt9LbUV6dPYEkUqBVjpFN8mS+P
+	wX74Ve93XsXXFBCtgQKotahWpBJVs9U7/xpl964hcNUyen91ItWCNKbSUsuqJkfJ/IhQLjCbcMA
+	kJ5EmcH/kwVruTw+MOPp9qwxxcNw5Kz7L9p9mgzhppHuY=
+X-Received: by 2002:a17:903:1904:b0:2b0:5795:9ead with SMTP id d9443c01a7336-2b2815325ffmr52669865ad.0.1775287091675;
+        Sat, 04 Apr 2026 00:18:11 -0700 (PDT)
 Received: from n232-176-004.byted.org ([36.110.163.99])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b274979525sm94675115ad.45.2026.04.04.00.17.54
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b274979525sm94675115ad.45.2026.04.04.00.18.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Apr 2026 00:17:58 -0700 (PDT)
+        Sat, 04 Apr 2026 00:18:11 -0700 (PDT)
 From: Muchun Song <songmuchun@bytedance.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -79,20 +79,20 @@ Cc: Muchun Song <muchun.song@linux.dev>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
 	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Austin Kim <austin.kim@lge.com>,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
 	Junhui Liu <junhui.liu@pigmoral.tech>,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Austin Kim <austin.kim@lge.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/4] riscv/mm: drop vmemmap_pmd helpers and use generic code
-Date: Sat,  4 Apr 2026 15:17:08 +0800
-Message-Id: <20260404071720.3577290-5-songmuchun@bytedance.com>
+Subject: [PATCH 3/5] riscv/mm: drop vmemmap_pmd helpers and use generic code
+Date: Sat,  4 Apr 2026 15:17:10 +0800
+Message-Id: <20260404071720.3577290-7-songmuchun@bytedance.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20260404071720.3577290-1-songmuchun@bytedance.com>
 References: <20260404071720.3577290-1-songmuchun@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_001759_954508_2E69DDCD 
+X-CRM114-CacheID: sfid-20260404_001812_468668_684650EC 
 X-CRM114-Status: UNSURE (   7.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
