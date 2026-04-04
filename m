@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCDBE88D78
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 01:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46AA7E88D73
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 02:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sg3H3YyJdGb0OtcMvvvQY3SWcMfEz39DMq3Q/fG44No=; b=dG8BrfgPEb00kx
-	9jGQgI3xRpQr7YIAz8M1QNA1d8RMUub6Hn+5WHMJBsQFrw9dQb0LPouwJhaOTRQlF57xTmqQB7xhr
-	V3b6LK94XfifAHxmsL2WLf32j8CjFUT6yAT65PMG5HiAjY6D3DWEhtsdlLUZj+UZUYPjkAWiXLqGj
-	DYKsTtkok/LVluNMHj3G+GXwmMF/EdVbviwzxB2em3eMT3jnMa5oz+ZDfT9HdI9ciRMva1hVIIoNH
-	EgSkU7g3HBTPgUKkQ/zNC3x7PgZ8LpybTDEHwBPUv5jNkh98kC+W1+vQUkqW9NtJw2t738fecxDLX
-	4fTV/WQTZMA4rVhc3GKg==;
+	List-Owner; bh=Zxq9jXAI9QRG4Wv52N77vmdxvr01+UYvd990XNNXKjI=; b=Cw4XldaTfjD8b+
+	dpGPHsjEj3oDfLLrP+s+4Y5e2lVbKrpbLfTSlWQQAmneILP3Qr4Hi9400yX1cTpPBAKYz+UnUuVuY
+	46++4fz4moP1qfPVgNGmHZjGmG0TxBn44cfaTl4nHAQYSGDPe3zOAhjreMX3ZlQNo2FKVYQORY3z1
+	NKj0tANcb+lgeYxs4uze7tcbszIk+WknydCXjFL2D8poZdWKOI5mWqmboAHVxeApv8NPCVv+Ek+4k
+	tuQXuLDW6Zrz82IVbjnhBEtoHSZUh3XRXgEBw9UkLldDQjPgXTb9h23d8VMbBcO89oQp9DnpcA5cO
+	Kh5X3n4ZQ2LY3JlwHWlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8q9g-00000002t7X-3FdK;
-	Sat, 04 Apr 2026 01:50:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w8qNG-00000002zO0-2cUI;
+	Sat, 04 Apr 2026 02:04:34 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8q9e-00000002t5h-0F7x
+	id 1w8qND-00000002zLy-3X8K
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 01:50:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48E6543764;
-	Sat,  4 Apr 2026 01:50:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21104C4CEF7;
-	Sat,  4 Apr 2026 01:50:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775267429;
-	bh=phx3qs8dMYY6rAwt1SmlW4YNc10KK+Pf0xVolC+iDwU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Fun/c63xB4fDCsPjuLzX+xurZNy9azUsOWa3UXB9MstCl2m+ZwdNc9HLELTvgsLrs
-	 vIf8JFNNC9uFBL1OePH1SMLaYROkTOiY2BYgrxfzXCQ053zhHxiR6T6SUCHUzN5VDx
-	 c4Gg+50Ul7FLDjsoZfAUYT5bufgpd8RkA2qMOmLn/7Z6lKnSrKtE6XmtBIN+FRYyFX
-	 iGP75PZBaHfCkRrGSozXxEhcC0CBzf9aszQNMxPowamGllSMVZTIwCA6zMdMah12vG
-	 oe943vk1KvyBgdwYNuGrMTiCxmtkLuw1Ss4x1xAORbKuyewPhbwP3xvSXIWoO0Xef/
-	 maSdauAyu6wGw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9E643809A18;
-	Sat,  4 Apr 2026 01:50:11 +0000 (UTC)
+	Sat, 04 Apr 2026 02:04:33 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-67f9209185dso1286961eaf.2
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2026 19:04:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1775268270; x=1775873070; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QFX1dhDieBRaAm9qJ2639rNkR3TjfczoXLEWvV+mu0Y=;
+        b=O9wvK4bC91Xz/TQL9yClz7M4zd4kSwSnNviAfNydw4CkFI+0u5C3eEHp40fDmZjlEx
+         7I/iftBStUWKsHv+JYa3cubkdtxd09gvIdJEdb2DOosU0/A8eU7lGZkKs1GHsRWYY4Qr
+         Gqhgzka/ECAKntzrn1XBZekncIde3ze7kTn2unzfAo3aaCXNqukaYahjoNCfPjnohz+X
+         P3HHiIurHyNq0iQaUQw2jO6Xx+GXPKF1G0+cUi/aUazXWL6Ct506JbMe7hu4Bte/nzmS
+         rXvNzq0CTHdOrqCPAspR9QchYvSY17XQIltpq3zNHpIkzuRII7wN6S46jKH2PnbNUDIB
+         hcjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775268270; x=1775873070;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QFX1dhDieBRaAm9qJ2639rNkR3TjfczoXLEWvV+mu0Y=;
+        b=Ihi7G+pakqI422M3cjP4eMS8vbiXvRkPWmYVHtrEY1qvchPY3knLTnLggeJyDXVB9a
+         jvVbo+s32d3UNclbwNfYQtDdSLiVn5eRj2ITvIzTjN9s0p5MQOTIXeYuYh+TjfyJ3tVK
+         k1vOk2Nzm6pIcdf7RGtIY/yFW18VE3+YcJSJl/4rlSghQuTbuyfyJX9Edtq0LPSLkAgn
+         M/+HSDpz+6AJaWrcSouyp5uqX5b6exQWuM6YB/C/k8LIseRM34WThh6HP3AZ2KoXSRur
+         NkKE/kNRxPsqaeaoM3O5Bsexj2ya2qXHk1C0Ydec9KH4l4NBA8RZbzMVDIwFeA7GCajf
+         oMNg==
+X-Forwarded-Encrypted: i=1; AJvYcCU7q9IzXnrSWsg1GL6fRmx6T1OGmjFpdWdt1J1Y3zki+3PNQcrLQgbPXztpgLeotVLrxd72vSylihW/Yg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeDi1vatVOHbsTN7q/itcFg7X1/uyow9c6atChkzDrZYzVl9BK
+	ZmZSRTk64OvPParmNx/YdMxqgI+dWtbUmG0Q7uCUeS/si2xIXwfaQMXhJQ12akcAwNk=
+X-Gm-Gg: ATEYQzwDWOekoP7oNSN0W7BN8197SbHaCFjqIotBghZfRv+weTMKnewuCo4eDfJfKTj
+	OUjTfrV91qd6HFgiwOLgq3CPe4lzQjlrtaWmLyDY3yyv0yRrFz5vGuVQrP9/2PGX2ZYBBjw+otS
+	Np+adLJJxBOVBw0pvFfn26hfCFiMf+m+P8awszuiEdbZ1IGmFKDPuGOH45poT/cdqhX6DE2JTDt
+	NAA4feQFtIRpIWxb4q2ISf424euCzkOKGpNxR0o0u3ayC/VRyM6jG8wAqJUZDmnjPYKfUcpZ3Oj
+	VEf+JM3zbYx79FnUq0haVqPFTs2DJt1WOQywcURyqkrkfkZEIUbmm1UVGFrWJ3yRvp2rZ3tVyN4
+	8//eCcWLxG1GvMOHbMlTCvfAoKlAhDOGXgGDXuMsVGmJG8Ye2k/7nWgpcQz6yAY1br4pumsYjnI
+	Lig6hD/4w90lqEDhRRF4bq5Pvhpxz800bbYoHVPiLQYCYX+ua1aXrYfkJtAGjPjs5EVy3W
+X-Received: by 2002:a05:6820:2006:b0:67c:250c:ac4c with SMTP id 006d021491bc7-6821fe6157amr2712135eaf.31.1775268270140;
+        Fri, 03 Apr 2026 19:04:30 -0700 (PDT)
+Received: from toolbox ([2600:1700:220:59e0:a819:2018:a04a:68a9])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6822987630bsm2274434eaf.4.2026.04.03.19.04.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Apr 2026 19:04:29 -0700 (PDT)
+Date: Fri, 3 Apr 2026 21:04:06 -0500
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+To: Troy Mitchell <troy.mitchell@linux.dev>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH] riscv: mm: fix SWIOTLB initialization for systems with
+ DRAM above 4GB
+Message-ID: <adBxljN4t0ZIIvGQ@toolbox>
+References: <20260331-fix-riscv-swiotlb-v1-1-74dd5e6be0f1@linux.dev>
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/6] Restructure per-task CFI prctl() and ptrace
- interfaces
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177526741054.1520684.8289044721186928310.git-patchwork-notify@kernel.org>
-Date: Sat, 04 Apr 2026 01:50:10 +0000
-References: <177526680875.878386.16551569883089050686.stgit@seppa>
-In-Reply-To: <177526680875.878386.16551569883089050686.stgit@seppa>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, tglx@linutronix.de, peterz@infradead.org,
- broonie@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20260331-fix-riscv-swiotlb-v1-1-74dd5e6be0f1@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_185030_146455_DFC584DB 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260403_190432_202994_FB025C28 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +101,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
-
-On Fri,  3 Apr 2026 19:40:56 -0600 you wrote:
-> Restructure the per-task CFI indirect branch landing pad prctl()
-> interface, as suggested by Linus [1].  In place of the current
-> approach, which follows the style of shadow stack control prctl()s
-> (PR_{GET,SET,LOCK}_SHADOW_STACK_STATUS), adopt the style of the
-> speculation control prctl() constants (PR_{GET,SET}_SPECULATION_CTRL).
+On Tue, Mar 31, 2026 at 03:37:22PM +0800, Troy Mitchell wrote:
+> On RISC-V platforms where the entire physical memory (DRAM) resides
+> above the 32-bit address space (i.e., above dma32_phys_limit), the
+> current SWIOTLB initialization logic fails.
 > 
-> Then, to improve readability, expand "indir_br_lp", "lpad", and
-> related abbreviations in the interfaces, also as requested by Linus.
-> While here, expand "ss" in the shadow stack ptrace macros to "shadow
-> stack".
+> This patch addresses two interconnected issues on such platforms:
 > 
-> [...]
+> 1. Incorrect 32-bit DMA bounce assumption:
+> The existing condition `max_pfn > PFN_DOWN(dma32_phys_limit)` assumes
+> that a 32-bit DMA bounce buffer is required simply because the maximum
+> PFN exceeds the 32-bit limit. However, if all DRAM starts above 4GB,
+> no memory exists below the limit to satisfy this allocation. Fix
+> this by adding a check to ensure `memblock_start_of_DRAM()` is actually
+> below the 32-bit limit before enforcing 32-bit SWIOTLB.
+> 
+> 2. kmalloc() bounce buffer allocation failure on non-coherent systems:
+> For non-coherent hardware, a bounce buffer is still mandatory for
+> cache-line-aligned kmalloc(), even if 32-bit DMA bouncing is skipped.
+> Without the `SWIOTLB_ANY` flag, swiotlb_init() defaults to allocating
+> from low memory, which fails completely when DRAM only exists in high
+> memory. By appending `SWIOTLB_ANY` to swiotlb_flags, the allocator is
+> permitted to allocate this alignment buffer from high memory.
+> 
+> With this patch, systems with non-coherent DMA and DRAM entirely above
+> 4GB can successfully map the software IO TLB in high memory and boot
+> normally.
+> 
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+> ---
+>  arch/riscv/mm/init.c | 16 +++++++++++-----
+>  1 file changed, 11 insertions(+), 5 deletions(-)
 
-Here is the summary with links:
-  - [1/6] riscv: ptrace: cfi: fix "PRACE" typo in uapi header
-    (no matching commit)
-  - [2/6] riscv: cfi: clear CFI lock status in start_thread()
-    (no matching commit)
-  - [3/6] riscv: ptrace: expand "LP" references to "branch landing pads" in uapi headers
-    (no matching commit)
-  - [4/6] prctl: rename branch landing pad implementation functions to be more explicit
-    https://git.kernel.org/riscv/c/987bd38dee75
-  - [5/6] riscv: ptrace: cfi: expand "SS" references to "shadow stack" in uapi headers
-    https://git.kernel.org/riscv/c/c8acc707f48c
-  - [6/6] prctl: cfi: change the branch landing pad prctl()s to be more descriptive
-    https://git.kernel.org/riscv/c/e0d96d3c63f5
+Tested on Tenstorrent Blackhole, which doesn't have any memory < 4GB.
+With this patch, these lines no longer appear during boot
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+[    0.000000] software IO TLB: area num 4.
+[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 67108864 bytes tlb structure
+[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 33554432 bytes tlb structure
+[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 16777216 bytes tlb structure
+[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 8388608 bytes tlb structure
+[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 4194304 bytes tlb structure
+[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 2097152 bytes tlb structure
+[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 1048576 bytes tlb structure
 
+Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 
+Regards
+Anirudh Srinivasan
 
 _______________________________________________
 linux-riscv mailing list
