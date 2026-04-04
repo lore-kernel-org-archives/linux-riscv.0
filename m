@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8997E88D73
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 01:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673CAE88D6E
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 01:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iI+HO38BjaBA76l5wBWZ2TcuwsVBLBraGkH+Hqo9UMM=; b=2+SBpGpU9m76rF
-	fhnpVi/8VCUWzgmYMGUJPnDOPcqViOGab+vPJz3vUisQx/gQq4/qbbXwQgObqhxuY+olBNBK4sApV
-	wUHphJfVZ+WovzMB1M1qbW9ZvUvbtGaBwo3lvYeFLiSPtcdQI5N1H0gie1KVijZ1GGGvn4AA9M9mj
-	KUvOj5Q4kUw1osW8uJOqPA/9gW70xiA/P9wtSdVsvoFKTQmqjA380OmcvqLlWkupISiQj1zXt8by+
-	hGTy7DluVlKOCKg9qpqnDHU4Cj8d4nzge7bwnG+RHBqdi0gdgPAJjfSRVPvswCeaQv25pTp9Mecz5
-	rOZPp6/wm2xhJhae2VEw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BPoELLHvVJC277ccMDpGtn8182gEwd9uQiBRdmNG75Q=; b=wd3gONlf7jDXeN
+	eIqpyJumW779iPb2/wyKRmJjKqLCoNJ8JEegRmdFNz+XpCMH3UGSx9hEFcNRLbKQkdSudJ6N/wiTF
+	QhEFPo0u9NlLoK9khvFFtrg76MnHwKsgXlBa8C/ysnodpxI/V+dbp0+3bI6FTkQej32D3bAzMnDam
+	foj4msKExWWZH1ZZT3AlgLSYj0NKOIJw3NYktORcZ4+vDmCQSd/YJESVUFjzQjh2y6XNcp1wgP0Il
+	WXwVyVCA/BxlqmUoDXeT4FUsQtP//9q+fqPN2hvsuAW5nnIAuhIsUKYXK2nbrPLdT6K6bYd+MyzYQ
+	TKQpyMgkVsTm+PX+ptWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8q0S-00000002oIo-2jmA;
-	Sat, 04 Apr 2026 01:41:00 +0000
+	id 1w8q0c-00000002oO0-45Y3;
+	Sat, 04 Apr 2026 01:41:10 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8q0R-00000002oIM-3jFx
+	id 1w8q0b-00000002oMp-0Rw7
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 01:40:59 +0000
+	Sat, 04 Apr 2026 01:41:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E8B3A60008;
-	Sat,  4 Apr 2026 01:40:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB12EC4CEF7;
-	Sat,  4 Apr 2026 01:40:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A57760008;
+	Sat,  4 Apr 2026 01:41:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E4BAC4CEF7;
+	Sat,  4 Apr 2026 01:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775266858;
-	bh=ivuhrIaTVLnuIArBzndyE8aUuR5zdDlFZooJ4oon2WQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=RGpxC/KfsYvmrJX9Jk0M7F4CydNSVjBoP+M8fmzyLTxNIbc4358obUClY2tu3JyHm
-	 L8DqHBKaLbc1PWGRHskHnZrm0tcpZkKkfI+LpDmsK135+79Wi4A/jZShSC94xDMFUp
-	 OtFP8sqD9ptk4TwU21M/pGQdOulqZDIVDt9kCRlKaXohoPn5VxPkhdmhH8pp6Y58pG
-	 eyilUYveIl4Ln7R0babfFQUtj3Peh3P1C2kpObg3l9cT/K0lVvlms4VD8kYE0VyU0T
-	 ljdfw/j8/BEve7QHbAuyaxHtOFAhCe7fYB+mAig06cGU2zb2eucqxpRm5rb5xNKoCU
-	 BHiwGWB/3fH7A==
+	s=k20201202; t=1775266868;
+	bh=EFgKddfp+ncgtImUksWpwtH8lRPIsJQM6H0q+JMNOVQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lXD4VVD+m8mwQGIzOlQUv3Fl9EZKiPsVxpWfmBsyHTQOdCpsll2u/6HLBUU2IDawN
+	 ClSYS1Ngm78GYwmgVVQ5/jIZIl8884X7QJNWY7EHCYlsMxjSUOojmZusqkntQmrV/3
+	 HLxeqfG7V1xwQrrnpm7V7QFvl70aMvDivLNWSOoaOTCBKf7RliQP9/6qJO9nf8kDEf
+	 nzmHevvBVHsYCWMo1BZli8eomIVJCBdtoVJL10jouv/wfKsWd9ZhAVcfryhOgJVtgh
+	 a4JDnXUkiDvK/6w5aHXuUbMtOGk1Gitd6zr/5LHttYtnhrsoLdlSec3P5VGn0faNIR
+	 fxE+HJK9Ik68A==
 From: Paul Walmsley <pjw@kernel.org>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: torvalds@linux-foundation.org,
 	tglx@linutronix.de,
 	peterz@infradead.org,
-	broonie@kernel.org
-Subject: [PATCH 0/6] Restructure per-task CFI prctl() and ptrace interfaces
-Date: Fri,  3 Apr 2026 19:40:56 -0600
-Message-ID: <177526680875.878386.16551569883089050686.stgit@seppa>
+	broonie@kernel.org,
+	Deepak Gupta <debug@rivosinc.com>
+Subject: [PATCH 1/6] riscv: ptrace: cfi: fix "PRACE" typo in uapi header
+Date: Fri,  3 Apr 2026 19:41:06 -0600
+Message-ID: <177526686350.878386.7631240697695749981.stgit@seppa>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <177526680875.878386.16551569883089050686.stgit@seppa>
+References: <177526680875.878386.16551569883089050686.stgit@seppa>
 User-Agent: StGit/0.19
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -71,61 +74,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Restructure the per-task CFI indirect branch landing pad prctl()
-interface, as suggested by Linus [1].  In place of the current
-approach, which follows the style of shadow stack control prctl()s
-(PR_{GET,SET,LOCK}_SHADOW_STACK_STATUS), adopt the style of the
-speculation control prctl() constants (PR_{GET,SET}_SPECULATION_CTRL).
+A CFI-related macro defined in arch/riscv/uapi/asm/ptrace.h misspells
+"PTRACE" as "PRACE"; fix this.
 
-Then, to improve readability, expand "indir_br_lp", "lpad", and
-related abbreviations in the interfaces, also as requested by Linus.
-While here, expand "ss" in the shadow stack ptrace macros to "shadow
-stack".
-
-While here, let's fix a few bugs in the interfaces that we should have
-caught earlier:
-
-- Fix a misspelling of "PTRACE" in one of the macros that is defined
-  in a uapi header file
-
-- Add a "lock" parameter to the state locking functions, fixing a bug
-  when a locked process calls exec()
-
-This series is intended to be applied before the v7.0 release, since
-it changes user API constants.  This series applies on commit
-2ff48e0382102b29cba20cdd8bf16a0f045f6e33 ("selftests: riscv: Add
-braces around EXPECT_EQ()") in the RISC-V fixes branch.
-
-
-- Paul
-
-1. https://lore.kernel.org/linux-riscv/CAHk-=whhSLGZAx3N5jJpb4GLFDqH_QvS07D+6BnkPWmCEzTAgw@mail.gmail.com/
-
+Fixes: 2af7c9cf021c ("riscv/ptrace: expose riscv CFI status and state via ptrace and in core files")
+Cc: Deepak Gupta <debug@rivosinc.com>
+Signed-off-by: Paul Walmsley <pjw@kernel.org>
 ---
+ arch/riscv/include/uapi/asm/ptrace.h |    2 +-
+ arch/riscv/kernel/ptrace.c           |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-Paul Walmsley (5):
-      riscv: ptrace: cfi: fix "PRACE" typo in uapi header
-      riscv: ptrace: expand "LP" references to "branch landing pads" in uapi headers
-      prctl: rename branch landing pad implementation functions to be more explicit
-      riscv: ptrace: cfi: expand "SS" references to "shadow stack" in uapi headers
-      prctl: cfi: change the branch landing pad prctl()s to be more descriptive
-
-Zong Li (1):
-      riscv: cfi: clear CFI lock status in start_thread()
-
-
- Documentation/arch/riscv/zicfilp.rst               |   63 ++++++++++++--------
- arch/riscv/include/asm/usercfi.h                   |    8 +--
- arch/riscv/include/uapi/asm/ptrace.h               |   42 +++++++------
- arch/riscv/kernel/process.c                        |    2 +
- arch/riscv/kernel/ptrace.c                         |   22 +++----
- arch/riscv/kernel/usercfi.c                        |   39 ++++++------
- include/linux/cpu.h                                |    6 +-
- include/uapi/linux/prctl.h                         |   37 +++++-------
- kernel/sys.c                                       |   30 +++++-----
- tools/perf/trace/beauty/include/uapi/linux/prctl.h |   36 +++++------
- tools/testing/selftests/riscv/cfi/cfitests.c       |   13 ++--
- 11 files changed, 154 insertions(+), 144 deletions(-)
+diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
+index 70a74adad914..69d71443e111 100644
+--- a/arch/riscv/include/uapi/asm/ptrace.h
++++ b/arch/riscv/include/uapi/asm/ptrace.h
+@@ -146,7 +146,7 @@ struct __sc_riscv_cfi_state {
+ #define PTRACE_CFI_SS_LOCK_STATE	_BITUL(PTRACE_CFI_SS_LOCK_BIT)
+ #define PTRACE_CFI_SS_PTR_STATE		_BITUL(PTRACE_CFI_SS_PTR_BIT)
+ 
+-#define PRACE_CFI_STATE_INVALID_MASK	~(PTRACE_CFI_LP_EN_STATE | \
++#define PTRACE_CFI_STATE_INVALID_MASK	~(PTRACE_CFI_LP_EN_STATE | \
+ 					  PTRACE_CFI_LP_LOCK_STATE | \
+ 					  PTRACE_CFI_ELP_STATE | \
+ 					  PTRACE_CFI_SS_EN_STATE | \
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index e592bd6b7665..2704a532e916 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -351,7 +351,7 @@ static int riscv_cfi_set(struct task_struct *target,
+ 	if ((user_cfi.cfi_status.cfi_state &
+ 	     (PTRACE_CFI_LP_EN_STATE | PTRACE_CFI_LP_LOCK_STATE |
+ 	      PTRACE_CFI_SS_EN_STATE | PTRACE_CFI_SS_LOCK_STATE)) ||
+-	     (user_cfi.cfi_status.cfi_state & PRACE_CFI_STATE_INVALID_MASK))
++	     (user_cfi.cfi_status.cfi_state & PTRACE_CFI_STATE_INVALID_MASK))
+ 		return -EINVAL;
+ 
+ 	/* If lpad is enabled on target and ptrace requests to set / clear elp, do that */
 
 
 _______________________________________________
