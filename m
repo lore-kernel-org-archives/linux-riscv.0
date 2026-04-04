@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34DEE88D85
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 05:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6163FE88D87
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 05:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,60 +13,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=6QYAq0cEE0q5LJg3HLbNPgc0du7EIPafdL/lEGkyf/U=; b=YPRQtgUmtHZ7flcD+1pFulzg60
-	ze5ccqOnrSfDM0qpZvA6yoGahnJr0c79kmn5eDTTn25qCupo6xX79hg2HuefmjKHaVoOOxA2d3qCs
-	BnF/4SdZZs5ko1qn/RUbWFvpB8ytvvY5imaUmYhAyB0/WBnWkTayP+uPZ4XfMXTXBxDKXIpHO03uN
-	QMq7ymuAbkMBUcWyul37NlyZq3pfeLF3PorBQBvqT2zEFBibxXgpCDj+fty7NncJsaQSYr1JlsFns
-	XS6zKB74OhcoeAXucHgra8dMRw1TRWUPIk2+fh0alZFkdiieyP77pmf+boBz+14vMaNCp+Ik8gFd8
-	mryhQTLw==;
+	bh=Ghs4kML7igwbERndV9FOdBEScdtpaewhykLXwF6ClBQ=; b=q63uO0+4oqP9SA62hsSu3SSP9A
+	+vZDumSXiOBJsoOlTE0jHv9SUefZYbQ+pUwwb1znOaWkzrG+GlwO5Ls0i97qK4eJjZ+8P+yqWP6lI
+	qnUH1UR4I2o9FogmcWehFTRhJ92nuRbHfm6OzDwk0dQbug5KzqgA8eDb+J69ettdVHN7fc+b2UP0U
+	fluk2rR8JhQ22HYScrskzAT/2WWa2Hr2xGOp/TQC7ZPPba+F+VBYGL7BKAjt1KGF3Iosm0JDVMr60
+	w/2wc6Ddge/ofzB3mDwHEbNEY9iNbAhI4Ib6y6Ilp7RBvDP12MkQyEpBrArI4m0XvOLoYBBN5ALpm
+	Wr8y8fVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8tkl-00000003ALO-3QUW;
-	Sat, 04 Apr 2026 05:41:03 +0000
+	id 1w8tka-00000003ABj-1WXM;
+	Sat, 04 Apr 2026 05:40:52 +0000
 Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8tkh-00000003AHL-3cIT
+	id 1w8tkX-00000003A9u-2uHa
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 05:41:01 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bdd327d970so1833932eec.1
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2026 22:40:59 -0700 (PDT)
+	Sat, 04 Apr 2026 05:40:50 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2c0f6593ef5so3128064eec.1
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2026 22:40:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775281259; x=1775886059; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1775281248; x=1775886048; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FfR8puUJPzn7FEEYKJ1A3cryLQ1Z0C1vhPD7LiUzP0M=;
-        b=tBofZS+N4difUfqRoyuY+SXrkkGYb2RVTaj3fslOh5iczo7bp0yEc8I+R607y9GSo9
-         dAZcWl6IU9LPsGOIeaHS/hEmOjUwsVjCINBncr0YgL5xPMKb4T5I9y8N7Dbgt8rJ6MfY
-         XsRHGXpxsVRtI7aQVFAyMpAbmiq3iYZpK9MPxZVTzjyN0eKMRRwz+O/y24mSIeZUsmaO
-         P9Q0KBaDS7WkVw9wyJE/GYrzfUvTQ5ex01OKt8UUS4TaXwt/sn3DQdFUa25FhqTPZCLv
-         BEQrZYgfdVhBGOM5fnJIN0G8B6f4FImLAnl4HDWROubOHTGYzytUDf4xA2ifhKmvqdFQ
-         76nQ==
+        bh=g924aB07abUjt2qM0inH+SjTzydsVlP57tK6YtzR+iU=;
+        b=Y/l7q5IskpuOQrpTaM1oA63uOPoLgumaGOdERQ0Wf0+u81ZKzPK/Vif75TFDRGuO9G
+         18GlCaKu8TemqEgUPHycHk56gp46R64TEX1r8/6LKwLtBsPjtMlGTlGCf3uhglV2/SwM
+         jLJdXYYFXRThbsioxF4ybGS8okayO4mY4/SvCODlwxb5b5RD4oMlstjj6jvy/WtmYpaf
+         5smigV3KbtSZy7mrcDUWqvQJ+2P1EW5GEOlnrA68C9s9A1G7bVdooweew8QcNXPfzTG7
+         xJ1NChuaTEDmbBkSPokOJHQdpqp0zgJSxHVmd3Aw8tJMFHdyxmw7tF2mWAxpVTp71LKi
+         KV3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775281259; x=1775886059;
+        d=1e100.net; s=20251104; t=1775281248; x=1775886048;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FfR8puUJPzn7FEEYKJ1A3cryLQ1Z0C1vhPD7LiUzP0M=;
-        b=Faezo7xrxkJWdwvE3hZFkSJ0t5ADIeCZbOjRFH31Xn+cDSrcwtf1JWFCK/hgUFGDRd
-         hJES6TmpggaS7HxY+eEwpux3XZBRITRivKnVmOxx4wNaUnPzYEfnFY0iwxcQznTSYWA2
-         Bu6zxscOOJHQX8F9fmd8ma7htGg0MwaffXWQ6BLgmsNTnX2hOjtm6eJPtBdqvn034cjm
-         lUyY8p3BRiKfDcgpKGyNrLWVSD8yh/WQSxuf/mx/UpS24ZXadVhVci4zcGK6+AcfQa/0
-         fJRULi7ZXQhOw9kN5NMuJ+5hPGJ3KtrQ21H3x5gJuc22+aBVnEO9RJ0ArCOm+KUiEjlk
-         9ymA==
-X-Forwarded-Encrypted: i=1; AJvYcCV2Lnb/57+Tn1R9m60Y96LFPv1ekhR9GJelseMU0ZYM1DLg/5uFKe07deKe0n9BULUih6RfjUqzDvtX2w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKRIVJpkp8IbRYi8wdVHFCT37xwPG36BdtYzEP4BnLELQUj7u+
-	Dd5QNinhkJ+sQNom5gHxgoG/tBur9Xs3YN8zHo/VlNPiDcDYkqVD+y6CL959VwlV6uo9VTL1ZQx
-	UQi1MDPV2bQ==
-X-Received: from dleb18-n1.prod.google.com ([2002:a05:701b:4252:10b0:12a:c10f:98fe])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:221b:b0:12c:427:dacf
- with SMTP id a92af1059eb24-12c0427de30mr294548c88.10.1775281258489; Fri, 03
- Apr 2026 22:40:58 -0700 (PDT)
-Date: Fri,  3 Apr 2026 22:40:30 -0700
+        bh=g924aB07abUjt2qM0inH+SjTzydsVlP57tK6YtzR+iU=;
+        b=gjUa/OYs1GVckGYsFy0+h4iVPmgnnB3f6R0Y+3/feicsn7/U021WotlB42uhegAr/S
+         gmV9LhptAP6KX1HVNuE4ilD/4HMPFO/ERkT4yDOXm7hiN6XJ6SUSu2cmC3BWITWwJE3b
+         qgpBSDVscLO2Npyza6ok8p89fJBSCSPmyDRXqRvjitS3P5whU6eQ7MAAVePrMHUgflOg
+         0hSAOLPY+yJldTTnsd/OjaQWzRLPxTjrvGViFcgkzceq/3CVEj87rUw68nhGabnPE3As
+         FVGzw4U7PGA4px+uaksXDiMGf9MSVngVvihbvIwnXliYEUCHQc4zjNhwRplwD7SXnLHa
+         8YSA==
+X-Forwarded-Encrypted: i=1; AJvYcCWPtExRjEDes9ABqvMOtPYuQzMtyGho5yYjKnee/aEmhtre91vRbCNUMLs3MGYYCqEVOh/Cyi+mLAUBvA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs9PAkiZNrijQcz7BtPyw1rCckMwxnB2vH7hj59hDxo6hMuGcc
+	YxfJwAZ8DNsmqzEs8qmb5cqGSWaWS6XXptf69D0h4cia6csEUUVs87JMyemcMhrOcSjduGSN1ar
+	XV3oa3EA8Tg==
+X-Received: from dyff26.prod.google.com ([2002:a05:693c:805a:b0:2c3:cfb2:1036])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:a287:b0:2be:d6e:6ba3
+ with SMTP id 5a478bee46e88-2cbfc764f36mr2574888eec.24.1775281248135; Fri, 03
+ Apr 2026 22:40:48 -0700 (PDT)
+Date: Fri,  3 Apr 2026 22:40:25 -0700
 In-Reply-To: <20260404054032.1538095-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260305221927.3237145-1-irogers@google.com> <20260404054032.1538095-1-irogers@google.com>
 X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
-Message-ID: <20260404054032.1538095-7-irogers@google.com>
-Subject: [PATCH v3 6/8] perf unwind-libunwind: Move flush/finish access out of local
+Message-ID: <20260404054032.1538095-2-irogers@google.com>
+Subject: [PATCH v3 1/8] perf unwind: Refactor get_entries to allow dynamic
+ libdw/libunwind selection
 From: Ian Rogers <irogers@google.com>
 To: acme@kernel.org
 Cc: irogers@google.com, 9erthalion6@gmail.com, adrian.hunter@intel.com, 
@@ -81,8 +82,8 @@ Cc: irogers@google.com, 9erthalion6@gmail.com, adrian.hunter@intel.com,
 	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
 	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_224059_964360_72F919B8 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260403_224049_761605_1563683E 
+X-CRM114-Status: GOOD (  25.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,764 +100,377 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Flush and finish access are relatively simple calls into libunwind,
-move them out struct unwind_libunwind_ops. So that the correct version
-can be called, add an e_machine variable to maps. This size regression
-will go away when the unwind_libunwind_ops no longer need stashing in
-the maps. To set the e_machine up pass it into unwind__prepare_access,
-which no longer needs to determine the unwind operations based on a
-map dso because of this. This also means the maps copying code can
-call unwind__prepare_access once for the e_machine rather than once
-per map.
+Currently, both libdw and libunwind define 'unwind__get_entries'. This
+causes a duplicate symbol build failure when both are compiled into
+perf.
 
+This commit refactors the DWARF unwind post-processing to be
+configurable at runtime via the .perfconfig file option
+'unwind.style', or using the argument '--unwind-style' in the commands
+'perf report', 'perf script' and 'perf inject', in a similar manner to
+the addr2line or the disassembler style.
+
+The file 'tools/perf/util/unwind.c' adds the top-level dispatch
+function 'unwind__get_entries'. The backend implementations are
+renamed to 'libdw__get_entries' and 'libunwind__get_entries'. Both are
+attempted as fallbacks if not configured, or if the primary backend
+fails.
+
+Fixes: 2e9191573a69 ("perf build: Remove NO_LIBDW_DWARF_UNWIND option")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../perf/util/libunwind-arch/libunwind-arch.c | 82 +++++++++++++++++++
- .../perf/util/libunwind-arch/libunwind-arch.h | 24 ++++++
- .../perf/util/libunwind-arch/libunwind-arm.c  | 19 +++++
- .../util/libunwind-arch/libunwind-arm64.c     | 20 +++++
- .../perf/util/libunwind-arch/libunwind-i386.c | 15 ++++
- .../util/libunwind-arch/libunwind-loongarch.c | 15 ++++
- .../perf/util/libunwind-arch/libunwind-mips.c | 15 ++++
- .../util/libunwind-arch/libunwind-ppc32.c     | 15 ++++
- .../util/libunwind-arch/libunwind-ppc64.c     | 15 ++++
- .../perf/util/libunwind-arch/libunwind-s390.c | 15 ++++
- .../util/libunwind-arch/libunwind-x86_64.c    | 15 ++++
- tools/perf/util/maps.c                        | 31 ++++---
- tools/perf/util/maps.h                        |  2 +
- tools/perf/util/thread.c                      | 29 +------
- tools/perf/util/unwind-libunwind-local.c      | 12 ---
- tools/perf/util/unwind-libunwind.c            | 61 +++++---------
- tools/perf/util/unwind.h                      |  8 +-
- 17 files changed, 299 insertions(+), 94 deletions(-)
+ tools/perf/builtin-inject.c        |  4 ++
+ tools/perf/builtin-report.c        |  4 ++
+ tools/perf/builtin-script.c        |  4 ++
+ tools/perf/util/Build              |  1 +
+ tools/perf/util/symbol_conf.h      | 10 +++
+ tools/perf/util/unwind-libdw.c     |  2 +-
+ tools/perf/util/unwind-libunwind.c |  2 +-
+ tools/perf/util/unwind.c           | 98 ++++++++++++++++++++++++++++++
+ tools/perf/util/unwind.h           | 63 ++++++++++++-------
+ 9 files changed, 163 insertions(+), 25 deletions(-)
+ create mode 100644 tools/perf/util/unwind.c
 
-diff --git a/tools/perf/util/libunwind-arch/libunwind-arch.c b/tools/perf/util/libunwind-arch/libunwind-arch.c
-index 5439bf90d161..9692e6c81492 100644
---- a/tools/perf/util/libunwind-arch/libunwind-arch.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-arch.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include <elf.h>
- #include <errno.h>
+diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
+index 5b29f4296861..9ad681b3c0dc 100644
+--- a/tools/perf/builtin-inject.c
++++ b/tools/perf/builtin-inject.c
+@@ -26,6 +26,7 @@
+ #include "util/synthetic-events.h"
+ #include "util/thread.h"
+ #include "util/namespaces.h"
++#include "util/unwind.h"
+ #include "util/util.h"
+ #include "util/tsc.h"
  
-@@ -30,3 +31,84 @@ int get_perf_regnum_for_unw_regnum(unsigned int e_machine, int unw_regnum)
- 		return -EINVAL;
- 	}
- }
-+
-+
-+void libunwind_arch__flush_access(struct maps *maps)
-+{
-+	unsigned int e_machine = maps__e_machine(maps);
-+
-+	switch (e_machine) {
-+	case EM_NONE:
-+		break;  // No libunwind info on the maps.
-+	case EM_ARM:
-+		__libunwind_arch__flush_access_arm(maps);
-+		break;
-+	case EM_AARCH64:
-+		__libunwind_arch__flush_access_arm64(maps);
-+		break;
-+	case EM_LOONGARCH:
-+		__libunwind_arch__flush_access_loongarch(maps);
-+		break;
-+	case EM_MIPS:
-+		__libunwind_arch__flush_access_mips(maps);
-+		break;
-+	case EM_PPC:
-+		__libunwind_arch__flush_access_ppc32(maps);
-+		break;
-+	case EM_PPC64:
-+		__libunwind_arch__flush_access_ppc64(maps);
-+		break;
-+	case EM_S390:
-+		__libunwind_arch__flush_access_s390(maps);
-+		break;
-+	case EM_386:
-+		__libunwind_arch__flush_access_i386(maps);
-+		break;
-+	case EM_X86_64:
-+		__libunwind_arch__flush_access_x86_64(maps);
-+		break;
-+	default:
-+		pr_err("ELF MACHINE %x is not supported.\n", e_machine);
-+		break;
-+	}
-+}
-+
-+void libunwind_arch__finish_access(struct maps *maps)
-+{
-+	unsigned int e_machine = maps__e_machine(maps);
-+
-+	switch (e_machine) {
-+	case EM_NONE:
-+		break;  // No libunwind info on the maps.
-+	case EM_ARM:
-+		__libunwind_arch__finish_access_arm(maps);
-+		break;
-+	case EM_AARCH64:
-+		__libunwind_arch__finish_access_arm64(maps);
-+		break;
-+	case EM_LOONGARCH:
-+		__libunwind_arch__finish_access_loongarch(maps);
-+		break;
-+	case EM_MIPS:
-+		__libunwind_arch__finish_access_mips(maps);
-+		break;
-+	case EM_PPC:
-+		__libunwind_arch__finish_access_ppc32(maps);
-+		break;
-+	case EM_PPC64:
-+		__libunwind_arch__finish_access_ppc64(maps);
-+		break;
-+	case EM_S390:
-+		__libunwind_arch__finish_access_s390(maps);
-+		break;
-+	case EM_386:
-+		__libunwind_arch__finish_access_i386(maps);
-+		break;
-+	case EM_X86_64:
-+		__libunwind_arch__finish_access_x86_64(maps);
-+		break;
-+	default:
-+		pr_err("ELF MACHINE %x is not supported.\n", e_machine);
-+		break;
-+	}
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-arch.h b/tools/perf/util/libunwind-arch/libunwind-arch.h
-index e1009c6cb965..c00277a5e914 100644
---- a/tools/perf/util/libunwind-arch/libunwind-arch.h
-+++ b/tools/perf/util/libunwind-arch/libunwind-arch.h
-@@ -2,6 +2,8 @@
- #ifndef __LIBUNWIND_ARCH_H
- #define __LIBUNWIND_ARCH_H
+@@ -2539,6 +2540,9 @@ int cmd_inject(int argc, const char **argv)
+ 		OPT_STRING(0, "guestmount", &symbol_conf.guestmount, "directory",
+ 			   "guest mount directory under which every guest os"
+ 			   " instance has a subdir"),
++		OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
++			     "unwind styles (libdw,libunwind)",
++			     unwind__option),
+ 		OPT_BOOLEAN(0, "convert-callchain", &inject.convert_callchain,
+ 			    "Generate callchains using DWARF and drop register/stack data"),
+ 		OPT_END()
+diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
+index 95c0bdba6b11..0b0966d94128 100644
+--- a/tools/perf/builtin-report.c
++++ b/tools/perf/builtin-report.c
+@@ -48,6 +48,7 @@
+ #include "util/time-utils.h"
+ #include "util/auxtrace.h"
+ #include "util/units.h"
++#include "util/unwind.h"
+ #include "util/util.h" // perf_tip()
+ #include "ui/ui.h"
+ #include "ui/progress.h"
+@@ -1449,6 +1450,9 @@ int cmd_report(int argc, const char **argv)
+ 	OPT_CALLBACK(0, "addr2line-style", NULL, "addr2line style",
+ 		     "addr2line styles (libdw,llvm,libbfd,addr2line)",
+ 		     report_parse_addr2line_config),
++	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
++		     "unwind styles (libdw,libunwind)",
++		     unwind__option),
+ 	OPT_BOOLEAN(0, "demangle", &symbol_conf.demangle,
+ 		    "Symbol demangling. Enabled by default, use --no-demangle to disable."),
+ 	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index 622130d3aed4..ee6131315f96 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -63,6 +63,7 @@
+ #include <linux/err.h>
+ #include "util/dlfilter.h"
+ #include "util/record.h"
++#include "util/unwind.h"
+ #include "util/util.h"
+ #include "util/cgroup.h"
+ #include "util/annotate.h"
+@@ -4155,6 +4156,9 @@ int cmd_script(int argc, const char **argv)
+ 			"Enable symbol demangling"),
+ 	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
+ 			"Enable kernel symbol demangling"),
++	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
++		     "unwind styles (libdw,libunwind)",
++		     unwind__option),
+ 	OPT_STRING(0, "addr2line", &symbol_conf.addr2line_path, "path",
+ 			"addr2line binary to use for line numbers"),
+ 	OPT_STRING(0, "time", &script.time_str, "str",
+diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+index 70cc91d00804..01edfccebb88 100644
+--- a/tools/perf/util/Build
++++ b/tools/perf/util/Build
+@@ -216,6 +216,7 @@ ifndef CONFIG_SETNS
+ perf-util-y += setns.o
+ endif
  
-+struct maps;
-+
- int __get_perf_regnum_for_unw_regnum_arm(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_arm64(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_loongarch(int unw_regnum);
-@@ -13,4 +15,26 @@ int __get_perf_regnum_for_unw_regnum_i386(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_x86_64(int unw_regnum);
- int get_perf_regnum_for_unw_regnum(unsigned int e_machine, int unw_regnum);
++perf-util-y += unwind.o
+ perf-util-$(CONFIG_LIBDW) += probe-finder.o
+ perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
+ perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
+diff --git a/tools/perf/util/symbol_conf.h b/tools/perf/util/symbol_conf.h
+index ac1b444a8fd8..004c472cdfb1 100644
+--- a/tools/perf/util/symbol_conf.h
++++ b/tools/perf/util/symbol_conf.h
+@@ -9,6 +9,15 @@
+ struct strlist;
+ struct intlist;
  
-+void __libunwind_arch__flush_access_arm(struct maps *maps);
-+void __libunwind_arch__flush_access_arm64(struct maps *maps);
-+void __libunwind_arch__flush_access_loongarch(struct maps *maps);
-+void __libunwind_arch__flush_access_mips(struct maps *maps);
-+void __libunwind_arch__flush_access_ppc32(struct maps *maps);
-+void __libunwind_arch__flush_access_ppc64(struct maps *maps);
-+void __libunwind_arch__flush_access_s390(struct maps *maps);
-+void __libunwind_arch__flush_access_i386(struct maps *maps);
-+void __libunwind_arch__flush_access_x86_64(struct maps *maps);
-+void libunwind_arch__flush_access(struct maps *maps);
++enum unwind_style {
++	UNWIND_STYLE_UNKNOWN = 0,
++	UNWIND_STYLE_LIBDW,
++	UNWIND_STYLE_LIBUNWIND,
++};
 +
-+void __libunwind_arch__finish_access_arm(struct maps *maps);
-+void __libunwind_arch__finish_access_arm64(struct maps *maps);
-+void __libunwind_arch__finish_access_loongarch(struct maps *maps);
-+void __libunwind_arch__finish_access_mips(struct maps *maps);
-+void __libunwind_arch__finish_access_ppc32(struct maps *maps);
-+void __libunwind_arch__finish_access_ppc64(struct maps *maps);
-+void __libunwind_arch__finish_access_s390(struct maps *maps);
-+void __libunwind_arch__finish_access_i386(struct maps *maps);
-+void __libunwind_arch__finish_access_x86_64(struct maps *maps);
-+void libunwind_arch__finish_access(struct maps *maps);
++#define MAX_UNWIND_STYLE (UNWIND_STYLE_LIBUNWIND + 1)
 +
- #endif /* __LIBUNWIND_ARCH_H */
-diff --git a/tools/perf/util/libunwind-arch/libunwind-arm.c b/tools/perf/util/libunwind-arch/libunwind-arm.c
-index 6740ee55b043..bbaf01406c52 100644
---- a/tools/perf/util/libunwind-arch/libunwind-arm.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-arm.c
-@@ -1,10 +1,15 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/arm/include/uapi/asm/perf_regs.h"
- #include <linux/compiler.h>
- #include <errno.h>
- 
-+#ifdef HAVE_LIBUNWIND_ARM_SUPPORT
-+#include <libunwind-arm.h>
-+#endif
 +
- int __get_perf_regnum_for_unw_regnum_arm(int unw_regnum)
- {
- 	if (unw_regnum < 0 || unw_regnum >= PERF_REG_ARM_MAX) {
-@@ -13,3 +18,17 @@ int __get_perf_regnum_for_unw_regnum_arm(int unw_regnum)
- 	}
- 	return unw_regnum;
- }
-+
-+void __libunwind_arch__flush_access_arm(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_ARM_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_arm(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_ARM_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-arm64.c b/tools/perf/util/libunwind-arch/libunwind-arm64.c
-index 53b1877dfa04..8ba510089736 100644
---- a/tools/perf/util/libunwind-arch/libunwind-arm64.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-arm64.c
-@@ -1,9 +1,15 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/arm64/include/uapi/asm/perf_regs.h"
-+#include <linux/compiler.h>
- #include <errno.h>
- 
-+#ifdef HAVE_LIBUNWIND_AARCH64_SUPPORT
-+#include <libunwind-aarch64.h>
-+#endif
-+
- int __get_perf_regnum_for_unw_regnum_arm64(int unw_regnum)
- {
- 	if (unw_regnum < 0 || unw_regnum >= PERF_REG_ARM64_EXTENDED_MAX) {
-@@ -12,3 +18,17 @@ int __get_perf_regnum_for_unw_regnum_arm64(int unw_regnum)
- 	}
- 	return unw_regnum;
- }
-+
-+void __libunwind_arch__flush_access_arm64(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_AARCH64_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_arm64(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_AARCH64_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-i386.c b/tools/perf/util/libunwind-arch/libunwind-i386.c
-index 9eaf4ebff0c2..45ff30c95c1b 100644
---- a/tools/perf/util/libunwind-arch/libunwind-i386.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-i386.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/x86/include/uapi/asm/perf_regs.h"
- #include <linux/compiler.h>
- #include <linux/kernel.h>
-@@ -41,3 +42,17 @@ int __get_perf_regnum_for_unw_regnum_i386(int unw_regnum __maybe_unused)
- 	return perf_i386_regnums[unw_regnum];
- #endif // HAVE_LIBUNWIND_X86_SUPPORT
- }
-+
-+void __libunwind_arch__flush_access_i386(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_X86_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_i386(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_X86_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-loongarch.c b/tools/perf/util/libunwind-arch/libunwind-loongarch.c
-index 7009410989bc..837aa11e2b9f 100644
---- a/tools/perf/util/libunwind-arch/libunwind-loongarch.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-loongarch.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/loongarch/include/uapi/asm/perf_regs.h"
- #include <linux/compiler.h>
- #include <errno.h>
-@@ -25,3 +26,17 @@ int __get_perf_regnum_for_unw_regnum_loongarch(int unw_regnum __maybe_unused)
- 	}
- #endif // HAVE_LIBUNWIND_LOONGARCH64_SUPPORT
- }
-+
-+void __libunwind_arch__flush_access_loongarch(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_LOONGARCH64_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_loongarch(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_LOONGARCH64_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-mips.c b/tools/perf/util/libunwind-arch/libunwind-mips.c
-index 01a506c8079c..1fa81742ff4a 100644
---- a/tools/perf/util/libunwind-arch/libunwind-mips.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-mips.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/mips/include/uapi/asm/perf_regs.h"
- #include <linux/compiler.h>
- #include <errno.h>
-@@ -27,3 +28,17 @@ int __get_perf_regnum_for_unw_regnum_mips(int unw_regnum __maybe_unused)
- 	}
- #endif // HAVE_LIBUNWIND_MIPS_SUPPORT
- }
-+
-+void __libunwind_arch__flush_access_mips(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_MIPS_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_mips(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_MIPS_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-ppc32.c b/tools/perf/util/libunwind-arch/libunwind-ppc32.c
-index edcb0ec95dd7..fa8471c74bf3 100644
---- a/tools/perf/util/libunwind-arch/libunwind-ppc32.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-ppc32.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/powerpc/include/uapi/asm/perf_regs.h"
- #include <linux/compiler.h>
- #include <errno.h>
-@@ -29,3 +30,17 @@ int __get_perf_regnum_for_unw_regnum_ppc32(int unw_regnum __maybe_unused)
- 	}
- #endif // HAVE_LIBUNWIND_PPC32_SUPPORT
- }
-+
-+void __libunwind_arch__flush_access_ppc32(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_PPC32_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_ppc32(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_PPC32_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-ppc64.c b/tools/perf/util/libunwind-arch/libunwind-ppc64.c
-index 9f57a049600b..2f746e347336 100644
---- a/tools/perf/util/libunwind-arch/libunwind-ppc64.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-ppc64.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/powerpc/include/uapi/asm/perf_regs.h"
- #include <linux/compiler.h>
- #include <errno.h>
-@@ -31,3 +32,17 @@ int __get_perf_regnum_for_unw_regnum_ppc64(int unw_regnum __maybe_unused)
- 	}
- #endif // HAVE_LIBUNWIND_PPC64_SUPPORT
- }
-+
-+void __libunwind_arch__flush_access_ppc64(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_PPC64_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_ppc64(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_PPC64_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-s390.c b/tools/perf/util/libunwind-arch/libunwind-s390.c
-index 9fcc7885ca55..9f68d15438b2 100644
---- a/tools/perf/util/libunwind-arch/libunwind-s390.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-s390.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/s390/include/uapi/asm/perf_regs.h"
- #include <linux/compiler.h>
- #include <errno.h>
-@@ -27,3 +28,17 @@ int __get_perf_regnum_for_unw_regnum_s390(int unw_regnum __maybe_unused)
- 	}
- #endif // HAVE_LIBUNWIND_S390X_SUPPORT
- }
-+
-+void __libunwind_arch__flush_access_s390(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_S390X_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_s390(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_S390X_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/libunwind-arch/libunwind-x86_64.c b/tools/perf/util/libunwind-arch/libunwind-x86_64.c
-index 6072e3597e61..25e326bd3e15 100644
---- a/tools/perf/util/libunwind-arch/libunwind-x86_64.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-x86_64.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "libunwind-arch.h"
- #include "../debug.h"
-+#include "../maps.h"
- #include "../../../arch/x86/include/uapi/asm/perf_regs.h"
- #include <linux/compiler.h>
- #include <linux/kernel.h>
-@@ -50,3 +51,17 @@ int __get_perf_regnum_for_unw_regnum_x86_64(int unw_regnum __maybe_unused)
- 	return perf_x86_64_regnums[unw_regnum];
- #endif // HAVE_LIBUNWIND_X86_64_SUPPORT
- }
-+
-+void __libunwind_arch__flush_access_x86_64(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_X86_64_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_x86_64(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_X86_64_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-diff --git a/tools/perf/util/maps.c b/tools/perf/util/maps.c
-index 4092211cff62..8c7b2a1e7642 100644
---- a/tools/perf/util/maps.c
-+++ b/tools/perf/util/maps.c
-@@ -40,6 +40,7 @@ DECLARE_RC_STRUCT(maps) {
- #ifdef HAVE_LIBUNWIND_SUPPORT
- 	void		*addr_space;
- 	const struct unwind_libunwind_ops *unwind_libunwind_ops;
-+	uint16_t	 e_machine;
- #endif
- #ifdef HAVE_LIBDW_SUPPORT
- 	void		*libdw_addr_space_dwfl;
-@@ -206,6 +207,16 @@ void maps__set_unwind_libunwind_ops(struct maps *maps, const struct unwind_libun
- {
- 	RC_CHK_ACCESS(maps)->unwind_libunwind_ops = ops;
- }
-+
-+uint16_t maps__e_machine(const struct maps *maps)
-+{
-+	return RC_CHK_ACCESS(maps)->e_machine;
-+}
-+
-+void maps__set_e_machine(struct maps *maps, uint16_t e_machine)
-+{
-+	RC_CHK_ACCESS(maps)->e_machine = e_machine;
-+}
- #endif
- #ifdef HAVE_LIBDW_SUPPORT
- void *maps__libdw_addr_space_dwfl(const struct maps *maps)
-@@ -1038,6 +1049,9 @@ int maps__copy_from(struct maps *dest, struct maps *parent)
- 	down_write(maps__lock(dest));
- 	down_read(maps__lock(parent));
- 
-+#ifdef HAVE_LIBUNWIND_SUPPORT
-+	unwind__prepare_access(dest, maps__e_machine(parent));
-+#endif
- 	parent_maps_by_address = maps__maps_by_address(parent);
- 	n = maps__nr_maps(parent);
- 	if (maps__nr_maps(dest) == 0) {
-@@ -1067,14 +1081,11 @@ int maps__copy_from(struct maps *dest, struct maps *parent)
- 			if (!new)
- 				err = -ENOMEM;
- 			else {
--				err = unwind__prepare_access(dest, new, NULL);
--				if (!err) {
--					dest_maps_by_address[i] = new;
--					map__set_kmap_maps(new, dest);
--					if (dest_maps_by_name)
--						dest_maps_by_name[i] = map__get(new);
--					RC_CHK_ACCESS(dest)->nr_maps = i + 1;
--				}
-+				dest_maps_by_address[i] = new;
-+				map__set_kmap_maps(new, dest);
-+				if (dest_maps_by_name)
-+					dest_maps_by_name[i] = map__get(new);
-+				RC_CHK_ACCESS(dest)->nr_maps = i + 1;
- 			}
- 			if (err)
- 				map__put(new);
-@@ -1099,9 +1110,7 @@ int maps__copy_from(struct maps *dest, struct maps *parent)
- 			if (!new)
- 				err = -ENOMEM;
- 			else {
--				err = unwind__prepare_access(dest, new, NULL);
--				if (!err)
--					err = __maps__insert(dest, new);
-+				err = __maps__insert(dest, new);
- 			}
- 			map__put(new);
- 		}
-diff --git a/tools/perf/util/maps.h b/tools/perf/util/maps.h
-index 20c52084ba9e..6469f62c41a8 100644
---- a/tools/perf/util/maps.h
-+++ b/tools/perf/util/maps.h
-@@ -51,6 +51,8 @@ void *maps__addr_space(const struct maps *maps);
- void maps__set_addr_space(struct maps *maps, void *addr_space);
- const struct unwind_libunwind_ops *maps__unwind_libunwind_ops(const struct maps *maps);
- void maps__set_unwind_libunwind_ops(struct maps *maps, const struct unwind_libunwind_ops *ops);
-+uint16_t maps__e_machine(const struct maps *maps);
-+void maps__set_e_machine(struct maps *maps, uint16_t e_machine);
- #endif
- #ifdef HAVE_LIBDW_SUPPORT
- void *maps__libdw_addr_space_dwfl(const struct maps *maps);
-diff --git a/tools/perf/util/thread.c b/tools/perf/util/thread.c
-index 22be77225bb0..c5df11ad329c 100644
---- a/tools/perf/util/thread.c
-+++ b/tools/perf/util/thread.c
-@@ -358,41 +358,20 @@ size_t thread__fprintf(struct thread *thread, FILE *fp)
- int thread__insert_map(struct thread *thread, struct map *map)
- {
- 	int ret;
-+	uint16_t e_machine = thread__e_machine(thread, /*machine=*/NULL, /*e_flags=*/NULL);
- 
--	ret = unwind__prepare_access(thread__maps(thread), map, NULL);
-+	ret = unwind__prepare_access(thread__maps(thread), e_machine);
- 	if (ret)
- 		return ret;
- 
- 	return maps__fixup_overlap_and_insert(thread__maps(thread), map);
+ enum a2l_style {
+ 	A2L_STYLE_UNKNOWN = 0,
+ 	A2L_STYLE_LIBDW,
+@@ -80,6 +89,7 @@ struct symbol_conf {
+ 			*bt_stop_list_str;
+ 	const char		*addr2line_path;
+ 	enum a2l_style	addr2line_style[MAX_A2L_STYLE];
++	enum unwind_style unwind_style[MAX_UNWIND_STYLE];
+ 	unsigned long	time_quantum;
+        struct strlist	*dso_list,
+ 			*comm_list,
+diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+index 05e8e68bd49c..d8a5b7d54192 100644
+--- a/tools/perf/util/unwind-libdw.c
++++ b/tools/perf/util/unwind-libdw.c
+@@ -339,7 +339,7 @@ frame_callback(Dwfl_Frame *state, void *arg)
+ 	       DWARF_CB_ABORT : DWARF_CB_OK;
  }
  
--struct thread__prepare_access_maps_cb_args {
--	int err;
--	struct maps *maps;
--};
--
--static int thread__prepare_access_maps_cb(struct map *map, void *data)
--{
--	bool initialized = false;
--	struct thread__prepare_access_maps_cb_args *args = data;
--
--	args->err = unwind__prepare_access(args->maps, map, &initialized);
--
--	return (args->err || initialized) ? 1 : 0;
--}
--
- static int thread__prepare_access(struct thread *thread)
- {
--	struct thread__prepare_access_maps_cb_args args = {
--		.err = 0,
--	};
--
--	if (dwarf_callchain_users) {
--		args.maps = thread__maps(thread);
--		maps__for_each_map(thread__maps(thread), thread__prepare_access_maps_cb, &args);
--	}
-+	uint16_t e_machine = thread__e_machine(thread, /*machine=*/NULL, /*e_flags=*/NULL);
- 
--	return args.err;
-+	return unwind__prepare_access(thread__maps(thread), e_machine);
- }
- 
- static int thread__clone_maps(struct thread *thread, struct thread *parent, bool do_maps_clone)
-diff --git a/tools/perf/util/unwind-libunwind-local.c b/tools/perf/util/unwind-libunwind-local.c
-index 3ecdb468b859..8f0128ba05a7 100644
---- a/tools/perf/util/unwind-libunwind-local.c
-+++ b/tools/perf/util/unwind-libunwind-local.c
-@@ -722,16 +722,6 @@ static int _unwind__prepare_access(struct maps *maps)
- 	return 0;
- }
- 
--static void _unwind__flush_access(struct maps *maps)
--{
--	unw_flush_cache(maps__addr_space(maps), 0, 0);
--}
--
--static void _unwind__finish_access(struct maps *maps)
--{
--	unw_destroy_addr_space(maps__addr_space(maps));
--}
--
- static int get_entries(struct unwind_info *ui, unwind_entry_cb_t cb,
- 		       void *arg, int max_stack)
- {
-@@ -821,8 +811,6 @@ static int _unwind__get_entries(unwind_entry_cb_t cb, void *arg,
- static struct unwind_libunwind_ops
- _unwind_libunwind_ops = {
- 	.prepare_access = _unwind__prepare_access,
--	.flush_access   = _unwind__flush_access,
--	.finish_access  = _unwind__finish_access,
- 	.get_entries    = _unwind__get_entries,
- };
- 
+-int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
++int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
+ 			struct thread *thread,
+ 			struct perf_sample *data,
+ 			int max_stack,
 diff --git a/tools/perf/util/unwind-libunwind.c b/tools/perf/util/unwind-libunwind.c
-index a0016b897dae..eaee7b78d87c 100644
+index cb8be6acfb6f..a0016b897dae 100644
 --- a/tools/perf/util/unwind-libunwind.c
 +++ b/tools/perf/util/unwind-libunwind.c
-@@ -7,76 +7,55 @@
- #include "debug.h"
- #include "env.h"
- #include "callchain.h"
-+#include "libunwind-arch/libunwind-arch.h"
-+#include <dwarf-regs.h>
-+#include <elf.h>
+@@ -79,7 +79,7 @@ void unwind__finish_access(struct maps *maps)
+ 		ops->finish_access(maps);
+ }
  
- struct unwind_libunwind_ops __weak *local_unwind_libunwind_ops;
- struct unwind_libunwind_ops __weak *x86_32_unwind_libunwind_ops;
- struct unwind_libunwind_ops __weak *arm64_unwind_libunwind_ops;
- 
--int unwind__prepare_access(struct maps *maps, struct map *map, bool *initialized)
-+int unwind__prepare_access(struct maps *maps, uint16_t e_machine)
- {
--	const char *arch;
--	enum dso_type dso_type;
- 	struct unwind_libunwind_ops *ops = local_unwind_libunwind_ops;
--	struct dso *dso = map__dso(map);
--	struct machine *machine;
--	int err;
- 
- 	if (!dwarf_callchain_users)
- 		return 0;
- 
- 	if (maps__addr_space(maps)) {
--		pr_debug("unwind: thread map already set, dso=%s\n", dso__name(dso));
--		if (initialized)
--			*initialized = true;
-+		pr_debug3("unwind: thread map already set\n");
- 		return 0;
- 	}
- 
--	machine = maps__machine(maps);
--	/* env->arch is NULL for live-mode (i.e. perf top) */
--	if (!machine->env || !machine->env->arch)
--		goto out_register;
--
--	dso_type = dso__type(dso, machine);
--	if (dso_type == DSO__TYPE_UNKNOWN)
--		return 0;
--
--	arch = perf_env__arch(machine->env);
--
--	if (!strcmp(arch, "x86")) {
--		if (dso_type != DSO__TYPE_64BIT)
-+	if (e_machine != EM_HOST) {
-+		/* If not live/local mode. */
-+		switch (e_machine) {
-+		case EM_386:
- 			ops = x86_32_unwind_libunwind_ops;
--	} else if (!strcmp(arch, "arm64") || !strcmp(arch, "arm")) {
--		if (dso_type == DSO__TYPE_64BIT)
+-int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
++int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 			 struct thread *thread,
+ 			 struct perf_sample *data, int max_stack,
+ 			 bool best_effort)
+diff --git a/tools/perf/util/unwind.c b/tools/perf/util/unwind.c
+new file mode 100644
+index 000000000000..86c2d1692d08
+--- /dev/null
++++ b/tools/perf/util/unwind.c
+@@ -0,0 +1,98 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "debug.h"
++#include "symbol_conf.h"
++#include "unwind.h"
++#include <linux/string.h>
++#include <string.h>
++#include <stdlib.h>
++
++int unwind__get_entries(unwind_entry_cb_t cb __maybe_unused, void *arg __maybe_unused,
++			struct thread *thread __maybe_unused,
++			struct perf_sample *data __maybe_unused,
++			int max_stack __maybe_unused,
++			bool best_effort __maybe_unused)
++{
++	int ret = 0;
++
++#if defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
++	if (symbol_conf.unwind_style[0] == UNWIND_STYLE_UNKNOWN) {
++		int i = 0;
++#ifdef HAVE_LIBDW_SUPPORT
++		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBDW;
++#endif
++#ifdef HAVE_LIBUNWIND_SUPPORT
++		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBUNWIND;
++#endif
++	}
++#endif //defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
++
++	for (size_t i = 0; i < ARRAY_SIZE(symbol_conf.unwind_style); i++) {
++		switch (symbol_conf.unwind_style[i]) {
++		case UNWIND_STYLE_LIBDW:
++			ret = libdw__get_entries(cb, arg, thread, data, max_stack, best_effort);
 +			break;
-+		case EM_AARCH64:
- 			ops = arm64_unwind_libunwind_ops;
--	}
--
--	if (!ops) {
--		pr_warning_once("unwind: target platform=%s is not supported\n", arch);
++		case UNWIND_STYLE_LIBUNWIND:
++			ret = libunwind__get_entries(cb, arg, thread, data, max_stack, best_effort);
 +			break;
++		case UNWIND_STYLE_UNKNOWN:
 +		default:
-+			pr_warning_once("unwind: ELF machine type %d is not supported\n",
-+					e_machine);
- 		return 0;
++#if !defined(HAVE_LIBDW_SUPPORT) && !defined(HAVE_LIBUNWIND_SUPPORT)
++			pr_warning_once(
++				"Error: dwarf unwinding not supported, build perf with libdw or libunwind.\n");
++#endif
++			ret = -1;
++			break;
 +		}
- 	}
--out_register:
- 	maps__set_unwind_libunwind_ops(maps, ops);
-+	maps__set_e_machine(maps, e_machine);
- 
--	err = maps__unwind_libunwind_ops(maps)->prepare_access(maps);
--	if (initialized)
--		*initialized = err ? false : true;
--	return err;
-+	return maps__unwind_libunwind_ops(maps)->prepare_access(maps);
- }
- 
- void unwind__flush_access(struct maps *maps)
- {
--	const struct unwind_libunwind_ops *ops = maps__unwind_libunwind_ops(maps);
--
--	if (ops)
--		ops->flush_access(maps);
-+	libunwind_arch__flush_access(maps);
- }
- 
- void unwind__finish_access(struct maps *maps)
- {
--	const struct unwind_libunwind_ops *ops = maps__unwind_libunwind_ops(maps);
--
--	if (ops)
--		ops->finish_access(maps);
-+	libunwind_arch__finish_access(maps);
- }
- 
- int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
++		if (ret == 0)
++			break;
++	}
++	return ret;
++}
++
++int unwind__configure(const char *var, const char *value, void *cb __maybe_unused)
++{
++	static const char * const unwind_style_names[] = {
++		[UNWIND_STYLE_LIBDW] = "libdw",
++		[UNWIND_STYLE_LIBUNWIND] = "libunwind",
++		NULL
++	};
++	char *s, *p, *saveptr;
++	size_t i = 0;
++
++	if (strcmp(var, "unwind.style"))
++		return 0;
++
++	if (!value)
++		return -1;
++
++	s = strdup(value);
++	if (!s)
++		return -1;
++
++	p = strtok_r(s, ",", &saveptr);
++	while (p && i < ARRAY_SIZE(symbol_conf.unwind_style)) {
++		bool found = false;
++		char *q = strim(p);
++
++		for (size_t j = UNWIND_STYLE_LIBDW; j < MAX_UNWIND_STYLE; j++) {
++			if (!strcasecmp(q, unwind_style_names[j])) {
++				symbol_conf.unwind_style[i++] = j;
++				found = true;
++				break;
++			}
++		}
++		if (!found)
++			pr_warning("Unknown unwind style: %s\n", q);
++		p = strtok_r(NULL, ",", &saveptr);
++	}
++
++	free(s);
++	return 0;
++}
++
++int unwind__option(const struct option *opt __maybe_unused,
++		   const char *arg,
++		   int unset __maybe_unused)
++{
++	return unwind__configure("unwind.style", arg, NULL);
++}
 diff --git a/tools/perf/util/unwind.h b/tools/perf/util/unwind.h
-index f8a8788ac986..ad610c5a241c 100644
+index 9f7164c6d9aa..ac0776e39f84 100644
 --- a/tools/perf/util/unwind.h
 +++ b/tools/perf/util/unwind.h
-@@ -2,6 +2,7 @@
- #ifndef __UNWIND_H
- #define __UNWIND_H
+@@ -4,9 +4,10 @@
  
-+#include <stdint.h>
  #include <linux/compiler.h>
  #include <linux/types.h>
- #include "map_symbol.h"
-@@ -20,8 +21,6 @@ typedef int (*unwind_entry_cb_t)(struct unwind_entry *entry, void *arg);
+-#include "util/map_symbol.h"
++#include "map_symbol.h"
  
- struct unwind_libunwind_ops {
- 	int (*prepare_access)(struct maps *maps);
--	void (*flush_access)(struct maps *maps);
--	void (*finish_access)(struct maps *maps);
- 	int (*get_entries)(unwind_entry_cb_t cb, void *arg,
- 			   struct thread *thread,
+ struct maps;
++struct option;
+ struct perf_sample;
+ struct thread;
+ 
+@@ -26,7 +27,9 @@ struct unwind_libunwind_ops {
  			   struct perf_sample *data, int max_stack, bool best_effort);
-@@ -64,7 +63,7 @@ int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
- 			   struct thread *thread,
- 			   struct perf_sample *data, int max_stack,
- 			   bool best_effort);
--int unwind__prepare_access(struct maps *maps, struct map *map, bool *initialized);
-+int unwind__prepare_access(struct maps *maps, uint16_t e_machine);
+ };
+ 
+-#ifdef HAVE_DWARF_UNWIND_SUPPORT
++int unwind__configure(const char *var, const char *value, void *cb);
++int unwind__option(const struct option *opt, const char *arg, int unset);
++
+ /*
+  * When best_effort is set, don't report errors and fail silently. This could
+  * be expanded in the future to be more permissive about things other than
+@@ -36,8 +39,31 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 			struct thread *thread,
+ 			struct perf_sample *data, int max_stack,
+ 			bool best_effort);
+-/* libunwind specific */
++
++#ifdef HAVE_LIBDW_SUPPORT
++int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
++		       struct thread *thread,
++		       struct perf_sample *data, int max_stack,
++		       bool best_effort);
++#else
++#include "debug.h"
++static inline int libdw__get_entries(unwind_entry_cb_t cb __maybe_unused, void *arg __maybe_unused,
++				     struct thread *thread __maybe_unused,
++				     struct perf_sample *data __maybe_unused,
++				     int max_stack __maybe_unused,
++				     bool best_effort __maybe_unused)
++{
++	pr_err("Error: libdw dwarf unwinding not built into perf\n");
++	return -1;
++}
++#endif
++
+ #ifdef HAVE_LIBUNWIND_SUPPORT
++/* libunwind specific */
++int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
++			   struct thread *thread,
++			   struct perf_sample *data, int max_stack,
++			   bool best_effort);
+ #ifndef LIBUNWIND__ARCH_REG_ID
+ #define LIBUNWIND__ARCH_REG_ID(regnum) libunwind__arch_reg_id(regnum)
+ #endif
+@@ -47,26 +73,16 @@ int unwind__prepare_access(struct maps *maps, struct map *map, bool *initialized
  void unwind__flush_access(struct maps *maps);
  void unwind__finish_access(struct maps *maps);
  #else
-@@ -81,8 +80,7 @@ static inline int libunwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
+-static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+-					 struct map *map __maybe_unused,
+-					 bool *initialized __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
+-static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
+-#endif
+-#else
+-static inline int
+-unwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
+-		    void *arg __maybe_unused,
+-		    struct thread *thread __maybe_unused,
+-		    struct perf_sample *data __maybe_unused,
+-		    int max_stack __maybe_unused,
+-		    bool best_effort __maybe_unused)
++#include "debug.h"
++static inline int libunwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
++					 void *arg __maybe_unused,
++					 struct thread *thread __maybe_unused,
++					 struct perf_sample *data __maybe_unused,
++					 int max_stack __maybe_unused,
++					 bool best_effort __maybe_unused)
+ {
+-	return 0;
++	pr_err("Error: libunwind dwarf unwinding not built into perf\n");
++	return -1;
  }
  
  static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
--					 struct map *map __maybe_unused,
--					 bool *initialized __maybe_unused)
-+					 uint16_t e_machine __maybe_unused)
- {
- 	return 0;
- }
+@@ -78,5 +94,6 @@ static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+ 
+ static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
+ static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
+-#endif /* HAVE_DWARF_UNWIND_SUPPORT */
++#endif
++
+ #endif /* __UNWIND_H */
 -- 
 2.53.0.1213.gd9a14994de-goog
 
