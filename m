@@ -4,118 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F98E88D8B
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 12:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B26E88D8B
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 12:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/zVWJyVpHd2ZEi4enUfO6v+r5Z0frWnqPRuEQVvZsxg=; b=qL2Sv1mct0F3In
-	TcAPkaK0+ecqkvBV9wmFlAkAwdXUPUoGrlnJ+0dS01JRTlOEyrcyNUCcCMKn3Tv3YYarh/c+/RgVi
-	DkuOgnAwMOHBkCyg3mRves11PFZihXapQKm62mvcJ+kB9fZ2xBt2b1NMRsixL01UDXF7oW5gWy0kV
-	yaZgzjN1ydwBOXXtl0pcOm0gurCIw8vyStDtuRmRP9GZTqkJAUEcE0PyXqwmF6AP8JVreuRvsfbY+
-	Bas+8ELqIYKnI2uEhzfbaKsROzz5JcWybNMu2f6qbD9xejBQEk7spbbI3JMQy8RJ3suZiCfsjBreP
-	XZGBc3WEyPSfsZRSAvig==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=crIHbJxcSZW2VUQDhjUIwBBehLaYFagsb+zA2wzaQQ8=; b=NJIwBd9bQWTjEu
+	eAPmSryKF7wJOnj2YAoibP7KaEQpCikF2ctfTa5Y1niVkmtki0t3/aFseJ9uOEZc9ymDDshPPUj15
+	MT6iGWMn7If0GgcKGXcbFxHAGj70PwGUAUVnVEOgZtFEN5H9Bf8bz4cBkE+YFFEkJwJqm5c2JRXqG
+	/w7TRdMbr1AstC6y3ZlzfoqBxigOyHJVUJRbY0hGHYv4lD6ZJ/haix5Vw3Kk+h7rcpDqYA5RAXZdM
+	twiNmFo/vVxNwCBRgCtJIJ0zo4UMzX27F7DWxLfLNFNuo7g7E6IRc2hkBSktS215WAzY5OceBkuhE
+	fghzot6IMiyDPS8ThcLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w900B-00000003S2J-2iem;
-	Sat, 04 Apr 2026 12:21:23 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1w900P-00000003S5z-18Kk;
+	Sat, 04 Apr 2026 12:21:37 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9007-00000003S1b-3B1K
+	id 1w900N-00000003S5A-1D3W
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 12:21:21 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-82cd5c07f93so1181801b3a.1
-        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 05:21:18 -0700 (PDT)
+	Sat, 04 Apr 2026 12:21:36 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c736261ee8dso840270a12.1
+        for <linux-riscv@lists.infradead.org>; Sat, 04 Apr 2026 05:21:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1775305278; x=1775910078; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XmD+wUZmRVhtkrDT5Nt1vWAFME2ljMO3CvkEWHIVAgE=;
-        b=DdvCmZ/yH8UBxGfBqhB24Sv5jvISVnHVdhgjmXihz/wzho306l+wA2z1yjITNvygR+
-         cpUbec7Sji/DyfzNIfWKgWFdpjmAavoQ4F94xoOoyMnhTCKMXMiMJnNk9cAc/RcyQoml
-         a3vvzwRD7Jz4E3VMPsqjpANY5un1rq64s5bELwZDfl8Hafglf5XpA1bHNPJPCzM5VPGP
-         ZdAoqoIEwS8RRDzhQ15Oa4hY1HGVrO1qwymWatwMJSz+rAC9A6l+WPbwXIHJD3c5Xi1q
-         0JRIFhowNguAYm068Z3sShAI5FdcU6IMmR7G0HgnSLVzURzBp4R5qk13yoxKLwnSsN2w
-         6XgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775305278; x=1775910078;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1775305294; x=1775910094; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XmD+wUZmRVhtkrDT5Nt1vWAFME2ljMO3CvkEWHIVAgE=;
-        b=cSqgW87wtVnrugeOSbYc9TLCAfPwIApDc3sr8s/Aa8NgLY9YUhB2HboYUE6pp+JbdN
-         Cxk6Hml/FSmCw7YqefKvxGGX95lUrGl2TrpUMuY2kRh2+nLsLbPaYeGR+uhrFGUIDBV8
-         Okn2MImoQGPoU89PJEK+9Q3RWczOoJkmKEPG8b2tC3YfyZj5V0Sh+wLgJmJjFMNHCR0/
-         L33eqKCF7pzSj4i0jStJbBPdiAY34FbSHKReWihQewsOu0k3ku7T4pU0+Of+6NdrtMar
-         Lr5KoKKQ/OkKAd7qcjcvKF3q4RnNij7slPCrbpX+HQg1nHLKXpEnA69SUpoA9AA4/DFK
-         Hlhg==
-X-Forwarded-Encrypted: i=1; AJvYcCW1zgMcYJU2e4fM6LT8ihIdHENooXdM8PqRcf+KXwR6MmcKs5Y8+JzmkZ6GtjqPdCQs3mZ+KSeTWu98lw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwegLCbIwce/lBry8ycGeqKHXaGsmYlrYYWeQ+QfJBzMnnL1gGt
-	lufjuAagiBtIa9Cc2wCZkBc7yvqxspG7aZau7u9iJ496woZhSxW+i2kb/bxHHhWtiSA=
-X-Gm-Gg: AeBDievilqJC5JS6Ga5bMp2mS4pqwq7PLewWSyGzicQBbijXQzTb5rkc/wrrqAlC1ER
-	Z+OaxHRwxw6LxcIG4vxA1Lc2vYdsDPmFZsdjDXbZsPUNTiMFNDrcZiFulNNp6100yAQjrswYih5
-	7bHnnF+6Gk3NFMFOMQGGduKfKec9mOpn2a2LaxR5xxYSfAxF/c7pxMUKt078xzE6ooq6KlrucHM
-	RjJEEL4XrKMzGCQZwh0moy9GAaBDRhae5xc4hzv7rDkmeKPpcveuSAeieU0a7x7i3SEwc2Q4JNm
-	7oNkkO5ib8c1pKR2lVXgCYmSkIGUTbBieLhSt/VnUn5Epl/WcILmruWM4ByoC2eRsJkd/NeVF0d
-	5rDnAA0jGIk73S6DwGMqBmSTHVVdkqwVOi9zzHK2IbPoXCzbhkzqvqhi+gj6qZOF4DsZoKQ7sHg
-	dWkDBpxylopZzQmFh3A5tK9OHiJNfWCqzp/D8ZFjDXFTQe8XUo28ZqwA==
-X-Received: by 2002:a05:6a00:ab87:b0:82c:24a9:d5f1 with SMTP id d2e1a72fcca58-82d0db3f376mr5931662b3a.30.1775305277918;
-        Sat, 04 Apr 2026 05:21:17 -0700 (PDT)
+        bh=qxbGgf4+lSuSxIXzDbxhYHMBptayAf1Wj0PvoCJF+ME=;
+        b=kOtuTes/JDh71Tt4jHzWWxxV75axFMKnsr2Mpqro49YXeQd9iyEPKWreWEbGGtE3Hk
+         B4kb2rm6H2dh1ewhoM4q9oQpFN8Qw5zQwZi99jMV+d2vw69mhSQjVJGh0iHmVzsDSx2v
+         KDwdWvNHCCWtMlvtfL7H4iKgmI9mbFYsNorl9ezXplKVBc3BdQH4pIb4JUyrLvzKktXh
+         FowXpO1tfeZdL8Urx55Keg0W7uT+oJRtZp6/KSkr8zIn+PxkpnHCc8YRK9L19z8b8EXN
+         w1tzfSt1BdASK4N+NapTdglCXYt5wITYChu6ofrz9Ayn4D/tYKhHx46sLr4IXGQpFaoH
+         hkTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775305294; x=1775910094;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=qxbGgf4+lSuSxIXzDbxhYHMBptayAf1Wj0PvoCJF+ME=;
+        b=UQt+4mjpS5woAwmZ72d+syzBNCawFtVYLsXr+HwKRA7A/7chmui7AM0RRCyjLpHa3f
+         yhmZwlvzbjG53y95Bqw9pprfCTJRx4PMbcL5a4sM6BamLdFxA2O0oKLNcEl15ibk2DJa
+         8dAG4PAldi2cqO9mCmwHeoLxOF45eUPu/klP1cZmFG2PmmtdSoH1RVqKDjtHLo7YGRa/
+         EiF9bLIZ1tp40weNAMbCAneqAZ86LfEBBFg2S74E64pEMvyvzpnIrIKa66bodIcIbB7z
+         EpQod9jNKx76blXLqu7fdWY8+kAS1UAHd/zhCHvUerKt9bfaPmEfX6rMgGnIC7fjFkSF
+         N92w==
+X-Forwarded-Encrypted: i=1; AJvYcCX93YNaRUJ06HLWLJnPptjIrrmhjh8QjaQh5CuZ2G9dc3gaWsODfiEXa5bikgz+tc0JuP0qqriuoJPksQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvto25S+55n4Zws3MjCgOdAtz7Y2Rw2ja5pRwDyzyawhgM0EJW
+	dRdHBc666NwINcvAs3Ne1+WYmgkkydBr0QlmL5ji0gpzKQOpzZefBTNXoB9x2yGTGso=
+X-Gm-Gg: AeBDietrt4/htmqs/2Ojrk2ZLj/kf50JwtrdQJwW594OwQvmaopIRDXj9ki06qo10MF
+	AP3ptEJe1B2t0WqCrknnT3w95CmGo5JGIqsqIU0bf4dB+uLv2QB2uMWTRVjYF7l6oHxzKL/nP5y
+	abg6diPn7a3Bu7blJ0UsAOJvP/08ZMyoCfhibNKsHnVutTsRHziVNTTUMAzl8WCDZXr+9+bxMRo
+	DWMdjU5rZ0/J4vsIthTuUftdzlB+CmMlsFoVDMd7znhF3ynBBxf9LvbgCATipp6yXPaIAhK2Epp
+	gmxpMXRZBhRVFm4S2YJGONfHhAQq5YgIboHnhY84qVPj+2hxX+uTE+8FKIuuHbeVhYgMKxBU0xp
+	/lt1P8cDTw/vQJH0magBYXJYg9VuJS6S8BW3lnsw+B+Xla6RfSzHDtLrVRKmiq0GFIJ+laqg7zH
+	aJ+kbyytnIAIpIpKioZlYDVznWSOH+QZpQFCW3K1Xg/TQ=
+X-Received: by 2002:a05:6a20:430a:b0:39f:2dd0:65d5 with SMTP id adf61e73a8af0-39f2f07e2fcmr6795719637.39.1775305294226;
+        Sat, 04 Apr 2026 05:21:34 -0700 (PDT)
 Received: from n232-176-004.byted.org ([36.110.163.98])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cfebe5b23sm8327063b3a.59.2026.04.04.05.21.08
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cfebe5b23sm8327063b3a.59.2026.04.04.05.21.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Apr 2026 05:21:17 -0700 (PDT)
+        Sat, 04 Apr 2026 05:21:33 -0700 (PDT)
 From: Muchun Song <songmuchun@bytedance.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
+To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-mm@kvack.org,
+	akpm@linux-foundation.org,
 	Muchun Song <songmuchun@bytedance.com>,
 	Muchun Song <muchun.song@linux.dev>,
-	WANG Xuerui <kernel@xen0n.name>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
 	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
-	Petr Tesarik <ptesarik@suse.com>,
+	Austin Kim <austin.kim@lge.com>,
 	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
 	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Austin Kim <austin.kim@lge.com>,
-	Chengkaitao <chengkaitao@kylinos.cn>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Alex Shi <alexs@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org
-Subject: [PATCH v2 0/5] mm/sparse-vmemmap: provide generic vmemmap_set_pmd() and vmemmap_check_pmd()
-Date: Sat,  4 Apr 2026 20:20:53 +0800
-Message-Id: <20260404122105.3989557-1-songmuchun@bytedance.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 3/5] riscv/mm: drop vmemmap_pmd helpers and use generic code
+Date: Sat,  4 Apr 2026 20:20:56 +0800
+Message-Id: <20260404122105.3989557-4-songmuchun@bytedance.com>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20260404122105.3989557-1-songmuchun@bytedance.com>
+References: <20260404122105.3989557-1-songmuchun@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_052120_173735_AE093A61 
-X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-CacheID: sfid-20260404_052135_322130_BAAC69F5 
+X-CRM114-Status: UNSURE (   7.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -133,43 +112,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The two weak functions vmemmap_set_pmd() and vmemmap_check_pmd() are
-currently no-ops on every architecture, forcing each platform that needs
-them to duplicate the same handful of lines. Provide a generic implementation:
+The generic implementations now suffice; remove the riscv copies.
 
-- vmemmap_set_pmd() simply sets a huge PMD with PAGE_KERNEL protection.
+Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+---
+ arch/riscv/mm/init.c | 13 -------------
+ 1 file changed, 13 deletions(-)
 
-- vmemmap_check_pmd() verifies that the PMD is present and leaf,
-  then calls the existing vmemmap_verify() helper.
-
-Architectures that need special handling can continue to override the
-weak symbols; everyone else gets the standard version for free.
-
-This series drops the custom implementations in arm64, riscv, loongarch,
-and sparc, replacing them with the generic implementation introduced
-in the first patch.
-
-v1 -> v2:
-- Fixed a tooling issue in v1 where duplicate/conflicting patches
-  were incorrectly sent to the mailing list. No code changes compared
-  to the intended v1.
-
-
-Muchun Song (5):
-  mm/sparse-vmemmap: provide generic vmemmap_set_pmd() and
-    vmemmap_check_pmd()
-  arm64/mm: drop vmemmap_pmd helpers and use generic code
-  riscv/mm: drop vmemmap_pmd helpers and use generic code
-  loongarch/mm: drop vmemmap_check_pmd helper and use generic code
-  sparc/mm: drop vmemmap_check_pmd helper and use generic code
-
- arch/arm64/mm/mmu.c      | 14 --------------
- arch/loongarch/mm/init.c | 11 -----------
- arch/riscv/mm/init.c     | 13 -------------
- arch/sparc/mm/init_64.c  | 11 -----------
- mm/sparse-vmemmap.c      |  7 ++++++-
- 5 files changed, 6 insertions(+), 50 deletions(-)
-
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 5142ca80be6f..f7e7d7c2e97f 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1429,19 +1429,6 @@ void __init misc_mem_init(void)
+ }
+ 
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
+-void __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
+-			       unsigned long addr, unsigned long next)
+-{
+-	pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL);
+-}
+-
+-int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+-				unsigned long addr, unsigned long next)
+-{
+-	vmemmap_verify((pte_t *)pmdp, node, addr, next);
+-	return 1;
+-}
+-
+ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+ 			       struct vmem_altmap *altmap)
+ {
 -- 
 2.20.1
 
