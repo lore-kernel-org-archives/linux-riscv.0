@@ -4,87 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46AA7E88D73
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 02:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05875E88D79
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Apr 2026 03:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zxq9jXAI9QRG4Wv52N77vmdxvr01+UYvd990XNNXKjI=; b=Cw4XldaTfjD8b+
-	dpGPHsjEj3oDfLLrP+s+4Y5e2lVbKrpbLfTSlWQQAmneILP3Qr4Hi9400yX1cTpPBAKYz+UnUuVuY
-	46++4fz4moP1qfPVgNGmHZjGmG0TxBn44cfaTl4nHAQYSGDPe3zOAhjreMX3ZlQNo2FKVYQORY3z1
-	NKj0tANcb+lgeYxs4uze7tcbszIk+WknydCXjFL2D8poZdWKOI5mWqmboAHVxeApv8NPCVv+Ek+4k
-	tuQXuLDW6Zrz82IVbjnhBEtoHSZUh3XRXgEBw9UkLldDQjPgXTb9h23d8VMbBcO89oQp9DnpcA5cO
-	Kh5X3n4ZQ2LY3JlwHWlA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=15EjugvBtUDDlHMx3Sr8E04vV0HW1sRc6DZapMd5fnE=; b=XfXBezvI68Gsw2AXBmynNccQC/
+	opyftknhkp8+8TPCsQW3cXaDIsWYAtt5ueZXkiyciLIAJVQ3l9PIKWOzJV72MoDdFXNDN1w7qohEp
+	6i12RWZGxORSQYhu8APP2YoKiT2W0KSpg5eZalF61ORLIq61GS5lGPpoKAPKJV7/PExwRKtOY5Fob
+	veh2BxEAXS/51r/BAwz0M8W29eDfHyzoJ/7vfgxlw84XXozqel69AsQtZgu+tXb/KxHcaK90RRQVW
+	A6R2hH8Ji9cikcxk38cqa4AqPBIP4Qm4auYSls9h0b4NiFQwd9VSCoO4sHBKrJS5bBjTVDG6QgYs3
+	miSAosjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8qNG-00000002zO0-2cUI;
-	Sat, 04 Apr 2026 02:04:34 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1w8rdt-000000034Th-19eA;
+	Sat, 04 Apr 2026 03:25:49 +0000
+Received: from mail-japaneastazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d405::2] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8qND-00000002zLy-3X8K
-	for linux-riscv@lists.infradead.org;
-	Sat, 04 Apr 2026 02:04:33 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-67f9209185dso1286961eaf.2
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Apr 2026 19:04:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1775268270; x=1775873070; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QFX1dhDieBRaAm9qJ2639rNkR3TjfczoXLEWvV+mu0Y=;
-        b=O9wvK4bC91Xz/TQL9yClz7M4zd4kSwSnNviAfNydw4CkFI+0u5C3eEHp40fDmZjlEx
-         7I/iftBStUWKsHv+JYa3cubkdtxd09gvIdJEdb2DOosU0/A8eU7lGZkKs1GHsRWYY4Qr
-         Gqhgzka/ECAKntzrn1XBZekncIde3ze7kTn2unzfAo3aaCXNqukaYahjoNCfPjnohz+X
-         P3HHiIurHyNq0iQaUQw2jO6Xx+GXPKF1G0+cUi/aUazXWL6Ct506JbMe7hu4Bte/nzmS
-         rXvNzq0CTHdOrqCPAspR9QchYvSY17XQIltpq3zNHpIkzuRII7wN6S46jKH2PnbNUDIB
-         hcjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775268270; x=1775873070;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QFX1dhDieBRaAm9qJ2639rNkR3TjfczoXLEWvV+mu0Y=;
-        b=Ihi7G+pakqI422M3cjP4eMS8vbiXvRkPWmYVHtrEY1qvchPY3knLTnLggeJyDXVB9a
-         jvVbo+s32d3UNclbwNfYQtDdSLiVn5eRj2ITvIzTjN9s0p5MQOTIXeYuYh+TjfyJ3tVK
-         k1vOk2Nzm6pIcdf7RGtIY/yFW18VE3+YcJSJl/4rlSghQuTbuyfyJX9Edtq0LPSLkAgn
-         M/+HSDpz+6AJaWrcSouyp5uqX5b6exQWuM6YB/C/k8LIseRM34WThh6HP3AZ2KoXSRur
-         NkKE/kNRxPsqaeaoM3O5Bsexj2ya2qXHk1C0Ydec9KH4l4NBA8RZbzMVDIwFeA7GCajf
-         oMNg==
-X-Forwarded-Encrypted: i=1; AJvYcCU7q9IzXnrSWsg1GL6fRmx6T1OGmjFpdWdt1J1Y3zki+3PNQcrLQgbPXztpgLeotVLrxd72vSylihW/Yg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeDi1vatVOHbsTN7q/itcFg7X1/uyow9c6atChkzDrZYzVl9BK
-	ZmZSRTk64OvPParmNx/YdMxqgI+dWtbUmG0Q7uCUeS/si2xIXwfaQMXhJQ12akcAwNk=
-X-Gm-Gg: ATEYQzwDWOekoP7oNSN0W7BN8197SbHaCFjqIotBghZfRv+weTMKnewuCo4eDfJfKTj
-	OUjTfrV91qd6HFgiwOLgq3CPe4lzQjlrtaWmLyDY3yyv0yRrFz5vGuVQrP9/2PGX2ZYBBjw+otS
-	Np+adLJJxBOVBw0pvFfn26hfCFiMf+m+P8awszuiEdbZ1IGmFKDPuGOH45poT/cdqhX6DE2JTDt
-	NAA4feQFtIRpIWxb4q2ISf424euCzkOKGpNxR0o0u3ayC/VRyM6jG8wAqJUZDmnjPYKfUcpZ3Oj
-	VEf+JM3zbYx79FnUq0haVqPFTs2DJt1WOQywcURyqkrkfkZEIUbmm1UVGFrWJ3yRvp2rZ3tVyN4
-	8//eCcWLxG1GvMOHbMlTCvfAoKlAhDOGXgGDXuMsVGmJG8Ye2k/7nWgpcQz6yAY1br4pumsYjnI
-	Lig6hD/4w90lqEDhRRF4bq5Pvhpxz800bbYoHVPiLQYCYX+ua1aXrYfkJtAGjPjs5EVy3W
-X-Received: by 2002:a05:6820:2006:b0:67c:250c:ac4c with SMTP id 006d021491bc7-6821fe6157amr2712135eaf.31.1775268270140;
-        Fri, 03 Apr 2026 19:04:30 -0700 (PDT)
-Received: from toolbox ([2600:1700:220:59e0:a819:2018:a04a:68a9])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6822987630bsm2274434eaf.4.2026.04.03.19.04.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 19:04:29 -0700 (PDT)
-Date: Fri, 3 Apr 2026 21:04:06 -0500
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-To: Troy Mitchell <troy.mitchell@linux.dev>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH] riscv: mm: fix SWIOTLB initialization for systems with
- DRAM above 4GB
-Message-ID: <adBxljN4t0ZIIvGQ@toolbox>
-References: <20260331-fix-riscv-swiotlb-v1-1-74dd5e6be0f1@linux.dev>
+	id 1w8rdo-000000034TA-21xO;
+	Sat, 04 Apr 2026 03:25:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yhgkaW/EjraOQXn95PF37eV1zM0kcIYOuLbYO2AgefwWXuGGFkiaDTpbxpTZJj79GEb7+7iQvhuefTCmAp/tXEy2O8/dtOMknnL/KjqpEPdpsR7c18uVptFM+de0Ku/SAwVTuLaCEELdWNqxNLdjF62TTA7+ccisSEFzF9+LFQ7fzdz5RLmqAFvkkw8B0LI6fD9GgdxSn3J1HFgm25xl7p1LF7YTO+EvONXGGgGq3fG2lTG6U+5rX0VER7EbiInp8jy1pjLkFk18PCJK0jdHRgQq/CXIgxFXw0oZ+D2yb4i+L9B7lv0aKx0PLq9HUBZDienMVtDb3tkERQnj4JXFrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HrFIcKDpFoR7YyZHPbXBLvTmGe0ugEmr5TDUTobTuq4=;
+ b=vPIFZWsal/j0c279fCCpGj/ecNrEeDzH7UbEbyrSUbyOq97Rd+D/rUMusSD2pRjkVLzYMpi6a9N2g/KLSG51A9UbFTg/vZYEOpdKomHkYDCxO54Eb/rveF+gwlk9z4iAGd1f2cfuuowM3DVVcHTDBUeo+yq3LUabmxwmgVkRIxJx/vVgzFXro2dtDUinpLdQxn/XAPJ4VE+VJdU0Xmy+kIB1ONrnNVY/Rem8rVeVmzGoJcQqc5miChj2T+0WmkNss35W7yhqnL/+wNoybOdkmgSEBGCFNDmWiwYX5Me2crRvkErkcAzBCYq4Z/tpHEUCvgJQIO2Tiyg3pmEYTtbcXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HrFIcKDpFoR7YyZHPbXBLvTmGe0ugEmr5TDUTobTuq4=;
+ b=ZU1hQsOFqfVnHdT+CS6SqvPwDXDPRNrxkLDg2DPNo/ag9MGFEQBoNKAhbANSBqQFNnytwS/yU7t9vextTD5ROGfVluzb7zCoI1P+bzpOGfA3lbY32GpNUXja8gQZ1SGewOdyYnRvKE1NVPN9aL9loigpk2xm/Uy0p0b/BjTh4LGKazPXfB4KyYXVKey91Boq6hqmA5dk14Vsa3wLbpM5ngX4EIPuunLRwm08u2rBGuJuyT07+Gu/VIBHap75C3E8950SMAdAFzGeLqmQSNp7zWW6HZt8R+nHSk2AsoX1vXlnsuKpI8rPczHoMHvejROzTq6xGiPqFWiAhOjoukwBUA==
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
+ by JH0PR04MB7622.apcprd04.prod.outlook.com (2603:1096:990:5e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.21; Sat, 4 Apr
+ 2026 03:25:32 +0000
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58]) by SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58%6]) with mapi id 15.20.9769.017; Sat, 4 Apr 2026
+ 03:25:32 +0000
+Message-ID: <SE3PR04MB8922EEE514B57D2D54BD7AA5F35FA@SE3PR04MB8922.apcprd04.prod.outlook.com>
+Date: Sat, 4 Apr 2026 11:25:22 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/3] RISC-V: KVM: Cache gstage pgd_levels in struct
+ kvm_gstage
+To: fangyu.yu@linux.alibaba.com, pbonzini@redhat.com, corbet@lwn.net,
+ anup@brainfault.org, atish.patra@linux.dev, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ skhan@linuxfoundation.org
+Cc: guoren@kernel.org, radim.krcmar@oss.qualcomm.com,
+ andrew.jones@oss.qualcomm.com, linux-doc@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260403153019.9916-1-fangyu.yu@linux.alibaba.com>
+ <20260403153019.9916-3-fangyu.yu@linux.alibaba.com>
+Content-Language: en-US
+From: "Nutty.Liu" <nutty.liu@hotmail.com>
+In-Reply-To: <20260403153019.9916-3-fangyu.yu@linux.alibaba.com>
+X-ClientProxiedBy: TY4PR01CA0043.jpnprd01.prod.outlook.com
+ (2603:1096:405:2bd::16) To SE3PR04MB8922.apcprd04.prod.outlook.com
+ (2603:1096:101:2e9::7)
+X-Microsoft-Original-Message-ID: <50c24bbb-d6c4-4775-beab-2ea42bd85741@hotmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260331-fix-riscv-swiotlb-v1-1-74dd5e6be0f1@linux.dev>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SE3PR04MB8922:EE_|JH0PR04MB7622:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1be47d08-fb62-474b-903f-08de91f9d366
+X-MS-Exchange-SLBlob-MailProps: obhAqMD0nT97+9kgwgO/mqEGtcymhevmECRKaMIBi/81O2VrwNjzpMYq5EZpkgoGMGv5ThI7lIuGug8TrgcZRiTH2VVAeN9uFRb/rHVoIChcMJo3jHJiBu8yslKz3roweEGr4rllAiXukCp9IKEZCz4f0BVeQfVdH5c7P+xNLWHp87hZlljgjWOG/weZo5/QP9F/s4d5uVVsz9gV/rz6R8ARJodGNtu2RkieZuKoA1xK0kzWBLOy340mZ07D73I3wTxnlUKEkwTXhOqPdY4usOAfA5ITG2OL3z6TkBdDPDslPXnIj0wbVhhQ/MNfgDPNWZ1fmsj1URz44U4ka18zybIHl9ioQgVZ4OTODIhhIkPt558lE7+1lAtSLNBLkrp+OV8w0kjX7hfeqbzvbgFpm2YiUyFy+k0xB4/E0sGFaNHNH/4VJXXeLQDOTTekfGiucRiWAuyCseucVe3OA4pXhzPvh5fpOdm+XJdXqe5lqKeVO+s0Hcxsoyr0FETxf8r6Kxwtw1J5FuVtFipulOB5oUA8xj2Y477qJ7cISVDtQF850L8JvsWjjldNJ/soztTCMe0fo7cMXbdd2fw/8198oCcCkSoJokMtTKT57ZsdspGBPQF7JvH87OQdA/jDMeSvNm4SaB77g1VEB9AQdTUQuVDZKqP754aXlM70FOMFNlyD4IuyekYrd5nTzN8s93Hlj854PgC75PhdE4D8BlEzdEimXDx8yniyqYCFuezF4GLYY+tFjqX50wFzgYFJiL1nBAdmOsBT+4oRoyIpj520p4Qnm72G01o1LpUQibOQmmu8GtSc/Halwm4ebvTpWOXA
+X-Microsoft-Antispam: BCL:0;ARA:14566002|51005399006|23021999003|19110799012|41001999006|5072599009|6090799003|461199028|8060799015|7042599007|15080799012|40105399003|3412199025|440099028|18061999006|12091999003|26121999003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aEZ5U1B0UU1xOUx2NFNCallBbXUwRU1yVjVVR0lLc01uLzd0V08zU0I3MFY4?=
+ =?utf-8?B?MUhxdFY5ZVFSY3hMazI0bE9remk5SmczKzZMdHFZaDB1RW1lS3VkOGlXUDRx?=
+ =?utf-8?B?amJCblpRc0haOEZCQ2Z1WkVhaTN2VGRscmpMbHZ6bXdVeWIwNlpNQUQ4aVN0?=
+ =?utf-8?B?a0RyM20yYkgyeFl6SlJMN2JnUGQ5WW9UenhoOTJGUWVyZ1dIS1hBaG9Lb3Bl?=
+ =?utf-8?B?VlBlRFdxSHRiWTAyWmdVMzBHejRXWmxuY1dGRWxON2pneDVXa2p0amRkYmpU?=
+ =?utf-8?B?cUN6SXNaQ2V4YlRJNkljandHNytuMnRocmVpblgrSWg2enZkQlZHMEZTMlJG?=
+ =?utf-8?B?ZEZWR2dYaDV3VTZLMlpPTFlHcy9MbjZHdnZFWWp3a1RVeUE5VjVkWWZ6Snpt?=
+ =?utf-8?B?KzF4YWpYTnd3NHVVWnlzMXVpRnRhK2hod0oyM1U3ZzFzcVlhdEo1YXZxZWN1?=
+ =?utf-8?B?YXU4TDNVUFE0Y0VEMFBhem5QaURNVGQ1MFpNS0dVL3NlSWFUbllkK2dMTXFG?=
+ =?utf-8?B?dEdWc1dYaTNMYUpaYmZsYkptWTJlWkQ5NmduZ1pPNlVHaGFxSVUvN1JNbk1u?=
+ =?utf-8?B?eUVWdWF6WTVJYU1VZkEzQWV4TVFiNmNSWVZCUHAzS0lzNlhxNWdMRERzdFpT?=
+ =?utf-8?B?Q3d6SUIvUFlYM0ZLbHFqWm4xSVlSbXJqeHhzMElwMjU4eUI4Z3dJTUpiOFZ5?=
+ =?utf-8?B?ZVpBeXFiekhRNkVrNm81eDdBRFlvRjVhaUJVM0lLM0pzTFlCMFpoL0xJeXNj?=
+ =?utf-8?B?UGJENWN3SStMR1dlZnVMM2h3VHVYdU5rV2c5QUlIVXp3alhmVSs5aDA3RlZT?=
+ =?utf-8?B?OFZ2LzQ1UHV1c2xwN1phRE9XN3RFOFVOQmJFQ0MvbG0yNmlwOUVWSE1DUDhw?=
+ =?utf-8?B?aVZLSUVmVWplM3JRVDc3bU8zNEJ1K3pBNzVWU3U2ajg5SWkzQzdZU0hLdDg1?=
+ =?utf-8?B?MllXc054Z2JSbkdpaDRpZTZia2ZMWS9HWVVnRXVnSWdFVy9ZODJ5RGxXMWp6?=
+ =?utf-8?B?d05MRE5vaGhyYzZTU1NuYmg0WUJMS2RkVm5xUDFjY3g2ZlFBc3VvenVqUjBI?=
+ =?utf-8?B?L09raHAzTUw4bVZBMzF5a2Q3RDFJaVIvSll1NEhyN1o4Z1lqenVrb1d6QU96?=
+ =?utf-8?B?RVBoL1NEd1JDVXgxbTl2RllOMm5UNGtmRGFKR1Bha2RWM0hUcGtPVVQ4WlR5?=
+ =?utf-8?B?ckhTSzZPZ0NRdENIcXVrSlAxRFBoSHNSUkNGL0JOdHd1S2tQUU1PeE9zQk02?=
+ =?utf-8?B?dXZzRGVTVTN3bzFYZU5qQUNmbXBVV2pKdmJzaktKb2lla1hsVElJSmluSk9a?=
+ =?utf-8?B?ekJRdStkYVBiUXJwL0d1RTY1VnE1QWRVbUN2aWY5WU0wZVpyeE0zWTJKUUtS?=
+ =?utf-8?B?RkU5WXNERCtyTVZXbWp6bGQ2cFEzSUlLUks3MzVuS1JsYXRQLzlZSGk0TXJk?=
+ =?utf-8?B?WThKNnAwZERUMnRUalkxejVyMnZNTjN2RHhyejJBPT0=?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VUhGNnRLQXlxNmV1U2dqUVhnT1ZMR2ZsY2d4anpGbHJVd1I3S2FTa0xlMlJN?=
+ =?utf-8?B?LzNmcFErWGNxOVZzaEk0WW1UVGc4S2pLazRyUlFuaHJjd3VkYlFBU3IvZ3FC?=
+ =?utf-8?B?bGltRVhSRW9tdmRnQUNmN29Mdi84U244SUQ5ZWVxV2ZvL2dSdVgya2t5UXNY?=
+ =?utf-8?B?NnRDYmhDcTBEeUJPMzJ6c2dPSmhFQVlhQmJKdUxWYzdkY1FNazcreXlpam0v?=
+ =?utf-8?B?ZFcrY0d1dXFEOHJxSGdtTWJDVlhLOTZMK1BiM2pxRHV2anJUMGFVeWhZdmNX?=
+ =?utf-8?B?MUtSSDBTTlcwL0RWRXBZU0tpNU9DUmM2YTJoNXpaYlhaakFPc0ZsaTlpV2I0?=
+ =?utf-8?B?Vk0zQ0x3SnNEbUVoZk9tN2VKeTZPSHRSQUE3cE1NVkRkNWkzTCttVFhBaDVW?=
+ =?utf-8?B?ZGNIMUtSeGV3c2RrcEFsNjRMU2MvRFFIYkYxYkNaVWdmUzdxc2FJa2V5QzB3?=
+ =?utf-8?B?cnRibUN3N2s5dzJnYWdhcFBEUmNsUEJSNXE5eGFLOEx2dXFpSjYybm1oUDV4?=
+ =?utf-8?B?N2tYeHNwcE03TlpOVFM5UzkwR1ZxamdLQVk3Y1RiZEpIM29MUTFLeEdZWml2?=
+ =?utf-8?B?K3NmaTJXZE1SSXVZTlQrSWJpS0tZMWlESkh5dlRoaTJCNlREV1BUeFJlZzZs?=
+ =?utf-8?B?a3ljbzNFN0NlR1Z2eE5mN1krc0tIM0hsK3lqdHkrNU91QzRqbnowS3R2alh6?=
+ =?utf-8?B?eWJDbFNNRVNrR3lFZWNJQXM2NnZYUTV2WWpJVlF5MXN4VUhhd1p1L2dDL3lQ?=
+ =?utf-8?B?MmpPWVQzczBPRlBLdkF3M1NHOVllZDVwVmppRVVRYzBxMkFhM21NTEhxTXpC?=
+ =?utf-8?B?TmtZWk4xTW9TTHA5bnRoZ2REclkzbXhyeEdybXlZMyszVDkxeksvdmsvMHJG?=
+ =?utf-8?B?cTB5R1lnSEZRcXduaS96cE9nVFpTcWhLbFRJaDRWeGVhM21ZYjJnRTZxSXh1?=
+ =?utf-8?B?NUdmMkpSb2pTTUY4cS93dCtZMEw1RngvS1ZPbkdsRHF2YU9ZNUU3Q3BMeGMr?=
+ =?utf-8?B?c1AxVEhQQ0ZRc01PVmhMZ3FYTnp3M3NHNWZWcmZPM3BjR1RuY1dNZWpBeTZY?=
+ =?utf-8?B?QnBHR050WWo5TWpTdFc0YzNuQ1NsTnJqOUhIOGFZU1Z6L2VmRFYyYnB0TE5u?=
+ =?utf-8?B?K1d6Y1BNUExSZ1grQmFsbDR2d2pRUXZ3M0Q4S3k0cnR2bFNtdmlTeHpTZ29I?=
+ =?utf-8?B?Q2tWQm9BREtTY1Fsd2FDR3JVdVFXOENZbU1rTGtuVVFOQmdBQnBVa2Q5aUQ5?=
+ =?utf-8?B?dUN1RHBnSTRyZHRHb2c3MDhqbExML0hoZHRodzFZanVFT29BUkxKRmt5MytP?=
+ =?utf-8?B?dTUyYVg1VDhRUDd4MHNUcmg0UVlMWUtuYWZlZGFHTVYvSmY0RXJnN2VQRHhz?=
+ =?utf-8?B?NWVSczZtalplenQ0b3A2VWdSanhBTWdUT2QwL3dSUHcrRHlKc0hQTDlYYzJ0?=
+ =?utf-8?B?SDltKzdwYzlEMVJ2NGlDMUJtTUJEWmNTdUE1MzhCUjVZclE1NXRXWEhNNndR?=
+ =?utf-8?B?N2ZIT0tOYWphQ0pCYXB5U2tlSVVYQy9FUzM5OXdRUVRRZUx0YTBIU05TRG1I?=
+ =?utf-8?B?RytiWlo5STRmbjNwUGN5LzY1UTZxakZEdWo5dFRGYUMzb3VUVyszdWV5NjZu?=
+ =?utf-8?B?Sm9FQ2F2RXN1ZXdZQUxWMTE0cTM0alNidUplNXYxcythcnFXMXBDbm5RSnBL?=
+ =?utf-8?B?TkM2d3ROcE1FMjZrWmpVd3ZOeHJtZXJmcUIwMFB0THhFL1dBUEVxVTVEVDY0?=
+ =?utf-8?B?aEZnR2lzTVZPTGdNeUFiVUhsTjNJanVMOGJSY2FJMEVJR1NSdkNyaDRvbm9Z?=
+ =?utf-8?B?TWdDKzNPYWk2T2czMTZ3UXErZy9DbE92dUpZdGl3bmdBKzkvZCtYSk5HUnBD?=
+ =?utf-8?Q?txwHWET+2Kvdg?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-c3e7a.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1be47d08-fb62-474b-903f-08de91f9d366
+X-MS-Exchange-CrossTenant-AuthSource: SE3PR04MB8922.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Apr 2026 03:25:31.7445
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR04MB7622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_190432_202994_FB025C28 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20260403_202544_664971_85162F5D 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,59 +160,236 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 03:37:22PM +0800, Troy Mitchell wrote:
-> On RISC-V platforms where the entire physical memory (DRAM) resides
-> above the 32-bit address space (i.e., above dma32_phys_limit), the
-> current SWIOTLB initialization logic fails.
-> 
-> This patch addresses two interconnected issues on such platforms:
-> 
-> 1. Incorrect 32-bit DMA bounce assumption:
-> The existing condition `max_pfn > PFN_DOWN(dma32_phys_limit)` assumes
-> that a 32-bit DMA bounce buffer is required simply because the maximum
-> PFN exceeds the 32-bit limit. However, if all DRAM starts above 4GB,
-> no memory exists below the limit to satisfy this allocation. Fix
-> this by adding a check to ensure `memblock_start_of_DRAM()` is actually
-> below the 32-bit limit before enforcing 32-bit SWIOTLB.
-> 
-> 2. kmalloc() bounce buffer allocation failure on non-coherent systems:
-> For non-coherent hardware, a bounce buffer is still mandatory for
-> cache-line-aligned kmalloc(), even if 32-bit DMA bouncing is skipped.
-> Without the `SWIOTLB_ANY` flag, swiotlb_init() defaults to allocating
-> from low memory, which fails completely when DRAM only exists in high
-> memory. By appending `SWIOTLB_ANY` to swiotlb_flags, the allocator is
-> permitted to allocate this alignment buffer from high memory.
-> 
-> With this patch, systems with non-coherent DMA and DRAM entirely above
-> 4GB can successfully map the software IO TLB in high memory and boot
-> normally.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+
+On 4/3/2026 11:30 PM, fangyu.yu@linux.alibaba.com wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>
+> Gstage page-table helpers frequently chase gstage->kvm->arch to
+> fetch pgd_levels. This adds noise and repeats the same dereference
+> chain in hot paths.
+>
+> Add pgd_levels to struct kvm_gstage and initialize it from kvm->arch
+> when setting up a gstage instance. Introduce kvm_riscv_gstage_init()
+> to centralize initialization and switch gstage code to use
+> gstage->pgd_levels.
+>
+> Suggested-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+
+Thanks,
+Nutty
 > ---
->  arch/riscv/mm/init.c | 16 +++++++++++-----
->  1 file changed, 11 insertions(+), 5 deletions(-)
-
-Tested on Tenstorrent Blackhole, which doesn't have any memory < 4GB.
-With this patch, these lines no longer appear during boot
-
-[    0.000000] software IO TLB: area num 4.
-[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 67108864 bytes tlb structure
-[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 33554432 bytes tlb structure
-[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 16777216 bytes tlb structure
-[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 8388608 bytes tlb structure
-[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 4194304 bytes tlb structure
-[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 2097152 bytes tlb structure
-[    0.000000] software IO TLB: swiotlb_memblock_alloc: Failed to allocate 1048576 bytes tlb structure
-
-Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-
-Regards
-Anirudh Srinivasan
+>   arch/riscv/include/asm/kvm_gstage.h | 10 ++++++
+>   arch/riscv/kvm/gstage.c             | 10 +++---
+>   arch/riscv/kvm/mmu.c                | 50 ++++++-----------------------
+>   3 files changed, 25 insertions(+), 45 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
+> index 5aa58d1f692a..70d9d483365e 100644
+> --- a/arch/riscv/include/asm/kvm_gstage.h
+> +++ b/arch/riscv/include/asm/kvm_gstage.h
+> @@ -15,6 +15,7 @@ struct kvm_gstage {
+>   #define KVM_GSTAGE_FLAGS_LOCAL		BIT(0)
+>   	unsigned long vmid;
+>   	pgd_t *pgd;
+> +	unsigned long pgd_levels;
+>   };
+>   
+>   struct kvm_gstage_mapping {
+> @@ -92,4 +93,13 @@ static inline unsigned long kvm_riscv_gstage_mode(unsigned long pgd_levels)
+>   	}
+>   }
+>   
+> +static inline void kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
+> +{
+> +	gstage->kvm = kvm;
+> +	gstage->flags = 0;
+> +	gstage->vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> +	gstage->pgd = kvm->arch.pgd;
+> +	gstage->pgd_levels = kvm->arch.pgd_levels;
+> +}
+> +
+>   #endif
+> diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+> index 4beb9322fe76..7c4c34bc191b 100644
+> --- a/arch/riscv/kvm/gstage.c
+> +++ b/arch/riscv/kvm/gstage.c
+> @@ -26,7 +26,7 @@ static inline unsigned long gstage_pte_index(struct kvm_gstage *gstage,
+>   	unsigned long mask;
+>   	unsigned long shift = HGATP_PAGE_SHIFT + (kvm_riscv_gstage_index_bits * level);
+>   
+> -	if (level == gstage->kvm->arch.pgd_levels - 1)
+> +	if (level == gstage->pgd_levels - 1)
+>   		mask = (PTRS_PER_PTE * (1UL << kvm_riscv_gstage_pgd_xbits)) - 1;
+>   	else
+>   		mask = PTRS_PER_PTE - 1;
+> @@ -45,7 +45,7 @@ static int gstage_page_size_to_level(struct kvm_gstage *gstage, unsigned long pa
+>   	u32 i;
+>   	unsigned long psz = 1UL << 12;
+>   
+> -	for (i = 0; i < gstage->kvm->arch.pgd_levels; i++) {
+> +	for (i = 0; i < gstage->pgd_levels; i++) {
+>   		if (page_size == (psz << (i * kvm_riscv_gstage_index_bits))) {
+>   			*out_level = i;
+>   			return 0;
+> @@ -58,7 +58,7 @@ static int gstage_page_size_to_level(struct kvm_gstage *gstage, unsigned long pa
+>   static int gstage_level_to_page_order(struct kvm_gstage *gstage, u32 level,
+>   				      unsigned long *out_pgorder)
+>   {
+> -	if (gstage->kvm->arch.pgd_levels < level)
+> +	if (gstage->pgd_levels < level)
+>   		return -EINVAL;
+>   
+>   	*out_pgorder = 12 + (level * kvm_riscv_gstage_index_bits);
+> @@ -83,7 +83,7 @@ bool kvm_riscv_gstage_get_leaf(struct kvm_gstage *gstage, gpa_t addr,
+>   			       pte_t **ptepp, u32 *ptep_level)
+>   {
+>   	pte_t *ptep;
+> -	u32 current_level = gstage->kvm->arch.pgd_levels - 1;
+> +	u32 current_level = gstage->pgd_levels - 1;
+>   
+>   	*ptep_level = current_level;
+>   	ptep = (pte_t *)gstage->pgd;
+> @@ -127,7 +127,7 @@ int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
+>   			     struct kvm_mmu_memory_cache *pcache,
+>   			     const struct kvm_gstage_mapping *map)
+>   {
+> -	u32 current_level = gstage->kvm->arch.pgd_levels - 1;
+> +	u32 current_level = gstage->pgd_levels - 1;
+>   	pte_t *next_ptep = (pte_t *)gstage->pgd;
+>   	pte_t *ptep = &next_ptep[gstage_pte_index(gstage, map->addr, current_level)];
+>   
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index fbcdd75cb9af..2d3def024270 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -24,10 +24,7 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
+>   	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
+>   	struct kvm_gstage gstage;
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   
+>   	spin_lock(&kvm->mmu_lock);
+>   	kvm_riscv_gstage_wp_range(&gstage, start, end);
+> @@ -49,10 +46,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+>   	struct kvm_gstage_mapping map;
+>   	struct kvm_gstage gstage;
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   
+>   	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
+>   	pfn = __phys_to_pfn(hpa);
+> @@ -89,10 +83,7 @@ void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
+>   {
+>   	struct kvm_gstage gstage;
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   
+>   	spin_lock(&kvm->mmu_lock);
+>   	kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
+> @@ -109,10 +100,7 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+>   	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
+>   	struct kvm_gstage gstage;
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   
+>   	kvm_riscv_gstage_wp_range(&gstage, start, end);
+>   }
+> @@ -141,10 +129,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+>   	phys_addr_t size = slot->npages << PAGE_SHIFT;
+>   	struct kvm_gstage gstage;
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   
+>   	spin_lock(&kvm->mmu_lock);
+>   	kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
+> @@ -250,10 +235,7 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+>   	if (!kvm->arch.pgd)
+>   		return false;
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   	mmu_locked = spin_trylock(&kvm->mmu_lock);
+>   	kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
+>   				     (range->end - range->start) << PAGE_SHIFT,
+> @@ -275,10 +257,7 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+>   
+>   	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
+>   				       &ptep, &ptep_level))
+>   		return false;
+> @@ -298,10 +277,7 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+>   
+>   	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
+>   				       &ptep, &ptep_level))
+>   		return false;
+> @@ -463,10 +439,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+>   	struct kvm_gstage gstage;
+>   	struct page *page;
+>   
+> -	gstage.kvm = kvm;
+> -	gstage.flags = 0;
+> -	gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -	gstage.pgd = kvm->arch.pgd;
+> +	kvm_riscv_gstage_init(&gstage, kvm);
+>   
+>   	/* Setup initial state of output mapping */
+>   	memset(out_map, 0, sizeof(*out_map));
+> @@ -587,10 +560,7 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+>   
+>   	spin_lock(&kvm->mmu_lock);
+>   	if (kvm->arch.pgd) {
+> -		gstage.kvm = kvm;
+> -		gstage.flags = 0;
+> -		gstage.vmid = READ_ONCE(kvm->arch.vmid.vmid);
+> -		gstage.pgd = kvm->arch.pgd;
+> +		kvm_riscv_gstage_init(&gstage, kvm);
+>   		kvm_riscv_gstage_unmap_range(&gstage, 0UL,
+>   			kvm_riscv_gstage_gpa_size(kvm->arch.pgd_levels), false);
+>   		pgd = READ_ONCE(kvm->arch.pgd);
 
 _______________________________________________
 linux-riscv mailing list
