@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D2BE9D827
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98770E9D826
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bGxJsr5kPbLctoVUN11FWRPR8gvfhfmBEKbKAE1p/zw=; b=PJk6hqCi81iOET
-	cf+MBwbovMQIT5gPjJyUUrDu9Y+vlFcaLvuOnX/Q7tb70jAWmh9CF1FNwpbBX4LnbxfPMFXAwXoEJ
-	Ql5M1BGN/xwWGJXpwe0lBtKdgDO9cZWYBFPSmJ0NyXoHFulE9FmymOX7Hqvr3T7T1RkpFFitV4p64
-	dkaVu4hF3R0AGOvmYB+rbIXObiPAgCgRWtWBcloL30AXeqsooq6E89TWGDVuj1RfFwEb8pQ2D5ZB/
-	yTs2LMfgI6/QCMUwgOXauFIo/Hf/yDECZwxYAG3RWdlIDOXTb+pRJXLNzZhvGK2cLcnpd9LKQmUhv
-	tG4xjwnNGSSUI3TUcwVg==;
+	List-Owner; bh=cyY+iar3bGHRIpp8pw2bvVlqEb4/Ixs4h8jdNoaIZes=; b=OXZtntUBYK1rRR
+	7w5X7ll8mVOKzrUUyGvfoLOPLUZMTETWPzy29hQYK0DPZM7D5k6TZ4LFHjGoVpwU0jsTJyulXRtpc
+	OV5HrdWJx55RqvN5yL2vS0/IEWJWr+Q7Q1sP3uw5z5rfP/jU0ZA7j2Znt5crv46e0tfB1zdPkrvdT
+	WOt0rBemcX+RYcMS7NQxwUsOzpcxwX6kmv1P0nspOR5/sL66TbcqJwHXMHtl0RUGWNDIopFep4hkq
+	TfJ5ZSEbRXc++Nt8whfDgu5XRiQmVxQ4fwyXbD7kXNhQTkYoDVWh8SnRfSAnCbAyOOKeS4inBHRcm
+	CgFQ9IPjj9Ucet3odLJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XIc-00000004ZuP-2ZJY;
-	Sun, 05 Apr 2026 23:54:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w9XIn-00000004a0x-42Ge;
+	Sun, 05 Apr 2026 23:54:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XIa-00000004ZtA-2ZzQ;
-	Sun, 05 Apr 2026 23:54:36 +0000
+	id 1w9XIl-00000004ZzA-3wmm;
+	Sun, 05 Apr 2026 23:54:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0EBE06011F;
+	by tor.source.kernel.org (Postfix) with ESMTP id 021EF600AC;
+	Sun,  5 Apr 2026 23:54:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 433ABC2BCB0;
 	Sun,  5 Apr 2026 23:54:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 022B9C19425;
-	Sun,  5 Apr 2026 23:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433275;
-	bh=Blo4OMct9fYkxFdmel/7U9C+OpnsYmoKnhqmZOKw+4A=;
+	s=k20201202; t=1775433286;
+	bh=kAA62WBPcurVVrTXPGLQy+IyDPvmVjelJYdVSSg7Y/E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cN/Pm+h1MNJIdF8/BGkOea6H77vXoucr8wI0WEa1JjgbUvhFtEz8eoHKetlw+QXz/
-	 yKJO+pzg+gsG7x6RU/QXG3/NDSowmR9zbNCKxO2a/aJI+6JRSWJ7FlC/RdNHyNrNNL
-	 vkYkWnvMwABBEgYDSlwiUH1xGSN0AkwKOU2CezV3RZe4tdKCq5qAY+dKqINxZIBlio
-	 QPbluXudooBzD+JgtojrRNp/XPzmN19AXP+Mm5kqOBRju7q9dhhwB6RvmCMVM26hrH
-	 IFc9bvX9/tmEZHSnXE1MG/oWow9BHK1Pft0guBMO+KcF0Jd6vE0TdJ/PRljzy5/bOn
-	 xE4ThQHQFOw7g==
+	b=CDWPhZSpnW+m2srqW9KnMzV7G9L1iRvIsEo8KP7CScPqG1Ifub79N4yj4T0IKrXc0
+	 4XmCbJ8zDasSdrjt7qHAlDp9GjyKU1PVePB9pLKwO1yYKuqMmE+zMzS3f8ObYOQMzG
+	 Sz8I1kSAf+/0TbbLJC2pKQ0kqL3IFyIPFzgAagHeEGUpcHcDj1c0A7xusZQz9bbfR1
+	 FSgviWf3M31Ti8M4qq5aJadgtYloCGN8lrF7uyJTBqns8a/qMIIobVXaSkE/6gLioK
+	 tJwkSLx6bxzgYU0l/ny8XpR3fIxVt28+VUtoLh3KPsIh2WOCgv/Dnw0iO3ictk7CMV
+	 QrQTXJ8QympQw==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -90,11 +90,10 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-doc@vger.kernel.org,
-	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 06/33] rust: bump Clippy's MSRV and clean `incompatible_msrv` allows
-Date: Mon,  6 Apr 2026 01:52:42 +0200
-Message-ID: <20260405235309.418950-7-ojeda@kernel.org>
+	linux-doc@vger.kernel.org
+Subject: [PATCH v2 07/33] rust: allow globally `clippy::incompatible_msrv`
+Date: Mon,  6 Apr 2026 01:52:43 +0200
+Message-ID: <20260405235309.418950-8-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
@@ -114,90 +113,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Following the Rust compiler bump, we can now update Clippy's MSRV we
-set in the configuration, which will improve the diagnostics it generates.
+`clippy::incompatible_msrv` is not buying us much, and we discussed
+allowing it several times in the past.
 
-Thus do so and clean a few of the `allow`s that are not needed anymore.
+For instance, there was recently another patch sent to `allow` it where
+needed [1]. While that particular case would not be needed after the
+minimum version bump to 1.85.0, it is simpler to just allow it to prevent
+future instances.
 
-Reviewed-by: Tamir Duberstein <tamird@kernel.org>
-Acked-by: Danilo Krummrich <dakr@kernel.org>
-Reviewed-by: Gary Guo <gary@garyguo.net>
+Thus do so, and remove the last instance of locally allowing it we have
+in the tree (except the one in the vendored `proc_macro2` crate).
+
+Note that we still keep the `msrv` config option in `clippy.toml` since
+that affects other lints as well.
+
+Link: https://lore.kernel.org/rust-for-linux/20260404212831.78971-4-jhubbard@nvidia.com/ [1]
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- .clippy.toml                      | 2 +-
- drivers/gpu/nova-core/gsp/cmdq.rs | 6 +-----
- rust/kernel/ptr.rs                | 1 -
- rust/kernel/transmute.rs          | 2 --
- 4 files changed, 2 insertions(+), 9 deletions(-)
+ Makefile               | 1 +
+ rust/macros/helpers.rs | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/.clippy.toml b/.clippy.toml
-index a51de9a46380..b0a78cc8be20 100644
---- a/.clippy.toml
-+++ b/.clippy.toml
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
+diff --git a/Makefile b/Makefile
+index a63684c36d60..78f5ee173eda 100644
+--- a/Makefile
++++ b/Makefile
+@@ -486,6 +486,7 @@ export rust_common_flags := --edition=2021 \
+ 			    -Wclippy::as_underscore \
+ 			    -Wclippy::cast_lossless \
+ 			    -Wclippy::ignored_unit_patterns \
++			    -Aclippy::incompatible_msrv \
+ 			    -Wclippy::mut_mut \
+ 			    -Wclippy::needless_bitwise_bool \
+ 			    -Aclippy::needless_lifetimes \
+diff --git a/rust/macros/helpers.rs b/rust/macros/helpers.rs
+index 37ef6a6f2c85..d18fbf4daa0a 100644
+--- a/rust/macros/helpers.rs
++++ b/rust/macros/helpers.rs
+@@ -49,7 +49,6 @@ pub(crate) fn file() -> String {
+     }
  
--msrv = "1.78.0"
-+msrv = "1.85.0"
- 
- check-private-items = true
- 
-diff --git a/drivers/gpu/nova-core/gsp/cmdq.rs b/drivers/gpu/nova-core/gsp/cmdq.rs
-index 46819a82a51a..d9f69366642a 100644
---- a/drivers/gpu/nova-core/gsp/cmdq.rs
-+++ b/drivers/gpu/nova-core/gsp/cmdq.rs
-@@ -281,7 +281,6 @@ fn allocate_command(&mut self, size: usize) -> Result<GspCommand<'_>> {
-         let (slice_1, slice_2) = {
-             let (slice_1, slice_2) = self.driver_write_area();
- 
--            #[allow(clippy::incompatible_msrv)]
-             (slice_1.as_flattened_mut(), slice_2.as_flattened_mut())
-         };
- 
-@@ -572,10 +571,7 @@ fn wait_for_msg(&self, timeout: Delta) -> Result<GspMessage<'_>> {
-             Delta::from_millis(1),
-             timeout,
-         )
--        .map(|(slice_1, slice_2)| {
--            #[allow(clippy::incompatible_msrv)]
--            (slice_1.as_flattened(), slice_2.as_flattened())
--        })?;
-+        .map(|(slice_1, slice_2)| (slice_1.as_flattened(), slice_2.as_flattened()))?;
- 
-         // Extract the `GspMsgElement`.
-         let (header, slice_1) = GspMsgElement::from_bytes_prefix(slice_1).ok_or(EIO)?;
-diff --git a/rust/kernel/ptr.rs b/rust/kernel/ptr.rs
-index c7788656a162..91811f5e27de 100644
---- a/rust/kernel/ptr.rs
-+++ b/rust/kernel/ptr.rs
-@@ -81,7 +81,6 @@ pub const fn new_checked(align: usize) -> Option<Self> {
-     /// This is equivalent to [`align_of`], but with the return value provided as an [`Alignment`].
-     #[inline(always)]
-     pub const fn of<T>() -> Self {
--        #![allow(clippy::incompatible_msrv)]
-         // This cannot panic since alignments are always powers of two.
-         //
-         // We unfortunately cannot use `new` as it would require the `generic_const_exprs` feature.
-diff --git a/rust/kernel/transmute.rs b/rust/kernel/transmute.rs
-index 5711580c9f9b..b9e6eadc08f5 100644
---- a/rust/kernel/transmute.rs
-+++ b/rust/kernel/transmute.rs
-@@ -49,7 +49,6 @@ fn from_bytes(bytes: &[u8]) -> Option<&Self>
-         let slice_ptr = bytes.as_ptr().cast::<Self>();
-         let size = size_of::<Self>();
- 
--        #[allow(clippy::incompatible_msrv)]
-         if bytes.len() == size && slice_ptr.is_aligned() {
-             // SAFETY: Size and alignment were just checked.
-             unsafe { Some(&*slice_ptr) }
-@@ -92,7 +91,6 @@ fn from_bytes_mut(bytes: &mut [u8]) -> Option<&mut Self>
-         let slice_ptr = bytes.as_mut_ptr().cast::<Self>();
-         let size = size_of::<Self>();
- 
--        #[allow(clippy::incompatible_msrv)]
-         if bytes.len() == size && slice_ptr.is_aligned() {
-             // SAFETY: Size and alignment were just checked.
-             unsafe { Some(&mut *slice_ptr) }
+     #[cfg(CONFIG_RUSTC_HAS_SPAN_FILE)]
+-    #[allow(clippy::incompatible_msrv)]
+     {
+         proc_macro::Span::call_site().file()
+     }
 -- 
 2.53.0
 
