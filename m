@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCCEE6400F
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 05:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3258FE64014
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 07:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dSkTThrf7HSQcYF6sfuiQtbqEOn/S2rMnuBvdl3ShOI=; b=C/b4B8H1vqfm6M
-	dAZXKbApWg5kD+p6pkx17PkYuX9UD+lNff78e2Tj+tX8EA5TtduyPyb889QbpVhPfgLa5JwEqCTbh
-	5Ipv0tVKL7LJOu3xBpEvXAIA/PDh9CwfAtvwwUAph4zfAuJ695UWngX7a3fIFRpk/UPBysL73rwge
-	BvGdUNiPY2JyuWTvrolECsMDvEfO5cZZzsk04yRoYLBd2ylh3Va1I/8WIySpYA8JYIIcMvM32rIua
-	OJB7tE83y51SIH/vtfWqs07bcszrdPKGLwBv8KA0T8BdUmh1qP21ApCwDDy50iDELv7nCj493SYGi
-	O5rDM7xWjxEnEy76S0/g==;
+	List-Owner; bh=DBj4rpZsrLhiy7oUMzPl/s0klVQH21jdAU6WygNmFE4=; b=Or4aaZLEWRIcGb
+	NnI3lgdMtqQkh7Hbj2tKZUSRpAG+shZW1gmzb0SMHerRLmnO+qxpCR4rHDsWNWqi2GaTev5GStoWT
+	zEuOuQ1o93njatJvWKH4yeR4wYOwPP1Itdqcg8hTgLJFDtYHNwz9Za7TfVaXrDPqtV40ju1lkRPrW
+	ZnU3d8UNGRTEtBYNiyb+aagabdDt+NHGhfI6hapMeZwpBaj2jX/oF9ojOxWB0y7m/L337VMfKaClm
+	EyFuNyQEiTv2zVqdghLClljMTeqhFJZnlPnzjABgEeo9uhjjk16K43MUrb92IBxdWlwX0la2akVa8
+	hOZxUaJW3MhLEefGrGvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9G21-00000003ycy-3GBn;
-	Sun, 05 Apr 2026 05:28:21 +0000
+	id 1w9Hjb-000000041R6-2lk3;
+	Sun, 05 Apr 2026 07:17:27 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9G1y-00000003ycV-1AAu;
-	Sun, 05 Apr 2026 05:28:19 +0000
+	id 1w9HjZ-000000041QM-2vmG
+	for linux-riscv@lists.infradead.org;
+	Sun, 05 Apr 2026 07:17:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3662A4385A;
-	Sun,  5 Apr 2026 05:28:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B7DC116C6;
-	Sun,  5 Apr 2026 05:28:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1775366895;
-	bh=ophk+hp6kRAG0U/TAGAhUuOrKmitf0U0PYwWZuudius=;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0F4DE44100;
+	Sun,  5 Apr 2026 07:17:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A1C3C116C6;
+	Sun,  5 Apr 2026 07:17:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775373444;
+	bh=wWVjiZ46vIhCchV+sjr+BuLIv1/1R6Hepr051NIy+LY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bejAtE4V1Hz3lTSKLlyBcIyR+JNRKDGMc/G8Z0GN4ZPNsCF585rejSzukgcFioxub
-	 QUbiyQrTx+RcM6s1+Zu0oaI1vfJoHXTXgrhOUb/YXCMVVE2KZgd+scb35TQsQF7wMb
-	 a7Wf9qe7CdkvcplKMPdPqmr9WcFeVQib8uJGDZ1Y=
-Date: Sun, 5 Apr 2026 07:27:46 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Douglas Anderson <dianders@chromium.org>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Christoph Hellwig <hch@lst.de>, Eric Dumazet <edumazet@google.com>,
-	Johan Hovold <johan@kernel.org>, Leon Romanovsky <leon@kernel.org>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Alexey Kardashevskiy <aik@ozlabs.ru>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>, Frank.Li@kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>, alex@ghiti.fr,
-	alexander.stein@ew.tq-group.com, andre.przywara@arm.com,
-	andrew@codeconstruct.com.au, andrew@lunn.ch,
-	andriy.shevchenko@linux.intel.com, aou@eecs.berkeley.edu,
-	ardb@kernel.org, bhelgaas@google.com, brgl@kernel.org,
-	broonie@kernel.org, catalin.marinas@arm.com, chleroy@kernel.org,
-	davem@davemloft.net, david@kernel.org, devicetree@vger.kernel.org,
-	dmaengine@vger.kernel.org, driver-core@lists.linux.dev,
-	gbatra@linux.ibm.com, gregory.clement@bootlin.com,
-	hkallweit1@gmail.com, iommu@lists.linux.dev, jirislaby@kernel.org,
-	joel@jms.id.au, joro@8bytes.org, kees@kernel.org,
-	kevin.brodsky@arm.com, kuba@kernel.org, lenb@kernel.org,
-	lgirdwood@gmail.com, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-cxl@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-usb@vger.kernel.org, linux@armlinux.org.uk,
-	linuxppc-dev@lists.ozlabs.org, m.szyprowski@samsung.com,
-	maddy@linux.ibm.com, mani@kernel.org, maz@kernel.org,
-	miko.lenczewski@arm.com, mpe@ellerman.id.au, netdev@vger.kernel.org,
-	npiggin@gmail.com, osalvador@suse.de, oupton@kernel.org,
-	pabeni@redhat.com, palmer@dabbelt.com, peter.ujfalusi@gmail.com,
-	peterz@infradead.org, pjw@kernel.org, robh@kernel.org,
-	sebastian.hesselbarth@gmail.com, tglx@kernel.org,
-	tsbogend@alpha.franken.de, vgupta@kernel.org, vkoul@kernel.org,
-	will@kernel.org, willy@infradead.org, yangyicong@hisilicon.com,
-	yeoreum.yun@arm.com
-Subject: Re: [PATCH v4 0/9] driver core: Fix some race conditions
-Message-ID: <2026040539-sponge-publisher-2b42@gregkh>
-References: <20260404000644.522677-1-dianders@chromium.org>
+	b=ux1v6AYPau6DTdBRtCesO1g7LN5uT0pm54bF0gEmbysruFmliBle6DUIYvfCA4EKh
+	 Mmq5+ZHN3Ob/pKWuezskeTkEm3ELJl9XCBZDG+vgfzGkA9m0WWjbL1Vdbr+N+t9SpF
+	 ma0cezgRY3tS3+lyA3JOQQbiIGmlFLspD3MykchTJCEqmAWwvB2M6fPiuZqcWP0QWg
+	 6rqBBgqGfxycTXyGDDJvNG2ZnjuyAbPvsCQEyNxA9kzPOA5RQAfT1xKcGrn6HKQWln
+	 WctQTy+ElbY0hJ/TiDqtJii7U6pHbttVIXOHhip+/J+xTWN/eNXLBsKNC8ciU3vtTU
+	 iXg7EigH4jvbA==
+Date: Sun, 5 Apr 2026 09:17:22 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Alexey Charkov <alchark@gmail.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Keguang Zhang <keguang.zhang@gmail.com>, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Subject: Re: [PATCH v1 01/13] dt-bindings: soc: starfive: Add StarFive JHB100
+ syscon modules
+Message-ID: <20260405-nocturnal-mighty-pegasus-eff399@quoll>
+References: <20260403054945.467700-1-changhuang.liang@starfivetech.com>
+ <20260403054945.467700-2-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260404000644.522677-1-dianders@chromium.org>
+In-Reply-To: <20260403054945.467700-2-changhuang.liang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_222818_695864_30A7BB82 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20260405_001725_791736_0447481F 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +82,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 05:04:54PM -0700, Douglas Anderson wrote:
-> NOTE: one potentially "controversial" choice I made in some patches
-> was to always reserve a flag ID even if a flag is only used under
-> certain CONFIG_ settings. This is a change from how things were
-> before. Keeping the numbering consistent and allowing easy
-> compile-testing of both CONFIG settings seemed worth it, especially
-> since it won't take up any extra space until we've added a lot more
-> flags.
-
-Nah, this is fine, I don't see any problems with this as the original
-code kind of was doing the same thing with the "hole" in the structure
-if those options were not enabled.
-
-> I only marked the first patch as a "Fix" since it is the only one
-> fixing observed problems. Other patches could be considered fixes too
-> if folks want.
+On Thu, Apr 02, 2026 at 10:49:33PM -0700, Changhuang Liang wrote:
+> Add documentation to describe StarFive JHB100 SoC System Controller
+> Registers.
 > 
-> I tested the first patch in the series backported to kernel 6.6 on the
-> Pixel phone that was experiencing the race. I added extra printouts to
-> make sure that the problem was hitting / addressed. The rest of the
-> patches are tested with allmodconfig with arm32, arm64, ppc, and
-> x86. I boot tested on an arm64 Chromebook running mainline.
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  .../soc/starfive/starfive,jhb100-syscon.yaml  | 140 ++++++++++++++++++
+>  MAINTAINERS                                   |   5 +
+>  2 files changed, 145 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jhb100-syscon.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jhb100-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jhb100-syscon.yaml
+> new file mode 100644
+> index 000000000000..c0e1f6f68fa2
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jhb100-syscon.yaml
+> @@ -0,0 +1,140 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/starfive/starfive,jhb100-syscon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JHB100 SoC system controller
+> +
+> +maintainers:
+> +  - Kevin Xie <kevin.xie@starfivetech.com>
+> +  - Changhuang Liang <changhuang.liang@starfivetech.com>
+> +
+> +description:
+> +  The StarFive JHB100 SoC system controller provides register information such
+> +  as offset, mask and shift to configure related modules such as PLL and PCIe.
 
-I'm guessing your tests passed?  :)
+How a MMIO based device can provide a MMIO information? What exactly
+does it provide? Register where the value is the offset of other
+register?
 
-Anyway, this looks great, unless there are any objections, other than
-the "needs to be undefined", which a follow-on patch can handle, I'll
-queue them up next week for 7.1-rc1.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - starfive,jhb100-pcierp-syscon
+> +              - starfive,jhb100-per0-syscon
+> +              - starfive,jhb100-per1-syscon
+> +              - starfive,jhb100-sys0-syscon
+> +          - const: syscon
+> +          - const: simple-mfd
+> +      - items:
+> +          - enum:
+> +              - starfive,jhb100-b2h-syscon
+> +              - starfive,jhb100-gpu-syscon
+> +              - starfive,jhb100-h2b-syscon
+> +              - starfive,jhb100-host-syscon
+> +              - starfive,jhb100-husb-syscon
+> +              - starfive,jhb100-husbcmn-syscon
+> +              - starfive,jhb100-husbd-syscon
+> +              - starfive,jhb100-npu-syscon
+> +              - starfive,jhb100-pcieep-ecsr-syscon
+> +              - starfive,jhb100-pcierp-ecsr-syscon
+> +              - starfive,jhb100-per2-syscon
+> +              - starfive,jhb100-per3-syscon
 
-thanks,
+Hm? per2 as starfive,jhb100-per2crg is a separate device, so how can it
+be also a syscon?
 
-greg k-h
+> +              - starfive,jhb100-strap-syscon
+> +              - starfive,jhb100-sys1-syscon
+> +              - starfive,jhb100-sys2-syscon
+> +              - starfive,jhb100-usb-syscon
+> +              - starfive,jhb100-vout-syscon
+> +          - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clock-controller:
+> +    $ref: /schemas/clock/starfive,jhb100-pll.yaml#
+> +    type: object
+
+Why are you mixing MMIO and non-MMIO devices here/
+
+> +
+> +  "#address-cells":
+> +    const: 2
+> +
+> +  "#size-cells":
+> +    const: 2
+> +
+> +  ranges: true
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - starfive,jhb100-per0-syscon
+> +              - starfive,jhb100-per1-syscon
+> +              - starfive,jhb100-sys0-syscon
+> +    then:
+> +      required:
+> +        - clock-controller
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: starfive,jhb100-sys0-syscon
+> +    then:
+> +      required:
+> +        - "#address-cells"
+> +        - "#size-cells"
+> +        - ranges
+> +      patternProperties:
+> +        "^chipid@[0-9a-f]+$":
+> +          $ref: /schemas/hwinfo/starfive,jhb100-socinfo.yaml#
+> +          type: object
+> +
+> +
+
+Just one blank line
+
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: starfive,jhb100-pcierp-syscon
+> +    then:
+> +      required:
+> +        - "#address-cells"
+> +        - "#size-cells"
+> +        - ranges
+> +      patternProperties:
+> +        "^reset-controller@[0-9a-f]+$":
+> +          $ref: /schemas/reset/starfive,jhb100-reset-pcierp.yaml#
+
+There is no such file so nothing here is testable or even possible to
+apply.
+
+Following my first question, I don't understand why this is even a
+child.
+
+Anyway, properties must be defined in top-level.
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
