@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80715E9D826
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF56E9D827
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MKPoaNzkfQ+/kmjER6kZ9SJ6nbLozcplgWraHihLSpE=; b=5EYfxV/DWQkRaA
-	D13KgNXrbfy3f11YbEQErlDhCrE9oj9guHR2A4YjGElPgYQZfKSwJv1+lNZqdwFsxgCamT2YEp+/q
-	NXzQN6yt6UZkvUVHXYQNg+BERIeKAC+LwcbbeJEHorG/GMTs5ycKrEg67JIDWGn/lYbLdev1BokKd
-	pktqigPyby4ZseBWMyp6lF6dL3vSPhuDaPfqztX0ew4o+D9xDvCBb/oWCrYW87bW991FSRJSJM9HO
-	00ItVHyYVc2IKx/eIvkq1kN9LtMexf9SC56JOwWfjojJ6OAxFO8ELBJz03Lt38xCvajZvcbsgjvOC
-	ZOok/rA4e5oZCjtsA0uQ==;
+	List-Owner; bh=Uxv0M+nx1Zi5/V4Khe6u3m9aXT37GT3rjla9nruBAgo=; b=FM7MyiHxBTfwfJ
+	awWaEshi0+uHl3BTT/R6cs0vJ6rvIABQjMe6eZ3SELGVD+givxb2NFMYTJDHm95jLBsRQ+5XWJBcE
+	5gGXMYvbUE0QeLUWQNnKsVb8UFD3Rb+ZoGfC7PeftKhJuIxuL+0ipmF6Jn9jgKCdN42O42NiQuHqX
+	IU3fMdiOh6bHVJShCefNqcNHQSaJjpTJkXlriVe6qdM2+ekj5O8C9Oxqa5ewu8TWQIzdAx96O6hMn
+	FXSTt3R2HLW8JsNpPYeztYmDUS172QU2/k32J1CqUOGznli7HJ/vkQp9FAH+tdjxAAD9ceyfqbTbB
+	mlq87+ulsF96Zie9870A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XIH-00000004Zgi-1WEv;
-	Sun, 05 Apr 2026 23:54:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w9XIR-00000004ZnC-1ndv;
+	Sun, 05 Apr 2026 23:54:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XIE-00000004ZeY-1TtV;
-	Sun, 05 Apr 2026 23:54:15 +0000
+	id 1w9XIP-00000004Zlr-1YTr;
+	Sun, 05 Apr 2026 23:54:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6EDBD418CE;
+	by tor.source.kernel.org (Postfix) with ESMTP id C3BE1600AC;
+	Sun,  5 Apr 2026 23:54:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9D6C19425;
 	Sun,  5 Apr 2026 23:54:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5734C19425;
-	Sun,  5 Apr 2026 23:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433253;
-	bh=oJiEjRp/opaguJ4HhOa7BUALrmAHlwil3WnDUUwEFyg=;
+	s=k20201202; t=1775433264;
+	bh=7EaNnrhT/szhZgmliWeltWKXsYIB8rKqoUcWnLxYEoo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=c10lWAwN7MLREejYSBh3vQLAgy//epBWc0tngWnnNsGINz8/8BlSPWfgahadGOvdg
-	 GJR/QGcckyY1VKHxNGRQhD/YyTL42GRWjDnY9CRlUt+Bx7rCq+inC36ss3LMkllx5C
-	 jCzn/1H+H3U2Udf/nYq4VGqSHLFJs5uBG1jN2j7ksPIuZQIwZS8T1ZqvFfTkCjXinf
-	 HwuRwkXS9MYDk6Pqlgm7p9mbcEhyyEKZ4di60v8j1CCV16s5WfaVl6n4/rqtJFA5Ag
-	 9rs7/6aurHA4leXQgoMVliGbwR86JVtRyVkjWqwpFzYYP2uH4d8JIwQ8pbaJ3B9UHq
-	 QUN1C/k9eWL2g==
+	b=D7CQsLxqJs0ndvOCgx98FOGSkr0v/I+RAStdNRVkAkCCb+Een8p8LiCDfdFYL4BTb
+	 Xm1OMGlYEspj+sl85BmUzh0tacu6p2coTtSiUMi6/AmCV4O8+R1Gw7n15Y8mZZUB/F
+	 kUmixCM7jp6xAqaAb81FleCMQ6ygNusPafP4e2vCwiJrSgnruLNyyPeQs9N9yFBVLR
+	 llvS4s7+D5lfYxXlJYjgiBlRngKZpF0BWA7mmE7okMql1msLbIp4I8ansTCPmXaC+U
+	 SBt1pVwtNiWDdlmlhfeAbW7k4fAn2IGbHF7IqYZAWm4L+212N9igqjZw95yaYaduro
+	 Arc18nSaT0UOQ==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,16 +92,12 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 04/33] gpu: nova-core: bindings: remove unneeded `cfg_attr`
-Date: Mon,  6 Apr 2026 01:52:40 +0200
-Message-ID: <20260405235309.418950-5-ojeda@kernel.org>
+Subject: [PATCH v2 05/33] rust: bump Rust minimum supported version to 1.85.0 (Debian Trixie)
+Date: Mon,  6 Apr 2026 01:52:41 +0200
+Message-ID: <20260405235309.418950-6-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_165414_430401_D58983D1 
-X-CRM114-Status: UNSURE (   7.58  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,36 +114,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These were likely copied from the `bindings` and `uapi` crates, but are
-unneeded since there are no `cfg(test)`s in the bindings.
+As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
+we are going to follow Debian Stable's Rust versions as our minimum
+supported version.
 
-In addition, the issue that triggered the addition in those crates
-originally is also fixed in `bindgen` (please see the previous commit).
+Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
+still uses to this day [3] (i.e. no update to Rust 1.85.1).
 
-Thus remove them.
+Debian Trixie's release happened on 2025-08-09 [4], which means that a
+fair amount of time has passed since its release for kernel developers
+to upgrade.
 
-Reviewed-by: Tamir Duberstein <tamird@kernel.org>
-Reviewed-by: Gary Guo <gary@garyguo.net>
+Thus bump the minimum to the new version.
+
+Then, in later commits, clean up most of the workarounds and other bits
+that this upgrade of the minimum allows us.
+
+pin-init was left as-is since the patches come from upstream. And the
+vendored crates are unmodified, since we do not want to change those.
+
+Note that the minimum LLVM major version for Rust 1.85.0 is LLVM 18 (the
+Rust upstream binaries use LLVM 19.1.7), thus e.g. `RUSTC_LLVM_VERSION`
+tests can also be updated, but there are no suitable ones to simplify.
+
+Ubuntu 25.10 also has a recent enough Rust toolchain [5], and they also
+provide versioned packages with a Rust 1.85.1 toolchain even back to
+Ubuntu 22.04 LTS [6].
+
+Link: https://lwn.net/Articles/1050174/ [1]
+Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.html#desktops-and-well-known-packages [2]
+Link: https://packages.debian.org/trixie/rustc [3]
+Link: https://www.debian.org/releases/trixie/ [4]
+Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=rustc [5]
+Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [6]
+Acked-by: Tamir Duberstein <tamird@kernel.org>
+Acked-by: Benno Lossin <lossin@kernel.org>
+Acked-by: Gary Guo <gary@garyguo.net>
 Acked-by: Danilo Krummrich <dakr@kernel.org>
+Acked-by: Alice Ryhl <aliceryhl@google.com>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- drivers/gpu/nova-core/gsp/fw/r570_144.rs | 3 ---
- 1 file changed, 3 deletions(-)
+ Documentation/process/changes.rst | 2 +-
+ scripts/min-tool-version.sh       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/nova-core/gsp/fw/r570_144.rs b/drivers/gpu/nova-core/gsp/fw/r570_144.rs
-index e99d315ae74c..2e6f0d298756 100644
---- a/drivers/gpu/nova-core/gsp/fw/r570_144.rs
-+++ b/drivers/gpu/nova-core/gsp/fw/r570_144.rs
-@@ -7,9 +7,6 @@
- //! This module may not be directly used. Please abstract or re-export the needed symbols in the
- //! parent module instead.
- 
--#![cfg_attr(test, allow(deref_nullptr))]
--#![cfg_attr(test, allow(unaligned_references))]
--#![cfg_attr(test, allow(unsafe_op_in_unsafe_fn))]
- #![allow(
-     dead_code,
-     clippy::all,
+diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
+index 6b373e193548..474594bd4831 100644
+--- a/Documentation/process/changes.rst
++++ b/Documentation/process/changes.rst
+@@ -31,7 +31,7 @@ you probably needn't concern yourself with pcmciautils.
+ ====================== ===============  ========================================
+ GNU C                  8.1              gcc --version
+ Clang/LLVM (optional)  15.0.0           clang --version
+-Rust (optional)        1.78.0           rustc --version
++Rust (optional)        1.85.0           rustc --version
+ bindgen (optional)     0.65.1           bindgen --version
+ GNU make               4.0              make --version
+ bash                   4.2              bash --version
+diff --git a/scripts/min-tool-version.sh b/scripts/min-tool-version.sh
+index 99b5575c1ef7..a270ec761f64 100755
+--- a/scripts/min-tool-version.sh
++++ b/scripts/min-tool-version.sh
+@@ -31,7 +31,7 @@ llvm)
+ 	fi
+ 	;;
+ rustc)
+-	echo 1.78.0
++	echo 1.85.0
+ 	;;
+ bindgen)
+ 	echo 0.65.1
 -- 
 2.53.0
 
