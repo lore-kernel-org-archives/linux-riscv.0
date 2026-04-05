@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA60CE9D827
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC63EE9D827
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=86V2pc/jUtdCbhORTupNmCm0mWhw6Eth2iYnLpRN0uA=; b=OwTXjrUgUI7uqf
-	XD+JpBLqQhMoRCd74XvGX26yTNmKrSXyCLvdB1TUoZmZVcGFY4TmWZC4LJ72R2Vz9MwLX/Y7Lw9Hi
-	vQRbrd4zSOY4Hd4cRYUd2i6hdwo3mQsAXlMh9JF8FD5C7oY8918mX1AFdCYPA0Zhx4MAkm0qHGh+1
-	+i2DUJWJ2hIWW/ZL8v2zZjMfop55DX/rr5USkdIqPO6jcXAYgwhWJb8Mz0q4hNnTtmMgUAcY2kqa4
-	nmrLEMe7euGHomjDMV7igqoOr/W2PF7oxmPh6I+V8/gV/ODPPHdAYR6B3uZEgwkrTYmQmpGlzRuHJ
-	bVxnvC+umABqNYF+mW7A==;
+	List-Owner; bh=BbAHoX7BbWuXs36NCrXTtTJQWebzk/qFvSWHYvMeB8g=; b=KoyMfISHaBTdpB
+	tkx2CDKjwrDsq2bLpU5hgOSLnGUdKQzGJHgxDaWrwqYB79j4Jna9dTw9cFH3rHJe3AJIthi8Giu9x
+	O2zZz6kc2Zua50rt7IPYez1+QltpBTz4jE8ttyTScscl7FSQEU/38CpP7k6WPzI04scT1hRRp1WS1
+	mosDIYLwpavdSaYoV+nlOg97skCeDojKKLDLMiJ1tmt7uvNj4ppTViCog8XeLlZjlx2TrHJNsSsVi
+	00TPefYkj+ExRYJDBwZq9Fb70qHRnfkdsRXiTMtMNDECPWDtyBWMg0VcRMykzUacWjaJTiqJ5yeVt
+	ksg3UPXPXeSKzcCM1A8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XMk-00000004cK8-3O2p;
-	Sun, 05 Apr 2026 23:58:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w9XN0-00000004cRo-2Pz8;
+	Sun, 05 Apr 2026 23:59:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XMi-00000004cJ1-3C1L;
-	Sun, 05 Apr 2026 23:58:52 +0000
+	id 1w9XMz-00000004cQi-0CwO;
+	Sun, 05 Apr 2026 23:59:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=aRQZuKlj/BxzDzjzotdXJ8myKFyK6w+9ZZ48Ivf+tHM=; b=MO/5IcNkCvq0LdodTohbnMspq3
+	ASkrXLvlN055uf3aqRAgKrJ98tJrTjPdhxE1sThIANbrZWmJD9LiqzWoj2myxHcSBFJAVNIwygy6x
+	b4W4+mVNz/jOFQY6UzWxkX3imy9qVijracchP7mppivPgod3jpy0vTg3uRTf+JbEjmAjowZUhlOQ2
+	myjXeIBKy8KkjoTTYwpphKuQNKJMtID0JaD800HNnuafg+bBw8QGRw78oOFqmWa1NsYhL4LKb7Suq
+	H0sGqZoL0qH2tixnnl0yKb6F31VnvQDzTka0afgKP6P3zXjKeUsD8ohjXVqEu/RqQtBt+mHVzUup0
+	AqRpQz9g==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w9XMv-00000006F6y-3dYJ;
+	Sun, 05 Apr 2026 23:59:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 352A660103;
+	by sea.source.kernel.org (Postfix) with ESMTP id 372C043A4D;
+	Sun,  5 Apr 2026 23:59:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A143C2BCB3;
 	Sun,  5 Apr 2026 23:58:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 494B1C116C6;
-	Sun,  5 Apr 2026 23:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433531;
-	bh=paW6MVyC5RLTn5+ATDoZoKrgzNCf+Tz+wEGksZWPCME=;
+	s=k20201202; t=1775433543;
+	bh=Ob0EURwaNkw6X3vyMiyVx5p4YA+R0YJVDz2zrJCrIDo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=b4G/tCdhMwNTwMVQKUDIDrqWPgkYw0KiJq9u25hGeSPJ/Fo06XMppoxVc3vyC3Zg0
-	 SXOrQcKPC52AeI6H6lQE7QRYpx0uRJ5sWvDNnmBL0H0XFaNdd9j2T/Bfi9w8ub7jmC
-	 6rduwwEJhBUdftOMJKBE+CncJFa8XaB7TvI7/20GwXEotETkQqvgZF2OjwkfkzHjGF
-	 EN4Gw/2Cp9UUQx+5tbW2XMSEMTbGQ9FO9SGecgO/kiWocy8aGKjugZOptUL7F/9KUR
-	 4G7K57s+degp7qGSB4gkNZS/usFeLqSef9x3wrQJUa+nKx05VUYRogGivr7rvLNgN+
-	 ok6cCQqnaLyOg==
+	b=SleieeVbsMR48SE9BcctZ4YV0A0xEVGFjeoRP6GlHQMyvsnA+Z+eNY5M1nRYNvIZt
+	 7KJKQ1eAS0XN4P+7lZYxCRTlGoT4Yo6REAwIeZ15tntbQLU27l4ezJWgkxjeMMr/49
+	 LUF6GOW7Da3+WTlOzlrnKsKoO7exsEoWRh8TNQ1lC3JrAaPRLWxkbKeyJMdVY4AYOX
+	 aLQBpaVJsAIJR4zR+We0+w1ur56cpRNmQxQ438r8TqBp37meh5kqpX7pe1SRcsFYO+
+	 HWQOezfhNcBXwhtyS3rgo86owQzO6/Z9B0U3MGgKB0QRTYuSuZ7fERNWVNUOdSqPpM
+	 eiUz4x+u5NrLw==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,12 +106,15 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 29/33] docs: rust: general-information: simplify Kconfig example
-Date: Mon,  6 Apr 2026 01:53:05 +0200
-Message-ID: <20260405235309.418950-30-ojeda@kernel.org>
+Subject: [PATCH v2 30/33] docs: rust: general-information: use real example
+Date: Mon,  6 Apr 2026 01:53:06 +0200
+Message-ID: <20260405235309.418950-31-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260406_005906_345167_F4D06C13 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +131,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is no need to use `def_bool y if <expr>` -- one can simply write
-`def_bool <expr>`.
+Currently the example in the documentation shows a version-based name
+for the Kconfig example:
 
-In fact, the simpler form is how we actually use them in practice in
-`init/Kconfig`.
+    RUSTC_VERSION_MIN_107900
 
-Thus simplify the example.
+The reason behind it was to possibly avoid repetition in case several
+features used the same minimum.
+
+However, we ended up preferring to give them a descriptive name for each
+feature added even if that could lead to some repetition. In practice,
+the repetition has not happened so far, and even if it does at some point,
+it is not a big deal.
+
+Thus replace the example in the documentation with one of our current
+examples (after removing previous ones from the bump), to show how they
+actually look like, and in case someone `grep`s for it.
+
+In addition, it has the advantage that it shows the `RUSTC_HAS_*`
+pattern we follow in `init/Kconfig`, similar to the C side.
 
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 Reviewed-by: Gary Guo <gary@garyguo.net>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- Documentation/rust/general-information.rst | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/rust/general-information.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Documentation/rust/general-information.rst b/Documentation/rust/general-information.rst
-index 6146b49b6a98..91535b2306ed 100644
+index 91535b2306ed..09234bed272c 100644
 --- a/Documentation/rust/general-information.rst
 +++ b/Documentation/rust/general-information.rst
-@@ -158,4 +158,4 @@ numerical comparisons, one may define a new Kconfig symbol:
+@@ -157,5 +157,5 @@ numerical comparisons, one may define a new Kconfig symbol:
+ 
  .. code-block:: kconfig
  
- 	config RUSTC_VERSION_MIN_107900
--		def_bool y if RUSTC_VERSION >= 107900
-+		def_bool RUSTC_VERSION >= 107900
+-	config RUSTC_VERSION_MIN_107900
+-		def_bool RUSTC_VERSION >= 107900
++	config RUSTC_HAS_SPAN_FILE
++		def_bool RUSTC_VERSION >= 108800
 -- 
 2.53.0
 
