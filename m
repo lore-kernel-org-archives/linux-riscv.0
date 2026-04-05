@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF2AE9D827
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA60CE9D827
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GgCjdOn8u0iqXxmZpsayuNicWPjO2xt2Zyh3+JfjqA8=; b=Vh9OM2ALqHAZN+
-	+f/oHA7EdOGQImhaWj1/Bhg1zB5mxgvaXQvkjdPxMfhLRwFLaP1mL211jEMeMHxKLJ5PEdiPt48gy
-	GcP+0bwltMLM2Ki5wKLpO6KXf4/cCourAxbZzfYhtrX/o/K2IntWqNUCRt6sETjuE3JZcKhhS6JE1
-	Fh7oTsCHA1JBFdESejjRH7xfDHLM4yMdmKY1+Gr+do247411T7H2UdmQJ+yfoETiDkAb4UDu01I4t
-	KqeUmXJoJz78Qj9eo4lFWmIzNWuyxBaOgm+usR7PkGYYvYpdAOeLrZCGKiCMyZgGOFRa8669iWjbc
-	8BHRcnyDckHfq1o8BISA==;
+	List-Owner; bh=86V2pc/jUtdCbhORTupNmCm0mWhw6Eth2iYnLpRN0uA=; b=OwTXjrUgUI7uqf
+	XD+JpBLqQhMoRCd74XvGX26yTNmKrSXyCLvdB1TUoZmZVcGFY4TmWZC4LJ72R2Vz9MwLX/Y7Lw9Hi
+	vQRbrd4zSOY4Hd4cRYUd2i6hdwo3mQsAXlMh9JF8FD5C7oY8918mX1AFdCYPA0Zhx4MAkm0qHGh+1
+	+i2DUJWJ2hIWW/ZL8v2zZjMfop55DX/rr5USkdIqPO6jcXAYgwhWJb8Mz0q4hNnTtmMgUAcY2kqa4
+	nmrLEMe7euGHomjDMV7igqoOr/W2PF7oxmPh6I+V8/gV/ODPPHdAYR6B3uZEgwkrTYmQmpGlzRuHJ
+	bVxnvC+umABqNYF+mW7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XMZ-00000004cDW-07NM;
-	Sun, 05 Apr 2026 23:58:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w9XMk-00000004cK8-3O2p;
+	Sun, 05 Apr 2026 23:58:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XMX-00000004cC8-33VV;
-	Sun, 05 Apr 2026 23:58:41 +0000
+	id 1w9XMi-00000004cJ1-3C1L;
+	Sun, 05 Apr 2026 23:58:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 17510600AC;
+	by tor.source.kernel.org (Postfix) with ESMTP id 352A660103;
+	Sun,  5 Apr 2026 23:58:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 494B1C116C6;
 	Sun,  5 Apr 2026 23:58:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21757C2BC9E;
-	Sun,  5 Apr 2026 23:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433520;
-	bh=o4Ra+oAdw7COOhgL+wfXvUxGOM6cAL7opNxNq4hxAf0=;
+	s=k20201202; t=1775433531;
+	bh=paW6MVyC5RLTn5+ATDoZoKrgzNCf+Tz+wEGksZWPCME=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VhX7OHEkRS4TngsHiqyFImNeylvupb9nev5vB3T1m4+yQd8SUeAkjDWjcjK0U0vln
-	 tpolgmzKqd+q1FhWnq23lvcfT5UiW9ffCGs1MQDRgTwPKT4sE6zhhgIPGmQu6nDZon
-	 tXnbT+DvezPf3MGHuw3kcd2PCZiBpCtiGUxvuAcu1hnl4rebmizvzZh71GYihzW3Hq
-	 vW0UlPFQQSIheVr/MRAMdM0bPzbwzTtAAP2pBTunipsyJDhE99HZsUoCxTq9e8uW7A
-	 w/SejrIbLFy4g8UyPixRpdq489fMG1PQAkc6d3WQaSgh0mCjPwvfmP+2fHNfVBrb3n
-	 a7e5Xs+tjrNGQ==
+	b=b4G/tCdhMwNTwMVQKUDIDrqWPgkYw0KiJq9u25hGeSPJ/Fo06XMppoxVc3vyC3Zg0
+	 SXOrQcKPC52AeI6H6lQE7QRYpx0uRJ5sWvDNnmBL0H0XFaNdd9j2T/Bfi9w8ub7jmC
+	 6rduwwEJhBUdftOMJKBE+CncJFa8XaB7TvI7/20GwXEotETkQqvgZF2OjwkfkzHjGF
+	 EN4Gw/2Cp9UUQx+5tbW2XMSEMTbGQ9FO9SGecgO/kiWocy8aGKjugZOptUL7F/9KUR
+	 4G7K57s+degp7qGSB4gkNZS/usFeLqSef9x3wrQJUa+nKx05VUYRogGivr7rvLNgN+
+	 ok6cCQqnaLyOg==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,9 +92,9 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 28/33] docs: rust: quick-start: remove GDB/Binutils mention
-Date: Mon,  6 Apr 2026 01:53:04 +0200
-Message-ID: <20260405235309.418950-29-ojeda@kernel.org>
+Subject: [PATCH v2 29/33] docs: rust: general-information: simplify Kconfig example
+Date: Mon,  6 Apr 2026 01:53:05 +0200
+Message-ID: <20260405235309.418950-30-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
@@ -114,46 +114,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The versions provided nowadays by even a distribution like Debian Stable
-(and Debian Old Stable) are newer than those mentioned [1].
+There is no need to use `def_bool y if <expr>` -- one can simply write
+`def_bool <expr>`.
 
-Thus remove the workaround.
+In fact, the simpler form is how we actually use them in practice in
+`init/Kconfig`.
 
-Note that the minimum binutils version in the kernel is still 2.30, so
-one could argue part of the note is still relevant, but it is unlikely
-a kernel developer using such an old binutils is enabling Rust on a
-modern kernel, especially when using distribution toolchains, e.g. the
-Rust minimum version is not satisfied by Debian Old Stable.
+Thus simplify the example.
 
-So we are at the point where keeping the docs short and relevant for
-essentially everyone is probably the better trade-off.
-
-Link: https://packages.debian.org/search?suite=all&searchon=names&keywords=binutils [1]
-Link: https://lore.kernel.org/all/CANiq72mCpc9=2TN_zC4NeDMpFQtPXAFvyiP+gRApg2vzspPWmw@mail.gmail.com/
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 Reviewed-by: Gary Guo <gary@garyguo.net>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- Documentation/rust/quick-start.rst | 9 ---------
- 1 file changed, 9 deletions(-)
+ Documentation/rust/general-information.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/rust/quick-start.rst b/Documentation/rust/quick-start.rst
-index 5bbe059a8fa3..a6ec3fa94d33 100644
---- a/Documentation/rust/quick-start.rst
-+++ b/Documentation/rust/quick-start.rst
-@@ -352,12 +352,3 @@ Hacking
- To dive deeper, take a look at the source code of the samples
- at ``samples/rust/``, the Rust support code under ``rust/`` and
- the ``Rust hacking`` menu under ``Kernel hacking``.
--
--If GDB/Binutils is used and Rust symbols are not getting demangled, the reason
--is the toolchain does not support Rust's new v0 mangling scheme yet.
--There are a few ways out:
--
--- Install a newer release (GDB >= 10.2, Binutils >= 2.36).
--
--- Some versions of GDB (e.g. vanilla GDB 10.1) are able to use
--  the pre-demangled names embedded in the debug info (``CONFIG_DEBUG_INFO``).
+diff --git a/Documentation/rust/general-information.rst b/Documentation/rust/general-information.rst
+index 6146b49b6a98..91535b2306ed 100644
+--- a/Documentation/rust/general-information.rst
++++ b/Documentation/rust/general-information.rst
+@@ -158,4 +158,4 @@ numerical comparisons, one may define a new Kconfig symbol:
+ .. code-block:: kconfig
+ 
+ 	config RUSTC_VERSION_MIN_107900
+-		def_bool y if RUSTC_VERSION >= 107900
++		def_bool RUSTC_VERSION >= 107900
 -- 
 2.53.0
 
