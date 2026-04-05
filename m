@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65702E9D827
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D58E9D828
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lhuU1ouqZg6UDDfkKpRhSMvUsw7csdPo3bC90IBjtTc=; b=qVYYAG2QcmcqiA
-	Q57sKU4YOITAg9Rn1MoPTwoYzuvJVUhTsUea9HtZhoko4IE3HHWwALwBM464DqCvnYshEB8E3GCDo
-	HOQt7LSgPQmno513bg8TrhSSfNLi8a2hIdsG3XYcxZZk0NqyxbnYiKdTRQMivo8FhNtnzWDPvoyWl
-	o8OslY/sakvQSaDkQbnwy+6y1brn9tV4tzDzYpzQrkALOvTih5MmsJO7T3/pnEKWAghqmpbtcLeTW
-	/8ddPZ+WKtnt+AYQN7u+BeZVFFEG0X8/pk/anzlhXuqCa90iFO2OZMADq1xEBuyi0mM8u0SD0esSb
-	//WVlysytffPv47hDw7A==;
+	List-Owner; bh=OD2OiL5elZrNrVvp2JcYj3v+RcHvOTzy2H3sApEiiug=; b=Dc0hJ3mRZDDsp4
+	hz7VIpMImXlGSyKOKjbCHlI3UbDyYSY3ePij4xE12u5WkmmNEUrh3GWtUzq1u0fdWaG+xTROhdr3a
+	5yu+v7+NQEXqEDmOhuB7T0CUeJxChmo0c1nkY6nErH5LLOKPQqPDVSbKHsVYNj0mGV7VpheFg+syq
+	hpS0jzxPJDga7Pt8sQoajX0jTOOnpmrwgD40sgwUlzIMiHcbl0fdJrEQ+Lf639fNSgm9r/q75gqrE
+	xOhEyzadAzlJjjLN8Rjk3Kd9E7bwmUVgoEYPgVZtjyaaD+wfkGYYffYILlvIeX68nF/PDYAitW30u
+	h2eovtvgZ/BaZS7gQ29A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XMD-00000004c0z-1qCX;
-	Sun, 05 Apr 2026 23:58:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w9XMP-00000004c7R-14A8;
+	Sun, 05 Apr 2026 23:58:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XMB-00000004bze-1HqZ;
-	Sun, 05 Apr 2026 23:58:19 +0000
+	id 1w9XMM-00000004c5y-2aB7;
+	Sun, 05 Apr 2026 23:58:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC19860103;
+	by tor.source.kernel.org (Postfix) with ESMTP id DF559600AC;
+	Sun,  5 Apr 2026 23:58:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F14A7C19425;
 	Sun,  5 Apr 2026 23:58:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D037BC116C6;
-	Sun,  5 Apr 2026 23:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433498;
-	bh=vdRBSbeQ7FZbidrLn6kd8GSzb/7/fj0OaPu4ZFPJhzQ=;
+	s=k20201202; t=1775433509;
+	bh=+uAzwzhajFxAA8rib6hw5ihE6F38Ir1uk4Ke8nADAT8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=r5+tm8NoxyoxTo2ZDOyvP8kkiJ3xBZ7hpfXauFNAXO3Gb6dCfsnC28848xcVhCO8D
-	 4MJxET9Ct/6oio+6ThvDRJjcrh2wzuEU9mUH/esqRrPSTcGpi/3FI9Z++KGpj7YrNK
-	 TD+tiMnVi+34Av9UaXTvChMfmmZUPOaoRABGimSG9n08BXDQMruFMCu4J4V3N1kWha
-	 agGV3cjkwGCFTajWicKrKACAKflS4H6PECxlavUTdQSjuqxxH/VvGlQW6sJXtflMH9
-	 klArCnRE0K3DkjBNNCLmxT9trMWtHo2pKGeYxJU33C6MyAN0X+zwDsaipBEN3i7dtg
-	 VKDwPUc8DDbcg==
+	b=S0Y52XzGRmB43RgfGDFkHin7pnQro38Xf89fl+vv/EjSwvic8hMveYt5cYlW3nycO
+	 deNzfkR1lB2hbs36DJMWohpvE5Oy0p3rMrKJ1hzNYsP/gFxDbBBrYqRDxxAVr9Klde
+	 3WaoLJ6wHtg3BzXSKCQFH0FMysZsko45cPJ05GTdm4/eJVVUxz2U6vcUEdF7Jth0tB
+	 8NGfw2aUbMBlX6YEVe7grn/ZP3D3jAqnEl24sS3j6ofBTvE4dTN8/Ng4Ox6Tmk8ku5
+	 WD8F1YUimCMA/13jnyecrGpIyYsoFKhMKg0YCGt/aA5dxGUmbZDigYCj1+BOErfqzu
+	 cHrUifwInMzJQ==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,9 +92,9 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 26/33] docs: rust: quick-start: remove Gentoo "testing" note
-Date: Mon,  6 Apr 2026 01:53:02 +0200
-Message-ID: <20260405235309.418950-27-ojeda@kernel.org>
+Subject: [PATCH v2 27/33] docs: rust: quick-start: remove Nix "unstable channel" note
+Date: Mon,  6 Apr 2026 01:53:03 +0200
+Message-ID: <20260405235309.418950-28-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
@@ -114,34 +114,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Gentoo does not need the "testing" note, since its packages are recent
-enough even in the stable branch [1][2].
+Nix does not need the "unstable channel" note, since its packages are
+recent enough even in the stable channel [1][2].
 
 Thus remove it to simplify the documentation.
 
-Link: https://packages.gentoo.org/packages/dev-lang/rust [1]
-Link: https://packages.gentoo.org/packages/dev-util/bindgen [2]
+Link: https://search.nixos.org/packages?channel=25.11&query=rust [1]
+Link: https://search.nixos.org/packages?channel=25.11&query=bindgen [2]
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
+Reviewed-by: Gary Guo <gary@garyguo.net>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
  Documentation/rust/quick-start.rst | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Documentation/rust/quick-start.rst b/Documentation/rust/quick-start.rst
-index db08c3a03a4f..1518367324fe 100644
+index 1518367324fe..5bbe059a8fa3 100644
 --- a/Documentation/rust/quick-start.rst
 +++ b/Documentation/rust/quick-start.rst
-@@ -57,8 +57,8 @@ of the box, e.g.::
- Gentoo Linux
- ************
+@@ -68,8 +68,8 @@ of the box, e.g.::
+ Nix
+ ***
  
--Gentoo Linux (and especially the testing branch) provides recent Rust releases
--and thus it should generally work out of the box, e.g.::
-+Gentoo Linux provides recent Rust releases and thus it should generally work out
-+of the box, e.g.::
+-Nix (unstable channel) provides recent Rust releases and thus it should
+-generally work out of the box, e.g.::
++Nix provides recent Rust releases and thus it should generally work out of the
++box, e.g.::
  
- 	USE='rust-src rustfmt clippy' emerge dev-lang/rust dev-util/bindgen
- 
+ 	{ pkgs ? import <nixpkgs> {} }:
+ 	pkgs.mkShell {
 -- 
 2.53.0
 
