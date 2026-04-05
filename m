@@ -4,51 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF5BE9D80D
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 21:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81122E9D826
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 22:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nXDuY0A/T+6UozyZy9CzIAsWMDTMVCUKOD87i0S9fqo=; b=Zp7OnL2ag+J+1w
-	wMdVVs66DYEAaQiaB/qptQTuk1WZqg7ESveGZd1ftkVDbB+ZtG+7YTu9OEnWnkd2m6YVn8ge/T0rW
-	U3uvGgHp7i0mYbuDi4+JarFyNrcT1o6bLCxY9sItaIKAtZn2wgnBbEHfXr8gaMogg0dsgcv0RIC5f
-	j9BGdNuGuaBHDMm3AheqQm9Wo6MeGn4RarUXtNKnIrSYL9T2m0jxHZ2wMgPFjygDYDGAYbmM4Pc9B
-	4ZdSxUijHxE7aYoMb0Ygk4TTSqWhD3eJB/QKrolcDbAbZWt5vO4Lr2t6gX58ZrYVBmvqV6FOAnwdN
-	2R4UFX30GvTKf0JapShA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5HUOVnE6Q4ZGvjnZrBDJ0A6TPlPXSWPQHdI0POs9124=; b=mEi7VESZL71brr
+	FdrRkiDFEqzotFaky0Ho/cLFKcvQNPn3VUi6zI1ajlM1wooAtgrWduNQG/fP37vBjJmFbUkdV3aZe
+	pEg8qvXjABZcDoo3VBkU8NYRdVIycrLGD1FOq52bQY9x6oXx3nci9NRI88Jxo/ixFsU/DqMDEQKvB
+	fdieDncPCnOZrG8zvhMfgmKSpTY6RP+ypO72D3gN69fhFUuBCQBfbuSbnWUNVMnQa9FhOBp0D0O+D
+	NOEllyAtASI5i9PcnenQsfo3uPPZ0Qbd9H8T6gsJ9Nn6rMIH4Fa2gPzqa8kPOe84MlbQIiJFdjSkN
+	jBDXGF4azb5hfun+A9kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9VCy-00000004UzA-2Czl;
-	Sun, 05 Apr 2026 21:40:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w9W2Z-00000004Wiv-1pVw;
+	Sun, 05 Apr 2026 22:33:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9VCw-00000004Uz4-3u09
+	id 1w9W2W-00000004Wia-3Byc
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 Apr 2026 21:40:39 +0000
+	Sun, 05 Apr 2026 22:33:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7D9B600AC;
-	Sun,  5 Apr 2026 21:40:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1A25C116C6;
-	Sun,  5 Apr 2026 21:40:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F39A943DDD;
+	Sun,  5 Apr 2026 22:33:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5119C116C6;
+	Sun,  5 Apr 2026 22:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775425237;
-	bh=cklvwaQ6lc0AJHRPVzr+AtP1DOc8DZ+C3JnQgWKYojw=;
-	h=Date:From:To:cc:Subject:From;
-	b=l51ITGIp6j2HBL/yUKJIS74heJ5HKtdnUOdO0tV3UPJto6LdBZ4rO0oRZiY4SMBnK
-	 44vLrdfI/I2d3QUwGWUO1rWQD6iQnhfYr2iOt9bkfJM/CqGT+onnJGzJxZ1fcrUMHc
-	 02fBqK20HZYZN9O64Sn7XNOutO1DtcbBws9WueyH7ELj/Idi/kkUM4iNKVS7prUCub
-	 xXUP5hPPKpgvI+ElJgeEgyN/uSZIfXpMU2pdqyUc6BE1a+fuyUwhS3Ardrk/zSTXcf
-	 BG2qrS9RSsAfIgL/R7C9S6hvOEzVRW9v1BQh6Qjr9BuSbP4mgraqPLOeXjdoJIOUok
-	 +z1MSEUPTBLsg==
-Date: Sun, 5 Apr 2026 15:40:30 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v7.0-rc7
-Message-ID: <4e071ea0-3571-467b-4626-5d4eb9c50435@kernel.org>
-MIME-Version: 1.0
+	s=k20201202; t=1775428432;
+	bh=Z3XBv7TMf7bKVApwctTD3X2LV4ZXE69L34HODS2TMgI=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=ny3DjJhMoBgoSQXgK3IKP5XK/3KAjZ6wOBMxDbVpr1sUNz3eYLE5y9VcGbsFocT4I
+	 JiJT0Fv8WF2e7gt57H8ejjc+RDGJ8otAaIH9rwIUi25azyxw8GsXrUed2K1iNBlEdM
+	 uHT+d+kaDbKmghfWp71VThw8gTaBApjFkn4SVR1oHD0bbAtYqkvvZdcIakKI27VAeL
+	 EnVHew3s3+8Xh2XQgVg1/WJU9A9HWA3E/22sEuZZ3H6HKhG0vYaC1so3ZJmAV6bB8s
+	 kujOqn93x0EFcmWnaslS/RDF0vcSFR+3b6eseXTcG+nOFL8qB8TDFfRwE6lCwO5s8V
+	 q1jqgRAwMgUvw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7F7593809A22;
+	Sun,  5 Apr 2026 22:33:33 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V updates for v7.0-rc7
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <4e071ea0-3571-467b-4626-5d4eb9c50435@kernel.org>
+References: <4e071ea0-3571-467b-4626-5d4eb9c50435@kernel.org>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <4e071ea0-3571-467b-4626-5d4eb9c50435@kernel.org>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-7.0-rc7
+X-PR-Tracked-Commit-Id: 9156585280f161fc1c3552cf1860559edb2bb7e3
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 85fb6da43ac58dc7d1a6242e7b2102fd1d4954bc
+Message-Id: <177542841205.2062966.17815148188410442703.pr-tracker-bot@kernel.org>
+Date: Sun, 05 Apr 2026 22:33:32 +0000
+To: Paul Walmsley <pjw@kernel.org>
+Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260405_153356_825920_AED79F48 
+X-CRM114-Status: UNSURE (   3.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,111 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Sun, 5 Apr 2026 15:40:30 -0600 (MDT):
 
-Linus,
+> https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-7.0-rc7
 
-Please pull these RISC-V updates for v7.0-rc7.  These are all
-relatively minor functional fixes.  The branch was recently rebuilt, but
-only to remove fixes that aren't critical at this point in the release
-cycle.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/85fb6da43ac58dc7d1a6242e7b2102fd1d4954bc
 
+Thank you!
 
-thanks,
-
-- Paul
-
-
-The following changes since commit c369299895a591d96745d6492d4888259b004a9e:
-
-  Linux 7.0-rc5 (2026-03-22 14:42:17 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-7.0-rc7
-
-for you to fetch changes up to 9156585280f161fc1c3552cf1860559edb2bb7e3:
-
-  ACPI: RIMT: Add dependency between iommu and devices (2026-04-04 18:38:03 -0600)
-
-----------------------------------------------------------------
-RISC-V updates for v7.0-rc7
-
-- Fix a CONFIG_SPARSEMEM crash on RV32 by avoiding early phys_to_page()
-
-- Prevent runtime const infrastructure from being used by modules, similar
-  to what was done for x86
-
-- Avoid problems when shutting down ACPI systems with IOMMUs by adding
-  a device dependency between IOMMU and devices that use it
-
-- Fix a bug where the CPU pointer masking state isn't properly reset
-  when tagged addresses aren't enabled for a task
-
-- Fix some incorrect register assignments, and add some missing ones,
-  in kgdb support code
-
-- Fix compilation of non-kernel code that uses the ptrace uapi header
-  by replacing BIT() with _BITUL()
-
-- Fix compilation of the validate_v_ptrace kselftest by working around
-  kselftest macro expansion issues
-
-----------------------------------------------------------------
-Charlie Jenkins (1):
-      selftests: riscv: Add braces around EXPECT_EQ()
-
-Jisheng Zhang (1):
-      riscv: make runtime const not usable by modules
-
-Paul Walmsley (2):
-      riscv: kgdb: fix several debug register assignment bugs
-      riscv: use _BITUL macro rather than BIT() in ptrace uapi and kselftests
-
-Sunil V L (1):
-      ACPI: RIMT: Add dependency between iommu and devices
-
-Vivian Wang (1):
-      riscv: patch: Avoid early phys_to_page()
-
-Zishun Yi (1):
-      riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is not set
-
- arch/riscv/include/asm/runtime-const.h              |  4 ++++
- arch/riscv/include/uapi/asm/ptrace.h                | 13 +++++++------
- arch/riscv/kernel/kgdb.c                            |  7 ++++---
- arch/riscv/kernel/patch.c                           | 21 +++++++++++----------
- arch/riscv/kernel/process.c                         |  4 +++-
- drivers/acpi/riscv/rimt.c                           |  7 +++++++
- .../selftests/riscv/vector/validate_v_ptrace.c      | 19 +++++++++++--------
- 7 files changed, 47 insertions(+), 28 deletions(-)
-
-vmlinux size differences in bytes (from c369299895a5)
-text  data  bss   dec   hex  filename                             
--304  +160    .  -144   -90  vmlinux.defconfig.gcc-15             
--304  +160    .  -144   -90  vmlinux.nosmp_defconfig.gcc-15       
--160  +128    .   -32   -20  vmlinux.rv32_defconfig.gcc-15        
--176   +64    .  -112   -70  vmlinux.rv32_nosmp_defconfig.gcc-15  
-  +8     .    .    +8    +8  vmlinux.nommu_virt_defconfig.gcc-15  
--240  +160    .   -80   -50  vmlinux.defconfig.clang-20           
--224   +96    .  -128   -80  vmlinux.nosmp_defconfig.clang-20     
--144   +96    .   -48   -30  vmlinux.rv32_defconfig.clang-20      
--136  +160    .   +24   +18  vmlinux.rv32_nosmp_defconfig.clang-20
-   .     .    .     .     .  vmlinux.nommu_virt_defconfig.clang-20
--384   +64    .  -320  -140  vmlinux.defconfig.clang-17           
--372   +64    .  -308  -134  vmlinux.nosmp_defconfig.clang-17     
--120   +64    .   -56   -38  vmlinux.rv32_defconfig.clang-17      
--112  +128    .   +16   +10  vmlinux.rv32_nosmp_defconfig.clang-17
-  +8   +64    .   +72   +48  vmlinux.nommu_virt_defconfig.clang-17
--288  +160    .  -128   -80  vmlinux.defconfig.gcc-11             
--296   +96    .  -200   -c8  vmlinux.nosmp_defconfig.gcc-11       
--176   +64    .  -112   -70  vmlinux.rv32_defconfig.gcc-11        
--192   +96    .   -96   -60  vmlinux.rv32_nosmp_defconfig.gcc-11  
-   .  +256    .  +256  +100  vmlinux.nommu_virt_defconfig.gcc-11  
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
