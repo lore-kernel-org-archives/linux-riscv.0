@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048DCE9D827
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19FEE9D827
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MfeyqXajAhLUfWl45XZAXMfox63RjraQ6VviOBUuC8k=; b=CbR7C0BrKrMaqe
-	cWMe7rqZJhu/nUXAK5Ym9njI3z06MupAVESVf1lEVTi8ul54OKYuIAp4pfMJNjDJgy3Trp8PCdfUP
-	pdARPcQdfVBdt27yZK6pxmPXF/OLndH3ylzGSNxFkEBAmv8n/qdfpb6JABVyyNxNrnbmtOuZQ4tCf
-	wqdMAE7RcA+hna38WjSzQiDRzOTTw5UC0VyMs2coTGLm1sBU6SYk/xaNp91BcWASKqfVjgo5ZRFBs
-	3WrZW5G5D1J1gfZg5fmmQBieDjSIqUnKV8/HXXgIm43txtfxPkrYTYcVaTHswtuHgcmdkREytqikS
-	BAbCeaXJ5Vp0KfQ+PNgg==;
+	List-Owner; bh=kgDoOLUgfE7zjbNs4+r0snle6sp8j/jV4yV3s1J+WD0=; b=eKzbwfeAy/Oy9t
+	fw5wKqgzBFs9t/a46nuFF8lAioBdJ0My0G143+Rnriqfg+FVMSLBbLgsQlsCU7K3uKASOxjcW+Nla
+	ilZr/AxazFrP3GeeV4WfrQcfPL+4Np+O17TjJXCe0Y2ePHZKAUHnsZjE1lNAO+W6H0hzindIhzUjr
+	Xjn3JDzkIXmFtD9J6ZVoRbMtODFEok7x59xtnzwYie1rGbaL65yRVEB0nQmUC6s7UfPJAu8Oh7MOa
+	1DrYpd2ghwPKMXv06mDyshnhv5q3vIpJjEkeJQjmRZANLqo2DHEitIxDyfZHh/EaHcpOip8Fgna+R
+	Kel+EHqvq4txzqCgte1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XLh-00000004bjf-0ZyG;
-	Sun, 05 Apr 2026 23:57:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w9XLt-00000004bqA-3nAK;
+	Sun, 05 Apr 2026 23:58:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XLd-00000004bhX-2MD7;
-	Sun, 05 Apr 2026 23:57:47 +0000
+	id 1w9XLs-00000004bpN-43z8;
+	Sun, 05 Apr 2026 23:58:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=9C1p3WEG4BaT9j9bZbD82zE3LOtfmgSzk+xvgO0HSXQ=; b=BO8OLpw/z3lxKvey4nmZhjjPVn
+	jrTu8ml8LvB50SrA3BoxT80WUrmHHDmI/N7YP+81e8MoQq3jMwT53ZEZ4MyOLvV+g0jY0g9wdgVW2
+	gHdkSamCEjbAjokq6+l2TXNQ7Uwba4RxDY5VL70nHahOMZal8l6caBYCminK0HhiN1qkHox6OEJr7
+	avs23FOKNx7hKejCr6Q38f9icTQgijpKEwn4Tp3Y675Gn9LEoq1pjqAqgLS4PQKoBs9Cc//M7q3kF
+	ZHmwYvlJZEeuxqxiFyTi6YevRT545V81nTttp7Pi9VmEznh1QM9qsO/9uUVlvBak3yRrjeblDpQ8w
+	5Atvu8VA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w9XLp-00000006Efx-2Z0j;
+	Sun, 05 Apr 2026 23:57:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E0474394F;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5240640247;
+	Sun,  5 Apr 2026 23:57:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87E81C116C6;
 	Sun,  5 Apr 2026 23:57:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D085C116C6;
-	Sun,  5 Apr 2026 23:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433465;
-	bh=7mv52/ZG4QUnDcOB1zLib3ghxysM4SNZUNBkbqsCd6I=;
+	s=k20201202; t=1775433476;
+	bh=hONqXGkyEohBL0ahIaQ2+zaacCn47+UE6bNDPSd6pjs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fWajgKwfrkdSNkiYnAd9kVPK1GTxxVyj6J8fkBbJmrLEd8CgJanav/phR9AoL3ylx
-	 txfRsKu9RyJkL4rGC6RD3J1lxpa9C1fBSZzYpGbeXeZbD3guGiERO3kTGiCHAhtg92
-	 EgiGkmUZ+/W0GJ+7JzQjQgfMYPZT8BWyQe0qXfjMWmH6CabWhNT0oyMw9cRsUMhrb4
-	 4xmAOFIxtQwyfAcrhXC65dsH2AYzCrEmcwkeyxe2CLJSxNlqukCsRdgXYFRU6ozXdz
-	 4B+nAbib/RZGoGdyfYl4J/MgCruSgPuD1K/cXlZHR3jxvKX31DQGGowb/YmjIjlMaf
-	 nst7B8vwy2roQ==
+	b=XiOSfC+Xv1sTVseVZ+geqBfsHGu2S9tl0gRfo/vbe06Y7lYJl1eZTbQ/jQ+e8PpUz
+	 j11NauOb1/DscQFZ/kQ4vUbkyrUztRKZWLClePiLa6/m2CD7IfQr4O8rUe8dAqmc3m
+	 DvTZ+r6H6ksBl8QGEjgLMWjH6COz7TCiqTRRUOskvgVYAsLLFh/VUu5IR1qxtGNhuy
+	 oIGZWw1pyBfb4s7PXByYBPY8c+02Qdo2xBcvLDNWHjL3PTLliie1ikz9WSA/nF5LA5
+	 tGpam/Qo2OdKWQ2nVfh7Y234TT+6AtOA/72q6h8NA84SL53Cl1WJ1aroNaFIgVm+Fu
+	 7AemkWrwOJeUA==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,15 +106,16 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 23/33] docs: rust: quick-start: update Ubuntu versioned packages
-Date: Mon,  6 Apr 2026 01:52:59 +0200
-Message-ID: <20260405235309.418950-24-ojeda@kernel.org>
+Subject: [PATCH v2 24/33] docs: rust: quick-start: update minimum Ubuntu version
+Date: Mon,  6 Apr 2026 01:53:00 +0200
+Message-ID: <20260405235309.418950-25-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_165745_641631_3953DB9D 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260406_005758_071230_9565953F 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,75 +132,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the minimum supported Rust version is bumped, bump the versioned
-Rust packages [1][2][3][4] to that version for Ubuntu in the Quick
-Start guide.
+Ubuntu 25.04 is out of support [1], and Ubuntu 25.10 is the latest
+supported one.
 
-In addition, add "may" to the `RUST_LIB_SRC` line since it does not look
-like it is needed from a quick test in a Ubuntu 24.04 LTS container.
+Moreover, Ubuntu 25.10 is the first that provides a recent enough Rust
+given the minimum bump -- they provide 1.85.1 [2].
 
-Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=rustc [1]
-Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=bindgen [2]
-Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [3]
-Link: https://launchpad.net/ubuntu/+source/rust-bindgen-0.71 [4]
+Thus update it.
+
+Link: https://ubuntu.com/about/release-cycle [1]
+Link: https://packages.ubuntu.com/search?keywords=rustc&searchon=names&exact=1&suite=all&section=all [2]
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- Documentation/rust/quick-start.rst | 28 ++++++++++++++--------------
- 1 file changed, 14 insertions(+), 14 deletions(-)
+ Documentation/rust/quick-start.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Documentation/rust/quick-start.rst b/Documentation/rust/quick-start.rst
-index 642efce04ee8..54fe491deb7d 100644
+index 54fe491deb7d..34c39f208333 100644
 --- a/Documentation/rust/quick-start.rst
 +++ b/Documentation/rust/quick-start.rst
-@@ -112,33 +112,33 @@ Though Ubuntu 24.04 LTS and older versions still provide recent Rust
- releases, they require some additional configuration to be set, using
- the versioned packages, e.g.::
+@@ -90,7 +90,7 @@ they should generally work out of the box, e.g.::
+ Ubuntu
+ ******
  
--	apt install rustc-1.80 rust-1.80-src bindgen-0.65 rustfmt-1.80 \
--		rust-1.80-clippy
--	ln -s /usr/lib/rust-1.80/bin/rustfmt /usr/bin/rustfmt-1.80
--	ln -s /usr/lib/rust-1.80/bin/clippy-driver /usr/bin/clippy-driver-1.80
-+	apt install rustc-1.85 rust-1.85-src bindgen-0.71 rustfmt-1.85 \
-+		rust-1.85-clippy
-+	ln -s /usr/lib/rust-1.85/bin/rustfmt /usr/bin/rustfmt-1.85
-+	ln -s /usr/lib/rust-1.85/bin/clippy-driver /usr/bin/clippy-driver-1.85
+-25.04
++25.10
+ ~~~~~
  
- None of these packages set their tools as defaults; therefore they should be
- specified explicitly, e.g.::
- 
--	make LLVM=1 RUSTC=rustc-1.80 RUSTDOC=rustdoc-1.80 RUSTFMT=rustfmt-1.80 \
--		CLIPPY_DRIVER=clippy-driver-1.80 BINDGEN=bindgen-0.65
-+	make LLVM=1 RUSTC=rustc-1.85 RUSTDOC=rustdoc-1.85 RUSTFMT=rustfmt-1.85 \
-+		CLIPPY_DRIVER=clippy-driver-1.85 BINDGEN=bindgen-0.71
- 
--Alternatively, modify the ``PATH`` variable to place the Rust 1.80 binaries
-+Alternatively, modify the ``PATH`` variable to place the Rust 1.85 binaries
- first and set ``bindgen`` as the default, e.g.::
- 
--	PATH=/usr/lib/rust-1.80/bin:$PATH
-+	PATH=/usr/lib/rust-1.85/bin:$PATH
- 	update-alternatives --install /usr/bin/bindgen bindgen \
--		/usr/bin/bindgen-0.65 100
--	update-alternatives --set bindgen /usr/bin/bindgen-0.65
-+		/usr/bin/bindgen-0.71 100
-+	update-alternatives --set bindgen /usr/bin/bindgen-0.71
- 
--``RUST_LIB_SRC`` needs to be set when using the versioned packages, e.g.::
-+``RUST_LIB_SRC`` may need to be set when using the versioned packages, e.g.::
- 
--	RUST_LIB_SRC=/usr/src/rustc-$(rustc-1.80 --version | cut -d' ' -f2)/library
-+	RUST_LIB_SRC=/usr/src/rustc-$(rustc-1.85 --version | cut -d' ' -f2)/library
- 
- For convenience, ``RUST_LIB_SRC`` can be exported to the global environment.
- 
--In addition, ``bindgen-0.65`` is available in newer releases (24.04 LTS and
--24.10), but it may not be available in older ones (20.04 LTS and 22.04 LTS),
-+In addition, ``bindgen-0.71`` is available in newer releases (24.04 LTS),
-+but it may not be available in older ones (20.04 LTS and 22.04 LTS),
- thus ``bindgen`` may need to be built manually (please see below).
- 
- 
+ The latest Ubuntu releases provide recent Rust releases and thus they should
 -- 
 2.53.0
 
