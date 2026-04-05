@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D9EE9D827
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1220E9D826
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=awcS5neTCz46Qs3ELa0kbhmc9QbeSGTi0T72bZkbPZI=; b=U3VaiUBhUr8gSd
-	t4dXEoBVOTSg6b4Z05nM004U/Ag22PWkMwaJbZ0ow6dPLCSSsVZ6Akxk8MJjK1JWKAooHiuNyJdj3
-	w81AvEtRZNAdwaiB41yLb0p9gx/Blgs3e9IZeN9EeUpqdxLHp/eJO7WZBZN6FBdVcVSwoWZisrZfr
-	Le2G7xSdakJUya+CtLfAqMSK1MdKTNp5WNuabXHX3xhcqYwVmclrssSlQM/F3B4EgcPwmhNinfs5l
-	I1jcX3NdfRUpW1WpK2A3aVUjktdG5zKauL8HBRmX4LsFl7JjVgy2bYerpm693a5DQUpmm9SPxrIH8
-	eFhckUBIvjA49Bda3pmA==;
+	List-Owner; bh=CCUq5of6HitRNIBCYZi1uvsFS/7SENbSjVzFjMeCt3E=; b=cD9uoZwY92hYY+
+	vjiikYOomh5WbTOcl6q+o9JLREvk4bJYJwUlKr1UyZBVkZIMyKfsP4Z2SqX8UvVjVNxbU6S5hRajG
+	nzUEGDAje+BhqIOffS2BqKhSrULnz9veROXu+CAivK7oMnJN0v9JTWFp02tDXS6pLYSMTaRwdBLC7
+	p5rG0Npro9brtcZLDtVTilxmRTkLPCoZpdUcRbDisZ3fp4Obn8IJY4uTEss/Cjip3ElS969FW+0rM
+	yp2vk2zUK3Ior7psfpYcJBVm8seAKD9lmTdmvhf8zKWQYDlFYAc4pZgBuUO3sreNnY+NLR8u5ObR9
+	kBvj77DJ5yT3YymSC9ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XLK-00000004bVa-0iqY;
-	Sun, 05 Apr 2026 23:57:26 +0000
+	id 1w9XLV-00000004bdC-1TJm;
+	Sun, 05 Apr 2026 23:57:37 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XLH-00000004bTX-11df;
-	Sun, 05 Apr 2026 23:57:24 +0000
+	id 1w9XLS-00000004bah-1nc6;
+	Sun, 05 Apr 2026 23:57:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D562E435E5;
-	Sun,  5 Apr 2026 23:57:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10949C2BCB3;
-	Sun,  5 Apr 2026 23:57:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 05C80435E5;
+	Sun,  5 Apr 2026 23:57:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E412C116C6;
+	Sun,  5 Apr 2026 23:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433442;
-	bh=XZyHv6AFE6cmv/ci+lWKAs2VwcRp1H9PWrMqDiQ41HQ=;
+	s=k20201202; t=1775433453;
+	bh=y0xktRKRs5ryJC+G01aE6htP3MJxSFsUvP6UYzkishw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=llFqKXX3BZhcl6VND0xHYadZ8I90nL/Woj5hHanZbnt3IKcLSOJsHvkq4HpI4Wt7r
-	 bZVadLLw+nnOLT+Z2kB4ju6MGNAxV0aRKH0P0af8CkwUh6tmO6LXNHSVs5GNb61qHF
-	 QSf81p6n8bjtPRo9I+2JrQqrY5n0gUQDEpxwa7TktFW2aRXbee3+U3ZbrFE0Swi4dh
-	 fPLZy9FLAI1gPwoqHIz4FoVb/FnJGCdo/fsjAJIgXd//f8g4wp69/OmOZNIf0VClpz
-	 e6MvHJFjTyYnZMvfpSV6wxeUhIliIUyz92jABICZcbEVHbnfcORnj/PLOyNgZUpnUX
-	 UXHG6CWkmko4g==
+	b=fZa94a2gUM+1/bUwa8Gk/haFENqG5HQ/kAPWfZKfoOpgs9LPvPn+5SYdTLlTrdqBN
+	 KhCyK2P/VjNgBuSBZRXH3t/NjrffsRCHyuBlWMIBQFw1QoF5qZOq0Fan1XeP/C9mwN
+	 mSmbpbCFTZr9ULdOVc2ZcG2LEkvGQJ8xFnLh+51z3NbAT8m8LjGsjXlDkeOe8MrFSS
+	 pua0Sbcn0dOpLzsRowI5EISEDL74bEj9qX5mI82scX4NoyYe3aG+R/HAcXyIsZeQm+
+	 9Z0TPjgH5LdiQErUVz5M6qCBLJlmLC7RcmmO+rD7FdR+Z/0Ev92RuP1DJXKaj2QiNp
+	 MCtFh4b1E1+eg==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,15 +92,16 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 21/33] rust: kbuild: remove "dummy parameter" workaround for `bindgen` < 0.71.1
-Date: Mon,  6 Apr 2026 01:52:57 +0200
-Message-ID: <20260405235309.418950-22-ojeda@kernel.org>
+Subject: [PATCH v2 22/33] docs: rust: quick-start: openSUSE provides `rust-src` package nowadays
+Date: Mon,  6 Apr 2026 01:52:58 +0200
+Message-ID: <20260405235309.418950-23-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_165723_325922_13EED4B8 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20260405_165734_503890_704A46B1 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,57 +118,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Until the version bump of `bindgen`, we needed to pass a dummy parameter
-to avoid failing the `--version` call.
+Both openSUSE Tumbleweed and Slowroll provide the `rust-src` package
+nowadays [1].
 
-Thus remove it.
+Thus remove the version-specific one from the Quick Start guide.
 
+Link: https://software.opensuse.org/package/rust-src?search_term=rust-src [1]
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
-Reviewed-by: Gary Guo <gary@garyguo.net>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- init/Kconfig                 | 7 +------
- scripts/rust_is_available.sh | 8 +-------
- 2 files changed, 2 insertions(+), 13 deletions(-)
+ Documentation/rust/quick-start.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/init/Kconfig b/init/Kconfig
-index f9fac458e4d4..d9b795f70a38 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -2211,12 +2211,7 @@ config RUSTC_VERSION_TEXT
- config BINDGEN_VERSION_TEXT
- 	string
- 	depends on RUST
--	# The dummy parameter `workaround-for-0.69.0` is required to support 0.69.0
--	# (https://github.com/rust-lang/rust-bindgen/pull/2678) and 0.71.0
--	# (https://github.com/rust-lang/rust-bindgen/pull/3040). It can be removed
--	# when the minimum version is upgraded past the latter (0.69.1 and 0.71.1
--	# both fixed the issue).
--	default "$(shell,$(BINDGEN) --version workaround-for-0.69.0 2>/dev/null)"
-+	default "$(shell,$(BINDGEN) --version 2>/dev/null)"
+diff --git a/Documentation/rust/quick-start.rst b/Documentation/rust/quick-start.rst
+index 152289f0bed2..642efce04ee8 100644
+--- a/Documentation/rust/quick-start.rst
++++ b/Documentation/rust/quick-start.rst
+@@ -84,7 +84,7 @@ openSUSE
+ openSUSE Slowroll and openSUSE Tumbleweed provide recent Rust releases and thus
+ they should generally work out of the box, e.g.::
  
- #
- # Place an empty function call at each tracepoint site. Can be
-diff --git a/scripts/rust_is_available.sh b/scripts/rust_is_available.sh
-index cefc456c2503..551f1ebd0dcb 100755
---- a/scripts/rust_is_available.sh
-+++ b/scripts/rust_is_available.sh
-@@ -121,14 +121,8 @@ fi
- # Check that the Rust bindings generator is suitable.
- #
- # Non-stable and distributions' versions may have a version suffix, e.g. `-dev`.
--#
--# The dummy parameter `workaround-for-0.69.0` is required to support 0.69.0
--# (https://github.com/rust-lang/rust-bindgen/pull/2678) and 0.71.0
--# (https://github.com/rust-lang/rust-bindgen/pull/3040). It can be removed when
--# the minimum version is upgraded past the latter (0.69.1 and 0.71.1 both fixed
--# the issue).
- rust_bindings_generator_output=$( \
--	LC_ALL=C "$BINDGEN" --version workaround-for-0.69.0 2>/dev/null
-+	LC_ALL=C "$BINDGEN" --version 2>/dev/null
- ) || rust_bindings_generator_code=$?
- if [ -n "$rust_bindings_generator_code" ]; then
- 	echo >&2 "***"
+-	zypper install rust rust1.79-src rust-bindgen clang
++	zypper install rust rust-src rust-bindgen clang
+ 
+ 
+ Ubuntu
 -- 
 2.53.0
 
