@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1220E9D826
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048DCE9D827
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CCUq5of6HitRNIBCYZi1uvsFS/7SENbSjVzFjMeCt3E=; b=cD9uoZwY92hYY+
-	vjiikYOomh5WbTOcl6q+o9JLREvk4bJYJwUlKr1UyZBVkZIMyKfsP4Z2SqX8UvVjVNxbU6S5hRajG
-	nzUEGDAje+BhqIOffS2BqKhSrULnz9veROXu+CAivK7oMnJN0v9JTWFp02tDXS6pLYSMTaRwdBLC7
-	p5rG0Npro9brtcZLDtVTilxmRTkLPCoZpdUcRbDisZ3fp4Obn8IJY4uTEss/Cjip3ElS969FW+0rM
-	yp2vk2zUK3Ior7psfpYcJBVm8seAKD9lmTdmvhf8zKWQYDlFYAc4pZgBuUO3sreNnY+NLR8u5ObR9
-	kBvj77DJ5yT3YymSC9ug==;
+	List-Owner; bh=MfeyqXajAhLUfWl45XZAXMfox63RjraQ6VviOBUuC8k=; b=CbR7C0BrKrMaqe
+	cWMe7rqZJhu/nUXAK5Ym9njI3z06MupAVESVf1lEVTi8ul54OKYuIAp4pfMJNjDJgy3Trp8PCdfUP
+	pdARPcQdfVBdt27yZK6pxmPXF/OLndH3ylzGSNxFkEBAmv8n/qdfpb6JABVyyNxNrnbmtOuZQ4tCf
+	wqdMAE7RcA+hna38WjSzQiDRzOTTw5UC0VyMs2coTGLm1sBU6SYk/xaNp91BcWASKqfVjgo5ZRFBs
+	3WrZW5G5D1J1gfZg5fmmQBieDjSIqUnKV8/HXXgIm43txtfxPkrYTYcVaTHswtuHgcmdkREytqikS
+	BAbCeaXJ5Vp0KfQ+PNgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XLV-00000004bdC-1TJm;
-	Sun, 05 Apr 2026 23:57:37 +0000
+	id 1w9XLh-00000004bjf-0ZyG;
+	Sun, 05 Apr 2026 23:57:49 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XLS-00000004bah-1nc6;
-	Sun, 05 Apr 2026 23:57:35 +0000
+	id 1w9XLd-00000004bhX-2MD7;
+	Sun, 05 Apr 2026 23:57:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 05C80435E5;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E0474394F;
+	Sun,  5 Apr 2026 23:57:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D085C116C6;
 	Sun,  5 Apr 2026 23:57:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E412C116C6;
-	Sun,  5 Apr 2026 23:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433453;
-	bh=y0xktRKRs5ryJC+G01aE6htP3MJxSFsUvP6UYzkishw=;
+	s=k20201202; t=1775433465;
+	bh=7mv52/ZG4QUnDcOB1zLib3ghxysM4SNZUNBkbqsCd6I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fZa94a2gUM+1/bUwa8Gk/haFENqG5HQ/kAPWfZKfoOpgs9LPvPn+5SYdTLlTrdqBN
-	 KhCyK2P/VjNgBuSBZRXH3t/NjrffsRCHyuBlWMIBQFw1QoF5qZOq0Fan1XeP/C9mwN
-	 mSmbpbCFTZr9ULdOVc2ZcG2LEkvGQJ8xFnLh+51z3NbAT8m8LjGsjXlDkeOe8MrFSS
-	 pua0Sbcn0dOpLzsRowI5EISEDL74bEj9qX5mI82scX4NoyYe3aG+R/HAcXyIsZeQm+
-	 9Z0TPjgH5LdiQErUVz5M6qCBLJlmLC7RcmmO+rD7FdR+Z/0Ev92RuP1DJXKaj2QiNp
-	 MCtFh4b1E1+eg==
+	b=fWajgKwfrkdSNkiYnAd9kVPK1GTxxVyj6J8fkBbJmrLEd8CgJanav/phR9AoL3ylx
+	 txfRsKu9RyJkL4rGC6RD3J1lxpa9C1fBSZzYpGbeXeZbD3guGiERO3kTGiCHAhtg92
+	 EgiGkmUZ+/W0GJ+7JzQjQgfMYPZT8BWyQe0qXfjMWmH6CabWhNT0oyMw9cRsUMhrb4
+	 4xmAOFIxtQwyfAcrhXC65dsH2AYzCrEmcwkeyxe2CLJSxNlqukCsRdgXYFRU6ozXdz
+	 4B+nAbib/RZGoGdyfYl4J/MgCruSgPuD1K/cXlZHR3jxvKX31DQGGowb/YmjIjlMaf
+	 nst7B8vwy2roQ==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,16 +92,15 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 22/33] docs: rust: quick-start: openSUSE provides `rust-src` package nowadays
-Date: Mon,  6 Apr 2026 01:52:58 +0200
-Message-ID: <20260405235309.418950-23-ojeda@kernel.org>
+Subject: [PATCH v2 23/33] docs: rust: quick-start: update Ubuntu versioned packages
+Date: Mon,  6 Apr 2026 01:52:59 +0200
+Message-ID: <20260405235309.418950-24-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_165734_503890_704A46B1 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260405_165745_641631_3953DB9D 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,31 +117,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Both openSUSE Tumbleweed and Slowroll provide the `rust-src` package
-nowadays [1].
+Now that the minimum supported Rust version is bumped, bump the versioned
+Rust packages [1][2][3][4] to that version for Ubuntu in the Quick
+Start guide.
 
-Thus remove the version-specific one from the Quick Start guide.
+In addition, add "may" to the `RUST_LIB_SRC` line since it does not look
+like it is needed from a quick test in a Ubuntu 24.04 LTS container.
 
-Link: https://software.opensuse.org/package/rust-src?search_term=rust-src [1]
+Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=rustc [1]
+Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=bindgen [2]
+Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [3]
+Link: https://launchpad.net/ubuntu/+source/rust-bindgen-0.71 [4]
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- Documentation/rust/quick-start.rst | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/rust/quick-start.rst | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
 diff --git a/Documentation/rust/quick-start.rst b/Documentation/rust/quick-start.rst
-index 152289f0bed2..642efce04ee8 100644
+index 642efce04ee8..54fe491deb7d 100644
 --- a/Documentation/rust/quick-start.rst
 +++ b/Documentation/rust/quick-start.rst
-@@ -84,7 +84,7 @@ openSUSE
- openSUSE Slowroll and openSUSE Tumbleweed provide recent Rust releases and thus
- they should generally work out of the box, e.g.::
+@@ -112,33 +112,33 @@ Though Ubuntu 24.04 LTS and older versions still provide recent Rust
+ releases, they require some additional configuration to be set, using
+ the versioned packages, e.g.::
  
--	zypper install rust rust1.79-src rust-bindgen clang
-+	zypper install rust rust-src rust-bindgen clang
+-	apt install rustc-1.80 rust-1.80-src bindgen-0.65 rustfmt-1.80 \
+-		rust-1.80-clippy
+-	ln -s /usr/lib/rust-1.80/bin/rustfmt /usr/bin/rustfmt-1.80
+-	ln -s /usr/lib/rust-1.80/bin/clippy-driver /usr/bin/clippy-driver-1.80
++	apt install rustc-1.85 rust-1.85-src bindgen-0.71 rustfmt-1.85 \
++		rust-1.85-clippy
++	ln -s /usr/lib/rust-1.85/bin/rustfmt /usr/bin/rustfmt-1.85
++	ln -s /usr/lib/rust-1.85/bin/clippy-driver /usr/bin/clippy-driver-1.85
+ 
+ None of these packages set their tools as defaults; therefore they should be
+ specified explicitly, e.g.::
+ 
+-	make LLVM=1 RUSTC=rustc-1.80 RUSTDOC=rustdoc-1.80 RUSTFMT=rustfmt-1.80 \
+-		CLIPPY_DRIVER=clippy-driver-1.80 BINDGEN=bindgen-0.65
++	make LLVM=1 RUSTC=rustc-1.85 RUSTDOC=rustdoc-1.85 RUSTFMT=rustfmt-1.85 \
++		CLIPPY_DRIVER=clippy-driver-1.85 BINDGEN=bindgen-0.71
+ 
+-Alternatively, modify the ``PATH`` variable to place the Rust 1.80 binaries
++Alternatively, modify the ``PATH`` variable to place the Rust 1.85 binaries
+ first and set ``bindgen`` as the default, e.g.::
+ 
+-	PATH=/usr/lib/rust-1.80/bin:$PATH
++	PATH=/usr/lib/rust-1.85/bin:$PATH
+ 	update-alternatives --install /usr/bin/bindgen bindgen \
+-		/usr/bin/bindgen-0.65 100
+-	update-alternatives --set bindgen /usr/bin/bindgen-0.65
++		/usr/bin/bindgen-0.71 100
++	update-alternatives --set bindgen /usr/bin/bindgen-0.71
+ 
+-``RUST_LIB_SRC`` needs to be set when using the versioned packages, e.g.::
++``RUST_LIB_SRC`` may need to be set when using the versioned packages, e.g.::
+ 
+-	RUST_LIB_SRC=/usr/src/rustc-$(rustc-1.80 --version | cut -d' ' -f2)/library
++	RUST_LIB_SRC=/usr/src/rustc-$(rustc-1.85 --version | cut -d' ' -f2)/library
+ 
+ For convenience, ``RUST_LIB_SRC`` can be exported to the global environment.
+ 
+-In addition, ``bindgen-0.65`` is available in newer releases (24.04 LTS and
+-24.10), but it may not be available in older ones (20.04 LTS and 22.04 LTS),
++In addition, ``bindgen-0.71`` is available in newer releases (24.04 LTS),
++but it may not be available in older ones (20.04 LTS and 22.04 LTS),
+ thus ``bindgen`` may need to be built manually (please see below).
  
  
- Ubuntu
 -- 
 2.53.0
 
