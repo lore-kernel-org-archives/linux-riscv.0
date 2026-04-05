@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E07CE9D826
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FA6E9D827
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=le8DYX1v2wJfYBc4aCRdFoXFBPtGrUuB31L9bkYE+hc=; b=FX0WwcP+YUA5/1
-	TX+zZRHI8jaNW71H0qm73ooL3KItjcEd2nPYMyuf2KpiVbTJLY3mrkI9ntz36jrmP3amFZIu9CVmi
-	8lTy0T3oSx2OjYgEf+fiYPZPr+cGuIHXBz4tfzkkDsDlwOGg4rznT3whzfGRpapCVW22+M0anhnf3
-	y5ptkAfrPLN7xznSp3aUc3jzj7F6V8HWRRop0YSPuAzjxKRZbZkVyYM2qyEwPfrZK7qCxbhhFHrBG
-	5TURPmUgkl6/37/31rUgKRzwl8gBenskCCSlxkIdednInMrrdJK8lc6x3cLqTlh0I2yTFAr/p7ci5
-	HK9tpmOGI6tqhGk8/M5w==;
+	List-Owner; bh=q79geuXfsRCgo9xlc1chulMAl+8/dPrbtiTh94ltu1M=; b=mMdN+6qQm5l6e+
+	9gOdK8kGC/gpKWp7iguTlJ6ooyJrLi2TrwqaK0hHA5MACzT+5OufkrMp++pgmZIwLFn1ZkbWDHxT/
+	g4mrok6CJbBdFE7p6UzuhF2Mj6AAsHk0Rga6hZN0mN8En7/mLjKWOLlSbn0iJgD4wh33qXEeIfi6w
+	fxM/CmLD/JztIwsFhbyoWwmgEbfnQ3RIFkWct9OltUtgKLMZMII2v7Vy+1sajuq8r8QicAqo0tv7L
+	ALiKkhfBM9eTa5FNW6cuvpVA/ISN0hfh7hrrHBIkxNoOKTk82G1ZxdXTuiSbMF3yMwIVZHsz8/HlL
+	r6w8dSyepyQj2E1Dxosw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XHu-00000004ZU0-1asP;
-	Sun, 05 Apr 2026 23:53:54 +0000
+	id 1w9XI5-00000004Za3-1T4g;
+	Sun, 05 Apr 2026 23:54:05 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XHr-00000004ZSR-2D3N;
-	Sun, 05 Apr 2026 23:53:52 +0000
+	id 1w9XI2-00000004ZYR-3jG9;
+	Sun, 05 Apr 2026 23:54:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FDFE40DF7;
+	by sea.source.kernel.org (Postfix) with ESMTP id 48ECD418CE;
+	Sun,  5 Apr 2026 23:54:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BA5CC116C6;
 	Sun,  5 Apr 2026 23:53:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5792AC116C6;
-	Sun,  5 Apr 2026 23:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433231;
-	bh=3AJRnAyEU2suxXGqceHWmfrdhCBJgg/viD//VN5No4A=;
+	s=k20201202; t=1775433242;
+	bh=WQ0oBITAbznQlvSGXpQS73br2HMX6Bl0r6ccv/0kOtQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EwAXuYA25JGS9wsvKoXsGN6sAEKslnUZh5D1dRotUu99nhYgcoqpY6WYoCLhunn5n
-	 xHVYrx8rpK1rU+25XoZCWXvldDnU50XFCE9J47vhT2ZBF0UGNIKn4LeZfLphQ37F6o
-	 N1lVtDyk0UuzGU0HE91nvri0/O0pl3Q1uBMBgMuqqJFjAGhMQ/Ha1VCv/QoDDqC+Cx
-	 MRKnQoRQilcWK9zZs34qU1c15lT5egG9V0Rp4ouFrAMfz8ogTTbM8rXPpqWj7JccvG
-	 ZkUDGF0siAS7QeLkDf2sedkNJlP+8fmXP7k5sjXvvE3+l8wPpUZ/4xCTRIOfLlFB1U
-	 2IJKROs43C4iQ==
+	b=ME0m/TLbLLPkqVSK+iLGCx7Qa57ge0tZp/EzBj65jU7Gi+ERQSPKwf2Rr77wxXDNK
+	 RkuzSWWrTer5zZVSX7ZmfNpmGDHDw7AZNyURN5b/Ek393YiaAlqw2oFr05KY04oAsL
+	 +byIpV99QPfflerc2makyl1vZ5n/+4tGd3ni4/cv1L0w8FGwdTMh/La5YBban/5liF
+	 rXGoYtIzYujv6gOLZ0J7fGKgoDYlFWyFYbLrMQ922zNgC7RKaWG7Wpxf/bTSvu9QDC
+	 6GF9afyHuSpq7uqaF+5GL7UIb7V7T5KnR79NZsLE7/OJgSJegLBz9pdg1DjD/JZ7yQ
+	 d+gllyV3biqBg==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,15 +92,15 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 02/33] rust: kbuild: remove "`try` keyword" workaround for `bindgen` < 0.59.2
-Date: Mon,  6 Apr 2026 01:52:38 +0200
-Message-ID: <20260405235309.418950-3-ojeda@kernel.org>
+Subject: [PATCH v2 03/33] rust: kbuild: remove unneeded old `allow`s for generated layout tests
+Date: Mon,  6 Apr 2026 01:52:39 +0200
+Message-ID: <20260405235309.418950-4-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_165351_613696_0E535504 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20260405_165402_976274_F640E50F 
+X-CRM114-Status: UNSURE (   8.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,33 +118,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is a workaround that has not been needed, even already after commit
-08ab786556ff ("rust: bindgen: upgrade to 0.65.1"), but it does not hurt.
+The issue that required `allow`s for `cfg(test)` code generated by
+`bindgen` for layout testing was fixed back in `bindgen` 0.60.0 [1],
+so it could have been removed even before the version bump, but it does
+not hurt.
 
-Thus remove it.
+Thus remove it now.
 
+Link: https://github.com/rust-lang/rust-bindgen/pull/2203 [1]
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 Reviewed-by: Gary Guo <gary@garyguo.net>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- rust/bindgen_parameters | 4 ----
- 1 file changed, 4 deletions(-)
+ rust/bindings/lib.rs | 4 ----
+ rust/uapi/lib.rs     | 4 ----
+ 2 files changed, 8 deletions(-)
 
-diff --git a/rust/bindgen_parameters b/rust/bindgen_parameters
-index fd2fd1c3cb9a..112ec197ef0a 100644
---- a/rust/bindgen_parameters
-+++ b/rust/bindgen_parameters
-@@ -15,10 +15,6 @@
- --opaque-type x86_msi_data
- --opaque-type x86_msi_addr_lo
+diff --git a/rust/bindings/lib.rs b/rust/bindings/lib.rs
+index 19f57c5b2fa2..e18c160dad17 100644
+--- a/rust/bindings/lib.rs
++++ b/rust/bindings/lib.rs
+@@ -9,10 +9,6 @@
+ //! using this crate.
  
--# `try` is a reserved keyword since Rust 2018; solved in `bindgen` v0.59.2,
--# commit 2aed6b021680 ("context: Escape the try keyword properly").
----opaque-type kunit_try_catch
--
- # If SMP is disabled, `arch_spinlock_t` is defined as a ZST which triggers a Rust
- # warning. We don't need to peek into it anyway.
- --opaque-type spinlock
+ #![no_std]
+-// See <https://github.com/rust-lang/rust-bindgen/issues/1651>.
+-#![cfg_attr(test, allow(deref_nullptr))]
+-#![cfg_attr(test, allow(unaligned_references))]
+-#![cfg_attr(test, allow(unsafe_op_in_unsafe_fn))]
+ #![allow(
+     clippy::all,
+     missing_docs,
+diff --git a/rust/uapi/lib.rs b/rust/uapi/lib.rs
+index 1d5fd9efb93e..821e286e0daa 100644
+--- a/rust/uapi/lib.rs
++++ b/rust/uapi/lib.rs
+@@ -8,10 +8,6 @@
+ //! userspace APIs.
+ 
+ #![no_std]
+-// See <https://github.com/rust-lang/rust-bindgen/issues/1651>.
+-#![cfg_attr(test, allow(deref_nullptr))]
+-#![cfg_attr(test, allow(unaligned_references))]
+-#![cfg_attr(test, allow(unsafe_op_in_unsafe_fn))]
+ #![allow(
+     clippy::all,
+     clippy::cast_lossless,
 -- 
 2.53.0
 
