@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD52E9D827
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:55:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC52E9D827
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Apr 2026 23:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L/L2VHGpKT19DQRpkVqNbvLYeK+wWKF+UcULQQhZ53c=; b=kOPACaS/p0YUMZ
-	744H+xtBJCb08ax7RNgR8BSmteePtaH0RwLlHiKPrX5sRooy3tHMjwGHAsIPYVyuY7LursX+x7m3C
-	O5J91Pt21HbeC8GbGt9n60rcWf7lplaWnbT4bblyjD+AtneeNixr/nKjfsS08dVXWUEUwwDgz5GwD
-	uqCqF7gkn7KXdhEHkiJ9Y7RmSiOYXNBAVMz8vDrv4dpyLZqkkK5E82Nk5h4qCn+P0PcVeBnAC0bKV
-	H+LhytFvO0UgGAWWOtr5tNys1Bqxzkk0GgsTVs91F7BT2q3C0lbgmGEo2Uvlqdi/YYYv1fP0U403b
-	UeBQTTrX+DZwFPvOdAKA==;
+	List-Owner; bh=0YR6djE6iX0UKMNsw5uHAEli2TCcZUEKUPD1xnnWd5U=; b=MH2xqyjsx3XOfl
+	taQPPidzdnfsDK//73laWj+erT9aMyZtXO2OEnMrhUnLkuPC4HtTI9TDhoI6E/qPewD/pr2OhoTbx
+	iLXzmjFS1G/iTNNFi89VwEdz3yb39nEDc1Pv7al9X4nD2TtnFtaJlu9dsw+5uKd5qVGGGLL1J2dfb
+	vQdu8Kdq9/TyZGfh4UX2gtifhFSXkNZPf4QQPToNR0Mc37f8uYtg0OpS+Bz081/sDNZY/R4xx5N5g
+	ZapTHeqscjh7aOA1ONQ/t/cCpPFv2KI8TB5+Z5GFSe7jhC9PtOT4Re675aUwJjpF7BAEwIQMCIERU
+	2Xp8wTJCxnII0B9r2ISg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XJ9-00000004aGP-1Qr8;
-	Sun, 05 Apr 2026 23:55:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w9XJL-00000004aN4-1T8Q;
+	Sun, 05 Apr 2026 23:55:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9XJ7-00000004aEq-3hir;
-	Sun, 05 Apr 2026 23:55:09 +0000
+	id 1w9XJJ-00000004aLr-0Nb1;
+	Sun, 05 Apr 2026 23:55:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51C7560103;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B3EF6011F;
+	Sun,  5 Apr 2026 23:55:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86601C116C6;
 	Sun,  5 Apr 2026 23:55:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B924C116C6;
-	Sun,  5 Apr 2026 23:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775433309;
-	bh=nKHljoFNdh6GE6jo8Il2V+4MwOz3gplkmJ7uy9RqO8E=;
+	s=k20201202; t=1775433320;
+	bh=HV0bL0gHeo5ytVraoqeUk7gpt273iWarFnhuW3AZrCI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C8O6kikOLR/V/02C2dby6Y/oProcMBLuoWXI5fMzDgnA9/gNHDmG5OW3v12U4+ApI
-	 M7D5j3PQs8Qn+TqxBWio6NqZavJX48yjJQcSrZWhm8UkapxbQBbJSMLn6Rr4hL+BcU
-	 oBrMFthjMoPxGtYqz9gtVtvfzl1E29Z2GrDcd8+s/AFhsdXRbbFjVuYvp+FvDnANfA
-	 WiH9Ua8ujabe8zcqKO6Z20ebB8N4ELMduY+UjyCpId461mgHnIQFj2ULWzmdcI+jvd
-	 2FtIsQzI1tFD6BdmI8fKDyTf0fLsclaDPgIVP/+AuFxyuGsxjKdhSm5o8sCv314tib
-	 yJ/keu9ic/DVg==
+	b=gCHzAlM6VUIfeMuR3tiYiw4x52ObAlTAx9UnTip4jjUZVJ+sCfoUGSFvE9wPi7740
+	 3QRK9w03A1z3Tiq5yMZhcKxEuaP5+x1h4JJYclMBu42+WH1zGRYSSJnyRXj0xz8xrv
+	 WlxPczxRkcp0lLRcjK9sorp63+5xChEEuulrugfJ6ET5VVvThzAtNxIfG4WG00VknT
+	 VdwbEkh/mOhhQJFQ0CiDoVyIB6OAVfcFk5XDu9QYRf/aMi7Zgkc5If449omeQ0BNT3
+	 YtPI2fbmIXg2yzp3nTj1jj9b4E2kcYl6f6NENEgnXH14mkqjTi3gSF9ScvSlzg3pmV
+	 OfGyMkO6NzpJQ==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -92,9 +92,9 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: [PATCH v2 09/33] rust: remove `RUSTC_HAS_SLICE_AS_FLATTENED` and simplify code
-Date: Mon,  6 Apr 2026 01:52:45 +0200
-Message-ID: <20260405235309.418950-10-ojeda@kernel.org>
+Subject: [PATCH v2 10/33] rust: remove `RUSTC_HAS_COERCE_POINTEE` and simplify code
+Date: Mon,  6 Apr 2026 01:52:46 +0200
+Message-ID: <20260405235309.418950-11-ojeda@kernel.org>
 In-Reply-To: <20260405235309.418950-1-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
 MIME-Version: 1.0
@@ -114,118 +114,195 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With the Rust version bump in place, the `RUSTC_HAS_SLICE_AS_FLATTENED`
+With the Rust version bump in place, the `RUSTC_HAS_COERCE_POINTEE`
 Kconfig (automatic) option is always true.
 
 Thus remove the option and simplify the code.
 
-In particular, this includes removing the `slice` module which contained
-the temporary slice helpers, i.e. the `AsFlattened` extension trait and
-its `impl`s.
+In particular, this includes removing our use of the predecessor unstable
+features we used with Rust < 1.84.0 (`coerce_unsized`, `dispatch_from_dyn`
+and `unsize`).
 
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
+Acked-by: Danilo Krummrich <dakr@kernel.org>
 Reviewed-by: Gary Guo <gary@garyguo.net>
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- init/Kconfig           |  3 ---
- rust/kernel/lib.rs     |  1 -
- rust/kernel/prelude.rs |  3 ---
- rust/kernel/slice.rs   | 49 ------------------------------------------
- 4 files changed, 56 deletions(-)
- delete mode 100644 rust/kernel/slice.rs
+ init/Kconfig              |  3 ---
+ rust/kernel/alloc/kbox.rs | 29 ++---------------------------
+ rust/kernel/lib.rs        |  8 +-------
+ rust/kernel/list/arc.rs   | 22 +---------------------
+ rust/kernel/sync/arc.rs   | 21 ++-------------------
+ 5 files changed, 6 insertions(+), 77 deletions(-)
 
 diff --git a/init/Kconfig b/init/Kconfig
-index b8a1ab0d49d4..c38f49228157 100644
+index c38f49228157..f9fac458e4d4 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
 @@ -178,9 +178,6 @@ config LD_CAN_USE_KEEP_IN_OVERLAY
  	# https://github.com/llvm/llvm-project/pull/130661
  	def_bool LD_IS_BFD || LLD_VERSION >= 210000
  
--config RUSTC_HAS_SLICE_AS_FLATTENED
--	def_bool RUSTC_VERSION >= 108000
+-config RUSTC_HAS_COERCE_POINTEE
+-	def_bool RUSTC_VERSION >= 108400
 -
- config RUSTC_HAS_COERCE_POINTEE
- 	def_bool RUSTC_VERSION >= 108400
+ config RUSTC_HAS_SPAN_FILE
+ 	def_bool RUSTC_VERSION >= 108800
  
+diff --git a/rust/kernel/alloc/kbox.rs b/rust/kernel/alloc/kbox.rs
+index 622b3529edfc..bd6da02c7ab8 100644
+--- a/rust/kernel/alloc/kbox.rs
++++ b/rust/kernel/alloc/kbox.rs
+@@ -77,33 +77,8 @@
+ /// `self.0` is always properly aligned and either points to memory allocated with `A` or, for
+ /// zero-sized types, is a dangling, well aligned pointer.
+ #[repr(transparent)]
+-#[cfg_attr(CONFIG_RUSTC_HAS_COERCE_POINTEE, derive(core::marker::CoercePointee))]
+-pub struct Box<#[cfg_attr(CONFIG_RUSTC_HAS_COERCE_POINTEE, pointee)] T: ?Sized, A: Allocator>(
+-    NonNull<T>,
+-    PhantomData<A>,
+-);
+-
+-// This is to allow coercion from `Box<T, A>` to `Box<U, A>` if `T` can be converted to the
+-// dynamically-sized type (DST) `U`.
+-#[cfg(not(CONFIG_RUSTC_HAS_COERCE_POINTEE))]
+-impl<T, U, A> core::ops::CoerceUnsized<Box<U, A>> for Box<T, A>
+-where
+-    T: ?Sized + core::marker::Unsize<U>,
+-    U: ?Sized,
+-    A: Allocator,
+-{
+-}
+-
+-// This is to allow `Box<U, A>` to be dispatched on when `Box<T, A>` can be coerced into `Box<U,
+-// A>`.
+-#[cfg(not(CONFIG_RUSTC_HAS_COERCE_POINTEE))]
+-impl<T, U, A> core::ops::DispatchFromDyn<Box<U, A>> for Box<T, A>
+-where
+-    T: ?Sized + core::marker::Unsize<U>,
+-    U: ?Sized,
+-    A: Allocator,
+-{
+-}
++#[derive(core::marker::CoercePointee)]
++pub struct Box<#[pointee] T: ?Sized, A: Allocator>(NonNull<T>, PhantomData<A>);
+ 
+ /// Type alias for [`Box`] with a [`Kmalloc`] allocator.
+ ///
 diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
-index 138d846f798d..621cae75030c 100644
+index 621cae75030c..66a09d77a2c4 100644
 --- a/rust/kernel/lib.rs
 +++ b/rust/kernel/lib.rs
-@@ -140,7 +140,6 @@
- pub mod security;
- pub mod seq_file;
- pub mod sizes;
--pub mod slice;
- #[cfg(CONFIG_SOC_BUS)]
- pub mod soc;
- #[doc(hidden)]
-diff --git a/rust/kernel/prelude.rs b/rust/kernel/prelude.rs
-index e9d37f307f2a..44edf72a4a24 100644
---- a/rust/kernel/prelude.rs
-+++ b/rust/kernel/prelude.rs
-@@ -107,6 +107,3 @@
- // `super::std_vendor` is hidden, which makes the macro inline for some reason.
- #[doc(no_inline)]
- pub use super::dbg;
--
--#[cfg(not(CONFIG_RUSTC_HAS_SLICE_AS_FLATTENED))]
--pub use super::slice::AsFlattened;
-diff --git a/rust/kernel/slice.rs b/rust/kernel/slice.rs
-deleted file mode 100644
-index ca2cde135061..000000000000
---- a/rust/kernel/slice.rs
-+++ /dev/null
-@@ -1,49 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--
--//! Additional (and temporary) slice helpers.
--
--/// Extension trait providing a portable version of [`as_flattened`] and
--/// [`as_flattened_mut`].
--///
--/// In Rust 1.80, the previously unstable `slice::flatten` family of methods
--/// have been stabilized and renamed from `flatten` to `as_flattened`.
--///
--/// This creates an issue for as long as the MSRV is < 1.80, as the same functionality is provided
--/// by different methods depending on the compiler version.
--///
--/// This extension trait solves this by abstracting `as_flatten` and calling the correct method
--/// depending on the Rust version.
--///
--/// This trait can be removed once the MSRV passes 1.80.
--///
--/// [`as_flattened`]: https://doc.rust-lang.org/std/primitive.slice.html#method.as_flattened
--/// [`as_flattened_mut`]: https://doc.rust-lang.org/std/primitive.slice.html#method.as_flattened_mut
--#[cfg(not(CONFIG_RUSTC_HAS_SLICE_AS_FLATTENED))]
--pub trait AsFlattened<T> {
--    /// Takes a `&[[T; N]]` and flattens it to a `&[T]`.
--    ///
--    /// This is an portable layer on top of [`as_flattened`]; see its documentation for details.
--    ///
--    /// [`as_flattened`]: https://doc.rust-lang.org/std/primitive.slice.html#method.as_flattened
--    fn as_flattened(&self) -> &[T];
--
--    /// Takes a `&mut [[T; N]]` and flattens it to a `&mut [T]`.
--    ///
--    /// This is an portable layer on top of [`as_flattened_mut`]; see its documentation for details.
--    ///
--    /// [`as_flattened_mut`]: https://doc.rust-lang.org/std/primitive.slice.html#method.as_flattened_mut
--    fn as_flattened_mut(&mut self) -> &mut [T];
+@@ -39,17 +39,11 @@
+ //
+ // Expected to become stable.
+ #![feature(arbitrary_self_types)]
++#![feature(derive_coerce_pointee)]
+ //
+ // To be determined.
+ #![feature(used_with_arg)]
+ //
+-// `feature(derive_coerce_pointee)` is expected to become stable. Before Rust
+-// 1.84.0, it did not exist, so enable the predecessor features.
+-#![cfg_attr(CONFIG_RUSTC_HAS_COERCE_POINTEE, feature(derive_coerce_pointee))]
+-#![cfg_attr(not(CONFIG_RUSTC_HAS_COERCE_POINTEE), feature(coerce_unsized))]
+-#![cfg_attr(not(CONFIG_RUSTC_HAS_COERCE_POINTEE), feature(dispatch_from_dyn))]
+-#![cfg_attr(not(CONFIG_RUSTC_HAS_COERCE_POINTEE), feature(unsize))]
+-//
+ // `feature(file_with_nul)` is expected to become stable. Before Rust 1.89.0, it did not exist, so
+ // enable it conditionally.
+ #![cfg_attr(CONFIG_RUSTC_HAS_FILE_WITH_NUL, feature(file_with_nul))]
+diff --git a/rust/kernel/list/arc.rs b/rust/kernel/list/arc.rs
+index e1082423909c..a9a2b0178f65 100644
+--- a/rust/kernel/list/arc.rs
++++ b/rust/kernel/list/arc.rs
+@@ -160,7 +160,7 @@ fn try_new_list_arc(&self) -> bool {
+ ///
+ /// [`List`]: crate::list::List
+ #[repr(transparent)]
+-#[cfg_attr(CONFIG_RUSTC_HAS_COERCE_POINTEE, derive(core::marker::CoercePointee))]
++#[derive(core::marker::CoercePointee)]
+ pub struct ListArc<T, const ID: u64 = 0>
+ where
+     T: ListArcSafe<ID> + ?Sized,
+@@ -443,26 +443,6 @@ fn as_ref(&self) -> &Arc<T> {
+     }
+ }
+ 
+-// This is to allow coercion from `ListArc<T>` to `ListArc<U>` if `T` can be converted to the
+-// dynamically-sized type (DST) `U`.
+-#[cfg(not(CONFIG_RUSTC_HAS_COERCE_POINTEE))]
+-impl<T, U, const ID: u64> core::ops::CoerceUnsized<ListArc<U, ID>> for ListArc<T, ID>
+-where
+-    T: ListArcSafe<ID> + core::marker::Unsize<U> + ?Sized,
+-    U: ListArcSafe<ID> + ?Sized,
+-{
 -}
 -
--#[cfg(not(CONFIG_RUSTC_HAS_SLICE_AS_FLATTENED))]
--impl<T, const N: usize> AsFlattened<T> for [[T; N]] {
--    #[allow(clippy::incompatible_msrv)]
--    fn as_flattened(&self) -> &[T] {
--        self.flatten()
--    }
--
--    #[allow(clippy::incompatible_msrv)]
--    fn as_flattened_mut(&mut self) -> &mut [T] {
--        self.flatten_mut()
--    }
+-// This is to allow `ListArc<U>` to be dispatched on when `ListArc<T>` can be coerced into
+-// `ListArc<U>`.
+-#[cfg(not(CONFIG_RUSTC_HAS_COERCE_POINTEE))]
+-impl<T, U, const ID: u64> core::ops::DispatchFromDyn<ListArc<U, ID>> for ListArc<T, ID>
+-where
+-    T: ListArcSafe<ID> + core::marker::Unsize<U> + ?Sized,
+-    U: ListArcSafe<ID> + ?Sized,
+-{
 -}
+-
+ /// A utility for tracking whether a [`ListArc`] exists using an atomic.
+ ///
+ /// # Invariants
+diff --git a/rust/kernel/sync/arc.rs b/rust/kernel/sync/arc.rs
+index 921e19333b89..18d6c0d62ce0 100644
+--- a/rust/kernel/sync/arc.rs
++++ b/rust/kernel/sync/arc.rs
+@@ -128,7 +128,7 @@
+ /// # Ok::<(), Error>(())
+ /// ```
+ #[repr(transparent)]
+-#[cfg_attr(CONFIG_RUSTC_HAS_COERCE_POINTEE, derive(core::marker::CoercePointee))]
++#[derive(core::marker::CoercePointee)]
+ pub struct Arc<T: ?Sized> {
+     ptr: NonNull<ArcInner<T>>,
+     // NB: this informs dropck that objects of type `ArcInner<T>` may be used in `<Arc<T> as
+@@ -182,15 +182,6 @@ unsafe fn container_of(ptr: *const T) -> NonNull<ArcInner<T>> {
+     }
+ }
+ 
+-// This is to allow coercion from `Arc<T>` to `Arc<U>` if `T` can be converted to the
+-// dynamically-sized type (DST) `U`.
+-#[cfg(not(CONFIG_RUSTC_HAS_COERCE_POINTEE))]
+-impl<T: ?Sized + core::marker::Unsize<U>, U: ?Sized> core::ops::CoerceUnsized<Arc<U>> for Arc<T> {}
+-
+-// This is to allow `Arc<U>` to be dispatched on when `Arc<T>` can be coerced into `Arc<U>`.
+-#[cfg(not(CONFIG_RUSTC_HAS_COERCE_POINTEE))]
+-impl<T: ?Sized + core::marker::Unsize<U>, U: ?Sized> core::ops::DispatchFromDyn<Arc<U>> for Arc<T> {}
+-
+ // SAFETY: It is safe to send `Arc<T>` to another thread when the underlying `T` is `Sync` because
+ // it effectively means sharing `&T` (which is safe because `T` is `Sync`); additionally, it needs
+ // `T` to be `Send` because any thread that has an `Arc<T>` may ultimately access `T` using a
+@@ -547,20 +538,12 @@ fn from(item: Pin<UniqueArc<T>>) -> Self {
+ /// # Ok::<(), Error>(())
+ /// ```
+ #[repr(transparent)]
+-#[cfg_attr(CONFIG_RUSTC_HAS_COERCE_POINTEE, derive(core::marker::CoercePointee))]
++#[derive(core::marker::CoercePointee)]
+ pub struct ArcBorrow<'a, T: ?Sized + 'a> {
+     inner: NonNull<ArcInner<T>>,
+     _p: PhantomData<&'a ()>,
+ }
+ 
+-// This is to allow `ArcBorrow<U>` to be dispatched on when `ArcBorrow<T>` can be coerced into
+-// `ArcBorrow<U>`.
+-#[cfg(not(CONFIG_RUSTC_HAS_COERCE_POINTEE))]
+-impl<T: ?Sized + core::marker::Unsize<U>, U: ?Sized> core::ops::DispatchFromDyn<ArcBorrow<'_, U>>
+-    for ArcBorrow<'_, T>
+-{
+-}
+-
+ impl<T: ?Sized> Clone for ArcBorrow<'_, T> {
+     fn clone(&self) -> Self {
+         *self
 -- 
 2.53.0
 
