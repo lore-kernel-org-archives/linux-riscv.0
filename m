@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6499FF46C47
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Apr 2026 14:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CBFF46C45
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Apr 2026 14:29:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
 	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ejGWBeHeoMHrszBRjzD3XexjGB5+dwhNewXMfdR6SyA=; b=p9IEa1D762Awzi
-	drqxM0JkRdqpx0fDZr1BYaslbQSSl54nPM2tRr/eRcLC3Mtsox3NSvjH5D+JMONYEkxWoKro7B728
-	vMrXbd7KGqDhiB8lIk1m4HAaXBELzNp+yk/eTwyKz6JKcklPptikMXVwuHJLJHoKI0P2EKDv8lwqo
-	5xchwBZwEWJNSfuMaV6EjyTVxZlkyL0m7URXOs2Qkvbmtr3FYLJfJ2NuovbhozL7aBVorl6nCbmih
-	kqU6ckKIQQFksLKkJYljV6Tl7o/ct7tDdVFHXQuZOqj4ClcQg537qykZtklJ//lHANUReEkrV4tqf
-	7zhPUP95RWNXZyJMjoKg==;
+	List-Owner; bh=T/Ivq/UhIQfqGiNvyKoxQH/2HpxOYs/yCfFOpa0MOEA=; b=ezTf4dLZ/NNQGS
+	rko6fz9B+IU9Cvgx9lXU/1nJCht5Y1lnvCndWOTeADi9M/xZLeE4lV15WBbpVbFIp6TzC5Hs0oCb5
+	3qmmRLYtXCyhvrhU+BykAGPIiqumJjY/yMUWYpnW5Ko99IIlmOrpRC1X77Z3xpB5N9q48UxCgm64P
+	u8V1qwG3Qpl/I/tF9O7/ojg2cEcg5ugYzqMyhnzC2M7X1c9hab5lN0LxptCfTEZp+BMae811c1w8i
+	l8e/zAlztrpjYCPNQa2IpAsxHsBrn0R6ctmYV/K+f4o/gVnWJHs3uuKyb6/UCtW8WD2oYrJrCakZ3
+	f1giLP1tphv1v52DaGkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9kwy-00000005Bhk-1qqt;
-	Mon, 06 Apr 2026 14:29:12 +0000
+	id 1w9kx6-00000005BlR-1ism;
+	Mon, 06 Apr 2026 14:29:20 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9kwv-00000005Bh8-496d;
-	Mon, 06 Apr 2026 14:29:11 +0000
+	id 1w9kx3-00000005Bjs-1L3d;
+	Mon, 06 Apr 2026 14:29:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03131442C1;
-	Mon,  6 Apr 2026 14:29:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91D41C2BC9E;
-	Mon,  6 Apr 2026 14:29:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EDC7642A61;
+	Mon,  6 Apr 2026 14:29:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 976F9C2BC9E;
+	Mon,  6 Apr 2026 14:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775485747;
-	bh=Afu6edQrG07FmuDjVQyAb8ZDzLTPehav0qOEe/kll58=;
+	s=k20201202; t=1775485756;
+	bh=hQs1Tn9TC/fuoSSmmMaVRc8aMtneqBIGGyK2dnscFmo=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
-	b=KEGFx0eMh26d0L6gnM8sQm6vO80fCkCwajiEWq55DbYlf1lvyZikY7hGf8bC3i1EE
-	 k302EG2GK1WXDQcHj/HLGkwFDqslJy9pREO4nRcPO0BatO33X0yHG/0Mkdbjh5AxIg
-	 k0SYaELN2vI5FSxwwReIWB4GATx3hgTJlZnt54inETe7sUhtXT0C5upNzc+LzkEIlw
-	 MeV+a3ngtaPjEgPrW5LtZSPNx58BGdVoB4CxUpedE8lj4vD8SnEOvA//mYTsTa2TUZ
-	 kyFhwJuTYfdcjcJNItGjPngC5KwzQMjPtKsAvIrXQYH0j4dTgCP7PeGsz0f7nQSjSF
-	 laolM3ZjdZ4hw==
+	b=dRSvnYgZ8y+9NiMZOjUfwe4OjJV72M3gHcEolR8tMg0+XKG0e7wy8sJJa1vgsFLdw
+	 c5CFD3Xucwz/io7Rpsfq1thQFQcPIRkLYLUPP7Y1y4I9b9KPB/G7mQhVM5TuGcd6gm
+	 6j4o/t5E0/msw22ksl7ZTZX5i+G9zAy7YYwtPYx221YGT0Z9FD9uUy74kjVaXqtm3Y
+	 n2mq1cThIix8w3e/hkBH9UlVKC3bY2TG7D15bvqQZPmyIzlg6q00tW5pIHF305QHMZ
+	 T98GigKLXQQCyZiVCE86iP0fUgWjV2j28zjziqxOJTxW4KHZ7g2VhFATQ86+Kfh3KS
+	 phsh/0bbvPSlQ==
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 01/33] rust: kbuild: remove `--remap-path-prefix`
- workarounds
+Subject: Re: [PATCH v2 15/33] rust: macros: simplify code using
+ `feature(extract_if)`
 From: Tamir Duberstein <tamird@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
 Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
@@ -75,23 +75,23 @@ Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
  Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
  llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-In-Reply-To: <20260405235309.418950-2-ojeda@kernel.org>
+In-Reply-To: <20260405235309.418950-16-ojeda@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-2-ojeda@kernel.org>
+ <20260405235309.418950-16-ojeda@kernel.org>
 Date: Mon, 06 Apr 2026 10:28:56 -0400
-Message-Id: <177548573694.95472.17010833225003318383.b4-review@b4>
+Message-Id: <177548573698.95472.15531781806867412060.b4-review@b4>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=754; i=tamird@kernel.org;
- h=from:subject:message-id; bh=Afu6edQrG07FmuDjVQyAb8ZDzLTPehav0qOEe/kll58=;
- b=owGbwMvMwCV2wYdPVfy60HTG02pJDJmXD2sHr5YMVVzekrqso+prW+u9a5pLvk7vctlTu6z/s
- 9e3kg8eHRNZGMS4GCzFFFkSRQ/tTU+9vUc2891xmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
- 0EjHQMeYgYtTAKZaYg8jw/XnzZd/HDmgzR4a3br492lzx4Dlt4p0vORnHRU2Px5RfpGRYYnEHn+
- e3KpS/y3FR6VlmVw49dIFktac+dywjE2H584TNgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=508; i=tamird@kernel.org;
+ h=from:subject:message-id; bh=hQs1Tn9TC/fuoSSmmMaVRc8aMtneqBIGGyK2dnscFmo=;
+ b=owGbwMvMwCV2wYdPVfy60HTG02pJDJmXD+u/jDBy4Oa9bJk4w2M9B7fk4YfP510ojuW9dtlDK
+ 8//gb11x0QWBjEuBksxRZZE0UN701Nv75HNfHccZg4rE8gQaZEGBiBgYeDLTcwrNdIx0jPVNtQz
+ NNIx0DFm4OIUgKnWM2JkmPtPyHGS6crEmrgGbgvtnyq6OeqXoizabv3atXTD0XW/fzEyfK7+xT2
+ 9UPeX0uOlbpUiO+eET1rG+2bCuhV3GffYBAk+5AMA
 X-Developer-Key: i=tamird@kernel.org; a=openpgp;
  fpr=5A6714204D41EC844C50273C19D6FF6092365380
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_072910_104609_E8B03DFA 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20260406_072917_515058_68A598B6 
+X-CRM114-Status: UNSURE (   8.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,18 +109,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Apr 2026 01:52:37 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
-> Commit 8cf5b3f83614 ("Revert "kbuild, rust: use -fremap-path-prefix
-> to make paths relative"") removed `--remap-path-prefix` from the build
-> system, so the workarounds are not needed anymore.
+On Mon, 06 Apr 2026 01:52:51 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
+> `feature(extract_if)` [1] was stabilized in Rust 1.87.0 [2], and the last
+> significant change happened in Rust 1.85.0 [3] when the range parameter
+> was added.
 > 
-> Thus remove them.
+> That is, with our new minimum version, we can start using the feature.
 > 
-> Note that the flag has landed again in parallel in this cycle in
-> commit dda135077ecc ("rust: build: remap path to avoid absolute path"),
-> together with `--remap-path-scope=macro` [1]. However, they are gated on
-> `rustc-option-yn, --remap-path-scope=macro`, which means they are both
-> only passed starting with Rust 1.95.0 [2]:
+> Thus simplify the code using the feature and remove the TODO comment.
 > 
 > [...]
 
