@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7662EDB7CC
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 07:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8113BEDB7CC
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 07:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0RNwVEMR3lZyeu2t0V1PQcIajdon6wHSqGDn4kK/g50=; b=Gvo6iX/p79J2gV
-	A9kNLQNCLVOMPtJOvthBOaNSvbNEvn4tQ4tJ+0NdfTYrI5VDCoGjINY+eEC8GvPvCpqgNSj2bm8Pv
-	KTXDgwpK0Evehj3DIIhNwxyoTX9jURxpklX6hH7YICvQu+xfRFLoK5F4pAyUWBHi8ZFGg6mwX87bh
-	vM54EUsWvatsq4CeWJrzotGvE2oFFV9BaIf5PX8FmZ98aBZYht1xWU+cwxlrDhSYsn48aPJHzdjco
-	lRESTEJNJIiHn56UegPuOUQS72CNJPzcgnB+e8AAov2ACmGsWOma4tEhNib1/WDb27oo5Hk6wMpdV
-	tumjZQ8AAuFLsQkxeACw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=krOcmF9tovcf0fv6zu+B7kF/FhpuyXbJzZzrpFktHV0=; b=sxG1EbqGObPElX
+	JfyqVpuijNjswaJsW4fPf00nK2J5ZRixvt0quaGtWszvQQ0GOFawzzAivZecZRh09icjsvArvqIzD
+	Tw3KUKiklYGsd3sQQrcowV4aB+SMf5sg8CybM42dJanjh3Caw88NK//5Mudw+mzyNpMNme/99JV15
+	ECk9PZaghTI6PlEfctcKZ9ROFlRhfczhuQgpEkPOPwOxZoWBRZIBDH4seb2Dt+hX/X6m9IjeGHh9F
+	4xLjzx95IF48ag99/gDyqzXRcqxeRwuQthk3MvE2ax/savY8+NHhlFo5MPUkoNNUSsPBQ4l+xm9R9
+	F+tVmwkiGprgY3aZojNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA18d-000000066AU-3nnZ;
-	Tue, 07 Apr 2026 07:46:19 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wA1Cw-000000066Ur-0IY1;
+	Tue, 07 Apr 2026 07:50:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA18b-0000000669J-2npK
+	id 1wA1Cv-000000066UO-099d
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 07:46:19 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4888375f735so42294805e9.3
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Apr 2026 00:46:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775547975; x=1776152775; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oDRTVatnaVdVRoKqoryBgcipBx9RDK2t4fM6mlrK2lU=;
-        b=pUO6H/iWvzPN9JwT+TArdEMsSaIKa4WLcOsdfGpYE2c9VN5AC/hTDtKKJUJDI62Sql
-         0VtG6Wvi4yN9aOmni4bfWtj3ACJWxzu8nSMxBXBD/xYrOJQLh5Nh+6GNcXRYAS/GizsS
-         v6PJ83KjeyNIqbC5K8rGUUolAWmnNTyUs4wG5vkEshSN8Wk2vFcjSrlnkcfuzPmosgsX
-         HHYod15xSvJejsZKU97XpGp855t/s07XbE4/OKdySkLCjl7v/727KuZD/HY6k8+qyI58
-         ZF+snDfLKYzaE7vmnmj3uuDW/dgZDnEQ85mvJ6LiTBe91yvUcmN+v3ywHhKINwrQrz1M
-         /AsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775547975; x=1776152775;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oDRTVatnaVdVRoKqoryBgcipBx9RDK2t4fM6mlrK2lU=;
-        b=W2Eh9Kyn23KxsaqKHwSXREyZ2E5EARessLsS99bRQtWnq4ho163t0+RuZQcxhjpozX
-         ue8LqT2hWRvmIrnoQSTUtEMjTluVakcx4EAVEPt9+EJqlQbNNPgzYIo/SwPCBqaKVwSW
-         8HiAJdy6nHccXdJtzzwE5pHLkY4EdRfMP2ntM1kfEsPBn3fXW+8l0ycU+qvXAUPeoJbW
-         QTQqBqSOisFTi+TDCRKZRcIfBU6N++Jebx6u4oLRILsbPaQN0x/ijy0NGHs+32eDe6N9
-         5rKINauk6wgXODiEVrSQaw7/7KH4gT6/KDmELOWs/ppNW1/WHq26F8iuIeXbV9RD/CXt
-         MYHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVBsH8p+IEdwEkYEiBgLTSyqjqu6cGWpdSwGwOdZ4cEZkPI70rls3GfU7BWD8e3Tn33aHjnQEy/U/5xPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/ZxNzC31fPo60tegnfi0XWy2ilKqCUxEsCKIih7za6ZqFDrf0
-	EIgMchnUCUf95esn935jZqGwR7MEAPEP4p0Ghn5pj+5CGb2yLyfmtEIu
-X-Gm-Gg: AeBDievL79A6Iu8+Xzh8dGNaIdSVABMDSn9e6h1eVMsGL1X26R5D1FJw9MoeXR0tEEG
-	3vgpcbL3PgapN9srtGUz/P0gPfg6VOr/QdydPJqASo3fp/iw7qoqzTMW9vipJJQ9AGQpBPX1E6S
-	96AimSjNMAW2YkPWfhdy4ofa831TkijvxtzurfLkL/SaVGDVpvEp97nDzh7oLXriEKCv/xzZIzB
-	9YAGGtByFkT6mWGD79HWPyB69E5KGFMLbFyS9gFyuLPS/2L87Cn/RY6rcAlCDXCFl2Q6Hrdh8JB
-	Fv1scu8BBGEMZJDwzK+eCk63Yn/sBqSiQygiLolgG1HV2m4Qbkt6ZRknXG+vXlHh2y/kFOPtMae
-	6TYkrCqoCQXevX2jUXaexdBYpEjfh0NtnaHln+V6Llb6ldu0eI5KacvuUcD33Y3s11HTRgLntr3
-	m4fOwwyBtKOpCVb0WEv9WRQYPb5yzliWSkMlvu4Kl+Oj/OSiWvVDXnDl4LYVLSADAlLnHuTelAk
-	A9VGL6eN3S9H0Y4qLSdc976ObLWkY9PehfcaQ==
-X-Received: by 2002:a05:600c:a418:b0:488:ae4e:51a5 with SMTP id 5b1f17b1804b1-488ae4e5464mr78747145e9.15.1775547974835;
-        Tue, 07 Apr 2026 00:46:14 -0700 (PDT)
-Received: from fedora.homenet.telecomitalia.it (host-82-53-109-192.retail.telecomitalia.it. [82.53.109.192])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4888a7165aasm522040385e9.14.2026.04.07.00.46.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Apr 2026 00:46:14 -0700 (PDT)
-From: Adriano Vero <litaliano00.contact@gmail.com>
-To: palmer@dabbelt.com,
-	pjw@kernel.org,
-	aou@eecs.berkeley.edu
-Cc: alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Adriano Vero <litaliano00.contact@gmail.com>
-Subject: [PATCH] riscv: Add WFI to secondary hart spinwait loop
-Date: Tue,  7 Apr 2026 09:45:34 +0200
-Message-ID: <20260407074534.59179-1-litaliano00.contact@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Tue, 07 Apr 2026 07:50:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BCF460128;
+	Tue,  7 Apr 2026 07:50:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BD90C116C6;
+	Tue,  7 Apr 2026 07:50:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775548243;
+	bh=V9L0KgtiKRhBAbkYtOsVEM62GU0dI0FGYEnsgKtc70Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oPXw++5uE3nR3/HNEy5uVeVDsAFaPTiiKKqGHTjB4Rn22ReQsMHvGC/mi78bptaXw
+	 w7SeJfUJy8pui3uEJLY+/QNbZsP8bBvrgvWvCsK42E4lU2+aKLFSS3LAZTWvE+yoLB
+	 aiUFlPUSHLs6ydgC5O6V30QmiHiK5jQOeBeutcouIdNVlzoHD1QHVIieIj/B76z9r1
+	 oGEfUQIlHyvebi3G8m4oOKTKbXJB3l5d0JarBHW9+bHIJWWir+kTIZJX8dVbilx3y8
+	 4KJmzAFEJpRvi0mIV4d91tejY8s4mfl105Kz/Qqw1IPNo00G+tDNcmt4Cd3QHKkfsz
+	 PC5YzSAe7r93w==
+Date: Tue, 7 Apr 2026 09:50:41 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jia Wang <wangjia@ultrarisc.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Xincheng Zhang <zhangxincheng@ultrarisc.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] dt-bindings: PCI: Add UltraRISC DP1000 PCIe
+ controller
+Message-ID: <20260407-uptight-tody-of-weather-ae1e35@quoll>
+References: <20260407-ultrarisc-pcie-v2-0-2aa2a19a7fb3@ultrarisc.com>
+ <20260407-ultrarisc-pcie-v2-3-2aa2a19a7fb3@ultrarisc.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_004617_722074_064378B8 
-X-CRM114-Status: GOOD (  11.30  )
+Content-Disposition: inline
+In-Reply-To: <20260407-ultrarisc-pcie-v2-3-2aa2a19a7fb3@ultrarisc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,47 +77,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The .Lwait_for_cpu_up loop in the RISCV_BOOT_SPINWAIT path busy-polls
-__cpu_spinwait_stack_pointer and __cpu_spinwait_task_pointer, burning
-power on all non-boot harts while they wait for the primary hart to
-complete early boot setup.
+On Tue, Apr 07, 2026 at 10:40:54AM +0800, Jia Wang wrote:
+> Add UltraRISC DP1000 SoC PCIe controller devicetree bindings.
+> 
+> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+> ---
+>  .../bindings/pci/ultrarisc,dp1000-pcie.yaml        | 103 +++++++++++++++++++++
+>  1 file changed, 103 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
+> new file mode 100644
+> index 000000000000..d0517130e127
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
+> @@ -0,0 +1,103 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/ultrarisc,dp1000-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: UltraRISC DP1000 PCIe Host Controller
+> +
+> +description: |
 
-Add a WFI instruction before each polling iteration to allow the
-hardware to enter a low-power state while waiting. Per the RISC-V
-privileged specification, WFI wakes on any pending interrupt even
-with global interrupts disabled (SIE=0), and implementations are
-permitted to treat it as a NOP, so this is safe in all contexts.
+Do not need '|' unless you need to preserve formatting.
 
-The same pattern is already used in .Lsecondary_park in the same
-file.
+> +  UltraRISC DP1000 SoC PCIe host controller is based on the DesignWare PCIe IP.
+> +  This binding describes the UltraRISC specific extensions to the base
+> +  DesignWare PCIe binding.
 
-Signed-off-by: Adriano Vero <litaliano00.contact@gmail.com>
----
- arch/riscv/kernel/head.S | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+Drop sentence. Do not describe in description what the binding
+describes. It's circular / repetitive. Just describe that.
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 9c99c5ad6..ca208da7c 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -385,7 +385,14 @@ SYM_CODE_START(_start_kernel)
- 	 * get far enough along the boot process that it should continue.
- 	 */
- .Lwait_for_cpu_up:
--	/* FIXME: We should WFI to save some energy here. */
-+	/*
-+	 * Wait for the boot hart to populate the stack and task pointers.
-+	 * Use WFI to avoid burning power in a busy-wait loop. Per the
-+	 * RISC-V privileged spec, WFI wakes on a pending interrupt even
-+	 * with global interrupts disabled (e.g. SIE=0), and implementations
-+	 * are permitted to treat it as a NOP, so this is always safe.
-+	 */
-+	wfi
- 	REG_L sp, (a1)
- 	REG_L tp, (a2)
- 	beqz sp, .Lwait_for_cpu_up
--- 
-2.53.0
+> +
+> +maintainers:
+> +  - Xincheng Zhang <zhangxincheng@ultrarisc.com>
+> +  - Jia Wang <wangjia@ultrarisc.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: ultrarisc,dp1000-pcie
+> +
+> +  reg:
+> +    items:
+> +      - description: Data Bus Interface (DBI) registers.
+> +      - description: PCIe configuration space region.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: config
+> +
+> +  num-lanes:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [4, 16]
+> +    description: Number of lanes to use.
+> +
+> +  max-link-speed:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    const: 4
+
+If const then deducible from the compatible. Drop the property.
+
+> +    description: Maximum PCIe link speed supported.
+> +
+> +  interrupts:
+> +    description: List of interrupt specifiers used by the controller
+
+Drop description. Obvious.
+
+> +    items:
+> +      - description: MSI interrupt
+> +      - description: Legacy INTA interrupt
+> +      - description: Legacy INTB interrupt
+> +      - description: Legacy INTC interrupt
+> +      - description: Legacy INTD interrupt
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: msi
+> +      - const: inta
+> +      - const: intb
+> +      - const: intc
+> +      - const: intd
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      pcie_x16: pcie@21000000 {
+
+Drop unused label
+
+> +        compatible = "ultrarisc,dp1000-pcie";
+
+reg, names and ranges go here. Please follow DTS coding style.
+
+> +        #address-cells = <3>;
+> +        #size-cells = <2>;
+> +        #interrupt-cells = <1>;
+> +        reg = <0x0 0x21000000 0x0 0x01000000>,
+> +              <0x0 0x4fff0000 0x0 0x00010000>;
+> +        reg-names = "dbi", "config";
+> +        device_type = "pci";
+> +        dma-coherent;
+> +        bus-range = <0x0 0xff>;
+> +        num-lanes = <16>;
+> +        ranges = <0x81000000  0x0 0x4fbf0000  0x0 0x4fbf0000  0x0 0x00400000>,
+> +                 <0x82000000  0x0 0x40000000  0x0 0x40000000  0x0 0x0fbf0000>,
+> +                 <0xc3000000 0x40 0x00000000 0x40 0x00000000  0xd 0x00000000>;
+> +
+> +        max-link-speed = <4>;
+
+Drop, compatible defines this.
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
