@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7628AFB5179
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 05:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4406CFB519B
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 05:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rjI8T7b6gnE/VcEcqchU7ISTkDg5t7w9EhicLOUp0xs=; b=GUTVKJlJ1lyJe/
-	hEOfxytSwjSOwkxyfURRy613C40Kr1PIpHdDWu2FzMCSIX6LApoE+z0WtU7Pqi2MWaeCz2eN9uveh
-	bqAFNJUhxt2NaVM4vPyKzUqh2M8Z692BQMNKTvJ2JcDq9KYw+XpuwVEQP3aZexBdQpsBj+mVT4WT2
-	1fVQqQMV49ZNSvI/Nb9obySIHrQRL4Ii4YAd+qYIa68gZQuLm7sVmHi6IkEMivohe4ALkrQxVEnYB
-	JABpEwUhwJhyKLT5G33vdX2g1LQ67ZAFex71HUJ/5mwy5Q7F5q1hK4I6zHQPYYXyal4jAlLhrf5Mq
-	Q5MP5HSaMaSUJcFGBXIA==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Date:Cc:Message-Id:Subject
+	:From:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ejDhNioA7ONmSGRYL8weFv+N+gJtT+cDnzqpnpHSbeA=; b=vEAgW+D4MRzXe1
+	uybq6EA5Z+MQOyzG/ntdIDa/wKaUGbzNbq13iC90YSFxStL/HLlIcPHutjAx67Bfd8JexdPmpKqpl
+	bGMYrs1EBgEMAwbOYK4r5zUH3Pa3P5LiTD9cX57pNzH2z0nT09hQJ5vANNZSyzT382tb7Bpr66civ
+	0rMirnsG0ue52dP+qE+YyXXhNHGJfkwo2UCVp/NfmqQALc5slt4CSbmxKmIAaQNvcQZt2pHTExYSV
+	swWO/NEoY70JL7LGSVjfscq96bYbJBWxIO9ZiuepdlrBLSME138V7l4EuVgxXjDTQM3IYjetCwfcu
+	XldB1VFWcjhhom5seHHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9z0X-00000005vT9-39OC;
-	Tue, 07 Apr 2026 05:29:49 +0000
-Received: from forward100b.mail.yandex.net ([178.154.239.147])
+	id 1w9zQQ-00000005xIv-1ibW;
+	Tue, 07 Apr 2026 05:56:34 +0000
+Received: from va-2-40.ptr.blmpb.com ([209.127.231.40])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9z0T-00000005vRa-0AYi
+	id 1w9zQN-00000005xIa-24ck
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 05:29:48 +0000
-Received: from mail-nwsmtp-smtp-production-main-71.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-71.sas.yp-c.yandex.net [IPv6:2a02:6b8:c24:942:0:640:e3c0:0])
-	by forward100b.mail.yandex.net (Yandex) with ESMTPS id 596A98071D;
-	Tue, 07 Apr 2026 08:29:36 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-71.sas.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id WT6S93BRI8c0-cMEuCXUM;
-	Tue, 07 Apr 2026 08:29:35 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1775539775; bh=GJAbInzCIi5QeEL8kMF+WPRKZQakIpaeDLx+LpQynhA=;
-	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=QvM48vcAD866DCjutP0/YzuEqH648myJfwlaX7k4VU77mcfr9vs6VDn6Iyox0iy8E
-	 dRJwoS6ti/HD0OaidwQXYFGGDc++81Cq2v/RSOK1WPs3Q7YgBNHjyST1bd9ZFi9JX8
-	 Adm3xSiYzuogPjmqu7qg+FCK5tiDsmPgQTWQ8EF4=
-Authentication-Results: mail-nwsmtp-smtp-production-main-71.sas.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
-From: Dmitry Antipov <dmantipov@yandex.ru>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	Dmitry Antipov <dmantipov@yandex.ru>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH 1/2] riscv: add platform-specific double word shifts for riscv32
-Date: Tue,  7 Apr 2026 08:28:23 +0300
-Message-ID: <20260407052824.1260071-2-dmantipov@yandex.ru>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260407052824.1260071-1-dmantipov@yandex.ru>
-References: <20260407052824.1260071-1-dmantipov@yandex.ru>
-MIME-Version: 1.0
+	Tue, 07 Apr 2026 05:56:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1775541382;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=hRilJHTgzt+xM5u5r+LCoIm/YrLkOdRsPbaxFkfbYqA=;
+ b=rufrBMjIIFhtbiYPlkGSQLjS1Qy1oks8Y2g4K57Rm2neyxMxCzK6uRJbeggFAHYcuzIxev
+ gOzYthkxf4pm12EjaffgzQnmIgeSDUVtxwvpGstG+/w8NR+Xdt9k8Y6rcH6ykf2l95YqTr
+ Xr/6cZgcjTciTM3bJkqhGQvakANNbglhtWGOgvvhO7y7Xzz7tX96cuzlrH/l7+I+nAq+Tx
+ JBiFE93Zb07CzTT8plexWiDb/N01plL/qvD0JRIdgxRllgeXLEYGMuaWs4Oh6Dqm2t8dcp
+ 8duXFlup5aqPAdPpeDoyaZkwLjj2NxSxcK+uSS8V0A3pxHxtc2Ps1WMxnAJzPw==
+To: "Yixun Lan" <dlan@kernel.org>, 
+	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
+Subject: [PATCH v3 0/2] Add DeepComputing FML13V05 board dts
+Message-Id: <20260407055557.1202713-1-sandie.cao@deepcomputing.io>
+Received: from roma-Laptop-12th-Gen-Intel-Core.. ([218.17.141.187]) by smtp.feishu.cn with ESMTPS; Tue, 07 Apr 2026 13:56:19 +0800
+Cc: "Conor Dooley" <conor+dt@kernel.org>, 
+	"Emil Renner Berthing" <kernel@esmil.dk>, 
+	"Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, 
+	"Heinrich Schuchardt" <heinrich.schuchardt@canonical.com>, 
+	"Michael Opdenacker" <michael.opdenacker@rootcommit.com>, 
+	"Guodong Xu" <guodong@riscstar.com>, 
+	"Hendrik Hamerlinck" <hendrik.hamerlinck@hammernet.be>, 
+	"Yangyu Chen" <cyy@cyyself.name>, <spacemit@lists.linux.dev>, 
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>
+X-Mailer: git-send-email 2.43.0
+X-Lms-Return-Path: <lba+269d49c84+bd303a+lists.infradead.org+sandie.cao@deepcomputing.io>
+Date: Tue,  7 Apr 2026 13:55:57 +0800
+Mime-Version: 1.0
+X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_222945_461910_A54C19E1 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20260406_225631_650393_3356D4E9 
+X-CRM114-Status: UNSURE (   4.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,207 +83,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add riscv32-specific '__ashldi3()', '__ashrdi3()', and '__lshrdi3()'.
-This is mostly intended to fix the following link error observed
-when building EFI-enabled kernel with CONFIG_EFI_STUB=y and
-CONFIG_EFI_GENERIC_STUB=y:
+This series updates Device Tree related files to introduce the
+FML13V05 board from DeepComputing, which incorporates a Spacemit
+K3 SoC.  This board is designed for use on the Framework Laptop 13
+Chassis, which has (Framework) SKU FRANHQ0001.
 
-riscv32-linux-gnu-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
-__efistub_cmdline.c:(.init.text+0x1f2): undefined reference to `__efistub___ashldi3'
-riscv32-linux-gnu-ld: __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
+The series is rebased on k1/dt-for-next.
 
-Tested with 'qemu-system-riscv32 -M virt' only.
+v3:
+rebased on k1/dt-for-next.
+- Patch 1:
+   Use formal format user name.
+   Remove Reviewed-by Heinrich Schuchardt from internal sysstem.
+- Patch 2:
+   Use formal format user name.
+   Remove Reviewed-by Heinrich Schuchardt from internal sysstem.
+   Add uart0 pinctrl.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202603041925.KLKqpK6N-lkp@intel.com
-Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
----
- arch/riscv/Kconfig             |  3 ---
- arch/riscv/kernel/image-vars.h |  7 +++++++
- arch/riscv/lib/Makefile        |  1 +
- arch/riscv/lib/ashldi3.S       | 36 +++++++++++++++++++++++++++++++++
- arch/riscv/lib/ashrdi3.S       | 37 ++++++++++++++++++++++++++++++++++
- arch/riscv/lib/lshrdi3.S       | 36 +++++++++++++++++++++++++++++++++
- 6 files changed, 117 insertions(+), 3 deletions(-)
- create mode 100644 arch/riscv/lib/ashldi3.S
- create mode 100644 arch/riscv/lib/ashrdi3.S
- create mode 100644 arch/riscv/lib/lshrdi3.S
+v2 (deprecated):
+Link to v2: https://lore.kernel.org/all/20260331071110.68321-1-sandie.cao@deepcomputing.io/
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 90c531e6abf5..515254720da5 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -407,9 +407,6 @@ config ARCH_RV32I
- 	bool "RV32I"
- 	depends on NONPORTABLE
- 	select 32BIT
--	select GENERIC_LIB_ASHLDI3
--	select GENERIC_LIB_ASHRDI3
--	select GENERIC_LIB_LSHRDI3
- 	select GENERIC_LIB_UCMPDI2
- 
- config ARCH_RV64I
-diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
-index 3bd9d06a8b8f..d66e06daf13e 100644
---- a/arch/riscv/kernel/image-vars.h
-+++ b/arch/riscv/kernel/image-vars.h
-@@ -32,6 +32,13 @@ __efistub___init_text_end	= __init_text_end;
- __efistub_sysfb_primary_display	= sysfb_primary_display;
- #endif
- 
-+/*
-+ * These double-word integer shifts are used
-+ * by the library code and so EFI stub as well.
-+ */
-+PROVIDE(__efistub___lshrdi3    = __lshrdi3);
-+PROVIDE(__efistub___ashldi3    = __ashldi3);
-+
- #endif
- 
- #endif /* __RISCV_KERNEL_IMAGE_VARS_H */
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index bbc031124974..7cee3da80c68 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -13,6 +13,7 @@ ifeq ($(CONFIG_MMU), y)
- lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
- endif
- lib-$(CONFIG_MMU)	+= uaccess.o
-+lib-$(CONFIG_32BIT)	+= ashldi3.o ashrdi3.o lshrdi3.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
-diff --git a/arch/riscv/lib/ashldi3.S b/arch/riscv/lib/ashldi3.S
-new file mode 100644
-index 000000000000..c3408862e2f6
---- /dev/null
-+++ b/arch/riscv/lib/ashldi3.S
-@@ -0,0 +1,36 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/**
-+ * Adopted for the Linux kernel from IPXE project, see
-+ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+/**
-+ * Shift left
-+ *
-+ * @v a1:a0             Value to shift
-+ * @v a2                Shift amount
-+ * @ret a1:a0           Shifted value
-+ */
-+
-+SYM_FUNC_START(__ashldi3)
-+
-+        /* Perform shift by 32 bits, if applicable */
-+        li      t0, 32
-+        sub     t1, t0, a2
-+        bgtz    t1, 1f
-+        mv      a1, a0
-+        mv      a0, zero
-+1:      /* Perform shift by modulo-32 bits, if applicable */
-+        andi    a2, a2, 0x1f
-+        beqz    a2, 2f
-+        srl     t2, a0, t1
-+        sll     a0, a0, a2
-+        sll     a1, a1, a2
-+        or      a1, a1, t2
-+2:      ret
-+
-+SYM_FUNC_END(__ashldi3)
-+EXPORT_SYMBOL(__ashldi3)
-diff --git a/arch/riscv/lib/ashrdi3.S b/arch/riscv/lib/ashrdi3.S
-new file mode 100644
-index 000000000000..dd42b3cbb173
---- /dev/null
-+++ b/arch/riscv/lib/ashrdi3.S
-@@ -0,0 +1,37 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/**
-+ * Adopted for the Linux kernel from IPXE project, see
-+ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+/**
-+ * Arithmetic shift right
-+ *
-+ * @v a1:a0             Value to shift
-+ * @v a2                Shift amount
-+ * @ret a1:a0           Shifted value
-+ */
-+
-+SYM_FUNC_START(__ashrdi3)
-+
-+        /* Perform shift by 32 bits, if applicable */
-+        li      t0, 32
-+        sub     t1, t0, a2
-+        bgtz    t1, 1f
-+        mv      a0, a1
-+        srai    a1, a1, 16
-+        srai    a1, a1, 16
-+1:      /* Perform shift by modulo-32 bits, if applicable */
-+        andi    a2, a2, 0x1f
-+        beqz    a2, 2f
-+        sll     t2, a1, t1
-+        sra     a1, a1, a2
-+        srl     a0, a0, a2
-+        or      a0, a0, t2
-+2:      ret
-+
-+SYM_FUNC_END(__ashrdi3)
-+EXPORT_SYMBOL(__ashrdi3)
-diff --git a/arch/riscv/lib/lshrdi3.S b/arch/riscv/lib/lshrdi3.S
-new file mode 100644
-index 000000000000..1af03985ccb7
---- /dev/null
-+++ b/arch/riscv/lib/lshrdi3.S
-@@ -0,0 +1,36 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/**
-+ * Adopted for the Linux kernel from IPXE project, see
-+ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+/**
-+ * Logical shift right
-+ *
-+ * @v a1:a0             Value to shift
-+ * @v a2                Shift amount
-+ * @ret a1:a0           Shifted value
-+ */
-+
-+SYM_FUNC_START(__lshrdi3)
-+
-+        /* Perform shift by 32 bits, if applicable */
-+        li      t0, 32
-+        sub     t1, t0, a2
-+        bgtz    t1, 1f
-+        mv      a0, a1
-+        mv      a1, zero
-+1:      /* Perform shift by modulo-32 bits, if applicable */
-+        andi    a2, a2, 0x1f
-+        beqz    a2, 2f
-+        sll     t2, a1, t1
-+        srl     a1, a1, a2
-+        srl     a0, a0, a2
-+        or      a0, a0, t2
-+2:      ret
-+
-+SYM_FUNC_END(__lshrdi3)
-+EXPORT_SYMBOL(__lshrdi3)
+v1:
+Link to v1: https://lore.kernel.org/all/20260331034423.67142-1-sandie.cao@deepcomputing.io/
+
+Sandie Cao (2):
+  dt-bindings: riscv: spacemit: add deepcomputing,fml13v05
+  riscv: dts: spacemit: add DeepComputing FML13V05 board device tree
+
+ .../devicetree/bindings/riscv/spacemit.yaml   |  1 +
+ arch/riscv/boot/dts/spacemit/Makefile         |  1 +
+ .../spacemit/k3-deepcomputing-fml13v05.dts    | 31 +++++++++++++++++++
+ 3 files changed, 33 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+
+
+base-commit: af62a095eb0c3359d477b55ef72d2afd94c83c8f
 -- 
-2.53.0
-
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
