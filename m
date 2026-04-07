@@ -4,137 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D97FB5173
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 00:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD9DEFB5175
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 01:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NwqoxEhDyViOt3Y1W+Dk2em9G7g8SSZ5elMMSGh/AOc=; b=vE/kTTqAS9wK3G
-	YUoKSVIfuBCGLJdYKMjyPwNOLWiMgN3oYH10HA/7B6jZQqaKHMsCvaEWTOzmccjihuLdus79gn77z
-	pdSYw20pOkKZQosWRUmOdwmzlUp7gpqgnBG6X9UuGPIofUotzc/2u7f+fGuR3TMRvzYqWH1MsAZcc
-	rp88e4egtrFVOMVJcnDYPR7CpHH2ppZDR4QfZC1AqaB9gc6B0QS0oT26NrrOdVPWrl/ZpsAYkKTaL
-	n2WTGyD+CY4esYwSrP7UGJ1k97Ir8K6OELikMW7g7ZV57AmxG1uJ6H41ZyMDUHToLVmMCQck8khss
-	lqzCZQda+2nJ3c9kOliQ==;
+	List-Owner; bh=obwjEXfJpiswVTnsDRPbq9MLgAXrTHwgH2tGCbhMuYs=; b=drsjPtDMl6z6G0
+	Cq14/hm8lurBb22CvKz1y2Orz9anvbdBLetft/MHYBDRNMIlrHeXh42Sqv5K9ROhhdIht1aAh48nY
+	u8w7fsBIfkBX7sURD32pPCG322PW919vT16hrfmmk5C9/00PqtkKVY747jeuiTW9PzIchITA6huA5
+	sDvW7DFVUYDmrZGEa+J2KwiiQiXr+xZmus7cN5OsHQ4EmJxkuN54Ceu355ytsoI6LTJQOND3LUMWN
+	lNshXyYGc8czJNNqGa5Uc9hMgbH+Qr6P7Jdq6WuDaU8uVVv3Lzj49q1xAlid6ebjMj0smFvOHp6Wi
+	Sa+6vRg3zj3/sAAqX2mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9ugW-00000005fis-3IPK;
-	Tue, 07 Apr 2026 00:52:52 +0000
-Received: from mail-sh0chn02on2130.outbound.protection.partner.outlook.cn ([139.219.146.130] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1w9v2K-00000005hIp-30zH;
+	Tue, 07 Apr 2026 01:15:24 +0000
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9ugT-00000005fiH-0p6n
+	id 1w9v2I-00000005hID-2LSN
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 00:52:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=d0XlpvES+AjXgekoxdqnJzq1sEfRYvTsn7BGz/lhLNrsauboxMHROse46co9qWVF7Noo9aIE+hYY5kodjKSYfctZITjs/oD8eWrkEAALPb4RQ1OXQjk2x/M4mPSPBuOEwOB3otNgFXYnS8AuiFr3MNAj2LMkOqP7YM3u7o0K0LmTrLPuvdS5Dig8pgzxSkbdTJCzf9DvFGevY1VuUS/VSh0upyKbV3CO5lp9m+AlZ3uwBr79/0ZhiF0GWaYTdps+sQgovKifgcyHpHBn4jUfmv5RZa6sBOgEDX4ch8uEyHbfxrBKfHSzlpeWkmjT4TpB0OK1TE3zxjK5G/ZfJu+3WQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DMaylW14Qb79REIXoHl8wof/ptbVaJFAJkDOJFsbJvM=;
- b=DsjAB7grrLzHyn5/8bNoxBlDhHRDzXEI2F8SPY9bALMuCdeDD+CAB0ctxB1ehYykJShVp38FVrEi1l0362tSyVdM9uBODEvlJenTX9IexGeX2GogW2H+vZdKXTFjqHJ8f+qiQ2I7CiHH56IIUvKEbBDH1+Wt0d8NgmwoeLaIVZmF2o0wk5TwT5aWdrF796z4fg/hKNOv6tx1AV8STa5C7wI0B4Uc27XIa+ykS7IYjJZuzM0oDrkyPCNT4TrBE+Oma/LwY1VgRL7vC4UZhASHbwoXMzk4fpOrVIDnz3qOFacB5FqFkeSC+PhQ/980DGxNELLJtj9BXuC7/rc6lV8cnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1169.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:13::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.38; Tue, 7 Apr
- 2026 00:52:19 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
- with mapi id 15.20.9769.020; Tue, 7 Apr 2026 00:52:19 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>, Joel Stanley
-	<jms@oss.tenstorrent.com>, Drew Fustini <dfustini@oss.tenstorrent.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Rob
- Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel
-	<anup@brainfault.org>, Hal Feng <hal.feng@starfivetech.com>, Guodong Xu
-	<guodong@riscstar.com>, Yixun Lan <dlan@kernel.org>, Heinrich Schuchardt
-	<heinrich.schuchardt@canonical.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou
-	<aou@eecs.berkeley.edu>, E Shattow <e@freeshell.de>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>, Junhui Liu <junhui.liu@pigmoral.tech>, Daniel
- Lezcano <daniel.lezcano@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Paul Walmsley <pjw@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
-	Michael Zhu <michael.zhu@starfivetech.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, JiSheng Teoh
-	<jisheng.teoh@starfivetech.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v1 5/5] riscv: dts: starfive: jhb100: Add JHB100 base DT
-Thread-Topic: [PATCH v1 5/5] riscv: dts: starfive: jhb100: Add JHB100 base DT
-Thread-Index: AQHcwnxiwBmd+8uHeEWp93zEeNNgPLXLsqqAgAD2D+CAAF/uAIAFw/EA
-Date: Tue, 7 Apr 2026 00:52:19 +0000
-Message-ID: <ZQ4PR01MB120248242EFAD72868A141CBF25A2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260402084019.440708-1-changhuang.liang@starfivetech.com>
- <20260402084019.440708-6-changhuang.liang@starfivetech.com>
- <20260402-shakable-hefty-0164a042b748@spud>
- <ZQ4PR01MB1202CB8B853CA7E03531914BF25E2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260403-pristine-slam-71d8e0093b6f@spud>
-In-Reply-To: <20260403-pristine-slam-71d8e0093b6f@spud>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1169:EE_
-x-ms-office365-filtering-correlation-id: 65d0e010-a6bb-46c3-0ec8-08de943febfe
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700021|22082099003|18002099003|56012099003;
-x-microsoft-antispam-message-info: A0xrHcBzWkJIDL62E8webMr/ZKM3v0yIge7RX6DlyQEJH+apocwd+zdNsRVsFE2D6WWVj7E6zEVnRf06G/JSzN0ZC9mrF2QkjyNnYwcPDZDLjlw381r4PPVlfuIiEM3tT2+FUjk5fmXlNhrCc2NO7K3oAhw0nmIWjyA7KWZ4z3YWi9mPAD7YUl7zfm8RM0fVcX5UoINOorWonnkPBvx5zzjzZKci9jSassD/1qUn0MmrCcnT1XAhx/aEK6WEKrdOktHGpMaWDPW0hwL2I81BliUTBsW6ebYx/7LZagw4j4E05o8IEuM88SVEWc9ZDkbwpIakA0Vy2XYJfxugcaZhvgaZP+xVp3+bot7TTpQ9DWkKv+8PxYoPDwCHOyfhA+8XEC/YpJKK8D5MqO+hFWBsP4qiZUbh/Wq2QR2RT0x41ufeC1MS420FYB+GymtwvKJDJzg4VjKL/K63Q7I8TEa1qKMmZ7PPAyjBIWG4Mowj3gpqHVYi4QhcRtYPrq+S1Q8mI8fhnXQrkUFJDF990Uf3meEwj5o7rBBMKe7+6+1BKb9hp/7QQpNTis1aHfI5MIp+Q43IpOtAF5dfPybRAbv+Ie0C0o5fkb8DoEKAtMK4JOY=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?LIeGvnFBL97O0kiKg2BS9NjQHvNk0EuaX9Ob2OB69nL7ZaCBA5XESrmJmlKn?=
- =?us-ascii?Q?JtjDG39hJ33CDa7htz7eDTBRfdMsAVHgIDOvqjbV2ctzxtXIVBMxrEX9Y4WV?=
- =?us-ascii?Q?3QqDAIEMumsPHUsc3aLjyooA3IqN6rAqncPI8d4Uq2hLPa2fi7ekFrk8Aeco?=
- =?us-ascii?Q?gZjBH+wE/TvslnwJ5EXAR+ybB1tfzjWieltmRhfEl5/2QPCyqL6lQEEMiXa3?=
- =?us-ascii?Q?5gClTq55ZN4oxUi1NzV0hi65kBrKJ6SyoFbFCYFgdxOpPcjf/phaWKlYA6M5?=
- =?us-ascii?Q?Te9z2Lm2MCiRyNZ7n3LT8Xh4mSOGdbtWDyy2hsPdl+x2kXPeluk/rPBEVOvG?=
- =?us-ascii?Q?zRS6RGCpWKmQmo7B+3Uxch3DbXZZWWO48dhEjVUal45Lq1mHPGFDv5xu2UZT?=
- =?us-ascii?Q?ChHk/HnbvPazPxIWinSSRhZbaQqilQSGXnU+Y6/wJoJLOPKMsBLJIXOvt+oy?=
- =?us-ascii?Q?+mcxqyS7Xs3jkJDZOLzCFKjBnupouciMUsXeVv35U1pWQTwXe8+fQqhK76WE?=
- =?us-ascii?Q?UKWBAHRAAfPT0UHpWzVManEufNOJoSRSksbsy2u1LZePq5OVjTvB4DgQJSSS?=
- =?us-ascii?Q?DBZ/UPnOmLhmhE/p7TTvb0K5WvZTbf0v791ft9FBX9HBvAsR47c4txo21yGc?=
- =?us-ascii?Q?nfEXvXvAgT/olJ96B9G4OL/38F7C0mQQ0Ukt6rEhGEwgK4+ylt3jESYsHogJ?=
- =?us-ascii?Q?8ywSg0zd9LVUm7B3KDmdcJg0TeZehh9JtG4jhhbVo7wk85jwlZ8Ct1p6g15X?=
- =?us-ascii?Q?muv6wtfeZITCvg8vO8CBo28qO1GvqmufFiT24/sQ0jsXCzpjrdudo9F30a2J?=
- =?us-ascii?Q?0shtCBBrDJEZZZd7K5kEH4TLT4RyLFD0wC+Cu+Ifq/1BhVe016/EvXp+jway?=
- =?us-ascii?Q?1qdcO82bfVtFXkhHeNdxmy2egPveFXFd0aZ61EloEYFAV01vHo6IoWth9OC4?=
- =?us-ascii?Q?QmlNUtRv6B9LL2bhkdiPPkx/41f9y+WVlGCBJZSOOZeebLEO/4YLSi3Bd6f4?=
- =?us-ascii?Q?Fb/GWVGt0NHBIElUA3YoetQ91CNCjn6/1UHMSaBgCyM0whMPR58U77TNFGST?=
- =?us-ascii?Q?fjcBpd9G5rNKHY3ppQ7rhoabZyvZukI7vShoKSWTOp2enD+0Pjutj3+ws7jO?=
- =?us-ascii?Q?4sSBji0mjeHNv4i7/B4CkkJ8Wz0k5XCs4lBracoXHJ3QPHemuKnfzTEsu91k?=
- =?us-ascii?Q?HYQ9Ni2AOzjhBK+40WOB98/5sC/NLTtyOVfA37sH0rENmHzPFXsX3va62P5p?=
- =?us-ascii?Q?hmwy78YqXdlr0SiKx4GhihQYyu5HfQORUZJzsL7b+NIBXBDwqiIRCFNHo0pt?=
- =?us-ascii?Q?p5KxaYjSeexEX8MFdSl1nd7RecX+2VZ/qBZni0ccsDcJQJ5pS0Sy/OgNvG2S?=
- =?us-ascii?Q?/cE8eRG6kr+fvxnu8UCZ3zSgZYGQp7sI2SA7snyKmrF7hS0roU3oMNX9ViMu?=
- =?us-ascii?Q?+aRdjsSfNcSzvm7UgTd4qn9V0HYhkJJWy7XOTe8RfP/br5b9Sm+vs1Y5QJhE?=
- =?us-ascii?Q?q5NWoIhBQy74Jeg8vLBd/jRhOgVpKmwnbKh2+iYQrenFvnNlZde3mqPG5M8T?=
- =?us-ascii?Q?wNGnD20wU05Oip+hbqvJA0ZMPnJPFxYyRhqJ9TOAX1Cwnsc74m/DAJb4eG7w?=
- =?us-ascii?Q?TlItF/Cp6GnCQgcGwVtIpHJGWhRqUi4NrIn8pg7+gwy1HGbf+cse+4uz90Du?=
- =?us-ascii?Q?nOu1opc0o3FQHRrLSAOOUUsLv4YDdr71XQBhUui3hbajx20oxYJvDeQtE+1R?=
- =?us-ascii?Q?52GN3MYoRovNQqWsRJFvg2caKBOCfG0=3D?=
+	Tue, 07 Apr 2026 01:15:23 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-12736a0147cso275721c88.1
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Apr 2026 18:15:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775524521; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iSWLuuzTlFU/2juRoplX0gAEvpF3PI4MUYZLcDC8vQWeoRZnu8sPkAkX1PJhrxzDta
+         H3amqRXPWdsvWMWb0WnD59OsCIo1ig3EEwtumdtngfWlczvdiFepFsl60X8e1mpWvudy
+         91c+ZghslnPmcWXnMO7lU5njaQeXFPNYoztn4H+r80b8cfIhzybMFkrWjmAOYVexe+00
+         XnnpPSpTE9NihKk80GZE8XKVEpWriswcWE1EMACDC00j7YIZckVviciKxfgsQLqr7qja
+         AyLhTMXeamM6ZPHiUzRP4gcNDbYo5ILBUG/9dV2as7/zRHQxRY93svFs5spTGysa3K2i
+         1Icw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=C6sODPPjnlrZIOKdwziurbw8hAdqBwTpglq0vQMQ05A=;
+        fh=c3k/fmIOJipdMIvzcuaVEY5HtTOe4LyxomRgunh2FmU=;
+        b=NOZR07htgneQOuJskyn6FXDn9SGIbIFPCzMIjbnt+zLMouHfp1Ozwjw+HAqlweVm9s
+         q+ak2rOKRviBALAShOY0Sf/uCw5PkSnGyOv08P+CcGoLJwXhIaoIpacroo3Qz/H1do2N
+         ACa6vyJKoDmYG3/p2AwyhvSel5gbNmdGxOVoDQAqJVJwjh8ZVVMsopXdnj9/1pWjCxXP
+         wfXNz0dG5mf19E3kTMx+XRF4t4ELaHoI7nl10GVmK46+MOfdqoEQwfnfexLkFMGpY7bn
+         bYsCKWWxkpVhZA+NBeLU/LRBQd630E7HzXNoIjGJHR61vrE1bdaHLSCGS+QXO1f51pAQ
+         +uUw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775524521; x=1776129321; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=C6sODPPjnlrZIOKdwziurbw8hAdqBwTpglq0vQMQ05A=;
+        b=Gxu3tphWluXwFB8Nv9b6WLDCpnsm5QLhCc1EinxEdsPeYtDTSUa4SrdvIImU7qI9Sz
+         HH69lnShkjhAQKY4eAJiZfU5k8MikvaiqU//tRIwHvJV/TnvRGEJUTQIw7aZp+gSSNZC
+         53XykK3A2KIJhSEluEb6nqtmsxDiZ6Gh1HLwmhEQMr+H+eJxp4wscLcBL6Q4VkO492YI
+         Fjnpp/n1MDdEgMihx6jv74+IXmkMMEe1wIH91gxL/AsSY9YO2zwQOhfY8H6njBX5gDwW
+         NY+YLWFqmT8b7Fn5QGXxZDrP+8m63U/CNzSaDuXJll2quzeCRrgzII/LmUXle7kcLQ4c
+         zfWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775524521; x=1776129321;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=C6sODPPjnlrZIOKdwziurbw8hAdqBwTpglq0vQMQ05A=;
+        b=dg1yofiBwGeXTka0gOxeUwO4WN0GuICL8+cWZh5keed8dKBHdFArnED03NSyVdk4R3
+         ET0ZGhPFc8pbMssCyMoSQ25pyE1vGHZ8GWWYddBwLvmbMU6WxLG0A+PofSbDqN4Vzoi2
+         6ga2uN5wZURx+jXzRLf2JWCtXb0YecCLVRMAaUDxlMuTWTY0sLRt8cAwvFUcza+tqs1u
+         iAPrSdiEY1O4uPds0b9bnAMScRHxL/gT72jnO5XlEk/UipEvdFm7wiwudauPAj4XkR3y
+         2tGKAs1Ca11rnWBI4/dmS7YlTkZssJe1UySIyblvyLCcYR7czLJD2epTwuD6h1mFFXUm
+         zCFA==
+X-Forwarded-Encrypted: i=1; AJvYcCWRbICseCw7xIEsIdYQQJ69XH2JWQE8tpQaVvpIesjREh3gjhWjogu+Z2mIM163FGelgMUVvQCMEqKceg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyufXrzoho23u5Q+E0EsSmR9geLDd2zjtJL61FEwJmOzQAUj2qJ
+	EnZe7SkQ7UuR8UybJtQGLf1ppAkY3FkkYearoVyOMpLc3ogJxqM8sV5kLx829U41JTRsLGnPWJQ
+	OrRLNDXl4JSWBnB80e125UL9DIxljbJk=
+X-Gm-Gg: AeBDievvPnAvrqZDtnfyzUaGsm4zV9zM3o1ZWYR37kkmOOnSC5LgX+alapfv69Ubs0Y
+	+Hs/XLbZEvbcwvXZdBlG0cIF5M3Qk0KxqetHKnLaiBFADEtSyWZb/YRI8RcoaYgE3U6UCNodTem
+	XI6FCkkAQBt8QcJ1c8B25nfVIfWrKAn7GRXgnXLhJ+vmdclwN8W3zakP69DZ+Bm6UuKSBMzsRXT
+	hUsQk9jv+LwAFWwEoqGbYIvGpB1oPYK0PTq8u5SIq8ZK4v1fgom380KqyRPm6lHzncrcWzpMtbr
+	8ymAwGM5v+P7DbLcdi+0cF82iRqJAlTmHgB+KUGLC6y3hJhH+xqgAQkXU7Aya/LJwykJ2EjZnb7
+	F9ywv8RumD6iak8fUCfWHqoc=
+X-Received: by 2002:a05:7301:1007:b0:2be:298c:a11 with SMTP id
+ 5a478bee46e88-2cbfcf52a13mr3516734eec.3.1775524521173; Mon, 06 Apr 2026
+ 18:15:21 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65d0e010-a6bb-46c3-0ec8-08de943febfe
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2026 00:52:19.6272
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: dcXDYcldsBhpJW/gZMVSs9JQUIn4PPDdVlWXu9JaTFv4SZQe8gYvuYMCLqRksgrkhWAs1adUH2Sea2eoCyRc2rCBHRKKW9Qe+pfj1bLWptDXeytWo1FpLtduBtK2uFxa
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1169
+References: <20260405235309.418950-1-ojeda@kernel.org> <CANiq72mnGArtgAbe7xXZCYW1x7Zd5hozfnzoftaGy9rxoLO4ew@mail.gmail.com>
+ <cf28afe0-ede5-4d1a-9824-65a1448f8161@nvidia.com> <CANiq72n4tmTzqbcHCnzUBFyLVmJzB-AJng_1FgELJCWr7hDg4A@mail.gmail.com>
+ <efe61810-2b28-4acd-b69f-d577042c0b62@nvidia.com>
+In-Reply-To: <efe61810-2b28-4acd-b69f-d577042c0b62@nvidia.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Tue, 7 Apr 2026 03:15:06 +0200
+X-Gm-Features: AQROBzCpjGVGSHiqD6WWW0AkLWSnE3ic7jf8UnYoPnV_5tut3XVgaNfJWwQj0o4
+Message-ID: <CANiq72n84On9UxQ9CNqyFb5wpJZKrBzb1Xej9ZRqhLim--ftAQ@mail.gmail.com>
+Subject: Re: [PATCH v2 00/33] rust: bump minimum Rust and `bindgen` versions
+To: John Hubbard <jhubbard@nvidia.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Courbot <acourbot@nvidia.com>, Simona Vetter <simona@ffwll.ch>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
+	Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
+	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_175249_241829_C4A780C4 
-X-CRM114-Status: GOOD (  39.90  )
+X-CRM114-CacheID: sfid-20260406_181522_681329_84D6A62A 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,140 +135,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Conor
-
-Thanks for the review.
-
-> On Fri, Apr 03, 2026 at 03:06:23AM +0000, Changhuang Liang wrote:
-> > Hi, Conor
-> >
-> > > On Thu, Apr 02, 2026 at 01:40:19AM -0700, Changhuang Liang wrote:
-> > > > From: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > > >
-> > > > Add JHB100 base dtsi and dts. Consist of 4 Dubhe-70 cores, CLINT,
-> > > > PLIC, PMU, UART and 1GB DDR.
-> > > >
-> > > > Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > > > Signed-off-by: Changhuang Liang
-> > > > <changhuang.liang@starfivetech.com>
-> > > > ---
-> > > >  MAINTAINERS                                   |   6 +
-> > > >  arch/riscv/boot/dts/starfive/Makefile         |   2 +
-> > > >  .../boot/dts/starfive/jhb100-evb1-eth.dts     |   6 +
-> > > >  arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi |  32 ++
-> > > >  arch/riscv/boot/dts/starfive/jhb100.dtsi      | 326
-> > > ++++++++++++++++++
-> > > >  5 files changed, 372 insertions(+)  create mode 100644
-> > > > arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
-> > > >  create mode 100644 arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi
-> > > >  create mode 100644 arch/riscv/boot/dts/starfive/jhb100.dtsi
-> > > >
-> > > > diff --git a/MAINTAINERS b/MAINTAINERS index
-> > > > 7d10988cbc62..b1892a480c31 100644
-> > > > --- a/MAINTAINERS
-> > > > +++ b/MAINTAINERS
-> > > > @@ -25306,6 +25306,12 @@ S:	Supported
-> > > >  F:
-> > >
-> > > Documentation/devicetree/bindings/interrupt-controller/starfive,jh81
-> > > 00
-> > > -intc.yaml
-> > > >  F:	drivers/irqchip/irq-starfive-jh8100-intc.c
-> > > >
-> > > > +STARFIVE JHB100 DEVICETREES
-> > > > +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-> > > > +L:	linux-riscv@lists.infradead.org
-> > > > +S:	Maintained
-> > >
-> > > Supported, no?
-> > >
-> > > > +F:	arch/riscv/boot/dts/starfive/jhb100*
-> > > > +
-> > > >  STATIC BRANCH/CALL
-> > > >  M:	Peter Zijlstra <peterz@infradead.org>
-> > > >  M:	Josh Poimboeuf <jpoimboe@kernel.org>
-> > > > diff --git a/arch/riscv/boot/dts/starfive/Makefile
-> > > > b/arch/riscv/boot/dts/starfive/Makefile
-> > > > index 3dd1f05283f7..7cdb75788053 100644
-> > > > --- a/arch/riscv/boot/dts/starfive/Makefile
-> > > > +++ b/arch/riscv/boot/dts/starfive/Makefile
-> > > > @@ -18,3 +18,5 @@ dtb-$(CONFIG_ARCH_STARFIVE) +=
-> > > > jh7110-starfive-visionfive-2-lite.dtb
-> > > >  dtb-$(CONFIG_ARCH_STARFIVE) +=
-> > > > jh7110-starfive-visionfive-2-lite-emmc.dtb
-> > > >  dtb-$(CONFIG_ARCH_STARFIVE) +=
-> > > > jh7110-starfive-visionfive-2-v1.2a.dtb
-> > > >  dtb-$(CONFIG_ARCH_STARFIVE) +=
-> > > > jh7110-starfive-visionfive-2-v1.3b.dtb
-> > > > +
-> > > > +dtb-$(CONFIG_ARCH_STARFIVE) += jhb100-evb1-eth.dtb
-> > > > diff --git a/arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
-> > > > b/arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
-> > > > new file mode 100644
-> > > > index 000000000000..62cd046e1224
-> > > > --- /dev/null
-> > > > +++ b/arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
-> > > > @@ -0,0 +1,6 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> > > > +/*
-> > > > + * Copyright (c) 2024-2026 StarFive Technology Co., Ltd.
-> > > > + */
-> > > > +
-> > > > +#include "jhb100-evb1.dtsi"
-> > >
-> > > What is the point of this file? Is this the base-board?
-> > > Shouldn't it have a specific compatible?
-> > >
-> > > Can the SoM be used without a base board? I've got no info about
-> > > this board appearing on google, do you even have pictures of it or any
-> documentation?
-> > > I see this
-> > >
-> https://www.starfivetech.com/en/index.php?s=hardware&c=show&id=22
-> > > and
-> > >
-> https://www.starfivetech.com/en/index.php?s=hardware&c=show&id=23
-> > > but the former doesn't look like it needs a base-board and the
-> > > latter is called "evb3", so is not what's here?
-> >
-> > The former is the base board of the EVB1. Currently, we are only
-> > carrying out upstream work based on the EVB1. The EVB1 base board has
-> > reserved slots
-> 
-> Except when I look at the first link, the picture doesn't show something that is
-> a SoM + base-board, it's just a regular board. If that's the case, the breakdown
-> of files doesn't make sense, with jhb100-evb1.dtsi sounding like it should be a
-> dts. Usually we talk about base-boards in relation to a SoM, like what the
-> mars-cm needs to function.
-> 
-> 
-> 
-> > that can accommodate expansion boards to verify more advanced features.
-> > At present, the jhb100-evb1.dtsi file corresponds to the configuration
-> > of the
-> > EVB1 base board. In the future, we will add dtsi files for the expansion
-> boards.
-> > The jhb100-evb1-eth.dts file will then be used to combine these dtsi
-> > files to generate the final version of the device tree source.
-> 
-> Sounds like here the evb1 is a complete board and jhb100-evb1-eth.dts
-> represents some kind of expansion card added to that board?
-> I think this not correct, since the base-board needs to be usable in isolation.
-> Take a look at what rockchip do for rk3588-rock-5b-pcie-ep in
-> arch/arm64/boot/dts/rockchip/Makefile/, where these expansion type things
-> are dealt with using overlays.
-
-This means a lot to me. Will change it to jhb100-evb.dts
-
-Best Regards,
-Changhuang
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBcHIgNiwgMjAyNiBhdCA5OjA34oCvUE0gSm9obiBIdWJiYXJkIDxqaHViYmFyZEBu
+dmlkaWEuY29tPiB3cm90ZToKPgo+IFRoYXQncyB3aGF0IEkgdGhvdWdodCBJIHJlY2FsbGVkLCB0
+b28uIFdlaXJkIHRoYXQgaXQgaXMgbm90IGluIHJ1c3QtbmV4dAo+IGFscmVhZHksIHRob3VnaC4K
+Ckl0IGlzIG5vcm1hbCAtLSBpbiB0aGUga2VybmVsIGJhY2sgbWVyZ2VzIGFyZSBnZW5lcmFsbHkg
+dG8gYmUgYXZvaWRlZC4KCkNoZWVycywKTWlndWVsCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
