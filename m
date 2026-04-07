@@ -4,63 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8113BEDB7CC
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 07:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 597C3EDB7CA
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 08:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=krOcmF9tovcf0fv6zu+B7kF/FhpuyXbJzZzrpFktHV0=; b=sxG1EbqGObPElX
-	JfyqVpuijNjswaJsW4fPf00nK2J5ZRixvt0quaGtWszvQQ0GOFawzzAivZecZRh09icjsvArvqIzD
-	Tw3KUKiklYGsd3sQQrcowV4aB+SMf5sg8CybM42dJanjh3Caw88NK//5Mudw+mzyNpMNme/99JV15
-	ECk9PZaghTI6PlEfctcKZ9ROFlRhfczhuQgpEkPOPwOxZoWBRZIBDH4seb2Dt+hX/X6m9IjeGHh9F
-	4xLjzx95IF48ag99/gDyqzXRcqxeRwuQthk3MvE2ax/savY8+NHhlFo5MPUkoNNUSsPBQ4l+xm9R9
-	F+tVmwkiGprgY3aZojNA==;
+	List-Owner; bh=NX3ehcAPhYxTkwgu6jU8+S1n+gwlMl3mrwCbMJGi2xs=; b=CKBaVZAKbFIGuV
+	ncab9xOawUnKbYrc40LyLtse9HD7pOqBJjj4x7csMZuVYCMEiwBWzeFP/xY+//ADpGv6JXIyrJHLL
+	xD2hWLfdOIY9rUVapjgjlec8EI0ekAB07rV8qG+Grkh1cOiX7qMrXNGtiyCKx7AAkcGFrS0aNwwq7
+	sxxeeodvp0lEw/FoeQQxNGHh/Sn/wQUWHf1KREQvCDcA8EIZj+jCh4072ZEbtvGgLpnq3thHJF4Cl
+	4EvFGsqHqsyVzLcgPTqFBHzyragWcFx0Y8ecdnV8vcy+OjTJVffS3pGLWEdx3xoZlGNzR07IwDzBa
+	bOGgIt+nm5MjQWWfJxyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA1Cw-000000066Ur-0IY1;
-	Tue, 07 Apr 2026 07:50:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wA1l9-000000068el-4BXT;
+	Tue, 07 Apr 2026 08:26:08 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA1Cv-000000066UO-099d
+	id 1wA1l7-000000068dq-45he
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 07:50:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BCF460128;
-	Tue,  7 Apr 2026 07:50:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BD90C116C6;
-	Tue,  7 Apr 2026 07:50:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775548243;
-	bh=V9L0KgtiKRhBAbkYtOsVEM62GU0dI0FGYEnsgKtc70Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oPXw++5uE3nR3/HNEy5uVeVDsAFaPTiiKKqGHTjB4Rn22ReQsMHvGC/mi78bptaXw
-	 w7SeJfUJy8pui3uEJLY+/QNbZsP8bBvrgvWvCsK42E4lU2+aKLFSS3LAZTWvE+yoLB
-	 aiUFlPUSHLs6ydgC5O6V30QmiHiK5jQOeBeutcouIdNVlzoHD1QHVIieIj/B76z9r1
-	 oGEfUQIlHyvebi3G8m4oOKTKbXJB3l5d0JarBHW9+bHIJWWir+kTIZJX8dVbilx3y8
-	 4KJmzAFEJpRvi0mIV4d91tejY8s4mfl105Kz/Qqw1IPNo00G+tDNcmt4Cd3QHKkfsz
-	 PC5YzSAe7r93w==
-Date: Tue, 7 Apr 2026 09:50:41 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] dt-bindings: PCI: Add UltraRISC DP1000 PCIe
- controller
-Message-ID: <20260407-uptight-tody-of-weather-ae1e35@quoll>
-References: <20260407-ultrarisc-pcie-v2-0-2aa2a19a7fb3@ultrarisc.com>
- <20260407-ultrarisc-pcie-v2-3-2aa2a19a7fb3@ultrarisc.com>
+	Tue, 07 Apr 2026 08:26:07 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43cfe71e5d3so4169450f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Apr 2026 01:26:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775550364; x=1776155164; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=peA/baapFwTx+WaActDGaVNbab5ZZYgiEvN0ikh1DXM=;
+        b=dYzkd5xcNfmbmBZap4daOVowuwIwHLAQdgLfwXPOUSwLK5581/zUeV/BuMucms/Njw
+         mpxcefdSvdc87V3A3k1OifF58EyaS+2KzZVSsu9MoQWsYKwHeNa3GyNUYKCqfczWTzAG
+         x0ouTB/dakqe4AeR9MY8Mj+RgJfRxju8BTyswRaGOa9q11hWv+pew8MEqX/NfwfOS2KU
+         rEk+EX3xqqUN0EUVeBK9SEWHzQ68s5VtH5FvQfXm61u52LvALnotOUmysIFuYoHSYhMK
+         DVrS+eV5Z0DH4CWkq0hmtu2TIh7+qBlxlNfiECYQxnlePze0feo7HouGdvCIHEAa3T2r
+         C0yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775550364; x=1776155164;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=peA/baapFwTx+WaActDGaVNbab5ZZYgiEvN0ikh1DXM=;
+        b=jGwaw0wjg68z1flwuZAZz9iiPmqG9k/n0/nlOBxo/diWAYvEiPBihkPTalY1/iLb8r
+         OdbaAO8c+ZblMmCm2sNgrw113GOfBinHI2efCWrKquX9MWpx6W8kKOHFjgz/l3B87mMI
+         WHcWlLoE6Eglgi1nyZ+zLuGaWWedGPQvR8FZ1YjKYnIuNs0wexa0Jlpuj3xUmVb3TGAR
+         h97LPIfORZ0zw2hgvRK1mhw4zWz9d1urkE2rdqCUS3EJjvK9OffNaKlUogYXNz7AXc3V
+         RMj80WUVknjaG+VC7LGucZxEJ7L5AI+JsFZE4h91sFITU13WAdkAhcPqdyoIyX4siLo4
+         AtyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVqJnnm4t9lfl9+D7ydLNyv78YYt67Fl9HEvYD4tiTfmRY/l6Icy1LWOm2jeDF/V8QwgYc3YSZVRwJ5pw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YycnjDsLz2GsjqD0NQKzA/t+QVaWG09ewtn8G8LgFaDILrzhFXh
+	14koRmSPnQkh/nGjYCt+c5m5tNEzRjsRsyC8jq+IAbntXFCc2zElqlJE
+X-Gm-Gg: AeBDievZZFCQMroJAUZ17b/hQKyRMHDTIEDj/8aOjxy9/BTPaxp6K8zIfo6wKUYvOA8
+	A2uIvvCZPP+4MD3Bi+M1eTF+8gXYNLKfXsLI3xslpBv3MXr51a0PJoT8WUepj8yjATKrpPPtZLS
+	vve3dYoNaCgRAo/ZHMWAG7pCmkd4t/7nXooFEweIz1/lGSbLQFsu6fnLGmVL5wLNUW+qkHr/pgX
+	7+GMa9/nHZ++dQldcJXY/LviSFUeZAEjFuPaXvSE/XyRjKxj4yn/nk+W+uaA/PDeqp/Bj6OTCyu
+	/Kk6IyJN2ecKL7gBRSNiLSu6fnRcNQMFRtf3/BgxhByAhXAzOLs9TbsrtHV06ce9DGWO5VvrVXj
+	/jzd2cGw0jiSxtsXoPsKSl5uFHHh28SvIyCbvhVMtNgrtthe++TiBNSZe9i/rjXya0oGoNJQphz
+	js5Ir50Rx8kl9YWsbt6NpLsh+yOVfmzVp4npTkaAeNZorXJC2ENdXhwWX5StBF+wxr
+X-Received: by 2002:a05:6000:1446:b0:439:dfae:8083 with SMTP id ffacd0b85a97d-43d292dbc56mr23436623f8f.38.1775550363826;
+        Tue, 07 Apr 2026 01:26:03 -0700 (PDT)
+Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.239.37])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e4d29bbsm48669958f8f.21.2026.04.07.01.26.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Apr 2026 01:26:03 -0700 (PDT)
+From: Iker Pedrosa <ikerpedrosam@gmail.com>
+Date: Tue, 07 Apr 2026 10:25:22 +0200
+Subject: [PATCH v6 2/9] mmc: sdhci-of-k1: enable essential clock
+ infrastructure for SD operation
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260407-ultrarisc-pcie-v2-3-2aa2a19a7fb3@ultrarisc.com>
+Message-Id: <20260407-orangepi-sd-card-uhs-v6-2-b5b8a1b2bfc8@gmail.com>
+References: <20260407-orangepi-sd-card-uhs-v6-0-b5b8a1b2bfc8@gmail.com>
+In-Reply-To: <20260407-orangepi-sd-card-uhs-v6-0-b5b8a1b2bfc8@gmail.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Yixun Lan <dlan@kernel.org>, Yixun Lan <dlan@kernel.org>
+Cc: Troy Mitchell <troy.mitchell@linux.dev>, 
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+ Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Iker Pedrosa <ikerpedrosam@gmail.com>, Anand Moon <linux.amoon@gmail.com>, 
+ Trevor Gamblin <tgamblin@baylibre.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_012606_054403_583E3EF7 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,137 +110,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07, 2026 at 10:40:54AM +0800, Jia Wang wrote:
-> Add UltraRISC DP1000 SoC PCIe controller devicetree bindings.
-> 
-> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> ---
->  .../bindings/pci/ultrarisc,dp1000-pcie.yaml        | 103 +++++++++++++++++++++
->  1 file changed, 103 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-> new file mode 100644
-> index 000000000000..d0517130e127
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-> @@ -0,0 +1,103 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/ultrarisc,dp1000-pcie.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: UltraRISC DP1000 PCIe Host Controller
-> +
-> +description: |
+Ensure SD card pins receive clock signals by enabling pad clock
+generation and overriding automatic clock gating. Required for all SD
+operation modes.
 
-Do not need '|' unless you need to preserve formatting.
+The SDHC_GEN_PAD_CLK_ON setting in LEGACY_CTRL_REG is safe for both SD
+and eMMC operation as both protocols use the same physical MMC interface
+pins and require proper clock signal generation at the hardware level
+for signal integrity and timing.
 
-> +  UltraRISC DP1000 SoC PCIe host controller is based on the DesignWare PCIe IP.
-> +  This binding describes the UltraRISC specific extensions to the base
-> +  DesignWare PCIe binding.
+Additional SD-specific clock overrides (SDHC_OVRRD_CLK_OEN and
+SDHC_FORCE_CLK_ON) are conditionally applied only for SD-only
+controllers to handle removable card scenarios.
 
-Drop sentence. Do not describe in description what the binding
-describes. It's circular / repetitive. Just describe that.
+Tested-by: Anand Moon <linux.amoon@gmail.com>
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Tested-by: Trevor Gamblin <tgamblin@baylibre.com>
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
+Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+---
+ drivers/mmc/host/sdhci-of-k1.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-> +
-> +maintainers:
-> +  - Xincheng Zhang <zhangxincheng@ultrarisc.com>
-> +  - Jia Wang <wangjia@ultrarisc.com>
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: ultrarisc,dp1000-pcie
-> +
-> +  reg:
-> +    items:
-> +      - description: Data Bus Interface (DBI) registers.
-> +      - description: PCIe configuration space region.
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: config
-> +
-> +  num-lanes:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [4, 16]
-> +    description: Number of lanes to use.
-> +
-> +  max-link-speed:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    const: 4
+diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+index 455656f9842df90c7a94a290aeec22157b378fc1..0dd06fc19b8574ae1b00f7e5d09b7d4c87d06770 100644
+--- a/drivers/mmc/host/sdhci-of-k1.c
++++ b/drivers/mmc/host/sdhci-of-k1.c
+@@ -21,6 +21,13 @@
+ #include "sdhci.h"
+ #include "sdhci-pltfm.h"
+ 
++#define SPACEMIT_SDHC_OP_EXT_REG	0x108
++#define  SDHC_OVRRD_CLK_OEN		BIT(11)
++#define  SDHC_FORCE_CLK_ON		BIT(12)
++
++#define SPACEMIT_SDHC_LEGACY_CTRL_REG	0x10C
++#define  SDHC_GEN_PAD_CLK_ON		BIT(6)
++
+ #define SPACEMIT_SDHC_MMC_CTRL_REG	0x114
+ #define  SDHC_MISC_INT_EN		BIT(1)
+ #define  SDHC_MISC_INT			BIT(2)
+@@ -101,6 +108,12 @@ static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
+ 
+ 	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC))
+ 		spacemit_sdhci_setbits(host, SDHC_MMC_CARD_MODE, SPACEMIT_SDHC_MMC_CTRL_REG);
++
++	spacemit_sdhci_setbits(host, SDHC_GEN_PAD_CLK_ON, SPACEMIT_SDHC_LEGACY_CTRL_REG);
++
++	if (host->mmc->caps2 & MMC_CAP2_NO_MMC)
++		spacemit_sdhci_setbits(host, SDHC_OVRRD_CLK_OEN | SDHC_FORCE_CLK_ON,
++				       SPACEMIT_SDHC_OP_EXT_REG);
+ }
+ 
+ static void spacemit_sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned int timing)
 
-If const then deducible from the compatible. Drop the property.
-
-> +    description: Maximum PCIe link speed supported.
-> +
-> +  interrupts:
-> +    description: List of interrupt specifiers used by the controller
-
-Drop description. Obvious.
-
-> +    items:
-> +      - description: MSI interrupt
-> +      - description: Legacy INTA interrupt
-> +      - description: Legacy INTB interrupt
-> +      - description: Legacy INTC interrupt
-> +      - description: Legacy INTD interrupt
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: msi
-> +      - const: inta
-> +      - const: intb
-> +      - const: intc
-> +      - const: intd
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - interrupt-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    soc {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      pcie_x16: pcie@21000000 {
-
-Drop unused label
-
-> +        compatible = "ultrarisc,dp1000-pcie";
-
-reg, names and ranges go here. Please follow DTS coding style.
-
-> +        #address-cells = <3>;
-> +        #size-cells = <2>;
-> +        #interrupt-cells = <1>;
-> +        reg = <0x0 0x21000000 0x0 0x01000000>,
-> +              <0x0 0x4fff0000 0x0 0x00010000>;
-> +        reg-names = "dbi", "config";
-> +        device_type = "pci";
-> +        dma-coherent;
-> +        bus-range = <0x0 0xff>;
-> +        num-lanes = <16>;
-> +        ranges = <0x81000000  0x0 0x4fbf0000  0x0 0x4fbf0000  0x0 0x00400000>,
-> +                 <0x82000000  0x0 0x40000000  0x0 0x40000000  0x0 0x0fbf0000>,
-> +                 <0xc3000000 0x40 0x00000000 0x40 0x00000000  0xd 0x00000000>;
-> +
-> +        max-link-speed = <4>;
-
-Drop, compatible defines this.
-
-Best regards,
-Krzysztof
+-- 
+2.53.0
 
 
 _______________________________________________
