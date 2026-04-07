@@ -4,126 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD9DEFB5175
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 01:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8443FFB5175
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 01:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=obwjEXfJpiswVTnsDRPbq9MLgAXrTHwgH2tGCbhMuYs=; b=drsjPtDMl6z6G0
-	Cq14/hm8lurBb22CvKz1y2Orz9anvbdBLetft/MHYBDRNMIlrHeXh42Sqv5K9ROhhdIht1aAh48nY
-	u8w7fsBIfkBX7sURD32pPCG322PW919vT16hrfmmk5C9/00PqtkKVY747jeuiTW9PzIchITA6huA5
-	sDvW7DFVUYDmrZGEa+J2KwiiQiXr+xZmus7cN5OsHQ4EmJxkuN54Ceu355ytsoI6LTJQOND3LUMWN
-	lNshXyYGc8czJNNqGa5Uc9hMgbH+Qr6P7Jdq6WuDaU8uVVv3Lzj49q1xAlid6ebjMj0smFvOHp6Wi
-	Sa+6vRg3zj3/sAAqX2mA==;
+	List-Owner; bh=5/GiqqxhdvJ/YNm7ZAJiLp9Xn8vbvC+XvrCjPi20dTE=; b=3aW3AGhvympr3s
+	wPD8vC4g/IaHSXKx3lLBfmniZ4D1tvfhZFdiAod/9ZgahlMGfLlncebQV7CE7vZhFBrjqSdzFG1xS
+	oc3HMZxM6xkWIyuns9UXRKwPStNUMwf5VNVYMRybRdWcZmSp1MhjfitUJaGowgD/Zpr3+My06kA4n
+	IxOXv4ABUPl9SdCrbAyCEu8cybFUTBPM3Dg8pn2g42YSKTJebFFqPW8Gr5bu4PZQyr2Fu7bIWx9w4
+	XZDkVj1mgkEz/5glqSUxy0JC6x2+W55VX4mZr9n+CPQyfdkLpjAej3lyVLSQRWyVOukkd2R5/dGpz
+	XqWNY2SwoiCn/CBXBZVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9v2K-00000005hIp-30zH;
-	Tue, 07 Apr 2026 01:15:24 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1w9v4h-00000005hY6-2ZVC;
+	Tue, 07 Apr 2026 01:17:51 +0000
+Received: from mail-bjschn02on2090.outbound.protection.partner.outlook.cn ([139.219.17.90] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9v2I-00000005hID-2LSN
+	id 1w9v4e-00000005hXR-3QLu
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 01:15:23 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-12736a0147cso275721c88.1
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Apr 2026 18:15:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775524521; cv=none;
-        d=google.com; s=arc-20240605;
-        b=iSWLuuzTlFU/2juRoplX0gAEvpF3PI4MUYZLcDC8vQWeoRZnu8sPkAkX1PJhrxzDta
-         H3amqRXPWdsvWMWb0WnD59OsCIo1ig3EEwtumdtngfWlczvdiFepFsl60X8e1mpWvudy
-         91c+ZghslnPmcWXnMO7lU5njaQeXFPNYoztn4H+r80b8cfIhzybMFkrWjmAOYVexe+00
-         XnnpPSpTE9NihKk80GZE8XKVEpWriswcWE1EMACDC00j7YIZckVviciKxfgsQLqr7qja
-         AyLhTMXeamM6ZPHiUzRP4gcNDbYo5ILBUG/9dV2as7/zRHQxRY93svFs5spTGysa3K2i
-         1Icw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=C6sODPPjnlrZIOKdwziurbw8hAdqBwTpglq0vQMQ05A=;
-        fh=c3k/fmIOJipdMIvzcuaVEY5HtTOe4LyxomRgunh2FmU=;
-        b=NOZR07htgneQOuJskyn6FXDn9SGIbIFPCzMIjbnt+zLMouHfp1Ozwjw+HAqlweVm9s
-         q+ak2rOKRviBALAShOY0Sf/uCw5PkSnGyOv08P+CcGoLJwXhIaoIpacroo3Qz/H1do2N
-         ACa6vyJKoDmYG3/p2AwyhvSel5gbNmdGxOVoDQAqJVJwjh8ZVVMsopXdnj9/1pWjCxXP
-         wfXNz0dG5mf19E3kTMx+XRF4t4ELaHoI7nl10GVmK46+MOfdqoEQwfnfexLkFMGpY7bn
-         bYsCKWWxkpVhZA+NBeLU/LRBQd630E7HzXNoIjGJHR61vrE1bdaHLSCGS+QXO1f51pAQ
-         +uUw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775524521; x=1776129321; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C6sODPPjnlrZIOKdwziurbw8hAdqBwTpglq0vQMQ05A=;
-        b=Gxu3tphWluXwFB8Nv9b6WLDCpnsm5QLhCc1EinxEdsPeYtDTSUa4SrdvIImU7qI9Sz
-         HH69lnShkjhAQKY4eAJiZfU5k8MikvaiqU//tRIwHvJV/TnvRGEJUTQIw7aZp+gSSNZC
-         53XykK3A2KIJhSEluEb6nqtmsxDiZ6Gh1HLwmhEQMr+H+eJxp4wscLcBL6Q4VkO492YI
-         Fjnpp/n1MDdEgMihx6jv74+IXmkMMEe1wIH91gxL/AsSY9YO2zwQOhfY8H6njBX5gDwW
-         NY+YLWFqmT8b7Fn5QGXxZDrP+8m63U/CNzSaDuXJll2quzeCRrgzII/LmUXle7kcLQ4c
-         zfWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775524521; x=1776129321;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=C6sODPPjnlrZIOKdwziurbw8hAdqBwTpglq0vQMQ05A=;
-        b=dg1yofiBwGeXTka0gOxeUwO4WN0GuICL8+cWZh5keed8dKBHdFArnED03NSyVdk4R3
-         ET0ZGhPFc8pbMssCyMoSQ25pyE1vGHZ8GWWYddBwLvmbMU6WxLG0A+PofSbDqN4Vzoi2
-         6ga2uN5wZURx+jXzRLf2JWCtXb0YecCLVRMAaUDxlMuTWTY0sLRt8cAwvFUcza+tqs1u
-         iAPrSdiEY1O4uPds0b9bnAMScRHxL/gT72jnO5XlEk/UipEvdFm7wiwudauPAj4XkR3y
-         2tGKAs1Ca11rnWBI4/dmS7YlTkZssJe1UySIyblvyLCcYR7czLJD2epTwuD6h1mFFXUm
-         zCFA==
-X-Forwarded-Encrypted: i=1; AJvYcCWRbICseCw7xIEsIdYQQJ69XH2JWQE8tpQaVvpIesjREh3gjhWjogu+Z2mIM163FGelgMUVvQCMEqKceg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyufXrzoho23u5Q+E0EsSmR9geLDd2zjtJL61FEwJmOzQAUj2qJ
-	EnZe7SkQ7UuR8UybJtQGLf1ppAkY3FkkYearoVyOMpLc3ogJxqM8sV5kLx829U41JTRsLGnPWJQ
-	OrRLNDXl4JSWBnB80e125UL9DIxljbJk=
-X-Gm-Gg: AeBDievvPnAvrqZDtnfyzUaGsm4zV9zM3o1ZWYR37kkmOOnSC5LgX+alapfv69Ubs0Y
-	+Hs/XLbZEvbcwvXZdBlG0cIF5M3Qk0KxqetHKnLaiBFADEtSyWZb/YRI8RcoaYgE3U6UCNodTem
-	XI6FCkkAQBt8QcJ1c8B25nfVIfWrKAn7GRXgnXLhJ+vmdclwN8W3zakP69DZ+Bm6UuKSBMzsRXT
-	hUsQk9jv+LwAFWwEoqGbYIvGpB1oPYK0PTq8u5SIq8ZK4v1fgom380KqyRPm6lHzncrcWzpMtbr
-	8ymAwGM5v+P7DbLcdi+0cF82iRqJAlTmHgB+KUGLC6y3hJhH+xqgAQkXU7Aya/LJwykJ2EjZnb7
-	F9ywv8RumD6iak8fUCfWHqoc=
-X-Received: by 2002:a05:7301:1007:b0:2be:298c:a11 with SMTP id
- 5a478bee46e88-2cbfcf52a13mr3516734eec.3.1775524521173; Mon, 06 Apr 2026
- 18:15:21 -0700 (PDT)
+	Tue, 07 Apr 2026 01:17:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=G9tUEn+ETlG/WlBGag35lDGnBBiafNkIWYlkQ6dBnrEdQHLKF49RzZ8tOfsyBf/7sXh3kdg0Sljk5Tq9TuuvKj6h+w7bt0NF+Ch10TVC5uP73w2sDTJC3pNf8Fo7rYSafw9Omfq5tOCmpXaSdwiFsY9xUoUo0+dCfYaxh7CfyGSIwqLFq+mVcK7dYDOzoabl6GcUmTMj3GMtYV6tL9/7f5P44UF5ZWcu3GdhRLZb+dITBHTdH7QOHCyFgQYZRxc2wVtHItRJpYJbJ37zrhFmuclPFk2rZUSf7Z24dHzYG0g/BpuSX/EKv+I6x1DZxm4OUxTpocYAUg5B7LtYeWRV3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wdQtL+cxKtGl1LZZHREO0lyNZng6AzbWHkqsVqGDKIo=;
+ b=FDQJIdTDh6RXu7qeaJfLCuA53JstkDvMMiRT80MP+M+qQ/y6rstNyY0s667y7z+Z0A8nZHXBhf6HmMiV8YyycXSn1PY3Psl35jGiTzU6vW5b9J2BdiDfU+2SnC7Qo3KG+93lLe30Egqj88rQYsFLPi6RKjDP63e/ACjHmYNoBPpbFKyEJtnG2Q+VqwT4jcJA4lo9H+CMCG3/3cdix6mHUS9ZAyLz39U84OHzqMaeKAhRj0c10NHdhZt3pigw2A5XIzuSEhFiZcDGK+gv5oU8b45I8tb+p55QgNwfPMCmwGQGfWUymyH/lmNnb/3Bs+jlBAJQqaYJ4FGWJTwW4aPE0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1235.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:15::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Tue, 7 Apr
+ 2026 01:17:40 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9769.020; Tue, 7 Apr 2026 01:17:40 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Brian Masney <bmasney@redhat.com>
+CC: Michael Turquette <mturquette@baylibre.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Chen Wang
+	<unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, Alexey
+ Charkov <alchark@gmail.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Keguang Zhang <keguang.zhang@gmail.com>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>
+Subject: Re: [PATCH v1 03/13] clk: starfive: Add system-0 domain PLL clock
+ driver
+Thread-Topic: [PATCH v1 03/13] clk: starfive: Add system-0 domain PLL clock
+ driver
+Thread-Index: AQHcwy23fNrQamto+UeDw1ffArcAF7XNgm0AgAVP3TA=
+Date: Tue, 7 Apr 2026 01:17:40 +0000
+Message-ID: <ZQ4PR01MB1202771864829219B0EDACFAF25A2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260403054945.467700-1-changhuang.liang@starfivetech.com>
+ <20260403054945.467700-4-changhuang.liang@starfivetech.com>
+ <ac_mdhEl9VtpTuw8@redhat.com>
+In-Reply-To: <ac_mdhEl9VtpTuw8@redhat.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1235:EE_
+x-ms-office365-filtering-correlation-id: 1a6db610-fc2b-427c-3998-08de94437678
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: JP4+hl1GwZc1G5tBx65o1YZhcOI3wNxmRQrGQnZGeVPG38fTGk3Pw+dP5A18grGoQ4EFhYE4cNpnUdTEBBbCqltpzmNGDartDO5YfDzdR0D8ry2ORD9hQ6TqH70/udajfparZSuV+zVddlb5QoZLjOHQa5G1wq4kYi6fy1s2uhXJbOx4Ex+a1A8w6yl4jE1xertpbUlRSCxBT/Dw/bdLqiYTbUS4BXiidufsYEfcpQTB6jqY0PPWkWSizFnJSavDP+L2mhXWce2wCqjbOYRK/xkbSlTlrGXArKYACdzDkIvk536zMpJUu1fOJC+CNoxpaUG1b7/f/Dof/ILROu1WtgN/z8i1/07e93LAd0GGecWBIfbFbE4AxIf8BlTMPJtOoP1GnjxaKbq78MGShYA7PYYaZDEQbCMYYBiL/Z6d4bJ+EGjkKLNaxJoPFMycK2OiGIa7fmsZldn7UlEth3y8dxQqtPhXI0Iu3s7cJ+SmN97xJF/IVnpp0nMRCpSJLiNDUKzCd7NSCusX/weJVp9POO1MeAHxdeMbpehQ4WmHm3HdGkrOlVaEFxojtfzZrjIr+C9nO+TJ/IIjuQqwqznD5w==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?AZnNpokl2Q+PJADFQcJ+ddUXHZ5DchiZuP+jI3gBTtUcOFlJcmWQSVQRt11t?=
+ =?us-ascii?Q?mDeVcj46GXGy6ldhNNiO1yVMMqKhbUX8dHnbQB+8KCnWzHPzEGtR7zaNacQe?=
+ =?us-ascii?Q?seJ5nwc792x08/SYGg5f5v8U71VAJELoDw8Hz2Kb6EkaLjqf4IIXsFVwJNex?=
+ =?us-ascii?Q?6EVJU4wrFE+M4ilY6MlQgl7VVSrdqA2KV4Bs4/m21EMcLvn5MZVW8J9P+df7?=
+ =?us-ascii?Q?ET3iNh2UYvUjuTG+Eee70y6QMxSqznnzC0hKiu1eqTXCnIbPU9vZhqsQJa7v?=
+ =?us-ascii?Q?4uJv4dxAf2/rTN/Pu5RIaAbtePkzQTHEYctfnm91X08ooyLcJZrRLkKeILAT?=
+ =?us-ascii?Q?/c+sKNnawUjUjBA/We40RqHuVTcTprTyOkgF9ULRZWPgd65qA7hXxBUKIw+8?=
+ =?us-ascii?Q?Id9QQtusETS7WtKUNqXl6kqdXvK8cIpP32HONS9NTKWiNVTVD6PXZp6YjPkp?=
+ =?us-ascii?Q?IinyGWaSUrdJ2ZUEuer3QnK7oOPj2f6VWXCAggDy1hD9fQrY5uGhfHrIaRga?=
+ =?us-ascii?Q?3Fsg0r0Q//M9b9kPoMvC7fL2mpefmldYlSHEyQyJDIIO94BmXP03uJf6Scc7?=
+ =?us-ascii?Q?rBJxgw1QzLgeTSPekxFqMLI97KDCnhzxKHNm2EPoFHXdBiDURmGu3iJrqTWz?=
+ =?us-ascii?Q?LLRSBPlSMGeAZ04LxLHS1gtc37TPof8NqQCty+7oAXDLpTDHshRWL7dxxuYW?=
+ =?us-ascii?Q?DdFwkg2xXyIVXzsgEgGyuFzJ+K8sdM1KM9ZhcvatMkgSGKpUSAolxj2vfIbq?=
+ =?us-ascii?Q?Xoj8rwkA0c91GqBYrRncwriehLPePedsHVojutRdUA/h0fHtHAxkJbxkfcgb?=
+ =?us-ascii?Q?1HTBi+R7jyx3cPO0tK2f3b1Mn3jb7gHzGiMhRlC+IyvzDi7O/lgic3yN2Y2B?=
+ =?us-ascii?Q?TK/6jUtx/zb01DXr28OjXo3YOaewxzgeNjycVPezj78wzS5DMvf3W+qfPlnD?=
+ =?us-ascii?Q?CShcRDBnLAuHkfdC2RYRoPg9/S/FTE6Ez9gmDk9z5nJrmi+nzxtiTNwu0iZa?=
+ =?us-ascii?Q?sllXRzqMvHWxMgWMDkAz2rwSALf7SXvhlUqbyDkY9mkfhaETWlv05gWbI9CS?=
+ =?us-ascii?Q?ZsqYNQhKO7uz8t9S5OJfMjkzxZwesrsPtj4jCKTfTdBQRkuKtOJjy6yLDv4Z?=
+ =?us-ascii?Q?+eJGIWHxzA87xxx15HBaRxT6MciBMdBM46oJkfVvvFI6LQvPyacU9FBn6Tnu?=
+ =?us-ascii?Q?MILYEOUq6wxTxvqr/BxTt+gaMoignqjaDxwn/jTUyCjmNfXeuCsMMNX/uSQa?=
+ =?us-ascii?Q?okCgVrU/nAzXuXh4wkNXQBkIRmn/vCx6ZWLD5lSulB7BMO0xpTXkHcvE6Bqm?=
+ =?us-ascii?Q?ya5kw9lUMqMWP1FBBzyxdrevn+2GtXBrpa3QvapqA5JBiUlAdm/oZmYj7/8Q?=
+ =?us-ascii?Q?DcYBIeohMbjPV/GpRw1YtIiGGsFqPE3y3c3yb9CrwWqvTd8A6MWRP9etlfXR?=
+ =?us-ascii?Q?e1x20vznO82wXUCdoOVaS9RRDn/ip8q53fIo3vyMCQ0u9j86WgA2rFAgySkj?=
+ =?us-ascii?Q?aK/Tlsqs/P/x6a0tyuwy7UlMFizov9tbccae41CF6JtCyjY9KohQjT551yeQ?=
+ =?us-ascii?Q?j5aMI2Rt25lJ2NUJZEHoVJB0q6jPWY5NtRfsGfxlAA2mBHFfXI4CEev0ceRu?=
+ =?us-ascii?Q?zDZSfS68axdRVPua2o51KM09Y1aH4qSBcmDW5PGfB1a7lpkBgt1ZK9ANMD3O?=
+ =?us-ascii?Q?jLPGfnqWbceaxEXIU6emiWfXYsxLqVoWrO08QcKCZ5iD1hG95VwZBb8Iiali?=
+ =?us-ascii?Q?VMjRKML1GE8D1HOUT8bZRu7X04KK21w=3D?=
 MIME-Version: 1.0
-References: <20260405235309.418950-1-ojeda@kernel.org> <CANiq72mnGArtgAbe7xXZCYW1x7Zd5hozfnzoftaGy9rxoLO4ew@mail.gmail.com>
- <cf28afe0-ede5-4d1a-9824-65a1448f8161@nvidia.com> <CANiq72n4tmTzqbcHCnzUBFyLVmJzB-AJng_1FgELJCWr7hDg4A@mail.gmail.com>
- <efe61810-2b28-4acd-b69f-d577042c0b62@nvidia.com>
-In-Reply-To: <efe61810-2b28-4acd-b69f-d577042c0b62@nvidia.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 7 Apr 2026 03:15:06 +0200
-X-Gm-Features: AQROBzCpjGVGSHiqD6WWW0AkLWSnE3ic7jf8UnYoPnV_5tut3XVgaNfJWwQj0o4
-Message-ID: <CANiq72n84On9UxQ9CNqyFb5wpJZKrBzb1Xej9ZRqhLim--ftAQ@mail.gmail.com>
-Subject: Re: [PATCH v2 00/33] rust: bump minimum Rust and `bindgen` versions
-To: John Hubbard <jhubbard@nvidia.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Courbot <acourbot@nvidia.com>, Simona Vetter <simona@ffwll.ch>, 
-	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
-	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
-	Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
-	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
-	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
-	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a6db610-fc2b-427c-3998-08de94437678
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2026 01:17:40.4367
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: e8Xz6At9X0Sn9e4W0zSvld83QqEDTvmar/8e8r5ad+PS5fKYV44zMqb+d9VVLykOA7i0NStKhTO6lV5KHMCEE1iDvEXgkWhZXAmggMFmGzd9Dga/FBnDkv1O0CzaOXWM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1235
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_181522_681329_84D6A62A 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260406_181749_091351_5CADD763 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,16 +142,459 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBBcHIgNiwgMjAyNiBhdCA5OjA34oCvUE0gSm9obiBIdWJiYXJkIDxqaHViYmFyZEBu
-dmlkaWEuY29tPiB3cm90ZToKPgo+IFRoYXQncyB3aGF0IEkgdGhvdWdodCBJIHJlY2FsbGVkLCB0
-b28uIFdlaXJkIHRoYXQgaXQgaXMgbm90IGluIHJ1c3QtbmV4dAo+IGFscmVhZHksIHRob3VnaC4K
-Ckl0IGlzIG5vcm1hbCAtLSBpbiB0aGUga2VybmVsIGJhY2sgbWVyZ2VzIGFyZSBnZW5lcmFsbHkg
-dG8gYmUgYXZvaWRlZC4KCkNoZWVycywKTWlndWVsCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi, Brian
+
+Thanks for the review.
+
+> Hi Changhuang,
+> 
+> On Thu, Apr 02, 2026 at 10:49:35PM -0700, Changhuang Liang wrote:
+> > Add system-0 domain PLL clock driver for StarFive JHB100 SoC.
+> >
+> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > ---
+> >  drivers/clk/starfive/Kconfig                  |   8 +
+> >  drivers/clk/starfive/Makefile                 |   1 +
+> >  .../clk/starfive/clk-starfive-jhb100-pll.c    | 498 ++++++++++++++++++
+> >  3 files changed, 507 insertions(+)
+> >  create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-pll.c
+> >
+> > diff --git a/drivers/clk/starfive/Kconfig
+> > b/drivers/clk/starfive/Kconfig index c612f1ede7d7..cc712da68bd0 100644
+> > --- a/drivers/clk/starfive/Kconfig
+> > +++ b/drivers/clk/starfive/Kconfig
+> > @@ -105,6 +105,14 @@ config CLK_STARFIVE_JHB100_PER3
+> >  	  Say yes here to support the peripheral-3 clock controller
+> >  	  on the StarFive JHB100 SoC.
+> >
+> > +config CLK_STARFIVE_JHB100_PLL
+> > +	bool "StarFive JHB100 PLL clock support"
+> > +	depends on ARCH_STARFIVE || COMPILE_TEST
+> > +	default ARCH_STARFIVE
+> > +	help
+> > +	  Say yes here to support the PLL clock controller on the
+> > +	  StarFive JHB100 SoC.
+> > +
+> >  config CLK_STARFIVE_JHB100_SYS0
+> >  	bool "StarFive JHB100 system-0 clock support"
+> >  	depends on ARCH_STARFIVE || COMPILE_TEST diff --git
+> > a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile index
+> > f00690f0cdad..547a8c170728 100644
+> > --- a/drivers/clk/starfive/Makefile
+> > +++ b/drivers/clk/starfive/Makefile
+> > @@ -15,6 +15,7 @@ obj-$(CONFIG_CLK_STARFIVE_JHB100_PER0)
+> 	+= clk-starfive-jhb100-per0.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JHB100_PER1)		+=
+> clk-starfive-jhb100-per1.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JHB100_PER2)		+=
+> clk-starfive-jhb100-per2.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JHB100_PER3)		+=
+> clk-starfive-jhb100-per3.o
+> > +obj-$(CONFIG_CLK_STARFIVE_JHB100_PLL)		+=
+> clk-starfive-jhb100-pll.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+=
+> clk-starfive-jhb100-sys0.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS1)		+=
+> clk-starfive-jhb100-sys1.o
+> >  obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS2)		+=
+> clk-starfive-jhb100-sys2.o
+> > diff --git a/drivers/clk/starfive/clk-starfive-jhb100-pll.c
+> > b/drivers/clk/starfive/clk-starfive-jhb100-pll.c
+> > new file mode 100644
+> > index 000000000000..1751a734ee83
+> > --- /dev/null
+> > +++ b/drivers/clk/starfive/clk-starfive-jhb100-pll.c
+> > @@ -0,0 +1,498 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * StarFive JHB100 PLL Clock Generator Driver
+> > + *
+> > + * Copyright (C) 2024 StarFive Technology Co., Ltd.
+> > + *
+> > + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > + */
+> > +
+> > +#include <linux/bits.h>
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/debugfs.h>
+> > +#include <linux/device.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/mfd/syscon.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/regmap.h>
+> > +
+> > +#include <dt-bindings/clock/starfive,jhb100-crg.h>
+> > +
+> > +/* this driver expects a 25MHz input frequency from the oscillator */
+> > +#define JHB100_PLL_OSC_RATE		25000000UL
+> 
+> You could include linux/units.h and then use: 25 * HZ_PER_MHZ
+> 
+> > +
+> > +/* System-0 domain PLL */
+> > +#define JHB100_PLL2_OFFSET		0x00
+> > +#define JHB100_PLL3_OFFSET		0x0c
+> > +#define JHB100_PLL4_OFFSET		0x18
+> > +#define JHB100_PLL5_OFFSET		0x24
+> > +
+> > +#define JHB100_PLL_CFG0_OFFSET		0x0
+> > +#define JHB100_PLL_CFG1_OFFSET		0x4
+> > +#define JHB100_PLL_CFG2_OFFSET		0x8
+> > +
+> > +#define JHB100_PLLX_CFG0(offset)	((offset) + JHB100_PLL_CFG0_OFFSET)
+> > +/* fbdiv value should be 16 to 4095 */
+> > +#define   JHB100_PLL_FBDIV			GENMASK(13, 2)
+> > +#define   JHB100_PLL_FBDIV_SHIFT		2
+> > +#define   JHB100_PLL_FOUTPOSTDIV_EN		BIT(14)
+> > +#define   JHB100_PLL_FOUTPOSTDIV_EN_SHIFT	14
+> > +#define   JHB100_PLL_FOUTVCOP_EN		BIT(16)
+> > +#define   JHB100_PLL_FOUTVCOP_EN_SHIFT		16
+> > +
+> > +#define JHB100_PLLX_CFG1(offset)	((offset) + JHB100_PLL_CFG1_OFFSET)
+> > +/* frac value should be decimals multiplied by 2^24 */
+> > +#define   JHB100_PLL_FRAC			GENMASK(23, 0)
+> > +#define   JHB100_PLL_FRAC_SHIFT			0
+> > +#define   JHB100_PLL_LOCK			BIT(24)
+> > +#define   JHB100_PLL_LOCK_SHIFT			24
+> > +
+> > +#define JHB100_PLLX_CFG2(offset)	((offset) + JHB100_PLL_CFG2_OFFSET)
+> > +#define   JHB100_PLL_PD				BIT(13)
+> > +#define   JHB100_PLL_PD_SHIFT			13
+> > +#define   JHB100_PLL_POSTDIV			GENMASK(15, 14)
+> > +#define   JHB100_PLL_POSTDIV_SHIFT		14
+> > +#define   JHB100_PLL_REFDIV			GENMASK(23, 18)
+> > +#define   JHB100_PLL_REFDIV_SHIFT		18
+> > +
+> > +#define JHB100_PLL_TIMEOUT_US		1000
+> > +#define JHB100_PLL_INTERVAL_US		100
+> > +
+> > +struct jhb100_pll_preset {
+> > +	unsigned long freq;
+> > +	u32 frac;			/* frac value should be decimals multiplied by 2^24
+> */
+> > +	unsigned fbdiv		: 12;	/* fbdiv value should be 8 to 4095 */
+> > +	unsigned refdiv		: 6;
+> > +	unsigned postdiv	: 2;
+> > +	unsigned foutpostdiv_en	: 1;
+> > +	unsigned foutvcop_en	: 1;
+> > +};
+> > +
+> > +struct jhb100_pll_info {
+> > +	char *name;
+> > +	const struct jhb100_pll_preset *presets;
+> > +	unsigned int npresets;
+> > +	unsigned long flag;
+> > +	u8 offset;
+> > +	bool continuous;
+> > +};
+> > +
+> > +#define _JHB100_PLL(_idx, _name, _presets, _npresets, _offset, _flag,
+> _cont)	\
+> > +	[_idx] = {							\
+> > +		.name = _name,						\
+> > +		.offset = _offset,					\
+> > +		.presets = _presets,					\
+> > +		.npresets = _npresets,					\
+> > +		.flag = _flag,						\
+> > +		.continuous = _cont,					\
+> > +	}
+> > +
+> > +#define JHB100_PLL(idx, name, presets, npresets, offset, cont)
+> 	\
+> > +	_JHB100_PLL(idx, name, presets, npresets, offset, 0, cont)
+> > +
+> > +struct jhb100_pll_match_data {
+> > +	const struct jhb100_pll_info *pll_info;
+> > +	int num_pll;
+> > +};
+> > +
+> > +struct jhb100_pll_data {
+> > +	struct clk_hw hw;
+> > +	unsigned int idx;
+> > +};
+> > +
+> > +struct jhb100_pll_priv {
+> > +	struct device *dev;
+> > +	struct regmap *regmap;
+> > +	const struct jhb100_pll_match_data *match_data;
+> > +	struct jhb100_pll_data pll[];
+> > +};
+> > +
+> > +struct jhb100_pll_regvals {
+> > +	u32 fbdiv;
+> > +	u32 frac;
+> > +	u32 postdiv;
+> > +	u32 refdiv;
+> > +	bool foutpostdiv_en;
+> > +	bool foutvcop_en;
+> > +};
+> > +
+> > +static struct jhb100_pll_data *jhb100_pll_data_from(struct clk_hw
+> > +*hw) {
+> > +	return container_of(hw, struct jhb100_pll_data, hw); }
+> > +
+> > +static struct jhb100_pll_priv *jhb100_pll_priv_from(struct
+> > +jhb100_pll_data *pll) {
+> > +	return container_of(pll, struct jhb100_pll_priv, pll[pll->idx]); }
+> > +
+> > +static int jhb100_pll_enable(struct clk_hw *hw) {
+> > +	struct jhb100_pll_data *pll = jhb100_pll_data_from(hw);
+> > +	struct jhb100_pll_priv *priv = jhb100_pll_priv_from(pll);
+> > +	const struct jhb100_pll_info *info =
+> > +&priv->match_data->pll_info[pll->idx];
+> > +
+> > +	regmap_update_bits(priv->regmap, JHB100_PLLX_CFG2(info->offset),
+> > +			   JHB100_PLL_PD, 0);
+> 
+> Should the return value be checked here? Or just:
+> 
+>     return regumap_update_bits(...);
+> 
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static void jhb100_pll_disable(struct clk_hw *hw) {
+> > +	struct jhb100_pll_data *pll = jhb100_pll_data_from(hw);
+> > +	struct jhb100_pll_priv *priv = jhb100_pll_priv_from(pll);
+> > +	const struct jhb100_pll_info *info =
+> > +&priv->match_data->pll_info[pll->idx];
+> > +
+> > +	regmap_update_bits(priv->regmap, JHB100_PLLX_CFG2(info->offset),
+> > +			   JHB100_PLL_PD, BIT(JHB100_PLL_PD_SHIFT)); }
+> > +
+> > +static int jhb100_pll_is_enabled(struct clk_hw *hw) {
+> > +	struct jhb100_pll_data *pll = jhb100_pll_data_from(hw);
+> > +	struct jhb100_pll_priv *priv = jhb100_pll_priv_from(pll);
+> > +	const struct jhb100_pll_info *info =
+> &priv->match_data->pll_info[pll->idx];
+> > +	u32 val;
+> > +
+> > +	regmap_read(priv->regmap, JHB100_PLLX_CFG2(info->offset), &val);
+> 
+> Should the return value be checked?
+> 
+> > +
+> > +	return !(val & JHB100_PLL_PD);
+> 
+> If regmap_read() returns an error, then is val uninitialized?
+> 
+> > +}
+> > +
+> > +static void jhb100_pll_regvals_get(struct regmap *regmap,
+> > +				   const struct jhb100_pll_info *info,
+> > +				   struct jhb100_pll_regvals *ret) {
+> > +	u32 val;
+> > +
+> > +	regmap_read(regmap, JHB100_PLLX_CFG0(info->offset), &val);
+> > +	ret->fbdiv = (val & JHB100_PLL_FBDIV) >> JHB100_PLL_FBDIV_SHIFT;
+> > +	ret->foutpostdiv_en = !!((val & JHB100_PLL_FOUTPOSTDIV_EN) >>
+> > +				 JHB100_PLL_FOUTPOSTDIV_EN_SHIFT);
+> > +	ret->foutvcop_en = !!((val & JHB100_PLL_FOUTVCOP_EN) >>
+> > +			      JHB100_PLL_FOUTVCOP_EN_SHIFT);
+> > +
+> > +	regmap_read(regmap, JHB100_PLLX_CFG1(info->offset), &val);
+> > +	ret->frac = (val & JHB100_PLL_FRAC) >> JHB100_PLL_FRAC_SHIFT;
+> > +
+> > +	regmap_read(regmap, JHB100_PLLX_CFG2(info->offset), &val);
+> > +	ret->postdiv = (val & JHB100_PLL_POSTDIV) >>
+> JHB100_PLL_POSTDIV_SHIFT;
+> > +	ret->refdiv = (val & JHB100_PLL_REFDIV) >> JHB100_PLL_REFDIV_SHIFT;
+> 
+> Should these regmap return values be checked, and the error code returned?
+> 
+> > +}
+> > +
+> > +static unsigned long jhb100_pll_recalc_rate(struct clk_hw *hw,
+> > +unsigned long parent_rate) {
+> > +	struct jhb100_pll_data *pll = jhb100_pll_data_from(hw);
+> > +	struct jhb100_pll_priv *priv = jhb100_pll_priv_from(pll);
+> > +	struct jhb100_pll_regvals val;
+> > +	unsigned long rate;
+> > +	u32 power = 0;
+> > +
+> > +	jhb100_pll_regvals_get(priv->regmap,
+> > +&priv->match_data->pll_info[pll->idx], &val);
+> > +
+> > +	/*
+> > +	 *
+> > +	 * if (foutvcop_en)
+> > +	 *      rate = parent * (fbdiv + frac / 2^24) / refdiv
+> > +	 *
+> > +	 * if (foutpostdiv_en)
+> > +	 *      rate = parent * (fbdiv + frac / 2^24) / refdiv / 2^(postdiv + 1)
+> > +	 *
+> > +	 * parent * (fbdiv + frac / 2^24) = parent * fbdiv + parent * frac / 2^24
+> > +	 */
+> > +
+> > +	if (!!val.foutvcop_en == !!val.foutpostdiv_en)
+> > +		return 0;
+> > +
+> > +	rate = (parent_rate * val.frac) >> 24;
+> > +
+> > +	if (val.foutpostdiv_en)
+> > +		power = val.postdiv + 1;
+> > +
+> > +	rate += parent_rate * val.fbdiv;
+> > +	rate /= val.refdiv << power;
+> 
+> Could val.refdiv ever be zero?
+
+Will check it at next version.
+
+> > +
+> > +	return rate;
+> > +}
+> > +
+> > +static int jhb100_pll_determine_rate(struct clk_hw *hw, struct
+> > +clk_rate_request *req) {
+> > +	struct jhb100_pll_data *pll = jhb100_pll_data_from(hw);
+> > +	struct jhb100_pll_priv *priv = jhb100_pll_priv_from(pll);
+> > +	const struct jhb100_pll_info *info =
+> &priv->match_data->pll_info[pll->idx];
+> > +	const struct jhb100_pll_preset *selected = &info->presets[0];
+> > +	unsigned int idx;
+> > +
+> > +	/* if the parent rate doesn't match our expectations the presets won't
+> work */
+> > +	if (req->best_parent_rate != JHB100_PLL_OSC_RATE) {
+> > +		req->rate = jhb100_pll_recalc_rate(hw, req->best_parent_rate);
+> > +		return 0;
+> > +	}
+> > +
+> > +	/* continuous means support any rate */
+> > +	if (info->continuous)
+> > +		return 0;
+> > +
+> > +	/* find highest rate lower or equal to the requested rate */
+> > +	for (idx = 1; idx < info->npresets; idx++) {
+> > +		const struct jhb100_pll_preset *val = &info->presets[idx];
+> > +
+> > +		if (req->rate < val->freq)
+> > +			break;
+> > +
+> > +		selected = val;
+> > +	}
+> > +
+> > +	req->rate = selected->freq;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int jhb100_pll_set_preset(struct clk_hw *hw, struct
+> > +jhb100_pll_preset *val) {
+> > +	struct jhb100_pll_data *pll = jhb100_pll_data_from(hw);
+> > +	struct jhb100_pll_priv *priv = jhb100_pll_priv_from(pll);
+> > +	const struct jhb100_pll_info *info =
+> &priv->match_data->pll_info[pll->idx];
+> > +	unsigned int value;
+> > +
+> > +	regmap_update_bits(priv->regmap, JHB100_PLLX_CFG0(info->offset),
+> JHB100_PLL_FBDIV,
+> > +			   (u32)val->fbdiv << JHB100_PLL_FBDIV_SHIFT);
+> > +	regmap_update_bits(priv->regmap, JHB100_PLLX_CFG0(info->offset),
+> JHB100_PLL_FOUTPOSTDIV_EN,
+> > +			   (u32)val->foutpostdiv_en <<
+> JHB100_PLL_FOUTPOSTDIV_EN_SHIFT);
+> > +	regmap_update_bits(priv->regmap, JHB100_PLLX_CFG0(info->offset),
+> JHB100_PLL_FOUTVCOP_EN,
+> > +			   (u32)val->foutvcop_en <<
+> JHB100_PLL_FOUTVCOP_EN_SHIFT);
+> 
+> These are writing to the same register. Should the values be combined into
+> one, and written once to the register?
+> 
+> > +	regmap_update_bits(priv->regmap, JHB100_PLLX_CFG1(info->offset),
+> JHB100_PLL_FRAC,
+> > +			   val->frac << JHB100_PLL_FRAC_SHIFT);
+> > +	regmap_update_bits(priv->regmap, JHB100_PLLX_CFG2(info->offset),
+> JHB100_PLL_REFDIV,
+> > +			   (u32)val->refdiv << JHB100_PLL_REFDIV_SHIFT);
+> > +	regmap_update_bits(priv->regmap, JHB100_PLLX_CFG2(info->offset),
+> JHB100_PLL_POSTDIV,
+> > +			   (u32)val->postdiv << JHB100_PLL_POSTDIV_SHIFT);
+> 
+> The last two calls to JHB100_PLLX_CFG2 also write to the same register.
+> Should the two writes be combined into one?
+> 
+> Should the return values from regmap_update_bits() be checked?
+> 
+> > +
+> > +	/* waiting for PLL to lock */
+> > +	return regmap_read_poll_timeout_atomic(priv->regmap,
+> JHB100_PLLX_CFG1(info->offset),
+> > +					       value, value & JHB100_PLL_LOCK,
+> > +					       JHB100_PLL_INTERVAL_US,
+> > +					       JHB100_PLL_TIMEOUT_US);
+> > +}
+> > +
+> > +static int jhb100_pll_rate_to_preset(struct clk_hw *hw, unsigned long rate,
+> > +				     unsigned long parent_rate)
+> > +{
+> > +	struct jhb100_pll_preset val = {
+> > +		.refdiv = 1,
+> > +		.postdiv = 3,
+> > +		.foutpostdiv_en = 1,
+> > +		.foutvcop_en = 0,
+> > +	};
+> > +	unsigned int power = 0;
+> > +	unsigned long fbdiv_24, t;
+> > +
+> > +	if (val.foutpostdiv_en)
+> > +		power = val.postdiv + 1;
+> > +
+> > +	t = val.refdiv << power;
+> > +	t *= rate;
+> > +
+> > +	val.fbdiv = t / parent_rate;
+> 
+> Should a check for parent_rate == 0 be added?
+
+parent_rate is checked in jhb100_pll_set_rate, and it only supports 25M.
+
+> > +
+> > +	fbdiv_24 = (t << 24) / parent_rate;
+> > +	val.frac = fbdiv_24 - (val.fbdiv << 24);
+> > +
+> > +	return jhb100_pll_set_preset(hw, &val); }
+> > +
+> > +static int jhb100_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+> > +			       unsigned long parent_rate)
+> > +{
+> > +	struct jhb100_pll_data *pll = jhb100_pll_data_from(hw);
+> > +	struct jhb100_pll_priv *priv = jhb100_pll_priv_from(pll);
+> > +	const struct jhb100_pll_info *info =
+> &priv->match_data->pll_info[pll->idx];
+> > +	const struct jhb100_pll_preset *val;
+> > +	unsigned int idx;
+> > +
+> > +	/* if the parent rate doesn't match our expectations the presets won't
+> work */
+> > +	if (parent_rate != JHB100_PLL_OSC_RATE)
+> > +		return -EINVAL;
+> > +
+> > +	if (info->continuous)
+> > +		return jhb100_pll_rate_to_preset(hw, rate, parent_rate);
+> > +
+> > +	for (idx = 0, val = &info->presets[0]; idx < info->npresets; idx++, val++) {
+> > +		if (val->freq == rate)
+> > +			return jhb100_pll_set_preset(hw, (struct jhb100_pll_preset
+> *)val);
+> 
+> The cast looks to be here because of the const in jhb100_pll_set_preset(). Can
+> const be added to the declaration of jhb100_pll_set_preset()?
+
+Will try it.
+
+Best Regards,
+Changhuang
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
