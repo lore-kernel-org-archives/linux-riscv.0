@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F7BFF513A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AFDFF5137
 	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NFOgMBR4G51jjhxDh+x+wq8e8rlhC744CR7NO5pgWaQ=; b=V/lyQvheNa3BZ2
-	KnWfc5HqO8sPC43dIVkfWmAadigIvxfJhAEmZoG4oTcQDVSTm8lvQ0thyVikJFGs4n4ATSpeZ2jJE
-	/oJu86CLwchaF+B1AYh6WGQONtFdBXZpTHeFZjYL44ZZY/yItx9JIOTTBMzZ0vYqljmF3dK1244FK
-	qvTdthETPUTnCgB+7KzgjqGQCfkiS1Inq8wJ2U1ps7AjvDeijaDyf+8YYSn2aAy2eqYfz9JPB2Zlm
-	R9vJ78BMB/0F4Qe+L08qBWVF1c+cMQQaR4i8rZPhmu0KpP/Ea9jepjbi7HwhoeoZ6WwEtm4/HF0qi
-	RXVaKFi1k9g4cBJPsL5g==;
+	List-Owner; bh=iob9lgeQGqfPg94wsj0WyRiT2U66F4burktbDUVQ7kA=; b=jBdf3bgOhP11E1
+	k0N2s9jfJ+BoPMOeZa2XRRk6HxPODSPD269NP2pJP+4KJYKfQcqkTmLpNxbVMNzponQ8PR35EUDCb
+	89ngpc+TQ2YEBQc34MKCYl3zV7xYmxyLiYkirY+8u9tY77/QLlEnzuNDwnPuCkDA89r/zmgaTxEK5
+	bsUPpVB/yJsDCyyqk/gxY6bb9xFv/5Ecg/os2Zpk5xfZL1TbfFb6ze799cAvHhms2CRe2bM0PvVKg
+	oWml93d0BEJ4ANknRS5q+nr2/mon2XC7vi8DlGpHtCIUIiU35vQG0heZncAW7wIR56yhvDZ/nRAVi
+	5V7hqGZEvMQA4M1w1/Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHM-00000007ISb-3ehi;
-	Tue, 07 Apr 2026 19:40:04 +0000
+	id 1wACHI-00000007IN7-27BW;
+	Tue, 07 Apr 2026 19:40:00 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHI-00000007IMS-2MpV;
-	Tue, 07 Apr 2026 19:40:01 +0000
+	id 1wACHD-00000007IIe-0YVp;
+	Tue, 07 Apr 2026 19:39:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2242B404AC;
-	Tue,  7 Apr 2026 19:40:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7665FC19421;
-	Tue,  7 Apr 2026 19:39:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BDF81444E8;
+	Tue,  7 Apr 2026 19:39:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D7DEC2BC9E;
+	Tue,  7 Apr 2026 19:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775590800;
-	bh=L3Rfg+8z09e8keiE7bpGEjenYKXFDv21kTEZM7E6AaA=;
+	s=k20201202; t=1775590794;
+	bh=VUPbEqFGGbOFWIwXYHWvivFzwPWAABqvcwZPV7b0Qgs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l+XKs1nTqXITUzVO9V7ZcgbUKwdnwTFr3L2FCLHY2KQo86k0Ffjt8OL1/JRtkSDa3
-	 yNBwGPy69Qr91P26LAHEK1+rZfI5CToJT/zHAcNUCaWarkT5tjiCiRrgjcgleZ82i2
-	 RAt0ogBD0uHApgE3oFsyhNUam/qX/iD1x6pRvm43Q4Iw5xWGX7cWXIJicOEm828y5B
-	 55nqWXirst8RsbiNBuVI6dXtBatMxgvAUKG04HGQ8GcjMnE9vAOu2CBdQ4m7SQse8C
-	 W1jYywMzoAaOGnuLv2xcDaPbBqhp+7vjf9ZKmdzFfBwerHgNt4NKfTHi12+fv/HkF7
-	 JDYjm5yTda1Nw==
-Date: Tue, 7 Apr 2026 21:38:32 +0200
+	b=svL9lTOTlQvQW0aFeFKP/n5yfvO3GIW0MAh6CQjV8BDjzRyW110HJqQrlD2OHyqtS
+	 Q692ehekWJW1duvyjeW/LnXHSp1n3mpWZaBk/xLCaLVeBZEkNI7D1oxaJlKWl+nRu9
+	 MD9N2qhC6DuDbgoJZ4YDrVlvpBOJ7yNWOojg41Ywe36x+PieL81EJg2L9U1AoNe0bS
+	 n1kxPN3enhPp93NsycEDtH74lRzyCtF+jbuz4X/nLe5ukrZT49KmvSpj5+6QeACdNv
+	 /8Enc1MenSmwjSptV9YecbQcl0TXA+nhfF3Bbo3ytWFXK7DZley68PuTxeTONWE4NR
+	 aRSRs5uDp+BcA==
+Date: Tue, 7 Apr 2026 21:35:58 +0200
 From: Nicolas Schier <nsc@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
 Cc: Nathan Chancellor <nathan@kernel.org>,
@@ -80,9 +80,9 @@ Cc: Nathan Chancellor <nathan@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: Re: [PATCH v2 25/33] docs: rust: quick-start: add Ubuntu 26.04 LTS
- and remove subsection title
-Message-ID: <adVdOOTJ0Iku8A3g@levanger>
+Subject: Re: [PATCH v2 33/33] rust: kbuild: allow `clippy::precedence` for
+ Rust < 1.86.0
+Message-ID: <adVcnj-bD99tOWDy@levanger>
 Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -122,13 +122,13 @@ Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-26-ojeda@kernel.org>
+ <20260405235309.418950-34-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260405235309.418950-26-ojeda@kernel.org>
+In-Reply-To: <20260405235309.418950-34-ojeda@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_124000_719399_DB5F32BD 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20260407_123955_209677_251C6A1F 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,31 +145,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 01:53:01AM +0200, Miguel Ojeda wrote:
-> Ubuntu 26.04 LTS (Resolute Raccoon) is scheduled to be released in a few
-> weeks [1], and it has a recent enough Rust toolchain, just like Ubuntu
-> 25.10 has [2][3].
+On Mon, Apr 06, 2026 at 01:53:09AM +0200, Miguel Ojeda wrote:
+> The Clippy `precedence` lint was extended in Rust 1.85.0 to include
+> bitmasking and shift operations [1]. However, because it generated
+> many hits, in Rust 1.86.0 it was split into a new `precedence_bits`
+> lint which is not enabled by default [2].
 > 
-> We could update the title and the paragraph, but to simplify and to
-> make it more consistent with the other distributions' sections, let's
-> instead just remove that title. It will also reduce the differences
-> later on to keep it updated. Eventually, when we remove the remaining
-> subsection for older LTSs, Ubuntu should be a small section like the
-> other distributions.
+> In other words, only Rust 1.85 has a different behavior. For instance,
+> it reports:
 > 
-> Thus remove the title and add the mention of Ubuntu 26.04 LTS.
+>     warning: operator precedence can trip the unwary
+>       --> drivers/gpu/nova-core/fb/hal/ga100.rs:16:5
+>        |
+>     16 | /     u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR::read(bar).adr_39_08()) << FLUSH_SYSMEM_ADDR_SHIFT
+>     17 | |         | u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR_HI::read(bar).adr_63_40())
+>     18 | |             << FLUSH_SYSMEM_ADDR_SHIFT_HI
+>        | |_________________________________________^
+>        |
+>        = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence
+>        = note: `-W clippy::precedence` implied by `-W clippy::all`
+>        = help: to override `-W clippy::all` add `#[allow(clippy::precedence)]`
+>     help: consider parenthesizing your expression
+>        |
+>     16 ~     (u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR::read(bar).adr_39_08()) << FLUSH_SYSMEM_ADDR_SHIFT) | (u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR_HI::read(bar).adr_63_40())
+>     17 +             << FLUSH_SYSMEM_ADDR_SHIFT_HI)
+>        |
 > 
-> Link: https://documentation.ubuntu.com/release-notes/26.04/schedule/#resolute-raccoon-schedule [1]
-> Link: https://packages.ubuntu.com/search?keywords=rustc&searchon=names&exact=1&suite=all&section=all [2]
-> Link: https://packages.ubuntu.com/search?keywords=bindgen&searchon=names&exact=1&suite=all&section=all [3]
+> While so far we try our best to keep all versions Clippy-clean, the
+> minimum (which is now Rust 1.85.0 after the bump) and the latest stable
+> are the most important ones; and this may be considered a "false positive"
+> with respect to the behavior in other versions.
+> 
+> Thus allow this lint for this version using the per-version flags
+> mechanism introduced in the previous commit.
+> 
+> Link: https://github.com/rust-lang/rust-clippy/issues/14097 [1]
+> Link: https://github.com/rust-lang/rust-clippy/pull/14115 [2]
+> Link: https://lore.kernel.org/rust-for-linux/DFVDKMMA7KPC.2DN0951H3H55Y@kernel.org/
 > Reviewed-by: Tamir Duberstein <tamird@kernel.org>
+> Reviewed-by: Gary Guo <gary@garyguo.net>
 > Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 > ---
->  Documentation/rust/quick-start.rst | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
+>  Makefile | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
 
-Reviewed-by: Nicolas Schier <nsc@kernel.org>
+Acked-by: Nicolas Schier <nsc@kernel.org>
 
 -- 
 Nicolas
