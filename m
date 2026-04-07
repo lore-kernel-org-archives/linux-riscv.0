@@ -4,49 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869F2FB5183
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA3BDFB5180
 	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 02:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l7kH/IEakcc6tN3JKvme6xinmSrOBwqqxSOlcTdT1+Y=; b=CKLSVudEgHc3nr
-	FY36wxh3O8t+g5AldzeikzGPUCVfEqET3zXjcwA4WN7qtJXalItI/FTa3Xf2tmz5mYJW2rOwMlEmD
-	C2vjN7HaJQvEiyXydNqydv8mVieclImEC0eOaDyaDzr8XyNhP0M9WNmEuDXNpafUKC6dYD94B4cOV
-	iLLwpCQXVHnn4cLTWZ42mc/CEkFszFhuRJcj2GyAFpcEbxb0V5hna+hL8OXq/2Krpep7QreJEz2c+
-	wnGbaNUJ9rd+aJknPTHzfYBG+FhFCgenKanUrNRTNM3ThwJA+asDiyLszDT+GAFRiX7DB1NqdSfoQ
-	gploMrm2osihNDXplYUw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qfgm79MnSEIh3jiYnYuEAxjUzLQC9g+SNMobRIizaQ4=; b=v2VDhqA0v8Bx9t
+	524pDknvc2FhH87WEj20JMKQRR3P3hsvvUTHbSa/qK/UdJt9a21qAm+ugWs/SYuG9nQ21YDvy+qmF
+	DnYa+GqKEZNDNCgE3Npk8jTvF/TBm609ugCF5NVRmgUE0AGB4YtD5CXBrW9S6/4y/Sty66sxh9yQw
+	8gu6YZa0a9R1IjqUQeUHapwF2zP71j+2BZre+uftesFNVfB833L13bk2dic7tMWAbW45VMmY/rVLC
+	IUwVvOpmxncbB8C44bP4yoRE5H+oq5G/7KetUSWvI0FG+0anqdWbsijKrzsWVlxkmlW4Z8zmb3eAL
+	OfYMaKgT3VG6FZSJIvRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9wNq-00000005m64-03iQ;
-	Tue, 07 Apr 2026 02:41:42 +0000
+	id 1w9wNs-00000005m6h-1OYP;
+	Tue, 07 Apr 2026 02:41:44 +0000
 Received: from [218.76.62.146] (helo=ultrarisc.com)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9wNl-00000005m5b-3mUJ
+	id 1w9wNp-00000005m63-2rPq
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 02:41:40 +0000
+	Tue, 07 Apr 2026 02:41:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Subject:Date:Message-Id:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:To:Cc; bh=Pi
-	OD5if298dAjR7lffL2+OuB1JlVL5oKWZXOfPZmCgc=; b=jJZY4Y0HDm0rC+3bVZ
-	2wRrYDL5B7lIJTj8yNQjqUGzGNF064A4QCee52nomh2CTSchlpNfO6wqKnOc40dG
-	gxkdCcXiSChW1bO9jXSkV/99X6zfL3JiY1o8TzBtksZ0ciRbj5FPMcrzRdBuHh8l
-	/vJRoyRKMohLENNu2LuhGtBa0=
+	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
+	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	References:In-Reply-To:To:Cc; bh=zxY1VY+lBxzA0Zky0PLENhVVOAkvhGt
+	yiMmOwdRciS4=; b=Fb1gbpfZ1PbdzGypBGkkuLkU8IFImjxgjCa7fP9BiDRaf9u
+	V1i/GAq857YJ/nCedXZ/3mh8daCWiVzbxFsW5cN1XttLX1JT4jVSi3hUAe1JgUr/
+	3wojOV3YhYCaS7ynCVuZkUZcKFzlP0VlLqn9TtUx5CY1AVGsjK3E9L+67KrU=
 Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwDXEELwbtRpBZsBAA--.862S2;
-	Tue, 07 Apr 2026 10:41:52 +0800 (CST)
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwDXEELwbtRpBZsBAA--.862S5;
+	Tue, 07 Apr 2026 10:42:04 +0800 (CST)
 From: Jia Wang <wangjia@ultrarisc.com>
-Subject: [PATCH v2 0/4] riscv: Add PCIe support for UltraRISC DP1000 SoC
-Date: Tue, 07 Apr 2026 10:40:51 +0800
-Message-Id: <20260407-ultrarisc-pcie-v2-0-2aa2a19a7fb3@ultrarisc.com>
+Date: Tue, 07 Apr 2026 10:40:54 +0800
+Subject: [PATCH v2 3/4] dt-bindings: PCI: Add UltraRISC DP1000 PCIe
+ controller
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIALNu1GkC/12NQQ6CMBBFr0JmbU1pm8q48h6GBZZBxiiQFoiG9
- O4WjC5cvuT99xcI5JkCHLMFPM0cuO8SqF0Grq26KwmuE4OSykqdSzHdR195Dk4MjkkYNIjFwWq
- NCGk0eGr4uQXP5YfDdLmRG9fKarQcxt6/tsc5X71v3P7H51xIQY1CY6kmi8XpJ+xd/4AyxvgGw
- AGN58IAAAA=
-X-Change-ID: 20260310-ultrarisc-pcie-494998763399
+Message-Id: <20260407-ultrarisc-pcie-v2-3-2aa2a19a7fb3@ultrarisc.com>
+References: <20260407-ultrarisc-pcie-v2-0-2aa2a19a7fb3@ultrarisc.com>
+In-Reply-To: <20260407-ultrarisc-pcie-v2-0-2aa2a19a7fb3@ultrarisc.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -60,34 +58,35 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
  Jia Wang <wangjia@ultrarisc.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775529665; l=2940;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775529665; l=3584;
  i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=jgmH9MAIlGW+9LY5/UyxKfDb5yg/DiWH0mwXq8sOR7k=;
- b=c7R4gnETYMwOBI4tuFurKaz9H7e06t5LrCuuF5MBE7fCvOL9rBMtI3BTrLVrSrxhHzg4r3FNL
- iGRuZtRu2eGD9M8n85HDsm9ez2zPX+4eUWEW/rkUtwYwpqy25Z062P8
+ bh=n6k/8wVJxmWBeO9BePZHpNqxXLjgjCXk7EWhwiY8EOc=;
+ b=4U9tay0snX893PxYeDI0ZtUoKjuXL9cGomfwis8ZKod2+9hoZwf3QZ4OiXHovJkU91RsSoM9B
+ PF7UtjO9w8gDECWOyaFrErsZwUPF0xTyjBKlWU7xOW+IasOav+Fp3oS
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwDXEELwbtRpBZsBAA--.862S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWw1ftr1rur47tr43JF1rCrg_yoW5Xw4Dpa
-	98WF4fAF97Kr43GF4ft3WxuFySqF4kArW2gFsFgw17tF9xuryUX3sFga1avasrArn5Xw12
-	kFWY9w1rGw47Za7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRRBT5DUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQADEWnJ8zoANQAQsf
+X-CM-TRANSID: AQAAfwDXEELwbtRpBZsBAA--.862S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxZw4kZr4UtrW7GrWktFWxtFb_yoW5ZryfpF
+	W5Ca4kCF4xtr13uw4fG3W0kF15JF4vkFZYkwnFgw43JrZYgFWjqrsIkw43Jw15GrWDXw12
+	gFn0v347Kw17Aw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmG14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r4UJwAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E
+	4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
+	WUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
+	Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj4
+	0_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8
+	JrUvcSsGvfC2KfnxnUUI43ZEXa7VUUbAw7UUUUU==
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAKEWnTLbsAJAAAsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_194138_675882_01813AB4 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20260406_194142_078396_19338D9E 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,74 +103,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds PCIe controller support for the UltraRISC DP1000 SoC.
-The DP1000 is an 8-core 64-bit RISC-V SoC based on UltraRISC CP100 cores,
-supporting RV64GCBHX ISA with Hardware Virtualization and RISC-V H(v1.0)
-Extension.
-
-The PCIe controller is based on Synopsys DesignWare PCIe IP.
-This series adds:
-- Patch 1 adds the basic SoC family Kconfig support for UltraRISC platforms.
-- Patch 2 adds the MAINTAINERS entry for the new driver.
-- Patch 3 adds the device tree bindings documentation for the PCIe controller.
-- Patch 4 introduces the PCIe host controller driver.
-
-The patches have been tested on UltraRISC DP1000 development board with
-various PCIe devices including NVMe SSDs and network cards, verifying
-link establishment, enumeration, and basic data transfer.
+Add UltraRISC DP1000 SoC PCIe controller devicetree bindings.
 
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
-Changes in v2:
-- Rebased onto v7.0-rc7.
-- Patch 1:
-   * Removed unnecessary 'depends' line.
-   * Fixed help text indentation.
-- Patch 2:
-   * No changes.
-- Patch 3:
-   * Updated $ref to use 'snps,dw-pcie.yaml' as the base schema.
-   * Add interrupts/interrupt-names (MSI + INTx).
-   * Drop properties covered by generic DWC/PCI host bindings;
-     update example accordingly.
-   * Verified the schema passes 'make dt_binding_check' and 'yamllint'.
-- Patch 4:
-   * Update commit message.
-   * Kconfig: switch PCIE_ULTRARISC to tristate; simplify help text.
-   * Convert suspend/resume to dev_pm_ops and called
-      `dw_pcie_suspend_noirq()` / `dw_pcie_resume_noirq()`.
-   * Use FIELD_MODIFY(); adjust DWC header macros/comments.
-   * Added empty `.pme_turn_off()` callback for DP1000 limitation.
-   * Renamed link callback to `start_link`.
-   * Switched to `module_platform_driver()`.
-   * Formatting cleanups (headers order, spacing, variable naming,
-     function names)
-- Link to v1: https://patch.msgid.link/20260316-ultrarisc-pcie-v1-0-ef2946ede698@ultrarisc.com
+ .../bindings/pci/ultrarisc,dp1000-pcie.yaml        | 103 +++++++++++++++++++++
+ 1 file changed, 103 insertions(+)
 
----
-Jia Wang (3):
-      riscv: add UltraRISC SoC family Kconfig support
-      MAINTAINERS: Add entry for the UltraRISC DP1000 PCIe controller driver and its DT binding
-      dt-bindings: PCI: Add UltraRISC DP1000 PCIe controller
+diff --git a/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
+new file mode 100644
+index 000000000000..d0517130e127
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
+@@ -0,0 +1,103 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/ultrarisc,dp1000-pcie.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: UltraRISC DP1000 PCIe Host Controller
++
++description: |
++  UltraRISC DP1000 SoC PCIe host controller is based on the DesignWare PCIe IP.
++  This binding describes the UltraRISC specific extensions to the base
++  DesignWare PCIe binding.
++
++maintainers:
++  - Xincheng Zhang <zhangxincheng@ultrarisc.com>
++  - Jia Wang <wangjia@ultrarisc.com>
++
++allOf:
++  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++
++properties:
++  compatible:
++    const: ultrarisc,dp1000-pcie
++
++  reg:
++    items:
++      - description: Data Bus Interface (DBI) registers.
++      - description: PCIe configuration space region.
++
++  reg-names:
++    items:
++      - const: dbi
++      - const: config
++
++  num-lanes:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [4, 16]
++    description: Number of lanes to use.
++
++  max-link-speed:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    const: 4
++    description: Maximum PCIe link speed supported.
++
++  interrupts:
++    description: List of interrupt specifiers used by the controller
++    items:
++      - description: MSI interrupt
++      - description: Legacy INTA interrupt
++      - description: Legacy INTB interrupt
++      - description: Legacy INTC interrupt
++      - description: Legacy INTD interrupt
++
++  interrupt-names:
++    items:
++      - const: msi
++      - const: inta
++      - const: intb
++      - const: intc
++      - const: intd
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - interrupts
++  - interrupt-names
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      pcie_x16: pcie@21000000 {
++        compatible = "ultrarisc,dp1000-pcie";
++        #address-cells = <3>;
++        #size-cells = <2>;
++        #interrupt-cells = <1>;
++        reg = <0x0 0x21000000 0x0 0x01000000>,
++              <0x0 0x4fff0000 0x0 0x00010000>;
++        reg-names = "dbi", "config";
++        device_type = "pci";
++        dma-coherent;
++        bus-range = <0x0 0xff>;
++        num-lanes = <16>;
++        ranges = <0x81000000  0x0 0x4fbf0000  0x0 0x4fbf0000  0x0 0x00400000>,
++                 <0x82000000  0x0 0x40000000  0x0 0x40000000  0x0 0x0fbf0000>,
++                 <0xc3000000 0x40 0x00000000 0x40 0x00000000  0xd 0x00000000>;
++
++        max-link-speed = <4>;
++        interrupt-parent = <&plic>;
++        interrupts = <43>, <44>, <45>, <46>, <47>;
++        interrupt-names = "msi", "inta", "intb", "intc", "intd";
++        interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++        interrupt-map = <0x0 0x0 0x0 0x1 &plic 44>,
++                        <0x0 0x0 0x0 0x2 &plic 45>,
++                        <0x0 0x0 0x0 0x3 &plic 46>,
++                        <0x0 0x0 0x0 0x4 &plic 47>;
++      };
++    };
 
-Xincheng Zhang (1):
-      PCI: ultrarisc: Add UltraRISC DP1000 PCIe Root Complex driver
-
- .../bindings/pci/ultrarisc,dp1000-pcie.yaml        | 103 +++++++++++
- MAINTAINERS                                        |   8 +
- arch/riscv/Kconfig.socs                            |   9 +
- drivers/pci/controller/dwc/Kconfig                 |  12 ++
- drivers/pci/controller/dwc/Makefile                |   1 +
- drivers/pci/controller/dwc/pcie-designware.h       |  22 +++
- drivers/pci/controller/dwc/pcie-ultrarisc.c        | 188 +++++++++++++++++++++
- 7 files changed, 343 insertions(+)
----
-base-commit: bfe62a454542cfad3379f6ef5680b125f41e20f4
-change-id: 20260310-ultrarisc-pcie-494998763399
-
-Best regards,
---  
-Jia Wang <wangjia@ultrarisc.com>
+-- 
+2.34.1
 
 
 _______________________________________________
