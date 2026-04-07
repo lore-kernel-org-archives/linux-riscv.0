@@ -4,43 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99ED6FB518A
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 03:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF92FB518B
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 03:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MaScDNJbtKZsYtSpqN3V/gDFhy6Lc7pkuL1x15nlmrk=; b=43/uAQW83UlOFO
-	ZowSysQrKgeS2xhD8WPybZiPEiRBdku79DrKpUpBf/21bgpHh3cA9eLdXWD432K4R1U0xxuyChP0U
-	HCMIiOfvcRYYDPveUQ3vxQHi1ER4fwu7icR4nP8Z64WlYuTSfKxx7oJYB/+MsFgAu3Pn/T52qzMqj
-	uovyMKzgi2IuiO0MpwGP3bIFm/jHcEqtnRmUmlsvAbbBuO+pds55gto2hSGyBInqgFngqroDAQjHn
-	ZoMWhTBnP1BNPhU/LoO4tVppqTG3/p5NwFVkCENxLV8D8DTYZH0+IUFYEHgR4BkAuSNEneuWHI8gG
-	aecpvRp6AEyI+lm0h01Q==;
+	List-Archive:List-Unsubscribe:List-Id:CC:To:MIME-Version:Message-ID:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XGdaHzjUDotsi+TiRHSfnOO7iEhBDYH7akfEo+CXte0=; b=2he+dCptTqrKDq
+	/zorXU5P3lfOnZgdavATSKlNnCCdjuA33KvhYOsfCl7DiIcrNIXyonnGlY3d5PRDeZl7rcsB6vLbY
+	LI4XGO367CSVGqhKBZL9uhLmqxK65SdrjOyG28uUiT+xNpw2MC82Fc7MnfBF8oafmBHuKX362xrDF
+	hi77gB/Fd7l6Mm0MpeauoyuDHK1HNERkUWleYZGtx8S2OVSyXyZ3Trll3LurfWybz3XrimM+1raj+
+	uS/Sx+L7q4ElIcaqQcf1Cb4E7QDQ5Bvg1WUVJujMyi1z6NZYvhyaAw7X8vjeA94BkUqIHEh6cKdWU
+	ymExrBis+tloz540VlUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9wng-00000005na6-2xrE;
-	Tue, 07 Apr 2026 03:08:24 +0000
+	id 1w9wnZ-00000005nUd-1OiE;
+	Tue, 07 Apr 2026 03:08:17 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9wnd-00000005nTu-3j7W;
-	Tue, 07 Apr 2026 03:08:23 +0000
+	id 1w9wnW-00000005nTu-37MX;
+	Tue, 07 Apr 2026 03:08:16 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 7 Apr
- 2026 11:08:05 +0800
+ 2026 11:08:04 +0800
 Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 7 Apr 2026 11:08:05 +0800
+ Transport; Tue, 7 Apr 2026 11:08:04 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Tue, 7 Apr 2026 11:08:06 +0800
-Subject: [PATCH v5 3/4] irqchip/ast2700-intc: Add KUnit tests for route
- resolution
+Subject: [PATCH v5 0/4] AST2700-A2 interrupt controller hierarchy and route
+ support
+Date: Tue, 7 Apr 2026 11:08:03 +0800
+Message-ID: <20260407-irqchip-v5-0-c0b0a300a057@aspeedtech.com>
 MIME-Version: 1.0
-Message-ID: <20260407-irqchip-v5-3-c0b0a300a057@aspeedtech.com>
-References: <20260407-irqchip-v5-0-c0b0a300a057@aspeedtech.com>
-In-Reply-To: <20260407-irqchip-v5-0-c0b0a300a057@aspeedtech.com>
+X-B4-Tracking: v=1; b=H4sIABN11GkC/23MwQ6CMAzG8VcxOzvTrdCJJ9/DeMDSyQ4KboRoD
+ O/u8AKJHr+mv/9bJYlBkjps3irKGFLo7nmU243itr5fRYcmb2XBElgodYgPbkOvndTikVzRSKX
+ ydx/Fh+e3dDrn3YY0dPH1DY9mvv42RqNBXwANCBDD3h3r1Is0g3C74+6m5tBoF4xAC7YZ+31pL
+ EN1EcK/GFfYrjBmjEQOK1+6mv1fXKwwwoKLGTN4QxaYgX7wNE0f47db+1oBAAA=
+X-Change-ID: 20260205-irqchip-7eaef3674de9
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
  Jeffery" <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
@@ -51,16 +54,16 @@ CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, Ryan Chen <ryan_chen@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775531284; l=15577;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775531284; l=5780;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=0sLR6BB/w8nrHF2voMDdQ7Ck+6iZYGuYex8Z6iat808=;
- b=oALstVX3nuBZA6On1anELklfPOi4sb15t/Mw9LA3R2Wl4h0K392+r1zeSypxVWg6BIQbyz6qL
- peuSMDBUtOsB4s/dfldK7D5g9tLxpEOqXjFo8BnJVWxOWLvtVOPiH2J
+ bh=6+9skIeBKMpnp8/9FeVOV83soZuwsa79YV+g8KhVhnk=;
+ b=R8aMVBjns27VKqiyV93c13Nm6t9MPe4j7TnbDqdkWPiXENeG3jLCkUG5QkRrq/LRVEKiyt76d
+ neKofaKyLIvBxvHYL1XrRogFPZnhbUxv4hsq2aCiEtI7vr83M4vIWIx
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_200822_116516_5B1029F9 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260406_200814_790206_E89EA85F 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,574 +80,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a KUnit suite for aspeed_intc0_resolve_route().
+The AST2700 SoC has undergone multiple silicon revisions (A0, A1, A2)
+prior to mass production.
 
-Cover invalid arguments, invalid domain/range data, connected and
-disconnected mappings, and malformed upstream range cases.
+A0 laid the ground-work with a split controller design (INTC0 and
+INTC1) used for early development and bring-up. The interrupt
+architecture was substantially reworked in the A1 to introduce an
+explicit routing model and clearer hierarchy, though the split
+controllers remained. The A1 interrupt architecture is unchanged in A2.
+
+A2 is the production design. A0 and A1 are pre-production silicon and
+are no longer intended for deployment outside of ASPEED.
+
+The existing binding and driver were written against A0 prior to the A1
+rework. The A0 design directly wired INTC1 instances to INTC0, and
+INTC0 to the GIC of the Primary Service Processor (PSP, a Cortex-A35).
+The A0 binding and driver therefore do not account for the alternative
+destinations of the Secondary and Tertiary Service Processors (SSP,
+TSP) and BootMCU, or the necessary route selection logic present in the
+production design.
+
+With the above context, this series replaces the existing binding and
+driver.
+
+It is not necessary for projects to maintain support for A0 due to its
+pre-production nature, and between Linux, U-Boot and Zephyr there are
+no upstream devicetree users of the current binding.
+
+The new binding uses localised interrupt numbers and models the
+hardware connectivity between interrupt controllers using the
+aspeed,interrupt-ranges property. It is introduced in a new file before
+the existing binding is removed in order to keep the diff readable.
+
+The INTC0 driver creates a hierarchical irqdomain under the selected
+upstream interrupt controller and implements route resolution logic.
+INTC1 driver instances defer route selection to INTC0 and expose a
+linear interrupt namespace to their parent.
+
+A brief history of related submissions
+--------------------------------------
+
+Some modifications to the existing binding were sent to the lists in
+the past. Due to process choices the revisions were difficult to track.
+They are listed below.
+
+The approaches took several forms but ended in the minor adjustment in
+v6 being applied. This enabled use of the A1 design but requires
+assumptions about platform route configuration defined in firmware.
+These assumptions are removed by this current series.
+
+* [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700 binding description and example
+  https://lore.kernel.org/all/20250714071753.2653620-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v2] dt-bindings: interrupt-controller: aspeed: Add parent node compatibles and refine documentation
+  https://lore.kernel.org/all/20250715024258.2304665-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v3 0/2] irqchip: aspeed: Add AST2700 INTC debugfs support and yaml update
+  https://lore.kernel.org/all/20250722095156.1672873-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v4 0/2] irqchip/ast2700-intc: Add AST2700 INTC debugfs support and yaml update
+  https://lore.kernel.org/all/20250812100830.145578-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v5 0/3] AST2700 interrupt controller hierarchy support
+  https://lore.kernel.org/all/20251022065507.1152071-1-ryan_chen@aspeedtech.com/
+
+* [PATCH v6 0/1] Update correct AST2700 interrupt controller binding
+  https://lore.kernel.org/all/20251030060155.2342604-1-ryan_chen@aspeedtech.com/
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-
 ---
 Changes in v5:
-- modify enable CONFIG_PROVE_LOCKING irq lock inversion dependency
+- 2/4 reduce unnecessary line breaks.
+- 2/4, 3/4 fix enable CONFIG_PROVE_LOCKING irq lock inversion dependency
   detected.
+- Link to v4: https://lore.kernel.org/r/20260330-irqchip-v4-0-3c0f1620cc06@aspeedtech.com
+
 Changes in v4:
-- fix warning: the frame size of 1296 bytes is larger than 1280 bytes.
+- 3/4 fix warning: the frame size of 1296 bytes is larger than 1280 bytes
+- Link to v3: https://lore.kernel.org/r/20260326-irqchip-v3-0-366739f57acf@aspeedtech.com
+
+Changes in v3:
+- 1/4 Squash patch 5/5 and 1/5.
+- 1/4 modify wrap lines at 80 char.
+- 1/4 modify maintainers name and email.
+- 1/4 modify typo Sevice-> Service
+- Link to v2: https://lore.kernel.org/r/20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com
+
 Changes in v2:
-- add line break before include "irq-ast2700.h"
-- remove pointless newline.
-- rename arm_gicv3_fwnode_read_string_array to
-  gicv3_fwnode_read_string_array
-- add .kunitconfig file
+- Change suject to "AST2700-A2 interrupt controller hierarchy and route
+  support".
+- Describe timeline for (pre-)production design evolution and
+  binding development to support the break in compatibility.
+- fix "make dt_binding_check" compatible string consistance with
+  example.
+- Split KUnit coverage out of the main driver patch.
+- Link to v1: https://lore.kernel.org/r/20260205-irqchip-v1-0-b0310e06c087@aspeedtech.com
+
 ---
- drivers/irqchip/.kunitconfig             |   5 +
- drivers/irqchip/Kconfig                  |  11 +
- drivers/irqchip/Makefile                 |   1 +
- drivers/irqchip/irq-ast2700-intc0-test.c | 473 +++++++++++++++++++++++++++++++
- drivers/irqchip/irq-ast2700-intc0.c      |   3 +-
- 5 files changed, 492 insertions(+), 1 deletion(-)
+Ryan Chen (4):
+      dt-bindings: interrupt-controller: Describe AST2700-A2 hardware instead of A0
+      irqchip/ast2700-intc: Add AST2700-A2 support
+      irqchip/ast2700-intc: Add KUnit tests for route resolution
+      irqchip/aspeed-intc: Remove AST2700-A0 support
 
-diff --git a/drivers/irqchip/.kunitconfig b/drivers/irqchip/.kunitconfig
-new file mode 100644
-index 000000000000..00a12703f635
---- /dev/null
-+++ b/drivers/irqchip/.kunitconfig
-@@ -0,0 +1,5 @@
-+CONFIG_KUNIT=y
-+CONFIG_OF=y
-+CONFIG_COMPILE_TEST=y
-+CONFIG_ASPEED_AST2700_INTC=y
-+CONFIG_ASPEED_AST2700_INTC_TEST=y
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 0156fee89b2c..143af3f30a4b 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -122,6 +122,17 @@ config ASPEED_AST2700_INTC
- 
- 	  If unsure, say N.
- 
-+config ASPEED_AST2700_INTC_TEST
-+	bool "Tests for the ASPEED AST2700 Interrupt Controller"
-+	depends on ASPEED_AST2700_INTC && KUNIT=y
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Enable KUnit tests for AST2700 INTC route resolution.
-+	  The tests exercise error handling and route selection paths.
-+	  This option is intended for test builds.
-+
-+	  If unsure, say N.
-+
- config ATMEL_AIC_IRQ
- 	bool
- 	select GENERIC_IRQ_CHIP
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index 62790663f982..ac04a4b97797 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -90,6 +90,7 @@ obj-$(CONFIG_MVEBU_SEI)			+= irq-mvebu-sei.o
- obj-$(CONFIG_LS_EXTIRQ)			+= irq-ls-extirq.o
- obj-$(CONFIG_LS_SCFG_MSI)		+= irq-ls-scfg-msi.o
- obj-$(CONFIG_ASPEED_AST2700_INTC)	+= irq-ast2700.o irq-ast2700-intc0.o irq-ast2700-intc1.o
-+obj-$(CONFIG_ASPEED_AST2700_INTC_TEST)	+= irq-ast2700-intc0-test.o
- obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-vic.o irq-aspeed-i2c-ic.o irq-aspeed-scu-ic.o
- obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-intc.o
- obj-$(CONFIG_STM32MP_EXTI)		+= irq-stm32mp-exti.o
-diff --git a/drivers/irqchip/irq-ast2700-intc0-test.c b/drivers/irqchip/irq-ast2700-intc0-test.c
-new file mode 100644
-index 000000000000..d49784509ac7
---- /dev/null
-+++ b/drivers/irqchip/irq-ast2700-intc0-test.c
-@@ -0,0 +1,473 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ *  Copyright (C) 2026 Code Construct
-+ */
-+#include <kunit/test.h>
-+
-+#include "irq-ast2700.h"
-+
-+static void aspeed_intc0_resolve_route_bad_args(struct kunit *test)
-+{
-+	static const struct aspeed_intc_interrupt_range c1ranges[] = { 0 };
-+	static const u32 c1outs[] = { 0 };
-+	struct aspeed_intc_interrupt_range resolved;
-+	const struct irq_domain c0domain = { 0 };
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(NULL, 0, c1outs, 0, c1ranges, NULL);
-+	KUNIT_EXPECT_EQ(test, rc, -EINVAL);
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, 0, c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_EQ(test, rc, -ENOENT);
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					0, c1ranges, &resolved);
-+	KUNIT_EXPECT_EQ(test, rc, -ENOENT);
-+}
-+
-+static int gicv3_fwnode_read_string_array(const struct fwnode_handle *fwnode,
-+					  const char *propname, const char **val, size_t nval)
-+{
-+	if (!propname)
-+		return -EINVAL;
-+
-+	if (!val)
-+		return 1;
-+
-+	if (WARN_ON(nval != 1))
-+		return -EOVERFLOW;
-+
-+	*val = "arm,gic-v3";
-+	return 1;
-+}
-+
-+static const struct fwnode_operations arm_gicv3_fwnode_ops = {
-+	.property_read_string_array = gicv3_fwnode_read_string_array,
-+};
-+
-+static void aspeed_intc_resolve_route_invalid_c0domain(struct kunit *test)
-+{
-+	struct device_node intc0_node = {
-+		.fwnode = { .ops = &arm_gicv3_fwnode_ops },
-+	};
-+	const struct irq_domain c0domain = { .fwnode = &intc0_node.fwnode };
-+	static const struct aspeed_intc_interrupt_range c1ranges[] = { 0 };
-+	static const u32 c1outs[] = { 0 };
-+	struct aspeed_intc_interrupt_range resolved;
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_NE(test, rc, 0);
-+}
-+
-+static int
-+aspeed_intc0_fwnode_read_string_array(const struct fwnode_handle *fwnode_handle,
-+				      const char *propname, const char **val,
-+				      size_t nval)
-+{
-+	if (!propname)
-+		return -EINVAL;
-+
-+	if (!val)
-+		return 1;
-+
-+	if (WARN_ON(nval != 1))
-+		return -EOVERFLOW;
-+
-+	*val = "aspeed,ast2700-intc0";
-+	return nval;
-+}
-+
-+static const struct fwnode_operations intc0_fwnode_ops = {
-+	.property_read_string_array = aspeed_intc0_fwnode_read_string_array,
-+};
-+
-+static void
-+aspeed_intc0_resolve_route_c1i1o1c0i1o1_connected(struct kunit *test)
-+{
-+	struct device_node intc0_node = {
-+		.fwnode = { .ops = &intc0_fwnode_ops },
-+	};
-+	struct aspeed_intc_interrupt_range c1ranges[] = {
-+		{
-+			.start = 0,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = &intc0_node.fwnode,
-+				.param_count = 1,
-+				.param = { 128 }
-+			}
-+		}
-+	};
-+	static const u32 c1outs[] = { 0 };
-+	struct aspeed_intc_interrupt_range resolved;
-+	struct aspeed_intc_interrupt_range intc0_ranges[] = {
-+		{
-+			.start = 128,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = NULL,
-+				.param_count = 0,
-+				.param = { 0 },
-+			}
-+		}
-+	};
-+	struct aspeed_intc0 intc0 = {
-+		.ranges = { .ranges = intc0_ranges, .nranges = ARRAY_SIZE(intc0_ranges), }
-+	};
-+	const struct irq_domain c0domain = {
-+		.host_data = &intc0,
-+		.fwnode = &intc0_node.fwnode
-+	};
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_EQ(test, rc, 0);
-+	KUNIT_EXPECT_EQ(test, resolved.start, 0);
-+	KUNIT_EXPECT_EQ(test, resolved.count, 1);
-+	KUNIT_EXPECT_EQ(test, resolved.upstream.param[0], 128);
-+}
-+
-+static void
-+aspeed_intc0_resolve_route_c1i1o1c0i1o1_disconnected(struct kunit *test)
-+{
-+	struct device_node intc0_node = {
-+		.fwnode = { .ops = &intc0_fwnode_ops },
-+	};
-+	struct aspeed_intc_interrupt_range c1ranges[] = {
-+		{
-+			.start = 0,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = &intc0_node.fwnode,
-+				.param_count = 1,
-+				.param = { 128 }
-+			}
-+		}
-+	};
-+	static const u32 c1outs[] = { 0 };
-+	struct aspeed_intc_interrupt_range resolved;
-+	struct aspeed_intc_interrupt_range intc0_ranges[] = {
-+		{
-+			.start = 129,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = NULL,
-+				.param_count = 0,
-+				.param = { 0 },
-+			}
-+		}
-+	};
-+	struct aspeed_intc0 intc0 = {
-+		.ranges = {
-+			.ranges = intc0_ranges,
-+			.nranges = ARRAY_SIZE(intc0_ranges),
-+		}
-+	};
-+	const struct irq_domain c0domain = {
-+		.host_data = &intc0,
-+		.fwnode = &intc0_node.fwnode
-+	};
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_NE(test, rc, 0);
-+}
-+
-+static void aspeed_intc0_resolve_route_c1i1o1mc0i1o1(struct kunit *test)
-+{
-+	struct device_node intc0_node = {
-+		.fwnode = { .ops = &intc0_fwnode_ops },
-+	};
-+	struct aspeed_intc_interrupt_range c1ranges[] = {
-+		{
-+			.start = 0,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = &intc0_node.fwnode,
-+				.param_count = 1,
-+				.param = { 480 }
-+			}
-+		}
-+	};
-+	static const u32 c1outs[] = { 0 };
-+	struct aspeed_intc_interrupt_range resolved;
-+	struct aspeed_intc_interrupt_range intc0_ranges[] = {
-+		{
-+			.start = 192,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = NULL,
-+				.param_count = 0,
-+				.param = { 0 },
-+			}
-+		}
-+	};
-+	struct aspeed_intc0 intc0 = {
-+		.ranges = {
-+			.ranges = intc0_ranges,
-+			.nranges = ARRAY_SIZE(intc0_ranges),
-+		}
-+	};
-+	const struct irq_domain c0domain = {
-+		.host_data = &intc0,
-+		.fwnode = &intc0_node.fwnode
-+	};
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_EQ(test, rc, 0);
-+	KUNIT_EXPECT_EQ(test, resolved.start, 0);
-+	KUNIT_EXPECT_EQ(test, resolved.count, 1);
-+	KUNIT_EXPECT_EQ(test, resolved.upstream.param[0], 480);
-+}
-+
-+static void aspeed_intc0_resolve_route_c1i2o2mc0i1o1(struct kunit *test)
-+{
-+	struct device_node intc0_node = {
-+		.fwnode = { .ops = &intc0_fwnode_ops },
-+	};
-+	struct aspeed_intc_interrupt_range c1ranges[] = {
-+		{
-+			.start = 0,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = &intc0_node.fwnode,
-+				.param_count = 1,
-+				.param = { 480 }
-+			}
-+		},
-+		{
-+			.start = 1,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = &intc0_node.fwnode,
-+				.param_count = 1,
-+				.param = { 510 }
-+			}
-+		}
-+	};
-+	static const u32 c1outs[] = { 1 };
-+	struct aspeed_intc_interrupt_range resolved;
-+	static struct aspeed_intc_interrupt_range intc0_ranges[] = {
-+		{
-+			.start = 208,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = NULL,
-+				.param_count = 0,
-+				.param = { 0 },
-+			}
-+		}
-+	};
-+	struct aspeed_intc0 intc0 = {
-+		.ranges = {
-+			.ranges = intc0_ranges,
-+			.nranges = ARRAY_SIZE(intc0_ranges),
-+		}
-+	};
-+	const struct irq_domain c0domain = {
-+		.host_data = &intc0,
-+		.fwnode = &intc0_node.fwnode
-+	};
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_EQ(test, rc, 0);
-+	KUNIT_EXPECT_EQ(test, resolved.start, 1);
-+	KUNIT_EXPECT_EQ(test, resolved.count, 1);
-+	KUNIT_EXPECT_EQ(test, resolved.upstream.param[0], 510);
-+}
-+
-+static void aspeed_intc0_resolve_route_c1i1o1mc0i2o1(struct kunit *test)
-+{
-+	struct device_node intc0_node = {
-+		.fwnode = { .ops = &intc0_fwnode_ops },
-+	};
-+	struct aspeed_intc_interrupt_range c1ranges[] = {
-+		{
-+			.start = 0,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = &intc0_node.fwnode,
-+				.param_count = 1,
-+				.param = { 510 }
-+			}
-+		},
-+	};
-+	static const u32 c1outs[] = { 0 };
-+	struct aspeed_intc_interrupt_range resolved;
-+	static struct aspeed_intc_interrupt_range intc0_ranges[] = {
-+		{
-+			.start = 192,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = NULL,
-+				.param_count = 0,
-+				.param = {0},
-+			}
-+		},
-+		{
-+			.start = 208,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = NULL,
-+				.param_count = 0,
-+				.param = {0},
-+			}
-+		}
-+	};
-+	struct aspeed_intc0 intc0 = {
-+		.ranges = {
-+			.ranges = intc0_ranges,
-+			.nranges = ARRAY_SIZE(intc0_ranges),
-+		}
-+	};
-+	const struct irq_domain c0domain = {
-+		.host_data = &intc0,
-+		.fwnode = &intc0_node.fwnode
-+	};
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_EQ(test, rc, 0);
-+	KUNIT_EXPECT_EQ(test, resolved.start, 0);
-+	KUNIT_EXPECT_EQ(test, resolved.count, 1);
-+	KUNIT_EXPECT_EQ(test, resolved.upstream.param[0], 510);
-+}
-+
-+static void aspeed_intc0_resolve_route_c1i1o2mc0i1o1_invalid(struct kunit *test)
-+{
-+	struct device_node intc0_node = {
-+		.fwnode = { .ops = &intc0_fwnode_ops },
-+	};
-+	struct aspeed_intc_interrupt_range c1ranges[] = {
-+		{
-+			.start = 0,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = &intc0_node.fwnode,
-+				.param_count = 1,
-+				.param = { 480 }
-+			}
-+		}
-+	};
-+	static const u32 c1outs[] = {
-+		AST2700_INTC_INVALID_ROUTE, 0
-+	};
-+	struct aspeed_intc_interrupt_range resolved;
-+	struct aspeed_intc_interrupt_range intc0_ranges[] = {
-+		{
-+			.start = 192,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = NULL,
-+				.param_count = 0,
-+				.param = { 0 },
-+			}
-+		}
-+	};
-+	struct aspeed_intc0 intc0 = {
-+		.ranges = {
-+			.ranges = intc0_ranges,
-+			.nranges = ARRAY_SIZE(intc0_ranges),
-+		}
-+	};
-+	const struct irq_domain c0domain = {
-+		.host_data = &intc0,
-+		.fwnode = &intc0_node.fwnode
-+	};
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_EQ(test, rc, 1);
-+	KUNIT_EXPECT_EQ(test, resolved.start, 0);
-+	KUNIT_EXPECT_EQ(test, resolved.count, 1);
-+	KUNIT_EXPECT_EQ(test, resolved.upstream.param[0], 480);
-+}
-+
-+static void
-+aspeed_intc0_resolve_route_c1i1o1mc0i1o1_bad_range_upstream(struct kunit *test)
-+{
-+	struct device_node intc0_node = {
-+		.fwnode = { .ops = &intc0_fwnode_ops },
-+	};
-+	struct aspeed_intc_interrupt_range c1ranges[] = {
-+		{
-+			.start = 0,
-+			.count = 1,
-+			.upstream = {
-+				.fwnode = &intc0_node.fwnode,
-+				.param_count = 0,
-+				.param = { 0 }
-+			}
-+		}
-+	};
-+	static const u32 c1outs[] = { 0 };
-+	struct aspeed_intc_interrupt_range resolved;
-+	struct aspeed_intc_interrupt_range intc0_ranges[] = {
-+		{
-+			.start = 0,
-+			.count = 0,
-+			.upstream = {
-+				.fwnode = NULL,
-+				.param_count = 0,
-+				.param = { 0 },
-+			}
-+		}
-+	};
-+	struct aspeed_intc0 intc0 = {
-+		.ranges = {
-+			.ranges = intc0_ranges,
-+			.nranges = ARRAY_SIZE(intc0_ranges),
-+		}
-+	};
-+	const struct irq_domain c0domain = {
-+		.host_data = &intc0,
-+		.fwnode = &intc0_node.fwnode
-+	};
-+	int rc;
-+
-+	rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-+					ARRAY_SIZE(c1ranges), c1ranges,
-+					&resolved);
-+	KUNIT_EXPECT_NE(test, rc, 0);
-+}
-+
-+static struct kunit_case ast2700_intc0_test_cases[] = {
-+	KUNIT_CASE(aspeed_intc0_resolve_route_bad_args),
-+	KUNIT_CASE(aspeed_intc_resolve_route_invalid_c0domain),
-+	KUNIT_CASE(aspeed_intc0_resolve_route_c1i1o1c0i1o1_connected),
-+	KUNIT_CASE(aspeed_intc0_resolve_route_c1i1o1c0i1o1_disconnected),
-+	KUNIT_CASE(aspeed_intc0_resolve_route_c1i1o1mc0i1o1),
-+	KUNIT_CASE(aspeed_intc0_resolve_route_c1i2o2mc0i1o1),
-+	KUNIT_CASE(aspeed_intc0_resolve_route_c1i1o1mc0i2o1),
-+	KUNIT_CASE(aspeed_intc0_resolve_route_c1i1o2mc0i1o1_invalid),
-+	KUNIT_CASE(aspeed_intc0_resolve_route_c1i1o1mc0i1o1_bad_range_upstream),
-+	{},
-+};
-+
-+static struct kunit_suite ast2700_intc0_test_suite = {
-+	.name = "ast2700-intc0",
-+	.test_cases = ast2700_intc0_test_cases,
-+};
-+
-+kunit_test_suite(ast2700_intc0_test_suite);
-+
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/irqchip/irq-ast2700-intc0.c b/drivers/irqchip/irq-ast2700-intc0.c
-index 65e17b2dc6fa..14b8b88f1179 100644
---- a/drivers/irqchip/irq-ast2700-intc0.c
-+++ b/drivers/irqchip/irq-ast2700-intc0.c
-@@ -311,7 +311,8 @@ int aspeed_intc0_resolve_route(const struct irq_domain *c0domain, size_t nc1outs
- 	if (nc1outs == 0 || nc1ranges == 0)
- 		return -ENOENT;
- 
--	if (!fwnode_device_is_compatible(c0domain->fwnode, "aspeed,ast2700-intc0"))
-+	if (!IS_ENABLED(CONFIG_ASPEED_AST2700_INTC_TEST) &&
-+	    !fwnode_device_is_compatible(c0domain->fwnode, "aspeed,ast2700-intc0"))
- 		return -ENODEV;
- 
- 	intc0 = c0domain->host_data;
+ .../interrupt-controller/aspeed,ast2700-intc.yaml  |  90 ----
+ .../aspeed,ast2700-interrupt.yaml                  | 188 +++++++
+ drivers/irqchip/.kunitconfig                       |   5 +
+ drivers/irqchip/Kconfig                            |  23 +
+ drivers/irqchip/Makefile                           |   3 +-
+ drivers/irqchip/irq-aspeed-intc.c                  | 139 -----
+ drivers/irqchip/irq-ast2700-intc0-test.c           | 473 +++++++++++++++++
+ drivers/irqchip/irq-ast2700-intc0.c                | 582 +++++++++++++++++++++
+ drivers/irqchip/irq-ast2700-intc1.c                | 280 ++++++++++
+ drivers/irqchip/irq-ast2700.c                      | 107 ++++
+ drivers/irqchip/irq-ast2700.h                      |  48 ++
+ 11 files changed, 1708 insertions(+), 230 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260205-irqchip-7eaef3674de9
 
+Best regards,
 -- 
-2.34.1
+Ryan Chen <ryan_chen@aspeedtech.com>
 
 
 _______________________________________________
