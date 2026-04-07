@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA49FB519C
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 05:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C147FB519B
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 06:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:References:Date:From:
-	Mime-Version:Subject:Cc:To:In-Reply-To:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=u2tI/2+Va9H+Nv9UMu0pd54dF/1cikNQMIvf9JxQKiQ=; b=12TrUH0a+U2jZWruwzuPvmTclW
-	ZOXVbM6p3TdYGL3PojBYcZIvPa8j7/Mfsho0JCrPvzuF0sqROznjmhoNS3QAzLhoeWgylAKD1xgKB
-	+iUTCtD6zHkYArQWGsBbdN/V8mQNK1QVDPA8dkabVZtJap66cTK62cALZLWcgnDH33YchHnf17RNF
-	op7EeBCtNfJ5nkdwFUGr0fG632ABEAbIox1DQ79IKGI8w+wvokcdfRyMcES/c1S1Pin7cBmLW4kWP
-	G5SvqMymQhMZMLmYX4ZW9s5wcuOF5NzYa1I0LH4sUsKBsQ7pWXvDhkLVbXJN+9MHpCGLG1tRVx0vy
-	mSHSB8cA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=b3ZjXu5GB6lVJ9a0+6Y7WQYW1Pkk5WdV3O6wk126otE=; b=PWXJTDwJnAr2mH
+	gHmZcTfDMTeBWfQit0XhSatwun2KglOXyQNaaHkWg00HjLXOUY46o1E2moTi7As8oYlM21AotB7WK
+	yjY/B8TNe6Tcb/Eu0BSMQUAOmMzsOrxxAiyPJTF6tJPfW2MThv1/rPVs2222BexoeCokqD/7zV/Zx
+	yGduGRtjtq9a7GbW15ZInh72rraIawgBMlxGWSThmUZZREbNAiTxXoQY8HOpUL/fxZ80QupwwJrHz
+	qo9G/gHe2h7aevyeAB2uNI0c85+6gwMSt8BSKbxShxFYpkG2zK9EvYwXSoInAMohNseiKQF5d2Ydg
+	17ymo86IK13DqKb1kJ0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9zRr-00000005xTQ-0eje;
-	Tue, 07 Apr 2026 05:58:03 +0000
-Received: from va-2-29.ptr.blmpb.com ([209.127.231.29])
+	id 1w9zqq-00000005yyA-0PBD;
+	Tue, 07 Apr 2026 06:23:52 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9zRo-00000005xSQ-01qg
-	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 05:58:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1775541473;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=UlMDOCf69ohHLGRXWTyVugkc2fbCsuKOv08q0JkhaUE=;
- b=AXFBaGRHkdlMjDZsbAGX5wV4JAvkZTO32rOX0ge4eca4sle6++tu7lsElcz10vlujVLuIz
- 8Bv8MSfGEZSJWZJ/wODl0FUeKNxQnrIRGFDC8G1e2Hw/JejkRpbfT2PPi+YBGUh059cfF5
- VGQuZgqqYGfxjG695vxZtVCfiWhszk+ed9dojjzd+S4V4dBldqi5wo3aGZd8vIITphKZlP
- di3upjwsYW/lKS99FNjDvRt/nFreRGz0mgZNZXBy0rS7AjRAfMMl2KSi5R5tYxQaSSirpl
- Y0YaiEA6/56nw95FefECfH78qgHu+k9qVjtl8HiHA+qtD9jFusMKp180AuJ4Lw==
-X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
-In-Reply-To: <20260407055557.1202713-1-sandie.cao@deepcomputing.io>
-To: "Yixun Lan" <dlan@kernel.org>, 
-	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-Cc: "Conor Dooley" <conor+dt@kernel.org>, 
-	"Emil Renner Berthing" <kernel@esmil.dk>, 
-	"Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, 
-	"Heinrich Schuchardt" <heinrich.schuchardt@canonical.com>, 
-	"Michael Opdenacker" <michael.opdenacker@rootcommit.com>, 
-	"Guodong Xu" <guodong@riscstar.com>, 
-	"Hendrik Hamerlinck" <hendrik.hamerlinck@hammernet.be>, 
-	"Yangyu Chen" <cyy@cyyself.name>, <spacemit@lists.linux.dev>, 
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, 
-	<linux-kernel@vger.kernel.org>, 
-	"Sandie Cao" <sandie.cao@deepcomputing.io>
-Subject: [PATCH v3 2/2] riscv: dts: spacemit: add DeepComputing FML13V05 board device tree
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.43.0
-From: "Sandie Cao" <sandie.cao@deepcomputing.io>
-Date: Tue,  7 Apr 2026 13:57:38 +0800
-References: <20260407055557.1202713-1-sandie.cao@deepcomputing.io>
-X-Lms-Return-Path: <lba+269d49cdf+540526+lists.infradead.org+sandie.cao@deepcomputing.io>
-Message-Id: <20260407055738.1202750-1-sandie.cao@deepcomputing.io>
-Received: from roma-Laptop-12th-Gen-Intel-Core.. ([218.17.141.187]) by smtp.feishu.cn with ESMTPS; Tue, 07 Apr 2026 13:57:51 +0800
+	id 1w9zqn-00000005yx8-0vDy;
+	Tue, 07 Apr 2026 06:23:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1775543022; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=6CMtQUtwLNCZO96qDPJxNdbEJ+SZVWz86MVqoqQUYgg=;
+	b=Pirslxf/rA1aLBxkqPLwgtvb5qAxttFluRmfPkPWWnB6GAqkmcARaKjAMt3JyU8jmzK3OQ2mes+dB3M8yZ73UByqerk5PVKa+X7YvjkZTVVI2j/mE7yLI2kPQ1RCUkq1Chypx0TP8+ML4DxyaX6XxN1ojSj31okMC8s0RULLP00=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X0albEE_1775543013;
+Received: from 30.74.144.138(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X0albEE_1775543013 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 07 Apr 2026 14:23:34 +0800
+Message-ID: <2a216ee2-aebb-42ba-b2aa-826488448bbe@linux.alibaba.com>
+Date: Tue, 7 Apr 2026 14:23:33 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/6] mm: change to return bool for the MMU notifier's
+ young flag check
+To: Sean Christopherson <seanjc@google.com>
+Cc: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>, akpm@linux-foundation.org,
+ david@kernel.org, Liam.Howlett@oracle.com, vbabka@kernel.org,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
+References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
+ <545847c132da5d957cfc74ab19e849b16127aa8f.1773890510.git.baolin.wang@linux.alibaba.com>
+ <67c670e2-c98f-490b-bbb9-2960f8175b5a@lucifer.local>
+ <66e78b59-f96c-4277-b7d7-473b68ed413f@linux.alibaba.com>
+ <adBJTXeE6G2vQNKX@google.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <adBJTXeE6G2vQNKX@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_225800_115775_9CABC9B9 
-X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-CacheID: sfid-20260406_232349_701473_DBB295B7 
+X-CRM114-Status: UNSURE (   5.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,87 +71,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The FML13V05 board from DeepComputing incorporates a SpacemiT K3 RISC-V
-SoC.It is a mainboard designed for the Framework Laptop 13 Chassis,
-which has (Framework) SKU FRANHQ0001.
 
-The FML13V05 board features:
-- SpacemiT K3 RISC-V SoC
-- LPDDR5 16GB or 32GB
-- eMMC 32GB ~128GB (Optional)
-- UFS 3.1 256G (Optional)
-- QSPI Flash
-- MicroSD Slot
-- PCIe-based Wi-Fi
-- 4 USB-C Ports
- - Port 1: PD 3.0 (65W Max), USB 3.2 Gen 1
- - Port 2: PD 3.0 (65W Max), USB 3.2 Gen 1, DP 1.4 (4K@60Hz)
- - Port 3 & 4: USB 3.2 Gen 1
 
-This minimal device tree enables booting into a serial console with UART
-output.
+On 4/4/26 7:12 AM, Sean Christopherson wrote:
+> On Fri, Mar 20, 2026, Baolin Wang wrote:
+>>>> -static __always_inline int kvm_age_hva_range(struct mmu_notifier *mn,
+>>>> -						unsigned long start,
+>>>> -						unsigned long end,
+>>>> -						gfn_handler_t handler,
+>>>> -						bool flush_on_ret)
+>>>> +static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
+>>>> +					      unsigned long start,
+>>>> +					      unsigned long end,
+>>>> +					      gfn_handler_t handler,
+>>>> +					      bool flush_on_ret)
+>>>
+>>> Can we please fix this terrrible indentation while we're here :)?
+>>>
+>>> static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
+>>> 		unsigned long start, unsigned long end, gfn_handler_t handler,
+>>> 		bool flush_on_ret)
+>>>
+>>> Would be nicer, thanks!
+> 
+> No, please keep this as-is.  KVM's preferred style is exactly this (and I personally
+> find mm's style much harder to parse).
 
-Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
----
- arch/riscv/boot/dts/spacemit/Makefile         |  1 +
- .../spacemit/k3-deepcomputing-fml13v05.dts    | 31 +++++++++++++++++++
- 2 files changed, 32 insertions(+)
- create mode 100644 arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+Um, Andrew has already queued v2[1] into the mm-stable branch. Do you 
+want me to send a follow-up patch to restore the original KVM coding style?
 
-diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
-index 7e2b87702571..acb993c452ba 100644
---- a/arch/riscv/boot/dts/spacemit/Makefile
-+++ b/arch/riscv/boot/dts/spacemit/Makefile
-@@ -4,4 +4,5 @@ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-r2s.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
-+dtb-$(CONFIG_ARCH_SPACEMIT) += k3-deepcomputing-fml13v05.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k3-pico-itx.dtb
-diff --git a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-new file mode 100644
-index 000000000000..783066fc7ad7
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2024 DeepComputing (HK) Limited
-+ */
-+
-+#include "k3.dtsi"
-+#include "k3-pinctrl.dtsi"
-+
-+/ {
-+	model = "DeepComputing FML13V05";
-+	compatible = "deepcomputing,fml13v05", "spacemit,k3";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0";
-+	};
-+
-+	memory@100000000 {
-+		device_type = "memory";
-+		reg = <0x1 0x00000000 0x4 0x00000000>;
-+	};
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_0_cfg>;
-+	status = "okay";
-+};
--- 
-2.43.0
+[1] 
+https://lore.kernel.org/all/cover.1774075004.git.baolin.wang@linux.alibaba.com/T/#u
 
 _______________________________________________
 linux-riscv mailing list
