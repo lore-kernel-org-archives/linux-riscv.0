@@ -4,146 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3899EFB5180
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 01:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F78FB5173
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 01:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BsPCByOlAOJVxB3ysV8qFFB9+Wtvm1hkdzKI7RuHreg=; b=D8GmcuvfqePZ2G
-	6gxAjYCLkcK+XnllEdihJ5a2L5iS41O3Aj2ng0yB6WxXZCAuAOQSFQSkZWlzfcLRaL1x10aiZvAz3
-	BuW7kReRyONj4OHhXOR8Y1iLTEojrSFY1pYVZJXec2RQjL1e5obnrdJLFpaWkOAeTFx7mNUBw4fKy
-	olm1Nf8pin8iOar5ne+KnF5Rl+nxu4NLRTEin+t0DZJXr+CAfyCbLJEVvbCqzs2JgpPjwcda2hzft
-	VT4YALR6pyrExR80WAzFSoh/6CNqTrHjxOeMfDZjKuPUyR4R/cLMQNAV5iPKGorG9mmBLBUYC/dXx
-	NvJzCoOihgEfa8DKCdtA==;
+	List-Owner; bh=F/erUNM1J9JhbpjvcD0ouLTia3JSKaVrDANm4zG+xMg=; b=xo+kbBxBG7RylL
+	CbVo6DCK3KHXbz1SNBh0wC2cYKuB0rfsIW2kkTRkpmGcwSOIw0fEy4q7dZc//H3Y+vkdGyw81wYze
+	RNHeMnaNz0enK7Nzq2ZzEU9muqB6Xo495wN8oM5sTumnAEUwt/v4U2otFv9JgTT2H+o5gGLzTkfRt
+	b9ItZ72I9A/HbnfOjUaGC9gdu9paf3Jgdz7k5g7iltHyYr4GGksdKXvxNIIj9yXGK34ibzZx3TDsI
+	grA4fi0qDPbUGTvvwch2IIaX4jLU44D5E7lu6AgFUuxYeojkOWZ2lwZfybetDq9cefO7KGY6Ocu9a
+	944pX8tBwG0BppkRJ68g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9vO2-00000005ibk-0GFT;
-	Tue, 07 Apr 2026 01:37:50 +0000
-Received: from mail-bjschn02on20725.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::725] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1w9vPH-00000005iiB-2idV;
+	Tue, 07 Apr 2026 01:39:07 +0000
+Received: from mail-yw1-f182.google.com ([209.85.128.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9vNy-00000005ibM-2gpr
+	id 1w9vPF-00000005ihg-0J6A
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 01:37:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=hgQPe7QB8rf/RmdIHIo0eCCGFDYc5YhEnRV1aRLWXfdOe4jouAHT5psEpLzSUDWy2Nnn22cFH/wYhj6JifXg5UenLBJF4RpHPvm6QdLol3l1J5vK/bCoK18RLophcyPP3YpWIdYg8EkM++IBWKYirIPpxGIY7LjKxND9TFWC4xOqDPHh8Mlu/7pkL6NJns9Hy5vuDO5WZe84Libop+9LR+M22EgQ1DaZy6iYCjz9jg7bFsZmQgiNnHWle/d2/P+cIHTxYByRzvUy2hKXK62/qyCSrNh9ac01vVeAhihPoJN+Yu2B42oi+4jJe1CBSH/sBUkg+G03QBAgXmQse54vPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9svDytkhrZ7DQHwJawwXS+yCnJBh0YFeMHC3PXNvR5g=;
- b=bswlf3lHns0CKPu5XhZIZjbXn9/8mpsXHceYz6FFskh1DdT77kltLcwE8i+mRXWIgJgASrISRa1Eu7arW/W6CkmwcjHsAfqxI1jGewQXN/YaAvu54mvONTb8vY9sNfVaujWt63qsVigP9XrRCVOWbf36Jw83QrL6+wESuOpeSQ4a8HpRAq3Wm9TKmOY3O0FanTEsf5KWxEAwIA8V+Wm3i6iEb33WmuJ1NA8RxTie0mBhZSq+cQBaSar7k+4AmIk/8oNAkkHaB5F/WiNzgNQ+FBsxOlijiPfT9PZWeDxURRh1i08hw8JpeAUrQiV9D8KSbBIm2W56WfeRuo2CTEmWMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1300.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:14::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.19; Tue, 7 Apr
- 2026 01:37:37 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
- with mapi id 15.20.9769.020; Tue, 7 Apr 2026 01:37:37 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Michael Turquette <mturquette@baylibre.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Kees Cook
-	<kees@kernel.org>, "Gustavo A . R . Silva" <gustavoars@kernel.org>, Richard
- Cochran <richardcochran@gmail.com>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-hardening@vger.kernel.org"
-	<linux-hardening@vger.kernel.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, JeeHeng Sia <jeeheng.sia@starfivetech.com>, Hal
- Feng <hal.feng@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>
-Subject: Re: [PATCH v1 17/22] dt-bindings: clock: Add StarFive JHB100
- Peripheral-2 clock and reset generator
-Thread-Topic: [PATCH v1 17/22] dt-bindings: clock: Add StarFive JHB100
- Peripheral-2 clock and reset generator
-Thread-Index: AQHcwo9TQLfYd6wApEuyD9hxN+QHMrXOyPcAgAQQIeA=
-Date: Tue, 7 Apr 2026 01:37:37 +0000
-Message-ID: <ZQ4PR01MB12020E711CD7E1FAFD01B8A4F25A2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260402105523.447523-1-changhuang.liang@starfivetech.com>
- <20260402105523.447523-18-changhuang.liang@starfivetech.com>
- <20260404-valiant-auburn-raven-c24be6@quoll>
-In-Reply-To: <20260404-valiant-auburn-raven-c24be6@quoll>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1300:EE_
-x-ms-office365-filtering-correlation-id: f3538206-cb30-402c-f796-08de94463fb7
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|22082099003|38070700021|56012099003|18002099003;
-x-microsoft-antispam-message-info: qmEP3bjgB6m9MPjt13YYbGxaYp04mGE7lmQibnSouKS3DhYzJsXk1bmqYbo2btr7bf4x43dt6M+f0n67dVlT1aFdFSy+1oc2CO2pPeRzsQx0PFUgRtZ17RGIPAVDCNgapObjyPR6qCU1Y9Uaj186KUljwlZvSvGsZj8n9aONL3xaxVDSSDpXbFZx5+Wqs7W33aYr01ff5D72abOpjp19WxRXAefVjYLSAi6sJ0WPIDwEUOGfNxlMN1SB8db3fKCViC3irEi2RRDBtTo8O7DqAwmKG0BFemQGHYR1T/mGMkI6Ht1OJyRI/JdRRgm443lMb/5qO8PdM2DtkWYK5zkA3jM4V3VoZ1kYt5waJwge324PfVXb7tAJDm730cLVgGMOJMkZ8CQXOG3SMTI/9262EsSjFg0jX6qkdeA+CO35ojfE4NC8M7aCU0WFnhL1e7lgJl+W52D5dtLFZ65IRvbe6u46fmlWLg3cgK5HjrZGGzKH8ToFCb52MODicMNbcFU52PinkvEIfd4kb4RUcWkFQgU+ZB/vFO8PB1YYMSnLfoRBanE+fxUAVBDu5/8BEW4FnpB27C/374YiPiIznpJORN05186bnyGp0mF6QYJR0eU=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(22082099003)(38070700021)(56012099003)(18002099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OVZsME1oZVBrMkw1eCszd29BbFEvWHA2Rkh3VjdDN3RneGp1R3laRFBjMThX?=
- =?utf-8?B?aFVVSS9zbmxGUGYxNm9PN2VqQ0gwRzlsR2ZVbTByQlUyTzJwZEtyN1R0R0ht?=
- =?utf-8?B?OFlhamc5T3Jva2RZSEFyS3hZU1JMZHZqWlVMT21GNDhoM1hsbzA0dU9OcEVZ?=
- =?utf-8?B?REV6UUhxaW1oSDZwMU1Pem9uVzFtMUxRR09RWC9rZVZPMTg3ejVCbUxPRWZk?=
- =?utf-8?B?bU40TmZvODFxQk1zQVBMR0NwZGNnWmV5bGxQV0dmZ1ZmSWVuTWxld3NEOElv?=
- =?utf-8?B?RE5XZm9aOVdyYmVEdHdBcFROdURsK05tK3NxUm5DaFJEaEdEbXZzTnA1MzIz?=
- =?utf-8?B?WDBIRHhYOVFJOWZCSkxXYUZaQ1JFV2xVNGdqWSs3NHFJMUJDbzYxZDYyQUJV?=
- =?utf-8?B?bURQSmlaNFBucWh4eDF0N2hDRTZNdTJwaC90WklKdXVZdEhwNzhvdlNFU3Bk?=
- =?utf-8?B?WndwMjBXZUgreWx5RDNUK0gxVDhqRmdud0x0anRZejlpOVRUOVNkRnlmRDFP?=
- =?utf-8?B?bUdiVzd1eDdkVkdTTURMR0U3MzgwVDFwTE93d3pyOG56Z3JOUm10Q3ZCMysy?=
- =?utf-8?B?YnRLQUdId2szNkVEVFZkLzd6UzdzQ2NacTdCVjNTMTBNZC9scmFDdlk5dEJh?=
- =?utf-8?B?ZTVMWkZDUEoraUR2VlJYdVl2OXV3b09EeEtXbUZCSk9ZUDNVTUJHUTNyZEht?=
- =?utf-8?B?c0pNSXMrZDBBRGpKNXlveDVIV3ZFNUJwRVZ2SHJZOTdtMkpkbDQvZmViOVNX?=
- =?utf-8?B?YS9EUXVvNmZmUUF2Rk5OZTZ5bkxhdnUrcHJnSFlzL3lFSkNPbk5sczZFR1dt?=
- =?utf-8?B?YTM4RUZiTFIwN0VkaDJuTDdNdERjZk5rc2pUcmJ5V2d1Yzd3TTkvQzlteHg3?=
- =?utf-8?B?VERSMWN5UUNtVDhoeE13WGMrNjgxcytpVFNYelVBaHlFcFlLT2FZM29ZVHlv?=
- =?utf-8?B?ZHBUSnRxMWtLYjdSc3BWc2svSkJpbDRLQVpnZ1k1TDViUjlGY0I1MFNpYlRP?=
- =?utf-8?B?aHZSRGhwWWpUMjkyMTZOUUU1N1dmdGNHWEkvczNHU1daNTV3eXBYY3FnTHlv?=
- =?utf-8?B?NzM3UEU1RFR6N3ZnMkpudDRPQVF3NEtNYmNaUXBpQlg4WThVME1TMWs5cnd5?=
- =?utf-8?B?RTVoSmtvTGNMTXBHYkc4UWpZL3BaekFDeDZPQ2tCWGdrNS9LalJKMjd4Z0NP?=
- =?utf-8?B?dHQ1c0hRL3NOYjMwVHZnbmFSUDVIN0hPVzBQeEgyaTl5MU9JZmhSS0UxWmtk?=
- =?utf-8?B?R0VLTWlJNVkwV04zVms5VkdKQmhqQzJmNUJialFFVmE2eURHcS9NREZCSXQz?=
- =?utf-8?B?NmRXZW81S3VjaXZWYzlEOHNVRnlhWFpvU0lTdGxrSjZpRlhIQWRPY2RoUVdv?=
- =?utf-8?B?akdiNHdvVTBDMUhOOU01cjloQ24wTUQwUmcreUlvazBTZU80Q2RQZzkzRDNV?=
- =?utf-8?B?WGpZb0NGVjBYOEgrZmpMcG9MRUxSNFJuSFVmaDRtY0krdEptNmphQWQ0S0RO?=
- =?utf-8?B?M2JsVkR1d2VWdlF5R05iNDB4dFNqN2hURUFMbDlrZWRLUXpGVmlzL2ViWU1x?=
- =?utf-8?B?bktuTDVnaE9rQTVpUDlFa3lMQlpyMUxoVXNTS3lCb0gxZE8zbTNHRURoWUdt?=
- =?utf-8?B?MlJ4QXhYZWRQV3RNN25HM255T0szMTZaRE42MHBic0o1ajlKNkJyOWYxNlRx?=
- =?utf-8?B?bnFwWFl3VUxNWGdPc1JEajBWMGlZRXFLK3N0MmVjVXdJUjBPcVBYcVVVcVJV?=
- =?utf-8?B?VExVamN1UXIycGx5dlc1R0RTdVhkMVFVSjUvTGVMTGVxYWFacEtET1Z0a2g4?=
- =?utf-8?B?THUrTVFQVU02NGluaDUwb3ZzeDdvQ2FJaDZqTUlPa3U0S0hYSFhteGJFME5O?=
- =?utf-8?B?aXdBSnNUU3g5VVlOeUJwMStQTTBVR0hudEtzVmN2NnVpM1hXWm1KNjI2d1Vy?=
- =?utf-8?B?SnA4aHlWOGZsbEtHdFN1UUt1YTZScFVXK3RvOHVMbVVsQzBEdXBGUW94TUFk?=
- =?utf-8?B?QjNibGRUZnhGVDdJN05GMEFGSlhXYWJ0MjN1eFhhTlp6cXFOOFpaTUcxSnRk?=
- =?utf-8?B?dXVEMVlBQzFZMEx0OWMySmZaZURrQmJwdFNKbzc5elNaR2FEVDZZdldibER6?=
- =?utf-8?B?SUNNRDA0MmJVMExoSWRTL2JodlVmZ1hTaEVFSk4xRjZuNll1cUxvV2t2SVdF?=
- =?utf-8?B?c0pUbFJNa3ZDMm1BR2x2djhWY3RMR0QrN0M3KzRtMk44dnFJZElRODFReWQv?=
- =?utf-8?B?TmhtVFNicVRIUXV3WmhzZ2c5TUIrZlFLYmhvRTZ0aW02TGxveTIybThMdm0y?=
- =?utf-8?B?dzFBaktBaDhwbUxSZ01aTmU4RHdsbDBRc0FmYVFUMUR3R2pEa2hQRE5pSmM5?=
- =?utf-8?Q?CMyUmAh2+xHVXGsQ=3D?=
+	Tue, 07 Apr 2026 01:39:06 +0000
+Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-7a43424f861so42900727b3.1
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Apr 2026 18:39:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775525943; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jPdIvLG76NXfw4xDqnir8d+JiS9Njh/cqXWS9hdn46qLIv+CBwtab3syWsUs8nWeTS
+         f5FP90/qE8RmXVcHbB0KUd0FS8jwKc5LB4fzG+wSTTignHKqQkv3QGn4XSsISceD5m5m
+         kaVMPvqkfdxnCk6btqWo8GzmkNl3RTqprU6HIuIZGlidu4OGnTVkN/DkFccuv34+4Tuh
+         CskUNH2grS5d2WZB3tRVcJiqBsU35hIFt2xdQxyNPuSvmAzzjSu8roIKkK5qaLnKREvL
+         vt6J9KzQgrwULaJwp7DEnaIU7pWq//uNgKeBcZJCs6xByNfFmc6oH5bTqEw6MAO2WZ2L
+         oKYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=p50zrqNNCvOdvNZk/Ue0NF5eHlks4zpndiQNvQ89PKY=;
+        fh=SXaZ3JR0f2BMjv/z1BH+ZXluh20y+OkX8r/65dFjDCw=;
+        b=R0BRvKGd28wjNSa+ZqriiFSm8qt+7g/0SXAHA5mvllzp9fAcXS7lmWzMGRpf9aEhCW
+         OVwy2TzWfwnrhB80zdQQ7cniHPtzDnMpKR5dz/AfXssX4kMXRoQDCF9myge6C9JgkteQ
+         B+FBqUetx9IRlC3TTffILoXrJeM1nmnzq5xCQnu62YGE/IHeWiUm6zk0T8Ccb/OMSeEJ
+         wJPFH2rsf0UYKVG6L3evt+FgwDJla/Nq21SsxUds9+qsdR4CNHeMN4Eht1mShTY8k690
+         a2DCoPKSrEiayBKDeOwW//NDgL0xqpiGgwMxOpaDxtyT1NxRKQgR9zFvndnPHmvzkCbF
+         Aaag==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775525943; x=1776130743;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p50zrqNNCvOdvNZk/Ue0NF5eHlks4zpndiQNvQ89PKY=;
+        b=gIeY1CELn/WduHZydM3Hw4vs1hOd4HSC5SwY+ztQ/v5TJUocEB4cYrUxR1k9bZCwGo
+         vHsSXF1zYGLQLbQ6ZVX0CoB94yvlAOIQdlA3AgSAn65ZC6FkOefyZ4BL+P9SddS4LJKg
+         SKh/7RAY+8iJQrMmKFEJBnP6UxYuAGEUI9qG7mOW0adUR1k1Xp53/1OVa11qw5o++L81
+         Rciu66XLKlA++1Xz82VhJYF6MWfAjD1sPRt0ayEPcaLNtOCeWULymSnh+RXIAr6qTTTw
+         DF3wk047/yAl+3SAJ8VQnsH+3NOPlZDnrTlpJhmMsS1P8wcdRxY/Q+EmWx/nC5TCow2U
+         vdww==
+X-Forwarded-Encrypted: i=1; AJvYcCUR7iXiiLwYBRS65Bl/iZGekRfHEd5V3Lleb6h8H4EM6xAjzaQy8fi+ZTeXWmcvhyUwpl4Rusippbuiuw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyqqKZ4QO47LS6+A6UsHwz5zxO7b8a9MjQZa++7yIiXEOLu8hL
+	sYU6zcWhXRRkhMxpcwajRVIReeV/afM1GKO0meZ/3s1cAHmsvjOrKvMfiICzLFhXOI5L4H5dJoS
+	KXJRxXVk6KlWCgLKsDjxIuJ5ULjRPh68=
+X-Gm-Gg: AeBDiet5B5Nb6cewQY52oahLdr/gQCgJuZD6fM16BePRLh+9MYnXdcCkwakGqx/EP1L
+	JwAM/2gup5CpCkO/vr3VScoJzhf2EVcEUKBV0XKjCOgCGY5XjTUy0YqwwU6Tmo/E/mo3y3zT/8N
+	4qBcx7AN6uUW4d31590jbXxylfDwky2ZRqS14djGEkS9r8c2N5cyv1POo5Hf4/03fjJkOWj2V6Q
+	1OL5KgAPU4RJ0SRVJNOfLEDe5TM1IuMA16mWtEDWkB89NHjFzgWKwaPor3mIzjC0TJ507WNvQCe
+	GENj2I0=
+X-Received: by 2002:a05:690c:9217:b0:79a:b46c:e61b with SMTP id
+ 00721157ae682-7a4d33e30c9mr127169747b3.2.1775525943366; Mon, 06 Apr 2026
+ 18:39:03 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3538206-cb30-402c-f796-08de94463fb7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2026 01:37:37.0592
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: poZ2b2XHPUzOJESYh4R4e7yLVh7YXpX3f/RJJlT0iWplisl12Dk38brZz85Mq796BbGO9I9Q5VMWEGTK+pr+MpMZOnMq/s6Yc6C+XIQCALKyvSQd77tJwbaZRtUbfV+g
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1300
+References: <cover.1770830596.git.namcao@linutronix.de> <177524102078.1406513.13713846519162509736.git-patchwork-notify@kernel.org>
+In-Reply-To: <177524102078.1406513.13713846519162509736.git-patchwork-notify@kernel.org>
+From: Michael Neuling <mikey@neuling.org>
+Date: Tue, 7 Apr 2026 11:38:52 +1000
+X-Gm-Features: AQROBzBHGlGYyJcNn1s2jZNsxGD5X0AoL2ZiOKNY4aY18jBnUqWSRMht-CYfsdc
+Message-ID: <CAEjGV6y0=bSLp_wrS0uHFj1S2TCRtz4GKzaU5O-L1VV-EL7Nnw@mail.gmail.com>
+Subject: Re: [PATCH 0/5] riscv: Cleanup and deduplicate unaligned access speed probe
+To: patchwork-bot+linux-riscv@kernel.org
+Cc: Nam Cao <namcao@linutronix.de>, linux-riscv@lists.infradead.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	ajones@ventanamicro.com, cleger@rivosinc.com, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_183746_687981_AA0F5AE6 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260406_183905_150776_E27D2627 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,34 +105,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof
+> This series was applied to riscv/linux.git (for-next)
+> by Paul Walmsley <pjw@kernel.org>:
 
-Thanks for the review.
+> Here is the summary with links:
+>   - [1/5] riscv: Clean up & optimize unaligned scalar access probe
+>     https://git.kernel.org/riscv/c/c202d70b2244
 
-> On Thu, Apr 02, 2026 at 03:55:18AM -0700, Changhuang Liang wrote:
-> > +  clocks:
-> > +    items:
-> > +      - description: Peripheral-2 600MHz
-> > +      - description: Peripheral-2 400MHz
-> > +      - description: Peripheral-2 125MHz
-> > +      - description: Peripheral-2 GMAC2 RGMII RX
-> > +      - description: Peripheral-2 GMAC2 RMII Reference
-> > +      - description: Peripheral-2 GMAC3 SGMII TX
-> > +      - description: Peripheral-2 GMAC3 SGMII RX
-> > +      - description: Main Oscillator (25 MHz)
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: per2_600
-> 
-> Does not have any meaningful name in datasheet / clock hierarchy?
+I think this is causing a regression (SHA1 actually 6455c6c11827) .
+Fast unaligned accesses are no longer being set ever.
 
-Yes, some clocks are named directly by frequency.
+Analysis from Claude (Opus 4.6) with Chris Masons kernel patch review skills:
+--
+  > diff --git a/arch/riscv/kernel/unaligned_access_speed.c
+b/arch/riscv/kernel/unaligned_access_speed.c
+  > index b36a6a56f4..1f4c128d73 100644
+  > --- a/arch/riscv/kernel/unaligned_access_speed.c
+  > +++ b/arch/riscv/kernel/unaligned_access_speed.c
 
-I will try to find if there are other meaningful naming options.
+  [ ... ]
 
-Best Regards,
-Changhuang
+  > -arch_initcall(check_unaligned_access_all_cpus);
+  > +late_initcall(check_unaligned_access_all_cpus);
+
+  With this change, check_unaligned_access_all_cpus() now runs at
+  late_initcall (level 7), but lock_and_set_unaligned_access_static_branch()
+  remains at arch_initcall_sync (level 3s):
+
+  arch/riscv/kernel/unaligned_access_speed.c:
+      static int __init lock_and_set_unaligned_access_static_branch(void)
+      {
+              cpus_read_lock();
+              set_unaligned_access_static_branches();
+              cpus_read_unlock();
+              return 0;
+      }
+      arch_initcall_sync(lock_and_set_unaligned_access_static_branch);
+
+  Before this patch, the ordering was:
+
+      arch_initcall:      check_unaligned_access_all_cpus()  -> measures
+      arch_initcall_sync: lock_and_set_unaligned_access_static_branch()
+                                                           -> sets branch
+
+  After this patch:
+
+      arch_initcall_sync: lock_and_set_unaligned_access_static_branch()
+                                                  -> empty cpumask -> off
+     late_initcall:      check_unaligned_access_all_cpus()  -> measures
+                                                  -> never re-evaluates
+
+  Does this mean fast_unaligned_access_speed_key is never enabled at boot,
+  even on hardware with fast unaligned access? The comment in
+  set_unaligned_access_static_branches() says "This will be called after
+  check_unaligned_access_all_cpus" which is no longer true with this
+  ordering change.
+--
+I confirmed this by booting (qemu) the below patch before and after
+this change, and I get this:
+
+Before this change fast_misaligned access is set when setting the
+static branches
+   [    0.117326] TEST: lock_and_set running, fast_misaligned_access weight: 4/4
+After this change fast_misaligned access is unset when setting the
+static branches:
+  [    0.168865] TEST: lock_and_set running, fast_misaligned_access weight: 0/4
+
+So I think this confirms the regression.
+
+Mikey
+
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ @@
+ static int __init lock_and_set_unaligned_access_static_branch(void)
+ {
++ pr_info("TEST: lock_and_set running, fast_misaligned_access cpumask
+weight: %u/%u\n",
++ cpumask_weight(&fast_misaligned_access), num_online_cpus());
+  cpus_read_lock();
+  set_unaligned_access_static_branches();
+  cpus_read_unlock();
 
 _______________________________________________
 linux-riscv mailing list
