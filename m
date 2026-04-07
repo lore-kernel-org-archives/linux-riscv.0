@@ -4,126 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B975FF5136
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBB6FF5135
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 19:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dgTwFZQ4ykBKbNnMb7BsIIou+2G/K8yMVFwcOaxroIk=; b=h7xxC6osNnnDZT
-	KybmkCDSk8XO5hgbvM8/aoRxNZUIWJcs40iG7iTlfYmzNmbH1u9KW3oS2Ql5NYfhtkxmw0RJDIo5H
-	35Qia3y2BLARlpl2mE8U2hbqeveYw4XmknbgWiWmREnHNiDqB3vkacvmZ3CvS2yHIDOzG6Uq89JYe
-	wWyysS4Krg/HH4Eqd3UJHaIxLHcLfOupU+mA3SrP1OyZiWUYHO9er1eRPmET/1tPOkTLTByQaEDyC
-	aarXr2hby8kyXIRDr+7yE3f3eFV/mJCXZnHm4DIUWBOsWmtxvKfVx69wxeE1FNX/pbxw6n+qSPK+u
-	Tw1VI65s2Lxh7PA8fPqA==;
+	List-Owner; bh=/aqRyIlRfWz310nalrD17Ua2hag1zw23yqQpLp3ReHY=; b=dXyaRo6L4TQbcF
+	DoHC8Qcxk0NXV6uuamGGh8R1swN2MP/0cXEiuS3nvAROixCt0KeDy5iYCwfpYO1ygk5TIuB1/wEGc
+	n1hdFWu3eLoHNDZuOHs6IiF643kSWQLDXW+904aZ6fDb9jSt/UgCx2Xf4Bd8RU/YTSWaWt4AxQqAn
+	CkUMO9XcQxJRbtGn/4UYOK1mVU74Im6putejhqKCM0lcmZrGwHeI1krmqhrwVXXYEMqSscC8M09jv
+	9wO+UxzkGAB4W2UkiOpkFEnjLxf3kNHZSFFQBmA7+0y0m84K7cxJEVjxq20xI2tyqhMq70yN5eE9d
+	9Jd1G7LRY9HL1MUO3h+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHP-00000007IVY-2Dzv;
-	Tue, 07 Apr 2026 19:40:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wACSj-00000007OcN-2HNT;
+	Tue, 07 Apr 2026 19:51:49 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHM-00000007IQq-0ZmG;
-	Tue, 07 Apr 2026 19:40:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BB9C60139;
-	Tue,  7 Apr 2026 19:40:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20F94C2BC9E;
-	Tue,  7 Apr 2026 19:40:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775590802;
-	bh=G6kWDg5ZKjWvzVWKZlcYhQ5fam5iGV3sa+XLqVTs0uY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sDMsUKs11clmLqRSYOHdYemC/6eCCuTs/nd+pMdQ4HYBrZ2RMECvxE6SXi3Cq7Qt2
-	 Vq2KJvfW5GfXXZgHejEo9PnFH8x8Op63ZSvbJ0vvCU+be1qdWGNKDkx6MVC2iXkJUM
-	 qJwNyNeAg2v+RkrnDQoXDazkT2Endo1x/TFg5/uKx/qUeKnEug+ZIa1nMoI5aLlOEY
-	 qeo71REji+J04wTIEZliW+iwogjU+a6RnJJQAR1UJJBmXx/1Uxx/C0aQtgyu1LZY3r
-	 MsOztoq00b7hebIqtbESUzLc+vPI1CSIyx11Yg+4g+gy6/+6M0uFALPOC0AaMDWpzZ
-	 Kfy0Fs+ExLZRQ==
-Date: Tue, 7 Apr 2026 21:39:30 +0200
-From: Nicolas Schier <nsc@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	David Gow <david@davidgow.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arve =?iso-8859-1?B?SGr4bm5lduVn?= <arve@android.com>,
-	Todd Kjos <tkjos@android.com>,
-	Christian Brauner <christian@brauner.io>,
-	Carlos Llamas <cmllamas@google.com>,
-	Alice Ryhl <aliceryhl@google.com>, Jonathan Corbet <corbet@lwn.net>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org,
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	nouveau@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	Rae Moar <raemoar63@gmail.com>, linux-kselftest@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 01/33] rust: kbuild: remove `--remap-path-prefix`
- workarounds
-Message-ID: <adVdctvoln3uRnSH@levanger>
-Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	David Gow <david@davidgow.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arve =?iso-8859-1?B?SGr4bm5lduVn?= <arve@android.com>,
-	Todd Kjos <tkjos@android.com>,
-	Christian Brauner <christian@brauner.io>,
-	Carlos Llamas <cmllamas@google.com>,
-	Alice Ryhl <aliceryhl@google.com>, Jonathan Corbet <corbet@lwn.net>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org,
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	nouveau@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	Rae Moar <raemoar63@gmail.com>, linux-kselftest@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-2-ojeda@kernel.org>
+	id 1wACSg-00000007OZa-2O5O
+	for linux-riscv@lists.infradead.org;
+	Tue, 07 Apr 2026 19:51:47 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-488879dcbc3so26815e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Apr 2026 12:51:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775591504; cv=none;
+        d=google.com; s=arc-20240605;
+        b=W5PH20D+iBRUUv4PB+b/R9gcNlIbApvKCUCBkebSx/Rgw+SB39t4mShJwPc5xbFCyo
+         INVEgc2aE0+oepqv9qDZSQuUcSBuJfG1Y8B+lsSJyOLPafXHg6+3lAprf5s8YTtNRiwl
+         G9lDkqfrC7pDpx9VMCrJoQ7/IkB3PG4yay5Zgah4fBbLOACF5NwGlom8g4P3gqRDK4nj
+         D3cHCuPOHuw+8SCBCSGT5L9fU7ziomTtmJJ1YP87WS2ddSGZcyVTMsTwJ6cb3rQRoGFw
+         HLPvGAHL0L2YayX3YYipwn14ve1t7Mkg89bP6b3fmAsvXOnUknE9szQJX+w5+NlLlsoH
+         qZCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qn1XLzSF2TmeeP2tNEdFXedeLBUwyZyS+b7if2Oc0rM=;
+        fh=Cu5i1OB0aEMAGIqzR247crX6il70Du5VOvMarrR6i2g=;
+        b=FK42gVWBQy5wYUhtHZz6O/SnN5RRI3JUSII0BVmNX39kCvJWRyXIjMq15KGpCr2DL5
+         8qdE80mAOEhj4jO5jkcXU6gbq3cekYbJs7qiH0wgQficxMXZ9j/a0I0HHVYyxF9tRDP5
+         MtbQHUUtBSLiLYuX77ziOvTKJAk1ki5NV3lXiDmrNH/oxCUTvN7/srxqgZV1YrjfZ265
+         LHdJRQc84Q7cobnsYqMiP/bVEeiSdnopbpIRVUB9wW55J8vK5FVnoEHPzGXMOEMNiEpu
+         2U13cfWPM4JTwirtieoTWfOVNBrkjIzXcHC8JSvlOCqMxKnP5pP5AMti1F/VupP11d6H
+         DRRw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775591504; x=1776196304; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qn1XLzSF2TmeeP2tNEdFXedeLBUwyZyS+b7if2Oc0rM=;
+        b=unhPDvbOjw7YWUmR4L89QQxgiZPEMLUkbTwY5yIA4p4wao6AQCCyEa2yAtE5aPynNL
+         NQLzsRFYGyaa/Izm/vt1NoqoaSBgavehi4KpXpv0o+N7HB+2Dtn8PwcF3PBFMcwo7v7M
+         WwntZtnio4X5sVGL36NpjolmjYp6be/QkHIJZ5ET3zuX17tHUes+6NaLt620r3iluFUP
+         O4ZD6uXTCNqvIRTcS9Kzy8jwFxkh4/bRQjZp+nfF6LyODPXbfUZkJ4yn13cD+JWAzzx8
+         BB0z06uhuKk0TheW0a0IlFyYjVaAi/4sYw4m28JkKZkQc08kFr6zk9aba3FkSzExbi+n
+         iw1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775591504; x=1776196304;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=qn1XLzSF2TmeeP2tNEdFXedeLBUwyZyS+b7if2Oc0rM=;
+        b=OpLRQHYpKBnsLVGmb20sCOqhaTb/b+dmnheuCjO2YEbR9CxRNOu8QM4I8UuaYVR4Su
+         Li8TaAoGNefh7ah7+/GlP9QYqxaTiPO5GCeBMgxsGOZF3YBQ9Gdx59dmFHJ85nW95Lrd
+         W/ct9lgTgY8LY9uwc5KssYJXeRXNyunpeS4UQJJ4Bu9H8kudbiUf5gIRefwy0PbvHonB
+         bXvRQBMMKNJ4cDoKnNoxbmRCkqXLj1hPGtbPh6A10wDbOQjZcR7ihIkR4/gZh8h9gUlV
+         IxnDr4FII61l6X6ogmJffidi64D3qCJAwO7Na7mBVtR5uiMBM8+WxID1j7LNwEhFddMt
+         GcCA==
+X-Forwarded-Encrypted: i=1; AJvYcCUjn6oZa4H/JYqOfl5QWPqRZAoCgZkSoRsjx1o+pjCD62GzCSR/6YCXi/PXWRaqN/GhHO3MS5F0lX+FQQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNF/g2qquPFMax9btbCEz5Ontgh4SiPnjuslDTvmn3DFhn65H9
+	n5xwCtB99lD3iI2/qeEoNB2tQtJU+7XeyMMaKv+OqcxtIrm7oopCCET6LF1IsuO/SozWuPJap7C
+	kxkyWDqLFpId8BgaXimsqMGuDBHL5EwGFod4duLzj
+X-Gm-Gg: AeBDieu0E4nX2EIYLLsO/qN5lQov8Nh1XHNIvW/iAAzK9/scGg5ALc2U+EN/+jbSwRZ
+	ZlqGu2ht8hmdMQ+bsqsdvHapKgua4znZAT2ef75rqamFZAHtThHdwgESpF0Th+Cqt0shDkInhmz
+	tUBuXlgKGQ7ZlKQSQPnulCPthQ91imQRLbADCmViYsRL80QoJRM383nCA0waaVlfeawjMJjSo4+
+	QFnoP32r5i4iHwo9Ga6B4cohgO3LcGNXheLre9V1wgs8cpuF6BRuYCCsUwYUOtIGuGBlGfRrc52
+	JRTlsOhshS5Q475yUbxtDjw8BYNz18I7x0ufWg==
+X-Received: by 2002:a05:600c:47d5:b0:477:255c:bea8 with SMTP id
+ 5b1f17b1804b1-4889bf61f64mr3217875e9.7.1775591503327; Tue, 07 Apr 2026
+ 12:51:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260405235309.418950-2-ojeda@kernel.org>
+References: <20260406-measure_cycles-cfi-failure-v1-1-03e0234ae02f@kernel.org>
+In-Reply-To: <20260406-measure_cycles-cfi-failure-v1-1-03e0234ae02f@kernel.org>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Tue, 7 Apr 2026 12:51:06 -0700
+X-Gm-Features: AQROBzA8MspFFJKveCX0uZI0sP4vGpqImipYGDUPt-LZvJCZDd-1gIOBDFh3djA
+Message-ID: <CABCJKufNJBgdfuJwCV1z9m1P4bi5DgcpMnguyuTsDQGfjUPqhA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Define __riscv_copy_{,vec_}{words,bytes}_unaligned()
+ using SYM_TYPED_FUNC_START
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Nam Cao <namcao@linutronix.de>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_125146_646197_1288DA37 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,65 +114,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 01:52:37AM +0200, Miguel Ojeda wrote:
-> Commit 8cf5b3f83614 ("Revert "kbuild, rust: use -fremap-path-prefix
-> to make paths relative"") removed `--remap-path-prefix` from the build
-> system, so the workarounds are not needed anymore.
-> 
-> Thus remove them.
-> 
-> Note that the flag has landed again in parallel in this cycle in
-> commit dda135077ecc ("rust: build: remap path to avoid absolute path"),
-> together with `--remap-path-scope=macro` [1]. However, they are gated on
-> `rustc-option-yn, --remap-path-scope=macro`, which means they are both
-> only passed starting with Rust 1.95.0 [2]:
-> 
->   `--remap-path-scope` is only stable in Rust 1.95, so use `rustc-option`
->   to detect its presence. This feature has been available as
->   `-Zremap-path-scope` for all versions that we support; however due to
->   bugs in the Rust compiler, it does not work reliably until 1.94. I opted
->   to not enable it for 1.94 as it's just a single version that we missed.
-> 
-> In turn, that means the workarounds removed here should not be needed
-> again (even with the flag added again above), since:
-> 
->   - `rustdoc` now recognizes the `--remap-path-prefix` flag since Rust
->     1.81.0 [3] (even if it is still an unstable feature [4]).
-> 
->   - The Internal Compiler Error [5] that the comment mentions was fixed in
->     Rust 1.87.0 [6]. We tested that was the case in a previous version
->     of this series by making the workaround conditional [7][8].
-> 
-> ...which are both older versions than Rust 1.95.0.
-> 
-> We will still need to skip `--remap-path-scope` for `rustdoc` though,
-> since `rustdoc` does not support that one yet [4].
-> 
-> Link: https://github.com/rust-lang/rust/issues/111540 [1]
-> Link: https://github.com/rust-lang/rust/pull/147611 [2]
-> Link: https://github.com/rust-lang/rust/pull/107099 [3]
-> Link: https://doc.rust-lang.org/nightly/rustdoc/unstable-features.html#--remap-path-prefix-remap-source-code-paths-in-output [4]
-> Link: https://github.com/rust-lang/rust/issues/138520 [5]
-> Link: https://github.com/rust-lang/rust/pull/138556 [6]
-> Link: https://lore.kernel.org/rust-for-linux/20260401114540.30108-9-ojeda@kernel.org/ [7]
-> Link: https://lore.kernel.org/rust-for-linux/20260401114540.30108-10-ojeda@kernel.org/ [8]
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> ---
->  rust/Makefile | 8 ++------
->  1 file changed, 2 insertions(+), 6 deletions(-)
-> 
-
-Acked-by: Nicolas Schier <nsc@kernel.org>
-
--- 
-Nicolas
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTmF0aGFuLAoKT24gTW9uLCBBcHIgNiwgMjAyNiBhdCA0OjI24oCvUE0gTmF0aGFuIENoYW5j
+ZWxsb3IgPG5hdGhhbkBrZXJuZWwub3JnPiB3cm90ZToKPgo+IEFmdGVyIGNvbW1pdCA2N2JkZDdi
+MDEzODcgKCJyaXNjdjogU3BsaXQgb3V0IG1lYXN1cmVfY3ljbGVzKCkgZm9yCj4gcmV1c2UiKSBh
+bmQgY29tbWl0IGMwM2FkMTVmN2NmNiAoInJpc2N2OiBSZXVzZSBtZWFzdXJlX2N5Y2xlcygpIGlu
+Cj4gY2hlY2tfdmVjdG9yX3VuYWxpZ25lZF9hY2Nlc3MoKSIpLCB0aGVyZSBhcmUgQ0ZJIGZhaWx1
+cmUgd2hlbiBib290aW5nCj4ga2VybmVscyB3aXRoIENPTkZJR19DRkk9eToKPgo+ICAgQ0ZJIGZh
+aWx1cmUgYXQgbWVhc3VyZV9jeWNsZXMrMHgzOC8weGUwICh0YXJnZXQ6IF9fcmlzY3ZfY29weV93
+b3Jkc191bmFsaWduZWQrMHgwLzB4NTA7IGV4cGVjdGVkIHR5cGU6IC4uLikKPiAgIENGSSBmYWls
+dXJlIGF0IG1lYXN1cmVfY3ljbGVzKzB4MzgvMHhlMCAodGFyZ2V0OiBfX3Jpc2N2X2NvcHlfdmVj
+X3dvcmRzX3VuYWxpZ25lZCsweDAvMHgyNDsgZXhwZWN0ZWQgdHlwZTogLi4uKQo+Cj4gVGhlIF9f
+cmlzY3ZfY29weV8qX3VuYWxpZ25lZCgpIGZ1bmN0aW9ucyBhcmUgbm93IGNhbGxlZCBpbmRpcmVj
+dGx5IGJ1dAo+IHRoZXkgYXJlIG5vdCBkZWZpbmVkIHdpdGggU1lNX1RZUEVEX0ZVTkNfU1RBUlQs
+IHdoaWNoIGlzIHJlcXVpcmVkIGZvcgo+IGFzc2VtYmx5IGZ1bmN0aW9ucyBjYWxsZWQgaW5kaXJl
+Y3RseSBmcm9tIEMgdG8gcGFzcyBDRkkgY2hlY2tpbmcuIFN3aXRjaAo+IHRvIFNZTV9UWVBFRF9G
+VU5DX1NUQVJUIHRvIGNsZWFyIHVwIHRoZSBDRkkgZmFpbHVyZXMuCj4KPiBGaXhlczogNjdiZGQ3
+YjAxMzg3ICgicmlzY3Y6IFNwbGl0IG91dCBtZWFzdXJlX2N5Y2xlcygpIGZvciByZXVzZSIpCj4g
+Rml4ZXM6IGMwM2FkMTVmN2NmNiAoInJpc2N2OiBSZXVzZSBtZWFzdXJlX2N5Y2xlcygpIGluIGNo
+ZWNrX3ZlY3Rvcl91bmFsaWduZWRfYWNjZXNzKCkiKQo+IFNpZ25lZC1vZmYtYnk6IE5hdGhhbiBD
+aGFuY2VsbG9yIDxuYXRoYW5Aa2VybmVsLm9yZz4KPiAtLS0KPiAgYXJjaC9yaXNjdi9rZXJuZWwv
+Y29weS11bmFsaWduZWQuUyAgICAgfCA1ICsrKy0tCj4gIGFyY2gvcmlzY3Yva2VybmVsL3ZlYy1j
+b3B5LXVuYWxpZ25lZC5TIHwgNSArKystLQo+ICAyIGZpbGVzIGNoYW5nZWQsIDYgaW5zZXJ0aW9u
+cygrKSwgNCBkZWxldGlvbnMoLSkKCkxvb2tzIGdvb2QgdG8gbWUuIFRoYW5rcyBmb3IgdGVzdGlu
+ZyB0aGlzIGNvbmZpZ3VyYXRpb24hCgpSZXZpZXdlZC1ieTogU2FtaSBUb2x2YW5lbiA8c2FtaXRv
+bHZhbmVuQGdvb2dsZS5jb20+CgpTYW1pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
