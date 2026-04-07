@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A441FF5138
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F7BFF513A
 	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZCfG/jfA+D5AoHV2pj2gsYh5ExiqYQ3qfJApUuuSP20=; b=JAfb6Ywux+O1kN
-	YYZfmBGgyNarTwIestJPK7x4GLe4t2eXJMLtAnGxH4xjX68CuNTkxAxF9Yc3Vxi6IJcNSqTqlZHkl
-	Fitfvxat/0i6QOg14Jd4zrXyyggbzYgx3kyxLNmTYaVDGzm927QtAb3N0TLPnvtoTT0ih+z9odJyl
-	zWGRmWDCrJnk0MVMpl7xnK2pHbGhigg9t/l/yAsCIMPXboxi3svP94CdC3ndNDN8jiQTZ8xBpmAZD
-	CH1yZZDBGjyhP5kvRGgzPJ6IaW47dS9QS96vN65jo3q96epyu30vhr8/Ez7oQ/fBM+WyrdFWKJKzn
-	ukSQDNF4Ke66oGAe0umg==;
+	List-Owner; bh=NFOgMBR4G51jjhxDh+x+wq8e8rlhC744CR7NO5pgWaQ=; b=V/lyQvheNa3BZ2
+	KnWfc5HqO8sPC43dIVkfWmAadigIvxfJhAEmZoG4oTcQDVSTm8lvQ0thyVikJFGs4n4ATSpeZ2jJE
+	/oJu86CLwchaF+B1AYh6WGQONtFdBXZpTHeFZjYL44ZZY/yItx9JIOTTBMzZ0vYqljmF3dK1244FK
+	qvTdthETPUTnCgB+7KzgjqGQCfkiS1Inq8wJ2U1ps7AjvDeijaDyf+8YYSn2aAy2eqYfz9JPB2Zlm
+	R9vJ78BMB/0F4Qe+L08qBWVF1c+cMQQaR4i8rZPhmu0KpP/Ea9jepjbi7HwhoeoZ6WwEtm4/HF0qi
+	RXVaKFi1k9g4cBJPsL5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHE-00000007IJy-3Nuy;
-	Tue, 07 Apr 2026 19:39:56 +0000
+	id 1wACHM-00000007ISb-3ehi;
+	Tue, 07 Apr 2026 19:40:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHB-00000007IHB-2Q5y;
-	Tue, 07 Apr 2026 19:39:54 +0000
+	id 1wACHI-00000007IMS-2MpV;
+	Tue, 07 Apr 2026 19:40:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B2D6404AC;
-	Tue,  7 Apr 2026 19:39:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7475BC116C6;
-	Tue,  7 Apr 2026 19:39:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2242B404AC;
+	Tue,  7 Apr 2026 19:40:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7665FC19421;
+	Tue,  7 Apr 2026 19:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775590792;
-	bh=CGezKdEqDPdo1kPCwuUYGddzvOOGAGtk2UxFXojRw1c=;
+	s=k20201202; t=1775590800;
+	bh=L3Rfg+8z09e8keiE7bpGEjenYKXFDv21kTEZM7E6AaA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AGI2ToMRaUBAZVtejPVUq+e50ea/lP7efouoxy/kxmec44WkUdcbfxeDKvy+NBH1I
-	 lekyMnxmXkrJZAdHX/bmB0KrMI9UqXmhXX0qmMpjy1OD2MwCaAi/NEpcCnRciWPR0z
-	 0IgKByy8pEpqVSWX9WfKXZypizebnKZYmpngAkydT7MQb1VgAbohRz7fq668Q6dvOv
-	 4660d/sfvox9Dh9lgwP54A/lPT6vSgoFoxAFw5dZQ9BQAAq9Km8NNFG1j1WAnmmicb
-	 c4NpgbDr10Fi7rCCwJSS5OsYI8o9fCq0+bmyvf/XwaGmyXmBcai9/7Z4ZpfPUqkGKv
-	 /KEaSzJFvOboA==
-Date: Tue, 7 Apr 2026 21:35:26 +0200
+	b=l+XKs1nTqXITUzVO9V7ZcgbUKwdnwTFr3L2FCLHY2KQo86k0Ffjt8OL1/JRtkSDa3
+	 yNBwGPy69Qr91P26LAHEK1+rZfI5CToJT/zHAcNUCaWarkT5tjiCiRrgjcgleZ82i2
+	 RAt0ogBD0uHApgE3oFsyhNUam/qX/iD1x6pRvm43Q4Iw5xWGX7cWXIJicOEm828y5B
+	 55nqWXirst8RsbiNBuVI6dXtBatMxgvAUKG04HGQ8GcjMnE9vAOu2CBdQ4m7SQse8C
+	 W1jYywMzoAaOGnuLv2xcDaPbBqhp+7vjf9ZKmdzFfBwerHgNt4NKfTHi12+fv/HkF7
+	 JDYjm5yTda1Nw==
+Date: Tue, 7 Apr 2026 21:38:32 +0200
 From: Nicolas Schier <nsc@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
 Cc: Nathan Chancellor <nathan@kernel.org>,
@@ -78,9 +78,11 @@ Cc: Nathan Chancellor <nathan@kernel.org>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 32/33] rust: kbuild: support global per-version flags
-Message-ID: <adVcfpoZGH2Rf899@levanger>
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
+	Tamir Duberstein <tamird@kernel.org>
+Subject: Re: [PATCH v2 25/33] docs: rust: quick-start: add Ubuntu 26.04 LTS
+ and remove subsection title
+Message-ID: <adVdOOTJ0Iku8A3g@levanger>
 Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -117,15 +119,16 @@ Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
+	Tamir Duberstein <tamird@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-33-ojeda@kernel.org>
+ <20260405235309.418950-26-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260405235309.418950-33-ojeda@kernel.org>
+In-Reply-To: <20260405235309.418950-26-ojeda@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_123953_664979_49BD2F3E 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20260407_124000_719399_DB5F32BD 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,35 +145,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 01:53:08AM +0200, Miguel Ojeda wrote:
-> Sometimes it is useful to gate global Rust flags per compiler version.
-> For instance, we may want to disable a lint that has false positives in
-> a single version [1].
+On Mon, Apr 06, 2026 at 01:53:01AM +0200, Miguel Ojeda wrote:
+> Ubuntu 26.04 LTS (Resolute Raccoon) is scheduled to be released in a few
+> weeks [1], and it has a recent enough Rust toolchain, just like Ubuntu
+> 25.10 has [2][3].
 > 
-> We already had helpers like `rustc-min-version` for that, which we use
-> elsewhere, but we cannot currently use them for `rust_common_flags`,
-> which contains the global flags for all Rust code (kernel and host),
-> because `rustc-min-version` depends on `CONFIG_RUSTC_VERSION`, which
-> does not exist when `rust_common_flags` is defined.
+> We could update the title and the paragraph, but to simplify and to
+> make it more consistent with the other distributions' sections, let's
+> instead just remove that title. It will also reduce the differences
+> later on to keep it updated. Eventually, when we remove the remaining
+> subsection for older LTSs, Ubuntu should be a small section like the
+> other distributions.
 > 
-> Thus, to support that, introduce `rust_common_flags_per_version`,
-> defined after the `include/config/auto.conf` inclusion (where
-> `CONFIG_RUSTC_VERSION` becomes available), and append it to
-> `rust_common_flags`, `KBUILD_HOSTRUSTFLAGS` and `KBUILD_RUSTFLAGS`.
+> Thus remove the title and add the mention of Ubuntu 26.04 LTS.
 > 
-> In addition, move the expansion of `HOSTRUSTFLAGS` to the same place,
-> so that users can also override per-version flags [2].
-> 
-> Link: https://lore.kernel.org/rust-for-linux/CANiq72mWdFU11GcCZRchzhy0Gi1QZShvZtyRkHV2O+WA2uTdVQ@mail.gmail.com/ [1]
-> Link: https://lore.kernel.org/rust-for-linux/CANiq72mTaA2tjhkLKf0-2hrrrt9rxWPgy6SfNSbponbGOegQvA@mail.gmail.com/ [2]
-> Link: https://patch.msgid.link/20260307170929.153892-1-ojeda@kernel.org
+> Link: https://documentation.ubuntu.com/release-notes/26.04/schedule/#resolute-raccoon-schedule [1]
+> Link: https://packages.ubuntu.com/search?keywords=rustc&searchon=names&exact=1&suite=all&section=all [2]
+> Link: https://packages.ubuntu.com/search?keywords=bindgen&searchon=names&exact=1&suite=all&section=all [3]
+> Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 > Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 > ---
->  Makefile | 10 +++++++++-
->  1 file changed, 9 insertions(+), 1 deletion(-)
+>  Documentation/rust/quick-start.rst | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
 > 
 
-Acked-by: Nicolas Schier <nsc@kernel.org>
+Reviewed-by: Nicolas Schier <nsc@kernel.org>
 
 -- 
 Nicolas
