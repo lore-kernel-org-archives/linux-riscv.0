@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AFDFF5137
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B975FF5136
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iob9lgeQGqfPg94wsj0WyRiT2U66F4burktbDUVQ7kA=; b=jBdf3bgOhP11E1
-	k0N2s9jfJ+BoPMOeZa2XRRk6HxPODSPD269NP2pJP+4KJYKfQcqkTmLpNxbVMNzponQ8PR35EUDCb
-	89ngpc+TQ2YEBQc34MKCYl3zV7xYmxyLiYkirY+8u9tY77/QLlEnzuNDwnPuCkDA89r/zmgaTxEK5
-	bsUPpVB/yJsDCyyqk/gxY6bb9xFv/5Ecg/os2Zpk5xfZL1TbfFb6ze799cAvHhms2CRe2bM0PvVKg
-	oWml93d0BEJ4ANknRS5q+nr2/mon2XC7vi8DlGpHtCIUIiU35vQG0heZncAW7wIR56yhvDZ/nRAVi
-	5V7hqGZEvMQA4M1w1/Gw==;
+	List-Owner; bh=dgTwFZQ4ykBKbNnMb7BsIIou+2G/K8yMVFwcOaxroIk=; b=h7xxC6osNnnDZT
+	KybmkCDSk8XO5hgbvM8/aoRxNZUIWJcs40iG7iTlfYmzNmbH1u9KW3oS2Ql5NYfhtkxmw0RJDIo5H
+	35Qia3y2BLARlpl2mE8U2hbqeveYw4XmknbgWiWmREnHNiDqB3vkacvmZ3CvS2yHIDOzG6Uq89JYe
+	wWyysS4Krg/HH4Eqd3UJHaIxLHcLfOupU+mA3SrP1OyZiWUYHO9er1eRPmET/1tPOkTLTByQaEDyC
+	aarXr2hby8kyXIRDr+7yE3f3eFV/mJCXZnHm4DIUWBOsWmtxvKfVx69wxeE1FNX/pbxw6n+qSPK+u
+	Tw1VI65s2Lxh7PA8fPqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHI-00000007IN7-27BW;
-	Tue, 07 Apr 2026 19:40:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wACHP-00000007IVY-2Dzv;
+	Tue, 07 Apr 2026 19:40:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHD-00000007IIe-0YVp;
-	Tue, 07 Apr 2026 19:39:56 +0000
+	id 1wACHM-00000007IQq-0ZmG;
+	Tue, 07 Apr 2026 19:40:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BDF81444E8;
-	Tue,  7 Apr 2026 19:39:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D7DEC2BC9E;
-	Tue,  7 Apr 2026 19:39:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BB9C60139;
+	Tue,  7 Apr 2026 19:40:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20F94C2BC9E;
+	Tue,  7 Apr 2026 19:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775590794;
-	bh=VUPbEqFGGbOFWIwXYHWvivFzwPWAABqvcwZPV7b0Qgs=;
+	s=k20201202; t=1775590802;
+	bh=G6kWDg5ZKjWvzVWKZlcYhQ5fam5iGV3sa+XLqVTs0uY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=svL9lTOTlQvQW0aFeFKP/n5yfvO3GIW0MAh6CQjV8BDjzRyW110HJqQrlD2OHyqtS
-	 Q692ehekWJW1duvyjeW/LnXHSp1n3mpWZaBk/xLCaLVeBZEkNI7D1oxaJlKWl+nRu9
-	 MD9N2qhC6DuDbgoJZ4YDrVlvpBOJ7yNWOojg41Ywe36x+PieL81EJg2L9U1AoNe0bS
-	 n1kxPN3enhPp93NsycEDtH74lRzyCtF+jbuz4X/nLe5ukrZT49KmvSpj5+6QeACdNv
-	 /8Enc1MenSmwjSptV9YecbQcl0TXA+nhfF3Bbo3ytWFXK7DZley68PuTxeTONWE4NR
-	 aRSRs5uDp+BcA==
-Date: Tue, 7 Apr 2026 21:35:58 +0200
+	b=sDMsUKs11clmLqRSYOHdYemC/6eCCuTs/nd+pMdQ4HYBrZ2RMECvxE6SXi3Cq7Qt2
+	 Vq2KJvfW5GfXXZgHejEo9PnFH8x8Op63ZSvbJ0vvCU+be1qdWGNKDkx6MVC2iXkJUM
+	 qJwNyNeAg2v+RkrnDQoXDazkT2Endo1x/TFg5/uKx/qUeKnEug+ZIa1nMoI5aLlOEY
+	 qeo71REji+J04wTIEZliW+iwogjU+a6RnJJQAR1UJJBmXx/1Uxx/C0aQtgyu1LZY3r
+	 MsOztoq00b7hebIqtbESUzLc+vPI1CSIyx11Yg+4g+gy6/+6M0uFALPOC0AaMDWpzZ
+	 Kfy0Fs+ExLZRQ==
+Date: Tue, 7 Apr 2026 21:39:30 +0200
 From: Nicolas Schier <nsc@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
 Cc: Nathan Chancellor <nathan@kernel.org>,
@@ -78,11 +78,10 @@ Cc: Nathan Chancellor <nathan@kernel.org>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	Tamir Duberstein <tamird@kernel.org>
-Subject: Re: [PATCH v2 33/33] rust: kbuild: allow `clippy::precedence` for
- Rust < 1.86.0
-Message-ID: <adVcnj-bD99tOWDy@levanger>
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 01/33] rust: kbuild: remove `--remap-path-prefix`
+ workarounds
+Message-ID: <adVdctvoln3uRnSH@levanger>
 Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -119,16 +118,12 @@ Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	Tamir Duberstein <tamird@kernel.org>
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
 References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-34-ojeda@kernel.org>
+ <20260405235309.418950-2-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260405235309.418950-34-ojeda@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_123955_209677_251C6A1F 
-X-CRM114-Status: GOOD (  16.11  )
+In-Reply-To: <20260405235309.418950-2-ojeda@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,49 +140,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 01:53:09AM +0200, Miguel Ojeda wrote:
-> The Clippy `precedence` lint was extended in Rust 1.85.0 to include
-> bitmasking and shift operations [1]. However, because it generated
-> many hits, in Rust 1.86.0 it was split into a new `precedence_bits`
-> lint which is not enabled by default [2].
+On Mon, Apr 06, 2026 at 01:52:37AM +0200, Miguel Ojeda wrote:
+> Commit 8cf5b3f83614 ("Revert "kbuild, rust: use -fremap-path-prefix
+> to make paths relative"") removed `--remap-path-prefix` from the build
+> system, so the workarounds are not needed anymore.
 > 
-> In other words, only Rust 1.85 has a different behavior. For instance,
-> it reports:
+> Thus remove them.
 > 
->     warning: operator precedence can trip the unwary
->       --> drivers/gpu/nova-core/fb/hal/ga100.rs:16:5
->        |
->     16 | /     u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR::read(bar).adr_39_08()) << FLUSH_SYSMEM_ADDR_SHIFT
->     17 | |         | u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR_HI::read(bar).adr_63_40())
->     18 | |             << FLUSH_SYSMEM_ADDR_SHIFT_HI
->        | |_________________________________________^
->        |
->        = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#precedence
->        = note: `-W clippy::precedence` implied by `-W clippy::all`
->        = help: to override `-W clippy::all` add `#[allow(clippy::precedence)]`
->     help: consider parenthesizing your expression
->        |
->     16 ~     (u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR::read(bar).adr_39_08()) << FLUSH_SYSMEM_ADDR_SHIFT) | (u64::from(regs::NV_PFB_NISO_FLUSH_SYSMEM_ADDR_HI::read(bar).adr_63_40())
->     17 +             << FLUSH_SYSMEM_ADDR_SHIFT_HI)
->        |
+> Note that the flag has landed again in parallel in this cycle in
+> commit dda135077ecc ("rust: build: remap path to avoid absolute path"),
+> together with `--remap-path-scope=macro` [1]. However, they are gated on
+> `rustc-option-yn, --remap-path-scope=macro`, which means they are both
+> only passed starting with Rust 1.95.0 [2]:
 > 
-> While so far we try our best to keep all versions Clippy-clean, the
-> minimum (which is now Rust 1.85.0 after the bump) and the latest stable
-> are the most important ones; and this may be considered a "false positive"
-> with respect to the behavior in other versions.
+>   `--remap-path-scope` is only stable in Rust 1.95, so use `rustc-option`
+>   to detect its presence. This feature has been available as
+>   `-Zremap-path-scope` for all versions that we support; however due to
+>   bugs in the Rust compiler, it does not work reliably until 1.94. I opted
+>   to not enable it for 1.94 as it's just a single version that we missed.
 > 
-> Thus allow this lint for this version using the per-version flags
-> mechanism introduced in the previous commit.
+> In turn, that means the workarounds removed here should not be needed
+> again (even with the flag added again above), since:
 > 
-> Link: https://github.com/rust-lang/rust-clippy/issues/14097 [1]
-> Link: https://github.com/rust-lang/rust-clippy/pull/14115 [2]
-> Link: https://lore.kernel.org/rust-for-linux/DFVDKMMA7KPC.2DN0951H3H55Y@kernel.org/
-> Reviewed-by: Tamir Duberstein <tamird@kernel.org>
-> Reviewed-by: Gary Guo <gary@garyguo.net>
+>   - `rustdoc` now recognizes the `--remap-path-prefix` flag since Rust
+>     1.81.0 [3] (even if it is still an unstable feature [4]).
+> 
+>   - The Internal Compiler Error [5] that the comment mentions was fixed in
+>     Rust 1.87.0 [6]. We tested that was the case in a previous version
+>     of this series by making the workaround conditional [7][8].
+> 
+> ...which are both older versions than Rust 1.95.0.
+> 
+> We will still need to skip `--remap-path-scope` for `rustdoc` though,
+> since `rustdoc` does not support that one yet [4].
+> 
+> Link: https://github.com/rust-lang/rust/issues/111540 [1]
+> Link: https://github.com/rust-lang/rust/pull/147611 [2]
+> Link: https://github.com/rust-lang/rust/pull/107099 [3]
+> Link: https://doc.rust-lang.org/nightly/rustdoc/unstable-features.html#--remap-path-prefix-remap-source-code-paths-in-output [4]
+> Link: https://github.com/rust-lang/rust/issues/138520 [5]
+> Link: https://github.com/rust-lang/rust/pull/138556 [6]
+> Link: https://lore.kernel.org/rust-for-linux/20260401114540.30108-9-ojeda@kernel.org/ [7]
+> Link: https://lore.kernel.org/rust-for-linux/20260401114540.30108-10-ojeda@kernel.org/ [8]
 > Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 > ---
->  Makefile | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  rust/Makefile | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
 > 
 
 Acked-by: Nicolas Schier <nsc@kernel.org>
