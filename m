@@ -4,73 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056ABFF5109
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 15:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E942FF510C
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Apr 2026 15:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qG+edsp+QsqUjyXCNMCUyCzcuUlzuNnqkb2tKWEnGMs=; b=BvNJLMAkxGmO37m50eTgcaFLvT
-	x5W6bXfmtgjdoiB9KnpLv9q7hrD6cDLR2LAUWT0Un2ImVuRRalpRxTTrOhfcWw/NrLRbk5+qT9sO5
-	mEoMSs/vF/axX6+m3mJ3ma2ghJcachU4DAIp/SwhCfsDm+airzcWY6CgAr5NOlUk/0xDhy5GlcUhs
-	TH3dihU8MSpBlM2H4YqyvDIV+lu9yoe+PR6mg7esOxfanBRm/cez49qH0TtDFgLL/ygbZgmeSOQpu
-	PnI02foV0JoCVuG+2aQZqvy/0/Ci3C6wIWKqOoWTI2xTwTSMelcIBuE7abAKQl76o9ce5wrOf7fjk
-	ek/4N4qQ==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ptGQySRAG14gI2A1B+ET4LyNsEazWTZyoHzTe//x0xc=; b=AlRGQ6tQHbVljWIiWXZOThwEXb
+	waqxPBk2Z+/Th5XA+AoUFLqs7qo+6nJPmHK8nMMsOZbz+3OZ1phbVyXXkn0zmJ/1iTFudvEplDcCd
+	wJXL07a/GUDvdp6L0I8D7t+wujP2+K42or3jq4UtDgA5bxZacpeYHv7v189DYDX4BesXgLGswK02O
+	pLASAGGvPjPJCQ6jh8eS6KNSqJ7kzhahCPq4VXj45jL7bPu+n9xKYRu97hzxGjFpG4w6tqJMs/AhF
+	jDgMQjA1XTeg5Uw1aRUgtMMAqOqo2wI13L/BEleXiWVr6psKkDGV3OLb+LeTETPxNCVKQezUx7Aow
+	nnbgswWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA8dz-00000006k0t-311R;
-	Tue, 07 Apr 2026 15:47:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wA8mm-00000006kPe-2r6Y;
+	Tue, 07 Apr 2026 15:56:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA8dx-00000006jzu-28PA
+	id 1wA8mm-00000006kPY-0FzX
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Apr 2026 15:47:10 +0000
+	Tue, 07 Apr 2026 15:56:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 147DC4331B;
-	Tue,  7 Apr 2026 15:47:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAD31C2BCAF;
-	Tue,  7 Apr 2026 15:47:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3AC7A60123;
+	Tue,  7 Apr 2026 15:56:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CA43C116C6;
+	Tue,  7 Apr 2026 15:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775576828;
-	bh=7ZkhLjkG4Tgldo1Tqz/ygd9bzoyC6ImiCL5OXqWPe9I=;
+	s=k20201202; t=1775577374;
+	bh=kKVaSD68I82lrf7EdLaozoBbTRiXgOxzcIxlQDL2K7E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZLTYUOhZLV0JcJ7WhfezFr34+clUqw4nRZW4ypzETr81SO/fn7kPCECkX61XWeq1Z
-	 p4ogSkbLp1HmjxNX1AbklH1QaKzum2RfgNcIwOzWt6Hd7k3kQBYlwtg3OVRk4Mma48
-	 oeFDuKAupsRkEqd+nq5vhZ+5DQ05dUr6gjEmBwVIc6scYnz/xydqh6PL8olpAHwhFW
-	 LRlOfh46Df1Ad/S5VU+1r0i9TaiR7OHWQack1OPJ1mLL4s0Yyd4lPnCTS7rreoGy8j
-	 wGTWZAWpWft/ObACVtqOaic43cUStkIMLpa9ThbX9xe3cLOogZ3wDzdbYkve7wONn7
-	 3rA7jA+xrFSmw==
-Date: Tue, 7 Apr 2026 16:47:02 +0100
+	b=pV8qL3ajZHsm2r5R4szem/dgFPmkoe7AJ3g1+duiZ+fe+ptJLVtyz43rhDX9KVXZz
+	 fuHpW+vqsY7s3VfsONbRWyM+J7qxnZbNE4yi7jj+T0Hkgz5e1bbSth3lmlWnym0Ljx
+	 S6bNdwgi2g+SvowNsf47knFhymCeff9k/PGP6q3T87SPmeiDCqobz/GB/yRFBM8g2K
+	 cfdVQ6WMTEBalAe1K33Lkc3T6+Lwo9/lfet05DADZm1lPy9htz6Q/y9HBwmfVXjhH7
+	 b/FqNA65lrFaM0bnwvz7WWs45qLfeT5UhTsI6LIejlyi1u2xwJ2jgtHTsIoVGL+TQL
+	 PCfcqF7cY6naQ==
+Date: Tue, 7 Apr 2026 16:56:07 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Keguang Zhang <keguang.zhang@gmail.com>, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Subject: Re: [PATCH v1 12/13] soc: starfive: Add socinfo driver for JHB100 SoC
-Message-ID: <20260407-captivity-psychic-d2ee5c9109d1@spud>
-References: <20260403054945.467700-1-changhuang.liang@starfivetech.com>
- <20260403054945.467700-13-changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH v1 3/5] dt-bindings: interrupt-controller: Add StarFive
+ JHB100 plic
+Message-ID: <20260407-profanity-immovable-8831ce85c92c@spud>
+References: <20260402084019.440708-1-changhuang.liang@starfivetech.com>
+ <20260402084019.440708-4-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20260403054945.467700-13-changhuang.liang@starfivetech.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_084709_568115_4EE0BC90 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260402084019.440708-4-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +63,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6092812082713767045=="
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Joel Stanley <jms@oss.tenstorrent.com>, Drew Fustini <dfustini@oss.tenstorrent.com>, Darshan Prajapati <darshan.prajapati@einfochips.com>, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Hal Feng <hal.feng@starfivetech.com>, Guodong Xu <guodong@riscstar.com>, Yixun Lan <dlan@kernel.org>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, E Shattow <e@freeshell.de>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Junhui Liu <junhui.liu@pigmoral.tech>, Daniel Lezcano <daniel.lezcano@kernel.org>, Michal Simek <michal.simek@amd.com>, Paul Walmsley <pjw@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Michael Zhu <michael.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Type: multipart/mixed; boundary="===============6464631964091676086=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6092812082713767045==
+--===============6464631964091676086==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0RgIb1E/R/WiM3PU"
+	protocol="application/pgp-signature"; boundary="217orH3naVFNgJh5"
 Content-Disposition: inline
 
 
---0RgIb1E/R/WiM3PU
+--217orH3naVFNgJh5
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Thu, Apr 02, 2026 at 10:49:44PM -0700, Changhuang Liang wrote:
-> Add socinfo driver for JHB100 SoC. Currently available for distinguishing
-> between the two reversions, A0 and A1.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Maybe a silly question, but do we need this? Are both revisions
-available outside of Starfive?
-
-
---0RgIb1E/R/WiM3PU
+--217orH3naVFNgJh5
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCadUm9gAKCRB4tDGHoIJi
-0mx3AQDDIeNtlngb0YbX9JeCQZq8JKeN1yutHGXtTooj6sgkCQD+IYw4zBK5Q4FY
-f7FsBY9dSZxILE70UqmD4xWC9lrDjQ4=
-=yPUH
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCadUpFwAKCRB4tDGHoIJi
+0nbNAP4kJZeFXD2T2VobaPVjr05AVbsKND5OjDdmel49DW/IegD/akLREK7WuFJj
+/VLoORSCc2fpVmR7BTd0U5IA6gXhhgg=
+=h6oR
 -----END PGP SIGNATURE-----
 
---0RgIb1E/R/WiM3PU--
+--217orH3naVFNgJh5--
 
 
---===============6092812082713767045==
+--===============6464631964091676086==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -130,5 +106,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6092812082713767045==--
+--===============6464631964091676086==--
 
