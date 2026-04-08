@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E14FD5F81
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 06:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E911CFD5F81
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 06:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T6lJb58Mbd3JKkwj5gFvziZhnyu7hCo9PCnxh5Hz9Sc=; b=vTxkD4g0dSX3SN
-	HqxQpo/9/G+n1DZYwI69F4oySK7fo6EOpz5lyRiW5YDIrP4Us0mDAyUSk6Z3ybsCoiGTnXbJgzclP
-	M7fM7Zov1ThSZXxyK+BZowQtdMqZrePhjRBtrrWn+qtZ+fdiK04S3eDNQwP31PILZqEcrCF3wdU2s
-	JBPPFUPwIWZnhpkqzSoGT9vKHIsA9vUie/2rGt6igjFvh8S2zOH84R7EzqOat+8qKS7DjR5LMNl2j
-	sffuBsNwvkWaqA8rub4aDChWEIwLP7qwT6GeXFwnLMcPxBZYyvnvuu6qQCDDCPw3bYjNGrjwOPLDJ
-	AkbRCy42RLcwpKZQhKKg==;
+	List-Owner; bh=9f6qxeOOEB9LoJ4MUorLUHewmxKOjhgCKdvok9s1Qwo=; b=tkVtLf8NYznHZt
+	pzdDc7mKO4U80c/N1WrCbOGsU+GQcJ7wKGFbQxB6cIDNxCNAEOUNlrXhDOHUZXcsmh5xo69PH2pPU
+	XIOTnsGOmOAKGy6ajIBu62Xwjv/TQf/ZthAHE3UP0LKqMDIISUmSa2jAel+2Sd7z/MEuFozyPpOb4
+	h+RCG5TGpNfnnb/UUnSfGi0XWL6kg14bxGZPWNOMz//uWqsqssdoXDOd2+tpOmUtM8oxD4bt9eBlO
+	er2cLAo73GkMx8XCyiF05HmNDKPzvfwvnaRkn4xns+Eb6Vq40w2CEQwLgDOE+sKxwWhe+8GXK2xAl
+	koWOLSl4Hh4KsY3VW5fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAMPM-00000008LJw-1lup;
-	Wed, 08 Apr 2026 06:29:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wAMQ9-00000008LP2-3K6I;
+	Wed, 08 Apr 2026 06:29:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAMPK-00000008LJS-0a3N
+	id 1wAMQ8-00000008LOg-0BO3
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Apr 2026 06:28:59 +0000
+	Wed, 08 Apr 2026 06:29:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A0F244471;
-	Wed,  8 Apr 2026 06:28:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70F24C19424;
-	Wed,  8 Apr 2026 06:28:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F60A443E1;
+	Wed,  8 Apr 2026 06:29:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6048C19424;
+	Wed,  8 Apr 2026 06:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775629737;
-	bh=0fEihocmEY0C9P4KGpdTrRN37siIc3be+RyIxJUAZwo=;
+	s=k20201202; t=1775629787;
+	bh=eR8zy7zxRWhUTbS60j8Zjhcdg9pRFWkkDDyQ0bGHtWQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rSuiGnocxKhFPPvLVJeIfnY3mA7nifiEyJpbHc/yMUiNkW3uC0ZEZVUp+Cg/Q9SXQ
-	 OzWtahD2azxw3+1zjeW6D8GlykIQCjmOKGd9MS375ZikYpHciAOvsZcI01t9P/Okht
-	 b11ygN74JtOKxrgvzOnAfcie2Ex43essOVOI/AtUkulV4+qnLIxwzUwa2GV9+xI1Wv
-	 gcHAWC1Tl7+vNL3Xb5K0O3EtazBg1kfao+XX+RUvMMpZ9OQvJb1BNahw5dlEgq2Efd
-	 k/0jmzMR1Uj46/8AvroKCD+li1ZN+ty7SqfggbZ1xCLBjtx+bx36mFNggq/SFavpyR
-	 hJ/DZtSazcvEw==
-Message-ID: <13907c0e-0502-413d-b54d-4e903f5c781e@kernel.org>
-Date: Wed, 8 Apr 2026 08:28:51 +0200
+	b=U2XnrkyjM0DOnmpWlcZ7q3y+u8rDtHo5em5J68hm2HxcKqGybdGRWGdkWonI3L3h5
+	 Hwf20GiEz83DgMwR2t9DfyEYUxKzKV8urieuS8uO3wmVExFpuf9Pnvs774lHjKDSyX
+	 JrEoV3O36QGJTuiCymm9Hghtf6zsqLAbzDbgIhpjmNdYX4OXKodRg12LKqKyVPztlP
+	 azydME8vFF9M9xqpn618YLbzOptg+UMOmRczUBCe6sd0z2oUeB3ojAeouNezgaohxf
+	 AXPx6LVPqr0q9NV23ERbC6UwqRk9TI+I5nTMJfWYkU3wimHztRMaXhTG/XoEHX1xRi
+	 zi/n7DUdBbUfQ==
+Message-ID: <05afaba5-24c7-4359-a8b7-4f96dc0741d1@kernel.org>
+Date: Wed, 8 Apr 2026 08:29:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] dt-bindings: PCI: Add UltraRISC DP1000 PCIe
- controller
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+Subject: Re: [PATCH v1 02/13] dt-bindings: clock: Add system-0 domain PLL
+ clock
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>,
- Xincheng Zhang <zhangxincheng@ultrarisc.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260407-ultrarisc-pcie-v2-0-2aa2a19a7fb3@ultrarisc.com>
- <20260407-ultrarisc-pcie-v2-3-2aa2a19a7fb3@ultrarisc.com>
- <20260407-uptight-tody-of-weather-ae1e35@quoll>
- <177561928084.2918127.18218641774926914517.b4-reply@b4>
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Chen Wang
+ <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>,
+ Alexey Charkov <alchark@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Keguang Zhang <keguang.zhang@gmail.com>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Leyfoon Tan <leyfoon.tan@starfivetech.com>
+References: <20260403054945.467700-1-changhuang.liang@starfivetech.com>
+ <20260403054945.467700-3-changhuang.liang@starfivetech.com>
+ <20260405-godlike-pistachio-mackerel-7ab494@quoll>
+ <ZQ4PR01MB120275BC5277C4FF18A738E6F25A2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <5f2a1946-9ca7-414c-a764-60f46f3b3cf5@kernel.org>
+ <ZQ4PR01MB120210CE64AEE9CD57002CCAF25B2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,10 +116,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <177561928084.2918127.18218641774926914517.b4-reply@b4>
+In-Reply-To: <ZQ4PR01MB120210CE64AEE9CD57002CCAF25B2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_232858_225709_CC61D439 
-X-CRM114-Status: UNSURE (   5.20  )
+X-CRM114-CacheID: sfid-20260407_232948_121892_C0F1D407 
+X-CRM114-Status: UNSURE (   5.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,18 +137,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/04/2026 05:34, Jia Wang wrote:
->>> +  max-link-speed:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>> +    const: 4
->>
->> If const then deducible from the compatible. Drop the property.
->>
+On 08/04/2026 07:17, Changhuang Liang wrote:
 > 
-> Will replace `const: 4` with `maximum: 4` in v3.
+> In the next version, it will be changed to this, correct?
+> 
+> 			sys0_syscon: syscon@13010000 {
+> 				compatible = "starfive,jhb100-sys0-syscon", "syscon";
+> 				reg = <0x0 0x13010000 0x0 0x2000>;
+> 				clocks = <&osc>;
+> 				#clock-cells = <1>;
 
-Why? Wasn't maximum link speed fixed to 4?
-
+Yes
 
 Best regards,
 Krzysztof
