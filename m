@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04303FD5F73
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 04:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C82FFD5F7D
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 04:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=A0QllHREZqFrrA5+L8zbHPjzfLFtEdTF1Drx/d34XLI=; b=gIwpxFog/uU3gn
-	j7CRNIku6iq+e6z74LzF7NQaGIu1ypIy+WDMTmFTB33WDkwUTDYsu4aXS90y7Os0mDxGpqja7L5yO
-	+iD6uK2otJgM89W/NAQrejXny22IQhlPz5zHnMabSl9Ybrx8GPiHuIjE3yhJvzJ8E4naykNreVzVs
-	zTGdNffZzwqv7czmcsVL7GPgOpwCeR5HM9zxyPGMa3+MnKywpJF5dKP+7Tq7jI4GTTZ/ldpthOUKK
-	rWxu46QNnZnGcV/sKonzF9Rsn9HwMQTbKbsGnFXdUGsX7kgSaH03u88Ody76/bqUXCM2UFWQQvfA8
-	LOMQOtJI0VqcbuTexx8A==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0I7l8DBS20523hEKLXOw/HB3GhlLe3fnIW0nDehc90A=; b=QkweP9nGMrO2oV
+	XekgHyj0oaZxSYKwYCzcCQNF83ay/s0bU1kKwT+NUtanTnybpAY5G9DZnqCCH44MaNa1i4oVBZ6ZT
+	+lnGQ1tAFjOkCRtd2YmleXjXdE+30FFYL4lRl09kOwXz5ZdBYOCAuSbwttjFdcVJRGD9DvOGLeCOD
+	701uBvQjBVzIZEumCD1Zb0Gceanbu5r+eJw++xwZosA7ojHpVgY92VwgwDJttrmoXwAKG7ZomaeOS
+	l8MVi5oLPFUh7lb4xx9FcVON4PlgPNjFptn5ft/OWja6F/WrAy+HHgToKmclR2FcbdT1/lpSEm5SA
+	2fj8Kh2EnCmN0Wo3dI2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAKoL-00000008EfS-2uqZ;
-	Wed, 08 Apr 2026 04:46:41 +0000
+	id 1wAKoO-00000008Ejf-2sV3;
+	Wed, 08 Apr 2026 04:46:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAKoH-00000008Ea0-4BMa;
-	Wed, 08 Apr 2026 04:46:39 +0000
+	id 1wAKoJ-00000008EbP-1Z7z;
+	Wed, 08 Apr 2026 04:46:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 394A743F2C;
-	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 127D1C19424;
+	by sea.source.kernel.org (Postfix) with ESMTP id 126D24456D;
+	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E1DD7C19425;
 	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775623596;
-	bh=rAI1CPLDiRKGIxKOZmRu8/zalWKsDkVpDctGcchvfIE=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=UroqgO/4mQ09I7T4jvzkHwNdCpGsZc8rmjHLbjIkjkl495lJt5j6yzjAHJx2pBslp
-	 ETm+G8/z0gOneW8dOUjryk/s3FHuMaLbB50jZkp2fODCbqHEjMouYysSKculq7rZ9G
-	 7SW/mKWmLwvDO6VvNwlnxiKMdcgo7xymRAQtyFjzsvIwVfn3jWEfjYjlGidqGwpFp0
-	 pI1g0PSPjZ5QZJVogOpWqHlezLRfa55VR+b6Tr/0mFST/6rpyJ0V6WX1iiudunkNUj
-	 4+7mLonESwNOdLCUQiAFKoqzIYat/kQbnAPn2qi5mYO7Lc8nzIZKnC0zYQYn9g9utJ
-	 zg87MlXvkcPkw==
+	s=k20201202; t=1775623597;
+	bh=oUL9asvy+zE2dNrRAwplrqDe/MHJwCo7NgVB5/FNQwQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=ATfScWCfZefHXUaxmesU7O0ved1t35WQwwofWUoyc0MizRGKps5XpEf+GPv9ZpmgE
+	 FrRJYtkiALxTnZB29AjMrsseEcXnpIBBuD+3agEsL5KZfzkBpy1WhAPLUIPWslaa/V
+	 h6mVcsuaCTpwaQmRnS5dde8xMtC0z9PgIjpfT86sziXq+EhzWons1zb/B50MNPGSOT
+	 ZHaJoerqzzeyOHlACK+vi5/CULTx0Eui/Ldv85C9snoiBwRnHm/KnLNkP6qCKZI1QI
+	 bZCLCxI/aEr5nCmOyLwlS31/stpmafiwTEMaThYG0MNsXBmkIaGEt/VT2LqYxTI310
+	 acY3cIpTD3zSA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0770CFD5F73;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DA34FFD5F76;
 	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Subject: [PATCH 00/16] riscv: Generate riscv instruction functions
-Date: Tue, 07 Apr 2026 21:45:48 -0700
-Message-Id: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
+Date: Tue, 07 Apr 2026 21:45:55 -0700
+Subject: [PATCH 07/16] riscv: kvm: Use generated instruction headers for
+ csr code
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAHzd1WkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQ0MT3aLM4uSy+My84rz4ksSknFRdYwsTS1MgSklLMVYCaisoSk3LrAA
- bGR1bWwsAp7/tpmIAAAA=
-X-Change-ID: 20260114-riscv_insn_table-38495495dfd3
+Message-Id: <20260407-riscv_insn_table-v1-7-54b4736a1e77@gmail.com>
+References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
+In-Reply-To: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, 
  Atish Patra <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, 
@@ -63,19 +62,19 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=4407;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=2903;
  i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
- bh=rAI1CPLDiRKGIxKOZmRu8/zalWKsDkVpDctGcchvfIE=;
- b=7x4PTXIx7EN/ZzSPl1d5lxpRaBvp9CB1dq+sX9CzPHHqqpAtcEoH3dqwO/afl/RvHYNThe8tm
- 1JDOesSdpzHC7U26ZY76EtB28pEehaqQG4YrIuubLCvZW2hYfdIYjkF
+ bh=zjTRDc41ANyFedf3cbSbk5JAhE4813R8ZlVWeNgHH4k=;
+ b=cFumLVLBW7/FLTqc8/qslS5/l43/knn4JqcHGnwby/U3awqE5WHPDYMVQa4US319I3Fc8+sSE
+ zm0gqE8af27AxhLcN+beDIDk2Pe48rb+bCg8mJDVSRseygG8Qjv0eCI
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
  with auth_id=663
 X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_214638_081158_34719D55 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20260407_214639_492975_87F46478 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,92 +92,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is a lot of code that is manually manipulating riscv instructions.
-Constructing these headers for new instructions is time consuming and
-error prone.
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-The first patch in this series introduces the instruction definition
-table along with a script that runs at compile time to create all of the
-associated instruction manipulation functions. The remaining patches
-migrate all of the manual instruction code to use these generated
-functions.
-
-The instruction definition table is generated from the riscv-unified-db[1],
-an open source RVI project for instruction specifications. I am sending
-this series at the same time as I am sending the patch to the
-riscv-unified-db for the format of the instruction table. That patch can
-be accessed on github [2].
-
-A lot of the validation for these changes is from running all possible
-32-bit or 16-bit integers through these functions to see that any given
-instruction will produce to expected result. I give more detail on the
-test cases in the notes of the first couple of patches.
-
-For the KVM patches, I also introduce two test cases to ensure that the
-instruction manipulation is working as expected, along with a bug fix of
-the current implemention.
-
-[1] https://github.com/riscv/riscv-unified-db
-[2] https://github.com/riscv/riscv-unified-db/pull/1780
+Migrate the csr parsing code to use the generated instruction headers
+instead of the hand-written instruction composition functions.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
----
-Charlie Jenkins (16):
-      riscv: Introduce instruction table generation
-      riscv: alternatives: Use generated instruction headers for patching code
-      riscv: kgdb: Use generated instruction headers
-      riscv: kprobes: Use generated instruction headers
-      riscv: cfi: Use generated instruction headers
-      riscv: Use generated instruction headers for misaligned loads/stores
-      riscv: kvm: Use generated instruction headers for csr code
-      riscv: kvm: Fix MMIO emulation for sign-extended insns
-      KVM: device: Add test device
-      KVM: riscv: selftests: Add mmio test
-      riscv: kvm: Use generated instruction headers for mmio emulation
-      riscv: kvm: Add emulated test csr
-      KVM: riscv: selftests: Add csr emulation test
-      riscv: kvm: Use generated instruction headers for csr emulation
-      riscv: kexec: Use generated instruction headers for kexec relocations
-      riscv: Remove unused instruction headers
 
- arch/riscv/Kconfig.debug                      |    1 +
- arch/riscv/Makefile                           |    3 +
- arch/riscv/include/asm/Kbuild                 |    1 +
- arch/riscv/include/asm/insn.h                 |  563 +---------
- arch/riscv/include/asm/kvm_host.h             |   10 +
- arch/riscv/include/asm/kvm_vcpu_insn.h        |    5 +-
- arch/riscv/include/asm/kvm_vcpu_test_csr.h    |   15 +
- arch/riscv/kernel/alternative.c               |   23 +-
- arch/riscv/kernel/cfi.c                       |    6 +-
- arch/riscv/kernel/kgdb.c                      |  102 +-
- arch/riscv/kernel/machine_kexec_file.c        |   55 +-
- arch/riscv/kernel/probes/decode-insn.c        |    7 +-
- arch/riscv/kernel/probes/simulate-insn.c      |  253 ++---
- arch/riscv/kernel/probes/simulate-insn.h      |    7 +-
- arch/riscv/kernel/traps_misaligned.c          |  183 ++--
- arch/riscv/kvm/Kconfig.debug                  |   16 +
- arch/riscv/kvm/Makefile                       |    1 +
- arch/riscv/kvm/vcpu_insn.c                    |  233 ++---
- arch/riscv/kvm/vcpu_test_csr.c                |   21 +
- arch/riscv/tools/Makefile                     |   22 +
- arch/riscv/tools/insn.tbl                     | 1391 +++++++++++++++++++++++++
- arch/riscv/tools/insn_tbl.sh                  |  263 +++++
- include/uapi/linux/kvm.h                      |    2 +
- lib/Kconfig.debug                             |    6 +
- tools/testing/selftests/kvm/Makefile.kvm      |    2 +
- tools/testing/selftests/kvm/riscv/csr_test.c  |  123 +++
- tools/testing/selftests/kvm/riscv/mmio_test.c |  184 ++++
- virt/kvm/Kconfig.debug                        |   16 +
- virt/kvm/Makefile.kvm                         |    1 +
- virt/kvm/kvm_main.c                           |    8 +
- virt/kvm/mmio_test.c                          |   95 ++
- virt/kvm/mmio_test.h                          |   18 +
- 32 files changed, 2624 insertions(+), 1012 deletions(-)
 ---
-base-commit: dd9b004b7ff3289fb7bae35130c0a5c0537266af
-change-id: ${change-id}
 
-- Charlie
+This is a simple transformation that I have again validated through
+brute force.
+---
+ arch/riscv/kvm/vcpu_insn.c | 47 +++++++++++++++++++++++-----------------------
+ 1 file changed, 24 insertions(+), 23 deletions(-)
+
+diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+index 4d89b94128ae..62c4510a40af 100644
+--- a/arch/riscv/kvm/vcpu_insn.c
++++ b/arch/riscv/kvm/vcpu_insn.c
+@@ -146,43 +146,44 @@ int kvm_riscv_vcpu_csr_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ 
+ static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+ {
++	#define GET_REG(_rd) (*((unsigned long *)(&vcpu->arch.guest_context) + _rd))
++
+ 	int i, rc = KVM_INSN_ILLEGAL_TRAP;
+-	unsigned int csr_num = insn >> SH_RS2;
+-	unsigned int rs1_num = (insn >> SH_RS1) & MASK_RX;
+-	ulong rs1_val = GET_RS1(insn, &vcpu->arch.guest_context);
++	unsigned int csr_num;
+ 	const struct csr_func *tcfn, *cfn = NULL;
+ 	ulong val = 0, wr_mask = 0, new_val = 0;
+ 
+ 	/* Decode the CSR instruction */
+-	switch (GET_FUNCT3(insn)) {
+-	case GET_FUNCT3(INSN_MATCH_CSRRW):
++	if (riscv_insn_is_csrrw(insn)) {
+ 		wr_mask = -1UL;
+-		new_val = rs1_val;
+-		break;
+-	case GET_FUNCT3(INSN_MATCH_CSRRS):
+-		wr_mask = rs1_val;
++		new_val = GET_REG(riscv_insn_csrrw_extract_xs1(insn));
++		csr_num = riscv_insn_csrrw_extract_csr(insn);
++	} else if (riscv_insn_is_csrrs(insn)) {
++		wr_mask = GET_REG(riscv_insn_csrrs_extract_xs1(insn));
+ 		new_val = -1UL;
+-		break;
+-	case GET_FUNCT3(INSN_MATCH_CSRRC):
+-		wr_mask = rs1_val;
++		csr_num = riscv_insn_csrrs_extract_csr(insn);
++	} else if (riscv_insn_is_csrrc(insn)) {
++		wr_mask = GET_REG(riscv_insn_csrrs_extract_xs1(insn));
+ 		new_val = 0;
+-		break;
+-	case GET_FUNCT3(INSN_MATCH_CSRRWI):
++		csr_num = riscv_insn_csrrc_extract_csr(insn);
++	} else if (riscv_insn_is_csrrwi(insn)) {
+ 		wr_mask = -1UL;
+-		new_val = rs1_num;
+-		break;
+-	case GET_FUNCT3(INSN_MATCH_CSRRSI):
+-		wr_mask = rs1_num;
++		new_val = riscv_insn_csrrwi_extract_imm(insn);
++		csr_num = riscv_insn_csrrwi_extract_csr(insn);
++	} else if (riscv_insn_is_csrrsi(insn)) {
++		wr_mask = riscv_insn_csrrwi_extract_imm(insn);
+ 		new_val = -1UL;
+-		break;
+-	case GET_FUNCT3(INSN_MATCH_CSRRCI):
+-		wr_mask = rs1_num;
++		csr_num = riscv_insn_csrrsi_extract_csr(insn);
++	} else if (riscv_insn_is_csrrci(insn)) {
++		wr_mask = GET_REG(riscv_insn_csrrwi_extract_imm(insn));
+ 		new_val = 0;
+-		break;
+-	default:
++		csr_num = riscv_insn_csrrwi_extract_csr(insn);
++	} else {
+ 		return rc;
+ 	}
+ 
++	#undef GET_REG
++
+ 	/* Save instruction decode info */
+ 	vcpu->arch.csr_decode.insn = insn;
+ 	vcpu->arch.csr_decode.return_handled = 0;
+
+-- 
+2.52.0
 
 
 
