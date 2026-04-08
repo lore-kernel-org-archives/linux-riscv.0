@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE75FD5F7E
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 04:46:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 659A0FD5F7F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 04:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mgNrcNKZkn8fkTkxGnoXHJWSyyYYg7v2msmKX3sBSPM=; b=ZmXj3/m+U1+COD
-	eyoVWs3wSARPN+oBMARf0b7+mZ28pzty6sYUi/4ZlCi/24jr69Fo86NXroGk4sAJu0V2k+DafGVvV
-	0yq44YxL1gUDdWsQfkiNUfP5eAaeg0KfO0P48vh+OEqkCDqrrGEv4h7K8+Ny/i7ym6KDFNMr7Sugo
-	tQsh1QhSCu8r1CEV6cKSCp4c8Zma9a0GQ4qU5eZgoZ+dai9q/KdMqFX/c2IzDJp/WOCXJvX8wYtV9
-	xl8idPoZQD5wlYzYiOb0HorCLY2Khx6Li2nQj7P81hb+q0O14248wykjbDgnuzd70HRcpXF/rlU2s
-	g6++fW2Twsu6X5ruBA9Q==;
+	List-Owner; bh=THL24j1qUzjaAfx2gcxsDCKaqnPVagLGfUN6LXm/dhw=; b=ohJIZVu5FlpS7C
+	MkIP8+YhSC7/+HTDpN3ZGN52yjFcf12AI+hlb4vh8/7thoBIG27nqF3hFDOndYBOsab/2LGn7Gxpn
+	DioHSuBc4Uwr/D5D+ULDQ1XQPt+wcszHOnX3B+oqWpQlbryQZgsGuQs+tlt+wqusFFgI94U9YmsWE
+	qUGaVImeG2h+Wf9l8b71myDoM1gTWnbNroy2TblU9b4uMDpUSzpKLwlzHTQJ5qUWCZLrfZBf48jLS
+	Z6ean+X8j1PaNY813NgVyQDx4QLuKIfK+ewqJEZrZgUmfPaJ3ppNp+v9T7axQ58SXOvg76JcbrBZi
+	eNbZMVcEaczSq5oHueKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAKoP-00000008Elc-42ll;
-	Wed, 08 Apr 2026 04:46:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wAKoQ-00000008Ely-1G0o;
+	Wed, 08 Apr 2026 04:46:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAKoJ-00000008EbR-1qSS;
+	id 1wAKoJ-00000008EbZ-2Tym;
 	Wed, 08 Apr 2026 04:46:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EA0B84456B;
-	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CABE5C19424;
-	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2BC2B4448E;
+	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 04222C2BC9E;
+	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775623596;
-	bh=HNvGZP/PuCqYLkCx9Gaq3wYlwoREaAJofqqabmC45W4=;
+	s=k20201202; t=1775623597;
+	bh=w9IsCz5C65o7SYnzaV255DXsVBXf9lMSVjahsf+0d3w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=MV7mcViiU6SJZhgS1ephI7soVRhBzrBF7ZxL4+Zb5NUKxqb7AtZGmk1SotbRGnaVy
-	 Twj0wNf7s6wtWNcX86n65bVQ+2qGf0rErQpZ0lbWEzkErx8lunYq3IN2QWoCQ2mSf8
-	 nk+1cYIQR2bWZGjdDFCetzLnE9zg5tP6f3k9WK0oIZkAzLTzJW9RtprWuTqAc5yM+K
-	 jYkGD1mAB6zGYlrRVlmfTCi87XidL1W4ibydBNP6SQgz4Sh+oL+ah/2ZDRLDBUWbLz
-	 vOWzLrn/rGDej1ch7HAdkJL7iCDgU+clO6arzn+BzDAmfTxHvip9Wu/67FsrKVhRoO
-	 Wr1dN65KI617g==
+	b=io0i1S8zyNDeTdGN4yJaLqlYa3RQFwnmCi4dvTfsmB2ngjDUDhE/WQLWOWF+CeeJ9
+	 BAT8GTZW0ZcY3sps7tDwnjuoyZkimy2L7GSB2nrFrgBMUZAe5XHDUwBCwAOYRM0PAn
+	 +RrdMZ+Jy5VUxB0KUVMQDgjmiAxUOu4A7HUO40NJNu/BJUFxQb0+cdxCxyCK4fExlG
+	 T7rtuG0Y1EMKogDfx61PbO98rUM5xMdz4qZkXE4Nh/NVmic717s84V3Vc2PQQjj57X
+	 TxsbbHANRbqjMEk96gWw98BjyjLIr/0ATUvCFdK+V56MGGC9q/w7aYhDTaAaHrrhHw
+	 Zqlez72oIvsyw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C2B54FD5F70;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F143FFD5F73;
 	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Tue, 07 Apr 2026 21:45:54 -0700
-Subject: [PATCH 06/16] riscv: Use generated instruction headers for
- misaligned loads/stores
+Date: Tue, 07 Apr 2026 21:45:56 -0700
+Subject: [PATCH 08/16] riscv: kvm: Fix MMIO emulation for sign-extended
+ insns
 MIME-Version: 1.0
-Message-Id: <20260407-riscv_insn_table-v1-6-54b4736a1e77@gmail.com>
+Message-Id: <20260407-riscv_insn_table-v1-8-54b4736a1e77@gmail.com>
 References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
 In-Reply-To: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -62,19 +62,19 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=12714;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=1861;
  i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
- bh=zVf4OnkgNKq4fyLzqxwsfYBeYNXIZfimNqUJ5k6ZjJY=;
- b=PMCNw6i04J+ZvQWbWQYJSC97cAr9pXZvmZupjkQN9OHsNQuNHLg93WPdmrxBcDSdHQNMrhAEX
- SdHKdL89hSjD5zAkYFLz7wzG/mqnmp6mA9JeJQYFy3oLHUaFSq3aM0p
+ bh=lGPhHeZyq2cBn6D6Rrw+L7g4NlITgLWo0A/2zvmf7AE=;
+ b=db8eDgJl+Lxj01XnGSTnQdW6SSxHQwG8ehZ9ti7lZbKgg//zvLEF/VtHi7aOf3Qg/NPY9t3iw
+ b6GSI/ckqNOCYdESWlISYlmDPk5zSHfsQP5PliI0bV5S5BiyNWqbc/M
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
  with auth_id=663
 X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_214639_584989_B620DCF5 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20260407_214639_703448_41881F5A 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,368 +94,56 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Migrate the misaligned loads/store code to use the generated instruction
-headers instead of the hand-written instruction composition functions.
+KVM MMIO emulation failed to sign extend any signed reads and at the
+same time also unsuccessfully attempted to sign extend reads using lbu.
+Remove the shifting for lbu to avoid sign extension for that
+instruction and cast the data to a signed long instead of an unsigned
+long to allow for sign extension.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-
 ---
+ arch/riscv/kvm/vcpu_insn.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-Similar to the other patches of this series, I extracted out the logic
-of this function and brute forced all possible inputs to validate that
-the outputs are the same. To verify this change in the kernel, I booted
-on Spike and used the misaligned access checker which does some
-misaligned accesses.
----
- arch/riscv/kernel/traps_misaligned.c | 183 ++++++++++++++++-------------------
- 1 file changed, 83 insertions(+), 100 deletions(-)
-
-diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-index 2a27d3ff4ac6..a36ea0994ae8 100644
---- a/arch/riscv/kernel/traps_misaligned.c
-+++ b/arch/riscv/kernel/traps_misaligned.c
-@@ -22,15 +22,11 @@
- 
- #ifdef CONFIG_FPU
- 
--#define FP_GET_RD(insn)		(insn >> 7 & 0x1F)
--
- extern void put_f32_reg(unsigned long fp_reg, unsigned long value);
- 
--static int set_f32_rd(unsigned long insn, struct pt_regs *regs,
-+static int set_f32_rd(unsigned long fp_reg, struct pt_regs *regs,
- 		      unsigned long val)
- {
--	unsigned long fp_reg = FP_GET_RD(insn);
--
- 	put_f32_reg(fp_reg, val);
- 	regs->status |= SR_FS_DIRTY;
- 
-@@ -39,9 +35,8 @@ static int set_f32_rd(unsigned long insn, struct pt_regs *regs,
- 
- extern void put_f64_reg(unsigned long fp_reg, unsigned long value);
- 
--static int set_f64_rd(unsigned long insn, struct pt_regs *regs, u64 val)
-+static int set_f64_rd(unsigned long fp_reg, struct pt_regs *regs, u64 val)
- {
--	unsigned long fp_reg = FP_GET_RD(insn);
- 	unsigned long value;
- 
- #if __riscv_xlen == 32
-@@ -58,10 +53,8 @@ static int set_f64_rd(unsigned long insn, struct pt_regs *regs, u64 val)
- #if __riscv_xlen == 32
- extern void get_f64_reg(unsigned long fp_reg, u64 *value);
- 
--static u64 get_f64_rs(unsigned long insn, u8 fp_reg_offset,
--		      struct pt_regs *regs)
-+static u64 get_f64_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
--	unsigned long fp_reg = (insn >> fp_reg_offset) & 0x1F;
- 	u64 val;
- 
- 	get_f64_reg(fp_reg, &val);
-@@ -73,10 +66,8 @@ static u64 get_f64_rs(unsigned long insn, u8 fp_reg_offset,
- 
- extern unsigned long get_f64_reg(unsigned long fp_reg);
- 
--static unsigned long get_f64_rs(unsigned long insn, u8 fp_reg_offset,
--				struct pt_regs *regs)
-+static unsigned long get_f64_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
--	unsigned long fp_reg = (insn >> fp_reg_offset) & 0x1F;
- 	unsigned long val;
- 
- 	val = get_f64_reg(fp_reg);
-@@ -89,10 +80,8 @@ static unsigned long get_f64_rs(unsigned long insn, u8 fp_reg_offset,
- 
- extern unsigned long get_f32_reg(unsigned long fp_reg);
- 
--static unsigned long get_f32_rs(unsigned long insn, u8 fp_reg_offset,
--				struct pt_regs *regs)
-+static unsigned long get_f32_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
--	unsigned long fp_reg = (insn >> fp_reg_offset) & 0x1F;
- 	unsigned long val;
- 
- 	val = get_f32_reg(fp_reg);
-@@ -107,28 +96,18 @@ static void set_f32_rd(unsigned long insn, struct pt_regs *regs,
- 
- static void set_f64_rd(unsigned long insn, struct pt_regs *regs, u64 val) {}
- 
--static unsigned long get_f64_rs(unsigned long insn, u8 fp_reg_offset,
--				struct pt_regs *regs)
-+static unsigned long get_f64_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
- 	return 0;
- }
- 
--static unsigned long get_f32_rs(unsigned long insn, u8 fp_reg_offset,
--				struct pt_regs *regs)
-+static unsigned long get_f32_rs(unsigned long fp_reg, struct pt_regs *regs)
- {
- 	return 0;
- }
- 
- #endif
- 
--#define GET_F64_RS2(insn, regs) (get_f64_rs(insn, 20, regs))
--#define GET_F64_RS2C(insn, regs) (get_f64_rs(insn, 2, regs))
--#define GET_F64_RS2S(insn, regs) (get_f64_rs(RVC_RS2S(insn), 0, regs))
--
--#define GET_F32_RS2(insn, regs) (get_f32_rs(insn, 20, regs))
--#define GET_F32_RS2C(insn, regs) (get_f32_rs(insn, 2, regs))
--#define GET_F32_RS2S(insn, regs) (get_f32_rs(RVC_RS2S(insn), 0, regs))
--
- #define __read_insn(regs, insn, insn_addr, type)	\
- ({							\
- 	int __ret;					\
-@@ -217,13 +196,13 @@ static int handle_vector_misaligned_load(struct pt_regs *regs)
- }
- #endif
- 
--static int handle_scalar_misaligned_load(struct pt_regs *regs)
-+static noinline int handle_scalar_misaligned_load(struct pt_regs *regs)
- {
- 	union reg_data val;
- 	unsigned long epc = regs->epc;
- 	unsigned long insn;
- 	unsigned long addr = regs->badaddr;
--	int fp = 0, shift = 0, len = 0;
-+	int fp = 0, shift = 0, len = 0, rd = 0;
- 
- 	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
- 
-@@ -240,68 +219,71 @@ static int handle_scalar_misaligned_load(struct pt_regs *regs)
- 
- 	regs->epc = 0;
- 
--	if ((insn & INSN_MASK_LW) == INSN_MATCH_LW) {
-+	if (riscv_insn_is_lw(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(unsigned long) - len);
--#if defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_LD) == INSN_MATCH_LD) {
-+		rd = riscv_insn_lw_extract_xd(insn);
-+	} else if (riscv_insn_is_ld(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(unsigned long) - len);
--	} else if ((insn & INSN_MASK_LWU) == INSN_MATCH_LWU) {
-+		rd = riscv_insn_ld_extract_xd(insn);
-+	} else if (riscv_insn_is_lwu(insn)) {
- 		len = 4;
--#endif
--	} else if ((insn & INSN_MASK_FLD) == INSN_MATCH_FLD) {
-+		rd = riscv_insn_lwu_extract_xd(insn);
-+	} else if (riscv_insn_is_fld(insn)) {
- 		fp = 1;
- 		len = 8;
--	} else if ((insn & INSN_MASK_FLW) == INSN_MATCH_FLW) {
-+		rd = riscv_insn_fld_extract_fd(insn);
-+	} else if (riscv_insn_is_flw(insn)) {
- 		fp = 1;
- 		len = 4;
--	} else if ((insn & INSN_MASK_LH) == INSN_MATCH_LH) {
-+		rd = riscv_insn_flw_extract_fd(insn);
-+	} else if (riscv_insn_is_lh(insn)) {
- 		len = 2;
- 		shift = 8 * (sizeof(unsigned long) - len);
--	} else if ((insn & INSN_MASK_LHU) == INSN_MATCH_LHU) {
-+		rd = riscv_insn_lh_extract_xd(insn);
-+	} else if (riscv_insn_is_lhu(insn)) {
- 		len = 2;
--#if defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_C_LD) == INSN_MATCH_C_LD) {
-+		rd = riscv_insn_lhu_extract_xd(insn);
-+	} else if (riscv_insn_is_c_ld(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(unsigned long) - len);
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_LDSP) == INSN_MATCH_C_LDSP &&
--		   ((insn >> SH_RD) & 0x1f)) {
-+		rd = (8 + riscv_insn_c_ld_extract_xd(insn));
-+	} else if (riscv_insn_is_c_ldsp(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(unsigned long) - len);
--#endif
--	} else if ((insn & INSN_MASK_C_LW) == INSN_MATCH_C_LW) {
-+		rd = riscv_insn_c_ldsp_extract_xd(insn);
-+	} else if (riscv_insn_is_c_lw(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(unsigned long) - len);
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_LWSP) == INSN_MATCH_C_LWSP &&
--		   ((insn >> SH_RD) & 0x1f)) {
-+		rd = (8 + riscv_insn_c_lw_extract_xd(insn));
-+	} else if (riscv_insn_is_c_lwsp(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(unsigned long) - len);
--	} else if ((insn & INSN_MASK_C_FLD) == INSN_MATCH_C_FLD) {
-+		rd = riscv_insn_c_lwsp_extract_xd(insn);
-+	} else if (riscv_insn_is_c_fld(insn)) {
- 		fp = 1;
- 		len = 8;
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_FLDSP) == INSN_MATCH_C_FLDSP) {
-+		rd = (8 + riscv_insn_c_fld_extract_fd(insn));
-+	} else if (riscv_insn_is_c_fldsp(insn)) {
- 		fp = 1;
- 		len = 8;
--#if defined(CONFIG_32BIT)
--	} else if ((insn & INSN_MASK_C_FLW) == INSN_MATCH_C_FLW) {
-+		rd = riscv_insn_c_fldsp_extract_fd(insn);
-+	} else if (riscv_insn_is_c_flw(insn)) {
- 		fp = 1;
- 		len = 4;
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_FLWSP) == INSN_MATCH_C_FLWSP) {
-+		rd = (8 + riscv_insn_c_flw_extract_fd(insn));
-+	} else if (riscv_insn_is_c_flwsp(insn)) {
- 		fp = 1;
- 		len = 4;
--#endif
--	} else if ((insn & INSN_MASK_C_LHU) == INSN_MATCH_C_LHU) {
-+		rd = riscv_insn_c_flwsp_extract_fd(insn);
-+	} else if (riscv_insn_is_c_lhu(insn)) {
- 		len = 2;
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_LH) == INSN_MATCH_C_LH) {
-+		rd = (8 + riscv_insn_c_lhu_extract_xd(insn));
-+	} else if (riscv_insn_is_c_lh(insn)) {
- 		len = 2;
+diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+index 62c4510a40af..311e2530f888 100644
+--- a/arch/riscv/kvm/vcpu_insn.c
++++ b/arch/riscv/kvm/vcpu_insn.c
+@@ -416,7 +416,6 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		shift = 8 * (sizeof(ulong) - len);
+ 	} else if ((insn & INSN_MASK_LBU) == INSN_MATCH_LBU) {
+ 		len = 1;
 -		shift = 8 * (sizeof(ulong) - len);
--		insn = RVC_RS2S(insn) << SH_RD;
-+		shift = 8 * (sizeof(unsigned long) - len);
-+		rd = (8 + riscv_insn_c_lh_extract_xd(insn));
- 	} else {
- 		regs->epc = epc;
- 		return -1;
-@@ -319,11 +301,11 @@ static int handle_scalar_misaligned_load(struct pt_regs *regs)
- 	}
- 
- 	if (!fp)
--		SET_RD(insn, regs, (long)(val.data_ulong << shift) >> shift);
-+		*(unsigned long *)((unsigned long *)regs + rd) = val.data_ulong << shift;
- 	else if (len == 8)
--		set_f64_rd(insn, regs, val.data_u64);
-+		set_f64_rd(rd, regs, val.data_u64);
- 	else
--		set_f32_rd(insn, regs, val.data_ulong);
-+		set_f32_rd(rd, regs, val.data_ulong);
- 
- 	regs->epc = epc + INSN_LEN(insn);
- 
-@@ -336,7 +318,7 @@ static int handle_scalar_misaligned_store(struct pt_regs *regs)
- 	unsigned long epc = regs->epc;
- 	unsigned long insn;
- 	unsigned long addr = regs->badaddr;
--	int len = 0, fp = 0;
-+	int fp = 0, len = 0, rd = 0;
- 
- 	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
- 
-@@ -351,67 +333,68 @@ static int handle_scalar_misaligned_store(struct pt_regs *regs)
- 
- 	regs->epc = 0;
- 
--	val.data_ulong = GET_RS2(insn, regs);
--
--	if ((insn & INSN_MASK_SW) == INSN_MATCH_SW) {
-+	if (riscv_insn_is_sw(insn)) {
- 		len = 4;
--#if defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_SD) == INSN_MATCH_SD) {
-+		rd = riscv_insn_sw_extract_xs2(insn);
-+	} else if (riscv_insn_is_sd(insn)) {
+ #ifdef CONFIG_64BIT
+ 	} else if ((insn & INSN_MASK_LD) == INSN_MATCH_LD) {
  		len = 8;
--#endif
--	} else if ((insn & INSN_MASK_FSD) == INSN_MATCH_FSD) {
-+		rd = riscv_insn_sd_extract_xs2(insn);
-+	} else if (riscv_insn_is_fsd(insn)) {
- 		fp = 1;
- 		len = 8;
--		val.data_u64 = GET_F64_RS2(insn, regs);
--	} else if ((insn & INSN_MASK_FSW) == INSN_MATCH_FSW) {
-+		rd = riscv_insn_fsd_extract_fs2(insn);
-+	} else if (riscv_insn_is_fsw(insn)) {
- 		fp = 1;
- 		len = 4;
--		val.data_ulong = GET_F32_RS2(insn, regs);
--	} else if ((insn & INSN_MASK_SH) == INSN_MATCH_SH) {
-+		rd = riscv_insn_fsw_extract_fs2(insn);
-+	} else if (riscv_insn_is_sh(insn)) {
- 		len = 2;
--#if defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_C_SD) == INSN_MATCH_C_SD) {
-+		rd = riscv_insn_sh_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_sd(insn)) {
- 		len = 8;
--		val.data_ulong = GET_RS2S(insn, regs);
--	} else if ((insn & INSN_MASK_C_SDSP) == INSN_MATCH_C_SDSP) {
-+		rd = riscv_insn_c_sd_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_sdsp(insn)) {
- 		len = 8;
--		val.data_ulong = GET_RS2C(insn, regs);
--#endif
--	} else if ((insn & INSN_MASK_C_SW) == INSN_MATCH_C_SW) {
-+		rd = riscv_insn_c_sdsp_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_sw(insn)) {
- 		len = 4;
--		val.data_ulong = GET_RS2S(insn, regs);
--	} else if ((insn & INSN_MASK_C_SWSP) == INSN_MATCH_C_SWSP) {
-+		rd = riscv_insn_c_sw_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_swsp(insn)) {
- 		len = 4;
--		val.data_ulong = GET_RS2C(insn, regs);
--	} else if ((insn & INSN_MASK_C_FSD) == INSN_MATCH_C_FSD) {
-+		rd = riscv_insn_c_swsp_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_fsd(insn)) {
- 		fp = 1;
- 		len = 8;
--		val.data_u64 = GET_F64_RS2S(insn, regs);
--	} else if ((insn & INSN_MASK_C_FSDSP) == INSN_MATCH_C_FSDSP) {
-+		rd = riscv_insn_c_fsd_extract_fs2(insn);
-+	} else if (riscv_insn_is_c_fsdsp(insn)) {
- 		fp = 1;
- 		len = 8;
--		val.data_u64 = GET_F64_RS2C(insn, regs);
--#if !defined(CONFIG_64BIT)
--	} else if ((insn & INSN_MASK_C_FSW) == INSN_MATCH_C_FSW) {
-+		rd = riscv_insn_c_fsdsp_extract_fs2(insn);
-+	} else if (riscv_insn_is_c_fsw(insn)) {
- 		fp = 1;
- 		len = 4;
--		val.data_ulong = GET_F32_RS2S(insn, regs);
--	} else if ((insn & INSN_MASK_C_FSWSP) == INSN_MATCH_C_FSWSP) {
-+		rd = riscv_insn_c_fsw_extract_fs2(insn);
-+	} else if (riscv_insn_is_c_fswsp(insn)) {
- 		fp = 1;
- 		len = 4;
--		val.data_ulong = GET_F32_RS2C(insn, regs);
--#endif
--	} else if ((insn & INSN_MASK_C_SH) == INSN_MATCH_C_SH) {
-+		rd = riscv_insn_c_fswsp_extract_fs2(insn);
-+	} else if (riscv_insn_is_c_sh(insn)) {
- 		len = 2;
--		val.data_ulong = GET_RS2S(insn, regs);
-+		rd = riscv_insn_c_sh_extract_xs2(insn);
- 	} else {
--		regs->epc = epc;
- 		return -1;
- 	}
- 
- 	if (!IS_ENABLED(CONFIG_FPU) && fp)
+@@ -650,22 +649,22 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ 	case 1:
+ 		data8 = *((u8 *)run->mmio.data);
+ 		SET_RD(insn, &vcpu->arch.guest_context,
+-			(ulong)data8 << shift >> shift);
++			(long)data8 << shift >> shift);
+ 		break;
+ 	case 2:
+ 		data16 = *((u16 *)run->mmio.data);
+ 		SET_RD(insn, &vcpu->arch.guest_context,
+-			(ulong)data16 << shift >> shift);
++			(long)data16 << shift >> shift);
+ 		break;
+ 	case 4:
+ 		data32 = *((u32 *)run->mmio.data);
+ 		SET_RD(insn, &vcpu->arch.guest_context,
+-			(ulong)data32 << shift >> shift);
++			(long)data32 << shift >> shift);
+ 		break;
+ 	case 8:
+ 		data64 = *((u64 *)run->mmio.data);
+ 		SET_RD(insn, &vcpu->arch.guest_context,
+-			(ulong)data64 << shift >> shift);
++			(long)data64 << shift >> shift);
+ 		break;
+ 	default:
  		return -EOPNOTSUPP;
- 
-+	if (!fp)
-+		val.data_ulong = *(unsigned long *)((unsigned long *)regs + rd);
-+	else if (len == 8)
-+		val.data_u64 = get_f64_rs(rd, regs);
-+	else
-+		val.data_ulong = get_f32_rs(rd, regs);
-+
- 	if (user_mode(regs)) {
- 		if (copy_to_user((u8 __user *)addr, &val, len))
- 			return -1;
 
 -- 
 2.52.0
