@@ -4,118 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1ACFFD5F86
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 06:49:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2B3FD5F87
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 06:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SfOkwEscnxp0Gxm7aFzmmCM1fZmV1I58Cs9zL5Hzirc=; b=rqAjcycusN7Lgo
-	EHol7jHV7trNt+v8Y8TmzoVx6BOKyrybzIm5u3AFQYss/+p5wqIiSLOMhm4HSrhykcUW8gC2l3LBi
-	Np4/oQegNDTbhV+lgKXlUyvrdBymUZMXWJsvJR1ELJhbwAby1odJ3o/X5XhUQN+hbmPes0i/S+PcH
-	J4baiNOKDnnZR2KbO7xFjEKGg4MFtLK5g/MzH+pqMPd6Xwi50nPf/uBk92a6jBhhduQRthrPUJ0Ip
-	BJ57y+2gOkNMWSOCEUvUkaTSLjWHJ0UbKXxNC9C5v3IakadzdPDcMeEDrprkb5jWwk+NU49ynMBRj
-	jpC2R8hbpMQzVXBHzoZg==;
+	List-Owner; bh=ksrs/nHE75Q+dd9T/JhdRjOjoOGWKhKmX5cWxCabUa4=; b=nPa4gFlMzQuxVb
+	Ej7SnHgAYVRXrPl0QTN/SJpWp9FeU5XvTnoT2eNo1ZD/3NGXTEJacUyJfS7RpvZABx2MjxMStJoq8
+	a/1bUET1LUy/HKARKj6uDZvpQvLxOn1yelM/cFEZMcNQsNhegJxpTXEKjWFnq2AzJp8RVYzxT2O42
+	h0Fem+JTxwVBTdvW/U96eTH7IUmyIwSC1wj2ljmdM2IgI7F2ZLX4cwHZEbj9pigl1unADXQyWhTuO
+	M1hXFLKlSdFZ6joPpVIW/L8TYOTmPBzib98DUCDdhQEt5rW7swxqsSG3k05nky9o/d05HJgWzE4WH
+	kFsmeXvG+19uv8ImQ/AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAMix-00000008MuX-2ckn;
-	Wed, 08 Apr 2026 06:49:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wAMje-00000008N1B-1Bpp;
+	Wed, 08 Apr 2026 06:49:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAMiv-00000008Mtu-1uMl
+	id 1wAMjd-00000008N0u-2pls
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Apr 2026 06:49:14 +0000
+	Wed, 08 Apr 2026 06:49:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 612134453B;
-	Wed,  8 Apr 2026 06:49:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DFC0C19424;
-	Wed,  8 Apr 2026 06:49:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AA5CF6013D;
+	Wed,  8 Apr 2026 06:49:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06413C19424;
+	Wed,  8 Apr 2026 06:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775630952;
-	bh=QPVNlLo2aK9kDoLAR3ZDxw4eYcl2wRDB6RzLGp9QwHk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iScPrbKlquhqxYauv6zRL2pp+kGnGBMjxChUhGWMktZj/GH7V2F6u6oky876fiFxc
-	 FrT32dK6t7QxKr0U1jW4zyMWwJnS4lYDQHQEaBgsNTXnUxRnU6wlq4PznomGe6KTxV
-	 qrH05Ipbs9/D0ilST8kVgn1d97yixWF3tekgCZpss0+aiMnDnVbHeT0G8PzJfaIbAA
-	 5MiWsBRaOFTqdQnISbYsJWWrmkZG+vlrcMAu5fDcdXHZ54QOsriERKvfkcFIxD9zTY
-	 GRzcgoTFOpoC8OwOJXyvK0Ifplg7RhDpuPRAiPv8GRzTateGe6vTm4AAyx162LWWvK
-	 kUHqshRI1P6rA==
-Message-ID: <c60a712e-ecf3-4926-9947-0e593cdb921d@kernel.org>
-Date: Wed, 8 Apr 2026 08:49:06 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] dt-bindings: PCI: Add UltraRISC DP1000 PCIe
- controller
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>,
- Xincheng Zhang <zhangxincheng@ultrarisc.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260407-ultrarisc-pcie-v2-0-2aa2a19a7fb3@ultrarisc.com>
- <20260407-ultrarisc-pcie-v2-3-2aa2a19a7fb3@ultrarisc.com>
- <20260407-uptight-tody-of-weather-ae1e35@quoll>
- <177561928084.2918127.18218641774926914517.b4-reply@b4>
- <13907c0e-0502-413d-b54d-4e903f5c781e@kernel.org>
- <177563059910.3194559.10112671473525736823.b4-reply@b4>
+	s=k20201202; t=1775630996;
+	bh=OJinugmxk3U59o8Evz03tGU+ZiGJ5IC9Tl/JyCwJolQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jefaGRshR9m/AZQS3dwk2dgYtMI7pdtGh7qqqUMcmxKabsrErngqg0ZVO44OaYXzE
+	 +QzXMZkBySSPouG04gvWI9a9iu02cWlGTekQeOuY84SgC0OJls3bBqXl5ccxu+lS6C
+	 gUMqCH3Ip3a7YKnV2THDOiT3OftuWa5rC/dg4Zn8EyCREDJpmAYEgEVkgtx8FxoCGU
+	 F5rZlAikJpGmcH4U2J4M3Z028Dh93XHh9GnbHZ+q9GiXkN8wnhjm7M+ICgM2pi/1J+
+	 pFDsNOEf91T0DV2W6iDagsJYMfFZCMsust1EcrKamzaEFqSAFFzOMvhLzVgSUM2Run
+	 gOVYtaqJ93Z7w==
+Date: Wed, 8 Apr 2026 08:49:54 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <177563059910.3194559.10112671473525736823.b4-reply@b4>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_234913_533735_7F46DFB2 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+To: Iker Pedrosa <ikerpedrosam@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+	Troy Mitchell <troy.mitchell@linux.dev>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Javier Martinez Canillas <javierm@redhat.com>, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/9] dt-bindings: mmc: spacemit,sdhci: add pinctrl
+ support for voltage switching
+Message-ID: <20260408-nocturnal-talented-dinosaur-cbb9c0@quoll>
+References: <20260407-orangepi-sd-card-uhs-v6-0-b5b8a1b2bfc8@gmail.com>
+ <20260407-orangepi-sd-card-uhs-v6-1-b5b8a1b2bfc8@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260407-orangepi-sd-card-uhs-v6-1-b5b8a1b2bfc8@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,33 +77,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/04/2026 08:43, Jia Wang wrote:
-> On 2026-04-08 08:28 +0200, Krzysztof Kozlowski wrote:
->> On 08/04/2026 05:34, Jia Wang wrote:
->>>>> +  max-link-speed:
->>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>> +    const: 4
->>>>
->>>> If const then deducible from the compatible. Drop the property.
->>>>
->>>
->>> Will replace `const: 4` with `maximum: 4` in v3.
->>
->> Why? Wasn't maximum link speed fixed to 4?
->>
+On Tue, Apr 07, 2026 at 10:25:21AM +0200, Iker Pedrosa wrote:
+> Document pinctrl properties to support voltage-dependent pin
+> configuration switching for UHS-I SD card modes.
 > 
-> Just to make sure I fully understand: since the maximum link speed is a
-> fixed hardware property and is implied by the compatible, we should drop
-> the `max-link-speed` property from the binding.
+> Add optional pinctrl-names property with two states:
+> - "default": For 3.3V operation with standard drive strength
+> - "state_uhs": For 1.8V operation with optimized drive strength
 > 
-> In that case, should I set `pci->max_link_speed = 4` in the driver during
-> probe? I want to make sure this is the correct way to handle it.
+> These pinctrl states allow the SDHCI driver to coordinate voltage
+> switching with pin configuration changes, ensuring proper signal
+> integrity during UHS-I mode transitions.
+> 
+> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+> ---
+>  .../devicetree/bindings/mmc/spacemit,sdhci.yaml          | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> index 9a055d963a7f0cdba4741c1e3e7269688dcd5f45..932fccc609bf8dbaf3ecfe09d9e610852ac7afa0 100644
+> --- a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> @@ -11,6 +11,7 @@ maintainers:
 >  
+>  allOf:
+>    - $ref: mmc-controller.yaml#
 
-Yes
+Drop
+
+> +  - $ref: sdhci-common.yaml#
 
 Best regards,
 Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
