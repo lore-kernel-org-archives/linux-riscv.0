@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E576FFD5F82
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 04:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE41FD5F70
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 04:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cQg5cXbMBwOPwtUimrq2lxMPQ1XAKqQebKZM9zn8IFY=; b=yZTRwppgonobe6
-	PHlW6R2CQ2IbI22BFxK+6RK87O+t7EP2k7wEVQ3LByVcLsWVPeMKAkN6ZZIWBMlEyAU9Ev7imyhKm
-	3z91DuZf/7ICMVxe4xkZ2zSE7Sw5BuscRCC44VDtxIiXo8ZIjSKVpYAHlVrQQ/zJ09ivanwlyQnwF
-	75xc8Se+tnqK/mxUpLuRExEDb4B1FQaINtSLwthhuNfP/VamtqUAo/vb7Hf6UU34LrwMba/TDBck1
-	SNGXfeBFazRPiAO/qhFxGfXMb0Ndw0OL9y+CAnc9C6HlRefYJyNfxwfjbFqLX6/u/u1BVt0VL5mYx
-	NojNFYtTDREZkmnkIvQg==;
+	List-Owner; bh=Ga7WNMajyPNGwfo4igKZhyGbEg2NwNxYJd4XIxgRC2I=; b=thnU8yeKrZEGaQ
+	Yl9I6K/QpxJSTkPFMMXeOyiDQmLMGtM9c+16A12FSf/13vewes7jrxzUe+CbhJ6aI+ceuRxBfbMO8
+	z28Nq3Bd5X6hgsv0Kww/vVVrxidZKDz2TooR9XE895PM2XR2mXKypPcPTIxg+/HNM0HBL8uhZEw5M
+	F7BIG+prd0spi2HMs3G2tATbsy+eNBFK1oF4JH1DuWASEr5sR3Nz3nTK5c9PfeXeT5YngPd4jK3PA
+	Ps5hp86b6Nw2OttKZSt9ocYbWXUr9XiUjVUcpiKuTk7GVS/DF9kLypdWgz+dg5QsDyPVMBwmFub5q
+	60nFitp9MQRbBy1J5SVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAKoV-00000008Eqk-1PLW;
-	Wed, 08 Apr 2026 04:46:51 +0000
+	id 1wAKoX-00000008Evh-3RBH;
+	Wed, 08 Apr 2026 04:46:53 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAKoK-00000008Ecp-2VYy;
-	Wed, 08 Apr 2026 04:46:43 +0000
+	id 1wAKoK-00000008EbP-3nwV;
+	Wed, 08 Apr 2026 04:46:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87CBD44454;
+	by sea.source.kernel.org (Postfix) with ESMTP id DB0C544566;
 	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 62BC1C2BCF6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B7A71C4AF0C;
 	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1775623597;
-	bh=XY0ZstHXqfYfgtA1S8AQ7RSIe13mnUYY82OL/zH4KU0=;
+	bh=aXtJER1i/jiZHz0CW84YvOWxpOmtfS3CoUtbXJp9/Cc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Tx3nmzri4AzMghvX4Tm1yaViqV7AaZlI8e24U5eM8Yi+4AVA16JvjXkE5fL83gycY
-	 9cYxp20pmsJlu30GuoPEZkC2e8HU+Xv5HHLcWmV0M0j8HVj51YqPM2KHTD++gG/2tb
-	 seD9vkX4Slqx51IFuXLFOWLc4ijchvVjr2ekgHgaB7gdq/hXEEn0J/WkEN8cn9ffh3
-	 FvH+fFOpk8yDW8A05cqWO2vpUj+S7qUitGgxrzNfDG2iXeDkwHoSSnrf+s+yq0ZeJE
-	 tneOnIBvr1ZR8E8wyI1lyH/UPDIBROxBAqgs5Hog7je8IuRYPaOVwmjjAbABIE2qBj
-	 yHrO7kRKFpJTQ==
+	b=OR9xTHeT3MlNKwPS8U1Y1pb05eJyHV3/U3E4VrTKW3LVqZasKC1F57rCw90u+/O6k
+	 dA+JeWIg0DvrTQ3fr5OhaTjUUjk0KG1o6jthz0EIfjUnDAP/NieCbW+wlcCS52bt/g
+	 8NIzlSzq2bphL0e4UnQLAibzsHjSRUdPgCbURsmnDuoZl7HELkIa9qQSpGRPeZeXpf
+	 viLjp/o6cCMRY1Bs638WUC+mqtUYoPSOJCZemP8twWojaEe6TH3567MLMGCZ1kJJaC
+	 AzDN0rA0W32RlzaaMQZIUhVMkFgscUQlOAYE6u/af23Uh6RLJV6+CkZ+EV7alfwpsG
+	 qpPFgLDVdz3yg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 596C7FD5F73;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AED8BFD5F61;
 	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Tue, 07 Apr 2026 21:45:59 -0700
-Subject: [PATCH 11/16] riscv: kvm: Use generated instruction headers for
- mmio emulation
+Date: Tue, 07 Apr 2026 21:46:02 -0700
+Subject: [PATCH 14/16] riscv: kvm: Use generated instruction headers for
+ csr emulation
 MIME-Version: 1.0
-Message-Id: <20260407-riscv_insn_table-v1-11-54b4736a1e77@gmail.com>
+Message-Id: <20260407-riscv_insn_table-v1-14-54b4736a1e77@gmail.com>
 References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
 In-Reply-To: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -62,19 +62,19 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=8840;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=5943;
  i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
- bh=/UVDQrQUvbZ5aOgH8m1pSV2EuBX5B263I5vQY5SYago=;
- b=2HmEIVg9U6gaVnKq9aREtjrfTpOCkBdKmi1N5IKel6R8t3TNnM+d2/vvewRkS4i8HeULN99mu
- wc5BI2x2Y1TCxqBWTYmdg0F5JUiOA23t3o9g8BVjZVg1FxEghmBY89a
+ bh=TwE25wT4s7hjayLJ5PBMi46uU0NYnVibnmjh3qrn1zU=;
+ b=XfQ/Lc+Oog5aucttwcQK8XV7UR4f3VcYrjcyjIMQ8IPEQOeTwTcmtUzSR4T51lalVGpW9hPeG
+ 1FVo5tma6BeAhjyhR91dIJZI97CuktklLLZLLQQH5Zp/je9lrj4hcmc
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
  with auth_id=663
 X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_214640_769711_4C75784E 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20260407_214641_043267_42C05983 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,271 +94,191 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Migrate the mmio emulation code to use the generated instruction headers
+Migrate the csr emulation code to use the generated instruction headers
 instead of the hand-written instruction composition functions.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+
 ---
- arch/riscv/include/asm/kvm_vcpu_insn.h |   2 +-
- arch/riscv/kvm/vcpu_insn.c             | 127 ++++++++++++++-------------------
- 2 files changed, 55 insertions(+), 74 deletions(-)
+This can be tested with the introduced csr_test selftest.
+---
+ arch/riscv/include/asm/kvm_vcpu_insn.h |  3 +-
+ arch/riscv/kvm/vcpu_insn.c             | 61 +++++++++++++++++-----------------
+ 2 files changed, 32 insertions(+), 32 deletions(-)
 
 diff --git a/arch/riscv/include/asm/kvm_vcpu_insn.h b/arch/riscv/include/asm/kvm_vcpu_insn.h
-index 350011c83581..106fb4c45108 100644
+index 106fb4c45108..01efdaaede21 100644
 --- a/arch/riscv/include/asm/kvm_vcpu_insn.h
 +++ b/arch/riscv/include/asm/kvm_vcpu_insn.h
-@@ -11,7 +11,7 @@ struct kvm_run;
- struct kvm_cpu_trap;
+@@ -19,7 +19,8 @@ struct kvm_mmio_decode {
+ };
  
- struct kvm_mmio_decode {
+ struct kvm_csr_decode {
 -	unsigned long insn;
 +	unsigned long rd;
- 	int insn_len;
- 	int len;
- 	int shift;
++	unsigned long insn_len;
+ 	int return_handled;
+ };
+ 
 diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-index 311e2530f888..1d8741d02242 100644
+index c5a70de4a579..d666cd24f8c0 100644
 --- a/arch/riscv/kvm/vcpu_insn.c
 +++ b/arch/riscv/kvm/vcpu_insn.c
-@@ -376,7 +376,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			     unsigned long htinst)
- {
- 	u8 data_buf[8];
--	unsigned long insn;
-+	unsigned long insn, rd;
- 	int shift = 0, len = 0, insn_len = 0;
- 	struct kvm_cpu_trap utrap = { 0 };
- 	struct kvm_cpu_context *ct = &vcpu->arch.guest_context;
-@@ -408,44 +408,47 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	}
+@@ -13,8 +13,7 @@
+ #include <asm/kvm_vcpu_test_csr.h>
  
- 	/* Decode length of MMIO and shift */
--	if ((insn & INSN_MASK_LW) == INSN_MATCH_LW) {
-+	if (riscv_insn_is_lw(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(ulong) - len);
--	} else if ((insn & INSN_MASK_LB) == INSN_MATCH_LB) {
-+		rd = riscv_insn_lw_extract_xd(insn);
-+	} else if (riscv_insn_is_lb(insn)) {
- 		len = 1;
- 		shift = 8 * (sizeof(ulong) - len);
--	} else if ((insn & INSN_MASK_LBU) == INSN_MATCH_LBU) {
-+		rd = riscv_insn_lb_extract_xd(insn);
-+	} else if (riscv_insn_is_lbu(insn)) {
- 		len = 1;
--#ifdef CONFIG_64BIT
--	} else if ((insn & INSN_MASK_LD) == INSN_MATCH_LD) {
-+		rd = riscv_insn_lbu_extract_xd(insn);
-+	} else if (riscv_insn_is_ld(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(ulong) - len);
--	} else if ((insn & INSN_MASK_LWU) == INSN_MATCH_LWU) {
-+		rd = riscv_insn_ld_extract_xd(insn);
-+	} else if (riscv_insn_is_lwu(insn)) {
- 		len = 4;
--#endif
--	} else if ((insn & INSN_MASK_LH) == INSN_MATCH_LH) {
-+		rd = riscv_insn_lwu_extract_xd(insn);
-+	} else if (riscv_insn_is_lh(insn)) {
- 		len = 2;
- 		shift = 8 * (sizeof(ulong) - len);
--	} else if ((insn & INSN_MASK_LHU) == INSN_MATCH_LHU) {
-+		rd = riscv_insn_lh_extract_xd(insn);
-+	} else if (riscv_insn_is_lhu(insn)) {
- 		len = 2;
--#ifdef CONFIG_64BIT
--	} else if ((insn & INSN_MASK_C_LD) == INSN_MATCH_C_LD) {
-+		rd = riscv_insn_lhu_extract_xd(insn);
-+	} else if (riscv_insn_is_c_ld(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(ulong) - len);
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_LDSP) == INSN_MATCH_C_LDSP &&
--		   ((insn >> SH_RD) & 0x1f)) {
-+		rd = riscv_insn_c_ld_extract_xd(insn);
-+	} else if (riscv_insn_is_c_ldsp(insn)) {
- 		len = 8;
- 		shift = 8 * (sizeof(ulong) - len);
--#endif
--	} else if ((insn & INSN_MASK_C_LW) == INSN_MATCH_C_LW) {
-+		rd = riscv_insn_c_ldsp_extract_xd(insn);
-+	} else if (riscv_insn_is_c_lw(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(ulong) - len);
--		insn = RVC_RS2S(insn) << SH_RD;
--	} else if ((insn & INSN_MASK_C_LWSP) == INSN_MATCH_C_LWSP &&
--		   ((insn >> SH_RD) & 0x1f)) {
-+		rd = riscv_insn_c_lw_extract_xd(insn);
-+	} else if (riscv_insn_is_c_lwsp(insn)) {
- 		len = 4;
- 		shift = 8 * (sizeof(ulong) - len);
-+		rd = riscv_insn_c_lwsp_extract_xd(insn);
+ struct insn_func {
+-	unsigned long mask;
+-	unsigned long match;
++	bool (*cmp)(u32 insn);
+ 	/*
+ 	 * Possible return values are as follows:
+ 	 * 1) Returns < 0 for error case
+@@ -131,20 +130,17 @@ static const struct csr_func csr_funcs[] = {
+  */
+ int kvm_riscv_vcpu_csr_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ {
+-	ulong insn;
+-
+ 	if (vcpu->arch.csr_decode.return_handled)
+ 		return 0;
+ 	vcpu->arch.csr_decode.return_handled = 1;
+ 
+ 	/* Update destination register for CSR reads */
+-	insn = vcpu->arch.csr_decode.insn;
+-	if ((insn >> SH_RD) & MASK_RX)
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-		       run->riscv_csr.ret_value);
++	if (vcpu->arch.csr_decode.rd)
++		*((ulong *)&vcpu->arch.guest_context +
++		  vcpu->arch.csr_decode.rd) = run->riscv_csr.ret_value;
+ 
+ 	/* Move to next instruction */
+-	vcpu->arch.guest_context.sepc += INSN_LEN(insn);
++	vcpu->arch.guest_context.sepc += vcpu->arch.csr_decode.insn_len;
+ 
+ 	return 0;
+ }
+@@ -154,7 +150,7 @@ static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+ 	#define GET_REG(_rd) (*((unsigned long *)(&vcpu->arch.guest_context) + _rd))
+ 
+ 	int i, rc = KVM_INSN_ILLEGAL_TRAP;
+-	unsigned int csr_num;
++	unsigned int csr_num, rd;
+ 	const struct csr_func *tcfn, *cfn = NULL;
+ 	ulong val = 0, wr_mask = 0, new_val = 0;
+ 
+@@ -163,26 +159,32 @@ static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+ 		wr_mask = -1UL;
+ 		new_val = GET_REG(riscv_insn_csrrw_extract_xs1(insn));
+ 		csr_num = riscv_insn_csrrw_extract_csr(insn);
++		rd = riscv_insn_csrrw_extract_xd(insn);
+ 	} else if (riscv_insn_is_csrrs(insn)) {
+ 		wr_mask = GET_REG(riscv_insn_csrrs_extract_xs1(insn));
+ 		new_val = -1UL;
+ 		csr_num = riscv_insn_csrrs_extract_csr(insn);
++		rd = riscv_insn_csrrs_extract_xd(insn);
+ 	} else if (riscv_insn_is_csrrc(insn)) {
+-		wr_mask = GET_REG(riscv_insn_csrrs_extract_xs1(insn));
++		wr_mask = GET_REG(riscv_insn_csrrc_extract_xs1(insn));
+ 		new_val = 0;
+ 		csr_num = riscv_insn_csrrc_extract_csr(insn);
++		rd = riscv_insn_csrrc_extract_xd(insn);
+ 	} else if (riscv_insn_is_csrrwi(insn)) {
+ 		wr_mask = -1UL;
+ 		new_val = riscv_insn_csrrwi_extract_imm(insn);
+ 		csr_num = riscv_insn_csrrwi_extract_csr(insn);
++		rd = riscv_insn_csrrwi_extract_xd(insn);
+ 	} else if (riscv_insn_is_csrrsi(insn)) {
+ 		wr_mask = riscv_insn_csrrwi_extract_imm(insn);
+ 		new_val = -1UL;
+ 		csr_num = riscv_insn_csrrsi_extract_csr(insn);
++		rd = riscv_insn_csrrsi_extract_xd(insn);
+ 	} else if (riscv_insn_is_csrrci(insn)) {
+-		wr_mask = GET_REG(riscv_insn_csrrwi_extract_imm(insn));
++		wr_mask = riscv_insn_csrrci_extract_imm(insn);
+ 		new_val = 0;
+-		csr_num = riscv_insn_csrrwi_extract_csr(insn);
++		csr_num = riscv_insn_csrrci_extract_csr(insn);
++		rd = riscv_insn_csrrci_extract_xd(insn);
  	} else {
- 		return -EOPNOTSUPP;
+ 		return rc;
  	}
-@@ -455,7 +458,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		return -EIO;
+@@ -190,7 +192,8 @@ static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+ 	#undef GET_REG
  
  	/* Save instruction decode info */
--	vcpu->arch.mmio_decode.insn = insn;
-+	vcpu->arch.mmio_decode.rd = rd;
- 	vcpu->arch.mmio_decode.insn_len = insn_len;
- 	vcpu->arch.mmio_decode.shift = shift;
- 	vcpu->arch.mmio_decode.len = len;
-@@ -498,11 +501,7 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			      unsigned long fault_addr,
- 			      unsigned long htinst)
- {
--	u8 data8;
--	u16 data16;
--	u32 data32;
--	u64 data64;
--	ulong data;
-+	ulong data, rs2;
- 	unsigned long insn;
- 	int len = 0, insn_len = 0;
- 	struct kvm_cpu_trap utrap = { 0 };
-@@ -534,35 +533,30 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		insn_len = INSN_LEN(insn);
- 	}
+-	vcpu->arch.csr_decode.insn = insn;
++	vcpu->arch.csr_decode.rd = rd;
++	vcpu->arch.csr_decode.insn_len = INSN_LEN(insn);
+ 	vcpu->arch.csr_decode.return_handled = 0;
  
--	data = GET_RS2(insn, &vcpu->arch.guest_context);
--	data8 = data16 = data32 = data64 = data;
--
--	if ((insn & INSN_MASK_SW) == INSN_MATCH_SW) {
-+	if (riscv_insn_is_sw(insn)) {
- 		len = 4;
--	} else if ((insn & INSN_MASK_SB) == INSN_MATCH_SB) {
-+		rs2 = riscv_insn_sw_extract_xs2(insn);
-+	} else if (riscv_insn_is_sb(insn)) {
- 		len = 1;
--#ifdef CONFIG_64BIT
--	} else if ((insn & INSN_MASK_SD) == INSN_MATCH_SD) {
-+		rs2 = riscv_insn_sb_extract_xs2(insn);
-+	} else if (riscv_insn_is_sd(insn)) {
- 		len = 8;
--#endif
--	} else if ((insn & INSN_MASK_SH) == INSN_MATCH_SH) {
-+		rs2 = riscv_insn_sd_extract_xs2(insn);
-+	} else if (riscv_insn_is_sh(insn)) {
- 		len = 2;
--#ifdef CONFIG_64BIT
--	} else if ((insn & INSN_MASK_C_SD) == INSN_MATCH_C_SD) {
-+		rs2 = riscv_insn_sh_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_sd(insn)) {
- 		len = 8;
--		data64 = GET_RS2S(insn, &vcpu->arch.guest_context);
--	} else if ((insn & INSN_MASK_C_SDSP) == INSN_MATCH_C_SDSP &&
--		   ((insn >> SH_RD) & 0x1f)) {
-+		rs2 = riscv_insn_c_sd_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_sdsp(insn)) {
- 		len = 8;
--		data64 = GET_RS2C(insn, &vcpu->arch.guest_context);
--#endif
--	} else if ((insn & INSN_MASK_C_SW) == INSN_MATCH_C_SW) {
-+		rs2 = riscv_insn_c_sdsp_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_sw(insn)) {
- 		len = 4;
--		data32 = GET_RS2S(insn, &vcpu->arch.guest_context);
--	} else if ((insn & INSN_MASK_C_SWSP) == INSN_MATCH_C_SWSP &&
--		   ((insn >> SH_RD) & 0x1f)) {
-+		rs2 = riscv_insn_c_sw_extract_xs2(insn);
-+	} else if (riscv_insn_is_c_swsp(insn)) {
- 		len = 4;
--		data32 = GET_RS2C(insn, &vcpu->arch.guest_context);
-+		rs2 = riscv_insn_c_swsp_extract_xs2(insn);
- 	} else {
- 		return -EOPNOTSUPP;
- 	}
-@@ -571,26 +565,24 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	if (fault_addr & (len - 1))
- 		return -EIO;
+ 	/* Update CSR details in kvm_run struct */
+@@ -234,43 +237,39 @@ static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
  
--	/* Save instruction decode info */
--	vcpu->arch.mmio_decode.insn = insn;
- 	vcpu->arch.mmio_decode.insn_len = insn_len;
--	vcpu->arch.mmio_decode.shift = 0;
--	vcpu->arch.mmio_decode.len = len;
- 	vcpu->arch.mmio_decode.return_handled = 0;
+ static const struct insn_func system_opcode_funcs[] = {
+ 	{
+-		.mask  = INSN_MASK_CSRRW,
+-		.match = INSN_MATCH_CSRRW,
++		.cmp  = riscv_insn_is_csrrw,
+ 		.func  = csr_insn,
+ 	},
+ 	{
+-		.mask  = INSN_MASK_CSRRS,
+-		.match = INSN_MATCH_CSRRS,
++		.cmp  = riscv_insn_is_csrrs,
+ 		.func  = csr_insn,
+ 	},
+ 	{
+-		.mask  = INSN_MASK_CSRRC,
+-		.match = INSN_MATCH_CSRRC,
++		.cmp  = riscv_insn_is_csrrc,
+ 		.func  = csr_insn,
+ 	},
+ 	{
+-		.mask  = INSN_MASK_CSRRWI,
+-		.match = INSN_MATCH_CSRRWI,
++		.cmp  = riscv_insn_is_csrrwi,
+ 		.func  = csr_insn,
+ 	},
+ 	{
+-		.mask  = INSN_MASK_CSRRSI,
+-		.match = INSN_MATCH_CSRRSI,
++		.cmp  = riscv_insn_is_csrrsi,
+ 		.func  = csr_insn,
+ 	},
+ 	{
+-		.mask  = INSN_MASK_CSRRCI,
+-		.match = INSN_MATCH_CSRRCI,
++		.cmp  = riscv_insn_is_csrrci,
+ 		.func  = csr_insn,
+ 	},
+ 	{
+-		.mask  = INSN_MASK_WFI,
+-		.match = INSN_MATCH_WFI,
++		.cmp  = riscv_insn_is_wfi,
+ 		.func  = wfi_insn,
+ 	},
+ 	{
+-		.mask  = INSN_MASK_WRS,
+-		.match = INSN_MATCH_WRS,
++		.cmp  = riscv_insn_is_wrs_nto,
++		.func  = wrs_insn,
++	},
++	{
++		.cmp  = riscv_insn_is_wrs_sto,
+ 		.func  = wrs_insn,
+ 	},
+ };
+@@ -283,7 +282,7 @@ static int system_opcode_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
  
-+	data = *((ulong *)(&vcpu->arch.guest_context) + rs2);
-+
- 	/* Copy data to kvm_run instance */
- 	switch (len) {
- 	case 1:
--		*((u8 *)run->mmio.data) = data8;
-+		*((u8 *)run->mmio.data) = data;
- 		break;
- 	case 2:
--		*((u16 *)run->mmio.data) = data16;
-+		*((u16 *)run->mmio.data) = data;
- 		break;
- 	case 4:
--		*((u32 *)run->mmio.data) = data32;
-+		*((u32 *)run->mmio.data) = data;
- 		break;
- 	case 8:
--		*((u64 *)run->mmio.data) = data64;
-+		*((u64 *)run->mmio.data) = data;
- 		break;
- 	default:
- 		return -EOPNOTSUPP;
-@@ -626,18 +618,13 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
-  */
- int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
- {
--	u8 data8;
--	u16 data16;
--	u32 data32;
--	u64 data64;
--	ulong insn;
- 	int len, shift;
-+	unsigned long data;
- 
- 	if (vcpu->arch.mmio_decode.return_handled)
- 		return 0;
- 
- 	vcpu->arch.mmio_decode.return_handled = 1;
--	insn = vcpu->arch.mmio_decode.insn;
- 
- 	if (run->mmio.is_write)
- 		goto done;
-@@ -647,29 +634,23 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
- 
- 	switch (len) {
- 	case 1:
--		data8 = *((u8 *)run->mmio.data);
--		SET_RD(insn, &vcpu->arch.guest_context,
--			(long)data8 << shift >> shift);
-+		data = *((u8 *)run->mmio.data);
- 		break;
- 	case 2:
--		data16 = *((u16 *)run->mmio.data);
--		SET_RD(insn, &vcpu->arch.guest_context,
--			(long)data16 << shift >> shift);
-+		data = *((u16 *)run->mmio.data);
- 		break;
- 	case 4:
--		data32 = *((u32 *)run->mmio.data);
--		SET_RD(insn, &vcpu->arch.guest_context,
--			(long)data32 << shift >> shift);
-+		data = *((u32 *)run->mmio.data);
- 		break;
- 	case 8:
--		data64 = *((u64 *)run->mmio.data);
--		SET_RD(insn, &vcpu->arch.guest_context,
--			(long)data64 << shift >> shift);
-+		data = *((u64 *)run->mmio.data);
- 		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
- 
-+	*((ulong *)(&vcpu->arch.guest_context) + vcpu->arch.mmio_decode.rd) =
-+		(long)data << shift >> shift;
- done:
- 	/* Move to next instruction */
- 	vcpu->arch.guest_context.sepc += vcpu->arch.mmio_decode.insn_len;
+ 	for (i = 0; i < ARRAY_SIZE(system_opcode_funcs); i++) {
+ 		ifn = &system_opcode_funcs[i];
+-		if ((insn & ifn->mask) == ifn->match) {
++		if (ifn->cmp(insn)) {
+ 			rc = ifn->func(vcpu, run, insn);
+ 			break;
+ 		}
 
 -- 
 2.52.0
