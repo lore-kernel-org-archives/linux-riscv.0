@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A521BFD5F83
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 04:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E576FFD5F82
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 04:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=15NYnFXTjcK5GnPEWJLQ+zML3TJ7onBbqhMOINutqWQ=; b=IZhNxjxHG2LaxE
-	WZD4qDu0XO01kNI65OItjzs2zrHWwJImiCgf/oucD0Vk0qcCP7IF7izQKgWfzwAPE3i6YD/N0+zht
-	pukWPgqUxXyCRdSpyyxlZasg3Yaq08lOk4x2dhUY3NLq/oOoKxuDU1eymOZxlX4YJcsg6ch3x9uwV
-	Qgm8OmGM+sMnSGmAsG1g1PyDs7WdpU3aMG4Q4E2a2+2UMu/4YLY6UqeUYvynesr8+qSq9YUFCRhjM
-	Nx8suZYGckhYX3sYvYRqinZ6yvZJu6CjUe0xHCGDVmy6we6HIgZRuRHOCluUFDuKYB2Usktu8U77Z
-	cCtLJWcoPGXEGVrs/vjw==;
+	List-Owner; bh=cQg5cXbMBwOPwtUimrq2lxMPQ1XAKqQebKZM9zn8IFY=; b=yZTRwppgonobe6
+	PHlW6R2CQ2IbI22BFxK+6RK87O+t7EP2k7wEVQ3LByVcLsWVPeMKAkN6ZZIWBMlEyAU9Ev7imyhKm
+	3z91DuZf/7ICMVxe4xkZ2zSE7Sw5BuscRCC44VDtxIiXo8ZIjSKVpYAHlVrQQ/zJ09ivanwlyQnwF
+	75xc8Se+tnqK/mxUpLuRExEDb4B1FQaINtSLwthhuNfP/VamtqUAo/vb7Hf6UU34LrwMba/TDBck1
+	SNGXfeBFazRPiAO/qhFxGfXMb0Ndw0OL9y+CAnc9C6HlRefYJyNfxwfjbFqLX6/u/u1BVt0VL5mYx
+	NojNFYtTDREZkmnkIvQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAKoJ-00000008EbJ-0LTx;
-	Wed, 08 Apr 2026 04:46:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wAKoV-00000008Eqk-1PLW;
+	Wed, 08 Apr 2026 04:46:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAKoH-00000008Ea3-2kUt;
-	Wed, 08 Apr 2026 04:46:37 +0000
+	id 1wAKoK-00000008Ecp-2VYy;
+	Wed, 08 Apr 2026 04:46:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD82A60139;
-	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 59833C2BCB1;
-	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 87CBD44454;
+	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 62BC1C2BCF6;
+	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775623596;
-	bh=m0dL3yAYZBo0Ax2wYzAYaVBbrxY2QN9Hxv/9SE5tFGY=;
+	s=k20201202; t=1775623597;
+	bh=XY0ZstHXqfYfgtA1S8AQ7RSIe13mnUYY82OL/zH4KU0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kv/VIE24QHxEqDoJvqHVV/om+O7OBCFjULsoUbBqrmj+i2EXIalq72/62E1eXawu3
-	 AhgIbHmao776Qu2iISaPLoyesEqxREI/5egAQMcfuawwotFdH6ybF2ct5sSp6T709P
-	 6yKI4VXzG75qZELMTtroRpAdHX9F4cYpFZhs8gW/y0Lxyk97kGEvt1jNKvVC08NXPz
-	 /qYqZQgCpc1z/TIGPlmyxK7uKiJmj9bmNcZClWkqZQup7ZNxeaTx0fcIYhQgK5Lrrp
-	 mZ+ExWg1ipa0fqI097qoulUDwVxicd3Nvj3pmcTL3wXZe01y1C6h1GBhEFiQoQnw+S
-	 6kdTVs4kOoEVA==
+	b=Tx3nmzri4AzMghvX4Tm1yaViqV7AaZlI8e24U5eM8Yi+4AVA16JvjXkE5fL83gycY
+	 9cYxp20pmsJlu30GuoPEZkC2e8HU+Xv5HHLcWmV0M0j8HVj51YqPM2KHTD++gG/2tb
+	 seD9vkX4Slqx51IFuXLFOWLc4ijchvVjr2ekgHgaB7gdq/hXEEn0J/WkEN8cn9ffh3
+	 FvH+fFOpk8yDW8A05cqWO2vpUj+S7qUitGgxrzNfDG2iXeDkwHoSSnrf+s+yq0ZeJE
+	 tneOnIBvr1ZR8E8wyI1lyH/UPDIBROxBAqgs5Hog7je8IuRYPaOVwmjjAbABIE2qBj
+	 yHrO7kRKFpJTQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 51006FD5F70;
-	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 596C7FD5F73;
+	Wed,  8 Apr 2026 04:46:37 +0000 (UTC)
 From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
-Date: Tue, 07 Apr 2026 21:45:50 -0700
-Subject: [PATCH 02/16] riscv: alternatives: Use generated instruction
- headers for patching code
+Date: Tue, 07 Apr 2026 21:45:59 -0700
+Subject: [PATCH 11/16] riscv: kvm: Use generated instruction headers for
+ mmio emulation
 MIME-Version: 1.0
-Message-Id: <20260407-riscv_insn_table-v1-2-54b4736a1e77@gmail.com>
+Message-Id: <20260407-riscv_insn_table-v1-11-54b4736a1e77@gmail.com>
 References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
 In-Reply-To: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -62,16 +62,19 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org, 
  Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=7576;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=8840;
  i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
- bh=JXCpev2GGkdP2+kuuGxKizLYqir1lPNREbstw34ToJM=;
- b=6q4DOCxE9sLo80b7JYetbMtU5or5ZBqteeBHI2mFsiqGtLpaJqFo5BUe4eI6FgA26GZtvU+Fr
- vQrx97MDhwtCnXyonXn7V5FYkLE/CXQ832/D6lHjVuv1JiWHyKE+Da/
+ bh=/UVDQrQUvbZ5aOgH8m1pSV2EuBX5B263I5vQY5SYago=;
+ b=2HmEIVg9U6gaVnKq9aREtjrfTpOCkBdKmi1N5IKel6R8t3TNnM+d2/vvewRkS4i8HeULN99mu
+ wc5BI2x2Y1TCxqBWTYmdg0F5JUiOA23t3o9g8BVjZVg1FxEghmBY89a
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
 X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
  with auth_id=663
 X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_214640_769711_4C75784E 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,208 +94,271 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-Migrate the alternatives patching code to use the generated instruction
-headers instead of the hand-written instruction composition functions.
+Migrate the mmio emulation code to use the generated instruction headers
+instead of the hand-written instruction composition functions.
 
 Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-
 ---
+ arch/riscv/include/asm/kvm_vcpu_insn.h |   2 +-
+ arch/riscv/kvm/vcpu_insn.c             | 127 ++++++++++++++-------------------
+ 2 files changed, 55 insertions(+), 74 deletions(-)
 
-These function expansions are very simple and almost expand to the same
-thing in the new and old version. The main difference is
-riscv_insn_auipc_extract_imm() in the new version expands to:
-
-((_insn >> 12 & GENMASK(19, 0)) << 12)
-
-while it expands to the following in the old version:
-
-((_insn >> 0) & GENMASK(31, 12))
-
-These are the same thing, but GCC is unable to properly optimize the
-second one so the first one ends up using almost half as many
-instructions. With this finding and other similar examples, I made
-the generated headers construct in the first way to help GCC optimize
-all of these functions.
-
-Brute force can also be checked with this code:
-
-void check_auipc_jalr() {
-	for (unsigned int auipc = 0; auipc < ((1ULL << 12) - 1); auipc++) {
-		for (unsigned int jalr = 0; jalr < ((1ULL << 20) - 1); jalr++) {
-			unsigned int auipc_t=riscv_insn_auipc(auipc, 0), jalr_t=riscv_insn_jalr(jalr, 0, 0), auipc_t2=riscv_insn_auipc(auipc, 0), jalr_t2=riscv_insn_jalr(jalr, 0, 0);
-			riscv_alternative_fix_auipc_jalr(&auipc_t, &jalr_t, 0);
-			riscv_alternative_fix_auipc_jalr2(&auipc_t2, &jalr_t2, 0);
-
-			if (auipc_t != auipc_t2) {
-				printf("auipcs don't match %u, %u: %u != %u\n", auipc, jalr, auipc_t, auipc_t2);
-				return;
-			}
-
-			if (jalr_t != jalr_t2) {
-				printf("jalrs don't match %u: %u != %u\n", i, jalr_t, jalr_t2);
-			}
-		}
-	}
-}
----
- arch/riscv/include/asm/insn.h   | 74 -----------------------------------------
- arch/riscv/kernel/alternative.c | 23 +++++++++----
- 2 files changed, 17 insertions(+), 80 deletions(-)
-
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index d562b2b40ba1..d0e137f9bcd7 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -514,78 +514,4 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+diff --git a/arch/riscv/include/asm/kvm_vcpu_insn.h b/arch/riscv/include/asm/kvm_vcpu_insn.h
+index 350011c83581..106fb4c45108 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_insn.h
++++ b/arch/riscv/include/asm/kvm_vcpu_insn.h
+@@ -11,7 +11,7 @@ struct kvm_run;
+ struct kvm_cpu_trap;
  
- #define RVV_EXTRACT_VL_VS_WIDTH(x) RVFDQ_EXTRACT_FL_FS_WIDTH(x)
- 
--/*
-- * Get the immediate from a J-type instruction.
-- *
-- * @insn: instruction to process
-- * Return: immediate
-- */
--static inline s32 riscv_insn_extract_jtype_imm(u32 insn)
--{
--	return RV_EXTRACT_JTYPE_IMM(insn);
--}
--
--/*
-- * Update a J-type instruction with an immediate value.
-- *
-- * @insn: pointer to the jtype instruction
-- * @imm: the immediate to insert into the instruction
-- */
--static inline void riscv_insn_insert_jtype_imm(u32 *insn, s32 imm)
--{
--	/* drop the old IMMs, all jal IMM bits sit at 31:12 */
--	*insn &= ~GENMASK(31, 12);
--	*insn |= (RV_X_MASK(imm, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) |
--		 (RV_X_MASK(imm, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) |
--		 (RV_X_MASK(imm, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) |
--		 (RV_X_MASK(imm, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF);
--}
--
--/*
-- * Put together one immediate from a U-type and I-type instruction pair.
-- *
-- * The U-type contains an upper immediate, meaning bits[31:12] with [11:0]
-- * being zero, while the I-type contains a 12bit immediate.
-- * Combined these can encode larger 32bit values and are used for example
-- * in auipc + jalr pairs to allow larger jumps.
-- *
-- * @utype_insn: instruction containing the upper immediate
-- * @itype_insn: instruction
-- * Return: combined immediate
-- */
--static inline s32 riscv_insn_extract_utype_itype_imm(u32 utype_insn, u32 itype_insn)
--{
--	s32 imm;
--
--	imm = RV_EXTRACT_UTYPE_IMM(utype_insn);
--	imm += RV_EXTRACT_ITYPE_IMM(itype_insn);
--
--	return imm;
--}
--
--/*
-- * Update a set of two instructions (U-type + I-type) with an immediate value.
-- *
-- * Used for example in auipc+jalrs pairs the U-type instructions contains
-- * a 20bit upper immediate representing bits[31:12], while the I-type
-- * instruction contains a 12bit immediate representing bits[11:0].
-- *
-- * This also takes into account that both separate immediates are
-- * considered as signed values, so if the I-type immediate becomes
-- * negative (BIT(11) set) the U-type part gets adjusted.
-- *
-- * @utype_insn: pointer to the utype instruction of the pair
-- * @itype_insn: pointer to the itype instruction of the pair
-- * @imm: the immediate to insert into the two instructions
-- */
--static inline void riscv_insn_insert_utype_itype_imm(u32 *utype_insn, u32 *itype_insn, s32 imm)
--{
--	/* drop possible old IMM values */
--	*utype_insn &= ~(RV_U_IMM_31_12_MASK);
--	*itype_insn &= ~(RV_I_IMM_11_0_MASK << RV_I_IMM_11_0_OPOFF);
--
--	/* add the adapted IMMs */
--	*utype_insn |= (imm & RV_U_IMM_31_12_MASK) + ((imm & BIT(11)) << 1);
--	*itype_insn |= ((imm & RV_I_IMM_11_0_MASK) << RV_I_IMM_11_0_OPOFF);
--}
- #endif /* _ASM_RISCV_INSN_H */
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 7642704c7f18..b26a90eb65cc 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -11,6 +11,7 @@
- #include <linux/cpu.h>
- #include <linux/uaccess.h>
- #include <asm/alternative.h>
-+#include <asm/insn.h>
- #include <asm/module.h>
- #include <asm/sections.h>
- #include <asm/vdso.h>
-@@ -78,14 +79,24 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
- 					     u32 jalr_insn, int patch_offset)
+ struct kvm_mmio_decode {
+-	unsigned long insn;
++	unsigned long rd;
+ 	int insn_len;
+ 	int len;
+ 	int shift;
+diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+index 311e2530f888..1d8741d02242 100644
+--- a/arch/riscv/kvm/vcpu_insn.c
++++ b/arch/riscv/kvm/vcpu_insn.c
+@@ -376,7 +376,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			     unsigned long htinst)
  {
- 	u32 call[2] = { auipc_insn, jalr_insn };
-+	u32 auipc_imm;
- 	s32 imm;
+ 	u8 data_buf[8];
+-	unsigned long insn;
++	unsigned long insn, rd;
+ 	int shift = 0, len = 0, insn_len = 0;
+ 	struct kvm_cpu_trap utrap = { 0 };
+ 	struct kvm_cpu_context *ct = &vcpu->arch.guest_context;
+@@ -408,44 +408,47 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	}
  
- 	/* get and adjust new target address */
--	imm = riscv_insn_extract_utype_itype_imm(auipc_insn, jalr_insn);
-+	imm = riscv_insn_auipc_extract_imm(auipc_insn) + riscv_insn_jalr_extract_imm(jalr_insn);
- 	imm -= patch_offset;
+ 	/* Decode length of MMIO and shift */
+-	if ((insn & INSN_MASK_LW) == INSN_MATCH_LW) {
++	if (riscv_insn_is_lw(insn)) {
+ 		len = 4;
+ 		shift = 8 * (sizeof(ulong) - len);
+-	} else if ((insn & INSN_MASK_LB) == INSN_MATCH_LB) {
++		rd = riscv_insn_lw_extract_xd(insn);
++	} else if (riscv_insn_is_lb(insn)) {
+ 		len = 1;
+ 		shift = 8 * (sizeof(ulong) - len);
+-	} else if ((insn & INSN_MASK_LBU) == INSN_MATCH_LBU) {
++		rd = riscv_insn_lb_extract_xd(insn);
++	} else if (riscv_insn_is_lbu(insn)) {
+ 		len = 1;
+-#ifdef CONFIG_64BIT
+-	} else if ((insn & INSN_MASK_LD) == INSN_MATCH_LD) {
++		rd = riscv_insn_lbu_extract_xd(insn);
++	} else if (riscv_insn_is_ld(insn)) {
+ 		len = 8;
+ 		shift = 8 * (sizeof(ulong) - len);
+-	} else if ((insn & INSN_MASK_LWU) == INSN_MATCH_LWU) {
++		rd = riscv_insn_ld_extract_xd(insn);
++	} else if (riscv_insn_is_lwu(insn)) {
+ 		len = 4;
+-#endif
+-	} else if ((insn & INSN_MASK_LH) == INSN_MATCH_LH) {
++		rd = riscv_insn_lwu_extract_xd(insn);
++	} else if (riscv_insn_is_lh(insn)) {
+ 		len = 2;
+ 		shift = 8 * (sizeof(ulong) - len);
+-	} else if ((insn & INSN_MASK_LHU) == INSN_MATCH_LHU) {
++		rd = riscv_insn_lh_extract_xd(insn);
++	} else if (riscv_insn_is_lhu(insn)) {
+ 		len = 2;
+-#ifdef CONFIG_64BIT
+-	} else if ((insn & INSN_MASK_C_LD) == INSN_MATCH_C_LD) {
++		rd = riscv_insn_lhu_extract_xd(insn);
++	} else if (riscv_insn_is_c_ld(insn)) {
+ 		len = 8;
+ 		shift = 8 * (sizeof(ulong) - len);
+-		insn = RVC_RS2S(insn) << SH_RD;
+-	} else if ((insn & INSN_MASK_C_LDSP) == INSN_MATCH_C_LDSP &&
+-		   ((insn >> SH_RD) & 0x1f)) {
++		rd = riscv_insn_c_ld_extract_xd(insn);
++	} else if (riscv_insn_is_c_ldsp(insn)) {
+ 		len = 8;
+ 		shift = 8 * (sizeof(ulong) - len);
+-#endif
+-	} else if ((insn & INSN_MASK_C_LW) == INSN_MATCH_C_LW) {
++		rd = riscv_insn_c_ldsp_extract_xd(insn);
++	} else if (riscv_insn_is_c_lw(insn)) {
+ 		len = 4;
+ 		shift = 8 * (sizeof(ulong) - len);
+-		insn = RVC_RS2S(insn) << SH_RD;
+-	} else if ((insn & INSN_MASK_C_LWSP) == INSN_MATCH_C_LWSP &&
+-		   ((insn >> SH_RD) & 0x1f)) {
++		rd = riscv_insn_c_lw_extract_xd(insn);
++	} else if (riscv_insn_is_c_lwsp(insn)) {
+ 		len = 4;
+ 		shift = 8 * (sizeof(ulong) - len);
++		rd = riscv_insn_c_lwsp_extract_xd(insn);
+ 	} else {
+ 		return -EOPNOTSUPP;
+ 	}
+@@ -455,7 +458,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		return -EIO;
  
-+	/*
-+	 * When the 32-bit immediate is split across auipc and jalr, the
-+	 * constructed immediates need to be treated as individually sign
-+	 * extended numbers. Add the sign bit of the lower 12 bits to the upper
-+	 * 20 bits to undo the bleeding of the sign.
-+	 */
-+	auipc_imm = imm + (BIT(11) << 1);
+ 	/* Save instruction decode info */
+-	vcpu->arch.mmio_decode.insn = insn;
++	vcpu->arch.mmio_decode.rd = rd;
+ 	vcpu->arch.mmio_decode.insn_len = insn_len;
+ 	vcpu->arch.mmio_decode.shift = shift;
+ 	vcpu->arch.mmio_decode.len = len;
+@@ -498,11 +501,7 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			      unsigned long fault_addr,
+ 			      unsigned long htinst)
+ {
+-	u8 data8;
+-	u16 data16;
+-	u32 data32;
+-	u64 data64;
+-	ulong data;
++	ulong data, rs2;
+ 	unsigned long insn;
+ 	int len = 0, insn_len = 0;
+ 	struct kvm_cpu_trap utrap = { 0 };
+@@ -534,35 +533,30 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		insn_len = INSN_LEN(insn);
+ 	}
+ 
+-	data = GET_RS2(insn, &vcpu->arch.guest_context);
+-	data8 = data16 = data32 = data64 = data;
+-
+-	if ((insn & INSN_MASK_SW) == INSN_MATCH_SW) {
++	if (riscv_insn_is_sw(insn)) {
+ 		len = 4;
+-	} else if ((insn & INSN_MASK_SB) == INSN_MATCH_SB) {
++		rs2 = riscv_insn_sw_extract_xs2(insn);
++	} else if (riscv_insn_is_sb(insn)) {
+ 		len = 1;
+-#ifdef CONFIG_64BIT
+-	} else if ((insn & INSN_MASK_SD) == INSN_MATCH_SD) {
++		rs2 = riscv_insn_sb_extract_xs2(insn);
++	} else if (riscv_insn_is_sd(insn)) {
+ 		len = 8;
+-#endif
+-	} else if ((insn & INSN_MASK_SH) == INSN_MATCH_SH) {
++		rs2 = riscv_insn_sd_extract_xs2(insn);
++	} else if (riscv_insn_is_sh(insn)) {
+ 		len = 2;
+-#ifdef CONFIG_64BIT
+-	} else if ((insn & INSN_MASK_C_SD) == INSN_MATCH_C_SD) {
++		rs2 = riscv_insn_sh_extract_xs2(insn);
++	} else if (riscv_insn_is_c_sd(insn)) {
+ 		len = 8;
+-		data64 = GET_RS2S(insn, &vcpu->arch.guest_context);
+-	} else if ((insn & INSN_MASK_C_SDSP) == INSN_MATCH_C_SDSP &&
+-		   ((insn >> SH_RD) & 0x1f)) {
++		rs2 = riscv_insn_c_sd_extract_xs2(insn);
++	} else if (riscv_insn_is_c_sdsp(insn)) {
+ 		len = 8;
+-		data64 = GET_RS2C(insn, &vcpu->arch.guest_context);
+-#endif
+-	} else if ((insn & INSN_MASK_C_SW) == INSN_MATCH_C_SW) {
++		rs2 = riscv_insn_c_sdsp_extract_xs2(insn);
++	} else if (riscv_insn_is_c_sw(insn)) {
+ 		len = 4;
+-		data32 = GET_RS2S(insn, &vcpu->arch.guest_context);
+-	} else if ((insn & INSN_MASK_C_SWSP) == INSN_MATCH_C_SWSP &&
+-		   ((insn >> SH_RD) & 0x1f)) {
++		rs2 = riscv_insn_c_sw_extract_xs2(insn);
++	} else if (riscv_insn_is_c_swsp(insn)) {
+ 		len = 4;
+-		data32 = GET_RS2C(insn, &vcpu->arch.guest_context);
++		rs2 = riscv_insn_c_swsp_extract_xs2(insn);
+ 	} else {
+ 		return -EOPNOTSUPP;
+ 	}
+@@ -571,26 +565,24 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (fault_addr & (len - 1))
+ 		return -EIO;
+ 
+-	/* Save instruction decode info */
+-	vcpu->arch.mmio_decode.insn = insn;
+ 	vcpu->arch.mmio_decode.insn_len = insn_len;
+-	vcpu->arch.mmio_decode.shift = 0;
+-	vcpu->arch.mmio_decode.len = len;
+ 	vcpu->arch.mmio_decode.return_handled = 0;
+ 
++	data = *((ulong *)(&vcpu->arch.guest_context) + rs2);
 +
- 	/* update instructions */
--	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
-+	riscv_insn_auipc_insert_imm(&call[0], auipc_imm);
-+	riscv_insn_jalr_insert_imm(&call[1], imm);
+ 	/* Copy data to kvm_run instance */
+ 	switch (len) {
+ 	case 1:
+-		*((u8 *)run->mmio.data) = data8;
++		*((u8 *)run->mmio.data) = data;
+ 		break;
+ 	case 2:
+-		*((u16 *)run->mmio.data) = data16;
++		*((u16 *)run->mmio.data) = data;
+ 		break;
+ 	case 4:
+-		*((u32 *)run->mmio.data) = data32;
++		*((u32 *)run->mmio.data) = data;
+ 		break;
+ 	case 8:
+-		*((u64 *)run->mmio.data) = data64;
++		*((u64 *)run->mmio.data) = data;
+ 		break;
+ 	default:
+ 		return -EOPNOTSUPP;
+@@ -626,18 +618,13 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+  */
+ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+ {
+-	u8 data8;
+-	u16 data16;
+-	u32 data32;
+-	u64 data64;
+-	ulong insn;
+ 	int len, shift;
++	unsigned long data;
  
- 	/* patch the call place again */
- 	patch_text_nosync(ptr, call, sizeof(u32) * 2);
-@@ -96,11 +107,11 @@ static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
- 	s32 imm;
+ 	if (vcpu->arch.mmio_decode.return_handled)
+ 		return 0;
  
- 	/* get and adjust new target address */
--	imm = riscv_insn_extract_jtype_imm(jal_insn);
-+	imm = riscv_insn_jal_extract_imm(jal_insn);
- 	imm -= patch_offset;
+ 	vcpu->arch.mmio_decode.return_handled = 1;
+-	insn = vcpu->arch.mmio_decode.insn;
  
- 	/* update instruction */
--	riscv_insn_insert_jtype_imm(&jal_insn, imm);
-+	riscv_insn_jal_insert_imm(&jal_insn, imm);
+ 	if (run->mmio.is_write)
+ 		goto done;
+@@ -647,29 +634,23 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
  
- 	/* patch the call place again */
- 	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
-@@ -127,7 +138,7 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
- 				continue;
+ 	switch (len) {
+ 	case 1:
+-		data8 = *((u8 *)run->mmio.data);
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-			(long)data8 << shift >> shift);
++		data = *((u8 *)run->mmio.data);
+ 		break;
+ 	case 2:
+-		data16 = *((u16 *)run->mmio.data);
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-			(long)data16 << shift >> shift);
++		data = *((u16 *)run->mmio.data);
+ 		break;
+ 	case 4:
+-		data32 = *((u32 *)run->mmio.data);
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-			(long)data32 << shift >> shift);
++		data = *((u32 *)run->mmio.data);
+ 		break;
+ 	case 8:
+-		data64 = *((u64 *)run->mmio.data);
+-		SET_RD(insn, &vcpu->arch.guest_context,
+-			(long)data64 << shift >> shift);
++		data = *((u64 *)run->mmio.data);
+ 		break;
+ 	default:
+ 		return -EOPNOTSUPP;
+ 	}
  
- 			/* if instruction pair is a call, it will use the ra register */
--			if (RV_EXTRACT_RD_REG(insn) != 1)
-+			if (riscv_insn_jalr_extract_xd(insn) != 1)
- 				continue;
- 
- 			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
-@@ -136,7 +147,7 @@ void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
- 		}
- 
- 		if (riscv_insn_is_jal(insn)) {
--			s32 imm = riscv_insn_extract_jtype_imm(insn);
-+			s32 imm = riscv_insn_jal_extract_imm(insn);
- 
- 			/* Don't modify jumps inside the alternative block */
- 			if ((alt_ptr + i * sizeof(u32) + imm) >= alt_ptr &&
++	*((ulong *)(&vcpu->arch.guest_context) + vcpu->arch.mmio_decode.rd) =
++		(long)data << shift >> shift;
+ done:
+ 	/* Move to next instruction */
+ 	vcpu->arch.guest_context.sepc += vcpu->arch.mmio_decode.insn_len;
 
 -- 
 2.52.0
