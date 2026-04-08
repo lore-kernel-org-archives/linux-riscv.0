@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E8A10F9972
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 19:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E1B010F9968
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Apr 2026 19:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4XyotDcqjJVgOuBWJ806oYcRtShqtJijT1ymNq1SNSs=; b=pXA8ZBn/2qVCcp
-	GplP6yMlM2Lx4c7dkbq28cBgEl0TZst7gz6z0CKMOQE/UcT+DJ3HVVvIjLzDqUk2CCVxE+w+NbFhI
-	46TPhKwzxPvvHb/i3R9Uvb2ci6dumzxJkEbHrrlzremg0fE0YDrmQoVGK8hbIXDNCIoHbSfTKe6Hn
-	0chtAzgwBjaRL67DCCZw1WC9ZMSSJq3oTrk+u0ZWx8MhXQyT5P5fj+pn6eiJY/jPzmGr4V5WYZvhz
-	EplpxdJZFhnJB4/DlncQS0qZZtjVL5F65dWw9PWIjpMm6BG4FwJiWaplGTOH9kteQ8oP+5TO7TiPw
-	hm4W8yyBgoNaUuensjog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C5zwId4MXD8kUTMtUpQ2SSEzHKyYPB/541UABFtNQh4=; b=d2nlT4715pdJ44c696QFYtjZQ/
+	Zu+rVGfryBxfiWlw+E7CoFTW/C8UGsgk5tX/IYnVIIx8LUPr6DjJ4JMyaKsvvGDq2TMtKyPRfNu2L
+	aE+oobLNX/4JQcqaJZ7teE2flIXg+I05adugliabXCxR5z0W446hB6990Gj8jgw1ngw9PJlwOme6i
+	E6eYOEj+ePXIQygtkiF7vtQYvwVWcmMY7Y0+XyiW4Ih+dEl8S4JKMxmqULx9/Iw4mWZFEl9Ga9BZL
+	5ceJfkqpU248MrX+Jwf1RttDYZw/LTfjqozeAHYmbgDwM8xTt7CmRqZEme6Hzwtap1Iau1qi3Ta9b
+	FS3K+C+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAYmp-00000009KEY-0sPj;
-	Wed, 08 Apr 2026 19:42:03 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1wAYpA-00000009KlJ-0UMl;
+	Wed, 08 Apr 2026 19:44:28 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAYmm-00000009KD3-1iEZ
+	id 1wAYp7-00000009Kjx-24t9
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Apr 2026 19:42:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775677321; x=1807213321;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Z4SF3j+B4RPtm4tqfKi8V5EPf+bx1nMf950zOTZVQ4g=;
-  b=Z637Ns8OycI+GXV2O1aZApEPk0BkBH3SrfjmeZ0TwinMdTdryqTRpOe8
-   wcEVRR/qZJlci6uVCf9XrVqS5uwn3R7b7djshqbEksAQjKofPfAuaXQGc
-   eNv75X8wvKnc4v0ZGIQPPllJLI34YF+y34LO1nIVECnMDT5y0G21Y/+AC
-   0rEltLj2GnKR1VjluG6cJMFWZijIteSrKl/ZbbV5blkeN0Lqr837wNLzb
-   bS+sTPSyNuBbWa4oDpbzro8X/B9C5/qdFBbhl3wWbL3bnJwt6tegauB7X
-   gbJonLOtPXFK4W0/Iql55rR1P4Tdt4JLntlQsDmCWdUxiDlu+pJ4/mL1K
-   w==;
-X-CSE-ConnectionGUID: k5IIduZARPa/NBRDwQwN3g==
-X-CSE-MsgGUID: 8+qFbsvHQRK2On65ifQfRw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11753"; a="87373217"
-X-IronPort-AV: E=Sophos;i="6.23,168,1770624000"; 
-   d="scan'208";a="87373217"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2026 12:41:58 -0700
-X-CSE-ConnectionGUID: 9B3njR3FSpOBDfl18YDeQg==
-X-CSE-MsgGUID: 52lB/fuSSW2pH5s4BCTE/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,168,1770624000"; 
-   d="scan'208";a="232596880"
-Received: from vpanait-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.72])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2026 12:41:56 -0700
-Date: Wed, 8 Apr 2026 22:41:53 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Dmitry Antipov <dmantipov@yandex.ru>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/2] lib: kunit: add tests for __ashldi3(), __ashrdi3(),
- and __lshrdi3()
-Message-ID: <adavgV5IF9jMzxr3@ashevche-desk.local>
-References: <20260407052824.1260071-1-dmantipov@yandex.ru>
- <20260407052824.1260071-3-dmantipov@yandex.ru>
+	Wed, 08 Apr 2026 19:44:26 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4frYRR5Ddyz9tVR;
+	Wed,  8 Apr 2026 21:44:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mssola.com; s=MBO0001;
+	t=1775677459;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Qecm+tQ+Ywyd1ucb8nyib1pHP2cJ6XRw4E2UU704M40=;
+	b=nN/Bi3Mh8onrJ7lQkVBymW89ZY7wj4OJ5zN2VKq7ZFHAc4iKVonYqEnXJs/JfXXu+JMjYC
+	fzkojK3Sif9nH6JRjjY25weLM5N2rej4sZCwPbzGcmJT232pQC1m1q1C3/9vFt1nwBHVXA
+	7ZUbOrsgvX+7mE13t2t5UFn9bmwjUR0SShw69RWHBUTaZ82hrGIF7juRzt44n43vzAP08v
+	A2rMy8Cqc+cBvnl5Gu06J6cUdITpGWlqY2ZBl2g94Sh9vU48m7Bp0AWyQU+RiVoPSS3smG
+	BbHN/s185HhaMqJAkmFmVb8W9V4FhLKCsQVFBn8pvknZnuLtl+rtcD8NQ7L6Eg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=softfail (outgoing_mbo_mout: 2001:67c:2050:b231:465::202 is neither permitted nor denied by domain of mssola@mssola.com) smtp.mailfrom=mssola@mssola.com
+From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mssola@mssola.com>
+To: pjw@kernel.org
+Cc: palmer@dabbelt.com,  alex@ghiti.fr,  corbet@lwn.net,
+  linux-riscv@lists.infradead.org,  linux-doc@vger.kernel.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: enable HAVE_CMPXCHG_{DOUBLE,LOCAL}
+In-Reply-To: <87sea63hmh.fsf@> ("Miquel =?utf-8?Q?Sabat=C3=A9_Sol=C3=A0=22?=
+ =?utf-8?Q?'s?= message of "Wed, 11 Mar
+	2026 09:17:10 +0100")
+References: <20260220074449.8526-1-mssola@mssola.com>
+Date: Wed, 08 Apr 2026 21:44:16 +0200
+Message-ID: <87fr55qltb.fsf@>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260407052824.1260071-3-dmantipov@yandex.ru>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Rspamd-Queue-Id: 4frYRR5Ddyz9tVR
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_124200_460102_10EB5E48 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260408_124425_757386_7437A837 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +75,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6773967390268952984=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07, 2026 at 08:28:24AM +0300, Dmitry Antipov wrote:
-> Add KUnit tests for '__ashldi3()', '__ashrdi3()', and '__lshrdi3()'
-> helper functions used to implement 64-bit arithmetic shift left,
-> arithmetic shift right and logical shift right, respectively,
-> on a 32-bit CPUs.
-> 
-> Tested with 'qemu-system-riscv32 -M virt' and 'qemu-system-arm -M virt'.
+--===============6773967390268952984==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 
-...
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-> +#include <linux/kernel.h>
-> +#include <linux/libgcc.h>
-> +#include <kunit/test.h>
+Miquel Sabat=C3=A9 Sol=C3=A0 @ 2026-03-11 09:17 +01:
 
-Always try to follow IWYU principle. The kernel.h is a niche header and rarely
-should be included. I do not see any use of it here. OTOH module.h and
-array_size.h are missing.
+> Miquel Sabat=C3=A9 Sol=C3=A0 @ 2026-02-20 08:44 +01:
+>
+>> Support for atomic Compare-And-Swap instructions has been in the RISC-V
+>> port of the Linux kernel for a long time. That being said, we apparently
+>> never bothered to set HAVE_CMPXCHG_DOUBLE and HAVE_CMPXCHG_LOCAL in the
+>> Kconfig, despite having all the framework to support them.
+>>
+>> Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mssola@mssola.com>
+>> ---
+>> I have built this patch with multiple configurations and ran it with KVM
+>> (the VisionFive2 board that I have lacks the needed extensions). All see=
+ms
+>> to work, but I do wonder if we did not enable these for a reason or this
+>> just slipped through. So far in the code I believe everything is in plac=
+e,
+>> and I haven't seen any commit in the git log stating otherwise.
+>>
+>>  Documentation/features/locking/cmpxchg-local/arch-support.txt | 2 +-
+>>  arch/riscv/Kconfig                                            | 2 ++
+>>  2 files changed, 3 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/features/locking/cmpxchg-local/arch-support.t=
+xt b/Documentation/features/locking/cmpxchg-local/arch-support.txt
+>> index 2c3a4b91f16d..28d5fa8c3b4f 100644
+>> --- a/Documentation/features/locking/cmpxchg-local/arch-support.txt
+>> +++ b/Documentation/features/locking/cmpxchg-local/arch-support.txt
+>> @@ -20,7 +20,7 @@
+>>      |    openrisc: | TODO |
+>>      |      parisc: | TODO |
+>>      |     powerpc: | TODO |
+>> -    |       riscv: | TODO |
+>> +    |       riscv: |  ok  |
+>>      |        s390: |  ok  |
+>>      |          sh: | TODO |
+>>      |       sparc: | TODO |
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index 7e76b6316425..7c6726a8d738 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -151,6 +151,8 @@ config RISCV
+>>  	select HAVE_ARCH_USERFAULTFD_WP if 64BIT && MMU && USERFAULTFD && RISC=
+V_ISA_SVRSW60T59B
+>>  	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
+>>  	select HAVE_ASM_MODVERSIONS
+>> +	select HAVE_CMPXCHG_DOUBLE if RISCV_ISA_ZACAS && RISCV_ISA_ZABHA
+>> +	select HAVE_CMPXCHG_LOCAL if RISCV_ISA_ZACAS && RISCV_ISA_ZABHA
+>>  	select HAVE_CONTEXT_TRACKING_USER
+>>  	select HAVE_DEBUG_KMEMLEAK
+>>  	select HAVE_DMA_CONTIGUOUS if MMU
+>
+> Gentle ping :)
 
-With that being addressed, I'm always in love with new test cases!
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Another gentle ping :)
 
--- 
-With Best Regards,
-Andy Shevchenko
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJiBAEBCgBMFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmnWsBAbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyEhxtc3NvbGFAbXNzb2xhLmNvbQAKCRCWvoxv2J1l
+ZcMAEACq7VYX1N8XChDr1rwM2yAKvKqM5RQEgy8GLu56W41XUjX9bJ6kHjONkc4r
+IbduYPCCPwqfGsowCo6k7FW2OVdDApHwEzQht0NvV4xFv1MdByWtGKgbV/9L0jA9
+/EFHWt4iKHnpRtVUNP6hy/M4lufeNiVJO13YPTuhhSQqhOfgZPIAf45T8XHWD3Bk
+OnkkCr1iWmxVgXP8UWWkNlLbRvPig+DDBZabCpcI00O0s1KsirvIkmRZ4TvjzYCP
+rIkq1ayLItClo0jthJgUV9NcF0X4kvpFSw2Zg3Xet6O2aWKep3zz1nkT6vW6UGzv
+BqUtPn9O6pu10MAPnP7alqQze2Gf/DjsbXN96J1Ekq6oSpeh7fbrNUDo5KLzgrx/
+etoXNzH0JXLXowV+3aD3+xgxtOUkbgC8xvgsl7Or4p488bpXwL7X+jZ5ezj6Gd3i
+5do+RKK81xKaYe2Zshe7chgHu4Gbuv4l3C+S4vTxGnX9gGdxWT5B24s73uZMnkWE
+x1U34D59cGJhSuqt2WM39Ehb6OmOpnL1BEh5Y0nBn34XtLtvzD9JKg4YC2YdyEOq
+jgE29oxzCP7ToVACe+xKg943/+HUN7MsML4ZIjR3XC/GMhN3TcFoV2TXlHYOhba5
+7z7qsem+tstMGgDm2j64PvCFnMDkr38LRhxdnhdbldM11pOpDg==
+=1w/r
+-----END PGP SIGNATURE-----
+--=-=-=--
 
 
+--===============6773967390268952984==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6773967390268952984==--
+
