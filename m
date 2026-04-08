@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9535BF36B9A
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 00:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09ADBF36B9B
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 00:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4grCvNqx8tP4MNPV6ToHA6rtlOmY0m7zk312G03AeVg=; b=fucC06jgelXpEh
-	yQK55Gwdv4NplPYCjDE9p+t0CUxuuWjH1msUC3WozndSfE/2e8deeRrPqwYs6c5v5/2kHM2xDBAMw
-	8FwpSh+6iHG5/oX9lXNGYQEKpWjMFjDTNcJPFZsZxNN83bbz7VF05MgMhMvg6YAvaxEuEfJbzxpAt
-	bD+yEd++aDfP+j55tXKTyB5Gj013XiQeUdzjINE/h3xGclT/X0tegp4F8yoU/LPkZJUYrNZ5T9R7p
-	GR9OFY9dZS1lIjeuOA93d3mwjW/mE1WNsUpFtP7hMmncv2NiqUBif5trH8mzcCSEm26y/siabV45S
-	yEicwqeJBeNtREe+3ROQ==;
+	List-Owner; bh=7av32CT78NobqPVgtU0vXn3NOuVYjr6XIhV7bEZnf9I=; b=Y9BJEvA2KedTyF
+	IRWkU464b1BJXqTwkgQ5ThRl36MMBkYl8VwA+TbaTMTt9QfvwfU36X4YOHWaQMchmPT7W0L6yjKra
+	pPddG+1VREOfZyxBCCH0iWLX3OBMd4rfn3gg0uTLSWh0W01WlKffmpmcHxFEoJ7ft4rSgp68Un43M
+	SgeKcfGMTKzlQjvMoOth59zZUzOoOjAgPE1ABqA/qniANps9f7b3gCeztA9DnqqlASu1MloNE1KP9
+	zAUUV/xx8QyScl1jMRiyCYY1T1Kpd1WTlSHfpwvpqWRtVseG2lOhEAqbofm/BIEbCSIQLXe2BHSa7
+	JX4M8PNyp9B+xC8myM2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB01g-0000000BNlH-34FC;
-	Fri, 10 Apr 2026 00:47:14 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wB01g-0000000BNlA-1KMp;
+	Fri, 10 Apr 2026 00:47:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAXB2-00000009EYk-45kw
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Apr 2026 17:58:59 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3590042fa8eso20842a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Apr 2026 10:58:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775671135; x=1776275935; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EPC75zCX3AQNScmBKzj0l4KXEu7SMiERNrMCgtwvXtE=;
-        b=A4hyUwIkroEtsISrVIQwjvCOk2yq4auOnyK8Gy4153Whlez9oGYGMUw7oIJc4AVveK
-         reh2Wil71dEI9atOxRT2GN+jYSquVdVYWQYOEPmPpju8TnlMKa8abzCAbsZrLLn/LhRu
-         024A05Q+l7Z5s9GoMRv52oKdnNSVBlmNs4L3AT/AsMSvt8G7QfH0TOcUm0UMhCZlwqS2
-         njqftGKlx7K3M/Ogw6StwDCSc4BG5gaFsWfd/NtBh7kCgLCwhFzHd/PkUCbETXVbJP0+
-         dFsDx4V3ZUmKBGR3TxXVeMwKlFnTQrWbFJ4y8xXXCYzv50JnZ2D/DfZgHwWdeAvBaNVz
-         dgzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775671135; x=1776275935;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EPC75zCX3AQNScmBKzj0l4KXEu7SMiERNrMCgtwvXtE=;
-        b=Vl9vNXEkYoFWWwDkApPShrChzrBW79OrHqXl8jz/XlgUArZ3w5o7tfi5xppCFGYXWP
-         5Jp3/psLOxKvWfnA4Hh71GmcNBLURCl66U4viJDq35MVODCXI0fsUrJfLbQWzd2AfOZI
-         jLsYAl9/qwrcPqnoNeFMpFydvUqrkzUFtiLNQOIjauRgqBj/QEGs1Z7liOhfxgDln7ml
-         2Y636vm/vKaM4mc13f322gxNWqadIST3MaUiU9Yp/iwQ5mDbKC6yvIoJSRW18GKsweYH
-         dWyB+MLF3hDf/KoFet+S317RSm2UG9E3yloR6Bfhq1+773RcLo/TAN10YYWPCJwczRn4
-         KCgQ==
-X-Gm-Message-State: AOJu0YwYzdKYYu13XRQREJ3ll2y6R3fjq/LEZnegI+Ke2FP/wuxUYoUi
-	72WegDBGL7TgalDZbQVJqFiLkHkhtLrCe4HdJjz0Rg1ZjtBLyAchTIX5zGYiQgk8
-X-Gm-Gg: AeBDietB5ZWMimA8PirTaAMiADcutVXL8WtHTJxrCmi6i/klz2CtG9aAv25kH48rNG2
-	A/WUgJzHMMQDxhs9hkSv0VgCdNtBGKuhKb8SbU4q4Wvrd19DH8C58lCDiIqdD/eVM84F3kOMaJO
-	RvPqKsCWrjuymWniUtja65yYNEHYim2V9JdAww4QF68ydTKWAeZ79oeeONUuIPQGxN2S8zBUjvn
-	LAKflu541FTw8u7RjFwmpZqb35BNVKyKiNIMrf52r/EAXwyRt6Zs1s7+Hf+EIN+lhz6nwiU1PMT
-	3clZ05dtUfKnYs6EgmHADMxoawiORdTNbC51HN+4GCapkF+cmx+NJP/a+mCmpZXFIlLFdgoHiBv
-	lZn7i3fbKo0IcCm2owu69h7i7n/a/SwU0tZVzpn1cpCq73UrFuFPBIE3cumJeIg6cshN9g1SbPB
-	19+nr25hs4YevooypcLauoXyCMAX0HDJFFykp+hwWAqKAlYC+J+yfF
-X-Received: by 2002:a05:693c:3018:b0:2c0:cc90:a71 with SMTP id 5a478bee46e88-2cbf9df22d4mr10054952eec.8.1775671134916;
-        Wed, 08 Apr 2026 10:58:54 -0700 (PDT)
-Received: from inky.hsd1.ca.comcast.net ([2601:647:6700:64d0:8ccf:d575:662c:a402])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2cf1af62347sm14963480eec.22.2026.04.08.10.58.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Apr 2026 10:58:54 -0700 (PDT)
-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Conor Dooley <conor@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <shuah@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>
-Subject: [PATCH 1/16] riscv: Introduce instruction table generation
-Date: Wed,  8 Apr 2026 10:58:30 -0700
-Message-ID: <430b73fed9363535ee20326924c4fafa0a8863c4.1775669508.git.thecharlesjenkins@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
-References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
+	id 1wAKoH-00000008Ea1-4B41;
+	Wed, 08 Apr 2026 04:46:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 674F644163;
+	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 40C30C2BC9E;
+	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775623596;
+	bh=K9XWCzivDs6i48E5zsP/IuCT0gwfLQaMkAnGcOmDduA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=tJqF0WziF1JhBmNSxAjfzidvBrKNiiMUpqrgEeAULpeLLxytD+KwNDPR9gplEnYDV
+	 mfFmxZY7zQ5M9A14mpRbh5T7hxFp+vUxhhX934Imf8pvFhdxYjKfp3B2vblr+04iFe
+	 UnOoJv8bjLdNkY6aCjBCqwzAF59NEoCIg/RfI6LEeoELbRNLUgI36UYQyT07JrkzZv
+	 LwiGlsaEfoXkJ67sWQfT52s8RBX4nftY0sePQO51fUhuepHmKlLfqxnX4cJsWXOZWT
+	 ZTRQMpix/xxH3PPKPkowGykPhxt29ylozfFcsRlJVLVg0ebdPBjGtHELi87HNS+u2w
+	 riWZXdo3P46pw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3892AFD5F72;
+	Wed,  8 Apr 2026 04:46:36 +0000 (UTC)
+From: Charlie Jenkins via B4 Relay <devnull+thecharlesjenkins.gmail.com@kernel.org>
+Date: Tue, 07 Apr 2026 21:45:49 -0700
+Subject: [PATCH 01/16] riscv: Introduce instruction table generation
 MIME-Version: 1.0
+Message-Id: <20260407-riscv_insn_table-v1-1-54b4736a1e77@gmail.com>
+References: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
+In-Reply-To: <20260407-riscv_insn_table-v1-0-54b4736a1e77@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Shuah Khan <shuah@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-kselftest@vger.kernel.org, 
+ Charlie Jenkins <thecharlesjenkins@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775623594; l=123019;
+ i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
+ bh=18hJ/oiACwr0zkyzDCquqngIbo8dkhmgkrX1hbG37TQ=;
+ b=vnVNYnO3WuRB9g9wNVqZXinZ5tG/XmHL5HxYWhWhfKLpMk0bg6JMPAR9y+Jp/LSXrYIxXHFZ3
+ TI+aqKmbcd6BGvooypKAwZq5SaV8jY4F6jAjE3nlBKqVKZO8UFqSdaH
+X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
+ pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
+X-Endpoint-Received: by B4 Relay for thecharlesjenkins@gmail.com/2026030
+ with auth_id=663
+X-Original-From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 X-Mailman-Approved-At: Thu, 09 Apr 2026 17:47:11 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,10 +83,13 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: thecharlesjenkins@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
 Eliminate the need to hand-write riscv instructions by using a shell
 script to autogenerate a header from an instruction table. This is modeled
@@ -176,14 +159,11 @@ in use.
 ---
  arch/riscv/Makefile           |    3 +
  arch/riscv/include/asm/Kbuild |    1 +
- arch/riscv/include/asm/insn.h |   72 +-
+ arch/riscv/include/asm/insn.h |   72 +--
  arch/riscv/tools/Makefile     |   22 +
- arch/riscv/tools/insn.tbl     | 1391 +++++++++++++++++++++++++++++++++
- arch/riscv/tools/insn_tbl.sh  |  263 +++++++
+ arch/riscv/tools/insn.tbl     | 1391 +++++++++++++++++++++++++++++++++++++++++
+ arch/riscv/tools/insn_tbl.sh  |  263 ++++++++
  6 files changed, 1710 insertions(+), 42 deletions(-)
- create mode 100644 arch/riscv/tools/Makefile
- create mode 100644 arch/riscv/tools/insn.tbl
- create mode 100755 arch/riscv/tools/insn_tbl.sh
 
 diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
 index 4c6de57f65ef..d665b015988b 100644
@@ -2002,8 +1982,10 @@ index 000000000000..0ab1e17959c4
 +
 +    echo "#endif /* RISCV_INST_GEN_H */"
 +} >> $outfile
+
 -- 
 2.52.0
+
 
 
 _______________________________________________
