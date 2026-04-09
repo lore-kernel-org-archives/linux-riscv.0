@@ -4,54 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD4EEA3C59
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 11:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C78FEA3C59
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 12:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bdIzOt8LfHpmDNgbFaKrQ/72qIPSLQmjFmQzM33zjDY=; b=rj4b0cCcnji+sU
-	gYO1wQqE9KdC+nUXjZFmSYB8DvpsrG2MgXcRRFCXRDSJ4s/AnkliX00mkvPMXSDHR6HSHPlidxEWo
-	norXBnAxXxxN3kneWd5m75JOJzcGDOkXA8Nx0jjvFb2NTK1rIjEg/4pxULi4nO0881+ZfknH4xDJW
-	GW0LDT/wWXldy4AlS28Kh+u8yPfBfwLFDfYGxs2erhopOYxT082yr5Pt75csFajJex1IDpm+WNmhI
-	4m12RJDMBpKZNpEuUT6wuk2KtPts6tENJAzKvp5Ros64vf8CFUFo5brKk3Azjq8MltNrvrgVO0x7W
-	Fds7yxigIGs5sP6g8enA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZUzvIP0jcG142tptSB8BbpR6adB2z6FVl0RlyW+zvwM=; b=TAhRB8XysbVynI
+	yX69nwE1e0SAYJNBgH7c6niWs98a08s8p5gIJa4Gn7AHrnhC+aEnQwALWQAKAnG+Uh3UjDyg3slr1
+	d6u8VZZURzQ6oLeZJGZ9gzkBdG1oTKJD4PTv/7/CBLx83nrLAYh/J8tAXjXV6W8Se8Gg9aobgXR9F
+	Ziu1X67Pa4PzfRGfUbPui6At9pozDwUD/jKPQP5Z7mhxR6cWIfVEtGHbmsq13Qm9i7/br2yp8upf9
+	Jh5NIZgiikHW+4AAZAAOKQKQFke/q+04kuGPdmb3r1SoTGcuuaSeoC324gum2590A6LudM6nQGDsi
+	DNF8KfptuROxGv98uFKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAnsV-0000000AJUo-2YgZ;
-	Thu, 09 Apr 2026 11:48:55 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1wAoZI-0000000AO3p-1sE7;
+	Thu, 09 Apr 2026 12:33:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAnsR-0000000AJU3-1Zo1
+	id 1wAoZG-0000000AO3W-1oHP
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Apr 2026 11:48:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1775735322; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=aceztPpkMsU/CLciUL34G4AZrFbaV1ONeA90OERMBkA=;
-	b=h15pPQz1kgiLvTnI2IAZ66IFtBZCeyl9s+9DAtLTyKQgN9kHDMhxjn++eb6lFh4boow9kadD+PKu+bifLbmZHAJyDySpJc8O94GVnSqUzf51vMaOeWiBf3ATCHr9H+Jla4VQ9krrzFA4mI3B5/Vv5SW4oa2x59cHTBS1UkL5H18=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0X0iIf1A_1775735311;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X0iIf1A_1775735311 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 09 Apr 2026 19:48:35 +0800
-From: cp0613@linux.alibaba.com
-To: pjw@kernel.org,
-	alex@ghiti.fr,
-	andybnac@gmail.com,
-	guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Pei <cp0613@linux.alibaba.com>
-Subject: [PATCH] riscv: ftrace: select HAVE_BUILDTIME_MCOUNT_SORT
-Date: Thu,  9 Apr 2026 19:47:36 +0800
-Message-ID: <20260409114736.907-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 09 Apr 2026 12:33:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 45B21443D0;
+	Thu,  9 Apr 2026 12:33:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 574B5C2BC87;
+	Thu,  9 Apr 2026 12:32:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775737984;
+	bh=EMtQMIGflMLuZ8kQf/KGMu851XNT4k4jQNOfmNdkAJ8=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=DBj2af0nEK3h3p2KLYwy0F3WgZMw0JkP9b4E5lRDlGSBfOw4gEeoBfO0+H6Y7wuSd
+	 CKCFPPvOPvEvvpRz7Y+4zBFgbEfAKqB2md57TvZb2anZnL+BchTgHUX0Kgl8tPoRO+
+	 f68bS693HuF96e+PEbOWfW1QHY7jfYEOHedPtOkaUCTWHON1qI1gYy80z+iB6hwyRl
+	 5NBJcTHZ1IRbJ3uoWISwRQPxzPl+UysNxN6O8PmAZrKYQbQYzEO0TG4KseMU4HCzpD
+	 W24kJ+XFsmi96AXVvuwhRwoom4AzNsUl8YnozQW09e9IfEnHZfFUOBbqKbpjpynjON
+	 00huP/O8x7Unw==
+Message-ID: <86820d0e-3d35-41af-98ef-d713d3e71c9e@kernel.org>
+Date: Thu, 9 Apr 2026 14:32:56 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] riscv: mm: Fix TOCTOU race in remove_pte_mapping
+To: Michael Neuling <mikey@neuling.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>,
+ Aleksandar Rikalo <arikalo@gmail.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andrew Jones <ajones@ventanamicro.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>,
+ Guo Ren <guoren@kernel.org>, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, Lorenzo Stoakes <ljs@kernel.org>,
+ Nam Cao <namcao@linutronix.de>, Oleg Nesterov <oleg@redhat.com>,
+ Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Qinglin Pan <panqinglin2020@iscas.ac.cn>,
+ Raj Vishwanathan4 <rvishwanathan@mips.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20260409091143.1348853-1-mikey@neuling.org>
+ <20260409091143.1348853-6-mikey@neuling.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260409091143.1348853-6-mikey@neuling.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_044852_163365_D8964798 
-X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-CacheID: sfid-20260409_053306_549277_66CB0A6B 
+X-CRM114-Status: UNSURE (   7.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,45 +132,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Pei <cp0613@linux.alibaba.com>
+On 4/9/26 11:11, Michael Neuling wrote:
+> remove_pte_mapping() reads the PTE via ptep_get() (a READ_ONCE) into a
+> local variable, but then checks pte_present(*ptep) by dereferencing the
+> pointer directly, reading the PTE a second time. If another CPU modifies
+> the PTE between the two reads
+Is that even possible?
 
-RISC-V already satisfies all prerequisites for build-time mcount sorting:
-the sorttable host tool handles EM_RISCV in its machine-type dispatch, and
-the __mcount_loc section entries are stored as direct virtual addresses in
-the final vmlinux binary, so no relocation processing is required during
-the sort step.
+The code does not use any locking, so nothing would be safe here if
+races could happen, no?
 
-Select HAVE_BUILDTIME_MCOUNT_SORT so that BUILDTIME_MCOUNT_SORT is
-automatically enabled when DYNAMIC_FTRACE is configured.  This allows
-sorttable to sort the __mcount_loc section at link time, making the
-run-time ftrace initialisation path skip the software sort and reducing
-kernel startup overhead.
-
-Verified with CONFIG_FTRACE_SORT_STARTUP_TEST=y, which confirms that
-the section produced by the build is already in ascending order:
-
-  [    0.000000] ftrace section at ffffffff81015a60 sorted properly
-
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 90c531e6abf5..6fe90591a274 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -151,6 +151,7 @@ config RISCV
- 	select HAVE_ARCH_USERFAULTFD_WP if 64BIT && MMU && USERFAULTFD && RISCV_ISA_SVRSW60T59B
- 	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
- 	select HAVE_ASM_MODVERSIONS
-+	select HAVE_BUILDTIME_MCOUNT_SORT
- 	select HAVE_CONTEXT_TRACKING_USER
- 	select HAVE_DEBUG_KMEMLEAK
- 	select HAVE_DMA_CONTIGUOUS if MMU
 -- 
-2.50.1
+Cheers,
 
+David
 
 _______________________________________________
 linux-riscv mailing list
