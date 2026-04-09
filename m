@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F81E98FA5
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 03:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C841E98FAC
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 05:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WpihUc/rwsGBPOaLVMtPqFnax1mv56293EgYqjJcPnU=; b=Rv62O+9ZO3uzMR
-	5Cnzy+8etN6h9gpYCds1qO+PbTJqdJ2WiiEiEL7oqtWZAd5Vl5OAg8kNQVKVQFWbDOQeVvB2y3cVB
-	SMQ97bvl1QYV8LqTmmArxqx4vuiS2OKd+isiD72AoFPA5l05wMBi302//FWX24L7DO1llQyxPHUpt
-	7nNaOWe/VKdIoxyookzpmohLwwBKgpKOf/dzJPFEzDL+cxDBlBd95kM2PUG3R2gEHHWcrQoTJNAfv
-	4l5GAoXx1tIvE8kRZFre/Y3eXyYY8xhfZYT1g6TL7kD5J9heulkAcudj3K9vNLgFBZcJKzXFP7LZJ
-	fl9UYHrtU2DV7GkPXGig==;
+	List-Owner; bh=CAe4xEjqCoGS4lzMBPToltcJnCQKShmbURZ52BaeUdI=; b=vbsB7gyprQA8/R
+	dq5Kfigz4JTaJmdS3w5M1onSEcx/RBxLRrOPylWeJDrKE0u+y2D1TWFi/ESZPO8eBub0w+LQ+NUK2
+	8J9oPKXGJSxABRj55FbvN4cEZRPG1jAezXwYAKUgh9/uKeFXcCrYWlhA3p419frvgZLRYptSabMcf
+	FWFLVfc40fv4a7dAW/DMtMxo55cKxtkDbLVt6wEQuqVwsl/Zsrbq6dqjljtIuCoz7lnkRKfKDIYzX
+	+uWTPxp8fpoB1u2U1n/evtugzIm53E8LYRN8pxZ+a9ZxVMtx+RltwmmPonYEeXdEF0manVchyPV6t
+	2tJX0O9KlZhhpsxSfV5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAgFO-00000009fMA-08BB;
-	Thu, 09 Apr 2026 03:40:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wAhVF-00000009hcb-3Uel;
+	Thu, 09 Apr 2026 05:00:29 +0000
+Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAgFN-00000009fLg-1Pr2
+	id 1wAhVD-00000009hcG-2fGL
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Apr 2026 03:40:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 74DFE600CB;
-	Thu,  9 Apr 2026 03:40:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A57EC4CEF7;
-	Thu,  9 Apr 2026 03:39:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775706000;
-	bh=l2mXjVQl1N+fo2+/ND1bzoMtST0s0hnl9zlj9/pnvXk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RF6ZDNhq/uzkUGkBrbRrXwQBZFHM3u5keoQwYZW2T9kCUej++gZlOtkBkI6l5C4mV
-	 Ih3wgIuG/QjYqa6yyZXOAZ6h3w2x3ephPVe357Zrqpd0ZeFFPKnTbOB5D5zL0XG9bz
-	 SelewoXwXIQZqEQQAWXC1f6X+vd+Q51wBfWaV1FWcHjbVkeTb49b4xWHWaRGB/kV6v
-	 2aERolbaF8OBUuEUYuK2MXz5J6EVYaaopDEwNWmpZhmKLYO25QuVc4Kw0Mn85JXGh4
-	 /JrwyaZjEhsHUbrcqNj1qOKfphhk5xmv8r7vp2CfS8FutVOe5i8xzoAfupW8fDymLt
-	 F4furoxPOciuA==
-Date: Thu, 9 Apr 2026 11:39:57 +0800
-From: Yixun Lan <dlan@kernel.org>
-To: Han Gao <gaohan@iscas.ac.cn>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>
-Subject: Re: [PATCH v10 0/3] riscv: dts: spacemit: Add PMIC regulators usb
- pcie
-Message-ID: <20260409033957-GKA1143689@kernel.org>
-References: <cover.1775575436.git.gaohan@iscas.ac.cn>
+	Thu, 09 Apr 2026 05:00:28 +0000
+Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-2ce22328930so506980eec.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Apr 2026 22:00:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775710826; x=1776315626; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LGFN7oy2QcLt5YxBSj5rTqJ2uRShRfylAwJbgAKWkKc=;
+        b=cWpErz9+3s4y5BfQb8mfjjLWE7KyNmo1pOTbHNDRClC7XYpsiTsHgJqJiJS2M7mIF6
+         bBczFIcJppf289gACGWKL2aQz/BYFHrZaOpJZGIKWEzB+Ka13RY1xCSTWwlJU4YWwKr+
+         /1KrnVoKwwty2eHlUXHPgThMAVi/MiUfm08/DLJUuQlaKZUEtpZOzPu9wtXQz3zPsE9i
+         Nwt2k1yO8O5Rwm2IrP45E0fRMlJCn9k4rUJEii5xYv+QF8L6D5G8hLX3/kbJHHoOxQEI
+         mXfTj6gJUTzog5iT9SYop8Ij95VEsvHJoTluBBDef4/D4gMHDf+izXs8uTxtI91/a6NH
+         RHUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775710826; x=1776315626;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LGFN7oy2QcLt5YxBSj5rTqJ2uRShRfylAwJbgAKWkKc=;
+        b=V+enR1y/EVesHDyD6RiDNVe+AkeYkcCKVLE/+hGnLrbCVv5LMtF7r0EeAQlhoRpVkN
+         fbGRWlCgE3W9YaDGtb4D9cMT4ca4bNHMGQ6+rDpLkaEJ8l3illf0mY/lDp5gdb2B+fvq
+         Jn9nStZBacAbyMffNLVH95L2i3qPkG5VMiH5SqgGubKgndSK6TdrcC4XNjI7o24ZpNG5
+         1JPdqmgyM+Z36vZZ1fdhNAdaV21HGVo/eWrECkqK911W18MJwHVIqzst8CBidQQtO6Wj
+         7Xn17ztq/kfbGCEn1BcTrcvFg6FbSqnku5imPuGYfcqjn0lvV96tL1M9+7wfYtcwR9+3
+         KJgA==
+X-Forwarded-Encrypted: i=1; AJvYcCXPMj7XirG5XHhsxwMG3Cmoa6CO+FcU2pJelrXidDKEIRyqk2p73/VeGaoV1H2SIpqnhS5FWMD6W4h5cw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5F9G1FSDS/9MqXh/FxklVOIVcM46g0+YGE+A3aY1N+whBgquM
+	OsXYDB1DSzfryw2zn4UTbw4zFpkdXergwg7oCt4YaEw2TwR+cA5785ph
+X-Gm-Gg: AeBDietPxCNiZ1L/nkJoQUGj6I8cFlDjPtyDlpiR9Fv1qtNDqXgonAwsUxynA8L0Kom
+	6LVo+waDE99PJfNP61/hC6ldIPdSRDlpeswECLdC35WdFj3kW1prHOOSFOhNv0BceAUUu5M8av6
+	qBxElODsBqN5iVLyOsY6NZ5D0f7QdT9D74+tEXDeK3lWgqJfiHcCPrlsHiKPEmIevOcr/O/zPOZ
+	R0inB57MMSB+Tl0/z71+gh7C4Qc6RXgfhOdNWG22O1mokky/Ubs4wT9jWXhQDMqqKR6+3Hk7zf7
+	LOcBIAPwTKxMnqConStdYa/Ygg3fOwsx6BQxaDOctnRUH8+98xqL8SCaAXB3tKIvovW95+HO5xN
+	a9dScsiGo1wYRe/lROTIOhnLlrm5Xz2GLvmIa+oplOyKKGGwM74TKYY+jcxDCfgNcpW7ESJdXuJ
+	bZSTEaJCJe710PUz+gXLDgfAj+JlZ/4ZYKIJs3n3v/lg==
+X-Received: by 2002:a05:7301:3c9b:b0:2d3:d3f:2429 with SMTP id 5a478bee46e88-2d30d3f2ce0mr3019000eec.0.1775710822267;
+        Wed, 08 Apr 2026 22:00:22 -0700 (PDT)
+Received: from inky.localdomain ([2601:647:6700:64d0:8ccf:d575:662c:a402])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ca7cf1271asm27867050eec.26.2026.04.08.22.00.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Apr 2026 22:00:21 -0700 (PDT)
+Date: Wed, 8 Apr 2026 22:00:18 -0700
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+To: Dmitry Antipov <dmantipov@yandex.ru>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	David Laight <david.laight.linux@gmail.com>,
+	Kees Cook <kees@kernel.org>, "Darrick J . Wong" <djwong@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>, linux-riscv@lists.infradead.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v9 6/6] riscv: export symbols needed for riscv32 EFI stub
+Message-ID: <20260409050018.GA371560@inky.localdomain>
+References: <20260403103338.1122415-1-dmantipov@yandex.ru>
+ <20260403103338.1122415-7-dmantipov@yandex.ru>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <cover.1775575436.git.gaohan@iscas.ac.cn>
+In-Reply-To: <20260403103338.1122415-7-dmantipov@yandex.ru>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260408_220027_701177_BAEF63F1 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +106,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Han,
+On Fri, Apr 03, 2026 at 01:33:38PM +0300, Dmitry Antipov wrote:
+> Fix the following link error observed when building EFI-enabled
+> kernel with CONFIG_EFI_STUB=y and CONFIG_EFI_GENERIC_STUB=y:
+> 
+> riscv32-linux-gnu-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
+> __efistub_cmdline.c:(.init.text+0x1f2): undefined reference to `__efistub___ashldi3'
+> riscv32-linux-gnu-ld: __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
+> 
+> Note: compile (gcc 15.2.1 and clang 21.1.8) tested only.
 
-On 23:28 Tue 07 Apr     , Han Gao wrote:
-> Changes in v10:
->  - patch 3:
->    add vin-supply in pcie_vcc3v3
->    reorder vcc5v0_usb30
->    remove vpcie3v3-supply form pcie1
->  - Link to v9: https://lore.kernel.org/linux-riscv/cover.1775417019.git.gaohan@iscas.ac.cn
-You should keep all ChangeLog versions, which easy for people to review
-backwards, but this isn't a big problem..
+I attempted to boot this on riscv32 in qemu with u-boot. I used
+CONFIG_EFI_ZBOOT to generate vmlinux.efi. With this option enabled,
+there is the same undefined reference errors with this patch applied.
+I have not found a good way to resolve this issue, so I resorted to
+copying the __lshrdi3() implementation over into
+drivers/firmware/efi/libstub/riscv.c and that successfully booted with
+EFI.
+
+- Charlie
 
 > 
-> Han Gao (3):
->   riscv: dts: spacemit: Enable i2c8 adapter for OrangePi RV2
->   riscv: dts: spacemit: Define the P1 PMIC regulators for OrangePi RV2
->   riscv: dts: spacemit: Enable USB3.0/PCIe on OrangePi RV2
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202603041925.KLKqpK6N-lkp@intel.com
+> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
+> ---
+> v9: initial version to join the series
+> ---
+>  arch/riscv/kernel/image-vars.h | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
->  .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 217 ++++++++++++++++++
->  1 file changed, 217 insertions(+)
+> diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+> index 3bd9d06a8b8f..888bb1ddf945 100644
+> --- a/arch/riscv/kernel/image-vars.h
+> +++ b/arch/riscv/kernel/image-vars.h
+> @@ -32,6 +32,15 @@ __efistub___init_text_end	= __init_text_end;
+>  __efistub_sysfb_primary_display	= sysfb_primary_display;
+>  #endif
+>  
+> +#ifdef CONFIG_CC_IS_GCC
+> +/*
+> + * Double-word integer shifts are used by the library code and so EFI stub as
+> + * well. Not needed for clang and please let me know if anyone understands why.
+> + */
+> +PROVIDE(__efistub___lshrdi3    = __lshrdi3);
+> +PROVIDE(__efistub___ashldi3    = __ashldi3);
+> +#endif /* CONFIG_CC_IS_GCC */
+> +
+>  #endif
+>  
+>  #endif /* __RISCV_KERNEL_IMAGE_VARS_H */
+> -- 
+> 2.53.0
 > 
 > 
-> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-> prerequisite-patch-id: ef6e9c7b5854d0c08066b72f9a7868db8c2140eb
-> prerequisite-patch-id: cfe3800f8c791ec4c63e070af9628e88e0fc31b9
-> prerequisite-patch-id: b76493e625ae257c8adcd67874178458420e4d47
-> prerequisite-patch-id: 88e01dc92c83bd88ddeb78891d3088209fed8d6b
-> prerequisite-patch-id: 60336d10ab8322c70596d0f046b6b5c54bb24b54
-> prerequisite-patch-id: 68c4d869548687dc115dd91e2ffb8f4c11482d86
-> prerequisite-patch-id: fdadcf964c2cb3406160edb579d99a8d5695f8e6
-> prerequisite-patch-id: 73b9e745338b0499b849fa4f7f9508987ab39a59
-> prerequisite-patch-id: cd26770c2160c3c31a406bd8a6b01ab666180ae0
-> prerequisite-patch-id: e5dfddc32cefae195692da8b80e19adf086e4ad7
-> prerequisite-patch-id: 7fd53cbe4977598f26148a4bb1cf692bbdb79a09
-> prerequisite-patch-id: 96ebac57bb29619b97fe95422206a685825618e9
-> prerequisite-patch-id: 00fac16b52f60383db3140e2885f3f7f8d14dd1a
-> prerequisite-patch-id: 3b7a60047b922c48e93599f621cb738856f42354
-> prerequisite-patch-id: 275c030b963be05dd1041451f539a130ce614277
-> prerequisite-patch-id: 93963424b0871e64276af0e0b2199b52e29b4603
-> prerequisite-patch-id: 8383188b1c01ed6280629faaa29c37d699ade241
-> prerequisite-patch-id: 5f8126b912b924d63d4a1e0c5eb42d212eb0d369
-> prerequisite-patch-id: e80af628a2e0b5f2eeb3cb1b5e7133d08bdd2c4e
-> prerequisite-patch-id: 0234a6dca15eb91f98a45a46604ce5b4935048a5
-I beliew all dependencies are queued already, and those "prerequisite-patch-id"
-are rather hard for people to review (I know it's b4 do this conversion),
-I would prefer listing them directly in the cover letter
-
-Anyway, I'm ok with this version, so here
-
-Reviewed-by: Yixun Lan <dlan@kernel.org>
-
--- 
-Yixun Lan (dlan)
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 _______________________________________________
 linux-riscv mailing list
