@@ -4,85 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F38E9DE42
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 07:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1EAE9DE68
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 08:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8+zaUlo9XL+AJ29j2mCGdoZd1RutEDByc6LdlX8iaV0=; b=bWKObwFZedEMEW
-	M91znHgQwaiClw1vIbeGYU+7XTMRcyyrWxZnThX/Z4XJ0g89q9MF3BZah4ZifXkdYtxB2OCfKhSbK
-	QyV0wiiEqzClMYOyjdV+4qxbBbLzEfDIUXUqHTkQ4YPFaPLOtajCIZb9Onf1zn2VvqsjKVTTNWHM2
-	EotDkDXjJjgTWknPW7eUFUde+fL2SrUn9skj+lQ4b/B1gtBId0HlctFtxKhiJ/E3HwEUtdDOaeePP
-	XlNg8yVbKgXYunHEkPOV3IgeN7PQ3MYuJtWs7/51c5/N/FvPDVLsfeWOumBIejdWnGqY6tsseGyYH
-	Df18mutFGtCz0icfGJ4w==;
+	List-Owner; bh=9HSMlCnCN0bdjBP9mIvaiiAwIs26tAyoekRRi2I6X7c=; b=myCP++ldcalde6
+	IJT1REslOVXdX+Bhp5hIdy2yF2l/vOCFcJ6cOFi5n3N1yNdQzvbpkjHRhYVrJIzQbCd2lJZxTKV3W
+	BIv8OEfbem6W1TdPyGuYnAau76LQjLJhIYLCXxVnxmm/+ChevPM2GKiJED230bTuQjTzV0ebXmCvi
+	blg63JrJl42SZoqpATRXZDT4GTpT2FJmOErJPXtM+XB4kRqXngIQeq3Co51mA4AHdwz6BBlapKR3e
+	r7B2aS6fWdX4R0x+ueVPFR1JcYDB8DPuhrIFei1KhBLMkJi4cSPVPs2wUXSngXBxRSRThTaHU2hv7
+	g+O9agau3Hfxgcx+hADg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAjen-00000009paa-2cAb;
-	Thu, 09 Apr 2026 07:18:29 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1wAl6s-00000009ysl-19Ma;
+	Thu, 09 Apr 2026 08:51:34 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAjek-00000009pUq-1kPP
+	id 1wAl6p-00000009ysM-0U2W
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Apr 2026 07:18:28 +0000
-X-QQ-mid: zesmtpgz7t1775719054tbf8afb00
-X-QQ-Originating-IP: 6bD4fn6zlzoRNsyvWerVgSjVIcx6UZ4MsVvp6bysC1Q=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 09 Apr 2026 15:17:32 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6790880675297523126
-X-QQ-CSender: troy.mitchell@linux.spacemit.com
-Mime-Version: 1.0
-Date: Thu, 09 Apr 2026 15:17:32 +0800
-Message-Id: <DHOFVAYOFU7X.3J8VHC8FFYXD9@linux.dev>
-Subject: Re: [PATCH v6 5/9] riscv: dts: spacemit: k1: add SD card controller
- and pinctrl support
-From: "Troy Mitchell" <troy.mitchell@linux.dev>
-To: "Iker Pedrosa" <ikerpedrosam@gmail.com>, "Ulf Hansson"
- <ulf.hansson@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Adrian Hunter" <adrian.hunter@intel.com>, "Paul Walmsley"
- <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
- <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan"
- <dlan@kernel.org>
-Cc: "Troy Mitchell" <troy.mitchell@linux.dev>, "Michael Opdenacker"
- <michael.opdenacker@rootcommit.com>, "Javier Martinez Canillas"
- <javierm@redhat.com>, <linux-mmc@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>, "Anand Moon"
- <linux.amoon@gmail.com>, "Trevor Gamblin" <tgamblin@baylibre.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260407-orangepi-sd-card-uhs-v6-0-b5b8a1b2bfc8@gmail.com>
- <20260407-orangepi-sd-card-uhs-v6-5-b5b8a1b2bfc8@gmail.com>
-In-Reply-To: <20260407-orangepi-sd-card-uhs-v6-5-b5b8a1b2bfc8@gmail.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NhdiEwnVOUqEtK9rx+pHVF8kFsreCVp/RwxLRClWLSneN9acdashbOyA
-	KwEvA1AH7fxFCwvYhmMogt9mXaolPQMHBNkbBzGuUq3jj8Va6/ZmcAJhjTLI1Gj8HPjU2Io
-	UImhl6D11VOZkP221TQk/r4aZIsoukUftWCjMvLMzDNbwvPzsZHV9NdCsEBnOzVc5JH8VUS
-	2dKoiWiC9Mf6TAxB0L5DAS0sDvjPICRD20eGCYAwQFmg+RbPfQFAgNV3FUGsFm2XSVLozCt
-	J1/JfRPQGk/Hfcm+DtNj2n07Xk2gcLWJGCzO7T4qVUsGlvzVWhgde90ZUaEyngak/XLNxL8
-	RwHI+3l1ek68SLPbob8j3gnkMKmBGjv0fKCRS/JWuqRFx1JkQuLtZoOGRQ59kNqm+f8dWjt
-	8gpdNH2I+NYQe1syMrdgdok8BFyyt3qi8RZ/jMLGaq3Kcyz4aHzuUgyi6LVqDNSP78GmFAf
-	eRXii+mF1OPFh0y12M43Z+c9zF7IZROPdKQIx7hvkwqCg50fO8hOWd8f2UgUPVZ7fdsy4gm
-	RgpuUJsMG9P+W+q1owS6hQSsbTiklDIbKWSzwKnNS/QRyvdV1Vq7hACSLgn7Odz5WNac0k2
-	kqU92aU01CkzBF22meT86vemIjOY2wXnv1lUkqvzZbU3p/yY5AoIMfA63zp6Fd3lMDJzcCB
-	AFpbV2VCutkXoa7FlmbMGdOfnCG4QRY4ZoRXRwiJUxoWUsX2dYsstnNxG2tGiOLaXQLv115
-	u9S6yCh6SODHQEqAUN5o6idaNga/JOBqEPomgDxsMi0agBicte8llCMQCFTGSzEf9mhk1i5
-	szxwcyXqJRDxlrfwUMWnu8yfwMShbm838kchrQccpLaA3Z2wG1iSrWzwdEk9Xu+XN4Y4Tg4
-	hzVOYfa0RcHihCc5FlNEOatVaJ23+ot9XdQWJhaISOXch/nSpW32vtCD2OVWOulawK992w0
-	ZtEEqrVZTXCiLbNum+Emw59vHgjjgxcb3Km9xfMCgwceO704MBCF1rs3J4dHDVCAunEkbk7
-	0dSiuzejC9VYAb9CZiTKmBuWrvmqrUIKb4LfO5oA==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
+	Thu, 09 Apr 2026 08:51:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1775724691; x=1807260691;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=O9w1M17xx3f85x9wbHEdMuKroOeuT9XGJrpq17rO9ps=;
+  b=fkH4xThSFzq9pkKg58ZfTjvoP/SaBCkNChnAC9nRJ0GId0mqqoRvN7sU
+   TZT258Surg9as89Ae8fLvT1p3YTnAOF7U5BQNEM5G1rzFaXSQicaqI+yP
+   5vQv6hcCONb5reC2Dh19FC1sA9SHK5mCUmVqBq6nLIDY9LnVVI+XsxzX5
+   PG3XaOQ0kXJHuih4b+I7R+u7UEcfCUb0s6J44/Yy+OmK40XNOduoWG/Va
+   7HP23MQ5/YdbQlppPWtZ66OxC2Zt3H5+k1bsHC0FS+tcgkG6eb6HvDmtI
+   cqhYDadXvj9RxS/tafCDp4EaiaqxXPKySnInfmTUIc5EDuzuxP/blP65M
+   w==;
+X-CSE-ConnectionGUID: q7NjeTagSy+L9qZt822Aag==
+X-CSE-MsgGUID: l/qzeDx7SL2rgAxPkrpYxA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11753"; a="76602780"
+X-IronPort-AV: E=Sophos;i="6.23,169,1770624000"; 
+   d="scan'208";a="76602780"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2026 01:51:30 -0700
+X-CSE-ConnectionGUID: C8XW1grwQmy4ERag0KIsWw==
+X-CSE-MsgGUID: sDAlntsWTLmmp5fDK3+zxw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,169,1770624000"; 
+   d="scan'208";a="233609780"
+Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.162])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2026 01:51:27 -0700
+Date: Thu, 9 Apr 2026 11:51:25 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Cc: Dmitry Antipov <dmantipov@yandex.ru>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Laight <david.laight.linux@gmail.com>,
+	Kees Cook <kees@kernel.org>, "Darrick J . Wong" <djwong@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>, linux-riscv@lists.infradead.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v9 6/6] riscv: export symbols needed for riscv32 EFI stub
+Message-ID: <addojV2U2ol7UZp9@ashevche-desk.local>
+References: <20260403103338.1122415-1-dmantipov@yandex.ru>
+ <20260403103338.1122415-7-dmantipov@yandex.ru>
+ <20260409050018.GA371560@inky.localdomain>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260409050018.GA371560@inky.localdomain>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_001827_017977_005D4133 
-X-CRM114-Status: UNSURE (   4.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260409_015131_202473_84510CA4 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,22 +95,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue Apr 7, 2026 at 4:25 PM CST, Iker Pedrosa wrote:
-> Add SD card controller infrastructure for SpacemiT K1 SoC with complete
-> pinctrl support for both standard and UHS modes.
->
-> - Add sdhci0 controller definition with clocks, resets and interrupts
-> - Add mmc1_cfg pinctrl for 3.3V standard SD operation
-> - Add mmc1_uhs_cfg pinctrl for 1.8V UHS high-speed operation
-> - Configure appropriate drive strength and power-source properties
->
-> This provides complete SD card infrastructure that K1-based boards can
-> enable.
->
-> Tested-by: Anand Moon <linux.amoon@gmail.com>
-> Tested-by: Trevor Gamblin <tgamblin@baylibre.com>
-> Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.dev>
+On Wed, Apr 08, 2026 at 10:00:18PM -0700, Charlie Jenkins wrote:
+> On Fri, Apr 03, 2026 at 01:33:38PM +0300, Dmitry Antipov wrote:
+> > Fix the following link error observed when building EFI-enabled
+> > kernel with CONFIG_EFI_STUB=y and CONFIG_EFI_GENERIC_STUB=y:
+> > 
+> > riscv32-linux-gnu-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
+> > __efistub_cmdline.c:(.init.text+0x1f2): undefined reference to `__efistub___ashldi3'
+> > riscv32-linux-gnu-ld: __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
+> > 
+> > Note: compile (gcc 15.2.1 and clang 21.1.8) tested only.
+> 
+> I attempted to boot this on riscv32 in qemu with u-boot. I used
+> CONFIG_EFI_ZBOOT to generate vmlinux.efi. With this option enabled,
+> there is the same undefined reference errors with this patch applied.
+> I have not found a good way to resolve this issue, so I resorted to
+> copying the __lshrdi3() implementation over into
+> drivers/firmware/efi/libstub/riscv.c and that successfully booted with
+> EFI.
+
+Thank you for trying and testing this.
+Can you instead this patch take the mini-series from 20260409033824.465455-1-dmantipov@yandex.ru?
+
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202603041925.KLKqpK6N-lkp@intel.com
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
