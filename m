@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C78FEA3C59
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 12:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28CAEA3C55
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 12:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZUzvIP0jcG142tptSB8BbpR6adB2z6FVl0RlyW+zvwM=; b=TAhRB8XysbVynI
-	yX69nwE1e0SAYJNBgH7c6niWs98a08s8p5gIJa4Gn7AHrnhC+aEnQwALWQAKAnG+Uh3UjDyg3slr1
-	d6u8VZZURzQ6oLeZJGZ9gzkBdG1oTKJD4PTv/7/CBLx83nrLAYh/J8tAXjXV6W8Se8Gg9aobgXR9F
-	Ziu1X67Pa4PzfRGfUbPui6At9pozDwUD/jKPQP5Z7mhxR6cWIfVEtGHbmsq13Qm9i7/br2yp8upf9
-	Jh5NIZgiikHW+4AAZAAOKQKQFke/q+04kuGPdmb3r1SoTGcuuaSeoC324gum2590A6LudM6nQGDsi
-	DNF8KfptuROxGv98uFKg==;
+	List-Owner; bh=qn06QjjlO6o4zbwfYepZEm+bCXCb4Y4dWdXmX/kR930=; b=DXNcbGjG1GBO3e
+	wvK/d3P35SVNJbEu+4LIpoOpLPWrbdfOKac9vyetShOcC0usea8S6Hk/e8KwXj0rPkpEewRDc2jyE
+	kiqnGvD7C8OxW/fpu7//biY/gvcVCpJc6QvRMfIG908gAm2xBWpXapZUXZULR/i4cObqmp/3b2QHT
+	r0wATfeVNWGFCzhmUDYvxdeiTSAaItE0eSZ5MQjsi4TNN+Ftv7rhMcjvm/M6plZru6m1EthBXydbZ
+	MhcxIH/Pdl1rrSLZHyGXPm8Y2MzDDY+fWxkhuLJB+I4//jgesQk3oMgK8+Ow7DOrSirL5aBBRcpFD
+	UmHI22+5NUeIuq4f+CoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAoZI-0000000AO3p-1sE7;
-	Thu, 09 Apr 2026 12:33:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wAocm-0000000AOZL-0xwD;
+	Thu, 09 Apr 2026 12:36:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAoZG-0000000AO3W-1oHP
+	id 1wAocc-0000000AOX8-1hQE
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Apr 2026 12:33:07 +0000
+	Thu, 09 Apr 2026 12:36:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45B21443D0;
-	Thu,  9 Apr 2026 12:33:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 574B5C2BC87;
-	Thu,  9 Apr 2026 12:32:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8E685441D8;
+	Thu,  9 Apr 2026 12:36:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 707D4C19424;
+	Thu,  9 Apr 2026 12:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775737984;
-	bh=EMtQMIGflMLuZ8kQf/KGMu851XNT4k4jQNOfmNdkAJ8=;
+	s=k20201202; t=1775738193;
+	bh=kM9h+y0BF4ZFQcAKpgEEGNTYcYx79nYyDjyV7OihopE=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=DBj2af0nEK3h3p2KLYwy0F3WgZMw0JkP9b4E5lRDlGSBfOw4gEeoBfO0+H6Y7wuSd
-	 CKCFPPvOPvEvvpRz7Y+4zBFgbEfAKqB2md57TvZb2anZnL+BchTgHUX0Kgl8tPoRO+
-	 f68bS693HuF96e+PEbOWfW1QHY7jfYEOHedPtOkaUCTWHON1qI1gYy80z+iB6hwyRl
-	 5NBJcTHZ1IRbJ3uoWISwRQPxzPl+UysNxN6O8PmAZrKYQbQYzEO0TG4KseMU4HCzpD
-	 W24kJ+XFsmi96AXVvuwhRwoom4AzNsUl8YnozQW09e9IfEnHZfFUOBbqKbpjpynjON
-	 00huP/O8x7Unw==
-Message-ID: <86820d0e-3d35-41af-98ef-d713d3e71c9e@kernel.org>
-Date: Thu, 9 Apr 2026 14:32:56 +0200
+	b=JljPoIvCiph2RcjwcnpjoOccsbVu7nZdIl1DZADymDX8dosQ8++Iux80DZMoztID7
+	 nQxXg887ByeclE9szJzYeKOGbLCmIGZ6kSiVvL28/UzshUjmxEzSrZxekVE7scs54C
+	 56fw3CWwDn6uNLAfEphEykQuxW95QpfLLT26bWK3U1lA17thvSRmlh1W0hjVKIDW4l
+	 1Am4g+YymGPFyy0NDkxsHsZd1ys40FxpJE2dXOBVzZ8dzrpHezlJhl/Wza4pAnPf36
+	 SxNLWTE5db2o9d0NOqI5OWZtWJkNNWVuv9N6y+4jpRCqQBkvDi2RfWYu21f44Qt2j4
+	 uTSBBOakJ/vlA==
+Message-ID: <3bcd073e-f142-4e7c-8d5e-b0d1239ca9b9@kernel.org>
+Date: Thu, 9 Apr 2026 14:36:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] riscv: mm: Fix TOCTOU race in remove_pte_mapping
+Subject: Re: [PATCH 4/5] riscv: mm: Fix NULL dereferences in napot hugetlb
+ functions
 To: Michael Neuling <mikey@neuling.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
  <bjorn@rivosinc.com>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
  "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
@@ -64,7 +65,7 @@ To: Michael Neuling <mikey@neuling.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
  Raj Vishwanathan4 <rvishwanathan@mips.com>, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
 References: <20260409091143.1348853-1-mikey@neuling.org>
- <20260409091143.1348853-6-mikey@neuling.org>
+ <20260409091143.1348853-5-mikey@neuling.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -111,11 +112,10 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260409091143.1348853-6-mikey@neuling.org>
+In-Reply-To: <20260409091143.1348853-5-mikey@neuling.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_053306_549277_66CB0A6B 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260409_053634_496883_E1CAEF9D 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,14 +133,50 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 4/9/26 11:11, Michael Neuling wrote:
-> remove_pte_mapping() reads the PTE via ptep_get() (a READ_ONCE) into a
-> local variable, but then checks pte_present(*ptep) by dereferencing the
-> pointer directly, reading the PTE a second time. If another CPU modifies
-> the PTE between the two reads
-Is that even possible?
+> huge_pte_offset() can return NULL when any level of the page table walk
+> encounters a non-present entry. Both huge_ptep_set_access_flags() and
+> huge_ptep_set_wrprotect() re-derive ptep via huge_pte_offset() in the
+> napot path but use the result without a NULL check, leading to NULL
+> pointer dereferences in get_clear_contig_flush() and set_pte_at().
+> 
+> Add NULL checks after huge_pte_offset() in both functions.
+> 
+> Fixes: 82a1a1f3bf ("riscv: mm: support Svnapot in hugetlb page")
+> Signed-off-by: Michael Neuling <mikey@neuling.org>
+> Assisted-by: Cursor:claude-4.6-opus-high-thinking
+> ---
+>  arch/riscv/mm/hugetlbpage.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+> index a6d217112c..7d155341cf 100644
+> --- a/arch/riscv/mm/hugetlbpage.c
+> +++ b/arch/riscv/mm/hugetlbpage.c
+> @@ -288,6 +288,8 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
+>  	order = napot_cont_order(pte);
+>  	pte_num = napot_pte_num(order);
+>  	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
+> +	if (!ptep)
+> +		return 0;
+>  	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+>  
+>  	if (pte_dirty(orig_pte))
+> @@ -335,6 +337,8 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
+>  	order = napot_cont_order(pte);
+>  	pte_num = napot_pte_num(order);
+>  	ptep = huge_pte_offset(mm, addr, napot_cont_size(order));
+> +	if (!ptep)
+> +		return;
+>  	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
+>  
+>  	orig_pte = pte_wrprotect(orig_pte);
 
-The code does not use any locking, so nothing would be safe here if
-races could happen, no?
+
+These functions are called when we previously verified that there is
+indeed a pte mapped. And while holding the PTL to protect concurrent
+unmapping.
+
+So how should this possibly trigger?
 
 -- 
 Cheers,
