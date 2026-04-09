@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FBFF364BD
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 21:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E46F36B94
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 23:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8uPXRbSQkN25L9V7hStg+W+sOS8WkcFDSC3biUX98Nc=; b=WsMddrxZhtLPT8
-	Nh0BL10P7lf8clL7fGJrHcSnbouAsAQ5WTRLbE9/h9vM0+8m2PWF+2RyvWEiCK8z5vCM4TTkAUqbQ
-	5pRXgKv2vb1j032bh748cfo1UK2lt5jNpylr2CVIfBIgjEIJxL+22ODeqUUDMkRPOWLYoNw0rBhZx
-	wPnHt933GDg5hR5wvR/Zo0eh++Ec87ImCWrVBADfw/trrLZMLHbVdSDfd4y/mt6pl0ZGdYN+iTqPq
-	1gLyihjU6kAumXQWQ9mvxY0IqpAtDa9UN958dd2eGV1gy/h3gb9OMzXJinRLE/h3HVrB4oeamxr3X
-	41Ct3MDBJrkDDwAUCthA==;
+	List-Owner; bh=pAlMXQ+xc7H/rqa756i1La9pceSuXhuNQyi7KyRhkNQ=; b=vEWKD6WaZ4yy36
+	GhxkyD3uwkGqZODCUOSnj0DqC5vpTlHCtOZWnNIrs8bpujRwSveYJjo/WrGWaEKLfW/an220n0c4O
+	K4s8nh30LKZZUmbA+KaAjuVRaexGBycWnc5EhGW98I8AwM7hMYArCIMjbUJRNU7a6L8PaQ84VQ7Qt
+	BoAJjL4fYVwM9XRTo3CXkjDORWy3P1phc1ss2Y3UuDjEMCZI7sq8O0K7pKmPGaO48YJ+lmiavjNnE
+	iuO2lip8DrGXhsZJ1VMiamuhm1MSbu+dtA4XirNm3yjHXtRXg/XPsZ8cNKkUY2HH+V6llbsOdRRUm
+	4ED8hq1g/YbF8mfa3oCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAwVz-0000000BCnY-3FEL;
-	Thu, 09 Apr 2026 21:02:15 +0000
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	id 1wAyiA-0000000BKC0-014Q;
+	Thu, 09 Apr 2026 23:22:58 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAwVx-0000000BCnA-36OO
+	id 1wAyi7-0000000BKBW-49dx
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Apr 2026 21:02:15 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-2ce22328930so1888480eec.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Apr 2026 14:02:12 -0700 (PDT)
+	Thu, 09 Apr 2026 23:22:57 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-2cfd69b564dso1983905eec.0
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Apr 2026 16:22:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775768532; x=1776373332; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1775776975; x=1776381775; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZgvdO76KiaTWX80p2d2v2AfVfinppiUA4Bwcov7OeCo=;
-        b=oZ/3xQN5F4klKbZwoWhlPghB4JH1G5I7v2ZWoW5WiFNJM3WFq+sk1D9YTQXrQZxi6x
-         IDphokUTX3vRAN4k2HkP2Kmpaf8HxE2/7gBBzaQ9PARYlleREtjNANlqzFEZyGwccruP
-         HXASg8WPyJBdZbb/ZHnWXZxWQ49DTjB7bO3CJjqU9GORJenZMhUjIxHXf442g155WcdE
-         LY7CKG3BZNXVB5GpWH51R0J/2CVVZPY2GZGjVUBj3qf/J3BwBSn3gALwBFcj7ilPMPLq
-         GIh6CBdy/mi54OGj9iI4QM+S3OcFBOwM+vyUnpRcJdWHqk4+IBL7b7PypZb3qCKSKXHa
-         bHwQ==
+        bh=nKldo2yrm2w40OEiGhR3WeiFXvIo0cqPcrhG1jlTtso=;
+        b=oaZLkj6LJ8Xzhw0d0qB4AQ0STl8Y3Udqbu1QRe9/ffTFFtTwkFMpeXtrbYAlvnnzbm
+         7x1ACYUcI//3JOtH3TmzrazWW2cvgoryDZ8uFvZbA19mX/DzfH2p1tS756pnayVUWpB5
+         6RWgHldjOY68cj40eofj87JAxVbDteRXLtxDR7uZlc+i6RbBqnBNEJnRRPTSV5VbviAr
+         Gs0qBTpm78qeYCFuNr79RmvmKJuW9yVWxn758WG1Aryx7BRXS9M7Ff4om3tp9GGnmyS9
+         8L2fHcVmO1YNBq+758nHiA6TZVD8oqFQ45sR0469gjV+medcZFzBOW2MXK/kRaDxkyPD
+         uXFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775768532; x=1776373332;
+        d=1e100.net; s=20251104; t=1775776975; x=1776381775;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZgvdO76KiaTWX80p2d2v2AfVfinppiUA4Bwcov7OeCo=;
-        b=a5mMtKcOGWAkTD6+0FhEE2dXnaeLDxUttNPzmYo/q7Ccl1gOnCH3w2y3boooZADCYp
-         xgagfJ4eAFfczGMZqvlQGlyow7Yktv3vxnvnPZFLASPo2Xh5lGlPLKnjDqxpb7YlEI0a
-         bma7C+wd4Bm4qtOzQMl4S+2EK2nrvNpx2AsXPRxi6yir1/JP4qA+Z+IZNZOjQxSrHzLy
-         UPxHu220REcKy3tqESqCo9lwQsI5IPnv5RO6rr2r7FUYLPYZrqv8s0/d/xI9FggBY9TN
-         mGltbEoafvomfLtECHBPy2l9kCT8Qm8DVshDvRjq2LiN+WC9y9lDKuDBJCjZ50qd880s
-         0PGg==
-X-Forwarded-Encrypted: i=1; AJvYcCVampFROVHgEc091f3oLUIGYUfcK5RAmvvrVWVkRM5TeH3d0ef7OtS8/J5rD8Pzn849sC0Z425Ynm3I+A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yytl9kaCHQwHwZRifCnZHC3Dl9DgvNZGb9N6WDUdddGahBdie3j
-	WpexqcZJPZCTEJIqFuIoj+KoNCDEO/bvVJHFeAF38sVn4kLkISG1DQZ5
-X-Gm-Gg: AeBDiesNAOtZTnhjQGnQiNNZDYQAxGzh5eaMSwhXKDKg0CEUQxEer3ehy+xOQ/8g2jm
-	JQmtTZOINkHzDQfcMo4YW0Z9303j5u+vTAwaHcvZEbBcM8atjtsoxsqZkTjD3srOdU8A19nDRCq
-	tUrDUdaDOOISK3OYRtgAI1+sjT+5Q2nDWkYupDe8OPShSQEmwJU0Kmbgi1ppv4OaB+XJ8bUz/bl
-	R33UQ5SiUX/GZKiAnPw4BRXW1ug8/geK9/XGh6GAvVOfp9grIIZfzMKJfdoVKygKhuAH/kyUvvF
-	pimJ+rjzQ3fUh9VhjIWdWXJRbXrAO8XoWDtRsQ26tAeaakj1FJMdFPud0f0Ej5jhKzs68SfUzo/
-	1ovOFV6Weh88nps3Oim/QIxccqCPkUqv286G1sMSysha1pf48qcbBqgDNyqEQiJS36OHvxBg+ge
-	B/4hxTeL0Zbhqpi69Y2lmHuihvkzGRJEi6ZZsuEc4RnQGoOHUgYq4E
-X-Received: by 2002:a05:7300:4352:b0:2d3:2846:c878 with SMTP id 5a478bee46e88-2d586ea75aemr417180eec.5.1775768532041;
-        Thu, 09 Apr 2026 14:02:12 -0700 (PDT)
+        bh=nKldo2yrm2w40OEiGhR3WeiFXvIo0cqPcrhG1jlTtso=;
+        b=fOLwzif51L+8RAdxl5hq60bEDhsNKWIifdwfJ3YNryHxJhCwcnf51TlZmS6NwXDRA2
+         hbv0327GAvtn8kDIt+VqyBiQCUKj74g039aumA6O/HKFImr73pkPrZJL6Man1ZRWOz0T
+         Q160Gng53WNN2nOpSb3+lWT+n6Qc1h7V++WS4BYcxDSaGRo80/P8ce5Eg9mYZYaBqzuS
+         ZrEJiZyGL0yn3eTzZnSxAfDcRgzpiAvESUgTy5lEdVTvsz+AjCdyB4LhesuS+HPh99KP
+         hoCNciP/nA4XWJDjwkS2qd4uoysvQ+r13nijm5s3dnDmLwU3zt2tYwV9Gpmm3hhranGP
+         87qg==
+X-Forwarded-Encrypted: i=1; AJvYcCVajPkTfLlqonORskY0O1klUwOrYZh0w20z3v+cYYH02qaddDlQ3U55yM2Ko8TUILE0Yd/vUpMt9agc7w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOIhcw4lcyrfGJ2f/O5nOqhSeUBJ1Myn9tVRcGYdaj9CgBNifY
+	gJhCb4K0ofTQGbHnEv49w8Yaglqa2+vnWruNVYjrS/xfAqMBvTfOwF5t
+X-Gm-Gg: AeBDievpplkl8PN+1SzOAWS+TghBFPrUttAwrpQXG8nE6lJsySEUZi+M865rmpfRpHk
+	J3I7hj5YnBionW5jijUM8JAbnr3BxSGVZUGlN46Sia/OhaPJU5sjOn3fwZ7cFtu59h6TiwmQQBc
+	oVDAztZB3Me9dl5J/EGrMX8bAjFaEjwb8v8P7US5j7cDLZImxg1e6g0XVOX6RzspJCCSMhhMkuh
+	/FuDOgRZnPrRpk6QhrUXdv36JnE8ndQBwwOxUU1/W/21z5hCIphYLRSciX7Epfrxhjz7indCjIm
+	yoUwHRBpsTnN1tEfYTzZ9F5d+UfFPZBJarzXIqStpDPWqohnNV0H7AqMAd2Y7ZIIUOZuX9MW4fg
+	o/WTFuGtw+7TS32cT/Rd97MlCOIYjyeZ7JBilk6+0OU91pD0HjLvHQvRy6snASReVibHwkPZ0D1
+	QY+RDiT5gbWl1LL7wvtxmQIfBmkuKMw6CTvMOylD1OaQ==
+X-Received: by 2002:a05:7300:320a:b0:2c5:b23e:48a6 with SMTP id 5a478bee46e88-2d5888a1ae6mr692564eec.23.1775776974823;
+        Thu, 09 Apr 2026 16:22:54 -0700 (PDT)
 Received: from inky.localdomain ([2601:647:6700:64d0:f083:8467:43b0:e8f8])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2d55f5c69casm1639529eec.2.2026.04.09.14.02.10
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2d55f5c698esm1874531eec.6.2026.04.09.16.22.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Apr 2026 14:02:11 -0700 (PDT)
-Date: Thu, 9 Apr 2026 14:02:09 -0700
+        Thu, 09 Apr 2026 16:22:54 -0700 (PDT)
+Date: Thu, 9 Apr 2026 16:22:52 -0700
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 To: Dmitry Antipov <dmantipov@yandex.ru>
 Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] lib: kunit: add tests for __ashldi3(),
- __ashrdi3(), and __lshrdi3()
-Message-ID: <20260409210209.GA495379@inky.localdomain>
+	linux-riscv@lists.infradead.org, kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v2 1/2] riscv: add platform-specific double word shifts
+ for riscv32
+Message-ID: <20260409232252.GA495784@inky.localdomain>
 References: <adavgV5IF9jMzxr3@ashevche-desk.local>
  <20260409033824.465455-1-dmantipov@yandex.ru>
- <20260409033824.465455-3-dmantipov@yandex.ru>
+ <20260409033824.465455-2-dmantipov@yandex.ru>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260409033824.465455-3-dmantipov@yandex.ru>
+In-Reply-To: <20260409033824.465455-2-dmantipov@yandex.ru>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_140213_791835_EB138E89 
-X-CRM114-Status: GOOD (  25.08  )
+X-CRM114-CacheID: sfid-20260409_162256_071799_8F44AE9D 
+X-CRM114-Status: GOOD (  29.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,244 +104,260 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 06:38:24AM +0300, Dmitry Antipov wrote:
-> Add KUnit tests for '__ashldi3()', '__ashrdi3()', and '__lshrdi3()'
-> helper functions used to implement 64-bit arithmetic shift left,
-> arithmetic shift right and logical shift right, respectively,
-> on a 32-bit CPUs.
+On Thu, Apr 09, 2026 at 06:38:23AM +0300, Dmitry Antipov wrote:
+> Add riscv32-specific '__ashldi3()', '__ashrdi3()', and '__lshrdi3()'.
+> Initially it was intended to fix the following link error observed
+> when building EFI-enabled kernel with CONFIG_EFI_STUB=y and
+> CONFIG_EFI_GENERIC_STUB=y:
 > 
-> Tested with 'qemu-system-riscv32 -M virt' and 'qemu-system-arm -M virt'.
+> riscv32-linux-gnu-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
+> __efistub_cmdline.c:(.init.text+0x1f2): undefined reference to `__efistub___ashldi3'
+> riscv32-linux-gnu-ld: __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
 > 
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> Reported at [1] trying to build https://patchew.org/linux/20260212164413.889625-1-dmantipov@yandex.ru,
+> tested with 'qemu-system-riscv32 -M virt' only.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202603041925.KLKqpK6N-lkp@intel.com [1]
+> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
 > Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
 
-I was able to reproduce these three tests passing on riscv32 qemu.
+I needed to apply the following to get this to successfully compile for
+riscv32 with CONFIG_EFI_ZBOOT. After applying this change, I was able to
+successfully EFI boot the vmlinuz.efi in qemu.
 
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index e386ffd009b7..f83301a19dc5 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -96,7 +96,7 @@ CFLAGS_zboot-decompress-gzip.o        += -I$(srctree)/lib/zlib_inflate
+ zboot-obj-$(CONFIG_KERNEL_ZSTD)        := zboot-decompress-zstd.o lib-xxhash.o
+ CFLAGS_zboot-decompress-zstd.o += -I$(srctree)/lib/zstd
+
+-zboot-obj-$(CONFIG_RISCV)      += lib-clz_ctz.o lib-ashldi3.o
++zboot-obj-$(CONFIG_RISCV)      += lib-clz_ctz.o lib-ashldi3.o lib-lshrdi3.o
+ lib-$(CONFIG_EFI_ZBOOT)                += zboot.o $(zboot-obj-y)
+
+ lib-$(CONFIG_UNACCEPTED_MEMORY) += unaccepted_memory.o bitmap.o find.o
+
+
+However, this change causes the libstub to bypass these new functions
+you have introduced. lib-ashldi3.o and lib-lshrdi3.o use the following
+rule to compile the generic arch libs:
+
+$(obj)/lib-%.o: $(srctree)/lib/%.c FORCE
+	$(call if_changed_rule,cc_o_c)
+
+This is specifically for the efi libstub, the regular kernel (like in
+your test case in the next patch) will use these newly introduced
+functions.
+
+One solution is to use this change instead:
+
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index e386ffd009b7..775c34d80179 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -96,7 +96,7 @@ CFLAGS_zboot-decompress-gzip.o        += -I$(srctree)/lib/zlib_inflate
+ zboot-obj-$(CONFIG_KERNEL_ZSTD)        := zboot-decompress-zstd.o lib-xxhash.o
+ CFLAGS_zboot-decompress-zstd.o += -I$(srctree)/lib/zstd
+
+-zboot-obj-$(CONFIG_RISCV)      += lib-clz_ctz.o lib-ashldi3.o
++zboot-obj-$(CONFIG_RISCV)      += lib-clz_ctz.o ../../../../arch/riscv/lib/ashldi3.o ../../../../arch/riscv/lib/lshrdi3.o
+ lib-$(CONFIG_EFI_ZBOOT)                += zboot.o $(zboot-obj-y)
+
+ lib-$(CONFIG_UNACCEPTED_MEMORY) += unaccepted_memory.o bitmap.o find.o
+
+This will link against the correct shifting libraries.
+
+- Charlie
+
 
 > ---
-> v2: include test-specific headers rather than generic linux/kernel.h
+> v2: adjust commit message
 > ---
->  lib/Kconfig.debug       |  10 +++
->  lib/tests/Makefile      |   1 +
->  lib/tests/shdi3_kunit.c | 175 ++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 186 insertions(+)
->  create mode 100644 lib/tests/shdi3_kunit.c
+>  arch/riscv/Kconfig             |  3 ---
+>  arch/riscv/kernel/image-vars.h |  7 +++++++
+>  arch/riscv/lib/Makefile        |  1 +
+>  arch/riscv/lib/ashldi3.S       | 36 +++++++++++++++++++++++++++++++++
+>  arch/riscv/lib/ashrdi3.S       | 37 ++++++++++++++++++++++++++++++++++
+>  arch/riscv/lib/lshrdi3.S       | 36 +++++++++++++++++++++++++++++++++
+>  6 files changed, 117 insertions(+), 3 deletions(-)
+>  create mode 100644 arch/riscv/lib/ashldi3.S
+>  create mode 100644 arch/riscv/lib/ashrdi3.S
+>  create mode 100644 arch/riscv/lib/lshrdi3.S
 > 
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index 93f356d2b3d9..b68b1325379b 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -2942,6 +2942,16 @@ config BITS_TEST
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 90c531e6abf5..515254720da5 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -407,9 +407,6 @@ config ARCH_RV32I
+>  	bool "RV32I"
+>  	depends on NONPORTABLE
+>  	select 32BIT
+> -	select GENERIC_LIB_ASHLDI3
+> -	select GENERIC_LIB_ASHRDI3
+> -	select GENERIC_LIB_LSHRDI3
+>  	select GENERIC_LIB_UCMPDI2
 >  
->  	  If unsure, say N.
+>  config ARCH_RV64I
+> diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+> index 3bd9d06a8b8f..d66e06daf13e 100644
+> --- a/arch/riscv/kernel/image-vars.h
+> +++ b/arch/riscv/kernel/image-vars.h
+> @@ -32,6 +32,13 @@ __efistub___init_text_end	= __init_text_end;
+>  __efistub_sysfb_primary_display	= sysfb_primary_display;
+>  #endif
 >  
-> +config SHDI3_KUNIT_TEST
-> +	tristate "KUnit test for __ashldi3(), __ashrdi3(), and __lshrdi3()"
-> +	depends on KUNIT
-> +	depends on (32BIT || ARM)
-> +	help
-> +	  This builds the unit test for __ashldi3(), __ashrdi3(), and
-> +	  __lshrdi3() helper functions used to implement 64-bit arithmetic
-> +	  shift left, arithmetic shift right and logical shift right,
-> +	  respectively, on a 32-bit CPUs.
-> +
->  config SLUB_KUNIT_TEST
->  	tristate "KUnit test for SLUB cache error detection" if !KUNIT_ALL_TESTS
->  	depends on SLUB_DEBUG && KUNIT
-> diff --git a/lib/tests/Makefile b/lib/tests/Makefile
-> index 05f74edbc62b..db678ccdd8b1 100644
-> --- a/lib/tests/Makefile
-> +++ b/lib/tests/Makefile
-> @@ -8,6 +8,7 @@ obj-$(CONFIG_BASE64_KUNIT) += base64_kunit.o
->  obj-$(CONFIG_BITOPS_KUNIT) += bitops_kunit.o
->  obj-$(CONFIG_BITFIELD_KUNIT) += bitfield_kunit.o
->  obj-$(CONFIG_BITS_TEST) += test_bits.o
-> +obj-$(CONFIG_SHDI3_KUNIT_TEST) += shdi3_kunit.o
->  obj-$(CONFIG_BLACKHOLE_DEV_KUNIT_TEST) += blackhole_dev_kunit.o
->  obj-$(CONFIG_CHECKSUM_KUNIT) += checksum_kunit.o
->  obj-$(CONFIG_CMDLINE_KUNIT_TEST) += cmdline_kunit.o
-> diff --git a/lib/tests/shdi3_kunit.c b/lib/tests/shdi3_kunit.c
-> new file mode 100644
-> index 000000000000..44f65e66512b
-> --- /dev/null
-> +++ b/lib/tests/shdi3_kunit.c
-> @@ -0,0 +1,175 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later OR Apache-2.0
 > +/*
-> + * Test cases for __ashldi3(), __ashrdi3(), and __lshrdi3().
+> + * These double-word integer shifts are used
+> + * by the library code and so EFI stub as well.
+> + */
+> +PROVIDE(__efistub___lshrdi3    = __lshrdi3);
+> +PROVIDE(__efistub___ashldi3    = __ashldi3);
+> +
+>  #endif
+>  
+>  #endif /* __RISCV_KERNEL_IMAGE_VARS_H */
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index bbc031124974..7cee3da80c68 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -13,6 +13,7 @@ ifeq ($(CONFIG_MMU), y)
+>  lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
+>  endif
+>  lib-$(CONFIG_MMU)	+= uaccess.o
+> +lib-$(CONFIG_32BIT)	+= ashldi3.o ashrdi3.o lshrdi3.o
+>  lib-$(CONFIG_64BIT)	+= tishift.o
+>  lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+>  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+> diff --git a/arch/riscv/lib/ashldi3.S b/arch/riscv/lib/ashldi3.S
+> new file mode 100644
+> index 000000000000..c3408862e2f6
+> --- /dev/null
+> +++ b/arch/riscv/lib/ashldi3.S
+> @@ -0,0 +1,36 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/**
+> + * Adopted for the Linux kernel from IPXE project, see
+> + * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
 > + */
 > +
-> +#include <linux/array_size.h>
-> +#include <linux/module.h>
-> +#include <linux/libgcc.h>
-> +#include <kunit/test.h>
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
 > +
-> +struct shdi3_test_entry {
-> +	long long input;
-> +	int shift;
-> +	long long result;
-> +};
+> +/**
+> + * Shift left
+> + *
+> + * @v a1:a0             Value to shift
+> + * @v a2                Shift amount
+> + * @ret a1:a0           Shifted value
+> + */
 > +
-> +static const struct shdi3_test_entry ashldi3_testdata[] = {
-> +	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/ashldi3_test.c */
-> +	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-> +	{ 0x0123456789ABCDEFLL, 1, 0x2468ACF13579BDELL },
-> +	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BCLL },
-> +	{ 0x0123456789ABCDEFLL, 3, 0x91A2B3C4D5E6F78LL },
-> +	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDEF0LL },
-> +	{ 0x0123456789ABCDEFLL, 28, 0x789ABCDEF0000000LL },
-> +	{ 0x0123456789ABCDEFLL, 29, 0xF13579BDE0000000LL },
-> +	{ 0x0123456789ABCDEFLL, 30, 0xE26AF37BC0000000LL },
-> +	{ 0x0123456789ABCDEFLL, 31, 0xC4D5E6F780000000LL },
-> +	{ 0x0123456789ABCDEFLL, 32, 0x89ABCDEF00000000LL },
-> +	{ 0x0123456789ABCDEFLL, 33, 0x13579BDE00000000LL },
-> +	{ 0x0123456789ABCDEFLL, 34, 0x26AF37BC00000000LL },
-> +	{ 0x0123456789ABCDEFLL, 35, 0x4D5E6F7800000000LL },
-> +	{ 0x0123456789ABCDEFLL, 36, 0x9ABCDEF000000000LL },
-> +	{ 0x0123456789ABCDEFLL, 60, 0xF000000000000000LL },
-> +	{ 0x0123456789ABCDEFLL, 61, 0xE000000000000000LL },
-> +	{ 0x0123456789ABCDEFLL, 62, 0xC000000000000000LL },
-> +	{ 0x0123456789ABCDEFLL, 63, 0x8000000000000000LL },
-> +};
+> +SYM_FUNC_START(__ashldi3)
 > +
-> +static void shdi3_test_ashldi3(struct kunit *test)
-> +{
-> +	const struct shdi3_test_entry *e;
-> +	long long ret;
+> +        /* Perform shift by 32 bits, if applicable */
+> +        li      t0, 32
+> +        sub     t1, t0, a2
+> +        bgtz    t1, 1f
+> +        mv      a1, a0
+> +        mv      a0, zero
+> +1:      /* Perform shift by modulo-32 bits, if applicable */
+> +        andi    a2, a2, 0x1f
+> +        beqz    a2, 2f
+> +        srl     t2, a0, t1
+> +        sll     a0, a0, a2
+> +        sll     a1, a1, a2
+> +        or      a1, a1, t2
+> +2:      ret
 > +
-> +	for (e = ashldi3_testdata;
-> +	     e < ashldi3_testdata + ARRAY_SIZE(ashldi3_testdata); e++) {
-> +		ret = __ashldi3(e->input, e->shift);
-> +		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-> +				    "    when evaluating __ashldi3(%lld, %d)",
-> +				    e->input, e->shift);
-> +	}
-> +}
+> +SYM_FUNC_END(__ashldi3)
+> +EXPORT_SYMBOL(__ashldi3)
+> diff --git a/arch/riscv/lib/ashrdi3.S b/arch/riscv/lib/ashrdi3.S
+> new file mode 100644
+> index 000000000000..dd42b3cbb173
+> --- /dev/null
+> +++ b/arch/riscv/lib/ashrdi3.S
+> @@ -0,0 +1,37 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/**
+> + * Adopted for the Linux kernel from IPXE project, see
+> + * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
+> + */
 > +
-> +static const struct shdi3_test_entry ashrdi3_testdata[] = {
-> +	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/ashrdi3_test.c */
-> +	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-> +	{ 0x0123456789ABCDEFLL, 1, 0x91A2B3C4D5E6F7LL },
-> +	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BLL },
-> +	{ 0x0123456789ABCDEFLL, 3, 0x2468ACF13579BDLL },
-> +	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDELL },
-> +	{ 0x0123456789ABCDEFLL, 28, 0x12345678LL },
-> +	{ 0x0123456789ABCDEFLL, 29, 0x91A2B3CLL },
-> +	{ 0x0123456789ABCDEFLL, 30, 0x48D159ELL },
-> +	{ 0x0123456789ABCDEFLL, 31, 0x2468ACFLL },
-> +	{ 0x0123456789ABCDEFLL, 32, 0x1234567LL },
-> +	{ 0x0123456789ABCDEFLL, 33, 0x91A2B3LL },
-> +	{ 0x0123456789ABCDEFLL, 34, 0x48D159LL },
-> +	{ 0x0123456789ABCDEFLL, 35, 0x2468ACLL },
-> +	{ 0x0123456789ABCDEFLL, 36, 0x123456LL },
-> +	{ 0x0123456789ABCDEFLL, 60, 0 },
-> +	{ 0x0123456789ABCDEFLL, 61, 0 },
-> +	{ 0x0123456789ABCDEFLL, 62, 0 },
-> +	{ 0x0123456789ABCDEFLL, 63, 0 },
-> +	{ 0xFEDCBA9876543210LL, 0, 0xFEDCBA9876543210LL },
-> +	{ 0xFEDCBA9876543210LL, 1, 0xFF6E5D4C3B2A1908LL },
-> +	{ 0xFEDCBA9876543210LL, 2, 0xFFB72EA61D950C84LL },
-> +	{ 0xFEDCBA9876543210LL, 3, 0xFFDB97530ECA8642LL },
-> +	{ 0xFEDCBA9876543210LL, 4, 0xFFEDCBA987654321LL },
-> +	{ 0xFEDCBA9876543210LL, 28, 0xFFFFFFFFEDCBA987LL },
-> +	{ 0xFEDCBA9876543210LL, 29, 0xFFFFFFFFF6E5D4C3LL },
-> +	{ 0xFEDCBA9876543210LL, 30, 0xFFFFFFFFFB72EA61LL },
-> +	{ 0xFEDCBA9876543210LL, 31, 0xFFFFFFFFFDB97530LL },
-> +	{ 0xFEDCBA9876543210LL, 32, 0xFFFFFFFFFEDCBA98LL },
-> +	{ 0xFEDCBA9876543210LL, 33, 0xFFFFFFFFFF6E5D4CLL },
-> +	{ 0xFEDCBA9876543210LL, 34, 0xFFFFFFFFFFB72EA6LL },
-> +	{ 0xFEDCBA9876543210LL, 35, 0xFFFFFFFFFFDB9753LL },
-> +	{ 0xFEDCBA9876543210LL, 36, 0xFFFFFFFFFFEDCBA9LL },
-> +	{ 0xAEDCBA9876543210LL, 60, 0xFFFFFFFFFFFFFFFALL },
-> +	{ 0xAEDCBA9876543210LL, 61, 0xFFFFFFFFFFFFFFFDLL },
-> +	{ 0xAEDCBA9876543210LL, 62, 0xFFFFFFFFFFFFFFFELL },
-> +	{ 0xAEDCBA9876543210LL, 63, 0xFFFFFFFFFFFFFFFFLL },
-> +};
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
 > +
-> +static void shdi3_test_ashrdi3(struct kunit *test)
-> +{
-> +	const struct shdi3_test_entry *e;
-> +	long long ret;
+> +/**
+> + * Arithmetic shift right
+> + *
+> + * @v a1:a0             Value to shift
+> + * @v a2                Shift amount
+> + * @ret a1:a0           Shifted value
+> + */
 > +
-> +	for (e = ashrdi3_testdata;
-> +	     e < ashrdi3_testdata + ARRAY_SIZE(ashrdi3_testdata); e++) {
-> +		ret = __ashrdi3(e->input, e->shift);
-> +		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-> +				    "    when evaluating __ashrdi3(%lld, %d)",
-> +				    e->input, e->shift);
-> +	}
-> +}
+> +SYM_FUNC_START(__ashrdi3)
 > +
-> +static const struct shdi3_test_entry lshrdi3_testdata[] = {
-> +	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/lshrdi3_test.c */
-> +	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-> +	{ 0x0123456789ABCDEFLL, 1, 0x91A2B3C4D5E6F7LL },
-> +	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BLL },
-> +	{ 0x0123456789ABCDEFLL, 3, 0x2468ACF13579BDLL },
-> +	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDELL },
-> +	{ 0x0123456789ABCDEFLL, 28, 0x12345678LL },
-> +	{ 0x0123456789ABCDEFLL, 29, 0x91A2B3CLL },
-> +	{ 0x0123456789ABCDEFLL, 30, 0x48D159ELL },
-> +	{ 0x0123456789ABCDEFLL, 31, 0x2468ACFLL },
-> +	{ 0x0123456789ABCDEFLL, 32, 0x1234567LL },
-> +	{ 0x0123456789ABCDEFLL, 33, 0x91A2B3LL },
-> +	{ 0x0123456789ABCDEFLL, 34, 0x48D159LL },
-> +	{ 0x0123456789ABCDEFLL, 35, 0x2468ACLL },
-> +	{ 0x0123456789ABCDEFLL, 36, 0x123456LL },
-> +	{ 0x0123456789ABCDEFLL, 60, 0 },
-> +	{ 0x0123456789ABCDEFLL, 61, 0 },
-> +	{ 0x0123456789ABCDEFLL, 62, 0 },
-> +	{ 0x0123456789ABCDEFLL, 63, 0 },
-> +	{ 0xFEDCBA9876543210LL, 0, 0xFEDCBA9876543210LL },
-> +	{ 0xFEDCBA9876543210LL, 1, 0x7F6E5D4C3B2A1908LL },
-> +	{ 0xFEDCBA9876543210LL, 2, 0x3FB72EA61D950C84LL },
-> +	{ 0xFEDCBA9876543210LL, 3, 0x1FDB97530ECA8642LL },
-> +	{ 0xFEDCBA9876543210LL, 4, 0xFEDCBA987654321LL },
-> +	{ 0xFEDCBA9876543210LL, 28, 0xFEDCBA987LL },
-> +	{ 0xFEDCBA9876543210LL, 29, 0x7F6E5D4C3LL },
-> +	{ 0xFEDCBA9876543210LL, 30, 0x3FB72EA61LL },
-> +	{ 0xFEDCBA9876543210LL, 31, 0x1FDB97530LL },
-> +	{ 0xFEDCBA9876543210LL, 32, 0xFEDCBA98LL },
-> +	{ 0xFEDCBA9876543210LL, 33, 0x7F6E5D4CLL },
-> +	{ 0xFEDCBA9876543210LL, 34, 0x3FB72EA6LL },
-> +	{ 0xFEDCBA9876543210LL, 35, 0x1FDB9753LL },
-> +	{ 0xFEDCBA9876543210LL, 36, 0xFEDCBA9LL },
-> +	{ 0xAEDCBA9876543210LL, 60, 0xALL },
-> +	{ 0xAEDCBA9876543210LL, 61, 0x5LL },
-> +	{ 0xAEDCBA9876543210LL, 62, 0x2LL },
-> +	{ 0xAEDCBA9876543210LL, 63, 0x1LL },
-> +};
+> +        /* Perform shift by 32 bits, if applicable */
+> +        li      t0, 32
+> +        sub     t1, t0, a2
+> +        bgtz    t1, 1f
+> +        mv      a0, a1
+> +        srai    a1, a1, 16
+> +        srai    a1, a1, 16
+> +1:      /* Perform shift by modulo-32 bits, if applicable */
+> +        andi    a2, a2, 0x1f
+> +        beqz    a2, 2f
+> +        sll     t2, a1, t1
+> +        sra     a1, a1, a2
+> +        srl     a0, a0, a2
+> +        or      a0, a0, t2
+> +2:      ret
 > +
-> +static void shdi3_test_lshrdi3(struct kunit *test)
-> +{
-> +	const struct shdi3_test_entry *e;
-> +	long long ret;
+> +SYM_FUNC_END(__ashrdi3)
+> +EXPORT_SYMBOL(__ashrdi3)
+> diff --git a/arch/riscv/lib/lshrdi3.S b/arch/riscv/lib/lshrdi3.S
+> new file mode 100644
+> index 000000000000..1af03985ccb7
+> --- /dev/null
+> +++ b/arch/riscv/lib/lshrdi3.S
+> @@ -0,0 +1,36 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/**
+> + * Adopted for the Linux kernel from IPXE project, see
+> + * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
+> + */
 > +
-> +	for (e = lshrdi3_testdata;
-> +	     e < lshrdi3_testdata + ARRAY_SIZE(lshrdi3_testdata); e++) {
-> +		ret = __lshrdi3(e->input, e->shift);
-> +		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-> +				    "    when evaluating __lshrdi3(%lld, %d)",
-> +				    e->input, e->shift);
-> +	}
-> +}
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
 > +
-> +static struct kunit_case shdi3_test_cases[] = {
-> +	KUNIT_CASE(shdi3_test_ashldi3),
-> +	KUNIT_CASE(shdi3_test_ashrdi3),
-> +	KUNIT_CASE(shdi3_test_lshrdi3),
-> +	{}
-> +};
+> +/**
+> + * Logical shift right
+> + *
+> + * @v a1:a0             Value to shift
+> + * @v a2                Shift amount
+> + * @ret a1:a0           Shifted value
+> + */
 > +
-> +static struct kunit_suite shdi3_test_suite = {
-> +	.name = "shdi3",
-> +	.test_cases = shdi3_test_cases,
-> +};
-> +kunit_test_suite(shdi3_test_suite);
+> +SYM_FUNC_START(__lshrdi3)
 > +
-> +MODULE_DESCRIPTION("Test cases for __ashldi3(), __ashrdi3(), and __lshrdi3()");
-> +MODULE_LICENSE("GPL");
+> +        /* Perform shift by 32 bits, if applicable */
+> +        li      t0, 32
+> +        sub     t1, t0, a2
+> +        bgtz    t1, 1f
+> +        mv      a0, a1
+> +        mv      a1, zero
+> +1:      /* Perform shift by modulo-32 bits, if applicable */
+> +        andi    a2, a2, 0x1f
+> +        beqz    a2, 2f
+> +        sll     t2, a1, t1
+> +        srl     a1, a1, a2
+> +        srl     a0, a0, a2
+> +        or      a0, a0, t2
+> +2:      ret
+> +
+> +SYM_FUNC_END(__lshrdi3)
+> +EXPORT_SYMBOL(__lshrdi3)
 > -- 
 > 2.53.0
 > 
