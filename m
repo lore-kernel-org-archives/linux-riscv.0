@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004E4E98FA5
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 03:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F81E98FA5
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Apr 2026 03:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bjrE+xWjboUY63YMXJZgXnvvXd7F0BoCOLxZuPc5+pI=; b=M7tzq6blc1iiR5
-	xPFtUqqCaYP39ERJpu4/QyI2U3ixgkvDKReWH4ADxPDk+RQ53Z9vPYKhlWsHY7ez7YwakVDdtXwy0
-	abcI+0B8kb8qUWR6pttgDD8y94Jly5x+omwu5G2qoyVoewGWjhe9/TNRuUvJ8wjpUsfO2cUtlHh2o
-	Gr8BLN6bJMEGoXgYDZZkUxy085TqII0Tn49HdLgYAmizoEM5qPpduIiw5STEYgbYXYOuciWPIXe/O
-	/UuHCdyaEnFLwEoAQpFwkuTwhww3ACpYFa862RW24zW3lpgqMCt16UdFK0+fEkfL2qR/J1yLzwS9P
-	R1zSOtFGknDLTTeGPKvw==;
+	List-Owner; bh=WpihUc/rwsGBPOaLVMtPqFnax1mv56293EgYqjJcPnU=; b=Rv62O+9ZO3uzMR
+	5Cnzy+8etN6h9gpYCds1qO+PbTJqdJ2WiiEiEL7oqtWZAd5Vl5OAg8kNQVKVQFWbDOQeVvB2y3cVB
+	SMQ97bvl1QYV8LqTmmArxqx4vuiS2OKd+isiD72AoFPA5l05wMBi302//FWX24L7DO1llQyxPHUpt
+	7nNaOWe/VKdIoxyookzpmohLwwBKgpKOf/dzJPFEzDL+cxDBlBd95kM2PUG3R2gEHHWcrQoTJNAfv
+	4l5GAoXx1tIvE8kRZFre/Y3eXyYY8xhfZYT1g6TL7kD5J9heulkAcudj3K9vNLgFBZcJKzXFP7LZJ
+	fl9UYHrtU2DV7GkPXGig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAgEW-00000009fBh-0HNq;
-	Thu, 09 Apr 2026 03:39:08 +0000
-Received: from forward103b.mail.yandex.net ([2a02:6b8:c02:900:1:45:d181:d103])
+	id 1wAgFO-00000009fMA-08BB;
+	Thu, 09 Apr 2026 03:40:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAgES-00000009fAi-2Y86
+	id 1wAgFN-00000009fLg-1Pr2
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Apr 2026 03:39:06 +0000
-Received: from mail-nwsmtp-smtp-production-main-71.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-71.sas.yp-c.yandex.net [IPv6:2a02:6b8:c24:942:0:640:e3c0:0])
-	by forward103b.mail.yandex.net (Yandex) with ESMTPS id CDBFFC005A;
-	Thu, 09 Apr 2026 06:38:55 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-71.sas.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id qc6G5J7R4Gk0-z7cdg21a;
-	Thu, 09 Apr 2026 06:38:55 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1775705935; bh=e0/YutL4HhEmglCELpZRrBZSCadyUkhISf57mMLMdqw=;
-	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=A3RrRR834/zHtSuVha1y10rk/9GGX1gr0ZgqSYnwDRVastDupI3vBgh84016zw83o
-	 cSUYmsf1L6or2og2NYJyZGMM0Y3cl6ge1SOfpzQjppZi7gqasQ/cHQvwGjsOsJrJpT
-	 pVnoH1OorEcjDUYn5I1I1fLMFOjlJRubwtw4aa0M=
-Authentication-Results: mail-nwsmtp-smtp-production-main-71.sas.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
-From: Dmitry Antipov <dmantipov@yandex.ru>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Paul Walmsley <pjw@kernel.org>,
+	Thu, 09 Apr 2026 03:40:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 74DFE600CB;
+	Thu,  9 Apr 2026 03:40:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A57EC4CEF7;
+	Thu,  9 Apr 2026 03:39:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775706000;
+	bh=l2mXjVQl1N+fo2+/ND1bzoMtST0s0hnl9zlj9/pnvXk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RF6ZDNhq/uzkUGkBrbRrXwQBZFHM3u5keoQwYZW2T9kCUej++gZlOtkBkI6l5C4mV
+	 Ih3wgIuG/QjYqa6yyZXOAZ6h3w2x3ephPVe357Zrqpd0ZeFFPKnTbOB5D5zL0XG9bz
+	 SelewoXwXIQZqEQQAWXC1f6X+vd+Q51wBfWaV1FWcHjbVkeTb49b4xWHWaRGB/kV6v
+	 2aERolbaF8OBUuEUYuK2MXz5J6EVYaaopDEwNWmpZhmKLYO25QuVc4Kw0Mn85JXGh4
+	 /JrwyaZjEhsHUbrcqNj1qOKfphhk5xmv8r7vp2CfS8FutVOe5i8xzoAfupW8fDymLt
+	 F4furoxPOciuA==
+Date: Thu, 9 Apr 2026 11:39:57 +0800
+From: Yixun Lan <dlan@kernel.org>
+To: Han Gao <gaohan@iscas.ac.cn>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH v2 0/2] add riscv32 double-word shifts and library test
-Date: Thu,  9 Apr 2026 06:38:22 +0300
-Message-ID: <20260409033824.465455-1-dmantipov@yandex.ru>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <adavgV5IF9jMzxr3@ashevche-desk.local>
-References: <adavgV5IF9jMzxr3@ashevche-desk.local>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>
+Subject: Re: [PATCH v10 0/3] riscv: dts: spacemit: Add PMIC regulators usb
+ pcie
+Message-ID: <20260409033957-GKA1143689@kernel.org>
+References: <cover.1775575436.git.gaohan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_203904_825404_8D0964FD 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <cover.1775575436.git.gaohan@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +75,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series should immediately follow v8 of lib and lib/cmdline enhancements,
-see https://patchew.org/linux/20260212164413.889625-1-dmantipov@yandex.ru.
-Started from riscv32 build quirk, now it aims to provide platform-specific
-double-word shifts and corresponding KUnit test (tested on ARM as well).
+Hi Han,
 
-Dmitry Antipov (2):
-  riscv: add platform-specific double word shifts for riscv32
-  lib: kunit: add tests for __ashldi3(), __ashrdi3(), and __lshrdi3()
+On 23:28 Tue 07 Apr     , Han Gao wrote:
+> Changes in v10:
+>  - patch 3:
+>    add vin-supply in pcie_vcc3v3
+>    reorder vcc5v0_usb30
+>    remove vpcie3v3-supply form pcie1
+>  - Link to v9: https://lore.kernel.org/linux-riscv/cover.1775417019.git.gaohan@iscas.ac.cn
+You should keep all ChangeLog versions, which easy for people to review
+backwards, but this isn't a big problem..
 
- arch/riscv/Kconfig             |   3 -
- arch/riscv/kernel/image-vars.h |   7 ++
- arch/riscv/lib/Makefile        |   1 +
- arch/riscv/lib/ashldi3.S       |  36 +++++++
- arch/riscv/lib/ashrdi3.S       |  37 +++++++
- arch/riscv/lib/lshrdi3.S       |  36 +++++++
- lib/Kconfig.debug              |  10 ++
- lib/tests/Makefile             |   1 +
- lib/tests/shdi3_kunit.c        | 175 +++++++++++++++++++++++++++++++++
- 9 files changed, 303 insertions(+), 3 deletions(-)
- create mode 100644 arch/riscv/lib/ashldi3.S
- create mode 100644 arch/riscv/lib/ashrdi3.S
- create mode 100644 arch/riscv/lib/lshrdi3.S
- create mode 100644 lib/tests/shdi3_kunit.c
+> 
+> Han Gao (3):
+>   riscv: dts: spacemit: Enable i2c8 adapter for OrangePi RV2
+>   riscv: dts: spacemit: Define the P1 PMIC regulators for OrangePi RV2
+>   riscv: dts: spacemit: Enable USB3.0/PCIe on OrangePi RV2
+> 
+>  .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 217 ++++++++++++++++++
+>  1 file changed, 217 insertions(+)
+> 
+> 
+> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+> prerequisite-patch-id: ef6e9c7b5854d0c08066b72f9a7868db8c2140eb
+> prerequisite-patch-id: cfe3800f8c791ec4c63e070af9628e88e0fc31b9
+> prerequisite-patch-id: b76493e625ae257c8adcd67874178458420e4d47
+> prerequisite-patch-id: 88e01dc92c83bd88ddeb78891d3088209fed8d6b
+> prerequisite-patch-id: 60336d10ab8322c70596d0f046b6b5c54bb24b54
+> prerequisite-patch-id: 68c4d869548687dc115dd91e2ffb8f4c11482d86
+> prerequisite-patch-id: fdadcf964c2cb3406160edb579d99a8d5695f8e6
+> prerequisite-patch-id: 73b9e745338b0499b849fa4f7f9508987ab39a59
+> prerequisite-patch-id: cd26770c2160c3c31a406bd8a6b01ab666180ae0
+> prerequisite-patch-id: e5dfddc32cefae195692da8b80e19adf086e4ad7
+> prerequisite-patch-id: 7fd53cbe4977598f26148a4bb1cf692bbdb79a09
+> prerequisite-patch-id: 96ebac57bb29619b97fe95422206a685825618e9
+> prerequisite-patch-id: 00fac16b52f60383db3140e2885f3f7f8d14dd1a
+> prerequisite-patch-id: 3b7a60047b922c48e93599f621cb738856f42354
+> prerequisite-patch-id: 275c030b963be05dd1041451f539a130ce614277
+> prerequisite-patch-id: 93963424b0871e64276af0e0b2199b52e29b4603
+> prerequisite-patch-id: 8383188b1c01ed6280629faaa29c37d699ade241
+> prerequisite-patch-id: 5f8126b912b924d63d4a1e0c5eb42d212eb0d369
+> prerequisite-patch-id: e80af628a2e0b5f2eeb3cb1b5e7133d08bdd2c4e
+> prerequisite-patch-id: 0234a6dca15eb91f98a45a46604ce5b4935048a5
+I beliew all dependencies are queued already, and those "prerequisite-patch-id"
+are rather hard for people to review (I know it's b4 do this conversion),
+I would prefer listing them directly in the cover letter
+
+Anyway, I'm ok with this version, so here
+
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
 -- 
-2.53.0
-
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
