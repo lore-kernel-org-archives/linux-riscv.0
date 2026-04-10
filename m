@@ -4,127 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B472F36BA4
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 03:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7162FF36BA8
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 03:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Subject:References:
-	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=T/YnCE+tc0iP62tq7v4dZHP85+r8ChfS833FWlLr+2E=; b=cSSBjpcuZdzTDNnltZnEJAiXak
-	MFCxB72yoqUddVijZwgo7QmkA5mW/FYktxHjD7plO6+u5hutrf+B275PbzOQoi2NMCMf9ivXEqkdc
-	ndhb4JYMF+8o+BrZKi+mAFt3sm7V8XsNef0x5DBJjRyrEw3917h+hIe3T9TeKisv/trLr7CS59QQ8
-	79DZAy7m8BDspq5WfBccrdoZAybiZnWBg4yK4dbkFc6GJ3chYqsO27MLAvvW049D0ewC2cQldeFa1
-	99DnLH+t4fxChmbafGJOwD6qCGm09GL0fYWslR+FYFHfcr4xz9+1FEKUnzMBJIAAiN9mZxlNMatHK
-	hhMLzM8A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KsMiwKaCk6eWjeIORoRsgYQnJTVvTrDur522MFjj2Bg=; b=r57H5mut8hQfmc
+	wYu944Rl77fT+7DbrTvsrtfjX+AkcC+eL+dJRdIkDSkTfnWxEFa85DTE2QPWBrH3xyXJCl1fUH4R6
+	Ymzja7zCjYg28Kx7gCdBsPJmusEaXt8ucd4u9VUBfxTyiVlJ3TO3L9enlIfhQ6z3p08tJZai6m/8M
+	Rfp4n/AKsG4nsJHPLflAozeu8yflWybDnxRt09Tv2nN/4zOT8CxYoVPTCut1Z9iT8t4V86Rl29DgP
+	fNEWXNVJMUbCDr9Nam0LuIx6CMJTgx08NxPqVHikZpXk81bq1gHmhxS+saIN9uFjZUOI2vNdkSV1P
+	pb1TFVbN/juTax+3a1pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB2PU-0000000BX2u-2kuG;
-	Fri, 10 Apr 2026 03:19:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wB2bT-0000000BXYu-0SZx;
+	Fri, 10 Apr 2026 03:32:19 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB2PR-0000000BX2S-1CdP;
-	Fri, 10 Apr 2026 03:19:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A3716444F9;
-	Fri, 10 Apr 2026 03:19:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A35C1C4CEF7;
-	Fri, 10 Apr 2026 03:19:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775791191;
-	bh=++Koq39UWrgs6Y9/teNpfuGX4Prd7yZehxjZlfBpaLk=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=mdYIM+3nOOfJk2sQndWIVe1crpn+qIFglFUaJi6YUZ8om+pF74JbkoMG1pCSpEb9w
-	 XY42HnmovukKhj85guOzmyhoPciXUmwPx7036BzxDj+GBwDX7w8ZX/kQj6Kf75C9nQ
-	 yMJOxpzFMvk+DFq2q3tbouAiWajtfDS+AXyxjQFI3HFmtdEmAwU/TRZgmOQyhKh0dz
-	 oTEcDPh4RcJYLV/DB6MyHh1cNOYj4HnTWHBSTgpco77/7Mk4f7CQSMgdwxNaeolZeG
-	 11Id3MhuCNF2BddA3SZqi8zEZAyyZSbKwJdKtgyQMtKdIjBxiedoSXRHs0s+vuBPie
-	 fHhNTH/TVHimw==
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfauth.phl.internal (Postfix) with ESMTP id BEAFCF4007B;
-	Thu,  9 Apr 2026 23:19:48 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Thu, 09 Apr 2026 23:19:48 -0400
-X-ME-Sender: <xms:VGzYaRzc9F2SaA_dXGONVlZncUeqwfeC1knsfsUGLqCLtL9x7AJ9oQ>
-    <xme:VGzYaXbKB70COhi6wU5zcJDCn3jfZcRswNA20Sizt_IZgoixIWdWvIaDWTE9UJGaO
-    0gyCPv6TWv531UsombbNhRf0U-TJegFRbhlgcIH7rcKGm2a1YHwez-u>
-X-ME-Received: <xmr:VGzYaeCIWm-xaXNHRiAOee5n1VgDRaIYH8ii2WphVWSDkg5IlPqKJ2tQQw7rWGta-3eIj1g2bSuh8bC3JY4Fe1PIIjMC3ZQPqnM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvkedvlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpeffhffvvefkjghfufggtgfgsehtjeertddttdejnecuhfhrohhmpeffrghnucghihhl
-    lhhirghmshcuoegujhgsfieskhgvrhhnvghlrdhorhhgqeenucggtffrrghtthgvrhhnpe
-    elhfeiudfgvdeijedtleeltdduueekffejjedvjefhgeevjeefueejledtleetjeenucev
-    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegujhgsfidomh
-    gvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudejjedvfedtgeehhedqfeeffeel
-    gedtgeejqdgujhgsfieppehkvghrnhgvlhdrohhrghesfhgrshhtmhgrihhlrdgtohhmpd
-    hnsggprhgtphhtthhopeehjedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohephhgt
-    hheslhhsthdruggvpdhrtghpthhtoheprhhitghhrghrugdrhhgvnhguvghrshhonheslh
-    hinhgrrhhordhorhhgpdhrtghpthhtohepmhgrthhtshhtkeeksehgmhgrihhlrdgtohhm
-    pdhrtghpthhtoheplhhinhhmrghgjeesghhmrghilhdrtghomhdprhgtphhtthhopehlih
-    hnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheptggrthgrlhhinhdr
-    mhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtoheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegt
-    hhgvnhhhuhgrtggriheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:VGzYaRWWYH9YS5_KZb8QZgCAsWZfUiB9ORAbpTx2OwSeNwf8aS1oTQ>
-    <xmx:VGzYaYKyeSQq62O7WlXYf1xoalWcpZEhKySYJd9-cJQMpEvayfPE0g>
-    <xmx:VGzYaaJiDRoNy9BMYAaTC41fiA_6sbPjbfWZ4OvQdt7iOTvnCgAc1A>
-    <xmx:VGzYac91Cyql-IFbLq_KalJjxN3efCc9QroVK6-eoTOUQqKKiQULjQ>
-    <xmx:VGzYaQXpDuEx9ex4m7qF5l0GU1hi1krNMW-ZgN0aa1e6laSCn6NuISRa>
-Feedback-ID: i67ae4b3e:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 9 Apr 2026 23:19:47 -0400 (EDT)
-Date: Thu, 09 Apr 2026 20:19:47 -0700
-From: Dan Williams <djbw@kernel.org>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Richard Henderson <richard.henderson@linaro.org>,
-  Matt Turner <mattst88@gmail.com>,  Magnus Lindholm <linmag7@gmail.com>,
-  Russell King <linux@armlinux.org.uk>,
-  Catalin Marinas <catalin.marinas@arm.com>,
-  Will Deacon <will@kernel.org>,  Ard Biesheuvel <ardb@kernel.org>,
-  Huacai Chen <chenhuacai@kernel.org>,  WANG Xuerui <kernel@xen0n.name>,
-  Madhavan Srinivasan <maddy@linux.ibm.com>,
-  Michael Ellerman <mpe@ellerman.id.au>,
-  Nicholas Piggin <npiggin@gmail.com>,
-  "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-  Paul Walmsley <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>,
-  Heiko Carstens <hca@linux.ibm.com>,  Vasily Gorbik <gor@linux.ibm.com>,
-  Alexander Gordeev <agordeev@linux.ibm.com>,
-  Christian Borntraeger <borntraeger@linux.ibm.com>,
-  Sven Schnelle <svens@linux.ibm.com>,
-  "David S. Miller" <davem@davemloft.net>,
-  Andreas Larsson <andreas@gaisler.com>,
-  Richard Weinberger <richard@nod.at>,
-  Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-  Johannes Berg <johannes@sipsolutions.net>,
-  Thomas Gleixner <tglx@kernel.org>,  Ingo Molnar <mingo@redhat.com>,
-  Borislav Petkov <bp@alien8.de>,
-  Dave Hansen <dave.hansen@linux.intel.com>,  x86@kernel.org,
-  "H. Peter Anvin" <hpa@zytor.com>,
-  Herbert Xu <herbert@gondor.apana.org.au>,
-  Dan Williams <dan.j.williams@intel.com>,  Chris Mason <clm@fb.com>,
-  David Sterba <dsterba@suse.com>,  Arnd Bergmann <arnd@arndb.de>,
-  Song Liu <song@kernel.org>,  Yu Kuai <yukuai@fnnas.com>,
-  Li Nan <linan122@huawei.com>,  Theodore Ts'o <tytso@mit.edu>,
-  "Jason A. Donenfeld" <Jason@zx2c4.com>,  linux-alpha@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  loongarch@lists.linux.dev,  linuxppc-dev@lists.ozlabs.org,
-  linux-riscv@lists.infradead.org,  linux-s390@vger.kernel.org,
-  sparclinux@vger.kernel.org,  linux-um@lists.infradead.org,
-  linux-crypto@vger.kernel.org,  linux-btrfs@vger.kernel.org,
-  linux-arch@vger.kernel.org,  linux-raid@vger.kernel.org
-Message-ID: <69d86c53cfc4_2b31100e7@djbw-dev.notmuch>
-In-Reply-To: <20260327061704.3707577-25-hch@lst.de>
-References: <20260327061704.3707577-1-hch@lst.de>
- <20260327061704.3707577-25-hch@lst.de>
-Subject: Re: [PATCH 24/28] async_xor: use xor_gen
-Mime-Version: 1.0
+	id 1wB2bQ-0000000BXYJ-048j
+	for linux-riscv@lists.infradead.org;
+	Fri, 10 Apr 2026 03:32:17 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4fsMmp54Kvz9v09;
+	Fri, 10 Apr 2026 05:32:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1775791930;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yhFceqNdq/8kDhJjs9Qm5Qij1KFElsM4S/RwXmu33Wc=;
+	b=e+k1Sd64CLaCmc5hQ58tsFif6Rxh3o3oqvCISDa96MgCKX6VZ9z8tPbKnJaMxOSpFSIM1v
+	5JZ7RDSIf7pI17TSzDdkf+yMWSUbKm0u+dmjRBjcxm4GipHswLhgNgn8bU8d70/R78iuSZ
+	RwF2qTb4qY6djHHMrTHEQu263g0bSxSEmwkoocplIq6P/AXSiBNZXLJ0H0tleMwhcPTmY+
+	pbEDMC/HIMZoJ9lhRURRbLwHNNOIMEKuDrMnBAeMRNaCTDAffZeNmsucqyHQrFTz4Im+no
+	rByYMui0d67tZlQCdGj+DMMXh3VuEWLA2sKQzO8DZNmDyMx3YqYmFyDYy5FrmQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=fRLQy6gu;
+	spf=pass (outgoing_mbo_mout: domain of shuwei.wu@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=shuwei.wu@mailbox.org
+From: Shuwei Wu <shuwei.wu@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1775791929;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yhFceqNdq/8kDhJjs9Qm5Qij1KFElsM4S/RwXmu33Wc=;
+	b=fRLQy6gu1kspa0tVFsQ7HCQfW9By6hiNVWnMVFrAvDMuyx+Nt5QnobFJhnVFq2EIrneodD
+	Jh3aNGhslyyoYDeRUlh2CIn7njEaOPtDOiB/F7oLZ64khEkHAl0/tTC60qz1nes66juAz0
+	Simn+T0qNMyAsDpZp2RGTHjIN1oA0RZRrdZB4MaA1UPHvInr/5lOH0BRQ458LNUHGIYrx6
+	e+O9oC5vxQ3rRGWVdxA/8nXm/DDHR2NtqxmNkVv/H1EJI49WVqOS2g4bPubH0NrjIvzOYd
+	OjtQYa4yHA6E7wz2xAEZabZqD9o/DipCfToOCpk2IzNCeZHSQ6dC91OBAaO6dQ==
+Subject: [PATCH v4 0/3] thermal: spacemit: Add support for SpacemiT K1 SoC
+ thermal sensor
+Date: Fri, 10 Apr 2026 11:31:35 +0800
+Message-Id: <20260410-k1-thermal-v1-0-12c87dd063c3@mailbox.org>
+MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIABdv2GkC/x3MTQqAIBBA4avErBM0TKqrRAu1MYd+0ZAgvHvS8
+ lu890LEQBhhqF4ImCjSeRSIugLr9bEgo7kYGt4oLnnPVsFuj2HXG3NaaGVsZ1SLUIIroKPnn42
+ QJEw5f8kgthtgAAAA
+X-Change-ID: 20260409-k1-thermal-fa1a6bc8b65e
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Shuwei Wu <shuwei.wu@mailbox.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Vincent Legoll <legoll@online.fr>, Gong Shuai <gsh517025@gmail.com>, 
+ Anand Moon <linux.amoon@gmail.com>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, Yao Zi <me@ziyao.cc>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775791914; l=1839;
+ i=shuwei.wu@mailbox.org; s=20251125; h=from:subject:message-id;
+ bh=KNfrqSd7dBMSbu5friLkuT95VHDRb1Fo0ZCUFYgfUJ0=;
+ b=DdLNQwFKrJo/1nUc07PwhAdhZ8yW6crJnA1EhiVMlJwu3xivpeEhFhm5+EZYm1FP079E14QbB
+ PMGx8sXQm9ZALdz+l6oKFSFrS02IoLc5miGfz7/71gmVY55WU5KxOWk
+X-Developer-Key: i=shuwei.wu@mailbox.org; a=ed25519;
+ pk=qZs6i2UZnXkmjUrwO5HJxcfpCvgSNrR4dcU5cjtfTSk=
+X-MBO-RS-META: hgou37jqyiq4irhipwwpebemm556juc5
+X-MBO-RS-ID: 791dd05c49e7fda785d
+X-Rspamd-Queue-Id: 4fsMmp54Kvz9v09
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_201953_394720_5542D92A 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20260409_203216_379694_CB7E0637 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,48 +113,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Christoph Hellwig wrote:
-> Replace use of the loop around xor_blocks with the easier to use xor_gen
-> API.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->  crypto/async_tx/async_xor.c | 34 ++++++++++------------------------
->  1 file changed, 10 insertions(+), 24 deletions(-)
-[..]
-> @@ -168,11 +156,10 @@ dma_xor_aligned_offsets(struct dma_device *device, unsigned int offset,
->   *
->   * honored flags: ASYNC_TX_ACK, ASYNC_TX_XOR_ZERO_DST, ASYNC_TX_XOR_DROP_DST
->   *
-> - * xor_blocks always uses the dest as a source so the
-> - * ASYNC_TX_XOR_ZERO_DST flag must be set to not include dest data in
-> - * the calculation.  The assumption with dma engines is that they only
-> - * use the destination buffer as a source when it is explicitly specified
-> - * in the source list.
-> + * xor_gen always uses the dest as a source so the ASYNC_TX_XOR_ZERO_DST flag
-> + * must be set to not include dest data in the calculation.  The assumption with
-> + * dma engines is that they only use the destination buffer as a source when it
-> + * is explicitly specified in the source list.
->   *
->   * src_list note: if the dest is also a source it must be at index zero.
->   * The contents of this array will be overwritten if a scribble region
-> @@ -259,11 +246,10 @@ EXPORT_SYMBOL_GPL(async_xor_offs);
->   *
->   * honored flags: ASYNC_TX_ACK, ASYNC_TX_XOR_ZERO_DST, ASYNC_TX_XOR_DROP_DST
->   *
-> - * xor_blocks always uses the dest as a source so the
-> - * ASYNC_TX_XOR_ZERO_DST flag must be set to not include dest data in
-> - * the calculation.  The assumption with dma engines is that they only
-> - * use the destination buffer as a source when it is explicitly specified
-> - * in the source list.
-> + * xor_gen always uses the dest as a source so the ASYNC_TX_XOR_ZERO_DST flag
-> + * must be set to not include dest data in the calculation.  The assumption with
-> + * dma engines is that they only use the destination buffer as a source when it
-> + * is explicitly specified in the source list.
+Introduce support for the on-die thermal sensor found
+on the SpacemiT K1 SoC.
 
-In retrospect, no need to duplicate this help, but as is:
+Include the device tree binding documentation in YAML format, the
+thermal sensor driver implementation, and the device tree changes to
+enable the sensor on K1 SoC.
 
-Reviewed-by: Dan Williams <djbw@kernel.org>
+---
+Changes in v4:
+- Add 'depends on THERMAL_OF' in Kconfig to ensure functional dependency
+- Link to v3: https://lore.kernel.org/spacemit/20260119-patchv2-k1-thermal-v3-0-3d82c9ebe8a4@163.com/
+
+Changes in v3:
+- Fix indentation and variable types
+- Simplify clock management and redundant assignments
+- Link to v2: https://lore.kernel.org/r/20251216-patchv2-k1-thermal-v1-0-d4b31fe9c904@163.com
+
+Changes in v2:
+- Move driver to drivers/thermal/spacemit/ and update Kconfig/Makefile
+- Address reviewer feedback on style and structure
+- Improve variable naming and comments
+- Link to v1: https://lore.kernel.org/r/20251127-b4-k1-thermal-v1-0-f32ce47b1aba@163.com
+
+Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+
+---
+Shuwei Wu (3):
+      dt-bindings: thermal: Add SpacemiT K1 thermal sensor
+      thermal: spacemit: k1: Add thermal sensor support
+      riscv: dts: spacemit: Add thermal sensor for K1 SoC
+
+ .../bindings/thermal/spacemit,k1-tsensor.yaml      |  76 ++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi               | 101 ++++++++
+ drivers/thermal/Kconfig                            |   2 +
+ drivers/thermal/Makefile                           |   1 +
+ drivers/thermal/spacemit/Kconfig                   |  19 ++
+ drivers/thermal/spacemit/Makefile                  |   3 +
+ drivers/thermal/spacemit/k1_tsensor.c              | 281 +++++++++++++++++++++
+ 7 files changed, 483 insertions(+)
+---
+base-commit: a55f7f5f29b32c2c53cc291899cf9b0c25a07f7c
+change-id: 20260409-k1-thermal-fa1a6bc8b65e
+
+Best regards,
+-- 
+Shuwei Wu <shuwei.wu@mailbox.org>
+
 
 _______________________________________________
 linux-riscv mailing list
