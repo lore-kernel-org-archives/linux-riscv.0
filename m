@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E954F44847
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F105F44851
 	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=0ebQdQH5ZWFsuUpwU8mu6PS6AprMDHzuysoRhg63t/A=; b=4ROQiZaSGkVMNR
-	+urPdeaLQ3/1NXTuLkuVLted/6B+hDQ8wY6Xc3KVBOfTBfSS/nxSl+YVCQH/59OAH9A3qytJhuACT
-	Pb/qDrfD0IOApfIcxb/0q6UveHWY4kTWJoWBNcamVOdOad4dLGIcvTgRyGHylZhA+DpvwIOthk7co
-	t4rqJKwbG+TP08baQsrqmuZyFJWSBQf9SI8T/vXCThHlozOuxElnr5q8wEKCzL5A6vdbi/AFEUzVS
-	3ogQxfQySQOWvBR0+A3tkYXlkhGgcn81pyWyjUu1dRmhEkHqGp4JeLITEP9Au8ev3LCa0XR+zmexR
-	NV1BCMKVGjuODTaMadbA==;
+	List-Owner; bh=boqFRE3htlIXlrnPLUcx3f1VGEHtuyY2gogOc37nMek=; b=ysTGefYqv/nUhk
+	LwLqNPUWAVaeQ27buWt9h9eQ6CR2x4ZphtfigJStrBr6HjZM29S5cXTWmW2R/9ZqsEHEbSywHlsAp
+	Egccn0uzP2AfxUlCweg/o6cThc+1BtDjYn4HanPWRdDsFHsZz8eEerinWdmMNk6e/6c6PodTdSG+U
+	/kOMUlrLFqlWseyVEEc2ETXfzJvkkExRie8/mZMyPcmRUATGGJivkuIoZBG/3mtl7tdgqAS8zFffq
+	AsnDHXsS9q3tCy+3cYDxqqKcsn8rVEeCBz1N5grEfRAcxYzs0kxSalZiYuaT6m8Z11gbQAwBNKO3x
+	7YFuCfsx+PjuIW9exXxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAq3-0000000CAXQ-1Pe2;
-	Fri, 10 Apr 2026 12:19:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wBAqB-0000000CAip-1dka;
+	Fri, 10 Apr 2026 12:20:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBApy-0000000CAQw-49aJ;
-	Fri, 10 Apr 2026 12:19:52 +0000
+	id 1wBAq8-0000000CAfJ-3ZaD;
+	Fri, 10 Apr 2026 12:20:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7208F435AB;
-	Fri, 10 Apr 2026 12:19:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 704BDC19425;
-	Fri, 10 Apr 2026 12:19:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 460E06132D;
+	Fri, 10 Apr 2026 12:20:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25608C2BC87;
+	Fri, 10 Apr 2026 12:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823590;
-	bh=r17Pe0N1ahBhrB3JYh2nj0lozuwWxFWE8s4wbHnNz1U=;
+	s=k20201202; t=1775823599;
+	bh=p4ShM3O0GBFCP2qPjb6zSxh+Ha5oLOtvBK8/RtfAnVs=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=okWRwWiKRXWxIOYd0Peg6lhswEXmgs6TDBmjhAnD7Q9a6usCqNg9OYWu+roqFftQt
-	 CXuq9wugiKbiMxTD+p64hE/DfyXI2OVOyYyt+MQaYOMvBz3HQvYNGX8W9+b4gE14hU
-	 1DViHL5lpk9k7rS0TYmec/vPv8+l0l72HHkjevm3yaDtlLwCxfiyVTiYsTY5w9OTh5
-	 Ju9iD//e8k54q8KUH3ojDg3WjR+Vu3B/cuQgNtmo0Zn1MW3hNX3wOdJ7kCRM+fO7Bg
-	 3Yz29lBDAALUYxAqFMkB8dpm5Y3XPhihE7EzHhldnKqOW+zQ+3nRrzSdk9MbluRvBK
-	 0NZT2IviOMPvg==
-Date: Fri, 10 Apr 2026 14:19:47 +0200
-Message-ID: <20260410120318.658719117@kernel.org>
+	b=dAmn2yz62WI0i12fcQ9F03BvOYg2+eAhjig+X04BVmpX8c9M01sHZgZEu1rVRhWki
+	 aMBfoGnUl9WpMMqLWFryj6yJQ9lwTCD1i0oDG/S5mN25bXyGqKT30GrztgQQ3rav4T
+	 BmbqmYb8KPxXW6sSQ9CXXe5EvhipWJeX23ghk7uDybakuO9EcTg4cMG5iBSrRe/GPa
+	 tJ33MSKa5EFjbZHZi72K/jby5Pm2bPWRte8ZG3Zb5p2f71WeXeB85PUV24dYQuwkS9
+	 ZuUw9oOAlqL+roK/1FBLE3TIhiCqSUqlbqWXBE/GwV9uTSEnFXIo6OPA+8wwtYtllu
+	 kFOMRP9PboEEQ==
+Date: Fri, 10 Apr 2026 14:19:56 +0200
+Message-ID: <20260410120318.794680738@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Bernie Thompson <bernie@plugable.com>,
- linux-fbdev@vger.kernel.org,
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>,
+ linux-mm@kvack.org,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
@@ -58,12 +59,11 @@ Cc: Bernie Thompson <bernie@plugable.com>,
  Herbert Xu <herbert@gondor.apana.org.au>,
  linux-crypto@vger.kernel.org,
  Vlastimil Babka <vbabka@kernel.org>,
- linux-mm@kvack.org,
  David Woodhouse <dwmw2@infradead.org>,
+ Bernie Thompson <bernie@plugable.com>,
+ linux-fbdev@vger.kernel.org,
  "Theodore Tso" <tytso@mit.edu>,
  linux-ext4@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>,
  Marco Elver <elver@google.com>,
  Dmitry Vyukov <dvyukov@google.com>,
  kasan-dev@googlegroups.com,
@@ -93,12 +93,9 @@ Cc: Bernie Thompson <bernie@plugable.com>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 16/38] fbdev: udlfb: Replace get_cycles() with ktime_get()
+Subject: [patch 18/38] lib/tests: Replace get_cycles() with ktime_get()
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_051951_127773_C7999775 
-X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,111 +112,297 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These metrics are not really requiring CPU cycles and as those are
-meanlingless when the CPU is running at a different frequency, this can use
-ktime_get() and achieve the same result.
+get_cycles() is the historical access to a fine grained time source, but it
+is a suboptimal choice for two reasons:
 
-Part of a larger effort to confine get_cycles() access to low level
-architecture code.
+   - get_cycles() is not guaranteed to be supported and functional on all
+     systems/platforms. If not supported or not functional it returns 0,
+     which makes benchmarking moot.
+
+   - get_cycles() returns the raw counter value of whatever the
+     architecture platform provides. The original x86 Time Stamp Counter
+     (TSC) was despite its name tied to the actual CPU core frequency.
+     That's not longer the case. So the counter value is only meaningful
+     when the CPU operates at the same frequency as the TSC or the value is
+     adjusted to the actual CPU frequency. Other architectures and
+     platforms provide similar disjunct counters via get_cycles(), so the
+     result is operations per BOGO-cycles, which is not really meaningful.
+
+Use ktime_get() instead which provides nanosecond timestamps with the
+granularity of the underlying hardware counter, which is not different to
+the variety of get_cycles() implementations.
+
+This provides at least understandable metrics, i.e. operations/nanoseconds,
+and is available on all platforms. As with get_cycles() the result might
+have to be put into relation with the CPU operating frequency, but that's
+not any different.
+
+This is part of a larger effort to remove get_cycles() usage from
+non-architecture code.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Bernie Thompson <bernie@plugable.com>
-Cc: linux-fbdev@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Uladzislau Rezki <urezki@gmail.com>
+Cc: linux-mm@kvack.org
 ---
- Documentation/fb/udlfb.rst  |    4 ++--
- drivers/video/fbdev/udlfb.c |   24 ++++++++++++------------
- 2 files changed, 14 insertions(+), 14 deletions(-)
+ lib/interval_tree_test.c |   16 ++++++++--------
+ lib/rbtree_test.c        |   46 +++++++++++++++++++++++-----------------------
+ lib/test_vmalloc.c       |   10 +++++-----
+ 3 files changed, 36 insertions(+), 36 deletions(-)
 
---- a/Documentation/fb/udlfb.rst
-+++ b/Documentation/fb/udlfb.rst
-@@ -156,8 +156,8 @@ metrics_bytes_sent	 32-bit count of how
- 			 USB to communicate the resulting changed pixels to the
- 			 hardware. Includes compression and protocol overhead
- 
--metrics_cpu_kcycles_used 32-bit count of CPU cycles used in processing the
--			 above pixels (in thousands of cycles).
-+metrics_cpu_kcycles_used 32-bit count of microseconds used in processing the
-+			 above pixels
- 
- metrics_reset		 Write-only. Any write to this file resets all metrics
- 			 above to zero.  Note that the 32-bit counters above
---- a/drivers/video/fbdev/udlfb.c
-+++ b/drivers/video/fbdev/udlfb.c
-@@ -24,6 +24,7 @@
- #include <linux/slab.h>
- #include <linux/delay.h>
- #include <linux/unaligned.h>
-+#include <linux/timekeeping.h>
- #include <video/udlfb.h>
- #include "edid.h"
- 
-@@ -600,15 +601,15 @@ static int dlfb_render_hline(struct dlfb
- 
- static int dlfb_handle_damage(struct dlfb_data *dlfb, int x, int y, int width, int height)
+--- a/lib/interval_tree_test.c
++++ b/lib/interval_tree_test.c
+@@ -65,13 +65,13 @@ static void init(void)
+ static int basic_check(void)
  {
-+	ktime_t t_start, t_delta;
- 	int i, ret;
- 	char *cmd;
--	cycles_t start_cycles, end_cycles;
- 	int bytes_sent = 0;
- 	int bytes_identical = 0;
- 	struct urb *urb;
- 	int aligned_x;
+ 	int i, j;
+-	cycles_t time1, time2, time;
++	ktime_t time1, time2, time;
  
--	start_cycles = get_cycles();
-+	t_start = ktime_get();
+ 	printk(KERN_ALERT "interval tree insert/remove");
  
- 	mutex_lock(&dlfb->render_mutex);
+ 	init();
  
-@@ -661,10 +662,9 @@ static int dlfb_handle_damage(struct dlf
- 	atomic_add(bytes_sent, &dlfb->bytes_sent);
- 	atomic_add(bytes_identical, &dlfb->bytes_identical);
- 	atomic_add(width*height*2, &dlfb->bytes_rendered);
--	end_cycles = get_cycles();
--	atomic_add(((unsigned int) ((end_cycles - start_cycles)
--		    >> 10)), /* Kcycles */
--		   &dlfb->cpu_kcycles_used);
-+	t_delta = ktime_get() - t_start;
-+	/* Avoid a division and approximate microseconds with shift right ten */
-+	atomic_add(((int)(t_delta >> 10)), &dlfb->cpu_kcycles_used);
+-	time1 = get_cycles();
++	time1 = ktime_get();
  
- 	ret = 0;
+ 	for (i = 0; i < perf_loops; i++) {
+ 		for (j = 0; j < nnodes; j++)
+@@ -80,11 +80,11 @@ static int basic_check(void)
+ 			interval_tree_remove(nodes + j, &root);
+ 	}
  
-@@ -727,9 +727,9 @@ static void dlfb_dpy_deferred_io(struct
- {
- 	struct fb_deferred_io_pageref *pageref;
- 	struct dlfb_data *dlfb = info->par;
-+	ktime_t t_start, t_delta;
- 	struct urb *urb;
- 	char *cmd;
--	cycles_t start_cycles, end_cycles;
- 	int bytes_sent = 0;
- 	int bytes_identical = 0;
- 	int bytes_rendered = 0;
-@@ -742,7 +742,7 @@ static void dlfb_dpy_deferred_io(struct
- 	if (!atomic_read(&dlfb->usb_active))
- 		goto unlock_ret;
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
  
--	start_cycles = get_cycles();
-+	t_start = ktime_get();
+ 	time = div_u64(time, perf_loops);
+-	printk(" -> %llu cycles\n", (unsigned long long)time);
++	printk(" -> %llu nsecs\n", (unsigned long long)time);
  
- 	urb = dlfb_get_urb(dlfb);
- 	if (!urb)
-@@ -774,10 +774,10 @@ static void dlfb_dpy_deferred_io(struct
- 	atomic_add(bytes_sent, &dlfb->bytes_sent);
- 	atomic_add(bytes_identical, &dlfb->bytes_identical);
- 	atomic_add(bytes_rendered, &dlfb->bytes_rendered);
--	end_cycles = get_cycles();
--	atomic_add(((unsigned int) ((end_cycles - start_cycles)
--		    >> 10)), /* Kcycles */
--		   &dlfb->cpu_kcycles_used);
-+	t_delta = ktime_get() - t_start;
-+	/* Avoid a division and approximate microseconds with shift right ten */
-+	atomic_add(((int)(t_delta >> 10)), &dlfb->cpu_kcycles_used);
-+
- unlock_ret:
- 	mutex_unlock(&dlfb->render_mutex);
+ 	return 0;
  }
+@@ -93,7 +93,7 @@ static int search_check(void)
+ {
+ 	int i, j;
+ 	unsigned long results;
+-	cycles_t time1, time2, time;
++	ktime_t time1, time2, time;
+ 
+ 	printk(KERN_ALERT "interval tree search");
+ 
+@@ -102,7 +102,7 @@ static int search_check(void)
+ 	for (j = 0; j < nnodes; j++)
+ 		interval_tree_insert(nodes + j, &root);
+ 
+-	time1 = get_cycles();
++	time1 = ktime_get();
+ 
+ 	results = 0;
+ 	for (i = 0; i < search_loops; i++)
+@@ -113,12 +113,12 @@ static int search_check(void)
+ 			results += search(&root, start, last);
+ 		}
+ 
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
+ 
+ 	time = div_u64(time, search_loops);
+ 	results = div_u64(results, search_loops);
+-	printk(" -> %llu cycles (%lu results)\n",
++	printk(" -> %llu nsecs (%lu results)\n",
+ 	       (unsigned long long)time, results);
+ 
+ 	for (j = 0; j < nnodes; j++)
+--- a/lib/rbtree_test.c
++++ b/lib/rbtree_test.c
+@@ -243,14 +243,14 @@ static void check_augmented(int nr_nodes
+ static int basic_check(void)
+ {
+ 	int i, j;
+-	cycles_t time1, time2, time;
++	ktime_t time1, time2, time;
+ 	struct rb_node *node;
+ 
+ 	printk(KERN_ALERT "rbtree testing");
+ 
+ 	init();
+ 
+-	time1 = get_cycles();
++	time1 = ktime_get();
+ 
+ 	for (i = 0; i < perf_loops; i++) {
+ 		for (j = 0; j < nnodes; j++)
+@@ -259,14 +259,14 @@ static int basic_check(void)
+ 			erase(nodes + j, &root);
+ 	}
+ 
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
+ 
+ 	time = div_u64(time, perf_loops);
+-	printk(" -> test 1 (latency of nnodes insert+delete): %llu cycles\n",
++	printk(" -> test 1 (latency of nnodes insert+delete): %llu nsecs\n",
+ 	       (unsigned long long)time);
+ 
+-	time1 = get_cycles();
++	time1 = ktime_get();
+ 
+ 	for (i = 0; i < perf_loops; i++) {
+ 		for (j = 0; j < nnodes; j++)
+@@ -275,52 +275,52 @@ static int basic_check(void)
+ 			erase_cached(nodes + j, &root);
+ 	}
+ 
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
+ 
+ 	time = div_u64(time, perf_loops);
+-	printk(" -> test 2 (latency of nnodes cached insert+delete): %llu cycles\n",
++	printk(" -> test 2 (latency of nnodes cached insert+delete): %llu nsecs\n",
+ 	       (unsigned long long)time);
+ 
+ 	for (i = 0; i < nnodes; i++)
+ 		insert(nodes + i, &root);
+ 
+-	time1 = get_cycles();
++	time1 = ktime_get();
+ 
+ 	for (i = 0; i < perf_loops; i++) {
+ 		for (node = rb_first(&root.rb_root); node; node = rb_next(node))
+ 			;
+ 	}
+ 
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
+ 
+ 	time = div_u64(time, perf_loops);
+-	printk(" -> test 3 (latency of inorder traversal): %llu cycles\n",
++	printk(" -> test 3 (latency of inorder traversal): %llu nsecs\n",
+ 	       (unsigned long long)time);
+ 
+-	time1 = get_cycles();
++	time1 = ktime_get();
+ 
+ 	for (i = 0; i < perf_loops; i++)
+ 		node = rb_first(&root.rb_root);
+ 
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
+ 
+ 	time = div_u64(time, perf_loops);
+ 	printk(" -> test 4 (latency to fetch first node)\n");
+-	printk("        non-cached: %llu cycles\n", (unsigned long long)time);
++	printk("        non-cached: %llu nsecs\n", (unsigned long long)time);
+ 
+-	time1 = get_cycles();
++	time1 = ktime_get();
+ 
+ 	for (i = 0; i < perf_loops; i++)
+ 		node = rb_first_cached(&root);
+ 
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
+ 
+ 	time = div_u64(time, perf_loops);
+-	printk("        cached: %llu cycles\n", (unsigned long long)time);
++	printk("        cached: %llu nsecs\n", (unsigned long long)time);
+ 
+ 	for (i = 0; i < nnodes; i++)
+ 		erase(nodes + i, &root);
+@@ -345,13 +345,13 @@ static int basic_check(void)
+ static int augmented_check(void)
+ {
+ 	int i, j;
+-	cycles_t time1, time2, time;
++	ktime_t time1, time2, time;
+ 
+ 	printk(KERN_ALERT "augmented rbtree testing");
+ 
+ 	init();
+ 
+-	time1 = get_cycles();
++	time1 = ktime_get();
+ 
+ 	for (i = 0; i < perf_loops; i++) {
+ 		for (j = 0; j < nnodes; j++)
+@@ -360,13 +360,13 @@ static int augmented_check(void)
+ 			erase_augmented(nodes + j, &root);
+ 	}
+ 
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
+ 
+ 	time = div_u64(time, perf_loops);
+-	printk(" -> test 1 (latency of nnodes insert+delete): %llu cycles\n", (unsigned long long)time);
++	printk(" -> test 1 (latency of nnodes insert+delete): %llu nsecs\n", (unsigned long long)time);
+ 
+-	time1 = get_cycles();
++	time1 = ktime_get();
+ 
+ 	for (i = 0; i < perf_loops; i++) {
+ 		for (j = 0; j < nnodes; j++)
+@@ -375,11 +375,11 @@ static int augmented_check(void)
+ 			erase_augmented_cached(nodes + j, &root);
+ 	}
+ 
+-	time2 = get_cycles();
++	time2 = ktime_get();
+ 	time = time2 - time1;
+ 
+ 	time = div_u64(time, perf_loops);
+-	printk(" -> test 2 (latency of nnodes cached insert+delete): %llu cycles\n", (unsigned long long)time);
++	printk(" -> test 2 (latency of nnodes cached insert+delete): %llu nsecs\n", (unsigned long long)time);
+ 
+ 	for (i = 0; i < check_loops; i++) {
+ 		init();
+--- a/lib/test_vmalloc.c
++++ b/lib/test_vmalloc.c
+@@ -454,8 +454,8 @@ static struct test_driver {
+ 	struct task_struct *task;
+ 	struct test_case_data data[ARRAY_SIZE(test_case_array)];
+ 
+-	unsigned long start;
+-	unsigned long stop;
++	ktime_t start;
++	ktime_t stop;
+ } *tdriver;
+ 
+ static void shuffle_array(int *arr, int n)
+@@ -490,7 +490,7 @@ static int test_func(void *private)
+ 	 */
+ 	synchronize_srcu(&prepare_for_test_srcu);
+ 
+-	t->start = get_cycles();
++	t->start = ktime_get();
+ 	for (i = 0; i < ARRAY_SIZE(test_case_array); i++) {
+ 		index = random_array[i];
+ 
+@@ -519,7 +519,7 @@ static int test_func(void *private)
+ 
+ 		t->data[index].time = delta;
+ 	}
+-	t->stop = get_cycles();
++	t->stop = ktime_get();
+ 	test_report_one_done();
+ 
+ 	/*
+@@ -619,7 +619,7 @@ static void do_concurrent_test(void)
+ 				t->data[j].time);
+ 		}
+ 
+-		pr_info("All test took worker%d=%lu cycles\n",
++		pr_info("All test took worker%d=%lld nsecs\n",
+ 			i, t->stop - t->start);
+ 	}
+ 
 
 
 _______________________________________________
