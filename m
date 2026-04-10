@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E02AF4484C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A40DF44847
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:19:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=YQsyo28UGxwn7gYIyxjWfFoM9GsxnUtma+1H2Jo183Q=; b=dPBLTml+jmpbLm
-	nt4XP3IE75+klEUYbFpURCAExfmP/wvBYm6bhlER6vq2gUqpLd42TlW3c4334PLrptJB8jDsU53ti
-	FnpnNf1LXPqK8thKzEJvFMobQ+D4JcsM/uHA4ldzrzv3T3OB5e/+wn9U5XNKq3KVIrPch0iA4HZZd
-	5lHeAoBOl6umvhL1M5IFFMQ5S3VkbBYnPlBMsFi9LMXBpc+i4QLqlp0+whE7TA065NXjsIJVzAE96
-	DQEok+1bb++dV3U3swub0AcYjErW0MwFoZ79MYUysHZ20zDM+Mojk5UP9lJJ3xhbMQKLhOYqZ541g
-	Zrx+iiTHNt6lQqudVE5Q==;
+	List-Owner; bh=bTIdLBXKHkk8Ns+eFFi94tTkMrxGnUg3+GFByPjLlIY=; b=wrwYqvIlJlVuxS
+	k8xS3Bh+gq76bxC9kFNzVVIMdMWbaJH01Xq8MKLFpehJdQOufBEGBEHU8wS61JgK1s8aSvYq+b/Hh
+	UIMRjxdssWlaH0PC7C8fkoDBEBnFelqoA+fW57Cl2dLLFAuMCCo5NP6F9uEzqjj7PSI1EtMhBcWiw
+	xc32RYtfuazkO2POWvZ4hwlkLskPM028UTfF5kKJ/B53FIQrWT0MA2pzkNNeIRt8NPLw0oDehqgTZ
+	qMzFsFukqmpuKYblG7ILV8n+De8RvBzHWeMqvzqxWsc1z1Z4Q7/d7m9shQwklMMEWiiO/wksGHK3y
+	9fVAtRHOby2a7XSUbKhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBApj-0000000CA5w-1wy8;
-	Fri, 10 Apr 2026 12:19:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wBApX-0000000C9qg-3Y6K;
+	Fri, 10 Apr 2026 12:19:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBApe-0000000C9z7-44CK;
-	Fri, 10 Apr 2026 12:19:31 +0000
+	id 1wBApU-0000000C9lL-2x8A;
+	Fri, 10 Apr 2026 12:19:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51A166091C;
-	Fri, 10 Apr 2026 12:19:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B4F4C2BCB0;
-	Fri, 10 Apr 2026 12:19:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E547D4047B;
+	Fri, 10 Apr 2026 12:19:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38E7C2BC87;
+	Fri, 10 Apr 2026 12:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823570;
-	bh=gx3RztExl/RgjhE+RVjeBSM72TbSvLK5CUYrt3EY96I=;
+	s=k20201202; t=1775823559;
+	bh=p4ul6fecafqSjuz/HWiW1SqReHpNi3SQC1heaf7AtH8=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=Bpuk5rSRR/rs1jSmitZH/KfJL+3TNuP+dz9xwjVC8e1YVix0oW3s2Pp/y+L8X9oHD
-	 FfGXk8B3TY0jbEAZNS2FVq5qwscSTPNozRdmP6S1az7QsSRwh37CnHDegYmWg/dUhl
-	 oXkQ09dlNxtpDlZfCfFVBtb5yeQYcj5dZxd8vIShSLkbr1gWWPlcdAHe/FZpu8mplV
-	 u5Y93dLHQf7k/6QZkYgksDu7FYlgnX/m++LNPEYIEnDd7dRmUlTkWsJQwVidroG1Bi
-	 MdGUi4KzTqg9X+Zn0ce3HiuHIaE9YE1XVzPbK1ak8XvacDL5nVhYnRULjmYf5QSMQ0
-	 DvaPTMl303Xmg==
-Date: Fri, 10 Apr 2026 14:19:27 +0200
-Message-ID: <20260410120318.386500288@kernel.org>
+	b=VM13lKS0vi1Fampzs2SOJUSl5pFNtZPRrbRXrfYUkEg7syYn7CVko7c7egIdexCfj
+	 MaRLNlopnK85+N7I7i3OZHuHcMdHWNGNdlJV5bSYYI//COctIU1M1ukOOe7R86fGRN
+	 QQ/j+jjVi+CYY1R1j+UlDL84K4FAOhCbq1OrkH36o+f5XviRftg90dsfUTYhZvjNV5
+	 hk3/t6EuYClXGdWJA1CVm0r4gv7+Uuy+bWtd/uVuLx4/iO4+bV/Z+fKbXLcG7tmKkB
+	 b/7xC9trAvx6oz1zNsW6Ny9Eav33gyvB9AokHXFATxUfQATArxGnp5TkYcwejIeG8o
+	 hkZquPfDoH+3g==
+Date: Fri, 10 Apr 2026 14:19:16 +0200
+Message-ID: <20260410120318.253872322@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: linux-wireless@vger.kernel.org,
+Cc: Michael Grzeschik <m.grzeschik@pengutronix.de>,
+ netdev@vger.kernel.org,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
  iommu@lists.linux.dev,
- Michael Grzeschik <m.grzeschik@pengutronix.de>,
- netdev@vger.kernel.org,
+ linux-wireless@vger.kernel.org,
  Herbert Xu <herbert@gondor.apana.org.au>,
  linux-crypto@vger.kernel.org,
  Vlastimil Babka <vbabka@kernel.org>,
@@ -93,9 +93,12 @@ Cc: linux-wireless@vger.kernel.org,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 12/38] wifi: wil6210: Replace get_cyles() usage
+Subject: [patch 10/38] arcnet: Remove function timing code
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_051920_825702_5B3D71AF 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,99 +115,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is no reason why this debug code requires to use get_cycles() for
-timing purposes.
-
-Use ktime_get() instead.
+ARCNET is a museums piece and the function timing can be done with
+ftrace. Remove the cruft.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: linux-wireless@vger.kernel.org
+Cc: Michael Grzeschik <m.grzeschik@pengutronix.de>
+Cc: netdev@vger.kernel.org
 ---
- drivers/net/wireless/ath/wil6210/debugfs.c   |    2 +-
- drivers/net/wireless/ath/wil6210/txrx.c      |    6 +++---
- drivers/net/wireless/ath/wil6210/txrx_edma.c |    4 ++--
- drivers/net/wireless/ath/wil6210/wil6210.h   |    3 ++-
- 4 files changed, 8 insertions(+), 7 deletions(-)
+ drivers/net/arcnet/arc-rimi.c  |    4 ++--
+ drivers/net/arcnet/arcdevice.h |   20 +-------------------
+ drivers/net/arcnet/com20020.c  |    6 ++----
+ drivers/net/arcnet/com90io.c   |    6 ++----
+ drivers/net/arcnet/com90xx.c   |    4 ++--
+ 5 files changed, 9 insertions(+), 31 deletions(-)
 
---- a/drivers/net/wireless/ath/wil6210/debugfs.c
-+++ b/drivers/net/wireless/ath/wil6210/debugfs.c
-@@ -151,7 +151,7 @@ static int ring_show(struct seq_file *s,
- 			char name[10];
- 			char sidle[10];
- 			/* performance monitoring */
--			cycles_t now = get_cycles();
-+			ktime_t now = ktime_get();
- 			uint64_t idle = txdata->idle * 100;
- 			uint64_t total = now - txdata->begin;
+--- a/drivers/net/arcnet/arc-rimi.c
++++ b/drivers/net/arcnet/arc-rimi.c
+@@ -291,7 +291,7 @@ static void arcrimi_copy_to_card(struct
+ 	struct arcnet_local *lp = netdev_priv(dev);
+ 	void __iomem *memaddr = lp->mem_start + 0x800 + bufnum * 512 + offset;
  
---- a/drivers/net/wireless/ath/wil6210/txrx.c
-+++ b/drivers/net/wireless/ath/wil6210/txrx.c
-@@ -1976,7 +1976,7 @@ static int __wil_tx_vring_tso(struct wil
- 	used = wil_ring_used_tx(vring);
- 	if (wil_val_in_range(wil->ring_idle_trsh,
- 			     used, used + descs_used)) {
--		txdata->idle += get_cycles() - txdata->last_idle;
-+		txdata->idle += ktime_get() - txdata->last_idle;
- 		wil_dbg_txrx(wil,  "Ring[%2d] not idle %d -> %d\n",
- 			     vring_index, used, used + descs_used);
- 	}
-@@ -2129,7 +2129,7 @@ static int __wil_tx_ring(struct wil6210_
- 	used = wil_ring_used_tx(ring);
- 	if (wil_val_in_range(wil->ring_idle_trsh,
- 			     used, used + nr_frags + 1)) {
--		txdata->idle += get_cycles() - txdata->last_idle;
-+		txdata->idle += ktime_get() - txdata->last_idle;
- 		wil_dbg_txrx(wil,  "Ring[%2d] not idle %d -> %d\n",
- 			     ring_index, used, used + nr_frags + 1);
- 	}
-@@ -2531,7 +2531,7 @@ int wil_tx_complete(struct wil6210_vif *
- 			     used_new, used_before_complete)) {
- 		wil_dbg_txrx(wil, "Ring[%2d] idle %d -> %d\n",
- 			     ringid, used_before_complete, used_new);
--		txdata->last_idle = get_cycles();
-+		txdata->last_idle = ktime_get();
- 	}
+-	TIME(dev, "memcpy_toio", count, memcpy_toio(memaddr, buf, count));
++	memcpy_toio(memaddr, buf, count);
+ }
  
- 	/* shall we wake net queues? */
---- a/drivers/net/wireless/ath/wil6210/txrx_edma.c
-+++ b/drivers/net/wireless/ath/wil6210/txrx_edma.c
-@@ -1286,7 +1286,7 @@ int wil_tx_sring_handler(struct wil6210_
- 				     used_new, used_before_complete)) {
- 			wil_dbg_txrx(wil, "Ring[%2d] idle %d -> %d\n",
- 				     ring_id, used_before_complete, used_new);
--			txdata->last_idle = get_cycles();
-+			txdata->last_idle = ktime_get();
- 		}
+ static void arcrimi_copy_from_card(struct net_device *dev, int bufnum,
+@@ -300,7 +300,7 @@ static void arcrimi_copy_from_card(struc
+ 	struct arcnet_local *lp = netdev_priv(dev);
+ 	void __iomem *memaddr = lp->mem_start + 0x800 + bufnum * 512 + offset;
  
- again:
-@@ -1499,7 +1499,7 @@ static int __wil_tx_ring_tso_edma(struct
- 	used = wil_ring_used_tx(ring);
- 	if (wil_val_in_range(wil->ring_idle_trsh,
- 			     used, used + descs_used)) {
--		txdata->idle += get_cycles() - txdata->last_idle;
-+		txdata->idle += ktime_get() - txdata->last_idle;
- 		wil_dbg_txrx(wil,  "Ring[%2d] not idle %d -> %d\n",
- 			     ring_index, used, used + descs_used);
- 	}
---- a/drivers/net/wireless/ath/wil6210/wil6210.h
-+++ b/drivers/net/wireless/ath/wil6210/wil6210.h
-@@ -14,6 +14,7 @@
- #include <linux/timex.h>
- #include <linux/types.h>
- #include <linux/irqreturn.h>
-+#include <linux/timekeeping.h>
- #include "wmi.h"
- #include "wil_platform.h"
- #include "fw.h"
-@@ -632,7 +633,7 @@ struct wil_txrx_ops {
- struct wil_ring_tx_data {
- 	bool dot1x_open;
- 	int enabled;
--	cycles_t idle, last_idle, begin;
-+	ktime_t idle, last_idle, begin;
- 	u8 agg_wsize; /* agreed aggregation window, 0 - no agg */
- 	u16 agg_timeout;
- 	u8 agg_amsdu;
+-	TIME(dev, "memcpy_fromio", count, memcpy_fromio(buf, memaddr, count));
++	memcpy_fromio(buf, memaddr, count);
+ }
+ 
+ static int node;
+--- a/drivers/net/arcnet/arcdevice.h
++++ b/drivers/net/arcnet/arcdevice.h
+@@ -11,7 +11,6 @@
+ #ifndef _LINUX_ARCDEVICE_H
+ #define _LINUX_ARCDEVICE_H
+ 
+-#include <asm/timex.h>
+ #include <linux/if_arcnet.h>
+ 
+ #ifdef __KERNEL__
+@@ -62,7 +61,7 @@
+ #define D_RX		512	/* show rx packets                        */
+ #define D_SKB		1024	/* show skb's                             */
+ #define D_SKB_SIZE	2048	/* show skb sizes			  */
+-#define D_TIMING	4096	/* show time needed to copy buffers to card */
++#define D_TIMING	4096	/* Not longer supported. Use tracing instead */
+ #define D_DEBUG         8192    /* Very detailed debug line for line */
+ 
+ #ifndef ARCNET_DEBUG_MAX
+@@ -95,23 +94,6 @@ do {									\
+ 		pr_cont(fmt, ##__VA_ARGS__);				\
+ } while (0)
+ 
+-/* see how long a function call takes to run, expressed in CPU cycles */
+-#define TIME(dev, name, bytes, call)					\
+-do {									\
+-	if (BUGLVL(D_TIMING)) {						\
+-		unsigned long _x, _y;					\
+-		_x = get_cycles();					\
+-		call;							\
+-		_y = get_cycles();					\
+-		arc_printk(D_TIMING, dev,				\
+-			   "%s: %d bytes in %lu cycles == %lu Kbytes/100Mcycle\n", \
+-			   name, bytes, _y - _x,			\
+-			   100000000 / 1024 * bytes / (_y - _x + 1));	\
+-	} else {							\
+-		call;							\
+-	}								\
+-} while (0)
+-
+ /*
+  * Time needed to reset the card - in ms (milliseconds).  This works on my
+  * SMC PC100.  I can't find a reference that tells me just how long I
+--- a/drivers/net/arcnet/com20020.c
++++ b/drivers/net/arcnet/com20020.c
+@@ -70,8 +70,7 @@ static void com20020_copy_from_card(stru
+ 	arcnet_outb(ofs & 0xff, ioaddr, COM20020_REG_W_ADDR_LO);
+ 
+ 	/* copy the data */
+-	TIME(dev, "insb", count,
+-	     arcnet_insb(ioaddr, COM20020_REG_RW_MEMDATA, buf, count));
++	arcnet_insb(ioaddr, COM20020_REG_RW_MEMDATA, buf, count);
+ }
+ 
+ static void com20020_copy_to_card(struct net_device *dev, int bufnum,
+@@ -84,8 +83,7 @@ static void com20020_copy_to_card(struct
+ 	arcnet_outb(ofs & 0xff, ioaddr, COM20020_REG_W_ADDR_LO);
+ 
+ 	/* copy the data */
+-	TIME(dev, "outsb", count,
+-	     arcnet_outsb(ioaddr, COM20020_REG_RW_MEMDATA, buf, count));
++	arcnet_outsb(ioaddr, COM20020_REG_RW_MEMDATA, buf, count);
+ }
+ 
+ /* Reset the card and check some basic stuff during the detection stage. */
+--- a/drivers/net/arcnet/com90io.c
++++ b/drivers/net/arcnet/com90io.c
+@@ -332,15 +332,13 @@ static void com90io_setmask(struct net_d
+ static void com90io_copy_to_card(struct net_device *dev, int bufnum,
+ 				 int offset, void *buf, int count)
+ {
+-	TIME(dev, "put_whole_buffer", count,
+-	     put_whole_buffer(dev, bufnum * 512 + offset, count, buf));
++	put_whole_buffer(dev, bufnum * 512 + offset, count, buf);
+ }
+ 
+ static void com90io_copy_from_card(struct net_device *dev, int bufnum,
+ 				   int offset, void *buf, int count)
+ {
+-	TIME(dev, "get_whole_buffer", count,
+-	     get_whole_buffer(dev, bufnum * 512 + offset, count, buf));
++	get_whole_buffer(dev, bufnum * 512 + offset, count, buf);
+ }
+ 
+ static int io;			/* use the insmod io= irq= shmem= options */
+--- a/drivers/net/arcnet/com90xx.c
++++ b/drivers/net/arcnet/com90xx.c
+@@ -633,7 +633,7 @@ static void com90xx_copy_to_card(struct
+ 	struct arcnet_local *lp = netdev_priv(dev);
+ 	void __iomem *memaddr = lp->mem_start + bufnum * 512 + offset;
+ 
+-	TIME(dev, "memcpy_toio", count, memcpy_toio(memaddr, buf, count));
++	memcpy_toio(memaddr, buf, count);
+ }
+ 
+ static void com90xx_copy_from_card(struct net_device *dev, int bufnum,
+@@ -642,7 +642,7 @@ static void com90xx_copy_from_card(struc
+ 	struct arcnet_local *lp = netdev_priv(dev);
+ 	void __iomem *memaddr = lp->mem_start + bufnum * 512 + offset;
+ 
+-	TIME(dev, "memcpy_fromio", count, memcpy_fromio(buf, memaddr, count));
++	memcpy_fromio(buf, memaddr, count);
+ }
+ 
+ MODULE_DESCRIPTION("ARCnet COM90xx normal chipset driver");
 
 
 _______________________________________________
