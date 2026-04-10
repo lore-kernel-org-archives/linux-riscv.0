@@ -4,102 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583D6E99056
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 08:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC54BE9905B
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 09:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iymYNogD7lJSC8ZLICVB+JwJKirY5AvL4k5RPL01jUY=; b=J1Ed/FLTRMMYsb
-	ZpCv688EPz98D87RzFnDJitJ/mnao15HUxLIc4mD4g/esLMEvcUXpSa/UOTKJrsxqHnj4JMVSmnI0
-	cTiXo7Hd/mLeMXUf4kaQXj7DPnobe48bJ8F2nVhT2zviG7ugHB2ZHSrj2l1rfMzT/3sH2fDhQqYJt
-	1UA6BZGGCdM4QGbcU4Ye2uvxmGPeZNQT5M6TAgRQQ2qU04QR3v6AmLbCLWkzNjDZM0HxJ5I3zPTIb
-	cqTl2dseIchqe4Qbh7I5YxIDdWRSsYmWSxfwEQzm0BcunfSrNo9FUZTkXumR5gbuGLBZKpgSdzAfY
-	Np+apBpxjS9KRZBUFxVg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=P4V3CMiovXBoCId1pl1CLIdQILK3A2wkKX6oxb51o6I=; b=DcOgjyjW2Aqb+S
+	wQAJv/Z2ugkPRWHtG1dYG7qNibddwyj6lIzJixuS4IPEroJujubfCAp71VrQxkc/8FqPlfx80DUvu
+	T+cj4XY+zG7YsCZrXxfRm/rG08gsy0hHKHjp5bpB4NI0gg7ulRtl7T+a+QIC+17z52RWcjYTAwg44
+	yaafjMdj4QgBNsVnn9bFMv2xNOwtCWqSHisM6bywb56HHzGT5yPRukGp9/7uFgZiBlBkNuv3NnAkw
+	IVJxSlKk/3B2v4lLuGo00CP6GVz+b/yld2w0NIC6N7KiLtfigMOVxzJPmJ3xyduLHOYA6w/LRAIHL
+	WXoFkCp1efK9e4Q5sDvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB7es-0000000Brrr-3r7R;
-	Fri, 10 Apr 2026 08:56:10 +0000
-Received: from mail-yx1-f51.google.com ([74.125.224.51])
+	id 1wB7kH-0000000BsL5-3z71;
+	Fri, 10 Apr 2026 09:01:45 +0000
+Received: from mail-sh0chn02on2071a.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::71a] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB7ep-0000000BrqV-39Fj
+	id 1wB7kE-0000000BsJy-3Pta
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Apr 2026 08:56:09 +0000
-Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-64937edbc9eso1717625d50.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Apr 2026 01:56:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775811365; cv=none;
-        d=google.com; s=arc-20240605;
-        b=RQxO7RMibQTvSqVUW0/qCT9hERS+dTYjba2Oe9pwjXs553V2rC1TNgf0U9XCDL25va
-         2CPgmR6Uo0pob8lBQWL+zE36NakrWzUS8zSiH+6ZFEtSPV5Cxu9tXyVlDpb9JI4Umvy3
-         hJW4hnRgNTfDtPB8pq/kP05lOHwsL7xHufJUkeYjduqfvymZJcCIFoa5NLxk81tq24PQ
-         JhSEVA5oQsEU0+g0INJR28zgpJmNDchE8zMAf6YHQoMv1dWxd7hiGaDSXazLnuX01fIu
-         Yt45LfmTVxGvA+E63lvPvQALOGgImfo/y+Mk1TM5A3GjAzuxwKRa182Zhq+G+4Jtk9l3
-         ra6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version;
-        bh=3KAh6lwIOjsU1XZI9AtaEthJQQVMuTum+SSM5m5Dpp4=;
-        fh=S4bESKTQjdLazUccjMtLsFhTyPdh02EM5CsTXp9YNDM=;
-        b=S3uLTHI3ygTsepvT3uQRMQjdEtZ7BDOuc5wEIYQEe4H0ahvpyRGLTzkWZNPRd5ehVj
-         0DQGQZjXNyrKP8PtkSpKK+Ul7GmpOMsFf97jeUdvYOx3KgjxIi8uYFurHGv4g+wTrFmu
-         50BQhx00RzZsUSPtd3a63uqRaDPVvbVJtgICoUMlXy0u71Oa/cIzZikyWPz1785patAZ
-         q4X4g0dQGYHgJeqiPn73fc93g90ROrdr2q0G5KgAle3mjFIOVgDpkNDprawe3EAeqooP
-         R0TkJyHSvBRhqeHzd0fRZx1kWP+QKUc8iJC3c+7gg2xzSbwcA9dZSBHj7fQR4vQzFBPs
-         whOw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775811365; x=1776416165;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3KAh6lwIOjsU1XZI9AtaEthJQQVMuTum+SSM5m5Dpp4=;
-        b=MvucYXPudxjjXE7yRGaU9RW5tVQx9kf2sLMe69iCLiI/iBtjrfJXqQRvYXthhywVBH
-         u1ITJWGtmO2MmssK/OZCoTEOTxXpyDJax6de2BtXFrtib/sdfwO6fzrENlhnwTOkMMqn
-         Ji59quxa/kqH2noig5crbLjtTy8ERyKOGWOwxQ44eKxf3T2eR5dVo3prHu47JoX13Iyn
-         9o7ViTcCHKmwU7+vSzHWAhjYjpgTVGm/Bl+6sR4/irFjYHIt9j/otBLXN9ToThRNF+zn
-         WAUO3bXcAOz3blKY9DFcHI4vwcxKIPjD2nzkzPJ4PPbgMbWc9xjGh7//XRx9SwbSAxR6
-         /9Vg==
-X-Forwarded-Encrypted: i=1; AJvYcCWfA+Nfo1xpfn872aSSXf0liAr+syfGbFcKKiAvQffyhOUr3uV5fS/znVLWsz8aHJRcdwOJHkWZaCfTDQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLlVL7mMrGWE1XJZi/jOqqR7npfp7yRipNU/dZRlGTKJoDJ070
-	Jy3zRd4DsQ0DVYR1usDKtMWHAEjvRa3TXG9OtKoC5Aqckr/KjQZlECQTBbeapCzOet/gduN8Tph
-	6uf7sqsUoJa7zSHybASzdO4CKsh3PuMg=
-X-Gm-Gg: AeBDiettGpAQYn90nZ510k6AwDqjkK8znCakO1cCIdqf/+fEi+jsvcwBoSiGyp1dtA5
-	eLdkKYZIdMe/tnUaH/GuObmZln9FAVhx3tPIPfNFhcf17DPWGc49i9Asv4UDnVa8CrOkA1PRTIw
-	RBBzdOYyyJ9I1JINLItS6ENtl4TV+TfwZkuxmhtocvPkmkvrJUCME7O2mYmqosrBzy0i3Lem1LD
-	9YkWHt7AYypq+KyFOnjYDFrlS5YvHm8EZYYEbwbMMdo20Il2zu4ILhD3LbE5jhGlPeujJEU+tqb
-	c+Rjwas=
-X-Received: by 2002:a53:b166:0:b0:650:3e1f:907c with SMTP id
- 956f58d0204a3-6519885e270mr1637211d50.0.1775811365143; Fri, 10 Apr 2026
- 01:56:05 -0700 (PDT)
+	Fri, 10 Apr 2026 09:01:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mgPw19BgXWKJngDXSQ4uYuOKFPTwO4ttPDJS4F8HMul5q/fkeatFt8zYqQx4NwX2gkqWN7xya05DNKRCS091yGjRqdNFJauXBTcRcxnHaDUYrV9zWNkNLksrK7cFguQtbqnsWT27G5j8e2yFAD4rlutxSpTE7iVuw61mtopp9VouOxUkKgIlxy5FvCck9icYff0SO1SJq3QlTa9FywhP4fjQPNDg0egLrKj1uGx6oGbxue99w+eh6vrq9J/+R32O2ZMERBNb1f6X5DdybtEC8mHw0ziHjf8a6I7rj9+jDivkQ9KQ0ysuKbeIv4gnYixg1sID4O0htJJy6whPuLAySQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9ALqT10FsuMzvmum3euKKZmbOSU7+U/9nu8Xmh4dbM0=;
+ b=ayyTc3GmMIgB/uGnarf+UaIYHxDheLshD+7Id/gJYVGluuoENCsVAI86nWqB6l8NbYcoS4qUYZIMneOV5ZRPqc+Cja7qqYHd3LERoAwaGLWh3fbyAtedrtqsmCh8GNzsZLKok9VaRsmd3KXdxUzCW7yKqR6K2B2JKcjj66h3gu1b3HlG5DnmY0RiYKYMZ/kWvoQHmXY1BBHReqX+si6KDaIO0pZmGXc+owr5AyLCGxJWzRA93+yszTK7FBQWrsfH3g7RdWVuUDoGT3GXEgji4QWYat6dKs+QPpy3QrQ6eOnKEVZhTeNITeofdjRPXmFvrD+zAWFQlZ5XGhrHoIv0Yw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1218.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.42; Fri, 10 Apr
+ 2026 09:01:14 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9769.020; Fri, 10 Apr 2026 09:01:14 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: [PATCH v1 0/5] Add interrupt controller for JHB100 SoC
+Date: Fri, 10 Apr 2026 02:01:01 -0700
+Message-Id: <20260410090106.622781-1-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: NT0PR01CA0017.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510::6) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6)
 MIME-Version: 1.0
-References: <20260409091143.1348853-1-mikey@neuling.org> <20260409091143.1348853-4-mikey@neuling.org>
- <b3466f28-0d0f-4ff8-8542-e53216cf3667@kernel.org> <CAEjGV6yKKtN3kGeQ+tdz1xy-DDS2FD0C0X4qm-iZ3zq7LEyhHQ@mail.gmail.com>
- <c390be36-ac4a-4964-9072-7ccf074d2f7f@kernel.org> <adislUQ_dddOZZlW@kernel.org>
- <aff1c335-bd02-449e-8791-eb7050ec982d@kernel.org>
-In-Reply-To: <aff1c335-bd02-449e-8791-eb7050ec982d@kernel.org>
-From: Michael Neuling <mikey@neuling.org>
-Date: Fri, 10 Apr 2026 18:55:52 +1000
-X-Gm-Features: AQROBzD9bLD-qJ56IfBOL7VcbClzJTEf71b_NvT0VpHRlAnniIQNsVbi2HJI2P8
-Message-ID: <CAEjGV6yQCLbTfHivAKJo7DDoa25N8W14nQ+5YVxUfRLzU62-UA@mail.gmail.com>
-Subject: Re: [PATCH 3/5] riscv: mm: Fix NULL pointer dereference in __set_memory
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, Aleksandar Rikalo <arikalo@gmail.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Djordje Todorovic <djordje.todorovic@htecgroup.com>, Guo Ren <guoren@kernel.org>, 
-	Junhui Liu <junhui.liu@pigmoral.tech>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Nam Cao <namcao@linutronix.de>, Oleg Nesterov <oleg@redhat.com>, 
-	Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>, Raj Vishwanathan4 <rvishwanathan@mips.com>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1218:EE_
+X-MS-Office365-Filtering-Correlation-Id: fbc8bd3b-c0f8-402e-cfec-08de96dfb823
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|366016|56012099003|38350700014|18002099003;
+X-Microsoft-Antispam-Message-Info: C23vM9yaGKYfbt73g/3/FzNEbBJbuic0+J40SpkZl8PZy/8PnPbBYRFQCIbtSV7LBmo0AK5RGnX4ZCyHqxDdXNnVVevuHbfqQ7tNo+7DTfT/aZ4lGlyPWMV2OnQsXGfJvzfPE1b6tb/ff7LLVgUjy5o4nGITcNxLvRlQRWgQcBnFZzc8bJE7ITY29GPoaqqPKXj6WqFzpK0xtmOYQpHp4Dc4h5MkI1BLYBXKxAK6u+yc/nWZK61G1GGvwybu19//uCqqZ+f5mJT4LbBXFWXOuS+We9EcFDPN5pV1GdchbbW9QwNCALRb2tu6o8Jiv4Thg8Mx/0ZbKX/gUBePBFYGCYSxm3lJQvK0yOfFuEQTS5kRHbILO2CaxKVkRGG6ZkinxvTQHYZWWnqEJfrux6Q6Il2NHa9zjavzkp9PSc49XX6td36k0YhZggDjJxSQdNsiAf5u3I5NI9wPwT7Oc4aLuGndcBMwLrJXBE2JrYkGCxlkRIMilSRsLH7DV+teGywZ2bdQcNe6yy4vHjB0NCixhiH8kx6ibdsegrTRJS51sd9gnF0ouPcng43gjs+8oyD0frTGgwmIwb/5se3fkafuzw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(366016)(56012099003)(38350700014)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AzVnNlNUjvq8ukAfdg0LU8RzexBK42uIp8fJzu2bNoeZNlxOxGm6DD9fEdPB?=
+ =?us-ascii?Q?Dnld5n/b1VRkAJblOFX6Jt7UuDzvP5IBf1E1Fd23xbT4yZ07y8VUbg0+3ghx?=
+ =?us-ascii?Q?idqekBSY3+jhsLgK7fxG8BzmncweD0G8w0JuhCqg/Zbhis6Z23R4qgjw9Y10?=
+ =?us-ascii?Q?9i6btX8zFsdzv9+NNVmGUiI+WSuBk1ZdN6heRUnc2i+qsZeda6rf7NhRgrja?=
+ =?us-ascii?Q?nfKeLBXOc3tAUUk8ayQgrD4sX1l+j1//+wkU9pr1wBO6ZsTOPFYTIp4y0tVa?=
+ =?us-ascii?Q?2TYveP5GD3grF9LA6hMswCgjGOe8TYvT0nvntV5aOD9zB9cykVSiZ9DcgYFE?=
+ =?us-ascii?Q?vUc+pI8A9I++KFx/1x1Yfvn3VM1w+gBJTUiJcTVBUX7F8xOHjszl6dCHRKtA?=
+ =?us-ascii?Q?cXNbi9YH7Qezq3KyzX9uL0/FSv2TMwRc5cTuhvkXDADWWHJyehpIGpyxgwNt?=
+ =?us-ascii?Q?/JUw7Nh/I+SU+4jnuZIExdM6cjyYk2RjCOOpvS+ExqTf3F+cfk42HTHNiEb5?=
+ =?us-ascii?Q?+fZJUKPFOTwHJwmfdvhzuIpSGPhtGLiSDjj/owpVoGom5GYnTvP6RL9Iwh+g?=
+ =?us-ascii?Q?rNWX+NuechLOcOZL6PrUBS2DsAjweY/cE0VDL1dm8BRU9DMsLAm46FZUcBNy?=
+ =?us-ascii?Q?w5IGuNtjpIgQn7dZ6L02B+e8VB3KeIlHztgLERNLezhQ52YurjTuE2VLMFYP?=
+ =?us-ascii?Q?wWlCnwDJZXIwOUUMPrPneXP/AwNdFAkRfoDa3aUrXe2qS2jM0BkWBD+K2XHI?=
+ =?us-ascii?Q?6zz0RkYK4Ze+sbAf4O65+eDjoYirD/GRrBw38HcPXd+cjmoZ658fsi0glPz8?=
+ =?us-ascii?Q?BL4erdaceK9GwsY8O9u3fa7k0GuESfm2a7h0Ut0RZCntPvxH/9Hh04jpzH7N?=
+ =?us-ascii?Q?XcdMqzciG/cN7V/L0aPF2qOY8DD9IKxjMNeSUGGKRbJwh+NbaZkhTB171SU3?=
+ =?us-ascii?Q?RNfW/pf7ojBWNN1r/zTDWRz3TW3VZNSyvM4qeg9sfc4md+Qo3x0znT1oQe9H?=
+ =?us-ascii?Q?FOhHwT+1s5JLIQoW5LtquAciMPqEivUdLGExJdT8HP+nQzNh180D9MHxXK0q?=
+ =?us-ascii?Q?aFhSwwv99AEk9eaGDQ0PtBBqGa4FRwLp7Vfvt0wrutJPb3L2j7ETukvX1P0U?=
+ =?us-ascii?Q?GUtODVxw3aVC7r5QUoGe1eUrFeO9wDjGj2PUGddFJrmqfvrncq+x21NgZL4T?=
+ =?us-ascii?Q?3FI8LhDJJoyCqGx252YRtQe2zdmR83g67GTQXcrTSY0di1y8NIACq7cgCsU3?=
+ =?us-ascii?Q?fjVf92Y9gDuKmW2MkJGLKA+OZSfof6ZVh9PDuX1seVUop0KCgG911e9mEbP6?=
+ =?us-ascii?Q?3KChX+8uDT1pa1RxLoulxC2He5CCPbxn/wTVmf9+jb98BeGE5DtwThn5zCm5?=
+ =?us-ascii?Q?DM6hFuoYxz2ogogrdZi1CGnk4gtIKJnHC7Fo24NMzu0ANNsN0BfpwKAjPeXJ?=
+ =?us-ascii?Q?m+TqR4tZDyuWIckEomNQ2pzgeDLP//JhqGiEBdQ0B6lZlGi6uPXSHuNd9Bwc?=
+ =?us-ascii?Q?ftJqYzjqF92o6441HkNenHZoD4ge6M2pwHXGNwG+f7SYZ1GY9YtN93oxQB3J?=
+ =?us-ascii?Q?hf6yQ/6V33AxF0n4i00G890B5kp2qCb6YC4FGnK5YuvrDJki6Y51dyIMbf8v?=
+ =?us-ascii?Q?N6wtC+CfR0+8hhvZU/wH4/PRzYwXjh+2bpsGaCGO79VKIQ+HFYJdRfFx4ETm?=
+ =?us-ascii?Q?HbXsiiaiYmzBL/DijyX1j0YR8YE5Sj05/FlsLHRyO5Jr5t27EEcVVekEZv21?=
+ =?us-ascii?Q?qn39u5AgahpYjOeqoI2/Dza5oMCKwSGdUpDPJKUl3sLZDgids6Px?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fbc8bd3b-c0f8-402e-cfec-08de96dfb823
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 09:01:14.6373
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: l+cV3WJC2UBs9LRo4mnDODk7JhRRMo1DOZFfKxCCGVo/9BuG+JLW3mf9xrZ/dlQm8oVIkUefx9OL795Bb974IY//zpn9nn4naegpvArkrvscZrXhopsEyXLmG7yw60Tt
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1218
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_015607_812785_30001E0D 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20260410_020142_860730_2FD905D4 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,31 +131,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBBcHIgMTAsIDIwMjYgYXQgNTo1OeKAr1BNIERhdmlkIEhpbGRlbmJyYW5kIChBcm0p
-CjxkYXZpZEBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIDQvMTAvMjYgMDk6NTMsIE1pa2UgUmFw
-b3BvcnQgd3JvdGU6Cj4gPiBPbiBGcmksIEFwciAxMCwgMjAyNiBhdCAwOTo0MjoyNkFNICswMjAw
-LCBEYXZpZCBIaWxkZW5icmFuZCAoQXJtKSB3cm90ZToKPiA+PiBPbiA0LzEwLzI2IDA4OjIzLCBN
-aWNoYWVsIE5ldWxpbmcgd3JvdGU6Cj4gPj4+Cj4gPj4+IEl0IHdvdWxkbid0LiBZb3UncmUgcmln
-aHQgb24gdGhpcyBhbmQgdGhlIG90aGVyIHR3by4gU29ycnkgZm9yIHRoZSBub2lzZS4KPiA+Pgo+
-ID4+IFNsb3BwZWQtYnk6IEN1cnNvcjpjbGF1ZGUtNC42LW9wdXMtaGlnaC10aGlua2luZwo+ID4+
-Cj4gPj4gOikKPiA+Cj4gPiBJdCdzIGEgZ2VuZXJhbCB0ZW5kZW5jeSBvZiBMTE1zIHRvIGdlbmVy
-YXRlIG92ZXJseSBkZWZlbnNpdmUgY29kZSBhbmQgcmFpc2UKPiA+IGNvbmNlcm5zIGFib3V0IHRo
-ZW9yZXRpY2FsIGlzc3Vlcy4KPiA+IE1heWJlIGl0J3Mgd29ydGggdGFraW5nIGludG8gYWNjb3Vu
-dCB3aGVuIHdyaXRpbmcgcHJvbXB0cyBzcGVjaWZpYyB0bwo+ID4ga2VybmVsIGRldmVsb3BtZW50
-LgoKV2UndmUgaGFkIHNvbWUgc3VjY2VzcyB1c2luZyBpdCB0byByZXZpZXcgc29tZSBwYXRjaGVz
-IGZvciBtYWludGFpbmVycy4KCkkgd2FzIGF0dGVtcHRpbmcgdG8gdXNlIGl0IG9uIGV4aXN0aW5n
-IGNvZGUgYnV0IEkgYWdyZWUgdGhpcyB3YXMKb3Zlcmx5IGRlZmVuc2l2ZQphbmQgZGlkbid0IGNv
-bnNpZGVyIHRoZSBicm9hZGVyIGNvbnRleHQuCgo+IFllcywgYW5kIEkgY2FuIG9ubHkgdXJnZSBw
-ZW9wbGUgdG8gYWN0dWFsbHkgY2hlY2sgd2hhdCB0aGUgTExNIHNwaXRzCj4gb3V0LCBzbyB0aGV5
-IHdvbid0IGxvc2UgdGhlaXIgY3JlZGliaWxpdHkgd2l0aCBtYWludGFpbmVycyA7KQoKSSBkaWQg
-YWN0dWFsbHkgZGlzbWlzcyBtb3JlIHRoYW4gaGFsZiBvZiB3aGF0IGl0IHByb2R1Y2VkLiBNYXli
-ZSB0aGF0IG1ha2VzCml0IHdvcnNlIDotKQoKSSdtIG5vdCBhcyBmYW1pbGlhciB3aXRoIG1tIHNv
-IGl0IHdhcyBhIG1pc3Rha2Ugb24gbXkgcGFydCB0byBzZW5kIHRoZXNlLgoKTWlrZXkKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+This patchset adds external interrupt controller driver for the StarFive
+JHB100 SoC. It supports up to 64 interrupt sources, and both level and
+edge trigger types.
+
+Changhuang Liang (4):
+  dt-bindings: interrupt-controller: Convert the word "jh8100" to
+    "jhb100"
+  irqchip: starfive: Convert the word "jh8100" to "jhb100"
+  irqchip: starfive: Use devm_ interfaces to simplify resource release
+  irqchip: starfive: Implement irq_set_type and irq_ack hooks
+
+Mason Huo (1):
+  irqchip: starfive: Increase the interrupt source number up to 64
+
+ ...00-intc.yaml => starfive,jhb100-intc.yaml} |  12 +-
+ MAINTAINERS                                   |   6 +-
+ drivers/irqchip/Kconfig                       |   6 +-
+ drivers/irqchip/Makefile                      |   2 +-
+ drivers/irqchip/irq-starfive-jh8100-intc.c    | 207 -------------
+ drivers/irqchip/irq-starfive-jhb100-intc.c    | 278 ++++++++++++++++++
+ 6 files changed, 289 insertions(+), 222 deletions(-)
+ rename Documentation/devicetree/bindings/interrupt-controller/{starfive,jh8100-intc.yaml => starfive,jhb100-intc.yaml} (81%)
+ delete mode 100644 drivers/irqchip/irq-starfive-jh8100-intc.c
+ create mode 100644 drivers/irqchip/irq-starfive-jhb100-intc.c
+
+--
+2.25.1
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
