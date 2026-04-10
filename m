@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A546E9905C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 09:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEE2E99062
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 09:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xg827OTrz4iE/BABFy9yaWYYWXtgjyTtYDpG6YwntL0=; b=3gs54pG+xQl3p6
-	yX6T5+2vVEgf98/17xdtAcV65IUDf7AHmtD3QxqhAcEfuA7qPaCZ4vuHpFJo7wDxj3NusaKVXoHfQ
-	zHV0iVo/tL2EyTiHBLmPLRS7aByB9IzVeT+cwk5oM+bNoU6BQMDMo/Daay+mtbJml0oUZg0UeOUPj
-	3hjQDj9NQ+xfHq5IPvImMgbu6vPzt+otcDkaqtFJ6zJOOfVtTmM1EFi5p4P9bOoHK6PtFHV82OnON
-	HnyYB+wlHykdGOZ8sSlxFPH292gK575CWkHlRafxFHPN4WV+7hz8eWyO3dl9UF01PoyKQGoD/9pwq
-	eBdDKGWB1qfcL5KMdDwQ==;
+	List-Owner; bh=qRpZhR0kx+BvZUcTKEyyqeulyV3D3U8zsc9XHooZxb0=; b=uVh0IoulsYVAQV
+	AyJvXiU2v0kVYmfneEPNUOZBWYf7UQ5YaMWShizVx+RL31Cukvwo2a16aWFLOh9v9nhQ90x8OOpWW
+	SLmW6KMtPeaTh961Bx42KRN3s8P9u1E5UT+rV8tKodclPS9gWP66PTGwVxcszMZp11XAKk9XWAaF4
+	zvGN7Ge5PzYdpNOfmmr7zbuvWhnHX0kfASdaYEXrfgh4obDQsVDHK600/9pLT2cFUIYKgTxb1rweX
+	bQYEEDH4zZ811hIw0Uzaktlt+Ka+JrKSL+Kpe0o1ciDbcf9w6viSmMEGRvv6OPlpsnb+uSYt1s3Rn
+	8rCt0f73GtP3u+hNvm5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB89M-0000000BubD-2dHd;
-	Fri, 10 Apr 2026 09:27:40 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB89K-0000000Buat-1PfS
-	for linux-riscv@lists.infradead.org;
-	Fri, 10 Apr 2026 09:27:39 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wB894-00024B-BF; Fri, 10 Apr 2026 11:27:22 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wB892-004fJl-2Z;
-	Fri, 10 Apr 2026 11:27:20 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wB892-000000005x8-3035;
-	Fri, 10 Apr 2026 11:27:20 +0200
-Message-ID: <631d4d65fdbda29cfbc0b96987b5f56fcd5116ea.camel@pengutronix.de>
-Subject: Re: [PATCH v1 3/5] irqchip: starfive: Use devm_ interfaces to
- simplify resource release
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Date: Fri, 10 Apr 2026 11:27:20 +0200
-In-Reply-To: <20260410090106.622781-4-changhuang.liang@starfivetech.com>
-References: <20260410090106.622781-1-changhuang.liang@starfivetech.com>
-	 <20260410090106.622781-4-changhuang.liang@starfivetech.com>
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1wB8JK-0000000Bvmz-1uSz;
+	Fri, 10 Apr 2026 09:37:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wB8JH-0000000BvmG-0kcM;
+	Fri, 10 Apr 2026 09:37:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 425421D13;
+	Fri, 10 Apr 2026 02:37:48 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A0DF23F632;
+	Fri, 10 Apr 2026 02:37:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775813873; bh=SmJwPkp0nb0Ve3Bz5iCXglHNYcVEz5wLti0b0rFKeWc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PUJ88Z+upicQXln8DFiBGfr96f2uBf2ASbYsH8rM72E+kuoFdvMKH8bmio9mMf+wb
+	 j+mfu+vJDOcyJELgIoXve3XDH3vaB3z32C0emUTZgdFAbaHMq8yuRQbb8rDHnpvndX
+	 V6i42ghipdzWWaTAT1RnY+E1nPwJ++8YUgVHWHM4=
+Date: Fri, 10 Apr 2026 10:37:45 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	David Laight <david.laight.linux@gmail.com>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH v3 2/7] arm64/runtime-const: Use
+ aarch64_insn_patch_text_nosync() for patching
+Message-ID: <adjE6WzFM7NogzlU@arm.com>
+References: <20260402112250.2138-1-kprateek.nayak@amd.com>
+ <20260402112250.2138-3-kprateek.nayak@amd.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20260402112250.2138-3-kprateek.nayak@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_022738_397267_76DFF434 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260410_023755_352255_4CE8D1D7 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +80,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2026-04-10 at 02:01 -0700, Changhuang Liang wrote:
-> Use devm_ interfaces to simplify resource release. Make clock and reset
-> get optional as they are not used on the JHB100 SoC. Replace pr_ logging
-> with dev_* logging.
-> 
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> ---
->  drivers/irqchip/irq-starfive-jhb100-intc.c | 44 ++++++++--------------
->  1 file changed, 15 insertions(+), 29 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-starfive-jhb100-intc.c b/drivers/irqchip/irq-starfive-jhb100-intc.c
-> index 2c9cdad7f377..312a4634870a 100644
-> --- a/drivers/irqchip/irq-starfive-jhb100-intc.c
-> +++ b/drivers/irqchip/irq-starfive-jhb100-intc.c
-[...]
-> @@ -127,48 +125,44 @@ static int starfive_intc_probe(struct platform_device *pdev, struct device_node
->  	if (!irqc)
->  		return -ENOMEM;
+On Thu, Apr 02, 2026 at 11:22:45AM +0000, K Prateek Nayak wrote:
+> diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
+> index c3dbd3ae68f6..a3106f80912b 100644
+> --- a/arch/arm64/include/asm/runtime-const.h
+> +++ b/arch/arm64/include/asm/runtime-const.h
+> @@ -7,6 +7,7 @@
+>  #endif
 >  
-> -	irqc->base = of_iomap(intc, 0);
-> +	irqc->base = devm_platform_ioremap_resource(pdev, 0);
->  	if (!irqc->base) {
-> -		pr_err("Unable to map registers\n");
-> +		dev_err(&pdev->dev, "unable to map registers\n");
->  		ret = -ENXIO;
->  		goto err_free;
->  	}
+>  #include <asm/cacheflush.h>
+> +#include <asm/text-patching.h>
 >  
-> -	rst = of_reset_control_get_exclusive(intc, NULL);
-> +	rst = devm_reset_control_get_optional(&pdev->dev, NULL);
+>  /* Sigh. You can still run arm64 in BE mode */
+>  #include <asm/byteorder.h>
+> @@ -50,13 +51,7 @@ static inline void __runtime_fixup_16(__le32 *p, unsigned int val)
+>  	u32 insn = le32_to_cpu(*p);
+>  	insn &= 0xffe0001f;
+>  	insn |= (val & 0xffff) << 5;
+> -	*p = cpu_to_le32(insn);
+> -}
+> -
+> -static inline void __runtime_fixup_caches(void *where, unsigned int insns)
+> -{
+> -	unsigned long va = (unsigned long)where;
+> -	caches_clean_inval_pou(va, va + 4*insns);
+> +	aarch64_insn_patch_text_nosync(p, insn);
+>  }
 
-Please use devm_reset_control_get_optional_exclusive() directly.
+Sashiko has some good points here:
 
->  	if (IS_ERR(rst)) {
-> -		pr_err("Unable to get reset control %pe\n", rst);
-> +		dev_err(&pdev->dev, "Unable to get reset control %pe\n", rst);
+https://sashiko.dev/#/patchset/20260402112250.2138-1-kprateek.nayak@amd.com
 
-Consider using dev_err_probe() to stop printing -EPROBE_DEFER.
+In short, aarch64_insn_patch_text_nosync() does not expect a linear map
+address but rather a kernel text one (or vmalloc/modules). The other
+valid point is on aliasing I-caches.
 
-regards
-Philipp
+I think dropping the lm_alias() and just use 'where' directly would do
+but I haven't tried.
+
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
