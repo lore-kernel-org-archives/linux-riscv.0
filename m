@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B359F44847
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2910CF4484C
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=ijW4jKPAcZsbPRuy+TseT6hDpo9L1JF+kGnBjCA5p14=; b=rvRsQO9fx0VuFI
-	pdkMCn19ySPDz0rVAPw6NWwpsyx0mFopUZWS7+pHO0mDaLpLFp+zztckUgGI66/MRBvSPEPWwDNew
-	fffatafDN9PNXo7CopoLsgNsI8ilC770GwyHtUwBEAsAY+pP8QheA0sVvYknOgsD1wEDJUbc7dD0b
-	wlp6/H2sGUpNMLZxLqg65otWH+R8pSahvPceaZbqR6uMhhdblwmqB3VaCfHVOUxazA6Q7kIVIq5x1
-	IDZc1JhkPNMR2m9ua5+6IiExXGdJ1Uu2fJDedtdQWOxw6Kx92mqeJzXk/mS4XoL8Fle5S/FwWZC6H
-	BuSjne1Mb6IxDA7DirqA==;
+	List-Owner; bh=VHMc9AfJKS4Gtio82z8bDr6UWKy6+IktiXnxcvy3YSU=; b=qFycCLTl1l2M5f
+	I56WlaK9BBUGyCtZV00V89F0BqxLlCwC+Du9NQmn5IMr3tH2z2yptTNfwPjnLf2lfoxXrF11cxZB8
+	H9zDsgACL5MDj+LjXt+QRrXwCZkbJ9OtO97aQkib+24AbIfaUNsjnbSGs0UrjZZJGunmZQD7/3/s7
+	G/FlPrzHu3V7EKOJQH+W/gyhYns87O6xxLfhlLUDF860KpTY8w/EEV6fu3Xlt4LFyk481GLth1rQg
+	EAPDhwqGjsyCkivSy8zak/9MN2DMpo7DaLgaQxuEhe1sVVfFME9h1k00Q7BF6OwMYKsthYTyBO8q0
+	CWSBPCkF0oHnaVXp5isA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBArW-0000000CCsW-0qVv;
-	Fri, 10 Apr 2026 12:21:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wBArf-0000000CD9E-1Ho2;
+	Fri, 10 Apr 2026 12:21:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBArF-0000000CCQH-3V4m;
-	Fri, 10 Apr 2026 12:21:09 +0000
+	id 1wBArP-0000000CCfy-1XEQ;
+	Fri, 10 Apr 2026 12:21:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E98D6091C;
-	Fri, 10 Apr 2026 12:21:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7FAAC19421;
-	Fri, 10 Apr 2026 12:21:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A5F7D6111B;
+	Fri, 10 Apr 2026 12:21:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57879C2BCB3;
+	Fri, 10 Apr 2026 12:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823667;
-	bh=ql5fkS0UEXw/nBMHEudu1ngsgqvxlZvUknLeTtAAGUU=;
+	s=k20201202; t=1775823677;
+	bh=8aVhqN+bsjtC+8iOVhItTcCo4nE5t4ex+cjOCvHOROg=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=uoiHjWjoWcWN7Tw6xiUbL/Io/RlHzIChPqiGJJ7RtYjsrncirPNTd0U6jsMefBLBl
-	 PuEP8rIYZGWPrDUGiB7D/1OZBxXBypGlDQEoNlUgfhKncfE0Vht3vVd8dR09fIJYz6
-	 LaRap+OM72T7ij93UcDxrSAuxRJvyqDUwai7p79fd01gYNQNCFb6LttF4gur8fMl1Z
-	 TmanYlU2xNYAREOAaMNh8AIeZ2WEpNPx/37VkP03IexczKkHFgtDwEiwY8TvmgoUyG
-	 zdqSX2TqLhRdpCyZVVz2iZYLDeqcR5cB1pNHnjTlrpzblDMQ8i7KXktiKriMpSMGuM
-	 +dQ/qJxaC9obA==
-Date: Fri, 10 Apr 2026 14:21:04 +0200
-Message-ID: <20260410120319.723429844@kernel.org>
+	b=OA4RjUakSKbHP7uZl9Rn6aI/7Qts08y1gdCxG4212yNJdVKaYLulTRlHhQ1giBOu6
+	 tARhrIBIltPo7n2ZqupgbCjM222ynMbD+JMBXCcsIED9ns8vEth54JFbieyU26o9rm
+	 KoQTgfYyoH0jSRf5j3OQodGQDBBjhAykp4Hy5bQdfGP0P88P76fnb883frBXWWU03q
+	 P/YOEYqjXf/L4ccO74xjFbM3qOQBRFdrvTUVXM6TfNVPJX1ACluXAp6rS0x+D02XQB
+	 ZfqSCQC8dN3KdQ34VmPvfFKRcfafCQ6soBJ+KtAS56vLrMJXpWDVh/K6XVrYMUGmaP
+	 YaxQP6ppalRew==
+Date: Fri, 10 Apr 2026 14:21:14 +0200
+Message-ID: <20260410120319.853669871@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>,
- linuxppc-dev@lists.ozlabs.org,
+Cc: Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
@@ -87,13 +87,13 @@ Cc: Michael Ellerman <mpe@ellerman.id.au>,
  linux-openrisc@vger.kernel.org,
  Helge Deller <deller@gmx.de>,
  linux-parisc@vger.kernel.org,
- Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ linuxppc-dev@lists.ozlabs.org,
  Heiko Carstens <hca@linux.ibm.com>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 32/38] powerpc/spufs: Use mftb() directly
+Subject: [patch 34/38] riscv: Select ARCH_HAS_RANDOM_ENTROPY
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -112,46 +112,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There is no reason to indirect via get_cycles(), which is about to be
-removed.
+The only remaining non-architecture usage of get_cycles() is to provide
+random_get_entropy().
 
-Use mftb() directly.
+Switch riscv over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
+and providing random_get_entropy() in asm/random.h.
+
+Add 'asm/timex.h' includes to the relevant files, so the global include can
+be removed once all architectures are converted over.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: linuxppc-dev@lists.ozlabs.org
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org
 ---
- arch/powerpc/platforms/cell/spufs/switch.c |    5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig                         |    1 +
+ arch/riscv/include/asm/random.h            |   25 +++++++++++++++++++++++++
+ arch/riscv/include/asm/timex.h             |   13 -------------
+ arch/riscv/kernel/unaligned_access_speed.c |    1 +
+ arch/riscv/kvm/vcpu_timer.c                |    1 +
+ arch/riscv/lib/delay.c                     |    1 +
+ 6 files changed, 29 insertions(+), 13 deletions(-)
 
---- a/arch/powerpc/platforms/cell/spufs/switch.c
-+++ b/arch/powerpc/platforms/cell/spufs/switch.c
-@@ -34,6 +34,7 @@
- #include <asm/spu_priv1.h>
- #include <asm/spu_csa.h>
- #include <asm/mmu_context.h>
-+#include <asm/time.h>
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -47,6 +47,7 @@ config RISCV
+ 	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
+ 	select ARCH_HAS_PTDUMP if MMU
+ 	select ARCH_HAS_PTE_SPECIAL
++	select ARCH_HAS_RANDOM_ENTROPY
+ 	select ARCH_HAS_SET_DIRECT_MAP if MMU
+ 	select ARCH_HAS_SET_MEMORY if MMU
+ 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
+--- /dev/null
++++ b/arch/riscv/include/asm/random.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_RISCV_RANDOM_H
++#define _ASM_RISCV_RANDOM_H
++
++#include <asm/timex.h>
++
++#ifdef CONFIG_RISCV_M_MODE
++/*
++ * Much like MIPS, we may not have a viable counter to use at an early point
++ * in the boot process. Unfortunately we don't have a fallback, so instead
++ * invoke the fallback function.
++ */
++static inline unsigned long random_get_entropy(void)
++{
++	if (unlikely(clint_time_val == NULL))
++		return random_get_entropy_fallback();
++	return get_cycles();
++}
++#else  /* !CONFIG_RISCV_M_MODE */
++static inline unsigned long random_get_entropy(void)
++{
++	return get_cycles();
++}
++#endif /* CONFIG_RISCV_M_MODE */
++#endif /* _ASM_RISCV_RANDOM_H */
+--- a/arch/riscv/include/asm/timex.h
++++ b/arch/riscv/include/asm/timex.h
+@@ -31,19 +31,6 @@ static inline u32 get_cycles_hi(void)
+ #define get_cycles_hi get_cycles_hi
+ #endif /* CONFIG_64BIT */
  
- #include "spufs.h"
+-/*
+- * Much like MIPS, we may not have a viable counter to use at an early point
+- * in the boot process. Unfortunately we don't have a fallback, so instead
+- * we just return 0.
+- */
+-static inline unsigned long random_get_entropy(void)
+-{
+-	if (unlikely(clint_time_val == NULL))
+-		return random_get_entropy_fallback();
+-	return get_cycles();
+-}
+-#define random_get_entropy()	random_get_entropy()
+-
+ #else /* CONFIG_RISCV_M_MODE */
  
-@@ -279,7 +280,7 @@ static inline void save_timebase(struct
- 	 *    Read PPE Timebase High and Timebase low registers
- 	 *    and save in CSA.  TBD.
- 	 */
--	csa->suspend_time = get_cycles();
-+	csa->suspend_time = mftb();
- }
+ static inline cycles_t get_cycles(void)
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -12,6 +12,7 @@
+ #include <linux/types.h>
+ #include <asm/cpufeature.h>
+ #include <asm/hwprobe.h>
++#include <asm/timex.h>
+ #include <asm/vector.h>
  
- static inline void remove_other_spu_access(struct spu_state *csa,
-@@ -1261,7 +1262,7 @@ static inline void setup_decr(struct spu
- 	 *     in LSCSA.
- 	 */
- 	if (csa->priv2.mfc_control_RW & MFC_CNTL_DECREMENTER_RUNNING) {
--		cycles_t resume_time = get_cycles();
-+		cycles_t resume_time = mftb();
- 		cycles_t delta_time = resume_time - csa->suspend_time;
+ #include "copy-unaligned.h"
+--- a/arch/riscv/kvm/vcpu_timer.c
++++ b/arch/riscv/kvm/vcpu_timer.c
+@@ -14,6 +14,7 @@
+ #include <asm/delay.h>
+ #include <asm/kvm_nacl.h>
+ #include <asm/kvm_vcpu_timer.h>
++#include <asm/timex.h>
  
- 		csa->lscsa->decr_status.slot[0] = SPU_DECR_STATUS_RUNNING;
+ static u64 kvm_riscv_current_cycles(struct kvm_guest_timer *gt)
+ {
+--- a/arch/riscv/lib/delay.c
++++ b/arch/riscv/lib/delay.c
+@@ -10,6 +10,7 @@
+ #include <linux/export.h>
+ 
+ #include <asm/processor.h>
++#include <asm/timex.h>
+ 
+ /*
+  * This is copies from arch/arm/include/asm/delay.h
 
 
 _______________________________________________
