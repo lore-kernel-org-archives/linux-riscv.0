@@ -4,66 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9646FE9904C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 07:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDE6E9904F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 07:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mcyCMIJA6/IgvO+ihXyrz5389XjTdiY6mYaQ2Wwspzg=; b=gOP67V6cVAGma7
-	PNolIjch0d7d5o1vU4We8YjVCwZDuNuw3TcVxS2OeL3PJgT+oPBzoEeNwcRd+wCLRSrPs7yumHk6D
-	2ng2izLMIvCFofwHCqkG59w/sr1z4kI4bu+VEJtqEgJ8Z8jEXWrm0j/bp9aQUBWloW63t0T0n6TFP
-	MIfVC4rFZ9ThGyo7PiHfSEBnVwaZ8+ghtZKT9/eTXJw2hcioIIRa0cdG/Um8nfJqLETm1ALKbBG9g
-	8kBV2+yG1Kdqo05D1Jw5589NQ+cILFhYnmqgDdXdokQebQT4XKvt0RQzA8riPP0OL7g6LVr6LdHEz
-	e+6xMLL4NlTQHugMKmYg==;
+	List-Owner; bh=9ZjD20nPYfQ3EopmFcrTK3T3DqtuuftiR8P7fA60BUw=; b=CRzRpWwd+TcEYA
+	WIxvIsS0kqclbyZGAYCYmDBHkMOKe6beyC+ub5JjMcqSh+Nf0+gORio6WGh+nPBu1xq9VOLtTUhL7
+	umnARHwiXas4BLF3w+oMaiamO2Sxm+qNeT3uIQOA9Zh//5Z0AG+c1sKkfOTuj7MTL0wDpcn0PMmyD
+	8dm6l2MvqKqjF7+ZzX5BOx2zB3Lj6cLXvf7VYuBkPzYckA2ZlciI+i5Cz2xcdJBo13qm8eMblt24+
+	JXLl+5DPlG2OrIp3iqdF9OUW59s9Ck4Pt5wAum47I1D6Cp5zVE04aMRgjlxiNQqmoFLxHkkN5ABNJ
+	0BmFqTEe1S3ZhhJTaA/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6Fj-0000000BjXc-1onS;
-	Fri, 10 Apr 2026 07:26:07 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wB6Vf-0000000Bm9U-40uk;
+	Fri, 10 Apr 2026 07:42:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6Ff-0000000BjWb-1JQh
+	id 1wB6Vf-0000000Bm9H-1VDs
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Apr 2026 07:26:06 +0000
-Received: from [10.213.21.49] (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAA3G+ICpthpNa+PDQ--.2010S2;
-	Fri, 10 Apr 2026 15:25:54 +0800 (CST)
-Message-ID: <c95d9003-58e5-46d2-ba5b-5d32a8743f1d@iscas.ac.cn>
-Date: Fri, 10 Apr 2026 15:25:54 +0800
+	Fri, 10 Apr 2026 07:42:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7972B60141;
+	Fri, 10 Apr 2026 07:42:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95FEBC19424;
+	Fri, 10 Apr 2026 07:42:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775806954;
+	bh=hQEK5B+09TH3hB6G8BbCrNjCMFs2zQm4NBC7Qt/Xwmw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o1Q70DAHbF9ymHI+DDlrLqozCWoAs3VQ6stb0XlLNxQjwPl5an4pJnjexXoVdPlVh
+	 x+ktMQQ90GLDgz/prtL3i8IhOwqAip9Iy5rxXrYDACUq3yaLwN2tRGLTI2o9ipID8z
+	 Z8ILXJ+xP5Al51T2KOxvFqB/xt++gB2XfpElG4ZXysB3L9lsOw4C5gPoUk67tn2BAg
+	 k6QbzqF7ftzTEv/lxC/yIum5Y6PHva3y2En7I7bK7gWEL3W2LrA9mrNpDfxpviXBj8
+	 sgTxoqQfHMauB+SjScKfwTaNWQKkzMEAf1OphnbQvKJbMIsQjJ6lGLSowx8OnI77uT
+	 2hGj7EkbOoBsg==
+Message-ID: <c390be36-ac4a-4964-9072-7ccf074d2f7f@kernel.org>
+Date: Fri, 10 Apr 2026 09:42:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: mm: Implement arch_within_stack_frames() for
- HARDENED_USERCOPY
-To: cp0613@linux.alibaba.com, pjw@kernel.org, alex@ghiti.fr,
- cleger@rivosinc.com, alexghiti@rivosinc.com, guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260410015013.845-1-cp0613@linux.alibaba.com>
+Subject: Re: [PATCH 3/5] riscv: mm: Fix NULL pointer dereference in
+ __set_memory
+To: Michael Neuling <mikey@neuling.org>
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>,
+ Aleksandar Rikalo <arikalo@gmail.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andrew Jones <ajones@ventanamicro.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>,
+ Guo Ren <guoren@kernel.org>, Junhui Liu <junhui.liu@pigmoral.tech>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, Lorenzo Stoakes <ljs@kernel.org>,
+ Nam Cao <namcao@linutronix.de>, Oleg Nesterov <oleg@redhat.com>,
+ Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Qinglin Pan <panqinglin2020@iscas.ac.cn>,
+ Raj Vishwanathan4 <rvishwanathan@mips.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20260409091143.1348853-1-mikey@neuling.org>
+ <20260409091143.1348853-4-mikey@neuling.org>
+ <b3466f28-0d0f-4ff8-8542-e53216cf3667@kernel.org>
+ <CAEjGV6yKKtN3kGeQ+tdz1xy-DDS2FD0C0X4qm-iZ3zq7LEyhHQ@mail.gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260410015013.845-1-cp0613@linux.alibaba.com>
-X-CM-TRANSID: rQCowAA3G+ICpthpNa+PDQ--.2010S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw4DCr13trykAFyftF45trb_yoWrKr43pF
-	ZakFn3JrWUJr1I9ry2yFy09rnYg393ua1aqFWDJ3W8Ars0krW8X39xKa48ZryDArykWrW0
-	9FyFgF9rCrs8X3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkIb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Cr0_Gr
-	1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCY1x0262kKe7AKxVWUAVWUtwCF
-	04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r
-	18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vI
-	r41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr
-	1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvE
-	x4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU5-YwUUUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_002603_722846_FCE40D58 
-X-CRM114-Status: GOOD (  23.12  )
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <CAEjGV6yKKtN3kGeQ+tdz1xy-DDS2FD0C0X4qm-iZ3zq7LEyhHQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,148 +132,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chen Pei,
+On 4/10/26 08:23, Michael Neuling wrote:
+>>>               area = find_vm_area((void *)start);
+>>> +             if (!area) {
+>>> +                     ret = -EINVAL;
+>>> +                     goto unlock;
+>>> +             }
+>>>               page_start = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
+>>>
+>>>               for (i = page_start; i < page_start + numpages; ++i) {
+>>
+>> Which caller would end up calling __set_memory() in such a way?
+> 
+> It wouldn't. You're right on this and the other two. Sorry for the noise.
 
-Thanks for your patch. I have a few minor suggestions:
+Slopped-by: Cursor:claude-4.6-opus-high-thinking
 
-On 4/10/26 09:50, cp0613@linux.alibaba.com wrote:
-> From: Chen Pei <cp0613@linux.alibaba.com>
->
-> Implement arch_within_stack_frames() to enable precise per-frame stack
-> object validation for CONFIG_HARDENED_USERCOPY on RISC-V.
->
-> == Background ==
->
-> [...]
->
-> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+:)
 
-Patch message is probably too long. You can put additional information
-like testing under a --- line to cut those out of the eventual actual
-commit message.
+Patch #1 seems reasonable (although non-critical); not sure about patch
+#2, leaving both to Risc-V people!
 
-Make sure that Signed-off-by is above the cut if you do that.
+-- 
+Cheers,
 
-> ---
->  arch/riscv/Kconfig                   |  1 +
->  arch/riscv/include/asm/thread_info.h | 66 ++++++++++++++++++++++++++++
->  2 files changed, 67 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 6fe90591a274..4f765ff608d9 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -150,6 +150,7 @@ config RISCV
->  	select HAVE_ARCH_USERFAULTFD_MINOR if 64BIT && USERFAULTFD
->  	select HAVE_ARCH_USERFAULTFD_WP if 64BIT && MMU && USERFAULTFD && RISCV_ISA_SVRSW60T59B
->  	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
-> +	select HAVE_ARCH_WITHIN_STACK_FRAMES
->  	select HAVE_ASM_MODVERSIONS
->  	select HAVE_BUILDTIME_MCOUNT_SORT
->  	select HAVE_CONTEXT_TRACKING_USER
-> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-> index 36918c9200c9..616a41eb7416 100644
-> --- a/arch/riscv/include/asm/thread_info.h
-> +++ b/arch/riscv/include/asm/thread_info.h
-> @@ -101,6 +101,72 @@ struct thread_info {
->  void arch_release_task_struct(struct task_struct *tsk);
->  int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
->  
-> +#ifdef CONFIG_HAVE_ARCH_WITHIN_STACK_FRAMES
-
-Not needed since you've selected it above.
-
-> +/*
-> + * RISC-V stack frame layout (with frame pointer enabled):
-> + *
-> + * high addr
-> + *   +------------------+  <--- fp (s0) points here
-> + *   |   saved ra       |  fp - 8  (return address)
-> + *   |   saved fp       |  fp - 16 (previous frame pointer)
-
-fp - 2*sizeof(void*) probably, to account for RV32?
-
-> + *   +------------------+
-> + *   |   local vars     |
-> + *   |   arguments      |
-> + *   +------------------+  <--- sp
-> + * low addr
-> + *
-> + * The struct stackframe { fp, ra } lives at (fp - sizeof(stackframe)),
-> + * i.e. fp[-2]=saved_fp and fp[-1]=saved_ra.
-> + *
-
-Maybe link to the authoritative source:
-
-  https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-cc.adoc#frame-pointer-convention
-
-> + * For usercopy safety, we allow copies within [prev_fp, fp - 2*sizeof(void*))
-> + * for each frame in the chain, where prev_fp is the fp of the previous
-> + * (lower) frame.  This covers local variables and arguments but excludes
-> + * the saved ra/fp slots at the top of the frame.
-> + *
-> + * We walk the frame chain starting from __builtin_frame_address(0) (the
-> + * current frame), with prev_fp initialized to current_stack_pointer.
-> + * Using current_stack_pointer -- rather than the 'stack' argument (which is
-> + * the thread's entire stack base) -- ensures that objects in already-returned
-> + * frames (address below current sp) are correctly detected as BAD_STACK,
-> + * because no live frame in the chain will claim that region.
-> + */
-> +__no_kmsan_checks
-> +static inline int arch_within_stack_frames(const void * const stack,
-> +					   const void * const stackend,
-> +					   const void *obj, unsigned long len)
-> +{
-> +#if defined(CONFIG_FRAME_POINTER)
-> +	const void *fp = (const void *)__builtin_frame_address(0);
-> +	const void *prev_fp = (const void *)current_stack_pointer;
-> +
-> +	/*
-> +	 * Walk the frame chain. Each iteration checks whether [obj, obj+len)
-> +	 * falls within the local-variable area of the current frame:
-> +	 *
-> +	 *   [prev_fp, fp - 2*sizeof(void*))
-> +	 *
-> +	 * i.e. from the base of this frame (sp of this frame, which equals
-> +	 * the fp of the frame below) up to (but not including) the saved
-> +	 * fp/ra area at the top of this frame.
-> +	 */
-> +	while (stack <= fp && fp < stackend) {
-
-Since we access fp - 2 * sizeof(void *) below, this probably should be
-something like this:
-
-    while (stack + 2 * sizeof(void *) <= fp && fp < stackend) {
-
-(Possibly with some casts added.)
-
-> +		const void *frame_vars_end = (const char *)fp - 2 * sizeof(void *);
-> +
-> +		if (obj + len <= frame_vars_end) {
-> +			if (obj >= prev_fp)
-> +				return GOOD_FRAME;
-> +			return BAD_STACK;
-> +		}
-> +		prev_fp = fp;
-> +		fp = *(const void * const *)((const char *)fp - 2 * sizeof(void *));
-
-Maybe: fp = *(const void * const *)frame_vars_end;
-
-> +	}
-> +	return BAD_STACK;
-> +#else
-> +	return NOT_STACK;
-> +#endif
-> +}
-> +#endif /* CONFIG_HAVE_ARCH_WITHIN_STACK_FRAMES */
-> +
->  #endif /* !__ASSEMBLER__ */
->  
->  /*
-
-Thanks,
-Vivian "dramforever" Wang
-
+David
 
 _______________________________________________
 linux-riscv mailing list
