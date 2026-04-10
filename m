@@ -4,59 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326C3F44873
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 14:32:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8793EF44872
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 14:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WD+gxOaygRBS3F1dWPSLGqZbtT3TBCth2f383B5GZFc=; b=wxK98Y1Q7MQihg
-	qnRvc5pNS1alqM2sGgaJKyfGgJ9dQIWf0c7i9N44eMe1CEVF+bisY/u3j4JjKM48+RxAQxgY3HWWc
-	+3GfXp5hxurJI/k4N5I5dKP5W29PdlJgZ4z2zvkhKzhEI6IQKkuWmO507/zxlN3BXCaEkS0mtb+Lu
-	qYZwOGNYtyA7h4E5dCavmoxBBHWBqXqc46gyQDCnGiII3O8uA343e4L0OORt1j+pS92rzWzLn23+s
-	njgmytQBRlWsv7o24kwzMHXOlSFMnrj5YfUyyJ5dADFSA+n8MWat1Y1Dmi6CdRDxBz1E9wiPM3HpX
-	V4t/PyANvRVg4JKEG8bA==;
+	List-Owner; bh=KmJzXnbfR+S+cCPixjX3+MvlBBl0r9gxlYNU800U7vw=; b=Dk+OGpvbuPZfqa
+	3RdRq4IDS3xOCBz3+9II69oR6DryqHAEA2SKzcIqpKlx/aSyaOVO/wkZgjJnHRYCr92Bw7A0ubfbE
+	6s4jZTmdRNHK5Ahkin0jCUDgBxYay7ySpkFpBJoEFrbkE+Mnfoo0pyrnNSff/YuyWkFKHwcBL1TIF
+	ah2xghJz+3PFDgxfq7vZLDrVJvNuPpBagvpPV8x3GoHzBsvZKAgm6DWR1puaRGzXPcr0ZuA/8yJgM
+	5SWMsxAAVcEQXBZ7DoPAFnxZTS26VDu9b8OnqGQglhKkjaHps4+JkGBDRLHrLGIU8ncbsGcXV/YSB
+	4N3P3eq5wtWDrlGsCvAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCu1-0000000CO8D-0eNh;
-	Fri, 10 Apr 2026 14:32:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wBCyq-0000000COLe-3Hbx;
+	Fri, 10 Apr 2026 14:37:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCu0-0000000CO85-1Cyr
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 10 Apr 2026 14:32:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ySI8d8y036ORHtABeS6u8UzWRJy2qBPy8C/MLYGEwB8=; b=E3CxdRGmevQRSQqu5onVSHxHcz
-	LrLbG3QSi1l+XXcPDPxBxCCzykpWQNHb/HwE5rEE/vaIZXjNZURpRnBBq6UDoznKVgm/upvzES6Sm
-	2X0oGbLG1AupXa3FRRpX8+F5mOlAkOcv2HHII5pvr98mJxgUUPB6XRPXNn0Su80jYz/1L+5/Gh9Gq
-	VzYU3nRAihLHAVg+xTnCLWCMWnWe8S1JA5vlY1vc2ebZF36Zry7poFKnelrLCk66HRwTzaNzdlC1v
-	ktb2zckUqwwGu8yXpjZ/aICymVqPWy81/zxIjCdiOecfTaUwdM0NOF26tucqW2LwiZVw/Id6lOJ2I
-	X+RF22fA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCtx-0000000Dfcl-1Slq
+	id 1wBCyo-0000000COKq-25QZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Apr 2026 14:32:07 +0000
+	Fri, 10 Apr 2026 14:37:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9578408B5;
-	Fri, 10 Apr 2026 14:32:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA419C2BC87;
-	Fri, 10 Apr 2026 14:32:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C864344466;
+	Fri, 10 Apr 2026 14:37:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D06C2BC87;
+	Fri, 10 Apr 2026 14:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775831523;
-	bh=25xPWzxiGr4LHVrhwE7A6wdqd8RHpKmiF28MPO0r6nE=;
+	s=k20201202; t=1775831825;
+	bh=lIPy10seU4u6dXsty190ZSW7/g5QTmitfsih214NoVk=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=tqGN2qePD9xAh3Pj3AGoPKMZhuIq5LHCILZITbTkgSeoYaOubddRaNn55X/LJ11lk
-	 QmJAx0/SG/k9UE2DrIOYC+Na+Y3k7QmSpEo5zLExPRO0OOE6czkClBkwwlcRjYOOB1
-	 AK8cK+rg6AKZt+Hh223VAYbYopaIbHmtt7oeDNoU3OH9tRh4ixIM698eT5PcPx6m9A
-	 EIq5SQkX26V9rxhPipdu5CctuRM195kmo29QW8uwqLnmSAyAfjxxBg9+z3WUZ2qWsd
-	 MpfbWAGNzKcTm+H313Ah+ogX/bDyCwHC5MZUtAAalRhf6Kn3x9SZzWXyXwOL+XLCLa
-	 58hOvhP84Xt3g==
+	b=UyKzbjNn66GEdbJqVrbPMv7CyLVNPazndTrSz+P4e0qN6uRb4EHUnrKH9qEYBTURK
+	 whoeDOK8e/ItAp/cFxz5jn+8fMaRPD0yfdN5QZLTVV6sCgzzkAKtQrt8HyhLpaRfmS
+	 8KOULMvM6l88OtOcunsXZNdVdaT6flJZ1GQYxCVI3x34zAfusBnUH62WhVrB3QksyD
+	 AsvW21nshwfq7VJyTaUKD0K3CyHDKCA2vzyeGOI0Ur3ZCUdq0dKQjhdLziz4kcmJWQ
+	 eYWdyxeFFz0Lz8BvhjDAAiTiwsamKku9/YuyEVNK+9zqiDIAkTh15zrDH0OUjdf5nB
+	 CvDUqRl7Yi3zA==
 From: Thomas Gleixner <tglx@kernel.org>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>, Rob Herring
  <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -65,18 +50,17 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, Ley Foon Tan
  <leyfoon.tan@starfivetech.com>, Changhuang Liang
  <changhuang.liang@starfivetech.com>
-Subject: Re: [PATCH v1 3/5] irqchip: starfive: Use devm_ interfaces to
- simplify resource release
-In-Reply-To: <20260410090106.622781-4-changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH v1 4/5] irqchip: starfive: Increase the interrupt source
+ number up to 64
+In-Reply-To: <20260410090106.622781-5-changhuang.liang@starfivetech.com>
 References: <20260410090106.622781-1-changhuang.liang@starfivetech.com>
- <20260410090106.622781-4-changhuang.liang@starfivetech.com>
-Date: Fri, 10 Apr 2026 16:32:00 +0200
-Message-ID: <87a4va28f3.ffs@tglx>
+ <20260410090106.622781-5-changhuang.liang@starfivetech.com>
+Date: Fri, 10 Apr 2026 16:37:02 +0200
+Message-ID: <877bqe286p.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_153205_653203_D72B03D6 
-X-CRM114-Status: UNSURE (   5.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260410_073706_587229_558851C3 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,23 +78,62 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Fri, Apr 10 2026 at 02:01, Changhuang Liang wrote:
-> -	irqc->base = of_iomap(intc, 0);
-> +	irqc->base = devm_platform_ioremap_resource(pdev, 0);
->  	if (!irqc->base) {
-> -		pr_err("Unable to map registers\n");
-> +		dev_err(&pdev->dev, "unable to map registers\n");
->  		ret = -ENXIO;
->  		goto err_free;
 
-You can eliminate err_free as well by doing:
+> From: Mason Huo <mason.huo@starfivetech.com>
+>
+> StarFive JHB100 SoC interrupt controller actually supports 64 interrupt
+> sources, the original code only supported up to 32. now it is extended
+> to 64.
+>
+> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  drivers/irqchip/irq-starfive-jhb100-intc.c | 43 ++++++++++++++--------
+>  1 file changed, 28 insertions(+), 15 deletions(-)
+>
+> diff --git a/drivers/irqchip/irq-starfive-jhb100-intc.c b/drivers/irqchip/irq-starfive-jhb100-intc.c
+> index 312a4634870a..d5ecbb603a58 100644
+> --- a/drivers/irqchip/irq-starfive-jhb100-intc.c
+> +++ b/drivers/irqchip/irq-starfive-jhb100-intc.c
+> @@ -18,10 +18,11 @@
+>  #include <linux/reset.h>
+>  #include <linux/spinlock.h>
+>  
+> -#define STARFIVE_INTC_SRC0_CLEAR	0x10
+> -#define STARFIVE_INTC_SRC0_MASK		0x14
+> -#define STARFIVE_INTC_SRC0_INT		0x1c
+> +#define STARFIVE_INTC_SRC_CLEAR(n)	(0x10 + ((n) * 0x20))
+> +#define STARFIVE_INTC_SRC_MASK(n)	(0x14 + ((n) * 0x20))
+> +#define STARFIVE_INTC_SRC_INT(n)	(0x1c + ((n) * 0x20))
+>  
+> +#define STARFIVE_INTC_NUM		2
+>  #define STARFIVE_INTC_SRC_IRQ_NUM	32
+>  
+>  struct starfive_irq_chip {
+> @@ -53,18 +54,26 @@ static void starfive_intc_bit_clear(struct starfive_irq_chip *irqc,
+>  static void starfive_intc_unmask(struct irq_data *d)
+>  {
+>  	struct starfive_irq_chip *irqc = irq_data_get_irq_chip_data(d);
+> +	int i, bitpos;
+> +
+> +	i = d->hwirq / STARFIVE_INTC_SRC_IRQ_NUM;
+> +	bitpos = d->hwirq % STARFIVE_INTC_SRC_IRQ_NUM;
+>  
+>  	raw_spin_lock(&irqc->lock);
+> -	starfive_intc_bit_clear(irqc, STARFIVE_INTC_SRC0_MASK, BIT(d->hwirq));
+> +	starfive_intc_bit_clear(irqc, STARFIVE_INTC_SRC_MASK(i), BIT(bitpos));
+>  	raw_spin_unlock(&irqc->lock);
+>  }
 
-    struct startfive_irq_chip *irqc __free(kfree) = kzalloc_obj(*irqc);
+As you are touching this code, please convert the locking to guard()
 
-    ....
-    dev_info(..);
+  	guard(raw_spinlock)(&irqc->lock);
+	starfive_intc_bit_clear(irqc, STARFIVE_INTC_SRC0_MASK, BIT(d->hwirq));
 
-    retain_and_null_ptr(irqc);
-    return 0;
+
+> +	for (i = 0; i < STARFIVE_INTC_NUM; i++) {
+
+  for (int i = 0; ...)
 
 Thanks,
 
