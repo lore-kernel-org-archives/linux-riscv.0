@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46888F4484C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE3F1F4484C
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=LVAV/G0MaBzqg0dfnzsBPlc9PXkTP57JS6P6vKYCodI=; b=drI8HxQMx8/uPD
-	hdpzycxqaW6q/bykpClXwnfUWMEmr1SLrXcu8rg6+J5ZuAPeyEdCiuoE69eBNi8098EHthFGjyfkL
-	Zp24u0aALwOI5MTgSPCjCuPGxv7ws+MMu5leT8Nv61Pf9yIRr9iJmOVscQNbY8lHlNr/Q8BXMcfRz
-	rqWuk1I/SWutbTjweEstIqT8udNyaA4css58kemwpZbBSF3l2aR40odAOzv/1tNjQrlatTBne6GGE
-	On099px0pgPFXLG5atT3RZkR5FF6UpEO87HJPu2m2fX4Rk++/F6alGsK/DhorqfsXyluJuJe+ZdjY
-	75SUSEjlinrGgp59C+9g==;
+	List-Owner; bh=PELfwHwkS7Vfq402WuVvU66zIQjBpmH8LBbEwmwsO+8=; b=o/4YjrCKS1o1iz
+	tQ89B+ZDaIbh0gGwfijVZuJJalQUJq+g3nJZmi6zQuNecnWA3njzehSu/7CUd3XgT5M0lDidbnaDD
+	gt6B8FZpGJib6OYrqcABWUEWmmSvxTk/bzh9AwIVWOzfCQJHlNsirOwpbZaHkfKD8YXca7P/PFD1D
+	x8U2FQ2j0An2cNGayC652IgMnmm9ojDQP4SRl02bTe2tl7nJWUJLnmvn4Q1IrtaZLLuBIeOSwkBvd
+	vXnywW57xjRMhvY1rafqCB2msI9xKyidE3MCASDDpDhSDWqpUjrNHaCN6A9RPyDgFfFn6ytFkzjSX
+	YT34AS3H6jNS4XANkHAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBArg-0000000CDCb-48qR;
-	Fri, 10 Apr 2026 12:21:37 +0000
+	id 1wBArn-0000000CDQN-1v3S;
+	Fri, 10 Apr 2026 12:21:43 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBArO-0000000CCeW-1X8F;
-	Fri, 10 Apr 2026 12:21:18 +0000
+	id 1wBAra-0000000CCxQ-1HFv;
+	Fri, 10 Apr 2026 12:21:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=2HK2S+YO7fB4ujSzajjkO7eLLa83jA73mkIKAqkhMZw=; b=q138e2Fc5JfKjrJKfpR3cxnz19
-	kdlwEzCE4ooxztBCiWmaF672dYjKvQkw/6pisco9RdNl6G/0/C+5edM9vlQ0A+OBzkdoip/+MQcD8
-	a+dpzNlIUAXIF+p07xEb9p4T9SUdz9UFtvQYDl9PO/E2o25k8AnRRJ4Bhpzn53lwjwYbsuU9ofQcR
-	zZlPO4VCw2JmramHrnvALL/vK6AveRPgvQUJBJHh56TcVgvSKc25BZm3FOdtClGpNmL+toXSxOcKl
-	fnkhp9Ky+ZDTaoYHBcFClfw3prJcoAWEXghqqkcyFiNr5r+c9BbF2wtUbQWmcrudUnGF7NEpTjtmS
-	Caeft/Qg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	bh=8zvdRD2p6/HZ8oXsfe5lXlcag4dZNqBBcODU4ow/RYc=; b=ltZiENAiuDeA0DtfgrPTX4UhrA
+	mPSdhRbc4CR3M7xt9DwnxpG9/MmJg5eO6DQ38sFppshbE0AWGHjCxR3F5ECvSbshap6qg522wz80e
+	7CLeZDsHZefpgn9hM256k9+19QciKJgdQppgFYEU8wzouCneEEiKbuh9vcgmale2JfAM6dz60BqJ0
+	+AfWZA+RX4URqYiDSyfMeayYKVAPvMeUgi1kv/11vCzwRP0QKvpy/gtT2j9l9x4ImDlsM+F14mYvn
+	syiwTKSM50g6MhiPpjV0J+ZVfdXI9OiKj+quh88aK+G2gXaJJ8yHkZhLVzL3dm7LR3O/XeRGfPTqm
+	LVlyhgzA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBArK-0000000DRRE-2KK2;
-	Fri, 10 Apr 2026 12:21:16 +0000
+	id 1wBArU-0000000DRWv-0WYn;
+	Fri, 10 Apr 2026 12:21:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E75043A9E;
-	Fri, 10 Apr 2026 12:21:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E4B2C2BC87;
-	Fri, 10 Apr 2026 12:21:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0543642A47;
+	Fri, 10 Apr 2026 12:21:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DC20C2BCAF;
+	Fri, 10 Apr 2026 12:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823672;
-	bh=tpcbJjrROej8+Ep0S4yh9w/0viNOJRSIBsQtj9nrduE=;
+	s=k20201202; t=1775823681;
+	bh=OPcZi/R5r87GvmWT5SIJxVBbPPoFFtvzuT/73U4xw6M=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=t+6BdojJde/UDdVdrSTxElEId1Y48xNZSVlMYQlGTL0WHNGFs3HWPQxpINyMlW0Tp
-	 I6cN87TfGyJy1fhgMX3eHxGWXyIRGEfK+oj+v7ZqgSkuHT9TIqDSO48kfeefrr2R+6
-	 RZvls6BOQPsjm5E39PGBUAxS3ybrYUwTjTmhDryNFYGgOGgmcHGql9J5M/vSFS9Dpm
-	 Ps3dk0/gjV2/aMyaPlsNujNJN/7qos+7ycvHmAQEpnPn1tOePEJ6rKipC5ku3IQ4UE
-	 ud6vC+9M6N71X0VBW7hJfjso4CmI7VrrHXujC0k5eBTPHkHx5czFPyyVnepx/5Zgc1
-	 GRj7R63OiiEsA==
-Date: Fri, 10 Apr 2026 14:21:09 +0200
-Message-ID: <20260410120319.789114053@kernel.org>
+	b=nXK4IjIIYC4xFxjX1itXAh56E7vQfZ/FFg1BbCs9BTXZuysjAps9x9bTN1xwZq3nZ
+	 nGcIQtUczMHcNVAOXl3hUPdL+RNfqdz89/sEUMpghyMK10SkqIQqjoKkLYlZIDgGQg
+	 6k/60XarMgLYO/edAAklc4cY8bckLykp1FNwUtHWQrXz6RHvG4M2KbuAE5KrJ4anwq
+	 KM/F3nJU8E8F/VqEi0tPDyEpicMuyuDi9K4xS5dK75o3zu+aRbSw7hWtA0AaEaHPPT
+	 N9wVjGhL4hXB+rfUE/x4Qggo67acuAQqBh4RtUYL+MOxGvNcfvlrnmgwbgp5vSVReB
+	 QZ733oHdFO0vw==
+Date: Fri, 10 Apr 2026 14:21:19 +0200
+Message-ID: <20260410120319.924028412@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>,
- linuxppc-dev@lists.ozlabs.org,
+Cc: Heiko Carstens <hca@linux.ibm.com>,
+ linux-s390@vger.kernel.org,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
@@ -101,19 +101,18 @@ Cc: Michael Ellerman <mpe@ellerman.id.au>,
  linux-openrisc@vger.kernel.org,
  Helge Deller <deller@gmx.de>,
  linux-parisc@vger.kernel.org,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ linuxppc-dev@lists.ozlabs.org,
  Paul Walmsley <pjw@kernel.org>,
  linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>,
- linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 33/38] powerpc: Select ARCH_HAS_RANDOM_ENTROPY
+Subject: [patch 35/38] s390: Select ARCH_HAS_RANDOM_ENTROPY
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_132114_935999_81837E55 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260410_132124_542213_84617DEB 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,72 +129,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The only remaining usage of get_cycles() is to provide random_get_entropy().
+The only remaining non-architecture usage of get_cycles() is to provide
+random_get_entropy().
 
-Switch powerpc over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
-and providing random_get_entropy() in asm/random.h.
+Switch s390 over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY and
+providing random_get_entropy() in asm/random.h.
 
-Remove asm/timex.h as it has no functionality anymore.
+Add 'asm/timex.h' includes to the relevant files, so the global include can
+be removed once all architectures are converted over.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: linuxppc-dev@lists.ozlabs.org
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: linux-s390@vger.kernel.org
 ---
- arch/powerpc/Kconfig              |    1 +
- arch/powerpc/include/asm/random.h |   13 +++++++++++++
- arch/powerpc/include/asm/timex.h  |   21 ---------------------
- 3 files changed, 14 insertions(+), 21 deletions(-)
+ arch/s390/Kconfig              |    1 +
+ arch/s390/include/asm/random.h |   12 ++++++++++++
+ arch/s390/include/asm/timex.h  |    6 ------
+ arch/s390/kernel/time.c        |    1 +
+ arch/s390/kernel/vtime.c       |    1 +
+ 5 files changed, 15 insertions(+), 6 deletions(-)
 
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -150,6 +150,7 @@ config PPC
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -108,6 +108,7 @@ config S390
  	select ARCH_HAS_PREEMPT_LAZY
  	select ARCH_HAS_PTDUMP
  	select ARCH_HAS_PTE_SPECIAL
 +	select ARCH_HAS_RANDOM_ENTROPY
- 	select ARCH_HAS_SCALED_CPUTIME		if VIRT_CPU_ACCOUNTING_NATIVE && PPC_BOOK3S_64
+ 	select ARCH_HAS_SCALED_CPUTIME
+ 	select ARCH_HAS_SET_DIRECT_MAP
  	select ARCH_HAS_SET_MEMORY
- 	select ARCH_HAS_STRICT_KERNEL_RWX	if (PPC_BOOK3S || PPC_8xx) && !HIBERNATION
 --- /dev/null
-+++ b/arch/powerpc/include/asm/random.h
-@@ -0,0 +1,13 @@
++++ b/arch/s390/include/asm/random.h
+@@ -0,0 +1,12 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_POWERPC_RANDOM_H
-+#define _ASM_POWERPC_RANDOM_H
++#ifndef _ASM_S390_RANDOM_H
++#define _ASM_S390_RANDOM_H
 +
-+#include <asm/cputable.h>
-+#include <asm/vdso/timebase.h>
++#include <asm/timex.h>
 +
 +static inline unsigned long random_get_entropy(void)
 +{
-+	return mftb();
++	return (unsigned long)get_tod_clock_monotonic() >> 2;
 +}
 +
-+#endif	/* _ASM_POWERPC_RANDOM_H */
---- a/arch/powerpc/include/asm/timex.h
-+++ b/arch/powerpc/include/asm/timex.h
-@@ -1,21 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#ifndef _ASM_POWERPC_TIMEX_H
--#define _ASM_POWERPC_TIMEX_H
--
--#ifdef __KERNEL__
--
--/*
-- * PowerPC architecture timex specifications
-- */
--
--#include <asm/cputable.h>
--#include <asm/vdso/timebase.h>
--
--ostatic inline cycles_t get_cycles(void)
++#endif
+--- a/arch/s390/include/asm/timex.h
++++ b/arch/s390/include/asm/timex.h
+@@ -219,12 +219,6 @@ static inline unsigned long get_tod_cloc
+ 	return tod;
+ }
+ 
+-static inline cycles_t get_cycles(void)
 -{
--	return mftb();
+-	return (cycles_t)get_tod_clock_monotonic() >> 2;
 -}
 -#define get_cycles get_cycles
 -
--#endif	/* __KERNEL__ */
--#endif	/* _ASM_POWERPC_TIMEX_H */
+ /**
+  * tod_to_ns - convert a TOD format value to nanoseconds
+  * @todval: to be converted TOD format value
+--- a/arch/s390/kernel/time.c
++++ b/arch/s390/kernel/time.c
+@@ -50,6 +50,7 @@
+ #include <asm/irq_regs.h>
+ #include <asm/vtimer.h>
+ #include <asm/stp.h>
++#include <asm/timex.h>
+ #include <asm/cio.h>
+ #include "entry.h"
+ 
+--- a/arch/s390/kernel/vtime.c
++++ b/arch/s390/kernel/vtime.c
+@@ -14,6 +14,7 @@
+ #include <linux/time.h>
+ #include <asm/alternative.h>
+ #include <asm/cputime.h>
++#include <asm/timex.h>
+ #include <asm/vtimer.h>
+ #include <asm/vtime.h>
+ #include <asm/cpu_mf.h>
 
 
 _______________________________________________
