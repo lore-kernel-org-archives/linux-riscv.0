@@ -4,129 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7354F459F6
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 15:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04EDBF459EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 16:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9l9vnAipkR2JkoYM/loACLAkSLIh1/foUoMVpI96VOM=; b=Jy0l/ygB7VcR0B
-	GXk1nUDv2P9Lk/Jbd/4hqjuPzx0efDdYJf4lZ3x9aMrubhG+1rFe9aICCFwxkMFClqKrhTmczGg44
-	xWiasRCrm0cGDW+WZWsyWuoH8gu8/5+jaofvKdk/1K6wNJQNY3WzFh0pCee6IDGZDUWSkbh2RTs/2
-	h35QbJrewQyDJOyYjwHI5+EQ65NUHZKwqTNPBSjS8uaEqD+EbZJ49elyVaBGZpoSLfKvCy6Qr2h9h
-	afqex3AdBr3zAUNtTYqw2N44S+Ck7ZeBI/4IxhRlsJ7RAnDMo8xIJVhz8xdG7PJWnxGOoVLir84PS
-	g6ancEC81zIC3keD5gLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HHZSJkLhivBI5SJraly/U8wvFdMBaKchUgnf5S2hc1o=; b=CXg8NDW2dOC5MsN7+Qz0E9cRdJ
+	FNC+9U26rZqfv8cO7BtZKdGWs43rxCwG6FZgZjtolo5d/CK7N44YZpWZknwKNYigcPL58nah7+ngR
+	2Nj/7jEgFv+muZfBH6sVfltHEXlMmOVQr274wSw8yljUrzBEM1JBgY6F4oSYTsYvU4ugeAhZprSMW
+	/h8XB67oTqnZb6Rr9WwQf4ItDAdKAqN316ase8+npE3ab/rEgWdPKkMtxeEajRFPWqlmh5oef8IsE
+	QD5iv2NODFsDMDu+vuP6gr3tfhskSGIORAeOUBWZOgXDo1G8J8gp8I/8Ygr6WoQmRMzZlnkvJ2zlH
+	tOq2gL8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBEEc-0000000CUpC-1iyP;
-	Fri, 10 Apr 2026 15:57:30 +0000
-Received: from mail-northcentralusazon11010041.outbound.protection.outlook.com ([52.101.193.41] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wBES3-0000000CWFu-2RN8;
+	Fri, 10 Apr 2026 16:11:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBEEX-0000000CUjY-2nLr
+	id 1wBES1-0000000CWFY-2e16
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Apr 2026 15:57:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CuUEiWzcBcY6u/6ru8uRbxca2ZpOKabeIc6U0S1slK1UhiVgWsD/5MTGT/p/U8ynzI5LWeCcFTaj9bn2WpsXwpCphDo0DeFnF9YoyKfBR2rwwQTTEt6HHymKKT1Y7tJUgoRnBudySeG+4wRnpyOsmCE02fouWmPEjhUiIjwYIAwkXoZtWNGcd4HCt2lPYko0VsgS+menCuDpUscYbs03HySf/cxqIjXps76eW8TYjSkkYsfsGU3D3q/T36JuNpyYzrIMrcisd+9oEmPOBcF95gI6m3zDUJpWclQh/Was3V/65PGqBqWTVY4Gy+HqJWE0TRYaTwA4M7HQNnSVo2JdZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u/EfpEYcOufuZ9RtsH3HheRL6Sey3XyJkY+Fxi15C4k=;
- b=R9GhCDQxloyzmpZPImbaBvTzBIGGw/1u3pvqchM55B9YHVc4JXiypXh200Cns5RDwClMGA8Kg8eo6lgt8jZTmWATIDQc5cLxxxcL/N/quMtAYXUXuh7FgXKBsXUik82eDDwVSA+OI2eaY537DwQmxVFpmUF9k3KQ78wtDluxBHf7tkCrkzYhyp5XqKjD/Iyvrh83IjHCTcd8p453ywx4J6V1Hz9bifDI6/qEGOaT8vKpEDAu2ukI42P3ixce3CMsylPDueMnyPSYra+/ij2MBmjPfoZEBTTJNFtb5h2KkSsbvDMQO9fy8FVB+orfMLdqFUHD+W7vUxK/vrl8CiGSJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u/EfpEYcOufuZ9RtsH3HheRL6Sey3XyJkY+Fxi15C4k=;
- b=Mr+dvY6DM9IbOkgi3OJVWe3poHIUyqB9Cl30QzD2EzA2xe0z+AfxhvqMDs/q7wIFpQGH/QO+k1CdcJFtdE/1Hnkn15kJdkLdtIzzwa/OPFj7v90C9m8y1zmJDO6Ij0g43/znztbQvEMYtgzBGal44C/0J83ntrZngdEIWd/A+wW93leEc6CVnkVA9zz0ACoL1Ue5YIs5RoCKco19/j6wpOeXdpx74xKIm6AeN4PyFi6x2kxo9zSiu2SFRapTBiMkizkaEC9AtI8WLrYVD1WCusZvEufCt4ulunHCfz6H90lEYt8jWhEKroDBrs36/L8IBjYkmesXzrDFvXrSVXFSlQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by MW4PR12MB7285.namprd12.prod.outlook.com (2603:10b6:303:22e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.34; Fri, 10 Apr
- 2026 15:57:13 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
- 15:57:12 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-riscv@lists.infradead.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Will Deacon <will@kernel.org>
-Cc: Fangyu Yu <fangyu.yu@linux.alibaba.com>,
-	patches@lists.linux.dev
-Subject: [PATCH 7/7] iommu/riscv: Add NAPOT range invalidation support
-Date: Fri, 10 Apr 2026 12:57:08 -0300
-Message-ID: <7-v1-54e7264d71b4+17cc3-iommu_riscv_inv_jgg@nvidia.com>
-In-Reply-To: <0-v1-54e7264d71b4+17cc3-iommu_riscv_inv_jgg@nvidia.com>
-References: 
-X-ClientProxiedBy: YT4PR01CA0422.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10b::9) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 10 Apr 2026 16:11:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 41DF543E78;
+	Fri, 10 Apr 2026 16:11:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8455C19421;
+	Fri, 10 Apr 2026 16:11:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775837481;
+	bh=6ywWy6DPRk7+h0RyeGTRliH2Flx/nz1qZaA/Em5pnB8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OxNX0NIpIpiSkOF38tS/vr5i8gH+tKycbKH+b2jDtGloBbwhyBmClxxKH9B1meYIP
+	 g3S0dZ/MMudxmN1T71w4LjoPUBorTsc0ZGXhBTf6G1sHpup5q2zXxBgfQsokxROwJF
+	 KrV9VrvaEhS+9M0BhJ/psdK+H+Bnenxw58AJJTpHPIa3f8cN92XY8bxt1uPODpYVHK
+	 f42dGWab0dYB6Gm26Rdv4viYZ2Hf1QXc7GLGK+g816XLZLefgER8NC75wp0qe/VeRJ
+	 55xoSz1wcWkITGLmn4u0YWiKpVPZ+PQUKvEm7qlBuhImNThYQnQ19iDBro2a2C/Ma1
+	 8bnhx7RUzeLFA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 909B21AC58B9; Fri, 10 Apr 2026 17:11:18 +0100 (BST)
+Date: Fri, 10 Apr 2026 17:11:18 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Alex Elder <elder@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Alex Elder <elder@riscstar.com>
+Subject: Re: [PATCH v8 2/3] spi: spacemit: introduce SpacemiT K1 SPI
+ controller driver
+Message-ID: <adkhJhEQIZHgIQpH@sirena.co.uk>
+References: <20260410-spi-spacemit-k1-v8-0-53ebb48a4146@riscstar.com>
+ <20260410-spi-spacemit-k1-v8-2-53ebb48a4146@riscstar.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MW4PR12MB7285:EE_
-X-MS-Office365-Filtering-Correlation-Id: f18ea10a-c6ee-4aac-c572-08de9719d2cb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|921020|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: bWuuFu8hqNRu6fmSrqfRdkNBi0rvgUAJDH1yyFiQZ4RyxED1MLwvw+m7nWX/AQCjY7XwV3AHOGfNT8yqTFe7TtotxTvPKCTc9O80ywA52iTn+j+9Rh8f5PLTIwxuiBxVGc1W6aMknwDs8BSdjdT9BYvshZBvWAt0L83Rf2qva79CXhRqLU1jLbbf84AJWKjrlH3DhrbMPD+I3tsgJLQbU2EOqk4B06c/ksj5MibUhV3qLeeZlZEwEWOyOyO/XaSNr7xDcMYofFuin+6Dwxt5wRoXuPsrMsjw9mnBIa3javcgqt6aIFZ1kGzosGDLaXQMIdcOM/HBH09VmovWhHI1yoz98X0LsK3Pi77jOArn7sZrjpgE2cykhiMR7dXOJbuXlrS6+lZHDl6HAS5hfiQ7iPI4IJhsUTj1aehE5kdyD0TAMY+n2xmFJeh5jMowGZAGzcSo4vGm1rdsU7Mk3ZK10zIxV1r/HnPwcsjJ9qTviFQ3E4oNRWsBsKqSLkaxGceLxpWo9l7uOOFI1IuYazkhPpMcKcRTRY7UwAzhgGd0lKljDF2T0JpvT1Pfh4QNU1t0k2b5soQcaJ9yWlmDzvvYtVzjNbOge2Axz0QgXAyWpszBjuIhPUgLuegNwerT/9VFYfS3qQTd9Pxx2Q36jWrwpb8UVHkN6FSiNF4jUllqPFzvWbPtY2h2dvpOsRhbeG4RtkZ4XTHbAT3CvuGM8urlhWGtWkKJpZBhfD6x+5B1ehK5r9+p1i0hABM0SREkYYxls1rjgFOY74G5i9o5ZCuJrw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(921020)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CO4rsAEyZCYyfQ6DTydTEBmqHqJ76ZQsGNrxsZyrT0Y2fHw5D9ZyrbuGK++j?=
- =?us-ascii?Q?NUeb4VIr7xpaAOabaYlQcRxpK5VyoNE7AXnwJTdwg+im6gzVMHNCL0bGU8Br?=
- =?us-ascii?Q?KwLb5kgLiCW6jyDks160Oktkoa1f1hQjWT0pPFbW7DCI6zelcYgypMaVG4uQ?=
- =?us-ascii?Q?n2A49jWgwKODJCQf0lAti2/mKMmdXttUjDdob5AVQFgiSMN6kBuQZyxlsX5d?=
- =?us-ascii?Q?A8Pxe+d1w/ec68XIiDstFG7RTz/0N9saEMGo40JyZCQzI6secyRe75jWVBqo?=
- =?us-ascii?Q?sRpxiD/Bg1ZSTFFCGJfAiygyhvfeRkrehknzbUdUMSleU4lhT2BwcpsjBOTv?=
- =?us-ascii?Q?zQ3lHgqNjMa16i8dBijoEzpreJRJxkzqqD2n3P2oj5sdysrdC6IWujReKz4w?=
- =?us-ascii?Q?e/wYK9ZjS0Tq+cLSiY1cFLt79hncjpI+MPytSf6WxZi3MRPU6r9PB/sPfY3D?=
- =?us-ascii?Q?y5ehIpxs97MtMTj8EVFmtl3kWzmLkGVczWv4TYav6f9u9W+Ww24GJ/cbJwev?=
- =?us-ascii?Q?trOjRiHr85D+CB7bHynhHsX4Bp2tarbjs0muoEUUEPiYG1Q/rvNpddJ2haHb?=
- =?us-ascii?Q?fqsVsA5QSka4rBZQNA66HkDw4qQaS7wPX3Diwh3iSs47Pn2M0mcO2vinqy2M?=
- =?us-ascii?Q?Mz97YodfLXs9EyWsiVK0cWFpClNbVd9ZY5cmGbNK8MwPFHF+eiQsglM4pUXd?=
- =?us-ascii?Q?cOi7gmFy5zWKqwqjQzvbE4PlCxvaj+yz18Rvo0MASO1TbKfElYP4u14nYx/a?=
- =?us-ascii?Q?ERL6p3tkh7Y3L0ktVh5qSMJz5AN+7myYL2pnJ/ohY9OrPyFDmAvcLMAvgncz?=
- =?us-ascii?Q?3NoQSqi4DhKQcueXS48gWc6Rm9C08H8CmCnfY+T7Xm/7Ke7NnOlEza+0uB+O?=
- =?us-ascii?Q?nu/SVzXLy9SCxz6J/S9fTvYpN518yW2yjanS/TdXAY//rwXuRGVT40eW1PiU?=
- =?us-ascii?Q?Pt0gHhdZ7NyFibWZW9jBPI1dz5G1hO8xPS3Fgcl6FWUVHlKgiPrmdU8EAcrZ?=
- =?us-ascii?Q?ywIWKxIg4okJBxeAPimbBpUTTMGQsUJZI0564GwiBowZsh+4ftvcB5/5Sgf8?=
- =?us-ascii?Q?9Xac7DHmYaYfxwQpyaAgnhr20dun+ksFsVs0JLNsoFBAW2RVR8hhfOC9s70e?=
- =?us-ascii?Q?Z7XAtjYnpNrwsQNzwNcu1Hc/XPTNWuz54dLUeocXj3H6L0gJY6RQO/wlXyno?=
- =?us-ascii?Q?jbbEa2+6va+h8Xgp9Ri7R3dx2e1rQ1XVzoL3qrLC/9AUo7PKf+MQ2C3R5/MR?=
- =?us-ascii?Q?IaCAqIkYUgCh1Jp2tmqzq9p65uvg18IHX8aksqTkCu9LgdmgjJBQ3I/V8rBp?=
- =?us-ascii?Q?05oLEt0koz0g1zqvMjbcYp20y93wIRQmECrJxCO/g0gRLt+Wm/FiO/5xe7TK?=
- =?us-ascii?Q?OwrSbmHtd6AsTuuwXpFujr3qLNDVPVWumcFR9ZnFSvx5ILABX+cV+pXNU5Dl?=
- =?us-ascii?Q?XNXFBYV331lSTDgXZYfjtwitw+/SeNm2t7M4CzKZa9ryBlvhLNTs1d7LGN43?=
- =?us-ascii?Q?39/aXAe1COAu6Kq+ncDWDBra0psm/Dqi+LWYJwqpxBUSWJ3u1ZCAGr2vuEHc?=
- =?us-ascii?Q?oJa1XqWzC1c/aAUjFyegT9OhbSBb8fOM1InbUGlgEo5c5RzJ2eNPG4l84vN2?=
- =?us-ascii?Q?vThyRy7ENgqxHVIX6KUwpPBhaJoYet5r0HawCsEY5pS1Gr8mVHi5wlfaBfTy?=
- =?us-ascii?Q?WUiIjWi67qkde4zXndxHtgoKBEuWVNCRgtHQUZxEcVTfr1Qh?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f18ea10a-c6ee-4aac-c572-08de9719d2cb
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 15:57:10.5252
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eLM7AeJEzIvBzQ6Yzpc28EBLofWjuYfYCtxAf6OuXLhTezu22SsQJVAABQ5EqlmR
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7285
+In-Reply-To: <20260410-spi-spacemit-k1-v8-2-53ebb48a4146@riscstar.com>
+X-Cookie: You will be divorced within a year.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_085725_709836_67EFBEC7 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20260410_091121_733906_9B04EF33 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,159 +78,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5144981078306190211=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the RISC-V IOMMU Address Range Invalidation extension
-(capabilities.S, spec section 9.3) to invalidate an IOVA range with
-a single IOTINVAL.VMA command using NAPOT-encoded addressing.
 
-One iommu_iotlb_gather maps to one NAPOT invalidation command. The
-smallest power-of-two aligned range covering the gather is used since
-over-invalidation is always safe.
+--===============5144981078306190211==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mMqcETBJi9wtUPjh"
+Content-Disposition: inline
 
-S and NL seem to be orthogonal in the spec, so if NL is not
-supported then global invalidation is probably always going to happen
-as wiping a large range without a table change is not common.
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/riscv/iommu-bits.h | 17 +++++++++++++
- drivers/iommu/riscv/iommu.c      | 43 +++++++++++++++++++++++++++-----
- 2 files changed, 54 insertions(+), 6 deletions(-)
+--mMqcETBJi9wtUPjh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
-index f01b49ac815586..32b3ad3ac9ae59 100644
---- a/drivers/iommu/riscv/iommu-bits.h
-+++ b/drivers/iommu/riscv/iommu-bits.h
-@@ -64,6 +64,7 @@
- #define RISCV_IOMMU_CAPABILITIES_PD17		BIT_ULL(39)
- #define RISCV_IOMMU_CAPABILITIES_PD20		BIT_ULL(40)
- #define RISCV_IOMMU_CAPABILITIES_NL		BIT_ULL(42)
-+#define RISCV_IOMMU_CAPABILITIES_S		BIT_ULL(43)
- 
- /**
-  * enum riscv_iommu_igs_settings - Interrupt Generation Support Settings
-@@ -475,6 +476,7 @@ struct riscv_iommu_command {
- #define RISCV_IOMMU_CMD_IOTINVAL_GV		BIT_ULL(33)
- #define RISCV_IOMMU_CMD_IOTINVAL_GSCID		GENMASK_ULL(59, 44)
- #define RISCV_IOMMU_CMD_IOTINVAL_NL		BIT_ULL(34)
-+#define RISCV_IOMMU_CMD_IOTINVAL_S		BIT_ULL(9)
- /* dword1[61:10] is the 4K-aligned page address */
- #define RISCV_IOMMU_CMD_IOTINVAL_ADDR		GENMASK_ULL(61, 10)
- 
-@@ -731,6 +733,21 @@ static inline void riscv_iommu_cmd_inval_set_nl(struct riscv_iommu_command *cmd)
- 	cmd->dword0 |= RISCV_IOMMU_CMD_IOTINVAL_NL;
- }
- 
-+/*
-+ * Set NAPOT-encoded address for range invalidation (S=1).
-+ * sz_lg2: log2 of total range in bytes, must be >= 13 (8KiB, 2 pages).
-+ * addr must be naturally aligned to 2^sz_lg2.
-+ */
-+static inline void riscv_iommu_cmd_inval_set_napot(
-+	struct riscv_iommu_command *cmd, u64 addr, unsigned int sz_lg2)
-+{
-+	u64 pfn = addr >> 12;
-+
-+	pfn |= BIT_U64(sz_lg2 - 13) - 1;
-+	cmd->dword1 = FIELD_PREP(RISCV_IOMMU_CMD_IOTINVAL_ADDR, pfn);
-+	cmd->dword0 |= RISCV_IOMMU_CMD_IOTINVAL_AV | RISCV_IOMMU_CMD_IOTINVAL_S;
-+}
-+
- static inline void riscv_iommu_cmd_inval_set_pscid(struct riscv_iommu_command *cmd,
- 						   int pscid)
- {
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index ea14630430451a..41e26e267a7fd6 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -929,6 +929,10 @@ struct riscv_iommu_tlbi {
- 		u8 stride_lg2;
- 		unsigned int num;
- 	} single;
-+	struct {
-+		u8 sz_lg2;
-+		u64 addr;
-+	} range;
- };
- 
- static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
-@@ -945,9 +949,23 @@ static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
- 	/* No level information available */
- 	if (!combined) {
- 		tlbi->single.use_global = true;
-+		tlbi->range.sz_lg2 = 0;
- 		return;
- 	}
- 
-+	/*
-+	 * Calculate the smallest NAPOT range containing [start, last].
-+	 * NAPOT encoding requires a power-of-two sized, naturally aligned
-+	 * range. Over-invalidation is always safe.
-+	 */
-+	tlbi->range.sz_lg2 = fls64(tlbi->start ^ tlbi->last);
-+	if (unlikely(tlbi->range.sz_lg2 >= 64)) {
-+		tlbi->single.use_global = true;
-+		tlbi->range.sz_lg2 = 0;
-+		return;
-+	}
-+	tlbi->range.addr = tlbi->start & ~(BIT_U64(tlbi->range.sz_lg2) - 1);
-+
- 	/*
- 	 * Calculate stride from the lowest changed level. RISC-V uses 4KiB
- 	 * granule with 9 bits per level.
-@@ -969,7 +987,6 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
- 	bool use_nl = tlbi->non_leaf &&
- 		      (iommu->caps & RISCV_IOMMU_CAPABILITIES_NL);
- 	struct riscv_iommu_command cmd;
--	unsigned long iova;
- 	unsigned int i;
- 
- 	riscv_iommu_cmd_inval_vma(&cmd);
-@@ -979,16 +996,30 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
- 	 * If non-leaf entries were changed and the IOMMU doesn't
- 	 * support NL, we must fall back to global invalidation (AV=0).
- 	 */
--	if (tlbi->single.use_global || (tlbi->non_leaf && !use_nl))
-+	if (tlbi->non_leaf && !use_nl)
- 		goto global;
- 
--	iova = tlbi->start;
--	for (i = 0; i < tlbi->single.num; i++) {
--		riscv_iommu_cmd_inval_set_addr(&cmd, iova);
-+	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_S &&
-+	    tlbi->range.sz_lg2 >= 13) {
-+		riscv_iommu_cmd_inval_set_napot(&cmd, tlbi->range.addr,
-+						tlbi->range.sz_lg2);
- 		if (use_nl)
- 			riscv_iommu_cmd_inval_set_nl(&cmd);
- 		riscv_iommu_cmd_send(iommu, &cmd);
--		iova += 1ULL << tlbi->single.stride_lg2;
-+	} else {
-+		unsigned long iova;
-+
-+		if (tlbi->single.use_global)
-+			goto global;
-+
-+		iova = tlbi->start;
-+		for (i = 0; i < tlbi->single.num; i++) {
-+			riscv_iommu_cmd_inval_set_addr(&cmd, iova);
-+			if (use_nl)
-+				riscv_iommu_cmd_inval_set_nl(&cmd);
-+			riscv_iommu_cmd_send(iommu, &cmd);
-+			iova += 1ULL << tlbi->single.stride_lg2;
-+		}
- 	}
- 	return;
- global:
--- 
-2.43.0
+On Fri, Apr 10, 2026 at 11:04:21PM -0400, Guodong Xu wrote:
+>=20
+> This patch introduces the driver for the SPI controller found in the
+> SpacemiT K1 SoC.  Currently the driver supports master mode only.
+> The SPI hardware implements RX and TX FIFOs, 32 entries each, and
+> supports both PIO and DMA mode transfers.
 
+> +static struct dma_async_tx_descriptor *
+> +k1_spi_dma_prep(struct k1_spi_driver_data *drv_data,
+> +		struct spi_transfer *transfer, bool tx)
+> +{
+> +	phys_addr_t addr =3D drv_data->base_addr + SSP_DATAR;
+> +	u32 burst_size =3D K1_SPI_THRESH * drv_data->bytes;
+> +	struct dma_slave_config cfg =3D { };
+> +	enum dma_transfer_direction dir;
+> +	enum dma_slave_buswidth width;
+> +	struct dma_chan *chan;
+> +	struct sg_table *sgt;
+> +
+> +	width =3D drv_data->bytes =3D=3D 1 ? DMA_SLAVE_BUSWIDTH_1_BYTE :
+> +		drv_data->bytes =3D=3D 2 ? DMA_SLAVE_BUSWIDTH_2_BYTES :
+> +		/* bytes =3D=3D 4 */       DMA_SLAVE_BUSWIDTH_4_BYTES;
+
+Please use normal conditional statements (in this case a case statement)
+to keep the code legible.
+
+> +static irqreturn_t k1_spi_ssp_isr(int irq, void *dev_id)
+> +{
+> +	struct k1_spi_driver_data *drv_data =3D dev_id;
+> +	u32 val;
+
+> +	/* Return immediately if we're not expecting any interrupts */
+> +	if (!drv_data->transfer)
+> +		return IRQ_NONE;
+
+That does't mean the hardware agrees!
+
+> +	/* Get status and clear pending interrupts; all are handled below */
+> +	val =3D readl(drv_data->base + SSP_STATUS);
+> +	writel(val, drv_data->base + SSP_STATUS);
+
+Nothing after here can report IRQ_NONE, even if SSP_STATUS didn't flag
+anything.  I'd just move the checks for transfer to when we're handling
+FIFOs and have the IRQ_NONE report be based on there being something set
+in the ISR.
+
+> +	/*
+> +	 * For SPI, bytes are transferred in both directions equally, and
+> +	 * RX always follows TX.  Start by writing if there is anything to
+> +	 * write, then read.  Once there's no more to read, we're done.
+> +	 */
+> +	if (drv_data->tx_resid && (val & SSP_STATUS_TNF)) {
+> +		/* If we finish writing, disable TX interrupts */
+> +		if (k1_spi_write(drv_data, val)) {
+> +			val =3D SSP_INT_EN_RX | SSP_INT_EN_ERROR;
+> +			writel(val, drv_data->base + SSP_INT_EN);
+> +		}
+> +	}
+
+This overwrites val...
+
+> +
+> +	/* We're not done unless we've read all that was requested */
+> +	if (drv_data->rx_resid) {
+> +		/* Read more if there FIFO is not empty */
+> +		if (val & SSP_STATUS_RNE)
+> +			if (k1_spi_read(drv_data, val))
+> +				goto done;
+
+=2E..so the read won't see that there's data to read and we'll need
+another interrupt.  I would suggest using a more meaingful name for the
+actual interrupt status.
+
+--mMqcETBJi9wtUPjh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnZISUACgkQJNaLcl1U
+h9A2Tgf7B2Of1h7VKFoheYpdDXTd76daIJkw059x63Qz69BDTzeal71jnJzDc0Oh
+d4UKQXLnzn5cguF8GIR8w5Hl1R9tc59DdM0rZ085q0ABgA+5JGtCS1qzIFwp/53p
++LZBefeQPmmS++HkTi4h2N3rLN85ZcEY6oURIjjO2UGJ7SYnZH2rSBeTmRdDZufx
+8iqqlry7hdeamly3M+wrQ2V3QIbjjWucrU5cU9c3r+cAfiEtT0i3vpG5RarIUcHW
+CpWFPe+J+H09mOvtJboJ+g/BdbOG47iwtTcrGcJ8nQ9MbBpBjGRcjGJdu1SP2cHU
+vJ7C9bL822LrGXMn4db9LTx5Lg/RMg==
+=ZICv
+-----END PGP SIGNATURE-----
+
+--mMqcETBJi9wtUPjh--
+
+
+--===============5144981078306190211==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5144981078306190211==--
+
