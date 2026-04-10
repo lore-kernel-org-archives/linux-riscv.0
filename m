@@ -4,98 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3683F4484F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D911CF4484C
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 12:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:cc:MIME-Version:References:Subject:To:
-	From:Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=hfN2Y27KO8K86ExoMx4Fq3o6O7YDr4OFnj+qkKWNX8U=; b=IFLDW211UclbXm
-	1ISEWKoYKc+JIaytA/KpWZsSTt2QXjBK7/8UGaVhp5PSmXLSc/D0ly8b+3uFsYAtQSFaw3SA/mofN
-	on07o+VB5djt5xGu6vIE+nWM7S8CYjcJCMpVr44M9bFX6yzvVm+4EB9bfpG1zXUAVtqOgQOxgn6q6
-	uPTsq89fTB20GhJSPUTJZ0ocwQJ7Nj5zC4eEJMy10oee54h9qiRPaOkLb6vT0OK26H/iMkzlpuY7o
-	AhP4oYxZa4+xa67uMO8Ic2E4tPWOZHB6uBgNIEMbjuMLiaph2aBAYlBqSg3s2ujhnyukhsQ6GXrfT
-	lQJoAi6HvNH5mcYFp9EA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=y1Iy26KjDD7uj+TE4E3Dvc3FLJhSzpmBM+htR7+WIjo=; b=ZtRcBktZFhsJrf
+	t4lvA2gYexwztGR41Kf4swT8uqV+knSZ9m8N5I0yUzkbG4cFotMh1zkF720b0momf7m0oi/3094VE
+	aXb+WFbNpvB1TyTL644nJ9fCU6cZGmhkHKheSut9wKQyJoXjdsZlGzgXiv0apPtgw5TZvbEfbKmnS
+	5F9tHYQcrKkpia2XO0k7lVOHuYERoUV4cNs0SPJyFfzUNME7Xp3mC0Xkh+yFSv/529fKdFloJHndQ
+	aLo+DzxmMP9cw3mqFWk1K7Aa1hG8ejwP8aKBa/P5mBtx19WNZB7DWR62KeE+AEqQMm1TZw42TzSj2
+	L9Cwfeyp64WOyGtAYhdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAry-0000000CDjU-0nfm;
-	Fri, 10 Apr 2026 12:21:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wBAwR-0000000CFZj-2Gda;
+	Fri, 10 Apr 2026 12:26:31 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBArh-0000000CDCM-0Aqu;
-	Fri, 10 Apr 2026 12:21:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E64B61334;
-	Fri, 10 Apr 2026 12:21:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08AD5C2BC87;
-	Fri, 10 Apr 2026 12:21:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823695;
-	bh=pY4Ba+JrP/xTQAmwvt4Sblvq53DUrPINRCnMdCBk5qo=;
-	h=Date:From:To:Subject:References:cc:From;
-	b=HDyFrce5AOq/EGfeY1UdoV8DNpMgAy18kWHJM1sjAR8gGlb0lGVL/86T8A9JdQ406
-	 geoVdL2hWTrXGNOfAnq/kY6NSEK4TpMk9WMO+y1nQNH3tMz9xsxHfqX6syvZMUj1PK
-	 bzYUHDgCtqjEJkHt2pwcVZ7pxbRQ83NKHdjXp0R8JD++ws1pIDJb+QbVlpuQaSrK3+
-	 elCptYV6iuLAdTbeeR+RbymhnVAR5noANk7G5ygRae6T0lvFrKQfmBeUjBXUKx1VNg
-	 KMOPQf2nxfU/JqhQvoUzqUAfK3BjbJR+sYA7dzOFGZqkM+hZZWPxeRIyaCeQdbvVoP
-	 M9E/X3gApmxpw==
-Date: Fri, 10 Apr 2026 14:21:32 +0200
-Message-ID: <20260410120320.163559629@kernel.org>
-User-Agent: quilt/0.68
-From: Thomas Gleixner <tglx@kernel.org>
-To: LKML <linux-kernel@vger.kernel.org>
-Subject: [patch 38/38] treewide: Remove asm/timex.h includes from generic code
-References: <20260410120044.031381086@kernel.org>
+	id 1wBAwN-0000000CFYo-2jxB
+	for linux-riscv@lists.infradead.org;
+	Fri, 10 Apr 2026 12:26:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1775823976; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=QDctR1Ti50dosVtQ0PuV1rV0QHHowo/QoSB6MQcgpPg=;
+	b=YTAjUpPsEyQZxqKIKU6uV2o7Xk3YLy3iy5zKU2pBJtGmwFZiPVDvyk/IrxhF4QoMDrqPdDOvrjJ17BA7lbIRK1D3W7J7DS9Gxr5Csa7njtA+SN1CYHUkwsm8nn6v0m/0kgdqWFuJPMMojr9LCS/uxRHfefqbc0cRBNhqGSTh8EA=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0X0lH0Dz_1775823968;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X0lH0Dz_1775823968 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 10 Apr 2026 20:26:12 +0800
+From: cp0613@linux.alibaba.com
+To: wangruikang@iscas.ac.cn
+Cc: pjw@kernel.org,
+	alex@ghiti.fr,
+	cleger@rivosinc.com,
+	alexghiti@rivosinc.com,
+	guoren@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: mm: Implement arch_within_stack_frames() for HARDENED_USERCOPY
+Date: Fri, 10 Apr 2026 20:26:07 +0800
+Message-ID: <20260410122607.118282-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <c95d9003-58e5-46d2-ba5b-5d32a8743f1d@iscas.ac.cn>
+References: <c95d9003-58e5-46d2-ba5b-5d32a8743f1d@iscas.ac.cn>
 MIME-Version: 1.0
-cc: Arnd Bergmann <arnd@arndb.de>,
- x86@kernel.org,
- Lu Baolu <baolu.lu@linux.intel.com>,
- iommu@lists.linux.dev,
- Michael Grzeschik <m.grzeschik@pengutronix.de>,
- netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org,
- Herbert Xu <herbert@gondor.apana.org.au>,
- linux-crypto@vger.kernel.org,
- Vlastimil Babka <vbabka@kernel.org>,
- linux-mm@kvack.org,
- David Woodhouse <dwmw2@infradead.org>,
- Bernie Thompson <bernie@plugable.com>,
- linux-fbdev@vger.kernel.org,
- "Theodore Tso" <tytso@mit.edu>,
- linux-ext4@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>,
- Marco Elver <elver@google.com>,
- Dmitry Vyukov <dvyukov@google.com>,
- kasan-dev@googlegroups.com,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Thomas Sailer <t.sailer@alumni.ethz.ch>,
- linux-hams@vger.kernel.org,
- "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Richard Henderson <richard.henderson@linaro.org>,
- linux-alpha@vger.kernel.org,
- Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Huacai Chen <chenhuacai@kernel.org>,
- loongarch@lists.linux.dev,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-m68k@lists.linux-m68k.org,
- Dinh Nguyen <dinguyen@kernel.org>,
- Jonas Bonn <jonas@southpole.se>,
- linux-openrisc@vger.kernel.org,
- Helge Deller <deller@gmx.de>,
- linux-parisc@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>,
- linuxppc-dev@lists.ozlabs.org,
- Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>,
- linux-s390@vger.kernel.org,
- "David S. Miller" <davem@davemloft.net>,
- sparclinux@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_052629_247417_C7F17514 
+X-CRM114-Status: GOOD (  30.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,133 +71,167 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-asm/timex.h does not provide any functionality for non-architecture code
-anymore.
+Hi Vivian,
 
-Remove the asm-generic fallback and all references in include and source
-files along with the random_get_entropy() #ifdeffery in timex.h.
+Thank you very much for your review and suggestions.
 
-Signed-off-by: Thomas Gleixner <tglx@kernel.org>
----
- include/asm-generic/Kbuild  |    1 -
- include/asm-generic/timex.h |   15 ---------------
- include/linux/random.h      |    3 +++
- include/linux/timex.h       |   26 --------------------------
- kernel/time/timer.c         |    1 -
- lib/interval_tree_test.c    |    1 -
- lib/rbtree_test.c           |    1 -
- 7 files changed, 3 insertions(+), 45 deletions(-)
+On Fri, 10 Apr 2026 15:25:54 +0800, wangruikang@iscas.ac.cn wrote:
 
---- a/include/asm-generic/Kbuild
-+++ b/include/asm-generic/Kbuild
-@@ -56,7 +56,6 @@ mandatory-y += shmparam.h
- mandatory-y += simd.h
- mandatory-y += softirq_stack.h
- mandatory-y += switch_to.h
--mandatory-y += timex.h
- mandatory-y += tlbflush.h
- mandatory-y += topology.h
- mandatory-y += trace_clock.h
---- a/include/asm-generic/timex.h
-+++ /dev/null
-@@ -1,15 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#ifndef __ASM_GENERIC_TIMEX_H
--#define __ASM_GENERIC_TIMEX_H
--
--/*
-- * If you have a cycle counter, return the value here.
-- */
--#ifndef get_cycles
--static inline cycles_t get_cycles(void)
--{
--	return 0;
--}
--#endif
--
--#endif /* __ASM_GENERIC_TIMEX_H */
---- a/include/linux/random.h
-+++ b/include/linux/random.h
-@@ -1,3 +1,4 @@
-+
- /* SPDX-License-Identifier: GPL-2.0 */
- 
- #ifndef _LINUX_RANDOM_H
-@@ -152,6 +153,8 @@ unsigned long random_get_entropy_fallbac
-  */
- #ifdef CONFIG_ARCH_HAS_RANDOM_ENTROPY
- #include <asm/random.h>
-+#else
-+#define random_get_entropy()	random_get_entropy_fallback()
- #endif
- 
- #endif /* _LINUX_RANDOM_H */
---- a/include/linux/timex.h
-+++ b/include/linux/timex.h
-@@ -62,32 +62,6 @@
- #include <linux/types.h>
- #include <linux/param.h>
- 
--unsigned long random_get_entropy_fallback(void);
--
--#include <asm/timex.h>
--
--#ifndef CONFIG_ARCH_HAS_RANDOM_ENTROPY
--#ifndef random_get_entropy
--/*
-- * The random_get_entropy() function is used by the /dev/random driver
-- * in order to extract entropy via the relative unpredictability of
-- * when an interrupt takes places versus a high speed, fine-grained
-- * timing source or cycle counter.  Since it will be occurred on every
-- * single interrupt, it must have a very low cost/overhead.
-- *
-- * By default we use get_cycles() for this purpose, but individual
-- * architectures may override this in their asm/timex.h header file.
-- * If a given arch does not have get_cycles(), then we fallback to
-- * using random_get_entropy_fallback().
-- */
--#ifdef get_cycles
--#define random_get_entropy()	((unsigned long)get_cycles())
--#else
--#define random_get_entropy()	random_get_entropy_fallback()
--#endif
--#endif
--#endif
--
- /*
-  * SHIFT_PLL is used as a dampening factor to define how much we
-  * adjust the frequency correction for a given offset in PLL mode.
---- a/kernel/time/timer.c
-+++ b/kernel/time/timer.c
-@@ -48,7 +48,6 @@
- #include <linux/uaccess.h>
- #include <asm/unistd.h>
- #include <asm/div64.h>
--#include <asm/timex.h>
- #include <asm/io.h>
- 
- #include "tick-internal.h"
---- a/lib/interval_tree_test.c
-+++ b/lib/interval_tree_test.c
-@@ -4,7 +4,6 @@
- #include <linux/interval_tree.h>
- #include <linux/prandom.h>
- #include <linux/slab.h>
--#include <asm/timex.h>
- #include <linux/bitmap.h>
- #include <linux/maple_tree.h>
- 
---- a/lib/rbtree_test.c
-+++ b/lib/rbtree_test.c
-@@ -4,7 +4,6 @@
- #include <linux/rbtree_augmented.h>
- #include <linux/prandom.h>
- #include <linux/slab.h>
--#include <asm/timex.h>
- 
- #define __param(type, name, init, msg)		\
- 	static type name = init;		\
+> On 4/10/26 09:50, cp0613@linux.alibaba.com wrote:
+> > From: Chen Pei <cp0613@linux.alibaba.com>
+> >
+> > Implement arch_within_stack_frames() to enable precise per-frame stack
+> > object validation for CONFIG_HARDENED_USERCOPY on RISC-V.
+> >
+> > == Background ==
+> >
+> > [...]
+> >
+> > Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+> 
+> Patch message is probably too long. You can put additional information
+> like testing under a --- line to cut those out of the eventual actual
+> commit message.
+> 
+> Make sure that Signed-off-by is above the cut if you do that.
 
+Okay, that's really helpful advice, I've learned a lot.
+
+> > ---
+> >  arch/riscv/Kconfig                   |  1 +
+> >  arch/riscv/include/asm/thread_info.h | 66 ++++++++++++++++++++++++++++
+> >  2 files changed, 67 insertions(+)
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 6fe90591a274..4f765ff608d9 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -150,6 +150,7 @@ config RISCV
+> >  	select HAVE_ARCH_USERFAULTFD_MINOR if 64BIT && USERFAULTFD
+> >  	select HAVE_ARCH_USERFAULTFD_WP if 64BIT && MMU && USERFAULTFD && RISCV_ISA_SVRSW60T59B
+> >  	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
+> > +	select HAVE_ARCH_WITHIN_STACK_FRAMES
+> >  	select HAVE_ASM_MODVERSIONS
+> >  	select HAVE_BUILDTIME_MCOUNT_SORT
+> >  	select HAVE_CONTEXT_TRACKING_USER
+> > diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> > index 36918c9200c9..616a41eb7416 100644
+> > --- a/arch/riscv/include/asm/thread_info.h
+> > +++ b/arch/riscv/include/asm/thread_info.h
+> > @@ -101,6 +101,72 @@ struct thread_info {
+> >  void arch_release_task_struct(struct task_struct *tsk);
+> >  int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+> >  
+> > +#ifdef CONFIG_HAVE_ARCH_WITHIN_STACK_FRAMES
+> 
+> Not needed since you've selected it above.
+
+Okay, it seems that it's indeed not necessary.
+
+> > +/*
+> > + * RISC-V stack frame layout (with frame pointer enabled):
+> > + *
+> > + * high addr
+> > + *   +------------------+  <--- fp (s0) points here
+> > + *   |   saved ra       |  fp - 8  (return address)
+> > + *   |   saved fp       |  fp - 16 (previous frame pointer)
+
+> fp - 2*sizeof(void*) probably, to account for RV32?
+
+Yes, You are right. The implementation already uses 2 * sizeof(void *) to
+be RV32-compatible. However, the comments still hardcode. I'll update the
+comments to use fp - 2*sizeof(void*) to be architecture-neutral.
+
+> > + *   +------------------+
+> > + *   |   local vars     |
+> > + *   |   arguments      |
+> > + *   +------------------+  <--- sp
+> > + * low addr
+> > + *
+> > + * The struct stackframe { fp, ra } lives at (fp - sizeof(stackframe)),
+> > + * i.e. fp[-2]=saved_fp and fp[-1]=saved_ra.
+> > + *
+> 
+> Maybe link to the authoritative source:
+> 
+  > https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-cc.adoc#frame-pointer-convention
+
+Okay, I will add this link.
+
+> > + * For usercopy safety, we allow copies within [prev_fp, fp - 2*sizeof(void*))
+> > + * for each frame in the chain, where prev_fp is the fp of the previous
+> > + * (lower) frame.  This covers local variables and arguments but excludes
+> > + * the saved ra/fp slots at the top of the frame.
+> > + *
+> > + * We walk the frame chain starting from __builtin_frame_address(0) (the
+> > + * current frame), with prev_fp initialized to current_stack_pointer.
+> > + * Using current_stack_pointer -- rather than the 'stack' argument (which is
+> > + * the thread's entire stack base) -- ensures that objects in already-returned
+> > + * frames (address below current sp) are correctly detected as BAD_STACK,
+> > + * because no live frame in the chain will claim that region.
+> > + */
+> > +__no_kmsan_checks
+> > +static inline int arch_within_stack_frames(const void * const stack,
+> > +					   const void * const stackend,
+> > +					   const void *obj, unsigned long len)
+> > +{
+> > +#if defined(CONFIG_FRAME_POINTER)
+> > +	const void *fp = (const void *)__builtin_frame_address(0);
+> > +	const void *prev_fp = (const void *)current_stack_pointer;
+> > +
+> > +	/*
+> > +	 * Walk the frame chain. Each iteration checks whether [obj, obj+len)
+> > +	 * falls within the local-variable area of the current frame:
+> > +	 *
+> > +	 *   [prev_fp, fp - 2*sizeof(void*))
+> > +	 *
+> > +	 * i.e. from the base of this frame (sp of this frame, which equals
+> > +	 * the fp of the frame below) up to (but not including) the saved
+> > +	 * fp/ra area at the top of this frame.
+> > +	 */
+> > +	while (stack <= fp && fp < stackend) {
+> 
+> Since we access fp - 2 * sizeof(void *) below, this probably should be
+> something like this:
+> 
+    > while (stack + 2 * sizeof(void *) <= fp && fp < stackend) {
+> 
+> (Possibly with some casts added.)
+
+Thank you for pointing it out; I hadn't considered the potential for
+boundary violations here.
+
+> > +		const void *frame_vars_end = (const char *)fp - 2 * sizeof(void *);
+> > +
+> > +		if (obj + len <= frame_vars_end) {
+> > +			if (obj >= prev_fp)
+> > +				return GOOD_FRAME;
+> > +			return BAD_STACK;
+> > +		}
+> > +		prev_fp = fp;
+> > +		fp = *(const void * const *)((const char *)fp - 2 * sizeof(void *));
+> 
+> Maybe: fp = *(const void * const *)frame_vars_end;
+
+Yes, direct reuse.
+
+> > +	}
+> > +	return BAD_STACK;
+> > +#else
+> > +	return NOT_STACK;
+> > +#endif
+> > +}
+> > +#endif /* CONFIG_HAVE_ARCH_WITHIN_STACK_FRAMES */
+> > +
+> >  #endif /* !__ASSEMBLER__ */
+> >  
+> >  /*
+
+> Thanks,
+> Vivian "dramforever" Wang
+
+Thanks,
+Pei
 
 _______________________________________________
 linux-riscv mailing list
