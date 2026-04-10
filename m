@@ -4,60 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64577EA71A1
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Apr 2026 19:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A784EA71AA
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Apr 2026 23:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Id4HksimfB9PkQ0CRaB0RPxzhwe89DslSTHW7J89kVs=; b=ByVNCD+XeRb7Js
-	jMPw74NT6D2cevXI6uD0aobRBhZR0jX9cMsV7xXgt/1v3iE08IWk6CJ3KF0wHxaElG7A9ZZ+dNvet
-	pzXUXHi1hg2Nh6O+JirrrXi2XV4lWRLB37Wf/aoUCz0e97cM9RDcozF5R97DcKhxA+v7bS+B7WGEW
-	sbj2QfZTF3ZIEko6veIMi8rwW5Oh6myPReQlsb0EPjGCU561bTVaIjEOMBGOoSyMhAXXW5TCzeNrh
-	2CibW8k+AV/0fl2JiIuoDAuXE0RWawtTPNCfW+YZxRT4vGsFylCmkDf93vOOqs0+t0MDpW5T2NCz5
-	Gqr9WSdX3UK2F+lEhp/A==;
+	List-Owner; bh=PdflaSIhbnyvOYQpI/s4BeTGtzvUpHwNs98RV6bvflk=; b=OCoNP4MSm0i5Oj
+	p34GC8+UEkNxINRkVZXVG+rs5NCVC3rRMKv8YAYi1mUXV6P8pbSHUN5KBUiZtGnd6r8zDgopHWUuZ
+	OpfrYzyjzZn2Y6fP+fAlqMlbAeEQIYFX0Gfp3ncUkzUoqrHuPRIVbvmY95paY7W2Qrir/8Wgg72fi
+	IAzNwI35ufJmdKKzcaoDjlzpsEqzi9+xJ8YH6W/P72qd0gseouCMV1FczpQJOUW3wkwUgZQQpr8YC
+	4TygTA3Kd4rfqjblShlQNcx+XsS3vO2zRuYZTdoofy41sN2xJuRxYgBNnNRiP+RPo7DOY08pxAcef
+	8rGqn5Ifv6AAYXAvDpCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEXUZ-000000061M6-31VP;
-	Sun, 19 Apr 2026 19:07:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEb92-0000000698o-3DYO;
+	Sun, 19 Apr 2026 23:01:40 +0000
+Received: from iad-out-010.esa.us-east-1.outbound.mail-perimeter.amazon.com ([34.197.254.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEXUY-000000061Lz-33l2
-	for linux-riscv@lists.infradead.org;
-	Sun, 19 Apr 2026 19:07:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9EDF6011F;
-	Sun, 19 Apr 2026 19:07:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C0C2C2BCAF;
-	Sun, 19 Apr 2026 19:07:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776625657;
-	bh=CLN/WytTm5Iyitqeq5WgLKn12mSy9O29jgFf5PJ1nqQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JvqeAI5YOhaFnwRk0ai+Xp5cF9LJbDyfC6O/rff6/2HzqpzXUjMlXl5c+t/wXaYoT
-	 txV57DUNkdCZWThfVymtG5zNHw9m8GpDtb1qkSLpr76cVzmIBO/V4P+Lx1ZPN15452
-	 bLtug+6bRzvsAkRlGivmRzLYMxu8EJj+eERjsdL0z7l+y0dW3zmzDpFw5jOfWFMKUs
-	 pLxys6SlEh7xOOEnjxxxUX/0hR5G7a+0nFMRAHA+cGkDC5tSLIXKfcdExSKjAC1SwU
-	 Av72Rehz4czWTQSLHeO9dnskWe/Lkm19OW2P8X5JP6eisw1DLuFH4C5AoatBI3hhir
-	 ZVNnKQzLSBOiA==
-Date: Sun, 19 Apr 2026 21:07:30 +0200
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Linux Doc Mailing List
- <linux-doc@vger.kernel.org>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, workflows@vger.kernel.org, Dan Williams
- <djbw@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>
-Subject: Re: [PATCH v2 01/11] MAINTAINERS: add an entry for media
- maintainers profile
-Message-ID: <20260419210730.3c9a84d1@foz.lan>
-In-Reply-To: <63c25cd9-2145-40c7-b1bc-463214d5df6c@infradead.org>
-References: <cover.1776405189.git.mchehab+huawei@kernel.org>
-	<361c00348573e45b4e06b674b2b45e47dc65c938.1776405189.git.mchehab+huawei@kernel.org>
-	<63c25cd9-2145-40c7-b1bc-463214d5df6c@infradead.org>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
+	id 1wBDov-0000000CT9D-1J5p;
+	Fri, 10 Apr 2026 15:30:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1775835057; x=1807371057;
+  h=message-id:date:mime-version:reply-to:subject:to:cc:
+   references:from:in-reply-to:content-transfer-encoding;
+  bh=fk/G0VoAmsTULxx1duFy1qBcFztpaqd84bNcnJdqZbI=;
+  b=VEAho8xKtfHY3KFNL6UvOhC9ZITqBbtVZGdQhwDLuSD3JkXZ43i8zsQE
+   7+HAQiO4Q5lDCyYcXV/W/7VoOOEAmTnRwtRHs8jVqeQy7a4nBkZHdd/Ct
+   741/MqBNK6Eq3RRbo4Zu7hY6pdfUcOQG7njqrMvGfBobb3VrV4LUVjYvC
+   knhIDTYIKpmLOlPDvaF5KYmC/7IKydlBjWUN0z2xcXI+KntLTZaG4jb0A
+   qRiV8B6HsD9HMDS9agdbgFqjK4JkFFQiFleucdV1mN2W9aVt+zM7Fhr43
+   jfhaHK20P503EvttQ4C3w4rJ/vVaEyn8Q4YlQ26cLB7rX89CM5/zO8C7o
+   Q==;
+X-CSE-ConnectionGUID: EfpEH2kdQD+iuAgL71BkKg==
+X-CSE-MsgGUID: S2cYWuC+QKSF2lkzx+JDHw==
+X-IronPort-AV: E=Sophos;i="6.23,171,1770595200"; 
+   d="scan'208";a="15700706"
+Received: from ip-10-4-17-41.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.17.41])
+  by internal-iad-out-010.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 15:30:52 +0000
+Received: from EX19MTAUEA001.ant.amazon.com [72.21.196.67:32091]
+ by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.29.254:2525] with esmtp (Farcaster)
+ id 88ad7e41-cdbc-4feb-8b06-7a4fac6cc058; Fri, 10 Apr 2026 15:30:51 +0000 (UTC)
+X-Farcaster-Flow-ID: 88ad7e41-cdbc-4feb-8b06-7a4fac6cc058
+Received: from EX19D027UEC003.ant.amazon.com (10.252.137.250) by
+ EX19MTAUEA001.ant.amazon.com (10.252.134.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Fri, 10 Apr 2026 15:30:51 +0000
+Received: from [192.168.12.97] (10.106.82.30) by EX19D027UEC003.ant.amazon.com
+ (10.252.137.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Fri, 10 Apr 2026
+ 15:30:39 +0000
+Message-ID: <45807109-570d-4681-bbd0-7a1649f515d9@amazon.com>
+Date: Fri, 10 Apr 2026 16:30:36 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 10/16] KVM: guest_memfd: Add flag to remove from
+ direct map
+To: Ackerley Tng <ackerleytng@google.com>, "Kalyazin, Nikita"
+	<kalyazin@amazon.co.uk>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org"
+	<linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>
+CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "wyihan@google.com" <wyihan@google.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "osalvador@suse.de" <osalvador@suse.de>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>
+References: <20260317141031.514-1-kalyazin@amazon.com>
+ <20260317141031.514-11-kalyazin@amazon.com>
+ <CAEvNRgGb95C3uRxPy2_Uj7SmTW45hNNdJxi5RR209s5KYcHgBw@mail.gmail.com>
+Content-Language: en-US
+From: Nikita Kalyazin <kalyazin@amazon.com>
+Autocrypt: addr=kalyazin@amazon.com; keydata=
+ xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
+ JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
+ BjLQwD9FsK+SyiCpmmTzBQJp2NfjBQkGQlIzAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
+ IKmaZPPNDAEAvsw8vEWj8ArWQ1QJNufjrvobU/cE8MLKdBxbSE8CyZQA/0BldKxNAtAwG4qw
+ wCLxsZ5vBL3Zkh/PdvtFCj/VGscGzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
+ ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
+ ZPMFAmnY1+MFCQZCUjMCGwwACgkQr5LKIKmaZPPQKgD/f3FtERbJ+LYHLSG/ZbLNAOLngUlQ
+ qo5VfIyJOzeLzC0BAP2PIUFIHo7vmia/PXEmT+ve4c5rx+EkH/Dx1GRpjWoI
+In-Reply-To: <CAEvNRgGb95C3uRxPy2_Uj7SmTW45hNNdJxi5RR209s5KYcHgBw@mail.gmail.com>
+X-Originating-IP: [10.106.82.30]
+X-ClientProxiedBy: EX19D005EUA004.ant.amazon.com (10.252.50.241) To
+ EX19D027UEC003.ant.amazon.com (10.252.137.250)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_083057_518929_545DCD79 
+X-CRM114-Status: GOOD (  23.96  )
+X-Mailman-Approved-At: Sun, 19 Apr 2026 16:01:33 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,51 +112,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: kalyazin@amazon.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 18 Apr 2026 17:02:55 -0700
-Randy Dunlap <rdunlap@infradead.org> wrote:
 
-> On 4/16/26 11:11 PM, Mauro Carvalho Chehab wrote:
-> > The media subsystem has a maintainers entry profile, but its entry
-> > is missing at MAINTAINERS.
-> > 
-> > Add it.
-> > 
-> > Acked-by: Randy Dunlap <rdunlap@infradead.org>
-> > Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-> > Message-ID: <5af4aa6a716228eea4d59dc26b97d642e1e7d419.1776176108.git.mchehab+huawei@kernel.org>
-> > ---
-> >  MAINTAINERS | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index f0b106a4dd96..620219e48f98 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -16115,6 +16115,7 @@ S:	Maintained
-> >  W:	https://linuxtv.org
-> >  Q:	http://patchwork.kernel.org/project/linux-media/list/
-> >  T:	git git://linuxtv.org/media.git
-> > +P:	Documentation/driver-api/media/maintainer-entry-profile.rst
-> >  F:	Documentation/admin-guide/media/
-> >  F:	Documentation/devicetree/bindings/media/
-> >  F:	Documentation/driver-api/media/  
+
+On 23/03/2026 21:15, Ackerley Tng wrote:
+> "Kalyazin, Nikita" <kalyazin@amazon.co.uk> writes:
 > 
-> I now see 2 P: entries for MEDIA INPUT INFRASTRUCTURE
-> and 2 P: entries for X86 ARCHITECTURE.
-> (don't know how/why)
+>>
+>> [...snip...]
+>>
+>>   static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
+>>   {
+>>        struct inode *inode = file_inode(vmf->vma->vm_file);
+>>        struct folio *folio;
+>>        vm_fault_t ret = VM_FAULT_LOCKED;
+>> +     int err;
+>>
+>>        if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
+>>                return VM_FAULT_SIGBUS;
+>> @@ -418,6 +454,14 @@ static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
+>>                folio_mark_uptodate(folio);
+>>        }
+>>
+>> +     if (kvm_gmem_no_direct_map(folio_inode(folio))) {
+>> +             err = kvm_gmem_folio_zap_direct_map(folio);
+>> +             if (err) {
+>> +                     ret = vmf_error(err);
+>> +                     goto out_folio;
+>> +             }
+>> +     }
+>> +
+>>        vmf->page = folio_file_page(folio, vmf->pgoff);
+>>
 > 
-My patches (and my tests) are based on docs-next. Perhaps some other
-patch is adding them as well.
+> Sashiko pointed out that kvm_gmem_populate() might try and write to
+> direct-map-removed folios, but I think that's handled because populate
+> will first try and GUP folios, which is already blocked for
+> direct-map-removed folios.
 
-I'll rebase them on the top of -rc1 after it gets released.
+As far as I can see, it is a valid issue as populate only GUPs the 
+source pages, not gmem.  I think this is similar to what was discussed 
+about TDX at some point and decided to exclude TDX support [1].  I 
+followed the same path and excluded SEV-SNP in the patch 8 [2].  I kept 
+your and David's "Reviewed-by:" for that patch, but please let me know 
+if this makes you change your minds.
 
-Thanks,
-Mauro
+[1] https://lore.kernel.org/kvm/aWpcDrGVLrZOqdcg@google.com
+[2] https://lore.kernel.org/kvm/20260410151746.61150-9-kalyazin@amazon.com
+
+> 
+>>   out_folio:
+>> @@ -528,6 +572,9 @@ static void kvm_gmem_free_folio(struct folio *folio)
+>>        kvm_pfn_t pfn = page_to_pfn(page);
+>>        int order = folio_order(folio);
+>>
+>> +     if (kvm_gmem_folio_no_direct_map(folio))
+>> +             kvm_gmem_folio_restore_direct_map(folio);
+>> +
+>>        kvm_arch_gmem_invalidate(pfn, pfn + (1ul << order));
+>>   }
+>>
+> 
+> Sashiko says to invalidate then restore direct map, I think in this case
+> it doesn't matter since if the folio needed invalidation, it must be
+> private, and the host shouldn't be writing to the private pages anyway.
+> 
+> One benefit of retaining this order (restore, invalidate) is that it
+> opens the invalidate hook to possibly do something regarding memory
+> contents?
+> 
+> Or perhaps we should just take the suggestion (invalidate, restore) and
+> align that invalidate should not touch memory contents.
+> 
+>> @@ -591,6 +638,9 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+>>        /* Unmovable mappings are supposed to be marked unevictable as well. */
+>>        WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
+>>
+>> +     if (flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP)
+>> +             mapping_set_no_direct_map(inode->i_mapping);
+>> +
+>>        GMEM_I(inode)->flags = flags;
+>>
+>>        file = alloc_file_pseudo(inode, kvm_gmem_mnt, name, O_RDWR, &kvm_gmem_fops);
+>> @@ -803,13 +853,22 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+>>        }
+>>
+>>        r = kvm_gmem_prepare_folio(kvm, slot, gfn, folio);
+>> +     if (r)
+>> +             goto out_unlock;
+>>
+>> +     if (kvm_gmem_no_direct_map(folio_inode(folio))) {
+>> +             r = kvm_gmem_folio_zap_direct_map(folio);
+>> +             if (r)
+>> +                     goto out_unlock;
+>> +     }
+>> +
+>>
+>> [...snip...]
+>>
+> 
+> Preparing a folio used to involve zeroing, but that has since been
+> refactored out, so I believe zapping can come before preparing.
+> 
+> Similar to the above point on invalidation: perhaps we should take the
+> suggestion to zap then prepare
+> 
+> + And align that preparation should not touch memory contents
+> + Avoid needing to undo the preparation on zapping failure (.free_folio
+>    is not called on folio_put(), it is only called folio on removal from
+>    filemap).
+
+I reordered both, thanks.
 
 _______________________________________________
 linux-riscv mailing list
