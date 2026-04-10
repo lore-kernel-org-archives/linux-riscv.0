@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCB6F44873
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 14:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEFCF459E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 14:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zq5YSjkLPWwPW9XWl69QGE9fun8B6GWZkqbaZQLagkM=; b=08NvjwhQdW4ueNaahgRyugIYiM
-	ygUFAr1TWT9gPCSR94tBfDHyi6SgYL7W5urei2xNFz+V2fBAfxxouc94t0UDZoRlKWjiDua/ddWX3
-	66mUk8bcfSsLyYvVdYsTYGxSfbEyQ6Iu+mfpJXdIzK8RA9QL35kV6IX/zzdpYcIvNpPyYTa3KRT1m
-	tnpfSm8mzEFO+VVIaztbjt8Gx5V41rZ7iFjlTcLC1JU4lu8XhG2hGV03NHcBtFpxNsIeZstjNd+De
-	C6G22br1XLKEudzHFO/h2IQwtmV6hZG+vpokJFL/4PGObAcPugHFMvmc+uFhVh43sMwBcw4NqfLfI
-	xuLKv4UQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kCvM3aVCAh1KlVuddgfpUEV/H5H11MGjWWQBbBlKzts=; b=v1OI7CEtjcTqkM
+	uKlwj+YjBWuQ3BRvL7rXbF9srJjlcAVnqHdVlyOQvourfvkrHULMLKsaM0dff0B8X0zUva6/b1xBc
+	BGlH2XI5w4MCZ0pv6f1NNMRjc7SVwu9Ox5rKRp+qbflWVMLFBht9QYAQ2FiklyhYpFLxErX47dVFz
+	0CtymNZNjU5J7cS/pgwi+A2knRNMFrk4nZlI8OCYfT6N+6idBcqUDfXfc/d1jmE0ncU4qDzmD2XwD
+	dfy2NMEnRWVjtKuRMVSlBjVzSNSRsWJ/AVNvHWr+xJRGqUK3KI/oWKT1GCboGRT15oU8ZpYm0+NRM
+	z/cDJ3ou9N4WL2uTNiYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCyw-0000000COMd-0bxH;
-	Fri, 10 Apr 2026 14:37:14 +0000
-Received: from forward500d.mail.yandex.net ([178.154.239.208])
+	id 1wBD8R-0000000COoz-13Uq;
+	Fri, 10 Apr 2026 14:47:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCys-0000000COL7-0hhc
+	id 1wBD8Q-0000000COot-1DBT
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Apr 2026 14:37:12 +0000
-Received: from mail-nwsmtp-smtp-production-main-99.klg.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-99.klg.yp-c.yandex.net [IPv6:2a02:6b8:c42:eaca:0:640:4fc0:0])
-	by forward500d.mail.yandex.net (Yandex) with ESMTPS id B84D080722;
-	Fri, 10 Apr 2026 17:37:02 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-99.klg.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id xaIJALSSpmI0-8B4lnFkU;
-	Fri, 10 Apr 2026 17:37:01 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cloudbear.ru;
-	s=mail; t=1775831821;
-	bh=n4MFA2ymVvZJxQC1AYrWW7iu+hLQf1/wBkOTpF6yNK8=;
-	h=In-Reply-To:From:Date:References:To:Subject:Message-ID;
-	b=dRGzIU9QVV+QoMDd0zRBKe4zUr46KTRH4yLJSY7HW98ynOuwp7OHYoDkbt4xTzfGr
-	 CTCTqqqlK6gKOyxAbowwFBzpQPCcfG5QAmoV7e6NRqqLVzbQEN8tq+NF+ot2ehdyNE
-	 YYvO6IzEyhpmJ6MzU1yZHXPAdvwyyBoFY50sgL8Y=
-Authentication-Results: mail-nwsmtp-smtp-production-main-99.klg.yp-c.yandex.net; dkim=pass header.i=@cloudbear.ru
-Message-ID: <d3dab846-b868-49ef-948e-80f5c46ad260@cloudbear.ru>
-Date: Fri, 10 Apr 2026 17:36:59 +0300
+	Fri, 10 Apr 2026 14:47:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E99061119;
+	Fri, 10 Apr 2026 14:47:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE6C5C19421;
+	Fri, 10 Apr 2026 14:46:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775832420;
+	bh=u9jgWs+rQxNieWW6+zUO70EFEtbKwbZt/loIcja2QcY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=BBYAeNDvucb606PPcxDI+grEz4lbbjrm+8jaYmxqOJ/oWx6G4yAAtURopWBjqHigV
+	 2sGDhZYHH1bE78PWI9wQBGuEhkDTsRUzkHazZSjLYHtLxfZDQQPSfBSaNrp0WTlprd
+	 RO56yLP9VJewxh20mD8pi3w5q519GyNE4r//hBof5lbYCuLI4k9mK6kv2RrIMQYRgQ
+	 AKYNVm/RHKy9jquwhv4I0GzC1Zw15kJqnelEpVOsBl7BZYLu8sMQSRLb8MhRRMNQ8w
+	 osuE5jeNUeQ+KResDSakPGg+r1sjluY8o5mwwXMeuA6iIWIAWcyxAQL8RPsz3cFc6y
+	 8btOm+R9AtDMA==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Ley Foon Tan
+ <leyfoon.tan@starfivetech.com>, Changhuang Liang
+ <changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH v1 5/5] irqchip: starfive: Implement irq_set_type and
+ irq_ack hooks
+In-Reply-To: <20260410090106.622781-6-changhuang.liang@starfivetech.com>
+References: <20260410090106.622781-1-changhuang.liang@starfivetech.com>
+ <20260410090106.622781-6-changhuang.liang@starfivetech.com>
+Date: Fri, 10 Apr 2026 16:46:57 +0200
+Message-ID: <874ili27q6.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] riscv: cpu_ops: Change return value type of
- cpu_is_stopped() to bool
-To: Hui Wang <hui.wang@canonical.com>, linux-riscv@lists.infradead.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- ajones@ventanamicro.com, atish.patra@linux.dev
-References: <20260409133247.76215-1-hui.wang@canonical.com>
-Content-Language: ru
-From: Danil Skrebenkov <danil.skrebenkov@cloudbear.ru>
-In-Reply-To: <20260409133247.76215-1-hui.wang@canonical.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_073710_384130_0B7D4732 
-X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,94 +69,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Apr 10 2026 at 02:01, Changhuang Liang wrote:
 
-> In the original sbi_cpu_is_stopped(), if rc doesn't equal to the
-> SBI_HSM_STATE_STOPPED, it will return rc to the caller directly. But
-> there is a hidden problem, the rc could be SBI_HSM_STATE_STARTED, if
-> so, this function will report cpu stopped while the cpu isn't really
-> stopped.
->
-> Furthermore, from the name of cpu_is_stopped(), it gives a sense the
-> return value is a bool type, true means the cpu is stopped, conversely
-> false means the cpu is not stopped.
->
-> Here change the return value type to bool and change the callers
-> accordingly. This could fix the above two issues.
->
-> Fixes: f1e58583b9c7c ("RISC-V: Support cpu hotplug")
-> Signed-off-by: Hui Wang <hui.wang@canonical.com>
-> ---
->   arch/riscv/include/asm/cpu_ops.h | 2 +-
->   arch/riscv/kernel/cpu-hotplug.c  | 2 +-
->   arch/riscv/kernel/cpu_ops_sbi.c  | 6 ++----
->   3 files changed, 4 insertions(+), 6 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/cpu_ops.h b/arch/riscv/include/asm/cpu_ops.h
-> index 176b570ef982..065811fca594 100644
-> --- a/arch/riscv/include/asm/cpu_ops.h
-> +++ b/arch/riscv/include/asm/cpu_ops.h
-> @@ -24,7 +24,7 @@ struct cpu_operations {
->   				     struct task_struct *tidle);
->   #ifdef CONFIG_HOTPLUG_CPU
->   	void		(*cpu_stop)(void);
-> -	int		(*cpu_is_stopped)(unsigned int cpu);
-> +	bool		(*cpu_is_stopped)(unsigned int cpu);
->   #endif
->   };
->   
-> diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
-> index a0ee426f6d93..c240e9be9fba 100644
-> --- a/arch/riscv/kernel/cpu-hotplug.c
-> +++ b/arch/riscv/kernel/cpu-hotplug.c
-> @@ -57,7 +57,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
->   	/* Verify from the firmware if the cpu is really stopped*/
->   	if (cpu_ops->cpu_is_stopped)
->   		ret = cpu_ops->cpu_is_stopped(cpu);
-> -	if (ret)
-> +	if (!ret)
->   		pr_warn("CPU%u may not have stopped: %d\n", cpu, ret);
->   }
->   
-> diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
-> index 00aff669f5f2..a17b7576b77d 100644
-> --- a/arch/riscv/kernel/cpu_ops_sbi.c
-> +++ b/arch/riscv/kernel/cpu_ops_sbi.c
-> @@ -88,16 +88,14 @@ static void sbi_cpu_stop(void)
->   	pr_crit("Unable to stop the cpu %d (%d)\n", smp_processor_id(), ret);
->   }
->   
-> -static int sbi_cpu_is_stopped(unsigned int cpuid)
-> +static bool sbi_cpu_is_stopped(unsigned int cpuid)
->   {
->   	int rc;
->   	unsigned long hartid = cpuid_to_hartid_map(cpuid);
->   
->   	rc = sbi_hsm_hart_get_status(hartid);
->   
-> -	if (rc == SBI_HSM_STATE_STOPPED)
-> -		return 0;
-> -	return rc;
-> +	return (rc == SBI_HSM_STATE_STOPPED);
->   }
->   #endif
->   
+s/hooks/callbacks and please use function notation irq_set_type() and ....
 
-Here is a some ambiguous behavior because pr_warn() in cpu-hotplug.c 
-must send a cpu state number.
-I would say it is needed to use sbi_hsm_hart_get_status(cpu) in pr_warn 
-like this:
+> +static void starfive_intc_mod(struct starfive_irq_chip *irqc, u32 reg,
+> +			      u32 mask, u32 data)
 
-pr_warn("CPU%u may not have stopped: %d\n", cpu, 
-sbi_hsm_hart_get_status(cpu))
+No line break required. You have 100 characters.
 
-so that we can define what is the current state of hart in case it is 
-not SBI_HSM_STATE_STOPPED.
+> +static int starfive_intc_set_type(struct irq_data *d, unsigned int type)
+> +{
+> +	struct starfive_irq_chip *irqc = irq_data_get_irq_chip_data(d);
+> +	u32 i, bitpos, ty_pos, ty_shift, tmp;
+> +
+> +	i = d->hwirq / STARFIVE_INTC_SRC_IRQ_NUM;
+> +	bitpos = d->hwirq % STARFIVE_INTC_SRC_IRQ_NUM;
+> +	ty_pos = bitpos / STARFIVE_INTC_TYPE_NUM;
+> +	ty_shift = (bitpos % STARFIVE_INTC_TYPE_NUM) * 2;
+> +
+> +	switch (type) {
+> +	case IRQF_TRIGGER_LOW:
+> +		tmp = STARFIVE_INTC_TRIGGER_LOW << ty_shift;
 
+tmp is not really an intuitive variable name.
+
+> +		irq_set_handler_locked(d, handle_level_irq);
+> +		break;
+> +	case IRQF_TRIGGER_HIGH:
+> +		tmp = STARFIVE_INTC_TRIGGER_HIGH << ty_shift;
+> +		irq_set_handler_locked(d, handle_level_irq);
+> +		break;
+> +	case IRQF_TRIGGER_FALLING:
+> +		tmp = STARFIVE_INTC_TRIGGER_NEGEDGE << ty_shift;
+> +		irq_set_handler_locked(d, handle_edge_irq);
+> +		break;
+> +	case IRQF_TRIGGER_RISING:
+> +		tmp = STARFIVE_INTC_TRIGGER_POSEDGE << ty_shift;
+> +		irq_set_handler_locked(d, handle_edge_irq);
+
+This can be simplified so it avoids to have a function in every case
+statement:
+
+        switch (type) {
+        case IRQF_TRIGGER_LOW:
+        	trigger = STARFIVE_INTC_TRIGGER_LOW;
+                handler = handle_level_irq;
+                break;
+        case ...
+        }
+        
+        irq_set_handler_locked(d, handler);
+        typeval = trigger << ty_shift;
+
+You get the idea.
+
+> +	raw_spin_lock(&irqc->lock);
+
+  guard(...)
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
