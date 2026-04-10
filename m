@@ -4,70 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F43BF459F3
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 15:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6983F459F6
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 15:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AK/xw0dbskKjJOMf5KCNhmHCyDiNsqokUQEih8N7r2s=; b=zVJkdFTuc65IhFu2auiBbvgCXY
-	t68dQRMj/pAhIUaCoSgxX2SC50KaLRhi9WAGVeG7aG8XCUxZ3Vuvq+R6NO8Bv8t84GbPL9P+OUjuN
-	PR4icBqPvyOUJCdxeekY6V1Rp5wbbkDd9sluhCqUtEkwdaMmb+JEb3M6fiGNMTBRilvFq0X3S8mO3
-	/y/ZnWxhv06I+25u/Dn9j2EupNqAbVTHcb4B9LRSGUwRX0x1QAT9nSbt6jqJ5/ok0Gmv2xIZ6jvKC
-	9p9xNUghReC1/TzbowigU5ZZ3i2NcTWXLLV3CXZFovcLmVc6lLgWGPT7vUlL22tNBlFm7sb3ascbh
-	FRWrbbdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/1Gz/SVXB+NsPS+gI93Kb3tJZCaKACVZ9dVHKVJ07E4=; b=Kx2w3+dm08nTXH
+	k2EI+XvEIi4CuGIvewat202FZBCWSx92yqThJmGB1k69wzLA/0M+Vey4hPxgiO1CiQoZO5EF1V4jf
+	zuFvnryVGIwDLGqCphx+WjPa0YH4se/WuYFJGCWtaQ79aZO8cNnkswNXttL1pOfsTYH34R2W9Brwx
+	54P4eQ+oeb8bIHMPaRBCgTqqSyMXIWjDxuFzNrA/s4B8IgO8S/Yc1n2j6lXxUb8fkmf0a4KTcHLJY
+	HDJbzGYdQe3dTPTN/sNVxhrvTmSWn2CZo60ovtEWSQ68jOC45i76t0UXMRhg84xXNEbbuVfuW1Rj3
+	2Y9TMldVMkXQFlKyUt+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBE2L-0000000CTu1-2DHj;
-	Fri, 10 Apr 2026 15:44:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wBEEV-0000000CUku-181K;
+	Fri, 10 Apr 2026 15:57:23 +0000
+Received: from mail-northcentralusazon11010041.outbound.protection.outlook.com ([52.101.193.41] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBE2I-0000000CTtb-0gOj
+	id 1wBEER-0000000CUjY-2MxN
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Apr 2026 15:44:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C0CF40789;
-	Fri, 10 Apr 2026 15:44:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00BDBC19421;
-	Fri, 10 Apr 2026 15:44:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775835883;
-	bh=fNv4Ok1u3X6cxegGSB+eEUrRYhC1cDsemDV+eTZXlCg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Byix/Nb1mnTkXu8LwlES2uQ3Xnyu2b01ANSjWdMtdMaD/Jnf8SmR+Xglj8/1ZIdYh
-	 G7UHFtXaTrvr9sIhkruy6col1UvQkmAHPGnFSEEXpFZtN/jvWByAyWEQzTa1nVzWQh
-	 qDXbfbO4drXZoB5cBlROFZxxFjOQ7XKiicF2CG0+AULvJy9fPJMSKWGpB76DmKnEwi
-	 rY/XtnZoIoUzur92NoKQrQiNfW4OAggDVjCSltLU3dHhxh49R9ZfbzFQkSX8/2D8sr
-	 oh2sAssUNm0IhQN9PzGe+u0HhFDQfIxtj8zwsiFSXizpWXSHrgjYoMhxIcGXP4OAhS
-	 DVwolmm6TzJSQ==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 420CF1AC58B8; Fri, 10 Apr 2026 16:44:40 +0100 (BST)
-Date: Fri, 10 Apr 2026 16:44:40 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Alex Elder <elder@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Alex Elder <elder@riscstar.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH v8 1/3] dt-bindings: spi: add SpacemiT K1 SPI support
-Message-ID: <adka6GqvRSrZAY9V@sirena.co.uk>
-References: <20260410-spi-spacemit-k1-v8-0-53ebb48a4146@riscstar.com>
- <20260410-spi-spacemit-k1-v8-1-53ebb48a4146@riscstar.com>
+	Fri, 10 Apr 2026 15:57:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k8mhZ0kUPixIcl79HxAGyLwJQ97W8NXmLye6ujCqK32/7yj+JWpqGkLqkWWkS4UuVURMLxL+2CAbPMhgymHSH7mjPv5rpF2m/sqDc9gMiMjYWvvjBXTZYl3IcRc3c7TgrKgSJsz06Pk6j5sEKumNMxSZ702DngJiyTQTPT3ng+AjJvy7k30nozwPbPFHm+AGRT9+Wavc5DgTUnoCfywQFg1q5mbelOUaP2NVMomPZ1xxjfColqUN4ITeAIuf/aTKyxwwpJx6gTkyd0SfauDTUThF7/BlpnhRbSqnsOvdd5gZUznIO+MqFTaTqBmP7jFaky2f+6L71RDrzzSgy55f9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3Rq8fDp2o+UZ+XMobxnagQD8RfTd92V3oPDlVeIMO+c=;
+ b=ltQwFUArogyYzBXbMXTXcVSxQdEKLlMo+Y81QI2NJbLwnmyLgbgh8PI8L6rDGD2gLEtDVhC2Jlot97BJSPUX4T/v2XHp2iD2s6CDVQ+RG03yQZUgD3aNYkOuPBQ4I78zk68dH4BiGOPy4F1JKO7NnyLZMZqLNKWOezWGP3SAfLcBltQNE2M5cn7wwPE1wnk5X/xAwOlKufaTx6MGegnkg50NDatarSiwQrH8gpSbRDQlPcaZlBThGdnnbA3dTLjC/9pCWq1R1uKLROK8/RqYmqRuTle3pfl4qUJM8OwpH+nnJjJWA6m7eTOTaKl82NU3u0ImGLZipiXvQN/6BNyicA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3Rq8fDp2o+UZ+XMobxnagQD8RfTd92V3oPDlVeIMO+c=;
+ b=hFRW0rWByMHtDMbgF5cx1Hnha+jEj/Yu3FxPBEBisI5kA1SeCje8HktIkzcvOSGKUWhnZteEhzSREZPERFi1ns9u7xlkye/parLVh8pW3+q5Xdgat2tbBQDTYNtv7FEiLbfykJDNfZfrOOFdcoWFvvp+l9wCGb8KBxLgR5dHGCp4+BoBVrAjjv2zwjZ5+hYf0dKbx2A3mQdMqaZmQZRVmYu2CXxKr/7HYuaz5GtVcBeCTso42qWU5E2Ecil2kOtPmABw9V7kEXQcoAeQh81AkVoLnoxQrsps8/lmxiZkU1qnjq19mKXRsZu8MMYY93tW8RAqD+bcWvMPDK5AURVdpw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by MW4PR12MB7285.namprd12.prod.outlook.com (2603:10b6:303:22e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.34; Fri, 10 Apr
+ 2026 15:57:11 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
+ 15:57:10 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Will Deacon <will@kernel.org>
+Cc: Fangyu Yu <fangyu.yu@linux.alibaba.com>,
+	patches@lists.linux.dev
+Subject: [PATCH 0/7] Support non-leaf and range invalidation features in RISC-V
+Date: Fri, 10 Apr 2026 12:57:01 -0300
+Message-ID: <0-v1-54e7264d71b4+17cc3-iommu_riscv_inv_jgg@nvidia.com>
+X-ClientProxiedBy: YT3PR01CA0071.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:84::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-In-Reply-To: <20260410-spi-spacemit-k1-v8-1-53ebb48a4146@riscstar.com>
-X-Cookie: You will be divorced within a year.
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MW4PR12MB7285:EE_
+X-MS-Office365-Filtering-Correlation-Id: dc7b42c0-698a-4280-0046-08de9719d2b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: kU2mD8Ox/NZ1m7mvnaNS4mqNyi8fKLQVAVvB9zZn6hnggaBAtzmHrNFbf9BywoIpQqkSMyN9z6M7Lj1tPrWiEh4p3b41rFOfF3Dgrp7cU6NyDApaHTCEeNglxYGOj4uH5ttwlEUGuvjGE+LSsaLva3zyhrh1ifF/eWO7iMGTApC5ugI9QphnlAOLVyHszkwphqCN5NZynjHd07IpoLmqTBORTSN+5goEM/SLiJq4bNvCMSqTg6m1RoP9HK55VX/wQAm3xPNHxTx1xtFUGCqSTHwvsvBub7pQ4X9e/jVTXVzbLFwlmGXSorYRrq+a4hpzERd7+ekAzvA150RQ6JHO6Aw43Bi8YVytXyB189DSL6o430LhKmjq/ecmVklnQhtPYXF4eAPURCAlst45uK28g+DGgIpxQFX1imjxl5PJeHDbAle3ibRNxQl8Ky3NJe6X73Sb5gO7pc3DX88TfKrEoEmnwrLejbheDYNJpPhq4Mhd63p8rq0aSiHYIfdNNsx/6BfdP2kU5YYPK3TlICG9YbYaMh0fM58hvKzoWZgs08VnAp0zBRAp836G2o6V7jPo9kpTQmK4qAvZIBztMcWXM8oK8Jvi4XF9xSUw4ZmY/LXO+CjnlE0IKutPRSY8Kry6ZRdR/i0zR4PmAQflWpJUDxg6ydUWdMypS0mrhs/l+XOhTRhDiGctRal/qSfW5xYz6PJgSRjPEOFgTjSdZPa0zpCULomvnDJ3zKdpSi5xfv/V+SxNUBQfsaaQ/mOi/npZYFvJe30tqqR7G9N/znlp/A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ap3GBl0IX1ygru5/rgIuSmWCZynwbLALHSLVt8OGoFJYKWRw8K6KbAangc1b?=
+ =?us-ascii?Q?HcRS2Q4NM/ubgoPGnnzWMQ24rSMoOyn59uNlAJODSXnqc+YhbmJUYnUmTZVu?=
+ =?us-ascii?Q?0rEWgZ3pFsl33DhstHhD97DHwcu0oRC4D6BMkw5MZRv+y+HFnPHHFsuJwnMO?=
+ =?us-ascii?Q?0zCSJbGt7g38tUEBKJoaj7qLzg3BUwE6mTvt2nbRDjMyXyhU+LduYWkHDrbn?=
+ =?us-ascii?Q?kO5dfA8sQrs5NGdCis9DamLtwrlymZuJaBpjw2Z+1BVGBCHdQ7BPRKvQ2a8H?=
+ =?us-ascii?Q?51btz5I0T/0wJYwyCVZ1mF9a0Al0UEroTt9iQM/+OU3rlGcyHBUbqKY2QqhW?=
+ =?us-ascii?Q?1qOvH/K/fU6eWLB+AJuJZGEDExMm6Nox+kuRKrLNtZT+XjgPO1E4d4HQtRFE?=
+ =?us-ascii?Q?VjddXq5ivuSCZuUOWnx0ZSuufZjQqXDGbIli2E1QKWOm58Q1iILm2izNKyho?=
+ =?us-ascii?Q?WZ0LQcTp6mspYvQp1c2OOox/hZzMPj0mlQpUd1FVTXfr37wXAyakwnVgvf28?=
+ =?us-ascii?Q?yPqovZL1vbBtnOarldM+5JAZ2Dc+a9zem6iN5xLfH+mVg42QDdDUxTjLY8eT?=
+ =?us-ascii?Q?u1u5c2AeHbtHgPktPiLStUrXtX9MT6mWcug0DoBqnkn29dzzhRmDZyTq/3SP?=
+ =?us-ascii?Q?orgSVHVEDb8iBoD3oIiA9g3djhs81epDphlnctSFHidV4FY/tWQbp0qcpFcM?=
+ =?us-ascii?Q?Mley20dy+rt8gfY+G5Dgy5ZJ2jPr+e1+xTZCNfWYUmigqToTX7vbgu+gfxuN?=
+ =?us-ascii?Q?qPG1JlxBtgGWjWIsxKKTsQImoin/6cWUSF9fN3k6W8LiVSoG/xXA3r1hcfe/?=
+ =?us-ascii?Q?ugktWtSgv1mpGlTiLB5BkNqchlc+XJ9N9VfWgrssAkb+wfKAnTDfnaE/FvJl?=
+ =?us-ascii?Q?dWaiFL7QbmSf5DgMJ2y3rvMQiuI7ZSRpVFVUO+cHCi0h9oTmkMqANpyKY6Gf?=
+ =?us-ascii?Q?8zGFpxg2RduUnDUjKecDgCOOuXgmOUmrnel44UbIfeEx6Ucw54ncLR8j64RL?=
+ =?us-ascii?Q?fB6vbraxF5mBv04LTZaFE6/mPvW1ORi6j1/sx9ogS2XV7XLw23xnJXLJg6uw?=
+ =?us-ascii?Q?crcJpBQjhNXGS1qtbZaP/aGoGYeIajcz4/9N7pZ95nHFDnAgBibo33t1Ia+K?=
+ =?us-ascii?Q?Th4Lk0f+DICWIqRDIIxAHBpwErDYN3MUZADjTVaBeQWFQ2bKs+nsoIBU4ael?=
+ =?us-ascii?Q?2mIfyO9BlyH3dYNz6BXVqur38nTNJyVk1/tZ3FXSFpPnFYqwzeuCX9oz7IH9?=
+ =?us-ascii?Q?Ex6qRh9XWmQH/IpPOQvxtDKkobGL1BZAF58wP/fpFARSGEddBm7+zrDVPGQX?=
+ =?us-ascii?Q?KB3DCKtV07Qg6Be6aq0VoXiGi7RqDU8gyCFCJ+qW4dUZj14MumpCaRo75L+2?=
+ =?us-ascii?Q?ZVChMIlt7nj15xYJYeVLtC2HtZiUxP7rjlyqUSSPwSwgY3GxhvpJZbxJFpfD?=
+ =?us-ascii?Q?PDDJ2ee0pNURceAfRszrZYVyM7PFO7+Fn7VAIzUjMbp3Bsk+blyOgapSOVxI?=
+ =?us-ascii?Q?tTP1dTGJTDGE59lqyhtynjTJwFq598uHyJNuOWfmypk5US+QrZRkCDBgcMJG?=
+ =?us-ascii?Q?wiBhoy4AlbA5+ED1Byvw1EcjdEp6P0rIhrGgwf7Nhlqd7JdmpgVJ33DmTB2s?=
+ =?us-ascii?Q?yLr/Ep8Y5jvRL7d1yORAJ21grTupkjRjzeHxV49R9RggS0fggtpbsSbF9obO?=
+ =?us-ascii?Q?1CUs7M7YBglrJJL33fEcZirNYra8LrZN15TzqrMctY2oSUcg?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc7b42c0-698a-4280-0046-08de9719d2b9
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 15:57:10.2337
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: E6pmiRzvCtEVHuqh1efMROgGWIKAUjpopkubjcTHGmzo2p5JATVfaXQxFEm26jUD
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7285
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_084446_260466_4A4A9BA1 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20260410_085719_602658_668E2D3B 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,61 +137,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5810445761907392195=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This is part of the patch pile to get SMMUv3 moved to iommupt. From
+that perspective it introduces the PT_FEAT_DETAILED_GATHER which will
+be used by both RISC-V and SMMUv3 to generate optimized invalidation
+commands.
 
---===============5810445761907392195==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bB/Q26L4bd+03tnk"
-Content-Disposition: inline
+I don't have any RISC-V anything so this needs to be tested by someone who
+does.
+
+Improve the invalidation flow in RISC-V:
+ - For single address invalidation, compute a stride based on what
+   IOPTEs were changed by having the gather track level changes in
+   bitmaps. This allows things like unmapping hugetlb-backed mappings
+   to avoid jumping to global invalidation.
+
+ - Support the NL bit to avoid global invalidation when table
+   structure is changed
+
+ - Support the S range invalidation feature to convert any gather
+   into a single invalidation command using an aligned power-of-2
+   size like AMD and VT-d.
+
+This is also a requirement for the kunit iotlb series, which was used
+to test the math used to generate the invalidation commands from the
+gather in this series.
+
+It replaces a similar series Fangyu sent prior to the iommupt
+conversion:
+
+https://lore.kernel.org/linux-iommu/20260208144213.94856-1-fangyu.yu@linux.alibaba.com/
+
+The full patch pile is here:
+
+https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
+
+Jason Gunthorpe (7):
+  iommu: Split the kdoc comment for struct iommu_iotlb_gather
+  iommupt: Add struct iommupt_pending_gather
+  iommupt: Add PT_FEAT_DETAILED_GATHER
+  iommu/riscv: Enable PT_FEAT_DETAILED_GATHER and pass gather to
+    iotlb_inval
+  iommu/riscv: Compute best stride for single invalidation
+  iommu/riscv: Add RISCV_IOMMU_CAPABILITIES_NL
+  iommu/riscv: Add NAPOT range invalidation support
+
+ drivers/iommu/generic_pt/fmt/iommu_riscv64.c |   4 +-
+ drivers/iommu/generic_pt/iommu_pt.h          |  98 ++++++++----
+ drivers/iommu/riscv/iommu-bits.h             |  24 +++
+ drivers/iommu/riscv/iommu.c                  | 160 ++++++++++++++-----
+ include/linux/generic_pt/common.h            |   5 +
+ include/linux/iommu.h                        |  42 ++++-
+ 6 files changed, 259 insertions(+), 74 deletions(-)
 
 
---bB/Q26L4bd+03tnk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+base-commit: ac81c0f2e6a779e444c5b6fd43756ef811656098
+-- 
+2.43.0
 
-On Fri, Apr 10, 2026 at 11:04:20PM -0400, Guodong Xu wrote:
-> From: Alex Elder <elder@riscstar.com>
->=20
-> Add support for the SPI controller implemented by the SpacemiT K1 SoC.
-
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
-
---bB/Q26L4bd+03tnk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnZGucACgkQJNaLcl1U
-h9D2iwf9Eize17JsXARuOZG6T3Rlw+XdompD+YXGF+QHaEZ9P0b3i5Mb5byebIMV
-ptjEEal3lvrL22QcaweS5m0NRMVzYWh3H5gBTJjYsXilcyVB4OkFX3d5Hg9cbzk4
-+MT3UcRYMoflWtWxPsaUoRGUn3SZEfoEh8EQXzW9WFe6xZT0jfXATeOa/uw0ijgs
-dpUKQBH9jeFUWO9hKsDOlvancLKwRdywKfbEiJkSxkwrxbIMmv7KF4ZLe9WPM//X
-g7eVD6XMxctW+dc6XjTcF8MgUs3Wvj9QW1hy7RnKHMNgUWgBQdlSRf8AV0zwd+Ov
-p1lDtibQGNmKoDK+m2g3zZhU7XDe5g==
-=Gjsv
------END PGP SIGNATURE-----
-
---bB/Q26L4bd+03tnk--
-
-
---===============5810445761907392195==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5810445761907392195==--
-
