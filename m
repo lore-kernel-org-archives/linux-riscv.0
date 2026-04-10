@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E86A8EA71AD
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Apr 2026 23:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 093C7EA71AD
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Apr 2026 23:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zpRl71hIxrvXZWlcLb/YypuvkKT2yj4Gii2UAEspJeU=; b=zecOF+/c0/Pp0R
-	Z/EDZNFq2UDtY9BU5eqgvNEaK4oqbZQ4ZQ0dbVgVsDQEnFol679VASu3hhun+RJr+K4N3ojQHxe1y
-	tL7ZP94qL2Qz0oteq6rMCt1iH3dccKVYkdQp2cyLfsVbInyxW5aJ5qP0J7NCfnpn/EdtqbFBCV0ma
-	MOW4YMwSkfYtPiO74U/0r0NB9U+7ZxnEgcKD7iexRvhIR5snTPXbqZP6ZnMwIa+sOryFT+rUV+1HD
-	a6/1ocgPP16KuuM9/I91UwcWUWbQ7eZH5x42If+58+7SI2KJXGGtlUDCY8W6T3IaXWzMYhhgC5jas
-	TKATrT2T5yTBdvY6d3kQ==;
+	List-Owner; bh=yn9BwNFPc89fvZ6YHMLSVbzYF6HL3OKh3lDc7MlWaa8=; b=dLGbmXZCQP3rkM
+	2O8SCWXErQ/2rPuvJ0dhWEsKiI7o8DQ9bZlrWWOtwJHBDHWwy3t3K+zRIj+AF8ntxrjfabxEfEh1V
+	0mrNovuTvrs86Tejf7Gm4p9M6I84P7dnGZlzKoO+oWpV/+anyuT98zb9lA/jitnZrfIG72t/2uLaL
+	niGY3ZH1MxcPSNGCISN64aFthMvlKXrH2fHJlRwBpJMSHP8Jye1bjwxZ6AifihdXHb+3ndy28JA9x
+	qOH3odjMyuD7LD9c/Y5/Jwc1jFheJrkKZqHwf5HRJz5apajCvOO9yx+bTLLU1zb2+NX5FUXIeDFRC
+	rYc2U10rVwl0ALgBLLQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEb9T-000000069Rl-3e38;
-	Sun, 19 Apr 2026 23:02:08 +0000
-Received: from iad-out-009.esa.us-east-1.outbound.mail-perimeter.amazon.com ([34.198.94.229])
+	id 1wEb9X-000000069VZ-2jnP;
+	Sun, 19 Apr 2026 23:02:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBDcl-0000000CRqE-2OR5;
-	Fri, 10 Apr 2026 15:18:24 +0000
+	id 1wBDcz-0000000CRuX-0DiC;
+	Fri, 10 Apr 2026 15:18:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wjP/j8AJgPbtZq1XgPne0gPzghOZdblPBwP2xhZse4E=; b=G5Eh8NZs1gzF0bl4Xz4QcN0dq3
+	mjYt4BAzXTrQKZmm/VxGWZv9fWPbrummTgH4hXlaxsnnNLzZljYSBMLdJOX5Melp38S5M+x+pqhwl
+	C4ihwuU8lUdyYEMZmpcKk6ijnZN73IErPrNGa0J1XWiZO2HQXVmnmP7UOwpuN8HezSnV/VvXL8mcM
+	yCrxUFwYOshFNA6Usw+3aS4jDSP3XiUcluyL3kiwl3vpBJOzxdAMQ+Lt6dyq7juDywnAWkDYRgNXr
+	55k5q7ZlsIJhj0E95lWl/FkTHmocnzOcx3tycxOOgvYSxi829EtLWCN82Q/FbQxE69uONrhbZDB/Y
+	FymOPCnA==;
+Received: from iad-out-008.esa.us-east-1.outbound.mail-perimeter.amazon.com ([34.193.58.168])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBDcw-0000000DkCV-0p9T;
+	Fri, 10 Apr 2026 15:18:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazoncorp2; t=1775834303; x=1807370303;
+  s=amazoncorp2; t=1775834314; x=1807370314;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-transfer-encoding:mime-version;
-  bh=SXUxXoRrWTOvyOc+uAqr+1ZCvKnUa6yiTRH8yoXeRFw=;
-  b=lPCUFR09v9NfYL2aWeP5Vl7peYGiK799Q2GZk3o6E3GqXRqHzdwkZTdd
-   pWjDBRj6F51lS2cxWnlbVvoj3MPayI0nQEtds+R5lxwX1yxODdh9xUK4/
-   5zCl/50piHU72M1EbT/lv+Htzyl3M8NHHxzbQCvSjXeyBVwOgaAQ2EKTe
-   tIObM+oKA91Ifrb8Y5z7CuBXGBtxFZblIWGYJ/E9J9xM3ExeU66650QJX
-   7x2AxyLsG9WdhEpoycc25ATLsxDmv6HYb9DqppEI/lRVb+zW7Pj2rN/Hv
-   ufju2h5E+MpMqzmZuWAJCxka7cC8NrEkERRB6xQNiJLB9nngcD0xTBoxp
-   Q==;
-X-CSE-ConnectionGUID: ETAIPHXHQ6Cl6VUBPfxqbA==
-X-CSE-MsgGUID: K9skfv97QeinTXXHdn0ngg==
+  bh=wjP/j8AJgPbtZq1XgPne0gPzghOZdblPBwP2xhZse4E=;
+  b=Gkf4etI4xMBpUucRhIrOvF4Z7VUZXdfaUE1D+uoVROetCbr+kYvnQgEp
+   YY21MRnVkDq6LDI5CujjoxyKSQ7+E10nfj1/Uv6TE+WZMFil+K6q+x3vF
+   ggvF9eVRunQDpjLjqGvPh21WS/uhVSGYsX5yc6dE0vZpGADj0wRE66w6P
+   qveZeDEdnoLS3/wmLfgwzAF+kKwteGMjKKVWBI2e/9DYA/EETYtSHIlEe
+   H9dJzjnpSei4xroSTmzkbxkxRzdO6WnqIzKv82VXSEMwRhYO0xSp/IgLJ
+   XUE69RkcVZiSoUHtj2mdowIs5xYJiPJ7KU8uvyZjsOvrOclgOyghFwA4J
+   A==;
+X-CSE-ConnectionGUID: pgHA7Q/vSB6ui62eJSHjYA==
+X-CSE-MsgGUID: ocAl+iY7TA2wuReKD5Ta6w==
 X-IronPort-AV: E=Sophos;i="6.23,171,1770595200"; 
-   d="scan'208";a="15898090"
-Received: from ip-10-4-17-41.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.17.41])
-  by internal-iad-out-009.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 15:18:21 +0000
-Received: from EX19MTAUEA002.ant.amazon.com [52.94.133.129:4854]
- by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.3.180:2525] with esmtp (Farcaster)
- id 5c57dd77-82b6-4d25-81d9-bfb9fbf59a7a; Fri, 10 Apr 2026 15:18:20 +0000 (UTC)
-X-Farcaster-Flow-ID: 5c57dd77-82b6-4d25-81d9-bfb9fbf59a7a
-Received: from EX19D027UEC001.ant.amazon.com (10.252.137.156) by
- EX19MTAUEA002.ant.amazon.com (10.252.134.9) with Microsoft SMTP Server
+   d="scan'208";a="15816372"
+Received: from ip-10-4-7-229.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.7.229])
+  by internal-iad-out-008.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 15:18:31 +0000
+Received: from EX19MTAUEB002.ant.amazon.com [72.21.198.67:12659]
+ by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.46.155:2525] with esmtp (Farcaster)
+ id 84389257-d52f-41af-8219-0534a3422f4b; Fri, 10 Apr 2026 15:18:31 +0000 (UTC)
+X-Farcaster-Flow-ID: 84389257-d52f-41af-8219-0534a3422f4b
+Received: from EX19D027UEC004.ant.amazon.com (10.252.137.178) by
+ EX19MTAUEB002.ant.amazon.com (10.252.135.47) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Fri, 10 Apr 2026 15:18:20 +0000
+ Fri, 10 Apr 2026 15:18:31 +0000
 Received: from EX19D027UEC003.ant.amazon.com (10.252.137.250) by
- EX19D027UEC001.ant.amazon.com (10.252.137.156) with Microsoft SMTP Server
+ EX19D027UEC004.ant.amazon.com (10.252.137.178) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Fri, 10 Apr 2026 15:18:20 +0000
+ Fri, 10 Apr 2026 15:18:30 +0000
 Received: from EX19D027UEC003.ant.amazon.com ([fe80::887f:519b:ba73:21d]) by
  EX19D027UEC003.ant.amazon.com ([fe80::887f:519b:ba73:21d%3]) with mapi id
- 15.02.2562.037; Fri, 10 Apr 2026 15:18:20 +0000
+ 15.02.2562.037; Fri, 10 Apr 2026 15:18:30 +0000
 From: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
 To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
 	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
@@ -74,73 +88,14 @@ To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
 	<linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev"
 	<loongarch@lists.linux.dev>, "linux-pm@vger.kernel.org"
 	<linux-pm@vger.kernel.org>
-CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net"
-	<corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org"
-	<oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
-	"tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
-	"bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>,
-	"hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>,
-	"peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org"
-	<willy@infradead.org>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>,
-	"lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>,
-	"vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>,
-	"surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>,
-	"ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net"
-	<daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>,
-	"martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com"
-	<eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>,
-	"yonghong.song@linux.dev" <yonghong.song@linux.dev>,
-	"john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org"
-	<kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>,
-	"haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org"
-	<jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com"
-	<jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>,
-	"jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>,
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com"
-	<riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com"
-	<yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com"
-	<coxu@redhat.com>, "ackerleytng@google.com" <ackerleytng@google.com>,
-	"yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com"
-	<ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>,
-	"tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>,
-	"wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com"
-	<mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>,
-	"jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com"
-	<agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com"
-	<borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "dev.jain@arm.com"
-	<dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>,
-	"hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>,
-	"shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>,
-	"svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com"
-	<thuth@redhat.com>, "yang@os.amperecomputing.com"
-	<yang@os.amperecomputing.com>, "Liam.Howlett@oracle.com"
-	<Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>,
-	"zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>,
-	"gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>,
-	"jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org"
-	<lenb@kernel.org>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org"
-	<rafael@kernel.org>, "yangyicong@hisilicon.com" <yangyicong@hisilicon.com>,
-	"vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com"
-	<jackmanb@google.com>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>,
-	"Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro"
-	<itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>, "Kalyazin,
- Nikita" <kalyazin@amazon.co.uk>
-Subject: [PATCH v12 03/16] mm/secretmem: make use of
- folio_{zap,restore}_direct_map
-Thread-Topic: [PATCH v12 03/16] mm/secretmem: make use of
- folio_{zap,restore}_direct_map
-Thread-Index: AQHcyP1DBItR5zMXtEmj13bg9CfDRw==
-Date: Fri, 10 Apr 2026 15:18:19 +0000
-Message-ID: <20260410151746.61150-4-kalyazin@amazon.com>
+CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "yangyicong@hisilicon.com" <yangyicong@hisilicon.com>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>, "Kalyazin, Nikita" <kalyazin@amazon.co.uk>, Vlastimil Babka <vbabka@suse.cz>
+Subject: [PATCH v12 04/16] mm/gup: drop secretmem optimization from
+ gup_fast_folio_allowed
+Thread-Topic: [PATCH v12 04/16] mm/gup: drop secretmem optimization from
+ gup_fast_folio_allowed
+Thread-Index: AQHcyP1JW+htqwjvM0iCi2ukTUvS0A==
+Date: Fri, 10 Apr 2026 15:18:30 +0000
+Message-ID: <20260410151746.61150-5-kalyazin@amazon.com>
 References: <20260410151746.61150-1-kalyazin@amazon.com>
 In-Reply-To: <20260410151746.61150-1-kalyazin@amazon.com>
 Accept-Language: en-GB, en-US
@@ -150,9 +105,8 @@ X-MS-TNEF-Correlator:
 x-originating-ip: [172.19.103.116]
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_081823_741989_BA747565 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260410_161834_481897_C455F50A 
+X-CRM114-Status: GOOD (  13.36  )
 X-Mailman-Approved-At: Sun, 19 Apr 2026 16:02:05 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -170,60 +124,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nikita Kalyazin <nikita.kalyazin@linux.dev>
+From: Patrick Roy <patrick.roy@linux.dev>
 
-Replace set_direct_map_*_noflush with newly available
-folio_zap_direct_map calls that take folio's address internally.  A side
-effect is even if filemap_add_folio fails, the TLB is still flushed,
-which is not expected to be on the hot path.
+This drops an optimization in gup_fast_folio_allowed() where
+secretmem_mapping() was only called if CONFIG_SECRETMEM=y. secretmem is
+enabled by default since commit b758fe6df50d ("mm/secretmem: make it on
+by default"), so the secretmem check did not actually end up elided in
+most cases anymore anyway.
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Ackerley Tng <ackerleytng@google.com>
+To make sure the fast path for ZONE_DEVICE pages (like Device DAX and
+PCI P2PDMA) is still allowed, check for folio_is_zone_device() if
+mapping is NULL.
+
+This is in preparation of the generalization of handling mappings where
+direct map entries of folios are set to not present.  Currently,
+mappings that match this description are secretmem mappings
+(memfd_secret()).  Later, some guest_memfd configurations will also fall
+into this category.
+
+Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
+Acked-by: Vlastimil Babka <vbabka@suse.cz>
+Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
 Signed-off-by: Nikita Kalyazin <nikita.kalyazin@linux.dev>
 ---
- mm/secretmem.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+ mm/gup.c | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
 
-diff --git a/mm/secretmem.c b/mm/secretmem.c
-index fd29b33c6764..27b176af8fc4 100644
---- a/mm/secretmem.c
-+++ b/mm/secretmem.c
-@@ -53,7 +53,6 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
- 	struct inode *inode = file_inode(vmf->vma->vm_file);
- 	pgoff_t offset = vmf->pgoff;
- 	gfp_t gfp = vmf->gfp_mask;
--	unsigned long addr;
- 	struct folio *folio;
- 	vm_fault_t ret;
- 	int err;
-@@ -72,7 +71,7 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
- 			goto out;
- 		}
+diff --git a/mm/gup.c b/mm/gup.c
+index 8e7dc2c6ee73..e8367564d636 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -2739,7 +2739,6 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+ {
+ 	bool reject_file_backed = false;
+ 	struct address_space *mapping;
+-	bool check_secretmem = false;
+ 	unsigned long mapping_flags;
  
--		err = set_direct_map_invalid_noflush(folio_address(folio));
-+		err = folio_zap_direct_map(folio);
- 		if (err) {
- 			folio_put(folio);
- 			ret = vmf_error(err);
-@@ -87,7 +86,7 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
- 			 * already happened when we marked the page invalid
- 			 * which guarantees that this call won't fail
- 			 */
--			set_direct_map_default_noflush(folio_address(folio));
-+			folio_restore_direct_map(folio);
- 			folio_put(folio);
- 			if (err == -EEXIST)
- 				goto retry;
-@@ -95,9 +94,6 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
- 			ret = vmf_error(err);
- 			goto out;
- 		}
+ 	/*
+@@ -2751,14 +2750,6 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+ 		reject_file_backed = true;
+ 
+ 	/* We hold a folio reference, so we can safely access folio fields. */
 -
--		addr = (unsigned long)folio_address(folio);
--		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 	}
+-	/* secretmem folios are always order-0 folios. */
+-	if (IS_ENABLED(CONFIG_SECRETMEM) && !folio_test_large(folio))
+-		check_secretmem = true;
+-
+-	if (!reject_file_backed && !check_secretmem)
+-		return true;
+-
+ 	if (WARN_ON_ONCE(folio_test_slab(folio)))
+ 		return false;
  
- 	vmf->page = folio_file_page(folio, vmf->pgoff);
+@@ -2787,9 +2778,13 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+ 	 * The mapping may have been truncated, in any case we cannot determine
+ 	 * if this mapping is safe - fall back to slow path to determine how to
+ 	 * proceed.
++	 *
++	 * ZONE_DEVICE folios (e.g. Device DAX, PCI P2PDMA) may legitimately
++	 * have a NULL mapping. They are never secretmem/no-direct-map folios,
++	 * so let them through.
+ 	 */
+ 	if (!mapping)
+-		return false;
++		return folio_is_zone_device(folio);
+ 
+ 	/* Anonymous folios pose no problem. */
+ 	mapping_flags = (unsigned long)mapping & FOLIO_MAPPING_FLAGS;
+@@ -2800,7 +2795,7 @@ static bool gup_fast_folio_allowed(struct folio *folio, unsigned int flags)
+ 	 * At this point, we know the mapping is non-null and points to an
+ 	 * address_space object.
+ 	 */
+-	if (check_secretmem && secretmem_mapping(mapping))
++	if (secretmem_mapping(mapping))
+ 		return false;
+ 	/* The only remaining allowed file system is shmem. */
+ 	return !reject_file_backed || shmem_mapping(mapping);
 -- 
 2.50.1
 
