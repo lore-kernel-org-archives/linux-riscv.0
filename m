@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FA0F36BA3
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 03:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B472F36BA4
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Apr 2026 03:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,45 +13,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=naopVLLVVsBMxSoi0iSJGpYB6SN3tioBN69c1QCDie4=; b=UvQaSd0bi8JTywCvQv95amVpC6
-	hX/rXV+h5fbrTsGjwEb7iC25NpWaZ/cBTfoLiWRAGuxIFRm8UPtXuhPLKJst2CH2Njmkkpj1NBeVO
-	YRNvIv0ZthyjYAThS55ycp0hOL2EZA0OVfm7CvmGNgu65730FeOEzhvguKBT8sRpluJtu68+5E2ro
-	OHDAsNQkNjnCT5hWuCbP52+n7g21GGVKseuB2Ty9BkImAwv7EAgJJ6HgWpfXrNR0AqJzt7zFmWz2o
-	SGpLpeiASAW/sLRRL5tRSccdBPhZL/bC9wemWZy3He+ZcGgD/YFcUEJ21l+aL4fTot4ZUD6qj/2Xi
-	ZhYatlrg==;
+	bh=T/YnCE+tc0iP62tq7v4dZHP85+r8ChfS833FWlLr+2E=; b=cSSBjpcuZdzTDNnltZnEJAiXak
+	MFCxB72yoqUddVijZwgo7QmkA5mW/FYktxHjD7plO6+u5hutrf+B275PbzOQoi2NMCMf9ivXEqkdc
+	ndhb4JYMF+8o+BrZKi+mAFt3sm7V8XsNef0x5DBJjRyrEw3917h+hIe3T9TeKisv/trLr7CS59QQ8
+	79DZAy7m8BDspq5WfBccrdoZAybiZnWBg4yK4dbkFc6GJ3chYqsO27MLAvvW049D0ewC2cQldeFa1
+	99DnLH+t4fxChmbafGJOwD6qCGm09GL0fYWslR+FYFHfcr4xz9+1FEKUnzMBJIAAiN9mZxlNMatHK
+	hhMLzM8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB2A4-0000000BVxk-0OeD;
-	Fri, 10 Apr 2026 03:04:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wB2PU-0000000BX2u-2kuG;
+	Fri, 10 Apr 2026 03:19:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB2A3-0000000BVx7-0im8;
-	Fri, 10 Apr 2026 03:03:59 +0000
+	id 1wB2PR-0000000BX2S-1CdP;
+	Fri, 10 Apr 2026 03:19:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F401C60128;
-	Fri, 10 Apr 2026 03:03:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36C90C4AF09;
-	Fri, 10 Apr 2026 03:03:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A3716444F9;
+	Fri, 10 Apr 2026 03:19:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A35C1C4CEF7;
+	Fri, 10 Apr 2026 03:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775790237;
-	bh=Nwk8dytVxtAcRGL5pp2fXfwnyG0rAc7e4uC2d6AAYRg=;
+	s=k20201202; t=1775791191;
+	bh=++Koq39UWrgs6Y9/teNpfuGX4Prd7yZehxjZlfBpaLk=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=T/D7P0OnXqHBDeQqj0h+GFE/3Xub3uNWD/H6IQFMt2AY/bVaKy+WmWuJnHHHPs4te
-	 hV9xrnF3uDTri3QzZLfx5iXWWOJjOHraM49yvjYlNU4idQTQ+/Sm3e0QBl2DI93SWn
-	 lV68Gq3HrDHSYteo85CoZZEXlSJugMUTCVv+QbvJPDu34f6X/8VLyYV6FTPQEDtclJ
-	 ajyD2uqb/ZTUnOgDwjdDTl+pyVgJHVqYiR+gAIfeeejGfdPS8EzWxC8Kd1fe1Qw6HU
-	 n0zDG+/IH8P7jUAey0rb5m9iJQ+QpVGqPHl1+NZdXdiwtZ0yCDj1wYJccYYpDVlwtg
-	 segn4CgTD+0SQ==
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 1DD50F4006C;
-	Thu,  9 Apr 2026 23:03:55 -0400 (EDT)
+	b=mdYIM+3nOOfJk2sQndWIVe1crpn+qIFglFUaJi6YUZ8om+pF74JbkoMG1pCSpEb9w
+	 XY42HnmovukKhj85guOzmyhoPciXUmwPx7036BzxDj+GBwDX7w8ZX/kQj6Kf75C9nQ
+	 yMJOxpzFMvk+DFq2q3tbouAiWajtfDS+AXyxjQFI3HFmtdEmAwU/TRZgmOQyhKh0dz
+	 oTEcDPh4RcJYLV/DB6MyHh1cNOYj4HnTWHBSTgpco77/7Mk4f7CQSMgdwxNaeolZeG
+	 11Id3MhuCNF2BddA3SZqi8zEZAyyZSbKwJdKtgyQMtKdIjBxiedoSXRHs0s+vuBPie
+	 fHhNTH/TVHimw==
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfauth.phl.internal (Postfix) with ESMTP id BEAFCF4007B;
+	Thu,  9 Apr 2026 23:19:48 -0400 (EDT)
 Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Thu, 09 Apr 2026 23:03:55 -0400
-X-ME-Sender: <xms:m2jYaVvuNB5v6GdnqhWjXHPrj-Xs1ai94wK3KRNupkgFhOqQzZzC3g>
-    <xme:m2jYaUkpyJyCUCNgE74bnGCIbxEU2FOGFeTlPUTKpeQlSmmrwZCpKgaYK17P95KFr
-    nEzX-ncsYgUTkO6FZme_rDCXDG2CwOa1VyCDjvXXLNAOHNJiDm0VQ>
-X-ME-Received: <xmr:m2jYabd6-O1qxrmkpOxlYl4FVsVLLTtlO0FUgeKGKnisk32YMxXKA6ajLjBSsi4OwpBieBXg5XNaIMpiNH287KhulUeaVDZHAno>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvkedviecutefuodetggdotefrod
+  by phl-compute-05.internal (MEProxy); Thu, 09 Apr 2026 23:19:48 -0400
+X-ME-Sender: <xms:VGzYaRzc9F2SaA_dXGONVlZncUeqwfeC1knsfsUGLqCLtL9x7AJ9oQ>
+    <xme:VGzYaXbKB70COhi6wU5zcJDCn3jfZcRswNA20Sizt_IZgoixIWdWvIaDWTE9UJGaO
+    0gyCPv6TWv531UsombbNhRf0U-TJegFRbhlgcIH7rcKGm2a1YHwez-u>
+X-ME-Received: <xmr:VGzYaeCIWm-xaXNHRiAOee5n1VgDRaIYH8ii2WphVWSDkg5IlPqKJ2tQQw7rWGta-3eIj1g2bSuh8bC3JY4Fe1PIIjMC3ZQPqnM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvkedvlecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
     hrpeffhffvvefkjghfufggtgfgsehtjeertddttdejnecuhfhrohhmpeffrghnucghihhl
@@ -68,15 +68,15 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvkedviecutefuodetgg
     mhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrd
     horhhgpdhrtghpthhtoheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegt
     hhgvnhhhuhgrtggriheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:m2jYaaC4G7STwDvUR7CS2sxLuhd9_4NTIflnGuzCDX01-Jgs4uT14w>
-    <xmx:m2jYabFJVBuKmgUrK5OxBUlDqAvsZl1v-KMAzmE5eUIfVrz_tB9pMg>
-    <xmx:m2jYaaX7R7qnh6LbNHm0_HED8Pa2kjuIJjs5gCHCF1o3NoJmwEhrDw>
-    <xmx:m2jYaRZOO7FN7nulMEWiPxFetgPeGu3izX4XOgb9ubOxzrqmygE-lA>
-    <xmx:m2jYaUDJMWByc2-YkX4kdjvhaEqEcInJJMajfYWN-Sgm8d1ZFIpInjBP>
+X-ME-Proxy: <xmx:VGzYaRWWYH9YS5_KZb8QZgCAsWZfUiB9ORAbpTx2OwSeNwf8aS1oTQ>
+    <xmx:VGzYaYKyeSQq62O7WlXYf1xoalWcpZEhKySYJd9-cJQMpEvayfPE0g>
+    <xmx:VGzYaaJiDRoNy9BMYAaTC41fiA_6sbPjbfWZ4OvQdt7iOTvnCgAc1A>
+    <xmx:VGzYac91Cyql-IFbLq_KalJjxN3efCc9QroVK6-eoTOUQqKKiQULjQ>
+    <xmx:VGzYaQXpDuEx9ex4m7qF5l0GU1hi1krNMW-ZgN0aa1e6laSCn6NuISRa>
 Feedback-ID: i67ae4b3e:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 9 Apr 2026 23:03:53 -0400 (EDT)
-Date: Thu, 09 Apr 2026 20:03:52 -0700
+ 9 Apr 2026 23:19:47 -0400 (EDT)
+Date: Thu, 09 Apr 2026 20:19:47 -0700
 From: Dan Williams <djbw@kernel.org>
 To: Christoph Hellwig <hch@lst.de>
 Cc: Richard Henderson <richard.henderson@linaro.org>,
@@ -105,7 +105,7 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
   Dave Hansen <dave.hansen@linux.intel.com>,  x86@kernel.org,
   "H. Peter Anvin" <hpa@zytor.com>,
   Herbert Xu <herbert@gondor.apana.org.au>,
-  Dan Williams <djbw@kernel.org>,  Chris Mason <clm@fb.com>,
+  Dan Williams <dan.j.williams@intel.com>,  Chris Mason <clm@fb.com>,
   David Sterba <dsterba@suse.com>,  Arnd Bergmann <arnd@arndb.de>,
   Song Liu <song@kernel.org>,  Yu Kuai <yukuai@fnnas.com>,
   Li Nan <linan122@huawei.com>,  Theodore Ts'o <tytso@mit.edu>,
@@ -116,12 +116,15 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
   sparclinux@vger.kernel.org,  linux-um@lists.infradead.org,
   linux-crypto@vger.kernel.org,  linux-btrfs@vger.kernel.org,
   linux-arch@vger.kernel.org,  linux-raid@vger.kernel.org
-Message-ID: <69d86898b666c_2b31100cd@djbw-dev.notmuch>
-In-Reply-To: <20260327061704.3707577-23-hch@lst.de>
+Message-ID: <69d86c53cfc4_2b31100e7@djbw-dev.notmuch>
+In-Reply-To: <20260327061704.3707577-25-hch@lst.de>
 References: <20260327061704.3707577-1-hch@lst.de>
- <20260327061704.3707577-23-hch@lst.de>
-Subject: Re: [PATCH 22/28] xor: add a better public API
+ <20260327061704.3707577-25-hch@lst.de>
+Subject: Re: [PATCH 24/28] async_xor: use xor_gen
 Mime-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_201953_394720_5542D92A 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,15 +142,45 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Christoph Hellwig wrote:
-> xor_blocks is very annoying to use, because it is limited to 4 + 1
-> sources / destinations, has an odd argument order and is completely
-> undocumented.
+> Replace use of the loop around xor_blocks with the easier to use xor_gen
+> API.
 > 
-> Lift the code that loops around it from btrfs and async_tx/async_xor into
-> common code under the name xor_gen and properly document it.
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  crypto/async_tx/async_xor.c | 34 ++++++++++------------------------
+>  1 file changed, 10 insertions(+), 24 deletions(-)
+[..]
+> @@ -168,11 +156,10 @@ dma_xor_aligned_offsets(struct dma_device *device, unsigned int offset,
+>   *
+>   * honored flags: ASYNC_TX_ACK, ASYNC_TX_XOR_ZERO_DST, ASYNC_TX_XOR_DROP_DST
+>   *
+> - * xor_blocks always uses the dest as a source so the
+> - * ASYNC_TX_XOR_ZERO_DST flag must be set to not include dest data in
+> - * the calculation.  The assumption with dma engines is that they only
+> - * use the destination buffer as a source when it is explicitly specified
+> - * in the source list.
+> + * xor_gen always uses the dest as a source so the ASYNC_TX_XOR_ZERO_DST flag
+> + * must be set to not include dest data in the calculation.  The assumption with
+> + * dma engines is that they only use the destination buffer as a source when it
+> + * is explicitly specified in the source list.
+>   *
+>   * src_list note: if the dest is also a source it must be at index zero.
+>   * The contents of this array will be overwritten if a scribble region
+> @@ -259,11 +246,10 @@ EXPORT_SYMBOL_GPL(async_xor_offs);
+>   *
+>   * honored flags: ASYNC_TX_ACK, ASYNC_TX_XOR_ZERO_DST, ASYNC_TX_XOR_DROP_DST
+>   *
+> - * xor_blocks always uses the dest as a source so the
+> - * ASYNC_TX_XOR_ZERO_DST flag must be set to not include dest data in
+> - * the calculation.  The assumption with dma engines is that they only
+> - * use the destination buffer as a source when it is explicitly specified
+> - * in the source list.
+> + * xor_gen always uses the dest as a source so the ASYNC_TX_XOR_ZERO_DST flag
+> + * must be set to not include dest data in the calculation.  The assumption with
+> + * dma engines is that they only use the destination buffer as a source when it
+> + * is explicitly specified in the source list.
 
-Apologies for the latency on taking a look at this set from me. This and
-the touch to async_xor() look good.
+In retrospect, no need to duplicate this help, but as is:
 
 Reviewed-by: Dan Williams <djbw@kernel.org>
 
