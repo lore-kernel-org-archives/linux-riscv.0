@@ -4,115 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB89F3ED63
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Apr 2026 19:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB34DF3ED67
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Apr 2026 23:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=61EydiRA/m61sC4qwcXmkuJE95bpLxiH9vvpQBMTLXI=; b=h3VZ8X0NNITvqM
-	rdcXK/2f9EP+QjD16cwBJYl2K7fddxPt+lQrDsSMMKmvg1K2SeqCQ9JEimv1Q/TDwdLDYpSNNKRAH
-	yMU6Ok9uy8oymlhCTjS4XKY8NxVw4pjidbP85uceQGU+8q0sLhcUFOYSHtXns9AWv7kqeeiFP19a7
-	B+f9b2J44pk/rIUZfrx93Ww8u44nUyHOrjLFEBy/xJHyTSdElaTp1a8Eho2sl80VDqK70as1Ia/ag
-	zOVn4lvfZmVQ4YQ6V+nLTSJW9xLb36NdCUNEPxTtjrVXvlfhNAiVeA71Qoj/SoCiXMNU7NA8Prx99
-	ECBYIVGHlonwaxFlsXDg==;
+	List-Owner; bh=yjge5GLTZnbs2EkL6G/Ldp433yEbCD1tGk98WEBsVnw=; b=Pue6XckLf4W8JG
+	h+/JwzfUXhsaz3Kt9HNz7PlewHK2sm0EOpvCexzcH8gncXNwDMOR6WY38NnLUT8+QeAjpekh7ifVf
+	szhpnWqpj+offr8TlweuhpnQABpYSj1eyK+LYvAWpkFZTWGoGueuTxyB5AvUIn7kRXazI4Ale7N8C
+	FI1I7arlC8wprLo8emXnwhVeSwgRmOVpZPpxbPHAdAS9teakmgMkvDH0dcMY2qM2ydJCPrTJCXlb1
+	Rc18luaF4i7WtbQErshczK6J2Q70EJhxT6tCxXXH/cDhEihBAifakIsyJjJ674Jhs6uzI2drd9cT0
+	rRGInOxelOc+0lYMWLlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBeQ2-0000000Dl2v-0a8Y;
-	Sat, 11 Apr 2026 19:55:02 +0000
-Received: from mail-eastusazon11012001.outbound.protection.outlook.com ([52.101.53.1] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wBhJe-0000000Dr8F-1Jf5;
+	Sat, 11 Apr 2026 23:00:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBePy-0000000Dl2B-1ssw;
-	Sat, 11 Apr 2026 19:55:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iVWPveU44VVv7YbPBl3zdoDCfxdJvYWqfwib/uU3CbrB/lbGA3ka+MEUYd7VmqcFhEmwuLSRZ1kBWHT2zR2thIcGW5Nh3zAVu6+26I3PRBHs1RZXqEGNH+dzeyb6VnFfC6LX8nXKKrITR86yuSm3Pxt8+cxNcCMprqmaJCvHvwzbN/KFnnKVGTqeFlkXuEq8UZaZZmFOYYGcvpXwnhQg6kDlRhPPLsv7m1rc91wW2Uf3rmNPfmcr9wm1oqNuzWf/XA68h3os3feGJrF4oaejwjgSvVS7mjPP+QuwIYV1eC990pVnBQldP6r3xE7bolDSJbnncdL9CDUWccTATe93+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vNX2LeApEj4s5J5aXKcawswCbi4C1Db3gEN0t6QELng=;
- b=sZJ43lx1rJxzzwZVDM2yNKHgLszxUHEANCbF5A4Lgf3kyuDjg3SIxoYww32hYnJ04+HKJVnkfYnwYFeWdu97U6Aaml/tyosE/YOofcST/KBytOn9O5IsaH1X/Jd/GVRlKp0mHuhbBcuuVe4dZLNUUkSDGeJtGRh6MIBIqHLZQEW28LvApVnmDJDctERfgsLTBNVrHGpu5M3ciw9L7ACqAYBdRgkjEljcn8NFjQqB5FA5D3MdgZ0+x/FEjh6O4rnEOXt63wjGwOnrNg1srOgCw7a7GLTwlGVAVBFXxKyBH+O9S8cm+9+3WnhRF0kyBZZ0b4mGYtv8Gpal092cVOLfGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=arm.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vNX2LeApEj4s5J5aXKcawswCbi4C1Db3gEN0t6QELng=;
- b=J/OhpU+jDn/xlbni285P1keskgIctQQhaRVMoIaCIeqhzNvwfB9Kt3v6pIXTaOaPyZNeV7NDpPF63BPPLNN87238fX59bUwVAH9+lCSGgDYva98bIsskGCPHFEcWoXXYIHrwn6nCuCp7cgAmNx0lW9nnSMVw1rLtdZ36iMtMqyg=
-Received: from BN9PR03CA0572.namprd03.prod.outlook.com (2603:10b6:408:10d::7)
- by IA0PR12MB7722.namprd12.prod.outlook.com (2603:10b6:208:432::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.44; Sat, 11 Apr
- 2026 19:54:51 +0000
-Received: from BN1PEPF0000468B.namprd05.prod.outlook.com
- (2603:10b6:408:10d:cafe::53) by BN9PR03CA0572.outlook.office365.com
- (2603:10b6:408:10d::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.47 via Frontend Transport; Sat,
- 11 Apr 2026 19:54:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN1PEPF0000468B.mail.protection.outlook.com (10.167.243.136) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Sat, 11 Apr 2026 19:54:51 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sat, 11 Apr
- 2026 14:54:50 -0500
-Received: from [172.31.178.191] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Sat, 11 Apr 2026 14:54:46 -0500
-Message-ID: <c45ede13-f8d0-4b6a-b2ed-f06af4882ebc@amd.com>
-Date: Sun, 12 Apr 2026 01:24:45 +0530
+	id 1wBhJd-0000000Dr89-0ADa
+	for linux-riscv@lists.infradead.org;
+	Sat, 11 Apr 2026 23:00:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 350E36015B;
+	Sat, 11 Apr 2026 23:00:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D65BBC116C6;
+	Sat, 11 Apr 2026 23:00:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775948435;
+	bh=tq1KXTnWpJmdQtwkrrNB8D2YP4p81pR/wPRdcNwSHdg=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=KVqpOi5EMQnk4kfyzl33OuwBaecnrQsKo/M0lAHyy04LNJMKkid8eStdalwpvmtNq
+	 Ig4q5t3Y3Nne4/YQNytUCjEZ6frU8IqD5RY5AXhWCLQIXdvS65VUFmyvgVZOJsFRKe
+	 DCQN7uGYFpi546VfWlqTpmk3L+XPpZ0uXCr3bjGX2e5MsfgXWOZo38Ny+y/MdTxOYh
+	 fS5gGrKA1fwhC8Y8KSLND2bYbb+XzMkazC9CNbFYFOILVspWPLLP+pDdLKrNz8H45n
+	 hhQ5ksfNW82+/9+7UxY6TlOgovFZAKpi+GSB316BhSFS1Q4msdxDpYjRZW470aoIJi
+	 g00KsE9kGzreQ==
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] arm64/runtime-const: Use
- aarch64_insn_patch_text_nosync() for patching
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Peter
- Zijlstra <peterz@infradead.org>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Will Deacon <will@kernel.org>, David Laight
-	<david.laight.linux@gmail.com>, Darren Hart <dvhart@infradead.org>, Davidlohr
- Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
-	<andrealmeid@igalia.com>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-s390@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	Jisheng Zhang <jszhang@kernel.org>
-References: <20260402112250.2138-1-kprateek.nayak@amd.com>
- <20260402112250.2138-3-kprateek.nayak@amd.com> <adjE6WzFM7NogzlU@arm.com>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <adjE6WzFM7NogzlU@arm.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0000468B:EE_|IA0PR12MB7722:EE_
-X-MS-Office365-Filtering-Correlation-Id: ff1b5bf3-a56e-4a81-61a8-08de98043183
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|36860700016|13003099007|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: U7ldQmJMXOfFzNsS5tZsCnecmPycVVOMmMQFvuXm0vbunvvCAaBO/qVJ9av4kEeeddL3A6Df6Tn3pRa+YacQgB8McBCHmDFLXe99IJ4qOQgYIjbzs398Sx07m3jWvjfiLN4Id8MWBVTM8jlkQynnJDnHIo+j3mO4jlF404INnmAsi2AJi3cs2wP9iB+94DEJifWAbCaYwfKH4EHyJtjf8SP1yyG6x7E02QQD4t4HyN6FtO8mHgmZdbEBz1WfoVBLCZ3qd2SmVyjoX+vsoh1BquncvLARwjX+t7q6DkJhvMswjThwaVyHfgImvcCrh5rdnFGkHXBVeAIquSAzVLhCvNUXQ8ZKyz6cntfTtVP467qkfmk1vmDgUJJXM5fC7Yh+UVqhq+lHW6oQ4qRlsXdl6ML2T/RNlCVVlM4G0rm5oE62nOSckiRpvYwk9jPW3E8lWzgYVBYIJlZXhUvPeI+y0gNv3CKPj/wolX+B2V3/RTakFOECxRXMEaYn6/IWSEPlErfE8YsKeu4hIurAskoiPZT0AF1e4IfBBb2NToiBxJw9eNilYBWjaMvFmAO3tL3rQV8/Rhi321glzsTsl1yyxMjqFhAiairptSp5VyDp7POM4eUCUk95jGFStyODAPHrJcwJQRAbtTJaRDBIBjLgvj+eij7REBn8pnlkBcDs+4VKAidL+f5O7Nc+0al2c6dr9mQY555Sfo59MJ+9s6xhug==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(36860700016)(13003099007)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: mGhjP1GQx8cFqG/km9cRq/PSCz3nzNKgvloTNlQwm/uq0pQ3+yZXOy5Ii9818eXsvRnlVNM2MiZKL8VBf5jtiwHnGafbRYkPUxgPm00g/qoT3ADFnVGbmJWpCqyQa1euNXNfrac5gZJn+MTcixyb+gZSxPDUHkz8wqL1YNmKQJIA6zLBAEhmFeGmB2+LQNU8kArMSgfRFwfglrcwc3hPqRPuz2cmL0OLueLeqUkoS1Sv7vdNDochSgSF2tyBdrfs55aJ/sKq7PcdCpRfVojJw+UH0pVs9ptRDvaNgyZIDRYbGGumT0TrSsCboZJShJLqvo0KG98mlGEiql4b+UE72Lk2yZfF9IGHQT8VP8Xe/A5EyVC5zkL+UDlEVU5dO6lqDWnzVGMQrjCM/mrveau/PpYR8aoExIjNkFswqBGEAMxPTNbFiYAOFwHlhmbHhHfb
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2026 19:54:51.0768
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ff1b5bf3-a56e-4a81-61a8-08de98043183
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468B.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7722
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_125458_655254_A241E723 
-X-CRM114-Status: GOOD (  18.86  )
+In-Reply-To: <abghFg5INVslFFcc@x1>
+References: <abghFg5INVslFFcc@x1>
+Subject: Re: [GIT PULL] clk: tenstorrent: Add Atlantis PRCM for v7.1
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>, Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Drew Fustini <dfustini@oss.tenstorrent.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+To: Drew Fustini <fustini@kernel.org>
+Date: Sat, 11 Apr 2026 16:00:33 -0700
+Message-ID: <177594843379.5403.17573222940623235549@lazor>
+User-Agent: alot/0.12
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,104 +68,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Catalin,
-
-Thank you for taking a look at the series and pointing to the Shashiko
-review.
-
-On 4/10/2026 3:07 PM, Catalin Marinas wrote:
->> -static inline void __runtime_fixup_caches(void *where, unsigned int insns)
->> -{
->> -     unsigned long va = (unsigned long)where;
->> -     caches_clean_inval_pou(va, va + 4*insns);
->> +     aarch64_insn_patch_text_nosync(p, insn);
->>  }
+Quoting Drew Fustini (2026-03-16 08:26:14)
+> Hi Stephen,
 > 
-> Sashiko has some good points here:
-
-Ack! I did check the Sashiko review a few days after posting. I think
-I'll probably start replying to Shahsiko's inline review on future
-threads on LKML to keep the record like some folks are doing.
-
+> This pull request introduces support for the Tenstorrent Atlantis RISC-V
+> SoC in the form of a clk driver, reset driver and the associated DT
+> binding. The reset driver was reviewed by Philipp, who agreed that it
+> could go via the clk tree. Brian reviewed the clk driver but there is no
+> review/ack from you. Please let me know if you'd like to see any changes
+> and we will post a new revision.
 > 
-> https://sashiko.dev/#/patchset/20260402112250.2138-1-kprateek.nayak@amd.com
+> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 > 
-> In short, aarch64_insn_patch_text_nosync() does not expect a linear map
-> address but rather a kernel text one (or vmalloc/modules). The other
-> valid point is on aliasing I-caches.
+>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 > 
-> I think dropping the lm_alias() and just use 'where' directly would do
-> but I haven't tried.
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/tenstorrent/linux.git tags/tenstorrent-clk-for-v7.1
+> 
+> for you to fetch changes up to 23c8ebc952849b3ba47d04d0ec95daf5cc136061:
+> 
+>   clk: tenstorrent: Add Atlantis clock controller driver (2026-03-09 20:10:26 -0700)
+> 
+> ----------------------------------------------------------------
 
-Ack! I completely missed that subtlety of passing "where" to
-caches_clean_inval_pou(). I'm still surprised that it didn't
-blow up in my testing.
-
-Anyhow, following diff, on top of the full series builds and
-tests fine and has been blessed by review-prompts:
-
-diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
-index 21f817eb5951..d3f0dfa7ced0 100644
---- a/arch/arm64/include/asm/runtime-const.h
-+++ b/arch/arm64/include/asm/runtime-const.h
-@@ -57,21 +57,21 @@
- } while (0)
- 
- /* 16-bit immediate for wide move (movz and movk) in bits 5..20 */
--static inline void __runtime_fixup_16(__le32 *p, unsigned int val)
-+static inline void __runtime_fixup_16(void *where, unsigned int val)
- {
-+	__le32 *p = lm_alias(where);
- 	u32 insn = le32_to_cpu(*p);
- 	insn &= 0xffe0001f;
- 	insn |= (val & 0xffff) << 5;
--	aarch64_insn_patch_text_nosync(p, insn);
-+	aarch64_insn_patch_text_nosync(where, insn);
- }
- 
- static inline void __runtime_fixup_ptr(void *where, unsigned long val)
- {
--	__le32 *p = lm_alias(where);
--	__runtime_fixup_16(p, val);
--	__runtime_fixup_16(p+1, val >> 16);
--	__runtime_fixup_16(p+2, val >> 32);
--	__runtime_fixup_16(p+3, val >> 48);
-+	__runtime_fixup_16(where, val);
-+	__runtime_fixup_16(where + 4, val >> 16);
-+	__runtime_fixup_16(where + 8, val >> 32);
-+	__runtime_fixup_16(where + 12, val >> 48);
- }
- 
- /* Immediate value is 6 bits starting at bit #16 */
-@@ -81,15 +81,14 @@ static inline void __runtime_fixup_shift(void *where, unsigned long val)
- 	u32 insn = le32_to_cpu(*p);
- 	insn &= 0xffc0ffff;
- 	insn |= (val & 63) << 16;
--	aarch64_insn_patch_text_nosync(p, insn);
-+	aarch64_insn_patch_text_nosync(where, insn);
- }
- 
- /* Immediate value is 6 bits starting at bit #16 */
- static inline void __runtime_fixup_mask(void *where, unsigned long val)
- {
--	__le32 *p = lm_alias(where);
--	__runtime_fixup_16(p, val);
--	__runtime_fixup_16(p+1, val >> 16);
-+	__runtime_fixup_16(where, val);
-+	__runtime_fixup_16(where + 4, val >> 16);
- }
- 
- static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
----
-
-I'll do some more sanity checks and address the rest of the comments
-before posting out v4 soon after the merge window. Thank you again
-for your feedback. Much appreciated.
-
--- 
-Thanks and Regards,
-Prateek
-
+Thanks. Pulled into clk-next
 
 _______________________________________________
 linux-riscv mailing list
