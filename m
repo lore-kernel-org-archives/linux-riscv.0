@@ -4,131 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BD2EBFD16
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 09:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE702EBFD22
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 09:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ShSU4mWCAe4s5D9VDQe2xRkQsu7gnH5++bSCfZ5UhCA=; b=U3urxhuSmGyF99
-	1/k88ty/tbVkwOno+5e1dhMCfWxXh139a74m6BUTmeNKu1clUKwny78wE+qt9UuG9PWkt0IkNfQqt
-	i/FbqWguDJqL9IxqRy59cr7XLhXFJ2FJqFkmqUUNofKJWg5YcPZTrJarKOz845eB5WPVcQKi4DHW4
-	302fu9jTU6kZJUiFrgEBcRLRke0UDMs3ZCtX/VFnxafbDURIUn1rc+EME5W5IvJ3KcaVBpaGzA/0h
-	LmYwV+ma3yyydes2+STbdOrp+dif3af2ZyiIYh5x+8T0waKgjLuc/maEspotrtV6XizeVNEoN4fI/
-	VDEvnGWRt5bT6MlwjeJw==;
+	List-Owner; bh=mwO12ToA1aIpiTNidO7Im62HDeiWE5dyk5GiWiDkiw0=; b=puUwmWe52UsvLa
+	SIp2hMmpJqhx5EEZCd/lptMX1jeNWJtWxtVchr+IjvgqudJed1u4I2FGeEpPpLoAp+WzdGqF+Ccih
+	JeFZzn61vJYS0oya9n81wUm6xp6L0o8p8S+r1FMtXOAUDxZ558t7M7CCstYUA6FmrDr0f2g5bgsmm
+	hfMrueY8N+QUPV2eqYy3ja8LhHdRs3oQc0Ci4xoO/FreZFT7DzQ6rHt9PPlU1mnhg6keB/Sur++LO
+	mcuxBknMD1dby2X+5ftl7e7KjDP56sb01AtH9xbHxuhvuMXGiVq8+EsOzgDhEU1iFc8RTm1/SJAkT
+	PnclA9UQn4swCMGkhAmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDOk-0000000FLOt-27MO;
-	Mon, 13 Apr 2026 09:16:02 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wCDUv-0000000FMBC-3JN6;
+	Mon, 13 Apr 2026 09:22:25 +0000
+Received: from forward101b.mail.yandex.net ([178.154.239.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDOh-0000000FLOE-1vlW;
-	Mon, 13 Apr 2026 09:16:00 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CNQ6Rp3649347;
-	Mon, 13 Apr 2026 09:15:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=3hYK9Ei+d9kVH0VV/CR68CUDnV5UVC
-	rS18XI/2Q3GjY=; b=oY+vEH1nHYm21zR7dKdG+rMVbiAs+2M4pSYJYH25H3Q/WQ
-	S5pbibNxKHXRtCU5RA4BZpoAC/CsLV14kYSk9HD7BI83gpVLqIVXm+N3/UD3mtFb
-	VGL3bfwkoS+MFSXp/7ksAXz/d/43BdzYyNe+WU94qMB7+oTAY5jMdy/aC1rg5QU1
-	UhBzNrX2r1ZHEsamBr6j/bYRaaLxasa1WWuLDHkVDfa2K6RkMY6wizvw26f4v3Pw
-	kdUQa11kKa0O4lHqHX35TBGaxo9cfSk8h/UtwhMbDVaUgMt8SMltIpECwIrRGVKB
-	KeirN6PqfMTEor0kXcjWPcrhlHvR883P23ApPmxw==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dfdt3px1j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Apr 2026 09:15:17 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63D80WMC015153;
-	Mon, 13 Apr 2026 09:15:16 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4dg0mscku7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 13 Apr 2026 09:15:16 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63D9FEC727328866
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 13 Apr 2026 09:15:14 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 70F6620043;
-	Mon, 13 Apr 2026 09:15:14 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B712A2004F;
-	Mon, 13 Apr 2026 09:15:04 +0000 (GMT)
-Received: from li-dc0c254c-257c-11b2-a85c-98b6c1322444.ibm.com (unknown [9.123.13.2])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 13 Apr 2026 09:15:04 +0000 (GMT)
-Date: Mon, 13 Apr 2026 14:45:02 +0530
-From: Ojaswin Mujoo <ojaswin@linux.ibm.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        x86@kernel.org, Lu Baolu <baolu.lu@linux.intel.com>,
-        iommu@lists.linux.dev, Michael Grzeschik <m.grzeschik@pengutronix.de>,
-        netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
-        Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
-        Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org,
-        David Woodhouse <dwmw2@infradead.org>,
-        Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
-        Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
-        Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
-        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-        Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
-        "Jason A. Donenfeld" <Jason@zx2c4.com>,
-        Richard Henderson <richard.henderson@linaro.org>,
-        linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-        linux-arm-kernel@lists.infradead.org,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>,
-        Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org,
-        Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
-        Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
-        Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org,
-        Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
-        "David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
-Subject: Re: [patch 07/38] treewide: Consolidate cycles_t
-Message-ID: <ady0Ft_tDrbGlu2o@li-dc0c254c-257c-11b2-a85c-98b6c1322444.ibm.com>
-References: <20260410120044.031381086@kernel.org>
- <20260410120318.045532623@kernel.org>
+	id 1wCDUr-0000000FM95-2szm
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Apr 2026 09:22:24 +0000
+Received: from mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net [IPv6:2a02:6b8:c24:2409:0:640:85e8:0])
+	by forward101b.mail.yandex.net (Yandex) with ESMTPS id 7058CC00E8;
+	Mon, 13 Apr 2026 12:22:16 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id BMGbUY0QrqM0-O6FLWXfu;
+	Mon, 13 Apr 2026 12:22:15 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
+	t=1776072135; bh=lQUy54wEEEbvgUTVJeg9ba0eY87d/ikZDdwUlnWfE0g=;
+	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
+	b=SUVjWepzzolNF+E9xQ/9ev8cugH5KBkY+xQ2LXYhHGhWRcCg0qhCL72Ew/8zp8KIf
+	 sBHRY0LnEjpJHZjU76iMasxM8U1fRCQ2kT9A2sbX0tnPi3BY3WibGU8jkuWeXPcC1L
+	 YeJZ7iDc18GvP2ubdQLgeacJXOd9GlfCMcyX2qXY=
+Authentication-Results: mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
+From: Dmitry Antipov <dmantipov@yandex.ru>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	Dmitry Antipov <dmantipov@yandex.ru>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH v3 1/3] riscv: add platform-specific double word shifts for riscv32
+Date: Mon, 13 Apr 2026 12:22:00 +0300
+Message-ID: <20260413092202.174394-2-dmantipov@yandex.ru>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260413092202.174394-1-dmantipov@yandex.ru>
+References: <20260413092202.174394-1-dmantipov@yandex.ru>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260410120318.045532623@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: r6KN03kK1HZaoam71kVl5aHZm9BfgAQ4
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEzMDA4NSBTYWx0ZWRfX+Gwbo0yddZP/
- ED3CWrVQNFFw/TECS1M9+tSS57FYBZnMmG79KmJVnAwBWc3o5BgyeadFZ9maSHI4Tv+/+VHQiXF
- uu6/EAbMsVnRYIXugjj6TyQBBqRyeSoPbLxIVX8tqr0goumkz0lPJ9Y4Y3a3ECfM9WbzUtOSm5u
- eNbyrRMw+nuwi0Afz/QuxwA0FuazktkFPrSziYKfNEV92tR6ksCbhLbdKwZfOQ6IaUNAK3mHh04
- Z9ZuJvFG4+5R/DIJQ8v5H1fE5bYExgqIL1hC1HoekBef4/UHL3Jav5jU5Ty8ib2gAESLlopFcCb
- VttV6mxWXomhvrcFDBgGSdweqIiLio3UyKWRaxfdCdf1K3UdP0nDdx3LiWp/XKSUCxaso/02xav
- PADy/jEsrag0vsgcCLG1/jcBcJ3bFL3cNcYlDCC6JXFySGCPKTcpDMOtfvLh9vv4Vg7VR02ItSs
- a0USozVz3do3GTBrHkA==
-X-Proofpoint-GUID: iwEVNX-0n_YmGG6iAARt9TRRoEhRuwqE
-X-Authority-Analysis: v=2.4 cv=WpEb99fv c=1 sm=1 tr=0 ts=69dcb426 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
- a=9Pz4rRoAHiK5H5RfW9YA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-13_02,2026-04-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 bulkscore=0 adultscore=0 spamscore=0
- malwarescore=0 clxscore=1011 lowpriorityscore=0 suspectscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
- definitions=main-2604130085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_021559_510571_B80FA432 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20260413_022222_173325_3D8A03FE 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,64 +78,212 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 02:19:03PM +0200, Thomas Gleixner wrote:
-> Most architectures define cycles_t as unsigned long execpt:
-> 
->  - x86 requires it to be 64-bit independent of the 32-bit/64-bit build.
-> 
->  - parisc and mips define it as unsigned int
-> 
->    parisc has no real reason to do so as there are only a few usage sites
->    which either expand it to a 64-bit value or utilize only the lower
->    32bits.
-> 
->    mips has no real requirement either.
-> 
-> Move the typedef to types.h and provide a config switch to enforce the
-> 64-bit type for x86.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> ---
->  arch/Kconfig                       |    4 ++++
->  arch/alpha/include/asm/timex.h     |    3 ---
->  arch/arm/include/asm/timex.h       |    1 -
->  arch/loongarch/include/asm/timex.h |    2 --
->  arch/m68k/include/asm/timex.h      |    2 --
->  arch/mips/include/asm/timex.h      |    2 --
->  arch/nios2/include/asm/timex.h     |    2 --
->  arch/parisc/include/asm/timex.h    |    2 --
->  arch/powerpc/include/asm/timex.h   |    4 +---
->  arch/riscv/include/asm/timex.h     |    2 --
->  arch/s390/include/asm/timex.h      |    2 --
->  arch/sparc/include/asm/timex_64.h  |    1 -
->  arch/x86/Kconfig                   |    1 +
->  arch/x86/include/asm/tsc.h         |    2 --
->  include/asm-generic/timex.h        |    1 -
->  include/linux/types.h              |    6 ++++++
->  16 files changed, 12 insertions(+), 25 deletions(-)
-> 
-<...>
+Add riscv32-specific '__ashldi3()', '__ashrdi3()', and '__lshrdi3()'.
+Initially it was intended to fix the following link error observed
+when building EFI-enabled kernel with CONFIG_EFI_STUB=y and
+CONFIG_EFI_GENERIC_STUB=y:
 
-> --- a/arch/powerpc/include/asm/timex.h
-> +++ b/arch/powerpc/include/asm/timex.h
-> @@ -11,9 +11,7 @@
->  #include <asm/cputable.h>
->  #include <asm/vdso/timebase.h>
->  
-> -typedef unsigned long cycles_t;
-> -
-> -static inline cycles_t get_cycles(void)
-> +ostatic inline cycles_t get_cycles(void)
+riscv32-linux-gnu-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
+__efistub_cmdline.c:(.init.text+0x1f2): undefined reference to `__efistub___ashldi3'
+riscv32-linux-gnu-ld: __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
 
-Hi Thomas, I'm in middle of testing this series on powerpc. In the meantime I
-noticed that there's probably a small typo here (althrough this is fixed
-later)
+Reported at [1] trying to build https://patchew.org/linux/20260212164413.889625-1-dmantipov@yandex.ru,
+tested with 'qemu-system-riscv32 -M virt' only.
 
-Regards,
-ojaswin
->  {
->  	return mftb();
->  }
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202603041925.KLKqpK6N-lkp@intel.com [1]
+Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
+---
+v3: more tests by Charlie Jenkins
+v2: adjust commit message
+---
+ arch/riscv/Kconfig             |  3 ---
+ arch/riscv/kernel/image-vars.h |  7 +++++++
+ arch/riscv/lib/Makefile        |  1 +
+ arch/riscv/lib/ashldi3.S       | 36 +++++++++++++++++++++++++++++++++
+ arch/riscv/lib/ashrdi3.S       | 37 ++++++++++++++++++++++++++++++++++
+ arch/riscv/lib/lshrdi3.S       | 36 +++++++++++++++++++++++++++++++++
+ 6 files changed, 117 insertions(+), 3 deletions(-)
+ create mode 100644 arch/riscv/lib/ashldi3.S
+ create mode 100644 arch/riscv/lib/ashrdi3.S
+ create mode 100644 arch/riscv/lib/lshrdi3.S
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 90c531e6abf5..515254720da5 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -407,9 +407,6 @@ config ARCH_RV32I
+ 	bool "RV32I"
+ 	depends on NONPORTABLE
+ 	select 32BIT
+-	select GENERIC_LIB_ASHLDI3
+-	select GENERIC_LIB_ASHRDI3
+-	select GENERIC_LIB_LSHRDI3
+ 	select GENERIC_LIB_UCMPDI2
+ 
+ config ARCH_RV64I
+diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+index 3bd9d06a8b8f..d66e06daf13e 100644
+--- a/arch/riscv/kernel/image-vars.h
++++ b/arch/riscv/kernel/image-vars.h
+@@ -32,6 +32,13 @@ __efistub___init_text_end	= __init_text_end;
+ __efistub_sysfb_primary_display	= sysfb_primary_display;
+ #endif
+ 
++/*
++ * These double-word integer shifts are used
++ * by the library code and so EFI stub as well.
++ */
++PROVIDE(__efistub___lshrdi3    = __lshrdi3);
++PROVIDE(__efistub___ashldi3    = __ashldi3);
++
+ #endif
+ 
+ #endif /* __RISCV_KERNEL_IMAGE_VARS_H */
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index bbc031124974..7cee3da80c68 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -13,6 +13,7 @@ ifeq ($(CONFIG_MMU), y)
+ lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
+ endif
+ lib-$(CONFIG_MMU)	+= uaccess.o
++lib-$(CONFIG_32BIT)	+= ashldi3.o ashrdi3.o lshrdi3.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
+ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+diff --git a/arch/riscv/lib/ashldi3.S b/arch/riscv/lib/ashldi3.S
+new file mode 100644
+index 000000000000..c3408862e2f6
+--- /dev/null
++++ b/arch/riscv/lib/ashldi3.S
+@@ -0,0 +1,36 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/**
++ * Adopted for the Linux kernel from IPXE project, see
++ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
++ */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++
++/**
++ * Shift left
++ *
++ * @v a1:a0             Value to shift
++ * @v a2                Shift amount
++ * @ret a1:a0           Shifted value
++ */
++
++SYM_FUNC_START(__ashldi3)
++
++        /* Perform shift by 32 bits, if applicable */
++        li      t0, 32
++        sub     t1, t0, a2
++        bgtz    t1, 1f
++        mv      a1, a0
++        mv      a0, zero
++1:      /* Perform shift by modulo-32 bits, if applicable */
++        andi    a2, a2, 0x1f
++        beqz    a2, 2f
++        srl     t2, a0, t1
++        sll     a0, a0, a2
++        sll     a1, a1, a2
++        or      a1, a1, t2
++2:      ret
++
++SYM_FUNC_END(__ashldi3)
++EXPORT_SYMBOL(__ashldi3)
+diff --git a/arch/riscv/lib/ashrdi3.S b/arch/riscv/lib/ashrdi3.S
+new file mode 100644
+index 000000000000..dd42b3cbb173
+--- /dev/null
++++ b/arch/riscv/lib/ashrdi3.S
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/**
++ * Adopted for the Linux kernel from IPXE project, see
++ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
++ */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++
++/**
++ * Arithmetic shift right
++ *
++ * @v a1:a0             Value to shift
++ * @v a2                Shift amount
++ * @ret a1:a0           Shifted value
++ */
++
++SYM_FUNC_START(__ashrdi3)
++
++        /* Perform shift by 32 bits, if applicable */
++        li      t0, 32
++        sub     t1, t0, a2
++        bgtz    t1, 1f
++        mv      a0, a1
++        srai    a1, a1, 16
++        srai    a1, a1, 16
++1:      /* Perform shift by modulo-32 bits, if applicable */
++        andi    a2, a2, 0x1f
++        beqz    a2, 2f
++        sll     t2, a1, t1
++        sra     a1, a1, a2
++        srl     a0, a0, a2
++        or      a0, a0, t2
++2:      ret
++
++SYM_FUNC_END(__ashrdi3)
++EXPORT_SYMBOL(__ashrdi3)
+diff --git a/arch/riscv/lib/lshrdi3.S b/arch/riscv/lib/lshrdi3.S
+new file mode 100644
+index 000000000000..1af03985ccb7
+--- /dev/null
++++ b/arch/riscv/lib/lshrdi3.S
+@@ -0,0 +1,36 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/**
++ * Adopted for the Linux kernel from IPXE project, see
++ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
++ */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++
++/**
++ * Logical shift right
++ *
++ * @v a1:a0             Value to shift
++ * @v a2                Shift amount
++ * @ret a1:a0           Shifted value
++ */
++
++SYM_FUNC_START(__lshrdi3)
++
++        /* Perform shift by 32 bits, if applicable */
++        li      t0, 32
++        sub     t1, t0, a2
++        bgtz    t1, 1f
++        mv      a0, a1
++        mv      a1, zero
++1:      /* Perform shift by modulo-32 bits, if applicable */
++        andi    a2, a2, 0x1f
++        beqz    a2, 2f
++        sll     t2, a1, t1
++        srl     a1, a1, a2
++        srl     a0, a0, a2
++        or      a0, a0, t2
++2:      ret
++
++SYM_FUNC_END(__lshrdi3)
++EXPORT_SYMBOL(__lshrdi3)
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
