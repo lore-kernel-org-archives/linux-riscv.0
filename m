@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6F7E93808
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 01:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17548E9380D
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 02:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2QUVOkl+LxQyBu5tYzCoHxh6F5Gobb4CtbgCh8u9TJk=; b=25hPMBvsp4lo+Q
-	vzH1VECbKn4rarERaZGGqgKMvlyV631MlAx2ZNTfL53khukAbK1RK3f4q46F4H6WQOPKwFQvyFAZj
-	8DRrpUNbf+hT/1P75NRom3yWE0GqY81PGuAsO6KSsYoiS6NfrJYyOc0XH6xv/4cFFd0ZEnje1BgNM
-	rVzYKXsn9KwdE0uZZPFlB+OsYZjhoo5mEerN6IDeeOLvl1Ge2NH8tETzzJpqsCJL9K+VmcUKwKtC3
-	EfqyLn3Yf3Ft70YwUWr5jAYusn2qInl6pJ976WPF6mz0SaXiGYQyWvqZKioL0bZ0KBZqDIpTsF2x8
-	EVZ49vBsuGnINt/L+CKA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=glsVNquouegFxBCNT53aCC4r/WF1j6QX7N3RgmK0TNs=; b=M9qn8zpgMAsbJTioKz22uDAGpu
+	y1Kdnnev1TXdkAjt5voBDsD22uGcR/Ggm1VmIBVLEsVUM5IVw38LyaFnOvtcN6OOKI4L+vDb2x6fp
+	fYH1acy3U72RbaA7VbUuVyN+YyrdRJJsqHbidBClbmlkZV0fy9+/qWckeniw7wBQbd8UrU9k0CgNi
+	qCw1QyFkz+rYYoSly0cGwGfQBSzeIfmtok3MPu7b1ULi6IGWRHisqsw3MOosKpMwmxgi1n0z6VnH2
+	nwNuadRaHncv1xx/QxYkKAMnIzsxd6zl7Iq8vYPIzdBXzFDFcdIQitKFt8FkDJs3LsYoUMfHbSXYh
+	wrJ3U+Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC5n3-0000000EpLr-3HjZ;
-	Mon, 13 Apr 2026 01:08:37 +0000
-Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
+	id 1wC7Lc-0000000Et0Z-07M3;
+	Mon, 13 Apr 2026 02:48:24 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC5n0-0000000EpLU-0hpH
+	id 1wC7LQ-0000000Esug-2mlJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Apr 2026 01:08:35 +0000
-Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-464bc03efd8so2201316b6e.2
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Apr 2026 18:08:33 -0700 (PDT)
+	Mon, 13 Apr 2026 02:48:14 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2c0f6593ef5so5429224eec.1
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Apr 2026 19:48:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776042512; x=1776647312; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=bx/cx+/nSyPU4u4kSElxKqXthbDFkqX08J/TpBLSL1A=;
-        b=lkRLACjZM3rB2+6+TUT6P7SnrWC34Z+/ndVGLhm8kZ51HXoTaA6QlpInHqwb47dvEm
-         S6ReDTgcEmohUI83fngCmuJMJ1oySHZZOuVTgwZaqch1dXvNuDiSf2lzjrY8zw+E9/3x
-         59uS1KasqYyNQ+H9TXvvJDqHGwsfSBIfm1Tj1Q6s0+fE0QrEl9wMlv2oz41LscGTP72b
-         tq4GdFshkccKDSgzrWbzA41WQXQ2Vfysvsc8EoX1R1Iyh7UoOxAtD+Tbfpt8WmpZP81f
-         3Yl9Kwsh26eyhZ9LacorVb/M+EW/2UasJ0D0hChyk+vk05walE9q1+43E1v2GTbhkQeK
-         DOEw==
+        d=google.com; s=20251104; t=1776048491; x=1776653291; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YtjaYYRohAeuFObEpX2Nk4rOoZdzjEusCDWLEJOIbmo=;
+        b=O2/iFs6p0VYW2v22ffHHIHVJJ+E6EQUw2eosrUQp+9CFv7IT5/YasAKCeH1sJhIgc0
+         2zOp0dRppjK+mnHBU8wifBpVnoYhOcPYfPNrcdbJKTK9QiyOTOKUFSjwkeveFW/qZSgI
+         HJVRiO5eAI8RNuIDbsgnw5Or/xyWwZ1v+1tNtGEm69qvKlGxJEs4gThGEnfUlF8lT4ei
+         fuIxGQK+xR8j5QznfUGcQvz4FyQefOzSvXHhnQLZHwKkEkiHBiOAwVPCLXShnBD5+nMw
+         s1Yh/9iBgRDES7ols42OIqFmaCmRnAzzB0thTxRWhlYsYXGP+jfwBLbaCyYcmvRRuwvq
+         zN1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776042512; x=1776647312;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bx/cx+/nSyPU4u4kSElxKqXthbDFkqX08J/TpBLSL1A=;
-        b=szrssjatpXrBKpBqyL/fe9hFc8ZnYTfl41/QCAgMJLAtigHJGAcgQDuFwXzZCBsnQQ
-         m9XVVNHdSnlsBkPCMXjsksNfxc+pQ2bknGaKAPaeIye7G2gXXtvA8/E+v4BhXzBg839J
-         T5K23AGDeyiV7LOqZkpNYOSrMTub80bJArrzAGt2kjFdogPshPsmtng9VKs420EXhWVZ
-         m0LHykoqGmNUcpGQODYfDzB+mdzpgANP2iHmkk+1h6gIPmKirhs3/hQ/OGRfZQeuSnR3
-         LCt/aKI2FqYyM+JqG+0V2iqFh82WBg7Sji6oRrkgWjUSxJhoQK+Snx0MHkKWFUzuliA5
-         k3FQ==
-X-Gm-Message-State: AOJu0Yx6nOqpoNtvdL4kQAk+r7hzlHFzzRZcRdP22Hl5bcGWN4lms3Tc
-	iYtBP5zwGDFDqvRsIlNkFQJngRwnj44rP2oo3r0Ra95A9rdoG4s3BpSR
-X-Gm-Gg: AeBDievVHm1uSGq0rzFOA1d5i6pbfkfOzicCk8wAAen1tPE2qqJ3e53v/AffzhIJ6IO
-	4wdJqg1AoRyT2bwmcs0Ji/KwkVJWOOHgLmoyzoejE6LTZlakbRUC4bwjUhIcaslrBT2gQRFK5k9
-	xm1iZDsfyFPeN/9R5tebyILGByEYd9Xx6GH2BY49+KCJ9jxk5H7rJL8ubi+ouDpoXuFq4KlebJS
-	ezj0vN1A3FHOiEnmidHHSo/ZKiBuvmeTzKhxQ0YK8DM/V6LtmY4QJ46hKVbgPtNrH58HRXoOOAu
-	UYAyWcBhawENO51ibl44R7ciyxfqMraNHFDGSDGV5v+ViFpWONCj1BIdehn14kcsfHQCYGgMsAW
-	/3i49NmIG4ze2V8OAP5cE5r4chWr6U4Dz/Ico7O79b0YL1SiU3zK4xslgKDbDaDIQ3JYmyPoCQ+
-	PLLN/ThxFFQgkulgjOls6aQbrT30v3o5ybcXFUX1IhKKqU
-X-Received: by 2002:a05:6808:4f0e:b0:467:1212:46fd with SMTP id 5614622812f47-4789ff0e572mr5642029b6e.33.1776042512098;
-        Sun, 12 Apr 2026 18:08:32 -0700 (PDT)
-Received: from ird-aus2.tenstorrent.com ([38.104.49.66])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-478a2f557b5sm5556350b6e.11.2026.04.12.18.08.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Apr 2026 18:08:31 -0700 (PDT)
-From: Michael Neuling <mikey@neuling.org>
-To: jiangfeng@kylinos.cn,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Michael Neuling <mikey@neuling.org>
-Subject: [PATCH] riscv: lib: Fix ZBB strnlen reading past count boundary
-Date: Mon, 13 Apr 2026 01:07:38 +0000
-Message-ID: <20260413010738.1622423-1-mikey@neuling.org>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
+        d=1e100.net; s=20251104; t=1776048491; x=1776653291;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YtjaYYRohAeuFObEpX2Nk4rOoZdzjEusCDWLEJOIbmo=;
+        b=UjGM34oOMprBTPStg3WVyiBooA1o9fQ2MZF8PWoZdylkXn4oC2Hah35C2VH6rykSBX
+         gcuh/NSDykVynSOJwn1o63ZSl4dCunxTZi8MRnyFLcN9ccVCTEVjfTiqXYGEbXLQzfVf
+         Csf3Nmk44P9oGevLfUJ3UW20YUvHkYY/AFI/nvLszUWMW+1ZCZmouwvYTsNrc5I5tv7d
+         rsOPFBjPL4oYlfr9EUuJ/XYwrnEXsGjLJKhqJ7Iij+65liiwuxxZS7YjdR8GjBIF6h2x
+         9hSg6PehtZGO9Y0xy/6Wu4etcSRYFrhPhXfTxLdvFplxtrVb546sbCyyPnK9+eR8mqos
+         SbGg==
+X-Forwarded-Encrypted: i=1; AFNElJ+RZLTBy9D7YwGwmJ/TZG5Lbsd+thUyUispNM97DLbBJuvxIF3Bdlc1cI6YONUDwYT3oeDin0PMZhtAlQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfOunH/eR0FxlkyLi/8UWwugDeiEpJiA33PkNDE1LhGTXQv+jV
+	013Q4Yuqcc5akpTdERWOy1bTvi9XpPN0uHek186efpa/ll1ixffE0L6QRZjf2it4+Yk8Zth75Tm
+	xMFTLx1BJqQ==
+X-Received: from dybma11.prod.google.com ([2002:a05:7301:168b:b0:2cc:9049:2bf6])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:dc06:b0:2be:7fc2:fc38
+ with SMTP id 5a478bee46e88-2d5870ad65fmr6464052eec.5.1776048491167; Sun, 12
+ Apr 2026 19:48:11 -0700 (PDT)
+Date: Sun, 12 Apr 2026 19:47:58 -0700
+In-Reply-To: <20260413024805.1316480-1-irogers@google.com>
+Mime-Version: 1.0
+References: <advv6twWCEVBo_Hc@x1> <20260413024805.1316480-1-irogers@google.com>
+X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
+Message-ID: <20260413024805.1316480-2-irogers@google.com>
+Subject: [PATCH v4 1/8] perf unwind: Refactor get_entries to allow dynamic
+ libdw/libunwind selection
+From: Ian Rogers <irogers@google.com>
+To: acme@kernel.org
+Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
+	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
+	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
+	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
+	irogers@google.com, james.clark@linaro.org, john.g.garry@oracle.com, 
+	jolsa@kernel.org, leo.yan@linux.dev, libunwind-devel@nongnu.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
+	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
+	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_180834_241864_F60AAB6D 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20260412_194812_703007_2D604FA1 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,257 +100,379 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The ZBB-optimized strnlen loop loads one word ahead before checking the
-aligned boundary:
+Currently, both libdw and libunwind define 'unwind__get_entries'. This
+causes a duplicate symbol build failure when both are compiled into
+perf.
 
-    REG_L   t1, SZREG(t0)       // load next word
-    addi    t0, t0, SZREG       // advance
-    orc.b   t1, t1
-    bgeu    t0, t4, 4f          // boundary check AFTER load
+This commit refactors the DWARF unwind post-processing to be
+configurable at runtime via the .perfconfig file option
+'unwind.style', or using the argument '--unwind-style' in the commands
+'perf report', 'perf script' and 'perf inject', in a similar manner to
+the addr2line or the disassembler style.
 
-where t4 = (s + count) & -SZREG.  When s is aligned and count is a
-multiple of SZREG, t4 equals s + count and the loop loads a full word
-starting at exactly s + count.  If s + count falls on a page boundary
-with the next page unmapped, this faults.
+The file 'tools/perf/util/unwind.c' adds the top-level dispatch
+function 'unwind__get_entries'. The backend implementations are
+renamed to 'libdw__get_entries' and 'libunwind__get_entries'. Both are
+attempted as fallbacks if not configured, or if the primary backend
+fails.
 
-Fix by computing the aligned boundary from the last valid byte
-(s + count - 1) instead of s + count.  This makes the loop stop at the
-word containing the last valid byte rather than potentially loading the
-word after it.  The count == 0 case is already handled by the beqz
-early exit.
-
-Also add a pre-loop guard (bgeu t0, t4) for the case where all valid
-bytes fit within the first word.  With the adjusted boundary, t4 can
-equal t0, and entering the loop with stale register state from the
-first-word processing would produce incorrect results.
-
-The final minu clamp ensures the result is still correct when the last
-loaded word extends past s + count - 1 within the same aligned word.
-
-Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
-Signed-off-by: Michael Neuling <mikey@neuling.org>
-Assisted-by: Claude Opus4.6 High Thinking
+Fixes: 2e9191573a69 ("perf build: Remove NO_LIBDW_DWARF_UNWIND option")
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
+ tools/perf/builtin-inject.c        |  4 ++
+ tools/perf/builtin-report.c        |  4 ++
+ tools/perf/builtin-script.c        |  4 ++
+ tools/perf/util/Build              |  1 +
+ tools/perf/util/symbol_conf.h      | 10 +++
+ tools/perf/util/unwind-libdw.c     |  2 +-
+ tools/perf/util/unwind-libunwind.c |  2 +-
+ tools/perf/util/unwind.c           | 98 ++++++++++++++++++++++++++++++
+ tools/perf/util/unwind.h           | 63 ++++++++++++-------
+ 9 files changed, 163 insertions(+), 25 deletions(-)
+ create mode 100644 tools/perf/util/unwind.c
 
-Here is a test case that demonstrates the bug. The kernel code is pulled out 
-into a standalone file for testing.
-
- % cat test-strnlen-single.c
-// SPDX-License-Identifier: GPL-2.0
-/*
- * Minimal test: one strnlen call that triggers the ZBB over-read.
- * Run under GDB to single-step the fault.
- */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/mman.h>
-#include <unistd.h>
-
-extern size_t kernel_strnlen(const char *s, size_t count);
-
-int main(void)
-{
-	size_t page_size = sysconf(_SC_PAGESIZE);
-	char *region, *start;
-	size_t count = 16;  /* multiple of SZREG=8, triggers the bug */
-	size_t ret;
-
-	/* Map one page, guard page after it is unmapped */
-	region = mmap(NULL, 2 * page_size, PROT_READ | PROT_WRITE,
-		      MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-	munmap(region + page_size, page_size);
-
-	/* Fill with non-NUL, no terminator within count */
-	memset(region, 'A', page_size);
-
-	/* Aligned start, count reaches exactly to page end */
-	start = region + page_size - count;
-
-	printf("page=%p start=%p count=%zu end=%p (page_end=%p)\n",
-	       region, start, count, start + count, region + page_size);
-	printf("Calling kernel_strnlen...\n");
-
-	/* This will fault on the buggy ZBB path */
-	ret = kernel_strnlen(start, count);
-
-	printf("Result: %zu (expected %zu)\n", ret, count);
-
-	munmap(region, page_size);
-	return 0;
-}
-% cat test-strnlen-zbb.S
-/* SPDX-License-Identifier: GPL-2.0-only */
-/*
- * Standalone copy of the kernel's ZBB strnlen for userspace testing.
- * Extracted from arch/riscv/lib/strnlen.S
- */
-
-#define SZREG	8
-#define REG_L	ld
-
-.text
-.global kernel_strnlen
-.type kernel_strnlen, @function
-
-kernel_strnlen:
-	/* Jump straight to ZBB path (we know we have it) */
-	j	strnlen_zbb
-
-	/*
-	 * Non-ZBB fallback (byte-at-a-time)
-	 */
-	addi	t1, a0, -1
-	add	t2, a0, a1
-1:
-	addi	t1, t1, 1
-	beq	t1, t2, 2f
-	lbu	t0, 0(t1)
-	bnez	t0, 1b
-2:
-	sub	a0, t1, a0
-	ret
-
-
-strnlen_zbb:
-
-# define CZ	ctz
-# define SHIFT	srl
-
-.option push
-.option arch,+zbb
-
-	/* If maxlen is 0, return 0. */
-	beqz	a1, 3f
-
-	/* Number of irrelevant bytes in the first word. */
-	andi	t2, a0, SZREG-1
-
-	/* Align pointer. */
-	andi	t0, a0, -SZREG
-
-	li	t3, SZREG
-	sub	t3, t3, t2
-	slli	t2, t2, 3
-
-	/* Aligned boundary. */
-	add	t4, a0, a1
-	andi	t4, t4, -SZREG
-
-	/* Get the first word.  */
-	ld	t1, 0(t0)
-
-	/*
-	 * Shift away the partial data we loaded to remove the irrelevant bytes
-	 * preceding the string with the effect of adding NUL bytes at the
-	 * end of the string's first word.
-	 */
-	srl	t1, t1, t2
-
-	/* Convert non-NUL into 0xff and NUL into 0x00. */
-	orc.b	t1, t1
-
-	/* Convert non-NUL into 0x00 and NUL into 0xff. */
-	not	t1, t1
-
-	/*
-	 * Search for the first set bit (corresponding to a NUL byte in the
-	 * original chunk).
-	 */
-	ctz	t1, t1
-
-	/*
-	 * The first chunk is special: compare against the number
-	 * of valid bytes in this chunk.
-	 */
-	srli	a0, t1, 3
-
-	/* Limit the result by maxlen. */
-	minu	a0, a0, a1
-
-	bgtu	t3, a0, 2f
-
-	/* Prepare for the word comparison loop. */
-	addi	t2, t0, SZREG
-	li	t3, -1
-
-	/*
-	 * Our critical loop is 4 instructions and processes data in
-	 * 4 byte or 8 byte chunks.
-	 */
-	.p2align 3
-1:
-	ld	t1, SZREG(t0)
-	addi	t0, t0, SZREG
-	orc.b	t1, t1
-	bgeu	t0, t4, 4f
-	beq	t1, t3, 1b
-4:
-	not	t1, t1
-	ctz	t1, t1
-	srli	t1, t1, 3
-
-	/* Get number of processed bytes. */
-	sub	t2, t0, t2
-
-	/* Add number of characters in the first word.  */
-	add	a0, a0, t2
-
-	/* Add number of characters in the last word.  */
-	add	a0, a0, t1
-
-	/* Ensure the final result does not exceed maxlen. */
-	minu	a0, a0, a1
-2:
-	ret
-3:
-	mv	a0, a1
-	ret
-
-.option pop
-
-.size kernel_strnlen, .-kernel_strnlen
-% riscv64-linux-gnu-gcc -march=rv64gc_zbb -O0 -g -static -o test-strnlen-single-rv64 test-strnlen-single.c test-strnlen-zbb.S
-% qemu-riscv64 -cpu rv64,zbb=true ./test-strnlen-single-rv64
-page=0x7ff6d698c000 start=0x7ff6d698cff0 count=16 end=0x7ff6d698d000 (page_end=0x7ff6d698d000)
-Calling kernel_strnlen...
-Segmentation fault (core dumped)
-%
-
- arch/riscv/lib/strnlen.S | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
-index 53afa7b5b3..a8911605c2 100644
---- a/arch/riscv/lib/strnlen.S
-+++ b/arch/riscv/lib/strnlen.S
-@@ -83,8 +83,13 @@ strnlen_zbb:
- 	sub	t3, t3, t2
- 	slli	t2, t2, 3
+diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
+index f174bc69cec4..60f0c7dab31b 100644
+--- a/tools/perf/builtin-inject.c
++++ b/tools/perf/builtin-inject.c
+@@ -26,6 +26,7 @@
+ #include "util/synthetic-events.h"
+ #include "util/thread.h"
+ #include "util/namespaces.h"
++#include "util/unwind.h"
+ #include "util/util.h"
+ #include "util/tsc.h"
  
--	/* Aligned boundary. */
-+	/*
-+	 * Aligned boundary.  Use the address of the last valid byte
-+	 * (s + count - 1) to avoid loading a word past the count
-+	 * boundary in the loop below.  count == 0 is handled above.
-+	 */
- 	add	t4, a0, a1
-+	addi	t4, t4, -1
- 	andi	t4, t4, -SZREG
+@@ -2562,6 +2563,9 @@ int cmd_inject(int argc, const char **argv)
+ 		OPT_STRING(0, "guestmount", &symbol_conf.guestmount, "directory",
+ 			   "guest mount directory under which every guest os"
+ 			   " instance has a subdir"),
++		OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
++			     "unwind styles (libdw,libunwind)",
++			     unwind__option),
+ 		OPT_BOOLEAN(0, "convert-callchain", &inject.convert_callchain,
+ 			    "Generate callchains using DWARF and drop register/stack data"),
+ 		OPT_END()
+diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
+index 95c0bdba6b11..0b0966d94128 100644
+--- a/tools/perf/builtin-report.c
++++ b/tools/perf/builtin-report.c
+@@ -48,6 +48,7 @@
+ #include "util/time-utils.h"
+ #include "util/auxtrace.h"
+ #include "util/units.h"
++#include "util/unwind.h"
+ #include "util/util.h" // perf_tip()
+ #include "ui/ui.h"
+ #include "ui/progress.h"
+@@ -1449,6 +1450,9 @@ int cmd_report(int argc, const char **argv)
+ 	OPT_CALLBACK(0, "addr2line-style", NULL, "addr2line style",
+ 		     "addr2line styles (libdw,llvm,libbfd,addr2line)",
+ 		     report_parse_addr2line_config),
++	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
++		     "unwind styles (libdw,libunwind)",
++		     unwind__option),
+ 	OPT_BOOLEAN(0, "demangle", &symbol_conf.demangle,
+ 		    "Symbol demangling. Enabled by default, use --no-demangle to disable."),
+ 	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index c8ac9f01a36b..fd0b4609516b 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -63,6 +63,7 @@
+ #include <linux/err.h>
+ #include "util/dlfilter.h"
+ #include "util/record.h"
++#include "util/unwind.h"
+ #include "util/util.h"
+ #include "util/cgroup.h"
+ #include "util/annotate.h"
+@@ -4159,6 +4160,9 @@ int cmd_script(int argc, const char **argv)
+ 			"Enable symbol demangling"),
+ 	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
+ 			"Enable kernel symbol demangling"),
++	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
++		     "unwind styles (libdw,libunwind)",
++		     unwind__option),
+ 	OPT_STRING(0, "addr2line", &symbol_conf.addr2line_path, "path",
+ 			"addr2line binary to use for line numbers"),
+ 	OPT_STRING(0, "time", &script.time_str, "str",
+diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+index 70cc91d00804..01edfccebb88 100644
+--- a/tools/perf/util/Build
++++ b/tools/perf/util/Build
+@@ -216,6 +216,7 @@ ifndef CONFIG_SETNS
+ perf-util-y += setns.o
+ endif
  
- 	/* Get the first word.  */
-@@ -120,6 +125,9 @@ strnlen_zbb:
++perf-util-y += unwind.o
+ perf-util-$(CONFIG_LIBDW) += probe-finder.o
+ perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
+ perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
+diff --git a/tools/perf/util/symbol_conf.h b/tools/perf/util/symbol_conf.h
+index 6cd454d7c98e..0dee5aa6a534 100644
+--- a/tools/perf/util/symbol_conf.h
++++ b/tools/perf/util/symbol_conf.h
+@@ -9,6 +9,15 @@
+ struct strlist;
+ struct intlist;
  
- 	bgtu	t3, a0, 2f
- 
-+	/* All remaining bytes are in the first word, no loop needed. */
-+	bgeu	t0, t4, 2f
++enum unwind_style {
++	UNWIND_STYLE_UNKNOWN = 0,
++	UNWIND_STYLE_LIBDW,
++	UNWIND_STYLE_LIBUNWIND,
++};
 +
- 	/* Prepare for the word comparison loop. */
- 	addi	t2, t0, SZREG
- 	li	t3, -1
++#define MAX_UNWIND_STYLE (UNWIND_STYLE_LIBUNWIND + 1)
++
++
+ enum a2l_style {
+ 	A2L_STYLE_UNKNOWN = 0,
+ 	A2L_STYLE_LIBDW,
+@@ -81,6 +90,7 @@ struct symbol_conf {
+ 	const char		*addr2line_path;
+ 	enum a2l_style	addr2line_style[MAX_A2L_STYLE];
+ 	int             addr2line_timeout_ms;
++	enum unwind_style unwind_style[MAX_UNWIND_STYLE];
+ 	unsigned long	time_quantum;
+        struct strlist	*dso_list,
+ 			*comm_list,
+diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+index 05e8e68bd49c..d8a5b7d54192 100644
+--- a/tools/perf/util/unwind-libdw.c
++++ b/tools/perf/util/unwind-libdw.c
+@@ -339,7 +339,7 @@ frame_callback(Dwfl_Frame *state, void *arg)
+ 	       DWARF_CB_ABORT : DWARF_CB_OK;
+ }
+ 
+-int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
++int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
+ 			struct thread *thread,
+ 			struct perf_sample *data,
+ 			int max_stack,
+diff --git a/tools/perf/util/unwind-libunwind.c b/tools/perf/util/unwind-libunwind.c
+index cb8be6acfb6f..a0016b897dae 100644
+--- a/tools/perf/util/unwind-libunwind.c
++++ b/tools/perf/util/unwind-libunwind.c
+@@ -79,7 +79,7 @@ void unwind__finish_access(struct maps *maps)
+ 		ops->finish_access(maps);
+ }
+ 
+-int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
++int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 			 struct thread *thread,
+ 			 struct perf_sample *data, int max_stack,
+ 			 bool best_effort)
+diff --git a/tools/perf/util/unwind.c b/tools/perf/util/unwind.c
+new file mode 100644
+index 000000000000..86c2d1692d08
+--- /dev/null
++++ b/tools/perf/util/unwind.c
+@@ -0,0 +1,98 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "debug.h"
++#include "symbol_conf.h"
++#include "unwind.h"
++#include <linux/string.h>
++#include <string.h>
++#include <stdlib.h>
++
++int unwind__get_entries(unwind_entry_cb_t cb __maybe_unused, void *arg __maybe_unused,
++			struct thread *thread __maybe_unused,
++			struct perf_sample *data __maybe_unused,
++			int max_stack __maybe_unused,
++			bool best_effort __maybe_unused)
++{
++	int ret = 0;
++
++#if defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
++	if (symbol_conf.unwind_style[0] == UNWIND_STYLE_UNKNOWN) {
++		int i = 0;
++#ifdef HAVE_LIBDW_SUPPORT
++		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBDW;
++#endif
++#ifdef HAVE_LIBUNWIND_SUPPORT
++		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBUNWIND;
++#endif
++	}
++#endif //defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
++
++	for (size_t i = 0; i < ARRAY_SIZE(symbol_conf.unwind_style); i++) {
++		switch (symbol_conf.unwind_style[i]) {
++		case UNWIND_STYLE_LIBDW:
++			ret = libdw__get_entries(cb, arg, thread, data, max_stack, best_effort);
++			break;
++		case UNWIND_STYLE_LIBUNWIND:
++			ret = libunwind__get_entries(cb, arg, thread, data, max_stack, best_effort);
++			break;
++		case UNWIND_STYLE_UNKNOWN:
++		default:
++#if !defined(HAVE_LIBDW_SUPPORT) && !defined(HAVE_LIBUNWIND_SUPPORT)
++			pr_warning_once(
++				"Error: dwarf unwinding not supported, build perf with libdw or libunwind.\n");
++#endif
++			ret = -1;
++			break;
++		}
++		if (ret == 0)
++			break;
++	}
++	return ret;
++}
++
++int unwind__configure(const char *var, const char *value, void *cb __maybe_unused)
++{
++	static const char * const unwind_style_names[] = {
++		[UNWIND_STYLE_LIBDW] = "libdw",
++		[UNWIND_STYLE_LIBUNWIND] = "libunwind",
++		NULL
++	};
++	char *s, *p, *saveptr;
++	size_t i = 0;
++
++	if (strcmp(var, "unwind.style"))
++		return 0;
++
++	if (!value)
++		return -1;
++
++	s = strdup(value);
++	if (!s)
++		return -1;
++
++	p = strtok_r(s, ",", &saveptr);
++	while (p && i < ARRAY_SIZE(symbol_conf.unwind_style)) {
++		bool found = false;
++		char *q = strim(p);
++
++		for (size_t j = UNWIND_STYLE_LIBDW; j < MAX_UNWIND_STYLE; j++) {
++			if (!strcasecmp(q, unwind_style_names[j])) {
++				symbol_conf.unwind_style[i++] = j;
++				found = true;
++				break;
++			}
++		}
++		if (!found)
++			pr_warning("Unknown unwind style: %s\n", q);
++		p = strtok_r(NULL, ",", &saveptr);
++	}
++
++	free(s);
++	return 0;
++}
++
++int unwind__option(const struct option *opt __maybe_unused,
++		   const char *arg,
++		   int unset __maybe_unused)
++{
++	return unwind__configure("unwind.style", arg, NULL);
++}
+diff --git a/tools/perf/util/unwind.h b/tools/perf/util/unwind.h
+index 9f7164c6d9aa..ac0776e39f84 100644
+--- a/tools/perf/util/unwind.h
++++ b/tools/perf/util/unwind.h
+@@ -4,9 +4,10 @@
+ 
+ #include <linux/compiler.h>
+ #include <linux/types.h>
+-#include "util/map_symbol.h"
++#include "map_symbol.h"
+ 
+ struct maps;
++struct option;
+ struct perf_sample;
+ struct thread;
+ 
+@@ -26,7 +27,9 @@ struct unwind_libunwind_ops {
+ 			   struct perf_sample *data, int max_stack, bool best_effort);
+ };
+ 
+-#ifdef HAVE_DWARF_UNWIND_SUPPORT
++int unwind__configure(const char *var, const char *value, void *cb);
++int unwind__option(const struct option *opt, const char *arg, int unset);
++
+ /*
+  * When best_effort is set, don't report errors and fail silently. This could
+  * be expanded in the future to be more permissive about things other than
+@@ -36,8 +39,31 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 			struct thread *thread,
+ 			struct perf_sample *data, int max_stack,
+ 			bool best_effort);
+-/* libunwind specific */
++
++#ifdef HAVE_LIBDW_SUPPORT
++int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
++		       struct thread *thread,
++		       struct perf_sample *data, int max_stack,
++		       bool best_effort);
++#else
++#include "debug.h"
++static inline int libdw__get_entries(unwind_entry_cb_t cb __maybe_unused, void *arg __maybe_unused,
++				     struct thread *thread __maybe_unused,
++				     struct perf_sample *data __maybe_unused,
++				     int max_stack __maybe_unused,
++				     bool best_effort __maybe_unused)
++{
++	pr_err("Error: libdw dwarf unwinding not built into perf\n");
++	return -1;
++}
++#endif
++
+ #ifdef HAVE_LIBUNWIND_SUPPORT
++/* libunwind specific */
++int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
++			   struct thread *thread,
++			   struct perf_sample *data, int max_stack,
++			   bool best_effort);
+ #ifndef LIBUNWIND__ARCH_REG_ID
+ #define LIBUNWIND__ARCH_REG_ID(regnum) libunwind__arch_reg_id(regnum)
+ #endif
+@@ -47,26 +73,16 @@ int unwind__prepare_access(struct maps *maps, struct map *map, bool *initialized
+ void unwind__flush_access(struct maps *maps);
+ void unwind__finish_access(struct maps *maps);
+ #else
+-static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+-					 struct map *map __maybe_unused,
+-					 bool *initialized __maybe_unused)
+-{
+-	return 0;
+-}
+-
+-static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
+-static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
+-#endif
+-#else
+-static inline int
+-unwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
+-		    void *arg __maybe_unused,
+-		    struct thread *thread __maybe_unused,
+-		    struct perf_sample *data __maybe_unused,
+-		    int max_stack __maybe_unused,
+-		    bool best_effort __maybe_unused)
++#include "debug.h"
++static inline int libunwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
++					 void *arg __maybe_unused,
++					 struct thread *thread __maybe_unused,
++					 struct perf_sample *data __maybe_unused,
++					 int max_stack __maybe_unused,
++					 bool best_effort __maybe_unused)
+ {
+-	return 0;
++	pr_err("Error: libunwind dwarf unwinding not built into perf\n");
++	return -1;
+ }
+ 
+ static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+@@ -78,5 +94,6 @@ static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+ 
+ static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
+ static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
+-#endif /* HAVE_DWARF_UNWIND_SUPPORT */
++#endif
++
+ #endif /* __UNWIND_H */
 -- 
-2.43.0
+2.53.0.1213.gd9a14994de-goog
 
 
 _______________________________________________
