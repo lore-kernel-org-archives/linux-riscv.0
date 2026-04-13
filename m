@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD30DF34C74
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 17:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7020AF531C7
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 19:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=65nyqBHeKCoLD5fWQza0sQzQjsUikircYgXx2zx2JZc=; b=iMpJuCuOC30wpt
-	oNM1bAphHxztArNQyRW217RvUl0DpWnc/VYuz5zOXIFhGWxlbZoCxLiXDHRqr4avxV+htL+VRgJ7p
-	ektlK+D1SmPsYAeQL+ZOM6aOxSQHvz36EIlYevBOh/9YGdaO+D6MyDGt7VO4YRjuzT7p5t5xOzDsA
-	GCPkEusBLVKfDGWyjUesFrg8eWtmsvhGWWe0KpsAtkpzPQOhlxJNpwBGfVupRfZpN155IOt6ZV8Ux
-	oB/iccylzWi6fH7Z+pmHpBXG21Y0uqBkLjbVYkNLgrUJjQU35CMmUEwwIJ/0JtCCPZAZdRA0luYU4
-	jqGIoZmyXSvuPgkJJ9SA==;
+	List-Owner; bh=/nVkn9aWf8yqfWVmTZa6eyjSLdPm9CwKoUSAMPM18zI=; b=QrXo5u/cmXq5Fk
+	FePK9S/mFK/3EnBsvCyaqqltBlhyfkzRBfA2sCE9s1u5cFfb4ZiqHpAhOF3eU93NB6IYeEdkRN1B7
+	5xc9KXLVkqsVV9ItXdPtLiLqJqE3TP0J6ZpsnJGVXS/2FWiYYEy9IlvlMHXjrrJRE+inGUBUreLDe
+	WuqW4srtWV5RZPdRZVvJ6gsSrBa4sVICwFJVeN1TzZpON6N987zrOIeJ33aAxnxeYteG9VlcwmzVj
+	z5Rzg9R/cQKJ7DQpSqat2MLymZOspJvikKoWLWGU2ZprgBW3zb/yFzFkOoJh8dRsqU+v6KvEetAcC
+	FcSO5mwmXosfkrqFTcDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKxe-0000000G7no-3L2c;
-	Mon, 13 Apr 2026 17:20:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCMgw-0000000GGxM-1lYD;
+	Mon, 13 Apr 2026 19:11:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKxb-0000000G7mG-40oM
-	for linux-riscv@lists.infradead.org;
-	Mon, 13 Apr 2026 17:20:33 +0000
+	id 1wCMgt-0000000GGw3-3C65;
+	Mon, 13 Apr 2026 19:11:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E810D44511
-	for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 17:20:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A332C2BCFD
-	for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 17:20:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E12E44569;
+	Mon, 13 Apr 2026 19:11:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 294B8C2BCAF;
+	Mon, 13 Apr 2026 19:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776100830;
-	bh=Y1VX+P8oKWLTokXsXbxH9r3i6MRKz6cq07No9cqxGa4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hjx/j7EeQb3ovYPGcgHFrgVCclYE08OplfS9oT/yGLNHuzLisJZpRzLV3eZjrmdjB
-	 hfHwN2AcfWQGGakTUlq7+7EAeGLSvhOiSYsofrjFWQaUxwcrg7lPshv6iBy3A2/hrv
-	 nQZ9g23zvr9lf6q0UJF8BZYXzIoby59+URWoanrxR2P4vJanFR7EVgY+3NTgyePjyG
-	 b/c+2aOcFMBIByTZz75EukZHTqr0xFgwIcuQg5Act6bDZEgIM1X2CuNlhY04AwEGns
-	 lhDFafyG1ALEsyk+SoCF3Sden37R2DtH85Xu9mJgOI5djFUKG+zlj+U3iTKZS2z/TP
-	 XFCypl8OUtKjQ==
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-506a747448dso38029011cf.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 10:20:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ83mw/sol7uc1vEn6fUy3hlVKrOKyyz2nGjJev2wxbAZ2Vcm2az+SimtFyUoqSeWFoFYAmZPS3WxnBobw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQr8qn7A+hSIkoMxTog7QpvbTjDHPEf7WNjjl9eO6mbZzfNmQA
-	ydWkf3JAfftF4W+s4A2IRkgopvtmU4KnIEy0rhH54qm0AYk/Ltlf0JEj8Jty9al4oy0brbvaJq/
-	TB1Xz9gtnk820v3oDz5PAmZh1MgGrmqY=
-X-Received: by 2002:a05:622a:99a:b0:50d:8905:7cc7 with SMTP id
- d75a77b69052e-50dd5750f2amr228728281cf.0.1776100829547; Mon, 13 Apr 2026
- 10:20:29 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260413123256.3296452-1-puranjay@kernel.org> <20260413123256.3296452-3-puranjay@kernel.org>
-In-Reply-To: <20260413123256.3296452-3-puranjay@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Mon, 13 Apr 2026 10:20:18 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW5=qtjESDr-HQkxkYKrBFjpXAf3HRYOH5ESEd8Wvv9dYQ@mail.gmail.com>
-X-Gm-Features: AQROBzB08PAYs8xzmtpFMbY0dd6o-2NWqQR25UWik8u6kWpL-cfIxQiCnEnElUw
-Message-ID: <CAPhsuW5=qtjESDr-HQkxkYKrBFjpXAf3HRYOH5ESEd8Wvv9dYQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 2/2] bpf, riscv: Remove redundant
- bpf_flush_icache() after pack allocator finalize
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Pu Lehui <pulehui@huawei.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	s=k20201202; t=1776107483;
+	bh=RaXnAWNff4duq1RNyPN0ZReQj1L/HbYwn3Mst5z7mDs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=LlCnP6RmxuAKB0gAI1nC7kPGEqeRRo2NXdlC9bNO65KDApEEdDpNeU4z90SabRxIB
+	 EoHZGegIveSk6125qX30acurctIP7EWFM79fmbCGfHNpIDYKUUpCm/tqhIB2zsdRoV
+	 wxBd9ehytg5O5ohrJvj3npz3Ld5au/mK1GznFKr1Gl97266oouDFBUbeWexk5VaZgn
+	 y8k7DF2cJI4Pev+eCA3uKLdAlfeWA+Fz9KfLJeIm3Yijmo9pa+lbRtOkY2VX2YhMwp
+	 e7+xMgK560SlBDGM9nmdlrK4Gbil0+C9vFPww1PnHuuvcWzvfqH6V0Ijw/3720apij
+	 zkwL7tSaBL+cg==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: bpf@vger.kernel.org
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	"Alexei Starovoitov" <ast@kernel.org>,
+	"Daniel Borkmann" <daniel@iogearbox.net>,
+	"Andrii Nakryiko" <andrii@kernel.org>,
+	"Martin KaFai Lau" <martin.lau@linux.dev>,
+	"Eduard Zingerman" <eddyz87@gmail.com>,
+	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
+	"Song Liu" <song@kernel.org>,
+	"Yonghong Song" <yonghong.song@linux.dev>,
+	"Jiri Olsa" <jolsa@kernel.org>,
+	"Xu Kuohai" <xukuohai@huaweicloud.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>,
+	"Luke Nelson" <luke.r.nels@gmail.com>,
+	"Xi Wang" <xi.wang@gmail.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	"Pu Lehui" <pulehui@huawei.com>,
+	"Paul Walmsley" <pjw@kernel.org>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>,
+	"Albert Ou" <aou@eecs.berkeley.edu>,
+	"Alexandre Ghiti" <alex@ghiti.fr>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v2 1/2] bpf, arm64: Remove redundant bpf_flush_icache() after pack allocator finalize
+Date: Mon, 13 Apr 2026 12:11:08 -0700
+Message-ID: <20260413191111.3426023-2-puranjay@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260413191111.3426023-1-puranjay@kernel.org>
+References: <20260413191111.3426023-1-puranjay@kernel.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_102032_046327_FB397B0F 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_121123_839031_C528C55F 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +88,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBBcHIgMTMsIDIwMjYgYXQgNTozM+KAr0FNIFB1cmFuamF5IE1vaGFuIDxwdXJhbmph
-eUBrZXJuZWwub3JnPiB3cm90ZToKPgo+IGJwZl9mbHVzaF9pY2FjaGUoKSBjYWxscyBmbHVzaF9p
-Y2FjaGVfcmFuZ2UoKSB0byBjbGVhbiB0aGUgZGF0YSBjYWNoZQo+IGFuZCBpbnZhbGlkYXRlIHRo
-ZSBpbnN0cnVjdGlvbiBjYWNoZSBmb3IgdGhlIEpJVGVkIGNvZGUgcmVnaW9uLiBIb3dldmVyLAo+
-IHNpbmNlIGNvbW1pdCA0OGE4Zjc4YzUwYmQgKCJicGYsIHJpc2N2OiB1c2UgcHJvZyBwYWNrIGFs
-bG9jYXRvciBpbiB0aGUKPiBCUEYgSklUIiksIHRoaXMgZmx1c2ggaXMgcmVkdW5kYW50Lgo+Cj4g
-YnBmX2ppdF9iaW5hcnlfcGFja19maW5hbGl6ZSgpIGNvcGllcyB0aGUgSklUZWQgaW5zdHJ1Y3Rp
-b25zIHRvIHRoZSBST1gKPiByZWdpb24gdmlhIGJwZl9hcmNoX3RleHRfY29weSgpIC0+IHBhdGNo
-X3RleHRfbm9zeW5jKCksIGFuZAo+IHBhdGNoX3RleHRfbm9zeW5jKCkgYWxyZWFkeSBjYWxscyBm
-bHVzaF9pY2FjaGVfcmFuZ2UoKSBvbiB0aGUgd3JpdHRlbgo+IHJhbmdlLiBUaGUgc3Vic2VxdWVu
-dCBicGZfZmx1c2hfaWNhY2hlKCkgcmVwZWF0cyB0aGUgc2FtZSBjYWNoZQo+IG1haW50ZW5hbmNl
-IG9uIGFuIG92ZXJsYXBwaW5nIHJhbmdlLgo+Cj4gUmVtb3ZlIHRoZSByZWR1bmRhbnQgYnBmX2Zs
-dXNoX2ljYWNoZSgpIGNhbGwgYW5kIGl0cyBub3ctdW51c2VkCj4gZGVmaW5pdGlvbi4KPgo+IEZp
-eGVzOiA0OGE4Zjc4YzUwYmQgKCJicGYsIHJpc2N2OiB1c2UgcHJvZyBwYWNrIGFsbG9jYXRvciBp
-biB0aGUgQlBGIEpJVCIpCj4gU2lnbmVkLW9mZi1ieTogUHVyYW5qYXkgTW9oYW4gPHB1cmFuamF5
-QGtlcm5lbC5vcmc+CgpBY2tlZC1ieTogU29uZyBMaXUgPHNvbmdAa2VybmVsLm9yZz4KCmRpdHRv
-IG9uICNpbmNsdWRlIDxhc20vY2FjaGVmbHVzaC5oPi4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+bpf_flush_icache() calls flush_icache_range() to clean the data cache
+and invalidate the instruction cache for the JITed code region. However,
+since commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
+management"), this flush is redundant.
+
+bpf_jit_binary_pack_finalize() copies the JITed instructions to the ROX
+region via bpf_arch_text_copy() -> aarch64_insn_copy() -> __text_poke(),
+and __text_poke() already calls flush_icache_range() on the written
+range. The subsequent bpf_flush_icache() repeats the same cache
+maintenance on an overlapping range, including an unnecessary second
+synchronous IPI to all CPUs via kick_all_cpus_sync().
+
+Remove the redundant bpf_flush_icache() call and its now-unused
+definition.
+
+Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management")
+Acked-by: Song Liu <song@kernel.org>
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ arch/arm64/net/bpf_jit_comp.c | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index adf84962d579..7417d24a5b6f 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -18,7 +18,6 @@
+ 
+ #include <asm/asm-extable.h>
+ #include <asm/byteorder.h>
+-#include <asm/cacheflush.h>
+ #include <asm/cpufeature.h>
+ #include <asm/debug-monitors.h>
+ #include <asm/insn.h>
+@@ -1961,11 +1960,6 @@ static int validate_ctx(struct jit_ctx *ctx)
+ 	return 0;
+ }
+ 
+-static inline void bpf_flush_icache(void *start, void *end)
+-{
+-	flush_icache_range((unsigned long)start, (unsigned long)end);
+-}
+-
+ static void priv_stack_init_guard(void __percpu *priv_stack_ptr, int alloc_size)
+ {
+ 	int cpu, underflow_idx = (alloc_size - PRIV_STACK_GUARD_SZ) >> 3;
+@@ -2204,12 +2198,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 			prog = orig_prog;
+ 			goto out_off;
+ 		}
+-		/*
+-		 * The instructions have now been copied to the ROX region from
+-		 * where they will execute. Now the data cache has to be cleaned to
+-		 * the PoU and the I-cache has to be invalidated for the VAs.
+-		 */
+-		bpf_flush_icache(ro_header, ctx.ro_image + ctx.idx);
+ 	} else {
+ 		jit_data->ctx = ctx;
+ 		jit_data->ro_image = ro_image_ptr;
+-- 
+2.52.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
