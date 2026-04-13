@@ -4,78 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785A4F531C7
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 19:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F15F531C7
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 19:31:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=V6ntXCpL/rA9m1HO3XxtV1021JGywiq+09jr2VT6GdE=; b=Nyiza83B9qbp11
-	SdXV0adPt0PWlX/buTUZgk/rnsJY81/aUGcA7R3Xz+asanFJd5slpBToc2yWGtn6J9OGzlvvwCE64
-	9jlyL/YV7I9gwRJC7OPcu3tFv5EX+/zTrVqvsY9ooBpDy+H03LuqY+YwtroO34oOPgFRvVuSN+BBK
-	vfp2XNkjd49N/W06YYKmzmgQo/2Vyo42Qv+ivqEDXCgVcn7UBtdEeNvnXx7R6QTV17IYIE6iyb+Wo
-	qSVuVn0jzMESaBnEO/8jkKlNSRqXXmvVueijTIF9SdVvgLvKzmBg5ltLDLb1CLkMPnbvh7lGVgP2O
-	zqCY7C9aLsCFe38ErwdA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=ocaxgkF9I5t/zU9hfFpAkLfblwko9BZ1HXZN2Gxh1Vo=; b=vXKP1mXdo1MHXTOnqZa0oxLf+e
+	8JXNsjW3PO3SE4otU734yL1u6A6JwP047kMPw+IPW4DeGvpN4Ape4vURjlSaYJX5bcWlOFcY6WCmS
+	NXwMZuYjKLIhRgl4NAMcw+AYxmBEw0P6gWbvLA8mp7XdED1kJjDl/VvAScSM1DQ8T8UcrL7/UuMGM
+	CBcpwutjacdebBmhfPlvZuLb5IGV6QkZdYFUi8nYnHxw09RooQrKe8Tv6HoCF8kWKuN7wMsNSbv1+
+	O7tHPJCAhMuIzAuE61qVNxjMstqYGDGOpITXKIKb+KC9v5iZve+uVlpCkCGWxLi6CEhjzqlNjd4jB
+	tF87oKrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMgs-0000000GGvn-3Wic;
-	Mon, 13 Apr 2026 19:11:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wCN0Z-0000000GJ6O-3ggV;
+	Mon, 13 Apr 2026 19:31:43 +0000
+Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCMgq-0000000GGvN-0xXv;
-	Mon, 13 Apr 2026 19:11:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C56FB43D69;
-	Mon, 13 Apr 2026 19:11:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AC95C2BCAF;
-	Mon, 13 Apr 2026 19:11:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776107479;
-	bh=wQgADd80D/pun3cifGRSz/mIPDYovCZECVayXUjBKrg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=eM4ZFz8yZ1k2of+wPmWowz80jBd70rhdHOFyAgCv0sMUcqq0hNqASbK+atDSo5/v7
-	 OXff0sMmMm4Uro+jw8NeKEYarPVkLeL8qMq3lqsyEW3QAEvgN03yTT6LiY+l5TwXJp
-	 +AOSvHlpjhGl1TGT/cRGpwRA5mk0402pGmvuMok0k9QbhxsrWBnGAZFb4NUo8ATRiS
-	 w4gChZ2YV7eK5ePij0+2wggMJnaMHBhNL62obsd5Xtd7ztUYsQpP2rjuqUOSIWmk1w
-	 LmDg122CUY1O4kD3Nv4u37ry0E8k8KT+6HL9MZnw6vEt6s2wWVRzsReULl215xuJBx
-	 x/H3dsIak8hVQ==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	"Alexei Starovoitov" <ast@kernel.org>,
-	"Daniel Borkmann" <daniel@iogearbox.net>,
-	"Andrii Nakryiko" <andrii@kernel.org>,
-	"Martin KaFai Lau" <martin.lau@linux.dev>,
-	"Eduard Zingerman" <eddyz87@gmail.com>,
-	"Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
-	"Song Liu" <song@kernel.org>,
-	"Yonghong Song" <yonghong.song@linux.dev>,
-	"Jiri Olsa" <jolsa@kernel.org>,
-	"Xu Kuohai" <xukuohai@huaweicloud.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>,
-	"Luke Nelson" <luke.r.nels@gmail.com>,
-	"Xi Wang" <xi.wang@gmail.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	"Pu Lehui" <pulehui@huawei.com>,
-	"Paul Walmsley" <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>,
-	"Albert Ou" <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v2 0/2] bpf, arm64/riscv: Remove redundant icache flush after pack allocator finalize
-Date: Mon, 13 Apr 2026 12:11:07 -0700
-Message-ID: <20260413191111.3426023-1-puranjay@kernel.org>
-X-Mailer: git-send-email 2.52.0
+	id 1wCN0W-0000000GJ5p-2Cr0;
+	Mon, 13 Apr 2026 19:31:42 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.phl.internal (Postfix) with ESMTP id 9BAA81380415;
+	Mon, 13 Apr 2026 15:31:38 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Mon, 13 Apr 2026 15:31:38 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1776108698;
+	 x=1776115898; bh=oF7+4SGRAImH9WMGSId2dJm+4RdrBt2YGrt25aFUZUA=; b=
+	eBEb3+z4uCJ5XpVJfmMDtd+Hz4pTmn4rIKoszU8vf+435LUmCEc3EJdi4K0/oVv8
+	C+yjXVYuraejFdA/rcQOSN6Zfi5pNlS43GslApllsudgHnK44npvkIwaUHWVTtuh
+	Dw/4I/j/UNeqyr1LQlKmH5vdXZciz/2GPqFtFHFDNoaInKEsvm7hwh9DYdVnGoah
+	lMAIbVhEjH95sryDmrUzci3AfaiCDHHYDZH3oXJ/R4+VlvsfKJPopXWx0JE7CxaE
+	ognvTjwa06PAMT31z/DBGKMGBcoGUsjb6Y3k+6cm618rMbyQ7yCpT6T6pE5XH3Hf
+	w2SGXNdq7Abx7TrcOF+CrA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776108698; x=
+	1776115898; bh=oF7+4SGRAImH9WMGSId2dJm+4RdrBt2YGrt25aFUZUA=; b=f
+	K2XbJ97Y0jsbU1s6LswXOEcaT2AuIJQsZKTCiqB2bsDjsavXFxXjXN24HUjqmHPV
+	30lUfZzPVJ0GZrRSLZsyTrPlhAwj+oOp7rzHIcW4Q+ggBxcGWjNT+roTWJQkS80p
+	muhmPfZao8pyrAslQS6xE9YgbnnrpBmxpEViK0VuBn5kyHZfCSLFSApLiy8hZEkj
+	X3o7U4xt3roWjYEf/0QsKGiNqeP3myXk/e3+BEa4KYIE59wmYsrhudiDwV46CB5d
+	E8K4OFv0fHuOdK14nnUUxfff3rCPKj8vJw3X7p6M4i0BpN1E8RSwySIEaUf5sCqK
+	alHtK1Rc5jgsKIF8k3s0A==
+X-ME-Sender: <xms:l0TdaRMQ1ovC5UjXw9wB_riUJbJZBZQ47VcEC4ozPMlWVwTWyL-hPg>
+    <xme:l0Tdaey9qAPkMkkSsq5ZowyLiVSaVZg3Aabqq1QUbhdAX-Y8VC29U600TE9HTIGWj
+    W-h6ka_l-N0bKYGG_W-3bzXlHGY0ZcjcSbZR_zuoL-6Ds0X7Q55CQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefledtkecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeegkedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepthdrshgrihhlvghrsegrlhhumhhnihdrvghthhiirdgthhdprhgtph
+    htthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohep
+    lhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegurghvvghmse
+    gurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhhpvgesvghllhgvrhhmrghnrdhi
+    ugdrrghupdhrtghpthhtoheprhihrggsihhnihhnrdgrrdgrsehgmhgrihhlrdgtohhmpd
+    hrtghpthhtohepuhhrvgiikhhisehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggvlhhl
+    vghrsehgmhigrdguvgdprhgtphhtthhopehhvghrsggvrhhtsehgohhnughorhdrrghprg
+    hnrgdrohhrghdrrghu
+X-ME-Proxy: <xmx:l0TdaTelOssYXt15-FK9p6saYLM_nmrvIO6c-_F3ZyF6_xfZywmCYA>
+    <xmx:l0TdaUxOkh6ozfKMIVT4v_qdW_i5Tss0CLMqkf2F01TBmahdCnZo_w>
+    <xmx:l0TdaUWn-LdWx2_7oUHRu6zzNshE3wCLw-aFKzbUUXN26D6Q-_6vLw>
+    <xmx:l0TdacTwYVtUWJnf_Fdh14nt-sYvlNq7AaQbOTvOw2Uu221fQyzEjQ>
+    <xmx:mkTdaTH5uGiAlbaAI17-uSN6CKxYeQsdeWCm3ruscf_j0l2LK_Chakad>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 04818700069; Mon, 13 Apr 2026 15:31:35 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: AMdy4yCH1GcR
+Date: Mon, 13 Apr 2026 21:30:11 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "David Woodhouse" <dwmw2@infradead.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
+Cc: x86@kernel.org, "Baolu Lu" <baolu.lu@linux.intel.com>,
+ iommu@lists.linux.dev, "Michael Grzeschik" <m.grzeschik@pengutronix.de>,
+ Netdev <netdev@vger.kernel.org>, linux-wireless@vger.kernel.org,
+ "Herbert Xu" <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
+ "Vlastimil Babka (SUSE)" <vbabka@kernel.org>, linux-mm@kvack.org,
+ "Bernie Thompson" <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
+ "Theodore Ts'o" <tytso@mit.edu>, linux-ext4@vger.kernel.org,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Uladzislau Rezki (Sony)" <urezki@gmail.com>,
+ "Marco Elver" <elver@google.com>, "Dmitry Vyukov" <dvyukov@google.com>,
+ kasan-dev@googlegroups.com, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
+ "Thomas Sailer" <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ "Richard Henderson" <richard.henderson@linaro.org>,
+ linux-alpha@vger.kernel.org, "Russell King" <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Huacai Chen" <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org, "Dinh Nguyen" <dinguyen@kernel.org>,
+ "Jonas Bonn" <jonas@southpole.se>,
+ "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
+ "Helge Deller" <deller@gmx.de>, linux-parisc@vger.kernel.org,
+ "Michael Ellerman" <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
+ "Paul Walmsley" <pjw@kernel.org>, linux-riscv@lists.infradead.org,
+ "Heiko Carstens" <hca@linux.ibm.com>, linux-s390@vger.kernel.org,
+ "David S . Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
+Message-Id: <07df88e5-208d-4aac-9668-a3b0c65ae529@app.fastmail.com>
+In-Reply-To: <7a48b636cb3146f4f7134c6d4fe42070ac2edb43.camel@infradead.org>
+References: <20260410120044.031381086@kernel.org>
+ <20260410120318.592237447@kernel.org>
+ <7a48b636cb3146f4f7134c6d4fe42070ac2edb43.camel@infradead.org>
+Subject: Re: [patch 15/38] ptp: ptp_vmclock: Replace get_cycles() usage
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_121120_299762_C13835F8 
-X-CRM114-Status: UNSURE (   5.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_123140_934086_B52A23AA 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +137,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changelog:
-v1: https://lore.kernel.org/all/20260413123256.3296452-1-puranjay@kernel.org/
-Changes in v2:
-- Remove "#include <asm/cacheflush.h>" as it is not needed now.
-- Add Acked-by: Song Liu <song@kernel.org>
-
-When the BPF prog pack allocator was added for arm64 and riscv, the
-existing bpf_flush_icache() calls were retained after
-bpf_jit_binary_pack_finalize(). However, the finalize path copies the
-JITed code via architecture text patching routines (__text_poke on arm64,
-patch_text_nosync on riscv) that already perform a full
-flush_icache_range() internally. The subsequent bpf_flush_icache()
-repeats the same cache maintenance on the same range.
-
-Remove the redundant flush and the now-unused bpf_flush_icache()
-definitions on both architectures.
-
-Puranjay Mohan (2):
-  bpf, arm64: Remove redundant bpf_flush_icache() after pack allocator
-    finalize
-  bpf, riscv: Remove redundant bpf_flush_icache() after pack allocator
-    finalize
-
- arch/arm64/net/bpf_jit_comp.c | 12 ------------
- arch/riscv/net/bpf_jit.h      |  6 ------
- arch/riscv/net/bpf_jit_core.c |  7 -------
- 3 files changed, 25 deletions(-)
-
-
-base-commit: 71b500afd2f7336f5b6c6026f2af546fc079be26
--- 
-2.52.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBcHIgMTMsIDIwMjYsIGF0IDE3OjMzLCBEYXZpZCBXb29kaG91c2Ugd3JvdGU6Cj4g
+T24gRnJpLCAyMDI2LTA0LTEwIGF0IDE0OjE5ICswMjAwLCBUaG9tYXMgR2xlaXhuZXIgd3JvdGU6
+Cj4KPiAuLi4gZGVwZW5kIG9uIFRTQ19SRUxJQUJMRcK5LCBzaW5jZSBpZiB0aGUgZ3Vlc3QgZG9l
+c24ndCBiZWxpZXZlIHRoYXQgaXQKPiBpcywgdGhlbiB0aGUgZ3Vlc3Qgc2hvdWxkbid0IGJlIHRy
+eWluZyB0byB1c2UgaXQgYXMgdGhlIGJhc2lzIGZvcgo+IHByZWNpc2UgdGltaW5nLgo+Cj4gwrkg
+KE9yLi4uIG9uZSBvZiB0aGUgb3RoZXIgem9vIG9mIFRTQyBmbGFncyBmb3IgdGhlIGdyYWR1YWxs
+eSByZWR1Y2luZwo+IGJyb2tlbm5lc3Mgb3ZlciB0aGUgeWVhcnMuLi4pCgpJdCBsb29rcyBsaWtl
+IHRoaXMgaXMgc3VmZmljaWVudGx5IGhhbmRsZWQgaW4gdGhlIGNhbGxlcjoKCnN0YXRpYyBpbnQg
+dm1jbG9ja19nZXRfY3Jvc3N0c3RhbXAoc3RydWN0IHZtY2xvY2tfc3RhdGUgKnN0LAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBwdHBfc3lzdGVtX3RpbWVzdGFtcCAq
+c3RzLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBzeXN0ZW1fY291
+bnRlcnZhbF90ICpzeXN0ZW1fY291bnRlciwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBzdHJ1Y3QgdGltZXNwZWM2NCAqdHNwZWMpCnsKLi4uLgojaWZkZWYgQ09ORklHX1g4Ngog
+ICAgICAgIC8qCiAgICAgICAgICogV2UnZCBleHBlY3QgdGhlIGh5cGVydmlzb3IgdG8ga25vdyB0
+aGlzIGFuZCB0byByZXBvcnQgdGhlIGNsb2NrCiAgICAgICAgICogc3RhdHVzIGFzIFZNQ0xPQ0tf
+U1RBVFVTX1VOUkVMSUFCTEUuIEJ1dCBiZSBwYXJhbm9pZC4KICAgICAgICAgKi8KICAgICAgICBp
+ZiAoY2hlY2tfdHNjX3Vuc3RhYmxlKCkpCiAgICAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsK
+I2VuZGlmCgpXaXRoIDQ4NiBhbmQgRUxBTiBvdXQgb2YgdGhlIHdheSwgV2luY2hpcDYgc2VlbXMg
+dG8gYmUgdGhlIG9ubHkKb25lIHdpdGhvdXQgWDg2X0ZFQVRVUkVfVFNDLCBzbyBJIHRoaW5rIHRo
+ZSBuZXh0IGxvZ2ljYWwgc3RlcCB3b3VsZApiZSB0byB0dXJuIG9mZiBXaW5jaGlwNiBhcyB3ZWxs
+IGFuZCByZW1vdmUgYWxsIFg4Nl9GRUFUVVJFX1RTQwphbmQgQ09ORklHX1g4Nl9UU0MgY2hlY2tz
+LgoKICAgICAgQXJuZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
