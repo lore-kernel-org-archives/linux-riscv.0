@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F7B0F34C63
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 15:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8AEF34C5E
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 15:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQeTG6tCTOcYOIqH6dqZcZQkHdrWAwttrwpfPrPFHX8=; b=po+6CvJ40NltrJNxMwFKq8J5Z3
-	b8bDhOW7INJGddBZbI9gkHF7uxxx/T42K0lAvp8A8HJdIBPcSJJKNk+0o9RvAHoLly01HJKVW5Rmg
-	iHsYKk07yrmdgHhV+d5dvskMY3jKHEto1JnqEI4BMjArLbjB/IFWNE/mKXyKskocpvUNEheP1iXHv
-	HOle37fsKvRFj7bUYb0Zqs12Ag/QZ2gVIurW1FUaH3Pyvb43rmpGPv5W0YnbNq+HToZ8+ReS1IX5w
-	QTu2mm0kt50HZXrbOx17G1evUfI/+phvdqXF/6EB8Dp89+pgm0YosvwdzEf+X/zuOqp82C/6u5Kq6
-	tFE1Hv3w==;
+	bh=ud1UXUKv7MQPgBLhuyh7Rft/2Tw/y62N50YdNfz071I=; b=vzlWJo7I5VZ5VAI3MQk+CYdiws
+	CFEb9452BD9+Ca8u/uneQZ/cnO+LEUH4F7UOwuRrzOpKJAXQyGPV74u2bWaXZzOnS6tObfTj+pWJW
+	+RFW9/fAfyKWCGwGwwnmfARiGqHWFuqXjDOvg9lIBJhXI0CTX3ga0Aq5nRiLkzonTyF5x2vmwApbo
+	o3SvSMAgnq4yFGsuYvy5Da5LtfNgrY8gO5QoYOI4vdCpLdJJQiMU1iA/IlwANwVxbhXP56bSd2JNx
+	PHE2NdNIS/0IuLqZJXyqLJD8olzgDqm7DzaJU6dxW6wiP3k3wMvH4wyZHYpHhTMUFIEukFEEiOgp/
+	g7Kyu9HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJEh-0000000FxvK-2ZRX;
-	Mon, 13 Apr 2026 15:30:03 +0000
+	id 1wCJHq-0000000FyOq-0dfD;
+	Mon, 13 Apr 2026 15:33:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJEf-0000000Fxup-2vIS;
-	Mon, 13 Apr 2026 15:30:01 +0000
+	id 1wCJHo-0000000FyOa-1JWQ;
+	Mon, 13 Apr 2026 15:33:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
 	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=A/tyFuZQFYTYsk5yepZic+9iJmMgnVldp43vNUqBGF8=; b=bfhbd2sL8t75c5rug3uBwuxg5P
-	LuWR8p2uSlhmLvoC75s7TYMX1lfdHXhQNJF2OG0QXGhVA74ED4L05Ui2YgH9chIQJTBVRJcaDXkdQ
-	PoO6uYPpDnqy8MenOCTFbkRMKQS78wCprJ3tkgPda8HAMffpT54zL852bGYOCnflkc2nDFvdBn0cR
-	8vP+E7+2CaxiOsjddnC2m+sVdQvAC0f34xjQErQU8sm5+txqnL/HeNOtCoI1QzVGmD8hBCUOicCZO
-	Sdtu+YLC1PADFf5yRRMpMGrKPzY0Wz8LlL1valPv8PoqQKRDiHRNlNkJrhES2TYrKiZoLqunJos/G
-	lcviTgFA==;
+	bh=pMyc546A8Vk0VhSxh5jSMOtHszp9PyQiNzOlGW+Tlac=; b=gvEodDXyVRhr3ht5KLvvYUHruq
+	Vr6/Nk8hYRocARm5fuOZlMoKF+85eiOOvk45UWaJEUhV71TuTffj9ccPPnvJsusON6fJc5Grsy5jI
+	iNNAvdI28ex09hHo60SsASOsHG9j1//cpT5bdeKExgSUokyNtM/888qR2IIJJJn5k0YY4ZHvZ/iUY
+	JYS9o9fm8cesNcUDQtQkHs5oojlgzNoY+sKaw+Kqth7jk3I7NtkAAk1lZIJtE46y3HsqbFIeXRzUn
+	UNa7OJ6p8M3XCoCofzGj4msg6NLCmsGATi2zcxDsbslkmxZrkCEEoEdgUxSWU6wiTsaySOA61u8BB
+	0y1VEngg==;
 Received: from [213.122.4.78] (helo=u09cd745991455d.ant.amazon.com)
 	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCJEX-0000000H2ae-13Uv;
-	Mon, 13 Apr 2026 15:29:53 +0000
-Message-ID: <aa07b2a812255473ca6f1ca0c872a983ee24728e.camel@infradead.org>
-Subject: Re: [patch 10/38] arcnet: Remove function timing code
+	id 1wCJHl-0000000H2um-3OE9;
+	Mon, 13 Apr 2026 15:33:13 +0000
+Message-ID: <7a48b636cb3146f4f7134c6d4fe42070ac2edb43.camel@infradead.org>
+Subject: Re: [patch 15/38] ptp: ptp_vmclock: Replace get_cycles() usage
 From: David Woodhouse <dwmw2@infradead.org>
 To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-Cc: Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
- Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, Lu Baolu
- <baolu.lu@linux.intel.com>,  iommu@lists.linux.dev,
- linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
- linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>,
+Cc: Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, Lu Baolu
+ <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, Michael Grzeschik
+ <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
+ linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
+ linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>, 
  linux-mm@kvack.org, Bernie Thompson <bernie@plugable.com>, 
  linux-fbdev@vger.kernel.org, Theodore Tso <tytso@mit.edu>, 
  linux-ext4@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
@@ -68,10 +68,10 @@ Cc: Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
  linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>, 
  linux-s390@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
  sparclinux@vger.kernel.org
-Date: Mon, 13 Apr 2026 16:29:51 +0100
-In-Reply-To: <20260410120318.253872322@kernel.org>
+Date: Mon, 13 Apr 2026 16:33:12 +0100
+In-Reply-To: <20260410120318.592237447@kernel.org>
 References: <20260410120044.031381086@kernel.org>
-	 <20260410120318.253872322@kernel.org>
+	 <20260410120318.592237447@kernel.org>
 User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
 X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
@@ -86,43 +86,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5661981101960463943=="
+Content-Type: multipart/mixed; boundary="===============1099172760642975105=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5661981101960463943==
+--===============1099172760642975105==
 Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-kGTl9uf920QcQo+U2JVg"
+	boundary="=-vt+GQ8cE1r98bSrQsw7r"
 
 
---=-kGTl9uf920QcQo+U2JVg
+--=-vt+GQ8cE1r98bSrQsw7r
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 On Fri, 2026-04-10 at 14:19 +0200, Thomas Gleixner wrote:
-> ARCNET is a museums piece and the function timing can be done with
-> ftrace. Remove the cruft.
+> get_cycles() is not really well defined and similar to other usaage of th=
+e
+> underlying hardware CPU counters the PTP vmclock should use an explicit
+> interface as well.
+>=20
+> Implement ptp_vmclock_read_cpu_counter() in arm64 and x86 and simplify th=
+e
+> Kconfig selection while at it.
+>=20
+> No functional change.
 >=20
 > Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Michael Grzeschik <m.grzeschik@pengutronix.de>
-> Cc: netdev@vger.kernel.org
-> ---
-> =C2=A0drivers/net/arcnet/arc-rimi.c=C2=A0 |=C2=A0=C2=A0=C2=A0 4 ++--
-> =C2=A0drivers/net/arcnet/arcdevice.h |=C2=A0=C2=A0 20 +------------------=
--
-> =C2=A0drivers/net/arcnet/com20020.c=C2=A0 |=C2=A0=C2=A0=C2=A0 6 ++----
-> =C2=A0drivers/net/arcnet/com90io.c=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 6 ++--=
---
-> =C2=A0drivers/net/arcnet/com90xx.c=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 4 ++--
-> =C2=A05 files changed, 9 insertions(+), 31 deletions(-)
+> Cc: David Woodhouse <dwmw2@infradead.org>
 
-Acked-by: David Woodhouse <dwmw2@infradead.org>
+Acked-by: David Woodhouse <dwmw@amazon.co.uk>
 
-By coincidence, I took the last of my ARCNET cards to the tip just this
-morning...
+Although I might follow up with a change to make this...
 
---=-kGTl9uf920QcQo+U2JVg
+> +static inline u64 ptp_vmclock_read_cpu_counter(void)
+> +{
+> +	return cpu_feature_enabled(X86_FEATURE_TSC) ? rdtsc() : 0;
+> +}
+> +
+
+... depend on TSC_RELIABLE=C2=B9, since if the guest doesn't believe that i=
+t
+is, then the guest shouldn't be trying to use it as the basis for
+precise timing.
+
+=C2=B9 (Or... one of the other zoo of TSC flags for the gradually reducing
+brokenness over the years...)
+
+--=-vt+GQ8cE1r98bSrQsw7r
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Disposition: attachment; filename="smime.p7s"
 Content-Transfer-Encoding: base64
@@ -201,27 +212,27 @@ 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
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQxMzE1Mjk1
-MVowLwYJKoZIhvcNAQkEMSIEICWq9Tw93kgoeMQ9F5qJ+YhMr6w729C1ImFtgihFCjxfMGQGCSsG
+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
-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
+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
 
 
---=-kGTl9uf920QcQo+U2JVg--
+--=-vt+GQ8cE1r98bSrQsw7r--
 
 
---===============5661981101960463943==
+--===============1099172760642975105==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -232,5 +243,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5661981101960463943==--
+--===============1099172760642975105==--
 
