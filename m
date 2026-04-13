@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED51F3ED5C
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 06:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B7DE64007
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 06:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:From:Cc:To:References:Date:
-	Subject:In-Reply-To:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rxeT9m7e+LgrO9ytXwTnJIRC0bc8HQmGjMNhPaeR5V0=; b=QByS3L/Im43B63
-	uzKbum0T3LVe68rxfk5X2s4nuY3PlcTE2WuHShJjzXmuZo3kA5e885SKD1RXKL/cEv7MgkQvqATod
-	PAYVRnfZB76GKsEEcGs86W7quabG5q3Kz/Rj+pGb3Z0FvldgB/qVD87/dEF6n6v9KZsoyk9qduUu7
-	2LiOX9yNDwfjp5HNb+/4a7TpLYWF55myhXfizOgHiCLJSdbBpUOU1D58/ZzAmO6SkcJT3XXQdjhXl
-	1du34jMrBFIqr4XDBSi3EC42RQPDyPtphfUQFoZbw7ISMwbO+3X1rSylRyRTkQwImplT5BymjmP3t
-	rFXoy7ysoxqxrjpHGBlg==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=15P//p1Ux9/x00MjOmuLHFHI343EKJQ5kdsBSskiA3k=; b=W2eDLxbOX3Z6w625E2U8YgwPxk
+	Pe0/w10C2HnnhXU0FZkjKAyomHbqoPPn3eU72oJEzYLqofUHh4PU3rmLj83/lqw7qeO829vblppAl
+	1YPMZ4sonliOAeY8FZdTJwSbWGLW8BZCB1bvsrpoOL9as7sJKsVds7vt8Ugzly4Y1+2Ggnxxe3JiK
+	fCz+wNnNF04dKUdU2r16m8TrUy2qM+zcK+wnrwShYhRfiNsPFr03LNbbd7XVqw8d5BNNaqcu34Y9f
+	O3H8pa9nXUDC2Rg0+9ddrs5TIUSZeO8/Q+KB6fMwmOD8schVEOkUPl0/Vq3DrdJWU34ka7g2tp248
+	KqybwcAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCASF-0000000F34Y-3hzC;
-	Mon, 13 Apr 2026 06:07:27 +0000
-Received: from va-2-38.ptr.blmpb.com ([209.127.231.38])
+	id 1wCAcm-0000000F3oh-1QTY;
+	Mon, 13 Apr 2026 06:18:20 +0000
+Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCASD-0000000F33y-3qA9
+	id 1wCAcj-0000000F3nL-0YNV
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Apr 2026 06:07:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1776060440;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=6/8m1jwqw/6gdlFElveR8F5qXIxZI6jMOvX9OG4Jjb4=;
- b=hBagppB3UVWkPwV5yqB9l2U3foGZHQS6k136JJlXrnoIzb4KLWSasVz6qFVxiau58yP6mU
- yRrU9s35TZJUqSlEkcl3UM3eveSsIjsZ5WAyFWGKGMKsixV2kpG6wLKXFZKPcUEOVTmsgn
- py6zGycXnyHk+0rA21qjAR0QWdhR67oYPm+4gYzl19eDgDfsHLq/l2sq/OdlqiXdeB8rma
- Jk9q2ZDfLqfCseNWz9Ald4+eZ21sm2bKaas3DdCzOP/+3ZkJGcIiE+8vTA+TsFgjHuplzx
- qaiOhoJ5MfJUGSOqPP15VGPP68n85bkBXrJA2iya7/GBwIXmWgseVCIK2lrvsA==
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+269dc8816+87e24a+lists.infradead.org+sandie.cao@deepcomputing.io>
-X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
-In-Reply-To: <20260413060524.1235982-1-sandie.cao@deepcomputing.io>
-Subject: [PATCH v4 2/2] riscv: dts: spacemit: add DeepComputing FML13V05 board device tree
-Date: Mon, 13 Apr 2026 14:07:01 +0800
-References: <20260413060524.1235982-1-sandie.cao@deepcomputing.io>
-X-Mailer: git-send-email 2.43.0
-To: "Yixun Lan" <dlan@kernel.org>, 
-	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-Cc: "Conor Dooley" <conor+dt@kernel.org>, 
-	"Emil Renner Berthing" <kernel@esmil.dk>, 
-	"Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, 
-	"Heinrich Schuchardt" <heinrich.schuchardt@canonical.com>, 
-	"Michael Opdenacker" <michael.opdenacker@rootcommit.com>, 
-	"Guodong Xu" <guodong@riscstar.com>, 
-	"Hendrik Hamerlinck" <hendrik.hamerlinck@hammernet.be>, 
-	"Yangyu Chen" <cyy@cyyself.name>, <spacemit@lists.linux.dev>, 
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, 
-	<linux-kernel@vger.kernel.org>, 
-	"Sandie Cao" <sandie.cao@deepcomputing.io>
-Received: from roma-Laptop-12th-Gen-Intel-Core.. ([61.141.250.238]) by smtp.feishu.cn with ESMTPS; Mon, 13 Apr 2026 14:07:17 +0800
-From: "Sandie Cao" <sandie.cao@deepcomputing.io>
-Message-Id: <20260413060701.1236018-1-sandie.cao@deepcomputing.io>
+	Mon, 13 Apr 2026 06:18:19 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 90107EC0227;
+	Mon, 13 Apr 2026 02:18:13 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Mon, 13 Apr 2026 02:18:13 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1776061093;
+	 x=1776147493; bh=1JbLBiViInaPoZEqWHr6KF0nrLtgKFZ06ed/mYm+y+E=; b=
+	UyCwc8ZnSYq/1n0XDeHjn/iH/9V7TFv90I8BrWRAzfh2mGFKofkWs97pzitqvEpw
+	Ro/MU/YYSTNmMw0naw8hLcGOZSJGL6xZlSBpJfbUJjenz9LeSaCp+kGGDnYQwrL3
+	HpnGZZ6L7MTJc1UoD36wjsjtSqPoibn1UZQ9tjB36lgwqkKG9hhOjmgKS1qan81/
+	d4HGQFCMTrynHjctIjDfqMBFAqHSIASSSJ+MK58e4XHwWFCTHAsBJzJ0mOEuIV4B
+	QjCUgcG+GpzlxTwlTKKEUrxvXA3/0fe7T5ncWwzb4BeS+IHE9wroJTehl9LITuae
+	qHF6hlUYUy2OEY6bFa295Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1776061093; x=
+	1776147493; bh=1JbLBiViInaPoZEqWHr6KF0nrLtgKFZ06ed/mYm+y+E=; b=K
+	oXWxZ3BGscu4eL4gGU8sqPv3jy29uDPamh5WAH3CIcjoZ7P6Xv7m+3DHjWvLAvnR
+	4WZp0PEtr9rZ6wjBgzqYE6dyg1aKUb/wmbLQm+NUU3L0vjUdMCJtKVbv98dZXeYG
+	Mmfn8TyFhlTyNPUzp6saOdqRIxdq1qaMhI0NMgeDs27hdSJI1P6eOfq5R4YDRe8F
+	hlqx8h+T8jyCJQGFQcASzFzS8/IObxfUAADYPLppw3efmFVb8+AwcjMQ1p3n5QUN
+	AorcRYKfDR173mdGvP8BcPMpXWMA3JLaOnta2cffyvstIRUcGA30QlJKmgYdqUSk
+	DfHvx93T7qnTNbElKkUCQ==
+X-ME-Sender: <xms:o4rcaZYlu7XDLy2tYo7KpZa-Zx_GWmvgPjA13_7p6nQWGs_QfBMrwQ>
+    <xme:o4rcabOYShrHE8pVCy3zDUKaa73mJnARc-Kb-f9jss_kMzarc_2m0ziq8M56PCcTP
+    onZCylkw8mh4IZNH2PlzamuhHmK6Pkp5r_tb5mUTOzoTd1zDyN8iOc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefjeegkecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedukedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprg
+    hlvgigsehghhhithhirdhfrhdprhgtphhtthhopehinhhotghhihgrmhgrsehgmhgrihhl
+    rdgtohhmpdhrtghpthhtoheprhgrsggvnhgurgdrtghnsehgmhgrihhlrdgtohhmpdhrtg
+    hpthhtoheprghlvghkshgrrdhprghunhhovhhitgeshhhtvggtghhrohhuphdrtghomhdp
+    rhgtphhtthhopegujhhorhgujhgvrdhtohguohhrohhvihgtsehhthgvtghgrhhouhhprd
+    gtohhmpdhrtghpthhtohepghgrohhhrghnsehishgtrghsrdgrtgdrtghnpdhrtghpthht
+    ohepghhuohhrvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehpjhifsehkvghrnh
+    gvlhdrohhrgh
+X-ME-Proxy: <xmx:o4rcadvBo7DsoZ9p3_HCcfblIYi1VIIvURKft5mkK7-8CL73WjgFmQ>
+    <xmx:o4rcaX3j4ldSl1DsgEyj_apBL572VMgn23ZTVZkXwE_VVKvIev_ouw>
+    <xmx:o4rcaaDp7_wz-9VkY7Nx2Luuwoyz6gnmpmGfe9eC4WoECo99Pu5-Bw>
+    <xmx:o4rcacfvgmHfChfW-NMwlKI-we3O66XPnsr-ftUv0ZUe4RZOATywDA>
+    <xmx:pYrcaTvmoH9fKKuJP1g1L6ZcHX9ZzBiDPaDabyiuFAHum2LnWF2ePDrI>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id C538D700065; Mon, 13 Apr 2026 02:18:11 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+MIME-Version: 1.0
+X-ThreadId: Ab9VcpOYxc8o
+Date: Mon, 13 Apr 2026 08:17:50 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: guoren <guoren@kernel.org>, "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Leonardo Bras" <leobras@redhat.com>, djordje.todorovic@htecgroup.com,
+ aleksa.paunovic@htecgroup.com, "Han Gao" <rabenda.cn@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linux-Arch <linux-arch@vger.kernel.org>,
+ "Alexandre Ghiti" <alexghiti@rivosinc.com>, "Han Gao" <gaohan@iscas.ac.cn>,
+ "Yao Zi" <me@ziyao.cc>, "Chen Wang" <unicorn_wang@outlook.com>,
+ "Inochi Amaoto" <inochiama@gmail.com>,
+ "Xiaoguang Xing" <xiaoguang.xing@sophgo.com>,
+ "Paul Walmsley" <pjw@kernel.org>
+Message-Id: <535f3eaa-ff93-4de4-86c7-8a6e46bcca63@app.fastmail.com>
+In-Reply-To: <20260412143116.1445893-1-guoren@kernel.org>
+References: <20260412143116.1445893-1-guoren@kernel.org>
+Subject: Re: [PATCH V4] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_230726_084698_8CFFEED2 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20260412_231817_765208_01314087 
+X-CRM114-Status: UNSURE (   9.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,82 +124,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The FML13V05 board from DeepComputing incorporates a SpacemiT K3 RISC-V
-SoC.It is a mainboard designed for the Framework Laptop 13 Chassis,
-which has (Framework) SKU FRANHQ0001.
+On Sun, Apr 12, 2026, at 16:31, guoren@kernel.org wrote:
+>  arch/riscv/Kconfig.errata                    | 17 ++++++++++
+>  arch/riscv/errata/thead/errata.c             | 20 ++++++++++++
+>  arch/riscv/include/asm/errata_list_vendors.h |  3 +-
+>  arch/riscv/include/asm/rwonce.h              | 34 ++++++++++++++++++++
+>  include/asm-generic/rwonce.h                 |  2 ++
 
-The FML13V05 board features:
-- SpacemiT K3 RISC-V SoC
-- LPDDR5 16GB or 32GB
-- eMMC 32GB ~128GB (Optional)
-- UFS 3.1 256G (Optional)
-- QSPI Flash
-- MicroSD Slot
-- PCIe-based Wi-Fi
-- 4 USB-C Ports
- - Port 1: PD 3.0 (65W Max), USB 3.2 Gen 1
- - Port 2: PD 3.0 (65W Max), USB 3.2 Gen 1, DP 1.4 (4K@60Hz)
- - Port 3 & 4: USB 3.2 Gen 1
+For asm-generic:
 
-This minimal device tree enables booting into a serial console with UART
-output.
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
-Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
----
- arch/riscv/boot/dts/spacemit/Makefile         |  1 +
- .../spacemit/k3-deepcomputing-fml13v05.dts    | 31 +++++++++++++++++++
- 2 files changed, 32 insertions(+)
- create mode 100644 arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+> +static bool errata_probe_write_once(unsigned int stage,
+> +				    unsigned long arch_id, unsigned long impid)
+> +{
+> +	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
+> +		return false;
+> +
+> +	/* target-c9xx cores report arch_id and impid as 0 */
+> +	if (arch_id != 0 || impid != 0)
+> +		return false;
+> +
+> +	if (stage == RISCV_ALTERNATIVES_BOOT ||
+> +	    stage == RISCV_ALTERNATIVES_MODULE)
+> +		return true;
 
-diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
-index 7e2b87702571..acb993c452ba 100644
---- a/arch/riscv/boot/dts/spacemit/Makefile
-+++ b/arch/riscv/boot/dts/spacemit/Makefile
-@@ -4,4 +4,5 @@ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-milkv-jupiter.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-musepi-pro.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-r2s.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
-+dtb-$(CONFIG_ARCH_SPACEMIT) += k3-deepcomputing-fml13v05.dtb
- dtb-$(CONFIG_ARCH_SPACEMIT) += k3-pico-itx.dtb
-diff --git a/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-new file mode 100644
-index 000000000000..b5d5112de358
---- /dev/null
-+++ b/arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2026 DeepComputing (HK) Limited
-+ */
-+
-+#include "k3.dtsi"
-+#include "k3-pinctrl.dtsi"
-+
-+/ {
-+	model = "DeepComputing FML13V05";
-+	compatible = "deepcomputing,fml13v05", "spacemit,k3";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0";
-+	};
-+
-+	memory@100000000 {
-+		device_type = "memory";
-+		reg = <0x1 0x00000000 0x4 0x00000000>;
-+	};
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_0_cfg>;
-+	status = "okay";
-+};
--- 
-2.43.0
+Question: Are the affected cores the only ones that report
+arch_id==impid==0? If there are other known implementations
+that get the extra barrier but don't need it here, that
+should probably be mentioned in the Kconfig text and
+the code comment.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
