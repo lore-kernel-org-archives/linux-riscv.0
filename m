@@ -4,103 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43E5EBFD05
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 07:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E721EBFD0F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 07:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D2evt9Gsyj2nI7vLNAsCGs18gExtADHzuXWr8C89W6k=; b=uvteCJnWOoeSfX
-	FsMqcYhAc3AjFV3wInetooQw3+m7S1z1I3l1nUXnxHznzMuuH+w6EEHk+ek3CxnAtcP15h5sMK2qx
-	4/y0Yaby5Ky2XJ7fGxjV1vYrpVjR5N9OtKAPm81dz9ZjYghyye5xx79r8Hy/NlVywv639j4xD0Tcb
-	2sCgRfR/JS6czK55qtzKn8GZfPtM7O19AaCG8ZQ3YlUskDk/3iQHXYYjhK/0eOJ4DHF5cK48YKflB
-	7e0X55TRdGUTF0yemQc1Y152BnNPnGP6pvs8wwCkml0Kzpl2MDXM0XEWVl8VOqCQOE8h/YUaEYoDF
-	FRaJVNT8FRBOedvdjfaA==;
+	List-Owner; bh=+taZq4gP/CLwKhiuEn6k2aHzKvLgtrwAnhUSSBMf7+c=; b=MOluCzgIxciaF3
+	qXJcHO5VIz0lGP5rYGJq28aDZJlmUWRBkO9iquOncjRBYkpvVbwBxyFn0ql2seSSus8TqPb5pamui
+	qJ5wzinOoIthqGhqfdJpbOVQ+k46kgr2qlGJGWpUZocYVDbpI6bz34WhuXbPH0DNqqcQ9o8tu515Q
+	LfU2ZPLD2COVO9ZQw2WzEIuhOFFeMslY0Ob5zT3jqKPI8/at5EihJIhWYVO0w/HX6htzEJGWVH5Ut
+	GMSSljkiK8N+CofV0M5r5dnjn8W8X5vD9QECowb/t9HyTZLmN/rmYVo5YdT8P1lNSZ3kZOAv8mXMr
+	F/F/VvUuQ2sqfajh8NHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBhK-0000000F8vR-0syb;
-	Mon, 13 Apr 2026 07:27:06 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wCBuy-0000000FARV-2eFK;
+	Mon, 13 Apr 2026 07:41:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBhH-0000000F8t2-1NI3
+	id 1wCBux-0000000FARP-1t3K
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 13 Apr 2026 07:41:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=XH03pGaphrFl/+YBvK4rXtUGkz/ZGoIf0lxOvNfwMWg=; b=PP1y9QgL1dhemsDwrvEh5qjpT+
+	MDW1cW4Pd/nO7zskLeFyP8wm3xwlx9w8neokKYBDvYscqRcjalA+pXWCg7xyIVPeMbMq6kThSQ1yX
+	v7KMkfrO16uDY2tY/qxYJfMJbAD3UrHdaNN7ReGEV8Nxs7pJ0JSxl4DJuw/wW58BFtMckCcvmO6jw
+	fLdXWnfmrodl1Cc0nfuHKairsnKAVR4PXbqiYSHXO4S61D25YGfknwrk5CYGbMtcd43GQuu3n458r
+	P4KZNExizrQHVBLiDe5a0FGxNArGgh9VtU/BpBdGH61zrPoLNL4QM9UKk7nl8eujt4XVWaXgpipVY
+	P4FLosUA==;
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCBus-0000000GIWm-2P1J
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Apr 2026 07:27:04 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43cfac48bc7so2691736f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 00:27:02 -0700 (PDT)
+	Mon, 13 Apr 2026 07:41:10 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c7358a7a8d1so2862458a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 00:41:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776065221; x=1776670021; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rPuO322us0uZuJ4hizKSGfFjcUXHsAzG0IoitERG8vY=;
-        b=Z2h3QeO1lbByAhYci74Oq7QMHYCZOKh7UEZndqKwHVbCd/8ln6/Rve4i+pAlYpF1qx
-         hkBGyKnDdji5sBO1IVjFHgyOx4MS23e9d2TQ4huo/QilV23mITdlEhqQYa8z9sPYnB2Z
-         XGb9HiD2QTINJ2TPSvmyyCCZBAZx2F6Upd6K7pke5I3+nOM6+xePjefqg3aYsjKeQgUK
-         LI5+hIhXifTDAgH0Rt05q1AZsuhVcNkYS3ij6Hss+fRxq+A7Ik6Avsj53WeKQuGjYqzv
-         p6Esk+vaie+dApAMW2OhAT7kG6OC9DrZnzwyHj3gSaz1Za8MEdgI3AexgrmCoY5w2BsW
-         4C7g==
+        d=gmail.com; s=20251104; t=1776066064; x=1776670864; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XH03pGaphrFl/+YBvK4rXtUGkz/ZGoIf0lxOvNfwMWg=;
+        b=erMUNphlz6tThZ60tzll/kfFNwyt346fQScTVCH+AKyxwIYot9lUiCg+UXMP2Zsa2F
+         3meUXOYVqL5ZGjRzkHz/iWN8GBrUfUYh5RzRnsjKQlS7AkVflpxYwpm9pkt9AZSINIFv
+         2OI2Da2qESY35KI3Ih/gOesbw3uiDL1OYQMoQ7MT9cFyFYJ7+ILgqATgZZJ3K81Yr3of
+         aZkCRmml2luUzL+nhpBD9YKlHek7PR/uWk6CXyvXGWgfdsh2NcrIW+v6dclauSh8bd+8
+         YR3BFGatpn5vN74f4SMjMSxPdJ7HEBxhHR+O/vf7Yd1i8xLzTuwVnm2DIvt0UstN+ND3
+         sy4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776065221; x=1776670021;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=rPuO322us0uZuJ4hizKSGfFjcUXHsAzG0IoitERG8vY=;
-        b=bH0uJM9eMECfP5bd4mbQrPkP9rSDqGo8Vp/h6yApfrnVAqSCFwdTzPtlliQ6AqA06j
-         NIJPOZip1UwtmbyjqL+whhepw/iRwnnq9GMH5fMG0dKptLSY0wVz+QHHomcFGEipOKci
-         3LujmrERuu1QbN75lgSL4Gqk5yTrAp5PCPJRRGH5FDS1BuaCwcV7iRhbzR3QBYAVYgQ3
-         olwVM70SVkB1POE8KyPO71maMGEK3+Uty5qKVfIIY1LpJb6PJYGB3ykDlRMKp6k+vJvf
-         SbdpFCG4UcT8vk1ZSgxx+jwfHpE6CKnKtjaJG9PQVrqikFA7ZkJjUjrIMNgOeDnGy4lB
-         xe0w==
-X-Forwarded-Encrypted: i=1; AFNElJ9emJcMo0oHBjXP5Juh3FzmN6Q7voFspd1iy4G6TpwvhzPZ4IJYzILt00AaUufrVPd9aFV+Z/8gAPZ+vw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzShXhJFfEBTlBVN10lRmwwip99/2uAJJe1qDFViyM75kKYyTNG
-	c59x2xAa9rQZXJaSjkmFubxSs2jTAYDOnAJk8aVYjrN0EKRF0RstWcuV
-X-Gm-Gg: AeBDietBRB6SIZMH4oYghXjs84fKU3WD1A4qpWmMQbjQBVAdSw2yjex0KeVANNcd7Qx
-	+uxoZN1S63zuII6uShm79aFEhrsVwkMm/mUR/6i4e7DEwt7g7Ks1i/fJAZBbShZ9xF3mup7JcPT
-	VuR9PBA6FvyUsvjm++fQHqH93sxkJbv5L6LZ4cE//n0IBjAKZhJDlOYgzdl2mIMjwGvlYzS2/BG
-	/x4QDueJHXQ41/VluDsKXfzA3jTtT/aEt0v4IvfcNYQKX8bc9PCjiM9vYE4sm6hLxXDPIUwvnB3
-	T8CvJ3+XXmCizlhhTdHs/Cq2spe4JjktyMAvMS3cTlIU4ORYXnw+LHkblVinX67rWn4c/dppcbQ
-	dCHkFtSlhQ0fuuc8I6mBpZSz9nVUjD0TuiYPehiwTGjj0xb9HXPTp8ve3S10GnL7FXseyCy81QT
-	sEYLCeY64wLpbc83u66mnOvgOYrNjHGqOagkiO3KhoGGw0uwt6x2ETrFqTo1ux+mFc
-X-Received: by 2002:a05:6000:3109:b0:43d:1c21:eb14 with SMTP id ffacd0b85a97d-43d6429bcbbmr18388161f8f.21.1776065221249;
-        Mon, 13 Apr 2026 00:27:01 -0700 (PDT)
-Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.239.37])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d73b44b3esm13045692f8f.13.2026.04.13.00.26.59
+        d=1e100.net; s=20251104; t=1776066064; x=1776670864;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XH03pGaphrFl/+YBvK4rXtUGkz/ZGoIf0lxOvNfwMWg=;
+        b=W8IJnndiz33mPtwns24W4dNap7jwpwP4ODuKFw6fLM5ij2cc/ALBC2Urat2dtYmQ0F
+         9Bt3IPhtW8lnnz4ac8DlUJBxv0xNL8GT2TlyLk6/6lWWuxQxuWtFJYM7IKE5vyKUU+AY
+         UWP6JjyQ9W4zjqqtLZX5icQex2HMc69MLgNPiCwWet44jcMmI039nhzRrxsFC4ezGJ+x
+         Fav2Sq75Z2RRSiXOy6yjOPRS1Q05uC2U35Jlzt7Vgs0iueYHyLtnygeOFxgswSRisiup
+         cSr/F39KB4y21iwM+vunQfZh6ogo0k7a9zC2ITXVHso6K37WvAgBVP0ak5xhmr9Uh/t2
+         KyLg==
+X-Gm-Message-State: AOJu0Ywcc2vphYoWZaMo+QLmFMShAZ6g7bRxnUDuxr4Aq3yiIUzy6tYq
+	BMqFWCbhA1ui5r05UTiwIPF4R4SS/555KTLQut33c8bNgYAkCzODoUmv
+X-Gm-Gg: AeBDies0TlRSSjJam0SwBGrZ+pxFC7fG++YljjjT91pGoAlal8NyJznZa7YhmgiqsWO
+	tAO8lScvc/0A8k2UCzLN5fuiASdHJg9uwvdkHzH9geh6izv8wVtuCJkjAxkdLWff4bFtGhi3HTJ
+	tO/RGwV3srSj4Ei0LeahIXDh/yeEi/WFp8BjuNekj6PcEkaRlL/iOOijiIJiGLx3KKXjD5lGBW/
+	AK3mueMeWDfpHDkVOFnZ65qpEPU4hG4jvjMTJU4gYIuv2B8w6zcFJONMs3NQg8qzNGkhgTHDqOW
+	/hHf42cwx6CgBE9VCUKeXBtOn+Vv72VZMghcMclhn4349JFBVIeU5KAbPgFFAaSYO0eFEv7HJmy
+	x4JH9MQwFtl9MUXOrRCa4vs58q9NAi+e6lsSZlX9n6iU8iMZQlL6HAcDB8qywJwTqAKssnSFQ81
+	p+8T6c64CG7kMDwAOTW/z4UOCEGUXSlX470A==
+X-Received: by 2002:a05:6a00:94f6:b0:82a:6d9d:3f85 with SMTP id d2e1a72fcca58-82f0c382d6cmr13702263b3a.48.1776066063355;
+        Mon, 13 Apr 2026 00:41:03 -0700 (PDT)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f0c4b2455sm10434535b3a.35.2026.04.13.00.41.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Apr 2026 00:27:00 -0700 (PDT)
-From: Iker Pedrosa <ikerpedrosam@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>
-Cc: Iker Pedrosa <ikerpedrosam@gmail.com>,
-	Troy Mitchell <troy.mitchell@linux.dev>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Trevor Gamblin <tgamblin@baylibre.com>
-Subject: [PATCH v7 9/9] riscv: dts: spacemit: k1-musepi-pro: add SD card support with UHS modes
-Date: Mon, 13 Apr 2026 09:24:51 +0200
-Message-ID: <20260413-orangepi-sd-card-uhs-v7-9-16650f49c022@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260413-orangepi-sd-card-uhs-v7-0-16650f49c022@gmail.com>
-References: <20260413-orangepi-sd-card-uhs-v7-0-16650f49c022@gmail.com>
+        Mon, 13 Apr 2026 00:41:02 -0700 (PDT)
+Date: Mon, 13 Apr 2026 15:40:58 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: guoren@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	alex@ghiti.fr, leobras@redhat.com, djordje.todorovic@htecgroup.com, 
+	aleksa.paunovic@htecgroup.com, arnd@arndb.de, rabenda.cn@gmail.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Han Gao <gaohan@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Xiaoguang Xing <xiaoguang.xing@sophgo.com>, 
+	Paul Walmsley <pjw@kernel.org>
+Subject: Re: [PATCH V4] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+Message-ID: <adyd86f4MJE8muil@inochi.infowork>
+References: <20260412143116.1445893-1-guoren@kernel.org>
 MIME-Version: 1.0
-X-Mailer: b4 0.14.3
+Content-Disposition: inline
+In-Reply-To: <20260412143116.1445893-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_002703_399976_69F406D1 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20260413_084106_957556_A4C56E0B 
+X-CRM114-Status: GOOD (  35.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,111 +117,210 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Trevor Gamblin <tgamblin@baylibre.com>
+On Sun, Apr 12, 2026 at 10:31:16AM -0400, guoren@kernel.org wrote:
+> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
+> 
+> The early version of XuanTie C910 core has a store merge buffer
+> delay problem. The store merge buffer could improve the store queue
+> performance by merging multi-store requests, but when there are not
+> continued store requests, the prior single store request would be
+> waiting in the store queue for a long time. That would cause
+> significant problems for communication between multi-cores. This
+> problem was found on sg2042 & th1520 platforms with the qspinlock
+> lock torture test.
+> 
+> So appending a fence w.o could immediately flush the store merge
+> buffer and let other cores see the write result.
+> 
+> This will apply the WRITE_ONCE errata to handle the non-standard
+> behavior via appending a fence w.o instruction for WRITE_ONCE().
+> 
+> This problem is only observed on the sg2042 hardware platform by
+> running the lock_torture test program for half an hour. The problem
+> was not found in the user space application, because interrupt can
+> break the livelock.
+> 
+> Reviewed-by: Leonardo Bras <leobras@redhat.com>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Tested-by: Han Gao <gaohan@iscas.ac.cn>
+> Tested-by: Yao Zi <me@ziyao.cc>
+> Cc: Chen Wang <unicorn_wang@outlook.com>
+> Cc: Inochi Amaoto <inochiama@gmail.com>
+> Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+> Cc: Paul Walmsley <pjw@kernel.org>
+> Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+> ---
 
-Update the Muse Pi Pro devicetree with SD card support to match what
-was done for the OrangePi RV2 in [1]. More precisely:
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
 
-- Enable sdhci0 controller with 4-bit bus width
-- Configure card detect GPIO with inversion
-- Connect vmmc-supply to buck4 for 3.3V card power
-- Connect vqmmc-supply to aldo1 for 1.8V/3.3V I/O switching
-- Add dual pinctrl states for voltage-dependent pin configuration
-- Support UHS-I SDR25, SDR50, and SDR104 modes
-
-[1] https://lore.kernel.org/linux-riscv/20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com/T/#
-
-Signed-off-by: Trevor Gamblin <tgamblin@baylibre.com>
-Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
----
- arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 66 ++++++++++++++++++++++++++
- 1 file changed, 66 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-index 29e333b670cf..774a4640f065 100644
---- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-@@ -18,6 +18,24 @@ aliases {
- 		ethernet0 = &eth0;
- 		serial0 = &uart0;
- 	};
-+	reg_dc_in: dc-in-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dc_in_5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	reg_vcc_4v: vcc-4v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_4v";
-+		regulator-min-microvolt = <4000000>;
-+		regulator-max-microvolt = <4000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
- 
- 	chosen {
- 		stdout-path = "serial0";
-@@ -77,3 +95,51 @@ &uart0 {
- 	pinctrl-names = "default";
- 	status = "okay";
- };
-+
-+&i2c8 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c8_cfg>;
-+	status = "okay";
-+
-+	pmic@41 {
-+		compatible = "spacemit,p1";
-+		reg = <0x41>;
-+		interrupts = <64>;
-+		vin-supply = <&reg_vcc_4v>;
-+
-+		regulators {
-+			buck4: buck4 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <5000>;
-+				regulator-always-on;
-+			};
-+
-+			aldo1: aldo1 {
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&sdhci0 {
-+	pinctrl-names = "default", "uhs";
-+	pinctrl-0 = <&mmc1_cfg>;
-+	pinctrl-1 = <&mmc1_uhs_cfg>;
-+	bus-width = <4>;
-+	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
-+	cd-inverted;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	vmmc-supply = <&buck4>;
-+	vqmmc-supply = <&aldo1>;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
-
--- 
-2.53.0
-
+> Changelog
+> 
+> v4:
+>  - Add Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+>    (https://lore.kernel.org/linux-riscv/1cfdf6c1-a384-43ad-9588-284335d073f7@ghiti.fr/)
+>  - Add Tested-by: Yao Zi <me@ziyao.cc>
+>  - Rebase on v7.0-rc7
+> 
+> v3:
+> https://lore.kernel.org/linux-riscv/20260125063941.443777-1-guoren@kernel.org/
+>  - Rebase on 6.19-rc6.
+>  - Remove errata_list_vendors patch which has been merged.
+>  - Add Tested-by tag.
+> 
+> v2:
+> https://lore.kernel.org/linux-riscv/20250713155321.2064856-1-guoren@kernel.org/
+>  - Add new header file for errata_list_vendors.
+>  - Rebase newest kernel version.
+> 
+> v1:
+> https://lore.kernel.org/all/20241214143039.4139398-1-guoren@kernel.org/
+> ---
+>  arch/riscv/Kconfig.errata                    | 17 ++++++++++
+>  arch/riscv/errata/thead/errata.c             | 20 ++++++++++++
+>  arch/riscv/include/asm/errata_list_vendors.h |  3 +-
+>  arch/riscv/include/asm/rwonce.h              | 34 ++++++++++++++++++++
+>  include/asm-generic/rwonce.h                 |  2 ++
+>  5 files changed, 75 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/include/asm/rwonce.h
+> 
+> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+> index 3c945d086c7d..4d3f13522da6 100644
+> --- a/arch/riscv/Kconfig.errata
+> +++ b/arch/riscv/Kconfig.errata
+> @@ -154,4 +154,21 @@ config ERRATA_THEAD_GHOSTWRITE
+>  
+>  	  If you don't know what to do here, say "Y".
+>  
+> +config ERRATA_THEAD_WRITE_ONCE
+> +	bool "Apply T-Head WRITE_ONCE errata"
+> +	depends on ERRATA_THEAD
+> +	default y
+> +	help
+> +	  The early version of T-Head C9xx cores of sg2042 & th1520 have a store
+> +	  merge buffer delay problem. The store merge buffer could improve the
+> +	  store queue performance by merging multi-store requests, but when there
+> +	  are no continued store requests, the prior single store request would be
+> +	  waiting in the store queue for a long time. That would cause signifi-
+> +	  cant problems for communication between multi-cores. Appending a
+> +	  fence w.o could immediately flush the store merge buffer and let other
+> +	  cores see the write result.
+> +
+> +	  This will apply the WRITE_ONCE errata to handle the non-standard beh-
+> +	  avior via appending a fence w.o instruction for WRITE_ONCE().
+> +
+>  endmenu # "CPU errata selection"
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index 0b942183f708..fbe46f2fa8fb 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int stage,
+>  	return true;
+>  }
+>  
+> +static bool errata_probe_write_once(unsigned int stage,
+> +				    unsigned long arch_id, unsigned long impid)
+> +{
+> +	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
+> +		return false;
+> +
+> +	/* target-c9xx cores report arch_id and impid as 0 */
+> +	if (arch_id != 0 || impid != 0)
+> +		return false;
+> +
+> +	if (stage == RISCV_ALTERNATIVES_BOOT ||
+> +	    stage == RISCV_ALTERNATIVES_MODULE)
+> +		return true;
+> +
+> +	return false;
+> +}
+> +
+>  static u32 thead_errata_probe(unsigned int stage,
+>  			      unsigned long archid, unsigned long impid)
+>  {
+> @@ -183,6 +200,9 @@ static u32 thead_errata_probe(unsigned int stage,
+>  
+>  	errata_probe_ghostwrite(stage, archid, impid);
+>  
+> +	if (errata_probe_write_once(stage, archid, impid))
+> +		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
+> +
+>  	return cpu_req_errata;
+>  }
+>  
+> diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
+> index ec7eba373437..8fd7c36307e2 100644
+> --- a/arch/riscv/include/asm/errata_list_vendors.h
+> +++ b/arch/riscv/include/asm/errata_list_vendors.h
+> @@ -18,7 +18,8 @@
+>  #define	ERRATA_THEAD_MAE 0
+>  #define	ERRATA_THEAD_PMU 1
+>  #define	ERRATA_THEAD_GHOSTWRITE 2
+> -#define	ERRATA_THEAD_NUMBER 3
+> +#define	ERRATA_THEAD_WRITE_ONCE 3
+> +#define	ERRATA_THEAD_NUMBER 4
+>  #endif
+>  
+>  #ifdef CONFIG_ERRATA_MIPS
+> diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonce.h
+> new file mode 100644
+> index 000000000000..081793d4d772
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/rwonce.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#ifndef __ASM_RWONCE_H
+> +#define __ASM_RWONCE_H
+> +
+> +#include <linux/compiler_types.h>
+> +#include <asm/alternative-macros.h>
+> +#include <asm/vendorid_list.h>
+> +#include <asm/errata_list_vendors.h>
+> +
+> +#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE)
+> +
+> +#define write_once_fence()				\
+> +do {							\
+> +	asm volatile(ALTERNATIVE(			\
+> +		"nop",					\
+> +		"fence w, o",				\
+> +		THEAD_VENDOR_ID,			\
+> +		ERRATA_THEAD_WRITE_ONCE,		\
+> +		CONFIG_ERRATA_THEAD_WRITE_ONCE)		\
+> +		: : : "memory");			\
+> +} while (0)
+> +
+> +#define __WRITE_ONCE(x, val)				\
+> +do {							\
+> +	*(volatile typeof(x) *)&(x) = (val);		\
+> +	write_once_fence();				\
+> +} while (0)
+> +
+> +#endif /* defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE) */
+> +
+> +#include <asm-generic/rwonce.h>
+> +
+> +#endif	/* __ASM_RWONCE_H */
+> diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
+> index 52b969c7cef9..4e2d941f15a1 100644
+> --- a/include/asm-generic/rwonce.h
+> +++ b/include/asm-generic/rwonce.h
+> @@ -50,10 +50,12 @@
+>  	__READ_ONCE(x);							\
+>  })
+>  
+> +#ifndef __WRITE_ONCE
+>  #define __WRITE_ONCE(x, val)						\
+>  do {									\
+>  	*(volatile typeof(x) *)&(x) = (val);				\
+>  } while (0)
+> +#endif
+>  
+>  #define WRITE_ONCE(x, val)						\
+>  do {									\
+> -- 
+> 2.40.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
