@@ -4,86 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F552F34C4B
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 12:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C7CF34C49
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 13:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MVJUb8AZLndP0jhK9hjTmcqFGD4Ek+kvSZztUa3cwEQ=; b=oaQHilxRAOFV6D
-	RAgJj+eVQocQgjXE1DpfzB+7pT42vbioo1Hoco5m3EnvrqZTycZIf2hrsBAvcqnyacn7OLGroWkwI
-	dnUdB2YbBmBSmrHhsNlbh42BXBdRHqJ5O50YUGDrylSM502K3cgNWckDsw9Nv0fF4ZDv3PKUc/giQ
-	MF4seFQDbg28tTOiI3SAWVefAy6aU8lSPOY7n1Mip7PNNBwIUDhx1QjiFl3+2lGbhz0qNmaF8LSLE
-	O4edBB2yL0L+T0WEGl6/K59VSKant0JOe59KwsA99KmkxI3lARX2YJrqKNh6QAZkBihJQ0ompO6jP
-	DqnVTbFMOwFfuycQ2cSg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wHWUgqNcwVOue1a8R2YwHcW5QaZavXcyyuLtVKTyC64=; b=rlan28QgkkfaqW
+	MjIfBF/WFxUDEwOKL0IPpbbiL+ZHJpVGIB7nQMQR2fmP4ZdpjPWhMjCDlaKk5WbSSYrC8qVOjmoK3
+	7k0jdwk+OriaZrTMClrU6W/EOG7Y2sX2oABd7L5BeXXJaDhHLOcKFiJplkeiTw7K9AOVeNOOCIEEL
+	0r+zwBZPFi4KKS4py38kmBR26N3TIE/fR2gElXTYcQKS8/Jm5h5vlYxNs4gfwvJ5oe+hBnx4d/60d
+	eEjWv/CY5CulDk+8s/OUt4io7foGrzwru7/neaIWABSVSOhfi0Oh+oKo0Mt1/THaZ4JBz9cHU3IbC
+	9Xz7XqVvOv/LZAtPFmjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGVx-0000000FfAC-3YtQ;
-	Mon, 13 Apr 2026 12:35:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wCHDR-0000000FjJY-41me;
+	Mon, 13 Apr 2026 13:20:37 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGVv-0000000Ff9b-44re
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 13 Apr 2026 12:35:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=7Hlyy897FkIH88wO+9YzMLj1InHnS0uDojWiHpxYa40=; b=V+4y16hDHun/bUiU3lOQoLAjd7
-	tzOb0saxGAC8hvpTl+1KpWLI1jXCjKX63LHKkKsULFVhY04Kq7EblKXAMQ5NriKZ7/LjutOwK5T8Y
-	0/9DsQXW3dN4hr9QuJQ1gIbPP0jlQac/F6wknL3YteElPO9V6Ve+iaBU7IiQRWNPuzzD3wt98+Wgu
-	3U8FMbmVTLwUFG5QFL27nW94LquiCCOTvfs5d28GQRD1pvl2eiOG1HoHOkLnFfWI3L8OxTGNuRPWx
-	iy8ItjC1y9IdqYvN7FyloNGHCNr16Skl1mRy1pfgk2+DQLC597/8SAhDrQpgTFQSv8yXjtmRD+cOi
-	vvGF0nWQ==;
-Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCGVt-0000000GnIO-0pTo
+	id 1wCHDN-0000000FjJ6-38BU
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Apr 2026 12:35:38 +0000
-Received: from hwang4-g16.. (unknown [183.241.38.105])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPSA id 5CF8F40D6E;
-	Mon, 13 Apr 2026 12:35:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1776083736;
-	bh=7Hlyy897FkIH88wO+9YzMLj1InHnS0uDojWiHpxYa40=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version;
-	b=ef+vFQRIDac91CFKGnACqrZD9pTUoiA8VuTwZWvrYfQdG+ZeU6jUQXO/TE+vSk1qB
-	 AgzoEICg+lQFUUG7jf7D2uMKOBbqxW9ZUTUSlibcQ2dFmsYmLFTQ1ZppnI1nFr57nP
-	 j+Se62xyW/Qo71hEzOqtpO+NNhqdM1NCnNGwD+AaV3Ta66zIW/9C/XtpwiOadMltXU
-	 hPIuf8qeUSf+44nb5uTgAH3oH6qJMQqIL8IHXJY3Cywxdd+gDYUyOyeHTIcI+h7ZEp
-	 choemBdaVg1qmpdGad0tEuSnlx55ja/IpC7TsxsaodV/NIRUMjS/7GoYSEA6MgW3PF
-	 KXC7ssFegIpykcODkkUvnXbdbxRItF1zZEHlMMxgVER6ZenqtT9QAIwAfPP5bf0U5s
-	 60j3QEUEQ2OTimFW3gve8KgCdkPhLlZ4tDAagS8vZdIPEIQlSzrKxC2D9wRBCpJ4jR
-	 gO4BlFbQHngWgYDqjgWzY2TMTp4rgSgZlKZTsvvTdBwqzRuzSQGZeFOhE+t6hNEcWJ
-	 EJFojBMtGvTSR4aJBoEMd3183RjXzw6T5HCKbHh43eyIjPPsJ4XmyYpwLgornz3xXm
-	 Qrno1zhFtM1pqL9GbkbdFNvw+CNHLMzZmd3ui1bOJdnA1HhU6WJ5Pb1fTdQdIrbqEK
-	 Z/vu67xRtQpXoawlXB/TSCkY=
-From: Hui Wang <hui.wang@canonical.com>
-To: linux-riscv@lists.infradead.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	danil.skrebenkov@cloudbear.ru,
-	ajones@ventanamicro.com,
-	atish.patra@linux.dev
-Cc: hui.wang@canonical.com
-Subject: [PATCH v1 2/2] riscv: cpu_ops_sbi: No need to be bothered to check ret.error
-Date: Mon, 13 Apr 2026 20:35:15 +0800
-Message-ID: <20260413123515.48423-2-hui.wang@canonical.com>
+	Mon, 13 Apr 2026 13:20:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1776086429; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=35mq4DCXAG68ToHhPfpuKoqcRBSAR6Ns/WoqgT52LeY=;
+	b=kD0qFVY+S8DSW9vyGMebV8m7MOf0XQceK7jE+VyGiDgTrS3BRJ41HA4e0UtV+CfR4esLYaomxUA5ppXbFNlKZaWBhsUqDwRYP/ZfIbZwHjGfUeh0o2KR4sonEcW6mxJffUNLEd2T3esRXqpVBXX1TjLViq9mJsaEGQFn3fL0N6g=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R721e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0X0xIp8p_1776086410;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X0xIp8p_1776086410 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 13 Apr 2026 21:20:27 +0800
+From: cp0613@linux.alibaba.com
+To: pjw@kernel.org,
+	anup@brainfault.org,
+	andrew.jones@oss.qualcomm.com,
+	guoren@kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Pei <cp0613@linux.alibaba.com>
+Subject: [PATCH v2] riscv: smp: Align secondary_start_sbi to 4 bytes
+Date: Mon, 13 Apr 2026 21:20:09 +0800
+Message-ID: <20260413132009.133752-1-cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260413123515.48423-1-hui.wang@canonical.com>
-References: <20260413123515.48423-1-hui.wang@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_133537_358944_02174B78 
-X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-CacheID: sfid-20260413_062034_540224_76E73862 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,46 +69,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If the ret.error equals to 0, the sbi_err_map_linux_errno() can also
-handle it, i.e. if ret.error is SBI_SUCCESS, it will return 0
-immediately, so no need to be bothered to check ret.error here.
+From: Chen Pei <cp0613@linux.alibaba.com>
 
-Signed-off-by: Hui Wang <hui.wang@canonical.com>
+During SMP boot, the secondary_start_sbi address is passed to the
+slave core via sbi_hsm_hart_start. In OpenSBI, this address is
+written to STVEC in sbi_hart_switch_mode.
+
+According to the privileged specification, the BASE field of STVEC
+must always be aligned on a 4-byte boundary. However, System.map
+reveals that secondary_start_sbi is not a 4-byte aligned address.
+
+For example, the address of secondary_start_sbi is
+0xffffffff80001066, and the disassembly is as follows:
+
+Dump of assembler code from 0xffffffff80001052 to 0xffffffff8000107a:
+   0xffffffff80001052 <_start+4178>:    c.nop   -11
+   0xffffffff80001054 <_start+4180>:    auipc   gp,0x1a1f
+   0xffffffff80001058 <_start+4184>:    addi    gp,gp,84
+   0xffffffff8000105c <_start+4188>:    csrw    satp,a2
+   0xffffffff80001060 <_start+4192>:    sfence.vma
+   0xffffffff80001064 <_start+4196>:    ret
+   0xffffffff80001066 <_start+4198>:    csrw    sie,zero
+   0xffffffff8000106a <_start+4202>:    csrw    sip,zero
+   0xffffffff8000106e <_start+4206>:    li      t0,2
+   0xffffffff80001070 <_start+4208>:    csrw    scounteren,t0
+   0xffffffff80001074 <_start+4212>:    auipc   gp,0x1a1f
+   0xffffffff80001078 <_start+4216>:    addi    gp,gp,52
+
+When writing to STVEC at address 0xffffffff80001066, the actual
+write address is 0xffffffff80001064, corresponding to the address
+of the previous ret instruction. This is unexpected, and if an
+interrupt occurs at this point, it will cause unpredictable results.
+
+However, secondary_start_sbi immediately masks all interrupts and
+updates STVEC, so no problems occurred.
+
+In summary, it is more reasonable to make secondary_start_sbi
+satisfy 4-byte alignment.
+
+Changes in v2:
+ - Place `.align 2` inside `#ifdef CONFIG_SMP`, above the tag.
+ - Add two Reviewed-by tags.
+ - Based on Linux 7.0.
+
+Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Reviewed-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
- arch/riscv/kernel/cpu_ops_sbi.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+ arch/riscv/kernel/head.S | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
-index b6de2b2f8deb..037ecf403a0a 100644
---- a/arch/riscv/kernel/cpu_ops_sbi.c
-+++ b/arch/riscv/kernel/cpu_ops_sbi.c
-@@ -30,10 +30,8 @@ static int sbi_hsm_hart_start(unsigned long hartid, unsigned long saddr,
- 
- 	ret = sbi_ecall(SBI_EXT_HSM, SBI_EXT_HSM_HART_START,
- 			hartid, saddr, priv, 0, 0, 0);
--	if (ret.error)
--		return sbi_err_map_linux_errno(ret.error);
--	else
--		return 0;
-+
-+	return sbi_err_map_linux_errno(ret.error);
- }
- 
- #ifdef CONFIG_HOTPLUG_CPU
-@@ -43,10 +41,7 @@ static int sbi_hsm_hart_stop(void)
- 
- 	ret = sbi_ecall(SBI_EXT_HSM, SBI_EXT_HSM_HART_STOP, 0, 0, 0, 0, 0, 0);
- 
--	if (ret.error)
--		return sbi_err_map_linux_errno(ret.error);
--	else
--		return 0;
-+	return sbi_err_map_linux_errno(ret.error);
- }
- 
- static int sbi_hsm_hart_get_status(unsigned long hartid)
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 9c99c5ad6fe8..9f33be6260e1 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -127,6 +127,7 @@ relocate_enable_mmu:
+ #endif /* CONFIG_MMU */
+ #ifdef CONFIG_SMP
+ 	.global secondary_start_sbi
++	.align 2
+ secondary_start_sbi:
+ 	/* Mask all interrupts */
+ 	csrw CSR_IE, zero
 -- 
-2.43.0
+2.50.1
 
 
 _______________________________________________
