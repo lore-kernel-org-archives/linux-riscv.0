@@ -4,85 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A533E9380C
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 02:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC603E9380E
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 02:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=PYrszkeg2T1ZhvxcRYRT21gsBDSo2vPCRcJYgGwLdSY=; b=VH7GoeEiH9WQewRe7HrA4E5TUG
-	htA2brkVFqL+UdUafcXGtKNPQD8in7ZBCoSJlbB8+3alfv5nKzARRHTTocErlQtiFq55mg/iZmSOh
-	kHf4lFkatyJxHov7BJMCu9cYS5DjgRrQuI510IVZdNJ7XEqatoHurktTdhWY10LZAxsLdk60/VJdO
-	/ISVdLf0YTsosXfEiRrQ2VmLRHQGl3QOOFVtw8og1MOjSe1eaQkI3r10OejtS22KFUz5UgQ21Zvss
-	MgGH8N5QwvgnVsrnNZW26U0NiFjR0DUEkTYcOyVlhQGuOYbGE5bA/8Qnzgo1vU7EN00ZfYslQExNp
-	7dr/R7ZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=siA9bDBBYa76ZNH3jjJThk3PoQAS0csYVLnI9AGby0A=; b=uLKi31EsBawJx6N/tQkHF116Ry
+	zvCidodEi8EuNYIeyrv1QCx4k/ePE2hGLPaKdiTEkZ90UuSjXCp1acVv2orhuscSHFPsxnLW+NA0F
+	V3DehSUnBdNdX5xJa3eHsSPEVivhr49Kvuw0k3Li9K3U0QLkExNfgGrerZojtCrcOyWuwTzjuji//
+	evfn/CFIinww/AXvmKQRiSHfzPBFj8ERRUW9gIs0ANyfNfFt0H01Vab8p2HwFlzXbbnYuGQ489Goj
+	fBUg0zHAXP+gEdcmpkdDtfOnIVIVdIyI3Lnrq49eLesJ+WzWA7TCUVTeBjywhoZ2vyfUqNV3T8CWs
+	EopXmA/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC7Mm-0000000Etea-2KJd;
-	Mon, 13 Apr 2026 02:49:36 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1wC7SY-0000000Euaa-0AmU;
+	Mon, 13 Apr 2026 02:55:35 +0000
+Received: from mail-koreacentralazolkn190130003.outbound.protection.outlook.com ([2a01:111:f403:d40f::3] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wC7Lj-0000000Et1Q-1Kn9
-	for linux-riscv@lists.infradead.org;
-	Mon, 13 Apr 2026 02:48:41 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c76c6280732so4278447a12.0
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Apr 2026 19:48:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1776048505; x=1776653305; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQVkcwEiLCnN6dwxfewA2WuOZTkC+/YHvO/Den3A6Hw=;
-        b=LS7dAaGxf2lyU3Bxg8Nkut1NJLXxqCxKpy8OA23VBxGtxgmrgCrFGtgMKdy7Ov7ns+
-         ijlb85qi86lGPDUg9CzKM6ZspJrc2uJp9pK6dgrmtn+m2mFn6x4znbCAvn6f31U64A5W
-         +tItD+LmdUay4yuAjhKXYSownnGH9q+a+p/EhilJVTJimLoXE7xdXU9hKodjuZbfGVqf
-         cGjW8mQgp/cUQQXDtvVLOwEC/ecqeeNLZg0KUMOzoSu3s9uRxMk8qHAQtA4QiSepce6K
-         Yn2f9HifC8dN6mpnFyIubFlQQ5j3k1u458K72VCBXQUVgNbhKY9vABaN0FjHImEAWUx6
-         3XIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776048505; x=1776653305;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQVkcwEiLCnN6dwxfewA2WuOZTkC+/YHvO/Den3A6Hw=;
-        b=fqYutccZU+bEc/bmXjd5vHTCVeFhz5Jhxs+gPq1+qKyuZWtU9Em1lR7IW6SHMcQNxq
-         Y3t4eGPhSEY0hG04f2SCfLfSvEOp2K2x2rA8n4NUYtRPwdMS227dc+lv9buKxRZ6Xf88
-         s24cCtCvpdwRs+urSQBx0kxrYohA1R6Lh+bPuMjxTQmRRVxS8cBOYNK8tuOXhSWDuFug
-         tCb9JMl5x3P50NYPf+tMSCPDvv6EFg2qnZ1jwdg0ixEowOxr3uAIBf2idtWN9gEVvRqu
-         ltdEx1oRvPWkliFOb+F7SzMEzST6Be753M+Nw6+iaj4tVBkD7aubHrfwf/qMiv7jLpEC
-         hIWQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8aHs3xcxOGY05WNftThJZGxGnWbDG3L2lqFB7Fm5s6UdNqWxs6P9R7LRuEKHPiCO0PtP+BA2/dS9xo7w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkbT08TGfYGawEGlJDRAhYRcAg9NSKf8pQQfjlPF8F7Cfn/cWQ
-	HXcTNFE2SKqXg6t1Gmy9VTRdhhyoh3B333gYr4GAXtXaWwoI+F5S1m13ePVu2QO8ucuh7w5x9Zx
-	2Gomg59HXjg==
-X-Received: from pfud7.prod.google.com ([2002:a05:6a00:10c7:b0:82f:2efd:4158])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1888:b0:823:998:95b0
- with SMTP id d2e1a72fcca58-82f0c29e529mr12961253b3a.35.1776048505252; Sun, 12
- Apr 2026 19:48:25 -0700 (PDT)
-Date: Sun, 12 Apr 2026 19:48:05 -0700
-In-Reply-To: <20260413024805.1316480-1-irogers@google.com>
-Mime-Version: 1.0
-References: <advv6twWCEVBo_Hc@x1> <20260413024805.1316480-1-irogers@google.com>
-X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
-Message-ID: <20260413024805.1316480-9-irogers@google.com>
-Subject: [PATCH v4 8/8] perf unwind-libunwind: Add RISC-V libunwind support
-From: Ian Rogers <irogers@google.com>
-To: acme@kernel.org
-Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
-	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
-	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
-	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
-	irogers@google.com, james.clark@linaro.org, john.g.garry@oracle.com, 
-	jolsa@kernel.org, leo.yan@linux.dev, libunwind-devel@nongnu.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
-	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
-	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
+	id 1wC7SQ-0000000EuZz-2NRB;
+	Mon, 13 Apr 2026 02:55:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bl01qvqDzwIg5B5hH8KGXQBRDLf01m5aDjALt7G4LlfazRkAT4wY7snLb3bEJFLAcFpUkO/V5OQpQlBRqmk9XMwTVrpLtyAyzyQS0Afv3kIOmcTkLhSxjxsLOPXT5fCNXizulvV0Ou6FTCY9Ja8oprGX+HOsE6EP3kPkNeRL0u6chZGcTwEndXrl47HuXcelOsskWbC/n0LF2m/QzN+zHtDD+S5f3HHYHWPPaQNxc4CDY45lvJ9PkPnRkBGZ+VtKOrVeSYofxv3FRP3mjdG7T5oI8WIAyI8XSuls1e7aKoKHXJHCrSb9NDUfjjgG9KrNNIdaPJX7AjOwcHwwn5Y1lw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OiDO5dqHatO8RZVXSDKsR4RMubL1NUya9TtfQN2k87E=;
+ b=SNsN0BbSbJDiH+PujGB3MPwx2//XqzRoCbgGW+mqHHy32y3YR0Z0aq+JnjcGXwraZs/6FKPYBOzvC6qvR8vT3Z5ukc43Qk3HImtk4ZnF4PjrqY0MWyUEuU4C/8u9mr/OqS5qzgo5Z9uRtn4En3WXUUI6JeQhdoZhaDBVhmg+Xf5sb331yWH4XY/udjzY3f1F+hhh04KbtEOP094SmoLzk+9XYtYfE5NjnVG4hMF1tT2ZXtlYRL9KIEHQHeoysvQvIVyTTXoG1Ma1kZeTF2CkI73EgN0lYGbyn8koSEdsfyES2Y9yM1F/IVV2/LEiKTpe39NoP/Te+ENaImKoORWhog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OiDO5dqHatO8RZVXSDKsR4RMubL1NUya9TtfQN2k87E=;
+ b=gdECFVHv4nNM285CpdP9R0G99jl+xbeSpR3zzOMDfjG59mg13zdLd1hvcDXgLUC7ucizyK9QVDTdVCcw90xPGoyv2mZuIQ0BWCKh04Ow9msfNtNzb/tH9D1P7N30mf6BDZ77QqkzBtRqwwtGXioBXh04lW86M7UbWIejP8iIPa3Uw2rPetKFismsN9sFietvdVphXLzRkTOt8GloQNBsBI+So4wb/HUVx8EPct4A7M/UdXuu3n6rYnEnRxFmhYS2wUWwii9KUIWxNl4pbq9lYGlg2U1qllBP+n3K9k+4fls53tQSV/8QmrGuUOL7PuX4JPv8qLJHktX8ZYO9EhzCHQ==
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
+ by SEZPR04MB6124.apcprd04.prod.outlook.com (2603:1096:101:99::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.48; Mon, 13 Apr
+ 2026 02:55:11 +0000
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58]) by SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58%6]) with mapi id 15.20.9769.046; Mon, 13 Apr 2026
+ 02:55:11 +0000
+Message-ID: <SE3PR04MB8922CA375D76D5BB58633E1DF3242@SE3PR04MB8922.apcprd04.prod.outlook.com>
+Date: Mon, 13 Apr 2026 10:55:00 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] iommu/riscv: Advertise Svpbmt support to generic page
+ table
+To: fangyu.yu@linux.alibaba.com, joro@8bytes.org, will@kernel.org,
+ robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, tjeznach@rivosinc.com, jgg@ziepe.ca,
+ kevin.tian@intel.com, baolu.lu@linux.intel.com, vasant.hegde@amd.com
+Cc: guoren@kernel.org, iommu@lists.linux.dev, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260411022223.91029-1-fangyu.yu@linux.alibaba.com>
+ <20260411022223.91029-2-fangyu.yu@linux.alibaba.com>
+Content-Language: en-US
+From: "Nutty.Liu" <nutty.liu@hotmail.com>
+In-Reply-To: <20260411022223.91029-2-fangyu.yu@linux.alibaba.com>
+X-ClientProxiedBy: SGAP274CA0012.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::24)
+ To SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
+X-Microsoft-Original-Message-ID: <3f24dc6f-9ff8-4c09-8c90-1b1fce8b2649@hotmail.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SE3PR04MB8922:EE_|SEZPR04MB6124:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc4265de-29b9-4b22-d182-08de990813c9
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799015|15080799012|23021999003|19110799012|461199028|5072599009|51005399006|6090799003|3412199025|440099028|26121999003|40105399003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WnVKdkZiNWYvTG9leHRRbmdpZlJ0TGpqam1BY2lVODFqakFSYmx1VmlXQm0w?=
+ =?utf-8?B?OFlsazRUcllidlBneXgrdm4rbVZpMGpBOVV6LzRuZFk1STZxNE5pSFZkd29l?=
+ =?utf-8?B?NFRPZWVURVh4Rmc1Y2tyR0Q0SFBwZExRUUwxR0ozREFtMVk2aXlXcXhDL1ha?=
+ =?utf-8?B?TlpXWTFnK2JWR21KSk9XTmNsQUJ1bTJOTnNLUUY5MmxjQWpma2pDZm9KamFy?=
+ =?utf-8?B?VFQzcjBJNVlEZHBaU0xwRG1QYW5oNmxnYUZRTnFrSnpHcDhxQXdzQ2JxM2t6?=
+ =?utf-8?B?M3Q0TTR1dWV4bHEvakZDRHU0czUycUNPM05SSVZBQVFwNENxVlBJNlVzNHdy?=
+ =?utf-8?B?ZXJOWEVGbW8yT1UwZTBwSlJBS3JLUUdwTldFQUVnbUhCeCt2RjJ6YkZ6QUph?=
+ =?utf-8?B?UzZHTENoemdiUWJmN3lZcjNZOXJhaE9jMXhOYmZkWTN6RFRndlNuY2x5VEt6?=
+ =?utf-8?B?WVlLTEZUMmdGSTlaRFE0QUMwWlpEVzN0YnRDS0taMFZRNE4wR1pBZEtvRHJn?=
+ =?utf-8?B?cWNURlR2OFhJWDNNK0t3WThGWWw4OEZiV1FUTWhwcTU4endMSVpaL0xpK3kx?=
+ =?utf-8?B?QlRITzkva0VSRDU0Z0lOZzQ0SW45Z3hINjMwbVhxSEtvRk1FNnFOZTBoU0E4?=
+ =?utf-8?B?Y0JDeDA5QTRORVdOVk42OG5WNVppRExHdlAvcnFvZTcvZTg4MGJKeVRCVUNa?=
+ =?utf-8?B?T3VHZTBPWElmU1NJeExUOFZ0OXBwdE5WaWx2dlFxNEFDaTE1alM4dVljWnJa?=
+ =?utf-8?B?K2pEdWNBRFdTeFhCNkZiblY2UUlvZzhhZzJlWFk4NmpUR2RTWWlGckZFOThp?=
+ =?utf-8?B?SW0zU1pGbGxVYkZUb3NvUSt0RVIzeUpuZkpEM1RCaWtZcVY4NVR0TVJOcUJh?=
+ =?utf-8?B?RVVaTHVHM2hpQno2R2NuOHB5MkZiS0xKY0xiOVdUTkwzc0ZMNHV2S3hRaStS?=
+ =?utf-8?B?ZVNabituVDRCRzV3SXorUytKd0t0ZkdTK0h3Q2hjemtLOG8zdEJBVDBySWNw?=
+ =?utf-8?B?Z2h2NWxzL3RYc2NiRGFGejNoVC9FSXJzaUtJYzhFdzgzKzNmM09BcXJSUUI5?=
+ =?utf-8?B?SFZRcjJ0OWllMGkzM0lOR0VyUU5jOHJ0ajlTQjhlYS9SaXFzU2pPM0VqWnMy?=
+ =?utf-8?B?ei9xVUNlSXUvS0xMZ0l4S1AzdzN3aGlUVlRzY2x3WXlHUWVxUHYvSjlwdnFr?=
+ =?utf-8?B?bUpFeHdCamdXWTBZOC8rbFRzWjF1b1hBL0tRZGlOTGxsdEI5MFN5WXRXdHUv?=
+ =?utf-8?B?ZFpHRnh6dFJXWTc3aFJWNW8zT2V2ZUpVWjRyTG4xaXI4WDlGZz09?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L20wTjJCK0xzc015cE9valBXblkyRTRUMUt1dXAzNWFzeWEva0creVhzVU9P?=
+ =?utf-8?B?SkhUZysrRlNacnNQNDBucVgrWUNvZyt5b0k1clFTZTBneGlrMGpZWHZmZktL?=
+ =?utf-8?B?WVhoeWEvcDM0UEZWSFJXWGZMbFJ0bm5ISVp2b3BDUVJaalZWVnJmdU9zYllv?=
+ =?utf-8?B?QmlHMmNKaCtvS2Q1Y1RUNFUwRVBDYVBSaXBwSmY4TVJOSm9xTVczRW1kVnR0?=
+ =?utf-8?B?a1FKcnc0YkVCWnhwZGZTQ3pzTXJYNjNEYTcxWTNheUJ6NFh5K1hRMkt0TEZQ?=
+ =?utf-8?B?bUFnaWhIVFV3Y0t0a2VoR1FrMDBCVkZ1aVhFdHY0WTd3SEVNbWtEWjlMbjRh?=
+ =?utf-8?B?S3BjVGIrSkUvMWhWb2VoS3lPNjM3UWpGZmE4OEVUaXFqVzJrTFZnV045U29I?=
+ =?utf-8?B?SGhJbDRodGVQekpmT3Z2NXVIVElGNnVWZEtRUFA1dWFaTm93cUpJaEQwYktK?=
+ =?utf-8?B?OE9ZaGV2Z0YrMGdGcDJ1VnhlcjNtNFU4VU9sdnFsMlJ6UUpVN3o5QVcxSzV0?=
+ =?utf-8?B?OEl6RFNjemNOY1JNZlMvVTlaRGl3QitsUTZqRkpPR3lZWlZoQWZOcFlKT1pH?=
+ =?utf-8?B?SGRIbysrQmh1VXhoRENkbTZidDhVY1Q1U2JrT1BuVnpoZ0ttcHhZOTEwSmh3?=
+ =?utf-8?B?UWsyY0VZc2VqTk1zL3dVc0FTT08vOFpPWE5WSkpqK1g2cG5HSUV2WXJDZUZM?=
+ =?utf-8?B?a2FXUmZXTENlTFZxM2VzNDF3SUdpUHE3RmZNemkzMG9wbWdzR25oMnYyVzc1?=
+ =?utf-8?B?QUlJVU44S1RUelVzVTd5MForS0l4R3dhQmVCbXBQRjI4Q3MzMVN2eFpHM1hj?=
+ =?utf-8?B?cHUvbTJZOVJOUm41b2NvbC9BN2xoeHljTUQ0NGFPajhFSkxZT3AvRkFOc2xN?=
+ =?utf-8?B?c3o5K2RsSm9pUm80blFiS3M1WmxnRGp2WEFaR0xFM3U2cmVpcjhQUUZUa2FR?=
+ =?utf-8?B?blUxZ01xN1RjV2ZTY25ueG5hUXIvRU9TTXl2OWVKVEZ2WjZ5dFo4TWVrT0d6?=
+ =?utf-8?B?alNtZFdqWmhhRWFROXJQNW1acXBEVzVmVVpLcSszc1cxMGR2QktoZlBoc3JJ?=
+ =?utf-8?B?ekd3UW9MTnp6REU5MDgxNmNJeit0dnVsK3NKZlZmVlRBT2EvOWVnSkF6enBU?=
+ =?utf-8?B?TEZUeW1Zc3VROE5yQnBDME5TbC9PZkNDc2hVc0tGRmViQ0V1eGhNdWY3MzJm?=
+ =?utf-8?B?TFlzTFJVQ2dVV09GMUFxUTh2SDhXQ2pEZkliSjBiOEo3dTNHSjZJenFvb0px?=
+ =?utf-8?B?Nmp0c3NQNEFPVkdMdEkxZ2l1Y2pINzl0aVZ2dDM0RWtORzFONWlyWStzekNq?=
+ =?utf-8?B?SlN0Y2NJOHlGeDBySEJsVGRoRTVwWkxkVWRSQ3J5VGovQmJoRjFpY0ZZdHdZ?=
+ =?utf-8?B?d0NrWElyWVErZjFIYkJacHN3ajRHaGpieXNpY1Z6QStQM3cyTk56NDhsZ2Fa?=
+ =?utf-8?B?T0JYUkhUd2NyMzBWT2dNbW8wY1pUT05yMk02cVBHaWI1UWwrV1JhMDVhS2E5?=
+ =?utf-8?B?NW80LzNic0JwZE9ITWdMdVJhckVhK2RSa3p5U0YzN0JWR1hCM0UwZ3RRMW1l?=
+ =?utf-8?B?eVpVZFhLWkpZUnZRSldnczJJTmhBeTMwd0FHcGl0NFhWaUxEU2d3d01nQ3RB?=
+ =?utf-8?B?V0g0TDBWanlNZ3FVdzh2dzRxOFl6WVppWE9kalBqRGY4MFZCbnNQSGFBajdL?=
+ =?utf-8?B?RDJmRm5TTnR5NjFQQkpxUmVDTWJxbzErSDREWGZxcG1ocVhDUkxsbkVMSFhm?=
+ =?utf-8?B?U0MyZjBjdUVIZ2VZK2N3dHU1QTlRM2JuS005SmM0Q2Y3Ukh1M045Q0ZjRTZi?=
+ =?utf-8?B?dnVROXZRNE9qdlNDcVBzd1Y0NmlUTzk2RmZiZU1HdXd3WHdkQm5EWjZrNkZW?=
+ =?utf-8?Q?skDlTIOzju4LX?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-c3e7a.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc4265de-29b9-4b22-d182-08de990813c9
+X-MS-Exchange-CrossTenant-AuthSource: SE3PR04MB8922.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Apr 2026 02:55:10.9645
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR04MB6124
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_194835_433543_CE10A8CC 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260412_195526_644215_CC7784E1 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,503 +154,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a RISC-V implementation for unwinding.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/util/libunwind-arch/Build          |   1 +
- .../perf/util/libunwind-arch/libunwind-arch.c |  21 ++
- .../perf/util/libunwind-arch/libunwind-arch.h |  22 ++
- .../util/libunwind-arch/libunwind-riscv.c     | 297 ++++++++++++++++++
- 4 files changed, 341 insertions(+)
- create mode 100644 tools/perf/util/libunwind-arch/libunwind-riscv.c
+On 4/11/2026 10:22 AM, fangyu.yu@linux.alibaba.com wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>
+> The RISC-V IOMMU can optionally support Svpbmt page-based memory types
+> in its page table format. When present,the generic page table code can
+> use this capability to encode memory attributes (e.g. MMIO vs normal
+> memory) in PTEs.
+>
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> ---
+>   drivers/iommu/riscv/iommu.c       | 2 ++
+>   include/linux/generic_pt/common.h | 1 +
+>   2 files changed, 3 insertions(+)
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 
-diff --git a/tools/perf/util/libunwind-arch/Build b/tools/perf/util/libunwind-arch/Build
-index 87fd657a3248..80d3571918b1 100644
---- a/tools/perf/util/libunwind-arch/Build
-+++ b/tools/perf/util/libunwind-arch/Build
-@@ -5,6 +5,7 @@ perf-util-$(CONFIG_LIBUNWIND) += libunwind-loongarch.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-mips.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-ppc32.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-ppc64.o
-+perf-util-$(CONFIG_LIBUNWIND) += libunwind-riscv.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-s390.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-i386.o
- perf-util-$(CONFIG_LIBUNWIND) += libunwind-x86_64.o
-diff --git a/tools/perf/util/libunwind-arch/libunwind-arch.c b/tools/perf/util/libunwind-arch/libunwind-arch.c
-index 8539b4233df4..9a74cf3c8729 100644
---- a/tools/perf/util/libunwind-arch/libunwind-arch.c
-+++ b/tools/perf/util/libunwind-arch/libunwind-arch.c
-@@ -20,6 +20,8 @@ int get_perf_regnum_for_unw_regnum(unsigned int e_machine, int unw_regnum)
- 		return __get_perf_regnum_for_unw_regnum_ppc32(unw_regnum);
- 	case EM_PPC64:
- 		return __get_perf_regnum_for_unw_regnum_ppc64(unw_regnum);
-+	case EM_RISCV:
-+		return __get_perf_regnum_for_unw_regnum_riscv(unw_regnum);
- 	case EM_S390:
- 		return __get_perf_regnum_for_unw_regnum_s390(unw_regnum);
- 	case EM_386:
-@@ -58,6 +60,9 @@ void libunwind_arch__flush_access(struct maps *maps)
- 	case EM_PPC64:
- 		__libunwind_arch__flush_access_ppc64(maps);
- 		break;
-+	case EM_RISCV:
-+		__libunwind_arch__flush_access_riscv(maps);
-+		break;
- 	case EM_S390:
- 		__libunwind_arch__flush_access_s390(maps);
- 		break;
-@@ -98,6 +103,9 @@ void libunwind_arch__finish_access(struct maps *maps)
- 	case EM_PPC64:
- 		__libunwind_arch__finish_access_ppc64(maps);
- 		break;
-+	case EM_RISCV:
-+		__libunwind_arch__finish_access_riscv(maps);
-+		break;
- 	case EM_S390:
- 		__libunwind_arch__finish_access_s390(maps);
- 		break;
-@@ -128,6 +136,8 @@ void *libunwind_arch__create_addr_space(unsigned int e_machine)
- 		return __libunwind_arch__create_addr_space_ppc32();
- 	case EM_PPC64:
- 		return __libunwind_arch__create_addr_space_ppc64();
-+	case EM_RISCV:
-+		return __libunwind_arch__create_addr_space_riscv();
- 	case EM_S390:
- 		return __libunwind_arch__create_addr_space_s390();
- 	case EM_386:
-@@ -167,6 +177,9 @@ int libunwind_arch__dwarf_search_unwind_table(unsigned int e_machine,
- 	case EM_PPC64:
- 		return __libunwind_arch__dwarf_search_unwind_table_ppc64(as, ip, di, pi,
- 									 need_unwind_info, arg);
-+	case EM_RISCV:
-+		return __libunwind_arch__dwarf_search_unwind_table_riscv(as, ip, di, pi,
-+									need_unwind_info, arg);
- 	case EM_S390:
- 		return __libunwind_arch__dwarf_search_unwind_table_s390(as, ip, di, pi,
- 									need_unwind_info, arg);
-@@ -211,6 +224,9 @@ int libunwind_arch__dwarf_find_debug_frame(unsigned int e_machine,
- 	case EM_PPC64:
- 		return __libunwind_arch__dwarf_find_debug_frame_ppc64(found, di_debug, ip, segbase,
- 								      obj_name, start, end);
-+	case EM_RISCV:
-+		return __libunwind_arch__dwarf_find_debug_frame_riscv(found, di_debug, ip, segbase,
-+								     obj_name, start, end);
- 	case EM_S390:
- 		return __libunwind_arch__dwarf_find_debug_frame_s390(found, di_debug, ip, segbase,
- 								     obj_name, start, end);
-@@ -250,6 +266,9 @@ struct unwind_info *libunwind_arch_unwind_info__new(struct thread *thread,
- 	case EM_PPC64:
- 		return __libunwind_arch_unwind_info__new_ppc64(thread, sample, max_stack,
- 							       best_effort, first_ip);
-+	case EM_RISCV:
-+		return __libunwind_arch_unwind_info__new_riscv(thread, sample, max_stack,
-+							      best_effort, first_ip);
- 	case EM_S390:
- 		return __libunwind_arch_unwind_info__new_s390(thread, sample, max_stack,
- 							      best_effort, first_ip);
-@@ -285,6 +304,8 @@ int libunwind_arch__unwind_step(struct unwind_info *ui)
- 		return __libunwind_arch__unwind_step_ppc32(ui);
- 	case EM_PPC64:
- 		return __libunwind_arch__unwind_step_ppc64(ui);
-+	case EM_RISCV:
-+		return __libunwind_arch__unwind_step_riscv(ui);
- 	case EM_S390:
- 		return __libunwind_arch__unwind_step_s390(ui);
- 	case EM_386:
-diff --git a/tools/perf/util/libunwind-arch/libunwind-arch.h b/tools/perf/util/libunwind-arch/libunwind-arch.h
-index 2bf7fc33313b..74a09cd58f38 100644
---- a/tools/perf/util/libunwind-arch/libunwind-arch.h
-+++ b/tools/perf/util/libunwind-arch/libunwind-arch.h
-@@ -39,6 +39,7 @@ int __get_perf_regnum_for_unw_regnum_loongarch(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_mips(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_ppc32(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_ppc64(int unw_regnum);
-+int __get_perf_regnum_for_unw_regnum_riscv(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_s390(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_i386(int unw_regnum);
- int __get_perf_regnum_for_unw_regnum_x86_64(int unw_regnum);
-@@ -50,6 +51,7 @@ void __libunwind_arch__flush_access_loongarch(struct maps *maps);
- void __libunwind_arch__flush_access_mips(struct maps *maps);
- void __libunwind_arch__flush_access_ppc32(struct maps *maps);
- void __libunwind_arch__flush_access_ppc64(struct maps *maps);
-+void __libunwind_arch__flush_access_riscv(struct maps *maps);
- void __libunwind_arch__flush_access_s390(struct maps *maps);
- void __libunwind_arch__flush_access_i386(struct maps *maps);
- void __libunwind_arch__flush_access_x86_64(struct maps *maps);
-@@ -61,6 +63,7 @@ void __libunwind_arch__finish_access_loongarch(struct maps *maps);
- void __libunwind_arch__finish_access_mips(struct maps *maps);
- void __libunwind_arch__finish_access_ppc32(struct maps *maps);
- void __libunwind_arch__finish_access_ppc64(struct maps *maps);
-+void __libunwind_arch__finish_access_riscv(struct maps *maps);
- void __libunwind_arch__finish_access_s390(struct maps *maps);
- void __libunwind_arch__finish_access_i386(struct maps *maps);
- void __libunwind_arch__finish_access_x86_64(struct maps *maps);
-@@ -72,6 +75,7 @@ void *__libunwind_arch__create_addr_space_loongarch(void);
- void *__libunwind_arch__create_addr_space_mips(void);
- void *__libunwind_arch__create_addr_space_ppc32(void);
- void *__libunwind_arch__create_addr_space_ppc64(void);
-+void *__libunwind_arch__create_addr_space_riscv(void);
- void *__libunwind_arch__create_addr_space_s390(void);
- void *__libunwind_arch__create_addr_space_i386(void);
- void *__libunwind_arch__create_addr_space_x86_64(void);
-@@ -111,6 +115,11 @@ int __libunwind_arch__dwarf_search_unwind_table_ppc64(void *as, uint64_t ip,
- 						      void *pi,
- 						      int need_unwind_info,
- 						      void *arg);
-+int __libunwind_arch__dwarf_search_unwind_table_riscv(void *as, uint64_t ip,
-+						     struct libarch_unwind__dyn_info *di,
-+						     void *pi,
-+						     int need_unwind_info,
-+						     void *arg);
- int __libunwind_arch__dwarf_search_unwind_table_s390(void *as, uint64_t ip,
- 						     struct libarch_unwind__dyn_info *di,
- 						     void *pi,
-@@ -176,6 +185,13 @@ int __libunwind_arch__dwarf_find_debug_frame_ppc64(int found,
- 						   const char *obj_name,
- 						   uint64_t start,
- 						   uint64_t end);
-+int __libunwind_arch__dwarf_find_debug_frame_riscv(int found,
-+						  struct libarch_unwind__dyn_info *di_debug,
-+						  uint64_t ip,
-+						  uint64_t segbase,
-+						  const char *obj_name,
-+						  uint64_t start,
-+						  uint64_t end);
- int __libunwind_arch__dwarf_find_debug_frame_s390(int found,
- 						  struct libarch_unwind__dyn_info *di_debug,
- 						  uint64_t ip,
-@@ -236,6 +252,11 @@ struct unwind_info *__libunwind_arch_unwind_info__new_ppc64(struct thread *threa
- 							   int max_stack,
- 							   bool best_effort,
- 							uint64_t first_ip);
-+struct unwind_info *__libunwind_arch_unwind_info__new_riscv(struct thread *thread,
-+							struct perf_sample *sample,
-+							   int max_stack,
-+							   bool best_effort,
-+							uint64_t first_ip);
- struct unwind_info *__libunwind_arch_unwind_info__new_s390(struct thread *thread,
- 							struct perf_sample *sample,
- 							   int max_stack,
-@@ -266,6 +287,7 @@ int __libunwind_arch__unwind_step_loongarch(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_mips(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_ppc32(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_ppc64(struct unwind_info *ui);
-+int __libunwind_arch__unwind_step_riscv(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_s390(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_i386(struct unwind_info *ui);
- int __libunwind_arch__unwind_step_x86_64(struct unwind_info *ui);
-diff --git a/tools/perf/util/libunwind-arch/libunwind-riscv.c b/tools/perf/util/libunwind-arch/libunwind-riscv.c
-new file mode 100644
-index 000000000000..a70a2ea96644
---- /dev/null
-+++ b/tools/perf/util/libunwind-arch/libunwind-riscv.c
-@@ -0,0 +1,297 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "libunwind-arch.h"
-+#include "../debug.h"
-+#include "../maps.h"
-+#include "../thread.h"
-+#include "../../../arch/riscv/include/uapi/asm/perf_regs.h"
-+#include <linux/compiler.h>
-+#include <linux/kernel.h>
-+#include <linux/zalloc.h>
-+#include <elf.h>
-+#include <errno.h>
-+
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+#include <libunwind-riscv.h>
-+#endif
-+
-+int __get_perf_regnum_for_unw_regnum_riscv(int unw_regnum __maybe_unused)
-+{
-+#ifndef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	return -EINVAL;
-+#else
-+	switch (unw_regnum) {
-+	case UNW_RISCV_X1 ... UNW_RISCV_X31:
-+		return unw_regnum - UNW_RISCV_X1 + PERF_REG_RISCV_RA;
-+	case UNW_RISCV_PC:
-+		return PERF_REG_RISCV_PC;
-+	default:
-+		pr_err("unwind: invalid reg id %d\n", unw_regnum);
-+		return -EINVAL;
-+	}
-+#endif // HAVE_LIBUNWIND_RISCV_SUPPORT
-+}
-+
-+void __libunwind_arch__flush_access_riscv(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	unw_flush_cache(maps__addr_space(maps), 0, 0);
-+#endif
-+}
-+
-+void __libunwind_arch__finish_access_riscv(struct maps *maps __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	unw_destroy_addr_space(maps__addr_space(maps));
-+#endif
-+}
-+
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+static int find_proc_info(unw_addr_space_t as, unw_word_t ip, unw_proc_info_t *pi,
-+			  int need_unwind_info, void *arg)
-+{
-+	return __libunwind__find_proc_info(as, ip, pi, need_unwind_info, arg, sizeof(unw_word_t));
-+}
-+
-+static void put_unwind_info(unw_addr_space_t __maybe_unused as,
-+			    unw_proc_info_t *pi __maybe_unused,
-+			    void *arg __maybe_unused)
-+{
-+	pr_debug("unwind: put_unwind_info called\n");
-+}
-+
-+static int get_dyn_info_list_addr(unw_addr_space_t __maybe_unused as,
-+				  unw_word_t __maybe_unused *dil_addr,
-+				  void __maybe_unused *arg)
-+{
-+	return -UNW_ENOINFO;
-+}
-+
-+static int access_mem(unw_addr_space_t as, unw_word_t addr, unw_word_t *valp,
-+		      int __write, void *arg)
-+{
-+	return __libunwind__access_mem(as, addr, valp, __write, arg, sizeof(unw_word_t));
-+}
-+
-+static int access_reg(unw_addr_space_t as, unw_regnum_t regnum, unw_word_t *valp,
-+		      int __write, void *arg)
-+{
-+	return __libunwind__access_reg(as, regnum, valp, __write, arg, sizeof(unw_word_t));
-+}
-+
-+static int access_fpreg(unw_addr_space_t __maybe_unused as,
-+			unw_regnum_t __maybe_unused num,
-+			unw_fpreg_t __maybe_unused *val,
-+			int __maybe_unused __write,
-+			void __maybe_unused *arg)
-+{
-+	pr_err("unwind: access_fpreg unsupported\n");
-+	return -UNW_EINVAL;
-+}
-+
-+static int resume(unw_addr_space_t __maybe_unused as,
-+		  unw_cursor_t __maybe_unused *cu,
-+		  void __maybe_unused *arg)
-+{
-+	pr_err("unwind: resume unsupported\n");
-+	return -UNW_EINVAL;
-+}
-+
-+static int get_proc_name(unw_addr_space_t __maybe_unused as,
-+			 unw_word_t __maybe_unused addr,
-+			 char __maybe_unused *bufp, size_t __maybe_unused buf_len,
-+			 unw_word_t __maybe_unused *offp, void __maybe_unused *arg)
-+{
-+	pr_err("unwind: get_proc_name unsupported\n");
-+	return -UNW_EINVAL;
-+}
-+#endif
-+
-+void *__libunwind_arch__create_addr_space_riscv(void)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	static unw_accessors_t accessors = {
-+		.find_proc_info		= find_proc_info,
-+		.put_unwind_info	= put_unwind_info,
-+		.get_dyn_info_list_addr	= get_dyn_info_list_addr,
-+		.access_mem		= access_mem,
-+		.access_reg		= access_reg,
-+		.access_fpreg		= access_fpreg,
-+		.resume			= resume,
-+		.get_proc_name		= get_proc_name,
-+	};
-+	unw_addr_space_t addr_space;
-+
-+	addr_space = unw_create_addr_space(&accessors, /*byte_order=*/0);
-+	unw_set_caching_policy(addr_space, UNW_CACHE_GLOBAL);
-+	return addr_space;
-+#else
-+	return NULL;
-+#endif
-+}
-+
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+extern int UNW_OBJ(dwarf_search_unwind_table) (unw_addr_space_t as,
-+					       unw_word_t ip,
-+					       unw_dyn_info_t *di,
-+					       unw_proc_info_t *pi,
-+					       int need_unwind_info, void *arg);
-+#define dwarf_search_unwind_table UNW_OBJ(dwarf_search_unwind_table)
-+#endif
-+
-+int __libunwind_arch__dwarf_search_unwind_table_riscv(void *as __maybe_unused,
-+						       uint64_t ip __maybe_unused,
-+						       struct libarch_unwind__dyn_info *_di __maybe_unused,
-+						       void *pi __maybe_unused,
-+						       int need_unwind_info __maybe_unused,
-+						       void *arg __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	unw_dyn_info_t di = {
-+		.format     = UNW_INFO_FORMAT_REMOTE_TABLE,
-+		.start_ip   = _di->start_ip,
-+		.end_ip     = _di->end_ip,
-+		.u = {
-+			.rti = {
-+				.segbase    = _di->segbase,
-+				.table_data = _di->table_data,
-+				.table_len  = _di->table_len,
-+			},
-+		},
-+	};
-+	int ret = dwarf_search_unwind_table(as, ip, &di, pi, need_unwind_info, arg);
-+
-+	_di->start_ip = di.start_ip;
-+	_di->end_ip = di.end_ip;
-+	_di->segbase = di.u.rti.segbase;
-+	_di->table_data = di.u.rti.table_data;
-+	_di->table_len = di.u.rti.table_len;
-+	return ret;
-+#else
-+	return -EINVAL;
-+#endif
-+}
-+
-+#if defined(HAVE_LIBUNWIND_RISCV_SUPPORT) && !defined(NO_LIBUNWIND_DEBUG_FRAME_RISCV)
-+extern int UNW_OBJ(dwarf_find_debug_frame) (int found, unw_dyn_info_t *di_debug,
-+					    unw_word_t ip,
-+					    unw_word_t segbase,
-+					    const char *obj_name, unw_word_t start,
-+					    unw_word_t end);
-+#define dwarf_find_debug_frame UNW_OBJ(dwarf_find_debug_frame)
-+#endif
-+
-+int __libunwind_arch__dwarf_find_debug_frame_riscv(int found __maybe_unused,
-+						 struct libarch_unwind__dyn_info *_di __maybe_unused,
-+						 uint64_t ip __maybe_unused,
-+						 uint64_t segbase __maybe_unused,
-+						 const char *obj_name __maybe_unused,
-+						 uint64_t start __maybe_unused,
-+						 uint64_t end __maybe_unused)
-+{
-+#if defined(HAVE_LIBUNWIND_RISCV_SUPPORT) && !defined(NO_LIBUNWIND_DEBUG_FRAME_RISCV)
-+	unw_dyn_info_t di = {
-+		.format     = UNW_INFO_FORMAT_REMOTE_TABLE,
-+		.start_ip   = _di->start_ip,
-+		.end_ip     = _di->end_ip,
-+		.u = {
-+			.rti = {
-+				.segbase    = _di->segbase,
-+				.table_data = _di->table_data,
-+				.table_len  = _di->table_len,
-+			},
-+		},
-+	};
-+	int ret = dwarf_find_debug_frame(found, &di, ip, segbase, obj_name, start, end);
-+
-+	_di->start_ip = di.start_ip;
-+	_di->end_ip = di.end_ip;
-+	_di->segbase = di.u.rti.segbase;
-+	_di->table_data = di.u.rti.table_data;
-+	_di->table_len = di.u.rti.table_len;
-+	return ret;
-+#else
-+	return -EINVAL;
-+#endif
-+}
-+
-+struct unwind_info *__libunwind_arch_unwind_info__new_riscv(struct thread *thread __maybe_unused,
-+							     struct perf_sample *sample  __maybe_unused,
-+							     int max_stack __maybe_unused,
-+							     bool best_effort  __maybe_unused,
-+							     uint64_t first_ip  __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	struct arch_unwind_info {
-+		struct unwind_info ui;
-+		unw_cursor_t _cursor;
-+		uint64_t _ips[];
-+	};
-+
-+	struct maps *maps = thread__maps(thread);
-+	void *addr_space = maps__addr_space(maps);
-+	struct arch_unwind_info *ui;
-+	int ret;
-+
-+	if (addr_space == NULL)
-+		return NULL;
-+
-+	ui = zalloc(sizeof(*ui) + sizeof(ui->_ips[0]) * max_stack);
-+	if (!ui)
-+		return NULL;
-+
-+	ui->ui.machine = maps__machine(maps);
-+	ui->ui.thread = thread;
-+	ui->ui.sample = sample;
-+	ui->ui.cursor = &ui->_cursor;
-+	ui->ui.ips = &ui->_ips[0];
-+	ui->ui.ips[0] = first_ip;
-+	ui->ui.cur_ip = 1;
-+	ui->ui.max_ips = max_stack;
-+	ui->ui.unw_word_t_size = sizeof(unw_word_t);
-+	ui->ui.e_machine = EM_RISCV;
-+	ui->ui.best_effort = best_effort;
-+
-+	ret = unw_init_remote(&ui->_cursor, addr_space, &ui->ui);
-+	if (ret) {
-+		if (!best_effort)
-+			pr_err("libunwind: %s\n", unw_strerror(ret));
-+		free(ui);
-+		return NULL;
-+	}
-+
-+	return &ui->ui;
-+#else
-+	return NULL;
-+#endif
-+}
-+
-+int __libunwind_arch__unwind_step_riscv(struct unwind_info *ui __maybe_unused)
-+{
-+#ifdef HAVE_LIBUNWIND_RISCV_SUPPORT
-+	int ret;
-+
-+	if (ui->cur_ip >= ui->max_ips)
-+		return -1;
-+
-+	ret = unw_step(ui->cursor);
-+	if (ret > 0) {
-+		uint64_t ip;
-+
-+		unw_get_reg(ui->cursor, UNW_REG_IP, &ip);
-+
-+		if (unw_is_signal_frame(ui->cursor) <= 0) {
-+			/*
-+			 * Decrement the IP for any non-activation frames. This
-+			 * is required to properly find the srcline for caller
-+			 * frames.  See also the documentation for
-+			 * dwfl_frame_pc(), which this code tries to replicate.
-+			 */
-+			--ip;
-+		}
-+		ui->ips[ui->cur_ip++] = ip;
-+	}
-+	return ret;
-+#else
-+	return -EINVAL;
-+#endif
-+}
--- 
-2.53.0.1213.gd9a14994de-goog
-
+Thanks,
+Nutty
 
 _______________________________________________
 linux-riscv mailing list
