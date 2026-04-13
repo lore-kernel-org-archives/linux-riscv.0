@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD943F34C65
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 16:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6657F34C65
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 16:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P0Dk5GbLl3lkyFpha7SQ9yKVPnxQkxn17RTDVjxb1RY=; b=VkVyKXRWPqVfC2
-	LwaqoLacTyqoRxJ8EPVYnGXzBw8SgRYn3GC+EMXFKymnRGHDxY3ZV0ZYN9SKnleHDRLIJieT9q2yo
-	mZBPa8oApMXxJiKrjyAd1T8WETBu4bn3hRRL3y7pJnDgTFU01EJmSwxUk7QHM6e53Fcd/gIzfZaR6
-	SXTlMMob/mU+/1eVjFUjuwnHe8p3zo9z1tDKv/0hmxxRvS+ezT+N81WeYONQTHd7hxL8O4d4Z1m8l
-	tAyfzCeTrFL7Whc7pjTmR6p9cNyAkn2jJBEL7+znd29WGfChTrg0jI0XgRSlmD+M2kN/mvaJxuxn8
-	aZ1otmuCJRIs+pVM3iPQ==;
+	List-Owner; bh=6x6o26b1vgedoHkfRCL116WXqtHu5p8kpU2dpYe6ALo=; b=nzOZ1zbmGV5TME
+	Yyj5XNswnZTQxTSUSYM9tKJMOdRvf6ESRcC49xbwCNpBfbgHXDyq6BgDwl3GjJVd68Qi48Jj+JndY
+	NDwHDGWSTu6OtVulTewArwpftvImsw2bgfipJtJjemgEGiQTZvGO3W0/ph/GQb6OoGLlIorSs4JnA
+	UkYzgKjJ39AgKU9ZTNlay7HfiZMhJs2sZNOD39o2kuoYfZ+7gOmCZlty04DdOZwwwx+f4UXJikiCS
+	hkN1Ths8O5YiOIvIlmu7WlOIizpE3wOIRv2fmKPaY4BhP7R1sG8/W2rQLBiGZq8YanVCHO8Kpmaru
+	oEsb1aaJkEJ8/KX/vsOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKWn-0000000G5Gu-3v1l;
-	Mon, 13 Apr 2026 16:52:49 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCKWl-0000000G5G3-0xbC;
-	Mon, 13 Apr 2026 16:52:48 +0000
-Received: from [192.168.0.106] (unknown [49.205.253.198])
-	by linux.microsoft.com (Postfix) with ESMTPSA id E3EA220B6F01;
-	Mon, 13 Apr 2026 09:52:38 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E3EA220B6F01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1776099166;
-	bh=rEWHzLuJu4zX+Y0HjonY8SyN6SoByDg0tpQoTVpx6X0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BQ7kiNkZOj9VWO9d91KpQVM2qP+HGmECvTedlMX7D+JxReubmmeIHpiy5c1qFL4zk
-	 H9O1BOFtbYJp2VdUAxKWSNfeOwcvPcqOA02iYlp6uyoE1GJ7VOxym4OkG1XlTfiYqP
-	 JPqNDGX28wy6sItqWGsGV7XLlO+OGY8vH5GYXcno=
-Message-ID: <90d8b888-e801-4751-8e7a-79d1ec9ed59b@linux.microsoft.com>
-Date: Mon, 13 Apr 2026 22:22:35 +0530
+	id 1wCKac-0000000G5l4-3bsH;
+	Mon, 13 Apr 2026 16:56:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCKab-0000000G5jh-0KEO
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Apr 2026 16:56:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A5D876184C
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 16:56:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71577C2BCB7
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 16:56:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776099403;
+	bh=h2aM87LBp2ambqCZSnTPbSPCg4/IJ24tetHqkm6TuZ0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=A1/LSmdy8yQDvjhZ3UN23Bo1McCQ+BT+1wnSom64e8RPslCZBRZLZIP6DRRf0pIiu
+	 AYUhIYTPlTfs63sOgeuMTapnP+rp30KAelHN3fiI7E0FL9IIN4468pLK6etoZQqowd
+	 Brmmh/BJ2JTJLKuhww2KBw9Lqm+n57uNrYTJb7VSEd62ymZC4mvO1GHqDbQt1jKcNs
+	 gClElEadOplATXbg2ENOVpUiy0Eeo64gftDYX8vYoWNMVxk02iYF9WT0cI6nCOI4C4
+	 ftBfR9n2a7QwTBDniLN8evg6WYEqH/5xzu3IzSDok+J9OoT1JrU0gIeVjU5mbKJSbS
+	 N82p1DC4TX89g==
+Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-8acb856a674so5670416d6.0
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 09:56:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+VMZtMyh0+3lDIcUU7ebEt79VNZNosnSE3zxwbHppcoGNjAFFsKSYJZR65RYX+7w2clIfcsQHS9xedeA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeZBnYwkx74JcvZyv+0NWVoEwHNVy8OXPvQso5/eDJVsK7HGXu
+	hXiMCOtQ017o4EuzTJquD4ceZoLoOuMvdnKpDXjx5PQcs51pudahOYK5t+WmQLwrDNKWbWb/Plq
+	Zn4GykD/lWYpB8uDDmROrjTYjAdrZEx4=
+X-Received: by 2002:a05:6214:3307:b0:8ac:b2e1:3798 with SMTP id
+ 6a1803df08f44-8acb2e17026mr38597226d6.28.1776099402680; Mon, 13 Apr 2026
+ 09:56:42 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/11] arch: arm64: Add support for mshv_vtl_return_call
-To: Michael Kelley <mhklinux@outlook.com>,
- "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
- Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- mrigendrachaubey <mrigendra.chaubey@gmail.com>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-References: <20260316121241.910764-1-namjain@linux.microsoft.com>
- <20260316121241.910764-8-namjain@linux.microsoft.com>
- <SN6PR02MB4157D3C4F6F376C8D6C3D234D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Naman Jain <namjain@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157D3C4F6F376C8D6C3D234D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_095247_298674_47EA4113 
-X-CRM114-Status: GOOD (  39.27  )
+References: <20260413123256.3296452-1-puranjay@kernel.org> <20260413123256.3296452-2-puranjay@kernel.org>
+In-Reply-To: <20260413123256.3296452-2-puranjay@kernel.org>
+From: Song Liu <song@kernel.org>
+Date: Mon, 13 Apr 2026 09:56:30 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW5M6-9HdYhGnerZiSnZM=VdgN-H91ND=Qop+thEASfvQQ@mail.gmail.com>
+X-Gm-Features: AQROBzA1h53NIbW6wB2_ufILfMN6eHhnFaWBiPdIcTkHfEIuA00ldjcsm5gEbB8
+Message-ID: <CAPhsuW5M6-9HdYhGnerZiSnZM=VdgN-H91ND=Qop+thEASfvQQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next 1/2] bpf, arm64: Remove redundant
+ bpf_flush_icache() after pack allocator finalize
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Pu Lehui <pulehui@huawei.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,297 +84,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/1/2026 10:27 PM, Michael Kelley wrote:
-> From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
->>
-> 
-> Nit: For historical consistency, use "arm64: hyperv:" as the prefix in the patch Subject.
-
-Acked.
-
-> 
->> Add support for arm64 specific variant of mshv_vtl_return_call function
->> to be able to add support for arm64 in MSHV_VTL driver. This would
->> help enable the transition between Virtual Trust Levels (VTL) in
->> MSHV_VTL when the kernel acts as a paravisor.
-> 
-> This commit message has a fair number of "filler" words. Suggest simplifying to:
-> 
-> Add the arm64 variant of mshv_vtl_return_call() to support the MSHV_VTL
-> driver on arm64.  This function enables the transition between Virtual Trust
-> Levels (VTLs) in MSHV_VTL when the kernel acts as a paravisor.
-> 
-
-I can see the difference clearly :-) Will use this in commit message.
-
->>
->> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
->> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
->> ---
->>   arch/arm64/hyperv/Makefile        |   1 +
->>   arch/arm64/hyperv/hv_vtl.c        | 144 ++++++++++++++++++++++++++++++
->>   arch/arm64/include/asm/mshyperv.h |  13 +++
->>   3 files changed, 158 insertions(+)
->>   create mode 100644 arch/arm64/hyperv/hv_vtl.c
->>
->> diff --git a/arch/arm64/hyperv/Makefile b/arch/arm64/hyperv/Makefile
->> index 87c31c001da9..9701a837a6e1 100644
->> --- a/arch/arm64/hyperv/Makefile
->> +++ b/arch/arm64/hyperv/Makefile
->> @@ -1,2 +1,3 @@
->>   # SPDX-License-Identifier: GPL-2.0
->>   obj-y		:= hv_core.o mshyperv.o
->> +obj-$(CONFIG_HYPERV_VTL_MODE)	+= hv_vtl.o
->> diff --git a/arch/arm64/hyperv/hv_vtl.c b/arch/arm64/hyperv/hv_vtl.c
->> new file mode 100644
->> index 000000000000..66318672c242
->> --- /dev/null
->> +++ b/arch/arm64/hyperv/hv_vtl.c
->> @@ -0,0 +1,144 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2026, Microsoft, Inc.
->> + *
->> + * Authors:
->> + *     Roman Kisel <romank@linux.microsoft.com>
->> + *     Naman Jain <namjain@linux.microsoft.com>
->> + */
->> +
->> +#include <asm/boot.h>
->> +#include <asm/mshyperv.h>
->> +#include <asm/cpu_ops.h>
->> +
->> +void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0)
->> +{
->> +	u64 base_ptr = (u64)vtl0->x;
->> +
->> +	/*
->> +	 * VTL switch for ARM64 platform - managing VTL0's CPU context.
->> +	 * We explicitly use the stack to save the base pointer, and use x16
->> +	 * as our working register for accessing the context structure.
->> +	 *
->> +	 * Register Handling:
->> +	 * - X0-X17: Saved/restored (general-purpose, shared for VTL communication)
->> +	 * - X18: NOT touched - hypervisor-managed per-VTL (platform register)
->> +	 * - X19-X30: Saved/restored (part of VTL0's execution context)
->> +	 * - Q0-Q31: Saved/restored (128-bit NEON/floating-point registers, shared)
->> +	 * - SP: Not in structure, hypervisor-managed per-VTL
->> +	 *
->> +	 * Note: X29 (FP) and X30 (LR) are in the structure and must be saved/restored
->> +	 * as part of VTL0's complete execution state.
-> 
-> Could drop "Note:".  That's what comments are. :-)
-
-Acked.
-
-> 
-> 
->> +	 */
->> +	asm __volatile__ (
->> +		/* Save base pointer to stack explicitly, then load into x16 */
->> +		"str %0, [sp, #-16]!\n\t"     /* Push base pointer onto stack */
->> +		"mov x16, %0\n\t"             /* Load base pointer into x16 */
->> +		/* Volatile registers (Windows ARM64 ABI: x0-x15) */
->> +		"ldp x0, x1, [x16]\n\t"
->> +		"ldp x2, x3, [x16, #(2*8)]\n\t"
-> 
-> On the x86 side, there's machinery to generate a series of constants that are
-> the offsets of the individual fields in struct mshv_vtl_cpu_context. The x86
-> asm code then uses these constants. Here on the arm64 side, you've calculated
-> the offsets directly in the asm code. Any reason for the difference? I can see
-> it's fairly easy to eyeball the offsets here and compare against the registers
-> that are being loaded, where it's not so easy the way registers are named
-> on x86. So maybe the additional machinery that's helpful on the x86 side
-> is less necessary here. Just wondering ....
-
-There were complexities around static call etc. in x86 which led to that 
-redesign. Here things are much simpler and the offsets we see are 1-1 
-mapped to registers. But I still tried to prototype it, and it looked 
-more complex than it has to be. I think we can keep it in current form.
-
-> 
->> +		"ldp x4, x5, [x16, #(4*8)]\n\t"
->> +		"ldp x6, x7, [x16, #(6*8)]\n\t"
->> +		"ldp x8, x9, [x16, #(8*8)]\n\t"
->> +		"ldp x10, x11, [x16, #(10*8)]\n\t"
->> +		"ldp x12, x13, [x16, #(12*8)]\n\t"
->> +		"ldp x14, x15, [x16, #(14*8)]\n\t"
->> +		/* x16 will be loaded last, after saving base pointer */
->> +		"ldr x17, [x16, #(17*8)]\n\t"
->> +		/* x18 is hypervisor-managed per-VTL - DO NOT LOAD */
->> +
->> +		/* General-purpose registers: x19-x30 */
->> +		"ldp x19, x20, [x16, #(19*8)]\n\t"
->> +		"ldp x21, x22, [x16, #(21*8)]\n\t"
->> +		"ldp x23, x24, [x16, #(23*8)]\n\t"
->> +		"ldp x25, x26, [x16, #(25*8)]\n\t"
->> +		"ldp x27, x28, [x16, #(27*8)]\n\t"
->> +
->> +		/* Frame pointer and link register */
->> +		"ldp x29, x30, [x16, #(29*8)]\n\t"
->> +
->> +		/* Shared NEON/FP registers: Q0-Q31 (128-bit) */
->> +		"ldp q0, q1, [x16, #(32*8)]\n\t"
->> +		"ldp q2, q3, [x16, #(32*8 + 2*16)]\n\t"
->> +		"ldp q4, q5, [x16, #(32*8 + 4*16)]\n\t"
->> +		"ldp q6, q7, [x16, #(32*8 + 6*16)]\n\t"
->> +		"ldp q8, q9, [x16, #(32*8 + 8*16)]\n\t"
->> +		"ldp q10, q11, [x16, #(32*8 + 10*16)]\n\t"
->> +		"ldp q12, q13, [x16, #(32*8 + 12*16)]\n\t"
->> +		"ldp q14, q15, [x16, #(32*8 + 14*16)]\n\t"
->> +		"ldp q16, q17, [x16, #(32*8 + 16*16)]\n\t"
->> +		"ldp q18, q19, [x16, #(32*8 + 18*16)]\n\t"
->> +		"ldp q20, q21, [x16, #(32*8 + 20*16)]\n\t"
->> +		"ldp q22, q23, [x16, #(32*8 + 22*16)]\n\t"
->> +		"ldp q24, q25, [x16, #(32*8 + 24*16)]\n\t"
->> +		"ldp q26, q27, [x16, #(32*8 + 26*16)]\n\t"
->> +		"ldp q28, q29, [x16, #(32*8 + 28*16)]\n\t"
->> +		"ldp q30, q31, [x16, #(32*8 + 30*16)]\n\t"
->> +
->> +		/* Now load x16 itself */
->> +		"ldr x16, [x16, #(16*8)]\n\t"
->> +
->> +		/* Return to the lower VTL */
->> +		"hvc #3\n\t"
->> +
->> +		/* Save context after return - reload base pointer from stack */
->> +		"stp x16, x17, [sp, #-16]!\n\t" /* Save x16, x17 temporarily */
->> +		"ldr x16, [sp, #16]\n\t"        /* Reload base pointer (skip saved x16,x17) */
->> +
->> +		/* Volatile registers */
->> +		"stp x0, x1, [x16]\n\t"
->> +		"stp x2, x3, [x16, #(2*8)]\n\t"
->> +		"stp x4, x5, [x16, #(4*8)]\n\t"
->> +		"stp x6, x7, [x16, #(6*8)]\n\t"
->> +		"stp x8, x9, [x16, #(8*8)]\n\t"
->> +		"stp x10, x11, [x16, #(10*8)]\n\t"
->> +		"stp x12, x13, [x16, #(12*8)]\n\t"
->> +		"stp x14, x15, [x16, #(14*8)]\n\t"
->> +		"ldp x0, x1, [sp], #16\n\t"      /* Recover saved x16, x17 */
->> +		"stp x0, x1, [x16, #(16*8)]\n\t"
->> +		/* x18 is hypervisor-managed - DO NOT SAVE */
->> +
->> +		/* General-purpose registers: x19-x30 */
->> +		"stp x19, x20, [x16, #(19*8)]\n\t"
->> +		"stp x21, x22, [x16, #(21*8)]\n\t"
->> +		"stp x23, x24, [x16, #(23*8)]\n\t"
->> +		"stp x25, x26, [x16, #(25*8)]\n\t"
->> +		"stp x27, x28, [x16, #(27*8)]\n\t"
->> +		"stp x29, x30, [x16, #(29*8)]\n\t"  /* Frame pointer and link register */
->> +
->> +		/* Shared NEON/FP registers: Q0-Q31 (128-bit) */
->> +		"stp q0, q1, [x16, #(32*8)]\n\t"
->> +		"stp q2, q3, [x16, #(32*8 + 2*16)]\n\t"
->> +		"stp q4, q5, [x16, #(32*8 + 4*16)]\n\t"
->> +		"stp q6, q7, [x16, #(32*8 + 6*16)]\n\t"
->> +		"stp q8, q9, [x16, #(32*8 + 8*16)]\n\t"
->> +		"stp q10, q11, [x16, #(32*8 + 10*16)]\n\t"
->> +		"stp q12, q13, [x16, #(32*8 + 12*16)]\n\t"
->> +		"stp q14, q15, [x16, #(32*8 + 14*16)]\n\t"
->> +		"stp q16, q17, [x16, #(32*8 + 16*16)]\n\t"
->> +		"stp q18, q19, [x16, #(32*8 + 18*16)]\n\t"
->> +		"stp q20, q21, [x16, #(32*8 + 20*16)]\n\t"
->> +		"stp q22, q23, [x16, #(32*8 + 22*16)]\n\t"
->> +		"stp q24, q25, [x16, #(32*8 + 24*16)]\n\t"
->> +		"stp q26, q27, [x16, #(32*8 + 26*16)]\n\t"
->> +		"stp q28, q29, [x16, #(32*8 + 28*16)]\n\t"
->> +		"stp q30, q31, [x16, #(32*8 + 30*16)]\n\t"
->> +
->> +		/* Clean up stack - pop base pointer */
->> +		"add sp, sp, #16\n\t"
->> +
->> +		: /* No outputs */
->> +		: /* Input */ "r"(base_ptr)
->> +		: /* Clobber list - x16 used as base, x18 is hypervisor-managed (not touched) */
->> +		"memory", "cc",
->> +		"x0", "x1", "x2", "x3", "x4", "x5",
->> +		"x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13",
->> +		"x14", "x15", "x16", "x17", "x19", "x20", "x21",
->> +		"x22", "x23", "x24", "x25", "x26", "x27", "x28",
->> +		"x29", "x30",
->> +		"v0", "v1", "v2", "v3", "v4", "v5", "v6", "v7",
->> +		"v8", "v9", "v10", "v11", "v12", "v13", "v14", "v15",
->> +		"v16", "v17", "v18", "v19", "v20", "v21", "v22", "v23",
->> +		"v24", "v25", "v26", "v27", "v28", "v29", "v30", "v31");
->> +}
->> +EXPORT_SYMBOL(mshv_vtl_return_call);
->> diff --git a/arch/arm64/include/asm/mshyperv.h
->> b/arch/arm64/include/asm/mshyperv.h
->> index 804068e0941b..de7f3a41a8ea 100644
->> --- a/arch/arm64/include/asm/mshyperv.h
->> +++ b/arch/arm64/include/asm/mshyperv.h
->> @@ -60,6 +60,17 @@ static inline u64 hv_get_non_nested_msr(unsigned int reg)
->>   				ARM_SMCCC_SMC_64,		\
->>   				ARM_SMCCC_OWNER_VENDOR_HYP,	\
->>   				HV_SMCCC_FUNC_NUMBER)
->> +
->> +struct mshv_vtl_cpu_context {
->> +/*
->> + * NOTE: x18 is managed by the hypervisor. It won't be reloaded from this array.
->> + * It is included here for convenience in the common case.
-> 
-> I'm not getting your point in this last sentence. What is the "common case"?
-> 
-
-This was really odd :-) I should have spotted it. I'll change it to:
-It is included here for convenience in array indexing.
-
-> You could also drop the "NOTE: " prefix.
-
-Acked.
-
-> 
->> + */
->> +	__u64 x[31];
->> +	__u64 rsvd;
->> +	__uint128_t q[32];
->> +};
-> 
-> struct mshv_vtl_run reserves 1024 bytes for cpu_context. It would be nice to
-> have a compile-time check that the size of struct mshv_vtl_cpu_context fits in
-> that 1024 bytes. That check might be better added where struct mshv_vtl_run
-> is defined so that it works for both x86 and arm64.
-
-Acked, will add it.
-
-> 
->> +
->>   #ifdef CONFIG_HYPERV_VTL_MODE
->>   /*
->>    * Get/Set the register. If the function returns `1`, that must be done via
->> @@ -69,6 +80,8 @@ static inline int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u
->>   {
->>   	return 1;
->>   }
->> +
->> +void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
-> 
-> This declaration now duplicated in mshyperv.h under arch/arm64 and under
-> arch/x86.  Instead, it should be added to asm-generic/mshyperv.h, and
-> removed from the arch/x86 mshyperv.h, so that there's only a single
-> instance of the declaration.
-
-Acked.
-
-> 
->>   #endif
->>
->>   #include <asm-generic/mshyperv.h>
->> --
->> 2.43.0
->>
-
-Regards,
-Naman
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBcHIgMTMsIDIwMjYgYXQgNTozM+KAr0FNIFB1cmFuamF5IE1vaGFuIDxwdXJhbmph
+eUBrZXJuZWwub3JnPiB3cm90ZToKPgo+IGJwZl9mbHVzaF9pY2FjaGUoKSBjYWxscyBmbHVzaF9p
+Y2FjaGVfcmFuZ2UoKSB0byBjbGVhbiB0aGUgZGF0YSBjYWNoZQo+IGFuZCBpbnZhbGlkYXRlIHRo
+ZSBpbnN0cnVjdGlvbiBjYWNoZSBmb3IgdGhlIEpJVGVkIGNvZGUgcmVnaW9uLiBIb3dldmVyLAo+
+IHNpbmNlIGNvbW1pdCAxZGFkMzkxZGFlZjEgKCJicGYsIGFybTY0OiB1c2UgYnBmX3Byb2dfcGFj
+ayBmb3IgbWVtb3J5Cj4gbWFuYWdlbWVudCIpLCB0aGlzIGZsdXNoIGlzIHJlZHVuZGFudC4KPgo+
+IGJwZl9qaXRfYmluYXJ5X3BhY2tfZmluYWxpemUoKSBjb3BpZXMgdGhlIEpJVGVkIGluc3RydWN0
+aW9ucyB0byB0aGUgUk9YCj4gcmVnaW9uIHZpYSBicGZfYXJjaF90ZXh0X2NvcHkoKSAtPiBhYXJj
+aDY0X2luc25fY29weSgpIC0+IF9fdGV4dF9wb2tlKCksCj4gYW5kIF9fdGV4dF9wb2tlKCkgYWxy
+ZWFkeSBjYWxscyBmbHVzaF9pY2FjaGVfcmFuZ2UoKSBvbiB0aGUgd3JpdHRlbgo+IHJhbmdlLiBU
+aGUgc3Vic2VxdWVudCBicGZfZmx1c2hfaWNhY2hlKCkgcmVwZWF0cyB0aGUgc2FtZSBjYWNoZQo+
+IG1haW50ZW5hbmNlIG9uIGFuIG92ZXJsYXBwaW5nIHJhbmdlLCBpbmNsdWRpbmcgYW4gdW5uZWNl
+c3Nhcnkgc2Vjb25kCj4gc3luY2hyb25vdXMgSVBJIHRvIGFsbCBDUFVzIHZpYSBraWNrX2FsbF9j
+cHVzX3N5bmMoKS4KPgo+IFJlbW92ZSB0aGUgcmVkdW5kYW50IGJwZl9mbHVzaF9pY2FjaGUoKSBj
+YWxsIGFuZCBpdHMgbm93LXVudXNlZAo+IGRlZmluaXRpb24uCj4KPiBGaXhlczogMWRhZDM5MWRh
+ZWYxICgiYnBmLCBhcm02NDogdXNlIGJwZl9wcm9nX3BhY2sgZm9yIG1lbW9yeSBtYW5hZ2VtZW50
+IikKPiBTaWduZWQtb2ZmLWJ5OiBQdXJhbmpheSBNb2hhbiA8cHVyYW5qYXlAa2VybmVsLm9yZz4K
+CldlIGNhbiBub3cgcmVtb3ZlICIjaW5jbHVkZSA8YXNtL2NhY2hlZmx1c2guaD4iLgoKT3RoZXIg
+dGhhbiB0aGF0LAoKQWNrZWQtYnk6IFNvbmcgTGl1IDxzb25nQGtlcm5lbC5vcmc+CgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
