@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B616EBFD22
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 09:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67EAEEBFD22
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 09:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rb1tgHV8piSo2JP87MN5LN6g2tcP7bxSPmTP73N9s5U=; b=D0IzA5GC3taI2C
-	NiVo3K6vRJmPoVjR/wtWF79PwvgdJu0B02kR2cbpuGyX8GehHTvcB8jZC1N+GAvjjc5G6RnXwHYYM
-	ttgLNngX9xYPHBFDi4yjdgCEdipHTG9sLUFfz+xbkBXac3DG68cWyUV1bKKcankTkA0tsTYWnfYB+
-	Y4Bg638Mg8akLolzZMvSxSDqpwj/mkqx9AeMz4W7yQa3P8YjZJN/ZychbSKEtkkgckBsI4wVoJdLW
-	YV/HLyq3zZSYdZcowPstRtiBn63Y/O/KZeSyXXWYfJqVsDyzow+4evLe3v4C5kVO1GHhifKG/195N
-	3V+sgY0rAeEBnk9pI8UQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WBAOsL5KXphroAMjtm0ThiObTrrfxQkST9yPoESOJS4=; b=hiYFymnaxmJ1Rz
+	F+4POAxlDtVZdxfObltaw/Cgka831qaQ0PQFW29Q6FOsuaYSTpep0dLnECxIriuyFkMOiOS8Ohd48
+	P1zjrOmo/owgIak3MdBUEZHV+q07fAEcHqX/qZLfgbSDVBUkMP+5EnaK42u0W5ZJiKPey+AGbTerQ
+	/r2rdv+F+xXTZw42ktNEqlGV9nc1yoh9lQVpWM8b0uEPn7HQpBUQJQ3rg+0wd1YH3QdDT0rJ7Q/n0
+	8/KpSmxhlHo2Ac5jFRHG9yb2byZ7a6ruv6rTtHpeUQ1ZMBlK4HPfghZCBIIoX5bFfvq6dG/tYSpWf
+	cFJUid6Opyj+Q7dUBWNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDUz-0000000FMDM-2X4x;
-	Mon, 13 Apr 2026 09:22:29 +0000
-Received: from forward102b.mail.yandex.net ([178.154.239.149])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCDUs-0000000FM9C-02mk
-	for linux-riscv@lists.infradead.org;
+	id 1wCDUv-0000000FMAx-21Vs;
 	Mon, 13 Apr 2026 09:22:25 +0000
+Received: from forward100b.mail.yandex.net ([2a02:6b8:c02:900:1:45:d181:d100])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCDUr-0000000FM90-2NWT
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Apr 2026 09:22:24 +0000
 Received: from mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net [IPv6:2a02:6b8:c24:2409:0:640:85e8:0])
-	by forward102b.mail.yandex.net (Yandex) with ESMTPS id 65F06C003A;
-	Mon, 13 Apr 2026 12:22:17 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id BMGbUY0QrqM0-Yg2FV7S4;
-	Mon, 13 Apr 2026 12:22:16 +0300
+	by forward100b.mail.yandex.net (Yandex) with ESMTPS id 4007B807AF;
+	Mon, 13 Apr 2026 12:22:15 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id BMGbUY0QrqM0-7oRxIfng;
+	Mon, 13 Apr 2026 12:22:14 +0300
 X-Yandex-Fwd: 1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1776072136; bh=7UKn22JJZ+5QvzKbz/7xh6YUNvrFKpeRNz3eXPOWcsU=;
-	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=eCcU+vUkCMbRca7PO01t/JndJMmRcA55HOTSyO0HKxaL4o68yWW6fJCrRQ7hNCA7F
-	 1oJxi2j+YZqrW7tw5PHAPofzbH+kyzfy1VxQM22y6tarY6pcAF5NVr5QZA5AY4CvQx
-	 klnuEe49qKsvBozZZb5i0nElkbJKC/TON8q/khKA=
+	t=1776072134; bh=jh2fsWgly8lktcsE9k5a728Oe8/wRVoehO0PJo50uyc=;
+	h=Message-ID:Date:Cc:Subject:To:From;
+	b=puQxK6SZxnnw1nAeiLFF0S4r+EcaEgKXujtjQ8qX4sM7IwsDWh79l+OPHQTbokarF
+	 DFDlhX7FH4BG0V0V5z4sP6HwOl0RPXHCCLsdiAaFc1WZzWltj65N6uT06kvQHB/lZl
+	 GOvG23qU3ADKQL2KpVUGZ2JDyw2lOlAu8jmYblZ0=
 Authentication-Results: mail-nwsmtp-smtp-production-main-91.sas.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
 From: Dmitry Antipov <dmantipov@yandex.ru>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -51,16 +51,15 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
 	linux-riscv@lists.infradead.org,
 	linux-efi@vger.kernel.org,
 	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH v3 2/3] lib: kunit: add tests for __ashldi3(), __ashrdi3(), and __lshrdi3()
-Date: Mon, 13 Apr 2026 12:22:01 +0300
-Message-ID: <20260413092202.174394-3-dmantipov@yandex.ru>
+Subject: [PATCH v3 0/3] riscv32 library enhancements and build fixes
+Date: Mon, 13 Apr 2026 12:21:59 +0300
+Message-ID: <20260413092202.174394-1-dmantipov@yandex.ru>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260413092202.174394-1-dmantipov@yandex.ru>
-References: <20260413092202.174394-1-dmantipov@yandex.ru>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_022222_226881_96A125F4 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20260413_022222_174371_2B1F718D 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,240 +76,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add KUnit tests for '__ashldi3()', '__ashrdi3()', and '__lshrdi3()'
-helper functions used to implement 64-bit arithmetic shift left,
-arithmetic shift right and logical shift right, respectively,
-on a 32-bit CPUs.
+This series should immediately follow v8 of lib and lib/cmdline enhancements,
+see https://patchew.org/linux/20260212164413.889625-1-dmantipov@yandex.ru.
+Started from riscv32 build quirk, now it aims to provide platform-specific
+double-word shifts and corresponding KUnit test (tested on ARM as well).
 
-Tested with 'qemu-system-riscv32 -M virt' and 'qemu-system-arm -M virt'.
+Dmitry Antipov (3):
+  riscv: add platform-specific double word shifts for riscv32
+  lib: kunit: add tests for __ashldi3(), __ashrdi3(), and __lshrdi3()
+  riscv: fix building compressed EFI image
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
----
-v3: more tests by Charlie Jenkins
-v2: include test-specific headers rather than generic linux/kernel.h
----
- lib/Kconfig.debug       |  10 +++
- lib/tests/Makefile      |   1 +
- lib/tests/shdi3_kunit.c | 175 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 186 insertions(+)
+ arch/riscv/Kconfig                    |   3 -
+ arch/riscv/kernel/image-vars.h        |   7 ++
+ arch/riscv/lib/Makefile               |   1 +
+ arch/riscv/lib/ashldi3.S              |  36 ++++++
+ arch/riscv/lib/ashrdi3.S              |  37 ++++++
+ arch/riscv/lib/lshrdi3.S              |  36 ++++++
+ drivers/firmware/efi/libstub/Makefile |   2 +-
+ lib/Kconfig.debug                     |  10 ++
+ lib/tests/Makefile                    |   1 +
+ lib/tests/shdi3_kunit.c               | 175 ++++++++++++++++++++++++++
+ 10 files changed, 304 insertions(+), 4 deletions(-)
+ create mode 100644 arch/riscv/lib/ashldi3.S
+ create mode 100644 arch/riscv/lib/ashrdi3.S
+ create mode 100644 arch/riscv/lib/lshrdi3.S
  create mode 100644 lib/tests/shdi3_kunit.c
 
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index 93f356d2b3d9..b68b1325379b 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -2942,6 +2942,16 @@ config BITS_TEST
- 
- 	  If unsure, say N.
- 
-+config SHDI3_KUNIT_TEST
-+	tristate "KUnit test for __ashldi3(), __ashrdi3(), and __lshrdi3()"
-+	depends on KUNIT
-+	depends on (32BIT || ARM)
-+	help
-+	  This builds the unit test for __ashldi3(), __ashrdi3(), and
-+	  __lshrdi3() helper functions used to implement 64-bit arithmetic
-+	  shift left, arithmetic shift right and logical shift right,
-+	  respectively, on a 32-bit CPUs.
-+
- config SLUB_KUNIT_TEST
- 	tristate "KUnit test for SLUB cache error detection" if !KUNIT_ALL_TESTS
- 	depends on SLUB_DEBUG && KUNIT
-diff --git a/lib/tests/Makefile b/lib/tests/Makefile
-index 05f74edbc62b..db678ccdd8b1 100644
---- a/lib/tests/Makefile
-+++ b/lib/tests/Makefile
-@@ -8,6 +8,7 @@ obj-$(CONFIG_BASE64_KUNIT) += base64_kunit.o
- obj-$(CONFIG_BITOPS_KUNIT) += bitops_kunit.o
- obj-$(CONFIG_BITFIELD_KUNIT) += bitfield_kunit.o
- obj-$(CONFIG_BITS_TEST) += test_bits.o
-+obj-$(CONFIG_SHDI3_KUNIT_TEST) += shdi3_kunit.o
- obj-$(CONFIG_BLACKHOLE_DEV_KUNIT_TEST) += blackhole_dev_kunit.o
- obj-$(CONFIG_CHECKSUM_KUNIT) += checksum_kunit.o
- obj-$(CONFIG_CMDLINE_KUNIT_TEST) += cmdline_kunit.o
-diff --git a/lib/tests/shdi3_kunit.c b/lib/tests/shdi3_kunit.c
-new file mode 100644
-index 000000000000..44f65e66512b
---- /dev/null
-+++ b/lib/tests/shdi3_kunit.c
-@@ -0,0 +1,175 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR Apache-2.0
-+/*
-+ * Test cases for __ashldi3(), __ashrdi3(), and __lshrdi3().
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/module.h>
-+#include <linux/libgcc.h>
-+#include <kunit/test.h>
-+
-+struct shdi3_test_entry {
-+	long long input;
-+	int shift;
-+	long long result;
-+};
-+
-+static const struct shdi3_test_entry ashldi3_testdata[] = {
-+	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/ashldi3_test.c */
-+	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-+	{ 0x0123456789ABCDEFLL, 1, 0x2468ACF13579BDELL },
-+	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BCLL },
-+	{ 0x0123456789ABCDEFLL, 3, 0x91A2B3C4D5E6F78LL },
-+	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDEF0LL },
-+	{ 0x0123456789ABCDEFLL, 28, 0x789ABCDEF0000000LL },
-+	{ 0x0123456789ABCDEFLL, 29, 0xF13579BDE0000000LL },
-+	{ 0x0123456789ABCDEFLL, 30, 0xE26AF37BC0000000LL },
-+	{ 0x0123456789ABCDEFLL, 31, 0xC4D5E6F780000000LL },
-+	{ 0x0123456789ABCDEFLL, 32, 0x89ABCDEF00000000LL },
-+	{ 0x0123456789ABCDEFLL, 33, 0x13579BDE00000000LL },
-+	{ 0x0123456789ABCDEFLL, 34, 0x26AF37BC00000000LL },
-+	{ 0x0123456789ABCDEFLL, 35, 0x4D5E6F7800000000LL },
-+	{ 0x0123456789ABCDEFLL, 36, 0x9ABCDEF000000000LL },
-+	{ 0x0123456789ABCDEFLL, 60, 0xF000000000000000LL },
-+	{ 0x0123456789ABCDEFLL, 61, 0xE000000000000000LL },
-+	{ 0x0123456789ABCDEFLL, 62, 0xC000000000000000LL },
-+	{ 0x0123456789ABCDEFLL, 63, 0x8000000000000000LL },
-+};
-+
-+static void shdi3_test_ashldi3(struct kunit *test)
-+{
-+	const struct shdi3_test_entry *e;
-+	long long ret;
-+
-+	for (e = ashldi3_testdata;
-+	     e < ashldi3_testdata + ARRAY_SIZE(ashldi3_testdata); e++) {
-+		ret = __ashldi3(e->input, e->shift);
-+		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-+				    "    when evaluating __ashldi3(%lld, %d)",
-+				    e->input, e->shift);
-+	}
-+}
-+
-+static const struct shdi3_test_entry ashrdi3_testdata[] = {
-+	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/ashrdi3_test.c */
-+	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-+	{ 0x0123456789ABCDEFLL, 1, 0x91A2B3C4D5E6F7LL },
-+	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BLL },
-+	{ 0x0123456789ABCDEFLL, 3, 0x2468ACF13579BDLL },
-+	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDELL },
-+	{ 0x0123456789ABCDEFLL, 28, 0x12345678LL },
-+	{ 0x0123456789ABCDEFLL, 29, 0x91A2B3CLL },
-+	{ 0x0123456789ABCDEFLL, 30, 0x48D159ELL },
-+	{ 0x0123456789ABCDEFLL, 31, 0x2468ACFLL },
-+	{ 0x0123456789ABCDEFLL, 32, 0x1234567LL },
-+	{ 0x0123456789ABCDEFLL, 33, 0x91A2B3LL },
-+	{ 0x0123456789ABCDEFLL, 34, 0x48D159LL },
-+	{ 0x0123456789ABCDEFLL, 35, 0x2468ACLL },
-+	{ 0x0123456789ABCDEFLL, 36, 0x123456LL },
-+	{ 0x0123456789ABCDEFLL, 60, 0 },
-+	{ 0x0123456789ABCDEFLL, 61, 0 },
-+	{ 0x0123456789ABCDEFLL, 62, 0 },
-+	{ 0x0123456789ABCDEFLL, 63, 0 },
-+	{ 0xFEDCBA9876543210LL, 0, 0xFEDCBA9876543210LL },
-+	{ 0xFEDCBA9876543210LL, 1, 0xFF6E5D4C3B2A1908LL },
-+	{ 0xFEDCBA9876543210LL, 2, 0xFFB72EA61D950C84LL },
-+	{ 0xFEDCBA9876543210LL, 3, 0xFFDB97530ECA8642LL },
-+	{ 0xFEDCBA9876543210LL, 4, 0xFFEDCBA987654321LL },
-+	{ 0xFEDCBA9876543210LL, 28, 0xFFFFFFFFEDCBA987LL },
-+	{ 0xFEDCBA9876543210LL, 29, 0xFFFFFFFFF6E5D4C3LL },
-+	{ 0xFEDCBA9876543210LL, 30, 0xFFFFFFFFFB72EA61LL },
-+	{ 0xFEDCBA9876543210LL, 31, 0xFFFFFFFFFDB97530LL },
-+	{ 0xFEDCBA9876543210LL, 32, 0xFFFFFFFFFEDCBA98LL },
-+	{ 0xFEDCBA9876543210LL, 33, 0xFFFFFFFFFF6E5D4CLL },
-+	{ 0xFEDCBA9876543210LL, 34, 0xFFFFFFFFFFB72EA6LL },
-+	{ 0xFEDCBA9876543210LL, 35, 0xFFFFFFFFFFDB9753LL },
-+	{ 0xFEDCBA9876543210LL, 36, 0xFFFFFFFFFFEDCBA9LL },
-+	{ 0xAEDCBA9876543210LL, 60, 0xFFFFFFFFFFFFFFFALL },
-+	{ 0xAEDCBA9876543210LL, 61, 0xFFFFFFFFFFFFFFFDLL },
-+	{ 0xAEDCBA9876543210LL, 62, 0xFFFFFFFFFFFFFFFELL },
-+	{ 0xAEDCBA9876543210LL, 63, 0xFFFFFFFFFFFFFFFFLL },
-+};
-+
-+static void shdi3_test_ashrdi3(struct kunit *test)
-+{
-+	const struct shdi3_test_entry *e;
-+	long long ret;
-+
-+	for (e = ashrdi3_testdata;
-+	     e < ashrdi3_testdata + ARRAY_SIZE(ashrdi3_testdata); e++) {
-+		ret = __ashrdi3(e->input, e->shift);
-+		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-+				    "    when evaluating __ashrdi3(%lld, %d)",
-+				    e->input, e->shift);
-+	}
-+}
-+
-+static const struct shdi3_test_entry lshrdi3_testdata[] = {
-+	/* https://github.com/llvm/llvm-project/compiler-rt/test/builtins/Unit/lshrdi3_test.c */
-+	{ 0x0123456789ABCDEFLL, 0, 0x123456789ABCDEFLL },
-+	{ 0x0123456789ABCDEFLL, 1, 0x91A2B3C4D5E6F7LL },
-+	{ 0x0123456789ABCDEFLL, 2, 0x48D159E26AF37BLL },
-+	{ 0x0123456789ABCDEFLL, 3, 0x2468ACF13579BDLL },
-+	{ 0x0123456789ABCDEFLL, 4, 0x123456789ABCDELL },
-+	{ 0x0123456789ABCDEFLL, 28, 0x12345678LL },
-+	{ 0x0123456789ABCDEFLL, 29, 0x91A2B3CLL },
-+	{ 0x0123456789ABCDEFLL, 30, 0x48D159ELL },
-+	{ 0x0123456789ABCDEFLL, 31, 0x2468ACFLL },
-+	{ 0x0123456789ABCDEFLL, 32, 0x1234567LL },
-+	{ 0x0123456789ABCDEFLL, 33, 0x91A2B3LL },
-+	{ 0x0123456789ABCDEFLL, 34, 0x48D159LL },
-+	{ 0x0123456789ABCDEFLL, 35, 0x2468ACLL },
-+	{ 0x0123456789ABCDEFLL, 36, 0x123456LL },
-+	{ 0x0123456789ABCDEFLL, 60, 0 },
-+	{ 0x0123456789ABCDEFLL, 61, 0 },
-+	{ 0x0123456789ABCDEFLL, 62, 0 },
-+	{ 0x0123456789ABCDEFLL, 63, 0 },
-+	{ 0xFEDCBA9876543210LL, 0, 0xFEDCBA9876543210LL },
-+	{ 0xFEDCBA9876543210LL, 1, 0x7F6E5D4C3B2A1908LL },
-+	{ 0xFEDCBA9876543210LL, 2, 0x3FB72EA61D950C84LL },
-+	{ 0xFEDCBA9876543210LL, 3, 0x1FDB97530ECA8642LL },
-+	{ 0xFEDCBA9876543210LL, 4, 0xFEDCBA987654321LL },
-+	{ 0xFEDCBA9876543210LL, 28, 0xFEDCBA987LL },
-+	{ 0xFEDCBA9876543210LL, 29, 0x7F6E5D4C3LL },
-+	{ 0xFEDCBA9876543210LL, 30, 0x3FB72EA61LL },
-+	{ 0xFEDCBA9876543210LL, 31, 0x1FDB97530LL },
-+	{ 0xFEDCBA9876543210LL, 32, 0xFEDCBA98LL },
-+	{ 0xFEDCBA9876543210LL, 33, 0x7F6E5D4CLL },
-+	{ 0xFEDCBA9876543210LL, 34, 0x3FB72EA6LL },
-+	{ 0xFEDCBA9876543210LL, 35, 0x1FDB9753LL },
-+	{ 0xFEDCBA9876543210LL, 36, 0xFEDCBA9LL },
-+	{ 0xAEDCBA9876543210LL, 60, 0xALL },
-+	{ 0xAEDCBA9876543210LL, 61, 0x5LL },
-+	{ 0xAEDCBA9876543210LL, 62, 0x2LL },
-+	{ 0xAEDCBA9876543210LL, 63, 0x1LL },
-+};
-+
-+static void shdi3_test_lshrdi3(struct kunit *test)
-+{
-+	const struct shdi3_test_entry *e;
-+	long long ret;
-+
-+	for (e = lshrdi3_testdata;
-+	     e < lshrdi3_testdata + ARRAY_SIZE(lshrdi3_testdata); e++) {
-+		ret = __lshrdi3(e->input, e->shift);
-+		KUNIT_EXPECT_EQ_MSG(test, ret, e->result,
-+				    "    when evaluating __lshrdi3(%lld, %d)",
-+				    e->input, e->shift);
-+	}
-+}
-+
-+static struct kunit_case shdi3_test_cases[] = {
-+	KUNIT_CASE(shdi3_test_ashldi3),
-+	KUNIT_CASE(shdi3_test_ashrdi3),
-+	KUNIT_CASE(shdi3_test_lshrdi3),
-+	{}
-+};
-+
-+static struct kunit_suite shdi3_test_suite = {
-+	.name = "shdi3",
-+	.test_cases = shdi3_test_cases,
-+};
-+kunit_test_suite(shdi3_test_suite);
-+
-+MODULE_DESCRIPTION("Test cases for __ashldi3(), __ashrdi3(), and __lshrdi3()");
-+MODULE_LICENSE("GPL");
 -- 
 2.53.0
 
