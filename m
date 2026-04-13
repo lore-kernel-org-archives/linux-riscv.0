@@ -4,147 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF855EBFD14
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 08:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CD0EBFD17
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 08:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Ca8bbGXvDNwgPVSyxTepiFsOsHxEH3lEJNxFTHmxOY=; b=WNENShKg+ALH/M
-	fQDc/d2DiApDRUa8P1xa+IzMq0UDRWK01jtF+k67967BwTMpUtnUcw5WeDz71BVa/N855Y+QqTtsm
-	nT2mLAPYJHh0mH0NawZmoci7N3YKVs3ifHhJx+L0TPMqGqkkwHQkExqiDYyAD2fhMvmnyBklCxIyq
-	16dj9uHYJ8YP5gwM8rM88fLHO8HOALSqa+7tdRPGAZhPX14BRAenLsuhbBm2/7H1pLmlWQIb8NR62
-	Z5FlmME8PqACWUJdxmfnoxHpKsZMaPwQusQCRA/nEau3LF+QQtYtlPCboksrgmvzQREzwbvDPyDEh
-	i9nfSYnzN1CdISIdSMiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ZKQ/h3QxMOuZIwBtSg0lfcoZzDbhiYmZs0BHHiEuhI=; b=URsB+I0fUdVhoLdb/h+VGrDJgW
+	EFi+E8KuZGPu/D0/h5/rYA8RoZIwuyigdalkzKJ6iEiRm/LyfERHCJHfWI3nVIuLfDVteCD832hSm
+	Kc3V+nFp9m4aqF1CG9Y59v/9n4uAheyjPskdr3mtszEYFsWjlNJsXz9J5VR5ZdkAQJQ1nyr32tP5D
+	vMlKMcRidhE5DO+BU3HcJkLK82SCGyyZhHzlsxvvoWilMl2XOPiVIaaA6XfYxFuXbnOrmVC8FLr2w
+	pRblgIfXY62+NlIrXOs0GZuSSCmHay+diOtt44eiNyWX9B3eXGbBpVD0DThCO+hOdfTSfVfifF5Hj
+	U7LPonig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCCZL-0000000FGIq-40tJ;
-	Mon, 13 Apr 2026 08:22:55 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1wCCoI-0000000FHlU-3o6J;
+	Mon, 13 Apr 2026 08:38:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCCZJ-0000000FGHi-3izg;
-	Mon, 13 Apr 2026 08:22:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m2IQj7CT4+2Gsr+Wdck155BJQoAMTloVkcwbhkK0yIWaeu7WpbQTIUkRUt4w3SCJjkoJb7XiTe+MyIh24HMewXE5BlZbbBeh1VAfohAMJcbrnvoSgmjXvHTggDrT3UokUTTnv3r5V/9H5ltUkAEZaxMBUJRCG89Q5IuINlfCJ0xd4f3TJxLQqo/X7CsnEIbwaErAXCGf+XvaVKK7FjyAlfJRBJw7BAEv8CVDhl1UX8LvlG0pAAiAA6SYjyz8kwsVaVntlOD9SUvHTUHHljKnF2thy0tg621t+MJt0yq6udgbPvuCpSJG3bLgcTdezTbG3G3UQ0KqCP/GfJiMaTfh2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oj3IM4W0nIOuffDuch4Mhpo9XPuJdr9Bhj2brT8H+dw=;
- b=nOZASgSv5pGQ5EUKMMDE4quMoCHTx1DeNVUOA8APheHPnftdN7bcsoiH5uY3/rxnmJ3dQh+ubmwM+iSCUuUeEQlC3Ys8a6wh9aWs9yjc+R6NbxQ/xnw7EKwTRWwrJZyIJyjc6ecgcuSxIUGZucCTvDC6qMM2kOhPSNmArhV4dsg6mQ+fFf3RWptXO15JzbAnvP0gWiTP/3kYaUAWBZ1kQYZ0oqp+zC8RUc75bL06yRjsoTvIIYoGbjMHVSb1+Lgm5tCPkJBOYqHmAd3N+4ml6u27sBx5gfnKnXlOLul+WkEX141nFNiTJMTwewkeItI/R5DnvC8HIya5p8MG+ZTvUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microsoft.com; dmarc=pass action=none
- header.from=microsoft.com; dkim=pass header.d=microsoft.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oj3IM4W0nIOuffDuch4Mhpo9XPuJdr9Bhj2brT8H+dw=;
- b=Ic8JAjCPc6W5FerLFyUaAA5Pqcx757Dp+4xVmAR/luoD+p6mBERHaDZcqEZ+cxhg4NyQp7srxThptXWTr1vnG5OodV8ESNbandSk68slRPfZ18XGYInhfH5HzcjAot1lLgrHsvtFRYKYQmFJEX5qaksS6XREz+J0zJRCB0Puo0g=
-Received: from KUZP153MB1444.APCP153.PROD.OUTLOOK.COM (2603:1096:d10:36::22)
- by OSNP153MB1643.APCP153.PROD.OUTLOOK.COM (2603:1096:604:48b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Mon, 13 Apr
- 2026 08:22:39 +0000
-Received: from KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
- ([fe80::c9fa:b931:702:dbac]) by KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
- ([fe80::c9fa:b931:702:dbac%5]) with mapi id 15.20.9818.017; Mon, 13 Apr 2026
- 08:22:39 +0000
-From: Saurabh Singh Sengar <ssengar@microsoft.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>, "javierm@redhat.com"
-	<javierm@redhat.com>, "arnd@arndb.de" <arnd@arndb.de>, "ardb@kernel.org"
-	<ardb@kernel.org>, "ilias.apalodimas@linaro.org"
-	<ilias.apalodimas@linaro.org>, "chenhuacai@kernel.org"
-	<chenhuacai@kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>,
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
-	"mripard@kernel.org" <mripard@kernel.org>, "airlied@gmail.com"
-	<airlied@gmail.com>, "simona@ffwll.ch" <simona@ffwll.ch>, KY Srinivasan
-	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
-	"wei.liu@kernel.org" <wei.liu@kernel.org>, Dexuan Cui <DECUI@microsoft.com>,
-	Long Li <longli@microsoft.com>, "deller@gmx.de" <deller@gmx.de>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "linux-efi@vger.kernel.org"
-	<linux-efi@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-fbdev@vger.kernel.org"
-	<linux-fbdev@vger.kernel.org>, Michael Kelley <mhklinux@outlook.com>, Saurabh
- Sengar <ssengar@linux.microsoft.com>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>, Wei Liu <wei.liu@kernel.org>
-Subject: RE: [EXTERNAL] Re: [PATCH 1/8] hv: Select CONFIG_SYSFB only for
- CONFIG_HYPERV_VMBUS
-Thread-Topic: [EXTERNAL] Re: [PATCH 1/8] hv: Select CONFIG_SYSFB only for
- CONFIG_HYPERV_VMBUS
-Thread-Index: AQHcwo6UUBvHYaEr8EK6Q8BbiI9wobXcpfeAgAAR2iA=
-Date: Mon, 13 Apr 2026 08:22:39 +0000
-Message-ID: <KUZP153MB1444885C302B353C02C2FA2FBE242@KUZP153MB1444.APCP153.PROD.OUTLOOK.COM>
-References: <20260402092305.208728-1-tzimmermann@suse.de>
- <20260402092305.208728-2-tzimmermann@suse.de>
- <KUZP153MB14449BBE44CBAEEA7621A4A0BE51A@KUZP153MB1444.APCP153.PROD.OUTLOOK.COM>
- <2fe8ce91-2dc5-4cf2-b7cf-d495e5cff14b@suse.de>
-In-Reply-To: <2fe8ce91-2dc5-4cf2-b7cf-d495e5cff14b@suse.de>
-Accept-Language: en-IN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ActionId=68f474dc-35e8-4341-9b89-6427baf0a9e0;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ContentBits=0;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Enabled=true;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Method=Standard;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Name=Internal;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SetDate=2026-04-13T08:21:02Z;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microsoft.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KUZP153MB1444:EE_|OSNP153MB1643:EE_
-x-ms-office365-filtering-correlation-id: b0e52200-d9d8-4bef-a66f-08de9935d373
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020|38070700021|56012099003|18002099003|22082099003;
-x-microsoft-antispam-message-info: I3U20ShaxuoG82qDbE9AmG2Fz51hvpKldpGKZWDPoC11L7xxI428h2BC/d/ColrU++0jWQiBJPKW9xHcueYyYCgmmi0obTXp8iyVYI/WSEKb+BfX7RXf8ddQD8f41bac+MK/XsfXbAUNuNqqYpOutLRz9KHHme+qK/qsiKfm5QO9sFPAZjHZtGNioszPxfWEc6TaBvJpYCFA9tu7Ja9s/MFcEWHV97qv3hNQAYD7T4AYot6pYHscASSgIp+jdU9VRlBEWTlnFYtWGouGZ8krLDYe0bUTcV08mqyUn/9paVfXm/POpM1S+gqNqccTaDB2BiCP7tZPAUSnbc/8mX5ajlG+Plgd6j9yJNaUtHXs+ubJtMmkpSainpTBTvb4u2PPbzmBtgieT2OyBQEHXHHR3W8lV3eVq3G76DF10bLZA9SbTG8OK/9C8ioHguZrsC7amM6TcYEHBSo6slkLAxcZ/yzAoyXLu74xWmJLdApAYHw7JnKdXZSEVaOt6vZ71y4zeyAKPtPMe8PINxOO8Mb5EsoCGOALCFu3026Q+Yl27KIn0GfCpME8Dl0wnjyLQwNm6WmgxJNLBlKWT0E93TxzOdQvOPisSVVfpxdhKkGYvZ0uwu2hQaE76620HhV11KK5FKI5431wyvJBWpr+I1apYrc5VI9QJYVk7ezHRNNujbr3sI4Tya0R9/OzzaTn0MrQaDuaxIlTzL1ZH4YcrMtZ/6k9xerzv9P7gMEJ+/aTzRUdIl410zOmly+6A3x1aXM0KVTm7k6qoYf+UTIRMZBnuntNnnMjmr0sFvv2D424rpFoUOah6rllJfnijKe2Uj5e
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUZP153MB1444.APCP153.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DP/3v7cfq2p/Twep2bhGAfX0psnOHmwg8K0Hnp586FDvZuSuP/MwT78PppU0?=
- =?us-ascii?Q?Vy4h+xLi1L++h/2nGv1qAnmQpDzQSDsDm31PcMEAuYrU46BQYIDItCLuFwwt?=
- =?us-ascii?Q?xOq0xhWsMBnJju6dp5tXWYg2TDYDjhJNCAgdrJcHIW4826vxz+9rRhb/26KN?=
- =?us-ascii?Q?c4u5PKvuFLmpJEVSPOjxjUQdDI7BSqMiYIALW1FWRW1opg6uJ8p7ZqemRSlC?=
- =?us-ascii?Q?aYIpc44fvlHAcb6auh/DSyXsjYMSa2nvB8bKeTPhYX9yRNdeReg2uMc+6fLG?=
- =?us-ascii?Q?T4sU+XiuhsHQgrTapRHfHcgKp+zfxu700hyzhDH5LVzEcaBverpH9tzmNeWM?=
- =?us-ascii?Q?ImH5XRh626oG495JZT2008djZCzNfC2lcrM1xC4LZqhEiQjikR0MGwVU7ODL?=
- =?us-ascii?Q?c50R4KQpOVat6zApNkjOVA4bP5u9ujpAgrndRHUwFf77BaDvMfkMITA6w4EX?=
- =?us-ascii?Q?DWhLFgKvIVr2kcPoTH8arhMFr1mvqw2nVWZFCAgNp7pBefdTfJyWAKDrHFkm?=
- =?us-ascii?Q?XQoDTRMSm7dYmsT0Y/jLcQL9AdYXfV/S2YAD9dZYWSWrKdPLc3Ckl62SpBVf?=
- =?us-ascii?Q?S06mMKwYc+nbMITmjZDYxidYqVklhzNeyZImschtWkKRyVH/nycjsOVkTNqk?=
- =?us-ascii?Q?x/JEnvcMJ+CJ0GTfc0ee+KYHIJZXAw9FZJNBVFBJvPatN5A0vxK6uzffWO1D?=
- =?us-ascii?Q?yOY/tcS5NnlfComt+X61IH/XZ7sKiHN8pLU4plpk10+TT/gHASg4Ukn20F2u?=
- =?us-ascii?Q?Y+Kz3QLQKOfdFid798hKnnELg3M/riSohUEJBA3ksxBf5JwuskODz//5ysJS?=
- =?us-ascii?Q?2VWs8aSDGA5kChFsYGjrOA1lv5DOIU5HIJFO2cpUT9WK+E7vSH06LpcSiD7r?=
- =?us-ascii?Q?gE9K77triBPOPoqX5WXzj5HSFBP3lL9ZERHWkkWfNbqE5MDI3ZhsI+t9Ngf4?=
- =?us-ascii?Q?2DXeiQDctDg03XdbGHF+fAW6Pn619si+UTNXnZIX6INI/mWQdj1YY9KBXSoO?=
- =?us-ascii?Q?JzaabPF2BvHLxWpRNEEvKxwW6prOmMGYc9XZBhd5OD4zCZD+iiGQIKWuQVT+?=
- =?us-ascii?Q?tcDfXC1uTpaIMdF+bK2p+TISGSp40ln8r1YY+2szjsj755c5IS/OX2xLMIVV?=
- =?us-ascii?Q?LkI49RAHEVnzUCYLuItCWFFtVjSJm27snegQzUbZIdVZYOec5+wWGn23ydRd?=
- =?us-ascii?Q?UQw8wSVFD4TCDJ1rypZYQhrNBOD0aRfxPzqdhwl8lzEEr68Y2nFFY3ji/G8u?=
- =?us-ascii?Q?kddfboNoG4frIA/JcxH59ngPl0GhjcQHYsr3uvbu0s//dShLlPSQXKp9JFvr?=
- =?us-ascii?Q?dBd1iIHhdp3JBK1ddwOIn2fAuDZTHwe1n5ttocXB5QJkvRdBx4n1dkJHPZxN?=
- =?us-ascii?Q?os+9tt66JojejU8k0hQ97eGmguchXSG4LMIYEfh5dmQVs5GpjzYOp6mKQSPz?=
- =?us-ascii?Q?0lKTrd8oecs7GTayg+PdEH0RrTUoiHva2co9tuaUWA0asuEtuzg/goTjuQLl?=
- =?us-ascii?Q?7zGUbRbJ84d6AqiHNYW5oCYoPJVobvaOCCG9QxpIIyWBgJOsmM8hR3/hjC0j?=
- =?us-ascii?Q?B5VnZgUNh2s0y2DfHJrt8BovCiZHyLmbOtQbDnurED+TRphRy5RHPnaqoRRx?=
- =?us-ascii?Q?HN75gScwGwa5UHbw3du0OGZPsAn0LSKCgiK07vtEdiLgAklp2Y75bdMuMUv5?=
- =?us-ascii?Q?jW+Akw=3D=3D?=
+	id 1wCCoH-0000000FHkI-1RnF
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Apr 2026 08:38:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CB7B643AAD;
+	Mon, 13 Apr 2026 08:38:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33D0EC116C6;
+	Mon, 13 Apr 2026 08:38:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776069499;
+	bh=hQC+dWReMp0AEvFExU9znjcR15PjYZSh4RYLGIYnIT8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XYmPI9j44m063hu9ojAHSM/uXN31tgSlskZ69wTFDkbrEwjYWOArAXuc6DVj1A2GI
+	 eSp5DXm8GGpsNEFvYi6G6m0/kstL271ISUk3owDGB7ZQAAp9lQGzhN/e4qhpkqDant
+	 6thMApG5MHf/MsrUG9tp7UisfLUl7QCj0KV+R6cb7bZhAP2Z+zUG/2yNQDtwXtLN/3
+	 o5bheZjmDL55JXtbCX17VkUx12GojOI5UigX6Dgi5OkaV5efLNpaabs2SMmpPumJEK
+	 ZUYvlpG48AppzoBtRj7S2SnbjUj7emwCwLykrKEF4lOfDKwIN5ORV9x0ZpTh04QX1v
+	 vTTjv+vu63PzA==
+Date: Mon, 13 Apr 2026 10:38:16 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH 2/2] pwm: pxa: Add optional bus clock
+Message-ID: <adyq-Uckwwe9uACA@monoceros>
+References: <20260409-03-k3-pwm-drv-v1-0-1307a06fba38@kernel.org>
+ <20260409-03-k3-pwm-drv-v1-2-1307a06fba38@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: microsoft.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0e52200-d9d8-4bef-a66f-08de9935d373
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Apr 2026 08:22:39.2445
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: VPiXmaOgRbFAAm2fUll+rjiMXM/SiMs67XoBxn68DK73fbfmApE2gnCIKLho+LmN8PJoeyXtHXRWdY4clBtGdA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNP153MB1643
+In-Reply-To: <20260409-03-k3-pwm-drv-v1-2-1307a06fba38@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_012253_936625_0145BDE0 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20260413_013821_432523_1F6CA2A2 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,70 +69,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0936450611224752210=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Hi
-> 
-> Am 02.04.26 um 12:50 schrieb Saurabh Singh Sengar:
-> >> Hyperv's sysfb access only exists in the VMBUS support. Therefore
-> >> only select CONFIG_SYSFB for CONFIG_HYPERV_VMBUS. Avoids sysfb code
-> >> on systems that don't need it.
-> >>
-> >> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> >> Fixes: 96959283a58d ("Drivers: hv: Always select CONFIG_SYSFB for
-> >> Hyper-V
-> >> guests")
-> >> Cc: Michael Kelley <mhklinux@outlook.com>
-> >> Cc: Saurabh Sengar <ssengar@linux.microsoft.com>
-> >> Cc: Wei Liu <wei.liu@kernel.org>
-> >> Cc: "K. Y. Srinivasan" <kys@microsoft.com>
-> >> Cc: Haiyang Zhang <haiyangz@microsoft.com>
-> >> Cc: Dexuan Cui <decui@microsoft.com>
-> >> Cc: Long Li <longli@microsoft.com>
-> >> Cc: linux-hyperv@vger.kernel.org
-> >> Cc: <stable@vger.kernel.org> # v6.16+
-> >> ---
-> >>   drivers/hv/Kconfig | 2 +-
-> >>   1 file changed, 1 insertion(+), 1 deletion(-)
-> >>
-> >> diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig index
-> >> 7937ac0cbd0f..2d0b3fcb0ff8 100644
-> >> --- a/drivers/hv/Kconfig
-> >> +++ b/drivers/hv/Kconfig
-> >> @@ -9,7 +9,6 @@ config HYPERV
-> >>   	select PARAVIRT
-> >>   	select X86_HV_CALLBACK_VECTOR if X86
-> >>   	select OF_EARLY_FLATTREE if OF
-> >> -	select SYSFB if EFI && !HYPERV_VTL_MODE
-> >>   	select IRQ_MSI_LIB if X86
-> >>   	help
-> >>   	  Select this option to run Linux as a Hyper-V client operating @@
-> >> -62,6
-> >> +61,7 @@ config HYPERV_VMBUS
-> >>   	tristate "Microsoft Hyper-V VMBus driver"
-> >>   	depends on HYPERV
-> >>   	default HYPERV
-> >> +	select SYSFB if EFI && !HYPERV_VTL_MODE
-> >>   	help
-> >>   	  Select this option to enable Hyper-V Vmbus driver.
-> >>
-> >> --
-> >> 2.53.0
-> > Reviewed-by: Saurabh Sengar <ssengar@linux.microsoft.com>
-> 
-> This fix is independent from the rest of the series. Do you want to merge it or
-> can I take it into DRM trees?
 
-Please feel free to take it via DRM tree.
-CC : Wei Liu
+--===============0936450611224752210==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="763z7lvugsdeouil"
+Content-Disposition: inline
 
-- Saurabh
 
+--763z7lvugsdeouil
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/2] pwm: pxa: Add optional bus clock
+MIME-Version: 1.0
+
+Hello,
+
+On Thu, Apr 09, 2026 at 12:45:12AM +0000, Yixun Lan wrote:
+> Add one secondary optional bus clock for the PWM PXA driver, also keep it
+> compatible with old single clock.
+>=20
+> The SpacemiT K3 SoC require one bus clock for PWM controller, acquire
+
+s/one/a/ ?
+
+> and enable it during probe phase.
+>=20
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  drivers/pwm/pwm-pxa.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/pwm/pwm-pxa.c b/drivers/pwm/pwm-pxa.c
+> index 0f5bdb0e395e..2ace31405c2d 100644
+> --- a/drivers/pwm/pwm-pxa.c
+> +++ b/drivers/pwm/pwm-pxa.c
+> @@ -53,6 +53,7 @@ struct pxa_pwm_chip {
+>  	struct device	*dev;
+> =20
+>  	struct clk	*clk;
+> +	struct clk	*bus_clk;
+>  	void __iomem	*mmio_base;
+>  };
+> =20
+> @@ -177,7 +178,12 @@ static int pwm_probe(struct platform_device *pdev)
+>  		return PTR_ERR(chip);
+>  	pc =3D to_pxa_pwm_chip(chip);
+> =20
+> -	pc->clk =3D devm_clk_get(dev, NULL);
+> +	pc->bus_clk =3D devm_clk_get_optional_enabled(dev, "bus");
+> +	if (IS_ERR(pc->bus_clk))
+> +		return dev_err_probe(dev, PTR_ERR(pc->bus_clk), "Failed to get bus clo=
+ck\n");
+> +
+> +	/* Get named func clk if bus clock is valid */
+> +	pc->clk =3D devm_clk_get(dev, pc->bus_clk ? "func" : NULL);
+
+A local variable for bus_clk would be sufficient.
+
+I'm not sure, but I think passing "func" unconditionally to
+devm_clk_get() would also work fine.
+
+Best regards
+Uwe
+
+--763z7lvugsdeouil
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmncq3UACgkQj4D7WH0S
+/k7W3QgAoubMFAiRzq6hszjmm/xb9Gcgmkb//pXKEp2aWMTJOS8NxIwApQLcWVSK
+TER943wXO4h2gddLqDhxGqoClG/XTO5sQoTDI1E1iEgtqEhH+ubHu+wcTXTH7/VJ
+ukekULO5bPkCh5Ncgr6yIsL/YwSyBtAYm4PkxW5n+rKR7YHtmCX1T43b8GG4bkux
+u64sL5qYxGV98Mes56lCOu9v7k9fDKuGCrzIr9AL0zU20AVmF2kxVu/vmCJcl2Rt
+Yk7B8O0pYbZmRuGjn1YyulXnvBwo0GTWC6SHzoDC6fZVOMSBuQJJGz4CdpQGkXeE
+huqDvYA/yh/qxaNx8deyGc8oe1RB9Q==
+=xEV+
+-----END PGP SIGNATURE-----
+
+--763z7lvugsdeouil--
+
+
+--===============0936450611224752210==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0936450611224752210==--
+
