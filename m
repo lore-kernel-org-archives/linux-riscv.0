@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2754CEBFD0A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43E5EBFD05
 	for <linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2026 07:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,79 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4YRzH1De1qUNF52gyp7qu1/diOIF5X7eexibNMjWvrg=; b=k49/m9xfp+89/3
-	Zzp4zmH6X3RB/9gnJg8lLfan8YCT7TWFc6zyHPh8X126sjAUJ8X7/R593wLCz6NrqvGEVE/etTu8a
-	FmO3q3Q8CHBZWKD4HSsYqdIYaAYyF1p1MPLtqrxZ1zJUG0Gkxh5urvgsmXyBDW7k2DiBEG9V3euUS
-	VIBuXG1uFwbATWYc01Qmw+GhP6mO8A7fKcAE6XqoHzCKe5W1+ocx4RH0XwM+saZ/v3o7ZMv9Hv63g
-	xWdn+ZVdZ3q5R6Tv/rJKMscCLE8+Ycp3KRjRXyQ2866h5PnKgGMrlYRBscVa2ZByxdutxJyQ8LpAP
-	EPlvmawSDg34Otww/JHQ==;
+	List-Owner; bh=D2evt9Gsyj2nI7vLNAsCGs18gExtADHzuXWr8C89W6k=; b=uvteCJnWOoeSfX
+	FsMqcYhAc3AjFV3wInetooQw3+m7S1z1I3l1nUXnxHznzMuuH+w6EEHk+ek3CxnAtcP15h5sMK2qx
+	4/y0Yaby5Ky2XJ7fGxjV1vYrpVjR5N9OtKAPm81dz9ZjYghyye5xx79r8Hy/NlVywv639j4xD0Tcb
+	2sCgRfR/JS6czK55qtzKn8GZfPtM7O19AaCG8ZQ3YlUskDk/3iQHXYYjhK/0eOJ4DHF5cK48YKflB
+	7e0X55TRdGUTF0yemQc1Y152BnNPnGP6pvs8wwCkml0Kzpl2MDXM0XEWVl8VOqCQOE8h/YUaEYoDF
+	FRaJVNT8FRBOedvdjfaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBhH-0000000F8u2-3m9q;
-	Mon, 13 Apr 2026 07:27:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wCBhK-0000000F8vR-0syb;
+	Mon, 13 Apr 2026 07:27:06 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBhH-0000000F8tF-1O3C
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 13 Apr 2026 07:27:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=39t86zaG16kXe9hLAHIjg+gQj/3rkIeOmwWRfItDZnQ=; b=X+iFQNTviW0g+aKQurXOBIKfNs
-	+a3KQE+rjqMVrCYZir16PcLrznmIQgQ21HPCWrfU3be7lLflZ38HLL5MexCoeWjsHFLfQ5OxtmO9r
-	1u2Vz1FAkHFN8n4Zs7x7h6m701JeNpUo0ZcEfKtLTmZIZ10TP7yTT53kzJSxNtro65UraxrdBfJ8f
-	N3g1QpbGBVb9yejKmrSW7StCUf4V2tGk/Di9MJcrMkkX48+XDn0NIIc9dJvL0Mt1pgIALkY7pzF2d
-	+GsIR581xOIf+Gm6Ntj6JesugqTXVJif99OKVghmqcFzHE26KiZ9tvdtw80y68aBWRNJ9PLY+H7a7
-	5jh6XIFA==;
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCBhA-0000000GH6W-04gY
+	id 1wCBhH-0000000F8t2-1NI3
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Apr 2026 07:26:59 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43d73422431so732115f8f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 00:26:54 -0700 (PDT)
+	Mon, 13 Apr 2026 07:27:04 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43cfac48bc7so2691736f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2026 00:27:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776065213; x=1776670013; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1776065221; x=1776670021; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=39t86zaG16kXe9hLAHIjg+gQj/3rkIeOmwWRfItDZnQ=;
-        b=iSN47ZGIom/fqfEPzc2u1BdOzG3MvsaKneaTQGm8bk3AQUW05tfnbbcVOqZO7dzBjl
-         DyzQXwqqdc+y2/Lfid3l3N52wb7ntRlJCQ+4sYlOdpTE+h5pfUedkUP5QVQahAWFSo+2
-         lU8njWs2DqulP3KiQx/yoCIEwbzJKM34fccUIny2CPOrh03Sj+UQD3uRDH84Y6baBlgs
-         c92vqGYx/YM/uPQ+sNTOc3k+QDvNRxvQs9FfldVO9HFwZ5XaoMXFc8o6rKaSguhyMhow
-         ddaxdiHE1xEO+qwRNedojIZo7T+pgBv8T538HXxIapvRcVMdVYPyQhyp/gYHLk8FXZpS
-         xDZw==
+        bh=rPuO322us0uZuJ4hizKSGfFjcUXHsAzG0IoitERG8vY=;
+        b=Z2h3QeO1lbByAhYci74Oq7QMHYCZOKh7UEZndqKwHVbCd/8ln6/Rve4i+pAlYpF1qx
+         hkBGyKnDdji5sBO1IVjFHgyOx4MS23e9d2TQ4huo/QilV23mITdlEhqQYa8z9sPYnB2Z
+         XGb9HiD2QTINJ2TPSvmyyCCZBAZx2F6Upd6K7pke5I3+nOM6+xePjefqg3aYsjKeQgUK
+         LI5+hIhXifTDAgH0Rt05q1AZsuhVcNkYS3ij6Hss+fRxq+A7Ik6Avsj53WeKQuGjYqzv
+         p6Esk+vaie+dApAMW2OhAT7kG6OC9DrZnzwyHj3gSaz1Za8MEdgI3AexgrmCoY5w2BsW
+         4C7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776065213; x=1776670013;
+        d=1e100.net; s=20251104; t=1776065221; x=1776670021;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=39t86zaG16kXe9hLAHIjg+gQj/3rkIeOmwWRfItDZnQ=;
-        b=qsFmgkv6OPceXf9ELq6CR24b1/80qOOFRk/1p1sYTB29WAkPUiBXY3UvgxNTrQjLBB
-         goIwFYBXGh75wnl0cpvvGqaCQ6L/ogwcomh8zcnV7oksJENsYJV5pwqKv8Uqzj1UN8MG
-         ZQOLlNNzN7D0mfYTP+/hkzA+DtI6aqXsb4jVFN5hes8TNez4X/GJi9utHtuqqLxaAkax
-         I3ogUl17hb38I0HMiDGGTmehvN1ksPClFXStwsIilM81jjyxHJb33atQdUEO5v4EPAyJ
-         xapo+IH1pS5KzdINPTGuMSJs7ji0BFXrQOv68BsTkE7yR96bajkxI6EyvSmGHC+LFWtF
-         5hAA==
-X-Forwarded-Encrypted: i=1; AFNElJ83hwRu6BvMsFpv94PZbVtqS06LQnbQSIyAzxEgr9pU9iqxIN5pMkLrGzKStoRatvXpmikmhbrbYocn+g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDpvVFk8c9MEkm9/iKYgyKveMYBYq6Mc4eihPJ0NUEk645e2UD
-	ReqhxOTtP/DEXX1HMWdANONrYaPe79pZFxU3JzBdiFezSzeSmddehaqS
-X-Gm-Gg: AeBDievM87PsF34kzn/h4z3tFTf5hH2+Je+lHdaXThOYYfbfGH132ca4bqfanIKcJYr
-	H1EPYKqc6IbsXEScqQr+MfIDcZRxmkQg5k9X0Mw6gjUOvUYYawZsaqhjdOtVhn/i1jbzw2KA/sr
-	B7BE0DKVdBPlp9nK6EyejNdtBPLn9hXJFboQTazyGykxCE6Y23k5j/EVpY6N7bLMRZBj+biDRdY
-	BuO2gPuPSQwuE0o4Cxw691wzD6RC+UMXNwMoErrtQ/3++CksViNEibSkyDYwq9a6AnZ4lwHBL/d
-	ysSC4dfbV2QPGYLojM8BmHLf21myfH19qkHnOWtBc3lc7bzkE23kJRGGOUiPIamANZKwbVHY12R
-	MotJTSli+1Gjo3heC/8KKeJdzu14ZNm4aPjosPiVJ89PfRF4MsZJnRAPtcerxnqAx/Kh/zeMpUi
-	QbWj2i4CpOJCYSZeRFq8bripO/xrrxOTARzzksE5yl0I2SvJEgbcpsGkPpEJCat04Q99Qmj8DA9
-	Ho=
-X-Received: by 2002:a05:6000:2586:b0:43d:1c7a:8b59 with SMTP id ffacd0b85a97d-43d642ea4c9mr17192774f8f.40.1776065212404;
-        Mon, 13 Apr 2026 00:26:52 -0700 (PDT)
+        bh=rPuO322us0uZuJ4hizKSGfFjcUXHsAzG0IoitERG8vY=;
+        b=bH0uJM9eMECfP5bd4mbQrPkP9rSDqGo8Vp/h6yApfrnVAqSCFwdTzPtlliQ6AqA06j
+         NIJPOZip1UwtmbyjqL+whhepw/iRwnnq9GMH5fMG0dKptLSY0wVz+QHHomcFGEipOKci
+         3LujmrERuu1QbN75lgSL4Gqk5yTrAp5PCPJRRGH5FDS1BuaCwcV7iRhbzR3QBYAVYgQ3
+         olwVM70SVkB1POE8KyPO71maMGEK3+Uty5qKVfIIY1LpJb6PJYGB3ykDlRMKp6k+vJvf
+         SbdpFCG4UcT8vk1ZSgxx+jwfHpE6CKnKtjaJG9PQVrqikFA7ZkJjUjrIMNgOeDnGy4lB
+         xe0w==
+X-Forwarded-Encrypted: i=1; AFNElJ9emJcMo0oHBjXP5Juh3FzmN6Q7voFspd1iy4G6TpwvhzPZ4IJYzILt00AaUufrVPd9aFV+Z/8gAPZ+vw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzShXhJFfEBTlBVN10lRmwwip99/2uAJJe1qDFViyM75kKYyTNG
+	c59x2xAa9rQZXJaSjkmFubxSs2jTAYDOnAJk8aVYjrN0EKRF0RstWcuV
+X-Gm-Gg: AeBDietBRB6SIZMH4oYghXjs84fKU3WD1A4qpWmMQbjQBVAdSw2yjex0KeVANNcd7Qx
+	+uxoZN1S63zuII6uShm79aFEhrsVwkMm/mUR/6i4e7DEwt7g7Ks1i/fJAZBbShZ9xF3mup7JcPT
+	VuR9PBA6FvyUsvjm++fQHqH93sxkJbv5L6LZ4cE//n0IBjAKZhJDlOYgzdl2mIMjwGvlYzS2/BG
+	/x4QDueJHXQ41/VluDsKXfzA3jTtT/aEt0v4IvfcNYQKX8bc9PCjiM9vYE4sm6hLxXDPIUwvnB3
+	T8CvJ3+XXmCizlhhTdHs/Cq2spe4JjktyMAvMS3cTlIU4ORYXnw+LHkblVinX67rWn4c/dppcbQ
+	dCHkFtSlhQ0fuuc8I6mBpZSz9nVUjD0TuiYPehiwTGjj0xb9HXPTp8ve3S10GnL7FXseyCy81QT
+	sEYLCeY64wLpbc83u66mnOvgOYrNjHGqOagkiO3KhoGGw0uwt6x2ETrFqTo1ux+mFc
+X-Received: by 2002:a05:6000:3109:b0:43d:1c21:eb14 with SMTP id ffacd0b85a97d-43d6429bcbbmr18388161f8f.21.1776065221249;
+        Mon, 13 Apr 2026 00:27:01 -0700 (PDT)
 Received: from ipedrosa-thinkpadx1carbongen12.rmtes.csb ([67.218.239.37])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d7d5812dcsm340817f8f.32.2026.04.13.00.26.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d73b44b3esm13045692f8f.13.2026.04.13.00.26.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Apr 2026 00:26:52 -0700 (PDT)
+        Mon, 13 Apr 2026 00:27:00 -0700 (PDT)
 From: Iker Pedrosa <ikerpedrosam@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -105,19 +89,18 @@ Cc: Iker Pedrosa <ikerpedrosam@gmail.com>,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v7 8/9] riscv: dts: spacemit: k1-bananapi-f3: add SD card support with UHS modes
-Date: Mon, 13 Apr 2026 09:24:50 +0200
-Message-ID: <20260413-orangepi-sd-card-uhs-v7-8-16650f49c022@gmail.com>
+	Trevor Gamblin <tgamblin@baylibre.com>
+Subject: [PATCH v7 9/9] riscv: dts: spacemit: k1-musepi-pro: add SD card support with UHS modes
+Date: Mon, 13 Apr 2026 09:24:51 +0200
+Message-ID: <20260413-orangepi-sd-card-uhs-v7-9-16650f49c022@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260413-orangepi-sd-card-uhs-v7-0-16650f49c022@gmail.com>
 References: <20260413-orangepi-sd-card-uhs-v7-0-16650f49c022@gmail.com>
 MIME-Version: 1.0
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_082657_666429_5B0539EC 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260413_002703_399976_69F406D1 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,7 +117,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add complete SD card controller support with UHS high-speed modes.
+From: Trevor Gamblin <tgamblin@baylibre.com>
+
+Update the Muse Pi Pro devicetree with SD card support to match what
+was done for the OrangePi RV2 in [1]. More precisely:
 
 - Enable sdhci0 controller with 4-bit bus width
 - Configure card detect GPIO with inversion
@@ -143,42 +129,76 @@ Add complete SD card controller support with UHS high-speed modes.
 - Add dual pinctrl states for voltage-dependent pin configuration
 - Support UHS-I SDR25, SDR50, and SDR104 modes
 
-This enables full SD card functionality including high-speed UHS modes
-for improved performance.
+[1] https://lore.kernel.org/linux-riscv/20260316-orangepi-sd-card-uhs-v3-0-aefd3b7832df@gmail.com/T/#
 
-Suggested-by: Anand Moon <linux.amoon@gmail.com>
-Tested-by: Anand Moon <linux.amoon@gmail.com>
+Signed-off-by: Trevor Gamblin <tgamblin@baylibre.com>
 Signed-off-by: Iker Pedrosa <ikerpedrosam@gmail.com>
 ---
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 24 ++++++++++++++++++++++--
- 1 file changed, 22 insertions(+), 2 deletions(-)
+ arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 66 ++++++++++++++++++++++++++
+ 1 file changed, 66 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 5790d927b93d..a7d88564630f 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -220,7 +220,7 @@ buck3_1v8: buck3 {
- 				regulator-always-on;
- 			};
- 
--			buck4 {
-+			buck4: buck4 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3300000>;
- 				regulator-ramp-delay = <5000>;
-@@ -241,7 +241,7 @@ buck6 {
- 				regulator-always-on;
- 			};
- 
--			aldo1 {
-+			aldo1: aldo1 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <3400000>;
- 				regulator-boot-on;
-@@ -367,3 +367,23 @@ hub_3_0: hub@2 {
- 		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
+diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+index 29e333b670cf..774a4640f065 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
+@@ -18,6 +18,24 @@ aliases {
+ 		ethernet0 = &eth0;
+ 		serial0 = &uart0;
  	};
++	reg_dc_in: dc-in-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "dc_in_5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-boot-on;
++		regulator-always-on;
++	};
++
++	reg_vcc_4v: vcc-4v {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_4v";
++		regulator-min-microvolt = <4000000>;
++		regulator-max-microvolt = <4000000>;
++		regulator-boot-on;
++		regulator-always-on;
++	};
++
+ 
+ 	chosen {
+ 		stdout-path = "serial0";
+@@ -77,3 +95,51 @@ &uart0 {
+ 	pinctrl-names = "default";
+ 	status = "okay";
  };
++
++&i2c8 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c8_cfg>;
++	status = "okay";
++
++	pmic@41 {
++		compatible = "spacemit,p1";
++		reg = <0x41>;
++		interrupts = <64>;
++		vin-supply = <&reg_vcc_4v>;
++
++		regulators {
++			buck4: buck4 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			aldo1: aldo1 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++				regulator-always-on;
++			};
++		};
++	};
++};
 +
 +&sdhci0 {
 +	pinctrl-names = "default", "uhs";
@@ -187,7 +207,6 @@ index 5790d927b93d..a7d88564630f 100644
 +	bus-width = <4>;
 +	cd-gpios = <&gpio K1_GPIO(80) GPIO_ACTIVE_HIGH>;
 +	cd-inverted;
-+	broken-cd;
 +	no-mmc;
 +	no-sdio;
 +	disable-wp;
