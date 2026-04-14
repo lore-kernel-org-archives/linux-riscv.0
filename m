@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF91F9D0D3
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 14:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 335BEF9D0D2
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 14:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s0E6lEzG2Rh5js9DYgPFEX0nsbJh84Q1R+H0CpqLA4E=; b=ZI2DHgd7RVcdUN
-	XcU9StzH1pv4EI5X5EX+++lJolFW2Osqq4zyDyqk6zWohRMgaIU4PQPv9j3cTSyC2K6E0+YB7WhdY
-	RnWUrr02gAVU2Ll9QLDRcly6xTr7QEedDSab9buqstVMEZaCYauW501m8tDQAHVn/hqbXc/rLKaQr
-	HUJyc+LwwcR8Dv8fNOfHZhwdM21v9eDGZUg1iScSGMH2IFdCRzW0o+NeGzGq3jGk6oZ/JHzRQc9vc
-	vPmOYuZdIVpfWrrrDCC1a+kw8CY6hgMc+9AMQvTd9GF46aZ3wwpUEa+vBL3ujVgu9hrgmLSMQS7I3
-	Sroq16U0oH7FGcnkvO2w==;
+	List-Owner; bh=fzw8hxlq33QSUPKAsLvNN6s4RW9OW5BRxAOAdTu3kLs=; b=aPByDGsF6XWaOw
+	HXNCn7M+jVJggbzAbf6BAjOEBvQ12vngrNOAOTkxFcPqAXGcGHSSIoYDFJD7a6c9MSSqkMNoU9Pj9
+	63oZ4aafmU1CLN3RQRkXKDjF9i135ypiuTYjjr34ikDmDDODYHciv4sztXwVckg/9GemQdVQ1pbTR
+	wElRpX8DBQsC3pHrXyQ/ZLY88Dep+u48rqOp2650y2QfQ9OwBuzg3dxKnTgcxvGliUDMA6rBCbd45
+	FAJEphihrTYuulJmArepiusVMmHNAqnH4psH9PMuUN5ZFHFdAw9NsfTOJ1DfyJ0JgRIXjfTmGa+sE
+	3+bnRf82SgWp8hMOB1Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCelW-0000000HSE7-2DMB;
-	Tue, 14 Apr 2026 14:29:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCf3s-0000000HTYT-2dSz;
+	Tue, 14 Apr 2026 14:48:20 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCelU-0000000HSCv-3pZt
+	id 1wCf3q-0000000HTXl-2qvF
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Apr 2026 14:29:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DF6B560125;
-	Tue, 14 Apr 2026 14:29:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EEB9C2BCB7;
-	Tue, 14 Apr 2026 14:29:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776176959;
-	bh=JimhZhRJY96vdcz9LeR/EJHpqBN9VZ+PqSjKJTaNYlY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m7tKJbx1Pr2kj4vmriqUjgGjCYSqkR7/frq87vV74FFG4SBYc/AxzP3fmteopy0NO
-	 RmfkhrE+ErqtMeG2qyd3CcrOLb5hIfkJayEKWpjyq4L/NxuCLYpmuSkLuI2ngRoBuK
-	 YWNBpvkbDJoga6mc3hCXlHKm7z4mSlgHX9vCJ1BMMHBAWg7G1UraJrY8+BIsETj9NY
-	 nKTWD5327yaN+swymUrFW5zhahdXzpApMLEuDsnXQKE6paZEDjb96gnam9PJPWvWFt
-	 tqcXTh40Uz34Ro1/xHDBtdwbyV967MrMcmzUHVM0qUCwikdYvaFjLvOU4vwM83MDkP
-	 1ghsZslQEt7pA==
-Received: from mchehab by mail.kernel.org with local (Exim 4.99.1)
-	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1wCelR-00000007oMd-2Q0p;
-	Tue, 14 Apr 2026 16:29:17 +0200
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	workflows@vger.kernel.org,
-	Dan Williams <djbw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH RFC 1/4] docs: maintainers_include: auto-generate maintainer profile TOC
-Date: Tue, 14 Apr 2026 16:29:04 +0200
-Message-ID: <4e9512a3d05942c98361d06d60a118d7c78762b6.1776176108.git.mchehab+huawei@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <cover.1776176108.git.mchehab+huawei@kernel.org>
-References: <cover.1776176108.git.mchehab+huawei@kernel.org>
+	Tue, 14 Apr 2026 14:48:19 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-482f454be5bso60416705e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Apr 2026 07:48:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776178096; x=1776782896; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qs3FTaDVrhGRqFvZSZtkN7YawmSROR8+0cRgAi/+3fA=;
+        b=P/guCwW1CNI+Pq4EAXGUXmgnny9G72rcLIgBpcR9RkmXa03voWUsT+A/x5yfFsAQtO
+         2pMelcdjw8dtXemFP4+yylrfNGCGUVubkO36IwS+kriRpfDqU4G8BAVtWmDnALR65EBa
+         rw4yglkAUmSx3X/8hApgSponRaxlvXpUxtPasW29v5RijNgAkVYlZYjvpTjqrJ4+/Ov1
+         zlUYrwXhbw8xqgSlWugNdrdqfy9RUvxIjxn4CMt4T/WHWXwEnf65phKxxyXMZA+5Inm+
+         ao33BJA6YfG5bkoKJt6dC/kZRZMO95wD64dGaXuW5TQjfgbrnIiOksQbjjObXPN0A3rI
+         gcXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776178096; x=1776782896;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qs3FTaDVrhGRqFvZSZtkN7YawmSROR8+0cRgAi/+3fA=;
+        b=Ab9ivfjzhj7A843Ijcyh2ak8eWuHTOhLps9clRVSo6TPTrwnP1Cuk0QZaX+kdx4jVg
+         YEMCAWLHIYIVgNwRKQt5B5ygnCs44P4j+U5BUi3rxZ+UfKUr6/pqEl39I8IyPktFHipg
+         kEpnc9DGtzZq5uwItr8zalNPt2Ndt3hKQFSJTJQu+Xqs0Fb41hDRNbV3qh+3Q0L0eU03
+         tahghWr65yNx1qSf7CNOKhvcONhK5CXDsBldJxbhTGPA9nejTe1SpierCUHza0Ssaoiu
+         pFRmAbXXv/FXYQ57YIlGrqVMIX/L89QzEPthfuYGS21Nqoc1CPqg98o8zmba7nslnHf3
+         RDOg==
+X-Forwarded-Encrypted: i=1; AFNElJ/xed+mII2zY/BWazgPQFZaEOIEQGaj7zzNmP3+MO4x9HgeYvYpdmCAnrZer4MZu9IMUWUDMUWa9YOrXw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxa+1uVy7eAGOEJb/kN9AfC7SWM4I1e40ssb3lcWFsyoPaZfzAb
+	vExU0wY2mRu/ULQKQ6I7F9xdhA6Mf37x/q6JPvJAgwOorMs/8A6ANavH
+X-Gm-Gg: AeBDiesFltwoRLVL/x71XaAWa1NKP7S+sIB+/U3tRWH1WNvU3T57O9OWj1eTMM9RtWe
+	W1qxwG6hZ9kTJ1VVVvsg3N8ZP48Y083+xcG1A4ws8mg2M5eMhbpbdZhXM7zz3bDwJWPjyS/Ze0N
+	h1Q7b8PzlhFNBBv5lIPk5go7EuL4bWSqv1L5tweEuBuehs7x1Ms7VhA+WOC4WZr88MXhM+oUMk3
+	en0mBMxvPFopx6HEO+DQ2bVq8GHK8hSY++Y2ToAZWWHee53drURSFd0QQ7n+1yfQCGOMgHnj4Yi
+	IlXlR8ZkStUGvJEHSm73ZXXXB7tX0hFH1XQ6rT4yfWbKBiRH6/tw0q8+rbl/oc71Nw72wetE9Of
+	UMmQrUVgVa5H+zPMtVgtejHVCGJQR0Sdhw5023e7WlI5R9LBekOvGWUKO2gIohOh0lVbR9/1CuT
+	Etq/loW2cxiKInTPl4MsVpgl5GPyswdKFRMhKSR72HMZb+FR2+ySyaPbcKpdYPQFObDgqGgWW7g
+	hFWaSZ+q6FtSuDtlZJib0S5tYA2qSxDOLVsupRmOZan4NJQ389TinXUDDoe/VAS+pFKfTPOZZS1
+	MCxjFKgX6/TCrdAakxUDguLiSbLOW1pOGCAEXpR+LWz6AcHYABejCA==
+X-Received: by 2002:a05:600c:19cd:b0:488:c239:d498 with SMTP id 5b1f17b1804b1-488d68712d5mr246717425e9.8.1776178096002;
+        Tue, 14 Apr 2026 07:48:16 -0700 (PDT)
+Received: from mail.gmail.com (2a01cb0889497e002e3feaf8ac5b1b0d.ipv6.abo.wanadoo.fr. [2a01:cb08:8949:7e00:2e3f:eaf8:ac5b:1b0d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5d768afsm183992125e9.2.2026.04.14.07.48.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Apr 2026 07:48:13 -0700 (PDT)
+Date: Tue, 14 Apr 2026 16:48:12 +0200
+From: Paul Chaignon <paul.chaignon@gmail.com>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next v2 2/2] bpf, riscv: Remove redundant
+ bpf_flush_icache() after pack allocator finalize
+Message-ID: <ad5TrE-wIiw4rHvg@mail.gmail.com>
+References: <20260413191111.3426023-1-puranjay@kernel.org>
+ <20260413191111.3426023-3-puranjay@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260413191111.3426023-3-puranjay@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260414_074818_764591_EFC3804D 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,159 +117,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a feature to allow auto-generating media entry profiles from the
-corresponding field inside MAINTAINERS file(s).
+On Mon, Apr 13, 2026 at 12:11:09PM -0700, Puranjay Mohan wrote:
+> bpf_flush_icache() calls flush_icache_range() to clean the data cache
+> and invalidate the instruction cache for the JITed code region. However,
+> since commit 48a8f78c50bd ("bpf, riscv: use prog pack allocator in the
+> BPF JIT"), this flush is redundant.
+> 
+> bpf_jit_binary_pack_finalize() copies the JITed instructions to the ROX
+> region via bpf_arch_text_copy() -> patch_text_nosync(), and
+> patch_text_nosync() already calls flush_icache_range() on the written
+> range. The subsequent bpf_flush_icache() repeats the same cache
+> maintenance on an overlapping range.
+> 
+> Remove the redundant bpf_flush_icache() call and its now-unused
+> definition.
+> 
+> Fixes: 48a8f78c50bd ("bpf, riscv: use prog pack allocator in the BPF JIT")
+> Acked-by: Song Liu <song@kernel.org>
+> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 
-Suggested-by: Dan Williams <djbw@kernel.org>
-Closes: https://lore.kernel.org/linux-doc/69dd6299440be_147c801005b@djbw-dev.notmuch/
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
----
- Documentation/sphinx/maintainers_include.py | 93 +++++++++++++++++----
- 1 file changed, 76 insertions(+), 17 deletions(-)
+Tested-by: Paul Chaignon <paul.chaignon@gmail.com>
 
-diff --git a/Documentation/sphinx/maintainers_include.py b/Documentation/sphinx/maintainers_include.py
-index 519ad18685b2..1dac83bf1a65 100755
---- a/Documentation/sphinx/maintainers_include.py
-+++ b/Documentation/sphinx/maintainers_include.py
-@@ -21,6 +21,8 @@ import sys
- import re
- import os.path
- 
-+from textwrap import indent
-+
- from docutils import statemachine
- from docutils.parsers.rst import Directive
- from docutils.parsers.rst.directives.misc import Include
-@@ -30,20 +32,11 @@ def ErrorString(exc):  # Shamelessly stolen from docutils
- 
- __version__  = '1.0'
- 
--def setup(app):
--    app.add_directive("maintainers-include", MaintainersInclude)
--    return dict(
--        version = __version__,
--        parallel_read_safe = True,
--        parallel_write_safe = True
--    )
-+class MaintainersParser:
-+    """Parse MAINTAINERS file(s) content"""
- 
--class MaintainersInclude(Include):
--    """MaintainersInclude (``maintainers-include``) directive"""
--    required_arguments = 0
--
--    def parse_maintainers(self, path):
--        """Parse all the MAINTAINERS lines into ReST for human-readability"""
-+    def __init__(self, base_path, path):
-+        self.profiles = list()
- 
-         result = list()
-         result.append(".. _maintainers:")
-@@ -78,6 +71,12 @@ class MaintainersInclude(Include):
-             # Drop needless input whitespace.
-             line = line.rstrip()
- 
-+            match = re.match(r"P:\s*(Documentation/\S+)\.rst", line)
-+            if match:
-+                fname = os.path.relpath(match.group(1), base_path)
-+                if fname not in self.profiles:
-+                    self.profiles.append(fname)
-+
-             # Linkify all non-wildcard refs to ReST files in Documentation/.
-             pat = r'(Documentation/([^\s\?\*]*)\.rst)'
-             m = re.search(pat, line)
-@@ -165,12 +164,23 @@ class MaintainersInclude(Include):
-             for separated in field_content.split('\n'):
-                 result.append(separated)
- 
--        output = "\n".join(result)
-+        self.output = "\n".join(result)
-+
-+        # Create a TOC class
-+
-+class MaintainersInclude(Include):
-+    """MaintainersInclude (``maintainers-include``) directive"""
-+    required_arguments = 0
-+
-+    def emit(self, base_path, path):
-+        """Parse all the MAINTAINERS lines into ReST for human-readability"""
-+
-+        output = MaintainersParser(base_path, path).output
-+
-         # For debugging the pre-rendered results...
-         #print(output, file=open("/tmp/MAINTAINERS.rst", "w"))
- 
--        self.state_machine.insert_input(
--          statemachine.string2lines(output), path)
-+        self.state_machine.insert_input(statemachine.string2lines(output), path)
- 
-     def run(self):
-         """Include the MAINTAINERS file as part of this reST file."""
-@@ -186,12 +196,61 @@ class MaintainersInclude(Include):
- 
-         # Append "MAINTAINERS"
-         path = os.path.join(path, "MAINTAINERS")
-+        base_path = os.path.dirname(self.state.document.document.current_source)
- 
-         try:
-             self.state.document.settings.record_dependencies.add(path)
--            lines = self.parse_maintainers(path)
-+            lines = self.emit(base_path, path)
-         except IOError as error:
-             raise self.severe('Problems with "%s" directive path:\n%s.' %
-                       (self.name, ErrorString(error)))
- 
-         return []
-+
-+class MaintainersProfile(Include):
-+    required_arguments = 0
-+
-+    def emit(self, base_path, path):
-+        """Parse all the MAINTAINERS lines looking for profile entries"""
-+
-+        profiles = MaintainersParser(base_path, path).profiles
-+
-+        output  = ".. toctree::\n"
-+        output += "   :maxdepth: 2\n\n"
-+        output += indent("\n".join(profiles), "   ")
-+
-+        self.state_machine.insert_input(statemachine.string2lines(output), path)
-+
-+    def run(self):
-+        """Include the MAINTAINERS file as part of this reST file."""
-+        if not self.state.document.settings.file_insertion_enabled:
-+            raise self.warning('"%s" directive disabled.' % self.name)
-+
-+        # Walk up source path directories to find Documentation/../
-+        path = self.state_machine.document.attributes['source']
-+        path = os.path.realpath(path)
-+        tail = path
-+        while tail != "Documentation" and tail != "":
-+            (path, tail) = os.path.split(path)
-+
-+        # Append "MAINTAINERS"
-+        path = os.path.join(path, "MAINTAINERS")
-+        base_path = os.path.dirname(self.state.document.document.current_source)
-+
-+        try:
-+            self.state.document.settings.record_dependencies.add(path)
-+            lines = self.emit(base_path, path)
-+        except IOError as error:
-+            raise self.severe('Problems with "%s" directive path:\n%s.' %
-+                      (self.name, ErrorString(error)))
-+
-+        return []
-+
-+def setup(app):
-+    app.add_directive("maintainers-include", MaintainersInclude)
-+    app.add_directive("maintainers-profile-toc", MaintainersProfile)
-+    return dict(
-+        version = __version__,
-+        parallel_read_safe = True,
-+        parallel_write_safe = True
-+    )
--- 
-2.52.0
+[...]
 
 
 _______________________________________________
