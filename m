@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B63B6F531EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 03:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66612F531EE
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 03:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zZsvRUyo1kDq2LGLKWFRA2zU/Uuk1GuZYYqwcTKUR4I=; b=dASguL8a3j8c7d
-	XqCGabgJNziOHczR2KjG7LYtlwTJmvrAdHL8ObmIorlum0WNrtRnNYIacLm/DySu5CdJBByBUeFWm
-	bl9zmz6iRtiksNkio1TXC8HCar4r4oeOs8IT4xRd+ricLfY3PM2SsxZ+TDgXcFv1ifIIfHpwmQr97
-	V7w8Wal836vaiV2wflaIEMHKN1dZ1FpbwpZfNiwKb74sLvFMRRslsfSfbk/NIyR2EuTvmf3VjfQ0P
-	hjrzntuuHaqP/B/ER7Ma2gXxELl8WvQGqrMf+owr7/3bUO0QJV42x+bv672AblYei4OwDdIiUJMoY
-	/v6SchqrLeQXz5yTJm0w==;
+	List-Owner; bh=T4BZxznYdN2PZIugEp2Oh75RTcK6e2ZqzNkOr7Enwbo=; b=b0nBuhrJKMxKhL
+	4n6FIQFEmICmwZ+hHMDCmVVCThIQz6MOxUUqBLx+Oba+m7HqZmkoLsyjXQQVIaCKIL0mX6kDQKUPq
+	L3GlJEcxdRMX9FbW2uwgnL0Kr90SF9M3Znf4mtGoXaUPSMN69PC+22/Pp+hc9UQ0YYb/AeaGmNPwY
+	9dcPP9ZyCmsQXeJ1U7pFfZ/ITpHPa3VbJ+JySFMi/khw2ATvbHBF5bPY+iC/wzPSR28rOR9L1rqWT
+	j0bWEIbNqi8PSodqEV1Q6dyTJ4DO5O8ZzA9+6YNH+WYaUXg0etR0W5JDYXq2h6KdLcmeTO8Kk13Z0
+	Rs2qDliTfTkm1ftUOWlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCUgE-0000000Gekt-3Prm;
-	Tue, 14 Apr 2026 03:43:14 +0000
-Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	id 1wCUgP-0000000Gep5-3756;
+	Tue, 14 Apr 2026 03:43:25 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCUgA-0000000Geik-2i92
+	id 1wCUgM-0000000Gej6-2GEa
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Apr 2026 03:43:13 +0000
+	Tue, 14 Apr 2026 03:43:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1776138140;
-	bh=fiydWjDmo6mxg8g0lJHP5DHClz75B9Sfp0H5veYkkTE=;
+	s=mxsw2412; t=1776138144;
+	bh=P3GVjBCXRU7adb+cVqE903QHuJnoDiq/UFyGJ9773gI=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=PUP/Xgwo/0Nl1BmTm2uUEOib5XBuIR+uqfKIm6B9+6EtOygxfTcdWibqv4km7V+ZV
-	 vKDkumEkRtJoCIiU3O9J8m1EPTMqfLcWtRB6s4NwwrOxG2arQCLPhxeIrRfBOOQIQ4
-	 pibR7VlLKeBFu8iyslyJq2kQ/MnFnr6X3d9DWsAg=
-X-QQ-mid: zesmtpsz5t1776138131t86ef943c
-X-QQ-Originating-IP: 57ysNez3/Fjz0GpYSZnkWeRb8mTL8sRweOCs59F/pfk=
+	b=DDBdggK93ZjS4jwrQznP0Z+tPyEZ+HdPKtK78OWojARJwKkN4ImtrjOJIJ3UcGDeQ
+	 rix1lyL2zso7Qc058tLJvZrLBQ2D/zSef4DtanVOcd1od4sVVqjA2nQ5I4vlG1UZRj
+	 RIwrn+evUp/UixhPzelIQCpeOs0HNVjWfDrGMwWo=
+X-QQ-mid: zesmtpsz5t1776138135tb7d97203
+X-QQ-Originating-IP: A4h7SvXs75OmbzLY+NVyMu9/GokZCmGtd1XspNpuU8g=
 Received: from snode5.. ( [61.145.255.150])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 14 Apr 2026 11:42:09 +0800 (CST)
+	id ; Tue, 14 Apr 2026 11:42:13 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8828968199206424823
+X-BIZMAIL-ID: 1804587517364881883
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: robh@kernel.org,
@@ -70,38 +70,37 @@ Cc: coresight@lists.linaro.org,
 	anup.patel@oss.qualcomm.com,
 	mayuresh.chitale@oss.qualcomm.com,
 	zhuangqiubin@linux.spacemit.com
-Subject: [RFC PATCH 04/12] coresight: Add RISC-V Trace Funnel driver
-Date: Tue, 14 Apr 2026 11:41:45 +0800
-Message-Id: <20260414034153.3272485-5-liangzhen@linux.spacemit.com>
+Subject: [RFC PATCH 05/12] coresight: Add RISC-V Trace ATB Bridge driver
+Date: Tue, 14 Apr 2026 11:41:46 +0800
+Message-Id: <20260414034153.3272485-6-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
 References: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: Nuv9EIA+A3Y1K138gIVDLX0TOJs5z1XFN74Smr2zaBCWtUC+tZIH1iLK
-	NBDxh/wtdbbQ4LGz0NN1Syvr3WpKU4CVtXzWD5/eNLt+/hAx6Y2oF8wlM6RdwgJmSqDv6Nu
-	JvdmjWccYDWDYAn5Qi2mq+ilaT2/ISSMDr97A5SsbwOdyV5j5GLRGxxkUMzl2YWbWr+6MEx
-	kRBPru4gNEOf20fDjs61wpvflRD6we968mrLEb6ppBb98K1AtMDjSmPJHChVYx7bWdrwhYr
-	Zx0lnhWWW6bQmln1c5/tX5ecfWoeekGbxvA3zfXKIDpsViFcE/TlFIr8KiN2/S+kX9dTgeG
-	/KrqbIz8jeGv7mgQGN1U/HkFUd6M3zh6EXwoA9ERlDYZY3DLEv8UxbFd8QuCSBkoxpWV4zP
-	Zk/UEnnj6wxoMusOWTmeQjZFwVJU0Td8u9ZgfG7QrOz4VamLCnWBlhGluhFYB++caekyRd9
-	Dr4Qr8QwtSS9lpV8xsQW8WfurNbyRPm523xHum1GE2PA/yJO1IVY5aJWTfDrgFqQiKrgxDP
-	0665LktjxbHDcjfuX2/QtymOreI4sgIFeEXGomCz3TULIE6uNrK7DdV2ATG3e5GJb7tYHjH
-	zT6wxR/RSJ5v3ji9zxcGktLCBmehNL7xqqF1jN+c1wr/pRt66ewIgo3hPk1TyjuIHOA/o9N
-	O+HP1+ymPieCdubrpAcurptj5iWN66H/DIo2OjEDVq/UFYK32Nke58qfYgdrqivtebsYRJj
-	glyN3lMihTrZw7E5TLgpwPHYCOddyMBWFWyzr1DqK03iEG2S7UO/wtnzf9Inzgl1+U6DnzY
-	qjaVp/EDav31qhpnpOC3D1C+HTE8xmrmqjPWamriU0MAslnGzfmsw6Gt9sw27P8+acBXP56
-	yMRLf9h0RCV2In+LdAiylR4WiShWUCJwT+qrDctFwD+Knt34rYSRCqerjFkiBaMXqR+9mWr
-	9W9gIEjwI83KocKkWsxqWLAf7ZuZEAh2/zyPr4QH1a5Uy4s6sa4ZQJ0SVOvbnUt8aZ1n682
-	Eltw9W0+5kxAn+b+h2bQdcNHwur2dTwJ6ZqKAyhl85kVHFokgycqq9cuKhfSvuKbSZGVvak
-	gHSGnQX05BRxhl4QcwDRMfdjo7ldGPIBXluFg+V55f4xOU+MFuBM9h02X/GHSN0WZk6EL69
-	Nr6Y
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-XMAILINFO: MUpBpno6CNFp9qauP+PsTjMlVH8wfAz0xc7VYyLmdXxPmi0L2buouPq0
+	3+xdpVM9YyYpAs+HbQfKg4zcMeBaw8t3GUPnMR/x7rHEDKt6JdKMAFU1PziQ6z6J9ZzqAOX
+	qFoNS1G2+aEGJxJRyGdAl1mQ9BqNhs7KV5tcci+xlmh4s4ILyuBXVacV+Id28pgsKihu29r
+	F3+JsgWWVhdnGh1fpu+dfanPQRW8uqWejFYtGMlede7+KYuB9ToKLqEiHDnJurEEOsbb4L0
+	0WFpkE+Qw/IPcW9WTZTV7L0zUJobWeUNhyn5OKGov2hDQjZfrXFpai1khyXat86rUecNWDG
+	6db7P2Pl8Cf9l4g6p7r6vkSpqdqBlKGFFothwOSWH/z1sL1HljeZARseMlOqgLQVCmp6eXz
+	+1Ox/3CEpU1UaIOVDgMXgs7VZaJTIpGtjrDcjXKet1n1hjmngFWYnMsVxSH+DuuH2Qy82iT
+	gSaY8wL4u8NTRONWtxbkM5GmCCknMxGs9tCjVDbhe0UKDr0Ssieydqr7kgc8DttqY6C6DW1
+	4TmVCT/8m75ll/2oq8xZf0KA8WEK+WpI8KHBBGR0yFuCEk4i+1FBrjNZWzhcWf7GsEAz3iW
+	bx4/vKQ/WZXnlC0pRYfkZFr2mNYVIHZONC9mJTeUltaNm1Q0vpyU118j8+IJ7ZNlxSRCKPX
+	Ned81iWHyA1TE5pOa3k8T0k2zi98alAEi6aRPyfkrUzeXultp5Klys4F3q4qrvatHVwDzCV
+	oGSaBqShc6iBvfEkrsBvCS2gNeY6lEjf20vOS7fwA7GYcaFrhIr/0/e1YP8T+VCa2eh6kLP
+	w0bJ+iHZwZTUPOTv4WxM1jVdTPeUgqwWzn4Eh8Pmg3MHAtt5f5jD/X5n95ooxbzM7FF79ik
+	k595NoNlMsqqwRczhJ6tVL3c44Kqx2YIf6IKiIs+0VGR0nFETZmRm12z/zjDq8nnK5fI06X
+	lfK6TR4XWZuVOmrmWRMsTRGCAU0vfsrqZy/km0uVIq2OyhkuPXx2h8Gk9khQ4UItAlQmdJz
+	96m54SLOIBHY+M8sfNCEJppd17Wwww9Y7IsD1Mh+nQ7sFEwwZ1sBU5V1e/Z7BDuOiYWTRLQ
+	cJ4uKoadLRgAtE7U5IaEp1cNzgpyWUryHI19KZPnnvk
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_204311_050480_3306A8E8 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20260413_204323_470184_32D762B0 
+X-CRM114-Status: GOOD (  23.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,63 +119,66 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: liangzhen <zhen.liang@spacemit.com>
 
-Add initial implementation of RISC-V trace funnel
-driver. The funnel is defined in the RISC-V Trace
-Control Interface specification.
+Add initial implementation of RISC-V trace ATB
+Bridge driver. The ATB Bridge is defined in the
+RISC-V Trace Control Interface specification.
 
 Signed-off-by: liangzhen <zhen.liang@spacemit.com>
 ---
- drivers/hwtracing/coresight/Kconfig          |  12 +
- drivers/hwtracing/coresight/Makefile         |   1 +
- drivers/hwtracing/coresight/rvtrace-funnel.c | 244 +++++++++++++++++++
- drivers/hwtracing/coresight/rvtrace-funnel.h |  31 +++
- 4 files changed, 288 insertions(+)
- create mode 100644 drivers/hwtracing/coresight/rvtrace-funnel.c
- create mode 100644 drivers/hwtracing/coresight/rvtrace-funnel.h
+ drivers/hwtracing/coresight/Kconfig           |  12 +
+ drivers/hwtracing/coresight/Makefile          |   1 +
+ .../hwtracing/coresight/rvtrace-atbbridge.c   | 239 ++++++++++++++++++
+ 3 files changed, 252 insertions(+)
+ create mode 100644 drivers/hwtracing/coresight/rvtrace-atbbridge.c
 
 diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
-index 3e46728f2482..8381a84e2699 100644
+index 8381a84e2699..1cd88a1a7d08 100644
 --- a/drivers/hwtracing/coresight/Kconfig
 +++ b/drivers/hwtracing/coresight/Kconfig
-@@ -288,9 +288,21 @@ config RVTRACE
+@@ -288,6 +288,17 @@ config RVTRACE
  	  dynamically aggregated with CoreSight trace infrastructure
  	  at run time to form a complete trace path.
  
-+config RVTRACE_FUNNEL
-+	tristate "RISCV Trace Funnel driver"
++config RVTRACE_ATBBRIDGE
++	tristate "RISCV Trace ATB Bridge driver"
 +	depends on RVTRACE
 +	help
-+	  his driver provides support for the Trace Funnel driver. The Funnel
-+	  aggregates the trace from each of its inputs and sends the combined
-+	  trace stream to its designated Trace Sink or ATB Bridge.
++	  This driver provides support for the ATB Bridge driver. The ATB
++	  Bridge allows sending RISC-V trace to Arm CoreSight infrastructure
++	  (instead of RISC-V compliant sink) as an ATB initiator.
 +
 +	  To compile this driver as a module, choose M here: the module
-+	  will be called rvtrace-funnel.
++	  will be called rvtrace-atbbridge.
 +
- config RVTRACE_ENCODER
+ config RVTRACE_FUNNEL
+ 	tristate "RISCV Trace Funnel driver"
+ 	depends on RVTRACE
+@@ -303,6 +314,7 @@ config RVTRACE_ENCODER
  	tristate "RISCV Trace Encoder driver"
  	depends on RVTRACE
-+	select RVTRACE_FUNNEL
+ 	select RVTRACE_FUNNEL
++	select RVTRACE_ATBBRIDGE
  	help
  	  This driver provides support for the Trace Encoder module, tracing
  	  the instructions that a processor is executing. This is primarily
 diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-index 9a526b1fb95a..409a0abf0642 100644
+index 409a0abf0642..2264a313a773 100644
 --- a/drivers/hwtracing/coresight/Makefile
 +++ b/drivers/hwtracing/coresight/Makefile
-@@ -59,5 +59,6 @@ coresight-ctcu-y := coresight-ctcu-core.o
+@@ -59,6 +59,7 @@ coresight-ctcu-y := coresight-ctcu-core.o
  obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
  obj-$(CONFIG_RVTRACE) += rvtrace.o
  rvtrace-y := rvtrace-core.o
-+obj-$(CONFIG_RVTRACE_FUNNEL) += rvtrace-funnel.o
++obj-$(CONFIG_RVTRACE_ATBBRIDGE) += rvtrace-atbbridge.o
+ obj-$(CONFIG_RVTRACE_FUNNEL) += rvtrace-funnel.o
  obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
  rvtrace-encoder-y := rvtrace-encoder-core.o rvtrace-encoder-sysfs.o
-diff --git a/drivers/hwtracing/coresight/rvtrace-funnel.c b/drivers/hwtracing/coresight/rvtrace-funnel.c
+diff --git a/drivers/hwtracing/coresight/rvtrace-atbbridge.c b/drivers/hwtracing/coresight/rvtrace-atbbridge.c
 new file mode 100644
-index 000000000000..0dc7799a64ac
+index 000000000000..a931be322a2f
 --- /dev/null
-+++ b/drivers/hwtracing/coresight/rvtrace-funnel.c
-@@ -0,0 +1,244 @@
++++ b/drivers/hwtracing/coresight/rvtrace-atbbridge.c
+@@ -0,0 +1,239 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright(C) 2026 Spacemit Limited. All rights reserved.
@@ -185,121 +187,99 @@ index 000000000000..0dc7799a64ac
 +#include <linux/kernel.h>
 +#include <linux/coresight.h>
 +#include <linux/platform_device.h>
++#include <linux/bitfield.h>
 +#include <linux/rvtrace.h>
 +
 +#include "coresight-priv.h"
-+#include "rvtrace-funnel.h"
++#include "coresight-trace-id.h"
 +
-+DEFINE_CORESIGHT_DEVLIST(funnel_devs, "rvtrace_funnel");
++#define RVTRACE_ATBBRIDGE_CONTROL_ID_MASK	GENMASK(14, 8)
++/**
++ * struct atbbridge_data - specifics associated to a ATB bridge component
++ * @csdev:      Component vitals needed by the framework.
++ * @spinlock:   Only one at a time pls.
++ * @traceid:    Value of the current ID for this component.
++ */
++struct atbbridge_data {
++	struct coresight_device	*csdev;
++	spinlock_t		spinlock;
++	u8			traceid;
++};
 +
-+static int funnel_enable_hw(struct rvtrace_component *comp, int port)
++DEFINE_CORESIGHT_DEVLIST(atbbridge_devs, "atbbridge");
++
++static int atbbridge_enable(struct coresight_device *csdev,
++			    struct coresight_connection *in,
++			    struct coresight_connection *out)
 +{
-+	u32 disinput;
++	u32 control;
 +	int ret = 0;
-+	struct funnel_data *funnel_data = rvtrace_component_data(comp);
++	struct rvtrace_component *comp = dev_get_drvdata(csdev->dev.parent);
++	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
++	unsigned long flags;
 +
++	spin_lock_irqsave(&atbbridge_data->spinlock, flags);
 +	if (!comp->was_reset) {
 +		ret = rvtrace_component_reset(comp);
 +		if (ret)
 +			goto done;
 +	}
 +
-+	disinput = readl_relaxed(comp->base + RVTRACE_FUNNEL_DISINPUT_OFFSET);
-+	disinput &= ~(1 << port);
-+	writel_relaxed(disinput, comp->base + RVTRACE_FUNNEL_DISINPUT_OFFSET);
-+	ret = rvtrace_poll_bit(comp, RVTRACE_FUNNEL_DISINPUT_OFFSET, port, 0);
++	control = readl_relaxed(comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++	control |= FIELD_PREP(RVTRACE_ATBBRIDGE_CONTROL_ID_MASK, atbbridge_data->traceid);
++	writel_relaxed(control, comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++
++	ret = rvtrace_enable_component(comp);
 +	if (ret)
 +		goto done;
 +
-+	if (!funnel_data->was_enabled) {
-+		ret = rvtrace_enable_component(comp);
-+		if (ret)
-+			goto done;
-+	}
++	spin_unlock_irqrestore(&atbbridge_data->spinlock, flags);
 +
++	dev_dbg(&csdev->dev, "Trace ATB bridge enabled\n");
 +done:
 +	return ret;
 +}
 +
-+static int funnel_enable(struct coresight_device *csdev,
-+			 struct coresight_connection *in,
-+			 struct coresight_connection *out)
++static void atbbridge_disable(struct coresight_device *csdev,
++			      struct coresight_connection *in,
++			      struct coresight_connection *out)
 +{
-+	int ret = 0;
 +	struct rvtrace_component *comp = dev_get_drvdata(csdev->dev.parent);
-+	struct funnel_data *funnel_data = rvtrace_component_data(comp);
++	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
 +	unsigned long flags;
-+	bool first_enable = false;
 +
-+	spin_lock_irqsave(&funnel_data->spinlock, flags);
-+	if (in->dest_refcnt == 0) {
-+		ret = funnel_enable_hw(comp, in->dest_port);
-+		if (!ret)
-+			first_enable = true;
-+	}
-+	if (!ret) {
-+		in->dest_refcnt++;
-+		funnel_data->input_refcnt++;
-+	}
-+
-+	if (first_enable)
-+		dev_dbg(&csdev->dev, "Trace funnel inport %d enabled\n",
-+			in->dest_port);
-+
-+	spin_unlock_irqrestore(&funnel_data->spinlock, flags);
-+
-+	return ret;
-+}
-+
-+static void funnel_disable_hw(struct rvtrace_component *comp, int inport)
-+{
-+	struct funnel_data *funnel_data = rvtrace_component_data(comp);
-+
-+	if (--funnel_data->input_refcnt != 0)
-+		return;
-+
-+	writel_relaxed(RVTRACE_FUNNEL_DISINPUT_MASK, comp->base + RVTRACE_FUNNEL_DISINPUT_OFFSET);
++	spin_lock_irqsave(&atbbridge_data->spinlock, flags);
 +
 +	if (rvtrace_disable_component(comp))
-+		dev_err(&funnel_data->csdev->dev,
-+			"timeout while waiting for Trace Funnel to be disabled\n");
++		dev_err(&csdev->dev,
++			"timeout while waiting for Trace ATB Bridge to be disabled\n");
 +
 +	if (rvtrace_comp_is_empty(comp))
-+		dev_err(&funnel_data->csdev->dev,
-+			"timeout while waiting for Trace Funnel internal buffers become empty\n");
++		dev_err(&csdev->dev,
++			"timeout while waiting for Trace ATB Bridge internal buffers become empty\n");
++
++	spin_unlock_irqrestore(&atbbridge_data->spinlock, flags);
++
++	dev_dbg(&csdev->dev, "Trace ATB bridge disabled\n");
 +}
 +
-+static void funnel_disable(struct coresight_device *csdev,
-+			   struct coresight_connection *in,
-+			   struct coresight_connection *out)
++static int atbbridge_link_trace_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
++				   __maybe_unused struct coresight_device *sink)
 +{
 +	struct rvtrace_component *comp = dev_get_drvdata(csdev->dev.parent);
-+	struct funnel_data *funnel_data = rvtrace_component_data(comp);
-+	unsigned long flags;
-+	bool last_disable = false;
++	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
 +
-+	spin_lock_irqsave(&funnel_data->spinlock, flags);
-+	if (--in->dest_refcnt == 0) {
-+		funnel_disable_hw(comp, in->dest_port);
-+		last_disable = true;
-+	}
-+	spin_unlock_irqrestore(&funnel_data->spinlock, flags);
-+
-+	if (last_disable)
-+		dev_dbg(&csdev->dev, "Trace funnel inport %d disabled\n",
-+			in->dest_port);
-+
-+	if (funnel_data->input_refcnt == 0)
-+		dev_dbg(&csdev->dev, "Trace funnel disabled\n");
++	return atbbridge_data->traceid;
 +}
 +
-+static const struct coresight_ops_link funnel_link_ops = {
-+	.enable		= funnel_enable,
-+	.disable	= funnel_disable,
++static const struct coresight_ops_link atbbridge_link_ops = {
++	.enable		= atbbridge_enable,
++	.disable	= atbbridge_disable,
 +};
 +
-+static const struct coresight_ops funnel_cs_ops = {
-+	.link_ops       = &funnel_link_ops,
++static const struct coresight_ops atbbridge_cs_ops = {
++	.trace_id	= atbbridge_link_trace_id,
++	.link_ops       = &atbbridge_link_ops,
 +};
 +
 +static ssize_t reset_store(struct device *dev,
@@ -308,23 +288,21 @@ index 000000000000..0dc7799a64ac
 +{
 +	unsigned long val;
 +	struct rvtrace_component *comp = dev_get_drvdata(dev->parent);
-+	struct funnel_data *funnel_data = rvtrace_component_data(comp);
++	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
 +	unsigned long flags;
 +
 +	if (kstrtoul(buf, 16, &val))
 +		return -EINVAL;
 +
-+	spin_lock_irqsave(&funnel_data->spinlock, flags);
-+
 +	if (val) {
 +		if (rvtrace_component_reset(comp)) {
 +			comp->was_reset = false;
-+			spin_unlock_irqrestore(&funnel_data->spinlock, flags);
++			spin_unlock_irqrestore(&atbbridge_data->spinlock, flags);
 +			return -EINVAL;
 +		}
 +	}
 +
-+	spin_unlock_irqrestore(&funnel_data->spinlock, flags);
++	spin_unlock_irqrestore(&atbbridge_data->spinlock, flags);
 +
 +	return size;
 +}
@@ -341,33 +319,46 @@ index 000000000000..0dc7799a64ac
 +}
 +static DEVICE_ATTR_RO(cpu);
 +
-+static struct attribute *trace_funnel_attrs[] = {
++static ssize_t traceid_show(struct device *dev,
++			 struct device_attribute *attr, char *buf)
++{
++	unsigned long val;
++	struct rvtrace_component *comp = dev_get_drvdata(dev->parent);
++	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
++
++	val = atbbridge_data->traceid;
++	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++}
++static DEVICE_ATTR_RO(traceid);
++
++static struct attribute *trace_atbbridge_attrs[] = {
 +	coresight_simple_reg32(control, RVTRACE_COMPONENT_CTRL_OFFSET),
 +	coresight_simple_reg32(impl, RVTRACE_COMPONENT_IMPL_OFFSET),
-+	coresight_simple_reg32(disinput, RVTRACE_FUNNEL_DISINPUT_OFFSET),
 +	&dev_attr_reset.attr,
 +	&dev_attr_cpu.attr,
++	&dev_attr_traceid.attr,
 +	NULL,
 +};
-+ATTRIBUTE_GROUPS(trace_funnel);
++ATTRIBUTE_GROUPS(trace_atbbridge);
 +
-+static int funnel_probe(struct platform_device *pdev)
++static int atbbridge_probe(struct platform_device *pdev)
 +{
 +	struct device *dev = &pdev->dev;
 +	struct coresight_platform_data *pdata;
-+	struct funnel_data *funnel_data;
++	struct atbbridge_data *atbbridge_data;
 +	struct rvtrace_component *comp;
 +	struct coresight_desc desc = { 0 };
++	int trace_id = 0;
 +
 +	comp = rvtrace_register_component(pdev);
 +	if (IS_ERR(comp))
 +		return PTR_ERR(comp);
 +
-+	funnel_data = devm_kzalloc(dev, sizeof(*funnel_data), GFP_KERNEL);
-+	if (!funnel_data)
++	atbbridge_data = devm_kzalloc(dev, sizeof(*atbbridge_data), GFP_KERNEL);
++	if (!atbbridge_data)
 +		return -ENOMEM;
 +
-+	spin_lock_init(&funnel_data->spinlock);
++	spin_lock_init(&atbbridge_data->spinlock);
 +
 +	pdata = coresight_get_platform_data(dev);
 +	if (IS_ERR(pdata))
@@ -376,88 +367,57 @@ index 000000000000..0dc7799a64ac
 +
 +	platform_set_drvdata(pdev, comp);
 +
-+	desc.name = coresight_alloc_device_name(&funnel_devs, dev);
++	desc.name = coresight_alloc_device_name(&atbbridge_devs, dev);
 +	desc.access = CSDEV_ACCESS_IOMEM(comp->base);
 +	desc.type = CORESIGHT_DEV_TYPE_LINK;
-+	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
-+	desc.ops = &funnel_cs_ops;
++	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_FIFO;
++	desc.ops = &atbbridge_cs_ops;
 +	desc.pdata = pdata;
 +	desc.dev = dev;
-+	desc.groups = trace_funnel_groups;
-+	funnel_data->csdev = coresight_register(&desc);
-+	if (IS_ERR(funnel_data->csdev))
-+		return PTR_ERR(funnel_data->csdev);
++	desc.groups = trace_atbbridge_groups;
++	atbbridge_data->csdev = coresight_register(&desc);
++	if (IS_ERR(atbbridge_data->csdev))
++		return PTR_ERR(atbbridge_data->csdev);
 +
-+	comp->id.data = funnel_data;
++	trace_id = coresight_trace_id_get_system_id();
++	if (trace_id < 0)
++		return -EINVAL;
++	atbbridge_data->traceid = (u8)trace_id;
 +
-+	dev_dbg(dev, "Trace Funnel initialized\n");
++	comp->id.data = atbbridge_data;
++
++	dev_dbg(dev, "Trace ATB Bridge initialized\n");
 +
 +	return 0;
 +}
 +
-+static void funnel_remove(struct platform_device *pdev)
++static void atbbridge_remove(struct platform_device *pdev)
 +{
 +	struct rvtrace_component *comp = platform_get_drvdata(pdev);
-+	struct funnel_data *funnel_data = rvtrace_component_data(comp);
++	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
 +
-+	coresight_unregister(funnel_data->csdev);
++	coresight_trace_id_put_system_id(atbbridge_data->traceid);
++	coresight_unregister(atbbridge_data->csdev);
 +}
 +
-+static const struct of_device_id funnel_match[] = {
-+	{.compatible = "riscv,trace-funnel"},
++static const struct of_device_id atbbridge_match[] = {
++	{.compatible = "riscv,trace-atbbridge"},
 +	{},
 +};
 +
-+static struct platform_driver funnel_driver = {
-+	.probe = funnel_probe,
-+	.remove = funnel_remove,
++static struct platform_driver atbbridge_driver = {
++	.probe = atbbridge_probe,
++	.remove = atbbridge_remove,
 +	.driver = {
-+		.name	= "trace-funnel",
-+		.of_match_table = funnel_match,
++		.name	= "trace-atbbridge",
++		.of_match_table = atbbridge_match,
 +	},
 +};
 +
-+module_platform_driver(funnel_driver);
++module_platform_driver(atbbridge_driver);
 +
-+MODULE_DESCRIPTION("RISC-V Trace funnel driver");
++MODULE_DESCRIPTION("RISC-V Trace ATB Bridge driver");
 +MODULE_LICENSE("GPL");
-diff --git a/drivers/hwtracing/coresight/rvtrace-funnel.h b/drivers/hwtracing/coresight/rvtrace-funnel.h
-new file mode 100644
-index 000000000000..e5247e6c1bf5
---- /dev/null
-+++ b/drivers/hwtracing/coresight/rvtrace-funnel.h
-@@ -0,0 +1,31 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright(C) 2026 Spacemit Limited. All rights reserved.
-+ */
-+
-+#ifndef _RVTRACE_FUNNEL_H
-+#define _RVTRACE_FUNNEL_H
-+
-+#include <linux/spinlock.h>
-+#include <linux/coresight.h>
-+
-+/* Disable Individual Funnel Inputs */
-+#define RVTRACE_FUNNEL_DISINPUT_OFFSET			0x008
-+#define RVTRACE_FUNNEL_DISINPUT_MASK			0xffff
-+
-+/**
-+ * struct funnel_data - specifics associated to a Trace Funnel component
-+ * @csdev:        Component vitals needed by the framework.
-+ * @spinlock:     Only one at a time pls.
-+ * @was_enabled:  Flag showing whether the Trace Funnel was enabled.
-+ * @input_refcnt: Record the number of funnel inputs
-+ */
-+struct funnel_data {
-+	struct coresight_device	*csdev;
-+	spinlock_t		spinlock;
-+	bool			was_enabled;
-+	u32			input_refcnt;
-+	u32			disintput;
-+};
-+
-+#endif
 -- 
 2.34.1
 
