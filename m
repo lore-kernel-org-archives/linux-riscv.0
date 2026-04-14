@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66612F531EE
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 03:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D7FF531EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 03:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T4BZxznYdN2PZIugEp2Oh75RTcK6e2ZqzNkOr7Enwbo=; b=b0nBuhrJKMxKhL
-	4n6FIQFEmICmwZ+hHMDCmVVCThIQz6MOxUUqBLx+Oba+m7HqZmkoLsyjXQQVIaCKIL0mX6kDQKUPq
-	L3GlJEcxdRMX9FbW2uwgnL0Kr90SF9M3Znf4mtGoXaUPSMN69PC+22/Pp+hc9UQ0YYb/AeaGmNPwY
-	9dcPP9ZyCmsQXeJ1U7pFfZ/ITpHPa3VbJ+JySFMi/khw2ATvbHBF5bPY+iC/wzPSR28rOR9L1rqWT
-	j0bWEIbNqi8PSodqEV1Q6dyTJ4DO5O8ZzA9+6YNH+WYaUXg0etR0W5JDYXq2h6KdLcmeTO8Kk13Z0
-	Rs2qDliTfTkm1ftUOWlQ==;
+	List-Owner; bh=1N5fsoAC1ItaVwUCa4DuF2EYKM8eofXJhEEiEuG5krk=; b=JOQdwso02W/C3N
+	H5Ur25Fsr5GYy2/qJU604N0fedubFOaahkdUr41ARF0QIklfTwIfNWGdwvW+4CrM4YKVxA/eW+cgz
+	wI903qpaPhF5OFnM39bV58SLYWLs05y4SxhI0bM+u17DPOH8STm13U2RFR3vONtWspmlqawjvnLgs
+	tY921WxUnyGTkxTEVwSnKMLr6T3vf5U4yXdKpeDTs7BvbZNdHE1ON67Um7hpxjkjR+Pv54MrSUE2s
+	jZ8AEcpRnXxwSm5rwmZ2WaF8Had2PUzUFwbx6PX1L8Z5LQpfEpRWBal+5JvgJUvQzNmYsEij6mY/5
+	CCJvEifwnUUND+Wi2ldQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCUgP-0000000Gep5-3756;
-	Tue, 14 Apr 2026 03:43:25 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1wCUgT-0000000Gese-1aT7;
+	Tue, 14 Apr 2026 03:43:29 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCUgM-0000000Gej6-2GEa
+	id 1wCUgQ-0000000GelA-1BEC
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Apr 2026 03:43:24 +0000
+	Tue, 14 Apr 2026 03:43:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1776138144;
-	bh=P3GVjBCXRU7adb+cVqE903QHuJnoDiq/UFyGJ9773gI=;
+	s=mxsw2412; t=1776138133;
+	bh=iSbOge2rZ0clwseYaYE9Cu/TuLiV5T3RqaR0b6WSJmw=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=DDBdggK93ZjS4jwrQznP0Z+tPyEZ+HdPKtK78OWojARJwKkN4ImtrjOJIJ3UcGDeQ
-	 rix1lyL2zso7Qc058tLJvZrLBQ2D/zSef4DtanVOcd1od4sVVqjA2nQ5I4vlG1UZRj
-	 RIwrn+evUp/UixhPzelIQCpeOs0HNVjWfDrGMwWo=
-X-QQ-mid: zesmtpsz5t1776138135tb7d97203
-X-QQ-Originating-IP: A4h7SvXs75OmbzLY+NVyMu9/GokZCmGtd1XspNpuU8g=
+	b=wmgpLklfMNVdFQZ5lqe+n/NnH7AiomVOtmGVvADf5Sth9ng040+JJLotoKW52vRT2
+	 eTMMXQ+BjR1Tpdza9xmtQZ18BwJqMPzMgFI+rPKd8Ep+Hxp2cLq0q6AjS5niCXAFO1
+	 FyTBEGIiEcxs2JO6XIVAqgCoeNUA7ktlcJJ960IQ=
+X-QQ-mid: zesmtpsz5t1776138124t358ef25d
+X-QQ-Originating-IP: CzPsqtwPvjJQ2v52XxmFdlX/powKwJi1Tn4QUEhQpsg=
 Received: from snode5.. ( [61.145.255.150])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 14 Apr 2026 11:42:13 +0800 (CST)
+	id ; Tue, 14 Apr 2026 11:42:02 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1804587517364881883
+X-BIZMAIL-ID: 3322854439866736697
 EX-QQ-RecipientCnt: 26
 From: Zane Leung <liangzhen@linux.spacemit.com>
 To: robh@kernel.org,
@@ -70,37 +70,38 @@ Cc: coresight@lists.linaro.org,
 	anup.patel@oss.qualcomm.com,
 	mayuresh.chitale@oss.qualcomm.com,
 	zhuangqiubin@linux.spacemit.com
-Subject: [RFC PATCH 05/12] coresight: Add RISC-V Trace ATB Bridge driver
-Date: Tue, 14 Apr 2026 11:41:46 +0800
-Message-Id: <20260414034153.3272485-6-liangzhen@linux.spacemit.com>
+Subject: [RFC PATCH 02/12] coresight: Initial implementation of RISC-V trace driver
+Date: Tue, 14 Apr 2026 11:41:43 +0800
+Message-Id: <20260414034153.3272485-3-liangzhen@linux.spacemit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
 References: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MUpBpno6CNFp9qauP+PsTjMlVH8wfAz0xc7VYyLmdXxPmi0L2buouPq0
-	3+xdpVM9YyYpAs+HbQfKg4zcMeBaw8t3GUPnMR/x7rHEDKt6JdKMAFU1PziQ6z6J9ZzqAOX
-	qFoNS1G2+aEGJxJRyGdAl1mQ9BqNhs7KV5tcci+xlmh4s4ILyuBXVacV+Id28pgsKihu29r
-	F3+JsgWWVhdnGh1fpu+dfanPQRW8uqWejFYtGMlede7+KYuB9ToKLqEiHDnJurEEOsbb4L0
-	0WFpkE+Qw/IPcW9WTZTV7L0zUJobWeUNhyn5OKGov2hDQjZfrXFpai1khyXat86rUecNWDG
-	6db7P2Pl8Cf9l4g6p7r6vkSpqdqBlKGFFothwOSWH/z1sL1HljeZARseMlOqgLQVCmp6eXz
-	+1Ox/3CEpU1UaIOVDgMXgs7VZaJTIpGtjrDcjXKet1n1hjmngFWYnMsVxSH+DuuH2Qy82iT
-	gSaY8wL4u8NTRONWtxbkM5GmCCknMxGs9tCjVDbhe0UKDr0Ssieydqr7kgc8DttqY6C6DW1
-	4TmVCT/8m75ll/2oq8xZf0KA8WEK+WpI8KHBBGR0yFuCEk4i+1FBrjNZWzhcWf7GsEAz3iW
-	bx4/vKQ/WZXnlC0pRYfkZFr2mNYVIHZONC9mJTeUltaNm1Q0vpyU118j8+IJ7ZNlxSRCKPX
-	Ned81iWHyA1TE5pOa3k8T0k2zi98alAEi6aRPyfkrUzeXultp5Klys4F3q4qrvatHVwDzCV
-	oGSaBqShc6iBvfEkrsBvCS2gNeY6lEjf20vOS7fwA7GYcaFrhIr/0/e1YP8T+VCa2eh6kLP
-	w0bJ+iHZwZTUPOTv4WxM1jVdTPeUgqwWzn4Eh8Pmg3MHAtt5f5jD/X5n95ooxbzM7FF79ik
-	k595NoNlMsqqwRczhJ6tVL3c44Kqx2YIf6IKiIs+0VGR0nFETZmRm12z/zjDq8nnK5fI06X
-	lfK6TR4XWZuVOmrmWRMsTRGCAU0vfsrqZy/km0uVIq2OyhkuPXx2h8Gk9khQ4UItAlQmdJz
-	96m54SLOIBHY+M8sfNCEJppd17Wwww9Y7IsD1Mh+nQ7sFEwwZ1sBU5V1e/Z7BDuOiYWTRLQ
-	cJ4uKoadLRgAtE7U5IaEp1cNzgpyWUryHI19KZPnnvk
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-XMAILINFO: NfVrc1yo43JxS/sa5pXz8MblI7iUjb09sbMr8AA2VPQDDJsiVlHQPkwc
+	TELVlTpJkibVRzwReQUqAWpBkWXryiZu+iM587w56+sGnMAC7t+y6pBTRR7FIVHolANdyCV
+	6Ysz+kvDF6BYu+y/QvFmvu3L+KZHZsnavuTIHn9pXXbsp7WQxxu81Yr4pBADAZQvE9+WzQk
+	rft/OTCLZg0+259MwqKsTIIfYcounV3hCMZ1Rc85diqnV4APvP2ay0BTTv8sR0YGIYrFbv2
+	w9KHTsHBVGolrNG+0Y22Geyr5mxRYFIjjei8mXcDSFF0ZwKc3wICFlq6zdb8vbnXQS6IdGd
+	FuXkHTIUtfN+7/ywrY8e1fZv3pf2pVEcWvvQUCkFOygtRMXQepSS2mxVd/VbBY5xrz5KRJ6
+	gwPrQmN492Ch6vltaGpomFSAZr6Dq0UgbBQGih6myW6QzqOOCu0BC2Sjz363MCGzuCPA6zL
+	fUq2VKfxiMR8V7WrQA2ygnh2HBTnmDArjVGiJwwfkqfK1nozBLQ++kGUUFKl99sIQcRiKQH
+	hjCJpZ8DIZwDfjSUK/naekSJ0Ef7iZ6NUGrEpjjowFuDtl0Q5F1WCXa8IqMDfGGyWp/jxTt
+	b7iDfz265DEsz8vS/NHmAITA5zmYc/Ra7SZow/WaJykdjvtyQ+nYeoXMm5gX4IJz6uFQtbY
+	t/3GVHRjoCaWn9QcoJ6bN4jWavAnBZt2oS/bfHgsXfl5LEE4K9lC2b8UdYXI8+PdRQspY1q
+	DCFgOhQ9mcuy9D0FzvblrbXXVZK4t2GBH5G8WkpJx/s0gyeW149fjqdsrxtEbJ+16Ep/nK/
+	nmKXJ6cymWqCQfZJRKcee0GfUKfUWxJbik6qCNDbzCohqo0Rc7aJFybyClKivtV9cwC2k/B
+	q2p2kRtyhu9Shfn0uXU2APrCbxwxdzHsbd+xzh8ME30s5Lj1Qxi+VLATbPopR9ugyq76gIr
+	hiJ0HZViabThfCUiXXqBgqrxPutD+NfwUAvrhw96eZkzjyzNsR6IxhZQQ6XaAEaJCWuphJB
+	uU8LJIXhIk9NGvYZcrZktwp1XDqYKg6N2TnA95HCfby5Xb8zkJse7Vgz5t2+yEbSTB2zjBx
+	snIEpKV3tXyVhHNRRDVb5/md4WzsKoES94DcR/+485/FgtEImz0xbW4p1Zu46YIQcBOak+H
+	6C0R
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_204323_470184_32D762B0 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20260413_204326_705527_A1CA3E8D 
+X-CRM114-Status: GOOD (  23.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,305 +120,311 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: liangzhen <zhen.liang@spacemit.com>
 
-Add initial implementation of RISC-V trace ATB
-Bridge driver. The ATB Bridge is defined in the
-RISC-V Trace Control Interface specification.
+Implement some common driver interfaces RISC-V trace
+where RISC-V trace components are instantiated by a
+common platform driver and a separate RISC-V trace
+driver for each type of RISC-V trace component.
 
 Signed-off-by: liangzhen <zhen.liang@spacemit.com>
 ---
- drivers/hwtracing/coresight/Kconfig           |  12 +
- drivers/hwtracing/coresight/Makefile          |   1 +
- .../hwtracing/coresight/rvtrace-atbbridge.c   | 239 ++++++++++++++++++
- 3 files changed, 252 insertions(+)
- create mode 100644 drivers/hwtracing/coresight/rvtrace-atbbridge.c
+ drivers/hwtracing/coresight/Kconfig        |   8 ++
+ drivers/hwtracing/coresight/Makefile       |   2 +
+ drivers/hwtracing/coresight/rvtrace-core.c | 135 +++++++++++++++++++++
+ include/linux/rvtrace.h                    | 116 ++++++++++++++++++
+ 4 files changed, 261 insertions(+)
+ create mode 100644 drivers/hwtracing/coresight/rvtrace-core.c
+ create mode 100644 include/linux/rvtrace.h
 
 diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
-index 8381a84e2699..1cd88a1a7d08 100644
+index 2b1ebe3f614d..5adeaf78a080 100644
 --- a/drivers/hwtracing/coresight/Kconfig
 +++ b/drivers/hwtracing/coresight/Kconfig
-@@ -288,6 +288,17 @@ config RVTRACE
- 	  dynamically aggregated with CoreSight trace infrastructure
- 	  at run time to form a complete trace path.
+@@ -280,4 +280,12 @@ config CORESIGHT_TNOC
+ 	  To compile this driver as a module, choose M here: the module will be
+ 	  called coresight-tnoc.
  
-+config RVTRACE_ATBBRIDGE
-+	tristate "RISCV Trace ATB Bridge driver"
-+	depends on RVTRACE
++config RVTRACE
++	bool "RISC-V Trace Support"
 +	help
-+	  This driver provides support for the ATB Bridge driver. The ATB
-+	  Bridge allows sending RISC-V trace to Arm CoreSight infrastructure
-+	  (instead of RISC-V compliant sink) as an ATB initiator.
++	  This enables support for the RISC-V trace drivers. drivers
++	  (including Trace Encoder, Trace Funnel and  ATB Bridge) are
++	  dynamically aggregated with CoreSight trace infrastructure
++	  at run time to form a complete trace path.
 +
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called rvtrace-atbbridge.
-+
- config RVTRACE_FUNNEL
- 	tristate "RISCV Trace Funnel driver"
- 	depends on RVTRACE
-@@ -303,6 +314,7 @@ config RVTRACE_ENCODER
- 	tristate "RISCV Trace Encoder driver"
- 	depends on RVTRACE
- 	select RVTRACE_FUNNEL
-+	select RVTRACE_ATBBRIDGE
- 	help
- 	  This driver provides support for the Trace Encoder module, tracing
- 	  the instructions that a processor is executing. This is primarily
+ endif
 diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-index 409a0abf0642..2264a313a773 100644
+index ab16d06783a5..c21a9e25e148 100644
 --- a/drivers/hwtracing/coresight/Makefile
 +++ b/drivers/hwtracing/coresight/Makefile
-@@ -59,6 +59,7 @@ coresight-ctcu-y := coresight-ctcu-core.o
+@@ -57,3 +57,5 @@ obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+ obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+ coresight-ctcu-y := coresight-ctcu-core.o
  obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
- obj-$(CONFIG_RVTRACE) += rvtrace.o
- rvtrace-y := rvtrace-core.o
-+obj-$(CONFIG_RVTRACE_ATBBRIDGE) += rvtrace-atbbridge.o
- obj-$(CONFIG_RVTRACE_FUNNEL) += rvtrace-funnel.o
- obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
- rvtrace-encoder-y := rvtrace-encoder-core.o rvtrace-encoder-sysfs.o
-diff --git a/drivers/hwtracing/coresight/rvtrace-atbbridge.c b/drivers/hwtracing/coresight/rvtrace-atbbridge.c
++obj-$(CONFIG_RVTRACE) += rvtrace.o
++rvtrace-y := rvtrace-core.o
+diff --git a/drivers/hwtracing/coresight/rvtrace-core.c b/drivers/hwtracing/coresight/rvtrace-core.c
 new file mode 100644
-index 000000000000..a931be322a2f
+index 000000000000..c74f43869d8b
 --- /dev/null
-+++ b/drivers/hwtracing/coresight/rvtrace-atbbridge.c
-@@ -0,0 +1,239 @@
++++ b/drivers/hwtracing/coresight/rvtrace-core.c
+@@ -0,0 +1,135 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright(C) 2026 Spacemit Limited. All rights reserved.
 + */
 +
-+#include <linux/kernel.h>
-+#include <linux/coresight.h>
-+#include <linux/platform_device.h>
-+#include <linux/bitfield.h>
++#include <linux/delay.h>
++#include <linux/percpu.h>
++#include <linux/of.h>
++#include <linux/of_graph.h>
 +#include <linux/rvtrace.h>
 +
-+#include "coresight-priv.h"
-+#include "coresight-trace-id.h"
-+
-+#define RVTRACE_ATBBRIDGE_CONTROL_ID_MASK	GENMASK(14, 8)
-+/**
-+ * struct atbbridge_data - specifics associated to a ATB bridge component
-+ * @csdev:      Component vitals needed by the framework.
-+ * @spinlock:   Only one at a time pls.
-+ * @traceid:    Value of the current ID for this component.
-+ */
-+struct atbbridge_data {
-+	struct coresight_device	*csdev;
-+	spinlock_t		spinlock;
-+	u8			traceid;
-+};
-+
-+DEFINE_CORESIGHT_DEVLIST(atbbridge_devs, "atbbridge");
-+
-+static int atbbridge_enable(struct coresight_device *csdev,
-+			    struct coresight_connection *in,
-+			    struct coresight_connection *out)
++int rvtrace_poll_bit(struct rvtrace_component *comp, int offset,
++		     int bit, int bitval)
 +{
-+	u32 control;
-+	int ret = 0;
-+	struct rvtrace_component *comp = dev_get_drvdata(csdev->dev.parent);
-+	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
-+	unsigned long flags;
++	int i = RVTRACE_TIMEOUT_US;
++	u32 val;
 +
-+	spin_lock_irqsave(&atbbridge_data->spinlock, flags);
-+	if (!comp->was_reset) {
-+		ret = rvtrace_component_reset(comp);
-+		if (ret)
-+			goto done;
++	while (i--) {
++		val = readl_relaxed(comp->base + offset);
++		if (((val >> bit) & 0x1) == bitval)
++			break;
++		udelay(1);
 +	}
 +
-+	control = readl_relaxed(comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
-+	control |= FIELD_PREP(RVTRACE_ATBBRIDGE_CONTROL_ID_MASK, atbbridge_data->traceid);
-+	writel_relaxed(control, comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++	return (i < 0) ? -ETIMEDOUT : 0;
++}
++EXPORT_SYMBOL_GPL(rvtrace_poll_bit);
 +
-+	ret = rvtrace_enable_component(comp);
++int rvtrace_enable_component(struct rvtrace_component *comp)
++{
++	u32 val;
++
++	val = readl_relaxed(comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++	val |= BIT(RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT);
++	writel_relaxed(val, comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++	return rvtrace_poll_bit(comp, RVTRACE_COMPONENT_CTRL_OFFSET,
++				RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT, 1);
++}
++EXPORT_SYMBOL_GPL(rvtrace_enable_component);
++
++int rvtrace_disable_component(struct rvtrace_component *comp)
++{
++	u32 val;
++
++	val = readl_relaxed(comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++	val &= ~BIT(RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT);
++	writel_relaxed(val, comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++	return rvtrace_poll_bit(comp, RVTRACE_COMPONENT_CTRL_OFFSET,
++				RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT, 0);
++}
++EXPORT_SYMBOL_GPL(rvtrace_disable_component);
++
++int rvtrace_component_reset(struct rvtrace_component *comp)
++{
++	int ret;
++
++	writel_relaxed(0, comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++	ret = rvtrace_poll_bit(comp, RVTRACE_COMPONENT_CTRL_OFFSET,
++			       RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT, 0);
 +	if (ret)
-+		goto done;
++		return ret;
 +
-+	spin_unlock_irqrestore(&atbbridge_data->spinlock, flags);
-+
-+	dev_dbg(&csdev->dev, "Trace ATB bridge enabled\n");
-+done:
-+	return ret;
++	writel_relaxed(RVTRACE_COMPONENT_CTRL_ACTIVE_MASK,
++			comp->base + RVTRACE_COMPONENT_CTRL_OFFSET);
++	return rvtrace_poll_bit(comp, RVTRACE_COMPONENT_CTRL_OFFSET,
++				RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT, 1);
 +}
++EXPORT_SYMBOL_GPL(rvtrace_component_reset);
 +
-+static void atbbridge_disable(struct coresight_device *csdev,
-+			      struct coresight_connection *in,
-+			      struct coresight_connection *out)
++struct rvtrace_component *rvtrace_register_component(struct platform_device *pdev)
 +{
-+	struct rvtrace_component *comp = dev_get_drvdata(csdev->dev.parent);
-+	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
-+	unsigned long flags;
++	int ret;
++	void __iomem *base;
++	struct device *dev = &pdev->dev;
++	struct rvtrace_component *comp;
++	struct resource *res;
++	struct device_node *node;
++	u32 impl, type, major, minor;
 +
-+	spin_lock_irqsave(&atbbridge_data->spinlock, flags);
++	comp = devm_kzalloc(dev, sizeof(*comp), GFP_KERNEL);
++	if (!comp) {
++		ret = -ENOMEM;
++		goto err_out;
++	}
 +
-+	if (rvtrace_disable_component(comp))
-+		dev_err(&csdev->dev,
-+			"timeout while waiting for Trace ATB Bridge to be disabled\n");
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	base = devm_ioremap_resource(dev, res);
++	if (IS_ERR(base)) {
++		ret = -EINVAL;
++		goto err_out;
++	}
++	comp->base = base;
 +
-+	if (rvtrace_comp_is_empty(comp))
-+		dev_err(&csdev->dev,
-+			"timeout while waiting for Trace ATB Bridge internal buffers become empty\n");
++	comp->cpu = -1;
++	for (int i = 0; ; i++) {
++		node = of_parse_phandle(dev->of_node, "cpus", i);
++		if (!node)
++			break;
 +
-+	spin_unlock_irqrestore(&atbbridge_data->spinlock, flags);
-+
-+	dev_dbg(&csdev->dev, "Trace ATB bridge disabled\n");
-+}
-+
-+static int atbbridge_link_trace_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
-+				   __maybe_unused struct coresight_device *sink)
-+{
-+	struct rvtrace_component *comp = dev_get_drvdata(csdev->dev.parent);
-+	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
-+
-+	return atbbridge_data->traceid;
-+}
-+
-+static const struct coresight_ops_link atbbridge_link_ops = {
-+	.enable		= atbbridge_enable,
-+	.disable	= atbbridge_disable,
-+};
-+
-+static const struct coresight_ops atbbridge_cs_ops = {
-+	.trace_id	= atbbridge_link_trace_id,
-+	.link_ops       = &atbbridge_link_ops,
-+};
-+
-+static ssize_t reset_store(struct device *dev,
-+			   struct device_attribute *attr,
-+			   const char *buf, size_t size)
-+{
-+	unsigned long val;
-+	struct rvtrace_component *comp = dev_get_drvdata(dev->parent);
-+	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
-+	unsigned long flags;
-+
-+	if (kstrtoul(buf, 16, &val))
-+		return -EINVAL;
-+
-+	if (val) {
-+		if (rvtrace_component_reset(comp)) {
-+			comp->was_reset = false;
-+			spin_unlock_irqrestore(&atbbridge_data->spinlock, flags);
-+			return -EINVAL;
++		ret = of_cpu_node_to_id(node);
++		of_node_put(node);
++		if (ret >= 0 && cpu_online(ret)) {
++			comp->cpu = ret;
++			break;
 +		}
 +	}
 +
-+	spin_unlock_irqrestore(&atbbridge_data->spinlock, flags);
++	if (comp->cpu < 0) {
++		dev_err(dev, "No valid CPU found in 'cpus' property\n");
++		ret = -EINVAL;
++		goto err_out;
++	}
 +
-+	return size;
++	ret = rvtrace_component_reset(comp);
++	if (ret)
++		goto err_out;
++	comp->was_reset = true;
++
++	impl = readl_relaxed(comp->base + RVTRACE_COMPONENT_IMPL_OFFSET);
++	type = (impl >> RVTRACE_COMPONENT_IMPL_TYPE_SHIFT) &
++		RVTRACE_COMPONENT_IMPL_TYPE_MASK;
++	major = (impl >> RVTRACE_COMPONENT_IMPL_VERMAJOR_SHIFT) &
++		RVTRACE_COMPONENT_IMPL_VERMAJOR_MASK;
++	minor = (impl >> RVTRACE_COMPONENT_IMPL_VERMINOR_SHIFT) &
++		RVTRACE_COMPONENT_IMPL_VERMINOR_MASK;
++
++	comp->id.type = type;
++	comp->id.version = rvtrace_component_mkversion(major, minor);
++
++	return comp;
++
++err_out:
++	return ERR_PTR(ret);
 +}
-+static DEVICE_ATTR_WO(reset);
++EXPORT_SYMBOL_GPL(rvtrace_register_component);
+diff --git a/include/linux/rvtrace.h b/include/linux/rvtrace.h
+new file mode 100644
+index 000000000000..e7028d82f8fd
+--- /dev/null
++++ b/include/linux/rvtrace.h
+@@ -0,0 +1,116 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright(C) 2026 Spacemit Limited. All rights reserved.
++ */
 +
-+static ssize_t cpu_show(struct device *dev,
-+			struct device_attribute *attr, char *buf)
-+{
-+	unsigned long val;
-+	struct rvtrace_component *comp = dev_get_drvdata(dev->parent);
++#ifndef __LINUX_RVTRACE_H__
++#define __LINUX_RVTRACE_H__
 +
-+	val = comp->cpu;
-+	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+}
-+static DEVICE_ATTR_RO(cpu);
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/platform_device.h>
++#include <linux/coresight.h>
++#include <linux/types.h>
 +
-+static ssize_t traceid_show(struct device *dev,
-+			 struct device_attribute *attr, char *buf)
-+{
-+	unsigned long val;
-+	struct rvtrace_component *comp = dev_get_drvdata(dev->parent);
-+	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
++/* Control register common across all RISC-V trace components */
++#define RVTRACE_COMPONENT_CTRL_OFFSET		0x000
++#define RVTRACE_COMPONENT_CTRL_ACTIVE_MASK	0x1
++#define RVTRACE_COMPONENT_CTRL_ACTIVE_SHIFT	0
++#define RVTRACE_COMPONENT_CTRL_ENABLE_MASK	0x1
++#define RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT	1
++#define RVTRACE_COMPONENT_CTRL_EMPTY_SHIFT	3
 +
-+	val = atbbridge_data->traceid;
-+	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-+}
-+static DEVICE_ATTR_RO(traceid);
++/* Implementation register common across all RISC-V trace components */
++#define RVTRACE_COMPONENT_IMPL_OFFSET		0x004
++#define RVTRACE_COMPONENT_IMPL_VERMAJOR_MASK	0xf
++#define RVTRACE_COMPONENT_IMPL_VERMAJOR_SHIFT	0
++#define RVTRACE_COMPONENT_IMPL_VERMINOR_MASK	0xf
++#define RVTRACE_COMPONENT_IMPL_VERMINOR_SHIFT	4
++#define RVTRACE_COMPONENT_IMPL_TYPE_MASK	0xf
++#define RVTRACE_COMPONENT_IMPL_TYPE_SHIFT	8
 +
-+static struct attribute *trace_atbbridge_attrs[] = {
-+	coresight_simple_reg32(control, RVTRACE_COMPONENT_CTRL_OFFSET),
-+	coresight_simple_reg32(impl, RVTRACE_COMPONENT_IMPL_OFFSET),
-+	&dev_attr_reset.attr,
-+	&dev_attr_cpu.attr,
-+	&dev_attr_traceid.attr,
-+	NULL,
++#define RVTRACE_TIMEOUT_US			100
++
++/* Possible component types defined by the RISC-V Trace Control Interface */
++enum rvtrace_component_type {
++	RVTRACE_COMPONENT_TYPE_RESV0,
++	RVTRACE_COMPONENT_TYPE_ENCODER, /* 0x1 */
++	RVTRACE_COMPONENT_TYPE_RESV2,
++	RVTRACE_COMPONENT_TYPE_RESV3,
++	RVTRACE_COMPONENT_TYPE_RESV4,
++	RVTRACE_COMPONENT_TYPE_RESV5,
++	RVTRACE_COMPONENT_TYPE_RESV6,
++	RVTRACE_COMPONENT_TYPE_RESV7,
++	RVTRACE_COMPONENT_TYPE_FUNNEL, /* 0x8 */
++	RVTRACE_COMPONENT_TYPE_RAMSINK, /* 0x9 */
++	RVTRACE_COMPONENT_TYPE_PIBSINK, /* 0xA */
++	RVTRACE_COMPONENT_TYPE_RESV11,
++	RVTRACE_COMPONENT_TYPE_RESV12,
++	RVTRACE_COMPONENT_TYPE_RESV13,
++	RVTRACE_COMPONENT_TYPE_ATBBRIDGE, /* 0xE */
++	RVTRACE_COMPONENT_TYPE_RESV15,
++	RVTRACE_COMPONENT_TYPE_MAX
 +};
-+ATTRIBUTE_GROUPS(trace_atbbridge);
 +
-+static int atbbridge_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct coresight_platform_data *pdata;
-+	struct atbbridge_data *atbbridge_data;
++/* Encoding/decoding macros for RISC-V trace component version */
++#define rvtrace_component_version_major(__version)	\
++	(((__version) >> 16) & 0xffff)
++#define rvtrace_component_version_minor(__version)	\
++	((__version) & 0xffff)
++#define rvtrace_component_mkversion(__major, __minor)	\
++	((((__major) & 0xffff) << 16) |	((__minor) & 0xffff))
++
++/**
++ * struct rvtrace_component_id - Details to identify or match a RISC-V trace component
++ * @type:      Type of the component
++ * @version:   Version of the component
++ * @data:      Data pointer for driver use
++ */
++struct rvtrace_component_id {
++	enum rvtrace_component_type type;
++	u32 version;
++	void *data;
++};
++
++/**
++ * struct rvtrace_component - Representation of a RISC-V trace component
++ * base:             Memory mapped base address for the component
++ * id:               Details to match the component
++ * dev:              Device instance
++ * cpu:              The cpu this component is affined to
++ * was_reset:        Flag showing whether RISC-V trace driver was reset successfully
++ */
++struct rvtrace_component {
++	void __iomem *base;
++	struct rvtrace_component_id id;
++	struct device *dev;
++	int cpu;
++	bool was_reset;
++};
++
++struct component_enable_arg {
 +	struct rvtrace_component *comp;
-+	struct coresight_desc desc = { 0 };
-+	int trace_id = 0;
++	int rc;
++};
 +
-+	comp = rvtrace_register_component(pdev);
-+	if (IS_ERR(comp))
-+		return PTR_ERR(comp);
++struct rvtrace_component *rvtrace_register_component(struct platform_device *pdev);
 +
-+	atbbridge_data = devm_kzalloc(dev, sizeof(*atbbridge_data), GFP_KERNEL);
-+	if (!atbbridge_data)
-+		return -ENOMEM;
++int rvtrace_poll_bit(struct rvtrace_component *comp, int offset,
++		     int bit, int bitval);
 +
-+	spin_lock_init(&atbbridge_data->spinlock);
++int rvtrace_enable_component(struct rvtrace_component *comp);
++int rvtrace_disable_component(struct rvtrace_component *comp);
++int rvtrace_component_reset(struct rvtrace_component *comp);
 +
-+	pdata = coresight_get_platform_data(dev);
-+	if (IS_ERR(pdata))
-+		return PTR_ERR(pdata);
-+	pdev->dev.platform_data = pdata;
-+
-+	platform_set_drvdata(pdev, comp);
-+
-+	desc.name = coresight_alloc_device_name(&atbbridge_devs, dev);
-+	desc.access = CSDEV_ACCESS_IOMEM(comp->base);
-+	desc.type = CORESIGHT_DEV_TYPE_LINK;
-+	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_FIFO;
-+	desc.ops = &atbbridge_cs_ops;
-+	desc.pdata = pdata;
-+	desc.dev = dev;
-+	desc.groups = trace_atbbridge_groups;
-+	atbbridge_data->csdev = coresight_register(&desc);
-+	if (IS_ERR(atbbridge_data->csdev))
-+		return PTR_ERR(atbbridge_data->csdev);
-+
-+	trace_id = coresight_trace_id_get_system_id();
-+	if (trace_id < 0)
-+		return -EINVAL;
-+	atbbridge_data->traceid = (u8)trace_id;
-+
-+	comp->id.data = atbbridge_data;
-+
-+	dev_dbg(dev, "Trace ATB Bridge initialized\n");
-+
-+	return 0;
-+}
-+
-+static void atbbridge_remove(struct platform_device *pdev)
++static inline void *rvtrace_component_data(struct rvtrace_component *comp)
 +{
-+	struct rvtrace_component *comp = platform_get_drvdata(pdev);
-+	struct atbbridge_data *atbbridge_data = rvtrace_component_data(comp);
-+
-+	coresight_trace_id_put_system_id(atbbridge_data->traceid);
-+	coresight_unregister(atbbridge_data->csdev);
++	return comp->id.data;
 +}
 +
-+static const struct of_device_id atbbridge_match[] = {
-+	{.compatible = "riscv,trace-atbbridge"},
-+	{},
-+};
++static inline int rvtrace_comp_is_empty(struct rvtrace_component *comp)
++{
++	return rvtrace_poll_bit(comp, RVTRACE_COMPONENT_CTRL_OFFSET,
++				RVTRACE_COMPONENT_CTRL_EMPTY_SHIFT, 1);
++}
 +
-+static struct platform_driver atbbridge_driver = {
-+	.probe = atbbridge_probe,
-+	.remove = atbbridge_remove,
-+	.driver = {
-+		.name	= "trace-atbbridge",
-+		.of_match_table = atbbridge_match,
-+	},
-+};
-+
-+module_platform_driver(atbbridge_driver);
-+
-+MODULE_DESCRIPTION("RISC-V Trace ATB Bridge driver");
-+MODULE_LICENSE("GPL");
++#endif
 -- 
 2.34.1
 
