@@ -4,135 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DCD4F9D0CD
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 12:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C93EFF9D0CA
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 12:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W8y+bG4GLgQE57bGtqAu1eKGi8YUDLFBVGxEN3LD37E=; b=a5hDmIsNyKWweM
-	nTGTjnQeJ+EWm546cyLSXjH0DIi/+qLpKzRdZhfag3RH2C7koGHjLv/YZw3LCdBWNyGkljXrR8k+a
-	MUYZut0JeLAyVkdlNBvLPWHSSzYN/Wb8LCxIlg0ooqO7M5o3kpAcRmLBQzmIC5djI3TV1EU9NT+H3
-	Oc+3gvtxVAAgj5GEiAWd5l64240HVy2y9UpnBRZlEq8tHiU+jYe27qI9a6CtHLCH/EpNABc8+aZ6R
-	LEK1YsfqWAwz+PNCaA1ACtlHUShCdJSpo76BDJZT1qWS60+GyuLGG2/+ZJYSQvbgSCJtzVLuKle3k
-	GTEN1vlKKmLHmbSSzyxg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=S7jcapWIR3C+wE++D1FdOVCvl9lr0EETS5Qkcg9xuK8=; b=xwp6Tfo5hVkD/V
+	57/1Kqd4TICk6ltX0RnBSTHKgpcOofswkp1LTdpjBuq+WaH+6nvPHSRHdDkwkJAYXo0XrmRmmm/37
+	nJnec3m8p0HmfbYpqbboq9NYY1vrJF59uroNWlSXHxdWitAgjTJyMwun2WJC1s1R2lF2MJILxmK5x
+	WUL/qS040jNg98JLsFZmI/NR3pFHx9Z51PLVpwGqxf/rjrXvbxTXQ7IEMBCXbbd4OoJUfQOPCZ58v
+	GbmIrTmCmQ19VCRlv6azuON2EY9KJ+1NvubRUr27X9SwVFzo8lHGSRQ/nCwqYrFWU5XVkqnD1OHaY
+	yeyIW1VOG1MK0fPeWkdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCd6D-0000000HJFx-0tLx;
-	Tue, 14 Apr 2026 12:42:37 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1wCdAp-0000000HJkL-44pP;
+	Tue, 14 Apr 2026 12:47:24 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCd6A-0000000HJFJ-1Hn0;
-	Tue, 14 Apr 2026 12:42:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1776170520; x=1776775320; i=deller@gmx.de;
-	bh=t+TkXeWEba/XrFX3yATqWZDjmT7vuDDsgvIBT65AAhc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=fAzpenIgpi3rVYugWOIkZZn0tIyFERuZsPfi46E8ZHN94Sc5kE/YMsjy3v3oWzr+
-	 Qfw6wzuSGlr8dS591fcpDsbv+ftgBEfYXTWA19Pu5Qr8kDzb6JoPyy5SFw0BW3RPU
-	 Bf7qFVm3pzevH2My1og5pLNoQKnQtHa91BakdZN1enkoxtKTBtqgakivdwpsPDDAH
-	 mipzWdckMOOoOphH0+XzAK0gdPQo9m+Bf7rF7/pA/F9Qf88DJFr/uTkTD1UBnV5aW
-	 RSF31i+XPMsy+XIHjnT28Gdk1G4bCiu1VG5V6QBFy2hV8AcN5VhDJvVPRgmTQV5Tl
-	 60IPWSvmUUbh0PWVvA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MNKhs-1vnwIX2Vas-00YsyQ; Tue, 14
- Apr 2026 14:41:59 +0200
-Message-ID: <f0731727-fae7-4582-ad5b-a5d95b0d78ec@gmx.de>
-Date: Tue, 14 Apr 2026 14:41:52 +0200
+	id 1wCdAl-0000000HJio-1blg
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Apr 2026 12:47:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1776170829; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=YqK86tN+5CwSiapRk+YDENrvDUQ4S2Gqqvz2QGp5ER4=;
+	b=xd7j/+H4k8b1tOovjG7RduDvbAez+bXRRxXZIxd0eG3pGh42C4CChDHVtfSjrZTxQdcVfMbKNr81WOU5wG3ExJo/AqQxjka1Kq8dyQlR2djboXr8QilEK5JCLKv1L7YvJeXlEPbt2UxgDD5D/kyE1q3o1GNVOtz7pVCEcxcOqOM=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0X11UUgK_1776170820;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X11UUgK_1776170820 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 14 Apr 2026 20:47:06 +0800
+From: cp0613@linux.alibaba.com
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com,
+	dapeng1.mi@linux.intel.com,
+	pjw@kernel.org,
+	alex@ghiti.fr,
+	guoren@kernel.org
+Cc: linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Pei <cp0613@linux.alibaba.com>
+Subject: [PATCH] perf riscv: Add SDT argument parsing for RISC-V
+Date: Tue, 14 Apr 2026 20:46:55 +0800
+Message-ID: <20260414124655.129463-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch 31/38] parisc: Select ARCH_HAS_RANDOM_ENTROPY
-To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-Cc: linux-parisc@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
- x86@kernel.org, Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev,
- Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
- linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>,
- linux-mm@kvack.org, David Woodhouse <dwmw2@infradead.org>,
- Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
- Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
- Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
- "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Richard Henderson <richard.henderson@linaro.org>,
- linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
- Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
- linux-openrisc@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
- linux-s390@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- sparclinux@vger.kernel.org
-References: <20260410120044.031381086@kernel.org>
- <20260410120319.658485572@kernel.org>
-Content-Language: en-US
-From: Helge Deller <deller@gmx.de>
-Autocrypt: addr=deller@gmx.de; keydata=
- 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
-In-Reply-To: <20260410120319.658485572@kernel.org>
-X-Provags-ID: V03:K1:YZqOPGpEpMYOOKnwdNEQ7I3XH33yrIj2uNRXsp2/NoY4YKTm37d
- cWruVun3i7Sk4GIlBSCYmCwwqcNjragvIKsBHFI3iLQKRhUmXElNimqdOrFj4qhSzGCrQz5
- 4Nl2leWKLE/WJTA3v6zYwlGFukOTRBLg+lyk/SmoPVxTH7cptbFjBFi4OyiaN9y5NYZwXCM
- E/BuuquGn8nLMTRaoFkig==
-UI-OutboundReport: notjunk:1;M01:P0:znJiATTqjr0=;C7ANzcgujBb/tqMadvALWw89Q6O qP/gPwBQf1OW1tu42HfU2LuRrVV1JkIfrVSGhnZNJwh4NaSWYIbk50QGkvMAWYD0ekO6seCeG B18dHlbP8BU9dJM0Ocnv+BYHql9WoUhrVUv5WtkoS8us8m8fY3QoIAxJru7qZ8cdkCzmKH2AR 9tb532P+hkdKfFXxwMxFCzgPfETf5ctBoVvHxb/8uC+76UuzazHT220CdLWEd9hxN4nVKDsnE +Pj5nfo3Wqq7aF/6e4SMR8bVDbdM6aVr5GaC/i7bCCrzD6UHJlhmcI0rjGJaMTkQrrgr9B6ou tJRax6+OiQUmFIOWjQ1QUdU/7Mfczt+PGpjJ0we5jQI5mo14SQ8FD+1Gb9LyoPPCjKYZ3Nmnp uDiVLgl3iT1N3aHIUkObM2ID/ZYtAoc6aDZBl6IRvdh1dlko+5Vv5WcoKmrY0u6MtZccmdgJp tUgJl2+f4PeLKHAGJ9rkaYzXUKqjcQ753831Tiot6zsVXdf0OzR2FJxCKkVA38vzS0hiHlL4Q f3zbec74rcqEW6XEhQPY1KstBKYUXiodF/7Zl5V3oOGgG5ggvRBlgfQ6rAMZArR0Gg4Ac58iO 80AdaOc8Vp32O4LtfFt5GpOAx/VmP591yxVW8Ao/lklQ/q+U5076uvfr7LhrFr0VD6oW1cZpY kEKvsbiZURBbNEA5ShmaXOLmaB72dky/1Zec1zwEvkONGjG3anXX8uEIN8VfiM6LPVfipWr4P LknSksuNrnDM1gSwFqyV72v6B8gIFBdUj3CIoKJ1Of4rSfuUA19g7RAK7WaplY+15EenmbqfR vt3EMnBmelkdqLNlt+UXRML7ImCgLrgzbovD3bJErp/TIKcrv7TXzSaOGBmlziVI9e0jJ4BUk yqHZwMZai7fpx5r4FRSGEi6HCKIBegi3Tf3Dj98ncnchnZiiTaZijvu4ZsbJv3YDSG5skyfYO 9Bdv3kzxJIqMt3kCekZsXIx9x16q7HHFrTrSvJxPywBRjLdmYNvNJS4U5CMmRE+2u+NeIPeFL VqKuiIb63P9mBaj0mIr8+IwCCvg8+3c5J38LQQagXORBptJOe5wVgDO4kuYHo24EVwrxjRhI1 ME1I5bdjK32rxUP1pszVHB9RVKr9/ZNCRjLI/6r4inV9NcpmYQKPtACIhMjFe4q3AqJaibsig 4RiTJ3X/B5WnyJCTXUqc32fqD6aqST9gYaM/0c34Is0/fBFm5aDV88edbK6UVZcy5pqqM18Zf NyoCQSBrfNY8QjkLsPrhJPZw4N5OFIkDO3kv2fDWN93WsXPStIAmgc5F7tuGvKHF+7Zrq6fDT 5Qi0Ya/4HjuHjZWPygGLxQrOAQh5atyR4NGVfIjhjOlDsato3FI/k4EgRnNx2an3UpUiPPUf3 Lz9TAdRIdZ39CmyXHRVXG+f38XIzwpwo/inAq1nZBzPcqEuUigXc/P6WpCON2JrAXRs8tErmR CptooPOdwExUgE1POVn1iYMivEIwywFoia2r38fYHQjqMi7bZEmdEMGMtaqSoyFZqwlz+zozW Nayf/gNMRdxrUFkiCA0xRjD1ZLvlG+4N7eIBoZIn2bOauKMsGw+O+mGtSWkC+oAsy5H2NHel7 aAjtwee169qOX9SUYWlgaXQzTG/AO6TA0rh2GuzQY9gmkZGjJtXoTUx7947bnxK90zUsEa9Se mG+xIYoUYpbAIsf1P0R1+wHXdVurBdz2+dQtZZkjsxzDK4y1mqThXeE8HqFxInWhH11TeECMF kK/Hi/eWPxfMWtsKtNF7BaCIUirA6CVmxrF4eVrlr6+XN2ZXC9voFwhv3hZ1QhGnN+1MqodGh alEx+GVCUBZ0YBs0RB2eRTffdo8N12PNsbjXn4xjTSJtlFX4xp9XGLTbkNzpv3ONeigwBm9nw aUD+qnDAXfqyrLEA9BbdikqF15uQQQUJShufKIRKNGtNZPMT3+BbacCwDW8Lpu1L2+bO1P8Zp ubEktCZ85cTTKVTyJNzxDYA1RwfrRDHnung7Ro1HCnwJxOmhaL8S+Li3F+s/jklBrJ+DYUg/E ZJ+6mYEb4bQsFoyivxeYvtc+MHpGFK2DOVrp4bRewJAZXErVSY2mAuTTlbUOdy0dsO3f9qrM1 BmfwrZoXCbKUhKPmiPrGeJi2NK5gdpicQAMVXvt35gKwbLiJ1I7qfgvGHpmRA90pmt+ohifyC utSt/YBssXODZmpLFRuCWivM66wp53gHc1h5HWDXs7oNCYiiIYeEyXABPiijleGYbtrwfk8ji cSoNwb7l/VTxMrdQDIz2s2dcVsqVX/VXbk4uKJduWy8lKukQ7gidvTWXO8tlYQnDwsuI6d/nj 0G1MgD2vLm/JEQto8lsG3RiQWUDu4reZS++6t8Wa+bV/KCgBo/RmSBq0vHerhg1dmh6JlK69t Hx51s6ZTZCPROZsX6+BFzDayKRDfNxfpoz4mxpgw9ajnGGRxla76XimpzvstgE7ZPx14IyYou f3KxEEsF54pVSoT/o7GPd+n4FD1JUyb9vuugB04iIqVX7P/QvdsuUZWEm1RTxNyryajMBvGSI 579xCMtswwENm9cDscD2s2puZgWhvJTJ5oDa90zrOGWfwG/NNwYjEm9Or3qYv4O1yr/qW8PMj zD7QnrqnYXqXdA6XzZHFxDytp3A9BIqhge+ady8MPkXW5e/3R5h+HwS1RPU8xNBiAOcf09nj1 4btbljneDZ+ZMrWfUMjG/kXewm0XBIuEk2n5gEGZcazQcqXKn6QTzH2HolC8iHZLV0hocqEmT 7eYBGq/uxBpzqaRgEezifRQg/s79WUNmwhlZwXqFSqYXSk7i8Dbvq9bIq/iR0hU4TTK8fEvw4 huaCbvAoKTVrhHOENqvHFCycYeOlANR8Q3II86oMzkLXVMev+Kacd4U7OEBzijO8ZX8gtwmyO Wu6VCmlFh5jH5CsQaFNHMfRZimoSJEMJrC6TG87fKGUBUv0/o5khNrjcdtdbhVIEItfcQDqXZ 7g+dejlPLHMnDZzFCnPa9+YmZejpl/3T24PDC9jtWj4AtvsdvrGHNa1NriEqNlvTvBVuffJ3t J6854p+Go8F8iJvgynswZk/MsSxDp7nSCteMigeXII9IysgbBLMZ7UBnX+saPpcctaibWKjf2 s12vKTGarGDl4ctXzP3s0o2n5NwOlfrhRYRM+UWquSSxTIbaofjFPSJ3DqtI3JcznzEWTE5AN oB1mEjwsDpLnvKf/4lmMd4KlLwgu96E5+CXVtAc2W2DDonSmyYtfKRGP4XiTXheyAOFs0tCGJ 2aUKHtzivT5w8C2trUJzKRmzU9gl2I0zcJLR/6bF0mTyIChcdgiWtIP0s87S5CmIk9X6BpHfa xbtB30KtqeIIsXYA0lCbsawQ2fVYNDmBgR4bt0LYoJ1clNT29EjtjiFhpE6+Q0q6wACBI/npH 5ouIvA1lQHMKhlK8WZbgdJh7jBLs6oxRqP/igQ8/nC2l0mfnDlUiLk2cBm8mA0yyYp/llHAYN OuZKH50KIm6RYWwZJOhjJQgHY+YVa7VBxlBtBL2J5iDcKgxgUfA0BgmDwCJ7zFIU7cCqsT/Oq xZVPJYt3JU+0IXN4VwxXs+NEyp/FbHLDyLV/wqwIvi5jKnckkdS76U5fv9s22RkmLyXkMB+rd kZR3xEjvkH8CCX/slsKMPL8sNnhpsdRcCD5QmOe40U6Ag7JdoX+SklRKHPrRdZrhWapuBj774 5wxqwWkAZnBfezAreJaSYUWEEH7kxRiHQ0Qjd1BWsUjsLTyc0knCSKKITSK5Adhx1rlaJsNRg jyH08+qlWdk7hPo4LVuKhfWXdLaxiMCGDo0UA0nzTGIODPfBWdNSep73iC6jY6ehGsXel/157 CJqllxtbTYIzuXoMSZ1fEywOuJaXkYT0o6s2HgCcOqXOJ2Bq50049ND16fsDXb95f5K6Rqw80
- 4Vdn/mSvqJb/tbAMEWvdrrKnP7e1M8o8ZU50XyTOQcExmBhrXwsBvOOz8eGJZDdDrVQ7LrF/V T3edTWiKCoY3J+lU0oXUxyVFr3nv+jfgO0kDeZGhRGkpvAfJu7HjnJdSLsurW/xmDo39cC8yB rAjll8JMF9RbMcAXfo3rstf623Phs2E2FYHig46O7OHX9zIulgioPGmY8boOgpo89DJ+d1/vs YKg60mwA4n0zjt1L+PRrm+pVJ+GrfRDMAPqn1BUt1p/XUdsYXPwRc3twTaqBaINQeKC3lADSn g2C5qZF5WYxRqb9geRE6lSa8sOHbpokOGDlNaXDSbCxm6ugfLdI+zmLELB9WnzhjM5WV9koji hlUMN4FPJ41ynFI83jlFpGasXFlywsKAqqK62fwryoUC0WgeAszzL27LaCZZJrky5laM6jdxk DVOl80/gaFIZrRp127+48uhRbcgCy8OV+YqBaOmRfTDRz0nb074oIebe7rBm0033uKI/jQjRB JJzdfFyl3Hsr3WZnaGQ9ZUD6sJSPDeTBb4XIUO42Tn74DvhFSb+v9gD5NXiqnHVS0vsESV7Er BF+mf3CSVOduSBmeijuyn4zQWXiXF6Crrs4pz8p39WMCUh3BS25ohXU1yyTskp/V+q9YoX5SO NTKvXoRf1ps1bTaz7a1nSpm2JjbQczQOkORLypv/8lY+aSEeqVKrCV05CmN+xlimMj8ATVq15 RzTk32JTdvFGzb+yTC3fZg4EhcBQphfpnQs1sWaZkNHr5d7tZj3z018jqqNnUSZAK620tRWLR H4yZ6hmk3YcFmUTfQzHOHyCAY7/LU4O/IUMxuB27vhEvl51qqzW9k6p0Mv3q0j64FVt7PywfP OthHrFQJslQJysCc5z1wimeBc8yC6gPStL7iyWqAjyqIKspx0+akVSxhT+HfEZDkwPGuP+bdP F36HncbQWzokbGINnn0D5oC063wmdlGXFhK/CQm63tNykVFVqwHro0PPOkDR1Ot3fdgm+0frB F9Ec/UpziLO5+ToN93RMTRXTTedX1FdmNSB6bqmx3+f+n1TE8VdJaHM9+DJuA4f4tDw1j1J/b ge0h8yy4CzDiFDZkEeLaH0KwVDCGQmUrJhOvwbwN1r9pL/azPzqoMdAXsBkEg60Hr6AIsXOdO 1HCQhKcdZqdLI0Ks19Nxb6SnTfJtBMfqc1dQDepnCrC7QJlXbI3Fvp2K3IOykqC3HweXho08q A+3ReK618kAQpsTO8CeOfQAqXD3dbo2C1kcNQB7pf0KueI375F6QXuWY0SuA4tbX3+e9zgU4P Z09seW4fun3R6YnYVyA23HkAuDcJp9Nd7oJfpraKb6j9t7i34MKiGDvgrs58z2Li0hdEonGRK r2AYl+/Z+p3aBdXvD/YZLSTLhBsoqeH28f3SdArg4bwteGX6pIMb4Nn9yzNXy3VVhrXqyC2qi 6rv/4a8Ngkgbl8Nl3sJ0LtsSb3+wpjyyI/9L3mk22LZBL+5dqLONzyTjiBP2keCNMFj32KDo1 /N1LZOhmKA9iZc1LT831FU2GiPs/oQHUCx03zluqZRimk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_054234_686669_F86171C1 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20260414_054720_373944_FF1703BB 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,39 +69,233 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/10/26 14:21, Thomas Gleixner wrote:
-> The only remaining non-architecture usage of get_cycles() is to provide
-> random_get_entropy().
-> 
-> Switch parisc over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
-> and providing random_get_entropy() in asm/random.h.
-> 
-> Add 'asm/timex.h' includes to the relevant files, so the global include can
-> be removed once all architectures are converted over.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Helge Deller <deller@gmx.de>
-> Cc: linux-parisc@vger.kernel.org
-> ---
->   arch/parisc/Kconfig              |    1 +
->   arch/parisc/include/asm/random.h |   12 ++++++++++++
->   arch/parisc/include/asm/timex.h  |    6 ------
->   arch/parisc/kernel/processor.c   |    1 +
->   arch/parisc/kernel/time.c        |    1 +
->   5 files changed, 15 insertions(+), 6 deletions(-)
+From: Chen Pei <cp0613@linux.alibaba.com>
 
-I tested this series on parisc.
-Works as expected.
+Implement __perf_sdt_arg_parse_op_riscv() to convert RISC-V GCC-generated
+SDT probe operands into uprobe-compatible format, and register it in the
+perf_sdt_arg_parse_op() dispatcher for EM_RISCV.
 
-Tested-by: Helge Deller <deller@gmx.de>
+RISC-V GCC uses the 'nor' constraint for SDT arguments, producing operands
+in the following formats:
 
-Thanks!
-Helge
+  Format       Example      Uprobe format
+  -----------  -----------  -------------
+  register     a0           %a0
+  memory (+)   8(a0)        +8(%a0)
+  memory (-)   -20(s0)      -20(%s0)
+  constant     99           (skip, not supported by uprobe)
+
+Key differences from other architectures:
+ - Register names use ABI aliases (a0-a7, t0-t6, s0-s11, sp, ra, etc.)
+   without any '%' prefix, unlike x86 (%rax) or arm64 (x0).
+ - Memory operands use OFFSET(REG) syntax where OFFSET may be negative,
+   unlike arm64's [sp, NUM] or powerpc's NUM(%rREG).
+
+Two regexes are used:
+ - SDT_OP_REGEX1: matches all RISC-V ABI register names
+ - SDT_OP_REGEX2: matches [-]NUM(REG) memory operands
+
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+---
+
+Tested on RISC-V QEMU(rv64gc) with GCC-generated SDT probes.
+Requires systemtap-sdt-dev (provides <sys/sdt.h>) on the target system.
+
+  # cat sdt_test.c
+  #include <sys/sdt.h>
+  #include <stdio.h>
+  void my_func(int a, long b) {
+      DTRACE_PROBE2(myapp, my_probe, a, b);
+      printf("a=%d b=%ld\n", a, b);
+  }
+  int main() { my_func(42, -100); return 0; }
+
+  # gcc -O0 -Wl,--build-id -o sdt_test_O0 sdt_test.c  # stack args: -20(s0)
+  # gcc -O2 -Wl,--build-id -o sdt_test_O2 sdt_test.c  # reg args:   a0
+  # perf buildid-cache --add sdt_test_O0
+  # perf buildid-cache --add sdt_test_O2
+  # find ~/.debug -name "probes" | xargs cat
+  p:sdt_myapp/my_probe .../sdt_test_O0:0x... arg1=-20(%s0):s32 arg2=-32(%s0):s64
+  p:sdt_myapp/my_probe .../sdt_test_O2:0x... arg1=%a0:s32 arg2=%a1:s64
+
+ .../util/perf-regs-arch/perf_regs_riscv.c     | 126 ++++++++++++++++++
+ tools/perf/util/perf_regs.c                   |   3 +
+ tools/perf/util/perf_regs.h                   |   1 +
+ 3 files changed, 130 insertions(+)
+
+diff --git a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
+index 5b5f21fcba8c..51b43e68e0e3 100644
+--- a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
++++ b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
+@@ -1,8 +1,134 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
++#include <errno.h>
++#include <regex.h>
++#include <string.h>
++#include <linux/kernel.h>
++#include <linux/zalloc.h>
++
++#include "../debug.h"
+ #include "../perf_regs.h"
+ #include "../../arch/riscv/include/perf_regs.h"
+ 
++/*
++ * RISC-V SDT argument formats (GCC 'nor' constraint):
++ *
++ * Register:  REG        e.g. a0, t1, s0, sp
++ * Memory:    NUM(REG)   e.g. 8(a0), -20(s0)
++ * Constant:  NUM        e.g. 99  (not supported by uprobe, skip)
++ *
++ * Uprobe target format:
++ *   Register: %REG       e.g. %a0
++ *   Memory:   +NUM(%REG) or -NUM(%REG)
++ */
++
++/* RISC-V register ABI names: zero, ra, sp, gp, tp, t0-t6, s0-s11, a0-a7 */
++#define SDT_OP_REGEX1  "^(zero|ra|sp|gp|tp|t[0-6]|s[0-9]|s1[01]|a[0-7])$"
++
++/* RISC-V memory operand: [-]NUM(REG) */
++#define SDT_OP_REGEX2  "^(\\-)?([0-9]+)\\((zero|ra|sp|gp|tp|t[0-6]|s[0-9]|s1[01]|a[0-7])\\)$"
++
++static regex_t sdt_op_regex1, sdt_op_regex2;
++
++static int sdt_init_op_regex(void)
++{
++	static int initialized;
++	int ret = 0;
++
++	if (initialized)
++		return 0;
++
++	ret = regcomp(&sdt_op_regex1, SDT_OP_REGEX1, REG_EXTENDED);
++	if (ret)
++		goto error;
++
++	ret = regcomp(&sdt_op_regex2, SDT_OP_REGEX2, REG_EXTENDED);
++	if (ret)
++		goto free_regex1;
++
++	initialized = 1;
++	return 0;
++
++free_regex1:
++	regfree(&sdt_op_regex1);
++error:
++	pr_debug4("Regex compilation error.\n");
++	return ret;
++}
++
++/*
++ * Parse OP and convert it into uprobe format.
++ * Possible variants of OP (RISC-V, GCC 'nor' constraint):
++ *
++ *   Format         Example       Uprobe
++ *   ----------------------------------------
++ *   REG            a0            %a0
++ *   NUM(REG)       8(a0)         +8(%a0)
++ *   -NUM(REG)      -20(s0)       -20(%s0)
++ *   NUM            99            (skip, constant not supported)
++ */
++int __perf_sdt_arg_parse_op_riscv(char *old_op, char **new_op)
++{
++	int ret, new_len;
++	regmatch_t rm[4];
++	char prefix;
++
++	/*
++	 * Constant argument: pure integer with no trailing '(' (e.g. "99", "-1").
++	 * uprobe does not support immediate values, so skip them.
++	 * Memory operands like "8(a0)" or "-20(s0)" contain '(' so are NOT
++	 * treated as constants here; they will be matched by REGEX2 below.
++	 */
++	if (strchr(old_op, '(') == NULL &&
++	    ((*old_op >= '0' && *old_op <= '9') ||
++	     (*old_op == '-' && old_op[1] >= '0' && old_op[1] <= '9'))) {
++		pr_debug4("Skipping unsupported SDT argument: %s\n", old_op);
++		return SDT_ARG_SKIP;
++	}
++
++	ret = sdt_init_op_regex();
++	if (ret < 0)
++		return ret;
++
++	if (!regexec(&sdt_op_regex1, old_op, 2, rm, 0)) {
++		/* REG --> %REG */
++		new_len = 2;	/* % NULL */
++		new_len += (int)(rm[1].rm_eo - rm[1].rm_so);
++
++		*new_op = zalloc(new_len);
++		if (!*new_op)
++			return -ENOMEM;
++
++		scnprintf(*new_op, new_len, "%%%.*s",
++			(int)(rm[1].rm_eo - rm[1].rm_so), old_op + rm[1].rm_so);
++	} else if (!regexec(&sdt_op_regex2, old_op, 4, rm, 0)) {
++		/*
++		 * NUM(REG) or -NUM(REG) --> +NUM(%REG) or -NUM(%REG)
++		 * rm[1]: optional '-'
++		 * rm[2]: decimal offset
++		 * rm[3]: register name
++		 */
++		prefix = (rm[1].rm_so == -1) ? '+' : '-';
++
++		new_len = 5;	/* sign ( % ) NULL */
++		new_len += (int)(rm[2].rm_eo - rm[2].rm_so);
++		new_len += (int)(rm[3].rm_eo - rm[3].rm_so);
++
++		*new_op = zalloc(new_len);
++		if (!*new_op)
++			return -ENOMEM;
++
++		scnprintf(*new_op, new_len, "%c%.*s(%%%.*s)", prefix,
++			(int)(rm[2].rm_eo - rm[2].rm_so), old_op + rm[2].rm_so,
++			(int)(rm[3].rm_eo - rm[3].rm_so), old_op + rm[3].rm_so);
++	} else {
++		pr_debug4("Skipping unsupported SDT argument: %s\n", old_op);
++		return SDT_ARG_SKIP;
++	}
++
++	return SDT_ARG_VALID;
++}
++
+ uint64_t __perf_reg_mask_riscv(bool intr __maybe_unused)
+ {
+ 	return PERF_REGS_MASK;
+diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
+index 5b8f34beb24e..57a1d227d1b2 100644
+--- a/tools/perf/util/perf_regs.c
++++ b/tools/perf/util/perf_regs.c
+@@ -19,6 +19,9 @@ int perf_sdt_arg_parse_op(uint16_t e_machine, char *old_op, char **new_op)
+ 	case EM_PPC64:
+ 		ret = __perf_sdt_arg_parse_op_powerpc(old_op, new_op);
+ 		break;
++	case EM_RISCV:
++		ret = __perf_sdt_arg_parse_op_riscv(old_op, new_op);
++		break;
+ 	case EM_386:
+ 	case EM_X86_64:
+ 		ret = __perf_sdt_arg_parse_op_x86(old_op, new_op);
+diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
+index 7c04700bf837..e0b51b514ee0 100644
+--- a/tools/perf/util/perf_regs.h
++++ b/tools/perf/util/perf_regs.h
+@@ -53,6 +53,7 @@ const char *__perf_reg_name_powerpc(int id);
+ uint64_t __perf_reg_ip_powerpc(void);
+ uint64_t __perf_reg_sp_powerpc(void);
+ 
++int __perf_sdt_arg_parse_op_riscv(char *old_op, char **new_op);
+ uint64_t __perf_reg_mask_riscv(bool intr);
+ const char *__perf_reg_name_riscv(int id);
+ uint64_t __perf_reg_ip_riscv(void);
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
