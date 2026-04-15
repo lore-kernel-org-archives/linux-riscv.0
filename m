@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1580AF41998
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 12:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46298F419A2
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 12:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ER67kVuH9Qvb82zoNeyP4D/favcVsvEBIk5xC4wK9OY=; b=QkKGFJ/CDTwD4x
-	qZZO45GP9ZUvaWSOqpS8pkRBqMzwwyzqlNjOscRrrR81NICCRV2Kkvd10e6GRGXVvP5iRwjOqUtI6
-	uhtAjX+DLfVVnkPRFMNELcr5UFpjOJ/MiObeSsGc8DYzr4mzu1zXDd5bQ9O8tkqJEVimsQyCxykyy
-	SPJpEdqJzyyuG0mgDDI2O2sEiPCA9SNZMbqXT1SSH5gvXwoVbs2LgUzRaBohxBsKendpDpHGE9QL2
-	pC7k8qz0s8C8vGKh62PLahp0C5UAHWFDT8/3TjSJQYysC8CZhGBxVrMFdI6LRmiT/i9qHxUmj7vIT
-	DDrxpNRk+bjztE2uR96A==;
+	List-Owner; bh=G/B4ev7DchmmTe0HAfkSXPyEAV0pD3f8CAJ2HyL9lgk=; b=DgchDwjkXiHCpw
+	WJlMRiQVTZFD3pxvfbX/lK7C4QBd816fJ/CNH+SDT1fMthDvL3PpXzwGRdTbellxiC+x+K9KH+fe7
+	Nk6eaaqdUiP3BnEZGLZGKdmUx6GdELdXQACNDqrJhK60d1+K8/NQVV+G4qIY1aNjccCCsAVY32W23
+	z5+RflfvvjeZrmQiruI6Dv/CplFr2XP4EbXllNbaHxoq2/aJBXGe5EqyMxiTlbpSo4rvEq1MN/B5U
+	nKIdiS+ij8Q8KAPhUkmqIIZAaO+6Yqmt1vOSExoI/z/WvoVwQ4loSIFioSXPvdsYHrGK/WgSq6JCN
+	kukbNLoTVK7kLpoEM+Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzVT-000000018Ev-1myG;
-	Wed, 15 Apr 2026 12:38:11 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1wCzVw-000000018Kp-1NW0;
+	Wed, 15 Apr 2026 12:38:40 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzVQ-000000018Do-27RS;
-	Wed, 15 Apr 2026 12:38:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1776256684; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=IuRIdB05XOvFlg+W6dwU8jnLRNwetfEuTnQThR5If4M=;
-	b=K2Fa2ji8wIi9478pTCLGumeeTC2cuX+QO0wZnwqDtVpjc6D4AxaluURKLeURwWPouxyuDWQAir1A4gIgOco1bDw0cOT0feQ9qRfsxiG3RQ53Vsjp2PT2Gu8tWI+7nhTEajJksGKc/HI/lmQKIDFqeAJxGH6xPRZHLSkRYduQNz0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0X14hhr6_1776256677;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X14hhr6_1776256677 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 15 Apr 2026 20:38:01 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: wangruikang@iscas.ac.cn
-Cc: pjw@kernel.org,
-	anup@brainfault.org,
-	andrew.jones@oss.qualcomm.com,
-	guoren@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	opensbi@lists.infradead.org
-Subject: Re: [PATCH v2] riscv: smp: Align secondary_start_sbi to 4 bytes
-Date: Wed, 15 Apr 2026 20:37:57 +0800
-Message-ID: <20260415123757.123581-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <83397314-c7f3-4122-9587-80c29b1d13aa@iscas.ac.cn>
-References: <83397314-c7f3-4122-9587-80c29b1d13aa@iscas.ac.cn>
+	id 1wCzVt-000000018Jd-2bkM;
+	Wed, 15 Apr 2026 12:38:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eRHac6+7OjGhQ4pPHk0arofb9sWAo1B2RbgwlWeamq0=; b=VXD/xn0hXIMU1iK3HIIAIyKapC
+	OMlDpvUPFyN1cbc5rT+/MmehfjNFi2HHrnkB/3Jg7DeHi62tq31iZC+exinlj8mXgnvccnNw6OT9Z
+	O9wYYry02IDoO1b/ysgwAjt5tdzY2ZbadG0m6aQKFgi9PIGxJU58VXorrpiQV6Mua+WAsI6j+s2vp
+	0oXWPFE1B0dLlYgZPUZxCf7u6HRD8yBBdJQPpDyRGYflPiz30oo8X4I6UL5iavX3ijMHYlUNKP4nm
+	iukmmtUTOM2hXYWgUv0msL8nchlFPgROY32FP/a4isRqWC4dm/1arhgNSsOpPz68yRXI9eI7u4tMd
+	0RxlCEBQ==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wCzVQ-00Dq5O-18;
+	Wed, 15 Apr 2026 12:38:08 +0000
+Date: Wed, 15 Apr 2026 05:38:01 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Pu Lehui <pulehui@huawei.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next v2 1/2] bpf, arm64: Remove redundant
+ bpf_flush_icache() after pack allocator finalize
+Message-ID: <ad-GmdGbXrZAi7WA@gmail.com>
+References: <20260413191111.3426023-1-puranjay@kernel.org>
+ <20260413191111.3426023-2-puranjay@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260413191111.3426023-2-puranjay@kernel.org>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_053808_752559_0829FE51 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20260415_053837_664234_32D7DE14 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,93 +85,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Apr 2026 11:39:22 +0800, wangruikang@iscas.ac.cn wrote:
+On Mon, Apr 13, 2026 at 12:11:08PM -0700, Puranjay Mohan wrote:
+> bpf_flush_icache() calls flush_icache_range() to clean the data cache
+> and invalidate the instruction cache for the JITed code region. However,
+> since commit 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory
+> management"), this flush is redundant.
+> 
+> bpf_jit_binary_pack_finalize() copies the JITed instructions to the ROX
+> region via bpf_arch_text_copy() -> aarch64_insn_copy() -> __text_poke(),
+> and __text_poke() already calls flush_icache_range() on the written
+> range. The subsequent bpf_flush_icache() repeats the same cache
+> maintenance on an overlapping range, including an unnecessary second
+> synchronous IPI to all CPUs via kick_all_cpus_sync().
+> 
+> Remove the redundant bpf_flush_icache() call and its now-unused
+> definition.
+> 
+> Fixes: 1dad391daef1 ("bpf, arm64: use bpf_prog_pack for memory management")
+> Acked-by: Song Liu <song@kernel.org>
+> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 
-> > During SMP boot, the secondary_start_sbi address is passed to the
-> > slave core via sbi_hsm_hart_start. In OpenSBI, this address is
-> > written to STVEC in sbi_hart_switch_mode.
-> 
-> This is certainly odd (OpenSBI git blames to initial git commit. No idea
-> why this was needed.) but technically permitted by the SBI HSM spec (see
-> below).
-> 
-> * Anup and other opensbi folks: Do you know/remember why it was there?
-> It's not really a bug, but some historical context would be appreciated.
-
-Yes, looking forward to responses from Anup and other opensbi folks.
-
-> > According to the privileged specification, the BASE field of STVEC
-> > must always be aligned on a 4-byte boundary. However, System.map
-> > reveals that secondary_start_sbi is not a 4-byte aligned address.
-> >
-> > For example, the address of secondary_start_sbi is
-> > 0xffffffff80001066, and the disassembly is as follows:
-> >
-> > Dump of assembler code from 0xffffffff80001052 to 0xffffffff8000107a:
-> >    0xffffffff80001052 <_start+4178>:    c.nop   -11
-> >    0xffffffff80001054 <_start+4180>:    auipc   gp,0x1a1f
-> >    0xffffffff80001058 <_start+4184>:    addi    gp,gp,84
-> >    0xffffffff8000105c <_start+4188>:    csrw    satp,a2
-> >    0xffffffff80001060 <_start+4192>:    sfence.vma
-> >    0xffffffff80001064 <_start+4196>:    ret
-> >    0xffffffff80001066 <_start+4198>:    csrw    sie,zero
-> >    0xffffffff8000106a <_start+4202>:    csrw    sip,zero
-> >    0xffffffff8000106e <_start+4206>:    li      t0,2
-> >    0xffffffff80001070 <_start+4208>:    csrw    scounteren,t0
-> >    0xffffffff80001074 <_start+4212>:    auipc   gp,0x1a1f
-> >    0xffffffff80001078 <_start+4216>:    addi    gp,gp,52
-> >
-> > When writing to STVEC at address 0xffffffff80001066, the actual
-> > write address is 0xffffffff80001064, corresponding to the address
-> > of the previous ret instruction.
-> Also technically permitted.
-
-Yes, but this is unintended behavior, and we should avoid it.
-
-> > This is unexpected, and if an
-> > interrupt occurs at this point, it will cause unpredictable results.
-> >
-> > However, secondary_start_sbi immediately masks all interrupts and
-> > updates STVEC, so no problems occurred.
-> 
-> An interrupt cannot trap in between secondary_start_sbi starting and the
-> interrupts getting masked individually. The only arch state guaranteed
-> by HSM is [1]:
-> 
-> |Register Name | Register Value
-> |satp          | 0
-> |sstatus.SIE   | 0
-> |a0            | hartid
-> |a1            | `opaque` parameter
-> |All other registers remain in an undefined state.
-> 
-> Of which sstatus.SIE = 0 means that interrupts are masked in Supervisor
-> mode.
-> > In summary, it is more reasonable to make secondary_start_sbi
-> > satisfy 4-byte alignment.
-> 
-> Thus, it is unnecessary.
-> 
-> If this fixes a bug where an interrupt can trap into the wrong stvec for
-> you, then your firmware is broken.
-
-This isn't about fixing a bug (as mentioned earlier, it's highly unlikely
-to happen), but rather the STVEC check mechanism added to QEMU discovered
-this issue. Regarding the problem itself, I would appreciate any clarification
-or modifications from OpenSBI, but currently this modification is the simplest
-and most feasible.
-
-> Michael's suggestion about SYM_CODE_START still stands, but if you do
-> that, that's just a really minor refactoring, and in any case the
-> current commit message cannot stand.
-> 
-> Vivian "dramforever" Wang
-> 
-> [1]:
-> https://github.com/riscv-non-isa/riscv-sbi-doc/blob/v3.0/src/ext-hsm.adoc#function-hart-start-fid-0
-
-Thanks,
-Pei
+Acked-by: Breno Leitao <leitao@debian.org>
 
 _______________________________________________
 linux-riscv mailing list
