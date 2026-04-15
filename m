@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9B8F531FC
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 01:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA267F9D0FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 01:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3hI3tWHBT3617QubQblGKQ92KaeCS3htFI3sI/XyTq8=; b=EMmsp7FvB/MstF
-	8/H8wt9xkLiPiV8bXYpvrBZlog2dDhAOwSZsBGhyW1QPTeTCnyUEjK7dpK+fYUKvf97KACnSA6mzM
-	H7WQll+ZyyWYUTtEIMFfCTDieA7TOGjhGr06EN4pTxHVVTOFzJTcu1DAZo9iLorZxKMYoSxD6SKL6
-	8AWUTGasA+/crstZ4JEyplX5M38RG7UmRsQk3Lofst5NTfjTDNeegTBxolT7zwpaEpPo6KU6NV963
-	V7Sl5jnZLqRB0kwEzhLD8anLlk2MnqebPBInJRr7jTu71qxt7hK1Ared0oqI3h3JM1bVZbq8TCIXi
-	bB1kC3tHyn7hvN2rmlQg==;
+	List-Owner; bh=wscW1g8L8vdigp7XJ6w1uUJzUFPO2w3gC6xPFVpTzhQ=; b=Po9QrGkGHkTZcr
+	oT/jiSO5uK4Jck/Fu1UO5ouF4o8qYTLk1HgtjImuPezlmmTdUI4mdQb65sAPW0zLj3sFlrc7+ETay
+	r+KURh3R34Qr3gPDxlD9tuJheXUxPEpezbw6w5QP/UygmPlfuPJVhLmcF5XrNgf8YJpNSAcFKD9RN
+	Sl0D9FnZuTZBIr58aPK94sEcyYyUZvB4yPzTFwTZa84XlDZsT3ZUZRBRMagUYx+CXY/Z4IGznurUP
+	ZRDGI1KpA+dOlGytrXkjzy7Yhtje/K5ncBEPZVJ9pMEbM7qlBJMMdXZlb/FCMtDTZHA/QM0Nn3lCq
+	/ijMSAJFX5tuzYEa8XRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCpUz-00000000RrQ-1xQs;
-	Wed, 15 Apr 2026 01:57:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wCpUv-00000000Rmg-0AH8;
+	Wed, 15 Apr 2026 01:56:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCpUw-00000000Rm6-0uI0
+	id 1wCpUs-00000000Rkb-1Apb
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 01:56:59 +0000
+	Wed, 15 Apr 2026 01:56:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F8AD446DB;
-	Wed, 15 Apr 2026 01:56:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FF4DC2BCB6;
-	Wed, 15 Apr 2026 01:56:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 863184457E;
+	Wed, 15 Apr 2026 01:56:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8C9CC2BCC6;
+	Wed, 15 Apr 2026 01:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776218217;
-	bh=0N3/ljaEoSaUAHRrhb7+qug0MyFe8aVMQaHOTujWe+c=;
+	s=k20201202; t=1776218213;
+	bh=cTl90YsYPY3g7JWymDyW8dKdkNX8yYPp7OJ7YZSz0gc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=COednS5xkmkPeIH5UZ9fhjGZh6IFHWQ870eksHvpTxUC82DvVrVKrvMvFcSlDciKc
-	 lKjjyNUULxL+ywqyR7ZG4i6mPUZA0DG09/pbn0LpEMcHgHPfhe++uDIBaYHpndbAV1
-	 0+Ar3lFDCCuDCMinwPXXU3RCi5Q+9OrPeL5E89boZ78CEmzCpEPmorN6WqDF9qys3F
-	 LT8RPrJ6k0mTUyCIEPKw+Rq19tvFXI406fCQX3orBB7YxsWvBXVFEoVfWfed0cMIWh
-	 5dSS/TbpSHiw+OXbx2RTnKPotdRZ/RdjBUGrtxkKh714C49JPyOc4Gdlhb7RXE2kNG
-	 mAk5+BXpNnxJA==
+	b=bw5PIoILIKcZsvxtwd1dF2jS5RgdVNyj717Zc7f+lTCnyBMuAQWyVoveqs4sFwQYd
+	 0go7FtEVlyCkgpk8b7nFF+RNolgwHa6b0IEN1BVAJnC046+Be+qlUACDbABoxhvuQn
+	 Ov4+uj1nZT2nyWWeBcJ49QtyBI7QNYb6I4ni8tldYNrKmXgH3Yl6mMrN4I1ejKoU9Y
+	 zXin1HpKe03uVSjZUpiILXqAjCw+abv9cuGMBQgjxxYM9ym1IcmPkjOdM1wtEx/34/
+	 vuGO5z313l0MVM3+hYFzwOyi3S0Xue4ZCmxeQCJN3Fh3ohiRedx4EU4C+Yu3YnSVK1
+	 ADJO/MZ2x33vg==
 From: Drew Fustini <fustini@kernel.org>
-Date: Tue, 14 Apr 2026 18:54:03 -0700
-Subject: [PATCH RFC v3 09/11] DO NOT MERGE: include: acpi: actbl2: Add
- structs for RQSC table
+Date: Tue, 14 Apr 2026 18:53:56 -0700
+Subject: [PATCH RFC v3 02/11] RISC-V: Detect the Ssqosid extension
 MIME-Version: 1.0
-Message-Id: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-9-b3b2e7e9847a@kernel.org>
+Message-Id: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-2-b3b2e7e9847a@kernel.org>
 References: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
 In-Reply-To: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -79,17 +78,18 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
  devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2611; i=fustini@kernel.org;
- h=from:subject:message-id; bh=0N3/ljaEoSaUAHRrhb7+qug0MyFe8aVMQaHOTujWe+c=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTe+5AsfEfuo747Z9cOma99R+4qpVT97FPlOZ8tPXGSW
- XS1bPCDjlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBE4n8xMuybaPnTJbxsb+cl
- rYRpn7cL3t9+qMb203z9qt7l77/t7FVi+O/54Zqc6nT/faF/nP6Wrtnaav/ShddS1IV3bwXvMgu
- VPQwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1637; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=cTl90YsYPY3g7JWymDyW8dKdkNX8yYPp7OJ7YZSz0gc=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTe+5C0dzXz1hrO0xkvjsoo2uossnp7z++h/m2/V5vmX
+ jVkV5AT7ChlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBMxGkXw2924dmCG75XCa4P
+ v87Kc3/Jtq74oztKSrn4j23fuXCTQW8Uw//aY1+j7lx/4fPi9hu/YzPDNR69NNq36JPRH1uzV+3
+ 5ySz8AA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_185658_298416_75D4D585 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20260414_185654_366121_17275B9B 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,89 +101,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add structs for the RQSC table which describes the properties of the
-RISC-V QoS controllers (CBQRI) in the system. The table also describes
-the topological arrangement of the QoS controllers and resources in the
-system. The topology is expressed in terms of the location of the
-resources within the system and the relation between the QoS Controller
-and the resource it manages.
-
-Note: This is a placeholder for RFC review purposes. The actbl2.h
-change must go through upstream ACPICA first and will be replaced by
-the auto-generated ACPICA commit once the RQSC spec is ratified.
-
-Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
-Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/chapter2.adoc
-Signed-off-by: Drew Fustini <fustini@kernel.org>
----
- include/acpi/actbl2.h | 36 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
-
-diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
-index 5c0b55e7b3e4..d6f272e848fa 100644
---- a/include/acpi/actbl2.h
-+++ b/include/acpi/actbl2.h
-@@ -55,6 +55,7 @@
- #define ACPI_SIG_RGRT           "RGRT"	/* Regulatory Graphics Resource Table */
- #define ACPI_SIG_RHCT           "RHCT"	/* RISC-V Hart Capabilities Table */
- #define ACPI_SIG_RIMT           "RIMT"	/* RISC-V IO Mapping Table */
-+#define ACPI_SIG_RQSC           "RQSC"	/* RISC-V Quality of Service Controller */
- #define ACPI_SIG_SBST           "SBST"	/* Smart Battery Specification Table */
- #define ACPI_SIG_SDEI           "SDEI"	/* Software Delegated Exception Interface Table */
- #define ACPI_SIG_SDEV           "SDEV"	/* Secure Devices table */
-@@ -3351,6 +3352,41 @@ enum acpi_rgrt_image_type {
- 	ACPI_RGRT_TYPE_RESERVED = 2	/* 2 and greater are reserved */
- };
- 
-+/*******************************************************************************
-+ *
-+ * RQSC - RISC-V Quality of Service Controller
-+ *        Version 1
-+ *
-+ ******************************************************************************/
-+
-+struct acpi_table_rqsc_fields_res {
-+	u8 type;
-+	u8 resv;
-+	u16 length;
-+	u16 flags;
-+	u8 resv2;
-+	u8 id_type;
-+	u64 id1;
-+	u32 id2;
-+};
-+
-+struct acpi_table_rqsc_fields {
-+	u8 type;
-+	u8 resv;
-+	u16 length;
-+	u32 reg[3];
-+	u16 rcid;
-+	u16 mcid;
-+	u16 flags;
-+	u16 nres;
-+	struct acpi_table_rqsc_fields_res res[];
-+};
-+
-+struct acpi_table_rqsc {
-+	struct acpi_table_header header;	/* Common ACPI table header */
-+	u32 num;
-+};
-+
- /*******************************************************************************
-  *
-  * RHCT - RISC-V Hart Capabilities Table
-
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U3Nxb3NpZCBpcyB0aGUgUklTQy1WIFF1YWxpdHktb2YtU2VydmljZSAoUW9TKSBJZGVudGlmaWVy
+cyBzcGVjaWZpY2F0aW9uCndoaWNoIGRlZmluZXMgdGhlIFN1cGVydmlzb3IgUmVzb3VyY2UgTWFu
+YWdlbWVudCBDb25maWd1cmF0aW9uIChzcm1jZmcpCnJlZ2lzdGVyLgoKTGluazogaHR0cHM6Ly9n
+aXRodWIuY29tL3Jpc2N2L3Jpc2N2LXNzcW9zaWQvcmVsZWFzZXMvdGFnL3YxLjAKQ28tZGV2ZWxv
+cGVkLWJ5OiBLb3JuZWwgRHVsxJliYSA8bWluZGFsQHNlbWloYWxmLmNvbT4KU2lnbmVkLW9mZi1i
+eTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+ClNpZ25lZC1vZmYtYnk6IERy
+ZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vaHdjYXAuaCB8IDEgKwogYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIHwgMSArCiAy
+IGZpbGVzIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vaHdjYXAuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAppbmRl
+eCA3ZWY4ZTVmNTVjOGQuLmI4M2RhZTVjZWJiOSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9od2NhcC5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaApAQCAt
+MTEyLDYgKzExMiw3IEBACiAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkNMU0QJCTEwMwogI2RlZmlu
+ZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJTFAJCTEwNAogI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJ
+U1MJCTEwNQorI2RlZmluZSBSSVNDVl9JU0FfRVhUX1NTUU9TSUQJCTEwNgogCiAjZGVmaW5lIFJJ
+U0NWX0lTQV9FWFRfWExJTlVYRU5WQ0ZHCTEyNwogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
+cm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKaW5kZXgg
+MTczNGY5YTRjMmZkLi5jMDcxN2E4NjFhM2MgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVs
+L2NwdWZlYXR1cmUuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKQEAgLTU4
+Miw2ICs1ODIsNyBAQCBjb25zdCBzdHJ1Y3QgcmlzY3ZfaXNhX2V4dF9kYXRhIHJpc2N2X2lzYV9l
+eHRbXSA9IHsKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzc2FpYSwgUklTQ1ZfSVNBX0VYVF9TU0FJ
+QSksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3Njb2ZwbWYsIFJJU0NWX0lTQV9FWFRfU1NDT0ZQ
+TUYpLAogCV9fUklTQ1ZfSVNBX0VYVF9TVVBFUlNFVChzc25wbSwgUklTQ1ZfSVNBX0VYVF9TU05Q
+TSwgcmlzY3ZfeGxpbnV4ZW52Y2ZnX2V4dHMpLAorCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzcW9z
+aWQsIFJJU0NWX0lTQV9FWFRfU1NRT1NJRCksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3N0Yywg
+UklTQ1ZfSVNBX0VYVF9TU1RDKSwKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzdmFkZSwgUklTQ1Zf
+SVNBX0VYVF9TVkFERSksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEFfVkFMSURBVEUoc3ZhZHUsIFJJ
+U0NWX0lTQV9FWFRfU1ZBRFUsIHJpc2N2X2V4dF9zdmFkdV92YWxpZGF0ZSksCgotLSAKMi40My4w
+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
