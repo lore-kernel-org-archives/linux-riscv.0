@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA267F9D0FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 01:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9EB0F9D0FF
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 01:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wscW1g8L8vdigp7XJ6w1uUJzUFPO2w3gC6xPFVpTzhQ=; b=Po9QrGkGHkTZcr
-	oT/jiSO5uK4Jck/Fu1UO5ouF4o8qYTLk1HgtjImuPezlmmTdUI4mdQb65sAPW0zLj3sFlrc7+ETay
-	r+KURh3R34Qr3gPDxlD9tuJheXUxPEpezbw6w5QP/UygmPlfuPJVhLmcF5XrNgf8YJpNSAcFKD9RN
-	Sl0D9FnZuTZBIr58aPK94sEcyYyUZvB4yPzTFwTZa84XlDZsT3ZUZRBRMagUYx+CXY/Z4IGznurUP
-	ZRDGI1KpA+dOlGytrXkjzy7Yhtje/K5ncBEPZVJ9pMEbM7qlBJMMdXZlb/FCMtDTZHA/QM0Nn3lCq
-	/ijMSAJFX5tuzYEa8XRQ==;
+	List-Owner; bh=SP/pnkTW/rOfakrA1gHnAL8QA2jkHls9z31TcuIFZ4E=; b=gSCiKjtq4tBb/6
+	v8ygepbn01ivEcWrXKTQrh8/vAh2bTRXyGyK3nDe8zCi0gVdSb1GsoZ44vCHyJk1RmrnJZmPS0bNF
+	LXz2MHmcwcf5252Jq83cn1dnrrN+uoVqp1P6hk/Soh8FXhpYLf0y0oHYbF3/tgKc94cfNJfIvM1jI
+	Lps5EIR04xYquBMO1WpG+yiwV/hoqSW6sX9efSWgmU68dAxCQDtdNMB+k1QAiylxeNA0oh16gowF9
+	DWbcFYQIOFFqczYYD3MTrq1poHy0b3vMCF5XkOBLgYUIPcwj0Ajsd/H2YLrD4+hWaEpDpXET1IG2e
+	Fpzz2DadxVqhZMyfpNXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCpUv-00000000Rmg-0AH8;
-	Wed, 15 Apr 2026 01:56:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCpV4-00000000RtL-0Wq6;
+	Wed, 15 Apr 2026 01:57:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCpUs-00000000Rkb-1Apb
+	id 1wCpUy-00000000Rpc-2KiH
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 01:56:56 +0000
+	Wed, 15 Apr 2026 01:57:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 863184457E;
-	Wed, 15 Apr 2026 01:56:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8C9CC2BCC6;
-	Wed, 15 Apr 2026 01:56:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8EC8F60131;
+	Wed, 15 Apr 2026 01:56:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF31AC2BCC9;
+	Wed, 15 Apr 2026 01:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776218213;
-	bh=cTl90YsYPY3g7JWymDyW8dKdkNX8yYPp7OJ7YZSz0gc=;
+	s=k20201202; t=1776218219;
+	bh=Av0Nv9qYcvDtXSrfBVWD8C8RBkR90ZNKGubCs7xRSJk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=bw5PIoILIKcZsvxtwd1dF2jS5RgdVNyj717Zc7f+lTCnyBMuAQWyVoveqs4sFwQYd
-	 0go7FtEVlyCkgpk8b7nFF+RNolgwHa6b0IEN1BVAJnC046+Be+qlUACDbABoxhvuQn
-	 Ov4+uj1nZT2nyWWeBcJ49QtyBI7QNYb6I4ni8tldYNrKmXgH3Yl6mMrN4I1ejKoU9Y
-	 zXin1HpKe03uVSjZUpiILXqAjCw+abv9cuGMBQgjxxYM9ym1IcmPkjOdM1wtEx/34/
-	 vuGO5z313l0MVM3+hYFzwOyi3S0Xue4ZCmxeQCJN3Fh3ohiRedx4EU4C+Yu3YnSVK1
-	 ADJO/MZ2x33vg==
+	b=I7HV+sm/tIkU114gKkjZgkZD0WSpdiA8OxGnu5ffp6iizlNtje9BW8J6MjZ7Y0ihV
+	 VNWcePI0q9B+GneSfXvMxj9PddssHjuR5bB5/UaA6K86yz3XCwAK/X478JMj/CX855
+	 6rzZmbAQJO1ib3Ex+ojFWvM9P1a0E6GpYP7OYLkJy0hmojBkswrJ+5MJXmmSK6ZIuR
+	 tJ/xELc8UrmWN0khc+o2rPjQRAm0150vEyD0J1RyDE08D5Veeu3CGUin7EG0JrVW9X
+	 kd5dVMVW8tAdG9tJDpJQxnB1X5326gLSrm5acKChAnI22j7a5ykc/NOibX+6SEkaQ0
+	 3GKg4EbEPsbwA==
 From: Drew Fustini <fustini@kernel.org>
-Date: Tue, 14 Apr 2026 18:53:56 -0700
-Subject: [PATCH RFC v3 02/11] RISC-V: Detect the Ssqosid extension
+Date: Tue, 14 Apr 2026 18:54:05 -0700
+Subject: [PATCH RFC v3 11/11] ACPI: RISC-V: Add support for RISC-V Quality
+ of Service Controller (RQSC)
 MIME-Version: 1.0
-Message-Id: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-2-b3b2e7e9847a@kernel.org>
+Message-Id: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-11-b3b2e7e9847a@kernel.org>
 References: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
 In-Reply-To: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -78,18 +79,14 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
  devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1637; i=fustini@kernel.org;
- h=from:subject:message-id; bh=cTl90YsYPY3g7JWymDyW8dKdkNX8yYPp7OJ7YZSz0gc=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTe+5C0dzXz1hrO0xkvjsoo2uossnp7z++h/m2/V5vmX
- jVkV5AT7ChlYRDjYpAVU2TZ9CHvwhKv0K8L5r/YBjOHlQlkCAMXpwBMxGkXw2924dmCG75XCa4P
- v87Kc3/Jtq74oztKSrn4j23fuXCTQW8Uw//aY1+j7lx/4fPi9hu/YzPDNR69NNq36JPRH1uzV+3
- 5ySz8AA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1644; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=Av0Nv9qYcvDtXSrfBVWD8C8RBkR90ZNKGubCs7xRSJk=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTe+5D8zXvm26QrV/ZXV+k1PNTnvF/1mvlHw+HFPWtfL
+ p7ae0wosqOUhUGMi0FWTJFl04e8C0u8Qr8umP9iG8wcViaQIQxcnAIwkVY+RobfriYrLjDtKriy
+ 9P1+IdfVYQcv3p9vrcOyeDHDLn+VHY8eMvwV4O5JmV1/ZuLR4JVrVt5meFP8+Jm1rlGrtVG3yAn
+ 3zn/sAA==
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_185654_366121_17275B9B 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +98,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U3Nxb3NpZCBpcyB0aGUgUklTQy1WIFF1YWxpdHktb2YtU2VydmljZSAoUW9TKSBJZGVudGlmaWVy
-cyBzcGVjaWZpY2F0aW9uCndoaWNoIGRlZmluZXMgdGhlIFN1cGVydmlzb3IgUmVzb3VyY2UgTWFu
-YWdlbWVudCBDb25maWd1cmF0aW9uIChzcm1jZmcpCnJlZ2lzdGVyLgoKTGluazogaHR0cHM6Ly9n
-aXRodWIuY29tL3Jpc2N2L3Jpc2N2LXNzcW9zaWQvcmVsZWFzZXMvdGFnL3YxLjAKQ28tZGV2ZWxv
-cGVkLWJ5OiBLb3JuZWwgRHVsxJliYSA8bWluZGFsQHNlbWloYWxmLmNvbT4KU2lnbmVkLW9mZi1i
-eTogS29ybmVsIER1bMSZYmEgPG1pbmRhbEBzZW1paGFsZi5jb20+ClNpZ25lZC1vZmYtYnk6IERy
-ZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vaHdjYXAuaCB8IDEgKwogYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIHwgMSArCiAy
-IGZpbGVzIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vaHdjYXAuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAppbmRl
-eCA3ZWY4ZTVmNTVjOGQuLmI4M2RhZTVjZWJiOSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9od2NhcC5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaApAQCAt
-MTEyLDYgKzExMiw3IEBACiAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWkNMU0QJCTEwMwogI2RlZmlu
-ZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJTFAJCTEwNAogI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pJQ0ZJ
-U1MJCTEwNQorI2RlZmluZSBSSVNDVl9JU0FfRVhUX1NTUU9TSUQJCTEwNgogCiAjZGVmaW5lIFJJ
-U0NWX0lTQV9FWFRfWExJTlVYRU5WQ0ZHCTEyNwogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
-cm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKaW5kZXgg
-MTczNGY5YTRjMmZkLi5jMDcxN2E4NjFhM2MgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVs
-L2NwdWZlYXR1cmUuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKQEAgLTU4
-Miw2ICs1ODIsNyBAQCBjb25zdCBzdHJ1Y3QgcmlzY3ZfaXNhX2V4dF9kYXRhIHJpc2N2X2lzYV9l
-eHRbXSA9IHsKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzc2FpYSwgUklTQ1ZfSVNBX0VYVF9TU0FJ
-QSksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3Njb2ZwbWYsIFJJU0NWX0lTQV9FWFRfU1NDT0ZQ
-TUYpLAogCV9fUklTQ1ZfSVNBX0VYVF9TVVBFUlNFVChzc25wbSwgUklTQ1ZfSVNBX0VYVF9TU05Q
-TSwgcmlzY3ZfeGxpbnV4ZW52Y2ZnX2V4dHMpLAorCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzcW9z
-aWQsIFJJU0NWX0lTQV9FWFRfU1NRT1NJRCksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEEoc3N0Yywg
-UklTQ1ZfSVNBX0VYVF9TU1RDKSwKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzdmFkZSwgUklTQ1Zf
-SVNBX0VYVF9TVkFERSksCiAJX19SSVNDVl9JU0FfRVhUX0RBVEFfVkFMSURBVEUoc3ZhZHUsIFJJ
-U0NWX0lTQV9FWFRfU1ZBRFUsIHJpc2N2X2V4dF9zdmFkdV92YWxpZGF0ZSksCgotLSAKMi40My4w
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Call acpi_parse_rqsc() from acpi_arch_init() to discover CBQRI
+controllers when an RQSC table is present. The RQSC table is optional;
+AE_NOT_FOUND is silenced since many systems will not have QoS
+controllers. Other ACPI failures are reported as errors.
+
+Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/
+Signed-off-by: Drew Fustini <fustini@kernel.org>
+---
+ drivers/acpi/riscv/init.c | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+
+diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
+index 7c00f7995e86..8a74dff42dce 100644
+--- a/drivers/acpi/riscv/init.c
++++ b/drivers/acpi/riscv/init.c
+@@ -4,12 +4,35 @@
+  *	Author: Sunil V L <sunilvl@ventanamicro.com>
+  */
+ 
++#define pr_fmt(fmt) "ACPI: RQSC: " fmt
++
+ #include <linux/acpi.h>
+ #include "init.h"
+ 
+ void __init acpi_arch_init(void)
+ {
++	struct acpi_table_header *rqsc;
++	acpi_status status;
++	int rc;
++
+ 	riscv_acpi_init_gsi_mapping();
++
+ 	if (IS_ENABLED(CONFIG_ACPI_RIMT))
+ 		riscv_acpi_rimt_init();
++
++	if (IS_ENABLED(CONFIG_RISCV_ISA_SSQOSID) && !acpi_disabled) {
++		status = acpi_get_table(ACPI_SIG_RQSC, 0, &rqsc);
++		if (status == AE_NOT_FOUND) {
++			/* RQSC is optional; silence on systems without it */
++		} else if (ACPI_FAILURE(status)) {
++			pr_err("failed to get ACPI RQSC table: %s\n",
++			       acpi_format_exception(status));
++		} else {
++			rc = acpi_parse_rqsc(rqsc);
++			if (rc < 0)
++				pr_err("failed to parse ACPI RQSC table: %d\n",
++				       rc);
++			acpi_put_table(rqsc);
++		}
++	}
+ }
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
