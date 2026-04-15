@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBB5FA0C57
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 08:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A4CEFA0C57
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 08:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q0f41B1HsizwOkH2Nl2Pv62r5CGkgxaqVIuZBekZGQI=; b=EBFPhPzDV1NcDd
-	QoxFLoitD2BrlDmZc5LNHsfCkyoABYVXcHGPIC3YkP2QefNTFI3YK1TbLJbO7SKiXQ51Tk9WMuzy9
-	tMfld1Lj6tyGVYm4pv0dXS0dNVcSxE5WW6UfpCbgJc1NY9qtvkh5mm17SHDAXgN9IJZPjjGxmcxxW
-	jPccIdNIB1jwymOD0akRVsBAMZ1QGV5hwM8IOszIxHgogdeaHZTgNPnUIHPVBBBjzVQgwkuZ45GVB
-	wlgu1A9heCEKx/N2Z3j3CpHLqKwK3OUSpqkKiamzZMW2gmcv0MW8URCs9u6C3sQA3ZOFQuiYwo4fo
-	jwlFL3Ly6HXpdL6W+9cQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AjY6t2PyaACdwZQBlOSXTrIEF8dVSqIPGlXSmDKm0Us=; b=XVyD38uhmolbTt
+	hnBj/OV5PmdyLSJtsLU9SfJ3eWSrPYMMvM6UrgRNO5U+RDa1cZ0PppJgVseAuiJyDQ/6eqJTI/Fbf
+	PWM2jyh+Uordum++eNlRtQQJkavePoogmO33s77ViwA5Dql+dBH1y4O8DPXwwxymSPplj+toHw0KQ
+	YNpQ1vZksNK+fjYNcm75QxNww5W6R6JGC2oYHkRfndSamXz6ItbN6mDjwPogcM5j9oxpbSGASs1rM
+	Jyc7QvxHuo6JlpX0Ar711Vgk3GP8KN3gWgI5F0w6RlazRg4A1xXOUBZrhql4HBDca2kG1l5NF47OL
+	WvnRUmvA9qr1MtBzfsqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCvz7-00000000qiX-2V4Z;
+	id 1wCvz7-00000000qiT-1GKz;
 	Wed, 15 Apr 2026 08:52:33 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCvz4-00000000qgV-3Fla
+	id 1wCvz4-00000000qgY-3Fex
 	for linux-riscv@lists.infradead.org;
 	Wed, 15 Apr 2026 08:52:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE6E060132;
-	Wed, 15 Apr 2026 08:52:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B0E2C2BCB5;
+	by tor.source.kernel.org (Postfix) with ESMTP id 05D9D60137;
+	Wed, 15 Apr 2026 08:52:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900D4C2BCB0;
 	Wed, 15 Apr 2026 08:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1776243149;
-	bh=etykI6PjHqrvsDMvEbWFzTQyXVYcIo7uusJigHM5MX8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uLT+i3x+2bXN9aNEgYkjT0HDVZYxmDo/otJ3pDZTcm5meLhD+9cHEDTUUrL+WFRAG
-	 UoxKwcQMrB8JDHyKyYiOzQKOmYB87y8dV1PfyPbnPo/PeiiQi7C3Vgjg4q2d7fBPOr
-	 Oj+dJAIV5SHTi7kUGl+3ADSZqT87kshLW1Uemk2R1A9hiEw6GJbA9BPxsTROakOrBu
-	 ifxwe17WvNjr5kEoM3fzDxDYEyay6JtKxZEQ1XW9Tmuvjw3HLVd8k7NKS0opX8t2mI
-	 E3HehiCjYMvVQw+8yO1GSEdhzzEtmLalxCL4oRc/EWegKymcbOCFlnTnBbq/31XJkP
-	 Qbwfhh9x5WPzA==
+	bh=cM6i2dqdYB7bquqYDadO6rTomOEopoC5wEog5eeYeTU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=YloOutj2DFV4uhUrbByc7+kZKdXeSH2DTklHY2SeHSoFDQPLOPlFfZHaOZ6K4/hTT
+	 3FupzResoirzc1lZZor7r97Mh2NheYT7Fu5Sf6TXU5wUY3cMeku50MaRkZvcopgLXZ
+	 dqjzwqA5h5bcT1HXOcPpn3W6LyHxviUZ5mScNnSPS4lj3kiNLVLrAzpFzHy/EgaNnm
+	 +NEKSpCRfYunzsOGWOuU8/5w5Xpn52Z6rd0m7wqJ9DMCvqkJmVZaBI1rvv7Ki6NCbR
+	 7IhM1ec6++zdvsSUzGHy3rfIDY0Rosbhx+qGoiKR7hZiNaq3ac1SshBbKzGI55x9h0
+	 s7Dj1aM3d0rag==
 Received: from mchehab by mail.kernel.org with local (Exim 4.99.1)
 	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1wCvz1-0000000ELw1-2dF2;
+	id 1wCvz1-0000000ELvT-29QE;
 	Wed, 15 Apr 2026 10:52:27 +0200
 From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>
+To: Albert Ou <aou@eecs.berkeley.edu>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>
 Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	workflows@vger.kernel.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Dan Williams <djbw@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH 4/8] docs: auto-generate maintainer entry profile links
-Date: Wed, 15 Apr 2026 10:52:20 +0200
-Message-ID: <08d378395b417160adbdef013cd8a0b24fe08bfd.1776242739.git.mchehab+huawei@kernel.org>
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Dan Williams <djbw@kernel.org>
+Subject: [PATCH 0/8] Auto-generate maintainer profile entries
+Date: Wed, 15 Apr 2026 10:52:16 +0200
+Message-ID: <cover.1776242739.git.mchehab+huawei@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1776242739.git.mchehab+huawei@kernel.org>
-References: <cover.1776242739.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,80 +81,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of manually creating a TOC tree for them, use the new
-tag to auto-generate its TOC.
+Date: Tue, 14 Apr 2026 16:29:03 +0200
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, Dan Williams <djbw@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, workflows@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Shuah Khan <skhan@linuxfoundation.org>
+Message-ID: <cover.1776176108.git.mchehab+huawei@kernel.org>
 
-Co-developed-by: Dan Williams <djbw@kernel.org>
-Signed-off-by: Dan Williams <djbw@kernel.org>
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Message-ID: <9228f77b0339b8e5dea4a201ab6d4feb30cef5c2.1776176108.git.mchehab+huawei@kernel.org>
----
- .../maintainer/maintainer-entry-profile.rst   | 24 ++++---------------
- .../process/maintainer-handbooks.rst          | 19 ++++++++-------
- 2 files changed, 14 insertions(+), 29 deletions(-)
+Hi Dan/Jon,
 
-diff --git a/Documentation/maintainer/maintainer-entry-profile.rst b/Documentation/maintainer/maintainer-entry-profile.rst
-index 6020d188e13d..58e2af333692 100644
---- a/Documentation/maintainer/maintainer-entry-profile.rst
-+++ b/Documentation/maintainer/maintainer-entry-profile.rst
-@@ -92,24 +92,8 @@ full series, or privately send a reminder email. This section might also
- list how review works for this code area and methods to get feedback
- that are not directly from the maintainer.
- 
--Existing profiles
-------------------
-+Maintainer Handbooks
-+--------------------
- 
--For now, existing maintainer profiles are listed here; we will likely want
--to do something different in the near future.
--
--.. toctree::
--   :maxdepth: 1
--
--   ../doc-guide/maintainer-profile
--   ../nvdimm/maintainer-entry-profile
--   ../arch/riscv/patch-acceptance
--   ../process/maintainer-soc
--   ../process/maintainer-soc-clean-dts
--   ../driver-api/media/maintainer-entry-profile
--   ../process/maintainer-netdev
--   ../driver-api/vfio-pci-device-specific-driver-acceptance
--   ../nvme/feature-and-quirk-policy
--   ../filesystems/nfs/nfsd-maintainer-entry-profile
--   ../filesystems/xfs/xfs-maintainer-entry-profile
--   ../mm/damon/maintainer-profile
-+For examples of other subsystem handbooks see
-+Documentation/process/maintainer-handbooks.rst.
-diff --git a/Documentation/process/maintainer-handbooks.rst b/Documentation/process/maintainer-handbooks.rst
-index 3d72ad25fc6a..531985a0fae8 100644
---- a/Documentation/process/maintainer-handbooks.rst
-+++ b/Documentation/process/maintainer-handbooks.rst
-@@ -7,14 +7,15 @@ The purpose of this document is to provide subsystem specific information
- which is supplementary to the general development process handbook
- :ref:`Documentation/process <development_process_main>`.
- 
-+For developers, see below for all the known subsystem specific guides.
-+If the subsystem you are contributing to does not have a guide listed
-+here, it is fair to seek clarification of questions raised in
-+Documentation/maintainer/maintainer-entry-profile.rst.
-+
-+For maintainers, consider documenting additional requirements and
-+expectations if submissions routinely overlook specific submission
-+criteria. See Documentation/maintainer/maintainer-entry-profile.rst.
-+
- Contents:
- 
--.. toctree::
--   :numbered:
--   :maxdepth: 2
--
--   maintainer-netdev
--   maintainer-soc
--   maintainer-soc-clean-dts
--   maintainer-tip
--   maintainer-kvm-x86
-+.. maintainers-profile-toc::
+This patch series change the way maintainer entry profile links
+are added to the documentation. Instead of having an entry for
+each of them at an ReST file, get them from MAINTAINERS content.
+
+That should likely make easier to maintain, as there will be a single
+point to place all such profiles.
+
+On this version, I added Dan's text to patch 4.
+
+I also added a couple of other patches to improve its output. While
+I could have them merged at the first patch, I opted to make them
+separate, as, in case of problems or needed changes, it would be
+easier to revert or modify the corresponding logic. Also, it should
+be better to review, in case one wants some changes there.
+
+The main changes against RFC are:
+
+- now, the TOC will be presented with 1 depth identation level,
+  meaning that it would look like a list;
+- for files outside Documentation/process, it will use the name of
+  the subsystem with title capitalization for the name of the
+  profile entry;
+- the logic also parses and produces a list of profiles that are
+  maintained elsewhere, picking its http/https link;
+- entries are now better sorted: first by subsystem name, then
+  by its name.
+
+Suggested-by: Dan Williams <djbw@kernel.org>
+Closes: https://lore.kernel.org/linux-doc/69dd6299440be_147c801005b@djbw-dev.notmuch/
+
+Mauro Carvalho Chehab (8):
+  docs: maintainers_include: auto-generate maintainer profile TOC
+  MAINTAINERS: add an entry for media maintainers profile
+  MAINTAINERS: add maintainer-tip.rst to X86
+  docs: auto-generate maintainer entry profile links
+  docs: maintainers_include: use a better title for profiles
+  docs: maintainers_include: add external profile URLs
+  docs: maintainers_include: preserve names for files under process/
+  docs: maintainers_include: Only show main entry for profiles
+
+ .../maintainer/maintainer-entry-profile.rst   |  24 +---
+ .../process/maintainer-handbooks.rst          |  17 ++-
+ Documentation/sphinx/maintainers_include.py   | 131 +++++++++++++++---
+ MAINTAINERS                                   |   2 +
+ 4 files changed, 128 insertions(+), 46 deletions(-)
+
 -- 
 2.53.0
 
