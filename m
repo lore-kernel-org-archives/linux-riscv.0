@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1526AFA0C24
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 03:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8BFFA0C30
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 05:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AzydjCq0E2xVV3/d2Mm4+s+KG/+Mxs2hm8MOiycidwA=; b=whqLAYTKGMtjWN
-	0okyJm5+xlmt5i1/Y8BJS3cYuBKccZn3ZNWQiTszRhb2qmvAQf+tJui/FlrIDUulfOsC1oyYULhgH
-	Fsid781YcWjU5OAFYwS5j904j4DLV/hSa8mjCXYxkMLbqD2IBQ7wZKRln24oZb8JGvqeBoU086AaS
-	MpljVjj7Dw3QI9g+P13Bzz8+S3nv92pWSZUCzB+gjM2D2d5/COL0yCPQ9qFGZZoIGrlfuh/sPS3K0
-	tCthd40E3Z2/QXzbWhWaWbgoK4Ig79MMowRBw6nJLZrZOkd58MwIfcw4SdtwLyTnebL9xtvaf4Ema
-	GdFJKSoId3XReJzknVyw==;
+	List-Owner; bh=Qn7gqeyAoBu28Y1FV60Xb3uy+rRDbq1IkGpCIbOEM8E=; b=MAFSQJ8uNW5MTZ
+	4hjuNwn2rbcBxNqURd5JEv+Zvd4Hb3RqUxgemCCZVKR8X8WCMputK19y4Td2vT1tfVJC289/D0JT7
+	N3yYCyGFAtqJW7Q6XdwSCon+t7FCzxr3FzgyrsOTU8NRAOJhx6vXhZEDdDMo5nKvIDVk51FfDofG5
+	xjgtCDInSo7bBZ2q5dmzWdLBLv8GxDXOdpXCXR+/9/IC6kwAyNSie1Ny3BaaLSm6Ki9iMaQx5qbsC
+	ZTXb2u9+wTJwTxIVWge++/d60eH8c9oW4AHCPRoI1VR8ylMEhQEyd4ZwJ9vRyhP5FemCfVut8D5Bl
+	/A4LoAVz4WSm13yIiPTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCr6I-00000000WlK-2wI7;
-	Wed, 15 Apr 2026 03:39:38 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wCt33-00000000c0F-2BOM;
+	Wed, 15 Apr 2026 05:44:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCr6E-00000000WkU-2Vvt;
-	Wed, 15 Apr 2026 03:39:37 +0000
-Received: from [192.168.0.109] (unknown [123.118.218.47])
-	by APP-05 (Coremail) with SMTP id zQCowABX7A9qCN9ptCuODQ--.13235S2;
-	Wed, 15 Apr 2026 11:39:22 +0800 (CST)
-Message-ID: <83397314-c7f3-4122-9587-80c29b1d13aa@iscas.ac.cn>
-Date: Wed, 15 Apr 2026 11:39:22 +0800
+	id 1wCt30-00000000bzl-2bJQ
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Apr 2026 05:44:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3023B44352;
+	Wed, 15 Apr 2026 05:44:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9476CC2BCB0;
+	Wed, 15 Apr 2026 05:44:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776231861;
+	bh=AH20hvpu+D4qi2v6kSM8ydKG6lVcHQUGwCcXo764m2M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UQS9PJ2dvuriIS6Zzg9kPQ2SZM4aFsC/Qvika0GQFzqIBh8zFnc73U8uMK6Fcwe4k
+	 xepMUFHalQ54HZf+FhrlC/8aMRm1ecB4ELaCy06+lRK5RIW4xMYr9cxqvYJhDCbLwL
+	 7IlAhShgZUHV6ZfjIvRE8c4nlz4YP/luIf+4/B9gok/EKBb8EGYVpGY48TGwmlSW+B
+	 i+PU0/Bo5HJeit65EKU0UmOmd3yl3pN6fH8FOJE1H4eFlR7VfHCoOD+wYJS1dPd21e
+	 KzvyoEuXiEDqySemJydp2XyzCV3DW6bSg1bD14P9kuEZKjE1vtXrHjMQzFuO1WjL0h
+	 1yfSclanj1Hvg==
+Message-ID: <6f07e5eb-306a-4d29-840c-c29771cff9bd@kernel.org>
+Date: Wed, 15 Apr 2026 15:44:16 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] riscv: smp: Align secondary_start_sbi to 4 bytes
-To: cp0613@linux.alibaba.com, pjw@kernel.org, anup@brainfault.org,
- andrew.jones@oss.qualcomm.com, guoren@kernel.org
+Subject: Re: [PATCH] drivers/perf: riscv: do not restart throttled events
+ after overflow
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
+ atish.patra@linux.dev, anup@brainfault.org, will@kernel.org,
+ palmer@dabbelt.com, pjw@kernel.org, cuiyunhui@bytedance.com
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- opensbi@lists.infradead.org, Anup Patel <anup@brainfault.org>
-References: <20260413132009.133752-1-cp0613@linux.alibaba.com>
+ yuanzhu@bytedance.com
+References: <20260415032017.10712-1-zhangzhanpeng.jasper@bytedance.com>
 Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260413132009.133752-1-cp0613@linux.alibaba.com>
-X-CM-TRANSID: zQCowABX7A9qCN9ptCuODQ--.13235S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCF18AF47XF1rKw17Kw1xZrb_yoW5Cw1Upr
-	yaq3Z8KrW5tw1Ivr1UGrW5W3y5trnrtayUJ3WUJF1F9rsxCF1IgrWS9FW7tF1DW34Fy3W2
-	yr4qva1UCw12yaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkIb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4
-	vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCY1x0262kKe7AKxVWUAVWUtwCF
-	04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r
-	18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vI
-	r41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr
-	1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvE
-	x4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU5k9NDUUUUU==
-X-Originating-IP: [123.118.218.47]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+From: Michael Ellerman <mpe@kernel.org>
+In-Reply-To: <20260415032017.10712-1-zhangzhanpeng.jasper@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_203935_025026_75CDB984 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20260414_224422_708704_2BA7FA1B 
+X-CRM114-Status: GOOD (  26.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +71,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-WyArY2Mgb3BlbnNiaSwgQW51cDogV2hhdCB3YXMgdGhlIGRlYWwgd2l0aCBzZXR0aW5nIHN0dmVj
-IGluIHNiaV9oYXJ0X3N3aXRjaF9tb2RlPyBdCgpPbiA0LzEzLzI2IDIxOjIwLCBjcDA2MTNAbGlu
-dXguYWxpYmFiYS5jb20gd3JvdGU6Cgo+IEZyb206IENoZW4gUGVpIDxjcDA2MTNAbGludXguYWxp
-YmFiYS5jb20+Cj4KPiBEdXJpbmcgU01QIGJvb3QsIHRoZSBzZWNvbmRhcnlfc3RhcnRfc2JpIGFk
-ZHJlc3MgaXMgcGFzc2VkIHRvIHRoZQo+IHNsYXZlIGNvcmUgdmlhIHNiaV9oc21faGFydF9zdGFy
-dC4gSW4gT3BlblNCSSwgdGhpcyBhZGRyZXNzIGlzCj4gd3JpdHRlbiB0byBTVFZFQyBpbiBzYmlf
-aGFydF9zd2l0Y2hfbW9kZS4KClRoaXMgaXMgY2VydGFpbmx5IG9kZCAoT3BlblNCSSBnaXQgYmxh
-bWVzIHRvIGluaXRpYWwgZ2l0IGNvbW1pdC4gTm8gaWRlYQp3aHkgdGhpcyB3YXMgbmVlZGVkLikg
-YnV0IHRlY2huaWNhbGx5IHBlcm1pdHRlZCBieSB0aGUgU0JJIEhTTSBzcGVjIChzZWUKYmVsb3cp
-LgoKKiBBbnVwIGFuZCBvdGhlciBvcGVuc2JpIGZvbGtzOiBEbyB5b3Uga25vdy9yZW1lbWJlciB3
-aHkgaXQgd2FzIHRoZXJlPwpJdCdzIG5vdCByZWFsbHkgYSBidWcsIGJ1dCBzb21lIGhpc3Rvcmlj
-YWwgY29udGV4dCB3b3VsZCBiZSBhcHByZWNpYXRlZC4KCj4gQWNjb3JkaW5nIHRvIHRoZSBwcml2
-aWxlZ2VkIHNwZWNpZmljYXRpb24sIHRoZSBCQVNFIGZpZWxkIG9mIFNUVkVDCj4gbXVzdCBhbHdh
-eXMgYmUgYWxpZ25lZCBvbiBhIDQtYnl0ZSBib3VuZGFyeS4gSG93ZXZlciwgU3lzdGVtLm1hcAo+
-IHJldmVhbHMgdGhhdCBzZWNvbmRhcnlfc3RhcnRfc2JpIGlzIG5vdCBhIDQtYnl0ZSBhbGlnbmVk
-IGFkZHJlc3MuCj4KPiBGb3IgZXhhbXBsZSwgdGhlIGFkZHJlc3Mgb2Ygc2Vjb25kYXJ5X3N0YXJ0
-X3NiaSBpcwo+IDB4ZmZmZmZmZmY4MDAwMTA2NiwgYW5kIHRoZSBkaXNhc3NlbWJseSBpcyBhcyBm
-b2xsb3dzOgo+Cj4gRHVtcCBvZiBhc3NlbWJsZXIgY29kZSBmcm9tIDB4ZmZmZmZmZmY4MDAwMTA1
-MiB0byAweGZmZmZmZmZmODAwMDEwN2E6Cj4gICAgMHhmZmZmZmZmZjgwMDAxMDUyIDxfc3RhcnQr
-NDE3OD46ICAgIGMubm9wICAgLTExCj4gICAgMHhmZmZmZmZmZjgwMDAxMDU0IDxfc3RhcnQrNDE4
-MD46ICAgIGF1aXBjICAgZ3AsMHgxYTFmCj4gICAgMHhmZmZmZmZmZjgwMDAxMDU4IDxfc3RhcnQr
-NDE4ND46ICAgIGFkZGkgICAgZ3AsZ3AsODQKPiAgICAweGZmZmZmZmZmODAwMDEwNWMgPF9zdGFy
-dCs0MTg4PjogICAgY3NydyAgICBzYXRwLGEyCj4gICAgMHhmZmZmZmZmZjgwMDAxMDYwIDxfc3Rh
-cnQrNDE5Mj46ICAgIHNmZW5jZS52bWEKPiAgICAweGZmZmZmZmZmODAwMDEwNjQgPF9zdGFydCs0
-MTk2PjogICAgcmV0Cj4gICAgMHhmZmZmZmZmZjgwMDAxMDY2IDxfc3RhcnQrNDE5OD46ICAgIGNz
-cncgICAgc2llLHplcm8KPiAgICAweGZmZmZmZmZmODAwMDEwNmEgPF9zdGFydCs0MjAyPjogICAg
-Y3NydyAgICBzaXAsemVybwo+ICAgIDB4ZmZmZmZmZmY4MDAwMTA2ZSA8X3N0YXJ0KzQyMDY+OiAg
-ICBsaSAgICAgIHQwLDIKPiAgICAweGZmZmZmZmZmODAwMDEwNzAgPF9zdGFydCs0MjA4PjogICAg
-Y3NydyAgICBzY291bnRlcmVuLHQwCj4gICAgMHhmZmZmZmZmZjgwMDAxMDc0IDxfc3RhcnQrNDIx
-Mj46ICAgIGF1aXBjICAgZ3AsMHgxYTFmCj4gICAgMHhmZmZmZmZmZjgwMDAxMDc4IDxfc3RhcnQr
-NDIxNj46ICAgIGFkZGkgICAgZ3AsZ3AsNTIKPgo+IFdoZW4gd3JpdGluZyB0byBTVFZFQyBhdCBh
-ZGRyZXNzIDB4ZmZmZmZmZmY4MDAwMTA2NiwgdGhlIGFjdHVhbAo+IHdyaXRlIGFkZHJlc3MgaXMg
-MHhmZmZmZmZmZjgwMDAxMDY0LCBjb3JyZXNwb25kaW5nIHRvIHRoZSBhZGRyZXNzCj4gb2YgdGhl
-IHByZXZpb3VzIHJldCBpbnN0cnVjdGlvbi4KQWxzbyB0ZWNobmljYWxseSBwZXJtaXR0ZWQuCj4g
-VGhpcyBpcyB1bmV4cGVjdGVkLCBhbmQgaWYgYW4KPiBpbnRlcnJ1cHQgb2NjdXJzIGF0IHRoaXMg
-cG9pbnQsIGl0IHdpbGwgY2F1c2UgdW5wcmVkaWN0YWJsZSByZXN1bHRzLgo+Cj4gSG93ZXZlciwg
-c2Vjb25kYXJ5X3N0YXJ0X3NiaSBpbW1lZGlhdGVseSBtYXNrcyBhbGwgaW50ZXJydXB0cyBhbmQK
-PiB1cGRhdGVzIFNUVkVDLCBzbyBubyBwcm9ibGVtcyBvY2N1cnJlZC4KCkFuIGludGVycnVwdCBj
-YW5ub3QgdHJhcCBpbiBiZXR3ZWVuIHNlY29uZGFyeV9zdGFydF9zYmkgc3RhcnRpbmcgYW5kIHRo
-ZQppbnRlcnJ1cHRzIGdldHRpbmcgbWFza2VkIGluZGl2aWR1YWxseS4gVGhlIG9ubHkgYXJjaCBz
-dGF0ZSBndWFyYW50ZWVkCmJ5IEhTTSBpcyBbMV06Cgp8UmVnaXN0ZXIgTmFtZSB8IFJlZ2lzdGVy
-IFZhbHVlCnxzYXRwwqAgwqAgwqAgwqAgwqAgfCAwCnxzc3RhdHVzLlNJRcKgIMKgfCAwCnxhMMKg
-IMKgIMKgIMKgIMKgIMKgIHwgaGFydGlkCnxhMcKgIMKgIMKgIMKgIMKgIMKgIHwgYG9wYXF1ZWAg
-cGFyYW1ldGVyCnxBbGwgb3RoZXIgcmVnaXN0ZXJzIHJlbWFpbiBpbiBhbiB1bmRlZmluZWQgc3Rh
-dGUuCgpPZiB3aGljaCBzc3RhdHVzLlNJRSA9IDAgbWVhbnMgdGhhdCBpbnRlcnJ1cHRzIGFyZSBt
-YXNrZWQgaW4gU3VwZXJ2aXNvcgptb2RlLgo+IEluIHN1bW1hcnksIGl0IGlzIG1vcmUgcmVhc29u
-YWJsZSB0byBtYWtlIHNlY29uZGFyeV9zdGFydF9zYmkKPiBzYXRpc2Z5IDQtYnl0ZSBhbGlnbm1l
-bnQuCgpUaHVzLCBpdCBpcyB1bm5lY2Vzc2FyeS4KCklmIHRoaXMgZml4ZXMgYSBidWcgd2hlcmUg
-YW4gaW50ZXJydXB0IGNhbiB0cmFwIGludG8gdGhlIHdyb25nIHN0dmVjIGZvcgp5b3UsIHRoZW4g
-eW91ciBmaXJtd2FyZSBpcyBicm9rZW4uCgpNaWNoYWVsJ3Mgc3VnZ2VzdGlvbiBhYm91dCBTWU1f
-Q09ERV9TVEFSVCBzdGlsbCBzdGFuZHMsIGJ1dCBpZiB5b3UgZG8KdGhhdCwgdGhhdCdzIGp1c3Qg
-YSByZWFsbHkgbWlub3IgcmVmYWN0b3JpbmcsIGFuZCBpbiBhbnkgY2FzZSB0aGUKY3VycmVudCBj
-b21taXQgbWVzc2FnZSBjYW5ub3Qgc3RhbmQuCgpWaXZpYW4gImRyYW1mb3JldmVyIiBXYW5nCgpb
-MV06Cmh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jpc2N2LXNiaS1kb2MvYmxvYi92
-My4wL3NyYy9leHQtaHNtLmFkb2MjZnVuY3Rpb24taGFydC1zdGFydC1maWQtMAoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 15/4/2026 13:20, Zhanpeng Zhang wrote:
+> Perf core uses `event->hw.interrupts == MAX_INTERRUPTS` to keep
+> throttled events stopped until it explicitly unthrottles them later.
+> 
+> However, current RISC-V Perf/PMU system unconditionally restarts all the
+> counters at the end of overflow handler, which bypasses the perf core's
+> throttle mechanism. Therefore, an unreasonable small sampling period
+> such as `perf top -c 20` may cause an IRQ storm and eventually leads to
+> soft lockup.
+> 
+> Fix this by filtering the counter start/restart mask: do not restart
+> counters for events already marked as throttled by the perf core. This
+> retains the throttle effect and prevents interrupt storms in such
+> workloads.
+> 
+> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+> ---
+>   drivers/perf/riscv_pmu_sbi.c | 45 ++++++++++++++++++++++++++++++++++--
+>   1 file changed, 43 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index 385af5e6e6d0..664f9b86c468 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -60,6 +60,33 @@ asm volatile(ALTERNATIVE(						\
+>   #define PERF_EVENT_FLAG_LEGACY		BIT(SYSCTL_LEGACY)
+>   
+>   PMU_FORMAT_ATTR(event, "config:0-55");
+> +static inline bool rvpmu_perf_event_is_throttled(struct perf_event *event)
+> +{
+> +	return event->hw.interrupts == MAX_INTERRUPTS;
+> +}
+
+I don't see any other arch or driver code looking for hw.interrupts == 
+MAX_INTERRUPTS.
+
+The events/core.c code calls event->pmu->stop(event, 0) when an event is 
+throttled. I think the arch/driver code should be using that as the 
+signal that the event should no longer be running.
+
+So something like filtering out stopped events (PERF_HES_STOPPED) seems 
+like it would be the right fix.
+
+> +/*
+> + * Return a mask of counters that must not be restarted.
+> + * `base` is the starting bit index to limit the mask to this long word.
+> + */
+> +static inline unsigned long rvpmu_get_throttled_mask(struct perf_event **events,
+> +						     unsigned long mask,
+> +						     int base)
+> +{
+> +	unsigned long tmp = mask, throttled = 0;
+> +	int bit = -1;
+> +	int nr_bits = min_t(int, BITS_PER_LONG, RISCV_MAX_COUNTERS - base);
+> +
+> +	for_each_set_bit(bit, &tmp, nr_bits) {
+> +		struct perf_event *event = events[bit];
+> +
+> +		if (!event || rvpmu_perf_event_is_throttled(event))
+> +			throttled |= BIT(bit);
+> +	}
+> +
+> +	return throttled;
+> +}
+> +
+>   PMU_FORMAT_ATTR(firmware, "config:62-63");
+>   
+>   static bool sbi_v2_available;
+> @@ -1005,6 +1032,8 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
+>   	for_each_set_bit(idx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
+>   		if (ctr_ovf_mask & BIT(idx)) {
+>   			event = cpu_hw_evt->events[idx];
+> +			if (!event || rvpmu_perf_event_is_throttled(event))
+> +				continue;
+>   			hwc = &event->hw;
+>   			max_period = riscv_pmu_ctr_get_width_mask(event);
+>   			init_val = local64_read(&hwc->prev_count) & max_period;
+> @@ -1017,13 +1046,25 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
+>   	}
+>   
+>   	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
+> +		int base = i * BITS_PER_LONG;
+> +		unsigned long throttled;
+> +		unsigned long used;
+> +		unsigned long start_mask;
+> +
+> +		used = cpu_hw_evt->used_hw_ctrs[i];
+> +		throttled = rvpmu_get_throttled_mask(cpu_hw_evt->events + base,
+> +						     used, base);
+> +		start_mask = used & ~throttled;
+> +		if (!start_mask)
+> +			continue;
+> +
+>   		/* Restore the counter values to relative indices for used hw counters */
+>   		for_each_set_bit(idx, &cpu_hw_evt->used_hw_ctrs[i], BITS_PER_LONG)
+>   			sdata->ctr_values[idx] =
+>   					cpu_hw_evt->snapshot_cval_shcopy[idx + i * BITS_PER_LONG];
+>   		/* Start all the counters in a single shot */
+> -		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx * BITS_PER_LONG,
+> -			  cpu_hw_evt->used_hw_ctrs[i], flag, 0, 0, 0);
+> +		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
+> +			  start_mask, flag, 0, 0, 0);
+>   	}
+>   }
+
+You only patch the snapshot case. Is the non-snapshot path unaffected? 
+If so you should explain why.
+
+Can you identify a commit where the bad behaviour was introduced? Maybe 
+when snapshot support was added, if indeed it's only the snapshot path 
+that is buggy.
+
+cheers
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
