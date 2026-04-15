@@ -4,97 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A953DF9D0F6
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Apr 2026 23:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4129F9D0FD
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 00:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NpxFtwpaTi9qN2M5OZbRHxGBeR3csPJJrb3hSSz04yc=; b=W/neYg3KRFdEwI
-	7bIwcZz/RZib5d+BlF9kOec9AP1UTrw/jHn5xp1+6rtU44czBqtpd1zCyaTJWm4bok7SiGked53o/
-	wrZkcxogxikYEpKYlLW2csfjrpyuP8vvdjhVU1MhkQIz3YeuUZKLB+YJq5pq2fGvTvUn2VoCYJVVz
-	xUhmQtith/F36sVv/9yDKWa2JVD43VZ76JKnjURFTLDXF86Z+d/Nbfl3ChlOOq/PUHM43ceafifK/
-	Alzigl2OJxZgM7ilhgZKX/Yk+Hyq+ON+3C28vOe3GEqxd8IY2oVd6JvDVl6snzU0LO7ae/sXPPJio
-	aJ0/p/6uKYPtp08Y+j6w==;
+	List-Owner; bh=nV+B9L7h/33+Q1mdyMKBQBHvwJPrzOVuNjSerWMz3B0=; b=XpZs61HMTWDSPV
+	Kb82w+8Ye7hX6bhB2cYEEBC1SAIrLvOQj3CigYx+03Y6EzRmp3Vt0u/5AqvA35CiOw0gqvaNjz+Qz
+	mLgxoAgXb96QKbCzlPzIHdZriN/sWLuwADDLgVWy+NZ2WoP7gbtAbFjxJnvvYxQAH+wRpoJKaD09l
+	jVhTVD/csDTdpx1g8n5uXhlNFhb8z7T2T6x67AzMmFCzrdM4Vw45mZ0ovqiwk0OIRhIqOfFpJ9NxZ
+	ChSoGjcRnbxRQGt8wAEaskcYGdVetu7hC8DL91dVrirB34gXwXk+r4lEBWbOV2G2fFCRYRlcWcZWq
+	I69kQCrBI6WlIGYiwlow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCn9M-00000000KXO-04tC;
-	Tue, 14 Apr 2026 23:26:32 +0000
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	id 1wCnkm-00000000MKg-3Qz2;
+	Wed, 15 Apr 2026 00:05:12 +0000
+Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCn9J-00000000KX0-0XJ6
+	id 1wCnkj-00000000MIp-1AVe
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Apr 2026 23:26:30 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-2bd9a485bd6so12515615eec.1
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Apr 2026 16:26:28 -0700 (PDT)
+	Wed, 15 Apr 2026 00:05:11 +0000
+Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-2c156c4a9efso8485127eec.1
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Apr 2026 17:05:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776209188; x=1776813988; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1776211508; x=1776816308; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=DQKwHS4WLZQFuuFkVYO5PQwY4AUg0AiUXq52eLyqUWE=;
-        b=DekrSHvsKGg6DiSVhzO4n+Y14/ZhpoEie7VYqEwpQ/MD0FZjuo9MPtMtpUqv3PlnQl
-         orffHI5BdM6hGJb75sC8rlppUggKfoSRN0m6Ji+tmCqA7o19tJgir6rI+sm+E+p3sERV
-         +H7AtuEb1FlRr3rxUps+Fp0zq1F4u4kzbVqcnV73VeXhkbga85Ob3dVdeMttuUAAZDdc
-         QSWFENNs0IYu0H8bM78diLuFGzNWLV6AjogEzNq59gelPU3bR4A9QA+DVaXZ/IxgoBzF
-         hAT+PCGdRPaXXQ76MDpeYqV4C+LkF5xbb5aPRc2tdj2shWYzPm8O086SYsOOrF6cQ35a
-         GtOA==
+        bh=LvQVwlsrY8VrUpVEOwJTYh7Vydf5dnFXRYiFOW2UE4U=;
+        b=imGoM0xiUclTXi7rtyfhp3BJDAxVF27UcsbOnmiKjLojdN5dtWhKB8DwinQfo2xcGi
+         0EwvvFa1BCxsOvqVcL9VJFrYtzW7WAWJFNRZGdDJUihK0qy6swqOFDRlWFL9pSWfHJGa
+         AWz3LGUwVLWz06nsLSNPk364aTUfsoSNl3MtxRaqklupbdNHccRcnj5g2eU9j8EWRRfE
+         0A3Uk8XbRn7vjkk3IZ9uDHo3O29LZlMqRr39GzFaRA2OHoGhnHT9DjSjdLYqeST8sAf9
+         B0j2uNexlT19IBr8geyfXg1qYw9CFQLtpYEPQLf7KoFvXgnXQsUGBMSMxxU+fNXhQasr
+         +amg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776209188; x=1776813988;
+        d=1e100.net; s=20251104; t=1776211508; x=1776816308;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DQKwHS4WLZQFuuFkVYO5PQwY4AUg0AiUXq52eLyqUWE=;
-        b=hsOD0hHbjUlGMrm1IdWx0FG7x5ZEfr39nGQkcDpxaxABuHlKH2TmOarnZv3W3ATTt4
-         Bs8n83eu9IdHtuITYAvci2brHwcAHJsWrVLOARcQDYAjx5/f0Vblf42wA4MOyJO+CpKf
-         W0jhgKaH24g7jyWwuQgSUaK32xvbdpQF+L9AqGF7sClLPTNJpfKNESAsM1Aaf6gaOEZW
-         w9lnR/CqcD57IgdYTCl5N+bYww1Tc7ONUrYI1cIEUUH2gG7p+181ujXu1qacc5EALcC5
-         9TXESUdg5+tsoUWkiU+TZe4owN6HdaJdvGnZXx7nytxs1bP1mt3he+0mfOBRWNkodnRj
-         WoTA==
-X-Forwarded-Encrypted: i=1; AFNElJ+eHWVP5f4OnhFzU5odref7N+CSsWeCKhdOK0D7TWDvSbyyV2PUESdqHndWUyggJXwxZpeQ7488cMU/8w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCEGBmOqpW6qEaj5xysa1HykiqHjg5ZO+xbEXLV6FI5dBFLNfC
-	D6nGK/qO4YuFI/l/gEvhe2nrw4dvwqAVYwyqtuTTiE+sb4dPqUY6y3h3
-X-Gm-Gg: AeBDiesM6ZDwrMtY3s+ss3xm9pI1V+s9H8yH6ZT1TvfWHIhRk9EPeo181WwG7Ja0RiH
-	3G4qh2tVQS+hMMKdCdBv09FPoaQUJuV3XehbJTExr5PKKqIRTTfTtIO+XduoXySNQ6Q2WAIeF0f
-	1qVODdsP/MbVEU21IGYIXY0IJ9gnNlKxQkYVlA0PelQ5az0IGUgcCZOkcICE4HlfUzx2wjR/FO/
-	XJTfmiAG3EAWzaVy+NYzHhuImHR5SBJewz7OYLg2AHoybd87ZiuxdCNpSzCCqksA1vA0qRrXPJe
-	/rt6A9xJkdxLHF7uImZlkZIj5hj+KY8EQB8U6qotNecGVzfJ2GyC1GBR3Mnpw6J50zqkgoMIZOP
-	pAVqomnlPGbyLCmQA9peRFSOhStxS0oQyFCkqT0zqJ8V/UTWeum9j9gQ0SC/oc2NkR2Q3bukVks
-	FieOZ1MUL6U3FbrbSSbrXEa8w1rRuR/chpF3phaetzqQFGdAM=
-X-Received: by 2002:a05:7301:150d:b0:2da:1874:f39c with SMTP id 5a478bee46e88-2da1874f8e4mr4066308eec.12.1776209187358;
-        Tue, 14 Apr 2026 16:26:27 -0700 (PDT)
+        bh=LvQVwlsrY8VrUpVEOwJTYh7Vydf5dnFXRYiFOW2UE4U=;
+        b=ajFP/dbM89+ED1269rWrU0sPxDXFlZu9avb9cWwKoifGchrKz9X4osSlKJzDL3DTHR
+         p5tVK2pWXHrcdPwhXKxXN6fvoFc/1OnK19kwi5ev3UeGZ5w9/CaM/1Tzl6LuKvaRtYB6
+         FwoOc49tfTfVTXBD2zhvAbU1vhKvjXyeTEcAEowWv0iZhrEVeoSJmaSvBOAVRXaM6XER
+         0KmC7IBPrsv/yvAE+eIuolqi5OOyKus7tm8b27pOW+Kk4eSnm8goztDMTKVzhCnzRa8U
+         zvkvJow3pD6VF5J76Szau/oxJU7tYtRBM5ny+VGD4dLAZEfcryNuVp8vmVmps7X7NVTV
+         bmPg==
+X-Forwarded-Encrypted: i=1; AFNElJ9Ld88/wr0w88zcJoM8tgyiX0TSs3tI23ZZ4xUxHZTrZr3/CmhobruSz++riNl244hsJzzCG5Q+goZbeQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQMYkeZHL+M+a2RcaBFXax5CyM5kndMJpM8LltWcxpjqWpjTXf
+	rsCW6EXlW1LxIgzFgDuCYKazMGH0jsTI9B2IJkSuHZGiL09SX9H0tqyJ
+X-Gm-Gg: AeBDieuKLvAZ8f53naFU/L0MuFZx8NF1Yuz00hjETv7StvAvBCiZSrNjHazrBFq5qLw
+	u0oKJF+SofJ8/8IAl/IjVFNNTUz/Zxu4kzOaCVoSK4/lgZVH064SwEqi4nXLCvxMBhdfVWWEcCr
+	ovHGYsvmZx/vIOkgD1FldOwack1Xa9GMn7OWaQvJE8a+3+2HZ0WHrIwW8p86eBLPNokVcR09Ato
+	QZHDUoNF1tqSp52rHRqdKrE1+9Ue/QuvGIPTVpBWHEIi8SFPFOaGqV1mQt5AwfdHoaWT/4fqQkh
+	QtQJ0pHStRWfA/lyh90tLGAND4Y3BwE2BT7NdVKvnJsVj+LIoBL/Fb2VQP9DYL9eiH70ncWUOvJ
+	ANjCfOPW8NcNdLlgkssAzBvAhF51WWfX+AdxoLQCEB5pV8tf48FTEMelNDC6shdC9m7My1oaKEy
+	AMtk1NdqapH72HrLNr5z32ipG0LIyThBFFQ/AIe6qtURMQylo=
+X-Received: by 2002:a05:7300:a194:b0:2c4:b8d6:45cf with SMTP id 5a478bee46e88-2d5876a4970mr10903627eec.9.1776211507961;
+        Tue, 14 Apr 2026 17:05:07 -0700 (PDT)
 Received: from [172.16.0.242] ([192.19.161.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2de8eb84511sm83049eec.17.2026.04.14.16.26.23
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2de8c606925sm318206eec.12.2026.04.14.17.05.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Apr 2026 16:26:25 -0700 (PDT)
-Message-ID: <80ef37c7-ddfc-4268-b5d5-534c4c5091c3@gmail.com>
-Date: Tue, 14 Apr 2026 16:31:35 -0700
+        Tue, 14 Apr 2026 17:05:06 -0700 (PDT)
+Message-ID: <1ced8f98-6ac5-4ffc-ac29-cef25937a920@gmail.com>
+Date: Tue, 14 Apr 2026 17:10:30 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 09/12] perf tools: Add RISC-V trace PMU record
- capabilities
-To: Zane Leung <liangzhen@linux.spacemit.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, palmer@dabbelt.com, pjw@kernel.org,
- gregkh@linuxfoundation.org, alexander.shishkin@linux.intel.com,
- irogers@google.com
-Cc: coresight@lists.linaro.org, peterz@infradead.org, mingo@redhat.com,
+Subject: Re: [RFC PATCH 00/12] Add Linux RISC-V trace support via CoreSight
+To: Zane Leung <liangzhen@linux.spacemit.com>,
+ Anup Patel <anup@brainfault.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ palmer@dabbelt.com, pjw@kernel.org, gregkh@linuxfoundation.org,
+ alexander.shishkin@linux.intel.com, irogers@google.com,
+ coresight@lists.linaro.org, peterz@infradead.org, mingo@redhat.com,
  namhyung@kernel.org, mark.rutland@arm.com, jolsa@kernel.org,
- adrian.hunter@intel.com, kan.liang@linux.intel.com, mchitale@gmail.com,
- anup@brainfault.org, atish.patra@linux.dev, andrew.jones@oss.qualcomm.com,
- sunilvl@oss.qualcomm.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, anup.patel@oss.qualcomm.com,
- mayuresh.chitale@oss.qualcomm.com, zhuangqiubin@linux.spacemit.com
+ adrian.hunter@intel.com, mchitale@gmail.com, atish.patra@linux.dev,
+ andrew.jones@oss.qualcomm.com, sunilvl@oss.qualcomm.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ anup.patel@oss.qualcomm.com, mayuresh.chitale@oss.qualcomm.com,
+ zhuangqiubin@linux.spacemit.com, suzuki.poulose@arm.com,
+ mike.leach@linaro.org, james.clark@linaro.org,
+ linux-arm-kernel@lists.infradead.org
 References: <20260414034153.3272485-1-liangzhen@linux.spacemit.com>
- <20260414034153.3272485-10-liangzhen@linux.spacemit.com>
+ <CAAhSdy2Sx98qcCMBVF+_BV1G-syrO74Y_S298hMwkW+vgLtb5Q@mail.gmail.com>
+ <7EFD9F2504326BD1+26395797-fbe8-491b-b651-701286fb5751@linux.spacemit.com>
 Content-Language: en-US
 From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20260414034153.3272485-10-liangzhen@linux.spacemit.com>
+In-Reply-To: <7EFD9F2504326BD1+26395797-fbe8-491b-b651-701286fb5751@linux.spacemit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_162629_224320_1D1B6530 
-X-CRM114-Status: GOOD (  29.45  )
+X-CRM114-CacheID: sfid-20260414_170509_358116_A6A47E79 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,610 +109,396 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-NACK. The file is largely copied from tools/perf/arch/x86/util/intel-pt.c
-There's even markers like "Intel Processor Trace" in file auxtrace.c.
-There's no mentioning of authorship, but instead Spacemit claming its
-copyright over it.
-
-Bo
-
-On 4/13/26 20:41, Zane Leung wrote:
-> From: liangzhen <zhen.liang@spacemit.com>
-> 
-> Introduce the required auxiliary API functions allowing
-> the perf core to interact with RISC-V trace perf driver.
-> 
-> Signed-off-by: liangzhen <zhen.liang@spacemit.com>
-> ---
->   tools/perf/arch/riscv/util/Build      |   2 +-
->   tools/perf/arch/riscv/util/auxtrace.c | 489 ++++++++++++++++++++++++++
->   tools/perf/util/auxtrace.c            |   1 +
->   tools/perf/util/auxtrace.h            |   1 +
->   tools/perf/util/rvtrace.h             |  38 ++
->   5 files changed, 530 insertions(+), 1 deletion(-)
->   create mode 100644 tools/perf/arch/riscv/util/auxtrace.c
->   create mode 100644 tools/perf/util/rvtrace.h
-> 
-> diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-> index 748068a3a5c5..10f41f97bc2e 100644
-> --- a/tools/perf/arch/riscv/util/Build
-> +++ b/tools/perf/arch/riscv/util/Build
-> @@ -1,3 +1,3 @@
->   perf-util-y += header.o
->   
-> -perf-util-y += pmu.o
-> +perf-util-y += pmu.o auxtrace.o
-> diff --git a/tools/perf/arch/riscv/util/auxtrace.c b/tools/perf/arch/riscv/util/auxtrace.c
-> new file mode 100644
-> index 000000000000..5feee198ef97
-> --- /dev/null
-> +++ b/tools/perf/arch/riscv/util/auxtrace.c
-> @@ -0,0 +1,489 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright(C) 2026 Spacemit Limited. All rights reserved.
-> + */
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/types.h>
-> +#include <linux/bitops.h>
-> +#include <linux/log2.h>
-> +#include <linux/zalloc.h>
-> +#include <linux/string.h>
-> +#include <time.h>
-> +
-> +#include <internal/lib.h> // page_size
-> +#include "../../../util/auxtrace.h"
-> +#include "../../../util/cpumap.h"
-> +#include "../../../util/debug.h"
-> +#include "../../../util/event.h"
-> +#include "../../../util/evlist.h"
-> +#include "../../../util/evsel.h"
-> +#include "../../../util/rvtrace.h"
-> +#include "../../../util/pmu.h"
-> +#include "../../../util/record.h"
-> +#include "../../../util/session.h"
-> +#include "../../../util/tsc.h"
-> +#include "../../../util/evsel_config.h"
-> +
-> +#define RVTRACE_PMU_NAME "rvtrace"
-> +#define KiB(x) ((x) * 1024)
-> +#define MiB(x) ((x) * 1024 * 1024)
-> +
-> +static const char * const metadata_encoder_ro[] = {
-> +	[RVTRACE_ENCODER_FORMAT]    = "control/format",
-> +	[RVTRACE_ENCODER_CONTEXT]   = "control/context",
-> +	[RVTRACE_ENCODER_INHB_SRC]  = "control/inhb_src",
-> +	[RVTRACE_ENCODER_SRCBITS]   = "features/srcb",
-> +	[RVTRACE_ENCODER_SRCID]	    = "features/srcid"
-> +};
-> +
-> +struct rvtrace_recording {
-> +	struct auxtrace_record	itr;
-> +	struct perf_pmu *rvtrace_pmu;
-> +	struct evlist *evlist;
-> +	bool snapshot_mode;
-> +	size_t snapshot_size;
-> +};
-> +
-> +static int rvtrace_parse_snapshot_options(struct auxtrace_record *itr,
-> +					  struct record_opts *opts,
-> +					  const char *str)
-> +{
-> +	struct rvtrace_recording *ptr =
-> +				container_of(itr, struct rvtrace_recording, itr);
-> +	unsigned long long snapshot_size = 0;
-> +	char *endptr;
-> +
-> +	if (str) {
-> +		snapshot_size = strtoull(str, &endptr, 0);
-> +		if (*endptr || snapshot_size > SIZE_MAX)
-> +			return -1;
-> +	}
-> +
-> +	opts->auxtrace_snapshot_mode = true;
-> +	opts->auxtrace_snapshot_size = snapshot_size;
-> +	ptr->snapshot_size = snapshot_size;
-> +
-> +	return 0;
-> +}
-> +
-> +static size_t rvtrace_info_priv_size(struct auxtrace_record *itr __maybe_unused,
-> +				     struct evlist *evlist __maybe_unused)
-> +{
-> +	int encoder;
-> +	struct perf_cpu_map *event_cpus = evlist->core.user_requested_cpus;
-> +	struct perf_cpu_map *intersect_cpus;
-> +
-> +	if (!perf_cpu_map__has_any_cpu(event_cpus)) {
-> +		/* cpu map is not "any" CPU , we have specific CPUs to work with */
-> +		struct perf_cpu_map *online_cpus = perf_cpu_map__new_online_cpus();
-> +
-> +		intersect_cpus = perf_cpu_map__intersect(event_cpus, online_cpus);
-> +		perf_cpu_map__put(online_cpus);
-> +	} else {
-> +		/* Event can be "any" CPU so count all online CPUs. */
-> +		intersect_cpus = perf_cpu_map__new_online_cpus();
-> +	}
-> +
-> +	encoder = perf_cpu_map__nr(intersect_cpus);
-> +	perf_cpu_map__put(intersect_cpus);
-> +
-> +	return (RVTRACE_HEADER_SIZE + encoder * RVTRACE_ENCODER_PRIV_SIZE);
-> +}
-> +
-> +static int rvtrace_get_ro(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path, __u64 *val)
-> +{
-> +	char pmu_path[PATH_MAX];
-> +	int scan;
-> +
-> +	/* Get RO metadata from sysfs */
-> +	snprintf(pmu_path, PATH_MAX, "cpu%d/%s", cpu.cpu, path);
-> +
-> +	scan = perf_pmu__scan_file(pmu, pmu_path, "%llx", val);
-> +	if (scan != 1) {
-> +		pr_err("%s: error reading: %s\n", __func__, pmu_path);
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void rvtrace_get_metadata(struct perf_cpu cpu, u32 *offset,
-> +				 struct auxtrace_record *itr,
-> +				 struct perf_record_auxtrace_info *info)
-> +{
-> +	struct rvtrace_recording *ptr = container_of(itr, struct rvtrace_recording, itr);
-> +	struct perf_pmu *rvtrace_pmu = ptr->rvtrace_pmu;
-> +
-> +	info->priv[*offset + RVTRACE_ENCODER_CPU] = cpu.cpu;
-> +	info->priv[*offset + RVTRACE_ENCODER_NR_TRC_PARAMS] = RVTRACE_ENCODER_NR_TRC_PARAMS_LENGTH;
-> +
-> +	/* Get read-only information from sysFS */
-> +	rvtrace_get_ro(rvtrace_pmu, cpu, metadata_encoder_ro[RVTRACE_ENCODER_FORMAT],
-> +			&info->priv[*offset + RVTRACE_ENCODER_FORMAT]);
-> +	rvtrace_get_ro(rvtrace_pmu, cpu, metadata_encoder_ro[RVTRACE_ENCODER_CONTEXT],
-> +			&info->priv[*offset + RVTRACE_ENCODER_CONTEXT]);
-> +	rvtrace_get_ro(rvtrace_pmu, cpu, metadata_encoder_ro[RVTRACE_ENCODER_INHB_SRC],
-> +			&info->priv[*offset + RVTRACE_ENCODER_INHB_SRC]);
-> +	rvtrace_get_ro(rvtrace_pmu, cpu, metadata_encoder_ro[RVTRACE_ENCODER_SRCBITS],
-> +			&info->priv[*offset + RVTRACE_ENCODER_SRCBITS]);
-> +	rvtrace_get_ro(rvtrace_pmu, cpu, metadata_encoder_ro[RVTRACE_ENCODER_SRCID],
-> +			&info->priv[*offset + RVTRACE_ENCODER_SRCID]);
-> +
-> +	/* Where the next CPU entry should start from */
-> +	*offset += RVTRACE_ENCODER_PRIV_MAX;
-> +}
-> +
-> +static int rvtrace_info_fill(struct auxtrace_record *itr, struct perf_session *session,
-> +			     struct perf_record_auxtrace_info *auxtrace_info, size_t priv_size)
-> +{
-> +	int i;
-> +	u32 offset;
-> +	u64 nr_cpu, type;
-> +	struct perf_cpu_map *cpu_map;
-> +	struct perf_cpu_map *event_cpus = session->evlist->core.user_requested_cpus;
-> +	struct perf_cpu_map *online_cpus = perf_cpu_map__new_online_cpus();
-> +	struct rvtrace_recording *ptr = container_of(itr, struct rvtrace_recording, itr);
-> +	struct perf_pmu *rvtrace_pmu = ptr->rvtrace_pmu;
-> +	struct perf_cpu cpu;
-> +
-> +	if (priv_size != rvtrace_info_priv_size(itr, session->evlist))
-> +		return -EINVAL;
-> +
-> +	if (!session->evlist->core.nr_mmaps)
-> +		return -EINVAL;
-> +
-> +	/* If the cpu_map has the "any" CPU all online CPUs are involved */
-> +	if (perf_cpu_map__has_any_cpu(event_cpus)) {
-> +		cpu_map = online_cpus;
-> +	} else {
-> +		/* Make sure all specified CPUs are online */
-> +		perf_cpu_map__for_each_cpu(cpu, i, event_cpus) {
-> +			if (!perf_cpu_map__has(online_cpus, cpu))
-> +				return -EINVAL;
-> +		}
-> +
-> +		cpu_map = event_cpus;
-> +	}
-> +
-> +	nr_cpu = perf_cpu_map__nr(cpu_map);
-> +	type = rvtrace_pmu->type;
-> +
-> +	/* First fill out the session header */
-> +	auxtrace_info->type = PERF_AUXTRACE_RISCV_TRACE;
-> +	auxtrace_info->priv[RVTRACE_PMU_TYPE_CPUS] = type << 32;
-> +	auxtrace_info->priv[RVTRACE_PMU_TYPE_CPUS] |= nr_cpu;
-> +
-> +	offset = RVTRACE_HEADER_MAX;
-> +
-> +	perf_cpu_map__for_each_cpu(cpu, i, cpu_map) {
-> +		assert(offset < priv_size);
-> +		rvtrace_get_metadata(cpu, &offset, itr, auxtrace_info);
-> +	}
-> +
-> +	perf_cpu_map__put(online_cpus);
-> +
-> +	return 0;
-> +}
-> +
-> +static int rvtrace_set_sink_attr(struct perf_pmu *pmu,
-> +				 struct evsel *evsel)
-> +{
-> +	char msg[BUFSIZ], path[PATH_MAX], *sink;
-> +	struct evsel_config_term *term;
-> +	int ret = -EINVAL;
-> +	u32 hash;
-> +
-> +	if (evsel->core.attr.config2 & GENMASK(31, 0))
-> +		return 0;
-> +
-> +	list_for_each_entry(term, &evsel->config_terms, list) {
-> +		if (term->type != EVSEL__CONFIG_TERM_DRV_CFG)
-> +			continue;
-> +
-> +		sink = term->val.str;
-> +		snprintf(path, PATH_MAX, "sinks/%s", sink);
-> +
-> +		ret = perf_pmu__scan_file(pmu, path, "%x", &hash);
-> +		if (ret != 1) {
-> +			if (errno == ENOENT)
-> +				pr_err("Couldn't find sink \"%s\" on event %s\n"
-> +				       "Missing kernel or device support?\n\n"
-> +				       "Hint: An appropriate sink will be picked automatically if one isn't specified.\n",
-> +				       sink, evsel__name(evsel));
-> +			else
-> +				pr_err("Failed to set sink \"%s\" on event %s with %d (%s)\n",
-> +				       sink, evsel__name(evsel), errno,
-> +				       str_error_r(errno, msg, sizeof(msg)));
-> +			return ret;
-> +		}
-> +
-> +		evsel->core.attr.config2 |= hash;
-> +		return 0;
-> +	}
-> +
-> +	/*
-> +	 * No sink was provided on the command line - allow the CoreSight
-> +	 * system to look for a default
-> +	 */
-> +	return 0;
-> +}
-> +
-> +static int rvtrace_recording_options(struct auxtrace_record *itr, struct evlist *evlist,
-> +				     struct record_opts *opts)
-> +{
-> +	struct rvtrace_recording *ptr = container_of(itr, struct rvtrace_recording, itr);
-> +	struct perf_pmu *rvtrace_pmu = ptr->rvtrace_pmu;
-> +	struct evsel *evsel, *rvtrace_evsel = NULL;
-> +	struct perf_cpu_map *cpus = evlist->core.user_requested_cpus;
-> +	bool privileged = perf_event_paranoid_check(-1);
-> +	struct evsel *tracking_evsel;
-> +	int err;
-> +
-> +	ptr->evlist = evlist;
-> +	ptr->snapshot_mode = opts->auxtrace_snapshot_mode;
-> +	evlist__for_each_entry(evlist, evsel) {
-> +		if (evsel->core.attr.type == rvtrace_pmu->type) {
-> +			if (rvtrace_evsel) {
-> +				pr_err("There may be only one " RVTRACE_PMU_NAME "x event\n");
-> +				return -EINVAL;
-> +			}
-> +			evsel->core.attr.freq = 0;
-> +			evsel->core.attr.sample_period = 1;
-> +			evsel->needs_auxtrace_mmap = true;
-> +			rvtrace_evsel = evsel;
-> +			opts->full_auxtrace = true;
-> +		}
-> +	}
-> +
-> +	if (!opts->full_auxtrace)
-> +		return 0;
-> +
-> +	err = rvtrace_set_sink_attr(rvtrace_pmu, rvtrace_evsel);
-> +	if (err)
-> +		return err;
-> +
-> +	/* we are in snapshot mode */
-> +	if (opts->auxtrace_snapshot_mode) {
-> +		/*
-> +		 * No size were given to '-S' or '-m,', so go with
-> +		 * the default
-> +		 */
-> +		if (!opts->auxtrace_snapshot_size && !opts->auxtrace_mmap_pages) {
-> +			if (privileged) {
-> +				opts->auxtrace_mmap_pages = MiB(4) / page_size;
-> +			} else {
-> +				opts->auxtrace_mmap_pages = KiB(128) / page_size;
-> +				if (opts->mmap_pages == UINT_MAX)
-> +					opts->mmap_pages = KiB(256) / page_size;
-> +			}
-> +		} else if (!opts->auxtrace_mmap_pages && !privileged &&
-> +						opts->mmap_pages == UINT_MAX) {
-> +			opts->mmap_pages = KiB(256) / page_size;
-> +		}
-> +
-> +		/*
-> +		 * '-m,xyz' was specified but no snapshot size, so make the
-> +		 * snapshot size as big as the auxtrace mmap area.
-> +		 */
-> +		if (!opts->auxtrace_snapshot_size) {
-> +			opts->auxtrace_snapshot_size =
-> +				opts->auxtrace_mmap_pages * (size_t)page_size;
-> +		}
-> +
-> +		/*
-> +		 * -Sxyz was specified but no auxtrace mmap area, so make the
-> +		 * auxtrace mmap area big enough to fit the requested snapshot
-> +		 * size.
-> +		 */
-> +		if (!opts->auxtrace_mmap_pages) {
-> +			size_t sz = opts->auxtrace_snapshot_size;
-> +
-> +			sz = round_up(sz, page_size) / page_size;
-> +			opts->auxtrace_mmap_pages = roundup_pow_of_two(sz);
-> +		}
-> +
-> +		/* Snapshot size can't be bigger than the auxtrace area */
-> +		if (opts->auxtrace_snapshot_size >
-> +				opts->auxtrace_mmap_pages * (size_t)page_size) {
-> +			pr_err("Snapshot size %zu must not be greater than AUX area tracing mmap size %zu\n",
-> +			       opts->auxtrace_snapshot_size,
-> +			       opts->auxtrace_mmap_pages * (size_t)page_size);
-> +			return -EINVAL;
-> +		}
-> +
-> +		/* Something went wrong somewhere - this shouldn't happen */
-> +		if (!opts->auxtrace_snapshot_size || !opts->auxtrace_mmap_pages) {
-> +			pr_err("Failed to calculate default snapshot size and/or AUX area tracing mmap pages\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		pr_debug2("%s snapshot size: %zu\n", RVTRACE_PMU_NAME,
-> +			  opts->auxtrace_snapshot_size);
-> +	}
-> +
-> +	/* Buffer sizes weren't specified with '-m,xyz' so give some defaults */
-> +	if (!opts->auxtrace_mmap_pages) {
-> +		if (privileged) {
-> +			opts->auxtrace_mmap_pages = MiB(4) / page_size;
-> +		} else {
-> +			opts->auxtrace_mmap_pages = KiB(128) / page_size;
-> +			if (opts->mmap_pages == UINT_MAX)
-> +				opts->mmap_pages = KiB(256) / page_size;
-> +		}
-> +	}
-> +
-> +	/* Validate auxtrace_mmap_pages */
-> +	if (opts->auxtrace_mmap_pages) {
-> +		size_t sz = opts->auxtrace_mmap_pages * (size_t)page_size;
-> +		size_t min_sz;
-> +
-> +		if (opts->auxtrace_snapshot_mode)
-> +			min_sz = KiB(4);
-> +		else
-> +			min_sz = KiB(8);
-> +
-> +		if (sz < min_sz || !is_power_of_2(sz)) {
-> +			pr_err("Invalid mmap size for Intel Processor Trace: must be at least %zuKiB and a power of 2\n",
-> +			       min_sz / 1024);
-> +			return -EINVAL;
-> +		}
-> +	}
-> +
-> +	/*
-> +	 * To obtain the auxtrace buffer file descriptor, the auxtrace event
-> +	 * must come first.
-> +	 */
-> +	evlist__to_front(evlist, rvtrace_evsel);
-> +
-> +	/*
-> +	 * get the CPU on the sample - need it to associate trace ID in the
-> +	 * AUX_OUTPUT_HW_ID event, and the AUX event for per-cpu mmaps.
-> +	 */
-> +	evsel__set_sample_bit(rvtrace_evsel, CPU);
-> +
-> +	/* Add dummy event to keep tracking */
-> +	err = parse_event(evlist, "dummy:u");
-> +	if (err)
-> +		return err;
-> +
-> +	tracking_evsel = evlist__last(evlist);
-> +	evlist__set_tracking_event(evlist, tracking_evsel);
-> +
-> +	tracking_evsel->core.attr.freq = 0;
-> +	tracking_evsel->core.attr.sample_period = 1;
-> +
-> +	/* In per-cpu case, always need the time of mmap events etc */
-> +	if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus))
-> +		evsel__set_sample_bit(tracking_evsel, TIME);
-> +
-> +	return 0;
-> +}
-> +
-> +static int rvtrace_snapshot_start(struct auxtrace_record *itr)
-> +{
-> +	struct rvtrace_recording *ptr =
-> +			container_of(itr, struct rvtrace_recording, itr);
-> +	struct evsel *evsel;
-> +
-> +	evlist__for_each_entry(ptr->evlist, evsel) {
-> +		if (evsel->core.attr.type == ptr->rvtrace_pmu->type)
-> +			return evsel__disable(evsel);
-> +	}
-> +	return -EINVAL;
-> +}
-> +
-> +static int rvtrace_snapshot_finish(struct auxtrace_record *itr)
-> +{
-> +	struct rvtrace_recording *ptr =
-> +			container_of(itr, struct rvtrace_recording, itr);
-> +	struct evsel *evsel;
-> +
-> +	evlist__for_each_entry(ptr->evlist, evsel) {
-> +		if (evsel->core.attr.type == ptr->rvtrace_pmu->type)
-> +			return evsel__enable(evsel);
-> +	}
-> +	return -EINVAL;
-> +}
-> +
-> +static u64 rvtrace_reference(struct auxtrace_record *itr __maybe_unused)
-> +{
-> +	return rdtsc();
-> +}
-> +
-> +static void rvtrace_recording_free(struct auxtrace_record *itr)
-> +{
-> +	struct rvtrace_recording *ptr =
-> +			container_of(itr, struct rvtrace_recording, itr);
-> +
-> +	free(ptr);
-> +}
-> +
-> +static struct auxtrace_record *rvtrace_recording_init(int *err, struct perf_pmu *rvtrace_pmu)
-> +{
-> +	struct rvtrace_recording *ptr;
-> +
-> +	if (!rvtrace_pmu) {
-> +		*err = -ENODEV;
-> +		return NULL;
-> +	}
-> +
-> +	ptr = zalloc(sizeof(*ptr));
-> +	if (!ptr) {
-> +		*err = -ENOMEM;
-> +		return NULL;
-> +	}
-> +
-> +	ptr->rvtrace_pmu = rvtrace_pmu;
-> +	ptr->itr.parse_snapshot_options = rvtrace_parse_snapshot_options;
-> +	ptr->itr.recording_options = rvtrace_recording_options;
-> +	ptr->itr.info_priv_size = rvtrace_info_priv_size;
-> +	ptr->itr.info_fill = rvtrace_info_fill;
-> +	ptr->itr.snapshot_start = rvtrace_snapshot_start;
-> +	ptr->itr.snapshot_finish = rvtrace_snapshot_finish;
-> +	ptr->itr.free = rvtrace_recording_free;
-> +	ptr->itr.reference = rvtrace_reference;
-> +	ptr->itr.read_finish = auxtrace_record__read_finish;
-> +	ptr->itr.alignment = 0;
-> +
-> +	*err = 0;
-> +	return &ptr->itr;
-> +}
-> +
-> +static struct perf_pmu *find_pmu_for_event(struct perf_pmu **pmus,
-> +					   int pmu_nr, struct evsel *evsel)
-> +{
-> +	int i;
-> +
-> +	if (!pmus)
-> +		return NULL;
-> +
-> +	for (i = 0; i < pmu_nr; i++) {
-> +		if (evsel->core.attr.type == pmus[i]->type)
-> +			return pmus[i];
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +struct auxtrace_record *auxtrace_record__init(struct evlist *evlist, int *err)
-> +{
-> +	struct perf_pmu	*rvtrace_pmu = NULL;
-> +	struct perf_pmu *found_rvtrace = NULL;
-> +	struct evsel *evsel;
-> +
-> +	if (!evlist)
-> +		return NULL;
-> +
-> +	rvtrace_pmu = perf_pmus__find(RVTRACE_PMU_NAME);
-> +	evlist__for_each_entry(evlist, evsel) {
-> +		if (rvtrace_pmu && !found_rvtrace)
-> +			found_rvtrace = find_pmu_for_event(&rvtrace_pmu, 1, evsel);
-> +	}
-> +
-> +	if (found_rvtrace)
-> +		return rvtrace_recording_init(err, rvtrace_pmu);
-> +
-> +	*err = 0;
-> +	return NULL;
-> +}
-> diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
-> index a224687ffbc1..944a43d48739 100644
-> --- a/tools/perf/util/auxtrace.c
-> +++ b/tools/perf/util/auxtrace.c
-> @@ -1411,6 +1411,7 @@ int perf_event__process_auxtrace_info(const struct perf_tool *tool __maybe_unuse
->   	case PERF_AUXTRACE_VPA_DTL:
->   		err = powerpc_vpadtl_process_auxtrace_info(event, session);
->   		break;
-> +	case PERF_AUXTRACE_RISCV_TRACE:
->   	case PERF_AUXTRACE_UNKNOWN:
->   	default:
->   		return -EINVAL;
-> diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
-> index 6947f3f284c0..4f4714c1b53f 100644
-> --- a/tools/perf/util/auxtrace.h
-> +++ b/tools/perf/util/auxtrace.h
-> @@ -46,6 +46,7 @@ enum auxtrace_type {
->   	PERF_AUXTRACE_S390_CPUMSF,
->   	PERF_AUXTRACE_HISI_PTT,
->   	PERF_AUXTRACE_VPA_DTL,
-> +	PERF_AUXTRACE_RISCV_TRACE,
->   };
->   
->   enum itrace_period_type {
-> diff --git a/tools/perf/util/rvtrace.h b/tools/perf/util/rvtrace.h
-> new file mode 100644
-> index 000000000000..1e48ed989dd7
-> --- /dev/null
-> +++ b/tools/perf/util/rvtrace.h
-> @@ -0,0 +1,38 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright(C) 2026 Spacemit Limited. All rights reserved.
-> + */
-> +
-> +#ifndef INCLUDE__UTIL_PERF_RVTRACE_H__
-> +#define INCLUDE__UTIL_PERF_RVTRACE_H__
-> +
-> +#include "debug.h"
-> +#include "auxtrace.h"
-> +#include "util/event.h"
-> +#include "util/session.h"
-> +#include <linux/bits.h>
-> +
-> +enum {
-> +	/* PMU->type (32 bit), total # of CPUs (32 bit) */
-> +	RVTRACE_PMU_TYPE_CPUS,
-> +	RVTRACE_HEADER_MAX,
-> +};
-> +
-> +/* Trace Encoder metadata */
-> +enum {
-> +	RVTRACE_ENCODER_CPU,
-> +	RVTRACE_ENCODER_NR_TRC_PARAMS,
-> +	RVTRACE_ENCODER_FORMAT,
-> +	RVTRACE_ENCODER_CONTEXT,
-> +	RVTRACE_ENCODER_INHB_SRC,
-> +	RVTRACE_ENCODER_SRCBITS,
-> +	RVTRACE_ENCODER_SRCID,
-> +	RVTRACE_ENCODER_PRIV_MAX,
-> +};
-> +
-> +#define RVTRACE_ENCODER_NR_TRC_PARAMS_LENGTH (RVTRACE_ENCODER_PRIV_MAX - RVTRACE_ENCODER_FORMAT)
-> +
-> +#define RVTRACE_HEADER_SIZE		(RVTRACE_HEADER_MAX * sizeof(u64))
-> +#define RVTRACE_ENCODER_PRIV_SIZE	(RVTRACE_ENCODER_PRIV_MAX * sizeof(u64))
-> +
-> +#endif
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgWmFuZSwgQW51cCwKCk9uIDQvMTQvMjYgMDI6MDQsIFphbmUgTGV1bmcgd3JvdGU6Cj4gCj4g
+T24gNC8xNC8yMDI2IDM6MjMgUE0sIEFudXAgUGF0ZWwgd3JvdGU6Cj4+IE9uIFR1ZSwgQXByIDE0
+LCAyMDI2IGF0IDk6MTLigK9BTSBaYW5lIExldW5nIDxsaWFuZ3poZW5AbGludXguc3BhY2VtaXQu
+Y29tPiB3cm90ZToKPj4+IEZyb206IGxpYW5nemhlbiA8emhlbi5saWFuZ0BzcGFjZW1pdC5jb20+
+Cj4+Pgo+Pj4gVGhpcyBzZXJpZXMgYWRkcyBMaW51eCBSSVNDLVYgdHJhY2Ugc3VwcG9ydCB2aWEg
+Q29yZVNpZ2h0LCBpbXBsZW1lbnRpbmcgUklTQy1WCj4+PiB0cmFjZSBkcml2ZXJzIHdpdGhpbiB0
+aGUgQ29yZVNpZ2h0IGZyYW1ld29yayBhbmQgaW50ZWdyYXRpbmcgdGhlbSB3aXRoIHBlcmYgdG9v
+bHMuCj4+PiBUaGUgSzMgU29DIGNvbnRhaW5zIFJJU0MtViBFbmNvZGVyLCBGdW5uZWwsIEFUQiwg
+Q29yZVNpZ2h0IEZ1bm5lbCwgYW5kIENvcmVTaWdodCBUTUMKPj4+IGNvbXBvbmVudHMsIHdoaWNo
+IGNhbiBiZSBkaXJlY3RseSBsZXZlcmFnZWQgdGhyb3VnaCB0aGUgZXhpc3RpbmcgQ29yZVNpZ2h0
+IGluZnJhc3RydWN0dXJlLgo+Pj4KPj4+IExpbnV4IFJJU0MtViB0cmFjZSBzdXBwb3J0IGZvcm0g
+QW51cCBQYXRlbDoKPj4+IChodHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3Byb2plY3QvbGlu
+dXgtcmlzY3YvY292ZXIvMjAyNjAyMjUwNjI0NDguNDAyNzk0OC0xLWFudXAucGF0ZWxAb3NzLnF1
+YWxjb21tLmNvbS8pCj4+PiB3aGljaCBjdXJyZW50bHkgbGFja3MgQVRCIGNvbXBvbmVudCBzdXBw
+b3J0IGFuZCBndWlkYW5jZSBvbiByZXVzaW5nIENvcmVTaWdodCBjb21wb25lbnRzLgo+PiBXaGF0
+IHN0b3BzIHlvdSBmcm9tIGFkZGluZyBSSVNDLVYgdHJhY2UgZnVubmVsIGFuZCBBVEIgYnJpZGdl
+IGRyaXZlcnMKPj4gb24gdG9wIG9mIHRoaXMgc2VyaWVzID8KPj4KPiBGaXJzdGx5LCBteSB3b3Jr
+cyBzdGFydGVkIG11Y2ggZWFybGllciB0aGFuIHRoaXMgc2VyaWVzLiBTZWNvbmRseSwgaXQgaXMg
+ZGlmZmljdWx0IHRvIGFkZCB0aGUgY29yZXNpZ2h0IGZ1bm5lbCBhbmQgY29yZXNpZ2h0IHRtYyBj
+b21wb25lbnRzIHRvIHRoaXMgc2VyaWVzLiBCYXNlZCBvbiB0aGUgY29yZXNpZ2h0IGZyYW1ld29y
+aywgSSBjYW4gZGlyZWN0bHkgcmV1c2UgdGhlbS4KPiAKPj4KPj4+IFRoZSBzZXJpZXMgaW5jbHVk
+ZXM6Cj4+PiAtIFJJU0MtViB0cmFjZSBkcml2ZXIgaW1wbGVtZW50YXRpb24gd2l0aGluIHRoZSBD
+b3JlU2lnaHQgZnJhbWV3b3JrCj4+IFRoZSBSSVNDLVYgdHJhY2UgdmVyeSBkaWZmZXJlbnQgZnJv
+bSB0aGUgQ29yZVNpZ2h0IGZyYW1ld29yayBpbiBtYW55IHdheXM6Cj4+IDEpIFR5cGVzIG9mIGNv
+bXBvbmVudHMgc3VwcG9ydGVkCj4+IDIpIFRyYWNlIHBhY2tldCBmb3JtYXRzCj4+IDMpIFRoZSB3
+YXkgTU1JTyBiYXNlZCBjb21wb25lbnRzIGFyZSBkaXNjb3ZlcmQKPj4gNCkgLi4uIGFuZCBtb3Jl
+IC4uLgo+IDEpIEkgYmVsaWV2ZSB0aGF0IFJJU0MtViB0cmFjaW5nIGlzIGNvcmVzaWdodC1hbGlr
+ZSwgd2hlcmUgaGF2ZSBlbmNvZGVycy9mdW5uZWwvc2luay9icmlkZ2UgdGhhdCBhcmUgZGVzY3Jp
+YmVkIHRocm91Z2ggRFQgYW5kIGNvbnRyb2xsZWQgYnkgTU1JTy4KPiAyKSBJIHRoaW5rIHRoZSBk
+aWZmZXJlbmNlIGluIHBhY2thZ2UgZm9ybWF0IGlzIG5vdGhpbmcgbW9yZSB0aGFuIHRoZSBjb3Jl
+c2lnaHQgZnJhbWUgZ2VuZXJhdGVkIGJ5IHRoZSBBVEIgY29tcG9uZW50IHRvIGRpc3Rpbmd1aXNo
+IHRoZSB0cmFjZSBzb3VyY2UuIEFmdGVyIHJlbW92aW5nIGl0LCBpdCBiZWNvbWVzIHJpc2N2IHRy
+YWNlIGRhdGEuCj4gMykgVGhlIGN1cnJlbnQgQ29yZVNpZ2h0IGZyYW1ld29yayBjb2RlIGRvZXMg
+bm90IGludHJvZHVjZSB0aGlzIG1lY2hhbmlzbSwgaXQgaXMgZGVzY3JpYmVkIHRocm91Z2ggRFQu
+Cj4+PiAtIFJJU0MtViBUcmFjZSBFbmNvZGVyLCBGdW5uZWwsIGFuZCBBVEIgQnJpZGdlIGRyaXZl
+cnMgYXMgQ29yZVNpZ2h0IGRldmljZXMKPj4+IC0gUklTQy1WIHRyYWNlIFBNVSByZWNvcmQgY2Fw
+YWJpbGl0aWVzIGFuZCBwYXJzaW5nIGV2ZW50cyBpbiBwZXJmLgo+Pj4gLSBSSVNDLVYgTmV4dXMg
+VHJhY2UgZGVjb2RlciBmb3IgcGVyZiB0b29scwo+Pj4KPj4+IEFueSBjb21tZW50cyBvciBzdWdn
+ZXN0aW9ucyBhcmUgd2VsY29tZS4KPj4+Cj4+PiBWZXJpZmljYXRpb24gb24gSzMgU29DOgo+Pj4g
+VG8gdmVyaWZ5IHRoaXMgcGF0Y2ggc2VyaWVzIG9uIEszIGhhcmR3YXJlLCB0aGUgZm9sbG93aW5n
+IGRldmljZSB0cmVlIGFyZSByZXF1aXJlZDoKPj4+IDEuIFJJU0MtViBUcmFjZSBFbmNvZGVyIG5v
+ZGUgKDgpCj4+PiAyLiBSSVNDLVYgQVRCIEJyaWRnZSBub2RlICg4KQo+Pj4gMy4gUklTQy1WIFRy
+YWNlIEZ1bm5lbCBub2RlICgyKQo+Pj4gMy4gQ29yZVNpZ2h0IEZ1bm5lbCBjb25maWd1cmF0aW9u
+IGZvciBSSVNDLVYgKDEpCj4+PiA0LiBDb3JlU2lnaHQgVE1DIGNvbmZpZ3VyYXRpb24gZm9yIHRy
+YWNlIGJ1ZmZlciAoMSkKPj4+Cj4+PiAvewo+Pj4gICAgICAgICAgZHVtbXlfY2xrOiBhcGItcGNs
+ayB7Cj4+PiAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAiZml4ZWQtY2xvY2siOwo+Pj4g
+ICAgICAgICAgICAgICAgICAjY2xvY2stY2VsbHMgPSA8MHgwPjsKPj4+ICAgICAgICAgICAgICAg
+ICAgY2xvY2stb3V0cHV0LW5hbWVzID0gImNsazE0bWh6IjsKPj4+ICAgICAgICAgICAgICAgICAg
+Y2xvY2stZnJlcXVlbmN5ID0gPDE0MDAwMDAwPjsKPj4+ICAgICAgICAgIH07Cj4+Pgo+Pj4KPj4+
+ICAgICAgICAgIHNvYzogc29jIHsKPj4+ICAgICAgICAgICAgICAgICAgI2FkZHJlc3MtY2VsbHMg
+PSA8Mj47Cj4+PiAgICAgICAgICAgICAgICAgICNzaXplLWNlbGxzID0gPDI+Owo+Pj4KPj4+ICAg
+ICAgICAgICAgICAgICAgZW5jb2RlcjA6IGVuY29kZXJAZDkwMDIwMDAgewo+Pj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAicmlzY3YsdHJhY2UtZW5jb2RlciI7Cj4+PiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgcmVnID0gPDB4MCAweGQ5MDAyMDAwIDB4MCAweDEwMDA+
+Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIGNwdXMgPSA8JmNwdV8wPjsKPj4+ICAgICAg
+ICAgICAgICAgICAgICAgICAgICBvdXQtcG9ydHMgewo+Pj4gICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgcG9ydCB7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIGNsdXN0ZXIwX2VuY29kZXIwX291dF9wb3J0OiBlbmRwb2ludCB7Cj4+PiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVtb3RlLWVuZHBvaW50
+ID0gPCZjbHVzdGVyMF9icmlkZ2UwX2luX3BvcnQ+Owo+Pj4gICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgfTsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAgICAg
+ICB9Owo+Pj4KPj4+ICAgICAgICAgICAgICAgICAgYnJpZGdlMDogYnJpZGdlQGQ5MDAzMDAwIHsK
+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gInJpc2N2LHRyYWNlLWF0
+YmJyaWRnZSI7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgcmVnID0gPDB4MCAweGQ5MDAz
+MDAwIDB4MCAweDEwMDA+Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIGNwdXMgPSA8JmNw
+dV8wPjsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICBvdXQtcG9ydHMgewo+Pj4gICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9ydCB7Cj4+PiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIGNsdXN0ZXIwX2JyaWRnZTBfb3V0X3BvcnQ6IGVuZHBvaW50
+IHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBy
+ZW1vdGUtZW5kcG9pbnQgPSA8JmNsdXN0ZXIwX2Z1bm5lbF9pbl9wb3J0MD47Cj4+PiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4+PiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgaW4tcG9ydHMgewo+Pj4gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgcG9ydCB7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIGNsdXN0ZXIwX2JyaWRnZTBfaW5fcG9ydDogZW5kcG9pbnQgewo+Pj4gICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlbW90ZS1lbmRwb2lu
+dCA9IDwmY2x1c3RlcjBfZW5jb2RlcjBfb3V0X3BvcnQ+Owo+Pj4gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfTsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAg
+ICAgICB9Owo+Pj4KPj4+IC4uLgo+Pj4KPj4+ICAgICAgICAgICAgICAgICAgY2x1c3RlcjBfZnVu
+bmVsOiBmdW5uZWxAZDkwMDAwMDAgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBh
+dGlibGUgPSAicmlzY3YsdHJhY2UtZnVubmVsIjsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAg
+ICByZWcgPSA8MHgwIDB4ZDkwMDAwMDAgMHgwIDB4MTAwMD47Cj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgY3B1cyA9IDwmY3B1XzA+LCA8JmNwdV8xPiwgPCZjcHVfMj4sIDwmY3B1XzM+Owo+
+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIHJpc2N2LHRpbWVzdGFtcC1wcmVzZW50Owo+Pj4g
+ICAgICAgICAgICAgICAgICAgICAgICAgIG91dC1wb3J0cyB7Cj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBwb3J0IHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgY2x1c3RlcjBfZnVubmVsX291dF9wb3J0OiBlbmRwb2ludCB7Cj4+PiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVtb3RlLWVuZHBv
+aW50ID0gPCZtYWluX2Z1bm5lbF9pbl9wb3J0MD47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICB9Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgaW4tcG9ydHMgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+I2FkZHJlc3MtY2VsbHMgPSA8MT47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAjc2l6ZS1jZWxscyA9IDwwPjsKPj4+Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBwb3J0QDAgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICByZWcgPSA8MD47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IGNsdXN0ZXIwX2Z1bm5lbF9pbl9wb3J0MDogZW5kcG9pbnQgewo+Pj4gICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlbW90ZS1lbmRwb2ludCA9IDwmY2x1
+c3RlcjBfYnJpZGdlMF9vdXRfcG9ydD47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9Owo+
+Pj4KPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvcnRAMSB7Cj4+PiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IDwxPjsKPj4+ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2x1c3RlcjBfZnVubmVsX2luX3Bv
+cnQxOiBlbmRwb2ludCB7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgcmVtb3RlLWVuZHBvaW50ID0gPCZjbHVzdGVyMF9icmlkZ2UxX291dF9wb3J0
+PjsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4+Pgo+Pj4gICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgcG9ydEAyIHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgcmVnID0gPDI+Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBjbHVzdGVyMF9mdW5uZWxfaW5fcG9ydDI6IGVuZHBvaW50IHsKPj4+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZW1vdGUtZW5k
+cG9pbnQgPSA8JmNsdXN0ZXIwX2JyaWRnZTJfb3V0X3BvcnQ+Owo+Pj4gICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgfTsKPj4+Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3J0
+QDMgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZWcgPSA8
+Mz47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsdXN0ZXIw
+X2Z1bm5lbF9pbl9wb3J0MzogZW5kcG9pbnQgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHJlbW90ZS1lbmRwb2ludCA9IDwmY2x1c3RlcjBfYnJp
+ZGdlM19vdXRfcG9ydD47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAg
+ICAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgIH07Cj4+Pgo+Pj4gICAg
+ICAgICAgICAgICAgICBjbHVzdGVyMV9mdW5uZWw6IGZ1bm5lbEBkOTAxMDAwMCB7Cj4+PiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgY29tcGF0aWJsZSA9ICJyaXNjdix0cmFjZS1mdW5uZWwiOwo+
+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IDwweDAgMHhkOTAxMDAwMCAweDAgMHgx
+MDAwPjsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICBjcHVzID0gPCZjcHVfND4sIDwmY3B1
+XzU+LCA8JmNwdV82PiwgPCZjcHVfNz47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgcmlz
+Y3YsdGltZXN0YW1wLXByZXNlbnQ7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgb3V0LXBv
+cnRzIHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvcnQgewo+Pj4gICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjbHVzdGVyMV9mdW5uZWxfb3V0
+X3BvcnQ6IGVuZHBvaW50IHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICByZW1vdGUtZW5kcG9pbnQgPSA8Jm1haW5fZnVubmVsX2luX3BvcnQxPjsK
+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgfTsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICBpbi1wb3J0cyB7Cj4+PiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAjYWRkcmVzcy1jZWxscyA9IDwxPjsKPj4+ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICNzaXplLWNlbGxzID0gPDA+Owo+Pj4KPj4+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvcnRAMCB7Cj4+PiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IDwwPjsKPj4+ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgY2x1c3RlcjFfZnVubmVsX2luX3BvcnQwOiBlbmRw
+b2ludCB7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgcmVtb3RlLWVuZHBvaW50ID0gPCZjbHVzdGVyMV9icmlkZ2UwX291dF9wb3J0PjsKPj4+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIH07Cj4+Pgo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgcG9ydEAxIHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgcmVnID0gPDE+Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBjbHVzdGVyMV9mdW5uZWxfaW5fcG9ydDE6IGVuZHBvaW50IHsKPj4+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZW1vdGUtZW5kcG9pbnQgPSA8
+JmNsdXN0ZXIxX2JyaWRnZTFfb3V0X3BvcnQ+Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fTsKPj4+Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3J0QDIgewo+Pj4g
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZWcgPSA8Mj47Cj4+PiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsdXN0ZXIxX2Z1bm5lbF9p
+bl9wb3J0MjogZW5kcG9pbnQgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIHJlbW90ZS1lbmRwb2ludCA9IDwmY2x1c3RlcjFfYnJpZGdlMl9vdXRf
+cG9ydD47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4+
+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9Owo+Pj4KPj4+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHBvcnRAMyB7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHJlZyA9IDwzPjsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgY2x1c3RlcjFfZnVubmVsX2luX3BvcnQzOiBlbmRwb2ludCB7Cj4+
+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVtb3Rl
+LWVuZHBvaW50ID0gPCZjbHVzdGVyMV9icmlkZ2UzX291dF9wb3J0PjsKPj4+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+ICAgICAg
+ICAgICAgICAgICAgfTsKPj4+Cj4+PiAgICAgICAgICAgICAgICAgIG1haW5fZnVubmVsOiBmdW5u
+ZWxAZDkwNDIwMDAgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAi
+YXJtLGNvcmVzaWdodC1keW5hbWljLWZ1bm5lbCIsICJhcm0scHJpbWVjZWxsIjsKPj4gSXMgaXQg
+bGVnYWxseSBhbGxvd2VkIHRvIG1peCBhbmQgbWF0Y2ggQVJNIGNvcmVzaWdodCBJUHMgd2l0aAo+
+PiBSSVNDLVYgdHJhY2UgY29tcG9uZW50cyBhdCBoYXJkd2FyZSBsZXZlbCA/Cj4gVGhlIEFUQiBC
+cmlkZ2UgYWxsb3dzIHNlbmRpbmcgUklTQy1WIHRyYWNlIHRvIEFybSBDb3JlU2lnaHQgaW5mcmFz
+dHJ1Y3R1cmUgKGluc3RlYWQgb2YgUklTQy1WIGNvbXBsaWFudCBzaW5rIGRlZmluZWQgaW4gdGhp
+cyBkb2N1bWVudCkgYXMgYW4gQVRCIGluaXRpYXRvci7CoCBzZWU6Cj4gaHR0cHM6Ly9naXRodWIu
+Y29tL3Jpc2N2LW5vbi1pc2EvcmlzY3YtbmV4dXMtdHJhY2UvYmxvYi8xMDVkYzFjMzQ5NTU2NjIy
+ZTRkMjAyZDIyYjU4NGE4ODdkZWQ0NjJmL2RvY3MvUklTQy1WLVRyYWNlLUNvbnRyb2wtSW50ZXJm
+YWNlLmFkb2MjTDE4NAo+IEZvciBBVEIgQnJpZGdlLCByZWFkIHRyYWNlIHVzaW5nIENvcmVzaWdo
+dCBjb21wb25lbnRzIChFVEIvVE1DL1RQSVUpLiBzZWU6Cj4gaHR0cHM6Ly9naXRodWIuY29tL3Jp
+c2N2LW5vbi1pc2EvcmlzY3YtbmV4dXMtdHJhY2UvYmxvYi8xMDVkYzFjMzQ5NTU2NjIyZTRkMjAy
+ZDIyYjU4NGE4ODdkZWQ0NjJmL2RvY3MvUklTQy1WLVRyYWNlLUNvbnRyb2wtSW50ZXJmYWNlLmFk
+b2MjTDE2ODQKPj4KPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICByZWcgPSA8MHgwIDB4ZDkw
+NDIwMDAgMHgwIDB4MTAwMD47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgY2xvY2tzID0g
+PCZkdW1teV9jbGs+Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIGNsb2NrLW5hbWVzID0g
+ImFwYl9wY2xrIjsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICBvdXQtcG9ydHMgewo+Pj4g
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9ydCB7Cj4+PiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1haW5fZnVubmVsX291dF9wb3J0OiBlbmRwb2lu
+dCB7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+cmVtb3RlLWVuZHBvaW50ID0gPCZldGZfaW5fcG9ydD47Cj4+PiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB9Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgaW4tcG9ydHMgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgI2FkZHJlc3MtY2VsbHMgPSA8MT47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAjc2l6ZS1jZWxscyA9IDwwPjsKPj4+Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBwb3J0QDAgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICByZWcgPSA8MD47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIG1haW5fZnVubmVsX2luX3BvcnQwOiBlbmRwb2ludCB7Cj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVtb3RlLWVuZHBvaW50ID0gPCZjbHVz
+dGVyMF9mdW5uZWxfb3V0X3BvcnQ+Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+
+Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3J0QDEgewo+Pj4gICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZWcgPSA8MT47Cj4+PiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1haW5fZnVubmVsX2luX3BvcnQxOiBl
+bmRwb2ludCB7Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgcmVtb3RlLWVuZHBvaW50ID0gPCZjbHVzdGVyMV9mdW5uZWxfb3V0X3BvcnQ+Owo+Pj4g
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICB9
+Owo+Pj4gICAgICAgICAgICAgICAgICB9Owo+Pj4KPj4+ICAgICAgICAgICAgICAgICAgZXRmOiBl
+dGZAZDkwNDMwMDAgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAi
+YXJtLGNvcmVzaWdodC10bWMiLCAiYXJtLHByaW1lY2VsbCI7Cj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgcmVnID0gPDB4MCAweGQ5MDQzMDAwIDB4MCAweDEwMDA+Owo+Pj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgIGNsb2NrcyA9IDwmZHVtbXlfY2xrPjsKPj4+ICAgICAgICAgICAgICAg
+ICAgICAgICAgICBjbG9jay1uYW1lcyA9ICJhcGJfcGNsayI7Cj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgb3V0LXBvcnRzIHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHBvcnQgewo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBldGZf
+b3V0X3BvcnQ6IGVuZHBvaW50IHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICByZW1vdGUtZW5kcG9pbnQgPSA8JmV0cl9pbl9wb3J0PjsKPj4+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgfTsK
+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICBpbi1wb3J0cyB7Cj4+PiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBwb3J0IHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgZXRmX2luX3BvcnQ6IGVuZHBvaW50IHsKPj4+ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZW1vdGUtZW5kcG9pbnQgPSA8Jm1h
+aW5fZnVubmVsX291dF9wb3J0PjsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgfTsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH07Cj4+PiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfTsKPj4+ICAgICAgICAgICAgICAgICAgfTsKPj4+Cj4+
+PiAgICAgICAgICAgICAgICAgIGV0cjogZXRyQGQ5MDQ0MDAwIHsKPj4+ICAgICAgICAgICAgICAg
+ICAgICAgICAgICBjb21wYXRpYmxlID0gImFybSxjb3Jlc2lnaHQtdG1jIiwgImFybSxwcmltZWNl
+bGwiOwo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IDwweDAgMHhkOTA0NDAwMCAw
+eDAgMHgxMDAwPjsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICBjbG9ja3MgPSA8JmR1bW15
+X2Nsaz47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgY2xvY2stbmFtZXMgPSAiYXBiX3Bj
+bGsiOwo+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgIGFybSxzY2F0dGVyLWdhdGhlcjsKPj4+
+ICAgICAgICAgICAgICAgICAgICAgICAgICBpbi1wb3J0cyB7Cj4+PiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBwb3J0IHsKPj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgZXRyX2luX3BvcnQ6IGVuZHBvaW50IHsKPj4+ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZW1vdGUtZW5kcG9pbnQgPSA8JmV0Zl9v
+dXRfcG9ydD47Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH07
+Cj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9Owo+Pj4gICAgICAgICAgICAg
+ICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICAgICAgICAgIH07Cj4+PiAgICAgICAgICB9Owo+
+Pj4gfTsKPj4+Cj4+PiBWZXJpZmljYXRpb24gY2FzZToKPj4+Cj4+PiB+ICMgcGVyZiBsaXN0IHBt
+dQo+Pj4gICAgcnZ0cmFjZS8vICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgW0tlcm5lbCBQTVUgZXZlbnRdCj4+Pgo+Pj4gfiAjIHBlcmYgcmVjb3JkIC1lIHJ2dHJhY2Uv
+QHRtY19ldHIwLyAtLXBlci10aHJlYWQgdW5hbWUKPj4+IExpbnV4Cj4+PiBbIHBlcmYgcmVjb3Jk
+OiBXb2tlbiB1cCAxIHRpbWVzIHRvIHdyaXRlIGRhdGEgXQo+Pj4gWyBwZXJmIHJlY29yZDogQ2Fw
+dHVyZWQgYW5kIHdyb3RlIDAuMTkxIE1CIHBlcmYuZGF0YSBdCj4+PiB+ICMgcGVyZiBzY3JpcHQK
+Pj4+ICAgICAgICAgICAgIHVuYW1lICAgICAxMzcgWzAwM10gICAgICAgICAgMSAgICAgICAgICAg
+YnJhbmNoZXM6ICBmZmZmZmZmZjgwOTMxNDcwIHJ2dHJhY2VfcG9sbF9iaXQrMHgzOCAoW2tlcm5l
+bC5rYWxsc3ltc10pID0+IGZmZmZmZmZmODA5MzE0OTIgcnZ0cmFjZV9wb2xsX2JpdCsweDVhIChb
+a2VybmVsLmthbGxzeW1zXSkKPj4+ICAgICAgICAgICAgIHVuYW1lICAgICAxMzcgWzAwM10gICAg
+ICAgICAgMSAgICAgICAgICAgYnJhbmNoZXM6ICBmZmZmZmZmZjgwOTMyOGE2IGVuY29kZXJfZW5h
+YmxlX2h3KzB4MjUyIChba2VybmVsLmthbGxzeW1zXSkgPT4gZmZmZmZmZmY4MDkzMjhiYSBlbmNv
+ZGVyX2VuYWJsZV9odysweDI2NiAoW2tlcm5lbC5rYWxsc3ltc10pCj4+PiAgICAgICAgICAgICB1
+bmFtZSAgICAgMTM3IFswMDNdICAgICAgICAgIDEgICAgICAgICAgIGJyYW5jaGVzOiAgZmZmZmZm
+ZmY4MDkzMmM0YSBlbmNvZGVyX2VuYWJsZSsweDgyIChba2VybmVsLmthbGxzeW1zXSkgPT4gZmZm
+ZmZmZmY4MDkzMmMzNiBlbmNvZGVyX2VuYWJsZSsweDZlIChba2VybmVsLmthbGxzeW1zXSkKPj4+
+ICAgICAgICAgICAgIHVuYW1lICAgICAxMzcgWzAwM10gICAgICAgICAgMSAgICAgICAgICAgYnJh
+bmNoZXM6ICBmZmZmZmZmZjgwOTI4MTk4IGV0bV9ldmVudF9zdGFydCsweGYwIChba2VybmVsLmth
+bGxzeW1zXSkgPT4gZmZmZmZmZmY4MDkyODFhYSBldG1fZXZlbnRfc3RhcnQrMHgxMDIgKFtrZXJu
+ZWwua2FsbHN5bXNdKQo+Pj4gICAgICAgICAgICAgdW5hbWUgICAgIDEzNyBbMDAzXSAgICAgICAg
+ICAxICAgICAgICAgICBicmFuY2hlczogIGZmZmZmZmZmODA5MjgxZTYgZXRtX2V2ZW50X3N0YXJ0
+KzB4MTNlIChba2VybmVsLmthbGxzeW1zXSkgPT4gZmZmZmZmZmY4MDkyNzU1ZSBjb3Jlc2lnaHRf
+Z2V0X3NpbmtfaWQrMHgxNiAoW2tlcm5lbC5rYWxsc3ltc10pCj4+PiAgICAgICAgICAgICB1bmFt
+ZSAgICAgMTM3IFswMDNdICAgICAgICAgIDEgICAgICAgICAgIGJyYW5jaGVzOiAgZmZmZmZmZmY4
+MDkyODIwZSBldG1fZXZlbnRfc3RhcnQrMHgxNjYgKFtrZXJuZWwua2FsbHN5bXNdKSA9PiBmZmZm
+ZmZmZjgwOTI4MjI2IGV0bV9ldmVudF9zdGFydCsweDE3ZSAoW2tlcm5lbC5rYWxsc3ltc10pCj4+
+PiAgICAgICAgICAgICB1bmFtZSAgICAgMTM3IFswMDNdICAgICAgICAgIDEgICAgICAgICAgIGJy
+YW5jaGVzOiAgZmZmZmZmZmY4MDFjM2JiNCBwZXJmX3JlcG9ydF9hdXhfb3V0cHV0X2lkKzB4MCAo
+W2tlcm5lbC5rYWxsc3ltc10pID0+IGZmZmZmZmZmODAxYzNiZDYgcGVyZl9yZXBvcnRfYXV4X291
+dHB1dF9pZCsweDIyIChba2VybmVsLmthbGxzeW1zXSkKPj4+ICAgICAgICAgICAgIHVuYW1lICAg
+ICAxMzcgWzAwM10gICAgICAgICAgMSAgICAgICAgICAgYnJhbmNoZXM6ICBmZmZmZmZmZjgwMWMz
+YzVhIHBlcmZfcmVwb3J0X2F1eF9vdXRwdXRfaWQrMHhhNiAoW2tlcm5lbC5rYWxsc3ltc10pID0+
+IGZmZmZmZmZmODAxYzNiZjAgcGVyZl9yZXBvcnRfYXV4X291dHB1dF9pZCsweDNjIChba2VybmVs
+LmthbGxzeW1zXSkKPj4+ICAgICAgICAgICAgIHVuYW1lICAgICAxMzcgWzAwM10gICAgICAgICAg
+MSAgICAgICAgICAgYnJhbmNoZXM6ICBmZmZmZmZmZjgwMWMzYzQwIHBlcmZfcmVwb3J0X2F1eF9v
+dXRwdXRfaWQrMHg4YyAoW2tlcm5lbC5rYWxsc3ltc10pID0+IGZmZmZmZmZmODAxYzNhZWEgX19w
+ZXJmX2V2ZW50X2hlYWRlcl9faW5pdF9pZCsweDJhIChba2VybmVsLmthbGxzeW1zXSkKPj4+ICAg
+ICAgICAgICAgIHVuYW1lICAgICAxMzcgWzAwM10gICAgICAgICAgMSAgICAgICAgICAgYnJhbmNo
+ZXM6ICBmZmZmZmZmZjgwMWMzYjQyIF9fcGVyZl9ldmVudF9oZWFkZXJfX2luaXRfaWQrMHg4MiAo
+W2tlcm5lbC5rYWxsc3ltc10pID0+IGZmZmZmZmZmODAxYzNiNGEgX19wZXJmX2V2ZW50X2hlYWRl
+cl9faW5pdF9pZCsweDhhIChba2VybmVsLmthbGxzeW1zXSkKPj4+ICAgICAgICAgICAgIHVuYW1l
+ICAgICAxMzcgWzAwM10gICAgICAgICAgMSAgICAgICAgICAgYnJhbmNoZXM6ICBmZmZmZmZmZjgw
+MWMzYmIwIF9fcGVyZl9ldmVudF9oZWFkZXJfX2luaXRfaWQrMHhmMCAoW2tlcm5lbC5rYWxsc3lt
+c10pID0+IGZmZmZmZmZmODAxYzNiNTggX19wZXJmX2V2ZW50X2hlYWRlcl9faW5pdF9pZCsweDk4
+IChba2VybmVsLmthbGxzeW1zXSkKPj4+ICAgICAgICAgICAgIHVuYW1lICAgICAxMzcgWzAwM10g
+ICAgICAgICAgMSAgICAgICAgICAgYnJhbmNoZXM6ICBmZmZmZmZmZjgwMDRjNjU4IF9fdGFza19w
+aWRfbnJfbnMrMHgwIChba2VybmVsLmthbGxzeW1zXSkgPT4gZmZmZmZmZmY4MDA0YzY5NiBfX3Rh
+c2tfcGlkX25yX25zKzB4M2UgKFtrZXJuZWwua2FsbHN5bXNdKQo+Pj4gICAgICAgICAgICAgdW5h
+bWUgICAgIDEzNyBbMDAzXSAgICAgICAgICAxICAgICAgICAgICBicmFuY2hlczogIGZmZmZmZmZm
+ODAwNGM3MWUgX190YXNrX3BpZF9ucl9ucysweGM2IChba2VybmVsLmthbGxzeW1zXSkgPT4gZmZm
+ZmZmZmY4MDA0YzZhNCBfX3Rhc2tfcGlkX25yX25zKzB4NGMgKFtrZXJuZWwua2FsbHN5bXNdKQo+
+Pj4gICAgICAgICAgICAgdW5hbWUgICAgIDEzNyBbMDAzXSAgICAgICAgICAxICAgICAgICAgICBi
+cmFuY2hlczogIGZmZmZmZmZmODAwNGM2ZTQgX190YXNrX3BpZF9ucl9ucysweDhjIChba2VybmVs
+LmthbGxzeW1zXSkgPT4gZmZmZmZmZmY4MDA0YzZlNCBfX3Rhc2tfcGlkX25yX25zKzB4OGMgKFtr
+ZXJuZWwua2FsbHN5bXNdKQo+Pj4gLi4uCj4+Pgo+Pj4gbGlhbmd6aGVuICgxMik6Cj4+PiAgICBj
+b3Jlc2lnaHQ6IEFkZCBSSVNDLVYgc3VwcG9ydCB0byBDb3JlU2lnaHQgdHJhY2luZwo+Pj4gICAg
+Y29yZXNpZ2h0OiBJbml0aWFsIGltcGxlbWVudGF0aW9uIG9mIFJJU0MtViB0cmFjZSBkcml2ZXIK
+Pj4+ICAgIGNvcmVzaWdodDogQWRkIFJJU0MtViBUcmFjZSBFbmNvZGVyIGRyaXZlcgo+Pj4gICAg
+Y29yZXNpZ2h0OiBBZGQgUklTQy1WIFRyYWNlIEZ1bm5lbCBkcml2ZXIKPj4+ICAgIGNvcmVzaWdo
+dDogQWRkIFJJU0MtViBUcmFjZSBBVEIgQnJpZGdlIGRyaXZlcgo+Pj4gICAgY29yZXNpZ2h0IHJ2
+dHJhY2U6IEFkZCB0aW1lc3RhbXAgY29tcG9uZW50IHN1cHBvcnQgZm9yIGVuY29kZXIgYW5kCj4+
+PiAgICAgIGZ1bm5lbAo+Pj4gICAgY29yZXNpZ2h0OiBBZGQgUklTQy1WIFBNVSBuYW1lIHN1cHBv
+cnQKPj4+ICAgIHBlcmYgdG9vbHM6IHJpc2N2OiBtYWtpbmcgcnZ0cmFjZSBQTVUgbGlzdGFibGUK
+Pj4+ICAgIHBlcmYgdG9vbHM6IEFkZCBSSVNDLVYgdHJhY2UgUE1VIHJlY29yZCBjYXBhYmlsaXRp
+ZXMKPj4+ICAgIHBlcmYgdG9vbHM6IEFkZCBOZXh1cyBSSVNDLVYgVHJhY2UgZGVjb2Rlcgo+Pj4g
+ICAgcGVyZiBzeW1ib2xzOiBBZGQgUklTQy1WIFBMVCBlbnRyeSBzaXplcwo+Pj4gICAgcGVyZiB0
+b29sczogSW50ZWdyYXRlIFJJU0MtViB0cmFjZSBkZWNvZGVyIGludG8gYXV4dHJhY2UKPj4+Cj4+
+PiAgIGRyaXZlcnMvaHd0cmFjaW5nL0tjb25maWcgICAgICAgICAgICAgICAgICAgICB8ICAgIDIg
+Kwo+Pj4gICBkcml2ZXJzL2h3dHJhY2luZy9jb3Jlc2lnaHQvS2NvbmZpZyAgICAgICAgICAgfCAg
+IDQ2ICstCj4+PiAgIGRyaXZlcnMvaHd0cmFjaW5nL2NvcmVzaWdodC9NYWtlZmlsZSAgICAgICAg
+ICB8ICAgIDYgKwo+Pj4gICBkcml2ZXJzL2h3dHJhY2luZy9jb3Jlc2lnaHQvY29yZXNpZ2h0LWNv
+cmUuYyAgfCAgICA4ICsKPj4+ICAgLi4uL2h3dHJhY2luZy9jb3Jlc2lnaHQvY29yZXNpZ2h0LWV0
+bS1wZXJmLmMgIHwgICAgMSAtCj4+PiAgIC4uLi9od3RyYWNpbmcvY29yZXNpZ2h0L2NvcmVzaWdo
+dC1ldG0tcGVyZi5oICB8ICAgMjEgKwo+Pj4gICAuLi4vaHd0cmFjaW5nL2NvcmVzaWdodC9jb3Jl
+c2lnaHQtcGxhdGZvcm0uYyAgfCAgICAxIC0KPj4+ICAgLi4uL2h3dHJhY2luZy9jb3Jlc2lnaHQv
+Y29yZXNpZ2h0LXRtYy1ldGYuYyAgIHwgICAgNCArCj4+PiAgIC4uLi9od3RyYWNpbmcvY29yZXNp
+Z2h0L2NvcmVzaWdodC10bWMtZXRyLmMgICB8ICAgIDQgKwo+Pj4gICAuLi4vaHd0cmFjaW5nL2Nv
+cmVzaWdodC9ydnRyYWNlLWF0YmJyaWRnZS5jICAgfCAgMjM5ICsrKwo+Pj4gICBkcml2ZXJzL2h3
+dHJhY2luZy9jb3Jlc2lnaHQvcnZ0cmFjZS1jb3JlLmMgICAgfCAgMTM1ICsrCj4+PiAgIC4uLi9j
+b3Jlc2lnaHQvcnZ0cmFjZS1lbmNvZGVyLWNvcmUuYyAgICAgICAgICB8ICA1NjIgKysrKysrKwo+
+Pj4gICAuLi4vY29yZXNpZ2h0L3J2dHJhY2UtZW5jb2Rlci1zeXNmcy5jICAgICAgICAgfCAgMzYz
+ICsrKysrCj4+PiAgIGRyaXZlcnMvaHd0cmFjaW5nL2NvcmVzaWdodC9ydnRyYWNlLWVuY29kZXIu
+aCB8ICAxNTEgKysKPj4+ICAgZHJpdmVycy9od3RyYWNpbmcvY29yZXNpZ2h0L3J2dHJhY2UtZnVu
+bmVsLmMgIHwgIDMzNyArKysrCj4+PiAgIGRyaXZlcnMvaHd0cmFjaW5nL2NvcmVzaWdodC9ydnRy
+YWNlLWZ1bm5lbC5oICB8ICAgMzkgKwo+Pj4gICAuLi4vaHd0cmFjaW5nL2NvcmVzaWdodC9ydnRy
+YWNlLXRpbWVzdGFtcC5jICAgfCAgMjc4ICsrKysKPj4+ICAgLi4uL2h3dHJhY2luZy9jb3Jlc2ln
+aHQvcnZ0cmFjZS10aW1lc3RhbXAuaCAgIHwgICA2NCArCj4+PiAgIGluY2x1ZGUvbGludXgvY29y
+ZXNpZ2h0LXBtdS5oICAgICAgICAgICAgICAgICB8ICAgIDQgKwo+Pj4gICBpbmNsdWRlL2xpbnV4
+L3J2dHJhY2UuaCAgICAgICAgICAgICAgICAgICAgICAgfCAgMTE2ICsrCj4+PiAgIHRvb2xzL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vaW5zbi5oICAgICAgICAgICB8ICA2NDUgKysrKysrKysKPj4+
+ICAgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L3V0aWwvQnVpbGQgICAgICAgICAgICAgIHwgICAgMiAr
+Cj4+PiAgIHRvb2xzL3BlcmYvYXJjaC9yaXNjdi91dGlsL2F1eHRyYWNlLmMgICAgICAgICB8ICA0
+OTAgKysrKysrCj4+PiAgIHRvb2xzL3BlcmYvYXJjaC9yaXNjdi91dGlsL3BtdS5jICAgICAgICAg
+ICAgICB8ICAgMjAgKwo+Pj4gICB0b29scy9wZXJmL3V0aWwvQnVpbGQgICAgICAgICAgICAgICAg
+ICAgICAgICAgfCAgICAzICsKPj4+ICAgdG9vbHMvcGVyZi91dGlsL2F1eHRyYWNlLmMgICAgICAg
+ICAgICAgICAgICAgIHwgICAgNCArCj4+PiAgIHRvb2xzL3BlcmYvdXRpbC9hdXh0cmFjZS5oICAg
+ICAgICAgICAgICAgICAgICB8ICAgIDEgKwo+Pj4gICB0b29scy9wZXJmL3V0aWwvbmV4dXMtcnYt
+ZGVjb2Rlci9CdWlsZCAgICAgICAgfCAgICAxICsKPj4+ICAgLi4uL3V0aWwvbmV4dXMtcnYtZGVj
+b2Rlci9uZXh1cy1ydi1kZWNvZGVyLmMgIHwgMTM2NCArKysrKysrKysrKysrKysrKwo+Pj4gICAu
+Li4vdXRpbC9uZXh1cy1ydi1kZWNvZGVyL25leHVzLXJ2LWRlY29kZXIuaCAgfCAgMTM5ICsrCj4+
+PiAgIC4uLi9wZXJmL3V0aWwvbmV4dXMtcnYtZGVjb2Rlci9uZXh1cy1ydi1tc2cuaCB8ICAxOTAg
+KysrCj4+PiAgIHRvb2xzL3BlcmYvdXRpbC9ydnRyYWNlLWRlY29kZXIuYyAgICAgICAgICAgICB8
+IDEwMzkgKysrKysrKysrKysrKwo+Pj4gICB0b29scy9wZXJmL3V0aWwvcnZ0cmFjZS5oICAgICAg
+ICAgICAgICAgICAgICAgfCAgIDQwICsKPj4+ICAgdG9vbHMvcGVyZi91dGlsL3N5bWJvbC1lbGYu
+YyAgICAgICAgICAgICAgICAgIHwgICAgNCArCj4+PiAgIDM0IGZpbGVzIGNoYW5nZWQsIDYzMjAg
+aW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkKPj4+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRy
+aXZlcnMvaHd0cmFjaW5nL2NvcmVzaWdodC9ydnRyYWNlLWF0YmJyaWRnZS5jCj4+PiAgIGNyZWF0
+ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2h3dHJhY2luZy9jb3Jlc2lnaHQvcnZ0cmFjZS1jb3JlLmMK
+Pj4+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvaHd0cmFjaW5nL2NvcmVzaWdodC9ydnRy
+YWNlLWVuY29kZXItY29yZS5jCj4+PiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2h3dHJh
+Y2luZy9jb3Jlc2lnaHQvcnZ0cmFjZS1lbmNvZGVyLXN5c2ZzLmMKPj4+ICAgY3JlYXRlIG1vZGUg
+MTAwNjQ0IGRyaXZlcnMvaHd0cmFjaW5nL2NvcmVzaWdodC9ydnRyYWNlLWVuY29kZXIuaAo+Pj4g
+ICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVycy9od3RyYWNpbmcvY29yZXNpZ2h0L3J2dHJhY2Ut
+ZnVubmVsLmMKPj4+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvaHd0cmFjaW5nL2NvcmVz
+aWdodC9ydnRyYWNlLWZ1bm5lbC5oCj4+PiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2h3
+dHJhY2luZy9jb3Jlc2lnaHQvcnZ0cmFjZS10aW1lc3RhbXAuYwo+Pj4gICBjcmVhdGUgbW9kZSAx
+MDA2NDQgZHJpdmVycy9od3RyYWNpbmcvY29yZXNpZ2h0L3J2dHJhY2UtdGltZXN0YW1wLmgKPj4+
+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGluY2x1ZGUvbGludXgvcnZ0cmFjZS5oCj4+PiAgIGNyZWF0
+ZSBtb2RlIDEwMDY0NCB0b29scy9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24uaAo+Pj4gICBj
+cmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L3V0aWwvYXV4dHJhY2UuYwo+
+Pj4gICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L3V0aWwvcG11LmMK
+Pj4+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvdXRpbC9uZXh1cy1ydi1kZWNvZGVy
+L0J1aWxkCj4+PiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3V0aWwvbmV4dXMtcnYt
+ZGVjb2Rlci9uZXh1cy1ydi1kZWNvZGVyLmMKPj4+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xz
+L3BlcmYvdXRpbC9uZXh1cy1ydi1kZWNvZGVyL25leHVzLXJ2LWRlY29kZXIuaAo+Pj4gICBjcmVh
+dGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi91dGlsL25leHVzLXJ2LWRlY29kZXIvbmV4dXMtcnYt
+bXNnLmgKPj4+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvdXRpbC9ydnRyYWNlLWRl
+Y29kZXIuYwo+Pj4gICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi91dGlsL3J2dHJhY2Uu
+aAo+Pj4KPj4+IC0tCj4+PiAyLjM0LjEKPj4+Cj4+IE5BQ0sgdG8gdGhpcyBhcHByb2FjaCBvZiBy
+ZXRyb2ZpdHRpbmcgUklTQy1WIHRyYWNlIGludG8gQVJNIGNvcmVzaWdodC4KPiBJIGFncmVlIHRo
+YXQgaW50ZWdyYXRpbmcgUklTQy1WIHRyYWNlIGRpcmVjdGx5IGludG8gQ29yZVNpZ2h0IGlzIG5v
+dCBhIGdvb2QgYXBwcm9hY2gsIHNvIEkgdGhpbmsgd2Ugc2hvdWxkIGFic3RyYWN0IHNvbWUgb2Yg
+dGhlIGxvZ2ljIG9mIGNvcmVzaWdodCBhbmQgcmV1c2UgaXQgaW4gUklTQy1WIFRyYWNlLgoKSSB0
+aGluayB3ZSBzaG91bGQgaW5kZWVkIGFic3RyYWN0IG91dCBzb21lIGNvcmVzaWdodCBsb2dpYyBz
+byBpdCBjYW4gYmUKcmV1c2VkIGJ5IGJvdGggY29yZXNpZ2h0L3J2dHJhY2UsIGVzcGVjaWFsbHkg
+dGhlIHdheSBvZiBoYW5kbGluZyB0cmFjZQpjb21wb25lbnQgdG9wb2xvZ3kuIFRoZSBnZW5lcmlj
+IGxvZ2ljIG9mIGJ1aWxkaW5nIGEgcGF0aCBmcm9tIHNvdXJjZSAtPgpzaW5rIHNob3VsZCBiZSBj
+b21tb24gYW1vbmcgY29yZXNpZ2h0L3J2dHJhY2UgYW5kIGZvciBmdXR1cmUgYXJjaGl0ZWN0dXJl
+LgpUbyBzdXBwb3J0IEFUQiB1c2UgY2FzZSBsaWtlIHRoZSBLMywgSSB0aGluayB0aGUgYmVzdCB3
+YXkgdG8gYXBwcm9hY2ggdGhpcwppcyB0byBtb2RlbCB0aGUgYXRiIGRyaXZlciBhcyBhIHNlcGFy
+YXRlIHJ2dHJhY2UtYXRiIGRyaXZlIGFuZCBsZXQgaXQKZHJpdmUgdGhlIEFSTSBjb3Jlc2lnaHQg
+Y29tcG9uZW50cy4gRG9uJ3QgdHJlYXQgcmlzYy12IHRyYWNlIGFzIGFub3RoZXIKdHlwZSBvZiBj
+b3Jlc2lnaHQuCgpAWmFuZSwgY2FuIHlvdSBhbHNvIGNsYXJpZnkgdGhhdCBvbmx5IHRoZSAyIFgx
+MDAgY2x1c3RlcnMgaGF2ZSB0cmFjZQplbmNvZGVycywgYW5kIHRoZSBBMTAwIGNsdXN0ZXJzIGRv
+IG5vdD8gSSBkb24ndCBzZWUgdGhlIDIgQTEwMCBjbHVzdGVycwpsaXN0ZWQgaW4geW91ciBzYW1w
+bGUgZGV2aWNldHJlZS4gSWYgdGhhdCdzIHRoZSBjYXNlLCB0aGVuIHdlJ2xsIGJlIGZhY2VkCndp
+dGggaGV0ZXJvZ2VuZW91cyB0cmFjZSBzZXR1cCwgbWFraW5nIGl0IGV2ZW4gbW9yZSBjb21wbGlj
+YXRlZC4KCj4+Cj4+IFJlZ2FyZHMsCj4+IEFudXAKPiAKPiBUaGFua3MsCj4gWmFuZQoKQm8KCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
