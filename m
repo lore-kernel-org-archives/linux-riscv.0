@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE99F9D0FF
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 01:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9B8F531FC
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 01:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nZ9CLakeEjmsQg7WxsTvSUmgqFUI2qCJJu1DgXYD63I=; b=33KXf/6Yagkbn2
-	5H1q295zeHqCY2l9Li4a8kDnBzB2a/YxVBf5R8Yled4vIdI23/eoiHmpccH/+RLW9Ro82alsuMQIY
-	O+XiML87m6CQd2wlXQ0rAWw4U8eW1nhU0FNPYEzS74d6SzrvMsK/3xTxVftw6sRHYqmp8a4APlrSG
-	Y3PMb26adEnmHdDgPI64xv3Olj1Rk8qgMwFzVHYiLh1cxhPmS91EEkD7zhJDnp5jJrT0tpabYgKoN
-	siSrVlpTOKQrk6A/3E+Rjq5d2Hlg4pwmdrJEJCjHjXwuK3NeRTVwBq130SKPueJ+nJpEi0W4ZfnZt
-	HHXxjjI1WenI88yzTwPw==;
+	List-Owner; bh=3hI3tWHBT3617QubQblGKQ92KaeCS3htFI3sI/XyTq8=; b=EMmsp7FvB/MstF
+	8/H8wt9xkLiPiV8bXYpvrBZlog2dDhAOwSZsBGhyW1QPTeTCnyUEjK7dpK+fYUKvf97KACnSA6mzM
+	H7WQll+ZyyWYUTtEIMFfCTDieA7TOGjhGr06EN4pTxHVVTOFzJTcu1DAZo9iLorZxKMYoSxD6SKL6
+	8AWUTGasA+/crstZ4JEyplX5M38RG7UmRsQk3Lofst5NTfjTDNeegTBxolT7zwpaEpPo6KU6NV963
+	V7Sl5jnZLqRB0kwEzhLD8anLlk2MnqebPBInJRr7jTu71qxt7hK1Ared0oqI3h3JM1bVZbq8TCIXi
+	bB1kC3tHyn7hvN2rmlQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCpUy-00000000Rqc-3Bun;
-	Wed, 15 Apr 2026 01:57:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCpUz-00000000RrQ-1xQs;
+	Wed, 15 Apr 2026 01:57:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCpUv-00000000Rma-0biD
+	id 1wCpUw-00000000Rm6-0uI0
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 01:56:58 +0000
+	Wed, 15 Apr 2026 01:56:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEA32445AA;
-	Wed, 15 Apr 2026 01:56:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 243DDC2BCB3;
-	Wed, 15 Apr 2026 01:56:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0F8AD446DB;
+	Wed, 15 Apr 2026 01:56:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FF4DC2BCB6;
+	Wed, 15 Apr 2026 01:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776218216;
-	bh=CSELH8cHpzjOmF3alV9G48Nrn3aORTFDw3pzNP6kshc=;
+	s=k20201202; t=1776218217;
+	bh=0N3/ljaEoSaUAHRrhb7+qug0MyFe8aVMQaHOTujWe+c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dEPuZPdMs1tRecUY1gZ7qQV1Da89cGCyopTPMPDWokXVkOSaUdpP/ZQqtWVHa7z29
-	 j3YNBLkJuCuU/q7w0CBwfCLL1rrRD43/vhXi2d8R6c2pd+FrA5HSmd4HlIAAcGHqxp
-	 kYAvduGrB4NNIk0cI8phJNDQgmLkJV0Fh2LcmyKGXBj1YnoYt5wKi6ZrTywhGGi01s
-	 sKZJGS+jLULC+FicyJl3aaBFP4C65AfxE1AwgyBuQgRS5F1xbqW87npAwvydVBe8qX
-	 w/+7JO7T8c9v9uF7LV0FKn7YJ1LZCTEGIbYmBYBVTYrkN3QnAiqLA+XcAd7yEzLPcT
-	 2/CUmvFhNINzw==
+	b=COednS5xkmkPeIH5UZ9fhjGZh6IFHWQ870eksHvpTxUC82DvVrVKrvMvFcSlDciKc
+	 lKjjyNUULxL+ywqyR7ZG4i6mPUZA0DG09/pbn0LpEMcHgHPfhe++uDIBaYHpndbAV1
+	 0+Ar3lFDCCuDCMinwPXXU3RCi5Q+9OrPeL5E89boZ78CEmzCpEPmorN6WqDF9qys3F
+	 LT8RPrJ6k0mTUyCIEPKw+Rq19tvFXI406fCQX3orBB7YxsWvBXVFEoVfWfed0cMIWh
+	 5dSS/TbpSHiw+OXbx2RTnKPotdRZ/RdjBUGrtxkKh714C49JPyOc4Gdlhb7RXE2kNG
+	 mAk5+BXpNnxJA==
 From: Drew Fustini <fustini@kernel.org>
-Date: Tue, 14 Apr 2026 18:54:01 -0700
-Subject: [PATCH RFC v3 07/11] RISC-V: QoS: enable resctrl support for
- Ssqosid
+Date: Tue, 14 Apr 2026 18:54:03 -0700
+Subject: [PATCH RFC v3 09/11] DO NOT MERGE: include: acpi: actbl2: Add
+ structs for RQSC table
 MIME-Version: 1.0
-Message-Id: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-7-b3b2e7e9847a@kernel.org>
+Message-Id: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-9-b3b2e7e9847a@kernel.org>
 References: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
 In-Reply-To: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -79,17 +79,17 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
  devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2796; i=fustini@kernel.org;
- h=from:subject:message-id; bh=CSELH8cHpzjOmF3alV9G48Nrn3aORTFDw3pzNP6kshc=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTe+5DkFH7kiI/X6n//ZzzMXvRU0evlyrQ9SprrDnxb+
- ONyVOfXnI5SFgYxLgZZMUWWTR/yLizxCv26YP6LbTBzWJlAhjBwcQrARO6mMfzTOXzuuVfmqRqm
- axwmzhZCoWw/tITNXzlkPmPffVBvyaMXDH8l311NSS3teLgztOn2jPI7712z3576pm8onTDpdvu
- aln0sAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2611; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=0N3/ljaEoSaUAHRrhb7+qug0MyFe8aVMQaHOTujWe+c=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWTe+5AsfEfuo747Z9cOma99R+4qpVT97FPlOZ8tPXGSW
+ XS1bPCDjlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBE4n8xMuybaPnTJbxsb+cl
+ rYRpn7cL3t9+qMb203z9qt7l77/t7FVi+O/54Zqc6nT/faF/nP6Wrtnaav/ShddS1IV3bwXvMgu
+ VPQwA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_185657_269629_C06AEC6C 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260414_185658_298416_75D4D585 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,94 +106,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wire up the RISC-V QoS resctrl implementation:
+Add structs for the RQSC table which describes the properties of the
+RISC-V QoS controllers (CBQRI) in the system. The table also describes
+the topological arrangement of the QoS controllers and resources in the
+system. The topology is expressed in terms of the location of the
+resources within the system and the relation between the QoS Controller
+and the resource it manages.
 
-Add a late_initcall that checks for the Ssqosid extension and, if
-present, calls qos_resctrl_setup() to probe CBQRI controllers and
-initialize the resctrl filesystem, then registers CPU hotplug callbacks.
+Note: This is a placeholder for RFC review purposes. The actbl2.h
+change must go through upstream ACPICA first and will be replaced by
+the auto-generated ACPICA commit once the RQSC spec is ratified.
 
-Make CONFIG_RISCV_ISA_SSQOSID select ARCH_HAS_CPU_RESCTRL and
-RESCTRL_FS, and depends on MISC_FILESYSTEMS.
-
-Add qos_resctrl.o to the build when CONFIG_RISCV_ISA_SSQOSID is set.
-
-Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
-Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Link: https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+Link: https://github.com/riscv-non-isa/riscv-rqsc/blob/main/src/chapter2.adoc
 Signed-off-by: Drew Fustini <fustini@kernel.org>
 ---
- arch/riscv/Kconfig             |  3 +++
- arch/riscv/kernel/qos/Makefile |  2 +-
- arch/riscv/kernel/qos/qos.c    | 32 ++++++++++++++++++++++++++++++++
- 3 files changed, 36 insertions(+), 1 deletion(-)
+ include/acpi/actbl2.h | 36 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 92d2265a0c61..b2fef15b3d4f 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -597,7 +597,10 @@ config RISCV_ISA_SVNAPOT
+diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
+index 5c0b55e7b3e4..d6f272e848fa 100644
+--- a/include/acpi/actbl2.h
++++ b/include/acpi/actbl2.h
+@@ -55,6 +55,7 @@
+ #define ACPI_SIG_RGRT           "RGRT"	/* Regulatory Graphics Resource Table */
+ #define ACPI_SIG_RHCT           "RHCT"	/* RISC-V Hart Capabilities Table */
+ #define ACPI_SIG_RIMT           "RIMT"	/* RISC-V IO Mapping Table */
++#define ACPI_SIG_RQSC           "RQSC"	/* RISC-V Quality of Service Controller */
+ #define ACPI_SIG_SBST           "SBST"	/* Smart Battery Specification Table */
+ #define ACPI_SIG_SDEI           "SDEI"	/* Software Delegated Exception Interface Table */
+ #define ACPI_SIG_SDEV           "SDEV"	/* Secure Devices table */
+@@ -3351,6 +3352,41 @@ enum acpi_rgrt_image_type {
+ 	ACPI_RGRT_TYPE_RESERVED = 2	/* 2 and greater are reserved */
+ };
  
- config RISCV_ISA_SSQOSID
- 	bool "Ssqosid extension support for supervisor mode Quality of Service ID"
-+	depends on MISC_FILESYSTEMS
- 	default n
-+	select ARCH_HAS_CPU_RESCTRL
-+	select RESCTRL_FS
- 	help
- 	  Adds support for the Ssqosid ISA extension (Supervisor-mode
- 	  Quality of Service ID).
-diff --git a/arch/riscv/kernel/qos/Makefile b/arch/riscv/kernel/qos/Makefile
-index 9f996263a86d..9ed0c13a854d 100644
---- a/arch/riscv/kernel/qos/Makefile
-+++ b/arch/riscv/kernel/qos/Makefile
-@@ -1,2 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
--obj-$(CONFIG_RISCV_ISA_SSQOSID) += qos.o
-+obj-$(CONFIG_RISCV_ISA_SSQOSID) += qos.o qos_resctrl.o
-diff --git a/arch/riscv/kernel/qos/qos.c b/arch/riscv/kernel/qos/qos.c
-index a3c2b910e2e0..560607abf10a 100644
---- a/arch/riscv/kernel/qos/qos.c
-+++ b/arch/riscv/kernel/qos/qos.c
-@@ -1,8 +1,40 @@
- // SPDX-License-Identifier: GPL-2.0-only
-+#include <linux/slab.h>
-+#include <linux/err.h>
-+#include <linux/cpu.h>
-+#include <linux/cpumask.h>
-+#include <linux/riscv_qos.h>
++/*******************************************************************************
++ *
++ * RQSC - RISC-V Quality of Service Controller
++ *        Version 1
++ *
++ ******************************************************************************/
 +
-+#include <asm/csr.h>
- #include <asm/qos.h>
- 
-+#include "internal.h"
++struct acpi_table_rqsc_fields_res {
++	u8 type;
++	u8 resv;
++	u16 length;
++	u16 flags;
++	u8 resv2;
++	u8 id_type;
++	u64 id1;
++	u32 id2;
++};
 +
- /* cached value of srmcfg csr for each cpu */
- DEFINE_PER_CPU(u32, cpu_srmcfg);
- 
- /* default srmcfg value for each cpu, set via resctrl cpu assignment */
- DEFINE_PER_CPU(u32, cpu_srmcfg_default);
++struct acpi_table_rqsc_fields {
++	u8 type;
++	u8 resv;
++	u16 length;
++	u32 reg[3];
++	u16 rcid;
++	u16 mcid;
++	u16 flags;
++	u16 nres;
++	struct acpi_table_rqsc_fields_res res[];
++};
 +
-+static int __init qos_arch_late_init(void)
-+{
-+	int err;
++struct acpi_table_rqsc {
++	struct acpi_table_header header;	/* Common ACPI table header */
++	u32 num;
++};
 +
-+	if (!riscv_isa_extension_available(NULL, SSQOSID))
-+		return -ENODEV;
-+
-+	err = qos_resctrl_setup();
-+	if (err)
-+		return err;
-+
-+	err = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "qos:online",
-+				qos_resctrl_online_cpu,
-+				qos_resctrl_offline_cpu);
-+	if (err < 0) {
-+		resctrl_exit();
-+		return err;
-+	}
-+
-+	return 0;
-+}
-+late_initcall(qos_arch_late_init);
+ /*******************************************************************************
+  *
+  * RHCT - RISC-V Hart Capabilities Table
 
 -- 
 2.43.0
