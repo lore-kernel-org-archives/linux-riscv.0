@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38D1ED7B99
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 03:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1526AFA0C24
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 03:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cOemrxatR8ESEIl9Sjes5h93IdZGEhLAjHBUfQ54PKM=; b=4B9GxpMhiSygfZ
-	RlkZKiocBozMQCTjhcb98Np6KjOCAld4Ad2U2VoACSPbRheGNGYxobeOFmKNQ1cZtV86SQZarg6Am
-	CVdfvDN8pMaBbLEEmxXfl/Sd5HbjemVTw3yikubdrqVhkDNFJEUo3oa/WUjjVg80gIDtu1i6EK/dV
-	qJxhSRu+nkdM0EKQVHEe8ZaVVmQvZdh6AnSu3aFeckdQZPXHQVmVI1bttkaUX5AK/ur1dLk9JlyMz
-	pE1Xxckdjixgrpl4ZHab0AgILXvzHRXSaz1ncV9ThUbVM7cWIZhJka4MykxeaIWkancx3Bvlf2Y3l
-	aTWrgM3kJrPsnTGjWmew==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AzydjCq0E2xVV3/d2Mm4+s+KG/+Mxs2hm8MOiycidwA=; b=whqLAYTKGMtjWN
+	0okyJm5+xlmt5i1/Y8BJS3cYuBKccZn3ZNWQiTszRhb2qmvAQf+tJui/FlrIDUulfOsC1oyYULhgH
+	Fsid781YcWjU5OAFYwS5j904j4DLV/hSa8mjCXYxkMLbqD2IBQ7wZKRln24oZb8JGvqeBoU086AaS
+	MpljVjj7Dw3QI9g+P13Bzz8+S3nv92pWSZUCzB+gjM2D2d5/COL0yCPQ9qFGZZoIGrlfuh/sPS3K0
+	tCthd40E3Z2/QXzbWhWaWbgoK4Ig79MMowRBw6nJLZrZOkd58MwIfcw4SdtwLyTnebL9xtvaf4Ema
+	GdFJKSoId3XReJzknVyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCqo4-00000000Vxo-1EiY;
-	Wed, 15 Apr 2026 03:20:48 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wCr6I-00000000WlK-2wI7;
+	Wed, 15 Apr 2026 03:39:38 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCqo1-00000000Vx2-0Tuh
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 03:20:46 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-35fb166b0c6so1452907a91.0
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Apr 2026 20:20:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1776223240; x=1776828040; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=McgM1ed/7uKct8MrTaZt/faoB6VvbROugN9eTgcOxBM=;
-        b=hkeNLF15XTf6zXTL/eK4+1UFk4z97U2voobgcLYTY029H4jeOd9CwFyRtevVuyUYMN
-         qAWFvBezrW21NJXkDHvn7d/SDuH9UP/MuRgSQNPebjlNhA8N2RvJbkJ/cX/HtbdznS7t
-         5OZ35/9qAjUPA8YiMd+Fsg5lvFLflksecPgVEtYhX80gv203RtQtUVUwTYDDw8paVikx
-         Yph92Xzq2hSzfwj4MpN/ohYpm/cWpCXGWqizhGJFOGIEI+HaKXTtoRFr6bTuABNg28uu
-         9h9pGeVpRO4+MQPZ5hPcKLOkOwIdB9x2TwKS2y22L19lUXw/exLsUhY9GQQowIbglF3j
-         sX9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776223240; x=1776828040;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=McgM1ed/7uKct8MrTaZt/faoB6VvbROugN9eTgcOxBM=;
-        b=n5nQTp1sQljmyy+Q52yIkvYXhdm6C3d0kulVUAjdJ425D1wZHdaZKF9XAz4kDFg7xW
-         NEUx2zKC+zT5SeZJY63sHGgiOMT580XVjTEbr75ITJcZbeFLiMvC8BsDiUwM18x9SsI8
-         7yEwSW8Y6eC2TpdvxlZqGqCacUr9FP2KrtoLhvRvDqQNC06CzOxxO7S2PEeHjhvOY5v3
-         xA01+f/kptyR/JfnTMAHKMDA4XzaeoY5VERQmlFyfAdaZrZbSsW33sInfT7QCpi3PLjz
-         oYsze3d6zks+zB6P8BkGtPxJcaBy9VKHj+FuhSgH7VxxzXx31mNO4kHBBCFKgUuHw5lI
-         5rag==
-X-Gm-Message-State: AOJu0YwgyAhBQ+HxT4KovLBd77YyoaXvB3EvkYzAE+Ew3NVErXbh4+3h
-	gmn4qDoKijD1GG/NN58pLB4w6TxuqcZf8dqP47e/+e3cepGFxAliATr/f5/aGiW0ZPY=
-X-Gm-Gg: AeBDieuD5hOOZXtmaLr+MEQmY1TqpOrgIAk099HUnY9xop7zqNNeYPWJSybiKYehBBh
-	RbbheKe2I8X+2Pxi8fkc03Sbo/owaMTSeY52GSvNiVQvOMaK6JCnynjgFgilEtjZY2Amj8Jidz3
-	nICtLPHj95mj/Jp6bo62+t0vdR2zdhZcHlOf/l/Ie42//W8czzsPOEu7990g9zN0i9oNlr8DuIO
-	/8YviUzCBk/8XFn2PQN2z1/5lQE5ncHgvQA4A9s1Dbc/ooajFAysXrlA+u2d2zVRdHIyT1UJFH3
-	d1C865icKGWszowkDI4u8FNxyt4xlJHC+DvDXS4I2Q06LxLeBgLdTTR3+r3Un4H4bXRT4S4WrxH
-	D9DRGaG/ky6u3lOhB+Ymr2lXIytIAOPu//om0i04bK5BONeHDMpeJpRvsqyRR75xhZveEvyaAnO
-	SmGmLqtOGFR1SZ46C+zKae9zt/WVHeKU5u2ECJa3Zly4l/7PwZjGqmLPuVMq43X0LKZ7SLPQrBy
-	ytB+Vf9Wg==
-X-Received: by 2002:a17:90b:5283:b0:35f:c5b8:ef6d with SMTP id 98e67ed59e1d1-35fc5b8f328mr4090582a91.3.1776223239924;
-        Tue, 14 Apr 2026 20:20:39 -0700 (PDT)
-Received: from FJ7FR2JRQ3.bytedance.net ([203.208.167.150])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35fd3203a76sm372188a91.13.2026.04.14.20.20.35
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 14 Apr 2026 20:20:39 -0700 (PDT)
-From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-To: atish.patra@linux.dev,
-	anup@brainfault.org,
-	will@kernel.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	cuiyunhui@bytedance.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	yuanzhu@bytedance.com,
-	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Subject: [PATCH] drivers/perf: riscv: do not restart throttled events after overflow
-Date: Wed, 15 Apr 2026 11:20:17 +0800
-Message-ID: <20260415032017.10712-1-zhangzhanpeng.jasper@bytedance.com>
-X-Mailer: git-send-email 2.50.1
+	id 1wCr6E-00000000WkU-2Vvt;
+	Wed, 15 Apr 2026 03:39:37 +0000
+Received: from [192.168.0.109] (unknown [123.118.218.47])
+	by APP-05 (Coremail) with SMTP id zQCowABX7A9qCN9ptCuODQ--.13235S2;
+	Wed, 15 Apr 2026 11:39:22 +0800 (CST)
+Message-ID: <83397314-c7f3-4122-9587-80c29b1d13aa@iscas.ac.cn>
+Date: Wed, 15 Apr 2026 11:39:22 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] riscv: smp: Align secondary_start_sbi to 4 bytes
+To: cp0613@linux.alibaba.com, pjw@kernel.org, anup@brainfault.org,
+ andrew.jones@oss.qualcomm.com, guoren@kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ opensbi@lists.infradead.org, Anup Patel <anup@brainfault.org>
+References: <20260413132009.133752-1-cp0613@linux.alibaba.com>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20260413132009.133752-1-cp0613@linux.alibaba.com>
+X-CM-TRANSID: zQCowABX7A9qCN9ptCuODQ--.13235S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCF18AF47XF1rKw17Kw1xZrb_yoW5Cw1Upr
+	yaq3Z8KrW5tw1Ivr1UGrW5W3y5trnrtayUJ3WUJF1F9rsxCF1IgrWS9FW7tF1DW34Fy3W2
+	yr4qva1UCw12yaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkIb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4
+	vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCY1x0262kKe7AKxVWUAVWUtwCF
+	04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r
+	18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vI
+	r41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr
+	1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvE
+	x4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU5k9NDUUUUU==
+X-Originating-IP: [123.118.218.47]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_202045_444295_417FBA87 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260414_203935_025026_75CDB984 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,110 +74,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Perf core uses `event->hw.interrupts == MAX_INTERRUPTS` to keep
-throttled events stopped until it explicitly unthrottles them later.
-
-However, current RISC-V Perf/PMU system unconditionally restarts all the
-counters at the end of overflow handler, which bypasses the perf core's
-throttle mechanism. Therefore, an unreasonable small sampling period
-such as `perf top -c 20` may cause an IRQ storm and eventually leads to
-soft lockup.
-
-Fix this by filtering the counter start/restart mask: do not restart
-counters for events already marked as throttled by the perf core. This
-retains the throttle effect and prevents interrupt storms in such
-workloads.
-
-Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
----
- drivers/perf/riscv_pmu_sbi.c | 45 ++++++++++++++++++++++++++++++++++--
- 1 file changed, 43 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 385af5e6e6d0..664f9b86c468 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -60,6 +60,33 @@ asm volatile(ALTERNATIVE(						\
- #define PERF_EVENT_FLAG_LEGACY		BIT(SYSCTL_LEGACY)
- 
- PMU_FORMAT_ATTR(event, "config:0-55");
-+static inline bool rvpmu_perf_event_is_throttled(struct perf_event *event)
-+{
-+	return event->hw.interrupts == MAX_INTERRUPTS;
-+}
-+
-+/*
-+ * Return a mask of counters that must not be restarted.
-+ * `base` is the starting bit index to limit the mask to this long word.
-+ */
-+static inline unsigned long rvpmu_get_throttled_mask(struct perf_event **events,
-+						     unsigned long mask,
-+						     int base)
-+{
-+	unsigned long tmp = mask, throttled = 0;
-+	int bit = -1;
-+	int nr_bits = min_t(int, BITS_PER_LONG, RISCV_MAX_COUNTERS - base);
-+
-+	for_each_set_bit(bit, &tmp, nr_bits) {
-+		struct perf_event *event = events[bit];
-+
-+		if (!event || rvpmu_perf_event_is_throttled(event))
-+			throttled |= BIT(bit);
-+	}
-+
-+	return throttled;
-+}
-+
- PMU_FORMAT_ATTR(firmware, "config:62-63");
- 
- static bool sbi_v2_available;
-@@ -1005,6 +1032,8 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
- 	for_each_set_bit(idx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
- 		if (ctr_ovf_mask & BIT(idx)) {
- 			event = cpu_hw_evt->events[idx];
-+			if (!event || rvpmu_perf_event_is_throttled(event))
-+				continue;
- 			hwc = &event->hw;
- 			max_period = riscv_pmu_ctr_get_width_mask(event);
- 			init_val = local64_read(&hwc->prev_count) & max_period;
-@@ -1017,13 +1046,25 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
- 	}
- 
- 	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
-+		int base = i * BITS_PER_LONG;
-+		unsigned long throttled;
-+		unsigned long used;
-+		unsigned long start_mask;
-+
-+		used = cpu_hw_evt->used_hw_ctrs[i];
-+		throttled = rvpmu_get_throttled_mask(cpu_hw_evt->events + base,
-+						     used, base);
-+		start_mask = used & ~throttled;
-+		if (!start_mask)
-+			continue;
-+
- 		/* Restore the counter values to relative indices for used hw counters */
- 		for_each_set_bit(idx, &cpu_hw_evt->used_hw_ctrs[i], BITS_PER_LONG)
- 			sdata->ctr_values[idx] =
- 					cpu_hw_evt->snapshot_cval_shcopy[idx + i * BITS_PER_LONG];
- 		/* Start all the counters in a single shot */
--		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx * BITS_PER_LONG,
--			  cpu_hw_evt->used_hw_ctrs[i], flag, 0, 0, 0);
-+		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
-+			  start_mask, flag, 0, 0, 0);
- 	}
- }
- 
--- 
-2.50.1 (Apple Git-155)
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+WyArY2Mgb3BlbnNiaSwgQW51cDogV2hhdCB3YXMgdGhlIGRlYWwgd2l0aCBzZXR0aW5nIHN0dmVj
+IGluIHNiaV9oYXJ0X3N3aXRjaF9tb2RlPyBdCgpPbiA0LzEzLzI2IDIxOjIwLCBjcDA2MTNAbGlu
+dXguYWxpYmFiYS5jb20gd3JvdGU6Cgo+IEZyb206IENoZW4gUGVpIDxjcDA2MTNAbGludXguYWxp
+YmFiYS5jb20+Cj4KPiBEdXJpbmcgU01QIGJvb3QsIHRoZSBzZWNvbmRhcnlfc3RhcnRfc2JpIGFk
+ZHJlc3MgaXMgcGFzc2VkIHRvIHRoZQo+IHNsYXZlIGNvcmUgdmlhIHNiaV9oc21faGFydF9zdGFy
+dC4gSW4gT3BlblNCSSwgdGhpcyBhZGRyZXNzIGlzCj4gd3JpdHRlbiB0byBTVFZFQyBpbiBzYmlf
+aGFydF9zd2l0Y2hfbW9kZS4KClRoaXMgaXMgY2VydGFpbmx5IG9kZCAoT3BlblNCSSBnaXQgYmxh
+bWVzIHRvIGluaXRpYWwgZ2l0IGNvbW1pdC4gTm8gaWRlYQp3aHkgdGhpcyB3YXMgbmVlZGVkLikg
+YnV0IHRlY2huaWNhbGx5IHBlcm1pdHRlZCBieSB0aGUgU0JJIEhTTSBzcGVjIChzZWUKYmVsb3cp
+LgoKKiBBbnVwIGFuZCBvdGhlciBvcGVuc2JpIGZvbGtzOiBEbyB5b3Uga25vdy9yZW1lbWJlciB3
+aHkgaXQgd2FzIHRoZXJlPwpJdCdzIG5vdCByZWFsbHkgYSBidWcsIGJ1dCBzb21lIGhpc3Rvcmlj
+YWwgY29udGV4dCB3b3VsZCBiZSBhcHByZWNpYXRlZC4KCj4gQWNjb3JkaW5nIHRvIHRoZSBwcml2
+aWxlZ2VkIHNwZWNpZmljYXRpb24sIHRoZSBCQVNFIGZpZWxkIG9mIFNUVkVDCj4gbXVzdCBhbHdh
+eXMgYmUgYWxpZ25lZCBvbiBhIDQtYnl0ZSBib3VuZGFyeS4gSG93ZXZlciwgU3lzdGVtLm1hcAo+
+IHJldmVhbHMgdGhhdCBzZWNvbmRhcnlfc3RhcnRfc2JpIGlzIG5vdCBhIDQtYnl0ZSBhbGlnbmVk
+IGFkZHJlc3MuCj4KPiBGb3IgZXhhbXBsZSwgdGhlIGFkZHJlc3Mgb2Ygc2Vjb25kYXJ5X3N0YXJ0
+X3NiaSBpcwo+IDB4ZmZmZmZmZmY4MDAwMTA2NiwgYW5kIHRoZSBkaXNhc3NlbWJseSBpcyBhcyBm
+b2xsb3dzOgo+Cj4gRHVtcCBvZiBhc3NlbWJsZXIgY29kZSBmcm9tIDB4ZmZmZmZmZmY4MDAwMTA1
+MiB0byAweGZmZmZmZmZmODAwMDEwN2E6Cj4gICAgMHhmZmZmZmZmZjgwMDAxMDUyIDxfc3RhcnQr
+NDE3OD46ICAgIGMubm9wICAgLTExCj4gICAgMHhmZmZmZmZmZjgwMDAxMDU0IDxfc3RhcnQrNDE4
+MD46ICAgIGF1aXBjICAgZ3AsMHgxYTFmCj4gICAgMHhmZmZmZmZmZjgwMDAxMDU4IDxfc3RhcnQr
+NDE4ND46ICAgIGFkZGkgICAgZ3AsZ3AsODQKPiAgICAweGZmZmZmZmZmODAwMDEwNWMgPF9zdGFy
+dCs0MTg4PjogICAgY3NydyAgICBzYXRwLGEyCj4gICAgMHhmZmZmZmZmZjgwMDAxMDYwIDxfc3Rh
+cnQrNDE5Mj46ICAgIHNmZW5jZS52bWEKPiAgICAweGZmZmZmZmZmODAwMDEwNjQgPF9zdGFydCs0
+MTk2PjogICAgcmV0Cj4gICAgMHhmZmZmZmZmZjgwMDAxMDY2IDxfc3RhcnQrNDE5OD46ICAgIGNz
+cncgICAgc2llLHplcm8KPiAgICAweGZmZmZmZmZmODAwMDEwNmEgPF9zdGFydCs0MjAyPjogICAg
+Y3NydyAgICBzaXAsemVybwo+ICAgIDB4ZmZmZmZmZmY4MDAwMTA2ZSA8X3N0YXJ0KzQyMDY+OiAg
+ICBsaSAgICAgIHQwLDIKPiAgICAweGZmZmZmZmZmODAwMDEwNzAgPF9zdGFydCs0MjA4PjogICAg
+Y3NydyAgICBzY291bnRlcmVuLHQwCj4gICAgMHhmZmZmZmZmZjgwMDAxMDc0IDxfc3RhcnQrNDIx
+Mj46ICAgIGF1aXBjICAgZ3AsMHgxYTFmCj4gICAgMHhmZmZmZmZmZjgwMDAxMDc4IDxfc3RhcnQr
+NDIxNj46ICAgIGFkZGkgICAgZ3AsZ3AsNTIKPgo+IFdoZW4gd3JpdGluZyB0byBTVFZFQyBhdCBh
+ZGRyZXNzIDB4ZmZmZmZmZmY4MDAwMTA2NiwgdGhlIGFjdHVhbAo+IHdyaXRlIGFkZHJlc3MgaXMg
+MHhmZmZmZmZmZjgwMDAxMDY0LCBjb3JyZXNwb25kaW5nIHRvIHRoZSBhZGRyZXNzCj4gb2YgdGhl
+IHByZXZpb3VzIHJldCBpbnN0cnVjdGlvbi4KQWxzbyB0ZWNobmljYWxseSBwZXJtaXR0ZWQuCj4g
+VGhpcyBpcyB1bmV4cGVjdGVkLCBhbmQgaWYgYW4KPiBpbnRlcnJ1cHQgb2NjdXJzIGF0IHRoaXMg
+cG9pbnQsIGl0IHdpbGwgY2F1c2UgdW5wcmVkaWN0YWJsZSByZXN1bHRzLgo+Cj4gSG93ZXZlciwg
+c2Vjb25kYXJ5X3N0YXJ0X3NiaSBpbW1lZGlhdGVseSBtYXNrcyBhbGwgaW50ZXJydXB0cyBhbmQK
+PiB1cGRhdGVzIFNUVkVDLCBzbyBubyBwcm9ibGVtcyBvY2N1cnJlZC4KCkFuIGludGVycnVwdCBj
+YW5ub3QgdHJhcCBpbiBiZXR3ZWVuIHNlY29uZGFyeV9zdGFydF9zYmkgc3RhcnRpbmcgYW5kIHRo
+ZQppbnRlcnJ1cHRzIGdldHRpbmcgbWFza2VkIGluZGl2aWR1YWxseS4gVGhlIG9ubHkgYXJjaCBz
+dGF0ZSBndWFyYW50ZWVkCmJ5IEhTTSBpcyBbMV06Cgp8UmVnaXN0ZXIgTmFtZSB8IFJlZ2lzdGVy
+IFZhbHVlCnxzYXRwwqAgwqAgwqAgwqAgwqAgfCAwCnxzc3RhdHVzLlNJRcKgIMKgfCAwCnxhMMKg
+IMKgIMKgIMKgIMKgIMKgIHwgaGFydGlkCnxhMcKgIMKgIMKgIMKgIMKgIMKgIHwgYG9wYXF1ZWAg
+cGFyYW1ldGVyCnxBbGwgb3RoZXIgcmVnaXN0ZXJzIHJlbWFpbiBpbiBhbiB1bmRlZmluZWQgc3Rh
+dGUuCgpPZiB3aGljaCBzc3RhdHVzLlNJRSA9IDAgbWVhbnMgdGhhdCBpbnRlcnJ1cHRzIGFyZSBt
+YXNrZWQgaW4gU3VwZXJ2aXNvcgptb2RlLgo+IEluIHN1bW1hcnksIGl0IGlzIG1vcmUgcmVhc29u
+YWJsZSB0byBtYWtlIHNlY29uZGFyeV9zdGFydF9zYmkKPiBzYXRpc2Z5IDQtYnl0ZSBhbGlnbm1l
+bnQuCgpUaHVzLCBpdCBpcyB1bm5lY2Vzc2FyeS4KCklmIHRoaXMgZml4ZXMgYSBidWcgd2hlcmUg
+YW4gaW50ZXJydXB0IGNhbiB0cmFwIGludG8gdGhlIHdyb25nIHN0dmVjIGZvcgp5b3UsIHRoZW4g
+eW91ciBmaXJtd2FyZSBpcyBicm9rZW4uCgpNaWNoYWVsJ3Mgc3VnZ2VzdGlvbiBhYm91dCBTWU1f
+Q09ERV9TVEFSVCBzdGlsbCBzdGFuZHMsIGJ1dCBpZiB5b3UgZG8KdGhhdCwgdGhhdCdzIGp1c3Qg
+YSByZWFsbHkgbWlub3IgcmVmYWN0b3JpbmcsIGFuZCBpbiBhbnkgY2FzZSB0aGUKY3VycmVudCBj
+b21taXQgbWVzc2FnZSBjYW5ub3Qgc3RhbmQuCgpWaXZpYW4gImRyYW1mb3JldmVyIiBXYW5nCgpb
+MV06Cmh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jpc2N2LXNiaS1kb2MvYmxvYi92
+My4wL3NyYy9leHQtaHNtLmFkb2MjZnVuY3Rpb24taGFydC1zdGFydC1maWQtMAoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
