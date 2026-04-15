@@ -4,44 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEBBF9D0F6
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 00:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD23F9D0FD
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 00:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oxyi4MDM0dNESJQXdwMqNFdUGQgU7hR6DH5sXf7oMj4=; b=UAAPSWZe/JUKyM
-	YBcK0jKM4ZXX8wA6knVoJWtC/AEIfcBx2qYsr2yZYkxC4ne0mxtfKhYNPNTo63BTLs0dgAgnJiWuK
-	qmL9BQdQ8SVqLUsqH/T/WMldlNrnaIzpD94n8y+WVFD0kkRMdjsV4PicxH/t7Q12fCayIe7fM3ljM
-	qEdJJetwO3VLUYjbe4+/VXMCA5pjfccl6FkiVMr2MsLpG3DQw+iT7lxlVghpkRl5jAnN4iJQThVRX
-	MI1JD6xiqEIkrQMfUcU6jLLQPDgz0KRjtmJzQSz1GIsXnZHNVT8dqY1A0F5KnMBPz3H9z4Gyxbva+
-	1V4o/P7AbM56KupUOD9w==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Subject:References:
+	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=NI2GKFGyjo3oM9RaJxEL8JNVq7QIBGnXVhMeEIwfCso=; b=ZQHBFddy9EJ7+zMx4nm6KShsxm
+	jCVED/MLljImXtpWwfjStSDl33HOYxNSqyFnPjedcdSg8aMPfnYed7g9pYFl3jDnnM6D+zZ4u1rO0
+	MSNBfa0IRCBihyvbmyPuDGIlpPuDzeTBWSDEijhu+yjN+ux4GP1lZQi/GEDOMjPJSNjosPIzsmhoq
+	8ilmBHCiSkHz4luiIv/cwAvsg6KN9NnVEnPbKjfdde0uaRSWa5PkPNHFPMgHFKkdekyaWfuIEn56F
+	T0dpzv3zwqljNgIBsA9Wwo14fSzN5CQmdIIig6o+HHi/NMvpOnUxiinrH2T156mH0kV4v/Nenstu0
+	x7726BvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCoGB-00000000Nve-30V4;
-	Wed, 15 Apr 2026 00:37:39 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCoG9-00000000Ntv-36BF;
-	Wed, 15 Apr 2026 00:37:37 +0000
-Message-ID: <1e22f13c-01c3-4fd4-8e8e-1c5ef40c27ed@infradead.org>
-Date: Tue, 14 Apr 2026 17:37:37 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 2/4] MAINTAINERS: add an entry for media maintainers
- profile
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- workflows@vger.kernel.org, Dan Williams <djbw@kernel.org>
+	id 1wCoNY-00000000ONc-3fu7;
+	Wed, 15 Apr 2026 00:45:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wCoNW-00000000ONB-2LDx
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Apr 2026 00:45:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6697944265
+	for <linux-riscv@lists.infradead.org>; Wed, 15 Apr 2026 00:45:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDBBCC2BCB3;
+	Wed, 15 Apr 2026 00:45:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776213912;
+	bh=qejLFQQGcg1KVqXARzAXhEpre213aSYvl+SOgejiSpg=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=Mwe1inbzktTgLt/Ki7sWdn96/InJQ3XFIi3j+t/Dwnh4mtLj8psRP0tzqc8iREo8i
+	 eUFtu2jSUTkIYQyX+VRoEAuaiIiOBvO4LCS7N8nEBPcQwnAlNZufTkxmNhLWV7o4Pm
+	 eNwozaYefQ/Zen680KJxd+GvKxcdRiaqXQNXy4LlNG3WynY+P4Gj6CuPPtPgzUtdSP
+	 WAjP53EhmhuTM2iimMBMPbHMzY6jwYc3pb5sgRyGMHU1t7C01ifZp1pVzFXStgxlSF
+	 4r7A5YzgxnsyEhFP9ywurntZZgd/3/cD3G+Gd4eBLGv33gBZRMhndwcMMBPb/qZlMT
+	 x1/7fP+l7CQdw==
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 11EA2F40068;
+	Tue, 14 Apr 2026 20:45:11 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Tue, 14 Apr 2026 20:45:11 -0400
+X-ME-Sender: <xms:l9_eaalaIa9eyXUeOmkV1U5zninPyBhUKwVoAdxTCiWTF6X6g6YbGQ>
+    <xme:l9_eadrapGeexf3sgZIrl692jcXkhZoDvoVuxOfyuJvsYcS5ap56lLaxQYnHTladk
+    EistXuyI7nUOxLdnzfV6X-3MDlCXgl8Zur-dXVrhxOFw9No-E5VcUE>
+X-ME-Received: <xmr:l9_eaUBEGtPNq-fYupTumRHN3cAqG8PNcey2FK0raEJ8eDLaKkCotaswibKxyGh4VCCxNMdr0TW-hozXb97cRsUlzBx_mG1YO-E>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdegvdeihecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpeffhffvvefkjghfufggtgfgsehtjeertddttdejnecuhfhrohhmpeffrghnucghihhl
+    lhhirghmshcuoegujhgsfieskhgvrhhnvghlrdhorhhgqeenucggtffrrghtthgvrhhnpe
+    duvdetgeffhfeftdffudehtdfgffejleeffffhvefhjeejfeekffdugfdviedvgfenucff
+    ohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomhepughjsgifodhmvghsmhhtphgruhhthhhpvghrshhonhgr
+    lhhithihqddujeejvdeftdegheehqdeffeefleegtdegjedqughjsgifpeepkhgvrhhnvg
+    hlrdhorhhgsehfrghsthhmrghilhdrtghomhdpnhgspghrtghpthhtohepuddupdhmohgu
+    vgepshhmthhpohhuthdprhgtphhtthhopehmtghhvghhrggsodhhuhgrfigviheskhgvrh
+    hnvghlrdhorhhgpdhrtghpthhtoheptghorhgsvghtsehlfihnrdhnvghtpdhrtghpthht
+    oheplhhinhhugidqughotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhope
+    hmtghhvghhrggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghr
+    nhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrih
+    hstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepfihorhhk
+    fhhlohifshesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopegujhgsfieskh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtoheprhguuhhnlhgrphesihhnfhhrrgguvggrugdr
+    ohhrgh
+X-ME-Proxy: <xmx:l9_eaYHMLhmTMgXwROTjmYswnHADt465BbqwIBGVSPzEnuUYbOI3jw>
+    <xmx:l9_eaW2PH3Ay1C6xJK39bR1E3YVdXlPT6OKZuNKN1xdhAws3ZpnQ_Q>
+    <xmx:l9_eaRPRxgEzKFqJHnflz9zCNgs1WiDt_7IplSW3TajU3OHfdtzw2Q>
+    <xmx:l9_eaeYkm2KzN7NQ2HezUGVjV-QizG-5q-5ucLaeOD91aC7HVBeioA>
+    <xmx:l9_eaXzYpym6Rq6y3s5WA-MQt0zpEYPcSjGE4QDyz6gKlP8t24auZEeS>
+Feedback-ID: i67ae4b3e:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 14 Apr 2026 20:45:10 -0400 (EDT)
+Date: Tue, 14 Apr 2026 17:45:09 -0700
+From: Dan Williams <djbw@kernel.org>
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, 
+ workflows@vger.kernel.org, 
+ Dan Williams <djbw@kernel.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Shuah Khan <skhan@linuxfoundation.org>
+Message-ID: <69dedf95ab1fb_147c8010048@djbw-dev.notmuch>
+In-Reply-To: <4e9512a3d05942c98361d06d60a118d7c78762b6.1776176108.git.mchehab+huawei@kernel.org>
 References: <cover.1776176108.git.mchehab+huawei@kernel.org>
- <5af4aa6a716228eea4d59dc26b97d642e1e7d419.1776176108.git.mchehab+huawei@kernel.org>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <5af4aa6a716228eea4d59dc26b97d642e1e7d419.1776176108.git.mchehab+huawei@kernel.org>
+ <4e9512a3d05942c98361d06d60a118d7c78762b6.1776176108.git.mchehab+huawei@kernel.org>
+Subject: Re: [PATCH RFC 1/4] docs: maintainers_include: auto-generate
+ maintainer profile TOC
+Mime-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260414_174514_647488_B678CA0F 
+X-CRM114-Status: UNSURE (   6.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,35 +119,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/14/26 7:29 AM, Mauro Carvalho Chehab wrote:
-> While media has a maintainers entry profile, its entry is
-> missing at MAINTAINERS.
+Mauro Carvalho Chehab wrote:
+> Add a feature to allow auto-generating media entry profiles from the
+> corresponding field inside MAINTAINERS file(s).
 > 
+> Suggested-by: Dan Williams <djbw@kernel.org>
+> Closes: https://lore.kernel.org/linux-doc/69dd6299440be_147c801005b@djbw-dev.notmuch/
 > Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 
-Acked-by: Randy Dunlap <rdunlap@infradead.org>
+Nice!
 
-> ---
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index f0b106a4dd96..620219e48f98 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -16115,6 +16115,7 @@ S:	Maintained
->  W:	https://linuxtv.org
->  Q:	http://patchwork.kernel.org/project/linux-media/list/
->  T:	git git://linuxtv.org/media.git
-> +P:	Documentation/driver-api/media/maintainer-entry-profile.rst
->  F:	Documentation/admin-guide/media/
->  F:	Documentation/devicetree/bindings/media/
->  F:	Documentation/driver-api/media/
-
--- 
-~Randy
+Acked-by: Dan Williams <djbw@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
