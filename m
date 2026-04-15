@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07760F4199E
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 12:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1580AF41998
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 12:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O3aFVTkolFHzVp6mNI5bK7Q0Gzgru8iqYSFtPl9k3Ho=; b=ePOb/9xJPIJHF5
-	FYMavGi/LTnHkfixM2Mx2w6DElfR3g4UC+FQESHuuKuzyp4wybc/6PHAufPbrlzp3GuiEJtJ2Aimj
-	TAoZHYbU2y0l62BbyDe8Y5eogFfNdZS4ZraA3jvoHJGZ9fS9pgCqB0WCpa0Oc9V1lX9IPJxTvkluP
-	g6+cYqBKu9i6Yb43CuRf6+37VRUSfbtQoMI+imZe7od4dz1c6jKwm0OePNlrwPe6vKddv8zU3aTsV
-	tw4QChhZ57+WTv+YqLNd7sHC3W4vojduw32+BV774eeFBcu9BPJ3MiJJh3vOrtXPUIUoMV/XDsyQl
-	jAuJKjjW/snk8tQlg6WA==;
+	List-Owner; bh=ER67kVuH9Qvb82zoNeyP4D/favcVsvEBIk5xC4wK9OY=; b=QkKGFJ/CDTwD4x
+	qZZO45GP9ZUvaWSOqpS8pkRBqMzwwyzqlNjOscRrrR81NICCRV2Kkvd10e6GRGXVvP5iRwjOqUtI6
+	uhtAjX+DLfVVnkPRFMNELcr5UFpjOJ/MiObeSsGc8DYzr4mzu1zXDd5bQ9O8tkqJEVimsQyCxykyy
+	SPJpEdqJzyyuG0mgDDI2O2sEiPCA9SNZMbqXT1SSH5gvXwoVbs2LgUzRaBohxBsKendpDpHGE9QL2
+	pC7k8qz0s8C8vGKh62PLahp0C5UAHWFDT8/3TjSJQYysC8CZhGBxVrMFdI6LRmiT/i9qHxUmj7vIT
+	DDrxpNRk+bjztE2uR96A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzUe-0000000189K-03ew;
-	Wed, 15 Apr 2026 12:37:20 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1wCzVT-000000018Ev-1myG;
+	Wed, 15 Apr 2026 12:38:11 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzUa-0000000188x-1wrM
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 12:37:18 +0000
+	id 1wCzVQ-000000018Do-27RS;
+	Wed, 15 Apr 2026 12:38:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1776256630; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=CS4BGIXS3JsyYBu2XbbYqlq+oa+QQ3EmP58RqW67j2k=;
-	b=qIzKBUtosWqHrNo3MG46+q+xMgqvdxacPvOUTfXdQDr/uBhJyM83QylhAkLUO8D7rUil7AM4FLiG+9uDBb82sIRoHuO3UXyxunMnOFBgvrqdYGDoownamUwVQvTJuiJNYXSeFr2PAEfbUgZBTYrAByNq+N2XSZ3N81drkBEiSe0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R231e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0X14khaV_1776256622;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X14khaV_1776256622 cluster:ay36)
+	t=1776256684; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=IuRIdB05XOvFlg+W6dwU8jnLRNwetfEuTnQThR5If4M=;
+	b=K2Fa2ji8wIi9478pTCLGumeeTC2cuX+QO0wZnwqDtVpjc6D4AxaluURKLeURwWPouxyuDWQAir1A4gIgOco1bDw0cOT0feQ9qRfsxiG3RQ53Vsjp2PT2Gu8tWI+7nhTEajJksGKc/HI/lmQKIDFqeAJxGH6xPRZHLSkRYduQNz0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0X14hhr6_1776256677;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X14hhr6_1776256677 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 15 Apr 2026 20:37:06 +0800
+          Wed, 15 Apr 2026 20:38:01 +0800
 From: Chen Pei <cp0613@linux.alibaba.com>
-To: mpe@kernel.org
+To: wangruikang@iscas.ac.cn
 Cc: pjw@kernel.org,
 	anup@brainfault.org,
 	andrew.jones@oss.qualcomm.com,
 	guoren@kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
+	linux-riscv@lists.infradead.org,
+	opensbi@lists.infradead.org
 Subject: Re: [PATCH v2] riscv: smp: Align secondary_start_sbi to 4 bytes
-Date: Wed, 15 Apr 2026 20:37:02 +0800
-Message-ID: <20260415123702.123309-1-cp0613@linux.alibaba.com>
+Date: Wed, 15 Apr 2026 20:37:57 +0800
+Message-ID: <20260415123757.123581-1-cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <d38e585f-554a-4f81-8136-981870fe3383@kernel.org>
-References: <d38e585f-554a-4f81-8136-981870fe3383@kernel.org>
+In-Reply-To: <83397314-c7f3-4122-9587-80c29b1d13aa@iscas.ac.cn>
+References: <83397314-c7f3-4122-9587-80c29b1d13aa@iscas.ac.cn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_053717_073943_83B5621C 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20260415_053808_752559_0829FE51 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,36 +70,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Apr 2026 12:06:28 +1000, mpe@kernel.org wrote:
+On Wed, 15 Apr 2026 11:39:22 +0800, wangruikang@iscas.ac.cn wrote:
 
-> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> > index 9c99c5ad6fe8..9f33be6260e1 100644
-> > --- a/arch/riscv/kernel/head.S
-> > +++ b/arch/riscv/kernel/head.S
-> > @@ -127,6 +127,7 @@ relocate_enable_mmu:
-> >   #endif /* CONFIG_MMU */
-> >   #ifdef CONFIG_SMP
-> >    .global secondary_start_sbi
-> > + .align 2
-> >   secondary_start_sbi:
-> >    /* Mask all interrupts */
-> >    csrw CSR_IE, zero
+> > During SMP boot, the secondary_start_sbi address is passed to the
+> > slave core via sbi_hsm_hart_start. In OpenSBI, this address is
+> > written to STVEC in sbi_hart_switch_mode.
 > 
+> This is certainly odd (OpenSBI git blames to initial git commit. No idea
+> why this was needed.) but technically permitted by the SBI HSM spec (see
+> below).
 > 
-> Minor nit, but IMHO .balign is preferable in new code. It always byte 
-> aligns, whereas .align has different meanings across architectures, and 
-> on some arches (including riscv) requires the reader to do the math to 
-> convert to a byte alignment.
-> 
-> These days there's also the SYM_CODE_START etc. macros defined via 
-> linkage.h, which use __ALIGN from arch/riscv/include/asm/linkage.h, 
-> which is already .balign 4.
+> * Anup and other opensbi folks: Do you know/remember why it was there?
+> It's not really a bug, but some historical context would be appreciated.
 
-Hi Michael,
+Yes, looking forward to responses from Anup and other opensbi folks.
 
-Thank you for your review and reminder. If this patch is ultimately
-approved (because the behavior of OpenSBI still needs clarification
-based on the new reviewer's comments), I will update it using .balign.
+> > According to the privileged specification, the BASE field of STVEC
+> > must always be aligned on a 4-byte boundary. However, System.map
+> > reveals that secondary_start_sbi is not a 4-byte aligned address.
+> >
+> > For example, the address of secondary_start_sbi is
+> > 0xffffffff80001066, and the disassembly is as follows:
+> >
+> > Dump of assembler code from 0xffffffff80001052 to 0xffffffff8000107a:
+> >    0xffffffff80001052 <_start+4178>:    c.nop   -11
+> >    0xffffffff80001054 <_start+4180>:    auipc   gp,0x1a1f
+> >    0xffffffff80001058 <_start+4184>:    addi    gp,gp,84
+> >    0xffffffff8000105c <_start+4188>:    csrw    satp,a2
+> >    0xffffffff80001060 <_start+4192>:    sfence.vma
+> >    0xffffffff80001064 <_start+4196>:    ret
+> >    0xffffffff80001066 <_start+4198>:    csrw    sie,zero
+> >    0xffffffff8000106a <_start+4202>:    csrw    sip,zero
+> >    0xffffffff8000106e <_start+4206>:    li      t0,2
+> >    0xffffffff80001070 <_start+4208>:    csrw    scounteren,t0
+> >    0xffffffff80001074 <_start+4212>:    auipc   gp,0x1a1f
+> >    0xffffffff80001078 <_start+4216>:    addi    gp,gp,52
+> >
+> > When writing to STVEC at address 0xffffffff80001066, the actual
+> > write address is 0xffffffff80001064, corresponding to the address
+> > of the previous ret instruction.
+> Also technically permitted.
+
+Yes, but this is unintended behavior, and we should avoid it.
+
+> > This is unexpected, and if an
+> > interrupt occurs at this point, it will cause unpredictable results.
+> >
+> > However, secondary_start_sbi immediately masks all interrupts and
+> > updates STVEC, so no problems occurred.
+> 
+> An interrupt cannot trap in between secondary_start_sbi starting and the
+> interrupts getting masked individually. The only arch state guaranteed
+> by HSM is [1]:
+> 
+> |Register Name | Register Value
+> |satp          | 0
+> |sstatus.SIE   | 0
+> |a0            | hartid
+> |a1            | `opaque` parameter
+> |All other registers remain in an undefined state.
+> 
+> Of which sstatus.SIE = 0 means that interrupts are masked in Supervisor
+> mode.
+> > In summary, it is more reasonable to make secondary_start_sbi
+> > satisfy 4-byte alignment.
+> 
+> Thus, it is unnecessary.
+> 
+> If this fixes a bug where an interrupt can trap into the wrong stvec for
+> you, then your firmware is broken.
+
+This isn't about fixing a bug (as mentioned earlier, it's highly unlikely
+to happen), but rather the STVEC check mechanism added to QEMU discovered
+this issue. Regarding the problem itself, I would appreciate any clarification
+or modifications from OpenSBI, but currently this modification is the simplest
+and most feasible.
+
+> Michael's suggestion about SYM_CODE_START still stands, but if you do
+> that, that's just a really minor refactoring, and in any case the
+> current commit message cannot stand.
+> 
+> Vivian "dramforever" Wang
+> 
+> [1]:
+> https://github.com/riscv-non-isa/riscv-sbi-doc/blob/v3.0/src/ext-hsm.adoc#function-hart-start-fid-0
 
 Thanks,
 Pei
