@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3975FA0C3C
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 07:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732A4FA0C58
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 08:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TKBThUYtu8bVw4fIQlBmh7OZIlQ9n78zg8TnxpAfrZQ=; b=raFUjfynbJ+KnU
-	+HGl06YjjRbKJUMv1m1lpYn4HfSHfGMCwNze1JhdaqAzr7JzXVN0cMoZZXSWTq7KWMZ+qbUv4oFSE
-	f/E/pueHvugCqZp9l/sCbt5ixj7Sxy+3tnh4F/Ov55TXusNNm3EkdalcMOSO9xlFjRefpAEotZYsk
-	1ozvrhgUodfhoQStlqmwJbp5JvhnOp2BCzInXJMHJz6KTR7Ngm5aZQdXxkxbTshnZ6L/DNLzUkVDY
-	9dLDg0n94kv0khcI3cJ5fAGg/6X4TQCk53iY3kcpjMtcZGebI0RnvPcxb18WPOfWP2UV+QzLyTkue
-	V/RnUJDEqsN2iuAhkWaQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mGdcbs//i5a4XzR+0eY4FdmmVfExw6UytKay8hLpzpI=; b=4S0V7IlvOEtway
+	wgYlkV5si0DCu8nGqGtm8v8k7TlEl5iyjb/gMIsaosdQIWvFcjDTV8uuN1C7ZZ/18So1cbowE9HVz
+	7h5UCADnb0cpk4TOe9hv7OIQ2gx8pFEB3/miaLghxLDYsiC9c54JZcW2PcyZCDQryjlerMHO398dr
+	6w2pnGmgVQqcg9QeUnURu+SkErKUCGTnWfeKu3GWar8+PTLhO4maud9JVMBuuQk26KB1/S56NeEFO
+	i3UkLn6bzSSQVYTa1wpd4GTKv1HZCrIHff3s+atRl7mnh7H9sDwU/iyxLh7MXNGWLLQeHf08nfPcd
+	3f3myvGyZvyfvBIzeivg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCv38-00000000kzo-40GD;
-	Wed, 15 Apr 2026 07:52:40 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wCvz6-00000000qi4-1dUE;
+	Wed, 15 Apr 2026 08:52:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCv34-00000000kz3-1j6N;
-	Wed, 15 Apr 2026 07:52:36 +0000
-Received: from fric.. (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowABH1QiyQ99pSIKTDQ--.36677S2;
-	Wed, 15 Apr 2026 15:52:18 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
+	id 1wCvz4-00000000qgT-3Ffx
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Apr 2026 08:52:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D65C160127;
+	Wed, 15 Apr 2026 08:52:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E1FC2BCB4;
+	Wed, 15 Apr 2026 08:52:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776243149;
+	bh=cbloFBaSFVqLFASbOdMdsq9XcyspmRgafo7Pco+EW+4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=i4H3d6VTT0QBatItEUbi/IXUeq2MLNYhTKRaPtwmlgVQ3zsu/Jg5XTgNPoWkJ7z1S
+	 T20rvZA1BGK9BAzlRiMRsTngdbZO9VDzxLcl9TN0oron08gjUwGUHttU9c/AJyUEc/
+	 vKc8c9pw1zWxeSw3rLGzgCTJX8/vctO7CbKows654qdZgyWxce7UCqQQkPpq29c3jK
+	 tgfQZTs6/B+KmSbZe0iTOvEd9mzQLjK/cYfDiqPIfZmkETxrDmyXHnRnt/ud1qNCbc
+	 zMl06JMkgOK25cLc5Lr93jUFj07tDfq3V/TWm2NnExFC/104c0koMrbGZYvBtDJ3VI
+	 owP1Wu7hQoxlg==
+Received: from mchehab by mail.kernel.org with local (Exim 4.99.1)
+	(envelope-from <mchehab+huawei@kernel.org>)
+	id 1wCvz1-0000000ELvf-2VCx;
+	Wed, 15 Apr 2026 10:52:27 +0200
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
-	Jiakai Xu <jiakaiPeanut@gmail.com>
-Subject: [PATCH] RISC-V: KVM: Fix invalid HVA warning in steal-time recording
-Date: Wed, 15 Apr 2026 07:52:16 +0000
-Message-Id: <20260415075216.2757427-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	linux-riscv@lists.infradead.org,
+	workflows@vger.kernel.org,
+	Dan Williams <djbw@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>
+Subject: [PATCH 3/8] MAINTAINERS: add maintainer-tip.rst to X86
+Date: Wed, 15 Apr 2026 10:52:19 +0200
+Message-ID: <17bb9cbae60254adb388406a975f1fd60266afdc.1776242739.git.mchehab+huawei@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1776242739.git.mchehab+huawei@kernel.org>
+References: <cover.1776242739.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowABH1QiyQ99pSIKTDQ--.36677S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CF15Kr48ur1UKw13Jr4fXwb_yoW8AF15pF
-	ZrCr98Ww1rtry2gasrAr4kWa1jg3yvgF1qgr9I9F90yrs0kFyYyrsYk34IvFyUJry0qF1r
-	ZF1YqF1Duan8AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBI14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	xl6s0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
-	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28Icx
-	kI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2Iq
-	xVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42
-	IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY
-	6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aV
-	CY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbQVy7UUUUU==
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiBg0SCWnfJvJ8DgAAsA
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_005234_822018_7F9859D8 
-X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +79,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kvm_riscv_vcpu_record_steal_time() assumes that the steal-time shared
-memory GPA (vcpu->arch.sta.shmem) is always backed by a valid guest
-memory slot. However, this assumption is not guaranteed by the KVM
-userspace ABI.
+The X86 subsystem has a maintainers entry profile, but its entry
+is missing at MAINTAINERS.
 
-A malicious or buggy userspace can set the STA shared memory GPA via
-KVM_SET_ONE_REG without establishing a corresponding memory region via
-KVM_SET_USER_MEMORY_REGION. In such cases, the GPA cannot be translated
-to a valid HVA and kvm_vcpu_gfn_to_hva() returns an error address.
+Add it.
 
-The current implementation incorrectly treats this as a kernel warning
-using WARN_ON(), which may escalate to a kernel panic when panic_on_warn
-is enabled.
-
-This is not a kernel bug condition but a normal invalid configuration
-from userspace, and should be handled gracefully.
-
-Fix it by removing WARN_ON() and treating invalid HVA as a normal
-failure case, resetting the STA shared memory state.
-
-Fixes: e9f12b5fff8ad0 ("RISC-V: KVM: Implement SBI STA extension")
-Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Signed-off-by: Jiakai Xu <jiakaiPeanut@gmail.com>
-Assisted-by: OpenClaw:DeepSeek-V3.2
+Acked-by: Randy Dunlap <rdunlap@infradead.org>
+Acked-by: Dan Williams <djbw@kernel.org>
+Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Message-ID: <970434c647aa1e1e9a81c87b4d5fed934d4018a7.1776176108.git.mchehab+huawei@kernel.org>
 ---
- arch/riscv/kvm/vcpu_sbi_sta.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
-index 3b834709b429f..60e50296a0085 100644
---- a/arch/riscv/kvm/vcpu_sbi_sta.c
-+++ b/arch/riscv/kvm/vcpu_sbi_sta.c
-@@ -46,7 +46,7 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
- 	gfn = shmem >> PAGE_SHIFT;
- 	hva = kvm_vcpu_gfn_to_hva(vcpu, gfn);
- 
--	if (WARN_ON(kvm_is_error_hva(hva))) {
-+	if (kvm_is_error_hva(hva)) {
- 		vcpu->arch.sta.shmem = INVALID_GPA;
- 		return;
- 	}
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 620219e48f98..a85fcae5f56e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -28560,6 +28560,7 @@ M:	Ingo Molnar <mingo@redhat.com>
+ M:	Borislav Petkov <bp@alien8.de>
+ M:	Dave Hansen <dave.hansen@linux.intel.com>
+ M:	x86@kernel.org
++P:	Documentation/process/maintainer-tip.rst
+ R:	"H. Peter Anvin" <hpa@zytor.com>
+ L:	linux-kernel@vger.kernel.org
+ S:	Maintained
 -- 
-2.34.1
+2.53.0
 
 
 _______________________________________________
