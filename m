@@ -4,96 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B948F41989
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 09:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82453F41986
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 10:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=iqkY9DPbZYxmwtZvDqsHgFIXM+n176wjcJyW21WeWKc=; b=dqYEnG+Mi/9x4yxjCpxMl+A2s1
-	YO/d5+UhUNV1iTETLRFKkshw03LyrpdTnUgVx3cgWZapfM/l59Uc8rn9QTtl2z/IuUYs+2wxVYfbn
-	yYcofj7vlp6jF34212TaCnndwrl8vb0KCEznvIAESzmXWJn6c+ES4a7Vm5jDKwqX0Gmw+b17L+y3H
-	1e4LwWEA5XMypeRn5lLGv93IFXgu9DsNAHJG7TvzcWS9I/81GCX13ihYeAcySDCY7XrTeMO8+UN4/
-	Qc7F2qqOxMKgxUh+h7rypKuMZZ5fWdxJypjo86crBD0SU/aqOduYEXqDQi6bPeAj/UhSucY68aLRt
-	SiTTv55w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SL4HKbEJBhdb9KZkv/g9PJxV1OhrEacPV6fyYBtB+G4=; b=d/h6Ab/8qDhAQn
+	Ww+976hFcaoD4Qun5Z1FJgBdzsmBuCrQ6HHh5m+aWFxvUOonvtxnbQ9dgiAjMIV45kahqF7G7DLcR
+	1AZOo7bIK2Kc9GUwAZoIfSSeLynlhGGuw0Z8fnL7c/ireEsnGaFUUgZQVbc/TyxPfLuVcEvf48cqz
+	lQJPgmFey2a0Ga5dwLvqJAU2rlodMMc8bg0Oh8sIg55eCAXdPuxYjwUnxD7RdlihCd6M06BUYHN3e
+	xh15Z90pzf+s9tKj1uT6blCspEESDCpeJsj98VtnN5T7ZtEUFPoaDCEXFy4EEXxTe9AvBskPpqc5c
+	sVMmauZalWCRkbgP0d8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCwzr-00000000wKZ-23lj;
-	Wed, 15 Apr 2026 09:57:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wCx73-00000000wpC-0ugc;
+	Wed, 15 Apr 2026 10:04:49 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCwzq-00000000wK7-2VUI
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 09:57:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A5DC06012A;
-	Wed, 15 Apr 2026 09:57:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D28CC4AF09;
-	Wed, 15 Apr 2026 09:57:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776247041;
-	bh=wH1QJ5TIoR8oX2w9Na/+u1m1rf0anCjBEQAWOnhtT00=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=uXykSiGUMkzGeKIAYXg4pmGp9TnEvttockT1kfCKoKEW0qpGzQ0KXG8EGgxH1JiD9
-	 WZV+3PVpb2QCveuL2F+4QKA8cFdJIRlqVoJKrH2fAtl8WWPar3dG7tgFRbVvt8Nxo+
-	 u1/e8VU1y7Zj9O0uAQPDiTnY33uvkl8+69H5rTwkgwGMelSa+/TyUGQpcL6lwQLwws
-	 eJm5dVY8s02JcWemJR8kkd3pNRNmNSJBwBibIenXv3MMQyvTBX2KG+guq6LkERByPe
-	 rMYJXs/60xbfQuX0sO5accC3g3M+ew1zk48A/NX9Lyuk2n9HmdPR3J0TN8dZyW5eIM
-	 gQywBmEFdeSdg==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 1683EF4006A;
-	Wed, 15 Apr 2026 05:57:20 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Wed, 15 Apr 2026 05:57:20 -0400
-X-ME-Sender: <xms:_2DfadNhTKGrjQwmSn52axFQ6SFI3Zk3oSyDSneV_d_g2JIzl4cPJA>
-    <xme:_2DfaawMfFGLIFB96GpdbtAVN2QqgXQW-cF4AfDpKcfQVk02HTKWVlUCJyyaOEJxk
-    K-TFvH5csRgnJ9smemJJB0RmVsK9ksXS1_zLprl1Pl_Z0SKaiQhJ3I>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdegfeejkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
-    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
-    htvghrnhepvdeuheeitdevtdelkeduudetgffftdelteefteevjeevjeeiheefhfejieej
-    fedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledq
-    feefvdduieegudehqdgrrhgusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrug
-    drtghomhdpnhgspghrtghpthhtohepledpmhhouggvpehsmhhtphhouhhtpdhrtghpthht
-    ohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtg
-    hsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehthhgvtghhrghrlhgvshhjvghn
-    khhinhhssehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnughrihihrdhshhgvvhgthh
-    gvnhhkohesihhnthgvlhdrtghomhdprhgtphhtthhopehpjhifsehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpd
-    hrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdr
-    ohhrghdprhgtphhtthhopehlihhnuhigqdgvfhhisehvghgvrhdrkhgvrhhnvghlrdhorh
-    hgpdhrtghpthhtohepughmrghnthhiphhovheshigrnhguvgigrdhruh
-X-ME-Proxy: <xmx:AGHfaVMVXjMnW4js4Tf72K1EkpzB0rMWGBZgzkO8V9rQcQSnsHklWg>
-    <xmx:AGHfaUiNh4DMYQRveQFIph_HiS2eLbvCrnEexRGq8409PK0TJFs5uA>
-    <xmx:AGHfaYsQrKS8SFPmgjwnd_LWBrtGm2xGlhnrfFoK_2m-_Zud9mlTdg>
-    <xmx:AGHfaYjuuK6TJDvYXTDDhu9FNkDQ9xSGxSL-ktanQQaofEDLdknmaQ>
-    <xmx:AGHfaeaXibxrakcLsQK-WHiXKH4F8mZUjNa85YO3yFGaLAMBzAE7I9SZ>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E2013700065; Wed, 15 Apr 2026 05:57:19 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wCx6y-00000000woW-1yxV;
+	Wed, 15 Apr 2026 10:04:47 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=ECSSlTyhJvtyzyV12bRiciUTZEMt5lG0F0BW5PZ9epA=;
+	b=XwGRhLne6TgIRHTpnVjff9jL3j2nEOUg/4fZqohVv7IVECo3hpMZzFAeQRSYPfQpZazp8xLIF
+	L4BvOv/i1ejypeY+N7Bw7ro/40TcmqZH93SdaTwdtLVozGchElPUhdWYant6q56kDs/Fs1058fD
+	SLf1DVLYrM2j/JVPi7gaTBc=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4fwc651DVGzpSyb;
+	Wed, 15 Apr 2026 17:58:21 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id AD24820104;
+	Wed, 15 Apr 2026 18:04:33 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 15 Apr 2026 18:04:30 +0800
+Message-ID: <3e861ad2-a57d-45a5-94d0-0a8c4d58f7b6@huawei.com>
+Date: Wed, 15 Apr 2026 18:04:26 +0800
 MIME-Version: 1.0
-Date: Wed, 15 Apr 2026 11:56:59 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Andy Shevchenko" <andriy.shevchenko@intel.com>,
- "Dmitry Antipov" <dmantipov@yandex.ru>
-Cc: "Andrew Morton" <akpm@linux-foundation.org>,
- "Charlie Jenkins" <thecharlesjenkins@gmail.com>,
- "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-efi@vger.kernel.org
-Message-Id: <33c3e393-eacc-4ac2-97e4-5ce45c1b6604@app.fastmail.com>
-In-Reply-To: <ad9f9543RuV17RnH@ashevche-desk.local>
-References: <20260414102608.573555-1-dmantipov@yandex.ru>
- <20260414102608.573555-4-dmantipov@yandex.ru>
- <ad9f9543RuV17RnH@ashevche-desk.local>
-Subject: Re: [PATCH v4 3/3] riscv: fix building compressed EFI image
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 00/15] arm64/riscv: Add support for crashkernel CMA
+ reservation
+To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
+	<dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
+	<pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
+	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
+	<paulmck@kernel.org>, <lirongqing@baidu.com>, <rppt@kernel.org>,
+	<leitao@debian.org>, <ardb@kernel.org>, <jbohac@suse.cz>,
+	<cfsworks@gmail.com>, <tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
+	<ritesh.list@gmail.com>, <hbathini@linux.ibm.com>, <eajames@linux.ibm.com>,
+	<guoren@kernel.org>, <songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
+	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
+	<fuqiang.wang@easystack.cn>, <liaoyuanhong@vivo.com>,
+	<takahiro.akashi@linaro.org>, <james.morse@arm.com>, <lizhengyu3@huawei.com>,
+	<x86@kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kexec@lists.infradead.org>
+References: <20260402072701.628293-1-ruanjinjie@huawei.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260402072701.628293-1-ruanjinjie@huawei.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260415_030445_616560_BAEB9168 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,30 +98,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Apr 2026, at 11:52, Andy Shevchenko wrote:
-> On Tue, Apr 14, 2026 at 01:26:08PM +0300, Dmitry Antipov wrote:
->> When building vmlinuz.efi with CONFIG_EFI_ZBOOT enabled,
->> '__lshrdi3()' is also needed to fix yet another link error:
->> 
->> riscv32-linux-gnu-ld: drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
->> __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
->> 
->> And since riscv64 can have CONFIG_EFI_ZBOOT but doesn't need these
->> library routines, introduce CONFIG_EFI_ZBOOT_USE_LIBGCC to manage
->> linking of lib-ashldi3.o and lib-lshrdi3.o on riscv32 only.
->
-> Acked-by: Andy Shevchenko <andriy.shevchenko@intel.com>
->
-> I think you need a tag from Ard on this.
->
 
-I don't think we need a new Kconfig symbol for this.
 
-Better do something like
+On 4/2/2026 3:26 PM, Jinjie Ruan wrote:
+> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
+> and crashk_cma memory are almost identical across different architectures,
+> This patch set handle them in crash core in a general way, which eliminate
+> a lot of duplication code.
+> 
+> And add support for crashkernel CMA reservation for arm64 and riscv.
+> 
+> Rebased on v7.0-rc1.
+> 
+> Basic second kernel boot test were performed on QEMU platforms for x86,
+> ARM64, and RISC-V architectures with the following parameters:
+> 
+> 	"cma=256M crashkernel=256M crashkernel=64M,cma"
+> 
+> Changes in v12:
+> - Remove the unused "nr_mem_ranges" for x86.
+> - Add "Fix crashk_low_res not exclude bug" test log.
+> - Provide a separate patch for each architecture for using
+>   crash_prepare_headers(), which will make the review more convenient.
+> - Add Reviewed-by and Tested-by.
+> - Link to v11: https://lore.kernel.org/all/20260328074013.3589544-1-ruanjinjie@huawei.com/
+> 
+> Changes in v11:
+> - Avoid silently drop crash memory if the crash kernel is built without
+>   CONFIG_CMA.
+> - Remove unnecessary "cmem->nr_ranges = 0" for arch_crash_populate_cmem()
+>   as we use kvzalloc().
+> - Provide a separate patch for each architecture to fix the existing
+>   buffer overflow issue.
 
-zboot-riscv-obj-$(CONFIG_32BIT) += lib-ashldi3.o lib-lshrdi3.o
-zboot-obj-$(CONFIG_RISCV)	+= lib-clz_ctz.o $(zboot-riscv-obj-y)
+Are there any further review comments? Especially regarding the patch
+for fixing out-of-bounds access (suggested by the AI review), as well as
+the changes for LoongArch, x86 and riscv architectures.
 
+> - Add Acked-bys for arm64.
+> 
+> Changes in v10:
+> - Fix crashk_low_res not excluded bug in the existing
+>   RISC-V code.
+> - Fix an existing memory leak issue in the existing PowerPC code.
+> - Fix the ordering issue of adding CMA ranges to
+>   "linux,usable-memory-range".
+> - Fix an existing concurrency issue. A Concurrent memory hotplug may occur
+>   between reading memblock and attempting to fill cmem during kexec_load()
+>   for almost all existing architectures.
+> - Link to v9: https://lore.kernel.org/all/20260323072745.2481719-1-ruanjinjie@huawei.com/
+> 
+> Changes in v9:
+> - Collect Reviewed-by and Acked-by, and prepare for Sashiko AI review.
+> - Link to v8: https://lore.kernel.org/all/20260302035315.3892241-1-ruanjinjie@huawei.com/
+> 
+> Changes in v8:
+> - Fix the build issues reported by kernel test robot and Sourabh.
+> - Link to v7: https://lore.kernel.org/all/20260226130437.1867658-1-ruanjinjie@huawei.com/
+> 
+> Changes in v7:
+> - Correct the inclusion of CMA-reserved ranges for kdump kernel in of/kexec
+>   for arm64 and riscv.
+> - Add Acked-by.
+> - Link to v6: https://lore.kernel.org/all/20260224085342.387996-1-ruanjinjie@huawei.com/
+> 
+> Changes in v6:
+> - Update the crash core exclude code as Mike suggested.
+> - Rebased on v7.0-rc1.
+> - Add acked-by.
+> - Link to v5: https://lore.kernel.org/all/20260212101001.343158-1-ruanjinjie@huawei.com/
+> 
+> Jinjie Ruan (14):
+>   riscv: kexec_file: Fix crashk_low_res not exclude bug
+>   powerpc/crash: Fix possible memory leak in update_crash_elfcorehdr()
+>   x86/kexec: Fix potential buffer overflow in prepare_elf_headers()
+>   arm64: kexec_file: Fix potential buffer overflow in
+>     prepare_elf_headers()
+>   riscv: kexec_file: Fix potential buffer overflow in
+>     prepare_elf_headers()
+>   LoongArch: kexec: Fix potential buffer overflow in
+>     prepare_elf_headers()
+>   crash: Add crash_prepare_headers() to exclude crash kernel memory
+>   arm64: kexec_file: Use crash_prepare_headers() helper to simplify code
+>   x86/kexec: Use crash_prepare_headers() helper to simplify code
+>   riscv: kexec_file: Use crash_prepare_headers() helper to simplify code
+>   LoongArch: kexec: Use crash_prepare_headers() helper to simplify code
+>   crash: Use crash_exclude_core_ranges() on powerpc
+>   arm64: kexec: Add support for crashkernel CMA reservation
+>   riscv: kexec: Add support for crashkernel CMA reservation
+> 
+> Sourabh Jain (1):
+>   powerpc/crash: sort crash memory ranges before preparing elfcorehdr
+> 
+>  .../admin-guide/kernel-parameters.txt         |  16 +--
+>  arch/arm64/kernel/machine_kexec_file.c        |  43 +++-----
+>  arch/arm64/mm/init.c                          |   5 +-
+>  arch/loongarch/kernel/machine_kexec_file.c    |  43 +++-----
+>  arch/powerpc/include/asm/kexec_ranges.h       |   1 -
+>  arch/powerpc/kexec/crash.c                    |   7 +-
+>  arch/powerpc/kexec/ranges.c                   | 101 +-----------------
+>  arch/riscv/kernel/machine_kexec_file.c        |  42 +++-----
+>  arch/riscv/mm/init.c                          |   5 +-
+>  arch/x86/kernel/crash.c                       |  92 +++-------------
+>  drivers/of/fdt.c                              |   9 +-
+>  drivers/of/kexec.c                            |   9 ++
+>  include/linux/crash_core.h                    |   9 ++
+>  include/linux/crash_reserve.h                 |   4 +-
+>  kernel/crash_core.c                           |  89 ++++++++++++++-
+>  15 files changed, 193 insertions(+), 282 deletions(-)
+> 
 
 
 _______________________________________________
