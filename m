@@ -4,84 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82453F41986
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 10:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54649F41991
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 11:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SL4HKbEJBhdb9KZkv/g9PJxV1OhrEacPV6fyYBtB+G4=; b=d/h6Ab/8qDhAQn
-	Ww+976hFcaoD4Qun5Z1FJgBdzsmBuCrQ6HHh5m+aWFxvUOonvtxnbQ9dgiAjMIV45kahqF7G7DLcR
-	1AZOo7bIK2Kc9GUwAZoIfSSeLynlhGGuw0Z8fnL7c/ireEsnGaFUUgZQVbc/TyxPfLuVcEvf48cqz
-	lQJPgmFey2a0Ga5dwLvqJAU2rlodMMc8bg0Oh8sIg55eCAXdPuxYjwUnxD7RdlihCd6M06BUYHN3e
-	xh15Z90pzf+s9tKj1uT6blCspEESDCpeJsj98VtnN5T7ZtEUFPoaDCEXFy4EEXxTe9AvBskPpqc5c
-	sVMmauZalWCRkbgP0d8w==;
+	List-Owner; bh=zOhPhxvg6xfmhwumbur/myJKNv05FIo/G3vNkfIIfYU=; b=ErDU5OSp5NUcBu
+	zthbgApymMn/Aj/jFSVVh24XTWK1nrKsL6O8avs25Q4al1v1sfXJHZQ/u7uzpdIVGAA3Koiwth9HC
+	zlzHMI7+OHgF1SmMX4pSH7axItN9NrkvEyAfrDVVUZWHojvvhg8qeYZOf0KvbZZZ2f1hk0sGJKxG+
+	clDMNRGfG3eXM+qYtVtRO2QwcLTtwj8gVqTyOyK8Wdyll7CBjAy9itSg0RYxxUyw+ALLSrNi6h8t7
+	ukkUfP6nH4EJHCPI48FvuhxnKcqbrM11tjyMjpSSB0RIn5ogVBKXXvzh+TXhcy5NiVXvQGw6ETR1n
+	0V5pgVYmd0hLRRxT+vnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCx73-00000000wpC-0ugc;
-	Wed, 15 Apr 2026 10:04:49 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wCyUO-000000012vg-1j1j;
+	Wed, 15 Apr 2026 11:33:00 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCx6y-00000000woW-1yxV;
-	Wed, 15 Apr 2026 10:04:47 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ECSSlTyhJvtyzyV12bRiciUTZEMt5lG0F0BW5PZ9epA=;
-	b=XwGRhLne6TgIRHTpnVjff9jL3j2nEOUg/4fZqohVv7IVECo3hpMZzFAeQRSYPfQpZazp8xLIF
-	L4BvOv/i1ejypeY+N7Bw7ro/40TcmqZH93SdaTwdtLVozGchElPUhdWYant6q56kDs/Fs1058fD
-	SLf1DVLYrM2j/JVPi7gaTBc=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4fwc651DVGzpSyb;
-	Wed, 15 Apr 2026 17:58:21 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id AD24820104;
-	Wed, 15 Apr 2026 18:04:33 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 15 Apr 2026 18:04:30 +0800
-Message-ID: <3e861ad2-a57d-45a5-94d0-0a8c4d58f7b6@huawei.com>
-Date: Wed, 15 Apr 2026 18:04:26 +0800
+	id 1wCyUL-000000012vK-2ccb
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Apr 2026 11:32:58 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43cff5dafc3so4782100f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Apr 2026 04:32:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776252775; x=1776857575; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u2FCUrZRaW+mZzvA8FAeIT0/MW/6T/TDKPdP+BgE9zU=;
+        b=sdxtHKQhc8PhsiosvLtKb7EV+oWRa77w/7NvjSddb4JbeAma7MHMn1EREZp7MfgPTB
+         jpHbQfyZclNDO5PpdBgUFQ1CO/8VlLzcjjweQgs0S/kFJFCcTKncvHus4TZWuN7u8+6G
+         XdiF1TuYuvfpHAELwwaOnjVPN0xP+cdwsA7+gMBka+qt7aDYCrleIeLslwhp+w6mSeLG
+         BXGoK5HkL2tbMBzTa9cNUiFwECjg45sndid+9RrEptWV+eTwMQRLMN0T84CiKtpQqKvv
+         Y0dWmy386r+BFMw9ZrwVX/yr3S5ZR5pTQHiBTUcYfJWp6WzJEd47C7N2CNKh9DQ2Sujs
+         2XeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776252775; x=1776857575;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=u2FCUrZRaW+mZzvA8FAeIT0/MW/6T/TDKPdP+BgE9zU=;
+        b=EdZ+4NI6tn9g4+yTV1ZGdGa0rEF08SQcM5XN4SymI2fG1hcqeTOmKRqEh0fGs011OR
+         0ETbPg+7fGk00hkRy/HPEhlFfnEIdh2kA+2V9mIjFnKSP3uP8kSc3KzhB/ajY2/GSjms
+         bZaAOl0uwL3E2F99iY6rFAvQEQUKB1oSmXLf/fBPlWiznlshGl5qbfLvVeEkE6UGD1zu
+         bmNWXIHQ1L530VrCxK6EOFEEDEwjEJ1X5syY2GgqO6ISOvn69hneCRvidN6p7miVzxbd
+         RKFlOUokW9CYCMsTibnJ19FfQNMv/0r+d0uYGm81uivJIeMjPOhILoLKfi3X67fMqLSd
+         2wsA==
+X-Forwarded-Encrypted: i=1; AFNElJ/tVNzG87HRTBHE/60YPFRxkNhHuAdfkpTL8thTA9AJZiFG7bnG762Xv5ddy3+COqHDPXLyhXuGVC4V/w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yweyir8GlaIbhdI0MleexyFypXGhMD0H48J8dvxK+MYMVZxTY4D
+	zkFCJ3zAbq7W/0jVjTxPX6UjKS9WhNA8zxK4SRg26hKZoDUlyt/gardF
+X-Gm-Gg: AeBDiev2R9oCEgdQLxt7o1um++e53+92E8Pojj9hI94sjRVI90/FXRsjdoDFjPIU0gO
+	eii+9tWCn0G2R7GrZCsOKU9s9HP6MPoiOLMo1egcC2KbyMqKu7yMhBxcYxgceBW6trmDLMNs+B5
+	eumRc6qo2CXPDE3TV6HuiQIwjxmT6TEeyTl5gMDE7IIabnBHawYwlUzoSnPzbn/xaIjwMGoJbxw
+	FfL1BAfW1K/GPLqsyADVP2XNQiBSilthNB94o5oBWudtHrR3llHJ8L6QhF77/jr1cw0RGwhjAPe
+	XE5rVH2H2Gt+EkDYr2JWQtkbrq+UGXXQn6oAxz1rNC8bgOozNXwxPSw4r6seOPclMeE4bkZvZnI
+	wj6YANrOPZEmfKAiNmad/MSsxLFp/bsmvMwWXZ65jOB0/LKIb1S0LujWPK+gGZQzyqW8chy2pv3
+	4JLMEwaIvgEb/SjQ7thwwOLUhNB1DHs1AFdzGeXt781aq4QFv6l3muAYbt4P0pIVaJ
+X-Received: by 2002:a05:6000:240e:b0:43e:aefa:db84 with SMTP id ffacd0b85a97d-43eaefadc12mr935013f8f.34.1776252775085;
+        Wed, 15 Apr 2026 04:32:55 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43ead3e00b3sm4261659f8f.27.2026.04.15.04.32.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Apr 2026 04:32:54 -0700 (PDT)
+Date: Wed, 15 Apr 2026 12:32:52 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+ <alex@ghiti.fr>, <yury.norov@gmail.com>, <linux@rasmusvillemoes.dk>,
+ <arnd@arndb.de>, <cp0613@linux.alibaba.com>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arch@vger.kernel.org>
+Subject: Re: [PATCH v2 2/2] arch/riscv: Add bitrev.h file to support rev8
+ and brev8
+Message-ID: <20260415123252.017bd5e2@pumpkin>
+In-Reply-To: <20260415093827.2776328-3-ruanjinjie@huawei.com>
+References: <20260415093827.2776328-1-ruanjinjie@huawei.com>
+	<20260415093827.2776328-3-ruanjinjie@huawei.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 00/15] arm64/riscv: Add support for crashkernel CMA
- reservation
-To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
-	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
-	<dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
-	<pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
-	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
-	<paulmck@kernel.org>, <lirongqing@baidu.com>, <rppt@kernel.org>,
-	<leitao@debian.org>, <ardb@kernel.org>, <jbohac@suse.cz>,
-	<cfsworks@gmail.com>, <tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
-	<ritesh.list@gmail.com>, <hbathini@linux.ibm.com>, <eajames@linux.ibm.com>,
-	<guoren@kernel.org>, <songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
-	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
-	<fuqiang.wang@easystack.cn>, <liaoyuanhong@vivo.com>,
-	<takahiro.akashi@linaro.org>, <james.morse@arm.com>, <lizhengyu3@huawei.com>,
-	<x86@kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<kexec@lists.infradead.org>
-References: <20260402072701.628293-1-ruanjinjie@huawei.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260402072701.628293-1-ruanjinjie@huawei.com>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_030445_616560_BAEB9168 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20260415_043257_717768_D849FB77 
+X-CRM114-Status: GOOD (  28.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,115 +104,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 15 Apr 2026 17:38:27 +0800
+Jinjie Ruan <ruanjinjie@huawei.com> wrote:
+
+> The RISC-V Bit-manipulation Extension for Cryptography (Zbkb) provides
+> the 'brev8' instruction, which reverses the bits within each byte.
+> Combined with the 'rev8' instruction (from Zbb or Zbkb), which reverses
+> the byte order of a register, we can efficiently implement 16-bit,
+> 32-bit, and (on RV64) 64-bit bit reversal.
+> 
+> This is significantly faster than the default software table-lookup
+> implementation in lib/bitrev.c, as it replaces memory accesses and
+> multiple arithmetic operations with just two or three hardware
+> instructions.
+> 
+> Select HAVE_ARCH_BITREVERSE and provide <asm/bitrev.h> to utilize
+> these instructions when the Zbkb extension is available at runtime
+> via the alternatives mechanism.
+> 
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/riscv/Kconfig              |  1 +
+>  arch/riscv/include/asm/bitrev.h | 41 +++++++++++++++++++++++++++++++++
+>  2 files changed, 42 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/bitrev.h
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 90c531e6abf5..05f2b2166a83 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -128,6 +128,7 @@ config RISCV
+>  	select HAS_IOPORT if MMU
+>  	select HAVE_ALIGNED_STRUCT_PAGE
+>  	select HAVE_ARCH_AUDITSYSCALL
+> +	select HAVE_ARCH_BITREVERSE if RISCV_ISA_ZBKB
+>  	select HAVE_ARCH_HUGE_VMALLOC if HAVE_ARCH_HUGE_VMAP
+>  	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT
+>  	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
+> diff --git a/arch/riscv/include/asm/bitrev.h b/arch/riscv/include/asm/bitrev.h
+> new file mode 100644
+> index 000000000000..9f205ac84796
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/bitrev.h
+> @@ -0,0 +1,41 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_BITREV_H
+> +#define __ASM_BITREV_H
+> +
+> +#include <linux/types.h>
+> +#include <asm/cpufeature-macros.h>
+> +#include <asm/hwcap.h>
+> +#include <asm-generic/bitops/__bitrev.h>
+> +
+> +static __always_inline __attribute_const__ u32 __arch_bitrev32(u32 x)
+> +{
+> +	unsigned long result = x;
+> +
+> +	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBKB))
+> +		return generic___bitrev32(x);
+> +
+> +	asm volatile(
+> +		".option push\n"
+> +		".option arch,+zbkb\n"
+> +		"rev8 %0, %0\n"
+
+It would be better to pass (long)x in for the source.
+Might save the compiler doing a register-register move.
+
+> +		"brev8 %0, %0\n"
+> +		".option pop"
+> +		: "+r" (result)
+> +	);
+> +
+> +	if (__riscv_xlen == 64)
+> +		return (u32)(result >> 32);
+
+Is that right?
+ACAICT __riscv_xlen is 32 for 32bit builds and 64 otherwise.
+(No idea why riscv has its own private constant for that.)
+I'm guessing that 'brev' is bit-reverse (or each byte) and 'rev'
+a byteswap, the '8' suffix rather implies it acts on 8 bytes
+which makes is 64bit only.
+So does 'rev8' even compile for 32bit.
+You are also likely to get a warning on 32bit for 'result >> 32'.
+
+> +
+> +	return (u32)result;
+> +}
+
+I'm not sure is is a good idea inline that into its callers.
+But I can't think of a way to get either the instructions or
+a call patched in at the call site.
+
+> +
+> +static __always_inline __attribute_const__ u16 __arch_bitrev16(u16 x)
+> +{
+> +	return __arch_bitrev32((u32)x) >> 16;
+> +}
+> +
+> +static __always_inline __attribute_const__ u8 __arch_bitrev8(u8 x)
+> +{
+> +	return __arch_bitrev32((u32)x) >> 24;
+
+That seems excessive when it could just be a 'brev' instruction.
+
+Oh, and none of the casts on the function call parameters or results
+are needed - they are all implied.
+
+	David
 
 
-On 4/2/2026 3:26 PM, Jinjie Ruan wrote:
-> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
-> and crashk_cma memory are almost identical across different architectures,
-> This patch set handle them in crash core in a general way, which eliminate
-> a lot of duplication code.
-> 
-> And add support for crashkernel CMA reservation for arm64 and riscv.
-> 
-> Rebased on v7.0-rc1.
-> 
-> Basic second kernel boot test were performed on QEMU platforms for x86,
-> ARM64, and RISC-V architectures with the following parameters:
-> 
-> 	"cma=256M crashkernel=256M crashkernel=64M,cma"
-> 
-> Changes in v12:
-> - Remove the unused "nr_mem_ranges" for x86.
-> - Add "Fix crashk_low_res not exclude bug" test log.
-> - Provide a separate patch for each architecture for using
->   crash_prepare_headers(), which will make the review more convenient.
-> - Add Reviewed-by and Tested-by.
-> - Link to v11: https://lore.kernel.org/all/20260328074013.3589544-1-ruanjinjie@huawei.com/
-> 
-> Changes in v11:
-> - Avoid silently drop crash memory if the crash kernel is built without
->   CONFIG_CMA.
-> - Remove unnecessary "cmem->nr_ranges = 0" for arch_crash_populate_cmem()
->   as we use kvzalloc().
-> - Provide a separate patch for each architecture to fix the existing
->   buffer overflow issue.
-
-Are there any further review comments? Especially regarding the patch
-for fixing out-of-bounds access (suggested by the AI review), as well as
-the changes for LoongArch, x86 and riscv architectures.
-
-> - Add Acked-bys for arm64.
-> 
-> Changes in v10:
-> - Fix crashk_low_res not excluded bug in the existing
->   RISC-V code.
-> - Fix an existing memory leak issue in the existing PowerPC code.
-> - Fix the ordering issue of adding CMA ranges to
->   "linux,usable-memory-range".
-> - Fix an existing concurrency issue. A Concurrent memory hotplug may occur
->   between reading memblock and attempting to fill cmem during kexec_load()
->   for almost all existing architectures.
-> - Link to v9: https://lore.kernel.org/all/20260323072745.2481719-1-ruanjinjie@huawei.com/
-> 
-> Changes in v9:
-> - Collect Reviewed-by and Acked-by, and prepare for Sashiko AI review.
-> - Link to v8: https://lore.kernel.org/all/20260302035315.3892241-1-ruanjinjie@huawei.com/
-> 
-> Changes in v8:
-> - Fix the build issues reported by kernel test robot and Sourabh.
-> - Link to v7: https://lore.kernel.org/all/20260226130437.1867658-1-ruanjinjie@huawei.com/
-> 
-> Changes in v7:
-> - Correct the inclusion of CMA-reserved ranges for kdump kernel in of/kexec
->   for arm64 and riscv.
-> - Add Acked-by.
-> - Link to v6: https://lore.kernel.org/all/20260224085342.387996-1-ruanjinjie@huawei.com/
-> 
-> Changes in v6:
-> - Update the crash core exclude code as Mike suggested.
-> - Rebased on v7.0-rc1.
-> - Add acked-by.
-> - Link to v5: https://lore.kernel.org/all/20260212101001.343158-1-ruanjinjie@huawei.com/
-> 
-> Jinjie Ruan (14):
->   riscv: kexec_file: Fix crashk_low_res not exclude bug
->   powerpc/crash: Fix possible memory leak in update_crash_elfcorehdr()
->   x86/kexec: Fix potential buffer overflow in prepare_elf_headers()
->   arm64: kexec_file: Fix potential buffer overflow in
->     prepare_elf_headers()
->   riscv: kexec_file: Fix potential buffer overflow in
->     prepare_elf_headers()
->   LoongArch: kexec: Fix potential buffer overflow in
->     prepare_elf_headers()
->   crash: Add crash_prepare_headers() to exclude crash kernel memory
->   arm64: kexec_file: Use crash_prepare_headers() helper to simplify code
->   x86/kexec: Use crash_prepare_headers() helper to simplify code
->   riscv: kexec_file: Use crash_prepare_headers() helper to simplify code
->   LoongArch: kexec: Use crash_prepare_headers() helper to simplify code
->   crash: Use crash_exclude_core_ranges() on powerpc
->   arm64: kexec: Add support for crashkernel CMA reservation
->   riscv: kexec: Add support for crashkernel CMA reservation
-> 
-> Sourabh Jain (1):
->   powerpc/crash: sort crash memory ranges before preparing elfcorehdr
-> 
->  .../admin-guide/kernel-parameters.txt         |  16 +--
->  arch/arm64/kernel/machine_kexec_file.c        |  43 +++-----
->  arch/arm64/mm/init.c                          |   5 +-
->  arch/loongarch/kernel/machine_kexec_file.c    |  43 +++-----
->  arch/powerpc/include/asm/kexec_ranges.h       |   1 -
->  arch/powerpc/kexec/crash.c                    |   7 +-
->  arch/powerpc/kexec/ranges.c                   | 101 +-----------------
->  arch/riscv/kernel/machine_kexec_file.c        |  42 +++-----
->  arch/riscv/mm/init.c                          |   5 +-
->  arch/x86/kernel/crash.c                       |  92 +++-------------
->  drivers/of/fdt.c                              |   9 +-
->  drivers/of/kexec.c                            |   9 ++
->  include/linux/crash_core.h                    |   9 ++
->  include/linux/crash_reserve.h                 |   4 +-
->  kernel/crash_core.c                           |  89 ++++++++++++++-
->  15 files changed, 193 insertions(+), 282 deletions(-)
-> 
+> +}
+> +#endif
 
 
 _______________________________________________
