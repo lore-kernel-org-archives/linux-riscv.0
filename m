@@ -4,64 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2641DF419A2
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 12:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07760F4199E
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 12:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/mCiHTzly+lAfhEruDUQ0TO6LhRXqhJelw4EENiazl4=; b=L4eWRoPV9xsS0p
-	y73sE9bgpJnn4WIrmOlorVk5qQt/tLjz0cwQiDjkoMi1MykhCh0QC8o9bRT16FL6OA28zqPMRhHPr
-	YcsDrzpWFHw36JzQE5e5jtUFsu0vNVPvEIjlSoB6KUjeMjGDOO5yAvSmHtiInY1NXd/8hfWyutknC
-	lzK6S252j4TgrFQ+1DYEmCPbdntQlSouCUgmzSwBi9E5pBXhx+k0Ae13v4+PJ6NlC9R2t5NtXX5fq
-	jRTBPB8U3GOtM9yUXb7WXEsiSL+blH7K+tUsrpqn5qRVGF4fDuvoF4jXln+4OaFtIUhVe4FDEakwb
-	G5tfjQf4zXHZk/JIDZiA==;
+	List-Owner; bh=O3aFVTkolFHzVp6mNI5bK7Q0Gzgru8iqYSFtPl9k3Ho=; b=ePOb/9xJPIJHF5
+	FYMavGi/LTnHkfixM2Mx2w6DElfR3g4UC+FQESHuuKuzyp4wybc/6PHAufPbrlzp3GuiEJtJ2Aimj
+	TAoZHYbU2y0l62BbyDe8Y5eogFfNdZS4ZraA3jvoHJGZ9fS9pgCqB0WCpa0Oc9V1lX9IPJxTvkluP
+	g6+cYqBKu9i6Yb43CuRf6+37VRUSfbtQoMI+imZe7od4dz1c6jKwm0OePNlrwPe6vKddv8zU3aTsV
+	tw4QChhZ57+WTv+YqLNd7sHC3W4vojduw32+BV774eeFBcu9BPJ3MiJJh3vOrtXPUIUoMV/XDsyQl
+	jAuJKjjW/snk8tQlg6WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzQC-000000017a1-3xQM;
-	Wed, 15 Apr 2026 12:32:44 +0000
-Received: from forward102b.mail.yandex.net ([2a02:6b8:c02:900:1:45:d181:d102])
+	id 1wCzUe-0000000189K-03ew;
+	Wed, 15 Apr 2026 12:37:20 +0000
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCzQ7-000000017YH-35sJ
+	id 1wCzUa-0000000188x-1wrM
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 12:32:43 +0000
-Received: from mail-nwsmtp-smtp-production-canary-88.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-canary-88.sas.yp-c.yandex.net [IPv6:2a02:6b8:c1c:2e1d:0:640:64e7:0])
-	by forward102b.mail.yandex.net (Yandex) with ESMTPS id 71C30C013E;
-	Wed, 15 Apr 2026 15:32:30 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-canary-88.sas.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id QWLFfkFSpa60-5P9yVfNb;
-	Wed, 15 Apr 2026 15:32:29 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1776256349; bh=1ewEl/Fk7VHhU2RAtjX9z1sGtx18wmb+8U9pqvo7jxo=;
-	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=EpZNNcTd0jeAyjp2G43i2+87JovOQWiWKqI5MyM1LjOQ5IGRr7t1St5SdHgGipQg7
-	 hrGeySle3zla2b4LMf9esjIIXBeHx1vu2iRN1WC7nvL+d6G3AcIbaaTF/MZut8SnAJ
-	 a1Qup4nHKUKsFDSO9pynOxNwVr/BnUZVnzTJPg4Y=
-Authentication-Results: mail-nwsmtp-smtp-production-canary-88.sas.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
-From: Dmitry Antipov <dmantipov@yandex.ru>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Ard Biesheuvel <ardb@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	Dmitry Antipov <dmantipov@yandex.ru>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v5 1/3] riscv: add platform-specific double word shifts for riscv32
-Date: Wed, 15 Apr 2026 15:32:02 +0300
-Message-ID: <20260415123204.1467909-2-dmantipov@yandex.ru>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260415123204.1467909-1-dmantipov@yandex.ru>
-References: <20260415123204.1467909-1-dmantipov@yandex.ru>
+	Wed, 15 Apr 2026 12:37:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1776256630; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=CS4BGIXS3JsyYBu2XbbYqlq+oa+QQ3EmP58RqW67j2k=;
+	b=qIzKBUtosWqHrNo3MG46+q+xMgqvdxacPvOUTfXdQDr/uBhJyM83QylhAkLUO8D7rUil7AM4FLiG+9uDBb82sIRoHuO3UXyxunMnOFBgvrqdYGDoownamUwVQvTJuiJNYXSeFr2PAEfbUgZBTYrAByNq+N2XSZ3N81drkBEiSe0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R231e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0X14khaV_1776256622;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X14khaV_1776256622 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 15 Apr 2026 20:37:06 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: mpe@kernel.org
+Cc: pjw@kernel.org,
+	anup@brainfault.org,
+	andrew.jones@oss.qualcomm.com,
+	guoren@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] riscv: smp: Align secondary_start_sbi to 4 bytes
+Date: Wed, 15 Apr 2026 20:37:02 +0800
+Message-ID: <20260415123702.123309-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <d38e585f-554a-4f81-8136-981870fe3383@kernel.org>
+References: <d38e585f-554a-4f81-8136-981870fe3383@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_053240_323904_439E01DB 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260415_053717_073943_83B5621C 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,213 +70,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add riscv32-specific '__ashldi3()', '__ashrdi3()', and '__lshrdi3()'.
-Initially it was intended to fix the following link error observed
-when building EFI-enabled kernel with CONFIG_EFI_STUB=y and
-CONFIG_EFI_GENERIC_STUB=y:
+On Wed, 15 Apr 2026 12:06:28 +1000, mpe@kernel.org wrote:
 
-riscv32-linux-gnu-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
-__efistub_cmdline.c:(.init.text+0x1f2): undefined reference to `__efistub___ashldi3'
-riscv32-linux-gnu-ld: __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
+> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> > index 9c99c5ad6fe8..9f33be6260e1 100644
+> > --- a/arch/riscv/kernel/head.S
+> > +++ b/arch/riscv/kernel/head.S
+> > @@ -127,6 +127,7 @@ relocate_enable_mmu:
+> >   #endif /* CONFIG_MMU */
+> >   #ifdef CONFIG_SMP
+> >    .global secondary_start_sbi
+> > + .align 2
+> >   secondary_start_sbi:
+> >    /* Mask all interrupts */
+> >    csrw CSR_IE, zero
+> 
+> 
+> Minor nit, but IMHO .balign is preferable in new code. It always byte 
+> aligns, whereas .align has different meanings across architectures, and 
+> on some arches (including riscv) requires the reader to do the math to 
+> convert to a byte alignment.
+> 
+> These days there's also the SYM_CODE_START etc. macros defined via 
+> linkage.h, which use __ALIGN from arch/riscv/include/asm/linkage.h, 
+> which is already .balign 4.
 
-Reported at [1] trying to build https://patchew.org/linux/20260212164413.889625-1-dmantipov@yandex.ru,
-tested with 'qemu-system-riscv32 -M virt' only.
+Hi Michael,
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202603041925.KLKqpK6N-lkp@intel.com [1]
-Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
----
-v4 and upwards: bump version to match the series
-v3: more tests by Charlie Jenkins
-v2: adjust commit message
----
- arch/riscv/Kconfig             |  3 ---
- arch/riscv/kernel/image-vars.h |  7 +++++++
- arch/riscv/lib/Makefile        |  1 +
- arch/riscv/lib/ashldi3.S       | 36 +++++++++++++++++++++++++++++++++
- arch/riscv/lib/ashrdi3.S       | 37 ++++++++++++++++++++++++++++++++++
- arch/riscv/lib/lshrdi3.S       | 36 +++++++++++++++++++++++++++++++++
- 6 files changed, 117 insertions(+), 3 deletions(-)
- create mode 100644 arch/riscv/lib/ashldi3.S
- create mode 100644 arch/riscv/lib/ashrdi3.S
- create mode 100644 arch/riscv/lib/lshrdi3.S
+Thank you for your review and reminder. If this patch is ultimately
+approved (because the behavior of OpenSBI still needs clarification
+based on the new reviewer's comments), I will update it using .balign.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index ddc534402400..14b838d408b8 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -404,9 +404,6 @@ config ARCH_RV32I
- 	bool "RV32I"
- 	depends on NONPORTABLE
- 	select 32BIT
--	select GENERIC_LIB_ASHLDI3
--	select GENERIC_LIB_ASHRDI3
--	select GENERIC_LIB_LSHRDI3
- 	select GENERIC_LIB_UCMPDI2
- 
- config ARCH_RV64I
-diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
-index 3bd9d06a8b8f..d66e06daf13e 100644
---- a/arch/riscv/kernel/image-vars.h
-+++ b/arch/riscv/kernel/image-vars.h
-@@ -32,6 +32,13 @@ __efistub___init_text_end	= __init_text_end;
- __efistub_sysfb_primary_display	= sysfb_primary_display;
- #endif
- 
-+/*
-+ * These double-word integer shifts are used
-+ * by the library code and so EFI stub as well.
-+ */
-+PROVIDE(__efistub___lshrdi3    = __lshrdi3);
-+PROVIDE(__efistub___ashldi3    = __ashldi3);
-+
- #endif
- 
- #endif /* __RISCV_KERNEL_IMAGE_VARS_H */
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index bbc031124974..7cee3da80c68 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -13,6 +13,7 @@ ifeq ($(CONFIG_MMU), y)
- lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
- endif
- lib-$(CONFIG_MMU)	+= uaccess.o
-+lib-$(CONFIG_32BIT)	+= ashldi3.o ashrdi3.o lshrdi3.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
-diff --git a/arch/riscv/lib/ashldi3.S b/arch/riscv/lib/ashldi3.S
-new file mode 100644
-index 000000000000..c3408862e2f6
---- /dev/null
-+++ b/arch/riscv/lib/ashldi3.S
-@@ -0,0 +1,36 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/**
-+ * Adopted for the Linux kernel from IPXE project, see
-+ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+/**
-+ * Shift left
-+ *
-+ * @v a1:a0             Value to shift
-+ * @v a2                Shift amount
-+ * @ret a1:a0           Shifted value
-+ */
-+
-+SYM_FUNC_START(__ashldi3)
-+
-+        /* Perform shift by 32 bits, if applicable */
-+        li      t0, 32
-+        sub     t1, t0, a2
-+        bgtz    t1, 1f
-+        mv      a1, a0
-+        mv      a0, zero
-+1:      /* Perform shift by modulo-32 bits, if applicable */
-+        andi    a2, a2, 0x1f
-+        beqz    a2, 2f
-+        srl     t2, a0, t1
-+        sll     a0, a0, a2
-+        sll     a1, a1, a2
-+        or      a1, a1, t2
-+2:      ret
-+
-+SYM_FUNC_END(__ashldi3)
-+EXPORT_SYMBOL(__ashldi3)
-diff --git a/arch/riscv/lib/ashrdi3.S b/arch/riscv/lib/ashrdi3.S
-new file mode 100644
-index 000000000000..dd42b3cbb173
---- /dev/null
-+++ b/arch/riscv/lib/ashrdi3.S
-@@ -0,0 +1,37 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/**
-+ * Adopted for the Linux kernel from IPXE project, see
-+ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+/**
-+ * Arithmetic shift right
-+ *
-+ * @v a1:a0             Value to shift
-+ * @v a2                Shift amount
-+ * @ret a1:a0           Shifted value
-+ */
-+
-+SYM_FUNC_START(__ashrdi3)
-+
-+        /* Perform shift by 32 bits, if applicable */
-+        li      t0, 32
-+        sub     t1, t0, a2
-+        bgtz    t1, 1f
-+        mv      a0, a1
-+        srai    a1, a1, 16
-+        srai    a1, a1, 16
-+1:      /* Perform shift by modulo-32 bits, if applicable */
-+        andi    a2, a2, 0x1f
-+        beqz    a2, 2f
-+        sll     t2, a1, t1
-+        sra     a1, a1, a2
-+        srl     a0, a0, a2
-+        or      a0, a0, t2
-+2:      ret
-+
-+SYM_FUNC_END(__ashrdi3)
-+EXPORT_SYMBOL(__ashrdi3)
-diff --git a/arch/riscv/lib/lshrdi3.S b/arch/riscv/lib/lshrdi3.S
-new file mode 100644
-index 000000000000..1af03985ccb7
---- /dev/null
-+++ b/arch/riscv/lib/lshrdi3.S
-@@ -0,0 +1,36 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/**
-+ * Adopted for the Linux kernel from IPXE project, see
-+ * https://github.com/ipxe/ipxe/blob/master/src/arch/riscv32/libgcc/llshift.S
-+ */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+/**
-+ * Logical shift right
-+ *
-+ * @v a1:a0             Value to shift
-+ * @v a2                Shift amount
-+ * @ret a1:a0           Shifted value
-+ */
-+
-+SYM_FUNC_START(__lshrdi3)
-+
-+        /* Perform shift by 32 bits, if applicable */
-+        li      t0, 32
-+        sub     t1, t0, a2
-+        bgtz    t1, 1f
-+        mv      a0, a1
-+        mv      a1, zero
-+1:      /* Perform shift by modulo-32 bits, if applicable */
-+        andi    a2, a2, 0x1f
-+        beqz    a2, 2f
-+        sll     t2, a1, t1
-+        srl     a1, a1, a2
-+        srl     a0, a0, a2
-+        or      a0, a0, t2
-+2:      ret
-+
-+SYM_FUNC_END(__lshrdi3)
-+EXPORT_SYMBOL(__lshrdi3)
--- 
-2.53.0
-
+Thanks,
+Pei
 
 _______________________________________________
 linux-riscv mailing list
