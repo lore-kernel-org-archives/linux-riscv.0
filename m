@@ -4,86 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2FEF419B9
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 18:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BC2F4210B
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 18:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YAv1QravGeIE/T2tooN4LI34WhinrGwAAJIIsA/9dlc=; b=sCGrDwoZHkg6Ao
-	0imZPe0aJ3t2+JG7hIUsk8pfaJHzA0ejdjHdSp3Uci1g58m82HoUitMVN9qGZURtVQfYYOaho+LZs
-	bwATe7w4HVpCM8yQ8MkNb7x6Ttob6OmKC/1Ma8kwk1Tgo3KAluyuWAg+v1Nx3JlUHjJ+QPWasQ9mr
-	8iOVXOgVQRcfb9r5lkGcJ6RzuIIBTOkr9poXPU86TSTH6DJT7j2juOu2Y8IudovmkrKTBfRxKzjkk
-	SuJA8L4yQYI2FkxOh9U8mEQLvkS+gxbGz5uyMvvdiwaqW5A4zIarhtxAokJjvU7TJjthfWFVDakCH
-	mUOCVsIOaVNWfmL5GDRQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0U8Hr1PQ9s1GX6erpXBHWUFBgjdqchqcoWIPnaFoBTs=; b=z68nB9zpW6wjaS
+	V8YAIFYd/N5uSB54mpCcnIE8LoJYl6jaJn6+Pf0hEsVYBnlnQJnbFl6kP/vVVIdobPtUryoO7lMx3
+	/bq5CqnCZuIgW7A3ETgQZgrsV6Bw2O1W3Y9ugRGrj79C4EyEwviCnx/V0lTg5uxV2JIZACw7qloDq
+	TJeWu0GAKn54QV8Tg+kPCpM3ZeZQPHWZW7U2irytH/cz6e6UnNGXu6c9PxsB7uaQ8oNNJet0yIPf6
+	mPqoj42YT/1gmq0aX29eFBKi6Nz153j0qwCG7J9HGSX8HicovZEANbI8ox/UVC6U6Eopy8XVupe4V
+	IcHGx+qzksRiFreXjrGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD4nE-00000001UqD-1Som;
-	Wed, 15 Apr 2026 18:16:52 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wD50G-00000001VWD-2OKH;
+	Wed, 15 Apr 2026 18:30:22 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD4nB-00000001Upr-3lpp
+	id 1wD50D-00000001VVf-0svx
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 18:16:51 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-82f1dcd5886so3033852b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Apr 2026 11:16:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776277009; x=1776881809; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UkSMnGatsFIe6PvZFudhYv/NcAOEkU0FsMM0HKaHQTQ=;
-        b=p+i4tvzN0TSgvth3w9oy4evp/FJyTO3RodvX2+mBIAAnw3DqcLV/RRFdWK++lNKCXk
-         sVHwkmAmGg8wYnzVlhjDQ4Jh7W62rVmnhgtcBz1a4x7/w7d9D5NyGgm63Rp+4luy3EAF
-         oFQSNLgXIzrBEM7fDWQrIIHaS3JLnbEUZklnl/0NTnc3JmHHR6HqJVnk/6dgDX+0HsPe
-         e0n0flGwAP0HFUNLhOdPdtXCT1cshLPtScwCSStA1XEeznHVazIbMQ1J98KKtuAzhg9Z
-         2l0Bnh3WDdZ84fbn+Vw+UVXXoM41BEx23kgsB2SymBWEhjWTutvyuoFilHEKo8Ffmu9D
-         mITQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776277009; x=1776881809;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UkSMnGatsFIe6PvZFudhYv/NcAOEkU0FsMM0HKaHQTQ=;
-        b=ZFIdj48DHSDqu0EvOr9avYesmKtBNmQHa9Blc1Jf2ymhFbq/zBxJYikDzmPp6oWQ98
-         iaDr9ijFzXsNXn3f8T/+zxDhcgk/6wn6CsLHxf2CXJC6/qejifVIX/8V4DnaHo6LBRXm
-         q2QxW+5+Or3M9K/pxLoCKxv9ifMP+ftMKDTZtX7gMPY0K25kpbtOd2Vz7EHXEZMkd/Tq
-         GXW/p7qdwE1z8Gop7iwAJX+UU6eZRAEAb5BuT8deNH4A1itKSrQwe7hi7d1HVpDEcxiJ
-         VlvGOkyjpMUmKMWcOnvGlBQmzttZa5EgHmV6aA4E7kI03YiMqR8tPhMQMwDKhMbJ1I8X
-         VutQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+d6sAwvC2TyVMH7Z3q4qvS57QmrjxgRc7n7Lon9gwwjN0dT9f/RrMLKNVd2WvAREgi31NXJ/siq5n7mw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjSCnwWZ2/gPIMittle0OSshnDdcleDZUP1z9ycHryRbPrDcDw
-	k55ILaG4JCQbyz2IVaNV4bb04DFIe5QIKIPfyJ5L4Rikd2y/ByOI6odG
-X-Gm-Gg: AeBDiety1L0HKmvZNzdKru160RKTkP93Jggj+MKVFQgaGF4AtDfBi9cpBZgFPnFLN7V
-	3gZbW/JfB8+rxUarN6G+LHKAFXZpriSswkDi7GuAqEJP+lizRnXomSmMQFc1cPPc0VKoBJIJE6i
-	DVpDj/yEqXxwzoHt60D0wa43cfv+LOU3YviseHRamapbwk0dL9O/YOR3VeFD5CkvtTDsb8ElfwN
-	VahtjdCKzW9NrEUA9wQwLy6lyBicy5BOWKhLjgOCoNUo1unwvuDVsSsC5mn/G6o0VglIbVfq7h+
-	Kv07orMv/WkE5Qocz59bgTCGITs3KrIvYSf6OEP+o0EM6jT19gqB8te3bSOG5Q6EpCshlEJOVTd
-	E2QkCbZY7kuYDqMDwCWyu96s4j/6Wnpi4B5B+Z3BJlIauKke7+hAOVBa1QYDQc2E0zVJscmkFnP
-	M1MBi1ePHqKXU6Ge3Xa5V++m4vrrstspjzUFQfS240ZkwwTg==
-X-Received: by 2002:a05:6a00:2e17:b0:82f:6e9:d1c3 with SMTP id d2e1a72fcca58-82f0c30f5d1mr23365240b3a.29.1776277008784;
-        Wed, 15 Apr 2026 11:16:48 -0700 (PDT)
-Received: from lgs.. ([2409:893d:1171:10e2:3140:373:572a:dbb0])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f6f52d45asm1658333b3a.38.2026.04.15.11.16.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Apr 2026 11:16:47 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] soc: microchip: mpfs-sys-controller: fix reference leak on failed device registration
-Date: Thu, 16 Apr 2026 02:16:35 +0800
-Message-ID: <20260415181635.3699592-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 15 Apr 2026 18:30:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NAP55ZlkaXVfS/rfFIrWkMgtXLsfw9FmAwDgzTBgM1D/Goge3Ygbq6Xf+E2OBo9Y7rfHgtd4oo9wpd2yC7da01X//tlCy8JgPxsePIFkr7z0WSLV/Dh7PxMJFENbT16Ggglui/SiJ2uguXBfbQ9ojsSzPs+NbXbsBDQU1rqjhJsKEuMz1F2fXakdaFsc0HUGLI6m9uEq5W5DHZTOgBWclSUS+mqsiYmjRrx8MWz6recnQWMdBNqFh5NY9iWV4Eq8wRzT2qCyyN8myr/UgdyoHRflNeQBzAgz26KEDcmOjMEQ5ezFIG43RG7E2pCgNF7FaJ4VODLGL1S3Owp00yTlSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UvuRmm20V5jNhkenVXifmipWQABsWCdq5vPxEe8422w=;
+ b=K2nx3/fEL8lSlBg50cRGqmgSYGypbIg3S+HW9RZ2c4nU9L/R5+09G2T4b5FloFsODp1ZVIcfK2R1vyv6f59DeJcLTUM2Ea0HmW7e7VBjrKWt0y/azHXyYVYsj5eh7aZbD0PJhWYsTgnq8T1QvXBF3odSE4aI+SUmILq6qbfQJOlf3WLafygnAsbvEKipoCKghGvCIV2dmW7MpmxoWxdnzuW8mXQaIwYpCTOenspUtb3AN0B/+mBFqck72xR/YNvT0pU+ew0RsU/zGoQhiACKU4G0FWs177fQ0rgPpoQ3fyYK8BDqw/luWn2hCsBg/Zmvh65Mj5pE0oMu6rOA/QaGPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UvuRmm20V5jNhkenVXifmipWQABsWCdq5vPxEe8422w=;
+ b=rscyBUa8JsbiXL69ALkRHnH/9VLDan9j/03c2r4GWzmP+TDEWIr2Bvh++ch5ONIfylSegL4ITyQVDznw+kc+emCPK/NptzZX+CR+Qsds9o6NUCMX/pxOvslReoCs8F31nhrAQ/N3mQgUiq6akSb+QGp+qgp+WSHll0fxd5Zszjqncc/PHl+8NL3otyuRy4NSfWTdGvgel132UEfQSwa+QHxQuoHjEjoUV4FwSx8uemcaJr23kZYS8C6+wdCEq0mBkfXWfS009S8bctotctCaFIwV7hADoGH2y+3fB1XHkDtI99v3Jkp/C3/TttGO2aPDwmt2uuZrBO9oCGTx8MwvEg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
+ by PH7PR12MB7332.namprd12.prod.outlook.com (2603:10b6:510:20f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Wed, 15 Apr
+ 2026 18:30:07 +0000
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9769.046; Wed, 15 Apr 2026
+ 18:30:07 +0000
+Date: Wed, 15 Apr 2026 14:30:04 -0400
+From: Yury Norov <ynorov@nvidia.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, yury.norov@gmail.com, linux@rasmusvillemoes.dk,
+	arnd@arndb.de, cp0613@linux.alibaba.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] bitops: Define generic __bitrev8/16/32 for reuse
+Message-ID: <ad_ZLNslqjpYRJvW@yury>
+References: <20260415093827.2776328-1-ruanjinjie@huawei.com>
+ <20260415093827.2776328-2-ruanjinjie@huawei.com>
+Content-Disposition: inline
+In-Reply-To: <20260415093827.2776328-2-ruanjinjie@huawei.com>
+X-ClientProxiedBy: BN9PR03CA0466.namprd03.prod.outlook.com
+ (2603:10b6:408:139::21) To CY8PR12MB8300.namprd12.prod.outlook.com
+ (2603:10b6:930:7d::16)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|PH7PR12MB7332:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7b9d6fdc-f3e2-41db-782d-08de9b1d051e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|10070799003|366016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: PO82sfWyKags7px1yuz/ZApKj62nuyxeNrbwZSnU1JVzwEcPK7sX4rUIpxPIQpiP77uujn3bpl0gLRE+XaJzFjkEcJOW1jCV0fqZnOzKXmuitqGwMU/2g4jph5lQMR3yXcPJvpXsuCO/+KX0erK8OyFGBnEHPQgxKBQUeb92gfZActMqU6pTt6F/t8+2DCOyRSxc5uSqXuZL+qm8X7/qOJfIhww4QZsrRz7Au7QHABd4Qe6TtZjaFFNvoNVicZcsBkQNfY+Xx95X4nCou1TXBIhciW+oaiICm8pmyMokofPPQTW0AxTrakMe8O5xB0GACnxItSqwi9QSWzW6ATAzgKlG9AHQqH71s6bC72t75VFDkN+XEJHLkPKWefsH0L0o9XI3Z1qknM8yE+dZ+Tj6vYOpFpxhtBWN91qmb+AVRmlChVBp4DGCj/gzfCzqtaArsSkNzp78BDPCe3j/PABr+4IUsUrZlDk7SjyMKG9OmG/eKwdYJzLMBdEE5k4pJPJErVdFca3hm+kcH4QViJmnL79uint1v9R6ngFzZF4+VvrTIDVJVi79IXydVc8bXQumQXaK0g0uHy8Pgzf8zlyhPz6cuu/cu1YEwmdggD5UYFTflTLiTBZNw3pYrLnz0I/lXOhPK2ojEQ1tlAWAQsPpDRgcdPE1ReBhZHWtm4omkhIojsOVF4ZBS8DQAWv4iFTWPjD9CkA4M52p4FFN6ynZmm0uI55eduEtHEbCVpADkFE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(10070799003)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ybPDHxp5fHharUs3YbSv5b4ZpgBXA32I/bSieylLjD1Qr3K5VDheKsgkYfr6?=
+ =?us-ascii?Q?EZNFKASKQQJUNZh6aTDFHXUI+8Dd6Z0FuMmnJKJ7wj4wBSCoAxjD3coBvFEF?=
+ =?us-ascii?Q?NDTpmNoR2hnwqx+4HAK9lRzcyXZxSVtDx1SOFPC24G2GaqqkFwmrSt3tt5OE?=
+ =?us-ascii?Q?5HjU2kdLcEVdAFk7Jo/GGi1yT5BVag7DdGm8Fl5HpcDXK1+zLw1JiyCPPEbS?=
+ =?us-ascii?Q?vlL0GbSBy4xKE5M5i9FC8m105nX0gviStb4LMvoJkAKThGVoHIy7JCv4Z+WV?=
+ =?us-ascii?Q?CdrqImgRPhhMQdpuTqFRV40Y3ND58noOc0MEmAuattfzh5nbAZIaxSQ/U8Ds?=
+ =?us-ascii?Q?jMDNq4PtLr7nocalJ8AgEnKlo1GB8tJjv3FGw2FdVabbyDe2iz0w3JY0b/Hp?=
+ =?us-ascii?Q?TJiPGvd/WcrGkMAJGTFsG5v7Tmj361zf/okDYFq5z8UacvKLTHJs+oQpMZ34?=
+ =?us-ascii?Q?gAJRv3IPRQgIKv9NBlB4nq2edjeNKiT2TgBwAUfyDqdcuFzHRwheA8jyx3RN?=
+ =?us-ascii?Q?moppGsHHSBbG3Ba80poHGnJ696KxNPTfbM3PugRD/+/V/H7lpr1sreMEfiaV?=
+ =?us-ascii?Q?CF/YAKxK4WWV+WDk/RO6PBb7ruTteCQ85PGl+dMzBmBx/9EuSIDg5gu+pKCN?=
+ =?us-ascii?Q?x3SGIYy1sJl/18qLHjd4pqn/X0b5N8kLtGvZHPl3nEoQ+NiOtrRMRGep0wt0?=
+ =?us-ascii?Q?KAFsjNwyW8rgMa6eox+HOFkavoz90L7HoheTdazwSXf4C8BFhlQO8UH337eU?=
+ =?us-ascii?Q?CJGdMnMuQk97ndxBpdFDAmmBYTpz7vl8RyyB+bAY3mjteOjCb0j6jgrkT8ys?=
+ =?us-ascii?Q?g9Lp/f0Yh28qZPdf9VVkHQdqXMtfcqhVmGBW4DjwwAU3bjP8ru04ncZSSOkB?=
+ =?us-ascii?Q?QgA/JwWRyxSdDtn/S0UDspaq9Y6sxxhbMoO9AuqaqFFWeLZ3H4f/pYNhCMeE?=
+ =?us-ascii?Q?Ox+0y3lgJ0Ma7TO6TrKosyEQ0lSMbviaAD4tjlXjVMhoXHuUI0q3dHmv5S65?=
+ =?us-ascii?Q?8fIgw8Ld1YRES8xzLM1aVOdv/EaRW0NtkKcNDlZA9S2QH/nk2nRL0VSVkP9O?=
+ =?us-ascii?Q?LPg8+2ZW7l/tpynQPnEECn+mBBk/8YQhHEiew/cJJGhMddwQvgykeRse8KIF?=
+ =?us-ascii?Q?33YrM0MbF/jIALJaBBawxIHy1Zbo2bOxbdhk7ehtjCBgP0P0hjsg0eZonTPE?=
+ =?us-ascii?Q?uhTap4HHMPGjOoj8furJ/LnqWiYNCBmADtC7cfc+S9Oraf1ySKeEnmU8ekgM?=
+ =?us-ascii?Q?rUNxglZTa9T+UpB++Zej7A6AvOHUfh8giggdfxD1AnbtTDntk8dhREoeEmoy?=
+ =?us-ascii?Q?XLHUTzSjVrsaabhfaQy4LveIpaEh2+dk+uNffHNJX+d1LCZK09cfnipOQIAV?=
+ =?us-ascii?Q?PiEb24UXN15dqK2LJ3z/JKQI4vDtMVfktR2vpoqINshgrtWQti9I3jpG/mgx?=
+ =?us-ascii?Q?dvv4RIu2yBh6kTUdLPgSc3quet2tObvWVn+YkgnHwvEiV5XrdR2bveEddwRR?=
+ =?us-ascii?Q?8+z17nETCLx3folpCTtqKwUVcmSKiWHFmcY3QgMTL3iWR7feY5A2FtoZ2bIN?=
+ =?us-ascii?Q?t1taXYmWKfN3A4Ejw6bWOqOVhu8Kqf6ggCPccE8TPGg8P0bRkP1hoEFCIxpX?=
+ =?us-ascii?Q?KxXveLYOWgiTNqz5Sihu3Z2VOGVLGK/5G8CsM/IN9mhwTuBCmCmEMJish4bB?=
+ =?us-ascii?Q?YbssmCzcU4T+/7hupVdHNVLziFGLTlp+Sv7Dn8OBQSyEcKw9VBYs2c9vinHX?=
+ =?us-ascii?Q?jfKyVhmbsYFLEMehCQvUyOnm1qIKwmDjn1NLnV6Y0VZBVW8tEiLP?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b9d6fdc-f3e2-41db-782d-08de9b1d051e
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 18:30:07.7473
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IzNAPRd6MR2Z2H6bGtvvpTmpeO+2ggHJEgbel5DSvUhgXA0v189lPIDGOWTqdyz1jwbj58vbtGlT+9VSvlZHOg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7332
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_111649_943987_C848C2DB 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20260415_113017_265828_52479725 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,49 +140,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When platform_device_register() fails in mpfs_sys_controller_probe(),
-the embedded struct device in subdevs[i] has already been initialized by
-device_initialize(), but the failure path only reports the error and
-does not drop the device reference for the current platform device:
+On Wed, Apr 15, 2026 at 05:38:26PM +0800, Jinjie Ruan wrote:
+> Define generic __bitrev8/16/32 using the implementation
+> in <linux/bitrev.h>, so they can be reused in <asm/bitrev.h>,
+> such as RISCV.
+> 
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-  mpfs_sys_controller_probe()
-    -> platform_device_register(&subdevs[i])
-       -> device_initialize(&subdevs[i].dev)
-       -> setup_pdev_dma_masks(&subdevs[i])
-       -> platform_device_add(&subdevs[i])
+Reviewed-by: Yury Norov <ynorov@nvidia.com>
 
-This leads to a reference leak when platform_device_register() fails.
-Fix this by calling platform_device_put() after reporting the error.
+I'll take it in -next for testing. That would help to catch some
+probable warnings discussed in the #2.
 
-The issue was identified by a static analysis tool I developed and
-confirmed by manual review.
-
-Fixes: d0054a470c339 ("soc: add microchip polarfire soc system controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
- drivers/soc/microchip/mpfs-sys-controller.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
-index 10b2fc39da66..404c31daf459 100644
---- a/drivers/soc/microchip/mpfs-sys-controller.c
-+++ b/drivers/soc/microchip/mpfs-sys-controller.c
-@@ -168,8 +168,10 @@ static int mpfs_sys_controller_probe(struct platform_device *pdev)
- 
- 	for (i = 0; i < ARRAY_SIZE(subdevs); i++) {
- 		subdevs[i].dev.parent = dev;
--		if (platform_device_register(&subdevs[i]))
-+		if (platform_device_register(&subdevs[i])) {
- 			dev_warn(dev, "Error registering sub device %s\n", subdevs[i].name);
-+			platform_device_put(&subdevs[i]);
-+		}
- 	}
- 
- 	dev_info(&pdev->dev, "Registered MPFS system controller\n");
--- 
-2.43.0
-
+> ---
+>  include/asm-generic/bitops/__bitrev.h | 22 ++++++++++++++++++++++
+>  include/linux/bitrev.h                | 20 ++++----------------
+>  2 files changed, 26 insertions(+), 16 deletions(-)
+>  create mode 100644 include/asm-generic/bitops/__bitrev.h
+> 
+> diff --git a/include/asm-generic/bitops/__bitrev.h b/include/asm-generic/bitops/__bitrev.h
+> new file mode 100644
+> index 000000000000..1b8c0f464d26
+> --- /dev/null
+> +++ b/include/asm-generic/bitops/__bitrev.h
+> @@ -0,0 +1,22 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_GENERIC_BITOPS___BITREV_H_
+> +#define _ASM_GENERIC_BITOPS___BITREV_H_
+> +
+> +#include <asm/types.h>
+> +
+> +extern u8 const byte_rev_table[256];
+> +static __always_inline __attribute_const__ u8 generic___bitrev8(u8 byte)
+> +{
+> +	return byte_rev_table[byte];
+> +}
+> +
+> +static __always_inline __attribute_const__ u16 generic___bitrev16(u16 x)
+> +{
+> +	return (generic___bitrev8(x & 0xff) << 8) | generic___bitrev8(x >> 8);
+> +}
+> +
+> +static __always_inline __attribute_const__ u32 generic___bitrev32(u32 x)
+> +{
+> +	return (generic___bitrev16(x & 0xffff) << 16) | generic___bitrev16(x >> 16);
+> +}
+> +#endif /* _ASM_GENERIC_BITOPS___BITREV_H_ */
+> diff --git a/include/linux/bitrev.h b/include/linux/bitrev.h
+> index d35b8ec1c485..11620a70e776 100644
+> --- a/include/linux/bitrev.h
+> +++ b/include/linux/bitrev.h
+> @@ -12,22 +12,10 @@
+>  #define __bitrev8 __arch_bitrev8
+>  
+>  #else
+> -extern u8 const byte_rev_table[256];
+> -static inline u8 __bitrev8(u8 byte)
+> -{
+> -	return byte_rev_table[byte];
+> -}
+> -
+> -static inline u16 __bitrev16(u16 x)
+> -{
+> -	return (__bitrev8(x & 0xff) << 8) | __bitrev8(x >> 8);
+> -}
+> -
+> -static inline u32 __bitrev32(u32 x)
+> -{
+> -	return (__bitrev16(x & 0xffff) << 16) | __bitrev16(x >> 16);
+> -}
+> -
+> +#include <asm-generic/bitops/__bitrev.h>
+> +#define __bitrev32 generic___bitrev32
+> +#define __bitrev16 generic___bitrev16
+> +#define __bitrev8 generic___bitrev8
+>  #endif /* CONFIG_HAVE_ARCH_BITREVERSE */
+>  
+>  #define __bitrev8x4(x)	(__bitrev32(swab32(x)))
+> -- 
+> 2.34.1
 
 _______________________________________________
 linux-riscv mailing list
