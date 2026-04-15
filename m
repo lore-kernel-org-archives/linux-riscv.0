@@ -4,126 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BC2F4210B
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 18:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CC4F428C8
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 19:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0U8Hr1PQ9s1GX6erpXBHWUFBgjdqchqcoWIPnaFoBTs=; b=z68nB9zpW6wjaS
-	V8YAIFYd/N5uSB54mpCcnIE8LoJYl6jaJn6+Pf0hEsVYBnlnQJnbFl6kP/vVVIdobPtUryoO7lMx3
-	/bq5CqnCZuIgW7A3ETgQZgrsV6Bw2O1W3Y9ugRGrj79C4EyEwviCnx/V0lTg5uxV2JIZACw7qloDq
-	TJeWu0GAKn54QV8Tg+kPCpM3ZeZQPHWZW7U2irytH/cz6e6UnNGXu6c9PxsB7uaQ8oNNJet0yIPf6
-	mPqoj42YT/1gmq0aX29eFBKi6Nz153j0qwCG7J9HGSX8HicovZEANbI8ox/UVC6U6Eopy8XVupe4V
-	IcHGx+qzksRiFreXjrGQ==;
+	List-Owner; bh=NuHEJkchEItdv+/qtpalXAfRaRcg1XhA2Q+Tpguek3U=; b=C98GIMuiZTJbpJ
+	Oq0PjfQxUR25mUgWpWHo5ifJfYtwLRXpcL7n+EIPa246U6h5zZbgTZ2V1qu/X94PNKV92zSg/pKXX
+	aK4C9a4FmQO/6r94RzNecL3HIosBKaN0AGqgTS8YOqu0vKIYLH/FAU7XQOk8KAm4sG0WNTrYR9g8S
+	a+Iet3W8dCqTkH6R6lO5todzqdz11Qa+OdWVRMJsqw9j7s0AydO62NA2kFht8Uu0bUsoJRTZAYFxl
+	gVgiLfOf2OgEs6FtAWNEf60muAvD5OXP76jGycptOtNLnWW7tf6i3q1ddu4RFrUDD9mdYGgK4gP5C
+	yxTJ12wYip5qK4pgTpyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD50G-00000001VWD-2OKH;
-	Wed, 15 Apr 2026 18:30:22 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wD5nD-00000001XPu-02kP;
+	Wed, 15 Apr 2026 19:20:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD50D-00000001VVf-0svx
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 18:30:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NAP55ZlkaXVfS/rfFIrWkMgtXLsfw9FmAwDgzTBgM1D/Goge3Ygbq6Xf+E2OBo9Y7rfHgtd4oo9wpd2yC7da01X//tlCy8JgPxsePIFkr7z0WSLV/Dh7PxMJFENbT16Ggglui/SiJ2uguXBfbQ9ojsSzPs+NbXbsBDQU1rqjhJsKEuMz1F2fXakdaFsc0HUGLI6m9uEq5W5DHZTOgBWclSUS+mqsiYmjRrx8MWz6recnQWMdBNqFh5NY9iWV4Eq8wRzT2qCyyN8myr/UgdyoHRflNeQBzAgz26KEDcmOjMEQ5ezFIG43RG7E2pCgNF7FaJ4VODLGL1S3Owp00yTlSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UvuRmm20V5jNhkenVXifmipWQABsWCdq5vPxEe8422w=;
- b=K2nx3/fEL8lSlBg50cRGqmgSYGypbIg3S+HW9RZ2c4nU9L/R5+09G2T4b5FloFsODp1ZVIcfK2R1vyv6f59DeJcLTUM2Ea0HmW7e7VBjrKWt0y/azHXyYVYsj5eh7aZbD0PJhWYsTgnq8T1QvXBF3odSE4aI+SUmILq6qbfQJOlf3WLafygnAsbvEKipoCKghGvCIV2dmW7MpmxoWxdnzuW8mXQaIwYpCTOenspUtb3AN0B/+mBFqck72xR/YNvT0pU+ew0RsU/zGoQhiACKU4G0FWs177fQ0rgPpoQ3fyYK8BDqw/luWn2hCsBg/Zmvh65Mj5pE0oMu6rOA/QaGPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UvuRmm20V5jNhkenVXifmipWQABsWCdq5vPxEe8422w=;
- b=rscyBUa8JsbiXL69ALkRHnH/9VLDan9j/03c2r4GWzmP+TDEWIr2Bvh++ch5ONIfylSegL4ITyQVDznw+kc+emCPK/NptzZX+CR+Qsds9o6NUCMX/pxOvslReoCs8F31nhrAQ/N3mQgUiq6akSb+QGp+qgp+WSHll0fxd5Zszjqncc/PHl+8NL3otyuRy4NSfWTdGvgel132UEfQSwa+QHxQuoHjEjoUV4FwSx8uemcaJr23kZYS8C6+wdCEq0mBkfXWfS009S8bctotctCaFIwV7hADoGH2y+3fB1XHkDtI99v3Jkp/C3/TttGO2aPDwmt2uuZrBO9oCGTx8MwvEg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by PH7PR12MB7332.namprd12.prod.outlook.com (2603:10b6:510:20f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.20; Wed, 15 Apr
- 2026 18:30:07 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9769.046; Wed, 15 Apr 2026
- 18:30:07 +0000
-Date: Wed, 15 Apr 2026 14:30:04 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, yury.norov@gmail.com, linux@rasmusvillemoes.dk,
-	arnd@arndb.de, cp0613@linux.alibaba.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] bitops: Define generic __bitrev8/16/32 for reuse
-Message-ID: <ad_ZLNslqjpYRJvW@yury>
-References: <20260415093827.2776328-1-ruanjinjie@huawei.com>
- <20260415093827.2776328-2-ruanjinjie@huawei.com>
-Content-Disposition: inline
-In-Reply-To: <20260415093827.2776328-2-ruanjinjie@huawei.com>
-X-ClientProxiedBy: BN9PR03CA0466.namprd03.prod.outlook.com
- (2603:10b6:408:139::21) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	id 1wD5nB-00000001XPh-2wRV;
+	Wed, 15 Apr 2026 19:20:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B63AB60126;
+	Wed, 15 Apr 2026 19:20:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64C47C19424;
+	Wed, 15 Apr 2026 19:20:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776280852;
+	bh=0cjfS3TGKA503XLC0Jjhfl8lB0O9FAFYE5IhFAGvE10=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=QOeJAJiIVtMakhI6OY4h+mhte77jxFS3dhb45Ej3LPjznJGAP8P8FCPFVRUo2nBxG
+	 oEKU0k2PaPtEH+0l+6jV1h6tVkFh1lrSpdrsvw4ogeFvEmlLaxFGXgSLbrbz/syvMT
+	 X8/tBgGQCan17xASz+HLv0pHzOvhDq7Z7qvdvEh0LylzWHZM7ARCF3/3/2MSlbF+cw
+	 S7KZSSOJUAdytWKR6jBFj4jZxBJ///gk0QAxXPhnWVOVH7cr2SaO1XUyDtBSgXwWKn
+	 HWAgUUii5f0t0B6qgtptHPn4rmKNUdseOvwHmRRG4COSEtiu5Rc7C3oyZJKcxVEOSN
+	 /ENfBdYJpLSgg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02D03380A963;
+	Wed, 15 Apr 2026 19:20:23 +0000 (UTC)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|PH7PR12MB7332:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7b9d6fdc-f3e2-41db-782d-08de9b1d051e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|10070799003|366016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: PO82sfWyKags7px1yuz/ZApKj62nuyxeNrbwZSnU1JVzwEcPK7sX4rUIpxPIQpiP77uujn3bpl0gLRE+XaJzFjkEcJOW1jCV0fqZnOzKXmuitqGwMU/2g4jph5lQMR3yXcPJvpXsuCO/+KX0erK8OyFGBnEHPQgxKBQUeb92gfZActMqU6pTt6F/t8+2DCOyRSxc5uSqXuZL+qm8X7/qOJfIhww4QZsrRz7Au7QHABd4Qe6TtZjaFFNvoNVicZcsBkQNfY+Xx95X4nCou1TXBIhciW+oaiICm8pmyMokofPPQTW0AxTrakMe8O5xB0GACnxItSqwi9QSWzW6ATAzgKlG9AHQqH71s6bC72t75VFDkN+XEJHLkPKWefsH0L0o9XI3Z1qknM8yE+dZ+Tj6vYOpFpxhtBWN91qmb+AVRmlChVBp4DGCj/gzfCzqtaArsSkNzp78BDPCe3j/PABr+4IUsUrZlDk7SjyMKG9OmG/eKwdYJzLMBdEE5k4pJPJErVdFca3hm+kcH4QViJmnL79uint1v9R6ngFzZF4+VvrTIDVJVi79IXydVc8bXQumQXaK0g0uHy8Pgzf8zlyhPz6cuu/cu1YEwmdggD5UYFTflTLiTBZNw3pYrLnz0I/lXOhPK2ojEQ1tlAWAQsPpDRgcdPE1ReBhZHWtm4omkhIojsOVF4ZBS8DQAWv4iFTWPjD9CkA4M52p4FFN6ynZmm0uI55eduEtHEbCVpADkFE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(10070799003)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ybPDHxp5fHharUs3YbSv5b4ZpgBXA32I/bSieylLjD1Qr3K5VDheKsgkYfr6?=
- =?us-ascii?Q?EZNFKASKQQJUNZh6aTDFHXUI+8Dd6Z0FuMmnJKJ7wj4wBSCoAxjD3coBvFEF?=
- =?us-ascii?Q?NDTpmNoR2hnwqx+4HAK9lRzcyXZxSVtDx1SOFPC24G2GaqqkFwmrSt3tt5OE?=
- =?us-ascii?Q?5HjU2kdLcEVdAFk7Jo/GGi1yT5BVag7DdGm8Fl5HpcDXK1+zLw1JiyCPPEbS?=
- =?us-ascii?Q?vlL0GbSBy4xKE5M5i9FC8m105nX0gviStb4LMvoJkAKThGVoHIy7JCv4Z+WV?=
- =?us-ascii?Q?CdrqImgRPhhMQdpuTqFRV40Y3ND58noOc0MEmAuattfzh5nbAZIaxSQ/U8Ds?=
- =?us-ascii?Q?jMDNq4PtLr7nocalJ8AgEnKlo1GB8tJjv3FGw2FdVabbyDe2iz0w3JY0b/Hp?=
- =?us-ascii?Q?TJiPGvd/WcrGkMAJGTFsG5v7Tmj361zf/okDYFq5z8UacvKLTHJs+oQpMZ34?=
- =?us-ascii?Q?gAJRv3IPRQgIKv9NBlB4nq2edjeNKiT2TgBwAUfyDqdcuFzHRwheA8jyx3RN?=
- =?us-ascii?Q?moppGsHHSBbG3Ba80poHGnJ696KxNPTfbM3PugRD/+/V/H7lpr1sreMEfiaV?=
- =?us-ascii?Q?CF/YAKxK4WWV+WDk/RO6PBb7ruTteCQ85PGl+dMzBmBx/9EuSIDg5gu+pKCN?=
- =?us-ascii?Q?x3SGIYy1sJl/18qLHjd4pqn/X0b5N8kLtGvZHPl3nEoQ+NiOtrRMRGep0wt0?=
- =?us-ascii?Q?KAFsjNwyW8rgMa6eox+HOFkavoz90L7HoheTdazwSXf4C8BFhlQO8UH337eU?=
- =?us-ascii?Q?CJGdMnMuQk97ndxBpdFDAmmBYTpz7vl8RyyB+bAY3mjteOjCb0j6jgrkT8ys?=
- =?us-ascii?Q?g9Lp/f0Yh28qZPdf9VVkHQdqXMtfcqhVmGBW4DjwwAU3bjP8ru04ncZSSOkB?=
- =?us-ascii?Q?QgA/JwWRyxSdDtn/S0UDspaq9Y6sxxhbMoO9AuqaqFFWeLZ3H4f/pYNhCMeE?=
- =?us-ascii?Q?Ox+0y3lgJ0Ma7TO6TrKosyEQ0lSMbviaAD4tjlXjVMhoXHuUI0q3dHmv5S65?=
- =?us-ascii?Q?8fIgw8Ld1YRES8xzLM1aVOdv/EaRW0NtkKcNDlZA9S2QH/nk2nRL0VSVkP9O?=
- =?us-ascii?Q?LPg8+2ZW7l/tpynQPnEECn+mBBk/8YQhHEiew/cJJGhMddwQvgykeRse8KIF?=
- =?us-ascii?Q?33YrM0MbF/jIALJaBBawxIHy1Zbo2bOxbdhk7ehtjCBgP0P0hjsg0eZonTPE?=
- =?us-ascii?Q?uhTap4HHMPGjOoj8furJ/LnqWiYNCBmADtC7cfc+S9Oraf1ySKeEnmU8ekgM?=
- =?us-ascii?Q?rUNxglZTa9T+UpB++Zej7A6AvOHUfh8giggdfxD1AnbtTDntk8dhREoeEmoy?=
- =?us-ascii?Q?XLHUTzSjVrsaabhfaQy4LveIpaEh2+dk+uNffHNJX+d1LCZK09cfnipOQIAV?=
- =?us-ascii?Q?PiEb24UXN15dqK2LJ3z/JKQI4vDtMVfktR2vpoqINshgrtWQti9I3jpG/mgx?=
- =?us-ascii?Q?dvv4RIu2yBh6kTUdLPgSc3quet2tObvWVn+YkgnHwvEiV5XrdR2bveEddwRR?=
- =?us-ascii?Q?8+z17nETCLx3folpCTtqKwUVcmSKiWHFmcY3QgMTL3iWR7feY5A2FtoZ2bIN?=
- =?us-ascii?Q?t1taXYmWKfN3A4Ejw6bWOqOVhu8Kqf6ggCPccE8TPGg8P0bRkP1hoEFCIxpX?=
- =?us-ascii?Q?KxXveLYOWgiTNqz5Sihu3Z2VOGVLGK/5G8CsM/IN9mhwTuBCmCmEMJish4bB?=
- =?us-ascii?Q?YbssmCzcU4T+/7hupVdHNVLziFGLTlp+Sv7Dn8OBQSyEcKw9VBYs2c9vinHX?=
- =?us-ascii?Q?jfKyVhmbsYFLEMehCQvUyOnm1qIKwmDjn1NLnV6Y0VZBVW8tEiLP?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b9d6fdc-f3e2-41db-782d-08de9b1d051e
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2026 18:30:07.7473
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IzNAPRd6MR2Z2H6bGtvvpTmpeO+2ggHJEgbel5DSvUhgXA0v189lPIDGOWTqdyz1jwbj58vbtGlT+9VSvlZHOg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7332
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_113017_265828_52479725 
-X-CRM114-Status: GOOD (  17.15  )
+Subject: Re: [PATCH bpf-next v2 0/2] bpf,
+ arm64/riscv: Remove redundant icache flush after pack allocator finalize
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177628082153.2402333.2124499687552930382.git-patchwork-notify@kernel.org>
+Date: Wed, 15 Apr 2026 19:20:21 +0000
+References: <20260413191111.3426023-1-puranjay@kernel.org>
+In-Reply-To: <20260413191111.3426023-1-puranjay@kernel.org>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: bpf@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net,
+ andrii@kernel.org, martin.lau@linux.dev, eddyz87@gmail.com, memxor@gmail.com,
+ song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
+ xukuohai@huaweicloud.com, catalin.marinas@arm.com, will@kernel.org,
+ luke.r.nels@gmail.com, xi.wang@gmail.com, bjorn@kernel.org,
+ pulehui@huawei.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,85 +77,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 15, 2026 at 05:38:26PM +0800, Jinjie Ruan wrote:
-> Define generic __bitrev8/16/32 using the implementation
-> in <linux/bitrev.h>, so they can be reused in <asm/bitrev.h>,
-> such as RISCV.
+Hello:
+
+This series was applied to bpf/bpf.git (master)
+by Alexei Starovoitov <ast@kernel.org>:
+
+On Mon, 13 Apr 2026 12:11:07 -0700 you wrote:
+> Changelog:
+> v1: https://lore.kernel.org/all/20260413123256.3296452-1-puranjay@kernel.org/
+> Changes in v2:
+> - Remove "#include <asm/cacheflush.h>" as it is not needed now.
+> - Add Acked-by: Song Liu <song@kernel.org>
 > 
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-Reviewed-by: Yury Norov <ynorov@nvidia.com>
-
-I'll take it in -next for testing. That would help to catch some
-probable warnings discussed in the #2.
-
-> ---
->  include/asm-generic/bitops/__bitrev.h | 22 ++++++++++++++++++++++
->  include/linux/bitrev.h                | 20 ++++----------------
->  2 files changed, 26 insertions(+), 16 deletions(-)
->  create mode 100644 include/asm-generic/bitops/__bitrev.h
+> When the BPF prog pack allocator was added for arm64 and riscv, the
+> existing bpf_flush_icache() calls were retained after
+> bpf_jit_binary_pack_finalize(). However, the finalize path copies the
+> JITed code via architecture text patching routines (__text_poke on arm64,
+> patch_text_nosync on riscv) that already perform a full
+> flush_icache_range() internally. The subsequent bpf_flush_icache()
+> repeats the same cache maintenance on the same range.
 > 
-> diff --git a/include/asm-generic/bitops/__bitrev.h b/include/asm-generic/bitops/__bitrev.h
-> new file mode 100644
-> index 000000000000..1b8c0f464d26
-> --- /dev/null
-> +++ b/include/asm-generic/bitops/__bitrev.h
-> @@ -0,0 +1,22 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_GENERIC_BITOPS___BITREV_H_
-> +#define _ASM_GENERIC_BITOPS___BITREV_H_
-> +
-> +#include <asm/types.h>
-> +
-> +extern u8 const byte_rev_table[256];
-> +static __always_inline __attribute_const__ u8 generic___bitrev8(u8 byte)
-> +{
-> +	return byte_rev_table[byte];
-> +}
-> +
-> +static __always_inline __attribute_const__ u16 generic___bitrev16(u16 x)
-> +{
-> +	return (generic___bitrev8(x & 0xff) << 8) | generic___bitrev8(x >> 8);
-> +}
-> +
-> +static __always_inline __attribute_const__ u32 generic___bitrev32(u32 x)
-> +{
-> +	return (generic___bitrev16(x & 0xffff) << 16) | generic___bitrev16(x >> 16);
-> +}
-> +#endif /* _ASM_GENERIC_BITOPS___BITREV_H_ */
-> diff --git a/include/linux/bitrev.h b/include/linux/bitrev.h
-> index d35b8ec1c485..11620a70e776 100644
-> --- a/include/linux/bitrev.h
-> +++ b/include/linux/bitrev.h
-> @@ -12,22 +12,10 @@
->  #define __bitrev8 __arch_bitrev8
->  
->  #else
-> -extern u8 const byte_rev_table[256];
-> -static inline u8 __bitrev8(u8 byte)
-> -{
-> -	return byte_rev_table[byte];
-> -}
-> -
-> -static inline u16 __bitrev16(u16 x)
-> -{
-> -	return (__bitrev8(x & 0xff) << 8) | __bitrev8(x >> 8);
-> -}
-> -
-> -static inline u32 __bitrev32(u32 x)
-> -{
-> -	return (__bitrev16(x & 0xffff) << 16) | __bitrev16(x >> 16);
-> -}
-> -
-> +#include <asm-generic/bitops/__bitrev.h>
-> +#define __bitrev32 generic___bitrev32
-> +#define __bitrev16 generic___bitrev16
-> +#define __bitrev8 generic___bitrev8
->  #endif /* CONFIG_HAVE_ARCH_BITREVERSE */
->  
->  #define __bitrev8x4(x)	(__bitrev32(swab32(x)))
-> -- 
-> 2.34.1
+> [...]
+
+Here is the summary with links:
+  - [bpf-next,v2,1/2] bpf, arm64: Remove redundant bpf_flush_icache() after pack allocator finalize
+    https://git.kernel.org/bpf/bpf/c/42f18ae53011
+  - [bpf-next,v2,2/2] bpf, riscv: Remove redundant bpf_flush_icache() after pack allocator finalize
+    https://git.kernel.org/bpf/bpf/c/46ee1342b887
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
