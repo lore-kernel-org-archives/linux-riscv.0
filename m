@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0476FA0C57
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD70DFA0C58
 	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 08:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,39 +12,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gx4zAW6bdE54uy3xMzt8zFmQ1vY+I6QVbfPmDvtpqYg=; b=uATqPU0O2UPqRd
-	a8xh4iS7ic6uLtRudngdNCQ4hsPaPFg7egNAVGhEO6ljXzug37fQ3QFISmuv0G1nZHtlYQdDTAeVU
-	Ly3V7JkznRmda4NL9Z6gxvqXnD6KwWWecteujLDuYv1iu0MJgR9SA37R4shVISeqJ4UT3QnlE2ppo
-	1Euo/oHjbA6ybloYk4+v8ypTLthFdsg/t6AB3LolP0fnqCuhbNQkqb2TqVWiJzrUp6QM3ymQ01rVb
-	AQ4taxMOeiLFDzmZz9ZiS5OXkGwrswDyhJCQhbvSDGOgMMxKf+prMM6isVvXw2zb7Bee2YG4SFBqz
-	u0DFXtTxz4U5WATxT3tQ==;
+	List-Owner; bh=Gi+6juIubF/IRKQTaP3DTfkexjOgddNjTa5P6oGjS6Q=; b=vjbEneNVZ1ytQ2
+	JIGrFBiZY2WtuHGS4ADiOrahKnznIv5NbuMa8GM00mVhZPuGIVdaQoyS7OhvUfuM41sDsSKq7BO8K
+	lKkWaSL6iuoLaTZSSVhHr9Jy9DQseunqxbBbsFO3H9/2DTauyMNYB6FLr6u0c61jUw5lX/OAbsSVb
+	vypo1cHfDE3S+Jww3ivpUrAfTj74h3k8RClUPmrgmhrumiU9ePkk1ZbUWNEE0K4vEjYBdLrwK7z9Z
+	lok+aQE3r60oy/dv8nIkPvYZxKUkVW6A0czTxzadamg3t7ul8T8+Cz8xq/ZMJLOfCavutobnJq8E/
+	zmw3A1W9uUwhJ0PmxpoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCvzA-00000000qk8-3m6U;
-	Wed, 15 Apr 2026 08:52:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wCvzB-00000000qkf-2J6w;
+	Wed, 15 Apr 2026 08:52:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCvz4-00000000qgU-2wQz
+	id 1wCvz4-00000000qgX-3Eh2
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 08:52:31 +0000
+	Wed, 15 Apr 2026 08:52:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB6FF44572;
-	Wed, 15 Apr 2026 08:52:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94BACC2BCB7;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0111944585;
+	Wed, 15 Apr 2026 08:52:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97CEBC2BCB9;
 	Wed, 15 Apr 2026 08:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1776243149;
-	bh=4mjLTBn9APgLWMeXtSLp7kqR2oEmNfSkkkBNyyYhQPs=;
+	bh=NuYk28Zg9NLnbQ4d/3en1YVQRZ/qBlcvUunSiLU9FFk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d+m4e0w32ih+Vna4JtiWUIWxmFB2cZgPA+Rifi7+99CYMK7WD9x/l+ceH5ItBh5G+
-	 1yC6RoYRIoMyHU6KcDjKxbiu/fz/bjeD42vIt0BXe1dmZbXu+DEE/h726b05x6KhWt
-	 l5i1uOvGfhukCGFpEvEkiH6m/F1IlRmyqo2r40YZx3sFiX4JGfu3maenO+urQgtj7r
-	 9quHpxvjQ5+xE9VIgwQsmRSvdRrSLI0LjWJ69DIfO6FuXesmLeaL+AhwBrV0jus7eo
-	 jL4/mMeGfKzOUHzc6ZhNsZFhfe+f7kvecCMZyZe5iNnNo/2zzbOLU6mnMVyWpMh/GO
-	 t/uD5nBWV2cOA==
+	b=iEWG5QFJonCagHxjCwWmq3nQmc1vL8iCOclwp3pq4z6nNPhE2NunyZ1SPkj6TENde
+	 356oWQ+8O5owQF7j67H6sTp49egpkmwgW0JfRDR//hYJ/LDbYx12SHtx5TnpuWFhCf
+	 pqiTJgYOjCEfARxc6EO0KE4cRMQU4Z31a0A17sMPhZUlVbnXjovQYL10UHGyJ7uSa+
+	 Dj1voZyznbNLT7RJ0veFvpMewM/7v1RcUQMicwo+7ExZ3WcaDjxH3J4pJWeJLkVXf6
+	 OwXc709QcWmzt7ICXFWHwJBKhaIse6HZIFAQRTlo+O/N4+RGWcg4Y42HPjjUeT2EO6
+	 VnYHf2b39YYxA==
 Received: from mchehab by mail.kernel.org with local (Exim 4.99.1)
 	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1wCvz1-0000000ELwE-2yyT;
+	id 1wCvz1-0000000ELw5-2kUJ;
 	Wed, 15 Apr 2026 10:52:27 +0200
 From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 To: Jonathan Corbet <corbet@lwn.net>,
@@ -57,16 +57,16 @@ Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
 	Dan Williams <djbw@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH 7/8] docs: maintainers_include: preserve names for files under process/
-Date: Wed, 15 Apr 2026 10:52:23 +0200
-Message-ID: <61003dbb3c61b0624e6ec165428940eac3faf7f2.1776242739.git.mchehab+huawei@kernel.org>
+Subject: [PATCH 5/8] docs: maintainers_include: use a better title for profiles
+Date: Wed, 15 Apr 2026 10:52:21 +0200
+Message-ID: <c5b370f133b0fd90716b3f53ffaf396081fd58ec.1776242739.git.mchehab+huawei@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1776242739.git.mchehab+huawei@kernel.org>
 References: <cover.1776242739.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_015230_767255_6514DD91 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260415_015230_893721_FE3E462E 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +83,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When a maintainer's profile is stored outside process, they're
-already included on some other book and the name of the filesystem
-may not be there. That's why the logic picks the name from the
-subsystem's name.
-
-However, files directly placed together with maintainers-handbooks.rst
-(e.g. under Documentation/process/) is a different history: those
-aren't placed anywhere, so we can keep using their own names,
-letting Sphinx do his thing.
+As we're picking the name of the subsystem from MAINTAINERS,
+also use its subsystem name for the titles.
 
 Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 ---
- Documentation/sphinx/maintainers_include.py | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ Documentation/sphinx/maintainers_include.py | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/Documentation/sphinx/maintainers_include.py b/Documentation/sphinx/maintainers_include.py
-index f1b8d4b00c2a..948746b998a3 100755
+index 1dac83bf1a65..cf428db7599c 100755
 --- a/Documentation/sphinx/maintainers_include.py
 +++ b/Documentation/sphinx/maintainers_include.py
-@@ -76,11 +76,13 @@ class MaintainersParser:
-             match = re.match(r"P:\s*(Documentation/\S+)\.rst", line)
+@@ -36,7 +36,7 @@ class MaintainersParser:
+     """Parse MAINTAINERS file(s) content"""
+ 
+     def __init__(self, base_path, path):
+-        self.profiles = list()
++        self.profiles = {}
+ 
+         result = list()
+         result.append(".. _maintainers:")
+@@ -54,6 +54,7 @@ class MaintainersParser:
+         prev = None
+         field_prev = ""
+         field_content = ""
++        subsystem_name = None
+ 
+         for line in open(path):
+             # Have we reached the end of the preformatted Descriptions text?
+@@ -75,7 +76,10 @@ class MaintainersParser:
              if match:
                  fname = os.path.relpath(match.group(1), base_path)
--                if fname not in self.profiles:
-+                if fname.startswith("../"):
-                     if self.profiles.get(fname) is None:
-                         self.profiles[fname] = subsystem_name
-                     else:
-                         self.profiles[fname] += f", {subsystem_name}"
-+                else:
-+                    self.profiles[fname] = None
+                 if fname not in self.profiles:
+-                    self.profiles.append(fname)
++                    if self.profiles.get(fname) is None:
++                        self.profiles[fname] = subsystem_name
++                    else:
++                        self.profiles[fname] += f", {subsystem_name}"
  
-             match = re.match(r"P:\s*(https?://.*)", line)
-             if match:
+             # Linkify all non-wildcard refs to ReST files in Documentation/.
+             pat = r'(Documentation/([^\s\?\*]*)\.rst)'
+@@ -112,6 +116,8 @@ class MaintainersParser:
+                     output = field_content + "\n\n"
+                     field_content = ""
+ 
++                    subsystem_name = line.title()
++
+                     # Collapse whitespace in subsystem name.
+                     heading = re.sub(r"\s+", " ", line)
+                     output = output + "%s\n%s" % (heading, "~" * len(heading))
+@@ -217,7 +223,13 @@ class MaintainersProfile(Include):
+ 
+         output  = ".. toctree::\n"
+         output += "   :maxdepth: 2\n\n"
+-        output += indent("\n".join(profiles), "   ")
++
++        items = sorted(profiles.items(), key=lambda kv: (kv[1] or "", kv[0]))
++        for fname, profile in items:
++            if profile:
++                output += f"   {profile} <{fname}>\n"
++            else:
++                output += f"   {fname}\n"
+ 
+         self.state_machine.insert_input(statemachine.string2lines(output), path)
+ 
 -- 
 2.53.0
 
