@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A66F9D0FD
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 00:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE16F9D0FD
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 01:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,46 +13,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=VTtJq5aJYwX8D+vCMsOLmJ3JaMmwevsnWsXgXV51hEQ=; b=p5SsefFJgwX2tT8Z13BgDrrB4W
-	e/JOmYzzqxuseatq5/z5+NaGg3R1Ng4e1TprKNfM727IDDrxz8/fbP0fWwcB+8c/je6mKp2CBUs+V
-	yk41eRH7Zi3cGfgYriD7p78MVSCYoCG28XZWTIj4Yhc7QkO9Z+JHN9OKaUWbnBOmGYpAWlZsJOj95
-	OHNSFieRfs5qDe+aGuhq94o8mLLrUTvzqPzkktHYh2c4TqhdhHW7gTRDkXEo3D70AGPN/RxiO3+yh
-	4ecBePkvIK97TYYd8glSQ5zQ2LJz/w31QiZktvwpujbs2ZpJKFq62DG94DePuNOka3S4S6vBpXuDO
-	ofmx2KUg==;
+	bh=Ng1NyydmMGtbQG9gfqDz0Sq2CV/cnaNIouBsyepKdq8=; b=p0TiswLp5oF6/yZZsM0gUFMSzW
+	wasFEXR4TPZ48VsiOgXv39Ykpe9vbDUsKzlOIqavcpAAKSyNea3GiGUE/NI9mTGnoeadSGSGoz8mt
+	6mx3a/YEBNVmQWi5Z2a/ftyWbZ2tLbnJ7w2HzXmHhXPOAlmiQrF5jzpU5+TC2O7+F7XIjvOAgip6w
+	GyT2FfiVjJRht+Hck1KRbCwTSQSp6RKdJ0bluOsVVepVPPCDS/dtLDa15aelEyOLqQL5wQrILRfLy
+	itMYdEkGLsuvHE1zpIW6clWu3Hmwka0OWWT2cXRdE/ms25LbnuuH8UNDyx+InMDT8HH/aPv/ohoTg
+	PFnkR8WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCoQL-00000000OYO-1nl3;
-	Wed, 15 Apr 2026 00:48:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wCobj-00000000PFv-3I5E;
+	Wed, 15 Apr 2026 00:59:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCoQI-00000000OY5-364t
+	id 1wCobh-00000000PFZ-3ONn
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Apr 2026 00:48:07 +0000
+	Wed, 15 Apr 2026 00:59:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 520C8442EC
-	for <linux-riscv@lists.infradead.org>; Wed, 15 Apr 2026 00:48:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED36EC4AF09;
-	Wed, 15 Apr 2026 00:48:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EFFD344503;
+	Wed, 15 Apr 2026 00:59:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EAE0C2BCB3;
+	Wed, 15 Apr 2026 00:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776214086;
-	bh=DWK2jqzjxVgqEHi6UvrmQGN4fzX3aAIUmoaTpj/VETY=;
+	s=k20201202; t=1776214792;
+	bh=wpJVPa82t/Q9ZbyuHOA8+fPbPFbqOgSSPuMHwapeSJs=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=T/1P/hYSvCIhT7LQQaeKB+Ie7V2L3cbY9wjCWRSqKOJAla+ISg7DzJfV3MUPnVlLU
-	 2T3Ye8B1sVn/NiOlI0LseAwdK7TxFUGUXNWGgNBXCvm0NyrvthBHzdBoLqgSl82y6M
-	 H0KuIP8OKrxyzMvBFiDcYYHCfMOJYrYdecFuXv5lwprNG1GxlSiQ+ker/K5Rsr90m/
-	 DpIMdT4qJ5BKqWOz6jUrLiWQkKJfDIaT8KDRm9r12P0mZVP0vZuNcrqiIi2IhDU5cj
-	 o9ffZdsfhOhoBNSvP+8qMti46cx5g32rpD+aWKcdz0AqfhoW+fWlShunv2BQF+u6sC
-	 vSsI/o6lCVvmA==
+	b=Mwf/O9j3O9U12LdMOChSyxTrjaXNqkQcxgAmMZu9Wf4JtA6YU4ukf+6V6hBNziHLs
+	 aLwYszWnDflF0kfKx+uZOsZPmedvQnyQzL/FDgOi5AhlzT9jbqzE5XvHokRIkTGA1/
+	 lLTw4oUU0WOqW7ekRckoogE+puWQlU37NpUjyF1pug0UdMQRl5FvjLQ97bkdepzoeb
+	 9dTLk3SlMTT26KDtLnokT/GULOsE5b1KGpB9/sKzhQvmB97yv31kSFrbuXIOXoIQoz
+	 6M7boRHMqaTmVufbuwSo/gmD5HWBJZBBN0rmjdVT4wXPu1yoQL9Se/FnwVHvtOAvOP
+	 9DTheOng+3lAA==
 Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 09B6BF40068;
-	Tue, 14 Apr 2026 20:48:05 -0400 (EDT)
+	by mailfauth.phl.internal (Postfix) with ESMTP id 84DBEF40069;
+	Tue, 14 Apr 2026 20:59:51 -0400 (EDT)
 Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Tue, 14 Apr 2026 20:48:05 -0400
-X-ME-Sender: <xms:RODeacsci5OuPgBZ-vJWOAsTViIa31tcfMNfmiP_3QuD2ltj_-y6Og>
-    <xme:RODeaWCLCdtPcdNXqaFHAB81P3e0U7BYAUtrIpg05PNHMzAm_-Je4jQWnsKWR9URI
-    MeYoxW3PGQ1FSPjNI5ookcMa-dCD4ah1jDuUy2dwhrZ9c27ZEQC-3g>
-X-ME-Received: <xmr:RODeacPQbgZgAOdRPt1Pb32Yr0sdjtdvDfyLcjdrAhd8lesa8out_V0wsb5iCL6X5Kml7sOEi6SnsIRG4EIAhF4adgSLw9qQdSE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdegvdeiiecutefuodetggdotefrod
+  by phl-compute-05.internal (MEProxy); Tue, 14 Apr 2026 20:59:51 -0400
+X-ME-Sender: <xms:B-PeaYrbpcE5KUu5OIkvJvN7sFX198RJ-5IO3R1dTF7WCMPW_DYnCg>
+    <xme:B-PeaZCKSQ0xgkJa5b8vpyQEt3ZLBjcsoXD7Gvyiu7xEEYZ6GsN_X4IGTMaK7t30C
+    vOXhAls3eshYc-lZxQZtztYbdGy8nmGfwxs2CKg8zbVI5VG1Y6TpGU>
+X-ME-Received: <xmr:B-PeaTX_UwQWHB2uM_CK6bJGSyX79QbB-lHoRbRBGHQ28WWT49Rl0gH71W6onfWQpdrXht8h4oKt_uV7cGF6BYImPOmS_ovOZ2U>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdegvdeikecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
     hrpeffhffvvefkjghfufggtgfgsehtjeertddttdejnecuhfhrohhmpeffrghnucghihhl
@@ -61,23 +61,24 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdegvdeiiecutefuodetgg
     lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegujhgsfidomh
     gvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudejjedvfedtgeehhedqfeeffeel
     gedtgeejqdgujhgsfieppehkvghrnhgvlhdrohhrghesfhgrshhtmhgrihhlrdgtohhmpd
-    hnsggprhgtphhtthhopeelpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmtghh
-    vghhrggsodhhuhgrfigviheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghorhgsvg
-    htsehlfihnrdhnvghtpdhrtghpthhtoheplhhinhhugidqughotgesvhhgvghrrdhkvghr
-    nhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvg
-    hrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhi
-    nhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepfihorhhkfhhlohifshesvhhgvghrrd
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopegujhgsfieskhgvrhhnvghlrdhorhhgpdhr
-    tghpthhtoheprhguuhhnlhgrphesihhnfhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:RODeaWAW9woy5wspRtwKduuU6jAD5TfVeiK6NOG_zcCMPmcYWdnMOQ>
-    <xmx:RODead6e7OVVWWw1DGB5FTnfogcma0dXlPHpoqhOppoIorsl6pWtHw>
-    <xmx:RODeaQ6QJU6A9uT6vr5dH3n6xPvvgfc0HhymvonwNPV-hd6E4dnTbw>
-    <xmx:RODeafRSE4rFFNBKxCHm82sM5PHfrmmuRaA9PNFcANlQxd8dk2Radw>
-    <xmx:ReDeaY-aI_oI-uyo3MBw9K7H9xviEJisqyjvuUPg7qRx5NnrrZb-puID>
+    hnsggprhgtphhtthhopedugedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepmhgt
+    hhgvhhgrsgdohhhurgifvghisehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhrsg
+    gvtheslhifnhdrnhgvthdprhgtphhtthhopehlihhnuhigqdguohgtsehvghgvrhdrkhgv
+    rhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdr
+    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopeifohhrkhhflhhofihssehvghgvrh
+    drkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgv
+    hidrvgguuhdprhgtphhtthhopegrlhgvgiesghhhihhtihdrfhhrpdhrtghpthhtohepug
+    hjsgifsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:B-PeabBrUKV6GjdD8Vo9eGHmglR3pA3OQQgnZOj2Rgm930tPnOt-kw>
+    <xmx:B-PeaQf_aB5ZSobl2hStB2MEXVFMNS4SeTnNbALkD9JLHENupk4U2A>
+    <xmx:B-PeaSpT86eZ403iIWqB5TS-jmj-tyFTwqJlfdxD2khZNRT6UHEJrQ>
+    <xmx:B-PeaRSV7ZbREip4BBPCejIAOSB0zrbSMEN19rhbG_U51HVgljX4oQ>
+    <xmx:B-PeaSVBGtS0fTmGc39EUjuKD4qu0lm9b_AfraOVjOBVuLDrlRxSlLXS>
 Feedback-ID: i67ae4b3e:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 14 Apr 2026 20:48:04 -0400 (EDT)
-Date: Tue, 14 Apr 2026 17:48:03 -0700
+ 14 Apr 2026 20:59:50 -0400 (EDT)
+Date: Tue, 14 Apr 2026 17:59:50 -0700
 From: Dan Williams <djbw@kernel.org>
 To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
  Jonathan Corbet <corbet@lwn.net>, 
@@ -86,18 +87,23 @@ Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
  linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, 
  workflows@vger.kernel.org, 
+ Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, 
  Dan Williams <djbw@kernel.org>, 
- Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <69dee043762e7_147c80100d4@djbw-dev.notmuch>
-In-Reply-To: <970434c647aa1e1e9a81c87b4d5fed934d4018a7.1776176108.git.mchehab+huawei@kernel.org>
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Shuah Khan <skhan@linuxfoundation.org>
+Message-ID: <69dee30660eb_147c80100a3@djbw-dev.notmuch>
+In-Reply-To: <9228f77b0339b8e5dea4a201ab6d4feb30cef5c2.1776176108.git.mchehab+huawei@kernel.org>
 References: <cover.1776176108.git.mchehab+huawei@kernel.org>
- <970434c647aa1e1e9a81c87b4d5fed934d4018a7.1776176108.git.mchehab+huawei@kernel.org>
-Subject: Re: [PATCH RFC 3/4] MAINTAINERS: add maintainer-tip.rst to X86
+ <9228f77b0339b8e5dea4a201ab6d4feb30cef5c2.1776176108.git.mchehab+huawei@kernel.org>
+Subject: Re: [PATCH RFC 4/4] docs: auto-generate maintainer entry profile
+ links
 Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260414_174806_848196_8CFE6326 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260414_175953_896924_FFC16B2D 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,15 +121,69 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Mauro Carvalho Chehab wrote:
-> While the maintainer's profile for tip is there, it is not
-> at X86 maintainer's entry.
-
-nit. should this be MAINTAINERS since it is referring to the file.
-
+> Instead of manually creating a TOC tree for them, use the new
+> tag to auto-generate its TOC.
 > 
 > Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+> ---
+>  .../maintainer/maintainer-entry-profile.rst     | 17 ++---------------
+>  Documentation/process/maintainer-handbooks.rst  | 10 +---------
+>  2 files changed, 3 insertions(+), 24 deletions(-)
+> 
+> diff --git a/Documentation/maintainer/maintainer-entry-profile.rst b/Documentation/maintainer/maintainer-entry-profile.rst
+> index 6020d188e13d..48ecabd4ce13 100644
+> --- a/Documentation/maintainer/maintainer-entry-profile.rst
+> +++ b/Documentation/maintainer/maintainer-entry-profile.rst
+> @@ -98,18 +98,5 @@ Existing profiles
+>  For now, existing maintainer profiles are listed here; we will likely want
+>  to do something different in the near future.
 
-Acked-by: Dan Williams <djbw@kernel.org>
+Given the "near future" is now, I would say go ahead and delete this.
+
+> -.. toctree::
+> -   :maxdepth: 1
+> -
+> -   ../doc-guide/maintainer-profile
+> -   ../nvdimm/maintainer-entry-profile
+> -   ../arch/riscv/patch-acceptance
+> -   ../process/maintainer-soc
+> -   ../process/maintainer-soc-clean-dts
+> -   ../driver-api/media/maintainer-entry-profile
+> -   ../process/maintainer-netdev
+> -   ../driver-api/vfio-pci-device-specific-driver-acceptance
+> -   ../nvme/feature-and-quirk-policy
+> -   ../filesystems/nfs/nfsd-maintainer-entry-profile
+> -   ../filesystems/xfs/xfs-maintainer-entry-profile
+> -   ../mm/damon/maintainer-profile
+> +See Documentation/process/maintainer-handbooks.rst for subsystem-specific
+> +profiles.
+> diff --git a/Documentation/process/maintainer-handbooks.rst b/Documentation/process/maintainer-handbooks.rst
+> index 3d72ad25fc6a..d3d74c719018 100644
+> --- a/Documentation/process/maintainer-handbooks.rst
+> +++ b/Documentation/process/maintainer-handbooks.rst
+> @@ -9,12 +9,4 @@ which is supplementary to the general development process handbook
+
+Given this whole thing started with a question about why there are 2
+files you can go ahead and fold in:
+
+---
+For developers, see below for all the known subsystem specific guides.
+If the subsystem you are contributing to does not have a guide listed
+here, it is fair to seek clarification of questions raised in
+Documentation/maintainer/maintainer-entry-profile.rst.
+
+For maintainers, consider documenting additional requirements and
+expectations if submissions routinely overlook specific submission
+criteria. See Documentation/maintainer/maintainer-entry-profile.rst and
+the P: tag in MAINTAINERS.
+---
+
+...suggestion with a:
+
+Co-developed-by: Dan Williams <djbw@kernel.org>
+Signed-off-by: Dan Williams <djbw@kernel.org>
+
+...if you want me to submit that separately, just holler.
 
 _______________________________________________
 linux-riscv mailing list
