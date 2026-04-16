@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA720F8D765
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 18:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140F8F8D771
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 19:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XA1fEVNhG7Wr405zmQPPOMv/N3Zwg9+YHbKUE4ZHOhE=; b=X4LND3X0bG2aHc
-	S2UfneGpbMu6V5iLs1A/S5Ci4fvKSsmpLdInnMPn3fbwvafLWm1I1vhOORApxEnqhG7bm6wmOPSn8
-	c7mrbWrD7UTFb2VtlOk0hBtaqk2oxp1/VvmTS/nRNeFqwFQLt8Qq/cCcEiJ3JycYDv/UVSG3XQZv0
-	Oi/9y3XeNMSw1D9qmGgbIK+ewglhtNq37V0XtWWh+CK5SPqJnnb0mDAJ+YgMgx6bRlDqPXBdJgCDX
-	/uYyWGN7SIjYx5G/Vru/s0gBO7xzvGpayujN+YG5pklGd5Y/1p5d8pdnFdmQuz55AIaF8s9z4Pl7V
-	3Ua+khiP1iwnWfZc5IhA==;
+	List-Owner; bh=40wfGFk+J8x5IatmNkXIIVXLRajL1mDFAZFTppZPr5Q=; b=qiNqbD+Uph53LC
+	6UB4w9aja7/OJy0E9VS9WuI7RiJ0Tctgzw8tnogV5xFAl/gqygDn6s9ijUgnZ0wtRLTzOiPt0ANaQ
+	R+GtU/0NUUhALb609qh9HznIMPfRgIAMloUAAMRnND8uZ9pnPexxOLXn2BEaShCtfogFsVyVYHJRb
+	kJEGvjgGGAFOa8Bqna25PJCPcv+CNBN1iCn7lDJYoms0726kY8IoX7AYjhe67vCsY4w9l4fX3R/WO
+	BMEnMr+2HykWMq2f71ZSDdujgSfE6Af0mLbgQWIW6wYL0Mefv6KVVG3pkXi/z0glw9/SmpbrG2ks6
+	7key6Ub/oV5Sru9d1DJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDRSx-00000002m7W-1EX0;
-	Thu, 16 Apr 2026 18:29:27 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1wDSPR-00000002sZE-2r5B;
+	Thu, 16 Apr 2026 19:29:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDRSu-00000002m6q-2bAv
-	for linux-riscv@lists.infradead.org;
-	Thu, 16 Apr 2026 18:29:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1776364138; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NE1kTZruiDkKdurSqrfKPQfNUW9o4u5ghQYH75IbdUyx3o7sj6y5wOOFBzJiz3krFD3HlyDu0ttTUS6rEGoLv3cyPaiTI1+qW5Wfu1eWzOpxDx2js9hFGI9Jl1QsaRnym5I9XZOJHnnwleYDFRg32/6L+nHXKRPor6MgFA5h9wk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1776364138; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=/YaAGSJbDEtzRAI5/6sj2uFumzW2z1vouVaPcA0oz+w=; 
-	b=hVzdjD2VQCZ6dSwa8hh6g7oUAQ7bL+c+D3cAhRHdCFjI2ef7dZoh4fiLsg9/lLPAMt5ffRjvs+4EYXOOADIG0+ZUEasRsl3kbgVytCRRhslOukT3Y5z2nvgXp9g93JQeXmjQZ3CVuHkyM50IPMkT4Xeleb2j+dH/6qxJUKbDcUU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1776364138;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=/YaAGSJbDEtzRAI5/6sj2uFumzW2z1vouVaPcA0oz+w=;
-	b=byQaRwrdr5W/VTDACSb+HBtBWXizaAMCpNmGK/GGECr4/KM+COGj11uFyIJfeVvf
-	3MQUH9onOpF9YfQxnvrcXHYm8GvOUVY8oN3BMWuvf77fKXay8FpBZYlUeHSwH3IcS7k
-	P+sCiU6wRU2TZRxWEJgliU2/dLj7en3Z8DrJB3Rw=
-Received: by mx.zohomail.com with SMTPS id 1776364135165890.8638924599645;
-	Thu, 16 Apr 2026 11:28:55 -0700 (PDT)
-Date: Thu, 16 Apr 2026 18:28:23 +0000
-From: Yao Zi <me@ziyao.cc>
-To: "Shuwei Wu" <shuwei.wu@mailbox.org>,
-	"Anand Moon" <linux.amoon@gmail.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	"Viresh Kumar" <viresh.kumar@linaro.org>,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Paul Walmsley" <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>,
-	"Albert Ou" <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan" <dlan@kernel.org>,
-	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
-	<devicetree@vger.kernel.org>
-Subject: Re: [PATCH v2 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
-Message-ID: <aeEqR-ctSI-NfEkR@pie>
-References: <20260410-shadow-deps-v2-0-4e16b8c0f60e@mailbox.org>
- <20260410-shadow-deps-v2-2-4e16b8c0f60e@mailbox.org>
- <CANAwSgSNHO3MNewNzpYbhuj4K3NTdfzDC9KPoUHbFH97P4M_UQ@mail.gmail.com>
- <DHUCL24GMX7D.369IWK9DLPZPX@mailbox.org>
+	id 1wDSPQ-00000002sYO-0O9X;
+	Thu, 16 Apr 2026 19:29:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA94660127;
+	Thu, 16 Apr 2026 19:29:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55F0EC2BCAF;
+	Thu, 16 Apr 2026 19:29:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776367790;
+	bh=IYYhpzvOPkjnKmWSOWOV2gjFmCyUK20pzUwsrPCl5+c=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=TjiRJ3JYC6H6QODlRe73weMWqu2ToVyxgZaKwDYZeUuXvTFyEukiq8tmP1ejDxYzD
+	 rmrx12vxM0g7ZC9obrRxDAfB+VnhJNvbWfFDZNFPe0bmQhLp4LsxxAr5syn+ysbEnb
+	 CJFNwSq3IzVphxzvT3UyUKOg1K7FQt/yAeF/6TILljylkaralKACrM4Mn6BgOOeIKv
+	 wGHlIow7JIanfsrwpPNBBsFvw34FcmmRQCfrRZvueDO/yyXUoANoGReW/3j6l4sYGi
+	 SDFU6WZgysyVavWZIkFYQOfBKcrZOljXUSUoxloeAjzhJrasftfXxGpcy4vC+O3xsf
+	 ay/dWzrcNvMPQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Heiko Carstens <hca@linux.ibm.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, linux-s390@vger.kernel.org, Arnd
+ Bergmann <arnd@arndb.de>, x86@kernel.org, Lu Baolu
+ <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, Michael Grzeschik
+ <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
+ linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
+ linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>,
+ linux-mm@kvack.org, David Woodhouse <dwmw2@infradead.org>, Bernie Thompson
+ <bernie@plugable.com>, linux-fbdev@vger.kernel.org, Theodore Tso
+ <tytso@mit.edu>, linux-ext4@vger.kernel.org, Andrew Morton
+ <akpm@linux-foundation.org>, Uladzislau Rezki <urezki@gmail.com>, Marco
+ Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ kasan-dev@googlegroups.com, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Richard Henderson
+ <richard.henderson@linaro.org>, linux-alpha@vger.kernel.org, Russell King
+ <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Catalin
+ Marinas <catalin.marinas@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ loongarch@lists.linux.dev, Geert Uytterhoeven <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>, Jonas
+ Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Michael Ellerman
+ <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, Paul Walmsley
+ <pjw@kernel.org>, linux-riscv@lists.infradead.org, "David S. Miller"
+ <davem@davemloft.net>, sparclinux@vger.kernel.org
+Subject: Re: [patch 35/38] s390: Select ARCH_HAS_RANDOM_ENTROPY
+In-Reply-To: <20260416134238.9230Ba6-hca@linux.ibm.com>
+References: <20260410120044.031381086@kernel.org>
+ <20260410120319.924028412@kernel.org>
+ <20260416134238.9230Ba6-hca@linux.ibm.com>
+Date: Thu, 16 Apr 2026 21:29:46 +0200
+Message-ID: <87y0imemad.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DHUCL24GMX7D.369IWK9DLPZPX@mailbox.org>
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_112924_713519_4AD4A605 
-X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,51 +91,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 01:59:05PM +0800, Shuwei Wu wrote:
-> On Tue Apr 14, 2026 at 9:25 PM CST, Anand Moon wrote:
-> > Hi Shuwei,
-> >
-> > On Fri, 10 Apr 2026 at 13:30, Shuwei Wu <shuwei.wu@mailbox.org> wrote:
-> >>
-> >> Add Operating Performance Points (OPP) tables and CPU clock properties
-> >> for the two clusters in the SpacemiT K1 SoC.
-> >>
-> >> Also assign the CPU power supply (cpu-supply) for the Banana Pi BPI-F3
-> >> board to fully enable CPU DVFS.
-> >>
-> >> Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
-> >>
-> >> ---
-> >> Changes in v2:
-> >> - Add k1-opp.dtsi with OPP tables for both CPU clusters
-> >> - Assign CPU supplies and include OPP table for Banana Pi BPI-F3
-> >> ---
-> >>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts |  35 +++++++-
-> >>  arch/riscv/boot/dts/spacemit/k1-opp.dtsi        | 105 ++++++++++++++++++++++++
-> >>  arch/riscv/boot/dts/spacemit/k1.dtsi            |   8 ++
-> >>  3 files changed, 147 insertions(+), 1 deletion(-)
-> >>
+On Thu, Apr 16 2026 at 15:42, Heiko Carstens wrote:
+> On Fri, Apr 10, 2026 at 02:21:19PM +0200, Thomas Gleixner wrote:
+>> The only remaining non-architecture usage of get_cycles() is to provide
+>> random_get_entropy().
+>> 
+>> Switch s390 over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY and
+>> providing random_get_entropy() in asm/random.h.
+>> 
+>> Add 'asm/timex.h' includes to the relevant files, so the global include can
+>> be removed once all architectures are converted over.
+>> 
+>> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+>> Cc: Heiko Carstens <hca@linux.ibm.com>
+>> Cc: linux-s390@vger.kernel.org
+>> ---
+>>  arch/s390/Kconfig              |    1 +
+>>  arch/s390/include/asm/random.h |   12 ++++++++++++
+>>  arch/s390/include/asm/timex.h  |    6 ------
+>>  arch/s390/kernel/time.c        |    1 +
+>>  arch/s390/kernel/vtime.c       |    1 +
+>>  5 files changed, 15 insertions(+), 6 deletions(-)
+>
+> Acked-by: Heiko Carstens <hca@linux.ibm.com>
+>
+> Thomas, would you mind adding the below as minor improvement to this
+> series?
 
-...
-
-> Regarding the necessity of listing these clocks in the DT, my analysis is as follows:
-> 1. For CCI550, I did not find a clear definition of this clock's specific role
-> in the SoC datasheet. Although the vendor kernel increases its frequency,
-> my benchmarks show that maintaining the mainline default (245.76MHz) has a
-> negligible impact on CPU performance.
-
-FYI, CCI550 is used for naming an ARM interconnect IP[1], which matches
-your observation.
-
-...
-
-> Best regards,
-> Shuwei Wu
-
-Regards,
-Yao Zi.
-
-[1]: https://developer.arm.com/Processors/CoreLink%20CCI-550
+Sure. I'll respin it next week.
 
 _______________________________________________
 linux-riscv mailing list
