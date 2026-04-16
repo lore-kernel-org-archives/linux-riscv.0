@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61195F88092
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 06:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF69F8806B
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 06:49:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a1DhBYMXVEJuqNziTxPi0+B40TLgPjcdMbzwr/PxUdY=; b=2WEr6lICerbWE6
-	+CJsOwXqF5FT1r+X88DlKkujRWGjsXcDegml6Keo7400CcbT0KnE0FQX37EprTp6H6i2gw0AkJaOM
-	/zkj1wqM+xZJsagbQ2SEWsIT/ySEcXve9bPhTAo0xH1jnFeCY7GgNV20TUMFKWXiRiqvLZZH5Ypat
-	EmNC0uhaQYM+EN6+PuFVLTJsE1QUmJvmxP+MBrI0JrJMHhprQ+Pok7uPuZF2OR/oXlmWUgHOFbFgp
-	O9QrKNG8Ac7amZuk0Fy9o/CPgqsNMFrMUx3M9nGTqqI2C9MN4pPhFiWAJ6jXq+Hd8S6JuHksOk3MI
-	9Bz/mI2PUSHP4PFiE4aA==;
+	List-Owner; bh=CAnuUg8+t1O30rSrH7xFE1Fsem29SnO+A8GFswPOjZA=; b=4XZYaHyY6JkhUP
+	c0Bt5UfCR4tFE4V8nF/3fSydnvrJUJnq7qG3iICi6wzSw9klTw+3eIM62hg5Sxp7Z0CmqA8ugpQyV
+	c5ept5EQbz1xdYPC/J1OIcZgtvt7jK512IGumrv7FdY6voYEmmD/9W+yxTSGQ5/wz3k9rseqzlMYt
+	lkZ7FM5NZDn5vdkqtI1QE0y9+9msguNIKPf0RqAvh4NZvJqIQqcUv7TRFAxF64qHQSJCFYpMaWACW
+	QCuG0xva0VB7m8bZjzCauIym9BtJ3p3erYv1i1/noR4Ec0XgFBr1baDZ9LUzpoXOvAItPKYrAGoZS
+	h3UhJVvDSCq51lcdKD0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGWl-000000024KR-2Nq8;
-	Thu, 16 Apr 2026 06:48:39 +0000
-Received: from mail-bjschn02on20731.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::731] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1wDGX8-000000024Qu-3jPz;
+	Thu, 16 Apr 2026 06:49:02 +0000
+Received: from mail-sh0chn02on2070f.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::70f] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGWj-000000024HB-1aLK
+	id 1wDGX6-000000024PO-2zTq
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Apr 2026 06:48:38 +0000
+	Thu, 16 Apr 2026 06:49:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=I91zOmj1ENp/oN0XM/JIoaYGe1gy0uX3XvbPcno33IdscVXpDHzXXxXbLGdM4MG4C4EhEfrjYIEIlQSG8BoQy0dwMg0BdM1xuKPby1D0bcTd22I6UbjUKcjvVUDGmpEWYq/oylCjNjGXAKJ5IzwstOXQnmUbYU4MsQPJu7h7KfxrSPhmkeldfmHQqoGGPpW15IpEuhUcxH7dmz81k4khszrO1XGBnUVbyNy1rvAUmw6nMI2nwwC4nMteFETygMwVSU9nl9t/0y11T26CWf3+BrzG2+qq1JOpUxQLZkTG+a5WX0OUFhWeFmxT4Oj/o9v4ah2CzN8HTKR7jx+AMlNrFg==
+ b=KHSl8Azcycgd7rEMdwDWi/0j8Zz0ZGyDkZ5GBo4HewahB9J8Abw5P1+uB96jCVYCq0h4M6lOG/OeKkmGfkhFKO28xEM0hY/z23tzWIrVHFlXXQfCRxeflyNHHo0ozpzQph12N2Uwq1IdCgkVjeJVW2zXTdWN8d4kv2KwV0TjypSmlEGNMmdMrZGyXup+mOApfqrvrf7WLdjLBfv8iy18dTdTX6ou61tBCn0u+EtMIwT4xSbAhzZgTpzlTp829t1aBvH/YqSPl9ND6pQoTJb1lnJGMdfRGAfuWwispJn+3YFJ/ikntaTe6zJjOylGNSRgb82Jw7NhXLLL2U+bNuaDBg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EtltmKOGplzEzrG09zlhDNKsckHkq+fdRC2gzKRIw5U=;
- b=WoLDJYHkBycTM8xxnvl6bwRKrs/fZv3JtH9SRPvUsIbiRrOpeBmc2DKCRcWmrX4Yfcf+NNq1mRMLujaN2dmm0oCnon9VVsqBi+bLVMKLBe4dH6yx9T7XbIvWT67Amp9fJffItBEieKedvD1dh09FKNBL2OjLQ0PzEotB/bGJGcXabt+QoqUAMF8fk+ijEV+Khv3om1Na1DkKeEQez9JPMYGv+ess7EgY2NMMfdLj5W6PmnO0DiVuctUbpY8Htq7SJVu9lKj1kyc0cWo1oAOHhih+RBR+/FX1BsMf30z/o0jhCoBG0xtnDuKaW/6dnGetdP4JHZf8Xm2IpbENwcEQ8w==
+ bh=ky9+NsbukRRnrjfnFHqpw+8nXptkShIqusPsaB7VxVM=;
+ b=hhNjFIPTuV+9dbDkRgXbMOv8TxX8yOSKvydTjvD2RierTYqe/EKVVEhxPUhjisIIm9aanVzuIL4MEwBUcCdfFRhdAJU6wOsOL925vbiRkCW9PAtKFF8MtvEO1q3B/Gu0zQJR7T3A0KxCXMQ4Em0Z7oh+1Lrfz/fgDNXjJpX5RhtTiWwQueWQdSVPQ2EIti1Wpy3Qt1lWkD6FH1ZLgyrzA/GabxFM1aOfLIjxmWW9A4835jnugcla6/c+zweQyUA8B50NicYDlt7byCGw3AV3hebebN3ecz/auHaozlqk9BfNdOu/8+nyR50+xiKonN3PjVZWVrwKujXQOUpA3Fwlug==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:11::9) by NT0PR01MB1231.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:e::9) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c510:11::9) by NT0PR01MB0958.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:7::7) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.51; Thu, 16 Apr
- 2026 06:48:32 +0000
+ 2026 06:48:33 +0000
 Received: from NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn
  ([fe80::1666:48e8:19e9:ad29]) by
  NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn ([fe80::1666:48e8:19e9:ad29%7])
- with mapi id 15.20.9769.048; Thu, 16 Apr 2026 06:48:32 +0000
+ with mapi id 15.20.9769.048; Thu, 16 Apr 2026 06:48:33 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -59,9 +59,9 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
 	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v2 3/5] irqchip/starfive: Use devm_ interfaces to simplify resource release
-Date: Wed, 15 Apr 2026 23:47:49 -0700
-Message-Id: <20260416064751.632138-4-changhuang.liang@starfivetech.com>
+Subject: [PATCH v2 4/5] irqchip/starfive: Increase the interrupt source number up to 64
+Date: Wed, 15 Apr 2026 23:47:50 -0700
+Message-Id: <20260416064751.632138-5-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260416064751.632138-1-changhuang.liang@starfivetech.com>
 References: <20260416064751.632138-1-changhuang.liang@starfivetech.com>
@@ -70,57 +70,57 @@ X-ClientProxiedBy: NT0PR01CA0006.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c510:11::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: NT0PR01MB1216:EE_|NT0PR01MB1231:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8bcf45ea-f464-45f1-cbb1-08de9b842b95
+X-MS-TrafficTypeDiagnostic: NT0PR01MB1216:EE_|NT0PR01MB0958:EE_
+X-MS-Office365-Filtering-Correlation-Id: 97330bfe-1282-4916-0de5-08de9b842d82
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|38350700014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: /jjNneOWnhQn5Su9+xlWTaNikudlM50QwL9XwLJe79gaBjKaNHFXikFDQPadviRcNnXeiZAVNBJliLktihoTo04oRW1DMXInH98MGJl07JMH7S7qHAZuAHwUIyetfZvnV9HOOkGvNOzug72RW63gm5t3QI/D9Pg3NFCe2Q0QJhh/KJ8tDqD6fD0EUqdzV9rEJRgVcH6/kEF9IF6kV17nLYCuACM9/8VJ7U3uqjMF3sblDrPhjf3cMtMB/4+ljd4esCADT/kXFhJY6OdlwHhZ1LYpByg5TT9hsKHFy8p+3J4KdPZ6aM7oW6Jew2YUgphcizIA82oVBnW/bkNwCJdkZzbMkocT9Rt5cMDRrSRB+CZHACNA7jZRuckwJmWbkM6c6UaLU3jX8hpn+5tYLsFUH2efHET7GqzKRXJbjRTh7ZuVtNZ06P7lgoycTqVQfl6R4E8F1toLnvBIT9ma2EhMihdtvamlN1ApR5jjVjmof4yvW0TBBo3SpAFX5zoe0FajvstuNW54f36LHZzKQlQ/lAsDuocYMosT3iWn2ESRtf/HymQxH/4Q7j25nGtTzaZoPBEim6ls12ICOsznqL3h/HPPsIG13L/DY/aCAEkbDwQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: BtE0hxSzqPqhp9cm0KpNMj0+mCTBWfkt8cYwg8IXvOD2qJKsk04EE+oJCx4A/GY58MPRixDutOLofrTYKOpD/3PzaTRjJl3KDhg0hQaIDWDCM7zo2bqajtL/H2u52tCnKaPdFlgQkbCW6HyPggqEd99vYbzvBl6PEIsTbGogmnirIFWU2++yP/+QSfKPlrDZWPuqU+TYkNDTnAzckTYQY9Hatm7e0MbOh2JvykNVYhge/M16X/4Xz1fz6wmCTj0aGUEDqH1YqBU5NDE3+O9y5bbeFi42RB2C6TIKGMn/fKnj9HcbNfsOp+r1IQ7bLWCHpiZQr8y13s6nAX7/WWb2S5oQmxNLOUQqxfwoTXcLyNOnjw6QjdbnWr5UinypnCOsbXv4JyOxqhNVSI0lWiJAdXNdz/6JqbmF6KyJ4ANn2EvFLoflCltchIVICCjEuLRfR2AjztZH0Lp6RZOhw/b6dv+bSMSJoHMKryco5/GCaQ21MNesx1MqzdlyRfUZt6QXLCKktFlb+h6e9F1XthhhlKLWb6LgRkFWt1ZWMZDOId7Z6Ag5rS/kwIKBovcVBsMWyFM0UWCdQtcLocytcY+o4TNtGrccffpRcfgqBqppGaE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LNm+Tn0DgIhODUcJ5nME958EHrHPDq7pqtxO9+HOs9kVqIoiJ9fcQ8sV7v5V?=
- =?us-ascii?Q?Jlkj16JUiD3ae6mSe36uKy3qjdDsXm4UOC/BofoUnhUk3flhu1GSt80adE/6?=
- =?us-ascii?Q?jp7I1ZlQKtv3M6nMwolCfvcF0/P/2NcIa5azT54fJ33sDisvHBPdiQNQY8t2?=
- =?us-ascii?Q?4eGpOee3ZHH06FxYrVWsCFY9FpCTdyASKpZOtqodApxMBkQ6RuSbXipacuC3?=
- =?us-ascii?Q?9juIaCsw513TwAqSAT1seW78Gg7R4viDymLrxytagNtRetB9ohAuMhjQcGDG?=
- =?us-ascii?Q?Kr0xHo15cjNiUX+DpIWi5slnjzc2G28LlyNBPWgSTjBKKdBBL0LGrwBiWOoY?=
- =?us-ascii?Q?R0XHjS8FtaJc/ORtTmCuJ1k3rUhDltn7wsuJOEO8Vb3y9Vzsz2hG+sgnz9dZ?=
- =?us-ascii?Q?3MEYCjLZt+8hFhVM6PlMlBlEaERfi1cJPqLiqJMjUgnXaw5UK7sAprndVXiu?=
- =?us-ascii?Q?fZeTH4Z14cTt6SZnKpI1atASC3FNrouec+EHUSk6mNsni4A4IFIJGqscnTVB?=
- =?us-ascii?Q?Iaw1YpbUjNaBi6WxHHD/Q1bD5J4+rqTg0l1jlaA2OeTOm3J1eYH+On81VB16?=
- =?us-ascii?Q?47TP5/BsL4RB2D3GyK/YTyX9+z92gH+KlogSSE1ZSsCBqlYvq2XuSqZs6oCs?=
- =?us-ascii?Q?Ja8QkkX5lI6pjWVYSXl3oybXHVfbVnrsSbOvdmCtsK2DpP4GTCzk+6iqeAyx?=
- =?us-ascii?Q?ktFNEU0opO3Erh2Gsf2sMZ4azYWlggGJ9xb4UdnwSUusfTi31klObY9zcz8D?=
- =?us-ascii?Q?kvlJki0XN5Mp6gvZBsN8fYmO0ub90nG43/RSAq5pzbwKudZvf0IOFmeH4ri3?=
- =?us-ascii?Q?xczqT4XlTCTqWnIkyjQ4ydVZgRlqL0l/1x+hRw8340cFqxTk2yJDo+IP+3Se?=
- =?us-ascii?Q?4S0hW/nXFWbKtzu2czDHoEqprigcLcKknDNiezzt6De4VWvMqyW8yPt+QtJP?=
- =?us-ascii?Q?bHUt6p1c5uc+b3xnORsQdkPNG1yEi/yH8XVkZPwhGLnKFFbrKd9m6d73G20E?=
- =?us-ascii?Q?11sT26NnMvOePz42nCnxd1Y0XTRtRNiNME0Tn8MIxrxnmnXIkPRpHKmjK9rw?=
- =?us-ascii?Q?ftl4MyS+F/IbJST95XV6jV9QZAXZRsh4tps3agaH/kfD+IqCq5OI2ZEIoOpJ?=
- =?us-ascii?Q?DZT5XGXohiKOqeqvNpuVPkEOzpV2VLc0LCY6OxajfklYlyoiQcNON02nPt0c?=
- =?us-ascii?Q?bygXFGxRDNE55ziiLp/FFxVJlpIlS4PG4PZUkA+/P4IKNZ6LsrPc5pb6tVb4?=
- =?us-ascii?Q?0aqdoY7WAAJMqt+S1C8EDWxpt9HCfUO9w/aJCiFXYNSUOtFvJCD4WV6v1rVS?=
- =?us-ascii?Q?jmIIsbHYL/Y8/zy/XTA1Zm7d+Nh/fqTMF4J4G6/nMBqY3vHagEwLd33qDOLA?=
- =?us-ascii?Q?3xarXhDpC5PQ4CEA7zjCMs49CBrUAwVpMUee+mDaUeWU/W0wJ5HqX1rEKHUc?=
- =?us-ascii?Q?WKbjSfIKY4kyrgR4Rds2rN1OTEuCPOqdOc0BV2yKsZnvCLz/dltbAOpA877r?=
- =?us-ascii?Q?damZMlrYEDu2Gd0ZNNc8VD77IaOO231Y2qVdj49X8t3ZATfousRWx4wZe158?=
- =?us-ascii?Q?PTykphpNkwHD8R/Aaw2aSS1wvGHID8U472iTlWYaAfjvZzUHCj6RvyOSXu9q?=
- =?us-ascii?Q?d0v6/ihsIjcFuNgPpxegcz0MBBq/+ZPGtZj/Get9EBGlZO7C1R8GGSBLwM9I?=
- =?us-ascii?Q?eylCPQvpe0d1ixJP6FsBTwY60OVqokqrOvNEg+Rfz4gII11rB9Zkollw0Qn6?=
- =?us-ascii?Q?szBcucsXSfYWifEh5TYBKjmfCn7fAeiUX4OEDgASMJ7CZMRmhxKT?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WXTGknR6qtLWGPoX1JwSx+U4eExmSFleVEiMNdIAzwkFjIR7jLtu8QHD0Yjh?=
+ =?us-ascii?Q?siIkAYB+W6lAeZPxtydduMwy+Ri5kDvpNjsWwwoOYj+ZaaRl2GkJCGTceODJ?=
+ =?us-ascii?Q?HtNF6pIlu+Ecn40KYfbZqO4synodrRB8bERF6/+E5EM0bw1W/wlIWDEtWoXT?=
+ =?us-ascii?Q?Bl6qrn7YSyk8+Zc/xvh5BiBI+QkohsLZEUazR8gX8bLZPSPnjgSIjMU4hUeQ?=
+ =?us-ascii?Q?aUt4/sYtHMjtNWlcyYNG7FcNeQC5AIq6EkarV0UXKXmHJbAZIVDaW86Zv3xz?=
+ =?us-ascii?Q?4V+dyFsEayHtGb4SxWQdeiIdnL9QCzH7v/C2xJ2/m3AkWoSAItjrnlB1z8Mp?=
+ =?us-ascii?Q?Ng9DwEQFx3kJbVPg4XgzpraNIaemXrazKPJW3ZZ9mBQdnBAsB/k3B1Y4ozlm?=
+ =?us-ascii?Q?Y7unrY63lHTzReWvImTDBuZ/WboYNACe4WK+RYNp6BxoqPfSBcGHYJzO3wKs?=
+ =?us-ascii?Q?pz9hwVFqZmCrEDYazyxd83nGZ2zTex8NTNhxM+HI7l2a6YTVfeSpCeYEJ4v4?=
+ =?us-ascii?Q?tTi3MRvp9OZfpF517WhJUO6UAmlIAPUcf3CN7ONRvfw6t+TvKd4ulcwKT7cA?=
+ =?us-ascii?Q?3SDyh543NNu7yq6JEClUzfP4uVoemYSulyAOBvVYmnZZcRY/6ewdLutC3bXS?=
+ =?us-ascii?Q?FO6HST+X0pkKjkEHfvQE9yqCG0Iavq1JrqjweaL7W7sa830LBleBDHvkLWHv?=
+ =?us-ascii?Q?jc4/RYzitR7rK1mmuHhlm+GsFQpkzKgmVEoX9LexPAxJozW4X373gyx2W8Mp?=
+ =?us-ascii?Q?siWIsMCIyKJQAnfOXLOMRTCdPqX7ktdfI3acZUuth6JntjhGl62FCucX7h0J?=
+ =?us-ascii?Q?38HqR9Qt2Tftufypm51ANxo70CmSWfKSQ4WoVPIKCZfl1uusLkx8smPinnPe?=
+ =?us-ascii?Q?oB4mb0SEHDTOwVGVZUJux4HjeB25lRMFrjcuYtB1NCvnmEAciizUndci0MML?=
+ =?us-ascii?Q?7o5aZkNrfn6blAxd64gHv99+qnaRXqOCX7igGhC85cjpgwlRCYfnGefqu8/d?=
+ =?us-ascii?Q?Prrvs3Wt+3whRAG/7wIub83aZsHfh8BpNJbOgb8ebyEDeAjnntAOmPo+q7XD?=
+ =?us-ascii?Q?EvJ3mR4hm8S08klMBIyy+od/aMwUxQcpZK5gE2NECqRPc/H9YXlnxK72tiYX?=
+ =?us-ascii?Q?kVzUsgzFSY3WvNpUy3Ezry1YQhV3exnnfJW/SmMZwLjoj92mgy8NUSW5gzza?=
+ =?us-ascii?Q?Kcsv5nxm48/7F7dCHbWC+f3MGFeQ9n35eWSiFMvho1BEy3uWvLerE0WlBOV5?=
+ =?us-ascii?Q?ovp2JNf6EETg6pXVkz8adyzhTzAFV5tYqqWGL0BACOVGnbo58TUntcXZuNvH?=
+ =?us-ascii?Q?jqhZ5qfrSfhYUWdm96cbDb7N4LfwxVvvgwpZdkaNGqc6LYmStUqZqZyOSiaB?=
+ =?us-ascii?Q?h6+J4rtrJvspDqUEDkCM72y9GIG18aaYyn2gdv9KX+C1GrF1n+PM3R01oi7f?=
+ =?us-ascii?Q?q2m1cYHkzj/YIAEhKiXR1qn8RLv5ELvnbwspu0RX7kzLRxVwPoeg8rRkY4/2?=
+ =?us-ascii?Q?jTzyCr0SfmLB9Pps5OR1hPh8VEnqm3l2vtAgbXHwM7p68VJW0raZK4aykpiO?=
+ =?us-ascii?Q?O/HP4Suw39OA8aPyuhKQPglKThzP/I2YOICp+p32ZtVyq2LVRldRaMFodWo8?=
+ =?us-ascii?Q?SJiPglwVrBm3CTNJXAJDLmzD+Jxo0ngDm5Qt6KUsj+EN5HNk2CHVADxb0ikR?=
+ =?us-ascii?Q?ArXcF1RRpAhpZ01nUIsc9RxHd4BlVQ3uMnrvIoaaZr26ZniZwpSY2TQLcCwR?=
+ =?us-ascii?Q?Jg0utv7+w6CLHSF9vBmoDAg2faWgh0OGLoshFUwjlSKgi2CvpPVx?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8bcf45ea-f464-45f1-cbb1-08de9b842b95
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97330bfe-1282-4916-0de5-08de9b842d82
 X-MS-Exchange-CrossTenant-AuthSource: NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 06:48:32.7795
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 06:48:33.5699
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nmhu3ILs3ucdZIAL7hLrPuNQiWTQNCF4uLdPb5v1nFDDdFUcdDrMhVeBfm2onCpw61jM1Y7W/+qK8dCXIy3m3WqVwUYa/DTrM2VEXTEoeXnLE6Hn4Y78qUVFFSRP55tY
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: NT0PR01MB1231
+X-MS-Exchange-CrossTenant-UserPrincipalName: Nthymyt+1cnP7to3c9bKY+qsuqZiKfqlAn7dOZ6wqvKxcXIjltQwWzsxRlZUNvCagpHI0yCSDvSyz3ya2RoLFtRtP9qUglF035SQEdgxc5V+2LeowZ37iPpPYX87X3P1
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: NT0PR01MB0958
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_234837_423649_532D49D3 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20260415_234900_759914_4550B18C 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,143 +137,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use devm_ interfaces to simplify resource release. Make clock and reset
-get optional as they are not used on the JHB100 SoC. Replace pr_ logging
-with dev_* logging. Use __free(kfree) cleanup attribute to auto-free irqc
-on error paths
+From: Mason Huo <mason.huo@starfivetech.com>
 
+StarFive JHB100 SoC interrupt controller actually supports 64 interrupt
+sources, the original code only supported up to 32. now it is extended
+to 64. Also use guard(raw_spinlock) to automatically release spinlocks.
+
+Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 ---
- drivers/irqchip/irq-starfive-jhb100-intc.c | 77 ++++++----------------
- 1 file changed, 20 insertions(+), 57 deletions(-)
+ drivers/irqchip/irq-starfive-jhb100-intc.c | 47 +++++++++++++---------
+ 1 file changed, 29 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/irqchip/irq-starfive-jhb100-intc.c b/drivers/irqchip/irq-starfive-jhb100-intc.c
-index 2c9cdad7f377..c33229b39a40 100644
+index c33229b39a40..b3d86bd926ed 100644
 --- a/drivers/irqchip/irq-starfive-jhb100-intc.c
 +++ b/drivers/irqchip/irq-starfive-jhb100-intc.c
-@@ -7,16 +7,15 @@
-  * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-  */
- 
--#define pr_fmt(fmt) "irq-starfive-jhb100: " fmt
--
- #include <linux/bitops.h>
-+#include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/irq.h>
- #include <linux/irqchip.h>
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqdomain.h>
--#include <linux/of_address.h>
- #include <linux/of_irq.h>
-+#include <linux/platform_device.h>
+@@ -19,10 +19,11 @@
  #include <linux/reset.h>
  #include <linux/spinlock.h>
  
-@@ -117,85 +116,49 @@ static void starfive_intc_irq_handler(struct irq_desc *desc)
- static int starfive_intc_probe(struct platform_device *pdev, struct device_node *parent)
+-#define STARFIVE_INTC_SRC0_CLEAR	0x10
+-#define STARFIVE_INTC_SRC0_MASK		0x14
+-#define STARFIVE_INTC_SRC0_INT		0x1c
++#define STARFIVE_INTC_SRC_CLEAR(n)	(0x10 + ((n) * 0x20))
++#define STARFIVE_INTC_SRC_MASK(n)	(0x14 + ((n) * 0x20))
++#define STARFIVE_INTC_SRC_INT(n)	(0x1c + ((n) * 0x20))
+ 
++#define STARFIVE_INTC_NUM		2
+ #define STARFIVE_INTC_SRC_IRQ_NUM	32
+ 
+ struct starfive_irq_chip {
+@@ -54,19 +55,25 @@ static void starfive_intc_bit_clear(struct starfive_irq_chip *irqc,
+ static void starfive_intc_unmask(struct irq_data *d)
  {
- 	struct device_node *intc = pdev->dev.of_node;
--	struct starfive_irq_chip *irqc;
- 	struct reset_control *rst;
- 	struct clk *clk;
- 	int parent_irq;
--	int ret;
+ 	struct starfive_irq_chip *irqc = irq_data_get_irq_chip_data(d);
++	int i, bitpos;
  
--	irqc = kzalloc_obj(*irqc);
-+	struct starfive_irq_chip *irqc __free(kfree) = kzalloc_obj(*irqc);
- 	if (!irqc)
- 		return -ENOMEM;
+-	raw_spin_lock(&irqc->lock);
+-	starfive_intc_bit_clear(irqc, STARFIVE_INTC_SRC0_MASK, BIT(d->hwirq));
+-	raw_spin_unlock(&irqc->lock);
++	i = d->hwirq / STARFIVE_INTC_SRC_IRQ_NUM;
++	bitpos = d->hwirq % STARFIVE_INTC_SRC_IRQ_NUM;
++
++	guard(raw_spinlock)(&irqc->lock);
++	starfive_intc_bit_clear(irqc, STARFIVE_INTC_SRC_MASK(i), BIT(bitpos));
+ }
  
--	irqc->base = of_iomap(intc, 0);
--	if (!irqc->base) {
--		pr_err("Unable to map registers\n");
--		ret = -ENXIO;
--		goto err_free;
--	}
-+	irqc->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (!irqc->base)
-+		return dev_err_probe(&pdev->dev, -ENXIO, "unable to map registers\n");
+ static void starfive_intc_mask(struct irq_data *d)
+ {
+ 	struct starfive_irq_chip *irqc = irq_data_get_irq_chip_data(d);
++	int i, bitpos;
++
++	i = d->hwirq / STARFIVE_INTC_SRC_IRQ_NUM;
++	bitpos = d->hwirq % STARFIVE_INTC_SRC_IRQ_NUM;
  
--	rst = of_reset_control_get_exclusive(intc, NULL);
--	if (IS_ERR(rst)) {
--		pr_err("Unable to get reset control %pe\n", rst);
--		ret = PTR_ERR(rst);
--		goto err_unmap;
--	}
-+	rst = devm_reset_control_get_optional_exclusive_deasserted(&pdev->dev, NULL);
-+	if (IS_ERR(rst))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(rst),
-+				     "Unable to get and deassert reset control\n");
+-	raw_spin_lock(&irqc->lock);
+-	starfive_intc_bit_set(irqc, STARFIVE_INTC_SRC0_MASK, BIT(d->hwirq));
+-	raw_spin_unlock(&irqc->lock);
++	guard(raw_spinlock)(&irqc->lock);
++	starfive_intc_bit_set(irqc, STARFIVE_INTC_SRC_MASK(i), BIT(bitpos));
+ }
  
--	clk = of_clk_get(intc, 0);
--	if (IS_ERR(clk)) {
--		pr_err("Unable to get clock %pe\n", clk);
--		ret = PTR_ERR(clk);
--		goto err_reset_put;
--	}
-+	clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "Unable to get and enable clock\n");
+ static struct irq_chip intc_dev = {
+@@ -98,16 +105,19 @@ static void starfive_intc_irq_handler(struct irq_desc *desc)
  
--	ret = reset_control_deassert(rst);
--	if (ret)
--		goto err_clk_put;
--
--	ret = clk_prepare_enable(clk);
--	if (ret)
--		goto err_reset_assert;
+ 	chained_irq_enter(chip, desc);
+ 
+-	value = ioread32(irqc->base + STARFIVE_INTC_SRC0_INT);
+-	while (value) {
+-		hwirq = ffs(value) - 1;
++	for (int i = 0; i < STARFIVE_INTC_NUM; i++) {
++		value = ioread32(irqc->base + STARFIVE_INTC_SRC_INT(i));
++		while (value) {
++			hwirq = ffs(value) - 1;
+ 
+-		generic_handle_domain_irq(irqc->domain, hwirq);
++			generic_handle_domain_irq(irqc->domain,
++						  hwirq + i * STARFIVE_INTC_SRC_IRQ_NUM);
+ 
+-		starfive_intc_bit_set(irqc, STARFIVE_INTC_SRC0_CLEAR, BIT(hwirq));
+-		starfive_intc_bit_clear(irqc, STARFIVE_INTC_SRC0_CLEAR, BIT(hwirq));
++			starfive_intc_bit_set(irqc, STARFIVE_INTC_SRC_CLEAR(i), BIT(hwirq));
++			starfive_intc_bit_clear(irqc, STARFIVE_INTC_SRC_CLEAR(i), BIT(hwirq));
+ 
+-		__clear_bit(hwirq, &value);
++			__clear_bit(hwirq, &value);
++		}
+ 	}
+ 
+ 	chained_irq_exit(chip, desc);
+@@ -140,7 +150,8 @@ static int starfive_intc_probe(struct platform_device *pdev, struct device_node
  
  	raw_spin_lock_init(&irqc->lock);
  
- 	irqc->domain = irq_domain_create_linear(of_fwnode_handle(intc), STARFIVE_INTC_SRC_IRQ_NUM,
+-	irqc->domain = irq_domain_create_linear(of_fwnode_handle(intc), STARFIVE_INTC_SRC_IRQ_NUM,
++	irqc->domain = irq_domain_create_linear(of_fwnode_handle(intc),
++						STARFIVE_INTC_SRC_IRQ_NUM * STARFIVE_INTC_NUM,
  						&starfive_intc_domain_ops, irqc);
--	if (!irqc->domain) {
--		pr_err("Unable to create IRQ domain\n");
--		ret = -EINVAL;
--		goto err_clk_disable;
--	}
-+	if (!irqc->domain)
-+		return dev_err_probe(&pdev->dev, -EINVAL, "Unable to create IRQ domain\n");
- 
- 	parent_irq = of_irq_get(intc, 0);
- 	if (parent_irq < 0) {
--		pr_err("Failed to get main IRQ: %d\n", parent_irq);
--		ret = parent_irq;
--		goto err_remove_domain;
-+		irq_domain_remove(irqc->domain);
-+		return dev_err_probe(&pdev->dev, parent_irq, "Failed to get main IRQ\n");
- 	}
- 
- 	irq_set_chained_handler_and_data(parent_irq, starfive_intc_irq_handler,
+ 	if (!irqc->domain)
+ 		return dev_err_probe(&pdev->dev, -EINVAL, "Unable to create IRQ domain\n");
+@@ -155,7 +166,7 @@ static int starfive_intc_probe(struct platform_device *pdev, struct device_node
  					 irqc);
  
--	pr_info("Interrupt controller register, nr_irqs %d\n",
--		STARFIVE_INTC_SRC_IRQ_NUM);
-+	dev_info(&pdev->dev, "Interrupt controller register, nr_irqs %d\n",
-+		 STARFIVE_INTC_SRC_IRQ_NUM);
+ 	dev_info(&pdev->dev, "Interrupt controller register, nr_irqs %d\n",
+-		 STARFIVE_INTC_SRC_IRQ_NUM);
++		 STARFIVE_INTC_SRC_IRQ_NUM * STARFIVE_INTC_NUM);
  
-+	retain_and_null_ptr(irqc);
+ 	retain_and_null_ptr(irqc);
  	return 0;
--
--err_remove_domain:
--	irq_domain_remove(irqc->domain);
--err_clk_disable:
--	clk_disable_unprepare(clk);
--err_reset_assert:
--	reset_control_assert(rst);
--err_clk_put:
--	clk_put(clk);
--err_reset_put:
--	reset_control_put(rst);
--err_unmap:
--	iounmap(irqc->base);
--err_free:
--	kfree(irqc);
--	return ret;
- }
- 
- IRQCHIP_PLATFORM_DRIVER_BEGIN(starfive_intc)
 -- 
 2.25.1
 
