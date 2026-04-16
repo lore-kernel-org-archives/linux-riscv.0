@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C277F8A171
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 12:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD85F8A171
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 13:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q816mbtcMnO+UP/zPxLi6DMDTwP+l94dr4qj0eUiZls=; b=oUUtbE/2QRb4+B
-	SOIG1zx5GsTDQWAvCLovaD9KGxrI9K5wcXNrKriDDzYsW2FGjffMdxlcCOxvnC7dTNGEA/mBQVFxP
-	0Gx32AE3+Z8P4zzWpFn63JthlKzPK078TO0zkLhNVM8zIR9OO8xu65HbxOkGIHrzFJwpFySJixRR0
-	P4jCxDEekB4k0OnqAVEul1I/ROcOahR7K10qERIS1/JcTWOzNUD5ZUJSRO2j4WEID6Ga+PGJPHvNO
-	TeJ40VMncEYcIHpwAv1mmtE/dRQil9vC9Ko4/0bC1CtpWaejgID3xL/hmQTE9y+dogMISswExViNO
-	1GdEuCfJSUxdJ3IQFlMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HFoV+R+75q+zLj5d5wtb6epAQw7g3174C3V/o6TWl0M=; b=0HRXNbKRXG717wyjF0koVRONn7
+	otAETjBZpZgKBCqJZFvgxRPN8D4GWdR8U0csc76sWT1SPFlZCv2o/8NzvgTB4Dk6Ocxu0TQ3Tvrnt
+	CdYKwgJRAQVwg48BgmP55B2tyHPowcTHbOOeWvcjGVjlbXmGjWa+uDUjuzwbw8wh3CmzPFbexfXHn
+	4NgDItuo3S4zX+xBJm+5fY2Ob9jUSYNYmSzUUnOr4iTiD0Law27FDBTs5glsg3Ei1stDBHOK2MlC+
+	pSNvwFaaDF3lvs73mW2RargP5LfMWCveERc3HaZkPD3yKMHwkVtf7rBVltmDNu6DOfNXB2137Lz/y
+	7X1qnVXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDMAa-00000002S97-42ik;
-	Thu, 16 Apr 2026 12:50:08 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	id 1wDMpO-00000002VKb-41tS;
+	Thu, 16 Apr 2026 13:32:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDMAX-00000002S80-2mbT
+	id 1wDMpO-00000002VKU-0qNi
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Apr 2026 12:50:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1776343797; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=v9AfV/9mPkcE/7rGdQ8V+Rjl8f6bwSP7TEK+AsjO7pk=;
-	b=iDInlTrnNd6DNj+PtCb460++6pjcQUxijXxbkYUbcJMKPfjaFEeQcR/KIzAB08Q90rd8eaw60PsLJBVgXFxgDP+tXokw0JkhQmA5dbuWb6CROPbatAAQqh9BTSt1qGCXsA7FYjb6/QyBYEbKsQ4T6kVUHhpzOihE0AdTgqTu8NM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0X18UPuq_1776343787;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X18UPuq_1776343787 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 16 Apr 2026 20:49:52 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com,
-	dapeng1.mi@linux.intel.com,
-	pjw@kernel.org,
-	alex@ghiti.fr,
-	guoren@kernel.org
-Cc: linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Pei <cp0613@linux.alibaba.com>
-Subject: [PATCH v2] perf riscv: Add SDT argument parsing for RISC-V
-Date: Thu, 16 Apr 2026 20:49:45 +0800
-Message-ID: <20260416124945.121699-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 16 Apr 2026 13:32:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 55BAB60127;
+	Thu, 16 Apr 2026 13:32:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93233C2BCAF;
+	Thu, 16 Apr 2026 13:32:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776346337;
+	bh=5jsNdZAvPN/aQ7v/9RuVBlZFv683BHPvvfUu6mF73hI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jN5L9trElGou4obH5qOghM3n6P7ClcTzG3YlITNqughPsg6inyd+UhrYDn6V0Tt7A
+	 wwI1iFhkAym3xTYfgJVeISrLNtYzfsVxvitCY51WeF7sUCLBvSm0RTCorAzpXBNtjx
+	 HXInbIbidFRVsuKMclvwIFQqbCGjN0k2m8f2JJYuRFcyu5UaJpUYNaucQ3rUCgz0n8
+	 ikzATsi+Fc3vLWEnpOn1vQ9n4KPm3IsYuwgfTST9Kc2mt6p+JBclpX9Jo8VBQlyB0S
+	 XQ/cffFP6xgQnN7dByUI0DW0ByPq1D/wm3DMmeOmO+5TnkepuhiOs7jymCa+2XoAga
+	 rKPpNITXZoIWg==
+Date: Thu, 16 Apr 2026 14:32:13 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] soc: microchip: mpfs-sys-controller: fix reference leak
+ on failed device registration
+Message-ID: <20260416-wish-impatient-f69a28478f89@spud>
+References: <20260415181635.3699592-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_055006_698484_46469533 
-X-CRM114-Status: GOOD (  13.73  )
+In-Reply-To: <20260415181635.3699592-1-lgs201920130244@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,239 +67,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2184396793300403411=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement __perf_sdt_arg_parse_op_riscv() to convert RISC-V GCC-generated
-SDT probe operands into uprobe-compatible format, and register it in the
-perf_sdt_arg_parse_op() dispatcher for EM_RISCV.
 
-RISC-V GCC uses the 'nor' constraint for SDT arguments, producing operands
-in the following formats:
+--===============2184396793300403411==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FonTAm9wP9KVSW0Z"
+Content-Disposition: inline
 
-  Format       Example      Uprobe format
-  -----------  -----------  -------------
-  register     a0           %a0
-  memory (+)   8(a0)        +8(%a0)
-  memory (-)   -20(s0)      -20(%s0)
-  constant     99           (skip, not supported by uprobe)
 
-Key differences from other architectures:
- - Register names use ABI aliases (a0-a7, t0-t6, s0-s11, sp, ra, etc.)
-   without any '%' prefix, unlike x86 (%rax) or arm64 (x0).
- - Memory operands use OFFSET(REG) syntax where OFFSET may be negative,
-   unlike arm64's [sp, NUM] or powerpc's NUM(%rREG).
+--FonTAm9wP9KVSW0Z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Two regexes are used:
- - SDT_OP_REGEX1: matches RISC-V ABI register names saved in pt_regs
- - SDT_OP_REGEX2: matches [-]NUM(REG) memory operands
+On Thu, Apr 16, 2026 at 02:16:35AM +0800, Guangshuo Li wrote:
+> When platform_device_register() fails in mpfs_sys_controller_probe(),
+> the embedded struct device in subdevs[i] has already been initialized by
+> device_initialize(), but the failure path only reports the error and
+> does not drop the device reference for the current platform device:
 
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
----
+Patch looks reasonable, but not urgent so I will pick it up after -rc1.
+Looking around it doesn't look like this will be a unique patch, so for
+other I would suggest that...
 
-Tested on RISC-V QEMU(rv64gc) with GCC-generated SDT probes.
-Requires systemtap-sdt-dev (provides <sys/sdt.h>) on the target system.
+>   mpfs_sys_controller_probe()
+>     -> platform_device_register(&subdevs[i])
+>        -> device_initialize(&subdevs[i].dev)
+>        -> setup_pdev_dma_masks(&subdevs[i])
+>        -> platform_device_add(&subdevs[i])
 
-  # cat sdt_test.c
-  #include <sys/sdt.h>
-  #include <stdio.h>
-  void my_func(int a, long b) {
-      DTRACE_PROBE2(myapp, my_probe, a, b);
-      printf("a=%d b=%ld\n", a, b);
-  }
-  int main() { my_func(42, -100); return 0; }
+=2E..you redo this section, as it's not clear to me what this actually
+is trying to communicate. AFAIU, what's wrong here is that
+device_initialize() calls kobject_init(), which needs a kobject_put()
+to clean up after it on failure. But this code snippet doesn't tell me
+that, I had to go look for where the reference count was actually
+incremented.
 
-  # gcc -O0 -Wl,--build-id -o sdt_test_O0 sdt_test.c  # stack args: -20(s0)
-  # gcc -O2 -Wl,--build-id -o sdt_test_O2 sdt_test.c  # reg args:   a0
-  # perf buildid-cache --add sdt_test_O0
-  # perf buildid-cache --add sdt_test_O2
-  # find ~/.debug -name "probes" | xargs cat
-  p:sdt_myapp/my_probe .../sdt_test_O0:0x530 arg1=-20(%s0):s32 arg2=-32(%s0):s64
-  p:sdt_myapp/my_probe .../sdt_test_O2:0x538 arg1=%a0:s32 arg2=%a1:s64
+>=20
+> This leads to a reference leak when platform_device_register() fails.
+> Fix this by calling platform_device_put() after reporting the error.
+>=20
+> The issue was identified by a static analysis tool I developed and
+> confirmed by manual review.
+>=20
+> Fixes: d0054a470c339 ("soc: add microchip polarfire soc system controller=
+")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+>  drivers/soc/microchip/mpfs-sys-controller.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/mi=
+crochip/mpfs-sys-controller.c
+> index 10b2fc39da66..404c31daf459 100644
+> --- a/drivers/soc/microchip/mpfs-sys-controller.c
+> +++ b/drivers/soc/microchip/mpfs-sys-controller.c
+> @@ -168,8 +168,10 @@ static int mpfs_sys_controller_probe(struct platform=
+_device *pdev)
+> =20
+>  	for (i =3D 0; i < ARRAY_SIZE(subdevs); i++) {
+>  		subdevs[i].dev.parent =3D dev;
+> -		if (platform_device_register(&subdevs[i]))
+> +		if (platform_device_register(&subdevs[i])) {
+>  			dev_warn(dev, "Error registering sub device %s\n", subdevs[i].name);
+> +			platform_device_put(&subdevs[i]);
+> +		}
+>  	}
+> =20
+>  	dev_info(&pdev->dev, "Registered MPFS system controller\n");
+> --=20
+> 2.43.0
+>=20
 
-Changes in v2:
- - Remove 'zero' (x0) from register regexes.
- - Fix sdt_init_op_regex() to return -ret on error.
+--FonTAm9wP9KVSW0Z
+Content-Type: application/pgp-signature; name="signature.asc"
 
- .../util/perf-regs-arch/perf_regs_riscv.c     | 128 ++++++++++++++++++
- tools/perf/util/perf_regs.c                   |   3 +
- tools/perf/util/perf_regs.h                   |   1 +
- 3 files changed, 132 insertions(+)
+-----BEGIN PGP SIGNATURE-----
 
-diff --git a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
-index 5b5f21fcba8c..bf769304c97c 100644
---- a/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
-+++ b/tools/perf/util/perf-regs-arch/perf_regs_riscv.c
-@@ -1,8 +1,136 @@
- // SPDX-License-Identifier: GPL-2.0
- 
-+#include <errno.h>
-+#include <regex.h>
-+#include <string.h>
-+#include <linux/kernel.h>
-+#include <linux/zalloc.h>
-+
-+#include "../debug.h"
- #include "../perf_regs.h"
- #include "../../arch/riscv/include/perf_regs.h"
- 
-+/*
-+ * RISC-V SDT argument formats (GCC 'nor' constraint):
-+ *
-+ * Register:  REG        e.g. a0, t1, s0, sp
-+ * Memory:    NUM(REG)   e.g. 8(a0), -20(s0)
-+ * Constant:  NUM        e.g. 99  (not supported by uprobe, skip)
-+ *
-+ * Note: 'zero' (x0) is hardwired to 0 and not in pt_regs; skip it.
-+ *
-+ * Uprobe target format:
-+ *   Register: %REG       e.g. %a0
-+ *   Memory:   +NUM(%REG) or -NUM(%REG)
-+ */
-+
-+/* RISC-V register ABI names: ra, sp, gp, tp, t0-t6, s0-s11, a0-a7 */
-+#define SDT_OP_REGEX1  "^(ra|sp|gp|tp|t[0-6]|s[0-9]|s1[01]|a[0-7])$"
-+
-+/* RISC-V memory operand: [-]NUM(REG) */
-+#define SDT_OP_REGEX2  "^(\\-)?([0-9]+)\\((ra|sp|gp|tp|t[0-6]|s[0-9]|s1[01]|a[0-7])\\)$"
-+
-+static regex_t sdt_op_regex1, sdt_op_regex2;
-+
-+static int sdt_init_op_regex(void)
-+{
-+	static int initialized;
-+	int ret = 0;
-+
-+	if (initialized)
-+		return 0;
-+
-+	ret = regcomp(&sdt_op_regex1, SDT_OP_REGEX1, REG_EXTENDED);
-+	if (ret)
-+		goto error;
-+
-+	ret = regcomp(&sdt_op_regex2, SDT_OP_REGEX2, REG_EXTENDED);
-+	if (ret)
-+		goto free_regex1;
-+
-+	initialized = 1;
-+	return 0;
-+
-+free_regex1:
-+	regfree(&sdt_op_regex1);
-+error:
-+	pr_debug4("Regex compilation error.\n");
-+	return -ret;
-+}
-+
-+/*
-+ * Parse OP and convert it into uprobe format.
-+ * Possible variants of OP (RISC-V, GCC 'nor' constraint):
-+ *
-+ *   Format         Example       Uprobe
-+ *   ----------------------------------------
-+ *   REG            a0            %a0
-+ *   NUM(REG)       8(a0)         +8(%a0)
-+ *   -NUM(REG)      -20(s0)       -20(%s0)
-+ *   NUM            99            (skip, constant not supported)
-+ */
-+int __perf_sdt_arg_parse_op_riscv(char *old_op, char **new_op)
-+{
-+	int ret, new_len;
-+	regmatch_t rm[4];
-+	char prefix;
-+
-+	/*
-+	 * Constant argument: pure integer with no trailing '(' (e.g. "99", "-1").
-+	 * uprobe does not support immediate values, so skip them.
-+	 * Memory operands like "8(a0)" or "-20(s0)" contain '(' so are NOT
-+	 * treated as constants here; they will be matched by REGEX2 below.
-+	 */
-+	if (strchr(old_op, '(') == NULL &&
-+	    ((*old_op >= '0' && *old_op <= '9') ||
-+	     (*old_op == '-' && old_op[1] >= '0' && old_op[1] <= '9'))) {
-+		pr_debug4("Skipping unsupported SDT argument: %s\n", old_op);
-+		return SDT_ARG_SKIP;
-+	}
-+
-+	ret = sdt_init_op_regex();
-+	if (ret < 0)
-+		return ret;
-+
-+	if (!regexec(&sdt_op_regex1, old_op, 2, rm, 0)) {
-+		/* REG --> %REG */
-+		new_len = 2;	/* % NULL */
-+		new_len += (int)(rm[1].rm_eo - rm[1].rm_so);
-+
-+		*new_op = zalloc(new_len);
-+		if (!*new_op)
-+			return -ENOMEM;
-+
-+		scnprintf(*new_op, new_len, "%%%.*s",
-+			(int)(rm[1].rm_eo - rm[1].rm_so), old_op + rm[1].rm_so);
-+	} else if (!regexec(&sdt_op_regex2, old_op, 4, rm, 0)) {
-+		/*
-+		 * NUM(REG) or -NUM(REG) --> +NUM(%REG) or -NUM(%REG)
-+		 * rm[1]: optional '-'
-+		 * rm[2]: decimal offset
-+		 * rm[3]: register name
-+		 */
-+		prefix = (rm[1].rm_so == -1) ? '+' : '-';
-+
-+		new_len = 5;	/* sign ( % ) NULL */
-+		new_len += (int)(rm[2].rm_eo - rm[2].rm_so);
-+		new_len += (int)(rm[3].rm_eo - rm[3].rm_so);
-+
-+		*new_op = zalloc(new_len);
-+		if (!*new_op)
-+			return -ENOMEM;
-+
-+		scnprintf(*new_op, new_len, "%c%.*s(%%%.*s)", prefix,
-+			(int)(rm[2].rm_eo - rm[2].rm_so), old_op + rm[2].rm_so,
-+			(int)(rm[3].rm_eo - rm[3].rm_so), old_op + rm[3].rm_so);
-+	} else {
-+		pr_debug4("Skipping unsupported SDT argument: %s\n", old_op);
-+		return SDT_ARG_SKIP;
-+	}
-+
-+	return SDT_ARG_VALID;
-+}
-+
- uint64_t __perf_reg_mask_riscv(bool intr __maybe_unused)
- {
- 	return PERF_REGS_MASK;
-diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
-index 5b8f34beb24e..57a1d227d1b2 100644
---- a/tools/perf/util/perf_regs.c
-+++ b/tools/perf/util/perf_regs.c
-@@ -19,6 +19,9 @@ int perf_sdt_arg_parse_op(uint16_t e_machine, char *old_op, char **new_op)
- 	case EM_PPC64:
- 		ret = __perf_sdt_arg_parse_op_powerpc(old_op, new_op);
- 		break;
-+	case EM_RISCV:
-+		ret = __perf_sdt_arg_parse_op_riscv(old_op, new_op);
-+		break;
- 	case EM_386:
- 	case EM_X86_64:
- 		ret = __perf_sdt_arg_parse_op_x86(old_op, new_op);
-diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
-index 7c04700bf837..e0b51b514ee0 100644
---- a/tools/perf/util/perf_regs.h
-+++ b/tools/perf/util/perf_regs.h
-@@ -53,6 +53,7 @@ const char *__perf_reg_name_powerpc(int id);
- uint64_t __perf_reg_ip_powerpc(void);
- uint64_t __perf_reg_sp_powerpc(void);
- 
-+int __perf_sdt_arg_parse_op_riscv(char *old_op, char **new_op);
- uint64_t __perf_reg_mask_riscv(bool intr);
- const char *__perf_reg_name_riscv(int id);
- uint64_t __perf_reg_ip_riscv(void);
--- 
-2.50.1
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeDk2QAKCRB4tDGHoIJi
+0uYlAP9jlC5TikxBBsshD3f6NCvCqkS5wpSKKXQ+4PDgxaTRsQEAmdxEMQNOD5Rz
+WSFeZN4GxrQyxQZbhSI/TV4vWuk9UA0=
+=cUvj
+-----END PGP SIGNATURE-----
 
+--FonTAm9wP9KVSW0Z--
+
+
+--===============2184396793300403411==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2184396793300403411==--
+
