@@ -4,130 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F13FF8A179
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 13:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9638F8D746
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 13:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=73o3ijHAtIHL94gZccKZZXupSDn1P6W1jdSeuZbygfE=; b=RPmt1zqwsbvBMf
-	kJpC8+ii8Kt2GMLkrE8lwRlpec+eq0wWE9E1jVPXCD2bEAd+xNmeXFz0EEL4XH4ZQGoSUONEuBAnW
-	3GaZ0wYO6gYs+XnKlfyHZXJKhgXF5D2+dQwitTgqOzd0xxZZ0S98EBN3HF/rHsVyBOco3hSjVKue8
-	Ge/OlJ+/SVQtgucJNemu+s+jg7WMD66jlajO+Xs1Jf6C6bhksUDwO1biC5uiwqDMWLaPHOKd4samS
-	2jllNxG5EKACppVsoDWwrsvD89PFuC2vw/s+1sAH7LNMClCraGU4RgOExQOgj7F/HgW5RvoWeVNiy
-	xH/kbLxG3kxDfl5BN7Fw==;
+	List-Owner; bh=RmMiB9zyvPkIUW1uIGy0hhIJIPmi3z+9jhvy0/NWeaI=; b=Hg3urnmMHh3CB5
+	x1bYnSEt/3F4LA9N1YK/ov4kFDq7X1GLzgE0HZekojnI0o6SgfJUqfNFfZQxpwyyS+BPDVh1Cc0ei
+	1YbXi7HWdqKCcDnv27nDBLt7Qt6PIMtnMklyyki4w3ppVJkmz014/2HhFnm2cf5Vd5t/Qc+H0dRJV
+	R6UqGhM/SmbgKmvfIrHOaiifNNfuZ86AVFrMovzina9GuR5lh9KMAMbu+6Ocn+xb0FCd4rGW4P+L0
+	ZZXH7yGYxlun9h2HkEoTr2brej28BpY38PBzgxoU0c6vtLc8y+ONX2KQZS5PvLGABz9nZj4mWbB3g
+	6C9uJJhbvTgroDLQcFCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDN0E-00000002WIx-0PKV;
-	Thu, 16 Apr 2026 13:43:30 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wDNEb-00000002XGk-1lC9;
+	Thu, 16 Apr 2026 13:58:21 +0000
+Received: from mail-yx1-xb12d.google.com ([2607:f8b0:4864:20::b12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDN0B-00000002WI7-0P9Q;
-	Thu, 16 Apr 2026 13:43:28 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63G7sGgI1833152;
-	Thu, 16 Apr 2026 13:42:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=f/UjitU2IRDQkjyHmpVEhuknZxwT4y
-	OWmcb/zMeZnjE=; b=oxq0L3dyylrzBDUlyV4jJBA8jSxvo6zyTFu2eZGBSWIf1F
-	0ksXNAaZF1WFKO90vuj3ti8LrXkR4WMFD+veRWCanALiSvqIPx5mj6AiZqVUTeh6
-	tnOUDFD8eG7uVm2ujOQXyKpmzLTf5Owa4nae6JyebU1il+cvOG4GPAishf31nirE
-	QHj8T3NZ/YPFd6hNRv9PVtfbIxtnQmC5vDBXeXZfk1L1NOqO7IX91VEsi/on5hTf
-	swPZjWAsNymtPrfj22h1nP6023klHtGdpOwHkZzHB+qFWDGTjvfilGSiiCmKXonp
-	ZKuwp6xlgpdmgU9LP0G+HpY0nEqSmz/YWYI5xffQ==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dh89rnpks-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Apr 2026 13:42:45 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 63GCrstO003393;
-	Thu, 16 Apr 2026 13:42:44 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4djbh94p47-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 16 Apr 2026 13:42:44 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 63GDggEf46530868
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 16 Apr 2026 13:42:42 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6D9BD20040;
-	Thu, 16 Apr 2026 13:42:42 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E411920043;
-	Thu, 16 Apr 2026 13:42:41 +0000 (GMT)
-Received: from osiris (unknown [9.52.214.206])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 16 Apr 2026 13:42:41 +0000 (GMT)
-Date: Thu, 16 Apr 2026 15:42:38 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, linux-s390@vger.kernel.org,
-        Arnd Bergmann <arnd@arndb.de>, x86@kernel.org,
-        Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev,
-        Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
-        linux-wireless@vger.kernel.org,
-        Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
-        Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org,
-        David Woodhouse <dwmw2@infradead.org>,
-        Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
-        Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
-        Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
-        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-        Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
-        "Jason A. Donenfeld" <Jason@zx2c4.com>,
-        Richard Henderson <richard.henderson@linaro.org>,
-        linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-        linux-arm-kernel@lists.infradead.org,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>,
-        Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org,
-        Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
-        Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
-        Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org,
-        "David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
-Subject: Re: [patch 35/38] s390: Select ARCH_HAS_RANDOM_ENTROPY
-Message-ID: <20260416134238.9230Ba6-hca@linux.ibm.com>
-References: <20260410120044.031381086@kernel.org>
- <20260410120319.924028412@kernel.org>
+	id 1wDNEY-00000002XGG-1Msw
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Apr 2026 13:58:19 +0000
+Received: by mail-yx1-xb12d.google.com with SMTP id 956f58d0204a3-651c366f7efso4850248d50.1
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Apr 2026 06:58:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776347897; cv=none;
+        d=google.com; s=arc-20240605;
+        b=daE9QUzZ2Rp1MAiWrXVenQP32POkYBeSdpLt3qKopbIz8Whkqd8G7JmGLA2v1ullib
+         rDHJnOcrPjmIVylXckqfviGjdNUOOnELKhw5nbtnSDWr44Moa4bFGunlsCWrcfEy5Zay
+         Z/fIdWwbbzgdsOj4fzLMbwGFD6WfumKWNfA7MwP8WMz8oO5UjfYoNrLmmGZsIWkhBRCy
+         OvK4YCJhNBb7pHt8b4L8HNtinCzRSog6SvMmrbCREr0AHWVW4v+mjgb/6w8iHxo7kVSS
+         hyNYRlu45kP8+v4DmltBUDynVrceMdBKLm2lqmDzYQeK7PoXMhCxaUmqL9roInLjT9j1
+         FHLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=bkcqnzcdGwh533gIx3Rxb25n/lc97a/7GxLLYQuAYoo=;
+        fh=p9CgbITmEBsdySdRFzjT3ra23hmHZ+NzL5ghUrPVBws=;
+        b=iWEJU9f1lk40SlGI5yz4UPUBkhLNcJXmBJpPAlM/zvqwqzRfhp1jbL8M3Volqem9r5
+         VXiO8dh//M/Jc1ZBrdMJIbx/aNnQlwLsxjn970xM6pcN1E7nf1ph4urIIw5GAvANOhT6
+         Cb4gaoLgq6oodpbzdZ75Pwpc/7j+JlDQ2A/PURu5pEuyMf9cRJIXzH81dBWj1stkaQ1J
+         JH26DXjJk6flYZkvbSRzyoj+tF7xRLMAKQ2Z96ow0AKQpVRz9WlWjWEkdPQU3F+swlcG
+         WizgryoYCdhcR0QqCcdNeplcMqCtq2YOZ5Hmc9r2euo43AjvZOsroY8BpHmv+kVJKHhD
+         CNwg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776347897; x=1776952697; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bkcqnzcdGwh533gIx3Rxb25n/lc97a/7GxLLYQuAYoo=;
+        b=J0ZjO7gVNFEyccdXKS4boHdYmuL6CpsWdJojgsUM0zLlJZd7BjbsQZKG26KxDOieAu
+         FIMV3t91Hr3dj8xoTXwhBiEGeM2G3LJbyQf9K65fOftSw3X2JzjOlFq3u++6ACFqr5KX
+         fmqRQ3Hdsm5XraGxlexj1V0yNnSWBva9cZMDVWE1T35zCh+NS/3WkXUTP7jXrMWUNyc2
+         Lyv7Gbrd592MhF7yaToxZHpY3iFv/Dj4k+V95O0Ty/53ci5/dXky7YFInV1VvOBO8hBs
+         rnNV3r321NACtWsV+qBvWF+dM94vLzKAeoZIPhySRSmE0XXXqzr1lCdyBLqYYSlJ5lgI
+         D+4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776347897; x=1776952697;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bkcqnzcdGwh533gIx3Rxb25n/lc97a/7GxLLYQuAYoo=;
+        b=JrnehGVlRbzUp2azsB6gvN5BCYoynyk4F33uMS586tLv3Us+SU0FlsuCyjJJ3FE7yu
+         iKJ71hXcuxMKOZKPP9mEfMzxTePt2JN/ZcKnwxWjj7AetIhwXOKPfTMLKNkOLpqS9Iqz
+         gp0tqqvHJSAaIAmidlQCsSbyg5J7UE05iovqE5t+RY7HjAru4FcFYdn+IgKCwNjdhQOd
+         KeCXAQox+dhCgnUS2/mUM5Y/pFb5RWnLRqT7lk+fdzsk9k4o0agv+WReK2zZTix24pR/
+         y1knbi3f47mBHach0darwvD7mOM3y7kUkFMU+8R4cPFSueYtrC9hVnJog2bWDNn+XOek
+         XmWA==
+X-Forwarded-Encrypted: i=1; AFNElJ/lzgc9St9qXJptiQqKRmccUMY7KVCxs0/846z6z+LwY57CdqFrZk6Y3Z1t7MoF+P4rziz1vUaH4GbYDA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHhSZVUu1puvnIdDe9a8e/lbg38UABq5BgeTyEET0FBn30RVy0
+	YQvrJGO/PHPDn/qyIC4oyddNkj+JPOY004GnP3FqKeIr4uUGqaFXUvzPpGY4cpfteixYEvAF7Hq
+	Qrlvy2MUYeill5d8AKz8OcHzYmq4eGSsBO4eQI4bOXcBa
+X-Gm-Gg: AeBDieve/vv/tmLamYEqqdOHRPV/M90IVXqeS4fhSLx6gQ4mrRiSCUsVJj5yhynrZV8
+	2bvOx816Z61q9k0/X5EF5YveH5ZqLNNvWEdqgRGCKzTK4c9G8meLgoyegyxyHDVLY/n5XirVatl
+	ki3erpXtA17uxkZLVFLcHjzbWHjjIRW4R58eCTA3yuhHJ2CmZhB6SXWxgC/vIBzkoQldVyA7W2K
+	HA3MOQDjWmYffENJFQPVfec/y+YhJ6yp43efIjA0BzV3F6yOWOILO8mWcXe5kWclkGMGwG7Wyam
+	p93F0Y60IUC3jbnk5h0U
+X-Received: by 2002:a05:690e:144c:b0:651:d199:51f4 with SMTP id
+ 956f58d0204a3-651d1995791mr13902937d50.22.1776347897133; Thu, 16 Apr 2026
+ 06:58:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260410120319.924028412@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDE2MDEyNyBTYWx0ZWRfX8JpaMjFpMFNj
- wT/gcAkcZviN6PAKMrtow2zaUGLfcmRJE1Hmlajk6nmzRCOPN3b0RjfUSbBfZ4kcpBQKzFkFpH2
- rBdoNFGP+ENma7o4H4KbJVfdl551lLtrUhXHjq9OwNJzXZ+me9M1v1uiIYgnebcgn173Z5tfoDR
- wlQdz0La24p7XZm2254oSjajXGSASA40rSmgRE/jrWjf8LX+uVSsnpdh3XNIiRv8V/PTkKj6EBp
- iBYTVRyCnznRY5uSBKmAQ36JyfUCJkrEoSNgw47/6thxuZYcD3Vho/t2EjbWxo9/yoIVwBhLMiA
- KDHNz3gXJ52J3z8Lw3ApjdhxznJ9LyQJp5nCQBfITC+W8sZcyql8UU+3NCgtkDEKALiOvDUmzX8
- cTJk9dj+/qvxdwTfyZTWoW7vy+HckV57wQs+QYABEOJZttft9F9OCKr+PfGIpmBZixsJntlLk+Y
- lz3L+7/h8eZbcTrAKmg==
-X-Proofpoint-ORIG-GUID: rje87_dJEfU9HQ1lSMRsbGj9D9EjeiT6
-X-Proofpoint-GUID: mvWCwZrNw9W7TL82vJ98uT3DrwWfuFPP
-X-Authority-Analysis: v=2.4 cv=fYidDUQF c=1 sm=1 tr=0 ts=69e0e756 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=1gfdoSPoDaBUdwTi8XQA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-16_03,2026-04-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 clxscore=1011 malwarescore=0 phishscore=0
- bulkscore=0 priorityscore=1501 spamscore=0 suspectscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604070000 definitions=main-2604160127
+References: <20260415181635.3699592-1-lgs201920130244@gmail.com> <20260416-wish-impatient-f69a28478f89@spud>
+In-Reply-To: <20260416-wish-impatient-f69a28478f89@spud>
+From: Guangshuo Li <lgs201920130244@gmail.com>
+Date: Thu, 16 Apr 2026 21:58:05 +0800
+X-Gm-Features: AQROBzBcT5nRWC-Jqyb1EIHvUGQB4_h3eHLixuZBdXDLrz4V_7cc1gf7Qn5s7o4
+Message-ID: <CANUHTR_d8NjkX8HkvnL4GAC1rb3yGB_vKtvw4u2Nezxz5=2S0A@mail.gmail.com>
+Subject: Re: [PATCH] soc: microchip: mpfs-sys-controller: fix reference leak
+ on failed device registration
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_064327_152327_BA0651DD 
-X-CRM114-Status: GOOD (  24.75  )
+X-CRM114-CacheID: sfid-20260416_065818_373471_30DA1AA3 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,68 +118,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 02:21:19PM +0200, Thomas Gleixner wrote:
-> The only remaining non-architecture usage of get_cycles() is to provide
-> random_get_entropy().
-> 
-> Switch s390 over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY and
-> providing random_get_entropy() in asm/random.h.
-> 
-> Add 'asm/timex.h' includes to the relevant files, so the global include can
-> be removed once all architectures are converted over.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: linux-s390@vger.kernel.org
-> ---
->  arch/s390/Kconfig              |    1 +
->  arch/s390/include/asm/random.h |   12 ++++++++++++
->  arch/s390/include/asm/timex.h  |    6 ------
->  arch/s390/kernel/time.c        |    1 +
->  arch/s390/kernel/vtime.c       |    1 +
->  5 files changed, 15 insertions(+), 6 deletions(-)
+Hi Conor,
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+Thanks for the review.
 
-Thomas, would you mind adding the below as minor improvement to this
-series?
+On Thu, 16 Apr 2026 at 21:32, Conor Dooley <conor@kernel.org> wrote:
+>
 
-From 7072e5d66b99a7fa666d17c6ad8cb254f2d8f473 Mon Sep 17 00:00:00 2001
-From: Heiko Carstens <hca@linux.ibm.com>
-Date: Thu, 16 Apr 2026 15:08:15 +0200
-Subject: [PATCH] s390: Use get_tod_clock_fast() for random_get_entropy()
+> Patch looks reasonable, but not urgent so I will pick it up after -rc1.
+> Looking around it doesn't look like this will be a unique patch, so for
+> other I would suggest that...
+>
+> >   mpfs_sys_controller_probe()
+> >     -> platform_device_register(&subdevs[i])
+> >        -> device_initialize(&subdevs[i].dev)
+> >        -> setup_pdev_dma_masks(&subdevs[i])
+> >        -> platform_device_add(&subdevs[i])
+>
+> ...you redo this section, as it's not clear to me what this actually
+> is trying to communicate. AFAIU, what's wrong here is that
+> device_initialize() calls kobject_init(), which needs a kobject_put()
+> to clean up after it on failure. But this code snippet doesn't tell me
+> that, I had to go look for where the reference count was actually
+> incremented.
+>
 
-Use get_tod_clock_fast() instead of get_tod_clock_monotonic() to implement
-random_get_entropy().
+I also think your point makes sense. While this patch may look
+reasonable at the caller side, the correct fix may not be to handle
+individual callers one by one. It may be better to address this in
+platform_device_register() itself if the failure semantics there are
+the real issue.
 
-There is no need for random_get_entropy() to provide monotonic increasing
-values, nor is there any need to provide (close to) nanosecond granularity
-timestamps by shifting the result.
+We are currently discussing that possibility in another patch of the
+same kind, to see whether fixing the API/core code would be a better
+approach than patching each caller separately:
 
-This slightly reduces the execution time of random_get_entropy() and adds
-two bits of randomness.
+https://patchew.org/linux/20260415174159.3625777-1-lgs201920130244@gmail.com/
 
-Signed-off-by: Heiko Carstens <hca@linux.ibm.com>
----
- arch/s390/include/asm/random.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/s390/include/asm/random.h b/arch/s390/include/asm/random.h
-index 7daf42dbed32..f6d9312efdbf 100644
---- a/arch/s390/include/asm/random.h
-+++ b/arch/s390/include/asm/random.h
-@@ -6,7 +6,7 @@
- 
- static inline unsigned long random_get_entropy(void)
- {
--	return (unsigned long)get_tod_clock_monotonic() >> 2;
-+	return get_tod_clock_fast();
- }
- 
- #endif
--- 
-2.51.0
-
+Thanks,
+Guangshuo
 
 _______________________________________________
 linux-riscv mailing list
