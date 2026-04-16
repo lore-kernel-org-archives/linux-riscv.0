@@ -4,47 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA5EF8DFCC
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 21:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C25EF8E48F
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 23:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xukkMRA9ZT9+IQauwJwBEPtjlpIoRZr6QxpP3/horHs=; b=CVfTgDmu4SJiRP
-	/mXicFtDZK3jFHWwYPUzxxrmh9eDavdo1caqmEZgjA9llmb3u7VuHPngIGi3AmKfxtmh7kN2D4mvO
-	ppJ2JY6GOIGD7zNbG5QQ0gxQRagJk+OO7SzagELECkExjmo/tBKFibsRSsGZLKiv/ZEUFkZ2jtrNc
-	Dh/qd7K9Tv6bmBzWyqGXc6TP0RMxpnMclrxslSqaeFV5eoe8yARMP68k+LYAlhjSHc6/fbbFp2Js2
-	RPVjCj4MFrRTaZ+qEr/uVKtzDv8cEOCIdHF30625STILUdVH1CJCScJoAyFNZ4kJYxchmS4Mxp+qG
-	e3e4DyO0V22BswJ6yErw==;
+	List-Owner; bh=YHOLvzqfxhHNq73SkPOMjKwjc9tTdTmQHqrw2hvYghQ=; b=cDZHFfhAeMq9p/
+	ex8xkxVUv3VxLjTqXtldDsKlxGJCinOyCpLshU4Axb3itCiJL8KKJUFXMqnixjGepo23GwNRkiQru
+	CoJRXIIod0xKskxITjC1KuiBEqSi3+61AJZ+9NTt9/9TFmIOVaFFbwXH7vLyfhqCGvyXKfQVy8O1z
+	QcsloD5eO9pwr3mPET7Mad8nu8zYMDy0P180nbB2gAk388lhJwUNT7O+BuK4M3jeV0EJitK5jJl+c
+	7xxTfSHbt1AqowNcDAOhJLqnOXVcbZcjHMba0y5B8+zGCy2KFo7zhKP+2Auf3x2BMna0RNrl52KYF
+	7iNpTkZJ7HJhJRdjpLhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDUJj-000000035XZ-23oO;
-	Thu, 16 Apr 2026 21:32:07 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDUJh-000000035XC-1VXB;
-	Thu, 16 Apr 2026 21:32:05 +0000
-Message-ID: <c325d85e-98d2-4e35-b7e7-7bb4d6ee77aa@infradead.org>
-Date: Thu, 16 Apr 2026 14:32:04 -0700
+	id 1wDVv8-00000003AWr-0lIk;
+	Thu, 16 Apr 2026 23:14:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDVv6-00000003AWd-0Anj
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Apr 2026 23:14:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B72A460128;
+	Thu, 16 Apr 2026 23:14:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05EA7C2BCAF;
+	Thu, 16 Apr 2026 23:14:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776381286;
+	bh=RhsfpYz074F1zePwsOPGjbA5V2kooOyckVK4f6GXIk4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NTMIg5lc3fADC3RVjtb/nXqcZ9BcKgCzLhBR3tkx8LcPqe8Ad2YkIiSZAhMyphak0
+	 eNk+m+KBWBde1BDwzsFNm2J8pe/CPA8qdHqCelvAHvwPlnIWSErK8xnx9A8UBoFKCi
+	 qJ9trDIUsDxdC7HhK1Vn05v3RmIe7x8aWKetbM1mXT6xFuXIifk8qsFUS5cSnHe/jz
+	 XNtMpOXtTIKmmKqqCKnksphbrE/uqkch1UYmQ7eDaQyO0yp8QmEzTWhw9uUowTpTL+
+	 Y2lAz6mv8IhFAEioFlRSnBgwi6Tz16gpjzRCYetdHjoPfbod13MyX2BUg20EdDlMNY
+	 dva47sy68HDDQ==
+Date: Thu, 16 Apr 2026 16:14:41 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>, yury.norov@gmail.com
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux@rasmusvillemoes.dk, arnd@arndb.de,
+	cp0613@linux.alibaba.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arch/riscv: Add bitrev.h file to support rev8 and
+ brev8
+Message-ID: <20260416231441.GA12905@ax162>
+References: <20260415093827.2776328-1-ruanjinjie@huawei.com>
+ <20260415093827.2776328-3-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] Auto-generate maintainer profile entries
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, workflows@vger.kernel.org,
- Alexandre Ghiti <alex@ghiti.fr>, Shuah Khan <skhan@linuxfoundation.org>,
- Dan Williams <djbw@kernel.org>
-References: <cover.1776242739.git.mchehab+huawei@kernel.org>
- <88335220-3527-4b1f-9500-417f7ebb7a02@infradead.org>
- <20260416100026.3df67a72@foz.lan>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260416100026.3df67a72@foz.lan>
+Content-Disposition: inline
+In-Reply-To: <20260415093827.2776328-3-ruanjinjie@huawei.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,271 +73,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/16/26 1:00 AM, Mauro Carvalho Chehab wrote:
-> On Wed, 15 Apr 2026 13:41:16 -0700
-> Randy Dunlap <rdunlap@infradead.org> wrote:
+On Wed, Apr 15, 2026 at 05:38:27PM +0800, Jinjie Ruan wrote:
+> The RISC-V Bit-manipulation Extension for Cryptography (Zbkb) provides
+> the 'brev8' instruction, which reverses the bits within each byte.
+> Combined with the 'rev8' instruction (from Zbb or Zbkb), which reverses
+> the byte order of a register, we can efficiently implement 16-bit,
+> 32-bit, and (on RV64) 64-bit bit reversal.
 > 
->> Hi Mauro,
->>
->> Thanks for tackling this issue.
->>
->> On 4/15/26 1:52 AM, Mauro Carvalho Chehab wrote:
->>> Date: Tue, 14 Apr 2026 16:29:03 +0200
->>> From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
->>> To: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, Dan Williams <djbw@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>
->>> Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, workflows@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Shuah Khan <skhan@linuxfoundation.org>
->>> Message-ID: <cover.1776176108.git.mchehab+huawei@kernel.org>
->>>
->>> Hi Dan/Jon,
->>>
->>> This patch series change the way maintainer entry profile links
->>> are added to the documentation. Instead of having an entry for
->>> each of them at an ReST file, get them from MAINTAINERS content.
->>>
->>> That should likely make easier to maintain, as there will be a single
->>> point to place all such profiles.
->>>
->>> On this version, I added Dan's text to patch 4.
->>>
->>> I also added a couple of other patches to improve its output. While
->>> I could have them merged at the first patch, I opted to make them
->>> separate, as, in case of problems or needed changes, it would be
->>> easier to revert or modify the corresponding logic. Also, it should
->>> be better to review, in case one wants some changes there.
->>>
->>> The main changes against RFC are:
->>>
->>> - now, the TOC will be presented with 1 depth identation level,
->>>   meaning that it would look like a list;
->>> - for files outside Documentation/process, it will use the name of
->>>   the subsystem with title capitalization for the name of the
->>>   profile entry;
->>> - the logic also parses and produces a list of profiles that are
->>>   maintained elsewhere, picking its http/https link;
->>> - entries are now better sorted: first by subsystem name, then
->>>   by its name.
->>>
->>> Suggested-by: Dan Williams <djbw@kernel.org>
->>> Closes: https://lore.kernel.org/linux-doc/69dd6299440be_147c801005b@djbw-dev.notmuch/
->>>
->>> Mauro Carvalho Chehab (8):
->>>   docs: maintainers_include: auto-generate maintainer profile TOC
->>>   MAINTAINERS: add an entry for media maintainers profile
->>>   MAINTAINERS: add maintainer-tip.rst to X86
->>>   docs: auto-generate maintainer entry profile links
->>>   docs: maintainers_include: use a better title for profiles
->>>   docs: maintainers_include: add external profile URLs
->>>   docs: maintainers_include: preserve names for files under process/
->>>   docs: maintainers_include: Only show main entry for profiles
->>>
->>>  .../maintainer/maintainer-entry-profile.rst   |  24 +---
->>>  .../process/maintainer-handbooks.rst          |  17 ++-
->>>  Documentation/sphinx/maintainers_include.py   | 131 +++++++++++++++---
->>>  MAINTAINERS                                   |   2 +
->>>  4 files changed, 128 insertions(+), 46 deletions(-)  
->>
->> When building htmldocs with O=DOCS, I get a bunch of warnings.
->> I tested against today's linux-next tree.
->>
->> The 'make O=DOCS htmldocs' warnings are (subset of all warnings):
->>
->> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/process/maintainer-kvm-x86' [toc.not_readable]
->> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/filesystems/xfs/xfs-maintainer-entry-profile' [toc.not_readable]
->> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/process/maintainer-soc-clean-dts' [toc.not_readable]
->> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/process/maintainer-netdev' [toc.not_readable]
->> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/process/maintainer-tip' [toc.not_readable]
->>
->> linux-next/Documentation/filesystems/nfs/nfsd-maintainer-entry-profile.rst: WARNING: document isn't included in any toctree [toc.not_included]
->> linux-next/Documentation/process/maintainer-kvm-x86.rst: WARNING: document isn't included in any toctree [toc.not_included]
->> linux-next/Documentation/process/maintainer-netdev.rst: WARNING: document isn't included in any toctree [toc.not_included]
->> linux-next/Documentation/process/maintainer-soc.rst: WARNING: document isn't included in any toctree [toc.not_included]
->> linux-next/Documentation/process/maintainer-soc-clean-dts.rst: WARNING: document isn't included in any toctree [toc.not_included]
->> linux-next/Documentation/process/maintainer-tip.rst: WARNING: document isn't included in any toctree [toc.not_included]
->>
->> linux-next/MAINTAINERS:1: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-soc' [ref.doc]
->> linux-next/MAINTAINERS:2: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-soc-clean-dts' [ref.doc]
->> linux-next/MAINTAINERS:3: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-soc-clean-dts' [ref.doc]
->> linux-next/MAINTAINERS:5: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-tip' [ref.doc]
->> linux-next/MAINTAINERS:6: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-tip' [ref.doc]
+> This is significantly faster than the default software table-lookup
+> implementation in lib/bitrev.c, as it replaces memory accesses and
+> multiple arithmetic operations with just two or three hardware
+> instructions.
 > 
-> Heh, os.path.relpath() does the wrong thing here.
+> Select HAVE_ARCH_BITREVERSE and provide <asm/bitrev.h> to utilize
+> these instructions when the Zbkb extension is available at runtime
+> via the alternatives mechanism.
 > 
-> The enclosed patch should handle it better.
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/riscv/Kconfig              |  1 +
+>  arch/riscv/include/asm/bitrev.h | 41 +++++++++++++++++++++++++++++++++
+>  2 files changed, 42 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/bitrev.h
 > 
-> Thanks,
-> Mauro
-> 
-> [PATCH] docs: maintainers_include: fix support for O=dir
-> 
-> os.path.relpath() will do the wrong thing with O=dir, as the build
-> system uses "cd <dir>" internally.
-> 
-> Solve it by using app.srcdir, which, on normal cases, point to
-> Documentation/, or, when SPHINXDIRS=process, it will be set with
-> Documentation/process.
-> 
-> While here, remove a dead code while writing maintainer profiles,
-> as now all entries should have both profile and entry.
-> 
-> Reported-by: Randy Dunlap <rdunlap@infradead.org>
-> Closes: https://lore.kernel.org/linux-doc/88335220-3527-4b1f-9500-417f7ebb7a02@infradead.org/T/#m6854cbd8d30e2c5d3e8c4173bae1c3d6922ff970
-> Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-> 
-> diff --git a/Documentation/sphinx/maintainers_include.py b/Documentation/sphinx/maintainers_include.py
-> index 5413c1350bba..fff9bdd55a56 100755
-> --- a/Documentation/sphinx/maintainers_include.py
-> +++ b/Documentation/sphinx/maintainers_include.py
-> @@ -27,15 +27,24 @@ from docutils import statemachine
->  from docutils.parsers.rst import Directive
->  from docutils.parsers.rst.directives.misc import Include
->  
-> +#
-> +# Base URL for intersphinx-like links to maintainer profiles
-> +#
-> +KERNELDOC_URL = "https://docs.kernel.org/"
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 90c531e6abf5..05f2b2166a83 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -128,6 +128,7 @@ config RISCV
+>  	select HAS_IOPORT if MMU
+>  	select HAVE_ALIGNED_STRUCT_PAGE
+>  	select HAVE_ARCH_AUDITSYSCALL
+> +	select HAVE_ARCH_BITREVERSE if RISCV_ISA_ZBKB
+>  	select HAVE_ARCH_HUGE_VMALLOC if HAVE_ARCH_HUGE_VMAP
+>  	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT
+>  	select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
+> diff --git a/arch/riscv/include/asm/bitrev.h b/arch/riscv/include/asm/bitrev.h
+> new file mode 100644
+> index 000000000000..9f205ac84796
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/bitrev.h
+> @@ -0,0 +1,41 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_BITREV_H
+> +#define __ASM_BITREV_H
 > +
->  def ErrorString(exc):  # Shamelessly stolen from docutils
->      return f'{exc.__class__.__name}: {exc}'
->  
->  __version__  = '1.0'
->  
-> +base_dir = "."
+> +#include <linux/types.h>
+> +#include <asm/cpufeature-macros.h>
+> +#include <asm/hwcap.h>
+> +#include <asm-generic/bitops/__bitrev.h>
 > +
->  class MaintainersParser:
->      """Parse MAINTAINERS file(s) content"""
->  
-> -    def __init__(self, base_path, path):
-> +    def __init__(self, path):
-> +        global base_dir
+> +static __always_inline __attribute_const__ u32 __arch_bitrev32(u32 x)
+> +{
+> +	unsigned long result = x;
 > +
->          self.profile_toc = set()
->          self.profile_entries = {}
->  
-> @@ -76,9 +85,18 @@ class MaintainersParser:
->              #
->              # Handle profile entries - either as files or as https refs
->              #
-> -            match = re.match(r"P:\s*(Documentation/\S+)\.rst", line)
-> +            match = re.match(r"P:\s*Documentation(/\S+)\.rst", line)
->              if match:
-> -                entry = os.path.relpath(match.group(1), base_path)
-> +                entry = os.path.relpath(match.group(1), base_dir)
-> +
-> +                #
-> +                # When SPHINXDIRS is used, it will try to reference files
-> +                # outside srctree, causing warnings. To avoid that, point
-> +                # to the latest official documentation
-> +                #
-> +                if entry.startswith("../"):
-> +                    entry = KERNELDOC_URL + match.group(1) + ".html"
-> +
->                  if "*" in entry:
->                      for e in glob(entry):
->                          self.profile_toc.add(e)
-> @@ -189,10 +207,10 @@ class MaintainersInclude(Include):
->      """MaintainersInclude (``maintainers-include``) directive"""
->      required_arguments = 0
->  
-> -    def emit(self, base_path, path):
-> +    def emit(self, path):
->          """Parse all the MAINTAINERS lines into ReST for human-readability"""
->  
-> -        output = MaintainersParser(base_path, path).output
-> +        output = MaintainersParser(path).output
->  
->          # For debugging the pre-rendered results...
->          #print(output, file=open("/tmp/MAINTAINERS.rst", "w"))
-> @@ -213,11 +231,10 @@ class MaintainersInclude(Include):
->  
->          # Append "MAINTAINERS"
->          path = os.path.join(path, "MAINTAINERS")
-> -        base_path = os.path.dirname(self.state.document.document.current_source)
->  
->          try:
->              self.state.document.settings.record_dependencies.add(path)
-> -            lines = self.emit(base_path, path)
-> +            lines = self.emit(path)
->          except IOError as error:
->              raise self.severe('Problems with "%s" directive path:\n%s.' %
->                        (self.name, ErrorString(error)))
-> @@ -227,27 +244,20 @@ class MaintainersInclude(Include):
->  class MaintainersProfile(Include):
->      required_arguments = 0
->  
-> -    def emit(self, base_path, path):
-> +    def emit(self, path):
->          """Parse all the MAINTAINERS lines looking for profile entries"""
->  
-> -        maint = MaintainersParser(base_path, path)
-> +        maint = MaintainersParser(path)
->  
->          #
->          # Produce a list with all maintainer profiles, sorted by subsystem name
->          #
->          output = ""
-> -
-> -        for profile, entry in maint.profile_entries.items():
-> +        for profile, entry in sorted(maint.profile_entries.items()):
->              if entry.startswith("http"):
-> -                if profile:
-> -                    output += f"- `{profile} <{entry}>`_\n"
-> -                else:
-> -                    output += f"- `<{entry}>_`\n"
-> +                output += f"- `{profile} <{entry}>`_\n"
->              else:
-> -                if profile:
-> -                    output += f"- :doc:`{profile} <{entry}>`\n"
-> -                else:
-> -                    output += f"- :doc:`<{entry}>`\n"
-> +                output += f"- :doc:`{profile} <{entry}>`\n"
->  
->          #
->          # Create a hidden TOC table with all profiles. That allows adding
-> @@ -277,11 +287,10 @@ class MaintainersProfile(Include):
->  
->          # Append "MAINTAINERS"
->          path = os.path.join(path, "MAINTAINERS")
-> -        base_path = os.path.dirname(self.state.document.document.current_source)
->  
->          try:
->              self.state.document.settings.record_dependencies.add(path)
-> -            lines = self.emit(base_path, path)
-> +            lines = self.emit(path)
->          except IOError as error:
->              raise self.severe('Problems with "%s" directive path:\n%s.' %
->                        (self.name, ErrorString(error)))
-> @@ -289,6 +298,15 @@ class MaintainersProfile(Include):
->          return []
->  
->  def setup(app):
-> +    global base_dir
-> +
-> +    #
-> +    # partition will pick the path after Documentation.
-> +    # NOTE: we're using os.fspath() here because of a Sphinx warning:
-> +    #   RemovedInSphinx90Warning: Sphinx 9 will drop support for representing paths as strings. Use "pathlib.Path" or "os.fspath" instead.
-> +    #
-> +    _, _, base_dir = os.fspath(app.srcdir).partition("Documentation")
-> +
->      app.add_directive("maintainers-include", MaintainersInclude)
->      app.add_directive("maintainers-profile-toc", MaintainersProfile)
->      return dict(
+> +	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBKB))
+> +		return generic___bitrev32(x);
 
-With that patch I still see 6 warnings:
+This breaks the build when CONFIG_HAVE_ARCH_BITREVERSE is set because
+generic___bitrev32() ultimately calls generic___bitrev8(), which uses
+byte_rev_table but that is only included in lib/bitrev.c when
+CONFIG_HAVE_ARCH_BITREVERSE is not set. How was this tested? This seems
+a pretty basic build problem that has showed up in a variety of
+configurations (at least all the configurations that our CI tests).
 
-linux-next/Documentation/filesystems/nfs/nfsd-maintainer-entry-profile.rst: WARNING: document isn't included in any toctree [toc.not_included]
-linux-next/Documentation/process/maintainer-kvm-x86.rst: WARNING: document isn't included in any toctree [toc.not_included]
-linux-next/Documentation/process/maintainer-netdev.rst: WARNING: document isn't included in any toctree [toc.not_included]
-linux-next/Documentation/process/maintainer-soc.rst: WARNING: document isn't included in any toctree [toc.not_included]
-linux-next/Documentation/process/maintainer-soc-clean-dts.rst: WARNING: document isn't included in any toctree [toc.not_included]
-linux-next/Documentation/process/maintainer-tip.rst: WARNING: document isn't included in any toctree [toc.not_included]
+  $ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux- mrproper defconfig all
+  ERROR: modpost: "byte_rev_table" [lib/zlib_deflate/zlib_deflate.ko] undefined!
+  ERROR: modpost: "byte_rev_table" [drivers/net/ethernet/spacemit/k1_emac.ko] undefined!
+  ERROR: modpost: "byte_rev_table" [drivers/net/ethernet/stmicro/stmmac/stmmac.ko] undefined!
 
+  https://github.com/ClangBuiltLinux/continuous-integration2/actions/runs/24529356842
+  https://lore.kernel.org/177635154368.6552.7060101263009785041@8692ffc4d55e/
 
--- 
-~Randy
+Yury, are you intending to send this series to Linus in the 7.1 merge
+window? If not, it shouldn't be in -next at this point.
 
+> +	asm volatile(
+> +		".option push\n"
+> +		".option arch,+zbkb\n"
+> +		"rev8 %0, %0\n"
+> +		"brev8 %0, %0\n"
+> +		".option pop"
+> +		: "+r" (result)
+> +	);
+> +
+> +	if (__riscv_xlen == 64)
+> +		return (u32)(result >> 32);
+> +
+> +	return (u32)result;
+> +}
+> +
+> +static __always_inline __attribute_const__ u16 __arch_bitrev16(u16 x)
+> +{
+> +	return __arch_bitrev32((u32)x) >> 16;
+> +}
+> +
+> +static __always_inline __attribute_const__ u8 __arch_bitrev8(u8 x)
+> +{
+> +	return __arch_bitrev32((u32)x) >> 24;
+> +}
+> +#endif
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
