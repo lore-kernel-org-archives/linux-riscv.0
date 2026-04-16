@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0DA0F433CC
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2026 22:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C035F433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 05:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YGrjfcvqCLkSf99eMa+G0PVjeyfNaVAeIvaOYLMoBlM=; b=dKdcm58T3Ofw7s
-	WmUZw6aUnyrYN3EuS3u25OpdaWAX8L3chLcG8UB16VWFbsLl5HPHiosA2o5QDuiBnlPfno9U7HmL0
-	0WmbN2WemBQhAv7tMNH7meEYRHaWa4HZN4MklowBRJWzbTWHFCmZZ3vnT91LLTclW+OoB9dxBkhc2
-	lJEYDKDTp++FtkwSeCVbDm7wHc3bf2tlmBqCNiJGPtibzWrErdyjAD2cbPg75fC2K+TS6nIN95LsJ
-	wBrJg3aAP/mkuzh4qUB6uapRC2AWVNmzcwTAAt8FQ2qM9Nk9cQWCVe45RNdVDG5yAeUeekqH0A9FC
-	+DNpweuyRjojRyVKdN4w==;
+	List-Owner; bh=a5oX0kiWJCS0tBtLyDCADn0QA3kQVnc6lmxYOrE1Ye0=; b=LRyXEMCcNgEKD2
+	F45nskhO0aO0B8OaLPnv8GbiwIEy2Odn6fkydAUC573qZY+UdJbdcphTnQPjBnXnC/ABXH7ZFw1mb
+	zQ2rahIuBjacRUbUeRCFxMQxBafoG3+Jj033Th28iBnNyIgw4Jn+3c7yw27ou+8hFjLwd+7eW2pTd
+	gHCQBmzBbJGjh+axymVwMYzotUwWWCjHcWQ1wVWbmEd6fLw51/lB9uN1ZkTmkO/U3V+b7sE9cLoeK
+	164awnvCAr5/McbvdFbn9Nu2l1AANIX7cEIiaGhHJg13P0BadLTHqobW4byWi6N4VaE+ZPsJgmGVe
+	2Iw3xNMnEqbRrI2t++1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD8W5-00000001g2p-2zzX;
-	Wed, 15 Apr 2026 22:15:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wD8Vw-00000001g0B-1DkG;
-	Wed, 15 Apr 2026 22:15:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B63C2BC4;
-	Wed, 15 Apr 2026 15:15:06 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 770373F7D8;
-	Wed, 15 Apr 2026 15:15:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776291311; bh=z1b1UFxdUWXZgcyhqU/Rpd+VVcm1I88qx0F9mNxjsug=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=c2mhktQuHXMlQ3Vp0/splKbRfVHOUm3hLMrCSbP67GNPWY1TLIXoVn0KUsaBioJLs
-	 ojRrx9hKbrMp+mpV9Zifj0BgIsdhRzC2WGhr4flEM9EE0BJbv/Pp5nK85Lcgz2IwjK
-	 2vH4vOZ3pF47bKw3AeolyKTSLpMq98gdfgPs9ExA=
-Date: Thu, 16 Apr 2026 00:14:46 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp
- Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org
-Subject: Re: [PATCH RFC 7/8] clk: sunxi-ng: a733: Add bus clock gates
-Message-ID: <646385ea-228b-46be-a199-02134cf76ed0@arm.com>
-In-Reply-To: <20260310-a733-clk-v1-7-36b4e9b24457@pigmoral.tech>
-References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
- <20260310-a733-clk-v1-7-36b4e9b24457@pigmoral.tech>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
-MIME-Version: 1.0
+	id 1wDFl9-000000021Us-3sHL;
+	Thu, 16 Apr 2026 05:59:27 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDFl7-000000021U6-1yku
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Apr 2026 05:59:26 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4fx6lq0M0Fz9v9H;
+	Thu, 16 Apr 2026 07:59:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1776319159;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vdYYj6riYPTbHMM03d5MjNlO26UgiwN7VzvRSyjNM9s=;
+	b=T0d5FZuIdovLQSma1yRC/MqVlnad0m/7B26hJJkNPWxROCk60QRoLX6Bc9CAlxB6n2IYfx
+	MvijupiQs9VPfrqOWiy/4JJhd4VBKXd6PyCdV7QuOJk/AG9lfupfKGTQkKXucNabXkIa5a
+	iwQWpZtPhnFoA6mKpS8xtGvZAD2KqMoojSTeo004xk4h8n1YlmMoaMTqEgUQhQtpk9x/w8
+	IC1iG90Z3MfzFqTuPpc1bi8s9eMMcHAAjfhC4GTi4LwF5ufeMsigGPzMmtbuDsxyrlbbwL
+	9YHRPd/atHZVjcZNxXj3DcpynbBjF4e2icTPz0tK1MnGVp9jW44Hgezo9OpmxQ==
+Mime-Version: 1.0
+Date: Thu, 16 Apr 2026 13:59:05 +0800
+Message-Id: <DHUCL24GMX7D.369IWK9DLPZPX@mailbox.org>
+Subject: Re: [PATCH v2 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
+From: "Shuwei Wu" <shuwei.wu@mailbox.org>
+To: "Anand Moon" <linux.amoon@gmail.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, "Viresh Kumar"
+ <viresh.kumar@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Yixun Lan" <dlan@kernel.org>, <linux-pm@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <devicetree@vger.kernel.org>
+References: <20260410-shadow-deps-v2-0-4e16b8c0f60e@mailbox.org>
+ <20260410-shadow-deps-v2-2-4e16b8c0f60e@mailbox.org>
+ <CANAwSgSNHO3MNewNzpYbhuj4K3NTdfzDC9KPoUHbFH97P4M_UQ@mail.gmail.com>
+In-Reply-To: <CANAwSgSNHO3MNewNzpYbhuj4K3NTdfzDC9KPoUHbFH97P4M_UQ@mail.gmail.com>
+X-MBO-RS-ID: b7b74779982dba8ead6
+X-MBO-RS-META: toouq7rwxsurys33hpqzupw7oknyhwcj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_151516_655310_750CC108 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20260415_225925_805151_D491A0A6 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,999 +79,292 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-cheekily jumping in here, for the parts that are easy to verify ;-)
-
-In general this series looks very good, and many thanks for splitting
-this up in reviewable chunks, that's much appreciated!
-
-On 3/10/26 09:34, Junhui Liu wrote:
-> Add the bus clock gates that control access to the devices' register
-> interface on the Allwinner A733 SoC. These clocks are typically
-> single-bit controls in the BGR registers, covering UARTs, SPI, I2C, and
-> various multimedia engines. It also includes bus gates for system
-> components like the IOMMU and MSI-lite interfaces.
-> 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> 
-> ---
-> The parents of some bus clocks are difficult to determine, as the user
-> manual only describes the clock source for a few instances. The current
-> configurations are based on references to previous Allwinner SoCs and
-> information gathered from the manual. Where documentation is lacking,
-> vendor practices are followed by setting the parent to "hosc" for now.
-> ---
->   drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 475 ++++++++++++++++++++++++++++++++-
->   1 file changed, 474 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> index 36b44568a56f..c0b09f9197d1 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> @@ -408,16 +408,19 @@ static SUNXI_CCU_M_DATA_WITH_MUX(ahb_clk, "ahb", ahb_apb_parents, 0x500,
->   				 0, 5,		/* M */
->   				 24, 2,		/* mux */
->   				 0);
-> +static const struct clk_hw *ahb_hws[] = { &ahb_clk.common.hw };
->   
->   static SUNXI_CCU_M_DATA_WITH_MUX(apb0_clk, "apb0", ahb_apb_parents, 0x510,
->   				 0, 5,		/* M */
->   				 24, 2,		/* mux */
->   				 0);
-> +static const struct clk_hw *apb0_hws[] = { &apb0_clk.common.hw };
->   
->   static SUNXI_CCU_M_DATA_WITH_MUX(apb1_clk, "apb1", ahb_apb_parents, 0x518,
->   				 0, 5,		/* M */
->   				 24, 2,		/* mux */
->   				 0);
-> +static const struct clk_hw *apb1_hws[] = { &apb1_clk.common.hw };
->   
->   static const struct clk_parent_data apb_uart_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -430,6 +433,9 @@ static SUNXI_CCU_M_DATA_WITH_MUX(apb_uart_clk, "apb-uart", apb_uart_parents, 0x5
->   				 0, 5,		/* M */
->   				 24, 3,		/* mux */
->   				 0);
-> +static const struct clk_hw *apb_uart_hws[] = {
-> +	&apb_uart_clk.common.hw
-> +};
->   
->   static const struct clk_parent_data trace_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -463,6 +469,8 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(cpu_peri_clk, "cpu-peri", gic_cpu_peri_par
->   				      BIT(31),	/* gate */
->   				      0);
->   
-> +static SUNXI_CCU_GATE_DATA(bus_its_pcie_clk, "bus-its-pcie", hosc, 0x574, BIT(1), 0);
-> +
->   static const struct clk_parent_data nsi_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
->   	{ .hw = &pll_ddr_clk.common.hw },
-> @@ -477,6 +485,7 @@ static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(nsi_clk, "nsi", nsi_parents, 0x580,
->   					    24, 3,	/* mux */
->   					    BIT(31),	/* gate */
->   					    0, CCU_FEATURE_UPDATE_BIT);
-> +static SUNXI_CCU_GATE_DATA(bus_nsi_clk, "bus-nsi", hosc, 0x584, BIT(0), 0);
->   
->   static const struct clk_parent_data mbus_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -493,9 +502,117 @@ static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x58
->   					    BIT(31),	/* gate */
->   					    CLK_IS_CRITICAL,
->   					    CCU_FEATURE_UPDATE_BIT);
-> +static const struct clk_hw *mbus_hws[] = { &mbus_clk.common.hw };
-> +
-> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_sys_clk, "mbus-iommu0-sys", mbus_hws, 0x58c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(apb_iommu0_sys_clk, "apb-iommu0-sys", apb0_hws, 0x58c, BIT(1), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_iommu0_sys_clk, "ahb-iommu0-sys", ahb_hws, 0x58c, BIT(2), 0);
-> +
-> +static SUNXI_CCU_GATE_DATA(bus_msi_lite0_clk, "bus-msi-lite0", hosc, 0x594, BIT(0), 0);
-> +static SUNXI_CCU_GATE_DATA(bus_msi_lite1_clk, "bus-msi-lite1", hosc, 0x59c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_DATA(bus_msi_lite2_clk, "bus-msi-lite2", hosc, 0x5a4, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_sys_clk, "mbus-iommu1-sys", mbus_hws, 0x5b4, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(apb_iommu1_sys_clk, "apb_iommu1-sys", apb0_hws, 0x5b4, BIT(1), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_iommu1_sys_clk, "ahb_iommu1-sys", ahb_hws, 0x5b4, BIT(2), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(ahb_ve_dec_clk, "ahb-ve-dec", ahb_hws,
-> +			  0x5c0, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_ve_enc_clk, "ahb-ve-enc", ahb_hws,
-> +			  0x5c0, BIT(1), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_vid_in_clk, "ahb-vid-in", ahb_hws,
-> +			  0x5c0, BIT(2), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout0_clk, "ahb-vid-cout0", ahb_hws,
-> +			  0x5c0, BIT(3), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_vid_cout1_clk, "ahb-vid-cout1", ahb_hws,
-> +			  0x5c0, BIT(4), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_de_clk, "ahb-de", ahb_hws,
-> +			  0x5c0, BIT(5), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_npu_clk, "ahb-npu", ahb_hws,
-> +			  0x5c0, BIT(6), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_gpu0_clk, "ahb-gpu0", ahb_hws,
-> +			  0x5c0, BIT(7), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_serdes_clk, "ahb-serdes", ahb_hws,
-> +			  0x5c0, BIT(8), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_usb_sys_clk, "ahb-usb-sys", ahb_hws,
-> +			  0x5c0, BIT(9), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
-> +			  0x5c0, BIT(16), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_store_clk, "ahb-store", ahb_hws,
-> +			  0x5c0, BIT(24), 0);
-> +static SUNXI_CCU_GATE_HWS(ahb_cpus_clk, "ahb-cpus", ahb_hws,
-> +			  0x5c0, BIT(28), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(mbus_iommu0_clk, "mbus-iommu0", mbus_hws,
-> +			  0x5e0, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_iommu1_clk, "mbus-iommu1", mbus_hws,
-> +			  0x5e0, BIT(1), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_desys_clk, "mbus-desys", mbus_hws,
-> +			  0x5e0, BIT(11), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc_gate_clk, "mbus-ve-enc-gate", mbus_hws,
-> +			  0x5e0, BIT(12), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec_gate_clk, "mbus-ve-dec-gate", mbus_hws,
-> +			  0x5e0, BIT(14), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_gpu0_clk, "mbus-gpu0", mbus_hws,
-> +			  0x5e0, BIT(16), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_npu_clk, "mbus-npu", mbus_hws,
-> +			  0x5e0, BIT(18), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_vid_in_clk, "mbus-vid-in", mbus_hws,
-> +			  0x5e0, BIT(24), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_serdes_clk, "mbus-serdes", mbus_hws,
-> +			  0x5e0, BIT(28), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws,
-> +			  0x5e0, BIT(29), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_store_clk, "mbus-store", mbus_hws,
-> +			  0x5e0, BIT(30), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_msi_lite2_clk, "mbus-msi-lite2", mbus_hws,
-> +			  0x5e0, BIT(31), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(mbus_dma0_clk, "mbus-dma0", mbus_hws,
-> +			  0x5e4, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_ve_enc_clk, "mbus-ve-enc", mbus_hws,
-> +			  0x5e4, BIT(1), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_ce_clk, "mbus-ce", mbus_hws,
-> +			  0x5e4, BIT(2), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_dma1_clk, "mbus-dma1", mbus_hws,
-> +			  0x5e4, BIT(3), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_nand_clk, "mbus-nand", mbus_hws,
-> +			  0x5e4, BIT(5), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_csi_clk, "mbus-csi", mbus_hws,
-> +			  0x5e4, BIT(8), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_isp_clk, "mbus-isp", mbus_hws,
-> +			  0x5e4, BIT(9), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_gmac0_clk, "mbus-gmac0", mbus_hws,
-> +			  0x5e4, BIT(11), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_gmac1_clk, "mbus-gmac1", mbus_hws,
-> +			  0x5e4, BIT(12), 0);
-> +static SUNXI_CCU_GATE_HWS(mbus_ve_dec_clk, "mbus-ve-dec", mbus_hws,
-> +			  0x5e4, BIT(18), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_dma0_clk, "bus-dma0", ahb_hws,
-> +			  0x704, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_dma1_clk, "bus-dma1", ahb_hws,
-> +			  0x70c, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_spinlock_clk, "bus-spinlock", ahb_hws,
-> +			  0x724, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_msgbox_clk, "bus-msgbox", ahb_hws,
-> +			  0x744, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_pwm0_clk, "bus-pwm0", apb0_hws,
-> +			  0x784, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_pwm1_clk, "bus-pwm1", apb0_hws,
-> +			  0x78c, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_dbg_clk, "bus-dbg", sys_24M_hws,
-> +			  0x7a4, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_sysdap_clk, "bus-sysdap", apb1_hws,
-> +			  0x88c, BIT(0), 0);
->   
->   /**************************************************************************
-> - *                          mod clocks                                    *
-> + *                          mod clocks with gates                         *
->    **************************************************************************/
->   
->   static const struct clk_parent_data timer_parents[] = {
-> @@ -565,6 +682,7 @@ static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(timer9_clk, "timer9", timer_parents, 0x82
->   				       24, 3,		/* mux */
->   				       BIT(31),		/* gate */
->   				       0);
-> +static SUNXI_CCU_GATE_HWS(bus_timer_clk, "bus-timer", ahb_hws, 0x850, BIT(0), 0);
->   
->   static const struct clk_parent_data avs_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -589,6 +707,7 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(de_clk, "de", de_parents, 0xa00,
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    CLK_SET_RATE_PARENT);
-> +static SUNXI_CCU_GATE_HWS(bus_de_clk, "bus-de", ahb_hws, 0xa04, BIT(0), 0);
->   
->   static const struct clk_hw *di_parents[] = {
->   	&pll_periph0_600M_clk.hw,
-> @@ -602,6 +721,7 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(di_clk, "di", di_parents, 0xa20,
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    CLK_SET_RATE_PARENT);
-> +static SUNXI_CCU_GATE_HWS(bus_di_clk, "bus-di", ahb_hws, 0xa24, BIT(0), 0);
->   
->   static const struct clk_hw *g2d_parents[] = {
->   	&pll_periph0_400M_clk.hw,
-> @@ -614,6 +734,7 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(g2d_clk, "g2d", g2d_parents, 0xa40,
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    CLK_SET_RATE_PARENT);
-> +static SUNXI_CCU_GATE_HWS(bus_g2d_clk, "bus-g2d", ahb_hws, 0xa44, BIT(0), 0);
->   
->   static const struct clk_hw *eink_parents[] = {
->   	&pll_periph0_480M_clk.common.hw,
-> @@ -637,6 +758,7 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(eink_panel_clk, "eink-panel", eink_panel_par
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    CLK_SET_RATE_PARENT);
-> +static SUNXI_CCU_GATE_HWS(bus_eink_clk, "bus-eink", ahb_hws, 0xa6c, BIT(0), 0);
->   
->   static const struct clk_hw *ve_enc_parents[] = {
->   	&pll_ve0_clk.common.hw,
-> @@ -668,6 +790,9 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(ve_dec_clk, "ve-dec", ve_dec_parents, 0xa88,
->   				    BIT(31),	/* gate */
->   				    CLK_SET_RATE_PARENT);
->   
-> +static SUNXI_CCU_GATE_HWS(bus_ve_enc_clk, "bus-ve-enc", ahb_hws, 0xa8c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_ve_dec_clk, "bus-ve-dec", ahb_hws, 0xa8c, BIT(2), 0);
-> +
->   static const struct clk_hw *ce_parents[] = {
->   	&sys_24M_clk.hw,
->   	&pll_periph0_400M_clk.hw,
-> @@ -678,6 +803,8 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(ce_clk, "ce", ce_parents, 0xac0,
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    0);
-> +static SUNXI_CCU_GATE_HWS(bus_ce_clk, "bus-ce", ahb_hws, 0xac4, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_ce_sys_clk, "bus-ce-sys", ahb_hws, 0xac4, BIT(1), 0);
->   
->   static const struct clk_hw *npu_parents[] = {
->   	&pll_npu_clk.common.hw,
-> @@ -693,6 +820,7 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(npu_clk, "npu", npu_parents, 0xb00,
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    0);
-> +static SUNXI_CCU_GATE_DATA(bus_npu_clk, "bus-npu", hosc, 0xb04, BIT(0), 0);
->   
->   /*
->    * GPU_CLK = ClockSource * ((16 - M) / 16)
-> @@ -725,6 +853,7 @@ static struct ccu_div gpu_clk = {
->   							   &ccu_div_ops, 0),
->   	}
->   };
-> +static SUNXI_CCU_GATE_HWS(bus_gpu_clk, "bus-gpu", ahb_hws, 0xb24, BIT(0), 0);
->   
->   static const struct clk_parent_data dram_parents[] = {
->   	{ .hw = &pll_ddr_clk.common.hw, },
-> @@ -740,6 +869,7 @@ static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(dram_clk, "dram", dram_parents, 0xc0
->   					    BIT(31),	/* gate */
->   					    CLK_IS_CRITICAL,
->   					    CCU_FEATURE_UPDATE_BIT);
-> +static SUNXI_CCU_GATE_HWS(bus_dram_clk, "bus-dram", ahb_hws, 0xc0c, BIT(0), 0);
->   
->   static const struct clk_parent_data nand_mmc_parents[] = {
->   	{ .hw = &sys_24M_clk.hw, },
-> @@ -758,6 +888,7 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(nand1_clk, "nand1", nand_mmc_parents, 0xc8
->   				      24, 3,	/* mux */
->   				      BIT(31),	/* gate */
->   				      0);
-> +static SUNXI_CCU_GATE_HWS(bus_nand_clk, "bus-nand", ahb_hws, 0xc8c, BIT(0), 0);
->   
->   static SUNXI_CCU_MP_MUX_GATE_POSTDIV_DUALDIV(mmc0_clk, "mmc0", nand_mmc_parents, 0xd00,
->   					     0, 5,	/* M */
-> @@ -796,6 +927,11 @@ static SUNXI_CCU_MP_MUX_GATE_POSTDIV_DUALDIV(mmc3_clk, "mmc3", mmc2_mmc3_parents
->   					     2,		/* post div */
->   					     0);
->   
-> +static SUNXI_CCU_GATE_HWS(bus_mmc0_clk, "bus-mmc0", ahb_hws, 0xd0c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_mmc1_clk, "bus-mmc1", ahb_hws, 0xd1c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_mmc2_clk, "bus-mmc2", ahb_hws, 0xd2c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_mmc3_clk, "bus-mmc3", ahb_hws, 0xd3c, BIT(0), 0);
-> +
->   static const struct clk_hw *ufs_axi_parents[] = {
->   	&pll_periph0_300M_clk.hw,
->   	&pll_periph0_200M_clk.hw,
-> @@ -815,6 +951,29 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(ufs_cfg_clk, "ufs-cfg", ufs_cfg_parents, 0
->   				      24, 3,	/* mux */
->   				      BIT(31),	/* gate */
->   				      0);
-> +static SUNXI_CCU_GATE_DATA(bus_ufs_clk, "bus-ufs", hosc, 0xd8c, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_uart0_clk, "bus-uart0", apb_uart_hws, 0xe00, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_uart1_clk, "bus-uart1", apb_uart_hws, 0xe04, BIT(1), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_uart2_clk, "bus-uart2", apb_uart_hws, 0xe08, BIT(2), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_uart3_clk, "bus-uart3", apb_uart_hws, 0xe0c, BIT(3), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_uart4_clk, "bus-uart4", apb_uart_hws, 0xe10, BIT(4), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_uart5_clk, "bus-uart5", apb_uart_hws, 0xe14, BIT(5), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_uart6_clk, "bus-uart6", apb_uart_hws, 0xe18, BIT(6), 0);
-
-According to the manual the gate bits are always BIT(0), since each
-UART has its own bus gate register.
-
-> +static SUNXI_CCU_GATE_HWS(bus_i2c0_clk, "bus-i2c0", apb1_hws, 0xe80, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c1_clk, "bus-i2c1", apb1_hws, 0xe84, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c2_clk, "bus-i2c2", apb1_hws, 0xe88, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c3_clk, "bus-i2c3", apb1_hws, 0xe8c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c4_clk, "bus-i2c4", apb1_hws, 0xe90, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c5_clk, "bus-i2c5", apb1_hws, 0xe94, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c6_clk, "bus-i2c6", apb1_hws, 0xe98, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c7_clk, "bus-i2c7", apb1_hws, 0xe9c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c8_clk, "bus-i2c8", apb1_hws, 0xea0, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c9_clk, "bus-i2c9", apb1_hws, 0xea4, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c10_clk, "bus-i2c10", apb1_hws, 0xea8, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c11_clk, "bus-i2c11", apb1_hws, 0xeac, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_i2c12_clk, "bus-i2c12", apb1_hws, 0xeb0, BIT(0), 0);
->   
->   static const struct clk_parent_data spi_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -856,6 +1015,11 @@ static SUNXI_CCU_DUALDIV_MUX_GATE(spi4_clk, "spi4", spi_parents, 0xf28,
->   				  24, 3,	/* mux */
->   				  BIT(31),	/* gate */
->   				  0);
-> +static SUNXI_CCU_GATE_HWS(bus_spi0_clk, "bus-spi0", ahb_hws, 0xf04, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_spi1_clk, "bus-spi1", ahb_hws, 0xf0c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_spi2_clk, "bus-spi2", ahb_hws, 0xf14, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_spi3_clk, "bus-spi3", ahb_hws, 0xf24, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_spi4_clk, "bus-spi4", ahb_hws, 0xf2c, BIT(0), 0);
->   
->   static const struct clk_parent_data spif_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -873,6 +1037,7 @@ static SUNXI_CCU_DUALDIV_MUX_GATE(spif_clk, "spif", spif_parents, 0xf18,
->   				  24, 3,	/* mux */
->   				  BIT(31),	/* gate */
->   				  0);
-> +static SUNXI_CCU_GATE_HWS(bus_spif_clk, "bus-spif", ahb_hws, 0xf1c, BIT(0), 0);
-
-Can you please move that line into the other SPI gates above, so that
-it is ordered by address?
-
->   
->   static const struct clk_parent_data gpadc_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -883,6 +1048,9 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(gpadc_clk, "gpadc", gpadc_parents, 0xfc0,
->   				      24, 3,	/* mux */
->   				      BIT(31),	/* gate */
->   				      0);
-> +static SUNXI_CCU_GATE_HWS(bus_gpadc_clk, "bus-gpadc", ahb_hws, 0xfc4, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_ths_clk, "bus-ths", apb0_hws, 0xfe4, BIT(0), 0);
->   
->   static const struct clk_parent_data irrx_parents[] = {
->   	{ .fw_name = "losc"},
-> @@ -894,6 +1062,7 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(irrx_clk, "irrx", irrx_parents, 0x1000,
->   				      24, 3,	/* mux */
->   				      BIT(31),	/* gate */
->   				      0);
-> +static SUNXI_CCU_GATE_HWS(bus_irrx_clk, "bus-irrx", apb0_hws, 0x1004, BIT(0), 0);
->   
->   static const struct clk_parent_data irtx_parents[] = {
->   	{ .fw_name = "losc"},
-> @@ -905,6 +1074,9 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(irtx_clk, "irtx", irtx_parents, 0x1008,
->   				      24, 3,	/* mux */
->   				      BIT(31),	/* gate */
->   				      0);
-> +static SUNXI_CCU_GATE_HWS(bus_irtx_clk, "bus-irtx", apb0_hws, 0x100c, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_lradc_clk, "bus-lradc", apb0_hws, 0x1024, BIT(0), 0);
->   
->   static const struct clk_parent_data sgpio_parents[] = {
->   	{ .fw_name = "losc"},
-> @@ -915,6 +1087,7 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(sgpio_clk, "sgpio", sgpio_parents, 0x1060,
->   				      24, 3,	/* mux */
->   				      BIT(31),	/* gate */
->   				      0);
-> +static SUNXI_CCU_GATE_DATA(bus_sgpio_clk, "bus-sgpio", hosc, 0x1064, BIT(0), 0);
->   
->   static const struct clk_hw *lpc_parents[] = {
->   	&pll_video0_3x_clk.common.hw,
-> @@ -927,6 +1100,7 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(lpc_clk, "lpc", lpc_parents, 0x1080,
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    0);
-> +static SUNXI_CCU_GATE_DATA(bus_lpc_clk, "bus-lpc", hosc, 0x1084, BIT(0), 0);
-
-where do these two clocks come from? They are not mentioned in the 
-version of the manual I am looking at. If they come from BSP sources, 
-please add a comment about that.
-
->   
->   static const struct clk_hw *i2spcm_parents[] = {
->   	&pll_audio0_4x_clk.common.hw,
-> @@ -959,6 +1133,11 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(i2spcm4_clk, "i2spcm4", i2spcm_parents, 0x12
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    0);
-> +static SUNXI_CCU_GATE_DATA(bus_i2spcm0_clk, "bus-i2spcm0", hosc, 0x120c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_DATA(bus_i2spcm1_clk, "bus-i2spcm1", hosc, 0x121c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_DATA(bus_i2spcm2_clk, "bus-i2spcm2", hosc, 0x122c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_DATA(bus_i2spcm3_clk, "bus-i2spcm3", hosc, 0x123c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_DATA(bus_i2spcm4_clk, "bus-i2spcm4", hosc, 0x124c, BIT(0), 0);
->   
->   static const struct clk_hw *i2spcm2_asrc_parents[] = {
->   	&pll_audio0_4x_clk.common.hw,
-> @@ -995,6 +1174,8 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(owa_rx_clk, "owa_rx", owa_rx_parents, 0x1284
->   				    BIT(31),	/* gate */
->   				    0);
->   
-> +static SUNXI_CCU_GATE_HWS(bus_owa_clk, "bus-owa", apb1_hws, 0x128c, BIT(0), 0);
-
-In mainline we use "spdif" instead of "owa", compare the other drivers.
-
-> +
->   static const struct clk_hw *dmic_parents[] = {
->   	&pll_audio0_4x_clk.common.hw,
->   	&pll_audio1_div2_clk.common.hw,
-> @@ -1006,6 +1187,8 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(dmic_clk, "dmic", dmic_parents, 0x12c0,
->   				    BIT(31),	/* gate */
->   				    0);
->   
-> +static SUNXI_CCU_GATE_HWS(bus_dmic_clk, "bus-dmic", apb1_hws, 0x12cc, BIT(0), 0);
-> +
->   /*
->    * The first parent is a 48 MHz input clock divided by 4. That 48 MHz clock is
->    * a 2x multiplier from pll-ref synchronized by pll-periph0, and is also used by
-> @@ -1037,6 +1220,9 @@ static struct ccu_mux usb_ohci0_clk = {
->   							   &ccu_mux_ops, 0),
->   	},
->   };
-> +static SUNXI_CCU_GATE_HWS(bus_ohci0_clk, "bus-ohci0", ahb_hws, 0x1304, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_ehci0_clk, "bus-ehci0", ahb_hws, 0x1304, BIT(4), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_otg_clk, "bus-otg", ahb_hws, 0x1304, BIT(8), 0);
->   
->   static struct ccu_mux usb_ohci1_clk = {
->   	.enable		= BIT(31),
-> @@ -1053,6 +1239,8 @@ static struct ccu_mux usb_ohci1_clk = {
->   							   &ccu_mux_ops, 0),
->   	},
->   };
-> +static SUNXI_CCU_GATE_HWS(bus_ohci1_clk, "bus-ohci1", ahb_hws, 0x130c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_ehci1_clk, "bus-ehci1", ahb_hws, 0x130c, BIT(4), 0);
->   
->   static const struct clk_parent_data usb_ref_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -1159,6 +1347,8 @@ static SUNXI_CCU_M_HWS_WITH_GATE(gmac1_phy_clk, "gmac1-phy", pll_periph0_150M_hw
->   				 0, 5,		/* M */
->   				 BIT(31),	/* gate */
->   				 0);
-> +static SUNXI_CCU_GATE_HWS(bus_gmac0_clk, "bus-gmac0", ahb_hws, 0x141c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_gmac1_clk, "bus-gmac1", ahb_hws, 0x142c, BIT(0), 0);
-
-That GMAC1 clock is not in the manual, where does it come from?
-
->   
->   static const struct clk_hw *tcon_lcd_parents[] = {
->   	&pll_video0_4x_clk.common.hw,
-> @@ -1181,6 +1371,9 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(tcon_lcd2_clk, "tcon-lcd2", tcon_lcd_parents
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    0);
-> +static SUNXI_CCU_GATE_HWS(bus_tcon_lcd0_clk, "bus-tcon-lcd0", ahb_hws, 0x1504, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_tcon_lcd1_clk, "bus-tcon-lcd1", ahb_hws, 0x150c, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_tcon_lcd2_clk, "bus-tcon-lcd2", ahb_hws, 0x1514, BIT(0), 0);
-
-Same here, LCD2 is not listed.
-
-The rest looks alright when comparing to the manual, also the whole
-boilerplate with the SUNXI_CC_GATE_HWS macro, the list of hw clocks
-below and the assignment of the clock IDs to the clocks.
-
-Cheers,
-Andre
-
->   
->   static const struct clk_hw *dsi_parents[] = {
->   	&sys_24M_clk.hw,
-> @@ -1197,6 +1390,8 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(dsi1_clk, "dsi1", dsi_parents, 0x1588,
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    0);
-> +static SUNXI_CCU_GATE_HWS(bus_dsi0_clk, "bus-dsi0", ahb_hws, 0x1584, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_dsi1_clk, "bus-dsi1", ahb_hws, 0x158c, BIT(0), 0);
->   
->   static const struct clk_hw *combphy_parents[] = {
->   	&pll_video0_4x_clk.common.hw,
-> @@ -1216,6 +1411,9 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(combphy1_clk, "combphy1", combphy_parents, 0
->   				    BIT(31),	/* gate */
->   				    0);
->   
-> +static SUNXI_CCU_GATE_HWS(bus_tcon_tv0_clk, "bus-tcon-tv0", ahb_hws, 0x1604, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_tcon_tv1_clk, "bus-tcon-tv1", ahb_hws, 0x160c, BIT(0), 0);
-> +
->   static const struct clk_hw *edp_tv_parents[] = {
->   	&pll_video0_4x_clk.common.hw,
->   	&pll_video1_4x_clk.common.hw,
-> @@ -1227,6 +1425,7 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(edp_tv_clk, "edp-tv", edp_tv_parents, 0x1640
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    0);
-> +static SUNXI_CCU_GATE_HWS(bus_edp_tv_clk, "bus-edp-tv", ahb_hws, 0x164c, BIT(0), 0);
->   
->   static SUNXI_CCU_GATE_HWS_WITH_PREDIV(hdmi_cec_32k_clk, "hdmi-cec-32k", pll_periph0_2x_hws, 0x1680,
->   				      BIT(30),	/* gate */
-> @@ -1254,6 +1453,7 @@ static SUNXI_CCU_DUALDIV_MUX_GATE(hdmi_tv_clk, "hdmi-tv", hdmi_tv_parents, 0x168
->   				  24, 3,	/* mux */
->   				  BIT(31),	/* gate */
->   				  0);
-> +static SUNXI_CCU_GATE_HWS(bus_hdmi_tv_clk, "bus-hdmi-tv", ahb_hws, 0x168c, BIT(0), 0);
->   
->   static const struct clk_parent_data hdmi_sfr_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -1266,6 +1466,9 @@ static SUNXI_CCU_MUX_DATA_WITH_GATE(hdmi_sfr_clk, "hdmi-sfr", hdmi_sfr_parents,
->   
->   static SUNXI_CCU_GATE_HWS(hdmi_esm_clk, "hdmi-esm", pll_periph0_300M_hws, 0x1694, BIT(31), 0);
->   
-> +static SUNXI_CCU_GATE_HWS(bus_dpss_top0_clk, "bus-dpss-top0", ahb_hws, 0x16c4, BIT(0), 0);
-> +static SUNXI_CCU_GATE_HWS(bus_dpss_top1_clk, "bus-dpss-top1", ahb_hws, 0x16cc, BIT(0), 0);
-> +
->   static const struct clk_parent_data ledc_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
->   	{ .hw = &pll_periph0_600M_clk.hw },
-> @@ -1276,6 +1479,9 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(ledc_clk, "ledc", ledc_parents, 0x1700,
->   				      24, 3,	/* mux */
->   				      BIT(31),	/* gate */
->   				      0);
-> +static SUNXI_CCU_GATE_HWS(bus_ledc_clk, "bus-ledc", apb0_hws, 0x1704, BIT(0), 0);
-> +
-> +static SUNXI_CCU_GATE_HWS(bus_dsc_clk, "bus-dsc", ahb_hws, 0x1744, BIT(0), 0);
->   
->   static const struct clk_parent_data csi_master_parents[] = {
->   	{ .hw = &sys_24M_clk.hw },
-> @@ -1317,6 +1523,7 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(csi_clk, "csi", csi_parents, 0x1840,
->   				    24, 3,	/* mux */
->   				    BIT(31),	/* gate */
->   				    0);
-> +static SUNXI_CCU_GATE_HWS(bus_csi_clk, "bus-csi", ahb_hws, 0x1844, BIT(0), 0);
->   
->   static const struct clk_hw *isp_parents[] = {
->   	&pll_video2_4x_clk.common.hw,
-> @@ -1446,8 +1653,62 @@ static struct ccu_common *sun60i_a733_ccu_clks[] = {
->   	&trace_clk.common,
->   	&gic_clk.common,
->   	&cpu_peri_clk.common,
-> +	&bus_its_pcie_clk.common,
->   	&nsi_clk.common,
-> +	&bus_nsi_clk.common,
->   	&mbus_clk.common,
-> +	&mbus_iommu0_sys_clk.common,
-> +	&apb_iommu0_sys_clk.common,
-> +	&ahb_iommu0_sys_clk.common,
-> +	&bus_msi_lite0_clk.common,
-> +	&bus_msi_lite1_clk.common,
-> +	&bus_msi_lite2_clk.common,
-> +	&mbus_iommu1_sys_clk.common,
-> +	&apb_iommu1_sys_clk.common,
-> +	&ahb_iommu1_sys_clk.common,
-> +	&ahb_ve_dec_clk.common,
-> +	&ahb_ve_enc_clk.common,
-> +	&ahb_vid_in_clk.common,
-> +	&ahb_vid_cout0_clk.common,
-> +	&ahb_vid_cout1_clk.common,
-> +	&ahb_de_clk.common,
-> +	&ahb_npu_clk.common,
-> +	&ahb_gpu0_clk.common,
-> +	&ahb_serdes_clk.common,
-> +	&ahb_usb_sys_clk.common,
-> +	&ahb_msi_lite0_clk.common,
-> +	&ahb_store_clk.common,
-> +	&ahb_cpus_clk.common,
-> +	&mbus_iommu0_clk.common,
-> +	&mbus_iommu1_clk.common,
-> +	&mbus_desys_clk.common,
-> +	&mbus_ve_enc_gate_clk.common,
-> +	&mbus_ve_dec_gate_clk.common,
-> +	&mbus_gpu0_clk.common,
-> +	&mbus_npu_clk.common,
-> +	&mbus_vid_in_clk.common,
-> +	&mbus_serdes_clk.common,
-> +	&mbus_msi_lite0_clk.common,
-> +	&mbus_store_clk.common,
-> +	&mbus_msi_lite2_clk.common,
-> +	&mbus_dma0_clk.common,
-> +	&mbus_ve_enc_clk.common,
-> +	&mbus_ce_clk.common,
-> +	&mbus_dma1_clk.common,
-> +	&mbus_nand_clk.common,
-> +	&mbus_csi_clk.common,
-> +	&mbus_isp_clk.common,
-> +	&mbus_gmac0_clk.common,
-> +	&mbus_gmac1_clk.common,
-> +	&mbus_ve_dec_clk.common,
-> +	&bus_dma0_clk.common,
-> +	&bus_dma1_clk.common,
-> +	&bus_spinlock_clk.common,
-> +	&bus_msgbox_clk.common,
-> +	&bus_pwm0_clk.common,
-> +	&bus_pwm1_clk.common,
-> +	&bus_dbg_clk.common,
-> +	&bus_sysdap_clk.common,
->   	&timer0_clk.common,
->   	&timer1_clk.common,
->   	&timer2_clk.common,
-> @@ -1458,48 +1719,111 @@ static struct ccu_common *sun60i_a733_ccu_clks[] = {
->   	&timer7_clk.common,
->   	&timer8_clk.common,
->   	&timer9_clk.common,
-> +	&bus_timer_clk.common,
->   	&avs_clk.common,
->   	&de_clk.common,
-> +	&bus_de_clk.common,
->   	&di_clk.common,
-> +	&bus_di_clk.common,
->   	&g2d_clk.common,
-> +	&bus_g2d_clk.common,
->   	&eink_clk.common,
->   	&eink_panel_clk.common,
-> +	&bus_eink_clk.common,
->   	&ve_enc_clk.common,
->   	&ve_dec_clk.common,
-> +	&bus_ve_enc_clk.common,
-> +	&bus_ve_dec_clk.common,
->   	&ce_clk.common,
-> +	&bus_ce_clk.common,
-> +	&bus_ce_sys_clk.common,
->   	&npu_clk.common,
-> +	&bus_npu_clk.common,
->   	&gpu_clk.common,
-> +	&bus_gpu_clk.common,
->   	&dram_clk.common,
-> +	&bus_dram_clk.common,
->   	&nand0_clk.common,
->   	&nand1_clk.common,
-> +	&bus_nand_clk.common,
->   	&mmc0_clk.common,
->   	&mmc1_clk.common,
->   	&mmc2_clk.common,
->   	&mmc3_clk.common,
-> +	&bus_mmc0_clk.common,
-> +	&bus_mmc1_clk.common,
-> +	&bus_mmc2_clk.common,
-> +	&bus_mmc3_clk.common,
->   	&ufs_axi_clk.common,
->   	&ufs_cfg_clk.common,
-> +	&bus_ufs_clk.common,
-> +	&bus_uart0_clk.common,
-> +	&bus_uart1_clk.common,
-> +	&bus_uart2_clk.common,
-> +	&bus_uart3_clk.common,
-> +	&bus_uart4_clk.common,
-> +	&bus_uart5_clk.common,
-> +	&bus_uart6_clk.common,
-> +	&bus_i2c0_clk.common,
-> +	&bus_i2c1_clk.common,
-> +	&bus_i2c2_clk.common,
-> +	&bus_i2c3_clk.common,
-> +	&bus_i2c4_clk.common,
-> +	&bus_i2c5_clk.common,
-> +	&bus_i2c6_clk.common,
-> +	&bus_i2c7_clk.common,
-> +	&bus_i2c8_clk.common,
-> +	&bus_i2c9_clk.common,
-> +	&bus_i2c10_clk.common,
-> +	&bus_i2c11_clk.common,
-> +	&bus_i2c12_clk.common,
->   	&spi0_clk.common,
->   	&spi1_clk.common,
->   	&spi2_clk.common,
->   	&spi3_clk.common,
->   	&spi4_clk.common,
-> +	&bus_spi0_clk.common,
-> +	&bus_spi1_clk.common,
-> +	&bus_spi2_clk.common,
-> +	&bus_spi3_clk.common,
-> +	&bus_spi4_clk.common,
->   	&spif_clk.common,
-> +	&bus_spif_clk.common,
->   	&gpadc_clk.common,
-> +	&bus_gpadc_clk.common,
-> +	&bus_ths_clk.common,
->   	&irrx_clk.common,
-> +	&bus_irrx_clk.common,
->   	&irtx_clk.common,
-> +	&bus_irtx_clk.common,
-> +	&bus_lradc_clk.common,
->   	&sgpio_clk.common,
-> +	&bus_sgpio_clk.common,
->   	&lpc_clk.common,
-> +	&bus_lpc_clk.common,
->   	&i2spcm0_clk.common,
->   	&i2spcm1_clk.common,
->   	&i2spcm2_clk.common,
->   	&i2spcm3_clk.common,
->   	&i2spcm4_clk.common,
-> +	&bus_i2spcm0_clk.common,
-> +	&bus_i2spcm1_clk.common,
-> +	&bus_i2spcm2_clk.common,
-> +	&bus_i2spcm3_clk.common,
-> +	&bus_i2spcm4_clk.common,
->   	&i2spcm2_asrc_clk.common,
->   	&owa_tx_clk.common,
->   	&owa_rx_clk.common,
-> +	&bus_owa_clk.common,
->   	&dmic_clk.common,
-> +	&bus_dmic_clk.common,
->   	&usb_ohci0_clk.common,
-> +	&bus_otg_clk.common,
-> +	&bus_ehci0_clk.common,
-> +	&bus_ohci0_clk.common,
->   	&usb_ohci1_clk.common,
-> +	&bus_ehci1_clk.common,
-> +	&bus_ohci1_clk.common,
->   	&usb_ref_clk.common,
->   	&usb2_u2_ref_clk.common,
->   	&usb2_suspend_clk.common,
-> @@ -1512,24 +1836,40 @@ static struct ccu_common *sun60i_a733_ccu_clks[] = {
->   	&gmac_ptp_clk.common,
->   	&gmac0_phy_clk.common,
->   	&gmac1_phy_clk.common,
-> +	&bus_gmac0_clk.common,
-> +	&bus_gmac1_clk.common,
->   	&tcon_lcd0_clk.common,
->   	&tcon_lcd1_clk.common,
->   	&tcon_lcd2_clk.common,
-> +	&bus_tcon_lcd0_clk.common,
-> +	&bus_tcon_lcd1_clk.common,
-> +	&bus_tcon_lcd2_clk.common,
->   	&dsi0_clk.common,
->   	&dsi1_clk.common,
-> +	&bus_dsi0_clk.common,
-> +	&bus_dsi1_clk.common,
->   	&combphy0_clk.common,
->   	&combphy1_clk.common,
-> +	&bus_tcon_tv0_clk.common,
-> +	&bus_tcon_tv1_clk.common,
->   	&edp_tv_clk.common,
-> +	&bus_edp_tv_clk.common,
->   	&hdmi_cec_32k_clk.common,
->   	&hdmi_cec_clk.common,
->   	&hdmi_tv_clk.common,
-> +	&bus_hdmi_tv_clk.common,
->   	&hdmi_sfr_clk.common,
->   	&hdmi_esm_clk.common,
-> +	&bus_dpss_top0_clk.common,
-> +	&bus_dpss_top1_clk.common,
->   	&ledc_clk.common,
-> +	&bus_ledc_clk.common,
-> +	&bus_dsc_clk.common,
->   	&csi_master0_clk.common,
->   	&csi_master1_clk.common,
->   	&csi_master2_clk.common,
->   	&csi_clk.common,
-> +	&bus_csi_clk.common,
->   	&isp_clk.common,
->   	&apb2jtag_clk.common,
->   	&fanout_24M_clk.common,
-> @@ -1596,8 +1936,62 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
->   		[CLK_TRACE]		= &trace_clk.common.hw,
->   		[CLK_GIC]		= &gic_clk.common.hw,
->   		[CLK_CPU_PERI]		= &cpu_peri_clk.common.hw,
-> +		[CLK_BUS_ITS_PCIE]	= &bus_its_pcie_clk.common.hw,
->   		[CLK_NSI]		= &nsi_clk.common.hw,
-> +		[CLK_BUS_NSI]		= &bus_nsi_clk.common.hw,
->   		[CLK_MBUS]		= &mbus_clk.common.hw,
-> +		[CLK_MBUS_IOMMU0_SYS]	= &mbus_iommu0_sys_clk.common.hw,
-> +		[CLK_APB_IOMMU0_SYS]	= &apb_iommu0_sys_clk.common.hw,
-> +		[CLK_AHB_IOMMU0_SYS]	= &ahb_iommu0_sys_clk.common.hw,
-> +		[CLK_BUS_MSI_LITE0]	= &bus_msi_lite0_clk.common.hw,
-> +		[CLK_BUS_MSI_LITE1]	= &bus_msi_lite1_clk.common.hw,
-> +		[CLK_BUS_MSI_LITE2]	= &bus_msi_lite2_clk.common.hw,
-> +		[CLK_MBUS_IOMMU1_SYS]	= &mbus_iommu1_sys_clk.common.hw,
-> +		[CLK_APB_IOMMU1_SYS]	= &apb_iommu1_sys_clk.common.hw,
-> +		[CLK_AHB_IOMMU1_SYS]	= &ahb_iommu1_sys_clk.common.hw,
-> +		[CLK_AHB_VE_DEC]	= &ahb_ve_dec_clk.common.hw,
-> +		[CLK_AHB_VE_ENC]	= &ahb_ve_enc_clk.common.hw,
-> +		[CLK_AHB_VID_IN]	= &ahb_vid_in_clk.common.hw,
-> +		[CLK_AHB_VID_COUT0]	= &ahb_vid_cout0_clk.common.hw,
-> +		[CLK_AHB_VID_COUT1]	= &ahb_vid_cout1_clk.common.hw,
-> +		[CLK_AHB_DE]		= &ahb_de_clk.common.hw,
-> +		[CLK_AHB_NPU]		= &ahb_npu_clk.common.hw,
-> +		[CLK_AHB_GPU0]		= &ahb_gpu0_clk.common.hw,
-> +		[CLK_AHB_SERDES]	= &ahb_serdes_clk.common.hw,
-> +		[CLK_AHB_USB_SYS]	= &ahb_usb_sys_clk.common.hw,
-> +		[CLK_AHB_MSI_LITE0]	= &ahb_msi_lite0_clk.common.hw,
-> +		[CLK_AHB_STORE]		= &ahb_store_clk.common.hw,
-> +		[CLK_AHB_CPUS]		= &ahb_cpus_clk.common.hw,
-> +		[CLK_MBUS_IOMMU0]	= &mbus_iommu0_clk.common.hw,
-> +		[CLK_MBUS_IOMMU1]	= &mbus_iommu1_clk.common.hw,
-> +		[CLK_MBUS_DESYS]	= &mbus_desys_clk.common.hw,
-> +		[CLK_MBUS_VE_ENC_GATE]	= &mbus_ve_enc_gate_clk.common.hw,
-> +		[CLK_MBUS_VE_DEC_GATE]	= &mbus_ve_dec_gate_clk.common.hw,
-> +		[CLK_MBUS_GPU0]		= &mbus_gpu0_clk.common.hw,
-> +		[CLK_MBUS_NPU]		= &mbus_npu_clk.common.hw,
-> +		[CLK_MBUS_VID_IN]	= &mbus_vid_in_clk.common.hw,
-> +		[CLK_MBUS_SERDES]	= &mbus_serdes_clk.common.hw,
-> +		[CLK_MBUS_MSI_LITE0]	= &mbus_msi_lite0_clk.common.hw,
-> +		[CLK_MBUS_STORE]	= &mbus_store_clk.common.hw,
-> +		[CLK_MBUS_MSI_LITE2]	= &mbus_msi_lite2_clk.common.hw,
-> +		[CLK_MBUS_DMA0]		= &mbus_dma0_clk.common.hw,
-> +		[CLK_MBUS_VE_ENC]	= &mbus_ve_enc_clk.common.hw,
-> +		[CLK_MBUS_CE]		= &mbus_ce_clk.common.hw,
-> +		[CLK_MBUS_DMA1]		= &mbus_dma1_clk.common.hw,
-> +		[CLK_MBUS_NAND]		= &mbus_nand_clk.common.hw,
-> +		[CLK_MBUS_CSI]		= &mbus_csi_clk.common.hw,
-> +		[CLK_MBUS_ISP]		= &mbus_isp_clk.common.hw,
-> +		[CLK_MBUS_GMAC0]	= &mbus_gmac0_clk.common.hw,
-> +		[CLK_MBUS_GMAC1]	= &mbus_gmac1_clk.common.hw,
-> +		[CLK_MBUS_VE_DEC]	= &mbus_ve_dec_clk.common.hw,
-> +		[CLK_BUS_DMA0]		= &bus_dma0_clk.common.hw,
-> +		[CLK_BUS_DMA1]		= &bus_dma1_clk.common.hw,
-> +		[CLK_BUS_SPINLOCK]	= &bus_spinlock_clk.common.hw,
-> +		[CLK_BUS_MSGBOX]	= &bus_msgbox_clk.common.hw,
-> +		[CLK_BUS_PWM0]		= &bus_pwm0_clk.common.hw,
-> +		[CLK_BUS_PWM1]		= &bus_pwm1_clk.common.hw,
-> +		[CLK_BUS_DBG]		= &bus_dbg_clk.common.hw,
-> +		[CLK_BUS_SYSDAP]	= &bus_sysdap_clk.common.hw,
->   		[CLK_TIMER0]		= &timer0_clk.common.hw,
->   		[CLK_TIMER1]		= &timer1_clk.common.hw,
->   		[CLK_TIMER2]		= &timer2_clk.common.hw,
-> @@ -1608,48 +2002,111 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
->   		[CLK_TIMER7]		= &timer7_clk.common.hw,
->   		[CLK_TIMER8]		= &timer8_clk.common.hw,
->   		[CLK_TIMER9]		= &timer9_clk.common.hw,
-> +		[CLK_BUS_TIMER]		= &bus_timer_clk.common.hw,
->   		[CLK_AVS]		= &avs_clk.common.hw,
->   		[CLK_DE]		= &de_clk.common.hw,
-> +		[CLK_BUS_DE]		= &bus_de_clk.common.hw,
->   		[CLK_DI]		= &di_clk.common.hw,
-> +		[CLK_BUS_DI]		= &bus_di_clk.common.hw,
->   		[CLK_G2D]		= &g2d_clk.common.hw,
-> +		[CLK_BUS_G2D]		= &bus_g2d_clk.common.hw,
->   		[CLK_EINK]		= &eink_clk.common.hw,
->   		[CLK_EINK_PANEL]	= &eink_panel_clk.common.hw,
-> +		[CLK_BUS_EINK]		= &bus_eink_clk.common.hw,
->   		[CLK_VE_ENC]		= &ve_enc_clk.common.hw,
->   		[CLK_VE_DEC]		= &ve_dec_clk.common.hw,
-> +		[CLK_BUS_VE_ENC]	= &bus_ve_enc_clk.common.hw,
-> +		[CLK_BUS_VE_DEC]	= &bus_ve_dec_clk.common.hw,
->   		[CLK_CE]		= &ce_clk.common.hw,
-> +		[CLK_BUS_CE]		= &bus_ce_clk.common.hw,
-> +		[CLK_BUS_CE_SYS]	= &bus_ce_sys_clk.common.hw,
->   		[CLK_NPU]		= &npu_clk.common.hw,
-> +		[CLK_BUS_NPU]		= &bus_npu_clk.common.hw,
->   		[CLK_GPU]		= &gpu_clk.common.hw,
-> +		[CLK_BUS_GPU]		= &bus_gpu_clk.common.hw,
->   		[CLK_DRAM]		= &dram_clk.common.hw,
-> +		[CLK_BUS_DRAM]		= &bus_dram_clk.common.hw,
->   		[CLK_NAND0]		= &nand0_clk.common.hw,
->   		[CLK_NAND1]		= &nand1_clk.common.hw,
-> +		[CLK_BUS_NAND]		= &bus_nand_clk.common.hw,
->   		[CLK_MMC0]		= &mmc0_clk.common.hw,
->   		[CLK_MMC1]		= &mmc1_clk.common.hw,
->   		[CLK_MMC2]		= &mmc2_clk.common.hw,
->   		[CLK_MMC3]		= &mmc3_clk.common.hw,
-> +		[CLK_BUS_MMC0]		= &bus_mmc0_clk.common.hw,
-> +		[CLK_BUS_MMC1]		= &bus_mmc1_clk.common.hw,
-> +		[CLK_BUS_MMC2]		= &bus_mmc2_clk.common.hw,
-> +		[CLK_BUS_MMC3]		= &bus_mmc3_clk.common.hw,
->   		[CLK_UFS_AXI]		= &ufs_axi_clk.common.hw,
->   		[CLK_UFS_CFG]		= &ufs_cfg_clk.common.hw,
-> +		[CLK_BUS_UFS]		= &bus_ufs_clk.common.hw,
-> +		[CLK_BUS_UART0]		= &bus_uart0_clk.common.hw,
-> +		[CLK_BUS_UART1]		= &bus_uart1_clk.common.hw,
-> +		[CLK_BUS_UART2]		= &bus_uart2_clk.common.hw,
-> +		[CLK_BUS_UART3]		= &bus_uart3_clk.common.hw,
-> +		[CLK_BUS_UART4]		= &bus_uart4_clk.common.hw,
-> +		[CLK_BUS_UART5]		= &bus_uart5_clk.common.hw,
-> +		[CLK_BUS_UART6]		= &bus_uart6_clk.common.hw,
-> +		[CLK_BUS_I2C0]		= &bus_i2c0_clk.common.hw,
-> +		[CLK_BUS_I2C1]		= &bus_i2c1_clk.common.hw,
-> +		[CLK_BUS_I2C2]		= &bus_i2c2_clk.common.hw,
-> +		[CLK_BUS_I2C3]		= &bus_i2c3_clk.common.hw,
-> +		[CLK_BUS_I2C4]		= &bus_i2c4_clk.common.hw,
-> +		[CLK_BUS_I2C5]		= &bus_i2c5_clk.common.hw,
-> +		[CLK_BUS_I2C6]		= &bus_i2c6_clk.common.hw,
-> +		[CLK_BUS_I2C7]		= &bus_i2c7_clk.common.hw,
-> +		[CLK_BUS_I2C8]		= &bus_i2c8_clk.common.hw,
-> +		[CLK_BUS_I2C9]		= &bus_i2c9_clk.common.hw,
-> +		[CLK_BUS_I2C10]		= &bus_i2c10_clk.common.hw,
-> +		[CLK_BUS_I2C11]		= &bus_i2c11_clk.common.hw,
-> +		[CLK_BUS_I2C12]		= &bus_i2c12_clk.common.hw,
->   		[CLK_SPI0]		= &spi0_clk.common.hw,
->   		[CLK_SPI1]		= &spi1_clk.common.hw,
->   		[CLK_SPI2]		= &spi2_clk.common.hw,
->   		[CLK_SPI3]		= &spi3_clk.common.hw,
->   		[CLK_SPI4]		= &spi4_clk.common.hw,
-> +		[CLK_BUS_SPI0]		= &bus_spi0_clk.common.hw,
-> +		[CLK_BUS_SPI1]		= &bus_spi1_clk.common.hw,
-> +		[CLK_BUS_SPI2]		= &bus_spi2_clk.common.hw,
-> +		[CLK_BUS_SPI3]		= &bus_spi3_clk.common.hw,
-> +		[CLK_BUS_SPI4]		= &bus_spi4_clk.common.hw,
->   		[CLK_SPIF]		= &spif_clk.common.hw,
-> +		[CLK_BUS_SPIF]		= &bus_spif_clk.common.hw,
->   		[CLK_GPADC]		= &gpadc_clk.common.hw,
-> +		[CLK_BUS_GPADC]		= &bus_gpadc_clk.common.hw,
-> +		[CLK_BUS_THS]		= &bus_ths_clk.common.hw,
->   		[CLK_IRRX]		= &irrx_clk.common.hw,
-> +		[CLK_BUS_IRRX]		= &bus_irrx_clk.common.hw,
->   		[CLK_IRTX]		= &irtx_clk.common.hw,
-> +		[CLK_BUS_IRTX]		= &bus_irtx_clk.common.hw,
-> +		[CLK_BUS_LRADC]		= &bus_lradc_clk.common.hw,
->   		[CLK_SGPIO]		= &sgpio_clk.common.hw,
-> +		[CLK_BUS_SGPIO]		= &bus_sgpio_clk.common.hw,
->   		[CLK_LPC]		= &lpc_clk.common.hw,
-> +		[CLK_BUS_LPC]		= &bus_lpc_clk.common.hw,
->   		[CLK_I2SPCM0]		= &i2spcm0_clk.common.hw,
->   		[CLK_I2SPCM1]		= &i2spcm1_clk.common.hw,
->   		[CLK_I2SPCM2]		= &i2spcm2_clk.common.hw,
->   		[CLK_I2SPCM3]		= &i2spcm3_clk.common.hw,
->   		[CLK_I2SPCM4]		= &i2spcm4_clk.common.hw,
-> +		[CLK_BUS_I2SPCM0]	= &bus_i2spcm0_clk.common.hw,
-> +		[CLK_BUS_I2SPCM1]	= &bus_i2spcm1_clk.common.hw,
-> +		[CLK_BUS_I2SPCM2]	= &bus_i2spcm2_clk.common.hw,
-> +		[CLK_BUS_I2SPCM3]	= &bus_i2spcm3_clk.common.hw,
-> +		[CLK_BUS_I2SPCM4]	= &bus_i2spcm4_clk.common.hw,
->   		[CLK_I2SPCM2_ASRC]	= &i2spcm2_asrc_clk.common.hw,
->   		[CLK_OWA_TX]		= &owa_tx_clk.common.hw,
->   		[CLK_OWA_RX]		= &owa_rx_clk.common.hw,
-> +		[CLK_BUS_OWA]		= &bus_owa_clk.common.hw,
->   		[CLK_DMIC]		= &dmic_clk.common.hw,
-> +		[CLK_BUS_DMIC]		= &bus_dmic_clk.common.hw,
->   		[CLK_USB_OHCI0]		= &usb_ohci0_clk.common.hw,
-> +		[CLK_BUS_OTG]		= &bus_otg_clk.common.hw,
-> +		[CLK_BUS_EHCI0]		= &bus_ehci0_clk.common.hw,
-> +		[CLK_BUS_OHCI0]		= &bus_ohci0_clk.common.hw,
->   		[CLK_USB_OHCI1]		= &usb_ohci1_clk.common.hw,
-> +		[CLK_BUS_EHCI1]		= &bus_ehci1_clk.common.hw,
-> +		[CLK_BUS_OHCI1]		= &bus_ohci1_clk.common.hw,
->   		[CLK_USB_REF]		= &usb_ref_clk.common.hw,
->   		[CLK_USB2_U2_REF]	= &usb2_u2_ref_clk.common.hw,
->   		[CLK_USB2_SUSPEND]	= &usb2_suspend_clk.common.hw,
-> @@ -1662,24 +2119,40 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
->   		[CLK_GMAC_PTP]		= &gmac_ptp_clk.common.hw,
->   		[CLK_GMAC0_PHY]		= &gmac0_phy_clk.common.hw,
->   		[CLK_GMAC1_PHY]		= &gmac1_phy_clk.common.hw,
-> +		[CLK_BUS_GMAC0]		= &bus_gmac0_clk.common.hw,
-> +		[CLK_BUS_GMAC1]		= &bus_gmac1_clk.common.hw,
->   		[CLK_TCON_LCD0]		= &tcon_lcd0_clk.common.hw,
->   		[CLK_TCON_LCD1]		= &tcon_lcd1_clk.common.hw,
->   		[CLK_TCON_LCD2]		= &tcon_lcd2_clk.common.hw,
-> +		[CLK_BUS_TCON_LCD0]	= &bus_tcon_lcd0_clk.common.hw,
-> +		[CLK_BUS_TCON_LCD1]	= &bus_tcon_lcd1_clk.common.hw,
-> +		[CLK_BUS_TCON_LCD2]	= &bus_tcon_lcd2_clk.common.hw,
->   		[CLK_DSI0]		= &dsi0_clk.common.hw,
->   		[CLK_DSI1]		= &dsi1_clk.common.hw,
-> +		[CLK_BUS_DSI0]		= &bus_dsi0_clk.common.hw,
-> +		[CLK_BUS_DSI1]		= &bus_dsi1_clk.common.hw,
->   		[CLK_COMBPHY0]		= &combphy0_clk.common.hw,
->   		[CLK_COMBPHY1]		= &combphy1_clk.common.hw,
-> +		[CLK_BUS_TCON_TV0]	= &bus_tcon_tv0_clk.common.hw,
-> +		[CLK_BUS_TCON_TV1]	= &bus_tcon_tv1_clk.common.hw,
->   		[CLK_EDP_TV]		= &edp_tv_clk.common.hw,
-> +		[CLK_BUS_EDP_TV]	= &bus_edp_tv_clk.common.hw,
->   		[CLK_HDMI_CEC_32K]	= &hdmi_cec_32k_clk.common.hw,
->   		[CLK_HDMI_CEC]		= &hdmi_cec_clk.common.hw,
->   		[CLK_HDMI_TV]		= &hdmi_tv_clk.common.hw,
-> +		[CLK_BUS_HDMI_TV]	= &bus_hdmi_tv_clk.common.hw,
->   		[CLK_HDMI_SFR]		= &hdmi_sfr_clk.common.hw,
->   		[CLK_HDMI_ESM]		= &hdmi_esm_clk.common.hw,
-> +		[CLK_BUS_DPSS_TOP0]	= &bus_dpss_top0_clk.common.hw,
-> +		[CLK_BUS_DPSS_TOP1]	= &bus_dpss_top1_clk.common.hw,
->   		[CLK_LEDC]		= &ledc_clk.common.hw,
-> +		[CLK_BUS_LEDC]		= &bus_ledc_clk.common.hw,
-> +		[CLK_BUS_DSC]		= &bus_dsc_clk.common.hw,
->   		[CLK_CSI_MASTER0]	= &csi_master0_clk.common.hw,
->   		[CLK_CSI_MASTER1]	= &csi_master1_clk.common.hw,
->   		[CLK_CSI_MASTER2]	= &csi_master2_clk.common.hw,
->   		[CLK_CSI]		= &csi_clk.common.hw,
-> +		[CLK_BUS_CSI]		= &bus_csi_clk.common.hw,
->   		[CLK_ISP]		= &isp_clk.common.hw,
->   		[CLK_APB2JTAG]		= &apb2jtag_clk.common.hw,
->   		[CLK_FANOUT_24M]	= &fanout_24M_clk.common.hw,
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlIEFwciAxNCwgMjAyNiBhdCA5OjI1IFBNIENTVCwgQW5hbmQgTW9vbiB3cm90ZToKPiBI
+aSBTaHV3ZWksCj4KPiBPbiBGcmksIDEwIEFwciAyMDI2IGF0IDEzOjMwLCBTaHV3ZWkgV3UgPHNo
+dXdlaS53dUBtYWlsYm94Lm9yZz4gd3JvdGU6Cj4+Cj4+IEFkZCBPcGVyYXRpbmcgUGVyZm9ybWFu
+Y2UgUG9pbnRzIChPUFApIHRhYmxlcyBhbmQgQ1BVIGNsb2NrIHByb3BlcnRpZXMKPj4gZm9yIHRo
+ZSB0d28gY2x1c3RlcnMgaW4gdGhlIFNwYWNlbWlUIEsxIFNvQy4KPj4KPj4gQWxzbyBhc3NpZ24g
+dGhlIENQVSBwb3dlciBzdXBwbHkgKGNwdS1zdXBwbHkpIGZvciB0aGUgQmFuYW5hIFBpIEJQSS1G
+Mwo+PiBib2FyZCB0byBmdWxseSBlbmFibGUgQ1BVIERWRlMuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6
+IFNodXdlaSBXdSA8c2h1d2VpLnd1QG1haWxib3gub3JnPgo+Pgo+PiAtLS0KPj4gQ2hhbmdlcyBp
+biB2MjoKPj4gLSBBZGQgazEtb3BwLmR0c2kgd2l0aCBPUFAgdGFibGVzIGZvciBib3RoIENQVSBj
+bHVzdGVycwo+PiAtIEFzc2lnbiBDUFUgc3VwcGxpZXMgYW5kIGluY2x1ZGUgT1BQIHRhYmxlIGZv
+ciBCYW5hbmEgUGkgQlBJLUYzCj4+IC0tLQo+PiAgYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1p
+dC9rMS1iYW5hbmFwaS1mMy5kdHMgfCAgMzUgKysrKysrKy0KPj4gIGFyY2gvcmlzY3YvYm9vdC9k
+dHMvc3BhY2VtaXQvazEtb3BwLmR0c2kgICAgICAgIHwgMTA1ICsrKysrKysrKysrKysrKysrKysr
+KysrKwo+PiAgYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS5kdHNpICAgICAgICAgICAg
+fCAgIDggKysKPj4gIDMgZmlsZXMgY2hhbmdlZCwgMTQ3IGluc2VydGlvbnMoKyksIDEgZGVsZXRp
+b24oLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEt
+YmFuYW5hcGktZjMuZHRzIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1iYW5hbmFw
+aS1mMy5kdHMKPj4gaW5kZXggNDQ0YzNiMWU2ZjQ0Li4zNzgwNTkzZjYxMGQgMTAwNjQ0Cj4+IC0t
+LSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtYmFuYW5hcGktZjMuZHRzCj4+ICsr
+KyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtYmFuYW5hcGktZjMuZHRzCj4+IEBA
+IC01LDYgKzUsNyBAQAo+Pgo+PiAgI2luY2x1ZGUgImsxLmR0c2kiCj4+ICAjaW5jbHVkZSAiazEt
+cGluY3RybC5kdHNpIgo+PiArI2luY2x1ZGUgImsxLW9wcC5kdHNpIgo+Pgo+PiAgLyB7Cj4+ICAg
+ICAgICAgbW9kZWwgPSAiQmFuYW5hIFBpIEJQSS1GMyI7Cj4+IEBAIC04Niw2ICs4NywzOCBAQCAm
+Y29tYm9fcGh5IHsKPj4gICAgICAgICBzdGF0dXMgPSAib2theSI7Cj4+ICB9Owo+Pgo+PiArJmNw
+dV8wIHsKPj4gKyAgICAgICBjcHUtc3VwcGx5ID0gPCZidWNrMV8zdjQ1PjsKPj4gK307Cj4+ICsK
+Pj4gKyZjcHVfMSB7Cj4+ICsgICAgICAgY3B1LXN1cHBseSA9IDwmYnVjazFfM3Y0NT47Cj4+ICt9
+Owo+PiArCj4+ICsmY3B1XzIgewo+PiArICAgICAgIGNwdS1zdXBwbHkgPSA8JmJ1Y2sxXzN2NDU+
+Owo+PiArfTsKPj4gKwo+PiArJmNwdV8zIHsKPj4gKyAgICAgICBjcHUtc3VwcGx5ID0gPCZidWNr
+MV8zdjQ1PjsKPj4gK307Cj4+ICsKPj4gKyZjcHVfNCB7Cj4+ICsgICAgICAgY3B1LXN1cHBseSA9
+IDwmYnVjazFfM3Y0NT47Cj4+ICt9Owo+PiArCj4+ICsmY3B1XzUgewo+PiArICAgICAgIGNwdS1z
+dXBwbHkgPSA8JmJ1Y2sxXzN2NDU+Owo+PiArfTsKPj4gKwo+PiArJmNwdV82IHsKPj4gKyAgICAg
+ICBjcHUtc3VwcGx5ID0gPCZidWNrMV8zdjQ1PjsKPj4gK307Cj4+ICsKPj4gKyZjcHVfNyB7Cj4+
+ICsgICAgICAgY3B1LXN1cHBseSA9IDwmYnVjazFfM3Y0NT47Cj4+ICt9Owo+PiArCj4+ICAmZW1t
+YyB7Cj4+ICAgICAgICAgYnVzLXdpZHRoID0gPDg+Owo+PiAgICAgICAgIG1tYy1oczQwMC0xXzh2
+Owo+PiBAQCAtMjAxLDcgKzIzNCw3IEBAIHBtaWNANDEgewo+PiAgICAgICAgICAgICAgICAgZGxk
+b2luMi1zdXBwbHkgPSA8JmJ1Y2s1PjsKPj4KPj4gICAgICAgICAgICAgICAgIHJlZ3VsYXRvcnMg
+ewo+PiAtICAgICAgICAgICAgICAgICAgICAgICBidWNrMSB7Cj4+ICsgICAgICAgICAgICAgICAg
+ICAgICAgIGJ1Y2sxXzN2NDU6IGJ1Y2sxIHsKPj4gICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICByZWd1bGF0b3ItbWluLW1pY3Jvdm9sdCA9IDw1MDAwMDA+Owo+PiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHJlZ3VsYXRvci1tYXgtbWljcm92b2x0ID0gPDM0NTAwMDA+Owo+
+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlZ3VsYXRvci1yYW1wLWRlbGF5ID0g
+PDUwMDA+Owo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1v
+cHAuZHRzaSBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtb3BwLmR0c2kKPj4gbmV3
+IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAwMDAwMDAwLi43NjhhZTM5MDY4NmQKPj4g
+LS0tIC9kZXYvbnVsbAo+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLW9w
+cC5kdHNpCj4+IEBAIC0wLDAgKzEsMTA1IEBACj4+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmll
+cjogKEdQTC0yLjArIE9SIE1JVCkKPj4gKwo+PiArLyB7Cj4+ICsgICAgICAgY2x1c3RlcjBfb3Bw
+X3RhYmxlOiBvcHAtdGFibGUtY2x1c3RlcjAgewo+PiArICAgICAgICAgICAgICAgY29tcGF0aWJs
+ZSA9ICJvcGVyYXRpbmctcG9pbnRzLXYyIjsKPj4gKyAgICAgICAgICAgICAgIG9wcC1zaGFyZWQ7
+Cj4+ICsKPj4gKyAgICAgICAgICAgICAgIG9wcC02MTQ0MDAwMDAgewo+PiArICAgICAgICAgICAg
+ICAgICAgICAgICBvcHAtaHogPSAvYml0cy8gNjQgPDYxNDQwMDAwMD47Cj4+ICsgICAgICAgICAg
+ICAgICAgICAgICAgIG9wcC1taWNyb3ZvbHQgPSA8OTUwMDAwPjsKPj4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgY2xvY2stbGF0ZW5jeS1ucyA9IDwyMDAwMDA+Owo+PiArICAgICAgICAgICAgICAg
+fTsKPj4gKwo+PiArICAgICAgICAgICAgICAgb3BwLTgxOTAwMDAwMCB7Cj4+ICsgICAgICAgICAg
+ICAgICAgICAgICAgIG9wcC1oeiA9IC9iaXRzLyA2NCA8ODE5MDAwMDAwPjsKPj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgb3BwLW1pY3Jvdm9sdCA9IDw5NTAwMDA+Owo+PiArICAgICAgICAgICAg
+ICAgICAgICAgICBjbG9jay1sYXRlbmN5LW5zID0gPDIwMDAwMD47Cj4+ICsgICAgICAgICAgICAg
+ICB9Owo+PiArCj4+ICsgICAgICAgICAgICAgICBvcHAtMTAwMDAwMDAwMCB7Cj4+ICsgICAgICAg
+ICAgICAgICAgICAgICAgIG9wcC1oeiA9IC9iaXRzLyA2NCA8MTAwMDAwMDAwMD47Cj4+ICsgICAg
+ICAgICAgICAgICAgICAgICAgIG9wcC1taWNyb3ZvbHQgPSA8OTUwMDAwPjsKPj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgY2xvY2stbGF0ZW5jeS1ucyA9IDwyMDAwMDA+Owo+PiArICAgICAgICAg
+ICAgICAgfTsKPj4gKwo+PiArICAgICAgICAgICAgICAgb3BwLTEyMjg4MDAwMDAgewo+PiArICAg
+ICAgICAgICAgICAgICAgICAgICBvcHAtaHogPSAvYml0cy8gNjQgPDEyMjg4MDAwMDA+Owo+PiAr
+ICAgICAgICAgICAgICAgICAgICAgICBvcHAtbWljcm92b2x0ID0gPDk1MDAwMD47Cj4+ICsgICAg
+ICAgICAgICAgICAgICAgICAgIGNsb2NrLWxhdGVuY3ktbnMgPSA8MjAwMDAwPjsKPj4gKyAgICAg
+ICAgICAgICAgIH07Cj4+ICsKPj4gKyAgICAgICAgICAgICAgIG9wcC0xNjAwMDAwMDAwIHsKPj4g
+KyAgICAgICAgICAgICAgICAgICAgICAgb3BwLWh6ID0gL2JpdHMvIDY0IDwxNjAwMDAwMDAwPjsK
+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgb3BwLW1pY3Jvdm9sdCA9IDwxMDUwMDAwPjsKPj4g
+KyAgICAgICAgICAgICAgICAgICAgICAgY2xvY2stbGF0ZW5jeS1ucyA9IDwyMDAwMDA+Owo+PiAr
+ICAgICAgICAgICAgICAgfTsKPj4gKyAgICAgICB9Owo+PiArCj4+ICsgICAgICAgY2x1c3RlcjFf
+b3BwX3RhYmxlOiBvcHAtdGFibGUtY2x1c3RlcjEgewo+PiArICAgICAgICAgICAgICAgY29tcGF0
+aWJsZSA9ICJvcGVyYXRpbmctcG9pbnRzLXYyIjsKPj4gKyAgICAgICAgICAgICAgIG9wcC1zaGFy
+ZWQ7Cj4+ICsKPj4gKyAgICAgICAgICAgICAgIG9wcC02MTQ0MDAwMDAgewo+PiArICAgICAgICAg
+ICAgICAgICAgICAgICBvcHAtaHogPSAvYml0cy8gNjQgPDYxNDQwMDAwMD47Cj4+ICsgICAgICAg
+ICAgICAgICAgICAgICAgIG9wcC1taWNyb3ZvbHQgPSA8OTUwMDAwPjsKPj4gKyAgICAgICAgICAg
+ICAgICAgICAgICAgY2xvY2stbGF0ZW5jeS1ucyA9IDwyMDAwMDA+Owo+PiArICAgICAgICAgICAg
+ICAgfTsKPj4gKwo+PiArICAgICAgICAgICAgICAgb3BwLTgxOTAwMDAwMCB7Cj4+ICsgICAgICAg
+ICAgICAgICAgICAgICAgIG9wcC1oeiA9IC9iaXRzLyA2NCA8ODE5MDAwMDAwPjsKPj4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgb3BwLW1pY3Jvdm9sdCA9IDw5NTAwMDA+Owo+PiArICAgICAgICAg
+ICAgICAgICAgICAgICBjbG9jay1sYXRlbmN5LW5zID0gPDIwMDAwMD47Cj4+ICsgICAgICAgICAg
+ICAgICB9Owo+PiArCj4+ICsgICAgICAgICAgICAgICBvcHAtMTAwMDAwMDAwMCB7Cj4+ICsgICAg
+ICAgICAgICAgICAgICAgICAgIG9wcC1oeiA9IC9iaXRzLyA2NCA8MTAwMDAwMDAwMD47Cj4+ICsg
+ICAgICAgICAgICAgICAgICAgICAgIG9wcC1taWNyb3ZvbHQgPSA8OTUwMDAwPjsKPj4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgY2xvY2stbGF0ZW5jeS1ucyA9IDwyMDAwMDA+Owo+PiArICAgICAg
+ICAgICAgICAgfTsKPj4gKwo+PiArICAgICAgICAgICAgICAgb3BwLTEyMjg4MDAwMDAgewo+PiAr
+ICAgICAgICAgICAgICAgICAgICAgICBvcHAtaHogPSAvYml0cy8gNjQgPDEyMjg4MDAwMDA+Owo+
+PiArICAgICAgICAgICAgICAgICAgICAgICBvcHAtbWljcm92b2x0ID0gPDk1MDAwMD47Cj4+ICsg
+ICAgICAgICAgICAgICAgICAgICAgIGNsb2NrLWxhdGVuY3ktbnMgPSA8MjAwMDAwPjsKPj4gKyAg
+ICAgICAgICAgICAgIH07Cj4+ICsKPj4gKyAgICAgICAgICAgICAgIG9wcC0xNjAwMDAwMDAwIHsK
+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgb3BwLWh6ID0gL2JpdHMvIDY0IDwxNjAwMDAwMDAw
+PjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgb3BwLW1pY3Jvdm9sdCA9IDwxMDUwMDAwPjsK
+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgY2xvY2stbGF0ZW5jeS1ucyA9IDwyMDAwMDA+Owo+
+PiArICAgICAgICAgICAgICAgfTsKPj4gKyAgICAgICB9Owo+PiArfTsKPj4gKwo+PiArJmNwdV8w
+IHsKPj4gKyAgICAgICBvcGVyYXRpbmctcG9pbnRzLXYyID0gPCZjbHVzdGVyMF9vcHBfdGFibGU+
+Owo+PiArfTsKPj4gKwo+PiArJmNwdV8xIHsKPj4gKyAgICAgICBvcGVyYXRpbmctcG9pbnRzLXYy
+ID0gPCZjbHVzdGVyMF9vcHBfdGFibGU+Owo+PiArfTsKPj4gKwo+PiArJmNwdV8yIHsKPj4gKyAg
+ICAgICBvcGVyYXRpbmctcG9pbnRzLXYyID0gPCZjbHVzdGVyMF9vcHBfdGFibGU+Owo+PiArfTsK
+Pj4gKwo+PiArJmNwdV8zIHsKPj4gKyAgICAgICBvcGVyYXRpbmctcG9pbnRzLXYyID0gPCZjbHVz
+dGVyMF9vcHBfdGFibGU+Owo+PiArfTsKPj4gKwo+PiArJmNwdV80IHsKPj4gKyAgICAgICBvcGVy
+YXRpbmctcG9pbnRzLXYyID0gPCZjbHVzdGVyMV9vcHBfdGFibGU+Owo+PiArfTsKPj4gKwo+PiAr
+JmNwdV81IHsKPj4gKyAgICAgICBvcGVyYXRpbmctcG9pbnRzLXYyID0gPCZjbHVzdGVyMV9vcHBf
+dGFibGU+Owo+PiArfTsKPj4gKwo+PiArJmNwdV82IHsKPj4gKyAgICAgICBvcGVyYXRpbmctcG9p
+bnRzLXYyID0gPCZjbHVzdGVyMV9vcHBfdGFibGU+Owo+PiArfTsKPj4gKwo+PiArJmNwdV83IHsK
+Pj4gKyAgICAgICBvcGVyYXRpbmctcG9pbnRzLXYyID0gPCZjbHVzdGVyMV9vcHBfdGFibGU+Owo+
+PiArfTsKPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEuZHRz
+aSBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEuZHRzaQo+PiBpbmRleCA1MjllYzY4
+ZTljMjMuLmJkZDEwOWI4MTczMCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9z
+cGFjZW1pdC9rMS5kdHNpCj4+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEu
+ZHRzaQo+PiBAQCAtNTQsNiArNTQsNyBAQCBjcHVfMDogY3B1QDAgewo+PiAgICAgICAgICAgICAg
+ICAgICAgICAgICBjb21wYXRpYmxlID0gInNwYWNlbWl0LHg2MCIsICJyaXNjdiI7Cj4+ICAgICAg
+ICAgICAgICAgICAgICAgICAgIGRldmljZV90eXBlID0gImNwdSI7Cj4+ICAgICAgICAgICAgICAg
+ICAgICAgICAgIHJlZyA9IDwwPjsKPj4gKyAgICAgICAgICAgICAgICAgICAgICAgY2xvY2tzID0g
+PCZzeXNjb25fYXBtdSBDTEtfQ1BVX0MwX0NPUkU+Owo+PiAgICAgICAgICAgICAgICAgICAgICAg
+ICByaXNjdixpc2EgPSAicnY2NGltYWZkY2J2X3ppY2JvbV96aWNib3BfemljYm96X3ppY250cl96
+aWNvbmRfemljc3JfemlmZW5jZWlfemloaW50cGF1c2VfemlocG1femZoX3piYV96YmJfemJjX3pi
+c196a3RfenZmaF96dmt0X3NzY29mcG1mX3NzdGNfc3ZpbnZhbF9zdm5hcG90X3N2cGJtdCI7Cj4+
+ICAgICAgICAgICAgICAgICAgICAgICAgIHJpc2N2LGlzYS1iYXNlID0gInJ2NjRpIjsKPj4gICAg
+ICAgICAgICAgICAgICAgICAgICAgcmlzY3YsaXNhLWV4dGVuc2lvbnMgPSAiaSIsICJtIiwgImEi
+LCAiZiIsICJkIiwgImMiLCAiYiIsICJ2IiwgInppY2JvbSIsCj4+IEBAIC04NCw2ICs4NSw3IEBA
+IGNwdV8xOiBjcHVAMSB7Cj4+ICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAi
+c3BhY2VtaXQseDYwIiwgInJpc2N2IjsKPj4gICAgICAgICAgICAgICAgICAgICAgICAgZGV2aWNl
+X3R5cGUgPSAiY3B1IjsKPj4gICAgICAgICAgICAgICAgICAgICAgICAgcmVnID0gPDE+Owo+PiAr
+ICAgICAgICAgICAgICAgICAgICAgICBjbG9ja3MgPSA8JnN5c2Nvbl9hcG11IENMS19DUFVfQzBf
+Q09SRT47Cj4KPiBCYXNlZCBvbiB0aGUgU3BhY2VtaXQga2VybmVsIHNvdXJjZSwgdGhlIGsxLXhf
+b3BwX3RhYmxlLmR0c2kgZmlsZQo+IGRlZmluZXMgc2V2ZXJhbCBhZGRpdGlvbmFsIGNsb2NrcyBm
+b3IgdGhlIE9wZXJhdGluZyBQZXJmb3JtYW5jZSBQb2ludHMKPiAoT1BQKSB0YWJsZToKPgo+ICBj
+bG9ja3MgPSA8JmNjdSBDTEtfQ1BVX0MwX0FDRT4sIDwmY2N1IENMS19DUFVfQzFfQUNFPiwgPCZj
+Y3UgQ0xLX0NQVV9DMF9UQ00+LAo+ICAgICAgICAgICAgICAgICAgICAgICAgIDwmY2N1IENMS19D
+Q0k1NTA+LCA8JmNjdSBDTEtfUExMMz4sIDwmY2N1Cj4gQ0xLX0NQVV9DMF9IST4sIDwmY2N1IENM
+S19DUFVfQzFfSEk+Owo+ICAgICAgICAgICAgICAgICBjbG9jay1uYW1lcyA9ICJhY2UwIiwiYWNl
+MSIsInRjbSIsImNjaSIsInBsbDMiLCAiYzBoaSIsICJjMWhpIjsKPgo+IFRoZXNlIGhhcmR3YXJl
+IGNsb2NrcyBhcmUgYWxzbyBleHBsaWNpdGx5IHJlZ2lzdGVyZWQgaW4gdGhlIEFQTVUgY2xvY2sg
+ZHJpdmVyCj4gdmlhIHRoZSBrMV9jY3VfYXBtdV9od3MgYXJyYXksIGNvbmZpcm1pbmcgdGhlaXIg
+YXZhaWxhYmlsaXR5IGZvciBmcmVxdWVuY3kKPiBhbmQgdm9sdGFnZSBzY2FsaW5nIG9uIHRoZSBL
+MS1YIFNvQy4KPgo+IHN0YXRpYyBzdHJ1Y3QgY2xrX2h3ICprMV9jY3VfYXBtdV9od3NbXSA9IHsK
+PiAgICAgICAgIFtDTEtfQ0NJNTUwXSAgICAgICAgICAgID0gJmNjaTU1MF9jbGsuY29tbW9uLmh3
+LAo+ICAgICAgICAgW0NMS19DUFVfQzBfSEldICAgICAgICAgPSAmY3B1X2MwX2hpX2Nsay5jb21t
+b24uaHcsCj4gICAgICAgICBbQ0xLX0NQVV9DMF9DT1JFXSAgICAgICA9ICZjcHVfYzBfY29yZV9j
+bGsuY29tbW9uLmh3LAo+ICAgICAgICAgW0NMS19DUFVfQzBfQUNFXSAgICAgICAgPSAmY3B1X2Mw
+X2FjZV9jbGsuY29tbW9uLmh3LAo+ICAgICAgICAgW0NMS19DUFVfQzBfVENNXSAgICAgICAgPSAm
+Y3B1X2MwX3RjbV9jbGsuY29tbW9uLmh3LAo+ICAgICAgICAgW0NMS19DUFVfQzFfSEldICAgICAg
+ICAgPSAmY3B1X2MxX2hpX2Nsay5jb21tb24uaHcsCj4gICAgICAgICBbQ0xLX0NQVV9DMV9DT1JF
+XSAgICAgICA9ICZjcHVfYzFfY29yZV9jbGsuY29tbW9uLmh3LAo+ICAgICAgICAgW0NMS19DUFVf
+QzFfQUNFXSAgICAgICAgPSAmY3B1X2MxX2FjZV9jbGsuY29tbW9uLmh3LAo+Cj4gWWVzLCBpdCBp
+cyBwb3NzaWJsZSB0byBhZGQgdGhlc2UgY2xvY2tzIGZvciBEVkZTIHRvIHdvcmsgY29ycmVjdGx5
+LAo+IHByb3ZpZGVkIHRoZXkgYXJlIG1hbmFnZWQgYnkgdGhlIGFwcHJvcHJpYXRlIGRyaXZlciBh
+bmQgZGVjbGFyZWQgaW4KPiB0aGUgRGV2aWNlIFRyZWUgKERUKS4KPgo+IFRoYW5rcwo+IC1BbmFu
+ZAoKVGhhbmtzIGZvciB5b3VyIHJldmlldyBhbmQgZm9yIHBvaW50aW5nIHRoaXMgb3V0LgoKUmVn
+YXJkaW5nIHRoZSBjbG9ja3MgeW91IG1lbnRpb25lZCwgSSdkIGxpa2UgdG8gY2xhcmlmeSB0aGVp
+ciByb2xlcyBiYXNlZCBvbgp0aGUgSzEgZGF0YXNoZWV0LiBUYWtpbmcgQ2x1c3RlciAwIGFzIGFu
+IGV4YW1wbGUsIGMwX2NvcmVfY2xrIGlzIHRoZSBwcmltYXJ5CmNsb2NrIGZvciB0aGUgY2x1c3Rl
+ci4gYzBfYWNlX2NsayBhbmQgYzBfdGNtX2NsayBhcmUgY2hpbGRyZW4gZGVyaXZlZCBmcm9tIGl0
+LApkZWZhdWx0aW5nIHRvIGhhbGYgdGhlIGZyZXF1ZW5jeSBvZiB0aGVpciBwYXJlbnQgY29yZSBj
+bG9jaywgd2hpbGUgYzBfaGlfY2xrCnJlcHJlc2VudHMgdGhlIGhpZ2gtc3BlZWQgcGF0aCBzZWxl
+Y3Rpb24uCkNsdXN0ZXIgMSBmb2xsb3dzIHRoZSBzYW1lIHN0cnVjdHVyZS4KCkJhc2VkIG9uIHRo
+ZSBvZmZpY2lhbCBTcGFjZW1pVCBCaWFuYnUgT1Mgc291cmNlLCB0aGUgc3BhY2VtaXQtY3B1ZnJl
+cS5jIGRyaXZlcgptYWlubHkgcGVyZm9ybXMgdGhlIGZvbGxvd2luZyB0YXNrczoKMS4gU2V0cyB0
+aGUgQ0NJNTUwIGNsb2NrIGZyZXF1ZW5jeSB0byA2MTRNSHouCjIuIFNldHMgdGhlIGNsb2NrIGZy
+ZXF1ZW5jaWVzIG9mIGMwX2FjZV9jbGssIGMxX2FjZTFfY2xrLCBhbmQgYzBfdGNtX2NsayB0byBo
+YWxmCnRoZSBmcmVxdWVuY3kgb2YgdGhlaXIgcGFyZW50IGNsb2NrLgozLiBGb3IgdGhlIDEuNkdI
+eiBPUFAsIGl0IHNldHMgdGhlIFBMTDMgZnJlcXVlbmN5IHRvIDMuMkdIeiBhbmQgdGhlCmMwX2hp
+X2Nsay9jMV9oaV9jbGsgZnJlcXVlbmNpZXMgdG8gMS42R0h6LgoKSSBib290ZWQgd2l0aCB0aGUg
+bWFudWZhY3R1cmVyJ3MgT3BlbldSVCBpbWFnZSBhbmQgdXNlZCBkZWJ1Z2ZzIHRvIGNvbmZpcm0g
+dGhhdAp0aGUgY2xvY2sgc3RhdGVzIGFyZSBleGFjdGx5IGFzIGRlc2NyaWJlZCBhYm92ZS4KCkF0
+IDEuNkdIejoKQ2xvY2sgU291cmNlICYgVHJlZSAgICAgICAgICAgUmF0ZSAoSHopICAgICAgSFcg
+RW5hYmxlICBDb25zdW1lcgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KcGxsMyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgMywyMDAsMDAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiDilJTilIAgcGxs
+M19kMiAgICAgICAgICAgICAgICAgICAxLDYwMCwwMDAsMDAwICAgICAgWSAgICAgIGRldmljZWxl
+c3MKICAgICDilJzilIAgY3B1X2MxX2hpX2NsayAgICAgICAgIDEsNjAwLDAwMCwwMDAgICAgICBZ
+ICAgICAgZGV2aWNlbGVzcwogICAgIOKUgiAgIOKUlOKUgCBjcHVfYzFfcGNsayAgICAgICAxLDYw
+MCwwMDAsMDAwICAgICAgWSAgICAgIGNwdTAKICAgICDilIIgICAgICAg4pSU4pSAIGNwdV9jMV9h
+Y2VfY2xrICA4MDAsMDAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAg4pSU4pSAIGNw
+dV9jMF9oaV9jbGsgICAgICAgICAxLDYwMCwwMDAsMDAwICAgICAgWSAgICAgIGRldmljZWxlc3MK
+ICAgICAgICAg4pSU4pSAIGNwdV9jMF9jb3JlX2NsayAgIDEsNjAwLDAwMCwwMDAgICAgICBZICAg
+ICAgY3B1MAogICAgICAgICAgICAg4pSc4pSAIGNwdV9jMF90Y21fY2xrICA4MDAsMDAwLDAwMCAg
+ICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAgICAgICAgICDilJTilIAgY3B1X2MwX2FjZV9jbGsg
+IDgwMCwwMDAsMDAwICAgICAgWSAgICAgIGRldmljZWxlc3MKCnBsbDFfMjQ1N3A2X3ZjbyAgICAg
+ICAgICAgICAgIDIsNDU3LDYwMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVzcwog4pSU4pSAIHBs
+bDFfZDQgICAgICAgICAgICAgICAgICAgICA2MTQsNDAwLDAwMCAgICAgIFkgICAgICBkZXZpY2Vs
+ZXNzCiAgICAg4pSU4pSAIHBsbDFfZDRfNjE0cDQgICAgICAgICAgIDYxNCw0MDAsMDAwICAgICAg
+WSAgICAgIGRldmljZWxlc3MKICAgICAgICAg4pSU4pSAIGNjaTU1MF9jbGsgICAgICAgICAgNjE0
+LDQwMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVzcwoKQXQgMS4yMjhHSHo6CkNsb2NrIFNvdXJj
+ZSAmIFRyZWUgICAgICAgICAgIFJhdGUgKEh6KSAgICAgIEhXIEVuYWJsZSAgQ29uc3VtZXIKLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tCnBsbDFfMjQ1N3A2X3ZjbyAgICAgICAgICAgICAgIDIsNDU3LDYwMCww
+MDAgICAgICBZICAgICAgZGV2aWNlbGVzcwog4pSU4pSAIHBsbDFfZDIgICAgICAgICAgICAgICAg
+ICAgMSwyMjgsODAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAg4pSU4pSAIHBsbDFf
+ZDJfMTIyOHA4ICAgICAgICAxLDIyOCw4MDAsMDAwICAgICAgWSAgICAgIGRldmljZWxlc3MKICAg
+ICAgICAg4pSc4pSAIGNwdV9jMF9jb3JlX2NsayAgIDEsMjI4LDgwMCwwMDAgICAgICBZICAgICAg
+Y3B1MAogICAgICAgICDilIIgICDilJzilIAgY3B1X2MwX3RjbV9jbGsgIDYxNCw0MDAsMDAwICAg
+ICAgWSAgICAgIGRldmljZWxlc3MKICAgICAgICAg4pSCICAg4pSU4pSAIGNwdV9jMF9hY2VfY2xr
+ICA2MTQsNDAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAgICAgIOKUlOKUgCBjcHVf
+YzFfcGNsayAgICAgICAxLDIyOCw4MDAsMDAwICAgICAgWSAgICAgIGNwdTAKICAgICAgICAgICAg
+IOKUlOKUgCBjcHVfYzFfYWNlX2NsayAgNjE0LDQwMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVz
+cwogIOKUlOKUgCBwbGwxX2Q0ICAgICAgICAgICAgICAgICAgICAgNjE0LDQwMCwwMDAgICAgICBZ
+ICAgICAgZGV2aWNlbGVzcwogICAgIOKUlOKUgCBwbGwxX2Q0XzYxNHA0ICAgICAgICAgICA2MTQs
+NDAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAgICAgIOKUlOKUgCBjY2k1NTBfY2xr
+ICAgICAgICAgIDYxNCw0MDAsMDAwICAgICAgWSAgICAgIGRldmljZWxlc3MKCnBsbDMgICAgICAg
+ICAgICAgICAgICAgICAgICAgIDMsMjAwLDAwMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVzcwog
+4pSU4pSAIHBsbDNfZDIgICAgICAgICAgICAgICAgICAgMSw2MDAsMDAwLDAwMCAgICAgIFkgICAg
+ICBkZXZpY2VsZXNzCiAgICAg4pSc4pSAIGNwdV9jMV9oaV9jbGsgICAgICAgICAxLDYwMCwwMDAs
+MDAwICAgICAgWSAgICAgIGRldmljZWxlc3MKICAgICDilJTilIAgY3B1X2MwX2hpX2NsayAgICAg
+ICAgIDEsNjAwLDAwMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVzcwog4pSU4pSAIHBsbDNfZDMg
+ICAgICAgICAgICAgICAgICAgMSwwNjYsNjY2LDY2NiAgICAgIFkgICAgICBkZXZpY2VsZXNzCgpS
+ZWdhcmRpbmcgdGhlIG5lY2Vzc2l0eSBvZiBsaXN0aW5nIHRoZXNlIGNsb2NrcyBpbiB0aGUgRFQs
+IG15IGFuYWx5c2lzIGlzIGFzIGZvbGxvd3M6CjEuIEZvciBDQ0k1NTAsIEkgZGlkIG5vdCBmaW5k
+IGEgY2xlYXIgZGVmaW5pdGlvbiBvZiB0aGlzIGNsb2NrJ3Mgc3BlY2lmaWMgcm9sZQppbiB0aGUg
+U29DIGRhdGFzaGVldC4gQWx0aG91Z2ggdGhlIHZlbmRvciBrZXJuZWwgaW5jcmVhc2VzIGl0cyBm
+cmVxdWVuY3ksCm15IGJlbmNobWFya3Mgc2hvdyB0aGF0IG1haW50YWluaW5nIHRoZSBtYWlubGlu
+ZSBkZWZhdWx0ICgyNDUuNzZNSHopIGhhcyBhCm5lZ2xpZ2libGUgaW1wYWN0IG9uIENQVSBwZXJm
+b3JtYW5jZS4KMi4gRm9yIEFDRSBhbmQgVENNIGNsb2NrcywgdGhleSBmdW5jdGlvbiBhcyBzeW5j
+aHJvbm91cyBjaGlsZHJlbiBvZiB0aGUgY29yZQpjbG9jayB3aXRoIGEgZGVmYXVsdCBkaXZpZGUt
+YnktMiByYXRpby4gU2luY2UgdGhleSBzY2FsZSBhdXRvbWF0aWNhbGx5IHJlbGF0aXZlCnRvIGMw
+X2NvcmVfY2xrL2MxX2NvcmVfY2xrIGFuZCBubyBvdGhlciBwZXJpcGhlcmFscyBkZXBlbmQgb24g
+dGhlbSwgdGhleSBkbyBub3QKcmVxdWlyZSBtYW51YWwgbWFuYWdlbWVudCBpbiB0aGUgT1BQIHRh
+YmxlLgozLiBGb3IgdGhlIGhpZ2gtc3BlZWQgcGF0aCwgdGhlIHVuZGVybHlpbmcgY2xvY2sgY29u
+dHJvbGxlciBsb2dpYyBhbHJlYWR5IGhhbmRsZXMKdGhlIHBhcmVudCBNVVggc3dpdGNoaW5nIGFu
+ZCBQTEwzIHNjYWxpbmcgYXV0b21hdGljYWxseSB3aGVuIGNsa19zZXRfcmF0ZSgpCmlzIGNhbGxl
+ZCBvbiB0aGUgY29yZSBjbG9jay4KCkkgaGF2ZSB2ZXJpZmllZCB0aGlzIGJ5IGNoZWNraW5nIHRo
+ZSBoYXJkd2FyZSBzdGF0ZSBpbiB0aGUgbWFpbmxpbmUga2VybmVsLgpUaGUgY2xvY2sgdHJlZSBt
+YXRjaGVzIHRoZSB2ZW5kb3Iga2VybmVsJ3MgY29uZmlndXJhdGlvbjoKCkF0IDEuNkdIejoKQ2xv
+Y2sgU291cmNlICYgVHJlZSAgICAgICAgICAgUmF0ZSAoSHopICAgICAgSFcgRW5hYmxlICBDb25z
+dW1lcgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KcGxsMyAgICAgICAgICAgICAgICAgICAgICAgICAgMywy
+MDAsMDAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiDilJTilIAgcGxsM19kMiAgICAgICAg
+ICAgICAgICAgICAxLDYwMCwwMDAsMDAwICAgICAgWSAgICAgIGRldmljZWxlc3MKICAgICDilJzi
+lIAgY3B1X2MxX2hpX2NsayAgICAgICAgIDEsNjAwLDAwMCwwMDAgICAgICBZICAgICAgZGV2aWNl
+bGVzcwogICAgIOKUgiAgIOKUlOKUgCBjcHVfYzFfY29yZV9jbGsgICAxLDYwMCwwMDAsMDAwICAg
+ICAgWSAgICAgIGNwdTQKICAgICDilIIgICAgICAg4pSU4pSAIGNwdV9jMV9hY2VfY2xrICA4MDAs
+MDAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAg4pSU4pSAIGNwdV9jMF9oaV9jbGsg
+ICAgICAgICAxLDYwMCwwMDAsMDAwICAgICAgWSAgICAgIGRldmljZWxlc3MKICAgICAgICAg4pSU
+4pSAIGNwdV9jMF9jb3JlX2NsayAgIDEsNjAwLDAwMCwwMDAgICAgICBZICAgICAgY3B1MAogICAg
+ICAgICAgICAg4pSc4pSAIGNwdV9jMF90Y21fY2xrICA4MDAsMDAwLDAwMCAgICAgIFkgICAgICBk
+ZXZpY2VsZXNzCiAgICAgICAgICAgICDilJTilIAgY3B1X2MwX2FjZV9jbGsgIDgwMCwwMDAsMDAw
+ICAgICAgWSAgICAgIGRldmljZWxlc3MKCnBsbDEgICAgICAgICAgICAgICAgICAgICAgICAgIDIs
+NDU3LDYwMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVzcwog4pSU4pSAIHBsbDFfZDUgICAgICAg
+ICAgICAgICAgICAgICA0OTEsNTIwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAg4pSU
+4pSAIHBsbDFfZDVfNDkxcDUyICAgICAgICAgIDQ5MSw1MjAsMDAwICAgICAgWSAgICAgIGRldmlj
+ZWxlc3MKICAgICAgICAg4pSU4pSAIGNjaTU1MF9jbGsgICAgICAgICAgMjQ1LDc2MCwwMDAgICAg
+ICBZICAgICAgZGV2aWNlbGVzcwoKQXQgMS4yMjhHSHo6CkNsb2NrIFNvdXJjZSAmIFRyZWUgICAg
+ICAgICAgIFJhdGUgKEh6KSAgICAgIEhXIEVuYWJsZSAgQ29uc3VtZXIKLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tCnBsbDEgICAgICAgICAgICAgICAgICAgICAgICAgIDIsNDU3LDYwMCwwMDAgICAgICBZICAg
+ICAgZGV2aWNlbGVzcwog4pSc4pSAIHBsbDFfZDUgICAgICAgICAgICAgICAgICAgICA0OTEsNTIw
+LDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiDilIIgICDilJTilIAgcGxsMV9kNV80OTFwNTIg
+ICAgICAgICAgNDkxLDUyMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVzcwog4pSCICAgICAgIOKU
+lOKUgCBjY2k1NTBfY2xrICAgICAgICAgIDI0NSw3NjAsMDAwICAgICAgWSAgICAgIGRldmljZWxl
+c3MKIOKUlOKUgCBwbGwxX2QyICAgICAgICAgICAgICAgICAgIDEsMjI4LDgwMCwwMDAgICAgICBZ
+ICAgICAgZGV2aWNlbGVzcwogICAgIOKUlOKUgCBwbGwxX2QyXzEyMjhwOCAgICAgICAgMSwyMjgs
+ODAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAgICAgIOKUlOKUgCBjcHVfYzBfY29y
+ZV9jbGsgICAxLDIyOCw4MDAsMDAwICAgICAgWSAgICAgIGNwdTAKICAgICAgICAgICAgIOKUnOKU
+gCBjcHVfYzBfdGNtX2NsayAgNjE0LDQwMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVzcwogICAg
+ICAgICAgICAg4pSU4pSAIGNwdV9jMF9hY2VfY2xrICA2MTQsNDAwLDAwMCAgICAgIFkgICAgICBk
+ZXZpY2VsZXNzCgpwbGwzICAgICAgICAgICAgICAgICAgICAgICAgICAzLDIwMCwwMDAsMDAwICAg
+ICAgWSAgICAgIGRldmljZWxlc3MKIOKUlOKUgCBwbGwzX2QyICAgICAgICAgICAgICAgICAgIDEs
+NjAwLDAwMCwwMDAgICAgICBZICAgICAgZGV2aWNlbGVzcwogICAgIOKUlOKUgCBjcHVfYzFfaGlf
+Y2xrICAgICAgICAgMSw2MDAsMDAwLDAwMCAgICAgIFkgICAgICBkZXZpY2VsZXNzCiAgICAgICAg
+IOKUlOKUgCBjcHVfYzFfY29yZV9jbGsgICAxLDYwMCwwMDAsMDAwICAgICAgWSAgICAgIGNwdTQK
+ICAgICAgICAgICAgIOKUlOKUgCBjcHVfYzFfYWNlX2NsayAgODAwLDAwMCwwMDAgICAgICBZICAg
+ICAgZGV2aWNlbGVzcwoKUGVyZm9ybWFuY2UgYmVuY2htYXJrcyBhbHNvIGNvbmZpcm0gdGhhdCB0
+aGUgY3VycmVudCBjb25maWd1cmF0aW9uIGlzIHN1ZmZpY2llbnQ6CkJlbmNobWFyayAoQVdLIGNv
+bXB1dGF0aW9uKTogdGltZSBhd2sgJ0JFR0lOe2ZvcihpPTA7aTwxMDAwMDAwMDtpKyspIHN1bSs9
+aX0nCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KRnJlcXVlbmN5ICAgIHwgICAgICBNYWlubGluZSBMaW51
+eCAocykgICAgICAgfCAgICAgICAgT3BlbldydCAocykgICAgICAgICAgCihrSHopICAgICAgICB8
+ICBSZWFsIChUb3RhbCkgfCAgVXNlciAoQ1BVKSAgIHwgIFJlYWwgKFRvdGFsKSB8ICBVc2VyIChD
+UFUpICkKLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tKy0tLS0t
+LS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLQoxLDYwMCwwMDAgICAgfCAgICAgMS44MnMgICAgIHwg
+ICAgIDEuODFzICAgICB8ICAgICAxLjczcyAgICAgfCAgICAxLjczcyAgICAKMSwyMjgsODAwICAg
+IHwgICAgIDIuMzRzICAgICB8ICAgICAyLjMzcyAgICAgfCAgICAgMi4yNnMgICAgIHwgICAgMi4y
+NnMgICAgCjEsMDAwLDAwMCAgICB8ICAgICAyLjk0cyAgICAgfCAgICAgMi44NnMgICAgIHwgICAg
+IDIuNzhzICAgICB8ICAgIDIuNzhzICAgIAogIDgxOSwwMDAgICAgfCAgICAgMy41NHMgICAgIHwg
+ICAgIDMuNTNzICAgICB8ICAgICAzLjM5cyAgICAgfCAgICAzLjM5cyAgICAKICA2MTQsNDAwICAg
+IHwgICAgIDQuNzNzICAgICB8ICAgICA0LjcxcyAgICAgfCAgICAgNC41MXMgICAgIHwgICAgNC41
+MXMgICAgCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCkluIHN1bW1hcnksIGJlY2F1c2UgdGhlIGNsb2Nr
+IGNvbnRyb2xsZXIgY29ycmVjdGx5IGhhbmRsZXMgdGhlIGludGVybmFsIGRpdmlkZXJzCmFuZCBw
+YXJlbnQgc3dpdGNoaW5nLCBkZWNsYXJpbmcgb25seSB0aGUgcHJpbWFyeSBjb3JlIGNsb2NrIGZv
+ciBlYWNoIENQVSBub2RlIGlzCnN1ZmZpY2llbnQgZm9yIGZ1bmN0aW9uYWwgRFZGUy4KCi0tIApC
+ZXN0IHJlZ2FyZHMsClNodXdlaSBXdQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
