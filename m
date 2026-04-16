@@ -4,105 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB266F8A146
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 10:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3ADF8A159
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 10:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9w0pjWMkxv1XWSZ6ee5UpHRj5GhGFMVtA4YeWZ0hxqs=; b=C4pnkekga2ZLa6
-	9ALDMlvrulu9jLezEne2IQRzuLjbnAuMxYeYrApYUkB1S5au2jiRAES2QKV+juVxYe57xBrsGI3dZ
-	5PZTrTEwtUl9l21sTjkz5HCaviRrYsKf4eht/RuNNG2CDXxQCTIKwbLbUkViQnF+zUwAaPJU/KzN+
-	Und5xMgKYT3esD43ZHpC03ZK4mMWY22B+hAxn48UH0NkUmx5tR7Wqc9Y+JVH9bbl0zlWOEs6Ih0DL
-	kVbC24YQqT+H6Kip/vHgLe4ZRnnLuFdoVg13LDMjc9freSO8UMXeZucDSWQkGQ5hfaknp3jYlCeLt
-	iPlq8bN4PCvlUPk8mMtQ==;
+	List-Owner; bh=VWIuwbsvbUdoYz7oGA4nmxdAi9+3XGZczW2naiShXl4=; b=AMUa8zexkhdJ4D
+	+4saGB0ejhbj7m8kAr9iqpseNRKJ5uo0dRa9wLWpKM9X/3Z3QUi6SpVKfRL4tUXwB/6mko3X0u9bg
+	ggYFoqYSid4T16emKlG3vtoTa4qbj6obUj09oiGu9bp15jUfITCx37RVYRV1hXyMy7ezN8JBWiGfX
+	EbZ2762yfMtee8FNBXbDUorwvy/3I9MiTcj7sh8E3p3FeJq9/nkWNdV0O0GSE+HVEIVDg4RT6zkQn
+	iGF5ThqkwOWTAjS3JjWb5pLJHFIAVdfmYidNWMETit9Kdpc8MwECrW8RBrCy24CTNEsZMPHWugs1m
+	2uFlPHq/Ze0YBU85LchA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDJkF-00000002ICo-1sez;
-	Thu, 16 Apr 2026 10:14:47 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1wDK01-00000002JTG-01JY;
+	Thu, 16 Apr 2026 10:31:05 +0000
+Received: from mail-oi1-f182.google.com ([209.85.167.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDJkC-00000002ICM-3G96
+	id 1wDJzy-00000002JSc-1PSl
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Apr 2026 10:14:46 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c741692db4cso166678a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Apr 2026 03:14:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1776334483; x=1776939283; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I5Zrp9xvS+I4fXIy8VYzclw9xOf2k/ka0uhcPGCfNmc=;
-        b=jibdE19k7/pkK0+jE6AB1clfEiNMushwGTFRcoybdV+5BYafzKiqhww+9z92LsbQox
-         vc3iNETjpcqruVWjEn3WUFTKCGjAC6IiJZJfZ9OGiiE9p2eruGbUE2lwDHWzQ/I3ewzE
-         npnQa5fbbpvucxjUJb1MGUoQW1Cz7J/vOCKbdgc0xsnC/JQfGZW+0AYFaJ0IQnf2/8gw
-         oQly9K3vO6jp9VTlDJBASh5CS+AaH6ouATc0qV+I0Zp1lzgMjfFEqYEoWELspYSuk50M
-         /5CIgKIHQIhbyIDUV9flXihnwAh+0WPGLpHNCFfnj+sKTy1j06McqesijRmaz7AAKAXc
-         L9pA==
+	Thu, 16 Apr 2026 10:31:03 +0000
+Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-47952229034so2844186b6e.3
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Apr 2026 03:31:02 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776334483; x=1776939283;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=I5Zrp9xvS+I4fXIy8VYzclw9xOf2k/ka0uhcPGCfNmc=;
-        b=gvLKrfqRpTiZltXujk3uAreteaKCWaefUrREkHUrpS6bu3n4B/s/eVd/v5j3j9nZib
-         tGx2GpilyV36Tmx1WrrZv8HVugEMkha0+8RselsdiUkms7o5MRpAeduPy6eVtr67OK58
-         vDc79Wczwo32N3q0h0KUFsXMcfjSYRnclUW9ht16OYxE0hc73qyuCJu9NIGCG7a9Yn4e
-         2+7f5jwijuzEvlCbwGry4XgZ4Wc66fV5RLH6apcmq5nw30fGSyM21MWnlFDRri4jHkm3
-         SIP6xkn2CW5ve3HRG8A7WffWOFmBc0DtqyaK1DmA1HfulvFARl6dD9QrEKSwS5Vx1nnJ
-         qfxA==
-X-Forwarded-Encrypted: i=1; AFNElJ9pQeKUjlCvvFio+c0WUfU59xfma+1pns0vMn/bbfu6kxXIWKnJuJyKaZ7WiAFejxO6EK+vSkyHRtoXcw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQkd3n1+ONwyPfOjDFnfF+68md67y9gMl3fYpiJQrZvEYAX6Qf
-	yrABT+CSCuJ1uFcuzGz4mR8kNf4lRvGAb634xHgzcdrsUkbb1Ed+Bd9rRxAX5EKc944=
-X-Gm-Gg: AeBDiesAUTjrBd6C29NyCliwBsy7fIRMF83AMJur0JaIgsGgCbnLtayAAf1B4rCzGMl
-	M+uuczybkECeMbDPkQP3fxzlEV2DMSCyOPeOfDypP2+rL4eQdRy6YCMLD7MiXIaipIeiCSOwe/2
-	HvATS8W+KxWmcKt8j6hYgkZoP77FEWTnmpdkbhbI/YvN69BTk7tssrTaX/dQe6xTHzaZL1FCYMg
-	sO7wwylgLriO8pySOtsijyg5DcYQO7ccroowZV4KehMRY8cMre4uvJfc0kerWizfnynaPx+wjbE
-	SczDsdBS8JhwwZaxmbm2OCpH/Wq/hpWV57EHa1ibosv2szJVWishs7MPyRInbf9j9Z3wY+d1R87
-	yux/kyOQPo/CX4Xf/CZOS8WLNV5NUe60SL3Nrfe+G1X+V8lz96tWiS1MmWI3uVkwnYPweUMpo7g
-	vGPXiAZMwwxwmUSp6XUK336jHcl4elRbh1jueCD3Ng62Dx
-X-Received: by 2002:a17:902:db06:b0:2ae:47b0:dc80 with SMTP id d9443c01a7336-2b5eaa4f615mr26842025ad.11.1776334483293;
-        Thu, 16 Apr 2026 03:14:43 -0700 (PDT)
-Received: from EricL-ThinkPadX1-TW ([136.226.240.179])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b478109a4dsm51692545ad.18.2026.04.16.03.14.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Apr 2026 03:14:42 -0700 (PDT)
-Date: Thu, 16 Apr 2026 18:14:25 +0800
-From: Eric Lin <eric.lin@sifive.com>
-To: Anup Patel <anup.patel@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Ian Rogers <irogers@google.com>, Alexandre Ghiti <alex@ghiti.fr>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Liang Kan <kan.liang@linux.intel.com>,
-	Mayuresh Chitale <mchitale@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Sunil V L <sunilvl@oss.qualcomm.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
-	Nick Hu <nick.hu@sifive.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>
-Subject: Re: [PATCH v3 07/12] rvtrace: Add trace ramsink driver
-Message-ID: <aeC2gUsXGy3mr8Zo@EricL-ThinkPadX1-TW>
-References: <20260225062448.4027948-1-anup.patel@oss.qualcomm.com>
- <20260225062448.4027948-8-anup.patel@oss.qualcomm.com>
+        d=1e100.net; s=20251104; t=1776335461; x=1776940261;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z9HEDsaws+1AaPEcUyrGjtCss1Kv3jZQFAB8Oib7mmY=;
+        b=h+PYgMsCt+HsycGOWH4ok4pLvxTfZjU4euAIxqEMOV0Z51vycfbXBDQCXNZ03RUs5x
+         0U4UbBrK/l96xrS6zfwj8yx7ReunHsun2UVds39TB0wyb0dnje1kfNhsBfIvUjlJsWtS
+         dDzLImQ1uZAekXaVWmW85LZH+IXiZ+Q7I9nx1gv7VPEOEar3TZnneQKxnry+fe7hTvvO
+         bqkYvd0yldpHhn9TD/YFh8OD6EFdYaIEOlvh2lYbiayRB+iNRp8O6tRI0qmPqgPmhXyN
+         sQzmLSAz+kk/5Dz7TXUINvO8jjYa/QMRca9Xy4L1w8aqtrzRkdMXH0LfTr1WunQHATji
+         1dbQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9Bb8a8q5Oh3bBgPzzxyDqdByAaSlFYrCEgkKhlNlMZ2ETGCP8TbrAb6pORbUznBliK+Zs01v3W97wnJQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCH5/M7rFGbognkv2d9GSA9FsCOa8qThlBMyFFA4iUxymvZuvK
+	UCYIcKhj8J5COTMFFfpm3xabSBA/wK9YcE0BYg/Zs2yntImMpi3souzRJdHURxbS
+X-Gm-Gg: AeBDies9opAu47pgi3rxLz3F3yrty1dIASjpMFv2ZW96pgPJbuliNoscP10iAwnXmLJ
+	IQe3FfOsF1FbHbo8H9/Irc6zVSK6jxqMOqhiTEzfJqr6dCPNLU1ZKFArHFqtIc/TMTJi7yAQyNP
+	B8MNk65K9lqjsF1oqGg0reVFWI67s7YlnLVBGERCMDvWDhdMo3ghNVJIlzS+IKhVxpE7Tuw7+u1
+	ZT4MQNv85gmfN3zTGkoqZXViilTFHVp/poo5s7sejHXk/FEzMTH+C2pucmbIvsoibx4dmkuCa9R
+	WkiQ0DXaPDqqa3ZvlGYws/eJiZhsvb0p34oMBXp4+yOwLLmZF02iGz0D3NQJa7n/A01UdhCAkl5
+	icqz0HInaH2rIvsakbVexP8vmmcb2BL1GvPiVCBnK30sPQvLV7jFyKKV+1lTJYM2CoGzLlx937T
+	Kp4stx0r7Sf4a1xmFctRWapIql2aALXUQ4a5tZm2mRNV157lGfEOTQrG0aKgMlVqTrQis4tgM=
+X-Received: by 2002:a05:6808:894c:b0:467:1504:eb13 with SMTP id 5614622812f47-4789f10d9d7mr12694156b6e.36.1776335461014;
+        Thu, 16 Apr 2026 03:31:01 -0700 (PDT)
+Received: from mail-oo1-f44.google.com (mail-oo1-f44.google.com. [209.85.161.44])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4797a36800bsm2510111b6e.5.2026.04.16.03.31.00
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Apr 2026 03:31:00 -0700 (PDT)
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-6841e6a5e51so4351182eaf.3
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Apr 2026 03:31:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+z0frxeV+HZjhYMF5MGbMDlaDw5IabeY8wMeTGN+Ah2FFgw21BLjWv0UZaF5H6alcoyKJ4Slfu3YWgJg==@lists.infradead.org
+X-Received: by 2002:a05:6102:c48:b0:608:cd24:354c with SMTP id
+ ada2fe7eead31-609fe9b0d22mr11966750137.3.1776335071251; Thu, 16 Apr 2026
+ 03:24:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260225062448.4027948-8-anup.patel@oss.qualcomm.com>
+References: <20260410120044.031381086@kernel.org> <20260410120318.794680738@kernel.org>
+In-Reply-To: <20260410120318.794680738@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 16 Apr 2026 12:24:18 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVerN6Pz07CQH+hcvT=-ZD-r9VNrSrGzTQZBEsuecK_ig@mail.gmail.com>
+X-Gm-Features: AQROBzDRGGELVSySTko37h6zEj8YoV3p6pwZDCVQUlUW6sZbw_W5mbJzFIh35nQ
+Message-ID: <CAMuHMdVerN6Pz07CQH+hcvT=-ZD-r9VNrSrGzTQZBEsuecK_ig@mail.gmail.com>
+Subject: Re: [patch 18/38] lib/tests: Replace get_cycles() with ktime_get()
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-mm@kvack.org, Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, 
+	Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
+	linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org, 
+	Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org, Marco Elver <elver@google.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Thomas Sailer <t.sailer@alumni.ethz.ch>, 
+	linux-hams@vger.kernel.org, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+	Richard Henderson <richard.henderson@linaro.org>, linux-alpha@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org, 
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org, 
+	Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, 
+	Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org, 
+	Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org, 
+	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_031444_852094_B21CA8E9 
-X-CRM114-Status: GOOD (  36.52  )
+X-CRM114-CacheID: sfid-20260416_033102_852014_C586ECA4 
+X-CRM114-Status: GOOD (  34.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,407 +114,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 11:54:43AM +0530, Anup Patel wrote:
+Hi Thomas,
 
-Hi Anup,
-
-> From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+On Fri, 10 Apr 2026 at 14:20, Thomas Gleixner <tglx@kernel.org> wrote:
+> get_cycles() is the historical access to a fine grained time source, but it
+> is a suboptimal choice for two reasons:
 >
-> Add initial implementation of RISC-V trace ramsink driver. The ramsink
-> is defined in the RISC-V Trace Control Interface specification.
+>    - get_cycles() is not guaranteed to be supported and functional on all
+>      systems/platforms. If not supported or not functional it returns 0,
+>      which makes benchmarking moot.
 >
-> Co-developed-by: Anup Patel <anup.patel@oss.qualcomm.com>
-> Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
-> Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-> ---
->  drivers/hwtracing/rvtrace/Kconfig           |   9 +
->  drivers/hwtracing/rvtrace/Makefile          |   1 +
->  drivers/hwtracing/rvtrace/rvtrace-ramsink.c | 322 ++++++++++++++++++++
->  3 files changed, 332 insertions(+)
->  create mode 100644 drivers/hwtracing/rvtrace/rvtrace-ramsink.c
+>    - get_cycles() returns the raw counter value of whatever the
+>      architecture platform provides. The original x86 Time Stamp Counter
+>      (TSC) was despite its name tied to the actual CPU core frequency.
+>      That's not longer the case. So the counter value is only meaningful
+>      when the CPU operates at the same frequency as the TSC or the value is
+>      adjusted to the actual CPU frequency. Other architectures and
+>      platforms provide similar disjunct counters via get_cycles(), so the
+>      result is operations per BOGO-cycles, which is not really meaningful.
 >
-> diff --git a/drivers/hwtracing/rvtrace/Kconfig b/drivers/hwtracing/rvtrace/Kconfig
-> index ba35c05f3f54..0577f9acb858 100644
-> --- a/drivers/hwtracing/rvtrace/Kconfig
-> +++ b/drivers/hwtracing/rvtrace/Kconfig
-> @@ -21,3 +21,12 @@ config RVTRACE_ENCODER
->  	default y
->  	help
->  	  This driver provides support for RISC-V Trace Encoder component.
-> +
-> +config RVTRACE_RAMSINK
-> +	tristate "RISC-V Trace Ramsink driver"
-> +	depends on RVTRACE
-> +	select DMA_SHARED_BUFFER
-> +	default y
-> +	help
-> +	  This driver provides support for Risc-V E-Trace Ramsink
-> +	  component.
-> diff --git a/drivers/hwtracing/rvtrace/Makefile b/drivers/hwtracing/rvtrace/Makefile
-> index f320693a1fc5..122e575da9fb 100644
-> --- a/drivers/hwtracing/rvtrace/Makefile
-> +++ b/drivers/hwtracing/rvtrace/Makefile
-> @@ -3,3 +3,4 @@
->  obj-$(CONFIG_RVTRACE) += rvtrace.o
->  rvtrace-y := rvtrace-core.o rvtrace-platform.o
->  obj-$(CONFIG_RVTRACE_ENCODER) += rvtrace-encoder.o
-> +obj-$(CONFIG_RVTRACE_RAMSINK) += rvtrace-ramsink.o
-> diff --git a/drivers/hwtracing/rvtrace/rvtrace-ramsink.c b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
-> new file mode 100644
-> index 000000000000..5393423c8f28
-> --- /dev/null
-> +++ b/drivers/hwtracing/rvtrace/rvtrace-ramsink.c
-> @@ -0,0 +1,322 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2026 Qualcomm Technologies, Inc.
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/dma-mapping.h>
-> +#include <linux/rvtrace.h>
-> +#include <linux/types.h>
-> +#include <linux/sizes.h>
-> +
-> +#define RVTRACE_RAMSINK_STARTLOW_OFF		0x010
-> +#define RVTRACE_RAMSINK_STARTHIGH_OFF		0x014
-> +#define RVTRACE_RAMSINK_LIMITLOW_OFF		0x018
-> +#define RVTRACE_RAMSINK_LIMITHIGH_OFF		0x01c
-> +#define RVTRACE_RAMSINK_WPLOW_OFF		0x020
-> +#define RVTRACE_RAMSINK_WPHIGH_OFF		0x024
-> +#define RVTRACE_RAMSINK_WPLOW_WRAP		0x1
-> +#define RVTRACE_RAMSINK_CTRL_MODE_SHIFT		0x4
-> +#define RVTRACE_RAMSINK_CTRL_STP_WRAP_SHIFT	0x8
-> +
-> +enum rvtrace_ramsink_mode {
-> +	MODE_SRAM,
-> +	MODE_SMEM
-> +};
-> +
-> +struct rvtrace_ramsink_priv {
-> +	size_t size;
-> +	void *va;
-> +	dma_addr_t start;
-> +	dma_addr_t end;
-> +	enum rvtrace_ramsink_mode mode;
-> +	bool stop_on_wrap;
-> +	int mem_acc_width;
-> +};
-> +
-> +struct trace_buf {
-> +	void *base;
-> +	long cur;
-> +	size_t len;
-> +};
-> +
-> +static int rvtrace_ramsink_start(struct rvtrace_component *comp)
-> +{
-> +	int ret;
-> +	u32 val;
-> +
-> +	val = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	val |= BIT(RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT);
-> +	rvtrace_write32(comp->pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	ret = rvtrace_poll_bit(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +			       RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT, 1,
-> +			       comp->pdata->control_poll_timeout_usecs);
-> +	if (ret)
-> +		dev_err(&comp->dev, "failed to start ramsink.\n");
-> +
-> +	return ret;
-> +}
-> +
-> +static int rvtrace_ramsink_stop(struct rvtrace_component *comp)
-> +{
-> +	int ret;
-> +	u32 val;
-> +
-> +	val = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	val &= ~BIT(RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT);
-> +	rvtrace_write32(comp->pdata, val, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	ret = rvtrace_poll_bit(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET,
-> +			       RVTRACE_COMPONENT_CTRL_ENABLE_SHIFT, 0,
-> +			       comp->pdata->control_poll_timeout_usecs);
-> +	if (ret) {
-> +		dev_err(&comp->dev, "failed to stop ramsink.\n");
-> +		return ret;
-> +	}
-> +
-> +	return rvtrace_comp_poll_empty(comp);
-> +}
-> +
-> +static void tbuf_to_pbuf_copy(struct trace_buf *src, struct trace_buf *dst, size_t size)
-> +{
-> +	int bytes_dst, bytes_src, bytes;
-> +	void *dst_addr, *src_addr;
-> +
-> +	while (size) {
-> +		src_addr = src->base + src->cur;
-> +		dst_addr = dst->base + dst->cur;
-> +
-> +		/* Ensure that there are no OOB memory accesses */
-> +		if (dst->len - dst->cur < size)
-> +			bytes_dst = dst->len - dst->cur;
-> +		else
-> +			bytes_dst = size;
-> +
-> +		if (src->len - src->cur < size)
-> +			bytes_src = src->len - src->cur;
-> +		else
-> +			bytes_src = size;
-> +		bytes = bytes_dst < bytes_src ? bytes_dst : bytes_src;
-> +		memcpy(dst_addr, src_addr, bytes);
-> +		dst->cur = (dst->cur + bytes) % dst->len;
-> +		src->cur = (src->cur + bytes) % src->len;
-> +		size -= bytes;
-> +	}
-> +}
-> +
-> +static size_t rvtrace_ramsink_copyto_auxbuf(struct rvtrace_component *comp,
-> +					    struct rvtrace_perf_auxbuf *buf)
-> +{
-> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
-> +	size_t size_wp_end = 0, size_start_wp = 0;
-> +	struct trace_buf src, dst;
-> +	u32 wp_low, wp_high, trram_ctrl;
-> +	u64 buf_cur_head;
-> +
-> +	dst.base = buf->base;
-> +	dst.len = buf->length;
-> +	dst.cur = buf->pos;
-> +	src.base = priv->va;
-> +	src.len = priv->size;
-> +	wp_low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_WPLOW_OFF);
-> +	wp_high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_WPHIGH_OFF);
-> +	buf_cur_head = (u64)(wp_high) << 32 | wp_low;
-> +	trram_ctrl = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-
-The trram_ctrl is not used. I think we should remove it.
-
-> +	if (buf_cur_head & 0x1) {
-> +		buf_cur_head &= ~RVTRACE_RAMSINK_WPLOW_WRAP;
-> +		rvtrace_write32(comp->pdata, lower_32_bits(priv->start),
-> +				RVTRACE_RAMSINK_WPLOW_OFF);
-> +		rvtrace_write32(comp->pdata, upper_32_bits(priv->start),
-> +				RVTRACE_RAMSINK_WPHIGH_OFF);
-> +		src.cur = buf_cur_head - priv->start;
-> +		size_wp_end = priv->end - buf_cur_head;
-> +		tbuf_to_pbuf_copy(&src, &dst, size_wp_end);
-> +	}
-> +
-> +	src.cur = 0;
-> +	size_start_wp = buf_cur_head - priv->start;
-> +	tbuf_to_pbuf_copy(&src, &dst, size_start_wp);
-> +	dev_dbg(&comp->dev, "Copied %zu bytes\n", size_wp_end + size_start_wp);
-
-Currently, rvtrace_ramsink_copyto_auxbuf() only resets the RAM sink
-Write Pointer (WP) if a trace buffer wrap has occurred. If no wrap
-occurs, it copies the trace data from the buffer's start address to
-the current WP, but the WP is not reset to buffer's start address.
-
-This causes an issue during process context switches. When a traced
-program is context-switched out, the trace data is copied to the
-perf AUX buffer. If the WP is not reset at this point, the next
-time the program is scheduled and subsequently switched out, the
-function will once again copy from the start of the buffer up to the
-new WP. This unintentionally re-copies the old trace data from the
-previous scheduled slice.
-
-Regards,
-Eric Lin
-
-> +	return (size_wp_end + size_start_wp);
-> +}
-> +
-> +static int rvtrace_ramsink_setup_buf(struct rvtrace_component *comp,
-> +				     struct rvtrace_ramsink_priv *priv)
-> +{
-> +	struct device *pdev = comp->pdata->dev;
-> +	u64 start_min, limit_max, end;
-> +	u32 low, high;
-> +	int ret;
-> +
-> +	/* Probe min and max values for start and limit registers */
-> +	rvtrace_write32(comp->pdata, 0, RVTRACE_RAMSINK_STARTLOW_OFF);
-> +	rvtrace_write32(comp->pdata, 0, RVTRACE_RAMSINK_STARTHIGH_OFF);
-> +	low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_STARTLOW_OFF);
-> +	high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_STARTHIGH_OFF);
-> +	start_min = (u64)(high) << 32 | low;
-> +
-> +	rvtrace_write32(comp->pdata, 0xffffffff, RVTRACE_RAMSINK_LIMITLOW_OFF);
-> +	rvtrace_write32(comp->pdata, 0xffffffff, RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +	low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_LIMITLOW_OFF);
-> +	high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +	limit_max = (u64)(high) << 32 | low;
-> +
-> +	/* Set DMA mask based on the maximum allowed limit address */
-> +	ret = dma_set_mask_and_coherent(pdev, DMA_BIT_MASK(fls64(limit_max)));
-> +	if (ret)
-> +		return ret;
-> +
-> +	priv->va = dma_alloc_coherent(pdev, priv->size, &priv->start, GFP_KERNEL);
-> +	if (!priv->va)
-> +		return -ENOMEM;
-> +
-> +	priv->end = priv->start + priv->size;
-> +	if (priv->end <= start_min || priv->start >= limit_max) {
-> +		dma_free_coherent(pdev, priv->size, priv->va, priv->start);
-> +		dev_err(&comp->dev, "DMA memory not addressable by device\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Setup ram sink start addresses */
-> +	if (priv->start < start_min) {
-> +		dev_warn(&comp->dev, "Ramsink start address updated from %pad to %pad\n",
-> +			 &priv->start, &start_min);
-> +		priv->va += start_min - priv->start;
-> +		priv->start = start_min;
-> +	}
-> +
-> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->start), RVTRACE_RAMSINK_STARTLOW_OFF);
-> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->start), RVTRACE_RAMSINK_STARTHIGH_OFF);
-> +	rvtrace_write32(comp->pdata, lower_32_bits(priv->start), RVTRACE_RAMSINK_WPLOW_OFF);
-> +	rvtrace_write32(comp->pdata, upper_32_bits(priv->start), RVTRACE_RAMSINK_WPHIGH_OFF);
-> +	/* Setup ram sink limit addresses */
-> +	if (priv->end > limit_max) {
-> +		dev_warn(&comp->dev, "Ramsink limit address updated from %pad to %pad\n",
-> +			 &priv->end, &limit_max);
-> +		priv->end = limit_max;
-> +		priv->size = priv->end - priv->start;
-> +	}
-> +
-> +	/* Limit address needs to be set to end - mem_access_width to avoid overflow */
-> +	end = priv->end - priv->mem_acc_width;
-> +	rvtrace_write32(comp->pdata, lower_32_bits(end), RVTRACE_RAMSINK_LIMITLOW_OFF);
-> +	rvtrace_write32(comp->pdata, upper_32_bits(end), RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +	low = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_LIMITLOW_OFF);
-> +	high = rvtrace_read32(comp->pdata, RVTRACE_RAMSINK_LIMITHIGH_OFF);
-> +	end = (u64)(high) << 32 | low;
-> +	if (end != (priv->end - 4)) {
-> +		dev_warn(&comp->dev, "Ramsink limit address updated from %pad to %pad\n",
-> +			 &priv->end, &end);
-> +		priv->end = end;
-> +		priv->size = priv->end - priv->start;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rvtrace_ramsink_setup(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_ramsink_priv *priv;
-> +	u32 trram_ctrl;
-> +	int ret;
-> +
-> +	priv = devm_kzalloc(&comp->dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	/* Derive RAM sink memory size based on component implementation ID */
-> +	switch (comp->pdata->impid) {
-> +	default:
-> +		priv->size = SZ_1M;
-> +		priv->mode = MODE_SMEM;
-> +		priv->stop_on_wrap = false;
-> +		priv->mem_acc_width = 4;
-> +		break;
-> +	}
-> +
-> +	trram_ctrl = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	trram_ctrl |= priv->mode << RVTRACE_RAMSINK_CTRL_MODE_SHIFT;
-> +	rvtrace_write32(comp->pdata, trram_ctrl, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	trram_ctrl = rvtrace_read32(comp->pdata, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +	dev_dbg(&comp->dev, "mode: %s\n", (trram_ctrl >> RVTRACE_RAMSINK_CTRL_MODE_SHIFT) & 0x1 ?
-> +		 "SMEM" : "SRAM");
-> +
-> +	trram_ctrl |= priv->stop_on_wrap << RVTRACE_RAMSINK_CTRL_STP_WRAP_SHIFT;
-> +	rvtrace_write32(comp->pdata, trram_ctrl, RVTRACE_COMPONENT_CTRL_OFFSET);
-> +
-> +	ret = rvtrace_ramsink_setup_buf(comp, priv);
-> +	if (!ret)
-> +		dev_set_drvdata(&comp->dev, priv);
-> +
-> +	return ret;
-> +}
-> +
-> +static void rvtrace_ramsink_cleanup(struct rvtrace_component *comp)
-> +{
-> +	struct rvtrace_ramsink_priv *priv = dev_get_drvdata(&comp->dev);
-> +
-> +	dma_free_coherent(comp->pdata->dev, priv->size, priv->va, priv->start);
-> +}
-> +
-> +static int rvtrace_ramsink_probe(struct rvtrace_component *comp)
-> +{
-> +	int ret;
-> +
-> +	ret = rvtrace_ramsink_setup(comp);
-> +	if (ret)
-> +		return dev_err_probe(&comp->dev, ret, "failed to setup ramsink.\n");
-> +
-> +	ret = rvtrace_enable_component(comp->pdata);
-> +	if (ret)
-> +		return dev_err_probe(&comp->dev, ret, "failed to enable ramsink.\n");
-> +
-> +	return ret;
-> +}
-> +
-> +static void rvtrace_ramsink_remove(struct rvtrace_component *comp)
-> +{
-> +	int ret;
-> +
-> +	ret = rvtrace_disable_component(comp->pdata);
-> +	if (ret)
-> +		dev_err(&comp->dev, "failed to disable ramsink.\n");
-> +
-> +	rvtrace_ramsink_cleanup(comp);
-> +}
-> +
-> +static struct rvtrace_component_id rvtrace_ramsink_ids[] = {
-> +	{ .type = RVTRACE_COMPONENT_TYPE_RAMSINK,
-> +	  .version = rvtrace_component_mkversion(1, 0), },
-> +	{},
-> +};
-> +
-> +static struct rvtrace_driver rvtrace_ramsink_driver = {
-> +	.id_table = rvtrace_ramsink_ids,
-> +	.copyto_auxbuf = rvtrace_ramsink_copyto_auxbuf,
-> +	.stop = rvtrace_ramsink_stop,
-> +	.start = rvtrace_ramsink_start,
-> +	.probe = rvtrace_ramsink_probe,
-> +	.remove = rvtrace_ramsink_remove,
-> +	.driver = {
-> +		.name = "rvtrace-ramsink",
-> +	},
-> +};
-> +
-> +static int __init rvtrace_ramsink_init(void)
-> +{
-> +	return rvtrace_register_driver(&rvtrace_ramsink_driver);
-> +}
-> +
-> +static void __exit rvtrace_ramsink_exit(void)
-> +{
-> +	rvtrace_unregister_driver(&rvtrace_ramsink_driver);
-> +}
-> +
-> +module_init(rvtrace_ramsink_init);
-> +module_exit(rvtrace_ramsink_exit);
-> +
-> +/* Module information */
-> +MODULE_AUTHOR("Mayuresh Chitale");
-> +MODULE_DESCRIPTION("RISC-V Trace Ramsink Driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.43.0
+> Use ktime_get() instead which provides nanosecond timestamps with the
+> granularity of the underlying hardware counter, which is not different to
+> the variety of get_cycles() implementations.
 >
+> This provides at least understandable metrics, i.e. operations/nanoseconds,
+> and is available on all platforms. As with get_cycles() the result might
+> have to be put into relation with the CPU operating frequency, but that's
+> not any different.
 >
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> This is part of a larger effort to remove get_cycles() usage from
+> non-architecture code.
+>
+> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+
+Thanks for your patch!
+
+> --- a/lib/interval_tree_test.c
+> +++ b/lib/interval_tree_test.c
+> @@ -65,13 +65,13 @@ static void init(void)
+>  static int basic_check(void)
+>  {
+>         int i, j;
+> -       cycles_t time1, time2, time;
+> +       ktime_t time1, time2, time;
+>
+>         printk(KERN_ALERT "interval tree insert/remove");
+>
+>         init();
+>
+> -       time1 = get_cycles();
+> +       time1 = ktime_get();
+>
+>         for (i = 0; i < perf_loops; i++) {
+>                 for (j = 0; j < nnodes; j++)
+> @@ -80,11 +80,11 @@ static int basic_check(void)
+>                         interval_tree_remove(nodes + j, &root);
+>         }
+>
+> -       time2 = get_cycles();
+> +       time2 = ktime_get();
+>         time = time2 - time1;
+>
+>         time = div_u64(time, perf_loops);
+> -       printk(" -> %llu cycles\n", (unsigned long long)time);
+> +       printk(" -> %llu nsecs\n", (unsigned long long)time);
+
+While cycles_t was unsigned long or long long, ktime_t is always s64,
+so "%lld", and the cast can be dropped (everywhere).
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
