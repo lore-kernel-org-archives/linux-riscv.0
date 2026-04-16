@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E90FFF8A160
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 11:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF47F8A160
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 11:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vtiu1pyLAXj8mqsD5vmxQmautevRD3OZpQmxEfTp+xg=; b=P2yIWI4YPS0YrG
-	OEdVGuU1+Tau4PCNHHYqknmqPGtnmn6FWVl9p+kxflmbB3ujZQmhoTX1xD2kexRObI61jjhutJCjC
-	ATZjk8QC2eD39p2os3gE8511DwGwrifnBDkH1dI9DL/f/8cJbIab01NG/bri7d/th3S6tioSVpwna
-	539gE2T9VvWpph2HDzy3fR29KGfKOhhZQEVae4LZun4U9x2JmSAPg1Ovo6hDm9FyuTjL0OJnkw5I7
-	LASOsAu2xohhm1mzTPKNeyYnyuiNlT89IOktHtcy/M7Olaf0DISqam4kVTf5epJ7nlmOeeXIJ/QCX
-	gGF+K5S99oas8XJfwB8w==;
+	List-Owner; bh=4V5vtyXKQ3nZLIShznwSyE9f2nIxAJCIPCHxhGGgv+8=; b=w3fs4toqNyVOq3
+	9inlhlOo8EGLhB9zGWs/l81r3c3PaVE7G2uXwIP2asb4+QyKWktzP7r4DMPkV6Qd/SYmT/crqTA8v
+	9+uylNNXOfemgrSyKLmrQ4dUvFcZC6rqCm05g8TzcbLYl2dbp1WGPIq4bLfgNn/yRSR0Sb/D6/ra/
+	OOs87oS7nYkX7g/ZuBIsuoiWkrPBJtAwmmFEnwl88wdQ7WxQAm1Hkfks8JPejC6pf+3MYI+RwubTt
+	Y7YYFseWFA5k+C1StVcqI0nBTM/xHPiiX6SIdR/+pneqIuqRqI85KQsQYf6On2WvLHjgFM7CJskmb
+	bP+tio3TtoRvFEVLCS7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDKnZ-00000002NWg-3mX3;
-	Thu, 16 Apr 2026 11:22:17 +0000
-Received: from mail-vs1-f41.google.com ([209.85.217.41])
+	id 1wDKno-00000002NaG-28Ve;
+	Thu, 16 Apr 2026 11:22:32 +0000
+Received: from mail-vk1-f172.google.com ([209.85.221.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDKnX-00000002NWK-0oKL
+	id 1wDKnm-00000002NZK-1AwK
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Apr 2026 11:22:16 +0000
-Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-60fecdd1efaso1386595137.3
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Apr 2026 04:22:14 -0700 (PDT)
+	Thu, 16 Apr 2026 11:22:31 +0000
+Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-56f75445470so2068716e0c.2
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Apr 2026 04:22:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776338534; x=1776943334;
+        d=1e100.net; s=20251104; t=1776338549; x=1776943349;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AptjVPQ97g683jPGYCmYUacoTRTAG/3/TQY5t1TSdkk=;
-        b=RZsWg64AFoQc1y34m1mxtwJhHoivBaqZvGPtha0xdod3ZsRIUPKLaopzVwgXa0F6tV
-         H7U06950UVCzZWPaCIorQNeJCd4lxKtoFF6/NJaDgRdPbTnblkzGrs8DDjP6RqLrJFmy
-         Zu55hNgGrTHs8sA4HQfKIq34igzVTMceGPOWtGTg1h3E2mvGLflcKEMTaJZDUULNlAH1
-         ycNn+esLjR7HO5MmvCECKYh4S51zx89oOIIK1iEkSvnt+7j+gCj8rlUYTJmcLsMeWkTn
-         6xxPE0Qx9xXGoBEszajkAAdc5LKd6jYYP7xk6zZDnbnL8fjMnLA1sUiWy1T9kBP8PvOQ
-         7Pcw==
-X-Forwarded-Encrypted: i=1; AFNElJ+NF6KGSaYArbSSq3zavM1rt2A8B1JIsiXdRRhp6jw26U7mO3fr1/M+3J5nu3ODiSl5ae3mptyE/Zb1BA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyT3/Cyvq2q3Dk10k6GE/kN0hRiGczKViB/TFlYjBbgJ94m/k1o
-	PKTa/kYpZ92Z0RyZW2ihqBJoRY2t1nD3sY/Fes2qzzKRE4a38ua+R5JxG0nFwh94
-X-Gm-Gg: AeBDievdOIBMTL4ikGnUCeWWxLkc66RK6Gt58NXNK2dvAeYOQLIenvyrLso1mNYJAf4
-	zTyUsZyvSa8+RBEZ88uExTfxvxmYIhNaG3zoUfEHpZIKOzGeB56joDt+7IpMUNwr82/4UZZbNfP
-	foyfRaKLPqb3z9eFAQIrIIce6JzeB0txevkyDC7zugt6S+i95wQqlsbno61E9Ye/gBP8pEFAaqP
-	FQ58cRumpvSRgqN+PsrAPEA768C84URxico1+NbrsAs3+LR1/h3re7gmHJ7ZZl28yWjtdGNw95C
-	6SA/c1BO+I8gRc+1b6w7uXRsG7aADxYzG0PtpH0vMnW1RL+/b/kfdubEniZsFTev9i94lrb02rb
-	JjdstLbEIukTYBoBdmhJITw1h0BSdD/sdyb8ZjOU6tUEgOlG7AbUpFTZpEk5ybSI/sjFYWUTGAi
-	dsLEruNiJ1dhJAgDcHPjngVCDiUpC27EqiwgiciTsjdCOYJxV7NOSnOu6Oqwg5EXKhyuoaMQr/t
-	1MXptJxqasnlQ==
-X-Received: by 2002:a05:6102:6055:b0:608:f466:687f with SMTP id ada2fe7eead31-60a0115fd97mr9864914137.23.1776338533679;
-        Thu, 16 Apr 2026 04:22:13 -0700 (PDT)
-Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com. [209.85.221.176])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-958652c87d0sm2134358241.3.2026.04.16.04.22.13
+        bh=I6jqlHRyBmHp78NPQbVn/INUSPCxYZ/sUXVIyq1nXfE=;
+        b=TkpPs01d3Fr/wsKTvt2BMuA1c5K7NAz9LdmGxP7xUxDU3lRFNLrbqMaeytF4+dZzGe
+         jnKpYAKbTaKUha2/YW/YxL3JMyA2PFJVbN00zzi56K+oQNvw1MBfOBdXKp3rLqIHOJO6
+         rZeQ2JjvzqE6mtFon8ZNl/z2/w9oqsYbXYVomdIOaIEHkFg3knnrj+0tC78LNddzAWqr
+         e4pANN8mYXBO17YpFISOz3L8Ay0bKgiSbfcSNNg8JPQaa19dhFZmHnzSMj1JlP31yxoj
+         z95rvKWsRqMDtbO+w++E0GArH0AoP3hTS+1t67rFALkP9VdjYEo5nZO3o2r7SPAJUz+W
+         pl+Q==
+X-Forwarded-Encrypted: i=1; AFNElJ98L8rGpNKieXfF4qCzjkMDtpglAKQSrIdcxDjQRBpoe+BY+QXBj39iez3sXx+zjPfx/fBhGt+/isF15A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFV0gLLkuC+jRASVnmJXlZar02T0sUlx330lWT3+tVrnFmfIcV
+	GDxKoETHs1WLg4SCYcifnH/fpwppUGgMRpGvjvM/QViinu9skFnAjGPeFLWKTRLK
+X-Gm-Gg: AeBDieuJScjMsjwF0plZ5+lrSNAt+PdhFOIM2+kxeiMDuKuyDU9DXq/81IWjOrqEvSD
+	XVNjgrimRTMtVnojEufWCMOZdmA+zWhK01E1N/DdjuX7KKbOP5G5sPpPmlg9qT7qu+KDDJMj2Q2
+	ZuUrh2FEpAP9vsA4a/3nkde70oGZTWkYusfKnDQRT9PmlK+LH0Mb4tnSgssBtEyXIK/PAeOvtJI
+	6Mqj7MLLsYQCYgEl91IT/YiIVQj6Oi8/UToy5xeHF5iIihfjd4f2CFLofIlxHOAY3VbW+ykbkrP
+	2L0c57HLAigtEerRty3LRYliDQo7rb1YKXrr8JgkOnxCvYQGmTRowGjdSSvkRKg6/id2NuwQARC
+	r7bV1bL8E/mYG806nKLTc02BHV0+DEs6DVPRreCIclw/MZQIUglrKxbYzEVsHiXj55caIJFLj8Q
+	ZvoY4/bFBPqOBLV1IxNjOa3N/G6bJstLz5q2Gu089ZCjj+9PJIbTw9Fv8xnbwp0suwUWv2lqpOk
+	AO3W+6d2A==
+X-Received: by 2002:a05:6122:2896:b0:56b:7ec9:f54 with SMTP id 71dfb90a1353d-56f3bcb26afmr12667423e0c.9.1776338548947;
+        Thu, 16 Apr 2026 04:22:28 -0700 (PDT)
+Received: from mail-vs1-f42.google.com (mail-vs1-f42.google.com. [209.85.217.42])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56f89dd36dcsm2692845e0c.1.2026.04.16.04.22.27
         for <linux-riscv@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Apr 2026 04:22:13 -0700 (PDT)
-Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-56d89f35940so2673672e0c.2
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Apr 2026 04:22:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8USULlPgwqQFfqWsI9UlP1a138a1tYiJO0JOlgu7wOzIR263G8Nkn0PBG3a9gQB8A0V2nAWpTZSF8/zw==@lists.infradead.org
-X-Received: by 2002:a05:6122:788:b0:56f:1ed6:1d29 with SMTP id
- 71dfb90a1353d-56f3bca6059mr11244615e0c.9.1776338533353; Thu, 16 Apr 2026
- 04:22:13 -0700 (PDT)
+        Thu, 16 Apr 2026 04:22:27 -0700 (PDT)
+Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-605823aec55so4583983137.2
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Apr 2026 04:22:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9HM5u6y182Fztz+tM35Z0gks8OCi3TyBwamPZRfkP/82NxvN58iusng+qC/hnjzdr5GAKEmPzSSdMbsw==@lists.infradead.org
+X-Received: by 2002:a05:6102:6044:b0:5ff:c64d:2283 with SMTP id
+ ada2fe7eead31-60a0157295cmr11348128137.30.1776338547396; Thu, 16 Apr 2026
+ 04:22:27 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260410120044.031381086@kernel.org> <20260410120317.910770161@kernel.org>
-In-Reply-To: <20260410120317.910770161@kernel.org>
+References: <20260410120044.031381086@kernel.org> <20260410120319.397219631@kernel.org>
+In-Reply-To: <20260410120319.397219631@kernel.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 16 Apr 2026 13:22:02 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX1aShz8esbYzJ7T-0Na6++_Yi315aCiUx0Cnsgod5uUg@mail.gmail.com>
-X-Gm-Features: AQROBzBwwjc8yd10cT00Tu5Dl2qrCYQStWr3Lcobhh8coMrpPeCH9vhBSNokYJk
-Message-ID: <CAMuHMdX1aShz8esbYzJ7T-0Na6++_Yi315aCiUx0Cnsgod5uUg@mail.gmail.com>
-Subject: Re: [patch 05/38] treewide: Remove CLOCK_TICK_RATE
+Date: Thu, 16 Apr 2026 13:22:16 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVoo_6i9=2oQj-=yjW7nK8eL4og08bdYvk_EGj=_cQvQA@mail.gmail.com>
+X-Gm-Features: AQROBzCJ6rVnwwfhi99PI36wWXAFQ5DEgo1zw3RhVwYNSXoxkTYAcgIxt5Z0K1g
+Message-ID: <CAMuHMdVoo_6i9=2oQj-=yjW7nK8eL4og08bdYvk_EGj=_cQvQA@mail.gmail.com>
+Subject: Re: [patch 27/38] m68k: Select ARCH_HAS_RANDOM_ENTROPY
 To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, 
-	Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
+Cc: LKML <linux-kernel@vger.kernel.org>, linux-m68k@lists.linux-m68k.org, 
+	Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, Lu Baolu <baolu.lu@linux.intel.com>, 
+	iommu@lists.linux.dev, Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
 	linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
 	linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org, 
 	David Woodhouse <dwmw2@infradead.org>, Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org, 
@@ -89,16 +89,16 @@ Cc: LKML <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, x86@kern
 	Richard Henderson <richard.henderson@linaro.org>, linux-alpha@vger.kernel.org, 
 	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
 	Catalin Marinas <catalin.marinas@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org, 
+	loongarch@lists.linux.dev, Dinh Nguyen <dinguyen@kernel.org>, 
+	Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org, 
 	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org, 
 	Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, 
 	Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org, 
 	Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org, 
 	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_042215_245792_1C4F5F5C 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20260416_042230_327257_081ED7FA 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,17 +115,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Apr 2026 at 14:18, Thomas Gleixner <tglx@kernel.org> wrote:
-> This has been scheduled for removal more than a decade ago and the comments
-> related to it have been dutifully ignored. The last dependencies are gone.
+On Fri, 10 Apr 2026 at 14:20, Thomas Gleixner <tglx@kernel.org> wrote:
+> The only remaining usage of get_cycles() is to provide
+> random_get_entropy().
 >
-> Remove it along with various now empty asm/timex.h files.
+> Switch m68k over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY and
+> providing random_get_entropy() in asm/random.h.
+>
+> Remove asm/timex.h as it has no functionality anymore.
 >
 > Signed-off-by: Thomas Gleixner <tglx@kernel.org>
 
->  arch/m68k/include/asm/timex.h       |   15 ---------------
-
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
+Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
 Gr{oetje,eeting}s,
 
