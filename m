@@ -4,123 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E9BF88073
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 06:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D03F8A142
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Apr 2026 08:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FZdvspMWYNNWIw9l+8rA38c3H1ffNSTGn/TikPWLqd0=; b=JHAFziIm+/IDfa
-	Y/R+/1dkI95PR8xknmVSFfDL42rwS8s1f0CByL2ayneGnUHmDCN2g7k6wE8vvmKUNsborquPo9GFj
-	xfnk27RWNBuL/ZTkXZgiq+ZvkUPdr3IdRzNlYne0xEfGiNKVhCN5KKbl9CCJMJ02FW8YGBCDGcDQX
-	70WmEO7ZqPaLZQotpfY5PlhhgKudw1n88s7UC2ER88XwPy7GUJi0gKl+OAf2GZ5rO4FteY6eH1YRh
-	SkLVB4pCY1im2EJpiAJj1R9i2/cYTZE/QqMQ8MdmJea8qwbeJVrsdTl7D/UebEKB8erFBiY97fWju
-	AEnVQSn6Vgc4pAWbwjng==;
+	List-Owner; bh=G3oLQe4XtFbb6WQRdzJBW4ogL9lJbablhNGPeZN+OOQ=; b=OIRrwQoco/AmKd
+	6a4YdRDHdSg8+zoceAIZj5SaQj7FdPpi5edv2Nn2iG6b0vWB+9a+agV+DLW6YQAZHckUAlBVgjX0R
+	mQnrg9Wv7ZEY+j1l/GxN4DzJQiObxJanX2Aa88LlcSHRXeHicgH2zAfHVIsCu03E6iC+1CF9N5/Rc
+	L2k8l2P1xKIFmy+DIyckwv1wT1jT6s9Wiry5lr1YB97RHImLeZPoYz7+e0VsT7WJC6Do5WJI2Kpr6
+	QXTpD4/8B4w2BKVTbgXRJxgdav7i8fTiBdc9AVGo1PBZsFUCJazmEYoDpiVeV2c9Mt2kPaM+T/Nvs
+	N1PNfZRax1+MYdYkUJeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGXB-000000024Rz-0mrq;
-	Thu, 16 Apr 2026 06:49:05 +0000
-Received: from mail-sh0chn02on2070f.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::70f] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wDHeP-000000029VH-0WPM;
+	Thu, 16 Apr 2026 08:00:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDGX8-000000024PO-22BW
+	id 1wDHeM-000000029Uu-1SkX
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Apr 2026 06:49:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=iBfx8GE/63FB2Kc5oXyoTVRAwBLZfkGXdhdy3GvWf3kptQy1DO1TJT0//u23HOTONJe7v+UpgElB+x7rIOGyiG4OI3WotVQUpe+Ax4xsq7XIA1jSvXNsDLizvHQ0KQfljHx3aKEWCeAUSLi4qRYhT+QivS/mELBV1GqOnwfFRbIsUPWu1kiv8E5sSR94TqBjXLs3KhzSBwIQgRMCHZJnYMfWpbfsqh3tO03/WbJCPCCgpdLU4ny6Z7s+vRcD+Us9xswNpbx+JKKMPKBiTQdrciVXbAdPzxnkDxurVp7KGaaRB04j1M1RR0poHMCeunouzJTPU6sYPdZnOH+2PuUBKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=36LQKrzoyeqi/EovQ77CNtu3JpnSfH7XeZPX9HNd/WQ=;
- b=g+CnPigIL2fBel07HVj9DcbYACoY335YELIFIzjcEebNLAsmHhwUC5tnxRFKQik+pypIKXDcvTD26ZPplo9Ab693rZRXfKyFInbfL+tPJ0SaAaDCa904Xcku25SyZBpWdkrnCpqDCmw4iKum+GEpI3oTUpoe5nULnC9iekuNaVWnTxri7qpc+fCCGQTGe7oEXfneClfXpTjoKeU8CldDuolSDPbHPiVrQ3Eqoi2V3BEPuWZOevgYvlQZLDTeQO7q07sM5/4gTZ7/rU9dAmsXH7lMOjTwaLtTWKzDkjsVBIuYi+zlFcDR6y+ewMo5zSaDmjfO7a80w7snzTAxIpCUYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:11::9) by NT0PR01MB0958.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:7::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.51; Thu, 16 Apr
- 2026 06:48:34 +0000
-Received: from NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn
- ([fe80::1666:48e8:19e9:ad29]) by
- NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn ([fe80::1666:48e8:19e9:ad29%7])
- with mapi id 15.20.9769.048; Thu, 16 Apr 2026 06:48:34 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v2 5/5] irqchip/starfive: Implement irq_set_type() and irq_ack() callbacks
-Date: Wed, 15 Apr 2026 23:47:51 -0700
-Message-Id: <20260416064751.632138-6-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260416064751.632138-1-changhuang.liang@starfivetech.com>
-References: <20260416064751.632138-1-changhuang.liang@starfivetech.com>
-X-ClientProxiedBy: NT0PR01CA0006.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510::8) To NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510:11::9)
+	Thu, 16 Apr 2026 08:00:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4345343B8A;
+	Thu, 16 Apr 2026 08:00:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DDF2C2BCB5;
+	Thu, 16 Apr 2026 08:00:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776326432;
+	bh=kvc9nrU264xilxG84SXnJprEBV5fZrAuykyaNfGZiQ4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=rmQ6xH2nw4w0Kcm64wAK0QGByPSE7+a5rOXBZWoEGeaGWS8p7dFcWfQ056dyJ1V4e
+	 uEBo8QGDMmSKT+EdCupJJrtnZ4+wPf9Yq1x7wiWsueUCDmJ9CX5KWAtu8v5swsXWRa
+	 14WoGtPwcstWsxBoKu9RgbYG9UbRZokhKthSnvHYhiWIezFK74MrmZpIXqSIIAw/SK
+	 IDP6peGOj1PMJt+sCHIgHnCk3Pba1JnjuMvEN6YY/Jrt+noI/qBB9qhrHjsFidqXC/
+	 buneojfnxY8sM0/mJ96CaG21YQ/iiZ5XzNLWdppV2hmJfesZQYCS5WRma5SVVfxPZJ
+	 dMoMe8/ztXQnQ==
+Date: Thu, 16 Apr 2026 10:00:26 +0200
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, workflows@vger.kernel.org, Alexandre Ghiti
+ <alex@ghiti.fr>, Shuah Khan <skhan@linuxfoundation.org>, Dan Williams
+ <djbw@kernel.org>
+Subject: Re: [PATCH 0/8] Auto-generate maintainer profile entries
+Message-ID: <20260416100026.3df67a72@foz.lan>
+In-Reply-To: <88335220-3527-4b1f-9500-417f7ebb7a02@infradead.org>
+References: <cover.1776242739.git.mchehab+huawei@kernel.org>
+	<88335220-3527-4b1f-9500-417f7ebb7a02@infradead.org>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: NT0PR01MB1216:EE_|NT0PR01MB0958:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c44bdef-cc50-40a2-2a24-08de9b842e20
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: hAEVKdIxzlnC3YDmB2+a62ooAxdmRF7wDeQ90iX9xCgmJUlc3bJBgNhAcOvmnDA4jAWk3CJ9KGZBbLdHJ8PN4dQ4Wu3zWWRN+Mk+IB4YSpB2piy/A2TjRoxrB872L5MQhasFqyLe61DAbLoBI/PWVdTKI15VKqDyhNdvo5ju2j/Lxid8IhI7SVr1yzJzCR3DJPpH68u+kDtB8zNR4s6PAD2sQJ2eCuCqXwLk7matRAzIaR0DN9cF3Se6tsyoN1KjTcrgqqETZqVHz0Wr9IO4bZ4n4adD7JBaIqDA72BFmELezvBEljSXBZxfmvQJwf8dgpVgVDXWRkhsPL0sCviZ/GwdmNHnlmxLi/COHsOP/6i4s9DGL9WLB/05ljx61S6ZYh6Pdmxgl6Mzeom5uDOJtbkmcdHx0hAhNvbVTsKijiuwLBgKmUaRi/winnc2gr3SO7UC3cFq1C/6Gz3cmUMXSHdAn18aLVb63LcTWo1UdVGcxHwivqBMONkMmSMmL4NzjUtIzgPXEUn44DmThvLAT+iSWBGDyuQJVmH0lcFoxqv52RzveG4ZMhlHQZREGbgKnsG0WmGDIRlSGTPoiN10L9OFJOt6E53iKX5RDz1RwfU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6sHQ9rZRBIg068YM8m2f78VuNQwxu5cPAsm9YSk0bOA5DnDbcIdkD6iZ5eLq?=
- =?us-ascii?Q?ECoNHX8qQ8DUPjmGVCyf1vssTkjREWUYMwGBdAxsdCZuw4QLP7v8UnH60ZkG?=
- =?us-ascii?Q?fKwB8Hi+2Z0JeDcoLTr1HAOYY0Slp1cvHHxvYl/vfAYd5UGJTUR4ZzDM9a0v?=
- =?us-ascii?Q?UeblS4yRJ3fbTOdEamcnK1mGHT3qxB0uc/VwWljsEw2Cod8Bb6jgjC5/Uj3j?=
- =?us-ascii?Q?vZvdP7Ey3i5hcHXWT3bMKwu+H1BwtDvt0JMQ4jGGxPubLfiGAjU1WklfKA3m?=
- =?us-ascii?Q?cLc2mPdwNKTtDjC1uUQac+K6bhs/v00p7GeA/Hc+0rGa95GijNe4M4hFH6MC?=
- =?us-ascii?Q?83esael0cI8INc17zpTPHwrAD/RUe1O5kEwDv2YsPUEIOaCqg/RiUVTeeYDB?=
- =?us-ascii?Q?s6u+lHwRcUTGSjXTRqsbNe9KHP/4LmW2K06wx4OGh3Bknq/pBWATagvv+oZ8?=
- =?us-ascii?Q?15idXKBSPlrZWLDw27PZdsfocvKYsBghIkENzvkZ7jYlvaMQn4mr+xFnqq7U?=
- =?us-ascii?Q?F8d7TUZw1DylTyQV/Q51HHBEQcKwS8PN22B1yQQUP0KQQMZS+uNhTSoAvzM3?=
- =?us-ascii?Q?GyDL3fJ3wk3I+RmT2T05t85XChN+zqd4MmVxfF3OM7oqX6qhEFEJ0VexBApN?=
- =?us-ascii?Q?w5aAC197z1EREbbwCAoXTWJWM3q1FHQ97UNbTp61qHaSsLR6hg5qRNN79LV5?=
- =?us-ascii?Q?tXb3LaAWPqRfCbPAoEkd/erA7JHa3u8SRexLvM4CNlU9oov74noMZWpC7002?=
- =?us-ascii?Q?4J6rzpJyRXH2JOhXu8CrnHhBQ61Te4Ww8xWnasgA+j0zIE8hRqALjccPpHCc?=
- =?us-ascii?Q?mnN9nFYngxsEIZ/AcapoezN/YZNWbbkSWkKVCGhhier1Gp2pcRl00xIS+JuE?=
- =?us-ascii?Q?ORxuv3ItTCvmkZYyx8wdYINDAGJ0vRQVEPVz6Bq1Vj51QHm0LPEc/kLXAYnZ?=
- =?us-ascii?Q?t96dLQlt3lRKtOFjH2jbJ5WXUEoT5Cozt31CWnUYfwnhxsleh437sG6cmNks?=
- =?us-ascii?Q?S7HpKwdy7tOVL+3HaHNk/jXt+PLS2INn0CmW8CjLa9DJ0AYheTclZeoztWlv?=
- =?us-ascii?Q?8H5cwzp7HfdeehcjJMOW7eh8dVCQBzTB5ZBwBhi0oQ8qyFwArNxr7tvYnWIh?=
- =?us-ascii?Q?QWUSYlnVXlyi+Y46voHablGo5yNHovpXXxaWwKRNqWr/W8WtqL/xMnOH2r/h?=
- =?us-ascii?Q?dSmnjztTfCDSjBhVktO9L42evBwiW/p8/GSgGIF6K62+b88iwDAC9PQLn8Zz?=
- =?us-ascii?Q?z9yR41JwSgHK8H1vpv7phN2DlkhhZSy3nHPwkRO8bUanlovqCaVAwvxoIQfG?=
- =?us-ascii?Q?HBMAqxreBds+wcm8YL5+IFpuPLs15dPS3SnypV9XgDT3ntO6qJYbGSv0EePA?=
- =?us-ascii?Q?pYvYnBlfQ7nIwYQr1qx0HoaQUJEVBiL6eQXuvc9Nw0tSX86Z9pXynOC1RWAq?=
- =?us-ascii?Q?C+iUWj5DZtbOPrNhUqilLFTTPhQcKV1sHicmI7pfWnrjoJ1f/U2OQx2+8MDC?=
- =?us-ascii?Q?MScxPIkcccDzlmJaU0CCQOicB2hi9nZ5wDaSb54qtw6OmhGh1Vvz71SLYn7O?=
- =?us-ascii?Q?ZSHWg1eKxCmxxHI0K5277lYaCpmIdwr22o9oLlXCUuekp6KstpvcAeJfnczP?=
- =?us-ascii?Q?th6Urx1lMsRKB2wlQK1LbsaKIDVG0Vph8csCBILBgMRbwAdvl5Kcn0z9FiaQ?=
- =?us-ascii?Q?e4KpDbYeB+Ig/Zs9xgkXQgaA4YOIK8WqsbO4FXB0BNJ3U1CC6sWvDbqJN5N4?=
- =?us-ascii?Q?SOo3WtxMYhOrC8C+LeYHUM5deO2wofEXYyw/clPrwtHbrcnyjU7H?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c44bdef-cc50-40a2-2a24-08de9b842e20
-X-MS-Exchange-CrossTenant-AuthSource: NT0PR01MB1216.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2026 06:48:34.6227
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Yt5d40H4CUqGnLO27XwDKwdnGqjNva42XLLTQ+9IUdkVGJvqGzYCTdeuubckRjf0bBsUO5Dvs3GSm7B0VKIxL7pN4GWhx4PDv95ONfjZTQFixULNKDJYeZriIuE01yxP
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: NT0PR01MB0958
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260415_234902_524215_5BA8ADA3 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20260416_010034_471773_2A7BB254 
+X-CRM114-Status: GOOD (  40.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,132 +78,255 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add irq_set_type() callback to support configuring interrupt trigger types
-(level high/low, edge rising/falling) for the JHB100 interrupt controller.
-Also add irq_ack() callabck as required by handle_edge_irq().
+On Wed, 15 Apr 2026 13:41:16 -0700
+Randy Dunlap <rdunlap@infradead.org> wrote:
 
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
----
- drivers/irqchip/irq-starfive-jhb100-intc.c | 73 ++++++++++++++++++++++
- 1 file changed, 73 insertions(+)
+> Hi Mauro,
+> 
+> Thanks for tackling this issue.
+> 
+> On 4/15/26 1:52 AM, Mauro Carvalho Chehab wrote:
+> > Date: Tue, 14 Apr 2026 16:29:03 +0200
+> > From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+> > To: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, Dan Williams <djbw@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>
+> > Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, workflows@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, Shuah Khan <skhan@linuxfoundation.org>
+> > Message-ID: <cover.1776176108.git.mchehab+huawei@kernel.org>
+> > 
+> > Hi Dan/Jon,
+> > 
+> > This patch series change the way maintainer entry profile links
+> > are added to the documentation. Instead of having an entry for
+> > each of them at an ReST file, get them from MAINTAINERS content.
+> > 
+> > That should likely make easier to maintain, as there will be a single
+> > point to place all such profiles.
+> > 
+> > On this version, I added Dan's text to patch 4.
+> > 
+> > I also added a couple of other patches to improve its output. While
+> > I could have them merged at the first patch, I opted to make them
+> > separate, as, in case of problems or needed changes, it would be
+> > easier to revert or modify the corresponding logic. Also, it should
+> > be better to review, in case one wants some changes there.
+> > 
+> > The main changes against RFC are:
+> > 
+> > - now, the TOC will be presented with 1 depth identation level,
+> >   meaning that it would look like a list;
+> > - for files outside Documentation/process, it will use the name of
+> >   the subsystem with title capitalization for the name of the
+> >   profile entry;
+> > - the logic also parses and produces a list of profiles that are
+> >   maintained elsewhere, picking its http/https link;
+> > - entries are now better sorted: first by subsystem name, then
+> >   by its name.
+> > 
+> > Suggested-by: Dan Williams <djbw@kernel.org>
+> > Closes: https://lore.kernel.org/linux-doc/69dd6299440be_147c801005b@djbw-dev.notmuch/
+> > 
+> > Mauro Carvalho Chehab (8):
+> >   docs: maintainers_include: auto-generate maintainer profile TOC
+> >   MAINTAINERS: add an entry for media maintainers profile
+> >   MAINTAINERS: add maintainer-tip.rst to X86
+> >   docs: auto-generate maintainer entry profile links
+> >   docs: maintainers_include: use a better title for profiles
+> >   docs: maintainers_include: add external profile URLs
+> >   docs: maintainers_include: preserve names for files under process/
+> >   docs: maintainers_include: Only show main entry for profiles
+> > 
+> >  .../maintainer/maintainer-entry-profile.rst   |  24 +---
+> >  .../process/maintainer-handbooks.rst          |  17 ++-
+> >  Documentation/sphinx/maintainers_include.py   | 131 +++++++++++++++---
+> >  MAINTAINERS                                   |   2 +
+> >  4 files changed, 128 insertions(+), 46 deletions(-)  
+> 
+> When building htmldocs with O=DOCS, I get a bunch of warnings.
+> I tested against today's linux-next tree.
+> 
+> The 'make O=DOCS htmldocs' warnings are (subset of all warnings):
+> 
+> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/process/maintainer-kvm-x86' [toc.not_readable]
+> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/filesystems/xfs/xfs-maintainer-entry-profile' [toc.not_readable]
+> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/process/maintainer-soc-clean-dts' [toc.not_readable]
+> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/process/maintainer-netdev' [toc.not_readable]
+> linux-next/MAINTAINERS:38: WARNING: toctree contains reference to nonexisting document 'DOCS/Documentation/process/maintainer-tip' [toc.not_readable]
+> 
+> linux-next/Documentation/filesystems/nfs/nfsd-maintainer-entry-profile.rst: WARNING: document isn't included in any toctree [toc.not_included]
+> linux-next/Documentation/process/maintainer-kvm-x86.rst: WARNING: document isn't included in any toctree [toc.not_included]
+> linux-next/Documentation/process/maintainer-netdev.rst: WARNING: document isn't included in any toctree [toc.not_included]
+> linux-next/Documentation/process/maintainer-soc.rst: WARNING: document isn't included in any toctree [toc.not_included]
+> linux-next/Documentation/process/maintainer-soc-clean-dts.rst: WARNING: document isn't included in any toctree [toc.not_included]
+> linux-next/Documentation/process/maintainer-tip.rst: WARNING: document isn't included in any toctree [toc.not_included]
+> 
+> linux-next/MAINTAINERS:1: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-soc' [ref.doc]
+> linux-next/MAINTAINERS:2: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-soc-clean-dts' [ref.doc]
+> linux-next/MAINTAINERS:3: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-soc-clean-dts' [ref.doc]
+> linux-next/MAINTAINERS:5: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-tip' [ref.doc]
+> linux-next/MAINTAINERS:6: WARNING: unknown document: '../../DOCS/Documentation/process/maintainer-tip' [ref.doc]
 
-diff --git a/drivers/irqchip/irq-starfive-jhb100-intc.c b/drivers/irqchip/irq-starfive-jhb100-intc.c
-index b3d86bd926ed..0d5914813afd 100644
---- a/drivers/irqchip/irq-starfive-jhb100-intc.c
-+++ b/drivers/irqchip/irq-starfive-jhb100-intc.c
-@@ -10,6 +10,7 @@
- #include <linux/bitops.h>
- #include <linux/cleanup.h>
- #include <linux/clk.h>
-+#include <linux/interrupt.h>
- #include <linux/irq.h>
- #include <linux/irqchip.h>
- #include <linux/irqchip/chained_irq.h>
-@@ -19,12 +20,20 @@
- #include <linux/reset.h>
- #include <linux/spinlock.h>
+Heh, os.path.relpath() does the wrong thing here.
+
+The enclosed patch should handle it better.
+
+Thanks,
+Mauro
+
+[PATCH] docs: maintainers_include: fix support for O=dir
+
+os.path.relpath() will do the wrong thing with O=dir, as the build
+system uses "cd <dir>" internally.
+
+Solve it by using app.srcdir, which, on normal cases, point to
+Documentation/, or, when SPHINXDIRS=process, it will be set with
+Documentation/process.
+
+While here, remove a dead code while writing maintainer profiles,
+as now all entries should have both profile and entry.
+
+Reported-by: Randy Dunlap <rdunlap@infradead.org>
+Closes: https://lore.kernel.org/linux-doc/88335220-3527-4b1f-9500-417f7ebb7a02@infradead.org/T/#m6854cbd8d30e2c5d3e8c4173bae1c3d6922ff970
+Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+
+diff --git a/Documentation/sphinx/maintainers_include.py b/Documentation/sphinx/maintainers_include.py
+index 5413c1350bba..fff9bdd55a56 100755
+--- a/Documentation/sphinx/maintainers_include.py
++++ b/Documentation/sphinx/maintainers_include.py
+@@ -27,15 +27,24 @@ from docutils import statemachine
+ from docutils.parsers.rst import Directive
+ from docutils.parsers.rst.directives.misc import Include
  
-+#define STARFIVE_INTC_SRC_TYPE(n)	(0x04 + ((n) * 0x20))
- #define STARFIVE_INTC_SRC_CLEAR(n)	(0x10 + ((n) * 0x20))
- #define STARFIVE_INTC_SRC_MASK(n)	(0x14 + ((n) * 0x20))
- #define STARFIVE_INTC_SRC_INT(n)	(0x1c + ((n) * 0x20))
++#
++# Base URL for intersphinx-like links to maintainer profiles
++#
++KERNELDOC_URL = "https://docs.kernel.org/"
++
+ def ErrorString(exc):  # Shamelessly stolen from docutils
+     return f'{exc.__class__.__name}: {exc}'
  
-+#define STARFIVE_INTC_TRIGGER_MASK	0x3
-+#define STARFIVE_INTC_TRIGGER_HIGH	0
-+#define STARFIVE_INTC_TRIGGER_LOW	1
-+#define STARFIVE_INTC_TRIGGER_POSEDGE	2
-+#define STARFIVE_INTC_TRIGGER_NEGEDGE	3
-+
- #define STARFIVE_INTC_NUM		2
- #define STARFIVE_INTC_SRC_IRQ_NUM	32
-+#define STARFIVE_INTC_TYPE_NUM		16
+ __version__  = '1.0'
  
- struct starfive_irq_chip {
- 	void __iomem		*base;
-@@ -32,6 +41,16 @@ struct starfive_irq_chip {
- 	raw_spinlock_t		lock;
- };
++base_dir = "."
++
+ class MaintainersParser:
+     """Parse MAINTAINERS file(s) content"""
  
-+static void starfive_intc_mod(struct starfive_irq_chip *irqc, u32 reg, u32 mask, u32 data)
-+{
-+	u32 value;
+-    def __init__(self, base_path, path):
++    def __init__(self, path):
++        global base_dir
 +
-+	value = ioread32(irqc->base + reg) & ~mask;
-+	data &= mask;
-+	data |= value;
-+	iowrite32(data, irqc->base + reg);
-+}
-+
- static void starfive_intc_bit_set(struct starfive_irq_chip *irqc,
- 				  u32 reg, u32 bit_mask)
- {
-@@ -76,10 +95,64 @@ static void starfive_intc_mask(struct irq_data *d)
- 	starfive_intc_bit_set(irqc, STARFIVE_INTC_SRC_MASK(i), BIT(bitpos));
- }
+         self.profile_toc = set()
+         self.profile_entries = {}
  
-+static void starfive_intc_ack(struct irq_data *d)
-+{
-+	/* for handle_edge_irq, nothing to do */
-+}
+@@ -76,9 +85,18 @@ class MaintainersParser:
+             #
+             # Handle profile entries - either as files or as https refs
+             #
+-            match = re.match(r"P:\s*(Documentation/\S+)\.rst", line)
++            match = re.match(r"P:\s*Documentation(/\S+)\.rst", line)
+             if match:
+-                entry = os.path.relpath(match.group(1), base_path)
++                entry = os.path.relpath(match.group(1), base_dir)
 +
-+static int starfive_intc_set_type(struct irq_data *d, unsigned int type)
-+{
-+	struct starfive_irq_chip *irqc = irq_data_get_irq_chip_data(d);
-+	u32 i, bitpos, ty_pos, ty_shift, trigger, typeval;
-+	irq_flow_handler_t handler;
++                #
++                # When SPHINXDIRS is used, it will try to reference files
++                # outside srctree, causing warnings. To avoid that, point
++                # to the latest official documentation
++                #
++                if entry.startswith("../"):
++                    entry = KERNELDOC_URL + match.group(1) + ".html"
 +
-+	i = d->hwirq / STARFIVE_INTC_SRC_IRQ_NUM;
-+	bitpos = d->hwirq % STARFIVE_INTC_SRC_IRQ_NUM;
-+	ty_pos = bitpos / STARFIVE_INTC_TYPE_NUM;
-+	ty_shift = (bitpos % STARFIVE_INTC_TYPE_NUM) * 2;
-+
-+	switch (type) {
-+	case IRQF_TRIGGER_LOW:
-+		trigger = STARFIVE_INTC_TRIGGER_LOW;
-+		handler = handle_level_irq;
-+		break;
-+	case IRQF_TRIGGER_HIGH:
-+		trigger = STARFIVE_INTC_TRIGGER_HIGH;
-+		handler = handle_level_irq;
-+		break;
-+	case IRQF_TRIGGER_FALLING:
-+		trigger = STARFIVE_INTC_TRIGGER_NEGEDGE;
-+		handler = handle_edge_irq;
-+		break;
-+	case IRQF_TRIGGER_RISING:
-+		trigger = STARFIVE_INTC_TRIGGER_POSEDGE;
-+		handler = handle_edge_irq;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	irq_set_handler_locked(d, handler);
-+	typeval = trigger << ty_shift;
-+
-+	guard(raw_spinlock)(&irqc->lock);
-+
-+	starfive_intc_mod(irqc, STARFIVE_INTC_SRC_TYPE(i) + 4 * ty_pos,
-+			  STARFIVE_INTC_TRIGGER_MASK << ty_shift, typeval);
-+
-+	/* Once the type is updated, clear interrupt can help to reset the type value */
-+	starfive_intc_bit_set(irqc, STARFIVE_INTC_SRC_CLEAR(i), BIT(bitpos));
-+	starfive_intc_bit_clear(irqc, STARFIVE_INTC_SRC_CLEAR(i), BIT(bitpos));
-+
-+	return 0;
-+}
-+
- static struct irq_chip intc_dev = {
- 	.name		= "StarFive JHB100 INTC",
- 	.irq_unmask	= starfive_intc_unmask,
- 	.irq_mask	= starfive_intc_mask,
-+	.irq_ack	= starfive_intc_ack,
-+	.irq_set_type	= starfive_intc_set_type,
- };
+                 if "*" in entry:
+                     for e in glob(entry):
+                         self.profile_toc.add(e)
+@@ -189,10 +207,10 @@ class MaintainersInclude(Include):
+     """MaintainersInclude (``maintainers-include``) directive"""
+     required_arguments = 0
  
- static int starfive_intc_map(struct irq_domain *d, unsigned int irq,
--- 
-2.25.1
+-    def emit(self, base_path, path):
++    def emit(self, path):
+         """Parse all the MAINTAINERS lines into ReST for human-readability"""
+ 
+-        output = MaintainersParser(base_path, path).output
++        output = MaintainersParser(path).output
+ 
+         # For debugging the pre-rendered results...
+         #print(output, file=open("/tmp/MAINTAINERS.rst", "w"))
+@@ -213,11 +231,10 @@ class MaintainersInclude(Include):
+ 
+         # Append "MAINTAINERS"
+         path = os.path.join(path, "MAINTAINERS")
+-        base_path = os.path.dirname(self.state.document.document.current_source)
+ 
+         try:
+             self.state.document.settings.record_dependencies.add(path)
+-            lines = self.emit(base_path, path)
++            lines = self.emit(path)
+         except IOError as error:
+             raise self.severe('Problems with "%s" directive path:\n%s.' %
+                       (self.name, ErrorString(error)))
+@@ -227,27 +244,20 @@ class MaintainersInclude(Include):
+ class MaintainersProfile(Include):
+     required_arguments = 0
+ 
+-    def emit(self, base_path, path):
++    def emit(self, path):
+         """Parse all the MAINTAINERS lines looking for profile entries"""
+ 
+-        maint = MaintainersParser(base_path, path)
++        maint = MaintainersParser(path)
+ 
+         #
+         # Produce a list with all maintainer profiles, sorted by subsystem name
+         #
+         output = ""
+-
+-        for profile, entry in maint.profile_entries.items():
++        for profile, entry in sorted(maint.profile_entries.items()):
+             if entry.startswith("http"):
+-                if profile:
+-                    output += f"- `{profile} <{entry}>`_\n"
+-                else:
+-                    output += f"- `<{entry}>_`\n"
++                output += f"- `{profile} <{entry}>`_\n"
+             else:
+-                if profile:
+-                    output += f"- :doc:`{profile} <{entry}>`\n"
+-                else:
+-                    output += f"- :doc:`<{entry}>`\n"
++                output += f"- :doc:`{profile} <{entry}>`\n"
+ 
+         #
+         # Create a hidden TOC table with all profiles. That allows adding
+@@ -277,11 +287,10 @@ class MaintainersProfile(Include):
+ 
+         # Append "MAINTAINERS"
+         path = os.path.join(path, "MAINTAINERS")
+-        base_path = os.path.dirname(self.state.document.document.current_source)
+ 
+         try:
+             self.state.document.settings.record_dependencies.add(path)
+-            lines = self.emit(base_path, path)
++            lines = self.emit(path)
+         except IOError as error:
+             raise self.severe('Problems with "%s" directive path:\n%s.' %
+                       (self.name, ErrorString(error)))
+@@ -289,6 +298,15 @@ class MaintainersProfile(Include):
+         return []
+ 
+ def setup(app):
++    global base_dir
++
++    #
++    # partition will pick the path after Documentation.
++    # NOTE: we're using os.fspath() here because of a Sphinx warning:
++    #   RemovedInSphinx90Warning: Sphinx 9 will drop support for representing paths as strings. Use "pathlib.Path" or "os.fspath" instead.
++    #
++    _, _, base_dir = os.fspath(app.srcdir).partition("Documentation")
++
+     app.add_directive("maintainers-include", MaintainersInclude)
+     app.add_directive("maintainers-profile-toc", MaintainersProfile)
+     return dict(
+
 
 
 _______________________________________________
