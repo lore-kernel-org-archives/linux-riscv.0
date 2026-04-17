@@ -4,91 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F7CF8DFFF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2026 18:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAB5F8D75C
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2026 19:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LOpo4fpuTmAhe2BGWn6vDLPmr3C7q3l3SjTJTOpXjwA=; b=Dl1mJw0bentEhG
-	TACLTvXc4b/xA7ZqlNs+xjSiCJwkKvAR4zkDVoK6ALHXfw0Rk9tkKQcQpsKHwcTr4+i0P43nVqmHA
-	EKMnQGqCq9bRNs0a3o+FDlXK+W5ao8JPMncLFoCLKzmmWZZiqTInwEzLjXWbBm5+NthllPyi7dxKC
-	GneoqLpdJHY1RSapUMWYxSdtnn3pzjXdZMvIEpn4ZMdpB+ovzCir99yAmd80sU0GwlkqSju4vzKd5
-	hVv7ShgqWZfARi0LoSahK0RdEAya7voxEzXb8r4LFQG7uCIqWt5109Bjg7uYIuuEdSU/JwgmK/Dyy
-	UOakAkPd8W7pAr3d8J7A==;
+	List-Owner; bh=PJc2H0QigSFa3kgRlbI81qv+T0G+irOLBfj/TGerHPc=; b=hHk/ykw956simT
+	5CDpeBty/3BoXIa0RYoVynBWyI0XCbz94JOuTcxWKlQVIsSYK9UvA0g/rcOpz56Ug1KWfNVo0qwIw
+	Qpd6ZfASALqrG/40AWtNWs4dUdoB0irqdWq2iaxYOsUejBAPwK0dobYcnD/BWUA7fmkDBI39iluMN
+	E2wl43PYAWpVKo+XncfInHMAzfrvInTpjnUYtnXrEBSVnXTGgM40WoWZwPnit7JdGwTwor2jzg1B7
+	vYsaU+sZjtfM/3j13FPH517QMGviQcxZpdno3on7bI5AjXd6pyXsxy50LTImLO9uXDXrHFLtPtRee
+	zHaXYFmEDs/6LfczzPjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDo9h-00000004NfQ-3bPV;
-	Fri, 17 Apr 2026 18:43:05 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wDorM-00000004PU4-0bJH;
+	Fri, 17 Apr 2026 19:28:12 +0000
+Received: from mail-eastusazon11012054.outbound.protection.outlook.com ([52.101.53.54] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDo9f-00000004Ney-2liQ
+	id 1wDorI-00000004PTZ-4Adf
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Apr 2026 18:43:04 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488b00ed86fso10280655e9.3
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Apr 2026 11:43:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776451381; x=1777056181; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Zrub1C4d7CDdCrR1P7BJnLdyF1FR8X46HxABz+9R31c=;
-        b=tH086YWCLiouqiO/1b6dz/4j0Gf/Dje37eFriotckj053alji5AamGwc3qdz6UrsT9
-         MqGwazIp0yjiqxDIBkJx+4TT6NKjwX9baloT4EbRvxHSIN6QJ4qom9SQbz2FAmMAca9k
-         gS3brS6u5qtBAsUDTqe9frpITRTLXhKV29qyrscQyJwszRtWcsTzfUcf3IXWaUMrvp5C
-         R6gR3qs3bwUladMdqtmvzETlx8DQH4y6Z61fda987G9QHhQKXaYy5+CMIiCh//KbQ+4+
-         vz//7LCGbWtDOELhXa864j5LBsXOplLcEjhQjXQdukdU5RPqkF4odTo3EARX9IOZ3DXq
-         Uqow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776451381; x=1777056181;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Zrub1C4d7CDdCrR1P7BJnLdyF1FR8X46HxABz+9R31c=;
-        b=aV83aM3vmj5+jZzYS6+Q8veHmGI49jyCi3U8WtksRj2y+hOLT1Av2Z6sEGUK2InUC7
-         1ytidwxmX8krTm+/IrmA+yHhZprKrFhYyh4Zk9RTArNrVXWu21WMZGELACUcGLvUU3QR
-         tWJv7K9tNlNFycMmUolAs1sfLCHkoNjICbO1ZQkjY0+6U6KZXU7JOhO1r10JYk8XSvsp
-         /Zar5vxrgdLF7JpcekmC2Dy5TDGKRbF5w3y3AoCAgs3epWNofD6ccqfx/+fDf0pIA2iX
-         3iH5InNT27hwXkFJLhvqCtkgjljKnVmSoU7CtR8kCni7YlgpsONxu6h2tXQ/M1esI0ZX
-         L6VA==
-X-Forwarded-Encrypted: i=1; AFNElJ+0qv/mRgZ86Z2tEqa2KF5D+oS2ClB7HOxW3Lw2RqJPJroXdaexqnU301cA4pbiJ8jUAfmtaaxBIg937Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn2XRLwOhR7+3sxrfOZLfx/oDWpFmAIIR6o4MSM3V8ARNFXZl5
-	qpO0LpdBRl8CZL+jNqxPH45jbtQCW034iaxtEB6ly417tMJE4oFU1Sn7
-X-Gm-Gg: AeBDievsvC7bNVU0GlXTRBxMbhNEbC7mqw4S0ppROphPwbOvKhHtYg2D6INBgKsxTqi
-	+SD0WE65I3fap2xjUqY4M/CSaECK9ktYybQLH4MhhMS1ytERv1McQdoXJ87zWfSG4Am81ZeFJVb
-	knuPtd5/UDog/HfRnvvL7XjFgDgWZdUlevGkMp/JFp3aY1z44TnCeYjlv+rAWgg8iW3STR9tl+d
-	h0241IxM+bxxlF+nogmHH83p9Atu4gnWRv2nvpj/DDRPiehSz75u8v6NFq4Q7jLwoSaagqDFbAl
-	Irt2urj6jdBrPr0Kb00n/T7tBNYl9zgKFcO3xWNFGLWLJ4Wd9vUKu9GnNLcCfUtEjDzgJRuSAEz
-	zuNxxIQ9+edHdrjiae+CMwCYkAf2M6lBYHzSUN7ATFAdgBoSUQ0nONASKJIHB7aFz047yBm1O3t
-	g2I434U8KuijcApR96BpjgoAUag5RvWAyZMfHoP6HTDGbj16giM+tTN9jChPPkn7VMsu1NxI3TF
-	oc=
-X-Received: by 2002:a05:600c:1554:b0:488:9bf8:7f17 with SMTP id 5b1f17b1804b1-488fb77810bmr61308135e9.14.1776451381317;
-        Fri, 17 Apr 2026 11:43:01 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fc1c01cfsm68401345e9.10.2026.04.17.11.43.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Apr 2026 11:43:00 -0700 (PDT)
-Date: Fri, 17 Apr 2026 19:42:59 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Yury Norov <ynorov@nvidia.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, yury.norov@gmail.com,
- linux@rasmusvillemoes.dk, arnd@arndb.de, akpm@linux-foundation.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, nathan@kernel.org
-Subject: Re: [PATCH v3 0/2] arch/riscv: Add bitrev.h file to support rev8
- and brev8
-Message-ID: <20260417194259.0c48d7ef@pumpkin>
-In-Reply-To: <aeJbH7vfRpPuOGB0@yury>
-References: <20260417093102.3812978-1-ruanjinjie@huawei.com>
-	<aeJbH7vfRpPuOGB0@yury>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Fri, 17 Apr 2026 19:28:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jhCXc1Z21EwA7LqlKxgUqxykptr4W/wJv8J1dggHtSDdautjK7AV4J5DSalWTw8LQ8s7kILPl0lk2k7FHJKvibdHRAKdWM6Ad7TPUGi6XOwVpb19vdzYsHiF6kgFXmL4YHROFzPFSHMfN2dXojfNBf94gv6qQ6T6vP/hC2oXCbF50QnfOWaRsLPcW9fQRmrkrmrdVKLRSXJpMW/Uom9dixhGA8TZHKWxKu7CjO5tcJHCQw2kYx31lrFC6nufp7xxz1tS7HtJ2ZovD+0dkTOvngaXzSFadn88MigcLPnMy7MDq5ojPJgjKB42IEEL9M6ev/D0MZ0Wp4ey8UVg4ODBnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=G3L9V3oBsJuxcICYRpZMpHGL9EUe38e50ToNlZ6Vc60=;
+ b=poqZDEMGur10yjwH0W98xg6GIIsRhDb+/MR14Cn8AwXoEC/igTE4Sd/TdIBBt8AMB/cgkHhYcTqj2Tv9iYP/jsDZf1D0iSKjZOapNZWUP67jv2ZqoZM6izN+mJ1EKoGc0jUov9jqtGB1xWfJu6kI40u1OwXmFPsbPoZNtTFY/JlKFpBYGrTq/76RQldBFXh02BaCDwVWIhBXl+a/tTKnWkF38Tld90TwFdl8qwmh4CGlICwm5dmuj/NvpLisXjmaN5+rn3c8pV09pOi9/mPWDz0ltK4X3EnPkcOjvx4QYIPF1wDhqVsWKyGJpN5Fy+etn0KfV3eddiFjn4H3r+5wfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=G3L9V3oBsJuxcICYRpZMpHGL9EUe38e50ToNlZ6Vc60=;
+ b=W7Hg5Q1osaddz8x2vDknlh34FNyw/Ho7+Ona2lNi8ijYzk5nTY2gifVm06exv/mRMHCgUP0FwR+AFbE1qgQ82o3B30Vd3w4jSWNQY3sTYqDiOo77+MF3wEgRdWotMOQKDtj5jm0WKk24KrmMcZ1o0Sip1DT1fl2rDHxtb6j8zNJugrK4hcV5n1vTrw6be28+VaBnn4hlEWiYKG1U9kGZbcqBiBzUGHgRQKoyNCt5qi/RP4yrsmqqACa7tEU/tYC5a78RFz6KFcOAsvhC53rxXZ9cueHwNkc8Xp/q/ZEJtIVkDE49DkM8zrMludNYc8uLwpulrwDKdHNGSWlUZg3mzw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
+ by SJ1PR12MB6050.namprd12.prod.outlook.com (2603:10b6:a03:48b::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
+ 2026 19:27:59 +0000
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
+ 19:27:59 +0000
+Date: Fri, 17 Apr 2026 15:27:57 -0400
+From: Yury Norov <ynorov@nvidia.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, yury.norov@gmail.com,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux@rasmusvillemoes.dk, arnd@arndb.de,
+	cp0613@linux.alibaba.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arch/riscv: Add bitrev.h file to support rev8 and
+ brev8
+Message-ID: <aeKJvVaKeI0AiY09@yury>
+References: <20260415093827.2776328-1-ruanjinjie@huawei.com>
+ <20260415093827.2776328-3-ruanjinjie@huawei.com>
+ <20260416231441.GA12905@ax162>
+ <aeF5Q2XauRKBDssy@yury>
+ <20260417032917.GA4041922@ax162>
+Content-Disposition: inline
+In-Reply-To: <20260417032917.GA4041922@ax162>
+X-ClientProxiedBy: BN9PR03CA0538.namprd03.prod.outlook.com
+ (2603:10b6:408:131::33) To CY8PR12MB8300.namprd12.prod.outlook.com
+ (2603:10b6:930:7d::16)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SJ1PR12MB6050:EE_
+X-MS-Office365-Filtering-Correlation-Id: 733d65b0-4471-428a-ca93-08de9cb76f36
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|10070799003|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: tlnWSIzp+tym/lTDWJcI/k94Nwr3KYE2wKT+V7MPUYoZApGe8R9AnRmxrjwxAq5fV//qEk3Upbl0/aCa/TfYOnVMsDPnwhSdNzF5plC9e1V+pXk8auKWOC1RuhR1MDUMfXOIFTskTe4HcRhAr2a2Z6HHzDf9QrHT5qG6YfN5Apz97QoKTUtPP4vrVdGIhITQspEkfyAbQLb91VPN/2GGAXnAopzUBlo60mEsd9wNBrYf+GxCb3olrW8w21AZVcqDvpVBsNWpOTzfCJhVTbpDgK2wKEaf0DL52mpCzEr4lQa6S1N9YWRyh1dWnN/4JhYcZRAwpCam6ca96w7xGMN7Q/cBK8r2Gq9YK3oHhKP8iffFUPDKATsVvc0xx1OCqq7gRToQm/2cuTB2yTm+4HDAWh1fURY/2IwDsdwGLUnDcK8tn5G8lW784VXwctntEO0RORaLosPchJ7cYVNq/MOLRGA54gGkaUg4vIAX4pQc87MlOK4mZeqb25SZvnNJ8PG5ps2YDfdFAqQsn5uwLspj/Agv+zVVwXtH2d5JKE4hV1L7CgVem3DO/gL/dI9dhzsdAb2Vj9Yj9b635/4aZUS4EFGOZOJ76ncMrp8vMnPxNYVlonnTUnyuNnjXxMyVr8QMTe7AFyzFdhsCELxxNWZgoKooCwxXk1sBMMFd3xfsEEa2uWxTZGENNdWt/n8+JCuhU2JqC1dSnABuBMX3iGKwkPfJ+kil++bX4P6M7v1DmkA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(10070799003)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rp3ZG4Mliys3tnI1b3OjKd+OGidMtRSi+ekPnz1RAy+pIAxWFSDjCzNNoIwB?=
+ =?us-ascii?Q?2H1VaoBeObqk/xu/uePE377KnB22g+fJTAO+S2Wq3LKPIykyWoqNXF5yJqKe?=
+ =?us-ascii?Q?ecaJZN8UHXNLyaDydEPNEG2mCa45r6tqUxCrmYBB0X7NE0FEgYux63fVHaLP?=
+ =?us-ascii?Q?R/Ayzv0E1/MbHdTBhRkH2eaNVxIrc1iCB2HicijZjgDeH0O6PoL0Z0ZisVHK?=
+ =?us-ascii?Q?7VLLWv/waPIF0Dd68/rPvnx2xWk0euJQG1021KUthVvB1zSGrWeGjA6wPct7?=
+ =?us-ascii?Q?4M5bLzD1Qej1GmHwCt73dJrCRp8bhYBPljlXF7P2y/IN02HInUSQ6/2ecBKa?=
+ =?us-ascii?Q?XYqXNxNx+Tpp2Ub2fmOjLXxb5wav6kbHk3HdFr7l2E2mJQKnymO287eTFV+H?=
+ =?us-ascii?Q?BJMG6bG3sTYTDe5JnL4KmKfdbqVV1KxtBdpvpGYKGyAVjZToGmQU9cXpdpso?=
+ =?us-ascii?Q?Vv6bC8kA2wMOOa5F+I4xEXFtlZz83vGXh/Sad0Ob9ezbSTM+iOcgIP1OW/ib?=
+ =?us-ascii?Q?D7mRPpXxzQ4bH6RY+jlNEygtXsWEpX1dTtv6j8zmlxiIbBegNz2SV6THcCpy?=
+ =?us-ascii?Q?s7qN9zXerHiosjWv+2KRG6Kxp9Sc0cilFnU7d4OMthYD9BYME1wrc2BYHnPr?=
+ =?us-ascii?Q?Z3/nvRrZCmh4NiqLLQ0iNAylFFbO7ORperTILZTPNL8JYp4hKHVMV0M4Pru6?=
+ =?us-ascii?Q?p77Vq+4p2H8ZzVQ5PfOavLsB/uwuJiGRQpsMzevztyp+XFYqiWuvMx/GNct8?=
+ =?us-ascii?Q?McaIwpst5In6qbHnoiyYRNS13Oxw+r9DkRnT6d800D9LZOZFWkmoWgKdZpY4?=
+ =?us-ascii?Q?YuCgyOUXg7RMU7Xq6lpZA+oD+xdgLiskWNDjUh/96y/wJShP/3EDD6YPNPa+?=
+ =?us-ascii?Q?l4p7Xer7TD3Ph994IIahBWywaVfpApYOiyeWg0Ec2bYlrxnsqwUbaY7fNdh8?=
+ =?us-ascii?Q?KpugM5TWnwC8RlbcCOZ7RbkXzq/ogNEzZCvZEe5YtlLCGt4tKCvJCDHhD3k+?=
+ =?us-ascii?Q?EIQvyegxTOjGxBG//luMBWtKHf61cQjyLkxf5AeWjc4XE9Y7FYTqUh6r1xNa?=
+ =?us-ascii?Q?R1zGbcDWhMME8rq6YWQt/cd2FFprgj7Cx1+SyePPD41buRnWTbni+Tf5obC1?=
+ =?us-ascii?Q?SWxTdVVLUeIphn9904enYiijtBL1XT1KivuZrAeyJHiY+Dn22SdFvViXB8y3?=
+ =?us-ascii?Q?IUv6NAZfUcDfhaR7PfboW1Oh0jKawDZFW3zrxCz7RvYx38Go0dEpsBF0jKR/?=
+ =?us-ascii?Q?0KUqwXOoUnf5IuHnWwKs016YOPX/KsWxxnvdek+I4GTcBlpth3EEoACgOpUb?=
+ =?us-ascii?Q?nPTQLWVGGqNB/doYP5gJCffmeLGc4596JLhU4Yo38sCDX8X+bhR+D1AIQUnb?=
+ =?us-ascii?Q?RqbTlNfgTr0cPdQNPlIUb7LPDWjHjEjuOwLfqpx7BjBRS8g5n0NmgpZz04ZG?=
+ =?us-ascii?Q?VUhHE9fN64MDd71Gzp4aHiDhChwKSsFQJYF1Jj2CS9o+Rv0xtepsLn0grx5G?=
+ =?us-ascii?Q?5P6N31jxpiQqUsUARu5VkpzpaAfSl9GQFiFXsJQVLWuTbi36JmAQNI0IDrer?=
+ =?us-ascii?Q?0Hz04E5uiQlILxUrBvpCiPHubduNGCd6/frfjNA2tndDJ471BIcyugY8cOhO?=
+ =?us-ascii?Q?HWE9S9ygDBmy7hLkeWyxplv+xrP/8mFuxrao/y8dYaCfovvR2Xl30dTO8drv?=
+ =?us-ascii?Q?MGAu6Khv0wM4XjyyqaCRjBgnyA1H7fpBuJEaOOynB7BCJ792DFcFZg+f/id6?=
+ =?us-ascii?Q?uvSPhPsGN5BIXv8Sm/9EOYDJ3YJu0CTKGSKd+Kn5ThF6DdlK4pr9?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 733d65b0-4471-428a-ca93-08de9cb76f36
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 19:27:59.3271
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WmXGXKLYGrl9E7UsL9zSYk/VqzMhobVj13CJEffubt+7KPZ9+gMMv46XMv+KTrmzjBATVheE771D6auJzkyYTw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_114303_718620_B9D4EA88 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20260417_122809_060167_0F86DFE4 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,63 +144,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Apr 2026 12:09:03 -0400
-Yury Norov <ynorov@nvidia.com> wrote:
-
-> On Fri, Apr 17, 2026 at 05:31:00PM +0800, Jinjie Ruan wrote:
-> > Add bitrev.h file to support rev8 and brev8 for riscv.
+On Thu, Apr 16, 2026 at 08:29:17PM -0700, Nathan Chancellor wrote:
+> On Thu, Apr 16, 2026 at 08:34:28PM -0400, Yury Norov wrote:
+> > On Thu, Apr 16, 2026 at 04:14:41PM -0700, Nathan Chancellor wrote:
+> > > Yury, are you intending to send this series to Linus in the 7.1 merge
+> > > window?
 > > 
-> > Tested functionally on riscv64 QEMU with:
-> > 	"-M virt,acpi=on,zbkb=true,zbb=true"
+> > No, I'm already done with this merge window. This is the material for
+> > the next one, if ever.
 > > 
-> > Changes in v3:
-> > - Fix the build issue by remving the CONFIG_HAVE_ARCH_BITREVERSE macro
-> >   for byte_rev_table.  
+> > Just as said, I added this one for testing. I am so far have no feedback
+> > from robots. But your report is enough to drop it.
 > 
-> No arch needs byte_rev_table, except risc-v under a very certain
-> configuration. Please find a better approach that wouldn't bloat
-> random victims' .data section.
-
-Eh?
-x86 doesn't have a bit-reverse instruction.
-The only arch that 'select HAVE_ARCH_BITREVERSE' are arm64, arm32 (some cpu),
-loongarch and mips (for CPU_MIPSR6).
-
-I think you mean that no arch that sets CONFIG_HAVE_ARCH_BITREVERSE needs it
-except riscv.
-
-Could you globally have:
-	select NEED_BYTE_REV_TABLE if !HAVE_ARCH_BITREVERSE
-and then riscv could also select it?
-(And isn't there a method of including files in the build based on
-kconfig options rather than unconditionally compiling it and getting cpp
-to throw the contents away?)
-
-	David
-
+> The lore.kernel.org link came from KernelCI but it does not look like
+> they do bisecting to identify the commit and notify the authors. It was
+> just sent to the linux-next mailing list.
 > 
-> > - Update the riscv implementation as David suggested.
-> > - Add Reviwed-by.
+> > > If not, it shouldn't be in -next at this point.
 > > 
-> > Changes in v2:
-> > - Define generic __bitrev8/16/32 for reuse in riscv.
-> > 
-> > Jinjie Ruan (2):
-> >   bitops: Define generic __bitrev8/16/32 for reuse
-> >   arch/riscv: Add bitrev.h file to support rev8 and brev8
-> > 
-> >  arch/riscv/Kconfig                    |  1 +
-> >  arch/riscv/include/asm/bitrev.h       | 55 +++++++++++++++++++++++++++
-> >  include/asm-generic/bitops/__bitrev.h | 22 +++++++++++
-> >  include/linux/bitrev.h                | 20 ++--------
-> >  lib/bitrev.c                          |  3 --
-> >  5 files changed, 82 insertions(+), 19 deletions(-)
-> >  create mode 100644 arch/riscv/include/asm/bitrev.h
-> >  create mode 100644 include/asm-generic/bitops/__bitrev.h
-> > 
-> > -- 
-> > 2.34.1  
+> > What for do we need -next, if not for early testing?
+> 
+> It is just for the two weeks of the merge window to ensure the tree
+> actually stabilizes. This is how it has always been.
+> 
+>   https://lore.kernel.org/linux-next/aeDrt2FkMD6ZWaVS@sirena.org.uk/
+>   https://lore.kernel.org/linux-next/ad9r3jEtJJNv0IiA@sirena.org.uk/
+> 
+> I think Mark meant to say 7.2 but still. Not trying to sound like a cop
+> or anything but the more problems there are in the tree, the harder it
+> is to triage new failures and perform additional testing.
 
+OK, roger. The material is removed already.
 
 _______________________________________________
 linux-riscv mailing list
