@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6109AF8E4A0
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2026 02:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE25F8E4A4
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2026 03:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mX7mewgMXeCeOxUepLat21V60G4iHWhENyC2/P1Vs1I=; b=upokJMI2KykORG
-	SgvpaNn/V/f3l3w6EgANqXW0JVkZTfD+XU/5q5WtcrBR8Kvfx92AkiUaFVT0Cio25EMNANap7Cgak
-	zpcwoFu570Aouj1n+tBg3gENlwzNNQMB5MlsROdffj0w3aMaczS7ZLBNdw2GcxpWlyiRFaKHMgeUQ
-	uZIfpFP3opDY1Y227XjuioEfDzmcOlVwc+QSa24YnK4V4s7mS4pUCYDwcBILXpupyYSnUaOt5Sca6
-	fwxRiV0nDMiLprZV/Xycbu7y0BM8Vz2mUEuaRGocG457mVVpNBCjbiaGWRPoisgtf0nxt8mNZ87H3
-	G2mDvtJ2gDWaRoAhSSYA==;
+	List-Owner; bh=NCTJuZ4Fm23DWrdmmvM02WAVfnKqtJOKYaXPVnwdObs=; b=wPFjzBbm42PI1U
+	LcUG2ERSNjpJeT3YcZFyRPomGkYYbU7ZTp2HSQ9pDsNs5VW7KPDirvVKOl6IUSTWfmZtFCUy1wdBF
+	ongjPu58Qg77axIIVou2LgyHqu/fLuQ/Vi6q9+tDShG2Umk7Cswy9lv6++X1kRCmcM1nL4ZvxliwA
+	lq7LIuJ1YB05LUmsil3EKDiO1ysPXaVaev6CanwwvMjnXnchynF0ECI4dKn6NObE/pU1IxRNmuS+C
+	+UFpeazXnuIvAX7Kb1xb/Hjh/xDJmREh4lVFPIm3wVt3RMYYIMlfONh27lJ1J/oFrPMNS4bTlcKuz
+	ZTKtqxWR7r/bKW58CI4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDZGN-00000003LTo-0omd;
-	Fri, 17 Apr 2026 02:48:59 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wDZtV-00000003NMf-29TK;
+	Fri, 17 Apr 2026 03:29:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDZGK-00000003LTI-1w0N;
-	Fri, 17 Apr 2026 02:48:58 +0000
-Received: from [10.213.21.49] (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowADnfBCTn+Fp3xTRDQ--.57733S2;
-	Fri, 17 Apr 2026 10:48:52 +0800 (CST)
-Message-ID: <c2b7a633-00c8-448f-9c76-3da087682657@iscas.ac.cn>
-Date: Fri, 17 Apr 2026 10:48:51 +0800
+	id 1wDZtU-00000003NMX-2nvU
+	for linux-riscv@lists.infradead.org;
+	Fri, 17 Apr 2026 03:29:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4F4DE6012A;
+	Fri, 17 Apr 2026 03:29:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65D1EC19425;
+	Fri, 17 Apr 2026 03:29:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776396563;
+	bh=QMIbPVDPg3r2vcf7x8TXu0U64Ddj9Tpjm4r1WvLJOUQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U+cisOJLq4EVy4e9aPrA2hrNaCSo8yN93X1E+jMkUPpmo8yNnNTNQW+eMjnKdTNTi
+	 odAd1gL31IJvstLBxC8NpelrX633Um5QuPcyMLgcXPz5CaN+3nq/Kih0UqdydXAJeg
+	 Qxr6SOKtNegkXXZmuD0thp7UBK8a+BMcpLA3WQVNmeZ331h8oZpEuAKyzVbVe5j0LQ
+	 Skh0qr7qYW2l/wNI5IWpoXf7avrHGSNomiLAxDlCVafVvVyExS/6Lr4Z/dgQBZCVqA
+	 2JGlTTIBHnSEcBwE7nUk+iPle+O23k/F1LGFpOqW5rW5NsU14KT/dfypS/cq4+SdtF
+	 3TvaVi5dH3r5w==
+Date: Thu, 16 Apr 2026 20:29:17 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, yury.norov@gmail.com,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux@rasmusvillemoes.dk, arnd@arndb.de,
+	cp0613@linux.alibaba.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arch/riscv: Add bitrev.h file to support rev8 and
+ brev8
+Message-ID: <20260417032917.GA4041922@ax162>
+References: <20260415093827.2776328-1-ruanjinjie@huawei.com>
+ <20260415093827.2776328-3-ruanjinjie@huawei.com>
+ <20260416231441.GA12905@ax162>
+ <aeF5Q2XauRKBDssy@yury>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] riscv: smp: Align secondary_start_sbi to 4 bytes
-To: Chen Pei <cp0613@linux.alibaba.com>
-Cc: pjw@kernel.org, anup@brainfault.org, andrew.jones@oss.qualcomm.com,
- guoren@kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, opensbi@lists.infradead.org
-References: <83397314-c7f3-4122-9587-80c29b1d13aa@iscas.ac.cn>
- <20260415123757.123581-1-cp0613@linux.alibaba.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260415123757.123581-1-cp0613@linux.alibaba.com>
-X-CM-TRANSID: zQCowADnfBCTn+Fp3xTRDQ--.57733S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKr4DAr4kWF4rWw1fCryUJrb_yoWfXrb_ZF
-	Z0vrs0kw1jvFZ3Kw1fKF429r4Dua10gryYvFy0qwn7GasxXrn8Xr40vr1fX3WrX34FqF9x
-	Grn7Ja4xJwnFvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb2xYjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Cr1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1l42xK
-	82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGw
-	C20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48J
-	MIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMI
-	IF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E
-	87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU7PEfUUUUU
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260416_194856_908304_EDEBDD46 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <aeF5Q2XauRKBDssy@yury>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +76,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/15/26 20:37, Chen Pei wrote:
+On Thu, Apr 16, 2026 at 08:34:28PM -0400, Yury Norov wrote:
+> On Thu, Apr 16, 2026 at 04:14:41PM -0700, Nathan Chancellor wrote:
+> > Yury, are you intending to send this series to Linus in the 7.1 merge
+> > window?
+> 
+> No, I'm already done with this merge window. This is the material for
+> the next one, if ever.
+> 
+> Just as said, I added this one for testing. I am so far have no feedback
+> from robots. But your report is enough to drop it.
 
-[...]
+The lore.kernel.org link came from KernelCI but it does not look like
+they do bisecting to identify the commit and notify the authors. It was
+just sent to the linux-next mailing list.
 
->>> In summary, it is more reasonable to make secondary_start_sbi
->>> satisfy 4-byte alignment.
->> Thus, it is unnecessary.
->>
->> If this fixes a bug where an interrupt can trap into the wrong stvec for
->> you, then your firmware is broken.
-> This isn't about fixing a bug (as mentioned earlier, it's highly unlikely
-> to happen),
+> > If not, it shouldn't be in -next at this point.
+> 
+> What for do we need -next, if not for early testing?
 
-It is *impossible* given correct HW and FW, but okay...
+It is just for the two weeks of the merge window to ensure the tree
+actually stabilizes. This is how it has always been.
 
-> but rather the STVEC check mechanism added to QEMU discovered
-> this issue. Regarding the problem itself, I would appreciate any clarification
-> or modifications from OpenSBI, but currently this modification is the simplest
-> and most feasible.
+  https://lore.kernel.org/linux-next/aeDrt2FkMD6ZWaVS@sirena.org.uk/
+  https://lore.kernel.org/linux-next/ad9r3jEtJJNv0IiA@sirena.org.uk/
 
-The stvec CSR is WARL. If the "STVEC check mechanism" is complaining
-about usage of CSRs as specified, then the check is a false positive and
-is not something fixable.
+I think Mark meant to say 7.2 but still. Not trying to sound like a cop
+or anything but the more problems there are in the tree, the harder it
+is to triage new failures and perform additional testing.
 
-Vivian "dramforever" Wang
-
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
