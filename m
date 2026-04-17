@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7DEF436AC
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2026 14:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEAF1F436A8
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2026 14:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LNwUuBGvu3dEAhSWHQeH3FagtjnM6g+VSiAi9VupsXM=; b=pwd7zawhIN8vty
-	vmu+v9Iv74cOK4uz2Qxbh/vDHniNLoqTSTyBHCJOp5MSchXzOkyjthVUeJhyBkJlxjjwkK3fGFayc
-	olKOPJjnI0h3Ay+JZ1AqDcaFE1r+RI6JIAKmaKNFx1kHObWxq1bhLrlgTl7l+Vx9krHgcf2cbIFoK
-	48gDr7A4HHN0+eiyvZaWjqopHj5TI//SZYIkGnjMbIJJEXhELVnFwjVQwnr4Pyd00mZW8+get3peG
-	BBaXNQ0bE4omMixB9yxyX37nLFOi51spKMqnjteliogClRR4g5FygmCJ/YltNDk0W04YBSVJH9Go5
-	ED4MYqvwyiZb6OS4N2AQ==;
+	List-Owner; bh=lASkJkjIio7Rlav2VSh9sxOVT3PReV514fXJM1K4Al8=; b=p8C1dmHJG4z39y
+	BJu6jZGdoip7needb5d2NcVFxrm/Ho+BX6gCLUgCaHyEiS2lEaGz0Ps7vL76zB3/t+kLb4IZM4MjD
+	XgpLVUcLsCu4MAU/mTg3zo0eS9dXC51kdqV9DCe6xC1aK+GaqbfQ+OhGUJzjh4nxe3FNL8sNUUB5e
+	fpilvbmJXrQh0vndQpln/ayxXW4Z41TmTcqTitp8hsa7RskiIw5sc7Bpu7HVWU1Eqrqi/GU3LEFvl
+	vtbdlof4r2Rq3ZN1+TdBuGCIvD/XlHeJ4S0ztq2Is9fFDLYPoiCTK1csC7Am7qYFPiKXc8oywOLP3
+	9zCA6mETcTpo471pDApA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDjrs-000000046uY-3Jpn;
-	Fri, 17 Apr 2026 14:08:24 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDjrl-000000046p4-1bIC;
+	id 1wDjrp-000000046sH-260O;
 	Fri, 17 Apr 2026 14:08:21 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wDjrl-000000046op-18Kb;
+	Fri, 17 Apr 2026 14:08:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1776434888; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=eRBiDugkSgMWef5zGsxjLEV8tSokc5DBUdZvmJMWCbw=;
-	b=bi85NgeOFEBKBmEbJQyi5yZh5gHB1hv5ASTy0SB+P7DxwfISU7mltMvi3pOV3D7sQLXzNJD4X8eYQkcsG3jY6xuElCsxXoqt5v0qt5iTWdQezPkxNmfYt07CI4kQnTCFRXxLnPKLNSPXk3zdKytRH3oAoOGI9vj8+1zP4oErY3M=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X1BSP9G_1776434883;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1BSP9G_1776434883 cluster:ay36)
+	t=1776434887; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=ShiTzCKpZaODPlWL+pel3PxZ12HzspGlfR9H6Czu8/g=;
+	b=gl0WZKNZefjUtRkzc5KiE4Evq/pFHb7EuqPE1OWi8C2u4gf9zjtWZ59SFPS2yauKRUW51YYFL6sPpHZeYPH/LxYI3LeEJyrFvcqMk2SHKDN8Zqi31odxZEqG8sN7lyKO/J2yy3Tcb/4ZGMa98/oxs4OCOyBPIaDbn1JP0sW87s4=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X1BSP9x_1776434885;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1BSP9x_1776434885 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 17 Apr 2026 22:08:04 +0800
+          Fri, 17 Apr 2026 22:08:06 +0800
 From: fangyu.yu@linux.alibaba.com
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -57,16 +57,16 @@ Cc: guoren@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [PATCH v3 1/2] iommu/riscv: Advertise Svpbmt support to generic page table
-Date: Fri, 17 Apr 2026 22:07:45 +0800
-Message-Id: <20260417140746.97817-2-fangyu.yu@linux.alibaba.com>
+Subject: [PATCH v3 2/2] iommupt: Encode IOMMU_MMIO/IOMMU_CACHE via RISC-V Svpbmt bits
+Date: Fri, 17 Apr 2026 22:07:46 +0800
+Message-Id: <20260417140746.97817-3-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260417140746.97817-1-fangyu.yu@linux.alibaba.com>
 References: <20260417140746.97817-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_070818_530028_801FC998 
-X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-CacheID: sfid-20260417_070817_561821_C70256FD 
+X-CRM114-Status: UNSURE (   8.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,10 +86,15 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-The RISC-V IOMMU can optionally support Svpbmt page-based memory types
-in its page table format. When present,the generic page table code can
-use this capability to encode memory attributes (e.g. MMIO vs normal
-memory) in PTEs.
+When the RISC-V IOMMU page table format support Svpbmt, PBMT provides
+a way to tag mappings with page-based memory types. Encode memory type
+via PBMT in RISC-V IOMMU PTEs:
+
+  - IOMMU_MMIO   -> PBMT=IO
+  - !IOMMU_MMIO && !IOMMU_CACHE -> PBMT=NC
+  - otherwise    -> PBMT=Normal (PBMT=0)
+
+Only touch PBMT when PT_FEAT_RISCV_SVPBMT is advertised.
 
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
@@ -98,38 +103,45 @@ Reviewed-by: Guo Ren <guoren@kernel.org>
 Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 ---
- drivers/iommu/riscv/iommu.c       | 2 ++
- include/linux/generic_pt/common.h | 4 ++++
- 2 files changed, 6 insertions(+)
+ drivers/iommu/generic_pt/fmt/riscv.h | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index a31f50bbad35..6c324f9fdc53 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1268,6 +1268,8 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
- 	cfg.common.features = BIT(PT_FEAT_SIGN_EXTEND) |
- 			      BIT(PT_FEAT_FLUSH_RANGE) |
- 			      BIT(PT_FEAT_RISCV_SVNAPOT_64K);
-+	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SVPBMT)
-+		cfg.common.features |= BIT(PT_FEAT_RISCV_SVPBMT);
- 	domain->riscvpt.iommu.nid = dev_to_node(iommu->dev);
- 	domain->domain.ops = &riscv_iommu_paging_domain_ops;
+diff --git a/drivers/iommu/generic_pt/fmt/riscv.h b/drivers/iommu/generic_pt/fmt/riscv.h
+index a7fef6266a36..2648bb57953e 100644
+--- a/drivers/iommu/generic_pt/fmt/riscv.h
++++ b/drivers/iommu/generic_pt/fmt/riscv.h
+@@ -64,6 +64,8 @@ enum {
+ 	RISCVPT_PPN64 = GENMASK_ULL(53, 10),
+ 	RISCVPT_PPN64_64K = GENMASK_ULL(53, 14),
+ 	RISCVPT_PBMT = GENMASK_ULL(62, 61),
++	RISCVPT_NC = BIT(61),
++	RISCVPT_IO = BIT(62),
+ 	RISCVPT_N = BIT_ULL(63),
  
-diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
-index fc5d0b5edadc..2683e5b38998 100644
---- a/include/linux/generic_pt/common.h
-+++ b/include/linux/generic_pt/common.h
-@@ -188,6 +188,10 @@ enum {
- 	 * Support the 64k contiguous page size following the Svnapot extension.
- 	 */
- 	PT_FEAT_RISCV_SVNAPOT_64K = PT_FEAT_FMT_START,
-+	/*
-+	 * Support Svpbmt extension: encode page-based memory type (PBMT) in PTEs.
-+	 */
-+	PT_FEAT_RISCV_SVPBMT,
+ 	/* Svnapot encodings for ppn[0] */
+@@ -201,7 +203,8 @@ static inline void riscvpt_attr_from_entry(const struct pt_state *pts,
+ {
+ 	attrs->descriptor_bits =
+ 		pts->entry & (RISCVPT_R | RISCVPT_W | RISCVPT_X | RISCVPT_U |
+-			      RISCVPT_G | RISCVPT_A | RISCVPT_D);
++			      RISCVPT_G | RISCVPT_A | RISCVPT_D | RISCVPT_NC |
++			      RISCVPT_IO);
+ }
+ #define pt_attr_from_entry riscvpt_attr_from_entry
  
- };
+@@ -237,6 +240,12 @@ static inline int riscvpt_iommu_set_prot(struct pt_common *common,
+ 		pte |= RISCVPT_R;
+ 	if (!(iommu_prot & IOMMU_NOEXEC))
+ 		pte |= RISCVPT_X;
++	if (common->features & BIT(PT_FEAT_RISCV_SVPBMT)) {
++		if (iommu_prot & IOMMU_MMIO)
++			pte |= RISCVPT_IO;
++		else if (!(iommu_prot & IOMMU_CACHE))
++			pte |= RISCVPT_NC;
++	}
  
+ 	/* Caller must specify a supported combination of flags */
+ 	if (unlikely((pte & (RISCVPT_X | RISCVPT_W | RISCVPT_R)) == 0))
 -- 
 2.50.1
 
