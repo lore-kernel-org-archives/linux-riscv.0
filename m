@@ -4,130 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAB5F8D75C
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2026 19:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5EFF99C73
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Apr 2026 04:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PJc2H0QigSFa3kgRlbI81qv+T0G+irOLBfj/TGerHPc=; b=hHk/ykw956simT
-	5CDpeBty/3BoXIa0RYoVynBWyI0XCbz94JOuTcxWKlQVIsSYK9UvA0g/rcOpz56Ug1KWfNVo0qwIw
-	Qpd6ZfASALqrG/40AWtNWs4dUdoB0irqdWq2iaxYOsUejBAPwK0dobYcnD/BWUA7fmkDBI39iluMN
-	E2wl43PYAWpVKo+XncfInHMAzfrvInTpjnUYtnXrEBSVnXTGgM40WoWZwPnit7JdGwTwor2jzg1B7
-	vYsaU+sZjtfM/3j13FPH517QMGviQcxZpdno3on7bI5AjXd6pyXsxy50LTImLO9uXDXrHFLtPtRee
-	zHaXYFmEDs/6LfczzPjA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8egGvkVgEoWv5fhfUPXd7qQDyEa6fJJhbE0AQ+S3S/E=; b=CMDbtPhJVhh/ni
+	hgKMqZ5GkpSmH0dE2bkAexYTCNQwrMMYk5rrZV2e80Hf8vAhsYSKbuwaZoa8HRnXKyvruzJPmtMGZ
+	Ta04sCz9ZBMnDZf4FbmMxwEIW+p9NrhCETn6EqSmns+7KkYN8v6zi+BXFqb/mYL86m70xgC5jxxYe
+	zVllZ12ueWTZp4Nlf2cH0vOXURNlnlXmVDQ+b8pxnyPcIOQ0hTAGOf7aDi0ya8OhtcEbpzsprQ5QT
+	MYMqooE6Dc4InypHUNUQC5WEMnUoTn8nia/aEJekI2JPpDFwc4PrkEZ3hrpg2CWUry60E+Q69K+f3
+	Sca3T2/4bPw6InKK6Iew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDorM-00000004PU4-0bJH;
-	Fri, 17 Apr 2026 19:28:12 +0000
-Received: from mail-eastusazon11012054.outbound.protection.outlook.com ([52.101.53.54] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wDxKx-00000004jTK-0q0m;
+	Sat, 18 Apr 2026 04:31:19 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wDorI-00000004PTZ-4Adf
+	id 1wDxKv-00000004jT1-01nc
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Apr 2026 19:28:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jhCXc1Z21EwA7LqlKxgUqxykptr4W/wJv8J1dggHtSDdautjK7AV4J5DSalWTw8LQ8s7kILPl0lk2k7FHJKvibdHRAKdWM6Ad7TPUGi6XOwVpb19vdzYsHiF6kgFXmL4YHROFzPFSHMfN2dXojfNBf94gv6qQ6T6vP/hC2oXCbF50QnfOWaRsLPcW9fQRmrkrmrdVKLRSXJpMW/Uom9dixhGA8TZHKWxKu7CjO5tcJHCQw2kYx31lrFC6nufp7xxz1tS7HtJ2ZovD+0dkTOvngaXzSFadn88MigcLPnMy7MDq5ojPJgjKB42IEEL9M6ev/D0MZ0Wp4ey8UVg4ODBnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G3L9V3oBsJuxcICYRpZMpHGL9EUe38e50ToNlZ6Vc60=;
- b=poqZDEMGur10yjwH0W98xg6GIIsRhDb+/MR14Cn8AwXoEC/igTE4Sd/TdIBBt8AMB/cgkHhYcTqj2Tv9iYP/jsDZf1D0iSKjZOapNZWUP67jv2ZqoZM6izN+mJ1EKoGc0jUov9jqtGB1xWfJu6kI40u1OwXmFPsbPoZNtTFY/JlKFpBYGrTq/76RQldBFXh02BaCDwVWIhBXl+a/tTKnWkF38Tld90TwFdl8qwmh4CGlICwm5dmuj/NvpLisXjmaN5+rn3c8pV09pOi9/mPWDz0ltK4X3EnPkcOjvx4QYIPF1wDhqVsWKyGJpN5Fy+etn0KfV3eddiFjn4H3r+5wfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G3L9V3oBsJuxcICYRpZMpHGL9EUe38e50ToNlZ6Vc60=;
- b=W7Hg5Q1osaddz8x2vDknlh34FNyw/Ho7+Ona2lNi8ijYzk5nTY2gifVm06exv/mRMHCgUP0FwR+AFbE1qgQ82o3B30Vd3w4jSWNQY3sTYqDiOo77+MF3wEgRdWotMOQKDtj5jm0WKk24KrmMcZ1o0Sip1DT1fl2rDHxtb6j8zNJugrK4hcV5n1vTrw6be28+VaBnn4hlEWiYKG1U9kGZbcqBiBzUGHgRQKoyNCt5qi/RP4yrsmqqACa7tEU/tYC5a78RFz6KFcOAsvhC53rxXZ9cueHwNkc8Xp/q/ZEJtIVkDE49DkM8zrMludNYc8uLwpulrwDKdHNGSWlUZg3mzw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by SJ1PR12MB6050.namprd12.prod.outlook.com (2603:10b6:a03:48b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.25; Fri, 17 Apr
- 2026 19:27:59 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9818.023; Fri, 17 Apr 2026
- 19:27:59 +0000
-Date: Fri, 17 Apr 2026 15:27:57 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, yury.norov@gmail.com,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux@rasmusvillemoes.dk, arnd@arndb.de,
-	cp0613@linux.alibaba.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arch/riscv: Add bitrev.h file to support rev8 and
- brev8
-Message-ID: <aeKJvVaKeI0AiY09@yury>
-References: <20260415093827.2776328-1-ruanjinjie@huawei.com>
- <20260415093827.2776328-3-ruanjinjie@huawei.com>
- <20260416231441.GA12905@ax162>
- <aeF5Q2XauRKBDssy@yury>
- <20260417032917.GA4041922@ax162>
-Content-Disposition: inline
-In-Reply-To: <20260417032917.GA4041922@ax162>
-X-ClientProxiedBy: BN9PR03CA0538.namprd03.prod.outlook.com
- (2603:10b6:408:131::33) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	Sat, 18 Apr 2026 04:31:18 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-8d76492e51bso140386985a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Apr 2026 21:31:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1776486675; x=1777091475; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cBCDY9Aa7rojk9MystYTyZX9f4FxFWPHtSMPA1AK7sM=;
+        b=WxS0ORHrDY8jUt+W6jDkJJT9a4U+wFyhGxf2nVKCyKlKEGcLJ+q0CLOHIkSRGtO7yZ
+         aaXWTa4MU0bzdrKkVx225n78gMHJXc3W+DSHOQnkUQC/ynNcsfFKeyNPiAsqRnHhGrU/
+         C4607Y25uhz0NqzxwVgDbEcX7CfEreqH7twhlafSF8T3WPi7HfPnpa751lE7N/HKQDVa
+         S9LpWKsizLRTa1EXPMbCIISLoWYkUxDig9s3UknxSchxNRc9Ov7VXqNdFeboJukua7Iu
+         vA5alOk6J99Yz1QOcNSk5pI/9+kYcVDFpXsinQFn93ccV3UiG2GlP/FGUGzNMNM/hff2
+         VL0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776486675; x=1777091475;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cBCDY9Aa7rojk9MystYTyZX9f4FxFWPHtSMPA1AK7sM=;
+        b=mJouoo4FtZ2mmHOxNTJgqG869aP6fpG5l8NR4MyGNXjRUbgUj4nBFEWFf1A0BtQka1
+         UAvdfDEcSPDLQRwrX05Eh2PeSTQBFNSfpwgrsMeQhdJijCrfUfG1TDgKKgO/otNj9+Ku
+         fmwX+A+fmkw4AcFO7YwbexQej4G9dHRSnShw3pHJ2uu+Q2VQ9vti9MED5ST95K0T5PJj
+         VD78MrHSdIJl+At4D692K8akFEXQ4aF7I6VlbcyBfkTFliBsdgqnR3ympZ9Y0OQxEZOY
+         nrVflo8cbTFw2DtHLhN1H/tz6DR0PHYjlHtgPU2OkWODui3Jc6rfb4JnClUfQaYrVvES
+         DpXw==
+X-Gm-Message-State: AOJu0YzhgEYeZe27e48gxCJjq2DWjUogodLBLAq1O0Z0Cl8I303acxNF
+	qhZgsQzeIOPQxo74EqkdFJpI9uyql8UY0Llmtp85tyqPpx4KyPVXuwr+
+X-Gm-Gg: AeBDieuIXxqaCvIgfZIcbWsdN9YYmblUISEghuTgxwYRbzyzEKTqbgnqgksL9436gGi
+	JvpPxFSGx3/LXKibQVF3zDDjmi/DS0LVr6BebNdpMOM6+iH+bNMrI060anunS1nZkRt+jMa0YkM
+	TYgsU5Cv0y7dgTMoUUCKutxSTBprOuQ+C7N8HYnuVGWYLM2PM69HQhmO3pxKDk9//FRVj787lFH
+	H7gn4Gzv7CC5G6U73hCAYlnybEIOaQP9RqimyKvkHuQ8J0r1xhpQdK38rAF4o3vPFXCaFu3d3TM
+	EwJ3XhSSxBo/16QqnGBvXMHkLJJ5PmdaNX2Qf+EfMDW8BRpVz40ADkYR7oZdo+0BXoxi9np8u+n
+	diQn/F/y3b04HUw7JfpYVJEpiSwMWkRXkbmjQ/5hxykSYhfgs9TrcywW3u7DvUvviSHTdoVrDws
+	O90koFdxTHIx9FqTYlHsOtfaQt5WAhQwaYbsytlTG3sWfLGk6wOaxZmg==
+X-Received: by 2002:a05:620a:2242:10b0:8cf:d441:c7c0 with SMTP id af79cd13be357-8e791b9425cmr557984985a.34.1776486675370;
+        Fri, 17 Apr 2026 21:31:15 -0700 (PDT)
+Received: from inky.localdomain ([2607:fb91:4c8b:380b:9598:7e6e:c0df:107b])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b02ac6c3e7sm26755216d6.13.2026.04.17.21.31.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Apr 2026 21:31:14 -0700 (PDT)
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Date: Sat, 18 Apr 2026 00:31:08 -0400
+Subject: [PATCH] riscv: cfi: gitignore generated vdso files
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SJ1PR12MB6050:EE_
-X-MS-Office365-Filtering-Correlation-Id: 733d65b0-4471-428a-ca93-08de9cb76f36
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|10070799003|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: tlnWSIzp+tym/lTDWJcI/k94Nwr3KYE2wKT+V7MPUYoZApGe8R9AnRmxrjwxAq5fV//qEk3Upbl0/aCa/TfYOnVMsDPnwhSdNzF5plC9e1V+pXk8auKWOC1RuhR1MDUMfXOIFTskTe4HcRhAr2a2Z6HHzDf9QrHT5qG6YfN5Apz97QoKTUtPP4vrVdGIhITQspEkfyAbQLb91VPN/2GGAXnAopzUBlo60mEsd9wNBrYf+GxCb3olrW8w21AZVcqDvpVBsNWpOTzfCJhVTbpDgK2wKEaf0DL52mpCzEr4lQa6S1N9YWRyh1dWnN/4JhYcZRAwpCam6ca96w7xGMN7Q/cBK8r2Gq9YK3oHhKP8iffFUPDKATsVvc0xx1OCqq7gRToQm/2cuTB2yTm+4HDAWh1fURY/2IwDsdwGLUnDcK8tn5G8lW784VXwctntEO0RORaLosPchJ7cYVNq/MOLRGA54gGkaUg4vIAX4pQc87MlOK4mZeqb25SZvnNJ8PG5ps2YDfdFAqQsn5uwLspj/Agv+zVVwXtH2d5JKE4hV1L7CgVem3DO/gL/dI9dhzsdAb2Vj9Yj9b635/4aZUS4EFGOZOJ76ncMrp8vMnPxNYVlonnTUnyuNnjXxMyVr8QMTe7AFyzFdhsCELxxNWZgoKooCwxXk1sBMMFd3xfsEEa2uWxTZGENNdWt/n8+JCuhU2JqC1dSnABuBMX3iGKwkPfJ+kil++bX4P6M7v1DmkA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(10070799003)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rp3ZG4Mliys3tnI1b3OjKd+OGidMtRSi+ekPnz1RAy+pIAxWFSDjCzNNoIwB?=
- =?us-ascii?Q?2H1VaoBeObqk/xu/uePE377KnB22g+fJTAO+S2Wq3LKPIykyWoqNXF5yJqKe?=
- =?us-ascii?Q?ecaJZN8UHXNLyaDydEPNEG2mCa45r6tqUxCrmYBB0X7NE0FEgYux63fVHaLP?=
- =?us-ascii?Q?R/Ayzv0E1/MbHdTBhRkH2eaNVxIrc1iCB2HicijZjgDeH0O6PoL0Z0ZisVHK?=
- =?us-ascii?Q?7VLLWv/waPIF0Dd68/rPvnx2xWk0euJQG1021KUthVvB1zSGrWeGjA6wPct7?=
- =?us-ascii?Q?4M5bLzD1Qej1GmHwCt73dJrCRp8bhYBPljlXF7P2y/IN02HInUSQ6/2ecBKa?=
- =?us-ascii?Q?XYqXNxNx+Tpp2Ub2fmOjLXxb5wav6kbHk3HdFr7l2E2mJQKnymO287eTFV+H?=
- =?us-ascii?Q?BJMG6bG3sTYTDe5JnL4KmKfdbqVV1KxtBdpvpGYKGyAVjZToGmQU9cXpdpso?=
- =?us-ascii?Q?Vv6bC8kA2wMOOa5F+I4xEXFtlZz83vGXh/Sad0Ob9ezbSTM+iOcgIP1OW/ib?=
- =?us-ascii?Q?D7mRPpXxzQ4bH6RY+jlNEygtXsWEpX1dTtv6j8zmlxiIbBegNz2SV6THcCpy?=
- =?us-ascii?Q?s7qN9zXerHiosjWv+2KRG6Kxp9Sc0cilFnU7d4OMthYD9BYME1wrc2BYHnPr?=
- =?us-ascii?Q?Z3/nvRrZCmh4NiqLLQ0iNAylFFbO7ORperTILZTPNL8JYp4hKHVMV0M4Pru6?=
- =?us-ascii?Q?p77Vq+4p2H8ZzVQ5PfOavLsB/uwuJiGRQpsMzevztyp+XFYqiWuvMx/GNct8?=
- =?us-ascii?Q?McaIwpst5In6qbHnoiyYRNS13Oxw+r9DkRnT6d800D9LZOZFWkmoWgKdZpY4?=
- =?us-ascii?Q?YuCgyOUXg7RMU7Xq6lpZA+oD+xdgLiskWNDjUh/96y/wJShP/3EDD6YPNPa+?=
- =?us-ascii?Q?l4p7Xer7TD3Ph994IIahBWywaVfpApYOiyeWg0Ec2bYlrxnsqwUbaY7fNdh8?=
- =?us-ascii?Q?KpugM5TWnwC8RlbcCOZ7RbkXzq/ogNEzZCvZEe5YtlLCGt4tKCvJCDHhD3k+?=
- =?us-ascii?Q?EIQvyegxTOjGxBG//luMBWtKHf61cQjyLkxf5AeWjc4XE9Y7FYTqUh6r1xNa?=
- =?us-ascii?Q?R1zGbcDWhMME8rq6YWQt/cd2FFprgj7Cx1+SyePPD41buRnWTbni+Tf5obC1?=
- =?us-ascii?Q?SWxTdVVLUeIphn9904enYiijtBL1XT1KivuZrAeyJHiY+Dn22SdFvViXB8y3?=
- =?us-ascii?Q?IUv6NAZfUcDfhaR7PfboW1Oh0jKawDZFW3zrxCz7RvYx38Go0dEpsBF0jKR/?=
- =?us-ascii?Q?0KUqwXOoUnf5IuHnWwKs016YOPX/KsWxxnvdek+I4GTcBlpth3EEoACgOpUb?=
- =?us-ascii?Q?nPTQLWVGGqNB/doYP5gJCffmeLGc4596JLhU4Yo38sCDX8X+bhR+D1AIQUnb?=
- =?us-ascii?Q?RqbTlNfgTr0cPdQNPlIUb7LPDWjHjEjuOwLfqpx7BjBRS8g5n0NmgpZz04ZG?=
- =?us-ascii?Q?VUhHE9fN64MDd71Gzp4aHiDhChwKSsFQJYF1Jj2CS9o+Rv0xtepsLn0grx5G?=
- =?us-ascii?Q?5P6N31jxpiQqUsUARu5VkpzpaAfSl9GQFiFXsJQVLWuTbi36JmAQNI0IDrer?=
- =?us-ascii?Q?0Hz04E5uiQlILxUrBvpCiPHubduNGCd6/frfjNA2tndDJ471BIcyugY8cOhO?=
- =?us-ascii?Q?HWE9S9ygDBmy7hLkeWyxplv+xrP/8mFuxrao/y8dYaCfovvR2Xl30dTO8drv?=
- =?us-ascii?Q?MGAu6Khv0wM4XjyyqaCRjBgnyA1H7fpBuJEaOOynB7BCJ792DFcFZg+f/id6?=
- =?us-ascii?Q?uvSPhPsGN5BIXv8Sm/9EOYDJ3YJu0CTKGSKd+Kn5ThF6DdlK4pr9?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 733d65b0-4471-428a-ca93-08de9cb76f36
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Apr 2026 19:27:59.3271
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WmXGXKLYGrl9E7UsL9zSYk/VqzMhobVj13CJEffubt+7KPZ9+gMMv46XMv+KTrmzjBATVheE771D6auJzkyYTw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6050
+Message-Id: <20260418-vdso_cfi_ignore-v1-1-f4b89f5b0d3b@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAsJ42kC/x3MQQqAIBBA0avIrBNUJKqrRIjaWLPRUJBAvHvS8
+ i3+b1AwExbYWIOMlQqlOCAnBv628UJO5zAooWah5cLrWZLxgQxdMWXkTsxaBqvU6hYY1ZMx0Ps
+ f96P3D2tfYnRhAAAA
+X-Change-ID: 20260418-vdso_cfi_ignore-b0641fa229b8
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Charlie Jenkins <thecharlesjenkins@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776486673; l=717;
+ i=thecharlesjenkins@gmail.com; s=2026030; h=from:subject:message-id;
+ bh=cBCDY9Aa7rojk9MystYTyZX9f4FxFWPHtSMPA1AK7sM=;
+ b=XKT1Y3ZPOfVVeoAK2RmJOSLdgDpovPA7lS8yf1xiJM2xkWG1rR1xC0daBubAx35pbyjhmEO4q
+ aVCYrrBQ3jsBEMtdMHUrPZb75wH/tCcvYyRWWVz/Ci/HVgyTRErsOts
+X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
+ pk=vpF2USrG+aB6CTbSt34rzJKsAVe/l+GAXo1IomCMETk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260417_122809_060167_0F86DFE4 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20260417_213117_050320_8C9A2E39 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,37 +108,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 08:29:17PM -0700, Nathan Chancellor wrote:
-> On Thu, Apr 16, 2026 at 08:34:28PM -0400, Yury Norov wrote:
-> > On Thu, Apr 16, 2026 at 04:14:41PM -0700, Nathan Chancellor wrote:
-> > > Yury, are you intending to send this series to Linus in the 7.1 merge
-> > > window?
-> > 
-> > No, I'm already done with this merge window. This is the material for
-> > the next one, if ever.
-> > 
-> > Just as said, I added this one for testing. I am so far have no feedback
-> > from robots. But your report is enough to drop it.
-> 
-> The lore.kernel.org link came from KernelCI but it does not look like
-> they do bisecting to identify the commit and notify the authors. It was
-> just sent to the linux-next mailing list.
-> 
-> > > If not, it shouldn't be in -next at this point.
-> > 
-> > What for do we need -next, if not for early testing?
-> 
-> It is just for the two weeks of the merge window to ensure the tree
-> actually stabilizes. This is how it has always been.
-> 
->   https://lore.kernel.org/linux-next/aeDrt2FkMD6ZWaVS@sirena.org.uk/
->   https://lore.kernel.org/linux-next/ad9r3jEtJJNv0IiA@sirena.org.uk/
-> 
-> I think Mark meant to say 7.2 but still. Not trying to sound like a cop
-> or anything but the more problems there are in the tree, the harder it
-> is to triage new failures and perform additional testing.
+During compilation, the standard VDSO files are copied into
+arch/riscv/kernel/vdso_cfi. Add a .gitignore to prevent these files from
+being tracked by git.
 
-OK, roger. The material is removed already.
+Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+---
+ arch/riscv/kernel/vdso_cfi/.gitignore | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/riscv/kernel/vdso_cfi/.gitignore b/arch/riscv/kernel/vdso_cfi/.gitignore
+new file mode 100644
+index 000000000000..8bc6f31c8ee6
+--- /dev/null
++++ b/arch/riscv/kernel/vdso_cfi/.gitignore
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0-only
++*.S
++*.c
++vdso.lds
++!vdso-cfi.S
+
+---
+base-commit: 08ee1559052be302f1d3752f48360b89517d9f8d
+change-id: ${change-id}
+
+- Charlie
+
 
 _______________________________________________
 linux-riscv mailing list
