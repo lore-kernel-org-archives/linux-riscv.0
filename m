@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4215AF588C6
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 13:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 702E2F588E3
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 15:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=58sc3GkqU2g09HYRJTgVluCwlYYhhrAGqKQ7O9u++os=; b=HnbH2GA839dEPH
-	16sHdzQ6Nuh+hvmLuh14makHN+d7Zr8MY+gmcONd2fxV96DJWSH4l7Pv9LXdfH4kjUJ8zHs0TBd1T
-	MdlemW0li6+82OWybCQuWojh99zKpJIFbb+TeBAdSJn2TmvSGMRaHx2oW2pfYXkz+jW6Gq421d64w
-	+yfGPSSs/qQxrKSq/gSA2sd1Wj2DnrnJI+HPOiSfGlz86MWcKwz7vmcgMbc5V3Q+Hys2jdqXeGt1/
-	1QEU0EdKAbPVY+S/u08d+y5X8ngZYJaMURrnHtcKDldEjVUZPWEeW24H/yg4exoDVvHE+0wirSnLS
-	97Cbrznpo0T8BHPfWePw==;
+	List-Owner; bh=df28SVEVq6QHHmnodPZUiiDt3PF284RZIm5aVvmFDU4=; b=QTSadI/zlo47yx
+	4yUYTVmZAUYnuWoCagDsuAod8erAJZ2UV5hit9nDJ1g9pj8MoYROqXtRl+t1O/P52NJVohA9pia57
+	cpAOH+c5TIZ4yEYNdlETax80GIpaWD2BefL9k+J+F+9TL5W7LgCLG68As0qEMEg70vb6ozBVNv1PV
+	02EiNIvO62WG1DGQw38jhjrLCmDVg2rcp35NQvS/imYGE4ibCFqBL+AjBRA2A0QKr1PHRHOpsAzPn
+	/VdJfC1PWLlbgRkHRHe6GFf0BP2r9Gv+0JFCAGLCOUCLszaWGGNrxuQ8SbpqQgJ829TrAyjeUYSAI
+	oT6bxVs6x0OzalOS1lZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoq7-000000074z0-3PWp;
-	Mon, 20 Apr 2026 13:39:03 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEoq5-000000074xm-1U9M
-	for linux-riscv@lists.infradead.org;
-	Mon, 20 Apr 2026 13:39:02 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 23E0A265D;
-	Mon, 20 Apr 2026 15:37:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1776692241;
-	bh=5mpwfZ7VItgM2yDj3SO4obOLgSGpgHLLJIOm0hxkpWY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oGOpkKXxt1Ib62bGhycNsppZ51AZIc44RmmLWuEr1Qt5y1f8kse8gNyOPgsSd4Fqo
-	 jBuOCRY9PA3+VRmS+/gpN6VHpS9PEfz110y7h6brQP/5kPEMcnXRPTaZ+0kMhxWDK7
-	 X2R/eBOWLHN0+R2oGBXbULr36BI1U0OpIURIburQ=
-Date: Mon, 20 Apr 2026 16:38:56 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: starfive: jh7110: Drop CAMSS node
-Message-ID: <20260420133856.GA2305989@killaraus.ideasonboard.com>
-References: <20260420-starfive_camss_use-v1-1-ec326af71ca7@ideasonboard.com>
+	id 1wEqSa-00000007F3m-3gvv;
+	Mon, 20 Apr 2026 15:22:52 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEqSY-00000007F33-2OUj;
+	Mon, 20 Apr 2026 15:22:51 +0000
+Received: from [100.79.96.139] (unknown [4.194.122.170])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 88EB520B6F01;
+	Mon, 20 Apr 2026 08:22:31 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 88EB520B6F01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1776698564;
+	bh=VR3kJETX6nmgkkseadQYtalJTtCNcqmr/GPBJqM06wM=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=cCuME6yLKCY5ltAzA8+02aM+2qcQFd18QOMZFAGKkEP+hlMcjOcNQ5Hml+Mf17ahI
+	 L1aNUNK1G+bl4/mGQ6IjcaDQKQoIYVSnIa1w/bpU9gxP0o6mZ4Ggz1D5IjpZOasWnX
+	 vUCaK55I6M5yv0ZzPjS/cNCDTRGXcpyV1ZNnixXo=
+Message-ID: <05b48f08-3096-40d1-9408-39f5a9e6a4df@linux.microsoft.com>
+Date: Mon, 20 Apr 2026 20:52:24 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260420-starfive_camss_use-v1-1-ec326af71ca7@ideasonboard.com>
+User-Agent: Mozilla Thunderbird
+From: Naman Jain <namjain@linux.microsoft.com>
+Subject: Re: [PATCH 02/11] Drivers: hv: Move hv_vp_assist_page to common files
+To: Michael Kelley <mhklinux@outlook.com>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <20260316121241.910764-1-namjain@linux.microsoft.com>
+ <20260316121241.910764-3-namjain@linux.microsoft.com>
+ <SN6PR02MB415790977DA40BAD0822DA54D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+In-Reply-To: <SN6PR02MB415790977DA40BAD0822DA54D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_063901_533643_6C5FF496 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20260420_082250_678308_93E5D862 
+X-CRM114-Status: GOOD (  51.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,134 +83,490 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jai,
 
-Thank you for the patch.
 
-On Mon, Apr 20, 2026 at 06:48:07PM +0530, Jai Luthra wrote:
-> The starfive-camss driver and bindings were dropped, as they were no
-> longer being worked upon for destaging.
+On 4/1/2026 10:25 PM, Michael Kelley wrote:
+> From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026 5:13 AM
+>>
+>> Move the logic to initialize and export hv_vp_assist_page from x86
+>> architecture code to Hyper-V common code to allow it to be used for
+>> upcoming arm64 support in MSHV_VTL driver.
+>> Note: This change also improves error handling - if VP assist page
+>> allocation fails, hyperv_init() now returns early instead of
+>> continuing with partial initialization.
+>>
+>> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+>> ---
+>>   arch/x86/hyperv/hv_init.c      | 88 +---------------------------------
+>>   drivers/hv/hv_common.c         | 88 ++++++++++++++++++++++++++++++++++
+>>   include/asm-generic/mshyperv.h |  4 ++
+>>   include/hyperv/hvgdk_mini.h    |  2 +
+>>   4 files changed, 95 insertions(+), 87 deletions(-)
+>>
+>> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+>> index 323adc93f2dc..75a98b5e451b 100644
+>> --- a/arch/x86/hyperv/hv_init.c
+>> +++ b/arch/x86/hyperv/hv_init.c
+>> @@ -81,9 +81,6 @@ union hv_ghcb * __percpu *hv_ghcb_pg;
+>>   /* Storage to save the hypercall page temporarily for hibernation */
+>>   static void *hv_hypercall_pg_saved;
+>>
+>> -struct hv_vp_assist_page **hv_vp_assist_page;
+>> -EXPORT_SYMBOL_GPL(hv_vp_assist_page);
+>> -
+>>   static int hyperv_init_ghcb(void)
+>>   {
+>>   	u64 ghcb_gpa;
+>> @@ -117,59 +114,12 @@ static int hyperv_init_ghcb(void)
+>>
+>>   static int hv_cpu_init(unsigned int cpu)
+>>   {
+>> -	union hv_vp_assist_msr_contents msr = { 0 };
+>> -	struct hv_vp_assist_page **hvp;
+>>   	int ret;
+>>
+>>   	ret = hv_common_cpu_init(cpu);
+>>   	if (ret)
+>>   		return ret;
+>>
+>> -	if (!hv_vp_assist_page)
+>> -		return 0;
+>> -
+>> -	hvp = &hv_vp_assist_page[cpu];
+>> -	if (hv_root_partition()) {
+>> -		/*
+>> -		 * For root partition we get the hypervisor provided VP assist
+>> -		 * page, instead of allocating a new page.
+>> -		 */
+>> -		rdmsrq(HV_X64_MSR_VP_ASSIST_PAGE, msr.as_uint64);
+>> -		*hvp = memremap(msr.pfn << HV_X64_MSR_VP_ASSIST_PAGE_ADDRESS_SHIFT,
+>> -				PAGE_SIZE, MEMREMAP_WB);
+>> -	} else {
+>> -		/*
+>> -		 * The VP assist page is an "overlay" page (see Hyper-V TLFS's
+>> -		 * Section 5.2.1 "GPA Overlay Pages"). Here it must be zeroed
+>> -		 * out to make sure we always write the EOI MSR in
+>> -		 * hv_apic_eoi_write() *after* the EOI optimization is disabled
+>> -		 * in hv_cpu_die(), otherwise a CPU may not be stopped in the
+>> -		 * case of CPU offlining and the VM will hang.
+>> -		 */
+>> -		if (!*hvp) {
+>> -			*hvp = __vmalloc(PAGE_SIZE, GFP_KERNEL | __GFP_ZERO);
+>> -
+>> -			/*
+>> -			 * Hyper-V should never specify a VM that is a Confidential
+>> -			 * VM and also running in the root partition. Root partition
+>> -			 * is blocked to run in Confidential VM. So only decrypt assist
+>> -			 * page in non-root partition here.
+>> -			 */
+>> -			if (*hvp && !ms_hyperv.paravisor_present && hv_isolation_type_snp()) {
+>> -				WARN_ON_ONCE(set_memory_decrypted((unsigned long)(*hvp), 1));
+>> -				memset(*hvp, 0, PAGE_SIZE);
+>> -			}
+>> -		}
+>> -
+>> -		if (*hvp)
+>> -			msr.pfn = vmalloc_to_pfn(*hvp);
+>> -
+>> -	}
+>> -	if (!WARN_ON(!(*hvp))) {
+>> -		msr.enable = 1;
+>> -		wrmsrq(HV_X64_MSR_VP_ASSIST_PAGE, msr.as_uint64);
+>> -	}
+>> -
+>>   	/* Allow Hyper-V stimer vector to be injected from Hypervisor. */
+>>   	if (ms_hyperv.misc_features & HV_STIMER_DIRECT_MODE_AVAILABLE)
+>>   		apic_update_vector(cpu, HYPERV_STIMER0_VECTOR, true);
+>> @@ -286,23 +236,6 @@ static int hv_cpu_die(unsigned int cpu)
+>>
+>>   	hv_common_cpu_die(cpu);
+>>
+>> -	if (hv_vp_assist_page && hv_vp_assist_page[cpu]) {
+>> -		union hv_vp_assist_msr_contents msr = { 0 };
+>> -		if (hv_root_partition()) {
+>> -			/*
+>> -			 * For root partition the VP assist page is mapped to
+>> -			 * hypervisor provided page, and thus we unmap the
+>> -			 * page here and nullify it, so that in future we have
+>> -			 * correct page address mapped in hv_cpu_init.
+>> -			 */
+>> -			memunmap(hv_vp_assist_page[cpu]);
+>> -			hv_vp_assist_page[cpu] = NULL;
+>> -			rdmsrq(HV_X64_MSR_VP_ASSIST_PAGE, msr.as_uint64);
+>> -			msr.enable = 0;
+>> -		}
+>> -		wrmsrq(HV_X64_MSR_VP_ASSIST_PAGE, msr.as_uint64);
+>> -	}
+>> -
+>>   	if (hv_reenlightenment_cb == NULL)
+>>   		return 0;
+>>
+>> @@ -460,21 +393,6 @@ void __init hyperv_init(void)
+>>   	if (hv_common_init())
+>>   		return;
+>>
+>> -	/*
+>> -	 * The VP assist page is useless to a TDX guest: the only use we
+>> -	 * would have for it is lazy EOI, which can not be used with TDX.
+>> -	 */
+>> -	if (hv_isolation_type_tdx())
+>> -		hv_vp_assist_page = NULL;
+>> -	else
+>> -		hv_vp_assist_page = kzalloc_objs(*hv_vp_assist_page, nr_cpu_ids);
+>> -	if (!hv_vp_assist_page) {
+>> -		ms_hyperv.hints &= ~HV_X64_ENLIGHTENED_VMCS_RECOMMENDED;
+>> -
+>> -		if (!hv_isolation_type_tdx())
+>> -			goto common_free;
+>> -	}
+>> -
+>>   	if (ms_hyperv.paravisor_present && hv_isolation_type_snp()) {
+>>   		/* Negotiate GHCB Version. */
+>>   		if (!hv_ghcb_negotiate_protocol())
+>> @@ -483,7 +401,7 @@ void __init hyperv_init(void)
+>>
+>>   		hv_ghcb_pg = alloc_percpu(union hv_ghcb *);
+>>   		if (!hv_ghcb_pg)
+>> -			goto free_vp_assist_page;
+>> +			goto free_ghcb_page;
+>>   	}
+>>
+>>   	cpuhp = cpuhp_setup_state(CPUHP_AP_HYPERV_ONLINE, "x86/hyperv_init:online",
+>> @@ -613,10 +531,6 @@ void __init hyperv_init(void)
+>>   	cpuhp_remove_state(CPUHP_AP_HYPERV_ONLINE);
+>>   free_ghcb_page:
+>>   	free_percpu(hv_ghcb_pg);
+>> -free_vp_assist_page:
+>> -	kfree(hv_vp_assist_page);
+>> -	hv_vp_assist_page = NULL;
+>> -common_free:
+>>   	hv_common_free();
+>>   }
+>>
+>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+>> index 6b67ac616789..d1ebc0ebd08f 100644
+>> --- a/drivers/hv/hv_common.c
+>> +++ b/drivers/hv/hv_common.c
+>> @@ -28,7 +28,9 @@
+>>   #include <linux/slab.h>
+>>   #include <linux/dma-map-ops.h>
+>>   #include <linux/set_memory.h>
+>> +#include <linux/vmalloc.h>
+>>   #include <hyperv/hvhdk.h>
+>> +#include <hyperv/hvgdk.h>
+>>   #include <asm/mshyperv.h>
 > 
-> Drop the relevant node as well to avoid the following build warning:
-> "failed to match any schema with compatible: ['starfive,jh7110-camss']"
+> Need to add
 > 
-> Fixes: 644673fc8fb04 ("media: dt-bindings: Drop starfive,jh7110-camss from staging")
-> Reported-by: Conor Dooley <conor@kernel.org>
-> Closes: https://lore.kernel.org/all/20260420-very-cartel-645595ffd1c7@spud/
-> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-
-Assuming you've run the DT checks,
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
-> ---
-> Ideally this patch should have gone in the original series, before the
-> one that dropped the bindings which is now merged in mainline.
+> #include <linux/io.h>
 > 
-> I've added a Fixes tag so it gets picked in the RC cycles for 7.1.
-> ---
->  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 27 +-----------------------
->  arch/riscv/boot/dts/starfive/jh7110.dtsi        | 28 -------------------------
->  2 files changed, 1 insertion(+), 54 deletions(-)
+> because of the memremap() and related calls that have been added.
+> io.h is probably being #include'd indirectly, but it is better to #include
+> it directly.
 > 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> index 8cfe8033305d80cbe6179ed26601ca057ee00f16..a7a1c09a2c9075711f3a214a49618911fdc7b421 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> @@ -135,29 +135,6 @@ &tdm_ext {
->  	clock-frequency = <49152000>;
->  };
->  
-> -&camss {
-> -	assigned-clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
-> -			  <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>;
-> -	assigned-clock-rates = <49500000>, <198000000>;
-> -
-> -	ports {
-> -		#address-cells = <1>;
-> -		#size-cells = <0>;
-> -
-> -		port@0 {
-> -			reg = <0>;
-> -		};
-> -
-> -		port@1 {
-> -			reg = <1>;
-> -
-> -			camss_from_csi2rx: endpoint {
-> -				remote-endpoint = <&csi2rx_to_camss>;
-> -			};
-> -		};
-> -	};
-> -};
-> -
->  &csi2rx {
->  	assigned-clocks = <&ispcrg JH7110_ISPCLK_VIN_SYS>;
->  	assigned-clock-rates = <297000000>;
-> @@ -175,9 +152,7 @@ port@0 {
->  		port@1 {
->  			reg = <1>;
->  
-> -			csi2rx_to_camss: endpoint {
-> -				remote-endpoint = <&camss_from_csi2rx>;
-> -			};
-> +			/* remote CAMSS endpoint */
->  		};
->  	};
->  };
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 6e56e9d20bb064e86b57a92d4cb05be330cca01a..9c3e4598747eb5541effe697044484715569a285 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -1199,34 +1199,6 @@ csi_phy: phy@19820000 {
->  			#phy-cells = <0>;
->  		};
->  
-> -		camss: isp@19840000 {
-> -			compatible = "starfive,jh7110-camss";
-> -			reg = <0x0 0x19840000 0x0 0x10000>,
-> -			      <0x0 0x19870000 0x0 0x30000>;
-> -			reg-names = "syscon", "isp";
-> -			clocks = <&ispcrg JH7110_ISPCLK_DOM4_APB_FUNC>,
-> -				 <&ispcrg JH7110_ISPCLK_ISPV2_TOP_WRAPPER_C>,
-> -				 <&ispcrg JH7110_ISPCLK_DVP_INV>,
-> -				 <&ispcrg JH7110_ISPCLK_VIN_P_AXI_WR>,
-> -				 <&ispcrg JH7110_ISPCLK_MIPI_RX0_PXL>,
-> -				 <&syscrg JH7110_SYSCLK_ISP_TOP_CORE>,
-> -				 <&syscrg JH7110_SYSCLK_ISP_TOP_AXI>;
-> -			clock-names = "apb_func", "wrapper_clk_c", "dvp_inv",
-> -				      "axiwr", "mipi_rx0_pxl", "ispcore_2x",
-> -				      "isp_axi";
-> -			resets = <&ispcrg JH7110_ISPRST_ISPV2_TOP_WRAPPER_P>,
-> -				 <&ispcrg JH7110_ISPRST_ISPV2_TOP_WRAPPER_C>,
-> -				 <&ispcrg JH7110_ISPRST_VIN_P_AXI_RD>,
-> -				 <&ispcrg JH7110_ISPRST_VIN_P_AXI_WR>,
-> -				 <&syscrg JH7110_SYSRST_ISP_TOP>,
-> -				 <&syscrg JH7110_SYSRST_ISP_TOP_AXI>;
-> -			reset-names = "wrapper_p", "wrapper_c", "axird",
-> -				      "axiwr", "isp_top_n", "isp_top_axi";
-> -			power-domains = <&pwrc JH7110_PD_ISP>;
-> -			interrupts = <92>, <87>, <90>, <88>;
-> -			status = "disabled";
-> -		};
-> -
->  		voutcrg: clock-controller@295c0000 {
->  			compatible = "starfive,jh7110-voutcrg";
->  			reg = <0x0 0x295c0000 0x0 0x10000>;
-> 
-> ---
-> base-commit: c1f49dea2b8f335813d3b348fd39117fb8efb428
-> change-id: 20260420-starfive_camss_use-7a229c330e71
 
--- 
+Acked.
+
+>>
+>>   u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+>> @@ -78,6 +80,8 @@ static struct ctl_table_header *hv_ctl_table_hdr;
+>>   u8 * __percpu *hv_synic_eventring_tail;
+>>   EXPORT_SYMBOL_GPL(hv_synic_eventring_tail);
+>>
+>> +struct hv_vp_assist_page **hv_vp_assist_page;
+>> +EXPORT_SYMBOL_GPL(hv_vp_assist_page);
+>>   /*
+>>    * Hyper-V specific initialization and shutdown code that is
+>>    * common across all architectures.  Called from architecture
+>> @@ -92,6 +96,9 @@ void __init hv_common_free(void)
+>>   	if (ms_hyperv.misc_features & HV_FEATURE_GUEST_CRASH_MSR_AVAILABLE)
+>>   		hv_kmsg_dump_unregister();
+>>
+>> +	kfree(hv_vp_assist_page);
+>> +	hv_vp_assist_page = NULL;
+>> +
+>>   	kfree(hv_vp_index);
+>>   	hv_vp_index = NULL;
+>>
+>> @@ -394,6 +401,23 @@ int __init hv_common_init(void)
+>>   	for (i = 0; i < nr_cpu_ids; i++)
+>>   		hv_vp_index[i] = VP_INVAL;
+>>
+>> +	/*
+>> +	 * The VP assist page is useless to a TDX guest: the only use we
+>> +	 * would have for it is lazy EOI, which can not be used with TDX.
+>> +	 */
+>> +	if (hv_isolation_type_tdx()) {
+>> +		hv_vp_assist_page = NULL;
+>> +	} else {
+>> +		hv_vp_assist_page = kzalloc_objs(*hv_vp_assist_page, nr_cpu_ids);
+>> +		if (!hv_vp_assist_page) {
+>> +#ifdef CONFIG_X86_64
+>> +			ms_hyperv.hints &= ~HV_X64_ENLIGHTENED_VMCS_RECOMMENDED;
+>> +#endif
+>> +			hv_common_free();
+>> +			return -ENOMEM;
+> 
+> Given that "failure to allocate memory" now returns an error that is
+> essentially fatal to hyperv_init(), is it still necessary to clear the flag in
+> ms_hyperv.hints?  I'd love to see that #ifdef go away. It's the only
+> #ifdef in hv_common.c, and I had worked hard in the past to avoid
+> such #ifdef's. :-)
+
+Yes, this particular block can be removed, and I will remove it in v2.
+The other thing pointed out in Sashiko's AI review was having this 
+if-def block in tdx case after setting hv_vp_assist_page to NULL. This 
+is to maintain parity with existing code. That's the reason, I will need 
+to add it back there.
+
+> 
+>> +		}
+>> +	}
+>> +
+>>   	return 0;
+>>   }
+>>
+>> @@ -471,6 +495,8 @@ void __init ms_hyperv_late_init(void)
+>>
+>>   int hv_common_cpu_init(unsigned int cpu)
+>>   {
+>> +	union hv_vp_assist_msr_contents msr = { 0 };
+>> +	struct hv_vp_assist_page **hvp;
+>>   	void **inputarg, **outputarg;
+>>   	u8 **synic_eventring_tail;
+>>   	u64 msr_vp_index;
+>> @@ -542,6 +568,50 @@ int hv_common_cpu_init(unsigned int cpu)
+>>   			ret = -ENOMEM;
+> 
+> The Sashiko AI comment here about a bug when ret is set to -ENOMEM
+> seems valid to me.
+> 
+
+I'm planning to simply "return -ENOMEM" here.
+
+>>   	}
+>>
+>> +	if (!hv_vp_assist_page)
+>> +		return ret;
+>> +
+>> +	hvp = &hv_vp_assist_page[cpu];
+>> +	if (hv_root_partition()) {
+>> +		/*
+>> +		 * For root partition we get the hypervisor provided VP assist
+>> +		 * page, instead of allocating a new page.
+>> +		 */
+>> +		msr.as_uint64 = hv_get_msr(HV_SYN_REG_VP_ASSIST_PAGE);
+>> +		*hvp = memremap(msr.pfn << HV_VP_ASSIST_PAGE_ADDRESS_SHIFT,
+>> +				PAGE_SIZE, MEMREMAP_WB);
+> 
+> The Sashiko AI comment about potentially memremap'ing 64K instead of 4K can
+> be ignored. We know that the root partition can only run with a 4K page size,
+> and that is enforced in drivers/hv/Kconfig.
+>
+
+I am thinking of adding this config dependency (PAGE_SIZE_4KB) in the 
+Kconfig patch in this series, to MSHV_VTL as well. We are also using 
+only 4KB as page size. This should prevent all of PAGE_SIZE Sachiko 
+issues. I am also replacing PAGE_SIZE with HV_HYP_PAGE_SIZE in all 
+places. Hope that is fine?
+
+> HV_VP_ASSIST_PAGE_ADDRESS_SHIFT is defined in asm-generic/mshyperv.h.
+> But there is also HV_X64_MSR_VP_ASSIST_PAGE_ADDRESS_SHIFT in hvgdk_mini.h.
+> Is there a clean way to eliminate the duplication?
+
+Although both these architectures are using same value - 12, I was 
+hesitant to use x64 register for ARM64. I will move arch based 
+definition of HV_VP_ASSIST_PAGE_ADDRESS_SHIFT to hvgdk_mini.h and remove 
+it from asm-generic/mshyperv.h.
+
+> 
+>> +	} else {
+>> +		/*
+>> +		 * The VP assist page is an "overlay" page (see Hyper-V TLFS's
+>> +		 * Section 5.2.1 "GPA Overlay Pages"). Here it must be zeroed
+>> +		 * out to make sure we always write the EOI MSR in
+>> +		 * hv_apic_eoi_write() *after* the EOI optimization is disabled
+>> +		 * in hv_cpu_die(), otherwise a CPU may not be stopped in the
+>> +		 * case of CPU offlining and the VM will hang.
+>> +		 */
+> 
+> Somewhere in the comment above, I'd suggest adding a short "on x86/x64"
+> qualifier, as the comment doesn't apply on arm64 since it doesn't support
+> the AutoEOI optimization.  Maybe "Here it must be zeroed out to make sure
+> that on x86/x64 we always write the EOI MSR in ....".
+
+Acked. I will add it.
+
+> 
+>> +		if (!*hvp) {
+>> +			*hvp = __vmalloc(PAGE_SIZE, GFP_KERNEL | __GFP_ZERO);
+> 
+> The Sashiko AI comment about using "flags" instead of GFP_KERNEL seems valid.
+
+Acked.
+
+> 
+>> +
+>> +			/*
+>> +			 * Hyper-V should never specify a VM that is a Confidential
+>> +			 * VM and also running in the root partition. Root partition
+>> +			 * is blocked to run in Confidential VM. So only decrypt assist
+>> +			 * page in non-root partition here.
+>> +			 */
+>> +			if (*hvp && !ms_hyperv.paravisor_present && hv_isolation_type_snp()) {
+>> +				WARN_ON_ONCE(set_memory_decrypted((unsigned long)(*hvp), 1));
+>> +				memset(*hvp, 0, PAGE_SIZE);
+>> +			}
+>> +		}
+>> +
+>> +		if (*hvp)
+>> +			msr.pfn = vmalloc_to_pfn(*hvp);
+> 
+> The Sashiko AI comment about page size here seems valid. But what are the rules
+> about arm64 page sizes that are supported for VTL2, and how does they relate
+> to VTL0 allowing 4K, 16K, and 64K page size? What combinations are allowed?
+> For example, can a VTL2 built with 4K page size run with a VTL0 built with
+> 64K page size? It would be nice to have the rules recorded somewhere in a
+> code comment, but I'm not sure of the best place.
+> 
+
+VTL2 uses 4k page size only. This can be enforced with a Kconfig change 
+in next version. As and when other page size support is added in ARM64 
+for MSHV_VTL, this change can be removed.
+
+Regarding support of VTL0 kernel page sizes, page size in VTL2 is of no 
+impact to it.
+
+
+> But regardless of the rules, I'd suggest future-proofing by using
+> "page_to_hvpfn(vmalloc_to_page(*hvp))" so that the PFN generated is always
+> in terms of 4K page size as the Hyper-V host expects.
+
+Acked. Will try this and make the changes.
+
+> 
+>> +	}
+>> +	if (!WARN_ON(!(*hvp))) {
+>> +		msr.enable = 1;
+>> +		hv_set_msr(HV_SYN_REG_VP_ASSIST_PAGE, msr.as_uint64);
+>> +	}
+>> +
+>>   	return ret;
+>>   }
+>>
+>> @@ -566,6 +636,24 @@ int hv_common_cpu_die(unsigned int cpu)
+>>   		*synic_eventring_tail = NULL;
+>>   	}
+>>
+>> +	if (hv_vp_assist_page && hv_vp_assist_page[cpu]) {
+>> +		union hv_vp_assist_msr_contents msr = { 0 };
+>> +
+>> +		if (hv_root_partition()) {
+>> +			/*
+>> +			 * For root partition the VP assist page is mapped to
+>> +			 * hypervisor provided page, and thus we unmap the
+>> +			 * page here and nullify it, so that in future we have
+>> +			 * correct page address mapped in hv_cpu_init.
+>> +			 */
+>> +			memunmap(hv_vp_assist_page[cpu]);
+>> +			hv_vp_assist_page[cpu] = NULL;
+>> +			msr.as_uint64 = hv_get_msr(HV_SYN_REG_VP_ASSIST_PAGE);
+>> +			msr.enable = 0;
+>> +		}
+>> +		hv_set_msr(HV_SYN_REG_VP_ASSIST_PAGE, msr.as_uint64);
+>> +	}
+>> +
+>>   	return 0;
+>>   }
+>>
+>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>> index d37b68238c97..108f135d4fd9 100644
+>> --- a/include/asm-generic/mshyperv.h
+>> +++ b/include/asm-generic/mshyperv.h
+>> @@ -25,6 +25,7 @@
+>>   #include <linux/nmi.h>
+>>   #include <asm/ptrace.h>
+>>   #include <hyperv/hvhdk.h>
+>> +#include <hyperv/hvgdk.h>
+>>
+>>   #define VTPM_BASE_ADDRESS 0xfed40000
+>>
+>> @@ -299,6 +300,8 @@ do { \
+>>   #define hv_status_debug(status, fmt, ...) \
+>>   	hv_status_printk(debug, status, fmt, ##__VA_ARGS__)
+>>
+>> +extern struct hv_vp_assist_page **hv_vp_assist_page;
+> 
+> This "extern" statement is added here so it is visible to both x86/x64 and arm64.
+> And that's correct.
+> 
+> But there is still some VP assist page stuff that has been left in the arch/x86
+> version of mshyperv.h.  That other stuff, including the inline function
+> hv_get_vp_assist_page(), should also be moved to asm-generic/mshyperv.h.
+> Given that the VP assist page support is now fully generic and not x86/x64
+> specific, it shouldn't occur anywhere in the arch/x86 version of mshyperv.h.
+
+Will move the remaining code.
+
+> 
+>> +
+>>   const char *hv_result_to_string(u64 hv_status);
+>>   int hv_result_to_errno(u64 status);
+>>   void hyperv_report_panic(struct pt_regs *regs, long err, bool in_die);
+>> @@ -377,6 +380,7 @@ static inline int hv_deposit_memory(u64 partition_id, u64 status)
+>>   	return hv_deposit_memory_node(NUMA_NO_NODE, partition_id, status);
+>>   }
+>>
+>> +#define HV_VP_ASSIST_PAGE_ADDRESS_SHIFT	12
+>>   #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>>   u8 __init get_vtl(void);
+>>   #else
+>> diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
+>> index 056ef7b6b360..be697ddb211a 100644
+>> --- a/include/hyperv/hvgdk_mini.h
+>> +++ b/include/hyperv/hvgdk_mini.h
+>> @@ -149,6 +149,7 @@ struct hv_u128 {
+>>   #define HV_X64_MSR_VP_ASSIST_PAGE_ADDRESS_SHIFT	12
+>>   #define HV_X64_MSR_VP_ASSIST_PAGE_ADDRESS_MASK	\
+>>   		(~((1ull << HV_X64_MSR_VP_ASSIST_PAGE_ADDRESS_SHIFT) - 1))
+>> +#define HV_SYN_REG_VP_ASSIST_PAGE              (HV_X64_MSR_VP_ASSIST_PAGE)
+>>
+>>   /* Hyper-V Enlightened VMCS version mask in nested features CPUID */
+>>   #define HV_X64_ENLIGHTENED_VMCS_VERSION		0xff
+>> @@ -1185,6 +1186,7 @@ enum hv_register_name {
+>>
+>>   #define HV_MSR_STIMER0_CONFIG	(HV_REGISTER_STIMER0_CONFIG)
+>>   #define HV_MSR_STIMER0_COUNT	(HV_REGISTER_STIMER0_COUNT)
+>> +#define HV_SYN_REG_VP_ASSIST_PAGE    (HV_REGISTER_VP_ASSIST_PAGE)
+> 
+> This defines a new register name prefix "HV_SYN_REG_" that isn't used
+> anywhere else. The prefixes for Hyper-V register names are already complex
+> to account to x86/x64 and arm64 differences, and the fact the x86/x64 has
+> synthetic MSRs, while arm64 does not. So introducing another prefix is
+> undesirable. Couldn't this just be HV_MSR_VP_ASSIST_PAGE using the
+> same structure as HV_MSR_STIMER0_COUNT (for example)?
+>
+
+Will rename it to HV_MSR_VP_ASSIST_PAGE in all places.
+
+>>
+>>   #endif /* CONFIG_ARM64 */
+>>
+>> --
+>> 2.43.0
+>>
+
+
+Thank you so much for thoroughly reviwing this Michael.
+
 Regards,
-
-Laurent Pinchart
+Naman
 
 _______________________________________________
 linux-riscv mailing list
