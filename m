@@ -4,155 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50ADEA71AF
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Apr 2026 23:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B21EA71BC
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 04:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xac7AYyz3wd4PBqhM6bC7BE5jK2Ui7m8O6L5QysgYIU=; b=FrANPW9c+GN0dd
-	TY+UWJCSH1j+CBBw90BPHqfeMjTFfOsziTUNQTe+LRIgxdvm3EXqxh1QHHnYW6J6nNLKcpEPaPJhE
-	q3D299kBlia5BASL+pgseQbcJZKvZTEg0Vx7itsUONGfDky77rLkir09iRgDWdeVTxSZ+opLKz+Ys
-	IKpavJ0LZh9mrPej3ve5/jxMqv/eGhn9kD+jbtU6DH8y/3+hQJGAZCi1jYZJ8ucR9VvcGZaU/JvVy
-	huynCIStFMbKmxVBOfyXzY64pMvobVzjfQMNoIcR9ghqXYhpGsy40aKg1oHKTskgS1FwlO+RBJ2TI
-	gLedYKPNhdfrUsbIvvZA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OP1Ys0ZSqrsUFnHXkVlT9kSto/i2q0SuFByUdoS0OBg=; b=Muq0Qqn9Tvpwxm
+	QbntowoG1JVn4cHqCJ2oAQfvePOBfF9TNTk6rUjPa4732zuYArvZ6t3/PVKFXUJU0Co83fNbKvjOl
+	0nFwkFpYGl0OVQpR5umpduiTfbxNRluaDXVAAzmcS5K6hQi0rps6m/0RddebclF+fWh+gtQW/Abn2
+	Ku9+j1dLL9ofamwJDriX8WHByQXw/LW4ruu4vL+KCeZAkpcMZ1NZcSzTEvBhPkaGt9769zO3wfXcE
+	AxQsB18TszY7rPDl5zhqbaUbBnJ6D28IsLVO12gHOxdArdlcC7js582KSBdg8tFFodxPSZ7ZBbiz9
+	w7/vSKOeYeXQQuKLBXOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEbAC-00000006A8O-3D9D;
-	Sun, 19 Apr 2026 23:02:52 +0000
-Received: from iad-out-007.esa.us-east-1.outbound.mail-perimeter.amazon.com ([3.221.209.22])
+	id 1wEgjZ-00000006QLR-0Rj8;
+	Mon, 20 Apr 2026 04:59:46 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBDf2-0000000CSNg-47KJ;
-	Fri, 10 Apr 2026 15:20:46 +0000
+	id 1wEgjW-00000006QL5-0o2i
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Apr 2026 04:59:43 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-35da9c0c007so2514491a91.2
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Apr 2026 21:59:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazoncorp2; t=1775834445; x=1807370445;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=4pa22IBiUxkhl+ny4/A/3k7Ys07iPKfR95Xdo8FAu5s=;
-  b=gKV3Rpq4wLgo5kZ4Zxbq4RB8Qd0Ayve6EyQhnF9cWE9EN3qMZszPZN/G
-   EwyIEabeCiHYOfeIxSbQyqZwIZ0mMyyuhbs3O7ucFJh1FTsqliGCOvlTH
-   wRtSpWeiFg4bGNoGFgE9W2H8OdY5e3mTmimmi0rUH6mM0OTptdr9Y3cjt
-   B/ZOp0lK683qoca9nBWTktyQnhP8+Kz39+b9Aamoq8UsXrnTmynTl1EvX
-   mlGwV+p/pwYDKhM8AU+wIXRmccQ++jr13rklbxuZmCGchzsCKx0W2UVgb
-   9aTBGgmoIDtuIV7O0TEwwClt4n0UD6x9SuOb1/ys2lltvcjZxcP5aIOvh
-   w==;
-X-CSE-ConnectionGUID: CxtxYb49QH6Oj+u8asaXPw==
-X-CSE-MsgGUID: iz0F3lfkRFOuVkePrCTYBQ==
-X-IronPort-AV: E=Sophos;i="6.23,171,1770595200"; 
-   d="scan'208";a="15990030"
-Received: from ip-10-4-22-235.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.22.235])
-  by internal-iad-out-007.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 15:20:43 +0000
-Received: from EX19MTAUEC002.ant.amazon.com [72.21.196.66:24508]
- by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.86.77:2525] with esmtp (Farcaster)
- id 4b48ec95-31b6-489c-bb48-922b6f1fe163; Fri, 10 Apr 2026 15:20:42 +0000 (UTC)
-X-Farcaster-Flow-ID: 4b48ec95-31b6-489c-bb48-922b6f1fe163
-Received: from EX19D027UEC003.ant.amazon.com (10.252.137.250) by
- EX19MTAUEC002.ant.amazon.com (10.252.135.253) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Fri, 10 Apr 2026 15:20:41 +0000
-Received: from EX19D027UEC003.ant.amazon.com (10.252.137.250) by
- EX19D027UEC003.ant.amazon.com (10.252.137.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Fri, 10 Apr 2026 15:20:40 +0000
-Received: from EX19D027UEC003.ant.amazon.com ([fe80::887f:519b:ba73:21d]) by
- EX19D027UEC003.ant.amazon.com ([fe80::887f:519b:ba73:21d%3]) with mapi id
- 15.02.2562.037; Fri, 10 Apr 2026 15:20:40 +0000
-From: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
-To: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org"
-	<linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>
-CC: "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net"
-	<corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org"
-	<oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
-	"tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
-	"bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>,
-	"hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>,
-	"peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org"
-	<willy@infradead.org>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>,
-	"lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>,
-	"vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>,
-	"surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>,
-	"ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net"
-	<daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>,
-	"martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com"
-	<eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>,
-	"yonghong.song@linux.dev" <yonghong.song@linux.dev>,
-	"john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org"
-	<kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>,
-	"haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org"
-	<jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com"
-	<jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>,
-	"jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>,
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com"
-	<riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com"
-	<yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com"
-	<coxu@redhat.com>, "ackerleytng@google.com" <ackerleytng@google.com>,
-	"yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com"
-	<ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>,
-	"tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>,
-	"wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com"
-	<mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>,
-	"jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com"
-	<agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com"
-	<borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "dev.jain@arm.com"
-	<dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>,
-	"hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>,
-	"shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>,
-	"svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com"
-	<thuth@redhat.com>, "yang@os.amperecomputing.com"
-	<yang@os.amperecomputing.com>, "Liam.Howlett@oracle.com"
-	<Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>,
-	"zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>,
-	"gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>,
-	"jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org"
-	<lenb@kernel.org>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org"
-	<rafael@kernel.org>, "yangyicong@hisilicon.com" <yangyicong@hisilicon.com>,
-	"vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com"
-	<jackmanb@google.com>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>,
-	"Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro"
-	<itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>, "Kalyazin,
- Nikita" <kalyazin@amazon.co.uk>
-Subject: [PATCH v12 16/16] KVM: selftests: Test guest execution from direct
- map removed gmem
-Thread-Topic: [PATCH v12 16/16] KVM: selftests: Test guest execution from
- direct map removed gmem
-Thread-Index: AQHcyP2XEHVI3uLMIU2FZLnWTUpJYg==
-Date: Fri, 10 Apr 2026 15:20:40 +0000
-Message-ID: <20260410151746.61150-17-kalyazin@amazon.com>
-References: <20260410151746.61150-1-kalyazin@amazon.com>
-In-Reply-To: <20260410151746.61150-1-kalyazin@amazon.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [172.19.103.116]
+        d=gmail.com; s=20251104; t=1776661181; x=1777265981; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jyZQrY+lfsRgljtAFkCrJnmLZI0e3pi10ZTaBJ1VhuQ=;
+        b=DqrbTNn7G1sEcW4cUe/w+Jbcr6DqQiP2hxXG1nijxDTqrgHO/kNQRtr0WgJaTdQBiy
+         UZvwPfuo2ohASh53DRFDpq9pD06qTbmHhIVcY2vsi1y9sxO9M8fmi3W3186jHpx6CDw9
+         vpT0+hsIsPeI1oAXjLwWCR24GZdw20FZXnO6BNMGo+11LWaYGPqhvGDLixWkeS1GhKi4
+         y00YLo2TP55dtIrkfNfOcWBBRnh7Ro6Ot+6E3zwGdhsM3grJpgf/XYY2IWkdUjYE4CX6
+         4fzAte0SbtHtVeMBq+3oCED8/Vw0McX0yS1hVlnWQ+KHlD/dS1YiCL83mi+u2SeopjrJ
+         jDxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776661181; x=1777265981;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jyZQrY+lfsRgljtAFkCrJnmLZI0e3pi10ZTaBJ1VhuQ=;
+        b=ElHjJKaNCDO8kE3bf7o26vsK3bCOTtsbPGIeQOuaIQtxR0dA4Ae71QbRjLQnfs/nOp
+         QgiXkncGJQhT4m9fqoPjQfAQPhNhGQZRgK8J7YoC6uKm81uGqZMbYNIJOSYNcNnd63lF
+         YC37szI+k+2THNqqk1jNQER9XckATFjL5rwnzIkD3JE/moTD6PGHTbIS0WY6FaY+8m92
+         RR4ZUTZtxcSKOL95xsfdcgUn0T/4gkhaA6nRNjxY8MAcH5Zo72DdfFGiBoX4ZfOw5yaS
+         tGouyn/DB9B/QIst9UMJXPSrEKlsysT+Alj9OF82HDj4si2WbeKmtB4kxwiLKyEVbuNE
+         HdrQ==
+X-Gm-Message-State: AOJu0YzGUCi8OUinWko5j0J4Nx6hJ10NDcJJ+SYJizhiPhFsAbeAN0Um
+	j1Bm3QSxKWGQ3RrF5+xW1FTZs5hlGOJK766lfQXM1yu1dtgxwWknGK+8TAsoWJFW
+X-Gm-Gg: AeBDiet4I3odiYEQEavEY4yqjNyr+78LkyXuWblToGxl1E8vQ3N0rKC8l/piUZPHKl5
+	nc70yeDOfb9r03lxA9gcPNS0fiYYGGgjZ+HKR87Y0XftCXfTgg9cwt1Ed9nN/77mZfxnoFohPzN
+	I5an/jIVSUX9dI1/SApKsCBJ51HBKcWlwSqMKH17Abwwp8RznQARqlPaSb81n2WrdhcdONiZcqi
+	un5yR054zVogeT+kbX2AoknFXBTtmwyjan6w+hmp+XVrX78g1rOBWJPh3mm1kLK7H8ZImaKctpu
+	TWP8vfcp6WjsMQy0qGDWUHm2kHMUpL69v65ePPlFT3Z7mPOBCnoy4AOFctkFYnNvm30Ni96yN4g
+	QgtTD5q7RFkPfg6bM6LQXiT6t9KJZwxvFvsUgxF1TbJysDFeS3o7RQLuqfaS4yREAexanTRBSgO
+	+X/VM+2USYNy4t7GHejUW0KruN2Ln5U4xxLN6DyGk/H9SEKm7AWQ==
+X-Received: by 2002:a17:90b:3c48:b0:35f:9ab2:a5c2 with SMTP id 98e67ed59e1d1-361403af9b9mr12611390a91.6.1776661180809;
+        Sun, 19 Apr 2026 21:59:40 -0700 (PDT)
+Received: from adminpc-PowerEdge-R7525 ([27.122.242.81])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36141869e88sm8742825a91.1.2026.04.19.21.59.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Apr 2026 21:59:40 -0700 (PDT)
+Date: Mon, 20 Apr 2026 13:59:36 +0900
+From: Austin Kim <austindh.kim@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	austindh.kim@gmail.com
+Subject: [PATCH] riscv: check leaf entry alignment in pageattr_pxd_entry()
+Message-ID: <aeWyuC3nXrP9McNy@adminpc-PowerEdge-R7525>
 MIME-Version: 1.0
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_082045_242229_1BA92BCB 
-X-CRM114-Status: GOOD (  11.42  )
-X-Mailman-Approved-At: Sun, 19 Apr 2026 16:02:05 -0700
+X-CRM114-CacheID: sfid-20260419_215942_377641_C43EF09E 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,95 +96,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Patrick Roy <patrick.roy@linux.dev>
+During page table walking, ensure the range being processed matches
+the expected size of a leaf entry (P4D, PUD, or PMD). While pxd_addr_end() 
+functions handle boundary checks, they do not inherently validate whether 
+the entry is a leaf node of the expected size.
 
-Add a selftest that loads itself into guest_memfd (via
-GUEST_MEMFD_FLAG_MMAP) and triggers an MMIO exit when executed. This
-exercises x86 MMIO emulation code inside KVM for guest_memfd-backed
-memslots where the guest_memfd folios are direct map removed.
-Particularly, it validates that x86 MMIO emulation code (guest page
-table walks + instruction fetch) correctly accesses gmem through the VMA
-that's been reflected into the memslot's userspace_addr field (instead
-of trying to do direct map accesses).
+Add WARN_ON_ONCE() to detect misalignments or partial updates of huge 
+pages. If a mismatch is detected, return -EINVAL to prevent potential
+corruption of page table entries.
 
-Signed-off-by: Patrick Roy <patrick.roy@linux.dev>
-Signed-off-by: Nikita Kalyazin <nikita.kalyazin@linux.dev>
+Signed-off-by: Austin Kim <austindh.kim@gmail.com>
 ---
- .../selftests/kvm/set_memory_region_test.c    | 52 +++++++++++++++++--
- 1 file changed, 48 insertions(+), 4 deletions(-)
+ arch/riscv/mm/pageattr.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/set_memory_region_test.c b/tools/testing/selftests/kvm/set_memory_region_test.c
-index 7fe427ff9b38..cb445d420e8c 100644
---- a/tools/testing/selftests/kvm/set_memory_region_test.c
-+++ b/tools/testing/selftests/kvm/set_memory_region_test.c
-@@ -602,6 +602,41 @@ static void test_mmio_during_vectoring(void)
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index 3f76db3d2..1461bf77f 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -32,6 +32,8 @@ static int pageattr_p4d_entry(p4d_t *p4d, unsigned long addr,
+ 	p4d_t val = p4dp_get(p4d);
  
- 	kvm_vm_free(vm);
- }
-+
-+static void guest_code_trigger_mmio(void)
-+{
-+	/*
-+	 * Read some GPA that is not backed by a memslot. KVM consider this
-+	 * as MMIO and tell userspace to emulate the read.
-+	 */
-+	READ_ONCE(*((uint64_t *)MEM_REGION_GPA));
-+
-+	GUEST_DONE();
-+}
-+
-+static void test_guest_memfd_mmio(void)
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	struct vm_shape shape = {
-+		.mode = VM_MODE_DEFAULT,
-+		.src_type = VM_MEM_SRC_GUEST_MEMFD_NO_DIRECT_MAP,
-+	};
-+	pthread_t vcpu_thread;
-+
-+	pr_info("Testing MMIO emulation for instructions in gmem\n");
-+
-+	vm = __vm_create_shape_with_one_vcpu(shape, &vcpu, 0, guest_code_trigger_mmio);
-+
-+	virt_map(vm, MEM_REGION_GPA, MEM_REGION_GPA, 1);
-+
-+	pthread_create(&vcpu_thread, NULL, vcpu_worker, vcpu);
-+
-+	/* If the MMIO read was successfully emulated, the vcpu thread will exit */
-+	pthread_join(vcpu_thread, NULL);
-+
-+	kvm_vm_free(vm);
-+}
- #endif
+ 	if (p4d_leaf(val)) {
++		if (WARN_ON_ONCE((next - addr) != P4D_SIZE))
++			return -EINVAL;
+ 		val = __p4d(set_pageattr_masks(p4d_val(val), walk));
+ 		set_p4d(p4d, val);
+ 	}
+@@ -45,6 +47,8 @@ static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
+ 	pud_t val = pudp_get(pud);
  
- int main(int argc, char *argv[])
-@@ -625,10 +660,19 @@ int main(int argc, char *argv[])
- 	test_add_max_memory_regions();
+ 	if (pud_leaf(val)) {
++		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
++			return -EINVAL;
+ 		val = __pud(set_pageattr_masks(pud_val(val), walk));
+ 		set_pud(pud, val);
+ 	}
+@@ -58,6 +62,8 @@ static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
+ 	pmd_t val = pmdp_get(pmd);
  
- #ifdef __x86_64__
--	if (kvm_has_cap(KVM_CAP_GUEST_MEMFD) &&
--	    (kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM))) {
--		test_add_private_memory_region();
--		test_add_overlapping_private_memory_regions();
-+	if (kvm_has_cap(KVM_CAP_GUEST_MEMFD)) {
-+		uint64_t valid_flags = kvm_check_cap(KVM_CAP_GUEST_MEMFD_FLAGS);
-+
-+		if (kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM)) {
-+			test_add_private_memory_region();
-+			test_add_overlapping_private_memory_regions();
-+		}
-+
-+		if ((valid_flags & GUEST_MEMFD_FLAG_MMAP) &&
-+		    (valid_flags & GUEST_MEMFD_FLAG_NO_DIRECT_MAP))
-+			test_guest_memfd_mmio();
-+		else
-+			pr_info("Skipping tests requiring GUEST_MEMFD_FLAG_MMAP | GUEST_MEMFD_FLAG_NO_DIRECT_MAP");
- 	} else {
- 		pr_info("Skipping tests for KVM_MEM_GUEST_MEMFD memory regions\n");
+ 	if (pmd_leaf(val)) {
++		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
++			return -EINVAL;
+ 		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
+ 		set_pmd(pmd, val);
  	}
 -- 
-2.50.1
+2.34.1
 
 
 _______________________________________________
