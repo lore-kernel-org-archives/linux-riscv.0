@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCD3F557E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 08:43:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29970F557E8
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 08:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N/vdPlUgYqrWl5GggrlmM5Rb2CPYG4GHVXNtSYdEROM=; b=4P1ABlP5LhZN81
-	79AZ/bFuLtkGY2WbpdUsqflFI2DYgNfq/u1U+QFN4MalDXOqMsDV+KNQcoiZRKjreIYU7RFyqkSJY
-	8nidGcAlz+jJ/Sy31zWyPIEQXiKmUwk9eW9kWFk6QawRfFZTawHH3U0NlzO5HL+q/eDhZ2qjwTa6C
-	o6EJpGy7RASVX/wC60qbKEgPNtBXeKrUxl2k/95lhJjDrs/TgDWymRTS84nRxT6mcZd5zLMOoK+vX
-	yo6x/jG5gFOJAIflJzF5ue/l3jmHVH/3cv6ba4YWeENRzMyxndjEVt9njkPy8QvGvfHXHmR5hj1DB
-	s1SW0b1KCgXbfowhyunA==;
+	List-Owner; bh=33ukLGzg2yosrfljBrgtzSOrPubsvgOZHmYM5m4b9eY=; b=V1f2oKou5X8LMf
+	ctK/aw7U3KyvsFszSvCC8QfBnOYXxLAT/lwOlafhZ5ZaqBOB2OeTpxe8aEsdmTanM++fqQLo7wIEt
+	HURnQM18jlvf2hvD+4EQwGOOCWPN9JRzxVPT+4Lcj8x/jv0OlIpPHKcHPYp0nXA2A04tBYq0y8aAp
+	i+BFjD1h+Q6XVw6nMcdMlJUiCZMJPqObjZmE97bLXVz8jDO7D6PeXyDmj5yDFvrX+Ay0GxO7funIL
+	AVtRol0q7czHumVqbl71KHrV5tTMFEOVmL9IqKMxLTTUzNguD4jXHopgU3OQMADwu+7EGDTOAn98D
+	3k2PfpBayAsbSWasB9jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkDs-00000006bvQ-1nE7;
-	Mon, 20 Apr 2026 08:43:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wEkFT-00000006cCT-12ki;
+	Mon, 20 Apr 2026 08:44:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEkDq-00000006bv5-44S1
+	id 1wEkFQ-00000006cBj-1fxt
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Apr 2026 08:43:15 +0000
+	Mon, 20 Apr 2026 08:44:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 018A060055;
-	Mon, 20 Apr 2026 08:43:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F9FCC19425;
-	Mon, 20 Apr 2026 08:43:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D25534075F;
+	Mon, 20 Apr 2026 08:44:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93BB1C19425;
+	Mon, 20 Apr 2026 08:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776674593;
-	bh=qBaG8dVSFOBf45SSCko/wmEic1Ge8zi/morj7vkbQ7s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SnNU8IjZqClicDn3FpZJ/jbJ1Vl4VNRUwYUR3WuIMUPAuEXuZGfESQWweerYR128B
-	 4bl+ZS9KbfOaPGmVQ5jvO76C8A2MD1w8Su5dSG6/ahxyVPt85Q4GPaDVs+g9GfY68T
-	 QUdkiSfIwJSXlmiAOXz6sazbn4i4SN9CRM8rxOwIHgx5cudiJ+VY2iGI0kpsdFxxnb
-	 JPWVu1dUWy//D2Y4SH+PTD2f+kZt6uIVkXCMGM98ediHqiTDRKNjGgp14N5d6RldL2
-	 2OsagMpJvIhEbwkuLSc1CvZ+y8wsLTwkHSEG4B0JXANwHCtJGpiDg7/NP7CavR1CrM
-	 ZaIpncXnPjQKw==
-Message-ID: <dfa3f1a7-f4c6-4655-94c0-326f88db3896@kernel.org>
-Date: Mon, 20 Apr 2026 10:43:08 +0200
+	s=k20201202; t=1776674690;
+	bh=wwJkcklq/d0LUSKaLa5NNiJb86iZWnx7isPH1IKMsH4=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Orh6K8S1SG/IhDYz/oBF2PgUjwknzZlWjP30/Vz77T6S5qRAaeiVbf+6VrEAdfhuI
+	 6n23F5hRl+JuBqHaiBR41NVwZ8plihCfGHFbrArIrBV+ZBV1VY/c2pyBhGQ4eWQ6Yz
+	 T4kQguQlffNF4D6pq4c7hWbJwOps8Yg6gIC1iN8cJgH3q7r3K2IfC7+9TnYbOY6s8A
+	 +2JN9JpR3oeGFFRaX87B+eXFBTq/3Ia/ZwCgDw2u5ajrif9coKiukaHrKVQE9asWnL
+	 faynmgHlkFOVp6KV00S7GMC/tCF2tu8HOvYH/gcwE3CwFwZ1IasmLYlMoijgyPF1oG
+	 vA7ACI/WPOs0w==
+Message-ID: <87ef529e-b591-49f5-9fc9-3099672e2f0f@kernel.org>
+Date: Mon, 20 Apr 2026 10:44:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] dts: riscv: spacemit: k3: only keep spacemit,k1-i2c
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Sandie Cao <sandie.cao@deepcomputing.io>, Yixun Lan <dlan@kernel.org>,
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -57,7 +58,7 @@ Cc: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
  linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
 References: <20260420083931.1427703-1-sandie.cao@deepcomputing.io>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <dfa3f1a7-f4c6-4655-94c0-326f88db3896@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -102,7 +103,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260420083931.1427703-1-sandie.cao@deepcomputing.io>
+In-Reply-To: <dfa3f1a7-f4c6-4655-94c0-326f88db3896@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260420_014452_528016_204E4DC5 
+X-CRM114-Status: UNSURE (   5.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,26 +124,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/04/2026 10:39, Sandie Cao wrote:
-> Fix dtcheck issue: compatible:0: 'spacemit,k1-i2c' was expected
-
-Missing space after main commit msg.
-
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/r/202604140259.eKDaxKua-lkp@intel.com/
+On 20/04/2026 10:43, Krzysztof Kozlowski wrote:
+> On 20/04/2026 10:39, Sandie Cao wrote:
+>> Fix dtcheck issue: compatible:0: 'spacemit,k1-i2c' was expected
 > 
+> Missing space after main commit msg.
+> 
+>> Reported-by: kernel test robot <lkp@intel.com>
+>> Closes: https://lore.kernel.org/r/202604140259.eKDaxKua-lkp@intel.com/
+>>
 
-There is no space between tags.
+Also, the file reported in above warning DOES NOT EXIST (I checked
+next-20260414).
 
-Anyway, explain WHY K3 device does not use K3 compatible. It is clearly
-violating writing-bindings.
-
-Plus, I don't think this report is correct. You just send us something
-close to random fix of random warning, without even opening the files
-and understanding what is there. spacemit,k3-i2c MUST be used with K1.
-Please read the binding.
-
-NAK
+Please do not send reported-by bug reports for things which do not exist.
 
 Best regards,
 Krzysztof
