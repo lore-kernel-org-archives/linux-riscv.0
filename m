@@ -4,114 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27F3F55807
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 10:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F738F5580B
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 11:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eAtDyTae6/ZeuAyGi+vrQMAwK1Qs+ioc5n56WHmqUMs=; b=SqvojhddzlXFDT
-	wzAhMb0NPYO1pP8jU5hp+33db4qC7mMHjgiqeWOKEg/cmVMQMNbhTJCnTsD0XMNl4xw/TBTf8TwuS
-	wYTKgg6oAi+5DwI4+qHjKSIrOLWBpRIp5880CW6s9blzAIgcbBWOPStYwGaxL466gqRWUcNvJsiU4
-	U7hDycPiRiAb2cfFHZxH6iP/rXAHiyPxhS3waR1Z/6DxH2c3TXv+dAWc0QjMsUP5K1GW+Iyz6a6TI
-	PV5yOJNICnS47a7GpfdQvnUzLVb1n1eUiQrllplt4jd7hJ1+PtoG/7zoP2YHW5Qllqvs9ZLpnek+K
-	3wS+v2Hy9fEE7otuDwdA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Q4I9p9iXfJq30Z9RHXFIA9Qu0Ij5NQqEQy7gHRHTZZQ=; b=mpCE+o/bnJkCmm
+	9hEWHl+Ywphuwl4kkuhCTrBysljkIAfSYLEQ9C25/fujqBp4OeigpKio9BtZ1moCALREVLUsHmUZ4
+	T1TwLvhYrDPcHcPVDw8vH+0NK1z/NUMFkxUfuW9Quols2NHgSErVldHR5CE3XBjIVLAmySYldU6Zt
+	+vAR2QjUVatQuTo42xnmfI0dBTRheiS1SR/HZ5CYivBot+Queq1lc47nR2fLwVbDRjey0PHzzFC+W
+	hxygYBKronLMaPnUJzY3rgy+uHoFDJyGo1OmH8rm4j86pDMaj8ULq+0yX9NcgCfemUEAqJhrqsmqu
+	Q/dEY5cK3OHs0ryRB9QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wElsI-00000006jUK-2kPc;
-	Mon, 20 Apr 2026 10:29:06 +0000
+	id 1wEmaa-00000006mJ1-0Zh8;
+	Mon, 20 Apr 2026 11:14:52 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wElsG-00000006jTy-3GtH
+	id 1wEmaW-00000006mHu-44PB
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Apr 2026 10:29:06 +0000
+	Mon, 20 Apr 2026 11:14:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DFC0044293;
-	Mon, 20 Apr 2026 10:29:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A254CC19425;
-	Mon, 20 Apr 2026 10:29:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B4D2643BC5;
+	Mon, 20 Apr 2026 11:14:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBA0EC19425;
+	Mon, 20 Apr 2026 11:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776680943;
-	bh=0l/khbXG365qvHSt4tdnvd9lJkQtLfC0n11gIj8/YcI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HCLpZkdhx8ps1q6lRvBfYLkDjoAcK1NOrDUU9uuRlareQvHvR6z0qHN+3dRcd5Q+G
-	 mt7dlJVOimI2zN/riFJKH25Hw1PJwp6UklTBS+hhxHpqJ38eRneXd+o3sN6Og5DENJ
-	 Thh5Gy4S3bOe61F7tr3qDiUdTSriFYOHAV3t9LEogdBAWPVtVvP7MnJRyzpLugOjTi
-	 XpthXX5pmmuA1Pjqw+Y6KzVgU9VnW41aaTQocF63bSSMtgO4xADGyyQYAVW27/Nmeb
-	 PnyIsX21KRnMKhxiCDgX7iKzgf3QjOh3tRe+wJYbR3JPXw3ANiLJOjvbWfQMzZMGQu
-	 POD3jI6FLJbag==
-Message-ID: <f630642e-0d45-4b8d-8749-3ebdf76df22b@kernel.org>
-Date: Mon, 20 Apr 2026 12:28:58 +0200
+	s=k20201202; t=1776683687;
+	bh=MW4N9QsMfGRIB/wVdWforxO3hhp9OHH7Sj/gjKngHPs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aKQRjrcajW69yY1mebrRHL2/8t9lOjacTxLyAvvvax4ARwpfjEGFVWEy2TmozL7Xx
+	 amTDPf14A6Wvfdp4i1Rh3mbjC9bT2dz/NdtKCmL1qvRDD3rXUuzyINdMYR+jb9Lhxd
+	 1/Pblg34JjnR6EcU4+56UiZu3g9FWrhtwgBloi84JYg5UV/IHcqCk1pSQOjWyWll9/
+	 vquBbED0vsiZw30+XWpYwNLu93FamTLuWdSqqnukNMOU70U5hYOtE40tShCykmDNdb
+	 DuCpkW7jwrs2cvR1ly6RD9xvSc44iUGSa4e5131/PH/o5wssBsF8qqujlTYegat6ic
+	 kqOKdD6uVKNIA==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] riscv: dts: microchip: fix icicle i2c pinctrl configuration
+Date: Mon, 20 Apr 2026 12:14:31 +0100
+Message-ID: <20260420-blinking-unselect-955dfecfa26c@spud>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dts: riscv: spacemit: k3: only keep spacemit,k1-i2c
-To: Sandie Cao <sandie.cao@deepcomputing.io>, Yixun Lan <dlan@kernel.org>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
-References: <20260420083931.1427703-1-sandie.cao@deepcomputing.io>
- <dfa3f1a7-f4c6-4655-94c0-326f88db3896@kernel.org>
- <87ef529e-b591-49f5-9fc9-3099672e2f0f@kernel.org>
- <DHXUQHVK4XRN.3CVZ3GH75L4L4@linux.spacemit.com>
- <20260420090936-GKB203300@kernel.org>
- <407ce3d77416bb2522b7906b0df3d5adf02c27ee.5595e961.9ee2.4959.8935.9a8f33812b0c@feishu.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.5595e961.9ee2.4959.8935.9a8f33812b0c@feishu.cn>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4721; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=NenzT30jUyOlQbFBBkdogMhrluIE/UqTZ7cyQnbd6b4=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnPuGZeyEmsnr3qwTtNHnbzoGAtacVi/71Oslk5f5b92 tG5jI21o5SFQYyLQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABNZpMHwV/SI48/f/aYiExsk dzQtEEo4d/eXT2D1zZ0ZSv8CZb50MzEyzP0aleYZPSl8EedB9QV/jz7J2zrrnqTiyzU7JG6kTk/ kZwEA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_032904_911532_702A7293 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260420_041449_046467_105656CF 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,23 +72,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAvMDQvMjAyNiAxMToyNiwgU2FuZGllIENhbyB3cm90ZToKPiAKPiBQbGVhc2Uga25vdyB0
-aGF0LCBJIHNlbmQgcGF0Y2hbMV0gdG8gYWRkIERlZXBDb21wdXRpbmcgRk1MMTNWMDUgYm9hcmQg
-ZGV2aWNlIHRyZWUuwqAgVGhlIHBhdGNoIGlzIGJhc2VkIG9uIGsxL2R0LWZvci1uZXh0WzJdLsKg
-Cj4gQW5kIGl0IG1lZXRzIGR0c2NoZWNrIGlzc3VlOgo+IFJlcG9ydGVkLWJ5OiBrZXJuZWwgdGVz
-dCByb2JvdCA8bGtwQGludGVsLmNvbT4KPiBDbG9zZXM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L3IvMjAyNjA0MTQwMjU5LmVLRGF4S3VhLWxrcEBpbnRlbC5jb20vCj4gCj4gT24gazEvZHQtZm9y
-LW5leHQsIGl0IGRvZXNuJ3QgaGF2ZSBzcGFjZW1pdCxrMy1pMmMgaW4gRG9jdW1lbnRhdGlvbi9k
-ZXZpY2V0cmVlL2JpbmRpbmdzL2kyYy9zcGFjZW1pdCxrMS1pMmMueWFtbC4KPiBPciBJIHVzZSB0
-aGUgd3JvbmcgYnJhbmNoP8KgCj4gCj4gQW5kIHdoYXQgc2hvdWxkIEkgZG8gZm9yIG15IHBhdGNo
-WzFdID8gwqAKClRlc3QgeW91ciBwYXRjaCBvbiBsaW51eC1uZXh0LiBTZWUgYWxzbyBtYWludGFp
-bmVyLXNvYyBhbmQKbWFpbnRhaW5lci1zb2MtY2xlYW4tZHRzIHByb2ZpbGVzIGluIGtlcm5lbC4K
-CgpCZXN0IHJlZ2FyZHMsCktyenlzenRvZgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+Unfortunately, an erratum with engineering sample that I was not aware
+of was exposed by adding pinctrl configuration to the icicle kit.
+When routed to MSS IOs, i2c signals are never anything other than tied
+low. Being an FPGA, a Libero workaround for this problem was created,
+that involves routing i2c signals to the FPGA fabric when the MSS IO
+option is selected in the configurator and then back to the intended pin
+using the debug "fabric test" capability. This is invisible to user
+facing information in the tooling and not mentioned in reference designs
+documentation. It manifests solely in the .xml output from the MSS
+configuration that the HSS firmware uses to configure the device, which
+Linux now overwrites using the pinctrl information. As a result, I never
+noticed this.
+
+My original submission had the engineering sample configuration, but I
+modified it on application after I was told it didn't work, not
+realising that the report came from a colleague with a production
+device, where the erratum was fixed and the workaround not automatically
+implemented by Libero when creating a design.
+
+Move this part of the pinctrl configuration out of the shared portion of
+the icicle device trees, into the portions that are specific to
+engineering sample and production devices so that the different settings
+for i2c pins can be dealt with.
+
+Although the reference design only has this workaround in place for
+i2c1, as i2c0 is genuinely fabric routed, move it too since the
+erratum affects both controllers.
+
+Link: https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/Errata/polarfiresoc/microsemi_polarfire_soc_fpga_egineering_samples_errata_er0219_v1.pdf [3.3]
+Fixes: 123f4276b521a ("riscv: dts: microchip: add pinctrl nodes for mpfs/icicle kit")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+---
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi | 10 ----------
+ .../dts/microchip/mpfs-icicle-kit-prod.dts    | 10 ++++++++++
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    | 19 +++++++++++++++++++
+ 3 files changed, 29 insertions(+), 10 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
+index 2d14e92f068d5..9078e5b1e49c1 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
+@@ -101,16 +101,6 @@ &ccc_nw {
+ 	status = "okay";
+ };
+ 
+-&i2c0 {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&i2c0_fabric>;
+-};
+-
+-&i2c1 {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&i2c1_mssio>;
+-};
+-
+ &mmuart1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart1_fabric>;
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
+index 8afedece89d1f..636493f6584d2 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
+@@ -14,6 +14,16 @@ / {
+ 		     "microchip,mpfs";
+ };
+ 
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_fabric>;
++};
++
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_mssio>;
++};
++
+ &syscontroller {
+ 	microchip,bitstream-flash = <&sys_ctrl_flash>;
+ };
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
+index 556aa9638282e..6fadce815c9a2 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
+@@ -11,3 +11,22 @@ / {
+ 		     "microchip,mpfs-icicle-kit",
+ 		     "microchip,mpfs";
+ };
++
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_fabric>;
++};
++
++/*
++ * Due to silicon errata, routing via MSS IOs doesn't work on ES devices.
++ * Instead, i2c1, appearing on B1/C1, which are normally MSS IOs, is routed
++ * via the fabric and back to B1/C1 via "fabric-test" functionality.
++ * This is done silently by Libero, so the iomux0 setting for i2c1 has to
++ * be fabric IO, despite tooling etc saying that MSS IOs are used.
++ *
++ * See Section 3.3 of https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/Errata/polarfiresoc/microsemi_polarfire_soc_fpga_egineering_samples_errata_er0219_v1.pdf
++ */
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_fabric>;
++};
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
