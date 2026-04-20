@@ -4,62 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2182F557F4
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 09:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC383F557F2
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 09:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:From:Cc:To:Message-Id:Subject:
-	References:In-Reply-To:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:Subject:Cc:
+	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1Dg8lk3P7igfjLa2bR/8h1fTu1pGc6XI/NAFlTmP15w=; b=t8Ng3Tusz9CHQO
-	R6nq12iJc9k5gREarNGKZpFsAg/k7OnGT6aa0JROqZnuyPdGyzC6ORNKX9rgYKsK6IxVN+IPRcQv7
-	fXfIoXaPDgZHAkPvmD2cfJM/huCoY7c856bYEPKW3UrQJBXVtPtEDtFgfGeUBCttz3AnNaH2Qxr9x
-	Zjl9YnlIxq69cooBTzNZZ8aaHFw7koFoiPntlMAaeaZtmKkqPTlnBiSCmB66K4whrt8/53IDt0FXl
-	AyXKBibsLJ/4+jU6B5XCYnyX9/6cBDu2JbaLzyBbDsy3Z7qRbOxrpnaFEbjyh7qUwTndb5e5UXV/+
-	THd9ULgeXLc/5Rs81uPg==;
+	List-Owner; bh=D6IMMrEIAs1nYsM0YVyFwlciNHNxpKF6uj1E4G0Zy4Y=; b=Er7+8fJxs7OQLv
+	W4Z21ITnfQ12GJAlP5ny7DqX0eBYK8ZizC6g//ctbHVuOgog0RWrQyXZajolHGhh9C0fUpcyuXfFc
+	VU0grfF4jS9zHKmmzlwiGUD6QTG6G04lJUtrZyTtfkdnJMzh64sQ7EJNAdjy+CO+JQ81NkCRYSiqS
+	y8uxYwSHF/EMnjGSeoeAsvQvIyv4clV+wREdhts7zFa4b7ObOwucJhUzCop8q6zgRfT/7XUXFlcFw
+	o602p+cFbnyhUu3ZeVn5einlnOCLciwYypE2gRoGgjpFCriU2jdmzIEdslxZCx9Lh884/BcNf0YPd
+	XLXdd1t2S0P39wH25g9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEktj-00000006fsv-3XX6;
-	Mon, 20 Apr 2026 09:26:31 +0000
-Received: from va-2-26.ptr.blmpb.com ([209.127.231.26])
+	id 1wEkwU-00000006gAC-24EX;
+	Mon, 20 Apr 2026 09:29:22 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEktf-00000006fqu-2J0L
+	id 1wEkwQ-00000006g8k-0nSU
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Apr 2026 09:26:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1776677180;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=c/cSJ0sI8II6L7VDGRHSSR6QMp4ljxaqU3hFC4CrDJQ=;
- b=FDEthD4QguF5e2bfCsYrhLXifhx+wj5j6RA+uAKNMqdmXiS/AtAtlMPFsGJNSgHJNsyTW4
- o2nAt9xOpXz6RJJciAkXWWEP4uGBTvyjRntnLFNGhqyh7VZtrF501KKypNXeVreR2RYukx
- 1LLrCrY3jR98hoWjcZrGft0wtfKvERv552Ofi4pKXiEgry+r9oI7+pX4R5YL+rNcsfDPDm
- 9srZezm80tJGx8taetZTTBTPSd/4qXMzWJaoy33tjYo+g/EzcGOtrANnBvdlMjxNpRlzHf
- PKMLjAh/zOauAzxlDn9lX5o/dss+0FzwxCJdzgjt3U72I4JoXRIs8CNo2oizMQ==
+	Mon, 20 Apr 2026 09:29:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1776677289;
+	bh=Epg2XijeaAbCs5Ct+as2QF3IkV5HTxzlVZVwtKv66wk=;
+	h=Mime-Version:Date:Message-Id:To:Subject:From;
+	b=HQ2cP9jEbKLx60g6DqTW2OmocU4AU48PxOnwsd7Je4szIQJLTtHolDNUjJBkh7EZ1
+	 4y/PqnTwvA+BnPWlKJil00e88++rjs1SVwjpL7j/C+YU9YsAjYATCGzna/XUYflC2K
+	 i8/APwidLOqCpVSiLb+KdumW5xDuE76RzY0wfuTI=
+X-QQ-mid: zesmtpsz2t1776677279t4d3418c6
+X-QQ-Originating-IP: OnBclwAmSm8kIWOHKvtJLXfl5OmN7/ZPSMWtVz2JVoU=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 20 Apr 2026 17:27:57 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4948310961083474313
+EX-QQ-RecipientCnt: 16
 Mime-Version: 1.0
-In-Reply-To: <20260420090936-GKB203300@kernel.org>
-X-Lms-Return-Path: <lba+169e5f13a+17fb7a+lists.infradead.org+sandie.cao@deepcomputing.io>
-References: <20260420083931.1427703-1-sandie.cao@deepcomputing.io> <dfa3f1a7-f4c6-4655-94c0-326f88db3896@kernel.org> <87ef529e-b591-49f5-9fc9-3099672e2f0f@kernel.org> <DHXUQHVK4XRN.3CVZ3GH75L4L4@linux.spacemit.com>
-	<20260420090936-GKB203300@kernel.org>
+Date: Mon, 20 Apr 2026 17:27:55 +0800
+Message-Id: <DHXVJ4GG8XSX.2HBP0VYODXHUG@linux.spacemit.com>
+To: "Yixun Lan" <dlan@kernel.org>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Sandie Cao"
+ <sandie.cao@deepcomputing.io>, "Conor Dooley" <conor+dt@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, <spacemit@lists.linux.dev>,
+ <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, "kernel test robot" <lkp@intel.com>
 Subject: Re: [PATCH] dts: riscv: spacemit: k3: only keep spacemit,k1-i2c
-Message-Id: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.5595e961.9ee2.4959.8935.9a8f33812b0c@feishu.cn>
-To: "Yixun Lan" <dlan@kernel.org>
-Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
-	"Krzysztof Kozlowski" <krzk@kernel.org>, 
-	"Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
-	<spacemit@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
-	"kernel test robot" <lkp@intel.com>
-From: "Sandie Cao" <sandie.cao@deepcomputing.io>
-Date: Mon, 20 Apr 2026 17:26:16 +0800
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260420083931.1427703-1-sandie.cao@deepcomputing.io>
+ <dfa3f1a7-f4c6-4655-94c0-326f88db3896@kernel.org>
+ <87ef529e-b591-49f5-9fc9-3099672e2f0f@kernel.org>
+ <DHXUQHVK4XRN.3CVZ3GH75L4L4@linux.spacemit.com>
+ <20260420090936-GKB203300@kernel.org>
+In-Reply-To: <20260420090936-GKB203300@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OZH4OYjZqgcfnK9wN1uPDG/vAN2LnGiMr7U4zSrVFT3LrmpkdZtMMOSB
+	IVYlp0AIyUcAKQNxUonVgrF47Re5tx3OD+fZEgAK6I12EU4f/bj9Sjseb0TGVL9JZUF/Vtn
+	PrQ7w/oM4ysJ+lssTnU++0yj3gcq+PBZ6bEdYwpEz2CE+XtUh9smjo9gmOkXMoxwjWIEagM
+	enxwSzAdbeJyfxVZLKVWr4XjN7DZmPMEsnj8iUBiGK9dnXfS0rQbZRdzIsAPpRZEttmZhxo
+	NzHKmjetA4WPftL4p+6ry/mClqDbH+ei3tmIU+RUconN86Z2aFdJucHPcPL/d/39W3OZkrt
+	fGyAWCc4++Lzq+V4X2Nhx1kxrbrtkSzsVc8FlxF3O62gcAI3UzwhM/Dj6MNV/zrcjSPErdC
+	7DowucqWobSYHo8qUe6VJsekw8jBZMTXgHLx8unnBhHBkrySr6UVnG6T0ddJE9yXt4OBdTO
+	YRmKjqaamiZqhcKx0DYVgZ7EgREcPqnxLEINalj29GhNJKEgXHXEvZRxESdYHJ6tiTMdu16
+	xW1gUwurxoIhB55bFrPhLVEqGjHqNZU52iBpwtNPfcvZQUqgjKyJnVXufNyA+fT7LJNWr+N
+	+BMr1aoocQ2vKMwJLqbpBFtG1iUHlPB+QgH9IgG3EtKTYXyWxxkS6ScYrfW3yrAnwNQM384
+	p+ld2BUYFCyvEHibuJ6AFsM03TXRQ5xzX1Z0T1YiQ+ylUE2MMWwXJGfy1Bd1N2ClZ5f6Hur
+	GiS+HNM1GOeMJT6GdUi1JprO8LGN+FphWs83//bkA4y07drkmiutyBqmF6HY79fQnuA3WNs
+	yks/KfNeull+KC6HPMQMvIp45zoDLaNmOeYQOO4g1K01gj+3B6P7A1d8avZ4RuweHPEnoM4
+	GnsJl+jS3GgjaLG0zdplmAUMKh4epd53xQcOMjdpFTBqEwoocDYMuASXLnsRSkwkfDCWRH2
+	1kNL6n+Sjq4Fwf3TyN187RhlROWxXQDrHW9J5G9P647PZPCnwvI2agHbEU+EC9WVqPaBYL1
+	6qP0VL5HYgNjIpgm7UTJS0H/T3qBwOZZGkgPgRNm7sX+Ki6tBEX9cokFi6ozsqHoUNfp8fV
+	Hf18lafXd6C/KfF8fI4X7xJIf9tFrosmlL2+rCcag84
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_022628_502501_F17EEE16 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260420_022919_866138_0C541509 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +101,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksIExhbiAmIFRyb3kgJiBLcnp5c3p0b2YgOgoKPiBGcm9tOiAiWWl4dW4gTGFuIjxkbGFuQGtl
-cm5lbC5vcmc+Cj4gRGF0ZTrCoCBNb24sIEFwciAyMCwgMjAyNiwgMTc6MDkKCj4gSGkgVHJveSwK
-PsKgCj4gT24gMTY6NTAgTW9uIDIwIEFwciDCoCDCoCAsIFRyb3kgTWl0Y2hlbGwgd3JvdGU6Cj4g
-PiBPbiBNb24gQXByIDIwLCAyMDI2IGF0IDQ6NDQgUE0gQ1NULCBLcnp5c3p0b2YgS296bG93c2tp
-IHdyb3RlOgo+ID4gPiBPbiAyMC8wNC8yMDI2IDEwOjQzLCBLcnp5c3p0b2YgS296bG93c2tpIHdy
-b3RlOgo+ID4gPj4gT24gMjAvMDQvMjAyNiAxMDozOSwgU2FuZGllIENhbyB3cm90ZToKPiA+ID4+
-PiBGaXggZHRjaGVjayBpc3N1ZTogY29tcGF0aWJsZTowOiAnc3BhY2VtaXQsazEtaTJjJyB3YXMg
-ZXhwZWN0ZWQKPiA+ID4+wqAKPiA+ID4+IE1pc3Npbmcgc3BhY2UgYWZ0ZXIgbWFpbiBjb21taXQg
-bXNnLgo+ID4gPj7CoAo+ID4gPj4+IFJlcG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8bGtw
-QGludGVsLmNvbT4KPiA+ID4+PiBDbG9zZXM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAy
-NjA0MTQwMjU5LmVLRGF4S3VhLWxrcEBpbnRlbC5jb20vCj4gPiA+Pj4KPiA+ID4KPiA+ID4gQWxz
-bywgdGhlIGZpbGUgcmVwb3J0ZWQgaW4gYWJvdmUgd2FybmluZyBET0VTIE5PVCBFWElTVCAoSSBj
-aGVja2VkCj4gPiA+IG5leHQtMjAyNjA0MTQpLgo+ID4gSW4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0
-cmVlL2JpbmRpbmdzL3BpbmN0cmwvc3BhY2VtaXQsazEtcGluY3RybC55YW1sOgo+ID7CoAo+ID4g
-cHJvcGVydGllczoKPiA+IMKgIGNvbXBhdGlibGU6Cj4gPiDCoCDCoCBlbnVtOgo+ID4gwqAgwqAg
-wqAgLSBzcGFjZW1pdCxrMS1waW5jdHJsCj4gPiDCoCDCoCDCoCAtIHNwYWNlbWl0LGszLXBpbmN0
-cmwKPiA+wqAKPiBJIHRoaW5rIHlvdSByZWZlciB0byB3cm9uZyBmaWxlLCB3aGljaCBzaG91bGQg
-YmUKPiDCoERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9pMmMvc3BhY2VtaXQsazEt
-aTJjLnlhbWwKPsKgCj4gPiBTbyB0aGVyZSdzIG5vIHJlYXNvbiB0byB1c2UgazEtaTJjLiBBcyBm
-YXIgYXMgSSBjYW4gdGVsbCwgd2hpbGUgdGhleSBhcmUgdGhlIHNhbWUgSVAsCj4gPiB0aGVyZSBh
-cmUgc3VidGxlIGRpZmZlcmVuY2VzIGJldHdlZW4gdGhlbS4KPiA+wqAKPiBCdXQgeWVzLCB0aGUg
-aWRlYSBpcyBjb3JyZWN0LCBzbyBOQUsgdG8gdGhpcyBwYXRjaAo+ID4gwqAgwqAgwqAgwqAgwqAg
-wqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgLSBUcm95Cj7CoAo+IC0twqAKPiBZ
-aXh1biBMYW4gKGRsYW4pCj7CoAoKUGxlYXNlIGtub3cgdGhhdCwgSSBzZW5kIHBhdGNoWzFdIHRv
-IGFkZCBEZWVwQ29tcHV0aW5nIEZNTDEzVjA1IGJvYXJkIGRldmljZSB0cmVlLsKgIFRoZSBwYXRj
-aCBpcyBiYXNlZCBvbiBrMS9kdC1mb3ItbmV4dFsyXS7CoApBbmQgaXQgbWVldHMgZHRzY2hlY2sg
-aXNzdWU6ClJlcG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8bGtwQGludGVsLmNvbT4KQ2xv
-c2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYwNDE0MDI1OS5lS0RheEt1YS1sa3BA
-aW50ZWwuY29tLwoKT24gazEvZHQtZm9yLW5leHQsIGl0IGRvZXNuJ3QgaGF2ZSBzcGFjZW1pdCxr
-My1pMmMgaW4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2kyYy9zcGFjZW1pdCxr
-MS1pMmMueWFtbC4KT3IgSSB1c2UgdGhlIHdyb25nIGJyYW5jaD/CoAoKQW5kIHdoYXQgc2hvdWxk
-IEkgZG8gZm9yIG15IHBhdGNoWzFdID8gwqAKClsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9h
-bGwvMjAyNjA0MTMwNjA1MjQuMTIzNTk4Mi0xLXNhbmRpZS5jYW9AZGVlcGNvbXB1dGluZy5pby8K
-WzJdIGh0dHBzOi8vZ2l0aHViLmNvbS9zcGFjZW1pdC1jb20vbGludXgvdHJlZS9rMS9mb3ItbmV4
-dCMKCkJlc3QgcmVnYXJkcwpTYW5kaWUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+On Mon Apr 20, 2026 at 5:09 PM CST, Yixun Lan wrote:
+> Hi Troy,
+>
+> On 16:50 Mon 20 Apr     , Troy Mitchell wrote:
+>> On Mon Apr 20, 2026 at 4:44 PM CST, Krzysztof Kozlowski wrote:
+>> > On 20/04/2026 10:43, Krzysztof Kozlowski wrote:
+>> >> On 20/04/2026 10:39, Sandie Cao wrote:
+>> >>> Fix dtcheck issue: compatible:0: 'spacemit,k1-i2c' was expected
+>> >> 
+>> >> Missing space after main commit msg.
+>> >> 
+>> >>> Reported-by: kernel test robot <lkp@intel.com>
+>> >>> Closes: https://lore.kernel.org/r/202604140259.eKDaxKua-lkp@intel.com/
+>> >>>
+>> >
+>> > Also, the file reported in above warning DOES NOT EXIST (I checked
+>> > next-20260414).
+>> In Documentation/devicetree/bindings/pinctrl/spacemit,k1-pinctrl.yaml:
+>> 
+>> properties:
+>>   compatible:
+>>     enum:
+>>       - spacemit,k1-pinctrl
+>>       - spacemit,k3-pinctrl
+>> 
+> I think you refer to wrong file, which should be
+>  Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+My apologies, I overlooked that. The file you mentioned is indeed correct.
+Thanks for pointing it out.
+
+                                        - Troy
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
