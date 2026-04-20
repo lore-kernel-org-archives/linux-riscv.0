@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F738F5580B
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 11:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 039FCF55812
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Apr 2026 11:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q4I9p9iXfJq30Z9RHXFIA9Qu0Ij5NQqEQy7gHRHTZZQ=; b=mpCE+o/bnJkCmm
-	9hEWHl+Ywphuwl4kkuhCTrBysljkIAfSYLEQ9C25/fujqBp4OeigpKio9BtZ1moCALREVLUsHmUZ4
-	T1TwLvhYrDPcHcPVDw8vH+0NK1z/NUMFkxUfuW9Quols2NHgSErVldHR5CE3XBjIVLAmySYldU6Zt
-	+vAR2QjUVatQuTo42xnmfI0dBTRheiS1SR/HZ5CYivBot+Queq1lc47nR2fLwVbDRjey0PHzzFC+W
-	hxygYBKronLMaPnUJzY3rgy+uHoFDJyGo1OmH8rm4j86pDMaj8ULq+0yX9NcgCfemUEAqJhrqsmqu
-	Q/dEY5cK3OHs0ryRB9QQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ucikao+PIwHQyuvsIg6ujvyuRlczWTRR9T0IIOpoSkU=; b=n1Jf7S8S2ww5tX
+	WV7GeuwfLRHrrDIedH2RHxFY6qZMbEQ9xCifMMuMfctfQWF2DCDCuaAwWCxn/RBmcC5B5xTcRGE4D
+	MY8cf1Tshx+/IPk3BYD5p51S/MpAL7D1mqsqM+yKophAjrL4Yq4dU9aITrPPFaepXKllZGoUqwjq9
+	eDkR01PIPyBY6RksTO2oazoSi8kIMp9G/iHbeGjtpSvjCOnXowa6A/yAKoddy1jER9bl/RvoPqWHK
+	GnGliHqwNVY6M+x57ODWsyqyYmAdqkz6Zbe8zHfAJDLXi+SXVyZLhIfBFStRpvTOTXIW/3G4KZGu0
+	aXmjo/WH68r639eY0HSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEmaa-00000006mJ1-0Zh8;
-	Mon, 20 Apr 2026 11:14:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wEmaW-00000006mHu-44PB
+	id 1wEmbF-00000006mSK-1NLz;
+	Mon, 20 Apr 2026 11:15:33 +0000
+Received: from mail.loongson.cn ([114.242.206.163])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wEmb9-00000006mQq-2on9
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Apr 2026 11:14:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B4D2643BC5;
-	Mon, 20 Apr 2026 11:14:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBA0EC19425;
-	Mon, 20 Apr 2026 11:14:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776683687;
-	bh=MW4N9QsMfGRIB/wVdWforxO3hhp9OHH7Sj/gjKngHPs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=aKQRjrcajW69yY1mebrRHL2/8t9lOjacTxLyAvvvax4ARwpfjEGFVWEy2TmozL7Xx
-	 amTDPf14A6Wvfdp4i1Rh3mbjC9bT2dz/NdtKCmL1qvRDD3rXUuzyINdMYR+jb9Lhxd
-	 1/Pblg34JjnR6EcU4+56UiZu3g9FWrhtwgBloi84JYg5UV/IHcqCk1pSQOjWyWll9/
-	 vquBbED0vsiZw30+XWpYwNLu93FamTLuWdSqqnukNMOU70U5hYOtE40tShCykmDNdb
-	 DuCpkW7jwrs2cvR1ly6RD9xvSc44iUGSa4e5131/PH/o5wssBsF8qqujlTYegat6ic
-	 kqOKdD6uVKNIA==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] riscv: dts: microchip: fix icicle i2c pinctrl configuration
-Date: Mon, 20 Apr 2026 12:14:31 +0100
-Message-ID: <20260420-blinking-unselect-955dfecfa26c@spud>
-X-Mailer: git-send-email 2.53.0
+	Mon, 20 Apr 2026 11:15:31 +0000
+Received: from loongson.cn (unknown [113.200.148.30])
+	by gateway (Coremail) with SMTP id _____8Dx8erLCuZpcBUCAA--.7953S3;
+	Mon, 20 Apr 2026 19:15:23 +0800 (CST)
+Received: from linux.localdomain (unknown [113.200.148.30])
+	by front1 (Coremail) with SMTP id qMiowJBxLMLFCuZp00RxAA--.17475S4;
+	Mon, 20 Apr 2026 19:15:20 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH RFC bpf-next 2/2] selftests/bpf: Add LoongArch support for get_preempt_count()
+Date: Mon, 20 Apr 2026 19:15:16 +0800
+Message-ID: <20260420111516.19982-3-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20260420111516.19982-1-yangtiezhu@loongson.cn>
+References: <20260420111516.19982-1-yangtiezhu@loongson.cn>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4721; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=NenzT30jUyOlQbFBBkdogMhrluIE/UqTZ7cyQnbd6b4=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnPuGZeyEmsnr3qwTtNHnbzoGAtacVi/71Oslk5f5b92 tG5jI21o5SFQYyLQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABNZpMHwV/SI48/f/aYiExsk dzQtEEo4d/eXT2D1zZ0ZSv8CZb50MzEyzP0aleYZPSl8EedB9QV/jz7J2zrrnqTiyzU7JG6kTk/ kZwEA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CM-TRANSID: qMiowJBxLMLFCuZp00RxAA--.17475S4
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoW7Kr1rZrWxur4xZw13Ar48Xwc_yoW8Zr17pr
+	WxAryjywn8tFW7JFsrGw4kWr4Yqrn7uas5Gw43K397AF1UXrWDXrySvrW3tF4Ygry8WrWF
+	vw4Fkay5uasrJwcCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUkFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
+	xVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx
+	1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv
+	67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2
+	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
+	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1Y6r17MIIYrxkI7VAKI48JMIIF0x
+	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE
+	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6x
+	kF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j1LvtUUUUU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_041449_046467_105656CF 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260420_041527_992241_418A184B 
+X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,124 +81,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+There is no LoongArch support for get_preempt_count() currently and its
+fallback path always returns 0, just add it so that bpf_in_interrupt(),
+bpf_in_nmi(), bpf_in_hardirq(), bpf_in_serving_softirq(), bpf_in_task()
+works for LoongArch as well. With this patch, "./test_progs -t exe_ctx"
+should pass on LoongArch.
 
-Unfortunately, an erratum with engineering sample that I was not aware
-of was exposed by adding pinctrl configuration to the icicle kit.
-When routed to MSS IOs, i2c signals are never anything other than tied
-low. Being an FPGA, a Libero workaround for this problem was created,
-that involves routing i2c signals to the FPGA fabric when the MSS IO
-option is selected in the configurator and then back to the intended pin
-using the debug "fabric test" capability. This is invisible to user
-facing information in the tooling and not mentioned in reference designs
-documentation. It manifests solely in the .xml output from the MSS
-configuration that the HSS firmware uses to configure the device, which
-Linux now overwrites using the pinctrl information. As a result, I never
-noticed this.
-
-My original submission had the engineering sample configuration, but I
-modified it on application after I was told it didn't work, not
-realising that the report came from a colleague with a production
-device, where the erratum was fixed and the workaround not automatically
-implemented by Libero when creating a design.
-
-Move this part of the pinctrl configuration out of the shared portion of
-the icicle device trees, into the portions that are specific to
-engineering sample and production devices so that the different settings
-for i2c pins can be dealt with.
-
-Although the reference design only has this workaround in place for
-i2c1, as i2c0 is genuinely fabric routed, move it too since the
-erratum affects both controllers.
-
-Link: https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/Errata/polarfiresoc/microsemi_polarfire_soc_fpga_egineering_samples_errata_er0219_v1.pdf [3.3]
-Fixes: 123f4276b521a ("riscv: dts: microchip: add pinctrl nodes for mpfs/icicle kit")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
 ---
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: linux-riscv@lists.infradead.org
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
----
- .../dts/microchip/mpfs-icicle-kit-fabric.dtsi | 10 ----------
- .../dts/microchip/mpfs-icicle-kit-prod.dts    | 10 ++++++++++
- .../boot/dts/microchip/mpfs-icicle-kit.dts    | 19 +++++++++++++++++++
- 3 files changed, 29 insertions(+), 10 deletions(-)
+ tools/testing/selftests/bpf/bpf_experimental.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-index 2d14e92f068d5..9078e5b1e49c1 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-@@ -101,16 +101,6 @@ &ccc_nw {
- 	status = "okay";
- };
- 
--&i2c0 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&i2c0_fabric>;
--};
--
--&i2c1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&i2c1_mssio>;
--};
--
- &mmuart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart1_fabric>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
-index 8afedece89d1f..636493f6584d2 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-prod.dts
-@@ -14,6 +14,16 @@ / {
- 		     "microchip,mpfs";
- };
- 
-+&i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0_fabric>;
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1_mssio>;
-+};
-+
- &syscontroller {
- 	microchip,bitstream-flash = <&sys_ctrl_flash>;
- };
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-index 556aa9638282e..6fadce815c9a2 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-@@ -11,3 +11,22 @@ / {
- 		     "microchip,mpfs-icicle-kit",
- 		     "microchip,mpfs";
- };
-+
-+&i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0_fabric>;
-+};
-+
-+/*
-+ * Due to silicon errata, routing via MSS IOs doesn't work on ES devices.
-+ * Instead, i2c1, appearing on B1/C1, which are normally MSS IOs, is routed
-+ * via the fabric and back to B1/C1 via "fabric-test" functionality.
-+ * This is done silently by Libero, so the iomux0 setting for i2c1 has to
-+ * be fabric IO, despite tooling etc saying that MSS IOs are used.
-+ *
-+ * See Section 3.3 of https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/ProductDocuments/Errata/polarfiresoc/microsemi_polarfire_soc_fpga_egineering_samples_errata_er0219_v1.pdf
-+ */
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1_fabric>;
-+};
+diff --git a/tools/testing/selftests/bpf/bpf_experimental.h b/tools/testing/selftests/bpf/bpf_experimental.h
+index e5c039bc44cb..5847bbf12d24 100644
+--- a/tools/testing/selftests/bpf/bpf_experimental.h
++++ b/tools/testing/selftests/bpf/bpf_experimental.h
+@@ -507,6 +507,8 @@ static inline int get_preempt_count(void)
+ 	return bpf_get_lowcore()->preempt_count;
+ #elif defined(bpf_target_riscv)
+ 	return bpf_get_current_task_btf()->thread_info.preempt_count;
++#elif defined(bpf_target_loongarch)
++	return bpf_get_current_task_btf()->thread_info.preempt_count;
+ #endif
+ 	return 0;
+ }
+@@ -518,6 +520,7 @@ static inline int get_preempt_count(void)
+  *	* powerpc64
+  *	* s390x
+  *	* riscv
++ *	* loongarch
+  */
+ static inline int bpf_in_interrupt(void)
+ {
+@@ -540,6 +543,7 @@ static inline int bpf_in_interrupt(void)
+  *	* powerpc64
+  *	* s390x
+  *	* riscv
++ *	* loongarch
+  */
+ static inline int bpf_in_nmi(void)
+ {
+@@ -553,6 +557,7 @@ static inline int bpf_in_nmi(void)
+  *	* powerpc64
+  *	* s390x
+  *	* riscv
++ *	* loongarch
+  */
+ static inline int bpf_in_hardirq(void)
+ {
+@@ -566,6 +571,7 @@ static inline int bpf_in_hardirq(void)
+  *	* powerpc64
+  *	* s390x
+  *	* riscv
++ *	* loongarch
+  */
+ static inline int bpf_in_serving_softirq(void)
+ {
+@@ -587,6 +593,7 @@ static inline int bpf_in_serving_softirq(void)
+  *	* powerpc64
+  *	* s390x
+  *	* riscv
++ *	* loongarch
+  */
+ static inline int bpf_in_task(void)
+ {
 -- 
-2.53.0
+2.42.0
 
 
 _______________________________________________
