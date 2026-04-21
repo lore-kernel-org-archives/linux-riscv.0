@@ -4,104 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9002DF8925F
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Apr 2026 11:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D40F89251
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Apr 2026 11:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uor67rE+Ztz9fsWHTc5ahMoLeR6Xqo82ebuyo2f6+cs=; b=jAnsAKmtC14tcZ
-	WX9WbJFrM36ewn5DEIVZBT9qBWomdN4Ej975SbYFPqylbNA5vL0SMhnVbJOOYLd6wVR/fvJQ5Ez16
-	yrA8hfpvjNQ9VClHptfYVau03z4a5Z9eCt32CXRedvTI4nI4bLd/vfmA/G6XY3RJg/ukMNWqAydhV
-	wcZWgJpky3MjinKExDtRUUyufT8lTrh5W1zpd83JKttPh/Ps5+aR6Zdc/0v9E1zFlPYQBVikEkwVO
-	Y3he8aepYgVY0c3P9qOnywzcqxSE2GNrrK+Mxoc4L2s6neVWDce88eEd8bfvY/pgvTicXJdp/LEGz
-	nLwxjdvtSekikY470pnA==;
+	List-Owner; bh=t2r8+CV6fZdQDdJS3j/eL3E6+zgYBiBxBAPulBWhGx4=; b=mhi01Zj6cW9Vnh
+	tLtIQZJYQGsnfs17qUcWPKJC6R9XyKWGV9xHObnvS62ektYYR5ei1C+Acv7IKVAIBPbHSZN+0NeQl
+	eIuNaRd7Rpf7SsDCtEv4PfJYCX37BZv/LYHBdcCnXTUY+vSaBkAiZyEbdysAOxxMhlV/et38ccXse
+	iR9NeQ1GhirDbACRUZmkeVAOhTyObGlzNRhUY15Ocwc628tDjC+EaU5ymKSOAplBCxvbYUZAArqDT
+	QVw50hzqfsOJQAatdpj/h3S/axLkq1RYnvFO8rNcpMKt1Li9VmgUKOnYQyzEJ8pT4jDBzxMxaO/hm
+	T24SlRxO4HGPFMd5e+xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9By-00000008VmM-1mJI;
-	Tue, 21 Apr 2026 11:22:58 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1wF9HB-00000008WAA-3Ax5;
+	Tue, 21 Apr 2026 11:28:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF9Bu-00000008Vkt-3nVh
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Apr 2026 11:22:56 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-82f8893bff3so1911045b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Apr 2026 04:22:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776770574; x=1777375374; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pbepvZoiaQHnY8ojgGndHUN0tqRJnJo2KRx8HLgDgUI=;
-        b=FV9zjT61IfdH0hw0vy7dGgYFsj9buGR2rsVIhszeGzojmh28XbJR9DD/bmCf0Wbjlb
-         XA6Pw2xikjwUQye8Bsom2Uoowg3b4xvs/9yyV9E+48+KjnB4FYwbQq2nGBJWqCnoPWeV
-         ce0vblNBH1NIPPWYNXQh6hWYhraSuKEnsDO60wp90ZKL3OV9ccrCaDbfJdsCd+GSFHnA
-         MXqA0YVrtLaqMbwNspr6znLavBHCn3Jccr5nCLiAnt1/f/SftVL7nNTnCf3A0hiov/XP
-         uBN5GNZSO/yNvsOQ4VHOfkOipHohigY5B10xjLVCyjiH9+O2trhImcd4qC6P/fFBnUK7
-         CWsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776770574; x=1777375374;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pbepvZoiaQHnY8ojgGndHUN0tqRJnJo2KRx8HLgDgUI=;
-        b=dLXAQpH9KjlFAq8/3CeOuQ9EQFm/gjvMq2ubpdpxT0eRDxl9q0o5iNi1BLGxs8Nuju
-         Jr0fa3cVBR27AUpzUClNb0aplEJRS7XNI1fyKalkZhVepj+yc8geT8oZcAersDr45D/L
-         A6QvKJPcoz+dFIl8DtR2iTgB9XtpyqlZHUKIh9PZa9S2VP8QhmSRp0SXPishbDHbc58j
-         6hTZW+lQtKIgDy8631lNXRROYtGmxCyeLwR2iD7sQttCcfX7963NgQ58U/xNinuKXhFv
-         +sbp5grhakqbjYA0NHVuzIowGj9JIXJDNv9sWweF90+T+xDzMCphsm/zgy+Gou0qFtnr
-         utHw==
-X-Forwarded-Encrypted: i=1; AFNElJ9IFxo1Rc/quGs8+eMVMBaTR9aUJxeBB/9t+mr84YXdDCIKcopbYIMJ6ZZTJ26XLs/5fiav6j2+oZPOMQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhvwy1gVVQ/j8/CpA5+cgZ4MnkQ3Lt7PdvwN/9gmsAemqPq6wN
-	rBdaZTvLP5hCpzAaGv7DqsbY+N4jNbWx+pEHGjcyOnDtxPiE1Y8W58XU
-X-Gm-Gg: AeBDieuJ4lf0723X7zQ7POJicM6+lKszhpGEf4mksJxyo9kWfGorLfJj3drQNlR4WXW
-	KUksdfRpzmN8sPAv1fgWBK1xVYTi5LFRNlDM2MK804+141liJipseNi+mal3DhNYz2d6yemcerx
-	y6RWKEjW84zwZc63V2mjzUmDHFH4py4VWym2m2g9JXXnY9dHIlIfs7RI5h4rSMe6Pgku0K7gF6P
-	WoxiMML6/nqxptjixd8096OWV8zZuvVyqu2SFPDxvJ/NTDpfO33g0XMGts3zjTfOq92oVDkCZXg
-	gg44fdBHXygpJQOqHctcgOsoGUsUDUYi1cKwsln4QcVOKfsPPWZetlEiNtmUAwRJnJkNzJ25tex
-	l17ZBdtY6exM+0eQ7poqzUfuU8OlQiWgUQNORt4yM5m4Hle4YCepd+saTG04fx9g/tXjJ/7mic5
-	pZhZ4cULH6fOGuMY+tnbh56NxWBQ/t+PIIvuhQiTQSypou4BKvRGGP/Q1up1fhD7QcYsNWnMAkM
-	8GuvQ==
-X-Received: by 2002:a05:6a00:6988:b0:82f:aae5:c7a9 with SMTP id d2e1a72fcca58-82faae5d438mr7228492b3a.27.1776770573719;
-        Tue, 21 Apr 2026 04:22:53 -0700 (PDT)
-Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([129.41.58.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f8e981a0asm14155014b3a.3.2026.04.21.04.22.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Apr 2026 04:22:53 -0700 (PDT)
-Date: Tue, 21 Apr 2026 16:52:37 +0530
-From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, Arnd Bergmann <arnd@arndb.de>, 
-	x86@kernel.org, Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, linux-wireless@vger.kernel.org, 
-	Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org, 
-	Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org, David Woodhouse <dwmw2@infradead.org>, 
-	Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org, Theodore Tso <tytso@mit.edu>, 
-	linux-ext4@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Thomas Sailer <t.sailer@alumni.ethz.ch>, 
-	linux-hams@vger.kernel.org, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
-	Richard Henderson <richard.henderson@linaro.org>, linux-alpha@vger.kernel.org, 
-	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org, 
-	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org, 
-	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley <pjw@kernel.org>, 
-	linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org, 
-	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
-Subject: Re: [patch 33/38] powerpc: Select ARCH_HAS_RANDOM_ENTROPY
-Message-ID: <aedc9UddBSYXzrAj@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
-References: <20260410120044.031381086@kernel.org>
- <20260410120319.789114053@kernel.org>
+	id 1wF9H8-00000008W9O-1yhY;
+	Tue, 21 Apr 2026 11:28:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C47C43EBE;
+	Tue, 21 Apr 2026 11:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF4D7C2BCB0;
+	Tue, 21 Apr 2026 11:28:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776770897;
+	bh=P++Yyn1JP/4b/huOi9i6Zb2cbr0smKxdMdTr8Xy6wss=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=MkHF6pjJ3Z2MOSn6pQjQ8C0UJL1o3JdWCUsMuV4cwVyYgySCuMyRw+WsS50l9zXge
+	 WHWWh6KcnSUcpjubpmDzfM/CVreYdbRm/BF1uM01NQc7QJCpMRBJSYR9pS3Tyyg1Br
+	 S9YeZOZXRhPHP0UnJZMNJ6fv+em6MqeTyx3oYCqUIkBcLeR+osJG2jhkdNwgWr4kJL
+	 R1uI0tS82llARgyNsrpVtFHDhJKTK6IfrKm4M0zBDAUqX/QsYjdnPOaBcLAiRtCekS
+	 gBNKjr3toK6mms4Xbm3lGfhD0MN3PYVe8mWKbeGDElZ2yu+UzPhw+rICgghvHFUvfx
+	 OiTSUr893AfdQ==
+Message-ID: <62c418bc-082b-4ae2-a889-f63dd2b7f503@kernel.org>
+Date: Tue, 21 Apr 2026 13:28:03 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260410120319.789114053@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/7] riscv: add Svnapot-based contiguous PTE support
+To: Yunhui Cui <cuiyunhui@bytedance.com>, akpm@linux-foundation.org,
+ alex@ghiti.fr, andrew+kernel@donnellan.id.au, andreyknvl@gmail.com,
+ anup@brainfault.org, aou@eecs.berkeley.edu, apopple@nvidia.com,
+ ardb@kernel.org, atish.patra@linux.dev, baolin.wang@linux.alibaba.com,
+ debug@rivosinc.com, djordje.todorovic@htecgroup.com, dvyukov@google.com,
+ elver@google.com, glider@google.com, ilias.apalodimas@linaro.org,
+ junhui.liu@pigmoral.tech, kasan-dev@googlegroups.com, kees@kernel.org,
+ kevin.brodsky@arm.com, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, liu.xuemei1@zte.com.cn, ljs@kernel.org,
+ namcao@linutronix.de, osalvador@suse.de, palmer@dabbelt.com, pjw@kernel.org,
+ rmclure@linux.ibm.com, rostedt@goodmis.org, rppt@kernel.org,
+ ryabinin.a.a@gmail.com, surenb@google.com, vincenzo.frascino@arm.com,
+ vishal.moola@gmail.com, wangruikang@iscas.ac.cn, zhangchunyan@iscas.ac.cn
+References: <20260421092457.37649-1-cuiyunhui@bytedance.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260421092457.37649-1-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_042254_952989_BB44D5D5 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20260421_042818_558406_8F5794E3 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,84 +127,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 02:21:09PM +0200, Thomas Gleixner wrote:
-> The only remaining usage of get_cycles() is to provide random_get_entropy().
+On 4/21/26 11:24, Yunhui Cui wrote:
+> Hi,
 > 
-> Switch powerpc over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
-> and providing random_get_entropy() in asm/random.h.
+> First of all, thanks to Ryan Roberts for the work on mTHP and
+> Contiguous PTE support on arm64. That work provides a very useful
+> reference for reducing page fault overhead and TLB pressure for
+> large but still PTE-mapped memory ranges.
 > 
-> Remove asm/timex.h as it has no functionality anymore.
+> This series adds Svnapot-based contiguous PTE support for RISC-V.
 > 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: linuxppc-dev@lists.ozlabs.org
-> ---
->  arch/powerpc/Kconfig              |    1 +
->  arch/powerpc/include/asm/random.h |   13 +++++++++++++
->  arch/powerpc/include/asm/timex.h  |   21 ---------------------
->  3 files changed, 14 insertions(+), 21 deletions(-)
+> To achieve similar benefits on RISC-V, this series introduces a
+> Contiguous-PTE-like mechanism built on top of the Svnapot extension.
+> The intent is to preserve the core-MM PTE semantics while allowing
+> RISC-V to transparently fold eligible base-page mappings into
+> Svnapot-encoded contiguous mappings when possible.
 > 
-> --- a/arch/powerpc/Kconfig
-> +++ b/arch/powerpc/Kconfig
-> @@ -150,6 +150,7 @@ config PPC
->  	select ARCH_HAS_PREEMPT_LAZY
->  	select ARCH_HAS_PTDUMP
->  	select ARCH_HAS_PTE_SPECIAL
-> +	select ARCH_HAS_RANDOM_ENTROPY
->  	select ARCH_HAS_SCALED_CPUTIME		if VIRT_CPU_ACCOUNTING_NATIVE && PPC_BOOK3S_64
->  	select ARCH_HAS_SET_MEMORY
->  	select ARCH_HAS_STRICT_KERNEL_RWX	if (PPC_BOOK3S || PPC_8xx) && !HIBERNATION
-> --- /dev/null
-> +++ b/arch/powerpc/include/asm/random.h
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_POWERPC_RANDOM_H
-> +#define _ASM_POWERPC_RANDOM_H
-> +
-> +#include <asm/cputable.h>
-> +#include <asm/vdso/timebase.h>
-> +
-> +static inline unsigned long random_get_entropy(void)
-> +{
-> +	return mftb();
-> +}
-> +
-> +#endif	/* _ASM_POWERPC_RANDOM_H */
-> --- a/arch/powerpc/include/asm/timex.h
-> +++ b/arch/powerpc/include/asm/timex.h
-> @@ -1,21 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#ifndef _ASM_POWERPC_TIMEX_H
-> -#define _ASM_POWERPC_TIMEX_H
-> -
-> -#ifdef __KERNEL__
-> -
-> -/*
-> - * PowerPC architecture timex specifications
-> - */
-> -
-> -#include <asm/cputable.h>
-> -#include <asm/vdso/timebase.h>
-> -
-> -ostatic inline cycles_t get_cycles(void)
-> -{
-R> -	return mftb();
-> -}
-> -#define get_cycles get_cycles
-> -
-> -#endif	/* __KERNEL__ */
-> -#endif	/* _ASM_POWERPC_TIMEX_H */
+> The series splits the low-level raw PTE helpers from the public
+> core-MM-facing PTE helpers, so that:
 > 
-Build tested for this series with allmodconfig and allyesconfig on ppc64le
-machine for ppc64le.
-tree: git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git getcycles-v1
+> -the __xxx helpers expose the raw hardware PTE encoding,
+> -the xxx helpers provide the semantic view expected by core MM,
+> -and Svnapot-aware handling is centralized in the public wrapper layer.
 
-Boot tested for this series on powernv9 qemu, powernv10 qemu and pSeries
-power11 hardware.
 
-Tested-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
-Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
+Just curious, is there opportunity to share some of the code with arm64,
+factoring out helpers that handle something like
+CONFIG_ARCH_HAS_CONTIG_PTES ?
 
+
+-- 
+Cheers,
+
+David
 
 _______________________________________________
 linux-riscv mailing list
