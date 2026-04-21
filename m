@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19DBF8FA6F
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Apr 2026 13:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6C4F8FA84
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Apr 2026 14:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xyh9yWO066tY0DydFV0Wj+X7E3eQP+FTZ8kLKrETgbE=; b=oYRxXQ8VBnt+H3
-	wxwHh46CMGTCXBTc6sje72BvSrOvvV7MlY0Tjd7n/IPXKDR3BWlMnGpEvDL1y0m81GkWMHyoTabb9
-	4/BEkjIjkNT97yz+GEikSVGN1XB1iPIZT4yCRi4/CQtIjObxVi2bbbgNJSzfbTKZ0/Op899au5Dyz
-	IGgIOjMDbStkmReVDchHyhocVnJiYOuCdVTVK7VlF/qTiHFAe6Hvn3uTlPo7xFaHUv9Z/SRMRuZeW
-	b0hgU1b93ZUcYn3swVY4GzZU4UvwMTs9lhbq7f/la+7wRNX3Jhn381fPZiH8TcnLMXC3vBJorIGgD
-	vLB6/tDeZKLIAlxPeRKA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=U9V7Wmb2osgQtOhowVt5KEVrSVbn79Myfs87VWyZpHc=; b=PkOtguDHRBHPey
+	MAArjQj1ROFTNKTIADjSKNei5og06sA5khreTB36E73qwpL9Icquj4MS/K/2lDmEPpAw7spLeJ9r6
+	f0PWBvMfcXklBm71t7pN+fkKC8Twi5U6233x3qudAEzUileyc6rkB9jIIHG9t4J/ks7QdFvx1cH6r
+	APkcq9LOy1bBb3vCD4gDiXvN8Zh3PX87y6e8ITe6QvfS2XLC4JtChDYLECa4l8DAHsJWzW0aDbTvz
+	QIc5gD44Co4nWG35nJgpRpBFqRs0PFdGGD1uWfy8jsamWWvCoOGfogRzYpxhEdozl1I9kQnhl4HvO
+	JLLUi3o1z1GDkCQ74S8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAm5-00000008d6l-0uX9;
-	Tue, 21 Apr 2026 13:04:21 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wFC9v-00000008jzK-1cyb;
+	Tue, 21 Apr 2026 14:33:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFAm0-00000008d3m-1DBW
+	id 1wFC9t-00000008jzE-40YA
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Apr 2026 13:04:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=sP1CI1tiE4B2LkT6grmHSXCoIHlmRgNWy3C/pf6exgs=;
-	b=q/yQRJi94rwlOdzpdMSa8Gpx0gZRBFAM5eRJUXpa4A98HIzpdFzrk/POC+DJleoVsjJL9PGTJ
-	AY1ocQ5p3c1SYtN3MKERP46scvmIsPjfP48jn22TdfBELKdM7gmESGmA9xVYwMRgC8zpbLKOpFk
-	Lk2BZyiDPdKlYPtLzT3Y8eU=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4g0MpM1CzVz1K99C;
-	Tue, 21 Apr 2026 20:57:47 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0ABA440562;
-	Tue, 21 Apr 2026 21:04:07 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 21 Apr
- 2026 21:04:05 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <yury.norov@gmail.com>, <linux@rasmusvillemoes.dk>,
-	<arnd@arndb.de>, <akpm@linux-foundation.org>, <ruanjinjie@huawei.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arch@vger.kernel.org>, <david.laight.linux@gmail.com>,
-	<nathan@kernel.org>, <cp0613@linux.alibaba.com>
-Subject: [PATCH v5 2/3] bitops: Define generic __bitrev8/16/32 for reuse
-Date: Tue, 21 Apr 2026 21:07:51 +0800
-Message-ID: <20260421130752.607500-3-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260421130752.607500-1-ruanjinjie@huawei.com>
-References: <20260421130752.607500-1-ruanjinjie@huawei.com>
+	Tue, 21 Apr 2026 14:33:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D31476001A;
+	Tue, 21 Apr 2026 14:33:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8F22C2BCB0;
+	Tue, 21 Apr 2026 14:32:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776781980;
+	bh=q+/OSwNFmzUerRAiQV6WWVBVlt7S/h6k3KfMcobnMnY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=us9GcUqiGIax1QEAar9SHbhfPAR/IYayiHUwzBiTI8FaaNkxq0vzFhL7DkJrwFR5D
+	 VSA7l9OQfncs5P5nv63F0AecP2feLlsGlEqSIji9eUBqbVH4xyWJFrzj+IQBEOfwrp
+	 ncyKtXpnQSP/sn+a0KqzxUWhPSOJC5xPJAJS0jjwzFzX9v1/I/jX94HQ20zqGJOKbS
+	 6xZgIXggRcqrmRsgkQwZPUHSzEEPl53JpAbG1TDqjGDrdCoZ6YgIa7A+z+XcF6syQ4
+	 7Cc1oiSHGbLExNGSwMDw985px6pl2P/ZPZu2DSkWtNdnT42n7LXvyFkNTjGRXZiu9L
+	 MlXU8aFali59w==
+From: guoren@kernel.org
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Leonardo Bras <leobras@redhat.com>,
+	"Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>,
+	Raj Vishwanathan4 <rvishwanathan@mips.com>,
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Han Gao <gaohan@iscas.ac.cn>,
+	Yao Zi <me@ziyao.cc>,
+	Xiaoguang Xing <xiaoguang.xing@sophgo.com>,
+	Aleksandar Rikalo <arikalo@gmail.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	sophgo@lists.linux.dev
+Subject: [PATCH V5] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+Date: Tue, 21 Apr 2026 10:31:40 -0400
+Message-Id: <20260421143154.1590156-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_060417_041323_BEB24C05 
-X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,82 +84,212 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define generic __bitrev8/16/32 using the implementation
-in <linux/bitrev.h>, so they can be reused in <asm/bitrev.h>,
-such as RISCV.
+From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-Reviewed-by: Yury Norov <ynorov@nvidia.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+The early version of XuanTie C910 core has a store merge buffer
+delay problem. The store merge buffer could improve the store queue
+performance by merging multi-store requests, but when there are not
+continued store requests, the prior single store request would be
+waiting in the store queue for a long time. That would cause
+significant problems for communication between multi-cores. This
+problem was found on sg2042 & th1520 platforms with the qspinlock
+lock torture test.
+
+So appending a fence w.o could immediately flush the store merge
+buffer and let other cores see the write result.
+
+This will apply the WRITE_ONCE errata to handle the non-standard
+behavior via appending a fence w.o instruction for WRITE_ONCE().
+
+This problem is only observed on the sg2042 hardware platform by
+running the lock_torture test program for half an hour. The problem
+was not found in the user space application, because interrupt can
+break the livelock.
+
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Leonardo Bras <leobras@redhat.com>
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+Tested-by: Han Gao <gaohan@iscas.ac.cn>
+Tested-by: Yao Zi <me@ziyao.cc>
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+Cc: Paul Walmsley <pjw@kernel.org>
+Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- include/asm-generic/bitops/__bitrev.h | 25 +++++++++++++++++++++++++
- include/linux/bitrev.h                | 20 ++++----------------
- 2 files changed, 29 insertions(+), 16 deletions(-)
- create mode 100644 include/asm-generic/bitops/__bitrev.h
+Changelog
 
-diff --git a/include/asm-generic/bitops/__bitrev.h b/include/asm-generic/bitops/__bitrev.h
+v5:
+ - Add Acked-by: Arnd Bergmann <arnd@arndb.de> for asm/generic
+ - Add Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+ - Rebase on v7.0
+
+v4:
+https://lore.kernel.org/linux-riscv/20260412143116.1445893-1-guoren@kernel.org/
+ - Add Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+   (https://lore.kernel.org/linux-riscv/1cfdf6c1-a384-43ad-9588-284335d073f7@ghiti.fr/)
+ - Add Tested-by: Yao Zi <me@ziyao.cc>
+ - Rebase on v7.0-rc7
+
+v3:
+https://lore.kernel.org/linux-riscv/20260125063941.443777-1-guoren@kernel.org/
+ - Rebase on 6.19-rc6.
+ - Remove errata_list_vendors patch which has been merged.
+ - Add Tested-by tag.
+
+v2:
+https://lore.kernel.org/linux-riscv/20250713155321.2064856-1-guoren@kernel.org/
+ - Add new header file for errata_list_vendors.
+ - Rebase newest kernel version.
+
+v1:
+https://lore.kernel.org/all/20241214143039.4139398-1-guoren@kernel.org/
+---
+ arch/riscv/Kconfig.errata                    | 17 ++++++++++
+ arch/riscv/errata/thead/errata.c             | 20 ++++++++++++
+ arch/riscv/include/asm/errata_list_vendors.h |  3 +-
+ arch/riscv/include/asm/rwonce.h              | 34 ++++++++++++++++++++
+ include/asm-generic/rwonce.h                 |  2 ++
+ 5 files changed, 75 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/rwonce.h
+
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 3c945d086c7d..4d3f13522da6 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -154,4 +154,21 @@ config ERRATA_THEAD_GHOSTWRITE
+ 
+ 	  If you don't know what to do here, say "Y".
+ 
++config ERRATA_THEAD_WRITE_ONCE
++	bool "Apply T-Head WRITE_ONCE errata"
++	depends on ERRATA_THEAD
++	default y
++	help
++	  The early version of T-Head C9xx cores of sg2042 & th1520 have a store
++	  merge buffer delay problem. The store merge buffer could improve the
++	  store queue performance by merging multi-store requests, but when there
++	  are no continued store requests, the prior single store request would be
++	  waiting in the store queue for a long time. That would cause signifi-
++	  cant problems for communication between multi-cores. Appending a
++	  fence w.o could immediately flush the store merge buffer and let other
++	  cores see the write result.
++
++	  This will apply the WRITE_ONCE errata to handle the non-standard beh-
++	  avior via appending a fence w.o instruction for WRITE_ONCE().
++
+ endmenu # "CPU errata selection"
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 0b942183f708..fbe46f2fa8fb 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int stage,
+ 	return true;
+ }
+ 
++static bool errata_probe_write_once(unsigned int stage,
++				    unsigned long arch_id, unsigned long impid)
++{
++	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
++		return false;
++
++	/* target-c9xx cores report arch_id and impid as 0 */
++	if (arch_id != 0 || impid != 0)
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_BOOT ||
++	    stage == RISCV_ALTERNATIVES_MODULE)
++		return true;
++
++	return false;
++}
++
+ static u32 thead_errata_probe(unsigned int stage,
+ 			      unsigned long archid, unsigned long impid)
+ {
+@@ -183,6 +200,9 @@ static u32 thead_errata_probe(unsigned int stage,
+ 
+ 	errata_probe_ghostwrite(stage, archid, impid);
+ 
++	if (errata_probe_write_once(stage, archid, impid))
++		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
++
+ 	return cpu_req_errata;
+ }
+ 
+diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
+index ec7eba373437..8fd7c36307e2 100644
+--- a/arch/riscv/include/asm/errata_list_vendors.h
++++ b/arch/riscv/include/asm/errata_list_vendors.h
+@@ -18,7 +18,8 @@
+ #define	ERRATA_THEAD_MAE 0
+ #define	ERRATA_THEAD_PMU 1
+ #define	ERRATA_THEAD_GHOSTWRITE 2
+-#define	ERRATA_THEAD_NUMBER 3
++#define	ERRATA_THEAD_WRITE_ONCE 3
++#define	ERRATA_THEAD_NUMBER 4
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_MIPS
+diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonce.h
 new file mode 100644
-index 000000000000..f06af929678d
+index 000000000000..081793d4d772
 --- /dev/null
-+++ b/include/asm-generic/bitops/__bitrev.h
-@@ -0,0 +1,25 @@
++++ b/arch/riscv/include/asm/rwonce.h
+@@ -0,0 +1,34 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_GENERIC_BITOPS___BITREV_H_
-+#define _ASM_GENERIC_BITOPS___BITREV_H_
 +
-+#ifdef CONFIG_GENERIC_BITREVERSE
-+#include <asm/types.h>
++#ifndef __ASM_RWONCE_H
++#define __ASM_RWONCE_H
 +
-+extern u8 const byte_rev_table[256];
-+static __always_inline __attribute_const__ u8 generic___bitrev8(u8 byte)
-+{
-+	return byte_rev_table[byte];
-+}
++#include <linux/compiler_types.h>
++#include <asm/alternative-macros.h>
++#include <asm/vendorid_list.h>
++#include <asm/errata_list_vendors.h>
 +
-+static __always_inline __attribute_const__ u16 generic___bitrev16(u16 x)
-+{
-+	return (generic___bitrev8(x & 0xff) << 8) | generic___bitrev8(x >> 8);
-+}
++#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE)
 +
-+static __always_inline __attribute_const__ u32 generic___bitrev32(u32 x)
-+{
-+	return (generic___bitrev16(x & 0xffff) << 16) | generic___bitrev16(x >> 16);
-+}
-+#endif /* CONFIG_GENERIC_BITREVERSE */
++#define write_once_fence()				\
++do {							\
++	asm volatile(ALTERNATIVE(			\
++		"nop",					\
++		"fence w, o",				\
++		THEAD_VENDOR_ID,			\
++		ERRATA_THEAD_WRITE_ONCE,		\
++		CONFIG_ERRATA_THEAD_WRITE_ONCE)		\
++		: : : "memory");			\
++} while (0)
 +
-+#endif /* _ASM_GENERIC_BITOPS___BITREV_H_ */
-diff --git a/include/linux/bitrev.h b/include/linux/bitrev.h
-index d35b8ec1c485..11620a70e776 100644
---- a/include/linux/bitrev.h
-+++ b/include/linux/bitrev.h
-@@ -12,22 +12,10 @@
- #define __bitrev8 __arch_bitrev8
++#define __WRITE_ONCE(x, val)				\
++do {							\
++	*(volatile typeof(x) *)&(x) = (val);		\
++	write_once_fence();				\
++} while (0)
++
++#endif /* defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE) */
++
++#include <asm-generic/rwonce.h>
++
++#endif	/* __ASM_RWONCE_H */
+diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
+index 52b969c7cef9..4e2d941f15a1 100644
+--- a/include/asm-generic/rwonce.h
++++ b/include/asm-generic/rwonce.h
+@@ -50,10 +50,12 @@
+ 	__READ_ONCE(x);							\
+ })
  
- #else
--extern u8 const byte_rev_table[256];
--static inline u8 __bitrev8(u8 byte)
--{
--	return byte_rev_table[byte];
--}
--
--static inline u16 __bitrev16(u16 x)
--{
--	return (__bitrev8(x & 0xff) << 8) | __bitrev8(x >> 8);
--}
--
--static inline u32 __bitrev32(u32 x)
--{
--	return (__bitrev16(x & 0xffff) << 16) | __bitrev16(x >> 16);
--}
--
-+#include <asm-generic/bitops/__bitrev.h>
-+#define __bitrev32 generic___bitrev32
-+#define __bitrev16 generic___bitrev16
-+#define __bitrev8 generic___bitrev8
- #endif /* CONFIG_HAVE_ARCH_BITREVERSE */
++#ifndef __WRITE_ONCE
+ #define __WRITE_ONCE(x, val)						\
+ do {									\
+ 	*(volatile typeof(x) *)&(x) = (val);				\
+ } while (0)
++#endif
  
- #define __bitrev8x4(x)	(__bitrev32(swab32(x)))
+ #define WRITE_ONCE(x, val)						\
+ do {									\
 -- 
-2.34.1
+2.40.1
 
 
 _______________________________________________
