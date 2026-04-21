@@ -4,59 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CC5F94CA7
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Apr 2026 21:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661E4F94CB0
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Apr 2026 21:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uZrqzIWJtcBthAAo9qaChimX1SPLt9oY8F5thEQzOA0=; b=2YyeUc8rJYDw/W
-	3dNTy6qWyX5N/ti0+ytTx2CfBqNeq2qcJy8f/IX7vtmatamtqag1EXF6cGcyjUXK2SibQRVxYfTRE
-	GZIeeXGN4shgIQL8MOLYI6sGIH9qBcmKLDyOGRzxY7VRtuQ2y/NgaakZWZgAsr3yub0XuTNoD+XDU
-	OQ+ozoojslpW0YN6gR4IZV4OcWuBq8B+I8vKNfIFC1hK1tpIP6vdvvgr4Uhv2ZkoiM6ra2aR0DMta
-	QfExg6xXafK9cNUmH5jEPfhW7MCzocRAnW7eemFiMeCHkB6745fKSZwrHjYJXw2qBq+nQzTYTfB2v
-	n0qTmarXqXGhUKXx77tQ==;
+	List-Owner; bh=2m5XdsETQByC798CLrlDnBXQeH55UZILQ7AJY8Yn7ZM=; b=KFuCHjLx1fNhNL
+	ptmhkTljPAPt0RKmkqSPUC5LEBO6+F0mjna5vyJTSsujgrB7uitdW6cbEbeaDCguAoxBOP+3QgemL
+	xuazJftL30BBotUK1tf7eIuNI0jfdF4VndeRY6lejfFXJX+ESTgpMWvbMULpiKyqtvYbp7WiHWjw6
+	MJllHlqtS2u1zRPDsMTTf9ZVVLw0hyIhjBiNJPidqiFSaZ+elLPSKJppU16ylTw09wlc5BCCxwVbq
+	WU8eee7uXzaDB0WLGnkXnVZMQUPczHh/tZ5T1aM1A3gDNvJohx1bZhwT5l1kD6dzgG77DkXvIlh/a
+	bEujV4dVHPldL3KSoPsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFID9-000000099mJ-0hf2;
-	Tue, 21 Apr 2026 21:00:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wFID8-000000099mE-3g9g;
+	Tue, 21 Apr 2026 21:00:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFCKQ-00000008l5g-0k8h
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Apr 2026 14:43:56 +0000
+	id 1wFBKy-00000008gIz-3zmL;
+	Tue, 21 Apr 2026 13:40:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B460440EE;
-	Tue, 21 Apr 2026 14:43:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7693C2BCB6;
-	Tue, 21 Apr 2026 14:43:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E946D6001A;
+	Tue, 21 Apr 2026 13:40:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 960EEC2BCB0;
+	Tue, 21 Apr 2026 13:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776782633;
-	bh=4Rw2IbYIfXxvzKccqEd2MRNWsDd9e9nzdyik9zOptpY=;
+	s=k20201202; t=1776778823;
+	bh=vIZhXnlC6WemEIo1i/UKx7MP0mQPp/95QfMD/4Qm33E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hcASPyE6bO95pRJdB7EsU0JLG7xzku6FQgDL2e0OnQ/euUZGiZbhDjCH3KMV6SoNu
-	 IsnlftL9uah1ITee1nMFBOQvcIUEQkgCqUdjLDvF6rl9qtSwlF1RooyYXyshtXoRAN
-	 fEHMUceQWcnxq0eSkM0nkd5QHQ6S9nZ032O1hKoSeNbmTJyG5hLdEC3b7WB9t6+qRz
-	 bMlCWwNHMKg+q6BRHw9SA9ORCHh40m7GpHHv77P73AqB3z4IhZVHog14PFtK9rJbL3
-	 uA4NhmkMCTs3yxNddeZQkdgMSu7nFeGtfe89MObkKbcRuhukTukpt4V6vpPolH+Swg
-	 BzEvBal94QNFQ==
-Date: Tue, 21 Apr 2026 15:43:50 +0100
+	b=mM9M+cAMwYtyZ/A/5TpgIRwCop4cQGETyptMq9v/u2ZyABhJIYqmVqEGj6kj7c0mc
+	 xVYYEi62APJ5T0XXKihQl9hGTj5ZtXlke6J/Oqhu0yujsLCZlQ35h7lYIiUHPsp3/Q
+	 MEGMsjCnycG6EP/nstht7LFTGqTG5E3lf4DO2oXz1tQIJHkLI9zm985r40lziN5vJt
+	 ZX6DHRJOKSx9g6w9ICOHxWviHfREB7F9Q1M+sqOjSAaoY8J/F7drcEQGW9bPd+LvjL
+	 hT5ZNQlmw5CPWPkFI+zi0Y6WHB3LXv5kYwCB41ifJu8Dl1sVO7dWr012VlzGKaZwZ4
+	 MXoEiOoy31ijA==
+Date: Tue, 21 Apr 2026 14:40:21 +0100
 From: Lorenzo Stoakes <ljs@kernel.org>
 To: "Kalyazin, Nikita" <kalyazin@amazon.co.uk>
 Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>, "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>, "pbonzini@redhat.com" <pbonzini@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com" <joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>, "seanjc@google.com" <seanjc@google.com>, "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "luto@kernel.org" <luto@kernel.org>, "peterz@infradead.org" <peterz@infradead.org>, "willy@infradead.org" <willy@infradead.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "david@kernel.org" <david@kernel.org>, "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>, "vbabka@kernel.org" <vbabka@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>, "surenb@google.com" <surenb@google.com>, "mhocko@suse.com" <mhocko@suse.com>, "ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net" <daniel@iogearbox.net>, "andrii@kernel.org" <andrii@kernel.org>, "martin.lau@linux.dev" <martin.lau@linux.dev>, "eddyz87@gmail.com" <eddyz87@gmail.com>, "song@kernel.org" <song@kernel.org>, "yonghong.song@linux.dev" <yonghong.song@linux.dev>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>, "kpsingh@kernel.org" <kpsingh@kernel.org>, "sdf@fomichev.me" <sdf@fomichev.me>, "haoluo@google.com" <haoluo@google.com>, "jolsa@kernel.org" <jolsa@kernel.org>, "jgg@ziepe.ca" <jgg@ziepe.ca>, "jhubbard@nvidia.com" <jhubbard@nvidia.com>, "peterx@redhat.com" <peterx@redhat.com>, "jannh@google.com" <jannh@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>, "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "riel@surriel.com" <riel@surriel.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "jgross@suse.com" <jgross@suse.com>, "yu-cheng.yu@intel.com" <yu-cheng.yu@intel.com>, "kas@kernel.org" <kas@kernel.org>, "coxu@redhat.com" <coxu@redhat.com>, "ackerleytng@google.com" <ackerleytng@google.com>, "yosry@kernel.org" <yosry@kernel.org>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>, "maobibo@loongson.cn" <maobibo@loongson.cn>, "tabba@google.com" <tabba@google.com>, "prsampat@amd.com" <prsampat@amd.com>, "wu.fei9@sanechips.com.cn" <wu.fei9@sanechips.com.cn>, "mlevitsk@redhat.com" <mlevitsk@redhat.com>, "jmattson@google.com" <jmattson@google.com>, "jthoughton@google.com" <jthoughton@google.com>, "agordeev@linux.ibm.com" <agordeev@linux.ibm.com>, "alex@ghiti.fr" <alex@ghiti.fr>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "dev.jain@arm.com" <dev.jain@arm.com>, "gor@linux.ibm.com" <gor@linux.ibm.com>, "hca@linux.ibm.com" <hca@linux.ibm.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, "pjw@kernel.org" <pjw@kernel.org>, "shijie@os.amperecomputing.com" <shijie@os.amperecomputing.com>, "svens@linux.ibm.com" <svens@linux.ibm.com>, "thuth@redhat.com" <thuth@redhat.com>, 
- "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "yangyicong@hisilicon.com" <yangyicong@hisilicon.com>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>
-Subject: Re: [PATCH v12 01/16] set_memory: set_direct_map_* to take address
-Message-ID: <aeeDvpDnGnY5n69n@lucifer>
+ "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "Liam.Howlett@oracle.com" <Liam.Howlett@oracle.com>, "urezki@gmail.com" <urezki@gmail.com>, "zhengqi.arch@bytedance.com" <zhengqi.arch@bytedance.com>, "gerald.schaefer@linux.ibm.com" <gerald.schaefer@linux.ibm.com>, "jiayuan.chen@shopee.com" <jiayuan.chen@shopee.com>, "lenb@kernel.org" <lenb@kernel.org>, "pavel@kernel.org" <pavel@kernel.org>, "rafael@kernel.org" <rafael@kernel.org>, "yangyicong@hisilicon.com" <yangyicong@hisilicon.com>, "vannapurve@google.com" <vannapurve@google.com>, "jackmanb@google.com" <jackmanb@google.com>, "patrick.roy@linux.dev" <patrick.roy@linux.dev>, "Thomson, Jack" <jackabt@amazon.co.uk>, "Itazuri, Takahiro" <itazur@amazon.co.uk>, "Manwaring, Derek" <derekmn@amazon.com>, Nikita Kalyazin <nikita.kalyazin@linux.dev>
+Subject: Re: [PATCH v12 00/16] Direct Map Removal Support for guest_memfd
+Message-ID: <aed88qcV6PjEIHnd@lucifer>
 References: <20260410151746.61150-1-kalyazin@amazon.com>
- <20260410151746.61150-2-kalyazin@amazon.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260410151746.61150-2-kalyazin@amazon.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_074354_372144_97C6A848 
-X-CRM114-Status: GOOD (  28.28  )
+In-Reply-To: <20260410151746.61150-1-kalyazin@amazon.com>
 X-Mailman-Approved-At: Tue, 21 Apr 2026 14:00:45 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,599 +69,151 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 03:17:58PM +0000, Kalyazin, Nikita wrote:
+On Fri, Apr 10, 2026 at 03:17:47PM +0000, Kalyazin, Nikita wrote:
 > From: Nikita Kalyazin <nikita.kalyazin@linux.dev>
 >
-> Let's convert set_direct_map_*() to take an address instead of a page to
-> prepare for adding helpers that operate on folios; it will be more
-> efficient to convert from a folio directly to an address without going
-> through a page first.
+> [ based on kvm/next ]
 
-Hmm presumably these addresses have to be page-aligned? But now they might not
-be _in theory_?
+Hm, given this touches a fair bit of mm, I wonder if we shouldn't try to do this
+through the mm tree?
 
-Is it clear to callers that they should pass page-aligned pointers? Might we
-have an issue in future with somebody passing something unaligned?
+In any case, we definitely need a rebase on something not-next :) if not mm then
+Linus's tree at least maybe?
+
+I'm seeing a lot of conflicts against mm-unstable, it can't b4 shazam even patch
+1 and in Linus's tree it's failing at an mm patch (mm: introduce
+AS_NO_DIRECT_MAP).
+
+That and 'KVM: selftests: Add guest_memfd based vm_mem_backing_src_types' won't
+apply, but that one's trivial at least.
+
+Obviously we're in the merge window right now so maybe best to do any rebasing a
+little after 7.1-rc1?
+
+Cheers, Lorenzo
 
 >
-> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-> Signed-off-by: Nikita Kalyazin <nikita.kalyazin@linux.dev>
-
-The logic looks good to me, just various stylistic issues and concerns about
-alignment for future callers.
-
-> ---
->  arch/arm64/include/asm/set_memory.h     |  7 ++++---
->  arch/arm64/mm/pageattr.c                | 19 +++++++++--------
->  arch/loongarch/include/asm/set_memory.h |  7 ++++---
->  arch/loongarch/mm/pageattr.c            | 25 ++++++++++-------------
->  arch/riscv/include/asm/set_memory.h     |  7 ++++---
->  arch/riscv/mm/pageattr.c                | 17 ++++++++--------
->  arch/s390/include/asm/set_memory.h      |  7 ++++---
->  arch/s390/mm/pageattr.c                 | 13 ++++++------
->  arch/x86/include/asm/set_memory.h       |  7 ++++---
->  arch/x86/mm/pat/set_memory.c            | 27 +++++++++++++------------
->  include/linux/set_memory.h              |  9 +++++----
->  kernel/power/snapshot.c                 |  4 ++--
->  mm/execmem.c                            |  6 ++++--
->  mm/secretmem.c                          |  6 +++---
->  mm/vmalloc.c                            | 11 ++++++----
->  15 files changed, 91 insertions(+), 81 deletions(-)
+> Unmapping virtual machine guest memory from the host kernel's direct map
+> is a successful mitigation against Spectre-style transient execution
+> issues: if the kernel page tables do not contain entries pointing to
+> guest memory, then any attempted speculative read through the direct map
+> will necessarily be blocked by the MMU before any observable
+> microarchitectural side-effects happen.  This means that Spectre-gadgets
+> and similar cannot be used to target virtual machine memory.  Roughly
+> 60% of speculative execution issues fall into this category [1, Table
+> 1].
 >
-> diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
-> index 90f61b17275e..c71a2a6812c4 100644
-> --- a/arch/arm64/include/asm/set_memory.h
-> +++ b/arch/arm64/include/asm/set_memory.h
-> @@ -11,9 +11,10 @@ bool can_set_direct_map(void);
+> This patch series extends guest_memfd with the ability to remove its
+> memory from the host kernel's direct map, to be able to attain the above
+> protection for KVM guests running inside guest_memfd.
 >
->  int set_memory_valid(unsigned long addr, int numpages, int enable);
+> Additionally, a Firecracker branch with support for these VMs can be
+> found on GitHub [2].
 >
-> -int set_direct_map_invalid_noflush(struct page *page);
-> -int set_direct_map_default_noflush(struct page *page);
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
-> +int set_direct_map_invalid_noflush(const void *addr);
-> +int set_direct_map_default_noflush(const void *addr);
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid);
-
-I mean it's nitty, but it's weird having these being called 'addr' when they're
-not giving you an address, they're giving you pointers to something.
-
-E.g. if I have a 'struct vm_area_struct *vma' and I do *vma I get a VMA. If I do
-a *addr here I get a... hmm :)
-
-This looks to be a long-standing issue with page_address() (and probably,
-necessarily, folio_address()). But still...
-
-It causes you issues later, somewhat trivial ones but still, where you have
-something like:
-
-unsigned long addr = (unsigned long)page_address(page);
-
-And now have a void *addr...
-
-Maybe 'page_start' or something like that makes it clear that these need to be
-page-aligned. Or plain 'ptr' works too? 'page_ptr'? Naming's hard :)
-
-Would it be overly difficult to simply pass the addr as an unsigned long?
-
-Also a const void * is iffy from a type safety point of view, because somebody
-might not have got the memo, adds some code to that hands a struct page * and
-there'd be no compiler issues. Obv. the same with unaligned stuff.
-
-Using an unsigned long would avoid that (not the alignment issue though
-obviously, but could imply that with param name maybe).
-
->  bool kernel_page_present(struct page *page);
+> For more details, please refer to the v5 cover letter.  No substantial
+> changes in design have taken place since.
 >
->  int set_memory_encrypted(unsigned long addr, int numpages);
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 358d1dc9a576..5aff94e1f8b2 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -245,7 +245,7 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
->  					__pgprot(PTE_VALID));
->  }
+> See also related write() syscall support in guest_memfd [3] where
+> the interoperation between the two features is described.
 >
-> -int set_direct_map_invalid_noflush(struct page *page)
-> +int set_direct_map_invalid_noflush(const void *addr)
->  {
->  	pgprot_t clear_mask = __pgprot(PTE_VALID);
->  	pgprot_t set_mask = __pgprot(0);
-> @@ -253,11 +253,11 @@ int set_direct_map_invalid_noflush(struct page *page)
->  	if (!can_set_direct_map())
->  		return 0;
+> Changes since v11:
+>  - Ackerley/Sashiko: fix previously missed __set_pages_* argument update
+>    in __kernel_map_pages (patch 1)
+>  - David: disallow large folios in folio_zap_direct_map (patch 2)
+>  - David/Sashiko: check for folio_is_zone_device if mapping is NULL in
+>    gup_fast_folio_allowed (patch 4)
+>  - Ackerley/Sashiko: kvm_arch_gmem_supports_no_direct_map to return
+>    false for SEV-SNP (patch 8).
+>  - David: replace a redundant check for GUEST_MEMFD_FLAG_NO_DIRECT_MAP
+>    with a WARN_ON_ONCE (patch 10)
+>  - David: assert the folio is locked when zapping direct map (patch 10)
+>  - Ackerley/Sashiko: reorder operations to "zap then prepare" and
+>    "invalidate then restore" (patch 10)
 >
-> -	return update_range_prot((unsigned long)page_address(page),
-> -				 PAGE_SIZE, set_mask, clear_mask);
-> +	return update_range_prot((unsigned long)addr, PAGE_SIZE, set_mask,
-> +				 clear_mask);
->  }
+> v11: https://lore.kernel.org/kvm/20260317141031.514-1-kalyazin@amazon.com
+> v10: https://lore.kernel.org/kvm/20260126164445.11867-1-kalyazin@amazon.com
+> v9: https://lore.kernel.org/kvm/20260114134510.1835-1-kalyazin@amazon.com
+> v8: https://lore.kernel.org/kvm/20251205165743.9341-1-kalyazin@amazon.com
+> v7: https://lore.kernel.org/kvm/20250924151101.2225820-1-patrick.roy@campus.lmu.de
+> v6: https://lore.kernel.org/kvm/20250912091708.17502-1-roypat@amazon.co.uk
+> v5: https://lore.kernel.org/kvm/20250828093902.2719-1-roypat@amazon.co.uk
+> v4: https://lore.kernel.org/kvm/20250221160728.1584559-1-roypat@amazon.co.uk
+> RFCv3: https://lore.kernel.org/kvm/20241030134912.515725-1-roypat@amazon.co.uk
+> RFCv2: https://lore.kernel.org/kvm/20240910163038.1298452-1-roypat@amazon.co.uk
+> RFCv1: https://lore.kernel.org/kvm/20240709132041.3625501-1-roypat@amazon.co.uk
 >
-> -int set_direct_map_default_noflush(struct page *page)
-> +int set_direct_map_default_noflush(const void *addr)
->  {
->  	pgprot_t set_mask = __pgprot(PTE_VALID | PTE_WRITE);
->  	pgprot_t clear_mask = __pgprot(PTE_RDONLY);
-> @@ -265,8 +265,8 @@ int set_direct_map_default_noflush(struct page *page)
->  	if (!can_set_direct_map())
->  		return 0;
+> [1] https://download.vusec.net/papers/quarantine_raid23.pdf
+> [2] https://github.com/firecracker-microvm/firecracker/tree/feature/secret-hiding
+> [3] https://lore.kernel.org/kvm/20251114151828.98165-1-kalyazin@amazon.com
 >
-> -	return update_range_prot((unsigned long)page_address(page),
-> -				 PAGE_SIZE, set_mask, clear_mask);
-> +	return update_range_prot((unsigned long)addr, PAGE_SIZE, set_mask,
-> +				 clear_mask);
->  }
+> Nikita Kalyazin (4):
+>   set_memory: set_direct_map_* to take address
+>   set_memory: add folio_{zap,restore}_direct_map helpers
+>   mm/secretmem: make use of folio_{zap,restore}_direct_map
+>   mm/gup: drop local variable in gup_fast_folio_allowed
 >
->  static int __set_memory_enc_dec(unsigned long addr,
-> @@ -349,14 +349,13 @@ int realm_register_memory_enc_ops(void)
->  	return arm64_mem_crypt_ops_register(&realm_crypt_ops);
->  }
+> Patrick Roy (12):
+>   mm/gup: drop secretmem optimization from gup_fast_folio_allowed
+>   mm: introduce AS_NO_DIRECT_MAP
+>   KVM: guest_memfd: Add stub for kvm_arch_gmem_invalidate
+>   KVM: x86: define kvm_arch_gmem_supports_no_direct_map()
+>   KVM: arm64: define kvm_arch_gmem_supports_no_direct_map()
+>   KVM: guest_memfd: Add flag to remove from direct map
+>   KVM: selftests: load elf via bounce buffer
+>   KVM: selftests: set KVM_MEM_GUEST_MEMFD in vm_mem_add() if guest_memfd
+>     != -1
+>   KVM: selftests: Add guest_memfd based vm_mem_backing_src_types
+>   KVM: selftests: cover GUEST_MEMFD_FLAG_NO_DIRECT_MAP in existing
+>     selftests
+>   KVM: selftests: stuff vm_mem_backing_src_type into vm_shape
+>   KVM: selftests: Test guest execution from direct map removed gmem
 >
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid)
->  {
-> -	unsigned long addr = (unsigned long)page_address(page);
-
-NIT, but maybe less churny to keep this and make it (unsigned long)addr?
-
-OTOH is more consistent with other stuff to do the way you have, so optional.
-
-I kinda like spelling things out like this though.
-
-> -
->  	if (!can_set_direct_map())
->  		return 0;
+>  Documentation/virt/kvm/api.rst                | 21 +++---
+>  arch/arm64/include/asm/kvm_host.h             | 13 ++++
+>  arch/arm64/include/asm/set_memory.h           |  7 +-
+>  arch/arm64/mm/pageattr.c                      | 19 +++--
+>  arch/loongarch/include/asm/set_memory.h       |  7 +-
+>  arch/loongarch/mm/pageattr.c                  | 25 +++----
+>  arch/riscv/include/asm/set_memory.h           |  7 +-
+>  arch/riscv/mm/pageattr.c                      | 17 +++--
+>  arch/s390/include/asm/set_memory.h            |  7 +-
+>  arch/s390/mm/pageattr.c                       | 13 ++--
+>  arch/x86/include/asm/kvm_host.h               |  6 ++
+>  arch/x86/include/asm/set_memory.h             |  7 +-
+>  arch/x86/kvm/x86.c                            |  7 ++
+>  arch/x86/mm/pat/set_memory.c                  | 27 +++----
+>  include/linux/kvm_host.h                      | 14 ++++
+>  include/linux/pagemap.h                       | 16 ++++
+>  include/linux/secretmem.h                     | 18 -----
+>  include/linux/set_memory.h                    | 22 +++++-
+>  include/uapi/linux/kvm.h                      |  1 +
+>  kernel/power/snapshot.c                       |  4 +-
+>  lib/buildid.c                                 |  8 +-
+>  mm/execmem.c                                  |  6 +-
+>  mm/gup.c                                      | 47 ++++++------
+>  mm/memory.c                                   | 45 +++++++++++
+>  mm/mlock.c                                    |  2 +-
+>  mm/secretmem.c                                | 18 ++---
+>  mm/vmalloc.c                                  | 11 ++-
+>  .../testing/selftests/kvm/guest_memfd_test.c  | 17 ++++-
+>  .../testing/selftests/kvm/include/kvm_util.h  | 37 ++++++---
+>  .../testing/selftests/kvm/include/test_util.h |  8 ++
+>  tools/testing/selftests/kvm/lib/elf.c         |  8 +-
+>  tools/testing/selftests/kvm/lib/io.c          | 23 ++++++
+>  tools/testing/selftests/kvm/lib/kvm_util.c    | 59 ++++++++-------
+>  tools/testing/selftests/kvm/lib/test_util.c   |  8 ++
+>  tools/testing/selftests/kvm/lib/x86/sev.c     |  1 +
+>  .../selftests/kvm/pre_fault_memory_test.c     |  1 +
+>  .../selftests/kvm/set_memory_region_test.c    | 52 ++++++++++++-
+>  .../kvm/x86/private_mem_conversions_test.c    |  7 +-
+>  virt/kvm/guest_memfd.c                        | 75 +++++++++++++++++--
+>  39 files changed, 489 insertions(+), 202 deletions(-)
 >
-> -	return set_memory_valid(addr, nr, valid);
-> +	return set_memory_valid((unsigned long)addr, numpages, valid);
-
-Yeah I mean (unsigned long)addr looks really weird to me, nearly always 'addr'
-references an address value like unsigned long in mm so :)
-
->  }
 >
->  #ifdef CONFIG_DEBUG_PAGEALLOC
-> diff --git a/arch/loongarch/include/asm/set_memory.h b/arch/loongarch/include/asm/set_memory.h
-> index 55dfaefd02c8..5e9b67b2fea1 100644
-> --- a/arch/loongarch/include/asm/set_memory.h
-> +++ b/arch/loongarch/include/asm/set_memory.h
-> @@ -15,8 +15,9 @@ int set_memory_ro(unsigned long addr, int numpages);
->  int set_memory_rw(unsigned long addr, int numpages);
->
->  bool kernel_page_present(struct page *page);
-> -int set_direct_map_default_noflush(struct page *page);
-> -int set_direct_map_invalid_noflush(struct page *page);
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
-> +int set_direct_map_invalid_noflush(const void *addr);
-> +int set_direct_map_default_noflush(const void *addr);
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid);
->
->  #endif /* _ASM_LOONGARCH_SET_MEMORY_H */
-> diff --git a/arch/loongarch/mm/pageattr.c b/arch/loongarch/mm/pageattr.c
-> index f5e910b68229..9e08905d3624 100644
-> --- a/arch/loongarch/mm/pageattr.c
-> +++ b/arch/loongarch/mm/pageattr.c
-> @@ -198,32 +198,29 @@ bool kernel_page_present(struct page *page)
->  	return pte_present(ptep_get(pte));
->  }
->
-> -int set_direct_map_default_noflush(struct page *page)
-> +int set_direct_map_default_noflush(const void *addr)
->  {
-> -	unsigned long addr = (unsigned long)page_address(page);
-
-OK we definitely need to de-duplicate here, repeatedly doing (unsigned long)addr
-is a bit silly.
-
-Also if you do, please const-ify the value.
-
-> -
-> -	if (addr < vm_map_base)
-> +	if ((unsigned long)addr < vm_map_base)
->  		return 0;
->
-> -	return __set_memory(addr, 1, PAGE_KERNEL, __pgprot(0));
-> +	return __set_memory((unsigned long)addr, 1, PAGE_KERNEL, __pgprot(0));
->  }
->
-> -int set_direct_map_invalid_noflush(struct page *page)
-> +int set_direct_map_invalid_noflush(const void *addr)
->  {
-> -	unsigned long addr = (unsigned long)page_address(page);
-> -
-> -	if (addr < vm_map_base)
-> +	if ((unsigned long)addr < vm_map_base)
->  		return 0;
->
-> -	return __set_memory(addr, 1, __pgprot(0), __pgprot(_PAGE_PRESENT | _PAGE_VALID));
-> +	return __set_memory((unsigned long)addr, 1, __pgprot(0),
-> +			    __pgprot(_PAGE_PRESENT | _PAGE_VALID));
-
-Same here... We could avoid most of the churn here altogether by saying ptr
-instead of addr and just changing the addr = bit :)
-
->  }
->
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid)
->  {
-> -	unsigned long addr = (unsigned long)page_address(page);
->  	pgprot_t set, clear;
->
-> -	if (addr < vm_map_base)
-> +	if ((unsigned long)addr < vm_map_base)
->  		return 0;
->
->  	if (valid) {
-> @@ -234,5 +231,5 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
->  		clear = __pgprot(_PAGE_PRESENT | _PAGE_VALID);
->  	}
->
-> -	return __set_memory(addr, 1, set, clear);
-> +	return __set_memory((unsigned long)addr, 1, set, clear);
-
-Obv. same comments here and below, I will stop duplicating them, just assume
-they apply to the whole thing :)
-
->  }
-> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> index 87389e93325a..a87eabd7fc78 100644
-> --- a/arch/riscv/include/asm/set_memory.h
-> +++ b/arch/riscv/include/asm/set_memory.h
-> @@ -40,9 +40,10 @@ static inline int set_kernel_memory(char *startp, char *endp,
->  }
->  #endif
->
-> -int set_direct_map_invalid_noflush(struct page *page);
-> -int set_direct_map_default_noflush(struct page *page);
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
-> +int set_direct_map_invalid_noflush(const void *addr);
-> +int set_direct_map_default_noflush(const void *addr);
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid);
->  bool kernel_page_present(struct page *page);
->
->  #endif /* __ASSEMBLER__ */
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> index 3f76db3d2769..0a457177a88c 100644
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -374,19 +374,20 @@ int set_memory_nx(unsigned long addr, int numpages)
->  	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_EXEC));
->  }
->
-> -int set_direct_map_invalid_noflush(struct page *page)
-> +int set_direct_map_invalid_noflush(const void *addr)
->  {
-> -	return __set_memory((unsigned long)page_address(page), 1,
-> -			    __pgprot(0), __pgprot(_PAGE_PRESENT));
-> +	return __set_memory((unsigned long)addr, 1, __pgprot(0),
-> +			    __pgprot(_PAGE_PRESENT));
->  }
->
-> -int set_direct_map_default_noflush(struct page *page)
-> +int set_direct_map_default_noflush(const void *addr)
->  {
-> -	return __set_memory((unsigned long)page_address(page), 1,
-> -			    PAGE_KERNEL, __pgprot(_PAGE_EXEC));
-> +	return __set_memory((unsigned long)addr, 1, PAGE_KERNEL,
-> +			    __pgprot(_PAGE_EXEC));
->  }
->
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid)
->  {
->  	pgprot_t set, clear;
->
-> @@ -398,7 +399,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
->  		clear = __pgprot(_PAGE_PRESENT);
->  	}
->
-> -	return __set_memory((unsigned long)page_address(page), nr, set, clear);
-> +	return __set_memory((unsigned long)addr, numpages, set, clear);
->  }
->
->  #ifdef CONFIG_DEBUG_PAGEALLOC
-> diff --git a/arch/s390/include/asm/set_memory.h b/arch/s390/include/asm/set_memory.h
-> index 94092f4ae764..3e43c3c96e67 100644
-> --- a/arch/s390/include/asm/set_memory.h
-> +++ b/arch/s390/include/asm/set_memory.h
-> @@ -60,9 +60,10 @@ __SET_MEMORY_FUNC(set_memory_rox, SET_MEMORY_RO | SET_MEMORY_X)
->  __SET_MEMORY_FUNC(set_memory_rwnx, SET_MEMORY_RW | SET_MEMORY_NX)
->  __SET_MEMORY_FUNC(set_memory_4k, SET_MEMORY_4K)
->
-> -int set_direct_map_invalid_noflush(struct page *page);
-> -int set_direct_map_default_noflush(struct page *page);
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
-> +int set_direct_map_invalid_noflush(const void *addr);
-> +int set_direct_map_default_noflush(const void *addr);
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid);
->  bool kernel_page_present(struct page *page);
->
->  #endif
-> diff --git a/arch/s390/mm/pageattr.c b/arch/s390/mm/pageattr.c
-> index bb29c38ae624..8e90ff5cf50d 100644
-> --- a/arch/s390/mm/pageattr.c
-> +++ b/arch/s390/mm/pageattr.c
-> @@ -383,17 +383,18 @@ int __set_memory(unsigned long addr, unsigned long numpages, unsigned long flags
->  	return rc;
->  }
->
-> -int set_direct_map_invalid_noflush(struct page *page)
-> +int set_direct_map_invalid_noflush(const void *addr)
->  {
-> -	return __set_memory((unsigned long)page_to_virt(page), 1, SET_MEMORY_INV);
-> +	return __set_memory((unsigned long)addr, 1, SET_MEMORY_INV);
->  }
->
-> -int set_direct_map_default_noflush(struct page *page)
-> +int set_direct_map_default_noflush(const void *addr)
->  {
-> -	return __set_memory((unsigned long)page_to_virt(page), 1, SET_MEMORY_DEF);
-> +	return __set_memory((unsigned long)addr, 1, SET_MEMORY_DEF);
->  }
->
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-
-Why changing to numpages? I guess because it's not obvious what it's a count
-of...
-
-This really makes me think we're kinda making this interface a bit worse,
-because before it had to be 'nr' pages, but now it's 'numpages of err something
-starting at addr which isn't an address but a pointer and might not be aligned'.
-
-If you called this 'page_ptr' then nr would be implicit and could be kept the
-same I guess?
-
-> +				 bool valid)
->  {
->  	unsigned long flags;
->
-> @@ -402,7 +403,7 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
->  	else
->  		flags = SET_MEMORY_INV;
->
-> -	return __set_memory((unsigned long)page_to_virt(page), nr, flags);
-> +	return __set_memory((unsigned long)addr, numpages, flags);
->  }
->
->  bool kernel_page_present(struct page *page)
-> diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-> index 4362c26aa992..b6a4173ff249 100644
-> --- a/arch/x86/include/asm/set_memory.h
-> +++ b/arch/x86/include/asm/set_memory.h
-> @@ -86,9 +86,10 @@ int set_pages_wb(struct page *page, int numpages);
->  int set_pages_ro(struct page *page, int numpages);
->  int set_pages_rw(struct page *page, int numpages);
->
-> -int set_direct_map_invalid_noflush(struct page *page);
-> -int set_direct_map_default_noflush(struct page *page);
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
-> +int set_direct_map_invalid_noflush(const void *addr);
-> +int set_direct_map_default_noflush(const void *addr);
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid);
->  bool kernel_page_present(struct page *page);
->
->  extern int kernel_set_to_readonly;
-> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> index 40581a720fe8..7517195b75b9 100644
-> --- a/arch/x86/mm/pat/set_memory.c
-> +++ b/arch/x86/mm/pat/set_memory.c
-> @@ -2587,9 +2587,9 @@ int set_pages_rw(struct page *page, int numpages)
->  	return set_memory_rw(addr, numpages);
->  }
->
-> -static int __set_pages_p(struct page *page, int numpages)
-> +static int __set_pages_p(const void *addr, int numpages)
->  {
-> -	unsigned long tempaddr = (unsigned long) page_address(page);
-> +	unsigned long tempaddr = (unsigned long)addr;
->  	struct cpa_data cpa = { .vaddr = &tempaddr,
->  				.pgd = NULL,
->  				.numpages = numpages,
-> @@ -2606,9 +2606,9 @@ static int __set_pages_p(struct page *page, int numpages)
->  	return __change_page_attr_set_clr(&cpa, 1);
->  }
->
-> -static int __set_pages_np(struct page *page, int numpages)
-> +static int __set_pages_np(const void *addr, int numpages)
->  {
-> -	unsigned long tempaddr = (unsigned long) page_address(page);
-> +	unsigned long tempaddr = (unsigned long)addr;
-
-This is even more horrid, tempaddr and addr, but different types...
-
-Also let's please const-ify these kinds of local vars.
-
->  	struct cpa_data cpa = { .vaddr = &tempaddr,
->  				.pgd = NULL,
->  				.numpages = numpages,
-> @@ -2625,22 +2625,23 @@ static int __set_pages_np(struct page *page, int numpages)
->  	return __change_page_attr_set_clr(&cpa, 1);
->  }
->
-> -int set_direct_map_invalid_noflush(struct page *page)
-> +int set_direct_map_invalid_noflush(const void *addr)
->  {
-> -	return __set_pages_np(page, 1);
-> +	return __set_pages_np(addr, 1);
->  }
->
-> -int set_direct_map_default_noflush(struct page *page)
-> +int set_direct_map_default_noflush(const void *addr)
->  {
-> -	return __set_pages_p(page, 1);
-> +	return __set_pages_p(addr, 1);
->  }
->
-> -int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-> +int set_direct_map_valid_noflush(const void *addr, unsigned long numpages,
-> +				 bool valid)
->  {
->  	if (valid)
-> -		return __set_pages_p(page, nr);
-> +		return __set_pages_p(addr, numpages);
->
-> -	return __set_pages_np(page, nr);
-> +	return __set_pages_np(addr, numpages);
->  }
->
->  #ifdef CONFIG_DEBUG_PAGEALLOC
-> @@ -2659,9 +2660,9 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
->  	 * and hence no memory allocations during large page split.
->  	 */
->  	if (enable)
-> -		__set_pages_p(page, numpages);
-> +		__set_pages_p(page_address(page), numpages);
->  	else
-> -		__set_pages_np(page, numpages);
-> +		__set_pages_np(page_address(page), numpages);
->
->  	/*
->  	 * We should perform an IPI and flush all tlbs,
-> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-> index 3030d9245f5a..1a2563f525fc 100644
-> --- a/include/linux/set_memory.h
-> +++ b/include/linux/set_memory.h
-> @@ -25,17 +25,18 @@ static inline int set_memory_rox(unsigned long addr, int numpages)
->  #endif
->
->  #ifndef CONFIG_ARCH_HAS_SET_DIRECT_MAP
-> -static inline int set_direct_map_invalid_noflush(struct page *page)
-> +static inline int set_direct_map_invalid_noflush(const void *addr)
->  {
->  	return 0;
->  }
-> -static inline int set_direct_map_default_noflush(struct page *page)
-> +static inline int set_direct_map_default_noflush(const void *addr)
->  {
->  	return 0;
->  }
->
-> -static inline int set_direct_map_valid_noflush(struct page *page,
-> -					       unsigned nr, bool valid)
-> +static inline int set_direct_map_valid_noflush(const void *addr,
-> +					       unsigned long numpages,
-> +					       bool valid)
->  {
->  	return 0;
->  }
-> diff --git a/kernel/power/snapshot.c b/kernel/power/snapshot.c
-> index 6e1321837c66..6eddfb22c0ff 100644
-> --- a/kernel/power/snapshot.c
-> +++ b/kernel/power/snapshot.c
-> @@ -88,7 +88,7 @@ static inline int hibernate_restore_unprotect_page(void *page_address) {return 0
->  static inline void hibernate_map_page(struct page *page)
->  {
->  	if (IS_ENABLED(CONFIG_ARCH_HAS_SET_DIRECT_MAP)) {
-> -		int ret = set_direct_map_default_noflush(page);
-> +		int ret = set_direct_map_default_noflush(page_address(page));
->
->  		if (ret)
->  			pr_warn_once("Failed to remap page\n");
-> @@ -101,7 +101,7 @@ static inline void hibernate_unmap_page(struct page *page)
->  {
->  	if (IS_ENABLED(CONFIG_ARCH_HAS_SET_DIRECT_MAP)) {
->  		unsigned long addr = (unsigned long)page_address(page);
-> -		int ret  = set_direct_map_invalid_noflush(page);
-> +		int ret  = set_direct_map_invalid_noflush(page_address(page));
->
->  		if (ret)
->  			pr_warn_once("Failed to remap page\n");
-> diff --git a/mm/execmem.c b/mm/execmem.c
-> index 810a4ba9c924..220298ec87c8 100644
-> --- a/mm/execmem.c
-> +++ b/mm/execmem.c
-> @@ -119,7 +119,8 @@ static int execmem_set_direct_map_valid(struct vm_struct *vm, bool valid)
->  	int err = 0;
->
->  	for (int i = 0; i < vm->nr_pages; i += nr) {
-> -		err = set_direct_map_valid_noflush(vm->pages[i], nr, valid);
-> +		err = set_direct_map_valid_noflush(page_address(vm->pages[i]),
-> +						   nr, valid);
->  		if (err)
->  			goto err_restore;
->  		updated += nr;
-> @@ -129,7 +130,8 @@ static int execmem_set_direct_map_valid(struct vm_struct *vm, bool valid)
->
->  err_restore:
->  	for (int i = 0; i < updated; i += nr)
-> -		set_direct_map_valid_noflush(vm->pages[i], nr, !valid);
-> +		set_direct_map_valid_noflush(page_address(vm->pages[i]), nr,
-> +					     !valid);
->
->  	return err;
->  }
-> diff --git a/mm/secretmem.c b/mm/secretmem.c
-> index 11a779c812a7..fd29b33c6764 100644
-> --- a/mm/secretmem.c
-> +++ b/mm/secretmem.c
-> @@ -72,7 +72,7 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
->  			goto out;
->  		}
->
-> -		err = set_direct_map_invalid_noflush(folio_page(folio, 0));
-> +		err = set_direct_map_invalid_noflush(folio_address(folio));
->  		if (err) {
->  			folio_put(folio);
->  			ret = vmf_error(err);
-> @@ -87,7 +87,7 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
->  			 * already happened when we marked the page invalid
->  			 * which guarantees that this call won't fail
->  			 */
-> -			set_direct_map_default_noflush(folio_page(folio, 0));
-> +			set_direct_map_default_noflush(folio_address(folio));
->  			folio_put(folio);
->  			if (err == -EEXIST)
->  				goto retry;
-> @@ -151,7 +151,7 @@ static int secretmem_migrate_folio(struct address_space *mapping,
->
->  static void secretmem_free_folio(struct folio *folio)
->  {
-> -	set_direct_map_default_noflush(folio_page(folio, 0));
-> +	set_direct_map_default_noflush(folio_address(folio));
->  	folio_zero_segment(folio, 0, folio_size(folio));
->  }
->
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 61caa55a4402..8822f73957d9 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3342,14 +3342,17 @@ struct vm_struct *remove_vm_area(const void *addr)
->  }
->
->  static inline void set_area_direct_map(const struct vm_struct *area,
-> -				       int (*set_direct_map)(struct page *page))
-> +				       int (*set_direct_map)(const void *addr))
->  {
->  	int i;
->
->  	/* HUGE_VMALLOC passes small pages to set_direct_map */
-> -	for (i = 0; i < area->nr_pages; i++)
-> -		if (page_address(area->pages[i]))
-> -			set_direct_map(area->pages[i]);
-> +	for (i = 0; i < area->nr_pages; i++) {
-> +		const void *addr = page_address(area->pages[i]);
-> +
-> +		if (addr)
-> +			set_direct_map(addr);
-> +	}
->  }
->
->  /*
+> base-commit: 24f9515de8778410e4b84c85b196c9850d2c1e18
 > --
 > 2.50.1
 >
-
-Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
