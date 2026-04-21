@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7040AF327AA
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Apr 2026 06:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E8EF327AD
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Apr 2026 06:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i0Bn7rNwZ4VHA958yJsHU+cPFR2T+VhtpUNCYGKWVmI=; b=taHlk5o/NgI8ya
-	yjkvB5h2LqbtFOfd15dse2fDRyshdVEGEIfigJ72N2cjYVM2Uz6XAG7z6qKtRmd6TiYqDDDTti2x+
-	5S4XhbjLNPvPk7lZUo5SPcfmTlImLVywSsoDEPi0ZlPMvDpc4hBE/AFqm7J+tPQVwcHyZxjEAJMlF
-	76xXhHEg8ARRkZPifflWYV3GFjiXS3d4Z1qvSCahswko1cn18Wygcy1c+wNgRggMlwKDjFaLaa9AY
-	3Paf4FTA88wF7PGjitkpalMQ/Zo8fBNb7oT7TL1ozQOn/Ua3qxwEmq3lU/eiBXnVCebM7wuYSQRZ3
-	cKLta0mJwcrm/5RI+jlQ==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:To:Subject:Date:Message-Id
+	:From:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=askBOGOw2h4CyNP8gbRzmyPnYBinWtONeBuuFNqI6gs=; b=ofSAh8fnLL8rcA
+	58/UdSm/ll1Zrxq06rtyqV24f6P/PfN6qmNOfipC9aQyBQtkMw1q96xjzmY9tFPoJgSTpJFEeOaI7
+	1jnraZkaYRbwI9v59WyFF6jCtqYRIY/jq1Tq7RIeQKFX8scVt7CP9+RxNWuJjGGNP/Cya8EWNanft
+	t1zWB+XGyrnR6FFdMWHLA2bVZOY6ci780CN1a1RsH89MDZg/6+LG9k7MUTx+HzirFkkXZ+Lv5bFfS
+	5sJ6OuGYmNFNJPrBpGvwzA81rW0LY7uKzi6HZXNze3OmA3MJSgC8cBHJbWsPs5DQ92M9xlxU/6weF
+	/W7IaMAk+wFWt0NKN2hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF4Zk-000000086Eb-0kDB;
-	Tue, 21 Apr 2026 06:27:12 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wF4Zg-000000086EH-24jq
+	id 1wF4nI-000000087Aa-1DLj;
+	Tue, 21 Apr 2026 06:41:12 +0000
+Received: from va-2-27.ptr.blmpb.com ([209.127.231.27])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wF4nF-0000000879E-185r
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Apr 2026 06:27:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	References:In-Reply-To:To:Cc; bh=IunV+g35Iv9Wif8Qwna4P1wIGXGPiiv
-	nhH77S5h3sg8=; b=EdX6J9y4HTiBMUySpQhe1eugOQ72YhI5kFxFAHXJLD0CRIO
-	2ILuWwUpBZ4YsVeTU5jWKKB0Do+4guWPdvyAQzGxJcRiMk7Ck48QY2oK8H5Ljqvn
-	Ax2i/CGcHOmHWbf0YGqOLPteZhQF89SPwhU8MF24kwLj9u2VMtacYp7N/Qrw=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnEkNyEudpn5ACAA--.1518S3;
-	Tue, 21 Apr 2026 14:00:22 +0800 (CST)
-From: Jia Wang <wangjia@ultrarisc.com>
-Date: Tue, 21 Apr 2026 13:58:51 +0800
-Subject: [PATCH v3 1/2] dt-bindings: serial: snps-dw-apb-uart: Add
- UltraRISC DP1000 UART
-MIME-Version: 1.0
-Message-Id: <20260421-ultrarisc-serial-v3-1-3d7f09c2420e@ultrarisc.com>
-References: <20260421-ultrarisc-serial-v3-0-3d7f09c2420e@ultrarisc.com>
-In-Reply-To: <20260421-ultrarisc-serial-v3-0-3d7f09c2420e@ultrarisc.com>
-To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- Jia Wang <wangjia@ultrarisc.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1776751174; l=887;
- i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=fd/GPuODvz6hEyhIIX23mIspVD0bj+TwDCa2egzIms4=;
- b=2i7l2Hj3OGIs9vN1NC2cl2JWvsa6EaJM3B89Sp0O3lq6L/V1p0srR3MIXU0B0TT+Z6dI+9ne7
- +m29PGkjIXOASIdgDWTJQ48tm4Kgovs+hTxcjjGfIT9uRw7dJwEBGz7
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwAnEkNyEudpn5ACAA--.1518S3
-X-Coremail-Antispam: 1UD129KBjvdXoWrKF1UuFWkJF48CFWxXw43Jrb_yoWfGFb_C3
-	4xuayDXF45AFWFva1DAF4xtr1rZF47WF4rCrn8t3WDC34DZa98KFykKr90yw1rKr1rur4f
-	ur93CryqkrsxGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUUUUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQADEWnlor4ACwAHsP
+	Tue, 21 Apr 2026 06:41:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1776753662;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=bOD3EGcybYF59xsN+7vrNuVhjQ9htAdl90lQIE/I3Uc=;
+ b=0AbhKR9odaVJolw2A8Cc6aTH9iBHe2iV9ySgdqEoYLkOsxcNLtbkyZZFbD1KnEcJiS6nDs
+ Db5BImo4tpprx6TjSylDzjlCErenuu2HsLl9CONIfjcDFfS8qBjmzXUlujv7I6yTVvcN1i
+ KJT0B0Ew5Te8KQs5cqXmPA6THFXZxJW4YsHkhyI42X9SwwHFS6ZCu2O99U2An7fSqHZMgQ
+ Xhdi0Sc3n09RzzqmFFgRcmLD4REx4W2CBTNs7ROmRyt84HmxPlSpRwjPWCngt3SO669b/5
+ 7tvGTOEw3dtrEJ+otweCv/HtQohrP7NHzk6WnftWhIqfHtK/teUCAbeQjWDDOQ==
+Cc: "Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, 
+	"Michael Opdenacker" <michael.opdenacker@rootcommit.com>, 
+	"Alexandre Ghiti" <alex@ghiti.fr>, "Guodong Xu" <guodong@riscstar.com>, 
+	"Hendrik Hamerlinck" <hendrik.hamerlinck@hammernet.be>, 
+	"Yangyu Chen" <cyy@cyyself.name>, <spacemit@lists.linux.dev>, 
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
+Message-Id: <20260421064021.1580094-1-sandie.cao@deepcomputing.io>
+Date: Tue, 21 Apr 2026 14:40:21 +0800
+Subject: [PATCH v5 0/2] Add DeepComputing FML13V05 board dts
+X-Lms-Return-Path: <lba+269e71bfb+a0b9b0+lists.infradead.org+sandie.cao@deepcomputing.io>
+Received: from roma-Laptop-12th-Gen-Intel-Core.. ([113.110.140.180]) by smtp.feishu.cn with ESMTPS; Tue, 21 Apr 2026 14:40:58 +0800
+To: "Yixun Lan" <dlan@kernel.org>, 
+	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>
+Mime-Version: 1.0
+X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
+X-Mailer: git-send-email 2.43.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260420_232709_227780_C2967D81 
-X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-CacheID: sfid-20260420_234110_402611_9F162A06 
+X-CRM114-Status: UNSURE (   5.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,30 +80,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UltraRISC DP1000 integrates a Synopsys DesignWare APB UART, but it does
-not provide the standard CPR and UCV registers.
+This series updates Device Tree related files to introduce the
+FML13V05 board from DeepComputing, which incorporates a Spacemit
+K3 SoC.  This board is designed for use on the Framework Laptop 13
+Chassis, which has (Framework) SKU FRANHQ0001.
 
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
----
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
- 1 file changed, 1 insertion(+)
+The series is rebased on next-20260420.
 
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index 6efe43089a74..f84600f66df8 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -77,6 +77,7 @@ properties:
-               - starfive,jh7100-hsuart
-               - starfive,jh7100-uart
-               - starfive,jh7110-uart
-+              - ultrarisc,dp1000-uart
-           - const: snps,dw-apb-uart
-       - const: snps,dw-apb-uart
+v5:
+rebased on next-20260420.
+
+v4:
+- Patch 1:
+  Add Acked-by Conor Dooley.
+- Patch 2:
+  Copyright begins from 2026.
+Link to v4: https://lore.kernel.org/all/20260413060524.1235982-1-sandie.cao@deepcomputing.io/
+
+v3:
+rebased on k1/dt-for-next.
+- Patch 1:
+   Use formal format user name.
+   Remove Reviewed-by Heinrich Schuchardt from internal system.
+- Patch 2:
+   Use formal format user name.
+   Remove Reviewed-by Heinrich Schuchardt from internal system.
+   Add uart0 pinctrl.
+Link to v3: https://lore.kernel.org/all/20260407055557.1202713-1-sandie.cao@deepcomputing.io/
  
+v2 (deprecated):
+Link to v2: https://lore.kernel.org/all/20260331071110.68321-1-sandie.cao@deepcomputing.io/
 
+v1:
+Link to v1: https://lore.kernel.org/all/20260331034423.67142-1-sandie.cao@deepcomputing.io/
+
+Sandie Cao (2):
+  dt-bindings: riscv: spacemit: add deepcomputing,fml13v05
+  riscv: dts: spacemit: add DeepComputing FML13V05 board device tree
+
+ .../devicetree/bindings/riscv/spacemit.yaml   |  1 +
+ arch/riscv/boot/dts/spacemit/Makefile         |  1 +
+ .../spacemit/k3-deepcomputing-fml13v05.dts    | 31 +++++++++++++++++++
+ 3 files changed, 33 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts
+
+
+base-commit: 97e797263a5e963da3d1e66e743fd518567dfe37
 -- 
-2.34.1
-
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
