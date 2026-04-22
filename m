@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B71F9EDFC
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Apr 2026 15:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F99FFA1FC5
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Apr 2026 16:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2CKIKDSClaFdZ26TwuSjR50h0b9I2//LDI64mZP9VRk=; b=1wJnTTrvbKzyB0Xvda3YY85e4Q
-	irWDD4etynHtYAA4/u7vvd6KoK8hKof5VTRGt6at/KKHdqrKqorrkRt87CwWLaZzXk9w29mSPf3H/
-	8b4xvylVXaymZzh+iMCEQBz2v8HdF6Q6nqv1BkQXS0ipgMWgHGQTjCm0+CgO/1Ithsuit7L6TtD5M
-	hUDegWYO0BSO/QhWmDk0jNNbXVIowEdrpgcVF2UqK/jny89Mii8AFCVqkXIZjFd3/xlf84t/vPI6Y
-	HlnjRLkjUOnDRaE8ZXG7qUmM8Xhgt7XySEjjwbf20QVyeHHRH0WlPtFXJ6gZ4tkNOduiCL2my0dhh
-	jUZPyXAA==;
+	bh=zrz8ZEygKM/LOHKZQORWSVVtRGlYMrqtN9VfX/KJoI4=; b=Pt+rV1tV45Rag0eoHDOr06tn8K
+	TUtA2cPANVbnYrvBOI2rQls+q3FXwcQzUxW8z4GGIvD1LW4hy8mdkJ+9tAKqIwl8G0mhuQ0jfM8Y9
+	Op/xZv/p9oubLTWtVyGhSCRTfcRQ6G/qOfqJ4znEYQgKsU0NxtoT7wKWvfZaUwVWBIdq8i9qHKjI3
+	hlvmLk+gHgh6NhtIxICYytV58b2SrXHPYPwab9H24n/6vTLnhQBMBwtk3/1sCXSLfpHXmoCUe6Gi6
+	HcMbpl4AMoMtrmqHQPZZliUG+2w5dHU3nfVCG28d02y/svKfrTO+REyqJGKf+ZXzFi/H6keRNeVs1
+	kbEm1EaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFZSY-0000000ARDs-1MMX;
-	Wed, 22 Apr 2026 15:25:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wFaC1-0000000ATiI-0wyj;
+	Wed, 22 Apr 2026 16:12:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFZSW-0000000ARDl-41zx
+	id 1wFaBt-0000000ATga-0llw
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Apr 2026 15:25:49 +0000
+	Wed, 22 Apr 2026 16:12:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D766F6012A;
-	Wed, 22 Apr 2026 15:25:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC580C19425;
-	Wed, 22 Apr 2026 15:25:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B9849432E9;
+	Wed, 22 Apr 2026 16:12:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04545C19425;
+	Wed, 22 Apr 2026 16:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776871547;
-	bh=aMlrrUyOX0cvuGWjVkklmW7RDBv8g+60XkATJKTZ6Ow=;
+	s=k20201202; t=1776874360;
+	bh=I4v1mxCRxuY9peEu8fTfKrXZSA0Vc+jvyVH85GUdMa8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NNfmcNy/FDFpxfymrcrND0xXYR9gtNJ/9j9fb50DzWC5/6WuqjSeu9z6WX4ZsLPrS
-	 9lCXsBSXowSNXq9GEY0mPVh7tT3Di+OJ1r9ZZz/rCJpMbmqVgCCLqCCWazAb1hJLG+
-	 YurNPTy7KyxkD+kSahAe8FcXwVjystMTEpnUDWGASt5Xb4Fk8a971zWOCOjC8/bVwL
-	 pGcTJJIsX28xKHDFyelqNzvU12WtmhrpKdGPixb/nfAvEYAFIAk9+ostx06Cy0v4N3
-	 0HMP7QTYd7WjlNtWFy1iBzjRTdjXYmfN5oULVPh0FbVkw3yLDf3zc0vQzBbEbOa/ZF
-	 Fkem21I3OL7MQ==
-Date: Wed, 22 Apr 2026 16:25:43 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Conor Dooley <conor@kernel.org>
+	b=ZWAvy/nn5QZhZmCrSDiN1EIhuFbaDGGWLi0RwtvoxWRoFd/VfKKhZ0pp9rt/M0wAh
+	 ErIoYqjegHXpgg0y+w5dMY7n2dED7Q9TLGX/3RfkFq6U/HIR0yl471rIwfk7ODO7Mo
+	 jcKf8e7NQ0dhNeagP758lxGi7ADJxy5AVynoFhtvWvOakj07T6lifdbH9rW/LvRWlN
+	 rinzWgRvdEw8uWsJvydj70GUSdw2Hj63LIZJQrzrvUg6Py86sxqueS0oTd/E9q0rLB
+	 zMv9wSbNBz8ENafiCZqAI3TwPT+7lDzGhdW0CmZsk92x2XTOZuUvitJzilnWlMZi3m
+	 ytReU96Ouh6zw==
+Date: Wed, 22 Apr 2026 17:12:36 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Mark Brown <broonie@kernel.org>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
 	Cyril Jean <cyril.jean@microchip.com>,
@@ -52,11 +52,14 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v1 0/5] microchip core-qspi gpio-cs fixes + cleanup
-Message-ID: <8cb49ccb-5a12-4770-9c91-982d78b5f962@sirena.org.uk>
+Message-ID: <20260422-refocus-massive-c3eea64ee60c@spud>
 References: <20260422-foe-strength-a5d8ad650ef4@spud>
+ <8cb49ccb-5a12-4770-9c91-982d78b5f962@sirena.org.uk>
 MIME-Version: 1.0
-In-Reply-To: <20260422-foe-strength-a5d8ad650ef4@spud>
-X-Cookie: I'm definitely not in Omaha!
+In-Reply-To: <8cb49ccb-5a12-4770-9c91-982d78b5f962@sirena.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260422_091241_332982_CD0234D5 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,58 +71,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8120982268951832179=="
+Content-Type: multipart/mixed; boundary="===============6052758155940155822=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8120982268951832179==
+--===============6052758155940155822==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="awxln/TzuFuxsLHe"
+	protocol="application/pgp-signature"; boundary="b3mXLTcArltJS4g8"
 Content-Disposition: inline
 
 
---awxln/TzuFuxsLHe
+--b3mXLTcArltJS4g8
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Apr 22, 2026 at 04:15:41PM +0100, Conor Dooley wrote:
+On Wed, Apr 22, 2026 at 04:25:43PM +0100, Mark Brown wrote:
+> On Wed, Apr 22, 2026 at 04:15:41PM +0100, Conor Dooley wrote:
+>=20
+> > Got a couple of patches here, the first two deal with an issue that a
+> > customer reported where using a mixed configuration of the built-in chip
+> > select and a gpio lead to data corruption. Turned out, the built-in chip
+> > select always gets activated at the moment even if a gpio-cs is being
+> > used. With that fixed, I noticed that any read with multiple data lines
+> > was not working properly, so patch two changes how the driver deals with
+> > emulating mem-ops. The remaining patches are things I consider fixes but
+> > not meaningful enough to get a Fixes tag. LMK if you want em split out
+> > to be put on for-next rather than for-current.
+>=20
+> I don't know what for-current is but they certainly don't apply against
+> for-7.1 which is the only active branch given that v7.0 released (and he
+> same content as for-linus and for-next as a result).
 
-> Got a couple of patches here, the first two deal with an issue that a
-> customer reported where using a mixed configuration of the built-in chip
-> select and a gpio lead to data corruption. Turned out, the built-in chip
-> select always gets activated at the moment even if a gpio-cs is being
-> used. With that fixed, I noticed that any read with multiple data lines
-> was not working properly, so patch two changes how the driver deals with
-> emulating mem-ops. The remaining patches are things I consider fixes but
-> not meaningful enough to get a Fixes tag. LMK if you want em split out
-> to be put on for-next rather than for-current.
+Ah I forgot about that widespread devm_ removal series.
 
-I don't know what for-current is but they certainly don't apply against
-for-7.1 which is the only active branch given that v7.0 released (and he
-same content as for-linus and for-next as a result).  It would be
-convenient to split the fixes and cleanups, unless there's actul
+> It would be
+> convenient to split the fixes and cleanups, unless there's actul
+> dependencies.
+
+Sure. I'll rebase, split and resend. There shouldn't be any meaningful
 dependencies.
 
---awxln/TzuFuxsLHe
+--b3mXLTcArltJS4g8
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmno6HYACgkQJNaLcl1U
-h9B86Qf/V9GcW6oanTDK17DKwmwH+tLOxf0nGVwAAVGO9jCTJmYyo6m8c7/S+btu
-WXdafAl6ZQ1UOJ8MzDxH1t9JRlLX4RnvTOmQrO2FaIGLPbiRx7Kdw5zX7B4ryTbg
-4181Bk0uQhb9KzqLM3SbVNfEtfxzsRNon9bDGjE61oD6cD9AZMsXwrXMIUitom8s
-PiYM/CDRBzNQtC04X/aZAopDFXVTrDZypMfKKP7S1egHc+kh882XRr3q7iqVoc7Z
-y2OpxW2qsztgQA3IT0++6RXZFeESx8GsetUWYZhjNGna8JiY6wYsx0ZskMRlhpxn
-w2de4FtpDWoJW0OMyG9Fc3OsM+CdYQ==
-=7M4C
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaejzdAAKCRB4tDGHoIJi
+0iOnAP4ghNY31x2PcHvukxiOG0UNXW2dN8JYTVfDX4urqheYeQD7B+Cq9/MbM5ku
+Ft5i3AHUtT1qIWSYcLWZZB/knaUvswA=
+=z+I5
 -----END PGP SIGNATURE-----
 
---awxln/TzuFuxsLHe--
+--b3mXLTcArltJS4g8--
 
 
---===============8120982268951832179==
+--===============6052758155940155822==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -130,5 +138,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8120982268951832179==--
+--===============6052758155940155822==--
 
