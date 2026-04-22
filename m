@@ -4,107 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33EF5F94CCA
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Apr 2026 05:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC5EF94CCD
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Apr 2026 06:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YyND+T8hR1BJEz1MsD8xqXxqnsdKGFUjvnPUvrbluvA=; b=uJ/qMg3Q6Mo+bX
-	8Ydkb0yXjJr+brZ0bLSp0jGo2KKgQDIlM2Wkg6jUoGoK695AXJ8VoUk/hG82L+Gxg3m7lyIWXbuWA
-	rDKHDX/yMN94BCIIkvvtkGUNO5ySmOgMy7vQvJv0wcr6nm/VUczMQGQp1hFG52ZRC/6yLvmnaCK3j
-	RDFAglOmGjxf9y1QdWU9qzAtKe0f6Cqb2pmU2vEcOJtrgahExdxErny7ByvNQXT1RyotswoBeiBL3
-	2J9xlB+pufVJK+H1/rHyuNHg85iZoBFqJWC9wQOT9RbRCA0nmlLVf6bIolUlaD1KNnj3EduAC689T
-	iH/JBIuOVoqfMPo0sWZw==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=+9/0smKDqVkNgaf2J0WOl3oA/+Eny/rUfZbzM9jk9VM=; b=qHWOmxey3hLhrKSRf09F/pSrSe
+	ujlIJoWOu+/1yCekEI7F+BAa3nuFTSuTNYZOF2Bvhzh94oBiOUqhYlmCROcV13dZ3GqXn3qR1/nc5
+	Eov+gpOJ6/W+WFGFu7c3oUoWDxY7q9xOqGBybjfhXsiHuzwBY6zCUj+V+MpVDducXvNGHKqDPx5bK
+	XEplydB15cK9Zwhk9X7a23hM0nJcJ+WRioB2duM60GUDrPAkoYUm++Jxju0NLPLAIxewHawoaBucu
+	FQ/gUZTrA6EG+JqmBUIU7rllZqL3viV6JbNF7qikdiCsHaGDSnlefCzAblLohScj0B5foFNvbkBds
+	KY4CP3rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFQaL-00000009d7P-2LGR;
-	Wed, 22 Apr 2026 05:57:17 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1wFQr3-00000009eIA-41C3;
+	Wed, 22 Apr 2026 06:14:33 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFQaI-00000009d73-2R0b
+	id 1wFQr1-00000009eHp-3hbq
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Apr 2026 05:57:16 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b8f9568e074so858260666b.0
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Apr 2026 22:57:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1776837432; cv=none;
+	Wed, 22 Apr 2026 06:14:33 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ba8472c1613so471645066b.0
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Apr 2026 23:14:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776838470; cv=none;
         d=google.com; s=arc-20240605;
-        b=aHgzGh559Dx2ZOAy70gyfKcDTYTFzN9HaPAiHhLXjCygkAOc0YcEXQti77V6fOhpAz
-         kd4lNh2ojIcA15HttvV0g2hzK01uHmQEuQ1NCHoFIXiIemQwDW9oV4Wj/21zfb3CWb2a
-         zYUxO5B+C/uj0N0evATUBbmYIPkHktcPBuhVreGwyC4DIhphHYeKGatUq37A48IN2Otg
-         753dIpdmRUynax5d2z1HJKP7KUJCfUlNapq+Gw/3dYmmqdB+/4nEAGWr+vyXGiIrzVIx
-         ZWIfOs62+ffy8oXnWgvemFN4bZ+kkxc1Swky4KhgDsTgvOxbBVTERKNrJC1zhzAxeO6s
-         S6Gg==
+        b=d6mMjLY71YAIhFwsYylgdUwLdH6hvoLq8AyBvk8Hdyyknzft/L0ORrYsL3u9yigIys
+         i8mCtBPleEBirDyYsT65dpJQD1/bdPZjagbPfzZGsFu8n1oNBVzP4CoFtwc3iZ3VObqc
+         O2jvsCdNaLGPrdYW0zkcM0DGSQKSf5go+CQ6ugPEmVAIXZaMQyJNTamJAvVJhJ+LvRrG
+         WyZ/zgY/1VSJOc6qu/MPUDyOzCOG82l6JVV6QaNWBFei4JT56CC99svMwBes/w0ZrCV6
+         RTvqgq7CQmBqREah+BqTZajU7M6F+0jHOsTsEoSaL/gKsbDXV5qQMpCNPW2OqkgW5+98
+         Umiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=6mfQrHmJg8pkYiq0O9V0bit0vPU2fxUi56Y7yDGTSLA=;
-        fh=IvNomY8f1dquP4AwkGuPlsYciwBO7RwS62E/JUFUd5Y=;
-        b=VIi9eC9LczM4YaUU5cywULTkrrPq0y6n68ZUKM51P2MGV/6z9Tdt1CX74KfOanyHmm
-         kXVId7YEXM69N9HJzjP/oUbBQAzMM7pgH8l2wRreAweeIpR2dB7nPH8prjXJ0+GC3dFr
-         bEPKmY/gWFzhaI4XfbHrNOpVWRirDoZCnAqfeUop7AfWdd8A385oFg2MJZ+0bCxDv/RY
-         0Vdb42dVjfxt5pAeQPGfpUONuHUIuaSnf9xw5mJ1t4hF0VC2TpfxEjUnL+CYK1TkRupT
-         x23HsROlUJklz0yoFiNApr4zRNXwwvpkkn2lKtivtUwDhNXTQINovjQ+0KgaP+MkRRyK
-         1MLg==;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=P7E2q6exx7PW87rgGpHFPg1laXVtt9+bH8xKH5r59iw=;
+        fh=38iO1akwxEOJaO3Ec8K28NgLU8nyBrOBVQDpiQ103jM=;
+        b=FKPy5vclB3f6CokX/C+D9ExlFVTRyYQNaJI7GNTI2IKmzGgmLZ8jXp0xaCKFVUZEFR
+         /bXG0IHFKuA1GXTqawCnFzWgwbGRJ/hUm1to3tyOvhBF/xSIx0GmT16KMD7Jqv4i2Lod
+         dZqDsdRnYFM+HDve4RLOd0hhvrqy44leXhUZho0DauipmWpaWl+e/sf8yS4M5CQSfGea
+         cXbzB9p9a4WSsCIEzrJo2tYJp92VgB8T1ybHRAYNgBAVBnyjM5cBAczUk9v57PS7TTDB
+         0Tlo+0ex7j2JFW1/rLfvfIjcUgDnfkoCauqaul5L+/z2Pal8mDUV349u1jwEjBJBQ7LX
+         G1uQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1776837432; x=1777442232; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6mfQrHmJg8pkYiq0O9V0bit0vPU2fxUi56Y7yDGTSLA=;
-        b=RCs9v7euQMaVeF2L72l4Q3mTMjCHfSf394kYN/5zBfj7Xt1sI8Z427e9djzscujU9p
-         EwSI8BYJoyzlj8we3py+9iqBfrEBcXnTroFWo7FiKMvPFKtDtuk/WQJ1pyD1pPyPGJ1Z
-         bznjObseFf/R8vC5aNkY7/v1deHGyA4dKZG6MEANAzVqD1T0mKnV+7EuLElpyr18FBgh
-         pwg8ub5/vhRlbB87UkcJ3Is82fGBMPHt32JalqOOodVVzqTscxhXP9ekVcu5pc6UZomy
-         5kz9AblGOCms10GBSkrkrK+zoyZlTc4Yz7DMH5e58OISl20WzXNFkv5Q8SIfMdCXybPf
-         KMfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776837432; x=1777442232;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1776838470; x=1777443270; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6mfQrHmJg8pkYiq0O9V0bit0vPU2fxUi56Y7yDGTSLA=;
-        b=oQfmo/ooLJXP9ym1VPsvGjh35Ynh7XbSfKWKxeKp+hPUp9tClPTlr9bK38QHAS/JlL
-         qJKBOU9Svsi/LEGBokt1nZ6W4fwbqXwOzNo9VCHWF1nvEl/mL+oBRFXxVRo8TpFG4t3v
-         VDFN25O5IgI62L3p+KfUgqpqEYVNiZSC4iCj50fRweZ62T6F10UPeZeFCfLl8EZwgU5e
-         Y6pBkb+0c86CzVs7/Bgm9t9TF7kOLO1H9CIbUd5bE3FUH+F7QnSFzMCuqJF0kVIzzxJT
-         C8r0kcptbytWfWcKAdydlnac6aXEhGNSNr1l9VZkXD4FtZaStAf9h9Iw7S53qTAkEreO
-         Z1Nw==
-X-Forwarded-Encrypted: i=1; AFNElJ/jV+VTe7LmPSaCD0db5MjdTokfeRLXHMy66xE83jEx2g3dCIsrBKflOlObjfXfhiDAtEIQzMLIjelAQA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUIxgtghAYQEanz2NFVSid2bAuO6rBfef+lfuVjY5o6ei4/BrW
-	EcRSXMVZ9/GKI59C3mz/i0mtBqmlND9DGBZgdnOo2u57A2VXSeihBMDk6Y47rprmQjktBXuE5a+
-	bT/w9B4h8kIZwuR0orVsKiHN6phiR2kU=
-X-Gm-Gg: AeBDietSYCyA8JKHfZW51gzDZYqfgRMG4B8ybRKNFZDpWP35EfxVzDWmVdo2jn1D7gL
-	Jc6MZBnOy3pU4G21jfBGAwtxk3ne0h5eQfF/2oDTHk+nW+yAeR+zTyVhtDo8OJeYVinS836Psjv
-	frmUF+tpq92tiCyZUz7f6pCAGL1iF5j8+ts5esQ7GUd7TVFSJ+e86TKIPDg6pSkUlRI0tsdAUAX
-	uDoeMPXt2GqwvMgY+nREd0njeZZInHbclPn+UVOX6oMWpY7cOxNLpWmO12Hb311Dc8uZnfFQUAp
-	dhj73HLMY6i9nJw=
-X-Received: by 2002:a17:907:d09:b0:ba7:7a1f:1096 with SMTP id
- a640c23a62f3a-ba77a1f52a9mr604591266b.19.1776837432114; Tue, 21 Apr 2026
- 22:57:12 -0700 (PDT)
+        bh=P7E2q6exx7PW87rgGpHFPg1laXVtt9+bH8xKH5r59iw=;
+        b=RjwCh8sNGbkJzQ20LOFLKDkzzyq0YTqllmtxQKZrZrEBQrkf9f1BDgBZrMnFqIi6Su
+         16/LxSxdM2vOFUXM5jupsB0YZl8UUDi/xq6Cukkb+EIXTAG1kSFUY6zNJvTP7moAKofm
+         mNQ3zROyR06IIGE+kiMb0UiXWYPlj3JQmkfG1qZGmEt+qESnisgFKau/ZyyEFKTxHgFt
+         8+uYKUTt0dzFI/KpCnlgFgwdu94McDzLSBk/R8Ymlab7BfS96/ZT4BWd22eu+n8390so
+         l9o6Lh/tdufRNHKvXqbSFyMnhKnAJD6m88cE4Y7PFYPM2HGi7BX4wG1XMFz2dJyuoAQv
+         xT6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776838470; x=1777443270;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=P7E2q6exx7PW87rgGpHFPg1laXVtt9+bH8xKH5r59iw=;
+        b=AoGlg2ppLrwSS5QLtevjss+W5/RNqyee+V5dC+NYYgIQkU1RNf3RhkWXjGlFxPpyyV
+         5nbIeP4ZdFEscCY98MiplODgt71XXkmk7wVGtcPsMjt/4G3ABtX0hF4RqdP7alO/kALm
+         QoUVEkknYpAWD+fLEhdKzl2ZXNIiKpqSNaxqX8hwr8kSA0LIz2X7lQhVC8jraWsutZLI
+         3xMapv/Au2lf8GTX1OlhKryuebl1rO3ns4a78ZW4r++1jGKNAOryTx+RW+KuIVgIPtgD
+         sO01WHHW5NHzjvpZKJP3XHU2LkDpC+kOn/YRkvAg6D5GyA60aDP0mZ81OoGIw1b69ZNE
+         RLjA==
+X-Forwarded-Encrypted: i=1; AFNElJ9xI+mQfzOu2+T8qIq6orWUXlmgiM4Wfm4xa4KAndA0JrD/oPErDXAsZSzoz9zxxMv9b2/iwPQbaLAikQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhfRisUP1ImOA3xk+7u5TK2TnduCCAIuyvvmRoZw1WRJIxYkRX
+	QCebp3u94aFdWyBPirjvbOAIxaz3yMkXpIWQx72gRa+TXJVGhq2iUl/iAwOFv3SA/uAEyf92FYf
+	8/JCG8EbxbH7k0e3DS8tI4xmYibHqfVg=
+X-Gm-Gg: AeBDieuspD17r6Sd1w16j0bZd1MK50DhGHjDwMi6EYP793elmuP1kQAHayQsugXKvho
+	wtFOM7oDPq/05fHle3BbJqoPqvUiN3d9uwxalfKMxLBsor7p2ZCIuUxEb0gIc5c4OyKHRHvLHmD
+	tesPmhHzfSHhyI6/s2a2kJY+Ub63gU8LY+EgbiucTl17LWXTFTx598J5aT5tgaETqLgWZKtQqAD
+	sVdJHgkshYw2i74o1s0fdCowpn2R57/iuKgHoxZl48h1rjN6vM+u2/k/ZQmfm1uP9CmypH/I0pN
+	T8Frl/Ul8VzREUQ=
+X-Received: by 2002:a17:907:1588:b0:ba9:3162:182 with SMTP id
+ a640c23a62f3a-ba9316201a6mr261303166b.19.1776838469610; Tue, 21 Apr 2026
+ 23:14:29 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260119-patchv2-k1-thermal-v3-0-3d82c9ebe8a4@163.com> <20260119-patchv2-k1-thermal-v3-3-3d82c9ebe8a4@163.com>
-In-Reply-To: <20260119-patchv2-k1-thermal-v3-3-3d82c9ebe8a4@163.com>
+References: <20260410-shadow-deps-v2-0-4e16b8c0f60e@mailbox.org>
+ <20260410-shadow-deps-v2-2-4e16b8c0f60e@mailbox.org> <CANAwSgSNHO3MNewNzpYbhuj4K3NTdfzDC9KPoUHbFH97P4M_UQ@mail.gmail.com>
+ <DHUCL24GMX7D.369IWK9DLPZPX@mailbox.org> <CANAwSgRt5-t_ah=phGc+CQYHG-CdWJuOX-2VTW6xE7n7EnVsFw@mail.gmail.com>
+ <aeaXszeaE62rM6BJ@aurel32.net> <DHYOIIFMGH7J.228ISQ7XYFGKE@mailbox.org> <aeevr6Zj3Pwm9wux@aurel32.net>
+In-Reply-To: <aeevr6Zj3Pwm9wux@aurel32.net>
 From: Anand Moon <linux.amoon@gmail.com>
-Date: Wed, 22 Apr 2026 11:26:56 +0530
-X-Gm-Features: AQROBzAs7FAeBD4enf-d2fMmvL5o4M1AgFGifNPyDM3Z4riMQcMNULcXuvp1c4I
-Message-ID: <CANAwSgTOmbb+Vzhck1riVaFM89zYLdMe3dn6DRHrc7p+rkR2DQ@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] riscv: dts: spacemit: Add thermal sensor for K1 SoC
-To: Shuwei Wu <shuweiwoo@163.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+Date: Wed, 22 Apr 2026 11:44:14 +0530
+X-Gm-Features: AQROBzCenitl4Odlgd_JfKGymltQZPnNxQ-FB_fBcOyLvkgF7DPs6UdEgDyDJDo
+Message-ID: <CANAwSgSCo-mESo6=KSc08oUzTWAgzpYu0JaW5KqmnCNiPYHjxQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] riscv: dts: spacemit: Add cpu scaling for K1 SoC
+To: Shuwei Wu <shuwei.wu@mailbox.org>, Anand Moon <linux.amoon@gmail.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260421_225714_659268_6FEBFCE6 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20260421_231431_961890_C6304FC5 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,171 +119,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Shuwei,
-
-On Mon, 19 Jan 2026 at 08:13, Shuwei Wu <shuweiwoo@163.com> wrote:
->
-> Include the Thermal Sensor node in the SpacemiT K1 dtsi
-> with definitions for registers, clocks, and interrupts.
-> Additionally, configure thermal zones for the soc, package, gpu, and
-> clusters to enable temperature monitoring via the thermal framework.
->
-> Signed-off-by: Shuwei Wu <shuweiwoo@163.com>
-> ---
-> Changes in v2:
-> - Update compatible to "spacemit,k1-tsensor"
-> ---
->  arch/riscv/boot/dts/spacemit/k1.dtsi | 101 +++++++++++++++++++++++++++++++++++
->  1 file changed, 101 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> index 7818ca4979b6..0fe7396ea6e4 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> @@ -338,6 +338,96 @@ osc_32k: clock-32k {
->                 };
->         };
->
-I feel the thermal zones appear to be configured at significantly
-higher temperatures
-compared to the thresholds typically used in commercial-grade and
-industrial-grade device
-test environments 1.2 Test Environment
-
-[1] https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/key_stone/k1/k1_hw/avl_veri_sop.md
-
-Thermal zones should be defined as part of the SBC board design,
-with the option to integrate PWM-controlled fan support in the future.
-
-Thanks
--Anand
-> +       thermal-zones {
-> +               soc-thermal {
-> +                       polling-delay-passive = <0>;
-> +                       polling-delay = <0>;
-> +                       thermal-sensors = <&thermal 0>;
-> +
-> +                       trips {
-> +                               soc-crit {
-> +                                       temperature = <115000>;
-> +                                       hysteresis = <0>;
-> +                                       type = "critical";
-> +                               };
-> +                       };
-> +               };
-> +
-> +               package-thermal {
-> +                       polling-delay-passive = <0>;
-> +                       polling-delay = <0>;
-> +                       thermal-sensors = <&thermal 1>;
-> +
-> +                       trips {
-> +                               package-crit {
-> +                                       temperature = <115000>;
-> +                                       hysteresis = <0>;
-> +                                       type = "critical";
-> +                               };
-> +                       };
-> +               };
-> +
-> +               gpu-thermal {
-> +                       polling-delay-passive = <100>;
-> +                       polling-delay = <0>;
-> +                       thermal-sensors = <&thermal 2>;
-> +
-> +                       trips {
-> +                               gpu-alert {
-> +                                       temperature = <85000>;
-> +                                       hysteresis = <2000>;
-> +                                       type = "passive";
-> +                               };
-> +
-> +                               gpu-crit {
-> +                                       temperature = <115000>;
-> +                                       hysteresis = <0>;
-> +                                       type = "critical";
-> +                               };
-> +                       };
-> +               };
-> +
-> +               cluster0-thermal {
-> +                       polling-delay-passive = <100>;
-> +                       polling-delay = <0>;
-> +                       thermal-sensors = <&thermal 3>;
-> +
-> +                       trips {
-> +                               cluster0-alert {
-> +                                       temperature = <85000>;
-> +                                       hysteresis = <2000>;
-> +                                       type = "passive";
-> +                               };
-> +
-> +                               cluster0-crit {
-> +                                       temperature = <115000>;
-> +                                       hysteresis = <0>;
-> +                                       type = "critical";
-> +                               };
-> +                       };
-> +               };
-> +
-> +               cluster1-thermal {
-> +                       polling-delay-passive = <100>;
-> +                       polling-delay = <0>;
-> +                       thermal-sensors = <&thermal 4>;
-> +
-> +                       trips {
-> +                               cluster1-alert {
-> +                                       temperature = <85000>;
-> +                                       hysteresis = <2000>;
-> +                                       type = "passive";
-> +                               };
-> +
-> +                               cluster1-crit {
-> +                                       temperature = <115000>;
-> +                                       hysteresis = <0>;
-> +                                       type = "critical";
-> +                               };
-> +                       };
-> +               };
-> +       };
-> +
->         soc {
->                 compatible = "simple-bus";
->                 interrupt-parent = <&plic>;
-> @@ -434,6 +524,17 @@ syscon_apbc: system-controller@d4015000 {
->                         #reset-cells = <1>;
->                 };
->
-> +               thermal: thermal@d4018000 {
-> +                       compatible = "spacemit,k1-tsensor";
-> +                       reg = <0x0 0xd4018000 0x0 0x100>;
-> +                       clocks = <&syscon_apbc CLK_TSEN>,
-> +                                <&syscon_apbc CLK_TSEN_BUS>;
-> +                       clock-names = "core", "bus";
-> +                       interrupts = <61>;
-> +                       resets = <&syscon_apbc RESET_TSEN>;
-> +                       #thermal-sensor-cells = <1>;
-> +               };
-> +
->                 i2c6: i2c@d4018800 {
->                         compatible = "spacemit,k1-i2c";
->                         reg = <0x0 0xd4018800 0x0 0x38>;
->
-> --
-> 2.52.0
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgU2h1d2VpLAoKT24gVHVlLCAyMSBBcHIgMjAyNiBhdCAyMjo0MSwgQXVyZWxpZW4gSmFybm8g
+PGF1cmVsaWVuQGF1cmVsMzIubmV0PiB3cm90ZToKPgo+IEhpLAo+Cj4gT24gMjAyNi0wNC0yMSAx
+NjoxMCwgU2h1d2VpIFd1IHdyb3RlOgo+ID4gSGkgQXVyZWxpZW4sCj4gPgo+ID4gVGhhbmtzIGZv
+ciB5b3VyIGFkZGl0aW9uLgo+ID4KPiA+IE9uIFR1ZSBBcHIgMjEsIDIwMjYgYXQgNToxNiBBTSBD
+U1QsIEF1cmVsaWVuIEphcm5vIHdyb3RlOgo+ID4gPiBIaSBBbmFuZCwKPiA+ID4KPiA+ID4gT24g
+MjAyNi0wNC0xNiAxNzowNywgQW5hbmQgTW9vbiB3cm90ZToKPiA+ID4+IEFmdGVyIHJldmlld2lu
+ZyB0aGUgQmFuYW5hIFBpIEYzIHNjaGVtYXRpY3MsIEkgY29uZmlybWVkIHRoYXQgQnVjazEgYW5k
+IEJ1Y2syCj4gPiA+PiBCb3RoIHN1cHBseSB0aGUgQ09SRV8wVjkgd2l0aCAwLjlWwrExJSByYWls
+LiBUbyByZXNvbHZlIHRoZSByZXN0cmljdGlvbiBlcnJvcnMsCj4gPiA+PiBJIGV4cGFuZGVkIHRo
+ZSB2b2x0YWdlIHJhbmdlIGluIHRoZSBEVFMgdG8gNTAwLDAwMOKAkzk1MCwwMDAgwrVWLgo+ID4g
+Pj4Kc29ycnkgSSB3YXMgd3JvbmcgZnJvbSB0aGUgZG9jIGJlbG93IDEuMi4xIENPUkUgUG93ZXIg
+RGVzaWduCgpUaGUgdHlwaWNhbCBjb3JlIHZvbHRhZ2UgaXMgMC45IFYgdG8gMS4wNSBWLiBBY3R1
+YWwgdm9sdGFnZSBpcwpkeW5hbWljYWxseSByZWd1bGF0ZWQgYnkKdGhlICoqcmVtb3RlLXNlbnNl
+IGR5bmFtaWMgdm9sdGFnZSoqIGFkanVzdG1lbnQgY2lyY3VpdCBpbnNpZGUgUDEuClAxIEJVQ0sx
+IGFuZCBCVUNLMiBtdXN0IGJlIGNvbWJpbmVkIHRvIHN1cHBseSB0aGUgY29yZSByYWlsLgoKWzFd
+IGh0dHBzOi8vd3d3LnNwYWNlbWl0LmNvbS9jb21tdW5pdHkvZG9jdW1lbnQvaW5mbz9ub2RlcGF0
+aD1oYXJkd2FyZS9rZXlfc3RvbmUvazEvazFfaHcvazFfaHdfZGVzaWduX2d1aWRlLm1kJmxhbmc9
+ZW4KCj4gPiA+PiBBZGRpdGlvbmFsbHksIEkgdXBkYXRlZCB0aGUgRFRTIHRvIG1hcCB0aGUgc2Vj
+b25kIENQVSBjbHVzdGVyIChjb3JlcyA04oCTNykKPiA+ID4+IHRvIEJ1Y2syIHRvIGJldHRlciBh
+bGlnbiB3aXRoIHRoZSBoYXJkd2FyZSdzIHBvd2VyIGRpc3RyaWJ1dGlvbi4KPiA+ID4KPiA+ID4g
+QWN0dWFsbHkgdGhlIG91dHB1dCBvZiBCdWNrMSBhbmQgQnVjazIgYXJlIGNvbm5lY3RlZCB0b2dl
+dGhlciwgc28gdGhleQo+ID4gPiBzaG91bGQgYWx3YXlzIGJlIGNvbmZpZ3VyZWQgd2l0aCB0aGUg
+c2FtZSBvdXRwdXQgdm9sdGFnZS4gQW5kIGJvdGgKPiA+ID4gY2x1c3RlcnMgc2hvdWxkIGJlIG1h
+cHBlZCB0byBib3RoIG91dHB1dHMuCj4gPgo+ID4gWW91IGFyZSByaWdodCwgSSByZWNlaXZlZCB0
+aGUgc2FtZSByZXNwb25zZSBmcm9tIHRoZSBvZmZpY2lhbCBkZXZlbG9wZXJzLgo+ID4KPiA+IFRo
+ZXJlZm9yZSwgSSdtIHdvbmRlcmluZyBpZiBhbiBhZGRpdGlvbmFsIHJlZ3VsYXRvci1jb3VwbGVk
+LXdpdGg6IHByb3BlcnR5Cj4gPiBkZWZpbml0aW9uIGlzIGFsc28gbmVlZGVkIGhlcmU/Cj4KY29y
+cmVjdC4KPiBZZXMsIEkgdGhpbmsgdGhpcyBpcyB0aGUgd2F5IHRvIGdvLiBJIGV2ZW4gd29uZGVy
+IGlmIHRoaXMgc2hvdWxkbid0IGJlIGEKPiBmaXggd2l0aCBDYzogc3RhYmxlLiBUaGlzIGFsc28g
+aGFzIHRvIGJlIGRvbmUgZm9yIHRoZSBNaWxrLVYgSnVwaXRlcgo+IGJvYXJkLCBJIGhhdmVuJ3Qg
+Y2hlY2tlZCB0aGUgb3RoZXIgYm9hcmRzIHlldCwgYnV0IEkgZ3Vlc3MgdGhleSBhbGwgdXNlCj4g
+dGhlIHNhbWUgc2NoZW1hdGljcyBhdCB0aGF0IHRoZSBQTUlDIGxldmVsLgo+Cj4gUmVnYXJkcwo+
+IEF1cmVsaWVuCj4KPiAtLQo+IEF1cmVsaWVuIEphcm5vICAgICAgICAgICAgICAgICAgICAgICAg
+ICBHUEc6IDQwOTZSLzFEREQ4QzlCCj4gYXVyZWxpZW5AYXVyZWwzMi5uZXQgICAgICAgICAgICAg
+ICAgICAgICBodHRwOi8vYXVyZWwzMi5uZXQKClRoYW5rcwotQW5hbmQKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
