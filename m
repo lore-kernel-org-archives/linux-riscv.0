@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F469F9EDF8
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Apr 2026 15:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B71F9EDFC
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Apr 2026 15:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lP8lnJu9y34ayeXyvlkej/0zJukT41LVWJ6jYrycTuU=; b=X/dknW+YVnCE70
-	rYotXZxs01b/raFKzjpd5v6NXg356psScLExropWw0EGEcnIdSaR1wjSYu2oRKShXGPwKrr8RM5vz
-	Pt40m+dqlH3dhBYnvzSCHZCJKOgfpafOK/dSXgg289SJagt4zLv3hJ6XJ0D34o7kzsJPGZJVGU6d/
-	UFjZuP97obFtSlzN/RGYmb0hV8l8rAwX9F1EJOERCVlKKKFg4aLaroyq3ujXz8KdjMwoydWA/pjuy
-	1i5O4wjaZNKjZLmxEqwF52VUFccuvOycE0thmVmAP6e9l/V3hEEyfCXfsqPsoh6VMwkaIE41ZQYdd
-	hskb7tuH7LOfw1fWJQNA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2CKIKDSClaFdZ26TwuSjR50h0b9I2//LDI64mZP9VRk=; b=1wJnTTrvbKzyB0Xvda3YY85e4Q
+	irWDD4etynHtYAA4/u7vvd6KoK8hKof5VTRGt6at/KKHdqrKqorrkRt87CwWLaZzXk9w29mSPf3H/
+	8b4xvylVXaymZzh+iMCEQBz2v8HdF6Q6nqv1BkQXS0ipgMWgHGQTjCm0+CgO/1Ithsuit7L6TtD5M
+	hUDegWYO0BSO/QhWmDk0jNNbXVIowEdrpgcVF2UqK/jny89Mii8AFCVqkXIZjFd3/xlf84t/vPI6Y
+	HlnjRLkjUOnDRaE8ZXG7qUmM8Xhgt7XySEjjwbf20QVyeHHRH0WlPtFXJ6gZ4tkNOduiCL2my0dhh
+	jUZPyXAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFZKV-0000000AQJi-0P8e;
-	Wed, 22 Apr 2026 15:17:31 +0000
+	id 1wFZSY-0000000ARDs-1MMX;
+	Wed, 22 Apr 2026 15:25:50 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFZKU-0000000AQJI-1xQ5
+	id 1wFZSW-0000000ARDl-41zx
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Apr 2026 15:17:30 +0000
+	Wed, 22 Apr 2026 15:25:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D28DE61330;
-	Wed, 22 Apr 2026 15:16:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEF38C2BCAF;
-	Wed, 22 Apr 2026 15:16:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D766F6012A;
+	Wed, 22 Apr 2026 15:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC580C19425;
+	Wed, 22 Apr 2026 15:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776871019;
-	bh=6ET/frCteaTcrEw4caKHP3nJei7aVUDYuECfByOQKZA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pxHwzwf6JqgqyvJ1OZhj+VC34Cd0D6vupBQKWuZWOX8A05KspypYTPIhtKgsaxcr4
-	 MxI+6c92kOvrVnb0eQvDn4ktGhaLL+1u5oKzj4Pgupi6NsqgOWGTTnmxIVwdNwu3AD
-	 1XwXpXHRV1gcse9qesHmcQXcoT+4R7/hucBCcaoDI0glxQnauNBMf4qEDklnTvvE7o
-	 Jz2phloDCSutGlSEEgTpO7pbMDz97FRKUHRW/SIAoWfwiLjbrVO9byQ3dPLgNVMvfJ
-	 VBhgZcrw0lA+IBAyrbLk4D6SCziemmknGSV8c29FB3RGa3PMbJafgFfXiisUVg/7Zj
-	 AXQJ8b/hkYYcA==
-From: Conor Dooley <conor@kernel.org>
-To: broonie@kernel.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
+	s=k20201202; t=1776871547;
+	bh=aMlrrUyOX0cvuGWjVkklmW7RDBv8g+60XkATJKTZ6Ow=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NNfmcNy/FDFpxfymrcrND0xXYR9gtNJ/9j9fb50DzWC5/6WuqjSeu9z6WX4ZsLPrS
+	 9lCXsBSXowSNXq9GEY0mPVh7tT3Di+OJ1r9ZZz/rCJpMbmqVgCCLqCCWazAb1hJLG+
+	 YurNPTy7KyxkD+kSahAe8FcXwVjystMTEpnUDWGASt5Xb4Fk8a971zWOCOjC8/bVwL
+	 pGcTJJIsX28xKHDFyelqNzvU12WtmhrpKdGPixb/nfAvEYAFIAk9+ostx06Cy0v4N3
+	 0HMP7QTYd7WjlNtWFy1iBzjRTdjXYmfN5oULVPh0FbVkw3yLDf3zc0vQzBbEbOa/ZF
+	 Fkem21I3OL7MQ==
+Date: Wed, 22 Apr 2026 16:25:43 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
 	Cyril Jean <cyril.jean@microchip.com>,
 	Valentina.FernandezAlanis@microchip.com,
-	linux-riscv@lists.infradead.org,
-	linux-spi@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 5/5] spi: microchip-core-qspi: remove some inline markings
-Date: Wed, 22 Apr 2026 16:15:46 +0100
-Message-ID: <20260422-cackle-guacamole-d51cc736a4b6@spud>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260422-foe-strength-a5d8ad650ef4@spud>
+Subject: Re: [PATCH v1 0/5] microchip core-qspi gpio-cs fixes + cleanup
+Message-ID: <8cb49ccb-5a12-4770-9c91-982d78b5f962@sirena.org.uk>
 References: <20260422-foe-strength-a5d8ad650ef4@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1848; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=LZMEd4rd4apGWbweXgMgaeSQ0Rz6fCOGsgSVYyBq+ps=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJkvnjkEWxX4Narxpf043SUqWr9A/tMz1z+x09nOK78v/ rh3U8bFjlIWBjEuBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzk0TmG//6VNy9+m2b/dmHu 5KTGlv2/3DZff/skZqZtYV3znC21dWWMDFetQwvKIuZrRq6sucBSWMr3/NX1dzJ5vCwH32WeWq2 4lhEA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <20260422-foe-strength-a5d8ad650ef4@spud>
+X-Cookie: I'm definitely not in Omaha!
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,68 +68,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8120982268951832179=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-Remove inline markings from a number of functions that are called as
-part of mem ops callbacks. None of them are either particularly trivial
-or sensitive to overhead of a function call. Just let the compiler
-decide what to do with them.
+--===============8120982268951832179==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="awxln/TzuFuxsLHe"
+Content-Disposition: inline
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/spi/spi-microchip-core-qspi.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/spi/spi-microchip-core-qspi.c b/drivers/spi/spi-microchip-core-qspi.c
-index ae1c7ce09b2ed..383d5eef7a2a2 100644
---- a/drivers/spi/spi-microchip-core-qspi.c
-+++ b/drivers/spi/spi-microchip-core-qspi.c
-@@ -199,7 +199,7 @@ static int mchp_coreqspi_setup(struct spi_device *spi)
- 	return 0;
- }
- 
--static inline void mchp_coreqspi_read_op(struct mchp_coreqspi *qspi)
-+static void mchp_coreqspi_read_op(struct mchp_coreqspi *qspi)
- {
- 	u32 control, data;
- 
-@@ -235,7 +235,7 @@ static inline void mchp_coreqspi_read_op(struct mchp_coreqspi *qspi)
- 	}
- }
- 
--static inline void mchp_coreqspi_write_op(struct mchp_coreqspi *qspi)
-+static void mchp_coreqspi_write_op(struct mchp_coreqspi *qspi)
- {
- 	u32 control, data;
- 
-@@ -263,7 +263,7 @@ static inline void mchp_coreqspi_write_op(struct mchp_coreqspi *qspi)
- 	}
- }
- 
--static inline void mchp_coreqspi_write_read_op(struct mchp_coreqspi *qspi)
-+static void mchp_coreqspi_write_read_op(struct mchp_coreqspi *qspi)
- {
- 	u32 control, data;
- 
-@@ -421,7 +421,7 @@ static int mchp_coreqspi_setup_clock(struct mchp_coreqspi *qspi, struct spi_devi
- 	return 0;
- }
- 
--static inline void mchp_coreqspi_config_op(struct mchp_coreqspi *qspi, const struct spi_mem_op *op)
-+static void mchp_coreqspi_config_op(struct mchp_coreqspi *qspi, const struct spi_mem_op *op)
- {
- 	u32 idle_cycles = 0;
- 	int total_bytes, cmd_bytes, frames, ctrl;
--- 
-2.53.0
+--awxln/TzuFuxsLHe
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Wed, Apr 22, 2026 at 04:15:41PM +0100, Conor Dooley wrote:
+
+> Got a couple of patches here, the first two deal with an issue that a
+> customer reported where using a mixed configuration of the built-in chip
+> select and a gpio lead to data corruption. Turned out, the built-in chip
+> select always gets activated at the moment even if a gpio-cs is being
+> used. With that fixed, I noticed that any read with multiple data lines
+> was not working properly, so patch two changes how the driver deals with
+> emulating mem-ops. The remaining patches are things I consider fixes but
+> not meaningful enough to get a Fixes tag. LMK if you want em split out
+> to be put on for-next rather than for-current.
+
+I don't know what for-current is but they certainly don't apply against
+for-7.1 which is the only active branch given that v7.0 released (and he
+same content as for-linus and for-next as a result).  It would be
+convenient to split the fixes and cleanups, unless there's actul
+dependencies.
+
+--awxln/TzuFuxsLHe
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmno6HYACgkQJNaLcl1U
+h9B86Qf/V9GcW6oanTDK17DKwmwH+tLOxf0nGVwAAVGO9jCTJmYyo6m8c7/S+btu
+WXdafAl6ZQ1UOJ8MzDxH1t9JRlLX4RnvTOmQrO2FaIGLPbiRx7Kdw5zX7B4ryTbg
+4181Bk0uQhb9KzqLM3SbVNfEtfxzsRNon9bDGjE61oD6cD9AZMsXwrXMIUitom8s
+PiYM/CDRBzNQtC04X/aZAopDFXVTrDZypMfKKP7S1egHc+kh882XRr3q7iqVoc7Z
+y2OpxW2qsztgQA3IT0++6RXZFeESx8GsetUWYZhjNGna8JiY6wYsx0ZskMRlhpxn
+w2de4FtpDWoJW0OMyG9Fc3OsM+CdYQ==
+=7M4C
+-----END PGP SIGNATURE-----
+
+--awxln/TzuFuxsLHe--
+
+
+--===============8120982268951832179==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8120982268951832179==--
+
