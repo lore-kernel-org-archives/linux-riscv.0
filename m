@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 415AFF589CD
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Apr 2026 13:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48863F589DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Apr 2026 13:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qLshwCowWqO/40hHdbiwNMPX3XCpch1fU8f0uHb/uuk=; b=YcI9+kux/bBWTq
-	HZKghKjQAjUEDwUuzMwH1BkqawAohBa6Z7c8NhhkrWFltztlQHPl4kAnJIr1lAhvbLlWhRa3GfMdf
-	XgO8KFtg254ChGcZO3JMWIxSnCbi+MnwEIGP3pW33t67tX2JHqQYVg7h+m7GDL9UnWXJyDzf8Raag
-	MRN6bOY0oQVAevS6E+fcR6nK2EfIc734Mlaq7t4M+KNqw6c8EnmekS61xqxduanFp+Tc4OH4mv6X+
-	KFkACx9cjlSlbrDygDokFPtL/pLISFA535Gd6hYH/HKhQFN7jZuW4M+doWPVptfIzCSsD7APdnnKK
-	M8IQZM5wS9h0HU4GRzSg==;
+	List-Owner; bh=8jxqjMhPIvhXWv3bMDZf341po6Q7gcyMxI65VKKGFlo=; b=tqCpu+6HID0PII
+	oBa7BHv/GaUIiehQWmxA8/v4l2rS1URXa8rEFrpy/dI+Ln3EdtLYLH4IyOSvGAeGZJznnXkCL35fc
+	GJJIQWl5pY0hmlOT9RoU6qUcKv50GMk86TSkRXHlShQJD+MB6J6u79ElaO4d8HJFvER6RmVLvaKGV
+	JQFks+dG1BlzMwVst443abUWZe6/vAg+9Kz66MFNG46kScQCjK9pNASgpkPAbXXvLrtCYzhyDV8cm
+	XhwfvLhhnbVWFs+2OOLfJ7L90ixURknAYFvk08cavt1Cx7YuB0lKBSg03Yupg2h/F09aRUCdD9jeb
+	bgGs/BYerNb+Em6nHVKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtjc-0000000BiJY-42Kq;
-	Thu, 23 Apr 2026 13:04:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFtjV-0000000BiJ3-18B9
-	for linux-riscv@lists.infradead.org;
-	Thu, 23 Apr 2026 13:04:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7FD4C416B5;
-	Thu, 23 Apr 2026 13:04:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CF96C2BCAF;
-	Thu, 23 Apr 2026 13:04:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776949480;
-	bh=3KN/9xYClnbKmpip1Kg4BXkQ4NkWlYtHiVbzGlXqlc8=;
+	id 1wFuYB-0000000BmMV-2f8V;
+	Thu, 23 Apr 2026 13:57:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wFuY7-0000000BmLr-0QGh;
+	Thu, 23 Apr 2026 13:57:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74CAB1BF7;
+	Thu, 23 Apr 2026 06:56:50 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAD5A3F641;
+	Thu, 23 Apr 2026 06:56:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776952615; bh=6LfUy7I1VMNamQxWSciFQf6jdTAWYyv2Ia/cLP4B6X4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VsT448tl/xYct0rR1E+hiGErLn2sJSkpSyRWragF+IMTUwo2OtWo37yNvrKho8QZc
-	 zEhJ7ISzM0SEdWfr3bHn407Km0B17u6GHQ/Ww67CO3ltIwZ9pjQ4wuv+w7LKWvuXZ3
-	 RurIresRLswrN2rcUcIQKFH7fCA9BBithVDE53sj2o2A/aLf/g0oNyLRKFuDAI/H+b
-	 1+yS1h289WEL5O8b/e8XJc+gPJJRMe4M5Y3yuz4QBX4WCo4OYbhavVefFYI39RFPm5
-	 kBESXrfxirSFymO18VWKPW4WKRxJWsEkBR3A2jN4/jiCURPIny0dx2FEcab9SZNmWL
-	 oR45LRdNOi7Qg==
-Date: Thu, 23 Apr 2026 18:34:31 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Jingoo Han <jingoohan1@gmail.com>, Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] PCI: ultrarisc: Add UltraRISC DP1000 PCIe Root
- Complex driver
-Message-ID: <yqxyjv2q4lp5ymb6mjzpldjp2folqsvu4qneaihapbchrcithl@tcj4gu3ez3wh>
-References: <20260415-ultrarisc-pcie-v3-0-73f06e972616@ultrarisc.com>
- <20260415-ultrarisc-pcie-v3-3-73f06e972616@ultrarisc.com>
- <7n5b44ynbem2xve3twofaqunqlkw4aijatuuemujrfq5yd5mzq@5qnikt7ximd3>
- <177693928812.2917474.4251479012132866533.b4-reply@b4>
+	b=rBflTTAD1Nx18ZIKce0DB9rGA61RgIzbWsTnQaMaNQevsXWb4YJJhzTVK+mi1B9WL
+	 d2rQAEWHeYRvbN0Ht4CDh4jY2GpWlPqjntX33LzvDdGBDahRo8Y4EieF31A8JyVGut
+	 4w7a0aEAoP5zijGVD9Bbjnm6gchimq3SzV4phl5Q=
+Date: Thu, 23 Apr 2026 14:56:47 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Naman Jain <namjain@linux.microsoft.com>
+Cc: "K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Kelley <mhklinux@outlook.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, vdso@mailbox.org,
+	ssengar@linux.microsoft.com
+Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
+ mshv_vtl_return_call
+Message-ID: <aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+ <20260423124206.2410879-8-namjain@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <177693928812.2917474.4251479012132866533.b4-reply@b4>
+In-Reply-To: <20260423124206.2410879-8-namjain@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_060441_543434_4F5C8ED4 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20260423_065659_231526_5CF2CB5F 
+X-CRM114-Status: GOOD (  25.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,61 +84,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBcHIgMjMsIDIwMjYgYXQgMDY6MTQ6NDhQTSArMDgwMCwgSmlhIFdhbmcgd3JvdGU6
-CgpbLi4uXQoKPiA+ID4gKwlpbnQgcmV0Owo+ID4gPiArCj4gPiA+ICsJcGNpZSA9IGRldm1fa3ph
-bGxvYyhkZXYsIHNpemVvZigqcGNpZSksIEdGUF9LRVJORUwpOwo+ID4gPiArCWlmICghcGNpZSkK
-PiA+ID4gKwkJcmV0dXJuIC1FTk9NRU07Cj4gPiA+ICsKPiA+ID4gKwlwY2kgPSBkZXZtX2t6YWxs
-b2MoZGV2LCBzaXplb2YoKnBjaSksIEdGUF9LRVJORUwpOwo+ID4gPiArCWlmICghcGNpKQo+ID4g
-PiArCQlyZXR1cm4gLUVOT01FTTsKPiA+ID4gKwo+ID4gPiArCXBjaS0+ZGV2ID0gZGV2Owo+ID4g
-PiArCXBjaS0+b3BzID0gJmR3X3BjaWVfb3BzOwo+ID4gPiArCj4gPiA+ICsJLyogU2V0IGEgZGVm
-YXVsdCB2YWx1ZSBzdWl0YWJsZSBmb3IgYXQgbW9zdCAxNiBpbiBhbmQgMTYgb3V0IHdpbmRvd3Mg
-Ki8KPiA+ID4gKwlwY2ktPmF0dV9zaXplID0gU1pfOEs7Cj4gPiA+ICsJcGNpLT5tYXhfbGlua19z
-cGVlZCA9IDQ7Cj4gPiAKPiA+IEdldCB0aGlzIGZyb20gRFQgcGxlYXNlLi4uIFRoaXMgY2FuIGNo
-YW5nZSBiZXR3ZWVuIFNvQyByZXZpc2lvbnMuCj4gPgo+IAo+IER1cmluZyB0aGUgdjIgRFQgYmlu
-ZGluZyByZXZpZXcsIEtyenlzenRvZiBwb2ludGVkIG91dCB0aGF0IHNpbmNlIHRoZQo+IHByb3Bl
-cnRpZXMgYXJlIGZpeGVkIGZvciB0aGlzIGhhcmR3YXJlLCB0aGV5IGFyZSBkZWR1Y2libGUgZnJv
-bSB0aGUKPiBjb21wYXRpYmxlIHN0cmluZyBhbmQgc2hvdWxkIGJlIGRyb3BwZWQgZnJvbSB0aGUg
-RFQgYmluZGluZ3MuCj4gCj4gVGhlIHYyIGRpc2N1c3Npb24gaXMgaGVyZToKPiBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9hbGwvYzYwYTcxMmUtZWNmMy00OTI2LTk5NDctMGU1OTNjZGI5MjFkQGtl
-cm5lbC5vcmcvCj4gCj4gSSB0aGVuIG1vdmVkIHRoZW0gaW50byB0aGUgZHJpdmVyIGZvciB2My4g
-SWYgZnV0dXJlIFNvQyByZXZpc2lvbnMgaW50cm9kdWNlCj4gdmFyaWF0aW9ucywgSSdsbCB1cGRh
-dGUgdGhlIGRyaXZlciB0byBoYW5kbGUgdGhlbSBhY2NvcmRpbmdseS4KPiAKPiBEb2VzIHRoaXMg
-bWFrZSBzZW5zZT8KPiAKClRoZXJlIGFyZSB0d28gdXNlcyBvZiB0aGlzIHByb3BlcnR5OgoKMS4g
-VG8gcHJvdmlkZSBkZWZhdWx0IE1heCBMaW5rIFNwZWVkIG9mIHRoZSBSb290IFBvcnQocykgaWYg
-dGhlIGhhcmR3YXJlIGRlZmF1bHQKdmFsdWUgaXMgd3JvbmcuJwoKMi4gVG8gb3ZlcnJpZGUgdGhl
-IGhhcmR3YXJlIGRlZmF1bHQgdG8gd29ya2Fyb3VuZCB0aGUgaGFyZHdhcmUgaXNzdWVzIGxpa2UK
-YnJva2VuIFBDQiByb3V0aW5nIGV0Yy4uLgoKRm9yIHRoZSBmaXJzdCB1c2VjYXNlLCB5b3UgbmVl
-ZCB0byBjaGVjayBpZiB0aGlzIHZhbHVlIGRpZmZlcmVudCBmcm9tClBDSV9FWFBfTE5LQ0FQX1NM
-UyBmaWVsZCBvZiBMTktDQVAgcmVnaXN0ZXI/IElmIG5vdCwgeW91IGRvbid0IG5lZWQgdG8gc2V0
-IGl0CmluIHNvYy5kdHNpL2R0LWJpbmRpbmcgYW5kIHRoZSBEV0MgY29yZSB3aWxsIGV4dHJhY3Qg
-dGhpcyB2YWx1ZSBmcm9tIHRoZSBEQkkKcmVnaXN0ZXIuCgpGb3IgdGhlIHNlY29uZCBjYXNlLCB5
-b3UgZG9uJ3QgbmVlZCB0byBkZWZpbmUgaXQgaW4geW91ciBjb250cm9sbGVyIGR0LWJpbmRpbmcK
-d2l0aCBhIGRlZmF1bHQgdmFsdWUgYW5kIGFsc28gaW4geW91ciBzb2MuZHRzaS4gU2luY2UgdGhp
-cyBwcm9wZXJ0eSBpcyBkZWZpbmVkCmluIHRoZSBkdHNjaGVtYSBbMV0sIHlvdSBjYW4ganVzdCBp
-bmNsdWRlIHRoZSBwcm9wZXJ0eSBpbiBib2FyZCBEVFMgZmlsZSB0bwp3b3JrYXJvdW5kIGhhcmR3
-YXJlIGlzc3VlcyAoYm9hcmQgc3BlY2lmaWMpIGFuZCBkdGJzX2NoZWNrIHdpbGwgbm90IGNvbXBs
-YWluLgoKTk9URTogRm9yIGJvdGggY2FzZXMsIHlvdSBkb24ndCBuZWVkIGRyaXZlciBjaGFuZ2Vz
-LCBzaW5jZSBEV0MgY29yZSB3aWxsIGhhbmRsZQppdC4KCi0gTWFuaQoKWzFdIGh0dHBzOi8vZ2l0
-aHViLmNvbS9kZXZpY2V0cmVlLW9yZy9kdC1zY2hlbWEvYmxvYi9tYWluL2R0c2NoZW1hL3NjaGVt
-YXMvcGNpL3BjaS1idXMtY29tbW9uLnlhbWwjTDExNwoKPiA+ID4gKwlwY2llLT5wY2kgPSBwY2k7
-Cj4gPiA+ICsKPiA+ID4gKwlwcCA9ICZwY2ktPnBwOwo+ID4gPiArCj4gPiA+ICsJcGxhdGZvcm1f
-c2V0X2RydmRhdGEocGRldiwgcGNpZSk7Cj4gPiA+ICsKPiA+ID4gKwlwcC0+aXJxID0gcGxhdGZv
-cm1fZ2V0X2lycShwZGV2LCAxKTsKPiA+ID4gKwlpZiAocHAtPmlycSA8IDApCj4gPiA+ICsJCXJl
-dHVybiBwcC0+aXJxOwo+ID4gCj4gPiBXaG8gaXMgcmVxdWVzdGluZyB0aGlzIElSUT8KPiA+IAo+
-IAo+IE5vdCBuZWVkZWQuIFdpbGwgcmVtb3ZlIGl0IGluIHY0Lgo+IAo+ID4gPiArCj4gPiA+ICsJ
-cHAtPm51bV92ZWN0b3JzID0gTUFYX01TSV9JUlFTOwo+ID4gCj4gPiBBcmUgeW91IHN1cmUgeW91
-ciBjb250cm9sbGVyIHN1cHBvcnRzIDI1NiBNU0lzIHdpdGggb25lIFNQSSBpbnRlcnJ1cHQ/IEl0
-IGlzCj4gPiBwb3NzaWJsZSwgYnV0IHdhbnQgdG8gbWFrZSBzdXJlIGl0IGlzIHRoZSBjYXNlLgo+
-ID4gCj4gCj4gWWVzLiBUaGUgY29udHJvbGxlciBpbXBsZW1lbnRzIDggTVNJIGNvbnRyb2wgYmxv
-Y2tzIChpID0gMC4uNyksIGVhY2gKPiBwcm92aWRpbmcgMzIgdmVjdG9ycywgc28gMjU2IE1TSXMg
-YXJlIHN1cHBvcnRlZC4gVGhpcyBpcyBkb2N1bWVudGVkIGluIHRoZQo+IGNvbnRyb2xsZXIgSVAg
-c3BlY2lmaWNhdGlvbi4KPgoKT2ssIHRoYW5rcyBmb3IgY29uZmlybWluZy4KCi0gTWFuaQoKLS0g
-CuCuruCuo+Cuv+CuteCuo+CvjeCuo+CuqeCvjSDgrprgrqTgrr7grprgrr/grrXgrq7gr40KCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Apr 23, 2026 at 12:41:57PM +0000, Naman Jain wrote:
+> Add the arm64 variant of mshv_vtl_return_call() to support the MSHV_VTL
+> driver on arm64. This function enables the transition between Virtual
+> Trust Levels (VTLs) in MSHV_VTL when the kernel acts as a paravisor.
+> 
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+> Reviewed-by: Roman Kisel <vdso@mailbox.org>
+> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+> ---
+>  arch/arm64/hyperv/Makefile        |   1 +
+>  arch/arm64/hyperv/hv_vtl.c        | 158 ++++++++++++++++++++++++++++++
+>  arch/arm64/include/asm/mshyperv.h |  13 +++
+>  arch/x86/include/asm/mshyperv.h   |   2 -
+>  drivers/hv/mshv_vtl.h             |   3 +
+>  include/asm-generic/mshyperv.h    |   2 +
+>  6 files changed, 177 insertions(+), 2 deletions(-)
+>  create mode 100644 arch/arm64/hyperv/hv_vtl.c
+> 
+> diff --git a/arch/arm64/hyperv/Makefile b/arch/arm64/hyperv/Makefile
+> index 87c31c001da9..9701a837a6e1 100644
+> --- a/arch/arm64/hyperv/Makefile
+> +++ b/arch/arm64/hyperv/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  obj-y		:= hv_core.o mshyperv.o
+> +obj-$(CONFIG_HYPERV_VTL_MODE)	+= hv_vtl.o
+> diff --git a/arch/arm64/hyperv/hv_vtl.c b/arch/arm64/hyperv/hv_vtl.c
+> new file mode 100644
+> index 000000000000..59cbeb74e7b9
+> --- /dev/null
+> +++ b/arch/arm64/hyperv/hv_vtl.c
+> @@ -0,0 +1,158 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2026, Microsoft, Inc.
+> + *
+> + * Authors:
+> + *     Roman Kisel <romank@linux.microsoft.com>
+> + *     Naman Jain <namjain@linux.microsoft.com>
+> + */
+> +
+> +#include <asm/mshyperv.h>
+> +#include <asm/neon.h>
+> +#include <linux/export.h>
+> +
+> +void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0)
+> +{
+> +	struct user_fpsimd_state fpsimd_state;
+> +	u64 base_ptr = (u64)vtl0->x;
+> +
+> +	/*
+> +	 * Obtain the CPU FPSIMD registers for VTL context switch.
+> +	 * This saves the current task's FP/NEON state and allows us to
+> +	 * safely load VTL0's FP/NEON context for the hypercall.
+> +	 */
+> +	kernel_neon_begin(&fpsimd_state);
+> +
+> +	/*
+> +	 * VTL switch for ARM64 platform - managing VTL0's CPU context.
+> +	 * We explicitly use the stack to save the base pointer, and use x16
+> +	 * as our working register for accessing the context structure.
+> +	 *
+> +	 * Register Handling:
+> +	 * - X0-X17: Saved/restored (general-purpose, shared for VTL communication)
+> +	 * - X18: NOT touched - hypervisor-managed per-VTL (platform register)
+> +	 * - X19-X30: Saved/restored (part of VTL0's execution context)
+> +	 * - Q0-Q31: Saved/restored (128-bit NEON/floating-point registers, shared)
+> +	 * - SP: Not in structure, hypervisor-managed per-VTL
+> +	 *
+> +	 * X29 (FP) and X30 (LR) are in the structure and must be saved/restored
+> +	 * as part of VTL0's complete execution state.
+> +	 */
+> +	asm __volatile__ (
+> +		/* Save base pointer to stack explicitly, then load into x16 */
+> +		"str %0, [sp, #-16]!\n\t"     /* Push base pointer onto stack */
+> +		"mov x16, %0\n\t"             /* Load base pointer into x16 */
+> +		/* Volatile registers (Windows ARM64 ABI: x0-x17) */
+> +		"ldp x0, x1, [x16]\n\t"
+> +		"ldp x2, x3, [x16, #(2*8)]\n\t"
+> +		"ldp x4, x5, [x16, #(4*8)]\n\t"
+> +		"ldp x6, x7, [x16, #(6*8)]\n\t"
+> +		"ldp x8, x9, [x16, #(8*8)]\n\t"
+> +		"ldp x10, x11, [x16, #(10*8)]\n\t"
+> +		"ldp x12, x13, [x16, #(12*8)]\n\t"
+> +		"ldp x14, x15, [x16, #(14*8)]\n\t"
+> +		/* x16 will be loaded last, after saving base pointer */
+> +		"ldr x17, [x16, #(17*8)]\n\t"
+> +		/* x18 is hypervisor-managed per-VTL - DO NOT LOAD */
+> +
+> +		/* General-purpose registers: x19-x30 */
+> +		"ldp x19, x20, [x16, #(19*8)]\n\t"
+> +		"ldp x21, x22, [x16, #(21*8)]\n\t"
+> +		"ldp x23, x24, [x16, #(23*8)]\n\t"
+> +		"ldp x25, x26, [x16, #(25*8)]\n\t"
+> +		"ldp x27, x28, [x16, #(27*8)]\n\t"
+> +
+> +		/* Frame pointer and link register */
+> +		"ldp x29, x30, [x16, #(29*8)]\n\t"
+> +
+> +		/* Shared NEON/FP registers: Q0-Q31 (128-bit) */
+> +		"ldp q0, q1, [x16, #(32*8)]\n\t"
+> +		"ldp q2, q3, [x16, #(32*8 + 2*16)]\n\t"
+> +		"ldp q4, q5, [x16, #(32*8 + 4*16)]\n\t"
+> +		"ldp q6, q7, [x16, #(32*8 + 6*16)]\n\t"
+> +		"ldp q8, q9, [x16, #(32*8 + 8*16)]\n\t"
+> +		"ldp q10, q11, [x16, #(32*8 + 10*16)]\n\t"
+> +		"ldp q12, q13, [x16, #(32*8 + 12*16)]\n\t"
+> +		"ldp q14, q15, [x16, #(32*8 + 14*16)]\n\t"
+> +		"ldp q16, q17, [x16, #(32*8 + 16*16)]\n\t"
+> +		"ldp q18, q19, [x16, #(32*8 + 18*16)]\n\t"
+> +		"ldp q20, q21, [x16, #(32*8 + 20*16)]\n\t"
+> +		"ldp q22, q23, [x16, #(32*8 + 22*16)]\n\t"
+> +		"ldp q24, q25, [x16, #(32*8 + 24*16)]\n\t"
+> +		"ldp q26, q27, [x16, #(32*8 + 26*16)]\n\t"
+> +		"ldp q28, q29, [x16, #(32*8 + 28*16)]\n\t"
+> +		"ldp q30, q31, [x16, #(32*8 + 30*16)]\n\t"
+> +
+> +		/* Now load x16 itself */
+> +		"ldr x16, [x16, #(16*8)]\n\t"
+> +
+> +		/* Return to the lower VTL */
+> +		"hvc #3\n\t"
+
+NAK to this.
+
+* This is a non-SMCCC hypercall, which we have NAK'd in general in the
+  past for various reasons that I am not going to rehash here.
+
+* It's not clear how this is going to be extended with necessary
+  architecture state in future (e.g. SVE, SME). This is not
+  future-proof, and I don't believe this is maintainable.
+
+* This breaks general requirements for reliable stacktracing by
+  clobbering state (e.g. x29) that we depend upon being valid AT ALL
+  TIMES outside of entry code.
+
+* IMO, if this needs to be saved/restored, that should happen in
+  whatever you are calling.
+
+Mark.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
