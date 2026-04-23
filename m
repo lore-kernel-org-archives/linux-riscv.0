@@ -4,95 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B02F589DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Apr 2026 14:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143B5FDEE42
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Apr 2026 18:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gDeQLuN3ELDSzj3u3pDxeXYQpm4aEeMFnNk0Rivw+ec=; b=ewVL8iTNVWVK/i
-	9MTxWkCLOLmxG3rb+JXWtP4hcla5z6J8jPlvkTw5gR4/P1Fw5gr9umfMEsjzvLXj9XhrropTxETT7
-	K1d+8Z6Ty0UTM4JO4hDdLQyFJ+jwEyvA7O41LXD++F8ZartO2cUB/a/0cJ+OUcdaC5cpigsUkNmOn
-	eWHWrzjV8UVfJTqYhmEzUgi2RDBOPALFfg8w2WM219MCHkt1o1K+t+d8Aex9OERz0zA+VvmdRWIwy
-	ZHu+cunjwOk5CaBLXIdcLNabyqr6Zbs04MXgjQZG6u7oFBLPtPoblDPww+HoCNP9nTLWPfum1GOCY
-	2objkQDV9M2GM7JSVd3Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=d3eUpema8eDnE9Utqoqw3FdjFp92uTi8pjV6FJj1ttQ=; b=frVNma4dEAHRF4Lw7s/9wrazpi
+	LGhtpy+hgv8Vs9mhWZcXZIUmye4gzrHXsd+YMXBZ88QX3TAQvglMrLyoLlAcGofQQ06GN5RNQtn42
+	5wKXr6hxdclPrXDTlA9MBawxo6011P9Y4Zwl0GeXnH7AY9n33BLyHf1DyhBS+DdhM2442F70irquL
+	lcD2Ro8mUGvVQdTXxy+jq6T9A8brmppd3UhKnvoIsMFHr7pMai8FbNnnx4wvaYAgX/rU1CE/8LbYI
+	SKE+Ulm9pX/eYLhnjn0uzTHQHQCYzxjUGgoDkawuP8RxZN24ktf3AtMuVjZ/fraFiBwRyY5WFYZ5G
+	biKsNLSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFubf-0000000BmeR-3ipd;
-	Thu, 23 Apr 2026 14:00:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wFysy-0000000C7fW-0KXW;
+	Thu, 23 Apr 2026 18:34:48 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wFube-0000000BmdW-2AqW;
-	Thu, 23 Apr 2026 14:00:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F11CF6014C;
-	Thu, 23 Apr 2026 14:00:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C102C2BCB3;
-	Thu, 23 Apr 2026 14:00:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776952837;
-	bh=mVrK0zXCEdJ6a40kh14ulfHCdH3uQpXGB2DGyceVQ9M=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Na8CI7bwOFFciWF152SK6VpvgW/0uJ9C/ab85EokcYjuHus/X7p5kdg3sgcvfaoT8
-	 qHtp6cimBCaiagvbYXjw2BModFBlKGaR7PB9ARWc01gap3WEdVSBIm+os8k2xnkOPu
-	 xlBzNX8FRqwIEDKREsGsUViWZfjeYfjGIMrkbuvIEutscXEFDBVc4YlhdVFs9SfT8B
-	 WrL3lV26hSmkoRSlYMtK1MQpod6CFooqGC4+WUs8b+cH8X9CS2SdUqsOGlbKAd/AAs
-	 SM789kC1D0hTDtVBhRTd6CAMJHrAPGcFthq786V4/J2nP4PQLEQE+epCfoxx3mKPcr
-	 Vco1wbe+h2pvQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wFuba-0000000E4rW-3VD2;
-	Thu, 23 Apr 2026 14:00:34 +0000
-Date: Thu, 23 Apr 2026 15:00:34 +0100
-Message-ID: <864il122v1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Naman Jain <namjain@linux.microsoft.com>
-Cc: "K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Kelley <mhklinux@outlook.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	vdso@mailbox.org,
-	ssengar@linux.microsoft.com
-Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for mshv_vtl_return_call
-In-Reply-To: <20260423124206.2410879-8-namjain@linux.microsoft.com>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
-	<20260423124206.2410879-8-namjain@linux.microsoft.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: namjain@linux.microsoft.com, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, arnd@arndb.de, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, mhklinux@outlook.com, timothy.hayes@arm.com, lpieralisi@kernel.org, sascha.bischoff@arm.com, mrigendra.chaubey@gmail.com, linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org, vdso@mailbox.org, ssengar@linux.microsoft.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wFysu-0000000C7eS-2k8s
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Apr 2026 18:34:46 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c709551ec08so7716613a12.3
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Apr 2026 11:34:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1776969283; x=1777574083; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NxrUD6qTbjo1W4xW1U0cuK75GKmXClrYS1Ro/7xiFY0=;
+        b=M5CbFyisQtaXnqjjhOvDiLLekEt1SBdqIplGDMj/4mvYQecIUMJmQS7dSSrEUgz5C5
+         Jh4Bp2XKntTIxrtbDbjLN3FebLKHn3SAKx/Dnk76+B6neAfEPNWKyra02XwCm0zIRgqb
+         HeS0szzZr+ia8ZM4QesmMMKqQQq7K+FNLjDnbiilCcmu8LyvzkzbG4LeMIyNeIZiCZja
+         HXsRc0BP20vXRdqY56VAsG+0lRpwK+FA5NhbJicKjahqVjZgdLS5ne5RfpbWd5QbLFX1
+         Kd12gUMUxAlp5h8YiyUm3DLV3fmYVEKoZOmXnHCOps3LnTBkajDh9tI7NvDu3xoFghoM
+         c5ZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776969283; x=1777574083;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NxrUD6qTbjo1W4xW1U0cuK75GKmXClrYS1Ro/7xiFY0=;
+        b=Oc+5z5ahk03+gtflyiUukSaEGnI9tie0EW4o8kqjMWJxNIih9YOwwpX59mVMi2MNcg
+         13cPcskNiitcTigFvuy13sGoCKtBZ4nSoFUOjl1ZLSIj40bhmOEZKIVGM22mfBrCYCQx
+         3v2u7BQ798jimuuST3Ey30Kp8+56ce3PsDc2zpwQOg/KzNXXiLn8/GpVQ5ot+cbvFJLj
+         n/pmfgpPyaYGk8gWv26TKD0ju99gJCMqbz4myBhKOi3D8s+lzVU1C8vFjq/qE/UetTLG
+         NRR9MF2CB5v0TfA1Yev1BWuP2Y5TktuxbhnD/wEWT71HhsKu+goMSb2pOFvmjO+sFCSK
+         C3yw==
+X-Forwarded-Encrypted: i=1; AFNElJ/rSLOlkAzIps+fv1XQTOlLRpLEAO3alBfjONIx0obbw4Cq8C8bAdOWQZ7YyYn/kcs/qxF18UzA4CZ0Sw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywp201Nv0rl+9dsccDYr/Vymi+bPvIyYapQcpV61nVzrdG8WTih
+	hX1dDZBygQ2SyHyYhfoVYBllzGnmCJYFSlVK1K9bUvqBLUQa7MnCn7xXegH/+Vhbf1sk8W57rYh
+	G1+nFJg==
+X-Received: from pfbif1.prod.google.com ([2002:a05:6a00:8b01:b0:82f:a396:2229])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:3d16:b0:82a:79b8:2049
+ with SMTP id d2e1a72fcca58-82f8c8c2a97mr30979563b3a.25.1776969282975; Thu, 23
+ Apr 2026 11:34:42 -0700 (PDT)
+Date: Thu, 23 Apr 2026 11:34:39 -0700
+In-Reply-To: <20260420212004.3938325-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20260420212004.3938325-1-seanjc@google.com>
+X-Mailer: git-send-email 2.54.0.rc2.544.gc7ae2d5bb8-goog
+Message-ID: <177696924512.540717.6991894985950292004.b4-ty@google.com>
+Subject: Re: [PATCH v3 00/19] KVM: selftests: Use kernel-style integer and
+ g[vp]a_t types
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260423_113444_693751_89F57CD1 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,144 +99,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Apr 2026 13:41:57 +0100,
-Naman Jain <namjain@linux.microsoft.com> wrote:
+On Mon, 20 Apr 2026 14:19:45 -0700, Sean Christopherson wrote:
+> David's series to renames types across all KVM selftests.  I'm going to apply
+> this ~now in order to get it into -next ASAP.  Unless someone screams in the
+> next few days, I'm going to send a pull request on Thursday, with the goal of
+> getting this into -rc1 so that all architectures (and developers) can use the
+> new types straightaway.
 > 
-> Add the arm64 variant of mshv_vtl_return_call() to support the MSHV_VTL
-> driver on arm64. This function enables the transition between Virtual
-> Trust Levels (VTLs) in MSHV_VTL when the kernel acts as a paravisor.
+> Fully tested on x86, and I verified a handful of tests generate identical
+> code.  I tried to do the same for other architectures, but gcc at least doesn't
+> seem to provide reproducible builds for other architectures.  E.g. on arm64 and
+> LoongArch, a completely benign vaddr_t => gva_t rename would sometimes result
+> in different offsets in the generated code.  But based on manual diffs from
+> objdump, I'm fairly confident in the result.
 > 
-> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-> Reviewed-by: Roman Kisel <vdso@mailbox.org>
-> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
-> ---
->  arch/arm64/hyperv/Makefile        |   1 +
->  arch/arm64/hyperv/hv_vtl.c        | 158 ++++++++++++++++++++++++++++++
->  arch/arm64/include/asm/mshyperv.h |  13 +++
->  arch/x86/include/asm/mshyperv.h   |   2 -
->  drivers/hv/mshv_vtl.h             |   3 +
->  include/asm-generic/mshyperv.h    |   2 +
->  6 files changed, 177 insertions(+), 2 deletions(-)
->  create mode 100644 arch/arm64/hyperv/hv_vtl.c
-> 
-> diff --git a/arch/arm64/hyperv/Makefile b/arch/arm64/hyperv/Makefile
-> index 87c31c001da9..9701a837a6e1 100644
-> --- a/arch/arm64/hyperv/Makefile
-> +++ b/arch/arm64/hyperv/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-y		:= hv_core.o mshyperv.o
-> +obj-$(CONFIG_HYPERV_VTL_MODE)	+= hv_vtl.o
-> diff --git a/arch/arm64/hyperv/hv_vtl.c b/arch/arm64/hyperv/hv_vtl.c
-> new file mode 100644
-> index 000000000000..59cbeb74e7b9
-> --- /dev/null
-> +++ b/arch/arm64/hyperv/hv_vtl.c
-> @@ -0,0 +1,158 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2026, Microsoft, Inc.
-> + *
-> + * Authors:
-> + *     Roman Kisel <romank@linux.microsoft.com>
-> + *     Naman Jain <namjain@linux.microsoft.com>
-> + */
-> +
-> +#include <asm/mshyperv.h>
-> +#include <asm/neon.h>
-> +#include <linux/export.h>
-> +
-> +void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0)
-> +{
-> +	struct user_fpsimd_state fpsimd_state;
-> +	u64 base_ptr = (u64)vtl0->x;
-> +
-> +	/*
-> +	 * Obtain the CPU FPSIMD registers for VTL context switch.
-> +	 * This saves the current task's FP/NEON state and allows us to
-> +	 * safely load VTL0's FP/NEON context for the hypercall.
-> +	 */
-> +	kernel_neon_begin(&fpsimd_state);
-> +
-> +	/*
-> +	 * VTL switch for ARM64 platform - managing VTL0's CPU context.
-> +	 * We explicitly use the stack to save the base pointer, and use x16
-> +	 * as our working register for accessing the context structure.
-> +	 *
-> +	 * Register Handling:
-> +	 * - X0-X17: Saved/restored (general-purpose, shared for VTL communication)
-> +	 * - X18: NOT touched - hypervisor-managed per-VTL (platform register)
-> +	 * - X19-X30: Saved/restored (part of VTL0's execution context)
-> +	 * - Q0-Q31: Saved/restored (128-bit NEON/floating-point registers, shared)
-> +	 * - SP: Not in structure, hypervisor-managed per-VTL
-> +	 *
-> +	 * X29 (FP) and X30 (LR) are in the structure and must be saved/restored
-> +	 * as part of VTL0's complete execution state.
-> +	 */
-> +	asm __volatile__ (
-> +		/* Save base pointer to stack explicitly, then load into x16 */
-> +		"str %0, [sp, #-16]!\n\t"     /* Push base pointer onto stack */
-> +		"mov x16, %0\n\t"             /* Load base pointer into x16 */
-> +		/* Volatile registers (Windows ARM64 ABI: x0-x17) */
-> +		"ldp x0, x1, [x16]\n\t"
-> +		"ldp x2, x3, [x16, #(2*8)]\n\t"
-> +		"ldp x4, x5, [x16, #(4*8)]\n\t"
-> +		"ldp x6, x7, [x16, #(6*8)]\n\t"
-> +		"ldp x8, x9, [x16, #(8*8)]\n\t"
-> +		"ldp x10, x11, [x16, #(10*8)]\n\t"
-> +		"ldp x12, x13, [x16, #(12*8)]\n\t"
-> +		"ldp x14, x15, [x16, #(14*8)]\n\t"
-> +		/* x16 will be loaded last, after saving base pointer */
-> +		"ldr x17, [x16, #(17*8)]\n\t"
-> +		/* x18 is hypervisor-managed per-VTL - DO NOT LOAD */
+> [...]
 
-Wut? Does it mean the kernel is not free to use x18?
+Applied to kvm-x86 selftests_kernel_types (a few days ago, spaced on sending
+"thanks").
 
-> +		/* General-purpose registers: x19-x30 */
-> +		"ldp x19, x20, [x16, #(19*8)]\n\t"
-> +		"ldp x21, x22, [x16, #(21*8)]\n\t"
-> +		"ldp x23, x24, [x16, #(23*8)]\n\t"
-> +		"ldp x25, x26, [x16, #(25*8)]\n\t"
-> +		"ldp x27, x28, [x16, #(27*8)]\n\t"
-> +
-> +		/* Frame pointer and link register */
-> +		"ldp x29, x30, [x16, #(29*8)]\n\t"
-> +
-> +		/* Shared NEON/FP registers: Q0-Q31 (128-bit) */
-> +		"ldp q0, q1, [x16, #(32*8)]\n\t"
-> +		"ldp q2, q3, [x16, #(32*8 + 2*16)]\n\t"
-> +		"ldp q4, q5, [x16, #(32*8 + 4*16)]\n\t"
-> +		"ldp q6, q7, [x16, #(32*8 + 6*16)]\n\t"
-> +		"ldp q8, q9, [x16, #(32*8 + 8*16)]\n\t"
-> +		"ldp q10, q11, [x16, #(32*8 + 10*16)]\n\t"
-> +		"ldp q12, q13, [x16, #(32*8 + 12*16)]\n\t"
-> +		"ldp q14, q15, [x16, #(32*8 + 14*16)]\n\t"
-> +		"ldp q16, q17, [x16, #(32*8 + 16*16)]\n\t"
-> +		"ldp q18, q19, [x16, #(32*8 + 18*16)]\n\t"
-> +		"ldp q20, q21, [x16, #(32*8 + 20*16)]\n\t"
-> +		"ldp q22, q23, [x16, #(32*8 + 22*16)]\n\t"
-> +		"ldp q24, q25, [x16, #(32*8 + 24*16)]\n\t"
-> +		"ldp q26, q27, [x16, #(32*8 + 26*16)]\n\t"
-> +		"ldp q28, q29, [x16, #(32*8 + 28*16)]\n\t"
-> +		"ldp q30, q31, [x16, #(32*8 + 30*16)]\n\t"
-> +
-> +		/* Now load x16 itself */
-> +		"ldr x16, [x16, #(16*8)]\n\t"
-> +
-> +		/* Return to the lower VTL */
-> +		"hvc #3\n\t"
+[01/19] KVM: selftests: Use gva_t instead of vm_vaddr_t
+        https://github.com/kvm-x86/linux/commit/5567fc9dcd7e
+[02/19] KVM: selftests: Use gpa_t instead of vm_paddr_t
+        https://github.com/kvm-x86/linux/commit/97dcda3fdce5
+[03/19] KVM: selftests: Use gpa_t for GPAs in Hyper-V selftests
+        https://github.com/kvm-x86/linux/commit/6d3494255ac0
+[04/19] KVM: selftests: Use u64 instead of uint64_t
+        https://github.com/kvm-x86/linux/commit/26f8453288d4
+[05/19] KVM: selftests: Use s64 instead of int64_t
+        https://github.com/kvm-x86/linux/commit/286e8903aed1
+[06/19] KVM: selftests: Use u32 instead of uint32_t
+        https://github.com/kvm-x86/linux/commit/0c3a8774692a
+[07/19] KVM: selftests: Use s32 instead of int32_t
+        https://github.com/kvm-x86/linux/commit/7b609187684d
+[08/19] KVM: selftests: Use u16 instead of uint16_t
+        https://github.com/kvm-x86/linux/commit/19d091492004
+[09/19] KVM: selftests: Use s16 instead of int16_t
+        https://github.com/kvm-x86/linux/commit/2540ebd60349
+[10/19] KVM: selftests: Use u8 instead of uint8_t
+        https://github.com/kvm-x86/linux/commit/6ec982b5a2c7
+[11/19] KVM: selftests: Drop "vaddr_" from APIs that allocate memory for a given VM
+        https://github.com/kvm-x86/linux/commit/85819fa0e3b9
+[12/19] KVM: selftests: Rename vm_vaddr_unused_gap() => vm_unused_gva_gap()
+        https://github.com/kvm-x86/linux/commit/48321f609a73
+[13/19] KVM: selftests: Rename vm_vaddr_populate_bitmap() => vm_populate_gva_bitmap()
+        https://github.com/kvm-x86/linux/commit/3fd995905b71
+[14/19] KVM: selftests: Rename translate_to_host_paddr() => translate_hva_to_hpa()
+        https://github.com/kvm-x86/linux/commit/4babae4ca10a
+[15/19] KVM: selftests: Clarify that arm64's inject_uer() takes a host PA, not a guest PA
+        https://github.com/kvm-x86/linux/commit/a662c4e03853
+[16/19] KVM: selftests: Replace "vaddr" with "gva" throughout
+        https://github.com/kvm-x86/linux/commit/014dfb7b9bf3
+[17/19] KVM: selftests: Replace "u64 gpa" with "gpa_t" throughout
+        https://github.com/kvm-x86/linux/commit/df079910f981
+[18/19] KVM: selftests: Replace "u64 nested_paddr" with "gpa_t l2_gpa"
+        https://github.com/kvm-x86/linux/commit/abc374191dc2
+[19/19] KVM: selftests: Replace "paddr" with "gpa" throughout
+        https://github.com/kvm-x86/linux/commit/dfd2a8b07c6c
 
-No. Absolutely not. If you need to do context switching, do it in the
-hypervisor. Entirely in the hypervisor. You don't even handle SVE, let
-alone SME. How is that going to work?
-
-And please use the SMCCC. Only that. Which mandates that the HVC
-immediate is 0, 0 or zero.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+--
+https://github.com/kvm-x86/linux/tree/next
 
 _______________________________________________
 linux-riscv mailing list
