@@ -4,62 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABC3FE5200
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 10:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0937BFE5202
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 11:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqJnsqTpbjEx13RYdssuEtuNQMn03NktxQtY5DAszGM=; b=x10yyXJrAKy2yJKM+0uAktEKh5
-	FeuiW7Tqi5QPllWop4nT1NzaFqYozjghX6JVLY2UTRlupH9394hyekWhNuCUcmBMw+zVnlJdbaR4/
-	UO6k5PAdOvIuxTuCJ5efgG2/R7QkXabM2l4Oo/X/cqVSdHcPne2rF9b045mMLcS3JopSUI+dEFF5J
-	XDnQrz8JSarzOYslB7l8cst7v1qga8O48Ydtxi+wmTjfEG4IB6tHfBoAe2cVMkbfGSOD0M3VUFPBj
-	+FKO+CJQrFyRVO2qFneBnB0l2ZsWrgDdSBnfvnOse7UtoWDBsL+EyiAOfsg2NQWdfanpA+n5G8W4W
-	6dkjz6pQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xmDCHjitE6QL+/QLNKdKJOQD5UqoNlozdp8oJrFnKTo=; b=tR3/wh/CCLOtQq
+	nQlvnuWNlFCvYmOqS0kaHMLESJFeLAn02SQrKGp+enKbw1eYKE4HqVd62xmrP5k3XMYYIk0EaHEKw
+	REf4miptfH6KuWBUHkqmfTMRv1TRwkrHEtspSIgegdpZlVVIJmYR0rbw+ShBSSyaE1txpfFujdjnR
+	AUs14YxF9Ku5ql8zcZP+jKB9mGl4nSEe360XS3OnnSg6lejhgeFyLEnconShEEAKoHDQ94y5+juzl
+	AH2LPYWAOnvshVOkFEBCCCV5Hk70KamZL7Knb33j9ywUGFxmx1Y5TTP3m3/fPLuJmAi5FY5o9fV65
+	4+9vjhMzvT+uhTGkjv/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGDXs-0000000D007-3jc3;
-	Fri, 24 Apr 2026 10:14:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wGEU9-0000000D5g9-08oY;
+	Fri, 24 Apr 2026 11:14:13 +0000
+Received: from mail-sh0chn02on20719.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::719] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGDXq-0000000Czzd-2lwe;
-	Fri, 24 Apr 2026 10:13:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A825600AE;
-	Fri, 24 Apr 2026 10:13:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AFE9C19425;
-	Fri, 24 Apr 2026 10:13:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777025636;
-	bh=t177GNxpYQx3XFWvysW1fq+ESjiafp+KZ6iHk2sP/ig=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=geGxdJvA75Bs5geXi6ICsODk213tDp+XcM60ceWfPa9pAtQylvHYnR7byDMcwpc8g
-	 moFP4rRQ+EBNAr8xjLH+ITLCgWngWZJQa8F+y7XiIGxjnGzIh28EjhQAcRsVdgQeQu
-	 r6djFhH8ksjUJzEglfG1ZCwAEiPtfwxH2WqCLIgakpV+gj/esKAQ5j90c3c5TvZiV9
-	 Ct2FXphWI2laTQvbhaXSHPrnJWM6az8v7VHWDyhJ2Nujki5/11Q6VsqLH236IO7i94
-	 g2GCwQK8ayjM6VbMdiaeA+Yvjuh9yN1MpO9p1gvIwNxoTV1gYBT0jq2wdR31VxvS6N
-	 vWe67+b/45dUw==
-Date: Fri, 24 Apr 2026 12:13:54 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Cc: linux-kernel@vger.kernel.org, 
-	Brandon Cheo Fusi <fusibrandon13@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Lukas Schmid <lukas.schmid@netcube.li>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v13 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-Message-ID: <aes2BuCaAUgelKGy@monoceros>
-References: <20260221183609.95403-1-privatesub2@gmail.com>
- <20260221183609.95403-3-privatesub2@gmail.com>
+	id 1wGEU5-0000000D5e5-0tZM
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Apr 2026 11:14:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=g3db6La2ItIJ1MgQ+FPbKssikl6ZGbbGf4V2aFK1Xdn8MMqB0smy1eYOWO9YZYeNp/9W4uvQBmTJ+ixGbMwQhhCyEJhOBVowqqbN0t1fCqfkLCQMFzDgVBIAshq9q8yKLDXS8NxTkrb+2BpVH+5irNB3Ibqs/OBuvKvTcPU7sEqZqv6GtGokc/2FhNzQixkQkwv3MLUk9/6MzON5FS9Ai9vXzBX1ddG/4tfFtwiCkZycTYRn/3z1uq0s8if2kQTYpB7kt4aoMt/P7ndbNqkR/aTmC0KNq6/44OBS4boy3eT7sB1Dhd3TFyTLYtYAhjVWwLBv1T8t/RwSQZqa6hQ2rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8rgDvSWHaBWHuEfR2CQgVfct26SMO+I+6ldNSayEs+k=;
+ b=ZZeLbesc37GJQw64FlVGfavU9YMGYdmFZzXjMMK5UaBvRZnK3+sI21RS8Hb5JRbN+oJLwVwmGxt+l6IPMwElr5PTqqTzoimjDSL9+OvB8HALZ+WT9fAinRsAuJgN1C2FStF1NV0bh4kbm1lpQMcZ0YM9hHmWzEaHdsbbh2BktD35OADfizDt6utUc0idMWmv7/p1hLwk/tBVUOFn5msvG8kIdMmu/fL6lDMxNBEWDRt37LF+8vke9pZ0B2i65Wgev1YeQ/y+oB7KZORbBaCds+0s/ZOWn/ZVI/BBq8sIkJ4GWazdbY7iLQw6ZPNnoJrfcsWmaeHN042xHZJZUlR6XQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1299.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:15::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Fri, 24 Apr
+ 2026 11:13:38 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9846.021; Fri, 24 Apr 2026 11:13:38 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: [PATCH v1 00/20] Add basic pinctrl drivers for JHB100 SoC
+Date: Fri, 24 Apr 2026 04:13:10 -0700
+Message-Id: <20260424111330.702272-1-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: SHXPR01CA0025.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1b::34) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6)
 MIME-Version: 1.0
-In-Reply-To: <20260221183609.95403-3-privatesub2@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1299:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6f1f7d0-40ac-404f-318d-08dea1f28896
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|921020|38350700014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 3l/UD0ZvAyKuddGVN7qOOPh/R5ZX/VClTNoB1gqan/09tXR2eU6xEf1DAvaE08fD09NE+LWvTdK7clPf66ElY8K8VlThtVljQvb/D9c7pE37g0/pWdW3UZ6KUR7p7huOPyqtYIUt5z4XhXGkNzReAKGEYqBNrh70R7VdGwixApb1gLad+UjOfVSBfhi09MEGA3tRGs9LYFy0CjKAUKT4jv3QLFu5eDF5bxDWeZwdWT5ovhas/SogmHD13vHYBzAo4spWdI54+MV2KBEoLhbSrfPxYRjMD8liSogHrKvMDVYq8aAQZnq7HugiDaFOrmSG6eN2HecuPI+eVN98yr+15U6jvPMpZrqTFruo4/mZOEdoLJAP0N9sbdyb4MD4q22En1mnboFDeF8A/4Z7D1iPUJ9CiHolDbYKw6NKvhSR++OxS6NLEDgQ4bNAs5PtzNqEtSKEDc0hyWqZg1iOepPRtJocXpsJvPSmFZvTOmlV2PCrK6Zid1hpsw3dpX7Kx90zDvL5s4wpzrOoU/2y9xEEX2XaGenUYnqrepdpd4Db8L/DDFCHgdCP3GjK8w45UnEn6ti/oDN3lyxcHVal/6XSxz3c3vJZBW5jkMY9dYPmUlQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(921020)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cTPNQqtUJrN8mp97RN07APhEJCxyNpgw0nlNnvpclW+mXwIOdGCPSUSEpf07?=
+ =?us-ascii?Q?FKIhuVWZNY8cmShEaxaRW0Zp4dgOTWUCpDkCXZJTfKiNlF9ry8mvo8nQxMSt?=
+ =?us-ascii?Q?s6jq0D3wnBapz/pYfsPA160Yttcw2tyjQFCmTzqvCAGpXKaCHVeFeFv3MDff?=
+ =?us-ascii?Q?HuX62uZ2PAmIFZHScfPL7wr7MPIdOdrJ9nqb5ucpBs1c973EgmSHS28zmxSS?=
+ =?us-ascii?Q?K0Ef+KPKzxEd5r+GCkyLZnT0yzDOo6KkPm3el/tBLa4SN4+H0WooLTo4L66/?=
+ =?us-ascii?Q?HRMjewV9nRP1DAFesjoDBm+QaX1Q7p+iWzwXb9JUDnM2ll/+IpXveJsX/6Ei?=
+ =?us-ascii?Q?vRckHFIOD8r3XmjonTYvFLXiD/0Q4h4l/442sr3IkA9rozcPnHahzDt8gse1?=
+ =?us-ascii?Q?pVQnkmDbNyzz8vVkI60Z0Pojbry+AvpsRNJzZbFv6sTBozRbzNBJWfLZv8TE?=
+ =?us-ascii?Q?R5XM5cccNaQ+7v2jdQwt9BTsniMYkHebR/6AtyIILawHmDlXbH+PWR8RxFHa?=
+ =?us-ascii?Q?n6Vry5aU8yWkMtOYvExC17guJPSXky4ntUuicBGY6FDoiE63M5GFkBW74Wfy?=
+ =?us-ascii?Q?Pn0Lbmz28GgbscP8R2WOGNZ74qit5/stsXxDFnnn8qya0ZYMu2EWBUTKIhhA?=
+ =?us-ascii?Q?icgjL4YDN1MjXiXDBHEBYaXccQXBaBEo2ztbF35zPnN2QV9BgA7SWXptwMEP?=
+ =?us-ascii?Q?NLazMgjws5AYsCkS6mKvK/2CuH5h2qimAsD3kwyHixanpTAYmetcYGf7/SwP?=
+ =?us-ascii?Q?vwF/ZVpouy6Bwmqz3FF5xxcGhaNhjeXso8ALWITalTp31fzE+NXRTVzPlrqO?=
+ =?us-ascii?Q?+ApXPQS3/MLhi77yEwLoRiC00G5KBjwC8BXFotLfvhPoC05jAXOTtsx2o557?=
+ =?us-ascii?Q?V/H91YeRUaKcQFIbQWG1UB/RBWv9p+lF9WXOBeY/anJvtm6GCB1gGNs+W7dn?=
+ =?us-ascii?Q?zBLyrPJbWlr5TRsdzSl3Gi5xzjNmGvOL+29yykM7Pth2kkwqgaX7/3XrzGSb?=
+ =?us-ascii?Q?QMNeuWNVybXa0OFixRbmkRQ1BTm9hfkrM+fzt48kJo45W165nbZ5rxN3vX58?=
+ =?us-ascii?Q?bjGfP9e1rN6d/kgDe65BNUFYoYmt/vSdr2LncNs/GnlCZn+S4/A52Hd+MiRY?=
+ =?us-ascii?Q?n3PSnmwnxAzawbG/oo2c1A9+07nSHLtvjDcW4zClcIxQWc8Ul9bCwCt2qfVq?=
+ =?us-ascii?Q?l1JvCmONMMranumV/D2MwqXWdBonBwf+oUu6dFlMpidxvWpHgC6MKLY7hLox?=
+ =?us-ascii?Q?DsbzetgDgoE74mNDy21B7v3mnbErSkReLLpnLv7XeZTchbZ2O4/zSqADJc1j?=
+ =?us-ascii?Q?l0in9LTvo9SWlClD5At59hFjmonW9ScOGkGTwcyyoJKBHQq1/TfxwI8y4Xp5?=
+ =?us-ascii?Q?IiqMjuUcAuEcMNTQeZF9erK/0lOwlYGJ1zb/jxoMR7dWeKTDiYsZJCYP6xaa?=
+ =?us-ascii?Q?BKgz3+bghCC6lQU7ErfS0vIR2yppC2LO2DzNO2rDCJnL81zC5KURakyH5Xcl?=
+ =?us-ascii?Q?xZlWAGNBfMmS/j5WmHVnbLPlX7dE9mCuCvufsjSCOu3hNYFiiJVekNtBG5Zz?=
+ =?us-ascii?Q?kqhOrVSQUAtrohEiHSjx4vCu9spdGt79FFH+eC1FeHvYHHlsKk65tiRzGTAg?=
+ =?us-ascii?Q?xd3BVZkTTGOecB6GwNPXE3VrBuT4thLTyoEKRrjd1xgB97IQHYfrwJ78/I8I?=
+ =?us-ascii?Q?bL9TeCVYZoBbCUtk8R58zQQShtvTn/u6tQG0QIP1b2d+GF4FlEISya/ttvhr?=
+ =?us-ascii?Q?Jgfhuj0po+KYrTK20JjyK0ooQHlSnn5Nl2satGw7RIJf+sl7Jcpi?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6f1f7d0-40ac-404f-318d-08dea1f28896
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 11:13:38.0918
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n4Todrdq50vjt6e2KHV2CwzbGDoB0gglBukFDClF+zYB5DizAx9d7yUHDbmES7q86LbuzAKUCBt9gA1MnDmbvF8yc0teLks3gMv8dle3lklUbMJTd5i+uKFUHdJ/dSwZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1299
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260424_041409_253140_01DF2216 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,330 +138,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5025071303270562384=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1, sys2, per0, per1,
+per2, per2pok, per3, adc0, adc1, emmc, and vga.
 
---===============5025071303270562384==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ch74tvkiwmuhhpsw"
-Content-Disposition: inline
+In the current series, we will only add the following pinctrl:
+ - sys0, sys0h, sys1, sys2
+ - per0, per1, per2, per2pok, per3
 
+The remaining pinctrl will be implemented in future series.
 
---ch74tvkiwmuhhpsw
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v13 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-MIME-Version: 1.0
+This series depends on the series:
+https://lore.kernel.org/all/20260402105523.447523-1-changhuang.liang@starfivetech.com/
 
-On Sat, Feb 21, 2026 at 09:35:52PM +0300, Aleksandr Shubin wrote:
-> Allwinner's D1, T113-S3 and R329 SoCs have a quite different PWM
-> controllers with ones supported by pwm-sun4i driver.
->=20
-> This patch adds a PWM controller driver for Allwinner's D1,
-> T113-S3 and R329 SoCs. The main difference between these SoCs
-> is the number of channels defined by the DT property.
->=20
-> Co-developed-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> ---
->  drivers/pwm/Kconfig     |  10 +
->  drivers/pwm/Makefile    |   1 +
->  drivers/pwm/pwm-sun8i.c | 393 ++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 404 insertions(+)
->  create mode 100644 drivers/pwm/pwm-sun8i.c
->=20
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 6f3147518376..44d844eba589 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -736,6 +736,16 @@ config PWM_SUN4I
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-sun4i.
-> =20
-> +config PWM_SUN8I
-> +	tristate "Allwinner D1/T113s/R329 PWM support"
-> +	depends on ARCH_SUNXI || COMPILE_TEST
-> +	depends on COMMON_CLK
-> +	help
-> +	  Generic PWM framework driver for Allwinner D1/T113s/R329 SoCs.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-sun8i.
-> +
->  config PWM_SUNPLUS
->  	tristate "Sunplus PWM support"
->  	depends on ARCH_SUNPLUS || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 0dc0d2b69025..ba2e0ec7fc17 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -67,6 +67,7 @@ obj-$(CONFIG_PWM_STM32)		+=3D pwm-stm32.o
->  obj-$(CONFIG_PWM_STM32_LP)	+=3D pwm-stm32-lp.o
->  obj-$(CONFIG_PWM_STMPE)		+=3D pwm-stmpe.o
->  obj-$(CONFIG_PWM_SUN4I)		+=3D pwm-sun4i.o
-> +obj-$(CONFIG_PWM_SUN8I)		+=3D pwm-sun8i.o
->  obj-$(CONFIG_PWM_SUNPLUS)	+=3D pwm-sunplus.o
->  obj-$(CONFIG_PWM_TEGRA)		+=3D pwm-tegra.o
->  obj-$(CONFIG_PWM_TH1520)	+=3D pwm_th1520.o
-> diff --git a/drivers/pwm/pwm-sun8i.c b/drivers/pwm/pwm-sun8i.c
-> new file mode 100644
-> index 000000000000..6e196f31314b
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-sun8i.c
-> @@ -0,0 +1,393 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * PWM Controller Driver for sunxi platforms (D1, T113-S3 and R329)
-> + *
-> + * Limitations:
-> + * - When the parameters change, the current running period is not compl=
-eted
-> + *   and new settings are applied immediately.
-> + * - The PWM output goes to a HIGH-Z state when the channel is disabled.
-> + * - Changing the clock configuration (SUN8I_PWM_CLK_CFG)
-> + *   may cause a brief output glitch.
-> + *
-> + * Copyright (c) 2023 Aleksandr Shubin <privatesub2@gmail.com>
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/clk.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/reset.h>
-> +
-> +#define SUN8I_PWM_CLK_CFG(pair)			(0x20 + ((pair) * 0x4))
+Changhuang Liang (19):
+  dt-bindings: pinctrl: Add starfive,jhb100-sys0-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 sys0 controller driver
+  dt-bindings: pinctrl: Add starfive,jhb100-sys0h-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 sys0h controller driver
+  dt-bindings: pinctrl: Add starfive,jhb100-sys1-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 sys1 controller driver
+  dt-bindings: pinctrl: Add starfive,jhb100-sys2-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 sys2 controller driver
+  dt-bindings: pinctrl: Add starfive,jhb100-per0-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 per0 controller driver
+  dt-bindings: pinctrl: Add starfive,jhb100-per1-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 per1 controller driver
+  dt-bindings: pinctrl: Add starfive,jhb100-per2-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 per2 controller driver
+  dt-bindings: pinctrl: Add starfive,jhb100-per2pok-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 per2pok controller driver
+  dt-bindings: pinctrl: Add starfive,jhb100-per3-pinctrl
+  pinctrl: starfive: Add StarFive JHB100 per3 controller driver
+  riscv: dts: starfive: jhb100: Add pinctrl nodes
 
-A word about the range of `pair` would be good. Something like:
+Lianfeng Ouyang (1):
+  riscv: dts: starfive: Add StarFive JHB100 pin function definitions
 
-/*
- * Shared clock register. SUN8I_PWM_CLK_CFG(pair) configures the settings
- * for channels 2=C2=B7pair and 2=C2=B7pair+1. Maximal value for pair is ha=
-rdware
- * dependant, it cannot be bigger than 8.
- */
+ .../pinctrl/starfive,jhb100-per0-pinctrl.yaml |  219 ++
+ .../pinctrl/starfive,jhb100-per1-pinctrl.yaml |  217 ++
+ .../pinctrl/starfive,jhb100-per2-pinctrl.yaml |  178 ++
+ .../starfive,jhb100-per2pok-pinctrl.yaml      |  154 ++
+ .../pinctrl/starfive,jhb100-per3-pinctrl.yaml |  177 ++
+ .../pinctrl/starfive,jhb100-sys0-pinctrl.yaml |  155 ++
+ .../starfive,jhb100-sys0h-pinctrl.yaml        |  156 ++
+ .../pinctrl/starfive,jhb100-sys1-pinctrl.yaml |  155 ++
+ .../pinctrl/starfive,jhb100-sys2-pinctrl.yaml |  178 ++
+ MAINTAINERS                                   |    8 +
+ .../boot/dts/starfive/jhb100-evb1-eth.dts     |   27 +
+ arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi |    4 +
+ .../boot/dts/starfive/jhb100-pinctrl.dtsi     |   19 +
+ arch/riscv/boot/dts/starfive/jhb100-pinfunc.h |  642 ++++++
+ arch/riscv/boot/dts/starfive/jhb100.dtsi      |  107 +
+ drivers/pinctrl/starfive/Kconfig              |  117 ++
+ drivers/pinctrl/starfive/Makefile             |   11 +
+ .../starfive/pinctrl-starfive-jhb100-per0.c   |  100 +
+ .../starfive/pinctrl-starfive-jhb100-per1.c   |  112 +
+ .../starfive/pinctrl-starfive-jhb100-per2.c   |  102 +
+ .../pinctrl-starfive-jhb100-per2pok.c         |   80 +
+ .../starfive/pinctrl-starfive-jhb100-per3.c   |  101 +
+ .../starfive/pinctrl-starfive-jhb100-sys0.c   |  111 +
+ .../starfive/pinctrl-starfive-jhb100-sys0h.c  |   81 +
+ .../starfive/pinctrl-starfive-jhb100-sys1.c   |   80 +
+ .../starfive/pinctrl-starfive-jhb100-sys2.c   |  109 +
+ .../starfive/pinctrl-starfive-jhb100.c        | 1821 +++++++++++++++++
+ .../starfive/pinctrl-starfive-jhb100.h        |  191 ++
+ 28 files changed, 5412 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per0-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per2-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per2pok-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per3-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys1-pinctrl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys2-pinctrl.yaml
+ create mode 100644 arch/riscv/boot/dts/starfive/jhb100-pinctrl.dtsi
+ create mode 100644 arch/riscv/boot/dts/starfive/jhb100-pinfunc.h
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per0.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per1.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per2.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per2pok.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per3.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-sys0.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-sys0h.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-sys1.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-sys2.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100.c
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100.h
 
-> +#define SUN8I_PWM_CLK_CFG_SRC			GENMASK(8, 7)
-> +#define SUN8I_PWM_CLK_SRC_HOSC			0x0
-> +#define SUN8I_PWM_CLK_SRC_BUS			0x1
-
-SUN8I_PWM_CLK_SRC_HOSC and SUN8I_PWM_CLK_SRC_BUS are values for
-SUN8I_PWM_CLK_CFG_SRC, right? It would be great if they were named
-SUN8I_PWM_CLK_CFG_SRC_HOSC and SUN8I_PWM_CLK_CFG_SRC_BUS then.
-And then it might be sensible to define it to
-	FIELD_PREP(SUN8I_PWM_CLK_CFG_SRC, 1)
-(and 0 respectively).
-
-I hope there is no conflict with the reference manual.
-
-Speaking of the reference manual: Is there a public one? If yes, adding
-a link to it would be awesome.
-
-> +#define SUN8I_PWM_CLK_CFG_DIV_M			GENMASK(3, 0)
-> +#define SUN8I_PWM_CLK_DIV_M_MAX			8
-> +
-> +#define SUN8I_PWM_CLK_GATE			0x40
-> +#define SUN8I_PWM_CLK_GATE_BYPASS(chan)		BIT((chan) + 16)
-> +#define SUN8I_PWM_CLK_GATE_GATING(chan)		BIT(chan)
-> +
-> +#define SUN8I_PWM_ENABLE			0x80
-> +#define SUN8I_PWM_ENABLE_EN(chan)		BIT(chan)
-> +
-> +#define SUN8I_PWM_CTL(chan)			(0x100 + (chan) * 0x20)
-> +#define SUN8I_PWM_CTL_ACT_STA			BIT(8)
-> +#define SUN8I_PWM_CTL_PRESCAL_K			GENMASK(7, 0)
-> +#define SUN8I_PWM_CTL_PRESCAL_K_MAX		field_max(SUN8I_PWM_CTL_PRESCAL_K)
-> +
-> +#define SUN8I_PWM_PERIOD(chan)			(0x104 + (chan) * 0x20)
-> +#define SUN8I_PWM_PERIOD_ENTIRE_CYCLE		GENMASK(31, 16)
-> +#define SUN8I_PWM_PERIOD_ACT_CYCLE		GENMASK(15, 0)
-> +
-> +#define SUN8I_PWM_PCNTR_SIZE			BIT(16)
-
-This is unused (apart from the comment below). I'm unsure if this is a
-bit field, if so to which register? Does it need a comment? Or should it
-be dropped? From the discussion below, should this be
-field_max(SUN8I_PWM_PERIOD_ACT_CYCLE)?  (The value is different then
-the calculations below needed some adaption if that is chosen.)
-
-> +/*
-> + * SUN8I_PWM_MAGIC is used to quickly compute the values of the clock di=
-viders
-> + * div_m (SUN8I_PWM_CLK_CFG_DIV_M) & prescale_k (SUN8I_PWM_CTL_PRESCAL_K)
-> + * without using a loop. These dividers limit the # of cycles in a period
-> + * to SUN8I_PWM_PCNTR_SIZE (65536) by applying a scaling factor of
-> + * 1 / (div_m * (prescale_k + 1)) to the clock source.
-
-Here div_m is a plain divider, ...
-
-> + *
-> + * SUN8I_PWM_MAGIC is derived by solving for div_m and prescale_k
-> + * such that for a given requested period,
-> + *
-> + * i) div_m is minimized for any prescale_k =E2=89=A4 SUN8I_PWM_CTL_PRES=
-CAL_K_MAX,
-> + * ii) prescale_k is minimized.
-> + *
-> + * The derivation proceeds as follows, with val =3D # of cycles for requ=
-ested
-> + * period:
-> + *
-> + * for a given value of div_m we want the smallest prescale_k such that
-> + *
-> + * (val >> div_m) // (prescale_k + 1) =E2=89=A4 65536 (=3D SUN8I_PWM_PCN=
-TR_SIZE)
-
-=2E.. and here it is a shift. I assume that above 1 << div_m is actually
-meant, right?
-
-> + * This is equivalent to:
-> + *
-> + * (val >> div_m) =E2=89=A4 65536 * (prescale_k + 1) + prescale_k
-> + * =E2=9F=BA (val >> div_m) =E2=89=A4 65537 * prescale_k + 65536
-> + * =E2=9F=BA (val >> div_m) - 65536 =E2=89=A4 65537 * prescale_k
-> + * =E2=9F=BA ((val >> div_m) - 65536) / 65537 =E2=89=A4 prescale_k
-> + *
-> + * As prescale_k is integer, this becomes
-> + *
-> + * ((val >> div_m) - 65536) // 65537 =E2=89=A4 prescale_k
-> + *
-> + * And is minimized at
-> + *
-> + * ((val >> div_m) - 65536) // 65537
-> + *
-> + * Now we pick the smallest div_m that satifies prescale_k =E2=89=A4 255
-> + * (i.e SUN8I_PWM_CTL_PRESCAL_K_MAX),
-> + *
-> + * ((val >> div_m) - 65536) // 65537 =E2=89=A4 255
-> + * =E2=9F=BA (val >> div_m) - 65536 =E2=89=A4 255 * 65537 + 65536
-> + * =E2=9F=BA val >> div_m =E2=89=A4 255 * 65537 + 2 * 65536
-> + * =E2=9F=BA val >> div_m < (255 * 65537 + 2 * 65536 + 1)
-> + * =E2=9F=BA div_m =3D fls((val) / (255 * 65537 + 2 * 65536 + 1))
-> + *
-> + * Suggested by Uwe Kleine-K=C3=B6nig
-> + */
-> +#define SUN8I_PWM_MAGIC				(255 * 65537 + 2 * 65536 + 1)
-> +#define SUN8I_PWM_DIV_CONST			65537
-> [...]
-> +static int sun8i_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-> +			    const struct pwm_state *state)
-> +{
-> +	struct sun8i_pwm_chip *sun8i_chip =3D to_sun8i_pwm_chip(chip);
-> +	u64 bus_rate, hosc_rate, val, ent_cycle, act_cycle;
-> +	u32 clk_gate, clk_cfg, pwm_en, ctl, reg_period;
-> +	u32 prescale_k, div_m;
-> +	u64 clk_src_rate;
-> +	u8 clk_src;
-> +
-> +	pwm_en =3D sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_ENABLE);
-> +	clk_gate =3D sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_CLK_GATE);
-> +
-> +	if (!state->enabled) {
-> +		if (state->enabled !=3D pwm->state.enabled) {
-
-Can we make this
-
-		if (pwm_en & SUN8I_PWM_ENABLE_EN(pwm->hwpwm)) {
-
-? Then it depends on the hardware settings instead of cached state. Same
-for the other usage of pwm->state below.
-
-> +			clk_gate &=3D ~SUN8I_PWM_CLK_GATE_GATING(pwm->hwpwm);
-> +			pwm_en &=3D ~SUN8I_PWM_ENABLE_EN(pwm->hwpwm);
-> +			sun8i_pwm_writel(sun8i_chip, pwm_en, SUN8I_PWM_ENABLE);
-> +			sun8i_pwm_writel(sun8i_chip, clk_gate, SUN8I_PWM_CLK_GATE);
-> +		}
-> +		return 0;
-> +	}
-> +
-> +	ctl =3D sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_CTL(pwm->hwpwm));
-> +	clk_cfg =3D sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_CLK_CFG(pwm->hwpwm / =
-2));
-> +	hosc_rate =3D clk_get_rate(sun8i_chip->clk_hosc);
-> +	bus_rate =3D clk_get_rate(sun8i_chip->clk_apb);
-> +
-> [...]
-> +static int sun8i_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct pwm_chip *chip;
-> +	struct sun8i_pwm_chip *sun8i_chip;
-> +	struct clk *clk_bus;
-> +	struct reset_control *rst;
-> +	u32 npwm;
-> +	int ret;
-> +
-> +	ret =3D of_property_read_u32(pdev->dev.of_node, "allwinner,npwms", &npw=
-m);
-> +	if (ret < 0)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "Failed to get allwinner,npwms\n");
-
-I failed to reply to your question about a non-vendored name for this in
-v10
-(https://lore.kernel.org/linux-pwm/CAF4idNmDMQpFppUvCBbC1=3DSNMQBrTOqmFO60S=
-MvKvaHvNJy=3DBg@mail.gmail.com).
-
-"npwms" would be good.
-
-> +	if (npwm < 1 || npwm > 16)
-> +		return dev_err_probe(&pdev->dev, -EINVAL,
-> +				     "Invalid allwinner,npwms\n");
-
-I think there is a corner case if npwm is odd. In that case the last
-channel must not check for hwpwm ^ 1 being enabled in .apply(). So
-either .apply() should be more clever, or only even values for npwm
-should be supported.
-
-> +	chip =3D devm_pwmchip_alloc(&pdev->dev, npwm, sizeof(*sun8i_chip));
-> +	if (IS_ERR(chip))
-> +		return PTR_ERR(chip);
-> +	sun8i_chip =3D to_sun8i_pwm_chip(chip);
-> +
-> +	sun8i_chip->base =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(sun8i_chip->base))
-> +		return PTR_ERR(sun8i_chip->base);
-> [...]
-
-Best regards
-Uwe
-
---ch74tvkiwmuhhpsw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnrQl8ACgkQj4D7WH0S
-/k6scAgAn/0pDIYz2bAwUkDKaKeuPSiZvM+qmY6SFJ1w+GckDDKQbRMKqM5uDrEY
-EWS7ubhDZ9I2MNSIB/AIKMsM/7CkCtE8Vpfh3JSM9f5GzDhJ0vIF6V9zBH4tc9OV
-yCmIdHET/SPl6v9I1kszOG/+JK5jx+VelmPkIFbuhIxQhcg/P3iuG4EE1TKsRrNh
-OZu0sT9zHz/1Lh7hyQRx1K6dA6RQat35CnYLHah9JG0E5iIwS4XZ5S3OFwNrm1Ji
-1gX8GgGM7cgovSIx5sZzwHDxtSiregtnbtg9pEhguwEsDMuhVDeT5BM+EIoIZFjR
-jE24yAph4qmJMavKIQYVft3Rd754Kw==
-=AWnj
------END PGP SIGNATURE-----
-
---ch74tvkiwmuhhpsw--
-
-
---===============5025071303270562384==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+--
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5025071303270562384==--
-
