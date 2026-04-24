@@ -4,80 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF5EFB44C6
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 08:08:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399F2FB44C4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 08:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M7Q+r9+YclRlpLsVw1aAXRplPWjLFthpo12bmm/txX4=; b=qiM5OdScgQt4q8
-	Cg95WACrEnOa7dxp7v08e/jQdzVI061uves9aYIESuV3O4LqLl6UEOgVfvaMXVGqa20unWoPc34x7
-	FF1/ghhqstFLmwnb6ogrNrVPnidC1zyihNp0tPmyPvuscnqxaMI86860kVUospakzoGtRBDBqpeQM
-	OemrJYwT7HI9z8TQPj3ACaXd71vyh6AMHv6Y/DB2DqQtz4Wgzmm+K2kRT8fADCvp3VSpJXDzZRaMY
-	XnNMme58gRJDiiXav3NuUy/KQ8GIYDc4Gu9YldBFC6qnfqxNIkMGxjSG5NIcOyoTO72z6qZF9rsH1
-	2S0hS3J8gxSfOJFm0sJw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hltxK2qWwDIlAHmVJUuRl7fNHbcFdLfgw07wrKbBDbQ=; b=LwKw0loCKpgYkL
+	1IePFvTipv5cU3NnCVrkiKn+xujg4tT3DOKYEiKceyCvKPxQMAxQBK7oafRtT0eegdiZ6fjZWQDPp
+	GNcPe+lbsQhS2M+boIf+w/y6dXeB6Rc0j4KJQg5G/Bxz/zuY0xS8B7pCEE6N0Lc6LYyxAufTcew5+
+	7NxBIZETpz0K9n/5Bk8mhDGPXa/oXWa/XH/Qg1pbWdCqgR7FAO642axYAYKX3znSuLUNKpEM9VNVW
+	toFhx/c+mOZO65TfDmFmqRCGJViNUeFETSBvI53H3+gdPComcXzVIbCkLTd5+ccUVq8ZNrJGpqqPn
+	TforzGx+flGczTXRbljg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGBaU-0000000CqSj-0kvs;
-	Fri, 24 Apr 2026 08:08:34 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGBaP-0000000CqSL-4910
+	id 1wGBnH-0000000CrDo-069K;
+	Fri, 24 Apr 2026 08:21:47 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGBnB-0000000CrC5-0vpZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Apr 2026 08:08:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=eTJGPHVC+FHEwbvDrrf6WzRnGbVhSBhMK
-	KfoizHRA4g=; b=nRF8tvkVgIBhni7R7TB0byk3ixZnyLuhUb4oZqDsYaste+bWm
-	2F2LhmtTRMyy/NwKD3TezMwgsKijDmXULScjMsK2ZdH9MJSrdN1gGULovCprVUrN
-	8jtE56/Ims7IDktux+CTt6rNOmQUJm2JDE0HB/QUVV4XNlnd+1U+IhIrms=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwA3cUISJetpHssCAA--.1691S2;
-	Fri, 24 Apr 2026 16:08:50 +0800 (CST)
+	Fri, 24 Apr 2026 08:21:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1777018870;
+	bh=xx2xhls6JeGusSusmwz0pe6256ixEc5mn3Cu2HVVF1s=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=HQeXv4FAgBCGg5u4BDMApKivApvYmOSBLfOesNulma2NOvQm/f4hzguMIgvKFfL+C
+	 oyXqPSnnxI6obK+iWI7ef+SGraqi2kmocAr7VaeC9hwAD7b9eCXA2svKX5qBrLQNZl
+	 6uhFaiGK5V2nnhjcylyHaNyOItIEpGqOycfENkK4=
+X-QQ-mid: zesmtpgz4t1777018868t46f69d26
+X-QQ-Originating-IP: tAaPTsa+agutLZMoc1JdLkgIROUBbpeL5bQHbMIDIjM=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 24 Apr 2026 16:21:05 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5294705586084115619
+EX-QQ-RecipientCnt: 21
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: [PATCH v3 0/5] dmaengine: Add Peripheral DMA support for SpacemiT
+ K3 SoC
+Date: Fri, 24 Apr 2026 16:20:28 +0800
+Message-Id: <20260424-k3-pdma-v3-0-efdf2e414a08@linux.spacemit.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 3/3] PCI: ultrarisc: Add UltraRISC DP1000 PCIe Root
- Complex driver
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Jia Wang <wangjia@ultrarisc.com>, Paul Walmsley <pjw@kernel.org>, 
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23MSw6CMBSF4a2Yjr2E9haaOnIfxkEpRW6UR1psM
+ IS9W5hoosP/5ORbWHCeXGCnw8K8ixRo6FPg8cBsa/qbA6pTM5GLMkeu4I4w1p0BZblCKZFLLFl
+ 6j941NO/S5Zq6pTAN/rXDkW/rrxE5cGhQ1+i0qgo05wf1zzkLo7GuoymzQ8c2LIovQJQfQEAO1
+ mhpjaqqQhd/gXVd35T2xzPoAAAA
+X-Change-ID: 20260317-k3-pdma-7c1734431436
+To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Guodong Xu <guodong@riscstar.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Jingoo Han <jingoohan1@gmail.com>, 
- Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
- devicetree@vger.kernel.org
-In-Reply-To: <yqxyjv2q4lp5ymb6mjzpldjp2folqsvu4qneaihapbchrcithl@tcj4gu3ez3wh>
-References: <20260415-ultrarisc-pcie-v3-0-73f06e972616@ultrarisc.com>
- <20260415-ultrarisc-pcie-v3-3-73f06e972616@ultrarisc.com>
- <7n5b44ynbem2xve3twofaqunqlkw4aijatuuemujrfq5yd5mzq@5qnikt7ximd3>
- <177693928812.2917474.4251479012132866533.b4-reply@b4>
- <yqxyjv2q4lp5ymb6mjzpldjp2folqsvu4qneaihapbchrcithl@tcj4gu3ez3wh>
-Date: Fri, 24 Apr 2026 16:08:06 +0800
-Message-Id: <177701808603.4074358.3746548668378362054.b4-reply@b4>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777018086; l=3701;
- i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=2TaKfA1MO3gCCHPa6GQ5SKhvOw5Nx4IuQUaFMqsRiB4=;
- b=I/9P90g2nhfwDMBKNn12m4VK/5/jAxo0LqnT2YIPypNbuHWxsf1jb8N+po2XAdN/NlSDoLaS8
- eA9zCU1hyvGBaNXmbtzDxb81W/SS6FgQf0Cv4g4nV9kQJvesw/kFyDw
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwA3cUISJetpHssCAA--.1691S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGw4UKF1kAw13Jry5Cr45ZFb_yoW5trWxpF
-	W5GayjkF1vqFy0qr10qw48A3ZFyan5GF4j9rn8t34UAws8K3WIqr4DtF4Y9as7CryFkr1I
-	vr1jqrWagFn8AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnUUvcSsGvfC2KfnxnUUI43ZEXa7xR_UUUUUUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAHEWnq6L8ACQATsZ
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Brian Masney <bmasney@redhat.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777018865; l=2638;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=aXz6KFB6Ak0aHujkjCNPn/+tZ3xaXJCbj/26D+Uf75g=;
+ b=nDMmkLd3KR24mrdL0/9+JxQlE0rcy63NJSl9CCKyBNTObaTHvVt3v72T3eh9ubbXBngMiz2RO
+ flEwaUis3GmByQzD96K2tcAhOgd/r6wqoEUPqn1ulYcn7AHRm3czgL8
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NkGXhzp6HyG+sNdZbxidZ66xnlw9DQxpL2lwBfu2xngeR2yKfVuIZv+X
+	4fHvuTNCaY8xAjw/bl5u2IbXXAkhlbuBjrn1g+XXtvn20sxLEuFf8RfgLveSrSeBhKzwYNU
+	LbaGUCFjcvXGnNaTWwfBGeCCLa1Pu/aiq20ouYLhJeJnjhS4HZ9+K5OtmNbNqLJOg5xeFUE
+	3MKH64B+9EB8m93o9CHx2bKFsv6QNawSFVLBKJJtxHvJOxVVSQb6ft5r35HuivTtrNrNHNn
+	qdB4Sb4Y/p2uVLDfWUlQvGHm/Ipbco36QvPoBx9sdRWhpqdRNEcSBCDnM0hUv9oBNyLrLKL
+	bPHvs9K+SfXzFfQ0wD9tw109hilZnV/ZS7J4dp4+OokM0tOufXc7C59e2Iq9BQ15h/wgM4V
+	7PCBKv1xrcg3NeVGp4Qz74R34d8c4ByQa4UAJ4XFmgclHphwU1UN2VvJpROSKjBfqGHvKRZ
+	KUj0Wqg8b/DW75MuQu+BEfgbNEaXtzv1KyLWbJ5M4fgHxYTWyn5/WbceV8nrffXqLlzvU1C
+	C9r7v5SFwWZVAmxXiYkDy29gtW6JOabooj7BEPpQMThMM7dz+zUGfyBACS8XewFDXucvJQy
+	xH63H8RB0EDeRN4TN6H3Yj83e4azfA5VPdVxF5qg043SnbK02MwZwtFWJx3+yp7aFu3GZfS
+	95lRgC7j6JA1SZfMeEbwUdqo7EtaaGoOqqEE2XdtB7O17jLy531Iqm9LjXD4qWPev7rGWGk
+	1sWf9oeVlJHr+JLLn3PIs24LvZOTg9fybYgGMkpf27EATlOshHHs3o+qJcIWKKs/1CmXJGb
+	6bJO0Hjc68NumJ8soKE/quPZKty0mexj4ajYFdjjavVgfSfoaCUFcLfS0DbrjnyczLO+KtP
+	bPPXiquDK9gQY/eOy/i83c8NRfe+6dV4OMJFvforjFnp9nZrGl9kl3KznG+jXkbxGBDScAU
+	J32nH7fQJpCbEIZ3WLinm/8Yd1/0LlA07Eo2XgNT8IVD6SDnsHqd3CiDUMWJb2IQn2cjTJj
+	c8sstNval310ykZ86LG0FaowuRj8qhp9Iw7/fthNh+ntnqV6DdaR/SjlUZYeV3NLU6kgywx
+	PuTN08hwbRju5FfBuL5ysBxTpAQE5hT5kcSk1q0MIg0JykCl6z2pd64uKfcNiyqizGg5El2
+	j9iX
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_010830_531702_5E0353E1 
-X-CRM114-Status: GOOD (  28.02  )
+X-CRM114-CacheID: sfid-20260424_012141_900658_B6492F1F 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,74 +111,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNi0wNC0yMyAxODozNCArMDUzMCwgTWFuaXZhbm5hbiBTYWRoYXNpdmFtIHdyb3RlOgo+
-IE9uIFRodSwgQXByIDIzLCAyMDI2IGF0IDA2OjE0OjQ4UE0gKzA4MDAsIEppYSBXYW5nIHdyb3Rl
-Ogo+IAo+IFsuLi5dCj4gCj4gPiA+ID4gKwlpbnQgcmV0Owo+ID4gPiA+ICsKPiA+ID4gPiArCXBj
-aWUgPSBkZXZtX2t6YWxsb2MoZGV2LCBzaXplb2YoKnBjaWUpLCBHRlBfS0VSTkVMKTsKPiA+ID4g
-PiArCWlmICghcGNpZSkKPiA+ID4gPiArCQlyZXR1cm4gLUVOT01FTTsKPiA+ID4gPiArCj4gPiA+
-ID4gKwlwY2kgPSBkZXZtX2t6YWxsb2MoZGV2LCBzaXplb2YoKnBjaSksIEdGUF9LRVJORUwpOwo+
-ID4gPiA+ICsJaWYgKCFwY2kpCj4gPiA+ID4gKwkJcmV0dXJuIC1FTk9NRU07Cj4gPiA+ID4gKwo+
-ID4gPiA+ICsJcGNpLT5kZXYgPSBkZXY7Cj4gPiA+ID4gKwlwY2ktPm9wcyA9ICZkd19wY2llX29w
-czsKPiA+ID4gPiArCj4gPiA+ID4gKwkvKiBTZXQgYSBkZWZhdWx0IHZhbHVlIHN1aXRhYmxlIGZv
-ciBhdCBtb3N0IDE2IGluIGFuZCAxNiBvdXQgd2luZG93cyAqLwo+ID4gPiA+ICsJcGNpLT5hdHVf
-c2l6ZSA9IFNaXzhLOwo+ID4gPiA+ICsJcGNpLT5tYXhfbGlua19zcGVlZCA9IDQ7Cj4gPiA+IAo+
-ID4gPiBHZXQgdGhpcyBmcm9tIERUIHBsZWFzZS4uLiBUaGlzIGNhbiBjaGFuZ2UgYmV0d2VlbiBT
-b0MgcmV2aXNpb25zLgo+ID4gPgo+ID4gCj4gPiBEdXJpbmcgdGhlIHYyIERUIGJpbmRpbmcgcmV2
-aWV3LCBLcnp5c3p0b2YgcG9pbnRlZCBvdXQgdGhhdCBzaW5jZSB0aGUKPiA+IHByb3BlcnRpZXMg
-YXJlIGZpeGVkIGZvciB0aGlzIGhhcmR3YXJlLCB0aGV5IGFyZSBkZWR1Y2libGUgZnJvbSB0aGUK
-PiA+IGNvbXBhdGlibGUgc3RyaW5nIGFuZCBzaG91bGQgYmUgZHJvcHBlZCBmcm9tIHRoZSBEVCBi
-aW5kaW5ncy4KPiA+IAo+ID4gVGhlIHYyIGRpc2N1c3Npb24gaXMgaGVyZToKPiA+IGh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL2FsbC9jNjBhNzEyZS1lY2YzLTQ5MjYtOTk0Ny0wZTU5M2NkYjkyMWRA
-a2VybmVsLm9yZy8KPiA+IAo+ID4gSSB0aGVuIG1vdmVkIHRoZW0gaW50byB0aGUgZHJpdmVyIGZv
-ciB2My4gSWYgZnV0dXJlIFNvQyByZXZpc2lvbnMgaW50cm9kdWNlCj4gPiB2YXJpYXRpb25zLCBJ
-J2xsIHVwZGF0ZSB0aGUgZHJpdmVyIHRvIGhhbmRsZSB0aGVtIGFjY29yZGluZ2x5Lgo+ID4gCj4g
-PiBEb2VzIHRoaXMgbWFrZSBzZW5zZT8KPiA+IAo+IAo+IFRoZXJlIGFyZSB0d28gdXNlcyBvZiB0
-aGlzIHByb3BlcnR5Ogo+IAo+IDEuIFRvIHByb3ZpZGUgZGVmYXVsdCBNYXggTGluayBTcGVlZCBv
-ZiB0aGUgUm9vdCBQb3J0KHMpIGlmIHRoZSBoYXJkd2FyZSBkZWZhdWx0Cj4gdmFsdWUgaXMgd3Jv
-bmcuJwo+IAo+IDIuIFRvIG92ZXJyaWRlIHRoZSBoYXJkd2FyZSBkZWZhdWx0IHRvIHdvcmthcm91
-bmQgdGhlIGhhcmR3YXJlIGlzc3VlcyBsaWtlCj4gYnJva2VuIFBDQiByb3V0aW5nIGV0Yy4uLgo+
-IAo+IEZvciB0aGUgZmlyc3QgdXNlY2FzZSwgeW91IG5lZWQgdG8gY2hlY2sgaWYgdGhpcyB2YWx1
-ZSBkaWZmZXJlbnQgZnJvbQo+IFBDSV9FWFBfTE5LQ0FQX1NMUyBmaWVsZCBvZiBMTktDQVAgcmVn
-aXN0ZXI/IElmIG5vdCwgeW91IGRvbid0IG5lZWQgdG8gc2V0IGl0Cj4gaW4gc29jLmR0c2kvZHQt
-YmluZGluZyBhbmQgdGhlIERXQyBjb3JlIHdpbGwgZXh0cmFjdCB0aGlzIHZhbHVlIGZyb20gdGhl
-IERCSQo+IHJlZ2lzdGVyLgo+IAo+IEZvciB0aGUgc2Vjb25kIGNhc2UsIHlvdSBkb24ndCBuZWVk
-IHRvIGRlZmluZSBpdCBpbiB5b3VyIGNvbnRyb2xsZXIgZHQtYmluZGluZwo+IHdpdGggYSBkZWZh
-dWx0IHZhbHVlIGFuZCBhbHNvIGluIHlvdXIgc29jLmR0c2kuIFNpbmNlIHRoaXMgcHJvcGVydHkg
-aXMgZGVmaW5lZAo+IGluIHRoZSBkdHNjaGVtYSBbMV0sIHlvdSBjYW4ganVzdCBpbmNsdWRlIHRo
-ZSBwcm9wZXJ0eSBpbiBib2FyZCBEVFMgZmlsZSB0bwo+IHdvcmthcm91bmQgaGFyZHdhcmUgaXNz
-dWVzIChib2FyZCBzcGVjaWZpYykgYW5kIGR0YnNfY2hlY2sgd2lsbCBub3QgY29tcGxhaW4uCj4g
-Cj4gTk9URTogRm9yIGJvdGggY2FzZXMsIHlvdSBkb24ndCBuZWVkIGRyaXZlciBjaGFuZ2VzLCBz
-aW5jZSBEV0MgY29yZSB3aWxsIGhhbmRsZQo+IGl0Lgo+IAo+IC0gTWFuaQo+IAo+IFsxXSBodHRw
-czovL2dpdGh1Yi5jb20vZGV2aWNldHJlZS1vcmcvZHQtc2NoZW1hL2Jsb2IvbWFpbi9kdHNjaGVt
-YS9zY2hlbWFzL3BjaS9wY2ktYnVzLWNvbW1vbi55YW1sI0wxMTcKPgoKVGhhbmtzIGZvciB0aGUg
-ZGV0YWlsZWQgZXhwbGFuYXRpb24sIE1hbmkuCgpUaGF0IG1ha2VzIHBlcmZlY3Qgc2Vuc2UuIEkg
-aGF2ZSBjb25maXJtZWQgdGhhdCB0aGUgaGFyZHdhcmUgZGVmYXVsdCB2YWx1ZQpmb3Igb3VyIFNv
-QyBpcyBjb3JyZWN0IGFuZCB0aGVyZSBpcyBjdXJyZW50bHkgbm8gbmVlZCBmb3IgYm9hcmQtbGV2
-ZWwKb3ZlcnJpZGVzLgoKRm9sbG93aW5nIHlvdXIgc3VnZ2VzdGlvbiwgSSB3aWxsIHJlbW92ZSB0
-aGUgaGFyZGNvZGVkIG1heC1saW5rLXNwZWVkIGZyb20KdGhlIGRyaXZlciBpbiB2NCBhbmQgcmVs
-eSBvbiB0aGUgRFdDIGNvcmUgdG8gaGFuZGxlIGl0LiBJZiBhIGJvYXJkLWxldmVsCndvcmthcm91
-bmQgYmVjb21lcyBuZWNlc3NhcnkgaW4gdGhlIGZ1dHVyZSwgd2UgY2FuIGFkZCB0aGUgcHJvcGVy
-dHkgaW4gdGhlCmJvYXJkIERUUyBmaWxlIHdpdGhvdXQgdG91Y2hpbmcgdGhlIGRyaXZlci4KCj4g
-PiA+ID4gKwlwY2llLT5wY2kgPSBwY2k7Cj4gPiA+ID4gKwo+ID4gPiA+ICsJcHAgPSAmcGNpLT5w
-cDsKPiA+ID4gPiArCj4gPiA+ID4gKwlwbGF0Zm9ybV9zZXRfZHJ2ZGF0YShwZGV2LCBwY2llKTsK
-PiA+ID4gPiArCj4gPiA+ID4gKwlwcC0+aXJxID0gcGxhdGZvcm1fZ2V0X2lycShwZGV2LCAxKTsK
-PiA+ID4gPiArCWlmIChwcC0+aXJxIDwgMCkKPiA+ID4gPiArCQlyZXR1cm4gcHAtPmlycTsKPiA+
-ID4gCj4gPiA+IFdobyBpcyByZXF1ZXN0aW5nIHRoaXMgSVJRPwo+ID4gPiAKPiA+IAo+ID4gTm90
-IG5lZWRlZC4gV2lsbCByZW1vdmUgaXQgaW4gdjQuCj4gPiAKPiA+ID4gPiArCj4gPiA+ID4gKwlw
-cC0+bnVtX3ZlY3RvcnMgPSBNQVhfTVNJX0lSUVM7Cj4gPiA+IAo+ID4gPiBBcmUgeW91IHN1cmUg
-eW91ciBjb250cm9sbGVyIHN1cHBvcnRzIDI1NiBNU0lzIHdpdGggb25lIFNQSSBpbnRlcnJ1cHQ/
-IEl0IGlzCj4gPiA+IHBvc3NpYmxlLCBidXQgd2FudCB0byBtYWtlIHN1cmUgaXQgaXMgdGhlIGNh
-c2UuCj4gPiA+IAo+ID4gCj4gPiBZZXMuIFRoZSBjb250cm9sbGVyIGltcGxlbWVudHMgOCBNU0kg
-Y29udHJvbCBibG9ja3MgKGkgPSAwLi43KSwgZWFjaAo+ID4gcHJvdmlkaW5nIDMyIHZlY3RvcnMs
-IHNvIDI1NiBNU0lzIGFyZSBzdXBwb3J0ZWQuIFRoaXMgaXMgZG9jdW1lbnRlZCBpbiB0aGUKPiA+
-IGNvbnRyb2xsZXIgSVAgc3BlY2lmaWNhdGlvbi4KPiA+Cj4gCj4gT2ssIHRoYW5rcyBmb3IgY29u
-ZmlybWluZy4KPiAKPiAtIE1hbmkKPiAKPiAtLSAKPiDgrq7grqPgrr/grrXgrqPgr43grqPgrqng
-r40g4K6a4K6k4K6+4K6a4K6/4K614K6u4K+NCj4gCgpCZXN0IFJlZ2FyZHMsCkppYSBXYW5nCgoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi all,
+
+This patch series introduces Peripheral DMA (PDMA) support for the
+SpacemiT K3 SoC, leveraging the existing mmp_pdma driver.
+
+The K3 PDMA IP is largely based on the design found in the previous
+SpacemiT K1 SoC, but introduces a few key architectural differences:
+1. It features a variable extended DRCMR base address for DMA request
+   numbers (>= 64) depending on the hardware implementation.
+2. Unlike the K1 SoC, where some DMA masters had memory addressing
+   limitations (requiring a dedicated dma-bus), the K3 DMA masters
+   have full memory addressing capabilities.
+
+The series is structured as follows:
+- Patch 1: Introduce the necessary dt-bindings: K3 compatible string.
+- Patch 2-3: Refactor the mmp_pdma driver to support variable extended
+  DRCMR bases, and add the specific implementation/ops for the K3 SoC.
+- Patch 4: Fixes a critical clock issue where the DDR bus clock
+  (top_dclk) could be gated by CCF, which would cause DMA engines to
+  hang and lead to system instability.
+- Patch 5: Finally, instantiates the PDMA controller node in the
+  SpacemiT K3 device tree.
+
+---
+Changes in v4:
+- patch 4/5:
+  - add Brian's RB tag
+- patch 1/5:
+  - update commit message
+Link to v3: https://lore.kernel.org/all/20260331-k3-pdma-v3-0-a4e60dd8b4b3@linux.spacemit.com/
+
+Changes in v3:
+- Removed the dt-bindings patches related to the DMA number.
+- patch 1/5:
+  - update commit message
+- patch 2-5: nothing
+- Link to v2: https://lore.kernel.org/r/20260326-k3-pdma-v2-0-ca94ca7bb595@linux.spacemit.com
+
+Changes in v2:
+- patch 1-6 are added in this version
+- patch 7/7
+  - update commit message
+  - using k3 compatible string
+  - Link to v1: https://lore.kernel.org/all/20260317-k3-pdma-v1-1-f39d3e97b53a@linux.spacemit.com/
+
+---
+Guodong Xu (3):
+      dt-bindings: dmaengine: Add SpacemiT K3 DMA compatible string
+      dmaengine: mmp_pdma: support variable extended DRCMR base
+      dmaengine: mmp_pdma: add Spacemit K3 support
+
+Troy Mitchell (2):
+      clk: spacemit: k3: mark top_dclk as CLK_IS_CRITICAL
+      riscv: dts: spacemit: Add PDMA controller node for K3 SoC
+
+ .../devicetree/bindings/dma/spacemit,k1-pdma.yaml  |  4 ++-
+ arch/riscv/boot/dts/spacemit/k3.dtsi               | 11 +++++++
+ drivers/clk/spacemit/ccu-k3.c                      |  2 +-
+ drivers/dma/mmp_pdma.c                             | 37 ++++++++++++++++++++--
+ 4 files changed, 49 insertions(+), 5 deletions(-)
+---
+base-commit: 02f90981a67f3b9ee7d6684e7503a4fed7aade0c
+change-id: 20260317-k3-pdma-7c1734431436
+
+Best regards,
+--  
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
