@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 789A5CCFA13
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 May 2026 14:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5024ACCFA13
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 May 2026 15:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M74BOsKtashMAb4ip1so/cNBlQGXh50W1gIAjAoZ7jo=; b=j7xroB5RCMnUoD
-	IQG/YRVMuB5TfOsx4fL1B/2EGyuSeyybZZfSX0MiLCwSTciSUIWo+S8K4kUvyR1EJDqeNt5Y5lFV/
-	d/0XjN3WLJFPsIbJH9jsfeSB+qUWfulD1COr4LX/Tkzb3FQj+YOOCPH2SFRnTJJILVzaY3mltWarZ
-	4v8HcphQMIzHQcoNTyLUknjrODiZOkX+ljvVqoTx9CbwxHbBRwE8mnHpZlBeEWMwlgnhmA7EKK3qi
-	d58Y5253EtPBg4GrjnjkAY6dWNY7xsM2RS+RoPTQPugx0y0/eU87mqHeCltj8BijYcyEnJI1E+69s
-	kdPM3uW7uYJGqxmje/8A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
+	To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=9NdK9b36rKmm9m7en2lHXNSzXbZWrz+pVRqeTXk7vDY=; b=ncg
+	uwJLv4nn3+c+cmvYbTv/NClUCtOCjjadwYTNRbEeopmsYbbKk4WpyaPixnz0h9ZD0xV9J89COA3yd
+	14mPYCoQSLcSFJnXNYfMHxy44nlFTwA3LHdwLRBVQbN3OGIwDEV8X9QgL0+GihPKBdrSqDT/nhC/x
+	+s+5AawUMeUouDxZ/mLPmmhfzQshZ4sELHOeqR5JEqQWjqKG/TEu/gAPJZvkS8jmW64v81zJugGWC
+	3pDt6evodhBnQYv87Hq83MHIrpRA4aY8kzCgN+GMVDiWXTYwQ+GzzYNWpBEfvzrbT9KAGUel/1/1Y
+	18qOGy9GAll//KQtcZ7waRlUInIZasw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIpIe-00000007Iv7-1LFK;
-	Fri, 01 May 2026 14:57:04 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wIpk4-00000007Km5-0Q4m;
+	Fri, 01 May 2026 15:25:24 +0000
+Received: from prod-mta-13-01.swg-srv.net ([185.255.28.34] helo=prod-mta-13.swg-srv.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIpIc-00000007Iui-1qUc;
-	Fri, 01 May 2026 14:57:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=GWaEOZ6T8RZshC5VNeX+VR+c38seOstsZgFtVZK1Yb0=; b=Er8GF8z4i4fcdoqldcSz6UdIrK
-	0uV2fMmb401OPsbWUDQlEgY0WImYvRoaOS/51Kt7cci4PwM0IwWZmDRUbGXw7O9IkTUTcXx4Dq2Om
-	1ySnKP5ZPsmA0cdTKwQEUsbejJKOkDxp+xsnqOc9et7bCG9WzZFKFYNxcz4UjijcH9lNIaYGg9axV
-	D8CvZuRnVnBvGs0WeFCpwaRxMrcj+ZmM+kVA2Q+aDmR35tDfpqtDlNjfzVDU0ieNT7dT3nkuFY8KO
-	oBaeuIlQkfSbM8D3+gtqA/Kl4BULEQcG2OPtDBswRpN88NbjoIlZE7bl29JItAlrzNVWRNazfWERT
-	lB1uWyaw==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIpIN-00000008wbR-3iIK;
-	Fri, 01 May 2026 14:56:48 +0000
-Date: Fri, 1 May 2026 15:56:47 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Barry Song <baohua@kernel.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org,
-	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org,
-	rppt@kernel.org, surenb@google.com, mhocko@suse.com, jack@suse.cz,
-	pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn,
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com,
-	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com,
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <afS_L-5XeWIldTXA@casper.infradead.org>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+	id 1wGJNf-0000000DS76-3fzh
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Apr 2026 16:27:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vates.tech;
+ q=dns/txt; s=selector1; bh=Xv1GWMQFYIMwt0/fGP9zJWTqbMaC7LrrSPi0XwkH+8g=;
+ h=from:subject:date:message-id:to:cc:mime-version:content-type:feedback-id;
+ b=jVEqt00ENyZYkzkCqsiQ/O8gqm+SuIEb/E4qPi4XpaXTGVrJRD+lUhbRjmOXha1+ozQmDzb21
+ qSX4O/Y25SL0nhZhOcUsIemcTQ4JPsyeerL4fLPO0ahnzCDbzN/PfE6DfA6Sfa1bE03OfduiDvw
+ MYyHXGY97HwXUY/qvMU9lbPHVhW7sT5q44aOtAWatb1pBn79WM+VlHlrmLCcgVEvoPp05/rdC3/
+ E8zsS8YCoFtRab7lYtAxVYqJvOCdUXN5BbRvwZxwI96w8zkw3nJPehgsuqoS3InmYuJMidPLm/c
+ AaYw9pkvFcI1MjOX7nZL1to7LdDgQGBLB54PSstiR/qg==
+Received: from mail2.vates.fr ([37.26.189.201] mail2.vates.fr)
+ (Authenticated sender: 8631fc262581453bbf619ec5b2062170/smtp/7773de5a-2839-4720-82ee-e06722ae1d3e)
+ by prod-mta-13.swg-srv.net (ZoneMTA - prod-mta-13) with ESMTPSA id 19dc0519838000f373.008
+ for <linux-riscv@lists.infradead.org>
+ (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+ Fri, 24 Apr 2026 16:27:46 +0000
+X-Zone-Loop: 14ccb65082c7fc1e58e34393fd1c7f9e308e6ce3ebe1
+x-campaign-type: default
+x-transaction-id: 2acab6a1-bf8d-4388-b45c-f48ac2a40b23
+x-swg-uid: 01-af6bd2cb-8791-40ed-b2db-dad5319cc0c9
+X-Mailer: Sweego
+Message-ID: <1777048066.8631fc262581453bbf619ec5b2062170.19dc0519838000f373@vates.tech>
+x-swg-bid: 1777048066.8631fc262581453bbf619ec5b2062170.19dc0519838000f373
+Feedback-ID: default:8631fc262581453bbf619ec5b2062170:Sweego
+x-campaign-id: default
+x-client-id: 8631fc262581453bbf619ec5b2062170
+X-Originating-IP: [37.26.189.201]
+Received: from [192.168.31.249] (182.136.141.83.rev.sfr.net [83.141.136.182])
+	(Authenticated sender: baptiste.le-duc)
+	by mail2.vates.fr (Postfix) with ESMTPSA id 4CACA8755A;
+	Fri, 24 Apr 2026 18:27:45 +0200 (CEST)
+Date: Fri, 24 Apr 2026 18:27:45 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+From: Baptiste Le Duc <baptiste.le-duc@vates.tech>
+Subject: [RFC] xen/riscv: per-CPU devid setup for Xen event channel IRQ on
+ IMSIC
+To: linux-riscv@lists.infradead.org
+Cc: anup@brainfault.org, tglx@linutronix.de, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-kernel@vger.kernel.org, oleksii.kurochko@gmail.com
+Content-Language: en-US
+X-BM-Disclaimer: Yes
+X-Bm-Milter-Handled: 4ffbd6c1-ee69-4e1b-aabd-f977039bd3e2
+X-Bm-Transport-Timestamp: 1777048065466
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260424_092752_236151_9B526432 
+X-CRM114-Status: UNSURE (   5.33  )
+X-CRM114-Notice: Please train this message.
+X-Mailman-Approved-At: Fri, 01 May 2026 08:25:22 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,26 +86,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7283785148301345417=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
-> 1. There is no deterministic latency for I/O completion. It depends on
-> both the hardware and the software stack (bio/request queues and the
-> block scheduler). Sometimes the latency is short; at other times it can
-> be quite long. In such cases, a high-priority thread performing operations
-> such as mprotect, unmap, prctl_set_vma, or madvise may be forced to wait
-> for an unpredictable amount of time.
+--===============7283785148301345417==
+Content-Language: en-US
+Content-Type: multipart/alternative; boundary="-=Part.28a9.91ec6c2f19a95f70.19dc05195b9.499e5f1eb59408b5=-"
 
-But does that actually happen?  I find it hard to believe that thread A
-unmaps a VMA while thread B is in the middle of taking a page fault in
-that same VMA.  mprotect() and madvise() are more likely to happen, but
-it still seems really unlikely to me.
+---=Part.28a9.91ec6c2f19a95f70.19dc05195b9.499e5f1eb59408b5=-
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
+Hi,
+
+While adding Xen/RISC-V support, the guest event channel interrupt is
+allocated via irq_of_parse_and_map() against the IMSIC domain and, if
+we refer to the ARM implementation, it must
+be enabled/disabled per vCPU through enable_percpu_irq() /
+disable_percpu_irq() in the CPU hotplug callbacks=2E
+
+With IMSIC using handle_edge_irq (the upstream default),
+enable_percpu_irq() never clears IRQD_IRQ_DISABLED=2E That flag is set at
+irq_desc allocation time (irqdesc=2Ec) and is only cleared by
+irq_startup(), which is called from __setup_irq() only when
+irq_settings_can_autoenable() returns true=2E
+
+irq_set_percpu_devid() sets IRQ_NOAUTOEN (via irq_set_percpu_devid_flags),
+so irq_startup() is intentionally skipped for percpu-devid IRQs=2E
+enable_percpu_irq() calls irq_percpu_enable() which does irq_enable/unmask
+on the chip but never touches IRQD_IRQ_DISABLED=2E
+
+Result: handle_edge_irq() hits irq_can_handle_actions() =E2=86=92 checks
+irqd_irq_disabled() =E2=86=92 returns false =E2=86=92 IRQ silently dropped=
+=2E
+
+This was confirmed by logs:
+
+ =C2=A0 XEN_TRACE irq=3D12 percpu_enable cpu=3D0 IRQD_DISABLED=3D1
+ =C2=A0 XEN_TRACE irq=3D12 handle_edge DROP IRQD_DISABLED=3D1 action=3D=2E=
+=2E=2E
+
+What we tried
+-------------
+- request_irq() correctly works with upstream IMSIC which uses=20
+handle_edge_irq with no
+irq_set_percpu_devid() but it means we only can have one vCPU which will=
+=20
+always handle the irq,
+and we don't want that=2E
+
+- Adding irq_set_percpu_devid() + switching to handle_percpu_devid_irq in
+imsic_irq_domain_alloc() fixes the Xen case but breaks all other IMSIC
+users (PCI MSI, platform devices) that call request_irq(), since
+request_threaded_irq() rejects IRQs marked _IRQ_PER_CPU_DEVID:
+
+ =C2=A0 WARNING: CPU: 0 PID: 1 at kernel/irq/manage=2Ec:2101
+ =C2=A0 request_threaded_irq+0x80/0x12c
+
+Therefore, do you have any recommendations on how should I handle this=20
+case ?
+
+Thanks,
+Baptiste
+
+
+
+-- 
+Baptiste Le Duc | Vates XCP-ng Intern
+
+XCP-ng & Xen Orchestra - Vates =
+solutions
+
+web: https://vates=2Etech
+---=Part.28a9.91ec6c2f19a95f70.19dc05195b9.499e5f1eb59408b5=---
+
+
+--===============7283785148301345417==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7283785148301345417==--
+
