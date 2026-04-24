@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5849BFED3EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 17:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A93DFED3EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 17:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aHK/k5rZVOisfrAuz3rqK2a4VTI//tnDQ0UxMUGGlz4=; b=JmMgmTRNE0QWowjd9RtlWZ6A7z
-	pWS1CfUCSRpUEoG4k6OLALIqqYGb8nLSO0/J5Y6r0rty3XAY1D+jtPBC/m8H8NQ1+qQLduEG9niPW
-	z158jwEF7SaqINcaSr+/sUipBsR4091WJ1G4abFIC6ftFMRWiUcNLRVzz+bSSyKrAYghTowYwo2K7
-	mkageLG6NhI2XwGt4HABIkNGPJAhjmUBCaIPNhVeDf1V8OckwxbD9wlTBwudhVkAoJRl/EdUC2tVz
-	e1Ck5o64NvGn8mLwtROoiUrL87CFAm4WcUk8kX1c/iPC22j5N8KzRc9zcuIr1Ui2zcNLhXoad4RWX
-	RpvwyO9A==;
+	bh=9dhAdDEyk8Ggw90QP3v5l2FwfuqmVstrUoeqSOsA9jg=; b=zoy+1HbtGVCDJB0+w004fDzgL2
+	ofFJasfHWovl/bA6PYXwhrj2QLsFcCO/7cSwkx3FitkWPoufghHT4++YjziBf+v+WdF8wptYurs22
+	JJ/9BxNxCpagB6jCiwUDTlV/YMO8oyR41RUamUN0NfuOW5HkL/JPXJ/lJz85tkZ3O1R6tiJLUCA77
+	vWZA+zeMDhSzYiZwfMJYahh+t2pKTnlx1SB6r8ngJ7wxNMGeyd9qTNglPoMp7/WDjWHkz5Y5mV0E/
+	m42nM4FjLfHbTE4zeObAwkB05ATrMoR4SAePkBBhB1MycQAj9tegadkZHr4rFhpZeAR4zOfHk7lm3
+	TW4J8OwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJuj-0000000DZ1X-0Jrk;
-	Fri, 24 Apr 2026 17:02:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wGJwb-0000000DZEU-2Ue1;
+	Fri, 24 Apr 2026 17:03:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJuh-0000000DZ1Q-2LzO
+	id 1wGJwa-0000000DZED-0yqn
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Apr 2026 17:01:59 +0000
+	Fri, 24 Apr 2026 17:03:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B1016600AE;
-	Fri, 24 Apr 2026 17:01:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41ABAC2BCB5;
-	Fri, 24 Apr 2026 17:01:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6DA3C600AE;
+	Fri, 24 Apr 2026 17:03:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DBB8C19425;
+	Fri, 24 Apr 2026 17:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777050118;
-	bh=2GVsFCx4KosclkJej36I7xIXKXkZWqFz2ettm9BJffQ=;
+	s=k20201202; t=1777050235;
+	bh=vpzvilq6KjAFWPzsZTe/h1k59Km6tBvjeHIMJU1XgVU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ONhycMRjKSNjYrHo7khtfvuuklElvJ8jLdxrHDsOSYsKQdV5nHhA32gUQzj7h42oD
-	 qAtiTBJrhco9B4oEPpIUN/vDgAgjvfD3Z+x9AiqRDMm/Acj0NlHSmjmj0v/nDHYIYX
-	 m2t1GZ7FgGckj2+bSUOKmtOIIwWdrYtHoiptiHAkz1pqcxAMt+eTzrH4kFnITDep20
-	 y9YF2x9wRrq5KeBen38NHfBk2VTPY+NGLzqTqCUyntys8/K8rKfxUcS3mpcnJ39FkK
-	 asW2bMAQAIDqdN9CQdQ2BTvjnMt4jXhuZgibSKZEO4aFN27aQH6+G2cQbHPVupE7ur
-	 iCEGgJDiqqZog==
-Date: Fri, 24 Apr 2026 18:01:52 +0100
+	b=IpugPL49eT4rknt5I79qcZe3fYCzBUMSyILi/UbhYrpOpoDXJilS3IwNftdeMohl0
+	 r2v1HMKoXASRE/RWS1+TEW2XtBCaGY5Zddy1REBKsHeDsEzlPyFt4njYIAUJZC7/pI
+	 YlZ08TtSOsv1pN2mhbws/nv6oP28HANjH8LIatOLOnzUBBbmXwr9CLTEQYNDM6izek
+	 Bv0F1uJ3sUqnvIEq8bQVdJ7A88BNJOHIfkGxwge+/M2mPYOJu1+jmUF5X5yz335kIi
+	 cw1ei+fsew6EHR/N/bKn6eD2ISFWlMJkMTYjRjAAVef0+mnZRyiFe+h2gTv2mzCkxJ
+	 7pC5x8SS72STA==
+Date: Fri, 24 Apr 2026 18:03:49 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Guodong Xu <guodong@riscstar.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v1 20/20] riscv: dts: starfive: jhb100: Add pinctrl nodes
-Message-ID: <20260424-bok-storm-4f4583686777@spud>
-References: <20260424111330.702272-1-changhuang.liang@starfivetech.com>
- <20260424111330.702272-21-changhuang.liang@starfivetech.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] dt-bindings: dmaengine: Add SpacemiT K3 DMA
+ compatible string
+Message-ID: <20260424-collector-zone-26410e4707a7@spud>
+References: <20260424-k3-pdma-v3-0-efdf2e414a08@linux.spacemit.com>
+ <20260424-k3-pdma-v3-1-efdf2e414a08@linux.spacemit.com>
 MIME-Version: 1.0
-In-Reply-To: <20260424111330.702272-21-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260424-k3-pdma-v3-1-efdf2e414a08@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,300 +75,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8459806285506248247=="
+Content-Type: multipart/mixed; boundary="===============2280135348630504429=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8459806285506248247==
+--===============2280135348630504429==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DqhoXpfq+UgDU/hi"
+	protocol="application/pgp-signature"; boundary="FJVvYi+3HKEojWVf"
 Content-Disposition: inline
 
 
---DqhoXpfq+UgDU/hi
+--FJVvYi+3HKEojWVf
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Apr 24, 2026 at 04:13:30AM -0700, Changhuang Liang wrote:
-> Add pinctrl nodes for starfive JHB100 SoC. They contain
-> pinctrl_per0/pinctrl_per1/pinctrl_per2/pinctrl_per2pok/pinctrl_per3/
-> pinctrl_sys0/pinctrl_sys0h/pinctrl_sys1/pinctrl_sys2.
+On Fri, Apr 24, 2026 at 04:20:29PM +0800, Troy Mitchell wrote:
+> From: Guodong Xu <guodong@riscstar.com>
 >=20
-> Signed-off-by: Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-
-What did Lianfeng do? A signoff alone suggests something is incorrectly
-attributed here.
-
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> ---
->  .../boot/dts/starfive/jhb100-evb1-eth.dts     |  27 +++++
->  arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi |   4 +
->  .../boot/dts/starfive/jhb100-pinctrl.dtsi     |  19 ++++
->  arch/riscv/boot/dts/starfive/jhb100.dtsi      | 107 ++++++++++++++++++
->  4 files changed, 157 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jhb100-pinctrl.dtsi
+> Add the "spacemit,k3-pdma" compatible string for the SpacemiT K3 SoC.
 >=20
-> diff --git a/arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts b/arch/risc=
-v/boot/dts/starfive/jhb100-evb1-eth.dts
-> index 62cd046e1224..f7e82f9d0ff1 100644
-> --- a/arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
-> +++ b/arch/riscv/boot/dts/starfive/jhb100-evb1-eth.dts
-> @@ -4,3 +4,30 @@
->   */
-> =20
->  #include "jhb100-evb1.dtsi"
-> +
-> +&pinctrl_per0 {
-> +	gpioe-i3c0-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOB8-11, 32-33=
- */
-> +	gpioe-i3c1-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOB12-15, 34-3=
-5 */
-> +	gpioe-i3c2-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOB16-23 */
-> +	gpioe-i3c4-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOB36-43 */
-> +};
-> +
-> +&pinctrl_per1 {
-> +	gpioe-spi-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOC0-4 */
-> +	gpioe-qspi0-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOC5-11 */
-> +	gpioe-qspi1-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOC12-19 */
-> +	gpioe-qspi2-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOC20-27 */
-> +};
-> +
-> +&pinctrl_per2 {
-> +	gpionw-vref =3D <JHB100_PINVREF_1_8V>; /* VREF for GPIOD19-30 */
-> +};
-> +
-> +&pinctrl_per3 {
-> +	gpios-vref =3D <JHB100_PINVREF_1_8V>; /* VREF for GPIOE0-10 */
-> +};
-> +
-> +&pinctrl_sys2 {
-> +	gpiow-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOA36-39 */
-> +	gpiow-inner-vref =3D <JHB100_PINVREF_3_3V>; /* VREF for GPIOA40-43 */
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi b/arch/riscv/b=
-oot/dts/starfive/jhb100-evb1.dtsi
-> index 462b6fb7953b..acd5949bcfdb 100644
-> --- a/arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jhb100-evb1.dtsi
-> @@ -3,7 +3,9 @@
->   * Copyright (c) 2024-2026 StarFive Technology Co., Ltd.
->   */
-> =20
-> +#include "jhb100-pinfunc.h"
->  #include "jhb100.dtsi"
-> +#include "jhb100-pinctrl.dtsi"
-> =20
->  / {
->  	model =3D "StarFive JHB100 EVB-1";
-> @@ -29,4 +31,6 @@ memory@40000000 {
-> =20
->  &uart6 {
->  	status =3D "okay";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&uart6_pins>;
->  };
-> diff --git a/arch/riscv/boot/dts/starfive/jhb100-pinctrl.dtsi b/arch/risc=
-v/boot/dts/starfive/jhb100-pinctrl.dtsi
-> new file mode 100644
-> index 000000000000..d12b79376521
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jhb100-pinctrl.dtsi
-> @@ -0,0 +1,19 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (c) 2025-2026 StarFive Technology Co., Ltd.
-> + */
-> +
-> +&pinctrl_sys2 {
-> +	uart6_pins: uart6-grp {
-> +		uart6-tx-pins {
-> +			pinmux =3D <PINMUX(PADNUM_SYS2_GPIO_A38,
-> +					 FUNC_SYS2_UART6_TX)>;
-> +		};
-> +
-> +		uart6-rx-pins {
-> +			pinmux =3D <PINMUX(PADNUM_SYS2_GPIO_A39,
-> +					 FUNC_SYS2_UART6_RX)>;
-> +			input-enable;
-> +		};
-> +	};
-> +};
-
-Could we get some more examples, to exercise each pin controller?
-Is that impossible without adding more peripherals other than uart?
-
-Cheers,
-Conor.
-
-> diff --git a/arch/riscv/boot/dts/starfive/jhb100.dtsi b/arch/riscv/boot/d=
-ts/starfive/jhb100.dtsi
-> index 700d00f800bc..74d427d7f2df 100644
-> --- a/arch/riscv/boot/dts/starfive/jhb100.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jhb100.dtsi
-> @@ -425,6 +425,18 @@ per0crg: clock-controller@11a08000 {
->  				#reset-cells =3D <1>;
->  			};
-> =20
-> +			pinctrl_per0: pinctrl@11a0a000 {
-> +				compatible =3D "starfive,jhb100-per0-pinctrl";
-> +				reg =3D <0x0 0x11a0a000 0x0 0x1000>;
-> +				resets =3D <&per0crg JHB100_PER0RST_GPIO_IOMUX_PRESETN>;
-> +				interrupts =3D <60>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_per0 0 0 60>;
-> +			};
-> +
->  			per1crg: clock-controller@11b40000 {
->  				compatible =3D "starfive,jhb100-per1crg";
->  				reg =3D <0x0 0x11b40000 0x0 0x1000>;
-> @@ -440,6 +452,18 @@ per1crg: clock-controller@11b40000 {
->  				#reset-cells =3D <1>;
->  			};
-> =20
-> +			pinctrl_per1: pinctrl@11b42000 {
-> +				compatible =3D "starfive,jhb100-per1-pinctrl";
-> +				reg =3D <0x0 0x11b42000 0x0 0x800>;
-> +				resets =3D <&per1crg JHB100_PER1RST_IOMUX_PRESETN>;
-> +				interrupts =3D <61>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_per1 0 0 36>;
-> +			};
-> +
->  			per2crg: clock-controller@11bc0000 {
->  				compatible =3D "starfive,jhb100-per2crg";
->  				reg =3D <0x0 0x11bc0000 0x0 0x1000>;
-> @@ -461,6 +485,30 @@ per2crg: clock-controller@11bc0000 {
->  				#reset-cells =3D <1>;
->  			};
-> =20
-> +			pinctrl_per2: pinctrl@11bc2000 {
-> +				compatible =3D "starfive,jhb100-per2-pinctrl";
-> +				reg =3D <0x0 0x11bc2000 0x0 0x400>;
-> +				resets =3D <&per2crg JHB100_PER2RST_IOMUX_PRESETN>;
-> +				interrupts =3D <62>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_per2 0 0 31>;
-> +			};
-> +
-> +			pinctrl_per2pok: pinctrl@11bc2400 {
-> +				compatible =3D "starfive,jhb100-per2pok-pinctrl";
-> +				reg =3D <0x0 0x11bc2400 0x0 0x400>;
-> +				resets =3D <&per2crg JHB100_PER2RST_POK_IOMUX_PRESETN>;
-> +				interrupts =3D <63>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_per2pok 0 0 18>;
-> +			};
-> +
->  			per3crg: clock-controller@11c40000 {
->  				compatible =3D "starfive,jhb100-per3crg";
->  				reg =3D <0x0 0x11c40000 0x0 0x1000>;
-> @@ -480,6 +528,18 @@ per3crg: clock-controller@11c40000 {
->  				#reset-cells =3D <1>;
->  			};
-> =20
-> +			pinctrl_per3: pinctrl@11c42000 {
-> +				compatible =3D "starfive,jhb100-per3-pinctrl";
-> +				reg =3D <0x0 0x11c42000 0x0 0x1000>;
-> +				resets =3D <&per3crg JHB100_PER3RST_IOMUX_PRESETN>;
-> +				interrupts =3D <64>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_per3 0 0 11>;
-> +			};
-> +
->  			sys0crg: clock-controller@13000000 {
->  				compatible =3D "starfive,jhb100-sys0crg";
->  				reg =3D <0x0 0x13000000 0x0 0x4000>;
-> @@ -513,6 +573,53 @@ sys2crg: clock-controller@13008000 {
->  				#clock-cells =3D <1>;
->  				#reset-cells =3D <1>;
->  			};
-> +
-> +			pinctrl_sys0: pinctrl@13080000 {
-> +				compatible =3D "starfive,jhb100-sys0-pinctrl";
-> +				reg =3D <0x0 0x13080000 0x0 0x800>;
-> +				resets =3D <&sys0crg JHB100_SYS0RST_SYS0_IOMUX_PRESETN>;
-> +				interrupts =3D <56>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_sys0 0 0 4>;
-> +			};
-> +
-> +			pinctrl_sys0h: pinctrl@13080800 {
-> +				compatible =3D "starfive,jhb100-sys0h-pinctrl";
-> +				reg =3D <0x0 0x13080800 0x0 0x800>;
-> +				resets =3D <&sys0crg JHB100_SYS0RST_SYS0H_IOMUX_PRESETN>;
-> +				interrupts =3D <57>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_sys0h 0 0 12>;
-> +			};
-> +
-> +			pinctrl_sys1: pinctrl@13081000 {
-> +				compatible =3D "starfive,jhb100-sys1-pinctrl";
-> +				reg =3D <0x0 0x13081000 0x0 0x1000>;
-> +				resets =3D <&sys1crg JHB100_SYS1RST_SYS1_IOMUX_PRESETN>;
-> +				interrupts =3D <58>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_sys1 0 0 8>;
-> +			};
-> +
-> +			pinctrl_sys2: pinctrl@13082000 {
-> +				compatible =3D "starfive,jhb100-sys2-pinctrl";
-> +				reg =3D <0x0 0x13082000 0x0 0x1000>;
-> +				interrupts =3D <59>;
-> +				interrupt-controller;
-> +				#interrupt-cells =3D <2>;
-> +				gpio-controller;
-> +				#gpio-cells =3D <2>;
-> +				gpio-ranges =3D <&pinctrl_sys2 0 0 37>;
-> +			};
->  		};
->  	};
->  };
-> --=20
-> 2.25.1
+> While the K3 PDMA IP reuses most of the design found on the earlier
+> K1 SoC, a new compatible string is required because the DRCMR
+> (DMA Request/Command Register) base address for extended DMA request
+> numbers (>=3D 64) differs from the K1 implementation.
 >=20
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
---DqhoXpfq+UgDU/hi
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+--FJVvYi+3HKEojWVf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeuiAAAKCRB4tDGHoIJi
-0rW5AP9ktwCVW5LRPVXVFklvVpQefHXwVkUhNzJjPS0ZMNA0LgEA9Imph0GBt+JF
-fE6HN543JjjqciJ8ylRkVmuxVwhtpgQ=
-=Y7fR
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaeuidQAKCRB4tDGHoIJi
+0t/CAQCIAOQN4TYlpXK82vNLDwwODSFHT7GsOjh3smrUC7w+mwEA8RlB1ObCy1Og
+Sg0d01zgcYTCnZq0zfzrc83Psv/L+w8=
+=xIIX
 -----END PGP SIGNATURE-----
 
---DqhoXpfq+UgDU/hi--
+--FJVvYi+3HKEojWVf--
 
 
---===============8459806285506248247==
+--===============2280135348630504429==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -378,5 +132,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8459806285506248247==--
+--===============2280135348630504429==--
 
