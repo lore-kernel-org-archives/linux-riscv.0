@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A932FB44A9
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 05:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8711EFB44BB
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 06:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QFhHj3L76vN+0Q+tGQNtyY39zphFSkr7Cn2Qmp1hkUg=; b=ydyWtc/ACZ7AF3
-	UK6BHL0ROzT1udkEppWLgcMrhMbArfL3ClEeVJfN9PBYNv8zbysaH/rvIQl329D9OSXMI8TIXHi1V
-	Oo0NONfi7sOWkyY8JixsJbP5UAICflwIJ0lINbcCOSIKjgexl6d3j143M5qJLH5WhuXRNShv84hjm
-	d42+EOrI0nRuzKxSTVauSwrqCKgpIVfRRetuW/yedkOwdIy6JLNpwNr/5Jwz7BRRmxh0gnVnbQsej
-	Q6mSpdG7nUJsmn/hiBmDM4P7xO+wv65Pu7NOaNCXQeML1GfFzVSdLKl0+MG+Zdkri6y9cc0Mphzcx
-	YaT5q21kjX/biiiZxHBw==;
+	List-Owner; bh=gIkM1d+5MNuJnjz9Nj8bsIBfjnV2dyCoio/PzgnuHFw=; b=HMKrRr3wYiMn9X
+	VHvXCgYIhNazbQnhO/PqtbPoHP6aTTSzBhMlXYIWkyauTnk1mwMipXbU+NBjA0mcF4Imp58cDkI1T
+	wdKakEDTeyl2L8zAqIQxUXXA1LNbgUDuGwmtNGyhU4wZCw0wDGWcV3kTt8DhX5lPnhBvkR6DxYWTX
+	kiQDxXDbUkEacRzSomjrxAM4ioKYmCKBUffv1wuvXiegI94mSPKeM0HURaufZCKjqWkPDcMFgOoZ0
+	/NU/dB3NWrwX2RHy0I8gXQPJiUrzrWQ8dYNPnDqw/65SFcZElfaJXz3pF1U0ZLxShzqhZBmqrPvxv
+	WJBGlN+6QLzre+if4OUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG9HC-0000000Cfim-2u9M;
-	Fri, 24 Apr 2026 05:40:30 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG9H9-0000000Cfhv-1lpm
+	id 1wGAS3-0000000Ckg7-44AZ;
+	Fri, 24 Apr 2026 06:55:47 +0000
+Received: from mail-dl1-x122a.google.com ([2607:f8b0:4864:20::122a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wGAS1-0000000Ckfk-2sfP
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Apr 2026 05:40:29 +0000
+	Fri, 24 Apr 2026 06:55:46 +0000
+Received: by mail-dl1-x122a.google.com with SMTP id a92af1059eb24-12c19d23b19so9711213c88.0
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Apr 2026 23:55:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Subject:Date:Message-Id:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:To:Cc; bh=En
-	tjKiXGiVc7g9ljDSOTLPPgkKKwLhEPaqid4wCky4Q=; b=GTYJ8U/FXpj2dAoA/9
-	9Q6vlXq/sTbGO86OIEn+q/fm/JP8f4hvz00a2P1eKSXGJ73MHQCuKOPZb7+94xNR
-	K6GSkEOyV6DTmstskOc0BXnku47zcL3ko+KocOoYabmVfAjh+3tmUC+p4GVwD6+1
-	eAhcPC61wrJqrE2vz1RE3Er+4=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnYUJlAutpm8gCAA--.1607S2;
-	Fri, 24 Apr 2026 13:40:53 +0800 (CST)
-From: Jia Wang <wangjia@ultrarisc.com>
-Subject: [PATCH v4 0/4] serial: 8250_dw: Add support for UltraRISC DP1000
- UART
-Date: Fri, 24 Apr 2026 13:39:27 +0800
-Message-Id: <20260424-ultrarisc-serial-v4-0-1765a0b4c4a0@ultrarisc.com>
+        d=sifive.com; s=google; t=1777013744; x=1777618544; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wlChXpy0nN0oSk3hgPhIo49rDQ+oIcHvjI/gnEjTyQ4=;
+        b=MZAw4pMVzGqvFmHXrek9m1BzJbCl1dg50AjsGo/dOdCEDrRx2HPglwjkWlmG1YN0/+
+         z/pEDK1QBf6ynT0iYE7FR2jL71U/XYEhF2H5SGrhLpQAlRN67ZU2XltwJ6oXPYYOkLIh
+         ghC9wyUI/BNgGQ1cwiRzHVaWzDDGUnOagzTRrU2fCvc2uEGqkpI066TWnmJgKWd8QCkk
+         QgskZHoF3n+x5yMxySlx34HNMh9eRHFWCLGPOFdMQ503YlsEmI6L/qJhd3yGz4Ez1f/q
+         JcPhUJ3gRqPj+kpfSaSF/77bb8Qx/fkQfeqbTOy90EfU9pDy4FB48mP9Iw9H+R11f/35
+         UQTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777013744; x=1777618544;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wlChXpy0nN0oSk3hgPhIo49rDQ+oIcHvjI/gnEjTyQ4=;
+        b=sEzF7VEUBWhpy41fyt+kuWV6Dv43p9GKYaZkoDuDhgfx5CQIbdorlkKmulx3BrZyZ9
+         Ile1WZ2+K+ZnId1QsKqzYwj+79lwvkUGVEgTGCh+VLhKPl+Duyw5V7EZEoJLoEA+5nYR
+         Sf/sCPRSkIVeqEkMyTN1rYkL5MSztmw6HAOInV2l9GuRpKdKVGjAXodPROafMy49hJaE
+         MMCkC1GCWAu67oH/jbfuvHM7mAdbQpWyDEUtgJhwmKUQM85VfabvYiiyZeNUI97wMfPu
+         16CxX0s+xq5CvWR+WOcjZxghCveBE72ibngqfUGLyiP51STkPRw4uDiFl6x+SxVxSo/1
+         nfNQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8r0YPJmrUT2U59PToxYN10Un6X6R5dhkjulclfEUEjmNLwiZtlxcoBpC9K3axE94I47eGpkoPhWKYFbA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9t02VMwdFE7pYm/rCcsoXR3lVVkRjPN0OAU4fME4lexufZRLw
+	9ZP2CGS/kYqYJuNP8ZHPCTlKVcNoSzc0MiX1l/ffKsJEmHwjmwZ3cXhrahUgkrsRhFE=
+X-Gm-Gg: AeBDiev7jJhmO1qeZOGSEoi7uIIISdg/QeXOvhjIR5lGG8Pv/GkU6A5R5ZWzKf0vW+y
+	hVjiaOP4cO6no26Raf9etPDnPs1fPORhr6Du9A8sLmjCVGDbXx+rurZhxMQ6CjgKmonkT2S8qkl
+	Y2MoVgyzDXdlW2L48rmW11ZvH1yO7Gz//6YcgRuF0SgnJLUwcjjKn5w8cLpaCcQ3wthWUHwkH8v
+	JNwbD/OulXkel98lfCKGvgWorBraxlyOcL1yEG62fkc6BH6osOk4bbd8Eem2ebKu+2ssQCNEXkR
+	hl8G3/AxqDQYZ8xDwOVTIjv0loGZ0lh5ufkYFtOqvh+i7TJam03ZGukadnmkFA1YonifVFEMNDg
+	JlbVjP1iYDcbs0FaHQleIIpMAuJ9JmkBmEEIOtu/E3TpLWWAulFUiJO4s4eTikCKrkWCt5jWMBs
+	L46hW7hOjKXQ330+cuOuyFc9M5FiIw/mlMbus9xQrKQbTMzaxjvVymFFYH
+X-Received: by 2002:a05:7022:79e:b0:12b:ec15:69d3 with SMTP id a92af1059eb24-12c73f99c8amr16945900c88.19.1777013744478;
+        Thu, 23 Apr 2026 23:55:44 -0700 (PDT)
+Received: from sw04.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12c74a20eb5sm39271101c88.14.2026.04.23.23.55.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Apr 2026 23:55:43 -0700 (PDT)
+From: Zong Li <zong.li@sifive.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	debug@rivosinc.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Zong Li <zong.li@sifive.com>
+Subject: [PATCH] riscv: cif: reduce shadow stack size limit from 4GB to 2GB
+Date: Thu, 23 Apr 2026 23:55:40 -0700
+Message-ID: <20260424065540.3480755-1-zong.li@sifive.com>
+X-Mailer: git-send-email @GIT_VERSION@
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAA8C62kC/4XN0QrCIBgF4FcJrzPU31zrqveILpz7bUZtodsox
- t49XVFQgy4PnPOdgQT0DgPZLgbisXfBNXUMcrkgptL1EakrYyaCCcWA5bQ7t157FwxNS32mSlq
- rIMPSCkXi7OrRuttE7g/PHLrihKZNTmpULrSNv0+fPU+9F8/VL99zyqiR8QUwB9Dr3buyMs2Fp
- Ite/ENERJQuADOrNzk3cwh8ECn4DAIRgTKzLDdCCobfyDiOD4RaV+xQAQAA
-X-Change-ID: 20260309-ultrarisc-serial-64ff637edf26
-To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- Jia Wang <wangjia@ultrarisc.com>, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777009209; l=2625;
- i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=k55XBV/nmFEVR3wNAXd6Yzldm76QwPMOMHGutyTPK34=;
- b=m23lxKeGrSvvMwMxC73BQt4E78pRW+AQ7iu8g4y1JQfYxO9PI4ZTzunANxT1JBHzTSzpkMpQH
- ntlP33boulFAWNe9XpxLyoirrnpZjx4EtX0GJFkroVlq+LW290Lz55j
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwAnYUJlAutpm8gCAA--.1607S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXrWfCr4Uuw45CF45tr13Arb_yoW5Gry7pF
-	43KrZIyr98tFySkan7tw1IvF1fWF48JryUXFnrKw1Yq3W5ZF18trWrKw45AF98Zr95Wr1j
-	9F45u34rGa4UuwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnUUvcSsGvfC2KfnxnUUI43ZEXa7xR_UUUUUUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAHEWnq6L8ACAAAsL
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_224028_013940_2F26055A 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260423_235545_742000_D1ED882C 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,66 +101,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the UltraRISC DP1000 UART controller.
+Follow the ARM64 GCS (Guarded Control Stack) implementation approach
+by reducing the shadow stack size allocation from min(RLIMIT_STACK, 4GB)
+to min(RLIMIT_STACK/2, 2GB). see commit '506496bcbb42 "arm64/gcs: Ensure
+that new threads have a GCS")'
 
-The series includes four patches. The first two are preparatory cleanups;
-the last two add the DP1000 compatible and fixed CPR handling.
+Rationale:
 
-The patches have been tested on an UltraRISC DP1000 development board with
-Linux v7.0-rc7, verifying basic UART functionality.
+1. Shadow stacks only store return addresses (8 bytes per entry), not
+   local variables, function parameters, or saved registers. A 2GB
+   shadow stack is far more than sufficient for any practical
+   application, even with extremely deep recursion. Using half the size
+   maintains adequate while being more resource-efficient margin
 
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+2. On memory-constrained systems (e.g., platforms with only 4GB of
+   physical memory, which is a common configuration), allocating 4GB
+   of virtual address space for shadow stack per process/thread can
+   lead to virtual memory allocation failures when the overcommit mode
+   is set to OVERCOMMIT_GUESS or OVERCOMMIT_NEVER:
+   Error: "__vm_enough_memory: not enough memory for the allocation"
+
+This reduces virtual address space consumption by 50% while maintaining
+more than adequate space for return address storage.
+
+Signed-off-by: Zong Li <zong.li@sifive.com>
 ---
-Changes in v4:
-- Added two preparatory patches before the original series, shifting patch
-  numbers (former 1/2 -> now 3/4).
-- Patch 1:
-  * Move all DesignWare UART register/field definitions into 8250_dwlib.h
-    for shared use with 8250_dw.
-- Patch 2:
-  * Converted the Renesas RZ/N1 CPR magic value to use DW_UART_CPR_* macros
-    and FIELD_PREP_CONST().
-- Patch 4:
-  * Converted the UltraRISC DP1000 CPR magic value to use
-    DW_UART_CPR_* macros and FIELD_PREP_CONST() (value unchanged).
-- Link to v3: https://patch.msgid.link/20260421-ultrarisc-serial-v3-0-3d7f09c2420e@ultrarisc.com
+ arch/riscv/kernel/usercfi.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-Changes in v3:
-- Rebased on Linux v7.0-rc7.
-- Patch 1:
-   * Removed separate `items` entry for DP1000, merging it into the
-     existing `enum` to comply with the schema.
-   * Updated commit message to describe DP1000 UART hardware differences.
-- Patch 2:
-   * Drop the custom quirk for missing CPR register.
-   * Switch to using DW_UART_QUIRK_CPR_VALUE to provide a fixed CPR value.
-- Link to v2: https://patch.msgid.link/20260316-ultrarisc-serial-v2-0-6ab3e7fa891c@ultrarisc.com
-
-Changes in v2:
-- Rebased on Linux v7.0-rc4 (previously on v7.0-rc2).
-- Reordered patch series: DT binding patch comes before driver changes.
-- Updated commit message for DT binding patch.
-- Link to v1: https://patch.msgid.link/20260316-ultrarisc-serial-v1-0-c464f3e933a5@ultrarisc.com
-
----
-Jia Wang (4):
-      serial: 8250_dwlib: move DesignWare register definitions to header
-      serial: 8250_dw: build Renesas RZN1 CPR value from DW_UART_CPR_* definitions
-      dt-bindings: serial: snps-dw-apb-uart: Add UltraRISC DP1000 UART
-      serial: 8250_dw: Use a fixed CPR value for UltraRISC DP1000 UART
-
- .../bindings/serial/snps-dw-apb-uart.yaml          |  1 +
- drivers/tty/serial/8250/8250_dw.c                  | 31 ++++++-----
- drivers/tty/serial/8250/8250_dwlib.c               | 49 -----------------
- drivers/tty/serial/8250/8250_dwlib.h               | 63 ++++++++++++++++++++++
- 4 files changed, 83 insertions(+), 61 deletions(-)
----
-base-commit: e774d5f1bc27a85f858bce7688509e866f8e8a4e
-change-id: 20260309-ultrarisc-serial-64ff637edf26
-
-Best regards,
---  
-Jia Wang <wangjia@ultrarisc.com>
+diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
+index 6eaa0d94fdfe..4a48dd28d113 100644
+--- a/arch/riscv/kernel/usercfi.c
++++ b/arch/riscv/kernel/usercfi.c
+@@ -109,15 +109,16 @@ void set_indir_lp_lock(struct task_struct *task, bool lock)
+ 	task->thread_info.user_cfi_state.ufcfi_locked = lock;
+ }
+ /*
+- * If size is 0, then to be compatible with regular stack we want it to be as big as
+- * regular stack. Else PAGE_ALIGN it and return back
++ * The shadow stack only stores the return address and not any variables
++ * this should be more than sufficient for most applications.
++ * Else PAGE_ALIGN it and return back
+  */
+ static unsigned long calc_shstk_size(unsigned long size)
+ {
+ 	if (size)
+ 		return PAGE_ALIGN(size);
+ 
+-	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK), SZ_4G));
++	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK) / 2, SZ_2G));
+ }
+ 
+ /*
+-- 
+2.43.7
 
 
 _______________________________________________
