@@ -4,86 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6970EFED3E2
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 15:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D939DFED3EA
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 16:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KaLeu/UyBrsptsBULcXXdpUvYNXQwoTZUTbHpR7ia5E=; b=FZ3DajZiHNfugB
-	V1g6zXVJUdkrkJC7h2I8Dehr3HB0ki15CmUheeMG33oYJEVefdb3gmWEJVZWi9YVqxxtyjXKuzzms
-	6qXzr1KWfTmlL3RO7NvDbD0jYvmjU9z8gSnVqkpckDbKRYAbinh/JHF857namP+ZPJj0aG8ke5HvC
-	UnqC0PAtE7H/35bpnMont9def21HbRcdYKXT9TBWuvqEpanJq+pnq7c0zALufNk2rKdKHVbmMy/98
-	1jtm60JqxSYqQRSx3HnzyRwLFgtO7KaGNpxRWBlV7D0m4aHzhKIn+3ks+pdhIaeGIMAnADEbw/nIh
-	nuhMf40WFFdO76dT9drA==;
+	List-Owner; bh=9hZ8iDXmU7akCkROzgXzJBudFRtd1oX8QJkXQFb4Bvs=; b=31pV5Uqia6WmVL
+	ET6ynC3WsGWs/Dl4WnKgRKj0Pp1Zu3/fQFpoVP725QPUvqTYeuzvOQSdHkk6R6yFe7bCNmvoHxKer
+	4dekoAM8L+PIAUquPJkHpZZAXFY9GqxkyZ0rtuGhlSDicHC+SQzk3tXY1uhvyH/VH+VokbQLElUgd
+	8Od8j2rCMflvflbtPHCJgqGRwA4TFC7z9qtRtpg1bcqu0RFZM7xZORdj81WZP/l1kNNoL5lrpVZhu
+	hoMmdrwN+1cPydpaXpYPos+R0OPhpXXAuQEZquxITct+sUVKwgThjMPxpeBy6zMBHJRWW6Oz5NqVA
+	QNLIoA/CzJVWK/5E9hdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIGk-0000000DNYk-2v1f;
-	Fri, 24 Apr 2026 15:16:38 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1wGJKK-0000000DRq5-0PZj;
+	Fri, 24 Apr 2026 16:24:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGIGi-0000000DNYA-0arV
+	id 1wGJKG-0000000DRpK-48WT
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Apr 2026 15:16:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777043796; x=1808579796;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=IChu/uXn2KIrqkBTPczQ+N31CwRbH1SiSkO5kUF/m3g=;
-  b=RBm0e6lIppjA4r0a6lQaSReu15e1RcEoNGRcIR1pyEREWTiiqvc9FBqP
-   zU3JUFGRWNkTpdVSb8RbSxsqpVVWafRly1QETiAH4sz92SSGtQUF495tf
-   MwJi3KG/GZvKZHQYuc8DrQJl3ml/I2eh2PGpLACj0ceaeE40ro5C6pHPY
-   5EYkWjS09X5Y/m/PVOGxTLYsHzmraRqXo6uuKbJd+HF45eeGk+07UJyoV
-   2YD7VS0WnaX/IytUsv10i7gk+3H0jYV0L+jJYK4+6y4Dk8UXMIxkbmS/z
-   jWHlaiRfAij13CaXID3f+7n8mfA7SrVvJxeySrzlRWLFUSeFPIBg/4G45
-   g==;
-X-CSE-ConnectionGUID: BsorKcgORa2C0w3DG5vmdA==
-X-CSE-MsgGUID: LGwk/uwmS8yOqFy9+hEtgw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11766"; a="100678668"
-X-IronPort-AV: E=Sophos;i="6.23,196,1770624000"; 
-   d="scan'208";a="100678668"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Apr 2026 08:16:34 -0700
-X-CSE-ConnectionGUID: Yvpr7tkGRTWVSuqnQ105Rw==
-X-CSE-MsgGUID: M2VX0kIvSmqcW43HYmcNyA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,196,1770624000"; 
-   d="scan'208";a="226448405"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.71])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Apr 2026 08:16:31 -0700
-Date: Fri, 24 Apr 2026 18:16:28 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Jia Wang <wangjia@ultrarisc.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	linux-serial <linux-serial@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 2/4] serial: 8250_dw: build Renesas RZN1 CPR value
- from DW_UART_CPR_* definitions
-Message-ID: <aeuJTMqADw8J0x0u@ashevche-desk.local>
-References: <20260424-ultrarisc-serial-v4-0-1765a0b4c4a0@ultrarisc.com>
- <20260424-ultrarisc-serial-v4-2-1765a0b4c4a0@ultrarisc.com>
- <4548483c-cbba-899e-6b1a-1290d36b59cd@linux.intel.com>
- <aetv2ljDOpH_Hs4s@ashevche-desk.local>
- <363a636d-f014-cc29-6be4-ec3041f43855@linux.intel.com>
+	Fri, 24 Apr 2026 16:24:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1777047858;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bkHBfOVa4bz/wCbZfmwZYYdZCO/tCYPxae+JQxak4Yg=;
+	b=eZl25zDnldI79cy46T99uOTd673DqSE3j2FysmQbJamPpWT1+bYhnhXu0ciAPPgimA2OcG
+	Lwjqbk1m/+Fj2iobSg00wB8ywT39ue32rH3MCPB5qWPhjYtAyDBWfS9dESKDAbPzROkNcc
+	HyPxpHf9CxQ494ziriMuyR2fcay6u+w=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-307-sdlfENKTPr6jKY5VUABVBA-1; Fri, 24 Apr 2026 12:24:16 -0400
+X-MC-Unique: sdlfENKTPr6jKY5VUABVBA-1
+X-Mimecast-MFC-AGG-ID: sdlfENKTPr6jKY5VUABVBA_1777047856
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-48a5adc141cso21313275e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Apr 2026 09:24:16 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777047856; x=1777652656;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bkHBfOVa4bz/wCbZfmwZYYdZCO/tCYPxae+JQxak4Yg=;
+        b=BrfpCkigiZPJskcYW7j8aMcRL5bWw2Yz5DYXsmjtifDF3y75Bc8kXsqNIZisimMMHW
+         9akhXTcZlt5CRD7wdTINWwR3P+ytDcedEKSRAJlQ5snq+YKpM39/S/eI6ESME+QM8kGs
+         mUu1oCExUS5UlRt3A4y1jUZPTIvlMo0fZnEL5AVOqXgWaqcv/Vewu7i8r6+XhJbpxNNQ
+         2kKLOkFWwiqiTCKK8BNOdzk7LmYq2uvwkKtgIUnm9R4e8CiYwaNzq2G6BNdYCheYbTIe
+         WsQUYalqR0eI7z1IKS3W6fSQtI0hIorgEk9jOvrrGQN6kOmKvoyIl4ldihcMw5XnPNNl
+         jD8g==
+X-Forwarded-Encrypted: i=1; AFNElJ8SkzJTVwfq9yAnCgBg7u2FvQNBOy6PvNFD2MJGujpU2wNnqHTvMxz5n5mS0zpG1PKhqqx4qCEnmJ3KWA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPc+nNT4PDSw7ur5F7mv6kV/d1e93Q0xjrXX+i5FTSqpePykXm
+	9312seCpNBQ+sLriA5h+rl+3AqYjmoaHtC23rMwi8tyBq/cKnr4CPWL3WXtAIC8CaPkEI0FZBT9
+	HcxWot6WAYWcvM/sjN99JB67Sl26zQ2edLebEmYS1TOHF84FgHp0pRw+m3gsm49cBdyh+Mw==
+X-Gm-Gg: AeBDiet+F7RFIe/EVf1y8lZaFbqZ2HotAB2r6/0ZV44Sc5OG3HNj8oI+lD/nYjGjlIL
+	W8mYYH6nuG2trrhow+sJrYtrRrrDNDGdo/MmNlp310p1LejPdxFbW8JY5pVz9+1cwKc8oxG1xtq
+	rPtZMTG5D9BF5tbZrg2uiGiZ8MFZ2e323DQxx0dq8Z6cW4x3dZVN25lwMlpm5PljhRS3y2jVNpI
+	vgItWHhdgb3+yf80VuOwIr0sv3MmmbIux+TPgENiksRDOnVuHrxuw3DSCiJs4/Noel5FKDlNOM6
+	PRnqwrvC1IvsNB6wIhZ1ja+LA5gf6zX1pvJ6ZXqtpZlxtK/a2D+47zhZlMo2ObIXxJRMME9l+Ue
+	zpS+iQRy2pIRhmIOJ7N3jaeC1KlZaQJkDuDVoICsvkCzT+Aj6FpHa7jzjGbZuB+QlhWpdtdw1UP
+	gZNR6knuo9nEjXRO8=
+X-Received: by 2002:a05:600c:8b6b:b0:485:3c2e:60d5 with SMTP id 5b1f17b1804b1-488fb8859ddmr427762045e9.2.1777047855228;
+        Fri, 24 Apr 2026 09:24:15 -0700 (PDT)
+X-Received: by 2002:a05:600c:8b6b:b0:485:3c2e:60d5 with SMTP id 5b1f17b1804b1-488fb8859ddmr427761525e9.2.1777047854742;
+        Fri, 24 Apr 2026 09:24:14 -0700 (PDT)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48a682588f8sm6272915e9.10.2026.04.24.09.24.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Apr 2026 09:24:13 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Thomas Zimmermann <tzimmermann@suse.de>, Arnd Bergmann <arnd@arndb.de>,
+ Ard Biesheuvel <ardb@kernel.org>, Ilias Apalodimas
+ <ilias.apalodimas@linaro.org>, Huacai Chen <chenhuacai@kernel.org>, WANG
+ Xuerui <kernel@xen0n.name>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Dave Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, "K. Y.
+ Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+ longli@microsoft.com, Helge Deller <deller@gmx.de>
+Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org
+Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a
+ user-selectable option
+In-Reply-To: <0156562f-5fcf-47ce-8fea-03345f2c3fe6@suse.de>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-4-tzimmermann@suse.de>
+ <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
+ <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
+ <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
+ <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
+ <295a43ce-92fb-435d-a82f-d1cfa8f4f28d@app.fastmail.com>
+ <0156562f-5fcf-47ce-8fea-03345f2c3fe6@suse.de>
+Date: Fri, 24 Apr 2026 18:24:07 +0200
+Message-ID: <87se8kjpi0.fsf@ocarina.mail-host-address-is-not-set>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <363a636d-f014-cc29-6be4-ec3041f43855@linux.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: U0COLrkKeJDvLFvU8D_JJFPIkDFfXs9CagVFI8R5vIo_1777047856
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_081636_223733_0D0CD36D 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20260424_092421_099693_EF56D1C8 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,68 +120,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 05:09:46PM +0300, Ilpo J=E4rvinen wrote:
-> On Fri, 24 Apr 2026, Andy Shevchenko wrote:
-> > On Fri, Apr 24, 2026 at 02:38:56PM +0300, Ilpo J=E4rvinen wrote:
-> > > On Fri, 24 Apr 2026, Jia Wang wrote:
+Thomas Zimmermann <tzimmermann@suse.de> writes:
 
-...
+Hello,
 
-> > > Hmm, maybe there should also be macro also for this one which takes t=
-he =
+[...]
 
-> > > fifosize as input and converts it to CPR field vlaue (effectively, th=
-e =
+>>>>>> On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
+>>>>>> I don't really like this part of the series and would prefer
+>>>>>> to keep CONFIG_SYSFB hidden as much as possible as an x86
 
-> > > macro is an inverse of DW_UART_CPR_FIFO_SIZE()). It would be more rea=
-dable =
+I tend to agree with Arnd here, I'm also not seeing that much value on
+making this symbol user selectable. For now I would just keep it hidden.
 
-> > > than the literal.
-> > =
+[...]
 
-> > But this can be done separately, right?
-> =
+>> Yes, I saw that as well and don't have an immediate idea for how
+>> to best do it. I saw that you already abstracted the access to
+>> the screen_info members in drm_sysfb_screen_info.c, which I think
+>> is a step in that direction.
+>>
+>> I also noticed that efidrm is mostly a subset of vesadrm, so
+>> in theory they could be merged back into an x86 drm driver
+>> along with the drm_sysfb_screen_info helpers, and have a non-x86
+>> driver that constructs a drm_sysfb_device directly from the
+>> EFI structures.
+>
+> I would not want to have a unifed driver for all-things-screen_info. The 
+> code that can easily be shared is already in the sysfb helpers. But I 
+> don't mind adding a separate driver for EFI's Graphics Output Protocol.
 
-> It's logically part of the cpr_value literal to defines conversion (of =
+I agree. It is much more maintainable if we have dedicated DRM drivers that
+use shared helpers, than attempting to have a driver for different platforms.
 
-> course one could introduce it in own patch without users but I don't see =
+As Thomas explained, the maintance effort is small on the DRM side and he has
+done a lot of work to split simpledrm in efidrm, vesadrm and ofdrm.
 
-> much benefit from that).
+-- 
+Best regards,
 
-No objections.
-
-> > > Also include BUILD_BUG_ON(!IS_ALIGNED(fifosize, 16) + bounds checks) =
-
-> > > inside that macro to catch invalid fifo sizes (+ don't forget the =
-
-> > > necessary headers for those two new things).
-> > =
-
-> > Hmm... Some devices may have FIFO =3D 8 or 4 bytes (Intel Quark IIRC ha=
-s less
-> > than 16 and it's DW IP).
-> =
-
-> Perhaps but according the DW databook I've at hand, there are no values i=
-n =
-
-> FIFO_MODE field for such FIFO sizes. So what would CPR contain in those
-> cases for FIFO_MODE field?
-
-On real HW it returns 0s for all registers above 0x07 (multiplied by 4 as
-a stride). But I also checked the values of xmit_fifo_size and it shows 16.
-What 8 is it is the DMA max_burst. Hence the proposed assertion should work.
-
--- =
-
-With Best Regards,
-Andy Shevchenko
-
+Javier Martinez Canillas
+Core Platforms
+Red Hat
 
 
 _______________________________________________
