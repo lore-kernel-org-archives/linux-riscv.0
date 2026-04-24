@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB692FE520D
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 11:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C2BFE520C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 11:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HODmTwaKhgyDJpj2Dz/VsRL6ClLoLWhCqQnLeGPQ4LE=; b=pyDlIa3D39XZIR
-	z4mLd7vBJem5JvJbcg/x97fwZyg9FZvfQCmGaxMdlKKSwdsOi8JNKeryTcMGmHT8b6UcPZlqAr+3H
-	yaxhSfjOjj8KU73aGBrL1piiLoZBTUWqYj9bQV7c1RyzJXSHMbvjGQn0PSE8Pmtt6MbSsnIL2S6cY
-	+az4M1vyM0G7SSXFuJ3tgVh5Ko/TZ8LFA0p/JkWasSpYOiKKXvV8qsGayPEbNleLzZnNK038VAH+C
-	FFgrTmBk5VOGGBTShLMsE1qYzAIdXaNsPfgmIaaU9y7vP1yRtKOyg3dATyV4PMDIOY9bXZfjiuuAx
-	pGEAgfvE0S10q8UtsvRw==;
+	List-Owner; bh=Z94Hm/DDBPKQ4NlskLK8xfJpjojsmbxjnp/HzvYNNCA=; b=g3VwSozon1QURh
+	31hNF7ByZeL6ku6K4uSeLVXmtS6bTFarM9EWdErnIR5PwH6xOQ7FM6QV3oyVPSr7XHHNm8gPQELP0
+	RgFI+IYnk42a6rT3mJJBt1VCym4O69IATEQrkqfJzQr3kQTzt7dsQnfIeB4xbpY7fHmxPJTirxcR3
+	HZXDkXk33ZkaibTgvlIMqUkzZ4uHBXHr7g5Cvn73kXsmZOXPOT2pYeOlNUDdK39lIPi+fYdXb/Ab6
+	g61NwjFBdNGLszuTSrd5q8lrKht71h6RNs1fOFz1JlsQco6+K/TkJXHAlUCd1gwkOOxxcW4OPoK3q
+	x6L7KfIvV1JCS6SemgtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEUB-0000000D5ig-38Am;
-	Fri, 24 Apr 2026 11:14:15 +0000
-Received: from mail-sh0chn02on2070c.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::70c] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wGEUG-0000000D5mx-0RoE;
+	Fri, 24 Apr 2026 11:14:20 +0000
+Received: from mail-bjschn02on20716.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::716] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGEU8-0000000D5eH-0NgJ
+	id 1wGEUB-0000000D5eJ-1707
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Apr 2026 11:14:13 +0000
+	Fri, 24 Apr 2026 11:14:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gac3U7BOvM43gyMJ7WKomt1XxRe3YdzGamDsUnkCkbmbmq+Y7BYAZ4eLLEN2IuW6pdpdR+MI6rMGvvh/HXPmhNeq0LMIhetIRTVpMzRrEd3YUse9ji66XpnzhpWM8CaLwa0fFrk9pO50Tg1dxN58vlm/e3AEXk14olcI/DDYWgq1aKWugbxqu+dluRtLzHNqLteMaWOW/3P3HHmwv5eKGLMCUyLyvlqXUjJcyCJ8z7nPlHwaJS89Lw7Q3dEcueNTWrUYoiVfvDoJ2BDcAGaEJLLBl2nMcJ0xiRaKzAid6Dl5drzOJfMzr4D6QDtmId8hENBZZuyTQk319kddAjMkeg==
+ b=IyZ5BqASd2cIla2hRbrwb9Ab97oQsZ1MPsyx5aQr9RlIM4ys82sWi/AyVznOOZtSpU/AlEpOOunwVqi0F5qwqOdbZ38nDYPbrqFAfpX6r8HudaBlOVUtEuiMTf/1WeunsBmL1Nbx2JxtQ3QRIgRWM+XhzvmxHv7/UzUx2Gz1SD2Mhoqr5zCfkxh/USpRaCEwk0NmfIKkx0JhAqHqfXsnXRRH1VNj/jkPSqdVziGDxzPWsdlKoW18dgevFrEQPyC6io85JwuTxxEDA3D+aO5tT2yTCeCkH6DYvYnA1F3qoPDemGRppzqVb8BRRenq8VluZgfjsd8MmCMxZUC6uPTD4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IMfIzaQiXsUyAG2SwBV9Jws6VDm/DrLCUjJOv/1Z5jQ=;
- b=G+j7B4zTsiGPJZExLgjnU9gD/8VY2jorSjA3e2hnp/hFqbgUn5rG+AZCcUOw0MfW+gKSe7v2tan8/F2Cemp/UyKrR9fxdszcgYs1aVblWOXdf5NZXeFSrfzNAfyLJA/W37lEdorWhnVpcz9vJz8X5vGfahrv44sBk9dYrFfIwYeDMxaqAy0/cWOVX8P60z37943IrK6F/dH/RDJ8gQQRkhrdUqDVbvO+ZFGRRF0Gz+bb98tRwdepGvFFuPRyFjsedhHQwmNabZBB8X9aQObNSINZF52aEuiZH+6iMXxeGzMXhyzO1TCYbxnB9m2a3RNvprpu7fqUmxLMn7sGbQmLTA==
+ bh=soP57gcHE6gfZflTaOcdeFk5gwBp45RMSx5fr0POoTQ=;
+ b=Ljb5m4HWi+E3TXL4TnQ/RyC7jWLY8NFNWLYYcFtTvqDW7ZAtVOoFMNzOUTFrWnPydc8pgc9TknWrzLEu2JWCczsaSQq5LyMczomAt6E4VyRDFHaBrHSqZb0jQ/8FNYueaFk9/v/PvfJDbZpip4kMqqnYqZ+Bdl31WL+JCORtcZDm5KtvxUblrXTsXl1/AJHP67ndozrE1QiCo7KzgocrCbkrb/Y8NXCAiQTAutMpuxwtdlJSChC054vb1fogRHQ0nlQvT9a3pkVUaVmoh5jZ5FNk1rOT6bpsOvAJD2f8Okrj2YZ5mu1s72qP9u9aJwDknr2OUJ9/ZyWK0r1WFy7w5Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6) by ZQ4PR01MB1156.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:14::9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.22; Fri, 24 Apr
- 2026 11:13:49 +0000
+ 2026 11:13:53 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
- with mapi id 15.20.9846.021; Fri, 24 Apr 2026 11:13:49 +0000
+ with mapi id 15.20.9846.021; Fri, 24 Apr 2026 11:13:53 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Linus Walleij <linusw@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -66,9 +66,9 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
 	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v1 08/20] pinctrl: starfive: Add StarFive JHB100 sys2 controller driver
-Date: Fri, 24 Apr 2026 04:13:18 -0700
-Message-Id: <20260424111330.702272-9-changhuang.liang@starfivetech.com>
+Subject: [PATCH v1 11/20] dt-bindings: pinctrl: Add starfive,jhb100-per1-pinctrl
+Date: Fri, 24 Apr 2026 04:13:21 -0700
+Message-Id: <20260424111330.702272-12-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260424111330.702272-1-changhuang.liang@starfivetech.com>
 References: <20260424111330.702272-1-changhuang.liang@starfivetech.com>
@@ -78,56 +78,56 @@ X-ClientProxiedBy: SHXPR01CA0025.CHNPR01.prod.partner.outlook.cn
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1156:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ac7e5f8-a264-4afa-b6ac-08dea1f28f40
+X-MS-Office365-Filtering-Correlation-Id: 8337a677-bc0b-4ff1-a8ae-08dea1f291aa
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|38350700014|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 6MKMRmqaZnpbjc+Fa/PGh2gv4vCwRpUaVzqbs0Q8lgl5XXfw64uqzpe1A/oBmq461FGVzeuAX7IOQYV+0ZYKBPyYy/C+L1YKD+1Ik6O7DXOAyPpycNfI/M22HNYt6n0g5g0aJ0kp5BSNmXfeV0tNwtH9ClgV/l+0xs50/muLyeOFVWPFT4I8PctcwnuXY5G96hj911LCUVGrzydQ8C+W/jyoIgW7T8PEC1KPYNHOSHpi2RqqMwuc+a+MburQm6lpOcFH4YVrJavXVAtj+vKWHmjpXXfYE23F0CT1k56iz1hlHbECzZTappbdiBcRLICFPp5UUoPWnfS5cXcPE1LQ2yxOZhoEEUhRlMy/JU/Kj5LHwHZCSBrbVN4vNrqWTPEJnI1P1XPr5r/lRgHPrrzG1OJV9uR80LYGxjNJenzOtSS6nIUm1e7kT5p8zsEmAMKv/6BNnha12qQtqubgetBVT0Z4ACDtnzbs8nUkiBa1cy4DiGquQ4055j1d8T6OqIqLfbtkrxKDeCvFJFz1IDImUeq7SFGTngGMAwhtMSOQO/sLwWh8bpgCeBNwPePVflOtomDTrd9H8Ov2SvQG+neHduXC3gtavqJX6vMgpYtrG/0=
+X-Microsoft-Antispam-Message-Info: gGHoa+8t0Uue4e8iZH7seqPyCd6XMB0GrEFWEWBJSSvkAzPNwTXI2uopwNMvdacLsXqjU3C7NrrXoSkekqgRRXmZm3+y+maLbqazw7DvE9ipYVKB5vWRKjXXrtPT0G8rTWbgxY5g9+xlZmOf1KhVJ0keKdo42Y8U4DCzdCaxjqobY4XLZYUBGKcRaAfOhsCdcqaau5VYzznT9yErKQErIRu35wh+irr5qQj2xoBJpCLN4iXecRNMIHXct98IADtIMsKi7mfpcXxKTg5XZNRAjK1IfZWvYzF7AnXDONWMBeousdlpNHSDX5cRIXgu8Xrk+fj2w0P+QZtAeBAAaV2/siR4Q1QQCYzoqrQ6VFRmKjdx6/iav12FwFUf7nO/dcXEbcF3m8zodSEFOiCZvNVM/wVx9/8Y1NW7odCVIflZZFE6xPrWrkSQ0gXV/SrsMjnwevTbxVnJb1S8Ycf5PMj4eNCISwVf+vCs1+TCW7Ys946X3iUzGOmPnfxoFnXTln6HLhhdL9CnjWBiFyYOF+Nq6TxF2WnyDmweSM6iydI9uYzCPtIytP7VLgwpIZ+Pb4P1RTFqB9ZbuKAL3YWjp1KeXA5Cgg1/LwiJuwlBlg4Fvpk=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5qfmiECERQBmGxxRYnydtHxMs9YCapGDQfiNMnBPe/4Vnaydtn56devs1PCY?=
- =?us-ascii?Q?5vrKsw+cqYMOJa7UxLuRFhaDF6FXEIt4UrvdowkHYrWs6QEbdKMMzt37S9x8?=
- =?us-ascii?Q?+2/Zr2nW4a4Q78+DhSfG8ygZAlyFHb3Az/zXHGji6CYjsL9pR4me+JlcAc8K?=
- =?us-ascii?Q?q2r3w5c1wzkDXt9yTsdrzgUTEsSqaI+0v4qRUgAvUAN/pShU7HE9dI3SEVm+?=
- =?us-ascii?Q?+ERJ85DCzxOzoVZmV+o+oaprMTBSiUG3pJf1gnEi1dfKUYGvW2pP6BaEdJVZ?=
- =?us-ascii?Q?Gjs4h6vVruAP+RhRpTw+5dyAQ0Taw9AL/YqLBNws2rmU7IVimaTiDrPe+heG?=
- =?us-ascii?Q?CmfJJYOXWAO9tFke22+mHSxqDlqdzahvTHLVoFbYGikLbI5ZlUXtuw09d0nK?=
- =?us-ascii?Q?/90Rc4fc9uDx99utV8sYQyQbsBjb70lu4GycDCsMFBNgit9Yzw5NAY/313tA?=
- =?us-ascii?Q?NPquUUsb34QjJb/kcf17Y0ZlirbQqVPNPtAp1M+HD9XoNAp7tnHLsI6dmmaJ?=
- =?us-ascii?Q?9YAGCn1rAmeGJIigdqUt/2hrNrOCL9I+CRP6RrQWg9g5WqVaSM62OP6bLXEs?=
- =?us-ascii?Q?WAIjRMVWaJlpp6wyMu6ITOpG4d70RAwDsbQ56HhKHoElqVi/KPe3IqNtec70?=
- =?us-ascii?Q?DWacMOqN2yxwjgOtJEuzaXMSnziPyNxxihfoz2qOUq7TL7GXMOD2IhehyU9j?=
- =?us-ascii?Q?P/PaOxVbMDefrg3QxtcANK/+QgX+ScOsDj5VNxwK6iCLZu5Oy/KxgzFQpzXi?=
- =?us-ascii?Q?1vHxdjtQqmFh5FBbnFkhSwfambbrl1vatyJgQ3tdh5W1PnXt0RXpG7EDjz0C?=
- =?us-ascii?Q?tLTV4uzOq7RNlsXNgfE0LVpAwwU9nV1bdT8ft6/1u8yrwWEBq6QQbd0Mlgmc?=
- =?us-ascii?Q?qe/6riHBRMUl6BTdFGfcQu8WteMmRiWlNfYLDUyrizHT0A4CfkvVK+vmyz8E?=
- =?us-ascii?Q?Uop5+WjFEGjk8SLFXRzysKfYM8uoOHsRhsEv11uEqfVG1+4075sO+SM6Z7X1?=
- =?us-ascii?Q?MpjdLNWIIjUxjlZex2NHQdNliC+89DIOvd0lK62R6GJlqmlWX4inXnenMqms?=
- =?us-ascii?Q?FSnCYycGsxeYz/BbsgLTwBiFV4CtPZA4KdVjHXoOP67lVH0jYtofJhcTOxdl?=
- =?us-ascii?Q?QnbxfvbZAD6wnMIjfHgSDb4+32IrRLZg5zjt95KlIseT5pEXY0H3LluQOIAq?=
- =?us-ascii?Q?IJ5XYNo3L47vsqCS6kOBX4GjK3diRAqigCo7rRVhxFp9vMmwHURAT9HdVV+c?=
- =?us-ascii?Q?KYdAvFkRdL9TnXKr3jG2CUXrbLkvq6udirDOc1wTrGRjITCdNO32IrjOWR4t?=
- =?us-ascii?Q?ChdlSzXH0JJ+Fc1USKFMDtMSZdBDhWQpUUmF7KkjwtjfZJkHOJ3cJ1CMfBiv?=
- =?us-ascii?Q?TaI1rZidqdWC0L+NTOVE5tGKYgCB0Rm/0A/WUBCg3fidzCcYCoYpLcbZOfKM?=
- =?us-ascii?Q?CEUEJNb5cVYj5qq5oQIVRAPy4fuDCtId1bBtKKlXJUmlVW2QSgT/RYhSrgt+?=
- =?us-ascii?Q?Kfeu9LuygoR57yM7BTNeALyyqlCfOueBGXadMN5GQ+dRoRjDqFFCEcxHXgqT?=
- =?us-ascii?Q?q6y/f2kYe4UqAoQ5txGmMUd4KFEuP1EXXfgIZNN7EY4Z0/iuPtcguPtB692Q?=
- =?us-ascii?Q?oWKmNctCk1UtPSeJNNdbZx7G2i5aQlG0ixc/bT6B7TkiC6vYcXFZ0NuCOyQ+?=
- =?us-ascii?Q?O0zcyeAapKi6Y0gpCxvkXbAN5nKv6/txgUo4+z3ZlscKbxLOAJa1MUnnp7mX?=
- =?us-ascii?Q?i4/dWRJgPlA7aqU6mE4+i3yJUJQOwdvQZFJGPoaoM6nktbm+8nXY?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A1RSck5rSVaAv74rmlWDCZgmsop0VL3hyYCcfHJTYyBBH6GKp+BWof5LP6Di?=
+ =?us-ascii?Q?nPXFTgSTiKcFdKkb44z5i9nElbTnFDVSmk/Xur9p/Goj18/YzxKJWFPjKRAS?=
+ =?us-ascii?Q?wlzg/EzJu9BbAXD5QV5m6ZRwB1OBqtNnbEEJtZw1+sQEah10xP4oKgAaWEVP?=
+ =?us-ascii?Q?hUk6PCfwM6kIwW+NdRKB6ilRdfDZ7pVrVP/3BSgOtRnpEeuHMJrqZIy38OR8?=
+ =?us-ascii?Q?7Ev0N8TmscjKW93EuQtzaRJT/GXU9SXdxZ+2P+Pn1qR21ZIT2IcWz2qMfG27?=
+ =?us-ascii?Q?vPa/LG5tdZ4oY9OjLcNZnCOe3/CmJm0te/u059DIx6tdcSPy9nduLmxuIf7l?=
+ =?us-ascii?Q?z4bsXHv2gvIc/H9jKl1koHRUFC9Hy0P7mvc4KMO7oO8wCjtE3OLe9MNhyQra?=
+ =?us-ascii?Q?zF1OpN5MpJlklM2mUKurVh42VhVFTaVzyNhOJaxArVVzvz3tERIgVURoAeTc?=
+ =?us-ascii?Q?4ER+PxCbATbF3nLs4TlcZT/Gr64G2cf2SapMcF2F7mT4rh4BrGr0wTO6JdEc?=
+ =?us-ascii?Q?NneoqkUBHpJuUUYF45RJDoBRp3Qcbokn8F6/hQJc9HQOhn6RyY5mHYiTCMPI?=
+ =?us-ascii?Q?nxfWo08Ypc7fq11fz3MlXkTGZYt6gpBDA8E+eRU1PqRBOjcpLJmyswbX51sD?=
+ =?us-ascii?Q?gC3QgbjOKi0Dqny7+b1jMlub0BRRX2i7kTPcE3JFiwImdyU0AK2dSEAw7uDA?=
+ =?us-ascii?Q?KFiaW28qWS/3DxxV1e+E1WpP0N/PdMVvsz730BG6dfgKxXLqevKOtIKntn0J?=
+ =?us-ascii?Q?O8MpMGjqzDA0z3O5lkcbhpjpTcWozf3lnMRzYElQS4zUWa0BY6QNbbieCgsi?=
+ =?us-ascii?Q?oViAoZaRl/5Bb06ANxhxBdLunU95wwjo2GGKS2moevOvo2OKqLSmcGmVRtSX?=
+ =?us-ascii?Q?giwRZXcz8A6pdnuxwm90Bupt6SCScBELus2hOUPetnd2yTNvfxZVqc5Z+uKh?=
+ =?us-ascii?Q?CLpAxX6NSDo4onz8GMaa8/Zj2I2nY+Ps7b/hUAFfIAPJ+7vGfOAP7IcqEvWg?=
+ =?us-ascii?Q?tx1PgwkS8j7cFcwPANFCuHIVI/MpU9i38+iD2KjvYjO56MFyYfBN3T1nbZcP?=
+ =?us-ascii?Q?zmu/UUT4Sc4rvIpTAY5tvo1wjQIWFH2IAmZ+PtuSLzFz6sU44HsktoOUB4zA?=
+ =?us-ascii?Q?2SsRRWTEf7AKvnriYdcmfzXoDs+8pv/PKg+mJZ0J48q+8Giy6I/9DCAE9lmM?=
+ =?us-ascii?Q?r2NQvMn+cUizowd2iN/EALeQDhveokBrHN88roq0yekzOc89LVCVuFPM+Sfh?=
+ =?us-ascii?Q?TK8vEXjvGzxhuhDRmD62+B4Nf+m8jX9jrgI27jZtygn8konDAcoxbMrqmdTP?=
+ =?us-ascii?Q?NlUZA0YPUGCbV6z62O8rHqH+caChwWuYHrU/gMWkyvv//mQRHQjIOvrycDVX?=
+ =?us-ascii?Q?bBtT7P7Zu1KL/HHQ7zoN2seBslB5XjRxjQWKgamX1lXXBoHotcA5i3YvPJkJ?=
+ =?us-ascii?Q?d3spTxhKY8A9kb6qmWWe6/ehzrnOOQKuJkqFvpKLBpFgPLpt7BvKkXYnLrBY?=
+ =?us-ascii?Q?GwAKW7WAL+s7y2cU7UdX1YHBPUs4vMl2+6nCvv6zKIbVbieMSA6chV8KwXLt?=
+ =?us-ascii?Q?7Dk/yv6Yz523yOgtxf7uJ75uBWY4PZGR5RKcVBP2ql0u4iWAVzH/JLHdN7kY?=
+ =?us-ascii?Q?dPwgfJGzcg8WZ71KLA5ebdMR7uIzzkYiJk8fBjdFsacEFebSoYVPYbWrFfJ2?=
+ =?us-ascii?Q?taVzpW+YvRvESOb+J3UwZg7LRvah8hCInTeo0emsnNIglbT27llA+5RcJ3g8?=
+ =?us-ascii?Q?PqGcscuJuKiVxjNo73aAIaQW218fW8vS2dbwnZdss8jEB2yrPYw1?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ac7e5f8-a264-4afa-b6ac-08dea1f28f40
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8337a677-bc0b-4ff1-a8ae-08dea1f291aa
 X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 11:13:49.1830
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2026 11:13:53.2291
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fkduVAw2nCW0p7pXBp8CYKc4DxQxBaii0K4v7wffGzOsxuPXkAM4lUrqdIrcFEUFWSwn2yabzMYRnXIwUYRK71mmFggBUiN2qczry/clHlEtKW3Uoyf2Og454nq7bQZM
+X-MS-Exchange-CrossTenant-UserPrincipalName: ce4IUuPr3BH11KCOnqukvE/H3VgOQZhFQUZtepGIxZPYYcA3n8RcvqYnR5Qvm4Gt359Qvst+E4qPL2kQowEm5O08ORkLj+K8WVNnJLvKKh9fBzQRi0bwerWfGROWu8Gh
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_041412_131580_51E513D2 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20260424_041415_321963_9B8BCFAF 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,162 +144,238 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl driver for StarFive JHB100 SoC System-2(sys2) pinctrl
+Add pinctrl bindings for StarFive JHB100 SoC Peripheral-1(per1) pinctrl
 controller.
 
-Signed-off-by: Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 ---
- drivers/pinctrl/starfive/Kconfig              |  12 ++
- drivers/pinctrl/starfive/Makefile             |   1 +
- .../starfive/pinctrl-starfive-jhb100-sys2.c   | 109 ++++++++++++++++++
- 3 files changed, 122 insertions(+)
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-sys2.c
+ .../pinctrl/starfive,jhb100-per1-pinctrl.yaml | 217 ++++++++++++++++++
+ 1 file changed, 217 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinctrl.yaml
 
-diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
-index fb1d4991800b..7d68cf6ebd90 100644
---- a/drivers/pinctrl/starfive/Kconfig
-+++ b/drivers/pinctrl/starfive/Kconfig
-@@ -94,3 +94,15 @@ config PINCTRL_STARFIVE_JHB100_SYS1
- 	  This also provides an interface to the GPIO pins not used by other
- 	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
- 	  and interrupts on input changes.
-+
-+config PINCTRL_STARFIVE_JHB100_SYS2
-+	tristate "StarFive JHB100 SoC System-2 pinctrl and GPIO driver"
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	depends on OF
-+	select PINCTRL_STARFIVE_JHB100
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support System-2 pin control on the StarFive JHB100 SoC.
-+	  This also provides an interface to the GPIO pins not used by other
-+	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
-+	  and interrupts on input changes.
-diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
-index 8d96cf80d377..b817ad93b91d 100644
---- a/drivers/pinctrl/starfive/Makefile
-+++ b/drivers/pinctrl/starfive/Makefile
-@@ -10,3 +10,4 @@ obj-$(CONFIG_PINCTRL_STARFIVE_JHB100)		+= pinctrl-starfive-jhb100.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS0)	+= pinctrl-starfive-jhb100-sys0.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS0H)	+= pinctrl-starfive-jhb100-sys0h.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS1)	+= pinctrl-starfive-jhb100-sys1.o
-+obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS2)	+= pinctrl-starfive-jhb100-sys2.o
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-sys2.c b/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-sys2.c
+diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinctrl.yaml
 new file mode 100644
-index 000000000000..7b2c7c30e29f
+index 000000000000..b2af4df874df
 --- /dev/null
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-sys2.c
-@@ -0,0 +1,109 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Pinctrl / GPIO driver for StarFive JHB100 SoC System-2 domain
-+ *
-+ * Copyright (C) 2024 StarFive Technology Co., Ltd.
-+ * Author: Alex Soo <yuklin.soo@starfivetech.com>
-+ *
-+ */
++++ b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinctrl.yaml
+@@ -0,0 +1,217 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/starfive,jhb100-per1-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/mod_devicetable.h>
-+#include <linux/platform_device.h>
++title: StarFive JHB100 Peripheral-1 Pin Controller
 +
-+#include "pinctrl-starfive-jhb100.h"
++description: |
++  Pinctrl bindings for JHB100 RISC-V SoC from StarFive Technology Ltd.
 +
-+static const struct jhb100_pin_layout_desc jhb100_sys2_pl_desc[] = {
-+	{ .pin_start = 0, .pin_cnt = 37, .name = "gpio", .gpio_func_sel = 0 },
-+	{ .pin_start = 37, .pin_cnt = 1, .name = "jtag_tck", .gpio_func_sel = -1 },
-+	{ .pin_start = 38, .pin_cnt = 1, .name = "jtag_tresetn", .gpio_func_sel = -1 },
-+	{ .pin_start = 39, .pin_cnt = 1, .name = "jtag_tmc", .gpio_func_sel = -1 },
-+	{ .pin_start = 40, .pin_cnt = 1, .name = "jtag_tdi", .gpio_func_sel = -1 },
-+	{ .pin_start = 41, .pin_cnt = 1, .name = "jtag_tdo", .gpio_func_sel = -1 },
-+	{ .pin_start = 42, .pin_cnt = 1, .name = "jtag_hpd", .gpio_func_sel = -1 },
-+	{ 0xff },
-+};
++  The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1, sys2, per0, per1,
++  per2, per2pok, per3, adc0, adc1, emmc, and vga.
++  This document provides an overview of the "per1" pinctrl domain.
 +
-+static struct config_reg_layout_desc jhb100_sys2_pinctrl_rl_desc[] = {
-+	{
-+		.pin_start			= 0,
-+		.pin_cnt			= 37,
-+		.drive_strength_2bit		= { .shift = 0, .width = 2 },
-+		.input_enable			= { .shift = 2, .width = 1 },
-+		.pull_down			= { .shift = 3, .width = 1 },
-+		.pull_up			= { .shift = 4, .width = 1 },
-+		.slew_rate			= { .shift = 5, .width = 1 },
-+		.schmitt_trigger_select		= { .shift = 6, .width = 1 },
-+		.reserved			= { .shift = 7, .width = 8 },
-+		.debounce_width			= { .shift = 15, .width = 17 },
-+	},
-+	{
-+		.pin_start			= 37,
-+		.pin_cnt			= 5,
-+		.drive_strength_2bit		= { .shift = 0, .width = 2 },
-+		.input_enable			= { .shift = 2, .width = 1 },
-+		.pull_down			= { .shift = 3, .width = 1 },
-+		.pull_up			= { .shift = 4, .width = 1 },
-+		.slew_rate			= { .shift = 5, .width = 1 },
-+		.schmitt_trigger_select		= { .shift = 6, .width = 1 },
-+		.reserved			= { .shift = 7, .width = 25 },
-+	},
-+	{ 0xff },
-+};
++  The "per1" domain has a pin controller which provides
++  - function selection for GPIO pads.
++  - GPIO pad configuration.
++  - GPIO interrupt handling.
 +
-+static const struct pinvref_desc pinvref_desc_sys2[] = {
-+	{
-+		.name = "gpiow",
-+		.range = BIT(JHB100_PINVREF_1_8V) | BIT(JHB100_PINVREF_3_3V)
-+	},
-+	{
-+		.name = "gpiow-inner",
-+		.range = BIT(JHB100_PINVREF_1_8V) | BIT(JHB100_PINVREF_3_3V)
-+	},
-+	{ NULL },
-+};
++  In the Peripheral-1 Pin Controller, there are 36 multi-function GPIO_PADs. Each of them
++  can be multiplexed to several peripherals through function selection. Each iopad has a
++  maximum of up to 3 functions - 0, 1, and 2. Function 0 is the default function which is
++  generally the GPIO function. Function 1 and 2 are the alternate functions or peripheral
++  signals that can be routed to the iopad. The function selection can be carried out by
++  writing the function number to the iopad function select register.
++  Each iopad is configurable with parameters such as input-enable, internal pull-up/pull-down
++  bias, drive strength, schmitt trigger, slew rate, and debounce width.
 +
-+struct starfive_pinctrl_regs jhb100_sys2_pinctrl_regs = {
-+	.vref			= { .reg = 0x000, .pv_desc = pinvref_desc_sys2 },
-+	.config			= { .reg = 0x010, .width_per_pin = 1 },
-+	.output			= { .reg = 0x0bc, .width_per_pin = 1 },
-+	.output_en		= { .reg = 0x0c4, .width_per_pin = 1 },
-+	.gpio_status		= { .reg = 0x0cc, .width_per_pin = 1 },
-+	.func_sel		= { .reg = 0x0d4, .width_per_pin = 2 },
-+	.irq_en			= { .reg = 0x0e0, .width_per_pin = 1 },
-+	.irq_status		= { .reg = 0x0e8, .width_per_pin = 1 },
-+	.irq_clr		= { .reg = 0x0f0, .width_per_pin = 1 },
-+	.irq_trigger		= { .reg = 0x0f8, .width_per_pin = 1 },
-+	.irq_level		= { .reg = 0x100, .width_per_pin = 1 },
-+	.irq_both_edge		= { .reg = 0x108, .width_per_pin = 1 },
-+	.irq_edge		= { .reg = 0x110, .width_per_pin = 1 },
-+};
++  This domain contains 4 IO groups which support voltage levels 1.8V and 3.3V
++  gpioe-spi - comprises PAD_GPIO_C0 through PAD_GPIO_C4.
++  gpioe-qspi0 - comprises PAD_GPIO_C5 through PAD_GPIO_C11.
++  gpioe-qspi1 - comprises PAD_GPIO_C12 through PAD_GPIO_C19.
++  gpioe-qspi2 - comprises PAD_GPIO_C20 through PAD_GPIO_C27.
 +
-+static const struct jhb100_pinctrl_domain_info jhb100_sys2_pinctrl_info = {
-+	.name			= "jhb100-sys2",
-+	.gc_base		= -1,
-+	.pl_desc		= jhb100_sys2_pl_desc,
-+	.crl_desc		= jhb100_sys2_pinctrl_rl_desc,
-+	.regs			= &jhb100_sys2_pinctrl_regs,
-+};
++  Each of the above IO groups must be configured with a voltage setting that matches the external
++  voltage level provided to the IO group.
 +
-+static const struct of_device_id jhb100_sys2_pinctrl_of_match[] = {
-+	{
-+		.compatible = "starfive,jhb100-sys2-pinctrl",
-+		.data = &jhb100_sys2_pinctrl_info,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jhb100_sys2_pinctrl_of_match);
++maintainers:
++  - Alex Soo <yuklin.soo@starfivetech.com>
 +
-+static struct platform_driver jhb100_sys2_pinctrl_driver = {
-+	.probe = jhb100_pinctrl_probe,
-+	.driver = {
-+		.name = "starfive-jhb100-sys2-pinctrl",
-+		.of_match_table = jhb100_sys2_pinctrl_of_match,
-+	},
-+};
-+module_platform_driver(jhb100_sys2_pinctrl_driver);
++properties:
++  compatible:
++    items:
++      - const: starfive,jhb100-per1-pinctrl
 +
-+MODULE_DESCRIPTION("Pinctrl driver for StarFive JHB100 SoC System-2 domain");
-+MODULE_AUTHOR("Alex Soo <yuklin.soo@starfivetech.com>");
-+MODULE_LICENSE("GPL");
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 2
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++  gpio-ranges:
++    maxItems: 1
++
++  gpio-line-names: true
++
++  gpioe-spi-vref:
++    description: |
++        Voltage reference value for the IO group "gpioe-spi"
++        0: voltage reference value for 3.3V
++        2: voltage reference value for 1.8V
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 2]
++    default: 0
++
++  gpioe-qspi0-vref:
++    description: |
++        Voltage reference value for the IO group "gpioe-qspi0"
++        0: voltage reference value for 3.3V
++        2: voltage reference value for 1.8V
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 2]
++    default: 0
++
++  gpioe-qspi1-vref:
++    description: |
++        Voltage reference value for the IO group "gpioe-qspi1"
++        0: voltage reference value for 3.3V
++        2: voltage reference value for 1.8V
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 2]
++    default: 0
++
++  gpioe-qspi2-vref:
++    description: |
++        Voltage reference value for the IO group "gpioe-qspi2"
++        0: voltage reference value for 3.3V
++        2: voltage reference value for 1.8V
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 2]
++    default: 0
++
++patternProperties:
++  '-grp$':
++    type: object
++    additionalProperties: false
++    patternProperties:
++      '-pins$':
++        type: object
++        description: |
++          A pinctrl node should contain at least one subnode representing the
++          pinctrl groups available in the domain. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to
++          function selection, bias, input enable/disable, input schmitt
++          trigger enable/disable, slew-rate and drive strength.
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml
++          - $ref: /schemas/pinctrl/pinmux-node.yaml
++        unevaluatedProperties: false
++
++        properties:
++          pinmux:
++            description: |
++              The list of GPIOs and their function select.
++              The PINMUX macros are used to configure the
++              function selection.
++
++          bias-disable: true
++
++          bias-pull-up:
++            type: boolean
++
++          bias-pull-down:
++            type: boolean
++
++          drive-strength:
++            enum: [ 2, 4, 8, 12 ]
++
++          drive-strength-microamp:
++            enum: [ 2000, 4000, 8000, 12000 ]
++
++          input-enable: true
++
++          input-disable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++          slew-rate:
++            enum: [ 0, 1 ]
++            default: 0
++            description: |
++                0: slow (half frequency)
++                1: fast
++
++          starfive,debounce-width:
++            $ref: /schemas/types.yaml#/definitions/uint32
++            default: 0
++            description:
++              Debounce width 0 = Disabled, Others = 80ns*N stages
++
++          starfive,drive-i2c-fast-mode:
++            type: boolean
++            description:
++              Enable I2C fast mode drive
++
++          starfive,drive-i2c-fast-mode-plus:
++            type: boolean
++            description:
++              Enable I2C fast mode plus drive
++
++          starfive,i2c-open-drain-pull-up-ohm:
++            $ref: /schemas/types.yaml#/definitions/uint32
++            description:
++              open drain pull-up select
++            enum: [600, 900, 1200, 2000]
++            default: 600
++
++required:
++  - compatible
++  - reg
++  - resets
++  - interrupts
++  - interrupt-controller
++  - '#interrupt-cells'
++  - gpio-controller
++  - '#gpio-cells'
++  - gpio-ranges
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pinctrl_per1: pinctrl@11b42000 {
++            compatible = "starfive,jhb100-per1-pinctrl";
++            reg = <0x0 0x11b42000 0x0 0x800>;
++            resets = <&per1crg 0>;
++            interrupts = <61>;
++            interrupt-controller;
++            #interrupt-cells = <2>;
++            gpio-controller;
++            #gpio-cells = <2>;
++            gpio-ranges = <&pinctrl_per1 0 0 36>;
++        };
++    };
 -- 
 2.25.1
 
