@@ -4,98 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE707FB44CB
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 08:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C05FE51F2
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 09:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=45lqYqekW4POYqY1htANVKZHT0bk5SfGxbaTRE4WCOA=; b=WnG9GhSFRs8lm9
-	lbTbYJNWhlZ9v3lViQl5l3Lml7gJ8Gey2b9X+FmM/FMO/r8QU+MHG+TE/ZXIv/ZooPEkyetU/Aj/0
-	EIBMiQ9xlIE+YsK7nP4vvsiThx0YSWumrtkvysr7RYf6wdVQInqUCxcAEa/7kZn7sbSNduGCU6qlA
-	joQrdAWcD4Pe2S8jDw2kvpurkBgVPEushEihI3vduVkQa/uN03BthTmdV5GxZg0W+CYjGNi4S6KOf
-	hR78w6pLOcuqophJEEpIJKLQjJ+Sw+Geccn2xJ1IzI3ijmVSL33kXw116QEeis5OAebScgL0CY/Gq
-	CEvHH0dp4/z5WbZTrfVA==;
+	List-Owner; bh=UnsnQyuez11/YHhw/6vPVGRSIFckFMhWvWOPE1B6C7Q=; b=IYev9VKak9EYuL
+	nJfiNVdTmHPZIAsAt2dhE9E7tQlw1f/CFDiMFj/CKIjQ+q6wSYSBy5tdOdaeRPjjSkfuaiem7jJbP
+	Dx6EWDXycRcdqQQhQCGHvAjIzInwOFp93p+MErlIM/Dy418nW00tiDFV8iaD2Al9WHzVE0IVWFbsa
+	1XbtllQbwYZWlRrFcd9kqmu8K+NbyEQ+hyUtqvIQadJltRRjobMWIFt1a6VGw+OnMYtZ2s4MTJpvE
+	2ZwcKEO5A9KgAPnXA/STRzOuPzVCVVtwiq2Wv4DvyEMkpTBba1gxdn3BuK80no6uCmk7zsuE9Kr8z
+	DyDMBZLw2TE5Lf4f/lHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGBnX-0000000CrIW-0xyM;
-	Fri, 24 Apr 2026 08:22:03 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1wGCoF-0000000CvmX-3R1V;
+	Fri, 24 Apr 2026 09:26:51 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGBnU-0000000CrDY-3PUW
+	id 1wGCoD-0000000CvmB-30Yy
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Apr 2026 08:22:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1777018891;
-	bh=c0kXRPXhs/2a2xxEUCnekU/nRCUJKDYsT3ezESBZvbw=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=EZjHEmVRIQ02mNlW/YfZJJTtbskflqsOfeJefdPTFUENXTjsYFhAEnbIaOAAxGZwy
-	 qpWY6WD5e+IJ0m4PT7Qk17KBjOj+IFP48rpUl2PGesNp2TTFmCm9aujilJZQ/4p9Ey
-	 GyTGB7WOIqjfGPrppDvZRPQeTm5m85H80sXde7a0=
-X-QQ-mid: esmtpsz11t1777018889tb8c57d96
-X-QQ-Originating-IP: 1xRj0+GO4eWRIKlf+UoqlaBZOM43aRU9Y8UB9yqq/i4=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 24 Apr 2026 16:21:25 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15045921169373201256
-EX-QQ-RecipientCnt: 21
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Fri, 24 Apr 2026 16:20:32 +0800
-Subject: [PATCH v3 4/5] clk: spacemit: k3: mark top_dclk as CLK_IS_CRITICAL
+	Fri, 24 Apr 2026 09:26:50 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-441209fb77eso2785530f8f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Apr 2026 02:26:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777022807; x=1777627607; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g8M0nQZrfHDg73egODEGdfkVN1W5dPtLpH0g+ZjNsw8=;
+        b=iySIRZWcuun7VlNKvHqmRNBEQg60EqtyU2Ehdorf0QdU0Nh3XI+Mwk4JATLUf7plX8
+         OVrTn3cCdg/pVi7TRhKgHt04oxAKDrmipCAXdcJwtOFDBIDGSgK2End0xqlipiY9MdTe
+         juza+/HPsa8oujmlvTCwaAbixvwgRHt8tgUhilJeN8QF1PMQxpdRBzRYp9yNJV4pAim0
+         kxT/GLJsN1NULMSdT1J28zyGdnYqf2uslZAgTDT8+VuSvF755xhbetWvvdpX7DWbMsF0
+         N8nWIs/qAD3QtzhHBJrmy6pQYb2W+rOvHuZCLOzvklIQd7+IR2jbZGt+MNG/gyBC2qEm
+         qT7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777022807; x=1777627607;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=g8M0nQZrfHDg73egODEGdfkVN1W5dPtLpH0g+ZjNsw8=;
+        b=cx6ZCwkjXMqVyxTcvNgeQmcC+FOPPP82TKisHpOdR/wzvlyahI3RWkN857nsCNHpnK
+         aTrsd/SHc+B2GJDtzOS0V4iKqS9TR/OokwtXcujIFRa06uPl8baHzcCDPtKvsYLa/5p7
+         7LJ31qW6YNNISUE/8iIL241i67ZYCqagiqGp3mjxuDDvgfEtOaLbi8IR1Xnge1mp5CZp
+         YQ844DgZwF1rGLPOChzeJN33VAGqhmc5Vd1ABfm8cwObZly+KzT0J57QS/zkrnMJ/uGR
+         Sgtl4E1m8GkrAOUWl6qb4sx9MuX/uUAxnYN5eWZPw++cnsPpqY7zUKbyakg3006aF3Bs
+         i7ew==
+X-Forwarded-Encrypted: i=1; AFNElJ8pzHMv6Co54OqblFCkNu2ltAEoJN/0ItDm8MINvnQvDVNi6O7I/UQAqeYoWt2khF24IFnLVVkKKyrnDA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPstz5Zir0n+RCnPae8wEdm3R2oHAJXzgxL8zISOudzQvouSRQ
+	V60sxAPsGQRiBCqeg4S8dct7Zfh5BZpDG6QOW1XTHAtBFybSoESR6xBa
+X-Gm-Gg: AeBDieuFQ7FhAi0i9ErSkwhGxcDsxeOONU61QJZprd6+Y389ctic8oSwMa+J6qpyLJn
+	zE6We6lI721Eu3GE+vuGlAipiINf1vQ/I0nkseACu4d8pYYFZqrz6A46WCUmwpKPPU3vrY9eO03
+	+5bX7ckjpjXFNI8kAKVPRWbQzulTDrnai5whJ//HoKGPsKAwMv0Nr74DkbBzxUl7vv8aOfiy2gE
+	1PjQHLLl4N4oV+t5YUPlNmjlt8FDQpEj2UuJcRdIimz8rWuNSQ3yhgDD8yslD1gmzasHoHIYIlI
+	4YLboxhXgLsSXlxs2sq+MfW0hBVg4Sn1mhMUUiiNK2HHbvB/HggDM85RgDsSUl8E1v9TzfT6YIK
+	ww6k8E5q6fGK4W5hBNrizLxZISLM/9ViD259pDBkychBadxuxiyodAUHCj4CaxLSvaVXsVXOn7g
+	C2cAsZvRHocw3QT1g/JAeiKpEKR5B9BBMqrRiWd3c7VWjaqzkygPGFixNaeApxPKIuYKGGXW7rv
+	GA=
+X-Received: by 2002:a05:6000:1866:b0:43c:f257:c706 with SMTP id ffacd0b85a97d-43fe4088c1cmr48386250f8f.23.1777022807102;
+        Fri, 24 Apr 2026 02:26:47 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43fe4e3a341sm64204586f8f.24.2026.04.24.02.26.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Apr 2026 02:26:46 -0700 (PDT)
+Date: Fri, 24 Apr 2026 10:26:45 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Zong Li <zong.li@sifive.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, debug@rivosinc.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: cif: reduce shadow stack size limit from 4GB to
+ 2GB
+Message-ID: <20260424102645.14fa41cd@pumpkin>
+In-Reply-To: <20260424065540.3480755-1-zong.li@sifive.com>
+References: <20260424065540.3480755-1-zong.li@sifive.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Message-Id: <20260424-k3-pdma-v3-4-efdf2e414a08@linux.spacemit.com>
-References: <20260424-k3-pdma-v3-0-efdf2e414a08@linux.spacemit.com>
-In-Reply-To: <20260424-k3-pdma-v3-0-efdf2e414a08@linux.spacemit.com>
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Guodong Xu <guodong@riscstar.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- Brian Masney <bmasney@redhat.com>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777018865; l=1109;
- i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=kJ4wjwl55ARQtE+qPhJ2CtnALergFmy741Ozvwm9Cew=;
- b=4o7F5/m4mBEsMHsL78wUkhdn5hXCT/SyixWCFZENH2NT6HVmPXcx2GUB9MmxuR8Da/bRQAngt
- U7y2BaMAVerAC2n0K5IfvWKmb+gKQMLcUQ/2eexsoX2S+n+8q+9IVRp
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
- pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: Now9Uv9+9hkyH9JrzReXUqyg+f2XVwASJAAUKxmLePXcSUcopUkkl+Cv
-	ukDe8OTYUE5NHwd1Hch6YqsKnwGU+80u+re/ltoXDYxYesB1lQpqzaBjBWSfEacanPU5BRK
-	LM32GzVQRsEPxIoEgV6mHnUXicnLKQ7NWoMgx6ckjoVEpLLpaA/ugZUFo7QVBb98glmZlCy
-	DiXdxHCjmN1gduR46/SlxU2QKUOvkjaxpbEZBpFglgzH+Ek/2lb6jA81N25QKvwYp5BchMn
-	LH9xqDmK/q466I0wvP6iqkgF3wX5Dxk0HSG0S2VMP0acQFbNOgALxEh67IBk1FLz6/V7j5i
-	2FjdfZacomRc0iExnViiKu5qAdmRI6kGYxLBrCfwiD97qvm/cQJclbZ4iOX1ltRpQ/YDWdr
-	pyi+XW4N2AYU1Hgs3T71PIvmHDP4J4QV+U68UMxrgLaCn+gxpDEPBajkgWvH/dLp7Ig5+ur
-	nIPDo8rEaC7U3YL35Xv8CFrFSyvF+6KB9Qg6jseOhmZgoJThhptY4/+R9SrzoDyjIkNjEDS
-	rck4lVlGniSMaR4VwxISLlcNNjNij6oECC3lMspegI5daqcaZQ8zELNiJM5vA2c42g7se3D
-	PFikcSw/nDJh9OsB6l9HqAdpGMBl9UgSmRTSj3o3xjL+f3oQwhL8NtcjIbBg2jjBgflcMPh
-	e4DKA1V03VIq8P+VkMuLdUnx1ki+FZm1nyvg3W/UFyEWPpevpr/IBQOTHO3yMYWOeP5mQt4
-	5zFo/KiXSCav/+/F9OWh+SLeFwuBJY0qFlwHLjH4qZMMGBTECEfgy6rupaz2H0sqXz2THY0
-	FvrTVY4uvJ4LwWlQU8w0djkmltjGOUV1vu51YgkM/HN4JJP1dPnvHj0dlErf3rO8vXI+fKA
-	ZC6O2c/me+G7rJiEluopbeBQb8qDGsyk6ZJOF4Wnwx8oEAL+u/YiTntl276JcFDRfpt6hPG
-	4ygU04cIhBBjCa7Lahsh9OHDbN0rgQY/eEkmKDS0Alw9UlSikYMGzNlSJpnnSv2irV4Xtn6
-	RI/jP72AJEw7ByWVKbp8guHb/jtxHlFAGOC/2iFRVPPM9Gw8pFTgYMG0oF9y7fg2bAO4XGP
-	Over77anPgOzLaJVCNXfyWteyCzdHz4oZgfqiLoGYSgylB0BznUM5gAMPht6BwA9Q==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_012201_668770_57EF75C0 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260424_022649_800263_812D5DD4 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +102,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-top_dclk is the DDR bus clock. If it is gated by clk_disable_unused,
-all memory-mapped bus transactions cease to function, causing DMA
-engines to hang and general system instability.
+On Thu, 23 Apr 2026 23:55:40 -0700
+Zong Li <zong.li@sifive.com> wrote:
 
-Mark it CLK_IS_CRITICAL so the CCF never gates it during the
-unused clock sweep.
+> Follow the ARM64 GCS (Guarded Control Stack) implementation approach
+> by reducing the shadow stack size allocation from min(RLIMIT_STACK, 4GB)
+> to min(RLIMIT_STACK/2, 2GB). see commit '506496bcbb42 "arm64/gcs: Ensure
+> that new threads have a GCS")'
+> 
+> Rationale:
+> 
+> 1. Shadow stacks only store return addresses (8 bytes per entry), not
+>    local variables, function parameters, or saved registers. A 2GB
+>    shadow stack is far more than sufficient for any practical
+>    application, even with extremely deep recursion. Using half the size
+>    maintains adequate while being more resource-efficient margin
+> 
+> 2. On memory-constrained systems (e.g., platforms with only 4GB of
+>    physical memory, which is a common configuration), allocating 4GB
+>    of virtual address space for shadow stack per process/thread can
+>    lead to virtual memory allocation failures when the overcommit mode
+>    is set to OVERCOMMIT_GUESS or OVERCOMMIT_NEVER:
+>    Error: "__vm_enough_memory: not enough memory for the allocation"
+> 
+> This reduces virtual address space consumption by 50% while maintaining
+> more than adequate space for return address storage.
+> 
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
+>  arch/riscv/kernel/usercfi.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
+> index 6eaa0d94fdfe..4a48dd28d113 100644
+> --- a/arch/riscv/kernel/usercfi.c
+> +++ b/arch/riscv/kernel/usercfi.c
+> @@ -109,15 +109,16 @@ void set_indir_lp_lock(struct task_struct *task, bool lock)
+>  	task->thread_info.user_cfi_state.ufcfi_locked = lock;
+>  }
+>  /*
+> - * If size is 0, then to be compatible with regular stack we want it to be as big as
+> - * regular stack. Else PAGE_ALIGN it and return back
+> + * The shadow stack only stores the return address and not any variables
+> + * this should be more than sufficient for most applications.
+> + * Else PAGE_ALIGN it and return back
+>   */
+>  static unsigned long calc_shstk_size(unsigned long size)
+>  {
+>  	if (size)
+>  		return PAGE_ALIGN(size);
+>  
+> -	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK), SZ_4G));
+> +	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK) / 2, SZ_2G));
 
-Fixes: e371a77255b8 ("clk: spacemit: k3: add the clock tree")
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
- drivers/clk/spacemit/ccu-k3.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Use min() instead of min_t().
+All the values (before and after the patch) are unsigned.
 
-diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3.c
-index e98afd59f05c..bb8b75bdbdb3 100644
---- a/drivers/clk/spacemit/ccu-k3.c
-+++ b/drivers/clk/spacemit/ccu-k3.c
-@@ -846,7 +846,7 @@ static const struct clk_parent_data top_parents[] = {
- 	CCU_PARENT_HW(pll6_d3),
- };
- CCU_MUX_DIV_GATE_FC_DEFINE(top_dclk, top_parents, APMU_TOP_DCLK_CTRL, 5, 3,
--			   BIT(8), 2, 3, BIT(1), 0);
-+			   BIT(8), 2, 3, BIT(1), CLK_IS_CRITICAL);
- 
- static const struct clk_parent_data ucie_parents[] = {
- 	CCU_PARENT_HW(pll1_d8_307p2),
+	David
 
--- 
-2.53.0
+
+>  }
+>  
+>  /*
 
 
 _______________________________________________
