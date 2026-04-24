@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D4EFDEE5E
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 03:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6515EFB44B0
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2026 05:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=X5nAaCZxuoQlri6yNInNRK0SvU+qI+lMyF67UutAuXc=; b=ul2LuWQNNxfBTA
-	UsoGjcBiHlKzUpN/Gopai/tXC/ErJrZXmMjt7jPwFdzSpJrvauDC90h+naCeRtKrvhRHeLZJ9/AtO
-	fjCt3Wk0fjnF4zYO75STc+0WjBADhACt3pcLfMf3yAuXSHlg4wUBIg+gd1UTxFM4/cXHUfXW4riZr
-	Nix3aIDdwce5Pg5ZhAEc+81PlFVxBs8Vf3pXCP/HcBuD28Te9ekv6bVWkprTBN49jRZk7qT5/uPRH
-	Y1wIogU/HBTluo3QAy+Peu557CRDoxS4/13DrRGX664mImWqRSHC1Rd9qE5tWHq+Z1RRl78rUaNQf
-	bPTzVwQ5eDX76pH1sqRQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VD/8U9OO0Tw9U0pp1WqKcAyk675d4bMilctwpZnvLxI=; b=GDs/dehA3Jf0nX
+	zdORupSp74OPKEO2KNP/VsBmq/MEh1MQCQNboBmsEiMN2zZx/o3fXUKcYyvPGKEZLMAdWTzM8cHpi
+	xA8yFSnk0HyQ/Dh9pgQaR5HbBGDk1sHhPQDyZX1xQgum7lx9LZ+yKNC+OKaw8VmntiBdVCGuf73jk
+	UWVLp/JV/X0mpizOcy50SjRdlGzIcvxG8yQkj9fFPcXqc0nIVuSyA7FxlbAhCLwtAcytwkK1A2upZ
+	gnfY12iQ2+9jRhEHOjnEFuSaw7fSrIQK0K7ApWV+C+fKFI+ji3UhyI+eUpdlVFjX7apG6DbBSbJ60
+	HkWpgrVJcz3K/M97Fz1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG6pO-0000000CYk1-3TIJ;
-	Fri, 24 Apr 2026 03:03:38 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wG6pK-0000000CYjZ-3Dy6
+	id 1wG9HC-0000000Cfih-1hqe;
+	Fri, 24 Apr 2026 05:40:30 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wG9H9-0000000Cfhu-1jJp
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Apr 2026 03:03:37 +0000
-Received: from [127.0.0.2] (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowAA322Z+3eppnHE4Dg--.11152S2;
-	Fri, 24 Apr 2026 11:03:26 +0800 (CST)
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-Date: Fri, 24 Apr 2026 11:03:26 +0800
-Subject: [PATCH] riscv: mm: Do not probe satp mode limit if known in FDT
+	Fri, 24 Apr 2026 05:40:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
+	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	References:In-Reply-To:To:Cc; bh=n+Mra1RI8A32LCU/hPXltc+TQ6Q646Q
+	yx9RcVRBugnk=; b=Cq2lORS0qBdbfGxNvoAgK2H9SP4QdVJFdoJ75LRMvIdIvAO
+	JunCLhx+ynyfQHl8oI8fZcuBGOhEKSdq47A3l0Qcc4O7vjLVWE89c05AXTZVSfn7
+	rgfX0trQt0eGSFUvVDuB9Sto43KvjHqked/b7PPcWZ/3fV1qDhF43XJhAaPg=
+Received: from [127.0.0.1] (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnYUJlAutpm8gCAA--.1607S3;
+	Fri, 24 Apr 2026 13:40:57 +0800 (CST)
+From: Jia Wang <wangjia@ultrarisc.com>
+Date: Fri, 24 Apr 2026 13:39:28 +0800
+Subject: [PATCH v4 1/4] serial: 8250_dwlib: move DesignWare register
+ definitions to header
 MIME-Version: 1.0
-Message-Id: <20260424-riscv-mm-trust-fdt-mmu-type-v1-1-57f3313275d2@iscas.ac.cn>
-X-B4-Tracking: v=1; b=H4sIAH3d6mkC/y3N0QqCQBCF4VeRuW5CF3HFVwkDXceaYNV2ZqUQ3
- 70tu/zg8J8NhAKTQJNtEGhl4XlKKE4ZuHs33Qh5SAaTmyovTYmBxa3oPWqIojgOmhBR3wuhq20
- 52srUha0hFZZAI79+9Ut7WGL/IKff5H8R6BnTrR4z6DtJodl71iZb7Tm/bju0+/4BpbEp86oAA
- AA=
-X-Change-ID: 20260424-riscv-mm-trust-fdt-mmu-type-c874f7628178
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Han Gao <gaohan@iscas.ac.cn>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Vivian Wang <wangruikang@iscas.ac.cn>
-X-Mailer: b4 0.15.1
-X-CM-TRANSID: qwCowAA322Z+3eppnHE4Dg--.11152S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCw45JF18Ar1UZr4DKFWfXwb_yoW5Cw1xpF
-	45Ga9avrW5JF9rtF4fGrykZry5t3Zag3y3XFyYyF98Can8tryYkr4Fqw13XryYqr17Ja4F
-	kw4qgFZ8ZFWUCaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkG14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
-	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIY
-	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14
-	v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8
-	JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x0JUhtxDUUU
-	UU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+Message-Id: <20260424-ultrarisc-serial-v4-1-1765a0b4c4a0@ultrarisc.com>
+References: <20260424-ultrarisc-serial-v4-0-1765a0b4c4a0@ultrarisc.com>
+In-Reply-To: <20260424-ultrarisc-serial-v4-0-1765a0b4c4a0@ultrarisc.com>
+To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+ Jia Wang <wangjia@ultrarisc.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777009209; l=7179;
+ i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
+ bh=1EJ+15mmRD/oeHglBVGEUf+8kQPiJcsHUEUYYNgLwiA=;
+ b=tmMxvaIfQOKnIu7Q2yyAAL3YeamV0Bjy7J3CDnd9cB2kHTdmgTnh09LI3Y7Fej9DsKQO2lvOh
+ 2O2cwiX9WWmCqv1zCBH5fGWnR9j++1AFtAZ59BpIWDcrbtbJVyqZqXr
+X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
+ pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
+X-CM-TRANSID: AQAAfwAnYUJlAutpm8gCAA--.1607S3
+X-Coremail-Antispam: 1UD129KBjvJXoW3WF48GFWfur4rZry8tr1rCrg_yoW3GF48pr
+	1FkFZ8tF1qya13W34xtFW3tr4xXFWxGw109ry3W3yDtFW8A34ktFyYvFW3tr4DXryrArWU
+	JF1UAw1Yga4I9r7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnUUvcSsGvfC2KfnxnUUI43ZEXa7xR_UUUUUUUUU==
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAHEWnq6L8ACQABsL
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260423_200335_208089_0144C142 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20260423_224028_013883_15DFEE9D 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,87 +89,192 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some systems may only have memory at such a high address that an
-identity mapping cannot be made in Sv48, or even Sv57. To avoid crashing
-while probing satp mode support, trust the mmu-type property from FDT
-and avoid probing if it is set.
+Move the DW_UART_* register offsets and CPR bit/field definitions from
+8250_dwlib.c into 8250_dwlib.h so they can be shared by 8250_dw and
+8250_dwlib users.
 
-For example, if a CPU supports (up to) Sv57 but the SoC it is on only
-has memory starting at 128 TiB, an identity mapping cannot be made in
-Sv48. If the user specifies "no5lvl" on the command line,
-set_satp_mode() will attempt to test Sv48 support and crash, since the
-virtual address is too high. Instead, given the correct FDT CPU node
-property mmu-type = "riscv,sv57", set_satp_mode() can pick the maximum
-allowed mode from command line and FDT, namely Sv48, without probing.
+Add an include guard for 8250_dwlib.h.
 
-Handling of mmu-type "riscv,sv57" in set_satp_mode_from_fdt() is added
-since it is now needed.
-
-Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
+Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
-Tested on QEMU 10.2.2 on all 3*3 combinations of Sv39/Sv48/Sv57 and
-(none)/no4lvl/no5lvl.
+ drivers/tty/serial/8250/8250_dw.c    | 11 -------
+ drivers/tty/serial/8250/8250_dwlib.c | 49 ----------------------------
+ drivers/tty/serial/8250/8250_dwlib.h | 63 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 63 insertions(+), 60 deletions(-)
 
-In theory this could be a break if mmu-type is wrong, but so many other
-things would break if the FDT is wrong anyway.
-
-Also note that this doesn't apply on ACPI since it is difficult to use
-ACPICA and read ACPI RHCT at this point, so that will just fall back to
-probing. Hopefully UEFI/ACPI + this atrocious SoC design never happens,
-since the high memory base address would prevent a lot of PCI(e) devices
-from working without an IOMMU. (Fingers crossed.)
----
- arch/riscv/kernel/pi/fdt_early.c | 2 ++
- arch/riscv/mm/init.c             | 7 ++++++-
- 2 files changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/pi/fdt_early.c b/arch/riscv/kernel/pi/fdt_early.c
-index a12ff8090f19..702253287560 100644
---- a/arch/riscv/kernel/pi/fdt_early.c
-+++ b/arch/riscv/kernel/pi/fdt_early.c
-@@ -218,6 +218,8 @@ u64 set_satp_mode_from_fdt(uintptr_t dtb_pa)
- 			return SATP_MODE_39;
- 		else if (!strcmp(mmu_type, "riscv,sv48"))
- 			return SATP_MODE_48;
-+		else if (!strcmp(mmu_type, "riscv,sv57"))
-+			return SATP_MODE_57;
- 		break;
- 	}
+diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+index 94beadb4024d..467755bf0092 100644
+--- a/drivers/tty/serial/8250/8250_dw.c
++++ b/drivers/tty/serial/8250/8250_dw.c
+@@ -34,22 +34,11 @@
  
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 811e03786c56..c37578eaddd0 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -859,8 +859,9 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
- {
- 	u64 identity_satp, hw_satp;
- 	uintptr_t set_satp_mode_pmd = ((unsigned long)set_satp_mode) & PMD_MASK;
-+	u64 satp_mode_limit_fdt = __pi_set_satp_mode_from_fdt(dtb_pa);
- 	u64 satp_mode_limit = min_not_zero(__pi_set_satp_mode_from_cmdline(dtb_pa),
--					   __pi_set_satp_mode_from_fdt(dtb_pa));
-+					   satp_mode_limit_fdt);
+ #include "8250_dwlib.h"
  
- 	kernel_map.page_offset = PAGE_OFFSET_L5;
+-/* Offsets for the DesignWare specific registers */
+-#define DW_UART_USR	0x1f /* UART Status Register */
+-#define DW_UART_DMASA	0xa8 /* DMA Software Ack */
+-
+ #define OCTEON_UART_USR	0x27 /* UART Status Register */
  
-@@ -872,6 +873,10 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
- 		return;
- 	}
+ #define RZN1_UART_TDMACR 0x10c /* DMA Control Register Transmit Mode */
+ #define RZN1_UART_RDMACR 0x110 /* DMA Control Register Receive Mode */
  
-+	/* Skip probing if max SATP mode known from FDT */
-+	if (satp_mode_limit_fdt)
-+		return;
+-/* DesignWare specific register fields */
+-#define DW_UART_IIR_IID			GENMASK(3, 0)
+-
+-#define DW_UART_MCR_SIRE		BIT(6)
+-
+-#define DW_UART_USR_BUSY		BIT(0)
+-
+ /* Renesas specific register fields */
+ #define RZN1_UART_xDMACR_DMA_EN		BIT(0)
+ #define RZN1_UART_xDMACR_1_WORD_BURST	(0 << 1)
+diff --git a/drivers/tty/serial/8250/8250_dwlib.c b/drivers/tty/serial/8250/8250_dwlib.c
+index b055d89cfb39..8859e66d2d71 100644
+--- a/drivers/tty/serial/8250/8250_dwlib.c
++++ b/drivers/tty/serial/8250/8250_dwlib.c
+@@ -13,55 +13,6 @@
+ 
+ #include "8250_dwlib.h"
+ 
+-/* Offsets for the DesignWare specific registers */
+-#define DW_UART_TCR	0xac /* Transceiver Control Register (RS485) */
+-#define DW_UART_DE_EN	0xb0 /* Driver Output Enable Register */
+-#define DW_UART_RE_EN	0xb4 /* Receiver Output Enable Register */
+-#define DW_UART_DLF	0xc0 /* Divisor Latch Fraction Register */
+-#define DW_UART_RAR	0xc4 /* Receive Address Register */
+-#define DW_UART_TAR	0xc8 /* Transmit Address Register */
+-#define DW_UART_LCR_EXT	0xcc /* Line Extended Control Register */
+-#define DW_UART_CPR	0xf4 /* Component Parameter Register */
+-#define DW_UART_UCV	0xf8 /* UART Component Version */
+-
+-/* Receive / Transmit Address Register bits */
+-#define DW_UART_ADDR_MASK		GENMASK(7, 0)
+-
+-/* Line Status Register bits */
+-#define DW_UART_LSR_ADDR_RCVD		BIT(8)
+-
+-/* Transceiver Control Register bits */
+-#define DW_UART_TCR_RS485_EN		BIT(0)
+-#define DW_UART_TCR_RE_POL		BIT(1)
+-#define DW_UART_TCR_DE_POL		BIT(2)
+-#define DW_UART_TCR_XFER_MODE		GENMASK(4, 3)
+-#define DW_UART_TCR_XFER_MODE_DE_DURING_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 0)
+-#define DW_UART_TCR_XFER_MODE_SW_DE_OR_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 1)
+-#define DW_UART_TCR_XFER_MODE_DE_OR_RE		FIELD_PREP(DW_UART_TCR_XFER_MODE, 2)
+-
+-/* Line Extended Control Register bits */
+-#define DW_UART_LCR_EXT_DLS_E		BIT(0)
+-#define DW_UART_LCR_EXT_ADDR_MATCH	BIT(1)
+-#define DW_UART_LCR_EXT_SEND_ADDR	BIT(2)
+-#define DW_UART_LCR_EXT_TRANSMIT_MODE	BIT(3)
+-
+-/* Component Parameter Register bits */
+-#define DW_UART_CPR_ABP_DATA_WIDTH	GENMASK(1, 0)
+-#define DW_UART_CPR_AFCE_MODE		BIT(4)
+-#define DW_UART_CPR_THRE_MODE		BIT(5)
+-#define DW_UART_CPR_SIR_MODE		BIT(6)
+-#define DW_UART_CPR_SIR_LP_MODE		BIT(7)
+-#define DW_UART_CPR_ADDITIONAL_FEATURES	BIT(8)
+-#define DW_UART_CPR_FIFO_ACCESS		BIT(9)
+-#define DW_UART_CPR_FIFO_STAT		BIT(10)
+-#define DW_UART_CPR_SHADOW		BIT(11)
+-#define DW_UART_CPR_ENCODED_PARMS	BIT(12)
+-#define DW_UART_CPR_DMA_EXTRA		BIT(13)
+-#define DW_UART_CPR_FIFO_MODE		GENMASK(23, 16)
+-
+-/* Helper for FIFO size calculation */
+-#define DW_UART_CPR_FIFO_SIZE(a)	(FIELD_GET(DW_UART_CPR_FIFO_MODE, (a)) * 16)
+-
+ /*
+  * divisor = div(I) + div(F)
+  * "I" means integer, "F" means fractional
+diff --git a/drivers/tty/serial/8250/8250_dwlib.h b/drivers/tty/serial/8250/8250_dwlib.h
+index 7dd2a8e7b780..5026a123cf42 100644
+--- a/drivers/tty/serial/8250/8250_dwlib.h
++++ b/drivers/tty/serial/8250/8250_dwlib.h
+@@ -1,11 +1,72 @@
+ /* SPDX-License-Identifier: GPL-2.0+ */
+ /* Synopsys DesignWare 8250 library header file. */
+ 
++#ifndef _SERIAL_8250_DWLIB_H_
++#define _SERIAL_8250_DWLIB_H_
 +
- 	create_p4d_mapping(early_p4d,
- 			set_satp_mode_pmd, (uintptr_t)early_pud,
- 			P4D_SIZE, PAGE_TABLE);
++#include <linux/bitfield.h>
++#include <linux/bits.h>
+ #include <linux/io.h>
+ #include <linux/types.h>
+ 
+ #include "8250.h"
+ 
++/* Offsets for the DesignWare specific registers */
++#define DW_UART_USR	0x1f /* UART Status Register */
++#define DW_UART_DMASA	0xa8 /* DMA Software Ack */
++#define DW_UART_TCR	0xac /* Transceiver Control Register (RS485) */
++#define DW_UART_DE_EN	0xb0 /* Driver Output Enable Register */
++#define DW_UART_RE_EN	0xb4 /* Receiver Output Enable Register */
++#define DW_UART_DLF	0xc0 /* Divisor Latch Fraction Register */
++#define DW_UART_RAR	0xc4 /* Receive Address Register */
++#define DW_UART_TAR	0xc8 /* Transmit Address Register */
++#define DW_UART_LCR_EXT	0xcc /* Line Extended Control Register */
++#define DW_UART_CPR	0xf4 /* Component Parameter Register */
++#define DW_UART_UCV	0xf8 /* UART Component Version */
++
++/* Receive / Transmit Address Register bits */
++#define DW_UART_ADDR_MASK		GENMASK(7, 0)
++
++/* Line Status Register bits */
++#define DW_UART_LSR_ADDR_RCVD		BIT(8)
++
++/* Transceiver Control Register bits */
++#define DW_UART_TCR_RS485_EN		BIT(0)
++#define DW_UART_TCR_RE_POL		BIT(1)
++#define DW_UART_TCR_DE_POL		BIT(2)
++#define DW_UART_TCR_XFER_MODE		GENMASK(4, 3)
++#define DW_UART_TCR_XFER_MODE_DE_DURING_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 0)
++#define DW_UART_TCR_XFER_MODE_SW_DE_OR_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 1)
++#define DW_UART_TCR_XFER_MODE_DE_OR_RE		FIELD_PREP(DW_UART_TCR_XFER_MODE, 2)
++
++/* Line Extended Control Register bits */
++#define DW_UART_LCR_EXT_DLS_E		BIT(0)
++#define DW_UART_LCR_EXT_ADDR_MATCH	BIT(1)
++#define DW_UART_LCR_EXT_SEND_ADDR	BIT(2)
++#define DW_UART_LCR_EXT_TRANSMIT_MODE	BIT(3)
++
++/* Component Parameter Register bits */
++#define DW_UART_CPR_ABP_DATA_WIDTH	GENMASK(1, 0)
++#define DW_UART_CPR_AFCE_MODE		BIT(4)
++#define DW_UART_CPR_THRE_MODE		BIT(5)
++#define DW_UART_CPR_SIR_MODE		BIT(6)
++#define DW_UART_CPR_SIR_LP_MODE		BIT(7)
++#define DW_UART_CPR_ADDITIONAL_FEATURES	BIT(8)
++#define DW_UART_CPR_FIFO_ACCESS		BIT(9)
++#define DW_UART_CPR_FIFO_STAT		BIT(10)
++#define DW_UART_CPR_SHADOW		BIT(11)
++#define DW_UART_CPR_ENCODED_PARMS	BIT(12)
++#define DW_UART_CPR_DMA_EXTRA		BIT(13)
++#define DW_UART_CPR_FIFO_MODE		GENMASK(23, 16)
++
++/* DesignWare specific register fields */
++#define DW_UART_IIR_IID			GENMASK(3, 0)
++#define DW_UART_MCR_SIRE		BIT(6)
++#define DW_UART_USR_BUSY		BIT(0)
++
++/* Helper for FIFO size calculation */
++#define DW_UART_CPR_FIFO_SIZE(a)	(FIELD_GET(DW_UART_CPR_FIFO_MODE, (a)) * 16)
++
+ struct dw8250_port_data {
+ 	/* Port properties */
+ 	int			line;
+@@ -38,3 +99,5 @@ static inline void dw8250_writel_ext(struct uart_port *p, int offset, u32 reg)
+ 	else
+ 		writel(reg, p->membase + offset);
+ }
++
++#endif /* _SERIAL_8250_DWLIB_H_ */
 
----
-base-commit: 028ef9c96e96197026887c0f092424679298aae8
-change-id: 20260424-riscv-mm-trust-fdt-mmu-type-c874f7628178
-
-Best regards,
---  
-Vivian "dramforever" Wang
+-- 
+2.34.1
 
 
 _______________________________________________
