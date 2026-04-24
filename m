@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 804F9CD3423
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 May 2026 15:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F92CD3426
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 May 2026 15:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:
-	To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:Cc:To:From:MIME-Version:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=LmhvG68f2qe9SqWvIUR9qXWluo3iiE36enxCJtEUlAg=; b=GN6
-	6Xy7rzZ1XwU/Sm/OEk0oVpXnR6Ho4XbDcw1v1xWROT+Lb6C2fTJv0IfF8+qKUy/BmvZzYmgFdiTfi
-	7NFuK/1WQ1CHyGcvTsHkWqjopPIUM6iwijM4NM0glOPfDkgBEVJakQKcFkj1PiptqA0hwa09rHXkf
-	aEPbQXZGLuJeeDCCu/mLDornb4jE9QXNAEC63bzYb5hBSvpKkTOz173vYZ89gXj03coNZdMMvc7Ei
-	TkzlnRImDJ5Iqp/wFADUV7XX/cdMXe1EVEGteAKQaNUA22o/2KntSH6zDO1Y6thyTVzQNSHd2Rhed
-	z9mw8beJuxgNYysxK3vFe3qZGTefUgQ==;
+	References:List-Owner; bh=TbF9QLUgBZv6Eo7cNqPUaO62vWvOCy1nRqlzAPBUBwU=; b=1+o
+	lde0LkOeaG0zP6KnLRPHQ5HwBiFygRPWfpkA0mrSji+wIID+ScGmoljjOVV5fDS5eyj+FqfZYc8YR
+	29/Ba4ZHK1t3Jw1Pqn/yFidJg9A6puMw2aGWdOzoP7PTmaG3Cl5EvNYoLldh0MW3DHjVhbxlj/v22
+	uR5C1LYvh5GBfPBTyIRcQAJoDoAKZrogT3DKNyLOPozQa164sXuQxy8+XBsDj5pyr6+TvRG4y8ozd
+	uyYTG+CzQn7/gGeAZy60uxpWgCh6H4Jrsj2i4Er1hcphaxyxI6wnVI6WSnaoTMTJnmGXxdGxwsVg4
+	vUCYhqJ7lQ3Y1RDTUZCFCSI54K40N2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIpk3-00000007Kly-3KGF;
+	id 1wIpk3-00000007Klq-0up8;
 	Fri, 01 May 2026 15:25:23 +0000
 Received: from prod-mta-13-01.swg-srv.net ([185.255.28.34] helo=prod-mta-13.swg-srv.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGJMk-0000000DS5F-0Unw
+	id 1wGJL6-0000000DRws-2P0L
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Apr 2026 16:26:55 +0000
+	Fri, 24 Apr 2026 16:25:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vates.tech;
- q=dns/txt; s=selector1; bh=sfYpyjQ2lsSD4z/gGSIW6djYVu4rjhNzbsDb9jl1KT0=;
+ q=dns/txt; s=selector1; bh=bThlJmxxUEwMDkmEkeCcn8WhERUqlDss+FQhTcgS/jM=;
  h=from:subject:date:message-id:to:cc:mime-version:content-type:feedback-id;
- b=EwDCjcS/c42qx8vtIwalMpBQ9zoqIqAiNaBU8soFtbZXGAnAwdrl/zOsrga5JgF1RGyLJcCtg
- v7gtV95F/+jr1tbS4I5JxDVDnEjz9vKWR48hBW3r+GJsfnyIXCA1e8K1Nc8crZgceT2KPjOzzDM
- jv8PwYcJ66lLE1sJUWh0Rn01FCEAmhhMgT46DZ8ypao68uD5wLBGlKMCQA29THO7rqk9lZfRlbw
- EFkycUlym6pT8u20zwrHa3rMHM9E+1byMbDbBqSiNAvbLs7vNtNIic0kXuzarWeWtdpAB9Eh7XJ
- kq9fycDgtPWXUrY8pJDcLBHpkBdKkBRSPL7pNWhEvRKQ==
+ b=RacTiD1TaqVIfnIPsWwWKPBcYPDsGXR71K7LdaTGK/S8LMgVCdDu85qAMpdtcpjKmn9oLUlOq
+ jqmnNmcWg/7s97ejpT5Jv9DzVxXnqkWVd1WRPYXkUcHKDJMEj3YtGJA4slzn74B4LQlhi8CUboo
+ q3AAe6YLhOjuH3lVSE4HOS2nd7RXq82PTefdEvWw7iOpy/TApoHaQesyaIt6fPkRLsyOSkUQ01/
+ AuqyMgeUXq76PU7PK5S3AurKA9x8+FVZPZFWxcNf6Dz5kL6PCrox0RJc2QFg5/faeEHE3OCUv/0
+ 2i+w100HS1IC0gFe6e2GN3TaiT+QUMobJbqcB31r6A0w==
 Received: from mail2.vates.fr ([37.26.189.201] mail2.vates.fr)
  (Authenticated sender: 8631fc262581453bbf619ec5b2062170/smtp/7773de5a-2839-4720-82ee-e06722ae1d3e)
- by prod-mta-13.swg-srv.net (ZoneMTA - prod-mta-13) with ESMTPSA id 19dc04c0af2000f373.008
+ by prod-mta-13.swg-srv.net (ZoneMTA - prod-mta-13) with ESMTPSA id 19dc04a777e000f373.008
  for <linux-riscv@lists.infradead.org>
  (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
- Fri, 24 Apr 2026 16:21:42 +0000
-X-Zone-Loop: 1b630359296525e7a6a06818e8d45b24bb856ae5edda
+ Fri, 24 Apr 2026 16:19:58 +0000
+X-Zone-Loop: c75bad6442bb56c65407559a9adcceddfd443ef5c051
 x-campaign-type: default
-x-transaction-id: 01f16ffa-ffc0-40f1-a084-237ded2d1913
-x-swg-uid: 01-ad2f70c8-c5bc-4ec3-82d6-a01aafb01670
+x-transaction-id: c2601b71-7ee4-496d-9f1d-769592f41eb0
+x-swg-uid: 01-9cda702e-7bb3-4ba7-a1d5-8f688a16ff96
 X-Mailer: Sweego
-Message-ID: <1777047702.8631fc262581453bbf619ec5b2062170.19dc04c0af2000f373@vates.tech>
-x-swg-bid: 1777047702.8631fc262581453bbf619ec5b2062170.19dc04c0af2000f373
+Message-ID: <1777047599.8631fc262581453bbf619ec5b2062170.19dc04a777e000f373@vates.tech>
+x-swg-bid: 1777047599.8631fc262581453bbf619ec5b2062170.19dc04a777e000f373
 Feedback-ID: default:8631fc262581453bbf619ec5b2062170:Sweego
 x-campaign-id: default
 x-client-id: 8631fc262581453bbf619ec5b2062170
 X-Originating-IP: [37.26.189.201]
 Received: from [192.168.31.249] (182.136.141.83.rev.sfr.net [83.141.136.182])
 	(Authenticated sender: baptiste.le-duc)
-	by mail2.vates.fr (Postfix) with ESMTPSA id 82C688123A;
-	Fri, 24 Apr 2026 18:21:41 +0200 (CEST)
-Date: Fri, 24 Apr 2026 18:21:41 +0200
+	by mail2.vates.fr (Postfix) with ESMTPSA id 44B8187251;
+	Fri, 24 Apr 2026 18:19:58 +0200 (CEST)
+Date: Fri, 24 Apr 2026 18:19:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
+Content-Language: en-US
 From: Baptiste Le Duc <baptiste.le-duc@vates.tech>
-Subject: [RFC] xen/riscv: per-CPU devid setup for Xen event channel IRQ on
- IMSIC
 To: linux-riscv@lists.infradead.org
 Cc: anup@brainfault.org, tglx@linutronix.de, pjw@kernel.org,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
  linux-kernel@vger.kernel.org, oleksii.kurochko@gmail.com
-Content-Language: en-US
+Subject: [RFC] xen/riscv: per-CPU devid setup for Xen event channel IRQ on
+ IMSIC
 X-BM-Disclaimer: Yes
 X-Bm-Milter-Handled: 4ffbd6c1-ee69-4e1b-aabd-f977039bd3e2
-X-Bm-Transport-Timestamp: 1777047701720
+X-Bm-Transport-Timestamp: 1777047598450
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_092654_434575_B8F6B138 
-X-CRM114-Status: UNSURE (   5.28  )
+X-CRM114-CacheID: sfid-20260424_092512_909512_89DA8928 
+X-CRM114-Status: UNSURE (   5.65  )
 X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Fri, 01 May 2026 08:25:22 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -86,15 +86,15 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7704370836433404099=="
+Content-Type: multipart/mixed; boundary="===============5516266567117430257=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7704370836433404099==
+--===============5516266567117430257==
 Content-Language: en-US
-Content-Type: multipart/alternative; boundary="-=Part.28a7.e05455ea51db70bc.19dc04c08d7.bc5db1512caad953=-"
+Content-Type: multipart/alternative; boundary="-=Part.28a6.c03164922a40ca3b.19dc04a7572.752a36aec411752d=-"
 
----=Part.28a7.e05455ea51db70bc.19dc04c08d7.bc5db1512caad953=-
+---=Part.28a6.c03164922a40ca3b.19dc04a7572.752a36aec411752d=-
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
@@ -159,10 +159,10 @@ XCP-ng & Xen Orchestra - Vates =
 solutions
 
 web: https://vates=2Etech
----=Part.28a7.e05455ea51db70bc.19dc04c08d7.bc5db1512caad953=---
+---=Part.28a6.c03164922a40ca3b.19dc04a7572.752a36aec411752d=---
 
 
---===============7704370836433404099==
+--===============5516266567117430257==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -173,5 +173,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7704370836433404099==--
+--===============5516266567117430257==--
 
