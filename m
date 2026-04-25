@@ -4,64 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7BFFF885C
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Apr 2026 09:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4616FF8862
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Apr 2026 09:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Mx5c3hmF+YSD5ng88rZPfSvc6eRmpZrjsS7wzNsVveU=; b=ZafVPBR0v2F/Ol
-	8OiraraW8rjAH3pfKbkrc9c9Ulqvrffpt3b3/gSYeLUAtVgxCuExQJAEveiSM/tLqilIi00adz8HI
-	c7fh3dD0LEHvX8m9CvdvONuMjbzT7L+Zv3TIUlQv977lqfn3rPVJUv2Ygb4o/Wr6yRSyQpFicQjl4
-	DOsnYB79RghkcnS/RnUTN5ohufYRCgCtJjHcXYCDPr1Gl18v0etunsrJfZl2ox2mZYfP7xNgwv/Jt
-	cdlMIaBuBxu7lPWMpIN6DvrOyfyOXe/rkIRth3aldQ+Gga+HYVGSjmuy2R9tjUcJlmOChGq9FwqBl
-	VHAFRBNwIJynE2Ft5sig==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2drFxuVUXx1/4siN+MElVLDRt2DiAQO4iPa7w8jBfmc=; b=j1PdynLiusyZh6
+	NoE8n3lVANRYEF9EDqNu8nkR3EKicYGncJih33/fLJWR2nmXoF1dP91xt5Qptwde75FIuDs0dfLEg
+	+cuMP0oqyD/JldJxigfyzGzMaDIBCIa6cNk5y5ikbKBcrZ+OGwKQysS4Y+ATDiXidDaIg/qW+yOMM
+	f+8wqGA17msM9wtKJHTnr+TRQ6dovMBTtwoJUtsvFugPG/Gy7lh2UaNhJhsaEZx0UPO84tQH2ZrlR
+	ajN9QcHtG9mYyYS8I33DpyNyaaTCLALDg3CymO62w6mDVh1IrLKNlLODSlNiBJMEOq7FpGj3aisaj
+	DckPw20AU9t5qhXSwdSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGZL3-0000000EHav-1hGv;
-	Sat, 25 Apr 2026 09:30:13 +0000
+	id 1wGZLL-0000000EHgc-4BAc;
+	Sat, 25 Apr 2026 09:30:32 +0000
 Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGZL1-0000000EHaL-2Ofj
+	id 1wGZLE-0000000EHbk-37J7
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Apr 2026 09:30:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1777109404; cv=none; 
+	Sat, 25 Apr 2026 09:30:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1777109414; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Nspleh2GmyFf2r/pJ2GOFKge8qPi8pQezodwTTyvXuA5aXmNqwaYExUTEaA5KN6XIgiGOPXqpA94xU1LhRKn/J+dxwEOK8IzDx7w6tc0Ou2WTFtsfWdl+hjhvsAk+zCaS13GrwJG6aFXRKZSn+uFCZh4K+ElrYiNipgIxtKkAEE=
+	b=C84sx2Q0Yr/XAEsivr3+QkNjxVwdJWu+0spSSzLvRBloj4z5CkaesZgL1jTDIqXb7GjR/RIGBSwSIDKthytjXuyPHXOrK5Zcp5j9cVJU87uvQeCcJe4GNnoBTg4Hv+tuF739W4uYzeGHrQYBs+kTH576WKvw+ToAUz1BYnB/e24=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1777109404; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=DRzUk09wYdlZvAMaiqNPnLyeSBXvi/+KYzcmS+ojk4s=; 
-	b=JZoB8GZdWNuS74kmRwHM89XiOdn0gNpLaFjjUdiEGZTXSHWdkVucRxUI9ZcciOjAhWMEM4lyp62yQFUmQ2SBzFkMBSosCmX98AWVZrR8Eoh2G+KR3jyH7UhozOLkKTLyfb3MzGYA99iPd6yLCEW+RLykd+lm3WG5Fd7dbcM43aI=
+	t=1777109414; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=yt3l/wEeuutnvMWdtaSlvGtnCFDNOKBFyVJmfAq6weo=; 
+	b=jyUQJerpGyp2Cwef0xKkONltiBz68rJ8ID3HK87N0n1EwAUcmgM4F2vXo9bPZxmGsuJXOdy5v92wm5vzGr4usqBoIaBx1JWSpmUdYWUfgjNZ/J6AZzra4nbMyTZeonUkmoA5ytfhe5snEqA8wpfba833JoR4zC2vFwyKAPsYsko=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=zohomail.com;
 	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
 	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777109404;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777109414;
 	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Feedback-ID:Reply-To;
-	bh=DRzUk09wYdlZvAMaiqNPnLyeSBXvi/+KYzcmS+ojk4s=;
-	b=WKr/a9hbI3UJk9m8wyPMufPYZ+DakaMF9X1+Wvw8Htu026rAB1pDPM74ySLnhwS5
-	JNXHCTckWgzvybDjgyrj+JwfCwfGlHYjOiz/g/yF+jgxpD9lhZse0eD3p2CPqReXq+D
-	FjQAWXPoiVljcNBy5B1vEd7BdfjwAkypa+zvY9RU=
-Received: by mx.zohomail.com with SMTPS id 1777109402383598.1986598340992;
-	Sat, 25 Apr 2026 02:30:02 -0700 (PDT)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Feedback-ID:Reply-To;
+	bh=yt3l/wEeuutnvMWdtaSlvGtnCFDNOKBFyVJmfAq6weo=;
+	b=HudMKGSewbF6hwZgPyO1C3JMJ6fU+UfdRkNdUK6phUUeZaY1ICr/U+4GWjK0pa8e
+	fBIQev2yOe36hjUDtfr03wJKX0+Obk0AI/hiNPEqczGX/ihgDGn9kpGCsFp5+9ZoiC5
+	VAnawp9g4/JDEVUT4UTTEsAtPVuzlcNCCAiUxR2g=
+Received: by mx.zohomail.com with SMTPS id 1777109411056854.6514535946991;
+	Sat, 25 Apr 2026 02:30:11 -0700 (PDT)
 From: Xukai Wang <kingxukai@zohomail.com>
-Subject: [PATCH v12 0/3] riscv: canaan: Add support for K230 clock
-Date: Sat, 25 Apr 2026 17:29:30 +0800
-Message-Id: <20260425-b4-k230-clk-v12-0-7d5ced1f5da8@zohomail.com>
+Date: Sat, 25 Apr 2026 17:29:31 +0800
+Subject: [PATCH v12 1/3] dt-bindings: clock: Add Canaan K230 clock
+ controller
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAHqJ7GkC/3WTy5LTMBBFfyXlNabU3WpJnRX/QbHQk7jmEUhCC
- pjKv9POMGTsiJ2l8rn39kMvw7EepnoctpuX4VDP03HaP+sB8MNmyLv4/LWOU9GLAQ1aQOPGZMc
- HJDPmx4dRkBtRq8VlHJT4dqht+nmV+/zl9Xyo33+o6un1ckjxWMe8f3qaTttNbBKqUOZMUl0xK
- fhksZlIWAoZ55oX9hCu0vGUd5plu5GIxUBjZm8TUyixsMcKQi1AttY5aCYwDXOC3XQ87Q+/rvW
- d6RrhbyV+UcmZRv1IoIYQQvX+0+/9bv8Up8ePmnYOoBgbQLzHUmueOWbJLfcxNHSPkcPsBdBq+
- iU2Bz/bd2HBLnGrOGQjObpENsT/uIK/xzgKR7IcnEDHFd65oixxUBwRooCvwdTSwfEN11aZsMR
- xxn0iEzFHxh7ON5zWLWPFvQ1Fu4GBKvVrJjT3mKlSTJDMNoSOq7u5WuAl7mbXVoI0i15/6OD+h
- ntauft5q9gXSomFCnXwcMPFrNyD4uJyjAYLW+yFl384AK7mLfOWKSwVfIuNe/M2b7wzAG41cG3
- dWCqLIX2k+iJ7AnATuNtTmFfGlUpOWy8pyErgcrn8AcJGvceCBAAA
-X-Change-ID: 20241206-b4-k230-clk-925f33fed6c2
+Message-Id: <20260425-b4-k230-clk-v12-1-7d5ced1f5da8@zohomail.com>
+References: <20260425-b4-k230-clk-v12-0-7d5ced1f5da8@zohomail.com>
+In-Reply-To: <20260425-b4-k230-clk-v12-0-7d5ced1f5da8@zohomail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -75,12 +68,12 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  Troy Mitchell <TroyMitchell988@gmail.com>, 
  Krzysztof Kozlowski <krzk@kernel.org>
 X-Mailer: b4 0.15.2
-Feedback-ID: zu0801122726191866bfa4a93bcf00d9ae0000da70cfaafd2930a6cc1f67597bbaba4a1e3e80edf3295bfffd:ZohoMail
+Feedback-ID: zu08011227dd1c30a9402bc9913f3b0bbd000035d61072034f433aa3f0b677e1ec9280c8b562c919e79f8020:ZohoMail
 X-Zoho-CM-AccountID: 2ee5dd3c83366259b2ba1e9826250ffebed1ef2dd213857d649ad25aba73b429
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260425_023011_641659_9FB4609D 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20260425_023024_838989_BA9A6D96 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,109 +85,319 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBwYXRjaCBzZXJpZXMgYWRkcyBjbG9jayBjb250cm9sbGVyIHN1cHBvcnQgZm9yIHRoZSBD
-YW5hYW4gS2VuZHJ5dGUKSzIzMCBTb0MuIFRoZSBLMjMwIFNvQyBpbmNsdWRlcyBhbiBleHRlcm5h
-bCAyNE1IeiBPU0MsIDQgaW50ZXJuYWwKUExMcyBhbmQgYW4gZXh0ZXJuYWwgcHVsc2UgaW5wdXQs
-IHdpdGggdGhlIGNvbnRyb2xsZXIgbWFuYWdpbmcgdGhlc2UKc291cmNlcyBhbmQgdGhlaXIgZGVy
-aXZlZCBjbG9ja3MuCgpUaGUgY2xvY2sgdHJlZSBhbmQgaGFyZHdhcmUtc3BlY2lmaWMgZGVmaW5p
-dGlvbiBjYW4gYmUgZm91bmQgaW4gdGhlCnZlbmRvcidzIERUUyBbMV0sCmFuZCB0aGlzIHNlcmll
-cyBpcyBiYXNlZCBvbiB0aGUgSzIzMCBpbml0aWFsIHNlcmllcyBbMl0uCgpMaW5rOiBodHRwczov
-L2dpdGh1Yi5jb20vcnV5aXNkay9saW51eC14dWFudGllLWtlcm5lbC9ibG9iL2xpbnV4LTYuNi4z
-Ni9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2NhbmFhbi9rMjMwX2Nsb2NrX3Byb3ZpZGVyLmR0c2kgWzFd
-Ckxpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWNsay90ZW5jZW50X0Y3NkVCOEQ3
-MzFDNTIxQzE4RDVEN0M0RjgyMjlEQUE1OEUwOEBxcS5jb20vIFsyXQoKQ28tZGV2ZWxvcGVkLWJ5
-OiBUcm95IE1pdGNoZWxsIDxUcm95TWl0Y2hlbGw5ODhAZ21haWwuY29tPgpTaWduZWQtb2ZmLWJ5
-OiBUcm95IE1pdGNoZWxsIDxUcm95TWl0Y2hlbGw5ODhAZ21haWwuY29tPgpTaWduZWQtb2ZmLWJ5
-OiBYdWthaSBXYW5nIDxraW5neHVrYWlAem9ob21haWwuY29tPgoKLS0tCkNoYW5nZXMgaW4gdjEy
-OgotIFJlYmFzZSBvbnRvIGxpbnV4LW5leHQgKG5leHQtMjAyNjA0MjEpLgotIE1pZ3JhdGUgZnJv
-bSBkZXByZWNhdGVkIHJvdW5kX3JhdGUoKSBjbGtfb3BzIHRvIGRldGVybWluZV9yYXRlKCkgQVBJ
-LgotIGR0LWJpbmRpbmdzOiBEcm9wIHJlZHVuZGFudCAiYmluZGluZ3MgZm9yIiBpbiBjb21taXQg
-c3ViamVjdC4KLSBMaW5rIHRvIHYxMTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI2MDIx
-NC1iNC1rMjMwLWNsay12MTEtMC02ZGUzNjU0ODliODlAem9ob21haWwuY29tCgpDaGFuZ2VzIGlu
-IHYxMToKLSBSZW5hbWUgaHNfaGNsa19oaWdoX3NyYyB0byBoc19oY2xrX2hpZ2ggYW5kIGhzX2hj
-bGtfc3JjIHRvIGhzX2hjbGsuCi0gUmViYXNlIGJhc2UtY29tbWl0IHRvIGxpbnV4LW5leHQuCi0g
-VXBkYXRlIHByZXJlcXVpc2l0ZS1wYXRjaC1pZC4KLSBMaW5rIHRvIHYxMDogaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvci8yMDI2MDExNi1iNC1rMjMwLWNsay12MTAtMC1kZTU5MDMzYzVkMzBAem9o
-b21haWwuY29tCgpDaGFuZ2VzIGluIHYxMDoKLSBEcm9wIGNsb2NrIG5vZGU6IGNwdTFfYXBiX3Jh
-dGUuCi0gUmVuYW1lIGhzX29zcGlfc3JjIHRvIGhzX3NzaTAuCi0gUmVuYW1lIGZpeGVkIGNsb2Nr
-cyBmb3JtYXQgaW4gZHRzLgotIEZpeCBtaXNzaW5nIGNsayBtZW1iZXIgcmVnaXN0cmF0aW9uIGlu
-IGRyaXZlci4KLSBGaXggaW5jb3JyZWN0IGNsayBJRDogazIzMF9jcHUxX3NyY19yYXRlIOKGkiBL
-MjMwX0NQVTFfU1JDX1JBVEUuCi0gRml4IGJpdCBpbmRleCBvZiBoc19oY2xrX3NyY19nYXRlOiAx
-IOKGkiAwLgotIEFkZCBDTEtfSVNfQ1JJVElDQUwgdG8gQ1BVLXJlbGF0ZWQgZ2F0ZSBjbG9ja3Mu
-Ci0gVXBkYXRlIHBhcmVudCBjbG9ja3M6IGRpc3BsYXlfY2xrZXh0X3JhdGUsIHNlY19hcGJfZ2F0
-ZSwgYWlfYXhpX2dhdGUsCmNwdTFfc3JjX211eCBhbmQgaHNfc2RfY2FyZF9zcmNfcmF0ZS4KLSBM
-aW5rIHRvIHY5OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUxMTI3LWI0LWsyMzAtY2xr
-LXY5LTAtM2FhMDllMTdmYWY1QHpvaG9tYWlsLmNvbQoKQ2hhbmdlcyBpbiB2OToKLSBSZWJhc2Ug
-YmFzZS1jb21taXQgdG8gdjYuMTgtcmMxCi0gU2ltcGxpZmllZCBQTEwgZmllbGQgZXh0cmFjdGlv
-biB3aXRoIEZJRUxEX0dFVCgpIG1hY3JvCi0gRHJvcCBNT0RVTEVfREVWSUNFX1RBQkxFIGZvciBr
-MjMwX2Nsa19pZHMKLSBSZXBsYWNlIGsyMzBfY2xrX2ZpbmRfYXBwcm94aW1hdGVfbXVsX2Rpdidz
-IHN0ZXAgd2l0aAogIFJhdGlvbmFsX2Jlc3RfYXBwcm94aW1hdGlvbgotIFJlb3JkZXIgZGVjbGFy
-YXRpb24gYW5kIGRlZmluYXRpb24gZm9yIGNsa19vcHMKLSBMaW5rIHRvIHY4OiBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9yLzIwMjUwOTA1LWI0LWsyMzAtY2xrLXY4LTAtOTZjYWEwMmQ1NDI4QHpv
-aG9tYWlsLmNvbQoKQ2hhbmdlcyBpbiB2ODoKLSBSZW5hbWUgZHRzIG5vZGUgbmFtZSAidGltZXJf
-cHVsc2VfaW4iIHRvICJjbG9jay01MG0iCi0gRHJvcCByZWR1bmRhbnQgY29tbWVudCBhbmQgJ21p
-bkl0ZW1zJyBvZiBoYXJkd2FyZSBpbiBkdC1iaW5kaW5nLgotIExpbmsgdG8gdjc6IGh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL3IvMjAyNTA3MzAtYjQtazIzMC1jbGstdjctMC1jNTdkM2JiNTkzZDNA
-em9ob21haWwuY29tCgpDaGFuZ2VzIGluIHY3OgotIFJlbmFtZSBLMjMwX1BMTF9TVEFUVVNfTUFT
-SyB0byBLMjMwX1BMTF9MT0NLX1NUQVRVU19NQVNLCi0gQWRkIGNsa2RldiBmb3IgUExMcyB0byBy
-ZWdpc3RlciBsb29rdXAKLSBBZGQgbWFjcm9zIHRvIGdlbmVyYXRlIHJlcGVhdCB2YXJpYWJsZXMg
-ZGVmaW5pdGlvbgotIFJlZmluZSB0aGUgZGVmaW5pdGlvbnMgb2YgazIzMCBjbG9ja3MKLSBTcGxp
-dCBjb21wb3NpdGUgY2xrcyBpbnRvIHJhdGUsIGdhdGUsIG11eCwgZml4ZWRfZmFjdG9yIGNsawot
-IFJlcGxhY2UgazIzMF9jbGtfaHdfb25lY2VsbF9nZXQgd2l0aCBvZl9jbGtfaHdfb25lY2VsbF9n
-ZXQgZm9yCiAgY2xvY2sgcHJvdmlkZXIKLSBEcm9wIGsyMzBfc3lzY2xrIGFuZCB1c2UgY2xrX211
-eCwgY2xrX2dhdGUgYW5kIGNsa19maXhlZF9mYWN0b3IKICBhcyB0aGUgZGF0YSBzdHJ1Y3R1cmVz
-LgotIFJlcGxhY2Ugb25lIGxvb3AgcmVnaXN0cmF0aW9uIHdpdGggaW5kaXZpZHVhbCByZWdpc3Ry
-YXRpb24gZm9yCiAgZWFjaCB0eXBlLgotIExpbmsgdG8gdjY6IGh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL3IvMjAyNTA0MTUtYjQtazIzMC1jbGstdjYtMC03ZmQ4OWY0MjcyNTBAem9ob21haWwuY29t
-CgpDaGFuZ2VzIGluIHY2OgotIFJlbW92ZSBzb21lIHJlZHVuZGFudCBjb21tZW50cyBpbiBzdHJ1
-Y3QgZGVjbGFyYXRpb24uCi0gUmVwbGFjZSB0aGUgVmVuZG9yJ3MgY29kZSBzb3VyY2UgbGluayB3
-aXRoIGEgbmV3IG9uZS4KLSBMaW5rIHRvIHY1OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIw
-MjUwMzIwLWI0LWsyMzAtY2xrLXY1LTAtMGU5ZDA4OWM1NDg4QHpvaG9tYWlsLmNvbQoKQ2hhbmdl
-cyBpbiB2NToKLSBGaXggaW5jb3JyZWN0IGJhc2UtY29tbWl0IGFuZCBhZGQgcHJlcmVxdWlzaXRl
-LXBhdGNoLWlkLgotIFJlcGxhY2UgZHVtbXkgYXBiX2NsayB3aXRoIHJlYWwgb25lcyBmb3IgVUFS
-VHMuCi0gQWRkIElEcyBvZiBVQVJUcyBjbG9jayBhbmQgRE1BIGNsb2NrcyBpbiB0aGUgYmluZGlu
-ZyBoZWFkZXIuCi0gUmVwbGFjZSBrMjMwX2Nsa19jZmdzW10gYXJyYXkgd2l0aCBjb3JyZXNwb25k
-aW5nIG5hbWVkIHZhcmlhYmxlcy4KLSBSZW1vdmUgc29tZSByZWR1bmRhbnQgY2hlY2tzIGluIGNs
-a19vcHMuCi0gRHJvcCB0aGUgdW5uZWNlc3NhcnkgcGFyZW50aGVzaXMgYW5kIHR5cGUgY2FzdHMu
-Ci0gTW9kaWZ5IHJldHVybiB2YWx1ZSBoYW5kbGluZyBpbiBwcm9iZSBwYXRoIHRvIGF2b2lkIHJl
-ZHVuZGFudCBwcmludC4KLSBMaW5rIHRvIHY0OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIw
-MjUwMjE3LWI0LWsyMzAtY2xrLXY0LTAtNWE5NWEzNDU4NjkxQHpvaG9tYWlsLmNvbQoKQ2hhbmdl
-cyBpbiB2NDoKLSBSZW1vdmUgcmVkdW5kYW50IG9uZWNlbGxfZ2V0IGNhbGxiYWNrIGFuZCBhZGRf
-cHJvdmlkZXIgZnVuY3Rpb24KZm9yIHBsbF9kaXZzLgotIE1vZGlmeSB0aGUgYmFzZS1jb21taXQg
-aW4gY292ZXIgbGV0dGVyLgotIExpbmsgdG8gdjM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3Iv
-MjAyNTAyMDMtYjQtazIzMC1jbGstdjMtMC0zNjJjNzkxMjQ1NzJAem9ob21haWwuY29tCgpDaGFu
-Z2VzIGluIHYzOgotIFJlb3JkZXIgdGhlIGRlZmluYXRpb24gYW5kIGRlY2xhcmF0aW9uIGluIGRy
-aXZlcnMgY29kZS4KLSBSZW9yZGVyIHRoZSBwcm9wZXJ0aWVzIGluIGR0cyBub2RlLgotIFJlcGxh
-Y2UgZ2xvYmFsIHZhcmlhYmxlIGBrMjMwX3N5c2Nsa2Agd2l0aCBkeW5hbWljIG1lbW9yeSBhbGxv
-Y2F0aW9uLgotIFJlbmFtZSB0aGUgbWFjcm8gSzIzMF9OVU1fQ0xLUyB0byBLMjMwX0NMS19OVU0u
-Ci0gVXNlIGRldl9lcnJfcHJvYmUgZm9yIGVycm9yIGhhbmRsaW5nLgotIFJlbW92ZSB1bnVzZWQg
-aW5jbHVkZXMuCi0gTGluayB0byB2MjogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1MDEw
-OC1iNC1rMjMwLWNsay12Mi0wLTI3YjMwYTJjYTUyZEB6b2hvbWFpbC5jb20KCkNoYW5nZXMgaW4g
-djI6Ci0gQWRkIGl0ZW1zIGFuZCBkZXNjcmlwdGlvbi4KLSBSZW5hbWUgazIzMC1jbGsuaCB0byBj
-YW5hYW4sazIzMC1jbGsuaAotIExpbmsgdG8gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3Iv
-MjAyNDEyMjktYjQtazIzMC1jbGstdjEtMC0yMjFhOTE3ZTgwZWRAem9ob21haWwuY29tCgotLS0K
-WHVrYWkgV2FuZyAoMyk6CiAgICAgIGR0LWJpbmRpbmdzOiBjbG9jazogQWRkIENhbmFhbiBLMjMw
-IGNsb2NrIGNvbnRyb2xsZXIKICAgICAgY2xrOiBjYW5hYW46IEFkZCBjbG9jayBkcml2ZXIgZm9y
-IENhbmFhbiBLMjMwCiAgICAgIHJpc2N2OiBkdHM6IGNhbmFhbjogQWRkIGNsb2NrIGRlZmluaXRp
-b24gZm9yIEsyMzAKCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9jbG9jay9jYW5hYW4sazIzMC1j
-bGsueWFtbCB8ICAgNTkgKwogYXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC1jYW5tdi5k
-dHMgICAgICAgICAgfCAgIDExICsKIGFyY2gvcmlzY3YvYm9vdC9kdHMvY2FuYWFuL2syMzAtZXZi
-LmR0cyAgICAgICAgICAgIHwgICAxMSArCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2NhbmFhbi9rMjMw
-LmR0c2kgICAgICAgICAgICAgICB8ICAgMjYgKy0KIGRyaXZlcnMvY2xrL0tjb25maWcgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAgNiArCiBkcml2ZXJzL2Nsay9NYWtlZmlsZSAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgIDEgKwogZHJpdmVycy9jbGsvY2xrLWsy
-MzAuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAyNDUyICsrKysrKysrKysrKysrKysr
-KysrCiBpbmNsdWRlL2R0LWJpbmRpbmdzL2Nsb2NrL2NhbmFhbixrMjMwLWNsay5oICAgICAgICB8
-ICAyMjAgKysKIDggZmlsZXMgY2hhbmdlZCwgMjc3OCBpbnNlcnRpb25zKCspLCA4IGRlbGV0aW9u
-cygtKQotLS0KYmFzZS1jb21taXQ6IGFmOThlOTNjNWMzOWU2ZDBiODdiNDJmMGEzMmRkMzA2NmY3
-OTU3MTgKY2hhbmdlLWlkOiAyMDI0MTIwNi1iNC1rMjMwLWNsay05MjVmMzNmZWQ2YzIKcHJlcmVx
-dWlzaXRlLXBhdGNoLWlkOiA5YTJkMDFmNTU1NzRiNTM4ZGFkNTcyZTE5M2Y4MWM0NDY2MWYwODUz
-CgpCZXN0IHJlZ2FyZHMsCi0tICAKWHVrYWkgV2FuZyA8a2luZ3h1a2FpQHpvaG9tYWlsLmNvbT4K
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This patch adds the Device Tree binding for the clock controller
+on Canaan k230. The binding defines the clocks and the required
+properties to configure them correctly.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+---
+ .../devicetree/bindings/clock/canaan,k230-clk.yaml |  59 ++++++
+ include/dt-bindings/clock/canaan,k230-clk.h        | 220 +++++++++++++++++++++
+ 2 files changed, 279 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
+new file mode 100644
+index 000000000000..34c93cb5db40
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
+@@ -0,0 +1,59 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/canaan,k230-clk.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Canaan Kendryte K230 Clock
++
++maintainers:
++  - Xukai Wang <kingxukai@zohomail.com>
++
++description:
++  The Canaan K230 clock controller generates various clocks for SoC
++  peripherals. See include/dt-bindings/clock/canaan,k230-clk.h for
++  valid clock IDs.
++
++properties:
++  compatible:
++    const: canaan,k230-clk
++
++  reg:
++    items:
++      - description: PLL control registers
++      - description: Sysclk control registers
++
++  clocks:
++    items:
++      - description: Main external reference clock
++      - description:
++          External clock which used as the pulse input
++          for the timer to provide timing signals.
++
++  clock-names:
++    items:
++      - const: osc24m
++      - const: timer-pulse-in
++
++  '#clock-cells':
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - '#clock-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@91102000 {
++        compatible = "canaan,k230-clk";
++        reg = <0x91102000 0x40>,
++              <0x91100000 0x108>;
++        clocks = <&osc24m>, <&timerx_pulse_in>;
++        clock-names = "osc24m", "timer-pulse-in";
++        #clock-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/canaan,k230-clk.h b/include/dt-bindings/clock/canaan,k230-clk.h
+new file mode 100644
+index 000000000000..3b916678cc5b
+--- /dev/null
++++ b/include/dt-bindings/clock/canaan,k230-clk.h
+@@ -0,0 +1,220 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Kendryte Canaan K230 Clock Drivers
++ *
++ * Author: Xukai Wang <kingxukai@zohomail.com>
++ */
++
++#ifndef __DT_BINDINGS_CANAAN_K230_CLOCK_H__
++#define __DT_BINDINGS_CANAAN_K230_CLOCK_H__
++
++#define K230_CPU0_SRC_GATE			0
++#define K230_CPU0_PLIC_GATE			1
++#define K230_CPU0_NOC_DDRCP4_GATE		2
++#define K230_CPU0_APB_GATE			3
++#define K230_CPU0_SRC_RATE			4
++#define K230_CPU0_AXI_RATE			5
++#define K230_CPU0_PLIC_RATE			6
++#define K230_CPU0_APB_RATE			7
++#define K230_HS_SSI0_MUX			8
++#define K230_HS_USB_REF_MUX			9
++#define K230_HS_HCLK_HIGH_GATE			10
++#define K230_HS_HCLK_GATE			11
++#define K230_HS_SD0_AHB_GATE			12
++#define K230_HS_SD1_AHB_GATE			13
++#define K230_HS_SSI1_AHB_GATE			14
++#define K230_HS_SSI2_AHB_GATE			15
++#define K230_HS_USB0_AHB_GATE			16
++#define K230_HS_USB1_AHB_GATE			17
++#define K230_HS_SSI0_AXI_GATE			18
++#define K230_HS_SSI1_GATE			19
++#define K230_HS_SSI2_GATE			20
++#define K230_HS_QSPI_AXI_SRC_GATE		21
++#define K230_HS_SSI1_AXI_GATE			22
++#define K230_HS_SSI2_AXI_GATE			23
++#define K230_HS_SD_CARD_SRC_GATE		24
++#define K230_HS_SD0_CARD_GATE			25
++#define K230_HS_SD1_CARD_GATE			26
++#define K230_HS_SD_AXI_SRC_GATE			27
++#define K230_HS_SD0_AXI_GATE			28
++#define K230_HS_SD1_AXI_GATE			29
++#define K230_HS_SD0_BASE_GATE			30
++#define K230_HS_SD1_BASE_GATE			31
++#define K230_HS_SSI0_GATE			32
++#define K230_HS_SD_TIMER_SRC_GATE		33
++#define K230_HS_SD0_TIMER_GATE			34
++#define K230_HS_SD1_TIMER_GATE			35
++#define K230_HS_USB0_REF_GATE			36
++#define K230_HS_USB1_REF_GATE			37
++#define K230_HS_HCLK_HIGH_RATE			38
++#define K230_HS_HCLK_RATE			39
++#define K230_HS_SSI0_AXI_RATE			40
++#define K230_HS_SSI1_RATE			41
++#define K230_HS_SSI2_RATE			42
++#define K230_HS_QSPI_AXI_SRC_RATE		43
++#define K230_HS_SD_CARD_SRC_RATE		44
++#define K230_HS_SD_AXI_SRC_RATE			45
++#define K230_HS_USB_REF_50M_RATE		46
++#define K230_HS_SD_TIMER_SRC_RATE		47
++#define K230_TIMER0_MUX				48
++#define K230_TIMER1_MUX				49
++#define K230_TIMER2_MUX				50
++#define K230_TIMER3_MUX				51
++#define K230_TIMER4_MUX				52
++#define K230_TIMER5_MUX				53
++#define K230_SHRM_SRAM_MUX			54
++#define K230_DDRC_SRC_MUX			55
++#define K230_AI_SRC_MUX				56
++#define K230_CAMERA0_MUX			57
++#define K230_CAMERA1_MUX			58
++#define K230_CAMERA2_MUX			59
++#define K230_CPU1_SRC_MUX			60
++#define K230_CPU1_SRC_GATE			61
++#define K230_CPU1_PLIC_GATE			62
++#define K230_CPU1_APB_GATE			63
++#define K230_CPU1_SRC_RATE			64
++#define K230_CPU1_AXI_RATE			65
++#define K230_CPU1_PLIC_RATE			66
++#define K230_PMU_APB_GATE			67
++#define K230_LS_APB_SRC_GATE			68
++#define K230_LS_UART0_APB_GATE			69
++#define K230_LS_UART1_APB_GATE			70
++#define K230_LS_UART2_APB_GATE			71
++#define K230_LS_UART3_APB_GATE			72
++#define K230_LS_UART4_APB_GATE			73
++#define K230_LS_I2C0_APB_GATE			74
++#define K230_LS_I2C1_APB_GATE			75
++#define K230_LS_I2C2_APB_GATE			76
++#define K230_LS_I2C3_APB_GATE			77
++#define K230_LS_I2C4_APB_GATE			78
++#define K230_LS_GPIO_APB_GATE			79
++#define K230_LS_PWM_APB_GATE			80
++#define K230_LS_JAMLINK0_APB_GATE		81
++#define K230_LS_JAMLINK1_APB_GATE		82
++#define K230_LS_JAMLINK2_APB_GATE		83
++#define K230_LS_JAMLINK3_APB_GATE		84
++#define K230_LS_AUDIO_APB_GATE			85
++#define K230_LS_ADC_APB_GATE			86
++#define K230_LS_CODEC_APB_GATE			87
++#define K230_LS_I2C0_GATE			88
++#define K230_LS_I2C1_GATE			89
++#define K230_LS_I2C2_GATE			90
++#define K230_LS_I2C3_GATE			91
++#define K230_LS_I2C4_GATE			92
++#define K230_LS_CODEC_ADC_GATE			93
++#define K230_LS_CODEC_DAC_GATE			94
++#define K230_LS_AUDIO_DEV_GATE			95
++#define K230_LS_PDM_GATE			96
++#define K230_LS_ADC_GATE			97
++#define K230_LS_UART0_GATE			98
++#define K230_LS_UART1_GATE			99
++#define K230_LS_UART2_GATE			100
++#define K230_LS_UART3_GATE			101
++#define K230_LS_UART4_GATE			102
++#define K230_LS_JAMLINK0CO_GATE			103
++#define K230_LS_JAMLINK1CO_GATE			104
++#define K230_LS_JAMLINK2CO_GATE			105
++#define K230_LS_JAMLINK3CO_GATE			106
++#define K230_LS_GPIO_DEBOUNCE_GATE		107
++#define K230_SYSCTL_WDT0_APB_GATE		108
++#define K230_SYSCTL_WDT1_APB_GATE		109
++#define K230_SYSCTL_TIMER_APB_GATE		110
++#define K230_SYSCTL_IOMUX_APB_GATE		111
++#define K230_SYSCTL_MAILBOX_APB_GATE		112
++#define K230_SYSCTL_HDI_GATE			113
++#define K230_SYSCTL_TIME_STAMP_GATE		114
++#define K230_SYSCTL_WDT0_GATE			115
++#define K230_SYSCTL_WDT1_GATE			116
++#define K230_TIMER0_GATE			117
++#define K230_TIMER1_GATE			118
++#define K230_TIMER2_GATE			119
++#define K230_TIMER3_GATE			120
++#define K230_TIMER4_GATE			121
++#define K230_TIMER5_GATE			122
++#define K230_SHRM_APB_GATE			123
++#define K230_SHRM_AXI_GATE			124
++#define K230_SHRM_AXI_SLAVE_GATE		125
++#define K230_SHRM_NONAI2D_AXI_GATE		126
++#define K230_SHRM_SRAM_GATE			127
++#define K230_SHRM_DECOMPRESS_AXI_GATE		128
++#define K230_SHRM_SDMA_AXI_GATE			129
++#define K230_SHRM_PDMA_AXI_GATE			130
++#define K230_DDRC_SRC_GATE			131
++#define K230_DDRC_BYPASS_GATE			132
++#define K230_DDRC_APB_GATE			133
++#define K230_DISPLAY_AHB_GATE			134
++#define K230_DISPLAY_AXI_GATE			135
++#define K230_DISPLAY_GPU_GATE			136
++#define K230_DISPLAY_DPIP_GATE			137
++#define K230_DISPLAY_CFG_GATE			138
++#define K230_DISPLAY_REF_GATE			139
++#define K230_USB_480M_GATE			140
++#define K230_USB_100M_GATE			141
++#define K230_DPHY_DFT_GATE			142
++#define K230_SPI2AXI_GATE			143
++#define K230_AI_SRC_GATE			144
++#define K230_AI_AXI_GATE			145
++#define K230_AI_SRC_RATE			146
++#define K230_CAMERA0_GATE			147
++#define K230_CAMERA1_GATE			148
++#define K230_CAMERA2_GATE			149
++#define K230_LS_APB_SRC_RATE			150
++#define K230_LS_I2C0_RATE			151
++#define K230_LS_I2C1_RATE			152
++#define K230_LS_I2C2_RATE			153
++#define K230_LS_I2C3_RATE			154
++#define K230_LS_I2C4_RATE			155
++#define K230_LS_CODEC_ADC_RATE			156
++#define K230_LS_CODEC_DAC_RATE			157
++#define K230_LS_AUDIO_DEV_RATE			158
++#define K230_LS_PDM_RATE			159
++#define K230_LS_ADC_RATE			160
++#define K230_LS_UART0_RATE			161
++#define K230_LS_UART1_RATE			162
++#define K230_LS_UART2_RATE			163
++#define K230_LS_UART3_RATE			164
++#define K230_LS_UART4_RATE			165
++#define K230_LS_JAMLINKCO_SRC_RATE		166
++#define K230_LS_GPIO_DEBOUNCE_RATE		167
++#define K230_SYSCTL_HDI_RATE			168
++#define K230_SYSCTL_TIME_STAMP_RATE		169
++#define K230_SYSCTL_TEMP_SENSOR_RATE		170
++#define K230_SYSCTL_WDT0_RATE			171
++#define K230_SYSCTL_WDT1_RATE			172
++#define K230_TIMER0_SRC_RATE			173
++#define K230_TIMER1_SRC_RATE			174
++#define K230_TIMER2_SRC_RATE			175
++#define K230_TIMER3_SRC_RATE			176
++#define K230_TIMER4_SRC_RATE			177
++#define K230_TIMER5_SRC_RATE			178
++#define K230_SHRM_APB_RATE			179
++#define K230_DDRC_SRC_RATE			180
++#define K230_DDRC_APB_RATE			181
++#define K230_DISPLAY_AHB_RATE			182
++#define K230_DISPLAY_CLKEXT_RATE		183
++#define K230_DISPLAY_GPU_RATE			184
++#define K230_DISPLAY_DPIP_RATE			185
++#define K230_DISPLAY_CFG_RATE			186
++#define K230_VPU_SRC_GATE			187
++#define K230_VPU_AXI_GATE			188
++#define K230_VPU_DDRCP2_GATE			189
++#define K230_VPU_CFG_GATE			190
++#define K230_VPU_SRC_RATE			191
++#define K230_VPU_AXI_SRC_RATE			192
++#define K230_VPU_CFG_RATE			193
++#define K230_SEC_APB_GATE			194
++#define K230_SEC_FIX_GATE			195
++#define K230_SEC_AXI_GATE			196
++#define K230_SEC_APB_RATE			197
++#define K230_SEC_FIX_RATE			198
++#define K230_SEC_AXI_RATE			199
++#define K230_USB_480M_RATE			200
++#define K230_USB_100M_RATE			201
++#define K230_DPHY_DFT_RATE			202
++#define K230_SPI2AXI_RATE			203
++#define K230_CAMERA0_RATE			204
++#define K230_CAMERA1_RATE			205
++#define K230_CAMERA2_RATE			206
++#define K230_SHRM_SRAM_DIV2			207
++
++#endif /* __DT_BINDINGS_CANAAN_K230_CLOCK_H__ */
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
