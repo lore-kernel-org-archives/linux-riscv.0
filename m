@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852E4FF885A
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Apr 2026 05:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2FDFF885C
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Apr 2026 06:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j2Z0aVR/xIB9RD2xZjAN4FhjuH5hRE+MBsnI1Y6a4u4=; b=RHsO8hCYxBGcUR
-	D9gsJtCkHy5aAWX6YbZVZHjuTVJlXSqSILramk7JXyxUFFCbq0QtNZpARtrvwcekABghwZ2u1DhXG
-	ytn/k1VFxHRgMbTHUoNip4Ih9peK43YB/+3rWxlVoQWhbiwKy7APtEm7/7dJrKQN7znPbtG632xdV
-	hu6RpkY90d4YvGp7TPHygwKHNKGnqYEt1sdGsW5TsewHjQQCrRO4ZofwghODB/HGuQFZvnBc7V60N
-	qCm4pXWOMz0KqOoz9j2we6x48NiLcB22wzQNUa76+e6//SZ4YwT14Cw3xsjrtubKCg1EsGd7Q+4iX
-	Gd5FS/BJaWkYSLa2U1PA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+a+vgQ5MMgQkd1rYgbbfG+HNaK9Mu3SA5kJR0p8gcNY=; b=psCLMH05cN9Sa3
+	M/pfzl+0U2ikxbP8NbqSkn23rs0o6xKueNb/OFT2Gkg6K9gXQb0iG78nofjeyJ5Bk+j8hPmVxqxV8
+	PWDdvklslp/3Uj1P+RawOEi8kiqGxGXusve03NTYAcO/BOvrBHaSzjgIlN9C9khjpv4lAAj19/H6f
+	ltOMxL9v8AZPrHZSrfi4KmSzdhlzqtNdfV3sxbzZCcetheXPqSteFDpiSk+tiyiFSq+YtszS3/szw
+	TD3LkSzz7SHOp/ydJtDvEj9I/H2bKoSX/xDEaTwP857LdVt09H/+2rG0EJ0wENm+kBHpv7sW31uW3
+	eRWw0AImjdB0zG4n43rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGVUU-0000000E63J-19Da;
-	Sat, 25 Apr 2026 05:23:42 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wGWJ9-0000000E7VG-07Tt;
+	Sat, 25 Apr 2026 06:16:03 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGVUQ-0000000E62W-04hO
+	id 1wGWJ5-0000000E7Ud-24TX
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Apr 2026 05:23:40 +0000
-Received: from [192.168.0.113] (unknown [123.118.218.47])
-	by APP-05 (Coremail) with SMTP id zQCowADHWQ3PT+xpRbSGDg--.6270S2;
-	Sat, 25 Apr 2026 13:23:28 +0800 (CST)
-Message-ID: <0e139862-d41b-4b46-92f6-a1eb5bffc863@iscas.ac.cn>
-Date: Sat, 25 Apr 2026 13:23:27 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: mm: Do not probe satp mode limit if known in FDT
-To: Guo Ren <guoren@kernel.org>
-Cc: alex@ghiti.fr, gaohan@iscas.ac.cn, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, palmer@dabbelt.com, pjw@kernel.org
-References: <20260424-riscv-mm-trust-fdt-mmu-type-v1-1-57f3313275d2@iscas.ac.cn>
- <20260425020253.3323599-1-guoren@kernel.org>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260425020253.3323599-1-guoren@kernel.org>
-X-CM-TRANSID: zQCowADHWQ3PT+xpRbSGDg--.6270S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxur4rWry3ur48Kr48WF45Wrg_yoW5XF45pF
-	WfXrZ3tFn8tF12yrs7u34kZF15KanYgayUZ34rXryUCws0yF1Fvrsay3Wjqa4aqryfGF1I
-	yw4jgFZ8Za45ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_JF0_
-	Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
-	42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x0JUBVbkUUUUU=
-X-Originating-IP: [123.118.218.47]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
+	Sat, 25 Apr 2026 06:16:01 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4g2fhc45jMz4xPSG;
+	Sat, 25 Apr 2026 14:15:44 +0800 (CST)
+Received: from xaxapp01.zte.com.cn ([10.88.99.176])
+	by mse-fl2.zte.com.cn with SMTP id 63P6FgEn005068;
+	Sat, 25 Apr 2026 14:15:42 +0800 (+08)
+	(envelope-from hu.shengming@zte.com.cn)
+Received: from mapi (xaxapp01[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Sat, 25 Apr 2026 14:15:43 +0800 (CST)
+X-Zmail-TransId: 2af969ec5c0fd5c-2f814
+X-Mailer: Zmail v1.0
+Message-ID: <20260425141543798GOufEA973_-3W4JJd0-_o@zte.com.cn>
+Date: Sat, 25 Apr 2026 14:15:43 +0800 (CST)
+Mime-Version: 1.0
+From: <hu.shengming@zte.com.cn>
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+Cc: <alex@ghiti.fr>, <linux-kernel@vger.kernel.org>,
+        <linux-riscv@lists.infradead.org>, <zhang.run@zte.com.cn>,
+        <yang.tao172@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIFJFU0VORF0gcmlzY3Y6IG1tOiBWZXJpZnkgcGVyLWhhcnQgQVNJRCBiaXRzIHdoZW4gdXNpbmcgQVNJRCBhbGxvY2F0b3I=?=
+X-MAIL: mse-fl2.zte.com.cn 63P6FgEn005068
+X-TLS: YES
+X-SPF-DOMAIN: zte.com.cn
+X-ENVELOPE-SENDER: hu.shengming@zte.com.cn
+X-SPF: None
+X-SOURCE-IP: 10.5.228.133 unknown Sat, 25 Apr 2026 14:15:44 +0800
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 69EC5C10.000/4g2fhc45jMz4xPSG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_222338_448832_B07C946F 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20260424_231559_733410_7301AC97 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +73,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNC8yNS8yNiAxMDowMiwgR3VvIFJlbiB3cm90ZToKPj4gU29tZSBzeXN0ZW1zIG1heSBvbmx5
-IGhhdmUgbWVtb3J5IGF0IHN1Y2ggYSBoaWdoIGFkZHJlc3MgdGhhdCBhbgo+PiBpZGVudGl0eSBt
-YXBwaW5nIGNhbm5vdCBiZSBtYWRlIGluIFN2NDgsIG9yIGV2ZW4gU3Y1Ny4gVG8gYXZvaWQgY3Jh
-c2hpbmcKPj4gd2hpbGUgcHJvYmluZyBzYXRwIG1vZGUgc3VwcG9ydCwgdHJ1c3QgdGhlIG1tdS10
-eXBlIHByb3BlcnR5IGZyb20gRkRUCj4+IGFuZCBhdm9pZCBwcm9iaW5nIGlmIGl0IGlzIHNldC4K
-Pj4KPj4gRm9yIGV4YW1wbGUsIGlmIGEgQ1BVIHN1cHBvcnRzICh1cCB0bykgU3Y1NyBidXQgdGhl
-IFNvQyBpdCBpcyBvbiBvbmx5Cj4+IGhhcyBtZW1vcnkgc3RhcnRpbmcgYXQgMTI4IFRpQiwgYW4g
-aWRlbnRpdHkgbWFwcGluZyBjYW5ub3QgYmUgbWFkZSBpbgo+PiBTdjQ4LiBJZiB0aGUgdXNlciBz
-cGVjaWZpZXMgIm5vNWx2bCIgb24gdGhlIGNvbW1hbmQgbGluZSwKPj4gc2V0X3NhdHBfbW9kZSgp
-IHdpbGwgYXR0ZW1wdCB0byB0ZXN0IFN2NDggc3VwcG9ydCBhbmQgY3Jhc2gsIHNpbmNlIHRoZQo+
-PiB2aXJ0dWFsIGFkZHJlc3MgaXMgdG9vIGhpZ2guIEluc3RlYWQsIGdpdmVuIHRoZSBjb3JyZWN0
-IEZEVCBDUFUgbm9kZQo+PiBwcm9wZXJ0eSBtbXUtdHlwZSA9ICJyaXNjdixzdjU3Iiwgc2V0X3Nh
-dHBfbW9kZSgpIGNhbiBwaWNrIHRoZSBtYXhpbXVtCj4+IGFsbG93ZWQgbW9kZSBmcm9tIGNvbW1h
-bmQgbGluZSBhbmQgRkRULCBuYW1lbHkgU3Y0OCwgd2l0aG91dCBwcm9iaW5nLgo+Pgo+PiBIYW5k
-bGluZyBvZiBtbXUtdHlwZSAicmlzY3Ysc3Y1NyIgaW4gc2V0X3NhdHBfbW9kZV9mcm9tX2ZkdCgp
-IGlzIGFkZGVkCj4+IHNpbmNlIGl0IGlzIG5vdyBuZWVkZWQuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6
-IFZpdmlhbiBXYW5nIDx3YW5ncnVpa2FuZ0Bpc2Nhcy5hYy5jbj4KPj4gLS0tCj4+IFRlc3RlZCBv
-biBRRU1VIDEwLjIuMiBvbiBhbGwgMyozIGNvbWJpbmF0aW9ucyBvZiBTdjM5L1N2NDgvU3Y1NyBh
-bmQKPj4gKG5vbmUpL25vNGx2bC9ubzVsdmwuCj4+Cj4+IEluIHRoZW9yeSB0aGlzIGNvdWxkIGJl
-IGEgYnJlYWsgaWYgbW11LXR5cGUgaXMgd3JvbmcsIGJ1dCBzbyBtYW55IG90aGVyCj4+IHRoaW5n
-cyB3b3VsZCBicmVhayBpZiB0aGUgRkRUIGlzIHdyb25nIGFueXdheS4KPj4KPj4gQWxzbyBub3Rl
-IHRoYXQgdGhpcyBkb2Vzbid0IGFwcGx5IG9uIEFDUEkgc2luY2UgaXQgaXMgZGlmZmljdWx0IHRv
-IHVzZQo+PiBBQ1BJQ0EgYW5kIHJlYWQgQUNQSSBSSENUIGF0IHRoaXMgcG9pbnQsIHNvIHRoYXQg
-d2lsbCBqdXN0IGZhbGwgYmFjayB0bwo+PiBwcm9iaW5nLiBIb3BlZnVsbHkgVUVGSS9BQ1BJICsg
-dGhpcyBhdHJvY2lvdXMgU29DIGRlc2lnbiBuZXZlciBoYXBwZW5zLAo+PiBzaW5jZSB0aGUgaGln
-aCBtZW1vcnkgYmFzZSBhZGRyZXNzIHdvdWxkIHByZXZlbnQgYSBsb3Qgb2YgUENJKGUpIGRldmlj
-ZXMKPj4gZnJvbSB3b3JraW5nIHdpdGhvdXQgYW4gSU9NTVUuIChGaW5nZXJzIGNyb3NzZWQuKQo+
-IE1pc3NpbmcgVUVGSS9BQ1BJIGlzIGluY29ycmVjdC4gUklTQy1WIHNlcnZlcnMgc3RhbmRhcmRp
-emUgb24gVUVGSStBQ1BJLgo+IFdlIHNob3VsZCBzdXBwb3J0IFJIQ1QgcGFyc2luZyBpbnN0ZWFk
-IG9mIGhvcGluZyBoaWdoLW1lbW9yeSBBQ1BJIHN5c3RlbXMKPiDigJxuZXZlciBoYXBwZW7igJ0u
-Cj4KPiBDYWxsaW5nIHRoZSBoaWdoLW1lbW9yeSBTb0MgZGVzaWduIOKAnGF0cm9jaW91c+KAnSBp
-cyB0ZWNobmljYWxseSB3cm9uZyBhbmQKPiBjb25jZXJuaW5nLiBUaGUgUklTQy1WIHNwZWMgZXhw
-bGljaXRseSBhbGxvd3MgRFJBTSBhdCBhbnkgcGh5c2ljYWwgYWRkcmVzcwo+IChlLmcuIDEyOCBU
-aUIpLiBXaXRoIFRCL1BCLXNjYWxlIG1lbW9yeSBvbiB0aGUgaG9yaXpvbiwgdGhpcyBpcyBhIHZh
-bGlkIFNvQwo+IGNob2ljZS4KPgo+IFRoaXMgcGF0Y2ggZG9lcyBub3Qgc29sdmUgdGhlIHByb2Js
-ZW0gYXQgaXRzIHJvb3QuIFRoZSBjb3JlIGlzc3VlIGlzIHRoYXQKPiB3ZSBhcmUgcGFzc2luZyBh
-biBpbnZhbGlkIHZpcnR1YWwgYWRkcmVzcyAoVkEpIGFzIGlucHV0IHRvIHNhdHAgbW9kZQo+IHBy
-b2JpbmcuIFN0cmVuZ3RoZW5pbmcgdGhlIFZBIGNoZWNrIG9uIHRoZSBpbnB1dCBzaWRlIHdvdWxk
-IGZpeCBpdCBjbGVhbmx5Lgo+Cj4gSSBhbHJlYWR5IHBvc3RlZCB0aGUgZml4IGZvciB0aGlzIGV4
-YWN0IGlzc3VlIHRocmVlIG1vbnRocyBhZ286IFsxXS4KPiBUaGlzIHNob3VsZCBhZGRyZXNzIGJv
-dGggRFQgYW5kIFVFRkkvQUNQSSBzY2VuYXJpb3MuCj4KPiBbMV06IGh0dHBzOi8vbG9yZS5rZXJu
-ZWwub3JnL2xpbnV4LXJpc2N2LzIwMjYwMTI1MDU1MjEyLjQzMzE2My0xLWd1b3JlbkBrZXJuZWwu
-b3JnLwoKU29ycnkgZm9yIHRoZSB0cm91YmxlLCBpdCBzZWVtcyB0aGF0IHNvbWUgbWlzY29tbXVu
-aWNhdGlvbiBoYXMgb2NjdXJyZWQuCldoaWxlIEkgd2FzIGFibGUgdG8gcmVwcm9kdWNlIHRoaXMg
-cHJvYmxlbSBpbiBhbiBlbXVsYXRvciwgSSBkbyBub3QgaGF2ZQphY2Nlc3MgdG8gdGhpcyBoYXJk
-d2FyZSBhbmQgaGFkIG1pc3VuZGVyc3Rvb2QgdGhlIGNvbnRleHQgYW5kIHRoZSBuYXR1cmUKb2Yg
-dGhpcyBwbGF0Zm9ybS4KClBsZWFzZSBjb25zaWRlciB0aGlzIHBhdGNoIGFiYW5kb25lZC4KCldp
-dGggYXBvbG9naWVzLApWaXZpYW4gImRyYW1mb3JldmVyIiBXYW5nCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Shengming Hu <hu.shengming@zte.com.cn>
+
+RISC-V probes the number of implemented ASID bits in SATP on the boot
+hart and enables the ASID allocator based on that result. However, the
+privileged spec allows harts to implement fewer ASID bits by hardwiring
+the upper bits to zero.
+
+If a secondary hart implements fewer ASID bits than the boot hart while
+the ASID allocator is enabled, different Linux ASIDs may alias on that
+hart. This can allow stale TLB entries to survive and potentially
+corrupt memory.
+
+Verify the number of implemented ASID bits on each CPU as it comes
+online, and refuse to online CPUs that support fewer ASID bits than
+the boot CPU.
+
+Signed-off-by: Shengming Hu <hu.shengming@zte.com.cn>
+---
+ arch/riscv/include/asm/mmu_context.h |  2 ++
+ arch/riscv/kernel/smpboot.c          |  3 ++
+ arch/riscv/mm/context.c              | 42 ++++++++++++++++++++++++----
+ 3 files changed, 41 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+index dbf27a78df6c..0cca20b7dbe1 100644
+--- a/arch/riscv/include/asm/mmu_context.h
++++ b/arch/riscv/include/asm/mmu_context.h
+@@ -16,6 +16,8 @@
+ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+ 	struct task_struct *task);
+
++int verify_cpu_asid_bits(void);
++
+ #define activate_mm activate_mm
+ static inline void activate_mm(struct mm_struct *prev,
+ 			       struct mm_struct *next)
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 8b628580fe11..9774a591c1a5 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -230,6 +230,9 @@ asmlinkage __visible void smp_callin(void)
+ 			return;
+ 	}
+
++	if (verify_cpu_asid_bits())
++		return;
++
+ 	/* All kernel threads share the same mm context.  */
+ 	mmgrab(mm);
+ 	current->active_mm = mm;
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index 55c20ad1f744..2a830f021ce5 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -22,6 +22,7 @@
+ DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
+
+ static unsigned long num_asids;
++static unsigned long asid_bits;
+
+ static atomic_long_t current_version;
+
+@@ -224,16 +225,16 @@ static inline void set_mm(struct mm_struct *prev,
+ 	}
+ }
+
+-static int __init asids_init(void)
++static unsigned long get_cpu_asid_bits(void)
+ {
+-	unsigned long asid_bits, old;
++	unsigned long asid_bit_count, old;
+
+ 	/* Figure-out number of ASID bits in HW */
+ 	old = csr_read(CSR_SATP);
+-	asid_bits = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
+-	csr_write(CSR_SATP, asid_bits);
+-	asid_bits = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
+-	asid_bits = fls_long(asid_bits);
++	asid_bit_count = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
++	csr_write(CSR_SATP, asid_bit_count);
++	asid_bit_count = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
++	asid_bit_count = fls_long(asid_bit_count);
+ 	csr_write(CSR_SATP, old);
+
+ 	/*
+@@ -242,6 +243,30 @@ static int __init asids_init(void)
+ 	 * to remove unwanted TLB enteries.
+ 	 */
+ 	local_flush_tlb_all();
++	return asid_bit_count;
++}
++
++int verify_cpu_asid_bits(void)
++{
++	unsigned long cpu_asid_bits = get_cpu_asid_bits();
++
++	if (cpu_asid_bits < asid_bits) {
++		/*
++		 * The ASID allocator is initialized using the boot CPU's ASID width.
++		 * We cannot safely shrink the system-wide ASID space at runtime, so
++		 * reject secondary CPU bringup if it supports fewer ASID bits than
++		 * the boot CPU.
++		 */
++		pr_crit("CPU%d: ASID bits (%lu) smaller than boot CPU (%lu), refusing to online\n",
++			smp_processor_id(), cpu_asid_bits, asid_bits);
++		return -EINVAL;
++	}
++	return 0;
++}
++
++static int __init asids_init(void)
++{
++	asid_bits = get_cpu_asid_bits();
+
+ 	/* Pre-compute ASID details */
+ 	if (asid_bits) {
+@@ -279,6 +304,11 @@ static inline void set_mm(struct mm_struct *prev,
+ {
+ 	/* Nothing to do here when there is no MMU */
+ }
++
++int verify_cpu_asid_bits(void)
++{
++	return 0;
++}
+ #endif
+
+ /*
+-- 
+2.25.1
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
