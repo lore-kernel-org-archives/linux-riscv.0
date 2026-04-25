@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2FDFF885C
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Apr 2026 06:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B343DFF885C
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Apr 2026 06:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+a+vgQ5MMgQkd1rYgbbfG+HNaK9Mu3SA5kJR0p8gcNY=; b=psCLMH05cN9Sa3
-	M/pfzl+0U2ikxbP8NbqSkn23rs0o6xKueNb/OFT2Gkg6K9gXQb0iG78nofjeyJ5Bk+j8hPmVxqxV8
-	PWDdvklslp/3Uj1P+RawOEi8kiqGxGXusve03NTYAcO/BOvrBHaSzjgIlN9C9khjpv4lAAj19/H6f
-	ltOMxL9v8AZPrHZSrfi4KmSzdhlzqtNdfV3sxbzZCcetheXPqSteFDpiSk+tiyiFSq+YtszS3/szw
-	TD3LkSzz7SHOp/ydJtDvEj9I/H2bKoSX/xDEaTwP857LdVt09H/+2rG0EJ0wENm+kBHpv7sW31uW3
-	eRWw0AImjdB0zG4n43rw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u0gBlUVyOtEzI2kobF8NMBi9jiwzQUXCd8BaxP6tfHE=; b=I676rQS5FOH6zZ
+	638mGHP5E0jKqMEJnfJlPSg8plxcw75zsmTWUc3p60qk2VbkNrfiEzB3T06K5wknJoJWzPAnWZYgu
+	MlVSOwmSoJAx70JxL/lqjwQJqi/4lbDGclNWSPYiUlF1zSRElHm03oggcGCRkVjwzpXw0/oCs85et
+	pS+2CC5BucgY29R0bvRcjZhxNeH2nD81tsNFqfWdp+q4MPhfJ2yFHzxECN1AgF7NDiDQCwaXF5SXW
+	AQIrY3Wdr/RcvsFgaiqOXFgfaO3AluSOd3sh2BnkoWaWdQVFG5AoNP5H2ZQ7Put4cyZLfS/E3Zpsj
+	jUIZJCa5RbifUUSKHJug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGWJ9-0000000E7VG-07Tt;
-	Sat, 25 Apr 2026 06:16:03 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1wGWZ5-0000000E7yM-2neJ;
+	Sat, 25 Apr 2026 06:32:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGWJ5-0000000E7Ud-24TX
+	id 1wGWZ4-0000000E7yD-0ILr
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Apr 2026 06:16:01 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4g2fhc45jMz4xPSG;
-	Sat, 25 Apr 2026 14:15:44 +0800 (CST)
-Received: from xaxapp01.zte.com.cn ([10.88.99.176])
-	by mse-fl2.zte.com.cn with SMTP id 63P6FgEn005068;
-	Sat, 25 Apr 2026 14:15:42 +0800 (+08)
-	(envelope-from hu.shengming@zte.com.cn)
-Received: from mapi (xaxapp01[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Sat, 25 Apr 2026 14:15:43 +0800 (CST)
-X-Zmail-TransId: 2af969ec5c0fd5c-2f814
-X-Mailer: Zmail v1.0
-Message-ID: <20260425141543798GOufEA973_-3W4JJd0-_o@zte.com.cn>
-Date: Sat, 25 Apr 2026 14:15:43 +0800 (CST)
-Mime-Version: 1.0
-From: <hu.shengming@zte.com.cn>
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-Cc: <alex@ghiti.fr>, <linux-kernel@vger.kernel.org>,
-        <linux-riscv@lists.infradead.org>, <zhang.run@zte.com.cn>,
-        <yang.tao172@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIFJFU0VORF0gcmlzY3Y6IG1tOiBWZXJpZnkgcGVyLWhhcnQgQVNJRCBiaXRzIHdoZW4gdXNpbmcgQVNJRCBhbGxvY2F0b3I=?=
-X-MAIL: mse-fl2.zte.com.cn 63P6FgEn005068
-X-TLS: YES
-X-SPF-DOMAIN: zte.com.cn
-X-ENVELOPE-SENDER: hu.shengming@zte.com.cn
-X-SPF: None
-X-SOURCE-IP: 10.5.228.133 unknown Sat, 25 Apr 2026 14:15:44 +0800
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 69EC5C10.000/4g2fhc45jMz4xPSG
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_231559_733410_7301AC97 
-X-CRM114-Status: GOOD (  14.06  )
+	Sat, 25 Apr 2026 06:32:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B833F60052;
+	Sat, 25 Apr 2026 06:32:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6669C2BCB0;
+	Sat, 25 Apr 2026 06:32:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777098748;
+	bh=D++1y5R2jalXhoi+WiSUbNLgGIrGk7orO6+SKMpDukg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mBW9X4eAbQOYPZcW40l4zQAIqew5QGz3be1qjlmF2Y+mV2tUnwOiXr9h5VuhlBERz
+	 B9yYP3wFQHwDpn2expIhNuCmcO9p7a/lDTEo1cPcN1xxcDpMF/t+EB1tDnI1zbqIAS
+	 OsBRbpSCvk5hBA3Qo1YhBuAzFk0K6lMfCpGLYzbsgbwf4ca2mA2z5NxMWjiKKRNG0x
+	 M1oau4MAoZoAQrSS/Iry1zAmpP5AH9Z6a4+o14tZVeiKId29IV5Dv/ysEUeZ1dMqc9
+	 KzoopkPTqPz/jKVcF/M82pRaRFtFuM33NtWFHvRFaOID5SL/XjVhi4TitlDxTcGFqf
+	 ZMdEXfEDJZ+rQ==
+From: Guo Ren <guoren@kernel.org>
+To: wangruikang@iscas.ac.cn
+Cc: alex@ghiti.fr,
+	gaohan@iscas.ac.cn,
+	guoren@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org
+Subject: Re: Re: [PATCH] riscv: mm: Do not probe satp mode limit if known in FDT
+Date: Sat, 25 Apr 2026 06:32:23 +0000
+Message-ID: <20260425063223.3329222-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <0e139862-d41b-4b46-92f6-a1eb5bffc863@iscas.ac.cn>
+References: <0e139862-d41b-4b46-92f6-a1eb5bffc863@iscas.ac.cn>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,136 +74,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Shengming Hu <hu.shengming@zte.com.cn>
+> Sorry for the trouble, it seems that some miscommunication has occurred.
+> While I was able to reproduce this problem in an emulator, I do not have
+> access to this hardware and had misunderstood the context and the nature
+> of this platform.
 
-RISC-V probes the number of implemented ASID bits in SATP on the boot
-hart and enables the ASID allocator based on that result. However, the
-privileged spec allows harts to implement fewer ASID bits by hardwiring
-the upper bits to zero.
+I also found this issue in QEMU. It can be easily reproduced with the
+following modification:
 
-If a secondary hart implements fewer ASID bits than the boot hart while
-the ASID allocator is enabled, different Linux ASIDs may alias on that
-hart. This can allow stale TLB entries to survive and potentially
-corrupt memory.
+diff --git a/hw/riscv/virt.c b/hw/riscv/virt.c
+index a1c323e66d..8c1d92c8dd 100644
+--- a/hw/riscv/virt.c
++++ b/hw/riscv/virt.c
+@@ -100,7 +100,7 @@ static const MemMapEntry virt_memmap[] = {
+     [VIRT_IMSIC_S] =      { 0x28000000, VIRT_IMSIC_MAX_SIZE },
+     [VIRT_PCIE_ECAM] =    { 0x30000000,    0x10000000 },
+     [VIRT_PCIE_MMIO] =    { 0x40000000,    0x40000000 },
+-    [VIRT_DRAM] =         { 0x80000000,           0x0 },
++    [VIRT_DRAM] =         { 0x800000000000,           0x0 },
+ };
 
-Verify the number of implemented ASID bits on each CPU as it comes
-online, and refuse to online CPUs that support fewer ASID bits than
-the boot CPU.
-
-Signed-off-by: Shengming Hu <hu.shengming@zte.com.cn>
----
- arch/riscv/include/asm/mmu_context.h |  2 ++
- arch/riscv/kernel/smpboot.c          |  3 ++
- arch/riscv/mm/context.c              | 42 ++++++++++++++++++++++++----
- 3 files changed, 41 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-index dbf27a78df6c..0cca20b7dbe1 100644
---- a/arch/riscv/include/asm/mmu_context.h
-+++ b/arch/riscv/include/asm/mmu_context.h
-@@ -16,6 +16,8 @@
- void switch_mm(struct mm_struct *prev, struct mm_struct *next,
- 	struct task_struct *task);
-
-+int verify_cpu_asid_bits(void);
-+
- #define activate_mm activate_mm
- static inline void activate_mm(struct mm_struct *prev,
- 			       struct mm_struct *next)
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 8b628580fe11..9774a591c1a5 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -230,6 +230,9 @@ asmlinkage __visible void smp_callin(void)
- 			return;
- 	}
-
-+	if (verify_cpu_asid_bits())
-+		return;
-+
- 	/* All kernel threads share the same mm context.  */
- 	mmgrab(mm);
- 	current->active_mm = mm;
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 55c20ad1f744..2a830f021ce5 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -22,6 +22,7 @@
- DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
-
- static unsigned long num_asids;
-+static unsigned long asid_bits;
-
- static atomic_long_t current_version;
-
-@@ -224,16 +225,16 @@ static inline void set_mm(struct mm_struct *prev,
- 	}
- }
-
--static int __init asids_init(void)
-+static unsigned long get_cpu_asid_bits(void)
- {
--	unsigned long asid_bits, old;
-+	unsigned long asid_bit_count, old;
-
- 	/* Figure-out number of ASID bits in HW */
- 	old = csr_read(CSR_SATP);
--	asid_bits = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
--	csr_write(CSR_SATP, asid_bits);
--	asid_bits = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
--	asid_bits = fls_long(asid_bits);
-+	asid_bit_count = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
-+	csr_write(CSR_SATP, asid_bit_count);
-+	asid_bit_count = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
-+	asid_bit_count = fls_long(asid_bit_count);
- 	csr_write(CSR_SATP, old);
-
- 	/*
-@@ -242,6 +243,30 @@ static int __init asids_init(void)
- 	 * to remove unwanted TLB enteries.
- 	 */
- 	local_flush_tlb_all();
-+	return asid_bit_count;
-+}
-+
-+int verify_cpu_asid_bits(void)
-+{
-+	unsigned long cpu_asid_bits = get_cpu_asid_bits();
-+
-+	if (cpu_asid_bits < asid_bits) {
-+		/*
-+		 * The ASID allocator is initialized using the boot CPU's ASID width.
-+		 * We cannot safely shrink the system-wide ASID space at runtime, so
-+		 * reject secondary CPU bringup if it supports fewer ASID bits than
-+		 * the boot CPU.
-+		 */
-+		pr_crit("CPU%d: ASID bits (%lu) smaller than boot CPU (%lu), refusing to online\n",
-+			smp_processor_id(), cpu_asid_bits, asid_bits);
-+		return -EINVAL;
-+	}
-+	return 0;
-+}
-+
-+static int __init asids_init(void)
-+{
-+	asid_bits = get_cpu_asid_bits();
-
- 	/* Pre-compute ASID details */
- 	if (asid_bits) {
-@@ -279,6 +304,11 @@ static inline void set_mm(struct mm_struct *prev,
- {
- 	/* Nothing to do here when there is no MMU */
- }
-+
-+int verify_cpu_asid_bits(void)
-+{
-+	return 0;
-+}
- #endif
-
- /*
--- 
-2.25.1
+Best Regards
+  GUO Ren
 
 _______________________________________________
 linux-riscv mailing list
