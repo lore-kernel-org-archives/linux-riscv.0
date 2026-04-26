@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26986FF885E
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Apr 2026 15:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357FFFF885D
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Apr 2026 15:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ElZUJ9kaAwMNspd+JeWAY9sI14vc9/zCx/9NCkwnnOw=; b=G0BIDJNwDp9Z1p
-	bQBJoYXks50O1kYiZ93120JbOoFkp3NwuRAxeGAO5lhLOZMwotmcueTxWS5FdLwprp5kkd2ld+Kqw
-	+dlzbI3vdllT0vEAY8w8ZsIkS5cxj6iICNoSfI+bjkj6RvMsXd3o/ZuwQxDt9D3x+zyPkkYX8tvQ4
-	cekL0c2Ol8GOkY50joh9ZpgF51ebsHays5yfDwsd1DcAxhug+dIQl3GRbCYVucfS/5W9eUU7NKqP7
-	NIuOfPxU6F/PRztrs4wvHWZ6AiNhABB5Rra0iD39Iftp7WC05mW39tCUi+mqyCPU2VC+eNGdaSnNz
-	/GQkx5o7Sfiagy4EBIgg==;
+	List-Owner; bh=emi+Grb9DHEzcy99H96SKcoOdi7g0SXAWJwHUSP3HtA=; b=qzSgasG0gSK9Y5
+	rMFLY20T1nh8kQYJcWgCEbw9MFIe89aAqFX/3tz8RktacK3je2+XY0S7Hf+8AVQDqxd3n6GaaJKJj
+	TGa6FmEBtVdPWcgqcd+/nYXePYXb4AbaS8q5rDSXaR8u2TSdwcmVwuDFytFq20uF1Rv4f4pZvGDG7
+	oYabfjyVZPmSGNS0GPKwjHYbiNG0hXDQruX2r/7JAfmDKWLd8jl/nLhLjMMTpAc4rVR2qWLxDWTsi
+	ZIBLORlF2+q+0aNv1rjjNkh5dqxyRu+SCWs5QMxo2aVdTyCl1kOTK3jFJuCDKzTcvgDd9cyFuo5IF
+	W1BTgSz58XI7WxlbDWCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH1iy-0000000Fg55-1loq;
-	Sun, 26 Apr 2026 15:48:48 +0000
+	id 1wH1jS-0000000Fg8M-3CgY;
+	Sun, 26 Apr 2026 15:49:18 +0000
 Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wH1iu-0000000Fg4k-4B4u
+	id 1wH1jP-0000000Fg7L-2yuw
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Apr 2026 15:48:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1777218519; cv=none; 
+	Sun, 26 Apr 2026 15:49:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1777218553; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=JjibXD4sygWMo+Df6YqQusPH4UQWQxa0cfZ92AWP2cOIrfJjzWNZSGck5GXrBPUVFL6kXaaMKaLBcs0RJ8yI3POyONVfeosKmuO1iyd4A3WjssyY7FJ/qCxsgpC1Scn63Cs9etCAmKoyJxihlnbnCQOW370m/bNgfM8LBlItfwM=
+	b=eusy37RyBqcYCrTiIGOI7oMxxsrqhWTdh5aqKAAVdFrkygGnAkdC7+kcAxjLBOQBnHPq0OYda2WcAarmvowW9mOZub3o+6WAX5IEsI9Bxxagmy+rwbObgWj8Y+gEnFPyKnHdwNcXoBK27xUj+3+xtVTuHIBdRoIDwbUuyl05wNU=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1777218519; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Ijb+gmFHkCxXaaFAPSl6qTeoZPHOS1bdIoKGk2/fFEQ=; 
-	b=PH7LUDD7OTn9IqspVS8DnuazrrhOmvpEtGeugbQUf3hl7+XQR+iKC2I67vc2cqB5JhWV9h8h5u50/2GraCrKCLEQVI3M7v5EyIwH9+uHRHHbBlUeZmqokbmuXqBcIfhm30iel2QcF8hkshY4OlVFil961B2zDk5/w+q8PYGA7zk=
+	t=1777218553; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=225jQ2aZE0zJUqGYQ2cOjzPbygimV8PqMJIo/1GJfVs=; 
+	b=ejqS2XvPfuWBb+Y60pbGjdvJpPuQFKcchuaVLB+wJjbpv+qRNwQtEfADONeMrFezIKy2l48WFiZORM8CchQhxBSZaFEN8NBV7plVF3jkS8q07fOY0zTPzt+PyZ0HwcUX2Mm1oFCI04W45XLP3Bf0tQXJ3n0gXuYBz5S+FkN3jaw=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=zohomail.com;
 	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
 	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777218519;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1777218553;
 	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
 	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
-	bh=Ijb+gmFHkCxXaaFAPSl6qTeoZPHOS1bdIoKGk2/fFEQ=;
-	b=SKIFxUuYoBnyuJv7aUzdbDmNu8IIssTdNx2WpfupC7FoxuR8le/p4OK4bt1mGej9
-	YSTKbh7HvQ0CGLld8haJbTyNQ1YPFQnclM7XrvqdZhDAEdZ3rNlLi84f5m0KAc5snqF
-	5RO9d234fj3mq7kMUzPgR0ZlacvhBYrvjPzoyZAw=
-Received: by mx.zohomail.com with SMTPS id 1777218517046578.5353745649002;
-	Sun, 26 Apr 2026 08:48:37 -0700 (PDT)
-Message-ID: <6e17bfeb-8cc6-4eca-8a94-983444aaef35@zohomail.com>
-Date: Sun, 26 Apr 2026 23:48:28 +0800
+	bh=225jQ2aZE0zJUqGYQ2cOjzPbygimV8PqMJIo/1GJfVs=;
+	b=Lg2tSHVdzI3V+D6iN6FxISGL3gUfN5xN8NwU5NjXeohs350juU7WMgeES+JzkgAH
+	Y1zIVeluYsK45his3puP/62q+OlAH1LxSdSn2A18elWmwor4YdLBjEagK3av5PYXGHA
+	jSn/oZTgvvWa46fiKGN+oUJQlcaSxrnJZslpCo3Q=
+Received: by mx.zohomail.com with SMTPS id 1777218550868245.7951303663433;
+	Sun, 26 Apr 2026 08:49:10 -0700 (PDT)
+Message-ID: <987e30f5-fad8-4e76-89ba-8a1162bd70a3@zohomail.com>
+Date: Sun, 26 Apr 2026 23:49:03 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v12 0/3] riscv: canaan: Add support for K230 clock
@@ -67,12 +67,12 @@ References: <20260425-b4-k230-clk-v12-0-7d5ced1f5da8@zohomail.com>
 From: Xukai Wang <kingxukai@zohomail.com>
 Content-Language: en-US
 In-Reply-To: <20260425-b4-k230-clk-v12-0-7d5ced1f5da8@zohomail.com>
-Feedback-ID: zu08011227633b5f713e3a517a8598a0a9000010364e0b41babe00eb9193364f041af476389543d9a6119019:ZohoMail
+Feedback-ID: zu08011227bfa9a87d9c06a1670fe9c154000061a6e6a4751e0fd6b41258f8d3cd1069e437580c845e8cc2fc:ZohoMail
 X-Zoho-CM-AccountID: 2ee5dd3c83366259b2ba1e9826250ffebed1ef2dd213857d649ad25aba73b429
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_084845_090870_975886B5 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20260426_084915_798896_57797ED6 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,128 +84,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIwMjYvNC8yNSAxNzoyOSwgWHVrYWkgV2FuZyB3cm90ZToKPiBUaGlzIHBhdGNoIHNlcmll
-cyBhZGRzIGNsb2NrIGNvbnRyb2xsZXIgc3VwcG9ydCBmb3IgdGhlIENhbmFhbiBLZW5kcnl0ZQo+
-IEsyMzAgU29DLiBUaGUgSzIzMCBTb0MgaW5jbHVkZXMgYW4gZXh0ZXJuYWwgMjRNSHogT1NDLCA0
-IGludGVybmFsCj4gUExMcyBhbmQgYW4gZXh0ZXJuYWwgcHVsc2UgaW5wdXQsIHdpdGggdGhlIGNv
-bnRyb2xsZXIgbWFuYWdpbmcgdGhlc2UKPiBzb3VyY2VzIGFuZCB0aGVpciBkZXJpdmVkIGNsb2Nr
-cy4KPgo+IFRoZSBjbG9jayB0cmVlIGFuZCBoYXJkd2FyZS1zcGVjaWZpYyBkZWZpbml0aW9uIGNh
-biBiZSBmb3VuZCBpbiB0aGUKPiB2ZW5kb3IncyBEVFMgWzFdLAo+IGFuZCB0aGlzIHNlcmllcyBp
-cyBiYXNlZCBvbiB0aGUgSzIzMCBpbml0aWFsIHNlcmllcyBbMl0uCj4KPiBMaW5rOiBodHRwczov
-L2dpdGh1Yi5jb20vcnV5aXNkay9saW51eC14dWFudGllLWtlcm5lbC9ibG9iL2xpbnV4LTYuNi4z
-Ni9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2NhbmFhbi9rMjMwX2Nsb2NrX3Byb3ZpZGVyLmR0c2kgWzFd
-Cj4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtY2xrL3RlbmNlbnRfRjc2RUI4
-RDczMUM1MjFDMThENUQ3QzRGODIyOURBQTU4RTA4QHFxLmNvbS8gWzJdCj4KPiBDby1kZXZlbG9w
-ZWQtYnk6IFRyb3kgTWl0Y2hlbGwgPFRyb3lNaXRjaGVsbDk4OEBnbWFpbC5jb20+Cj4gU2lnbmVk
-LW9mZi1ieTogVHJveSBNaXRjaGVsbCA8VHJveU1pdGNoZWxsOTg4QGdtYWlsLmNvbT4KPiBTaWdu
-ZWQtb2ZmLWJ5OiBYdWthaSBXYW5nIDxraW5neHVrYWlAem9ob21haWwuY29tPgo+Cj4gLS0tCj4g
-Q2hhbmdlcyBpbiB2MTI6Cj4gLSBSZWJhc2Ugb250byBsaW51eC1uZXh0IChuZXh0LTIwMjYwNDIx
-KS4KPiAtIE1pZ3JhdGUgZnJvbSBkZXByZWNhdGVkIHJvdW5kX3JhdGUoKSBjbGtfb3BzIHRvIGRl
-dGVybWluZV9yYXRlKCkgQVBJLgo+IC0gZHQtYmluZGluZ3M6IERyb3AgcmVkdW5kYW50ICJiaW5k
-aW5ncyBmb3IiIGluIGNvbW1pdCBzdWJqZWN0Lgo+IC0gTGluayB0byB2MTE6IGh0dHBzOi8vbG9y
-ZS5rZXJuZWwub3JnL3IvMjAyNjAyMTQtYjQtazIzMC1jbGstdjExLTAtNmRlMzY1NDg5Yjg5QHpv
-aG9tYWlsLmNvbQpIaSBTdGVwaGVuLAoKSSBob3BlIHRoaXMgZW1haWwgZmluZHMgeW91IHdlbGwu
-IEkgYW0gd3JpdGluZyB0byBwb2xpdGVseSBpbnF1aXJlIGFib3V0CnRoZSBzdGF0dXMgb2YgdGhl
-IENhbmFhbiBLMjMwIGNsb2NrIGNvbnRyb2xsZXIgZHJpdmVyIHBhdGNoIHNlcmllcy4KCkl0IGhh
-cyBiZWVuIGFwcHJveGltYXRlbHkgb25lIGFuZCBhIGhhbGYgeWVhcnMgc2luY2UgSSBmaXJzdCBz
-dWJtaXR0ZWQKdGhpcyBzZXJpZXMsIGFuZCBpdCBoYXMgbm93IHJlYWNoZWQgdmVyc2lvbiAxMi4g
-TW9zdCBvZiB0aGUgaW50ZXJtZWRpYXRlCnZlcnNpb25zIGNvbnRhaW5lZCBvbmx5IG1pbm9yIGFk
-anVzdG1lbnRzIGFuZCByZWJhc2VzLCBhbmQgSSBoYXZlIGJlZW4KcmVzZW5kaW5nIGl0IHBlcmlv
-ZGljYWxseSB3aXRob3V0IHJlY2VpdmluZyBhbnkgcmV2aWV3IGZlZWRiYWNrLgoKSSB3b3VsZCBn
-cmVhdGx5IGFwcHJlY2lhdGUgaXQgaWYgeW91IGNvdWxkIGxldCBtZSBrbm93IHdoZXRoZXIgdGhp
-cwpzZXJpZXMgaXMgcmVhZHkgZm9yIG1lcmdpbmcsIG9yIGlmIHRoZXJlIGFyZSBhbnkgc3BlY2lm
-aWMgaXNzdWVzIHRoYXQKbmVlZCB0byBiZSBhZGRyZXNzZWQuIEkgYW0gcmVhZHkgdG8gbWFrZSBh
-bnkgcmVxdWlyZWQgY2hhbmdlcyBpbW1lZGlhdGVseS4KCkkgYXBvbG9naXplIGZvciB0aGUgaW50
-cnVzaW9uIGFuZCB0aGFuayB5b3UgZm9yIHlvdXIgdGltZSBhbmQgaGFyZCB3b3JrCm1haW50YWlu
-aW5nIHRoZSBjbG9jayBzdWJzeXN0ZW0uCj4KPiBDaGFuZ2VzIGluIHYxMToKPiAtIFJlbmFtZSBo
-c19oY2xrX2hpZ2hfc3JjIHRvIGhzX2hjbGtfaGlnaCBhbmQgaHNfaGNsa19zcmMgdG8gaHNfaGNs
-ay4KPiAtIFJlYmFzZSBiYXNlLWNvbW1pdCB0byBsaW51eC1uZXh0Lgo+IC0gVXBkYXRlIHByZXJl
-cXVpc2l0ZS1wYXRjaC1pZC4KPiAtIExpbmsgdG8gdjEwOiBodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9yLzIwMjYwMTE2LWI0LWsyMzAtY2xrLXYxMC0wLWRlNTkwMzNjNWQzMEB6b2hvbWFpbC5jb20K
-Pgo+IENoYW5nZXMgaW4gdjEwOgo+IC0gRHJvcCBjbG9jayBub2RlOiBjcHUxX2FwYl9yYXRlLgo+
-IC0gUmVuYW1lIGhzX29zcGlfc3JjIHRvIGhzX3NzaTAuCj4gLSBSZW5hbWUgZml4ZWQgY2xvY2tz
-IGZvcm1hdCBpbiBkdHMuCj4gLSBGaXggbWlzc2luZyBjbGsgbWVtYmVyIHJlZ2lzdHJhdGlvbiBp
-biBkcml2ZXIuCj4gLSBGaXggaW5jb3JyZWN0IGNsayBJRDogazIzMF9jcHUxX3NyY19yYXRlIOKG
-kiBLMjMwX0NQVTFfU1JDX1JBVEUuCj4gLSBGaXggYml0IGluZGV4IG9mIGhzX2hjbGtfc3JjX2dh
-dGU6IDEg4oaSIDAuCj4gLSBBZGQgQ0xLX0lTX0NSSVRJQ0FMIHRvIENQVS1yZWxhdGVkIGdhdGUg
-Y2xvY2tzLgo+IC0gVXBkYXRlIHBhcmVudCBjbG9ja3M6IGRpc3BsYXlfY2xrZXh0X3JhdGUsIHNl
-Y19hcGJfZ2F0ZSwgYWlfYXhpX2dhdGUsCj4gY3B1MV9zcmNfbXV4IGFuZCBoc19zZF9jYXJkX3Ny
-Y19yYXRlLgo+IC0gTGluayB0byB2OTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1MTEy
-Ny1iNC1rMjMwLWNsay12OS0wLTNhYTA5ZTE3ZmFmNUB6b2hvbWFpbC5jb20KPgo+IENoYW5nZXMg
-aW4gdjk6Cj4gLSBSZWJhc2UgYmFzZS1jb21taXQgdG8gdjYuMTgtcmMxCj4gLSBTaW1wbGlmaWVk
-IFBMTCBmaWVsZCBleHRyYWN0aW9uIHdpdGggRklFTERfR0VUKCkgbWFjcm8KPiAtIERyb3AgTU9E
-VUxFX0RFVklDRV9UQUJMRSBmb3IgazIzMF9jbGtfaWRzCj4gLSBSZXBsYWNlIGsyMzBfY2xrX2Zp
-bmRfYXBwcm94aW1hdGVfbXVsX2RpdidzIHN0ZXAgd2l0aAo+ICAgUmF0aW9uYWxfYmVzdF9hcHBy
-b3hpbWF0aW9uCj4gLSBSZW9yZGVyIGRlY2xhcmF0aW9uIGFuZCBkZWZpbmF0aW9uIGZvciBjbGtf
-b3BzCj4gLSBMaW5rIHRvIHY4OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUwOTA1LWI0
-LWsyMzAtY2xrLXY4LTAtOTZjYWEwMmQ1NDI4QHpvaG9tYWlsLmNvbQo+Cj4gQ2hhbmdlcyBpbiB2
-ODoKPiAtIFJlbmFtZSBkdHMgbm9kZSBuYW1lICJ0aW1lcl9wdWxzZV9pbiIgdG8gImNsb2NrLTUw
-bSIKPiAtIERyb3AgcmVkdW5kYW50IGNvbW1lbnQgYW5kICdtaW5JdGVtcycgb2YgaGFyZHdhcmUg
-aW4gZHQtYmluZGluZy4KPiAtIExpbmsgdG8gdjc6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3Iv
-MjAyNTA3MzAtYjQtazIzMC1jbGstdjctMC1jNTdkM2JiNTkzZDNAem9ob21haWwuY29tCj4KPiBD
-aGFuZ2VzIGluIHY3Ogo+IC0gUmVuYW1lIEsyMzBfUExMX1NUQVRVU19NQVNLIHRvIEsyMzBfUExM
-X0xPQ0tfU1RBVFVTX01BU0sKPiAtIEFkZCBjbGtkZXYgZm9yIFBMTHMgdG8gcmVnaXN0ZXIgbG9v
-a3VwCj4gLSBBZGQgbWFjcm9zIHRvIGdlbmVyYXRlIHJlcGVhdCB2YXJpYWJsZXMgZGVmaW5pdGlv
-bgo+IC0gUmVmaW5lIHRoZSBkZWZpbml0aW9ucyBvZiBrMjMwIGNsb2Nrcwo+IC0gU3BsaXQgY29t
-cG9zaXRlIGNsa3MgaW50byByYXRlLCBnYXRlLCBtdXgsIGZpeGVkX2ZhY3RvciBjbGsKPiAtIFJl
-cGxhY2UgazIzMF9jbGtfaHdfb25lY2VsbF9nZXQgd2l0aCBvZl9jbGtfaHdfb25lY2VsbF9nZXQg
-Zm9yCj4gICBjbG9jayBwcm92aWRlcgo+IC0gRHJvcCBrMjMwX3N5c2NsayBhbmQgdXNlIGNsa19t
-dXgsIGNsa19nYXRlIGFuZCBjbGtfZml4ZWRfZmFjdG9yCj4gICBhcyB0aGUgZGF0YSBzdHJ1Y3R1
-cmVzLgo+IC0gUmVwbGFjZSBvbmUgbG9vcCByZWdpc3RyYXRpb24gd2l0aCBpbmRpdmlkdWFsIHJl
-Z2lzdHJhdGlvbiBmb3IKPiAgIGVhY2ggdHlwZS4KPiAtIExpbmsgdG8gdjY6IGh0dHBzOi8vbG9y
-ZS5rZXJuZWwub3JnL3IvMjAyNTA0MTUtYjQtazIzMC1jbGstdjYtMC03ZmQ4OWY0MjcyNTBAem9o
-b21haWwuY29tCj4KPiBDaGFuZ2VzIGluIHY2Ogo+IC0gUmVtb3ZlIHNvbWUgcmVkdW5kYW50IGNv
-bW1lbnRzIGluIHN0cnVjdCBkZWNsYXJhdGlvbi4KPiAtIFJlcGxhY2UgdGhlIFZlbmRvcidzIGNv
-ZGUgc291cmNlIGxpbmsgd2l0aCBhIG5ldyBvbmUuCj4gLSBMaW5rIHRvIHY1OiBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9yLzIwMjUwMzIwLWI0LWsyMzAtY2xrLXY1LTAtMGU5ZDA4OWM1NDg4QHpv
-aG9tYWlsLmNvbQo+Cj4gQ2hhbmdlcyBpbiB2NToKPiAtIEZpeCBpbmNvcnJlY3QgYmFzZS1jb21t
-aXQgYW5kIGFkZCBwcmVyZXF1aXNpdGUtcGF0Y2gtaWQuCj4gLSBSZXBsYWNlIGR1bW15IGFwYl9j
-bGsgd2l0aCByZWFsIG9uZXMgZm9yIFVBUlRzLgo+IC0gQWRkIElEcyBvZiBVQVJUcyBjbG9jayBh
-bmQgRE1BIGNsb2NrcyBpbiB0aGUgYmluZGluZyBoZWFkZXIuCj4gLSBSZXBsYWNlIGsyMzBfY2xr
-X2NmZ3NbXSBhcnJheSB3aXRoIGNvcnJlc3BvbmRpbmcgbmFtZWQgdmFyaWFibGVzLgo+IC0gUmVt
-b3ZlIHNvbWUgcmVkdW5kYW50IGNoZWNrcyBpbiBjbGtfb3BzLgo+IC0gRHJvcCB0aGUgdW5uZWNl
-c3NhcnkgcGFyZW50aGVzaXMgYW5kIHR5cGUgY2FzdHMuCj4gLSBNb2RpZnkgcmV0dXJuIHZhbHVl
-IGhhbmRsaW5nIGluIHByb2JlIHBhdGggdG8gYXZvaWQgcmVkdW5kYW50IHByaW50Lgo+IC0gTGlu
-ayB0byB2NDogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1MDIxNy1iNC1rMjMwLWNsay12
-NC0wLTVhOTVhMzQ1ODY5MUB6b2hvbWFpbC5jb20KPgo+IENoYW5nZXMgaW4gdjQ6Cj4gLSBSZW1v
-dmUgcmVkdW5kYW50IG9uZWNlbGxfZ2V0IGNhbGxiYWNrIGFuZCBhZGRfcHJvdmlkZXIgZnVuY3Rp
-b24KPiBmb3IgcGxsX2RpdnMuCj4gLSBNb2RpZnkgdGhlIGJhc2UtY29tbWl0IGluIGNvdmVyIGxl
-dHRlci4KPiAtIExpbmsgdG8gdjM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNTAyMDMt
-YjQtazIzMC1jbGstdjMtMC0zNjJjNzkxMjQ1NzJAem9ob21haWwuY29tCj4KPiBDaGFuZ2VzIGlu
-IHYzOgo+IC0gUmVvcmRlciB0aGUgZGVmaW5hdGlvbiBhbmQgZGVjbGFyYXRpb24gaW4gZHJpdmVy
-cyBjb2RlLgo+IC0gUmVvcmRlciB0aGUgcHJvcGVydGllcyBpbiBkdHMgbm9kZS4KPiAtIFJlcGxh
-Y2UgZ2xvYmFsIHZhcmlhYmxlIGBrMjMwX3N5c2Nsa2Agd2l0aCBkeW5hbWljIG1lbW9yeSBhbGxv
-Y2F0aW9uLgo+IC0gUmVuYW1lIHRoZSBtYWNybyBLMjMwX05VTV9DTEtTIHRvIEsyMzBfQ0xLX05V
-TS4KPiAtIFVzZSBkZXZfZXJyX3Byb2JlIGZvciBlcnJvciBoYW5kbGluZy4KPiAtIFJlbW92ZSB1
-bnVzZWQgaW5jbHVkZXMuCj4gLSBMaW5rIHRvIHYyOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9y
-LzIwMjUwMTA4LWI0LWsyMzAtY2xrLXYyLTAtMjdiMzBhMmNhNTJkQHpvaG9tYWlsLmNvbQo+Cj4g
-Q2hhbmdlcyBpbiB2MjoKPiAtIEFkZCBpdGVtcyBhbmQgZGVzY3JpcHRpb24uCj4gLSBSZW5hbWUg
-azIzMC1jbGsuaCB0byBjYW5hYW4sazIzMC1jbGsuaAo+IC0gTGluayB0byB2MTogaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvci8yMDI0MTIyOS1iNC1rMjMwLWNsay12MS0wLTIyMWE5MTdlODBlZEB6
-b2hvbWFpbC5jb20KPgo+IC0tLQo+IFh1a2FpIFdhbmcgKDMpOgo+ICAgICAgIGR0LWJpbmRpbmdz
-OiBjbG9jazogQWRkIENhbmFhbiBLMjMwIGNsb2NrIGNvbnRyb2xsZXIKPiAgICAgICBjbGs6IGNh
-bmFhbjogQWRkIGNsb2NrIGRyaXZlciBmb3IgQ2FuYWFuIEsyMzAKPiAgICAgICByaXNjdjogZHRz
-OiBjYW5hYW46IEFkZCBjbG9jayBkZWZpbml0aW9uIGZvciBLMjMwCj4KPiAgLi4uL2RldmljZXRy
-ZWUvYmluZGluZ3MvY2xvY2svY2FuYWFuLGsyMzAtY2xrLnlhbWwgfCAgIDU5ICsKPiAgYXJjaC9y
-aXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC1jYW5tdi5kdHMgICAgICAgICAgfCAgIDExICsKPiAg
-YXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC1ldmIuZHRzICAgICAgICAgICAgfCAgIDEx
-ICsKPiAgYXJjaC9yaXNjdi9ib290L2R0cy9jYW5hYW4vazIzMC5kdHNpICAgICAgICAgICAgICAg
-fCAgIDI2ICstCj4gIGRyaXZlcnMvY2xrL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHwgICAgNiArCj4gIGRyaXZlcnMvY2xrL01ha2VmaWxlICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIHwgICAgMSArCj4gIGRyaXZlcnMvY2xrL2Nsay1rMjMwLmMgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIHwgMjQ1MiArKysrKysrKysrKysrKysrKysrKwo+ICBpbmNsdWRl
-L2R0LWJpbmRpbmdzL2Nsb2NrL2NhbmFhbixrMjMwLWNsay5oICAgICAgICB8ICAyMjAgKysKPiAg
-OCBmaWxlcyBjaGFuZ2VkLCAyNzc4IGluc2VydGlvbnMoKyksIDggZGVsZXRpb25zKC0pCj4gLS0t
-Cj4gYmFzZS1jb21taXQ6IGFmOThlOTNjNWMzOWU2ZDBiODdiNDJmMGEzMmRkMzA2NmY3OTU3MTgK
-PiBjaGFuZ2UtaWQ6IDIwMjQxMjA2LWI0LWsyMzAtY2xrLTkyNWYzM2ZlZDZjMgo+IHByZXJlcXVp
-c2l0ZS1wYXRjaC1pZDogOWEyZDAxZjU1NTc0YjUzOGRhZDU3MmUxOTNmODFjNDQ2NjFmMDg1Mwo+
-Cj4gQmVzdCByZWdhcmRzLAo+IC0tICAKPiBYdWthaSBXYW5nIDxraW5neHVrYWlAem9ob21haWwu
-Y29tPgo+Ci0tIApCZXN0IHJlZ2FyZHMsClh1a2FpIFdhbmcKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On 2026/4/25 17:29, Xukai Wang wrote:
+> This patch series adds clock controller support for the Canaan Kendryte
+> K230 SoC. The K230 SoC includes an external 24MHz OSC, 4 internal
+> PLLs and an external pulse input, with the controller managing these
+> sources and their derived clocks.
+>
+> The clock tree and hardware-specific definition can be found in the
+> vendor's DTS [1],
+> and this series is based on the K230 initial series [2].
+>
+> Link: https://github.com/ruyisdk/linux-xuantie-kernel/blob/linux-6.6.36/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi [1]
+> Link: https://lore.kernel.org/linux-clk/tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com/ [2]
+>
+> Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
+> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+>
+> ---
+> Changes in v12:
+> - Rebase onto linux-next (next-20260421).
+> - Migrate from deprecated round_rate() clk_ops to determine_rate() API.
+> - dt-bindings: Drop redundant "bindings for" in commit subject.
+> - Link to v11: https://lore.kernel.org/r/20260214-b4-k230-clk-v11-0-6de365489b89@zohomail.com
+Hi Stephen,
+
+I hope this email finds you well. I am writing to politely inquire about
+the status of the Canaan K230 clock controller driver patch series.
+
+It has been approximately one and a half years since I first submitted
+this series, and it has now reached version 12. Most of the intermediate
+versions contained only minor adjustments and rebases, and I have been
+resending it periodically without receiving any review feedback.
+
+I would greatly appreciate it if you could let me know whether this
+series is ready for merging, or if there are any specific issues that
+need to be addressed. I am ready to make any required changes immediately.
+
+I apologize for the intrusion and thank you for your time and hard work
+maintaining the clock subsystem.
+
+-- 
+Best regards,
+Xukai Wang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
