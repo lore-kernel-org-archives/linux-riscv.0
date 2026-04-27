@@ -4,92 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29580FF885E
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 09:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC9AFF885E
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 10:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e8PYzgFc9wIHOt4JiG7QQ96mapfJDQhDZmkRvn4+jyo=; b=Le6/x4ENCvm55X
-	oE9oTmCBL+wz4iUM4qORQTWLFBHL4gcSBx86oPSVthlK/v2hpQO4d267pZPKzbTxnaAfA2hAceWVO
-	4juMQ3ark4KDqB8Teb+DmKCID/JM3cMOl+OrlV/6o+r5hunSUSHXts4/MHjM65rO/Kk4QviPTU7KN
-	RireJotyLSzbddTQ6Y1IHgPgSRknyd4yCaDzpxKsCFk1/MvoaNS0GMrNQs2tuBhTGE0UwfmSTFd9t
-	9o27yAbFe0RY++Rxem+3Qc8XP/A9aHyLypYkwECQgYMVjJDwV0D7xlrIfPjuJEGziBKY4Qb1/jOxF
-	sBQu+b0vcg1fr76WQZqA==;
+	List-Owner; bh=WYqy7ErcGv01vZkPUhlmbjx6d5C0hs+W5IYUqM4N2uY=; b=eYJcx3V9+Bbl1s
+	Q5FAM7+mNXCubb4FiDWKweFqM2AUXaKOmHaFqhdsAg1ANN/sFJ2ylvLlr/+I3nZetP0v2jGSKhKIV
+	X2bRRVkJ+9XeNXX1wrNhWfjU+JjjlyaVj2f3WoE4hBiSZ+X/fGtD3QMMBqkzY4sPURY2UtQoglWU/
+	p8pfTN6K8HHd66bmkddLNRuWmo/iWTtc+ED11uoI6dJPmwWrhm9Mjrkr0u2yHr+NFEoLLO3dci2yZ
+	JBF663bm81WTpqjfGSwU7pT0Gi1HzZHvSWUjI2a4F/qbjp2cwqYvwTOObLhMFpX2cV1z3K59b8uFd
+	3KcLePv0A35CRTK6HZaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIHT-0000000Gafx-0a5d;
-	Mon, 27 Apr 2026 09:29:31 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wHJEi-0000000GhDu-3Idb;
+	Mon, 27 Apr 2026 10:30:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHIHP-0000000Gafc-3TTK
+	id 1wHJEh-0000000GhDn-04MZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Apr 2026 09:29:29 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4893940bb5eso51648875e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Apr 2026 02:29:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777282165; x=1777886965; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qhBsUsRnxGxteXWit32fczP20HqInrjs7pD4raLih9A=;
-        b=CUrAs7RDth4UFZSBotCfTuaQ7Dn63FzXaKcdCwtjcD0nXQZF6owwquszZn55I+KkBM
-         9BTgiG76T4yRMlzATjJfNh6MrtzMftnq4kYT0Io+oWVJVk7DqdFxwchFQv49rmPSlbR5
-         t01W9fAOM5UIMB7/lqsHYLdsgNOKLA8rS0IYNalIAwkKWNoxgK7lIsQ/bBaTsnOdLapT
-         izoOUT7rNImbzpb7mV4BopKn8TuCtabO8SPayVCWZIlkWw+IV28hJeJdfuCK3+n9LDZq
-         W9StnYN3jCmkMPnGIoLLB+l3NO5/8NIrQTi3bHrga+QJZbdGYiNE36wnCYefRVK8WT9Y
-         NV7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777282165; x=1777886965;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qhBsUsRnxGxteXWit32fczP20HqInrjs7pD4raLih9A=;
-        b=X3n+t9zb98Bw+KLM6kcXiGN6MWn5LUmQG8InFSz8AHVK6UGYcflHt2OlElVbiVFFnP
-         bE2tcIzyXUPkQ6GCKll/5obXCIvdAeZE8fmmT3LTv57dLaacspSPcEecMZ3AFKqvwPoV
-         jVbbZJMcidIgqrVcBm5fA8Y0BbiasOEzSMtgu4uNLYjbi04afP4Q6QHz0kijoTo81/Sz
-         H+wLQhD8TQ8viZ5CqqTSqWeJYtp6V4aHTi3+LDIaPchKzqUTTnrhbFMLYYEcbjvv9gth
-         ZXo6OQk5rOvN5sr5fewa63D1SJ0ZNmNsrrA45j2J6xmn9lZHwWsfnzEnxbhqmxgO1iD4
-         +eRQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9Q2o1yaTrKDn1mzalOLUpYSxIUV+d9tanrqL9OGMh8UZaWW41HrL9Qdyyknt1d1naJiH761xLOQ8D0WQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6h1C3ikByFkOoYQPniLTuB4CU0RsbhHdJEZb18+b8q8XLDKKs
-	dpqPyRdK37836etc970VdHAbxJo+X4h1Txo0x5m4q7Zsl9ctGVdYDIu/
-X-Gm-Gg: AeBDieu/4CDHT4RknuLsz9pBcZ9ml8AZgP/kPqi2jGAQ8BrAL/384rTUfgk/LFVW48F
-	ogdeca3bcXAcFGdPvjGxkyNWepJxExYmAsLRxMoLunLoBJsOVqOiRDNpd+TpOdeIJYSCMtwZ7SV
-	5WhYGz/3yC1MOW0AkxTQqDHpZel4W3t1egTqv4nHUZ1kSjY4YQPIyWvm5NANANacIFXGb2UbfSW
-	/Bz2s8eo/MGFPRcXNiR6MH0rqMm3jEG4I5lhvd98vc21MKJlzWzpmcOdzG6wc8wC6g9zX17brFt
-	AMzQUh98t0W1BcmFEhVf0KUn6HyjvB/2VWrU8Auxker4/Z7+ekFvDllH3RtuvLUwr1b1fY3byY3
-	v7DrIOu+BZVvDcSNBB5hyQvhA7/mQcJ2cOvJPNvTsMsjOVCgYr1WLmniEtCutjdPQ6C3sbaDzS9
-	DSdBqCGqY5ZvJwsk6aqWAnRpYOxk+dw5wG7b2+QPmaS5EExaEFHgFAUeqO8N3YWF5qt8WEvc8jK
-	qU=
-X-Received: by 2002:a05:600c:c177:b0:486:fb0b:ad79 with SMTP id 5b1f17b1804b1-488fb78129emr534667615e9.20.1777282164670;
-        Mon, 27 Apr 2026 02:29:24 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488fb7ac6aasm249078295e9.25.2026.04.27.02.29.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 02:29:24 -0700 (PDT)
-Date: Mon, 27 Apr 2026 10:29:22 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Dmitry Antipov <dmantipov@yandex.ru>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton
- <akpm@linux-foundation.org>, Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Mon, 27 Apr 2026 10:30:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DA87060138;
+	Mon, 27 Apr 2026 10:30:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3444AC19425;
+	Mon, 27 Apr 2026 10:30:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1777285841;
+	bh=j9lgxZ72pFNOq6i9OiE2AUQyWJMA3vzMop55XlLUiRg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HzEXn/hi9Khwt86iTN4xHXpTp2FZ9xvCO198c8okdgVWYeML0UCSCY3/Cah7Lf4FN
+	 PwzcS5nOFkQVal1m7Fh84OKypgHytKQOEsfJI8Xr0WYYcrKo00oVUY4WKvwebrdmpJ
+	 0cvlk7PXsCql8E7iC6tuja7Eawx3N7q7fwlSbMDg=
+Date: Mon, 27 Apr 2026 03:30:40 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Dmitry Antipov <dmantipov@yandex.ru>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Charlie Jenkins <thecharlesjenkins@gmail.com>, Alexandre Ghiti
  <alex@ghiti.fr>, Ard Biesheuvel <ardb@kernel.org>,
  linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/3] riscv: fix building compressed EFI image
-Message-ID: <20260427102922.08d0bcda@pumpkin>
-In-Reply-To: <20260425185151.477442-4-dmantipov@yandex.ru>
+Subject: Re: [PATCH v6 0/3] riscv32 library enhancements and build fixes
+Message-Id: <20260427033040.b10055b592ebb4ce935d3b97@linux-foundation.org>
+In-Reply-To: <ae8dGrM77NuCe4S0@ashevche-desk.local>
 References: <20260425185151.477442-1-dmantipov@yandex.ru>
-	<20260425185151.477442-4-dmantipov@yandex.ru>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_022927_930782_0D601054 
-X-CRM114-Status: GOOD (  17.09  )
+	<20260425143631.e20246946f59925c5eb8dc22@linux-foundation.org>
+	<df673a44d292bb3df498b78a8b637f880e28931f.camel@yandex.ru>
+	<ae8dGrM77NuCe4S0@ashevche-desk.local>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,55 +73,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 25 Apr 2026 21:51:50 +0300
-Dmitry Antipov <dmantipov@yandex.ru> wrote:
+On Mon, 27 Apr 2026 11:23:54 +0300 Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-> When building vmlinuz.efi with CONFIG_EFI_ZBOOT enabled,
-> '__lshrdi3()' is also needed to fix yet another link error:
+> On Mon, Apr 27, 2026 at 11:13:20AM +0300, Dmitry Antipov wrote:
+> > On Sat, 2026-04-25 at 14:36 -0700, Andrew Morton wrote:
+> > 
+> > > I didn't upstream "lib and lib/cmdline enhancements v9" this cycle.
+> > 
+> > You don't have to upstream v9. Because v9 is v8 + initial RISC-V build
+> > fix, which is a part of another series (this one) now. The proper sequence
+> > is v8 + this series.
+> > 
+> > > So can we please sort through these things (and the AI review) before
+> > > adding more?
+> > 
+> > Not sure about AI but hopefully human should realize that I'm not an
+> > expert in m68k/sparc32/xtensa/csky/[your favorite arch here]. Enabling
+> > and running the test on _all_ architectures where it is expected to 
+> > work requires obtaining (or even building by myself) a cross-compiler,
+> > setting up the kernel and QEMU, etc. I've spent a reasonable time with
+> > RISC-V and ARM and hopefully set up a good starting point for 
+> > m68k/sparc32/xtensa/csky/[your favorite arch here] maintainers, who are
+> > free to incorporate the test into their target architecture.
+> > 
+> > I'm going to fix everything I consider reasonable, submit v7 and give up -
+> > because without even a single reply from core RISC-V maintainers, this
+> > just turns into an endless brain masturbation.
 > 
-> riscv32-linux-gnu-ld: drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L49':
-> __efistub_cmdline.c:(.init.text+0x202): undefined reference to `__efistub___lshrdi3'
-> 
-> And since riscv64 can have CONFIG_EFI_ZBOOT but doesn't need
-> these library routines, rely on CONFIG_32BIT to manage linking
-> of lib-ashldi3.o and lib-lshrdi3.o on riscv32 only.
-> 
-> Reported-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> Closes: https://lore.kernel.org/linux-riscv/20260409050018.GA371560@inky.localdomain
-> Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
-> ---
-> v6: adjust to match recent upstream changes
-> v5: rely on CONFIG_32BIT rather than dedicated Kconfig symbol (Ard)
-> v4: use more meaningful CONFIG_EFI_ZBOOT_USE_LIBGCC and adjust tags (Andy)
-> v3: initial version to join the series
-> ---
->  drivers/firmware/efi/libstub/Makefile | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index 983a438e35f3..e1c11d02a5cb 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -95,7 +95,9 @@ CFLAGS_zboot-decompress-gzip.o	+= -I$(srctree)/lib/zlib_inflate
->  zboot-obj-$(CONFIG_KERNEL_ZSTD)	:= zboot-decompress-zstd.o lib-xxhash.o
->  CFLAGS_zboot-decompress-zstd.o	+= -I$(srctree)/lib/zstd
->  
-> -zboot-obj-$(CONFIG_RISCV)	+= lib-clz_ctz.o lib-ashldi3.o
-> +zboot-obj-$(CONFIG_RISCV)	+= lib-clz_ctz.o
-> +zboot-riscv-obj-$(CONFIG_32BIT)	+= lib-ashldi3.o lib-lshrdi3.o
-> +zboot-obj-$(CONFIG_RISCV)	+= lib-clz_ctz.o $(zboot-riscv-obj-y)
+> I believe it's better to issue v10 of that series + v7 of this in one go.
 
-Doesn't that specify lib-clz_ctz.o twice ?
-I think you could also use:
-zboot-obj-$(CONFIG_RISCV)	+= lib-clz_ctz.o $(if $(CONFIG_32BIT),lib-ashldi3.o lib-lshrdi3.o)
+Yes please.
 
-	David
-
->  zboot-obj-$(CONFIG_LOONGARCH)	+= lib-clz_ctz.o lib-ashldi3.o
->  lib-$(CONFIG_EFI_ZBOOT)		+= zboot.o $(zboot-obj-y)
->  
+It's been a while and there are so many patches and everyone's
+forgotten everything.  A fresh resend of everything is a good way to
+reset and restart.  It's also an opportunity to update changelogs so
+they address everything which has been discussed thus far.  And an
+opportunity to add cc's to everyone who has commented thus far.
 
 
 _______________________________________________
