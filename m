@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9E3FF886B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 13:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E2B5FF885E
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 13:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0AAlKN6d7vN/CNQF23nuYIy8XxNJeeG/WYfEF0Nj1vk=; b=gtF9mcgyvh3M6h
-	Ds3I5+u9nQTeUhqYm+WrSguFsmex6IEDKEX7puhh4n7JauNnnk2SZJadReABvco4gcveAbCYIXNlQ
-	iai+fhL2wfARe6JpByWzcALSyosy3UQQNH9/4PoIWX+7jM9JIqdPhr03jI90moOgUL01wG+YC6p0F
-	jLSrTPDrd2tS8Shm0AHQEKqKBWm/fiobKlBgxITO9tDkKWwkL0sDX25EJAKguhUJ3094bq1Nkynnk
-	tPrIQzgTWvgngYj/3pdb89cLNmxddPcODFYdjFGuTZ3770l1fNnKMbgDQYcWSFOcOdOAXwqz4J5gW
-	LYabqMJEHP1uMZ3WFCAQ==;
+	List-Owner; bh=IfErCoeqzCkCdj1iqGC4pwEBIYYdGSs/9ZtpzfhNkPY=; b=MWaFC01U+ibC44
+	X5S6fPmmweGxVxxdRv7+B5Zs12FHa9De2uJQrvwZ166FU3atpTSbH4D8YzMdfu1znf81achDiimiI
+	cCWV1SE3//gzei7ETOrhMv6UWLQeqqizzNtq6udzp8DqqAg8YrI0osp3owTM2NfKhgaqrUUd0aOOs
+	ekyK4aUQfK0J1zGwnjm+X7Ic4N8Ie96qgzB+nt+wLBLZev96FBCMZQci6e6H3MFMzTRQ1wGMSM7dq
+	fhIZSDiosdTpk3nqT4/on0eQ5OIHIVi8lUofU03LY2Go3AY2ECV3OZeuAX+sdI3aSke1Hg01mvHDl
+	ocfqUES5OV+WsbYQQsfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLZc-0000000Gwx2-0CVV;
-	Mon, 27 Apr 2026 13:00:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHLZU-0000000GwqK-0z2x;
+	Mon, 27 Apr 2026 13:00:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLZV-0000000Gwqo-0Nx8
+	id 1wHLZS-0000000GwoP-3Lmk
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Apr 2026 13:00:22 +0000
+	Mon, 27 Apr 2026 13:00:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5625244706;
-	Mon, 27 Apr 2026 13:00:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 349A4C2BCB4;
-	Mon, 27 Apr 2026 13:00:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DD5EB6015B;
+	Mon, 27 Apr 2026 13:00:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F244C2BCB5;
+	Mon, 27 Apr 2026 13:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777294819;
-	bh=BpJ6sywaSZVQxAguZ1xiEWvvUTov0XqlViROQ62XlmA=;
+	s=k20201202; t=1777294817;
+	bh=k5dWurVipop77C9Fwrcn3SH5CnWId05jQgVrC5N7Hi8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gzkqsMhjuF/OjfSGRMS2/YtvqWJONB+/N9KHoHvaPqowbgBX/C+ohdS4PcckRp0lK
-	 1TcjU518b5FbwkmQhpKhnKegNIGfg1hWKVUToSQnruMEMdlxdfzPOxatyB1Eb/IQ95
-	 QeJSKwmQ2kffONun4FpfnG++ADf3cZsSB7LEfuAB7CCyXKVbH57lVcB5pWSsOv85W+
-	 gS9oR4f4MlV06uk8HFRhaJOlN/1ed56DCk4xZD6KdEKDU0jT/A+43NqeKFi4NIf8XF
-	 xt1tV914NnJ3S4HaVOImVa/cY/1mwMg8QVlKPo60f8v8O4efbOuhSDqpBh3iS6QLoT
-	 PFGBd3SwBQxtQ==
+	b=iSTNgTZXGI+uUUNL91x9OsOC8O60kF6yTDlOyEuGD3GJzqmMDwxc3+URWujmAnAUo
+	 dN+ZFD4HUOPEkunQpNILPwNjWa/oalHijUfxkev0LT4tZ+iH64ovHu7oSxvWCHOW92
+	 srzUsly1Q+N0tziUJH2kWJmk4xsoS8wVcJITH68exfKp4w6saCov7zSOi69Bd1TVms
+	 /5KwBnH4X2TkvZrioN/n6lfYlc3GaCBSQKYjKWilxsggJr1guRhpD7ucAOGK+9jQS7
+	 3dkIpBtc8S/jlZFLvur4dFhiKgybTWg9Kf8X5Omgn41CgoVAVK846rHnOudnj0bIns
+	 ZBe1hlcSvenvg==
 Received: from mchehab by mail.kernel.org with local (Exim 4.99.1)
 	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1wHLZR-0000000BxCQ-1y3B;
-	Mon, 27 Apr 2026 15:00:17 +0200
+	id 1wHLZP-0000000Bx2P-2ec6;
+	Mon, 27 Apr 2026 15:00:15 +0200
 From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Linux Doc Mailing List <linux-doc@vger.kernel.org>
@@ -53,18 +53,14 @@ Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	workflows@vger.kernel.org,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH v3 09/12] docs: maintainers_include: Only show main entry for profiles
-Date: Mon, 27 Apr 2026 15:00:09 +0200
-Message-ID: <b724657f114b3cc63ff9d0e1115d8c2e439b81c5.1777294623.git.mchehab+huawei@kernel.org>
+	Randy Dunlap <rdunlap@infradead.org>
+Subject: [PATCH v3 01/12] MAINTAINERS: add an entry for media maintainers profile
+Date: Mon, 27 Apr 2026 15:00:01 +0200
+Message-ID: <34aaa9258c783a05528fbad2beba69e070c3caad.1777294623.git.mchehab+huawei@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1777294623.git.mchehab+huawei@kernel.org>
 References: <cover.1777294623.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_060021_219288_7130908C 
-X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +77,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Instead of showing as a "Contents:" with 2 identation levels,
-drop its title and show profiles as a list of entries.
+The media subsystem has a maintainers entry profile, but its entry
+is missing at MAINTAINERS.
 
+Add it.
+
+Acked-by: Randy Dunlap <rdunlap@infradead.org>
 Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Message-ID: <5af4aa6a716228eea4d59dc26b97d642e1e7d419.1776176108.git.mchehab+huawei@kernel.org>
 ---
- Documentation/process/maintainer-handbooks.rst | 2 --
- Documentation/sphinx/maintainers_include.py    | 2 +-
- 2 files changed, 1 insertion(+), 3 deletions(-)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/process/maintainer-handbooks.rst b/Documentation/process/maintainer-handbooks.rst
-index 531985a0fae8..3821e78aefc0 100644
---- a/Documentation/process/maintainer-handbooks.rst
-+++ b/Documentation/process/maintainer-handbooks.rst
-@@ -16,6 +16,4 @@ For maintainers, consider documenting additional requirements and
- expectations if submissions routinely overlook specific submission
- criteria. See Documentation/maintainer/maintainer-entry-profile.rst.
- 
--Contents:
--
- .. maintainers-profile-toc::
-diff --git a/Documentation/sphinx/maintainers_include.py b/Documentation/sphinx/maintainers_include.py
-index 948746b998a3..7ab921820612 100755
---- a/Documentation/sphinx/maintainers_include.py
-+++ b/Documentation/sphinx/maintainers_include.py
-@@ -235,7 +235,7 @@ class MaintainersProfile(Include):
-         maint = MaintainersParser(base_path, path)
- 
-         output  = ".. toctree::\n"
--        output += "   :maxdepth: 2\n\n"
-+        output += "   :maxdepth: 1\n\n"
- 
-         items = sorted(maint.profiles.items(),
-                        key=lambda kv: (kv[1] or "", kv[0]))
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2fb1c75afd16..f52ec50f6d10 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16223,6 +16223,7 @@ P:	Documentation/driver-api/media/maintainer-entry-profile.rst
+ W:	https://linuxtv.org
+ Q:	https://patchwork.linuxtv.org/project/linux-media/list/
+ T:	git git://linuxtv.org/media.git
++P:	Documentation/driver-api/media/maintainer-entry-profile.rst
+ F:	Documentation/admin-guide/media/
+ F:	Documentation/devicetree/bindings/media/
+ F:	Documentation/driver-api/media/
 -- 
 2.53.0
 
