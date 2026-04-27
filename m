@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35036FF886E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD37FF886C
 	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 13:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,39 +12,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H14Y5ynH2DFpdNh40Py0Zp+2EOent3ZlDWCl/DBvAzs=; b=GS0PB7/dQFbP2h
-	JG3RMtTc0hpM7fDYo+Hx27yCREaiWRxlFlHLQN0bxG16nQDqbdTfY978hcBgfEDvPogj9UbyG/tRo
-	Gw1NN7jp+4THDAPega29sAgg/hxg/TrhjsSRh+IUfQRxJX8YHc0OirZfvcjpuzJxM9RoH2Po+adcf
-	zE5WwqUM3Cj8V7fS7ey2DfTnd7mxsFRK88oJ6vsM2hpIp6+z/j9wH3ZP9AIKDV6hNAu8dMA69qtOb
-	TirsRlV6g1QywPZj8wpA6ox6pIi+jcS8Vy6dlDDQIyH29YdPD9xMYHY8m9lQJ6Tl/mWNBQ6SqqLBB
-	N+cdQm3RSk0Jg+4D2scw==;
+	List-Owner; bh=0iT7RPbf+DCJaJI0iAqlVQ/4ctDytgV7EWjjsPi7Too=; b=ek/0vTF6/t5tDE
+	TyyQAKSo/XOyeEHwBl8Ps1bO915sHriYFTma3O7Ixl1V6GOgZ0nexuwZhwE2Rjx1Pj9/HMkRYevys
+	xRAsdkn8KrH4ST3Poi9WHh8eUMY44q/7DrCMnMGowlc1grGwf3M/+tSYo4ceCVbHjVEdpzGRJY34I
+	b74GdBLECkj6szqm7tQQV7zkF6aIx8imTjYZaakyuI8A/khUOsdAFqWt32Xqn1/wZyOC9F+wiCO6f
+	vAwZ7G5XNwEt+9VTSFl4gL11cRAlzlFQVNwTz/TWsi2P6ThvjBXP6dNYUq4nAu9eaRx84NPbLhjn9
+	cZWz8Hx0dexlJ+3N9UlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLZc-0000000Gwy4-3NeO;
-	Mon, 27 Apr 2026 13:00:29 +0000
+	id 1wHLZe-0000000GwzT-0kky;
+	Mon, 27 Apr 2026 13:00:30 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLZV-0000000Gwqp-0O5e
+	id 1wHLZV-0000000GwrK-1zti
 	for linux-riscv@lists.infradead.org;
 	Mon, 27 Apr 2026 13:00:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9D0734477B;
+	by sea.source.kernel.org (Postfix) with ESMTP id F0C8340468;
 	Mon, 27 Apr 2026 13:00:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B883C2BCC4;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3139C2BCB4;
 	Mon, 27 Apr 2026 13:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1777294819;
-	bh=foSitjGjVjWkt3FOsEjErrXwoSNFIILUN9JQwZDwqYk=;
+	bh=2EHIpNiSQOvDao9ENEGwgn3WieRzrgdPXVweOZ5ti+I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Qvev6HLJuMayIpthungyNVUdSr2Z2XZPDzRo7epemBAJ5/RSlVHAa5TEp9LxOU8c2
-	 la2K3OpTx3G/d9kIUrhtC5KyoHROHPddBfJqk1OyosBd8OGBRFmMVBftv8lEsdCk4E
-	 83ZpBT8uRn/nDhicLaqZc5mw+jLzEWlBH8S1Qp7uwK4NOMuKTr1GPkvbFk/8Qoskxn
-	 UyOZ5smkEZFq1pc9hiy0V4MW/iG0qqRvQFskGQBV411UT0r0AN2SExI2i9Gl0glpoL
-	 Skl/brxwB1BfU/adurrwNa1ooEBTwxTXZtVVnBS1557ql3PInU8suRKLk7LFmfwnfG
-	 n5Y251VWyMZAw==
+	b=XoHzOXytyzqgCwFjACv78UpHahmHq9v2mqJUBZP9+jZKzRWTtm77kC1qU7nmEgmAg
+	 ZeiVxMV3f6oqjYUUDdiWofAPvmDWK+1Zp8c2ZiQcUf709pbwlaM5UXuY0rE7mdoncr
+	 rAzvSu38KQErdiu/bdm0Ns6ZnaM5v9gRSca5KOA+ywzbMev558uOr1bjn1eqxYhadX
+	 yzH0BVOfGnfCP+V3CWMpNK7N/EqPGFFJ7mRKfsEojLzI9xym981qPLJ/Cn5cRffiGd
+	 JHN2er1e9U6aBuDn8lANTLXg6tYrQClE/v70il4uQAqIhi7NEERmqVanHErXQwjO87
+	 GGV8Q0rmj/dwA==
 Received: from mchehab by mail.kernel.org with local (Exim 4.99.1)
 	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1wHLZR-0000000BxDd-2hcX;
+	id 1wHLZR-0000000BxG6-4Afv;
 	Mon, 27 Apr 2026 15:00:17 +0200
 From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 To: Jonathan Corbet <corbet@lwn.net>,
@@ -55,16 +55,16 @@ Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	workflows@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH v3 10/12] docs: maintainers_include: improve its output
-Date: Mon, 27 Apr 2026 15:00:10 +0200
-Message-ID: <b88c8e9681a90bcecbbf1121bf3c5cbb2cf82930.1777294623.git.mchehab+huawei@kernel.org>
+Subject: [PATCH v3 12/12] docs: maintainers_include: parse MAINTAINERS just once
+Date: Mon, 27 Apr 2026 15:00:12 +0200
+Message-ID: <3a01afc58defa4eb92df709b517392ef550f81b2.1777294623.git.mchehab+huawei@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1777294623.git.mchehab+huawei@kernel.org>
 References: <cover.1777294623.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_060021_228628_116764F6 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20260427_060021_819268_5A282160 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,141 +81,171 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are three "types" of profiles:
-1. Profiles already included inside subsystem-specific documentation.
-   This is the most common case;
-2. Profiles that are hosted externally;
-3. Profiles that are at the same location as maintainer-handbooks.rst.
-
-For (3), we need to create a TOC, as they don't exist elsewhere.
-
-Change the logic to create TOC just for (3), prepending the
-content of maintainer-handbooks with a sorted entry of all types,
-before the TOC.
-
-With such change, we can have an unique sorted list of profiles,
-having the subsystem names used there listed.
+Change the logic to parse MAINTAINERS file content just once,
+while still allowing using it multiple times.
 
 Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 ---
- Documentation/sphinx/maintainers_include.py | 76 +++++++++++----------
- 1 file changed, 40 insertions(+), 36 deletions(-)
+ Documentation/sphinx/maintainers_include.py | 61 +++++++--------------
+ 1 file changed, 21 insertions(+), 40 deletions(-)
 
 diff --git a/Documentation/sphinx/maintainers_include.py b/Documentation/sphinx/maintainers_include.py
-index 7ab921820612..5413c1350bba 100755
+index ae52e8198750..436e7ac42ffc 100755
 --- a/Documentation/sphinx/maintainers_include.py
 +++ b/Documentation/sphinx/maintainers_include.py
-@@ -21,7 +21,7 @@ import sys
- import re
- import os.path
+@@ -37,14 +37,13 @@ def ErrorString(exc):  # Shamelessly stolen from docutils
  
--from textwrap import indent
-+from glob import glob
+ __version__  = '1.0'
  
- from docutils import statemachine
- from docutils.parsers.rst import Directive
-@@ -36,8 +36,8 @@ class MaintainersParser:
+-app_dir = "."
++maint_parser = None
+ 
+ class MaintainersParser:
      """Parse MAINTAINERS file(s) content"""
  
-     def __init__(self, base_path, path):
--        self.profiles = {}
--        self.profile_urls = {}
-+        self.profile_toc = set()
-+        self.profile_entries = {}
+-    def __init__(self, path):
+-        global app_dir
+-
++    def __init__(self, app_dir, path):
++        self.path = path
+         self.profile_toc = set()
+         self.profile_entries = {}
  
-         result = list()
-         result.append(".. _maintainers:")
-@@ -73,26 +73,24 @@ class MaintainersParser:
-             # Drop needless input whitespace.
-             line = line.rstrip()
+@@ -67,7 +66,6 @@ class MaintainersParser:
+         subsystem_name = None
  
-+            #
-+            # Handle profile entries - either as files or as https refs
-+            #
-             match = re.match(r"P:\s*(Documentation/\S+)\.rst", line)
-             if match:
--                fname = os.path.relpath(match.group(1), base_path)
--                if fname.startswith("../"):
--                    if self.profiles.get(fname) is None:
--                        self.profiles[fname] = subsystem_name
--                    else:
--                        self.profiles[fname] += f", {subsystem_name}"
-+                entry = os.path.relpath(match.group(1), base_path)
-+                if "*" in entry:
-+                    for e in glob(entry):
-+                        self.profile_toc.add(e)
-+                        self.profile_entries[subsystem_name] = e
+         base_dir, doc_dir, sphinx_dir = app_dir.partition("Documentation")
+-        print("BASE DIR", base_dir)
+ 
+         for line in open(path):
+             # Have we reached the end of the preformatted Descriptions text?
+@@ -105,8 +103,6 @@ class MaintainersParser:
                  else:
--                    self.profiles[fname] = None
+                     entry = "/" + entry
+ 
+-                print(f"{name}: entry: {entry} FULL: {full_name} path: {path}")
 -
--            match = re.match(r"P:\s*(https?://.*)", line)
--            if match:
--                url = match.group(1).strip()
--                if url not in self.profile_urls:
--                    if self.profile_urls.get(url) is None:
--                        self.profile_urls[url] = subsystem_name
--                    else:
--                        self.profile_urls[url] += f", {subsystem_name}"
+                 if "*" in entry:
+                     for e in glob(entry):
+                         self.profile_toc.add(e)
+@@ -217,14 +213,17 @@ class MaintainersInclude(Include):
+     """MaintainersInclude (``maintainers-include``) directive"""
+     required_arguments = 0
+ 
+-    def emit(self, path):
++    def emit(self):
+         """Parse all the MAINTAINERS lines into ReST for human-readability"""
++        global maint_parser
+ 
+-        output = MaintainersParser(path).output
++        path = maint_parser.path
++        output = maint_parser.output
+ 
+         # For debugging the pre-rendered results...
+         #print(output, file=open("/tmp/MAINTAINERS.rst", "w"))
+ 
++        self.state.document.settings.record_dependencies.add(path)
+         self.state_machine.insert_input(statemachine.string2lines(output), path)
+ 
+     def run(self):
+@@ -232,19 +231,8 @@ class MaintainersInclude(Include):
+         if not self.state.document.settings.file_insertion_enabled:
+             raise self.warning('"%s" directive disabled.' % self.name)
+ 
+-        # Walk up source path directories to find Documentation/../
+-        path = self.state_machine.document.attributes['source']
+-        path = os.path.realpath(path)
+-        tail = path
+-        while tail != "Documentation" and tail != "":
+-            (path, tail) = os.path.split(path)
 -
-+                    self.profile_toc.add(entry)
-+                    self.profile_entries[subsystem_name] = entry
-+            else:
-+                match = re.match(r"P:\s*(https?://.*)", line)
-+                if match:
-+                    entry = match.group(1).strip()
-+                    self.profile_entries[subsystem_name] = entry
+-        # Append "MAINTAINERS"
+-        path = os.path.join(path, "MAINTAINERS")
+-
+         try:
+-            self.state.document.settings.record_dependencies.add(path)
+-            lines = self.emit(path)
++            lines = self.emit()
+         except IOError as error:
+             raise self.severe('Problems with "%s" directive path:\n%s.' %
+                       (self.name, ErrorString(error)))
+@@ -254,16 +242,17 @@ class MaintainersInclude(Include):
+ class MaintainersProfile(Include):
+     required_arguments = 0
  
-             # Linkify all non-wildcard refs to ReST files in Documentation/.
-             pat = r'(Documentation/([^\s\?\*]*)\.rst)'
-@@ -234,26 +232,32 @@ class MaintainersProfile(Include):
+-    def emit(self, path):
++    def emit(self):
+         """Parse all the MAINTAINERS lines looking for profile entries"""
++        global maint_parser
  
-         maint = MaintainersParser(base_path, path)
+-        maint = MaintainersParser(path)
++        path = maint_parser.path
  
--        output  = ".. toctree::\n"
--        output += "   :maxdepth: 1\n\n"
-+        #
-+        # Produce a list with all maintainer profiles, sorted by subsystem name
-+        #
-+        output = ""
- 
--        items = sorted(maint.profiles.items(),
--                       key=lambda kv: (kv[1] or "", kv[0]))
--        for fname, profile in items:
--            if profile:
--                output += f"   {profile} <{fname}>\n"
-+        for profile, entry in maint.profile_entries.items():
-+            if entry.startswith("http"):
-+                if profile:
-+                    output += f"- `{profile} <{entry}>`_\n"
-+                else:
-+                    output += f"- `<{entry}>_`\n"
+         #
+         # Produce a list with all maintainer profiles, sorted by subsystem name
+         #
+         output = ""
+-        for profile, entry in sorted(maint.profile_entries.items()):
++        for profile, entry in sorted(maint_parser.profile_entries.items()):
+             if entry.startswith("http"):
+                 output += f"- `{profile} <{entry}>`_\n"
              else:
--                output += f"   {fname}\n"
-+                if profile:
-+                    output += f"- :doc:`{profile} <{entry}>`\n"
-+                else:
-+                    output += f"- :doc:`<{entry}>`\n"
+@@ -276,13 +265,12 @@ class MaintainersProfile(Include):
+         output += "\n.. toctree::\n"
+         output += "   :hidden:\n\n"
  
--        output += "\n**External profiles**\n\n"
-+        #
-+        # Create a hidden TOC table with all profiles. That allows adding
-+        # profiles without needing to add them on any index.rst file.
-+        #
-+        output += "\n.. toctree::\n"
-+        output += "   :hidden:\n\n"
- 
--        items = sorted(maint.profile_urls.items(),
--                       key=lambda kv: (kv[1] or "", kv[0]))
--        for url, profile in items:
--            if profile:
--                output += f"- {profile} <{url}>\n"
--            else:
--                output += f"- {url}\n"
-+        for fname in maint.profile_toc:
-+            output += f"   {fname}\n"
+-        for fname in maint.profile_toc:
++        for fname in maint_parser.profile_toc:
+             output += f"   {fname}\n"
  
          output += "\n"
  
+-        print(output)
+-
++        self.state.document.settings.record_dependencies.add(path)
+         self.state_machine.insert_input(statemachine.string2lines(output), path)
+ 
+     def run(self):
+@@ -290,19 +278,8 @@ class MaintainersProfile(Include):
+         if not self.state.document.settings.file_insertion_enabled:
+             raise self.warning('"%s" directive disabled.' % self.name)
+ 
+-        # Walk up source path directories to find Documentation/../
+-        path = self.state_machine.document.attributes['source']
+-        path = os.path.realpath(path)
+-        tail = path
+-        while tail != "Documentation" and tail != "":
+-            (path, tail) = os.path.split(path)
+-
+-        # Append "MAINTAINERS"
+-        path = os.path.join(path, "MAINTAINERS")
+-
+         try:
+-            self.state.document.settings.record_dependencies.add(path)
+-            lines = self.emit(path)
++            lines = self.emit()
+         except IOError as error:
+             raise self.severe('Problems with "%s" directive path:\n%s.' %
+                       (self.name, ErrorString(error)))
+@@ -310,13 +287,17 @@ class MaintainersProfile(Include):
+         return []
+ 
+ def setup(app):
+-    global app_dir
++    global maint_parser
+ 
+     #
+     # NOTE: we're using os.fspath() here because of a Sphinx warning:
+     #   RemovedInSphinx90Warning: Sphinx 9 will drop support for representing paths as strings. Use "pathlib.Path" or "os.fspath" instead.
+     #
+     app_dir = os.fspath(app.srcdir)
++    srctree = os.path.abspath(os.environ["srctree"])
++    path = os.path.join(srctree, "MAINTAINERS")
++
++    maint_parser = MaintainersParser(app_dir, path)
+ 
+     app.add_directive("maintainers-include", MaintainersInclude)
+     app.add_directive("maintainers-profile-toc", MaintainersProfile)
 -- 
 2.53.0
 
