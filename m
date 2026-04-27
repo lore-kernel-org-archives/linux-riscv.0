@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42644FF8861
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 07:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4AAFF8861
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 08:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tagkiqGkuyYsIaiNAQ9UnWBn3xXjIoQdER1TZQb5ZGM=; b=ayxoui9mF9E/AB
-	ybPML5AHJP/ru7iTlUA7Cz1mg2+PS33zx2d2YPTiO21AV8P1G7ctN3sYJgEfirSzJv5FNJ1//xILC
-	yF1SYuDCYAO+cEJ2QPqyKlKmgrfBHcpthr58adnILHRN/YR0iAckSY1+WsnXuFxmbIKS4DVCeOa4W
-	Noo0WzcGHoSMmPjwIn2lSz5VTqK9bDoegUVPHEUbwdt3INmhFtHWf4nnqdj8TdbNjAzqmRya/Zg8n
-	9Q+DzYxgxBM0jmPHInqzaN3uOKujVQ/tZFO1bThZPCRfeVipi1BWgfkErmWcbOoFIaCJE8UqOsrSb
-	QDESRcXD0xushac69RcQ==;
+	List-Owner; bh=6oiaNsT16g4aRhzTQfWv5NutW6mdDEzYelO32U99DSo=; b=EWTlOyrn1jN5AD
+	NlKIhb0Xv/fs4oJc4yGcOvqL5/BmfYIjOmsSvHNdq5PNeSiX7q6IP0H5R0p45dSsi9dmiV6bJFepb
+	KK7dJ+3Z3GdQ96m8MdjYkpUK1uZHWEmJU2nRpeZvzuT77EjGQZIa9u7W+SbXE4dT6J1RDu1MESz5k
+	2KBlGQMfPghzCb3jYGT4Q6ME+qmbvgsnS79HnlbcXROw8MzpD/kzoGXs1zKB7mZvnqDJMp07CB8X8
+	IHHF3fF3Hd41SlTpu+/nXG6rj7mIsQHs13ErPh1XDhOANDn9bJV0kUA+Geh+cXXLpulbwS+k/qcmG
+	5KS8bWc9t0S3h2HatqRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGh3-0000000GPHb-2YhK;
-	Mon, 27 Apr 2026 07:47:49 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGh0-0000000GPHD-3lJR
+	id 1wHH62-0000000GQks-2Szg;
+	Mon, 27 Apr 2026 08:13:38 +0000
+Received: from forward500a.mail.yandex.net ([2a02:6b8:c0e:500:1:45:d181:d500])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHH5x-0000000GQjq-448H
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Apr 2026 07:47:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=EvtGSF4+wsB8KaQy8UyMm/3mcw9fJX9JJ
-	8pi18BcI7E=; b=QSGDGYYaRiHmCN8zw1WSsbVZsnaS0KY7MtGrPnBcFKsaoX7tf
-	v9snGXsubST88eb7Nv+JrS/1N1j8MMcAVaROVLlPX1/whY27t8zrAWiQtu4YFuUS
-	cUosZ/MJOwA+4xQY7UWr428HaWLHnd0txEI0TRdDru9u+QGj2/RoMjurl4=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwDXEEKtEe9pyQEDAA--.1555S2;
-	Mon, 27 Apr 2026 15:35:09 +0800 (CST)
+	Mon, 27 Apr 2026 08:13:36 +0000
+Received: from mail-nwsmtp-smtp-production-main-64.vla.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-64.vla.yp-c.yandex.net [IPv6:2a02:6b8:c18:31e:0:640:f144:0])
+	by forward500a.mail.yandex.net (Yandex) with ESMTPS id 81879C0AC0;
+	Mon, 27 Apr 2026 11:13:24 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-64.vla.yp-c.yandex.net (smtp) with ESMTPSA id KDTCRrjSvuQ0-3CY91MG5;
+	Mon, 27 Apr 2026 11:13:23 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
+	t=1777277603; bh=bguIh7S91p2DCDtxXX7BhTfTOrelXjmYTi2yJflThDg=;
+	h=References:Date:In-Reply-To:Cc:To:From:Subject:Message-ID;
+	b=kx74GM6mfiZoHCwDnVaCKFWQ3Loq9lMSRWEtNL9JgTJeoy5v1unbGsiybMz5o70Qq
+	 Rh+fvprK3YW7PKcd9vtVX/koi173Jb0B8M95qwj7+2YVdKqlYU2NDSRAt4qIwA8TQz
+	 67tlQ+eHioA0ELqVSI+ZzAgV0hN74yEs2T/o5xGE=
+Authentication-Results: mail-nwsmtp-smtp-production-main-64.vla.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
+Message-ID: <df673a44d292bb3df498b78a8b637f880e28931f.camel@yandex.ru>
+Subject: Re: [PATCH v6 0/3] riscv32 library enhancements and build fixes
+From: Dmitry Antipov <dmantipov@yandex.ru>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Andy Shevchenko
+ <andriy.shevchenko@intel.com>, Charlie Jenkins	
+ <thecharlesjenkins@gmail.com>, Alexandre Ghiti <alex@ghiti.fr>, Ard
+ Biesheuvel	 <ardb@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-efi@vger.kernel.org, 	linux-kernel@vger.kernel.org
+Date: Mon, 27 Apr 2026 11:13:20 +0300
+In-Reply-To: <20260425143631.e20246946f59925c5eb8dc22@linux-foundation.org>
+References: <20260425185151.477442-1-dmantipov@yandex.ru>
+	 <20260425143631.e20246946f59925c5eb8dc22@linux-foundation.org>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/4] serial: 8250_dw: Add support for UltraRISC
- DP1000 UART
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Jia Wang <wangjia@ultrarisc.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org, 
- devicetree@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
-In-Reply-To: <aes-qdaT_9wMbTsm@ashevche-desk.local>
-References: <20260424-ultrarisc-serial-v4-0-1765a0b4c4a0@ultrarisc.com>
- <aes-qdaT_9wMbTsm@ashevche-desk.local>
-Date: Mon, 27 Apr 2026 15:34:25 +0800
-Message-Id: <177727526561.1796253.1521989195994870860.b4-reply@b4>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777275265; l=913;
- i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=QAvhRvLzQHH69MBDbCVJ9pxPR7o4fCwYz7Zw68Wk37w=;
- b=YBzyVlQUsNsDsDyB4p35jeCaLPKWRKxVOw8/EEhQ80bDajJ2pecorsuLUqnIlXggxui0r0XUr
- I4LKHkQ8rXCBdMT67ezw9mJ/Kj0y+kY/TiTUq7YIseDmQDrE2dg+vAt
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwDXEEKtEe9pyQEDAA--.1555S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKw43XF4xtw1DXryxGFWfZrb_yoWfGFb_ur
-	yrCr9a9FWkAFs8Za98JrW5CFsIka1UXw1UJryDWrsFkr13A3Z5WayjkwnIv340yayrGF1j
-	kFy5Xw48CrZI9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUUUUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAKEWnti78ACwAKsr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_004747_449152_A5EEDA30 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260427_011334_549518_258B0BCC 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,37 +76,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-24 12:58 +0300, Andy Shevchenko wrote:
-> On Fri, Apr 24, 2026 at 01:39:27PM +0800, Jia Wang wrote:
-> > This patch series adds support for the UltraRISC DP1000 UART controller.
-> > 
-> > The series includes four patches. The first two are preparatory cleanups;
-> > the last two add the DP1000 compatible and fixed CPR handling.
-> > 
-> > The patches have been tested on an UltraRISC DP1000 development board with
-> > Linux v7.0-rc7, verifying basic UART functionality.
-> 
-> Now it looks good to me, thanks!
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> (except DT bindings, not an expert, no tag)
->
+On Sat, 2026-04-25 at 14:36 -0700, Andrew Morton wrote:
 
-Thanks for the review, Andy. I need to rework patches 1, 2 and 4, so
-I won't add your Reviewed-by tag yet. Could you please have another
-look at the updated patches in v5?
- 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
-> 
-> 
->
+> I didn't upstream "lib and lib/cmdline enhancements v9" this cycle.
 
-Best Regards,
-Jia Wang
- 
+You don't have to upstream v9. Because v9 is v8 + initial RISC-V build
+fix, which is a part of another series (this one) now. The proper sequence
+is v8 + this series.
 
+> So can we please sort through these things (and the AI review) before
+> adding more?
 
+Not sure about AI but hopefully human should realize that I'm not an
+expert in m68k/sparc32/xtensa/csky/[your favorite arch here]. Enabling
+and running the test on _all_ architectures where it is expected to 
+work requires obtaining (or even building by myself) a cross-compiler,
+setting up the kernel and QEMU, etc. I've spent a reasonable time with
+RISC-V and ARM and hopefully set up a good starting point for 
+m68k/sparc32/xtensa/csky/[your favorite arch here] maintainers, who are
+free to incorporate the test into their target architecture.
+
+I'm going to fix everything I consider reasonable, submit v7 and give up -
+because without even a single reply from core RISC-V maintainers, this
+just turns into an endless brain masturbation.
+
+Dmitry
 
 _______________________________________________
 linux-riscv mailing list
