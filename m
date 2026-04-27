@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B764FF8860
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 01:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F44BFF8850
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 02:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RRCzaxLoRjnJE5pPNQAmvLOcL+d9KBhciOh7w5zfO1w=; b=JPkUxow9aBcicQ
-	/FSLC9jirik63c2Lubsv/BT28SaKJoLep1pfknn0NgT96vp1x/TZnoV1ibbjBNYmRAe/Ke84/mO9D
-	1lVlgDWN14OX45nN9VrhcE0VOFYEEFmZS+/H/NnaWP857qOg5EL2eevJtgaA8bCr8FKQZto2A85GH
-	763kX6umilXTcjLJfazkghFvlXjQgNsoXyzJF/CXpbM1WWES3NzWimPbpfHS1WQbCFU3CAckRepRH
-	Z6AD9q53bVdWlMLHEqEaC/Rn1HRx1Jv1pPueAlr5hRzjOjaySIJNlTtVvgT2j6y1eiT61KmnMYdvM
-	4w4W9sllsZPqd3Y4QvNQ==;
+	List-Owner; bh=GPjA06ywUIscWHu1Q7Erbo2lsfXz+URymlzJFKDDndA=; b=ngHqONh7uWte32
+	Kyd/8TXXL0kZ1GcBnXvVcGhtcaTlUd0bbIVdL8Mc0ALW2OV0xa7C6ZmWGDNAXpjShZVHN77ph8TlR
+	Bn0fxs7V1Ynfa3qFKmbkXXJ7acK2jPIn7UeKWfnl3aiEhlpGNZXIADWszn6muh2hoTZk+QNnsD3KA
+	xuElJ+oVqBMlteNBx1oUIV8CQxT/i6X8Whet0CcAwmLyv22IPHQKl/dSSESZrk6xCN5bf+A+eZjE7
+	3KAHnqwbgVBXXgPPf/mfTvry6bdyD6Z3WHIez01d0s40/nNRToEuAyyuZL2Gedccc5p/2UMENY46O
+	PL8EjaaRUkM18QN4h8Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHAqz-0000000G1B3-1wVU;
-	Mon, 27 Apr 2026 01:33:41 +0000
+	id 1wHBlI-0000000G3SW-1tCF;
+	Mon, 27 Apr 2026 02:31:52 +0000
 Received: from [218.76.62.146] (helo=ultrarisc.com)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHAqw-0000000G19f-1R6U
+	id 1wHBlF-0000000G3RM-0cNq
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Apr 2026 01:33:39 +0000
+	Mon, 27 Apr 2026 02:31:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	References:In-Reply-To:To:Cc; bh=HYT/JtcTeb4xRDUsI9fYBdNKr0Iy0dm
-	MBfAidPI4MF0=; b=AFal1g22bTU1RB0ZyPdZxZh1Gr5dgbxDw1U3ujsC7Ba4e19
-	g/Co9uTO78COGOtBGNerxdqBcZbJvRIVPeIzWswL3Yzx1q45rElfpcB/Vx40MiHJ
-	7gu9G9fbs7JSYHSlgxvu697lLEpkMAWy5VAM6rK79H8BElhFvnWGnyCW5CeU=
+	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	References:Date:Message-Id; bh=oX3N68CM0wO9T+kbhhF9OQgbR+Z8QKW6l
+	lshw/JFnd0=; b=E+zw+5eSGz6R12mNTc1QJhO4Hwn5UxedfQBPWBGyQ7n14xYkk
+	TF+DA5zppkb0rNavzRnA8oU+IbCMJzazD5COspE/Rq7NMWL6BK4huqb/KcWuag/D
+	iUhpp7zV7KFwMxhLFsa74RW7z6aYcUiLvUSsXTf6ADIDxv+LE6jL6ddhJg=
 Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwA3cULPvO5ps_0CAA--.1758S4;
-	Mon, 27 Apr 2026 09:33:07 +0800 (CST)
-From: Jia Wang <wangjia@ultrarisc.com>
-Date: Mon, 27 Apr 2026 09:32:11 +0800
-Subject: [PATCH v4 2/3] dt-bindings: PCI: Add UltraRISC DP1000 PCIe
- controller
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnEkO1yu5pWv4CAA--.1685S2;
+	Mon, 27 Apr 2026 10:32:22 +0800 (CST)
 MIME-Version: 1.0
-Message-Id: <20260427-ultrarisc-pcie-v4-2-98935f6cdfb5@ultrarisc.com>
-References: <20260427-ultrarisc-pcie-v4-0-98935f6cdfb5@ultrarisc.com>
-In-Reply-To: <20260427-ultrarisc-pcie-v4-0-98935f6cdfb5@ultrarisc.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
- Xincheng Zhang <zhangxincheng@ultrarisc.com>, 
+Subject: Re: [PATCH v4 1/4] serial: 8250_dwlib: move DesignWare register
+ definitions to header
+From: Jia Wang <wangjia@ultrarisc.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Jia Wang <wangjia@ultrarisc.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- Jia Wang <wangjia@ultrarisc.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org
+In-Reply-To: <aes_zx9GdaXnDNqG@ashevche-desk.local>
+References: <20260424-ultrarisc-serial-v4-0-1765a0b4c4a0@ultrarisc.com>
+ <20260424-ultrarisc-serial-v4-1-1765a0b4c4a0@ultrarisc.com>
+ <aes_zx9GdaXnDNqG@ashevche-desk.local>
+Date: Mon, 27 Apr 2026 10:31:37 +0800
+Message-Id: <177725709757.1303892.11056150858190690738.b4-reply@b4>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777253539; l=3982;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777257098; l=3809;
  i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=X2bzlR0Ihg946bcqWPf1jyyPRrQHRRPJWRN220hfPCo=;
- b=lshqQvLyVCLepawcXw2Cbbkx0v3nUFfXgwvfeqxhZwaD45Ew/JmEnP0f8MOvq2H/eUjgWrpFx
- rV+O9xzlmGQDmAr1ex4NAvl1/AGEZK4jTxc0cv1tFgVvXCt79CpmbSP
+ bh=WmZ8rFbbC/cJ68Nvw+W0i3Fys8rvFt/pqzQym3PR+9s=;
+ b=aMw7phVsLJoQFmtsdyicHU+CjeYJwHnjDphId0LYq0zAsyGnbjr0Q4ahx8BSud1NKhjJDawX2
+ 1lG4FURtJptCG2DGShE7KqUsJrkC2DcL+x/RvAqqttRyo73LGwbDHIa
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwA3cULPvO5ps_0CAA--.1758S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxGryDXryUGw15XrW5WFW8Xrb_yoW5Kw17pF
-	WUCa4kuF4xtr13uw4fK3W0kF15XF4vkF9YywnFgw1UtFZYgw1jqrsIkw13G3W5Gr4UXry2
-	gFn0kr17Kw4UAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: AQAAfwAnEkO1yu5pWv4CAA--.1685S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGrWkGFy3Cr1fZr1fKFy8Zrb_yoWrJw1xpr
+	10gFWDtF1qya13W340qanxtr4IqFyxGw409ryFqrWDtFW8Cw1kKFZF9F43KrWUXrn5JrW8
+	ZF1UXw1Yga929rDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnUUvcSsGvfC2KfnxnUUI43ZEXa7xR_UUUUUUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAKEWnti78ABwAAst
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAKEWnti78ACwAEsl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_183338_575755_67DD5832 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260426_193149_959331_9A6E778F 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,135 +91,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add UltraRISC DP1000 SoC PCIe controller devicetree bindings.
+On 2026-04-24 13:02 +0300, Andy Shevchenko wrote:
+> On Fri, Apr 24, 2026 at 01:39:28PM +0800, Jia Wang wrote:
+> > Move the DW_UART_* register offsets and CPR bit/field definitions from
+> > 8250_dwlib.c into 8250_dwlib.h so they can be shared by 8250_dw and
+> > 8250_dwlib users.
+> > 
+> > Add an include guard for 8250_dwlib.h.
+> 
+> ...
+> 
+> > -/* DesignWare specific register fields */
+> > -#define DW_UART_IIR_IID			GENMASK(3, 0)
+> > -
+> > -#define DW_UART_MCR_SIRE		BIT(6)
+> > -
+> > -#define DW_UART_USR_BUSY		BIT(0)
+> > -
+> 
+> One nit-pick, though, these three need the similar comments in the header and a
+> blank line between them.
+> 
 
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- .../bindings/pci/ultrarisc,dp1000-pcie.yaml        | 93 ++++++++++++++++++++++
- MAINTAINERS                                        |  7 ++
- 2 files changed, 100 insertions(+)
+Thanks.
 
-diff --git a/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-new file mode 100644
-index 000000000000..512b935bf5d1
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-@@ -0,0 +1,93 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/ultrarisc,dp1000-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: UltraRISC DP1000 PCIe Host Controller
-+
-+description:
-+  UltraRISC DP1000 SoC PCIe host controller is based on the DesignWare PCIe IP.
-+
-+maintainers:
-+  - Xincheng Zhang <zhangxincheng@ultrarisc.com>
-+  - Jia Wang <wangjia@ultrarisc.com>
-+
-+allOf:
-+  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+
-+properties:
-+  compatible:
-+    const: ultrarisc,dp1000-pcie
-+
-+  reg:
-+    items:
-+      - description: Data Bus Interface (DBI) registers.
-+      - description: PCIe configuration space region.
-+
-+  reg-names:
-+    items:
-+      - const: dbi
-+      - const: config
-+
-+  num-lanes:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    enum: [4, 16]
-+    description: Number of lanes to use.
-+
-+  interrupts:
-+    items:
-+      - description: MSI interrupt
-+      - description: Legacy INTA interrupt
-+      - description: Legacy INTB interrupt
-+      - description: Legacy INTC interrupt
-+      - description: Legacy INTD interrupt
-+
-+  interrupt-names:
-+    items:
-+      - const: msi
-+      - const: inta
-+      - const: intb
-+      - const: intc
-+      - const: intd
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - interrupt-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      pcie@21000000 {
-+        compatible = "ultrarisc,dp1000-pcie";
-+        reg = <0x0 0x21000000 0x0 0x01000000>,
-+              <0x0 0x4fff0000 0x0 0x00010000>;
-+        reg-names = "dbi", "config";
-+        ranges = <0x81000000 0x0 0x4fbf0000 0x0 0x4fbf0000 0x0 0x00400000>,
-+                 <0x82000000 0x0 0x40000000 0x0 0x40000000 0x0 0x0fbf0000>,
-+                 <0xc3000000 0x40 0x00000000 0x40 0x00000000 0xd 0x00000000>;
-+        #address-cells = <3>;
-+        #size-cells = <2>;
-+        #interrupt-cells = <1>;
-+        device_type = "pci";
-+        dma-coherent;
-+        bus-range = <0x0 0xff>;
-+        num-lanes = <16>;
-+        interrupt-parent = <&plic>;
-+        interrupts = <43>, <44>, <45>, <46>, <47>;
-+        interrupt-names = "msi", "inta", "intb", "intc", "intd";
-+        interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+        interrupt-map = <0x0 0x0 0x0 0x1 &plic 44>,
-+                        <0x0 0x0 0x0 0x2 &plic 45>,
-+                        <0x0 0x0 0x0 0x3 &plic 46>,
-+                        <0x0 0x0 0x0 0x4 &plic 47>;
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d238590a31f2..818685933541 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20583,6 +20583,13 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
- F:	drivers/pci/controller/plda/pcie-starfive.c
+Will add comments and blank lines in v5.
+
+> ...
+> 
+> > +/* Offsets for the DesignWare specific registers */
+> > +#define DW_UART_USR	0x1f /* UART Status Register */
+> > +#define DW_UART_DMASA	0xa8 /* DMA Software Ack */
+> > +#define DW_UART_TCR	0xac /* Transceiver Control Register (RS485) */
+> > +#define DW_UART_DE_EN	0xb0 /* Driver Output Enable Register */
+> > +#define DW_UART_RE_EN	0xb4 /* Receiver Output Enable Register */
+> > +#define DW_UART_DLF	0xc0 /* Divisor Latch Fraction Register */
+> > +#define DW_UART_RAR	0xc4 /* Receive Address Register */
+> > +#define DW_UART_TAR	0xc8 /* Transmit Address Register */
+> > +#define DW_UART_LCR_EXT	0xcc /* Line Extended Control Register */
+> > +#define DW_UART_CPR	0xf4 /* Component Parameter Register */
+> > +#define DW_UART_UCV	0xf8 /* UART Component Version */
+> > +
+> > +/* Receive / Transmit Address Register bits */
+> > +#define DW_UART_ADDR_MASK		GENMASK(7, 0)
+> 
+> > +/* Line Status Register bits */
+> > +#define DW_UART_LSR_ADDR_RCVD		BIT(8)
+> 
+> Like this one, the IIR. MCR, and USR bits should be commented. Also preserve
+> the sorting by the register offset, so the groups of bits follow the above list
+> of registers, where USR bits, for example, should go before TCR.
+> 
+
+Will add comments to IIR, MCR, and USR bits and reorder the groups by
+register offset in v5.
+
+> > +/* Transceiver Control Register bits */
+> > +#define DW_UART_TCR_RS485_EN		BIT(0)
+> > +#define DW_UART_TCR_RE_POL		BIT(1)
+> > +#define DW_UART_TCR_DE_POL		BIT(2)
+> > +#define DW_UART_TCR_XFER_MODE		GENMASK(4, 3)
+> > +#define DW_UART_TCR_XFER_MODE_DE_DURING_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 0)
+> > +#define DW_UART_TCR_XFER_MODE_SW_DE_OR_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 1)
+> > +#define DW_UART_TCR_XFER_MODE_DE_OR_RE		FIELD_PREP(DW_UART_TCR_XFER_MODE, 2)
+> > +
+> > +/* Line Extended Control Register bits */
+> > +#define DW_UART_LCR_EXT_DLS_E		BIT(0)
+> > +#define DW_UART_LCR_EXT_ADDR_MATCH	BIT(1)
+> > +#define DW_UART_LCR_EXT_SEND_ADDR	BIT(2)
+> > +#define DW_UART_LCR_EXT_TRANSMIT_MODE	BIT(3)
+> > +
+> > +/* Component Parameter Register bits */
+> > +#define DW_UART_CPR_ABP_DATA_WIDTH	GENMASK(1, 0)
+> > +#define DW_UART_CPR_AFCE_MODE		BIT(4)
+> > +#define DW_UART_CPR_THRE_MODE		BIT(5)
+> > +#define DW_UART_CPR_SIR_MODE		BIT(6)
+> > +#define DW_UART_CPR_SIR_LP_MODE		BIT(7)
+> > +#define DW_UART_CPR_ADDITIONAL_FEATURES	BIT(8)
+> > +#define DW_UART_CPR_FIFO_ACCESS		BIT(9)
+> > +#define DW_UART_CPR_FIFO_STAT		BIT(10)
+> > +#define DW_UART_CPR_SHADOW		BIT(11)
+> > +#define DW_UART_CPR_ENCODED_PARMS	BIT(12)
+> > +#define DW_UART_CPR_DMA_EXTRA		BIT(13)
+> > +#define DW_UART_CPR_FIFO_MODE		GENMASK(23, 16)
+> 
+> > +/* DesignWare specific register fields */
+> > +#define DW_UART_IIR_IID			GENMASK(3, 0)
+> > +#define DW_UART_MCR_SIRE		BIT(6)
+> > +#define DW_UART_USR_BUSY		BIT(0)
+> 
+> I.o.w. uncouple these as per above.
+>
+
+Will do in v5. I'll move them to their respective register-offset
+groups with comments and blank lines as suggested.
  
-+PCIE DRIVER FOR ULTRARISC DP1000
-+M:	Xincheng Zhang <zhangxincheng@ultrarisc.com>
-+M:	Jia Wang <wangjia@ultrarisc.com>
-+L:	linux-pci@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-+
- PCIE ENDPOINT DRIVER FOR QUALCOMM
- M:	Manivannan Sadhasivam <mani@kernel.org>
- L:	linux-pci@vger.kernel.org
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
+> 
 
--- 
-2.34.1
+Best Regards,
+Jia Wang
+
 
 
 _______________________________________________
