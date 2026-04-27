@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 055F0FF8861
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 07:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45975FF8865
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 07:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WJThkbBIMlm2zSbK5EkmtusY5FAEaXdq0B3nf7h+wyQ=; b=UY92Bnolq31skK
-	TKXibwld4zrF0DNZ5UEkorg2xc3gmmR4cAl9MO/gxmAM+D5vf3PmVidyXKKPVC63mFb4yuDAekdHJ
-	c4jKXNQAyCMQsMehlKm/9tj3k5X2G9gw9tVzPx5ym5pzz0+qroxxn9uc36y8ArrLn6ktBCxVOW43j
-	0zDKG8pMzIb4wzOgIkXcTEg1MkvqIa7NW4ABb0pfj2RMMK0baSQKywURMu1ZCC4GubGZLbfEUT7PB
-	Bg+yH2Ti5u4lfLYoKOeet0ensv0pNvgSEKXlRxoRfT/1dWKqe3gYvgsA5v+w3rcoHcqHqoCTh9h5T
-	TMopVWYr9fOxlKq6lYyg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0Ks67g9oY6/M50sgUtjoJDC9rPvB7xsb1i/6jNQb9IA=; b=nTkd+nB2YeodVY
+	2VkyX0JLvf9ckbG5uj6tzdNZp6MULC6hddv0Nq3gSP5kl4AVlwlqle7lbrXMr+LWdyGmrUVfu5ole
+	J/w7NRm2u5n8Jp3EflFSGRDMr+HJMdPpnZhWowTtd+kNAQGkiqf9D7PUdEyJ348HxrcffuKWL5jjO
+	tKKXuanY+/4YN3Erv2RhiLmUFRIYXU3eOZuuxB5qEhWiLnJ2kvSiwtf277tLI5WXlmjwKjuuujKQv
+	AGYvegBV4Ljom/9lOBG0iU8+YcKkJ/i2UYghADOaYaCx+M1X+JXCy5HPOzS0pT32aWnSVHCS5mAIs
+	6wRMSnMxxBqeWcdYu9uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGCt-0000000GM1Q-35RA;
-	Mon, 27 Apr 2026 07:16:39 +0000
-Received: from mout-p-201.mailbox.org ([80.241.56.171])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHGCr-0000000GLy2-2Ifx
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Apr 2026 07:16:38 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4g3vxv4gTyz9tty;
-	Mon, 27 Apr 2026 09:16:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777274195;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VNJkRq0Y8simejX2Aa8XtIUh6Eyf4vR8aRfuoLPHrWY=;
-	b=Zl9Pj3qBfuKkbhhIB73UH0q0hqcVm6qjP6z4eldu+8C7/fN6RLYMhKRIraW/Hl1DcNKwLL
-	eTQd/9evh+MGwoXxx9xWzaq/mw5OehGTHgqFNlngxfMZ/+mgksiHGFWjL0xvMqcMWSx4Fe
-	8SBjWYrS5SI2P2uJFzzohxRtwL1hW7J5V4Y3rgEOO9HejIx4SVdyGPLuGDjOFrtsz7fpzK
-	KEcUwwxubv7cyclG4MvuiIDKHOAew3F8i3iZoS/jG2+ZTsef+cy81tD7pajQeFYQULGOfo
-	yaftIBD4kQ5jmyJgJ2dJ+8gX2rVqXZJDQ6h7ZtzdLSA4QibvVRDAa9KdAFR2dA==
-From: Shuwei Wu <shuwei.wu@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1777274193;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VNJkRq0Y8simejX2Aa8XtIUh6Eyf4vR8aRfuoLPHrWY=;
-	b=txtDWcEBiElxI0YPtmeKnq5I2+M25J+FjsalJWL40Fsb6PzGrmwrTFPKwEKbNOHS5wDAOP
-	uKmc/EdJn5YO0gh5Cvy83Q1zRatlR8kj2ewbc8Wlo1b3Z4/UsFm/brdF+/uaJSLSl8mSyp
-	2NWF/BKO3TrballD9OKKXehU5F+q0iRPDgt21kM0kvfoCN4Nw9vpWhDRvwt4GJkrb+neVT
-	PVrwXBy8l7k17xDim5lHMtysIIreKAiDRxgpAaCxk9uR4eqq1tXzpMfEe1nHZjmGKauVvQ
-	SQ2NVrI3EV7XtghjC/Yv1KQren//EjMD1paABk45IPW7b7E733jwvOKLtNlLEg==
-Date: Mon, 27 Apr 2026 15:15:17 +0800
-Subject: [PATCH v5 3/3] riscv: dts: spacemit: Add thermal sensor for K1 SoC
+	id 1wHGKZ-0000000GMpG-2PMn;
+	Mon, 27 Apr 2026 07:24:35 +0000
+Received: from azure-sdnproxy.icoremail.net ([52.237.72.81])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHGKV-0000000GMod-3rCC;
+	Mon, 27 Apr 2026 07:24:34 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app2 (Coremail) with SMTP id TQJkCgAXLaAPD+9pVwkVAA--.22769S2;
+	Mon, 27 Apr 2026 15:24:01 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	horms@kernel.org,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v7 0/4] net: stmmac: eic7700: fix EIC7700 eth1 RX sampling timing
+Date: Mon, 27 Apr 2026 15:23:53 +0800
+Message-ID: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
 MIME-Version: 1.0
-Message-Id: <20260427-k1-thermal-v5-3-df39187480ed@mailbox.org>
-References: <20260427-k1-thermal-v5-0-df39187480ed@mailbox.org>
-In-Reply-To: <20260427-k1-thermal-v5-0-df39187480ed@mailbox.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Shuwei Wu <shuwei.wu@mailbox.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Vincent Legoll <legoll@online.fr>, 
- Gong Shuai <gsh517025@gmail.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777274126; l=3192;
- i=shuwei.wu@mailbox.org; s=20251125; h=from:subject:message-id;
- bh=8HzKh0CsYmGIMngJ/4+BYykBWGiMmfP0pM8J1UsfrB0=;
- b=sPSo1p+fRgWfsIBAcWspbSex6Q+7fR3ybqJIkbskOZxkD7AxY1MFkmmpVh5Ps5X0eCAf+8hUc
- hsumGXIewy5C1H9TpeSr6e4GKLgjDuLuNCIUPPOzBwuo3D/wRuRSSQn
-X-Developer-Key: i=shuwei.wu@mailbox.org; a=ed25519;
- pk=qZs6i2UZnXkmjUrwO5HJxcfpCvgSNrR4dcU5cjtfTSk=
-X-MBO-RS-META: 1edu9cugtjhi4dqfs4p77qwrqgmidauy
-X-MBO-RS-ID: 5067cfa422e911d2738
+X-CM-TRANSID: TQJkCgAXLaAPD+9pVwkVAA--.22769S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Gr1kAw4UCr47XrWfJw4kCrg_yoW3tw4xpF
+	WUWrn8JFsxJF1xAan7t3W09a4Sqan3GF4jgr1rJrnrXws09Fyqqr1S9F45ZFyDurZ7ZryY
+	vF15KF4jka4j9FJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRifHU3UUUUU==
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_001637_799110_7A6ADF07 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260427_002432_137018_DBB86BB0 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,144 +101,207 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Include the Thermal Sensor node in the SpacemiT K1 dtsi
-with definitions for registers, clocks, and interrupts.
-Additionally, configure thermal zones for the soc, package, gpu, and
-clusters to enable temperature monitoring via the thermal framework.
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-Tested-by: Vincent Legoll <legoll@online.fr> # OrangePi-RV2
-Tested-by: Gong Shuai <gsh517025@gmail.com>
-Signed-off-by: Shuwei Wu <shuwei.wu@mailbox.org>
+v6 -> v7:
+  - Address checkpatch.pl --strict warnings for DTS changes:
+    - Split DT binding documentation and DTS board description into separate patches
+    - Fix DTS style issues reported by checkpatch:
+      - Reduce line length where applicable
+      - Add required description for rgmii-rxid
 
----
-Changes in v2:
-- Update compatible to "spacemit,k1-tsensor"
----
- arch/riscv/boot/dts/spacemit/k1.dtsi | 101 +++++++++++++++++++++++++++++++++++
- 1 file changed, 101 insertions(+)
+  - DTS changes in this series are split into:
+    - Patch 3/4: syscon binding update (documentation / reference only)
+    - Patch 4/4: board DTS changes (architecture overview only)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 529ec68e9c23..e9952204224e 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -339,6 +339,96 @@ osc_32k: clock-32k {
- 		};
- 	};
- 
-+	thermal-zones {
-+		soc-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 0>;
-+
-+			trips {
-+				soc-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		package-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 1>;
-+
-+			trips {
-+				package-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		gpu-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 2>;
-+
-+			trips {
-+				gpu-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				gpu-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		cluster0-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 3>;
-+
-+			trips {
-+				cluster0-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				cluster0-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		cluster1-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&thermal 4>;
-+
-+			trips {
-+				cluster1-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				cluster1-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -494,6 +584,17 @@ syscon_apbc: system-controller@d4015000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		thermal: thermal@d4018000 {
-+			compatible = "spacemit,k1-tsensor";
-+			reg = <0x0 0xd4018000 0x0 0x100>;
-+			clocks = <&syscon_apbc CLK_TSEN>,
-+				 <&syscon_apbc CLK_TSEN_BUS>;
-+			clock-names = "core", "bus";
-+			interrupts = <61>;
-+			resets = <&syscon_apbc RESET_TSEN>;
-+			#thermal-sensor-cells = <1>;
-+		};
-+
- 		i2c6: i2c@d4018800 {
- 			compatible = "spacemit,k1-i2c";
- 			reg = <0x0 0xd4018800 0x0 0x38>;
+    These patches (3/4 and 4/4) are provided to facilitate review of the overall
+    Ethernet integration across binding, driver, and device tree, and are not
+    intended as final upstream submission in their current form.
+
+    A cleaned-up, upstream-ready DTS series will be submitted separately once
+    all dependencies and final hardware integration are completed.
+
+  - Note:
+    - Clock-related bindings referenced in earlier revisions are now already merged
+      into net-next, so dtbs_check warnings related to clock are no longer present
+      and are not relevant to this revision.
+
+  - No functional changes in the stmmac driver or binding semantics in this revision.
+
+  - Link to v6:
+    https://lore.kernel.org/lkml/20260423085501.760-1-lizhi2@eswincomputing.com/
+
+v5 -> v6:
+  - Update DTS/DTSI descriptions to fix invalid phandle references reported by DTC:
+    - Add missing GMAC provider nodes required for proper hardware description:
+      - HSP power domain: GMAC nodes moved under this domain to reflect
+        hardware power hierarchy.
+      - Clock nodes: added to provide clk phandles referenced by GMAC.
+      - Reset nodes: added to provide reset phandles referenced by GMAC.
+      - Pinctrl nodes: defines pinctrl settings for GMAC signals
+        (pinctrl_gpio106, pinctrl_gpio111).
+    - Move GMAC nodes under the correct HSP power domain.
+    - Ensure DTS builds without dtc errors and all phandle references
+      (clk/reset/pinctrl/power-domain) are valid.
+    - This update does not change runtime behavior; it only improves DTS
+      consistency and resolves issues reported by dtc.
+
+  - Note:
+    - The patch 3/3 for DTS changes in this series provide an overview of the GMAC
+      integration and its dependencies, as discussed previously:
+      https://lore.kernel.org/lkml/64bf6b40-b947-4ffa-8d48-4d6341931327@lunn.ch/
+
+    - It is **not intended for upstream inclusion** in its current form,
+      and is provided solely for architecture overview and integration
+      context.
+
+    - A fully cleaned and upstream-ready DTS series will be submitted
+      separately once all related components (pinctrl, clock, power-domain,
+      etc.) are finalized.
+
+  - dtbs_check has been run on top of net-next for reference purposes.
+    Remaining warnings are expected due to missing EIC7700 clock bindings[1]
+    in net-next and do not reflect issues in the DTS design itself.
+
+  - One remaining warning:
+    - eswin,eic7700-clock
+
+  - The clock binding has already been applied to upstream and is present
+    in mainline, but not yet available in net-next.
+
+  - The syscon binding is extended in this series to include the
+    eswin,eic7700-syscfg compatible.
+
+  - Any further refinement of the syscfg binding will be handled in
+    separate patches if needed.
+
+  - Dependencies:
+    - [1]EIC7700 clock binding:
+      https://lore.kernel.org/lkml/20260303080637.2100-1-dongxuyang@eswincomputing.com/
+      (already applied to upstream)
+
+  - Link to v5:
+    https://lore.kernel.org/lkml/20260324073017.376-1-lizhi2@eswincomputing.com/
+
+v4 -> v5:
+  - eswin,eic7700-eth.yaml:
+    - Add Acked-by from Conor Dooley
+    - No functional changes
+
+  - Update dwmac-eic7700.c:
+    - Disable clocks on the error path to fix a clock leak in
+      eic7700_dwmac_init() when regmap_set_bits() fails
+      (reported by Simon Horman <horms@kernel.org>)
+
+  - Link to v4:
+    https://lore.kernel.org/lkml/20260313075234.1567-1-lizhi2@eswincomputing.com/
+
+v3 -> v4:
+  - Update eswin,eic7700-eth.yaml:
+    - Improve commit message in dt-bindings patch to clarify the
+      hardware difference of the eth1 MAC and why a new compatible
+      string is required.
+    - Move the newly added eswin,hsp-sp-csr item to the end of the list
+      to avoid inserting entries in the middle of the binding schema.
+    - Simplify the compatible schema by replacing the previous oneOf
+      construct with an enum.
+
+  - Update dwmac-eic7700.c:
+    - Fix build issues.
+    - Adjust code to match the updated binding definition.
+
+  - Update DTS/DTSI descriptions:
+    - Move SoC-level descriptions to the .dtsi file.
+    - Keep board-specific configuration in the .dts file.
+
+  - Link to v3:
+    https://lore.kernel.org/lkml/20260303061525.846-1-lizhi2@eswincomputing.com/
+
+v2 -> v3:
+  - Update eswin,eic7700-eth.yaml:
+    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
+      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
+      field (127 * 20 ps).
+    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
+      step size.
+    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+      A well-designed board should not require internal delay tuning.
+    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
+      example to avoid encouraging blind copy into board DTs.
+
+  - Update dwmac-eic7700.c:
+    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
+      DT properties.
+    - Apply delay configuration only when properties are present.
+    - Keep TX/RX delay registers cleared by default to ensure a
+      deterministic state when no delay is specified.
+
+  - Describe Ethernet configuration for the HiFive Premier P550 board:
+    - Add GMAC controller nodes for the HiFive Premier P550 board
+      to describe the on-board Ethernet configuration.
+
+      The Ethernet controller depends on clock, reset, pinctrl
+      and HSP subsystem providers which are currently under
+      upstream review. These dependent nodes will be submitted
+      separately once the corresponding drivers are merged.
+
+      Due to these missing dependencies, dt-binding-check may
+      report warnings or failures for this series.
+
+  - No functional changes to RX clock inversion logic.
+
+  - Link to v2:
+    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
+
+  - This series is based on the EIC7700 clock support series:
+    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
+    The clock series is currently under review.
+
+v1 -> v2:
+  - Update eswin,eic7700-eth.yaml:
+    - Drop the vendor-specific properties eswin,rx-clk-invert and
+      eswin,tx-clk-invert.
+    - Introduce a distinct compatible string
+      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
+      require internal RGMII clock inversion.
+      This models the SoC-specific hardware difference directly via the
+      compatible string and avoids per-board configuration properties.
+    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
+      minimum/maximum to reflect the actual delay range (0-2400 ps)
+    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
+      description. The HSP CSR block is described in Chapter 10
+      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
+      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+  - Update dwmac-eic7700.c:
+    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
+      properties.
+    - Select RX clock inversion based on the new
+      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
+      match data to apply the required configuration for affected MAC
+      instances (eth1).
+
+  - Link to v1:
+    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
+
+Zhi Li (4):
+  dt-bindings: ethernet: eswin: add clock sampling control
+  net: stmmac: eic7700: enable clocks before syscon access and correct
+    RX sampling timing
+  dt-bindings: mfd: syscon: add ESWIN EIC7700 compatible
+  riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet
+    controller
+
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ .../bindings/net/eswin,eic7700-eth.yaml       |  69 ++++-
+ .../dts/eswin/eic7700-hifive-premier-p550.dts | 239 ++++++++++++++++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        | 105 ++++++++
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 183 ++++++++++----
+ 5 files changed, 541 insertions(+), 57 deletions(-)
 
 -- 
-2.53.0
+2.25.1
 
 
 _______________________________________________
