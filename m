@@ -4,99 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D53BFF8850
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 02:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D46FFF8860
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 03:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AxWAZFwg3yoiGnpJOL9A1w656B9uuQLLuwFmVxlAFrQ=; b=qL9cfFWT4Glo8K
-	4fnrxB2wRhHh/xGaj/lge1tLSgEnPDcyUEJL8zBBTuWD72zEdKJivpUGOnWwP3pLadYvZmS1PF9sx
-	K8yLEUcShKqL/Jf7ggwmObfXEl+LA9FhD+XX9r3fWvLOaHiUAAl40nwPJZMdCOXJ1vs0L4WnOc1QU
-	rleUaHvmVs0ze6lT9RE2UZZfCuA2KspMznCSJY8kjXVd+mnEWAUVbCfRywkfPfm1VanuVgfjOYRft
-	dZANikS9EK2eJeE2FxI0ypqG2c3ZgrE4sF9WgBR+6ioCZhTfCxKLpv0BZT3dZt6ZSc9/12ZP+Cn4Q
-	8ay/sOkJ6oND/Oob2W2A==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Vnj1RhtTBP/6nHzj1q1Cq80gvvyG3ErQZWtJ94acVpU=; b=tS4YFinUjbISTY45wh3er4drU8
+	Eyz0ifYyu3ELAyFsxsA+GSeqt8if0cvKIfYs8pVz02duB+LTmCf0UP4zn81VkHVs8u9PCNkPx8jLV
+	aJ0cmrSttgcB4zbypgq6LKW/8raAB6tpxXYkPKPZ9o/YQd+0O0kUKy6SOFoDnYZmsDb13L8FPkSZR
+	M0hNX8EEpnJJfdjl086DlpwIfmbgaectKA6Hf1SzVV+GeRs5Kt8QcxWDtISnkuavuUqtTSrtw9sni
+	KolrIk1cwByFNxHJ7BwiR5e0QLmZpYoZEsNOMKr0fKE+9QcCr8jASSZDwkRXDsGUffddMs/ZsUxmQ
+	CmXBLyWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHC6b-0000000G53F-0jTi;
-	Mon, 27 Apr 2026 02:53:53 +0000
-Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
+	id 1wHCwd-0000000G7Wz-3Iv1;
+	Mon, 27 Apr 2026 03:47:39 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHC6Z-0000000G52w-0Noi
+	id 1wHCwb-0000000G7Wd-2Cc5
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Apr 2026 02:53:52 +0000
-Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-2d9916deb14so17363317eec.0
-        for <linux-riscv@lists.infradead.org>; Sun, 26 Apr 2026 19:53:50 -0700 (PDT)
+	Mon, 27 Apr 2026 03:47:38 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-6794b8699b8so762725a12.1
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Apr 2026 20:47:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777261655; cv=none;
+        d=google.com; s=arc-20240605;
+        b=U7xCD2AZCBJ4vKxuQSB8i1QUbEqgiTk5+gshQdnAh1lbKxnItdx8GnjnT54ef396jR
+         lmFmA327Qu0TbvrARadnYbqLm8ANThNd3EJS7h1Q++wRS6EuRA2Rob4xqZ8s5E9893/X
+         xZmVuH3Dp1oabpD8f5dbhcuwCYmXGE9qHCVMpeOOiqp9RnCfH3VwPjUsxUnijXlIHaOU
+         ygfpGnFrAmWxLpgBB0wgw0P675R5s74wHLfj2Uo7DU5iuSGNB44BTzR+VnHhBcLBoFIF
+         7kKIIN32pSkY/Q/JD22vAiYO6cackMJQS2BxTpCc8M2NReLnd8RegXDDLPH9mOyORUqC
+         TNVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=xVJ2BhwV83qVllgr6FcBChE7Y8IWtvvWh4DLe0sZCm4=;
+        fh=aC9qxksevgzbpqvhd/Ci/JyBJRLE8GTceZYRamiJix0=;
+        b=bulFoRoADnYbwd77Vz6YdPyN5jLF/XAygkElcl1HGurqIkbi9SrU6bEpXqAJK1dcGr
+         z2yCI28jeS7J3g5trhYehwSSkSPmlF0KhirszlqVGGcGWq1yKwEkmXXjBMRjLDTfXZy9
+         0iHTuYsP6rocKNPsD5kfEDwB5cdgGWluk5MIhNfsAgykgtOxxCB55YATSWWNPqDJWWO7
+         Np0L2MPLEtXkuoY/bkuuEE3maotb1CXE5oF+JD6wSpCq57MIoMsoXgcYhisX2MJJH5uK
+         T31w5Emwlllu1UmAfqEeZrjCl6IRt/loKehAaUJLgAo9jCnn4vKmF7UWOia0GTh1HHqC
+         ShVg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1777258429; x=1777863229; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XZvmQ7eoImwy7zW1eddL/tScs5S4rVs3fx4RgOdLsO4=;
-        b=Jx8bePEHGcLZoEyEzamorx/DcpDi6ga45tEXdLBdy0c/PvsK6BJMBXxSFvVIMah9FM
-         YvySczUwUbr/n0bPqq1zU7gfk2K/aNSm4PLTaWSqGDju88mVWR82iGGovlcIgx1Ji8/m
-         t+Z/uSTNjLDW3k6GL4DHcStonIMxyFFl8Q4v8HUgxkpBKWlDBH7+x8TaMPfMgJ20a547
-         jHWvfA07IzDP0DFH4ygXxcGL2nprSlWNQy5vCOBVy/vL/eGe/+KQpgC9puhfuIRB4F99
-         HVIbes35WPvl+DrUOkW74aqXuRh67YJ78RvUsU5zD7SwzqPTIl2mzgk3G+ZKcNs77UTc
-         CKdw==
+        d=gmail.com; s=20251104; t=1777261655; x=1777866455; darn=lists.infradead.org;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xVJ2BhwV83qVllgr6FcBChE7Y8IWtvvWh4DLe0sZCm4=;
+        b=q7YRVRQjih1VG5HizjjgzUs/1rq9+uS6QEkrn4EEznZUUMSKg+8khmtYg7BRLSnxQ1
+         U2OOhDwkQVBJNAz/vvS3ahk/6UOvPNGzZRXhln/mZLIOxW3y/BumS490IKhlLLYT1siK
+         CpKA0T35SOC2JMPfd8TwBT6YSDrb706CO51h5bkvPcj7kcmXN42rm3o7ip3B2Bf8RIXj
+         bGuPbCvlLHKyPtZX3/jR2B1Y49EosTZiUPRDg9lsOouGqSzWttKXhhCYdTN4uSDpmOtY
+         9UiaaSqOUhMUDkZG4MP/i/hTb+UKtpmdQg/XO18BGrgHssl2HEVGTzuNEed0/x4tZDQw
+         h5Tg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777258429; x=1777863229;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XZvmQ7eoImwy7zW1eddL/tScs5S4rVs3fx4RgOdLsO4=;
-        b=W7S4hjtjmUapMycpDcRw4VkAP5a5x4K8OBBSusTyjKHk2A5wTvrOeKlq+FF2o58Qnq
-         NY/FsY8YKUKYSwycUqVe0BvUWi73g7JM0hJjDt3wTGKB678dgQAByYPIl2CF9qe5F60Y
-         htNdggfnW4tVws8WeycL2F6mwxVzyCqNEgMBUbXvuKQYF6zYHnl/R2deIVkrScveYAa/
-         mZ5DT7hKy1RrvHCPDsU4eMQ8pbL3L/1yc+zfqkq4FkuDSc/IsP7ZOrKp2iwv4/3yslNK
-         6e1fsxZ1Wu58fMz/afgasADX2te4bnNF9KpeQep4Zdbn5c7zyqUj4e+oG4V/OPpiqyWn
-         MqmQ==
-X-Gm-Message-State: AOJu0YxtKvjtTlSPSJEMKXMN2VK+eu3op+ObXlEUobdmhn4TRwc3o4kg
-	S28v2HuCmcQQ9Y7B2wTp8QO5fXN0udmN9b0+qKPvC40YcbUnMs3xDCQ1jVoflq6vBZAABAAw6dW
-	8MqLzyBO8Da8HgBe6jKjlSm5+gchp/6JLdzVT6oyX0hY9vDAfRfgos9E3DoD3yp/ing85ImAGWu
-	PV0Ox0uVBRSfESB4IDl+BDbMVVUJcajeLYqgEW+5lMFHLpNSZINFstjKergto=
-X-Gm-Gg: AeBDietLVIDdDdt6JR/s4pZ9SJPNRGyyoZYzhtCqsAlSgmWtz98At86TMc0O1V0t6BJ
-	4mhyzzp56wKT+PYhkM51kAiTOMsV9SoxTvQCFfajvBPwjwv7H6TDNH25LvHX4cEZmKZK3MC1k5J
-	7tVUY9Rn8W2anMXPM8X0buHl183oxWChFg0X2gYaM69NlM2LnCaAG7oLEF7rINzp912qM06JvpU
-	qbdsbOQwHpB3d5lBzsPRSuAuDc8H5OL8Ci95YLbbo0pb2lU5VX7tbXrbD6ntu9h6UieuW9SjwGG
-	PyHLmezLjr6PgpT+0CVgJ+ex21vho5siwi6tR9gILmPiKBHVXgANZfJcjjE7hmz9Az614Yduqo7
-	IoS4y3iMhs+24+niHzi8VNi/0zV347FlQ3ASSGqzfnD+z2l/3FGcTq+D+lQ+I1idCdD3sJPJhNy
-	3ZHenYGDJdejZpSwLLt7tVgZTSM9u765YPJ1QHgBz/MhloC0nqqGHiTHNQU/+t+N9g
-X-Received: by 2002:a05:7301:3d19:b0:2c5:50fe:c795 with SMTP id 5a478bee46e88-2e4875e15f2mr25333668eec.29.1777258429119;
-        Sun, 26 Apr 2026 19:53:49 -0700 (PDT)
-Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2e53d8b3dd9sm41345856eec.27.2026.04.26.19.53.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Apr 2026 19:53:48 -0700 (PDT)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Date: Sun, 26 Apr 2026 19:53:46 -0700
-Subject: [PATCH] riscv/sifive: remove warning in errata
+        d=1e100.net; s=20251104; t=1777261655; x=1777866455;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xVJ2BhwV83qVllgr6FcBChE7Y8IWtvvWh4DLe0sZCm4=;
+        b=pgadr8K0Opxph6h6gn0vbFoEF2o5KziauDSfGIVZquBWpWK5E1Q9brujG2k6gmNkh7
+         zLgW+2DxeBUN2fUQnhcGMC3XvspNFivj34XyHf+yeU3OJtM81j4m1DZxdFAgy7TtC5ww
+         dNNl3uMnMFfZao3xOZTDVLcMPOGLkwSd4nqmc9XenTaU0QyfoLpb/OIGeGzONBAC1v+r
+         35S9GGDM2qUqUxeBwqc+82WdeCjQTg8bH+6BRML0gm66BmFHoJ5DKlgHpAPa/ViTeZ7n
+         EVyclHYbv1cq8NUiL1LI9IIyq3g1/8PO2ECInylxuWfh3QDnQW9rrGYl1RTuE2zIKO6U
+         2dGw==
+X-Forwarded-Encrypted: i=1; AFNElJ9YsgX0ISW7knIjlsi04pEBHUggCi7ote2Rf2AogdtgR88llEtlIryJoQFHXkBIazd0b05J5jHshbCqUA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyhg5o9PIxocPVV2uQFUWKKPdnyoAf0k4U6z6Hbw/6+6WFYe09r
+	iQbJ5wlLl5qZFXJ6I1lbemuepsbUfD2207pDgASRU3c+ri+5P2nZIPBFf/KqSDp/0vBEpYXbMeF
+	X2WS4GGbeBQwnc2q+9Y1mWoi7HijK/cE=
+X-Gm-Gg: AeBDiesauv7yHWAiWfpOjQSsvF6ejLxYpe//oOX4Ph4grjh2i8NAaoTnvtyV4UThfL2
+	kq47b0fXfTNwoLkdZLW0hz9YH4Ni2fiUlWxu9V2Lp4FvwFwtNjRDagmiZm6vDN7FEIB15yvkqVQ
+	QsXKfykYTtAjDl6cs2KN2nUxcN4r2j+lUWaXTQFGBpGD865XZ633EoTn3eFAJWtCJR5DCV+zVlp
+	PE1N/jkieO/XxIsUx3xNtBCnialCcn+wMjZv3FQIhehazrxQwxJntemCQd70NB/bk4MjUNQcr0B
+	vOt7+joNlXbumO8=
+X-Received: by 2002:a17:907:7b92:b0:ba5:391e:20f0 with SMTP id
+ a640c23a62f3a-ba5392d6e53mr1928899166b.42.1777261654816; Sun, 26 Apr 2026
+ 20:47:34 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260426-vendor-v1-1-041fbde8918f@sifive.com>
-X-B4-Tracking: v=1; b=H4sIALnP7mkC/yXMQQqAIBCF4avErBNMRKGrRIvUqaaFhlYE4t2zW
- n7wv5chYSRM0DcZIl6UKPiKrm3ArpNfkJGrBsGF4lIodqF3ITJppBQauVGaQ433iDPd39Ew/k6
- n2dAe7xpKeQDhCjSIagAAAA==
-X-Change-ID: 20260426-vendor-4b4427e0b670
-To: Paul Walmsley <pjw@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com, 
- Yong-Xuan Wang <yongxuan.wang@sifive.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777258428; l=912;
- i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
- bh=Tj03smyocGGv25IGJrmc69iFJyYXycCAt7rS2LHtQuE=;
- b=rp6pkO2A0aUiwLgqkmXvuOyfMOxwhYATuLhCQOwJl9j1mP2QorxJw8fOfgf5tTbLjEi9qEtvo
- apGfzsUjEsDDAI59PdnpV17UcGBfsue7Hwts2UtEXbuGDeGOMZ7HB07
-X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
- pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
+References: <20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev>
+ <f9079774-1d16-4b84-bf85-bc8444e93446@iscas.ac.cn> <DH40Z14EHV40.1I443BTRU720F@linux.dev>
+ <c1f466f8-4e76-43a2-a7a2-126415fd1f56@sifive.com> <aeqF0EiP4b2Ycj2G@aurel32.net>
+ <CANAwSgR-rJ0O9SJc92z05NVez6ZSfn9Gx8fJr3Be3QfCpR_XBA@mail.gmail.com> <ae4DJnPhTNZzah4p@aurel32.net>
+In-Reply-To: <ae4DJnPhTNZzah4p@aurel32.net>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Mon, 27 Apr 2026 09:17:18 +0530
+X-Gm-Features: AVHnY4Kd1tmDpw3x0MMZE8yuua236pOpxKWTw0tSGmfS2g3ngBY02gZ65A7OoU8
+Message-ID: <CANAwSgRiuO+YhvqXOYa7eSOrwJSyUVOO4w+v8QYi45rkVAUL+w@mail.gmail.com>
+Subject: Re: [PATCH RFC] riscv: disable local interrupts and stop other CPUs
+ before restart
+To: Anand Moon <linux.amoon@gmail.com>, Samuel Holland <samuel.holland@sifive.com>, 
+	Troy Mitchell <troy.mitchell@linux.dev>, Vivian Wang <wangruikang@iscas.ac.cn>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260426_195351_157124_3933EF31 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260426_204737_614054_555595C9 
+X-CRM114-Status: GOOD (  33.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,32 +122,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The patch_id of the availability checking for SiFive vendor extensions
-will always larger than ERRATA_SIFIVE_NUMBER. Remove this unnecessary
-warning.
+Hi  Aurelien,
 
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
----
- arch/riscv/errata/sifive/errata.c | 1 -
- 1 file changed, 1 deletion(-)
+On Sun, 26 Apr 2026 at 17:51, Aurelien Jarno <aurelien@aurel32.net> wrote:
+>
+> Hi Anand,
+>
+> On 2026-04-25 23:12, Anand Moon wrote:
+> > Hi All,
+> >
+> > On Fri, 24 Apr 2026 at 02:21, Aurelien Jarno <aurelien@aurel32.net> wrote:
+> > >
+> > > Hi,
+> > >
+> > > On 2026-03-16 08:19, Samuel Holland wrote:
+> > > > Hi Troy,
+> > > >
+> > > > On 2026-03-16 2:23 AM, Troy Mitchell wrote:
+> > > > >> I think the reason we ended up with the "unsafe" implementations of the
+> > > > >> reboot/shutdown functions is that on the backend it is usually SBI SRST
+> > > > >> calls, which can protect itself from other CPUs and interrupts. Since on
+> > > > >> K1 we're going to be poking I2C directly, we run into the problem
+> > > > >> described above. So all of these should disable interrupts and stop
+> > > > >> other CPUs before calling the handlers, and can't assume the handlers
+> > > > >> are all SBI SRST.
+> > > > > Yes, we cannot assume that all platforms rely on this.
+> > > >
+> > > > Why isn't K1 using the SBI SRST extension? Resetting the platform from S-mode
+> > > > directly causes problems if you ever want to run another supervisor domain (for
+> > > > example a TEE or EFI runtime services), which may need to clean up before a
+> > > > system reset.
+> > > >
+> > > > As you mention, other platforms use the standard SBI SRST interface, event if
+> > > > they need to poke a PMIC to perform a system reset. Is there something
+> > > > preventing K1 from following this path?
+> > >
+> > > I went this path and submitted a patchset to OpenSBI mailing list doing
+> > > that:
+> > > https://lore.kernel.org/opensbi/20260419150857.2705843-1-aurelien@aurel32.net/T/#t
+> > >
+> > I just wanted to check if we can use the latest OpenSBI image with
+> > vendor u-boot ?
+> > If so, can you share the details of flash the u-boot and OpenSBI binaries? .
+>
+> That is a good question, and no this doesn't work out of the box.
+>
+> > I was working on the watchdog driver, and the system hangs at reboot
+> > So, what changes do we need to make in OpenSBI to handle this issue?
+>
+> This can be addressed either by making OpenSBI compatible with the
+> vendor U-Boot, or by making the vendor U-Boot compatible with the
+> upstream OpenSBI. On my side, I prefer the latter option as it also
+> keeps the upstream OpenSBI compatible with the (future) upstream U-Boot.
+>
+> I have just published a blog post about how to do that:
+> https://blog.aurel32.net/upstream-opensbi-spacemit-k1.html
+>
+Thanks for the update.
 
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index d0c61f86cba3..98edd9143321 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -94,7 +94,6 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 		if (alt->vendor_id != SIFIVE_VENDOR_ID)
- 			continue;
- 		if (alt->patch_id >= ERRATA_SIFIVE_NUMBER) {
--			WARN(1, "This errata id:%d is not in kernel errata list", alt->patch_id);
- 			continue;
- 		}
- 
-
----
-base-commit: ddbf9c76c4020bf63a0799b00faad40caa3de6c2
-change-id: 20260426-vendor-4b4427e0b670
-
+> Regards
+> Aurelien
+>
+Thanks
+-Anand
+> --
+> Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+> aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
