@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BBBFF8870
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91AB5FF886F
 	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 05:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s7gaLP+6pCPmKfhFq+Y48SKTHJejJGO+7MFS5F0Y9KM=; b=K4qSD3bYL0rSYH
-	U5M1VONk6ci8pxXTJk1EhYfRq9dG5Hm7HU0hVuSFP3P5z1GFrvd2loGqwYcqYDlEQ3O8PLOtag2ES
-	lPaB7USHFfh2XeIxmfa+Mg6PKCOj6kLFFWHkWADgDWKDAG0+CvYXvZbWS1RxCcPGVUCSjtdCEVWqw
-	BdGJq8T2cBXd8MWCjSvlADapnBp02QFhJRpv35qwq3R7P6pfFc6Dp0+kHoRkulQPhLAYr3+K4Vwv5
-	oNSZWZPdrlrAJXZWWgFm0PrVo6b7LmmhAq1MvCR9TNOkXVZbXQ5Zy2c61VClyUcbgwUhCzvx1ywzp
-	hWRcczHsPKEli+Bu0xSQ==;
+	List-Owner; bh=+/3X79tbTc4sDV2VwpbFykEW/0zJCW9oGIGAkWyeaJA=; b=n1uyAlZ4eez4m5
+	iwqaZhNbxy6L34aabm0JD4iJs/SNWfEig9MDPvL4KAZgMlDAdgkWgxUFPO7UyTkN+puiPZV/A4pPC
+	SkCHDv9cNSeLw3FMR4W1KJXvHRsfFG8BKc9AbQMH6thcQdpRT0DAG3f8RQIj+QihPHk16wrc/0gPv
+	wdAUuxDfR96brDg4morQJBuuUvXprXqzeim+b6tq0H7/nEilYH4GVeyDdgK/3A40scpOdYP01il5O
+	ijaOxwvZqPgJTJfZJaimt3r8cTJvzmm4v971wBpaGHZ6l23bu9KYP+CzsskeGOBmiu0Y1Vxxf4CPE
+	OTHBqqm//qzNnC4G97/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHaz4-00000000ZxH-35gB;
+	id 1wHaz4-00000000Zx0-1t26;
 	Tue, 28 Apr 2026 05:27:46 +0000
 Received: from [218.76.62.146] (helo=ultrarisc.com)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHaz1-00000000ZvW-3Bc0
+	id 1wHaz1-00000000ZvV-3AaO
 	for linux-riscv@lists.infradead.org;
 	Tue, 28 Apr 2026 05:27:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
 	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	References:In-Reply-To:To:Cc; bh=Tocwkc4VYot/GoL8fVUOvCYHQKZ2C28
-	eNYcOYHfHk2E=; b=pXJigaJVEFEwEsHzBWShthxdVruzsFZ4kjYezcAr7ogJAGi
-	RymWj23zFGXKv2EQYe1NDNddrlnJ2jJ/+Ssv0gCuyvxdSKbEq1XZe0WEbrI6o1Kl
-	SxUJyw/vEStH6CkLIaTiIjtV6YN1iZE3PTWWnPHsu7NBwXY/7ZCXoBx7NbHs=
+	References:In-Reply-To:To:Cc; bh=eu6xcYQBkr+nwx6koqqcliFwhSiICCy
+	FSC33b3cp3aA=; b=q+rbEW1HkPWpUNdrz4jW2Ok+HJG55Lo9rCXoT2X/FXJ9Jc4
+	yiSQ6+E9hFP2YjriXdMVuOLKkEGVbAS1LtSsN0OHhwXtRa3pqN062IwvZ2m0qfer
+	EWyWNbMr1wPTcMyLf8Xg66/SE8HzWw/7ovYW8max3z1Uh/s4Rn1qVogPIN0w=
 Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwA3cUIxRfBpJRMDAA--.1785S3;
-	Tue, 28 Apr 2026 13:27:15 +0800 (CST)
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwA3cUIxRfBpJRMDAA--.1785S4;
+	Tue, 28 Apr 2026 13:27:24 +0800 (CST)
 From: Jia Wang <wangjia@ultrarisc.com>
-Date: Tue, 28 Apr 2026 13:26:26 +0800
-Subject: [PATCH v5 1/4] serial: 8250_dwlib: move DesignWare register
- definitions to header
+Date: Tue, 28 Apr 2026 13:26:27 +0800
+Subject: [PATCH v5 2/4] serial: 8250_dw: build Renesas RZN1 CPR value from
+ DW_UART_CPR_* definitions
 MIME-Version: 1.0
-Message-Id: <20260428-ultrarisc-serial-v5-1-97de63b1e3eb@ultrarisc.com>
+Message-Id: <20260428-ultrarisc-serial-v5-2-97de63b1e3eb@ultrarisc.com>
 References: <20260428-ultrarisc-serial-v5-0-97de63b1e3eb@ultrarisc.com>
 In-Reply-To: <20260428-ultrarisc-serial-v5-0-97de63b1e3eb@ultrarisc.com>
 To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
@@ -57,22 +57,22 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
  Jia Wang <wangjia@ultrarisc.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777353989; l=7244;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777353989; l=2326;
  i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=Fkiul2iLEVZ+3kLemmQNOMQEqokZ8eD0O6yeEXTTgPQ=;
- b=Vx37BdtzdbWEMSjPuMv93rRYoALJkJiPSCxjPGNckNGgwaaGyB19aifBDbdbDt7VPVHX9E3Ro
- xJULVGeKY2uCuTLFOzwSqFXP4l5+J5JikfOUE00hh4Emiu9jc0IeCmj
+ bh=A5CCafM9ZkDWbA5vbjYEFX3HyNOl1jj7t9s3liEYB0k=;
+ b=N+HNp/hepAFG1ZmnqJ49LLp4klYmysYR4HEuq/My2/fwIWaPOs61Ksl68CRtTDGxeYaRzQO0X
+ 6BLgGDHoPvYAu8bEP0qp6L+fAGzCmrjaNWAHngE0mCQRmOg8wV0UqFE
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwA3cUIxRfBpJRMDAA--.1785S3
-X-Coremail-Antispam: 1UD129KBjvJXoW3WF48Gw1UCr1Dur45JF1UKFg_yoW3Gw4DpF
-	1FkFZ8tF1qya13W34xtFW3tr4xXFWfGw1I9ry3W3yDtFW8A34ktFyYvFW3tr4DXryrArWU
-	XF1UAw4Y9a4I9r7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: AQAAfwA3cUIxRfBpJRMDAA--.1785S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF17ur43AF13KrW3AFyUtrb_yoW8KF1Upr
+	s0kr4qvryY93Z3W34IkrWjvF4Sqa15Wa4I9F9rW3sxtF13Ar1ktrs0vF9xtrnrJFWFvrW5
+	GF17Ary5uay0kr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnUUvcSsGvfC2KfnxnUUI43ZEXa7xR_UUUUUUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAKEWnti78ACwAgsB
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAKEWnti78ACwAisD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_222744_154278_6CA7BBC0 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20260427_222744_148985_566EB5BB 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,193 +89,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the DW_UART_* register offsets and CPR bit/field definitions from
-8250_dwlib.c into 8250_dwlib.h so they can be shared by 8250_dw and
-8250_dwlib users.
+Replace the magic CPR value for Renesas RZ/N1 with a composition using
+DW_UART_CPR_* bit/field definitions and FIELD_PREP_CONST().
 
-Add an include guard for 8250_dwlib.h.
+Introduce a helper macro to convert a FIFO size (bytes) into the CPR
+FIFO_MODE field value, with BUILD_BUG_ON_ZERO() checks for alignment and
+bounds. Use it to replace the literal FIFO_MODE values in the RZN1.
 
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
- drivers/tty/serial/8250/8250_dw.c    | 11 ------
- drivers/tty/serial/8250/8250_dwlib.c | 49 --------------------------
- drivers/tty/serial/8250/8250_dwlib.h | 67 ++++++++++++++++++++++++++++++++++++
- 3 files changed, 67 insertions(+), 60 deletions(-)
+ drivers/tty/serial/8250/8250_dw.c    | 11 ++++++++++-
+ drivers/tty/serial/8250/8250_dwlib.h |  7 +++++++
+ 2 files changed, 17 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
-index 94beadb4024d..467755bf0092 100644
+index 467755bf0092..5cf3bb74b285 100644
 --- a/drivers/tty/serial/8250/8250_dw.c
 +++ b/drivers/tty/serial/8250/8250_dw.c
-@@ -34,22 +34,11 @@
+@@ -937,7 +937,16 @@ static const struct dw8250_platform_data dw8250_armada_38x_data = {
  
- #include "8250_dwlib.h"
+ static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
+ 	.usr_reg = DW_UART_USR,
+-	.cpr_value = 0x00012f32,
++	.cpr_value = FIELD_PREP_CONST(DW_UART_CPR_ABP_DATA_WIDTH, 2) |
++		     DW_UART_CPR_AFCE_MODE |
++		     DW_UART_CPR_THRE_MODE |
++		     DW_UART_CPR_ADDITIONAL_FEATURES |
++		     DW_UART_CPR_FIFO_ACCESS |
++		     DW_UART_CPR_FIFO_STAT |
++		     DW_UART_CPR_SHADOW |
++		     DW_UART_CPR_DMA_EXTRA |
++		     FIELD_PREP_CONST(DW_UART_CPR_FIFO_MODE,
++				      DW_UART_CPR_FIFO_MODE_FROM_SIZE(16)),
+ 	.quirks = DW_UART_QUIRK_CPR_VALUE | DW_UART_QUIRK_IS_DMA_FC,
+ };
  
--/* Offsets for the DesignWare specific registers */
--#define DW_UART_USR	0x1f /* UART Status Register */
--#define DW_UART_DMASA	0xa8 /* DMA Software Ack */
--
- #define OCTEON_UART_USR	0x27 /* UART Status Register */
- 
- #define RZN1_UART_TDMACR 0x10c /* DMA Control Register Transmit Mode */
- #define RZN1_UART_RDMACR 0x110 /* DMA Control Register Receive Mode */
- 
--/* DesignWare specific register fields */
--#define DW_UART_IIR_IID			GENMASK(3, 0)
--
--#define DW_UART_MCR_SIRE		BIT(6)
--
--#define DW_UART_USR_BUSY		BIT(0)
--
- /* Renesas specific register fields */
- #define RZN1_UART_xDMACR_DMA_EN		BIT(0)
- #define RZN1_UART_xDMACR_1_WORD_BURST	(0 << 1)
-diff --git a/drivers/tty/serial/8250/8250_dwlib.c b/drivers/tty/serial/8250/8250_dwlib.c
-index b055d89cfb39..8859e66d2d71 100644
---- a/drivers/tty/serial/8250/8250_dwlib.c
-+++ b/drivers/tty/serial/8250/8250_dwlib.c
-@@ -13,55 +13,6 @@
- 
- #include "8250_dwlib.h"
- 
--/* Offsets for the DesignWare specific registers */
--#define DW_UART_TCR	0xac /* Transceiver Control Register (RS485) */
--#define DW_UART_DE_EN	0xb0 /* Driver Output Enable Register */
--#define DW_UART_RE_EN	0xb4 /* Receiver Output Enable Register */
--#define DW_UART_DLF	0xc0 /* Divisor Latch Fraction Register */
--#define DW_UART_RAR	0xc4 /* Receive Address Register */
--#define DW_UART_TAR	0xc8 /* Transmit Address Register */
--#define DW_UART_LCR_EXT	0xcc /* Line Extended Control Register */
--#define DW_UART_CPR	0xf4 /* Component Parameter Register */
--#define DW_UART_UCV	0xf8 /* UART Component Version */
--
--/* Receive / Transmit Address Register bits */
--#define DW_UART_ADDR_MASK		GENMASK(7, 0)
--
--/* Line Status Register bits */
--#define DW_UART_LSR_ADDR_RCVD		BIT(8)
--
--/* Transceiver Control Register bits */
--#define DW_UART_TCR_RS485_EN		BIT(0)
--#define DW_UART_TCR_RE_POL		BIT(1)
--#define DW_UART_TCR_DE_POL		BIT(2)
--#define DW_UART_TCR_XFER_MODE		GENMASK(4, 3)
--#define DW_UART_TCR_XFER_MODE_DE_DURING_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 0)
--#define DW_UART_TCR_XFER_MODE_SW_DE_OR_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 1)
--#define DW_UART_TCR_XFER_MODE_DE_OR_RE		FIELD_PREP(DW_UART_TCR_XFER_MODE, 2)
--
--/* Line Extended Control Register bits */
--#define DW_UART_LCR_EXT_DLS_E		BIT(0)
--#define DW_UART_LCR_EXT_ADDR_MATCH	BIT(1)
--#define DW_UART_LCR_EXT_SEND_ADDR	BIT(2)
--#define DW_UART_LCR_EXT_TRANSMIT_MODE	BIT(3)
--
--/* Component Parameter Register bits */
--#define DW_UART_CPR_ABP_DATA_WIDTH	GENMASK(1, 0)
--#define DW_UART_CPR_AFCE_MODE		BIT(4)
--#define DW_UART_CPR_THRE_MODE		BIT(5)
--#define DW_UART_CPR_SIR_MODE		BIT(6)
--#define DW_UART_CPR_SIR_LP_MODE		BIT(7)
--#define DW_UART_CPR_ADDITIONAL_FEATURES	BIT(8)
--#define DW_UART_CPR_FIFO_ACCESS		BIT(9)
--#define DW_UART_CPR_FIFO_STAT		BIT(10)
--#define DW_UART_CPR_SHADOW		BIT(11)
--#define DW_UART_CPR_ENCODED_PARMS	BIT(12)
--#define DW_UART_CPR_DMA_EXTRA		BIT(13)
--#define DW_UART_CPR_FIFO_MODE		GENMASK(23, 16)
--
--/* Helper for FIFO size calculation */
--#define DW_UART_CPR_FIFO_SIZE(a)	(FIELD_GET(DW_UART_CPR_FIFO_MODE, (a)) * 16)
--
- /*
-  * divisor = div(I) + div(F)
-  * "I" means integer, "F" means fractional
 diff --git a/drivers/tty/serial/8250/8250_dwlib.h b/drivers/tty/serial/8250/8250_dwlib.h
-index 7dd2a8e7b780..2f26f9ecacbe 100644
+index 2f26f9ecacbe..c1f87cd42ecc 100644
 --- a/drivers/tty/serial/8250/8250_dwlib.h
 +++ b/drivers/tty/serial/8250/8250_dwlib.h
-@@ -1,11 +1,76 @@
- /* SPDX-License-Identifier: GPL-2.0+ */
- /* Synopsys DesignWare 8250 library header file. */
+@@ -6,6 +6,8 @@
  
-+#ifndef _SERIAL_8250_DWLIB_H_
-+#define _SERIAL_8250_DWLIB_H_
-+
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/build_bug.h>
++#include <linux/align.h>
  #include <linux/io.h>
  #include <linux/types.h>
  
- #include "8250.h"
+@@ -70,6 +72,11 @@
  
-+/* Offsets for the DesignWare specific registers */
-+#define DW_UART_USR	0x1f /* UART Status Register */
-+#define DW_UART_DMASA	0xa8 /* DMA Software Ack */
-+#define DW_UART_TCR	0xac /* Transceiver Control Register (RS485) */
-+#define DW_UART_DE_EN	0xb0 /* Driver Output Enable Register */
-+#define DW_UART_RE_EN	0xb4 /* Receiver Output Enable Register */
-+#define DW_UART_DLF	0xc0 /* Divisor Latch Fraction Register */
-+#define DW_UART_RAR	0xc4 /* Receive Address Register */
-+#define DW_UART_TAR	0xc8 /* Transmit Address Register */
-+#define DW_UART_LCR_EXT	0xcc /* Line Extended Control Register */
-+#define DW_UART_CPR	0xf4 /* Component Parameter Register */
-+#define DW_UART_UCV	0xf8 /* UART Component Version */
-+
-+/* Interrupt ID Register bits */
-+#define DW_UART_IIR_IID			GENMASK(3, 0)
-+
-+/* Modem Control Register bits */
-+#define DW_UART_MCR_SIRE		BIT(6)
-+
-+/* Line Status Register bits */
-+#define DW_UART_LSR_ADDR_RCVD		BIT(8)
-+
-+/* UART Status Register bits */
-+#define DW_UART_USR_BUSY		BIT(0)
-+
-+/* Transceiver Control Register bits */
-+#define DW_UART_TCR_RS485_EN		BIT(0)
-+#define DW_UART_TCR_RE_POL		BIT(1)
-+#define DW_UART_TCR_DE_POL		BIT(2)
-+#define DW_UART_TCR_XFER_MODE		GENMASK(4, 3)
-+#define DW_UART_TCR_XFER_MODE_DE_DURING_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 0)
-+#define DW_UART_TCR_XFER_MODE_SW_DE_OR_RE	FIELD_PREP(DW_UART_TCR_XFER_MODE, 1)
-+#define DW_UART_TCR_XFER_MODE_DE_OR_RE		FIELD_PREP(DW_UART_TCR_XFER_MODE, 2)
-+
-+/* Receive / Transmit Address Register bits */
-+#define DW_UART_ADDR_MASK		GENMASK(7, 0)
-+
-+/* Line Extended Control Register bits */
-+#define DW_UART_LCR_EXT_DLS_E		BIT(0)
-+#define DW_UART_LCR_EXT_ADDR_MATCH	BIT(1)
-+#define DW_UART_LCR_EXT_SEND_ADDR	BIT(2)
-+#define DW_UART_LCR_EXT_TRANSMIT_MODE	BIT(3)
-+
-+/* Component Parameter Register bits */
-+#define DW_UART_CPR_ABP_DATA_WIDTH	GENMASK(1, 0)
-+#define DW_UART_CPR_AFCE_MODE		BIT(4)
-+#define DW_UART_CPR_THRE_MODE		BIT(5)
-+#define DW_UART_CPR_SIR_MODE		BIT(6)
-+#define DW_UART_CPR_SIR_LP_MODE		BIT(7)
-+#define DW_UART_CPR_ADDITIONAL_FEATURES	BIT(8)
-+#define DW_UART_CPR_FIFO_ACCESS		BIT(9)
-+#define DW_UART_CPR_FIFO_STAT		BIT(10)
-+#define DW_UART_CPR_SHADOW		BIT(11)
-+#define DW_UART_CPR_ENCODED_PARMS	BIT(12)
-+#define DW_UART_CPR_DMA_EXTRA		BIT(13)
-+#define DW_UART_CPR_FIFO_MODE		GENMASK(23, 16)
-+
-+/* Helper for FIFO size calculation */
-+#define DW_UART_CPR_FIFO_SIZE(a)	(FIELD_GET(DW_UART_CPR_FIFO_MODE, (a)) * 16)
-+
+ /* Helper for FIFO size calculation */
+ #define DW_UART_CPR_FIFO_SIZE(a)	(FIELD_GET(DW_UART_CPR_FIFO_MODE, (a)) * 16)
++#define DW_UART_CPR_FIFO_MODE_MAX	0x80
++#define DW_UART_CPR_FIFO_MODE_FROM_SIZE(size)				\
++	(BUILD_BUG_ON_ZERO(!IS_ALIGNED((size), 16)) +			\
++	 BUILD_BUG_ON_ZERO(((size) / 16) > DW_UART_CPR_FIFO_MODE_MAX) +	\
++	 ((size) / 16))
+ 
  struct dw8250_port_data {
  	/* Port properties */
- 	int			line;
-@@ -38,3 +103,5 @@ static inline void dw8250_writel_ext(struct uart_port *p, int offset, u32 reg)
- 	else
- 		writel(reg, p->membase + offset);
- }
-+
-+#endif /* _SERIAL_8250_DWLIB_H_ */
 
 -- 
 2.34.1
