@@ -4,76 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F7CFF885D
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FDFFF8868
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KOz7HWoTfdtuCgQEV/qR8Q5Bs/Yw89WbjO84y3q2rpQ=; b=MJFymba8OPn37j
-	zQwS7qnZRxhTOVAcZ2UaeE6fGeMtG5SkugGxXA7AoiipjmB0sIidNZvSG2FN0mCrcqhfLK8FS9UIZ
-	KOhkMTkxjVOCqw8W7O2iP2IYyA5NK8HrvSov4A5tkshneuskQNRD3edxreOnoeplclE0P76G8sYau
-	sUazZq28andLCVjKxREuBbPH5gbiO2ADg3LgsVjXZ4sS1wEynMBYoxTEbS0VdwGxtNoKPJCYtX9bB
-	ahLFUxgbIcXRccocy+R8cESqSKTFS1LAA0hOlION+ecZ7E8dsANCy9nvXRl0g45xUgUfBiDkBhHNG
-	TDZmOu+tCtjaBptVOOhw==;
+	List-Owner; bh=t4/hCSMDrRzydqmkrQrnPZtkgB3Nabz1GNnorkn6xZI=; b=zu0KaPzFSZlM+c
+	IjK7hoStTwmlasue93/5ap47FFZd9KLYvpdN+Sm6G3knsYPuu6hkklraX1ShTsB12kDkcVeZ7BcG+
+	j/+d2vTaj1JrH0zzsZT/bYLdeTc6WpfE/H8tzzHkRfLqkWkGUpnYa4SkOtRmopo6Z9F+GLb3qD0hu
+	j5VzNiyB1i8Hubigt3fg3/7kA272CNJ28UPDysYwkZ39bOq80VWQhvVLgCPruRpsDCxYUasTMzu8n
+	UAIJHw//bg4hV/1GXUz+3XbMdXZT/YNYayeBPuMPE40xORToZwR07nN58a0Del0SDPO0GyBAdfu3J
+	aX/yvn6DWkkIiNitvnPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHicK-00000001YrS-0VE2;
-	Tue, 28 Apr 2026 13:36:48 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1wHidf-00000001Z66-2APK;
+	Tue, 28 Apr 2026 13:38:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHicH-00000001YqO-2tsw
+	id 1wHide-00000001Z5d-1lWO
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 28 Apr 2026 13:38:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=WHmUngA0Beg9PMjrunFUFdxSHW2GXtc2kWTAdD0BnF4=; b=DkS3/XF62DfNr7wmyTeILGT9/V
+	+AXvIpSRP5aVzw/Xehc4GuLTkjkjtuFbFiH4Edt1qYhGC+6obbmhOEN7GIumyEaP3mNltFgJOZcD1
+	q97nyxBDtVUy3z7DqLRDstUD67AdknUyo0seJFo1Xo0jtpbvuNS0YwJPi0VrIWUjNk0uth5LEWbpy
+	4Knw7BV9iywiHzRLHGTeXt1L8FC6di2AOpYW9YYQcpj0jHAdTqIu1+gVQXTwwgSeusGM+eChaO1Dm
+	o404rONUrkIXKMp11nj8o+fPkinCHZbPRxh7GTSg4Cg0UTB2oT7LX0t7z3Q7KqAo1MzxvNADkhkLn
+	xIa4yO8A==;
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHidX-00000003CAM-3ycU
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Apr 2026 13:36:46 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-8ec37d52c0dso1181058385a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 06:36:45 -0700 (PDT)
+	Tue, 28 Apr 2026 13:38:06 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8c70b5594f4so1244382885a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 06:38:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1777383404; x=1777988204; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1777383482; x=1777988282; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eZ19NsW5fr6ajdZR5D4lYg3z8k9sQDPcT96d4+jJChg=;
-        b=eRm08gVyBhZm/Xtru/+cHNU5LitwwknRsofeZlhh4WfuU/ud0TK1L7Mce0DN1z2sql
-         5nFimdy+ELICD0skGynK4nEbY1/i5HTtgE9G9DqWvyjzWTlFrwxLiqCZj3RF6vQ8FYBx
-         3ADW1+O75PiYyTMaXWMaNQ/qd+l9nux2QIllTh8ZE49A/N/y9bMTK+PvrrCrqiHLaS5l
-         l+qDfURqwFI6QWzQem7v/AmLJ6l1th/EvN16AkrZEM6ephTCjh3ejwmXhdhM/XpskKE2
-         CxSjz6cxNSErud1cBUVk2jLiKUSU5YJ/e4gELrwuOy35g1XsBMy61QlGCVJ9rw9UxvOV
-         0aXw==
+        bh=WHmUngA0Beg9PMjrunFUFdxSHW2GXtc2kWTAdD0BnF4=;
+        b=c67/nAhJ4rAiEy3+eJOfYsj9qKRc1To/ifvCFMGdAa7ul+K/FXUtlg/M4EkdGkCZgY
+         22AmWe4JS/CxK4Ta9K4mEVhrM91yOrcXW9BUVFiyLvZOnz6bx5PrkOoePWI7nZmFGSPZ
+         6mSqx31+P8ediM4AZBqnAVeumiiDOt56whOn4uhs3CzFtB4BVWJCAyL/vg0ec6vVHDmE
+         rg6Oed+SLZxZjeBJ8V3VKXNcX5H+0tfewNpaMXL/60gsLTXX/+Xi4mOAvDoQ9XbjUcAs
+         WBN85/CS4rsGSlni9iC/U9rG3P2EJmHtJxrHOrU40Uj2SEezNQqs5X0FXlHoZREIvdZo
+         ovzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777383404; x=1777988204;
+        d=1e100.net; s=20251104; t=1777383482; x=1777988282;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eZ19NsW5fr6ajdZR5D4lYg3z8k9sQDPcT96d4+jJChg=;
-        b=lsFtfI+gevg+LZDehEFHnO2yn0xnItroqQKGUepn8bJ6Ee6zJvguThETAzpWyDjePU
-         f+0Aq1r59haiba9fm9tkMZJA7GWmRk3+Mp084EPh/FvfYo2ajszrD/WX5tp6XnqN3Gwj
-         IMtqEjz5+vKkp4JU+P02X0SZgVBDkBtz71yHWKhUCrHVKMUFIhK9w9HsEyosTUKablvS
-         TJiF/K4K1msOrrYgqPxB/S5rbtPHpKvjDh/gntzxQlXebOfJv7cOSBMSX/SqAY8uOpO1
-         WbkRqv2BBknSpwjjyL0WrDCELqLgw9gXq+JP589+GVSuZjTfQS4SI7UQt1I6AAA9IS3t
-         WBDQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/A/g/B/GdRjr2DN8fl/hgh7dXD+2/ToaA+f17m9/580jfpePhfMmlDHqZ9Hf3IfIl5tIh+zSV0o4EMAQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgqtfMwGorOs67GHmYi2l0vqcqdh7aYtMG1iTVihb9Sr/iqAen
-	SczmGcsSj/tnAj0O88nOeHlsv4qpLE2QTOd8eOFpKbxDmqnXGkgp2OxG/gtbo+r5x2k=
-X-Gm-Gg: AeBDieu1QB6xZtQ2U5CUhc8sx9kslOTpdKcu2cFlRAHfpSSxHddfRu0xgiOg5ibglcg
-	IzbBBImScryqx4kCL+qEKyvXC7N2Z7wBngXOe14ypD8xARXYPCddgSy7S08L146P5p2LdYuslEb
-	JFiexMZPB/l7trKsNpLoBBrswDth07bKREk1NqICgddAYDsb4b5cs/LBhsbk67oohwWwdAhxNfK
-	5HDAPaetF2PzIDWclandwia9EDazQcKWPQyNA1JkhHJU6UqxcH1qe4KeVZ8mpcUt00inzIYLHvc
-	5VBa/wA6gqXIBLgHbXX4tjBJlMsBXUMFTvtrA17/68P70L/0tZKDodlwVgEj915tWaOXG0bF5Ah
-	Jrj6AgxG2mkBz7ZXcyspTu0t7K7r9X2J25qFuC/LyUUpcS+qjosOqzV8oIWC8rrS4JPiXxPzBII
-	BILUE+EJOzRnFJu7snxRHSALBIOCWNRhEo5PFCLqEx4Rpl5I2l1YJfUUMdfxShPiJ57z2a10CNl
-	3davfoI56jFRjEr
-X-Received: by 2002:a05:620a:4002:b0:8ec:a621:a3af with SMTP id af79cd13be357-8f7d7d17f49mr430093585a.27.1777383404115;
-        Tue, 28 Apr 2026 06:36:44 -0700 (PDT)
+        bh=WHmUngA0Beg9PMjrunFUFdxSHW2GXtc2kWTAdD0BnF4=;
+        b=ESexZuBf9dWnwNIAoPYYL4Wf4B3I0ELgPX48OyA34DbG99ZZsVjwgwSNB+Ds/mOiqF
+         FM6HXdk+cnpYJZj/IGYhPE/QCRPYSchnxu8RaDerhA+E2NzB8heqlZdSph+ylAPwfIwY
+         x51jaYHyLBuqYaWzkKLo+t/WpLOK5JqhgQCeO/EHg4j0xv+SciBQu8oUQPMTMYZrLdtT
+         0Orh1LbJWW7MqjgpeLWBw2haQF54/0pT2+ekiWKJebc0FGNc1O3/FnHorN8CZkZ3K03t
+         DNSHy4H0vaIEaNyfncBUJfuhVgO1MkFavRRXFRjIHcyF6OxLhy725pwAdRS3nELIv1+6
+         H8zA==
+X-Forwarded-Encrypted: i=1; AFNElJ9gkvTQIPsbGqvo3vAHAkvodx+dM4KKubQCL3uZol6Lvkz/mOlRxmjsLGvqqrmTKPGT6W56+5L0+hr2oQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfyjRhVfJ0OQ0dVS5LJGNwJuz3Fu9Yj1L6MwFVu+1ilTk/7ZDk
+	EIwhPWw+B4QC2AqArT0nN3yxOdAdAUNS2NSVci39iMyURzXMZrgl6pUBD5wrxDEdZUs=
+X-Gm-Gg: AeBDiev45RLVpR1PjASJ3nEN7SZfdfogKn62EPEIqCvjPJo40wzK4m1adAckz/NmxnP
+	6YTWxlAh/7rwa63NETQh1xXdA8tOhl5Ma6Az75Gs1OA8vPtuFpoWC91pw2jdG+jmvk0F5I4kHNy
+	DBDm381Ujfg/KGjXcC+qAYFzQlhTABYshuivj3LDLq4pQ5u7DHzpbf+QSHDRPC/HsqojMZP3NJo
+	SpZ6ibVgUzx2SEPAy+aJFOdGP1EgDfMw0bZDbEfHZUwrWb/aejJjKpptCyu1aSlmi9JhTrp71/E
+	YQLUgYbJfQuxzN7FqRjAJuSG36YldnejEiHbsuq/P9dcjrCAB5HMG3IBgcrw3qOjCzW59fCJCpn
+	ouLkCbdd0SJv+mk1pQFTPwcXijt7mlCCRfIX0VKwAqN7ewf0EcCilVO8dNIuG17IeanHEdY6D9T
+	SEDykrhm+Dxa2tNjlDNI4ltW2IBQm5GiHfXMqX+XUMCd1rVGYh+PTFdPLDDLvsvAZ3ru0xtpJpQ
+	ZZ3wpjlQD3knHck
+X-Received: by 2002:a05:620a:178c:b0:8cd:aa61:ad8f with SMTP id af79cd13be357-8f7d5d6dc38mr357079385a.14.1777383481817;
+        Tue, 28 Apr 2026 06:38:01 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8f7c7cd2becsm194526285a.29.2026.04.28.06.36.42
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8f7c4dbcfbdsm203538685a.12.2026.04.28.06.38.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 06:36:42 -0700 (PDT)
+        Tue, 28 Apr 2026 06:38:01 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wHicD-0000000Aii6-3yTF;
-	Tue, 28 Apr 2026 10:36:41 -0300
-Date: Tue, 28 Apr 2026 10:36:41 -0300
+	id 1wHidU-0000000Aj1L-1JSZ;
+	Tue, 28 Apr 2026 10:38:00 -0300
+Date: Tue, 28 Apr 2026 10:38:00 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: fangyu.yu@linux.alibaba.com
 Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
@@ -84,18 +99,17 @@ Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
 	kvm@vger.kernel.org, iommu@lists.linux.dev,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 07/11] iommupt: Don't preset D when RISC-V IOMMU
- dirty tracking on
-Message-ID: <20260428133641.GF849557@ziepe.ca>
+Subject: Re: [RFC PATCH 08/11] iommu/riscv: Add dirty tracking support for
+ second-stage domains
+Message-ID: <20260428133800.GG849557@ziepe.ca>
 References: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
- <20260428131359.34872-8-fangyu.yu@linux.alibaba.com>
+ <20260428131359.34872-9-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260428131359.34872-8-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20260428131359.34872-9-fangyu.yu@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_063645_737870_E103BA46 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_143804_332288_EB0FECA6 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,27 +126,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 09:13:55PM +0800, fangyu.yu@linux.alibaba.com wrote:
-> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-> 
-> When mapping writable pages, the RISC-V format code currently
-> pre-sets the PTE D bit unconditionally.
-> 
-> If hardware dirty tracking is active (DC.tc.GADE set), the IOMMU
-> sets D autonomously on the first write. Pre-setting D makes every
-> new mapping appear dirty immediately and breaks dirty tracking.
-> 
-> Introduce PT_FEAT_RISCV_DIRTY_TRACKING_ACTIVE and, when set, leave
-> D cleared for new writable mappings so hardware can capture the
-> first write. Keep pre-setting D when dirty tracking is inactive.
-> 
-> Only meaningful for second-stage (iohgatp) page tables.
+On Tue, Apr 28, 2026 at 09:13:56PM +0800, fangyu.yu@linux.alibaba.com wrote:
 
-You shouldn't need anything like this, the D bit is managed by the
-iommufd core appropriately. It *should* start out pre-set as that is
-faster when not tacking. Only once dirty tracking is started does D
-get cleared. User space is supposed to assume that everything is dirty
-prior to its first D clear.
+> @@ -1247,6 +1247,84 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+>  	return 0;
+>  }
+>  
+> +/*
+> + * Enable or disable hardware A/D bit updates (GADE) in the device context for
+> + * all devices attached to a second-stage domain. When dirty tracking is
+> + * enabled the IOMMU hardware will set the dirty bit in PTEs on write access,
+> + * making them visible to read_and_clear_dirty().
+> + */
+> +static int riscv_iommu_set_dirty_tracking(struct iommu_domain *iommu_domain,
+> +					  bool enable)
+> +{
+> +	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+> +	struct riscv_iommu_bond *bond;
+> +	struct riscv_iommu_device *iommu, *prev;
+> +	struct riscv_iommu_dc *dc;
+> +	struct iommu_fwspec *fwspec;
+> +	struct riscv_iommu_command cmd;
+> +	u64 tc;
+> +	int i;
+> +
+> +	rcu_read_lock();
+> +
+> +	list_for_each_entry_rcu(bond, &domain->bonds, list) {
+> +		iommu = dev_to_iommu(bond->dev);
+> +		fwspec = dev_iommu_fwspec_get(bond->dev);
+> +
+> +		for (i = 0; i < fwspec->num_ids; i++) {
+> +			dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
+> +			tc = READ_ONCE(dc->tc);
+> +			if (!(tc & RISCV_IOMMU_DC_TC_V))
+> +				continue;
+> +
+> +			if (enable)
+> +				tc |= RISCV_IOMMU_DC_TC_GADE;
+> +			else
+> +				tc &= ~RISCV_IOMMU_DC_TC_GADE;
+> +			WRITE_ONCE(dc->tc, tc);
+
+I'm pretty sure you don't need to do this. Just preset GADE when ever
+a S2 domain is attached, rely on the pre-set D to avoid any HW cost
+and you are fine. No need to change it dynamically unless something is
+reall weird about riscv.
 
 Jason
 
