@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61384FF8867
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 02:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2484EFF8864
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 03:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=h7Ktkxn6DAaaP2aFNAZh6JBVaFCRYZezNVoh9WKbETI=; b=snu6oXextFetMt
-	XyPaxFneIhPG3ldM+ARKH3yfOW3D0FqjeSLMKFuFkUIyCaO+SA2N70dbsD1RN3YoxL+pifN/H3j2J
-	m8tkQvcWM1Kby6q4jpRUy3uLYK8Yonf0xcnigN13uo039WGfUXDHS+jjSi4aNOzgNkjrTS9cGgdsQ
-	ZNT3qeUaxa/lf+gv8W5iCVofNd1vMKeqZIgVHyXmgtYfxQ9cW3qkzgoZlV+PjN9JjUlJF3BRH1Ofz
-	p/H9IkrJ9fh+bo6XqwcMFZTjGbhqnNtozay2ZFDKXQ/IWsLoBFI97g6VY8YV0lLezBKRD0ICULDXN
-	mi0jY8nJ6Fg6G8RcUZQg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uTj/bAwqcREA6pJEZeFLtgXY+wI+o+hNPGY8R390kTQ=; b=zX6AVg6+uG37nf
+	Rq3qIPMDfBzpkw/xf1E0dYoZA237oU1qgJEC2XRjJZoJbWQZJ0EnR2ZjK9x/PjrlOFrtdrrY23Ngu
+	oFRz2pKjuVvNjRwzp5TKnazsTBLHsZXJyJjud92EknZMab7mrUaIMq1+VziIpNpTxyu0Ld/z3BK6L
+	vkYfVfhC6I562f9RLKXeYElSSYz4U8XaWR0UR1OQ06hYnoqv3hYXZsWvQhGkepRZwnxPkTI/SrR/i
+	N7CiV82h2NDSEtI+fUZxp3laXNI+ka9C2x0mqbfVyXb9IMFGSflyoMKYJMJsJYJx0oWPzFRq79AWu
+	jGIMd/EdR+p9c9XpenLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHYNr-00000000SR3-2vjm;
-	Tue, 28 Apr 2026 02:41:11 +0000
-Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
+	id 1wHZ9h-00000000V90-3p6Q;
+	Tue, 28 Apr 2026 03:30:37 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHYNp-00000000SQh-2Y2B
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Apr 2026 02:41:10 +0000
-Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-2d9916deb14so19259988eec.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Apr 2026 19:41:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1777344068; x=1777948868; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xBnMRKm4HOrWsem4bfxRVhKbbPsJU4q6tVVLOb0/SDc=;
-        b=nSiZsgwkjaqW4vEYsKfCluhbutsNX6lnYK2gatahOjZxFgRySGRoJhB2pLIRwM/yS5
-         ygARpMBtqYDMgBDPPK9VePizIyXn5TGtsRPJL33nUaiSvixn0wmHHr78O2PN+O+wbPYk
-         SoHDNaA1iT088mCzJyosgDo71IgmFHHWJr3tW5DYQQaWqg/PAtEJYDDMBHrdaxt/Yf44
-         MMIau+ZbeF3CNzCznt8PI3ZQMwmFVPVLgxERo0sJKc1GCfKbXYhHpV8/cQ67sPM8fHIS
-         X2eeH/GxaKQqWWii8fVvMHZxrmuTQ3sTmvcZEJNvyiXmwwcEs+4EAEZgTy7IY6NPuibD
-         Qmqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777344068; x=1777948868;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xBnMRKm4HOrWsem4bfxRVhKbbPsJU4q6tVVLOb0/SDc=;
-        b=DGT0PmI7Wu/dDa+HBv5S4GPhvT6VEqbgQupSuqbDtLJDc+IH/tDaSZOB/oBcivyK/e
-         ZXDc41aAlR+pmug4VSzgH76d2o+y7RshduFM5bd5W0AI0qHbgFKJPFyROQj8kL30g9d7
-         jXZd2KsWU7iVsHE5k2ilYrBhh9C/XJmE0h3wwSymkbTHD8hNP0sxE1F9HlGrn1hIc2ZI
-         3oUq06tuX0iiDdZPcSX5NJTekF6H9R42rw5XpDaGM+MRAAQN3zB5QLzmihKHi/yFP3Fr
-         alhwOSMjoRgtUyq2xF8VTMEBPKSFDurQtsuOcz698Ml59q8qJtOuGjv3FMbonRR5UR/3
-         fKMw==
-X-Forwarded-Encrypted: i=1; AFNElJ+HBP+l0gZg+nj0P25dyhj1yoy02KxB3NRjaUxbWElUpIQpzhmUFuvFwtrSdMXQ/NrQbL50HEsjs9zoaw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzykTgIpni3gyRPUl807D3jf5y5kQ9ZQETUyealYb5Dp8TVU3G8
-	Gu3N6r4OwJymGu8YuQN7IMqyhIadQRFCqMPGsTtewfDr5IqVhptgKSRxs+J/HAXG/a4=
-X-Gm-Gg: AeBDietL/bJW91dBesxYAywuZEEKImlDchS4ADmJzqGCXCHMnrI16PfFlwn4p14vnn1
-	ebI5NTQB3HjMP1FDITzoT4+F8xkzpwaKGA8ZLQ3TiU6hcweRM+LzZtYyTcKBQkGk3VpNkMNiJmz
-	fZmcgEulyboXzZS7jByLREQTv4ohSNKyb8Yrc8T0BsUO8fiCQSnh/lK6NAG60rYYBI6+ZKdE3Bh
-	SLqUrrVK98Zz/0b2ny3Hex9vv13JwSUzt4s5ucRobDN9+IurdlEFTFZdGEy4BpPYTvyO1DGto12
-	+97koa9JqzijFRnAiCp02kTsXUPnNHj3V+9z3CHgcxOHpFu8XV6glBenlWZLoZD2L7vBtxJwyxI
-	d2Cfs1fNLb8u/KQf/2fy05IZOk8IwCCOZIxGyQL3MDKPDcq6yuJQoJfYbijdTW7LqRqbFMnBAZK
-	vH/9oYn3tRT3UJnkh9RLHD9iJKqm1F7/bdwJNGJ3bJ2MxIuIIQNMIO7inf
-X-Received: by 2002:a05:7301:128d:b0:2e6:4d6e:2cbd with SMTP id 5a478bee46e88-2ed0a03bbbdmr685314eec.8.1777344068469;
-        Mon, 27 Apr 2026 19:41:08 -0700 (PDT)
-Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ed0a10678csm1273397eec.24.2026.04.27.19.41.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Apr 2026 19:41:08 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	debug@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	david.laight.linux@gmail.com
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v2] riscv: cif: reduce shadow stack size limit from 4GB to 2GB
-Date: Mon, 27 Apr 2026 19:41:05 -0700
-Message-ID: <20260428024105.645162-1-zong.li@sifive.com>
-X-Mailer: git-send-email @GIT_VERSION@
+	id 1wHZ9c-00000000V89-43pF;
+	Tue, 28 Apr 2026 03:30:35 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=53v80o50pdZvZamiU87690P2YfIvRYFux+/+SYSB+8A=;
+	b=Ax7zlBnDvsHBrG11SUZ1Pks+cdQ09GMnJHUeJDFPnJ+emSKulfDm5/phFAybcSONUZOz7Zmdk
+	JuXPr9JubkLETkbEhoVW7TASFkDw2eI7slX9Rgg90k2o6zU9Md1T0fRV5pJf4I+L2IYefJy2p2S
+	PTql3k7K5Kbuffhny79gszs=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4g4Qks3tnTzmV7c;
+	Tue, 28 Apr 2026 11:23:49 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 25E5F40562;
+	Tue, 28 Apr 2026 11:30:17 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 28 Apr 2026 11:30:14 +0800
+Message-ID: <dfa24c4b-a423-4c80-9a8f-28c577c9ec11@huawei.com>
+Date: Tue, 28 Apr 2026 11:30:13 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 00/15] arm64/riscv: Add support for crashkernel CMA
+ reservation
+To: <corbet@lwn.net>, <skhan@linuxfoundation.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<maddy@linux.ibm.com>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<chleroy@kernel.org>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <robh@kernel.org>, <saravanak@kernel.org>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
+	<dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
+	<pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
+	<dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
+	<paulmck@kernel.org>, <lirongqing@baidu.com>, <rppt@kernel.org>,
+	<leitao@debian.org>, <ardb@kernel.org>, <jbohac@suse.cz>,
+	<cfsworks@gmail.com>, <tangyouling@kylinos.cn>, <sourabhjain@linux.ibm.com>,
+	<ritesh.list@gmail.com>, <hbathini@linux.ibm.com>, <eajames@linux.ibm.com>,
+	<guoren@kernel.org>, <songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
+	<vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
+	<fuqiang.wang@easystack.cn>, <liaoyuanhong@vivo.com>,
+	<takahiro.akashi@linaro.org>, <james.morse@arm.com>, <lizhengyu3@huawei.com>,
+	<x86@kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kexec@lists.infradead.org>
+References: <20260402072701.628293-1-ruanjinjie@huawei.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260402072701.628293-1-ruanjinjie@huawei.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_194109_679077_9FA58303 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20260427_203033_670531_081680D7 
+X-CRM114-Status: GOOD (  19.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,64 +98,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Follow the ARM64 GCS (Guarded Control Stack) implementation approach
-by reducing the shadow stack size allocation from min(RLIMIT_STACK, 4GB)
-to min(RLIMIT_STACK/2, 2GB). see commit '506496bcbb42 "arm64/gcs: Ensure
-that new threads have a GCS")'
 
-Rationale:
 
-1. Shadow stacks only store return addresses (8 bytes per entry), not
-   local variables, function parameters, or saved registers. A 2GB
-   shadow stack is far more than sufficient for any practical
-   application, even with extremely deep recursion. Using half the size
-   maintains adequate while being more resource-efficient margin
+On 4/2/2026 3:26 PM, Jinjie Ruan wrote:
+> The crash memory allocation, and the exclude of crashk_res, crashk_low_res
+> and crashk_cma memory are almost identical across different architectures,
+> This patch set handle them in crash core in a general way, which eliminate
+> a lot of duplication code.
+> 
+> And add support for crashkernel CMA reservation for arm64 and riscv.
+> 
+> Rebased on v7.0-rc1.
+> 
+> Basic second kernel boot test were performed on QEMU platforms for x86,
+> ARM64, and RISC-V architectures with the following parameters:
+> 
+> 	"cma=256M crashkernel=256M crashkernel=64M,cma"
+> 
+> Changes in v12:
+> - Remove the unused "nr_mem_ranges" for x86.
+> - Add "Fix crashk_low_res not exclude bug" test log.
+> - Provide a separate patch for each architecture for using
+>   crash_prepare_headers(), which will make the review more convenient.
+> - Add Reviewed-by and Tested-by.
+> - Link to v11: https://lore.kernel.org/all/20260328074013.3589544-1-ruanjinjie@huawei.com/
+> 
+> Changes in v11:
+> - Avoid silently drop crash memory if the crash kernel is built without
+>   CONFIG_CMA.
+> - Remove unnecessary "cmem->nr_ranges = 0" for arch_crash_populate_cmem()
+>   as we use kvzalloc().
+> - Provide a separate patch for each architecture to fix the existing
+>   buffer overflow issue.
+> - Add Acked-bys for arm64.
+> 
+> Changes in v10:
+> - Fix crashk_low_res not excluded bug in the existing
+>   RISC-V code.
+> - Fix an existing memory leak issue in the existing PowerPC code.
+> - Fix the ordering issue of adding CMA ranges to
+>   "linux,usable-memory-range".
+> - Fix an existing concurrency issue. A Concurrent memory hotplug may occur
+>   between reading memblock and attempting to fill cmem during kexec_load()
+>   for almost all existing architectures.
+> - Link to v9: https://lore.kernel.org/all/20260323072745.2481719-1-ruanjinjie@huawei.com/
+> 
+> Changes in v9:
+> - Collect Reviewed-by and Acked-by, and prepare for Sashiko AI review.
+> - Link to v8: https://lore.kernel.org/all/20260302035315.3892241-1-ruanjinjie@huawei.com/
+> 
+> Changes in v8:
+> - Fix the build issues reported by kernel test robot and Sourabh.
+> - Link to v7: https://lore.kernel.org/all/20260226130437.1867658-1-ruanjinjie@huawei.com/
+> 
+> Changes in v7:
+> - Correct the inclusion of CMA-reserved ranges for kdump kernel in of/kexec
+>   for arm64 and riscv.
+> - Add Acked-by.
+> - Link to v6: https://lore.kernel.org/all/20260224085342.387996-1-ruanjinjie@huawei.com/
+> 
+> Changes in v6:
+> - Update the crash core exclude code as Mike suggested.
+> - Rebased on v7.0-rc1.
+> - Add acked-by.
+> - Link to v5: https://lore.kernel.org/all/20260212101001.343158-1-ruanjinjie@huawei.com/
+> 
+> Jinjie Ruan (14):
+>   riscv: kexec_file: Fix crashk_low_res not exclude bug
+>   powerpc/crash: Fix possible memory leak in update_crash_elfcorehdr()
+>   x86/kexec: Fix potential buffer overflow in prepare_elf_headers()
+>   arm64: kexec_file: Fix potential buffer overflow in
+>     prepare_elf_headers()
+>   riscv: kexec_file: Fix potential buffer overflow in
+>     prepare_elf_headers()
+>   LoongArch: kexec: Fix potential buffer overflow in
+>     prepare_elf_headers()
+>   crash: Add crash_prepare_headers() to exclude crash kernel memory
+>   arm64: kexec_file: Use crash_prepare_headers() helper to simplify code
+>   x86/kexec: Use crash_prepare_headers() helper to simplify code
+>   riscv: kexec_file: Use crash_prepare_headers() helper to simplify code
+>   LoongArch: kexec: Use crash_prepare_headers() helper to simplify code
+>   crash: Use crash_exclude_core_ranges() on powerpc
+>   arm64: kexec: Add support for crashkernel CMA reservation
+>   riscv: kexec: Add support for crashkernel CMA reservation
 
-2. On memory-constrained systems (e.g., platforms with only 4GB of
-   physical memory, which is a common configuration), allocating 4GB
-   of virtual address space for shadow stack per process/thread can
-   lead to virtual memory allocation failures when the overcommit mode
-   is set to OVERCOMMIT_GUESS or OVERCOMMIT_NEVER:
-   Error: "__vm_enough_memory: not enough memory for the allocation"
+Hi, every one,
 
-This reduces virtual address space consumption by 50% while maintaining
-more than adequate space for return address storage.
+It seems the patches for crash core rework, powerpc, riscv, and arm64
+are mostly ready to be merged. Could any maintainer help pick these up,
+or should I rebase the entire series against v7.1-rc1?
 
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
-
-Changed in v1:
-- Use min() instead of min_t(). Suggested by David Laight
-
- arch/riscv/kernel/usercfi.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index 6eaa0d94fdfe..cbfb4e495e9f 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -109,15 +109,16 @@ void set_indir_lp_lock(struct task_struct *task, bool lock)
- 	task->thread_info.user_cfi_state.ufcfi_locked = lock;
- }
- /*
-- * If size is 0, then to be compatible with regular stack we want it to be as big as
-- * regular stack. Else PAGE_ALIGN it and return back
-+ * The shadow stack only stores the return address and not any variables
-+ * this should be more than sufficient for most applications.
-+ * Else PAGE_ALIGN it and return back
-  */
- static unsigned long calc_shstk_size(unsigned long size)
- {
- 	if (size)
- 		return PAGE_ALIGN(size);
- 
--	return PAGE_ALIGN(min_t(unsigned long long, rlimit(RLIMIT_STACK), SZ_4G));
-+	return PAGE_ALIGN(min(rlimit(RLIMIT_STACK) / 2, SZ_2G));
- }
- 
- /*
--- 
-2.43.7
+> 
+> Sourabh Jain (1):
+>   powerpc/crash: sort crash memory ranges before preparing elfcorehdr
+> 
+>  .../admin-guide/kernel-parameters.txt         |  16 +--
+>  arch/arm64/kernel/machine_kexec_file.c        |  43 +++-----
+>  arch/arm64/mm/init.c                          |   5 +-
+>  arch/loongarch/kernel/machine_kexec_file.c    |  43 +++-----
+>  arch/powerpc/include/asm/kexec_ranges.h       |   1 -
+>  arch/powerpc/kexec/crash.c                    |   7 +-
+>  arch/powerpc/kexec/ranges.c                   | 101 +-----------------
+>  arch/riscv/kernel/machine_kexec_file.c        |  42 +++-----
+>  arch/riscv/mm/init.c                          |   5 +-
+>  arch/x86/kernel/crash.c                       |  92 +++-------------
+>  drivers/of/fdt.c                              |   9 +-
+>  drivers/of/kexec.c                            |   9 ++
+>  include/linux/crash_core.h                    |   9 ++
+>  include/linux/crash_reserve.h                 |   4 +-
+>  kernel/crash_core.c                           |  89 ++++++++++++++-
+>  15 files changed, 193 insertions(+), 282 deletions(-)
+> 
 
 
 _______________________________________________
