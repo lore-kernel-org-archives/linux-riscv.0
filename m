@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4897EFF885D
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743F0FF885D
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KKfRSWQnXUH8eTrVHJ0viOZTDAgNSlwJ67168PEm9I4=; b=Lw/SXFyUPLdIuB
-	DYI04IpwAihhp8Vxy4M/3EIAnnbxlian7t6cuXG3DK5yY0Thry9uUAlPAcriz2ztMl6yDUfXSJ+pM
-	FkwFTt8nrNK/CEvChZ8iwJrQ4iuPztLf0sFCf/nKJmTnxoh6KttZAJ/cQrz9VuObKvaEVETvsKQZ1
-	E3Onaozq3sbtESXe8+Uw4RQjuXwNhzVazLV3Q+tqf8EfLhRXyrzYdqbPRKzi2VN55+zdQvI3Dgx1W
-	tvf5nVK3H8N08OOz7My17s4yAd1+r4smX3UodX8KDQeeDsoaB8v2gArI3gctPNh370HG15WGtspsy
-	xftWkS8IHP4O1XShxjbw==;
+	List-Owner; bh=k6xttMwPmQ0vZINK7I4IJX73ZdpgR6FvoeCh4S9ipnU=; b=uZnmBhMHy7iP+l
+	icDeNM4iJbvBamN56HVV+VZ99H9kWMaC2TZbFtxfHaPkzz3EUgJuvHCvCECn4sdzE1ovXqBlKKAs3
+	ZKCrjRmIFLX5KLTyDiyH+9oOanRr5p+XqEWShZbCpxIStQLhXfAmU7h/A3iFOqOMVfvcEucFkv3W+
+	MskHtK2n+CHiglQwnm6MPfNpNZW5uq3gl5p98sehQvscFrGb+MDWUkEVCjFIdldM8JNWvat0YUWZ+
+	8Q4Uh+3BkPVwvZVGUEpapwfi2Hv4kJ6kPO6SLUzsKJ1BV7StZEb4ZyOB7RRNgAJI6JHnWWFve/tQO
+	neWfG4RrOOX/jhOQz6Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiZ9-00000001YLs-0L4m;
-	Tue, 28 Apr 2026 13:33:31 +0000
-Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
+	id 1wHial-00000001YfD-1btZ;
+	Tue, 28 Apr 2026 13:35:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiZ6-00000001YKt-1shS
+	id 1wHiak-00000001Yew-2jYU
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 28 Apr 2026 13:35:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=j/TU/HoOrpr0P9zaYPr2HqTTv+c29GatSHy85DT1kBg=; b=oyUn5tdsktN83Ckk6cVfuTycmS
+	qpsRglIyCHOmllfmy6E0+z7knK0d4zv4U+bDTFBTu7qXo2hJj7L1mWh3j53BlBSNRs3Wbn7UTFEGm
+	rzRTSE+xjBl6161oUxGczl6vIy8rYHRcja2ZNc6QwZDVANjaPc/fzcZfwqfHzVl3vHG/AkaOezsXq
+	rG+ucvq9HKCBeVtsCyO1W1io/7iepBbHNovMT1oCDAbDlkWj5OVFZ3YcjWJBAbGMCON78MgmFDl6j
+	ECHyt1m5l5Y+Gyk+bavef13IvunCVQkQAEpDtWUGiArg3+4T+/h3racGd3G5K0t4RT0yLd/fFgJMB
+	sjswF9Pg==;
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHiah-00000003BUg-09i0
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Apr 2026 13:33:30 +0000
-Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-56a857578a8so4226841e0c.3
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 06:33:28 -0700 (PDT)
+	Tue, 28 Apr 2026 13:35:09 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-8ef2118b478so743944185a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 06:35:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1777383207; x=1777988007; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1777383304; x=1777988104; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OngaHwDgRXU8aplL5gx6iXCqNmM7ax8JTAiWS4ELs6M=;
-        b=UKfl+mkXxz7lFYhLmBe7xnihmyUW5ZHsuuuWQVLaebXOKqYSwf6LS4RDmcrCeKWumd
-         dJ0scKtQI0AaJhThMUvybajFi6J+7Y57yk77TGkQSMLf7+wVL671YQrjMueyq8k3pwx9
-         RiyhpWIu8yJWRT+dFuIRCB70AIvFPce6l1XYRLPcs8m31LesBQL/zVgrgmjNSnpjbnVn
-         gwXJuxqNDtoHJ7CRUFN6iifUoLTDMa3XGbBUgImbQ7CGvhFUnSJOagKmAPplDyCPbJbY
-         DuLsRCQ/J8k8tsA3ec1vf2mSaYJI7By0NRn8pkQgOgv+PfhffbQ4za5l9y+zzE1BHcE0
-         QY8A==
+        bh=j/TU/HoOrpr0P9zaYPr2HqTTv+c29GatSHy85DT1kBg=;
+        b=DiU2nRqZMwqm6fwJJ2+F5yZ0Pj0TAyp4xq6UawbmxJVdzdjwi2odHI8OWHuYeRAjfl
+         m/yIQIE8QZv6CXt96ZGQbI+Wt9Jpuxk9kZ2nK8dK8ki0l4uF+80O0Z+aW+qDd0tlr3fZ
+         y8GOuESua2h34MaYrgZybFxnT0lTIGaZkdLLtW1/Vnx94Eax52eeALRGq6U2BDabzCYc
+         m+8u35KI6iaARDH48/RWAXpS7QHMeNdNtVZ89lxf/yYKvAmpqHMzjhQb8yIMP1b6K6S3
+         ffYVQEf8eLzjESGQ62aRxuR3fxU9R7DLks0M4+Ahd/tFhUy3sCnNr1wCtWNEq+Q11wgC
+         xM1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777383207; x=1777988007;
+        d=1e100.net; s=20251104; t=1777383304; x=1777988104;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OngaHwDgRXU8aplL5gx6iXCqNmM7ax8JTAiWS4ELs6M=;
-        b=JhP2UmJWu6qam/Wi2F4zZxRu8nRlKaXUTgyE4kPOUgzYY7IYavrfDi2DvbFcvxmom2
-         SwFGi+IgJZENYIpIHMkzvl0NkoCSaJNE9I3RCWistpJBCwTVFFYzFNoSbdrcTUMp2rXu
-         SviBa9byfdFznY2oQoDdriwHDfOJ13BVIfMa6WnFoOg3Y4/E/cBkvbCHO102mNsFMIo5
-         LyE37xT8403CagfVdDbTP0Rd8Jt8j7CX79SIGxQvkdbjUEo2grUBxvNG6KM1MbUlXDUE
-         UqJPyQbKIMStrPvCW+9rFj01Du46e0noAFPQSstZqSvu/TjB4vciXoZwNgI7YUToAF9s
-         2/lA==
-X-Forwarded-Encrypted: i=1; AFNElJ+znoOPa+erS2i6M8QL4dKxjLtVN5fk97sU6dGT5Lb0q7h62BtPnlL82yINFwCB9kR7GTCifCp5Qg+3Fg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXj5YERxAD3vyKg7ozzEzfPBamoVL3yiJN2iBc768FX97ZNXya
-	GExl2zwuLhGF7pUJoNQBJuX7segWavHZEE87V024T249DKLRUsQ2+6kEonKjH8iKut5+qUG5t5U
-	9MIq/woM=
-X-Gm-Gg: AeBDietTOMKI1VD7Pcorekv9LZtgUfT4sAoSmUB262V4CZGurlf9t9mVrUwTbYBrPfX
-	joJ6VPHZe6t0QfMjIQUPqdcxNXOJ7ZHSFDGEUDDN+HUfxFG29pApVJbYR0D0+Xkq57cxe7Rmo8m
-	M3ouEqKrf3IxH3z8C0uW42+ZZOTRS+Wnzvy5pKi/cTzP3AXVOmLYecnuqZZSNXASsvH06xckJkH
-	C0PocwiqtnUrRCovFoHd+csZPJXA/FvJuSoxlW/0EgUyRJ9XSJNyrfi7lsEyYCd/qSveTBbkMG5
-	UM9R2H3tKkdx2AeVhK99LQCvVy4ZJvwsoSqJPVmlW5/0TLbcPT34hC3RlEeZeCM1Sn4PFZ7KN9X
-	TWkxLXF+XPpMcpixrpp/xdA05oOXSdbsG3y6gEk9SsVbT6epR5SlCFrttBeX9n6uxHCKt3LYNdd
-	4DBiQ33k3ecbbTShywCHuKRVosPK58slZdzNyV917fz0XYRtZ3fQ+lrfVVVtxpO4OFfZ13VnjIJ
-	ekqEJVpcP5ESXWp
-X-Received: by 2002:a05:6102:f09:b0:607:4fe2:a647 with SMTP id ada2fe7eead31-6280afc7cc0mr1065240137.21.1777383206848;
-        Tue, 28 Apr 2026 06:33:26 -0700 (PDT)
+        bh=j/TU/HoOrpr0P9zaYPr2HqTTv+c29GatSHy85DT1kBg=;
+        b=MoGp1tG5kbWFkzbhyX3X1LM5iJ3pZCOF9oxWNKlYZEocc+avZG63gD3jQ03TDbYGl8
+         ZGxUiP9KBN66Y/+HTTcjV8oJZb+94ZKFIo922L+RZFIbvzytoXonX6/9xD4/c89v9hVS
+         2lRk7y4QjrmKX7M0rXzYaMruzKLDvWeAp+7MUUOjCpw7nGdbroNlaCGRtYq04ymeYd1o
+         r5ep9/H63LV1ni90QhKA1/dxh3plngzqzQS+raqzabbBMl2RsywiFFdy/ZgV1Fnoh/UC
+         bJUFqlofCxznUTxA/HIBIcbSbpPuti1auwTXbF0TGUI5MwhAJpXSMJw6rQmo0PRd65Jq
+         lsGw==
+X-Forwarded-Encrypted: i=1; AFNElJ+qRs2QI44tRbpnHlgamfZM2rVnYY6yZuTKoovpevZmHjS1UMaNdtVr+jQeU7cdxbkUfIXWWSMY+CiT0w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS+5ElR63GtUmRscvNm+Rus4Gk4GFL5qS88EJXJbY4g3LV/2xI
+	GYdbKO50OrfowJcNLQw2fEjESuHxqgeIoIX/kZyPnLrD7qw+AJBbjMydegw+X4w+NM8=
+X-Gm-Gg: AeBDiev+Rt74KCvoCR84e785ZUF+uhZM9kJN2NxAa+YgkFYooS+utNWMVgMge2mnxWA
+	9Zz8P/v+3Xg+dFziytQtQXiXU3kVxdSD46nc2qQ4PW7q7WGPzGAoIWTYFxHCHgxsUc5+CSpcKSZ
+	jFAiA//J2RFMlL0ozonozHGkemyQ16s7cHmpGfmisJVdlNBMVzu1AI23maM5Yv1jg5QL/ROtyYR
+	e7/M0gipQ7SN8qv4grewuzkhYZb3XMhe+ShM8aKXE665gUpO+t85yHNVHZo2mHdRwPbAe7q2gyQ
+	2Nse2tY0cOqjUhRofg2fJZX0UkKyGwM0ykMBsce3IJYqX77ExCjBhzcv+cv5VfUDFaXHp4dx5pT
+	rVN8XQzSCqlIyyXPKKukZZDugPlTHT605Uw/l0nDu5BCvTu4GMOfA5Tdon58L3t5bNzx8tI5+wM
+	YzdLlTr9t0l0GPc0l0fnuOwNsTpL77FVCfoSt9cY4Eu2uLuYZBx041MGXh4xOqeCHlMTlqa4pWU
+	ufmkFB2cNirz9cS
+X-Received: by 2002:a05:622a:311:b0:50f:bd79:2643 with SMTP id d75a77b69052e-5100e1b5b9cmr36699661cf.34.1777383304257;
+        Tue, 28 Apr 2026 06:35:04 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b3e2842bbbsm19645216d6.11.2026.04.28.06.33.25
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5100da647d9sm18237481cf.9.2026.04.28.06.35.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Apr 2026 06:33:25 -0700 (PDT)
+        Tue, 28 Apr 2026 06:35:02 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wHiZ2-0000000AhmN-3Msg;
-	Tue, 28 Apr 2026 10:33:24 -0300
-Date: Tue, 28 Apr 2026 10:33:24 -0300
+	id 1wHiab-0000000AiFH-3nWV;
+	Tue, 28 Apr 2026 10:35:01 -0300
+Date: Tue, 28 Apr 2026 10:35:01 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: fangyu.yu@linux.alibaba.com
 Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
@@ -85,17 +99,17 @@ Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
 	kvm@vger.kernel.org, iommu@lists.linux.dev,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 02/11] iommu/riscv: report iommu capabilities
-Message-ID: <20260428133324.GD849557@ziepe.ca>
+Subject: Re: [RFC PATCH 06/11] iommu/riscv: Add domain_alloc_paging_flags for
+ second-stage domain
+Message-ID: <20260428133501.GE849557@ziepe.ca>
 References: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
- <20260428131359.34872-3-fangyu.yu@linux.alibaba.com>
+ <20260428131359.34872-7-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260428131359.34872-3-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20260428131359.34872-7-fangyu.yu@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_063328_486591_BBD76A00 
-X-CRM114-Status: UNSURE (   6.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_143507_196965_BCD02BD6 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,15 +126,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 09:13:50PM +0800, fangyu.yu@linux.alibaba.com wrote:
+On Tue, Apr 28, 2026 at 09:13:54PM +0800, fangyu.yu@linux.alibaba.com wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> 
+> Replace .domain_alloc_paging with .domain_alloc_paging_flags so callers
+> can pass allocation flags to select the appropriate page-table type.
+> 
+> When IOMMU_HWPT_ALLOC_NEST_PARENT or IOMMU_HWPT_ALLOC_DIRTY_TRACKING is
+> set in @flags, allocate a second-stage (iohgatp) domain.
+> 
+> When @flags is 0 the behaviour is identical to the previous
+> domain_alloc_paging: first-stage (iosatp) domain.
+> 
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> ---
+>  drivers/iommu/riscv/iommu.c | 66 ++++++++++++++++++++++++++++---------
+>  1 file changed, 51 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index 5dadf6d09139..0c13430ecc7f 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -1255,23 +1255,50 @@ static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
+>  	.flush_iotlb_all = riscv_iommu_iotlb_flush_all,
+>  };
+>  
+> -static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
+> +static struct iommu_domain *riscv_iommu_domain_alloc_paging_flags(
+> +		struct device *dev, u32 flags,
+> +		const struct iommu_user_data *user_data)
+>  {
+> +	const bool second_stage = flags &
+> +		(IOMMU_HWPT_ALLOC_NEST_PARENT | IOMMU_HWPT_ALLOC_DIRTY_TRACKING);
 
-> +static bool riscv_iommu_capable(struct device *dev, enum iommu_cap cap)
-> +{
-> +	switch (cap) {
-> +	case IOMMU_CAP_CACHE_COHERENCY:
-> +	case IOMMU_CAP_DEFERRED_FLUSH:
+This isn't the right logic, you should follow the switch/case design
+from other drivers.
 
-IOMMU_CAP_DEFERRED_FLUSH is not needed in v7.1
+>  	struct pt_iommu_riscv_64_cfg cfg = {};
+>  	struct riscv_iommu_domain *domain;
+>  	struct riscv_iommu_device *iommu;
+>  	int ret;
+>  
+> +	if (user_data)
+> +		return ERR_PTR(-EOPNOTSUPP);
+> +
+>  	iommu = dev_to_iommu(dev);
+> -	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) {
+> -		cfg.common.hw_max_vasz_lg2 = 57;
+> -	} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48) {
+> -		cfg.common.hw_max_vasz_lg2 = 48;
+> -	} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39) {
+> -		cfg.common.hw_max_vasz_lg2 = 39;
+> +
+> +	if (second_stage) {
+> +		/*
+> +		 * Second-stage (iohgatp) page table for KVM VFIO device
+> +		 * pass-through and dirty tracking. The GPA space is 2 bits
+> +		 * wider than the corresponding first-stage VA space (x4 root
+> +		 * page table), so hw_max_vasz_lg2 values are 41/50/59.
+> +		 */
+> +		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57X4) {
+> +			cfg.common.hw_max_vasz_lg2 = 59;
+> +		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48X4) {
+> +			cfg.common.hw_max_vasz_lg2 = 50;
+> +		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39X4) {
+> +			cfg.common.hw_max_vasz_lg2 = 41;
+> +		} else {
+> +			dev_err(dev, "cannot find supported second-stage page table mode\n");
+> +			return ERR_PTR(-ENODEV);
+
+Do not make log messages for failing system calls.
 
 Jason
 
