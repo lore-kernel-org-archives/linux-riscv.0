@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE36BFF8876
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 12:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094DAFF8870
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gMzWzbaJ/pVLK7hOVLtBKoQyWKx3bA8fBa1KojbqXbc=; b=sWpEs4i9DWE3Yp
-	UPO+yaceJuqy/g2y8GrJIoq4NKDmdlbXoD081q8cXY/4iAcAGD34qGw25Qno/3i4XKqHsl0pPBaAW
-	cbTDUofHvdmLvKqvo4y9inLyzbqEcXXlzGO4w/Ysq0H36YxMORjhvw7AhWuADV6smyO3SjkNilyRE
-	NwN2z47lZ3NS3773l8vnHdp+iYacbtuooWu3S+IKzHUthMVVwdGyl9M/ds6FJ5LMhaWPnc6cZCCYC
-	IKEt9zW7uZeAO3DH1hXHuk7sI50kTQBYWZxdE2hUCvhjZPcmmQ30TZgtgOs/b2ZME/DIsuYrv1+ms
-	SLeBu+fGLLI7v1WvOxbQ==;
+	List-Owner; bh=dGEfAu/AgnDJJCedzH8RmwnDKVo49Il0XwSulC8Nnz8=; b=P1r1D5X8wWC0aG
+	l5zfBXRM8SK5+fvPD/YPF8b5wB+vdNbZfNWraes7ve0GE54kn3cZTjO/o6s0wLLImfmbRNCCuODUM
+	B8kbKGAqRcL86mnceKzcwmRHUBXyP3Hz1arI8vrjnKH9bmvL4ofPCpZdyoCdz0PCzy9MLeLEDb97y
+	wlIGuVKJOJPhAyAMHDt9/CAEafhUBhTG9l3Z2sgkZHv4DmhJ+9JYPTxxvWh4MOarvdXWOmg9FNkct
+	H3UzklhilfM4PZ1YdtVSXt1vpRgT3Yx4Cv0H2B/FojdQgXUWRGNjHH6eivbLbbsDzDk+2NBZOCTTD
+	vcqLLvCDQJ/z2uq7xXvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhwN-00000001TU2-36OY;
-	Tue, 28 Apr 2026 12:53:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHiGm-00000001V2V-1heO;
+	Tue, 28 Apr 2026 13:14:32 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHhwM-00000001TTo-2Dej;
-	Tue, 28 Apr 2026 12:53:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E11EF6111B;
-	Tue, 28 Apr 2026 12:53:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA3A7C2BCB7;
-	Tue, 28 Apr 2026 12:53:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777380805;
-	bh=MFTHBWIVPPds/6umCo+/GsrLJiT9dmnX5t+TJKOu5mg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q2H9r0W1pFFOcIVTMHsruFr/GMxPujb4LuXdLrJe3uKYcZNxQlHL325YdzeYIaqGb
-	 YgUJCml9iD59Ml9MwxFlDl8g45HE5SHDfQGNKeas7kf1pYmKZ8jVqRDzf6HHicsR74
-	 sZhFSzs8Ra8AOxlyR0j8SYeZmmbjYyl+cqItSnBMh0HfeU971hN2OffDpUKu+aAFBj
-	 GLEtiSpFA8P4RWzmvn81yKRR+hygNgh10efvXltfAPPC4wXMVhE51Jp4/oUrhxxohi
-	 717FMNQI5CLuRE78CHCswC/iUhsYlDYFPjyu26ZyBg3OTRsdTyrq/yecTvXuGJxsmB
-	 j+0ksBK4wyZcg==
-Date: Tue, 28 Apr 2026 14:53:01 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, corbet@lwn.net,
-	skhan@linuxfoundation.org, catalin.marinas@arm.com, will@kernel.org,
-	chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
-	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, robh@kernel.org,
-	saravanak@kernel.org, bhe@redhat.com, vgoyal@redhat.com,
-	dyoung@redhat.com, rdunlap@infradead.org, peterz@infradead.org,
-	pawan.kumar.gupta@linux.intel.com, feng.tang@linux.alibaba.com,
-	dapeng1.mi@linux.intel.com, kees@kernel.org, elver@google.com,
-	paulmck@kernel.org, lirongqing@baidu.com, leitao@debian.org,
-	ardb@kernel.org, jbohac@suse.cz, cfsworks@gmail.com,
-	tangyouling@kylinos.cn, sourabhjain@linux.ibm.com,
-	ritesh.list@gmail.com, hbathini@linux.ibm.com,
-	eajames@linux.ibm.com, guoren@kernel.org,
-	songshuaishuai@tinylab.org, kevin.brodsky@arm.com,
-	vishal.moola@gmail.com, junhui.liu@pigmoral.tech, coxu@redhat.com,
-	fuqiang.wang@easystack.cn, liaoyuanhong@vivo.com,
-	takahiro.akashi@linaro.org, james.morse@arm.com,
-	lizhengyu3@huawei.com, x86@kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, Baoquan He <baoquan.he@linux.dev>
-Subject: Re: [PATCH v12 00/15] arm64/riscv: Add support for crashkernel CMA
- reservation
-Message-ID: <afCtrXaUAGDcseq3@kernel.org>
-References: <20260402072701.628293-1-ruanjinjie@huawei.com>
- <dfa24c4b-a423-4c80-9a8f-28c577c9ec11@huawei.com>
- <20260428035256.cbb3ac77c4bbb89bb7efcc19@linux-foundation.org>
+	id 1wHiGg-00000001UyW-47QD;
+	Tue, 28 Apr 2026 13:14:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1777382061; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=4AWwGUYTanTn719lzq6A/EUfbomVklkhE0MF8yj4zBQ=;
+	b=OLXZauagqLp+eLLQByXDv79wqMbcFiqDNbifeNkBKRv6CsNiy3erR6E+p8UONydQEyMmUCcrXmY2Yg6qcA0ZNk7an5JH4RRmLccVDckWpbhejMToOjzGJ+kyxpi3nUv6tAvbVmADO+k+y7uWsBwHmbPXzvKl2Er6KsBNgshVZfE=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R871e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0X1ubIDe_1777382054;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubIDe_1777382054 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 28 Apr 2026 21:14:15 +0800
+From: fangyu.yu@linux.alibaba.com
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	tjeznach@rivosinc.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	baolu.lu@linux.intel.com,
+	vasant.hegde@amd.com,
+	anup@brainfault.org,
+	atish.patra@linux.dev,
+	skhawaja@google.com,
+	jgg@nvidia.com
+Cc: guoren@kernel.org,
+	kvm@vger.kernel.org,
+	iommu@lists.linux.dev,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH 02/11] iommu/riscv: report iommu capabilities
+Date: Tue, 28 Apr 2026 21:13:50 +0800
+Message-Id: <20260428131359.34872-3-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
+References: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260428035256.cbb3ac77c4bbb89bb7efcc19@linux-foundation.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_061427_682171_A51DCF96 
+X-CRM114-Status: UNSURE (   6.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,46 +86,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-(added new Baoquan's email)
+From: Tomasz Jeznach <tjeznach@rivosinc.com>
 
-On Tue, Apr 28, 2026 at 03:52:56AM -0700, Andrew Morton wrote:
-> On Tue, 28 Apr 2026 11:30:13 +0800 Jinjie Ruan <ruanjinjie@huawei.com> wrote:
-> 
-> > It seems the patches for crash core rework, powerpc, riscv, and arm64
-> > are mostly ready to be merged. Could any maintainer help pick these up,
-> > or should I rebase the entire series against v7.1-rc1?
-> 
-> April 2 is prehistoric ;)
-> 
-> Yes, refresh, retest, resend.  Note that there have been maintainership
-> shuffles in this area.  
-> 
-> KDUMP
-> M:	Andrew Morton <akpm@linux-foundation.org>
-> M:	Baoquan He <bhe@redhat.com>
-> M:	Mike Rapoport <rppt@kernel.org>
-> M:	Pasha Tatashin <pasha.tatashin@soleen.com>
-> M:	Pratyush Yadav <pratyush@kernel.org>
-> R:	Dave Young <ruirui.yang@linux.dev>
-> L:	kexec@lists.infradead.org
-> S:	Maintained
-> F:	Documentation/admin-guide/kdump/
-> F:	fs/proc/vmcore.c
-> F:	include/linux/crash_core.h
-> F:	include/linux/crash_dump.h
-> F:	include/uapi/linux/vmcore.h
-> F:	kernel/crash_*.c
-> 
-> I believe that Pasha/Mike/Pratyush are setting up a git tree, but there
-> isn't one listed here?
+Report RISC-V IOMMU capabilities required by VFIO subsystem
+to enable PCIe device assignment.
 
-On it:
-https://lore.kernel.org/all/20260428124833.1903302-1-rppt@kernel.org/
-https://lore.kernel.org/all/20260428124325.4189486-1-pratyush@kernel.org/
+Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+---
+ drivers/iommu/riscv/iommu.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index a31f50bbad35..15e2a333f969 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1336,6 +1336,17 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
+ 	return generic_device_group(dev);
+ }
+ 
++static bool riscv_iommu_capable(struct device *dev, enum iommu_cap cap)
++{
++	switch (cap) {
++	case IOMMU_CAP_CACHE_COHERENCY:
++	case IOMMU_CAP_DEFERRED_FLUSH:
++		return true;
++	default:
++		return false;
++	}
++}
++
+ static int riscv_iommu_of_xlate(struct device *dev, const struct of_phandle_args *args)
+ {
+ 	return iommu_fwspec_add_ids(dev, args->args, 1);
+@@ -1397,6 +1408,7 @@ static void riscv_iommu_release_device(struct device *dev)
+ 
+ static const struct iommu_ops riscv_iommu_ops = {
+ 	.of_xlate = riscv_iommu_of_xlate,
++	.capable = riscv_iommu_capable,
+ 	.identity_domain = &riscv_iommu_identity_domain,
+ 	.blocked_domain = &riscv_iommu_blocking_domain,
+ 	.release_domain = &riscv_iommu_blocking_domain,
 -- 
-Sincerely yours,
-Mike.
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
