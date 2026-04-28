@@ -4,80 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF0B8FF8868
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 10:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08621FF886D
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 10:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cQsxXi/Pz7sveO5Fwn/r6GOmcvwPz7k7KZS8F8i+TzQ=; b=q/NYeEfcDUuU7T
-	hYG6giT1BGkujfa+fymqvQQVofnDga7VMRctqLEwT8sddxCXPALxv4kLBYbd2RRuhRFP+o1EhsM8w
-	S6nUGcLuq1PwpLbUhH329pm7tPRe7GCEmrHpRHhsnEi79AQBLt97I1hI8ywPW4/mfTX7FnTvggM+Z
-	hUWctx6sLB5ycEshrpXkbHrxTR6C6/ueFgn5ULlYXfcyK13Aff8kQaviofYL6cVT831KHhosGGSV7
-	6IcE5SzwBalWRgj0jqmT9W5rF4giueiwvCqykvG42oScbM4CvxuwWVkkOfd7sSZ9Io64w+J2H+2wx
-	QEDfY8hWK1oKsEFv01uA==;
+	List-Owner; bh=VraoSqnns2H/ZV1vIT2zmZMLOVLdZL0OwH4VmOwYMhM=; b=KGWkd1526F/XCy
+	64MZmHPl1+OPIb6p/tN1Gonvl8sbVsHJfd30MqazjbgB5k4DRrfbV1pAk5BoQwbXGzYlhCTL4zeBR
+	4OuwHAR2rD+i6Bj0ZFsnUeNBWy1LXRSUvLJAWKct8/dLVnV66kQ9qjK2KoeOe6EbGGhx6uV7iOcgM
+	nVaGeFy/b0Qot+n2QBOe1qcw2GBnXmhoRc7TDMiYRGGu/xhM+ioqfcRpy8UjH6G7MKuGvdXRVuBRd
+	LoLa+1ZbTY0gwP/kpB52jXloKi8SiYXxC9jxEmhJyw/QmiSa/6Skpqx5wC7VlqoldWr0IeKtj96cR
+	Y7khE4mhjkPrwzL2nCfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfyf-00000001D1Y-0hpm;
-	Tue, 28 Apr 2026 10:47:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wHg3q-00000001Dqe-2Amm;
+	Tue, 28 Apr 2026 10:53:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHfyc-00000001D13-1UzW
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Apr 2026 10:47:39 +0000
+	id 1wHg3o-00000001Dpv-1zeW;
+	Tue, 28 Apr 2026 10:53:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 386EC40417;
-	Tue, 28 Apr 2026 10:47:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00BC3C2BCB6;
-	Tue, 28 Apr 2026 10:47:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777373257;
-	bh=9I3S+ZMjQ+CX5ruVFO8hHEKt9n+ligax17wFo6u0nUQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=LLaKGxOk+VWT+nhOtElYEmSHoBxPwYg5VhZBk2DO3Xqml+wqTAqlswriKiVLSTGje
-	 KgNT7xSoJomNUjvdRWAQLWensYeNVB9Ya1KoDC0N1a1dR81zL947cJrDZMSrUkzkTi
-	 EtVPQ7afGwgNbk9mhMxbeDFxw3L21FloiOTXKxdDAABDj+oIqupSkXqjGbFYxAOq2D
-	 KEp+xa+hnNTnDAbFs4z3chsN8YUow7r7M1BUTqKim0ItNhQ82LrHQaDaYvLIxmmT1K
-	 jtXNM8wdIPfWuevSRemc365GRbSW+gx7hHoSXLbysRDaQ2nyyoFQoP8OruOpiIcnGW
-	 PBmnV6PwKTVsQ==
-From: Yixun Lan <dlan@kernel.org>
-Date: Tue, 28 Apr 2026 10:46:51 +0000
-Subject: [PATCH v2 2/2] pwm: pxa: Add optional bus clock
-MIME-Version: 1.0
-Message-Id: <20260428-03-k3-pwm-drv-v2-2-a532bbe45556@kernel.org>
-References: <20260428-03-k3-pwm-drv-v2-0-a532bbe45556@kernel.org>
-In-Reply-To: <20260428-03-k3-pwm-drv-v2-0-a532bbe45556@kernel.org>
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, Yixun Lan <dlan@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1372; i=dlan@kernel.org;
- h=from:subject:message-id; bh=9I3S+ZMjQ+CX5ruVFO8hHEKt9n+ligax17wFo6u0nUQ=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBp8JA2t6Oh3boo/AQsj6aqlzUcUURaIZlQZlq6U
- Zf4kLhr1jSJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCafCQNhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+3jOQ//Y8FpkguGvfJYxeQJkXpK+fjeQHQoHtHMKdwNvQ60UOtgYSVOZTjD3
- mzQnZSlcpRU02iACF6nCZmZ3+eAlIbXi6nLDgkyrNg4RMIu8sch19RdUhr5mVmCytb+o8YRiRD1
- VMD3HIbHg1BhezDY/cvYFP/GUpfA93JtELUhUGU6oWUhIDZzH78e0QwMLhVNCXwRn+oL+Lx4obG
- 87QtXW9V3RXUMQTiXGhmwJRciAEX4rNHzpv8gDiOfsQ1AtBjh+uO/5rNigTvq12zQhSi640q8Va
- iNJAivx6BvDjVpEJo9Z5mWQvU+Vr4tiaLkAiAkYE9YgzPvgc4SsWeVwlm8xXnRvcwttcPI3KWqN
- toDgHLdk+wH92E1xbkWy7CxprSsJAnnBuS4UVl/ch6Hp0CqxPHb9VLu9AasuYNG2PhjuuV6VeG8
- scynopWwrZqpauSNPVbZLchwlV+zxbLslJuy/qz/mOu00CGqwUmvR9XhvFKLvCgcCsJqN3MH24B
- kB7zxIwUrAYNm/r2mpCUqHB1hxB31VVH2UjYyaSSTjQjjAn+KMbi7elgKNrPVNi43MnY7+8/azd
- 2Vy+BdqhRmdPzEmOZPtWnzpt1yV8yFnHO3wCBGwJLNHUPyZ89J1M4rmjuVaBxz+zl3pd60kSuqM
- mqpuohQ8cjZs5fG5me1Acf6aIsQg/s=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_034738_443591_935A5856 
-X-CRM114-Status: GOOD (  11.40  )
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A3D860141;
+	Tue, 28 Apr 2026 10:52:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CEE5C2BCAF;
+	Tue, 28 Apr 2026 10:52:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1777373579;
+	bh=FAkK0ftN7gWUbuk+HZ/TnP99n+RR4S9QM3ioJ/hUWvI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Qsqv6r1lJZq/c7ZPtIt0sZl/DuaHenFFdJWV+kUZfKy9lze4sbNHOT4ldBEvZsMcI
+	 IzA4ewciHKUUGkWs11knSBEVXzjvVrxdGd/P9JBd6VWThd9m0HhwDsNHUrAT8OtKfZ
+	 vkIpz9kt+ca77YyWoiGiskB7TOq8ICE0RWcWLVHM=
+Date: Tue, 28 Apr 2026 03:52:56 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+ <catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
+ <kernel@xen0n.name>, <maddy@linux.ibm.com>, <mpe@ellerman.id.au>,
+ <npiggin@gmail.com>, <chleroy@kernel.org>, <pjw@kernel.org>,
+ <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+ <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+ <dave.hansen@linux.intel.com>, <hpa@zytor.com>, <robh@kernel.org>,
+ <saravanak@kernel.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
+ <dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
+ <pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
+ <dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
+ <paulmck@kernel.org>, <lirongqing@baidu.com>, <rppt@kernel.org>,
+ <leitao@debian.org>, <ardb@kernel.org>, <jbohac@suse.cz>,
+ <cfsworks@gmail.com>, <tangyouling@kylinos.cn>,
+ <sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
+ <hbathini@linux.ibm.com>, <eajames@linux.ibm.com>, <guoren@kernel.org>,
+ <songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
+ <vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
+ <fuqiang.wang@easystack.cn>, <liaoyuanhong@vivo.com>,
+ <takahiro.akashi@linaro.org>, <james.morse@arm.com>,
+ <lizhengyu3@huawei.com>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+ <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <kexec@lists.infradead.org>
+Subject: Re: [PATCH v12 00/15] arm64/riscv: Add support for crashkernel CMA
+ reservation
+Message-Id: <20260428035256.cbb3ac77c4bbb89bb7efcc19@linux-foundation.org>
+In-Reply-To: <dfa24c4b-a423-4c80-9a8f-28c577c9ec11@huawei.com>
+References: <20260402072701.628293-1-ruanjinjie@huawei.com>
+	<dfa24c4b-a423-4c80-9a8f-28c577c9ec11@huawei.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,46 +90,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add one secondary optional bus clock for the PWM PXA driver, also keep it
-compatible with old single clock.
+On Tue, 28 Apr 2026 11:30:13 +0800 Jinjie Ruan <ruanjinjie@huawei.com> wrote:
 
-The SpacemiT K3 SoC require a bus clock for PWM controller, acquire and
-enable it during probe phase.
+> It seems the patches for crash core rework, powerpc, riscv, and arm64
+> are mostly ready to be merged. Could any maintainer help pick these up,
+> or should I rebase the entire series against v7.1-rc1?
 
-Signed-off-by: Yixun Lan <dlan@kernel.org>
----
- drivers/pwm/pwm-pxa.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+April 2 is prehistoric ;)
 
-diff --git a/drivers/pwm/pwm-pxa.c b/drivers/pwm/pwm-pxa.c
-index 0f5bdb0e395e..80d2fa10919f 100644
---- a/drivers/pwm/pwm-pxa.c
-+++ b/drivers/pwm/pwm-pxa.c
-@@ -161,6 +161,7 @@ static int pwm_probe(struct platform_device *pdev)
- 	const struct platform_device_id *id = platform_get_device_id(pdev);
- 	struct pwm_chip *chip;
- 	struct pxa_pwm_chip *pc;
-+	struct clk *bus_clk;
- 	struct device *dev = &pdev->dev;
- 	struct reset_control *rst;
- 	int ret = 0;
-@@ -177,7 +178,12 @@ static int pwm_probe(struct platform_device *pdev)
- 		return PTR_ERR(chip);
- 	pc = to_pxa_pwm_chip(chip);
- 
--	pc->clk = devm_clk_get(dev, NULL);
-+	bus_clk = devm_clk_get_optional_enabled(dev, "bus");
-+	if (IS_ERR(bus_clk))
-+		return dev_err_probe(dev, PTR_ERR(bus_clk), "Failed to get bus clock\n");
-+
-+	/* Get named func clk if bus clock is valid */
-+	pc->clk = devm_clk_get(dev, bus_clk ? "func" : NULL);
- 	if (IS_ERR(pc->clk))
- 		return dev_err_probe(dev, PTR_ERR(pc->clk), "Failed to get clock\n");
- 
+Yes, refresh, retest, resend.  Note that there have been maintainership
+shuffles in this area.  
 
--- 
-2.53.0
+KDUMP
+M:	Andrew Morton <akpm@linux-foundation.org>
+M:	Baoquan He <bhe@redhat.com>
+M:	Mike Rapoport <rppt@kernel.org>
+M:	Pasha Tatashin <pasha.tatashin@soleen.com>
+M:	Pratyush Yadav <pratyush@kernel.org>
+R:	Dave Young <ruirui.yang@linux.dev>
+L:	kexec@lists.infradead.org
+S:	Maintained
+F:	Documentation/admin-guide/kdump/
+F:	fs/proc/vmcore.c
+F:	include/linux/crash_core.h
+F:	include/linux/crash_dump.h
+F:	include/uapi/linux/vmcore.h
+F:	kernel/crash_*.c
+
+I believe that Pasha/Mike/Pratyush are setting up a git tree, but there
+isn't one listed here?
 
 
 _______________________________________________
