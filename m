@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BB5FF885D
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 11:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55129FF8868
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 11:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kdxwyTl5R+o0PXJ4GRZfkGKjfp1v1FZ0wKMAUzHH4ME=; b=ezfv0PU+VWm1TN
-	y1BLnVMj9jc4OqiPigXT0cRGcKu/wzT2l4NLpCyB4+IHhMeXD0ZNzhXWrc1NJLLT/2FeyJMW01lCq
-	YWqa1tFcpY82iWvKrSbrVtMOMPqQoJtgOScWS876Vzqyi86jUTbMx8QteEK0p4awLbh3QvAPz6TFx
-	Y58eSJFzU72jtM9biA1iLgNJAHonxS7Q2wwZKv+VZMiUyeeVJLJedyl93RnUW4SpoPSZvXHXe0h4q
-	pvh7I3PzzO6UWp4gSCx3B8sqvS0B1ArReLkpwfW+lXepd7oE2Tx/Hck0Pu0J5VSU6H0/R4u8ORo6/
-	U++A6eH3BzvKPphi57ew==;
+	List-Owner; bh=clUl4cysl9qC7AK/YiXgHXfNkqP4/tl66RnhExxWfp4=; b=gdCyfE8+LswKaJ
+	JV2W0VZroVgV1kiXppYHlf7kAMxzm8jrxXpuf4yvtEWCB+RP61WV9Li/zR9AWW1xhl02xSQmxWHYK
+	wDy8KYF6DkTgbkCE+yNZ2o+5Hu9+N/BAihv5Y6YVW8XitFKYFeeBndXvv3Eq2IQ9Px29zcpJ/1j7S
+	dHNemDIUQ+CZu+pmD3ZG0wDuyhamiD1qNywh38uR9s6WK0WHtNflC5cFRyROPWvfjTUvuf1vhuMBO
+	+8KR7MJQrngyGGEvkxqEqVVpxjlhGk9LYxWmpHENnVmq77tSoO0dZP2ztsUjgtCfTqIRzbtWxdAW5
+	l8GQK2BSo8PuWBiUreYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHgIi-00000001Ex0-1N5F;
-	Tue, 28 Apr 2026 11:08:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHgIh-00000001Ewj-0jft
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Apr 2026 11:08:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4F50360128
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 11:08:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06809C2BCB7
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 11:08:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777374502;
-	bh=c2c7jO6hYI8b7jy0S2IChLenRdchEWJaq6E2waZawHE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=F+Ki5qsnRa3obRmGutl/v+YE/IaCsg06XMEhWRXxUXm5ZWBFR4FNxwTMddd5fcwzY
-	 h4R9lOh47SXniKs2dnTbqT1v2c+ExzIL+sYrR6P+YkNHV8fx1rbgPxtCz0NdjBTRwE
-	 /Tug9VHBN/nJqcNYsUlifxqNoNjFeRQ6IyLVicIdL/rcrAsMQdAGe0hZkvK4AcDLud
-	 ZroRHccexPYzi/pO77aX/OdsGvt3zy9imwlRA7S49/mUT8js/uW6P4TZk7HE8OsID6
-	 qn5MhQdT7zIYIOJbXygG1aIWYOTvNWuY4loaem4/pLJbWxRJS9PyEwwbRDGRWU2kaE
-	 EfNp3J4WURi6g==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-38dd9f0fdc6so126470941fa.0
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 04:08:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/jLGl8eFUoRkNneF1mzpfH4FctxDJUdWn7BjdRx0AOUMN6tGc1YCdvOS1VImWXoy2R5MZDuvTzbnoLGQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhG6Fh7k6QDG6BO334VJRbtgwqFc08Ke1idep4l0Q2F4g3kizn
-	DfbPTyQrIeQus8uvGaKJ5K/5qLNL7yrhmhiL06diV5LmOpr7PO0PEflqrD3Hj04ckdhgB5A8mX8
-	7IntVPdvizcOYZzugUV/Thn3H6eclFgE=
-X-Received: by 2002:a05:651c:324c:b0:38e:35fe:b79 with SMTP id
- 38308e7fff4ca-39243022befmr7190031fa.2.1777374500737; Tue, 28 Apr 2026
- 04:08:20 -0700 (PDT)
+	id 1wHgUz-00000001L3w-22Ce;
+	Tue, 28 Apr 2026 11:21:05 +0000
+Received: from gate.crashing.org ([63.228.1.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHgUw-00000001L32-2Vcd;
+	Tue, 28 Apr 2026 11:21:04 +0000
+Received: from gate.crashing.org (localhost [127.0.0.1])
+	by gate.crashing.org (8.18.1/8.18.1/Debian-2) with ESMTP id 63SBKIxF1057213;
+	Tue, 28 Apr 2026 06:20:18 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.18.1/8.18.1/Submit) id 63SBKHXo1057211;
+	Tue, 28 Apr 2026 06:20:17 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Tue, 28 Apr 2026 06:20:17 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        David Laight <david.laight.linux@gmail.com>,
+        Thomas Gleixner <tglx@linutronix.de>, linux-alpha@vger.kernel.org,
+        Yury Norov <yury.norov@gmail.com>, linux-kernel@vger.kernel.org,
+        linux-snps-arc@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+        dmaengine@vger.kernel.org, linux-efi@vger.kernel.org,
+        linux-fsi@lists.ozlabs.org, amd-gfx@lists.freedesktop.org,
+        dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+        linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
+        linux-wireless@vger.kernel.org, linux-spi@vger.kernel.org,
+        linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+        linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
+        xen-devel@lists.xenproject.org, linux-fsdevel@vger.kernel.org,
+        ocfs2-devel@lists.linux.dev, bpf@vger.kernel.org,
+        kasan-dev@googlegroups.com, linux-mm@kvack.org,
+        linux-x25@vger.kernel.org, rust-for-linux@vger.kernel.org,
+        linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org,
+        linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+        loongarch@lists.linux.dev, linux-m68k@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linux-sh@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [RFC PATCH v1 7/9] x86: Add unsafe_copy_from_user()
+Message-ID: <afCX8WlnEFUei1y6@gate>
+References: <cover.1777306795.git.chleroy@kernel.org>
+ <0ee46bb228d97163fbdc14f2a7c52b93d8bc34ce.1777306795.git.chleroy@kernel.org>
+ <ae-j2_QirCySZD02@yury>
+ <63a4d0f6-0eb3-48cd-9f98-bf7b223b2606@kernel.org>
+ <ae-2yLWSGnfeTvh1@yury>
+ <CAHk-=wgPrLy0FR3sEWBYQuNAac1axDASYMnTuPuxEU0WytzL7w@mail.gmail.com>
+ <ae_jeJLlVWjJ4sOY@yury>
 MIME-Version: 1.0
-References: <20260424111330.702272-1-changhuang.liang@starfivetech.com> <20260424111330.702272-12-changhuang.liang@starfivetech.com>
-In-Reply-To: <20260424111330.702272-12-changhuang.liang@starfivetech.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 28 Apr 2026 13:08:09 +0200
-X-Gmail-Original-Message-ID: <CAD++jLk_AQjjCLkeuiyBtiQUsmzHEfqpigttJ7E9n1UE8h29Hg@mail.gmail.com>
-X-Gm-Features: AVHnY4IDxcIj36cpLzKrI1NZVFjYAH9TxKPvCzuHnuFYmrkebhBtVhuQTXFLwpQ
-Message-ID: <CAD++jLk_AQjjCLkeuiyBtiQUsmzHEfqpigttJ7E9n1UE8h29Hg@mail.gmail.com>
-Subject: Re: [PATCH v1 11/20] dt-bindings: pinctrl: Add starfive,jhb100-per1-pinctrl
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <ae_jeJLlVWjJ4sOY@yury>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_042102_834754_31566CF4 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +89,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hhbmdodWFuZywKCnRoYW5rcyBmb3IgeW91ciBwYXRjaCEKCk9uIEZyaSwgQXByIDI0LCAy
-MDI2IGF0IDE6MTTigK9QTSBDaGFuZ2h1YW5nIExpYW5nCjxjaGFuZ2h1YW5nLmxpYW5nQHN0YXJm
-aXZldGVjaC5jb20+IHdyb3RlOgoKPiBBZGQgcGluY3RybCBiaW5kaW5ncyBmb3IgU3RhckZpdmUg
-SkhCMTAwIFNvQyBQZXJpcGhlcmFsLTEocGVyMSkgcGluY3RybAo+IGNvbnRyb2xsZXIuCj4KPiBT
-aWduZWQtb2ZmLWJ5OiBDaGFuZ2h1YW5nIExpYW5nIDxjaGFuZ2h1YW5nLmxpYW5nQHN0YXJmaXZl
-dGVjaC5jb20+CiguLi4pCgo+ICsgIFRoaXMgZG9tYWluIGNvbnRhaW5zIDQgSU8gZ3JvdXBzIHdo
-aWNoIHN1cHBvcnQgdm9sdGFnZSBsZXZlbHMgMS44ViBhbmQgMy4zVgo+ICsgIGdwaW9lLXNwaSAt
-IGNvbXByaXNlcyBQQURfR1BJT19DMCB0aHJvdWdoIFBBRF9HUElPX0M0Lgo+ICsgIGdwaW9lLXFz
-cGkwIC0gY29tcHJpc2VzIFBBRF9HUElPX0M1IHRocm91Z2ggUEFEX0dQSU9fQzExLgo+ICsgIGdw
-aW9lLXFzcGkxIC0gY29tcHJpc2VzIFBBRF9HUElPX0MxMiB0aHJvdWdoIFBBRF9HUElPX0MxOS4K
-PiArICBncGlvZS1xc3BpMiAtIGNvbXByaXNlcyBQQURfR1BJT19DMjAgdGhyb3VnaCBQQURfR1BJ
-T19DMjcuCj4gKwo+ICsgIEVhY2ggb2YgdGhlIGFib3ZlIElPIGdyb3VwcyBtdXN0IGJlIGNvbmZp
-Z3VyZWQgd2l0aCBhIHZvbHRhZ2Ugc2V0dGluZyB0aGF0IG1hdGNoZXMgdGhlIGV4dGVybmFsCj4g
-KyAgdm9sdGFnZSBsZXZlbCBwcm92aWRlZCB0byB0aGUgSU8gZ3JvdXAuCgpTbyB5b3VyIGhhcmR3
-YXJlIGhhcyBncm91cHMgYW5kIHN1cHBvcnQgc29tZSBwcm9wZXJ0aWVzIG9uIHRoZSBncm91cCBs
-ZXZlbC4KClNvIGV4cG9zZSB0aGVzZSBncm91cHMgYW5kIG1ha2UgdGhlc2UgcHJvcGVydGllcyBj
-b25maWd1cmFibGUgcGVyIGdyb3VwCmluc3RlYWQgb2YgaW52ZW50aW5nIHBlci1ncm91cCBwcm9w
-ZXJ0aWVzLgoKPiArICBncGlvZS1zcGktdnJlZjoKPiArICBncGlvZS1xc3BpMC12cmVmOgo+ICsg
-IGdwaW9lLXFzcGkxLXZyZWY6Cj4gKyAgZ3Bpb2UtcXNwaTItdnJlZjoKCkNyZWF0ZSBwcm9wZXIg
-Z3JvdXBzIGluIHRoZSBwaW4gY29udHJvbGxlciB0aGVuIHVzZSB0aGUKc3RhbmRhcmQgcGluY2Zn
-IHByb3BlcnR5IHBvd2VyLXNvdXJjZSA9IDwuLi4+OyBmb3IgdGhpcy4KCkV4YW1wbGUgZm9yIGEg
-c2ltcGxlIGRlZmF1bHQgaG9nOgoKcGluY3RybCB7CiAgICAvKiBIb2cgdGhlIFFTUEkgcGlucyAq
-LwogICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKICAgIHBpbmN0cmwtMCA9IDwmcXNwaV9k
-ZWZhdWx0PjsKCiAgICBxc3BpX2RlZmF1bHQ6IHBpbmN0cmwtcXNwaSB7CiAgICAgICAgY29uZmln
-IHsKICAgICAgICAgICAgZ3JvdXBzID0gImdwaW9lLXFzcGktcGlucyI7CiAgICAgICAgICAgIHBv
-d2VyLXNvdXJjZSA9IDwyPjsKICAgICAgICB9OwogICAgfTsKfTsKClRoZSBncm91cHMgY2FuIGJl
-IG9ydGhvZ29uYWwgdG8gb3RoZXIgcGluIGhhbmRsaW5nLCB0aGF0J3MKZmluZS4gSW1wbGVtZW50
-IC5waW5fY29uZmlnX2dyb3VwX3NldCBpbiBzdHJ1Y3QgcGluY29uZl9vcHMuCgo+ICsgICAgICAg
-ICAgc3RhcmZpdmUsZGVib3VuY2Utd2lkdGg6Cj4gKyAgICAgICAgICBzdGFyZml2ZSxkcml2ZS1p
-MmMtZmFzdC1tb2RlOgo+ICsgICAgICAgICAgc3RhcmZpdmUsZHJpdmUtaTJjLWZhc3QtbW9kZS1w
-bHVzOgo+ICsgICAgICAgICAgc3RhcmZpdmUsaTJjLW9wZW4tZHJhaW4tcHVsbC11cC1vaG06CgpJ
-IGFscmVhZHkgYWRyZXNzZWQgdGhlc2UgaW4gb3RoZXIgcmV2aWV3IGNvbW1lbnRzLiBHZXQgcmlk
-IG9mCnRoZW0gaW4gZmF2b3Igb2Ygc3RhbmRhcmQgcGluY29uZmlnIGJpbmRpbmdzLgoKWW91cnMs
-CkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+Hi!
+
+On Mon, Apr 27, 2026 at 06:30:16PM -0400, Yury Norov wrote:
+> On Mon, Apr 27, 2026 at 02:52:05PM -0700, Linus Torvalds wrote:
+> > On Mon, 27 Apr 2026 at 12:19, Yury Norov <ynorov@nvidia.com> wrote:
+> > >
+> > > This is what Linus said when added x86 implementation for copy_from_user()
+> > > in c512c69187197:
+> > 
+> > Note that some things have happily changed in the six+ years since...
+> > 
+> > >   That's partly because we have no current users of it, but also partly
+> > >   because the copy_from_user() case is slightly different and cannot
+> > >   efficiently be implemented in terms of a unsafe_get_user() loop (because
+> > >   gcc can't do asm goto with outputs).
+> > 
+> > now everybody can do asm goto with outputs.
+> > 
+> > Yes, it's disabled on older versions, so it's not *always* available,
+> > but all modern versions do it. And if you care about performance, you
+> > won't be using an old compiler.
+> 
+> The minimal GCC version is 8.1, and asm goto with outputs is supported
+> since GCC-11. That would brake the build, if we just switch to using it
+> without "CC_IS_GCC && (GCC_VERSION >= 110100)" guard.
+> 
+> Is it worth to maintain 2 version of the function? I don't know...
+
+GCC 11 was released five years and a day ago.  The last GCC 11 release
+(that of 11.5) is not even two years ago though (but there will be no
+more!)
+
+So it would be not conservative at all to require GCC 11 as minimum now,
+some people might even call it a bit aggressive.  But in a year (or
+maybe two) the lay of the land will be rather different.
+
+
+Segher
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
