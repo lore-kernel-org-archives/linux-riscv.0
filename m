@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08621FF886D
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 10:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63466FF8868
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 10:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VraoSqnns2H/ZV1vIT2zmZMLOVLdZL0OwH4VmOwYMhM=; b=KGWkd1526F/XCy
-	64MZmHPl1+OPIb6p/tN1Gonvl8sbVsHJfd30MqazjbgB5k4DRrfbV1pAk5BoQwbXGzYlhCTL4zeBR
-	4OuwHAR2rD+i6Bj0ZFsnUeNBWy1LXRSUvLJAWKct8/dLVnV66kQ9qjK2KoeOe6EbGGhx6uV7iOcgM
-	nVaGeFy/b0Qot+n2QBOe1qcw2GBnXmhoRc7TDMiYRGGu/xhM+ioqfcRpy8UjH6G7MKuGvdXRVuBRd
-	LoLa+1ZbTY0gwP/kpB52jXloKi8SiYXxC9jxEmhJyw/QmiSa/6Skpqx5wC7VlqoldWr0IeKtj96cR
-	Y7khE4mhjkPrwzL2nCfw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=L1rtVURgn/9tURTUW8rty6LJwVtqg6lMKMa1WI7ixrk=; b=TKh3NEiCJ69wtW
+	csHBn1KU1eZ9fUEYkH9C6dG866l1xsyO1YndGR9fOCXwoDdgXHZGH6fkWg3HNdNdanBS5Xd49bwBP
+	6FaiiNNmtKQcf9D1PKz5KZA/CJdw2Y5fPpJjMZPA408Ch4t1FGFB65Igo1zzP+rR8j44Fh4jvmGIq
+	0uovzAFnkQkxCyDtkhNM0jbDkqbzQM791fWqOJFdsWQyh2uheG9LkuZzsAfv+8NobcLE3DquRUI7B
+	Hu1P26gpDHQBJHyjfrmywSG70F/+4GdIPDPqdnqXEyNdYwKpCrDcrqw0LrGw4vTbWMoQC5/ouPmih
+	cc1byF4lVRIgcmzBsIwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHg3q-00000001Dqe-2Amm;
-	Tue, 28 Apr 2026 10:53:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHg8L-00000001EAt-3vDs;
+	Tue, 28 Apr 2026 10:57:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHg3o-00000001Dpv-1zeW;
-	Tue, 28 Apr 2026 10:53:00 +0000
+	id 1wHg8J-00000001EAV-3UBO
+	for linux-riscv@lists.infradead.org;
+	Tue, 28 Apr 2026 10:57:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A3D860141;
-	Tue, 28 Apr 2026 10:52:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CEE5C2BCAF;
-	Tue, 28 Apr 2026 10:52:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1777373579;
-	bh=FAkK0ftN7gWUbuk+HZ/TnP99n+RR4S9QM3ioJ/hUWvI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Qsqv6r1lJZq/c7ZPtIt0sZl/DuaHenFFdJWV+kUZfKy9lze4sbNHOT4ldBEvZsMcI
-	 IzA4ewciHKUUGkWs11knSBEVXzjvVrxdGd/P9JBd6VWThd9m0HhwDsNHUrAT8OtKfZ
-	 vkIpz9kt+ca77YyWoiGiskB7TOq8ICE0RWcWLVHM=
-Date: Tue, 28 Apr 2026 03:52:56 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: <corbet@lwn.net>, <skhan@linuxfoundation.org>,
- <catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
- <kernel@xen0n.name>, <maddy@linux.ibm.com>, <mpe@ellerman.id.au>,
- <npiggin@gmail.com>, <chleroy@kernel.org>, <pjw@kernel.org>,
- <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
- <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
- <dave.hansen@linux.intel.com>, <hpa@zytor.com>, <robh@kernel.org>,
- <saravanak@kernel.org>, <bhe@redhat.com>, <vgoyal@redhat.com>,
- <dyoung@redhat.com>, <rdunlap@infradead.org>, <peterz@infradead.org>,
- <pawan.kumar.gupta@linux.intel.com>, <feng.tang@linux.alibaba.com>,
- <dapeng1.mi@linux.intel.com>, <kees@kernel.org>, <elver@google.com>,
- <paulmck@kernel.org>, <lirongqing@baidu.com>, <rppt@kernel.org>,
- <leitao@debian.org>, <ardb@kernel.org>, <jbohac@suse.cz>,
- <cfsworks@gmail.com>, <tangyouling@kylinos.cn>,
- <sourabhjain@linux.ibm.com>, <ritesh.list@gmail.com>,
- <hbathini@linux.ibm.com>, <eajames@linux.ibm.com>, <guoren@kernel.org>,
- <songshuaishuai@tinylab.org>, <kevin.brodsky@arm.com>,
- <vishal.moola@gmail.com>, <junhui.liu@pigmoral.tech>, <coxu@redhat.com>,
- <fuqiang.wang@easystack.cn>, <liaoyuanhong@vivo.com>,
- <takahiro.akashi@linaro.org>, <james.morse@arm.com>,
- <lizhengyu3@huawei.com>, <x86@kernel.org>, <linux-doc@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <kexec@lists.infradead.org>
-Subject: Re: [PATCH v12 00/15] arm64/riscv: Add support for crashkernel CMA
- reservation
-Message-Id: <20260428035256.cbb3ac77c4bbb89bb7efcc19@linux-foundation.org>
-In-Reply-To: <dfa24c4b-a423-4c80-9a8f-28c577c9ec11@huawei.com>
-References: <20260402072701.628293-1-ruanjinjie@huawei.com>
-	<dfa24c4b-a423-4c80-9a8f-28c577c9ec11@huawei.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	by sea.source.kernel.org (Postfix) with ESMTP id 20A9640484;
+	Tue, 28 Apr 2026 10:57:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E68DC2BCAF;
+	Tue, 28 Apr 2026 10:57:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777373859;
+	bh=sImdUFiTEcsJdvzgMX0S2OmS7j920K5wziuXQQGFWQA=;
+	h=From:Date:Subject:To:Cc:From;
+	b=UXFcVyUd66XBuZhePJDCFKvm3Y77H7TcLBc5a/CZ87XcuTMwCFiwpVSJLwFxuf1g3
+	 G2/XPPz/p0oJALALcTIRGJAHWDKjvO2w1gDtxOa0Ll3c9vsJDgNHmAVYHpHHZuAB/J
+	 fOQL8qVGoQUC/2WUl2m2WwWPDQl77q8aXChbJVsKc3U5cGSqySe/F8Le6Fd4Me+Hj3
+	 TIEadrsbRiTBdGM2rFgyhRrCIVwqQSKafhAAGhDGejWhBiUfQfE5oVtdFQBOuZc5AI
+	 aw36KKJEVjs+5bPZJRZnK4QlqFamKM0qQg4L0ANBQti68YDHmR+Ws3Fuy4laK45kDR
+	 L8MCxcPSCjDUg==
+From: Yixun Lan <dlan@kernel.org>
+Date: Tue, 28 Apr 2026 10:57:29 +0000
+Subject: [PATCH] dts: riscv: spacemit: correct 32k clock frequency
+MIME-Version: 1.0
+Message-Id: <20260428-06-k3-clk-osc32k-v1-1-e2378da7cb9b@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAJiS8GkC/x3MTQqAIBBA4avErBvwD6muEi3MphoMC4UIwrsnL
+ b/Fey9kSkwZhuaFRDdnPmOFbBvwu4sbIS/VoISywgiJwmLQ6I+AZ/ZaBZR9Nxup3bp4BzW7Eq3
+ 8/MtxKuUD+sOugGIAAAA=
+X-Change-ID: 20260401-06-k3-clk-osc32k-198b413afdca
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Alex Elder <elder@riscstar.com>, 
+ Haylen Chu <heylenay@4d2.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1490; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=sImdUFiTEcsJdvzgMX0S2OmS7j920K5wziuXQQGFWQA=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBp8JKb4can4DX2EGCETug/6t/HtvRYOvcPe/X3y
+ Gy0mPy7gR2JAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCafCSmxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+1LdQ//fz3qLgK2xl4jCgcTQBwFSGHt2w/qnvoBke6D/sBWr43n/9cRlMwVE
+ OZkIvhOITGPVsSbfZTB85uQqOjJODGSb3K2XkDTaQa1BrTD7xH3JdDbfKv8HMMVxLlTl2udl7i6
+ JLUy46sqyqfgLiTLO9oxRcQtofjWmZAIVJYTrdozR7IpFrpMQdXzdgj9y5GUNNylkEVCfA4s6a6
+ VJ89HJi1AlHoyXuba53lEprGDOPKhaGWHIUXVMGhhePyyse72VN36/tPM+dkj2NN+jd/cq0/g9l
+ WUDZ6XyGjOYf99CC9LXLL6pIfij1F/b+yp3MeEV7a3hHF6zyVvgLqnyNV4IJQeKeAjDMYQX14HT
+ TYm0bcBjkNlxXJisTJWHeT2mNyoQWaGTWwMs0i8txZ8PnCv6NeQ5FoT1NgdR8wAYEYFq+JF8jRI
+ xbWDKBQTCAdfQ0lCLT/ggrfB7iK1utX3djtBlDb7vGTqHRdyDdFdQag/sPn1DDmbMksnD6QBh9k
+ gE1Ob01vTF6+C6ikoke72ZQMfATbaCfYyrboI5uc3NlRI88QRON3XfPQzxzTQ5mdV2uzrLd1Qkx
+ meMOonposZbPchIeAiHJmQtefX8mAG4aDwbsrhQAfUcB3c6hfxT5/pUZfgisaGFdtnWB3uHDDoH
+ EU4iHNnf4oYwgRSw78qnaTuHB+Yn08=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260428_035739_915210_1FF7B212 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +98,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Apr 2026 11:30:13 +0800 Jinjie Ruan <ruanjinjie@huawei.com> wrote:
+The 32k oscillator's clock frequency is actually 32768Hz, so correct it.
 
-> It seems the patches for crash core rework, powerpc, riscv, and arm64
-> are mostly ready to be merged. Could any maintainer help pick these up,
-> or should I rebase the entire series against v7.1-rc1?
+Fixes: 67072c8cd48c ("riscv: dts: spacemit: k3: add clock tree")
+Fixes: a6fafa64b03a ("riscv: dts: spacemit: Add clock tree for SpacemiT K1")
+Signed-off-by: Yixun Lan <dlan@kernel.org>
+---
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 2 +-
+ arch/riscv/boot/dts/spacemit/k3.dtsi | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-April 2 is prehistoric ;)
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index f0bad6855c97..b0b9c19b56a0 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -333,7 +333,7 @@ vctcxo_3m: clock-3m {
+ 
+ 		osc_32k: clock-32k {
+ 			compatible = "fixed-clock";
+-			clock-frequency = <32000>;
++			clock-frequency = <32768>;
+ 			clock-output-names = "osc_32k";
+ 			#clock-cells = <0>;
+ 		};
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index 815debd16409..e6faf8d8759e 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -424,7 +424,7 @@ vctcxo_3m: clock-3m {
+ 
+ 		osc_32k: clock-32k {
+ 			compatible = "fixed-clock";
+-			clock-frequency = <32000>;
++			clock-frequency = <32768>;
+ 			clock-output-names = "osc_32k";
+ 			#clock-cells = <0>;
+ 		};
 
-Yes, refresh, retest, resend.  Note that there have been maintainership
-shuffles in this area.  
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260401-06-k3-clk-osc32k-198b413afdca
 
-KDUMP
-M:	Andrew Morton <akpm@linux-foundation.org>
-M:	Baoquan He <bhe@redhat.com>
-M:	Mike Rapoport <rppt@kernel.org>
-M:	Pasha Tatashin <pasha.tatashin@soleen.com>
-M:	Pratyush Yadav <pratyush@kernel.org>
-R:	Dave Young <ruirui.yang@linux.dev>
-L:	kexec@lists.infradead.org
-S:	Maintained
-F:	Documentation/admin-guide/kdump/
-F:	fs/proc/vmcore.c
-F:	include/linux/crash_core.h
-F:	include/linux/crash_dump.h
-F:	include/uapi/linux/vmcore.h
-F:	kernel/crash_*.c
-
-I believe that Pasha/Mike/Pratyush are setting up a git tree, but there
-isn't one listed here?
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
 
 
 _______________________________________________
