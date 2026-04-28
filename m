@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094DAFF8870
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B90BFF885D
 	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dGEfAu/AgnDJJCedzH8RmwnDKVo49Il0XwSulC8Nnz8=; b=P1r1D5X8wWC0aG
-	l5zfBXRM8SK5+fvPD/YPF8b5wB+vdNbZfNWraes7ve0GE54kn3cZTjO/o6s0wLLImfmbRNCCuODUM
-	B8kbKGAqRcL86mnceKzcwmRHUBXyP3Hz1arI8vrjnKH9bmvL4ofPCpZdyoCdz0PCzy9MLeLEDb97y
-	wlIGuVKJOJPhAyAMHDt9/CAEafhUBhTG9l3Z2sgkZHv4DmhJ+9JYPTxxvWh4MOarvdXWOmg9FNkct
-	H3UzklhilfM4PZ1YdtVSXt1vpRgT3Yx4Cv0H2B/FojdQgXUWRGNjHH6eivbLbbsDzDk+2NBZOCTTD
-	vcqLLvCDQJ/z2uq7xXvw==;
+	List-Owner; bh=rzbt6R9L8igIGBl69NDof7z3+/7XfJqmRFkHhT86sik=; b=QmyefQ3f80xfkZ
+	JkHg8ES59d6e6kkaNEAqNFWlHKifplnXfrstsPVSORhD3vQH1LIjxvMv3bXmVjI8NR0UDFPC3lKsD
+	P7ALLe46x4h80xtCbz8FVqV+AOABURhJAOGO+4oYIcMXIs8ZPLM7XEu0Eokva6+DssuS8sW0l/knl
+	ZtF9lRSpN7wGtdGnI7FK2o7g+OQNyeYdKn2tFalhBrF7OR7p+CXYnltcznOKwcfMXyNXLGAVYnDJe
+	2ni510mnQxpaZOnlfATMe9oysGrlST+oeXoqd549pKY4qQsOvDP9J/1AlVrFyWepqFAzihCOqssy1
+	OGtfNQeOPOJ3A6cJqaQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiGm-00000001V2V-1heO;
-	Tue, 28 Apr 2026 13:14:32 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1wHiGo-00000001V4c-0kQo;
+	Tue, 28 Apr 2026 13:14:34 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiGg-00000001UyW-47QD;
-	Tue, 28 Apr 2026 13:14:29 +0000
+	id 1wHiGj-00000001Uyc-3wGc;
+	Tue, 28 Apr 2026 13:14:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1777382061; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=4AWwGUYTanTn719lzq6A/EUfbomVklkhE0MF8yj4zBQ=;
-	b=OLXZauagqLp+eLLQByXDv79wqMbcFiqDNbifeNkBKRv6CsNiy3erR6E+p8UONydQEyMmUCcrXmY2Yg6qcA0ZNk7an5JH4RRmLccVDckWpbhejMToOjzGJ+kyxpi3nUv6tAvbVmADO+k+y7uWsBwHmbPXzvKl2Er6KsBNgshVZfE=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R871e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0X1ubIDe_1777382054;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubIDe_1777382054 cluster:ay36)
+	t=1777382065; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=Qsv/5zq52oNQKyoYl2cE2fHq6XjpzP4W+zUJu/N+63k=;
+	b=ZfS8a9z3NVCZNAyt8G5hcKma8DzaFJdle7Q0tFKRq/YsW6CnhcQPxILrS0pi+Oi+oTysQqfqOff6+P16h6y3zNHibMm9PwIb4sUmY6rWzfwGni93Nsiw3c/yJkoqrkgJ1cULnB+TMfmnvT2Gh4TI/cxDKs6AZc9DYa7yIMlfakk=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0X1ubIFt_1777382062;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubIFt_1777382062 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 28 Apr 2026 21:14:15 +0800
+          Tue, 28 Apr 2026 21:14:23 +0800
 From: fangyu.yu@linux.alibaba.com
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -59,17 +59,16 @@ Cc: guoren@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [RFC PATCH 02/11] iommu/riscv: report iommu capabilities
-Date: Tue, 28 Apr 2026 21:13:50 +0800
-Message-Id: <20260428131359.34872-3-fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH 06/11] iommu/riscv: Add domain_alloc_paging_flags for second-stage domain
+Date: Tue, 28 Apr 2026 21:13:54 +0800
+Message-Id: <20260428131359.34872-7-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 References: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_061427_682171_A51DCF96 
-X-CRM114-Status: UNSURE (   6.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_061430_144760_D8D14EBF 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,47 +85,121 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Tomasz Jeznach <tjeznach@rivosinc.com>
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Report RISC-V IOMMU capabilities required by VFIO subsystem
-to enable PCIe device assignment.
+Replace .domain_alloc_paging with .domain_alloc_paging_flags so callers
+can pass allocation flags to select the appropriate page-table type.
 
-Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+When IOMMU_HWPT_ALLOC_NEST_PARENT or IOMMU_HWPT_ALLOC_DIRTY_TRACKING is
+set in @flags, allocate a second-stage (iohgatp) domain.
+
+When @flags is 0 the behaviour is identical to the previous
+domain_alloc_paging: first-stage (iosatp) domain.
+
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- drivers/iommu/riscv/iommu.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/iommu/riscv/iommu.c | 66 ++++++++++++++++++++++++++++---------
+ 1 file changed, 51 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index a31f50bbad35..15e2a333f969 100644
+index 5dadf6d09139..0c13430ecc7f 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -1336,6 +1336,17 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
- 	return generic_device_group(dev);
- }
+@@ -1255,23 +1255,50 @@ static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
+ 	.flush_iotlb_all = riscv_iommu_iotlb_flush_all,
+ };
  
-+static bool riscv_iommu_capable(struct device *dev, enum iommu_cap cap)
-+{
-+	switch (cap) {
-+	case IOMMU_CAP_CACHE_COHERENCY:
-+	case IOMMU_CAP_DEFERRED_FLUSH:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
- static int riscv_iommu_of_xlate(struct device *dev, const struct of_phandle_args *args)
+-static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
++static struct iommu_domain *riscv_iommu_domain_alloc_paging_flags(
++		struct device *dev, u32 flags,
++		const struct iommu_user_data *user_data)
  {
- 	return iommu_fwspec_add_ids(dev, args->args, 1);
-@@ -1397,6 +1408,7 @@ static void riscv_iommu_release_device(struct device *dev)
++	const bool second_stage = flags &
++		(IOMMU_HWPT_ALLOC_NEST_PARENT | IOMMU_HWPT_ALLOC_DIRTY_TRACKING);
+ 	struct pt_iommu_riscv_64_cfg cfg = {};
+ 	struct riscv_iommu_domain *domain;
+ 	struct riscv_iommu_device *iommu;
+ 	int ret;
  
- static const struct iommu_ops riscv_iommu_ops = {
- 	.of_xlate = riscv_iommu_of_xlate,
-+	.capable = riscv_iommu_capable,
++	if (user_data)
++		return ERR_PTR(-EOPNOTSUPP);
++
+ 	iommu = dev_to_iommu(dev);
+-	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) {
+-		cfg.common.hw_max_vasz_lg2 = 57;
+-	} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48) {
+-		cfg.common.hw_max_vasz_lg2 = 48;
+-	} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39) {
+-		cfg.common.hw_max_vasz_lg2 = 39;
++
++	if (second_stage) {
++		/*
++		 * Second-stage (iohgatp) page table for KVM VFIO device
++		 * pass-through and dirty tracking. The GPA space is 2 bits
++		 * wider than the corresponding first-stage VA space (x4 root
++		 * page table), so hw_max_vasz_lg2 values are 41/50/59.
++		 */
++		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57X4) {
++			cfg.common.hw_max_vasz_lg2 = 59;
++		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48X4) {
++			cfg.common.hw_max_vasz_lg2 = 50;
++		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39X4) {
++			cfg.common.hw_max_vasz_lg2 = 41;
++		} else {
++			dev_err(dev, "cannot find supported second-stage page table mode\n");
++			return ERR_PTR(-ENODEV);
++		}
+ 	} else {
+-		dev_err(dev, "cannot find supported page table mode\n");
+-		return ERR_PTR(-ENODEV);
++		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) {
++			cfg.common.hw_max_vasz_lg2 = 57;
++		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48) {
++			cfg.common.hw_max_vasz_lg2 = 48;
++		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39) {
++			cfg.common.hw_max_vasz_lg2 = 39;
++		} else {
++			dev_err(dev, "cannot find supported page table mode\n");
++			return ERR_PTR(-ENODEV);
++		}
+ 	}
+ 	cfg.common.hw_max_oasz_lg2 = 56;
+ 
+@@ -1291,11 +1318,20 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
+ 	domain->riscvpt.iommu.nid = dev_to_node(iommu->dev);
+ 	domain->domain.ops = &riscv_iommu_paging_domain_ops;
+ 
+-	domain->pscid = ida_alloc_range(&riscv_iommu_pscids, 1,
+-					RISCV_IOMMU_MAX_PSCID, GFP_KERNEL);
+-	if (domain->pscid < 0) {
+-		riscv_iommu_free_paging_domain(&domain->domain);
+-		return ERR_PTR(-ENOMEM);
++	if (second_stage) {
++		domain->gscid = ida_alloc_range(&riscv_iommu_gscids, 1,
++						RISCV_IOMMU_MAX_GSCID, GFP_KERNEL);
++		if (domain->gscid < 0) {
++			riscv_iommu_free_paging_domain(&domain->domain);
++			return ERR_PTR(-ENOMEM);
++		}
++	} else {
++		domain->pscid = ida_alloc_range(&riscv_iommu_pscids, 1,
++						RISCV_IOMMU_MAX_PSCID, GFP_KERNEL);
++		if (domain->pscid < 0) {
++			riscv_iommu_free_paging_domain(&domain->domain);
++			return ERR_PTR(-ENOMEM);
++		}
+ 	}
+ 
+ 	ret = pt_iommu_riscv_64_init(&domain->riscvpt, &cfg, GFP_KERNEL);
+@@ -1439,7 +1475,7 @@ static const struct iommu_ops riscv_iommu_ops = {
  	.identity_domain = &riscv_iommu_identity_domain,
  	.blocked_domain = &riscv_iommu_blocking_domain,
  	.release_domain = &riscv_iommu_blocking_domain,
+-	.domain_alloc_paging = riscv_iommu_alloc_paging_domain,
++	.domain_alloc_paging_flags = riscv_iommu_domain_alloc_paging_flags,
+ 	.device_group = riscv_iommu_device_group,
+ 	.probe_device = riscv_iommu_probe_device,
+ 	.release_device	= riscv_iommu_release_device,
 -- 
 2.50.1
 
