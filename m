@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCECFF8868
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91687FF8870
 	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sFfsqnCAgdipQa8OxfA3KM31YxganOAWIIqH7eB/7Oc=; b=CMp4sJDiuXah8i
-	RBHZUgs+qCgJImJLFHDUwmrNwF/MZrbbJpUX8b1cGDAEKiF0TN2e0qeRLMx+p1bCJF4SCuvl8qgdz
-	wGUzjJZO1B3kYJCLTEsc5ZlrXAQd4jn18miZnLLdSRpVz/GjmaXiKqO6XHrFlt1Va+5e7l8xWcOTk
-	pnngtQdYXE40fk6r7ttmzoXKF245Z9FnhSAi/ybWb/GAwFflx/k0SRciA4AD5FcOl3JstrpBT/P9z
-	pREvBhwnJU6nM10/1zOhOENlgIHJwJDVZDOzX8wxFElAUDNkaxMl9Af+t+0r2gmefkrEvkq9QKtFi
-	SyZgdOP6pHNhppeVPw1Q==;
+	List-Owner; bh=P8gibQTjSUROzSpJ0T8QWiyLycqrlv0+7I4ot0Msnco=; b=1IM9Dw1p+7Gip8
+	mrevbXZ80sjfOIRBUTaouv3kEpBQGgN6yQoxbuPPF5vsEgrFsYexh8Ro6Go0izheMRPkv/jA03nvN
+	sdCyVUheyqzqaFkoHMRNTFeozqaSgv5dJU0SVJvfuDrSX+Ableg4eAk/KKK/e/C12X4j+MBmSEwam
+	30fuQoW3VXQ+qtA3Q4Gjep2BH0TRg1rJ5iW69fmAIDWfcbn38nYhriwBybIzDtDI6ax4BqrT6Avwo
+	jrJEsS1EHR4y0fZd/Zofep4x1fdNk2uN73XXHOZZPKGsYxM/rTw1q4avkk9IKaFjl36SCGT1FsvQ9
+	Z5YWjRkilWYBW+njyfwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiGu-00000001VCD-2KEY;
-	Tue, 28 Apr 2026 13:14:40 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1wHiGt-00000001VAD-0br6;
+	Tue, 28 Apr 2026 13:14:39 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiGo-00000001V2U-2VYf;
-	Tue, 28 Apr 2026 13:14:36 +0000
+	id 1wHiGo-00000001V21-27eK;
+	Tue, 28 Apr 2026 13:14:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1777382072; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=7Qo2K+aVXskZxtjU2vtmdryTxJmRp8P78C8zyT6CDZ8=;
-	b=ZpfJ78H9Ye9JoLqiUKCiRlIZ2NZhGPwX+BwTqQJfvmeU9oM35GGHl8HQbxIGJy/Sn2XRrJhRutJTmyIRCpICgTcy+RiF+BfuwDhaoKOweJhFKEHdCID5IuAptsFUTLeYhuh67yzlzEEpyA93U7czrJ/T/oULKHB3/mKyNh9FX2Y=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0X1ubIHL_1777382068;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubIHL_1777382068 cluster:ay36)
+	t=1777382071; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=d/CJi0j31iQURubrtaBsC+TOdWT/tV2UED1jlPNtsn8=;
+	b=Vq7xQ+Ymo/WIzal6MCHBB0r8IMky3c6KFcvL+quLqYys7jK0VEl6yCI2G6StgxP4rv33erNkWY+bJaf9MMeI5G4Pqw9+D/AC+1eQAaAGDz7XO4o9IcBbO2wIyOGK1HwOZwozTpy7+1VOJmwNUuh5QMh4odtHSKdoPAU9ZJac2bI=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0X1ubIGF_1777382064;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubIGF_1777382064 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 28 Apr 2026 21:14:29 +0800
+          Tue, 28 Apr 2026 21:14:25 +0800
 From: fangyu.yu@linux.alibaba.com
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -59,17 +59,16 @@ Cc: guoren@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [RFC PATCH 09/11] iommu/riscv: Add IOTINVAL.GVMA after updating DDT/PDT entries
-Date: Tue, 28 Apr 2026 21:13:57 +0800
-Message-Id: <20260428131359.34872-10-fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH 07/11] iommupt: Don't preset D when RISC-V IOMMU dirty tracking on
+Date: Tue, 28 Apr 2026 21:13:55 +0800
+Message-Id: <20260428131359.34872-8-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 References: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_061435_198983_70CACE32 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_061434_732124_1B95B3A7 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +87,68 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Previously, only IOTINVAL.VMA was issued, which is insufficient for
-second-stage address translation consistency.
+When mapping writable pages, the RISC-V format code currently
+pre-sets the PTE D bit unconditionally.
+
+If hardware dirty tracking is active (DC.tc.GADE set), the IOMMU
+sets D autonomously on the first write. Pre-setting D makes every
+new mapping appear dirty immediately and breaks dirty tracking.
+
+Introduce PT_FEAT_RISCV_DIRTY_TRACKING_ACTIVE and, when set, leave
+D cleared for new writable mappings so hardware can capture the
+first write. Keep pre-setting D when dirty tracking is inactive.
+
+Only meaningful for second-stage (iohgatp) page tables.
 
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- drivers/iommu/riscv/iommu.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ drivers/iommu/generic_pt/fmt/riscv.h | 13 +++++++++++--
+ include/linux/generic_pt/common.h    |  8 ++++++++
+ 2 files changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 1f7967074492..cb9d315e82ee 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1065,12 +1065,15 @@ static void riscv_iommu_iodir_iotinval(struct riscv_iommu_device *iommu,
- 		/*
- 		 * else: IOTINVAL.VMA with GV=1,AV=PSCV=0,and
- 		 * GSCID=DC.iohgatp.GSCID
--		 *
-+		 */
-+		riscv_iommu_cmd_send(iommu, &cmd);
+diff --git a/drivers/iommu/generic_pt/fmt/riscv.h b/drivers/iommu/generic_pt/fmt/riscv.h
+index 4fe645e60375..0281356cfaf6 100644
+--- a/drivers/iommu/generic_pt/fmt/riscv.h
++++ b/drivers/iommu/generic_pt/fmt/riscv.h
+@@ -248,8 +248,17 @@ static inline int riscvpt_iommu_set_prot(struct pt_common *common,
+ 	u64 pte;
+ 
+ 	pte = RISCVPT_A | RISCVPT_U;
+-	if (iommu_prot & IOMMU_WRITE)
+-		pte |= RISCVPT_W | RISCVPT_R | RISCVPT_D;
++	if (iommu_prot & IOMMU_WRITE) {
++		pte |= RISCVPT_W | RISCVPT_R;
 +		/*
- 		 * IOTINVAL.GVMA with GV=1,AV=0,and
- 		 * GSCID=DC.iohgatp.GSCID
--		 * TODO: For now, the Second-Stage feature have not yet been merged,
--		 * also issue IOTINVAL.GVMA once second-stage support is merged.
- 		 */
-+		riscv_iommu_cmd_inval_gvma(&cmd);
-+		riscv_iommu_cmd_inval_set_gscid(&cmd,
-+			FIELD_GET(RISCV_IOMMU_DC_IOHGATP_GSCID, iohgatp));
- 	}
- 	riscv_iommu_cmd_send(iommu, &cmd);
- }
++		 * When hardware dirty tracking is active (GADE set), the IOMMU
++		 * sets the D bit autonomously on the first write access.
++		 *
++		 */
++		if (!(common->features &
++		      BIT(PT_FEAT_RISCV_DIRTY_TRACKING_ACTIVE)))
++			pte |= RISCVPT_D;
++	}
+ 	if (iommu_prot & IOMMU_READ)
+ 		pte |= RISCVPT_R;
+ 	if (!(iommu_prot & IOMMU_NOEXEC))
+diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
+index e82dff33ece8..4606c7464c27 100644
+--- a/include/linux/generic_pt/common.h
++++ b/include/linux/generic_pt/common.h
+@@ -193,6 +193,14 @@ enum {
+ 	 * Support the 64k contiguous page size following the Svnapot extension.
+ 	 */
+ 	PT_FEAT_RISCV_SVNAPOT_64K = PT_FEAT_FMT_START,
++	/*
++	 * Hardware dirty tracking is currently active: DC.tc.GADE is set and
++	 * the IOMMU will set the D bit in PTEs autonomously on write access.
++	 * When this flag is set, new mappings must not pre-set the D bit so
++	 * that every write is correctly captured by hardware.
++	 * Only meaningful for second-stage (iohgatp) page tables.
++	 */
++	PT_FEAT_RISCV_DIRTY_TRACKING_ACTIVE,
+ 
+ };
+ 
 -- 
 2.50.1
 
