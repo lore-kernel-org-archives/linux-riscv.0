@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5165FF885D
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75298FF885D
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pbq1mNGhiSaoshAhAq0k56tztvBtQzCrGyzl2Z9hdQw=; b=sro9apLByed0kq
-	41woyayg6b9mfvwSrjJEdm4Jxp7IWn4n1DELrmo/1aSd5RiKlJUt8ucMt8kJdhI0cvt82xeE5dANV
-	3Dj1E5wlwsrYkRhrcs2dIJ+d6QPujKFS0Kj9+uB5jUK1wLUCFPel8IlniJRkkY8XsGhAHLAjQCYjE
-	wqVVo+/lEFH+avlZNNfKuk45MXXktQZEFCwRt7N6WwFgFflwRNEwsusrVIHXq4hyllF6AnkkqEtkz
-	mpabUiRhfMLSTbopwG26WCD3qk8Hbw5k3JM/8obeJZbHMa3TqUXcQ0qoec39Bpkv5rk+a+6EIYKLQ
-	OVMTVVfb/QJvmqhnS3Ow==;
+	List-Owner; bh=Hon3gSdSf1ytOSPVNFXWQBrdbVai4v/SEBiz+N24E0o=; b=HfMhGZvZr3b0vA
+	LeTGNWeaqVHy71vJGgBRs+bXuFL6bXdebTvKFMdeh+Zz95FGWYhJKHi7IXriAieXk2FcTvYPLLMzp
+	hg+ZpEr+feGcKasrDsN8GeLuurXGfaud47ffFpphUabnmiCxTspyEKk1VPlW15V9u1p6dSWBTiqvm
+	vzdBOTNtHGnZMtEs0x3RP8nC1ZFPp3whfpYqiEgsKyaYR5S0dIwqMkJCXbvOrC5u6ADTx1ZO0ZkVz
+	u83dLwrG2vaDxXJ8FL3SwLYEFlZqaZ51PygMi4hqzFc9MBTYNENbESeU3eUo2/L0+p5a0cXXTngWp
+	Wkg+ejdM4sriydbxZ15Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiGn-00000001V3T-139P;
-	Tue, 28 Apr 2026 13:14:33 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1wHiGy-00000001VIk-05QC;
+	Tue, 28 Apr 2026 13:14:44 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiGg-00000001UyX-3xaC;
-	Tue, 28 Apr 2026 13:14:30 +0000
+	id 1wHiGu-00000001V8k-0Z6x;
+	Tue, 28 Apr 2026 13:14:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1777382061; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=MqNgI4sv+FepWpFcUsgsx+IZ0W7HlKVhYzr2f1YWc7s=;
-	b=mt+bsZhMwWvRjN1ZUFBaxQdkZXPVkgZW/PO766HqJBC21DdKDoVYhWM1K1i047jY80LQkQ5UZDEjKPNwZ9dlyIYwxuK2AZDULTLkRBjn4tgs3zYisCNv4Je5OzOYzNuqqXUcrqRHknrOMGkmPOrr83Oivd/OQHwK4NoVXKTSfLA=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R271e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X1ubIET_1777382056;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubIET_1777382056 cluster:ay36)
+	t=1777382077; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=GTaXyo6u6wVsR7hfJRYDUBPmXTghSbJ0+BI4PVwt11c=;
+	b=H8PpUuUDWrG2qxO4FDj3a0AJZ+pEyFbh8hPyeFL4A1qhuVBg4gykoZvlpGnODtD+F+hi8sE1m0DBiKCSwIf2WmTYm1957gex4h2dUTvx+0BvYYaHxLGdEAhFehrMN+wbtDSCma5EUw0EMRSFUP44oh3HcoTQUYbo4GVcm/7WAdU=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X1ubIIu_1777382072;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubIIu_1777382072 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 28 Apr 2026 21:14:17 +0800
+          Tue, 28 Apr 2026 21:14:33 +0800
 From: fangyu.yu@linux.alibaba.com
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -60,16 +60,16 @@ Cc: guoren@kernel.org,
 	linux-kernel@vger.kernel.org,
 	Zong Li <zong.li@sifive.com>,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [RFC PATCH 03/11] iommu/riscv: use data structure instead of individual values
-Date: Tue, 28 Apr 2026 21:13:51 +0800
-Message-Id: <20260428131359.34872-4-fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH 11/11] iommu/riscv: support nested iommu for getting iommu hardware information
+Date: Tue, 28 Apr 2026 21:13:59 +0800
+Message-Id: <20260428131359.34872-12-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 References: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_061427_892689_E7F531D3 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20260428_061440_396581_31CCD12E 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,98 +88,92 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Zong Li <zong.li@sifive.com>
 
-The parameter will be increased when we need to set up more
-bit fields in the device context. Use a data structure to
-wrap them up.
+This patch implements .hw_info operation and the related data
+structures for passing the IOMMU hardware capabilities for iommufd.
 
 Signed-off-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- drivers/iommu/riscv/iommu.c | 27 +++++++++++++++++----------
- 1 file changed, 17 insertions(+), 10 deletions(-)
+ drivers/iommu/riscv/iommu.c  | 19 +++++++++++++++++++
+ include/uapi/linux/iommufd.h | 18 ++++++++++++++++++
+ 2 files changed, 37 insertions(+)
 
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 15e2a333f969..369c98b7e1e5 100644
+index cb9d315e82ee..9abf446e1b85 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -1077,7 +1077,7 @@ static void riscv_iommu_iodir_iotinval(struct riscv_iommu_device *iommu,
-  * interim translation faults.
+@@ -1556,8 +1556,27 @@ static void riscv_iommu_release_device(struct device *dev)
+ 	kfree_rcu_mightsleep(info);
+ }
+ 
++static void *riscv_iommu_hw_info(struct device *dev, u32 *length, u32 *type)
++{
++	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
++	struct iommu_hw_info_riscv_iommu *info;
++
++	info = kzalloc_obj(*info);
++	if (!info)
++		return ERR_PTR(-ENOMEM);
++
++	info->capability = iommu->caps;
++	info->fctl = riscv_iommu_readl(iommu, RISCV_IOMMU_REG_FCTL);
++
++	*length = sizeof(*info);
++	*type = IOMMU_HW_INFO_TYPE_RISCV_IOMMU;
++
++	return info;
++}
++
+ static const struct iommu_ops riscv_iommu_ops = {
+ 	.of_xlate = riscv_iommu_of_xlate,
++	.hw_info = riscv_iommu_hw_info,
+ 	.capable = riscv_iommu_capable,
+ 	.identity_domain = &riscv_iommu_identity_domain,
+ 	.blocked_domain = &riscv_iommu_blocking_domain,
+diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
+index e998dfbd6960..79d3dc5e8d19 100644
+--- a/include/uapi/linux/iommufd.h
++++ b/include/uapi/linux/iommufd.h
+@@ -660,6 +660,22 @@ struct iommu_hw_info_amd {
+ 	__aligned_u64 efr2;
+ };
+ 
++/**
++ * struct iommu_hw_info_riscv_iommu - RISCV IOMMU hardware information
++ *
++ * @capability: Value of RISC-V IOMMU capability register defined in
++ *              RISC-V IOMMU spec section 5.3 IOMMU capabilities
++ * @fctl: Value of RISC-V IOMMU feature control register defined in
++ *              RISC-V IOMMU spec section 5.4 Features-control register
++ *
++ * Don't advertise ATS support to the guest because driver doesn't support it.
++ */
++struct iommu_hw_info_riscv_iommu {
++	__aligned_u64 capability;
++	__u32 fctl;
++	__u32 __reserved;
++};
++
+ /**
+  * enum iommu_hw_info_type - IOMMU Hardware Info Types
+  * @IOMMU_HW_INFO_TYPE_NONE: Output by the drivers that do not report hardware
+@@ -670,6 +686,7 @@ struct iommu_hw_info_amd {
+  * @IOMMU_HW_INFO_TYPE_TEGRA241_CMDQV: NVIDIA Tegra241 CMDQV (extension for ARM
+  *                                     SMMUv3) info type
+  * @IOMMU_HW_INFO_TYPE_AMD: AMD IOMMU info type
++ * @IOMMU_HW_INFO_TYPE_RISCV_IOMMU: RISC-V iommu info type
   */
- static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
--				     struct device *dev, u64 fsc, u64 ta)
-+				     struct device *dev, struct riscv_iommu_dc *new_dc)
- {
- 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
- 	struct riscv_iommu_dc *dc;
-@@ -1116,10 +1116,10 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
- 	for (i = 0; i < fwspec->num_ids; i++) {
- 		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
- 		tc = READ_ONCE(dc->tc);
--		tc |= ta & RISCV_IOMMU_DC_TC_V;
-+		tc |= new_dc->ta & RISCV_IOMMU_DC_TC_V;
+ enum iommu_hw_info_type {
+ 	IOMMU_HW_INFO_TYPE_NONE = 0,
+@@ -678,6 +695,7 @@ enum iommu_hw_info_type {
+ 	IOMMU_HW_INFO_TYPE_ARM_SMMUV3 = 2,
+ 	IOMMU_HW_INFO_TYPE_TEGRA241_CMDQV = 3,
+ 	IOMMU_HW_INFO_TYPE_AMD = 4,
++	IOMMU_HW_INFO_TYPE_RISCV_IOMMU = 5,
+ };
  
--		WRITE_ONCE(dc->fsc, fsc);
--		WRITE_ONCE(dc->ta, ta & RISCV_IOMMU_PC_TA_PSCID);
-+		WRITE_ONCE(dc->fsc, new_dc->fsc);
-+		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_PC_TA_PSCID);
- 		/* Update device context, write TC.V as the last step. */
- 		dma_wmb();
- 		WRITE_ONCE(dc->tc, tc);
-@@ -1205,22 +1205,22 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
- 	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
- 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
- 	struct pt_iommu_riscv_64_hw_info pt_info;
--	u64 fsc, ta;
-+	struct riscv_iommu_dc dc = {0};
- 
- 	pt_iommu_riscv_64_hw_info(&domain->riscvpt, &pt_info);
- 
- 	if (!riscv_iommu_pt_supported(iommu, pt_info.fsc_iosatp_mode))
- 		return -ENODEV;
- 
--	fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
-+	dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
- 	      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, pt_info.ppn);
--	ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
-+	dc.ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
- 	     RISCV_IOMMU_PC_TA_V;
- 
- 	if (riscv_iommu_bond_link(domain, dev))
- 		return -ENOMEM;
- 
--	riscv_iommu_iodir_update(iommu, dev, fsc, ta);
-+	riscv_iommu_iodir_update(iommu, dev, &dc);
- 	riscv_iommu_bond_unlink(info->domain, dev);
- 	info->domain = domain;
- 
-@@ -1292,9 +1292,12 @@ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
- {
- 	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
- 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
-+	struct riscv_iommu_dc dc = {0};
-+
-+	dc.fsc = RISCV_IOMMU_FSC_BARE;
- 
- 	/* Make device context invalid, translation requests will fault w/ #258 */
--	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, 0);
-+	riscv_iommu_iodir_update(iommu, dev, &dc);
- 	riscv_iommu_bond_unlink(info->domain, dev);
- 	info->domain = NULL;
- 
-@@ -1314,8 +1317,12 @@ static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
- {
- 	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
- 	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
-+	struct riscv_iommu_dc dc = {0};
-+
-+	dc.fsc = RISCV_IOMMU_FSC_BARE;
-+	dc.ta = RISCV_IOMMU_PC_TA_V;
- 
--	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, RISCV_IOMMU_PC_TA_V);
-+	riscv_iommu_iodir_update(iommu, dev, &dc);
- 	riscv_iommu_bond_unlink(info->domain, dev);
- 	info->domain = NULL;
- 
+ /**
 -- 
 2.50.1
 
