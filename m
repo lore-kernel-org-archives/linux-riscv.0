@@ -4,101 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C1CFF885D
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 10:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BB5FF885D
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 11:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dpb8LAcx2Fu3D7P84oX6pTQNcAaklrvMDAcvtpVsvFI=; b=fhv9dmXEkGlboC
-	w/QdCyLmCxuXBndmoar8A9Lv16mCN4nQhwG7RdyfsbqY7osoKhQxdvV3oJRRZKF8bIn4V0BW7BU7Q
-	sA72TsU7SX9ut3uNv7bbKVxCRlRQukiqTI7aypPqTaZln7JUg2DJ6wCPEtYyjCYVb8FMV5c8kuxZk
-	i1f4ffd3ywRs3mmIJqztZ0grNRF1xjHWw6YJlaRLdSlggUJU7vbSKcvyTbTY10nXCAIdBJy37qnrD
-	VbLKOuoqtju8djQF2sn9Kc9zcSTdBBrOBKtgupJg5KEetgaVvX3MQE4UoK/b9ZxqNGYXnlQpwoBKU
-	P5Wk1drUbbfTtYvRT0rw==;
+	List-Owner; bh=kdxwyTl5R+o0PXJ4GRZfkGKjfp1v1FZ0wKMAUzHH4ME=; b=ezfv0PU+VWm1TN
+	y1BLnVMj9jc4OqiPigXT0cRGcKu/wzT2l4NLpCyB4+IHhMeXD0ZNzhXWrc1NJLLT/2FeyJMW01lCq
+	YWqa1tFcpY82iWvKrSbrVtMOMPqQoJtgOScWS876Vzqyi86jUTbMx8QteEK0p4awLbh3QvAPz6TFx
+	Y58eSJFzU72jtM9biA1iLgNJAHonxS7Q2wwZKv+VZMiUyeeVJLJedyl93RnUW4SpoPSZvXHXe0h4q
+	pvh7I3PzzO6UWp4gSCx3B8sqvS0B1ArReLkpwfW+lXepd7oE2Tx/Hck0Pu0J5VSU6H0/R4u8ORo6/
+	U++A6eH3BzvKPphi57ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHg9i-00000001EN5-2wYM;
-	Tue, 28 Apr 2026 10:59:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHgIi-00000001Ex0-1N5F;
+	Tue, 28 Apr 2026 11:08:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHg9h-00000001EMs-49mH
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 28 Apr 2026 10:59:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Tj3/gj8LE3DL9G1h9bpHxtv/ocVSxSDVXTVYDwuz9Sg=; b=Qg8hMeo5ePfIeOTWqovxDbT8UO
-	hGkpikmgdRCRcynL+OH7N9ZXxQ0/2oGHv2tHvvaMtHpCqHz+3jQD0c/J9uBsehZvgIa06ZopW1ki2
-	k3lDJsYOYnYNBpPa9afEJLAWFgAMfejbcz8r0IKg9zb8aShJD5G9fZtfhPrUxvF4Mg9jPo+mqRGXU
-	qej+W9TT6vxYYjqj1VPHfnZEMxrM5QSDvoYArx47W0fiGp3URT5gs8/MF4KfIHSUF/bNRzPZ1vEgE
-	mGYqf1ySs8RlggQSkhnYRWFBxfghY3dnihD85ic5QyrusuYN46jpPLY6wkY/BAcqNtN9+/NHrTHG4
-	zETz/2QQ==;
-Received: from mgamail.intel.com ([198.175.65.15])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHg9d-00000002mtP-0omS
+	id 1wHgIh-00000001Ewj-0jft
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Apr 2026 10:59:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1777373942; x=1808909942;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=MGoeypASKD4rtePXz/VKClp1Ph4phRySb1UqKEwoHIs=;
-  b=TKWpOVoj+1Jy45fIFLtbOhkectWmXicCOMJIRu4/HJxb/eSydnDyXNOd
-   1YRDr5Yx1MLY93lwxS3m49UF0NYB0HzvHxzRU+Bq0MZralPXXllf7/Kgw
-   iySCc2pwc4/6Y2QK7CWxiYTNg8kOVJzzr19g3o+gwhz/yb7qGykb5ksCC
-   H3pdomoJJ/ASY8hs1S47u/8m7hye7R0x73jF3fTCtl2cGgc1rt7WIGCbR
-   ZHW2szVotTHOB3/tZNbmTRzfzEfhWB/+HxqVlW3DUEJskU/A8Klows38g
-   nXKZMRNQZmMFIxST+Sq4sT3qYOqEqtmz6WnBsAlFsDAGMSFTGeKUGTn0a
-   g==;
-X-CSE-ConnectionGUID: IWX8YflkQl2NFDmmW6XgTQ==
-X-CSE-MsgGUID: PgPRxtRxRpa8lYw05IpxoQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11769"; a="81883652"
-X-IronPort-AV: E=Sophos;i="6.23,204,1770624000"; 
-   d="scan'208";a="81883652"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Apr 2026 03:58:59 -0700
-X-CSE-ConnectionGUID: +MQNRSAzTpyEIDA78i1obA==
-X-CSE-MsgGUID: JyjeK03hQvy4AyL355vWuQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,204,1770624000"; 
-   d="scan'208";a="232914395"
-Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.213])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Apr 2026 03:58:55 -0700
-Date: Tue, 28 Apr 2026 13:58:52 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	linux-serial <linux-serial@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 2/4] serial: 8250_dw: build Renesas RZN1 CPR value
- from DW_UART_CPR_* definitions
-Message-ID: <afCS7GEG7gtyC7RH@ashevche-desk.local>
-References: <20260428-ultrarisc-serial-v5-0-97de63b1e3eb@ultrarisc.com>
- <20260428-ultrarisc-serial-v5-2-97de63b1e3eb@ultrarisc.com>
- <afBhkbGLsuqUitOl@ashevche-desk.local>
- <23c80500-f2c1-0eb3-f640-00f7b108059b@linux.intel.com>
- <177736726936.2886867.7725295920724488690.b4-reply@b4>
+	Tue, 28 Apr 2026 11:08:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4F50360128
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 11:08:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06809C2BCB7
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 11:08:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777374502;
+	bh=c2c7jO6hYI8b7jy0S2IChLenRdchEWJaq6E2waZawHE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=F+Ki5qsnRa3obRmGutl/v+YE/IaCsg06XMEhWRXxUXm5ZWBFR4FNxwTMddd5fcwzY
+	 h4R9lOh47SXniKs2dnTbqT1v2c+ExzIL+sYrR6P+YkNHV8fx1rbgPxtCz0NdjBTRwE
+	 /Tug9VHBN/nJqcNYsUlifxqNoNjFeRQ6IyLVicIdL/rcrAsMQdAGe0hZkvK4AcDLud
+	 ZroRHccexPYzi/pO77aX/OdsGvt3zy9imwlRA7S49/mUT8js/uW6P4TZk7HE8OsID6
+	 qn5MhQdT7zIYIOJbXygG1aIWYOTvNWuY4loaem4/pLJbWxRJS9PyEwwbRDGRWU2kaE
+	 EfNp3J4WURi6g==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-38dd9f0fdc6so126470941fa.0
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Apr 2026 04:08:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/jLGl8eFUoRkNneF1mzpfH4FctxDJUdWn7BjdRx0AOUMN6tGc1YCdvOS1VImWXoy2R5MZDuvTzbnoLGQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhG6Fh7k6QDG6BO334VJRbtgwqFc08Ke1idep4l0Q2F4g3kizn
+	DfbPTyQrIeQus8uvGaKJ5K/5qLNL7yrhmhiL06diV5LmOpr7PO0PEflqrD3Hj04ckdhgB5A8mX8
+	7IntVPdvizcOYZzugUV/Thn3H6eclFgE=
+X-Received: by 2002:a05:651c:324c:b0:38e:35fe:b79 with SMTP id
+ 38308e7fff4ca-39243022befmr7190031fa.2.1777374500737; Tue, 28 Apr 2026
+ 04:08:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <177736726936.2886867.7725295920724488690.b4-reply@b4>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_115901_724847_D5CEB27B 
-X-CRM114-Status: GOOD (  10.11  )
+References: <20260424111330.702272-1-changhuang.liang@starfivetech.com> <20260424111330.702272-12-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260424111330.702272-12-changhuang.liang@starfivetech.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 28 Apr 2026 13:08:09 +0200
+X-Gmail-Original-Message-ID: <CAD++jLk_AQjjCLkeuiyBtiQUsmzHEfqpigttJ7E9n1UE8h29Hg@mail.gmail.com>
+X-Gm-Features: AVHnY4IDxcIj36cpLzKrI1NZVFjYAH9TxKPvCzuHnuFYmrkebhBtVhuQTXFLwpQ
+Message-ID: <CAD++jLk_AQjjCLkeuiyBtiQUsmzHEfqpigttJ7E9n1UE8h29Hg@mail.gmail.com>
+Subject: Re: [PATCH v1 11/20] dt-bindings: pinctrl: Add starfive,jhb100-per1-pinctrl
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +79,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 05:07:49PM +0800, Jia Wang wrote:
-> On 2026-04-28 11:41 +0300, Ilpo J=E4rvinen wrote:
-> > On Tue, 28 Apr 2026, Andy Shevchenko wrote:
-> > > On Tue, Apr 28, 2026 at 01:26:27PM +0800, Jia Wang wrote:
-
-...
-
-> > #define DW_UART_CPR_FIFO_MODE_FROM_SIZE(size)			\
-> > ({								\
-> > 	typeof (size) __size =3D size;				\
-> > 								\
-> > 	static_assert(IS_ALIGNED((__size), 16));		\
-> > 	static_assert(__size <=3D DW_UART_CPR_FIFO_MODE_MAX);	\
-> > 								\
-> > 	FIELD_PREP_CONST(DW_UART_CPR_FIFO_MODE, __size / 16);	\
-> > })
-> =
-
-> Thanks. I tried that approach, but the statement-expression form does
-> not work in this case because the helper is used in static initializers.
-> So I'll keep it as a plain expression macro for now, and just rework it
-> into a cleaner multi-line form.
-
-Still you can move FIELD_PREP_CONST() into it.
-
--- =
-
-With Best Regards,
-Andy Shevchenko
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2hhbmdodWFuZywKCnRoYW5rcyBmb3IgeW91ciBwYXRjaCEKCk9uIEZyaSwgQXByIDI0LCAy
+MDI2IGF0IDE6MTTigK9QTSBDaGFuZ2h1YW5nIExpYW5nCjxjaGFuZ2h1YW5nLmxpYW5nQHN0YXJm
+aXZldGVjaC5jb20+IHdyb3RlOgoKPiBBZGQgcGluY3RybCBiaW5kaW5ncyBmb3IgU3RhckZpdmUg
+SkhCMTAwIFNvQyBQZXJpcGhlcmFsLTEocGVyMSkgcGluY3RybAo+IGNvbnRyb2xsZXIuCj4KPiBT
+aWduZWQtb2ZmLWJ5OiBDaGFuZ2h1YW5nIExpYW5nIDxjaGFuZ2h1YW5nLmxpYW5nQHN0YXJmaXZl
+dGVjaC5jb20+CiguLi4pCgo+ICsgIFRoaXMgZG9tYWluIGNvbnRhaW5zIDQgSU8gZ3JvdXBzIHdo
+aWNoIHN1cHBvcnQgdm9sdGFnZSBsZXZlbHMgMS44ViBhbmQgMy4zVgo+ICsgIGdwaW9lLXNwaSAt
+IGNvbXByaXNlcyBQQURfR1BJT19DMCB0aHJvdWdoIFBBRF9HUElPX0M0Lgo+ICsgIGdwaW9lLXFz
+cGkwIC0gY29tcHJpc2VzIFBBRF9HUElPX0M1IHRocm91Z2ggUEFEX0dQSU9fQzExLgo+ICsgIGdw
+aW9lLXFzcGkxIC0gY29tcHJpc2VzIFBBRF9HUElPX0MxMiB0aHJvdWdoIFBBRF9HUElPX0MxOS4K
+PiArICBncGlvZS1xc3BpMiAtIGNvbXByaXNlcyBQQURfR1BJT19DMjAgdGhyb3VnaCBQQURfR1BJ
+T19DMjcuCj4gKwo+ICsgIEVhY2ggb2YgdGhlIGFib3ZlIElPIGdyb3VwcyBtdXN0IGJlIGNvbmZp
+Z3VyZWQgd2l0aCBhIHZvbHRhZ2Ugc2V0dGluZyB0aGF0IG1hdGNoZXMgdGhlIGV4dGVybmFsCj4g
+KyAgdm9sdGFnZSBsZXZlbCBwcm92aWRlZCB0byB0aGUgSU8gZ3JvdXAuCgpTbyB5b3VyIGhhcmR3
+YXJlIGhhcyBncm91cHMgYW5kIHN1cHBvcnQgc29tZSBwcm9wZXJ0aWVzIG9uIHRoZSBncm91cCBs
+ZXZlbC4KClNvIGV4cG9zZSB0aGVzZSBncm91cHMgYW5kIG1ha2UgdGhlc2UgcHJvcGVydGllcyBj
+b25maWd1cmFibGUgcGVyIGdyb3VwCmluc3RlYWQgb2YgaW52ZW50aW5nIHBlci1ncm91cCBwcm9w
+ZXJ0aWVzLgoKPiArICBncGlvZS1zcGktdnJlZjoKPiArICBncGlvZS1xc3BpMC12cmVmOgo+ICsg
+IGdwaW9lLXFzcGkxLXZyZWY6Cj4gKyAgZ3Bpb2UtcXNwaTItdnJlZjoKCkNyZWF0ZSBwcm9wZXIg
+Z3JvdXBzIGluIHRoZSBwaW4gY29udHJvbGxlciB0aGVuIHVzZSB0aGUKc3RhbmRhcmQgcGluY2Zn
+IHByb3BlcnR5IHBvd2VyLXNvdXJjZSA9IDwuLi4+OyBmb3IgdGhpcy4KCkV4YW1wbGUgZm9yIGEg
+c2ltcGxlIGRlZmF1bHQgaG9nOgoKcGluY3RybCB7CiAgICAvKiBIb2cgdGhlIFFTUEkgcGlucyAq
+LwogICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKICAgIHBpbmN0cmwtMCA9IDwmcXNwaV9k
+ZWZhdWx0PjsKCiAgICBxc3BpX2RlZmF1bHQ6IHBpbmN0cmwtcXNwaSB7CiAgICAgICAgY29uZmln
+IHsKICAgICAgICAgICAgZ3JvdXBzID0gImdwaW9lLXFzcGktcGlucyI7CiAgICAgICAgICAgIHBv
+d2VyLXNvdXJjZSA9IDwyPjsKICAgICAgICB9OwogICAgfTsKfTsKClRoZSBncm91cHMgY2FuIGJl
+IG9ydGhvZ29uYWwgdG8gb3RoZXIgcGluIGhhbmRsaW5nLCB0aGF0J3MKZmluZS4gSW1wbGVtZW50
+IC5waW5fY29uZmlnX2dyb3VwX3NldCBpbiBzdHJ1Y3QgcGluY29uZl9vcHMuCgo+ICsgICAgICAg
+ICAgc3RhcmZpdmUsZGVib3VuY2Utd2lkdGg6Cj4gKyAgICAgICAgICBzdGFyZml2ZSxkcml2ZS1p
+MmMtZmFzdC1tb2RlOgo+ICsgICAgICAgICAgc3RhcmZpdmUsZHJpdmUtaTJjLWZhc3QtbW9kZS1w
+bHVzOgo+ICsgICAgICAgICAgc3RhcmZpdmUsaTJjLW9wZW4tZHJhaW4tcHVsbC11cC1vaG06CgpJ
+IGFscmVhZHkgYWRyZXNzZWQgdGhlc2UgaW4gb3RoZXIgcmV2aWV3IGNvbW1lbnRzLiBHZXQgcmlk
+IG9mCnRoZW0gaW4gZmF2b3Igb2Ygc3RhbmRhcmQgcGluY29uZmlnIGJpbmRpbmdzLgoKWW91cnMs
+CkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
