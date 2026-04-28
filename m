@@ -4,69 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F79CFF8864
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 00:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B575FF8867
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 01:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AcgKaRweAANWkRrz7vDhLPLruAmDZQPhuT6zCNRxY6E=; b=Wg4lQwmBzvH9v6G1YHsX2Irw6l
-	YHgxBPIuHoeYlKlCGhIp+qY7TCeYAXWbnKIX8DsqOxJ7iHiD7su/VxPTVRt/lLr2Hux5dfruhimYX
-	JQPOds8h4/qvUoBToYbP7LnYeHrd8UWjcv+4qpDKz/c8YBwlVWZiO3QOSZ0gmFyl+zANu/UcnWh3+
-	GU1AKMreLyJCJCod6ZKUCrpQHTzg8VUigeh6Ez07QjoUilQjHSw08SAdukwgSQ1bUWnOkCKe6AF0v
-	kRDcIG3+BbaEN13DJ9tPbdlFS4l/HxCNP4yseupnwJq4O9wArHYCYsmS5Th9n0Xg304FYNnUlYFhy
-	gC4S7icQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DonsFLiaNtj985ws/dOZPhwycbV7QK1BSlj5iqqnZOQ=; b=127NMNje30kdVO
+	cJScD/zNia2e/XbaEQnu2dZ+vNBJAIhqIPfpWq4ZFNgsOWpWXeRfiIhPmMTFDceRqBCzvJ5Okxiix
+	0dqh3akL59t/yyi+MfnIAliyiwxZwF1mFdQQWJF6h8DtiftHcOqBREqupcW078P2nh6PAXRxqOHlw
+	+JcL/9yT+gtPIJT/+iyCSp6ECtLX85mDk2bLWdSyQz/WI0vdrkyhwu0QMriAq3fGVXP5O7fPiciOe
+	pYF89NuA2WZm9XIj9Aw+wUREVbZHTt6LxNa+/h5l4AOKBIdQT6wbhP4rm9j0H3Vs88TSzZ35V7MKf
+	TPn1yLKyLehRymGj7seA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHW8z-00000000KYQ-1NDZ;
-	Tue, 28 Apr 2026 00:17:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHXFZ-00000000Nx9-0BcJ;
+	Tue, 28 Apr 2026 01:28:33 +0000
+Received: from [2406:e500:4440:2::718] (helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHW8x-00000000KY0-0S4W
+	id 1wHXFV-00000000Nwc-1mEB
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Apr 2026 00:17:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3142840E2B;
-	Tue, 28 Apr 2026 00:17:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E13E9C19425;
-	Tue, 28 Apr 2026 00:17:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777335458;
-	bh=6RCzVcVHnWB7Xitp60ejz8BoMUtumigfr5ZwTpbOtJc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cJ78DAZprfEadaOsdbT59/5Ch0WQGduepbtv8F020hgjU0ql+lhvRnGHz+VTrwjdD
-	 5EehzHaQkK4rgZw4wM0UqMP8ETaTDZ5Ty7c8ziuHuG1jCyEJwPH0J73BFEm6rBQt5a
-	 2vnTUPGVi01plwJSvt8F3c41VgmDMblGOalFxUzPx8tP/M1X2C+lbKUewl/KpFHy+y
-	 4uSL4AejTYdfJGJ13o6kdZnGmIhMQ5rZY4rs/o+kOmRIXoMPCbB7clr2ulMJ0kkE9S
-	 Ui08MzklpYlwOG35XfZzRRDEkmC0qg5VUlKHcASl8ufgrTMib9ww8R+rO3z3BYWcx9
-	 owOWzMyrBOOgQ==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 31EB71AC583E; Tue, 28 Apr 2026 01:17:35 +0100 (BST)
-Date: Tue, 28 Apr 2026 09:17:35 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Alex Elder <elder@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Alex Elder <elder@riscstar.com>
-Subject: Re: [PATCH v9 2/3] spi: spacemit: introduce SpacemiT K1 SPI
- controller driver
-Message-ID: <ae_8n0I_ORDLib1y@sirena.co.uk>
-References: <20260427-spi-spacemit-k1-v9-0-ff753b551302@riscstar.com>
- <20260427-spi-spacemit-k1-v9-2-ff753b551302@riscstar.com>
+	Tue, 28 Apr 2026 01:28:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=QMVhGwq19XpIBDxCBwre6Qcs3OmToMw/K/KKSgWC0SxvsqOu8x8YSAcErTXyl/qxewNZmIiLvRmtNoaCsZcRD++7TKxlaQKvLZpiW209uCbz+oVmzrZr6PZKRjOrAWdstqmhhGq31Z9bPfJxKP6SQ3HBJKTWgg3790aOsl5/1gSj1CpwMvKL2Q8sjMlNpR4sqzLmaKgB0TWWvjiCN/oxX+y3p/DYnh2cbwt4UifFqpQqiO5z8Fil6leuCLcYwoueFYfRwuKVBrMxBWmyfwrlqfg7gSRHYLylQ/7TpW12fYbQv8QSfqSMj+5EpIUD9PnvYBali12h8iqigZ8l8wn6ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RNvws75o3n4ZOVDFYGDEyBfqkZTYNAc0wpD0sV7PXD8=;
+ b=lmxc7nzBGGNYFOyEZhq9RfItUHBu5PxK2sXthJN3UaYamR0v6XQ9igcFNh/vJAKK4PcJaZOuVSsl4RZNtByVtq88SQHvJcP73tO6l6dwZEQtWo+PEw/zVnaBgbRTV1uSCNa9lR/xZIdoeQooYiQcJMSd5kQ/2s+65ksl+Z2OPndbFr8EO2k6n542AON4cMfOgBtIjvsw7jYnRcGgTE1wpemlzGsJtFoinxuG9sp8jitwpTDHASuR6IYdJVZhCTD6DnlFQ3jSVZypPvVur6MNENaNWOurdvmwUAmzUfUw9ijbNrEaQSvRwwKjcuRbIlzQwjv4sO8dzfwMdNhvj7p+0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1153.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:13::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 28 Apr
+ 2026 01:28:05 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9846.025; Tue, 28 Apr 2026 01:28:05 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Bartosz Golaszewski <brgl@kernel.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Lianfeng Ouyang
+	<lianfeng.ouyang@starfivetech.com>
+Subject: Re: [PATCH v1 11/20] dt-bindings: pinctrl: Add
+ starfive,jhb100-per1-pinctrl
+Thread-Topic: [PATCH v1 11/20] dt-bindings: pinctrl: Add
+ starfive,jhb100-per1-pinctrl
+Thread-Index: AQHc09tvLatUK5oq3keSy4c9Ncpt5LXubvkAgAVF1NA=
+Date: Tue, 28 Apr 2026 01:28:05 +0000
+Message-ID: <ZQ4PR01MB120229BE0DAC2658164C066AF2372@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260424111330.702272-1-changhuang.liang@starfivetech.com>
+ <20260424111330.702272-12-changhuang.liang@starfivetech.com>
+ <20260424-mumps-foothill-ef122c1029c0@spud>
+In-Reply-To: <20260424-mumps-foothill-ef122c1029c0@spud>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1153:EE_
+x-ms-office365-filtering-correlation-id: 29c23a8b-15b0-4a83-1ad0-08dea4c5658c
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: NcrLv0r/a7wJZ0G0YDRUo3cOmyjPXrMYr0VsCwCUNv2OjhIAh4eCgo+3/boz01su5nS6SqoeY13f44dW0IctE4Yow/4avDxcRo9I2q7HxwtpleGGEvnoG9qfekoDJo7QKyUm8MVlojMoxp8pltVVjL6UQjTJyvIrng8mas+GdM7MleHXAjyLLARKriZINO6fL5PDe2/AfwsJpAspT4TzKl+rhPShMQ6KQpQgfZ/6kg2v6nPqLfiJHdsM4L7nohs1p8txQXRu22+9XfUQYZqSRV/BvWxhxhEreTjXKkZCaNKitmPVlaq3sBcP1O9sU0Sx55P3P8FM2s6KdReUh8KKMoWuOG8o/UF298yrAMgYOFxBlIk/GkkEZkJEdV3A5377u6GpFa2WH5r81eMOxnooAfVstaZgHOuwkF/x3V3qVuQAKNR6ANTe5e15lU/962qxwPrhCfwWeHT4CI7IwzVdK5wUi2QJoFWWJZpkxCuPuBC1fUKGQaJB/HzOLuj1Fl83PSPBtncqte2I6Suki/Mj69vZjvfHAE0PLde8YeUx7PC7sT38gjJZ+Gi6eUIHyVRUYWGVMsGNPSB2GQuVr13yNLqtOYVlanPxD9kQqwro1ZM=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QGhqt9Im15ssSVvz0hzevWhxqVj210qiZUnEzOG0E/WVVAmyPWAvGo50q6O9?=
+ =?us-ascii?Q?af2QS2U1xiUhCyLe9yFqMlnfrpep+hFidVDQQ6uGdP9atg84l6TCOb3ogvBT?=
+ =?us-ascii?Q?Hbw7aPKPeggp0Vzt98/qOhSiHB0ot7ZA/8nMU0ZOsEu5M9/H4WRgZoVZa5TV?=
+ =?us-ascii?Q?l1eOOY5Jgcv5ZJkwNsN1aCIpGkRPfhGfNNfRm0m65RGegDcywuU/X/SMbWCQ?=
+ =?us-ascii?Q?qDrBOBq1qUHaDgu8CJeTCsQOW9PFU29uwu6fcSYf43+HkJm1pz06HXyo+qmv?=
+ =?us-ascii?Q?EecOwVn91Yrs8OWfZX9K4NIt31XwrFYVSBy3mrcQo+cG3FuNMEosxz7qheFf?=
+ =?us-ascii?Q?TS8dwnlvfYixlX8/zZi8Ty0DO6Iuxs0WqH4U2+fPJ8k5bEegGFKQ9c2T0t3i?=
+ =?us-ascii?Q?ykCJjasq1EA4s+4+Q+bOr5/p0cU0lFWYaAEq38G1HxdF7QeDK8A2tVrIhMAF?=
+ =?us-ascii?Q?VcAsfb3Aj169ooRQQcvp1corPg+oKco//4uVFmfyZPSqk5A6pyUet2jCF2/8?=
+ =?us-ascii?Q?Cxd75tepe2wb4Q1X7S/zzGAAX7IzxY9VW/F5/XQ6ZpBG0xdrVwlg5qlWnx2x?=
+ =?us-ascii?Q?cukXiTTm+tbEVKAFgeYjAfUlmcVnt6MwdztAddBdWv7IiITmK/s3EhVuH/Cd?=
+ =?us-ascii?Q?ZMJW3DK3BfxsxFeI28Uun/p24m2ptJiFSA7VoLdJcctNOKg8b4Bbj99Yh1sG?=
+ =?us-ascii?Q?YVhR3PuUJ/d6MvYSfcoWbg8H4eZi8JFxvMgxkMolx/V6Gk7Q/sf8OYOKO80g?=
+ =?us-ascii?Q?Xoesx5SKsYMV3qSKQj/ei7nfH6wr3UgNtUvnH6GOR6CItJ0gS/iMvYa3ug5k?=
+ =?us-ascii?Q?Ha9QgxcNAnHGwjQMtp7CP61zzZReJSt7ru00nn19ba1e3RAplyWSsZWVotP9?=
+ =?us-ascii?Q?SVkas1n5WuqhN6eU5M3CyDdWzexYZhwJi/HcTTIEgyZ/WMp7EJTyg0XDMtmM?=
+ =?us-ascii?Q?ptX5RsQEfsjcO6I6UQ5D8i2czf66Otf3XYqwzJ3Ljpxja3BvAVS8dBPVxM7y?=
+ =?us-ascii?Q?B8h2YG9NZFfqEJMRH21QjK5blImIpwaHW1PiYjR+9oOnj9vhVqEQ+LtUo//G?=
+ =?us-ascii?Q?4O8bAcGm9/axnZFnAX9lBEioBgJxWEkvexsm/BelESoreZFRxTtIIIipD4Sb?=
+ =?us-ascii?Q?Vh6rFgPJtS9wvCUXzZL1vWE4SOrmIWMEwEpniakWH9E3YLSppeUoirDn9FBn?=
+ =?us-ascii?Q?RdVGSnW6P0yM7uYcIiYO0d3GaIPjIIDimChNOuicFna8D/udnhdb9NBBVyY2?=
+ =?us-ascii?Q?8V5eh+eVBbq6+d53vHNG21sIXdqXcphJC2UDMqtqbPqxz+FMaDd/Oln0DBz/?=
+ =?us-ascii?Q?Q8bJMwUgHcIiv5mjYEltbzQPIRoQB9aHdco8UuFKu/YnG4M9iohIx01bprV9?=
+ =?us-ascii?Q?w3Bagwf52r6nI3+DjCiiHxskwBMQMWkpZLPvOm9ZKp9V3Qn2PfhRWoWaO8Tx?=
+ =?us-ascii?Q?VvX0mrC2SBcGyJvFGvjntlcxQJU+rsCyT2oewx6oz9N/5n4DbxYbFh5hVsue?=
+ =?us-ascii?Q?ejCpfJPr25w3r8WdrK3h1ceI+Gec2ua5jYHyGejcl2hXgx8sWo8kHc5okT2K?=
+ =?us-ascii?Q?jDviuyL8O5zSuUq82zhRtAOaZtKuu75oH5YEx2s8rcnXCuzHejnVaihoccS0?=
+ =?us-ascii?Q?/tNywhJH6dkc0MPltBiAxU03H5lhaQDPGCyD5NNYrkOp2DS2pZ4R/uRZrNYW?=
+ =?us-ascii?Q?QWutaDibPDlbQYQiBN1sr2rltU+D2lsq2/ANXktgXjGDmovD+x6kSOskfL/Q?=
+ =?us-ascii?Q?OO6PpG3Upj7lhLC5L8j1raX7CGnZstM=3D?=
 MIME-Version: 1.0
-In-Reply-To: <20260427-spi-spacemit-k1-v9-2-ff753b551302@riscstar.com>
-X-Cookie: Victory uber allies!
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29c23a8b-15b0-4a83-1ad0-08dea4c5658c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Apr 2026 01:28:05.2278
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: AnxafjOrSPOCeAhUtTFGmlpT8/FL/C9FUPdFvkHQ16xQ2nZ/kMRxT+ScoboadLYhjIoUHL/B1f6z7/3Hfcq6ufCgYly9dryuMWxkYUC/vGY+Bo47vomN/tGoHydmJmGV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1153
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260427_171739_171112_1814A88E 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20260427_182829_636995_175D5095 
+X-CRM114-Status: GOOD (  36.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,77 +140,319 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4864311354394898459=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi, Conor
 
---===============4864311354394898459==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uloWIL4Vd8FJnYvz"
-Content-Disposition: inline
+Thanks for the review.
 
+> On Fri, Apr 24, 2026 at 04:13:21AM -0700, Changhuang Liang wrote:
+> > Add pinctrl bindings for StarFive JHB100 SoC Peripheral-1(per1)
+> > pinctrl controller.
+> >
+> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> 
+> There's a lot of binding here, and I think a bunch of them have similar
+> questions to be answered, so I am just going to review this one for now.
+> 
+> > ---
+> >  .../pinctrl/starfive,jhb100-per1-pinctrl.yaml | 217
+> > ++++++++++++++++++
+> >  1 file changed, 217 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinctrl
+> > .yaml
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinct
+> > rl.yaml
+> > b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinct
+> > rl.yaml
+> > new file mode 100644
+> > index 000000000000..b2af4df874df
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-p
+> > +++ inctrl.yaml
+> > @@ -0,0 +1,217 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause %YAML 1.2
+> > +---
+> > +$id:
+> > +http://devicetree.org/schemas/pinctrl/starfive,jhb100-per1-pinctrl.ya
+> > +ml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: StarFive JHB100 Peripheral-1 Pin Controller
+> > +
+> > +description: |
+> > +  Pinctrl bindings for JHB100 RISC-V SoC from StarFive Technology Ltd.
+> > +
+> > +  The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1, sys2,
+> > + per0, per1,  per2, per2pok, per3, adc0, adc1, emmc, and vga.
+> > +  This document provides an overview of the "per1" pinctrl domain.
+> > +
+> > +  The "per1" domain has a pin controller which provides
+> > +  - function selection for GPIO pads.
+> > +  - GPIO pad configuration.
+> > +  - GPIO interrupt handling.
+> > +
+> > +  In the Peripheral-1 Pin Controller, there are 36 multi-function
+> > + GPIO_PADs. Each of them  can be multiplexed to several peripherals
+> > + through function selection. Each iopad has a  maximum of up to 3
+> > + functions - 0, 1, and 2. Function 0 is the default function which is
+> > + generally the GPIO function. Function 1 and 2 are the alternate
+> > + functions or peripheral  signals that can be routed to the iopad. The
+> function selection can be carried out by  writing the function number to the
+> iopad function select register.
+> > +  Each iopad is configurable with parameters such as input-enable,
+> > + internal pull-up/pull-down  bias, drive strength, schmitt trigger, slew rate,
+> and debounce width.
+> > +
+> > +  This domain contains 4 IO groups which support voltage levels 1.8V
+> > + and 3.3V  gpioe-spi - comprises PAD_GPIO_C0 through PAD_GPIO_C4.
+> > +  gpioe-qspi0 - comprises PAD_GPIO_C5 through PAD_GPIO_C11.
+> > +  gpioe-qspi1 - comprises PAD_GPIO_C12 through PAD_GPIO_C19.
+> > +  gpioe-qspi2 - comprises PAD_GPIO_C20 through PAD_GPIO_C27.
+> > +
+> > +  Each of the above IO groups must be configured with a voltage
+> > + setting that matches the external  voltage level provided to the IO group.
+> > +
+> > +maintainers:
+> > +  - Alex Soo <yuklin.soo@starfivetech.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: starfive,jhb100-per1-pinctrl
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  resets:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    maxItems: 1
+> > +
+> > +  interrupt-controller: true
+> > +
+> > +  '#interrupt-cells':
+> > +    const: 2
+> > +
+> > +  gpio-controller: true
+> > +
+> > +  '#gpio-cells':
+> > +    const: 2
+> > +
+> > +  gpio-ranges:
+> > +    maxItems: 1
+> > +
+> > +  gpio-line-names: true
+> > +
+> > +  gpioe-spi-vref:
+> 
+> Why are these custom properties required?
+> This sounds like the sort of information that could be gleaned from the
+> "power-source" property.
 
---uloWIL4Vd8FJnYvz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The voltage configuration here applies to multiple pin groups, making it less suitable to use power-source. 
+In patch 13, we defined a starfive,gmac-vsel property, which can be applied to individual pins. It might be 
+more appropriate to use power-source.
 
-On Mon, Apr 27, 2026 at 10:01:28PM -0400, Guodong Xu wrote:
+> 
+> > +    description: |
+> > +        Voltage reference value for the IO group "gpioe-spi"
+> > +        0: voltage reference value for 3.3V
+> > +        2: voltage reference value for 1.8V
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [0, 2]
+> > +    default: 0
+> > +
+> > +  gpioe-qspi0-vref:
+> > +    description: |
+> > +        Voltage reference value for the IO group "gpioe-qspi0"
+> > +        0: voltage reference value for 3.3V
+> > +        2: voltage reference value for 1.8V
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [0, 2]
+> > +    default: 0
+> > +
+> > +  gpioe-qspi1-vref:
+> > +    description: |
+> > +        Voltage reference value for the IO group "gpioe-qspi1"
+> > +        0: voltage reference value for 3.3V
+> > +        2: voltage reference value for 1.8V
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [0, 2]
+> > +    default: 0
+> > +
+> > +  gpioe-qspi2-vref:
+> > +    description: |
+> > +        Voltage reference value for the IO group "gpioe-qspi2"
+> > +        0: voltage reference value for 3.3V
+> > +        2: voltage reference value for 1.8V
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [0, 2]
+> > +    default: 0
+> > +
+> > +patternProperties:
+> > +  '-grp$':
+> > +    type: object
+> > +    additionalProperties: false
+> > +    patternProperties:
+> > +      '-pins$':
+> > +        type: object
+> > +        description: |
+> > +          A pinctrl node should contain at least one subnode
+> representing the
+> > +          pinctrl groups available in the domain. Each subnode will list
+> the
+> > +          pins it needs, and how they should be configured, with regard
+> to
+> > +          function selection, bias, input enable/disable, input schmitt
+> > +          trigger enable/disable, slew-rate and drive strength.
+> > +        allOf:
+> > +          - $ref: /schemas/pinctrl/pincfg-node.yaml
+> > +          - $ref: /schemas/pinctrl/pinmux-node.yaml
+> > +        unevaluatedProperties: false
+> > +
+> > +        properties:
+> > +          pinmux:
+> > +            description: |
+> > +              The list of GPIOs and their function select.
+> > +              The PINMUX macros are used to configure the
+> > +              function selection.
+> 
+> Why is the pinmux property needed?
+> Can you use pins and function instead?
+> 
+> Looking at the defines that you have added, it appears that lots of defines for
+> the same peripheral share the same numerical values, suggesting that across
+> peripheral, all (or most) pins would share the same mux setting/"function
+> select", suggesting that pins/function would suffice.
+> 
+> I'd like to see some justification for pinmux being the right solution here, like
+> the "function select" used by one peripheral being significantly different for
+> many of its pins.
 
-> +static int k1_spi_transfer_one(struct spi_controller *host,
-> +			       struct spi_device *spi,
-> +			       struct spi_transfer *transfer)
-> +{
+We think that implementing this in the pinmux will be relatively simple. It avoids 
+the need to create a large number of mapping relationships in the driver, which 
+simplifies our driver implementation. I'm not sure if you'll find this explanation 
+acceptable.
 
-> +	/* Record how many words the len bytes represent */
-> +	count = transfer->len / drv_data->bytes;
-> +	drv_data->rx_resid = count;
-> +	drv_data->tx_resid = count;
+> > +
+> > +          bias-disable: true
+> > +
+> > +          bias-pull-up:
+> > +            type: boolean
+> > +
+> > +          bias-pull-down:
+> > +            type: boolean
+> > +
+> > +          drive-strength:
+> > +            enum: [ 2, 4, 8, 12 ]
+> > +
+> > +          drive-strength-microamp:
+> > +            enum: [ 2000, 4000, 8000, 12000 ]
+> > +
+> > +          input-enable: true
+> > +
+> > +          input-disable: true
+> > +
+> > +          input-schmitt-enable: true
+> > +
+> > +          input-schmitt-disable: true
+> > +
+> > +          slew-rate:
+> > +            enum: [ 0, 1 ]
+> > +            default: 0
+> > +            description: |
+> > +                0: slow (half frequency)
+> > +                1: fast
+> > +
+> > +          starfive,debounce-width:
+> > +            $ref: /schemas/types.yaml#/definitions/uint32
+> > +            default: 0
+> > +            description:
+> > +              Debounce width 0 = Disabled, Others = 80ns*N stages
+> 
+> This sounds like it should be called "debounce-stages".
+> 
+> > +
+> > +          starfive,drive-i2c-fast-mode:
+> > +            type: boolean
+> > +            description:
+> > +              Enable I2C fast mode drive
+> > +
+> > +          starfive,drive-i2c-fast-mode-plus:
+> > +            type: boolean
+> > +            description:
+> > +              Enable I2C fast mode plus drive
+> > +
+> > +          starfive,i2c-open-drain-pull-up-ohm:
+> > +            $ref: /schemas/types.yaml#/definitions/uint32
+> 
+> The unit of resistance is "ohms" in dt-schema, if you swap to that you won't
+> need the $ref.
+> 
+> > +            description:
+> > +              open drain pull-up select
+> > +            enum: [600, 900, 1200, 2000]
+> > +            default: 600
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - resets
+> > +  - interrupts
+> > +  - interrupt-controller
+> > +  - '#interrupt-cells'
+> > +  - gpio-controller
+> > +  - '#gpio-cells'
+> > +  - gpio-ranges
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    soc {
+> > +        #address-cells = <2>;
+> > +        #size-cells = <2>;
+> > +
+> > +        pinctrl_per1: pinctrl@11b42000 {
+> 
+> Drop the label here, since there's no users.
 
-This is setting up _resid with a number of words.
+This label is referenced in gpio-ranges.
 
-> +static void k1_spi_write_word(struct k1_spi_driver_data *drv_data)
-> +{
-> +	struct spi_transfer *transfer = drv_data->transfer;
-> +	u32 bytes = drv_data->bytes;
-> +	u32 val;
-> +
-> +	if (transfer->tx_buf) {
-> +		const void *buf;
-> +
-> +		buf = transfer->tx_buf + (transfer->len - drv_data->tx_resid);
+> 
+> Cheers,
+> Conor.
+> 
+> > +            compatible = "starfive,jhb100-per1-pinctrl";
+> > +            reg = <0x0 0x11b42000 0x0 0x800>;
+> > +            resets = <&per1crg 0>;
+> > +            interrupts = <61>;
+> > +            interrupt-controller;
+> > +            #interrupt-cells = <2>;
+> > +            gpio-controller;
+> > +            #gpio-cells = <2>;
+> > +            gpio-ranges = <&pinctrl_per1 0 0 36>;
+> > +        };
+> > +    };
+> > --
+> > 2.25.1
+> >
 
-This is using _resid as a byte count.  It'll be fine for 8 bits per word
-(which is by far the most common thing).
-
---uloWIL4Vd8FJnYvz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnv/J4ACgkQJNaLcl1U
-h9BKxgf9HFwNyeCFgiJ1m6lF9UKtdez+pweMTHvDt7wqUtMyufYwnBTIxOIB3Kv7
-mh5QcTbeorohLLIvkOV2893vxCNwlLyZdUU+dFQak6B6RQGSYLJoIjDJtSuyjYhM
-T+2YKiSllt6ejJCezhmo56WDtVCSJR820A3qYN+T5B/52xwFkNa7SoiBG7PB9Wya
-57r8VQLQ4ZeG5MBmwHe23njUPZj2WYYwMUo0Uz0j+9H1gdPugU1nv7B2q9hKCRPe
-Xo1mIWG3NiZ28wHyCT73ICpkRSOj62o8nw9EUauWSu9hwI6z4wT508HxWY+tkSAy
-qBlmsjEqZ/rJtgIQyFZsnKgAi341Vw==
-=TBfs
------END PGP SIGNATURE-----
-
---uloWIL4Vd8FJnYvz--
-
-
---===============4864311354394898459==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best Regards,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4864311354394898459==--
-
