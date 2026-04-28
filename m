@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D43FF8875
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F915FF8868
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 13:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kgUqRyFPSGXt+fkR5npRyqogyFtPp9pRK9BujuWy2cQ=; b=ULgPn7e5PWK/P6
-	/zttY6n3AhJ1OL4bM4XimQJ34X4PGaWEVMoosn6/k8bFydRhzvLkWi0XEZsoLH6NGeCYZ+y0fzG9r
-	6Zv2wFTheejd1WqW5ayNv5KJt5LAS7uYvXCCKOKGrM0h1w+qVrBUrfSHohOJMZx423DQM3DnEQuKj
-	K8N+Z7qKizfzOfHvB84pjhbDd3lRBq/IYQ7OLSaBgIrlb1s69w1ty1uJbefmNmnpWsiF8guUwWSRv
-	//bzXobzyPdVPS0olHBXPKuIhRmpP/bpzK2w18d+0MvlTd/tulaM/sCUpQSg5aiBtu0t6dEglgKFM
-	c0p9uRlgMfTewUMsTAvg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=O7ZUxu32QlrtbDw1m0calvd+uGbXbo991R56/xSj7Kw=; b=akAuEjzuDYv//G
+	A1RT/NCsRsIA54nnAuylItMRIYijmwpg8BLfzkD7m0IM+ix0vIwJs0QY5m/6vhNNzNfDaW4N2utW3
+	2/8MmrC/alwvazefPBnzSTsKCm2RCZI1HNT4+4IRFE1/4IvfZkW5trhfqdsfjywatbssdJkvDdvbX
+	RJKauETZF49oSMDIPyfFvsNmnPd1I2S9vb50xEvimjtIKahTUmocH99kRWAqn7dQyRqw6wiSGsAg2
+	+Us1YSF9qMNeDnzRhnxgL6++/n2Vn/iJ+2VBlWAjvHupvUz1+2SNbhqsF1Mi221QU0lXTCzBJFi4Q
+	6P0XC3ibCpRISy5xWpHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiGn-00000001V3e-2QGP;
-	Tue, 28 Apr 2026 13:14:33 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHiGh-00000001UyR-2dgd;
+	id 1wHiGk-00000001V1D-3VWr;
 	Tue, 28 Apr 2026 13:14:30 +0000
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wHiGg-00000001UyS-2XCS;
+	Tue, 28 Apr 2026 13:14:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1777382057; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=ZUHnJEfer0hml+VpdHPHpDcwMmO2L2tgfhLYa+ZhlhQ=;
-	b=GEu9WpZOqSenq+1BndKUEqxPoVHpxwo/3xqYAms/DPenZ4A2z/hFwBpbhcnIUZVLjBY0eSbDhski4A+DjtnJdlDjKAl4HeWdN9jNzNBwU26GEkGxE14DCbTWJpC7zJMdwfaegM6/Je1pIG9SrmXgcGQmb3AzPkPRl0qELidoVbM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0X1ubIDQ_1777382052;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubIDQ_1777382052 cluster:ay36)
+	t=1777382058; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=2eUnDZEfxgG5YZ/aUJ43Dh+182ud/Kd1EhVPQjTWqdA=;
+	b=xsmC5wAYnTQRZaE0N019Ocxzpf0XIO55wvWrCW7shGbqdsijN0JhIRJJrVmct1jLzsh15PTmLmXJuOeObeeQOLNZA+vnPfCjFJTs/2g4Bk3ZfrzkI4szu/ecDTfVmWh6UvM/qTHYE+fHaAEkL+qRneUvsd6sYncQxEAxS160qNM=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R511e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0X1ubICp_1777382049;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1ubICp_1777382049 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 28 Apr 2026 21:14:13 +0800
+          Tue, 28 Apr 2026 21:14:12 +0800
 From: fangyu.yu@linux.alibaba.com
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -59,16 +59,15 @@ Cc: guoren@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [RFC PATCH 01/11] iommupt: Add RISC-V Second-stage (iohgatp) page table support
-Date: Tue, 28 Apr 2026 21:13:49 +0800
-Message-Id: <20260428131359.34872-2-fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH 00/11] iommu/riscv: Add hardware dirty tracking for second-stage domains
+Date: Tue, 28 Apr 2026 21:13:48 +0800
+Message-Id: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
-References: <20260428131359.34872-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_061428_234468_5BEEE3EA 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20260428_061427_682494_4B049C5F 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,191 +79,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-
-Add support for Sv39x4/Sv48x4/Sv57x4 Second-stage page tables used by
-the RISC-V IOMMU iohgatp register. The x4 root page table is 16 KiB
-instead of the usual 4 KiB, covering 2 extra GPA bits (hw_max_vasz_lg2
-= 41/50/59).
-
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
----
- drivers/iommu/generic_pt/fmt/riscv.h | 64 +++++++++++++++++++++++++---
- include/linux/generic_pt/common.h    |  5 +++
- include/linux/generic_pt/iommu.h     | 17 +++++++-
- 3 files changed, 80 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/iommu/generic_pt/fmt/riscv.h b/drivers/iommu/generic_pt/fmt/riscv.h
-index a7fef6266a36..4fe645e60375 100644
---- a/drivers/iommu/generic_pt/fmt/riscv.h
-+++ b/drivers/iommu/generic_pt/fmt/riscv.h
-@@ -37,7 +37,16 @@ enum {
- 	PT_MAX_OUTPUT_ADDRESS_LG2 = 34,
- 	PT_MAX_TOP_LEVEL = 1,
- #else
--	PT_MAX_VA_ADDRESS_LG2 = 57,
-+	/*
-+	 * PT_MAX_VA_ADDRESS_LG2 is the upper bound accepted by the generic
-+	 * pt_iommu_init() range check.  It must cover both first-stage and
-+	 * second-stage (G-stage) modes:
-+	 *
-+	 *   First-stage  (fsc/iosatp): Sv39=39, Sv48=48, Sv57=57
-+	 *   Second-stage (iohgatp):    Sv39x4=41, Sv48x4=50, Sv57x4=59
-+	 *
-+	 */
-+	PT_MAX_VA_ADDRESS_LG2 = 59,
- 	PT_MAX_OUTPUT_ADDRESS_LG2 = 56,
- 	PT_MAX_TOP_LEVEL = 4,
- #endif
-@@ -124,6 +133,14 @@ riscvpt_entry_num_contig_lg2(const struct pt_state *pts)
- 
- static inline unsigned int riscvpt_num_items_lg2(const struct pt_state *pts)
- {
-+	/*
-+	 * Second-stage (iohgatp) root page tables have 4x the usual number of
-+	 * entries (2048 = 2^11 instead of 512 = 2^9) to cover the 2 extra GPA
-+	 * bits in Sv39x4/Sv48x4/Sv57x4.  Only the root (top) level is
-+	 * enlarged; all other levels remain at the standard 9-bit index width.
-+	 */
-+	if (to_riscvpt(pts)->second_stage && pts->level == pts->range->top_level)
-+		return PT_TABLEMEM_LG2SZ - ilog2(sizeof(u64)) + 2;
- 	return PT_TABLEMEM_LG2SZ - ilog2(sizeof(u64));
- }
- #define pt_num_items_lg2 riscvpt_num_items_lg2
-@@ -254,6 +271,7 @@ riscvpt_iommu_fmt_init(struct pt_iommu_riscv_64 *iommu_table,
- 	struct pt_riscv *table = &iommu_table->riscv_64pt;
- 
- 	switch (cfg->common.hw_max_vasz_lg2) {
-+	/* First-stage (fsc/iosatp): Sv39 / Sv48 / Sv57 */
- 	case 39:
- 		pt_top_set_level(&table->common, 2);
- 		break;
-@@ -263,6 +281,22 @@ riscvpt_iommu_fmt_init(struct pt_iommu_riscv_64 *iommu_table,
- 	case 57:
- 		pt_top_set_level(&table->common, 4);
- 		break;
-+	/*
-+	 * Second-stage (iohgatp): Sv39x4 / Sv48x4 / Sv57x4.
-+	 * The top level is the same as for the first-stage counterpart.
-+	 */
-+	case 41:
-+		pt_top_set_level(&table->common, 2);
-+		table->second_stage = true;
-+		break;
-+	case 50:
-+		pt_top_set_level(&table->common, 3);
-+		table->second_stage = true;
-+		break;
-+	case 59:
-+		pt_top_set_level(&table->common, 4);
-+		table->second_stage = true;
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -283,10 +317,17 @@ riscvpt_iommu_fmt_hw_info(struct pt_iommu_riscv_64 *table,
- 	PT_WARN_ON(top_phys & ~PT_TOP_PHYS_MASK);
- 
- 	/*
--	 * See Table 3. Encodings of iosatp.MODE field" for DC.tx.SXL = 0:
--	 *  8 = Sv39 = top level 2
--	 *  9 = Sv38 = top level 3
--	 *  10 = Sv57 = top level 4
-+	 * Both first-stage (fsc/iosatp) and second-stage (iohgatp) share the
-+	 * same MODE numeric values for a given top level:
-+	 *   top_level 2 -> MODE 8  (Sv39 / Sv39x4)
-+	 *   top_level 3 -> MODE 9  (Sv48 / Sv48x4)
-+	 *   top_level 4 -> MODE 10 (Sv57 / Sv57x4)
-+	 *
-+	 * The union members fsc_iosatp_mode and iohgatp_mode occupy the same
-+	 * byte; the caller selects the appropriate name based on domain type.
-+	 *
-+	 * See "Table 3. Encodings of iosatp.MODE field" (DC.tc.SXL = 0) and
-+	 * "Table 2. Encoding of iohgatp.MODE field" in the RISC-V IOMMU spec.
- 	 */
- 	info->fsc_iosatp_mode = top_range->top_level + 6;
- }
-@@ -294,6 +335,7 @@ riscvpt_iommu_fmt_hw_info(struct pt_iommu_riscv_64 *table,
- 
- #if defined(GENERIC_PT_KUNIT)
- static const struct pt_iommu_riscv_64_cfg riscv_64_kunit_fmt_cfgs[] = {
-+	/* First-stage (fsc/iosatp): Sv39 / Sv48 / Sv57 */
- 	[0] = { .common.features = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
- 		.common.hw_max_oasz_lg2 = 56,
- 		.common.hw_max_vasz_lg2 = 39 },
-@@ -303,6 +345,18 @@ static const struct pt_iommu_riscv_64_cfg riscv_64_kunit_fmt_cfgs[] = {
- 	[2] = { .common.features = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
- 		.common.hw_max_oasz_lg2 = 56,
- 		.common.hw_max_vasz_lg2 = 57 },
-+	/*
-+	 * Second-stage (iohgatp): Sv39x4 / Sv48x4 / Sv57x4.
-+	 */
-+	[3] = { .common.features = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
-+		.common.hw_max_oasz_lg2 = 56,
-+		.common.hw_max_vasz_lg2 = 41 },
-+	[4] = { .common.features = 0,
-+		.common.hw_max_oasz_lg2 = 56,
-+		.common.hw_max_vasz_lg2 = 50 },
-+	[5] = { .common.features = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
-+		.common.hw_max_oasz_lg2 = 56,
-+		.common.hw_max_vasz_lg2 = 59 },
- };
- #define kunit_fmt_cfgs riscv_64_kunit_fmt_cfgs
- enum {
-diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
-index fc5d0b5edadc..e82dff33ece8 100644
---- a/include/linux/generic_pt/common.h
-+++ b/include/linux/generic_pt/common.h
-@@ -181,6 +181,11 @@ struct pt_riscv_32 {
- 
- struct pt_riscv_64 {
- 	struct pt_common common;
-+	/*
-+	 * True when this table is used for second-stage / iohgatp
-+	 * address translation.
-+	 */
-+	bool second_stage;
- };
- 
- enum {
-diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
-index dd0edd02a48a..f27d229ff318 100644
---- a/include/linux/generic_pt/iommu.h
-+++ b/include/linux/generic_pt/iommu.h
-@@ -328,7 +328,22 @@ struct pt_iommu_riscv_64_cfg {
- 
- struct pt_iommu_riscv_64_hw_info {
- 	u64 ppn;
--	u8 fsc_iosatp_mode;
-+	union {
-+		/*
-+		 * First-stage (fsc/iosatp) MODE encoding:
-+		 *   8 = Sv39, 9 = Sv48, 10 = Sv57
-+		 * Used to program DC.fsc.iosatp.MODE.
-+		 */
-+		u8 fsc_iosatp_mode;
-+		/*
-+		 * Second-stage (iohgatp) MODE encoding:
-+		 *   8 = Sv39x4, 9 = Sv48x4, 10 = Sv57x4
-+		 * Used to program DC.iohgatp.MODE.
-+		 * The numeric values are identical to fsc_iosatp_mode;
-+		 * the caller selects the interpretation based on domain type.
-+		 */
-+		u8 iohgatp_mode;
-+	};
- };
- 
- IOMMU_FORMAT(riscv_64, riscv_64pt);
--- 
-2.50.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+CgpUaGUgUklTQy1W
+IElPTU1VIGFyY2hpdGVjdHVyZSBkZWZpbmVzIGFuIEFNT19IV0FEIGNhcGFiaWxpdHkgKEhhcmR3
+YXJlCkFjY2Vzcy9EaXJ0eSB1cGRhdGUpIHRoYXQgYWxsb3dzIHRoZSBJT01NVSB0byBhdG9taWNh
+bGx5IHNldCB0aGUgQS9EIGJpdHMKaW4gc2Vjb25kLXN0YWdlIFBURXMgb24gRE1BIGFjY2Vzcy4g
+IFdoZW4gREMudGMuR0FERSBpcyBhc3NlcnRlZCwgdGhlIElPTU1VCmF1dG9ub21vdXNseSBzZXRz
+IEQgb24gdGhlIGZpcnN0IHdyaXRlIHRvIGEgcGFnZSBtYXBwZWQgYnkgYW4gaW9oZ2F0cApkb21h
+aW4uICBUaGlzIHNlcmllcyB3aXJlcyB0aGF0IGNhcGFiaWxpdHkgdXAgdG8gdGhlIGlvbW11ZmQg
+ZGlydHktdHJhY2tpbmcKaW50ZXJmYWNlIChJT01NVV9IV1BUX1NFVF9ESVJUWV9UUkFDS0lORyAv
+IElPTU1VX0hXUFRfR0VUX0RJUlRZX0JJVE1BUCkgYW5kCnJlcG9ydHMgSU9NTVVfQ0FQX0RJUlRZ
+X1RSQUNLSU5HLgoKRGVzaWduIG5vdGVzCi0tLS0tLS0tLS0tLQoKKiBUaGUgZmVhdHVyZSBpcyBz
+Y29wZWQgdG8gc2Vjb25kLXN0YWdlIChpb2hnYXRwKSBkb21haW5zIG9ubHk7IHRoZXNlIGFyZQog
+IHRoZSBkb21haW5zIGNyZWF0ZWQgZm9yIEtWTSAvIFZGSU8gZGV2aWNlIHBhc3MtdGhyb3VnaCB3
+aGVuIHVzZXJzcGFjZQogIGFsbG9jYXRlcyBhbiBIV1BUIHdpdGggSU9NTVVfSFdQVF9BTExPQ19O
+RVNUX1BBUkVOVCBvcgogIElPTU1VX0hXUFRfQUxMT0NfRElSVFlfVFJBQ0tJTkcuICBGaXJzdC1z
+dGFnZSAoaW9zYXRwKSBkb21haW5zIGFyZSBub3QKICB0b3VjaGVkIGJ5IHRoaXMgc2VyaWVzLgoK
+KiBUaGUgcGFnZS10YWJsZSBzaWRlIHBsdWdzIGludG8gdGhlIGV4aXN0aW5nIGdlbmVyaWNfcHQg
+ZGlydHkgaG9vawogIGZyYW1ld29yayAoYW1kdjEgLyB2dGRzcyBzdHlsZSkuICBSSVNDLVYgYWRk
+cyB0aGUgdGhyZWUgcmVxdWlyZWQgUFRFCiAgb3BzIOKAkyBpc193cml0ZV9kaXJ0eSAvIG1ha2Vf
+d3JpdGVfY2xlYW4gLyBtYWtlX3dyaXRlX2RpcnR5LgoKVGVzdGluZwotLS0tLS0tCgoqIFRlc3Qg
+b24gUUVNVSBSSVNDLVYsIGEgdmlydGlvLW5ldCBhbmQgYW4gZTEwMDBlIGRldmljZSB3YXMgcGFz
+c2VkIHRocm91Z2gKICB0byBhbiBMMiBndWVzdCB2aWEgdmZpby1wY2kgKyBpb21tdWZkLgoKKiBn
+ZW5lcmljX3B0IEtVbml0OiB0aGUgZXhpc3RpbmcgdGVzdF9kaXJ0eSBjYXNlIG5vdyBydW5zIGFu
+ZCBwYXNzZXMgZm9yCiAgdGhlIFJJU0MtViA2NC1iaXQgZm9ybWF0LgoKRm9sbG93LXVwIHdvcmsK
+LS0tLS0tLS0tLS0tLS0KKiBCdWlsZCBhIGRlZGljYXRlZCBlbmQtdG8tZW5kIHRlc3QgY2FzZSB0
+aGF0IGRyaXZlcyB0aGUgZnVsbCBmbG93CiAgKEhXUFRfQUxMT0Mgd2l0aCBESVJUWV9UUkFDS0lO
+RyAtPiBhdHRhY2ggLT4gSU9BU19NQVAgLT4gZ2VuZXJhdGUgcmVhbAogIERNQSAtPiBTRVRfRElS
+VFlfVFJBQ0tJTkcgLT4gR0VUX0RJUlRZX0JJVE1BUCAtPiB2ZXJpZnkgYml0bWFwIGFnYWluc3QK
+ICBleHBlY3RlZCBJT1ZBIGZvb3RwcmludCkgc28gdGhhdCB0aGUgYmVoYXZpb3VyIGNhbiBiZSBy
+ZWdyZXNzaW9uLXRlc3RlZAogIGJleW9uZCB0aGUgS1VuaXQgUFRFLWxldmVsIGNvdmVyYWdlLgoK
+KiBJZiBwb3NzaWJsZSwgcmViYXNlIGFuZCByZXRlc3Qgb24gdG9wIG9mIHRoZSB1cGRhdGVkICJp
+b21tdSBpcnFieXBhc3MiCiAgcGF0Y2hzZXQuCgoKRmFuZ3l1IFl1ICg2KToKICBpb21tdXB0OiBB
+ZGQgUklTQy1WIFNlY29uZC1zdGFnZSAoaW9oZ2F0cCkgcGFnZSB0YWJsZSBzdXBwb3J0CiAgaW9t
+bXUvcmlzY3Y6IEFkZCBkb21haW5fYWxsb2NfcGFnaW5nX2ZsYWdzIGZvciBzZWNvbmQtc3RhZ2Ug
+ZG9tYWluCiAgaW9tbXVwdDogRG9uJ3QgcHJlc2V0IEQgd2hlbiBSSVNDLVYgSU9NTVUgZGlydHkg
+dHJhY2tpbmcgb24KICBpb21tdS9yaXNjdjogQWRkIGRpcnR5IHRyYWNraW5nIHN1cHBvcnQgZm9y
+IHNlY29uZC1zdGFnZSBkb21haW5zCiAgaW9tbXUvcmlzY3Y6IEFkZCBJT1RJTlZBTC5HVk1BIGFm
+dGVyIHVwZGF0aW5nIEREVC9QRFQgZW50cmllcwogIGlvbW11cHQ6IEFkZCBSSVNDLVYgZGlydHkg
+dHJhY2tpbmcgUFRFIG9wcwoKVG9tYXN6IEplem5hY2ggKDIpOgogIGlvbW11L3Jpc2N2OiByZXBv
+cnQgaW9tbXUgY2FwYWJpbGl0aWVzCiAgUklTQy1WOiBLVk06IEVuYWJsZSBLVk1fVkZJTyBpbnRl
+cmZhY2VzIG9uIFJJU0MtViBhcmNoCgpab25nIExpICgzKToKICBpb21tdS9yaXNjdjogdXNlIGRh
+dGEgc3RydWN0dXJlIGluc3RlYWQgb2YgaW5kaXZpZHVhbCB2YWx1ZXMKICBpb21tdS9yaXNjdjog
+c3VwcG9ydCBHU0NJRCBhbmQgR1ZNQSBpbnZhbGlkYXRpb24gY29tbWFuZAogIGlvbW11L3Jpc2N2
+OiBzdXBwb3J0IG5lc3RlZCBpb21tdSBmb3IgZ2V0dGluZyBpb21tdSBoYXJkd2FyZQogICAgaW5m
+b3JtYXRpb24KCiBhcmNoL3Jpc2N2L2t2bS9LY29uZmlnICAgICAgICAgICAgICAgfCAgIDIgKwog
+ZHJpdmVycy9pb21tdS9nZW5lcmljX3B0L2ZtdC9yaXNjdi5oIHwgMTIwICsrKysrKysrKysrKy0K
+IGRyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUtYml0cy5oICAgICB8ICAgNyArCiBkcml2ZXJzL2lv
+bW11L3Jpc2N2L2lvbW11LmMgICAgICAgICAgfCAyNDcgKysrKysrKysrKysrKysrKysrKysrKyst
+LS0tCiBpbmNsdWRlL2xpbnV4L2dlbmVyaWNfcHQvY29tbW9uLmggICAgfCAgMTMgKysKIGluY2x1
+ZGUvbGludXgvZ2VuZXJpY19wdC9pb21tdS5oICAgICB8ICAxNyArLQogaW5jbHVkZS91YXBpL2xp
+bnV4L2lvbW11ZmQuaCAgICAgICAgIHwgIDE4ICsrCiA3IGZpbGVzIGNoYW5nZWQsIDM4MyBpbnNl
+cnRpb25zKCspLCA0MSBkZWxldGlvbnMoLSkKCi0tIAoyLjUwLjEKCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
