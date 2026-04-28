@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907F4FF885E
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 13:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09DC0FF8860
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2026 14:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xgF5vBBjMhpAQV5xSLPSZjhmB2Y5PD4yopcG1G5eez8=; b=Fi1l9aqPP9b0qF
-	EwYfqdmuq72+Ex2DzdjvuTgo6P/8aw2Y2/jmiwKJ0f9TSxjcTxj8BHPs5iK/ei/K3DkGf1PosJDvM
-	cb6NfrkzLnkPvVQm+kzrlBoFaiEKn6EvcWZJYNzsXfHnK6QQ3X2twq6wvLFCXXXuPP1RLeAmYecFt
-	bc/oEeN7GIkC5tFcw4J+AxS1gsOTPuam0SqPNmpvXvyehSRjXe36oqW8Hp95SUFDyFYzKPNyPvqcw
-	YLafwe/RYobygZZJLeLoMpvazpdjGDv4WNLQuA8FltqENBACpV2iMbTjpRSy+Jm1K8DApNDyV3iJY
-	RJIxnQBB4meUuquvz80Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=K2vs85KzMy0/JfkFjy62W7Q7/aL6zcORgx3zrRfB91k=; b=tqQChyDNQvS9Hr
+	DROCajmRPP7Ox2jag2aRxAS6q6p+Iu8GAa0ZesDawB6cia98UHIU64BCrtidD4GTOIyzFKM7YlxyC
+	CLeHSfxNu8x4ViG0uA1NRwlRa+qUHNTDAr6CmYy7esmpbXo0p3QT/h+guu3ts5asBwUS4wrcFgqgb
+	jBNxDAr5le44AGnFnUsm9pSQ0p8eqCsU/QnYsBsG2hTIVVnua0KWhARDYkG5BVL364dTSdrxk9mfv
+	2Ik/cCuKCH4W9DJVWe2QKbcLh//LjA2IqTHit7YgaatZ903SoyaiFyHcivmqQQsVBENmYyunau7O0
+	TL7qT900VoOnoOqiKB2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLeL-0000000Gy7r-1TLV;
-	Mon, 27 Apr 2026 13:05:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wHMXD-0000000H2ra-2rvw;
+	Mon, 27 Apr 2026 14:02:03 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHLeK-0000000Gy7j-0lTU
+	id 1wHMX7-0000000H2pT-2okv
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Apr 2026 13:05:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BDCF6014C;
-	Mon, 27 Apr 2026 13:05:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3736C2BCB4;
-	Mon, 27 Apr 2026 13:05:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777295118;
-	bh=Lza41XMlgAORgTPrOIxx0mVfW7vjfttcam+RAcvjn9Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=oyQ42UYK+wc4DTgrP5KucNJkM8LJkCpiocvs6+K2rvScnSoSLgwPDltTjJLy0S47u
-	 Cuju+LoaIUnsNa+otM4IDuE69/NDK6OrTHKkE9InTm66ySgQyTwJbRwIoZ5BeZ3ZQM
-	 8niiFZ7o/WlAjMgMJmCr0oV0KQgHUJ3SmMJkGQ31rSzWD8Vt2sZJ7WnnDtpdktc+Ui
-	 YVG06+iOSQjMW8ViqkoMtoWRJapf7HhAJGOyDmwv5QhLraeMRYDP9pteBWqn8EOJic
-	 UdFrvk7HqcAJFjLLPyshwtSK02PIyy2FA0Q7HB6GcT9Rm7Y3XTw1pmvNQzkO0J8a+W
-	 kwnBpvjNWY10w==
-Received: from localhost ([::1])
-	by mail.kernel.org with esmtp (Exim 4.99.1)
-	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1wHLeG-0000000Bxxi-44yE;
-	Mon, 27 Apr 2026 15:05:17 +0200
-Date: Mon, 27 Apr 2026 15:05:15 +0200
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, workflows@vger.kernel.org, Alexandre Ghiti
- <alex@ghiti.fr>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Dan Williams <djbw@kernel.org>
-Subject: Re: [PATCH v3 00/12] Auto-generate maintainer profile entries
-Message-ID: <20260427150515.3ab3d3c4@localhost>
-In-Reply-To: <cover.1777294623.git.mchehab+huawei@kernel.org>
-References: <cover.1777294623.git.mchehab+huawei@kernel.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Mon, 27 Apr 2026 14:02:02 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2b941cd869cso12231705ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Apr 2026 07:01:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1777298516; x=1777903316; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ndQ7ks855/7G/wGzP40by4HLyLDmrMbbBWm7gMhIPu0=;
+        b=o41do2Oj3uSTCmBhBv5wAfzZrcvCyxH5eriURpCHWS1nyMpCUAM9j6ws0YnwJaGVHY
+         rA7lpk7rPjRcM1hS2YdDxADs6kwh0rftKqVrP04b0Oh7BfdJwxdKP0n7PdPPBpEem4TY
+         rB5e2ayK7Qo/eQYo9Ub95GtcN82O+fNAcnynR9P2Ji8xdntMgPPTMnhNBhg7OfO2pgsB
+         4+UMHlB+PGlxWxLMgLYgYDPj5d5+pBb5nQBk8nLnE8nmvNN9dAnQEGXsV7LWUbLp8rD8
+         EObOz1Onxl8Dp3r1Xyf0yuMYbJ4pxQnvyoycjSEWHVa6Etcwj6qSFa2MS7+KjvU5PK21
+         4tuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777298516; x=1777903316;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ndQ7ks855/7G/wGzP40by4HLyLDmrMbbBWm7gMhIPu0=;
+        b=JFnCza0t6ayXUy/fK+Glpbs7IQ0DSFxCbPUFidRr+RaWgicgLvXbG6rrdYfoMkDitN
+         YY2VvZHngNE/73R7A8h/UTSvJ1M32QCjQ0IH8jUgRdr8xiVE+IzUqKdwUV6sjd06OAZp
+         eD75sqhFBNivd8dWFGwSqeMLI0jS0B56Nzh+I8HUPNEKoZWJROR9nq0dJeCcs7he56rq
+         c1ihsLRXCXdbyaZIgiErVnaiizZtNY014bgzztPkFFhZ5sCKLldMR4CI5G6dJdaavOHL
+         DiT0YNNl1NdB1BaFIH4jdUOjw2pT04281AFG6aStMrfNWyDR3nMV0JHoS1zJD92qAv6J
+         vdvA==
+X-Forwarded-Encrypted: i=1; AFNElJ/8djk5bFZiwnzLm+X4Jo42/1g26lNtYYKE96JDISXtOkHrlD8y//hwWLWuVP/xwQeVCHSuHpvJPipe0g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4ZEgBAGaVH3fRjZpmCUuJeBYvOq1iWitKP1FO2YKt2n0+PdqJ
+	L4hIPTf2sxZ059BXThFERaJtVkjmQI/nO/G37dlr70QqntAOkcJ+B75uN8wIvlNXxLHsctMDgtZ
+	vsuXyUCfDQw==
+X-Gm-Gg: AeBDiesmkYzP44WTQlJlcH40hClnkiREZ4b06vl3mtmrnKVjfrXY3jOUNNxE+uDDkfp
+	l/1p2mNO3WRhI03NHZ7FBMWicTP+1Ld5ih6z0z1pAkEPMBDeTZ3gRLYISNm0cWlHcEF8uwh+Liy
+	c34tpvaOS1X8YVuL1S+b/XpQTqhV9w+wijOgEc3cFyZ8/B+xlrnAK7n/183araHDwsNoLmJhqAa
+	wPccHBbB78SKNNvG+rSKC/H4HrIxhtn0GXEvRUoICzE6aRZdGIR9JoFfWB60oG0z/RtQjEOZImI
+	IG4R0NabrvsLpmlsftkN8zB1idwWi7s5Xz5W50TJSsn52QvDs191wH+XPgk/IeA7BfMnXxQQ+ws
+	nCtkpbHYpunAcLB/Gtb9LDpwN/VHL4DWqPIcp/Vk/We1rVZSlSyxLpPgNGNzHdUDk9Ere8BjNvv
+	f1iyURWlwTbRfr8xNw7aQtML3nKpX8HOw+g47uWx07zTrKB36N7E2zbw==
+X-Received: by 2002:a17:903:1a2d:b0:2b2:4b4e:e4d8 with SMTP id d9443c01a7336-2b5f9e5df87mr445635195ad.4.1777298514930;
+        Mon, 27 Apr 2026 07:01:54 -0700 (PDT)
+Received: from [127.0.1.1] ([2a12:a305:4::3016])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b5fa9ff98csm307143625ad.3.2026.04.27.07.01.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 27 Apr 2026 07:01:54 -0700 (PDT)
+From: Guodong Xu <guodong@riscstar.com>
+Subject: [PATCH v9 0/3] spi: support the SpacemiT K1 SPI controller
+Date: Mon, 27 Apr 2026 22:01:26 -0400
+Message-Id: <20260427-spi-spacemit-k1-v9-0-ff753b551302@riscstar.com>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAPYU8GkC/2WOyw6CMBBFf4V0bUnLG1b+h2HR1lFGw8NOaTSEf
+ 7eAOxezuJk758zCCCwCsSZamAWPhOMQQn2KmOnUcAeO15BZIpJCZKLkNGEYZaBHx5+Sg6jz0qR
+ Syjxh4WqycMP3Try0R6ZZP8C4DbM1OiQ32s+u9NXW+9Gl+KP7iguep6B1VqlMZsXZIhlyysZm7
+ Fm7HgYLrzm87g4t04qAh32ANJEvY8GtkaG8fgH6oyj77wAAAA==
+X-Change-ID: 20260407-spi-spacemit-k1-e0957c311152
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Alex Elder <elder@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Guodong Xu <guodong@riscstar.com>, 
+ Alex Elder <elder@riscstar.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.15.1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260427_070157_986795_88EFED37 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +111,156 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 15:00:00 +0200
-Mauro Carvalho Chehab <mchehab+huawei@kernel.org> wrote:
+This series adds support for the SPI controller found in the SpacemiT
+K1 SoC.  The driver currently supports only master mode.  The controller
+has two 32-entry FIFOs and supports PIO and DMA for transfers.
 
-> Hi Jon,
-> 
-> This is basically the same patch series I sent during the merge
-> window, rebased on the top of post 7.1-rc1 docs-next branch.
-> It is tested both with and without O=DOCS.
+Starting with v8, I am taking over from Alex Elder to shepherd this
+series upstream.  Alex developed versions 1 through 7.
 
-Please ignore it...
+Version 8 reworks the driver based on Mark Brown's review of v7, making
+much better use of the SPI core framework. Version 9 (rebased on v7.1-rc1)
+addresses Mark's review of the patch 2 (driver) and fixes the patch 1
+(binding) subject prefix as Mark requested.
 
-> Mauro Carvalho Chehab (12):
->   MAINTAINERS: add an entry for media maintainers profile
->   MAINTAINERS: add maintainer-tip.rst to X86
+(Note, this is a distinct series from the QSPI driver, which was
+merged recently.)
 
-... I forgot to drop those two. They aren't needed anymore.
-Will resend it soon enough.
+End-to-end tested on Banana Pi BPI-F3 with a GigaDevice GD25Q64E SPI
+NOR wired to the spi3 GPIO header pins.
 
--- 
-Thanks,
-Mauro
+ -
+ Guodong
+
+Between version 8 and version 9:
+ Patch 1:
+  - Subject prefixes in the order of "spi: dt-bindings: ..."
+ Patch 2:
+  - k1_spi_dma_prep(): nested ternary to switch.
+  - k1_spi_ssp_isr(): return IRQ_NONE based on SSP_STATUS bits
+  - k1_spi_ssp_isr(): rename reading of SSP_STATUS to 'status' (and
+      'top_ctrl' for SSP_TOP_CTRL); stop overwriting it.
+
+Here is version 8 of this series:
+  https://patch.msgid.link/20260410-spi-spacemit-k1-v8-0-53ebb48a4146@riscstar.com
+
+Between version 7 and version 8:
+  - Use // comments for the file header (Mark Brown)
+  - Remove open-coded DMA mapping (k1_spi_map_dma_buffer(),
+    k1_spi_unmap_dma_buffer(), k1_spi_map_dma_buffers(), the dummy
+    buffer, k1_spi_io struct); use SPI core DMA mapping via
+    transfer->tx_sg/rx_sg instead
+  - Add can_dma() callback, replacing open-coded transfer length
+    checks
+  - Add set_cs() callback for chip select control via the
+    TOP_HOLD_FRAME_LOW bit
+  - Switch from transfer_one_message() to transfer_one()
+  - DMA completion calls spi_finalize_current_transfer() directly
+    instead of using a completion
+  - Add SSP_STATUS_BCE (bit count error) to error detection
+  - Return IRQ_NONE early if no transfer is active, before
+    acknowledging interrupts
+  - Simplify k1_spi_driver_data struct
+  - ~160 fewer lines of code
+
+Here is version 7 of this series:
+  https://lore.kernel.org/lkml/20251114185745.2838358-1-elder@riscstar.com/
+
+Between version 6 and version 7:
+  - DIV_ROUND_UP_ULL() is now used when setting the speed, to address
+    two errors reported by the Intel kernel test robot on 32-bit builds
+  - Fixed a bug interpreting the resource pointer in k1_spi_dma_cleanup()
+  - The driver is now built as a module by default, if ARCH_SPACEMIT
+    is defined
+
+Here is version 6 of this series:
+  https://lore.kernel.org/lkml/20251027125504.297033-1-elder@riscstar.com/
+
+Between version 5 and version 6:
+  - Rebase only
+
+Here is version 5 of this series:
+  https://lore.kernel.org/lkml/20251013123309.2252042-1-elder@riscstar.com/
+
+Between version 4 and version 5:
+  - Added Yixun's Reviewed-by tag on patch 3
+
+Here is version 4 of this series:
+  https://lore.kernel.org/lkml/20250925121714.2514932-1-elder@riscstar.com/
+
+Between version 3 and version 4 (all suggested by Yixun):
+  - Fixed an underrun/overrun comment error
+  - Renamed a pinctrl node
+  - Formatted dmas and dma-names properties on one line
+
+Here is version 3 of this series:
+  https://lore.kernel.org/lkml/20250922161717.1590690-1-elder@riscstar.com/
+
+Between version 2 and version 3:
+  - Add Conor's Acked-by to patch 1
+  - Add Rob's Reviewed-by to patch 1
+  - Added imply_PDMA to the SPI_SPACEMIT_K1 Kconfig option
+  - Fixed a bug pointed out by Vivian (and Troy) in word-sized reads
+  - Added a comment stating we use 1, 2, or 4 bytes per word
+  - Cleaned up DMA channels properly in case of failure setting up
+  - No longer use devm_*() for allocating DMA channels or buffer
+  - Moved the SPI controller into the dma-bus memory region
+
+Here is version 2 of this series:
+  https://lore.kernel.org/lkml/20250919155914.935608-1-elder@riscstar.com/
+
+Between version 1 and version 2:
+  - Use enum rather than const for the binding compatible string
+  - Omit the label and status property in the binding example
+  - The spi-spacemit-k1.o make target is now added in sorted order
+  - The SPI_SPACEMIT_K1 config option is added in sorted order
+  - The SPI_SPACEMIT_K1 config does *not* depend on MMP_PDMA,
+    however MMP_PDMA is checked at runtime, and if not enabled,
+    DMA will not be used
+  - Read/modify/writes of registers no longer use an additional
+    "virt" variable to hold the address accessed
+  - The k1_spi_driver_data->ioaddr field has been renamed base
+  - The DMA address for the base address is maintained, rather than
+    saving the DMA address of the data register
+  - The spi-max-frequency property value is now bounds checked
+  - A local variable is now initialized to 0 in k1_spi_write_word()
+  - The driver name is now "k1-spi"
+  - DT aliases are used rather than spacemit,k1-ssp-id for bus number
+  - The order of two pin control properties was changed as requested
+  - Clock names and DMA names are now on one line in the "k1.dtsi"
+  - The interrupts property is used rather than interrupts-extended
+
+Here is version 1 of this series:
+  https://lore.kernel.org/lkml/20250917220724.288127-1-elder@riscstar.com/
+
+Alex Elder (3):
+  dt-bindings: spi: add SpacemiT K1 SPI support
+  spi: spacemit: introduce SpacemiT K1 SPI controller driver
+  riscv: dts: spacemit: define a SPI controller node
+
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+---
+Alex Elder (3):
+      spi: dt-bindings: add SpacemiT K1 SPI support
+      spi: spacemit: introduce SpacemiT K1 SPI controller driver
+      riscv: dts: spacemit: define a SPI controller node
+
+ .../devicetree/bindings/spi/spacemit,k1-spi.yaml   |  84 +++
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |   7 +
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |  20 +
+ arch/riscv/boot/dts/spacemit/k1.dtsi               |  15 +
+ drivers/spi/Kconfig                                |   9 +
+ drivers/spi/Makefile                               |   1 +
+ drivers/spi/spi-spacemit-k1.c                      | 792 +++++++++++++++++++++
+ 7 files changed, 928 insertions(+)
+---
+base-commit: 559f264e403e4d58d56a17595c60a1de011c5e20
+change-id: 20260407-spi-spacemit-k1-e0957c311152
+
+Best regards,
+--  
+Guodong Xu <guodong@riscstar.com>
+
 
 _______________________________________________
 linux-riscv mailing list
