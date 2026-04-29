@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA916FF885A
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:42:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BE9FF8875
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i7gcW7T1b1j7+xUZTUl4KgcixKLcR5BWs7C1q2PEplk=; b=1QfNThqZHukRSe
-	EO3mfLg0ojD4VKfZhBM1cif0FZpcB1YKyQa0dicBVqHhyM8q13Ho6n/wo6pbFPMbgXTSEi6Mq5rji
-	/BshuSZhMq51l7MvcPeq1KJLbIf3tJ45/0yaoiw/R945XRJIdrNSnb55Jx9yuN0uXh9kIcSU5HAKf
-	Lx9jIqjY9kD/8eQVFOf+VRrxl5ohE7mI0jYC3FfQH2GmFLrFdtV40XT+9si7RnPlmNG3zHTcURZiW
-	EbTuF4xbS6hPQFV7pM+4H8Diyhprdu8f8hn2o+xpusikZjGQ5alwN0JxSdPXR7szHv4JQrKx7mGel
-	On5KF58I2gswo9HGDu5Q==;
+	List-Owner; bh=tEZWY0O+7ycbhNc/WQcRRCD6ig8B4jCgapwWdjpmlcg=; b=F4rNfbvxjkDOKp
+	mbuU/jiZpi8wjY1WV28qxCYFxkSOPXKd4tHru3G2xe1ywwdnoLiviOo0NcJZ0C07dXzhKZXrXNdWe
+	A69C8DyQvdM1buwZjK0NHoV+7O8bSPCVCNeZYLEH7z4B0VakJ1/LPDbvdnnZEarg0C8Of24ZPlHIb
+	E+eRtZZllx0wt4WccC9nSqlu6PsX7dUFKhzC36X4A47RfVG+gDDqPP5OLcyaP7XMUW2kRGJVinLoM
+	HEluQEkOeiONarySuPXRXcmw1XLzHD0HD0hPaTw8fC/SBn/J2/YGVAzaTlAWxw8r0hSoNc8+MO/26
+	gyZkU8gWEdYNEZcM5jEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtwG-00000002jqf-1FPJ;
-	Wed, 29 Apr 2026 01:42:08 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wHu0D-00000002kDk-06Oj;
+	Wed, 29 Apr 2026 01:46:13 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtwD-00000002jps-2GMi;
-	Wed, 29 Apr 2026 01:42:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=xr++0uW3/aWfxubO3cxQcvyMCVatN4XOXUV5OwG2V2w=; b=kp+edf72edokyxU3mtqEnZKTr3
-	IdsBZ36KjZkY+e6Mq+wkNkDnqeAGDWrgyJ93hMP+ALlz9+l3ZutV6C30c3TTf1iuG0U5PLgIzieVn
-	XNbOI/kNLVqt5Yk26Maej/3KG2oCWZjyZb6Uwktr5gIfLqnUtIv8x4BMfVTQ1yt+/QTY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wHtw1-000Rgl-Lj; Wed, 29 Apr 2026 03:41:53 +0200
-Date: Wed, 29 Apr 2026 03:41:53 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
-	horms@kernel.org
-Subject: Re: [PATCH net-next v7 4/4] riscv: dts: eswin:
- eic7700-hifive-premier-p550: enable Ethernet controller
-Message-ID: <d662fa07-cd0f-48c4-a6e4-03c5fd390e92@lunn.ch>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
- <20260427072603.1191-1-lizhi2@eswincomputing.com>
+	id 1wHu09-00000002kD8-3F2J;
+	Wed, 29 Apr 2026 01:46:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1777427166; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=0ABfuJZF6yh/Y+/JJ98VtxHR90cMCDZPqGB01IOmkmo=;
+	b=O5i8o42+diFzGhMvpB64PKujCuoXOEaVYENPLKmW3H+VKdJ3FJbV2U1TuinbdhM/YzJWtNQwTCo5yrWm5XvUA7k+3fC+JTYmL8+Z6DD8fRY/1NFXoT44BI6tMBau2bTwRUi1R2sRu2OXHPqoHp/7gg4GO0/AY5RRoD1y8y/N2kk=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R481e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0X1vuOY6_1777427161;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1vuOY6_1777427161 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 29 Apr 2026 09:46:02 +0800
+From: fangyu.yu@linux.alibaba.com
+To: jgg@ziepe.ca
+Cc: alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	baolu.lu@linux.intel.com,
+	fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	joro@8bytes.org,
+	kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	skhawaja@google.com,
+	tjeznach@rivosinc.com,
+	vasant.hegde@amd.com,
+	will@kernel.org
+Subject: Re: Re: [RFC PATCH 08/11] iommu/riscv: Add dirty tracking support for second-stage domains 
+Date: Wed, 29 Apr 2026 09:46:00 +0800
+Message-Id: <20260429014600.67055-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20260428133800.GG849557@ziepe.ca>
+References: <20260428133800.GG849557@ziepe.ca>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260427072603.1191-1-lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_184205_576736_E23E8950 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260428_184610_010366_B2ED4A14 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +79,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +&gmac1 {
-> +	phy-handle = <&gmac1_phy0>;
-> +	/*
-> +	 * For the TX path of gmac1, there is a skew between the TX clock
-> +	 * and data on the MAC controller inside the silicon. This skew happens
-> +	 * to be approximately 2 ns. Therefore, it can be considered that the
-> +	 * 2 ns delay of TX is provided by the MAC.
-> +	 * No delay configuration for tx is needed in software via PHY driver.
-> +	 */
-> +	phy-mode = "rgmii-rxid";
-
-This is wrong. Take a read of
-
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
-
-phy-mode describes the board. If the board provides the 2ns delay, you
-use rgmii. If the MAC/PHY pair needs to provide the delay, you using
-rgmii-id.
-
-If rgmii-id is used, it is up to the MAC/PHY to decide which will add
-the delay. If the MAC adds the delay, it needs to mask the value of
-phy-mode it passes to the PHY so it does not also add the delay.
-
-Your broken hardware means you cannot support 'rgmii' or 'rgmii-rx',
-since you cannot turn off this 2ns delay, so you end up with double
-delays if anybody designs a board with 2ns TX delay on the board
-itself. So please validate the PHY modes and return -EINVAL if these
-modes are used.
-
-    Andrew
-
----
-pw-bot: cr
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Pj4gQEAgLTEyNDcsNiArMTI0Nyw4NCBAQCBzdGF0aWMgaW50IHJpc2N2X2lvbW11X2F0dGFjaF9w
+YWdpbmdfZG9tYWluKHN0cnVjdCBpb21tdV9kb21haW4gKmlvbW11X2RvbWFpbiwKPj4gIAlyZXR1
+cm4gMDsKPj4gIH0KPj4gIAo+PiArLyoKPj4gKyAqIEVuYWJsZSBvciBkaXNhYmxlIGhhcmR3YXJl
+IEEvRCBiaXQgdXBkYXRlcyAoR0FERSkgaW4gdGhlIGRldmljZSBjb250ZXh0IGZvcgo+PiArICog
+YWxsIGRldmljZXMgYXR0YWNoZWQgdG8gYSBzZWNvbmQtc3RhZ2UgZG9tYWluLiBXaGVuIGRpcnR5
+IHRyYWNraW5nIGlzCj4+ICsgKiBlbmFibGVkIHRoZSBJT01NVSBoYXJkd2FyZSB3aWxsIHNldCB0
+aGUgZGlydHkgYml0IGluIFBURXMgb24gd3JpdGUgYWNjZXNzLAo+PiArICogbWFraW5nIHRoZW0g
+dmlzaWJsZSB0byByZWFkX2FuZF9jbGVhcl9kaXJ0eSgpLgo+PiArICovCj4+ICtzdGF0aWMgaW50
+IHJpc2N2X2lvbW11X3NldF9kaXJ0eV90cmFja2luZyhzdHJ1Y3QgaW9tbXVfZG9tYWluICppb21t
+dV9kb21haW4sCj4+ICsJCQkJCSAgYm9vbCBlbmFibGUpCj4+ICt7Cj4+ICsJc3RydWN0IHJpc2N2
+X2lvbW11X2RvbWFpbiAqZG9tYWluID0gaW9tbXVfZG9tYWluX3RvX3Jpc2N2KGlvbW11X2RvbWFp
+bik7Cj4+ICsJc3RydWN0IHJpc2N2X2lvbW11X2JvbmQgKmJvbmQ7Cj4+ICsJc3RydWN0IHJpc2N2
+X2lvbW11X2RldmljZSAqaW9tbXUsICpwcmV2Owo+PiArCXN0cnVjdCByaXNjdl9pb21tdV9kYyAq
+ZGM7Cj4+ICsJc3RydWN0IGlvbW11X2Z3c3BlYyAqZndzcGVjOwo+PiArCXN0cnVjdCByaXNjdl9p
+b21tdV9jb21tYW5kIGNtZDsKPj4gKwl1NjQgdGM7Cj4+ICsJaW50IGk7Cj4+ICsKPj4gKwlyY3Vf
+cmVhZF9sb2NrKCk7Cj4+ICsKPj4gKwlsaXN0X2Zvcl9lYWNoX2VudHJ5X3JjdShib25kLCAmZG9t
+YWluLT5ib25kcywgbGlzdCkgewo+PiArCQlpb21tdSA9IGRldl90b19pb21tdShib25kLT5kZXYp
+Owo+PiArCQlmd3NwZWMgPSBkZXZfaW9tbXVfZndzcGVjX2dldChib25kLT5kZXYpOwo+PiArCj4+
+ICsJCWZvciAoaSA9IDA7IGkgPCBmd3NwZWMtPm51bV9pZHM7IGkrKykgewo+PiArCQkJZGMgPSBy
+aXNjdl9pb21tdV9nZXRfZGMoaW9tbXUsIGZ3c3BlYy0+aWRzW2ldKTsKPj4gKwkJCXRjID0gUkVB
+RF9PTkNFKGRjLT50Yyk7Cj4+ICsJCQlpZiAoISh0YyAmIFJJU0NWX0lPTU1VX0RDX1RDX1YpKQo+
+PiArCQkJCWNvbnRpbnVlOwo+PiArCj4+ICsJCQlpZiAoZW5hYmxlKQo+PiArCQkJCXRjIHw9IFJJ
+U0NWX0lPTU1VX0RDX1RDX0dBREU7Cj4+ICsJCQllbHNlCj4+ICsJCQkJdGMgJj0gflJJU0NWX0lP
+TU1VX0RDX1RDX0dBREU7Cj4+ICsJCQlXUklURV9PTkNFKGRjLT50YywgdGMpOwo+Cj5JJ20gcHJl
+dHR5IHN1cmUgeW91IGRvbid0IG5lZWQgdG8gZG8gdGhpcy4gSnVzdCBwcmVzZXQgR0FERSB3aGVu
+IGV2ZXIKPmEgUzIgZG9tYWluIGlzIGF0dGFjaGVkLCByZWx5IG9uIHRoZSBwcmUtc2V0IEQgdG8g
+YXZvaWQgYW55IEhXIGNvc3QKPmFuZCB5b3UgYXJlIGZpbmUuIE5vIG5lZWQgdG8gY2hhbmdlIGl0
+IGR5bmFtaWNhbGx5IHVubGVzcyBzb21ldGhpbmcgaXMKPnJlYWxsIHdlaXJkIGFib3V0IHJpc2N2
+Lgo+CgpUaGFua3MsIHRoYXTigJlzIGEgZ29vZCBzdWdnZXN0aW9uLiBJIHdpbGwgZm9sbG93IHRo
+YXQgYXBwcm9hY2g6IHByZXNldCBHQURFCm9uIHNlY29uZC1zdGFnZSBkb21haW4gYXR0YWNoIGFu
+ZCByZWx5IG9uIHRoZSBjb3JlLW1hbmFnZWQgRC1iaXQgYmVoYXZpb3IuCgpGYW5neXUKCj5KYXNv
+bgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
