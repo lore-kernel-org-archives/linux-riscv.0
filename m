@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA74FF8875
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA916FF885A
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/l69WWV4Rbgjp27txtkzxpnsP4i90bmKkn2zovin3i8=; b=oiBO7016rCdZwz
-	ZoDzFMz2iCV4cprQaiOIz6dNA06dPgTZI/QR3zEpJcFYa+XsIPLbOTIU8sibwmcu0wtG4utAJgvEB
-	8A+Tu6R5rwDHBrujUizq3JXqZp+Jqkd4pUYXDzZffe54i8VnqnmcEFgPQd9xRkE+YidaBTmc7pGY6
-	Q5Ny08fCKvnuSFck17IcauIRK7l5lYAjaN6v4c/BRrC9zS9NVA8lhHLqIdh8BRCFrTFnDth99PdTK
-	EqnwmuxVttfeo12EtSTqMUyKYypOUPzQkGye8iTMkLkEZYoHoRXc1/Nau9VZ8lT73uzyerNpFyVJy
-	+FDvGrQ0pCfxt2/tE6Bg==;
+	List-Owner; bh=i7gcW7T1b1j7+xUZTUl4KgcixKLcR5BWs7C1q2PEplk=; b=1QfNThqZHukRSe
+	EO3mfLg0ojD4VKfZhBM1cif0FZpcB1YKyQa0dicBVqHhyM8q13Ho6n/wo6pbFPMbgXTSEi6Mq5rji
+	/BshuSZhMq51l7MvcPeq1KJLbIf3tJ45/0yaoiw/R945XRJIdrNSnb55Jx9yuN0uXh9kIcSU5HAKf
+	Lx9jIqjY9kD/8eQVFOf+VRrxl5ohE7mI0jYC3FfQH2GmFLrFdtV40XT+9si7RnPlmNG3zHTcURZiW
+	EbTuF4xbS6hPQFV7pM+4H8Diyhprdu8f8hn2o+xpusikZjGQ5alwN0JxSdPXR7szHv4JQrKx7mGel
+	On5KF58I2gswo9HGDu5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtvj-00000002jkx-3zHr;
-	Wed, 29 Apr 2026 01:41:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wHtwG-00000002jqf-1FPJ;
+	Wed, 29 Apr 2026 01:42:08 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtvi-00000002jkU-0Cek;
-	Wed, 29 Apr 2026 01:41:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Oq4NJwjoZstdZY8Yv5UU3SU2nsmNBMRQGsHhZADtKDA=; b=abhByb7cl5u2oLtixwcqYPdyzv
-	fs4lCbWAHErcVV/TOSPv3ZNEsGKp/UBeVlzK5S0uTP30I2B+fbm62xDpr2mcdek5UTda8tl2CwB8P
-	OYV5B5UtQjR/J84ddD2GBkduYPMAVhBPtDvK4v1XQ2m1qw40vWHfIsFI6F2o3zYnijIV4iT5Ff1k6
-	9Bc6tky+KZrmK31JWLDUZTKUvsEUgmfLvcFiu1XiuiuGa6Po+ocLtooq5/qgi9ePCJM+J75ob40bv
-	9rs2v5x391zO+CpOV7qqJnlQw1GiR5482fL75bgXE25twfDK7EuT9Q5RJUOG58NDrXArG6xLJXcPN
-	xIxY6Cuw==;
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtvd-00000004Qfv-15JH;
-	Wed, 29 Apr 2026 01:41:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1777426874; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=Oq4NJwjoZstdZY8Yv5UU3SU2nsmNBMRQGsHhZADtKDA=;
-	b=VSKdml4w+HMgsPobpPzzMENsn167DbERLU8UY+XHlLS0vmBsM9zz7A+xjEDpNwNqkg9JlTD/ypDTJmdUQJrmWqTfDM9rojxYuHC7L0NRF1ct9EHMOU5rAFBdI2CUJnHpg9EmHmdkQeyLBfWh9Quw7y4m2td/OwePRRkSfCWl2V8=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0X1vlN.5_1777426869;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X1vlN.5_1777426869 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 29 Apr 2026 09:41:11 +0800
-From: fangyu.yu@linux.alibaba.com
-To: jgg@ziepe.ca
-Cc: alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	baolu.lu@linux.intel.com,
-	fangyu.yu@linux.alibaba.com,
-	guoren@kernel.org,
-	iommu@lists.linux.dev,
-	joro@8bytes.org,
-	kevin.tian@intel.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robin.murphy@arm.com,
-	skhawaja@google.com,
-	tjeznach@rivosinc.com,
-	vasant.hegde@amd.com,
-	will@kernel.org
-Subject: Re: Re: [RFC PATCH 07/11] iommupt: Don't preset D when RISC-V IOMMU dirty tracking on 
-Date: Wed, 29 Apr 2026 09:41:05 +0800
-Message-Id: <20260429014105.66404-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20260428133641.GF849557@ziepe.ca>
-References: <20260428133641.GF849557@ziepe.ca>
+	id 1wHtwD-00000002jps-2GMi;
+	Wed, 29 Apr 2026 01:42:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=xr++0uW3/aWfxubO3cxQcvyMCVatN4XOXUV5OwG2V2w=; b=kp+edf72edokyxU3mtqEnZKTr3
+	IdsBZ36KjZkY+e6Mq+wkNkDnqeAGDWrgyJ93hMP+ALlz9+l3ZutV6C30c3TTf1iuG0U5PLgIzieVn
+	XNbOI/kNLVqt5Yk26Maej/3KG2oCWZjyZb6Uwktr5gIfLqnUtIv8x4BMfVTQ1yt+/QTY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wHtw1-000Rgl-Lj; Wed, 29 Apr 2026 03:41:53 +0200
+Date: Wed, 29 Apr 2026 03:41:53 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: lizhi2@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
+	horms@kernel.org
+Subject: Re: [PATCH net-next v7 4/4] riscv: dts: eswin:
+ eic7700-hifive-premier-p550: enable Ethernet controller
+Message-ID: <d662fa07-cd0f-48c4-a6e4-03c5fd390e92@lunn.ch>
+References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
+ <20260427072603.1191-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260427072603.1191-1-lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_024130_416203_0A017910 
-X-CRM114-Status: UNSURE (   5.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_184205_576736_E23E8950 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +80,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->> 
->> When mapping writable pages, the RISC-V format code currently
->> pre-sets the PTE D bit unconditionally.
->> 
->> If hardware dirty tracking is active (DC.tc.GADE set), the IOMMU
->> sets D autonomously on the first write. Pre-setting D makes every
->> new mapping appear dirty immediately and breaks dirty tracking.
->> 
->> Introduce PT_FEAT_RISCV_DIRTY_TRACKING_ACTIVE and, when set, leave
->> D cleared for new writable mappings so hardware can capture the
->> first write. Keep pre-setting D when dirty tracking is inactive.
->> 
->> Only meaningful for second-stage (iohgatp) page tables.
->
->You shouldn't need anything like this, the D bit is managed by the
->iommufd core appropriately. It *should* start out pre-set as that is
->faster when not tacking. Only once dirty tracking is started does D
->get cleared. User space is supposed to assume that everything is dirty
->prior to its first D clear.
->
+> +&gmac1 {
+> +	phy-handle = <&gmac1_phy0>;
+> +	/*
+> +	 * For the TX path of gmac1, there is a skew between the TX clock
+> +	 * and data on the MAC controller inside the silicon. This skew happens
+> +	 * to be approximately 2 ns. Therefore, it can be considered that the
+> +	 * 2 ns delay of TX is provided by the MAC.
+> +	 * No delay configuration for tx is needed in software via PHY driver.
+> +	 */
+> +	phy-mode = "rgmii-rxid";
 
-Thanks, that makes sense. I will drop PT_FEAT_RISCV_DIRTY_TRACKING_ACTIVE
-and rely on the iommufd core to manage D bit.
+This is wrong. Take a read of
 
-Fangyu
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
 
->Jason
+phy-mode describes the board. If the board provides the 2ns delay, you
+use rgmii. If the MAC/PHY pair needs to provide the delay, you using
+rgmii-id.
+
+If rgmii-id is used, it is up to the MAC/PHY to decide which will add
+the delay. If the MAC adds the delay, it needs to mask the value of
+phy-mode it passes to the PHY so it does not also add the delay.
+
+Your broken hardware means you cannot support 'rgmii' or 'rgmii-rx',
+since you cannot turn off this 2ns delay, so you end up with double
+delays if anybody designs a board with 2ns TX delay on the board
+itself. So please validate the PHY modes and return -EINVAL if these
+modes are used.
+
+    Andrew
+
+---
+pw-bot: cr
 
 _______________________________________________
 linux-riscv mailing list
