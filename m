@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C702FF887E
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC14EFF8875
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pZKF3Vgsu3cQPyutH7cQaGPZINWxffJ7Lpi+PtduAeM=; b=yNArSqOzbt7jXg
-	kStI4Z9GXUWtWrAWetMW65sKjTxLM9AZUduNDudR+qGFIr99JUi07imzBCU1jabqyoGEBSzIV4ryX
-	a5ZV/Ohn9GUu22QMvDeWDdCd2/CA++uAURFI9ieoF58C/BUEo8a9CA8x2hHg1DZBWaHwymjBDDeao
-	pnQE7c20/171mZBqYjASjOb6I36DG5uS+9eMNhrD3IlNBzGd7B+ZPi3uV+LsvORi5ddeU6bdAb0dL
-	6eV5WoRvr9o+HkHRqMOeLXe3QA9vIKHWzlgPy8DbkWAGAU6yb4LVkVwhJHsQMp+SzKNf6pL2GYzWc
-	jUU5w6IqJUvN8Q5+7Xww==;
+	List-Owner; bh=3TGQLcdehiV/3Hy7c7J7F0IQIvkwtpEIgG1sEhg/ssk=; b=tfL2k/Ax2Seayi
+	5zZ+1WmwioLCGodAzkUlMML9TJ2d2k4DhZC9f0VUgooQs0yJaOOe76nk//kVO0QetRbjZxZzdjIcf
+	ZatYbj26FT1l0EqMeoN9KgMsxbFjRGoeFrBNxMTDoPOasilCrgyIg3uITVgGETZBt6rQjt/qRAth1
+	WpmJcpSDc96O91S7WByrdH9emGrB792agy7xUXDHFeCfC2I7IXODxs76pa1zZ68h2Y19y7CbXqePE
+	GOpYEAS3pg/FH8Wwfu4YfQcE9/ntLfgA0nPNRTEU0wil2ySYgtG415tXYrQrWfv7kfsHp5rdTJMHk
+	Gg8ptlbniYxAenlhw+Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHttr-00000002j5U-0Ac2;
-	Wed, 29 Apr 2026 01:39:39 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1wHtu9-00000002jCF-2MOf;
+	Wed, 29 Apr 2026 01:39:57 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHttn-00000002j3O-2Gkv
+	id 1wHtu5-00000002j6w-3NDT
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Apr 2026 01:39:37 +0000
+	Wed, 29 Apr 2026 01:39:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1777426750;
-	bh=jSE/lZ8lv/JgPhAki8HHzPUjZ2Vg7C6vpdz7KPeviJM=;
+	s=mxsw2412; t=1777426763;
+	bh=FI4ajARcW5357tLN5/I0ua9TZkOJrFRVAlMis1T0b2M=;
 	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=udupmZmBA2/zt02suWoXllz7uMOxO//7M7oAq/UuE5pjpKH8uqBhz98gPorFi6ZsZ
-	 rb99gFCDBY56/9Uh8Gj2WvME4x702r/fvBrYPIZ4TBF8NYYmoNhLdrimkKv+GdvT7v
-	 yhbQLhOGQXTIRQ2FMVQNamoUyQLrHr2ljlwjMB/8=
-X-QQ-mid: zesmtpgz1t1777426743t04c28cc3
-X-QQ-Originating-IP: X3b/ae0GrihuowuBpKcF5vlJDI0UwVsxLLurFmJWMKg=
+	b=PMHPxM+MdkxK20cLK6+5IuWDfzxgxJhU41PDprcA4fTm+chog750zcf/8Eefx+qFB
+	 pCJa97kuon4xuNQRj/e1oEPysjWDBGjgvcE8cTUlGEoVC/iVbT3GH7D8OT+FM2PdUk
+	 9VdFbEGuyD6rla0pxAzxMlspcbcQh+Sxti9plwZc=
+X-QQ-mid: esmtpgz12t1777426755t013c7bfe
+X-QQ-Originating-IP: xdBdhRDl77xch4NsM0af+nFog4tII5MZi881pdQy8Kw=
 Received: from = ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 29 Apr 2026 09:39:00 +0800 (CST)
+	id ; Wed, 29 Apr 2026 09:39:12 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5249929831929191583
+X-BIZMAIL-ID: 7627828452192065809
 EX-QQ-RecipientCnt: 15
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Wed, 29 Apr 2026 09:38:47 +0800
-Subject: [PATCH 2/7] ASoC: spacemit: move hw constraints from hw_params to
- startup
+Date: Wed, 29 Apr 2026 09:38:50 +0800
+Subject: [PATCH 5/7] ASoC: dt-bindings: add fixed-sample-rate property for
+ SpacemiT K1/K3
 MIME-Version: 1.0
-Message-Id: <20260429-k3-i2s-v1-2-2fe99db11ecb@linux.spacemit.com>
+Message-Id: <20260429-k3-i2s-v1-5-2fe99db11ecb@linux.spacemit.com>
 References: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
 In-Reply-To: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -61,38 +61,39 @@ Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, 
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777426731; l=3191;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777426731; l=1270;
  i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=RWny2LNzrPrEagJ3GrRqR5NlLn0/KK5X3ayFUZDi8u4=;
- b=wwoi9MYNJCqKjdN/C6ghsVSY+1vMmYnAh65X69vBVqtWQ9L/9Ra/BZlqbfPps05yOXGcuEesX
- jQcUsC+UxWRCgIl4ZvcTXH85nDmWSZHLn+zvCoBDaJ1Rwz02ogrjIwH
+ bh=NAgZL6RRaKXXih+6ACD5ImpEXa86qDP16TxAOhPDHIQ=;
+ b=TusiHIciXUEkTyZdF0agxDOszJih+9MIoUSFVA68HIDOa8vi2cUesDBfQe6f4l4R+9H2D8znc
+ iEXn6JQBHR1DS1pO8ZQIdzSeDXsQeMaCRPGheSGBpUYrD6BmdWQTB97
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MKU+WaqC/A+ZJCGZ4glD6CdaTkRAPgZwk/18dohhOQSq7Vkhb+uKn5p3
-	T7E61003jpVvv2WgkaHGqQlhw4M34Tq978Jy28uFp2m7v39iyKcUd8X1LwD/UqHZVLwcpV+
-	zWljK3H8E8WeAmpKtoo5Hg1slAggfxpYqog1kZhHG8nX95pSLAi42XT+/yK2s+klGdnrVV5
-	e7oHABZX+0CkIe/YPnLbrpK07stBQmklXE17OOFU3veiES7hQN4BNgcIw5kL4iqWw2uPfWR
-	7/ZnVctKLZWlyBQCqnysI3b6kbnTNqulFO2HEpH1Ea/zcM7xjj/STVafw6jlLP4Tek9rzxA
-	dZiVYNo0K9mc8NYJ4bSO3kyAuk72n/8atgycYAmzR1F70QaU6+Uvq8g2sVcodgs0DAcy7Ej
-	blJCCYWJWDjxQBgylwQHmAHMGHfl+VjjWBi9gubXx1AW/C2UxuW7pSh+BHoAmYH5TeIc4g6
-	GW+zxAb5np4DNyXdaR/gLJYaXSRGh6cJgBQ4x9jZu/FJbijQY08o7tAZYCFX3nQOFHz/Az3
-	tJfFZTfVTfI4Hs8iMGNfddRGd4dUZLQzFh3ulEjKShIAEtd9o6yCm+xNjfUAbStMQk0fG1Y
-	LjpL4LSLqBot2e/+O80H7vqGJ9uPLFxNL87T3xzZhoeGwUrWBFFUoa6Lgp1qGGsZaOWFWm7
-	ud1kq3jjRta5Lcejb/zHn885OYj6P7WsCLcgc8AY9gANs4qeTJ0mSt2v5T0p5ply83P12xC
-	vvxp2hkYufOiR6z2LLqCahMID1iEKVRhkw9w+WnEW5NlvAneky+f0t0bqPDHSQfxl7snUVa
-	z7B+UWd9HAoL2tGGnLipHVs0BjU5CnpJnO44O5O10j9krnFIN8DEjIO44En/4G83CylK7kP
-	SJKtBMTS4Lro346R9ITq4Jk0K1pBsvaOZmK/mLyq+suEXnlym+IaOsYvpxiR2c7PUZTldLy
-	YwzoR1kaoaIlt0OoGE0ti9NQAHPsz+Pyq06dTEpz7rkxIhd6QhCpjyb8NipL2TLCPKtRdXf
-	PjcFoS+Ctm55zODy5A9R3rCuBBbACr+iu5Gt/nRtDxpZcF/N1rnBi/3e9ouuatG17nYd/NC
-	+x8uWIWLFhYLTF6FHnXX5OOKrrBwAYZFJeFP+pBFBE4YoZEb3m03sOSdV0SkmWZwhEI5+aF
-	e666
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NogX0aiuLvlKalpi8EyVVslWua28pTXEt3tRapUcSl/V6fbTvffaHvA2
+	empsSU7BOUgDIuO8cb0H6yhhPN8fnEOvn4B1isdrEXRrWI+2sXR1vWIBIvda0JClsPIQRns
+	FUxf9f2uWTcYKJXGsedPjkm8JiLJAY9WK0L+2n4oZ2uZAKjz4Ze+bmJZkTGvokqySTxobtu
+	DiXoMSyKja+uO3apBo7fsdSytmoIg2U0BV4pwnqWeGxwz36umliFD7PM6tKtbXwR4sjYs4e
+	0DMhT4G0//ZyGjjLstSH9KqTtv3ovfYs+Z+nvLRLOZlIsGXIEJ0eibwdGlUDvAwylY0PTGr
+	Lhwx94tcJOFoCu90QEs9PCTJ9TQyrOwn4Q3SwetoaiHS3DbXykIU412T5f6FIz7R3jmO6Jp
+	3Hl2IXfLPbKaoqq9jBWAxvKDgs3MgoYa0W1xjSFrzpgo/JOqytQx+Mit69JI85I1oJTupon
+	D272bChCe4/n1/x7gKWtA4meX9ZN157oNzY0mNoNTzTDz/N8Ot2zVLiQS7BMJ4Hp0sHlu/i
+	1BG5p8Gfp8ZNZtE52rTOTpif4ySens4eHk1mcyVbZPl9w01emKpcKhewzIeq7iFlgAzc+mt
+	d92sn3Uf/GwNrC6SvdlGPvmtQRjy8ycifibM0vjA4OzxhP6GjGhlEFVxTqSigKKUGb4lxXD
+	jxAefrdEKDY+yh/t49Ft2H1jWSwTFI32SeJzqYVvggzzCC/z6HsCJApURGdSkkco0el6Ddu
+	9DIR22URCEvoOfNrMQmkjBGz8FrJqWSymiIqJGA82mM62AFtaKdlnafedBylLXp5vRmyXRD
+	z3624DdtUb0+zbJqI7FWsbhAsYugHCTJNENBeTt5Pn/Rf8NXWHiKImu7XGEtC0SGDnH4z5K
+	yLVottoqbAP3Ni+odyFJyGRDDYuFwXPWfZILYlIHzG7bCjon72FSf3zYxyLmMMWm2obRXdj
+	iY7QHVIw3hfP01BwPYlrqC8lhlk1kX4wyOaew5FOIdvWbLSmVoqemxJjYKht1osUjEZp45/
+	1JL/f0afbKR+QuiIIN+3UI3MF6WMIGYp0kS8kGly5NKGTVbAG/UoV0e8iOlOqE65YqzPs7i
+	2FO2WI2cOjFp5kwsesMIYsJ9Sal4yaAIi8IBA5PvDnd8TlJywYIBCJOn3BGbtBKzTVdQL9m
+	1agvKpEyQXP8Z6iIjrWl9TdFtg==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_183936_087528_95C54710 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20260428_183955_317987_79D34A8A 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,93 +110,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hardware constraints should be applied in the startup callback rather
-than hw_params, as hw_params may be called too late for the constraints
-to take effect properly.
-
-Move the channel count and format constraints for I2S and DSP_A/DSP_B
-modes into a new startup callback. This also tightens the I2S mode
-channel constraint from 1-2 to exactly 2, matching the actual hardware
-behavior.
+Add the optional spacemit,fixed-sample-rate property. When multiple I2S
+controllers share a common bclk, this property constrains all
+controllers to the same sample rate. This applies to both K1 and K3
+SoCs and is only needed when two or more I2S controllers are active
+simultaneously.
 
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- sound/soc/spacemit/k1_i2s.c | 45 ++++++++++++++++++++++++++++++++-------------
- 1 file changed, 32 insertions(+), 13 deletions(-)
+ Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/sound/soc/spacemit/k1_i2s.c b/sound/soc/spacemit/k1_i2s.c
-index 5c878f02cc93..e59624b2e23a 100644
---- a/sound/soc/spacemit/k1_i2s.c
-+++ b/sound/soc/spacemit/k1_i2s.c
-@@ -106,6 +106,37 @@ static void spacemit_i2s_init(struct spacemit_i2s_dev *i2s)
- 	writel(0, i2s->base + SSINTEN);
- }
+diff --git a/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
+index 240d90402e4f..137070ad9eba 100644
+--- a/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
++++ b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
+@@ -84,6 +84,14 @@ properties:
+   "#sound-dai-cells":
+     const: 0
  
-+static int spacemit_i2s_startup(struct snd_pcm_substream *substream,
-+	struct snd_soc_dai *dai)
-+{
-+	struct spacemit_i2s_dev *i2s = snd_soc_dai_get_drvdata(dai);
++  spacemit,fixed-sample-rate:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      Fixed sample rate in Hz. When multiple I2S controllers share a
++      common bclk, this property constrains all controllers to the same
++      sample rate. Only needed when two or more I2S controllers are
++      active simultaneously.
 +
-+	switch (i2s->dai_fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
-+	case SND_SOC_DAIFMT_I2S:
-+		snd_pcm_hw_constraint_minmax(substream->runtime,
-+					     SNDRV_PCM_HW_PARAM_CHANNELS,
-+					     2, 2);
-+		snd_pcm_hw_constraint_mask64(substream->runtime,
-+					     SNDRV_PCM_HW_PARAM_FORMAT,
-+					     SNDRV_PCM_FMTBIT_S16_LE);
-+		break;
-+	case SND_SOC_DAIFMT_DSP_A:
-+	case SND_SOC_DAIFMT_DSP_B:
-+		snd_pcm_hw_constraint_minmax(substream->runtime,
-+					     SNDRV_PCM_HW_PARAM_CHANNELS,
-+					     1, 1);
-+		snd_pcm_hw_constraint_mask64(substream->runtime,
-+					     SNDRV_PCM_HW_PARAM_FORMAT,
-+					     SNDRV_PCM_FMTBIT_S32_LE);
-+		break;
-+	default:
-+		dev_dbg(i2s->dev, "unexpected format type");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
- static int spacemit_i2s_hw_params(struct snd_pcm_substream *substream,
- 				  struct snd_pcm_hw_params *params,
- 				  struct snd_soc_dai *dai)
-@@ -153,22 +184,9 @@ static int spacemit_i2s_hw_params(struct snd_pcm_substream *substream,
- 			dma_data->maxburst = 32;
- 			dma_data->addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
- 		}
--
--		snd_pcm_hw_constraint_minmax(substream->runtime,
--					     SNDRV_PCM_HW_PARAM_CHANNELS,
--					     1, 2);
--		snd_pcm_hw_constraint_mask64(substream->runtime,
--					     SNDRV_PCM_HW_PARAM_FORMAT,
--					     SNDRV_PCM_FMTBIT_S16_LE);
- 		break;
- 	case SND_SOC_DAIFMT_DSP_A:
- 	case SND_SOC_DAIFMT_DSP_B:
--		snd_pcm_hw_constraint_minmax(substream->runtime,
--					     SNDRV_PCM_HW_PARAM_CHANNELS,
--					     1, 1);
--		snd_pcm_hw_constraint_mask64(substream->runtime,
--					     SNDRV_PCM_HW_PARAM_FORMAT,
--					     SNDRV_PCM_FMTBIT_S32_LE);
- 		break;
- 	default:
- 		dev_dbg(i2s->dev, "unexpected format type");
-@@ -303,6 +321,7 @@ static int spacemit_i2s_dai_remove(struct snd_soc_dai *dai)
- static const struct snd_soc_dai_ops spacemit_i2s_dai_ops = {
- 	.probe = spacemit_i2s_dai_probe,
- 	.remove = spacemit_i2s_dai_remove,
-+	.startup = spacemit_i2s_startup,
- 	.hw_params = spacemit_i2s_hw_params,
- 	.set_sysclk = spacemit_i2s_set_sysclk,
- 	.set_fmt = spacemit_i2s_set_fmt,
+ required:
+   - compatible
+   - reg
 
 -- 
 2.54.0
