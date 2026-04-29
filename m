@@ -4,60 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 816C4FF8875
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 20:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D34FF887E
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 22:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jrDRmmjKmPhwnh7vr7zKnIdrp5aGSFF/ka3L2GFDl8w=; b=RAK2derr2Nq2mu
-	gU+Bngc2mNIUQ8xQERy3Og4yJ75RtxKPscmCMAItxujNlKYQE5Uf668jDLc3nifudBx2BD6I9eZvb
-	a7f5D0FP7FjEFjRO9IvdsYPcqod83XshWedUdmkGN+eciCUfeesiQacnxM0EKQjckczt8RHYJqEGy
-	FBaNbsXSx3j3BChEaeOC3DDnJC0WtJx2wQeaTrD/kGlWF8fJOFtvZi5qp4+k5VVGMhG2p6FdMb1IX
-	JID+fj5zb9WNiplz9fASA6vmZN7fD8FLZupx/ZKFJL/fkJLeIJgbnaF4h9lO4deejFm5olfSSnMV7
-	Z4z8AvTIVloLa0a2RfXg==;
+	List-Archive:List-Unsubscribe:List-Id:From:Subject:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MPK4h2GSVAhRau5oVceTM0GQKHli8Gjmw4kQRFJ4y4A=; b=IIkKZ2oaljkJA+
+	MPPMaaswPXh5b17De8t/uhGr2w+coQaMibqLVl+lCokx/TS6S9V6Rvnz+fVk7FM26PAwgKbuTYGdi
+	pTVCgIyjEgiRHvhbQoszpgCsFmqrEbp2vPquaGWMCzr0w3h6XVw5b6GkKces2EqK4l+dqgyFcYyFj
+	YZyscH2zCalEfklGOv9lPFB3mhdHyVXsn6na5eKBE5NAjKy/89Nd1w4io33nZnPk+RfSK+8Oa5ufl
+	7nbP2b2fJbGjYVDxLRivUciwseC4VKjKeoPjLQDjJxnB574Ex+wx7x98PD27w4D9KV3uirlkeT2aE
+	Melnz5c62wOWh6TNSmHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIBXF-00000004CDq-3D5w;
-	Wed, 29 Apr 2026 20:29:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wIDVC-00000004HI4-0QT7;
+	Wed, 29 Apr 2026 22:35:30 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIBXF-00000004CDi-1wIU
+	id 1wIDV9-00000004HGn-29if
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Apr 2026 20:29:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC2AB60180;
-	Wed, 29 Apr 2026 20:29:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A652EC19425;
-	Wed, 29 Apr 2026 20:29:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777494567;
-	bh=HH+KQvkzBNqRGxUjoFpvNFOMjZKpfO8LsdVYeYm3uOs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G9lGsPgLSrCXmU8d7mjNx7wf9uQT/2BqyvHTxM8svYyt0+Sdpahq3xIQrTXuOpAQm
-	 MjtsSt23NnFUOfCiUxFdMKs9qyTCDiicq85kS+uKugrdpzaGEEGPdot6VlvXi7VBHC
-	 ryoHkioB1F73N0Bz0YH81b+yq5l/QQuopEsvVuzZJsT5VopbPlgFo9WaDYv/wfW1w4
-	 gkfCoeLDB45K4cEmDmJ2+S1KljBMAw2EOREBSR3+0EB15/nEku3u1MSRZaD14wVTxO
-	 qjX0aq39gOMn5ZGBIpdp2mIFLEZaRJxC1V7i7L+a1pNtonkz0K79MjQhwpi7xUY6Bn
-	 vgB4tOd/rDt6g==
-Date: Wed, 29 Apr 2026 13:29:22 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, yury.norov@gmail.com, linux@rasmusvillemoes.dk,
-	arnd@arndb.de, akpm@linux-foundation.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, david.laight.linux@gmail.com,
-	cp0613@linux.alibaba.com
-Subject: Re: [PATCH v5 2/3] bitops: Define generic __bitrev8/16/32 for reuse
-Message-ID: <20260429202922.GA3575295@ax162>
-References: <20260421130752.607500-1-ruanjinjie@huawei.com>
- <20260421130752.607500-3-ruanjinjie@huawei.com>
+	Wed, 29 Apr 2026 22:35:28 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-8f984bddf4eso27638885a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Apr 2026 15:35:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tennr.com; s=google; t=1777502125; x=1778106925; darn=lists.infradead.org;
+        h=content-transfer-encoding:from:content-language:subject:cc:to
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=M+cM5bDOtup8kbf7WWvIOEk3VUCv6B35KmgW6pLVjks=;
+        b=lPmWGZ263KuKm4TkPbxy8pNYaK9BSGT9EYmCx3K6wvNt+i1gnV7IxVAz9SgsVMIuDP
+         AZCZhIH5963hmPyX6HNgYcSHAAehThdx7Rz+UYkpL6WKjE+r5ze4MMnsAsgX+CuRvhpJ
+         eQAkRWXQFJWXdi4ebRchqeXkyvNpGsORAYHOZl/tpIalfKJwsxL4X/bzFnMJvDPwXyOK
+         RaDR3kitCHkQ7hxF1jIN5n2zqLPg5Kyn632FAXA1JrEb1ZfAhgYIttlvcD1qDzejGZQH
+         dpRfu7OdFf7QQ/wislL7UPG5kYLs1afDhmkOHX8wDlRcLubgA3z/WW1B/X5l/h6geVcO
+         5E3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777502125; x=1778106925;
+        h=content-transfer-encoding:from:content-language:subject:cc:to
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=M+cM5bDOtup8kbf7WWvIOEk3VUCv6B35KmgW6pLVjks=;
+        b=M9/cIymGeVIWHYptmUnsn2xqAaQRcemGgMsJa82feC4z/hToofIeZe5WbI4eTdV3Oe
+         fvWcP65lov0zujVGc9AVC0fYMPpu9OYEfQuVmynVOJO9I6Oi3OD5Kt9Mug9XzcoRxwn3
+         /HWZzPGG/0TC6KaJtb5C6sGgkbA5P0swa767HbgtyazOPMebQA9pRdRPpMueTokK4z+J
+         eSjBnLl5zesKqdQAvsrE0b3R1LmyD95GogXhyGJ0U+JQCoUOFQn2fz5H/hlOask5nUVA
+         HtyWTAOSDs3hocmhBQAPZCR0iVpq2CSxtmAyaIxm4CZvF1t55zunH6aJbb+uY4nXeLJ3
+         ZiSg==
+X-Gm-Message-State: AOJu0YyzPalrBudlmW0+49LIcoQnlDj+L1W215Ji1ZgZnUKfaSltkRLf
+	vWWXhDiKziqGUxdPZ2ISMYGL6GvZmP461py/D+UnmuN7tb9JT3yuy2RuBMFJ7ghs+Ew=
+X-Gm-Gg: AeBDiesc9d6q8IP9a41W70HG3QH8rfJek4KbSnkwQLQ0dnrBkPGsPFViLOOPBFP+nhg
+	F98Mr2KINTechuR6ihLp+HzTxP8bLJMqaviAokjWYjow8xJ78ZmkbXJr/4rhJARsQXsWlUIcpPa
+	P2OMn6jqAduH36LNVpDJ1z+dU/607bwf9pCxQZuoGudbmLzdx1SCeeTcGgdywL41FpShW5Pc3l1
+	6iiIu/tIciGLzv9h/l0e6o9IdTa1zqibxFlLrnpYf1f4e/vwtvjq5/RDbImZVfzIs0nrDZ66gba
+	I1FenSOX2kF4CI9t7V/NO2D0k/Z0nN1keOGk5/H1Ysc6Ef3D0yOC7g70GCn6F+EyF58p7K23QYw
+	sPfuofFaPk47mdk5ApT5kBLZo2+K6xyEg9VeZbby3wK/Q3E9VwA4WzMQADTIqiQr0IMfeqVjpzH
+	jZyo5Cr6zJ54oSoSNHueRzCkIf3OmmeId/JStZcJHKwulcwYmjBKMb1XLnGWgsA2mQvn5hpOCdS
+	idsqrRxowvANV0PtfqFkmefsFg2PFEHwFqg8VQ5IWhzuCAg
+X-Received: by 2002:ac8:7f08:0:b0:50e:6313:6e13 with SMTP id d75a77b69052e-5102ab34ed8mr5941171cf.5.1777502125036;
+        Wed, 29 Apr 2026 15:35:25 -0700 (PDT)
+Received: from ?IPV6:2603:7001:e0f0:ecf1:358c:7c1f:bb1b:654d? ([2603:7001:e0f0:ecf1:358c:7c1f:bb1b:654d])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5101ae985e4sm27897071cf.27.2026.04.29.15.35.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Apr 2026 15:35:24 -0700 (PDT)
+Message-ID: <391d16fb-5f11-45fa-8f3b-1debe095695e@tennr.com>
+Date: Wed, 29 Apr 2026 18:35:23 -0400
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260421130752.607500-3-ruanjinjie@huawei.com>
+User-Agent: Mozilla Thunderbird
+To: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ corbet@lwn.net
+Cc: linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, avi.radinsky@tennr.com
+Subject: [PATCH] Documentation: riscv: cmodx: fix typos
+Content-Language: en-US
+From: Avi Radinsky <avi.radinsky@tennr.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260429_153527_579477_09A5A89A 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,123 +99,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjie,
+Fix typos in the dynamic ftrace section: atmoic -> atomic (twice),
+pacthable -> patchable, derect -> directed.
 
-On Tue, Apr 21, 2026 at 09:07:51PM +0800, Jinjie Ruan wrote:
-> Define generic __bitrev8/16/32 using the implementation
-> in <linux/bitrev.h>, so they can be reused in <asm/bitrev.h>,
-> such as RISCV.
-> 
-> Reviewed-by: Yury Norov <ynorov@nvidia.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  include/asm-generic/bitops/__bitrev.h | 25 +++++++++++++++++++++++++
->  include/linux/bitrev.h                | 20 ++++----------------
->  2 files changed, 29 insertions(+), 16 deletions(-)
->  create mode 100644 include/asm-generic/bitops/__bitrev.h
-> 
-> diff --git a/include/asm-generic/bitops/__bitrev.h b/include/asm-generic/bitops/__bitrev.h
-> new file mode 100644
-> index 000000000000..f06af929678d
-> --- /dev/null
-> +++ b/include/asm-generic/bitops/__bitrev.h
-> @@ -0,0 +1,25 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_GENERIC_BITOPS___BITREV_H_
-> +#define _ASM_GENERIC_BITOPS___BITREV_H_
-> +
-> +#ifdef CONFIG_GENERIC_BITREVERSE
+Signed-off-by: Avi Radinsky <avi.radinsky@tennr.com>
+---
+ Documentation/arch/riscv/cmodx.rst | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-The dependencies of this symbol seem insufficient, as I can trigger a
-build failure on next-20260429 like so:
-
-  $ make -skj"$(nproc)" ARCH=s390 CROSS_COMPILE=s390-linux- mrproper tinyconfig fs/select.o
-  In file included from include/linux/crc32.h:6,
-                   from include/linux/etherdevice.h:23,
-                   from include/linux/if_vlan.h:11,
-                   from include/linux/filter.h:21,
-                   from include/net/xdp.h:10,
-                   from include/net/busy_poll.h:19,
-                   from fs/select.c:33:
-  include/linux/etherdevice.h: In function 'eth_hw_addr_crc':
-  include/linux/bitrev.h:16:20: error: implicit declaration of function 'generic___bitrev32' [-Wimplicit-function-declaration]
-     16 | #define __bitrev32 generic___bitrev32
-        |                    ^~~~~~~~~~~~~~~~~~
-  include/linux/bitrev.h:67:9: note: in expansion of macro '__bitrev32'
-     67 |         __bitrev32(__x);                                \
-        |         ^~~~~~~~~~
-  include/linux/crc32.h:107:36: note: in expansion of macro 'bitrev32'
-    107 | #define ether_crc(length, data)    bitrev32(crc32_le(~0, data, length))
-        |                                    ^~~~~~~~
-  include/linux/etherdevice.h:292:16: note: in expansion of macro 'ether_crc'
-    292 |         return ether_crc(ETH_ALEN, ha->addr);
-        |                ^~~~~~~~~
-  make[5]: *** [scripts/Makefile.build:289: fs/select.o] Error 1
-  ...
-
-  $ scripts/config -s BITREVERSE
-  undef
-
-  $ rg BITREVERSE .config
-
-> +#include <asm/types.h>
-> +
-> +extern u8 const byte_rev_table[256];
-> +static __always_inline __attribute_const__ u8 generic___bitrev8(u8 byte)
-> +{
-> +	return byte_rev_table[byte];
-> +}
-> +
-> +static __always_inline __attribute_const__ u16 generic___bitrev16(u16 x)
-> +{
-> +	return (generic___bitrev8(x & 0xff) << 8) | generic___bitrev8(x >> 8);
-> +}
-> +
-> +static __always_inline __attribute_const__ u32 generic___bitrev32(u32 x)
-> +{
-> +	return (generic___bitrev16(x & 0xffff) << 16) | generic___bitrev16(x >> 16);
-> +}
-> +#endif /* CONFIG_GENERIC_BITREVERSE */
-> +
-> +#endif /* _ASM_GENERIC_BITOPS___BITREV_H_ */
-> diff --git a/include/linux/bitrev.h b/include/linux/bitrev.h
-> index d35b8ec1c485..11620a70e776 100644
-> --- a/include/linux/bitrev.h
-> +++ b/include/linux/bitrev.h
-> @@ -12,22 +12,10 @@
->  #define __bitrev8 __arch_bitrev8
->  
->  #else
-> -extern u8 const byte_rev_table[256];
-> -static inline u8 __bitrev8(u8 byte)
-> -{
-> -	return byte_rev_table[byte];
-> -}
-> -
-> -static inline u16 __bitrev16(u16 x)
-> -{
-> -	return (__bitrev8(x & 0xff) << 8) | __bitrev8(x >> 8);
-> -}
-> -
-> -static inline u32 __bitrev32(u32 x)
-> -{
-> -	return (__bitrev16(x & 0xffff) << 16) | __bitrev16(x >> 16);
-> -}
-> -
-> +#include <asm-generic/bitops/__bitrev.h>
-> +#define __bitrev32 generic___bitrev32
-> +#define __bitrev16 generic___bitrev16
-> +#define __bitrev8 generic___bitrev8
->  #endif /* CONFIG_HAVE_ARCH_BITREVERSE */
->  
->  #define __bitrev8x4(x)	(__bitrev32(swab32(x)))
-> -- 
-> 2.34.1
-> 
-
+diff --git a/Documentation/arch/riscv/cmodx.rst b/Documentation/arch/riscv/cmodx.rst
+index 40ba53bed..cbfa812a1 100644
+--- a/Documentation/arch/riscv/cmodx.rst
++++ b/Documentation/arch/riscv/cmodx.rst
+@@ -21,13 +21,13 @@ call at each patchable function entry, and patches it dynamically at runtime to
+ enable or disable the redirection. In the case of RISC-V, 2 instructions,
+ AUIPC + JALR, are required to compose a function call. However, it is impossible
+ to patch 2 instructions and expect that a concurrent read-side executes them
+-without a race condition. This series makes atmoic code patching possible in
++without a race condition. This series makes atomic code patching possible in
+ RISC-V ftrace. Kernel preemption makes things even worse as it allows the old
+ state to persist across the patching process with stop_machine().
+ 
+ In order to get rid of stop_machine() and run dynamic ftrace with full kernel
+ preemption, we partially initialize each patchable function entry at boot-time,
+-setting the first instruction to AUIPC, and the second to NOP. Now, atmoic
++setting the first instruction to AUIPC, and the second to NOP. Now, atomic
+ patching is possible because the kernel only has to update one instruction.
+ According to Ziccif, as long as an instruction is naturally aligned, the ISA
+ guarantee an  atomic update.
+@@ -36,8 +36,8 @@ By fixing down the first instruction, AUIPC, the range of the ftrace trampoline
+ is limited to +-2K from the predetermined target, ftrace_caller, due to the lack
+ of immediate encoding space in RISC-V. To address the issue, we introduce
+ CALL_OPS, where an 8B naturally align metadata is added in front of each
+-pacthable function. The metadata is resolved at the first trampoline, then the
+-execution can be derect to another custom trampoline.
++patchable function. The metadata is resolved at the first trampoline, then the
++execution can be directed to another custom trampoline.
+ 
+ CMODX in the User Space
+ -----------------------
 -- 
-Cheers,
-Nathan
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
