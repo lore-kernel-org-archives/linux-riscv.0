@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A01A4FF8875
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E274FF885A
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3cnX9o2t/FPl6L5AlsyiZ0YhVlieKYPaerJJp92RlNg=; b=gntNGTNU0cJNLd
-	t9k/Nu15XMYwDnC1mzcki7EE59wzKz+akPgn+yYwo8wkR3E2I+NlnH6hfJO9nQPrUGx2v9waOIjGT
-	90QAAD0XqT+caF5FicZiExJu7XNS3Eq23bKH/GiVqcZCi8SotQVw0pSoon8km/wv03oQKiLO57G8f
-	e7gx6T3BMUgEihBSWq9Q73msVmnJML0+643TaCvPmm7AcsYBSFv0W4atsdHiYQmBe6zGlOX2U4nw+
-	bqQXmzG9MMO5gFH0F5V+SfOd51ZCdx/J7AxKbZ91Sso4Ywj8OtZ9EEPgGiNSTS8IN8e2gRysgNQOc
-	4Wvg25LRcx1ezUurr+Ag==;
+	List-Owner; bh=8c5GeufPXptRWSCZQQo06A+7/En3Ry4QKLF0w30aUyA=; b=WO6a+/76iW6ODp
+	bODuWzVOM+hH8FzJGGz4umx/FXvSA3prSqkJ0m9iKnQPQgO3m3khDBQqwH2VBixYohCG9c3Ol9t9e
+	q7AfdHy6WyuRw9ZqBNsYleO7qIcaMd3DO9RXSDXmrcpMyOzfLvQAtec0VA+blG1U0DQjjCmrGjbtj
+	NpmSWc1wa+yukv5OrOxxOYQ+4TOEvbTG7EXiJ7jsAzdJvPwks7XIUkF/Q5BtUVYC/p3IOD4W4XpsW
+	qmNIQ/Iz4B6qdGCgVZvwX2Gt0uV+98Q8CN0y+FL6SI8xqcS327l5ct+8OCMUZ7tRSs3652uMxvPDN
+	5A2qfOdEORjkrrklXmeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHttx-00000002j7c-40Xo;
-	Wed, 29 Apr 2026 01:39:45 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1wHttz-00000002j85-10yE;
+	Wed, 29 Apr 2026 01:39:47 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHttr-00000002j42-3XYk
+	id 1wHttu-00000002j40-1FcI
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Apr 2026 01:39:44 +0000
+	Wed, 29 Apr 2026 01:39:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1777426759;
-	bh=wUXoDWfKSMmaRMhMXzMvroZGWtAYAAcr+bc0qP0VGz8=;
+	s=mxsw2412; t=1777426755;
+	bh=IhNm7b5aaqeGytIsBEHmKesKKDGy9a0voGkBOun2Fb4=;
 	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=JNMcrLj9w0X+h79JtqCxyAl7se6EjSuxeYu/iFxErHjhO3RYFXyk/yI5+i/d45xjk
-	 WAVUyRnpSRcnLBNsZociW9Zj9Uc0o3VCY3UsHmFIQdXsya5Nw1sTnJpzZoyvT3htyv
-	 L0JWCzP3HV3o/7DbR73oURJS7NntdzFQ6e/YQjWw=
-X-QQ-mid: esmtpgz16t1777426751taed3181a
-X-QQ-Originating-IP: vI4sGNfIgv1/h6mK+YQd1WJmQOsZPj6r30Cg1uCqF3A=
+	b=JRN9kEd9TIfTE1lSDelpUXhy0yCcuk5U68M0Rr8TX2viRrVK5CjyQoorXI23dVf+6
+	 ly/MYPv3bYtEJmfIRf9Nd8Cp+yxsjFeQfwyOubhELnJG76MRN9BFU7LVHjgobJJ8UG
+	 P6g84woTsaIbQFubXBewxduiR5snssGArfgLeOak=
+X-QQ-mid: esmtpgz13t1777426747t360c3668
+X-QQ-Originating-IP: rd3CXtHqGvswSSKw6JZjHsL50HqUHdZsoRaXYQ+43t8=
 Received: from = ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 29 Apr 2026 09:39:08 +0800 (CST)
+	id ; Wed, 29 Apr 2026 09:39:04 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11863181746122903502
+X-BIZMAIL-ID: 7139710470832578007
 EX-QQ-RecipientCnt: 15
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Wed, 29 Apr 2026 09:38:49 +0800
-Subject: [PATCH 4/7] ASoC: dt-bindings: add SpacemiT K3 SoC compatible
+Date: Wed, 29 Apr 2026 09:38:48 +0800
+Subject: [PATCH 3/7] ASoC: spacemit: adjust FIFO trigger threshold to half
+ FIFO size
 MIME-Version: 1.0
-Message-Id: <20260429-k3-i2s-v1-4-2fe99db11ecb@linux.spacemit.com>
+Message-Id: <20260429-k3-i2s-v1-3-2fe99db11ecb@linux.spacemit.com>
 References: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
 In-Reply-To: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -60,38 +61,38 @@ Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, 
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777426731; l=2426;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777426731; l=1063;
  i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=PyG99/8R0TpsWO1jWHnifATKcOhOPS8LywBZeCYZFZY=;
- b=XPnYB5sjZ9lutwmRgfjnz0oFWS9Zl6AxEVe+jvTb9maBaSi+h5G1J+ifvsEpt1vdxM4vWqIly
- r4iSsTIbzNCAFX10bIHT7pe+HZc1V1QBdd7FpLdew8mK2kPqfcC5oxk
+ bh=TN3IekLzdp18HVU+1Rpq+9TEk2UtnO7ag9ShWepOCxY=;
+ b=ec7QeL6JrXUVZ6cJTDvuUdDooCidwlmr8lArWG5oMoYjQVIX6WmJGiNfPdpsvXXfGLqXc069i
+ /HyE4YCuvkYAufz1dVpsxL1IkXIvH2zfUQfXE1mxlIB7tMZqKJGy3L5
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MPoQK8KTupOnYkgjQupuMK6nkUZUsCjJhw3hcxuL+Zh2RPDFOXi8iT3v
-	QpVpTKQkdSj8HiSwe7jQJr2hS2TV6ADY8GgU3iiiIXK2o13GEbzRO/aehXO/hwaPZG5gu/d
-	oV9Jlu8q9use9RvIXVsH0vZodt34Xms2DWGr0ofb+4BaqGH91taclaKqNk5dWBsuX+O2haM
-	vzOhqZf4G3rb3gTrxbtC5Bu++pBuw/zio01HrIHI37b6uG2QahF4auEpPnK8It2acIzMzqm
-	gmC3fiP6tZPEnwnGIs5jmThO9SutOkkTIzik0bBrbFr/NhAv87OVscvkb8gBXz0EJfOZEB9
-	BwKNn4YEY8qOU0yxc40oerigTWkARzRVVya2i4vHzomouZvo2TZEaMXKyJd7gplKvF2kUiR
-	ZE9YEixSyfqWfirDQ1BGUtc0c+HQSdPbXQo9hkdokb+6LyuuAMKi2C3Cii0aslzd2XdOBWm
-	KfEL5gnhQ+17CNoQCEhts0lzyMsmSQMbqmepFEYq4Qez66p+BJO2ymABtdwTKFkyk0V2B0Z
-	FV0HgjdmgScIRcVFFxH4uBhMrBKFbxjYoay+pLgLtC1q/UXe2caXggHI46PKE/re+D2Xv+W
-	HW5JAY794rz5Pz9A4otzb9ugO4ogHbn8ssYK2gM/22HsNH7Bs0feLye9cKFRESUK7DS7kSP
-	Zb+VD1cxaP5TUBxD2ozWWqhIFfmOz2H/8r6rCraHwx+CFZtunFvlCOdHP3mQgtsMLvhba9U
-	fjdNfXW660lnTNkYE7zE/sCdvxuX3TKjb6KXA4TOnmUH7M6ZxlM0EVWv9UDngNEKk1sdzvL
-	XnGCHyvCGPp90ekxfyQDJVrGUG25Fi/FhwfKvpeUqbFk4T3/HmRRoP9z8ZZWbt1OImxNWMe
-	cwp5GeX7F7rA4GxPw4ujJj9DlVq+0y2HlMkwPugiIJfELxHLBs0cl/+i3MSywoURJqP6ENv
-	asg8PU5bALyffBOD1m8HUlLq105km4EacNTntot4sye26hcZxx/wGb1JW2VBRbXVsGGtclv
-	Z95TlfD2jbABeg3qTKf5IgiYphmqj75xP2lyJmxiC9o4/XkSWWT4hC4cyD9tPx7DzASlm5k
-	5KFNq3hU/t491zjLzAoMhIbA5zH0V1y6Y7KGwJk5BTIS01yaWd+xjc3626roLEc7X+FvGU9
-	7tqsQw8l1FumGdpX/NKQT8CxaidzOjzqTLMx
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-XMAILINFO: NPhn6Z3dSMVJgSxxaMz2qrwR/rWdpEdp4Kdb0MBNFzEt2sOizj/U56f6
+	rCB2zlT2RtpWNSzU7nrguvP18Ci+iNtFfyfz1/fKTSO4LMaT/MqnOP2DDGw1Zv24452smwU
+	Ep0Y7DodWnxNtRbJBi3qHWYvh2S005VnTIjBH4xjYF9af62eAl/of50gRqO1sq7i7SrBt64
+	O1XXhrGvGaFSmZHfGV/hpetfy9c00aL6scLJ0NrshIFs9N6K0mFcmqp9zQ9Aqg+6GyXW1R2
+	WOpzZuS+7PZS//Mj55/NsDqN89+PqCNA24nzlVuqO69Nu4INC7DNLkrQ4UjgKNhrTx6gEmC
+	BWsfCzX12z8PRnzVVzoaNmDiWRSQABjDJmEGqJc64tJtRH4ocdaC5nLi59nZbOea1m5BPYy
+	hR/ZvbR6CbFmrNo+sEYa78D+Hp4WLIgo1K9waSQPEQnGuQkF6WfPqvnIKtUzcLNJCZpLbWX
+	n2Fc4GAw6P/2iOQrZ4mQEmNJUxZ+EnDCk6NeAOczUq96nmENWQHHkbrycVRHxoMJGeG+Td1
+	Fkn9mhmeHNA+71QdYReLjt7m5QuUntkkAKvE5EdZur5YdVSOzadY+KzwBrDeEGGhFTjJhGF
+	69mfW918TsPT0D815Fo0k1TuIJy8uSX8Wey8kX7UKm7Cf4IvD1FXAgIWjxCNRc3I4//PZAL
+	q0L+nCNS27Hz0B+HjbCixPwgnDDbvodsX3ssGk1xddvDHVv/zZ+qRmbM0AgWRdcN2MH6RoK
+	s4ZgVRWmpH3OlSFA3sUflT8gM2SWmn5RfhKA1nC0+G4UKqcEwRAQ2GEGLJF5GqEKyTq8pnx
+	+jURCWTjumQ46C5lLvwFo2KzhPPglCsvtQiWBZRk18RHLjuIEjpsEf5YoqxBGjjaAHwtNP+
+	6B9HnEF1/wkiRLHiUIViBHAfqUvvos56U+xOdWAxiLy7UJSxBO83mi90YmafKYItuVSO9fO
+	sswPSmU4fs7Popw0R8GZ6es1GZXgZTWMWBr5NEqFfrWduF6skOoiGlcGyTzglzuTxUHkVn7
+	S1xzazKeTaKA3iJhMkN/HyTPGPAPqzcBDC+q4azETe3IbrISDb7F4aKAdxjUgihDcUJDLxM
+	ZGHjAGfQ80JRrsu3zFKzodMyWNGs7/DjF7X3gpZk1ZYYEEqqMmkLPv9wXl+3vkT6YEc56zD
+	o91kuK8cX9pbPcc=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_183940_395126_E864D17D 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20260428_183942_823300_9A45FEB4 
+X-CRM114-Status: UNSURE (   9.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,88 +110,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the spacemit,k3-i2s compatible string for the K3 SoC I2S
-controller. The K3 I2S IP is the same as K1 but requires additional
-clocks: sysclk_div, common_sysclk, and common_bclk. These common
-clocks are shared across multiple I2S controllers on K3.
-
-Also add the spacemit,fixed-sample-rate property which constrains
-the sample rate when multiple I2S controllers share a common bclk.
+Set both TX and RX FIFO trigger thresholds (TFT/RFT) to 0xF (half of
+the 32-entry FIFO) instead of 5. This provides better DMA efficiency
+by allowing more data to accumulate before triggering a DMA request,
+reducing the number of DMA transactions needed.
 
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
- .../devicetree/bindings/sound/spacemit,k1-i2s.yaml | 31 ++++++++++++++++++++--
- 1 file changed, 29 insertions(+), 2 deletions(-)
+ sound/soc/spacemit/k1_i2s.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
-index 55bd0b307d22..240d90402e4f 100644
---- a/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
-+++ b/Documentation/devicetree/bindings/sound/spacemit,k1-i2s.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/sound/spacemit,k1-i2s.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/sound/soc/spacemit/k1_i2s.c b/sound/soc/spacemit/k1_i2s.c
+index e59624b2e23a..cef883ba4de9 100644
+--- a/sound/soc/spacemit/k1_i2s.c
++++ b/sound/soc/spacemit/k1_i2s.c
+@@ -93,8 +93,8 @@ static void spacemit_i2s_init(struct spacemit_i2s_dev *i2s)
+ 	u32 sscr_val, sspsp_val, ssfcr_val, ssrwt_val;
  
--title: K1 I2S controller
-+title: SpacemiT K1/K3 I2S controller
- 
- description:
-   The I2S bus (Inter-IC sound bus) is a serial link for digital
-@@ -15,27 +15,54 @@ maintainers:
- 
- allOf:
-   - $ref: dai-common.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: spacemit,k3-i2s
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 7
-+        clock-names:
-+          minItems: 7
-+    else:
-+      properties:
-+        clocks:
-+          maxItems: 4
-+        clock-names:
-+          maxItems: 4
- 
- properties:
-   compatible:
--    const: spacemit,k1-i2s
-+    enum:
-+      - spacemit,k1-i2s
-+      - spacemit,k3-i2s
- 
-   reg:
-     maxItems: 1
- 
-   clocks:
-+    minItems: 4
-     items:
-       - description: clock for I2S sysclk
-       - description: clock for I2S bclk
-       - description: clock for I2S bus
-       - description: clock for I2S controller
-+      - description: clock for I2S sysclk divider
-+      - description: clock for I2S common sysclk
-+      - description: clock for I2S common bclk
- 
-   clock-names:
-+    minItems: 4
-     items:
-       - const: sysclk
-       - const: bclk
-       - const: bus
-       - const: func
-+      - const: sysclk_div
-+      - const: c_sysclk
-+      - const: c_bclk
- 
-   dmas:
-     minItems: 1
+ 	sscr_val = SSCR_TRAIL | SSCR_FRF_PSP;
+-	ssfcr_val = FIELD_PREP(SSFCR_FIELD_TFT, 5) |
+-		    FIELD_PREP(SSFCR_FIELD_RFT, 5) |
++	ssfcr_val = FIELD_PREP(SSFCR_FIELD_TFT, 0xF) |
++		    FIELD_PREP(SSFCR_FIELD_RFT, 0xF) |
+ 		    SSFCR_RSRE | SSFCR_TSRE;
+ 	ssrwt_val = SSRWT_RWOT;
+ 	sspsp_val = SSPSP_SFRMP;
 
 -- 
 2.54.0
