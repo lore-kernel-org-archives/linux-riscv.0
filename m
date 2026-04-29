@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7948BFF8867
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 09:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E64FF8867
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 09:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yckFHT18OZGhT9Cgj1EdhM3X0SMI6v+15kVAUgGOWOE=; b=XxFntN9gjOmkaY
-	IzeqHBSxqRvqqiht7FV9A/O4qHRTIPM+orN4TSRJ284bRwUGOp1fMKP3wSRB6taTeBMuHj0malpMV
-	NU6U4da/Wj1RjLSKbSmeNQX6bMwZfzfhIPCnMTJZ74PY/DVVoAQcQhkWvgw4gCSYYLM22ur9UIl5r
-	sEHHc/l2LXpRCUoYyl+IkKMxijdx32yUc4/eZaM6WC9RwNilmU81RHCYQ3yKqUBzgr09Ql9PzyOh0
-	PVTx+TkEl7lD8faMW4IM0m7V7Qd0733w8o10DW4uc76wjkRpPUsgqedyJK11JIHVG3Et8KvWCzwKZ
-	mk2sMdjBP+zhDSrkJ1lw==;
+	List-Owner; bh=L49lB+ueLV0I8jM3CL+TR8y59koy7Fuy6ace7ViheTA=; b=yvpWhL4GmqOoAw
+	qrQ+ZY/LlSMY8T7fbCuo1VHta4pXuTi9PurHywXljAQMhxomKKqCIo0HZdKP9dW/3BHx5rTnmoLOK
+	uht1z+3hXddRl2CcBGEmU/RaFNpJpCcCmJVJ7+j6z6vYdrt7nI7+4/TVhzwubhJqHCEpfLmzX3bms
+	Lsm2jGymwxJsUQyB+Q02pFHYDe+r05ScpM62KmWOZl0XCdb7+WJOzm0QxBpCB1yTVHAzK9P4gcXYX
+	HyhcMtpKaIjB/QoWDjPFDEExykeCfMZ5fGwDr0T3CwS9spfXe8W5UJg5AtX+AL1/Jh7DQyPmuyVjx
+	WtXmfIeP+Ng1QfYdOEQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI0sC-00000003I4P-2q9f;
-	Wed, 29 Apr 2026 09:06:24 +0000
+	id 1wI0th-00000003IUK-17bS;
+	Wed, 29 Apr 2026 09:07:59 +0000
 Received: from [218.76.62.146] (helo=ultrarisc.com)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI0sA-00000003I2o-1vKV
+	id 1wI0tc-00000003ISQ-0GXM
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Apr 2026 09:06:24 +0000
+	Wed, 29 Apr 2026 09:07:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
 	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	References:In-Reply-To:To:Cc; bh=MhdY4otkQDeu9JhXT6dgKmzO640veuR
-	iZlGBWDtVC3I=; b=jsRxyQlQlTXso1huCEJ0g3R7HhZOc3LKL0jOXeoebyL0SyG
-	K2E7MJzRDWVHn43DSr3oQeGejV19idB/1mQEr/9U/mb5NBGG1Y16BmzSNmLP4h3V
-	Jf46pjwA8k0IA4WbngnJOo8bVH/Yp6qzUJ+bDaMMdEH6vKk1BASVJI6ImkVg=
+	References:In-Reply-To:To:Cc; bh=W6qFc8IOjX0c5M+yiuQoc29Iohko0me
+	7jng1y1x4BCM=; b=ePM4MGVpf9924uFeoKwkWH6Sw4vL3/gPeI1GfCL12EStSbP
+	mLaA4gHrT+tyEcROYfbFJQoPrdeNMIRZ+L2VmlKximQqTpTATymifgNMpnxvFwsg
+	HO//ddNKLQe7M8nRj50l8F4ogjZwl1Zz2lohXr6s6j7x1laOBto2z/5+B+/A=
 Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnYUL1yfFp_SQDAA--.1731S4;
-	Wed, 29 Apr 2026 17:06:00 +0800 (CST)
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnYUL1yfFp_SQDAA--.1731S6;
+	Wed, 29 Apr 2026 17:06:10 +0800 (CST)
 From: Jia Wang <wangjia@ultrarisc.com>
-Date: Wed, 29 Apr 2026 17:05:14 +0800
-Subject: [PATCH v6 2/4] serial: 8250_dw: build Renesas RZN1 CPR value from
- DW_UART_CPR_* definitions
+Date: Wed, 29 Apr 2026 17:05:16 +0800
+Subject: [PATCH v6 4/4] serial: 8250_dw: Use a fixed CPR value for
+ UltraRISC DP1000 UART
 MIME-Version: 1.0
-Message-Id: <20260429-ultrarisc-serial-v6-2-b2c852e0c4c3@ultrarisc.com>
+Message-Id: <20260429-ultrarisc-serial-v6-4-b2c852e0c4c3@ultrarisc.com>
 References: <20260429-ultrarisc-serial-v6-0-b2c852e0c4c3@ultrarisc.com>
 In-Reply-To: <20260429-ultrarisc-serial-v6-0-b2c852e0c4c3@ultrarisc.com>
 To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
@@ -57,22 +57,22 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
  Jia Wang <wangjia@ultrarisc.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777453513; l=2418;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777453513; l=1792;
  i=wangjia@ultrarisc.com; s=20260309; h=from:subject:message-id;
- bh=Yk54Cwui4NyzISBwTNrGewLTMBC258yufC94tSuMGz0=;
- b=uaZ5tyDAcAZj91ZBbydsuquaNhHfRuyyMUeRd4tr1euJSXEmmCix+dofGFMVqwh4MYXIeVXLN
- 7mAa64R5sVNCeWgvgVc3JILaJ6mpYyyNLw+u/XX1QQBbwOjgrzzs5Kq
+ bh=+dtQ3f+XBoxv3HZDucz50ukJ2U/SQ+5U7lcx9cpy2/w=;
+ b=hlZOX7ivuGaWLXDlOUGfAVrfPDA/0UViH6Qo0xE/YJCj8zdY3mqBetMt+L+KVGHX55O4+9kXC
+ WHeiqaHbiOGCCSPoE3AsOgVveCcG2C3+pmFb3OdBPuQdRiqthSkXBQh
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=XvYkrelqJIIzobY7j+nIg8rsfv5kzaOzuc1UPhd087U=
-X-CM-TRANSID: AQAAfwAnYUL1yfFp_SQDAA--.1731S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7KF17ur43ArWxXrW8tFy3twb_yoW5Jr4xpr
-	s0kr4qvr1Y93Z3W34IkrWjvF4Sga15Ga4IkF9rG3sxtFnIyr1ktws0vFy3trZrJFWFvrW5
-	GF17Zw15ua4jkrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: AQAAfwAnYUL1yfFp_SQDAA--.1731S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7tw1kXw4fWry5Gw18AryfXrb_yoW8Cr4fpF
+	47GrZ0vFySgF4Yg3WIy3WvvFZ7ua17Zry2k3srK347tFn8tFyUJrnakrWay3ZIgFySqw1a
+	yF1Y9rW7Aa18Za7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnUUvcSsGvfC2KfnxnUUI43ZEXa7xR_UUUUUUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAKEWnti78ACwBBsg
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAKEWnti78ACwBFsk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_020622_830160_466E6A71 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20260429_020754_288188_5CB705AA 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,68 +89,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace the magic CPR value for Renesas RZ/N1 with a composition using
-DW_UART_CPR_* bit/field definitions and FIELD_PREP_CONST().
+The UltraRISC DP1000 UART does not provide the standard CPR register used
+by 8250_dw to discover port capabilities.
 
-Introduce a helper macro to convert a FIFO size (bytes) into the CPR
-FIFO_MODE field value, with BUILD_BUG_ON_ZERO() checks for alignment and
-bounds. Use it to replace the literal FIFO_MODE values in the RZN1.
+Provide a fixed CPR value for the DP1000-specific compatible so the
+driver can configure the port correctly.
 
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/tty/serial/8250/8250_dw.c    | 10 +++++++++-
- drivers/tty/serial/8250/8250_dwlib.h |  8 +++++++-
- 2 files changed, 16 insertions(+), 2 deletions(-)
+ drivers/tty/serial/8250/8250_dw.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
-index 467755bf0092..480f82d89856 100644
+index 480f82d89856..55e40c10f46a 100644
 --- a/drivers/tty/serial/8250/8250_dw.c
 +++ b/drivers/tty/serial/8250/8250_dw.c
-@@ -937,7 +937,15 @@ static const struct dw8250_platform_data dw8250_armada_38x_data = {
- 
- static const struct dw8250_platform_data dw8250_renesas_rzn1_data = {
- 	.usr_reg = DW_UART_USR,
--	.cpr_value = 0x00012f32,
-+	.cpr_value = FIELD_PREP_CONST(DW_UART_CPR_ABP_DATA_WIDTH, 2) |
-+		     DW_UART_CPR_AFCE_MODE |
-+		     DW_UART_CPR_THRE_MODE |
-+		     DW_UART_CPR_ADDITIONAL_FEATURES |
-+		     DW_UART_CPR_FIFO_ACCESS |
-+		     DW_UART_CPR_FIFO_STAT |
-+		     DW_UART_CPR_SHADOW |
-+		     DW_UART_CPR_DMA_EXTRA |
-+		     DW_UART_CPR_FIFO_MODE_FROM_SIZE(16),
- 	.quirks = DW_UART_QUIRK_CPR_VALUE | DW_UART_QUIRK_IS_DMA_FC,
+@@ -959,6 +959,15 @@ static const struct dw8250_platform_data dw8250_intc10ee = {
+ 	.quirks = DW_UART_QUIRK_IER_KICK,
  };
  
-diff --git a/drivers/tty/serial/8250/8250_dwlib.h b/drivers/tty/serial/8250/8250_dwlib.h
-index 2f26f9ecacbe..1fe52332e774 100644
---- a/drivers/tty/serial/8250/8250_dwlib.h
-+++ b/drivers/tty/serial/8250/8250_dwlib.h
-@@ -6,6 +6,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/build_bug.h>
- #include <linux/io.h>
- #include <linux/types.h>
- 
-@@ -68,8 +69,13 @@
- #define DW_UART_CPR_DMA_EXTRA		BIT(13)
- #define DW_UART_CPR_FIFO_MODE		GENMASK(23, 16)
- 
--/* Helper for FIFO size calculation */
-+/* Helpers for FIFO size calculation */
- #define DW_UART_CPR_FIFO_SIZE(a)	(FIELD_GET(DW_UART_CPR_FIFO_MODE, (a)) * 16)
-+#define DW_UART_CPR_FIFO_MODE_FROM_SIZE(size)			\
-+	(FIELD_PREP_CONST(DW_UART_CPR_FIFO_MODE,		\
-+			  BUILD_BUG_ON_ZERO((size) > 2048) +	\
-+			  BUILD_BUG_ON_ZERO((size) % 16) +	\
-+			  ((size) / 16)))
- 
- struct dw8250_port_data {
- 	/* Port properties */
++static const struct dw8250_platform_data dw8250_ultrarisc_dp1000_data = {
++	.usr_reg = DW_UART_USR,
++	.cpr_value = FIELD_PREP_CONST(DW_UART_CPR_ABP_DATA_WIDTH, 2) |
++		     DW_UART_CPR_THRE_MODE |
++		     DW_UART_CPR_DMA_EXTRA |
++		     DW_UART_CPR_FIFO_MODE_FROM_SIZE(32),
++	.quirks = DW_UART_QUIRK_CPR_VALUE,
++};
++
+ static const struct of_device_id dw8250_of_match[] = {
+ 	{ .compatible = "snps,dw-apb-uart", .data = &dw8250_dw_apb },
+ 	{ .compatible = "cavium,octeon-3860-uart", .data = &dw8250_octeon_3860_data },
+@@ -966,6 +975,7 @@ static const struct of_device_id dw8250_of_match[] = {
+ 	{ .compatible = "renesas,rzn1-uart", .data = &dw8250_renesas_rzn1_data },
+ 	{ .compatible = "sophgo,sg2044-uart", .data = &dw8250_skip_set_rate_data },
+ 	{ .compatible = "starfive,jh7100-uart", .data = &dw8250_skip_set_rate_data },
++	{ .compatible = "ultrarisc,dp1000-uart", .data = &dw8250_ultrarisc_dp1000_data },
+ 	{ /* Sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, dw8250_of_match);
 
 -- 
 2.34.1
