@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18CFFF8877
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 12:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7ADFF8867
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 12:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WqYSBGfRWTqofa0vguLNoN+5yOQv7oKtrHkiWWMFQrI=; b=LOvdaxa7Lr8qTj
-	7+uXTZNz3TigAHnvnFjbfAv6ImJG9Hel9quTb1795wEX6UOZhkN0SekH58ggL6RF90+MBCtEQ3OvQ
-	BRj25IzGVBbqsrawDkzWxYaknv2WOek6QUU6ezjob5x1bp0e+k8z+5bffu3N3BvlvSKzoUUN5Um+f
-	ijNNJGY51pLjJ0A+hG7voZ6XEpVBW9GXxDC0cYuCsLYPQaYZNKXbVsW2lFOh+e38THjV3tAHROxlr
-	ieVEdD1Fd+X6JhHVBWCJG4+eVQPAAPdIz694A3OtkYxyFtR2QkO6j+viauN1JqTIKSAsLQvbPq0Ag
-	XfGizoxTn2LSOhlRWmtA==;
+	List-Owner; bh=8pIZWkbMz869PTbO+Ih2sT8H85xuGQDnB1VjkgAxoKA=; b=h1SJ+FZbve+pGs
+	kAJoMfFZuhZkMvV0o25PMdlQTMa18apD7zGpaDHwzjz4jJndbucPBkk5mNJ+mXim09y+St5/MYG0l
+	02WW0Gxv3zmDd8YXRujM5RFn1f0nX5LoS8t/5PnY2ZiA7s/T9DOtpzVOFZCdFDJnWE8Ugs1ykmsYB
+	BO9afjn0DtUyevEXdBhS4RhZ081b6crt9YfjPDHFIZ5c75ljB2kHQjt0t5IsqoLEgXXsWMaAuNx3j
+	tUs3Gay+Vgd/Fi769RvhPUoGpIyziKJCtTAYMK9e/1Wi8SbUmoCai6M107uvyVCFDnmaVd/9LMCrd
+	mApuA0BQ+sIvYXemXVzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI4Or-00000003bLO-0quk;
-	Wed, 29 Apr 2026 12:52:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wI4Ou-00000003bOl-19mw;
+	Wed, 29 Apr 2026 12:52:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI4Oo-00000003bIQ-1bKk
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 29 Apr 2026 12:52:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=/YKoPwdEO8WYEpMs9vHeAEAiqtm6RK9Cw3ZK+rSJyqE=; b=USePzmN1hca6O6ytIawNq31eR6
-	Po0eH+ITHXVgpABe+DOZretotVsAPa0SLAPsJrjlB+M3HT0T+401IPN4Lp77AFk/49E8GHHZD5ts8
-	4pcz/8/yjjXTsbBtT+luhWgEnMFoWf5/WDl4avmu/cSefoEKPTn0+SrU94Uvj2aX2gdIuq61arD0w
-	vX0JcEBE6FveA+hvZRv8+4oSko0Ea44KNLBrFIkXhOOZ8K24UvyCgXinUJJlJk76FiXV+ldYcxL9G
-	7LpRv/0rAiTLCLeulN3794J5fLHBFM+vH+zToSprfG+twFAlr3AcNJvGCmTasG9tabpeWAQUdYBxi
-	yfn7YLYw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI4Ol-00000005Jpy-1Vzf
+	id 1wI4Op-00000003bJx-3mqB
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Apr 2026 12:52:17 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63TCefnc317335;
-	Wed, 29 Apr 2026 12:51:41 GMT
+	Wed, 29 Apr 2026 12:52:21 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63T8qEbU3066969;
+	Wed, 29 Apr 2026 12:51:43 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=/YKoPwdEO8W
-	YEpMs9vHeAEAiqtm6RK9Cw3ZK+rSJyqE=; b=N6w3AYilJcasjSwSunbUi/9QvmA
-	l6uDs/P3BKYmcbTCCh4hkDSkSF/XaARLPNa4ZRbEbOzKBojjrWMCak5UiRfS4sYU
-	h00l5nJWlYvoFPMDCkqZRBRJAC8IU1W0N/grsTmohyYEh9Jcerj8huxbF0wImrOY
-	1SSyIP2VkxQHLz1CQKFpDgW6SUpUSUDhm6ICZCRUEcm2sG4pIOptR9cDcXUoJPsH
-	hpoCxRXVSOzbRjCLOJWMQ0xldtlvS4krrVj/mQtBrxkoJG4rBkdodLvfF0Lw5Aa1
-	lzuFUgmOhtB6qShocHYW3+ixuKn0hB5x8zQAj3UtN/+b1Gg28NFw0qQoNow==
+	:mime-version:references:subject:to; s=qcppdkim1; bh=paPXV6QvgMm
+	syxf0ALUvgRJENAz5jaR9fVu6RhkIUR8=; b=YW/TTd0A6X9pNz+mwBMHD0Q+9qb
+	Y1HW9ZwFXU3hn9iUaWbBDTTxCaZrmqVfRU1ArD5v8EO4kmB+n5Sg+w7AsyMlxJMh
+	ZLnLSHG/R+H+gmlyVLgZUHcdBnzV41HOGkl3hxy+JEu/yYYpmCbss0UpN5U7HcWn
+	i4QYjA5P+zMsuNEbxJ4FykHCkcOMKs96ASWPQpbGVGtAcXyntzexJq7j4TCxFPrF
+	lysILOHn94YaEz8W4T4ljQf/cdbhCjEZHXU0D83MTLCdLKRjB0nqf1341X6cK4Qp
+	sJXILbMGVhV62MdwR05o5bd0Ecc+Wr2hhnOc72CDSKI8sL870QcDkOilgUw==
 Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4duj6t813x-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4du7sxaj0x-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Apr 2026 12:51:40 +0000 (GMT)
+	Wed, 29 Apr 2026 12:51:42 +0000 (GMT)
 Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 63TCpbOU010778;
-	Wed, 29 Apr 2026 12:51:37 GMT
+	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 63TCpbOW010778;
+	Wed, 29 Apr 2026 12:51:39 GMT
 Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4ds65fvr0u-1
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4ds65fvr21-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Apr 2026 12:51:37 +0000 (GMT)
+	Wed, 29 Apr 2026 12:51:38 +0000 (GMT)
 Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 63TCpb99010750;
-	Wed, 29 Apr 2026 12:51:37 GMT
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 63TCpbF1010751;
+	Wed, 29 Apr 2026 12:51:38 GMT
 Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 63TCpbfo010744
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 63TCpcRu010805
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 29 Apr 2026 12:51:37 +0000 (GMT)
+	Wed, 29 Apr 2026 12:51:38 +0000 (GMT)
 Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
-	id B875021CCF; Wed, 29 Apr 2026 18:21:36 +0530 (+0530)
+	id D2AC7222FF; Wed, 29 Apr 2026 18:21:36 +0530 (+0530)
 From: Anup Patel <anup.patel@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
@@ -90,43 +75,44 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
         Andrew Jones <andrew.jones@oss.qualcomm.com>,
         Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
         Anup Patel <anup.patel@oss.qualcomm.com>,
-        Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-Subject: [PATCH v4 03/12] rvtrace: Add functions to create/destroy a trace component path
-Date: Wed, 29 Apr 2026 18:21:26 +0530
-Message-ID: <20260429125135.1983498-4-anup.patel@oss.qualcomm.com>
+        Nutty Liu <nutty.liu@hotmail.com>
+Subject: [PATCH v4 10/12] perf tools: Add RISC-V trace PMU record capabilities
+Date: Wed, 29 Apr 2026 18:21:33 +0530
+Message-ID: <20260429125135.1983498-11-anup.patel@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260429125135.1983498-1-anup.patel@oss.qualcomm.com>
 References: <20260429125135.1983498-1-anup.patel@oss.qualcomm.com>
 MIME-Version: 1.0
 X-QCInternal: smtphost
 X-QCInternal: smtphost
-X-Proofpoint-GUID: nICYyS_84c7fsqcSUXORReGBfPy-v7wb
-X-Authority-Analysis: v=2.4 cv=KcHidwYD c=1 sm=1 tr=0 ts=69f1fedd cx=c_pps
+X-Proofpoint-GUID: iEpIFKEAVp5HPzyz6TGC8zZgOOCZVX5i
+X-Authority-Analysis: v=2.4 cv=eeANubEH c=1 sm=1 tr=0 ts=69f1fede cx=c_pps
  a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8 a=UaIybRF2xpGp7VXWmyEA:9
-X-Proofpoint-ORIG-GUID: nICYyS_84c7fsqcSUXORReGBfPy-v7wb
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDEzMCBTYWx0ZWRfXzkgU9sqDtl3N
- FKNKxNydqbTVVSQPkOzThZGlMcAe1ghhOBj0Or4cbRUkjg78u4aBNINlOFocD7ZxnN6v/IIJh50
- ZY5THXXLSz6C3vOWAyjYNNh8SSx0/z/Zf60oKJXHzkg+A+BBQUJzIYQ2mozyoHHgG6JVw+8Bg0R
- 76LLm7irNWuMWe81Ufdl1Xn0euymN5xlICUchAFlYwJqKA9462YWb7gyTo/r6dOIyHCwl8ZkoE6
- n/PekMlewG4Y4IjDJRLHIlV66tuQmkRDxTtTRhfT1xXRQnLvQ1vlprx77NqjKCsmNCHXrOacXL4
- admjCeSWq3PSZo0OW1RC8jK6SDSJlwVKaU4haZZqGrk3vY5CY6VIdk0CDp510IgC0KJQKjsWtEi
- X3qheULkv+728uYdxqkpWToV8EhuIWzXM9jNQLymR5jXq4bLzoRxzk9zIotjLuAfcCPmnG3Adht
- 2jvK6Yrpf2nmZ7W7Q/Q==
+ a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8 a=69EAbJreAAAA:8
+ a=kkaCVUy_t53esOPYLmQA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDI5MDEzMCBTYWx0ZWRfX7GNyk4/6b4uI
+ b8HHjBjmiTSTiq9mLO2chtwNZaOQDYegSZu01I7nmoF+c/yhi4JAiBMlCn4m0iYXERdRz3eHiZw
+ pj4L024LdT1JwKXBpVaiVPKb09oHBlSZ81ImiZ404JZilZs9uM1WHeGM3rAxb+e3TJyeljvlG44
+ qa0HUQ1X0eznTvwGb6op/WhQ2fb7Z7SeyBdXl+X+0tR6Yk4F0VZwxteUIjt22SynBQk2ENmO93K
+ LWRPJ48FtBn029GSpJoVXeqWMH/DfQBVIqt0kDs9kKaP32TknC/3HD7P3OqR9l/hhEZrKdWh3Ng
+ TV39md31Ab0NJRC/PL3ApLB9PYnNLWUbgUbVxc3i4aIWhvgd7jpByeJg5Q///aXjERWlZSyfISo
+ i6aksLsIKoXk7heyrIxriRzdoBpNveTc7wsWA0RD0JAOxb+mco9ckpG9AiZj/OxSDVnBPaY/TBr
+ 1EyLRs5A5j5B9IGnUBQ==
+X-Proofpoint-ORIG-GUID: iEpIFKEAVp5HPzyz6TGC8zZgOOCZVX5i
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-28_05,2026-04-28_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 phishscore=0 bulkscore=0 suspectscore=0
- malwarescore=0 lowpriorityscore=0 clxscore=1011 adultscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2604290130
+ priorityscore=1501 adultscore=0 clxscore=1015 malwarescore=0 impostorscore=0
+ phishscore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2604290130
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_135215_782990_CBE6D6AA 
-X-CRM114-Status: GOOD (  25.26  )
+X-CRM114-CacheID: sfid-20260429_055220_087931_98EA556D 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,344 +129,305 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Trace needs to be configured on a chain of trace components which are
-connected to each other. These chain of components is also referred
-to as trace component path. Add functions to create/destroy a trace
-component path which will be later used by RISC-V trace perf support.
+From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 
-Co-developed-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+Introduce the required auxiliary API functions allowing the perf core
+to interact with RISC-V trace perf driver.
+
+Co-developed-by: Anup Patel <anup.patel@oss.qualcomm.com>
 Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 ---
- drivers/hwtracing/rvtrace/rvtrace-core.c | 223 +++++++++++++++++++++++
- include/linux/rvtrace.h                  |  43 ++++-
- 2 files changed, 264 insertions(+), 2 deletions(-)
+ tools/perf/arch/riscv/util/Build      |   1 +
+ tools/perf/arch/riscv/util/auxtrace.c | 219 ++++++++++++++++++++++++++
+ tools/perf/util/auxtrace.c            |   1 +
+ tools/perf/util/auxtrace.h            |   1 +
+ tools/perf/util/rvtrace.h             |  18 +++
+ 5 files changed, 240 insertions(+)
+ create mode 100644 tools/perf/arch/riscv/util/auxtrace.c
+ create mode 100644 tools/perf/util/rvtrace.h
 
-diff --git a/drivers/hwtracing/rvtrace/rvtrace-core.c b/drivers/hwtracing/rvtrace/rvtrace-core.c
-index d69c2236493a..f78e3ba9a0e5 100644
---- a/drivers/hwtracing/rvtrace/rvtrace-core.c
-+++ b/drivers/hwtracing/rvtrace/rvtrace-core.c
-@@ -229,6 +229,53 @@ int rvtrace_reset_component(struct rvtrace_platform_data *pdata)
- }
- EXPORT_SYMBOL_GPL(rvtrace_reset_component);
- 
-+static int __rvtrace_walk_output_components(struct rvtrace_component *comp,
-+					    bool *stop, void *priv,
-+					    int (*fn)(struct rvtrace_component *comp, bool *stop,
-+						      struct rvtrace_connection *stop_conn,
-+						      void *priv))
+diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
+index 2328fb9a30a3..e07d5525ece6 100644
+--- a/tools/perf/arch/riscv/util/Build
++++ b/tools/perf/arch/riscv/util/Build
+@@ -1 +1,2 @@
+ perf-util-y += header.o
++perf-util-y += auxtrace.o
+diff --git a/tools/perf/arch/riscv/util/auxtrace.c b/tools/perf/arch/riscv/util/auxtrace.c
+new file mode 100644
+index 000000000000..5293ece2147d
+--- /dev/null
++++ b/tools/perf/arch/riscv/util/auxtrace.c
+@@ -0,0 +1,219 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Risc-V E-Trace support
++ */
++
++#include <linux/kernel.h>
++#include <linux/types.h>
++#include <linux/bitops.h>
++#include <linux/log2.h>
++#include <linux/zalloc.h>
++#include <errno.h>
++#include <time.h>
++
++#include <internal/lib.h>
++#include "../../../util/auxtrace.h"
++#include "../../../util/cpumap.h"
++#include "../../../util/debug.h"
++#include "../../../util/event.h"
++#include "../../../util/evlist.h"
++#include "../../../util/evsel.h"
++#include "../../../util/rvtrace.h"
++#include "../../../util/pmu.h"
++#include "../../../util/record.h"
++#include "../../../util/session.h"
++#include "../../../util/tsc.h"
++
++#define RVTRACE_PMU_NAME "rvtrace"
++#define KiB(x) ((x) * 1024)
++#define MiB(x) ((x) * 1024 * 1024)
++
++struct rvtrace_recording {
++	struct auxtrace_record	itr;
++	struct perf_pmu *rvtrace_pmu;
++	struct evlist *evlist;
++};
++
++static size_t rvtrace_info_priv_size(struct auxtrace_record *itr __maybe_unused,
++				     struct evlist *evlist __maybe_unused)
 +{
-+	struct rvtrace_connection *conn, *stop_conn = NULL;
-+	struct rvtrace_platform_data *pdata = comp->pdata;
-+	int i, ret;
-+
-+	for (i = 0; i < pdata->nr_outconns; i++) {
-+		conn = pdata->outconns[i];
-+		ret = __rvtrace_walk_output_components(conn->dest_comp, stop, priv, fn);
-+		if (ret)
-+			return ret;
-+		if (*stop) {
-+			stop_conn = conn;
-+			break;
-+		}
-+	}
-+
-+	ret = fn(comp, stop, stop_conn, priv);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
++	return RVTRACE_AUXTRACE_PRIV_SIZE;
 +}
 +
-+int rvtrace_walk_output_components(struct rvtrace_component *comp, void *priv,
-+				   int (*fn)(struct rvtrace_component *comp, bool *stop,
-+					     struct rvtrace_connection *stop_conn,
-+					     void *priv))
++static int rvtrace_info_fill(struct auxtrace_record *itr, struct perf_session *session,
++			     struct perf_record_auxtrace_info *auxtrace_info, size_t priv_size)
 +{
-+	bool stop = false;
-+	int ret;
++	struct rvtrace_recording *ptr = container_of(itr, struct rvtrace_recording, itr);
++	struct perf_pmu *rvtrace_pmu = ptr->rvtrace_pmu;
 +
-+	if (!comp || !fn)
++	if (priv_size != RVTRACE_AUXTRACE_PRIV_SIZE)
 +		return -EINVAL;
 +
-+	mutex_lock(&rvtrace_mutex);
-+	ret = __rvtrace_walk_output_components(comp, &stop, priv, fn);
-+	mutex_unlock(&rvtrace_mutex);
++	if (!session->evlist->core.nr_mmaps)
++		return -EINVAL;
 +
-+	return ret;
++	auxtrace_info->type = PERF_AUXTRACE_RISCV_TRACE;
++	auxtrace_info->priv[0] = rvtrace_pmu->type;
++
++	return 0;
 +}
-+EXPORT_SYMBOL_GPL(rvtrace_walk_output_components);
 +
- struct rvtrace_component *rvtrace_cpu_source(unsigned int cpu)
- {
- 	if (!cpu_present(cpu))
-@@ -452,6 +499,182 @@ void rvtrace_unregister_component(struct rvtrace_component *comp)
- }
- EXPORT_SYMBOL_GPL(rvtrace_unregister_component);
- 
-+struct rvtrace_path_node {
-+	struct list_head		head;
-+	struct rvtrace_component	*comp;
-+	struct rvtrace_connection	*conn;
-+};
-+
-+struct rvtrace_component *rvtrace_path_source(struct rvtrace_path *path)
++static int rvtrace_set_auxtrace_mmap_page(struct record_opts *opts)
 +{
-+	struct rvtrace_path_node *node;
++	bool privileged = perf_event_paranoid_check(-1);
 +
-+	node = list_first_entry(&path->comp_list, struct rvtrace_path_node, head);
-+	return node->comp;
-+}
-+EXPORT_SYMBOL_GPL(rvtrace_path_source);
++	if (!opts->full_auxtrace)
++		return 0;
 +
-+struct rvtrace_component *rvtrace_path_sink(struct rvtrace_path *path)
-+{
-+	struct rvtrace_path_node *node;
++	if (opts->full_auxtrace && !opts->auxtrace_mmap_pages) {
++		if (privileged) {
++			opts->auxtrace_mmap_pages = MiB(16) / page_size;
++		} else {
++			opts->auxtrace_mmap_pages = KiB(128) / page_size;
++			if (opts->mmap_pages == UINT_MAX)
++				opts->mmap_pages = KiB(256) / page_size;
++		}
++	}
 +
-+	node = list_last_entry(&path->comp_list, struct rvtrace_path_node, head);
-+	return node->comp;
-+}
-+EXPORT_SYMBOL_GPL(rvtrace_path_sink);
++	/* Validate auxtrace_mmap_pages */
++	if (opts->auxtrace_mmap_pages) {
++		size_t sz = opts->auxtrace_mmap_pages * (size_t)page_size;
++		size_t min_sz = KiB(8);
 +
-+static int rvtrace_assign_trace_id(struct rvtrace_path *path)
-+{
-+	const struct rvtrace_driver *rtdrv;
-+	struct rvtrace_component *comp;
-+	struct rvtrace_path_node *node;
-+	int trace_id;
-+
-+	list_for_each_entry(node, &path->comp_list, head) {
-+		comp = node->comp;
-+		rtdrv = to_rvtrace_driver(comp->dev.driver);
-+
-+		if (!rtdrv->get_trace_id)
-+			continue;
-+
-+		trace_id = rtdrv->get_trace_id(comp, path->mode);
-+		if (trace_id > 0) {
-+			path->trace_id = trace_id;
-+			return 0;
-+		} else if (trace_id < 0) {
-+			return trace_id;
++		if (sz < min_sz || !is_power_of_2(sz)) {
++			pr_err("Invalid mmap size : must be at least %zuKiB and a power of 2\n",
++			       min_sz / 1024);
++			return -EINVAL;
 +		}
 +	}
 +
 +	return 0;
 +}
 +
-+static void rvtrace_unassign_trace_id(struct rvtrace_path *path)
++static int rvtrace_recording_options(struct auxtrace_record *itr, struct evlist *evlist,
++				     struct record_opts *opts)
 +{
-+	const struct rvtrace_driver *rtdrv;
-+	struct rvtrace_component *comp;
-+	struct rvtrace_path_node *node;
++	struct rvtrace_recording *ptr = container_of(itr, struct rvtrace_recording, itr);
++	struct perf_pmu *rvtrace_pmu = ptr->rvtrace_pmu;
++	struct evsel *evsel, *rvtrace_evsel = NULL;
++	struct evsel *tracking_evsel;
++	int err;
 +
-+	list_for_each_entry(node, &path->comp_list, head) {
-+		comp = node->comp;
-+		rtdrv = to_rvtrace_driver(comp->dev.driver);
-+
-+		if (!rtdrv->put_trace_id)
-+			continue;
-+
-+		rtdrv->put_trace_id(comp, path->mode, path->trace_id);
-+	}
-+}
-+
-+static bool rvtrace_path_ready(struct rvtrace_path *path)
-+{
-+	struct rvtrace_path_node *node;
-+
-+	list_for_each_entry(node, &path->comp_list, head) {
-+		if (!node->comp->ready)
-+			return false;
++	ptr->evlist = evlist;
++	evlist__for_each_entry(evlist, evsel) {
++		if (evsel->core.attr.type == rvtrace_pmu->type) {
++			if (rvtrace_evsel) {
++				pr_err("There may be only one " RVTRACE_PMU_NAME "x event\n");
++				return -EINVAL;
++			}
++			evsel->core.attr.freq = 0;
++			evsel->core.attr.sample_period = 1;
++			evsel->needs_auxtrace_mmap = true;
++			rvtrace_evsel = evsel;
++			opts->full_auxtrace = true;
++		}
 +	}
 +
-+	return true;
-+}
++	err = rvtrace_set_auxtrace_mmap_page(opts);
++	if (err)
++		return err;
++	/*
++	 * To obtain the auxtrace buffer file descriptor, the auxtrace event
++	 * must come first.
++	 */
++	evlist__to_front(evlist, rvtrace_evsel);
++	evsel__set_sample_bit(rvtrace_evsel, TIME);
 +
-+struct build_path_walk_priv {
-+	struct rvtrace_path		*path;
-+	struct rvtrace_component	*sink;
-+};
++	/* Add dummy event to keep tracking */
++	err = parse_event(evlist, "dummy:u");
++	if (err)
++		return err;
 +
-+static int build_path_walk_fn(struct rvtrace_component *comp, bool *stop,
-+			      struct rvtrace_connection *stop_conn,
-+			      void *priv)
-+{
-+	struct build_path_walk_priv *ppriv = priv;
-+	struct rvtrace_path *path = ppriv->path;
-+	struct rvtrace_path_node *node;
++	tracking_evsel = evlist__last(evlist);
++	evlist__set_tracking_event(evlist, tracking_evsel);
 +
-+	if ((!ppriv->sink && rvtrace_is_sink(comp->pdata)) ||
-+	    (ppriv->sink && ppriv->sink == comp))
-+		*stop = true;
-+
-+	if (*stop) {
-+		node = kzalloc_obj(*node);
-+		if (!path)
-+			return -ENOMEM;
-+		INIT_LIST_HEAD(&node->head);
-+		rvtrace_get_component(comp);
-+		node->comp = comp;
-+		node->conn = stop_conn;
-+		list_add(&node->head, &path->comp_list);
-+	}
++	tracking_evsel->core.attr.freq = 0;
++	tracking_evsel->core.attr.sample_period = 1;
++	evsel__set_sample_bit(tracking_evsel, TIME);
 +
 +	return 0;
 +}
 +
-+static void rvtrace_release_path_nodes(struct rvtrace_path *path)
++static u64 rvtrace_reference(struct auxtrace_record *itr __maybe_unused)
 +{
-+	struct rvtrace_path_node *node, *node1;
-+
-+	list_for_each_entry_safe(node, node1, &path->comp_list, head) {
-+		list_del(&node->head);
-+		rvtrace_put_component(node->comp);
-+		kfree(node);
-+	}
++	return rdtsc();
 +}
 +
-+struct rvtrace_path *rvtrace_create_path(struct rvtrace_component *source,
-+					 struct rvtrace_component *sink,
-+					 enum rvtrace_component_mode mode)
++static void rvtrace_recording_free(struct auxtrace_record *itr)
 +{
-+	struct build_path_walk_priv priv;
-+	struct rvtrace_path *path;
-+	int ret = 0;
++	struct rvtrace_recording *ptr =
++			container_of(itr, struct rvtrace_recording, itr);
 +
-+	if (!source || mode >= RVTRACE_COMPONENT_MODE_MAX) {
-+		ret = -EINVAL;
-+		goto err_out;
-+	}
-+
-+	path = kzalloc_obj(*path);
-+	if (!path) {
-+		ret = -ENOMEM;
-+		goto err_out;
-+	}
-+	INIT_LIST_HEAD(&path->comp_list);
-+	path->mode = mode;
-+	path->trace_id = RVTRACE_INVALID_TRACE_ID;
-+
-+	priv.path = path;
-+	priv.sink = sink;
-+	ret = rvtrace_walk_output_components(source, &priv, build_path_walk_fn);
-+	if (ret < 0)
-+		goto err_release_path_nodes;
-+
-+	if (!rvtrace_path_ready(path)) {
-+		ret = -EOPNOTSUPP;
-+		goto err_release_path_nodes;
-+	}
-+
-+	ret = rvtrace_assign_trace_id(path);
-+	if (ret < 0)
-+		goto err_release_path_nodes;
-+
-+	return path;
-+
-+err_release_path_nodes:
-+	rvtrace_release_path_nodes(path);
-+	kfree(path);
-+err_out:
-+	return ERR_PTR(ret);
++	free(ptr);
 +}
-+EXPORT_SYMBOL_GPL(rvtrace_create_path);
 +
-+void rvtrace_destroy_path(struct rvtrace_path *path)
++static struct auxtrace_record *rvtrace_recording_init(int *err, struct perf_pmu *rvtrace_pmu)
 +{
-+	rvtrace_unassign_trace_id(path);
-+	rvtrace_release_path_nodes(path);
-+	kfree(path);
-+}
-+EXPORT_SYMBOL_GPL(rvtrace_destroy_path);
++	struct rvtrace_recording *ptr;
 +
- int __rvtrace_register_driver(struct module *owner, struct rvtrace_driver *rtdrv)
- {
- 	rtdrv->driver.owner = owner;
-diff --git a/include/linux/rvtrace.h b/include/linux/rvtrace.h
-index d6be6e3cc10f..00b63fa22da9 100644
---- a/include/linux/rvtrace.h
-+++ b/include/linux/rvtrace.h
-@@ -8,6 +8,8 @@
- 
- #include <linux/device.h>
- #include <linux/io.h>
-+#include <linux/limits.h>
-+#include <linux/list.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/types.h>
-@@ -72,6 +74,12 @@ enum rvtrace_component_impid {
- 	RVTRACE_COMPONENT_IMPID_MAX
++	if (!rvtrace_pmu) {
++		*err = -ENODEV;
++		return NULL;
++	}
++
++	ptr = zalloc(sizeof(*ptr));
++	if (!ptr) {
++		*err = -ENOMEM;
++		return NULL;
++	}
++
++	ptr->rvtrace_pmu = rvtrace_pmu;
++	ptr->itr.recording_options = rvtrace_recording_options;
++	ptr->itr.info_priv_size = rvtrace_info_priv_size;
++	ptr->itr.info_fill = rvtrace_info_fill;
++	ptr->itr.free = rvtrace_recording_free;
++	ptr->itr.reference = rvtrace_reference;
++	ptr->itr.read_finish = auxtrace_record__read_finish;
++	ptr->itr.alignment = 0;
++
++	*err = 0;
++	return &ptr->itr;
++}
++
++static struct perf_pmu *find_pmu_for_event(struct perf_pmu **pmus,
++					   int pmu_nr, struct evsel *evsel)
++{
++	int i;
++
++	if (!pmus)
++		return NULL;
++
++	for (i = 0; i < pmu_nr; i++) {
++		if (evsel->core.attr.type == pmus[i]->type)
++			return pmus[i];
++	}
++
++	return NULL;
++}
++
++struct auxtrace_record *auxtrace_record__init(struct evlist *evlist, int *err)
++{
++	struct perf_pmu	*rvtrace_pmu = NULL;
++	struct perf_pmu *found_pmu = NULL;
++	struct evsel *evsel;
++
++	if (!evlist)
++		return NULL;
++
++	rvtrace_pmu = perf_pmus__find(RVTRACE_PMU_NAME);
++	evlist__for_each_entry(evlist, evsel) {
++		if (rvtrace_pmu && !found_pmu)
++			found_pmu = find_pmu_for_event(&rvtrace_pmu, 1, evsel);
++	}
++
++	if (found_pmu)
++		return rvtrace_recording_init(err, rvtrace_pmu);
++
++	*err = 0;
++	return NULL;
++}
+diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
+index a224687ffbc1..944a43d48739 100644
+--- a/tools/perf/util/auxtrace.c
++++ b/tools/perf/util/auxtrace.c
+@@ -1411,6 +1411,7 @@ int perf_event__process_auxtrace_info(const struct perf_tool *tool __maybe_unuse
+ 	case PERF_AUXTRACE_VPA_DTL:
+ 		err = powerpc_vpadtl_process_auxtrace_info(event, session);
+ 		break;
++	case PERF_AUXTRACE_RISCV_TRACE:
+ 	case PERF_AUXTRACE_UNKNOWN:
+ 	default:
+ 		return -EINVAL;
+diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
+index 6947f3f284c0..4f4714c1b53f 100644
+--- a/tools/perf/util/auxtrace.h
++++ b/tools/perf/util/auxtrace.h
+@@ -46,6 +46,7 @@ enum auxtrace_type {
+ 	PERF_AUXTRACE_S390_CPUMSF,
+ 	PERF_AUXTRACE_HISI_PTT,
+ 	PERF_AUXTRACE_VPA_DTL,
++	PERF_AUXTRACE_RISCV_TRACE,
  };
  
-+/* Supported usage modes for RISC-V trace components */
-+enum rvtrace_component_mode {
-+	RVTRACE_COMPONENT_MODE_PERF,
-+	RVTRACE_COMPONENT_MODE_MAX
-+};
-+
- /**
-  * struct rvtrace_connection - Representation of a physical connection between
-  * two RISC-V trace components.
-@@ -239,6 +247,10 @@ int rvtrace_enable_component(struct rvtrace_platform_data *pdata);
- int rvtrace_disable_component(struct rvtrace_platform_data *pdata);
- int rvtrace_reset_component(struct rvtrace_platform_data *pdata);
- 
-+int rvtrace_walk_output_components(struct rvtrace_component *comp, void *priv,
-+				   int (*fn)(struct rvtrace_component *comp, bool *stop,
-+					     struct rvtrace_connection *stop_conn,
-+					     void *priv));
- struct rvtrace_component *rvtrace_cpu_source(unsigned int cpu);
- 
- struct rvtrace_component *rvtrace_register_component(enum rvtrace_component_type type,
-@@ -246,17 +258,44 @@ struct rvtrace_component *rvtrace_register_component(enum rvtrace_component_type
- 						     struct rvtrace_platform_data *pdata);
- void rvtrace_unregister_component(struct rvtrace_component *comp);
- 
-+/**
-+ * struct rvtrace_path - Representation of a RISC-V trace path from source to sink
-+ * @comp_list: List of RISC-V trace components in the path
-+ * @mode:      Usage mode for RISC-V trace components
-+ * @trace_id:  ID of the trace source (typically hart id)
+ enum itrace_period_type {
+diff --git a/tools/perf/util/rvtrace.h b/tools/perf/util/rvtrace.h
+new file mode 100644
+index 000000000000..24b32947fb4c
+--- /dev/null
++++ b/tools/perf/util/rvtrace.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2026 Qualcomm Technologies, Inc.
++ * Author: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 + */
-+struct rvtrace_path {
-+	struct list_head		comp_list;
-+	enum rvtrace_component_mode	mode;
-+	u32				trace_id;
-+#define RVTRACE_INVALID_TRACE_ID	0
-+};
 +
-+struct rvtrace_component *rvtrace_path_source(struct rvtrace_path *path);
-+struct rvtrace_component *rvtrace_path_sink(struct rvtrace_path *path);
-+struct rvtrace_path *rvtrace_create_path(struct rvtrace_component *source,
-+					 struct rvtrace_component *sink,
-+					 enum rvtrace_component_mode mode);
-+void rvtrace_destroy_path(struct rvtrace_path *path);
++#ifndef INCLUDE__UTIL_PERF_RVTRACE_H__
++#define INCLUDE__UTIL_PERF_RVTRACE_H__
 +
- /**
-  * struct rvtrace_driver - Representation of a RISC-V trace driver
-  * id_table: Table to match components handled by the driver
-- * probe:    Driver probe() function
-- * remove:   Driver remove() function
-+ * probe:        Driver probe() function
-+ * remove:       Driver remove() function
-+ * get_trace_id: Get/allocate a trace ID
-+ * put_trace_id: Put/free a trace ID
-  * driver:   Device driver instance
-  */
- struct rvtrace_driver {
- 	const struct rvtrace_component_id *id_table;
- 	int			(*probe)(struct rvtrace_component *comp);
- 	void			(*remove)(struct rvtrace_component *comp);
-+	int			(*get_trace_id)(struct rvtrace_component *comp,
-+						enum rvtrace_component_mode mode);
-+	void			(*put_trace_id)(struct rvtrace_component *comp,
-+						enum rvtrace_component_mode mode,
-+						u32 trace_id);
- 	struct device_driver	driver;
- };
- 
++#include "debug.h"
++#include "auxtrace.h"
++#include "util/event.h"
++#include "util/session.h"
++#include <linux/bits.h>
++
++#define RVTRACE_AUXTRACE_PRIV_SIZE	sizeof(u64)
++
++#endif
 -- 
 2.43.0
 
