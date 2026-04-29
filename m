@@ -4,66 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5797CFF8875
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C222FF885A
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZJ6PffsmbKCUQ+UTmrnq6W15Awk3sghdGqRvz/x5yRM=; b=TGUvNtOZjbHnpm
-	F2kRGwzfIn2sNs0m4Iz9hhLMLemgatWcXX+Jp2aK1/6C914ehWqx3Z10XGXwXDnrXwT+zJjyLGgl0
-	Jd1PEo2J2Z878Fe6MWuUXSx+nSASMHJS2fxYPEOu3rL5PpAihLA18R7MU9Zpc5c5sF+CN0iJelKEW
-	i4cu0D3/JEuSa678VqjltjK+olmiCelrKJfgkHmVXxbWDDzJybbIWvPJgUFi4l5aAef37o/7c9VOX
-	eWhXFoM10uNAPZQ3tlY0Zt+5v0hxdlCMzt32mWPHnQ1hz1gJofkFO28ifTQtqAXWQNEoSKEqU2fXt
-	848MJbbGNkG6VLGC4lMw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9YMks2mwpx6j431RHnzK3GczyrvNrpcgxPjYRUCQJvU=; b=RzDgu7c3lF2vJP
+	FsW0Kjj6CK+hp9NH15X94+LIo8M6hRA+knwZfHzerX6eIaaOFMop/WhHK5q3wOiKTfO/IpZmCH3QP
+	YJwyRr6GfG4chbqCCSFok5BDqppZPD7RSKKdQ6dWpoGqfE+c2qAx0mF/9OYeGgoQySwg6bhHs7vVf
+	ALDJYT4OWYKWM1FNcN8dvrKQqZGrqzl4F0ggH314S3h19sOFi8OikBUrIpMBUyIYREq055J9UoAwY
+	Bz0d6gMDMVMm0gpXvQjIRsLjOY+Tu1HZ1bbL/BHasw31BR30v+OMFY3VP5ZzjKGk1NPP5ABxdk9Iw
+	4tFo4C9s1TSjg4mcml6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtj6-00000002iTV-1Msf;
-	Wed, 29 Apr 2026 01:28:32 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wHttr-00000002j5Y-1RzF;
+	Wed, 29 Apr 2026 01:39:39 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHtj4-00000002iT9-0lVN;
-	Wed, 29 Apr 2026 01:28:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=DpkW87IRui0aZcXqZZoR9Te84pOQWX7oAn03qgDdrBI=; b=aZxB0ezn2S98YGn1tBXwFMbEky
-	hPSpu+NnXBfzgDTiPXs5E2ovvxXifx6t8up7wlMfKoagS5chKM7guYJwzOI1EdUJz5ixxBWHd//bf
-	neTAR+CkZgS0WpSAqFxFL9MuBSiMShbq5l3DsAPJZJouNg5guu1+tJmH3saoRMdXCu2Y=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wHtiq-000RWt-Ql; Wed, 29 Apr 2026 03:28:16 +0200
-Date: Wed, 29 Apr 2026 03:28:16 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
-	horms@kernel.org, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH net-next v7 1/4] dt-bindings: ethernet: eswin: add clock
- sampling control
-Message-ID: <6ecfeac7-b900-4861-b0b8-5c5d2e0754b2@lunn.ch>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
- <20260427072439.1134-1-lizhi2@eswincomputing.com>
+	id 1wHttn-00000002j3A-1eCX
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Apr 2026 01:39:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1777426742;
+	bh=1Fe6nYs9JHsL/qqU3dPyTkXSVgm0ocwnWDhLNVSkbzs=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=CHyW+t7X5KK4KmcVe7YZL9VwnhZBbzH2921c1xt1fkB4Hqq0gWjAJ9xTLzIXwUV5V
+	 5NhXboG7JE2qLKleQJ1eMnZFYFvrASMqDuEbGqCwp5JVVERRvQ6zUxCwmmvECtAz8M
+	 OkfamLmjVxWZfF7v+UPWVaXmGli9P8stCmeeb5uk=
+X-QQ-mid: zesmtpgz5t1777426734t39b15ba8
+X-QQ-Originating-IP: TPf7klzOlR5kzfZDIyJIWcHEw1Bvxv+z3hDvlJHdUQU=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 29 Apr 2026 09:38:51 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4341323507646280445
+EX-QQ-RecipientCnt: 15
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: [PATCH 0/7] ASoC: spacemit: bug fixes, refactoring, and K3 SoC
+ support
+Date: Wed, 29 Apr 2026 09:38:45 +0800
+Message-Id: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260427072439.1134-1-lizhi2@eswincomputing.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0QpAQBCF4VfRXNtagyWvIheLwVBoByl5d4vLr
+ /5zLhByTAJFcIGjg4WX2SMKA2gGO/ekuPUG1Gh0gpmaYsUoKkVLGOU6S4wBH6+OOj6/o7L6LXs
+ 9UrO9a7jvB82ZfgJqAAAA
+X-Change-ID: 20260427-k3-i2s-52ae21807466
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Yixun Lan <dlan@kernel.org>, Jinmei Wei <weijinmei@linux.spacemit.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777426731; l=1818;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=RiYU+SgXWMHrp/bAux/PQa9K09I3u18v1QwXk28gNXY=;
+ b=dytFIX3GzeFkPj8nZ2Ocz2RD8jraZK9X/o93auRjGbFdCfGSTcixRXOrk0Fn6gWjrkeRQdcmU
+ rpz3VTbG3zhC7S+WlXOXbzADbMTFLbs8xc1ZGGftBcOYSosKCbspItK
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MDbbjBkt9SC094+zwfVm6O/k5NTINlFWbHifiHSs3DqIpKEVRaCirKf7
+	MtcAlcCjlGeAnzOYzLGlQlCGHPTjmz8HKqHo4fkqdaLInAvQRe7iX4g4pxAf2nkKqHlq+Gq
+	yYvxOynbQEXISdChSVd+4BTD/d3He5OteJlQcuv9RVR2UuAzixmJKzRrAYSiunLpDG5Q51X
+	dHnPOAAhRBnt3a0T0Nqgyu01TwMjCUHZKjKxsRd6EvWuDcWmmcLHK24JCZCRWNSZR8KsRW/
+	tlT4Z/RurhtXr99agzAGd+F8BkWF+tjPgrNy/XL36dGpvGHIBa74wS8uT0su41rDlkBAkLb
+	ll4aVXVpLOIErqKl1YiI1AALxv+V/bZEVUXWe2vF38zaevekphSjpZXuWCmSmzh2O983/GY
+	6BULIkdHnwAtieHPTihSEUJE2hI4bHqbqU6jAtMliUpP4vKAZtIlt4TD6A8URfhSjp7wM+V
+	iPTL6x1JYAmHjuLEB4OU9Zjl5v2cSVNdm7nHuWuvg/LewL2tp28LY94LfSD80HMAKNC1NmE
+	DtiLr6LKSXyaiLjNXJWYyb9DtLxx9pvqU4vler/OjDR9rxrxj90toPYacBSUsEVBOQdd7nF
+	/lM29Uqcj91yroOU1/JwpA4Ok0ASFmgYYIrp8KTqvvZmtkoHW7lGvRxRqV5rYkrfQo1XYVW
+	sDeYkb8P54jACWKdZslAGN9BfhKDFHbBcFxxSKXUeBCSM7qCd/HiB6Ab3vUupQ99ZeNGPxA
+	tpHl26qmwzHdjZr8FXlJCd5xpFSOlQJGI0j4z+9Vp2zY9qX0xq5ns/lgdXET+549HElaKzL
+	hqBZQXsKJP58ZEQGgQ0KRs1ytQP3OCgSi0PN7CcPrviQh8ZcWBP/TRGZxomF1/bf4FVWLcf
+	sFCAoDtVNpsfobfNbn8mc3hyvZSRQAz3SK7SWLmA/9hsCvQfHpDUVUhH1t5ALlOCnOSGhE5
+	F/GEVcNe1OoVpQ/fcRkdGtT4wak5tvxD0oaNWzO5wOD08m+pXvimf9AKSOj+d8FRNKXD5d1
+	O34RXO1+DT9DSTdZ81/xnn7hYGdLH7Rh9BDuw228mVWOMuNuEsbcwdcr7ew46foRQlKEdhS
+	gVo0PZrY+HGPT//YiuLPk+mWwSSeB5+zOage2k2TjkjlpXP+5YNf6U=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_182830_223458_148AAB69 
-X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-CacheID: sfid-20260428_183935_956829_12536E92 
+X-CRM114-Status: UNSURE (   8.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,22 +111,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> For the TX path of eth1, there is also a skew between the TX clock
-> and data on the MAC controller inside the silicon. This skew happens
-> to be approximately 2 ns. Therefore, it can be considered that the
-> 2 ns delay of TX is provided by the MAC, so the TX is compliant with
-> the RGMII standard.
+This series fixes bugs and adds K3 SoC support for the SpacemiT I2S
+controller driver (sound/soc/spacemit/).
 
->    tx-internal-delay-ps:
-> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
-> +    minimum: 0
-> +    maximum: 2540
-> +    multipleOf: 20
+Patches 1-3 are bug fixes and refactoring for the existing K1 I2S driver:
+  - Fix RX DMA params not being set when TX is already running
+  - Move hw constraints from hw_params to startup where they belong
+  - Adjust FIFO trigger threshold to half FIFO size for better DMA
+    efficiency
 
-This does not seem correct for eth1. Isn't minimum 2000, maximum 4540?
-You have this fixed 2ns you cannot turn off.
+Patches 4-5 add dt-bindings for the spacemit,k3-i2s compatible and the
+spacemit,fixed-sample-rate property. The K3 SoC uses the same I2S IP as
+K1 but requires additional clocks (sysclk_div, common_sysclk,
+common_bclk) that are shared across multiple I2S controllers.
 
-	Andrew
+Patches 6-7 add driver support for the fixed-sample-rate constraint and
+K3 SoC with additional clocks. When multiple I2S controllers share a
+common bclk, they must all use the same sample rate.
+
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+Troy Mitchell (7):
+      ASoC: spacemit: fix RX DMA params not set when TX is running
+      ASoC: spacemit: move hw constraints from hw_params to startup
+      ASoC: spacemit: adjust FIFO trigger threshold to half FIFO size
+      ASoC: dt-bindings: add SpacemiT K3 SoC compatible
+      ASoC: dt-bindings: add fixed-sample-rate property for SpacemiT K1/K3
+      ASoC: spacemit: add fixed-sample-rate constraint support
+      ASoC: spacemit: add K3 SoC support with additional clocks
+
+ .../devicetree/bindings/sound/spacemit,k1-i2s.yaml |  39 +++++++-
+ sound/soc/spacemit/k1_i2s.c                        | 106 +++++++++++++++++----
+ 2 files changed, 123 insertions(+), 22 deletions(-)
+---
+base-commit: 02f694bcc20c664d9f4754229a3be28683c2a3f8
+change-id: 20260427-k3-i2s-52ae21807466
+
+Best regards,
+--  
+Troy Mitchell <troy.mitchell@linux.spacemit.com>
+
 
 _______________________________________________
 linux-riscv mailing list
