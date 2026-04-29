@@ -4,73 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986ADFF886D
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2026 18:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEBDFF885A
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 00:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ts9HUP5Os7hYxpBCOl1Ono+JVwvv1MY3/z5Rn48UkJE=; b=PBs2AsMiGGkRStZepfiETD525/
-	gdzsPlaZthD8jW0cyfBRzWk4HkUCtR4+80ocWSlinyh68D753JqxNk/VZyQCe0+0DNX7+CKu7mvFv
-	jQUllIvKXCcgVWuQ/RxDPIjHZs5K1+xsKEy7iL1+ggG4SY4D+2JrFKwS+JQ96ggPepegEkAJyH0Jp
-	dYOPo4AYo+xtu1JV0Hz822STaOsuEnF2eHnIp0rV9qMRjvG6BN4bZb0XZvEXlXiAZwxSygwnBBxhy
-	6bSEx11e51HXKZ5DuCiH30dgwjw/JzqKl2vp03CLYz5quEPPim02NXL6UUU28q3Xfzu6vNPp/LDJt
-	fl3NNC6A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LZsDPGTkzGURqA6FQ+hYuQpNv6Sekn8dCrDPVzHSCjA=; b=aWcRxpV+2YPTR/
+	YDNFJ36mCwFwLR60QhIdzTBYsLFqDV4E3IgOOioJJodrCh8BYoh36ukCG6RfwAX469ZcAR4afON5z
+	e4ZeKQKHYxSn/vALEvuKRr65izTLAJfVwcRNtOPboeBehPxt+2q5xlolKGDKn+4R2qYMFAV02b+xm
+	CkKXIiY9vo7sOgV+US5R3xA0NcIxEFWhJ+7MVd5HIUcklLVYJ0b9UjF5O2Bdc3nupKXEk/IfYlRcR
+	W0DhA63V6RkKblMjOd+8IyOXUCg2iWfiYIw8aWum2pTA2nHqIFCM6SW+LcOssYd8VTZlVfoOmZdrx
+	2yB4+yDJT1bElm1IoqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHnWg-000000027cW-0PgB;
-	Tue, 28 Apr 2026 18:51:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wHtBq-00000002gGa-3tKz;
+	Wed, 29 Apr 2026 00:54:10 +0000
+Received: from mail-sh0chn02on2138.outbound.protection.partner.outlook.cn ([139.219.146.138] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHnWd-000000027c7-1RAj
+	id 1wHtBn-00000002gFf-3Yk6
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Apr 2026 18:51:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9EE1A44134;
-	Tue, 28 Apr 2026 18:51:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6348FC2BCAF;
-	Tue, 28 Apr 2026 18:51:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777402274;
-	bh=1seDTjn6972nfWjS0rEHA9YvmB2LMSwUbkkv4XJ/ipQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gGsqMJQ3dXP21blxtK27vRWL3orDgvzaYg5b0vvG/JRAhzR4Kz9DqHk32KyhUcDB3
-	 C5oU6vXj5Np3HgxMkqbU2N5jkSIkF+UP1DVflUSIXcwGDfcEiHYleMjQp3r+463PUw
-	 an4Enwm8wFkHI90vonRB8OwaugryHKeuryhY65kw6WduN42Psyl4TqUjF/ucmNtnBz
-	 bLrY1ndTlyAJDoztXsOHMkm8c/trO4qf9/alcoNwH68+eXwHAJyfmzJaZFUBsY/rPv
-	 p2MA48sC8o1YtmCQcZsxuAqBa9JHSBy5LPJcdKwV8EKb5oG8DBh7tZPS2Jt8Ui6l0n
-	 otiO/4jX5ZEDw==
-Date: Tue, 28 Apr 2026 19:51:09 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>,
+	Wed, 29 Apr 2026 00:54:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=kxsLdg/FHj+FRD2Xs3O9QMsf3n9/pbQPhx9RpcEOx20HRg1AkH4MJxOAPSCXr1crHKqDj8yf5Cg1A41Z9KiKtrQwaQ7BKWw+R5pR9MfY3FP4qzdwe77qoXhU4LQ+ebLdQ+4XMDLaLMR48jNHjS5GV1hiIgXoiUjK6C0LakKHL+/3K9hHvFI2YUwAeMSlHI9nXK0ZZLepYSm3Ye5pq+QuhGUbwIersZ4YKJYyzoEmPyJ4FpyX0lVxweiKnno0GVyIOcUoYPOpp7P0TMCIyNVOrAhzqWswf5zmNUtv6oU8UVKxjn0W59rHsqWlrMSZsrFXl+QNhcO8qLFh0ADE5rx87Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2ad1JqBuAiGEKCS9/PYo/Qne+mfbM0MP8PjVtY6TKuQ=;
+ b=EwVfg5f5uZxHJ5h2QbaqyLkya+Pyexi2yT4KqOX+eOocAwvy/rcUr34WBBao2mt74PfDjoGrWH+T34oJTcpQ8IsOjJMJiAq8H8FFbBCX0wVf5VxV1MC2q/JO9QcIexYmLpA/DtKsjAo6ZdEWRmn/LH/FkUZaNGfV87nkAUWOP+LdvDPi+BJqOGIlXfbrD4EM0kFpihS+0vTXfaaIkJ7MMKlldhjF3ruE4VV53/Zj86BRl/vP+buSz9UmiVQuqtTPai7+XbdOukRRUIIfX+qMmG0hn4I8mvwCitA9mh/YYcIVzdZtQtppUO57v3rUu7h2nddb8YIYWTnxqoahL7ixOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1139.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:15::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.28; Wed, 29 Apr
+ 2026 00:53:43 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9846.026; Wed, 29 Apr 2026 00:53:43 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Linus Walleij <linusw@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>,
 	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v1 11/20] dt-bindings: pinctrl: Add
- starfive,jhb100-per1-pinctrl
-Message-ID: <20260428-hardhat-both-1c9aa594a45a@spud>
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Lianfeng
+ Ouyang <lianfeng.ouyang@starfivetech.com>
+Subject: Re: [PATCH v1 00/20] Add basic pinctrl drivers for JHB100 SoC
+Thread-Topic: [PATCH v1 00/20] Add basic pinctrl drivers for JHB100 SoC
+Thread-Index: AQHc09tmlRkwE0usA0qMi/myV+kzhLX0RxyAgAD2bCA=
+Date: Wed, 29 Apr 2026 00:53:43 +0000
+Message-ID: <ZQ4PR01MB1202710E77C15C369D61D72AF2342@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
 References: <20260424111330.702272-1-changhuang.liang@starfivetech.com>
- <20260424111330.702272-12-changhuang.liang@starfivetech.com>
- <20260424-mumps-foothill-ef122c1029c0@spud>
- <ZQ4PR01MB120229BE0DAC2658164C066AF2372@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <CAD++jL=tvDBWJHRGGJw4nnox_kcJKn5hwvwz9zxadMRedyvRhw@mail.gmail.com>
+In-Reply-To: <CAD++jL=tvDBWJHRGGJw4nnox_kcJKn5hwvwz9zxadMRedyvRhw@mail.gmail.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1139:EE_
+x-ms-office365-filtering-correlation-id: d484f39b-4748-4b45-a3a7-08dea589c32f
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021|56012099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: K+JVDMOLbx4qzTznruUOMjNNd2gkJkI/5n7Lw5+CMlxr1fT13+1CIFnytOc4PHyiwEPtpzw5kHmhX1DUiATS0g2e1IVvjqwnUCcAf0k/JI5DG52RIhduATf4LAZJHF2IIIytDJ4kcrOlFHWVaoXbxkYNRppM1sqSAT6F2B+oK7FuTVYFyxGHMzOAv7DXkiY3BLiUxv/0dQ/pkIWGcGuqo9/fL+ESM0b3nx5aDeSmu+OhsWjCEca4vP4ekruBNYeg2c/k1ICVKqOw7d6RbY+z9ZTKRgnHyCMkdApTz1uHNYnmulhYN5zTLHjdUKdu29zHST/9HgjhLOdbyP+nZcyG0jV6ZlZwxLUK7/Yu1R4an7RIPnM8gYVpZ3PgOeKdY8PH2p17y897yGJ+zaQTl87A95SuTtZW0QNBJom3kRBhW8QUn9Kgn/RTUp/5AR4/QFY6iMwLOSUEDoHxMX8/3TpJ/evXidycrWQEd2/8m/+L7V0StwsW5aEN1tAPYF3P89mOcUPbtemFIxsuFXSRbpIKzHfxc9JpRIV5blKEDH7dbxgbvKVRvN/JQ2psNYl5+OFTwEu1D4Zm0dw2/9HnZr17mg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?amMwN1dVenRtOVI3UWMwVFZCZ3dEdzVXUFg3RDJxVVpKckR2T2ZqZnE5a3V0?=
+ =?utf-8?B?bGdpUmVIL0VhZWxGeUkwUCticzlUVnlaNzdGcVNSdStIWVlSRE5vdkR0RCtR?=
+ =?utf-8?B?dmF1YVI1VXFUTEtkMjliUzh3UmVIbDd0SGUzOVBLMzVMMFFIeUpjWmZZMFdZ?=
+ =?utf-8?B?SW9hYWZiVW0zR1FTWXVUeWhwcTBxZEpkek5GTnFxUy9lUHFqM1pUc1d5UlE5?=
+ =?utf-8?B?S3JLbXQvU2x4YzhTdVQ5anhlNHRhZnhweG9vcFA0ZkRXWFBaVnBrc05BSXph?=
+ =?utf-8?B?WnBUN0t1Mk10WWFEc0lIaUZEbHRpMEppbUJheFl5TmQ1WXpHZW5vVzU2WVdB?=
+ =?utf-8?B?Y2ZmQWk0aGQ2Nmlhb2wxQnlEekVTbjNjb284RDUwendNS0Q0MjJwZXFZRSti?=
+ =?utf-8?B?SG9qaTB4MjB3WHZ1WEZZb1ltZmJ6VHNrOWJ3VWtGMTI4eUZJU0k1QUsxR29u?=
+ =?utf-8?B?bUZGR3FGRmFIL1lHcmpOM2dwbmZHc0R3eVlVekNOL1lrM3A5bU91d2tjMXF2?=
+ =?utf-8?B?SmhOZkJWa3M5R3d2cVNGbHBsdXFESE1JTmZiYWVhckx0aER6STdkUXhsREk5?=
+ =?utf-8?B?MmozZHFFT2xxR1E3OHg0elBaUVl0OG5QWmFLN1FGSUc3UlkraThqRXBRY0tq?=
+ =?utf-8?B?Zmo0ZzdITkUzRVdJcmRUOGF6RXlxMjE5L2llT0p1QkZlbGpCbnVYM2p2Snhx?=
+ =?utf-8?B?ZFFDQXhkaEI4aDFldWp2Z2YwR3VvTi8zd3JaZldzTUJibkUvK0llZ0VQQ3pP?=
+ =?utf-8?B?b0RFOCt6dFcrY2NrWDJvVmQ1YXJDWnBrdVl3YWVvS09WRkRTK0JrR1Q2QzZ1?=
+ =?utf-8?B?TzA5T3I4WkpEa3RaVEVHakNlREQ4U1BIRDF5aDR4dmROcytNZWh6NmlSUmVL?=
+ =?utf-8?B?TG1hK2dQeFVsRCtsalFzeDlhck5jOG5RRitFT080OUJtQ1gzcVlPNTdiaW9U?=
+ =?utf-8?B?RmNKeUg2T2w3RDRreFR3ZDd3c3paRDVTbkp2MHA5T2pUbjFQZ3VicTB1QlBp?=
+ =?utf-8?B?Rk9peFFEM0pUVWpEcVdHRjllTnprOEVWRUxRRXpyRmRWT1N3K0hQbGZqbkFx?=
+ =?utf-8?B?TkhwZmlFTkVXNzNBTVNwTFpxczhtRHZqdFp1U1NrMlphQkNzNVNQczdXK0Uv?=
+ =?utf-8?B?eFVkZjNDUktsaFFXRS9oMFZIVlRBRkZ0VjBtREJ0SzBiSEs5ZkhES3A0NTc2?=
+ =?utf-8?B?STVqVFJmZ1JMVi9rSDV6TWo0OHFIMWVRN0NFY012UnNyWHBwZmg1K212Vm5U?=
+ =?utf-8?B?Q2E2dGlVTnZNSHdLajliUmExcDBQak03ZHFWQlFTdEZ4anJ3aDFDUGJCeGQ4?=
+ =?utf-8?B?a1dwb0FXellGZnlOeVVvdjNnNmRnNFpVOVNJN2cvUjFodGhPbjFQR1prMDBj?=
+ =?utf-8?B?a3B0RWlTeURxekhDVWZ2RHZ1dkJkYStuV0czVnR4WHlTZ1hnTHplV3BKbzdV?=
+ =?utf-8?B?RnhYK0lpU1dodHJBU0ZRWjVkWFppUTAxVy9iaUNXM0dyTHRpQ2QrOURDbEdQ?=
+ =?utf-8?B?ZW5MeEMwTVN5Nk52NEdHd3BmSnQ3Ly9NOTNuNWtsRkxYTGw1QXlFYkJRcFJQ?=
+ =?utf-8?B?c1V1eHlEUis0Y3o0K1V4R0h2M0dMTVNFb1B6bjQ2R1JKT3VtZUg1Y1BINWcy?=
+ =?utf-8?B?QUJicm9qNkdOOVk4aGVBbmdqekxXd3NTUVpmNlNSZngwY3l5T053bngyWHUv?=
+ =?utf-8?B?YkRWeGx2THoyMmE3b0RRY0RDSi8yVXNJS203a3Y5ZDFiOTNmUG0wRFhUN0dU?=
+ =?utf-8?B?Z29CS0RkRWVoWXJSUzNrN1ltSlBCaldHOEdmOS9ISWlYNFJCelV5Y3Z6UjU5?=
+ =?utf-8?B?N3N3ZEhBSEJwU3ZvTlZ0U1B1Q0g2alF6QUlBclhMMzdkQlk2eEJiS0tISVM4?=
+ =?utf-8?B?V1BZTmxUdVpxeXNOQ1hKdWYwR05YbEhDVjJRcDc4QTFHMHN6Q1I2ckRPT0xl?=
+ =?utf-8?B?NFhvV1YwZUlLeWpuYTVUY0RndElXL2FGZzJZaU0zRHdSaks1MUtRVzFtdU5k?=
+ =?utf-8?B?WkpWaUpURW5uYndmdjFpQWlGc3R4OHh2STV6STgzcmFPZzFFN2hLMkFWSjBN?=
+ =?utf-8?B?NlUycTZRUERpRGRHSjJZUWRyMFhIMktjaW9HS3Z4L25yUEdHR0Nndk0wcnNV?=
+ =?utf-8?B?ZElwWVlzMDduMnZrOTZGREsvZVFhZ3lKVStaNkdlRjBtYUVJb3psZVB6Q3dZ?=
+ =?utf-8?B?VThGRDZ2b0w1RWJpQnQ5ZEZmRnhmUUZjV0ZWTGwzcFNZT2hMTy90eFJwSmxL?=
+ =?utf-8?B?WURIcURsQXpZU2swZERORW1ic3JOb2pueS80dzJJT3BaM01SUjg2NlZOZ0kz?=
+ =?utf-8?B?VjB3SEhwbVhpQ1JYMDVtNHMvQnNXb1JMdWFRcUU2SzNaMklPRU1KWHZuYjly?=
+ =?utf-8?Q?mnczaXEoynYVwM5Q=3D?=
 MIME-Version: 1.0
-In-Reply-To: <ZQ4PR01MB120229BE0DAC2658164C066AF2372@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: d484f39b-4748-4b45-a3a7-08dea589c32f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Apr 2026 00:53:43.6515
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BRUwz+yc5+lfSxTQqhtcatNytKYx0vZfJmm4BCq6tT2LAvYEmS/gUepezms4AsvVHadexV/0jb9Aul2zCzLtbKROCmiErjqpZQJ0Z1mudJnO9yy0FyLcl8ulsAie1/lM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_115115_421697_E0047574 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20260428_175407_913177_6840869C 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,133 +146,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8364133694352961150=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8364133694352961150==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xMbyPycYGBGKvOmn"
-Content-Disposition: inline
-
-
---xMbyPycYGBGKvOmn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Apr 28, 2026 at 01:28:05AM +0000, Changhuang Liang wrote:
-> > On Fri, Apr 24, 2026 at 04:13:21AM -0700, Changhuang Liang wrote:
-> > > Add pinctrl bindings for StarFive JHB100 SoC Peripheral-1(per1)
-> > > pinctrl controller.
-> > >
-> > > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> > > +        properties:
-> > > +          pinmux:
-> > > +            description: |
-> > > +              The list of GPIOs and their function select.
-> > > +              The PINMUX macros are used to configure the
-> > > +              function selection.
-> >=20
-> > Why is the pinmux property needed?
-> > Can you use pins and function instead?
-> >=20
-> > Looking at the defines that you have added, it appears that lots of def=
-ines for
-> > the same peripheral share the same numerical values, suggesting that ac=
-ross
-> > peripheral, all (or most) pins would share the same mux setting/"functi=
-on
-> > select", suggesting that pins/function would suffice.
-> >=20
-> > I'd like to see some justification for pinmux being the right solution =
-here, like
-> > the "function select" used by one peripheral being significantly differ=
-ent for
-> > many of its pins.
->=20
-> We think that implementing this in the pinmux will be relatively simple. =
-It avoids=20
-> the need to create a large number of mapping relationships in the driver,=
- which=20
-> simplifies our driver implementation. I'm not sure if you'll find this ex=
-planation=20
-> acceptable.
-
-I don't really see how pins + functions would require lots of "mapping
-relationships". Instead of having
-+/* pinctrl_sys2 pad function selection */
-+#define FUNC_SYS2_UART_CTS				1
-+#define FUNC_SYS2_UART_RTS				1
-+#define FUNC_SYS2_UART_DCD				1
-+#define FUNC_SYS2_UART_DSR				1
-+#define FUNC_SYS2_UART_DTR				1
-+#define FUNC_SYS2_UART_RI				1
-+#define FUNC_SYS2_UART0_TX				1
-+#define FUNC_SYS2_UART0_RX				1
-+#define FUNC_SYS2_UART1_TX				1
-+#define FUNC_SYS2_UART1_RX				1
-+#define FUNC_SYS2_UART2_TX				1
-+#define FUNC_SYS2_UART2_RX				1
-+#define FUNC_SYS2_UART3_TX				1
-+#define FUNC_SYS2_UART3_RX				1
-+#define FUNC_SYS2_UART4_TX				1
-+#define FUNC_SYS2_UART4_RX				1
-+#define FUNC_SYS2_UART5_TX				1
-+#define FUNC_SYS2_UART5_RX				1
-+#define FUNC_SYS2_UART6_TX				1
-+#define FUNC_SYS2_UART6_RX				1
-+#define FUNC_SYS2_UART7_TX				1
-+#define FUNC_SYS2_UART7_RX				1
-+#define FUNC_SYS2_UART8_TX				1
-+#define FUNC_SYS2_UART8_RX				1
-+#define FUNC_SYS2_UART9_TX				1
-+#define FUNC_SYS2_UART9_RX				1
-+#define FUNC_SYS2_UART10_TX				1
-+#define FUNC_SYS2_UART10_RX				1
-+#define FUNC_SYS2_UART11_TX				1
-+#define FUNC_SYS2_UART11_RX				1
-+#define FUNC_SYS2_UART12_TX				1
-+#define FUNC_SYS2_UART12_RX				1
-+#define FUNC_SYS2_UART13_TX				1
-+#define FUNC_SYS2_UART13_RX				1
-+#define FUNC_SYS2_UART14_TX				1
-+#define FUNC_SYS2_UART14_RX				1
-you just define a function called "uart" and have a simple map of
-that string to the number 1. You end up with a single array with the
-relationships, not lots.
-
-Frankly, pinmux just does not seem appropriate to me when it looks like
-90%+ of the pin mappings for a peripheral share the same function value.
-There appears only to be a rare number of cases where that doesn't
-apply, but that could be handled by having them represented by a
-different group/pins node with a different function.
-
---xMbyPycYGBGKvOmn
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafEBnAAKCRB4tDGHoIJi
-0uZFAQDc6TkitcowwJ7JWd4hquGJtDH8OjRFObjzwz+BsmdhqwEAjKn+QQKxLE73
-SJVK2gbqIbHoREPEvyMGDMPfEaZZHQM=
-=QsEF
------END PGP SIGNATURE-----
-
---xMbyPycYGBGKvOmn--
-
-
---===============8364133694352961150==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8364133694352961150==--
-
+SGksIGxpbnVzDQoNClRoYW5rcyBmb3IgdGhlIHJldmlldy4NCg0KPiBIaSBDaGFuZ2h1YW5nLA0K
+PiANCj4gdGhhbmtzIGZvciB5b3VyIHBhdGNoIQ0KPiANCj4gT24gRnJpLCBBcHIgMjQsIDIwMjYg
+YXQgMToxM+KAr1BNIENoYW5naHVhbmcgTGlhbmcNCj4gPGNoYW5naHVhbmcubGlhbmdAc3RhcmZp
+dmV0ZWNoLmNvbT4gd3JvdGU6DQo+IA0KPiA+IFRoZSBKSEIxMDAgU29DIGhhcyAxMyBwaW5jdHJs
+IGRvbWFpbnMgLSBzeXMwLCBzeXMwaCwgc3lzMSwgc3lzMiwgcGVyMCwNCj4gPiBwZXIxLCBwZXIy
+LCBwZXIycG9rLCBwZXIzLCBhZGMwLCBhZGMxLCBlbW1jLCBhbmQgdmdhLg0KPiA+DQo+ID4gSW4g
+dGhlIGN1cnJlbnQgc2VyaWVzLCB3ZSB3aWxsIG9ubHkgYWRkIHRoZSBmb2xsb3dpbmcgcGluY3Ry
+bDoNCj4gPiAgLSBzeXMwLCBzeXMwaCwgc3lzMSwgc3lzMg0KPiA+ICAtIHBlcjAsIHBlcjEsIHBl
+cjIsIHBlcjJwb2ssIHBlcjMNCj4gPg0KPiA+IFRoZSByZW1haW5pbmcgcGluY3RybCB3aWxsIGJl
+IGltcGxlbWVudGVkIGluIGZ1dHVyZSBzZXJpZXMuDQo+ID4NCj4gPiBUaGlzIHNlcmllcyBkZXBl
+bmRzIG9uIHRoZSBzZXJpZXM6DQo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjYw
+NDAyMTA1NTIzLjQ0NzUyMy0xLWNoYW5naHVhbmcubGlhbmdAcw0KPiA+IHRhcmZpdmV0ZWNoLmNv
+bS8NCj4gDQo+ICguLi4pDQo+IA0KPiA+ICAuLi4vc3RhcmZpdmUvcGluY3RybC1zdGFyZml2ZS1q
+aGIxMDAuYyAgICAgICAgfCAxODIxDQo+ICsrKysrKysrKysrKysrKysrDQo+IA0KPiBUaGF0cyBh
+IGJpZyBwYXRjaC4NCj4gDQo+IEkgbmVlZCBhIG1vdGl2YXRpb24gd2h5IHRoZSBleGlzdGluZyBj
+b2RlIGluIHBpbmN0cmwtc3RhcmZpdmUtamg3MTEwLmMgYW5kDQo+IHBpbmN0cmwtc3RhcmZpdmUt
+amg3MTAwLmMgY2Fubm90IGJlIHJlZmFjdG9yZWQsIHJlcHVycG9zZWQgYW5kIHJlLXVzZWQgb2Yg
+dGhpcw0KPiBoYXJkd2FyZSBpcyByZWxhdGVkIHRvIHRoZSBvbGQgaGFyZHdhcmU/DQo+IA0KPiBX
+ZSBkb24ndCB3YW50IHNldmVyYWwgY29waWVzIG9mIGVzc2VudGlhbGx5IHRoZSBzYW1lIGRyaXZl
+ciwgdGhhdCB3YXkgd2UgZ2V0DQo+IG1haW50ZW5hbmNlIG92ZXJsb2FkLg0KDQpUaGVyZSBhcmUg
+cXVpdGUgYSBmZXcgZGlmZmVyZW5jZXMgYmV0d2VlbiB0aGUgY3VycmVudCBqaDcxMTAgYW5kIEpI
+QjEwMCBpbXBsZW1lbnRhdGlvbnMuIA0KUmV1c2luZyB0aGUgb2xkIGNvZGUgbWlnaHQgYWxzbyBy
+ZXF1aXJlIGV4dGVuc2l2ZSBtb2RpZmljYXRpb25zLCBhbmQgSSdtIG5vdCBzdXJlIGlmIHRoYXQg
+DQp3b3VsZCBpbnRyb2R1Y2UgbmV3IGlzc3Vlcy4NCg0KPiBTbyB0aGUgZmlyc3QgcXVlc3Rpb24g
+YWJvdXQgdGhpcyBwYXRjaCBzZXQgaXMgaWYgYSBjb21wbGV0ZWx5IG5ldyBkcml2ZXIgaXMgcmVh
+bGx5DQo+IG5lZWRlZC4NCj4gDQo+IEEgc2Vjb25kIHF1ZXN0aW9uIHJlZ2FyZHMgImJhbmtzIiBp
+biB0aGUgR1BJTyBjb250cm9sbGVyLg0KPiBUaGUgY2FsbGJhY2tzIG9mZnNldHMgYXJlIGV4ZW5z
+aXZlbHkgLzMyICUzMiBNT0Q6ZWQgdG8gY2xhbXAgdG8gMzJiaXQgd29yZHMuDQo+IFNob3VsZCB0
+aGlzIHJhdGhlciBiZSByZWZsZWN0ZWQgaW4gdGhlIGRldmljZSB0cmVlIG1vZGVsIGFzIGEgMy1j
+ZWxsIEdQSU8NCj4gPCZncGlvIGJhbmsgbnVtIGZsYWdzPiByYXRoZXIgdGhhbiAyLWNlbGwgPCZn
+cGlvIG51bSBmbGFncz4/IERvaW5nIHRoaXMNCj4gbWFrZXMgaXQgcG9zc2libGUgdG8gdXNlIGdw
+aW9saWIgaGVscGVycy4NCg0KVGhpcyBhcHByb2FjaCBsb29rcyB2ZXJ5IGdvb2QuIEkgd2lsbCBh
+dHRlbXB0IHRvIGltcGxlbWVudCB0aGUgY2hhbmdlcyBhY2NvcmRpbmdseS4NCg0KQmVzdCBSZWdh
+cmRzLA0KQ2hhbmdodWFuZw0KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
