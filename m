@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2743EFF886F
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 02:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A06FF885A
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 02:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eu6FPlkrHUoAlJWIsi756BGQHwz3lEtujbfDOov9xu4=; b=sENhTKRsshzDClryEC2vkW+kdP
-	UxtYf6LCD2F5hvF5DKL3vrlTi1/Vp7uaV3c41n3b68/tBWZeYcks1Hk5pfTeoDqOu1eVpUryreGzJ
-	EbJbaxVDldPxIUkiUCQS4lgjoxBPzvrQBuC84qOgHheZvg1+/b8kB7+vHhZbpbOa/Df8YpxrMxGyF
-	w+knksbkHDPM3+S49qOkMTkIXtm/xZcrST3Lj3H2h/T2Y2PSowX29sV2nDPm/TQx9MEw0ggnLQ+pc
-	z8xNw9F3f3780dY0tWk8vYVBoM0qe8MYavpJWMqIzErd11n7QlEm0kHQ1Uujvi8a5rdxQ7CT6or8E
-	X+s6BnOw==;
+	bh=ZLrkgRyFFxEEwZ50vLF/vLBCUCe34R9mPTH6DHO7nmg=; b=bXev3+o5OJuohcG5bK/0OcGwOe
+	A5dykblGFpJqB/bmJ5qa7Nt6AS4sylFaVEaswpKMJxaftb9pH5VVlPB86JSDK5Vb9Y+IoSRorJbf0
+	MKzRQp02QFKUb5/GSfZmeoYrpLd4EtfL6NoDYm0mXK4OavxM/EdVoWgzHyMUe+zxR/SIUGFFH8JK4
+	mXORsFoutxaPit66ckNv91clKPsfYL7Fd551FXZda4A8TANUH7cKZ0MIcdfBAB5YDRugbYGtbqGm6
+	yNgOHZi59dq/eKbTjyylf0iWKrsEG7Gei0+u72JXq9yC3ZKtzLKbN3B91J+n80qGGxxLWqPfnC6Df
+	QB95kUvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHuVj-00000002mKG-0ZQl;
-	Wed, 29 Apr 2026 02:18:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wHuf9-00000002mhT-0krm;
+	Wed, 29 Apr 2026 02:28:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHuVh-00000002mK8-0yzf
+	id 1wHuf8-00000002mhN-1pDo
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Apr 2026 02:18:45 +0000
+	Wed, 29 Apr 2026 02:28:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64CE76015B;
-	Wed, 29 Apr 2026 02:18:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA7D2C2BCB7;
-	Wed, 29 Apr 2026 02:18:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 69FCF61119;
+	Wed, 29 Apr 2026 02:28:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E251FC2BCB7;
+	Wed, 29 Apr 2026 02:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777429124;
-	bh=vGSVbfAVTOpSVg1fm2QT59qVSHoz0uJHSJXD4xG06mM=;
+	s=k20201202; t=1777429709;
+	bh=U917FEeP1a65aybvARWiLBBMfAgnhdvtyR+oFIuOO7A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E5IHIhKtVgkAVtcj1ExEsmkatJgBLFWB7W9wBJlC1v175fncWjLK0FcaT/THfDB8Q
-	 VceqdeqaWKsSf351p1f9iwXkteowC68OHYcfw86IEP8dw2NXwHl6kYNJbT3i3wI28T
-	 3ibahPTbSiE8K3qbPhNizRiCkkHM8cDSXUuH35Wb+FrWk4m4ewt5ZYdp3B0BiFP22k
-	 1TWQQ1SVddrFv1p6JF8bNLO3+o74cQgqM3SqXqHFUczuwnDHyPMADEoJxurpSu6I5E
-	 YUIv/EubEx0sZSIXd4lUgeUiJTso+ndSSKU2ve1p6UwW+eO/f8w3hjZlHsrJ4KTJj/
-	 VceEGxELdw9Qw==
+	b=uWyCWVT1Ar3mzr0oxmaCB36QUdEw5kMfe3jmzUVhavC8+NzT4xgbLioHp2nHM/7R9
+	 pIy5cagrWv8W8878zgVZoEGMHwTxuTc8+PBhThOUC+6/V73QySfT2RHfZd6By0nZjv
+	 9U8RjfUA+3r8TQ0dF0/6t+dlcmuUIjEITS5AwenOYlLsvb98rCvQvA3Pr/SJWPgqWc
+	 Zt0ScKlSm/fqEIDlPKOk2k5t1M35QO4G9pXJYJxKZukLoI5JOK4RYOAS3yc85JXc7c
+	 LsqnkCtiNb6FaK8CgQt49DXtXqXkW2a6ndqwGCJx7zM0Aj3dB4WHSCf3kDXe0WXlff
+	 DNUmYUOlPMbRg==
 Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id BA2491AC584E; Wed, 29 Apr 2026 03:18:40 +0100 (BST)
-Date: Wed, 29 Apr 2026 11:18:40 +0900
+	id 55E151AC5850; Wed, 29 Apr 2026 03:28:26 +0100 (BST)
+Date: Wed, 29 Apr 2026 11:28:26 +0900
 From: Mark Brown <broonie@kernel.org>
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
@@ -55,13 +55,13 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
 	Conor Dooley <conor+dt@kernel.org>, linux-sound@vger.kernel.org,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 5/7] ASoC: dt-bindings: add fixed-sample-rate property
- for SpacemiT K1/K3
-Message-ID: <afFqgF6ZRwYdfUmL@sirena.co.uk>
+Subject: Re: [PATCH 1/7] ASoC: spacemit: fix RX DMA params not set when TX is
+ running
+Message-ID: <afFsyiSHrVBapQ9V@sirena.co.uk>
 References: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
- <20260429-k3-i2s-v1-5-2fe99db11ecb@linux.spacemit.com>
+ <20260429-k3-i2s-v1-1-2fe99db11ecb@linux.spacemit.com>
 MIME-Version: 1.0
-In-Reply-To: <20260429-k3-i2s-v1-5-2fe99db11ecb@linux.spacemit.com>
+In-Reply-To: <20260429-k3-i2s-v1-1-2fe99db11ecb@linux.spacemit.com>
 X-Cookie: 667:
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,50 +74,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3770816002115935362=="
+Content-Type: multipart/mixed; boundary="===============2700447761875971758=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3770816002115935362==
+--===============2700447761875971758==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IS1KD8op5z8FDjax"
+	protocol="application/pgp-signature"; boundary="6SEXtm4k7tE0lPs/"
 Content-Disposition: inline
 
 
---IS1KD8op5z8FDjax
+--6SEXtm4k7tE0lPs/
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Wed, Apr 29, 2026 at 09:38:50AM +0800, Troy Mitchell wrote:
-> Add the optional spacemit,fixed-sample-rate property. When multiple I2S
-> controllers share a common bclk, this property constrains all
-> controllers to the same sample rate. This applies to both K1 and K3
-> SoCs and is only needed when two or more I2S controllers are active
-> simultaneously.
+On Wed, Apr 29, 2026 at 09:38:46AM +0800, Troy Mitchell wrote:
 
-This doesn't seem controller specific, it should be factored out into
-the core - the same issue will apply with any system sharing a BCLK.
+> +	val = readl(i2s->base + SSCR);
+> +	if (val & SSCR_SSE)
+> +		return 0;
+> +
+>  	val = readl(i2s->base + SSCR);
+>  	val &= ~SSCR_DW_32BYTE;
+>  	val |= data_width;
 
---IS1KD8op5z8FDjax
+Very minor optimisation but those two SSCR reads could be combined.
+
+--6SEXtm4k7tE0lPs/
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnxan8ACgkQJNaLcl1U
-h9Ctsgf7BigM6trDym58z1FxPiU6RC6NIViof8JRu2+HoU5tOUI3IEfmeCu5RPjz
-kNaDvDYvJRCpUnWNySV2bzDhChyCYHDeN4aReVbA4sqcgV8abNBd4evnVJ7gIbLX
-YmZuymQocJ1SHzmJebkzMw+eJhTTGnMGKutZi6Mb+wHsfeqjZAJJUpsYE81dLG3Q
-sHhkHg1pccPmLig8OiiCBsy0tpkwhOnTyM8Z4WQKi8qgvkiGKR0/fwbefUqRyETf
-lNO4qPKH9aXZJ4BpyvM+sXdiKGxLTny65mqBGCpyLwhKivhwzFHlXf8Lsy8kvJZa
-hJsLtDneM5uQH6jSfZU/w5hUU0Y5lA==
-=d0Ef
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnxbMkACgkQJNaLcl1U
+h9DP0wf9FedyLiR2jbRQe052LYOVrGdSJyZFyiLrFiI/r3FDgyi5TzL8gejQm5DI
+nYSEijJQO323eNHosl4l1xC3cqIr+q3XEbWw8Z1JSnUhvQbkyHpE+U/yBwNqsRnZ
+HPPelZUia70N79+ff/6QKNjDuzJ2fLeRCxkUbgq79qdOaBQEQz69VrgrH3kG4Lah
+aLpE1Iw/6fl5KC4vci2S5yIrp0tYv9jt+dI7t9A2BKZ0YBZkCdgbSEgFRBbJYJg1
+ELGiysUjUwII8tO+GA7D8QiCegZEFHRKhPNNbE/ujVrUduyAuQGUkxriMwS9lFIC
+XUtJuRWo/V1+ZMAzyfgugi8+fFaRaQ==
+=H/sj
 -----END PGP SIGNATURE-----
 
---IS1KD8op5z8FDjax--
+--6SEXtm4k7tE0lPs/--
 
 
---===============3770816002115935362==
+--===============2700447761875971758==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -128,5 +130,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3770816002115935362==--
+--===============2700447761875971758==--
 
