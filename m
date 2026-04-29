@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C222FF885A
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECA0FF8875
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 01:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9YMks2mwpx6j431RHnzK3GczyrvNrpcgxPjYRUCQJvU=; b=RzDgu7c3lF2vJP
-	FsW0Kjj6CK+hp9NH15X94+LIo8M6hRA+knwZfHzerX6eIaaOFMop/WhHK5q3wOiKTfO/IpZmCH3QP
-	YJwyRr6GfG4chbqCCSFok5BDqppZPD7RSKKdQ6dWpoGqfE+c2qAx0mF/9OYeGgoQySwg6bhHs7vVf
-	ALDJYT4OWYKWM1FNcN8dvrKQqZGrqzl4F0ggH314S3h19sOFi8OikBUrIpMBUyIYREq055J9UoAwY
-	Bz0d6gMDMVMm0gpXvQjIRsLjOY+Tu1HZ1bbL/BHasw31BR30v+OMFY3VP5ZzjKGk1NPP5ABxdk9Iw
-	4tFo4C9s1TSjg4mcml6w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MVKd6mJPsWJfqVLXtN/hksMeCRN83c1yLYLpOEipqeY=; b=XNe6JflncWrQJz
+	n4uY9bOBvGtnBEgd3ILZiQjaiC1OzFlwuCrq0dcFhfWD2px/deQjME5c/Dq9/lLWGSkomzEss41pT
+	B92Wk68cIpmcArHA7TbtbSmbbh5N7+u7GetIZBTQha7E2CqDuqsQwiCmMedV9pvigAu84yRRXa5k3
+	Nf+80pt+PPmIeIAjzcyTWMprhjB+PCMjXnB7C0EbyjqWw+Qk5GGAFi8dHASXPlbDA+37MGRzrICA1
+	wVFqOAkdPwTEPXU1dxDJqrW7gIhNlRVCKupq7gYy44jazsvf45ijR647ah7yk7rjvdffilg7GnXlz
+	ALpOfjJscGmLDoxOEXwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHttr-00000002j5Y-1RzF;
-	Wed, 29 Apr 2026 01:39:39 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1wHttt-00000002j69-2heK;
+	Wed, 29 Apr 2026 01:39:41 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wHttn-00000002j3A-1eCX
+	id 1wHtto-00000002j3I-1eN1
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Apr 2026 01:39:37 +0000
+	Wed, 29 Apr 2026 01:39:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1777426742;
-	bh=1Fe6nYs9JHsL/qqU3dPyTkXSVgm0ocwnWDhLNVSkbzs=;
-	h=From:Subject:Date:Message-Id:MIME-Version:To;
-	b=CHyW+t7X5KK4KmcVe7YZL9VwnhZBbzH2921c1xt1fkB4Hqq0gWjAJ9xTLzIXwUV5V
-	 5NhXboG7JE2qLKleQJ1eMnZFYFvrASMqDuEbGqCwp5JVVERRvQ6zUxCwmmvECtAz8M
-	 OkfamLmjVxWZfF7v+UPWVaXmGli9P8stCmeeb5uk=
-X-QQ-mid: zesmtpgz5t1777426734t39b15ba8
-X-QQ-Originating-IP: TPf7klzOlR5kzfZDIyJIWcHEw1Bvxv+z3hDvlJHdUQU=
+	s=mxsw2412; t=1777426747;
+	bh=umt9s+fWxPSHuP81XZcEF9uKcHi4dTg/6NHhQ9slX2A=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=JgtAV8ft68Szvp8ycIH6DMD7gp6db1AlWe4GdtUUEOLMmHIHj+9R1z3ZheYZ2VDEE
+	 RBFHEAN+cICKiZ+U6OlKiZ5pP/DZeXY2k83nLWBNig5h3e374c4KDZaevyGJDN1Vw8
+	 6XjPk+/nwITeKsoWEcOR89e8y3CWvL1Smo1G0QPs=
+X-QQ-mid: esmtpgz13t1777426738tdd87611e
+X-QQ-Originating-IP: vWIv63VhrF74ROnm/3QKqWXpoDGEYGEsALkQyVl99SY=
 Received: from = ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 29 Apr 2026 09:38:51 +0800 (CST)
+	id ; Wed, 29 Apr 2026 09:38:55 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4341323507646280445
+X-BIZMAIL-ID: 10487816630640131910
 EX-QQ-RecipientCnt: 15
 From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: [PATCH 0/7] ASoC: spacemit: bug fixes, refactoring, and K3 SoC
- support
-Date: Wed, 29 Apr 2026 09:38:45 +0800
-Message-Id: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
+Date: Wed, 29 Apr 2026 09:38:46 +0800
+Subject: [PATCH 1/7] ASoC: spacemit: fix RX DMA params not set when TX is
+ running
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0QpAQBCF4VfRXNtagyWvIheLwVBoByl5d4vLr
- /5zLhByTAJFcIGjg4WX2SMKA2gGO/ekuPUG1Gh0gpmaYsUoKkVLGOU6S4wBH6+OOj6/o7L6LXs
- 9UrO9a7jvB82ZfgJqAAAA
-X-Change-ID: 20260427-k3-i2s-52ae21807466
+Message-Id: <20260429-k3-i2s-v1-1-2fe99db11ecb@linux.spacemit.com>
+References: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
+In-Reply-To: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
  Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
  Yixun Lan <dlan@kernel.org>, Jinmei Wei <weijinmei@linux.spacemit.com>, 
@@ -63,38 +61,38 @@ Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org,
  devicetree@vger.kernel.org, 
  Troy Mitchell <troy.mitchell@linux.spacemit.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777426731; l=1818;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777426731; l=1471;
  i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
- bh=RiYU+SgXWMHrp/bAux/PQa9K09I3u18v1QwXk28gNXY=;
- b=dytFIX3GzeFkPj8nZ2Ocz2RD8jraZK9X/o93auRjGbFdCfGSTcixRXOrk0Fn6gWjrkeRQdcmU
- rpz3VTbG3zhC7S+WlXOXbzADbMTFLbs8xc1ZGGftBcOYSosKCbspItK
+ bh=fqs712JSCd2q2Oqmt1LbqXOCERM/xXmlTc8QrXeirL0=;
+ b=dOkNR7ewgmOY2VvQT0HJotglsEmMZlVysXzc+cYHBp6B84ugDG50p8cS5glYCM8tWSKL89oW4
+ GPOpMOXWpanDhly6ItJjrKyqP673diM7Q2lOO/kPQfEvnQtFmta0DYt
 X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
  pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MDbbjBkt9SC094+zwfVm6O/k5NTINlFWbHifiHSs3DqIpKEVRaCirKf7
-	MtcAlcCjlGeAnzOYzLGlQlCGHPTjmz8HKqHo4fkqdaLInAvQRe7iX4g4pxAf2nkKqHlq+Gq
-	yYvxOynbQEXISdChSVd+4BTD/d3He5OteJlQcuv9RVR2UuAzixmJKzRrAYSiunLpDG5Q51X
-	dHnPOAAhRBnt3a0T0Nqgyu01TwMjCUHZKjKxsRd6EvWuDcWmmcLHK24JCZCRWNSZR8KsRW/
-	tlT4Z/RurhtXr99agzAGd+F8BkWF+tjPgrNy/XL36dGpvGHIBa74wS8uT0su41rDlkBAkLb
-	ll4aVXVpLOIErqKl1YiI1AALxv+V/bZEVUXWe2vF38zaevekphSjpZXuWCmSmzh2O983/GY
-	6BULIkdHnwAtieHPTihSEUJE2hI4bHqbqU6jAtMliUpP4vKAZtIlt4TD6A8URfhSjp7wM+V
-	iPTL6x1JYAmHjuLEB4OU9Zjl5v2cSVNdm7nHuWuvg/LewL2tp28LY94LfSD80HMAKNC1NmE
-	DtiLr6LKSXyaiLjNXJWYyb9DtLxx9pvqU4vler/OjDR9rxrxj90toPYacBSUsEVBOQdd7nF
-	/lM29Uqcj91yroOU1/JwpA4Ok0ASFmgYYIrp8KTqvvZmtkoHW7lGvRxRqV5rYkrfQo1XYVW
-	sDeYkb8P54jACWKdZslAGN9BfhKDFHbBcFxxSKXUeBCSM7qCd/HiB6Ab3vUupQ99ZeNGPxA
-	tpHl26qmwzHdjZr8FXlJCd5xpFSOlQJGI0j4z+9Vp2zY9qX0xq5ns/lgdXET+549HElaKzL
-	hqBZQXsKJP58ZEQGgQ0KRs1ytQP3OCgSi0PN7CcPrviQh8ZcWBP/TRGZxomF1/bf4FVWLcf
-	sFCAoDtVNpsfobfNbn8mc3hyvZSRQAz3SK7SWLmA/9hsCvQfHpDUVUhH1t5ALlOCnOSGhE5
-	F/GEVcNe1OoVpQ/fcRkdGtT4wak5tvxD0oaNWzO5wOD08m+pXvimf9AKSOj+d8FRNKXD5d1
-	O34RXO1+DT9DSTdZ81/xnn7hYGdLH7Rh9BDuw228mVWOMuNuEsbcwdcr7ew46foRQlKEdhS
-	gVo0PZrY+HGPT//YiuLPk+mWwSSeB5+zOage2k2TjkjlpXP+5YNf6U=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M1PzqxMfCONkR/wmBdc2hGkNDOlGOCx/Gugq1LWihXnuyYH9sJ9H4UJn
+	L3mWVqJGoc2vF8EoAv4WHDEVgOeVwJ1YMntg3hA517UPddcHgpXDgIx1g72wLvGabJQYe1U
+	uzJUcLBtvuCXC/RqqH7vxenu1vewI7TJ1+aGZe2Jttv71N9Rtr47rA7LPUNbwk9ENJCAArV
+	SoPvSiAdJtHB5bT1U+B0tGg+WjxjX2db4drqcj0hQJ0sP/lk/+rwNsgJ/+TNcqAROXofYKx
+	vYjJFbvvRwOJ04/IthEOB2j0kexf3H13QpGqjFUNnn3ng7suGMws4VtWE7pS1iJHXBF+30u
+	XhbPg5wXlPGlmxHdNn0S0Wq0kc+co+r8HHz+6hudju6dZSD6goRLiH5EwzPAHAGxUnW8diW
+	RXxx9ZH154DmcA41pivb6v7vXGj4zDjb8ECmhTt3JMUSy4gWxY/VUO3SHPH5FFAvKbBY1vi
+	hbjqtIrMDKOwN+0sNHRdmVmBbl6Qisvwrab85+RGdM0mkwFfZyf/UKoVXzbVNdvhzNDRwP8
+	5eO8hiBSWuXbsHyZIqFI4zJRqFUP2OUIfucjoTuJJL8RyBJmmz8kHa7BFS0H+x9fTuYoW6f
+	iqMWFeWTTf0VwERSfiLo/YpyFq8oXph4Wh74HM6rZZXksAPJYpeBRgXC+MRLc4mFaOBSt48
+	wu1J7NEW+ed3S2IPg7Ce0aA1+veKGk5WMen4ucxlWuLopjUFvRlS6fTSyMRXXwnF1Qu48+U
+	FJKPwokgm6WmTT6YKmTv036Xy8hFWViORVPmmkTXsL1jWhoqtbsFrKrOyujU3zb3DzalRX+
+	LEZLnM5u5dlmElcVVnwPjpqdIkm6mPT2J1UR+Eh5C1C4eboUYytp0ujnQlfC6zEr19i1Tr+
+	G+/VzblWREsZhRauVBWZXpj1Q4W6pq3DcTVT/MCk+TkIX/FCry6cqraq5qI0rXmg+bwMoab
+	xyeTyl2zd7S7Qc6p9dwu9qNPsck0Fpy7Pfs/O6d9Ftl6d0q0/qL27Zonin+cFy1/2HWk6Kl
+	bo7rPTvXvSC7+aUzAW22Kv+rHbB9kk1dtG6xc2kg9Ggw92KFXPyskcbmz4cmP8ma9TbS1wH
+	HLlMK24Vv2d1kXzxYzqdWrPxDYFVOP/8OA7XAUkBtoGpYvz9ZDubjx8ecQqAZGLtKnCV6mA
+	zm2G
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260428_183935_956829_12536E92 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260428_183936_787201_3E81DF87 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,45 +109,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series fixes bugs and adds K3 SoC support for the SpacemiT I2S
-controller driver (sound/soc/spacemit/).
+When TX is already running (SSCR_SSE is set), the hw_params callback
+returns early before setting up DMA parameters for the RX stream. This
+prevents the capture path from configuring its DMA data properly.
 
-Patches 1-3 are bug fixes and refactoring for the existing K1 I2S driver:
-  - Fix RX DMA params not being set when TX is already running
-  - Move hw constraints from hw_params to startup where they belong
-  - Adjust FIFO trigger threshold to half FIFO size for better DMA
-    efficiency
+Move the SSCR_SSE check after DMA parameter setup and format
+constraints, so both TX and RX streams get their DMA configuration
+regardless of whether the hardware is already enabled. The early return
+now only skips the register writes that would disrupt an active stream.
 
-Patches 4-5 add dt-bindings for the spacemit,k3-i2s compatible and the
-spacemit,fixed-sample-rate property. The K3 SoC uses the same I2S IP as
-K1 but requires additional clocks (sysclk_div, common_sysclk,
-common_bclk) that are shared across multiple I2S controllers.
-
-Patches 6-7 add driver support for the fixed-sample-rate constraint and
-K3 SoC with additional clocks. When multiple I2S controllers share a
-common bclk, they must all use the same sample rate.
-
+Fixes: 955f7b46873e ("ASoC: spacemit: add i2s support for K1 SoC")
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
-Troy Mitchell (7):
-      ASoC: spacemit: fix RX DMA params not set when TX is running
-      ASoC: spacemit: move hw constraints from hw_params to startup
-      ASoC: spacemit: adjust FIFO trigger threshold to half FIFO size
-      ASoC: dt-bindings: add SpacemiT K3 SoC compatible
-      ASoC: dt-bindings: add fixed-sample-rate property for SpacemiT K1/K3
-      ASoC: spacemit: add fixed-sample-rate constraint support
-      ASoC: spacemit: add K3 SoC support with additional clocks
+ sound/soc/spacemit/k1_i2s.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
- .../devicetree/bindings/sound/spacemit,k1-i2s.yaml |  39 +++++++-
- sound/soc/spacemit/k1_i2s.c                        | 106 +++++++++++++++++----
- 2 files changed, 123 insertions(+), 22 deletions(-)
----
-base-commit: 02f694bcc20c664d9f4754229a3be28683c2a3f8
-change-id: 20260427-k3-i2s-52ae21807466
+diff --git a/sound/soc/spacemit/k1_i2s.c b/sound/soc/spacemit/k1_i2s.c
+index 1cb99f1abc7c..5c878f02cc93 100644
+--- a/sound/soc/spacemit/k1_i2s.c
++++ b/sound/soc/spacemit/k1_i2s.c
+@@ -117,10 +117,6 @@ static int spacemit_i2s_hw_params(struct snd_pcm_substream *substream,
+ 	u32 val;
+ 	int ret;
+ 
+-	val = readl(i2s->base + SSCR);
+-	if (val & SSCR_SSE)
+-		return 0;
+-
+ 	dma_data = &i2s->playback_dma_data;
+ 
+ 	if (substream->stream == SNDRV_PCM_STREAM_CAPTURE)
+@@ -180,6 +176,10 @@ static int spacemit_i2s_hw_params(struct snd_pcm_substream *substream,
+ 
+ 	}
+ 
++	val = readl(i2s->base + SSCR);
++	if (val & SSCR_SSE)
++		return 0;
++
+ 	val = readl(i2s->base + SSCR);
+ 	val &= ~SSCR_DW_32BYTE;
+ 	val |= data_width;
 
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+-- 
+2.54.0
 
 
 _______________________________________________
