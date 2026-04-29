@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19DB7CCFA13
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 09:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88EB0FF8867
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2026 09:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LQezkEvk+gAaknKuJWsTBfmRQftS6V6pWj5AJVmzrRU=; b=iaAjj/7TXAjlE4
-	ENpWIXnNWU82blAeDNPerqIHVLRjKoAxEiYRo13vsII+s6RILLzg8KSg0m/VSrTpWNNHZU8/DwJJp
-	wEOWAdmdP3Sfz2yVQu54rOVBYgtnG06yXmJvzvGBGhl0PzYF4L4LYum2hEhvevuUA/FVt0oxP8JEz
-	LQGCcmwhz+oog9rhiuK7aGlk1uJzXuPIxt0aMg4kUVjKc/f1B/PVybCp548AzpsCkmUCebCnvsYaA
-	A5TO/FOrSTgCV38sRoRMhV3NHiHlDeB6xWAshCHSBqT221lYqUZXE5x6kirJeYDSUKHrfwyvNZsJz
-	mh3SduIiZon96hB1gqAg==;
+	List-Owner; bh=S7AMfOs6dp6ZbpwMZren1m+LYcrLWtkV94u7nrGdfL8=; b=wwdfo55KLoBbfM
+	N+aQUSlxlXMk5meqZakHurqkDwvwR90d+6T6Rn/vKLm7A9LRl5dTaOyK2tuhAruQEAvY5dekzStan
+	9De6bOU7YM4vJ+RMY3nWpqpt3WqsYVUGMc6uht8YYxMsRowpmNlwAzmwx2zihT+4ROq3eszUdFPRO
+	qgIFBJA7XcG15fF8zA8Y/xe8nAVDvDJl1Zht0keB5a+y95PE9Rkh0JKkfGBoPSjqcyXDFo8pm2812
+	8FPDASZPIC37muoQXmwIwc7mvmrYzN7KaUxOcAUJ6rnhO0iM5/qgQXnPYwGGc5vokl/QEwn9xnjwW
+	qIY8odAJyFcOStlhDaTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1fq-00000003PBi-2C4e;
-	Wed, 29 Apr 2026 09:57:42 +0000
+	id 1wI1gG-00000003PLd-21YH;
+	Wed, 29 Apr 2026 09:58:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1fp-00000003PB3-2ZDW;
-	Wed, 29 Apr 2026 09:57:41 +0000
+	id 1wI1gC-00000003PK5-3r8j;
+	Wed, 29 Apr 2026 09:58:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Umh2GNLzS0ZLJ1ouGA7sN5L/Audjee+GTfXIQgbar64=; b=L5hJk3io3fAVDZsT+P4P3sNFEy
-	hvESbosUOG1UGwKYXVm4zuJrTY9hN5sECsgQbITGxfUhTPwub34eI6RIDToKb/XRmTu6yiDCyBobk
-	LrGygpsUHyzWfaaSDwLtGI1aFOi9HtUsPENpDqbzNuCt3QiCzajSN22/BPD0ehFL4f+cK1aNu17t1
-	MTrxBTut9L5JXu4xL3PexvZjoaA3QzkrUdapfD2w0e1VED8eomjdml9oqM2KTSdhwolRJPBq0aMNa
-	gdzX5Q2BC/xM6TR/+TehQf7fwYRMRDpitCYmgHC0qXiCn7zwa+loOx8dRPLaLCae6Z0pgKpclXiyS
-	PtTtV7sQ==;
+	bh=glqfSPnZSBsC5GJM5wPOsyYjmETqsJsgYXJ3trO0o1Y=; b=MdgYJ2OnLLj9nuaaQwOR8k140y
+	Fj3w9qhHcRuSowhlPOw2Qd9D4xIstpAJlNEV4EtcOn+9iCbNJpUc4Nn1fSVq0R0cBpxoBmAUZ8vHB
+	/8v5ArgYn3WHBhK8K26bDzmTGJMXViqaDtwPsVjvktrUSVmSJpiREX9KaYviP3jSCvQCg/Vsbjidl
+	e5hsHjBShvBbDRltgJ/J0bvO4VbGHSUby7KIM9Y+J4sRq3Ge85zVOuoiAXLa/uyX5u+vzftCDBW1w
+	D/kXyCwbhnDLzphCFWdEzLjjnLkayIaX+MJ+b1eSLCScYjVN5BlJtVN/1ywqJXAM69OaA8wqk/bOW
+	y0A/fR3g==;
 Received: from linux.microsoft.com ([13.77.154.182])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wI1fl-000000052km-21HP;
-	Wed, 29 Apr 2026 09:57:40 +0000
+	id 1wI1g9-000000052pj-2cLV;
+	Wed, 29 Apr 2026 09:58:03 +0000
 Received: from [10.95.65.160] (unknown [167.220.238.0])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5250A20B716C;
-	Wed, 29 Apr 2026 02:57:25 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5250A20B716C
+	by linux.microsoft.com (Postfix) with ESMTPSA id AAA8120B716C;
+	Wed, 29 Apr 2026 02:57:53 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AAA8120B716C
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1777456652;
-	bh=Umh2GNLzS0ZLJ1ouGA7sN5L/Audjee+GTfXIQgbar64=;
+	s=default; t=1777456680;
+	bh=glqfSPnZSBsC5GJM5wPOsyYjmETqsJsgYXJ3trO0o1Y=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q31XCOROwAjmtXRERBx2iF+/+sJsH2ybABfnJCzFn77NWB9EVyO4d6UDaaSUN2seb
-	 YQ7d0/CyN4ooJv9sS8ZRGDqMJBY896FQHOvEKQgI5tVaj4mJi2D6hDXN+gA0IZ5wgq
-	 80ZbIizjLbl6bTb0czS/dH3jkSHeHVV2s6z/Ha8s=
-Message-ID: <80efa86b-de96-438c-ac04-fda22c655500@linux.microsoft.com>
-Date: Wed, 29 Apr 2026 15:27:20 +0530
+	b=DwwTmFw8lT7PO8/kvWlFCX434M1go88YAYUFiOB7xJ1F+kocEhvrlQaUtuLbFgsgs
+	 qpczmKHfDoN6xdxyX2dSLL7A3qYuWuJopov32H33TocopnxktApYAXXhDjaAJcsMV+
+	 D/AJqX3CMxDfu3j87LG09egBB30+fv785wOjDaK0=
+Message-ID: <567cf73b-6a48-4fc3-b312-9be6d71e2f22@linux.microsoft.com>
+Date: Wed, 29 Apr 2026 15:27:49 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/15] Drivers: hv: Move
- hv_call_(get|set)_vp_registers() declarations
+Subject: Re: [PATCH v2 09/15] Drivers: hv: mshv_vtl: Move
+ hv_vtl_configure_reg_page() to x86
 To: Michael Kelley <mhklinux@outlook.com>,
  "K . Y . Srinivasan" <kys@microsoft.com>,
  Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
@@ -81,14 +81,14 @@ Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
  "vdso@mailbox.org" <vdso@mailbox.org>,
  "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>
 References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-9-namjain@linux.microsoft.com>
- <SN6PR02MB4157852404B5258EF13A5450D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <20260423124206.2410879-10-namjain@linux.microsoft.com>
+ <SN6PR02MB4157467FDBC0203C67A67042D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
 Content-Language: en-US
 From: Naman Jain <namjain@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157852404B5258EF13A5450D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
+In-Reply-To: <SN6PR02MB4157467FDBC0203C67A67042D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_105737_860054_B9C3ABC8 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20260429_105801_951232_01398034 
+X-CRM114-Status: GOOD (  22.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +107,97 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 4/27/2026 11:09 AM, Michael Kelley wrote:
+On 4/27/2026 11:10 AM, Michael Kelley wrote:
 > From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 2026 5:42 AM
 >>
->> Move hv_call_get_vp_registers() and hv_call_set_vp_registers()
->> declarations from drivers/hv/mshv.h to include/asm-generic/mshyperv.h.
+>> Move hv_vtl_configure_reg_page() from drivers/hv/mshv_vtl_main.c to
+>> arch/x86/hyperv/hv_vtl.c. The register page overlay is an x86-specific
+>> feature that uses HV_X64_REGISTER_REG_PAGE, so its configuration belongs
+>> in architecture-specific code.
 >>
->> These functions are defined in mshv_common.c and are going to be called
->> from both drivers/hv/ and arch/x86/hyperv/hv_vtl.c. The latter never
->> included mshv.h, relying on implicit declaration visibility. Moving the
->> declarations to the arch-generic Hyper-V header makes them properly
->> visible to all architecture-specific callers.
+>> Move struct mshv_vtl_per_cpu and union hv_synic_overlay_page_msr to
+>> include/asm-generic/mshyperv.h so they are visible to both arch and
+>> driver code.
 >>
->> Provide static inline stubs returning -EOPNOTSUPP when neither
->> CONFIG_MSHV_ROOT nor CONFIG_MSHV_VTL is enabled.
+>> Change the return type from void to bool so the caller can determine
+>> whether the register page was successfully configured and set
+>> mshv_has_reg_page accordingly.
+>>
+>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+>> ---
+>>   arch/x86/hyperv/hv_vtl.c       | 32 ++++++++++++++++++++++
+>>   drivers/hv/mshv_vtl_main.c     | 49 +++-------------------------------
+>>   include/asm-generic/mshyperv.h | 17 ++++++++++++
+>>   3 files changed, 53 insertions(+), 45 deletions(-)
+>>
+
+<snip>
+
+>>   #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>> +/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
 > 
-> Looking at the drivers/hv/Kconfig, it's possible to build with
-> CONFIG_HYPERV_VTL_MODE=y, but not CONFIG_MSHV_VTL. In such a
-> case, mshv_common.o doesn't get built, which is why the stubs are
-> needed. Is such a configuration desirable for some scenarios?
+> This comment pre-dates your patch, but I don't understand the point
+> it is trying to make. The comment is factually true, but I don't know
+> why calling that out is relevant. The REG_PAGE MSR seems to be
+> conceptually separate and distinct from the SIMP MSR, so the fact
+> that the layouts are the same is just a coincidence. Or is there some
+> relationship between the two MSRs that I'm not aware of, and the
+> comment is trying (and failing?) to point out?
+
+This was added as per suggestion from Nuno in my initial series for 
+MSHV_VTL. If the reference in "identical to" is misleading, I should 
+remove it.
+
+https://lore.kernel.org/all/68143eb0-e6a7-4579-bedb-4c2ec5aaef6b@linux.microsoft.com/
+
+Quoting:
+"""
+it is a generic structure that
+appears to be used for several overlay page MSRs (SIMP, SIEF, etc).
+
+But, the type doesn't appear in the hv*dk headers explicitly; it's just
+used internally by the hypervisor.
+
+I think it should be renamed with a hv_ prefix to indicate it's part of
+the hypervisor ABI, and a brief comment with the provenance:
+
+/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
+union hv_synic_overlay_page_msr {
+	/* <snip> */
+};
+"""
+
 > 
-> I wonder if having CONFIG_HYPERV_VTL_MODE force the building of
-> mshv_common.o would be a better approach. Then the stubs wouldn't
-> be needed. The "ifneq" statement in drivers/hv/Makefile could use
-> CONFIG_HYPERV_VTL_MODE instead of CONFIG_MSHV_VTL, and
-> everything would be good since CONFIG_MSHV_VTL depends on
-> CONFIG_HYPERV_VTL_MODE.
+>> +union hv_synic_overlay_page_msr {
+>> +	u64 as_uint64;
+>> +	struct {
+>> +		u64 enabled: 1;
+>> +		u64 reserved: 11;
+>> +		u64 pfn: 52;
+>> +	} __packed;
+>> +};
+>> +
+>>   u8 __init get_vtl(void);
+>>   void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
+>> +bool hv_vtl_configure_reg_page(struct mshv_vtl_per_cpu *per_cpu);
+>>   #else
+>>   static inline u8 get_vtl(void) { return 0; }
+>>   static inline void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0) {}
+>> +static inline bool hv_vtl_configure_reg_page(struct mshv_vtl_per_cpu *per_cpu) { return false; }
+> 
+> As with Patch 8, if CONFIG_HYPERV_VTL_MODE caused mshv_common.o
+> to be built, this stub wouldn't be needed.
 > 
 
-This looks good. I'll try this and make the changes. In case there are 
-some challenges with that, I'll revert back.
+Acked.
 
+
+>>   #endif
+>>
+>>   #endif
+>> --
+>> 2.43.0
+>>
 
 Regards,
 Naman
