@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9116FF8864
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57AA2FF8864
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=70eKkLjVAaD6475sYTzweCXadJ8rfns07PXuQEyubBk=; b=cPwyd82MLj6njw
-	KliIKIlJzhMezOHhRLwJh0cgCD8lLM4poQZGOLTf8cGHyK820bVZIzOZj58FDy0x4EfQpzl5OXxZV
-	wHMKrzO5nFXfLCTuYDdCSnI0Tzv80uVqZijUEvcKMClH1uomBafX8zEcjS3haWOjK9TfNy8b6+EOr
-	W3AMV8S6muOVSXfNPYMSNqjcmsCGxjxsmPWXKCQnA4DdkUG0r3HZF+ilER7678x/2ndoYPKnoQJ3x
-	bTb19KS69yaly9f7tCN9asRRrSGHcH9YtrxtFyrAmc2tP4XqOAqxcTqvdvy+Uekd5CCwEPOPuc6hr
-	9nB6OvBOcm7fgVrO8mrA==;
+	List-Owner; bh=udf4l9sw1it7UMmbpRHV6W1HeW6DXPrAmouSYELYjq8=; b=i3XPPE4/C50PlJ
+	HlBsalv+QI+hCKSI1SZL/ErtgOmi3Mf2d5bDzj1w8AzdM20wWrjvShOTfp9f9Sxi12aS9F6xESQX3
+	w7yiU95eU/XLWmkSUQC3N7yuYyzIVSZ/HK3YUq3p34urHE51OP4yIGCEqnaSBxa5PCukaKT66tdx/
+	wA9O23pdr9F8MByoRWvoCbqGbPvhs7KMCbYWjb+RU3EFHpyPMiBuvh3QOnwWZwb073Y8sAju5D7hT
+	dNybH7um+bfac8GuuuFBuks7neqYnFcLMc/OeLWHCYJf8oluIZC2cdrnCFghfBtqexFokVa5E3lbe
+	pHQV+a9Z0frHsWm3xwhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII3P-00000004XXW-3fQI;
-	Thu, 30 Apr 2026 03:27:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wII3c-00000004Xep-00sp;
+	Thu, 30 Apr 2026 03:27:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2Y-00000004WbY-1RYL;
-	Thu, 30 Apr 2026 03:26:15 +0000
+	id 1wII2a-00000004Wdi-31hg
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Apr 2026 03:26:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 09BB443B2D;
-	Thu, 30 Apr 2026 03:26:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBB14C2BCB9;
-	Thu, 30 Apr 2026 03:26:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B24796111B;
+	Thu, 30 Apr 2026 03:26:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63CBBC2BCB8;
+	Thu, 30 Apr 2026 03:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519573;
-	bh=THrrdSGjgRzaSbCrGespfxo5C/AWLl4KlIEGbaUs1N8=;
+	s=k20201202; t=1777519575;
+	bh=smOY6pVVDHq+6KTLdCSD+6r2J5A4soRjk1OnTI5ZlHM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=UzTbqLo/5B2o+wNCv7hc433OYzKq4siikxTyngUKDMF3HAeUjhBhAk77XupcxRUvU
-	 8AQeEfOAPdqCa9Uxdu60usplkxVCGl2lAhF6QZOdLWIjERQA7vDLeINPZy/5ERe7Wc
-	 ghiINRi89Td2t+djUJI7HVkMnXuK1rdp0d0YYVr2nHuJNC05bQejhStGEvFx6LEv4v
-	 Q0foheq2svz+12OFi+UHX6I/M6rycHRVU+nwE7Bew/REJdDDUJFX4jYb42DVn24wgZ
-	 Adw0Roiy4+syrE/ThlZQ2sCXbjShOe4cVpKtA73HBp9XxbgCtMQ6+9J8F7NCLPpp9Q
-	 EzM7rlb9XVxGg==
+	b=dlIOoBl75hOEvwa9uZFaZ+vWlsAdTS39VaV4zcZr1mzQxorM426fS9+fb28XtX88C
+	 mIMu8bSZblyQBO31WlUqBz/lLMExGlKNb2t502quWMfL1IhwIaR/AD0zsN8a+NTHJ6
+	 zmf4ytfrdcHkQlThMspBfvMBQDI0tL1x8xlIkXHVW0gMUhTWpoTSTiWboBMAsfLejF
+	 xMSpymzn8EpJxwfu8ylIwFEzlUqynLBRHPUrG3gQLEWB71MSDyIjlXH8YvuULeIEX1
+	 QjYiMQ3POVX8oQTp1LZaq859UmwFqPiAefqkYOMchJ+U9DxQPoBfsXiabOdjSMuvQk
+	 U0dvV/7SEMN8w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE533809A07;
-	Thu, 30 Apr 2026 03:25:30 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9E8D3809A07;
+	Thu, 30 Apr 2026 03:25:31 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 0/2] Fix bugs and performance of kstack offset
- randomisation
+Subject: Re: [PATCHv7 15/18] mm/hugetlb: Remove hugetlb_optimize_vmemmap_key
+ static key
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751952875.2274119.16398594062786998071.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:28 +0000
-References: <20260303150840.3789438-1-ryan.roberts@arm.com>
-In-Reply-To: <20260303150840.3789438-1-ryan.roberts@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-riscv@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
- gor@linux.ibm.com, agordeev@linux.ibm.com, tglx@linutronix.de,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, kees@kernel.org,
- gustavoars@kernel.org, arnd@arndb.de, mark.rutland@arm.com, Jason@zx2c4.com,
- ardb@kernel.org, jeremy.linton@arm.com, david.laight.linux@gmail.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202614_402708_08CEB376 
-X-CRM114-Status: GOOD (  11.82  )
+Message-Id: <177751953040.2274119.2787096861157625411.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:30 +0000
+References: <20260227193030.272078-15-kas@kernel.org>
+In-Reply-To: <20260227193030.272078-15-kas@kernel.org>
+To: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
+ usamaarif642@gmail.com, fvdl@google.com, osalvador@suse.de, rppt@kernel.org,
+ vbabka@suse.cz, lorenzo.stoakes@oracle.com, ziy@nvidia.com, bhe@redhat.com,
+ mhocko@suse.com, hannes@cmpxchg.org, corbet@lwn.net, chenhuacai@kernel.org,
+ kernel@xen0n.name, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, kernel-team@meta.com,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev, david@kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,27 +81,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Kees Cook <kees@kernel.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Tue,  3 Mar 2026 15:08:37 +0000 you wrote:
-> [Kees; I'm hoping this is now good-to-go via your hardening tree? It would be
-> good to get some linux-next testing.]
+On Fri, 27 Feb 2026 19:30:16 +0000 you wrote:
+> From: Kiryl Shutsemau <kas@kernel.org>
 > 
-> Hi All,
+> The hugetlb_optimize_vmemmap_key static key was used to guard fake head
+> detection in compound_head() and related functions. It allowed skipping
+> the fake head checks entirely when HVO was not in use.
 > 
-> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
-> and, on arm64 at least, the performance is poor. This series attempts to fix
-> both; patch 1 provides back-portable fixes for the functional bugs. Patch 2
-> proposes a performance improvement approach.
+> With fake heads eliminated and the detection code removed, the static
+> key serves no purpose. Remove its definition and all increment/decrement
+> calls.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v5,1/2] randomize_kstack: Maintain kstack_offset per task
-    https://git.kernel.org/riscv/c/37beb4256016
-  - [v5,2/2] randomize_kstack: Unify random source across arches
-    https://git.kernel.org/riscv/c/a96ef5848cb0
+  - [PATCHv7,15/18] mm/hugetlb: Remove hugetlb_optimize_vmemmap_key static key
+    https://git.kernel.org/riscv/c/da3e2d1ca43d
 
 You are awesome, thank you!
 -- 
