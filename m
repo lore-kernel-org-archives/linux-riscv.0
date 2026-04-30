@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7ADCD13D2
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 21:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F6E3CCFA13
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 21:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wqcfkbkcCRkDI0Vi4ZY/GTxtAbmlkkjf/exTkLbvCoY=; b=pj0+GwRq5xBN6I
-	YxmZF/qSKoI+2CsRTUv+GZ8ADbd1fxzY0AH9FSFcIJCEPnlPM8VwlQo8qlkTreTHRTtrmtY80z5r2
-	Ri128b+kJCUp9lho5QGFt0nPZy4DAKF/DNUYRDmFJw4ZiR7IXVx0/ZEThZRh0YCshlxicrNYyLihI
-	sDO6kYqFLNSIyujGw43kAsTaJlnSUpvJ3wL3gM5dve+1Zz2qP4lzjaCvastbAyN34prASeOzi86u+
-	0NCwHiB+cg/KdL1T9gmb6m2DSJpyGnJnSTzYVs6JukECYPv4E34XXhp+slmqqMKjG3TY0k2r1jk8P
-	+h+OYrINpjuJLb7ToGKQ==;
+	List-Owner; bh=wQM+hOeig+50ePppea8MwDlWGctMhR0h++fj0SVBDc4=; b=huyaor2DvQOowe
+	dzIlKKWK0g1X5WxI6iTMtLJBvziyBQnBjceHGLOgsLjYzgRdC4lCqBZEsAROBxktF0KvUr4Ux0k5p
+	IhRZ/UYOlcDIUU/mZHMW+Ezg55OnzgYvxBlkv4GxjV/KOBTKRjwS05Tf/UHzIQUP9Thz7jKKqQVYg
+	ds7bGKtDJQ7mzCfN9TLsUNZG510vGCDjVHl3bDo52OzoaCXJdbWioXurcXrVUcqObKtdZbYnS6uuF
+	/hz5A3ICssvbYZTmTtr+nqY0eLmLT5DVQct9cKLXc0Z8FpcJtAYgm3p3gnqEGVLev9w6+uf0oazbl
+	WqqZWEmlv77gVxBqNMTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIYi8-00000005x6Y-076D;
-	Thu, 30 Apr 2026 21:14:16 +0000
+	id 1wIYi2-00000005x5j-2sUB;
+	Thu, 30 Apr 2026 21:14:10 +0000
 Received: from mail-westus3azon11011036.outbound.protection.outlook.com ([40.107.208.36] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIYi1-00000005x45-19bh
+	id 1wIYhz-00000005x45-3dpE
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 21:14:10 +0000
+	Thu, 30 Apr 2026 21:14:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DV5Wyw4xXuwubJDcCDkfw1VsHVHWWSSaZWee0VbX+EVuFBlqIq46P1BF+UyeZQ6+X1ZdbTIzT44+oQYLZMKuOudXogWLUA0uxQ4U772WwqsG6M9PyFwwYePmkmB/m9xCUUGjQcFHLooI6xkQkSJ9PidbQshIK32lb7Ab/Ewk/sPxDQtFGe70OZ38lOvOzvrn+lBWvr8tWdqWz7YfqAp+krIxeS/o0Roj3Wu9bNWydvb0PK+dQKOO0r84T8AIknv0JxQQ1DRuhTCzhVwwF3rwTZKZIP0x4x6xeeErzAuMP5D+y4egmUr6YHh5si/pypzIkTEYR852qZjqfPhvrnPfkA==
+ b=avRTYxa5P9T+7VtkK8mV+r73zZgrFApJV2eDZE4hIRv9xWoXKyVQA1xx6CPIpTc946x7etCRk1+dqKhvuxldjl6TTCpGkYE9wgpSNlLKTtsp3kikJYQfxWjBUjBNRdPvk0DBln+0MVcMma75ZIoYHqCoZx5Z6m2albGJKUNis0QEHDaZSggYhLSe1yrlniCGcqDX+NSy6Nhxsr4474BILA2cYUiGjVhkY/5kFt8AvCeGsitkL4ffTMZxueDBN8VT8CHKqXrmZUHEbBJ5zF5LEBgNVnMeJmPz60pxCXhksK7skUIHg6JEDglcR7cBoHX2pUFFgLjfjR4FoTTKuG13cg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=clzXa7YsEYnPrpSEDOXtKhkycHCGDNwGiCylR+5MPrA=;
- b=dVCpT7Ee601TE+SN+9lLG5eUN0THlqBWH7EvGtR6Er9gIuT57JKeBxrvq5GYH4y0Ww7w+7FK5zSqIt4PmlUyKRLVYQ50l0z4KxmKv4YPPEf+cslPw8+aLEKaq7Olz0ZvBcOP3bCo9owhXWtjSxLdoW+KVKAcQPxGSXTm6LsWZ1+/VY0nkEgvGdv4PU4LClYVNiQMj3EfRQY1OVsmDEJqdptom+IAdObgkyUuADPNEIVayHqm63o6VVZG4CKINymtuj3O5nYNUgcHM0+iDVgjzkdVzsBBpU1rHiBMM/9sRNiTxVxM2yQvBEnfxIIipoQbJw4zXG2LB/REE7XuegWgjA==
+ bh=RoJww6/Z1UU4ANdDeelHxtmtDjgOW1yfdaDOscA6NK0=;
+ b=eSEV+BuqDezQRXNXKUqoEf3axpaXtTyKZ6iyDwE4pEi102nK4DaE6qrxxTQBl9KD03pBokpCNY75KNujLkUgIKfkhzvBkSHGE6gZvZM9faYnXRJwiuKa/WfOFtOUqF0MuL9AUl01JFa1JwcjXF9gfV8cWxDj/JlnedCUU9Se01M4i3DDMb89uz2ZG+TVJZVv7nsIohVh6yiyLWz+84uEZAqgAtLR/exmCeRtJWgDfW8So9NanrByNmzfYubk21fTI24o2ZW1+6rgriGbCocSuadkGM41JfR1pfHCAKt7ltlC5r0xs0GZpABcmbwFePF8X5hWPf6bEXWvkPP3MApGyQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=clzXa7YsEYnPrpSEDOXtKhkycHCGDNwGiCylR+5MPrA=;
- b=aTF0ZYRhPPdQWlsyEihJo2jUoWy5FhIBdTb+yazb/RrdAFKggyX2/b30uCqzq5G2NvJEkky9qo22Dk2eu93/aMxzEZ7Z4AJwjl8RQd1ZG4bWlgItxBvpb9nLMlOaGXmeUvImVNT+J607//sxb3xsWoTMdoaMFR8+9Q+MLWlnkDPMp5o57yG3gEudpfdAr8HfCZAGBHr/VjuZiM30y7BYbZvF1EhDGBvydDmhgJbyKwLVW2SXhxwdtYRKGcPD97wTIaV+wtQIfl2SB9m0H1FwJjW6bGb+ERwynJytNFjwqQBN7ufSaHAgqp3ZFnmM0Zvng99B8U78dQ8Ss0ILz0kmtA==
+ bh=RoJww6/Z1UU4ANdDeelHxtmtDjgOW1yfdaDOscA6NK0=;
+ b=b6cJrFKD+A9AduRw70jWQ+7c0gEaHSzm3eNb3yHxoaNXD1nvkqLR0Rx+oCJiNzbZ71QHwLrITTVCBUvb01McCIomLoM2FT8IBu/snv/4KDaJ4Vdlanbszt21x5AydPGahVdU8Yn/r86R0Y6wVullu4wWs9AWbPIbKxJQJxLVUIv9uz4vV0JAplp0CsTXjRt1cnppDWF2MA2ftBEbZeuxx7rCvnvrKKgSWGSuWmed36UidswcSfS4Ag7Kg9f6s1Mw3t+0xHC5CiVtVL3fUHlmlNwuorAFi/Vewfb9W6CArZnUUcyxaRpSoHGQUzcHQYK6cgJ/u1ruQOZhSHDMPJfuyw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
  by DM4PR12MB6256.namprd12.prod.outlook.com (2603:10b6:8:a3::7) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9870.20; Thu, 30 Apr 2026 21:14:03 +0000
+ 15.20.9870.20; Thu, 30 Apr 2026 21:14:01 +0000
 Received: from CY8PR12MB8300.namprd12.prod.outlook.com
  ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
  ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
- 21:14:03 +0000
+ 21:14:00 +0000
 From: Yury Norov <ynorov@nvidia.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -77,70 +77,71 @@ To: Paul Walmsley <pjw@kernel.org>,
 	linux-arch@vger.kernel.org,
 	netdev@vger.kernel.org,
 	bpf@vger.kernel.org
-Cc: Yury Norov <ynorov@nvidia.com>
-Subject: [PATCH 3/6] bitops: Define generic __bitrev8/16/32 for reuse
-Date: Thu, 30 Apr 2026 17:13:47 -0400
-Message-ID: <20260430211351.658193-4-ynorov@nvidia.com>
+Cc: Yury Norov <ynorov@nvidia.com>,
+	David Laight <David.Laight@ACULAB.COM>
+Subject: [PATCH 2/6] lib/bitrev: Introduce GENERIC_BITREVERSE and cleanup Kconfig
+Date: Thu, 30 Apr 2026 17:13:46 -0400
+Message-ID: <20260430211351.658193-3-ynorov@nvidia.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260430211351.658193-1-ynorov@nvidia.com>
 References: <20260430211351.658193-1-ynorov@nvidia.com>
-X-ClientProxiedBy: SJ0PR05CA0173.namprd05.prod.outlook.com
- (2603:10b6:a03:339::28) To CY8PR12MB8300.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR05CA0172.namprd05.prod.outlook.com
+ (2603:10b6:a03:339::27) To CY8PR12MB8300.namprd12.prod.outlook.com
  (2603:10b6:930:7d::16)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|DM4PR12MB6256:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc64bf9c-adc7-493f-5bd4-08dea6fd67dd
+X-MS-Office365-Filtering-Correlation-Id: 54d8eeef-b5b9-45c1-29d2-08dea6fd663e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|10070799003|366016|18002099003|22082099003|56012099003|921020;
-X-Microsoft-Antispam-Message-Info: vqsJ+UnjPT9Ck5Bops7O7aUznEy6lfZgjDdGLQps6kNGPqzFd1JLcRGrLwH9p4LwqbTocxZpb842n9w9J5ja2P99qCrN7zEE2RBctHB8NI2Wve12JOrj8aR4dPO9wAdqWXrwfq1ZHkQ6IMA3oIWpv7zFfP9RYwaHOgblc7+CbfMTEOPK1ZUR43RfzO7CWRJ1qUuGomXmhDNETCBCZ2+hWLIiP5HbddEybCNIj5nbhOV9b7hOg0ee5YpZ9W+BMj7u8V2bz7jvppYFUkahSI05ikcbpATOoDqgeDKLS31JtA02lV9pwGO/qHmHtqmFJYKm2Dl4fsoAxh1DIC6Tl7753ZsH3S2VJ1VantrvhLy4+NuOA5jWWXJsZbK4S17rFKcTvVkS05oV761ZgNC5Kx/5K7WKuzUquapdjzz4/wbJ945O0KNjokE670pm6AcgBqlRX3+P0YNDt4fLbQ9QCJoQulSyz9aw6FzTPxxvDDAulEvWU26DVLFrvdK2UmD1AnrT9dB3Mp4z3Sekb5MV6+R0u+E2XDPcMi3sOpuPAMBn3r+VpQtsSDyJvZ+dMTbZIZLL4w5UqMYuKgy4dZJu2zXobPb11G623fKn/IFvLSRRx2YceJxSvMFMxW55I1yvugUD0abQm4Q+epEv3xOTYkadkEmDiwGPm07Bt0YfRLELhboh5O6I3tz0oY08+0VunguAHgvRXQebkzXnKfGJnKjN8m+DOMbdfFqjIhIDi6qrvZE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(10070799003)(366016)(18002099003)(22082099003)(56012099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|10070799003|366016|18002099003|22082099003|56012099003|17096099003|921020;
+X-Microsoft-Antispam-Message-Info: /WickSFBeO9KcgPf+c5SXnevvyd02WF8qrpvk2YhMr2d/O4HbTrmz38KmMU+cyOj8hnTmRDK2cgDkTiSURjgxnrupCT3V/WduXxQYZmwczOzr79QrJdTdq9GrSXF6sdW47rMf7ZHH2aGNUAWXTtcyTMh7TYpbxEnUsST5bmsJ+hcjgftecxCQxwhC3PrSpmhOIt7c5XLxSTVm6iKrWd4Y2upyExxVwKe1aDY0V2O3il374gA60cCvQK7j7DRJilsdQhuwx3pPI6wP6nHlMQTz5NCp+TtcQlzILXKL5HfWoO46QVqtZ3jtgE8fC7T/mtcvwewmEnPpKG/YvbJnZTeVYx5qKkvDYdyZjzkB9eIsn7QgNDjxN/TLDivdBQs156dDP0cVd4SBp5xmIXXOQJTk+CDm8a6YXxqn2tLUBQYWK1SzyQxQSXwnHqWY1wd3Wq2x43+jaoioCt36ae1Tuz6SIKgno7qoqrLwrZmiFGcQhcpR/EWOaawVeuHgr82j8qMHTjZacvvCQHT4yh5BfsHMiyZLonPV6zYs8XtKP0WXn99hTO714JSTJl6ROXtDvRgzeVZd1V4N3l4+oqkyLILL1S9WxJ8sgQbEhrpv1W4vBPCsT2crenQ3aWDO0ka5RivAc9lJ90MNG/jNLAUjRcjE0WSwZ1KI3mRPHA+fZZ8XKgn6JZADHwi/9uLyZn0GyDaqj7ewi5RCszfK/XmxpeRRTP1NhhvyOGZegcG6EJ/K9M=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(10070799003)(366016)(18002099003)(22082099003)(56012099003)(17096099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iqGjKfR0pelv85UykLTxXNpa1z7euajHkj1aDAnB+RqfktkiKRmmaRYcqoJQ?=
- =?us-ascii?Q?GNqLky60aUaOLJu7vV5j35mWiuEVCwdWptVaWVopdw8Pl9W+kTjchU8c8ljk?=
- =?us-ascii?Q?PityzpQbVjdGSm6w6vAN3vFNnL63fmIDDN2vD0Z40y4G6rsP3Iv+QVBRof/G?=
- =?us-ascii?Q?PqImz+ZU0ODXUHp2oxqP1LuhmRzCYjqnOxGAsNYnXg2GerwHsoF0E055GAYC?=
- =?us-ascii?Q?5WuOjCPQoMJIK6RV9+DUKCktMK5/5yOnOrXO5i9WpnF52o6ACGwR7JIQ9xd/?=
- =?us-ascii?Q?BG1zUa+ZFAPjjPr35+BC6X6SLZ6cjs3RKw0A42Z6/FSfb5xNOwgCYisy8Vqa?=
- =?us-ascii?Q?Qm436aEz1Yn7hPwJeb6A8FqUFTlHl1YV5RQst2f7AQ2Q+Zn6cC2tx9wJ2lMi?=
- =?us-ascii?Q?xfsSllQ/MgirvVdD290rN0wpiznVMT1p3YcOJeYRVqbN3JxEFfuSp7rInCym?=
- =?us-ascii?Q?iK6R8/Il6/lZ+ZH1dsiAV4GILKr/NBy7dCl+7FNOuXY8LezDcXVRPefYA7MB?=
- =?us-ascii?Q?6PI/eV798GwuHhqiOv3P8GJVeUR6LjNaKbuD/0KXqt0UJFKWM4IAzR6c2Dar?=
- =?us-ascii?Q?g3TefJPUoMeGgqC7EmnwsIsU8Fsrg8eIJNFXmJSvFlRbt1hai7cc/p33iNT/?=
- =?us-ascii?Q?IKOx1LrD0WomWsyDJNqTFUp/+A1VnH3pdG3E1K4hKhC5X1wVqPdFdlLDvgng?=
- =?us-ascii?Q?KQMDc2Hr3Np22mrzx93hpzoUq/J0AIC3KTBjhS/6CRXEz7q2S7JQ5+6vb07o?=
- =?us-ascii?Q?74cDAUfV9TUn7uS/kwRDmUybOGKlTqby0wWQQcDRy+X/fCrLFgbrZpERMBF+?=
- =?us-ascii?Q?V+kIaZ3qVxiEZEMOJlUdz2eIMWDkOJKh6ILGjAsODp9w+nyrRahBar8jG2aY?=
- =?us-ascii?Q?C65pjLVEQSj0toFfh3A5VyDn6uUYzoGBEblMv2KsSbg/bWA9ktqbsX3IboQN?=
- =?us-ascii?Q?mSniblRsp6oUnb3TArgxkqIUVZJZWKfLUVpMtFmEP+nGcdiKBKLgi/HEIGD5?=
- =?us-ascii?Q?PzXaVdx25CWaJF49lH/lxixvzKb5pSttlkNR1p+z1AVoQM7NgOD/CFbtBMG4?=
- =?us-ascii?Q?bce6frnrzihkcDAOrdZ+LNvIyKJaezWEJEdBOQ0eyLL8M4CYP/3OHxdO62GF?=
- =?us-ascii?Q?Sul15vmbqeekBipujLemZ6qdaRCN/OVktJ3PEfYVlaV1baR6ubM/VmaY7+re?=
- =?us-ascii?Q?MfZdOD3vzQvNBKYwmn1L/JqXLq8qgX1mE3Zn/qMDhfYQYYfIEm/P9OPOfAzN?=
- =?us-ascii?Q?IUwPnXylnAKLqOLC+umH5EWutcfoCPBlllo+4V7yw21wo+G+bkBZeODgmq5S?=
- =?us-ascii?Q?wtlHjLtup7nrIWLIQPF9JTPHM8g4W2yWWVADYi3DEQ4S5EOVtbckN/+11v7G?=
- =?us-ascii?Q?pdEWJgk3/EOrWmS7CQPwGT9TZM4ovRYKkWdCpwpJsDxNcHTf6952R2D9FhuP?=
- =?us-ascii?Q?hx36+t0i8eQS8ilnc24y8JbHHvEG0XqTYv7MbrqJy1Gh2goONP1F/beDxPvB?=
- =?us-ascii?Q?yYM/Fg5xUTOECcByAcsq/JJBm1fX+eVl914AdXJfSMR7MDk3fF4Jp0ugSQWD?=
- =?us-ascii?Q?iF2dx4vE79u4L6XbVZoUaX8dlf3I4Mf9nXl/qUL+DHRnBS14UsokwyXPlfTD?=
- =?us-ascii?Q?ADThR0LbmkYR445Zo7dHmV5b2lNhrVy7eubQHfLqTCGBqHF2+PnD0Updv2P8?=
- =?us-ascii?Q?hcokR6gqasp4VdV4LuG2qqyTnQ+46nIhzSAsoAVrc/49tcJQeQ2On1HKJ2VJ?=
- =?us-ascii?Q?OLMGcc8pY5w7C2kNjUCo5wB6G0G4/bB1HOGWpy5GVHH3iMd6IaQ5?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+oVLIW2UNr98qlYqaYCNs/X5PU7jLVXIY9NOqrfufvb36xHK2d66c25x0LD+?=
+ =?us-ascii?Q?8Cqw5kYzXFwp7UflPcrrONjofZQ72Xxud5WWXh3AT4msUjY6isfNra/Y9t5x?=
+ =?us-ascii?Q?dsAnOf3DLOA1lkV/CYFpGzNJvCULy2ahbIp/Np6GMWlAiOlId9/ZLeqlMDMf?=
+ =?us-ascii?Q?uDXhh7jVyibgQQKQOeD+VJrg+K9S9i+6CXhJpIHJNngwhgzpAECSLX6Pcq7/?=
+ =?us-ascii?Q?xRp2ol5ZwLRJ50l06DQcpFd2xj7UaGE1KRGnrUBBZgOUX/cs3mPB4osKMT1F?=
+ =?us-ascii?Q?Y6pwN/aFWQBAYNjQzfTboisZ7gzISgA40FxEfvwBGNUrcHpbUoPE6D9ysZ7t?=
+ =?us-ascii?Q?exapYdpcGrv3OOU10U51MZhKv2uEJbvX5MKFggAbEy4Vvf+BpFwjAOPXutm2?=
+ =?us-ascii?Q?uon56t9LBc+0b4KiPrJ80vq1JcStwj2Ur253S04rKtDOCNzzhP1sxc+WEhTe?=
+ =?us-ascii?Q?4UjMfXYwrv1x5kPVlrgtDt55n4GxgTTyq0hnJwHtImOn6g8r3GPN/NuxRayR?=
+ =?us-ascii?Q?fKFUHxbm+htEQub6gHIpOYtBOa+uHF88IN783/5HGm1NwsoGiL03db+dfNaP?=
+ =?us-ascii?Q?uNGGb8xmGSxAF6xoWMHOei7bpvURIAEiADykN5ihQAxVwg+OpMss+8BfICfW?=
+ =?us-ascii?Q?qK48d2gU0XIjtFCIEB9AtiH0VMaH36moboP77xSA5xBkEJ2O8rTahgylzsVY?=
+ =?us-ascii?Q?L8e4XjX3eixHk5ejDdHbDB+8aygvioj5BI2AnAXPhY5I59epG0ufU7vPlYic?=
+ =?us-ascii?Q?1c/pb9owHPbXFnDYTgvy88cLDs7z6jbSe+PKwe13ScEvrqzSx0FVSZ/mK7x3?=
+ =?us-ascii?Q?gT/TbEfnt8VjLxy6QrNr/W1QJrF7rVa85YODiJuh7NbcPda75I3QUw+HBAw0?=
+ =?us-ascii?Q?MIggAP0iLp30NNKjDLKhQnvu3XOJ++7m4rLJTWxrhxHVX1n0avshzmosC6fr?=
+ =?us-ascii?Q?lZVgtda10EQMvED+jPvDHlOjRGR8uVzEp22Mj6Hhfz+nTrXtfGgpFWvHiOzC?=
+ =?us-ascii?Q?q2KDqiJMxEZ7viZ4XG+q8NYDC017Ismf0yqGErVb/1ilNxwvY1M8FvwizHxf?=
+ =?us-ascii?Q?YJJPU4NP51lpJSYzoQ3wW9ORVGGBJLzdr+ksSVhSTEiQ+KoZMf/3ZPG1255j?=
+ =?us-ascii?Q?efrA39VqbPDNM2mNnojFz9zKKpjL0O8nUh9NM6T/glUtpRQh4CLj4v1f3Qlr?=
+ =?us-ascii?Q?78aua7UMViXfgTpMVTGuXJZ0rA+i/58LOtB8KDzxNfh6HAAHgMgcePLh784/?=
+ =?us-ascii?Q?8UHhZ6WEKZLhvZyyS+c/UZdxR/C8l6s74ljTkcm6Pleu7y++BOen41ebwbky?=
+ =?us-ascii?Q?Kz3XoWEEKZroTPeLNASm/KzI7OKo/wvFk9f76xsffPCX4xqv5JZDpqxtsqij?=
+ =?us-ascii?Q?aBK2WKmltQ/mWb3YvzuFz7JXzY6umRjL51D8CkeJb2m6QbVxQhGtJ2mI92bt?=
+ =?us-ascii?Q?q5P7/Y9gqX1P7BR9ZLKD8SoPjC5+zq5+wHaiZk7MDb6yGU6rgqTzk5RuCO6i?=
+ =?us-ascii?Q?gpUMn812PR2WMQyVdg3CWL4NS5OTUhsoC76S8k/KBpEl3FBlsLDknn4WOHDI?=
+ =?us-ascii?Q?zMfiUfSDs37UZxxdUlH+6PmuKb9ba5mv4zhZzDOHXP9MrCGAv3i7k1NouYCJ?=
+ =?us-ascii?Q?Lkc+wx+VCdjtEVdbtqaeSb9n1CgdBJwsr2bOdfInzwNKmiYUGLVESerPJFLA?=
+ =?us-ascii?Q?db1j8bqZIHiAyj9qxM+2FZShHkWqLfjERw6H09XJfGZq+2NjCP+HAcoZwIh/?=
+ =?us-ascii?Q?O47wCP1uZnfQ2+Bg10c9of24R/C9nNJJux2n49qxtRRDCUk/YcVy?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc64bf9c-adc7-493f-5bd4-08dea6fd67dd
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54d8eeef-b5b9-45c1-29d2-08dea6fd663e
 X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 21:14:03.5689
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 21:14:00.8222
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HzKFVA69z0Ilo4st1oJsko/L3IqbC878bmrzEsIGJOMDiFfkAZJkRrE6KxRp3XPir7dAwJ7dQdH29VgpvyS00Q==
+X-MS-Exchange-CrossTenant-UserPrincipalName: gdn3lUTLm7ZSMZj01ZuM2bkj/QyHpneFTe3txlWuseY7Qs+JFpShmkWEdO9EUGKZP9s2A2greJWa8vkwBZq2gg==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_141409_315130_68CD7670 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260430_141407_910354_2F906476 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,81 +160,81 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Define generic __bitrev8/16/32 using the implementation
-in <linux/bitrev.h>, so they can be reused in <asm/bitrev.h>,
-such as RISCV.
+Currently, the bit reversal lookup table is controlled by
+!HAVE_ARCH_BITREVERSE. This makes it difficult for architectures to
+provide a hardware-accelerated implementation while still falling
+back to the generic table for specific configurations.
 
-Reviewed-by: Yury Norov <ynorov@nvidia.com>
+Introduce CONFIG_GENERIC_BITREVERSE to explicitly manage the generic
+lookup table implementation. By using 'def_bool !HAVE_ARCH_BITREVERSE'
+with a dependency on 'BITREVERSE', we ensure that:
+
+1. The table is only compiled when needed.
+2. The .config is not polluted with useless options when BITREVERSE
+   is disabled.
+3. Avoids bloating the .data section for architectures that have
+   full hardware bit-reverse support and don't need the table.
+
+Update lib/bitrev.c to use CONFIG_GENERIC_BITREVERSE instead of
+checking the absence of HAVE_ARCH_BITREVERSE. This provides a
+cleaner interface for architectures like RISC-V that may want to
+selectively use the generic implementation as a fallback.
+
+Suggested-by: David Laight <David.Laight@ACULAB.COM>
+Suggested-by: Yury Norov <ynorov@nvidia.com>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Signed-off-by: Yury Norov <ynorov@nvidia.com>
 ---
- include/asm-generic/bitops/__bitrev.h | 25 +++++++++++++++++++++++++
- include/linux/bitrev.h                | 20 ++++----------------
- 2 files changed, 29 insertions(+), 16 deletions(-)
- create mode 100644 include/asm-generic/bitops/__bitrev.h
+ lib/Kconfig  | 18 ++++++++++++++++++
+ lib/bitrev.c |  4 ++--
+ 2 files changed, 20 insertions(+), 2 deletions(-)
 
-diff --git a/include/asm-generic/bitops/__bitrev.h b/include/asm-generic/bitops/__bitrev.h
-new file mode 100644
-index 000000000000..f06af929678d
---- /dev/null
-+++ b/include/asm-generic/bitops/__bitrev.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_GENERIC_BITOPS___BITREV_H_
-+#define _ASM_GENERIC_BITOPS___BITREV_H_
+diff --git a/lib/Kconfig b/lib/Kconfig
+index 00a9509636c1..3ac12308eb76 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -62,6 +62,24 @@ config HAVE_ARCH_BITREVERSE
+ 	  This option enables the use of hardware bit-reversal instructions on
+ 	  architectures which support such operations.
+ 
++config GENERIC_BITREVERSE
++	def_bool !HAVE_ARCH_BITREVERSE
++	depends on BITREVERSE
++	help
++	  This option provides the standard software-based bit reversal
++	  implementation using a lookup table.
 +
++	  Architecture-specific implementations (HAVE_ARCH_BITREVERSE)
++	  and this generic version are not necessarily mutually exclusive
++	  at the configuration level, but selecting this ensures that
++	  the generic `bitrev8/16/32` functions are available when the
++	  CPU does not provide native instructions (like RISC-V's ZBKB
++	  extension).
++
++	  If you are an architecture maintainer and your CPU has native
++	  bit-reversal instructions, you should select HAVE_ARCH_BITREVERSE
++	  to skip this table-based implementation.
++
+ config ARCH_HAS_STRNCPY_FROM_USER
+ 	bool
+ 
+diff --git a/lib/bitrev.c b/lib/bitrev.c
+index 81b56e0a7f32..3a53ff67aeba 100644
+--- a/lib/bitrev.c
++++ b/lib/bitrev.c
+@@ -1,5 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+-#ifndef CONFIG_HAVE_ARCH_BITREVERSE
 +#ifdef CONFIG_GENERIC_BITREVERSE
-+#include <asm/types.h>
-+
-+extern u8 const byte_rev_table[256];
-+static __always_inline __attribute_const__ u8 generic___bitrev8(u8 byte)
-+{
-+	return byte_rev_table[byte];
-+}
-+
-+static __always_inline __attribute_const__ u16 generic___bitrev16(u16 x)
-+{
-+	return (generic___bitrev8(x & 0xff) << 8) | generic___bitrev8(x >> 8);
-+}
-+
-+static __always_inline __attribute_const__ u32 generic___bitrev32(u32 x)
-+{
-+	return (generic___bitrev16(x & 0xffff) << 16) | generic___bitrev16(x >> 16);
-+}
+ #include <linux/types.h>
+ #include <linux/module.h>
+ #include <linux/bitrev.h>
+@@ -44,4 +44,4 @@ const u8 byte_rev_table[256] = {
+ };
+ EXPORT_SYMBOL_GPL(byte_rev_table);
+ 
+-#endif /* CONFIG_HAVE_ARCH_BITREVERSE */
 +#endif /* CONFIG_GENERIC_BITREVERSE */
-+
-+#endif /* _ASM_GENERIC_BITOPS___BITREV_H_ */
-diff --git a/include/linux/bitrev.h b/include/linux/bitrev.h
-index d35b8ec1c485..11620a70e776 100644
---- a/include/linux/bitrev.h
-+++ b/include/linux/bitrev.h
-@@ -12,22 +12,10 @@
- #define __bitrev8 __arch_bitrev8
- 
- #else
--extern u8 const byte_rev_table[256];
--static inline u8 __bitrev8(u8 byte)
--{
--	return byte_rev_table[byte];
--}
--
--static inline u16 __bitrev16(u16 x)
--{
--	return (__bitrev8(x & 0xff) << 8) | __bitrev8(x >> 8);
--}
--
--static inline u32 __bitrev32(u32 x)
--{
--	return (__bitrev16(x & 0xffff) << 16) | __bitrev16(x >> 16);
--}
--
-+#include <asm-generic/bitops/__bitrev.h>
-+#define __bitrev32 generic___bitrev32
-+#define __bitrev16 generic___bitrev16
-+#define __bitrev8 generic___bitrev8
- #endif /* CONFIG_HAVE_ARCH_BITREVERSE */
- 
- #define __bitrev8x4(x)	(__bitrev32(swab32(x)))
 -- 
 2.51.0
 
