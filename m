@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2058FF8875
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD1BFF8875
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gGF/04hrphxQ2sCmrmG0IEBddrdOY05NlXPabMn0jFs=; b=xdkDU1G7wh30Qd
-	8LOdgbD04zGT2rdgcZQ1MoLSPNxUCCC/qVxiQXPmXV4dO87H0qJ/9xrl3EvCPmFQKRM+IkhJMzOhW
-	glhz+2ZMx1R+iS+DSw/JAecaQa1V8jGrBfbgi04nphGAHqJKl7xGE7BQciIDczk3zSukbvyiJyPkQ
-	R06Yza4KbefNVwzzmGV6S4nqYTvr7OgRKB8rjgtEfdYQDBHZzs17RJoSLloU6QcvSjRYTIilTF8LJ
-	j1C25vKjyoo7QvrHqxwWiAUj4EBj5m9HUbnXRNn93V4yA0emgebMjhmVBajgovURZLNZJBpBQdyhz
-	B9WrYT5rL5VWuXatcZpw==;
+	List-Owner; bh=NhXwFsqPab82eFI66CVEfEhcs0RLX+rcnA4F1DRd5ns=; b=Sbw/ak0z9T1Gy1
+	SwTSZyxaaDaUR9lBkRpRAy+Xg55JZ7jtfHPdg34z4HODnetFjG9ELKr8Cymg/LVp3m4b8BoZqNcDs
+	OU4Uo/wV21NxJIySSQZwc+sKVs1UK3ZeKJprr8D3OpddHtpKPoPMtb4AzaLo8myTZftHyvaH2jplz
+	g16xin5eElHdCaR1/McmKb6TlTIwY+yzj7bsfsAObWuTcqKxDlW4dJadVTVqmrLDX2Kamfb4EkjBm
+	T2TRSWbk9VQqT4vw3lSGf/1lTWEqPaknys8VSR5ooeGpHMx28Ag2BXXfAm1TcSPgV1F3JfbpyLT3G
+	HVnBsmUroyYTY8uJwvcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII45-00000004Y7c-1eO5;
-	Thu, 30 Apr 2026 03:27:49 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2x-00000004WvY-3DRW
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 30 Apr 2026 03:26:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=eBUV1UY51EquXgvsu9l0J1vD54XyfRXbXcUtN91vcr4=; b=I+eVgCJFo5BBRN3hr2lpa4/n7X
-	CsURX1z8rk5E7SRK2Fzmi1BJUMt3D0YvpI0ORCqGc/WnKF998Lvi/AsiDDJkRCWPkmmZlvXvDRWzK
-	6e59hspRCf1b77gnPDQBkcOnMA1114Lvg5Ham9Toy765onMcpzNwXyi9XeYMCZW4+6s9NBTO+GR3t
-	b6Qh3sJdHbq4Z35KT5KdC0kj/Hi5WrNsfn4lZRBrhQUGcfxNr+xHp5DQ+H9rG9Rlbqu35GEUtMwVH
-	7bAiCd24+JPlHgcbmx6pPAJQUn5anzp7i9kuFpmPE3L1ekMraNneekENr/FjDwX2mJCCuhSwdA9+S
-	gStz27MA==;
+	id 1wII4D-00000004YIn-14zG;
+	Thu, 30 Apr 2026 03:27:57 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2t-00000006XnI-3UJy
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:38 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wII2w-00000004Wps-3Q6g;
+	Thu, 30 Apr 2026 03:26:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0412543C97;
-	Thu, 30 Apr 2026 03:26:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D76E4C2BCB9;
-	Thu, 30 Apr 2026 03:26:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 90D3844592;
+	Thu, 30 Apr 2026 03:26:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A3B0C2BCC6;
+	Thu, 30 Apr 2026 03:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519593;
-	bh=NX3tUbayE/lMyAJb6o3+e820TWiqNMgOixMjRLbyqAw=;
+	s=k20201202; t=1777519598;
+	bh=l9exXaykMZZr58ApvA3wgjdBqbjJXmcg2LD51E1L2d8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=mP65EIKsJxlWVdg+ZdXsnteOQuTT9vum2+qioBLuE0frnQQRT+QScmlJYMF4r2rSI
-	 vRnOVIKGyMypZxqAJx34gvszIqHVXmR+QkkjPihM/bdH5nsCqw/IomU2lfLTIO3qaV
-	 fvUnaxQNW+/G2HtGg5iLLamjVYA7JPeh8wZvmVHDfu5iMSPTt1nLar5p0412CtWDgK
-	 lyGF9LgaCB6elDJvdu74+k3vsoWGMlR2V3nAuZBmKoikIMpqHRujdbYpu6ZuyNybOl
-	 b62emfrFlXYc+v3w4ssHP5Gk2/SwOXz6mEx13YBbE2tukLYy+rUTQphw0/yGbP59MZ
-	 ojfVmdQYoJ7+Q==
+	b=VQ5fUnGVnOy9olGba/PpFhmIOWwrvE63bg7wf8QD1oVMBU1BxMtz5Q5sq/JwQ9xtx
+	 FBCndWX7NJpcwHQS2uh8ZRD+UwKJS8Nf/xOjB7kKUPQy858zCbkge2oAV6lxAQf625
+	 gG1qodBE+N3L2UtwgzEs5J0HoMAeFALuJQm6hAGuvkiAJgkXb28kjlalsRs3n3a2TF
+	 29IamRcKDsnYhlWjglq3Ko8zPoEuXsWpPSgFQW5Uw0WEZ3PhmG1Et2p+yJY2KivWmR
+	 Vv+BDgeCmlfDBpvBGUWuK6vk0BLhwJE3vHWgs2Tf1Bq4zcCUvorNfflKfJA4kV/UO2
+	 SQxIDV5JK1LdQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FD903809A07;
-	Thu, 30 Apr 2026 03:25:50 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9F3C3809A07;
+	Thu, 30 Apr 2026 03:25:54 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCHv7 01/18] mm: Move MAX_FOLIO_ORDER definition to mmzone.h
+Subject: Re: [PATCH 0/8] firmware: sysfb: Consolidate config/code wrt.
+ sysfb_primary_screen
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751954879.2274119.13489551409469223831.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:48 +0000
-References: <20260227193030.272078-1-kas@kernel.org>
-In-Reply-To: <20260227193030.272078-1-kas@kernel.org>
-To: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
- usamaarif642@gmail.com, fvdl@google.com, osalvador@suse.de, rppt@kernel.org,
- vbabka@suse.cz, lorenzo.stoakes@oracle.com, ziy@nvidia.com, bhe@redhat.com,
- mhocko@suse.com, hannes@cmpxchg.org, corbet@lwn.net, chenhuacai@kernel.org,
- kernel@xen0n.name, palmer@dabbelt.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, kernel-team@meta.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, david@kernel.org
+Message-Id: <177751955329.2274119.12779807302343885295.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:53 +0000
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+In-Reply-To: <20260402092305.208728-1-tzimmermann@suse.de>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: linux-riscv@lists.infradead.org, javierm@redhat.com, arnd@arndb.de,
+ ardb@kernel.org, ilias.apalodimas@linaro.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ airlied@gmail.com, simona@ffwll.ch, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ longli@microsoft.com, deller@gmx.de, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-efi@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_042636_014794_F45F2B6E 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260429_202638_995453_4095C0CE 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,22 +83,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+This series was applied to riscv/linux.git (fixes)
+by Ard Biesheuvel <ardb@kernel.org>:
 
-On Fri, 27 Feb 2026 19:30:02 +0000 you wrote:
-> From: Kiryl Shutsemau <kas@kernel.org>
+On Thu,  2 Apr 2026 11:09:14 +0200 you wrote:
+> The global state sysfb_primary_screen holds information about the
+> framebuffer provided by EFI/BIOS systems. It is part of the sysfb
+> module, but used in several places without direct connection to
+> sysfb. Fix this by making users of sysfb_primary_screen depend on
+> CONFIG_SYSFB. Fix a few issues in the process.
 > 
-> Move MAX_FOLIO_ORDER definition from mm.h to mmzone.h.
-> 
-> This is preparation for adding the vmemmap_tails array to struct
-> zone, which requires MAX_FOLIO_ORDER to be available in mmzone.h.
+> Patches 1 and 2 fix general errors in the Kconfig rules. In any case,
+> these patches should be considered even without the rest of the series.
 > 
 > [...]
 
 Here is the summary with links:
-  - [PATCHv7,01/18] mm: Move MAX_FOLIO_ORDER definition to mmzone.h
-    https://git.kernel.org/riscv/c/a2c77ec320a9
+  - [1/8] hv: Select CONFIG_SYSFB only for CONFIG_HYPERV_VMBUS
+    https://git.kernel.org/riscv/c/d33db956c961
+  - [2/8] firmware: efi: Never declare sysfb_primary_display on x86
+    https://git.kernel.org/riscv/c/5241c2ca33bb
+  - [3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable option
+    (no matching commit)
+  - [4/8] firmware: sysfb: Split sysfb.c into sysfb_primary.c and sysfb_pci.c
+    (no matching commit)
+  - [5/8] firmware: sysfb: Implement screen_info relocation for primary display
+    (no matching commit)
+  - [6/8] firmware: sysfb: Avoid forward-declaring sysfb_parent_dev()
+    (no matching commit)
+  - [7/8] firmware: efi: Make CONFIG_EFI_EARLYCON depend on CONFIG_SYSFB; clean up
+    (no matching commit)
+  - [8/8] firmware: sysfb: Move CONFIG_FIRMWARE_EDID to firmware options
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
