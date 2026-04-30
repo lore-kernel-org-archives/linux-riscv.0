@@ -4,131 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABA2FF887E
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 01:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79350FF8875
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 02:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bLQ0nVMHIniY1xIM4erF0VkX5gGeYW9Ys5ruBcMibPo=; b=1nZW6pZp6dAxbM
-	+Z5f6b8byz5wWE5BuQ9k+sD58aBToGnBhHbIPB3wWHa7bjH3XG7Cuijt1/0mgxF9/NngvGwR/1RCh
-	bpyVE0JVRvRXjTCaERqfk71WLEGXwdcYY+voRoFH3N97OHAmGHrmXXMbXoMrJnpd0wkw8f82PWNrU
-	VrlA7GDRMKgddD9xM1D/SSFlidWInKjGhS9EzdFb66UdykF0FlceRCI5iskhG+721Gk7ggpSo9nSJ
-	RgpmMmqmXEHS4qr8z4Ar9MAQpycaR5J6USJjvzngpSDfKalXfFwSaJ87uWPqsGpgquuujnt6cR5qS
-	GYm5RZvV4lbuTHwkZvhg==;
+	List-Owner; bh=mS1GWfm4/1qSq8WyzfXqCvWJcZgfXYE5kj2pW88hS7I=; b=zDyq6lQu5a84lD
+	rTqLjdqk4cnQuEp0bybS5Cc4b8vZqQppN5s8/1VaaX4xeL3Iltqd04leNB4lJU06Qb3ceKEgUTnRE
+	QWcnfh+jfn7c21/KahF75CIbj895fgIjF61mBbfB0vsGOAt4EDWwvRrTnVRME9BYSSqkU035845C7
+	jr/zf4PwZgChh/DE7+FcSuxe/Re3Lh+h3tD2VSH5Z70Vf//nL8wk699e0dxeO3iVaHXSUaSp7U27V
+	UPUCPpD0gHbAu1OvsXQ/wiGkmq6XjDuHZi9h8WShNw1xMNJrzqJYa0rD0LOnSl3SOyWfYoeIz0Sb4
+	Oz+k03XEBxmO39gKWaLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIGUw-00000004OHo-25GM;
-	Thu, 30 Apr 2026 01:47:26 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1wIGlb-00000004Pn7-0Eef;
+	Thu, 30 Apr 2026 02:04:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIGUu-00000004OHO-06AJ
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 01:47:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JepKP1oFg9KbtFxn+vNYfH22JDNOxkOrtZRz8XKKF1dKxABslZUgQ5oYWyUPIE5WlkPww9QPcPN/+r1HWL8Za6AfMrygrRyn1MatzswLnq82whwuQlXl9M0Ma47rNRR3QSSn8lt7pBcMF5elFHuO6h0R3rWh11k6f3qmjoi5g+WRyiM+GIg9nP6OFI+IPJaUNPZ5B4HYKwCq6dMJHLrJvVW4yxk5Ub7MTUam5U2WTWB09GckqVh+sF9PEQBiWlMD0GEQBv8CivNURqe3vpb5R3tLxLtLgsvVtxkhdymXEAVzCTFBr5eRQnzlY3mG3SUf7EtDkwhhoUjGRj4sGs0Q7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=waKW6NL2HZaFlS/XvbRlolg0hQOuwLZtFsrPi0WPvMQ=;
- b=HxWm3RGp82djmgGSzThovzvpp0tS5MB62oBQvLv02LsSs7oXQnYU+gqUSt71CzCx66GEFL4O09Vdoc6esSXns6NGyw/VUFwJ8sL70Sc0aZgMrdOV0OpXXjab85ayll/aYw5XOlse1He/AU4+Hosg5WQDeEzQb7OKMF4ThOzFlvav3MzB7fsmbyuSId4aJTMZHhI1JBbB4/hg3QpKfnmgWtF+BZlyYOgzrz/+agkPj+6o7QkoiqIYX/BLBVgixF9gPvyixvHRmNjwTviOs/l2xwyTmZwvWv97LAs/cQRct7+sCK9SJ+5gMdOLUfF3eZU0EZgymV9jfWB8NAata3f+eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=waKW6NL2HZaFlS/XvbRlolg0hQOuwLZtFsrPi0WPvMQ=;
- b=YF7xODsMlevrr//KB9QgQxbd/PNU4SvQs459QSeUNaCCDHess3x/OulDTZthrWaBEx/VgusoUqjOEJdFO4Xk/3/oAm3oMjajfQ41kU9ZO2V7tQ1Aa1MNF0c0M1h6JQR59souItYUAbeqEsFOD/eEBZbDCpspu80+n9nB80AoIWBbDociLhdWsAX/D4NhBBHmOiDzL7zfHo2DK5uTrjLRFowYnwspUySuTXYVmWrudwVvEvO26jq5DoFPvRUtGTUQo/Ge3gX4zc2WOmIl7qM3YwO7I/YL2kJptktd0W6gNQnGqUUYm2bVMEihm92uRgQn9CPIk3MQ9wmVpHayHayc8g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by DM6PR12MB4107.namprd12.prod.outlook.com (2603:10b6:5:218::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.19; Thu, 30 Apr
- 2026 01:47:15 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
- 01:47:14 +0000
-Date: Wed, 29 Apr 2026 21:47:12 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, yury.norov@gmail.com,
-	linux@rasmusvillemoes.dk, arnd@arndb.de, akpm@linux-foundation.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, david.laight.linux@gmail.com,
-	cp0613@linux.alibaba.com, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH v5 2/3] bitops: Define generic __bitrev8/16/32 for reuse
-Message-ID: <afK0oL5FS8eLobpV@yury>
-References: <20260421130752.607500-1-ruanjinjie@huawei.com>
- <20260421130752.607500-3-ruanjinjie@huawei.com>
- <20260429202922.GA3575295@ax162>
-Content-Disposition: inline
-In-Reply-To: <20260429202922.GA3575295@ax162>
-X-ClientProxiedBy: BY3PR04CA0019.namprd04.prod.outlook.com
- (2603:10b6:a03:217::24) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	id 1wIGlY-00000004PmD-43bG;
+	Thu, 30 Apr 2026 02:04:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 38DE46111B;
+	Thu, 30 Apr 2026 02:04:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 746D8C19425;
+	Thu, 30 Apr 2026 02:04:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777514675;
+	bh=a++YbQU7FRs0I4k/4YaT3TJqWIFkLlG6YRMDY9dCTQs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=STgN3oCruI6nLZgGJYguv7aaC8yIHWjXDkwuOm5EOsbfjAbK/Y7wX2fo5zVHG6dEz
+	 4TrPuODwCZF9r88CI2GpMxTap5isMvLp5ztV95vFPT5u3kpvbnGgpmr2VVlFRi4NFk
+	 gk3rfdTBQiB+qPUNHV2/aCUI9SHYukSfMSvvIXEuRm+34HxC6kJMAdQZeA7JIMpgys
+	 yUVEyxrPyBD9jsHShIgkP+V+tTJuiBZRIItoHPPN87ozw+P1ZrO+pU0NqUV5KQ2HKL
+	 yl6beHOEksT/+ttHAPwSg4GzO6iSVPjrlGiuOpH2D+E7TL7V7dlFdgvCSQIQEfW21j
+	 tqwg4emlOmEmw==
+Date: Thu, 30 Apr 2026 02:04:33 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ze Huang <huang.ze@linux.dev>
+Cc: Junzhong Pan <panjunzhong@linux.spacemit.com>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH v4 0/2] phy: spacemit: Add USB2 PHY support for K3 SoC
+Message-ID: <20260430020433-GKA3230719@kernel.org>
+References: <20260305-11-k3-usb2-phy-v4-0-15554fb933bc@kernel.org>
+ <20260326001443-GKB777612@kernel.org>
+ <20260401130713-GKD976850@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|DM6PR12MB4107:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09dc6e3e-3c97-4302-5692-08dea65a6752
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|376014|7416014|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: bkwYoLjnWTizsh/D/oQIVzfQ54OGsqHuqVruX7thaeAWcxVHPayEpy/61Q5Umi+jEW5OjoVyKcXuck2xtJ6xn77sKDK/BZhyS3nfgQQ8CGDc5jlKvaxj7/BoTFmdolNiAz5VuSBRDVveKKojBQB4MAI7wsrs2nnhfFvRSaFQ3QRlJlyErq2CilXkdnLDAE0uj1+LjhoMIw+cvXFmcJiXPMrWVjFhgxJWyOT0Gj3lhsBFkT1htHp4ETHfMhAt/emVO3/uZSIURBFhMz6wjNRZvg0XrhtEF/EtH/JD+ostlpRhQg8iZN1fbn6O7PdNacPcuXgiqmaTXJM/jLsiOdMt8xY798DlExHXfsEWpqvpWYgffR7NrOMxP64SUZ7Sjtj47Zwa1HFDcZWnwH13xBut12wvrO3eZyhVy0+IDSP0hYSfCFDe/e9NMhMyZl5Bpq/cOQrGR/wXgCEGIf5Oc1/1V7v205FXxYmpfStLDgY8T8Lp39wuOZQJ8/ylFt3tfCSUjYJGTaDQNsl24fIETTMQVFUSFHN7gkLhFw+W8JbuNwuQ1+NFyDH4jq8wOkKahVWO3mM9cNXm4hpcGHoOIc4gwzaSTTcbWoT1weXzGEsBbwV37XYhIPGzZUPYhfKnpEwvniu+JW6yk7I/2fy99ggD1/UazpFhNO2W4Nxder+CCQ4vI/HsBxXiXYuV48pH1Nao1L6RE8JxioPzrP1RLFRvIcLYdYP1TQRRX1rhqMvppjo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(376014)(7416014)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2gKXgLsZN9xoBVFaGnzjFsymJstQ++cV1fNwhMCTIZUPTqll5ZBoBm9G4Mcp?=
- =?us-ascii?Q?1g8tNU6RmS3P8B9eE2VXYH/RyneI2mmnb/EjWE9WnJzEvSWRLPvFl1rpe4LZ?=
- =?us-ascii?Q?3P2kYDhgjEIRjv/4T2kIBrx67OSc955OUDiLDuuNnxSbWAnXw7IOmxvvCLb+?=
- =?us-ascii?Q?V2+A/KR1HUywhkUQ+mHjst4Z/Jn0iVrGXBDw7ZSuMJtWeJzYIt5ED4Wxvsek?=
- =?us-ascii?Q?HAfiCowM+nVcPW/I4UCBgTnw0kv+xdMReywSLxPN8aFcdESOGEZ2txAYKk9/?=
- =?us-ascii?Q?9TymfFmlSlcaLg0AvDUYTAgz2JJrs41iwVZyrGwGAWWLtiV5fopwRVLFE69w?=
- =?us-ascii?Q?vmWAvs+yUYtFG7VtxMjTrvXxdbCAsy++FgStvJV5ijqTtVpywebkoKjQXKRN?=
- =?us-ascii?Q?cnVH4ebtR/1mKd1EmlAuG2HjdJ+jX/z4DI1xQxGkryAkio/TCHAyQOcuRvf+?=
- =?us-ascii?Q?j6K8oNLHpnQGfFPtmwhrgKwwl+5ZkzPU6cKbYDvfmtCLb9YtCz1qrcbWhuIT?=
- =?us-ascii?Q?aSsn9uxEChN3gQnhZm8t2rE9jz0dmgR/Se7c8j5oz6xCa4eF8Ag4mUP7puFX?=
- =?us-ascii?Q?FYoZBe9+TwF0hwaVCCNQnMEcJJjJkO3I45Ec0KDi8MauoK/YJ6A/Lz760DTw?=
- =?us-ascii?Q?365V8MRtXVF7Lf/vG+yTxLSBqiZ6IfN1O5yhftcOMp3vgXIMVJcn+4xT6NB5?=
- =?us-ascii?Q?AQ3BsB6bCcoPovHWB5b6VdETNyh2WBUYEAESDCndcK17ZZ9eTrj/oq/4k5nP?=
- =?us-ascii?Q?QHyJaTv2zArqGh48sz7cpc8kn0//qXGjlZqYRUnN5RLXXSrns5/qKHg9VTtk?=
- =?us-ascii?Q?FWM6mD9uV7IFhfkNfr9R8K+xk/1iZmwCxfRV7oBxQvadA33o4R50weo02K4H?=
- =?us-ascii?Q?lXtlzpPzmN9xwMmYZYAqUEpFD6X7m5ia3l6tDfDuozinjpQpPVPVJpqnG3eV?=
- =?us-ascii?Q?bm/LylHrJ8jon/Jw5G9MhIkuWfluFOGpRpl6kiz5hh6mp+mi5odHX/SJybdj?=
- =?us-ascii?Q?KmUxyNovTr9m4k0/4JSys92zXBV6/0tqOnaBK3KIHyTruDou6+z90ScTIVOI?=
- =?us-ascii?Q?J8y9GtXriAY35uNGCbwNHy8PQcp0F+MRwWbALWMwv+iqNrTBHo8FhlFxNQCj?=
- =?us-ascii?Q?Qy05k2shsV1rBGPIdl4pdUyngpNIwKsSiAAAmynjc7G+lnl4z/l196mUYWQd?=
- =?us-ascii?Q?R1OLN6+WTd5K6iwr0OAiN+kOwiBKy10SECt06Bx5YCaKo6zHcOU5VSYMgRql?=
- =?us-ascii?Q?jLdgphu1Dgpemlf45nEohjilYLbFZtkocKD3nNxvW6heRhGiHN4JerPxq4JP?=
- =?us-ascii?Q?GWCLICQIX70yEyHvyi4/l4AEd7oSDKGOMoL90vPxAokqrbZbst4qZ0PxORWC?=
- =?us-ascii?Q?/xiytGV2lBX0AvOh8Y+Yas3tuDnHtfCZXjTjLbKm1qqDUIzvggIKgoPYNBD+?=
- =?us-ascii?Q?9+D0heneqNLkNAR/JM9FB1aa4uMNpi62DJxcsl8f89NOfbTYYLlwowP/uhBr?=
- =?us-ascii?Q?yQ/G/3Vxh/VtMpAOlvgYPfadduBVfKc/EWuLeCWutOHxxus8oFqGboz6ui63?=
- =?us-ascii?Q?3P+6YhpV5sRIDKpreKNCos5gFPIlCcSwXEB2FQZN3MKC/LamIOiAigNn+zUN?=
- =?us-ascii?Q?utfI0fxY5CfdFGkkxiMRe8A9Gx7Z2inSv1yjxavpPu70klsN6h8qerj0keuu?=
- =?us-ascii?Q?6OcbdFLoBiSnNEH7buzMwrQIVH497eMgSwqJVfTTyQWwx7xWG2B9XHOdv20x?=
- =?us-ascii?Q?uW+zWmKhiI9JJXmJNa31wbXIZv0G3Yr3mBoYK93zwWVIY5/XOA3g?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09dc6e3e-3c97-4302-5692-08dea65a6752
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 01:47:14.6367
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: c3rX2jT1Tg1qLI5jgAE9rRDqntwGFk+gZZMYI1oI2zk0Ep4IHHdfLsqPiFvV7VeNRjBJLTiQOUe80PqwhIMRtQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4107
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_184724_089107_3D7DBF82 
-X-CRM114-Status: GOOD (  24.47  )
+Content-Disposition: inline
+In-Reply-To: <20260401130713-GKD976850@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,116 +78,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+ networking maintainers
+Hi Vinod Koul,
 
-On Wed, Apr 29, 2026 at 01:29:22PM -0700, Nathan Chancellor wrote:
-> Hi Jinjie,
+On 21:07 Wed 01 Apr     , Yixun Lan wrote:
+> Hi Vinod Koul,
 > 
-> On Tue, Apr 21, 2026 at 09:07:51PM +0800, Jinjie Ruan wrote:
-> > Define generic __bitrev8/16/32 using the implementation
-> > in <linux/bitrev.h>, so they can be reused in <asm/bitrev.h>,
-> > such as RISCV.
+> On 08:14 Thu 26 Mar     , Yixun Lan wrote:
+> > Hi Vinod Koul,
 > > 
-> > Reviewed-by: Yury Norov <ynorov@nvidia.com>
-> > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> > ---
-> >  include/asm-generic/bitops/__bitrev.h | 25 +++++++++++++++++++++++++
-> >  include/linux/bitrev.h                | 20 ++++----------------
-> >  2 files changed, 29 insertions(+), 16 deletions(-)
-> >  create mode 100644 include/asm-generic/bitops/__bitrev.h
+> > On 01:00 Thu 05 Mar     , Yixun Lan wrote:
+> > > The series trys to add USB2 PHY support for SpacemiT K3 SoC, while 
+> > > patch [1/2] implement a disconnect function which is needed during
+> > > next connection.
+> > > 
+> > > No DTS part has been inclueded in this series, instead I plan to
+> > > submit them later while adding USB host support.
+> > > 
+> > > I've collected all patches and pushed a complete review branch here[1],
+> > > for people who interested to test easily, which include DTS and necessary
+> > > changes, other patches may still need to improve, but sufficient for
+> > > verifying the functionality.
+> > > 
+> > > Link: https://github.com/spacemit-com/linux/tree/WIP/k3/usb2 [1]
+> > > 
 > > 
-> > diff --git a/include/asm-generic/bitops/__bitrev.h b/include/asm-generic/bitops/__bitrev.h
-> > new file mode 100644
-> > index 000000000000..f06af929678d
-> > --- /dev/null
-> > +++ b/include/asm-generic/bitops/__bitrev.h
-> > @@ -0,0 +1,25 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +#ifndef _ASM_GENERIC_BITOPS___BITREV_H_
-> > +#define _ASM_GENERIC_BITOPS___BITREV_H_
-> > +
-> > +#ifdef CONFIG_GENERIC_BITREVERSE
+> > Just want to ping this, Can you queue it for v7.1? Thanks
+> > 
+> Ping again, I'd like to see USB2.0 support in v7.1 for SpacemiT K3
+> SoC.. and I think this phy patch is the only dependency that waiting
+> for, the USB DWC[1], and hub[2] patch already merged
 > 
-> The dependencies of this symbol seem insufficient, as I can trigger a
-> build failure on next-20260429 like so:
+> Link: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=c05cf9d274daf72dc7e433480cf2e0e888f6bd89 [1] 
+> Link: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=00b4fe5be06aecd6426930de86b7cffc2330f4b8 [2]
 > 
->   $ make -skj"$(nproc)" ARCH=s390 CROSS_COMPILE=s390-linux- mrproper tinyconfig fs/select.o
->   In file included from include/linux/crc32.h:6,
->                    from include/linux/etherdevice.h:23,
->                    from include/linux/if_vlan.h:11,
->                    from include/linux/filter.h:21,
->                    from include/net/xdp.h:10,
->                    from include/net/busy_poll.h:19,
->                    from fs/select.c:33:
->   include/linux/etherdevice.h: In function 'eth_hw_addr_crc':
->   include/linux/bitrev.h:16:20: error: implicit declaration of function 'generic___bitrev32' [-Wimplicit-function-declaration]
->      16 | #define __bitrev32 generic___bitrev32
->         |                    ^~~~~~~~~~~~~~~~~~
->   include/linux/bitrev.h:67:9: note: in expansion of macro '__bitrev32'
->      67 |         __bitrev32(__x);                                \
->         |         ^~~~~~~~~~
->   include/linux/crc32.h:107:36: note: in expansion of macro 'bitrev32'
->     107 | #define ether_crc(length, data)    bitrev32(crc32_le(~0, data, length))
->         |                                    ^~~~~~~~
->   include/linux/etherdevice.h:292:16: note: in expansion of macro 'ether_crc'
->     292 |         return ether_crc(ETH_ALEN, ha->addr);
->         |                ^~~~~~~~~
->   make[5]: *** [scripts/Makefile.build:289: fs/select.o] Error 1
->   ...
-> 
->   $ scripts/config -s BITREVERSE
->   undef
-> 
->   $ rg BITREVERSE .config
+I'd like to ping inclusion for v7.2 cycle, checked locally, it's still able
+to apply to v7.1-rc1 cleanly, so I see no need to send new version.
 
-Confirm the same for x86 tinyconfig.
+Many thanks
 
-The problem is that the patch makes generic bitrevXX() conditional
-on CONFIG_GENERIC_BITREVERSE, while before they were conditional on
-!CONFIG_HAVE_ARCH_BITREVERSE. So if you don't have arch bitreverse(),
-and dont' enable BITREVERSE, the generic implementation is not defined
-now.
-
-Luckily, the only user of bitrev() in unconditionally compiled objects
-is CRC32, and it's not needed if CRC32 is disabled.
-
-This is the minimal working fix for me. Please let me know what do you
-think. I can prepend Jinjie's pathes in my tree with it if it's OK for
-you.
-
-Thanks,
-Yury
-
-diff --git a/include/linux/etherdevice.h b/include/linux/etherdevice.h
-index df8f88f63a70..245b206dd38b 100644
---- a/include/linux/etherdevice.h
-+++ b/include/linux/etherdevice.h
-@@ -20,7 +20,9 @@
- #include <linux/if_ether.h>
- #include <linux/netdevice.h>
- #include <linux/random.h>
-+#ifdef CONFIG_CRCC32
- #include <linux/crc32.h>
-+#endif
- #include <linux/unaligned.h>
- #include <asm/bitsperlong.h>
- 
-@@ -281,6 +283,7 @@ static inline void eth_hw_addr_random(struct net_device *dev)
- 	dev->addr_assign_type = NET_ADDR_RANDOM;
- }
- 
-+#ifdef CONFIG_CRCC32
- /**
-  * eth_hw_addr_crc - Calculate CRC from netdev_hw_addr
-  * @ha: pointer to hardware address
-@@ -291,6 +294,7 @@ static inline u32 eth_hw_addr_crc(struct netdev_hw_addr *ha)
- {
- 	return ether_crc(ETH_ALEN, ha->addr);
- }
-+#endif
- 
- /**
-  * ether_addr_copy - Copy an Ethernet address
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
