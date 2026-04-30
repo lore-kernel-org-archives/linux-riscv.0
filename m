@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84042FF8875
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE28CD13D3
 	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,57 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XOlTFIdmpYPcfuE8HDR78l9Iz/cZy5bYTFX3RylV65E=; b=SoxcmesNbmMQIq
-	5Du3WOGMmCp6udvdW7WQenqpcDlnlCN1LNtJHVfbdUQ+0acEAj/Ucw1Auvtxb+IOvaWiP+c3lvyMo
-	V4hde1nE1T4CRLauDwbyFX310A9tpHR5lbYG8CugEKDmOvlfKR1BfXThqlYmoYMtkGTyWn5nm5NY8
-	Emh5qR7Secy6c95z9OhB08YLnr8rAahceci0X5vdOyLJnUOUuZdi7Nr4ZWVWwVBZpZqQC1mquSB2y
-	KGNwCKv0ObDniWRLLmst0Br244SVES+5kQzCugauqqX1eRNuIErn0d6r59W65NnX8SCeJoYUmK2sa
-	bqyHOubDAGoj2PsvLvlQ==;
+	List-Owner; bh=TCuWfeVcGK9GYRXdTcgJFAZMH8f2Cnp6dKwr0WoONEM=; b=mq4tUnYWzHFSFi
+	CwSkcMUqp1+nDjihpUoGGDUEhkO257SW9cx5oClPtOMSX0DKTbwzkQ7g/u2crCMa5wVaqlIOdBP5F
+	CoKnQ/FmEiEFlroF9zBzcKYFJwiG0L46arh4MTuNHBuD1t+oiJEGwB+tTVJVEukcw+Y5uE2MQzQcM
+	i9vardqarCd4RM3f4HFRhQdWEsxWLfiE+tdbl4sbnCqJUv2XEI6v1Sd5Fqgbrkn0ccTd845pA4h5I
+	bZl2i7hS4cPGzHXfkVX8/ii+x7Ef00FF1N0E4IGhAc+hpKHKbk9gz0D49DUOginH1gNIKKCAdRIiX
+	hC0/7D6pQCp3Je5mUQzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII3n-00000004Xjo-01gZ;
-	Thu, 30 Apr 2026 03:27:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wII3o-00000004Xly-09RJ;
+	Thu, 30 Apr 2026 03:27:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2b-00000004Wdu-1plB;
-	Thu, 30 Apr 2026 03:26:18 +0000
+	id 1wII2e-00000004WgY-3C4f
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Apr 2026 03:26:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1237744586;
-	Thu, 30 Apr 2026 03:26:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6296C2BCB8;
-	Thu, 30 Apr 2026 03:26:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3581A61344;
+	Thu, 30 Apr 2026 03:26:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB7EEC2BCC4;
+	Thu, 30 Apr 2026 03:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519576;
-	bh=IDMWKx8m6rNQw0ZCNz9wwYzKSr4KAa3cIQDkV5a1RQo=;
+	s=k20201202; t=1777519579;
+	bh=fymdwygTMdsitrih17N18ZeBUCi7Zz4qY74EMXzQlv4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=M8Us4xSbzW4gFQLD5L2V5yXNmiyJU9gy+rzMDUnwTCB88wRZeyRQcGUMytmIcBwNP
-	 yqZbEoMkICm7T1yfU41bAt8YuRwSnZ/p/8XRi81LwYi467rYrw4QAzZl5w21rVZvVM
-	 xC1HT1M81B8iE0n8NbczE5vX+CA6iqi2NknOcacNclVWNgL3Ewg3+DuFJgAEnaEV/k
-	 Gv5b8q3TSRljOzFUUmvLr4gMVfIXDgHdK4jtxJGCFX5ZhUICR2CgD+26NcFYlTO1i7
-	 XLNhEdPUAt9/Yor6L9JV4Ix723edKFA77rZ8FjcrGsnU6hEctaOdvYL9puAb38hD2N
-	 XauPp6jwxGbMg==
+	b=NOBHLUvjXYpURKCkD/52HuRaCdJzvvWyR5BCjodwjgyqi2GKoL9IM9/hG75i3bsZZ
+	 IeE0c6E9RXlOedlxD+dwpXGawEspBt0a5bCqs/xzFHAV757Z7cinfmVaMYfHK9i/tL
+	 MQAy1wXY57nWVdrF3nIVL+WoeyPlLJJPIT3lbEsxa4H8fLkiyZsUr3SQvn/Z2oMSbe
+	 qPshx2b20Daw/9g0rY7nlczfNrJvA1SZ7LCc2CkENy2tHflmw+wKP13JbaV/qtkKg2
+	 AB8UPOE9JhC/VzZxqHIPIMFvQU+ulP0SB/7q6NTGFEfPh8aWURDhMqSJqsTUOO1fGs
+	 aTcMed5IU7S8w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE2E3809A07;
-	Thu, 30 Apr 2026 03:25:33 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FD793809A07;
+	Thu, 30 Apr 2026 03:25:36 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] KVM: riscv: selftests: Implement
- kvm_arch_has_default_irqchip
+Subject: Re: [PATCH v2 0/3] riscv: cpufeature: Add Supm extension id and
+ validation
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751953180.2274119.17183218206073663905.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:31 +0000
-References: <20260402101818.2982071-1-mayuresh.chitale@oss.qualcomm.com>
-In-Reply-To: <20260402101818.2982071-1-mayuresh.chitale@oss.qualcomm.com>
-To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org,
- atish.patra@linux.dev, pbonzini@redhat.com, shuah@kernel.org, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, seanjc@google.com,
- maz@kernel.org, oupton@kernel.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
+Message-Id: <177751953479.2274119.7433375067666827705.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:34 +0000
+References: <20260125-supm-ext-id-v2-0-1e3b9714c860@riscstar.com>
+In-Reply-To: <20260125-supm-ext-id-v2-0-1e3b9714c860@riscstar.com>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, samuel.holland@sifive.com,
+ heinrich.schuchardt@canonical.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, evan@rivosinc.com,
+ ajones@ventanamicro.com, conor.dooley@microchip.com,
+ paul.walmsley@sifive.com, conor@kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202617_734004_8D401B3B 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +79,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Anup Patel <anup@brainfault.org>:
+This series was applied to riscv/linux.git (fixes)
+by Conor Dooley <conor.dooley@microchip.com>:
 
-On Thu,  2 Apr 2026 15:48:14 +0530 you wrote:
-> kvm_arch_has_default_irqchip is required for irqfd_test and returns
-> true if an in-kernel interrupt controller is supported.
+On Sun, 25 Jan 2026 09:36:05 +0800 you wrote:
+> Supm as an extension indicates pointer-masking support for user mode
+> (U-mode). It relies on Ssnpm or Smnpm for the underlying hardware
+> implementation.
 > 
-> Fixes: a133052666bed ("KVM: selftests: Fix irqfd_test for non-x86 architectures")
-> Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-> ---
->  tools/testing/selftests/kvm/lib/riscv/processor.c | 5 +++++
->  1 file changed, 5 insertions(+)
+> Major change in v2 is added dependency check for Supm in bindings.
+> 
+> As a ratified feature, define a dedicated RISCV_ISA_EXT_ id for Supm.
+> However, since Supm is targeting U-mode, it should not be added into
+> devicetrees that describe hardware running privileged system softwares.
+> 
+> [...]
 
 Here is the summary with links:
-  - KVM: riscv: selftests: Implement kvm_arch_has_default_irqchip
-    https://git.kernel.org/riscv/c/1ec8bea903f4
+  - [v2,1/3] dt-bindings: riscv: Add Supm extension description
+    https://git.kernel.org/riscv/c/feb5dba31a36
+  - [v2,2/3] riscv: cpufeature: Add ISA extension parsing for Supm
+    (no matching commit)
+  - [v2,3/3] riscv: cpufeature: Clarify ISA spec version for canonical order
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
