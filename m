@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FA4FF8864
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F788FF8875
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ph4UpQM9WFKNAD88tYSR9YNg3yIzJlIWO2bqspoaUE8=; b=MJxdtE2zuXOAMT
-	V9o4Ah4sulXUO+oMjWTlY1Tx+DelBx3JHeWjKmn7IhFmRK5QgevF6NfX+siMoust21fwgKES8BRYK
-	bK5gDF78JV/YEpkk6wj+IlevPh7NKws9AnRy8yucnBbN6ZOaPcH7kbg/BIkGWI77Q5Je3fuAt6V3O
-	mdPmRQdH3ZcFrA4HiPF/5bLFvvZGzqsNcjJ6glv2RdcKwVMGaScPGjIXxtKumJOYsH2Rqe/AuC5/2
-	Rop8XqK5C+vgiDcqtDhCZU554iAOmKu9RM7tHsQ/8Wf0xmK4y3jl9iHZ9Con7yf9GSGhy7yE/Cg6l
-	UXhx6bT3gN5CORb3VRfQ==;
+	List-Owner; bh=Ar0u1TAzOlHrMEb3rkBJ1aL+ojfy326kXU7wSoTNPEk=; b=nsb01FpCoVFfD9
+	/0XHulJqQQPVHw25LWjTloC7GvaTKyB8T3H3FsxcCCtCHkFDSiFeUWj7Jyea/DggLUJFmwB2g9uWP
+	bwID5LvoapuRXqb42K+hvSfSIG6vxrq5celwlf3lrEhzC5jUTL+efJEHI+yYXNIXsk8froe0SJLs0
+	Luh0tp9LczUDSyC9cVlervX61rv0SBHD/xzE2RLRtej/TzOjQSA9HvdBRf1uXdxLgzfY3w79CNYii
+	aV3H8Z0Lca1BU9q3OnbQ/EUlgvtTyRFf68/cH8UZ8pDo2pCzW/gtKUCMe7oCp4qXlgIBEIQcdGlfl
+	xjgUZYwc2pHedi4f93Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII4G-00000004YMn-2fAO;
-	Thu, 30 Apr 2026 03:28:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wII4H-00000004YOL-3gm9;
+	Thu, 30 Apr 2026 03:28:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII30-00000004X1f-42fu
+	id 1wII30-00000004X1y-3e5E
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:43 +0000
+	Thu, 30 Apr 2026 03:26:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 55CF461331;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8DA00445A7;
 	Thu, 30 Apr 2026 03:26:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0920CC2BCC4;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72B5CC2BCB9;
 	Thu, 30 Apr 2026 03:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1777519602;
-	bh=jOQ6F/qbqPQvr86AWUfO60sG0ahit7mDPYuhhIPcxY8=;
+	bh=oOqTJz6+oGeC7nxSzHHie9Uo4ZcI66wvOXUSWcZByso=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=EeR+2fmKlkkC3zXJwh38hlAoE2ur0kbazDdCl1B0MzT/OzLC7NC+ZFsu3TPGh+796
-	 1/Fwn9HhrPzwpstx5GId8w3mBHNX+inZaFjWNZCcKAt3Hx5c7c9X6uhDHJ7nHFEuTH
-	 Mr3HXQraGn7ohoz860VHeqXMnOfcBHYMb4T4DMOb4BFIN5FcUNgi39M2UCuTGwL7hT
-	 In6FDxyUbEFipwzNGL+OYqMERE9GjsYnTUp2l1+SjCm14W/kgT4XbCAnl39BDschFA
-	 SmzEX01qhFEt2udL9WTiIjiVW38Jch76j0dr7SJpWdZA6RjuNd5fQQuQw3af4SB2gc
-	 gWvic7yeoMu2Q==
+	b=lTp2pmXA/4Ix72Fy7WWJ9qNn1wSjsAloemMTyLOiYMbJ5ifPVk2xD2TqfRnuJsopR
+	 7JWDq0A/kaqf06j6WxmEk+fCHLnlX9PQaSdoj8ooz6ePF1A7bNRiIce46qQTZa3XV0
+	 XJbXS3mxeFaQNnIYUVbDInpsV1kx3kHjLk9FmQu23HzvnFQF41uirWQ2aP+s0l/zmt
+	 aIHo1beYHvknsfuUot2tDWTtfA0kwd0QCxjj6L52xjzRsO9tbBiflBMP8gqsSSltb8
+	 zA6d4Vqpw5XAR4XFtiDwyAaZDSU+uGWtBOEB0SXi4ipX03dRykUUS5ZloEEfYGv5ge
+	 ns7RBe8l1tZMA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CD553809A07;
-	Thu, 30 Apr 2026 03:25:57 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA4DB3809A07;
+	Thu, 30 Apr 2026 03:25:58 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCHv7 08/18] mm/sparse: Check memmap alignment for
- compound_info_has_mask()
+Subject: Re: [GIT PULL] RISC-V updates for v7.1
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751955604.2274119.1021480725497900179.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:56 +0000
-References: <20260227193030.272078-8-kas@kernel.org>
-In-Reply-To: <20260227193030.272078-8-kas@kernel.org>
-To: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
- usamaarif642@gmail.com, fvdl@google.com, osalvador@suse.de, rppt@kernel.org,
- vbabka@suse.cz, lorenzo.stoakes@oracle.com, ziy@nvidia.com, bhe@redhat.com,
- mhocko@suse.com, hannes@cmpxchg.org, corbet@lwn.net, chenhuacai@kernel.org,
- kernel@xen0n.name, palmer@dabbelt.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, kernel-team@meta.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev
+Message-Id: <177751955754.2274119.15664736705901088247.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:57 +0000
+References: <ecdaf68d-1fe5-0b55-ff6a-a2710c05ccef@kernel.org>
+In-Reply-To: <ecdaf68d-1fe5-0b55-ff6a-a2710c05ccef@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260429_202642_948114_EBC56B32 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +76,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-On Fri, 27 Feb 2026 19:30:09 +0000 you wrote:
-> From: Kiryl Shutsemau <kas@kernel.org>
+On Thu, 23 Apr 2026 18:07:29 -0600 (MDT) you wrote:
+> Linus,
 > 
-> If page->compound_info encodes a mask, it is expected that vmemmap to be
-> naturally aligned to the maximum folio size.
-> 
-> Add a VM_WARN_ON_ONCE() to check the alignment.
+> Please pull these RISC-V updates for v7.1.  I'm sending this pull
+> request much later than I or you would like to see it.  I do not plan
+> for this to be a regular occurrence.  My goal is to send RISC-V PRs
+> much earlier in the merge window (if not before it opens).
 > 
 > [...]
 
 Here is the summary with links:
-  - [PATCHv7,08/18] mm/sparse: Check memmap alignment for compound_info_has_mask()
-    https://git.kernel.org/riscv/c/9f94db4c7eaa
+  - [GIT,PULL] RISC-V updates for v7.1
+    https://git.kernel.org/riscv/c/feff82eb5f40
 
 You are awesome, thank you!
 -- 
