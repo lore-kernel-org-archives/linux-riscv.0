@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54351FF8864
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D52A1FF8875
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0aWhdnrWBREgCNqwyjEJddQ9kZJuRlGcd1YGYNZ1tZ8=; b=A6I5+jHRNv2CIi
-	KUCPiDCpGv3MyVG7EEkGn/j9TSvsbwNRs3Qe3qgFp/BB/bdm6OSdfSBkR7u/kni7BVDicXxgf5Wsl
-	BW2i5t5Zznen+ej/RXNwb8NQIruTTrfnWK/ae1Yq7o+vSybmglSRjVNUyoXxzw+KjxPjqhAQPBJkk
-	Bc/RkSAhd8nOf4rdEJYnHSvUiJ52PhcKC11aBIF4JsEmLlZrgs4ZAbLjUS9qtQl7VRTQ1ZAOc0FpJ
-	b78slX3HkqnwaeDMP9vMfpMljHd96AthA8V/KcOd+sCOBYKfIDaOssEi9qjAZVK49aRFnNNygYTwn
-	afEjBU12YZb8F+1nviCg==;
+	List-Owner; bh=62QXODrSB07jF4JibwP6g548dwfTFbTRAHB9mVO36Xk=; b=dh4qhvrK5AN9mS
+	mYVfhhgOOOa3UXv5ynNUIKImHnfwQgiTrc2nT6JKkv2GnXoU0rol4NNcRs+VKUYkxeph8iSRkIIZK
+	cspmNBJ+4X0acqwyTTwnAuQdfow+VmFjOmWIFiduS2qNDXzB5R/9VI+ywKiu3PveNjXuQEo9Cr/Gf
+	wkL2aHWx7pMf9t4w6kXe+pnBIkiborP4+wjrTRC4s7b4c5fLczF3l+L2QSsJWop30wcL8kk03bgDC
+	JZyN6kFt9cF3q63J7KvGu/l6JhVyWZ7YGr4sXWdumF2Kbx5ieHmTiP2es/WLAv8dmqdLBMlKAUF37
+	LeGea/d5UZLWK60qHYTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII4o-00000004Z2F-3A40;
-	Thu, 30 Apr 2026 03:28:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wII4p-00000004Z4o-3yoi;
+	Thu, 30 Apr 2026 03:28:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2v-00000004Wsn-1kN9
+	id 1wII33-00000004X5o-1y6v
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 30 Apr 2026 03:26:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Z1Bc9EV5y+bhYycUp6wLBzpUNqNF28WMRZLrHkhnHUE=; b=EvLl+fbI4qFSapB5vuL9I2E6Ol
+	gNoJAHnHdTRmWtIwUmTGGVz/UIS2IfWlrZLuIr1iZYNxqNgCYgXWzcxTQ5/YRdH99a3nRFCwpWhr0
+	H5zTKibYSj34xZgw4ecGcdIz0/SUtwfKE2/Jr0oeIIZAngq18WMpIPLv3cV2L5nZkzuVMV9lyIeXC
+	Gs+1y0rqo7fdWpI0PO9fMkbUZno1UJRpdYwpVL/79q4iCiK+BGHQjIUwlveBZyogb8nR/QDU2ejnK
+	NE8HyIPiBD4UH/rb5UTjkWbz3wZ1A1/Bqd+4x1iYhmSxH0vcEnxQWTYl4Vh9ngaXVRz47zch2Ubg+
+	X8/gTIAw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wII2n-00000006Xi5-1Adi
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:38 +0000
+	Thu, 30 Apr 2026 03:26:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0BAAE4458A;
-	Thu, 30 Apr 2026 03:26:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF135C2BCB9;
-	Thu, 30 Apr 2026 03:26:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8CAA9444D1;
+	Thu, 30 Apr 2026 03:26:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68048C2BCB9;
+	Thu, 30 Apr 2026 03:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519596;
-	bh=bc+dg0Bc8LDaQ9OEb5RjsesIcFKeDCO/6xovARLSG30=;
+	s=k20201202; t=1777519587;
+	bh=013+JQB3BOWcgJhPqdubZ1XsxYbnthONCnm8Hl39HsQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=geUpuuDMCyhCp6bEdcbfN0LxnZCUCG0dgvu3qA/x+vL21nkrLzZ8fbVpg72WGZE28
-	 GW58cY5htqwvpdHnIBBxusd/QaNcLFa+lj440eecLAww3/Tl672LYNkzLLEjf/tTSC
-	 BpJ/B2ryHel/66TKXqJYyWj2hlvJjZgUYAyyblpCJqEkiH+W7IzZtgCsm05BvXOqTC
-	 7UXOUp/0g8nuPuEp/UKXTadmyETa8KxH8Ey5ukE8RHBtYyFcXm2Y2LcaUH2nkGobnw
-	 UofVwlyT6LtPYOcYzQrW4VSyZ9ncKX38Ij7OlcUNxKwM+79KdZnCJOFbQp/inSmfSd
-	 OIy8h9cqLZpvQ==
+	b=ZJ6OmXOMpE+dTJPzp+xtAqL+VAk4ePieug406a8qk2/dHpymUK1JjCTkKOHPysOIj
+	 INPaAGoTWRR3yYCB5hELjnfdvAfGK4/sGDb+7eKy4KcyPn66lNIN1AaypMkVLUWRno
+	 7mvTCzzvR+eFzmFD0As9ZNiX2e/asCEu9Bt/Ir1neq8SH3sHmTB1VpBR5W91Ed2cp8
+	 vwrXvOOhet4pbTRNVpG8lw5+rnuaKpNo6/Hy8IdkRQBmQg6ZuAtLQfTaHppkkwkHi8
+	 +xwHkUQkz6fLJPc01QgnX70Wy4T0kzoqFakSpqhh5J9lYDGXyJBUznVtbJbQXiu6wY
+	 hb5+2ZtbiY3QA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FDD13809A07;
-	Thu, 30 Apr 2026 03:25:53 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9F543809A07;
+	Thu, 30 Apr 2026 03:25:43 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCHv7 12/18] mm/hugetlb: Remove fake head pages
+Subject: Re: [PATCHv7 06/18] LoongArch/mm: Align vmemmap to maximal folio size
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751955179.2274119.2481489263486900849.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:51 +0000
-References: <20260227193030.272078-12-kas@kernel.org>
-In-Reply-To: <20260227193030.272078-12-kas@kernel.org>
+Message-Id: <177751954230.2274119.12654930976338727655.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:42 +0000
+References: <20260227193030.272078-6-kas@kernel.org>
+In-Reply-To: <20260227193030.272078-6-kas@kernel.org>
 To: Kiryl Shutsemau (Meta) <kas@kernel.org>
 Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
  muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
@@ -63,8 +78,8 @@ Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  loongarch@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202637_575516_92D650C9 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20260430_042631_603398_6FCED561 
+X-CRM114-Status: UNSURE (   7.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,23 +102,20 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Andrew Morton <akpm@linux-foundation.org>:
 
-On Fri, 27 Feb 2026 19:30:13 +0000 you wrote:
+On Fri, 27 Feb 2026 19:30:07 +0000 you wrote:
 > From: Kiryl Shutsemau <kas@kernel.org>
 > 
-> HugeTLB Vmemmap Optimization (HVO) reduces memory usage by freeing most
-> vmemmap pages for huge pages and remapping the freed range to a single
-> page containing the struct page metadata.
+> The upcoming change to the HugeTLB vmemmap optimization (HVO) requires
+> struct pages of the head page to be naturally aligned with regard to the
+> folio size.
 > 
-> With the new mask-based compound_info encoding (for power-of-2 struct
-> page sizes), all tail pages of the same order are now identical
-> regardless of which compound page they belong to. This means the tail
-> pages can be truly shared without fake heads.
+> Align vmemmap to MAX_FOLIO_VMEMMAP_ALIGN.
 > 
 > [...]
 
 Here is the summary with links:
-  - [PATCHv7,12/18] mm/hugetlb: Remove fake head pages
-    https://git.kernel.org/riscv/c/622026e87c40
+  - [PATCHv7,06/18] LoongArch/mm: Align vmemmap to maximal folio size
+    https://git.kernel.org/riscv/c/2969b42c8f99
 
 You are awesome, thank you!
 -- 
