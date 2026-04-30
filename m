@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41248FF8864
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E52CD13D3
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5G0Lfee1tg9Ex77mFyubKakqk0MBXsutrX+shp75kGc=; b=mltnV6BqF37Yoh
-	15icHbxtPKtzlGx/Yr0jA3Aa/SkxzfCZMFSIuE9k/v2LMT7/Rre/nAcmQMvrR8yuuzxE6CJ4AhLyd
-	54ypn0CSUolFt/t08iA03coB7LRharpQlaRRidvEmrsNMqbCya1G9hsicDABX8FgukqYxrPPoR/ZU
-	FQEOoidl99elas5pIVfRocXWM8C+VbkhoAnYu4103mlJIGy29ZwYTINrGvqQ+PH8oSj4b9Z35l0+i
-	kM8VQwBgeL0U+4wvpyNjr0ShlWdPZNIs4bcOT22Bk0A/3AdR0mTqgaUVIQ/XQwFM95NX51m7KiESJ
-	tKYAVjeX+ys3V2fAI9TA==;
+	List-Owner; bh=oZ0T42thUOQFW78tWFDrropZRmxYNaYOys1Ib3zg2hA=; b=QEieG8emx2DvN2
+	a6HzO33xwvhUa87zUdogBbpYRqwoxYDw7BdLL3KmAeM19j6HBekf7IfygdkcbG3ZgJBXT1muGS9Tc
+	/lyfu3UBT7Uqd5cUWS+O0Kf5hOMfzglr1/xlic0SVDXD4Ber70f6XBSR7fSVxhqHD9hJzXql8IOIQ
+	tKzKKYcz9GTHVpbT98rExWdbmkZk7WGssqZ3yM3qfaa/7bYYOup/buoUSOvRYw36BVLih0NzKc5+1
+	L2teP0mPFccwxOBOwTP0PaG1PzEJnOx3D8XwReElTGw9N4MwG+vkE3Tc671oVVbzvdwbWmOOfCnM0
+	kXsEQxsXXd+0aiKR0ksA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII4T-00000004YZE-19F4;
-	Thu, 30 Apr 2026 03:28:13 +0000
+	id 1wII4W-00000004YdK-0lpe;
+	Thu, 30 Apr 2026 03:28:16 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII34-00000004X83-1WPO
+	id 1wII3A-00000004XD4-160I
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:46 +0000
+	Thu, 30 Apr 2026 03:26:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BECBD6133D;
-	Thu, 30 Apr 2026 03:26:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68BC9C2BCC9;
-	Thu, 30 Apr 2026 03:26:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AF4D761336;
+	Thu, 30 Apr 2026 03:26:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62B9FC2BCB8;
+	Thu, 30 Apr 2026 03:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519605;
-	bh=fhSNmqrG5HsEC/X36MILLZcbTZ/au30iHuph+y5PVBY=;
+	s=k20201202; t=1777519611;
+	bh=VshiWipAYtRyMnsD8HAzk//9Evvgk9O0E2BL+Z2O4pk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=NG/keSn0FdCovg8MaqpF8Evbj/6L9DumthcIlwwxhgqo4krFVNquz8+s6I6cAbdTk
-	 F7gB7AFBovML2uNA08fug18O6ouheKOBf7t2Cnd7nzLWNimtDo+aiOW2df5uW2tRMT
-	 rjTagxlakUXzJK5UOaOgiNsPLEmBzI0SrCWLU0VLJ0JlqZw+7s1UFWYN+UsHMoS2Qd
-	 iECXbmORVBx8yix7TpNhGpQ4YIOkqqw/43+B09zOhAKOAI6t3lqj+2vCV+m4mWAT9q
-	 7VgoHD8YmgUg9LVrLh8uiVHBbs9Yxff6nj7MkquNCz6a+id9IgGedB0JwH8SAImjFL
-	 engiwcFkxaZoQ==
+	b=Uv2UWaUzVbUyIkgswzPmfhdYjkOpDsLPU3O/WJGYuLPii0uH5tUW/52XxirKakoWd
+	 UOuM2PUB7KOW1bgwglcr822uaES5i7LcF+WBOwNRSEheCp/iesotg9S5Mycm4t3zIa
+	 4fGTEdM9Oszy1Jxg1CtvOsaJoKHw4RHWDdT87crP/eIybS4+63vm+Q+Yf5sPhl9mCM
+	 Z1wnh6X3nJ8a4pe5efyJsskj4Qt+XmWPzBgBT+u1lUkn4POaCvOvYYiHycXgoFQrX0
+	 qfjM3O2/8DQFXcpbsAs+5P0iEHUHGEOU+izl980r9KdymeYwT/hPa2KwEk5f9WaTSj
+	 GXa9J+FBhfGjQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9E0C3809A07;
-	Thu, 30 Apr 2026 03:26:01 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9DD43809A07;
+	Thu, 30 Apr 2026 03:26:07 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCHv7 02/18] mm: Change the interface of prep_compound_tail()
+Subject: Re: [PATCHv7 09/18] mm/hugetlb: Defer vmemmap population for bootmem
+ hugepages
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751956029.2274119.5996274092422873804.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:26:00 +0000
-References: <20260227193030.272078-2-kas@kernel.org>
-In-Reply-To: <20260227193030.272078-2-kas@kernel.org>
+Message-Id: <177751956630.2274119.12592851885920371218.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:26:06 +0000
+References: <20260227193030.272078-9-kas@kernel.org>
+In-Reply-To: <20260227193030.272078-9-kas@kernel.org>
 To: Kiryl Shutsemau (Meta) <kas@kernel.org>
 Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
  muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
@@ -61,7 +62,7 @@ Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
  kernel@xen0n.name, palmer@dabbelt.com, paul.walmsley@sifive.com,
  aou@eecs.berkeley.edu, alex@ghiti.fr, kernel-team@meta.com,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, david@kernel.org
+ loongarch@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,20 +84,22 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Andrew Morton <akpm@linux-foundation.org>:
 
-On Fri, 27 Feb 2026 19:30:03 +0000 you wrote:
-> From: Kiryl Shutsemau <kas@kernel.org>
+On Fri, 27 Feb 2026 19:30:10 +0000 you wrote:
+> Currently, the vmemmap for bootmem-allocated gigantic pages is populated
+> early in hugetlb_vmemmap_init_early(). However, the zone information is
+> only available after zones are initialized. If it is later discovered
+> that a page spans multiple zones, the HVO mapping must be undone and
+> replaced with a normal mapping using vmemmap_undo_hvo().
 > 
-> Instead of passing down the head page and tail page index, pass the tail
-> and head pages directly, as well as the order of the compound page.
-> 
-> This is a preparation for changing how the head position is encoded in
-> the tail page.
+> Defer the actual vmemmap population to hugetlb_vmemmap_init_late(). At
+> this stage, zones are already initialized, so it can be checked if the
+> page is valid for HVO before deciding how to populate the vmemmap.
 > 
 > [...]
 
 Here is the summary with links:
-  - [PATCHv7,02/18] mm: Change the interface of prep_compound_tail()
-    https://git.kernel.org/riscv/c/f0369fb13619
+  - [PATCHv7,09/18] mm/hugetlb: Defer vmemmap population for bootmem hugepages
+    https://git.kernel.org/riscv/c/209e6d9eb13a
 
 You are awesome, thank you!
 -- 
