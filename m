@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49715CD13DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 18:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DCCCD13DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 19:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YL17+RwtGKAiTdJd4+ttmi0jlT1ox2gS/7mAv4XK96k=; b=oaJGoo04ZF/UgIUqLp4O+Fy/W7
-	vdfxt3lZTLuYD8rgOpXdSloMGT2u/fHtpEQ9txeLw+P2z6HGk5+q80Nhrqrq8otycJxYzZP2DSlXb
-	zPzZdlDpce6fWHadsTzzkCLCkyy9Mcr1rhLkmdEQ3IANVydNCv1uv5HGFqm1mJZKv42RrcC5a7XPP
-	opTTmQL83+lupn6aNrjaLDrTioDjcP0X6VhkDBjPYUSIuAwyLdn03YlP8/9xbndwi1rJYCDFH85eD
-	kWVa4+uKcdsNrPr+kYJeoNU7p89cTd7z+CtWgi/XfQgyRD9lWOxNVLUrYLF+FWlhx+auy+tYqPpXY
-	3a+DVY8w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DnStKO9ZC5/R5eRGAgg1FgKBnwofiFGGfLSIRinI1ck=; b=HXCygnsdbALTtY
+	JRTcS9YY0fybhaWCrCvBrwQruM2GV6pVAkGDr9j/nrnYV5nXkkmRrCD4/38acgc/Eju1JQ8x0+ncy
+	SORBu7Ozlm2Ofb3GdaN5CfWvLYQbR5bI3qdVd6GJ1aeFqM0Pz530wrdqVHRSs0IHkUk7WivG8m95j
+	9fWnpR2CsG9nWGjA8aeQU2LvN9w7ZhFRgCPtaNF8c5FCWeCE5e54OpjlA5ZNFPxx/HEBkOrcF+ON0
+	CEf0J0g46TIWdk7KM6zyAaWQkctExMF07EXZUauNPab7/00AZfqJoPqCHzIX/w1PpVJcdQe7TXRKZ
+	Tk+Tcc+mflmJJsAntSOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIWXo-00000005qo2-0BiO;
-	Thu, 30 Apr 2026 18:55:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wIWer-00000005rXX-3ctg;
+	Thu, 30 Apr 2026 19:02:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIWXm-00000005qnW-3YX0
+	id 1wIWep-00000005rWr-0eMV
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 18:55:26 +0000
+	Thu, 30 Apr 2026 19:02:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9081C60180;
-	Thu, 30 Apr 2026 18:55:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA858C2BCB3;
-	Thu, 30 Apr 2026 18:55:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F0B6640D71;
+	Thu, 30 Apr 2026 19:02:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7879C2BCB3;
+	Thu, 30 Apr 2026 19:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777575325;
-	bh=lWE9HkFpXw9rtE0Jo05d+/92L9aR9NU3+uP7biB7kcU=;
+	s=k20201202; t=1777575761;
+	bh=cRC9KLktut1BkXa46+AfHyESKr2HdVz82WI9F/V2NoI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RSdYbXN686KVP7jsq/GKLBRNM8X4srR9OWumOvVV1zxNc7J8KENy7WTw1x1A3yO23
-	 iStgzBIpGM0Gnaw/tmJWkdb7xHTfQSShZIEn0I8CiuCLM01kqk6xrHgiwbx2119Cbl
-	 Caj+/XrDYXlwvzu/yX4Up2KojwD/1gnLpeA85kCjgBwwjLIl85qQx5r8o0qdyxcTUs
-	 FxMj2gOnKUTRkTzz15MXhWP0lsrhE5/ZzJCzCXfDPyHCWlHkOyXqC4/fuevWQexU2d
-	 IPVfnJukukpc6C3GWHISN7BhC0+8+iBuQ9kjkDeQsK1gj6MtGYytgK7xiK4GjE9s3L
-	 dPWrCGJkqYQDg==
-Date: Thu, 30 Apr 2026 19:55:20 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] dt-bindings: soc: spacemit: k3: Add PCIe DBI clock
- IDs
-Message-ID: <20260430-plug-bolt-8ff9137717fa@spud>
-References: <20260430-06-pci-clk-fix-v1-0-32fdc77c02ab@kernel.org>
- <20260430-06-pci-clk-fix-v1-1-32fdc77c02ab@kernel.org>
+	b=tDAMgEREKkqVs4jRy1kzycqsSMU4+2ac0/ee9kzHk+1+dZxHx2Ci153SmyDbsVaa8
+	 BfEefBumvppLupo4HEZk/+mHUNa597DUgcd9BgrspTgN9aBfobWLUItkq+2StE25lc
+	 I1ShObOCRBwzUL4GHF92EBNlKJbG4mwfZB7wc64RoaAqGMXS1Rwa6Tcvgmql0cVMBV
+	 o3GLeeNP3ivGFAkPXzs7Ourg+UvcwRPLdl4Eus4b1tLN8MzrSLZuAx9yz9ZYLqrdR9
+	 CyCp2TxbC0vu1fl3ptZqKtPq5cYkNpahpp7mHDGmfALYEHGA8/NcDwZpadQJKrbMIO
+	 1XouleDbXPi+A==
+Date: Thu, 30 Apr 2026 12:02:34 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, yury.norov@gmail.com,
+	linux@rasmusvillemoes.dk, arnd@arndb.de, akpm@linux-foundation.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, david.laight.linux@gmail.com,
+	cp0613@linux.alibaba.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH v5 2/3] bitops: Define generic __bitrev8/16/32 for reuse
+Message-ID: <20260430190234.GA438371@ax162>
+References: <20260421130752.607500-1-ruanjinjie@huawei.com>
+ <20260421130752.607500-3-ruanjinjie@huawei.com>
+ <20260429202922.GA3575295@ax162>
+ <afK0oL5FS8eLobpV@yury>
+ <20260430035943.GA2164248@ax162>
+ <afOGKj9SfozoS3x7@yury>
 MIME-Version: 1.0
-In-Reply-To: <20260430-06-pci-clk-fix-v1-1-32fdc77c02ab@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <afOGKj9SfozoS3x7@yury>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260430_120243_214399_FADF4E0B 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +80,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0771778322057090827=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 30, 2026 at 12:41:14PM -0400, Yury Norov wrote:
+> Sure. Please let me know if this works for you. If it does, I'll make
+> it a regular patch, combine with Jinjie's work and my follow-up and
+> resend. Meanwhile, removed all bitreverse material from
+> bitmap-for-next.
 
---===============0771778322057090827==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZyWW5ut6GEwR4kZa"
-Content-Disposition: inline
+My builds saw no issues overnight with the CONFIG_CRC32 version, so your
+plan seems good to me.
 
-
---ZyWW5ut6GEwR4kZa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Apr 30, 2026 at 10:30:26AM +0000, Yixun Lan wrote:
-> Add clock IDs of PCIe DBI (Data Bus Interface) clock.
->=20
-> Fixes: efe897b557e2 ("dt-bindings: soc: spacemit: k3: add clock support")
-
-Why is this a fix? As-is, this looks like you're abusing the Fixes tag
-so that this gets backported alongside things that are a fix that depend
-on it.
-
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  include/dt-bindings/clock/spacemit,k3-clocks.h | 5 +++++
->  1 file changed, 5 insertions(+)
->=20
-> diff --git a/include/dt-bindings/clock/spacemit,k3-clocks.h b/include/dt-=
-bindings/clock/spacemit,k3-clocks.h
-> index b22336f3ae40..dfae52547cda 100644
-> --- a/include/dt-bindings/clock/spacemit,k3-clocks.h
-> +++ b/include/dt-bindings/clock/spacemit,k3-clocks.h
-> @@ -380,6 +380,11 @@
->  #define CLK_APMU_ISIM_VCLK1      86
->  #define CLK_APMU_ISIM_VCLK2      87
->  #define CLK_APMU_ISIM_VCLK3      88
-> +#define CLK_APMU_PCIE_PORTA_DBI  89
-> +#define CLK_APMU_PCIE_PORTB_DBI  90
-> +#define CLK_APMU_PCIE_PORTC_DBI  91
-> +#define CLK_APMU_PCIE_PORTD_DBI  92
-> +#define CLK_APMU_PCIE_PORTE_DBI  93
-> =20
->  /* DCIU clocks */
->  #define CLK_DCIU_HDMA            0
->=20
-> --=20
-> 2.53.0
->=20
-
---ZyWW5ut6GEwR4kZa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafOlmAAKCRB4tDGHoIJi
-0n1rAQCxrTCw7Jgkx0a5N4zQWIUC4Gs8go2JtYFp2UB241sx0gD+NuCdQwdKHF6L
-RzmcK+MGhvdUc6DScyb0unK+KofNrwY=
-=3o1x
------END PGP SIGNATURE-----
-
---ZyWW5ut6GEwR4kZa--
-
-
---===============0771778322057090827==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0771778322057090827==--
-
