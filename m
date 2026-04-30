@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD69FF886F
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 04:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F7E2FF8875
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 04:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UzqQPv85geZNM2Jl1OKQdXRQAXV1TZtNUGvqU+PmCUE=; b=hRnSYpppYoxZxX
-	xNiiAcvOowleoOVZjjdUVBTh9nihF3hCACrE4wHfJhb/y+9F+/aZE3kRYb2xEqfFII3EBtkZLpyuK
-	eql4mzOEWQgZ4Fr49ZunW/NyMqhQ9Y8xhJzriC9yvMniPGe6GUjbNVE5idNeghEOYLqEP1Fzxd/4C
-	DSxz092O2bmvNWAVCW6XIANBJNOZulrs/xnbPrnmFipcIx9vVh4/znpfuI2z+QXLt2OiLZY7SBBu7
-	8MCjvuGNNbtHNXJuuoqGmYWOB0t4oeQAnxe5pf3fYsyxAFk8iD3U88+KBMumOA9Tsz+JfGw8539jZ
-	E1gsFnNFJ2gVUb6nkxLQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=o4Yn76eTpg8hBy8vjU6VtUUWB1PuLnQVWJZ9XImpfWA=; b=mMGfFFuQh2WyH+
+	bdKdf/P8Oe1BOcg/QlmrwBuWHu5Xkc52V0KoqvDxSEDCnRT6YcYWtoOjGnbbZYfzLEnLqZgybuitb
+	FyJZeZk5dVINNAYMBuhbpY1RuLgU2reGTgB1Q2j7S3x1yzCk5/zZa/wFnQq9VVazhRSp6QHRlxuaK
+	ID0e1h1ANFS7eCbuLruEqZSnaRTZbewaQ3C8ILMpXVQangDgsZCD5tXwl+nBbfPHsy+WOnFGBAYWi
+	FnCfXYk+7f65YT85O+EKlJXfZpjkN1KOaxgL4hcxUHDlBye4QfeDukV3ZuA4UFOc8RtTT8xEUfuts
+	LMv/a/m5SzBr4ZMWFn5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIiU-00000004e2Q-2lDv;
-	Thu, 30 Apr 2026 04:09:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wIJPb-00000004fuc-0mrd;
+	Thu, 30 Apr 2026 04:54:07 +0000
+Received: from smtp-relay-canonical-0.canonical.com ([185.125.188.120])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIiR-00000004e0f-1ZkX;
-	Thu, 30 Apr 2026 04:09:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 161A043E87;
-	Thu, 30 Apr 2026 04:09:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC32BC2BCB8;
-	Thu, 30 Apr 2026 04:09:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777522163;
-	bh=/yAJoCa+tdOOPshUE/A43LRN52owg3v5BFKm8i3T8LM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ea/vUlXO8QAMnZo9aS3eeiw/XXfsvC/WwV0ygYsWmMJaV+j2mdhgSMBDoucO3ixea
-	 LecOLHdPEbaK7XnLzvzCMtN+Y+om3patozKnNyEB41SSR4aHLALWh/+h7gLqJr52yv
-	 pNoWtmBGh/RDeFW0kmQraXtm0inHMHEsGHreHiHnOx7aOsSI4vZ90DencUUU8uz3Z6
-	 J1NZSSJwb4k94jm3NqyObnW1pff8xDL0KNNRYMdzJc7A8UkQji12Ks5x9eZ3mnUThC
-	 13EmSaGrV+qxVuJ06aXhrnaV0D2eyzclL0DEDEoLdq13b+X9u21heIL4vyk1ItYv9O
-	 fqeFuBOOlKo+A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FDAF3809A07;
-	Thu, 30 Apr 2026 04:08:39 +0000 (UTC)
+	id 1wIJPW-00000004ftu-1Qg1
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Apr 2026 04:54:05 +0000
+Received: from hwang4-g16.bbrouter (unknown [183.236.147.148])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPSA id E7F433F69B;
+	Thu, 30 Apr 2026 04:53:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1777524837;
+	bh=nv54BxlPj1Kp/kgG/Scn7s+8ENuHCGjlGz2o5HBkdLg=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=SWTVUa1SlHGLJBbXF4L0FypdxtybN0WZGbAx2NoW3Mk1iRdSi6RUnQEWBzjiBtazj
+	 UBxh3aIZgVSDCsaiw8Pi0W2GQV08FUZ57SEqqlpFxb7boXh1JO5KoPzGgBY21O+Er7
+	 3X9HBHA6OxNZ7zU9g+uIe4W1COWUf6aUmIpjahjuNiQhgf+Ge7utLsQFh+y29ToRLg
+	 cDWQ00D6pZAl9j38DKUGEcspMnqmjGawE/TcBFclhLbDBrhkZjS3llBpltlhu26yPS
+	 2j9Pb9YL7p5/0kFc97H+3kEFzxUFbQV4EK+LhzlHLrxio5L2yWq77xH8GIgTqsGfYh
+	 g4s4A5aMC8Rs6CBgu3eF47e6FWfoxgVmBzm49jxPijMdnXS9GwbZsemBYfaansP/dW
+	 cdhwWdbWlMQ2pa92aX/XbLbAth/JUQAe39y0l597Pm76rRvdLeU5YMLxXDRdrgEb/2
+	 Jyi8jc5ClWGQnfAEroWGm9jWHoRKt9Nb7HZwiTSDqeWkgRLS7LNk7JmI+s6qEYTXlO
+	 hjU4jy5z7b7984UZq3VUHHTS2Mpdo8vsjsC71KAmoX6TNMhN9zydt287HjHSqLsg7j
+	 2VGgXovvSJuAHarUzIpkeZiv+3aldZW++nXFxUXIsr2mqLI1AOYyPCxE43IA/3eiJt
+	 grCcNMzm4Rt552go9ORYVarM=
+From: Hui Wang <hui.wang@canonical.com>
+To: linux-riscv@lists.infradead.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: hui.wang@canonical.com
+Subject: [PATCH] riscv: cpufeature: Drop this_hwcap clear in T-Head vector workaround
+Date: Thu, 30 Apr 2026 12:53:50 +0800
+Message-ID: <20260430045350.22213-1-hui.wang@canonical.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [GIT PULL] KVM/riscv changes for 7.1
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177752211779.2274119.18444543512578889035.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 04:08:37 +0000
-References: <CAAhSdy0sU997x67zZe00ZVPVrOT-=X8zOUk3OxWXeDcn-rHeXA@mail.gmail.com>
-In-Reply-To: <CAAhSdy0sU997x67zZe00ZVPVrOT-=X8zOUk3OxWXeDcn-rHeXA@mail.gmail.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: linux-riscv@lists.infradead.org, pbonzini@redhat.com, palmer@dabbelt.com,
- pjw@kernel.org, andrew.jones@oss.qualcomm.com, atish.patra@linux.dev,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_210931_460153_148AFB31 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20260429_215402_767141_F6571094 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +79,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The variable this_hwcap is initialized to 0 for each loop, it is not
+necessary to do the bit clearance since this_hwcap is still 0 at this
+point, clearing the source_isa is enough here.
 
-This pull request was applied to riscv/linux.git (for-next)
-by Paolo Bonzini <pbonzini@redhat.com>:
+Signed-off-by: Hui Wang <hui.wang@canonical.com>
+---
+ arch/riscv/kernel/cpufeature.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-On Sun, 12 Apr 2026 18:44:24 +0530 you wrote:
-> Hi Paolo,
-> 
-> We have the following KVM RISC-V changes for 7.1:
-> 1) Fixes for issues in steal time accounting, vector and
->     PMU which were discovered by KVM API fuzzing
-> 2) Split huge pages during fault handling for dirty logging
->     so that write permission is restored for smaller pages
-> 3) Improve kvm_arch_vcpu_load() performance by skipping
->     CSR restore if VCPU is reloaded on the same core
-> 4) Implement kvm_arch_has_default_irqchip() for KVM selftests
-> 5) Support configuration of per-VM HGATP mode from KVM
->     user space
-> 6) Some more preparatory changes for nested virtualization
->     such as:
->     6.1) Factored-out ISA checks into separate sources
->     6.2) Added hideleg to struct kvm_vcpu_config
->     6.3) Factored-out VCPU config into separate sources
-> 
-> [...]
-
-Here is the summary with links:
-  - [GIT,PULL] KVM/riscv changes for 7.1
-    https://git.kernel.org/riscv/c/d880d2a9c694
-
-You are awesome, thank you!
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 1734f9a4c2fd..3dc4c0d31550 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -896,10 +896,8 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
+ 		 * CPU cores with the ratified spec will contain non-zero
+ 		 * marchid.
+ 		 */
+-		if (acpi_disabled && boot_vendorid == THEAD_VENDOR_ID && boot_archid == 0x0) {
+-			this_hwcap &= ~isa2hwcap[RISCV_ISA_EXT_v];
++		if (acpi_disabled && boot_vendorid == THEAD_VENDOR_ID && boot_archid == 0x0)
+ 			clear_bit(RISCV_ISA_EXT_v, source_isa);
+-		}
+ 
+ 		riscv_resolve_isa(source_isa, isainfo->isa, &this_hwcap, isa2hwcap);
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
 _______________________________________________
