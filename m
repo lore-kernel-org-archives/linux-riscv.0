@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D772CD1297
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B480CD1297
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0edCdM1CKmx22zorObFD9jEePy9Juv2PpAlherOKs90=; b=tL5/Ws9mZbTjP2
-	gLtDxu4DPZA5PM6NS56j+nu26Bfnnl8PNMaNmc5+lPGwrQScuPcI7PcdFDgxyuhBakrY9sJRVCH8O
-	vOeFJ1jze4nBPAftovHKtDkauWoGbnSI7K4ycHIPq2AICr2BNxwRyWoCuEBS0ZCj5QAaYx5FakGWt
-	8EBjhMSwBmEE2wX98ssKPuOdAWElyFsltipKbCFhz+6xlAURluo8mgjozHb3o8QeZHNW/JQrS6fwX
-	fSt7aqA42RJWvGP9PJdet9BiyClcxAtoIdpefJl4YF+kV6cH4voPJn3d3yiBT6VlIAKLviJF3zmTN
-	WJZ7nxxPQ8oLXl+IrMAw==;
+	List-Owner; bh=AB6v0CIgBZwX9kRT52LNsngzLPRtfzfcLMfyy1TbZ0s=; b=QgUWNo8bwJX+Nw
+	fR//bMdDsWtMEg5CMKGj7+VpHpaEDigpPOuiVNB8T8TVblEi1kfcTT7SkN1x4BQ3K/EG6X3dhnWqG
+	ml5heDeuK/k0aYiw5PBUxiAOwaXt+ln3vGlqL3CUtKe2pZk77Sqau/GWQndO5W+WMOfi65QgaJaM3
+	Qhfl96K0mkZh3CZrFtKbR1JucAnPzoumTtrb42CTuAdQL8Y+pInr/9wAqbc3c35nUabsA8JqxmlsP
+	j5RIdTdxmV1Gz2RctGjLV7dpilIOC+DTdHnjRQrpVfeZk2K3K3ayrbLmDkIGNCNkg2LcHAIIS1UYo
+	WvAhj7x77yIA/l3tPvew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII30-00000004X1F-1WTB;
+	id 1wII30-00000004X2I-3Qfa;
 	Thu, 30 Apr 2026 03:26:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2M-00000004WRp-0fsr;
+	id 1wII2N-00000004WTl-2MRj;
 	Thu, 30 Apr 2026 03:26:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2DC240317;
-	Thu, 30 Apr 2026 03:26:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA274C2BCC6;
-	Thu, 30 Apr 2026 03:26:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 40E9243B2D;
+	Thu, 30 Apr 2026 03:26:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2178CC2BCC6;
+	Thu, 30 Apr 2026 03:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519561;
-	bh=S8ESDWn2FV212MQ0O36a6N64V74CpKEgoDR0Cwb1eYo=;
+	s=k20201202; t=1777519563;
+	bh=uKdK5DO8u2N0tp/g6YrMeqTyIWEtsNmEtR2OQZOamME=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=RtcaGla8SJMvzp565cZWG4JA/pd6x2rokqKWLW76DsXVVSBMWfvO7M+j3tfPr4WiS
-	 iYIi3LmvsvftG5YY+oM7g4PvJ9jMSl95DFA2LT7Ri+Y57wvJYObh7grdN4/wFxy9Bp
-	 3dNPBrE0VUHIF5qHqtQDM1L3bZLqpe75efGu9RIosM9YKInDL4ti/opEBCchGSV7Ed
-	 NJ0t/2yQEWiWU4UX0J1SMMnzWayyrY3pGrDTZxRSaZcqhSakDi4GgjEzwKf7uPPJCg
-	 fYiHoJFVnaikAgVqNlokz3BThqsRnYRJYWEnZONwh0eeFUJrF4d3CMi6aMhGsxyQjO
-	 srXFfj2h9HOug==
+	b=V2/IHGrfyciCnZ68jtYyLcCX+9M7ThJMZaRbPHBvBmKoRk+K76qcgOuTXYyo/kQf/
+	 h5OTplRTliCc4X63Y6FlfrVyvAdg5KYdnsvxSXwm9hkZAf8pdGxkdX/t+wSKmPKykm
+	 3o2z+7QFO6wUIvvg+B0mdIk+nx1z6uoJGIDFvup9VAMO4drdvfxfJ8iFN05E11UcZy
+	 rOwhunXd1D1ig0KRo5uu1vq5DA20gcZZ1Y5ckR+SNFRn+SNJ3mB2LionwukPg6k1ck
+	 b3Kp9ZgtCTOh6fyut2FuoH+jqJa7iiIMSyJ3HPmYm6RuG1wUntuJYtMYTQhd5hUjoS
+	 OIP4lynLo8F1w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02F1A3809A07;
-	Thu, 30 Apr 2026 03:25:18 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CFE43809A07;
+	Thu, 30 Apr 2026 03:25:19 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH RESEND v10 0/8] ACPI: Unify CPU UID interface and fix
- ARM64
- TPH steer-tag issue
+Subject: Re: [PATCH v2 0/6] change young flag check functions to return bool
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751951654.2274119.17258357457134506240.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:16 +0000
-References: <20260401081640.26875-1-fengchengwen@huawei.com>
-In-Reply-To: <20260401081640.26875-1-fengchengwen@huawei.com>
-To: Chengwen Feng <fengchengwen@huawei.com>
-Cc: linux-riscv@lists.infradead.org, bhelgaas@google.com,
- catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
- mark.rutland@arm.com, x86@kernel.org, liuyonglong@huawei.com,
- anshuman.khandual@arm.com, linux-doc@vger.kernel.org, kees@kernel.org,
- linux-pci@vger.kernel.org, dave.hansen@linux.intel.com,
- Eric.VanTassell@amd.com, somnath.kotur@broadcom.com, kai.huang@intel.com,
- kevinloughlin@google.com, punit.agrawal@oss.qualcomm.com, hpa@zytor.com,
- ilkka@os.amperecomputing.com, kernel@xen0n.name, thorsten.blum@linux.dev,
- linux-acpi@vger.kernel.org, corbet@lwn.net, masahiroy@kernel.org,
- si.yanteng@linux.dev, peterz@infradead.org,
- pawan.kumar.gupta@linux.intel.com, linux-arm-kernel@lists.infradead.org,
- xen-devel@lists.xenproject.org, szy0127@sjtu.edu.cn, lenb@kernel.org,
- thomas.lendacky@amd.com, thuth@redhat.com, ryan.roberts@arm.com,
- darwi@linutronix.de, make24@iscas.ac.cn, suzuki.poulose@arm.com,
- james.clark@linaro.org, wei.huang2@amd.com, bwicaksono@nvidia.com,
- loongarch@lists.linux.dev, jonathan.cameron@huawei.com,
- sohil.mehta@intel.com, boris.ostrovsky@oracle.com, xin@zytor.com,
- andrew.gospodarek@broadcom.com, wanghuiqiang@huawei.com, jgross@suse.com,
- wangyuquan1236@phytium.com.cn, seanjc@google.com, guohanjun@huawei.com,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- linux-perf-users@vger.kernel.org, wangzhou1@hisilicon.com, tglx@kernel.org,
- heinrich.schuchardt@canonical.com, chenl311@chinatelecom.cn,
- robin.murphy@arm.com
+Message-Id: <177751951805.2274119.14382362682727203864.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:18 +0000
+References: <cover.1774075004.git.baolin.wang@linux.alibaba.com>
+In-Reply-To: <cover.1774075004.git.baolin.wang@linux.alibaba.com>
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ david@kernel.org, ljs@kernel.org, Liam.Howlett@oracle.com, vbabka@kernel.org,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, kvm@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202602_827006_69873A44 
-X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-CacheID: sfid-20260429_202603_629494_8648887B 
+X-CRM114-Status: UNSURE (   8.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,39 +82,31 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Rafael J. Wysocki <rafael.j.wysocki@intel.com>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Wed, 1 Apr 2026 16:16:32 +0800 you wrote:
-> This patchset unifies ACPI Processor UID retrieval across
-> arm64/loongarch/riscv/x86 via acpi_get_cpu_uid() (with input validation)
-> and fixes ARM64 CPU steer-tag retrieval failure in PCI/TPH:
+On Sat, 21 Mar 2026 14:42:48 +0800 you wrote:
+> This is a cleanup patchset to change all young flag check functions to
+> return bool, as discussed with David in the previous thread[1]. Since
+> callers only care about whether the young flag was set, returning bool
+> makes the intention clearer. No functional changes intended.
 > 
-> 1-4: Add acpi_get_cpu_uid() for arm64/loongarch/riscv/x86 (update
->      respective users)
-> 5: Centralize acpi_get_cpu_uid() declaration in include/linux/acpi.h
-> 6: Clean up perf/arm_cspmu
-> 7: Clean up ACPI/PPTT and remove unused get_acpi_id_for_cpu()
-> 8: Pass ACPI Processor UID to Cache Locality _DSM
+> Ran mm selftests on Arm64 and x86 machines, and no issues were found.
 > 
 > [...]
 
 Here is the summary with links:
-  - [RESEND,v10,1/8] arm64: acpi: Add acpi_get_cpu_uid() for unified ACPI CPU UID retrieval
-    https://git.kernel.org/riscv/c/7cd5f5659ac8
-  - [RESEND,v10,2/8] LoongArch: Add acpi_get_cpu_uid() for unified ACPI CPU UID retrieval
-    https://git.kernel.org/riscv/c/d78ef9d2e1f2
-  - [RESEND,v10,3/8] RISC-V: ACPI: Add acpi_get_cpu_uid() for unified ACPI CPU UID retrieval
-    https://git.kernel.org/riscv/c/0c8231994e43
-  - [RESEND,v10,4/8] x86/acpi: Add acpi_get_cpu_uid() for unified ACPI CPU UID retrieval
-    https://git.kernel.org/riscv/c/3cfe889f8965
-  - [RESEND,v10,5/8] ACPI: Centralize acpi_get_cpu_uid() declaration in include/linux/acpi.h
-    https://git.kernel.org/riscv/c/f652d0a4e13c
-  - [RESEND,v10,6/8] perf: arm_cspmu: Switch to acpi_get_cpu_uid() from get_acpi_id_for_cpu()
-    https://git.kernel.org/riscv/c/1ab03189793f
-  - [RESEND,v10,7/8] ACPI: PPTT: Use acpi_get_cpu_uid() and remove get_acpi_id_for_cpu()
-    https://git.kernel.org/riscv/c/a7034e9e4491
-  - [RESEND,v10,8/8] PCI/TPH: Pass ACPI Processor UID to Cache Locality _DSM
-    https://git.kernel.org/riscv/c/abdd2a86535b
+  - [v2,1/6] mm: change to return bool for ptep_test_and_clear_young()
+    https://git.kernel.org/riscv/c/a62ca3f40fea
+  - [v2,2/6] mm: change to return bool for ptep_clear_flush_young()/clear_flush_young_ptes()
+    https://git.kernel.org/riscv/c/06c4dfa3ced6
+  - [v2,3/6] mm: change to return bool for pmdp_test_and_clear_young()
+    https://git.kernel.org/riscv/c/42e26354c4ef
+  - [v2,4/6] mm: change to return bool for pmdp_clear_flush_young()
+    https://git.kernel.org/riscv/c/2d46a3974721
+  - [v2,5/6] mm: change to return bool for pudp_test_and_clear_young()
+    https://git.kernel.org/riscv/c/fb87c8827297
+  - [v2,6/6] mm: change to return bool for the MMU notifier's young flag check
+    https://git.kernel.org/riscv/c/1fc7dc675e26
 
 You are awesome, thank you!
 -- 
