@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C163CD1297
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54351FF8864
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YD3YbjaQZlbGtwirJE0XGJsqbWYCJ7ts/pnbC7FXTgc=; b=TF0jSIBEy1yuqs
-	5Fgv61nzX3z9ljnu+Okhu8W49LBohnd/eV1fId1y+35E9+uWqVzEGY5dsOjyNn/kFNqIG8gi4HlGF
-	L3Zwuk1iSrP+VRi/G0eDz9FAHISO8TftWwYHtwbibnmDeeu2Jsq/1t4oD0zLkOuiBtxWgHJFMwVZr
-	X1JjROekLOKAKsN3Y9IjzOAsCcIkPPE0cQ2Yl8ik6bMl754b9fi0TMEBnrspPvd6UGLtTNKS+Ft1C
-	vCt3DqgUovYcug5+AvsDiF7o6o8Vznw5tMLNMVkrZWcy4e0GWxphZgPWSdYbZYrGO0k/8+hKwuiaD
-	cCjR6d35oJCkdp5XfFtg==;
+	List-Owner; bh=0aWhdnrWBREgCNqwyjEJddQ9kZJuRlGcd1YGYNZ1tZ8=; b=A6I5+jHRNv2CIi
+	KUCPiDCpGv3MyVG7EEkGn/j9TSvsbwNRs3Qe3qgFp/BB/bdm6OSdfSBkR7u/kni7BVDicXxgf5Wsl
+	BW2i5t5Zznen+ej/RXNwb8NQIruTTrfnWK/ae1Yq7o+vSybmglSRjVNUyoXxzw+KjxPjqhAQPBJkk
+	Bc/RkSAhd8nOf4rdEJYnHSvUiJ52PhcKC11aBIF4JsEmLlZrgs4ZAbLjUS9qtQl7VRTQ1ZAOc0FpJ
+	b78slX3HkqnwaeDMP9vMfpMljHd96AthA8V/KcOd+sCOBYKfIDaOssEi9qjAZVK49aRFnNNygYTwn
+	afEjBU12YZb8F+1nviCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII4l-00000004Yx6-2VbT;
-	Thu, 30 Apr 2026 03:28:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII3B-00000004XD9-31b0
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 30 Apr 2026 03:26:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=uv0/AeoPfpXHb5/5volWmUsGpOV4SzoHoygFS3Y1v0g=; b=BDruGDpmqxPFfprE7UW0JrJ0eN
-	yuxde4KsSFKmtMKFEYHuyyM/LmKkNXmFnDiln8EXTWB1ACkl3oLRQ7mjminYHzLhnJMXoPLsFWI0i
-	Y4rZ1J4qpXvVqbOsitUS2+rh295QFa5ct46Wn/l9BssyHu7oP9Wx/2ZFS0leq3ghwKBsJ169zU7Uk
-	01rtSmjuL/48a2bFJuwLdC0q/fRf8Q2GatJaYy/duDvE8I9M/TFHcl/zIDilqtoqspeHW1/Fm5cC1
-	o36dCrkhUl9F6rNB/g8bllj0v179IaBlC0vsaRZizB+6wCwe+d11T/XKTdbj32z4HMG2xQFtSbagf
-	6lqQzfDQ==;
+	id 1wII4o-00000004Z2F-3A40;
+	Thu, 30 Apr 2026 03:28:34 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2u-00000006Xjc-3Jsy
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wII2v-00000004Wsn-1kN9
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:47 +0000
+	Thu, 30 Apr 2026 03:26:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A8094443E;
-	Thu, 30 Apr 2026 03:26:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF196C2BCB8;
-	Thu, 30 Apr 2026 03:26:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0BAAE4458A;
+	Thu, 30 Apr 2026 03:26:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF135C2BCB9;
+	Thu, 30 Apr 2026 03:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519591;
-	bh=D6nRuLlNtWNYvvWuUfjCi9f8beZLcFCcGwTLfTAZV1I=;
+	s=k20201202; t=1777519596;
+	bh=bc+dg0Bc8LDaQ9OEb5RjsesIcFKeDCO/6xovARLSG30=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Wo1L0FAiDsetIA/SZIMY+AZ2u3wX74XqfiqwNIt6PNAuDwjaG2jrM05nbChaS/1w+
-	 RCmeQ4j1ATh57HbuwNvIYf9y01C7fhsragL/4RLWcSfcjeArvpsZCIf4D1+2JzF+lu
-	 QvlapmT1r6mGtpC/JBtb/i3oKWYqTNCWdDeT5Cjpio+S+IfZdGzYd1U9UsNmsiPiDd
-	 SQqYDrMvbc6Q+NbWiVgZLofEOiO1goK2HygUtaTFo5Mcw/hy5zHqRYL31iLH4Ql9Yi
-	 iOqQUeeCRrWIjMN41eaD8Tm3MbEk7Cm5c/f/cH4xsZ4sj0M9HzOVh3aiLNeN/s5MxX
-	 eA864zTCr1jHA==
+	b=geUpuuDMCyhCp6bEdcbfN0LxnZCUCG0dgvu3qA/x+vL21nkrLzZ8fbVpg72WGZE28
+	 GW58cY5htqwvpdHnIBBxusd/QaNcLFa+lj440eecLAww3/Tl672LYNkzLLEjf/tTSC
+	 BpJ/B2ryHel/66TKXqJYyWj2hlvJjZgUYAyyblpCJqEkiH+W7IzZtgCsm05BvXOqTC
+	 7UXOUp/0g8nuPuEp/UKXTadmyETa8KxH8Ey5ukE8RHBtYyFcXm2Y2LcaUH2nkGobnw
+	 UofVwlyT6LtPYOcYzQrW4VSyZ9ncKX38Ij7OlcUNxKwM+79KdZnCJOFbQp/inSmfSd
+	 OIy8h9cqLZpvQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FCAB3809A07;
-	Thu, 30 Apr 2026 03:25:48 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FDD13809A07;
+	Thu, 30 Apr 2026 03:25:53 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCHv7.1 17/18] hugetlb: Update vmemmap_dedup.rst
+Subject: Re: [PATCHv7 12/18] mm/hugetlb: Remove fake head pages
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751954679.2274119.8307144944681814627.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:46 +0000
-References: <20260302105630.303492-1-kas@kernel.org>
-In-Reply-To: <20260302105630.303492-1-kas@kernel.org>
+Message-Id: <177751955179.2274119.2481489263486900849.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:51 +0000
+References: <20260227193030.272078-12-kas@kernel.org>
+In-Reply-To: <20260227193030.272078-12-kas@kernel.org>
 To: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org, alex@ghiti.fr,
- aou@eecs.berkeley.edu, bhe@redhat.com, chenhuacai@kernel.org, corbet@lwn.net,
- david@kernel.org, fvdl@google.com, hannes@cmpxchg.org, kernel-team@meta.com,
- kernel@xen0n.name, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, loongarch@lists.linux.dev, lorenzo.stoakes@oracle.com,
- mhocko@suse.com, muchun.song@linux.dev, osalvador@suse.de,
- palmer@dabbelt.com, paul.walmsley@sifive.com, rppt@kernel.org,
- usamaarif642@gmail.com, vbabka@suse.cz, willy@infradead.org, ziy@nvidia.com
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
+ usamaarif642@gmail.com, fvdl@google.com, osalvador@suse.de, rppt@kernel.org,
+ vbabka@suse.cz, lorenzo.stoakes@oracle.com, ziy@nvidia.com, bhe@redhat.com,
+ mhocko@suse.com, hannes@cmpxchg.org, corbet@lwn.net, chenhuacai@kernel.org,
+ kernel@xen0n.name, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, kernel-team@meta.com,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_042645_620518_CC5A03F7 
-X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-CacheID: sfid-20260429_202637_575516_92D650C9 
+X-CRM114-Status: UNSURE (   8.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,19 +87,23 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Andrew Morton <akpm@linux-foundation.org>:
 
-On Mon,  2 Mar 2026 10:56:28 +0000 you wrote:
+On Fri, 27 Feb 2026 19:30:13 +0000 you wrote:
 > From: Kiryl Shutsemau <kas@kernel.org>
 > 
-> Update the documentation regarding vmemmap optimization for hugetlb to
-> reflect the changes in how the kernel maps the tail pages.
+> HugeTLB Vmemmap Optimization (HVO) reduces memory usage by freeing most
+> vmemmap pages for huge pages and remapping the freed range to a single
+> page containing the struct page metadata.
 > 
-> Fake heads no longer exist. Remove their description.
+> With the new mask-based compound_info encoding (for power-of-2 struct
+> page sizes), all tail pages of the same order are now identical
+> regardless of which compound page they belong to. This means the tail
+> pages can be truly shared without fake heads.
 > 
 > [...]
 
 Here is the summary with links:
-  - [PATCHv7.1,17/18] hugetlb: Update vmemmap_dedup.rst
-    https://git.kernel.org/riscv/c/fed8676ca2b0
+  - [PATCHv7,12/18] mm/hugetlb: Remove fake head pages
+    https://git.kernel.org/riscv/c/622026e87c40
 
 You are awesome, thank you!
 -- 
