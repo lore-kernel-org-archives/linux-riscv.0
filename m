@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9AD0CD13DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 18:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49715CD13DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 18:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zOICyoWOpELAg8IQkUGD330lrsl/vQ+0fqQEuWz7FQA=; b=hIpqDWbRr6U9oR
-	LkdMT13PVrQ+PWbtEahK3GWEBQ6v/Z3o5PzVSrvVpF46cFnZ+K7rJUHO5fkOBk1s0PQ/HBPR03Z2O
-	SwNWLI5b4noQJSJcJwtv4/rV8zkqvX+3ic5U7GYpfD+0NJvbBQpDfSdEyrUonCd+uxLwRtbSWgGCL
-	knlMqaWPUpCklUdQOgrszr0yXMufw5bTYod+gLhra/IKdQJ9aHNTaLVVcG9tsknabzJHStTTn0k15
-	Sq9RgC5xK+8miV6Q2EbgWSCK6//q4kbyur32dupMaSCi6Id42de7mlYAEG/uPSWHIA0AjxGA71CF8
-	riKgVNNJvuliKXRy6p7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YL17+RwtGKAiTdJd4+ttmi0jlT1ox2gS/7mAv4XK96k=; b=oaJGoo04ZF/UgIUqLp4O+Fy/W7
+	vdfxt3lZTLuYD8rgOpXdSloMGT2u/fHtpEQ9txeLw+P2z6HGk5+q80Nhrqrq8otycJxYzZP2DSlXb
+	zPzZdlDpce6fWHadsTzzkCLCkyy9Mcr1rhLkmdEQ3IANVydNCv1uv5HGFqm1mJZKv42RrcC5a7XPP
+	opTTmQL83+lupn6aNrjaLDrTioDjcP0X6VhkDBjPYUSIuAwyLdn03YlP8/9xbndwi1rJYCDFH85eD
+	kWVa4+uKcdsNrPr+kYJeoNU7p89cTd7z+CtWgi/XfQgyRD9lWOxNVLUrYLF+FWlhx+auy+tYqPpXY
+	3a+DVY8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIWUm-00000005qSi-3J40;
-	Thu, 30 Apr 2026 18:52:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wIWXo-00000005qo2-0BiO;
+	Thu, 30 Apr 2026 18:55:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIWUk-00000005qSN-2yRN
+	id 1wIWXm-00000005qnW-3YX0
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 18:52:20 +0000
+	Thu, 30 Apr 2026 18:55:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88D1B43C93;
-	Thu, 30 Apr 2026 18:52:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68A79C2BCB3;
-	Thu, 30 Apr 2026 18:52:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9081C60180;
+	Thu, 30 Apr 2026 18:55:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA858C2BCB3;
+	Thu, 30 Apr 2026 18:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777575137;
-	bh=7ryAeRblcPWnwSjPRvoFAvAgofVV8hhRtulzzlp5ePw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=G8A54/ODPxbJlb3id7uBBZqmtwkcT+Bhb99lBx3MVW0+qYf4ug9I5TcmSTAUTxrqi
-	 RE7V+zQTuKzBDLtv5d3SbJL1mXJu7/ybSRJClEiFq8EVNfHwtHccUeV2j1iCxeUKEY
-	 FbH5WSdsllKyFblIJ/2xaMl0ZFrIb1Nlw9vvnz2RGEYSTwxlMbpiVgHJRNMOrHflY9
-	 O0e9x/MtPOW1BIGc+gZapX/sQRiz34b33C2FzR9V1QHNl2bD5uwW80lRZJHuviJAEN
-	 gwherCHmJqB1yR/ICu9dITjOGb8Gph3MY+3yFqVLRzXoCs3ZsFCOQFExiNrwNanF5C
-	 d4h1WM0S/0KUQ==
+	s=k20201202; t=1777575325;
+	bh=lWE9HkFpXw9rtE0Jo05d+/92L9aR9NU3+uP7biB7kcU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RSdYbXN686KVP7jsq/GKLBRNM8X4srR9OWumOvVV1zxNc7J8KENy7WTw1x1A3yO23
+	 iStgzBIpGM0Gnaw/tmJWkdb7xHTfQSShZIEn0I8CiuCLM01kqk6xrHgiwbx2119Cbl
+	 Caj+/XrDYXlwvzu/yX4Up2KojwD/1gnLpeA85kCjgBwwjLIl85qQx5r8o0qdyxcTUs
+	 FxMj2gOnKUTRkTzz15MXhWP0lsrhE5/ZzJCzCXfDPyHCWlHkOyXqC4/fuevWQexU2d
+	 IPVfnJukukpc6C3GWHISN7BhC0+8+iBuQ9kjkDeQsK1gj6MtGYytgK7xiK4GjE9s3L
+	 dPWrCGJkqYQDg==
+Date: Thu, 30 Apr 2026 19:55:20 +0100
 From: Conor Dooley <conor@kernel.org>
-To: spacemit@lists.linux.dev
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
+To: Yixun Lan <dlan@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dts: spacemit: set console baud rate on bpif3
-Date: Thu, 30 Apr 2026 19:52:12 +0100
-Message-ID: <20260430-reword-overstep-3be08b7eab25@spud>
-X-Mailer: git-send-email 2.53.0
+Subject: Re: [PATCH 1/4] dt-bindings: soc: spacemit: k3: Add PCIe DBI clock
+ IDs
+Message-ID: <20260430-plug-bolt-8ff9137717fa@spud>
+References: <20260430-06-pci-clk-fix-v1-0-32fdc77c02ab@kernel.org>
+ <20260430-06-pci-clk-fix-v1-1-32fdc77c02ab@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1222; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=ZzIyf8kNpSShxQake71q8Bn//zWKDFH9gBDY8/gGuwk=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJmfl9yJzI3N0Hpmfu5hlL/d5g81aqerzMwlPmieYrx3R 0nmxceNHaUsDGJcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIZQZGhjeVuUWKdt9SMqrd VU7MNbL3lX97Ovv3plPxbLPVfvtMZ2D4H7dqzTfpTfds9p068CRtpoNx2/K5Xr21b29z5h2Renb DgREA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_115219_155977_00A7AD65 
-X-CRM114-Status: GOOD (  10.34  )
+In-Reply-To: <20260430-06-pci-clk-fix-v1-1-32fdc77c02ab@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +73,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0771778322057090827=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-Because the default console's baud rate is not set, defconfig kernels do
-not have any serial output on this platform. Set the baud rate to
-115200, matching what is used by U-Boot etc on this platform.
+--===============0771778322057090827==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZyWW5ut6GEwR4kZa"
+Content-Disposition: inline
 
-Suggested-by: Vivian Wang <wangruikang@iscas.ac.cn>
-Fixes: d60d57ab6b2a8 ("riscv: dts: spacemit: add Banana Pi BPI-F3 board device tree")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: Conor Dooley <conor+dt@kernel.org>
-CC: Yixun Lan <dlan@kernel.org>
-CC: devicetree@vger.kernel.org
-CC: linux-riscv@lists.infradead.org
-CC: spacemit@lists.linux.dev
-CC: linux-kernel@vger.kernel.org
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 5790d927b93db..333ac8ebf3f51 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -19,7 +19,7 @@ aliases {
- 	};
- 
- 	chosen {
--		stdout-path = "serial0";
-+		stdout-path = "serial0:115200n8";
- 	};
- 
- 	leds {
--- 
-2.53.0
+--ZyWW5ut6GEwR4kZa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Thu, Apr 30, 2026 at 10:30:26AM +0000, Yixun Lan wrote:
+> Add clock IDs of PCIe DBI (Data Bus Interface) clock.
+>=20
+> Fixes: efe897b557e2 ("dt-bindings: soc: spacemit: k3: add clock support")
+
+Why is this a fix? As-is, this looks like you're abusing the Fixes tag
+so that this gets backported alongside things that are a fix that depend
+on it.
+
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  include/dt-bindings/clock/spacemit,k3-clocks.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+>=20
+> diff --git a/include/dt-bindings/clock/spacemit,k3-clocks.h b/include/dt-=
+bindings/clock/spacemit,k3-clocks.h
+> index b22336f3ae40..dfae52547cda 100644
+> --- a/include/dt-bindings/clock/spacemit,k3-clocks.h
+> +++ b/include/dt-bindings/clock/spacemit,k3-clocks.h
+> @@ -380,6 +380,11 @@
+>  #define CLK_APMU_ISIM_VCLK1      86
+>  #define CLK_APMU_ISIM_VCLK2      87
+>  #define CLK_APMU_ISIM_VCLK3      88
+> +#define CLK_APMU_PCIE_PORTA_DBI  89
+> +#define CLK_APMU_PCIE_PORTB_DBI  90
+> +#define CLK_APMU_PCIE_PORTC_DBI  91
+> +#define CLK_APMU_PCIE_PORTD_DBI  92
+> +#define CLK_APMU_PCIE_PORTE_DBI  93
+> =20
+>  /* DCIU clocks */
+>  #define CLK_DCIU_HDMA            0
+>=20
+> --=20
+> 2.53.0
+>=20
+
+--ZyWW5ut6GEwR4kZa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafOlmAAKCRB4tDGHoIJi
+0n1rAQCxrTCw7Jgkx0a5N4zQWIUC4Gs8go2JtYFp2UB241sx0gD+NuCdQwdKHF6L
+RzmcK+MGhvdUc6DScyb0unK+KofNrwY=
+=3o1x
+-----END PGP SIGNATURE-----
+
+--ZyWW5ut6GEwR4kZa--
+
+
+--===============0771778322057090827==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0771778322057090827==--
+
