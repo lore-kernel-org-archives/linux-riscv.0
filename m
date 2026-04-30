@@ -4,92 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3C5FF886F
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 23:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE3FFF886F
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 23:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TxIPd/HnVFehJnxZiFs0Is9DDXpwnJDTDQAtg9VbTg4=; b=D3O6TuXx6vjagO
-	w9YYByxumwiEn5anRien0DFHKZfxvPDDH4SnAuPSRCQFwP0QC8NHmaYJtodW2ZxC1wtHJz+veB7Dk
-	KcHC1hrJswW8GfQgTQTZNeipnNXqUTy3g6I20D8TZi1Y25UgICgIbynl4ttKQPMrXjfLT8aRMqpTl
-	u8jJvHBoQ7SZHtT0f3UYfxkypSjL/6pcWS6qn6KxLy36qeI3qbEcua0tnR/I4UYMZ4MH1hrA2t1ux
-	16dmgsl8F9CX0UoXz/XupUYAJN1HiYtZIYqiKua8TzZeZ68gJxdI8fCaGmY1v3AXZ49+LR1Pr/ika
-	lIMIoQFpoGJge7enJ8Aw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:To:Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KD3GKsZwOG0tapGKgFIgRxA5CLoHmgeMXrcmiY8XoUI=; b=izuiDxiyVaCXez
+	NzBKVIbaKkPAWgw2Or7P5fqoODycVU68KtwUTYXJJumJDySxoRediQuL2AaRV0XcYcwRBW3Ts58CZ
+	Fymw18QfOhkvcyIFDKtF3qW+4URhmXJhfMIWRqrW6/XttqKKCBkdasHVfnM/pL69/4HeZJWhUuIsL
+	nPEWykGPgOIkFT9sZUtkW74ZtfOFVMybYN9fxGY+2Vjxgx321hWELZ0c+3k3IR7l4l9CGMUA6XK6v
+	470QCIpQYE7YUN2TH5xcmmMkBLz6Z6qrS4ScpF/6RLkRBMp4yAVA9xs84sziUcPryumdQR7ngW7AS
+	aO1I8aSAKmg5qhy7ZmPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIayj-000000067uv-1gmS;
-	Thu, 30 Apr 2026 23:39:33 +0000
-Received: from mail-pf1-f172.google.com ([209.85.210.172])
+	id 1wIbBA-000000068Ti-0Xtj;
+	Thu, 30 Apr 2026 23:52:24 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIayh-000000067ud-10K6
+	id 1wIbB7-000000068TL-2way
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 23:39:32 +0000
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-82f8b60e54dso1032201b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Apr 2026 16:39:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777592370; cv=none;
-        d=google.com; s=arc-20240605;
-        b=G8swVTXAs7jc5FwwTeXmzbovCwUYeXeMSBdilfCgP6o3TaU6bdaq2nzlDdlSzg2LlE
-         wtRS8EHHlukTBYR+TxZe9t9o1vug7Idsxq8jmcBcOSQ8PFJbUpFKVBlWt6qhIThlf7cu
-         G+1gMJDymW2Vtv2TfEadNENnUzYXUVH/wkn1G1WytuX3K8FeoD4mmUmEShmQOEGTb787
-         oNeDkQfsG8hLlHOfzAoCGuwbhx4t5aAGu190hH7VkdBug+K60FAGrQ9SEX5cQfZJ42Js
-         VW6kgz05St/8erZTpwG8vTH0wL/xSqPRtrrSdzGUm9AKuTIAYBZ4dkLGL9xWmVlJJrmd
-         ZCyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version;
-        bh=Cx7+rB8zqSG95RXNt1o2BO0Tl2Wkf5l4gUT3xnB+hHE=;
-        fh=w+T0KxkM0U2nANPNw0PoS9U6LxyR2gp7M2czA6veH+0=;
-        b=Hp/89jGfWeJLlO1CG17GvgC0SF54bfXEOEREQoQLJxeZRy5rSHuaDATClemArXWAM5
-         lUT557P7Qhi9buOZJb+xUB0/q5+VQswQAvK4mzsBYLwEuB82D2IkrhUo6jZhP5VC6Ztt
-         PBKHRBOeFId9GVWQDr1FwnVpF7AtJzS4FgDkU3D8lRWpu6+7ZYpa97bvUDR9nEEf42E3
-         cwj/pp7OREoofknL+fZ8PaNTsfNVDDyzBQU3JEt7c9j+8z9d3cUS1dEAGzPg3w7icla9
-         mdZwEakT4nlOfRLzOmK+tvIILWToWuvUVpScmphFTvgrcxPz2gGvE/GFsfKnPm1Nh/eY
-         1h5A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777592370; x=1778197170;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Cx7+rB8zqSG95RXNt1o2BO0Tl2Wkf5l4gUT3xnB+hHE=;
-        b=PfEj7f2Q67cVrrv2cXU5sboJppLd3dxNNr5WrKNrL/x42QH4f6K1E8OW5c/40LmVgb
-         H5llF3MGVD+rEjy/55JazNpfcF/nlZPrg1bb8Hu9MRGMY4CXJnR/haD2FC/e28DKbT0n
-         x8gh4p0D3JEul/79Wtt/De5WJFQvhuWNaQFQIk+TBWkVm8Vu9J2A6budwp7UEGYkiQnG
-         rZDj4ODY5LwQm/RmH76X1OAx4n08J+tBXO/80BrUAlxLsVrGOrLr+jd6kmqWXVjfZg6+
-         qHaTAXKmNjjRZPcA3S5TYEwZ2tyGp+/PZYRK6R7fA3KOK2VcEppllwzp4JcDguu+GK8P
-         TW2w==
-X-Forwarded-Encrypted: i=1; AFNElJ/b08CYMttLROrSdt3vRsxLIpXTbvHW17D0+/7zO4pA9GupUcHwGAq9Blr9VQfaHUCJ9IBFPqZqVYGH6A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/nqRsj+pV5U57EkUz/45dJvgdE7IPxu3N9qn6EgXD4ma33Keo
-	fSuonI/9H2q4+EODss4pVCqhNmx+aeH1/+AywaPdjmjrsa5UViNjf7oKNG7UaPFU2bFb9lHG8lC
-	BVtksrUpbSJSS9mUD7CoA0H3hjUNH8Ps=
-X-Gm-Gg: AeBDievw7KEa2cBoBhhdhKjBXxTgexlQTCn+On2waKCO3teZDZA6VuKCuLMeekMEV/o
-	FoQol2cM8ITacqHj/mlAY/vs9+Zh+wngW0T97DfB5uvlhIT+d1vteqWTQg5hvQIm2Btm3k/PPm6
-	2EosZlLEN5SztthXCFj12Q1C7F9syl0LqIMUMIjT6FIn8+MWG11NbP1jOqF3/pTWnwrFneNugA6
-	OJjGhGH4kZZw+gwI4G5FzaJDHh7hoOTWRm6rCnlI70YT4D0K8hVTJlli68XcEMRhyjLJNyMOrc6
-	JS2xadzDuespAvhRSSMHK2Au+MlUgix5D6xQkEztBTxECwstkQA=
-X-Received: by 2002:a05:6a00:8e01:b0:82f:111:61d3 with SMTP id
- d2e1a72fcca58-8351a5d8a70mr605450b3a.44.1777592370104; Thu, 30 Apr 2026
- 16:39:30 -0700 (PDT)
+	Thu, 30 Apr 2026 23:52:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777593142; x=1809129142;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Nr1pZK6L9ewdRVP4FZat+YI77SNs2AaSf0jdhOTA2Xg=;
+  b=UGPPyE0dvTSAadQF+X/KFxulP3cwOx55sGNGsGG3Fp1CKpXVuG5piy0M
+   mzu/zS7S44LZ08hwOqm/e0srhheXdXbsM9UzPgNE+M7RZn3dPDHi+JByg
+   qLiZzaRw9rGFBJKsm4jFNaFN14Q3hXQn5y7nzvOEm+lBxPFEmFCJ/oeB4
+   XNL/wvfJFTw9DERYdvSFGOrUNXzzYNdA3XKwO/0oP2x8ofeShlqpGW8Cc
+   dJP4/6aHcuxVN0ceo0XvoOOLPHdiE8PmnUuTmpYAmBxeoFL0FqR84Auct
+   XxMEuoTZ1B7PfQgM9CXcgtAVkD+CBAhXEbbsSFFSd+YNU2cWbxga/rBqb
+   w==;
+X-CSE-ConnectionGUID: 8grVP82DRnK8WYuGm6dNug==
+X-CSE-MsgGUID: DKC6mAZQQcWFrfQdEKM/aQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11772"; a="101227722"
+X-IronPort-AV: E=Sophos;i="6.23,209,1770624000"; 
+   d="scan'208";a="101227722"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2026 16:52:20 -0700
+X-CSE-ConnectionGUID: IgEO2u5iQ7OJcTmZv3E0HA==
+X-CSE-MsgGUID: bD4cyQ+ZSYm5ByhN0oPweg==
+X-ExtLoop1: 1
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2026 16:52:19 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 30 Apr 2026 16:52:18 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Thu, 30 Apr 2026 16:52:18 -0700
+Received: from DM1PR04CU001.outbound.protection.outlook.com (52.101.61.27) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 30 Apr 2026 16:52:18 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y+edqTKdnR11UXk6POWADTSRLO7RUCMBN3O3Kpu/T/cIQejdmxLybk4l78jZH+IRZKiUM06XTvBA50WljkbhY+Kno1P39yNkrdawucDfKjET1+LStCmDTuMJCBlj65ky1RTQCFIkpoMHXqyrn+vVo+N/UOavC+YpDwo7Z7z0IAPVJaKRyL0Tw+s+Rb0yPLizaXUJijeDKyxI8caiAJ0oQCP38iMKCmtApWARqCBqLr/MOyf2Nw5jJ4spJ6aZnsOzUfkNQD7kOwm5qfRd9I1cuH+owABLh74IRogohXH/+tI+fAMvPLs1xTvpngkL6FPnnkJnfVdfFaKIo7ThFARrLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N/PIkss/QgdG4nlPdN9/LaI4TZfXLYDG3UxC0uw+yIE=;
+ b=Qgot6NksU75uR4rOWUuOEQHM1aZcj2OugfqxWW/0MDHu3erBA8a6Kb3QgvrZaw8fBkYLj1agCURF3utisRcN0XKb0eX5bME9SyY30WWoW9BiFSMSqCfdU5koTMRXpgqjthzoavxuJefS7OMukbPWzOYjiVhNfxFMZ6LPBGw/ewxUOyOo/pCSqd+rPocHZ0u1g2w364MDSnaTx9GPizwrAOeBSLL7U6z77YuSUeg0VGMrzUiy8It4pSwD+S9whP2Qv+Y0BFk/n+7CbVsCCgWEaM1duWN/u09Azc0JTEkfNDXe5wIcOyzzNNkHHB+N+diV2/0s7s1TrfhMk0SosVUbaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com (2603:10b6:a03:4d2::10)
+ by SN7PR11MB7468.namprd11.prod.outlook.com (2603:10b6:806:329::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.16; Thu, 30 Apr
+ 2026 23:52:08 +0000
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d]) by SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d%5]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
+ 23:52:08 +0000
+Message-ID: <3b6f86ef-c00b-4d7d-96e2-b57fd4231e0d@intel.com>
+Date: Thu, 30 Apr 2026 16:52:05 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v3 05/11] RISC-V: QoS: add resctrl arch callbacks for
+ CBQRI controllers
+To: Drew Fustini <fustini@kernel.org>
+References: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
+ <20260414-ssqosid-cbqri-rqsc-v7-0-v3-5-b3b2e7e9847a@kernel.org>
+ <03085c36-315a-47c8-85aa-f3de88fa43bd@intel.com> <afPnrjAseS00a8k9@x1>
+Content-Language: en-US
+From: Reinette Chatre <reinette.chatre@intel.com>
+In-Reply-To: <afPnrjAseS00a8k9@x1>
+X-ClientProxiedBy: MW4PR03CA0104.namprd03.prod.outlook.com
+ (2603:10b6:303:b7::19) To SJ2PR11MB7573.namprd11.prod.outlook.com
+ (2603:10b6:a03:4d2::10)
 MIME-Version: 1.0
-References: <20260430035259.3402954-1-domibel@debian.org> <20260430-celibacy-semifinal-db18fc2fe553@spud>
-In-Reply-To: <20260430-celibacy-semifinal-db18fc2fe553@spud>
-From: Dominique Belhachemi <domibel@debian.org>
-Date: Thu, 30 Apr 2026 19:39:19 -0400
-X-Gm-Features: AVHnY4Lb3mTlguWudJ5JLYvLTGmkfRrZutT0S-FVnOll2zRH3BK2VJv2JDK67Eo
-Message-ID: <CAAvaLCzS0YAYYsz0T2+DW198grBL2dM0dZdqcyb6ZumwQtNSbQ@mail.gmail.com>
-Subject: Re: [PATCH] cache: sifive_ccache: Add StarFive JH7110 SoC support
-To: Conor Dooley <conor@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Samuel Holland <samuel.holland@sifive.com>, Emil Renner Berthing <kernel@esmil.dk>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB7573:EE_|SN7PR11MB7468:EE_
+X-MS-Office365-Filtering-Correlation-Id: 73258154-043f-4a96-4efe-08dea7137d9b
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: LG+68nMKMMLR1FBDoWK7mNlGhBwV2oB+pb2lTDrjZZBzFft1OhH417ct9g96UWhfk7iZmhOMsVUIN+UtXyz+SiMwyJ2Z2S3QBfGpfvQFgDTyWNiS0sMr4WzZLTMFciy0ZrxL+roFQuvmoAEzgi+l9tPqRoZZVky4jZS5I2U6FGiA90zBgAnXGgXB8WK29Uf8oeFQonKJElaz22g/XnZCI2gtNDcTugEVnujAWmFcKTx0FdEU5ZDrmnR8fOiqV54AxabEC7UBIm2TwQvCb4JWuHr+SeNMd1upUgfyV11X2sN+TqTGJoZJEqZQVIxWwN7l29j4N7PFQEuey6zL2ToCjqJK2P9CCaLR5SVn7blyRiV8j6moMbd22wpT9rirA+BWLw7IqyfZab0PYaX2Ro63xMY7W/9PpSzMDP4MT1slNsn+9BfVyOX/CuwL/MsVwoinWraz+cmvoeGacQy2c+cGFL6LVt8/UXPaAvqVkKyiziPKe2u0u/B7D7T1jKsOB8Q96pv5IpfejGjvG9ea1e/YxUE/QmTIIYsDXtbiY2Sr2SnLfq9KUAo6cfToeNrf2GjDgAz9okwzarGwIPdolwhXZ8bD1Z7RFL4Q+jg9EOXPZWqtKKXKjeCyFu5IwPQLz+rra6JpxZ8gqtrKM56CUMGf0g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7573.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b3FaaHg2Z0J2dW1tV29GN2o3SE5EaloxVHViTzgxMHpRVkoweWtoT3ZUdE5G?=
+ =?utf-8?B?akUxSXFiTzdGSFNvV0pxaTJtS3k2ZmV0WkRtaGlZWU16REkzTWtMeU9KUjdW?=
+ =?utf-8?B?NG5iYXluTSt5cG5EZXlhRlAxOHJudjViUkpxTjFLaTJ0R0xhQVFVRXJQaFFj?=
+ =?utf-8?B?MUxkZURnUmVaeHNEcDdGL1BQb3YyYWFWQlhNWXh2dnZzdnBXTExneEN1eGlZ?=
+ =?utf-8?B?c0pQVnVRTDFNdEZrcDA4T0lOOThMREJjQURpcTBHWHBkN2o5N0pGekNzekJG?=
+ =?utf-8?B?UCtLUGU4VmNqcXQ4UC9EUnROYnlhTDRWTldWRU96TVFFMldsUnRzdTBaK1RQ?=
+ =?utf-8?B?b2ZUTWdHVytaT0w5WEJIV3FDU2g5aklMNUFaVzRSTk1VaHV5RHRSY3o0d0Ft?=
+ =?utf-8?B?VGJ1U0JGKzZtOWJYTDQzZjJwaDEvMGJXN2F6cU40bEY5a3BEeDFLazQraC9E?=
+ =?utf-8?B?UjRCSk5OcTI0bWd5TmpHRS9zaDVSVkUzOGZkM3JhdWNrUTdvMTExbXhyLzlB?=
+ =?utf-8?B?MVliUmlzOGM4Mit3Mm53K2FBUmh2RUVUVk9WdFZvWXlucGpBVFBFQm9PN0VY?=
+ =?utf-8?B?N2Vhc2dRTU42TFNpS05oSFI0Z1FnNEJWOWFGWlcvQnV2V3NCM2lnVUpWQjdL?=
+ =?utf-8?B?anNybXd0S3pYcUxlUUFJYmhjbThTVU82akgxTGhtNFY4a0t2R2lRdXd0WmRU?=
+ =?utf-8?B?dWloVHVDY3A0aDhidjBRWkF3MFdtQzZUL2VkM2xkMzZtOWtLRWEwK2UzN1ZG?=
+ =?utf-8?B?UndtbXV6NkdMd0RHcSthR0hicEdzRFdBYVU4S3BVSHlBc1pZaFB4MWUwMDJL?=
+ =?utf-8?B?ZVM0SUFKMDdEYzYzOVhrczRnQjBNUFFmSE5ubEowT0tYUVZubzlHWXRkSlBT?=
+ =?utf-8?B?dHEzYkMyZmFQTXhIV3JlQjVOR0Z5MWRFeU5obUZ3a2dYcXdudVI4bUFicld2?=
+ =?utf-8?B?TFdrbFYwRzM4eGR6QllKQjZJY2pBREZMODRWZjh4L2lXYXE5MVlPby8yRkth?=
+ =?utf-8?B?dFBiZk14akxRSW5Vcjh0UDBnSEd0eExHaE9YSk1EdVRNUFp4eXd2VEFaSC9S?=
+ =?utf-8?B?b1VvRys4aG03SERTYzNpOFpwNTRMNlcrakpTbVQvT1NwWlNQMmtzUGZOZE5R?=
+ =?utf-8?B?a3BMQWZyVTVLMmpPeVQ5RkNNNjNjL1ZtMkFqNGtuZStGYWR4bkNHb0VJbWdI?=
+ =?utf-8?B?aG9kSG92L1V4eFNWZnU0ZjVvc2NWVG5pY2svNzFJcExjOFBiaUgrSVd6QzVQ?=
+ =?utf-8?B?b1IwamJUV05ReGR0QWl6TjR0VWhBb3FnVjZCWGZRcU1HOTZTQTIxVTNNOXFU?=
+ =?utf-8?B?dk95TkIvWlMycE41blpSVml6QUF5TEgxbmdBaWx4K2RKbitmSzc1N0RKT2g1?=
+ =?utf-8?B?aW1MQVBTVmlLUXNvRUhzeTBxd1BVZUFBZFdQRFhLTm5lWmJYNXV5Qk0yYlFm?=
+ =?utf-8?B?c0F2Q2pzSVRrT2xCS2NlZkhKSDU2b3gxSThGWURNWkhaUHIra2luZUFKVzQ0?=
+ =?utf-8?B?dU0rNEJCcWluaFcrd3FrV3c3RGQ0VGw2VG9EWS9UdmN5M0x5WERFUXRQSEZW?=
+ =?utf-8?B?K2JjWjBPRnNXWk56RDlBWldzWVM0L3BzT1VZQUpTTlJKU2FpRW0vS25Rd1dt?=
+ =?utf-8?B?QmFIcGduMDZ0cGV3b3VtTHA0TGZ2UEk3M3lXY3YwdU01TlgvT29JdWRiMnlq?=
+ =?utf-8?B?VHl2dzIvSzlZMmkvb3plaGdtZE5Pdzc0TkpHSS9Va29yMVBsRjZLVkhGOCtC?=
+ =?utf-8?B?end6ZnRWMURqTzliTjJTNUVXeDU2cVUrVEYxQzhIV0FUbGpYVDFVTU44VnFB?=
+ =?utf-8?B?MW9hK203UUREc0VCaklNdmZXSk5ESU1KcHFKdHdnR3h0UDh0Z01qamJRak5Z?=
+ =?utf-8?B?UWd6eXRVUVlKQmxuSExkbFpIOEtqaW5kajdsakU4ZDFQVXRVZzNna084L0l2?=
+ =?utf-8?B?cllhdFRkcTk0R2JlVVZuWG5qbndZOWxIN0FBKzBWTlZXczN0UTU5RG00S0hO?=
+ =?utf-8?B?RFFaWVFLTUJEZFY4QXMrWnBkOENiYWRDWWt3eWV0L1dxQ2xnL28vR0YwY3FZ?=
+ =?utf-8?B?cFR5TkdvZjJpV1RxN1hHWGQvajAvV3p4MXA2a0NCcTZiZTZ2Tmd1VnIvdFpF?=
+ =?utf-8?B?emVNSzF4SG5GeHdnYUVxK2tCQWRlWTVWdHh1ZWtvMS9wT01EVUlyZUdJRmJh?=
+ =?utf-8?B?WmJzUzM2K2lmd08vS2Y2bFpYUTAzNFZLb0VRYjRVMTdDQzJaTTUyMmJPQ3Jo?=
+ =?utf-8?B?MHFjVVhXaDNtcHdKTGJyUFpvemJGYWo2VlN0K2dhTUJiZXEyaml1SDdGQ000?=
+ =?utf-8?B?VUJ0VGNpZHFmTXpWdmNJRy9QdXZocWRscmVnTnA0TVhPZHR2ODYxTXNWUVhj?=
+ =?utf-8?Q?EkWGFERW6FMOGqtA=3D?=
+X-Exchange-RoutingPolicyChecked: YY5S1/m/WCPVCPPxn4jMpuROReLyEvbsKyU5fzDwp6AV+nAz1bhx7XDbb3oW/htL4OW1YCO547qtQRl+h0XzKJi0qbkF4OJ9nz7OpgD8FsvRQkVPThgexq/Ap9MxafwlvxrQzu6KACb+F3WvHq++RIMw2o+S2jFUgEYFYzJpXvOBZru80ULs2yUtOTRlk1AlYHG9LOGOo/ez/FGNrbPD2wlQMwp2mz81eiJhWJlGrwTdGffEYWmcr2RO81kleUCiWsA1fOveyS6G0qW4o4qU4edEo0LbaALLZ05p7DdjITwyRQ7icKJ+GmY5sKeRTNYqGjjGvl2IG6qA/8aSX8kwcA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 73258154-043f-4a96-4efe-08dea7137d9b
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7573.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 23:52:08.7646
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: E4uWMejWQzInRtzUg558NwJYglnBrErgWdcsRkM0t0KO0vqUoYMLRArNxT7tkLvBzbdCbi9WOOLichz7KXhLKVaAhGwKl6CHiFY40IWDLWk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB7468
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_163931_281433_A92778E9 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260430_165221_867580_7627F712 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +177,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: x86@kernel.org, Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, linux-kernel@vger.kernel.org, Gong Shuai <gong.shuai@sanechips.com.cn>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, Gong
+ Shuai <gsh517@gmail.com>, Fenghua Yu <fenghua.yu@intel.com>, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?Q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ved
+ Shanbhogue <ved@rivosinc.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Peter Newman <peternewman@google.com>, Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBcHIgMzAsIDIwMjYgYXQgMzoxNOKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBXaGF0J3MgdGhlIG1vdGl2YXRpb24gZm9yIGVuYWJsaW5nIHRo
-ZSBub25zdGFuZGFyZCBjYWNoZSBvcHMgaGVyZT8KPiBUaGUgZHJpdmVyIGFscmVhZHkgYmluZHMg
-d2l0aCB0aGUgZ2VuZXJpYyBzaWZpdmUgY29tcGF0aWJsZSBvbiB0aGlzCj4gcGxhdGZvcm0sIGFu
-ZCB0aGVyZSdzIG5vIHBlcmlwaGVyYWxzIGN1cnJlbnRseSBzdXBwb3J0ZWQgb24gdGhpcwo+IHBs
-YXRmb3JtIHRoYXQgbmVlZCBub24tY29oZXJlbnQgRE1BLgoKSSBhbSB1c2luZyB0aGUgaW50ZWdy
-YXRlZCBCWEUtNC0zMiBHUFUgb24gdGhlIEpINzExMCB3aXRoIE1lc2EgYW5kClZ1bGthbiBvbiBh
-IHN0b2NrIERlYmlhbiBzeXN0ZW0gKHJ1bm5pbmcgaGVhZGxlc3Mgc28gZmFyKS4KVG8gZ2V0IGEg
-c2ltcGxlIHdvcmtpbmcgc2V0dXAsIEkgaGFkIHRvIHBhdGNoIHRoZSBwb3dlcnZyIGRyaXZlcgpt
-b2R1bGUsIHRoZSBkZXZpY2UgdHJlZSAoYm90aCBhcmUgZWFzaWx5IHBhdGNoYWJsZSBvbiB0aGUg
-U0JDKQphbmQgdW5mb3J0dW5hdGVseSwgdGhlIGtlcm5lbCB3aXRoIHRoZSBwcm9wb3NlZCBjY2Fj
-aGUgY2hhbmdlLgoKU2VlIGUuZy4KaHR0cHM6Ly9naXRodWIuY29tL2RvbWliZWwvbGludXgvY29t
-bWl0LzcyNDBkOTk1NTcxYTEzZDI4OGI1Y2M1MjA5N2M0ZWJiNWIzMzlmOWIKaHR0cHM6Ly9kb2Nz
-Lm1lc2EzZC5vcmcvZHJpdmVycy9wb3dlcnZyLmh0bWwKClRoZSBnZW5lcmljIGJpbmRpbmcgYWxv
-bmUgZG9lc24ndCBoZWxwLCBzaWZpdmUsY2NhY2hlMCBtYXRjaGVzIGJ1dCBkb2Vzbid0IHBhc3MK
-UVVJUktfTk9OU1RBTkRBUkRfQ0FDSEVfT1BTLCBzbyByaXNjdl9ub25jb2hlcmVudF9yZWdpc3Rl
-cl9jYWNoZV9vcHMoKQppcyBuZXZlciBjYWxsZWQuCgpzdGFyZml2ZSxqaDcxMTAtY2NhY2hlIGlz
-IGFscmVhZHkgZG9jdW1lbnRlZCBpbgpEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mv
-Y2FjaGUvc2lmaXZlLGNjYWNoZTAueWFtbCAuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Drew,
+
+On 4/30/26 4:37 PM, Drew Fustini wrote:
+> On Thu, Apr 30, 2026 at 04:17:22PM -0700, Reinette Chatre wrote:
+>> Hi Drew,
+>>
+>> On 4/14/26 6:53 PM, Drew Fustini wrote:
+>>
+>>> +int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+>>> +			    u32 closid, enum resctrl_conf_type t, u32 cfg_val)
+>>> +{
+>>> +	struct cbqri_controller *ctrl;
+>>> +	struct cbqri_resctrl_dom *dom;
+>>> +	struct cbqri_config cfg;
+>>> +	int err = 0;
+>>> +
+>>> +	dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
+>>> +	ctrl = dom->hw_ctrl;
+>>> +
+>>> +	if (!r->alloc_capable)
+>>> +		return -EINVAL;
+>>> +
+>>> +	switch (r->rid) {
+>>> +	case RDT_RESOURCE_L2:
+>>> +	case RDT_RESOURCE_L3:
+>>> +		cfg.cbm = cfg_val;
+>>> +		err = cbqri_apply_cache_config(dom, closid, t, &cfg);
+>>> +		break;
+>>> +	case RDT_RESOURCE_MBA:
+>>> +		/* convert from percentage to bandwidth blocks */
+>>> +		cfg.rbwb = cfg_val * ctrl->bc.nbwblks / 100;
+>>> +		cfg.rbwb = min_t(u64, cfg.rbwb, ctrl->bc.mrbwb);
+>>> +		err = cbqri_apply_bw_config(dom, closid, t, &cfg);
+>>
+>> (Earlier comment wondered about whether rbwb cannot just be provided
+>> directly to cbqri_apply_bw_config().)
+>>
+>> Apart from that it looks like this can benefit from "emulated controls"
+>> that we mused about at https://lore.kernel.org/lkml/e788ca62-ec63-4552-978b-9569f369afd5@intel.com/
+>>
+>> At this time this MBA resource is constrained by the 1% steps that the
+>> default MB control supports and clearly it is emulated with a control that
+>> can support finer granularities. I am currently working on a PoC of the
+>> base schema descriptions on which the support for emulated controls can
+>> be built that should be able to expose full hardware capability.
+>>
+>> Reinette
+> 
+> Thank you for your review. I have been working on a large overhaul to
+> the series in v4 and was about to send it. I finally realized the
+> sematic mismatch between resctl MB resource and what the RISC-V CBQRI
+> spec offers. I decided to create MB_MIN for reserved bandwidth and
+> MB_WGHT (weight) for shared bandwidth porpotional weight.
+> 
+> I didn't expect adding two new resources to be the best solution but I
+> wanted to offer something tangible to move the discussion forward. I
+> look forward to your proof of concept as I expect I can then build
+> proper support CBQRI bandwidth allocation (reservation and proportional
+> share) on top of that.
+
+Creating multiple resources to support discussion seems reasonable.
+Part of what my PoC introduces is that a single resource can have multiple
+controls. This sounds relevant here. 
+My initial PoC ended up giving the architecture too much control over
+the user interface in deciding how these controls are presented to the user.
+Things like this have been ok so far with the architectures behaving well (for
+example, all architectures making sure to name their cache resources
+"L2" and "L3" to have these appear identical to user space), but resctrl fs
+can make this simpler. This does mean that resctrl fs would need to be "taught"
+about new controls like "WGHT"/weight. I am reworking the series as we speak
+so that we can use it to discuss more.
+
+Reinette
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
