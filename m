@@ -4,135 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E93DFF8875
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 09:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5943DFF8875
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 10:10:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gNj4CKxZB03q47Lbt2BJcw/tmdCLC3jm0Riny07GuNw=; b=FZNcJgg4T+gXlV
-	TZZpPgk2XxG0vF2NvBWtLwgJHIBOznTeDuMyQDBw0U7KcMByD7yBV0Eph+3T3bIvs1nmEWcALvT1q
-	4DiNbNn0St0p5oMv9+cBVKjpGIlLLMMMMNWVOU+Vs6WXdXh1INkCWvnFY3lzGlBsG0YjjeSDyYENz
-	Y7K8g6nMaPtt2hauMlPydEsBfrrh4KYGTNOakDljnD+gKIGqvk050/Khq40hJ7ehqbgbM5UN+ewRA
-	8sJQ7gj3M+k4XIlbklvaNF6naNbT5aejqJ5potRrh8jgx7qewCJsm2P53FMSqKLDcGpHuKqXVZ97/
-	pNuzBZ8HS9uKs1Bk6oHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gPKNpDj9uLSrwKC9hdwucm73R7oZmQ8aI4IWhrSQWqE=; b=v7GXVrjRoVP1qn
+	yX+Ev/ElKUa5DxLUBtqWl7AnbEtysH0/bJOM/VY1KTCdzOAzFW9FKwnsvczT+QvPJL02dMXbLpbxQ
+	VcQNQxFmW7Qwvwp+n1vbujwjcmXHS/bMp72iMWcfBwem7s0lBZMiT54JAplwhaU0MtPyuq0cNjrFG
+	guDE5MIQe/harMuADHGQCjrpoWeAkyvynvYOs7G5tNr3dLL+NH7AIebiYOAbryjcg57CN5cFZVGnq
+	uu//W0trcc+Sn9GbU47G2XQBa99AGD9pwInyaXSlE1EVdgRCKNifmY/pzvhS/VDSXcGX19TOQEQvh
+	q2L5dYMUJVH2bbOA1GFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIO2m-000000058Nd-1Xtm;
-	Thu, 30 Apr 2026 09:50:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wIOLv-00000005AUD-0AkE;
+	Thu, 30 Apr 2026 10:10:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIO2l-000000058Mf-3rW6;
-	Thu, 30 Apr 2026 09:50:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2q16P5dNxG0Fm3IxC6pmziA/Z+m6goFrjWlFR7ztWRE=; b=nnYRR8Csyr6wwSTJVsUhYwJfK1
-	uT+J2ZoFoCxkjVKmzSujMsgwaXj96HisSxSRACGnFyE9AyLwQzxk5OXIS63dbA1H2l4mocUGoUfG4
-	MVb4jST0bfGJVvXbQ13WZXkV5VvVUv0Kq3kNRDDq+rPXdO+IqfyYE48fLbWaNAFoS5asbogqIFDQk
-	3raY8eScf+3b4nx5eGYIos9EkT+hvk+W23n3p6lZq3zcvKOcslT3RKy6j9ea1mLi4yjqlWcbbgOj6
-	MJ33yghyDbpjJjnnM6TPgMmLccQ6ZJxdwiB0b4nRqhle4/CRxGmO2O4Aq+g6h1EiyVKcHh3C3x3Qt
-	H9KFTSyw==;
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIO2c-000000072BG-0KuU;
-	Thu, 30 Apr 2026 09:50:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wCspgdEML8AdyfJvDoxKr7LhzM90azIpDNDoq2615OKiiJuIHSXbBgqg5lLHqEYYaAc34sqpWzbgi5EDjmYYJ9ieilCnl+Tu6ZVs8Xpo7Pgvm26XoxzYLgLTMElo4mrghuN2uHDIZBwXkwApAJaZzEnZQn2p/iMqnZP0UAM5BkQV5eVP/+vRHqctpS6vBWU/VgAPKnFeDufZGOJZZvLcuKXJqlR+sGHsix5ZhMoMkGINKJw1VDlcyN29uvtz9u//c7qh/fP6w4Qbw3cnrOUq2qb3Gfs4WWbPa3PkfFDmpPn3MaV+UC9QZC7MO4A4VKcSqTB4qiKT7VvRRO7sQk4jMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2q16P5dNxG0Fm3IxC6pmziA/Z+m6goFrjWlFR7ztWRE=;
- b=loq6mSt1yd/31aJggQOk/0Mn9ImXhu7pH9sdLkKbWtc+gTU7T60h4dcmYm2CaCFsKNY+BvMF3PaEbQqrErTVjxoe075tqBvNf51RKwdnrglB81JVYBgjm46HSUIH7MlrwF9b79yBZHedPkbUdsOI+cjoCpqjJl4xsTJizR/fR0Q9W8bOTifaPLvevoIMNjWtMbsQ7kZ1/EZVOyBUeWUI++94W8PpENjVoDNYIJ9l5a1oyLYOVukXOP9vNYoIZeBH2rnIDYRw4nkIwqE1nq1VuoDjCz6JxyOstKk/x4ZnoLrBGH2Fu5iTU/9jqihcB7YnrYaCnPhGeq2ojpPBwzMMLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2q16P5dNxG0Fm3IxC6pmziA/Z+m6goFrjWlFR7ztWRE=;
- b=wuUqrwhGw2BsPkpNFKMEH3fZtzkPHqzXPqUrZTGq7uJamPdpPsh8epaDVQ0dquvmyDWre/BA8xOd2tNIGXoYwTYjz0YUyRPRCtqBwR4OP9vPJ0lNcBwMNBhQQtO/fN7pCFs5vORpWysSvxVALRJFAJqx+j3jY/k2Ys8FZzyFacw=
-Received: from DSSP221CA0002.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:3d5::19) by
- PH8PR12MB7304.namprd12.prod.outlook.com (2603:10b6:510:217::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.19; Thu, 30 Apr
- 2026 09:50:31 +0000
-Received: from DM2PEPF00003FC8.namprd04.prod.outlook.com
- (2603:10b6:8:3d5:cafe::3f) by DSSP221CA0002.outlook.office365.com
- (2603:10b6:8:3d5::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.30 via Frontend Transport; Thu,
- 30 Apr 2026 09:50:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- DM2PEPF00003FC8.mail.protection.outlook.com (10.167.23.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9846.18 via Frontend Transport; Thu, 30 Apr 2026 09:50:31 +0000
-Received: from BLRKPRNAYAK.amd.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 30 Apr
- 2026 04:50:22 -0500
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Peter
- Zijlstra" <peterz@infradead.org>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, "Arnd
- Bergmann" <arnd@arndb.de>, Guo Ren <guoren@kernel.org>
-CC: Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, "H. Peter Anvin" <hpa@zytor.com>, Thomas Huth
-	<thuth@redhat.com>, Sean Christopherson <seanjc@google.com>, Jisheng Zhang
-	<jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins
-	<charlie@rivosinc.com>, Charles Mirabile <cmirabil@redhat.com>, "Christian
- Borntraeger" <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
-Subject: [PATCH v4 8/8] futex: Use runtime constants for __futex_hash() hot path
-Date: Thu, 30 Apr 2026 09:47:30 +0000
-Message-ID: <20260430094730.31624-9-kprateek.nayak@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260430094730.31624-1-kprateek.nayak@amd.com>
-References: <20260430094730.31624-1-kprateek.nayak@amd.com>
+	id 1wIOLt-00000005ATu-0LJ7
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Apr 2026 10:10:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7432C408D7;
+	Thu, 30 Apr 2026 10:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F9BCC2BCB3;
+	Thu, 30 Apr 2026 10:10:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777543836;
+	bh=EqvFN38G79HDAnXBhVWjYz3r2hRoIRTEoiMkhnAtoN0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=tHvxstCPI/ZD9WUtvG7SafdI1LnJJjAm0B0tCOGOJpg8z+N5OGTSJPPiWxuNT8g8Z
+	 e84RsLAZcA0YxDKDNTwmko7XZfRTY7iE2+EH39zBE9ETup8+jAJQxoB74EfI1MnCKC
+	 3le0jLllF9innE7JrKx5buCYkA0BWAMb3ybQb2RCiTUCZZIs6dQC3Dog9wrCY+xP+e
+	 CW0jA9/wrlfw5JNmzU64yqvnhLJKMh0qNHatnwvH0/126ovE6WKVmVdtwwPXcfGex6
+	 eDdK+m+FJMrvzrJuwc4pZ/yi7bGPSkHq3ZdCMAbmaOFxe8RKcBBgRjCdLrYovH2Pq4
+	 F8C4hwCDCtEZw==
+From: Conor Dooley <conor@kernel.org>
+To: broonie@kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Cyril Jean <cyril.jean@microchip.com>,
+	Valentina.FernandezAlanis@microchip.com,
+	linux-riscv@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/3] microchip core-qspi gpio-cs fixes + cleanup
+Date: Thu, 30 Apr 2026 11:10:17 +0100
+Message-ID: <20260430-levers-defiling-00406e391c5a@spud>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC8:EE_|PH8PR12MB7304:EE_
-X-MS-Office365-Filtering-Correlation-Id: 18efc1ad-5752-4777-09fc-08dea69deb1c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|1800799024|22082099003|56012099003|18002099003|13003099007|921020;
-X-Microsoft-Antispam-Message-Info: vfCzn0of+eSGpF9ucSwW1ql4FmGh6H1EIkzxcP8bi0lluB62XBT8y1nDXrjLHgiv1ABq+6Y74/2a0NRe1LlbyWuJQonp7rbkzuzPTxtSeO5akcEVg2j4DTAgW6y4x6CreheXreyCzpQ+y8oFIel6KIoqNfCRK/VejPOTVwCWd0ilFq2MzhhB+6LF4WCm8kKemlMLz5i2zuo7WtWC2t2jsfREZ4lX9YWU28Z7tTXDMPq83XH3e3StzXeommEJmP3pCRXjwKa1NZpZEBpi7S7zvNo2fQj2Idv8IKMFZgx1S21mA0QLNA7fmqjEO+bbde9muxrgY2O+iHCqqfYIXcGUqXi7O6NsxSpI8XJAKiwR0dv6RkZO6zrGxHeeT/v3fEUwpWO0pXhQ/CsoefPufApeCaMT7F+cshGBsTFaCfCW2sviCGYum603xPcLNcOGDGwzc4aravw/xbwsQDr3Ki8dWv7NdRT3+Wk47C0WwT6JKmaMaRnMvoDIXfOw4iVfse7Qg224QgVac8zaL0+wFWQjLo6C3+aRIVOpoyh4IxCpCSmWSVQgfn36/NWKzwxpW3AcGWyY5PEF0S/zlvFZA+QEAQWIAFwgctHBI2GV0eWuyeDcfEZ4Uv126vN3qsFp5BmXMua0vaSUDvhNll50/tdptoR1YDsceHPgAHd6l1Nr/QRWd463EAN9C69BLngac00Re51wWocEuFBECWfiom0/8pPr9WeHHjIldZY0v1p5wb4pvOgeadDyLMy8awSK+PO3/SGAW4C6uAadMUAD4GWReg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(1800799024)(22082099003)(56012099003)(18002099003)(13003099007)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ETTEpFS3Ha6S5K96x42sRzM1jMqYiBiRLLmbiw5PZGeyQ0E7uzdd5qf/lDRM8pJ75+5bttPM2i8/BK6sbUe0YHLrtZqO56SwWYoZro+AnT8vJEnTZQXK6slAl6++msoNDkI1ZfUCsg4iaFb1Ikb9JH7nTDuUoduBTvzq0C2voCnfVQCFRi3Dc+6edx8DuS+7obiTnvs6T5RvQH/tTYc2MRl/9dCdxc5/gXX0RXaS08aLOK/c5ZaqDlO0YrmaRUakG8rFFB+seb+bFfxBl5YIu19bWMGIxz0VEnCkbVjbXVl+fPcZB+FSE1SLpoGNB2EKEqCJwMDk2A/z+JPy1i1OKLGb7+3fw5z9+bDsyaWnMKUGHr2h+yua5L0tlCaxXVaNhZfmJMTDYyUSP/bnkrdCPPwbp/FTIB0Qm3lMnSWp9mW8SjTDKrWSqG59st8IXAr5
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 09:50:31.6989
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18efc1ad-5752-4777-09fc-08dea69deb1c
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC8.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7304
+X-Developer-Signature: v=1; a=openpgp-sha256; l=977; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=iJzKH5JoBUPIXWclDGc7MiyoS0OlrYwr9MtEDV1CR7s=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJmftTp+FPXW7OY5ayU2Ufqn4upI04XtH0Vspmn7OAkHB nxVUv3QUcrCIMbFICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgInM2MnIsF0gPio952py5QZh 6+dl7u/iVp1p2LxV26U6Q1ltR5tDEsNfYc+rjx/ab/aWEon5XnU3d98x+5bjLHlW7K99X6Q967N hBwA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_105042_539261_342CE812 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20260430_031037_239110_6EC31F2D 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,153 +79,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Peter Zijlstra <peterz@infradead.org>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Runtime constify the read-only after init data  __futex_shift(shift_32),
-__futex_mask(mask_32), and __futex_queues(ptr) used in __futex_hash()
-hot path to avoid referencing global variable.
+Hey Mark,
 
-This also allows __futex_queues to be allocated dynamically to
-"nr_node_ids" slots instead of reserving config dependent MAX_NUMNODES
-(1 << CONFIG_NODES_SHIFT) worth of slots upfront.
+v3 with the review comment about the core handing CS_HIGH dealt with.
+I noticed that in the same function there was a "raw" BIT(1), which I
+replaced with a macro that the patch was already adding for use in the
+setup function...
 
-Runtime constants are initialized before their first access and
-runtime_const_init() provides necessary barrier to ensure subsequent
-accesses are not reordered against their initialization.
+Cheers,
+Conor.
 
-No functional changes intended.
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Mark Brown <broonie@kernel.org>
+CC: Cyril Jean <cyril.jean@microchip.com>
+CC: Valentina.FernandezAlanis@microchip.com
+CC: linux-riscv@lists.infradead.org
+CC: linux-spi@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
 
-  [ prateek: Dynamically allocate __futex_queues, mark the global data
-    __ro_after_init since they are constified after futex_init(). ]
+Conor Dooley (3):
+  spi: microchip-core-qspi: control built-in cs manually
+  spi: microchip-core-qspi: don't attempt to transmit during emulated
+    read-only dual/quad operations
+  spi: microchip-core-qspi: remove some inline markings
 
-Link: https://patch.msgid.link/20260227161841.GH606826@noisy.programming.kicks-ass.net
-Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de> # MAX_NUMNODES bloat
-Not-yet-signed-off-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
----
-changelog v3..v4:
+ drivers/spi/spi-microchip-core-qspi.c | 99 +++++++++++++++++++++------
+ 1 file changed, 79 insertions(+), 20 deletions(-)
 
-o Added a small note on runtime_const_init() in the commit log based on
-  the concerns highlighted by Sashiko. No changes to the diff.
----
- include/asm-generic/vmlinux.lds.h |  5 +++-
- kernel/futex/core.c               | 42 +++++++++++++++++--------------
- 2 files changed, 27 insertions(+), 20 deletions(-)
-
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index 60c8c22fd3e44..e80987d8016cc 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -970,7 +970,10 @@
- 		RUNTIME_CONST(ptr, __dentry_cache)			\
- 		RUNTIME_CONST(ptr, __names_cache)			\
- 		RUNTIME_CONST(ptr, __filp_cache)			\
--		RUNTIME_CONST(ptr, __bfilp_cache)
-+		RUNTIME_CONST(ptr, __bfilp_cache)			\
-+		RUNTIME_CONST(shift, __futex_shift)			\
-+		RUNTIME_CONST(mask,  __futex_mask)			\
-+		RUNTIME_CONST(ptr,   __futex_queues)
- 
- /* Alignment must be consistent with (kunit_suite *) in include/kunit/test.h */
- #define KUNIT_TABLE()							\
-diff --git a/kernel/futex/core.c b/kernel/futex/core.c
-index ff2a4fb2993f0..73eade7184dc2 100644
---- a/kernel/futex/core.c
-+++ b/kernel/futex/core.c
-@@ -45,23 +45,19 @@
- #include <linux/mempolicy.h>
- #include <linux/mmap_lock.h>
- 
-+#include <asm/runtime-const.h>
-+
- #include "futex.h"
- #include "../locking/rtmutex_common.h"
- 
--/*
-- * The base of the bucket array and its size are always used together
-- * (after initialization only in futex_hash()), so ensure that they
-- * reside in the same cacheline.
-- */
--static struct {
--	unsigned long            hashmask;
--	unsigned int		 hashshift;
--	struct futex_hash_bucket *queues[MAX_NUMNODES];
--} __futex_data __read_mostly __aligned(2*sizeof(long));
-+static u32 __futex_mask __ro_after_init;
-+static u32 __futex_shift __ro_after_init;
-+static struct futex_hash_bucket **__futex_queues __ro_after_init;
- 
--#define futex_hashmask	(__futex_data.hashmask)
--#define futex_hashshift	(__futex_data.hashshift)
--#define futex_queues	(__futex_data.queues)
-+static __always_inline struct futex_hash_bucket **futex_queues(void)
-+{
-+	return runtime_const_ptr(__futex_queues);
-+}
- 
- struct futex_private_hash {
- 	int		state;
-@@ -439,14 +435,14 @@ __futex_hash(union futex_key *key, struct futex_private_hash *fph)
- 		 * NOTE: this isn't perfectly uniform, but it is fast and
- 		 * handles sparse node masks.
- 		 */
--		node = (hash >> futex_hashshift) % nr_node_ids;
-+		node = runtime_const_shift_right_32(hash, __futex_shift) % nr_node_ids;
- 		if (!node_possible(node)) {
- 			node = find_next_bit_wrap(node_possible_map.bits,
- 						  nr_node_ids, node);
- 		}
- 	}
- 
--	return &futex_queues[node][hash & futex_hashmask];
-+	return &futex_queues()[node][runtime_const_mask_32(hash, __futex_mask)];
- }
- 
- /**
-@@ -1916,7 +1912,7 @@ int futex_hash_allocate_default(void)
- 	 *   16 <= threads * 4 <= global hash size
- 	 */
- 	buckets = roundup_pow_of_two(4 * threads);
--	buckets = clamp(buckets, 16, futex_hashmask + 1);
-+	buckets = clamp(buckets, 16, __futex_mask + 1);
- 
- 	if (current_buckets >= buckets)
- 		return 0;
-@@ -1986,10 +1982,19 @@ static int __init futex_init(void)
- 	hashsize = max(4, hashsize);
- 	hashsize = roundup_pow_of_two(hashsize);
- #endif
--	futex_hashshift = ilog2(hashsize);
-+	__futex_mask = hashsize - 1;
-+	__futex_shift = ilog2(hashsize);
- 	size = sizeof(struct futex_hash_bucket) * hashsize;
- 	order = get_order(size);
- 
-+	__futex_queues = kcalloc(nr_node_ids, sizeof(*__futex_queues), GFP_KERNEL);
-+
-+	runtime_const_init(shift, __futex_shift);
-+	runtime_const_init(mask,  __futex_mask);
-+	runtime_const_init(ptr,   __futex_queues);
-+
-+	BUG_ON(!futex_queues());
-+
- 	for_each_node(n) {
- 		struct futex_hash_bucket *table;
- 
-@@ -2003,10 +2008,9 @@ static int __init futex_init(void)
- 		for (i = 0; i < hashsize; i++)
- 			futex_hash_bucket_init(&table[i], NULL);
- 
--		futex_queues[n] = table;
-+		futex_queues()[n] = table;
- 	}
- 
--	futex_hashmask = hashsize - 1;
- 	pr_info("futex hash table entries: %lu (%lu bytes on %d NUMA nodes, total %lu KiB, %s).\n",
- 		hashsize, size, num_possible_nodes(), size * num_possible_nodes() / 1024,
- 		order > MAX_PAGE_ORDER ? "vmalloc" : "linear");
 -- 
-2.34.1
+2.53.0
 
 
 _______________________________________________
