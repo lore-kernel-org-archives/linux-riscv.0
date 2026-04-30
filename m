@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1634FF8864
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307BCCD13DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mnxM4evBvWQUZi9Oq9mXA93N1GC2asrxcILr1AQH+pU=; b=31z9J+ygOSG9/4
-	vWkUm0pnd3Dvu/LF/WerhebsqhodfvecL13wExCi9Z0Mj7b1EAXC5ymsfBxcisX6neW6Czdr6R3XD
-	IruFzNBumicMjmhSGf7T3dRIngaMrK/7HrH+xI/JeGOZMLiClsPpfrzk48flQUzLhrOIEdey4+kZJ
-	SDBPYy2A1cbPuGefJGV0b1VFM1VHGz3Qmdkh/oSKgyyOJW0KQuvZ2rvTPkM8qJ2KCTVhJZo5fnzwv
-	G0Iy9Jj31DvCo7jSxmlQKfHOvVCz4fZT4qOgM5yLC+3MlsZ6mfwZzrBSg3l88J5BLML7/QnICg3/n
-	OhhUnJEuPgspoDHA7IXA==;
+	List-Owner; bh=ZSbAMF4HOIKw1T0VXQboZtX2jxUq0WjqvCzProZGGBg=; b=An+5zHSQT7B+hN
+	pFmIaxD5FuVZdThwb0LeuPpolHmVJJCUlqkW7oIs8PxAjC05Yba4VfowAIMN0nWEvIlpyG7wdUpjg
+	jyNJIpm3BMF+GH5+WmZMwISQnEtCphIdJmwLC4/HUY5IKqafIhw8qyUBRuAqu0gy2Cb69mxP44LnY
+	VdZ5BOUe9Lu5oLN26hKvSn1Ge6uqxMiTiay399iDAYCwgSIJT/Xz987Q3Inn8752uKaK3kFA/j2dj
+	EFHeAFkOeugSwIT4DdG2mS1UVYmqtuMz5ZJltTnSs+M5UXQv6kIrHjYkDM+UBOAZi0uDvaojaKGIw
+	hf1KeMwYdJbOuEa7t6iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2u-00000004Wrw-2vzN;
-	Thu, 30 Apr 2026 03:26:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wII2v-00000004Wsr-1TT5;
+	Thu, 30 Apr 2026 03:26:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2H-00000004WR2-3k4o
+	id 1wII2K-00000004WRe-2tUi
 	for linux-riscv@lists.infradead.org;
 	Thu, 30 Apr 2026 03:26:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83710444C0;
-	Thu, 30 Apr 2026 03:25:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 662B9C2BCB8;
-	Thu, 30 Apr 2026 03:25:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 68490445A1;
+	Thu, 30 Apr 2026 03:26:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44EC8C2BCB8;
+	Thu, 30 Apr 2026 03:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519557;
-	bh=3A9sSPpTFnTSwNLnH2RiVekzHJbPnUK+mXyDzY4bjyk=;
+	s=k20201202; t=1777519560;
+	bh=FqQgY6wUDRilF2lGF6AUp3SKA6W84Y4EVzMNWrmj1MA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=PvM8my1IW2Yjwupoq66vKLJIr1YZ/KioPkhJQkE7eo14dAk8o2H6RNfUatGZ2Au9S
-	 91HQM/8YvYPRiw98kHgqVpZmSf7VnKX3GtzG7tbbozHcDgaRlvxBU0lZAMm+aj7cPh
-	 qT6q1tde0FqSYSPt0N2fidtUIF1aUhoMl4reQhuruOMGgj3cRRvZeoBRiI4AEgorg0
-	 StaKda1S6UYGl5kKlqXb2yBN8WQ8cq7wMowo/Uy/ler0ew/dVewdsp0hCgMvA54aza
-	 CunUoeLgN5/VA34GkpqJiUE2zYwO5PBQl4g1nYfrAsGa+cekkOMHiB31Rm0HDxSQeo
-	 il5OF8PZWn6WQ==
+	b=dBlnnBYufwWMR1nExtz6aedB6xaU7P3x/0oqMjOtTdGUGUeJhPpncFc8sQY3bIxea
+	 XS/p9LPRIkyQYR5a1xzoJhZL0FGP3XnLB7ZOHUY+pjLBscTvEbhOx3347ogxt9Bg+O
+	 C2d21DtveABggnbmyzR85YZv8OmWR7FrM7RHm1MgP1DRBG3Ws+XDi1lSb5QcoQRFQy
+	 HggmLnjnOtaQyPsKj5Of94mOctLczazEPyKkSBrZTM0g4YEqgl8wDGz5u4d4xH7e3X
+	 tNGIsp/yArFBiyVYOS04DFlQB67Ot1uXHMbEsSeRTpDG+n3WdwGMNxgjPm1MfRZuFz
+	 N/I5dqZRvaPOw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA3583809A07;
-	Thu, 30 Apr 2026 03:25:13 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CF413809A07;
+	Thu, 30 Apr 2026 03:25:16 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCHv7 16/18] mm: Remove the branch from compound_head()
+Subject: Re: [PATCH v2 00/15] mm: memory hot(un)plug and SPARSEMEM cleanups
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751951229.2274119.12563342067361093997.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:12 +0000
-References: <20260227193030.272078-16-kas@kernel.org>
-In-Reply-To: <20260227193030.272078-16-kas@kernel.org>
-To: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
- usamaarif642@gmail.com, fvdl@google.com, osalvador@suse.de, rppt@kernel.org,
- vbabka@suse.cz, lorenzo.stoakes@oracle.com, ziy@nvidia.com, bhe@redhat.com,
- mhocko@suse.com, hannes@cmpxchg.org, corbet@lwn.net, chenhuacai@kernel.org,
- kernel@xen0n.name, palmer@dabbelt.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, kernel-team@meta.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, david@kernel.org
+Message-Id: <177751951529.2274119.16732782086222000591.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:15 +0000
+References: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
+In-Reply-To: <20260320-sparsemem_cleanups-v2-0-096addc8800d@kernel.org>
+To: David Hildenbrand (Arm) <david@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ akpm@linux-foundation.org, osalvador@suse.de, axelrasmussen@google.com,
+ yuanchu@google.com, weixugc@google.com, ljs@kernel.org,
+ Liam.Howlett@oracle.com, vbabka@kernel.org, rppt@kernel.org,
+ surenb@google.com, mhocko@suse.com, sidhartha.kumar@oracle.com,
+ linux-mm@kvack.org, linux-cxl@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202602_802650_B2E3660C 
-X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-CacheID: sfid-20260429_202602_815453_57AA598A 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,23 +81,51 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
+This series was applied to riscv/linux.git (fixes)
 by Andrew Morton <akpm@linux-foundation.org>:
 
-On Fri, 27 Feb 2026 19:30:17 +0000 you wrote:
-> From: Kiryl Shutsemau <kas@kernel.org>
+On Fri, 20 Mar 2026 23:13:32 +0100 you wrote:
+> Some cleanups around memory hot(un)plug and SPARSEMEM. In essence,
+> we can limit CONFIG_MEMORY_HOTPLUG to CONFIG_SPARSEMEM_VMEMMAP,
+> remove some dead code, and move all the hotplug bits over to
+> mm/sparse-vmemmap.c.
 > 
-> The compound_head() function is a hot path. For example, the zap path
-> calls it for every leaf page table entry.
-> 
-> Rewrite the helper function in a branchless manner to eliminate the risk
-> of CPU branch misprediction.
+> Some further/related cleanups around other unnecessary code
+> (memory hole handling and complicated usemap allocation).
 > 
 > [...]
 
 Here is the summary with links:
-  - [PATCHv7,16/18] mm: Remove the branch from compound_head()
-    https://git.kernel.org/riscv/c/66b2a3d9ae46
+  - [v2,01/15] mm/memory_hotplug: fix possible race in scan_movable_pages()
+    https://git.kernel.org/riscv/c/89e69c7d187e
+  - [v2,02/15] mm/memory_hotplug: remove for_each_valid_pfn() usage
+    https://git.kernel.org/riscv/c/9d80de66a046
+  - [v2,03/15] mm/sparse: remove WARN_ONs from (online|offline)_mem_sections()
+    https://git.kernel.org/riscv/c/e66383b6746d
+  - [v2,04/15] mm/Kconfig: make CONFIG_MEMORY_HOTPLUG depend on CONFIG_SPARSEMEM_VMEMMAP
+    https://git.kernel.org/riscv/c/fb3c3f5d27ef
+  - [v2,05/15] mm/memory_hotplug: simplify check_pfn_span()
+    https://git.kernel.org/riscv/c/62257a5fb987
+  - [v2,06/15] mm/sparse: remove !CONFIG_SPARSEMEM_VMEMMAP leftovers for CONFIG_MEMORY_HOTPLUG
+    https://git.kernel.org/riscv/c/119c31caa59e
+  - [v2,07/15] mm/bootmem_info: remove handling for !CONFIG_SPARSEMEM_VMEMMAP
+    https://git.kernel.org/riscv/c/41293414433a
+  - [v2,08/15] mm/bootmem_info: avoid using sparse_decode_mem_map()
+    https://git.kernel.org/riscv/c/7f8e592bb327
+  - [v2,09/15] mm/sparse: remove sparse_decode_mem_map()
+    https://git.kernel.org/riscv/c/22688ade3b54
+  - [v2,10/15] mm/sparse: remove CONFIG_MEMORY_HOTPLUG-specific usemap allocation handling
+    https://git.kernel.org/riscv/c/dac89b150bdb
+  - [v2,11/15] mm: prepare to move subsection_map_init() to mm/sparse-vmemmap.c
+    https://git.kernel.org/riscv/c/fead6dcff83b
+  - [v2,12/15] mm/sparse: drop set_section_nid() from sparse_add_section()
+    https://git.kernel.org/riscv/c/b551ed94d959
+  - [v2,13/15] mm/sparse: move sparse_init_one_section() to internal.h
+    (no matching commit)
+  - [v2,14/15] mm/sparse: move __section_mark_present() to internal.h
+    https://git.kernel.org/riscv/c/08e5f77c3720
+  - [v2,15/15] mm/sparse: move memory hotplug bits to sparse-vmemmap.c
+    https://git.kernel.org/riscv/c/738de20c4faf
 
 You are awesome, thank you!
 -- 
