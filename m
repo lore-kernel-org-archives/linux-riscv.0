@@ -4,99 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CD7FF886F
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 04:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8ACFF886F
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 04:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jyhdnqKv1lrpTSguNAqkRdtC5UEBl7QUfVClDzFGbfg=; b=XkjA55apDN9gLT
-	Wy+PP/unTk9I9nnBstSX68PRhUsXXaLqhIU3DA+b/4vneVacxA+56tZIcsLbxJSc5DgfSC4ELJlan
-	EBlbTv19yx74b2x3otVcspCp8BclHlRJTy86O7Wdz4vf06ZAY1jkplV6k2wc+YESL8xhrJVKhKapc
-	v0HfWZKOiQ/+d8O/kT/aAE4ZumCzIlFEx0tRefWcw/r5qAIhBU2RDYEG4TiYurvi3an+cYVZY51To
-	tUwIDw/4Nkn5g++x7EYrZrhjUDovOwtMpCLkpedVwOLdjZbASkafdnwEHUx2o834wPOGjEoey4+Is
-	9RET0TLVdC04HUVsb1+A==;
+	List-Owner; bh=jzyXsql2i9oe0nUZJZkQ/TZ3GZdrrhrr2lcbIu++4nc=; b=esADDES1BApc9Q
+	z9lmFscVAsFKr+CI1uaeNkzersyEryAR4eBIU8DxuEYSkoSe3C+k0pJ7izV1tG66/Z2chorX8LLO8
+	Be/D06ET27D7uPwHDUzTNicCDECXReQgSHc7D/dWCEnz68jMRK4+bwydUHPK5ITFyVWh+LS6OyIni
+	UL4OpqlMi2JT6D9KrGZEulV11YPrUoBXHIgyfxZb4jW4+wB2cG1ANIURq/wh9dDaZd2pGlQSUd6hE
+	19i/GwHB67UCm2TsRGoNvYJApPITrp8CRGayZ2q5BgsrIN3WrJyqf5x4uKrQZHFlaEbE9Y/8gcDrE
+	L77kx4wYAYhOhN2aHw3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIf8-00000004dQ1-0NLN;
-	Thu, 30 Apr 2026 04:06:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIf6-00000004dOQ-1SZe;
-	Thu, 30 Apr 2026 04:06:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=AjOwhtb3aLC8dXcF5fdBlXdpp4mSyr4Dq8lBNuOOORA=; b=gbVNsHmfrp3dlnjUGbqZ5l8qiS
-	ROaAwj/M+qCPklMStrP21+ynBPts0egtBU3vG3bBx4KbGWCr//7YmlnyiRfgWLPQLtUylBcdBJ9T4
-	gcsP/UBxqetm6r2p0uXfsiyGWi4k4juHiKCCAQ4uONz1PNpUW7FggJmNznthVmKu+MwSvB0Snbwtz
-	8DsUCuGRVaZ40T7AFxQn6Xi8laLNALkCZ/T839DfMYtOfvV2acymB8bgJ5PAgCdCaAAWcAi8ajS3G
-	ZImC3+gqobX4QTo3tYV6PZos4A5aXSfX3mut/uZn+gpEXCogrUYWvnDuAc91W77irvP3VyCnGSZsy
-	7qFj8BSQ==;
+	id 1wIIiS-00000004e1c-3IkF;
+	Thu, 30 Apr 2026 04:09:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIIeT-00000006afk-30ou;
-	Thu, 30 Apr 2026 04:05:39 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wIIiI-00000004e0H-0m5Y
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Apr 2026 04:09:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 953E9417E4;
-	Thu, 30 Apr 2026 04:05:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B00CC2BCC6;
-	Thu, 30 Apr 2026 04:05:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C6C4418AB;
+	Thu, 30 Apr 2026 04:09:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F1E7C2BCB8;
+	Thu, 30 Apr 2026 04:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777521914;
-	bh=6MPYWPf1QbIXw7VCTkYtFV9yBQTJYYcQnuchAn2u66s=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uJyCN/cPD0/zuU5TMG/FWh17eVTVcTCG22wyND+Ln22vdCzvScs+KeOLVG9RmOssZ
-	 jDw1d8PhCAGGbMI/IFgx4Z5EBNcmkVO03z+9/CJtVz3K4wxUxjDLHuhXQrygfZY0vj
-	 Mz9EPYWMtvXMUkv1GvrXcIXqYy7f2Nbz3f61nlophvJmqpD4ikN6UOlFyXJonZi3kU
-	 apK9iwjy49sl7fMM6lNjIBPwaa1bmY1pG/z4xtRWqVUh4kt9XKZhnZLwyhRWE61vDF
-	 fxzmTVdxergJndpikZIoTxLjBRYHAUamicyvLwT/yqUnIVLaZSAeOqCic0yYJ36c4O
-	 EWCGitvEei8LA==
-From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-To: akpm@linux-foundation.org,
-	linux-mm@kvack.org,
-	willy@infradead.org
-Cc: david@kernel.org,
-	ljs@kernel.org,
-	liam@infradead.org,
-	vbabka@kernel.org,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	jack@suse.cz,
-	pfalcato@suse.de,
-	wanglian@kylinos.cn,
-	chentao@kylinos.cn,
-	lianux.mm@gmail.com,
-	kunwu.chan@gmail.com,
-	liyangouwen1@oppo.com,
-	chrisl@kernel.org,
-	kasong@tencent.com,
-	shikemeng@huaweicloud.com,
-	nphamcs@gmail.com,
-	bhe@redhat.com,
-	youngjun.park@lge.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	"Barry Song (Xiaomi)" <baohua@kernel.org>
-Subject: [PATCH v2 4/5] mm: Don't retry page fault if folio is uptodate during swap-in
-Date: Thu, 30 Apr 2026 12:04:26 +0800
-Message-Id: <20260430040427.4672-5-baohua@kernel.org>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20260430040427.4672-1-baohua@kernel.org>
-References: <20260430040427.4672-1-baohua@kernel.org>
+	s=k20201202; t=1777522161;
+	bh=Ktbpf0yUOm3W/1VP8Z7n1gHDrM5MjGbFwY6KPg7YrwY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=XN4CkeKCbhiDpM0RK+07j9+wK8cHWk3dbbFmdz5jpHY7HaRPhlaObZKeqTqBqCWyO
+	 cFf3V/fBkpdTO46SlzD23e7vrR8MLvX+JKLzA//eDFWqxYTxXNwEiEfmQ7ft8yJ563
+	 AzXGYrnijkp1RVaT5prdLvzguvVXzbBZTI59548rwJCmuZxE+coDDDnHBMfCkYorex
+	 nIS9569aeiVwbUM/SpDt2wm28csUPKW0dsS/7g2E0bcq43DlyB8KWLICy6Ox8JJUWP
+	 FicpxdPw3ULlmEosjLwj6huoR2nD8jUMz7hbcgOg9wjqKdo9Hvj6pnecYc4ByITEq2
+	 RiN5gBc3He+RA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA0BE3809A07;
+	Thu, 30 Apr 2026 04:08:37 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [GIT PULL] RISC-V updates for v7.1
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <177752211655.2274119.2873579149327343188.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 04:08:36 +0000
+References: <ecdaf68d-1fe5-0b55-ff6a-a2710c05ccef@kernel.org>
+In-Reply-To: <ecdaf68d-1fe5-0b55-ff6a-a2710c05ccef@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_050528_898727_B2C9EDCC 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260429_210922_266288_3CC3DEA6 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +74,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If we are waiting for long I/O to complete, it makes sense to
-avoid holding locks for too long. However, if the folio is
-uptodate, we are likely only waiting for a concurrent PTE
-update to finish. Retrying the entire page fault seems
-excessive.
+Hello:
 
-Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
----
- mm/memory.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+This pull request was applied to riscv/linux.git (for-next)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-diff --git a/mm/memory.c b/mm/memory.c
-index 0c740ca363cc..a2e4f2d87ec8 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -4949,6 +4949,13 @@ vm_fault_t do_swap_page(struct vm_fault *vmf)
- 	}
- 
- 	swapcache = folio;
-+	/*
-+	 * If the folio is uptodate, we are likely only waiting for
-+	 * another concurrent PTE mapping to complete, which should
-+	 * be brief. No need to drop the lock and retry the fault.
-+	 */
-+	if (folio_test_uptodate(folio))
-+		vmf->flags &= ~FAULT_FLAG_ALLOW_RETRY;
- 	ret |= folio_lock_or_retry(folio, vmf);
- 	if (ret & VM_FAULT_RETRY) {
- 		if (fault_flag_allow_retry_first(vmf->flags) &&
+On Thu, 23 Apr 2026 18:07:29 -0600 (MDT) you wrote:
+> Linus,
+> 
+> Please pull these RISC-V updates for v7.1.  I'm sending this pull
+> request much later than I or you would like to see it.  I do not plan
+> for this to be a regular occurrence.  My goal is to send RISC-V PRs
+> much earlier in the merge window (if not before it opens).
+> 
+> [...]
+
+Here is the summary with links:
+  - [GIT,PULL] RISC-V updates for v7.1
+    https://git.kernel.org/riscv/c/feff82eb5f40
+
+You are awesome, thank you!
 -- 
-2.39.3 (Apple Git-146)
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
