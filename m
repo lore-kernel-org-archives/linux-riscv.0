@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AB3FF8875
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538D5CD1297
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=scP3XKGLxbBzHf3KS0gHlRnka9vHmIL4aYLgsUp1dvI=; b=gaT+Pc3DotAh0Y
-	v/0GC9ULKLwheYdwfkS4Okcn0uxOIIzj4Fe4XtuD31Ssa6/p28ArG6TjqUp43Tfz7YBsOMigObcLz
-	QLyWT3yiWieB5RoNP6RwMLqDCAjESiOYMWcW5nsVZqcg31MrAzwR4637xvMHGyry1i9BiYffMD31p
-	CgU67bDhPwQMfK8aMDHK/DFKfuXEQEbY5lCbixXVreRebRSdUL4GUOl1TRTHK+nb3MqY5iIbI+Pkr
-	xnZmWITEuvmq4pfWvcM/am3qMVkwqrwT098b3UmR+Eb4strcrDgVIj+y7djAlXdk2ODWu73gO6Tx+
-	PWmquFbgMroHBavVzjNA==;
+	List-Owner; bh=MTKHhq3bEv3aNXmzLXpUFfXnceE+7MvkLUB21ga8LFg=; b=tV9AW85xhDxqgh
+	Es6zBjzt1fQsqBt0SX/lqzT99M2PioOt/xAf0vZDcVo/7POdgsf0ucWCskGu2UFVn5cJ46vRYY372
+	/VdVAgWPDxSgQT7J+rB5FKyem+i9fVyecz+jePxzcAXEU2zrHLJH2O/uixsD3rZGtMt5WNnCrdfMP
+	H7HuoHqPRtSt8XruO11flgJaRKbpsQ0IUqP2tJ8hdtTbyq6AKBCWzncMp1Nnp2qpwh2P/YrFe1xZV
+	LK89pAnzmNDpOoxZqODlKoiIjeYxM4Vl26jwslYdY9ZD230rWVLmmZdh9aIXjM7SJgjTOLOf2KIHd
+	ncwjUVtVwfJy3a13Pmww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII4U-00000004Yau-10lk;
-	Thu, 30 Apr 2026 03:28:14 +0000
+	id 1wII4e-00000004YnA-2UmM;
+	Thu, 30 Apr 2026 03:28:24 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII35-00000004XAA-3EAU
+	id 1wII38-00000004XCV-3FQB
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:47 +0000
+	Thu, 30 Apr 2026 03:26:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 339D961336;
-	Thu, 30 Apr 2026 03:26:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCD76C2BCB8;
-	Thu, 30 Apr 2026 03:26:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3975A61420;
+	Thu, 30 Apr 2026 03:26:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1F82C2BCB8;
+	Thu, 30 Apr 2026 03:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519606;
-	bh=ygd4/5zQwKw6HFpt9wXfhit6omZnPB1zR61IVZpW//U=;
+	s=k20201202; t=1777519609;
+	bh=iFqroCI9QhrRjRPr6nqnuqqWoIPtsKBpJSs5D3LwRHU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=gQoB5rFOjfBdiU1remaLMpdCERG0XO/S8L9KIJJ46qsjLFch4mfI4GU6STXyHw41C
-	 7ze0a9zZbhUANeSGx75zc5M7e0YOxOifvPyC629jtNQzIujew0tNzQp1JBUW4HU7iN
-	 tF+FaIVkmMzj+lofiKmWT5Gr77I2xzI4vBfP0/ypEHDUFwTRXrb1AjlfoYeIPhni6f
-	 wLeI1QiJ/Pf6Ed3MOBUrumeK/BRZQf/4xaum+nq5v49XPq3Nqofa5/UIK/mMzYpBfR
-	 9kcF0QIafOZ9EtqKedkT4RUyw9D4FPpIOxjImeGpl3CLyNeYRuOXOdBjmdVsVYd5h+
-	 VVc9qGak0oTiQ==
+	b=qDZoBJByuNsp58dPyZrm1NWzEP6bDZxrt4juzc1Ayrev7wPMACk+uUM41eKdHbD5s
+	 i6WA8mJHerklMdFyLbo0sLVn0Wn6JtNrrlu6qNz2XPV+xTwfEr2Ao33Ahz05lpp4G3
+	 NHYs0GmngPzMGLvWDKQZbDWIYnpWyiSQgC7r0FnDEL/o/BYqTsd2fj/qa5a5riwjV/
+	 qHReu8/iWe0Kzrh+UPBK8/K9grFHLk4eTC8pCN6N48Fw1G4diyvsMP/zpg6m8WwzEd
+	 Wuvzr7EgyEvnskXgDxRM78pQgyr7y7kHNbprI6MzT+kmtUllYIlaB8//LC96wQV7Xf
+	 WIQc8djoGzeYQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FDE53809A07;
-	Thu, 30 Apr 2026 03:26:03 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FC563809A07;
+	Thu, 30 Apr 2026 03:26:06 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v1] iommu/riscv: Skip IRQ count check when using MSI
- interrupts
+Subject: Re: [PATCHv7 14/18] hugetlb: Remove VMEMMAP_SYNCHRONIZE_RCU
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751956179.2274119.1428846442277871195.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:26:01 +0000
-References: <20260130065420.16811-1-guoyaxing@bosc.ac.cn>
-In-Reply-To: <20260130065420.16811-1-guoyaxing@bosc.ac.cn>
-To: Yaxing Guo <guoyaxing@bosc.ac.cn>
-Cc: linux-riscv@lists.infradead.org, tjeznach@rivosinc.com, joro@8bytes.org,
- will@kernel.org, robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org
+Message-Id: <177751956479.2274119.8317675820783174184.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:26:04 +0000
+References: <20260227193030.272078-14-kas@kernel.org>
+In-Reply-To: <20260227193030.272078-14-kas@kernel.org>
+To: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
+ usamaarif642@gmail.com, fvdl@google.com, osalvador@suse.de, rppt@kernel.org,
+ vbabka@suse.cz, lorenzo.stoakes@oracle.com, ziy@nvidia.com, bhe@redhat.com,
+ mhocko@suse.com, hannes@cmpxchg.org, corbet@lwn.net, chenhuacai@kernel.org,
+ kernel@xen0n.name, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, kernel-team@meta.com,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ loongarch@lists.linux.dev, david@kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +81,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Joerg Roedel <joerg.roedel@amd.com>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Fri, 30 Jan 2026 14:54:20 +0800 you wrote:
-> In RISC-V IOMMU platform devices that use MSI interrupts (indicated by the
-> presence of 'msi-parent' in the device tree), there are no wired interrupt
-> lines, so calling platform_get_irq_count() returns 0 or -ENXIO, causing the
-> driver to fail during probe.
+On Fri, 27 Feb 2026 19:30:15 +0000 you wrote:
+> From: Kiryl Shutsemau <kas@kernel.org>
 > 
-> However, MSI interrupts are allocated dynamically via the MSI subsystem and
-> do not appear in the device tree 'interrupts' property. Therefore, the
-> driver should not require a non-zero IRQ count when 'msi-parent' is present.
+> The VMEMMAP_SYNCHRONIZE_RCU flag triggered synchronize_rcu() calls to
+> prevent a race between HVO remapping and page_ref_add_unless(). The
+> race could occur when a speculative PFN walker tried to modify the
+> refcount on a struct page that was in the process of being remapped
+> to a fake head.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v1] iommu/riscv: Skip IRQ count check when using MSI interrupts
-    https://git.kernel.org/riscv/c/7217cee35aad
+  - [PATCHv7,14/18] hugetlb: Remove VMEMMAP_SYNCHRONIZE_RCU
+    https://git.kernel.org/riscv/c/01b1d0ffb6f7
 
 You are awesome, thank you!
 -- 
