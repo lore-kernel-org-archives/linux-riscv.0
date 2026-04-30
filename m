@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAB4FF8864
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9116FF8864
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c6fRq2iBg896t0ziLPZGpiI2XkAW2a8Ff25uo0if9AA=; b=gJoSdj1v4p8bhG
-	Dm4hc+QSa/2pIdIZoH3gxnc9/E424H1sHFjqcfCGq135CnfBtM4tT92+efmy39Ov6Ax24ObqjNblK
-	isdKIoRAcKkdZ2mgM7IdAXHlrB3ohuOgqD+JZVRX0qfw4BiomwAusH4gXNSXI0XwvzxHNb1r5aR+V
-	kx0RiqRFhxWyRjZ3EEakUTSoGiG09iEkUd9cfJRwVO+E4kY6DqpdqX9g5dr/ASqnOOITgOagS36ss
-	EO+6bnrLM6u8PLZj3Mzs3ubMErqyuvnYdBelo2+iQal3m5Af/ptu2DR+/tbaIVHtU5oQIG8PYjm7t
-	SJc2PML1KnzGMxf3tnHA==;
+	List-Owner; bh=70eKkLjVAaD6475sYTzweCXadJ8rfns07PXuQEyubBk=; b=cPwyd82MLj6njw
+	KliIKIlJzhMezOHhRLwJh0cgCD8lLM4poQZGOLTf8cGHyK820bVZIzOZj58FDy0x4EfQpzl5OXxZV
+	wHMKrzO5nFXfLCTuYDdCSnI0Tzv80uVqZijUEvcKMClH1uomBafX8zEcjS3haWOjK9TfNy8b6+EOr
+	W3AMV8S6muOVSXfNPYMSNqjcmsCGxjxsmPWXKCQnA4DdkUG0r3HZF+ilER7678x/2ndoYPKnoQJ3x
+	bTb19KS69yaly9f7tCN9asRRrSGHcH9YtrxtFyrAmc2tP4XqOAqxcTqvdvy+Uekd5CCwEPOPuc6hr
+	9nB6OvBOcm7fgVrO8mrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII3J-00000004XNY-0kUw;
-	Thu, 30 Apr 2026 03:27:01 +0000
+	id 1wII3P-00000004XXW-3fQI;
+	Thu, 30 Apr 2026 03:27:15 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2W-00000004WaO-1LfE
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:13 +0000
+	id 1wII2Y-00000004WbY-1RYL;
+	Thu, 30 Apr 2026 03:26:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C72C44526;
-	Thu, 30 Apr 2026 03:26:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E22F8C2BCB8;
-	Thu, 30 Apr 2026 03:26:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 09BB443B2D;
+	Thu, 30 Apr 2026 03:26:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBB14C2BCB9;
+	Thu, 30 Apr 2026 03:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519571;
-	bh=YfC1QZZ/UU6y93F8yKnC0I+PiZBznMVQxb/ENiqO8b8=;
+	s=k20201202; t=1777519573;
+	bh=THrrdSGjgRzaSbCrGespfxo5C/AWLl4KlIEGbaUs1N8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=uwbKJYTRnPuHgHvmKVgiZN5bsbZmlaIPFFlBoSY4hQQVZt2jEssn+r90LgoJKtfVh
-	 KYwquO77vUHjYWVQseqKU/ZfPgsvJjnuLok91FGW3PAAStr4I8xkw75ZrLomu6rkW8
-	 ZG0ICIO9l8v8ED7E7mUYB4z1+rfgqGIIa92KGoNojnIg6dlrwbekebnofjiZ40Ux6s
-	 byVyqhPJXTDD9DZLw0KyoTnPGOpkYrUM3wXgQywkg3pYdcAeUceTsrtQaMdEfovI/R
-	 dM3t1lhgAWs7oL8wzCHEhHxEKE0R1jWI7QqtVJQw2jbsuZ15B2PXSOITwn/RMBSQuE
-	 6mc9GOTRHcSTQ==
+	b=UzTbqLo/5B2o+wNCv7hc433OYzKq4siikxTyngUKDMF3HAeUjhBhAk77XupcxRUvU
+	 8AQeEfOAPdqCa9Uxdu60usplkxVCGl2lAhF6QZOdLWIjERQA7vDLeINPZy/5ERe7Wc
+	 ghiINRi89Td2t+djUJI7HVkMnXuK1rdp0d0YYVr2nHuJNC05bQejhStGEvFx6LEv4v
+	 Q0foheq2svz+12OFi+UHX6I/M6rycHRVU+nwE7Bew/REJdDDUJFX4jYb42DVn24wgZ
+	 Adw0Roiy4+syrE/ThlZQ2sCXbjShOe4cVpKtA73HBp9XxbgCtMQ6+9J8F7NCLPpp9Q
+	 EzM7rlb9XVxGg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FDDC3809A07;
-	Thu, 30 Apr 2026 03:25:28 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE533809A07;
+	Thu, 30 Apr 2026 03:25:30 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/5] Convert riscv to use the generic iommu page table
+Subject: Re: [PATCH v5 0/2] Fix bugs and performance of kstack offset
+ randomisation
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751952688.2274119.13814163549347100067.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:26 +0000
-References: <0-v1-d3317b0ee398+50-iommu_pt_riscv_jgg@nvidia.com>
-In-Reply-To: <0-v1-d3317b0ee398+50-iommu_pt_riscv_jgg@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-riscv@lists.infradead.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
- iommu@lists.linux.dev, joro@8bytes.org, palmer@dabbelt.com, pjw@kernel.org,
- robin.murphy@arm.com, tjeznach@rivosinc.com, will@kernel.org,
- lihangjing@bytedance.com, luxu.kernel@bytedance.com, patches@lists.linux.dev,
- xieyongji@bytedance.com
+Message-Id: <177751952875.2274119.16398594062786998071.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:28 +0000
+References: <20260303150840.3789438-1-ryan.roberts@arm.com>
+In-Reply-To: <20260303150840.3789438-1-ryan.roberts@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-riscv@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org,
+ chenhuacai@kernel.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, kees@kernel.org,
+ gustavoars@kernel.org, arnd@arndb.de, mark.rutland@arm.com, Jason@zx2c4.com,
+ ardb@kernel.org, jeremy.linton@arm.com, david.laight.linux@gmail.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202612_381932_7422C804 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260429_202614_402708_08CEB376 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +85,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Joerg Roedel <joerg.roedel@amd.com>:
+by Kees Cook <kees@kernel.org>:
 
-On Tue,  4 Nov 2025 15:00:39 -0400 you wrote:
-> [ It looks like the precursor series will be merged, along with VTD. If
-> someone from riscv can test and review this it can likely go this cycle
-> too. I couldn't even slightly test it. ]
+On Tue,  3 Mar 2026 15:08:37 +0000 you wrote:
+> [Kees; I'm hoping this is now good-to-go via your hardening tree? It would be
+> good to get some linux-next testing.]
 > 
-> This is a fairly straightforward conversion of the RISC-V iommu driver to
-> use the generic iommu page table code.
+> Hi All,
+> 
+> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
+> and, on arm64 at least, the performance is poor. This series attempts to fix
+> both; patch 1 provides back-portable fixes for the functional bugs. Patch 2
+> proposes a performance improvement approach.
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/5] iommupt: Add the RISC-V page table format
-    (no matching commit)
-  - [2/5] iommu/riscv: Disable SADE
-    https://git.kernel.org/riscv/c/e93e4a6363b8
-  - [3/5] iommu/riscv: Use the generic iommu page table
-    (no matching commit)
-  - [4/5] iommu/riscv: Enable SVNAPOT support for contiguous ptes
-    (no matching commit)
-  - [5/5] iommu/riscv: Allow RISC_VIOMMU to COMPILE_TEST
-    (no matching commit)
+  - [v5,1/2] randomize_kstack: Maintain kstack_offset per task
+    https://git.kernel.org/riscv/c/37beb4256016
+  - [v5,2/2] randomize_kstack: Unify random source across arches
+    https://git.kernel.org/riscv/c/a96ef5848cb0
 
 You are awesome, thank you!
 -- 
