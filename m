@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A05CCFA13
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 21:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62BECD13D2
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 21:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0bJ6CjS01T4InVnyWkNrbkZnmotf30BvW8+0YdWqUyw=; b=lgc0Qe5gUlrFIJ
-	txUl6Q3vxA5xvRS8pumvqr2getdabCQM5Cu7A+vRYPJd4dufy+8hRHOgkl9KwmSbfruKyE6vUozKK
-	n3eGD93BHpTBtrJKz3NsJ5+jQE6+uZmbHFP2aIa0GjGhCuw/6jqQQLCdHmmCjAyIeBdH6bfOxcWR4
-	15T82u6uyD+gZXfcmWxRm59blgNzJtLYTZ1cXDnZIrvMHW3Rs4Vv3Gv/KTYV1MAyNMlusFPstnG9d
-	dGfa6okCmB4ra+YEZ4KPH5l4K9zM7O4F6b+imSaJ2+VbShRLDvZCHFJlug2aN/6lHLxLDvlmFoZ0m
-	2Vv9N6CDDFV2EZ3P2YoA==;
+	List-Owner; bh=PB7usY+RrOxx+BTf3Zq8hRqVzxmggiWz4EXM+OvYtLw=; b=ju5v8ItbUM67mi
+	ASZxGe8igFc8Dz82Nvm/UL1TP+0brAG8/D+soFZigaS/SeuRjOFhlMHKh/93bXBe7Fr/q8yQnROPT
+	HSHz4cR70VVnlKP4TLWBMQcGu17wIvORlY9OCw9cpANw4qZXnce5hQB+xHcVDsUMpZ4XwJQxRjzV6
+	nNMknrdjl6ET/T+lg+63Xbug294YMJlHaUnwbN4FtXT1XqIjWpuyrQt680LjeCXn4zzydYY8xdRCJ
+	05lvFhtbU0fypyXteR3iAid0JtCxhkG1IiqNgW8FDreqy98PtmZV2Y8dZ4V7GLIJ1n+JGD4E5HLIW
+	j8e+rPNsq5acy7Ohi7qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIYiI-00000005x9N-1LxP;
-	Thu, 30 Apr 2026 21:14:26 +0000
+	id 1wIYiM-00000005xCg-0EuH;
+	Thu, 30 Apr 2026 21:14:30 +0000
 Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIYiF-00000005x7j-2uiO
+	id 1wIYiI-00000005x7j-3193
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 21:14:25 +0000
+	Thu, 30 Apr 2026 21:14:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vMbaR4nwV5CftRGTfSSsiXCZqJ/yaAAZMnB0xrzvgDp3VXPa7RlY+0ZOjNGW7hZVGX2SgUDNWpDU01F4nPuVmd2VGdI8r8I4vsqwGkdWWQaVeUgFKaYmlhiWy5hMhvt7l3yhHxs6FQaFBXyRnuOvqdZI2cxmgTUMgaLLa5+T8PiRfHb5jn4z8qgahQwmH0nyVW3izM+hKg4EQoh8sMQ8UyMLxqsy3xHrAW7m62GofLslM4CX9IhnY+h4r5iuKhyo6j4KF1ZfOR5pguKac98iLhOuMsxOvWycScSPMFKc/xsa99E8VGPVwBnk8YK56A1BALUHiP2JuIczZhQOPmGV0Q==
+ b=H7FUkxC/iPwOaXVi2Wp5EHX3qxkBVNqDFxuo866HmGtsOPp1nA7xuaa7qzNOR5zMIMjn0z/UdJsElGK0vibJNruahVvrJq7qnN3SBP51Xa/84vR4lmVZkYFO58gBs4dbmYS6IYR/+IwwYODsooNEyn+ikLrnae5bnssHAwm8EwaH7Zi/PiLrXPqRImhQJCcrpyGQ00zNYXR4YDY2kDC5yLVtDXich1EWzRwfEBOFQ55Al65xUpStj/VmZ/q98n1tRS8qg9J9jQO43E65qR8FS7FLIrJppMTiStG+KPIaIlQsU9S5G2leHIk3LQzopK5QZbh5dMrP0rqlP4rV4P35HA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gHFr6SBHfvsLMoS/kmKlG2oUCAWkwboh0l5fwbDmGlo=;
- b=e2BZS+yt1JqJRDFMGGhZrAU0k4lO9UpinOmW6zyPDsmAA0uctZvZnK1UCXeHsD4MnBcahVW/Mh1Ii0micbjGHMrx7sVEyYDMp8fKBHzJVdvmBqmc/ZPQoWyU2Z9PofpbcpYctJeTgT5Bw97/TMqTQ6cFMhR5cNbe2aXcTtrXlx8KbU9xK2kfGHexEBJdlgvUUSi5zf61n9f8ggGHD/rzOUIjlzdEf+KGsjELmlzs7dq6RUe/JRStw0LlYeoeV/QjSc5QedVjvmcTxtITUwlBrDmWaWhPx3tY6Gjgno301Oq4IhPyqDrCTNresWcx9IH4xH2VqyO2Iie9loW0wuybtg==
+ bh=lN9OVRi+Y1hxu9mlQ1znXmrHFiq6XZWSfVQaDNPwdK4=;
+ b=l5ron5ozc/P8LLaio72PJzRYrGh+Pi4qyXWB7ns4Wm3ZkdDzNSbokEttUgRgr5tLbSBk98CkmP0BgxvGfGeyYmUGTIQOJF8YRp86Pp3yf7j4FZDx85nsNNfMXZNxXuGLqZ8jUW2+jWK8ulZrd4t6zdwGTMP5DiunO5sofDguJnXG9INI3InpiMStGAbtwB3HdIk8GX9raRuv7s/h+9WomshRgSiWPJ592xU7qOJu1pQxtco2bVdOUpHXXcpXmdRc8Xo7XhZHaJ+1JAybvFp5aPfgwqACEjXfiExdqeD0yMZGjyIzVhcdOYKIlAuSpdjCPyZ9ajdL8xRjJ0di0ynJ7g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gHFr6SBHfvsLMoS/kmKlG2oUCAWkwboh0l5fwbDmGlo=;
- b=ZqKBUQ7VVafYMaKrTtF6cYCW+K0cDdlBOk+OZ59e+S/JDEl5CqTnkZEZnhQwUu38YHs2gtj4NNSpOsw6LTkQlQMHokr5/GIjx4Uwk2ciNd3pbNJP6wLyuwrBX/bNgNP1x4ZwTpXJh3216EU5zmE3dRCeWIFA5K5bPz4u4VFPk/+F2PUkCJBU2LTvtPZmdn8n2rlr+jUxqdSqRKU1TJvoxcB1K28YU4dmhsuRQwqmrUEwEQKROB50mrvv7rO6wk/iRDS4Vk1TP2/LM9JoMXBtHNx5TAA81b7/KdKtKH42/BzAw8T7LTYCLAnnRQOFBC7o6PtlmJ/gpYezAQc77IbFxw==
+ bh=lN9OVRi+Y1hxu9mlQ1znXmrHFiq6XZWSfVQaDNPwdK4=;
+ b=d5CI1ie8jxpD/zs5oy+3KO3FQPB1CWdGFld4zv1c3l9XcewsccHEhvB21XYYaCgnMIsF9uraUIZMw5jFAR2GeuRL5BvP0Rp1CS/9V/24Qk8vFKJLoP2Csfg9zwqmQe7sc1Xx8c+JKBO70pyTB8QOzce0t8AMz9biyqz856wG8Bz73qjY+XaScG6l0YunG1Jk8XoINtp/GG5JkchU70Wa01qfsBBL2+1nQy3BWJlljr155mId7pA7pt9vwVKCguXpXrTA1Htd3KrsA+fx3ftwKcB+OX9Ecq/VfL2flddQ4bwovsjdVuhL+sJ5xd3rmbFcH+1JbiNH8CgaQ5v1w5e1dQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
  by DM4PR12MB6256.namprd12.prod.outlook.com (2603:10b6:8:a3::7) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9870.20; Thu, 30 Apr 2026 21:14:06 +0000
+ 15.20.9870.20; Thu, 30 Apr 2026 21:14:12 +0000
 Received: from CY8PR12MB8300.namprd12.prod.outlook.com
  ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
  ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
- 21:14:06 +0000
+ 21:14:12 +0000
 From: Yury Norov <ynorov@nvidia.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -77,71 +77,71 @@ To: Paul Walmsley <pjw@kernel.org>,
 	linux-arch@vger.kernel.org,
 	netdev@vger.kernel.org,
 	bpf@vger.kernel.org
-Cc: Yury Norov <ynorov@nvidia.com>,
-	David Laight <david.laight.linux@gmail.com>
-Subject: [PATCH 4/6] arch/riscv: Add bitrev.h file to support rev8 and brev8
-Date: Thu, 30 Apr 2026 17:13:48 -0400
-Message-ID: <20260430211351.658193-5-ynorov@nvidia.com>
+Cc: Yury Norov <ynorov@nvidia.com>
+Subject: [PATCH 6/6] MAINTAINERS: BITOPS: include bitrev.[ch]
+Date: Thu, 30 Apr 2026 17:13:50 -0400
+Message-ID: <20260430211351.658193-7-ynorov@nvidia.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260430211351.658193-1-ynorov@nvidia.com>
 References: <20260430211351.658193-1-ynorov@nvidia.com>
-X-ClientProxiedBy: SJ0PR05CA0136.namprd05.prod.outlook.com
- (2603:10b6:a03:33d::21) To CY8PR12MB8300.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0118.namprd03.prod.outlook.com
+ (2603:10b6:a03:333::33) To CY8PR12MB8300.namprd12.prod.outlook.com
  (2603:10b6:930:7d::16)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|DM4PR12MB6256:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e4cf40c-251c-4f16-2038-08dea6fd69b4
+X-MS-Office365-Filtering-Correlation-Id: 3db01636-b453-4882-9aae-08dea6fd6cf2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|10070799003|366016|18002099003|22082099003|56012099003|921020;
-X-Microsoft-Antispam-Message-Info: sjsU3DI2D+CNqq3eK98msH/sKGOg/+Dm2mWXvHcuBHdU6mAq9jtcjKhYd3s0mVU/zxnVGvTnPeUju5ZxHc7/le/vJ0kahCSePDgYL8S8ZH9cVhVc8bJFF75GcsAl3qr2F9Xv73h5+8hSr4QFCsBEHrm6HZJVwBh2x1EeouVjktweCIG2VTy2Zf0guMcDrO91VK7/zzZ3GCmOSYFnwW35fvjT2PjlC+CG/ERWftKteEiNWkqzTCe8cCFQbNFS+bjL8c77+rsiPAhv7QD7RnOInQ7mXkhWfmXhQ3YBb97C1GnxOJL3E6WPqhyWulz3owVI+G5CvO2TMOW7IGWe2q/d+DRruvwnU0SZFPHVPmfxR14JeigzfAH5Iga9nFekUEqooQOqCXuNixYhhYR001O72gLjvI/MqE2gtYyNqRBXC/Xpe65dFdKUC2Je5DlkbxDl79jEyvyxBkxcPIw0yqaO2ZuxCQRKhk9KSGBL3m67PKnsAZ4HWfNLbuAO4swY7Zniic8W5YwLKZEYGCdB0RUtur+Ha09x0AkAfsZ4drtNR/VeNmwVAdu+pMkvxqLWp/kbat3mMVsC1uss/tmr40pdH6Ursp449zPTX24uqKVuYF2p8fxssG1mc2yboTM5eOwkmfz7hbTFGioG+4LG6lCpmiZTMVXz3OqJX0EOLBw9sJSGs/FiDTM4crVKp+rhu/x5BHBh3AX4QfjRgHz1fGK2yYGOxLag0DCBWuJHkAgrGDCJnOCXIWaneDqu3krEXOZB
+X-Microsoft-Antispam-Message-Info: HOIiDduRXX10Y7SclksQifcXHvsYAIXYRBTVmnWXnEywip5sFPlhNPiHbKsQkq10uz5kGB5w4c4nCsZ/Jtvbyj4RpCdCgf760BCUjBO47ib/z+6OFS1bJpv3b0CJ5t0SmuYotIWpVPADJWmX5xj3ZtJa0qbebIyjuqsMkZBFxPMhTGrnL3RcacJWpGR9VzIwRoXBAN2AqHyigEASwt4P4zeqGIkDcJjsU6pcMtsSSLk/u2krMgieVm39OLWVtPvek11hwdlKc8QjNYj71nAkNeRQg/18+WGgBQ9UHsDOeGwQ110t9KSFw35ZDbkrWb4BP95oFcvvyCMCP5b3aKeeao/9K1V/jQJ/9qFQCDQSbfiRP9DFVwpyqsLq2fo9bu24Styb0+dImslVe+DuwMSJC7JIZAmkHLCd+g+v9u4lLrnN1LUUs8lBl1xjmlM7FBy82r4DRd35RPgdHaX1Zksv/5c1gcowqXNt1EY3sZufWRVyU+p2+EC6dE7NstOnC7GNVjEzh/fb1a4sGd6TnDORapTnsIeHHHkLfsKzz/VcpXRDsGXSnjpjBJ27gwB7z7ytxILbqypbf9QQAKcz5SstjDvSXA6YVVxPRobony2WzB5sJAQh2z9aDQJGJ+ZPavGivXaH95TDvxwQiNw/McsYAcOpTx9oStFmH5B0KEWonciIL9AfoIme5t3hgnrEPAtXVhnDLWlMfUYQHtHV30fTGHexgNeftaQKZdZTSPXWfw0=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(10070799003)(366016)(18002099003)(22082099003)(56012099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AUDClg3RgiS7DfSoWPVlDNeH/YGILAyICspKKYERAiTIyyY8BaH/z2s05x1u?=
- =?us-ascii?Q?vwJ+LOQpRmaQMDAyN3HC4LzyhcMe4PDHtiiJaYYiDxGM5KMzJjoh8qKAi7D7?=
- =?us-ascii?Q?v3ugujxfbmvj6A+I95qRjRf8PFUCRupwhCjE8jv5HPsuu/PdN6R4nknpGPv/?=
- =?us-ascii?Q?EVQS3m8rvaxvCiFPOBx7xwLSHS0QpEtW71xrf+1j1AjVabsvotIbI2/JCWuJ?=
- =?us-ascii?Q?3MaXYqs1L6N6EprcUr4BECcOzD38kF3aw0BlFWvQ9WHxOvp9/HLeN42W+L/L?=
- =?us-ascii?Q?fzEGJpfv1azDUUwUq18MeUuag5KRQQ84egJ0i0x/a1EX+oCyroWSmb3YRFMI?=
- =?us-ascii?Q?pb0icwOY1Qy0eR7OIgzkNsztlLZgbduDaWw/ru1KxbhboVIYp5tH4AwpGmWT?=
- =?us-ascii?Q?ahW5Mz01kgQTpMJntlEfe3VgHPdrw0H/yKDkDEXjCR0fTQXfhGU1mM+eHcBQ?=
- =?us-ascii?Q?8ocA6uiRdWA0oqMoTUn5Qgoxkp9wW15UKhU0ms8Y9zNp255BJmzAsFwGpgbj?=
- =?us-ascii?Q?MnbArvfnLtJXH6POZZiehT4O6gTbQvsm4Dg+ceXjBY8P4ZLiJHt+2J0xZDB1?=
- =?us-ascii?Q?KcWbz+2RQBi9zJhdBzUBka7St3PiRAh+Qh5NQrh85HjIPqMCyLv7MAFPjraq?=
- =?us-ascii?Q?8gouAmU+XFJfrWj7XG8FUlDI+Ak6Zz/GcozCRtnyP4KPnOF+YaGAFmwemWSW?=
- =?us-ascii?Q?BE/Tqr35b+Je3KbiZUTpbI6AtKLpsXUKiRtAzCQpfSJ7TMUPeLOdaer2Ty0Y?=
- =?us-ascii?Q?eTrc2BJ/AsMAsp6xWlPfkEpFTta+ERUm8o8Pw3Jadrr1A4yLOvcE82CuvmXt?=
- =?us-ascii?Q?PqEHz1FdczHZuCEmmJnL7CC4VNNLyqFApf8CszlfoZrkTRnXTtK/gIpRh/Wu?=
- =?us-ascii?Q?Xbid5JpZUkJME+COumR74IpD75/haHtDJvOOGNDUAf+TGZedHlXncm+sOBxr?=
- =?us-ascii?Q?WxPX4owR7RxRPqLUjae5lLdU44yYkGfJF+nMuF8ZaQEKjgZ9oPnF3BznfMMw?=
- =?us-ascii?Q?vlzU77N6pXVzIx5VXyMGLFJtlZFE6VFbfFbocuBbyrylO9HD10JFqqnNztPO?=
- =?us-ascii?Q?kz8daI7WvO2KQ17yQvfNcbQXPLCOKjnsqIhj1w1TFs+ACqdsLJ6s26dqWvGQ?=
- =?us-ascii?Q?k2taT59i/PpDdTzID9fv4911OYByvKqVN1W7AG+3OW36kVOv/ahwuDHOXlL9?=
- =?us-ascii?Q?spvTrHmS3AvRzOPcARCem62K0mWSL71VHuXVZjGlaMMqvFQilLRHOEgCkxxI?=
- =?us-ascii?Q?RwkhqaMEEg+2IGRBrlLTA3iX5mHZtEKQk4P2oATA6JrzQo6MJ+7BtJgPCwww?=
- =?us-ascii?Q?HIRdrBZioc8WG20V6Amhv9rNURNggbtn6VCylPEqmcjg7hva2QdoeuuCFFGf?=
- =?us-ascii?Q?1WKxriZ1FwiEFu1j4a8NeWT+0F/UyYSFsjnhsHt0n/Li+UIY/UA+IPRePdeg?=
- =?us-ascii?Q?2wfmsAqGQagevUjWpMXTF/KMLunLIHOcJILbZZS64JHyv+M3Pb5BFCtCI/A7?=
- =?us-ascii?Q?N9aSbr6eLVcPaoPi+SdQ8YkrJN9Tq/9FOPPWaiA1YOv7AJuYb4fASdYRGyvG?=
- =?us-ascii?Q?dfun05DxnRWcA0hiNEaHjV8WtmITSMcgLx4oe5BQfhzmokajFQjaOi9/nTXb?=
- =?us-ascii?Q?/4O22z35JnbXsUmjNuDyxfmcWlFME06Eg7K13Oon1nbzDDYUlqSUFK7GVuGV?=
- =?us-ascii?Q?/tvG1SJ7/7D6zjIJ5LuzRTMKRvJqPkEumQbfAnTxEzQv+M4EGjU+SXp4YU7s?=
- =?us-ascii?Q?xTZbbScnZDJSxqJrdLexaA0g7OdmnAb35WC5TS43SG/zI8vOsZL2?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lg7Z8mqCkGPjlp1IkKRVcE6BNshnyrd+6pHXDOIBZHaTgQZcCLdJYXFfbWSH?=
+ =?us-ascii?Q?VGkWKtqOkjYZvtmq6iiZ/viB5huV6FIw0rXYgsDE7jtLV92LdwePQukGpJZA?=
+ =?us-ascii?Q?NVniABUTiGfp3wtr1gvLsUOz3PkqifiUDNrvVtKd3us4o4ibOM/7B1fFfzmt?=
+ =?us-ascii?Q?A6fgExyKC/4Oc2B9zFyxlFdRqbUGrK6/dXoirRTACJRsSMoxnYQXTCJ85kFK?=
+ =?us-ascii?Q?ePP098FVmXNdJJaMcWE56afbjWPdqv4WU0eat5Tf6DUQ25eVU/U/dxyP6VTI?=
+ =?us-ascii?Q?SyIb+6D2oxH1uHXics2K7swRdQlv0F0bPyLLy2wlc6ylcVR+tOrUal46gTEY?=
+ =?us-ascii?Q?Ye9yvAxKoW3jyWyk9NQ1blFm91FY6fI+No7OrqoiIdcwpB/OMTErVAGGGGzt?=
+ =?us-ascii?Q?M7hmJ6Eu3UEYdxgsWmpkAZrbAUesluXi2OBXnu1DtJcOwqVgpoV8zIV0Ee6Q?=
+ =?us-ascii?Q?3r1M8i1zUlkIJ/8z6swEQdjb33dap/7kbikgzQtyo/xHzaTKgui5xdEBlkFT?=
+ =?us-ascii?Q?J4gcgoiHUY2Iy8hI4YGg8ep/ua609J++I8ihYhDA2WYUUmYZ6sXc8tbnKyFk?=
+ =?us-ascii?Q?L9d+4IRVnZbtnZd2PLrjPCf9HqYViRycRreNadzwCmB1Ap5FUfmSAwCNENwJ?=
+ =?us-ascii?Q?auOAI3jli0b0t3dfYGdc8ORk1rtUyzlKTk5y/RXGD9MDg0ZmBRWtd7FZ8IBA?=
+ =?us-ascii?Q?tm940X6eYtowJaeb9YAOJHjYi+Fks3E9GOJldgx1BVYdpJYtgBVRrXRmAlyI?=
+ =?us-ascii?Q?8NHSlZI3uuNnZXgWMoXK82pH2s4x2/rJyRzrRwCRAcK7rNclykP3XwqlrJNB?=
+ =?us-ascii?Q?HKZ0/jGMfSF9lQ7kTlc+WcZnpNTZ/8j8ST4IWUDEjguUHA7C8pEVoDHH9SMX?=
+ =?us-ascii?Q?BtPpVJDPIOxrbXHQvj4tU7tXl59RsQQ85fwoXWI3TIEXizapA1dzqEf87dz/?=
+ =?us-ascii?Q?XGX25w+bww176tP4imFLp3le2Ph/gQtJvE7zsjTzgbVgJ1Z3fQIYRjyfaZCj?=
+ =?us-ascii?Q?U7st/9J0rXtjGPVM5IfJ//8XZx1jrZdVXtWclidsjtmaIE/BtaxYPvzOGkJq?=
+ =?us-ascii?Q?f8U1Mz9GHokgaEGCnRCT2XVXsJMTfX9+5/d5xTGyOwHySue4pCzECV6zYFpT?=
+ =?us-ascii?Q?LMFdLwJrnIlry/9qPw0+obbEECd7G0z9JXJME+0noOiLB5gk9h3ioiZVWLMS?=
+ =?us-ascii?Q?g0h3+LvxQBRHIsPlMDZYguZvQ2XL7LOcO4t+F+4dfSE2zwLGz/XVDX1Vsx4G?=
+ =?us-ascii?Q?I5O81iVonqGcRuNRWYWxA4jrfCo6NWfoiYV5LLqMZhgFMnzQ54+uWIsf9kjN?=
+ =?us-ascii?Q?AiG/AFuR4omGsmgFqLAMMpr1gBV29hM5iL4ruLzpEumFWvzKy7tdIL4qHT+Z?=
+ =?us-ascii?Q?h+66r8XCLYtjsGPZew9XhNtlYXEMnhR49sCWs2fAAz8eFbJ+FuxWeVGJvwI7?=
+ =?us-ascii?Q?9mMC2/Eceb8Q1EzZIzr2se4vXF/3ZRNn+Tu4K9bpOZh6H3CH10refbk8mpDV?=
+ =?us-ascii?Q?AWX86RCB1gK3UY5/XTMkAV3TTQvLKBRqXbfHlNvWCZAbndhygz39f78mMURS?=
+ =?us-ascii?Q?LbGpmRlU8zYHkJS/74nsGx4tmHJoyskYQGVNUzJu9QlEBR7vthdBbU9Piss2?=
+ =?us-ascii?Q?ildpN+vC463KeBcbWdLxQsv1iEnRZGUPPxm+NEzXWeuByFD2EZVaP3UE8rqR?=
+ =?us-ascii?Q?4hBN5cSGC9foRcgUqwCkdMqq+tMviNxKGxAiRNoo7ZoQ2x7zJV8RDrAwObxM?=
+ =?us-ascii?Q?S+qsRs9ib7u7X3eV25wUtxZOv/6hH7wzHcDqn5wdKCajX0EX+LJ9?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e4cf40c-251c-4f16-2038-08dea6fd69b4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3db01636-b453-4882-9aae-08dea6fd6cf2
 X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 21:14:06.5935
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 21:14:11.9841
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 50XE7QBow07/nMTncjf4MFTSmeSQPFs7WYowgPfwlTWB/a38d+dZImnVctscJgDzH4IkzI1tC6NfwIY1+DT/DA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: G2y6TQB78xO9VMNUmJLBswxApWc4ZhvOoQQDbYNeaRzhAgCBScAruEr5ro/2xRCK1y+caj3VrT3L+aNRnuN8+A==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_141423_736524_AB8D3158 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20260430_141426_799139_230FA5CB 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,111 +158,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jinjie Ruan <ruanjinjie@huawei.com>
+Arch bitrev API is covered in MAINTAINERS under the BITOPS entry,
+while generic bitrev is unmaintained. Move it under BITOPS too.
 
-The RISC-V Bit-manipulation Extension for Cryptography (Zbkb) provides
-the 'brev8' instruction, which reverses the bits within each byte.
-Combined with the 'rev8' instruction (from Zbb or Zbkb), which reverses
-the byte order of a register, we can efficiently implement 16-bit,
-32-bit, and (on RV64) 64-bit bit reversal.
-
-This is significantly faster than the default software table-lookup
-implementation in lib/bitrev.c, as it replaces memory accesses and
-multiple arithmetic operations with just two or three hardware
-instructions.
-
-Select HAVE_ARCH_BITREVERSE as well as GENERIC_BITREVERSE,
-and provide <asm/bitrev.h> to utilize these instructions when
-the Zbkb extension is available at runtime via the alternatives
-mechanism.
-
-Link: https://docs.riscv.org/reference/isa/unpriv/b-st-ext.html
-Suggested-by: David Laight <david.laight.linux@gmail.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Signed-off-by: Yury Norov <ynorov@nvidia.com>
 ---
- arch/riscv/Kconfig              |  2 ++
- arch/riscv/include/asm/bitrev.h | 51 +++++++++++++++++++++++++++++++++
- 2 files changed, 53 insertions(+)
- create mode 100644 arch/riscv/include/asm/bitrev.h
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d235396c4514..d32309846fa3 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -104,6 +104,7 @@ config RISCV
- 	select FUNCTION_ALIGNMENT_8B if DYNAMIC_FTRACE_WITH_CALL_OPS
- 	select GENERIC_ARCH_TOPOLOGY
- 	select GENERIC_ATOMIC64 if !64BIT
-+	select GENERIC_BITREVERSE
- 	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_CPU_VULNERABILITIES
-@@ -128,6 +129,7 @@ config RISCV
- 	select HAS_IOPORT if MMU
- 	select HAVE_ALIGNED_STRUCT_PAGE
- 	select HAVE_ARCH_AUDITSYSCALL
-+	select HAVE_ARCH_BITREVERSE if RISCV_ISA_ZBKB
- 	select HAVE_ARCH_HUGE_VMALLOC if HAVE_ARCH_HUGE_VMAP
- 	select HAVE_ARCH_HUGE_VMAP if MMU && 64BIT
- 	select HAVE_ARCH_JUMP_LABEL
-diff --git a/arch/riscv/include/asm/bitrev.h b/arch/riscv/include/asm/bitrev.h
-new file mode 100644
-index 000000000000..4b9b8d34cc3b
---- /dev/null
-+++ b/arch/riscv/include/asm/bitrev.h
-@@ -0,0 +1,51 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_BITREV_H
-+#define __ASM_BITREV_H
-+
-+#include <linux/types.h>
-+#include <asm/cpufeature-macros.h>
-+#include <asm/hwcap.h>
-+#include <asm-generic/bitops/__bitrev.h>
-+
-+static __always_inline __attribute_const__ u32 __arch_bitrev32(u32 x)
-+{
-+	unsigned long result;
-+
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBKB))
-+		return generic___bitrev32(x);
-+
-+	asm volatile(
-+		".option push\n"
-+		".option arch,+zbkb\n"
-+		"rev8 %0, %1\n"
-+		"brev8 %0, %0\n"
-+		".option pop"
-+		: "=r" (result) : "r" ((long)x)
-+	);
-+
-+	return result >> (__riscv_xlen - 32);
-+}
-+
-+static __always_inline __attribute_const__ u16 __arch_bitrev16(u16 x)
-+{
-+	return __arch_bitrev32(x) >> 16;
-+}
-+
-+static __always_inline __attribute_const__ u8 __arch_bitrev8(u8 x)
-+{
-+	unsigned long result;
-+
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZBKB))
-+		return generic___bitrev8(x);
-+
-+	asm volatile(
-+		".option push\n"
-+		".option arch,+zbkb\n"
-+		"brev8 %0, %1\n"
-+		".option pop"
-+		: "=r" (result) : "r" ((long)x)
-+	);
-+
-+	return result;
-+}
-+#endif
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 27a073f53cea..b69db2a7031f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4549,7 +4549,9 @@ F:	arch/*/lib/bitops.c
+ F:	include/asm-generic/bitops
+ F:	include/asm-generic/bitops.h
+ F:	include/linux/bitops.h
++F:	include/linux/bitrev.h
+ F:	include/linux/count_zeros.h
++F:	lib/bitrev.c
+ F:	lib/hweight.c
+ F:	lib/test_bitops.c
+ F:	lib/tests/bitops_kunit.c
 -- 
 2.51.0
 
