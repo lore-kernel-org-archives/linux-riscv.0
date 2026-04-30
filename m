@@ -4,77 +4,192 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605EDCD13D3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 22:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4860FF886F
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 23:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5GGYEIVZRaj90yg9MzfA6pXbnlmf+taFnKrHG7f5eIw=; b=D+KxYoiHzlT82+
-	Glj0l1rjB7HhTvMUyxGovvMRF0DWRlnOH6KsrPUzBpEyq8EOSQNYDChNuAz2+korXAnfDGB0MR57W
-	8ZoMmBNZwYvJFoCRwdd5K8O2YcxgBnIWcAOx+RFQXwEPMIC6IO1jWsYvHEnd4ezzo7AJnFVoZsf3L
-	4iAs4isJbt7gSe1gicdych8Xf582E4ksS89q/2vT2tZsd0D/0JABczuuciQX1T1MNNsLAM6wJyEc+
-	hcTI8JjA3liNnJbf0eAeBJRGCM0Snmp5A4UDDVukeWCUirlj9JQRy3GFiru8K9WEQATZMy1FG3dG3
-	gPBw4JuITF9Ke8bt1BPg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=t0BBHqLsCFFz4tyVqkri8PZD82fIEEbmS5ERJAyx048=; b=r0pX0VouNVhdBlhvDDza1CGq3R
+	LukHQDg22NazYwxADI2YuWgkvcxagKFRdJsqmga/WQykFljZtGQGXy3nTpdy+EK5/AjnkaqK25ZFf
+	im4G9QiIwE7xeoPjt/s6RmQGKb7ZM4jQroRop9ZvqTp8MvlUxiiY30pD0sw57dVJw5HFjgCfYlQMT
+	GG6+Aglzwr7haIILchL2obT7KIGbhaHcFopdm6I5zHU8rGm0rU/RkuxGHY9ojHqloBb5mbwhO5Axq
+	yfHlZ2O6Su3bAuLEHhyPnZ8t1jMuUxpzjF3GvNIUrqX/5H+bUywuJNrxxf7V5t8oujMBZHtUscqX2
+	/wCFTuIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIaD2-000000064RT-3aRM;
-	Thu, 30 Apr 2026 22:50:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wIabM-000000065T5-2TDq;
+	Thu, 30 Apr 2026 23:15:24 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIaCz-000000064Qj-3mP5
+	id 1wIabI-000000065SR-2FE8
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 22:50:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C87244515
-	for <linux-riscv@lists.infradead.org>; Thu, 30 Apr 2026 22:50:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2257DC2BCF4
-	for <linux-riscv@lists.infradead.org>; Thu, 30 Apr 2026 22:50:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777589412;
-	bh=EwR29NH5HVcLbVvA5ViI57mAmHT3DBCHHsLg0gf7Cic=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dBXZ2oY8bPD0T7Gd4Of7GUZOb84hKrxvQlNnKxyNarxinIUzFHyBM9s+qDR4U9LPp
-	 +Hc8F8WFDCZQqqo+npT5fUj0txmJKGzK48NWf+a5HFI0nv9pWEpw/7Z7MiE/1dYHmC
-	 B12UZdt6YCq68u/rqEbIGy9P6FZiNurFRNlp3PZg9yOU7Gob8iSTSCXSUBOt2JbkAC
-	 Fwp47SUVHvHazO57YaIALODnh+Wg6M0vRWtAdK9btMOZWw3UF7+id1X74wqvWjE3jS
-	 uK3gMgeJ00mb08GoZiRN6AIHhiPzdeZPoa0S7aYZkNoWzKQDPWrMHLEaBFdV5I1od5
-	 XDQUtFcs0lleA==
-Received: by mail-qv1-f48.google.com with SMTP id 6a1803df08f44-89f1e767f92so13294916d6.2
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Apr 2026 15:50:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/qbgNJJpYegVUF3BmnPiy4rBynJge1w8bLw3L1n+EqJwM+/5KXVuvFt24M21iBeiA1JekAPfYUvO2+1Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYyX3gK/RVsg+5fLKxKHG4WhccR93RPXn+Fux47d05gk4l5kWa
-	s2ogMTMq1NWyp6lmjK0HomjdrcH8wpnVBhZqgPB/5ekUfUywpqoTlA5jvwqVpge0wKxmnDO129e
-	TgLUY8n6FTS00lYDazaE7b7GG5yVWNxM=
-X-Received: by 2002:a05:6214:3f81:b0:899:f092:9da with SMTP id
- 6a1803df08f44-8b3fe7bd179mr81439146d6.28.1777589410935; Thu, 30 Apr 2026
- 15:50:10 -0700 (PDT)
+	Thu, 30 Apr 2026 23:15:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1777590920; x=1809126920;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=65gEOG6Lqz7U9cethDAoa2DqjAgXkSZuhmepeuSEEfw=;
+  b=Ux6VxyYRlaR89FTa18zFP9/SZ9m++m9p/h/x7MT4w+zPziHmY3mKx6yU
+   2yauSBAacNVrdQkiPN8KwwumhPGKlfPUanBovLBJmVaKbvQ9bIwm47DXw
+   24gTzMjhnQPdNJ71tLHyu7EVxxglercZNCd5z3t0+5WZBnZtXg3423DMc
+   LRui2iD4CndhpIQXQqqN8tVqpjLmok7H/dZSzPC8jhgTT+h4IThfow+Hs
+   d36EhSEpOrJwMJHYy9FEHmC4uRy4VzBmCCQhURhv3BrR8fbm7VO10rVyu
+   hQYtjaC8tL0hw7pZGXeYAeYwh4KFF4LdIPjYR8fX4y7sGR7mb53qOAbWh
+   Q==;
+X-CSE-ConnectionGUID: +LzxMcK9QtiYe/rkWiv4Eg==
+X-CSE-MsgGUID: /w9d5YsBQ5G19Ibj6FA2Qw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11772"; a="78662403"
+X-IronPort-AV: E=Sophos;i="6.23,209,1770624000"; 
+   d="scan'208";a="78662403"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2026 16:15:18 -0700
+X-CSE-ConnectionGUID: umoqGcWAQp+yh1GuJLj/Mg==
+X-CSE-MsgGUID: kyFPOolTQDq2scThGi+9ZQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,209,1770624000"; 
+   d="scan'208";a="230370902"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2026 16:15:18 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 30 Apr 2026 16:15:17 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Thu, 30 Apr 2026 16:15:17 -0700
+Received: from CY3PR05CU001.outbound.protection.outlook.com (40.93.201.55) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 30 Apr 2026 16:15:17 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GO/7yL+N5f+ffewkXTsuCacMCwI1Z3WHE9I59Rx067yOs9Ul5nR4WqMzTlKAEfi3FZFn7vV8D11uqHgr+4zynjIkYrcGGuvvrFhR9T0A4/ja5bNmThJq8CohkWNaI0uxAnEVXHSJuWwMGbAL6Das63RqGPFqa2/y23SZhApL1H5hv+/tRnXRvosZqztRh/rUMhBI/BGwJt0urkcaSDCIGuop6CNAVA1TTKgcL7g1blA1ud0v5gxZDd/n7nWOf+3xrOAA/ikV/eA5IRfKzX8+yjGxTCk2ZARRAw2069DXXqJ+tbKaECWmM8e2ZDHSkS3IsGuQTTDPiN5MRObHk2CrKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bTM7GAb5qt0fAtYW31XKOoZRhH29UdkgJHcr+enR1N8=;
+ b=btnfknuMSUBkaYR+mXfZEgs06BjCayyZ0YQ8yw/UXm9EGOi0aPk2MIW7ltDmptFcKj6sBiu+FsGgl29C5c5gjRVBEg96b0GrLgAQVKTsyxRIw5LzBw9K4/SRySoNKuY5TwNbyfv+JI/TQgGQ5dhAx+iiKa2HMNyKZ/l09C4k/3vHabb1dO4a+rzHBco+laqHB3HN6rM9TZg7iMFE6sIF9UTdAW8oNiWkjS5bd2Vk6lRVHpg2PF0i/IwEGb3eN85o+K+CMxFUUtpRT30CpmTsiZKBSaEwtk5mhRf6eM+gLK3oH/42M8FpcPgR3oubJ5IE0w7Bc3Mu/tCt/EHcT2uJ+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com (2603:10b6:a03:4d2::10)
+ by MW3PR11MB4651.namprd11.prod.outlook.com (2603:10b6:303:2c::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.22; Thu, 30 Apr
+ 2026 23:15:09 +0000
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d]) by SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d%5]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
+ 23:15:08 +0000
+Message-ID: <eeecb5df-64ee-46ef-b4a8-0f0cdc88f0ae@intel.com>
+Date: Thu, 30 Apr 2026 16:15:05 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v3 04/11] RISC-V: QoS: add CBQRI hardware interface
+To: Drew Fustini <fustini@kernel.org>, Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?=
+	<rkrcmar@ventanamicro.com>, Samuel Holland <samuel.holland@sifive.com>,
+	Adrien Ricciardi <aricciardi@baylibre.com>, Nicolas Pitre
+	<npitre@baylibre.com>, =?UTF-8?Q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>,
+	Atish Patra <atish.patra@linux.dev>, Atish Kumar Patra <atishp@rivosinc.com>,
+	Vasudevan Srinivasan <vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>, yunhui cui
+	<cuiyunhui@bytedance.com>, Chen Pei <cp0613@linux.alibaba.com>, Liu Zhiwei
+	<zhiwei_liu@linux.alibaba.com>, Weiwei Li <liwei1518@gmail.com>,
+	<guo.wenjia23@zte.com.cn>, Gong Shuai <gong.shuai@sanechips.com.cn>, "Gong
+ Shuai" <gsh517@gmail.com>, <liu.qingtao2@zte.com.cn>, Tony Luck
+	<tony.luck@intel.com>, Babu Moger <babu.moger@amd.com>, Peter Newman
+	<peternewman@google.com>, Fenghua Yu <fenghua.yu@intel.com>, James Morse
+	<james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, Dave Martin
+	<Dave.Martin@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Robert Moore
+	<robert.moore@intel.com>, Sunil V L <sunilvl@ventanamicro.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<x86@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<acpica-devel@lists.linux.dev>, <devicetree@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>
+References: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
+ <20260414-ssqosid-cbqri-rqsc-v7-0-v3-4-b3b2e7e9847a@kernel.org>
+Content-Language: en-US
+From: Reinette Chatre <reinette.chatre@intel.com>
+In-Reply-To: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-4-b3b2e7e9847a@kernel.org>
+X-ClientProxiedBy: MW4PR03CA0228.namprd03.prod.outlook.com
+ (2603:10b6:303:b9::23) To SJ2PR11MB7573.namprd11.prod.outlook.com
+ (2603:10b6:a03:4d2::10)
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
-In-Reply-To: <afNM-gIqxpyJ6ro7@casper.infradead.org>
-From: Barry Song <baohua@kernel.org>
-Date: Fri, 1 May 2026 06:49:58 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
-X-Gm-Features: AVHnY4LNqeENq1Hu8yfE3Ha6l6qy4pcPzLhOvHSM0QbVepERNdbmRODWwcwvH-c
-Message-ID: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Matthew Wilcox <willy@infradead.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, 
-	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
-	surenb@google.com, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB7573:EE_|MW3PR11MB4651:EE_
+X-MS-Office365-Filtering-Correlation-Id: d50ac75f-b76b-4413-9c10-08dea70e526e
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|22082099003|18002099003|56012099003|921020;
+X-Microsoft-Antispam-Message-Info: CrWICR5v3nIgf/TYJcfuI1BPOWlB6wyFBtem/2vWo8ffZYq0+rWkZkTgxHRjIXES0+Hz4KqEenHkFDZ4o/n5qCVNUSpDtDkJZXU9SAaT662LsWBl1b2QezYzuR6hC+ySrN05JTA5iXovmyMEQrw+MPmzDa/aijbLku4Dku7FUT4rbBMvNhd+k/tZrLikHIRCj6UQTLroOgtrHQRyRMygC+EVImYZoVXHteBxEgtFg3t2FtjVV1HpZFNyzIFurV5g/H8wRVzYVa4NhN+YbO3cUmaEtH3Z6I9EQ/DwNO1p1ax+DvvvOxR4JdAch4ETK144r+oR57TamkyAHGqF0zs4kKmGqm9uBv5K272KVnC2dkBQ4rKqhq0S+5mFYBXg6F2SkO08kHFnUcRLvTnnOh5F7nEbQCBNFkYA6P1HPHHkKi/cIN2VztB0mqzFJRIRuflBmIWATAz0jC6hW1mxTGPw+8IXEN3I625BeAbFM/sgTQADgVK3mZ9Yij/ik8VcJ1EQcpKuWhoEA3kxfo6XasS+fsTbh9+621mjUYiOzDv0/azy9L6rlzswmczue/Bq25/NSJrcyMeKCfE+RonaQMLb1jZMD+UcpagNHo0wlehR+eolFl4Y+7rm0hVGHkoQ0v236PA4eWfVXyddIT+QxRLj0O2lxkEl98U/HMCmhpOLiMZnXfy/sAigymtLd7t22ro7TOQGavMz65MyEcV475bKHBG8oSpp5RJxUdmZDgWWd/8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7573.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(22082099003)(18002099003)(56012099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L2JySUV3WnJtR21FMnNuUTNKNFRVcm5YOGF4U1FTT1h4VkR5RHVKNjBqelRh?=
+ =?utf-8?B?aTZYdTEzcHE5NDhQdi91cFprYWV4SE9lTGZiNkhKc3pGODNvVHdYaTJFQlly?=
+ =?utf-8?B?eVNBaE04ZFFyNmc5YVI0UldUVTVHMkJiR3FMTW4zcXhWeHpmVGZvR25TakV2?=
+ =?utf-8?B?QTlueXdZQWNCdGtwcHU4eVo2MUttZHM4L2VFbTNSSjV4bEtzbTY3dzU2clhJ?=
+ =?utf-8?B?UHlURFFkQldOVWtYZUxrWHBubEM0VlpPY1dxRUFvblk5bTBoNEtPMSt1cVBy?=
+ =?utf-8?B?dnVwK0JMRXM0bmxFMnVDVGllZ1Q0ajI2K0ViSlVQaG9mTUxkSkZDc2pjeHpn?=
+ =?utf-8?B?MGQ3OG5HYldrN0g2eTMxK1orcjZtcnRqNm4xR3hzUXFvQ3d5RjRqRWJET1V5?=
+ =?utf-8?B?SWRjT0UyN0owQTB4TUhGWHJwSCtmbWIxOWdRWUFQaVFiRU4wN1RZVlY3azVW?=
+ =?utf-8?B?S1NnRG4ybWZXblgyUVN5VlF1K2pZSWp6azFGdTRKSER3dUlvcnYyYkxxNS82?=
+ =?utf-8?B?WW9uK3o0N21VTHJBUWJrYldUM3ZuWlJubzVyTWh3UEN4WVk2V3piT3RqTlZR?=
+ =?utf-8?B?Qm1qMDhLZ3lIZk54cnFyODhFNTQ2MnY2cnpxa0FEb05MUWNxVzhvVVJqOXZr?=
+ =?utf-8?B?dlo4WFNaZndsNUtxZW5zTi8ra3UwSWdILzFMMDFpMnFDSHFQZVgyK0pDdzlw?=
+ =?utf-8?B?K0xYbzFhMVRSWjYvN3JPQmJTdCtZVm50Q2lVSE5qc0JmWmM2TEVjYTFJVEhQ?=
+ =?utf-8?B?b1NmcnJjeEJjV0l6YnZSVlh5NWFkZ3VrWTBTU2x1blM5TWdoeThZNjZPR1VS?=
+ =?utf-8?B?T2s2MHQrZ1VxM3BlUmFiSjk3ZGpwVittMmk4Qm1QM3pFVVBMcEU3ZThNR3Rm?=
+ =?utf-8?B?UGlLcnk0aGxMUFZ5TkhlaGVJNE1rT0NDaVoyK3ZtWktydVliRGlEbFhVRTRo?=
+ =?utf-8?B?d2lsOEMwMkJuaVMyZVVKMFFINFlCSmo1K0RsYUdLRk10OU5rdVR4QWhwTm5U?=
+ =?utf-8?B?TDlldmNrcmU4S0tRbEMvanZoNkkreGUvWG5DRXB6b2x6amJVdXdpcm1vNVJv?=
+ =?utf-8?B?QTRsNUVUV3JLY2hjcitHdkNpejBEcDM0M1hwVEJkSE8zTmVRWksxUEVVWnJB?=
+ =?utf-8?B?ZVpUdnFuM3V4N2JNai95aFY4TmI3dS9iQmtLUVZ1bFB0YkQvaWkxZHhiRzRM?=
+ =?utf-8?B?V3BEdHZaSi9JMTZlUjRYRGp4b2d2WXhOYUdDeWNqUjVvcjdFSEdDRmtMNlVK?=
+ =?utf-8?B?c0FZTU40UndOYkYwQU9RVGw5WkJjKzdoeEdVU2R0UHNpbExqUnVMTDdnMnBu?=
+ =?utf-8?B?c1NoRjZySmFlbXE0amgvbXdlVWNvUldmdG0wSEZuejNoWXlGREZyNFlDa2tC?=
+ =?utf-8?B?cE9GVXV2dEV2TXdHL2ExcjJmKzBFend1WllWRklKckJGaUJaaFM2aUxxd3ZW?=
+ =?utf-8?B?UWtFeERaajIycSs0eUx4ZkEwcVJzK3RqRkx5SksrZ3VVdFIreFdIZ0NHMzJz?=
+ =?utf-8?B?UHdEUWhsYWNlM3BDZnIzbE9PU2FjOG1vMlU2bFJkVmZvdXo3TnNsSmFLVEsz?=
+ =?utf-8?B?RUp5T3ZDMWpyNlVsYitQb3E4bG16MTV2THhxano4Y1VmV1ZZMzlRR3VTQnhz?=
+ =?utf-8?B?SVlLVis4TGNmdGlMTzFaS0luWmtIWm9hVXJmblZxb0lnc2psVk5WQk5QYXY2?=
+ =?utf-8?B?b1hDTGRtYXZjQ2hIbUpBV3BQMHlkeXpRQlNwRXpsaUhsaFhMMkJ6YXVIQ3RN?=
+ =?utf-8?B?YmpXMzY5SGUxR0YrZkpXcVpKZE1pNFloVlVuQ3hKWnQwNy8yd0V2YzJMZlBz?=
+ =?utf-8?B?V0lYcC8vLzN1K3l6ajIrc3RIc2dSdVVmemNrQ3gvaUxEcDVPSC9tdTR5dGFS?=
+ =?utf-8?B?QjdIV3hKb3hXZkJ2SlhSeDZDdTVxWjE1T1ZETGJmam1ITmJoMmErWHIvbk5J?=
+ =?utf-8?B?S0hISlBxRG5iNlkwcm9KNzlxTjgyUW1iM0RuemtGcnBnZWxRNkMrUVZtVzRL?=
+ =?utf-8?B?YlF0SHF4YlN2S1N0QStiV1poQ1dyZlZhcW1hZURXV2RrNFozN0xCck9aYlUz?=
+ =?utf-8?B?OWNjeGN1N0Z6OFVlM254ZXZsNDA3VjIwRjA0aUZmanBSakxEb2dEem50aTF5?=
+ =?utf-8?B?YWdKa0IvcjV2cjcrYXlwcXBXR2k2R21tZHlGRG4rbE1uTXY3UHFocldlSWJi?=
+ =?utf-8?B?Wk1YQ3cwYk5zSEpLeDBEZ29mNmJ4VktNNHpmd1lJNkdBVW5WUDJkemJMTWVJ?=
+ =?utf-8?B?aEpaTGUvY01nMldwbUdGMlNtZitRY1dUbHNRcjFHbllkVDJDcWdVRDVicUkz?=
+ =?utf-8?B?bEJjcnBXVm1hYk9zaElpbzZFQmNyVlY4cFUvNisrRjgxRTVwdW5hZDFBRmo3?=
+ =?utf-8?Q?O92JX0qlkbs+fpR0=3D?=
+X-Exchange-RoutingPolicyChecked: vduWlyMgAsPFyocrqBHKADvgytaz/V6HaARZRx5uL1weBMOlcGphGi4ScES+eLRbOGxYqdoTLdrzdRQ8A6EZGm/gtsRG3o9DH16dMnKVhY2HyB2yMv+9zFR1/CuD/wuSOXzuoPzvHD/RwTVPsMjac702Q/g/GVaoTiTmFN0kUb1lK+EBrvYngwURfWSynl+dF27ZsEDk/GErhbDeHOOnUmjNRQ9rOx5izKf7liMTZHeBrifxBaGbAecWI4SiIzMpB2O9N7Wv9HVTZO0TMpbmn1FeZc5oHEEWnO3Dvf2VSdnggAPO+mY72+Jp4nxFKC3iPruPwzsKK4ninJe7KCQnCg==
+X-MS-Exchange-CrossTenant-Network-Message-Id: d50ac75f-b76b-4413-9c10-08dea70e526e
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7573.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 23:15:08.8878
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xQHrWf+2r+uIm4dFPO13/EliNk3ajxEqlETycNyNCEnSBgzfMgWDP7BpK9uqfNYhF4YYio5xlItXcq7bGM6lMPm2YqzYWnq5zBe5TbgLd0M=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR11MB4651
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_155014_027323_361C2B53 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20260430_161520_626074_32DBF3B3 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,66 +201,189 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBcHIgMzAsIDIwMjYgYXQgODozN+KAr1BNIE1hdHRoZXcgV2lsY294IDx3aWxseUBp
-bmZyYWRlYWQub3JnPiB3cm90ZToKPgo+IE9uIFRodSwgQXByIDMwLCAyMDI2IGF0IDEyOjA0OjIy
-UE0gKzA4MDAsIEJhcnJ5IFNvbmcgKFhpYW9taSkgd3JvdGU6Cj4gPiAoMSkgSWYgd2UgbmVlZCB0
-byB3YWl0IGZvciBJL08gY29tcGxldGlvbiwgd2Ugc3RpbGwgZHJvcCB0aGUgcGVyLVZNQSBsb2Nr
-LCBhcwo+ID4gY3VycmVudCBwYWdlIGZhdWx0IGhhbmRsaW5nIGFscmVhZHkgZG9lcy4gSG9sZGlu
-ZyBpdCBmb3IgdG9vIGxvbmcgbWF5IGludHJvZHVjZQo+ID4gdmFyaW91cyBwcmlvcml0eSBpbnZl
-cnNpb24gaXNzdWVzIG9uIG1vYmlsZSBkZXZpY2VzLiBBZnRlciBJL08gY29tcGxldGVzLCB3ZQo+
-ID4gcmV0cnkgdGhlIHBhZ2UgZmF1bHQgd2l0aCB0aGUgcGVyLVZNQSBsb2NrLCByYXRoZXIgdGhh
-biBmYWxsaW5nIGJhY2sgdG8KPiA+IG1tYXBfbG9jay4KPgo+IFlvdSdyZSBnb2luZyB0byBoYXZl
-IHRvIGRvIGJldHRlciB0aGFuIHRoYXQuICBZb3Uga25vdyBJIGhhdGUgdGhlCj4gYWRkaXRpb25h
-bCBjb21wbGV4aXR5IHlvdSdyZSBhZGRpbmcuICBZb3UgbmVlZCB0byBleHBsYWluIHdoeSBteSBp
-ZGVhIG9mCj4gcmlwcGluZyBvdXQgYWxsIHRoZSBjb21wbGV4aXR5IG5vdyB0aGF0IHdlIGhhdmUg
-cGVyLVZNQSBsb2NrcyBkb2Vzbid0Cj4gd29yay4KClllcCwgSSBrbm93IHlvdSBkb27igJl0IGxp
-a2UgdGhlIGFkZGVkIGNvbXBsZXhpdHksIGJ1dCBJIHdvdWxkIHJhdGhlciBwcmlvcml0aXplCnVz
-ZXIgZXhwZXJpZW5jZSBvdmVyIHNpbXBsaWNpdHkuIExldCBtZSB0cnkgdG8gZXhwbGFpbiBpbiBt
-b3JlIGRldGFpbC4KCjEuIFRoZXJlIGlzIG5vIGRldGVybWluaXN0aWMgbGF0ZW5jeSBmb3IgSS9P
-IGNvbXBsZXRpb24uIEl0IGRlcGVuZHMgb24KYm90aCB0aGUgaGFyZHdhcmUgYW5kIHRoZSBzb2Z0
-d2FyZSBzdGFjayAoYmlvL3JlcXVlc3QgcXVldWVzIGFuZCB0aGUKYmxvY2sgc2NoZWR1bGVyKS4g
-U29tZXRpbWVzIHRoZSBsYXRlbmN5IGlzIHNob3J0OyBhdCBvdGhlciB0aW1lcyBpdCBjYW4KYmUg
-cXVpdGUgbG9uZy4gSW4gc3VjaCBjYXNlcywgYSBoaWdoLXByaW9yaXR5IHRocmVhZCBwZXJmb3Jt
-aW5nIG9wZXJhdGlvbnMKc3VjaCBhcyBtcHJvdGVjdCwgdW5tYXAsIHByY3RsX3NldF92bWEsIG9y
-IG1hZHZpc2UgbWF5IGJlIGZvcmNlZCB0byB3YWl0CmZvciBhbiB1bnByZWRpY3RhYmxlIGFtb3Vu
-dCBvZiB0aW1lLiBGb3IgZXhhbXBsZSwgaWYgbG93LXByaW9yaXR5IHRhc2tzCnRyaWdnZXIgcGFn
-ZSBmYXVsdHMgYW5kIGlzc3VlIGxvdy1wcmlvcml0eSBJL08sIGEgaGlnaC1wcmlvcml0eSB0YXNr
-CnJlcXVpcmluZyB0aGUgd3JpdGUgbG9jayBtYXkgZW5kIHVwIHdhaXRpbmcgZm9yIGFuIHVua25v
-d24gYW1vdW50IG9mIHRpbWUsCmRlcGVuZGluZyBvbiB0aGUgYmxvY2sgbGF5ZXIgYW5kIGZpbGVz
-eXN0ZW0gYmVoYXZpb3IuCgpBcyBhIHJlc3VsdCwgaGlnaC1wcmlvcml0eSB0YXNrcyBhcmUgZXhw
-b3NlZCB0byB1bnByZWRpY3RhYmxlIEkvTyBsYXRlbmN5CmludHJvZHVjZWQgYnkgbWFueSBsb3ct
-cHJpb3JpdHkgdGFza3MgdGhhdCBtYXkgZ2VuZXJhdGUgYSBsYXJnZSBudW1iZXIgb2YKcGFnZSBm
-YXVsdHMuCgpPbiBBbmRyb2lkLCBsYXRlbmN5IGluIGNlcnRhaW4gdGFza3MgY2FuIHNpZ25pZmlj
-YW50bHkgYWZmZWN0IHVzZXIgZXhwZXJpZW5jZSwKc3VjaCBhcyBpbnRlcmFjdGl2ZSB0aHJlYWRz
-LiBQcmlvcml0eSBpbnZlcnNpb24gaXMgcGFydGljdWxhcmx5IHByb2JsZW1hdGljIGFuZApzaG91
-bGQgYmUgYXZvaWRlZCwgZXNwZWNpYWxseSBzaW5jZSB3ZSBoYXZlIG5vIGNsZWFyIGJvdW5kIG9u
-IGhvdyBsb25nIHdlIG1heQpoYXZlIHRvIHdhaXQgZm9yIEkvTyBmcm9tIG90aGVyIHRhc2tzLgoK
-TWVhbndoaWxlLCBwcmlvcml0eSBpbnZlcnNpb24gY2FuIHByb3BhZ2F0ZSB0aHJvdWdoIGEgbG9u
-ZyBjaGFpbjogYSB3cml0ZXIKd2FpdGluZyBvbiBJL08gZnJvbSBtdWx0aXBsZSBjb25jdXJyZW50
-IHBhZ2UgZmF1bHRzIG1heSBlbmQgdXAgYmxvY2tpbmcgb3RoZXIKd3JpdGVycyBhbmQgcmVhZGVy
-cyBhcyB3ZWxsLiBBIGxvbmctd2FpdGluZyB3cml0ZXIgY2FuIGFsc28gYW1wbGlmeQptbWFwX2xv
-Y2sgY29udGVudGlvbiwgd2hpY2ggd2Ugc3RpbGwgcmVseSBvbiBpbiBtYW55IGNhc2VzLgoKMi4g
-Vk1BIHNpemVzIGNhbiBiZSBoaWdobHkgdW5ldmVuOiBzb21lIFZNQXMgbWF5IGJlIHZlcnkgbGFy
-Z2Ugd2hpbGUgb3RoZXJzIGFyZQpzbWFsbC4gV2UgdXNlZCB0byBoYXZlIG1hbnkgcmVhc29ucyB0
-byByZWxlYXNlIG1tYXBfbG9jayB3aGVuIHdlIGRpZCBub3QgaGF2ZSBhCnBlci1WTUEgbG9jay4g
-U2luY2UgVk1BIHNpemVzIGFyZSBub3QgdW5pZm9ybSwgdGhvc2Ugc2FtZSBjb25zaWRlcmF0aW9u
-cyBtYXkKc3RpbGwgYXBwbHkgdG8gdGhlIHBlci1WTUEgbG9jayB3aGVuIGEgc21hbGwgbnVtYmVy
-IG9mIFZNQXMgYWNjb3VudCBmb3IgbW9zdApvZiBhIHByb2Nlc3PigJlzIGFkZHJlc3Mgc3BhY2Uu
-IEkgcmVjYWxsIHRoYXQgU3VyZW4gYWxzbyBtZW50aW9uZWQgdGhpc1sxXS4KClNvIEkgd291bGQg
-cHJlZmVyIHRoYXQgd2UgaG9sZCBvbmx5IHRoZSBwZXItVk1BIGxvY2sgYW5kIGF2b2lkIHJldHJ5
-aW5nIHRoZQpwYWdlIGZhdWx0IHdoZW4gd2UgYXJlIHJlYXNvbmFibHkgc3VyZSB0aGF0IEkvTyBo
-YXMgYWxyZWFkeSBjb21wbGV0ZWQgYW5kIHdlCmFyZSBvbmx5IHdhaXRpbmcgZm9yIHNob3J0LWxp
-dmVkIGNvbmRpdGlvbnMuIFVuY2VydGFpbnRpZXMgaW4gdGhlIGJsb2NrIGxheWVyLApmaWxlc3lz
-dGVtLCBhbmQgR0MgYmVoYXZpb3IsIGFzIHdlbGwgYXMgbGF0ZW5jeS1pbmR1Y2VkIHByaW9yaXR5
-IGludmVyc2lvbgpjaGFpbnMgYW5kIHBvdGVudGlhbGx5IGFtcGxpZmllZCBtbWFwX2xvY2sgY29u
-dGVudGlvbiwgY2FuIHNpZ25pZmljYW50bHkgaHVydApBbmRyb2lkIHVzZXIgZXhwZXJpZW5jZS4K
-ClsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1tbS9DQUp1Q2ZwRlZRSnR2Ymo1ZlYy
-Zm1tNEFQaE5aREwxcVBnLVlFeHc3Z08xcG1uZ0MzUndAbWFpbC5nbWFpbC5jb20vCgpUaGFua3MK
-QmFycnkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Drew,
+
+On 4/14/26 6:53 PM, Drew Fustini wrote:
+> diff --git a/arch/riscv/kernel/qos/internal.h b/arch/riscv/kernel/qos/internal.h
+> new file mode 100644
+> index 000000000000..edbcbd9471b1
+> --- /dev/null
+> +++ b/arch/riscv/kernel/qos/internal.h
+
+...
+
+> +
+> +struct cbqri_config {
+> +	u64 cbm; /* capacity block mask */
+> +	u64 rbwb; /* reserved bandwidth blocks */
+> +};
+
+Is this struct necessary? From what I can tell it is used to pass a parameter to
+cbqri_apply_cache_config() and cbqri_apply_bw_config() where each just picks the
+one member of interest. Could parameter of interest just be provided directly to
+cbqri_apply_cache_config() and cbqri_apply_bw_config() without bouncing it
+through this struct first?
+
+> +
+> +#endif /* _ASM_RISCV_QOS_INTERNAL_H */
+> diff --git a/arch/riscv/kernel/qos/qos_resctrl.c b/arch/riscv/kernel/qos/qos_resctrl.c
+> new file mode 100644
+> index 000000000000..6d294f2f2504
+> --- /dev/null
+> +++ b/arch/riscv/kernel/qos/qos_resctrl.c
+> @@ -0,0 +1,432 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +
+> +#define pr_fmt(fmt) "qos: resctrl: " fmt
+> +
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/io-64-nonatomic-lo-hi.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/ioport.h>
+> +#include <linux/resctrl.h>
+> +#include <linux/riscv_qos.h>
+> +#include <linux/slab.h>
+> +#include <linux/types.h>
+> +#include <asm/csr.h>
+> +#include <asm/qos.h>
+> +#include "internal.h"
+> +
+> +static struct cbqri_resctrl_res cbqri_resctrl_resources[RDT_NUM_RESOURCES];
+> +
+> +static bool exposed_alloc_capable;
+> +/* CDP (code data prioritization) on x86 is AT (access type) on RISC-V */
+> +static bool exposed_cdp_l2_capable;
+> +static bool exposed_cdp_l3_capable;
+> +static bool is_cdp_l2_enabled;
+> +static bool is_cdp_l3_enabled;
+
+These CDP values could also be handled as part of struct cbqri_resctrl_res, similar
+to how CDP is managed with struct rdt_hw_resource. There does seem to be a hidden
+assumption in this implementation that if *any* cache controller at particular level
+supports CDP (which will cause global exposed_cdp_l{2,3}_capable to be true) then all cache
+controllers at that level are assumed to support CDP even though this property is
+enumerated separately for every cache controller making it possible for this
+support to not be uniform.
+
+...
+
+> +/* Perform capacity allocation control operation on capacity controller */
+> +static int cbqri_cc_alloc_op(struct cbqri_controller *ctrl, int operation, int rcid,
+> +			     enum resctrl_conf_type type)
+> +{
+> +	int reg_offset = CBQRI_CC_ALLOC_CTL_OFF;
+> +	int status;
+> +	u64 reg;
+> +
+> +	reg = ioread64(ctrl->base + reg_offset);
+> +	reg &= ~CBQRI_CONTROL_REGISTERS_OP_MASK;
+> +	reg |= FIELD_PREP(CBQRI_CONTROL_REGISTERS_OP_MASK, operation);
+> +	reg &= ~CBQRI_CONTROL_REGISTERS_RCID_MASK;
+> +	reg |= FIELD_PREP(CBQRI_CONTROL_REGISTERS_RCID_MASK, rcid);
+> +
+> +	/* CBQRI capacity AT is only supported on L2 and L3 caches for now */
+> +	if (ctrl->type == CBQRI_CONTROLLER_TYPE_CAPACITY &&
+> +	    ((ctrl->cache.cache_level == 2 && is_cdp_l2_enabled) ||
+> +	    (ctrl->cache.cache_level == 3 && is_cdp_l3_enabled))) {
+> +		reg &= ~CBQRI_CONTROL_REGISTERS_AT_MASK;
+> +		switch (type) {
+> +		case CDP_CODE:
+> +			reg |= FIELD_PREP(CBQRI_CONTROL_REGISTERS_AT_MASK,
+> +					  CBQRI_CONTROL_REGISTERS_AT_CODE);
+> +			break;
+> +		case CDP_DATA:
+> +		default:
+> +			reg |= FIELD_PREP(CBQRI_CONTROL_REGISTERS_AT_MASK,
+> +					  CBQRI_CONTROL_REGISTERS_AT_DATA);
+> +			break;
+> +		}
+> +	}
+
+There does not seem to be any special enabling when resctrl enables CDP via
+resctrl_arch_set_cdp_enabled() so I assume CDP is always enabled? Does that mean
+that when CDP is disabled from resctrl perspective (thus, both is_cdp_l2_enabled
+and is_cdp_l3_enabled are false, but exposed_cdp_l2_capable and exposed_cdp_l3_capable
+are true) then the default behavior is that allocation applies to both code and data
+and it is not necessary to set both CBQRI_CONTROL_REGISTERS_AT_CODE and
+CBQRI_CONTROL_REGISTERS_AT_DATA?
+
+
+...
+
+> +static int cbqri_probe_controller(struct cbqri_controller *ctrl)
+> +{
+> +	int err;
+> +
+> +	pr_debug("controller info: type=%d addr=%pa size=%pa max-rcid=%u max-mcid=%u\n",
+> +		 ctrl->type, &ctrl->addr, &ctrl->size,
+> +		 ctrl->rcid_count, ctrl->mcid_count);
+> +
+> +	if (!ctrl->addr) {
+> +		pr_warn("%s(): controller has invalid addr=0x0, skipping\n", __func__);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (!request_mem_region(ctrl->addr, ctrl->size, "cbqri_controller")) {
+> +		pr_err("%s(): request_mem_region failed for %pa\n",
+> +		       __func__, &ctrl->addr);
+> +		return -EBUSY;
+> +	}
+> +
+> +	ctrl->base = ioremap(ctrl->addr, ctrl->size);
+> +	if (!ctrl->base) {
+> +		pr_err("%s(): ioremap failed for %pa\n", __func__, &ctrl->addr);
+> +		err = -ENOMEM;
+> +		goto err_release;
+> +	}
+> +
+> +	spin_lock_init(&ctrl->lock);
+> +
+> +	switch (ctrl->type) {
+> +	case CBQRI_CONTROLLER_TYPE_CAPACITY:
+> +		err = cbqri_probe_cc(ctrl);
+> +		break;
+> +	case CBQRI_CONTROLLER_TYPE_BANDWIDTH:
+> +		err = cbqri_probe_bc(ctrl);
+> +		break;
+> +	default:
+> +		pr_err("unknown controller type %d\n", ctrl->type);
+> +		err = -ENODEV;
+> +		break;
+> +	}
+> +
+> +	if (err)
+> +		goto err_iounmap;
+> +
+> +	/*
+> +	 * max_rmid is used by resctrl_arch_system_num_rmid_idx()
+> +	 * Find the smallest mcid_count amongst all controllers.
+> +	 */
+> +	max_rmid = min(max_rmid, ctrl->mcid_count);
+
+This computation appears to include all controllers, whether they support monitoring or not.
+What will ctrl->mcid_count be on a controller that does not support monitoring?
+
+> +
+> +	return 0;
+> +
+> +err_iounmap:
+> +	iounmap(ctrl->base);
+> +	ctrl->base = NULL;
+> +err_release:
+> +	release_mem_region(ctrl->addr, ctrl->size);
+> +	return err;
+> +}
+
+Reinette
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
