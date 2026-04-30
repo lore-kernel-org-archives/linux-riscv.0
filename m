@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A665FF8864
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8158CCD13D3
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:27:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+ASnIU2nIi/sHxA/kKKgsf8iTZADO9yH0sdn2bQGVNk=; b=TnG+vvh1ZfS2uv
-	WgEFOu7PXudnYaHrjX/3zYTXMzoR/7oLfybh2XmQsyq8SgZfYsZeWX7O9KO3V1rCGVcIMFMIbdok3
-	o25gIv5V9dUrTEV0mVDy4CW2olEpo2cY1R9rSdZH/0ZSiF0FnGXWhxXcs/ZiT/bFUDgXoqUU63snE
-	JRdsEWb+fOVd5+fpjH8x0A3KALbLP+Xm5ykN0b6xlCi2yi4hKXeVnfBQDbDOGfH4KpXqk4s8MCPrO
-	todwlKOkcbungGoAcK6LlfPSn09V6w/Wpf6Oo/hS9peeMHk1MChdm4EH/zWh+lcqriL07hChvPFXF
-	CkKX6NeShALCOETVtxmA==;
+	List-Owner; bh=LZrV0xQXHAh6qZVFMlhyvEpVnPENYhrNtPENS5j7IOo=; b=H/qSAU/FkS2beB
+	r7x7pXCLz4IpWC5Aja6XK8NJKvv1eU4rPj52dNMEYqZBta3hECxusKGVqAfXFEjsuhmsGeyXl+SwE
+	T9Te05/i+OzyWw7E+2gYLY+8oRKBYwFI/LbqIw7mxUOHFZSgaBMr91vPp8Do+2fpkRKabJb37wYxk
+	VsVNj3Mn1wMUIjvpDZHGGjWCHKGVn5SwqCnDxBAzf9LPq7nPUMUD3bS4bQ9tLHCWAS/DNg9ehNUQM
+	Pc1LhUGqUnIVF1vLL51ZtNgx4YcTULaXKs4QtIeDFVfdbLq/o/ErIszsFD7cZenTtfaIcGCftY3Hn
+	heg1H2acGQ2ze2d8MlVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII3I-00000004XL6-189E;
+	id 1wII3I-00000004XMd-3U9j;
 	Thu, 30 Apr 2026 03:27:00 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2S-00000004WRp-3rPx
+	id 1wII2U-00000004WZV-2oAC
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:10 +0000
+	Thu, 30 Apr 2026 03:26:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5CC6445ED;
-	Thu, 30 Apr 2026 03:26:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A64A6C2BCC7;
-	Thu, 30 Apr 2026 03:26:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E71E4457D;
+	Thu, 30 Apr 2026 03:26:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 310ECC2BCC7;
+	Thu, 30 Apr 2026 03:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519568;
-	bh=Mv9m+6QFE5X2BSGU25QtTcnJE8P+nH7SNS4s/QHDQxg=;
+	s=k20201202; t=1777519570;
+	bh=MMezDMVVjOGv9weqyAZbIsRz2DJ3hj00P7r6+llifw4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=juZ89lUUjlVInyNLudhGL6gKUdYypOgVutLeQYu7+Zv9S1ojQMn1fsbg4/q8HA9kf
-	 uytXyHEjScBl37xivNSPE4ryJhsH6K+fNiVEE3Tibqd01DfSHLLdV6DIGHiyfLM0j1
-	 7lINbKqurIbK3kXn8ov3jBGtqjt9zr1HJOqGLUPQmNjzT4ay7v/AFZ6L1jO6UnQ4rh
-	 0keCg/YHJh/PxXoT6xU3vqXVkdyYSyavz0pn2sGolZ+WXuho12ORsn1aVio9mo8Pvg
-	 7/PlMZGkUL4uMfmMsq6/Hm8MqMlXxt9gGwLkoqjr+NZqDNUWGsEQTi8myDrLsVuFeA
-	 HFH46Dai3te4g==
+	b=vRz+s+9cOCsRHbqoqF9y7TN15mN/t4/9y/aFbWHbpYIG3rFsaAN0ZWWnZ2figYLFH
+	 qT0+vFYiTpcJUDv6K5E2yw0gaZzcQqYtf0ghbw54gLZwsSfpE55l1HE/BpoB4X67g8
+	 iJvxiIl2YR5VpH2ISyB7KAiTe2rsIoPsu/ewK8OPaszr9oFFOhkeMvvN6d4ZGtj2tD
+	 /niHYE+0B27p8MTHXsbXjLboVTrLQyIoSFRfGpstoQGU1O/mfEHPflSpiOTAaRzp50
+	 8uLjSSyzUJslLvLFg4VO8nycygv6v4kX2p17ejlhyQCsZE+Rtmu6AkyOKAywW0PcMt
+	 52QngJhEtYsFQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02CFE3809A07;
-	Thu, 30 Apr 2026 03:25:25 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CEE53809A07;
+	Thu, 30 Apr 2026 03:25:26 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCHv7 03/18] mm: Rename the 'compound_head' field in the
- 'struct
- page' to 'compound_info'
+Subject: Re: [PATCH v2] iommu/riscv: Add IOTINVAL after updating DDT/PDT
+ entries
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751952355.2274119.4433106526683678449.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:23 +0000
-References: <20260227193030.272078-3-kas@kernel.org>
-In-Reply-To: <20260227193030.272078-3-kas@kernel.org>
-To: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
- muchun.song@linux.dev, david@redhat.com, willy@infradead.org,
- usamaarif642@gmail.com, fvdl@google.com, osalvador@suse.de, rppt@kernel.org,
- vbabka@suse.cz, lorenzo.stoakes@oracle.com, ziy@nvidia.com, bhe@redhat.com,
- mhocko@suse.com, hannes@cmpxchg.org, corbet@lwn.net, chenhuacai@kernel.org,
- kernel@xen0n.name, palmer@dabbelt.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, kernel-team@meta.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- loongarch@lists.linux.dev, david@kernel.org
+Message-Id: <177751952504.2274119.2285271071573350641.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:25 +0000
+References: <20260122143224.25146-1-fangyu.yu@linux.alibaba.com>
+In-Reply-To: <20260122143224.25146-1-fangyu.yu@linux.alibaba.com>
+To: yu fangyu <fangyu.yu@linux.alibaba.com>
+Cc: linux-riscv@lists.infradead.org, tjeznach@rivosinc.com, joro@8bytes.org,
+ will@kernel.org, robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, baolu.lu@linux.intel.com,
+ zong.li@sifive.com, andrew.jones@oss.qualcomm.com, guoren@kernel.org,
+ ajones@ventanamicro.com, iommu@lists.linux.dev, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202609_033841_D1D5082B 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20260429_202610_726417_A711B186 
+X-CRM114-Status: UNSURE (   7.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,23 +82,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+by Joerg Roedel <joerg.roedel@amd.com>:
 
-On Fri, 27 Feb 2026 19:30:04 +0000 you wrote:
-> From: Kiryl Shutsemau <kas@kernel.org>
+On Thu, 22 Jan 2026 22:32:24 +0800 you wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 > 
-> The 'compound_head' field in the 'struct page' encodes whether the page
-> is a tail and where to locate the head page. Bit 0 is set if the page is
-> a tail, and the remaining bits in the field point to the head page.
+> Add riscv_iommu_iodir_iotinval() to perform required TLB and context cache
+> invalidations after updating DDT or PDT entries, as mandated by the RISC-V
+> IOMMU specification (Section 6.3.1 and 6.3.2).
 > 
-> As preparation for changing how the field encodes information about the
-> head page, rename the field to 'compound_info'.
+> Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> Reviewed-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - [PATCHv7,03/18] mm: Rename the 'compound_head' field in the 'struct page' to 'compound_info'
-    https://git.kernel.org/riscv/c/d50569612c29
+  - [v2] iommu/riscv: Add IOTINVAL after updating DDT/PDT entries
+    https://git.kernel.org/riscv/c/f5c262b54497
 
 You are awesome, thank you!
 -- 
