@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66CAFCD13D3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C122FF8864
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lbCr/Mzog2dnoAwkV5rqYtmfYqergMBQfjffF3ijNVw=; b=sH01UEsKzA1tfN
-	eAYRsTRj6hiCN6xqay9tCIuC5YKoF/LkHiHS0ClXE3E05ThAow2mo0ZQlZ/8ZAA9/RKF+NrBzmEoX
-	2P1O7wuyuwGpZ1xVGmqnS1+NIDUcEeVOTjX4Yoxcm0Epewjo0BcYyGViXGEApDx8n6bSvEULOUQZa
-	xRAaFxJke9O+S9oUlafzBJO8SNhjanDVg8XD8ObZDXdfJQXJ8lQb6/Od0PA5opLmy0XMIOMB47/SV
-	35lNa+FoJ6mH2Fod5SvCYc5hEU23PLVeMZ4KcZ5qcCAeC1qur8LHQfbLDJhmOJpCNqjTx8lXBai6H
-	pRiCyQDgAmgNPv7NahQg==;
+	List-Owner; bh=tcHIXAbHQm5EU0qQoInULWVz7S8acs00qHqthxi/8lk=; b=hTi6D5xBWiXoQC
+	O/6Mwx5SEfw/2OsZI0jpjTpbysSekVctjzFeEHCeyEHjQEu/gRObJ9U2SVfsEWPUbijNNR3miEKez
+	LepOSV6G7D6o7SsvC/DWdXUUDfgPPRDDLQwt7PJMWv6yS+0cUaC52i9XUm1Gndox+rIPOqXCPCprG
+	uDNPQZG1iRUhIkqWQCSgFSn1sH68/ObK7FcMMqkp7O/Ui2EffCUSHkVdJXCWtlkvTzaQowGH4BvcL
+	Koh3RgY8xAuQ6Hosq4gXLt0i4e4L0i6Pu7KOAGTvDCSDUzP2csa8O1kn1b7VGRMsapLaS/BwVoq4y
+	tDO3R3Yx0ViPUD7GiPTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII4f-00000004YpQ-1zrh;
-	Thu, 30 Apr 2026 03:28:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wII4n-00000004Z0B-33E4;
+	Thu, 30 Apr 2026 03:28:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII36-00000004XBh-3k6j
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:26:55 +0000
+	id 1wII2t-00000004Wps-3lui;
+	Thu, 30 Apr 2026 03:26:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85BB744593;
-	Thu, 30 Apr 2026 03:26:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69DE8C2BCC4;
-	Thu, 30 Apr 2026 03:26:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8ADFB4456F;
+	Thu, 30 Apr 2026 03:26:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BEADC2BCB8;
+	Thu, 30 Apr 2026 03:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519608;
-	bh=FEe6qHhEqD00NVl5OFtLZeIeX/qR9AM73Fff22EwmbM=;
+	s=k20201202; t=1777519595;
+	bh=v2FVe+EQzcRgy5kBHv31JJ1JABN71LAgpMDEFu1iEeQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=UfCaDdmBPeK5S8ntCX7V/WAJzL6PyW2JWMazeBtJpkMluxHI6LPKyHczr+cQ8EmGZ
-	 rZhbZwiXkzo4rKHE7nXKZbAly7aVJl9deRbKhucyZnIqztBUJbpahKyYO2Z97QObAM
-	 VrUMrRhaTRBDed5H2giu2cPJYUkl8ue9/WIodbqWiNG4cd40oQSKGXOj0gS7QKvtCo
-	 iwPsRCDoPDk/wNrUimKJ+Z0rgNtD825RrV9n8k4XqjKSJ9EElbs19T6/Y/Xks6mnPZ
-	 jIHk5jXjZV84wNJ3EE3p3cklsGFTJalRuTp7+NZE342r+K0YOCwLXWHQ2sWG+NzXJh
-	 mCwmVu/psxHDA==
+	b=kIzodHHoxdLZ+cDEQj8Njp+uRU2rFvB5r8IfM+fIJ9hEZSG088leSKu/922hUPp85
+	 uMHN4hDlcpbFHClaWJFg4kZDURxZTq1inA7wHZImmThwHGfHBgEpKvrqi7ijJtqwdy
+	 5WH+gX1UuJLBbrZylZYd6CoFRANggv3/UfcfBb3+dpW1T1QlADsSguUSaj5Egn2fSz
+	 Bdi/bACXwgbbfMZegVFixj8x6oV9POowqUolYkPDN08WqNkOFsPo8VKMx1GwPrzfov
+	 j0EGamHpvvWNIqGxIFN2PoHCW88iEsn1BChR7+E1rQl0nVqgLLU8i9CPn6y4VH9hy+
+	 marnzTmOrauAw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA07A3809A07;
-	Thu, 30 Apr 2026 03:26:04 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9EFF3809A07;
+	Thu, 30 Apr 2026 03:25:51 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] irqchip/msi-lib: Refuse initialization when
- irq_write_msi_msg() is missing
+Subject: Re: [PATCH v10 0/3] RISC-V: KVM: Validate SBI STA shmem alignment
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751956329.2274119.1202554287518338365.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:26:03 +0000
-References: <87a4xp35cn.ffs@tglx>
-In-Reply-To: <87a4xp35cn.ffs@tglx>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org,
- yingjun.ni@riscv-computing.com, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org,
- maz@kernel.org
+Message-Id: <177751955029.2274119.9759689276814198546.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:50 +0000
+References: <20260303010859.1763177-1-xujiakai2025@iscas.ac.cn>
+In-Reply-To: <20260303010859.1763177-1-xujiakai2025@iscas.ac.cn>
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
+ kvm@vger.kernel.org, alex@ghiti.fr, pbonzini@redhat.com, shuah@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, ajones@ventanamicro.com,
+ anup@brainfault.org, atish.patra@linux.dev, aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202648_967112_BEC1C83A 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20260429_202636_011053_2EDAF5F3 
+X-CRM114-Status: UNSURE (   8.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,22 +79,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@kernel.org>:
+This series was applied to riscv/linux.git (fixes)
+by Anup Patel <anup@brainfault.org>:
 
-On Tue, 03 Feb 2026 22:05:44 +0100 you wrote:
-> MSI parent domains rely on the fact that the top level device domain
-> provides a irq_write_msi_msg() callback.
+On Tue,  3 Mar 2026 01:08:56 +0000 you wrote:
+> This series fixes a missing validation in the RISC-V KVM SBI
+> steal-time accounting (STA) register handling.
 > 
-> Check for that and if missing warn and refuse to initialize the device domain.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+> Patch 1 validates the configured SBI STA shared memory GPA at
+> KVM_SET_ONE_REG, enforcing the 64-byte alignment requirement
+> defined by the SBI specification or allowing INVALID_GPA to explicitly
+> disable steal-time accounting. This prevents invalid userspace state
+> from reaching runtime code paths and avoids WARN_ON() triggers during
+> KVM_RUN.
 > 
 > [...]
 
 Here is the summary with links:
-  - irqchip/msi-lib: Refuse initialization when irq_write_msi_msg() is missing
-    https://git.kernel.org/riscv/c/aa80869b77e1
+  - [v10,1/3] RISC-V: KVM: Validate SBI STA shmem alignment in kvm_sbi_ext_sta_set_reg()
+    https://git.kernel.org/riscv/c/fa9681ed5c6a
+  - [v10,2/3] KVM: selftests: Refactor UAPI tests into dedicated function
+    (no matching commit)
+  - [v10,3/3] RISC-V: KVM: selftests: Add RISC-V SBI STA shmem alignment tests
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
