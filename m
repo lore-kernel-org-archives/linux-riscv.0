@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CB7CD13D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BC0CD1297
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 03:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pWMspLJYCmpCiH+ov+dlUIyNDqkzTps0uqZWdAWZxNc=; b=byVhBWOSRbysz/
-	jPcENlnYZ6Rwf3KXYuPeOEPmtOmDEa3hdUhvcf7OpYfgxK+gnonzTFypkPaHFzE2eQIKX9QvoNkpE
-	GMd577Ufe78U9NnIzwpNu66/al+2DkhQXQvx7tdwO061FeG2U3zvuKxn/ROe+TBcyjuWWzHz1iOba
-	hFVcLWAvj+1SWiLB7J60gbKvjItAkWNZzko3tE3qx8aHSgMUWINzUDoq8ZtZ9ohwRPW9s2x9slf+E
-	tQimozjwRhJtr5tLnq/9lBQGAbox0qsq71goNcYjnzYWkkoJFWXIvQ28GJazyenI1q44EOmZXGco6
-	0N3JmVMAdcTJwJBWL2jg==;
+	List-Owner; bh=9lrisfhfFx9XrepT/6URv+x1kYmYa9zfZve28YpLccM=; b=lNFOMWjUNJYiQ9
+	Iwc+fpP00xiXI5dDmC+Ig2SNFUWKkJ+KEr9u6sk+Ldhp6E/NARKa9/HS9w0QOr1RVyQLnpxePBJuB
+	MEthOkZ9MscxQPrUNjAIA/js8IQZ/FCPUu8w/FgOG+tgItBuLwOsQyoLPAYJpXXKyA/HbOT4GIlJ+
+	DfdjIsJExstrM637vhlVbR9IbiHmiRNIZVnIrdiYaMuo38FO2CgopJDMoeTwEUbsCS8DMpKQsebDs
+	4D+2aUzuVDK8JFIUpgldomQIERa/nGVYy1aie7kTUhtWpS34Hi5EabUoGWyBtg0FQYYMfDAyUeI4S
+	Imb4NdH8RZgHNylKQG0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2t-00000004WpG-0wbO;
+	id 1wII2t-00000004WqN-3aAz;
 	Thu, 30 Apr 2026 03:26:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wII2D-00000004WOo-1LHX
+	id 1wII2G-00000004WQO-1aTE
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 03:25:54 +0000
+	Thu, 30 Apr 2026 03:25:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C5F544448;
-	Thu, 30 Apr 2026 03:25:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCEE6C2BCC7;
-	Thu, 30 Apr 2026 03:25:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 076AE4447A;
+	Thu, 30 Apr 2026 03:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFEF6C2BCB8;
+	Thu, 30 Apr 2026 03:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777519552;
-	bh=UFNQ+eqES3FdywXU8kIe7qagA+tevwyPVBu3bpMtz3Q=;
+	s=k20201202; t=1777519555;
+	bh=szPW1uCqeNjuxpRKf35c7votk+r6wYXFiCCMDEk9F+0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=g+qPrlwnaTfz03fVQHOfWhV2wGp5L+rATgExj6wfLoBx2agS+DrxKeWND9xYvDG0w
-	 WVfntITuxkw1gLnTLRorfRxJazpVcTpqq3Ei3kc0ke7jQDxXkJ1q0I8wkfd4kvF+Y9
-	 VH6PvGhXWRf2t1NmWxuVIbtgP3d/iypZx3spWQkibuEhqQNo+a9A4lblnDHar1U+2a
-	 uYCacUVEhknqyxYY0gC4Xaua0C6IPTHQvwp33RJpXw/hlfa4jTUawBS7ATARqaA061
-	 /7EpEN8Qd8GmDiRGfPX3fZ/BFkdquyx7Dy1ijqyufgQEwZOFBvHwJWH9P6P1nyKQsQ
-	 SNC8aXKCgt3oQ==
+	b=TcVHchma7Ti4f25Tb42Qdy4/B1aY4IMmqDmHeKXgGQMHk0Y/XDu6omLd7HMot4nC2
+	 qqkgtNf43wEE57ObFah4MpQYx/iUsBoqoXiwt9Q2FRYP6LvmRILJK2xLJ1+YojoLd+
+	 W95luRnZSz1lkUJ9y8gVDNvsG7hOZvZXmcX7UMbHdE/HM+uGsgnDUwbUKCy0Q3zvJM
+	 T0sklUqkyCFPWpTMDY3aWOY/V3Nes2YnTvpRDTLKV34JA8fvOImVss4J1wqmY68GSQ
+	 DFQNLS3NZ7NK+idIVzM0QFnoMRtUzXEGf829i7BOqEfJ2TS3hMl7jx2rqfnoX60TmQ
+	 +Jx39aV29qTbg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FC983809A07;
-	Thu, 30 Apr 2026 03:25:09 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FDBE3809A07;
+	Thu, 30 Apr 2026 03:25:12 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/6] Convert riscv to use the generic iommu page table
+Subject: Re: [PATCH v2] iommu/riscv: Fix signedness bug
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177751950779.2274119.4057431786381222118.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Apr 2026 03:25:07 +0000
-References: <0-v4-5a9ca1a9b7a5+5f2-iommu_pt_riscv_jgg@nvidia.com>
-In-Reply-To: <0-v4-5a9ca1a9b7a5+5f2-iommu_pt_riscv_jgg@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-riscv@lists.infradead.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
- iommu@lists.linux.dev, joro@8bytes.org, palmer@dabbelt.com, pjw@kernel.org,
- robin.murphy@arm.com, will@kernel.org, ajones@ventanamicro.com,
- jroedel@suse.de, lihangjing@bytedance.com, luxu.kernel@bytedance.com,
- patches@lists.linux.dev, tjeznach@rivosinc.com, vincent.chen@sifive.com,
- xieyongji@bytedance.com
+Message-Id: <177751951080.2274119.8369417517084133049.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Apr 2026 03:25:10 +0000
+References: <20260326175738.750060-1-ethantidmore06@gmail.com>
+In-Reply-To: <20260326175738.750060-1-ethantidmore06@gmail.com>
+To: Ethan Tidmore <ethantidmore06@gmail.com>
+Cc: linux-riscv@lists.infradead.org, tjeznach@rivosinc.com, joro@8bytes.org,
+ will@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ robin.murphy@arm.com, alex@ghiti.fr, mick@ics.forth.gr, seb@rivosinc.com,
+ andrew.jones@oss.qualcomm.com, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260429_202553_384939_C74A0658 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20260429_202556_437371_926C9E58 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,36 +80,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
+This patch was applied to riscv/linux.git (fixes)
 by Joerg Roedel <joerg.roedel@amd.com>:
 
-On Fri, 27 Feb 2026 11:25:35 -0400 you wrote:
-> This is a fairly straightforward conversion of the RISC-V iommu driver to
-> use the now merged generic iommu page table code.
+On Thu, 26 Mar 2026 12:57:38 -0500 you wrote:
+> The function platform_irq_count() returns negative error codes and
+> iommu->irqs_count is an unsigned integer, so the check
+> (iommu->irqs_count <= 0) is always impossible.
 > 
-> It brings support for SVNAPOT which is a 64K contiguous page. Otherwise it
-> should not change the behavior.
-> 
-> The series disables SADE as the dirty tracking support is not implemented
-> in the driver and should be done somewhat differently. The generic code
-> gets further along though this does not include the format implementation
-> of read and clear dirty.
+> Make the return value of platform_irq_count() be assigned to ret, check
+> for error, and then assign iommu->irqs_count to ret.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,1/6] iommupt: Add the RISC-V page table format
-    https://git.kernel.org/riscv/c/e71e00127110
-  - [v4,2/6] iommu/riscv: Disable SADE
-    https://git.kernel.org/riscv/c/e93e4a6363b8
-  - [v4,3/6] iommu/riscv: Use the generic iommu page table
-    https://git.kernel.org/riscv/c/e5ef32191a87
-  - [v4,4/6] iommu/riscv: Enable SVNAPOT support for contiguous ptes
-    https://git.kernel.org/riscv/c/69541898b71a
-  - [v4,5/6] iommu/riscv: Add missing GENERIC_MSI_IRQ
-    https://git.kernel.org/riscv/c/c70d20b25ca3
-  - [v4,6/6] iommu/riscv: Allow RISC_VIOMMU to COMPILE_TEST
-    https://git.kernel.org/riscv/c/7cd0c655f02f
+  - [v2] iommu/riscv: Fix signedness bug
+    https://git.kernel.org/riscv/c/553a127cb665
 
 You are awesome, thank you!
 -- 
