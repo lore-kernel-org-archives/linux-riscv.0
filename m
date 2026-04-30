@@ -4,133 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 400EFCD13D3
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 16:41:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E59FF8873
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Apr 2026 18:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=smwc9qiVMbOkdBOJ5gw3VCdwswBB2mLMmDQFiGOrpUg=; b=hX7NR0opmoi7dr
-	8cdqdJOJNrXjWNFtwL+ZuTw7xxrrQRFxztKMynZ7W2stCVI1zAskLnVMsbD/G3ePG2EINo1UqtugX
-	4IjddnSN1dFU1RfL8LEwiKkQT3v76lGYUTn5v5z6x1BxlxD2sx61rxWX0F7+j7nnpK+a360gWFl7K
-	LFvhXLDqJuKGcTPLTSW9GCZGj3Pn3K8YmEGMdbp8vyS6SS7KII8CkAihHPhDhun6HTcRipzXaewEm
-	+NifEpn+Z9wk9IwD4BxVU6pBEQQoq4LPUg+77UzLTWXv7qkKzjPrS67rX7tayygtznU/8CY5pe6Pr
-	FQt49ak5I/eeG914EggA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zFDCtBV7UIvd61vcmwIGFL6ThhpgLY46T6SQOldLpdE=; b=S+aC5S6Dk1dTvy
+	dQZqN08jC6ZeIWEqQaGqLo2JBaMv9lfueqXlIya7NHUZ+5PFmQ3uXLHutF96Qyi00pzM9nMQ57W88
+	bLjbFqtrGgQGe9FG7ixsPgEZJTCUGJsbitXCG5Gr2DCdFr3dyGxyGxA7ylu6F3FhTf8TWf7vtb2Mg
+	GZrBgNszU2vC2ulI26/RdszcJgt2vra3TFUr94qRbNCE1rb7rslppB6256ac17JK/ASqWbDIJuxYv
+	UhVIliswxDD5cAdShbAXgr6AtNNXEx6dnQVBpw/wb+PsW9+tY5XRYwZ3/6ZJSqKmjFmKj0SSujt3D
+	0mxWpYiTsxWxR4Vt8jnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIUSK-00000005kpD-3qI0;
-	Thu, 30 Apr 2026 16:41:40 +0000
-Received: from mail-westusazon11012037.outbound.protection.outlook.com ([52.101.43.37] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1wIWA0-00000005pVG-1j0H;
+	Thu, 30 Apr 2026 18:30:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIUSG-00000005knO-3Ynf
+	id 1wIW9y-00000005pUt-1lAM
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Apr 2026 16:41:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N3aWoWiQvFgPA7sJzsvTsebmFF6wavIn/+Aa8JwszhJF3Rhz5mTSunz0VfW0V1+MdUgFNEXKxPuPzHOu3jjt2fZbp4alKwkpOegyOwjjITBMzDeqJHnyYvuCKdzEHAKOKDj3CQFrWyBrPMWcBlSPTBpPM8lv/AtRMDiqzPhEYbJ8kDuFgrd4PrMo5HrncUGLTQCffbNue/mRCb6owAiBx4k7IPyFc0OrsPowj6/D2qOyHT3Tfo63BOnbkRv5By1/DHlByHSAwbuuQ7n4RTFiVM0GZhThHTTvBRDTC/7duy4uIH5/4z36By36XryCrsSDRPjlCSas3Db/pGFq/LzC5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XXmNdCGGiEWcFn6WmU781J+1K9mTCwa9EMwgz6fhK2A=;
- b=hvuZ+RXK0Ey4rNNp3T9Cf8SjOz5or2Xcs0V9rZhbcR0Qyu5dFPYA2R36QWvc8FpcUzHStna/xbeZL7ZjBb0otpgmzwQnUk4eIG9wE3w5wsZoEkSnSxhkhhVS9xQ3jPd+kXf+pzwowQ3Y+FlXkiXUqe7JENDVz1zMRz9pRqR/7yO/Ow5VAjcvw9oQe9DbjnIaCL+1sjSgVaHr+AdHmIxr5mN8Seht18QuToqrDIDdovWY8QGkZmkSCYvmiGZLaAJriZMY8wR4cmFKrPhl3NB8XkzuKFYGvFtuI2Kc/SX+132DiAgz2eLpn3tsw/BsuoF3i5mLu5M5GOGgaHN/4g7R4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XXmNdCGGiEWcFn6WmU781J+1K9mTCwa9EMwgz6fhK2A=;
- b=j45TsNYTDL68ATa1uKDlurr7UQOlLQEv5NtGM0CU6hXaXItAenY4GkfQBC7/dosVpAgJvNLiaHIeHpvLwwsTrgBHAGs5mZYzIwbtNE166M7EjaiFSQkaCZPLcFA4Cx0d7/Ab6mGhrLCx7vUVb5telI//5rowity/MFbhn8AeX8G63ssQhj8TbxlHPsrBlc8CLIAZ8CYIvtzJ9JEP+mFpVI1A6ti2hraf2xVjSHmPBsWHuAXs5SiFtWCkRkV/xxruRPjms1tRTKWNh0c5Qp2Fq0jFFl+Yk6IG2wIED4jeWhIX5NN+kmOgdMnEsYzTpoOtXq+o3l2v3tpe7FhQe8u9LA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by SJ1PR12MB6097.namprd12.prod.outlook.com (2603:10b6:a03:488::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.20; Thu, 30 Apr
- 2026 16:41:16 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.020; Thu, 30 Apr 2026
- 16:41:16 +0000
-Date: Thu, 30 Apr 2026 12:41:14 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, yury.norov@gmail.com,
-	linux@rasmusvillemoes.dk, arnd@arndb.de, akpm@linux-foundation.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, david.laight.linux@gmail.com,
-	cp0613@linux.alibaba.com, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH v5 2/3] bitops: Define generic __bitrev8/16/32 for reuse
-Message-ID: <afOGKj9SfozoS3x7@yury>
-References: <20260421130752.607500-1-ruanjinjie@huawei.com>
- <20260421130752.607500-3-ruanjinjie@huawei.com>
- <20260429202922.GA3575295@ax162>
- <afK0oL5FS8eLobpV@yury>
- <20260430035943.GA2164248@ax162>
-Content-Disposition: inline
-In-Reply-To: <20260430035943.GA2164248@ax162>
-X-ClientProxiedBy: BN0PR04CA0050.namprd04.prod.outlook.com
- (2603:10b6:408:e8::25) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	Thu, 30 Apr 2026 18:30:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 083C54410B;
+	Thu, 30 Apr 2026 18:30:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B61C2BCB3;
+	Thu, 30 Apr 2026 18:30:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777573848;
+	bh=rfQclrOG2+K/zyZP/OJeAgFOXwexy9LiNJGhmfYVcGE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=oCdAiCp4joWuTw+qckuChCZC4np1SnNax/gzBvuDqMstsLiL1iexbesO98p/mUx8U
+	 iGD8zFrzoFF4naNp5xS/OEAnddx96wZdwyrjxRSN1WGdNWc4LmUuVDctsSQ6S30UG+
+	 i5rtYvW+LoOdaj546lS+JgJNiCOcNlR8x4X3yncZomlCrqc148VgKcw/wRsglUhPQf
+	 v4cig64lhcx/w2Ow+Gd5AyIYIl8AnbTVIraanPq/1gsJzWQYPUP3ZPtytKiVD9OLiW
+	 0cYQw2nwZBjT+EAkBmHc5SocYEpPkMCUybyNTrlL+/FH+vbhK6Wb9OQBYOJXLQ2Asj
+	 VO1PBOdV6g1Jw==
+From: Conor Dooley <conor@kernel.org>
+To: linux-clk@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] clk: microchip: mpfs-ccc: fix peripheral driver registration failures after oob fix
+Date: Thu, 30 Apr 2026 19:30:28 +0100
+Message-ID: <20260430-unmade-overpay-28d175fd09a3@spud>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SJ1PR12MB6097:EE_
-X-MS-Office365-Filtering-Correlation-Id: 80784a2f-e24b-4a28-dc18-08dea6d74c65
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|1800799024|376014|7416014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: gU3jC268k/ofs6B/tdpvCfoV5avw/P4oSSs4AItjf4w7zr/BgWSL8rIRtE4tu5OJUm1t5aQp+jTA6BXTv+bEKPVXqLnR7LwBp7/OAfN0wDU9j8J5yL18INltTBkwGbz+OBNOj1r+VvKl45N4oPT6fbsmIwvOsDdP1oldIaBCi4Jad4BJrRpDiaCStRydPR44RAY4XD8vDCCtUsqNvvlhssG35XH4ovlTXl7hFLgs3/1bUloNFFJMZRKqQ+O0kMxeDlP5jXBNVJF/RR8IMjODKPVi8ezN/HS8Qncr7Je15l80zjX638907Uueb2Kr1JzB1fcfxbOm3oWipAt4aI7tVGeEC9MPexyHMKnPl3FSUgAC4dZ9SEgIXAkYlcAWVN8JdCOdCHwkr5UA2BnX+cMzYgUHHnZ3j5rd0T0p8H2zYl4AtUUOMKUMl6WvlZoQCbCRjHpBsMcqUDBvWcgUGZcI0FhU6Ss0hgKvZimuIz7tq51kEeWrnv/cF3OXYshmbsNobmupQoSbeZ5ROwm84tnM/EvEZb7sN9QwFguv7JSf35pc1awjXlj/NbhBK9MkxKHI9GGAezSW/36yJtRq3ugfhVfShQ1/I7xmfJHu/0j4K8/Vi4EuwIdzjLaz7mIuGLUXzAtjkgzTX+Gf4MfTLsjbSzp0f2FXvGsUiPOwVhfUQZ0f1DnpZrYNuwx16PTxp5vJmupkSZsmtN0Nes8DCVp8hwZRlZjiYnrNMINOB7BJbM0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(1800799024)(376014)(7416014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5Gok1QOF2Btb2QT0rjsYAcisR0mWFpB9YdINIsLXAsLgG0Nf79gADujVSMS6?=
- =?us-ascii?Q?sg0/09Ui8QmdVPqi8ETZwl1N977YQJHC3qn6jfLr5ieWZKq/ggpQdBJ43WRd?=
- =?us-ascii?Q?eKmxAdkNoqqznSNzJYjPkbUPdx206dt2sCiTEcbrIP0At28oD1/G1qmmQ/Fh?=
- =?us-ascii?Q?mSGq2RgvOklxj0MgSGcl9zYb9Bf/6ZNdXSteVaJ7R5Z5zSDgbGoLCj4iZEMZ?=
- =?us-ascii?Q?7Dibcqq0y+VeAjbOLsbL4DHeLHgibqGwGTOG+mA0ryc5RgZZjVsyS34cIDcd?=
- =?us-ascii?Q?1pRrK3v0uYD5MWMl+LOX2p1up8JWiN/f9OF/yszZMQ/tOltWzZIIqN2fE3Op?=
- =?us-ascii?Q?qMzKUTkKb1Ytp1ZZb7G4HaAj20JfcpRDlfexOyb0F94j24lUHW2ajxvLGGUr?=
- =?us-ascii?Q?SCbAHOvOj4jTGntxPAOiYBuncxkpFVBmDLWd3Tzp9Z7ylg9GXTjFWei6RouV?=
- =?us-ascii?Q?axrP36SzMhFrNWd7UE/P7zDdcvErAdRC2NC4Eq2C9lgeeVBz1zmMLbka1syr?=
- =?us-ascii?Q?x4Dd6Md2Q61mmPZCglB+qX2q8bZ0kw41whWwLfZ0MpgaTcZPqiwyOY32XXL4?=
- =?us-ascii?Q?WK1RFvg7xmsa3Ggmqfc5xpkd2yP1b0NGz70OmcWZwIZ/v6o9Qal5BU362/b0?=
- =?us-ascii?Q?dXRlutmZm+Bw1LDfYzNUIJn2sRWisY8Ee0WTMIUcZOxbUBfHpC9gA4H6GvD+?=
- =?us-ascii?Q?OY1v5CC35XmjloA7h1oR71hMaeL+O6bGHdkIc4692llbTgpehQwZ5bdt+jSh?=
- =?us-ascii?Q?XVrwojXv6RWrZlnmRTdg5yU6Jf6ACFEYaAqDn+HG4ZmeRNUSjvxBW4+qDACZ?=
- =?us-ascii?Q?cIVcoX8YwqgGinrCp8RR5CvuFXsG7kUYF2slADq1wsjktZta7cDi1aa4GdLZ?=
- =?us-ascii?Q?zBCdqjwxYDK3tRHvtrrP5wRq1YPmcqg2evD4vch+xpFzH5gKsGyRi1XRgSrV?=
- =?us-ascii?Q?mTXA5dYMTbuXzZIGQly0Xf1YJ8l/ci4GPQs6SBw2oT61TAJS88gTcYJQcH7e?=
- =?us-ascii?Q?8n36IMpCPql584DdBdeGM4qfIEXQeEqNFPgN7sw/7q8+a10qRaF9HayU+wBL?=
- =?us-ascii?Q?RZmiSQoHX5+0s5jANniQfiAKRCrmGnV4U4FGTfDTMmrJ9wKL9RVXuq18xtRI?=
- =?us-ascii?Q?cymzPUr64W7XBzzq4aVXh8ZdjXrJ+kbm8lARY05WFDosikJmZEmSmPEeMs4v?=
- =?us-ascii?Q?xnQ3PuB/6V2zkj0vadi7hOmvziFHuE8UziRCQ3Z9lXG/csKK3sF98OkuwEEc?=
- =?us-ascii?Q?UiqflaWPSCPiDxM2zvOwnT5QXvdJTwwfB0cDo6fUNwuYWBHJcrliZO1Z4Eqc?=
- =?us-ascii?Q?5X/EQ6OBZHAszeMBYTGgPYKA31qc3JKwy816+yQtRO/Neh1FZCYn6LIZ2Ho+?=
- =?us-ascii?Q?+VDklreTecCnhcCCxispsIiEdxLwSBbnJVBBU92AVyZ/NjUUYXCO5SoUjv1B?=
- =?us-ascii?Q?IdTVQFipDK9wJomMMUEmcmINv0MHFPTz4uLzHVmeZs2f48p/8tkjr3ZH3sL/?=
- =?us-ascii?Q?QsUoEdYAoRtJSxgJkvHzWAhzbi4BLhxPwGjbr7jHYPokmMpLWki5UPUrdO16?=
- =?us-ascii?Q?VRVo3aDEiAE8jy6bTNPN+17Q4/PfrUbdbkW2hXfn9VjH2+ghBh9DopJRt8kO?=
- =?us-ascii?Q?p8sZSGz9wmew34XclvKgGM47bMZktE9jxI0/pyLgANLtsOwar5FB7JwjzUR8?=
- =?us-ascii?Q?HAjzd0+GFkcDbRegaFErL3NcA3+D5zPYumHL5zBjFXL3qY6/xw+WyCSvl2JY?=
- =?us-ascii?Q?9/KNkNx/LRAMMb1QHpb4bhBAHBCRvG3N36xySzOIqqaeKTCSTmrO?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 80784a2f-e24b-4a28-dc18-08dea6d74c65
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2026 16:41:16.5027
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: q8K/I34gykqXH/Nv4L+bD/hmjQJnidTI+DACXBkhLn8+pR1PecGzNj01bIcQWIsN+DlUxrmwbR0Uir6g13E+GQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6097
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3021; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=VaF+6olKctVzAKmjWOmn2I1XWd1Ql4MMeD+3Nxkkz6I=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJmf5x+WuHo6g19+2TSeWpn1wq/FJk8/f32X+CGPR5Ps9 MuP5m9q6yhlYRDjYpAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBEEvQYGZbOPzD3NGeHyVeh cwd6kwskv39SXF0vvedIR1ehhfcmue8M/2s9n3+e/NY9Xf8J84baP5sffd+SVy939KDkKS3b9vf OlewA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_094136_914263_3E8D0346 
-X-CRM114-Status: GOOD (  34.14  )
+X-CRM114-CacheID: sfid-20260430_113050_523827_CC82B73F 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,111 +79,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 08:59:43PM -0700, Nathan Chancellor wrote:
-> On Wed, Apr 29, 2026 at 09:47:12PM -0400, Yury Norov wrote:
-> > + networking maintainers
-> > 
-> > On Wed, Apr 29, 2026 at 01:29:22PM -0700, Nathan Chancellor wrote:
-> > > Hi Jinjie,
-> > > 
-> > > On Tue, Apr 21, 2026 at 09:07:51PM +0800, Jinjie Ruan wrote:
-> > > > Define generic __bitrev8/16/32 using the implementation
-> > > > in <linux/bitrev.h>, so they can be reused in <asm/bitrev.h>,
-> > > > such as RISCV.
-> > > > 
-> > > > Reviewed-by: Yury Norov <ynorov@nvidia.com>
-> > > > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> > > > ---
-> > > >  include/asm-generic/bitops/__bitrev.h | 25 +++++++++++++++++++++++++
-> > > >  include/linux/bitrev.h                | 20 ++++----------------
-> > > >  2 files changed, 29 insertions(+), 16 deletions(-)
-> > > >  create mode 100644 include/asm-generic/bitops/__bitrev.h
-> > > > 
-> > > > diff --git a/include/asm-generic/bitops/__bitrev.h b/include/asm-generic/bitops/__bitrev.h
-> > > > new file mode 100644
-> > > > index 000000000000..f06af929678d
-> > > > --- /dev/null
-> > > > +++ b/include/asm-generic/bitops/__bitrev.h
-> > > > @@ -0,0 +1,25 @@
-> > > > +/* SPDX-License-Identifier: GPL-2.0 */
-> > > > +#ifndef _ASM_GENERIC_BITOPS___BITREV_H_
-> > > > +#define _ASM_GENERIC_BITOPS___BITREV_H_
-> > > > +
-> > > > +#ifdef CONFIG_GENERIC_BITREVERSE
-> > > 
-> > > The dependencies of this symbol seem insufficient, as I can trigger a
-> > > build failure on next-20260429 like so:
-> > > 
-> > >   $ make -skj"$(nproc)" ARCH=s390 CROSS_COMPILE=s390-linux- mrproper tinyconfig fs/select.o
-> > >   In file included from include/linux/crc32.h:6,
-> > >                    from include/linux/etherdevice.h:23,
-> > >                    from include/linux/if_vlan.h:11,
-> > >                    from include/linux/filter.h:21,
-> > >                    from include/net/xdp.h:10,
-> > >                    from include/net/busy_poll.h:19,
-> > >                    from fs/select.c:33:
-> > >   include/linux/etherdevice.h: In function 'eth_hw_addr_crc':
-> > >   include/linux/bitrev.h:16:20: error: implicit declaration of function 'generic___bitrev32' [-Wimplicit-function-declaration]
-> > >      16 | #define __bitrev32 generic___bitrev32
-> > >         |                    ^~~~~~~~~~~~~~~~~~
-> > >   include/linux/bitrev.h:67:9: note: in expansion of macro '__bitrev32'
-> > >      67 |         __bitrev32(__x);                                \
-> > >         |         ^~~~~~~~~~
-> > >   include/linux/crc32.h:107:36: note: in expansion of macro 'bitrev32'
-> > >     107 | #define ether_crc(length, data)    bitrev32(crc32_le(~0, data, length))
-> > >         |                                    ^~~~~~~~
-> > >   include/linux/etherdevice.h:292:16: note: in expansion of macro 'ether_crc'
-> > >     292 |         return ether_crc(ETH_ALEN, ha->addr);
-> > >         |                ^~~~~~~~~
-> > >   make[5]: *** [scripts/Makefile.build:289: fs/select.o] Error 1
-> > >   ...
-> > > 
-> > >   $ scripts/config -s BITREVERSE
-> > >   undef
-> > > 
-> > >   $ rg BITREVERSE .config
-> > 
-> > Confirm the same for x86 tinyconfig.
-> > 
-> > The problem is that the patch makes generic bitrevXX() conditional
-> > on CONFIG_GENERIC_BITREVERSE, while before they were conditional on
-> > !CONFIG_HAVE_ARCH_BITREVERSE. So if you don't have arch bitreverse(),
-> > and dont' enable BITREVERSE, the generic implementation is not defined
-> > now.
-> > 
-> > Luckily, the only user of bitrev() in unconditionally compiled objects
-> > is CRC32, and it's not needed if CRC32 is disabled.
-> > 
-> > This is the minimal working fix for me. Please let me know what do you
-> > think. I can prepend Jinjie's pathes in my tree with it if it's OK for
-> > you.
-> 
-> I will run it through my full build matrix overnight and report back
-> with any problems noticed.
-> 
-> > diff --git a/include/linux/etherdevice.h b/include/linux/etherdevice.h
-> > index df8f88f63a70..245b206dd38b 100644
-> > --- a/include/linux/etherdevice.h
-> > +++ b/include/linux/etherdevice.h
-> > @@ -20,7 +20,9 @@
-> >  #include <linux/if_ether.h>
-> >  #include <linux/netdevice.h>
-> >  #include <linux/random.h>
-> > +#ifdef CONFIG_CRCC32
-> 
-> Initial testing shows that this should be
-> 
->   #ifdef CONFIG_CRC32
-> 
-> here and below though.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Sure. Please let me know if this works for you. If it does, I'll make
-it a regular patch, combine with Jinjie's work and my follow-up and
-resend. Meanwhile, removed all bitreverse material from
-bitmap-for-next.
+Commit 2f7ae8ab6aa73 ("clk: microchip: mpfs-ccc: fix out of bounds
+access during output registration") fixed the out of bounds access, but
+it did so by packing sparse indices into a linear space. When
+peripheral drivers request clocks, they obviously don't care for this
+compression and use the sparse indices, and therefore try to request the
+wrong clocks or clocks that don't exist.
 
-Thanks,
-Yury
+The most straightforward fix here seems to stop being clever with the
+packing and just overallocate the array.
+
+Fixes: 2f7ae8ab6aa73 ("clk: microchip: mpfs-ccc: fix out of bounds access during output registration")
+Fixes: d39fb172760e ("clk: microchip: add PolarFire SoC fabric clock support")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: Brian Masney <bmasney@redhat.com>
+CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+CC: linux-riscv@lists.infradead.org
+CC: linux-clk@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+---
+ drivers/clk/microchip/clk-mpfs-ccc.c | 15 ++++-----------
+ 1 file changed, 4 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/clk/microchip/clk-mpfs-ccc.c b/drivers/clk/microchip/clk-mpfs-ccc.c
+index 0a76a1aaa50f7..40c17593e5941 100644
+--- a/drivers/clk/microchip/clk-mpfs-ccc.c
++++ b/drivers/clk/microchip/clk-mpfs-ccc.c
+@@ -32,6 +32,7 @@
+ #define MPFS_CCC_FIXED_DIV		4
+ #define MPFS_CCC_OUTPUTS_PER_PLL	4
+ #define MPFS_CCC_REFS_PER_PLL		2
++#define MPFS_CCC_NUM_CLKS		16
+ 
+ struct mpfs_ccc_data {
+ 	void __iomem **pll_base;
+@@ -178,7 +179,7 @@ static int mpfs_ccc_register_outputs(struct device *dev, struct mpfs_ccc_out_hw_
+ 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
+ 					     out_hw->id);
+ 
+-		data->hw_data.hws[out_hw->id - 2] = &out_hw->divider.hw;
++		data->hw_data.hws[out_hw->id] = &out_hw->divider.hw;
+ 	}
+ 
+ 	return 0;
+@@ -231,17 +232,9 @@ static int mpfs_ccc_probe(struct platform_device *pdev)
+ {
+ 	struct mpfs_ccc_data *clk_data;
+ 	void __iomem *pll_base[ARRAY_SIZE(mpfs_ccc_pll_clks)];
+-	unsigned int num_clks;
+ 	int ret;
+ 
+-	/*
+-	 * If DLLs get added here, mpfs_ccc_register_outputs() currently packs
+-	 * sparse clock IDs in the hws array
+-	 */
+-	num_clks = ARRAY_SIZE(mpfs_ccc_pll_clks) + ARRAY_SIZE(mpfs_ccc_pll0out_clks) +
+-		   ARRAY_SIZE(mpfs_ccc_pll1out_clks);
+-
+-	clk_data = devm_kzalloc(&pdev->dev, struct_size(clk_data, hw_data.hws, num_clks),
++	clk_data = devm_kzalloc(&pdev->dev, struct_size(clk_data, hw_data.hws, MPFS_CCC_NUM_CLKS),
+ 				GFP_KERNEL);
+ 	if (!clk_data)
+ 		return -ENOMEM;
+@@ -255,7 +248,7 @@ static int mpfs_ccc_probe(struct platform_device *pdev)
+ 		return PTR_ERR(pll_base[1]);
+ 
+ 	clk_data->pll_base = pll_base;
+-	clk_data->hw_data.num = num_clks;
++	clk_data->hw_data.num = MPFS_CCC_NUM_CLKS;
+ 	clk_data->dev = &pdev->dev;
+ 
+ 	ret = mpfs_ccc_register_plls(clk_data->dev, mpfs_ccc_pll_clks,
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
