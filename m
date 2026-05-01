@@ -4,103 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB14FF885A
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 May 2026 06:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26327FF885A
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 May 2026 06:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZCB4rmNg5PvCrgLnFpVW5umhIB0e2akozRXBhtOmNbY=; b=oa+8WIVh1JJnOW
-	I3Rtv/IeJnXYvBd4adq/dToTJ73BYd4oJxleL7bAqiMepWy5SEM6Cm35wtwyO2NfZuqAEaGnm1Z1D
-	13WcklS8qojsFQ2eB5yzyGTJh9ul785seCC51zIKCxL1nBY/tQ1NazWS9gHPT67p43y1+LtYOSTJQ
-	Mb2B8VmmHMZpf3yxf0ahBP4GxhdIRjBM0l7oZyg/EBPUGu+c8ceirAr8D1HZ91lW5SnlLUPEllpmO
-	WC4q00LVV7n8VqdxP3lCgo7oqJwcPykazUA9au2TrGGoMnur5GWs65PsmnUgpR80Dya8RaV9v6/RM
-	zpCGphnTgWoUxmjPX+6Q==;
+	List-Owner; bh=494V5UmD0lratW4RioSWJz3Em7MwXKBxH61llSnyd6I=; b=OFKRNtQMdxqtC3
+	8eZ35I/zdUf29MKUnfIMKOFIVH9Qgmurlj3Q1yPB25rYK2w61MoOrhuU/29Dk2lm2on64Na2H0iRQ
+	bFVo3owog34OKLkuEkJHMmWj5bew7mFfKa/BteX9UxS3XEDn2DkwpjXv/A9mEX2fCrp1VkmBAb2S+
+	VKfggsKtj8B63ssNnf+Yg3wLyEGJ+9p/UcDpRH9vhPBPrbqTECBUtL5pTxMaKgloz27o1kSoK6BpM
+	XU29kbGfmqOxouMdmAbQGVXVt4NiY8jai5DhwKuOq1wZUAnx6Kx4az4cOu94waAw1gPmY+TdVNe+L
+	WpHz0WBHlnFMztQZvY6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIhG9-00000006PmJ-3p5H;
-	Fri, 01 May 2026 06:21:57 +0000
-Received: from mail-yx1-f51.google.com ([74.125.224.51])
+	id 1wIhHm-00000006Pte-1DQX;
+	Fri, 01 May 2026 06:23:38 +0000
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIhG6-00000006Pm0-22CO
+	id 1wIhHk-00000006PtF-0Cen
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 May 2026 06:21:56 +0000
-Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-651cfaa21e6so1485587d50.0
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Apr 2026 23:21:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777616512; cv=none;
-        d=google.com; s=arc-20240605;
-        b=REXHpYwuecOJZUcx5BlLlf8AxG0t+gIWcO9n2I5ged43jBQlD/t5dsmxwpVKaImu5u
-         4GPj+kRUfCwyOnMnhvCcg2gq03ubn+JPFEJhaXvPuioVbap6opwEK2m3HBn/pO7BF/I/
-         xQg1RG+8wqoCRal9dGOVyCoowDGNwxLhdwtab4TQHXwucOTONSaQhPbw8ZJZagvj52WA
-         2fXTTOzNPwYhSrlILiYsV7iuWuLgSxTKTMr0bdP9W8WgHj/pB5gI5QO1jtuYlP2bXUU8
-         ZpWZW4iWdlB209SGmHDs7sP154g+2SqMpyfqrRHdSULEuWKTHpRy3Ky2NpaPh7vN9m3p
-         a3Sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=McN2JSF+RjkLNfm3lpb1zCeyKMceMuOSZT3nslS3xlQ=;
-        fh=YO+pDgpCHU5iyrL+/eQjMTIqkd3JfEfRBg80E5GaIiQ=;
-        b=KI79F6H5m7SkOQVi7pD3ZGxsRDDvp0nckPFme0eoZ/j83zScUgRoakB46P+gt188ia
-         oo36u037SFTFbWX7759rYaxt6V+ewHy6zzvrJrvi0eX8cHTsl7gh1/OCUq3p9nikIXH3
-         VbDy9t9cObBujcMuUCFhKGyLq9ZM2Fv09R28dkdWSrEC6TgV4KZ6XKmw8MXrvP2UgT7X
-         g6Z1lZQLfVXMWGp9wAIsQbfVEU9heVitIEfZL97Q4559HOHcqW8YeC8N4MTu+iiyyUux
-         FSWlRNxcRNAQaoniqg6v2ZWt1zkl5qnErQfIT+MMdrhoy19lpPm0W2G/b7RswjJ6JzGZ
-         CP6g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777616512; x=1778221312;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+	Fri, 01 May 2026 06:23:37 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-7dbd23bc684so1127715a34.2
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Apr 2026 23:23:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777616615; x=1778221415; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=McN2JSF+RjkLNfm3lpb1zCeyKMceMuOSZT3nslS3xlQ=;
-        b=IXmXSusGy1w7rkzyxU5SZ/tXvO5v6/oPH5TmOcfXxf+x0sqYjQPs2sonoNkSSuGnqH
-         lP8hVD8JDTmDH+JILjb7Sda11XoqLexYAAz5n+5VRVDZZydCpO/kbo01XF2ZjCaatTe1
-         pGfPCqFIsghc0JJQO3uxq2KTzk1fgFU+4KM6w37eOsEojhMnBdenMhvOMGxYIpds4ELL
-         cDOJy3GzlL3LQ3jJs9uz/HQBu/YkvRH2XqcyfyDTfJ1hXjWLXlU1+DxQfj9QZUgli+gy
-         Izj3fLVfIyc4ra/dgjIxdwQFDdx5pYRC67JXeCkTgDzeVoIsMi7Dx08Rq9IUC/AiBQt9
-         6DrA==
-X-Forwarded-Encrypted: i=1; AFNElJ8KLsXI/2W9Bh1lKXnhcxEO0IjMASiY79h53NTp9TJxYGlQX2YPziEQgiIuUp6ddAKKCbYgDpPrpO2dzg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNS9AQNu96jcdva3KWsFTmGODTEbl6HRapeuplX90cFmwZXBmE
-	bpX+bb2y8D69dh+zczEZvob0M1ImhfGhbGiQ72DxqmLy71MHUgLHEiLn3v5CE2SmSzr/bGrITE+
-	AiZJ1QNlL97Wq81Zk3xHQXFT8ROdHMKQ=
-X-Gm-Gg: AeBDieuaiZkyQ9TSzyOXd+SCPH/dOAJNb9ConMSxC4GdEDmV31wHfOc7widj9wK38oe
-	XIUjDjgz4iJY62F/kY/8Av9CwAulPYV515+J0FnyHZCiaw+R50AuYRWZuVMPLtXXfWZt8tGeCM2
-	tg9754czerkSnYoVpJjICI78FVJyfR9+e/u7+QZokD6QgxKqz3l0IkozUHR1yizOYPfC7jBxf3l
-	5IhXtwU0Xd3uQ0vzND7Galp6qhYZ+O7G4EdpCSTe9yVrp35g5pDKp5tAp4Dvdk6JzYgmvDUiFIz
-	mpezHj1AYEGOVyPgvw==
-X-Received: by 2002:a05:690e:d04:b0:654:fd9:2e88 with SMTP id
- 956f58d0204a3-65c1b0d914amr3988744d50.31.1777616512622; Thu, 30 Apr 2026
- 23:21:52 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260409091143.1348853-1-mikey@neuling.org> <20260409091143.1348853-3-mikey@neuling.org>
- <78b4e931-9ec7-14b6-1487-906652a65ce8@kernel.org>
-In-Reply-To: <78b4e931-9ec7-14b6-1487-906652a65ce8@kernel.org>
+        bh=mmd88X/w26xtSKxfgjt+pkfxGFHUfVGxFukWfHdY3Z8=;
+        b=eLLVkwjQwGdhkYUsT97h3XzJil1IipHMG5h4WVA+kJCCAPCnjU7r6dXlgN1cvj7YDC
+         iEVrlch6sY45zRZnDMyD8G8aXbQ/1U2QAfNjsKSL+SWZEuJha9O/d/9dcHlx8k2/holh
+         0V4NNRwkJXfF/+ZwTxPdOO5LsLxBDJZ0nARaRkpEGNU8IvNBhplYk50NFV3yxzFRVumd
+         SxVpAqMz5u/jidyxoOwTpcTsGFD8h2YbZzHvAF1XmtKcdnNWhlHVDdGMcQoF/YEZqk/B
+         PQo2PLzaK3RXMqtpNVrDjUpNUONTzHBZDl6UWiBZ9NTVsOvSuzn6eWaEY4iANBRIif5X
+         5LMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777616615; x=1778221415;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mmd88X/w26xtSKxfgjt+pkfxGFHUfVGxFukWfHdY3Z8=;
+        b=SWHQRIsjeG1NU2UioqVm83xBG/IVCQcb1tYtdSlbmoMcOHyODHavsqAPtjt11r6ekR
+         uux+H6aeUDNiVCJ2k0OcWblWSMZJ2zn/b6P3DcLL2OCypfosbOnMKaDt0Dcj/nOZcAp4
+         XiWE5NZeEFofS3iqnwd7bMAKeSV1TcOI84UangEWp8g4JiEZ9ejnofgh+RUmmGwEUvfQ
+         HwB+sjUObRRkEEYe6n/aVwVGS9kyqz+09PefO9wUdmnYv9Eff3riHdROR+A8n068T6FL
+         PP1vTMnrqcXtav2RoW8MI9kHZt9USjFW7+GQP0kDyT/UsTbAzT6dbeHU4hFzI+u6BIH8
+         A2wg==
+X-Forwarded-Encrypted: i=1; AFNElJ9FcwQ0LJzG8pevkpyRG6+w6Z25HPy5++saNBkydeb25ACAFHG6paPQ3n14Ds71Z+0nzV5PGgkY2/kHwA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyP0FoHvyWzw9kzNAIUBck5HrXMdQ5SdodEz5kCKxiOH2y+Z61x
+	mjwoC9yAmeH18WL3xlOHsru8h9hZU2uKa5ez/rTHasirIYiNbFNgb2U9
+X-Gm-Gg: AeBDievKpPjQHSeD7tMXgU4lH6xzOVpd75ZvTHk1pacIEcGb3gQ6qpwjgirZC528TEw
+	C5duuYPloNwtYw+7g6U5CsQmu44VG2D4rqMg29U+zpFfE72UQ5sCPz9GS/wWDSjXd5yEZp79Vek
+	QlMvZbz1B+X7KEewqxPYndFGn0XMPFIsw6pqiQpmH6pksesWUBTVqVeb6oVbqzgnT3n+mqZp5Vw
+	kxsTXvqRn/IDiu37wUZC92xfCfzZOse3Q1ZZg/PsZlLkHScAcLze8oQxleT/eUmyfqMaVpDgIyB
+	cE2Oe5lX8Lhp0lmk3Wy3BeZ0uiaWJhBKeemWkjbSI6UQGu8a2JfCupNWM3M/cGvjvsqX3z1ENl9
+	JFFI4aUtif7inFOgyezM9P5req9ylmBDQJnUM9N3jYR8GIlBq27mvwiwfp7iLjPTkJsZMEbB7G6
+	WvVygRp/p0gBnOEawBEmufXhES9gbH37kOzTEIIIxvHz3o
+X-Received: by 2002:a05:6830:4411:b0:7de:495a:cf80 with SMTP id 46e09a7af769-7ded0a380f3mr844419a34.16.1777616614670;
+        Thu, 30 Apr 2026 23:23:34 -0700 (PDT)
+Received: from ird-aus2.tenstorrent.com ([38.104.49.66])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7decadc350dsm1457174a34.22.2026.04.30.23.23.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Apr 2026 23:23:34 -0700 (PDT)
 From: Michael Neuling <mikey@neuling.org>
-Date: Fri, 1 May 2026 16:21:41 +1000
-X-Gm-Features: AVHnY4JYhLphUdwRKl2LtaQ0q12Km4gKT0ZxcnEv1WR_FznqHfVpouTKcJV13yY
-Message-ID: <CAEjGV6zfw3eC9FumCHeEwt9rJyaV_tYKz-V_Lo3nuRBWV9Ax7A@mail.gmail.com>
-Subject: Re: [PATCH 2/5] riscv: ptrace: Fix register corruption in
- compat_riscv_gpr_set on error
-To: Paul Walmsley <pjw@kernel.org>
-Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, "Vishal Moola (Oracle)" <vishal.moola@gmail.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
-	Aleksandar Rikalo <arikalo@gmail.com>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Andrew Jones <ajones@ventanamicro.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Arnd Bergmann <arnd@arndb.de>, David Hildenbrand <david@redhat.com>, 
-	Djordje Todorovic <djordje.todorovic@htecgroup.com>, Guo Ren <guoren@kernel.org>, 
-	Junhui Liu <junhui.liu@pigmoral.tech>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Nam Cao <namcao@linutronix.de>, Oleg Nesterov <oleg@redhat.com>, 
-	Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>, Raj Vishwanathan4 <rvishwanathan@mips.com>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+To: pjw@kernel.org
+Cc: ajones@ventanamicro.com,
+	akpm@linux-foundation.org,
+	aleksa.paunovic@htecgroup.com,
+	alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	arikalo@gmail.com,
+	arnd@arndb.de,
+	bjorn@rivosinc.com,
+	david@redhat.com,
+	djordje.todorovic@htecgroup.com,
+	guoren@kernel.org,
+	junhui.liu@pigmoral.tech,
+	kevin.brodsky@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	ljs@kernel.org,
+	mikey@neuling.org,
+	namcao@linutronix.de,
+	oleg@redhat.com,
+	osalvador@suse.de,
+	palmer@dabbelt.com,
+	panqinglin2020@iscas.ac.cn,
+	rppt@kernel.org,
+	rvishwanathan@mips.com,
+	vishal.moola@gmail.com
+Subject: [PATCH v2] riscv: Fix register corruption from uninitialized cregs on error
+Date: Fri,  1 May 2026 06:23:20 +0000
+Message-ID: <20260501062320.2339562-1-mikey@neuling.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <78b4e931-9ec7-14b6-1487-906652a65ce8@kernel.org>
+References: <78b4e931-9ec7-14b6-1487-906652a65ce8@kernel.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260430_232154_562834_C1B66255 
-X-CRM114-Status: UNSURE (   6.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260430_232336_093867_99041335 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,12 +122,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Thanks.  I'm wondering if we have the same issue in
-> compat_restore_sigcontext().  Care to add that to your patch if you agree?
+compat_riscv_gpr_set() calls cregs_to_regs() unconditionally, even when
+user_regset_copyin() fails. Since cregs is an uninitialized stack
+variable, a copyin failure causes uninitialized stack data to be written
+into the target task's pt_regs, corrupting its register state and
+potentially leaking kernel stack contents.
 
-Agreed, resending.
+compat_restore_sigcontext() has the same issue: it calls cregs_to_regs()
+even when __copy_from_user() fails, leading to the same corruption of
+the signal-returning task's register state on error.
 
-Mikey
+Only call cregs_to_regs() when the user copy succeeds.
+
+Fixes: 4608c159594f ("riscv: compat: ptrace: Add compat_arch_ptrace implement")
+Fixes: 7383ee05314b ("riscv: compat: signal: Add rt_frame implementation")
+Signed-off-by: Michael Neuling <mikey@neuling.org>
+Assisted-by: Cursor:claude-4.6-opus-high-thinking
+---
+ arch/riscv/kernel/compat_signal.c | 2 ++
+ arch/riscv/kernel/ptrace.c        | 4 ++--
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/compat_signal.c b/arch/riscv/kernel/compat_signal.c
+index 6ec4e34255..cf3eb33a11 100644
+--- a/arch/riscv/kernel/compat_signal.c
++++ b/arch/riscv/kernel/compat_signal.c
+@@ -107,6 +107,8 @@ static long compat_restore_sigcontext(struct pt_regs *regs,
+ 
+ 	/* sc_regs is structured the same as the start of pt_regs */
+ 	err = __copy_from_user(&cregs, &sc->sc_regs, sizeof(sc->sc_regs));
++	if (unlikely(err))
++		return err;
+ 
+ 	cregs_to_regs(&cregs, regs);
+ 
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 93de2e7a30..793bcee461 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -577,8 +577,8 @@ static int compat_riscv_gpr_set(struct task_struct *target,
+ 	struct compat_user_regs_struct cregs;
+ 
+ 	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &cregs, 0, -1);
+-
+-	cregs_to_regs(&cregs, task_pt_regs(target));
++	if (!ret)
++		cregs_to_regs(&cregs, task_pt_regs(target));
+ 
+ 	return ret;
+ }
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
