@@ -4,55 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D4ACFF8864
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 May 2026 04:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB14FF885A
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 May 2026 06:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1r+qPnVc+K8RwPqdxQHiPCpf5K9Efp8MptO/Z3D2vX4=; b=NFFNvzXyKa1ZEU
-	mtZziAjiAcYrK4WSTR94zq5S7XZvogOazq1xM4fpXfKpuIQ29iwtqeJEf8255GOu+T1WcrfAmH69D
-	TFHYG9CspZFeDZ34Fgq+jaa9SNLeVNMRinAIXiSZJCe1dQnHrXgnzoFT1TfwdQpGt4CSIfR8n53F0
-	Xe11C/qzRBzB4Lz+nF63MfiIs4y4yBlAGg/VPrN0kGC5VzXJAm8v7oaLyDf3hTc0HZocMgq2sDP9z
-	qVPbUgYQNc4b1qLSUV2/wI/XTtvibOJAhJJYs2OHEszqo2bQUHcDTK/0xavopXuLBFqYtRIZQVGTh
-	0KxIDkKUcOBStwe6SoUw==;
+	List-Owner; bh=ZCB4rmNg5PvCrgLnFpVW5umhIB0e2akozRXBhtOmNbY=; b=oa+8WIVh1JJnOW
+	I3Rtv/IeJnXYvBd4adq/dToTJ73BYd4oJxleL7bAqiMepWy5SEM6Cm35wtwyO2NfZuqAEaGnm1Z1D
+	13WcklS8qojsFQ2eB5yzyGTJh9ul785seCC51zIKCxL1nBY/tQ1NazWS9gHPT67p43y1+LtYOSTJQ
+	Mb2B8VmmHMZpf3yxf0ahBP4GxhdIRjBM0l7oZyg/EBPUGu+c8ceirAr8D1HZ91lW5SnlLUPEllpmO
+	WC4q00LVV7n8VqdxP3lCgo7oqJwcPykazUA9au2TrGGoMnur5GWs65PsmnUgpR80Dya8RaV9v6/RM
+	zpCGphnTgWoUxmjPX+6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIfkm-00000006Lep-0bgn;
-	Fri, 01 May 2026 04:45:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wIhG9-00000006PmJ-3p5H;
+	Fri, 01 May 2026 06:21:57 +0000
+Received: from mail-yx1-f51.google.com ([74.125.224.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIfkk-00000006LeJ-2Nc0
+	id 1wIhG6-00000006Pm0-22CO
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 May 2026 04:45:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1780960142;
-	Fri,  1 May 2026 04:45:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F0D3C2BCB7;
-	Fri,  1 May 2026 04:45:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777610724;
-	bh=0urt9bqbGp3y4rg3e1ksFahHj9pqpb5+cS/9lGfMSaU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iWME0HrS3+ZEPckX6tGyQtPb9xHhdBDN3q+ubDJmJc0Bih/PCJrsqizQtlxPBtWCF
-	 sHZaYjKEbEkY/RS/x7ZytmU2iTneqz2bS6vpVUlbGw5p155eV1RtlQP6PRg5QnpnQo
-	 Q4IphobPOyknjLvhiXir6NvcwdNDtoTwqbBT9h1KUqGo3g4NIvAI8LKqnTAn8By6Z/
-	 XDp+VZ843+nTEfHigSg2wAqkxBO3pQTRZrMDcXiFVkWv4IexvL8zahxJympsqKuZtK
-	 n7Km8CIWL+eKkFSRXc/8+cigobYlkT+NclXrtpidDd+1MoYCzxqqq3aEkC3NSyMTpJ
-	 MVfmA/DXwSM9A==
-Date: Thu, 30 Apr 2026 21:45:21 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Reinette Chatre <reinette.chatre@intel.com>
-Subject: Re: [PATCH RFC v3 04/11] RISC-V: QoS: add CBQRI hardware interface
-Message-ID: <afQv4dpMHUonDJcJ@x1>
-References: <20260414-ssqosid-cbqri-rqsc-v7-0-v3-0-b3b2e7e9847a@kernel.org>
- <20260414-ssqosid-cbqri-rqsc-v7-0-v3-4-b3b2e7e9847a@kernel.org>
- <eeecb5df-64ee-46ef-b4a8-0f0cdc88f0ae@intel.com>
+	Fri, 01 May 2026 06:21:56 +0000
+Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-651cfaa21e6so1485587d50.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Apr 2026 23:21:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1777616512; cv=none;
+        d=google.com; s=arc-20240605;
+        b=REXHpYwuecOJZUcx5BlLlf8AxG0t+gIWcO9n2I5ged43jBQlD/t5dsmxwpVKaImu5u
+         4GPj+kRUfCwyOnMnhvCcg2gq03ubn+JPFEJhaXvPuioVbap6opwEK2m3HBn/pO7BF/I/
+         xQg1RG+8wqoCRal9dGOVyCoowDGNwxLhdwtab4TQHXwucOTONSaQhPbw8ZJZagvj52WA
+         2fXTTOzNPwYhSrlILiYsV7iuWuLgSxTKTMr0bdP9W8WgHj/pB5gI5QO1jtuYlP2bXUU8
+         ZpWZW4iWdlB209SGmHDs7sP154g+2SqMpyfqrRHdSULEuWKTHpRy3Ky2NpaPh7vN9m3p
+         a3Sw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=McN2JSF+RjkLNfm3lpb1zCeyKMceMuOSZT3nslS3xlQ=;
+        fh=YO+pDgpCHU5iyrL+/eQjMTIqkd3JfEfRBg80E5GaIiQ=;
+        b=KI79F6H5m7SkOQVi7pD3ZGxsRDDvp0nckPFme0eoZ/j83zScUgRoakB46P+gt188ia
+         oo36u037SFTFbWX7759rYaxt6V+ewHy6zzvrJrvi0eX8cHTsl7gh1/OCUq3p9nikIXH3
+         VbDy9t9cObBujcMuUCFhKGyLq9ZM2Fv09R28dkdWSrEC6TgV4KZ6XKmw8MXrvP2UgT7X
+         g6Z1lZQLfVXMWGp9wAIsQbfVEU9heVitIEfZL97Q4559HOHcqW8YeC8N4MTu+iiyyUux
+         FSWlRNxcRNAQaoniqg6v2ZWt1zkl5qnErQfIT+MMdrhoy19lpPm0W2G/b7RswjJ6JzGZ
+         CP6g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777616512; x=1778221312;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=McN2JSF+RjkLNfm3lpb1zCeyKMceMuOSZT3nslS3xlQ=;
+        b=IXmXSusGy1w7rkzyxU5SZ/tXvO5v6/oPH5TmOcfXxf+x0sqYjQPs2sonoNkSSuGnqH
+         lP8hVD8JDTmDH+JILjb7Sda11XoqLexYAAz5n+5VRVDZZydCpO/kbo01XF2ZjCaatTe1
+         pGfPCqFIsghc0JJQO3uxq2KTzk1fgFU+4KM6w37eOsEojhMnBdenMhvOMGxYIpds4ELL
+         cDOJy3GzlL3LQ3jJs9uz/HQBu/YkvRH2XqcyfyDTfJ1hXjWLXlU1+DxQfj9QZUgli+gy
+         Izj3fLVfIyc4ra/dgjIxdwQFDdx5pYRC67JXeCkTgDzeVoIsMi7Dx08Rq9IUC/AiBQt9
+         6DrA==
+X-Forwarded-Encrypted: i=1; AFNElJ8KLsXI/2W9Bh1lKXnhcxEO0IjMASiY79h53NTp9TJxYGlQX2YPziEQgiIuUp6ddAKKCbYgDpPrpO2dzg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNS9AQNu96jcdva3KWsFTmGODTEbl6HRapeuplX90cFmwZXBmE
+	bpX+bb2y8D69dh+zczEZvob0M1ImhfGhbGiQ72DxqmLy71MHUgLHEiLn3v5CE2SmSzr/bGrITE+
+	AiZJ1QNlL97Wq81Zk3xHQXFT8ROdHMKQ=
+X-Gm-Gg: AeBDieuaiZkyQ9TSzyOXd+SCPH/dOAJNb9ConMSxC4GdEDmV31wHfOc7widj9wK38oe
+	XIUjDjgz4iJY62F/kY/8Av9CwAulPYV515+J0FnyHZCiaw+R50AuYRWZuVMPLtXXfWZt8tGeCM2
+	tg9754czerkSnYoVpJjICI78FVJyfR9+e/u7+QZokD6QgxKqz3l0IkozUHR1yizOYPfC7jBxf3l
+	5IhXtwU0Xd3uQ0vzND7Galp6qhYZ+O7G4EdpCSTe9yVrp35g5pDKp5tAp4Dvdk6JzYgmvDUiFIz
+	mpezHj1AYEGOVyPgvw==
+X-Received: by 2002:a05:690e:d04:b0:654:fd9:2e88 with SMTP id
+ 956f58d0204a3-65c1b0d914amr3988744d50.31.1777616512622; Thu, 30 Apr 2026
+ 23:21:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <eeecb5df-64ee-46ef-b4a8-0f0cdc88f0ae@intel.com>
+References: <20260409091143.1348853-1-mikey@neuling.org> <20260409091143.1348853-3-mikey@neuling.org>
+ <78b4e931-9ec7-14b6-1487-906652a65ce8@kernel.org>
+In-Reply-To: <78b4e931-9ec7-14b6-1487-906652a65ce8@kernel.org>
+From: Michael Neuling <mikey@neuling.org>
+Date: Fri, 1 May 2026 16:21:41 +1000
+X-Gm-Features: AVHnY4JYhLphUdwRKl2LtaQ0q12Km4gKT0ZxcnEv1WR_FznqHfVpouTKcJV13yY
+Message-ID: <CAEjGV6zfw3eC9FumCHeEwt9rJyaV_tYKz-V_Lo3nuRBWV9Ax7A@mail.gmail.com>
+Subject: Re: [PATCH 2/5] riscv: ptrace: Fix register corruption in
+ compat_riscv_gpr_set on error
+To: Paul Walmsley <pjw@kernel.org>
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, "Vishal Moola (Oracle)" <vishal.moola@gmail.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, 
+	Aleksandar Rikalo <arikalo@gmail.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Andrew Jones <ajones@ventanamicro.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Arnd Bergmann <arnd@arndb.de>, David Hildenbrand <david@redhat.com>, 
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>, Guo Ren <guoren@kernel.org>, 
+	Junhui Liu <junhui.liu@pigmoral.tech>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+	Lorenzo Stoakes <ljs@kernel.org>, Nam Cao <namcao@linutronix.de>, Oleg Nesterov <oleg@redhat.com>, 
+	Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Qinglin Pan <panqinglin2020@iscas.ac.cn>, Raj Vishwanathan4 <rvishwanathan@mips.com>, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260430_232154_562834_C1B66255 
+X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,156 +112,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: x86@kernel.org, Atish Patra <atish.patra@linux.dev>, Adrien Ricciardi <aricciardi@baylibre.com>, Atish Kumar Patra <atishp@rivosinc.com>, Conor Dooley <conor+dt@kernel.org>, Nicolas Pitre <npitre@baylibre.com>, linux-kernel@vger.kernel.org, Gong Shuai <gong.shuai@sanechips.com.cn>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, guo.wenjia23@zte.com.cn, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J. Wysocki" <rafael@kernel.org>, acpica-devel@lists.linux.dev, Robert Moore <robert.moore@intel.com>, liu.qingtao2@zte.com.cn, linux-acpi@vger.kernel.org, Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Dave Martin <Dave.Martin@arm.com>, Len Brown <lenb@kernel.org>, Gong Shuai <gsh517@gmail.com>, Fenghua Yu <fenghua.yu@intel.com>, Chen Pei <cp0613@linux.alibaba.com>, Albert Ou <aou@eecs.berkeley.edu>, Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>, Babu Moger <babu.moger@amd.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ved Shanbhogue <ved@rivosinc.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, Tony Luck <tony.luck@intel.com>, Peter Newman <peternewman@google.com>, Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, devicetree@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 04:15:05PM -0700, Reinette Chatre wrote:
-> Hi Drew,
-> 
-> On 4/14/26 6:53 PM, Drew Fustini wrote:
-> > diff --git a/arch/riscv/kernel/qos/internal.h b/arch/riscv/kernel/qos/internal.h
-> > new file mode 100644
-> > index 000000000000..edbcbd9471b1
-> > --- /dev/null
-> > +++ b/arch/riscv/kernel/qos/internal.h
-> 
-> ...
-> 
-> > +
-> > +struct cbqri_config {
-> > +	u64 cbm; /* capacity block mask */
-> > +	u64 rbwb; /* reserved bandwidth blocks */
-> > +};
-> 
-> Is this struct necessary? From what I can tell it is used to pass a parameter to
-> cbqri_apply_cache_config() and cbqri_apply_bw_config() where each just picks the
-> one member of interest. Could parameter of interest just be provided directly to
-> cbqri_apply_cache_config() and cbqri_apply_bw_config() without bouncing it
-> through this struct first?
+> Thanks.  I'm wondering if we have the same issue in
+> compat_restore_sigcontext().  Care to add that to your patch if you agree?
 
-Agreed, the struct is unnecessary indirection. The two callers each
-write one field and read it back immediately. I will drop it and pass
-cbm / rbwb directly.
+Agreed, resending.
 
-> > +
-> > +#endif /* _ASM_RISCV_QOS_INTERNAL_H */
-> > diff --git a/arch/riscv/kernel/qos/qos_resctrl.c b/arch/riscv/kernel/qos/qos_resctrl.c
-> > new file mode 100644
-> > index 000000000000..6d294f2f2504
-> > --- /dev/null
-> > +++ b/arch/riscv/kernel/qos/qos_resctrl.c
-> > @@ -0,0 +1,432 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +
-> > +#define pr_fmt(fmt) "qos: resctrl: " fmt
-> > +
-> > +#include <linux/err.h>
-> > +#include <linux/io.h>
-> > +#include <linux/io-64-nonatomic-lo-hi.h>
-> > +#include <linux/iopoll.h>
-> > +#include <linux/ioport.h>
-> > +#include <linux/resctrl.h>
-> > +#include <linux/riscv_qos.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/types.h>
-> > +#include <asm/csr.h>
-> > +#include <asm/qos.h>
-> > +#include "internal.h"
-> > +
-> > +static struct cbqri_resctrl_res cbqri_resctrl_resources[RDT_NUM_RESOURCES];
-> > +
-> > +static bool exposed_alloc_capable;
-> > +/* CDP (code data prioritization) on x86 is AT (access type) on RISC-V */
-> > +static bool exposed_cdp_l2_capable;
-> > +static bool exposed_cdp_l3_capable;
-> > +static bool is_cdp_l2_enabled;
-> > +static bool is_cdp_l3_enabled;
-> 
-> These CDP values could also be handled as part of struct cbqri_resctrl_res, similar
-> to how CDP is managed with struct rdt_hw_resource. There does seem to be a hidden
-> assumption in this implementation that if *any* cache controller at particular level
-> supports CDP (which will cause global exposed_cdp_l{2,3}_capable to be true) then all cache
-> controllers at that level are assumed to support CDP even though this property is
-> enumerated separately for every cache controller making it possible for this
-> support to not be uniform.
-> 
-> ...
-
-Good point. This is fixed in v4 which I was about to send. The
-controller-level cap is now stored on each controller as
-cc.supports_alloc_at_code and cc.supports_alloc_at_data, and
-cbqri_resctrl_pick_caches() rejects a heterogeneous-CDP set at the same
-cache level. Therefore, resctrl never sees a global-capable bit that
-some controllers cannot honour. I will take a look at folding this into
-struct cbqri_resctrl_res to make it simpler.
-
-> > +/* Perform capacity allocation control operation on capacity controller */
-> > +static int cbqri_cc_alloc_op(struct cbqri_controller *ctrl, int operation, int rcid,
-> > +			     enum resctrl_conf_type type)
-> > +{
-> > +	int reg_offset = CBQRI_CC_ALLOC_CTL_OFF;
-> > +	int status;
-> > +	u64 reg;
-> > +
-> > +	reg = ioread64(ctrl->base + reg_offset);
-> > +	reg &= ~CBQRI_CONTROL_REGISTERS_OP_MASK;
-> > +	reg |= FIELD_PREP(CBQRI_CONTROL_REGISTERS_OP_MASK, operation);
-> > +	reg &= ~CBQRI_CONTROL_REGISTERS_RCID_MASK;
-> > +	reg |= FIELD_PREP(CBQRI_CONTROL_REGISTERS_RCID_MASK, rcid);
-> > +
-> > +	/* CBQRI capacity AT is only supported on L2 and L3 caches for now */
-> > +	if (ctrl->type == CBQRI_CONTROLLER_TYPE_CAPACITY &&
-> > +	    ((ctrl->cache.cache_level == 2 && is_cdp_l2_enabled) ||
-> > +	    (ctrl->cache.cache_level == 3 && is_cdp_l3_enabled))) {
-> > +		reg &= ~CBQRI_CONTROL_REGISTERS_AT_MASK;
-> > +		switch (type) {
-> > +		case CDP_CODE:
-> > +			reg |= FIELD_PREP(CBQRI_CONTROL_REGISTERS_AT_MASK,
-> > +					  CBQRI_CONTROL_REGISTERS_AT_CODE);
-> > +			break;
-> > +		case CDP_DATA:
-> > +		default:
-> > +			reg |= FIELD_PREP(CBQRI_CONTROL_REGISTERS_AT_MASK,
-> > +					  CBQRI_CONTROL_REGISTERS_AT_DATA);
-> > +			break;
-> > +		}
-> > +	}
-> 
-> There does not seem to be any special enabling when resctrl enables CDP via
-> resctrl_arch_set_cdp_enabled() so I assume CDP is always enabled? Does that mean
-> that when CDP is disabled from resctrl perspective (thus, both is_cdp_l2_enabled
-> and is_cdp_l3_enabled are false, but exposed_cdp_l2_capable and exposed_cdp_l3_capable
-> are true) then the default behavior is that allocation applies to both code and data
-> and it is not necessary to set both CBQRI_CONTROL_REGISTERS_AT_CODE and
-> CBQRI_CONTROL_REGISTERS_AT_DATA?
-
-Good question. I think this is a bug. resctrl_arch_set_cdp_enabled() is
-implemented in v4 and toggles the is_cdp_l{2,3}_enabled flags. When CDP
-is disabled, the AT field is left at 0 in cbqri_cc_alloc_op(). But BQRI
-encodes AT=0 as data, so it only programs the data config and silently
-leaves code config at whatever the hardware default is.
-
-The fix would be to issue two CONFIG_LIMIT ops, AT=data and AT=code, for
-the same cbm when supports_alloc_at_code is true and CDP is disabled.
-Thanks for catching this.
-
-[..]
-> > +	/*
-> > +	 * max_rmid is used by resctrl_arch_system_num_rmid_idx()
-> > +	 * Find the smallest mcid_count amongst all controllers.
-> > +	 */
-> > +	max_rmid = min(max_rmid, ctrl->mcid_count);
-> 
-> This computation appears to include all controllers, whether they support monitoring or not.
-> What will ctrl->mcid_count be on a controller that does not support monitoring?
-
-Good catch. I will gate the minimum on ctrl->mon_capable.
-
-Thanks,
-Drew
+Mikey
 
 _______________________________________________
 linux-riscv mailing list
