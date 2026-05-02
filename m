@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC37CD13DA
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 11:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F5B8CD3423
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 12:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DpOa00QuMBB8hIYdLLtV10liKmnl3rfQnx2f+l9A7Uw=; b=fIgUEtEUz2BW52
-	EISlgnsBBU5pXZAC+fUsr3Pb/UFKjPE17SPn37gejB5ierjTPSqQuV6B61ENfwY/Od+svKRnzsCyF
-	9oiurAVQlYjeKgKk/4icYOh6sdtkyVKY+9OyfXxDI2127n8rKDGe8HoDZP+4G63ATLkhIMACg+Q58
-	IQTwzKCeNQ1zp1YtI/u70SHyIBpHLuVCTvcVZ2+wPrI4Yr7I/qjJ5bKGIDJbNqv5qQELEh84m+AM3
-	QtzP1n2qXxwz2AdjMmUge9AFieK+ZSI3Ufy5xe861TF+QI2YG/LGR3h/4T8H8Xcozt3OFmQH+bGAI
-	9yrr6K7kGk/lu4g7i6eA==;
+	List-Owner; bh=wXOxDEqlJ+8DjEhXtAOsZFcH2PNfJN59MuD9jQEU7t4=; b=09J5+SOdgip2X+
+	egC6dlyyCKmo94903BtNcOgdw4Jf59hLkUMVA4layk2rxAocH+qos1kHwZtSPAldaariMF/SZYt7f
+	w/8NYyAJufsbjGGvDQKJtN5nhBq/0A36Tx/v36cMLBmShenCJejgm9zYn/TpIUlWzG0ioCGIZdjn5
+	uOX1Zt6KhkRLRy4Irvr7noDVaUq1yIW+KZw4prvMfm6aS8zYpbJwSW+ZFgXANvPe+VBxypW4JHGSP
+	akI/17k677oSjBskBfxlKifkMcA5Y+kVs6g1wPZaMFLrHMadlxW2x7BW4rfF//s9hfpbDCAJPNWrA
+	QpfBEiDl7Odu7q2Jpaaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ8Zq-00000008uaN-2ENb;
-	Sat, 02 May 2026 11:32:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wJ91v-00000008x8Y-2aPU;
+	Sat, 02 May 2026 12:01:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ8Zp-00000008uZr-1WFX
+	id 1wJ91t-00000008x8A-1GdN
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 May 2026 11:32:05 +0000
+	Sat, 02 May 2026 12:01:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 383DB60126;
-	Sat,  2 May 2026 11:32:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F03E3C19425;
-	Sat,  2 May 2026 11:32:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 957CF44468;
+	Sat,  2 May 2026 12:01:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF21DC19425;
+	Sat,  2 May 2026 12:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777721523;
-	bh=9D6m49EpCS2agbuFMF6TMaS57eerDfloBvYKv2rxZNo=;
+	s=k20201202; t=1777723264;
+	bh=cYlEA7J2N+YnE4244ODfbSDfbaz+mByM60A7ApfHpIQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uDLo3XuNIlDMqMtt7vkRuIvt0FEhRxZ8JHg4wZ+qEg3QbyeiuFibOhXsuvm1sS3Y+
-	 rn7AKd+EcHl8033XvY5fQ7/BouDkCLv9ZIMZ4NgGVH99PxThqvyqBMiMogPtwk7gSV
-	 9rmiQ7qxE9SYdpXWOvmI5UCOZFlS9nd8mPPIR54gHAhFYEHTuN7mDRgGVky9CTup8Y
-	 ys0am7iqd8/Wex442QdGtpgh11LBJuMMn+ponirVZCWa3HqI3oomEeEG/+Vdbno/dH
-	 RACWiYxCedxmlu1Zxewp/6dTdyV/ADiXVPsxDNNbCM+Jq3fsDM8SOra06Is3FiFNZZ
-	 XhC17t05Ezypw==
-Date: Sat, 2 May 2026 11:32:01 +0000
+	b=ADpu4nPMCwKotBgOh9ShhpN69OY0fmaT5OWxlb/QysGsFrMl0tM6PJiBgpgQnel7O
+	 3dFhDG5c+mbc9GuxK76cx1a+n9jPZpK7bkPLRfXSAe75g1uxWlZpiMCR3/70BbxMkJ
+	 ZSdpgYAR/TTpeRtO4mRZz9WlNJNM8Smdsz+TVPw7uumxDtkz7aeEyEIGatnzdXIr7o
+	 X3ymaszfjAaIwXCloJilEIgl0zZMmJ2fBa7FJQT208mztCGiFpjtplJlTQvTNYB0nV
+	 0Exqtvu9wQTvJ6UJV/ujYTni9aCzDENeKZ67vVRMY0f56N0bAk8HfUq6A9bklBeiUF
+	 o8NNjUaKfuGsQ==
+Date: Sat, 2 May 2026 12:01:02 +0000
 From: Yixun Lan <dlan@kernel.org>
 To: Conor Dooley <conor@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
+Cc: spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] dt-bindings: soc: spacemit: k3: Add PCIe DBI clock
- IDs
-Message-ID: <20260502113201-GKB3266396@kernel.org>
-References: <20260430-06-pci-clk-fix-v1-0-32fdc77c02ab@kernel.org>
- <20260430-06-pci-clk-fix-v1-1-32fdc77c02ab@kernel.org>
- <20260430-plug-bolt-8ff9137717fa@spud>
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] dts: spacemit: set console baud rate on bpif3
+Message-ID: <20260502120102-GKC3266396@kernel.org>
+References: <20260430-reword-overstep-3be08b7eab25@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260430-plug-bolt-8ff9137717fa@spud>
+In-Reply-To: <20260430-reword-overstep-3be08b7eab25@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260502_050105_384947_12955DDC 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,16 +76,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19:55 Thu 30 Apr     , Conor Dooley wrote:
-> On Thu, Apr 30, 2026 at 10:30:26AM +0000, Yixun Lan wrote:
-> > Add clock IDs of PCIe DBI (Data Bus Interface) clock.
-> > 
-> > Fixes: efe897b557e2 ("dt-bindings: soc: spacemit: k3: add clock support")
+Hi Conor,
+
+On 19:52 Thu 30 Apr     , Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Why is this a fix? As-is, this looks like you're abusing the Fixes tag
-> so that this gets backported alongside things that are a fix that depend
-> on it.
-Ok, will drop the Fixes tag, since the PCIe isn't actually activated yet
+> Because the default console's baud rate is not set, defconfig kernels do
+> not have any serial output on this platform. Set the baud rate to
+> 115200, matching what is used by U-Boot etc on this platform.
+> 
+> Suggested-by: Vivian Wang <wangruikang@iscas.ac.cn>
+> Fixes: d60d57ab6b2a8 ("riscv: dts: spacemit: add Banana Pi BPI-F3 board device tree")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> CC: Rob Herring <robh@kernel.org>
+> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> CC: Conor Dooley <conor+dt@kernel.org>
+> CC: Yixun Lan <dlan@kernel.org>
+> CC: devicetree@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
+> CC: spacemit@lists.linux.dev
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 2 +-
+
+Looks good to me, but I think the fix should also apply to other boards,
+so do you want to fix other dts? I'd be fine if you keep it to BPI-F3 only
+
+
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> index 5790d927b93db..333ac8ebf3f51 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
+> @@ -19,7 +19,7 @@ aliases {
+>  	};
+>  
+>  	chosen {
+> -		stdout-path = "serial0";
+> +		stdout-path = "serial0:115200n8";
+>  	};
+>  
+>  	leds {
+> -- 
+> 2.53.0
+> 
 
 -- 
 Yixun Lan (dlan)
