@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97268CD13DA
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 11:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC37CD13DA
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 11:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OQN7vniyMEfkRey5w3NMeH3ldE9W7M7SC6zxScfl/Nk=; b=BcmSS4G8elFokW
-	P3h0iEpqlQ2czZ37UpsXeuYKefTG7n2+AMMCx3x5I2mug4W7eHcf5ODbRw7qkxeFj11POwckofOZp
-	JOVjvv8zL0YZmfIg0uyVRQ7U+lBPhrxQ7doXvQ9vn8VavQZkJ84atwgSp99rMHo2VYTqY8NlRB5iw
-	OoihpTOHZjOfTNWPlrlu+d3ebRtsALj5CeJvXERcJOuWPpX38DVU9uyWTEsOMgNDvmNkqQfmfOp5F
-	3KU3p4XsOUsROOlEj/ZaqnFW+6XpVNlA0MN1Rdl4hXhAdpsgzo/oDzXnzIhdeIyznzFS92eKKkxwD
-	SBECCBLgruy6wmwl2m1g==;
+	List-Owner; bh=DpOa00QuMBB8hIYdLLtV10liKmnl3rfQnx2f+l9A7Uw=; b=fIgUEtEUz2BW52
+	EISlgnsBBU5pXZAC+fUsr3Pb/UFKjPE17SPn37gejB5ierjTPSqQuV6B61ENfwY/Od+svKRnzsCyF
+	9oiurAVQlYjeKgKk/4icYOh6sdtkyVKY+9OyfXxDI2127n8rKDGe8HoDZP+4G63ATLkhIMACg+Q58
+	IQTwzKCeNQ1zp1YtI/u70SHyIBpHLuVCTvcVZ2+wPrI4Yr7I/qjJ5bKGIDJbNqv5qQELEh84m+AM3
+	QtzP1n2qXxwz2AdjMmUge9AFieK+ZSI3Ufy5xe861TF+QI2YG/LGR3h/4T8H8Xcozt3OFmQH+bGAI
+	9yrr6K7kGk/lu4g7i6eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ8YC-00000008uLF-0aCa;
-	Sat, 02 May 2026 11:30:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wJ8Zq-00000008uaN-2ENb;
+	Sat, 02 May 2026 11:32:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ8YA-00000008uKP-14O5
+	id 1wJ8Zp-00000008uZr-1WFX
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 May 2026 11:30:23 +0000
+	Sat, 02 May 2026 11:32:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4589841A52;
-	Sat,  2 May 2026 11:30:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E2C6C19425;
-	Sat,  2 May 2026 11:30:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 383DB60126;
+	Sat,  2 May 2026 11:32:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F03E3C19425;
+	Sat,  2 May 2026 11:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777721419;
-	bh=FuvlxJJgJU3HdpPk57g46YhaAC/85mYDwWNFIKy5F7c=;
+	s=k20201202; t=1777721523;
+	bh=9D6m49EpCS2agbuFMF6TMaS57eerDfloBvYKv2rxZNo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EUGR2lesn63umu/ojR8XZG+857Gvr10/s13Cl04FKJ5bcaWBh6W+ZolHqtQVFB5nu
-	 SDZSAKPubza1VS04orBQ9G0k1U5WHAbDfDfuFl/ZkLClXKNGqU0F7eFlsqNtANk4Cs
-	 i3mf+ng01MGa4zVxZVNCcAPiQ817moQwpo4rpI78bcqXm92+a7JMZhRVNfOCDlHc55
-	 /ejQVtBUCTJuiQwkpQsZ9ujVDoFoIg/XeoXieGjJbeurn23ZVgROP/s5niNY6dlvkp
-	 U8MtbrqUg1fW+DCHzdq/zM1SO6A8X1AbhhkKzhzWB7T+nJ6vOBjZpeIsMNTudK2yuG
-	 eN1Ds6aEkL0BA==
-Date: Sat, 2 May 2026 11:30:16 +0000
+	b=uDLo3XuNIlDMqMtt7vkRuIvt0FEhRxZ8JHg4wZ+qEg3QbyeiuFibOhXsuvm1sS3Y+
+	 rn7AKd+EcHl8033XvY5fQ7/BouDkCLv9ZIMZ4NgGVH99PxThqvyqBMiMogPtwk7gSV
+	 9rmiQ7qxE9SYdpXWOvmI5UCOZFlS9nd8mPPIR54gHAhFYEHTuN7mDRgGVky9CTup8Y
+	 ys0am7iqd8/Wex442QdGtpgh11LBJuMMn+ponirVZCWa3HqI3oomEeEG/+Vdbno/dH
+	 RACWiYxCedxmlu1Zxewp/6dTdyV/ADiXVPsxDNNbCM+Jq3fsDM8SOra06Is3FiFNZZ
+	 XhC17t05Ezypw==
+Date: Sat, 2 May 2026 11:32:01 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Conor Dooley <conor@kernel.org>
 Cc: Stephen Boyd <sboyd@kernel.org>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@gmail.com>, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] clk: spacemit: k3: Add PCIe DBI clock
-Message-ID: <20260502113016-GKA3266396@kernel.org>
+	Inochi Amaoto <inochiama@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: soc: spacemit: k3: Add PCIe DBI clock
+ IDs
+Message-ID: <20260502113201-GKB3266396@kernel.org>
 References: <20260430-06-pci-clk-fix-v1-0-32fdc77c02ab@kernel.org>
- <20260430-06-pci-clk-fix-v1-2-32fdc77c02ab@kernel.org>
- <35a1764d-7328-45d2-8240-6f83eae1f1a9@oss.qualcomm.com>
+ <20260430-06-pci-clk-fix-v1-1-32fdc77c02ab@kernel.org>
+ <20260430-plug-bolt-8ff9137717fa@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <35a1764d-7328-45d2-8240-6f83eae1f1a9@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_043022_313696_F320899E 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260430-plug-bolt-8ff9137717fa@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +80,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On 11:28 Fri 01 May     , Krzysztof Kozlowski wrote:
-> On 30/04/2026 12:30, Yixun Lan wrote:
-> > Add PCIe DBI (Data Bus Interface) clock which was missing.
+On 19:55 Thu 30 Apr     , Conor Dooley wrote:
+> On Thu, Apr 30, 2026 at 10:30:26AM +0000, Yixun Lan wrote:
+> > Add clock IDs of PCIe DBI (Data Bus Interface) clock.
 > > 
-> > Fixes: e371a77255b8 ("clk: spacemit: k3: add the clock tree")
+> > Fixes: efe897b557e2 ("dt-bindings: soc: spacemit: k3: add clock support")
 > 
-> Describe what the bug is in your commit msg.
-Since we've not yet activated the PCIe driver, so this shouldn't cause any
-real bug, and as Conor already point out - this is kind of abusing Fixes tag,
-so I will drop it in next version.
-
-FYI, for problem I see while testing PCIe driver, 
-- DBI clock is required in DTS, so it will trigger a check warning
-- the DBI clock will be in undetermined state
+> Why is this a fix? As-is, this looks like you're abusing the Fixes tag
+> so that this gets backported alongside things that are a fix that depend
+> on it.
+Ok, will drop the Fixes tag, since the PCIe isn't actually activated yet
 
 -- 
 Yixun Lan (dlan)
