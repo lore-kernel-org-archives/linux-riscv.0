@@ -4,136 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C46CCFA13
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 01:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65F2CCFA13
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 03:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S6TfHDtDTa2KC2wN0NaHmgb833vcnxxJus4/0935XLs=; b=BD3Ea0jKmZkzUu
-	AoPRoX8bzHxryRrK08b4oxXgwtTvfrQeB0TsSTeGnsNIR6fc6nr77La/MqbCIYYXCZKyOEttcoqgy
-	e7N99I8ZdaOkIES2AV6rEoeII5XSrtVQaoTf16PDgQHc203jm36jB4ZZB98IOajbwRfPAf3O79KKD
-	h3mie3AjWzihV9oNWvirOyybASZ9GooWg0CcVokADnN7IT23BvlmXngjTQJAat7HNev0/+FSfieV6
-	vQpeG3tk6qMhnZ7A7ZPUQN/Z0ilA4tV8GKHn+iHmspqEI2zojvF3+t9+wjCrtok6dRlfMfbrPwPBX
-	AAQ0hnuThfxRYSkXcWyA==;
+	List-Owner; bh=3/AqYvmW8NeZMBz3awdQQlx+6qiQ9jvs28dvdPoARho=; b=csfJ6fUga8HuR+
+	U9dEo5MgTfmYAXtkLVWKYyhnl64NxpqMIrm95ZE2vXCwJvMHT/EHmvrPU5rw4JSXhIMrOOZ5dZAeS
+	2886po72G+jFteZl8LGrnbW24Ru7YjHw0wNq9tZZOeffCn+GX4AsAMkuD2xn3qaihMQC42Z8bM+ra
+	/LAqRmM1h/BoDygUocrhh9z2vd+NzRFywp/hedlW3R/DiF++3+uh8jEJnJDW8tGBrSY3RPUJrZ0vt
+	yLLuvPjN+VQZZCN0Kir59V/9qMl5uK2rucFBELMqZGeK2FpDW6PS75e1YkK0DeP93SfC0H7LPEkx9
+	nPagClXGsOHtQYhjelrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIzLF-000000080SZ-1Bnl;
-	Sat, 02 May 2026 01:40:25 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wJ0o6-000000088E3-3uPy;
+	Sat, 02 May 2026 03:14:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wIzLC-000000080Rq-20dh
+	id 1wJ0o5-000000088Ds-1KvY
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 May 2026 01:40:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZyZmTIwEFzqKUSzEjIYgO/+b499yKqkyhvoFPV2fmFpwRymDnHma3C3IADf/0ltV8xEiTUeyF6ird6kVhkA53upuLnVOA4LjgQMTa2T72FRErvO0Q74j7gOZ/hAnksOE63YQYA8xeHK2QLiu0UCLeAcm/iOlT1Hk2e3Jjucvrc1Mz8JOqG0an9kHU1+pCXSSRQfLouQPQqHjgESd8DYFQPucbJbJ3H42AIK4H09Hdj94WUWs6QpCsELJ9FFEEHh1YVmLhc3zNqrt53AtvpCWrdUAG1RvzVTgOvMmqnYYHrXDQhcK062XAAtLC1bnuds3huScvIlOli4MqDwri3O6HQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UUNzZqyB1P+rsckaUA5Z0suBRN/bKa2GIoBig/CtGkc=;
- b=TBjForPAtfViL8GEJdy/Ttwyw3/0mQ1zmcSDmWdePC/M+hSHhj8WMPHNV87SVz6wsfa5OZn9i29ju261W7B4ZV2AhN6tfG9uMO5Ej6jAaKunOpIOc/ZTfArcCd9K9XWzZ+zv9C+ajmgWs2NrcMMSzXvJfiBf8r521tABqFP8XRWQ7T3c5kL4N1Zgjh6fQMokRytNAezgl7CXam+xC0Dti+bxVInVwto/m9LZ0i05skpLR0cGut01x93sUY7JfJByEUl32TiBz9x591HjC+qbK3vG44Qdr4r0HtCQ+EWVEejQ8OP8+r/sgsBp0L1IwwWV+bsOUhtCxrJMZwKTUV/GXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UUNzZqyB1P+rsckaUA5Z0suBRN/bKa2GIoBig/CtGkc=;
- b=nHq8p11ZYnqusIXIv31KqKOriWcLKmIYd41nzMPpHXvCAg61fv8ISfR2c2N2+hdlqB6BILYygnEVPqdsaSKCSvYZ3/tO84OMX0W2Hh13R49A4KU8gmX0+DFGgtpGR5NtgJpjiAOwYV3UGd+WVpB7d8MeEe3q9vuYmpdRma5BOiEXrf1jE/O8wm9V7kV6PksFAYJzYLRA/C9PiNnDmvZq3u7TSxPAQWKk0l5pG8FWFT1K2flFCeWXvku/pYBX+B/F5arufXimmdH2fryHjGEGA0o5ftWgYMTjjnrvjC6j05fD5WwjO8EXspydD9nL5SjeD1158PsWN3twdRbZj+jUOQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
- by SA1PR12MB6824.namprd12.prod.outlook.com (2603:10b6:806:25f::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.23; Sat, 2 May
- 2026 01:40:03 +0000
-Received: from CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
- ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.022; Sat, 2 May 2026
- 01:40:03 +0000
-Date: Fri, 1 May 2026 21:40:00 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Arnd Bergmann <arnd@arndb.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	netdev@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH 0/6] lib: rework bitreverse
-Message-ID: <afVV8LaelVkqgnLr@yury>
-References: <20260430211351.658193-1-ynorov@nvidia.com>
-Content-Disposition: inline
-In-Reply-To: <20260430211351.658193-1-ynorov@nvidia.com>
-X-ClientProxiedBy: SJ0PR03CA0166.namprd03.prod.outlook.com
- (2603:10b6:a03:338::21) To CY8PR12MB8300.namprd12.prod.outlook.com
- (2603:10b6:930:7d::16)
+	Sat, 02 May 2026 03:14:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F0BC6014C;
+	Sat,  2 May 2026 03:14:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DC20C2BCB7;
+	Sat,  2 May 2026 03:14:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777691655;
+	bh=jNw8JNIXe2xdou3EX61eGTSqNhbO8AU8Riw7XMyOufk=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=ZCtkENZo3ulznzI5S28ZcBL1/0/koV48WhJQudH4NJ9F05t1M9EXDzkvgBBsygjE/
+	 DcTKcejPtQyBczdMixqCEra58zCbJDkk7SexATvtPzviarLUlHalp3hM3aeB7XGbI2
+	 pknWw0VyOWJVJrOCYz+Y9kd8xce1FCBl0LtqNMhS+Kq4SdbDcrlu32YFzVZx2McCrI
+	 +1fujReaxegwkIyS31ZdMB4Aa7vt6JhKPed3atlWhsJMYDLi4kIzJuq/+HO3PVrqq3
+	 5/2Zts4E7bTEfKr6mgmT18+N0Qfo+B/QV0yo8fAnJNiXvcuiqKhh/W/slk8BMIf/my
+	 Sr15KwPBEaOzQ==
+Date: Fri, 1 May 2026 21:14:11 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Michael Neuling <mikey@neuling.org>
+cc: pjw@kernel.org, ajones@ventanamicro.com, akpm@linux-foundation.org, 
+    aleksa.paunovic@htecgroup.com, alex@ghiti.fr, aou@eecs.berkeley.edu, 
+    arikalo@gmail.com, arnd@arndb.de, bjorn@rivosinc.com, david@redhat.com, 
+    djordje.todorovic@htecgroup.com, guoren@kernel.org, 
+    junhui.liu@pigmoral.tech, kevin.brodsky@arm.com, 
+    linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+    ljs@kernel.org, namcao@linutronix.de, oleg@redhat.com, osalvador@suse.de, 
+    palmer@dabbelt.com, panqinglin2020@iscas.ac.cn, rppt@kernel.org, 
+    rvishwanathan@mips.com, vishal.moola@gmail.com
+Subject: Re: [PATCH v2] riscv: Fix register corruption from uninitialized
+ cregs on error
+In-Reply-To: <20260501062320.2339562-1-mikey@neuling.org>
+Message-ID: <f34b72a2-6001-3a30-1653-60b3d2e9dad0@kernel.org>
+References: <78b4e931-9ec7-14b6-1487-906652a65ce8@kernel.org> <20260501062320.2339562-1-mikey@neuling.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SA1PR12MB6824:EE_
-X-MS-Office365-Filtering-Correlation-Id: f8133d8a-0614-428c-6f32-08dea7ebbb02
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|10070799003|366016|22082099003|18002099003|56012099003|921020;
-X-Microsoft-Antispam-Message-Info: w7yqP/UZAj3/lNbAccOFyoKOHiVfZLwVCKF2/21rg6rP3vh5x6u420bZYowKrnuzu78c30q+SBIm1jL4eEzMF1cSVpxrCSmMNYsWtme7by4EG63ZLQ45Ii6/2VAWNKiE7fAzjSaqd6FshqpDf/4d2a70BSuWuZDuAPV0TUdYmjaDLijMvmyGzG/V2c4vVIvY97Xq6PfoRmzJiWnpg0sOSwGZVesbZAuvSPRxRkeOH3fHPrzU6Oa36LCyozMKrIz/LFBEa6V8p0l2cSPHzVRlwffT6nKwfodppxg7f0N6+dIfO992G74nNTl4WZxw7XzehXVIXVfOX12e3jx0JuxGMB07Iq1Mt3gd5Qo6cOAOL9LU8AprmMj0ITlM++zbuXVwVmRR8FGTh8f/7CTJLJEcRsM3d2EUJi2ybjHq7f4tRtNzSoUqu8WzpVPn0wpMHGwDrInJMg/SgnK9bquyWeyhqTnPOmnVAUBF7LjlCL8mWuHOdgRJ9NPo6ijbkJ2GR0KsbWDUa/pfUDACd4KB+fz222q7tQYTLmCtzUyCkttJT/RpxahMCtrJblZIjisSK0kfmuwpOQ713v3805TfoitcvOyLa/AyAqK27qPb9NUoeqr2POPaHFe+Ni3q4SRCQGoZ/E2sCEQQCW7UZ6fMm2xfb9fQyekwuRy7JrtlKvHBuHqieJDdlT2ATP0zyCFCFmrKNP7IgS1IgvtpPIovlhA0/b2izBNXaPhg3QOB6VpJUCk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(10070799003)(366016)(22082099003)(18002099003)(56012099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6hFs/rsgtk9OW1AIv+14XVhFLYNcGHY+SCkYGNBX5mYrt9vSXGphd4X5Qw0J?=
- =?us-ascii?Q?8oCOHB8B4nMVm2rTIjfdOI16yW40w0Ub9knahAIZHAxCGJmdTCvgHrXgu7DC?=
- =?us-ascii?Q?wwsotZg3sNNgW3Vp4Fo1MEm6JTOKedDxOLgMDBaHaeyCgm0uhHgYVa85A+aO?=
- =?us-ascii?Q?11HLggudfhqU2cKjRnUSdZ/4MxEVDA4WxAuH+HXrLD2j17/V7tOoR1PnLKda?=
- =?us-ascii?Q?VvAlkfPdloAyGWZ+rWTTvpMsY4uhImupHgyyG3Q/b9ySdJsdaqHcHgYedG9u?=
- =?us-ascii?Q?Zx3wu7zDzw+jq25OxZsVKVsesqdX/zTAHcD1MkIw4mzT41CsnRsyjCkaIWtC?=
- =?us-ascii?Q?+6v+BVONDauP3ji2bZjglan+0Quhl/F+4X/MBNZDgHS+HzMXCa+UWQQc5rQj?=
- =?us-ascii?Q?4hPLa8D6WnIq/pNKfHSICS9k5pDQ65Hh3gyndKHwmzwDxIrjAlX9xd39/YD5?=
- =?us-ascii?Q?1dWMrnPeNqPs5s5n9bp9iQmxZBqUAYZ8wdou8EUs4zqGdL6ftvffvwNlxcNL?=
- =?us-ascii?Q?Gqyqjazr0UBiTklzk3t52AslIs0qsoI1SYNzHv15GQSky8p4BA2WhH54n1uw?=
- =?us-ascii?Q?y6FsOpnBbSh+9N80+lnyTjgGA3ZzvRKr3MwCCD/ejM+EohVBL87LfYWY+gJu?=
- =?us-ascii?Q?L61F+kphO+hsAKQBNJUJ8/wGnh5pb1nInyN+rtL9BCFGjM2Rafd22LOQg/r2?=
- =?us-ascii?Q?+z2nkFW/llAn/l6uJhTdiUk9kLZLW/dTqEuvmxgYa9yxvu3uDO0bHNqLkj91?=
- =?us-ascii?Q?PUUwPkrOUs2VgMaKnPwb5QwM6EhXXRoEqu399HWclpZcZ+qscmVX4ytxwGdw?=
- =?us-ascii?Q?8VUmr17DFDwda78qetxMWRS4pSUIMpiStMo9CqN03TzWMHFf/vnI0yzDn90T?=
- =?us-ascii?Q?+s79Ju/ctkQwb42NFZ+zyL/2UD0voc+bMRVJCaiKaAXmMymAZBWILUX1oU2Y?=
- =?us-ascii?Q?TQZ2owGZ4TefFIorw04zGx8NL7JjsTBu5MHoib4W8HU2+TJzea7gajedBzyL?=
- =?us-ascii?Q?RlyIUbRYN9prLdADXHrj0gi+y06GFkhf8QPX/JLZ1HGJKC1Hb9aZQtD0eu50?=
- =?us-ascii?Q?KWAxcaUerXyhEf/CHYAtE5ODJS0VcIg2ZjMF/tdOKhzx9nXwazqb1gu938Wi?=
- =?us-ascii?Q?AECSjUTWPIcavruY5orJ2ZvlppQ4alm5XtHObmyd/7T0la/IUs9HjayPkl2U?=
- =?us-ascii?Q?8xZdYe+9PMqD6iFGUr6AT1X8PdimgD93+WrtbFdktZBZVkuV3NC2xU5BOO3z?=
- =?us-ascii?Q?xM36eiivPU4/XLawEBvrMF18O48DFBeJ5q7RhCMd00QMwAq8LlaJj05luRYH?=
- =?us-ascii?Q?spxP9YK4GVgJrpahhzgVDQcn8gRDc2uceel8Dn8yz7fYf/Dtn0tv93QCDMYR?=
- =?us-ascii?Q?iBAs1KzuH6y7KcRYlY0DGD8P9PTUKAgUU0K4U2Kxqj4exVIFTJVoH7FYbtfb?=
- =?us-ascii?Q?oUo4+hlzcjzxMbVEg033dfOXKp52Z1isPT43CS8P1UYu0A5R17hgYDBFLtjO?=
- =?us-ascii?Q?nusX+E4GaNPib/qsawqBzkeocwoa/8WViutkNjS6BYMLPnSAMK+edpYCF2Tb?=
- =?us-ascii?Q?h6cxwECfs/ygeoP2X8uK6kC8tdHbOLVOOUepgUN+6tRXgrGKLz7PT7S1XeAd?=
- =?us-ascii?Q?h0O9ywGt9SZYg51yIJROI9ATSfRWm6SWJILkhlhr7GhsOj5wi37H6wkYSEmW?=
- =?us-ascii?Q?iF0pz4JtmB8evmZsnlAPT33iVVITEQXdcV9rCqep57Nf5jMvxNDRJMW09cSE?=
- =?us-ascii?Q?QQmMtEIZhilUJZleKZH/D8+qLQVHJqS+ImbMj3y0vKGg1yfxlYR5?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f8133d8a-0614-428c-6f32-08dea7ebbb02
-X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 May 2026 01:40:03.4056
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CH1Sh37d3VDG/k6E3pjQcwu2jxnrR9HR5EkjZxGqPqKfFKU79CwY6x5CbLbJJSshnmI3wLn/+ECpE7s8Znpnpg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6824
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260501_184022_522924_6E7537B3 
-X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,38 +76,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 05:13:44PM -0400, Yury Norov wrote:
-> This series is a resend for Jinjie Ruan's "arch/riscv: Add bitrev.h file
-> to support rev8 and brev8" [1], my follow-up "lib: compile generic
-> bitrev based on GENERIC_BITREVERSE" [2], and the fix for a build error
-> reported by Nathan Chancellor [3].
+On Fri, 1 May 2026, Michael Neuling wrote:
+
+> compat_riscv_gpr_set() calls cregs_to_regs() unconditionally, even when
+> user_regset_copyin() fails. Since cregs is an uninitialized stack
+> variable, a copyin failure causes uninitialized stack data to be written
+> into the target task's pt_regs, corrupting its register state and
+> potentially leaking kernel stack contents.
 > 
-> No changes, except for combining pieces together and rebasing on top of
-> the tree.
+> compat_restore_sigcontext() has the same issue: it calls cregs_to_regs()
+> even when __copy_from_user() fails, leading to the same corruption of
+> the signal-returning task's register state on error.
 > 
-> [1] https://lore.kernel.org/all/20260421130752.607500-1-ruanjinjie@huawei.com/
-> [2] https://lore.kernel.org/all/20260427205210.397471-1-ynorov@nvidia.com/
-> [3] https://lore.kernel.org/all/20260429202922.GA3575295@ax162/
+> Only call cregs_to_regs() when the user copy succeeds.
 > 
-> Build-tested against x86 tinyconfig and defconfig, having disabled and
-> enabiled CRC32 and BITREVERSE, correspondingly.
+> Fixes: 4608c159594f ("riscv: compat: ptrace: Add compat_arch_ptrace implement")
+> Fixes: 7383ee05314b ("riscv: compat: signal: Add rt_frame implementation")
+> Signed-off-by: Michael Neuling <mikey@neuling.org>
+> Assisted-by: Cursor:claude-4.6-opus-high-thinking
 
-I've got a feedback from sashiko bot.
+Thanks very much; queued for v7.1-rc.
 
-1. We need to do #if IS_DEFINED(CONFIG_CRC32) instead of #ifdef,
-   because it may be a module.
-2. Selecting GENERIC_BITREVERSE without BITREVERSE causes the unmet
-   direct dependency warning:
 
-   WARNING: unmet direct dependencies detected for GENERIC_BITREVERSE
-  Depends on [n]: BITREVERSE [=n]
-  Selected by [m]:
-  - MYCONFIG [=m]
-
-I'll send a v2 to fix it
-
-Thanks,
-Yury
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
