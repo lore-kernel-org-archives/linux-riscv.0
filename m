@@ -4,62 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65F2CCFA13
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 03:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B6ECD3424
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 05:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3/AqYvmW8NeZMBz3awdQQlx+6qiQ9jvs28dvdPoARho=; b=csfJ6fUga8HuR+
-	U9dEo5MgTfmYAXtkLVWKYyhnl64NxpqMIrm95ZE2vXCwJvMHT/EHmvrPU5rw4JSXhIMrOOZ5dZAeS
-	2886po72G+jFteZl8LGrnbW24Ru7YjHw0wNq9tZZOeffCn+GX4AsAMkuD2xn3qaihMQC42Z8bM+ra
-	/LAqRmM1h/BoDygUocrhh9z2vd+NzRFywp/hedlW3R/DiF++3+uh8jEJnJDW8tGBrSY3RPUJrZ0vt
-	yLLuvPjN+VQZZCN0Kir59V/9qMl5uK2rucFBELMqZGeK2FpDW6PS75e1YkK0DeP93SfC0H7LPEkx9
-	nPagClXGsOHtQYhjelrQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NVaedqP3sgyXHVzFJtZVZrdPIn0cbSFq7oPELFrXa9E=; b=OKG4rXYpa46Fs8
+	H7+0iLK3nkepc8r/ly7vlqtgxJgN25/UN8x/9mBcTBN4SH+4sKPkQgGjsu/4/YoYfFObNcNJFXYtu
+	VK34FuS+spCzEs50RkZQ2VKJbQTYs/iRNDMxyCgwii4IfPSAGPQhJAy3pOgn4Yslc5al7BMd5nZ/O
+	K/u8jEVN91l3NOcDaA7qB/GYazJyFxoNxXzRFwrnoSDbktHsY7700dOOCuMqw6lQvgBdImZyrhmrd
+	jbcU5Wg5IDHOvnegg25xGBs1c1xbazw2IBrdoG4lBJafp5s717+yd20N+MQpR6Y6u2ZxH3XSAEpDk
+	Zq12ellDH5292Umd9KbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ0o6-000000088E3-3uPy;
-	Sat, 02 May 2026 03:14:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wJ2l4-00000008KmP-43V5;
+	Sat, 02 May 2026 05:19:18 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ0o5-000000088Ds-1KvY
+	id 1wJ2l2-00000008Kle-1UZq
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 May 2026 03:14:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1F0BC6014C;
-	Sat,  2 May 2026 03:14:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DC20C2BCB7;
-	Sat,  2 May 2026 03:14:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777691655;
-	bh=jNw8JNIXe2xdou3EX61eGTSqNhbO8AU8Riw7XMyOufk=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=ZCtkENZo3ulznzI5S28ZcBL1/0/koV48WhJQudH4NJ9F05t1M9EXDzkvgBBsygjE/
-	 DcTKcejPtQyBczdMixqCEra58zCbJDkk7SexATvtPzviarLUlHalp3hM3aeB7XGbI2
-	 pknWw0VyOWJVJrOCYz+Y9kd8xce1FCBl0LtqNMhS+Kq4SdbDcrlu32YFzVZx2McCrI
-	 +1fujReaxegwkIyS31ZdMB4Aa7vt6JhKPed3atlWhsJMYDLi4kIzJuq/+HO3PVrqq3
-	 5/2Zts4E7bTEfKr6mgmT18+N0Qfo+B/QV0yo8fAnJNiXvcuiqKhh/W/slk8BMIf/my
-	 Sr15KwPBEaOzQ==
-Date: Fri, 1 May 2026 21:14:11 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Michael Neuling <mikey@neuling.org>
-cc: pjw@kernel.org, ajones@ventanamicro.com, akpm@linux-foundation.org, 
-    aleksa.paunovic@htecgroup.com, alex@ghiti.fr, aou@eecs.berkeley.edu, 
-    arikalo@gmail.com, arnd@arndb.de, bjorn@rivosinc.com, david@redhat.com, 
-    djordje.todorovic@htecgroup.com, guoren@kernel.org, 
-    junhui.liu@pigmoral.tech, kevin.brodsky@arm.com, 
-    linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-    ljs@kernel.org, namcao@linutronix.de, oleg@redhat.com, osalvador@suse.de, 
-    palmer@dabbelt.com, panqinglin2020@iscas.ac.cn, rppt@kernel.org, 
-    rvishwanathan@mips.com, vishal.moola@gmail.com
-Subject: Re: [PATCH v2] riscv: Fix register corruption from uninitialized
- cregs on error
-In-Reply-To: <20260501062320.2339562-1-mikey@neuling.org>
-Message-ID: <f34b72a2-6001-3a30-1653-60b3d2e9dad0@kernel.org>
-References: <78b4e931-9ec7-14b6-1487-906652a65ce8@kernel.org> <20260501062320.2339562-1-mikey@neuling.org>
+	Sat, 02 May 2026 05:19:17 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-824c9da9928so1142836b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 01 May 2026 22:19:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777699155; x=1778303955; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lrUF75Mz/1le31qBCqb70yVrs4hFKnGVHUNBS1DYUtw=;
+        b=pcUvQB8fbOW+nZYKhD8q6PiCEzo3u03Lm8yS3fMqhJ0UO7hWITCIVsqtI7Qp6LMh3N
+         jmw9b+a0FyJpZETQFucAn4H/jPY3T8EuJVRFEPiDQMxJa7Dw60PhdNyEYeUMzajSBYPr
+         plUVCzY7rgU57j/2prfBINrYZzoAbs97YzIdauTQuYJ0nVAdY7nTfVP3HFfHa4dCsEXy
+         9zvAULZUNKlcUP4gxo+4EZn5e8HQ6b+Bo78bl6xLUayTxoFeWgMo2Kb+LJY/JW0H0HP7
+         XkUJ2Ha6iQF1QVVCBtUSfQPVrYEIuSbU05tIvhjys6DFpHAvejdfT27bINAU/GeeBub3
+         0jFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777699155; x=1778303955;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lrUF75Mz/1le31qBCqb70yVrs4hFKnGVHUNBS1DYUtw=;
+        b=F6r/3XJQyXp2NXFf1Dbz1ypNc+AkokbSm1eqUh7+H0OkgnNrwvaiix07Rl5HPnh3PO
+         egztHDeFgYf26md5B2C5G6g/6i+sfnBNBmPMoIR778LZY3whXPl76lJkk4+3mzf9NJpy
+         Nc2GrvVANr2KTSn57JJXMZl8Nj8ZpmAYPqYLUKySI4b0Ta9CNsIrEbENzk57Hhay0xMg
+         2mrCxPtsSwff+g+t/zQC1pPsVeOFQehwzq6AaMzSSVEXf4LANAjogMfFIb8+Q9ny2ovn
+         uY6fnpq29rmpHntM77gQEL6OqN6ZcYOXu6CgqXP7BDDJ4WsOsGUVu7uR80HYMv7K3IrA
+         RtEQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/ThZ0EgvURUM1LyXnRX8WCelje2nKrOIu7C8z53nypq5KDYNWKoS76LFu3A9HzOwzi4aYC4Uz4RT3cOA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YywZlppA3mQpnfvldDIFi4EUIYASpcYKV2dkcBNdJkwofFlvPLb
+	hrLHXB+38g4WcVXZmBa7MDQ1RKCqmZguwTMEtUMKLG/ihZdj+0Jt8T4s
+X-Gm-Gg: AeBDietXKtoilBNFlaE7HMMyHbUW/RxF48tBeM1wP1vV+ZkGtWEnL3dwbCT0CqjM5k+
+	EuFbizCrCQ4rslT3d4axXn+In6micarIzHtpzN1PYpuzDdoyLEe2hRrxA1uO55A6XHSnS8lMBGL
+	vb6CtNJrWTqGNGin91vbjYjqp3yckqTNd9lzjfC3ykpc3tPF7DWUqPte+wpPqo0xIzo6cDgOpI7
+	69VSgCYG2mlUW+m9kTpjCQNzkqGtvmzCuwbjfvTBKYZng3A6I2jmvLgsmqCHsQfEvvBn6rgPsLp
+	23h8kk902vQtbG3GquP3zBhmwrBFSLwoyZDvzAI94zkDkiYPjzfyYgRcdGQDPf/YUqMqAnVRh7x
+	FRgwZKUM32F83AOTuXFJVJMytQkhyJB6r7u3KhCJTgN5pQMDyDcceyAvKEST0UDqnQh+F0w3K4p
+	ayTPm9Njcz7ts+ARiRoSvFCiQTVLyh/w==
+X-Received: by 2002:a05:6a00:985:b0:82f:37e3:ae67 with SMTP id d2e1a72fcca58-8352d20b18amr1983415b3a.27.1777699154297;
+        Fri, 01 May 2026 22:19:14 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.72])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83515b4f7c1sm4224838b3a.51.2026.05.01.22.19.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 May 2026 22:19:13 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v2 0/4] spacemit: k1-bananapi-f3: Fix the power source of USB3 nodes
+Date: Sat,  2 May 2026 10:48:53 +0530
+Message-ID: <20260502051906.8160-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260501_221916_399714_6EBB26EC 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,29 +106,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 1 May 2026, Michael Neuling wrote:
+Following changes fix the power source of USB 3 and pcie on K1-Bananapi-F3
+development board.
 
-> compat_riscv_gpr_set() calls cregs_to_regs() unconditionally, even when
-> user_regset_copyin() fails. Since cregs is an uninitialized stack
-> variable, a copyin failure causes uninitialized stack data to be written
-> into the target task's pt_regs, corrupting its register state and
-> potentially leaking kernel stack contents.
-> 
-> compat_restore_sigcontext() has the same issue: it calls cregs_to_regs()
-> even when __copy_from_user() fails, leading to the same corruption of
-> the signal-returning task's register state on error.
-> 
-> Only call cregs_to_regs() when the user copy succeeds.
-> 
-> Fixes: 4608c159594f ("riscv: compat: ptrace: Add compat_arch_ptrace implement")
-> Fixes: 7383ee05314b ("riscv: compat: signal: Add rt_frame implementation")
-> Signed-off-by: Michael Neuling <mikey@neuling.org>
-> Assisted-by: Cursor:claude-4.6-opus-high-thinking
-
-Thanks very much; queued for v7.1-rc.
+Bananapi F3 schematics.
+[1] https://drive.google.com/file/d/19iLJ5xnCB_oK8VeQjkPGjzAn39WYyylv/view (page 24)
 
 
-- Paul
+v1: https://lore.kernel.org/all/20260325081700.1502-1-linux.amoon@gmail.com/
+
+v2: Add pcie vin for pcie regulator.
+
+To verify check regulator_summary for more details
+
+$ cat /sys/kernel/debug/regulator/regulator_summary
+ dc_in_12v                        3    2      0 unknown 12000mV     0mA 12000mV 12000mV
+    vcc_4v                        1    0      0 unknown  4000mV     0mA  4000mV  4000mV
+    vcc5v0_sys                    4    3      0 unknown  5000mV     0mA  5000mV  5000mV
+       PCIE_VCC3V3                3    2      0 unknown  3300mV     0mA  3300mV  3300mV
+          ca800000.pcie-vpcie3v3   1                                 0mA     0mV     0mV
+          ca400000.pcie-vpcie3v3   1                                 0mA     0mV     0mV
+       5V_VBUS                    2    1      0 unknown  5000mV     0mA  5000mV  5000mV
+          c0a00000.usb:hub@1-vdd   1                                 0mA     0mV     0mV
+       VCC5V0_HUB                 2    1      0 unknown  5000mV     0mA  5000mV  5000mV
+          c0a00000.usb-vbus       1                                 0mA     0mV     0mV
+
+Thanks
+-Anand
+
+Anand Moon (4):
+  riscv: dts: spacemit: k1-bananapi-f3: Add vcc5v0_sys regulator for
+    Banana Pi F3
+  riscv: dts: spacemit: k1-bananapi-f3: Update USB regulator on onboard
+    usb and label
+  riscv: dts: spacemit: k1-bananapi-f3: Correct USB hub power hierarchy
+  riscv: dts: spacemit: k1-bananapi-f3: Add vin-supply for PCIe 3.3V
+    regulator
+
+ .../boot/dts/spacemit/k1-bananapi-f3.dts      | 25 +++++++++++++++----
+ 1 file changed, 20 insertions(+), 5 deletions(-)
+
+
+base-commit: f1a5e78a55ebf2b05777fd5eb738038ddae609d6
+-- 
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
