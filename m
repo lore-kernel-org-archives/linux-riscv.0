@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFD3CD13DA
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 19:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 672EFFF885A
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 May 2026 04:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ri8tt8lJGOg/BxzBqe2tzYQMYzKzwxfY3VzQHV6m73s=; b=EEc40KxZydh5rl
-	vJ0ns2AX/SIP9XRPnKw2bkhcr9FthPInaEk8bkw2KSG4J+2peYkLD44Z20FaR2rzEFts+CUjL9sY5
-	KNMGrnwlk6W3l+UU4WPVegjAm/kuWgvGQuKpi4fikbIei/ZmS2rUMZt6SNzACEncCu5HqCb/WLZ3g
-	ypvgWUmsvlcRillnzoAlb1EybZRECw2i1ek9otzAqRim3w+edOPCMeibn82TdhkVCm0SJ1PiTl81G
-	Q3JZFsCQhcizjz4P81X1xH0SYmpJcdWW9q24jZtUap2pOWbvfi4DZWiAlnXoxXd10yTZyt3NrdjJS
-	QHLHVR49FThhPx47l5BQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PnlWTT87dIT3DSHWkIW2sSpszUqdKKPiDiLQcH31EcI=; b=1wQixjENZQc1br
+	vtK2E7k5pYULrOTzv/o4Y1D/687dnVBLAhXAi3smk7QAP69aqpLx8v0PThkrnJExLpFJFT/gHxeUr
+	ic1L0AQOztBTFSLLzbxx2MrPzPT4Fz//7qXSXtMF7FzgeR5+mQ+BSV7xeGq7TaqBx+qtac14TpZNC
+	FihmDC9oCixSXaB5AEEykCyWofeUJYxnfTkQ9eXw5RhfMgTM9pXj0xKL/sNxr+Yh6NASLvgSPRHO/
+	Q+KVF2XEMqfgvfzG9dBjJtG4JviucBdBk1kYTVEIU5X06hUTNjUpROK09yPFusHlR2LbMyq+NL3Sc
+	Rd1OYKVty136cxPjWhcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJGOu-00000009bq7-29I4;
-	Sat, 02 May 2026 19:53:20 +0000
-Received: from mailout3.hostsharing.net ([2a01:4f8:fff3:b8::104])
+	id 1wJO3z-0000000AI3u-0MDB;
+	Sun, 03 May 2026 04:04:15 +0000
+Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJGOq-00000009bpF-22bR
+	id 1wJO3v-0000000AI3N-4AcV
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 May 2026 19:53:19 +0000
-Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
-	 client-signature ECDSA (secp384r1) client-digest SHA384)
-	(Client CN "*.hostsharing.net", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
-	by mailout3.hostsharing.net (Postfix) with ESMTPS id 97365C1D;
-	Sat, 02 May 2026 21:47:17 +0200 (CEST)
-Received: by h08.hostsharing.net (Postfix, from userid 100393)
-	id 5975B600D3D5; Sat,  2 May 2026 21:47:17 +0200 (CEST)
-Date: Sat, 2 May 2026 21:47:17 +0200
-From: Lukas Wunner <lukas@wunner.de>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Han Gao <gaohan@iscas.ac.cn>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Kees Cook <kees@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
-	linux-pci@vger.kernel.org, sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Han Gao <rabenda.cn@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 2/2] PCI: Add quirk to disable PCIe port services on
- Sophgo SG2042
-Message-ID: <afZUxYhkCQ0wG0Uu@wunner.de>
-References: <20260331175658.1015829-1-gaohan@iscas.ac.cn>
- <20260331175658.1015829-3-gaohan@iscas.ac.cn>
- <q6wmn67lzk5c2pgmgkoezcvy3xj3yqecg675gx7xyrw3amjwpi@5pjla6j3krbv>
- <0f42afefd9322779af5463b696c55b08d2296ea8.camel@iscas.ac.cn>
+	Sun, 03 May 2026 04:04:13 +0000
+Received: by mail-ua1-x929.google.com with SMTP id a1e0cc1a2514c-95d01873f17so308996241.1
+        for <linux-riscv@lists.infradead.org>; Sat, 02 May 2026 21:04:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777781050; x=1778385850; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=nSJgikwQ3H2Rh1bs4ilssI0pfJk7LXiSb6hDVluZMx8=;
+        b=GrGwJKObBioiZ3FitcsbQegcGKy2hy9V7ny14Hhvc0dbkHBRCJsg5p9SkdvwtYZszQ
+         3v0ZFCos20WL/aZx6xJ2vSoK5PDHHxNatzO5HsmJONlCOaTCJTugLryfkmGFpVzQQLCh
+         HnF3WBlg2isKg/0ZNTtW2eR10UaxQ/nMNBnD2x/bQRbB3xIIBstYzt7rwFpyGRqvF+rV
+         21Jec4Xi7QaqUzlOgXaQP6ZkRTjyrI40jbwex740TglzV/pr8iChO5CnjrIi0DJFtxeX
+         CtoUXa8AQsEDUiv5hTfuWOMPkdN9I/LLqygjMN7+Lf7LkgtHoln7BH+2UX4d/iTS0B/f
+         ElXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777781050; x=1778385850;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nSJgikwQ3H2Rh1bs4ilssI0pfJk7LXiSb6hDVluZMx8=;
+        b=gF3wYXgh+6W85THhL8Es1T10m63OQrgd9SeGyzuxnV5CXZpLrJ7qkfa7C6KqO+79uq
+         IMPVnuupPyZU6F0rIYa6B9zegHtcQQ/wC8iLfH72h6T43BqwfuUyG7eQqj/bb9Vo22I7
+         NZS3FnI25GKNuAJmmzBnaf6SHtyhkAI55eO0QSPLQbgt8vOCiUcmJutUifuoijCYC5CT
+         XMp8Ku95xrbxFrIwPIZgr/wvMbCdz/zD6T1vy5tYBoAIQTfAZgomr2Qk+BnQCaOSXMdz
+         HNHkRtget461ATg1KYRoGjrlmyt+OSumUFxqKdDYXUaYJ5aMa4cxX/t0oyjDTeSOOpyw
+         FF7g==
+X-Forwarded-Encrypted: i=1; AFNElJ+fM7GkUeTf2nUc3mksEdmBDwbB8vm1t13QWo58rg2zKlvj/E5LHlXuQbFKOTi0CFam7jA+wDZgl8KcMw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YweFsnv8KAAYK6oNaUL0wpJEBGm0BGHcMcvPj4fye8c1409y3o2
+	keVUagoiGQxuUIO+JRMX6GdG6OWr+pt9pf89TNOjhURpOL5ErKIHc0/5
+X-Gm-Gg: AeBDietD5D0rZe7I/hYIYQIMbQr+HyYQE7cbxFu+iXELQE+vxLiDxgZseG8Yz4MywCC
+	jVf7O1zOO+haNAWRNDInVk0tCCcljdrQA9DOODx04OBljwI4E7XKlhSMV3OOLcWCz6flQz9NOO6
+	MfjzvmRc13+mo5PgiD41Z4HEkRXYIUe7xb10x103ljZZPMbGz+x0IeSojFMqE23A87D3BbxKqx8
+	gP7Twe/0cXbMcdG6aRMkMB2ElVXYrM7lRYtEpua1pzOBPCgtRn/ui8xqgvskSsg5SMy1RrjdncV
+	hAuMhki9d2psfjb9MmHXPEqoirEEfQ/NffB9dm0grNwNfBb9qRM1Sbnzmxm/xAoIL03ZhltRYpH
+	P0fpdmIhNrX30OJeUW8uUYTQzYwf0lYxHHqOuPXh/XVJoFYHNNrxdG9oFCaaJWmU9ZGomqiZlA0
+	nIpHWJxBYxyWvaPnLnt5OcAL8RAz2gTGsSc963Eg==
+X-Received: by 2002:a05:6102:c8e:b0:608:cdd9:2bcd with SMTP id ada2fe7eead31-62afef0f7e0mr5003920137.15.1777781050494;
+        Sat, 02 May 2026 21:04:10 -0700 (PDT)
+Received: from nixos-office ([129.222.53.215])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-62ece141251sm766638137.10.2026.05.02.21.04.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 May 2026 21:04:09 -0700 (PDT)
+From: Julian Braha <julianbraha@gmail.com>
+To: pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Julian Braha <julianbraha@gmail.com>
+Subject: [PATCH] riscv: replace select with dependency for visible RELOCATABLE
+Date: Sun,  3 May 2026 05:03:31 +0100
+Message-ID: <20260503040331.71875-1-julianbraha@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0f42afefd9322779af5463b696c55b08d2296ea8.camel@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_125316_704164_6FA529C2 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20260502_210412_312378_BAE08CBD 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +100,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 02, 2026 at 09:58:04PM +0800, Icenowy Zheng wrote:
-> The problem is that the MSI controller has only 16 MSIs usable (it's
-> wrongly described as 32 previously, a fix to this is pending[1]), and
-> the failing device have an onboard PCIe switch, which created many PCIe
-> ports (and corresponding pcieport devices).
+RANDOMIZE_BASE currently selects RELOCATABLE even though RELOCATABLE
+is visible to users. Some other architectures, like x86, use 'depends on'
+for RELOCATABLE in their definition of RANDOMIZE_BASE, so let's do the same
+here.
 
-Is the SG2042 only used in that single product?  If it is used in other
-products which do not have an on-board PCIe switch, why do you want to
-disable MSIs on those other products as well?
+This select-visible Kconfig misusage was detected by Kconfirm, a static
+analysis tool for Kconfig.
 
-My point is, you want to constrain this to a specific product, not to
-the SoC.  Can you maybe solve this by not specifying interrupts in the
-devicetree for the PCIe switch?
+Signed-off-by: Julian Braha <julianbraha@gmail.com>
+---
+ arch/riscv/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> With pcieport devices activated, 11 MSIs are requested by the pcieport
-> drivers -- 3 SoC PCIe ports and 8 switch downstream ports. Then only 5
-> MSIs are available, but there're still 10 downstream-facing PCIe ports
-> now (and 5 of them are hardwired to onboard peripherals).
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d32309846fa3..da26559a0893 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -1143,7 +1143,7 @@ config RELOCATABLE
+ 
+ config RANDOMIZE_BASE
+         bool "Randomize the address of the kernel image"
+-        select RELOCATABLE
++        depends on RELOCATABLE
+         depends on MMU && 64BIT
+         help
+           Randomizes the virtual address at which the kernel image is
+-- 
+2.53.0
 
-pcieport can make do with a single MSI vector because all port services
-support a shared interrupt.  But I assume your point is that this
-particular product has so many PCIe ports that you're still close
-to the 16 MSIs limit?
-
-Thanks,
-
-Lukas
 
 _______________________________________________
 linux-riscv mailing list
