@@ -4,62 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F5B8CD3423
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 12:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B26CD3423
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 May 2026 13:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wXOxDEqlJ+8DjEhXtAOsZFcH2PNfJN59MuD9jQEU7t4=; b=09J5+SOdgip2X+
-	egC6dlyyCKmo94903BtNcOgdw4Jf59hLkUMVA4layk2rxAocH+qos1kHwZtSPAldaariMF/SZYt7f
-	w/8NYyAJufsbjGGvDQKJtN5nhBq/0A36Tx/v36cMLBmShenCJejgm9zYn/TpIUlWzG0ioCGIZdjn5
-	uOX1Zt6KhkRLRy4Irvr7noDVaUq1yIW+KZw4prvMfm6aS8zYpbJwSW+ZFgXANvPe+VBxypW4JHGSP
-	akI/17k677oSjBskBfxlKifkMcA5Y+kVs6g1wPZaMFLrHMadlxW2x7BW4rfF//s9hfpbDCAJPNWrA
-	QpfBEiDl7Odu7q2Jpaaw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cp2v3YV6xNuQKcgPtompx0T6XE1El20RjyOvrCN+6jE=; b=JlYhrQUL/1TWJ0
+	oX5CYWiW5rVfS0rn8Lu9t6gvfrtffg1/Bwlur4oUz9JoTzERxMMM0D85cJtC1NSStzqQ9SKOSjglk
+	TBYShynfGXylHSANhETNUX/PMueUrN7RXQtYGw/QAIeJt4cab7qKe1a8Usv+/nQuntGW13QjCsral
+	EBZJ35CT5glOAjzxkgNdvhtCDXby2ANS3NJnMOm5g4tJlRlpvEi+WtjnEY3EwILN70xGC7U8da5xt
+	TOsQfbTzakkv+JY/vq2bhZ4bI3e5JlHfwrmnCr0QrJbznrwNBJd1zsH6N28tCKjipu8WtmU6UbLBK
+	ijwQD8KGeHrEcWU6XwZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ91v-00000008x8Y-2aPU;
-	Sat, 02 May 2026 12:01:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wJARZ-000000094s5-3NI1;
+	Sat, 02 May 2026 13:31:41 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJ91t-00000008x8A-1GdN
+	id 1wJARW-000000094rS-1sWp
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 May 2026 12:01:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 957CF44468;
-	Sat,  2 May 2026 12:01:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF21DC19425;
-	Sat,  2 May 2026 12:01:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777723264;
-	bh=cYlEA7J2N+YnE4244ODfbSDfbaz+mByM60A7ApfHpIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ADpu4nPMCwKotBgOh9ShhpN69OY0fmaT5OWxlb/QysGsFrMl0tM6PJiBgpgQnel7O
-	 3dFhDG5c+mbc9GuxK76cx1a+n9jPZpK7bkPLRfXSAe75g1uxWlZpiMCR3/70BbxMkJ
-	 ZSdpgYAR/TTpeRtO4mRZz9WlNJNM8Smdsz+TVPw7uumxDtkz7aeEyEIGatnzdXIr7o
-	 X3ymaszfjAaIwXCloJilEIgl0zZMmJ2fBa7FJQT208mztCGiFpjtplJlTQvTNYB0nV
-	 0Exqtvu9wQTvJ6UJV/ujYTni9aCzDENeKZ67vVRMY0f56N0bAk8HfUq6A9bklBeiUF
-	 o8NNjUaKfuGsQ==
-Date: Sat, 2 May 2026 12:01:02 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] dts: spacemit: set console baud rate on bpif3
-Message-ID: <20260502120102-GKC3266396@kernel.org>
-References: <20260430-reword-overstep-3be08b7eab25@spud>
+	Sat, 02 May 2026 13:31:39 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-35e576110adso1941357a91.0
+        for <linux-riscv@lists.infradead.org>; Sat, 02 May 2026 06:31:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1777728696; x=1778333496; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5MLqLxOUOJNZlsERU0GicRjBWqhmqv+EmlMe22clUuo=;
+        b=q9ZfU9faFhe8lcvUueWqOcceMVx5/ff1/a5tX/0u9d8HMb7PbUt2ob0D8u9TG9G3lZ
+         L1gul5+/RvXTNVF4ZhU4pVg2ZVyw3dDC2/q7Jq0qPpBeRi8cA9jAm72bMY79nq8E3FxJ
+         56zMMSVHEfAJAI51JelvrlbopLcPa+acDTDOtatIpyBJZtQOQF+E2Ls6GCup/sUtKHYu
+         mhNh1NU2eTIEMyyKt0WrohIXNiAISj9FoEBXfCqqfjBBFiqtv79BaY4RfMErATMPjFlu
+         p/gjvv/W5/VUvF5DdM9a3fnwL5lWw2hAjd/8qiT5xv4WbqS68n1OXKh2lhsBhXvwP+C/
+         Va6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777728696; x=1778333496;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5MLqLxOUOJNZlsERU0GicRjBWqhmqv+EmlMe22clUuo=;
+        b=PwNO5xRhAsxBiufmYybF8IMkBbUHJcXSiR72npQF6h47XkLhS+9zvxLg1u5Zy65Eet
+         T3NMPZ0vkmA4tgEj47sjU09mBe/ddchmtLnonjIZ2CcYupoVyQp8AbzPvncYYdX2YUOr
+         5MmdYuz9uDmHgg9YT9TehuLktEJUogSABVV6G+YuiGycq23ijkz0tgDuhU/KoWoNQVR0
+         bnKRUF99QRDM5ASJun35/I5KjyV3HW1epdcwD+FdXVEoM8VSAVIKcUjcEvws0P1zvUQS
+         gK00kpXR2wXbxQl05ee5+SraAWGLPIqCz0UVws3Jy8gc7uZDUSZTxf3KPjfWZSdfhbsT
+         hNJw==
+X-Forwarded-Encrypted: i=1; AFNElJ83uACVMBqyEzt6BE3DH4rljAy8zBNJ0XCdYlKGjndBJ67pFlxDwYkoTuIOfn436P3pri5VIPveWq3BIw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLcraeG3EgWEbAf/V7cN56chgJce225Ql+s5tFag/G890oBFhQ
+	EGqZLKh6HPVxcXRXDtJ8DL/UsDBY/+VyPK4ZAArWDmPgTo2H986rGp0Lr2FtzAKVYsA=
+X-Gm-Gg: AeBDies0iVw4Y+iS7X/qjI5fgT+x7Z5eOpXMjma7m5jtRlOh6bv209ScLv4hNVu3MaH
+	A1eu+JbvqLSc+wJCvUfKcaxtOhi4bJfNZ55BYM3uGF2bu9YS1N0AqmtD3H2K2c5d9Nptc2pPVEy
+	wIyVsYz0kCf4Nrach0Odq4V0Cd3EYrzi19aS6+qgJE56Iz5x2rhtpZGkSQt6oFYy6uBfPKpvU0E
+	vQAGWjeUD59d3BsF5zJjRgcs1TgbSrA4wdg8G7VA59kk5SNuMpVtXHPcXakHifgHgJy5CvuURQH
+	ubD3av1PWuxbrLCMdGBBkzsihYFdbMn6x7PLS4sWugr1c6voRssdxEXejWUt3hq2Y3grZVpaKqQ
+	NSyHPRVP6on7ZeIJjpRbxCytin+QuFvcgKIUWo32E61dV0BAA0VboCyQaYe9AxfJ1pFMWUlGxYz
+	MZSVjMIU7mjfweI5P3heMGnIFQWgp8gUn5AsS4rtwd8Mg4nZWN6TTZvg==
+X-Received: by 2002:a17:90b:44:b0:35b:e4f0:f9b4 with SMTP id 98e67ed59e1d1-3650c4b9096mr2766949a91.10.1777728696153;
+        Sat, 02 May 2026 06:31:36 -0700 (PDT)
+Received: from [127.0.1.1] ([2a12:a305:4::3016])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-364ec02ab2fsm5647937a91.14.2026.05.02.06.31.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 May 2026 06:31:35 -0700 (PDT)
+From: Guodong Xu <guodong@riscstar.com>
+Subject: [PATCH v10 0/3] spi: support the SpacemiT K1 SPI controller
+Date: Sat, 02 May 2026 21:30:50 -0400
+Message-Id: <20260502-spi-spacemit-k1-v10-0-f412e1ae8a34@riscstar.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260430-reword-overstep-3be08b7eab25@spud>
+X-B4-Tracking: v=1; b=H4sIAEql9mkC/2WPwU7DMAyGX6XKmUx22qztTrwH4pAElxm0dYuzC
+ DTt3XFXDogdfLD9+/t/X41QZhKza64mU2Xh+agNwlNj0j4c38nymw6MA7eFDnorJ9YKiQ5c7Cd
+ agtH3qUVE74xenTJN/HVHvryuvVziB6WyYBbFnqXM+fvuWYdF90tHeKDXwYL1LcXYDaHDbvucW
+ ZKUkDdpPpjFoI5/EO4xYB0VMU29b6P32IL7h7itITOdL/p+WZObGISs7hWya2q/AZsTqvj2A9P
+ yVQszAQAA
+X-Change-ID: 20260407-spi-spacemit-k1-e0957c311152
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Alex Elder <elder@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Guodong Xu <guodong@riscstar.com>, 
+ Alex Elder <elder@riscstar.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260502_050105_384947_12955DDC 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20260502_063138_746938_775C3BD9 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +111,164 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+This series adds support for the SPI controller found in the SpacemiT
+K1 SoC.  The driver currently supports only master mode.  The controller
+has two 32-entry FIFOs and supports PIO and DMA for transfers.
 
-On 19:52 Thu 30 Apr     , Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Because the default console's baud rate is not set, defconfig kernels do
-> not have any serial output on this platform. Set the baud rate to
-> 115200, matching what is used by U-Boot etc on this platform.
-> 
-> Suggested-by: Vivian Wang <wangruikang@iscas.ac.cn>
-> Fixes: d60d57ab6b2a8 ("riscv: dts: spacemit: add Banana Pi BPI-F3 board device tree")
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> CC: Rob Herring <robh@kernel.org>
-> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> CC: Conor Dooley <conor+dt@kernel.org>
-> CC: Yixun Lan <dlan@kernel.org>
-> CC: devicetree@vger.kernel.org
-> CC: linux-riscv@lists.infradead.org
-> CC: spacemit@lists.linux.dev
-> CC: linux-kernel@vger.kernel.org
-> ---
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 2 +-
+Starting with v8, I am taking over from Alex Elder to shepherd this
+series upstream.  Alex developed versions 1 through 7.
 
-Looks good to me, but I think the fix should also apply to other boards,
-so do you want to fix other dts? I'd be fine if you keep it to BPI-F3 only
+Version 10 fixes a buffer-offset + unsigned underflow on 16/32 bpw
+transfers (8 bpw worked because bytes == 1), reported by Mark Brown.
 
+(Note, this is a distinct series from the QSPI driver, which was
+merged recently.)
 
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> index 5790d927b93db..333ac8ebf3f51 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> @@ -19,7 +19,7 @@ aliases {
->  	};
->  
->  	chosen {
-> -		stdout-path = "serial0";
-> +		stdout-path = "serial0:115200n8";
->  	};
->  
->  	leds {
-> -- 
-> 2.53.0
-> 
+End-to-end tested on Banana Pi BPI-F3 with a GigaDevice GD25Q64E SPI
+NOR wired to the spi3 GPIO header pins.
 
--- 
-Yixun Lan (dlan)
+BR,
+Guodong
+
+Between version 9 and version 10:
+ Patch 2:
+  - Initialise tx_resid/rx_resid to transfer->len (matching the
+      "bytes left in transfer" struct comment and the byte-stride
+      decrement in the per-word helpers) and divide by drv_data->bytes
+      where the FIFO burst is capped in words.
+
+Here is version 9 of this series:
+  https://patch.msgid.link/20260427-spi-spacemit-k1-v9-0-ff753b551302@riscstar.com
+
+Between version 8 and version 9:
+ Patch 1:
+  - Subject prefixes in the order of "spi: dt-bindings: ..."
+ Patch 2:
+  - k1_spi_dma_prep(): nested ternary to switch.
+  - k1_spi_ssp_isr(): return IRQ_NONE based on SSP_STATUS bits
+  - k1_spi_ssp_isr(): rename reading of SSP_STATUS to 'status' (and
+      'top_ctrl' for SSP_TOP_CTRL); stop overwriting it.
+
+Here is version 8 of this series:
+  https://patch.msgid.link/20260410-spi-spacemit-k1-v8-0-53ebb48a4146@riscstar.com
+
+Between version 7 and version 8:
+  - Use // comments for the file header (Mark Brown)
+  - Remove open-coded DMA mapping (k1_spi_map_dma_buffer(),
+    k1_spi_unmap_dma_buffer(), k1_spi_map_dma_buffers(), the dummy
+    buffer, k1_spi_io struct); use SPI core DMA mapping via
+    transfer->tx_sg/rx_sg instead
+  - Add can_dma() callback, replacing open-coded transfer length
+    checks
+  - Add set_cs() callback for chip select control via the
+    TOP_HOLD_FRAME_LOW bit
+  - Switch from transfer_one_message() to transfer_one()
+  - DMA completion calls spi_finalize_current_transfer() directly
+    instead of using a completion
+  - Add SSP_STATUS_BCE (bit count error) to error detection
+  - Return IRQ_NONE early if no transfer is active, before
+    acknowledging interrupts
+  - Simplify k1_spi_driver_data struct
+  - ~160 fewer lines of code
+
+Here is version 7 of this series:
+  https://lore.kernel.org/lkml/20251114185745.2838358-1-elder@riscstar.com/
+
+Between version 6 and version 7:
+  - DIV_ROUND_UP_ULL() is now used when setting the speed, to address
+    two errors reported by the Intel kernel test robot on 32-bit builds
+  - Fixed a bug interpreting the resource pointer in k1_spi_dma_cleanup()
+  - The driver is now built as a module by default, if ARCH_SPACEMIT
+    is defined
+
+Here is version 6 of this series:
+  https://lore.kernel.org/lkml/20251027125504.297033-1-elder@riscstar.com/
+
+Between version 5 and version 6:
+  - Rebase only
+
+Here is version 5 of this series:
+  https://lore.kernel.org/lkml/20251013123309.2252042-1-elder@riscstar.com/
+
+Between version 4 and version 5:
+  - Added Yixun's Reviewed-by tag on patch 3
+
+Here is version 4 of this series:
+  https://lore.kernel.org/lkml/20250925121714.2514932-1-elder@riscstar.com/
+
+Between version 3 and version 4 (all suggested by Yixun):
+  - Fixed an underrun/overrun comment error
+  - Renamed a pinctrl node
+  - Formatted dmas and dma-names properties on one line
+
+Here is version 3 of this series:
+  https://lore.kernel.org/lkml/20250922161717.1590690-1-elder@riscstar.com/
+
+Between version 2 and version 3:
+  - Add Conor's Acked-by to patch 1
+  - Add Rob's Reviewed-by to patch 1
+  - Added imply_PDMA to the SPI_SPACEMIT_K1 Kconfig option
+  - Fixed a bug pointed out by Vivian (and Troy) in word-sized reads
+  - Added a comment stating we use 1, 2, or 4 bytes per word
+  - Cleaned up DMA channels properly in case of failure setting up
+  - No longer use devm_*() for allocating DMA channels or buffer
+  - Moved the SPI controller into the dma-bus memory region
+
+Here is version 2 of this series:
+  https://lore.kernel.org/lkml/20250919155914.935608-1-elder@riscstar.com/
+
+Between version 1 and version 2:
+  - Use enum rather than const for the binding compatible string
+  - Omit the label and status property in the binding example
+  - The spi-spacemit-k1.o make target is now added in sorted order
+  - The SPI_SPACEMIT_K1 config option is added in sorted order
+  - The SPI_SPACEMIT_K1 config does *not* depend on MMP_PDMA,
+    however MMP_PDMA is checked at runtime, and if not enabled,
+    DMA will not be used
+  - Read/modify/writes of registers no longer use an additional
+    "virt" variable to hold the address accessed
+  - The k1_spi_driver_data->ioaddr field has been renamed base
+  - The DMA address for the base address is maintained, rather than
+    saving the DMA address of the data register
+  - The spi-max-frequency property value is now bounds checked
+  - A local variable is now initialized to 0 in k1_spi_write_word()
+  - The driver name is now "k1-spi"
+  - DT aliases are used rather than spacemit,k1-ssp-id for bus number
+  - The order of two pin control properties was changed as requested
+  - Clock names and DMA names are now on one line in the "k1.dtsi"
+  - The interrupts property is used rather than interrupts-extended
+
+Here is version 1 of this series:
+  https://lore.kernel.org/lkml/20250917220724.288127-1-elder@riscstar.com/
+
+Alex Elder (3):
+  dt-bindings: spi: add SpacemiT K1 SPI support
+  spi: spacemit: introduce SpacemiT K1 SPI controller driver
+  riscv: dts: spacemit: define a SPI controller node
+
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+---
+Alex Elder (3):
+      spi: dt-bindings: add SpacemiT K1 SPI support
+      spi: spacemit: introduce SpacemiT K1 SPI controller driver
+      riscv: dts: spacemit: define a SPI controller node
+
+ .../devicetree/bindings/spi/spacemit,k1-spi.yaml   |  84 +++
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |   7 +
+ arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |  20 +
+ arch/riscv/boot/dts/spacemit/k1.dtsi               |  15 +
+ drivers/spi/Kconfig                                |   9 +
+ drivers/spi/Makefile                               |   1 +
+ drivers/spi/spi-spacemit-k1.c                      | 789 +++++++++++++++++++++
+ 7 files changed, 925 insertions(+)
+---
+base-commit: 559f264e403e4d58d56a17595c60a1de011c5e20
+change-id: 20260407-spi-spacemit-k1-e0957c311152
+
+Best regards,
+--  
+Guodong Xu <guodong@riscstar.com>
+
 
 _______________________________________________
 linux-riscv mailing list
