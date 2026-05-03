@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CF9CD3424
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 May 2026 12:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009FCCD3424
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 May 2026 15:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjrihsVddJbEFCRDDMkUBOsiwZM5z0+NnmJQOQvoKpM=; b=3HudcxtrK8YvlirxQ2fNVoA3Z3
-	hbC3fG6uhPDMlp6+6k81aQ3OfSNK1ZwzK8UmnDfFRWR0pIl8pxyAfApR345Ikz4ZCf3DX8DNjM4j8
-	AJi8v4QOP4lOyrNpa64e3HbBcmTi1uH4OMgl3F1ygCVEHNA6bj2tyJ9pD9sHZWVpBcciN6kVBnmNB
-	wMR+eq8BFvi9ECDNY9S5PpHOUkouBtvUlVYeqmt1ftYyjDMNVANZlNq/OU97cr1K0VbBNHQy/FNIc
-	b/DCpFuFX8F/SuWyWV3eINpPLh4L3k6o956rDUbPdqCEsFXDUA8E9wrXOT9TiREYcpVMPcT5vsGad
-	9lAGycWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3TUmGZoGY7iNApXrp6Lf6W/7h8+xUnsiK8QYrlgC1EE=; b=lXgWvhTwK9uBYi
+	4WgcNUjsudENafCZzU8SpuoKx05reeqn2qeAto324am6n5C2EglVQp6MTa1JWjY57r+AD4fR7dpbt
+	v4+eN2Ai/FXwn0+yhKdaulRqhoS1Z2YndJXN7Kv+qj1wF82funu/TbKz6dxJ0ytQzgE2aImDpQced
+	DIzqSFZV60l9em349Sk0LOG10a6crvH5VS6lerB3QBkvFUaWZKtESWZx9f9ysKfo7Ispe9MyotgHb
+	GcDUjQEB6Al/gDH0IWYuxQEWL/uPUbdhu1b99+IJXGXOzHVjz1l5o/nR+bj8IDXCdtIipgjzTxuoz
+	4VyNZhZCnCXm4bTyoOIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJVtk-0000000Axp1-2UDj;
-	Sun, 03 May 2026 12:26:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wJZ4n-0000000BF3N-1YcF;
+	Sun, 03 May 2026 15:49:49 +0000
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJVtj-0000000Axol-39Eq
+	id 1wJZ4l-0000000BF2p-2auB
 	for linux-riscv@lists.infradead.org;
-	Sun, 03 May 2026 12:26:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BFF856014B;
-	Sun,  3 May 2026 12:26:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5908BC2BCB8;
-	Sun,  3 May 2026 12:26:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777811170;
-	bh=wIKZJm+44gbevXVFKTtgRVSh6IKiCNKWi89emtsttCM=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=NX8VB4/qC3hcyaprRzJbBB8X9QJWmublJVTOGcxgzp33JEbTGhzkql/0XvsAFD9OY
-	 nnSs+epqaS5u1YfLZ+2pR5ZIA5miSZ8VpP3os67SIqx+7AiU7JBn5pYAyvMTUNC8gG
-	 NcQFUubOy+LSbE8DlouYET+lY1r8MKpDh20WGH6QniJ4zpWsW9sKUKorpqMldFcIX5
-	 05g/KnBk/8/a4Wddz4xeBPKiPc5p5XNDiXT54212XGwhEorT24ZNJcVRMEiFgt5Xqm
-	 zzq4Zel67W7Fhk90Xhq13FbaiSqFDlcWRFR7ZeMthTPp5YXbmbPesESjdcNV1FfSk4
-	 3zwLB4igEB5xw==
-Message-ID: <928b68db-4cf4-454c-aa88-3104e689a642@kernel.org>
-Date: Sun, 3 May 2026 22:26:06 +1000
+	Sun, 03 May 2026 15:49:48 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 79A9541084
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1777823385; bh=eUBtAkliWo7i/sWVQgdPYh5z/4C4V+lwPevehSBP+nY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=XzNZnuWOaLrDGZPmdknv8VRbuHLT3VllHLzEnVWBPAk9UORi8sVvmJ3b+pFgJdn36
+	 reK7NjyFWnX5GRYo6Pf9lBFBdSXzzrl6flyBP/5xMWWUo1/yLlJqRYulIV6jiB53ue
+	 Cw4H3KQkuTw4QZbOVm1KMrjRDvVoSW60ZZdMpUlC8esU8JfT1+QzjA4BrsaiyRutHI
+	 rOwAFZp44GoZifu/HtcWATteUeQU7VhxEOVxD0+lq5F93AkLt0FyGAwHz4xVMCGwKz
+	 +2ZODrVjLQXSHcB/mFL6C0vNIVR4Q36uoKTaD4wSWn/m2GnpmiNRaPXcLrmtDgajUc
+	 RNPkAbo0iteYw==
+Received: from localhost (mdns.lwn.net [45.79.72.68])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id 79A9541084;
+	Sun,  3 May 2026 15:49:44 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Albert Ou
+ <aou@eecs.berkeley.edu>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, workflows@vger.kernel.org, Alexandre
+ Ghiti <alex@ghiti.fr>, Shuah Khan <skhan@linuxfoundation.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Dan Williams <djbw@kernel.org>
+Subject: Re: [PATCH v4 00/10] Auto-generate maintainer profile entries
+In-Reply-To: <cover.1777295258.git.mchehab+huawei@kernel.org>
+References: <cover.1777295258.git.mchehab+huawei@kernel.org>
+Date: Sun, 03 May 2026 09:49:41 -0600
+Message-ID: <87lde0bii2.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: cpuinfo: Fix NULL dereference and inconsistent
- error code
-To: Mohamed Ayman <mohamedaymanworkspace@gmail.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Jones <ajones@ventanamicro.com>, Anup Patel
- <apatel@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260502161802.515547-1-mohamedaymanworkspace@gmail.com>
-Content-Language: en-US
-From: Michael Ellerman <mpe@kernel.org>
-In-Reply-To: <20260502161802.515547-1-mohamedaymanworkspace@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260503_084947_678959_41437E55 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,31 +72,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/5/2026 02:17, Mohamed Ayman wrote:
-> Fix a potential NULL pointer dereference in c_show() by ensuring
-> the device tree node returned by of_get_cpu_node() is checked before use.
+Mauro Carvalho Chehab <mchehab+huawei@kernel.org> writes:
 
-Where is the NULL pointer deref?
+> Hi Jon,
+>
+> This is basically the same patch series I sent during the merge
+> window, rebased on the top of post 7.1-rc1 docs-next branch.
+> It is tested both with and without O=DOCS.
+>
+> It contains just one extra trivial patch adding a missing SPDX
+> header, and, on v4, I dropped two patches touching MAINTAINERS,
+> as those aren't needed anymore.
+>
+> This patch series change the way maintainer entry profile links
+> are added to the documentation. Instead of having an entry for
+> each of them at an ReST file, get them from MAINTAINERS content.
+>
+> That should likely make easier to maintain, as there will be a single
+> point to place all such profiles.
+>
+> The output is a per-subsystem sorted (*) series of links shown as a
+> list like this:
+>
+>     - Arm And Arm64 Soc Sub-Architectures (Common Parts)
+>     - Arm/Samsung S3C, S5P And Exynos Arm Architectures
+>     - Arm/Tesla Fsd Soc Support
+>     ...
+>     - Xfs Filesystem
+>
+> Please notice that the series is doing one logical change per patch.
+> I could have merged some changes altogether, but I opted doing it
+> in small steps to help reviews. If you prefer, feel free to merge
+> maintainers_include changes on merge.
+>
+> There is one interesting side effect of this series: there is no
+> need to add rst files containing profiles inside a TOC tree: Just
+> creating the file anywhere inside Documentation and adding a P entry
+> is enough. Adding them to a TOC won't hurt.
 
-of_property_read_string() can cope with a NULL np, it just returns an error.
+One thing I kind of dislike about these magic mechanisms is that we end
+up with a single, essentially unsorted list of stuff that readers have
+to go digging their way through.  It would be nice if we could somehow
+apply a bit of structure; as the number of these handbooks grows, our
+readers would appreciate it.
 
-of_node_put() also handles a NULL np.
+Oh well, one can always hope.  Meanwhile, this seems useful, I've
+applied it.
 
-> Also replace a non-standard return value (-1) in
-> riscv_of_parent_hartid() with -ENODEV to follow Linux kernel
-> conventions for "not found" error returns.
+Thanks,
 
-That should be a separate patch. It does look like a good change. At 
-least some of the callers of riscv_of_parent_hartid() pass the return 
-value up to their callers, so -1 could be misinterpreted somewhere as EPERM.
-
-cheers
-
+jon
 
 _______________________________________________
 linux-riscv mailing list
