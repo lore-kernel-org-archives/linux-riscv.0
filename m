@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F9DFF885A
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 May 2026 08:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CF9CD3424
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 May 2026 12:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xfn1/q4+8F/IAVO5E8nKLGda0Wtox+9AXmKAofNojz4=; b=fLPxZiMUwfWjYi
-	q563xWkuKp5ZFcS+Axmca6jOSFUWHu9IUzAOcaqY9t163DFKQt7nn/PoCgYLhp5ghV98r4SNhL0oX
-	EuoHhbKbv4f9ryqGpR3b9Nt64rBJXtRpzIH4XkWYKEuh9GT4jxVgMwYQDxbcyKm80z08voHWnZwFZ
-	k9kqJ3JlVCSX3LAQ00ZshGTpt9v+M2dOq5EQy19uueL/6yxwEYiRmxom+zDY/VJNh0uIO6z2BtBV1
-	L1Xn0d0EDAzPC61cWKVCqe8ETPaKdi3JYgObNHTLpM0WMyVXG2h7qk+ZMstl9X62CmbBxmCVlTgbs
-	blBEGbAA5mtn9M+dS7/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QjrihsVddJbEFCRDDMkUBOsiwZM5z0+NnmJQOQvoKpM=; b=3HudcxtrK8YvlirxQ2fNVoA3Z3
+	hbC3fG6uhPDMlp6+6k81aQ3OfSNK1ZwzK8UmnDfFRWR0pIl8pxyAfApR345Ikz4ZCf3DX8DNjM4j8
+	AJi8v4QOP4lOyrNpa64e3HbBcmTi1uH4OMgl3F1ygCVEHNA6bj2tyJ9pD9sHZWVpBcciN6kVBnmNB
+	wMR+eq8BFvi9ECDNY9S5PpHOUkouBtvUlVYeqmt1ftYyjDMNVANZlNq/OU97cr1K0VbBNHQy/FNIc
+	b/DCpFuFX8F/SuWyWV3eINpPLh4L3k6o956rDUbPdqCEsFXDUA8E9wrXOT9TiREYcpVMPcT5vsGad
+	9lAGycWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJSYj-0000000AgPA-1Wsg;
-	Sun, 03 May 2026 08:52:17 +0000
-Received: from mailout2.hostsharing.net ([2a01:37:3000::53df:4ee9:0])
+	id 1wJVtk-0000000Axp1-2UDj;
+	Sun, 03 May 2026 12:26:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJSYe-0000000AgNq-1v0g
+	id 1wJVtj-0000000Axol-39Eq
 	for linux-riscv@lists.infradead.org;
-	Sun, 03 May 2026 08:52:15 +0000
-Received: from h08.hostsharing.net (h08.hostsharing.net [IPv6:2a01:37:1000::53df:5f1c:0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
-	 client-signature ECDSA (secp384r1) client-digest SHA384)
-	(Client CN "*.hostsharing.net", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
-	by mailout2.hostsharing.net (Postfix) with ESMTPS id 4E9B41058A;
-	Sun, 03 May 2026 10:52:06 +0200 (CEST)
-Received: by h08.hostsharing.net (Postfix, from userid 100393)
-	id 38258600D2F5; Sun,  3 May 2026 10:52:06 +0200 (CEST)
-Date: Sun, 3 May 2026 10:52:06 +0200
-From: Lukas Wunner <lukas@wunner.de>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Han Gao <gaohan@iscas.ac.cn>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Kees Cook <kees@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
-	linux-pci@vger.kernel.org, sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Han Gao <rabenda.cn@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 2/2] PCI: Add quirk to disable PCIe port services on
- Sophgo SG2042
-Message-ID: <afcMtlBJYeuxSqZr@wunner.de>
-References: <20260331175658.1015829-1-gaohan@iscas.ac.cn>
- <20260331175658.1015829-3-gaohan@iscas.ac.cn>
- <q6wmn67lzk5c2pgmgkoezcvy3xj3yqecg675gx7xyrw3amjwpi@5pjla6j3krbv>
- <0f42afefd9322779af5463b696c55b08d2296ea8.camel@iscas.ac.cn>
- <afZUxYhkCQ0wG0Uu@wunner.de>
- <68d4a49bf1df785ae906fbc2dd16e64b667ca5f0.camel@iscas.ac.cn>
+	Sun, 03 May 2026 12:26:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BFF856014B;
+	Sun,  3 May 2026 12:26:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5908BC2BCB8;
+	Sun,  3 May 2026 12:26:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777811170;
+	bh=wIKZJm+44gbevXVFKTtgRVSh6IKiCNKWi89emtsttCM=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=NX8VB4/qC3hcyaprRzJbBB8X9QJWmublJVTOGcxgzp33JEbTGhzkql/0XvsAFD9OY
+	 nnSs+epqaS5u1YfLZ+2pR5ZIA5miSZ8VpP3os67SIqx+7AiU7JBn5pYAyvMTUNC8gG
+	 NcQFUubOy+LSbE8DlouYET+lY1r8MKpDh20WGH6QniJ4zpWsW9sKUKorpqMldFcIX5
+	 05g/KnBk/8/a4Wddz4xeBPKiPc5p5XNDiXT54212XGwhEorT24ZNJcVRMEiFgt5Xqm
+	 zzq4Zel67W7Fhk90Xhq13FbaiSqFDlcWRFR7ZeMthTPp5YXbmbPesESjdcNV1FfSk4
+	 3zwLB4igEB5xw==
+Message-ID: <928b68db-4cf4-454c-aa88-3104e689a642@kernel.org>
+Date: Sun, 3 May 2026 22:26:06 +1000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <68d4a49bf1df785ae906fbc2dd16e64b667ca5f0.camel@iscas.ac.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_015212_665505_11D498B7 
-X-CRM114-Status: GOOD (  15.46  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: cpuinfo: Fix NULL dereference and inconsistent
+ error code
+To: Mohamed Ayman <mohamedaymanworkspace@gmail.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andrew Jones <ajones@ventanamicro.com>, Anup Patel
+ <apatel@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20260502161802.515547-1-mohamedaymanworkspace@gmail.com>
+Content-Language: en-US
+From: Michael Ellerman <mpe@kernel.org>
+In-Reply-To: <20260502161802.515547-1-mohamedaymanworkspace@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,54 +70,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 03, 2026 at 03:10:58PM +0800, Icenowy Zheng wrote:
-> It's used in multiple products, but only one of them (EVBv1, which is
-> just an early EVB available for a few people including me) lacks an
-> onboard switch, because SG2042 is short on on-chip peripherals. All
-> other devices (including two mainlined ones, EVBv2 and Milk-V Pioneer,
-> and unmainlined dual socket rack servers; Milk-V Pioneer should be the
-> most popular device because it was on shelf) have an onboard switch to
-> mitigate the lack of on-chip peripherals in SG2042.
+On 3/5/2026 02:17, Mohamed Ayman wrote:
+> Fix a potential NULL pointer dereference in c_show() by ensuring
+> the device tree node returned by of_get_cpu_node() is checked before use.
 
-Who knows, maybe someone will design a product which doesn't attach
-a PCIe switch to the SoC, maybe the lack of peripherals isn't a
-problem for them.
+Where is the NULL pointer deref?
 
-It seems reasonable to accommodate such non-switch use cases as well,
-so I think you definitely do not want to quirk all products using that
-SoC but only those that need it, regardless whether it's the majority.
+of_property_read_string() can cope with a NULL np, it just returns an error.
 
-> > My point is, you want to constrain this to a specific product, not to
-> > the SoC.  Can you maybe solve this by not specifying interrupts in
-> > the devicetree for the PCIe switch?
-> 
-> The PCIe switches are not described in the device tree at all, because
-> they're all just discoverable; can we describe them in the DT and
-> redirect their interrupts to void?
+of_node_put() also handles a NULL np.
 
-Yes, somebody did a writeup how to represent switches and endpoints
-in the devicetree:
+> Also replace a non-standard return value (-1) in
+> riscv_of_parent_hartid() with -ENODEV to follow Linux kernel
+> conventions for "not found" error returns.
 
-https://farlepet.github.io/linux/2024/02/20/using-linux-device-tree-with-pcie-devices.html
+That should be a separate patch. It does look like a good change. At 
+least some of the callers of riscv_of_parent_hartid() pass the return 
+value up to their callers, so -1 could be misinterpreted somewhere as EPERM.
 
-And then I would try providing an empty "interrupts" property for
-those switch ports for which you want to avoid port services being
-instantiated.
+cheers
 
-That way you could selectively *enable* port services for specific
-ports where it's useful.  Let's say you need DPC on a specific port
-to contain errors of an attached NVMe drive.  Just assign a single
-MSI for that port and assign no MSIs for all the others.  Much more
-flexible than globally disabling port services.
-
-Thanks,
-
-Lukas
 
 _______________________________________________
 linux-riscv mailing list
