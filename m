@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 491F7CD3430
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 May 2026 14:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40149FF885A
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 May 2026 15:51:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K70YmLhL7C/93fWRPZiMRWFUmepq3Wn8m2brZReGc3M=; b=1F+IFTx8fBmGOv
-	0nBwdXHIgRP+NuhjwGcfeOYAd/ePGRfIYlBvgA3Pn1ovbTO6sB8gprXcXVx6Q9BxxkPMqpPlPcf8o
-	wtjGFF41QnYzhpT1okZ7cyO9s+nD2xqeMzcC6bX0cve2R1GqfQQZr1WAp1G4mH6RUjBpWIKyoIcFF
-	1pbUayTxS1kFxw7nR8cwH3265L2LKG5U+8pBOrGEnXugzqB7rpifl/kgD6w1yEZgoZ/qXH1P70wck
-	a+sGfoBINWHG9l0ZQqzbJ4xfk59OC1Wu+lf7JleLXTM2Qz+saKdwagOdoYaM/3jO7Pp4z/wGN57lh
-	FI2agnxhDaPAlUDUMVNw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ULO7XiotLD85GeMVWNoH2aNVrFVqQQcLEq4EXd2YRos=; b=QyeC4LOtumxP0Y
+	DHD/gr9sA58r6xL/IiBIq4XqqMuNz2zK3B/wfcWqrFxM5nmkCJF+TE3ZdHv+XiCZEDkKelUCPxutS
+	SsPfxJ92cohS94cDxLQcP7QnGuovuMxAAyNT9o8/7XH8xQWs2NYgtdccjQZPZU+kQATwS8gH4s3HT
+	EtOTcKxuLqxnpAxVSfwDNEx2mg3TBuF6dzbqi7TbnLX6Wq0FIha23rIDqj6Z9nEz4dFa+i8qKWcNd
+	0mvTlqSKwpIfT2DV0N8Rh+JMnI+M69l/sVLViCfIH4Sx9lTiYvm+x6bdOd8/JehwL/0gPLvewT1fC
+	tpm4fsnWx2GBhFoqPozQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuSN-0000000DTTH-2Sev;
-	Mon, 04 May 2026 14:39:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wJvZn-0000000DdPx-3CW4;
+	Mon, 04 May 2026 15:51:19 +0000
+Received: from out-182.mta0.migadu.com ([91.218.175.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJuSM-0000000DTSQ-1jJu
+	id 1wJvZh-0000000DdLX-3mGC
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 May 2026 14:39:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B8C961146;
-	Mon,  4 May 2026 14:39:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A9E5C2BCB8;
-	Mon,  4 May 2026 14:39:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777905573;
-	bh=FxoWnitM8sq1qmvGum3hMvfTjjYC12V36P8W0yTzW30=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=I8JnDe6EUtn6YHetNFJEcZa2PNfrak+g1eIYd5Np8ZtMa8mHvCfiqaUMRMwn672Zf
-	 qehRu31K4AO9YapQPUdJ5QOLjr4SqL0Pdov/OWdK1OZY/C+Sjl/svLmKRZuwHqt8mN
-	 uAXgq71OSFK3U9bpCUWXDuS5zQi4iAThTdNV63saKaI+yxgNkS7Vcs+5shg9VZ8nAN
-	 dGnOSCLFHMvsPVt1auoJjkVVGrEmNDNYBU2P7HNoVoOQbsvN3Pd0Mo9sZvkTo31XCX
-	 PnsE1dWihKOzNX9myapNngb2M3XyFo+tcNukl6zsBI2V9Q/5pScjwZbQJVEpQcrGxK
-	 EHtrRh3Ab/krQ==
-Received: from localhost ([::1])
-	by mail.kernel.org with esmtp (Exim 4.99.1)
-	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1wJuSJ-0000000EoSy-02WM;
-	Mon, 04 May 2026 16:39:31 +0200
-Date: Mon, 4 May 2026 16:39:30 +0200
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <pjw@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, workflows@vger.kernel.org, Alexandre Ghiti
- <alex@ghiti.fr>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Dan Williams <djbw@kernel.org>
-Subject: Re: [PATCH v4 00/10] Auto-generate maintainer profile entries
-Message-ID: <20260504163930.6114320b@localhost>
-In-Reply-To: <20260504090041.243520a8@foz.lan>
-References: <cover.1777295258.git.mchehab+huawei@kernel.org>
-	<87lde0bii2.fsf@trenco.lwn.net>
-	<20260504090041.243520a8@foz.lan>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Mon, 04 May 2026 15:51:18 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1777909836;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=PEQK1PBGjMK7Q+JXhpgOTQpdtZyIwoE5SPoGL4zVShM=;
+	b=R1zHfVnK+H6kidpuLSVpK23AB0ugTJct9+dLkd7p2LZmZqGMRnM5LO5UIZ+zK/iJ/9OWpZ
+	x8pDpSmgkqpvKFWqUU7QJYv1esHPMKpy49qz6BKwUObPWXepUdmBh0GbCiLSrIwU/AgAmt
+	AFPdeJl2xCFFm+kUAcKWwR1GyRajz/4=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Nutty Liu <liujingqi@lanxincomputing.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: pi: replace strlcat with strscpy in get_early_cmdline
+Date: Mon,  4 May 2026 17:49:24 +0200
+Message-ID: <20260504154924.141566-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1968; i=thorsten.blum@linux.dev; h=from:subject; bh=f8sQMBsW6cFjuwFwzTu5EJISY44wXfbIEU/0bkdpqiY=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJk/DrA0L1bb8NDOfuVBl7p9546sC1LZ2rn37LySaKfps oIXe1b87ihlYRDjYpAVU2R5MOvHDN/SmspNJhE7YeawMoEMYeDiFICJaPYw/K9LctI6np3B8InH kM3p+7PLK53ezMgsP51Z9Parx4HFItcZ/lfvf7Pp0Zb6yOmT207O3zWhaSKbw46KXez3U/nlP3a 1RLICAA==
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260504_085114_087918_D9BA961B 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +74,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 May 2026 09:00:41 +0200
-Mauro Carvalho Chehab <mchehab+huawei@kernel.org> wrote:
+Use the return value of strscpy() instead of calling strlen(fdt_cmdline)
+again and return early on string truncation. Drop the explicit size
+argument since early_cmdline has a fixed length, which strscpy()
+determines using sizeof() when the argument is omitted.
 
-> On Sun, 03 May 2026 09:49:41 -0600
-> Jonathan Corbet <corbet@lwn.net> wrote:
-> 
-> > Mauro Carvalho Chehab <mchehab+huawei@kernel.org> writes:
-> > 
-> > > Hi Jon,
-> > >
-> > > This is basically the same patch series I sent during the merge
-> > > window, rebased on the top of post 7.1-rc1 docs-next branch.
-> > > It is tested both with and without O=DOCS.
-> > >
-> > > It contains just one extra trivial patch adding a missing SPDX
-> > > header, and, on v4, I dropped two patches touching MAINTAINERS,
-> > > as those aren't needed anymore.
-> > >
-> > > This patch series change the way maintainer entry profile links
-> > > are added to the documentation. Instead of having an entry for
-> > > each of them at an ReST file, get them from MAINTAINERS content.
-> > >
-> > > That should likely make easier to maintain, as there will be a single
-> > > point to place all such profiles.
-> > >
-> > > The output is a per-subsystem sorted (*) series of links shown as a
-> > > list like this:
-> > >
-> > >     - Arm And Arm64 Soc Sub-Architectures (Common Parts)
-> > >     - Arm/Samsung S3C, S5P And Exynos Arm Architectures
-> > >     - Arm/Tesla Fsd Soc Support
-> > >     ...
-> > >     - Xfs Filesystem
-> > >
-> > > Please notice that the series is doing one logical change per patch.
-> > > I could have merged some changes altogether, but I opted doing it
-> > > in small steps to help reviews. If you prefer, feel free to merge
-> > > maintainers_include changes on merge.
-> > >
-> > > There is one interesting side effect of this series: there is no
-> > > need to add rst files containing profiles inside a TOC tree: Just
-> > > creating the file anywhere inside Documentation and adding a P entry
-> > > is enough. Adding them to a TOC won't hurt.  
-> > 
-> > One thing I kind of dislike about these magic mechanisms is that we end
-> > up with a single, essentially unsorted list of stuff that readers have
-> > to go digging their way through. 
+Replace strlcat() with strscpy() to append CONFIG_CMDLINE.
 
-Heh, perhaps you're referring to the TOC tree. You'll see it
-unsorted on diffs because the TOC tree there is hidden. As it is
-a set, currently it will output a different result on each run.
+Also remove the unnecessary fdt_cmdline NULL initialization.
 
-Not a problem for users, but it makes harder to check differences
-after patches, so I'm planning to submit a patch to keep it sorted
-just for the sake of doing:
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ arch/riscv/kernel/pi/cmdline_early.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-	diff -u before/ after/
-
-Thanks,
-Mauro
+diff --git a/arch/riscv/kernel/pi/cmdline_early.c b/arch/riscv/kernel/pi/cmdline_early.c
+index 389d086a0718..0afbe4077cb8 100644
+--- a/arch/riscv/kernel/pi/cmdline_early.c
++++ b/arch/riscv/kernel/pi/cmdline_early.c
+@@ -12,8 +12,8 @@ static char early_cmdline[COMMAND_LINE_SIZE];
+ 
+ static char *get_early_cmdline(uintptr_t dtb_pa)
+ {
+-	const char *fdt_cmdline = NULL;
+-	unsigned int fdt_cmdline_size = 0;
++	const char *fdt_cmdline;
++	ssize_t fdt_cmdline_size = 0;
+ 	int chosen_node;
+ 
+ 	if (!IS_ENABLED(CONFIG_CMDLINE_FORCE)) {
+@@ -22,18 +22,18 @@ static char *get_early_cmdline(uintptr_t dtb_pa)
+ 			fdt_cmdline = fdt_getprop((void *)dtb_pa, chosen_node,
+ 						  "bootargs", NULL);
+ 			if (fdt_cmdline) {
+-				fdt_cmdline_size = strlen(fdt_cmdline);
+-				strscpy(early_cmdline, fdt_cmdline,
+-					COMMAND_LINE_SIZE);
++				fdt_cmdline_size = strscpy(early_cmdline, fdt_cmdline);
++				if (fdt_cmdline_size < 0)
++					return early_cmdline;
+ 			}
+ 		}
+ 	}
+ 
+ 	if (IS_ENABLED(CONFIG_CMDLINE_EXTEND) ||
+ 	    IS_ENABLED(CONFIG_CMDLINE_FORCE) ||
+-	    fdt_cmdline_size == 0 /* CONFIG_CMDLINE_FALLBACK */) {
+-		strlcat(early_cmdline, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+-	}
++	    fdt_cmdline_size == 0 /* CONFIG_CMDLINE_FALLBACK */)
++		strscpy(early_cmdline + fdt_cmdline_size, CONFIG_CMDLINE,
++			COMMAND_LINE_SIZE - fdt_cmdline_size);
+ 
+ 	return early_cmdline;
+ }
 
 _______________________________________________
 linux-riscv mailing list
