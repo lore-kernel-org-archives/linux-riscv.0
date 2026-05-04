@@ -4,101 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0380BCD3423
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 May 2026 04:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E3CCFF885A
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 May 2026 06:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
 	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TwYKR3ldqmP0B7f2x7FbDnPwbBbaBqZDwxId6pc6Y8s=; b=YwG4F0fdD5vfHJ
-	w+YwpjsLVpH6ONJndWVQ5EhzxwIMXf3sMrtMi/YqVClsnsdpLFTlG8r2UkQriDiIt0IiSRPvWGZdo
-	xK3H5TOH9w/fEVIwqxdrn1a5BoFEx+1J7nUwbO25qNfHv2kDn94lMi/NVq7g/e2JlDCPLPxmvqDM7
-	F5tJLuBaHKm4j6/9y46dbCbc/oyeqa0SxO7SCwBw1Motpd0bZT6074vsEE2Sk7CDap6hu5BGAsZHk
-	AqpeeBtT1305A8OBkpW02x21gIRkVKgcdRgHcL0JNmQ04Av9ZAXmqZnmGzuQCB0fIFZTAeZf4yW65
-	Yu6ghbd9sFd/SipmveOw==;
+	List-Owner; bh=MhxMpc3aGkwayv/v+zJssCRU4NTEv3kUJ4M0VovpSi0=; b=lNoY0OgShpgmAQ
+	lyhMqCvVdBxlFASVthjgG52r7V3NEd/13b8wpup0kRn8OyoTU14M1wG88lsZBmCYmsEWwiK3Wkkmo
+	gt+BaP4VQbbvVz5JPoOChx7iaur7Kxo65TkpNizRlmOAsjINGxZvzRrg5a8eawQx5aEmRDO5zeo/M
+	Ze4ciL4E7PSkIMlwNU03wcE36ByW5ZC9NCDgY2+vEj1qVMA87haibyZ93mTywSsnKDjlLhQsIWvGW
+	K6oCeIhx7mvwCNrPhjLAUq7pJjPIMipPigORb+w5ye6HR7PkGWdz/YhldhWpOPMWMYU3/mbi12wBJ
+	HSEOSuqdiguIRG/v0LVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJkUO-0000000CIFN-3zJR;
-	Mon, 04 May 2026 04:01:01 +0000
-Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
+	id 1wJmQX-0000000CT2X-1ZAd;
+	Mon, 04 May 2026 06:05:09 +0000
+Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJkUK-0000000CIDu-1xG1
+	id 1wJmQT-0000000CT1j-3rVr
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 May 2026 04:00:58 +0000
-Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-12c565dd3a7so7997416c88.1
-        for <linux-riscv@lists.infradead.org>; Sun, 03 May 2026 21:00:56 -0700 (PDT)
+	Mon, 04 May 2026 06:05:07 +0000
+Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-2c15849aa2cso4819983eec.0
+        for <linux-riscv@lists.infradead.org>; Sun, 03 May 2026 23:05:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1777867255; x=1778472055; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1777874705; x=1778479505; darn=lists.infradead.org;
         h=cc:to:message-id:content-transfer-encoding:mime-version:subject
          :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IGXGWwnAcL1bVeuWF2vhaOhBAT20XCLM8BlTLJN4/sY=;
-        b=Ibxl/slyR/zGiD8YWPw3TNxyR8NIuCJ+Cyqfq0DpPUhCsR90a2Gb3ekI70wfc0Iym6
-         cnmE0Ql374XJfXB0uQ2WMk3Tv+yb1rkn7Lt0qJwjtOUlDJ4kfBz+A/M6hHnARkoBpQwQ
-         UkRwQ3BA+ArNRRq0t34MU+1Eu0CV6E91eaDgP3WXJhTenFNYhKb8sDP2itQ4IKDTuGUA
-         stm1FeX6RvF2HHm49u7brm7IcESBExe26IdOYSIqzsokkakMXqIc/Agz6LaXYcCclhWC
-         zm2FJlSQhe3urJtuXHSYD+lsPJNUDKQ3p+Zqi20PZRh15rpfmNEHjdS5NYdOa5gx+R2+
-         mQuA==
+        bh=1zmVfG2IQ8fhzC+19hTIfCnvMAmFzh0OmJHIQbemgdw=;
+        b=cpU0wqIPxowLpK6/PaYyw2VT8MXWzhd3ny5JYrjZsriJnB/Kfc+V8ZuHiObFinnmiM
+         XYlviMf0JfWoOgWyXXXUoI04iCGK06tBo1ZP7y03aTMAcfQw5Pmsre6ooNDLQZBEeAOI
+         5TZOvzvLUXqVVJOw12dC/RdUOI4AXPgUdBtiU5Ebar6UDo85H5a+uEzCFa65W3IfGCi2
+         AMpTnDG4elnlf1yECXlFZtWOGPeDhKZ6GY/qC29M5FsZwaGCYYCG2bcJgVaxN0v+qaKF
+         h9AVEYDFYK/bT4FSx4ROSbjcplIGMy3pcxNDtMD+IvEVz5dWrFRsjLuaSv6u9pqBbV9k
+         qQ1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777867255; x=1778472055;
+        d=1e100.net; s=20251104; t=1777874705; x=1778479505;
         h=cc:to:message-id:content-transfer-encoding:mime-version:subject
          :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IGXGWwnAcL1bVeuWF2vhaOhBAT20XCLM8BlTLJN4/sY=;
-        b=VQ2jbOyZjxYPXm6sPKacZ+iahFh3tNMCFt2Vm7EjUKMqzu9MZaB4lZ9qq/uJjsFs1f
-         wxPsu8TLqkEUIXbovCAMqOcZRJrdXxEQPEHKDlNDF4mgoZtgYuQ+/HfVco00Huywleyk
-         rVy5AmATMuhdULSjHmp8jT8iPkPE8R5QqSGZFjiRD1MkQKFDPyofwtVr8AVjy+2FIUFe
-         tZb/w2obSfPjzWnYOF7yEJr/7g+vwGA+XxJxohNd1AzstPlIAL70eM1nCx5Ju6UqWOuR
-         MCSq8bBYlMyV8s8GhA/yAnA+5/6eoNuT5l88GcmMl45oyR2VA+nyiCiGVgRT7pql+5Qe
-         5rXw==
-X-Forwarded-Encrypted: i=1; AFNElJ8dqb/PAUWnhEvVNIK8cSLr2uqcI8Gafd1wR5+sh/t0W23BXSVbNbx3B3BqWbOunkz6/wbeLDqBYuyBmg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVu95qjKWnsB+F/gS2kbaNGkoZ0iGwoZngxOdHE0thMGuCiNCS
-	ObWa4r8kvyd7Q6rTj4xUu7nehjzWvQBcnPm3UioyE/j3A7p7DkcA78MmwQ5pOQGydu4=
-X-Gm-Gg: AeBDieuXyIefkkLaDNQ5XQxgAsX4HFinFLTG52MIhRUL/VvNrXL0PgdNpPrLw0Umo41
-	QAnrbLZ7qqBJUV3/AvNujlcmTltbiyXg0Z9HFn0pn7OoqFCGwwPocDlZPzGojw00wXut08PJbqY
-	b32rQ4MFqKIVg32HdlzaHA3FhAFpSBBwMX7ShCkUkCbe2noqV3SQvNvLaUYc2yeOTsULyus+xke
-	9TDhbguelcWOb5eejhk/cuZNoRO/cFDDrziSWCLsKgwSDlN8dma/lm/reCgPdoByfpA1NeueBhj
-	b+0bJe2CnTFBxgzgZKSurLtVYO55FNJMPvd7xdZgouxBAvMWC5fesddz1+4WGUbXE092e6cOQYj
-	51IPyGIxMXNUiTlxbqvhTJZoDkJrOjh/Z4oZngFegnWtnwWYDPRh+jk513O16YHZtYmQybS6GbD
-	lwOs8tvO+P3ZeknQzB8vYHFW3O8Fol3+1Jc+UD3RwyZ8qhqM/uzQz+LA==
-X-Received: by 2002:a05:7301:2c88:b0:2d9:7bc4:9578 with SMTP id 5a478bee46e88-2efba28ad29mr3924066eec.28.1777867255328;
-        Sun, 03 May 2026 21:00:55 -0700 (PDT)
+        bh=1zmVfG2IQ8fhzC+19hTIfCnvMAmFzh0OmJHIQbemgdw=;
+        b=GziW/UuCEuziC7nUdYXdUCIc9MWEuXxEyKkBYzgQDdI6QwyPhMbTCkw9eYU7wQeQSE
+         fIQKwQVbrAK2IwUFIFKIO6RJqHc0Esm3gdjP8B338+6s2UXaMfgjwZpjhXPmV42dnryc
+         POHtuZ2lyPIVqJ+4iVD92gi+Pm90PAXiJAvkWoz1m4rwio8CGHhjewe0VzUKeak09jq0
+         n1pJx4Ul9GA4OsXWkwQy4UgQjSw4BSmhiS/3xxW1u/rEp/Y+sD29/+sMCGLtyV/JdK3/
+         vxeclNg4RQCF7DlwhqkFdOkzXY0ibd8VIUen5DeWbfTsi2mNwewtRj2oxqc5xASvU3H5
+         N/IQ==
+X-Gm-Message-State: AOJu0YytHWMDsh1J9qiNlKZnwBCIEyM5F5jbhx2hDQv05/re9iypDLbl
+	Nz1uKx/eagXIj+4fkAQm7qO435iV8+mjk7MGnLqzGVtjhg2gAhmWwZKdD23WDBQ82t8=
+X-Gm-Gg: AeBDieu6E80b6wMdMBlBk3i1BNiU0xbCDiSwWSGUuD99TvLOTpSopnisn57DzW4SFtv
+	6e13dezpF7Mulr+O1TG6WThKJxOkfeYUjLnutJ542Vx1mX/0Bm7HzoX0G0DEFMtzUY/SfJ6hUcv
+	P8naxjDrF/gpa8CHGpEefJnZqr12LquV/X0zRKHLI3kr2eR696xiM4xJQQVLqmHZ8CxUN3M/6pv
+	dQCShowI15GlUBp05rq692UPXm4gL18XpPyGf2DkF1bYW/2CYO9mh3L+4jI9jyVkcJfO1mbrpB6
+	gbG2Tq7OgExqiOzke8BpTzvtR+r7G/+w3o0eoVwdoG6bR0kTrDiXiLaw7D3tvEO2L+wfdNwodMH
+	QFGwoYhY9cD1UkekAeLmLxAboyvtfVKINPbtHKw2ZXVHmyf6NA0qfdpET/tDvV4jSI24CnZllWB
+	cju1AJOeMaXQPBHNqtVW45Y9P55r0Jv8xYngq2bV7WgZB3j43J7hRVYQ==
+X-Received: by 2002:a05:7300:570b:b0:2ea:5057:a2f9 with SMTP id 5a478bee46e88-2efb9b8dea1mr3518098eec.16.1777874704516;
+        Sun, 03 May 2026 23:05:04 -0700 (PDT)
 Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f28f7ba26dsm2234848eec.10.2026.05.03.21.00.54
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ee3537d300sm17872381eec.0.2026.05.03.23.05.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 May 2026 21:00:54 -0700 (PDT)
+        Sun, 03 May 2026 23:05:04 -0700 (PDT)
 From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Date: Sun, 03 May 2026 21:00:53 -0700
-Subject: [PATCH] KVM: riscv: selftests: add check_supported_reg() into
- get-reg-list test
+Date: Sun, 03 May 2026 23:05:02 -0700
+Subject: [PATCH] irqchip/riscv-imsic: sync-up state before CPU offline
 MIME-Version: 1.0
-Message-Id: <20260503-kvm-get_reg_list-v1-1-c16f9b572e9f@sifive.com>
-X-B4-Tracking: v=1; b=H4sIAPQZ+GkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDUwNj3eyyXN301JL4otT0+JzM4hJdgyQDE8NEI/O0JCNjJaC2gqLUtMw
- KsJHRsRB+cWlSVmpyCcgcpdpaAG7UtOd0AAAA
-X-Change-ID: 20260503-kvm-get_reg_list-0b041a27fb23
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
+Message-Id: <20260503-imsic-v1-1-aa8330bd1c34@sifive.com>
+X-B4-Tracking: v=1; b=H4sIAA43+GkC/yXM2wpAUBCF4VfRXNs1zuVV5MIeg1EO7UFK3t3G5
+ Vf/WhcoO2GFMrjA8SEqy+wRhQHQ0Mw9G2m9IcY4xwwTI5MKmbZAirKcbJEi+HZ13Mn5/VT1b93
+ tyLS9Y7jvB06AsShpAAAA
+X-Change-ID: 20260503-imsic-d70c156cb740
+To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
  Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, greentime.hu@sifive.com, 
- vincent.chen@sifive.com, zong.li@sifive.com, 
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com, 
  Yong-Xuan Wang <yongxuan.wang@sifive.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777867254; l=1079;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777874703; l=1308;
  i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
- bh=Lf1TLdGVOJXUigkA8oRYy3fs6i47dPPa9PnAZKcPDvI=;
- b=7nvgTYMW+T1cvFZRFfiH/KnS/HC7BuQ8+FdcPWt561AW6wqKNZmoD7aVpWGYlNINN8J9EnBDm
- jS8diatltGDC0HtBVXq0RWanmKSTkPsmK9C0EPxYHOS5VJ6GKCdC5Xp
+ bh=1wr8R18V/LbF9lTOXmO69mFRRFEAOKuZ/GLakvvENPo=;
+ b=qZoikSdhaw1KQSELCXgn/JlJwNbDt9VRJbUPs1QNENElrEQGT1lnePB/suojw0HFXs48FirOU
+ 9LkflcRHONHB+iAtJ85aSmU8bdTrrxFr/pL1EhL9i96LMlD7q7/pt12
 X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
  pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260503_210057_338342_DDB09F17 
-X-CRM114-Status: UNSURE (   7.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260503_230505_979131_5A17B6C0 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,42 +109,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Not all the registers in a sublist are supported on a platform, e.g. the
-SUBLIST_SBI_FWFT list. Add the check_supported_reg() to remove the false
-alarm of missing registers.
+The "move_prev" pointer in struct imsic_vector on the new CPU is
+cleared only after the old CPU has cleared "move_next". But when
+migrating all the interrupts out from an offling CPU, since the CPU
+is already marked as "offlined", the IMSIC driver skip to sync-up the
+interrupt vector in __imsic_remote_sync(). The "move_pre" pointer of
+these interrupts can only be cleared after the old CPU backs to online.
+Therefore the affinity of an interrupt that are orignally target an
+offlined CPU can't be changed.
+
+This patch force to clear the "move_pre" pointers before the CPU goes
+offline.
 
 Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
 ---
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/irqchip/irq-riscv-imsic-early.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index 8d6b951434eb..d7cb9b5d37df 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -28,6 +28,18 @@ enum {
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index ba903fa689bd..a7a1852b548c 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -158,6 +158,8 @@ static int imsic_dying_cpu(unsigned int cpu)
+ 	/* Cleanup IPIs */
+ 	imsic_ipi_dying_cpu();
  
- static bool isa_ext_cant_disable[KVM_RISCV_ISA_EXT_MAX];
++	imsic_local_sync_all(false);
++
+ 	/* Mark per-CPU IMSIC state as offline */
+ 	imsic_state_offline();
  
-+bool check_supported_reg(struct kvm_vcpu *vcpu, __u64 reg)
-+{
-+	int ret;
-+	u64 data;
-+
-+	ret = __vcpu_get_reg(vcpu, reg, &data);
-+	if (ret < 0)
-+		return false;
-+
-+	return true;
-+}
-+
- bool filter_reg(__u64 reg)
- {
- 	switch (reg & ~REG_MASK) {
 
 ---
-base-commit: ddbf9c76c4020bf63a0799b00faad40caa3de6c2
-change-id: 20260503-kvm-get_reg_list-0b041a27fb23
+base-commit: 9b3a2be84803cf18c4b4d1efc695991f0daa153c
+change-id: 20260503-imsic-d70c156cb740
 
 
 _______________________________________________
