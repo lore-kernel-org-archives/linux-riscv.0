@@ -4,167 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16CE4CD3427
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 May 2026 16:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CEEFF885A
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 May 2026 16:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OoZ5hSrLK6Cg0L/DiUEBc8MFXw4g990cPgY2BIBO4WY=; b=3j4Zto5i7wqeUV
-	KYX+PpUX0nPTu/pVQAJ9+YsOJPv/h0up583VO56xZmonPOrxaCVmeGewj4YSa5QnoP4SE+erMOaVJ
-	oTR1HqYS9aW/WP9FvskCuYn5oR1753AXpoOdBxEmtstuR34X0yYiCYjkF5oZSUVvvp6LCRQmqPl2C
-	F/XXCPNxW7ZdChkPwvdot/5l75CukSZEP3pM71ubwyuBF4OA8XS2YK3RMMONHqQ1t67eBkiPwl8y5
-	B9pWq8e5DbOhqGCS7ccOwFrECEzi6zJCDYj4jYwXh2wZk1Wg+8TZBXZSwNTomGsg90F0hUiMfcNsa
-	gEkCekU7OzVE3KS/6Z5g==;
+	List-Owner; bh=BRBiJvkGCeZ0gzFeX6y8DMb/HLqPaU49oazcqXBH17U=; b=vLzNO0DyDinWGz
+	fKZQCGgvTkbdI5iZ0oJFxaPqVviDPsRMadFlF1MJ3T+vvo5UCa3y0lIotPKotOjS5V6ENBuzOFBkO
+	qm3uRCEM4wubAYulxF3LfMQLjVHzUxqzu1FQzChk0asLOlJ9ZLZoNdS3lFErgA1qun88+nsdxnk7P
+	8LKmC38PCwQWWg4VbjpB4MFKC6NS+I68p9VHJuNLaXS0ttLxDREdyCfRhXJEXtK4Xflm+i2a8jlSM
+	gi5tRBM/h0MstoRM/aft+n6K+Va3rABm9RXG2HSHAeltzmwWAAp0mEqRcBNAGGUVRbqd55rV33gB2
+	yttncscW9Gnh5/HRJCRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJvoV-0000000Df72-43fV;
-	Mon, 04 May 2026 16:06:31 +0000
-Received: from mail-northcentralusazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d111::2] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wJwRU-0000000Dkbp-1XZR;
+	Mon, 04 May 2026 16:46:48 +0000
+Received: from mail-northcentralusazon11013046.outbound.protection.outlook.com ([40.107.201.46] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJvoS-0000000Df5O-3rdu;
-	Mon, 04 May 2026 16:06:30 +0000
+	id 1wJwRR-0000000DkbL-1r8N
+	for linux-riscv@lists.infradead.org;
+	Mon, 04 May 2026 16:46:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iD3B5JTACz7ekYPqRn7WHWMMBvKI09SYbtzc900pD2VEjo/QdOaASPqdp3J5Vh3SxyOMGCi9UioNSpdY+OUqBoNDs9Qv/YgU9XZ24SBdNH+xzJ1a7h+FDLnH9bFwIUajVfDJp+MIf7jTHPMcfx6zvAz5ldztfIeQaMWVlaBreOEr0OtWe2j1+/DgJYNS8wpoTXNkALSTQaA7TIrme8P2r9lVgBPTaX87lfl4xrZQEIbEcyyumI1qT7ahg7snMXaXXCwCJgkcokD00anefkrz7W6bU56YZuUslJuhNhxNbeqsK6Gb9DobduUb8T1HpdTAC4qbt7whXDoVT23/5jceAA==
+ b=lUxpyL1mzNlgYbiSIr9+Bhr+mxbXjeYt0uyMjpYZXkRo9mpisxseUDtUO9Dbj7VbJv7EyNj9QdstWLhi1/Tqq94KyBraDsyr5lDGvXRrZiqMTmheLvwjLmpatoCZpvlUkVJbYSh4AYhlO7iKprqbdP+2+JyXHyMjMyLpD2GxFycOx7P8Gg3RGqociP64DaagtZLSh5nnaLYgwEhaN2Re9cq6Pqp7zNrcqoW/AZpt4+UwDsqzrkIA2HeDQiUn1EnmK2xFFIQDkUj3kq+yonNcua7Jh7NTp4OHaeE65mHY+7is7ty+uXXtpTkcUjZh2x0p01t8/Qt8s8pChWsRXOenYw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XW3GD0BjWqdZHY14hpMkeiboBrR6eErhqBbX5IezatA=;
- b=cKevq7NyOUMbFraeOgOJ+B+ljWiAJnjyDgfl/+BMKm8PWhQHg2oYQC6ZqNV0fgT8sAOcccIy1ULvtomKcXnO4QctCUlPXy4oVfT1VVEZcXxJ0srlYAdsiRN2KDjqXCQA6YNzQQZdMjA8jp3WES/MBo2TBcpTO0MPJE6D8b+/FFxRe4i0wjyoCKpYNQTJ9MxSKhtMuHidcJ0ehh1ZfEpFaTZNCOPL9FQO9G2LOVwvBpctm41Qp3ZtuXR364Zq1JDN7A5q5mD4vC8O3J6+2rOaJJrz1/iEaKQT8t+5K5bCh1AfH6nsav1hUxHhVgE27yGOtiz7COZktNn60kUmpQNHOQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
+ bh=UHuERGd1sK4CdydouUCBXL5vCSbdgoTx8VciQd+tgP8=;
+ b=oNX5fwtiCGJ9/yVUM0hEKJ88dlmbazsfpXoZavdE2NN/MQ8QsKIeRy6nftJOIm2p57arVSv+OyD/Zkwa7mxJtcUcOQQ0e8m2W/AsZZKNzmdxwI951i4wImJ0rcofUJTq2Wyixib0ydJSA9JH8nBOq08aUxCIJH54zNkv4BNUiINufqHOvVMKkcfhehph0rMeJniTZdy6mTBtTyc68WF1IjpTFZSTJco4eaD/xgRuo9HX3wVeE1U+jcryeH77S9yFWGASKzeU2rsqB2zETug/VDYNa50Nf7w1j1RII89DwTAdCNsUtbuBz4S9bqgRwR1U+VEnmGdgZ8nOx/z38I6hGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XW3GD0BjWqdZHY14hpMkeiboBrR6eErhqBbX5IezatA=;
- b=rQyQuFLtmxKzMbOcmAgiE5kQpZY7TqY7g/H+oxzE9YOCCqyE53L+1+8Cj4ipLaeEAEhNFn6kJxmS8XdfQuXsTRDqKx6wG4EIAIjT6gb4GpDXtgKKS7GcC9m4bIYFJTQHF4KFfs4Nf9e9MprkJab9EcI1zz+jkUX4aJxkOKxVYhNYOVIXWpYYi93xPvwaf0qFWqMt3Chu1YaMDjUyp17Rh/x+8KzOAAgne/6jHxkFwZmrONT5fUETl2LbfNvhG137Hg8k77c7GJHPhhwHc+I9iBhl2U8HxTrEG7FT+SbZNOOGWi5i6kZeSpsKy+7sX76wYjgsM76JzUCC0YqJ89dc5A==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by DM4PR02MB9167.namprd02.prod.outlook.com (2603:10b6:8:10c::16) with
+ bh=UHuERGd1sK4CdydouUCBXL5vCSbdgoTx8VciQd+tgP8=;
+ b=JUd+Ia5itdel5OXuVl78KMBgBCWZmjnylBybRYsDW9Yb43++0rUT9GB/54InWcgGnEaepJRBEEk8keZDKahwyY99OL1rjdvxUxk5taC13BMm+gU1CGbmmwVwWLQKPi9MVeNQ6qMk472aowSigRFCBaRYqAgKWpFjJIUE0cNIGuaV/mgRamS1sNAyCqJaHETev1YZQq8/JgcQ+JbvSGolb5CsjU3CC6nyGOCeFBb7phjeeVu8OogvYwA5VFxsJcnZPTXBuEZwMsofIygMf72w5s5mYsW+ujFd5x2wl+Uwh75mIqv6KHoKgTlWmwcBJrxWdMjIFMBufPG/Jq3+IPlYIg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
+ by SA1PR12MB6972.namprd12.prod.outlook.com (2603:10b6:806:24f::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 4 May
- 2026 16:06:21 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9870.023; Mon, 4 May 2026
- 16:06:20 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Naman Jain <namjain@linux.microsoft.com>, Michael Kelley
-	<mhklinux@outlook.com>, "K . Y . Srinivasan" <kys@microsoft.com>, Haiyang
- Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui
-	<decui@microsoft.com>, Long Li <longli@microsoft.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner
-	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann
-	<arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>
-CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sascha Bischoff
-	<sascha.bischoff@arm.com>, mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "vdso@mailbox.org" <vdso@mailbox.org>,
-	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>
-Subject: RE: [PATCH v2 07/15] arm64: hyperv: Add support for
- mshv_vtl_return_call
-Thread-Topic: [PATCH v2 07/15] arm64: hyperv: Add support for
- mshv_vtl_return_call
-Thread-Index: AQHc0x7Gd+InXWMHLEisx/6viGrEn7Xyae9QgANsyoCACELsMA==
-Date: Mon, 4 May 2026 16:06:20 +0000
-Message-ID: <SN6PR02MB4157B99838CE7498933B2382D4312@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-8-namjain@linux.microsoft.com>
- <SN6PR02MB4157C147A1B915F9B45D3B74D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
- <516a4e65-3a4d-4e09-b445-28cb740b5653@linux.microsoft.com>
-In-Reply-To: <516a4e65-3a4d-4e09-b445-28cb740b5653@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|DM4PR02MB9167:EE_
-x-ms-office365-filtering-correlation-id: 71c02e07-c72e-4160-1deb-08dea9f714f2
-x-microsoft-antispam: BCL:0;ARA:14566002|15080799012|37011999003|41001999006|8060799015|19110799012|8062599012|12121999013|461199028|13091999003|51005399006|16051099003|55001999006|19101099003|31061999003|440099028|3412199025|102099032|13041999003|40105399003|1710799026;
-x-microsoft-antispam-message-info: =?utf-8?B?MzJDRGNKYi93dXJHdUdoSk5pMUp4cGRvTHJSLzZ1WnRnVEhVOHhwOXcvMkFD?=
- =?utf-8?B?UU9ud2pxMkUyWThhK0kvWnZIUW5RWUF4SVA5eWJZNGNEYVhiQ3pWVzh4bVlP?=
- =?utf-8?B?UEljaTE0T2pqR2J0aEYvUldEenpleHZGVUY0RTBheVNFOG1uUmR1OHJmMGU5?=
- =?utf-8?B?bVQwL0ErZzJNK29lekYzbXFudDBZaFVaMER1bHd0UGFQRC9rM1Nacms4UmZa?=
- =?utf-8?B?SGQxYUJEd1hzQWM3cEwrS2x0SzVmUnVpNnBwK0RYTGgzdFNqcXZITHNGTzhQ?=
- =?utf-8?B?OGljaDlGTTlFbmJYRDYzbUtiaXBYK0FOWUdrVy9SbmIwTjZPem9HaHUxU1Fh?=
- =?utf-8?B?SFZwRlBGdXNPRlI2Z0VQK0k4U2xUSmF4ajZZMi9laXA1OGJhVW0zR3psMVY3?=
- =?utf-8?B?cmVKbzlpUUJKZ0VacTRROU82Z201RldkMFc1eEdZdFhVK0xLOEdmSXdkOGs3?=
- =?utf-8?B?WlAxUzNrU3RVT2xWMmsrT0RpL29zcXVqYkZJOVRUSEsvcnFtVkh2SzY0bWVl?=
- =?utf-8?B?Q3JlRmlKczU2bmJXZG9DbTZOREk1cWpFL0dwVTJMTnQza0oyb1N5TTVEUmE5?=
- =?utf-8?B?OU8waFBHdVljM0IvZmFYOVQ1S3g4ZS8ycGYxc052ZWl5RlY5U3hXZ3pvNUdT?=
- =?utf-8?B?UXBOeloycEZqNFU5elcwL0hjYVVxV3pZQ1FXUDlIMXJ4VzJJS0cyZDl2SzBz?=
- =?utf-8?B?SlROWmlaV2UySmczUll3c3FHVTBnY0RDYmNsa1ZUYXZUK09hekNReWN0b2Ex?=
- =?utf-8?B?K2hJMllBSXdkZk11RUxoK01PTG1JZXNob3ZZNnZ5RnJ3MWFSQTc0QjVNSER2?=
- =?utf-8?B?OHV4SGlCcWhiaUdtSlcyZmw3amlSZmJ4YXFSWTJiUk05VTMrM0xEV3ZISlpI?=
- =?utf-8?B?S0t1NGh4SEphUmx5eDlXcllSR3V3cTBTWnYxWXJncWxnRkhMY1J6RENCaTdu?=
- =?utf-8?B?Y2t6RWFubmV0Yy90aEhNOHVRcTdWQ1JPQXF3YlQvYVpaczRVd3dkcnVEWmZq?=
- =?utf-8?B?YWdqbzNxVWUwRXZ2VlpyVTRjVHdkN25aMHBrdVpDR2hnM3duUmhFQlR5K3hF?=
- =?utf-8?B?Z0EvTS9nMU1kZWZCWXZOSlVCb2lkeko4bURNZmlxcFpvQzVlU1Z2QW5QWTNm?=
- =?utf-8?B?aWtKVjV2VjQzV2I3MFd1VTNsaW5IbFZhWWlYU0lpOU1IalFoT0JyamhVam43?=
- =?utf-8?B?N2lqSXFtbFVRS09qQVRheWM4cEpLb1JhK0puSkgrOE0vc0RXVjgxWTZpK09j?=
- =?utf-8?B?eWRYZG9kdGYyMVR5OWVvOXdvditLZEVVaGhJUlpacGFybkYraXBVTVcyVERt?=
- =?utf-8?B?Q1RwVmhjMjZUTEw4WlFlNXNnVzNWK09NODFxYUtqd2owU1VWblZaU1Y0SUU0?=
- =?utf-8?B?V0t3UlVCSE5FT3pSSW1kYVpCcVo0YW9OMVZJYlJpdS80V0RMcXd2Y1dHZGdH?=
- =?utf-8?B?ZlJKazNBRitvYjBjR0FEMmlkbHdzY3RFWXZ2YlJ5bEhQbnVjV3BQQUJ2a28x?=
- =?utf-8?B?WW8yQ1VzZm5XaWppa0NKSE81OWwwUlN5ZU5iSjg1cGpEYVRYeUNNVU9qaVJy?=
- =?utf-8?Q?/sAtEPbvAFO3eTfN/7eO5avgiyj651weJmuta2/wEJiLRC?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bHgxWW4xMkgwR1ZQNUVHamR5THVyNkZkYXc5amdRaWhCcU1na3NGbHA1R3hO?=
- =?utf-8?B?TkJFQ3dxQmRWRU0xYVRwRHltdWFmdWxtVUVMV1lpMWlYenNCdGtNU21PUWRZ?=
- =?utf-8?B?Qy85MEs2UFhEVHliRWt4cUtPU1V0NmZxWjlrL2ptQndraHQwY1ZuMTlIY3ZM?=
- =?utf-8?B?WmFJbWV6blpFL2pzSnluNnJqTGVFRThsZkJDZCtJMFBGTE9aTWxjMGVNZExB?=
- =?utf-8?B?dE9Wb1hiREZXckdZTmN5YVZSdG5Bc2dDUUozeENZdWRpcGlsUDlIWG0yMm4z?=
- =?utf-8?B?Z1JZdk9Sc1VEc09VTVdYOVJUNXhWakxSSXN6TzI3VEg5VkU4VDU1SkNmUEJJ?=
- =?utf-8?B?RHNiL0hIdDljQi9PQ0V2ZkREdjRLK0hOa3d1VHhhalNQSDJMMmJPdjg1alU5?=
- =?utf-8?B?dE1HclFRYTFURXBENVpMd05wSUZNRjlCNGxVaEtlZDdBczBuaHZaS2Zaell3?=
- =?utf-8?B?dWtDWHlvWUhUT0UxN2YzZEJGMnJRWjNzc0tuZkpYV3JSWFF4dC9mRUlSSUNH?=
- =?utf-8?B?UkhYN0VBU1ZzcXNTc2c5QXIxY2sybUU4VGlVK3VmNGVONmtKVEYyZkRLMTJ6?=
- =?utf-8?B?V09TS1Y2VnlhMHU4cjB4ZU44SC82NmFZVmRrYi8veUZub1hyeVcvdDhKSmlG?=
- =?utf-8?B?MlRNbnRXQjNiODBkNlFPeit6enhpNGlYa2NuWkVaMnVoK0VVcU5EUUdzUjg4?=
- =?utf-8?B?cFNuZUd3QzNLK29vUFZ1QVkwOXFnSmpMc2RDZDUvUkdEcTllcGEvaHc0WmJo?=
- =?utf-8?B?VXdlS09mTFFGZlpTZUc0R09sdm5FSWVwaXpBR1hhR3krVUVRWFVDZlZrbG1Y?=
- =?utf-8?B?YkpieTBRK1B2U2VSVVpVMzByYnlXOE8vRkh0blRyTURGRjVnYTlMcDNhdlhP?=
- =?utf-8?B?UTdOeEhnWFhGLzdXdGx0V1dXckpNLy9iMnRlVDR3cVVpd0UzZk9vTllqalRS?=
- =?utf-8?B?UDlxRlQybHdxWUQ5QXQ2b2NEWjJuY1lIb3RmVFBORDFnK3FaQ3luZG8vZlJo?=
- =?utf-8?B?aVIyMWxUb1ZwK2ZteW5PREdrbjlJS1FMRWg4RWsyMm5Vdk1lbmNoVFpoQ0Js?=
- =?utf-8?B?OGZHVEVtN09LMzJNbXg2YkZHK25pLysvTytSbEZ5Tk9vaEdYdkJvaVM5RlIy?=
- =?utf-8?B?NVg4MjVMTzJPdG01NTd1VWg4K2laTGJSZ1hicnRyaVJhanhGOCt3czdnUXZs?=
- =?utf-8?B?YnhLMCtXbEpRN09ITnlubFNwaTJNV1B3UFFDK2lNNFR3bk9KbEtjVWZXRUNh?=
- =?utf-8?B?NS9yTFFaVE5NSXpES01jTVJNU2l6VS9hMjg2SlltTlh6a1cxaGI3TzhIdmo3?=
- =?utf-8?B?bHJKM242M050VnMyaTMvUTB5RFBlS0FXc3NRemJVVmF2MERXWHFEYnVHN0tx?=
- =?utf-8?B?NEJ0UUwrWXUwSmVUa3lJOFo5YU1vVTI0RFNkWFZkcVVxVHdsZndpYTdqM3Jj?=
- =?utf-8?B?LzlIMDlSdkZKRlI4V1JGVHhMQXlwTTFDWGM3Y05RZE5tRFRhR01WRUJwaUpF?=
- =?utf-8?B?bWNSK0kxQ1cvelhkVUtHR3k0NzRuZjlHMk5xZG00d3dyRTU2ejFFOE0wbWdQ?=
- =?utf-8?B?c1I1WndsOW9IeXoyZUxTMTBvejEzamxjNndjNldzQ3FjdVo2dllhV21sMXl4?=
- =?utf-8?B?MURCVWFKTG05TnlzcHFCd042U1V0TWtqT2lWMTk4d0JRRWxRekRySWhtMzU4?=
- =?utf-8?B?LzdIU2pyS21iTFUxMGg1TERKSHBjQzFiK2tCc0doRzBDbEEvQnNxVDA2LzVZ?=
- =?utf-8?B?VW9BMzRQZVFVWXFzT084UVZXYitpNm82Zm83ejVTaWJGV25RRUc5ZEVOVllF?=
- =?utf-8?Q?OkwBgjzmTxe6pCCZdF04Fxr/E96u5Fu3D/VKU=3D?=
+ 2026 16:46:35 +0000
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.023; Mon, 4 May 2026
+ 16:46:35 +0000
+Date: Mon, 4 May 2026 12:46:33 -0400
+From: Yury Norov <ynorov@nvidia.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Ruan Jinjie <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Linux-Arch <linux-arch@vger.kernel.org>,
+	Netdev <netdev@vger.kernel.org>, bpf@vger.kernel.org,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: Re: [PATCH 1/6] lib: include crc32.h conditionally on CONFIG_CRC32
+Message-ID: <afjNaToyptiMogV4@yury>
+References: <20260430211351.658193-1-ynorov@nvidia.com>
+ <20260430211351.658193-2-ynorov@nvidia.com>
+ <ec4ed7f5-b1c8-49e4-b83d-e29c5414b9de@app.fastmail.com>
+Content-Disposition: inline
+In-Reply-To: <ec4ed7f5-b1c8-49e4-b83d-e29c5414b9de@app.fastmail.com>
+X-ClientProxiedBy: BN9PR03CA0978.namprd03.prod.outlook.com
+ (2603:10b6:408:109::23) To CY8PR12MB8300.namprd12.prod.outlook.com
+ (2603:10b6:930:7d::16)
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|SA1PR12MB6972:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a27bd40-65c2-4216-10d3-08dea9fcb43e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|366016|376014|7416014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: FaZ9sRedoW3ImLrwx0HkiodscazAtwnekX5u6lKKuZ4N4E1pz/OCA1FaWWeVrAtevIzuFxNH5X5QLMiiPz5xUC9chVNbj7xGepByzxcjaJx1FQPzU4GBrKS6I9uFPZivEBxKJn29dHSY59i8dLaw0lXSNTu0r8i+MmrHpyj1QyF7bRIRJuGEjPaFmVPGbq/jeCIdM6FTywXIxoOv0KZc4bJwPUtIjcHa+OpQjKjls7paMOPY09wqMJHixxEGPW83inio3RcJZdP+YELHUciUcJgB+z5enbW7RaRCBPT4LPTQ3j9mZUK9ZVsiLqSwd6YOAqeZzu/5CF/fzL5+sOJpewVUL0jwc5G9wqkFtqn25MhSqfmCJoqVDc3c2uSkQQPJ7DYY9Vh/v8+0d8OpgScrdhMjOxpEuFdHa5UsyZyE9GjhVMpfShHpv8gkIAqk0ShTfPNdcVXjVpV4L4GSGn9Uy9Dnxak2lbtznPOBi9iEC9uqw7KhKFhxrkK+c13se46ru0+YKXNH699RVs+K/X9YJS+RMfKW4GDJQjZw81L8FT3cwtWCxKFeY7RxhJ7NRRy9loXwIyC3B+DLkZN6vUpkxCgmrKOP5o6aeZMSfMXjfLgnMMdOpwUhgU1CT0ggRP7BSTNBhkQ464RbGAbWOFjS20sm4I/B16fB7+gXdbZNgCw5vaIQBDsDXczqfM/57mVs
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(366016)(376014)(7416014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S/0c4CyBAIC8r4lJHinFy1JC/Af2dne4JwPlJ7fQj+o4s74+TStVS1DdcgbP?=
+ =?us-ascii?Q?3hBssJ4xB2nENMIgwAnkHuRHAG8tLjiTpQ9vdIp9jvxDNPfZXbn0PIj4+pk9?=
+ =?us-ascii?Q?AKCuSCVTZFI1oz+7GFOJ+1ouvCxOSojoQAVZbwfOzAXIULshKbXO0j3JNDWa?=
+ =?us-ascii?Q?QlGqiD+QUDoaviSshW3Q2Ha2gBzJBS1C3lciq8MB3VeC96jTdXlMV+VSUtx9?=
+ =?us-ascii?Q?R+IyOV3mBq0NrbM6V0K/cJCa7aOryGAXhun8XD8qNRj7OsF3TJlcVv7coxYF?=
+ =?us-ascii?Q?tzVXnG0Ci5p2sTGbK3fgF2JmRP9lihMC+qP/aATV+sQxVQm1oKDVGqFLyurM?=
+ =?us-ascii?Q?J7T+RrO5nvbNtPnmScwkehCGSHkud3CTt7BXn5Uvh/lXUm7cUsfCBu/ScdJv?=
+ =?us-ascii?Q?QJ4QvKaM3XT0cQ/ob4iB2AB5PHs2zBMNmxNo6iY34DCJu6NlJKMk6lbEZTqb?=
+ =?us-ascii?Q?O2txobyG5GDigFIVp78zpufYqPtr1Do5PTN0jtLiwZ2jvLg+SNC1c5F/LfSN?=
+ =?us-ascii?Q?0RV5LD2zn9exZqhys1aJpteg9p9FdbLRCgdTQTR5osyqB1f/qJ3PQHH0kTLW?=
+ =?us-ascii?Q?ozA8wDITNe4eRvALClpLDovvuMmdhbzHfat5wkwgfr1m4C5T0IR5aHOUoyhe?=
+ =?us-ascii?Q?eokKWA2FezxnTqsyFC26/2nmGfOiXUXaHRcLqAKR73oUO98QwlutifTPTg2O?=
+ =?us-ascii?Q?5K5yg6sx6+Fs1X3AL3Cp9U5MS4Bu7jz+6zRbkyOZz9C5mxEcakd2+nnMFVmr?=
+ =?us-ascii?Q?BqLQq/DsHpnu4yhQNVaFr7n/1ZnlsiRrjvfcqerqKkWW9alrZUXGnrDaBvZF?=
+ =?us-ascii?Q?OAMZVxbK8C2pXNCncrbbiYvFv+zMRRbFOm6mGFb6vBcjXM1Q6IIQeQA2SLg0?=
+ =?us-ascii?Q?5kT/RoWZnj4vlh4/6ghY/Y3430dkl8rbLvFQnQvOfXtj4QNAnEBfk+Rwwnyz?=
+ =?us-ascii?Q?wv9yYA3Y5mBg33ZMleys3nD/dIYoeAm99Cft/4sQ3ZHDUqrOlPBnJMCICzy/?=
+ =?us-ascii?Q?pK36DPFE7VnBMiULvtT3XcgaqLm0ex2hvQeXMAhxd+Iuo8+hjK31y93NY7G7?=
+ =?us-ascii?Q?Ll/rUz1TcyFNOiiZ/6AzfonTAcDDWRtNA6vMe1hzd1zXBSXS843vdCkOxueA?=
+ =?us-ascii?Q?+0OHIXacI9dfhGxytZxNm3eTTtHYPqmoy+kqkRwXROltYb4qsZDKMPLJE4DJ?=
+ =?us-ascii?Q?W0TiZBh6eJdPYDySTY7FJgDu9qc7nxm9QtDEDZpimlHgk119IRGyp46lkEhx?=
+ =?us-ascii?Q?SwLlj9LBVoHXtOOxz+7nBpMtx+hjC3wOC9UqkUsv1g0wuuoH5s3nSNeQz+ct?=
+ =?us-ascii?Q?TslwNWp/2RQWaklGxUWpsw+8CpZN82map5LtD6/fcB89aX9WxAGZ2JsmPK/k?=
+ =?us-ascii?Q?S/uXIbXAcA2Tk2HHod450OEhDu0XLbIEmfNTv70f2dCfzATKfA4xaqKmWYqk?=
+ =?us-ascii?Q?wxsW7JWOk29wH8ezU6aZMZDductwnUUSf05Xy8qocZuQY0Lg+NZU0pu/BXO/?=
+ =?us-ascii?Q?pwbvU+CDSID9gVYhvHUrLGurxahlDvs6eRw2ffhV6GvD7lCrykkspOChvW0F?=
+ =?us-ascii?Q?iWU3gmUhNrYrET51KyUtgdgr2fPOtQCY1JKL8dJFHSc+vbDEg7ic0C1D/N98?=
+ =?us-ascii?Q?BDozNYTWzwlqdwgLGR5JemVrniA+JVUlP61fAztZkyVa7oRdrdto4HO9VO9V?=
+ =?us-ascii?Q?JSFC44vMT56CXoTXYhTA+DfkV+6i++XIiRzOp50Kh39def7fe6Si1MwWCDuk?=
+ =?us-ascii?Q?6lkfgMOgOIqPB+7F2g1dMQEaA8lMleHll9S/fv1SP6CoBWCgG3bq?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a27bd40-65c2-4216-10d3-08dea9fcb43e
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71c02e07-c72e-4160-1deb-08dea9f714f2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 May 2026 16:06:20.6537
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 May 2026 16:46:35.6394
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR02MB9167
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Djyr6J6L+VC2xMACqmD4nArtqyrUHGPwYB9QIX3TMBmBwQZT7vYXDFUwYYHQPcnm24TemnhUDmflTfviiEGqLA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6972
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_090629_043268_24D333F9 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20260504_094645_499215_61F6A386 
+X-CRM114-Status: GOOD (  34.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,79 +155,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Naman Jain <namjain@linux.microsoft.com> Sent: Wednesday, April 29, 2026 2:57 AM
-> 
-> On 4/27/2026 11:08 AM, Michael Kelley wrote:
-> > From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 2026 5:42 AM
-> >>
-
-[snip]
-
-> >> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
-> >> index 08278547b84c..b4d80c9a673a 100644
-> >> --- a/arch/x86/include/asm/mshyperv.h
-> >> +++ b/arch/x86/include/asm/mshyperv.h
-> >> @@ -286,7 +286,6 @@ struct mshv_vtl_cpu_context {
-> >>   #ifdef CONFIG_HYPERV_VTL_MODE
-> >>   void __init hv_vtl_init_platform(void);
-> >>   int __init hv_vtl_early_init(void);
-> >> -void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
-> >>   void mshv_vtl_return_call_init(u64 vtl_return_offset);
-> >>   void mshv_vtl_return_hypercall(void);
-> >>   void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
-> >> @@ -294,7 +293,6 @@ int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, bool shared);
-> >>   #else
-> >>   static inline void __init hv_vtl_init_platform(void) {}
-> >>   static inline int __init hv_vtl_early_init(void) { return 0; }
-> >> -static inline void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0) {}
-> >>   static inline void mshv_vtl_return_call_init(u64 vtl_return_offset) {}
-> >>   static inline void mshv_vtl_return_hypercall(void) {}
-> >>   static inline void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0) {}
-> >> diff --git a/drivers/hv/mshv_vtl.h b/drivers/hv/mshv_vtl.h
-> >> index a6eea52f7aa2..103f07371f3f 100644
-> >> --- a/drivers/hv/mshv_vtl.h
-> >> +++ b/drivers/hv/mshv_vtl.h
-> >> @@ -22,4 +22,7 @@ struct mshv_vtl_run {
-> >>   	char vtl_ret_actions[MSHV_MAX_RUN_MSG_SIZE];
-> >>   };
-> >>
-> >> +static_assert(sizeof(struct mshv_vtl_cpu_context) <= 1024,
-> >> +	      "struct mshv_vtl_cpu_context exceeds reserved space in struct mshv_vtl_run");
-> >> +
-> >>   #endif /* _MSHV_VTL_H */
-> >> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
-> >> index db183c8cfb95..8cdf2a9fbdfb 100644
-> >> --- a/include/asm-generic/mshyperv.h
-> >> +++ b/include/asm-generic/mshyperv.h
-> >> @@ -396,8 +396,10 @@ static inline int hv_deposit_memory(u64 partition_id, u64 status)
-> >>
-> >>   #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
-> >>   u8 __init get_vtl(void);
-> >> +void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
-> >>   #else
-> >>   static inline u8 get_vtl(void) { return 0; }
-> >> +static inline void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0) {}
+On Mon, May 04, 2026 at 10:03:10AM +0200, Arnd Bergmann wrote:
+> On Thu, Apr 30, 2026, at 23:13, Yury Norov wrote:
+> > Currently, bitreverse API is either declared based on
+> > CONFIG_HAVE_ARCH_BITREVERSE, wired to arch implementation, or if the
+> > arch has no bitreverse, based on generic implementation.
 > >
-> > Is this stub needed? Maybe I missed something, but it looks to me like none
-> > of the code that calls this gets built unless CONFIG_HYPERV_VTL_MODE is set.
-> > See further comments about stubs in Patch 8 of this series.
-> >
+> > So, regardless of CONFIG_BITREVERSE=n, the corresponding API is always
+> > declared. If that happens, the functions become declared but not
+> > implemented, which is an error.
 > 
-> Config dependencies would handle such cases, and this is not required. I
-> saw similar stubs added in the code, so I thought this is a norm that
-> should be followed, and not rely on config dependencies.
-> I can remove it.
+> I'm not following that description. Why is it an error to declare
+> a funtion that is not implemented? Isn't that how optional interfaces
+> tend to work in general?
+
+Never heard about such a thing like "optional interface". And git grep
+tends to second that...
+ 
+> > The only header requiring the crc32 and bitreverse prototypes is
+> > include/linux/etherdevice.h. Thus, protect inclusion of corresponding
+> > headers in the etherdevice with CONFIG_CRC32, together with the only
+> > function depending on it.
+> ...
+> >  #include <linux/if_ether.h>
+> >  #include <linux/netdevice.h>
+> >  #include <linux/random.h>
+> > +#ifdef CONFIG_CRC32
+> >  #include <linux/crc32.h>
+> > +#endif
+> >  #include <linux/unaligned.h>
+> >  #include <asm/bitsperlong.h>
 > 
+> Don't add #ifdef blocks around headers. If the header cannot
+> be included without side-effects, change the linux/crc32.h
+> file instead of its users.
 
-Others might disagree with me, but I don't think it's the norm to add
-stubs when they aren't truly needed. As you can see from some of my
-other comments, I look for ways to eliminate stubs. Stubs are indicative
-of a boundary between separately built components, and I generally
-try to minimize the surface area of such boundaries. A large surface area
-often means that the overall design could be improved by re-thinking
-which code goes with which component.
+linux/acpi.h does that like many othes. What exactly is wrong with
+protecting headers inclusion?
+ 
+> It looks like the problem is the check for CONFIG_GENERIC_BITREVERSE
+> in include/asm-generic/bitops/__bitrev.h, which ends up
+> hinding the generic___bitrev32() helper without need.
+> 
+> Simply removing the #ifdef there should avoid the build failure.
 
-Michael
+OK, it seems like this is what I don't understand.
+
+We've got an optional feature, like CRC32, which is enabled by
+CONFIG_CRC32. The most conservative way is to declare everything
+CRC32-related in the corresponding header, and then protect the header
+with IS_ENABLED(CONFIG_CRC32).
+
+I understand that from practical perspective, we can declare some simple
+macros, like header size, unprotected. But what we've got now is a sort
+of mess: all CRC32-related functions are declared unprotected, and
+generic headers are good to use them. Compiler is happy while those
+functions are actually unused. Next, CRC32 depends on BITREVERSE, which
+is again unprotected, and it may optionally have an arch implementation.
+
+So if arch bitrev() is implemented, you can use part of bitreverse and
+crc32 APIs despite that they are explicitly disabled - just because they
+are implemented as macros in unprotected headers. And you cannot use some
+others - because they are implemented differently, as a real functions.
+
+And this is not covered by any written rule - just the implementation
+details. And to make it worse, this all is available to drivers, which
+may simply fail after the next kernel update.
+
+Can you please elaborate on how is that supposed to work. In my naive
+world, if I disable some feature, I'm pretty sure that my kernel
+shouldn't build if I try to use it. Can you point to any related
+kernel docs?
+
+Thanks,
+Yury
+
+> > +#ifdef CONFIG_CRC32
+> >  /**
+> >   * eth_hw_addr_crc - Calculate CRC from netdev_hw_addr
+> >   * @ha: pointer to hardware address
+> > @@ -291,6 +294,7 @@ static inline u32 eth_hw_addr_crc(struct netdev_hw_addr *ha)
+> >  {
+> >  	return ether_crc(ETH_ALEN, ha->addr);
+> >  }
+> > +#endif
+> 
+> I see there are only user users of this function, neither of
+> them are performance critical. So the other options would
+> be to either open-code this function in the two callers
+> and remove it entirely, or move it into net/ethernet/eth.c.
+> 
+>       Arnd
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
