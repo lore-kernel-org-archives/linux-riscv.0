@@ -4,86 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8FBFF885A
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 May 2026 07:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1049CD3423
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 May 2026 07:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=utdQtN2NLoqPQi6rAtzkn4A+ctt7pbh31C4YTY+NWEQ=; b=U6UxPeG7qjrYh6
-	v1R+0KdQRdCfX4ZZjvD004dGqCn2k73XwN2RSPt2w3wzv5Fjt2m/om6ueXVamZbebNdx6ZSOHXCj+
-	YppsW1+DXg/X3E89QdHXZPQD98Zc/OOuTBqJab6YCjqz9WzNi7f5CVUlv8FKCdw+g0PlF0Kb2Hnt/
-	v08fuywa7NFa2TiM65Krk7rnJ/4Q3hDC/cQcRpQi7TSnyiG0qcSa9HNloAlGV2k2eiF3NhuK2SaYC
-	ieEEZH+r+OiTO/zcvuJJpzlMIji9ZWUQ5YLXuc4yy2vCftAJgWYR/16ygNPrs28DlT/dDYgNbc7v6
-	gkHaRtlXn/IS2i8pFVxg==;
+	List-Owner; bh=JQKPBfoCYaetcHIB5+zgv50WxuMVJ1J7z7+QEa8c/kQ=; b=q+QxC9iwn9e07o
+	GMVsnfBte9rAH7Uhxjcgz78n6R25JC/mI1uPVIXSoC16HDka+YuLMLgsXq73faCb0A1D7pYOK9fTV
+	0zzv6k11NbywPULBuuadGqTmImTs0gkC7GYV2fBNj8W/CzEc98Rlia82xai8Lpr1fm/BGyYwW4gAI
+	9s7Xl2w8rINKfELx4XWTwHTjG1E6W1lFKXeZekX+qe0wBGtr0JZ9eO29vMRTTfBx9UauRIN1WZsb5
+	ukNX1DQ/JFaYUot/QDN+VhTqrYeuqU656DVgnsI+HiAOw95tIAO/ZBbzHZ4AYplXMNBicyfvtAFdK
+	tYemlfYAQUPOsKoepxrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJnx0-0000000CdFD-19Jy;
-	Mon, 04 May 2026 07:42:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJnwz-0000000CdEl-0aCv
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 04 May 2026 07:42:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:Date:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=17DG/jFD4UJY3jOr7jCFbgLNy+ifxGIJEYAAkiazHmo=; b=mv8oH1X3Jcty+FDAPdSnsI2EC+
-	jv/jlBYYPGC8ShTf0++4bzf2o5S3ksigeCK2MEq1OD6VKS5Eg3Z1NtlfvU94PiFYGiBl/pqRYIity
-	HOxaBTLHtzz/Q4ACM2Ievqb0+5Rb8xRWUsbe9Q8Y1pXPjCc8r6GNSUX5jwOl4gg3mnvK7n1f7fx2I
-	5wD+3PtwimKxPtljSyVY4cbvNzzvBVrPsg6yxtypc+JcdcKRr17Oz9RY4Tpbfwy9HD0nRRWwHb49y
-	Dg2eR3cQdL9CUpNiZ4MQgtYTNQrEc5HH5FN29Cd7x8iE53Dhqu4epg61hOunEBgw2tBwa5mmbM3xN
-	fd8EutNA==;
+	id 1wJnyI-0000000Cdg7-0Yr1;
+	Mon, 04 May 2026 07:44:06 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wJnwm-0000000B3zL-0dOX
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wJnyF-0000000CdeW-33Jz
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 May 2026 07:42:43 +0000
+	Mon, 04 May 2026 07:44:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1777880542;
+	s=mimecast20190719; t=1777880642;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=17DG/jFD4UJY3jOr7jCFbgLNy+ifxGIJEYAAkiazHmo=;
-	b=gCfNOlSyoucdmz1drV046SNC+cNw4Ywj9sPVd2l2FysW12raWkio3yGyas99TtF7gDE34r
-	iQyalUZg9Tt89kZJQoO+ngE7q/X53u9lpogx4YSWlSz7SwKUnsa2M/w4M44gUrtYjVk+Wu
-	Rxrx3vNh6OmDkjYU5xMGMBZzKE+5x9k=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1777880550;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=17DG/jFD4UJY3jOr7jCFbgLNy+ifxGIJEYAAkiazHmo=;
-	b=T4OxTk+x0jh6RT7Plf1Jt7Mlvl0cL9QH+5/qT9+PAH6KDf26Wg1/ZwNPUu/zbyLmAjyH62
-	jBs0yhl30zGYdfucQ6w18jj6w/IdFKH3qRs8DM62fyaLiHjnNiO6fpPGnNth98Y7J34Yqs
-	YzHZi64QAWZDkTEmxI/OA1SOp8xuxQ4=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+	bh=tnys7K/9v0O55CEJGXyqjjo3X9Li4otJ+Uz/nwlsSjY=;
+	b=iawoEaEiXZ+MbnIpUrwxtYm1CvAdOhTzwudH6hWtroC93StYeGTwmGyEdy72F18SwUimEb
+	zlVwz0kPpqQeZESBlzuARzVIl5lu3AzqJB/I7htWcxtpU/yYZ8PnFZy7ZWK6pxAMKm9OT6
+	sZMCL2fUyK8avwTI+/uxzq98tgBKyPk=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-517-QAvuwnggOIKkmeYZGApe3g-1; Mon,
- 04 May 2026 03:42:16 -0400
-X-MC-Unique: QAvuwnggOIKkmeYZGApe3g-1
-X-Mimecast-MFC-AGG-ID: QAvuwnggOIKkmeYZGApe3g_1777880533
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-244-DXJaZ9owOZ-t6DGFIciKDQ-1; Mon,
+ 04 May 2026 03:42:00 -0400
+X-MC-Unique: DXJaZ9owOZ-t6DGFIciKDQ-1
+X-Mimecast-MFC-AGG-ID: DXJaZ9owOZ-t6DGFIciKDQ_1777880517
 Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2A4AF19560A1;
-	Mon,  4 May 2026 07:42:12 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7D3C31956095;
+	Mon,  4 May 2026 07:41:56 +0000 (UTC)
 Received: from [192.168.1.153] (headnet01.pony-001.prod.iad2.dc.redhat.com [10.2.32.101])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1C9EA1953952;
-	Mon,  4 May 2026 07:42:04 +0000 (UTC)
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CC3DA1953952;
+	Mon,  4 May 2026 07:41:48 +0000 (UTC)
 From: Albert Esteve <aesteve@redhat.com>
-Date: Mon, 04 May 2026 09:41:28 +0200
-Subject: [PATCH v8 4/4] kunit: Add documentation for warning backtrace
- suppression API
+Date: Mon, 04 May 2026 09:41:26 +0200
+Subject: [PATCH v8 2/4] kunit: Add backtrace suppression self-tests
 MIME-Version: 1.0
-Message-Id: <20260504-kunit_add_support-v8-4-3e5957cdd235@redhat.com>
+Message-Id: <20260504-kunit_add_support-v8-2-3e5957cdd235@redhat.com>
 References: <20260504-kunit_add_support-v8-0-3e5957cdd235@redhat.com>
 In-Reply-To: <20260504-kunit_add_support-v8-0-3e5957cdd235@redhat.com>
 To: Arnd Bergmann <arnd@arndb.de>, 
@@ -104,21 +78,20 @@ Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
  Linux Kernel Functional Testing <lkft@linaro.org>, 
  Dan Carpenter <dan.carpenter@linaro.org>, 
  Alessandro Carminati <acarmina@redhat.com>, 
- Albert Esteve <aesteve@redhat.com>, Kees Cook <kees@kernel.org>, 
- David Gow <david@davidgow.net>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1777880489; l=3385;
+ Albert Esteve <aesteve@redhat.com>, Kees Cook <kees@kernel.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1777880489; l=7602;
  i=aesteve@redhat.com; s=20260303; h=from:subject:message-id;
- bh=2r+YaNLYekCHScvfkm3SGKZhcNXhOrPXur/abYPqMto=;
- b=pimAHn6mKykigLlO10+2vvAltRY7TPIdHOYgqeW98bdEc+ZK26YT7z1+cMMQAe9pp5J0fvRMB
- Egmh5d5sKOyC8rUTjiV0qZJLE2iKtU53WjTgAs/8LI4pkK+8kn5azN9
+ bh=MPqWQRUdtbNfJXopMeu+OACXdzeU52PSCq9boOzmY9E=;
+ b=Brw74qOGhkGRJzJXdV3ap46kPR0GwcVV2hbIPTXWh6XX1i4So0lelm46aXQ8ErU4mZdRw2tft
+ kThCZ3+aRU8DZjjfqZKm0nj0Duf2wZZkbi698pxBUazWfmxY2Mfo1X+
 X-Developer-Key: i=aesteve@redhat.com; a=ed25519;
  pk=YSFz6sOHd2L45+Fr8DIvHTi6lSIjhLZ5T+rkxspJt1s=
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: nVROjOBVsUeYakyf1XDKTFpMJBL2eDNyeUY1E9bMOko_1777880533
+X-Mimecast-MFC-PROC-ID: Yfkdu8PARK6zJUHNnX9EcxWUNFmt9rQ3F_kDI226vRY_1777880517
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_084240_723923_A93B0DA2 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260504_004403_845834_DFC8838F 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,99 +110,240 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guenter Roeck <linux@roeck-us.net>
 
-Document API functions for suppressing warning backtraces.
+Add unit tests to verify that warning backtrace suppression works.
+
+Tests cover all three API forms:
+- Scoped: kunit_warning_suppress() with in-block count verification
+  and post-block inactivity check.
+- Manual macros: KUNIT_START/END_SUPPRESSED_WARNING() with WARN()
+  and WARN_ON(), both direct and through helper functions, as well
+  as multiple warnings in a single block.
+- Direct functions: kunit_start/end_suppress_warning() with
+  sequential independent suppression blocks and per-block counts.
+
+Furthermore, tests verify incremental warning counting, that
+kunit_has_active_suppress_warning() transitions correctly around
+suppression boundaries, and that suppression active in the test
+kthread does not leak to a separate kthread.
+
+If backtrace suppression does _not_ work, the unit tests will likely
+trigger unsuppressed backtraces, which should actually help to get
+the affected architectures / platforms fixed.
 
 Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
 Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
 Reviewed-by: Kees Cook <keescook@chromium.org>
 Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-Reviewed-by: David Gow <davidgow@google.com>
 Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
 Reviewed-by: David Gow <david@davidgow.net>
 Signed-off-by: Albert Esteve <aesteve@redhat.com>
 ---
- Documentation/dev-tools/kunit/usage.rst | 63 ++++++++++++++++++++++++++++++++-
- 1 file changed, 62 insertions(+), 1 deletion(-)
+ lib/kunit/Makefile                     |   1 +
+ lib/kunit/backtrace-suppression-test.c | 184 +++++++++++++++++++++++++++++++++
+ 2 files changed, 185 insertions(+)
 
-diff --git a/Documentation/dev-tools/kunit/usage.rst b/Documentation/dev-tools/kunit/usage.rst
-index ebd06f5ea4550..25724f7e72969 100644
---- a/Documentation/dev-tools/kunit/usage.rst
-+++ b/Documentation/dev-tools/kunit/usage.rst
-@@ -157,6 +157,67 @@ Alternatively, one can take full control over the error message by using
- 	if (some_setup_function())
- 		KUNIT_FAIL(test, "Failed to setup thing for testing");
+diff --git a/lib/kunit/Makefile b/lib/kunit/Makefile
+index 4592f9d0aa8dd..2e8a6b71a2ab0 100644
+--- a/lib/kunit/Makefile
++++ b/lib/kunit/Makefile
+@@ -22,6 +22,7 @@ obj-$(if $(CONFIG_KUNIT),y) +=		hooks.o
  
-+Suppressing warning backtraces
-+------------------------------
+ obj-$(CONFIG_KUNIT_TEST) +=		kunit-test.o
+ obj-$(CONFIG_KUNIT_TEST) +=		platform-test.o
++obj-$(CONFIG_KUNIT_TEST) +=		backtrace-suppression-test.o
+ 
+ # string-stream-test compiles built-in only.
+ ifeq ($(CONFIG_KUNIT_TEST),y)
+diff --git a/lib/kunit/backtrace-suppression-test.c b/lib/kunit/backtrace-suppression-test.c
+new file mode 100644
+index 0000000000000..0e6fb685d2cbb
+--- /dev/null
++++ b/lib/kunit/backtrace-suppression-test.c
+@@ -0,0 +1,184 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * KUnit test for suppressing warning tracebacks.
++ *
++ * Copyright (C) 2024, Guenter Roeck
++ * Author: Guenter Roeck <linux@roeck-us.net>
++ */
 +
-+Some unit tests trigger warning backtraces either intentionally or as a side
-+effect. Such backtraces are normally undesirable since they distract from
-+the actual test and may result in the impression that there is a problem.
++#include <kunit/test.h>
++#include <linux/bug.h>
++#include <linux/completion.h>
++#include <linux/kthread.h>
 +
-+Backtraces can be suppressed with **task-scoped suppression**: while
-+suppression is active on the current task, the backtrace and stack dump from
-+``WARN*()``, ``WARN_ON*()``, and related macros on that task are suppressed.
-+Three API forms are available, in order of convenience.
-+
-+- Scoped suppression is the simplest form. Wrap the code that triggers
-+  warnings in a ``kunit_warning_suppress()`` block:
-+
-+.. code-block:: c
-+
-+	static void some_test(struct kunit *test)
-+	{
-+		kunit_warning_suppress(test) {
-+			trigger_backtrace();
-+			KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
-+		}
-+	}
-+
-+.. note::
-+   The warning count must be checked inside the block; the suppression handle
-+   is not accessible after the block exits.
-+
-+- Manual macros are useful when the suppressed region is large enough that
-+  extra indentation is undesirable, or when the warning count needs to be
-+  checked after suppression ends. ``KUNIT_START_SUPPRESSED_WARNING()`` must
-+  appear before ``KUNIT_END_SUPPRESSED_WARNING()`` in the same scope.
-+  Limited to one pair per scope.
-+
-+.. code-block:: c
-+
-+	static void some_test(struct kunit *test)
-+	{
-+		KUNIT_START_SUPPRESSED_WARNING(test);
-+		trigger_backtrace();
-+		KUNIT_END_SUPPRESSED_WARNING(test);
-+
++static void backtrace_suppression_test_warn_direct(struct kunit *test)
++{
++	kunit_warning_suppress(test) {
++		WARN(1, "This backtrace should be suppressed");
++		/*
++		 * Count must be checked inside the scope; the handle
++		 * is not accessible after the block exits.
++		 */
 +		KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
 +	}
++	KUNIT_EXPECT_FALSE(test, kunit_has_active_suppress_warning());
++}
 +
-+- Direct functions return an explicit handle pointer. Use them when the handle
-+  needs to be retained or passed across helper functions:
++static void trigger_backtrace_warn(void)
++{
++	WARN(1, "This backtrace should be suppressed");
++}
 +
-+.. code-block:: c
++static void backtrace_suppression_test_warn_indirect(struct kunit *test)
++{
++	KUNIT_START_SUPPRESSED_WARNING(test);
++	trigger_backtrace_warn();
++	KUNIT_END_SUPPRESSED_WARNING(test);
 +
-+	static void some_test(struct kunit *test)
-+	{
-+		struct kunit_suppressed_warning *w;
++	KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
++}
 +
-+		w = kunit_start_suppress_warning(test);
-+		trigger_backtrace();
-+		kunit_end_suppress_warning(test, w);
++static void backtrace_suppression_test_warn_multi(struct kunit *test)
++{
++	KUNIT_START_SUPPRESSED_WARNING(test);
++	WARN(1, "This backtrace should be suppressed");
++	trigger_backtrace_warn();
++	KUNIT_END_SUPPRESSED_WARNING(test);
 +
-+		KUNIT_EXPECT_EQ(test, kunit_suppressed_warning_count(w), 1);
++	KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 2);
++}
++
++static void backtrace_suppression_test_warn_on_direct(struct kunit *test)
++{
++	if (!IS_ENABLED(CONFIG_DEBUG_BUGVERBOSE) && !IS_ENABLED(CONFIG_KALLSYMS))
++		kunit_skip(test, "requires CONFIG_DEBUG_BUGVERBOSE or CONFIG_KALLSYMS");
++
++	KUNIT_START_SUPPRESSED_WARNING(test);
++	WARN_ON(1);
++	KUNIT_END_SUPPRESSED_WARNING(test);
++
++	KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
++}
++
++static void trigger_backtrace_warn_on(void)
++{
++	WARN_ON(1);
++}
++
++static void backtrace_suppression_test_warn_on_indirect(struct kunit *test)
++{
++	if (!IS_ENABLED(CONFIG_DEBUG_BUGVERBOSE))
++		kunit_skip(test, "requires CONFIG_DEBUG_BUGVERBOSE");
++
++	KUNIT_START_SUPPRESSED_WARNING(test);
++	trigger_backtrace_warn_on();
++	KUNIT_END_SUPPRESSED_WARNING(test);
++
++	KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
++}
++
++static void backtrace_suppression_test_count(struct kunit *test)
++{
++	KUNIT_START_SUPPRESSED_WARNING(test);
++
++	KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 0);
++
++	WARN(1, "suppressed");
++	KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
++
++	WARN(1, "suppressed again");
++	KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 2);
++
++	KUNIT_END_SUPPRESSED_WARNING(test);
++}
++
++static void backtrace_suppression_test_active_state(struct kunit *test)
++{
++	KUNIT_EXPECT_FALSE(test, kunit_has_active_suppress_warning());
++
++	KUNIT_START_SUPPRESSED_WARNING(test);
++	KUNIT_EXPECT_TRUE(test, kunit_has_active_suppress_warning());
++	KUNIT_END_SUPPRESSED_WARNING(test);
++
++	KUNIT_EXPECT_FALSE(test, kunit_has_active_suppress_warning());
++
++	kunit_warning_suppress(test) {
++		KUNIT_EXPECT_TRUE(test, kunit_has_active_suppress_warning());
 +	}
- 
- Test Suites
- ~~~~~~~~~~~
-@@ -1211,4 +1272,4 @@ For example:
- 		dev_managed_string = devm_kstrdup(fake_device, "Hello, World!");
- 
- 		// Everything is cleaned up automatically when the test ends.
--	}
-\ No newline at end of file
-+	}
++
++	KUNIT_EXPECT_FALSE(test, kunit_has_active_suppress_warning());
++}
++
++static void backtrace_suppression_test_multi_scope(struct kunit *test)
++{
++	struct kunit_suppressed_warning *sw1, *sw2;
++
++	if (!IS_ENABLED(CONFIG_DEBUG_BUGVERBOSE))
++		kunit_skip(test, "requires CONFIG_DEBUG_BUGVERBOSE");
++
++	sw1 = kunit_start_suppress_warning(test);
++	trigger_backtrace_warn_on();
++	WARN(1, "suppressed by sw1");
++	kunit_end_suppress_warning(test, sw1);
++
++	sw2 = kunit_start_suppress_warning(test);
++	WARN(1, "suppressed by sw2");
++	kunit_end_suppress_warning(test, sw2);
++
++	KUNIT_EXPECT_EQ(test, kunit_suppressed_warning_count(sw1), 2);
++	KUNIT_EXPECT_EQ(test, kunit_suppressed_warning_count(sw2), 1);
++}
++
++struct cross_kthread_data {
++	bool was_active;
++	struct completion done;
++};
++
++static int cross_kthread_fn(void *data)
++{
++	struct cross_kthread_data *d = data;
++
++	d->was_active = kunit_has_active_suppress_warning();
++	complete(&d->done);
++	return 0;
++}
++
++static void backtrace_suppression_test_cross_kthread(struct kunit *test)
++{
++	struct cross_kthread_data data;
++	struct task_struct *task;
++
++	init_completion(&data.done);
++
++	KUNIT_START_SUPPRESSED_WARNING(test);
++
++	task = kthread_run(cross_kthread_fn, &data, "kunit-cross-test");
++	KUNIT_ASSERT_FALSE(test, IS_ERR(task));
++	wait_for_completion(&data.done);
++
++	KUNIT_END_SUPPRESSED_WARNING(test);
++
++	KUNIT_EXPECT_FALSE(test, data.was_active);
++}
++
++static struct kunit_case backtrace_suppression_test_cases[] = {
++	KUNIT_CASE(backtrace_suppression_test_warn_direct),
++	KUNIT_CASE(backtrace_suppression_test_warn_indirect),
++	KUNIT_CASE(backtrace_suppression_test_warn_multi),
++	KUNIT_CASE(backtrace_suppression_test_warn_on_direct),
++	KUNIT_CASE(backtrace_suppression_test_warn_on_indirect),
++	KUNIT_CASE(backtrace_suppression_test_count),
++	KUNIT_CASE(backtrace_suppression_test_active_state),
++	KUNIT_CASE(backtrace_suppression_test_multi_scope),
++	KUNIT_CASE(backtrace_suppression_test_cross_kthread),
++	{}
++};
++
++static struct kunit_suite backtrace_suppression_test_suite = {
++	.name = "backtrace-suppression-test",
++	.test_cases = backtrace_suppression_test_cases,
++};
++kunit_test_suites(&backtrace_suppression_test_suite);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("KUnit test to verify warning backtrace suppression");
 
 -- 
 2.53.0
