@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C6EDCD342C
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 01:08:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 566C4CD342C
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 01:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
 	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hf+N0szi4wsPOYjc/MHEk+R8YdwX+rR32VwSdLLY8lQ=; b=gCx0q2Vvp7JBk1
-	JJ7novgnsIUWDIPuap0pK1Y0d5Fc3KwvG3F2VwGGPMgCt5F7WU1uZ5tY69vgfkIuJAAnpkKfJMFOb
-	77B9imHOjy9HMt0l1pUwDqy2mDWYfZibG0T9aSaDho827gXAe3jglYEAH0vrdKHoNDNRETzRqZjGs
-	zoKZLu6SvgstRrQGS8T/fFxwRytrxMyJnE/qVmiaDXQgVo2yRvjzhWzRo++6i+pVPhe3H02D7A7GK
-	VUvoK5XGB2Rkr6ZELGU+562yqzDckGXT7fFVYQdLi73E8jMsnNvrGW6Ggv5DS9WGEy+TThmIWEXuN
-	JNvsH3Y64ATz0bZ7i+3g==;
+	List-Owner; bh=ZwQ1yOAWJRdOxqleFV0RECoXiGjAxndMB6q+eXFe7ps=; b=ywQx+NQ7U+hRm2
+	yzTQuSs7Yc0MboJUN/vAkhNRUg3mcu28ZCJvImvoSoL5NpSSQOMByjI18B5+mvZac422ummma1lG8
+	0CYbrscfYzMKrZ91rND55knrLWfByJ/k8RIhjSQHThPoxJuYmbRFU9bDzhD8l1l+SttSWNSytxBKR
+	6wMWISSZPpmIL4eABaILPGwuAWpoP46AFJd7/p5a5Ej0E9CiisyKVU5Juz9Zoo65ZgkOpEpk0KZt8
+	F8i0fLfzL2aaEzVQcuJJsMucXavtydMDe1U4pR7nzJh6/tLB0q6Gwts6fYxwcWh1dDJtD8axSk2y1
+	yYxmSuXGed/n/GHr0kNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK4HE-0000000EmZD-0S9i;
-	Tue, 05 May 2026 01:08:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wK4Ht-0000000Emjp-31Wl;
+	Tue, 05 May 2026 01:09:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK4HC-0000000EmYc-3k5a
+	id 1wK4Hr-0000000EmiF-1Ec8
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 May 2026 01:08:43 +0000
+	Tue, 05 May 2026 01:09:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FABA60055;
-	Tue,  5 May 2026 01:08:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2633AC2BCB8;
-	Tue,  5 May 2026 01:08:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7369C4029A;
+	Tue,  5 May 2026 01:09:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F7EDC2BCB8;
+	Tue,  5 May 2026 01:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777943321;
-	bh=S4D4xiXgQHI7j63fa70zQ8ojrWnq9v7eBETq1Yu8RsY=;
+	s=k20201202; t=1777943362;
+	bh=nImo5ObXpWvU5qmCvtxUSoYcaKKF8ZKzQ/NntiTwEN4=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=WDY++W8mVC9vDzjSia9MPrZ8yRH2MksICNrMhfUN5ZUjEftDW7lMoIqwFHxH9V+2m
-	 9kIwycayyLY6BwPv98+Dc6Dz3tllH09GWeXt1QnFgkUUJiFbghR5T6goVbLqEMz17+
-	 sj7yeDkkyIJR1Eftp+ke4Z+ZgJp6uphTxJ/hGNDLbKRTOgYpiInfU7x9OdeqmGaLwR
-	 3ZGHGSfupAXPSApHkn3KADgjjkpHNO5YvzCmVdldacPRA4vPaA84N/A3AWnbqU4CYu
-	 kqD4z6cOYsNyBdzOSLmWzPfxsw2V6JTlNH2MhoHfEBzSnmRt8UMfR7GoPV/cyV0LVM
-	 nHudAlBVmq7Ng==
+	b=QWaBBOE8+ol4FXKcJ76nymFji0n4gpdl1o8FAADvWpJX0V0ByZ17RnE6traPPa7Vp
+	 2+gsIxSoVkZaVPWeEXtO3VGdiTsMQFx57iyyoHzHaFhzbGTqk1UJq/GaG650qF8tnZ
+	 hb4ONSaVyGpYniAsuC9uWjYYXrwKbSnf3M8D9sYzW95jag9CthhDiBiAPJpo7qn0FO
+	 Mx7Kiqd2Kyc+Ld1LPsD/Xsxrh3msJcYSYvAuZAgoOavl6EHsgWzBJGI8nqPuX8Hlb8
+	 yK0VImm7SjBYK4yWgGW96z03KeakMztzmfX+rjfLreagew+PkmjYC6XQCtZiTl6lbT
+	 eW2GJm558e25g==
 From: Mark Brown <broonie@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Cyril Jean <cyril.jean@microchip.com>, 
- Valentina.FernandezAlanis@microchip.com, linux-riscv@lists.infradead.org, 
- linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260430-levers-defiling-00406e391c5a@spud>
-References: <20260430-levers-defiling-00406e391c5a@spud>
-Subject: Re: [PATCH v3 0/3] microchip core-qspi gpio-cs fixes + cleanup
-Message-Id: <177790098872.458539.9606470232934881996.b4-ty@b4>
-Date: Mon, 04 May 2026 22:23:08 +0900
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Yixun Lan <dlan@kernel.org>, 
+ Jinmei Wei <weijinmei@linux.spacemit.com>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20260429-k1-i2s-fix-v2-1-8d67835aaddc@linux.spacemit.com>
+References: <20260429-k1-i2s-fix-v2-1-8d67835aaddc@linux.spacemit.com>
+Subject: Re: [PATCH v2] ASoC: spacemit: fix RX DMA params not set when TX
+ is running
+Message-Id: <177789977513.458539.3948395874655836368.b4-ty@b4>
+Date: Mon, 04 May 2026 22:02:55 +0900
 MIME-Version: 1.0
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1722; i=broonie@kernel.org;
- h=from:subject:message-id; bh=S4D4xiXgQHI7j63fa70zQ8ojrWnq9v7eBETq1Yu8RsY=;
- b=owGbwMvMwMWocq27KDak/QLjabUkhsyfzuLXf17Vz1pgfFPfZ+GmkGLb9FRWWUWZ5ynzNIODI
- pg3S2l1MhqzMDByMciKKbKsfZaxKj1cYuv8R/NfwQxiZQKZwsDFKQAT0TjK/k/r9VtzVWcft6cb
- w67n57O17eE8Hiov7rS4LXO2xs26O8bGoo/W5Tfxrc6WabuoVemR9T13xzMnszkdr6InqnFFrHP
- T09+X08kfP/XbY3H96321Yjl1HP9meSnF32ivl7HhDAj1fpJqHS7n6vmJae+s/+UHHolNPMnmFl
- Mc2tguuG3ejK6XfQsff3r9WGKngP5Hz2cWgT67LohrSpte1GTgCgl9XFXb9OMJW+hstdIlSt+a/
- dpYzLdz3f9dJFzGeH/mea+vBnsarZeJlkvmT3vEMb2HvbpwUoTbom9llsrTfKeqyeeEvp9j6/7R
- 8P9D/rt2F1Y1tdtPqd7A0h/FIN1812vZlGbR1BKD7f8A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1139; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=nImo5ObXpWvU5qmCvtxUSoYcaKKF8ZKzQ/NntiTwEN4=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp+UM/TkHidV6dIxc25HjU7MFgUg9136xCHKLp3
+ Li5Zwd0PeiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaflDPwAKCRAk1otyXVSH
+ 0HNJB/0bxhuwGjLhVB3xyCWT6U8VsQxY/EwjI8SDhh8J/ZWdjUvh7CZuzM3Zl9FMSc1I4p8k7Fk
+ qTcXCPLSdCflxHVjGezzpqxqEeG+kZKnBaUy1K9iJvoyqW1O36ZY1De5HJGDRkZRMpeCK4d5Pjr
+ M4TbpRaPREaYmNLUuP0QEw9jm2x+d08OFOeaHzS9RA9U6aaDbXDPnNJLIuGEEmr76/G0OQRVv2v
+ vesOxbpObzKcmQnxwMqNzKjDCNR6Mo8Z9J8WLAo1EMnsE2077VhYVcQd2lJUmAXoATySVIDECcz
+ muj5DFtODqcEynvOSy0pUhb19gAznZxSpbELdb5CQwpcaEMl
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260504_180923_358508_B113AC4A 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +88,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Apr 2026 11:10:17 +0100, Conor Dooley wrote:
-> microchip core-qspi gpio-cs fixes + cleanup
-> 
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Hey Mark,
-> 
-> v3 with the review comment about the core handing CS_HIGH dealt with.
-> I noticed that in the same function there was a "raw" BIT(1), which I
-> replaced with a macro that the patch was already adding for use in the
-> setup function...
-> 
-> [...]
+On Wed, 29 Apr 2026 17:00:50 +0800, Troy Mitchell wrote:
+> ASoC: spacemit: fix RX DMA params not set when TX is running
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.1
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.1
 
 Thanks!
 
-[1/3] spi: microchip-core-qspi: control built-in cs manually
-      https://git.kernel.org/broonie/spi/c/7672749e1496
-[2/3] spi: microchip-core-qspi: don't attempt to transmit during emulated read-only dual/quad operations
-      https://git.kernel.org/broonie/spi/c/eb56deaabf12
-[3/3] spi: microchip-core-qspi: remove some inline markings
-      https://git.kernel.org/broonie/spi/c/0b2eb1f8473e
+[1/1] ASoC: spacemit: fix RX DMA params not set when TX is running
+      https://git.kernel.org/broonie/sound/c/ec0611868f2f
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
