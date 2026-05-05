@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143C7CD3439
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 19:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97562FF8855
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 20:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H0KWwvlN5A9XOsjpjNwJ6iC4+kq02EywEQFCRu3qprw=; b=4VRltgwu2fGSRX
-	hW4A7if4tNHvYRs8K+7NfI1eKcoNR0zRxtrFEaezGSxKOPGEgD8R7gpkf1nYGByblKN7ur0VZNzWT
-	IcxhRaUFTTUw/huJfL7ehFVAxgEGsv95X4e6TYjIhz//fggpNN5hwucMyuUlqUNikm+rtZCLlSGUj
-	MGUGgPsDiHpjeS/FDXGwV4tHzB+QLa/FrDJuycckuqKYycAqd0T3FZaSXUvDtm/FlvjC5oBPLPI36
-	AZWgPw+GgSZjpx0qenGUbEWnJGEaBp0y7QhzbKSXzIKEcWJQc/Lu6LJgKRtI/V16HP0hcnM/BfQr+
-	Nl0d9ndNrzUNFn1gjb0w==;
+	List-Owner; bh=ejneA/lL3qCAlhCfhGjb5e66U4UGpD4l4MdRXBeEjN8=; b=hqHYaJJe9nyHWB
+	SJ9/TyGPzMF6vQc74wPNP37xuqnyTNWEvceADXGNLAku9IzzHLabxEJ2kTqfqbsYkgJjab8TFuObF
+	dB8FTAy8bSGIhu1vbB+z6ywcnb5FEhfPwr6PeydCxEAP08uhwMhkjtHbaahRms19szW7+L94/JsUm
+	4ZCA1Ss+fA5lby6+TbTcqNxvxHp/wVMtNxjI/ee0+YI/bqkXkbFR7BKRWUZuDry5AsWbzWjREd0IK
+	joPmUrYC4kamJrE71QTr49rJ+cIMZhsdQfD64GBdtPM3ZxLsA5vZcRojUSfFA+vKywUo8Qrmv32id
+	SIP1uWgToPTFq4L6Fzkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLuG-0000000HMMk-3gGd;
-	Tue, 05 May 2026 19:58:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKM7i-0000000HORz-0TwT;
+	Tue, 05 May 2026 20:12:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLuE-0000000HMMA-3sab;
-	Tue, 05 May 2026 19:58:10 +0000
+	id 1wKM7g-0000000HORN-2l1v;
+	Tue, 05 May 2026 20:12:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 10C076091C;
-	Tue,  5 May 2026 19:58:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB6F1C2BCC7;
-	Tue,  5 May 2026 19:58:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1D0AA60181;
+	Tue,  5 May 2026 20:12:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FD4DC2BCB4;
+	Tue,  5 May 2026 20:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778011089;
-	bh=W35jp3biyC/4M1gGUsqXaJV7TzLzXnjHGt9kg58DRgs=;
+	s=k20201202; t=1778011923;
+	bh=u1TNffjOTQScgQgHOm6HUq07Ara3K4AEvgtmk7ngCoQ=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=QcaDx0FMqLlc6iPx8AsHb8msnT8tv7l82kZ2wMuIxS725ruXkCWQa7lla4brnDN+A
-	 qBIqFuOK1nkBDGy4BZaPYVnof9zYrxYav4xzusCyDeaapZR+FGAX8+IObQQrldg7MT
-	 OS2sSb7wNREHqg/bJKy0OKvBod7Sun4yV3SA7HYwVkX4iHojA5WY52pPJhkmaJL9Kr
-	 luMT83FCuRpPJjsLx+B6ZLXB0CPEaUCvyCgjmkjbddOx7u1xN2bBCmS6Dr7m5CUhsb
-	 mWHiUNQJ8ZhN6Zn8Jf+NlaOK0UQV17oGcfd3to43MXPDLJ2RmWlRquPQK06ERgwuuS
-	 eSWm5QLwEQeuw==
+	b=g0gCUNym1AaGUb74sYOFr37DzoB5h44Y35SreE4szEEYoIcTo2dFWjDRt/dLqC3zU
+	 URdVZD3S5OaSDXpB8aYCFdc4z+PqEk1RPzoohiFu/IEcOt7sitjpZtf45omc8D5Nb+
+	 NrW1tOns853utx4zov9xzmptqVX48wOFdV0+0kmYuj8L9HcUmHAQ15H2sUBK/bDbbp
+	 AwfdWlR+F2w2SPrTsQWhmsGwFREqGlCMRst3DOfgUhREzKGC2b1yjK4AJJy8hQvmQ6
+	 A/zwGtJ/y0DZWGFMAQ/11jvg790O6jAe5W0gYUrwlW68DSZGCIdx3fUf+tTGa+FNfp
+	 ZI1QivfXfJQ9A==
 From: Thomas Gleixner <tglx@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Sunil V L
- <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH 2/2] irqchip/gic-v5: Add IWB to ACPI probe dependency
- control
-In-Reply-To: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-2-b37b85998362@kernel.org>
-References: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org>
- <20260505-gic-v5-acpi-iwb-probe-deferral-v1-2-b37b85998362@kernel.org>
-Date: Tue, 05 May 2026 21:58:05 +0200
-Message-ID: <875x51y6gi.ffs@tglx>
+To: guoren@kernel.org, guoren@kernel.org
+Cc: alex@ghiti.fr, anup@brainfault.org, aou@eecs.berkeley.edu,
+ atish.patra@linux.dev, cp0613@linux.alibaba.com,
+ fangyu.yu@linux.alibaba.com, gaohan@iscas.ac.cn, inochiama@gmail.com,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ me@ziyao.cc, palmer@dabbelt.com, pjw@kernel.org
+Subject: Re: [PATCH V2 3/4] irqchip/riscv-imsic: Move nr_guest_files to
+ per-HART local config
+In-Reply-To: <20260425005916.3321811-4-guoren@kernel.org>
+References: <20260425005916.3321811-1-guoren@kernel.org>
+ <20260425005916.3321811-4-guoren@kernel.org>
+Date: Tue, 05 May 2026 22:12:00 +0200
+Message-ID: <87wlxhwr8v.ffs@tglx>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,25 +73,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05 2026 at 10:48, Lorenzo Pieralisi wrote:
-> On Arm GICv5 systems, wired IRQs routed to an IWB may require resolving
+On Sat, Apr 25 2026 at 00:59, guoren@kernel.org wrote:
+> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
+>
+> With the recent KVM AIA per-HART HGEI conversion, the global
+> nr_guest_files is no longer appropriate. Different HARTs in
+> heterogeneous SoCs may have different numbers of guest interrupt
+> files.
+>
+> Move `nr_guest_files` from `struct imsic_global_config` to
+> `struct imsic_local_config`, and compute it per-CPU in
+> imsic_setup_state() based on the actual MMIO guest file region size.
+>
+> Update the related comment to reflect that KVM now uses the
+> per-HART value.
+>
+> This eliminates the last global assumption about guest files and
+> completes the per-HART conversion series for RISC-V AIA/IMSIC.
+>
+> Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 
-S/IRQs/interrupts/g
+Assuming this goes through the risc-v tree:
 
-Changelogs are prose and not an acronym dump ground.
-
->  drivers/acpi/arm64/iort.c        | 22 +++++++++++++++++++---
->  drivers/acpi/scan.c              |  1 +
->  drivers/irqchip/irq-gic-v5-iwb.c |  5 +++++
->  drivers/irqchip/irq-gic-v5.c     | 13 +++++++++++--
->  include/linux/acpi_iort.h        |  3 ++-
-
-I'm confused about the conglomerate of files affected by an irqchip
-change...
-
-Thanks,
-
-        tglx
+Acked-by: Thomas Gleixner <tglx@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
