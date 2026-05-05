@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26152FF885A
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 06:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E3B0FF885A
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 06:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ijez2gDgpjD6qO7rK0OmbvizuZfYGj1pm+ldD9jhKpU=; b=FAH8CxuxQyEXRb
-	ynM5RzqlURBmWjq657xGe6STVScrIdUhsXCsGqPHlb8DtlYpa+tGVq/s2D1pTSsrdnAaoqlQIofIZ
-	5IAi40N1R5yP2qUGcSTe+mOGbAknFI0yexqXa57C2hPDTZdb5KMUjLK//W6G0pPp7EWpmaRu9PLPj
-	bFWf/24Y4ALZ4iEsvj9oychk2WYy1/Hz6e5g/WCWdg+fSIJSuUKJCtfc2CLagzpI2DIwUw7EYWqFo
-	+BtvIZ0ILO+ByHM3W8bJaqfgtkooJDHzeVEludLcdKjlyJlCafe2Qq0xti2Sx9pC82CVOk1BL4psC
-	U0mEzP9164WSahvvio9g==;
+	List-Owner; bh=hGrAQhcMOjoK5JXevrmEvVrAWPNSsLIMrOXV3r+JJ7M=; b=ukFxyQhD1vniVQ
+	mR1hyOJ4/xn2n/6nulicUepApXYpDiOYgUDZlVf2+az/VULlzLnpDJkkpyfbsJfgmKjK90zvKLkHa
+	duF7kvpyqKuEsGJlHs2pIoGGrzaXEMnS2bxT4hndHdxo8eiYUW/T8ZyFt0eTIiJw5AordwxTTuPYY
+	RVmNOlM2aDomqsFTBMOyT/dBsB0qbeSnPwVHxzhEtRYBlkWbpuV8d9Ehjardi41cNJGA8/ZH0xvy+
+	qhKt8p7KHF4cHFZ6wHZ2oOZAAs7NdV2mDmIbYPe2rYKLqd+1zit4qZhKtCOO75NlfnUQb8gSbyo9g
+	EN4/O2w4V5UkYrThjPDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK99h-0000000FH8h-3Gls;
-	Tue, 05 May 2026 06:21:17 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1wK99s-0000000FHCJ-0i1k;
+	Tue, 05 May 2026 06:21:28 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wK99e-0000000FH7e-2rQb
+	id 1wK99p-0000000FHAj-1eqy
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 May 2026 06:21:15 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-83659d38e38so849256b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 04 May 2026 23:21:14 -0700 (PDT)
+	Tue, 05 May 2026 06:21:26 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-82f8b60e54dso3749014b3a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 04 May 2026 23:21:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1777962074; x=1778566874; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1777962084; x=1778566884; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Oo8D+bpHIA0LAgv97mwhWXEIJKH4RloET0FJQLqr/w0=;
-        b=Qlojg1UNXkXq7xXP76LkclsCPT4vdzSw80bTi0hNmTWD+X9LTMTpbVAfqNAhm4WP8E
-         XSYsBdy+ruWRefRloeyxm+ElGUyzaKVAiVn0+wy+ExWoxprWkX2a/VzZ3QXf8vdr03n+
-         mivZWPfbMPwbObtAMGxKiipHZfZALmxMASJSnkD2p3UG3oq2gp3iNoFXppzOPVc4guPA
-         XJXhCbsTCft+mI/jwNfxoLem3anax6z12i4fIug53WG5LgJv+c4TKgTV+T+jXVPk5CqI
-         xn/inkC0YvpOhJ7CVPEJKyhC2L9+CSTOBHnla9dplWN7AYQMD91PPEEDUn2vlUyTMuVd
-         hDLw==
+        bh=4znkv+W5vuAGwYDPrkKlG4HbKRGYXv2X7CusMf1hFi8=;
+        b=cAG2V6mVJLsaWuDdDvsRIkFVUTgmow/klcTV2nTBgKD/dKe1zehatfIq6FpaQg3TvJ
+         RasxzNwg4mJVbsiYq+es7dc+KJdw8ZvsCFyjUANx/b8Jqi3k9huect9d9u5Gzj+tUn0/
+         G17+JAVXsDN574XCiQpu1G7JMcM7pjOVeZDV7U5SxTsb09dz13MwUlTnc17UHu/0NW4u
+         0sdAjYTATBSC/PiHPKre/GJZNumF0GOw2xcU0YWYatS9uD4W6w//+drCm09xqfY467ez
+         oLiMg28HH2yPNL6eGGrCaaqHwPWVViYcuW2C0iE0/EL42P1C5bHCGN0pV4va8eCGaoXv
+         HOOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777962074; x=1778566874;
+        d=1e100.net; s=20251104; t=1777962084; x=1778566884;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Oo8D+bpHIA0LAgv97mwhWXEIJKH4RloET0FJQLqr/w0=;
-        b=PPQkdsR+GP8PMYODrjFkRCn/1ODjDlbk0ZSVoJidHEoGRalLkCCtiuPZC1c6XNo7eI
-         GZXh+GlN4iIEF5NPV6Jo7pAzFBNgBcvJEHi5wLAMni8q8upGM+0cxvePThdBzkNlleuW
-         +Gj7pvf0q4bu9AMzRlo3EpH6coQeHGWMYUoHDKqBBhrGdud2QY7BgXjt9ckdJaNHFr49
-         szheyhxRaNBnj1rUMqlw87gku4jC7jNLM4ndvSlkG+DU9/rAMotuTelYxjmmYxXwHrgG
-         7xFwdumpt7oI7XBfm3q9wgnLu5xXUCmBSOWnqKh38qdyzyYRr9UAquFQIQnzGTu1HHFy
-         bfog==
-X-Forwarded-Encrypted: i=1; AFNElJ8GPBQnyX0304e30yaYNHCrEIRVvEExaxdtiBuC8LsRpG+jaT53+UiSbnAk4+YZMmgbZDGq84j+vkvEPg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaX+Cr30c0nsKCuy+nifpO0o1Ddao0muwA3PZuDbnsWUoIl1XM
-	oqjIN4jjSLfQyhaR/A8HnoqQm6BE4TqGRV1JpIkBN2HNCl3R8KN9qhe7bFdVlyZNenw=
-X-Gm-Gg: AeBDiesWwggJEP+0XTUlAL8Imj1m60OYXblGbGBKZRFIJqiJ/fwaYOCVjoAryU817yC
-	qqkVz8cWHD4sWmI1uWvnlywa7ym1Loaof3EPJi3fJpJWP6kXZJCmGuGZR5DfgSxNov73z5PjugA
-	cqmV/Dgn4eR8yl0ELMVUB8A/zI3chaF7PpA319ou0u9DCkgfMkFxbo9B08RyhSMy9/9jeilauyC
-	27b1mlCWG7L8EE/nbeJd6BTV123yjcWsKTBABA9hPNBW/OkyU0Ekq6P85BT2mONfGsgp130zov3
-	OVqbJ1noCt4ehcqKX9O/SxEnOJn6mrcrgK/nALwgVHmLZm+7cxoSKp/V6O+ILW8ecHAX17uKnp4
-	Jx4lQDMobpGqnm7Ge2BdPftJbNDtfJG7aDRGRji3WLGwNnZEzDifkx/w15JrOa+x4AkTqClrf5b
-	Y3OeafBcNlP20kVN7yyrU/5+MA+LoAoOC7TIeLIEqB6iTk9v6cLN8mGuF0wjFwRr19V2v6pvjyV
-	P8=
-X-Received: by 2002:a05:6a00:b90a:b0:829:7d31:dd99 with SMTP id d2e1a72fcca58-839246bc34fmr1947042b3a.38.1777962073663;
-        Mon, 04 May 2026 23:21:13 -0700 (PDT)
+        bh=4znkv+W5vuAGwYDPrkKlG4HbKRGYXv2X7CusMf1hFi8=;
+        b=tHi0dRNLHwa+/c1MWhygFXdjnIqccsnEi0NDLZJDzfONOgBWpmSfOrx2E39kyocfvP
+         u0nb3GlFtmfVO7gvRLibqkWfZcmoiEbKVHzIj/i2nxT6ceXluzNe2pLMVN0xgSBSn9yn
+         4G9mcFTkkB3e7x2NrCfFtmWvU1TE/iTqCEXYzKPpwLtE3UiH7J8LgSvcfCw9mMwHi53K
+         i+po1Itgs42VwYOS4TSRVTvqBJAphLjfGuZdX/so9wfu4qYdd4qNhmp7lWrkPKXrgeoY
+         lR1W/rnwNlcxPyQNrD9brWg0kx6LtTZS1qcLpeeaYQ3A+uRWlKFthkbX7yeJWNKXJqI/
+         buYg==
+X-Forwarded-Encrypted: i=1; AFNElJ+GoC1i1jY7ps/LSubKJ7DWx7ICUijFeKfUSjrLnXM9DQw+lzHLcON6v/lfEC6Mm3wi1OtYmiz/DfYUOQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjQ/MlJkvilyVZNEBiy89YP/Hq6emzYWV41OZWH8cIlcENxcf9
+	SftiRk3Ft288CdyosDmKJ1M/OJfTezm1XSkySexJpKiUyuKZDZS4EWR5DT4BUyk/g5I=
+X-Gm-Gg: AeBDiesFm2DiysYSWTakPix0/Cb99KCCx3PfvQtAMYAkloPOtVFVoo4IVEko95rwt9q
+	AgTXzJcbtehF5rf27NaupPQve2JZ6jve8G3PXdGLLYkpitK3/b44DM91io16kFaYkml1XhXA6q8
+	ogIrmKcbCZR/AdBVWYgMw4widPpWLVAfQ+hHWKkEepF9QmpKXYFCngS1gepxZzItbas7xTPYzQ3
+	vbih+WsdpH4SnClWV2JcDltdulbQg5sBxpcjRxJdAgackXO5kQHMpaITjvTyYYB2IBLhKJfx5Tu
+	Ii2gRMcInXKa8lzhd66dPK9HyMpBx081aQgq23MkYyNEDYqXikFapa/+zKH+H+ekcIVO2GURsNA
+	PVpdUtyNAZiGu6IMmU9nm5PGtauy0cXZddIRTkTR7wDQNS3hpEPqgBJY313fkKYWaYn5zGuMR4Q
+	L6tUgfpfrzILZZi2OHFXuZ0V+Zgvs5GDvkLaov3eknwoVGQGlNvXoE/CGz+oKloCIQ
+X-Received: by 2002:a05:6a00:14ca:b0:82f:721f:10ea with SMTP id d2e1a72fcca58-8352d1bf331mr13120000b3a.18.1777962084168;
+        Mon, 04 May 2026 23:21:24 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([61.213.176.12])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839679c8c10sm880738b3a.37.2026.05.04.23.21.03
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839679c8c10sm880738b3a.37.2026.05.04.23.21.14
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 04 May 2026 23:21:13 -0700 (PDT)
+        Mon, 04 May 2026 23:21:23 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: pjw@kernel.org,
 	palmer@dabbelt.com,
@@ -119,16 +118,16 @@ To: pjw@kernel.org,
 	qingfang.deng@siflower.com.cn,
 	linux-arch@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v4 2/3] riscv: introduce percpu.h into include/asm
-Date: Tue,  5 May 2026 14:20:25 +0800
-Message-Id: <20260505062026.91724-3-cuiyunhui@bytedance.com>
+Subject: [PATCH v4 3/3] riscv: store percpu offset into thread_info
+Date: Tue,  5 May 2026 14:20:26 +0800
+Message-Id: <20260505062026.91724-4-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20260505062026.91724-1-cuiyunhui@bytedance.com>
 References: <20260505062026.91724-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260504_232114_797469_00A27DAD 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260504_232125_443128_2D816A48 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,315 +139,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a RISC-V percpu header with direct this_cpu helpers for
-read/write/add/and/or/xchg/cmpxchg operations.
-
-Make the 8/16-bit add_return LR/SC fallback return the logical
-subword result so callers at non-zero subword offsets see the
-expected value.
-
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- arch/riscv/include/asm/percpu.h | 280 ++++++++++++++++++++++++++++++++
- 1 file changed, 280 insertions(+)
- create mode 100644 arch/riscv/include/asm/percpu.h
-
-diff --git a/arch/riscv/include/asm/percpu.h b/arch/riscv/include/asm/percpu.h
-new file mode 100644
-index 0000000000000..3b26fe45e70f4
---- /dev/null
-+++ b/arch/riscv/include/asm/percpu.h
-@@ -0,0 +1,280 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+
-+#ifndef __ASM_PERCPU_H
-+#define __ASM_PERCPU_H
-+
-+#include <linux/preempt.h>
-+
-+#include <asm/alternative-macros.h>
-+#include <asm/cpufeature-macros.h>
-+#include <asm/hwcap.h>
-+
-+#define PERCPU_RW_OPS(sz)						\
-+static inline unsigned long __percpu_read_##sz(void *ptr)		\
-+{									\
-+	return READ_ONCE(*(u##sz *)ptr);				\
-+}									\
-+									\
-+static inline void __percpu_write_##sz(void *ptr, unsigned long val)	\
-+{									\
-+	WRITE_ONCE(*(u##sz *)ptr, (u##sz)val);				\
-+}
-+
-+PERCPU_RW_OPS(8)
-+PERCPU_RW_OPS(16)
-+PERCPU_RW_OPS(32)
-+
-+#ifdef CONFIG_64BIT
-+PERCPU_RW_OPS(64)
-+#endif
-+
-+#define __PERCPU_AMO_OP_CASE(sfx, name, sz, amo_insn)			\
-+static inline void							\
-+__percpu_##name##_amo_case_##sz(void *ptr, unsigned long val)		\
-+{									\
-+	asm volatile (							\
-+		"amo" #amo_insn #sfx " zero, %[val], %[ptr]"		\
-+		: [ptr] "+A" (*(u##sz *)ptr)				\
-+		: [val] "r" ((u##sz)(val))				\
-+		: "memory");						\
-+}
-+
-+#ifdef CONFIG_64BIT
-+#define PERCPU_OP(name, amo_insn)					\
-+	__PERCPU_AMO_OP_CASE(.w, name, 32, amo_insn)			\
-+	__PERCPU_AMO_OP_CASE(.d, name, 64, amo_insn)
-+#else
-+#define PERCPU_OP(name, amo_insn)					\
-+	__PERCPU_AMO_OP_CASE(.w, name, 32, amo_insn)
-+#endif
-+
-+PERCPU_OP(add, add)
-+PERCPU_OP(andnot, and)
-+PERCPU_OP(or, or)
-+
-+/*
-+ * Currently, only this_cpu_add_return_xxx() requires a return value,
-+ * and the PERCPU_RET_OP() does not account for other operations.
-+ */
-+#define __PERCPU_AMO_RET_OP_CASE(sfx, name, sz, amo_insn)		\
-+static inline u##sz							\
-+__percpu_##name##_return_amo_case_##sz(void *ptr, unsigned long val)	\
-+{									\
-+	register u##sz ret;						\
-+									\
-+	asm volatile (							\
-+		"amo" #amo_insn #sfx " %[ret], %[val], %[ptr]"		\
-+		: [ptr] "+A" (*(u##sz *)ptr), [ret] "=r" (ret)		\
-+		: [val] "r" ((u##sz)(val))				\
-+		: "memory");						\
-+									\
-+	return ret + val;						\
-+}
-+
-+#ifdef CONFIG_64BIT
-+#define PERCPU_RET_OP(name, amo_insn)					\
-+	__PERCPU_AMO_RET_OP_CASE(.w, name, 32, amo_insn)		\
-+	__PERCPU_AMO_RET_OP_CASE(.d, name, 64, amo_insn)
-+#else
-+#define PERCPU_RET_OP(name, amo_insn)					\
-+	__PERCPU_AMO_RET_OP_CASE(.w, name, 32, amo_insn)
-+#endif
-+
-+PERCPU_RET_OP(add, add)
-+
-+#define PERCPU_8_16_GET_SHIFT(ptr)	(((unsigned long)(ptr) & 0x3) * BITS_PER_BYTE)
-+#define PERCPU_8_16_GET_MASK(sz)	GENMASK((sz) - 1, 0)
-+#define PERCPU_8_16_GET_PTR32(ptr)	((u32 *)((unsigned long)(ptr) & ~0x3))
-+
-+#define PERCPU_8_16_OP(name, amo_insn, sz, sfx, val_type, new_val_expr, asm_op)			\
-+static inline void __percpu_##name##_amo_case_##sz(void *ptr, unsigned long val)		\
-+{												\
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) &&						\
-+		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZABHA)) {				\
-+		asm volatile ("amo" #amo_insn #sfx " zero, %[val], %[ptr]"			\
-+			: [ptr] "+A"(*(val_type *)ptr)						\
-+			: [val] "r"((val_type)((new_val_expr) & PERCPU_8_16_GET_MASK(sz)))	\
-+			: "memory");								\
-+	} else {										\
-+		u32 *ptr32 = PERCPU_8_16_GET_PTR32(ptr);					\
-+		const unsigned long shift = PERCPU_8_16_GET_SHIFT(ptr);				\
-+		const u32 mask = PERCPU_8_16_GET_MASK(sz) << shift;				\
-+		const val_type val_trunc = (val_type)((new_val_expr)				\
-+					   & PERCPU_8_16_GET_MASK(sz));				\
-+		u32 retx, rc;									\
-+		val_type new_val_type;								\
-+												\
-+		asm volatile (									\
-+			"0: lr.w %0, %2\n"							\
-+			"and %3, %0, %4\n"							\
-+			"srl %3, %3, %5\n"							\
-+			#asm_op " %3, %3, %6\n"							\
-+			"sll %3, %3, %5\n"							\
-+			"and %1, %0, %7\n"							\
-+			"or %1, %1, %3\n"							\
-+			"sc.w %1, %1, %2\n"							\
-+			"bnez %1, 0b\n"								\
-+			: "=&r"(retx), "=&r"(rc), "+A"(*ptr32), "=&r"(new_val_type)		\
-+			: "r"(mask), "r"(shift), "r"(val_trunc), "r"(~mask)			\
-+			: "memory");								\
-+		}										\
-+}
-+
-+#define PERCPU_OP_8_16(op_name, op, expr, final_op)			\
-+	PERCPU_8_16_OP(op_name, op, 8, .b, u8, expr, final_op);		\
-+	PERCPU_8_16_OP(op_name, op, 16, .h, u16, expr, final_op)
-+
-+PERCPU_OP_8_16(add, add, val, add)
-+PERCPU_OP_8_16(andnot, and, ~(val), and)
-+PERCPU_OP_8_16(or, or, val, or)
-+
-+#define PERCPU_8_16_RET_OP(name, amo_insn, sz, sfx, val_type, new_val_expr)			\
-+static inline val_type __percpu_##name##_return_amo_case_##sz(void *ptr, unsigned long val)	\
-+{												\
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZABHA) &&						\
-+		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZABHA)) {				\
-+		register val_type ret;								\
-+		asm volatile ("amo" #amo_insn #sfx " %[ret], %[val], %[ptr]"			\
-+			: [ptr] "+A"(*(val_type *)ptr), [ret] "=r"(ret)				\
-+			: [val] "r"((val_type)((new_val_expr) & PERCPU_8_16_GET_MASK(sz)))	\
-+			: "memory");								\
-+		return ret + (val_type)((new_val_expr) & PERCPU_8_16_GET_MASK(sz));		\
-+	} else {										\
-+		u32 *ptr32 = PERCPU_8_16_GET_PTR32(ptr);					\
-+		const unsigned long shift = PERCPU_8_16_GET_SHIFT(ptr);				\
-+		const u32 mask = (PERCPU_8_16_GET_MASK(sz) << shift);				\
-+		const u32 inv_mask = ~mask;							\
-+		const val_type val_trunc = (val_type)((new_val_expr)				\
-+					   & PERCPU_8_16_GET_MASK(sz));				\
-+		u32 old, new, tmp;								\
-+												\
-+		asm volatile (									\
-+			"0: lr.w %0, %3\n"							\
-+			"and %1, %0, %4\n"							\
-+			"srl %1, %1, %5\n"							\
-+			"add %1, %1, %6\n"							\
-+			"and %1, %1, %7\n"							\
-+			"sll %1, %1, %5\n"							\
-+			"and %2, %0, %8\n"							\
-+			"or %2, %2, %1\n"							\
-+			"sc.w %2, %2, %3\n"							\
-+			"bnez %2, 0b\n"								\
-+			: "=r"(old), "=r"(tmp), "=&r"(new), "+A"(*ptr32)			\
-+			: "r"(mask), "r"(shift), "r"(val_trunc), "r"(PERCPU_8_16_GET_MASK(sz)), \
-+			"r"(inv_mask)								\
-+			: "memory");								\
-+		return (val_type)(tmp >> shift);						\
-+	}											\
-+}
-+
-+PERCPU_8_16_RET_OP(add, add, 8, .b, u8, val)
-+PERCPU_8_16_RET_OP(add, add, 16, .h, u16, val)
-+
-+#define _pcp_protect(op, pcp, ...)					\
-+({									\
-+	preempt_disable_notrace();					\
-+	op(raw_cpu_ptr(&(pcp)), __VA_ARGS__);				\
-+	preempt_enable_notrace();					\
-+})
-+
-+#define _pcp_protect_return(op, pcp, args...)				\
-+({									\
-+	typeof(pcp) __retval;						\
-+	preempt_disable_notrace();					\
-+	__retval = (typeof(pcp))op(raw_cpu_ptr(&(pcp)), ##args);	\
-+	preempt_enable_notrace();					\
-+	__retval;							\
-+})
-+
-+#define this_cpu_read_1(pcp)		_pcp_protect_return(__percpu_read_8, pcp)
-+#define this_cpu_read_2(pcp)		_pcp_protect_return(__percpu_read_16, pcp)
-+#define this_cpu_read_4(pcp)		_pcp_protect_return(__percpu_read_32, pcp)
-+
-+#ifdef CONFIG_64BIT
-+#define this_cpu_read_8(pcp)		_pcp_protect_return(__percpu_read_64, pcp)
-+#endif
-+
-+#define this_cpu_write_1(pcp, val)	_pcp_protect(__percpu_write_8, pcp, (unsigned long)val)
-+#define this_cpu_write_2(pcp, val)	_pcp_protect(__percpu_write_16, pcp, (unsigned long)val)
-+#define this_cpu_write_4(pcp, val)	_pcp_protect(__percpu_write_32, pcp, (unsigned long)val)
-+
-+#ifdef CONFIG_64BIT
-+#define this_cpu_write_8(pcp, val)	_pcp_protect(__percpu_write_64, pcp, (unsigned long)val)
-+#endif
-+
-+#define this_cpu_add_1(pcp, val)	_pcp_protect(__percpu_add_amo_case_8, pcp, val)
-+#define this_cpu_add_2(pcp, val)	_pcp_protect(__percpu_add_amo_case_16, pcp, val)
-+#define this_cpu_add_4(pcp, val)	_pcp_protect(__percpu_add_amo_case_32, pcp, val)
-+
-+#ifdef CONFIG_64BIT
-+#define this_cpu_add_8(pcp, val)	_pcp_protect(__percpu_add_amo_case_64, pcp, val)
-+#endif
-+
-+#define this_cpu_add_return_1(pcp, val)		\
-+_pcp_protect_return(__percpu_add_return_amo_case_8, pcp, val)
-+
-+#define this_cpu_add_return_2(pcp, val)		\
-+_pcp_protect_return(__percpu_add_return_amo_case_16, pcp, val)
-+
-+#define this_cpu_add_return_4(pcp, val)		\
-+_pcp_protect_return(__percpu_add_return_amo_case_32, pcp, val)
-+
-+#ifdef CONFIG_64BIT
-+#define this_cpu_add_return_8(pcp, val)		\
-+_pcp_protect_return(__percpu_add_return_amo_case_64, pcp, val)
-+#endif
-+
-+#define this_cpu_and_1(pcp, val)	_pcp_protect(__percpu_andnot_amo_case_8, pcp, ~(val))
-+#define this_cpu_and_2(pcp, val)	_pcp_protect(__percpu_andnot_amo_case_16, pcp, ~(val))
-+#define this_cpu_and_4(pcp, val)	_pcp_protect(__percpu_andnot_amo_case_32, pcp, ~(val))
-+
-+#ifdef CONFIG_64BIT
-+#define this_cpu_and_8(pcp, val)	_pcp_protect(__percpu_andnot_amo_case_64, pcp, ~(val))
-+#endif
-+
-+#define this_cpu_or_1(pcp, val)	_pcp_protect(__percpu_or_amo_case_8, pcp, val)
-+#define this_cpu_or_2(pcp, val)	_pcp_protect(__percpu_or_amo_case_16, pcp, val)
-+#define this_cpu_or_4(pcp, val)	_pcp_protect(__percpu_or_amo_case_32, pcp, val)
-+
-+#ifdef CONFIG_64BIT
-+#define this_cpu_or_8(pcp, val)	_pcp_protect(__percpu_or_amo_case_64, pcp, val)
-+#endif
-+
-+#define this_cpu_xchg_1(pcp, val)	_pcp_protect_return(xchg_relaxed, pcp, val)
-+#define this_cpu_xchg_2(pcp, val)	_pcp_protect_return(xchg_relaxed, pcp, val)
-+#define this_cpu_xchg_4(pcp, val)	_pcp_protect_return(xchg_relaxed, pcp, val)
-+
-+#ifdef CONFIG_64BIT
-+#define this_cpu_xchg_8(pcp, val)	_pcp_protect_return(xchg_relaxed, pcp, val)
-+#endif
-+
-+#define this_cpu_cmpxchg_1(pcp, o, n)	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+#define this_cpu_cmpxchg_2(pcp, o, n)	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+#define this_cpu_cmpxchg_4(pcp, o, n)	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+
-+#ifdef CONFIG_64BIT
-+#define this_cpu_cmpxchg_8(pcp, o, n)	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+
-+#define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
-+#endif
-+
-+#ifdef system_has_cmpxchg128
-+#define this_cpu_cmpxchg128(pcp, o, n)					\
-+({									\
-+	u128 ret__;							\
-+	typeof(pcp) *ptr__;						\
-+									\
-+	preempt_disable_notrace();					\
-+	ptr__ = raw_cpu_ptr(&(pcp));					\
-+	if (system_has_cmpxchg128())					\
-+		ret__ = cmpxchg128_local(ptr__, (o), (n));		\
-+	else								\
-+		ret__ = this_cpu_generic_cmpxchg(pcp, (o), (n));	\
-+	preempt_enable_notrace();					\
-+	ret__;								\
-+})
-+#endif
-+
-+#include <asm-generic/percpu.h>
-+
-+#endif /* __ASM_PERCPU_H */
--- 
-2.39.5
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T3JpZ2luYWxseSB3ZSBwbGFubmVkIHRvIGFkZCBhIHJlZ2lzdGVyIGZvciB0aGUgcGVyY3B1IG9m
+ZnNldCwKd2hpY2ggd291bGQgc3BlZWQgdXAgcGVyY3B1IHZhcmlhYmxlIFIvVyBhbmQgcmVkdWNl
+IGFjY2VzcwppbnN0cnVjdGlvbnMuIEFmdGVyIGRpc2N1c3Npb24gWzFdLCBpdOKAmXMgbm93IHN0
+b3JlZCBpbiB0aHJlYWRfaW5mby4KClsxXSBodHRwczovL2xpc3RzLnJpc2N2Lm9yZy9nL3RlY2gt
+cHJpdmlsZWdlZC90b3BpYy9yaXNjX3ZfdGVjaF9hcmNoX3Jldmlldy8xMTM0Mzc1NTM/cGFnZT0y
+CgpTaWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0ZWRhbmNlLmNvbT4KLS0t
+CiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FzbS5oICAgICAgICAgfCA2ICstLS0tLQogYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9wZXJjcHUuaCAgICAgIHwgNCArKysrCiBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3N3aXRjaF90by5oICAgfCA4ICsrKysrKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L3RocmVhZF9pbmZvLmggfCAzICsrLQogYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNldHMuYyAg
+ICAgIHwgMSArCiBhcmNoL3Jpc2N2L2tlcm5lbC9zbXBib290LmMgICAgICAgICAgfCA3ICsrKysr
+KysKIGFyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgICAgICB8IDkgKy0tLS0tLS0tCiA3
+IGZpbGVzIGNoYW5nZWQsIDI0IGluc2VydGlvbnMoKyksIDE0IGRlbGV0aW9ucygtKQoKZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXNtLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2FzbS5oCmluZGV4IGU5ZThiYTgzZTYzMmYuLjEzN2E0OTQ4ODMyNWUgMTAwNjQ0Ci0tLSBh
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXNtLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9hc20uaApAQCAtOTEsMTEgKzkxLDcgQEAKIAogI2lmZGVmIENPTkZJR19TTVAKIC5tYWNybyBh
+c21fcGVyX2NwdSBkc3Qgc3ltIHRtcAotCWx3ICAgIFx0bXAsIFRBU0tfVElfQ1BVX05VTSh0cCkK
+LQlzbGxpICBcdG1wLCBcdG1wLCBSSVNDVl9MR1BUUgotCWxhICAgIFxkc3QsIF9fcGVyX2NwdV9v
+ZmZzZXQKLQlhZGQgICBcZHN0LCBcZHN0LCBcdG1wCi0JUkVHX0wgXHRtcCwgMChcZHN0KQorCVJF
+R19MIFx0bXAsIFRBU0tfVElfUENQVV9PRkZTRVQodHApCiAJbGEgICAgXGRzdCwgXHN5bQogCWFk
+ZCAgIFxkc3QsIFxkc3QsIFx0bXAKIC5lbmRtCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3BlcmNwdS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZXJjcHUuaAppbmRleCAz
+YjI2ZmU0NWU3MGY0Li44NDYxMmQ2NzIxMDVkIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3BlcmNwdS5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGVyY3B1LmgKQEAg
+LTcsNyArNyw5IEBACiAKICNpbmNsdWRlIDxhc20vYWx0ZXJuYXRpdmUtbWFjcm9zLmg+CiAjaW5j
+bHVkZSA8YXNtL2NwdWZlYXR1cmUtbWFjcm9zLmg+CisjaW5jbHVkZSA8YXNtL2N1cnJlbnQuaD4K
+ICNpbmNsdWRlIDxhc20vaHdjYXAuaD4KKyNpbmNsdWRlIDxhc20vdGhyZWFkX2luZm8uaD4KIAog
+I2RlZmluZSBQRVJDUFVfUldfT1BTKHN6KQkJCQkJCVwKIHN0YXRpYyBpbmxpbmUgdW5zaWduZWQg
+bG9uZyBfX3BlcmNwdV9yZWFkXyMjc3oodm9pZCAqcHRyKQkJXApAQCAtMjc1LDYgKzI3Nyw4IEBA
+IF9wY3BfcHJvdGVjdF9yZXR1cm4oX19wZXJjcHVfYWRkX3JldHVybl9hbW9fY2FzZV82NCwgcGNw
+LCB2YWwpCiB9KQogI2VuZGlmCiAKKyNkZWZpbmUgX19teV9jcHVfb2Zmc2V0ICgoKHN0cnVjdCB0
+aHJlYWRfaW5mbyAqKWN1cnJlbnQpLT5wY3B1X29mZnNldCkKKwogI2luY2x1ZGUgPGFzbS1nZW5l
+cmljL3BlcmNwdS5oPgogCiAjZW5kaWYgLyogX19BU01fUEVSQ1BVX0ggKi8KZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL3N3aXRjaF90by5oCmluZGV4IDBlNzFlYjgyZjkyMGMuLjczM2I2Y2QzMDZlNDAgMTAwNjQ0
+Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgKKysrIGIvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaApAQCAtODgsNiArODgsMTMgQEAgc3RhdGljIGlubGlu
+ZSB2b2lkIF9fc3dpdGNoX3RvX2VudmNmZyhzdHJ1Y3QgdGFza19zdHJ1Y3QgKm5leHQpCiAJCQk6
+OiAiciIgKG5leHQtPnRocmVhZC5lbnZjZmcpIDogIm1lbW9yeSIpOwogfQogCitzdGF0aWMgaW5s
+aW5lIHZvaWQgX19zd2l0Y2hfdG9fcGNwdV9vZmZzZXQoc3RydWN0IHRhc2tfc3RydWN0ICpuZXh0
+KQoreworI2lmZGVmIENPTkZJR19TTVAKKwluZXh0LT50aHJlYWRfaW5mby5wY3B1X29mZnNldCA9
+IF9fbXlfY3B1X29mZnNldDsKKyNlbmRpZgorfQorCiBleHRlcm4gc3RydWN0IHRhc2tfc3RydWN0
+ICpfX3N3aXRjaF90byhzdHJ1Y3QgdGFza19zdHJ1Y3QgKiwKIAkJCQkgICAgICAgc3RydWN0IHRh
+c2tfc3RydWN0ICopOwogCkBAIC0xMjIsNiArMTI5LDcgQEAgZG8gewkJCQkJCQlcCiAJaWYgKHN3
+aXRjaF90b19zaG91bGRfZmx1c2hfaWNhY2hlKF9fbmV4dCkpCVwKIAkJbG9jYWxfZmx1c2hfaWNh
+Y2hlX2FsbCgpOwkJXAogCV9fc3dpdGNoX3RvX2VudmNmZyhfX25leHQpOwkJCVwKKwlfX3N3aXRj
+aF90b19wY3B1X29mZnNldChfX25leHQpOwkJXAogCSgobGFzdCkgPSBfX3N3aXRjaF90byhfX3By
+ZXYsIF9fbmV4dCkpOwkJXAogfSB3aGlsZSAoMCkKIApkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS90aHJlYWRfaW5mby5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aHJlYWRf
+aW5mby5oCmluZGV4IDU1MDE5ZmRmYTllY2EuLmYxMGJhNjJiNjEwMTYgMTAwNjQ0Ci0tLSBhL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3RocmVhZF9pbmZvLmgKQEAgLTUzLDYgKzUzLDcgQEAKIHN0cnVjdCB0aHJlYWRfaW5m
+byB7CiAJdW5zaWduZWQgbG9uZwkJZmxhZ3M7CQkvKiBsb3cgbGV2ZWwgZmxhZ3MgKi8KIAlpbnQg
+ICAgICAgICAgICAgICAgICAgICBwcmVlbXB0X2NvdW50OyAgLyogMD0+cHJlZW1wdGlibGUsIDww
+PT5CVUcgKi8KKwlpbnQJCQljcHU7CiAJLyoKIAkgKiBUaGVzZSBzdGFjayBwb2ludGVycyBhcmUg
+b3ZlcndyaXR0ZW4gb24gZXZlcnkgc3lzdGVtIGNhbGwgb3IKIAkgKiBleGNlcHRpb24uICBTUCBp
+cyBhbHNvIHNhdmVkIHRvIHRoZSBzdGFjayBpdCBjYW4gYmUgcmVjb3ZlcmVkIHdoZW4KQEAgLTYw
+LDggKzYxLDggQEAgc3RydWN0IHRocmVhZF9pbmZvIHsKIAkgKi8KIAlsb25nCQkJa2VybmVsX3Nw
+OwkvKiBLZXJuZWwgc3RhY2sgcG9pbnRlciAqLwogCWxvbmcJCQl1c2VyX3NwOwkvKiBVc2VyIHN0
+YWNrIHBvaW50ZXIgKi8KLQlpbnQJCQljcHU7CiAJdW5zaWduZWQgbG9uZwkJc3lzY2FsbF93b3Jr
+OwkvKiBTWVNDQUxMX1dPUktfIGZsYWdzICovCisJdW5zaWduZWQgbG9uZwkJcGNwdV9vZmZzZXQ7
+CiAjaWZkZWYgQ09ORklHX1NIQURPV19DQUxMX1NUQUNLCiAJdm9pZAkJCSpzY3NfYmFzZTsKIAl2
+b2lkCQkJKnNjc19zcDsKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRz
+LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9hc20tb2Zmc2V0cy5jCmluZGV4IGFmODI3NDQ4YTYwOWUu
+LmZiZjUzYjY2YjBlMDYgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRz
+LmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNldHMuYwpAQCAtMzgsNiArMzgsNyBA
+QCB2b2lkIGFzbV9vZmZzZXRzKHZvaWQpCiAJT0ZGU0VUKFRBU0tfVEhSRUFEX1NVTSwgdGFza19z
+dHJ1Y3QsIHRocmVhZC5zdW0pOwogCiAJT0ZGU0VUKFRBU0tfVElfQ1BVLCB0YXNrX3N0cnVjdCwg
+dGhyZWFkX2luZm8uY3B1KTsKKwlPRkZTRVQoVEFTS19USV9QQ1BVX09GRlNFVCwgdGFza19zdHJ1
+Y3QsIHRocmVhZF9pbmZvLnBjcHVfb2Zmc2V0KTsKIAlPRkZTRVQoVEFTS19USV9QUkVFTVBUX0NP
+VU5ULCB0YXNrX3N0cnVjdCwgdGhyZWFkX2luZm8ucHJlZW1wdF9jb3VudCk7CiAJT0ZGU0VUKFRB
+U0tfVElfS0VSTkVMX1NQLCB0YXNrX3N0cnVjdCwgdGhyZWFkX2luZm8ua2VybmVsX3NwKTsKIAlP
+RkZTRVQoVEFTS19USV9VU0VSX1NQLCB0YXNrX3N0cnVjdCwgdGhyZWFkX2luZm8udXNlcl9zcCk7
+CmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zbXBib290LmMgYi9hcmNoL3Jpc2N2L2tl
+cm5lbC9zbXBib290LmMKaW5kZXggOGI2Mjg1ODBmZTExOC4uNDE0NjNhODQwMGY2YyAxMDA2NDQK
+LS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc21wYm9vdC5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVs
+L3NtcGJvb3QuYwpAQCAtMjA5LDYgKzIwOSwxMSBAQCBpbnQgX19jcHVfdXAodW5zaWduZWQgaW50
+IGNwdSwgc3RydWN0IHRhc2tfc3RydWN0ICp0aWRsZSkKIH0KICNlbmRpZgogCit2b2lkIF9faW5p
+dCBzbXBfcHJlcGFyZV9ib290X2NwdSh2b2lkKQoreworCV9fbXlfY3B1X29mZnNldCA9IHBlcl9j
+cHVfb2Zmc2V0KHNtcF9wcm9jZXNzb3JfaWQoKSk7Cit9CisKIHZvaWQgX19pbml0IHNtcF9jcHVz
+X2RvbmUodW5zaWduZWQgaW50IG1heF9jcHVzKQogewogfQpAQCAtMjM0LDYgKzIzOSw4IEBAIGFz
+bWxpbmthZ2UgX192aXNpYmxlIHZvaWQgc21wX2NhbGxpbih2b2lkKQogCW1tZ3JhYihtbSk7CiAJ
+Y3VycmVudC0+YWN0aXZlX21tID0gbW07CiAKKwlfX215X2NwdV9vZmZzZXQgPSBwZXJfY3B1X29m
+ZnNldChzbXBfcHJvY2Vzc29yX2lkKCkpOworCiAjaWZkZWYgQ09ORklHX0hPVFBMVUdfUEFSQUxM
+RUwKIAljcHVocF9hcF9zeW5jX2FsaXZlKCk7CiAjZW5kaWYKZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5j
+CmluZGV4IDJmMTEwOWRiZjEwNWIuLjE3N2MxOTIxNjAxM2UgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlz
+Y3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21w
+NjQuYwpAQCAtMTM5NSwxNSArMTM5NSw4IEBAIGludCBicGZfaml0X2VtaXRfaW5zbihjb25zdCBz
+dHJ1Y3QgYnBmX2luc24gKmluc24sIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4LAogCQkJaWYg
+KHJkICE9IHJzKQogCQkJCWVtaXRfbXYocmQsIHJzLCBjdHgpOwogI2lmZGVmIENPTkZJR19TTVAK
+LQkJCS8qIExvYWQgY3VycmVudCBDUFUgbnVtYmVyIGluIFQxICovCi0JCQllbWl0X2x3KFJWX1JF
+R19UMSwgb2Zmc2V0b2Yoc3RydWN0IHRocmVhZF9pbmZvLCBjcHUpLAorCQkJZW1pdF9sZChSVl9S
+RUdfVDEsIG9mZnNldG9mKHN0cnVjdCB0aHJlYWRfaW5mbywgcGNwdV9vZmZzZXQpLAogCQkJCVJW
+X1JFR19UUCwgY3R4KTsKLQkJCS8qIExvYWQgYWRkcmVzcyBvZiBfX3Blcl9jcHVfb2Zmc2V0IGFy
+cmF5IGluIFQyICovCi0JCQllbWl0X2FkZHIoUlZfUkVHX1QyLCAodTY0KSZfX3Blcl9jcHVfb2Zm
+c2V0LCBleHRyYV9wYXNzLCBjdHgpOwotCQkJLyogR2V0IGFkZHJlc3Mgb2YgX19wZXJfY3B1X29m
+ZnNldFtjcHVdIGluIFQxICovCi0JCQllbWl0X3NoM2FkZChSVl9SRUdfVDEsIFJWX1JFR19UMSwg
+UlZfUkVHX1QyLCBjdHgpOwotCQkJLyogTG9hZCBfX3Blcl9jcHVfb2Zmc2V0W2NwdV0gaW4gVDEg
+Ki8KLQkJCWVtaXRfbGQoUlZfUkVHX1QxLCAwLCBSVl9SRUdfVDEsIGN0eCk7CiAJCQkvKiBBZGQg
+dGhlIG9mZnNldCB0byBSZCAqLwogCQkJZW1pdF9hZGQocmQsIHJkLCBSVl9SRUdfVDEsIGN0eCk7
+CiAjZW5kaWYKLS0gCjIuMzkuNQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
