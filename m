@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F675FF885A
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 13:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6355FCD3427
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 14:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HTUq2qXKLm25UjsN79TJBguipb/+IJVLhR8gmvZSNCI=; b=dBQh4gWIgBfCWq
-	+wygmzaL23D0bndMO5GsKPp9fDOINX3rRaPxe3k/JGbdU5ZNJU972OgRdLR/ssPvG2j+4GiKqpIpG
-	VdCq6+fzIpoiaRSUqvtmj1qqLj0OqUDRy5r3as8RgJAB9OWlfP4C7GgRXuYHKSJDofelKedCbjjLC
-	042JUeTHW6cvVMiwrULKTRX/HevMr7Ki2x89KSc/4kydwfsNoU9kiKKGtkvMULcwjhmn8bIYSJDuj
-	h1WYS6rCbcjwfTqMeI8d7126QavUmUFqjC12eCc0IhOLqwND7g/I7K6tCq7YJiahiG6VbetsmATd6
-	23ZotmbqkaF4JGyhBtMQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cAZazO6QDkm5Qyw0YnM81WtE2WBknPPKi4oRv9FwTVY=; b=dI3cSwUhFK1UNU
+	crwHPIE2a1ULkHT9AXgPjNH34BEZWFyMi6tx+GCBUY1b5kGF3dEd0c4UnTP0H+WHoQmwUIvz9HYiD
+	YQ4acZYWVnft26fa0SYbOhPQe0GTGm9w38JI/rptBCX5tv9gXyc1g3rZ1LcxA1lwo/mdzKO7uQR7q
+	21RrwEM8lVFS0qNWMANMEcELqTQHVgkjNIehOKPoG1nVq+Sjvo7b8yJDiGZrXG+3u1fHoL1b80P5Z
+	e5xSavsFS1a+tHC8LQGm3Rudv5TBll2Y6iEGysZYsoBJw5nJFOlV3wAPK8bPaSf5nmEG/lb+Pxd1e
+	ucS3MEapb4S1fUuW2+6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKG95-0000000GO15-3Ytv;
-	Tue, 05 May 2026 13:49:07 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	id 1wKGhx-0000000GV4v-34rr;
+	Tue, 05 May 2026 14:25:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKG91-0000000GNtK-3nfQ;
-	Tue, 05 May 2026 13:49:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1777988932; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
-	bh=AIhBTePeyajf+I+K0EBW6V9IUyGlhUFNxPuEI2KpBN0=;
-	b=m896v1mJEk8/j2LWIVsUwz12FOvggOwNkr5XtRfp+8ydO7RaiTg9ESXbEZXaIjlVxn2Jtu2vZ3GDmchMjdkmK8Hi5sVYH/OXT1ETuxl2443BThWf4LZ3pd3AJKozKyKzES0ruPISH6xrtY1+gtRYkB8gWxuwViSE67FMC4J0/q4=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R571e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X2I-OJb_1777988923;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X2I-OJb_1777988923 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 05 May 2026 21:48:45 +0800
-From: fangyu.yu@linux.alibaba.com
-To: andrew.jones@oss.qualcomm.com
-Cc: alex@ghiti.fr,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	baolu.lu@linux.intel.com,
-	fangyu.yu@linux.alibaba.com,
-	guoren@kernel.org,
-	iommu@lists.linux.dev,
-	jgg@nvidia.com,
-	jgg@ziepe.ca,
-	joro@8bytes.org,
-	kevin.tian@intel.com,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robin.murphy@arm.com,
-	skhawaja@google.com,
-	tjeznach@rivosinc.com,
-	vasant.hegde@amd.com,
-	will@kernel.org
-Subject: Re: Re: [RFC PATCH 00/11] iommu/riscv: Add hardware dirty tracking for second-stage domains 
-Date: Tue,  5 May 2026 21:48:42 +0800
-Message-Id: <20260505134842.23549-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <tdcd7276ffsfc6vh3expyfcajnfkowknbtkpyplb3xe3dcukj2@tnhi6jcwrfgn>
-References: <tdcd7276ffsfc6vh3expyfcajnfkowknbtkpyplb3xe3dcukj2@tnhi6jcwrfgn>
+	id 1wKGhv-0000000GV4J-1Mh8
+	for linux-riscv@lists.infradead.org;
+	Tue, 05 May 2026 14:25:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6ABF843B4D;
+	Tue,  5 May 2026 14:25:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C23BC2BCC7;
+	Tue,  5 May 2026 14:25:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1777991106;
+	bh=AVBaKymAMimEgUWtRYaUbFG1lawckkp/pv+cD+2y4hc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=tPA+qTVmP1bCRF2P66dGyA1QN0Cz/Pzqi+KWqlqT1+/fANiZO4l51X88ubq3k2/sk
+	 ZHE6SK0odt3LFBp/78zj7wWC0fD8iYWYAlJ92A9VgfiUWszLfRkZ4OICJwTDH3HYCj
+	 ODZETpVHWsA+qyiB0zrC0VGKsgVfRay+RewOgt7uSzO9toB/iRUT3RzpzADlDkaR4/
+	 KtxThUpLgvpOSdSXcPGj1sLqSx8A4Rp40XRXbvbRpMM3W/gQCtFBWYHpoHL7+DW0XZ
+	 iA1sD3InVz0LjMOoA9bb0Fzu03MctsyNyFWAz1bQ9dGDa+Ftjfu6wlYRRozcYYSZkO
+	 5FAT4kAmWPndQ==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: dts: microchip: fix pic64gx gpio interrupt-cells
+Date: Tue,  5 May 2026 15:24:06 +0100
+Message-ID: <20260505-yahoo-deceiving-390a15dad184@spud>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1979; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=xgqkZxW8PvU3B1C20zMpNDkdyFF229wzrQ2xJQf58Zg=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJk//7Z6VyTLlL5gcNi4ec67DFOR4KfZm1afvXGA/yR30 bcri24HdZSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAi950YGW5NPH0w4v/T9dFd k47GFSZ65Kq177rZHfB6MoeZuuWepnxGho2VD9m2G6f/PKPFf7rk2atYjZ1HNib8TF1R47z09h+ ndlYA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_064904_643218_B36E197C 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260505_072507_392973_71323354 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,58 +74,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pj4gRnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4+IAo+PiBU
-aGUgUklTQy1WIElPTU1VIGFyY2hpdGVjdHVyZSBkZWZpbmVzIGFuIEFNT19IV0FEIGNhcGFiaWxp
-dHkgKEhhcmR3YXJlCj4+IEFjY2Vzcy9EaXJ0eSB1cGRhdGUpIHRoYXQgYWxsb3dzIHRoZSBJT01N
-VSB0byBhdG9taWNhbGx5IHNldCB0aGUgQS9EIGJpdHMKPj4gaW4gc2Vjb25kLXN0YWdlIFBURXMg
-b24gRE1BIGFjY2Vzcy4gIFdoZW4gREMudGMuR0FERSBpcyBhc3NlcnRlZCwgdGhlIElPTU1VCj4+
-IGF1dG9ub21vdXNseSBzZXRzIEQgb24gdGhlIGZpcnN0IHdyaXRlIHRvIGEgcGFnZSBtYXBwZWQg
-YnkgYW4gaW9oZ2F0cAo+PiBkb21haW4uICBUaGlzIHNlcmllcyB3aXJlcyB0aGF0IGNhcGFiaWxp
-dHkgdXAgdG8gdGhlIGlvbW11ZmQgZGlydHktdHJhY2tpbmcKPj4gaW50ZXJmYWNlIChJT01NVV9I
-V1BUX1NFVF9ESVJUWV9UUkFDS0lORyAvIElPTU1VX0hXUFRfR0VUX0RJUlRZX0JJVE1BUCkgYW5k
-Cj4+IHJlcG9ydHMgSU9NTVVfQ0FQX0RJUlRZX1RSQUNLSU5HLgo+PiAKPj4gRGVzaWduIG5vdGVz
-Cj4+IC0tLS0tLS0tLS0tLQo+PiAKPj4gKiBUaGUgZmVhdHVyZSBpcyBzY29wZWQgdG8gc2Vjb25k
-LXN0YWdlIChpb2hnYXRwKSBkb21haW5zIG9ubHk7IHRoZXNlIGFyZQo+PiAgIHRoZSBkb21haW5z
-IGNyZWF0ZWQgZm9yIEtWTSAvIFZGSU8gZGV2aWNlIHBhc3MtdGhyb3VnaCB3aGVuIHVzZXJzcGFj
-ZQo+PiAgIGFsbG9jYXRlcyBhbiBIV1BUIHdpdGggSU9NTVVfSFdQVF9BTExPQ19ORVNUX1BBUkVO
-VCBvcgo+PiAgIElPTU1VX0hXUFRfQUxMT0NfRElSVFlfVFJBQ0tJTkcuICBGaXJzdC1zdGFnZSAo
-aW9zYXRwKSBkb21haW5zIGFyZSBub3QKPj4gICB0b3VjaGVkIGJ5IHRoaXMgc2VyaWVzLgo+PiAK
-Pj4gKiBUaGUgcGFnZS10YWJsZSBzaWRlIHBsdWdzIGludG8gdGhlIGV4aXN0aW5nIGdlbmVyaWNf
-cHQgZGlydHkgaG9vawo+PiAgIGZyYW1ld29yayAoYW1kdjEgLyB2dGRzcyBzdHlsZSkuICBSSVND
-LVYgYWRkcyB0aGUgdGhyZWUgcmVxdWlyZWQgUFRFCj4+ICAgb3BzIOKAkyBpc193cml0ZV9kaXJ0
-eSAvIG1ha2Vfd3JpdGVfY2xlYW4gLyBtYWtlX3dyaXRlX2RpcnR5Lgo+PiAKPj4gVGVzdGluZwo+
-PiAtLS0tLS0tCj4+IAo+PiAqIFRlc3Qgb24gUUVNVSBSSVNDLVYsIGEgdmlydGlvLW5ldCBhbmQg
-YW4gZTEwMDBlIGRldmljZSB3YXMgcGFzc2VkIHRocm91Z2gKPj4gICB0byBhbiBMMiBndWVzdCB2
-aWEgdmZpby1wY2kgKyBpb21tdWZkLgo+PiAKPj4gKiBnZW5lcmljX3B0IEtVbml0OiB0aGUgZXhp
-c3RpbmcgdGVzdF9kaXJ0eSBjYXNlIG5vdyBydW5zIGFuZCBwYXNzZXMgZm9yCj4+ICAgdGhlIFJJ
-U0MtViA2NC1iaXQgZm9ybWF0Lgo+PiAKPj4gRm9sbG93LXVwIHdvcmsKPj4gLS0tLS0tLS0tLS0t
-LS0KPj4gKiBCdWlsZCBhIGRlZGljYXRlZCBlbmQtdG8tZW5kIHRlc3QgY2FzZSB0aGF0IGRyaXZl
-cyB0aGUgZnVsbCBmbG93Cj4+ICAgKEhXUFRfQUxMT0Mgd2l0aCBESVJUWV9UUkFDS0lORyAtPiBh
-dHRhY2ggLT4gSU9BU19NQVAgLT4gZ2VuZXJhdGUgcmVhbAo+PiAgIERNQSAtPiBTRVRfRElSVFlf
-VFJBQ0tJTkcgLT4gR0VUX0RJUlRZX0JJVE1BUCAtPiB2ZXJpZnkgYml0bWFwIGFnYWluc3QKPj4g
-ICBleHBlY3RlZCBJT1ZBIGZvb3RwcmludCkgc28gdGhhdCB0aGUgYmVoYXZpb3VyIGNhbiBiZSBy
-ZWdyZXNzaW9uLXRlc3RlZAo+PiAgIGJleW9uZCB0aGUgS1VuaXQgUFRFLWxldmVsIGNvdmVyYWdl
-Lgo+PiAKPj4gKiBJZiBwb3NzaWJsZSwgcmViYXNlIGFuZCByZXRlc3Qgb24gdG9wIG9mIHRoZSB1
-cGRhdGVkICJpb21tdSBpcnFieXBhc3MiCj4+ICAgcGF0Y2hzZXQuCj4KPlRoYW5rcyBmb3IgdGhp
-cyBzZXJpZXMhIEkgd2FzIHN0YXJ0aW5nIHRvIGdvIGRvd24gYSBzaW1pbGFyIHJvYWQgbXlzZWxm
-Cj5pbiBvcmRlciB0byBsaW1pdCBpcnFieXBhc3MgdG8gSU9NTVVfSFdQVF9BTExPQ19ORVNUX1BB
-UkVOVCBkb21haW5zIHNpbmNlCj5JIHdhc24ndCBoYXBweSB3aXRoIG90aGVyIGFwcHJvYWNoZXMs
-IGUuZy4gY29udGludWluZyB0byB1c2Ugcy1zdGFnZSwgYnV0Cj5hY3RpdmF0aW5nIGctc3RhZ2Ug
-dG9vIHdpdGggaWRlbnRpdHkgbWFwcGluZ3Mgc2luY2UgdGhlIE1TSSB0YWJsZSBjYW4ndCBiZQo+
-YWN0aXZhdGVkIG90aGVyd2lzZS4gT3IsIHNpbXBseSB1c2luZyBnLXN0YWdlIGluc3RlYWQgb2Yg
-cy1zdGFnZSBpbiBvcmRlcgo+dG8gZ2V0IHRoZSBNU0kgdGFibGUgZW5hYmxlZC4gSW4gdGhlIGVu
-ZCwgSSB0aGluayB0aGUgYmVzdCBpcyB0byByZXF1aXJlCj5uZXN0ZWQgZm9yIGlycWJ5cGFzcyBh
-bmQgdGhpcyBzZXJpZXMgd2lsbCBwcm92aWRlIGEgZ29vZCBiYXNlIGZvciB0aGF0Lgo+Cj5JJ2xs
-IHJlYmFzZSBpcnFieXBhc3Mgb24gdGhpcyBzZXJpZXMgYW5kIHRlc3QgaXQgb3V0Lgo+CgpUaGFu
-a3MgZm9yIHRoZSBmZWVkYmFjay4gSmFzb24gaGFzIHByb3ZpZGVkIHNvbWUgaGVscGZ1bCBzdWdn
-ZXN0aW9ucyBvbiB0aGlzCnNlcmllcywgYW5kIEkgYW0gaW4gdGhlIHByb2Nlc3Mgb2YgdXBkYXRp
-bmcgaXQuIEkgZXhwZWN0IHRvIHNlbmQgb3V0IGEgbmV3CnZlcnNpb24gaW4gdGhlIGNvbWluZyBk
-YXlzLgoKRmFuZ3l1Cgo+VGhhbmtzLAo+ZHJldwoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+From: Conor Dooley <conor.dooley@microchip.com>
+
+As the pic64gx devicetree files got added in parallel to the
+GPIO interrupt-cells being fixed for PolarFire SoC, they didn't get
+changed to the correct values. Fix them now.
+
+Fixes: 7219d20f9f421 ("riscv: dts: microchip: add pic64gx and its curiosity kit")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Pierre-Henry Moussay <pierre-henry.moussay@microchip.com>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+---
+ arch/riscv/boot/dts/microchip/pic64gx.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/microchip/pic64gx.dtsi b/arch/riscv/boot/dts/microchip/pic64gx.dtsi
+index 5cf3e3de0e067..5addfd4357117 100644
+--- a/arch/riscv/boot/dts/microchip/pic64gx.dtsi
++++ b/arch/riscv/boot/dts/microchip/pic64gx.dtsi
+@@ -494,7 +494,7 @@ gpio0: gpio@20120000 {
+ 			reg = <0x0 0x20120000 0x0 0x1000>;
+ 			interrupt-parent = <&irqmux>;
+ 			interrupt-controller;
+-			#interrupt-cells = <1>;
++			#interrupt-cells = <2>;
+ 			interrupts = <0>, <1>, <2>, <3>,
+ 				     <4>, <5>, <6>, <7>,
+ 				     <8>, <9>, <10>, <11>,
+@@ -511,7 +511,7 @@ gpio1: gpio@20121000 {
+ 			reg = <0x0 0x20121000 0x0 0x1000>;
+ 			interrupt-parent = <&irqmux>;
+ 			interrupt-controller;
+-			#interrupt-cells = <1>;
++			#interrupt-cells = <2>;
+ 			interrupts = <32>, <33>, <34>, <35>,
+ 				     <36>, <37>, <38>, <39>,
+ 				     <40>, <41>, <42>, <43>,
+@@ -530,7 +530,7 @@ gpio2: gpio@20122000 {
+ 			reg = <0x0 0x20122000 0x0 0x1000>;
+ 			interrupt-parent = <&irqmux>;
+ 			interrupt-controller;
+-			#interrupt-cells = <1>;
++			#interrupt-cells = <2>;
+ 			interrupts = <64>, <65>, <66>, <67>,
+ 				     <68>, <69>, <70>, <71>,
+ 				     <72>, <73>, <74>, <75>,
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
