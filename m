@@ -4,43 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF06FF8855
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 19:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143C7CD3439
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 19:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Tx4Eueksm3mAylkEZou2w4rhPF5GNkaJ2uSbUSJnyQ=; b=eJtN+bDl3xC3mu
-	0mNzJBqNIx2Jem7Kmy05P1eLzai0jygUwJ9J+kIXJPTPoQvDo6r4brIYPNk3aU38z/089Lv+hO28o
-	AWeBA+7rGiqanycLdN4NLdmI0oxV43G4+tAqMWC479pdz74URn3uqtyZY4kPW1UeK4hf7Q3Qe/JG/
-	oy4GCVccnXuIkDziCZR0NRMCATZDDS46sOhU4Rl5T0a/cCGfhfNFdeEbejOi+VLdP0JgUaSkKNEaW
-	IbNT0xOro8i/EQeWvWlIiNXN9utl0J5NHyKFSJdQlG1A2ehWlCvqveDKi4AOjXpFz6KWETPl2rnV6
-	1laelgQ/rV9AqPaLSMbQ==;
+	List-Owner; bh=H0KWwvlN5A9XOsjpjNwJ6iC4+kq02EywEQFCRu3qprw=; b=4VRltgwu2fGSRX
+	hW4A7if4tNHvYRs8K+7NfI1eKcoNR0zRxtrFEaezGSxKOPGEgD8R7gpkf1nYGByblKN7ur0VZNzWT
+	IcxhRaUFTTUw/huJfL7ehFVAxgEGsv95X4e6TYjIhz//fggpNN5hwucMyuUlqUNikm+rtZCLlSGUj
+	MGUGgPsDiHpjeS/FDXGwV4tHzB+QLa/FrDJuycckuqKYycAqd0T3FZaSXUvDtm/FlvjC5oBPLPI36
+	AZWgPw+GgSZjpx0qenGUbEWnJGEaBp0y7QhzbKSXzIKEcWJQc/Lu6LJgKRtI/V16HP0hcnM/BfQr+
+	Nl0d9ndNrzUNFn1gjb0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLuB-0000000HMLQ-1JCW;
-	Tue, 05 May 2026 19:58:07 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLu8-0000000HMKs-3eIT;
-	Tue, 05 May 2026 19:58:04 +0000
-Message-ID: <4914fc7a-607f-41bb-891e-89df83a0b292@infradead.org>
-Date: Tue, 5 May 2026 12:58:04 -0700
+	id 1wKLuG-0000000HMMk-3gGd;
+	Tue, 05 May 2026 19:58:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wKLuE-0000000HMMA-3sab;
+	Tue, 05 May 2026 19:58:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 10C076091C;
+	Tue,  5 May 2026 19:58:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB6F1C2BCC7;
+	Tue,  5 May 2026 19:58:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778011089;
+	bh=W35jp3biyC/4M1gGUsqXaJV7TzLzXnjHGt9kg58DRgs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=QcaDx0FMqLlc6iPx8AsHb8msnT8tv7l82kZ2wMuIxS725ruXkCWQa7lla4brnDN+A
+	 qBIqFuOK1nkBDGy4BZaPYVnof9zYrxYav4xzusCyDeaapZR+FGAX8+IObQQrldg7MT
+	 OS2sSb7wNREHqg/bJKy0OKvBod7Sun4yV3SA7HYwVkX4iHojA5WY52pPJhkmaJL9Kr
+	 luMT83FCuRpPJjsLx+B6ZLXB0CPEaUCvyCgjmkjbddOx7u1xN2bBCmS6Dr7m5CUhsb
+	 mWHiUNQJ8ZhN6Zn8Jf+NlaOK0UQV17oGcfd3to43MXPDLJ2RmWlRquPQK06ERgwuuS
+	 eSWm5QLwEQeuw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Sunil V L
+ <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH 2/2] irqchip/gic-v5: Add IWB to ACPI probe dependency
+ control
+In-Reply-To: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-2-b37b85998362@kernel.org>
+References: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org>
+ <20260505-gic-v5-acpi-iwb-probe-deferral-v1-2-b37b85998362@kernel.org>
+Date: Tue, 05 May 2026 21:58:05 +0200
+Message-ID: <875x51y6gi.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Docs: fix unmatched quote warning
-To: linux-kernel@vger.kernel.org
-Cc: Deepak Gupta <debug@rivosinc.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- linux-doc@vger.kernel.org
-References: <20260406232304.1892528-1-rdunlap@infradead.org>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260406232304.1892528-1-rdunlap@infradead.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,46 +75,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ping?
+On Tue, May 05 2026 at 10:48, Lorenzo Pieralisi wrote:
+> On Arm GICv5 systems, wired IRQs routed to an IWB may require resolving
 
-On 4/6/26 4:23 PM, Randy Dunlap wrote:
-> 'make htmldocs' complains about ``prctrl` -- so add a second '`' to
-> avoid the warning.
-> 
-> Documentation/arch/riscv/zicfilp.rst:79: WARNING: Inline literal start-string without end-string. [docutils]
-> 
-> Fixes: 08ee1559052b ("prctl: cfi: change the branch landing pad prctl()s to be more descriptive")
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> ---
-> Cc: Deepak Gupta <debug@rivosinc.com>
-> Cc: Paul Walmsley <pjw@kernel.org>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: linux-riscv@lists.infradead.org
-> Cc: Jonathan Corbet <corbet@lwn.net>
-> Cc: Shuah Khan <skhan@linuxfoundation.org>
-> Cc: linux-doc@vger.kernel.org
-> 
->  Documentation/arch/riscv/zicfilp.rst |    2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> --- linux-next-20260406.orig/Documentation/arch/riscv/zicfilp.rst
-> +++ linux-next-20260406/Documentation/arch/riscv/zicfilp.rst
-> @@ -78,7 +78,7 @@ the program.
->  
->  Per-task indirect branch tracking state can be monitored and
->  controlled via the :c:macro:`PR_GET_CFI` and :c:macro:`PR_SET_CFI`
-> -``prctl()` arguments (respectively), by supplying
-> +``prctl()`` arguments (respectively), by supplying
->  :c:macro:`PR_CFI_BRANCH_LANDING_PADS` as the second argument.  These
->  are architecture-agnostic, and will return -EINVAL if the underlying
->  functionality is not supported.
-> 
+S/IRQs/interrupts/g
 
--- 
-~Randy
+Changelogs are prose and not an acronym dump ground.
 
+>  drivers/acpi/arm64/iort.c        | 22 +++++++++++++++++++---
+>  drivers/acpi/scan.c              |  1 +
+>  drivers/irqchip/irq-gic-v5-iwb.c |  5 +++++
+>  drivers/irqchip/irq-gic-v5.c     | 13 +++++++++++--
+>  include/linux/acpi_iort.h        |  3 ++-
+
+I'm confused about the conglomerate of files affected by an irqchip
+change...
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
