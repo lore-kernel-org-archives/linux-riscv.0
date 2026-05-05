@@ -4,110 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB96ACD3427
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 12:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F675FF885A
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 13:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=D2o+I0Rx7uDgpn33uWsqxIO9SgNkAwpVGxqOWzvaBaA=; b=PX/7yfXLTbfcyV
-	dtIcqhVseLOIr++YQPJPJSFG0ieVy+X+j7aO9+JHd5ZeSSNukgMOYOEyruPWf3AJSXNlq6FoTnUPr
-	n4lo4+1zYou3SAJTB1t47xJ9IRMENBG8cvkEploxCFJB8OcRWEmrAed1A2FpCDmmmTmiJNGBXkgED
-	LpPNgwQKrWb560RRb0gZrs94d1ENMFuhhtycXZgYzEt/NZ4FlT0xiU9u6FC+cXVisCiQ6xks36Yw2
-	bS5S4JFaQG1IbeuGizk76ujNfU0FzhDjN2A3FXUaVF0cJ4FNpD9iULCr/XwjITXDTB4DhM4ePcv3T
-	o4oqdU4P8h3eilxRa7DQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HTUq2qXKLm25UjsN79TJBguipb/+IJVLhR8gmvZSNCI=; b=dBQh4gWIgBfCWq
+	+wygmzaL23D0bndMO5GsKPp9fDOINX3rRaPxe3k/JGbdU5ZNJU972OgRdLR/ssPvG2j+4GiKqpIpG
+	VdCq6+fzIpoiaRSUqvtmj1qqLj0OqUDRy5r3as8RgJAB9OWlfP4C7GgRXuYHKSJDofelKedCbjjLC
+	042JUeTHW6cvVMiwrULKTRX/HevMr7Ki2x89KSc/4kydwfsNoU9kiKKGtkvMULcwjhmn8bIYSJDuj
+	h1WYS6rCbcjwfTqMeI8d7126QavUmUFqjC12eCc0IhOLqwND7g/I7K6tCq7YJiahiG6VbetsmATd6
+	23ZotmbqkaF4JGyhBtMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFGK-0000000GEsg-3o1M;
-	Tue, 05 May 2026 12:52:32 +0000
-Received: from shrimp.cherry.relay.mailchannels.net ([23.83.223.164])
+	id 1wKG95-0000000GO15-3Ytv;
+	Tue, 05 May 2026 13:49:07 +0000
+Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKFGI-0000000GErg-474a
-	for linux-riscv@lists.infradead.org;
-	Tue, 05 May 2026 12:52:32 +0000
-X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id F15B2640319;
-	Tue, 05 May 2026 12:52:29 +0000 (UTC)
-Received: from pdx1-sub0-mail-a203.dreamhost.com (100-96-37-59.trex-nlb.outbound.svc.cluster.local [100.96.37.59])
-	(Authenticated sender: dreamhost)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 384DA641DE9;
-	Tue, 05 May 2026 12:52:29 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1777985549;
-	b=mVSWc6mTGg+wiyJUI18CGjYO8PVQg3toNqFX0dyDMY3BAfhQ491rHC2tg1k6QTMODfjSHs
-	gipfdzaBvj3Xi2s5wKrRhVe/wCo+a6uyFQdMbod1SsE2x+Q9/p15ierT6AGW3qiQQGBR4n
-	fJiUjyQoVjetvt2uZdOvyu+26fA//NjwAFoJ3HVeYEENYVFJPLtG5S0IsDWok5K4Tv5Bzl
-	yBzvou+ltG6GBAxNhnoo/4ekMS4v1aZ3l+lHqgnkKwPzOSv3ZRyBgVyuE5hqoFsn0PTtPb
-	sHkfgD4N/YrfFJWn3XxyYNMN8MQFp47SBMppennZJ88DxQo1/raRyzeSUmQ4Qw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1777985549;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:dkim-signature;
-	bh=tvcP63PpJTRCsldzoS7GQR0FGgnsc/i9NsamSdKaaGw=;
-	b=YlJxbFVOfVqLk0sKBAXJ7DoLwowDXP8VQi+gcf87GfizDqIz+iZs9v0WXpTGQAdYMPFqgu
-	mn5w49h/Aw1OdRE/EJHzBrvYr3k4U5PWfl77E6Ve8zqpUHNn+QBOX3O0XGsWK4GcLIbNoV
-	k6Qftn0U5FAKVniZprhdohk06L6WpIma7xsHVNfKQpEpgcZUFcY65QD77/KME/xEwLwLrO
-	1zMJXe/A7/cZkh6lOInX5MdxcJ6cX/sENks3yLWoG5G/xQ1XQhcG4TiPblnw3t/tMaL/NB
-	3q+g4NF/om84ic+qzxm+5VPWtgc+wfoNCAcLEzclOdtUFv1kSkDO095azjufTA==
-ARC-Authentication-Results: i=1;
-	rspamd-7766795c76-5hwl9;
-	auth=pass smtp.auth=dreamhost smtp.mailfrom=dave@stgolabs.net
-X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: dreamhost|x-authsender|dave@stgolabs.net
-X-MailChannels-Auth-Id: dreamhost
-X-Name-Shade: 789e912a78d2b0fb_1777985549872_3292064370
-X-MC-Loop-Signature: 1777985549872:92822838
-X-MC-Ingress-Time: 1777985549872
-Received: from pdx1-sub0-mail-a203.dreamhost.com (pop.dreamhost.com
- [64.90.62.162])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.96.37.59 (trex/7.1.5);
-	Tue, 05 May 2026 12:52:29 +0000
-Received: from localhost.localdomain (unknown [213.147.98.98])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dave@stgolabs.net)
-	by pdx1-sub0-mail-a203.dreamhost.com (Postfix) with ESMTPSA id 4g8z1k1BQ7z20;
-	Tue,  5 May 2026 05:52:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=stgolabs.net;
-	s=dreamhost; t=1777985549;
-	bh=tvcP63PpJTRCsldzoS7GQR0FGgnsc/i9NsamSdKaaGw=;
-	h=From:To:Cc:Subject:Date:Content-Transfer-Encoding;
-	b=nrMhEXA6GE7QSle04dEmcHOwGFUd7YYh5CtTH+SpqjhsUzh8yjfupOED3eFe9UwFb
-	 GcnkZi3vdNbnJ1JhVNLWLR0ztYRbQc10oB/p5iWaTcSX2gBS8msgqGLUhQJeIKb2rn
-	 LijTea+DRV0ApEtaYf3jw6WNS5jjOpdiyU9y557O09T3LbuuCU5uVvsQfYLOYKiJLu
-	 e0W9LIKIWItmmnznJ4udsh8iVlgyDSl6JxinpAw/XuuFXpsysVCzcAppmNpgTAtfJ2
-	 ZX9vMGqaZPXfWdwwl2tWTJImXDJaCpHeOKtQsPh8MefQqbo1bBah5uBKYLorgR7hEJ
-	 R3x+NKJA+0V2A==
-From: Davidlohr Bueso <dave@stgolabs.net>
-To: pjw@kernel.org,
-	palmer@dabbelt.com
-Cc: aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	peterz@infradead.org,
-	dvhart@infradead.org,
-	andrealmeid@igalia.com,
-	dave@stgolabs.net,
+	id 1wKG91-0000000GNtK-3nfQ;
+	Tue, 05 May 2026 13:49:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1777988932; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=AIhBTePeyajf+I+K0EBW6V9IUyGlhUFNxPuEI2KpBN0=;
+	b=m896v1mJEk8/j2LWIVsUwz12FOvggOwNkr5XtRfp+8ydO7RaiTg9ESXbEZXaIjlVxn2Jtu2vZ3GDmchMjdkmK8Hi5sVYH/OXT1ETuxl2443BThWf4LZ3pd3AJKozKyKzES0ruPISH6xrtY1+gtRYkB8gWxuwViSE67FMC4J0/q4=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R571e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X2I-OJb_1777988923;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X2I-OJb_1777988923 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 05 May 2026 21:48:45 +0800
+From: fangyu.yu@linux.alibaba.com
+To: andrew.jones@oss.qualcomm.com
+Cc: alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	baolu.lu@linux.intel.com,
+	fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	joro@8bytes.org,
+	kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] riscv/futex: Bound number of LL/SC retries in cmpxchg
-Date: Tue,  5 May 2026 05:52:04 -0700
-Message-Id: <20260505125204.999119-1-dave@stgolabs.net>
-X-Mailer: git-send-email 2.39.5
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	skhawaja@google.com,
+	tjeznach@rivosinc.com,
+	vasant.hegde@amd.com,
+	will@kernel.org
+Subject: Re: Re: [RFC PATCH 00/11] iommu/riscv: Add hardware dirty tracking for second-stage domains 
+Date: Tue,  5 May 2026 21:48:42 +0800
+Message-Id: <20260505134842.23549-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <tdcd7276ffsfc6vh3expyfcajnfkowknbtkpyplb3xe3dcukj2@tnhi6jcwrfgn>
+References: <tdcd7276ffsfc6vh3expyfcajnfkowknbtkpyplb3xe3dcukj2@tnhi6jcwrfgn>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_055231_177562_76DA4C85 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260505_064904_643218_B36E197C 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,74 +81,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-futex_atomic_cmpxchg_inatomic() does an unbounded LR/SC retry loop while
-(minimally) holding the hb lock + pf disabled. This can lead to pathological
-cases from unpriviledged userspace pi operations.
-
-Bound the retry loop to (arbitrarily) 128 iterations and bail: drop locks,
-rechedule and retry the operation, similar to the arm64 variant, as of
-03110a5cb216 ("arm64: futex: Bound number of LDXR/STXR loops in FUTEX_WAKE_OP").
-
-Signed-off-by: Davidlohr Bueso <dave@stgolabs.net>
----
-v2: patch now applies (and removed a whitespace change).
-Compile tested only.
-
- arch/riscv/include/asm/futex.h | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
-index 90c86b115e00..be69d4211248 100644
---- a/arch/riscv/include/asm/futex.h
-+++ b/arch/riscv/include/asm/futex.h
-@@ -13,6 +13,8 @@
- #include <asm/asm.h>
- #include <asm/asm-extable.h>
- 
-+#define FUTEX_MAX_LOOPS 128
-+
- /* We don't even really need the extable code, but for now keep it simple */
- #ifndef CONFIG_MMU
- #define __enable_user_access()		do { } while (0)
-@@ -79,6 +81,7 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
- 	int ret = 0;
- 	u32 val;
- 	uintptr_t tmp;
-+	unsigned int loops = FUTEX_MAX_LOOPS;
- 
- 	if (!access_ok(uaddr, sizeof(u32)))
- 		return -EFAULT;
-@@ -88,12 +91,17 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
- 	"1:	lr.w %[v],%[u]			        \n"
- 	"	bne %[v],%z[ov],3f			\n"
- 	"2:	sc.w.aqrl %[t],%z[nv],%[u]		\n"
--	"	bnez %[t],1b				\n"
-+	"	beqz %[t],3f				\n"
-+	"	addi %[lp],%[lp],-1			\n"
-+	"	bnez %[lp],1b				\n"
-+	"	li %[r],%[eagain]			\n"
- 	"3:						\n"
- 		_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %[r])	\
- 		_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %[r])	\
--	: [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr), [t] "=&r" (tmp)
--	: [ov] "Jr" ((long)(int)oldval), [nv] "Jr" (newval)
-+	: [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr),
-+	  [t] "=&r" (tmp), [lp] "+r" (loops)
-+	: [ov] "Jr" ((long)(int)oldval), [nv] "Jr" (newval),
-+	  [eagain] "i" (-EAGAIN)
- 	: "memory");
- 	__disable_user_access();
- 
--- 
-2.39.5
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Pj4gRnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4+IAo+PiBU
+aGUgUklTQy1WIElPTU1VIGFyY2hpdGVjdHVyZSBkZWZpbmVzIGFuIEFNT19IV0FEIGNhcGFiaWxp
+dHkgKEhhcmR3YXJlCj4+IEFjY2Vzcy9EaXJ0eSB1cGRhdGUpIHRoYXQgYWxsb3dzIHRoZSBJT01N
+VSB0byBhdG9taWNhbGx5IHNldCB0aGUgQS9EIGJpdHMKPj4gaW4gc2Vjb25kLXN0YWdlIFBURXMg
+b24gRE1BIGFjY2Vzcy4gIFdoZW4gREMudGMuR0FERSBpcyBhc3NlcnRlZCwgdGhlIElPTU1VCj4+
+IGF1dG9ub21vdXNseSBzZXRzIEQgb24gdGhlIGZpcnN0IHdyaXRlIHRvIGEgcGFnZSBtYXBwZWQg
+YnkgYW4gaW9oZ2F0cAo+PiBkb21haW4uICBUaGlzIHNlcmllcyB3aXJlcyB0aGF0IGNhcGFiaWxp
+dHkgdXAgdG8gdGhlIGlvbW11ZmQgZGlydHktdHJhY2tpbmcKPj4gaW50ZXJmYWNlIChJT01NVV9I
+V1BUX1NFVF9ESVJUWV9UUkFDS0lORyAvIElPTU1VX0hXUFRfR0VUX0RJUlRZX0JJVE1BUCkgYW5k
+Cj4+IHJlcG9ydHMgSU9NTVVfQ0FQX0RJUlRZX1RSQUNLSU5HLgo+PiAKPj4gRGVzaWduIG5vdGVz
+Cj4+IC0tLS0tLS0tLS0tLQo+PiAKPj4gKiBUaGUgZmVhdHVyZSBpcyBzY29wZWQgdG8gc2Vjb25k
+LXN0YWdlIChpb2hnYXRwKSBkb21haW5zIG9ubHk7IHRoZXNlIGFyZQo+PiAgIHRoZSBkb21haW5z
+IGNyZWF0ZWQgZm9yIEtWTSAvIFZGSU8gZGV2aWNlIHBhc3MtdGhyb3VnaCB3aGVuIHVzZXJzcGFj
+ZQo+PiAgIGFsbG9jYXRlcyBhbiBIV1BUIHdpdGggSU9NTVVfSFdQVF9BTExPQ19ORVNUX1BBUkVO
+VCBvcgo+PiAgIElPTU1VX0hXUFRfQUxMT0NfRElSVFlfVFJBQ0tJTkcuICBGaXJzdC1zdGFnZSAo
+aW9zYXRwKSBkb21haW5zIGFyZSBub3QKPj4gICB0b3VjaGVkIGJ5IHRoaXMgc2VyaWVzLgo+PiAK
+Pj4gKiBUaGUgcGFnZS10YWJsZSBzaWRlIHBsdWdzIGludG8gdGhlIGV4aXN0aW5nIGdlbmVyaWNf
+cHQgZGlydHkgaG9vawo+PiAgIGZyYW1ld29yayAoYW1kdjEgLyB2dGRzcyBzdHlsZSkuICBSSVND
+LVYgYWRkcyB0aGUgdGhyZWUgcmVxdWlyZWQgUFRFCj4+ICAgb3BzIOKAkyBpc193cml0ZV9kaXJ0
+eSAvIG1ha2Vfd3JpdGVfY2xlYW4gLyBtYWtlX3dyaXRlX2RpcnR5Lgo+PiAKPj4gVGVzdGluZwo+
+PiAtLS0tLS0tCj4+IAo+PiAqIFRlc3Qgb24gUUVNVSBSSVNDLVYsIGEgdmlydGlvLW5ldCBhbmQg
+YW4gZTEwMDBlIGRldmljZSB3YXMgcGFzc2VkIHRocm91Z2gKPj4gICB0byBhbiBMMiBndWVzdCB2
+aWEgdmZpby1wY2kgKyBpb21tdWZkLgo+PiAKPj4gKiBnZW5lcmljX3B0IEtVbml0OiB0aGUgZXhp
+c3RpbmcgdGVzdF9kaXJ0eSBjYXNlIG5vdyBydW5zIGFuZCBwYXNzZXMgZm9yCj4+ICAgdGhlIFJJ
+U0MtViA2NC1iaXQgZm9ybWF0Lgo+PiAKPj4gRm9sbG93LXVwIHdvcmsKPj4gLS0tLS0tLS0tLS0t
+LS0KPj4gKiBCdWlsZCBhIGRlZGljYXRlZCBlbmQtdG8tZW5kIHRlc3QgY2FzZSB0aGF0IGRyaXZl
+cyB0aGUgZnVsbCBmbG93Cj4+ICAgKEhXUFRfQUxMT0Mgd2l0aCBESVJUWV9UUkFDS0lORyAtPiBh
+dHRhY2ggLT4gSU9BU19NQVAgLT4gZ2VuZXJhdGUgcmVhbAo+PiAgIERNQSAtPiBTRVRfRElSVFlf
+VFJBQ0tJTkcgLT4gR0VUX0RJUlRZX0JJVE1BUCAtPiB2ZXJpZnkgYml0bWFwIGFnYWluc3QKPj4g
+ICBleHBlY3RlZCBJT1ZBIGZvb3RwcmludCkgc28gdGhhdCB0aGUgYmVoYXZpb3VyIGNhbiBiZSBy
+ZWdyZXNzaW9uLXRlc3RlZAo+PiAgIGJleW9uZCB0aGUgS1VuaXQgUFRFLWxldmVsIGNvdmVyYWdl
+Lgo+PiAKPj4gKiBJZiBwb3NzaWJsZSwgcmViYXNlIGFuZCByZXRlc3Qgb24gdG9wIG9mIHRoZSB1
+cGRhdGVkICJpb21tdSBpcnFieXBhc3MiCj4+ICAgcGF0Y2hzZXQuCj4KPlRoYW5rcyBmb3IgdGhp
+cyBzZXJpZXMhIEkgd2FzIHN0YXJ0aW5nIHRvIGdvIGRvd24gYSBzaW1pbGFyIHJvYWQgbXlzZWxm
+Cj5pbiBvcmRlciB0byBsaW1pdCBpcnFieXBhc3MgdG8gSU9NTVVfSFdQVF9BTExPQ19ORVNUX1BB
+UkVOVCBkb21haW5zIHNpbmNlCj5JIHdhc24ndCBoYXBweSB3aXRoIG90aGVyIGFwcHJvYWNoZXMs
+IGUuZy4gY29udGludWluZyB0byB1c2Ugcy1zdGFnZSwgYnV0Cj5hY3RpdmF0aW5nIGctc3RhZ2Ug
+dG9vIHdpdGggaWRlbnRpdHkgbWFwcGluZ3Mgc2luY2UgdGhlIE1TSSB0YWJsZSBjYW4ndCBiZQo+
+YWN0aXZhdGVkIG90aGVyd2lzZS4gT3IsIHNpbXBseSB1c2luZyBnLXN0YWdlIGluc3RlYWQgb2Yg
+cy1zdGFnZSBpbiBvcmRlcgo+dG8gZ2V0IHRoZSBNU0kgdGFibGUgZW5hYmxlZC4gSW4gdGhlIGVu
+ZCwgSSB0aGluayB0aGUgYmVzdCBpcyB0byByZXF1aXJlCj5uZXN0ZWQgZm9yIGlycWJ5cGFzcyBh
+bmQgdGhpcyBzZXJpZXMgd2lsbCBwcm92aWRlIGEgZ29vZCBiYXNlIGZvciB0aGF0Lgo+Cj5JJ2xs
+IHJlYmFzZSBpcnFieXBhc3Mgb24gdGhpcyBzZXJpZXMgYW5kIHRlc3QgaXQgb3V0Lgo+CgpUaGFu
+a3MgZm9yIHRoZSBmZWVkYmFjay4gSmFzb24gaGFzIHByb3ZpZGVkIHNvbWUgaGVscGZ1bCBzdWdn
+ZXN0aW9ucyBvbiB0aGlzCnNlcmllcywgYW5kIEkgYW0gaW4gdGhlIHByb2Nlc3Mgb2YgdXBkYXRp
+bmcgaXQuIEkgZXhwZWN0IHRvIHNlbmQgb3V0IGEgbmV3CnZlcnNpb24gaW4gdGhlIGNvbWluZyBk
+YXlzLgoKRmFuZ3l1Cgo+VGhhbmtzLAo+ZHJldwoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
