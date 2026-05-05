@@ -4,67 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252FFFF885A
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 10:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A17EACD342F
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 10:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VQ3qHtIp8j/va/tTO4EBbzJ8RVXePleJXSdloCmB02U=; b=XPFz2NiIbGD0ub
-	99tIYhrq9IB0BJ0+p49bDkwaJObveceRbTzrXlXY8pva8Gj7RJa4dGjWYcMM8xCrWUhHeEZWs47ik
-	0CU6Y6l1jdAowQoCqrCeRZ0EmyMMnkCKgMsb0hut0UmjJ1q/kSswKI8VfJQT1Wjw0d6Zzn83JKeZ3
-	XgmQ3i0o7+uUvqUJpPieD/OtjEH8pI7I2dOw5zsxQKQqSPk0AuKHubCjxcQoLQoV4aDp9/eAJs1Rq
-	um0wNURw4xM35l5bEDJk41t0h8jTms7+s72alxvGXX27S4Y1U6wakgYIPnUUq5/y84wxRJ6hzloKH
-	QqAQ08Jcoh9/Ak0D7cYw==;
+	List-Owner; bh=ylxCO+AAbwWaoVWyr5yQZRiC3OijA86xqh1K2CKSTO0=; b=JMR8EANFTRMeU9
+	PRBSVs/PQXVLQmcEThIIvbpTN/8EPdVa0hBFoPcJAeqAUvpCJQZ5PR7VzIJsYw7E1Dkky4EgTftES
+	OfiYOOUyTr8wsvraY9NevLOsRbPbV169MuPTwyECygisFkXvaZAGQ0DGxzTciXbJHIF3o8JtSyWlC
+	imhz1tXTvSHi4CFhTyEncT0U3STSsO/I09dda8sNAgeAr1diMBfE0aey69aNscr9oxlozy+SuPGnT
+	Bw2hyoxI++vKqgZL5ntODPDD7b2zJkcxluw1hQmgSnlRF2Iwos43eRUqw7SSvXfDlgbmIDtucHG67
+	3395KShJI1qcZesO5zQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCh2-0000000Fnm2-3qth;
-	Tue, 05 May 2026 10:07:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKChB-0000000Fo45-3bmR;
+	Tue, 05 May 2026 10:08:05 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCfl-0000000Flll-3iiR;
-	Tue, 05 May 2026 10:06:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=R5sRDgO8/76/s9f9by6DOCDUOB2Ib1AVjGCXp6EGedg=; b=NXyZ8yUFIsqUFL9Wmknx5mp8ke
-	8m4WzrJUo/gqc3Bd9SFU7u6OZZIprpk9k8FASe+aa4TvmM92n9YtyTglpG3H2HoHm98fVBD7C/5FB
-	/9cGH0vvOqwUZs4mVbx5ZE8pqFy7FMBbD1+q30D7DxVxDD5X3oi/kfKvi35WkgEeleycwMoRl3jc1
-	fIFdlfDuY7n6BsqJnReVOTe4J3kS30EpiqmZqZbXYYoJMB1s1gtRwhc6UEwb/buBqkxgsUlGzLIdx
-	BxS09LaZ5yyHInTRJzNE904J2Rjr3pwgdC1PwT9UpdW5+NbwEWEcYh6WOYr6CaLC50D6Jw6PgTtkr
-	VjODZEEQ==;
-Received: from mail-norwayeastazon11013038.outbound.protection.outlook.com ([40.107.159.38] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKCfh-0000000D7jp-0IxG;
-	Tue, 05 May 2026 10:06:36 +0000
+	id 1wKCfv-0000000Fkdf-2b1t;
+	Tue, 05 May 2026 10:06:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RiqI4KQQqL2Up1v6PwzVqifqZVX0zjLonSbONAgKowxjKsvWwYjAElQw7qUkQ1x/6RR8C+9qtLbdfoT1Oi+y1wA9sg5Zlxs2KAMonz0HFqdcsfscftBkq+iS65Eo5Jb71gyP5MVGHx9tcEwAFfOJUG9b7auERNbCqUTPfTZKLJ7HHmQGsJoPfBN8TS28SfbAiz3GW5C+oUXEF7NOfi4g7Qb+HfVdeq0Gy9nN4MUi9fqybdGHDk9xh1nUR/ZeRC3NU2pw23w0/34+YS8M77Vo7HANEJ1YoIPF9PbH/2J//DJ9pBQhQ+g7iKE50/ML87YVHF2+HHtRPclKLRClZZFRjw==
+ b=qq4KvgzhDTAw2zsUPLD44srZjeE2tu5nBSlaJ1yICe3HpkL88twO/m/rhnUP2oRZuTmbGs9ndvRTccZOHSECqNZossD7MklW0jM+bJ0jqskObDdYBsYJAKu2Uk4ZEhY5iXQ0rT1mAwGk5y3+mlxEFu1FQuQUVYPGNt31wnDN8U3LbgLlDQCRExMtRZ54tu6WbPVYnrPMiFTPDmiAXQ2as9xlEOSwmN7YtUjFhWu45YWfoZrARXxvJBTYsDvckJzsnjsTQvv2Dk+2F0eithH1vz0admb9bRUhrdT5Mu+jTViLuR3oVy9q6pWxbptKA5jpOxcpFsMQnNZYCIZ5tii2rQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R5sRDgO8/76/s9f9by6DOCDUOB2Ib1AVjGCXp6EGedg=;
- b=HT29hBh95S+l52xf7tTnDpocPpmRAQNtGXtIVHXeGj/hOm9rAHGFPYYmePHCf65xEmw3knbgcDp6ewJPlwAsILFIOEFj58FgvAUuJRMO78fNxYVLhliNpVbhjNy97F6LzDm5qJxkujGS3q6qLGUb+LnUJXimoUcL+oupdkT5CGQLMYXG5XR1ZYNfN5hZzezkXo3rK630kxwdAAeARQcyCBKsXbQ4VhykfEGXPV8h/CyZdpehsEBO6xWu3B7eemYv+LCe1Y/dfBhIeH/3swmmeB2ZUuUeSRtFHxZlyUJbXU39LQYHPHhBtNtTnm0kCr+NvdMXjqF9W/VujoAtdUqE6A==
+ bh=hh1gHGL8B72msTmFomGL00btQ91io1tcbm7Jwxq+oiU=;
+ b=eyFczWrYoqAYrOTEYE+X80f/RurwqnEOMzXZH5Xspu4bErG/KRkqlsYKkxVU8eDRuyoakHZaKeqYw2ObfcNWaMS2TW3biGTlvnGyfeOhc1GLGfc4iTGINIWyoVC49Tmp6Wly8bRGvRp1mPWV+sc/pH7lCk6tp08kH0hYpNmFjh/GdsaaZ2jlXtR62TOJHHGu5jgADYULdLd5QWnj/p8IQ44Ky9K79QHQE11tWbfVkOheOrDmeRFDk8+XZ+5lLYZeqXTG8fDD71LxCRagkEmO30Rt5GDQgWCd/8XrrBJlddk49T3eP8LQyIAmQL1td5EK2e9KaBMYcSo8Sv+NFkFBkA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R5sRDgO8/76/s9f9by6DOCDUOB2Ib1AVjGCXp6EGedg=;
- b=IKPL9rrg7Da9qOLxBykiXKAqnpsStY34RG9pqVopsJ4S8EvWOB5oaRxCPlx1Ap+o/TQiUebQeqPbfPG//J/3LAbnukIww+CK7+uKrapJC4a1no8GFGz3f1J+J3G5tBWOHtCSqo4bh6l88GCQIc/fsErBYflaOzlIQnoOEV7tThn9xCCvlI5Xeib9SI/yFTEqEtpL+4cyO9irGvonV0REIlKjTEIx+AfLGGOOHh49G9dodswqkvOzGD5ZBhw+wIHk4pQTs3BULl48p/EU/bGIh78iZrlqbGkvtlb8tcGkShT7pYgTyO77Xfehzjisg6CGEgXs/uYXAzXZXoNY5qlDDA==
+ bh=hh1gHGL8B72msTmFomGL00btQ91io1tcbm7Jwxq+oiU=;
+ b=eT4kOB2tVOLATR3FT9J7/YLskT0T3rpG+MyBPMhQvGfvtIb3ftVineU6mpFQO/HOkfNPzDDEJcQamkmGlVlE8gF3WPxfsrFdF2wl8f9f0jAM3u4xTI/x9pMXDX8XdgCW5FuL4WEWB/+MJKz1NbmIOCRWymWXGLQzg4wax7Gnydo963QDFy+fLxOqCKij+l5W7pFHwxqgbqj8dPGhFGhylQrwNZfPCOTq105q/ooNkrHrEyT/1JIC/gKYLMiuhcnQwD5Ps1n5a+uL2U7hy6dGZ46yO3HQwMx/ISSjl0D7wWJqV1G2Uiy/dJqPuNvcQ1sXSdT4MMKFkwxeOiuiZ7KTYg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
  by DB9PR04MB8363.eurprd04.prod.outlook.com (2603:10a6:10:24b::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9846.26; Tue, 5 May
- 2026 10:06:22 +0000
+ 2026 10:06:30 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9870.023; Tue, 5 May 2026
- 10:06:20 +0000
+ 10:06:29 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: linux-phy@lists.infradead.org
 Cc: Vinod Koul <vkoul@kernel.org>,
@@ -90,89 +76,78 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	netdev@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	UNGLinuxDriver@microchip.com,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
 	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Magnus Damm <magnus.damm@gmail.com>
-Subject: [PATCH v8 phy-next 20/31] phy: introduce phy_get_max_link_rate() helper for consumers
-Date: Tue,  5 May 2026 13:05:12 +0300
-Message-Id: <20260505100523.1922388-21-vladimir.oltean@nxp.com>
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Michael Dege <michael.dege@renesas.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Subject: [PATCH v8 phy-next 24/31] net: renesas: rswitch: include PHY provider header
+Date: Tue,  5 May 2026 13:05:16 +0300
+Message-Id: <20260505100523.1922388-25-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260505100523.1922388-1-vladimir.oltean@nxp.com>
 References: <20260505100523.1922388-1-vladimir.oltean@nxp.com>
-X-ClientProxiedBy: FR2P281CA0049.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:92::9) To AM9PR04MB8585.eurprd04.prod.outlook.com
+X-ClientProxiedBy: FR4P281CA0170.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b7::11) To AM9PR04MB8585.eurprd04.prod.outlook.com
  (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DB9PR04MB8363:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34320779-b733-4992-3422-08deaa8df4c7
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Office365-Filtering-Correlation-Id: 896e7c3a-0a21-4c6c-7a24-08deaa8dfa24
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|19092799006|7416014|366016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: PkXF2EQTzA1R7BkWyOAdNdkouP2SKDUJ9Eg2lSmw1pFJI3HWyJvN/zitXAgRpSUSwGnYkExo3mdvuOeeDmGjfbGuyZ7elqeiX0+Ox3A7QCSx0Zo9RIK707YeI5hS/8vlrrbr421AdAklytiP/KFxnNU2lPLsSIwt5DQznFVDLulTUplRxIU4KnsxzrG0tjrVk1mhrpCebnrhuXaUeDx5jFqfkYzUEJRW5I0Jcyb+VoSPKGhRXITioEaKNzvhQK3nBMISA2VXYXi3aWucRCJQPwe2AhlB2q+jr5mOXn9I4B9NoeBOkb2DkQp3o4a1eb8fgvizgPor+zvlQ/a5zO8V3mcxK6Zlc2srDEw0PZl/oaTIYstlid0EP1bWS4fAs9ceiU4d399V2Ibv/i5j1Nsl8JSUwP2RUXv6u8C+itXXIHeaO65dVBI0yc+6Y46FDjx4itNmb7Sjj6VlhXTEO3qGQY4I1/NyD0C6HozHkkVcYB+qoJ3DovqkrsgP4484n2gQ9mY5jLQ/MiMMJrgB1eMvg1OGRbkgt8idsat+GpfbQgAJcIHDHradtQRK5Iyx+z0R6YKRMvq3l3V3rCJ0/za7XMa7+/KZ8cl6lBG1QBtkwZNERqum4Kk2+bAy/59wBP6hvo+OtWEFIloF2HIDV/JnYYxxMWkRUpwSzp/GWyV8KYQNpk6GQDDhx20kjaLggJv5
+X-Microsoft-Antispam-Message-Info: GjEkpxGTMcb1tRmaPQPv8Qh+Up7TlJZs3vuCItAeIEKQbwmChhkH+Wpx2AC712xbkvbi+YhPUByM8pAWRX2xuAbcVL9zRrxT0yv8CBmnWKrqMFtnZoYRv65osvyKfh223o5DHOv1sTsdzU/cB35XsSpKEEozlMM5fWYnZ7vytu10oHi3KxLd4paiQrZbkGrWrbVtnYZegVGxNWlrMW52tGs1DvTuWUqWHEmHQD1RqycQ/lCTv3pPveeYYZ7m5T55Ry7FqqS+fkSi2TH7iwwzJzzfAdUCjlLHGfzfyyvpitwdyxHB+anXpNxUnqkp/x/ZZ8QQsrlVU6BNSKrg/6+2acv92M2Iq8lO8JfBo75yMT/EUQsSRM9sB88v/6TsiXXgiRgVh65yIXmMKMojSCuQwFuKULdi8jO14NuUT+S/VPrax+oxbVUjC7XSGt+lvYPslwUj8tey7I+e7ICxREt05IsHhdpg+nWoEsDXtghS37qVUFWrptatTfPaOmlNATQV/lN4QfGQfXcX8sfJPhuXIFe6xCP2HM4olZcbgNOzpjYzNLfZnr06S/kMHkcPxaoDYkGIYRUNciCN2AkS/iibryQ5I+o3v1IHYJ6/LeqZ97vi2dfc1mACnJ7gxfzvoNTbppw7zbPNs+viyj23XbiTncqx8xIodDOab+JYNUzwKwADkOzu4p0mfG5F2aYLuemO4mUZUhSe+w6rF35EL0xm7A==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(19092799006)(7416014)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?heKNdp91rcxSmoOzFldFXT16Y2C1VgElaqNvGb+cJ6+61JzGKujrTm94k8hP?=
- =?us-ascii?Q?PqWVQj0rL2Koxs6PMDiM5opCtiiI22ukeJ89KU2CNyFpU/9R/0QkxCTASdnG?=
- =?us-ascii?Q?3wDhzkdTBkljMRFlxoyVUlybN/VAe5utNPBFbhnheqY2wqvEdMHk7JronA24?=
- =?us-ascii?Q?hU07m3eJ8/9m/FvOR6jNWqjZTKQ2k/J+SRMA/+FAWY1ITzDmQ9UfoAqPy/Hp?=
- =?us-ascii?Q?cpTfjU3mEBNGoxwYWGAZ7nn54Ji5wTqygz8vmG4KZxogfOjgQDlPbFUTPfrV?=
- =?us-ascii?Q?iZJnLN/HetsZT0uujaU1JvCCYw1n3f4dBBM4cWACLhgNOXv/2bgFXsYBfen2?=
- =?us-ascii?Q?TrWJA/3a0jFi2BfSGeHC5+tW+PuBno9PRYeOH1O5Azm4BkXqFstA0D9yhVtR?=
- =?us-ascii?Q?OQhje37Y47YMxFvoJIfwjKEXDizS1EeDo26in/zOl2ZxOa4TrrhIOxiTVwa1?=
- =?us-ascii?Q?0JBIbAHRIISX1yeC0xNW11PqBz5h2zLagHw/iy7hQVopsjIsLD0UAeNWH3aT?=
- =?us-ascii?Q?HZxCVKgRU1IxVIGU+5lUn5FUlZtlow0i2v1pz7OLte1QojiPg6DPFMZsDA4O?=
- =?us-ascii?Q?pc6jaucDXazAhnhDwHfKTZcKG24LK5C5yFrSygPPj3zt1O3NiJEjYmwwDbn8?=
- =?us-ascii?Q?l5Dlef39CB+ChPsFNUIB4EXRKMioS5c3kIYL9q4BbDgdvoAWHx2eOtR9tBo2?=
- =?us-ascii?Q?6oL8+ctMwkzEbwMb9N7HBO2GTtNVSPtBAI/SdFTc8b0l2SXqHHndZoyecEmx?=
- =?us-ascii?Q?KMc643p9D85/nHfG/OYdLq2fr4NeX6qZuKTr+ufd7cFMAqasNJK9XXnaCrbu?=
- =?us-ascii?Q?HCPd8eF2tenS6n0AjLg6NYXnIqlmRlcIq0Bh/YwG5cwOIMf+Uo2h9z6bzEVj?=
- =?us-ascii?Q?hP0x7pXP/Cb4ta1jxkrl+oJd51DE9DTfqbOziBaAeLk1LI0AYk/j1dHPwMlt?=
- =?us-ascii?Q?nzpLzTj3GDVLD20Pp+iMtrj9JsmPDKSg0n21WT43wxhqSAm0qtMSsX7ssc2b?=
- =?us-ascii?Q?nsOE+epXRzFG09Y9ydvmQ7G0x37NQEyDPfIneMy4BKmmplf+wUBD7imRErY5?=
- =?us-ascii?Q?gIHjanlhO1NRJcGXokWt+TEO5ykpNaQ2SzWu+UODYA3F+DOZ9hzRJq7T0sPG?=
- =?us-ascii?Q?h44lB/q5jpNt5CXLbHr0c4vRIcao7yBml8tq3rc9AQ+QzxHGZPbq4UcbXeTT?=
- =?us-ascii?Q?I/1kc+YOUPRnKvsOQwdTlGC+mmYDl7RLEyYNELDWtuThqCcmRQMIhwkAugl/?=
- =?us-ascii?Q?O0GuR7EsJSlpijZOEnBJc8K8jH1hJMFQI/AD6nV44G6zV4mVLrdYgATZYA7p?=
- =?us-ascii?Q?B/u+dS+MJsNDRM6SGgsqzXpQqhPQPsvAS/zyrHNCk0MsUkNts/lEqv1UVc5y?=
- =?us-ascii?Q?rZ6ZxQNTGmUHWDK7Rhfz4sq6szMNdS6AvTtDZ1iC6JBSY2mPXi15gBNOZ++D?=
- =?us-ascii?Q?Gs49N4lGZReP/BHtiaiIha/HMDBrrGk9iCMR/uNJdu/Dne3JLaKqSTKGv7zR?=
- =?us-ascii?Q?xRjDR+sR+YVTcBsdPQf4lpHiJNxHcTvOXC1fH6B1CBzJdqbg5vqNqJuJiYIq?=
- =?us-ascii?Q?Bgx6g+nx9yXUl7zs/mZ4tcE5LpMeODs4IQuj8UFCUg6wY+DyYhVWAPiZk2zr?=
- =?us-ascii?Q?PTeuNXw6Qt6N1adexKB6eHHfp0E7G6OjEK1NaHv+S4/6Z+D1uDtYDQEH5K5r?=
- =?us-ascii?Q?rMhioTDZZqueK4NGn+0PJw8UBK/tpeEutBD1pRsMcKumRVmriHLDtl2a3+ZR?=
- =?us-ascii?Q?KQPBL47Vag=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2LcQCnYDxKf4tXI99fR5kHkneUlizCk5LHlgqMkm5hZn5pihsdCujKOsGxqy?=
+ =?us-ascii?Q?ACr4Ll9QkgvQDeXlM7TSvt9efcEpwXJAKjcWVhj0dazZH0LB07oG8cNz9tC2?=
+ =?us-ascii?Q?/oaLWFCX55Bbr6gqjqKWvpQC6xR2kTqB4iS4YCSg3c3iXSrU40jrfsUblsaR?=
+ =?us-ascii?Q?GBdHJSe8JOYRNElQhI2uVcS88qTKTvBjk4ZfWHcdvUo86v5N84IZ+PhiKhta?=
+ =?us-ascii?Q?/xuGnfhUdC6zYCsvQBHxB8K8+EEu1pAs0cGF83K0PSzHZ+1/t/C+HQqiBZzp?=
+ =?us-ascii?Q?pSKVRSBL+M6ysdsk7L5blg+NWit00QY1wtIboaSQZSqJ/F5ASCFC3xdg7ll7?=
+ =?us-ascii?Q?02lKnAFpGEY1aIkvYw9FUlRq2J0lchdbm6pxAdaEZ4EEA40rPyuH3RIEYeoF?=
+ =?us-ascii?Q?bjFJHYdnE7NBUKy1RCRB6+QJ21vWcdhcSktXz6+qHGVjmzAZy33k4siUKL6h?=
+ =?us-ascii?Q?RANC0LWr8+pU0PXI+3kJ/vo8zMMuAbcn6nMiZAKZomKPpnI+pfWGRcXTaMMK?=
+ =?us-ascii?Q?7y5L+cjkjEmiM4acD44jiJqRvPawzy2nknkK7nA5WO0lRcT74790/Vns22hV?=
+ =?us-ascii?Q?bmEdKSFBwnuPT5Q89/XDc1pLHDdD71ba88Zy9k9tFcmabr3YePvM1H2FKAt0?=
+ =?us-ascii?Q?qp+bzURLS3u48oX+O7cGKpInFt2s6LpSlh50A61i/pYEs/1OWu7VGAoYz32p?=
+ =?us-ascii?Q?5R9EJkMwPMU2q6lld9cIGDbV/LPPSoQee/KaNBTMzPaqU6yXXrzBj+/x2TyJ?=
+ =?us-ascii?Q?kcdkUfijiznMsofjWi3GERNYX4ew50BHPr9bgymaaSgs7m3r2F3uTmbrNLfE?=
+ =?us-ascii?Q?swRDK6GkB0DoRNuSa7qewTDiVurJlsCzruTweVesdb2gZPlJjccmvu3wlfzA?=
+ =?us-ascii?Q?pIAq6aMKOfQO7XCFekwdD9+za8lmAjTL2ia1FBjPM1dijDOr6z7pbhhapPCf?=
+ =?us-ascii?Q?OZ+ojcMe0rLJNBwKRgUYB0TwUSof77YPDVZtwshSv/hkwOAwtB2eayaZsorS?=
+ =?us-ascii?Q?O+In8GkjN41yz/bUPLR7pvPTdd8/LylQZOKrTs68I30QyFvM2W2XwtN02Fy/?=
+ =?us-ascii?Q?V6zvrldOw1bf47kqgkcCtSUiINpxUAbECZ4lYr/5IABkburju+SgOZ08TY6R?=
+ =?us-ascii?Q?wL93MJLz05uuEbmrRW05Qtw18JkC0S3CNXuver+vU7eJTwoRik7i2YjMly2u?=
+ =?us-ascii?Q?lO34/8SzXKDzZlHV943VPFXwGMnyEIX6tfSuROZDbQASWu4vu7ZqJEySI8Ir?=
+ =?us-ascii?Q?el9jXHJoY1BrRk9J7tTXWpXGGCWYbKiaCkiCZV4WmiB66xpgWaMSJgge5MAS?=
+ =?us-ascii?Q?y75jrSn6YakZaVOG+12pao85JSq5uZtXmCnmyZU/t2jenBX/zrYMszWQsKcA?=
+ =?us-ascii?Q?iZCQ4CzuS5NPUkaVRLKSdITPt0CjbyOaCblLjqsWg20TTHhNxW0CWaX7U4+P?=
+ =?us-ascii?Q?hx/6TRfswgqKLWag1tDi2cOFZbQiDrjPG4oDKATGfIXjpgU++vs3mQlTUteb?=
+ =?us-ascii?Q?EceuR5mtueIqR387xg+agTDu0BN7LZlbe9YeaV+TnreXCmImxNX35PrjUJzE?=
+ =?us-ascii?Q?kYKi6CYQOK27YspdxrBUDYnLsfZUJYvhWNYy1uiNcSXUfhW9kN5kGYTgp7bc?=
+ =?us-ascii?Q?O8e97B3Q//J1nZ3OVVOhtKFkpfA8rYacZC8F4ZQxmg51v0agSpIg4A+gbwp6?=
+ =?us-ascii?Q?JuKgR74SFjTvfKkI+STKXQFTCPDxPWQMJjUuNT2qJB6O4YrP8HkJPN9+loZ9?=
+ =?us-ascii?Q?a9iS0xKIEw=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34320779-b733-4992-3422-08deaa8df4c7
+X-MS-Exchange-CrossTenant-Network-Message-Id: 896e7c3a-0a21-4c6c-7a24-08deaa8dfa24
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 10:06:20.9360
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2026 10:06:29.9215
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Lj6mTfmaJwTZD/kK1BNfcHCNpUjwzlz0/LaBzbDi5okPmGBjN9f1ruV1nezAPtokgaDRycUyE0Xv3YSEUPmuTA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: bU/weWfJ+oQdMIHR8BKEwSaCtJvcZ5VDHA7K39sUFBwDk20C8wf91k6AVrz/gya1xBwoKHZow8TK0Jc32gEQPw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8363
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_110633_404626_07257C79 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260505_030647_820487_62FC8958 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,193 +164,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Consumer drivers shouldn't dereference struct phy, not even to get to
-its attributes.
+As a PHY consumer driver, the Renesas rswitch dereferences internal
+fields of struct phy, something which shouldn't be done, as that is
+going to be made an opaque pointer.
 
-We have phy_get_bus_width() as a precedent for getting the bus_width
-attribute, so let's add phy_get_max_link_rate() and use it in DRM and
-CAN drivers.
+It is quite clearly visible that the driver is tightly coupled with the
+drivers/phy/renesas/r8a779f0-ether-serdes.c, which puts heavy pressure
+on the Generic PHY subsystem.
 
-In CAN drivers, the transceiver is acquired through devm_phy_optional_get()
-and NULL is given by the API as a non-error case, so the PHY API should
-also tolerate NULL coming back to it. This means we can further simplify
-the call sites that test for the NULL quality of the transceiver.
+This was discussed before here:
+https://lore.kernel.org/linux-phy/20260211194541.cdmibrpfn6ej6e74@skbuf/
+
+but to summarize, it is generally expected that when a Generic PHY
+function is called, it takes effect immediately. When this doesn't
+happen, the PHY provider driver must change its implementation rather
+than the consumer be made to work around it. PHY providers which rely on
+a hardcoded call sequence in the consumer are just lazy and wrong.
+
+The most obvious example is commit 5cb630925b49 ("net: renesas: rswitch:
+Add phy_power_{on,off}() calling"). Problem description:
+- Ethernet PHYs may change phydev->interface. When this happens, the
+  SerDes must learn of the new phydev->interface using phy_set_mode_ext().
+- drivers/phy/renesas/r8a779f0-ether-serdes.c implements phy_set_mode_ext(),
+  but this only caches the mode and submode into channel->phy_interface
+  and applies this to hardware during phy_power_on().
+
+The commit author decided to work around this at the consumer site, by
+power cycling the PHY for the configuration to take effect.
+
+This had a worse implication from an API perspective in subsequent
+commit 053f13f67be6 ("rswitch: Fix imbalance phy_power_off() calling").
+It was observed that phy_power_on() and phy_power_off() calls need to be
+balanced, and so, the consumer decided to start looking at the struct
+phy :: power_count (the technical reason why I'm making this change).
+
+This is also wrong from an API perspective because
+- a consumer should only care about its own vote on the PHY power state.
+  If this is a multi-port submode like QSGMII, a single phy_power_off()
+  call will not actually turn the PHY off (nor should it).
+- the power_count is written under the &phy->mutex, but read unlocked
+  here.
+
+The rswitch and r8a779f0-ether-serdes drivers both need to be completely
+rethought in terms of Generic PHY API call sequence. There is no quick
+fix to apply. Just include the PHY provider API along with the consumer
+one, to keep working as before when struct phy will be made an opaque
+pointer to normal PHY consumers. But this is a bad offender (and it's
+not even a provider) so add a FIXME.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Acked-by: Markus Schneider-Pargmann <msp@baylibre.com> # m_can
-Acked-by: Geert Uytterhoeven <geert+renesas@glider.be> # rcar_canfd
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Robert Foss <rfoss@kernel.org>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-Cc: Jonas Karlman <jonas@kwiboo.se>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Simona Vetter <simona@ffwll.ch>
-Cc: Andy Yan <andy.yan@rock-chips.com>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Vincent Mailhol <mailhol@kernel.org>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Markus Schneider-Pargmann <msp@baylibre.com>
+Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+Cc: Michael Dege <michael.dege@renesas.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@google.com>
+Cc: Jakub Kicinski <kuba@kernel.org>
+Cc: Paolo Abeni <pabeni@redhat.com>
 Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 
-v7->v8: make "struct phy *" argument const
-v3->v7: none
-v2->v3: collect tag
-v1->v2: make phy_get_bus_width() NULL-tolerant to simplify CAN callers
+v2->v8: none
+v1->v2: collect tag
 ---
- drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c | 4 ++--
- drivers/gpu/drm/bridge/synopsys/dw-dp.c             | 2 +-
- drivers/net/can/at91_can.c                          | 3 +--
- drivers/net/can/flexcan/flexcan-core.c              | 3 +--
- drivers/net/can/m_can/m_can_platform.c              | 3 +--
- drivers/net/can/rcar/rcar_canfd.c                   | 3 +--
- drivers/phy/phy-core.c                              | 9 +++++++++
- include/linux/phy/phy.h                             | 6 ++++++
- 8 files changed, 22 insertions(+), 11 deletions(-)
+ drivers/net/ethernet/renesas/rswitch_main.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c b/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-index d20c0f8ad04c..87847978c1fb 100644
---- a/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-+++ b/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
-@@ -1296,7 +1296,7 @@ static u32 cdns_mhdp_get_training_interval_us(struct cdns_mhdp_device *mhdp,
+diff --git a/drivers/net/ethernet/renesas/rswitch_main.c b/drivers/net/ethernet/renesas/rswitch_main.c
+index 6fe964816322..132be5f15073 100644
+--- a/drivers/net/ethernet/renesas/rswitch_main.c
++++ b/drivers/net/ethernet/renesas/rswitch_main.c
+@@ -27,6 +27,7 @@
+ #include <linux/spinlock.h>
+ #include <linux/sys_soc.h>
  
- static void cdns_mhdp_fill_host_caps(struct cdns_mhdp_device *mhdp)
- {
--	unsigned int link_rate;
-+	u32 link_rate;
++#include "../../../phy/phy-provider.h" /* FIXME */
+ #include "rswitch.h"
+ #include "rswitch_l2.h"
  
- 	/* Get source capabilities based on PHY attributes */
- 
-@@ -1304,7 +1304,7 @@ static void cdns_mhdp_fill_host_caps(struct cdns_mhdp_device *mhdp)
- 	if (!mhdp->host.lanes_cnt)
- 		mhdp->host.lanes_cnt = 4;
- 
--	link_rate = mhdp->phy->attrs.max_link_rate;
-+	link_rate = phy_get_max_link_rate(mhdp->phy);
- 	if (!link_rate)
- 		link_rate = drm_dp_bw_code_to_link_rate(DP_LINK_BW_8_1);
- 	else
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 45b37885d719..137ea6679732 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -530,7 +530,7 @@ static int dw_dp_link_parse(struct dw_dp *dp, struct drm_connector *connector)
- 
- 	link->revision = link->dpcd[DP_DPCD_REV];
- 	link->rate = min_t(u32, min(dp->plat_data.max_link_rate,
--				    dp->phy->attrs.max_link_rate * 100),
-+				    phy_get_max_link_rate(dp->phy) * 100),
- 			   drm_dp_max_link_rate(link->dpcd));
- 	link->lanes = min_t(u8, phy_get_bus_width(dp->phy),
- 			    drm_dp_max_lane_count(link->dpcd));
-diff --git a/drivers/net/can/at91_can.c b/drivers/net/can/at91_can.c
-index 58da323f14d7..7749da0a58f6 100644
---- a/drivers/net/can/at91_can.c
-+++ b/drivers/net/can/at91_can.c
-@@ -1125,8 +1125,7 @@ static int at91_can_probe(struct platform_device *pdev)
- 
- 	can_rx_offload_add_timestamp(dev, &priv->offload);
- 
--	if (transceiver)
--		priv->can.bitrate_max = transceiver->attrs.max_link_rate;
-+	priv->can.bitrate_max = phy_get_max_link_rate(transceiver);
- 
- 	if (at91_is_sam9263(priv))
- 		dev->sysfs_groups[0] = &at91_sysfs_attr_group;
-diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
-index f5d22c61503f..093e48b8da58 100644
---- a/drivers/net/can/flexcan/flexcan-core.c
-+++ b/drivers/net/can/flexcan/flexcan-core.c
-@@ -2210,8 +2210,7 @@ static int flexcan_probe(struct platform_device *pdev)
- 	priv->reg_xceiver = reg_xceiver;
- 	priv->transceiver = transceiver;
- 
--	if (transceiver)
--		priv->can.bitrate_max = transceiver->attrs.max_link_rate;
-+	priv->can.bitrate_max = phy_get_max_link_rate(transceiver);
- 
- 	if (priv->devtype_data.quirks & FLEXCAN_QUIRK_NR_IRQ_3) {
- 		priv->irq_boff = platform_get_irq(pdev, 1);
-diff --git a/drivers/net/can/m_can/m_can_platform.c b/drivers/net/can/m_can/m_can_platform.c
-index 56da411878af..2a0f163a683a 100644
---- a/drivers/net/can/m_can/m_can_platform.c
-+++ b/drivers/net/can/m_can/m_can_platform.c
-@@ -131,8 +131,7 @@ static int m_can_plat_probe(struct platform_device *pdev)
- 		goto probe_fail;
- 	}
- 
--	if (transceiver)
--		mcan_class->can.bitrate_max = transceiver->attrs.max_link_rate;
-+	mcan_class->can.bitrate_max = phy_get_max_link_rate(transceiver);
- 
- 	priv->base = addr;
- 	priv->mram_base = mram_addr;
-diff --git a/drivers/net/can/rcar/rcar_canfd.c b/drivers/net/can/rcar/rcar_canfd.c
-index eaf8cac78038..9062db48d477 100644
---- a/drivers/net/can/rcar/rcar_canfd.c
-+++ b/drivers/net/can/rcar/rcar_canfd.c
-@@ -1884,8 +1884,7 @@ static int rcar_canfd_channel_probe(struct rcar_canfd_global *gpriv, u32 ch,
- 	priv->transceiver = transceiver;
- 	priv->channel = ch;
- 	priv->gpriv = gpriv;
--	if (transceiver)
--		priv->can.bitrate_max = transceiver->attrs.max_link_rate;
-+	priv->can.bitrate_max = phy_get_max_link_rate(transceiver);
- 	priv->can.clock.freq = fcan_freq;
- 	dev_info(dev, "can_clk rate is %u\n", priv->can.clock.freq);
- 
-diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-index 6cd33204d2ff..8707111c4666 100644
---- a/drivers/phy/phy-core.c
-+++ b/drivers/phy/phy-core.c
-@@ -675,6 +675,15 @@ int phy_request_bus_width(struct phy *phy, int bus_width)
- }
- EXPORT_SYMBOL_GPL(phy_request_bus_width);
- 
-+u32 phy_get_max_link_rate(const struct phy *phy)
-+{
-+	if (!phy)
-+		return 0;
-+
-+	return phy->attrs.max_link_rate;
-+}
-+EXPORT_SYMBOL_GPL(phy_get_max_link_rate);
-+
- /**
-  * _of_phy_get() - lookup and obtain a reference to a phy by phandle
-  * @np: device_node for which to get the phy
-diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
-index 99d3d65da614..e65865b4acfe 100644
---- a/include/linux/phy/phy.h
-+++ b/include/linux/phy/phy.h
-@@ -57,6 +57,7 @@ int phy_notify_disconnect(struct phy *phy, int port);
- int phy_notify_state(struct phy *phy, union phy_notify state);
- int phy_get_bus_width(struct phy *phy);
- int phy_request_bus_width(struct phy *phy, int bus_width);
-+u32 phy_get_max_link_rate(const struct phy *phy);
- #else
- static inline struct phy *phy_get(struct device *dev, const char *string)
- {
-@@ -260,6 +261,11 @@ static inline int phy_request_bus_width(struct phy *phy, int bus_width)
- 
- 	return -ENOSYS;
- }
-+
-+static inline u32 phy_get_max_link_rate(const struct phy *phy)
-+{
-+	return 0;
-+}
- #endif /* IS_ENABLED(CONFIG_GENERIC_PHY) */
- 
- #endif /* __PHY_CONSUMER_H */
 -- 
 2.34.1
 
