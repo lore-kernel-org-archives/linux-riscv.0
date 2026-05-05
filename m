@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3EECD3427
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 19:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FBBCD3427
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 19:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y3ND81JR1mHQuYd+sCFG0p4dqmKF3FmB3TRa9vqdJDg=; b=MG8hJUHmQfoPQC
-	yliYgEgQE5H1Mrpm7E3ZpqFZAiRAr439D2l7OzbJtzQChiQP9kBQcB0hisHSfVMPVtinYIlnBxip+
-	w+4NCmG3J+A1Kn5kEvuS1h/elVj0A3sXtdaW0DvxLmCPpukbTLmZ46FM0oGYbdnUf93msO78jJ++F
-	a01vPuVIf2pqrF7OjUu/PtJXWMcR6F2IsQKfUFFrOzO9Z7hQXlprmLk0hKsEGWU1lQ3O2y5d5DImc
-	sVIkdRksTxikcAhDhzvZSSGySYLCDw9E4iD9ZP58XMbHxlFw+tHbs5SHreujIDvpTMxwseS2zI8VD
-	PgUZIcFJoq/b3pEpvSEQ==;
+	List-Owner; bh=h3Sto9ByuD/+nhqgkJFu7Wuthf6lOCJmVRePoRTSTWg=; b=gnBx1cESLqeheH
+	i14Dh8D4DxV7GiXqKB761l5GTQOX7co+va2Q5XSqsBPkWpuJ/JMYFThtCo6DUOVjQTZLaHYYwWfKh
+	6vY/8KmiJNKbkqurfoeV5ASVzAdXeDNsTvrYSsSbBb8VpMSjUIq5JX0joeY3s/Ms16yi3iVBedXGV
+	tUmOIarWT/H833W2mV/J0pUfgTJmJDq48LRsGg+00LKARxzxB6sy7AU2JxePNiAiJyZ2xA2zGc4f9
+	9T+qI5DwobnP4sqcEJtsdzd7ps07jGG8KksIfVjBwUSudpBOCJVO2lZzt5fsPIX89SamoDHRRKmG4
+	RfspHtUsRxVbN861ZUqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLhZ-0000000HKcs-3ppS;
-	Tue, 05 May 2026 19:45:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKLiw-0000000HKpv-2WNG;
+	Tue, 05 May 2026 19:46:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKLhX-0000000HKcf-2P81
+	id 1wKLiv-0000000HKpC-0Abd
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 May 2026 19:45:03 +0000
+	Tue, 05 May 2026 19:46:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB5A760181;
-	Tue,  5 May 2026 19:45:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4044C2BCB4;
-	Tue,  5 May 2026 19:45:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 69E4361141;
+	Tue,  5 May 2026 19:46:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39E6FC2BCB4;
+	Tue,  5 May 2026 19:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778010302;
-	bh=NmT6DVe9ATLJwqubgZU8SUcwl+X6QPGj+PpZGS7QtRw=;
+	s=k20201202; t=1778010388;
+	bh=jO1FzHZrNlKwD5ZAD+Uph7zwR6Brh+x7VS0clKFtqms=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=TmJFQ1kziJ1/QEOICQn7oG81ImsADDzKzoxREfO9uyP+gAjP2bQO6i4sRSB4xgL9k
-	 F/0xnID3sONrR+MOYESf3UQLOMFOKOfx6wA4m2FJygzPOoAk1hjSrdOI8VgUEwGW9S
-	 qr4phZUxMjdcEEm0JdWQOl+ple+h5wndhCArnDtCIGEI3xMZgoJncnl3jXGfuiGjBp
-	 3J0cRZ5RYVAVAYz/bXK2DCLbqAb0ttM9xmlXeqdt5L77eP7h/MRGYM8GUS/UcgKTUL
-	 5QJz271va2WfGJfStlretQk6ZH4zb18Vj7QfB3Qw1NdV8Nnpi5oyYORCFbGOYPYPZf
-	 8/aXgOlzHp5Fg==
+	b=B50iZQVcEj6X8w9MCAw8SfbHfNaYqHXkQz4XGt8tElNTDIcg6PSWvzHvSOv+19ZnO
+	 yhd4KQT/xuGRGdzHt8T54v8zL4M1CT1BfiZ8fJCbVetJlWM9LU/Miwh6RtxdvSjwH6
+	 8OWaLAnfZ37kC758L9NPiTDzuRYShecKhEmD1h1eD9AY8Zhemd9xpB2etn0xuv8X4A
+	 Sk+TcxOJ2ZQ1me0mTlQgApeZxYmoUxKWOrX4kfCBpTpnNEy645wAnTu1V3wN3NrVrR
+	 gUZA1RWCpDWkRf8mhhGUGuhPmLi4gPm4fFldKmUKL728nqMBHGyz4tDMVU2MJxWhqV
+	 o0taOGjyXWRig==
 From: Thomas Gleixner <tglx@kernel.org>
 To: Yong-Xuan Wang <yongxuan.wang@sifive.com>, Anup Patel
  <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
@@ -51,10 +51,10 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com,
  Yong-Xuan Wang <yongxuan.wang@sifive.com>
 Subject: Re: [PATCH] irqchip/riscv-imsic: sync-up state before CPU offline
-In-Reply-To: <20260503-imsic-v1-1-aa8330bd1c34@sifive.com>
-References: <20260503-imsic-v1-1-aa8330bd1c34@sifive.com>
-Date: Tue, 05 May 2026 21:44:59 +0200
-Message-ID: <87bjety72c.ffs@tglx>
+In-Reply-To: <87bjety72c.ffs@tglx>
+References: <20260503-imsic-v1-1-aa8330bd1c34@sifive.com> <87bjety72c.ffs@tglx>
+Date: Tue, 05 May 2026 21:46:24 +0200
+Message-ID: <878q9xy6zz.ffs@tglx>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,26 +72,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 03 2026 at 23:05, Yong-Xuan Wang wrote:
-> The "move_prev" pointer in struct imsic_vector on the new CPU is
-> cleared only after the old CPU has cleared "move_next". But when
-> migrating all the interrupts out from an offling CPU, since the CPU
-> is already marked as "offlined", the IMSIC driver skip to sync-up the
-> interrupt vector in __imsic_remote_sync(). The "move_pre" pointer of
-> these interrupts can only be cleared after the old CPU backs to online.
-> Therefore the affinity of an interrupt that are orignally target an
-> offlined CPU can't be changed.
+On Tue, May 05 2026 at 21:44, Thomas Gleixner wrote:
+> On Sun, May 03 2026 at 23:05, Yong-Xuan Wang wrote:
+>> The "move_prev" pointer in struct imsic_vector on the new CPU is
+>> cleared only after the old CPU has cleared "move_next". But when
+>> migrating all the interrupts out from an offling CPU, since the CPU
+>> is already marked as "offlined", the IMSIC driver skip to sync-up the
+>> interrupt vector in __imsic_remote_sync(). The "move_pre" pointer of
+>> these interrupts can only be cleared after the old CPU backs to online.
+>> Therefore the affinity of an interrupt that are orignally target an
+>> offlined CPU can't be changed.
+>
+> https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#changelog
+>
+>> This patch force to clear the "move_pre" pointers before the CPU goes
+>> offline.
+>
+> # git grep 'This patch' Documentation/process/
 
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#changelog
+This change log also lacks a 'Fixes:' tag
 
-> This patch force to clear the "move_pre" pointers before the CPU goes
-> offline.
-
-# git grep 'This patch' Documentation/process/
-
-Thanks,
-
-        tglx
 
 _______________________________________________
 linux-riscv mailing list
