@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FE6CD3427
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C9CCD3439
 	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 16:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0tvUMGXqHS9AS0D2QzVVfv56AM5wIPc1LQjIKyLLo98=; b=SDGjannn0MjVLm
-	xVtO13nW41fGSGNaVg7lw0mHaiBJ3lhLY8NU9NLdVCNeE5Ze3mT/gf/8CgnO8hrhARbtVBfEbr7gJ
-	2kmOqcn31m6q120FWZZS6I2aNV+zOMG2ARMS43TZDOFFg1EraPQOTcZvwdZ2g/Cl7qJE46oF8izmz
-	6tJfvFwvAacWcj9BpHpmN3JqysuSw5LqMoJx27y/roB4pQaoJAdkngXYvhUF7XsOs0XuVLXUMxX2c
-	pNlNMT4NQLEWYa1FRUQ7U8iYqb30tjn0AsYiuz6+vCAgYtGALSsAVBYPPSKzdc0wTI+aJq/SQW7kc
-	MSn65M1leR4UhOXzMarA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TF5YbmeFgGFInBLBAyATludaXry17JTtMNoeZgzMDEY=; b=XvsowXymZbbvnV
+	ecGdENrnxZv53rPyo4xk1/SDv/iy3uZmKC5HFiPW0XOhZpOByN3cxnY2zmjjVo3Dwa46azxIrGut1
+	KPdafSBgMhsVXEoUigX8ZamH+13NFnPOjhsdhj8o4Gc08oCWTrusJLMaiWdyGtR+I+ZzF9ywgwpzO
+	RR4SmKkksEl9FBqYFOI8JGlfLJjbRKZWd5JnpqL/Y8KNsOEGZY7pGpiCtAgIsBdlkbvYUbLw+bWHj
+	A4EtOZEig9VYRwuYrc07bsNrUNXVs6q+5xKMO8Z1f1kutzLaaJDQj9nG9YkTq77vXK+7y3iNKfNDr
+	VAT/h0z7HhpglDUPUmRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKIIA-0000000GmLR-3QpO;
-	Tue, 05 May 2026 16:06:38 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wKII2-0000000GmHR-1E4j;
+	Tue, 05 May 2026 16:06:30 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKII7-0000000GmIz-3frR
+	id 1wKIHz-0000000GmFw-3Lgf
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 May 2026 16:06:36 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-488af96f6b2so69822805e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 05 May 2026 09:06:35 -0700 (PDT)
+	Tue, 05 May 2026 16:06:29 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-44a5174670eso2286062f8f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 05 May 2026 09:06:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1777997194; x=1778601994; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6MKKxEhH/PG8dHPKGObXTAHe3ka75aRhCwPBKx/xAmY=;
-        b=sxQMi4B3qFA7gGkBWIVi+tcL4hekPSp223wML4yvbVwvpzLkj/QkjCAHBYBO7/7K9a
-         HsQlp+COCb4QM8ZpnCC5mPhq9r69UVTu1UVQ4+QuwpFOpb6hz40qWbuo1pFICRBfNshV
-         qqt0VRWYVLN0i+24b5OlYZtjPwTgA2HpEf8B5LgcHcCjcIZggSj+ZCiEmrT5xZYnJ2hp
-         D2TyHNSLsLVG7BK51Sl/WfBDwrEpRUxBtPCS0WBscdImaJhK2jZcEyqk1r71pnxuEmbN
-         0rew62pbc37TUe7BWHgygIhjdW6SubGjkUIikmcZQX1epBEeRQtK0YSZi8cGImMHy09S
-         YR8Q==
+        d=gmail.com; s=20251104; t=1777997185; x=1778601985; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hV0+0zVBNNCjKEt7Ft390V3lS17ubfm/vB5GKRklvSI=;
+        b=sgYOMzVqBAN6CpbbkvKKeP2ftIm0p1RTs0VjV6PwyV+wywipKmq68qqlSYO53sHv3u
+         /Okc1IL9ma2la0cLD76xeNTMi1cffX6u7pzQSC63n+ETO+H7FhGu2G9K9N+QcIyiLUdz
+         aNn86aPByU8dkRrkAZydzxxm7r8ts2vizD+NxLw/ifY7TWWHPbOV3njcS58tlWgQi8hr
+         E+Bb+lxtv81agoci5EkVpnuXkBvlYnWwGSWceZGANWxTZ9QUrWHeePIktguBFDL9bvp2
+         F6PIoDaWuv5Uw+wr3oDXbNZTdmlfSl1knXracBbGUBOYwlDHDhb3DKuxm6PzXQlQ7MYX
+         fcPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777997194; x=1778601994;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6MKKxEhH/PG8dHPKGObXTAHe3ka75aRhCwPBKx/xAmY=;
-        b=Ietb0yNIhJDcFKVIVQDqpJNcvcwkD5IR2l/0vS7yYdU9v6uHgQihXeEac9yiFnpFN2
-         Bj2WVr0bwaFSyMQJdAqPHcFtt3tkusVqC8xKgoqIwNbZodd6Oewga7EvBMKqXNkDBkrd
-         K7x9MVG8A8AoPfDcv+AQlQnQDTzy6ee/RyAWX/fEJsZI6RUOIy6XCHB0tUhlumHB21ks
-         +8xYy6/I3hU76CeTxu+2XQHoiaYFRoVevB0m0AdCKPMJpvmmgP20af+8Tj7tvMqtcNxn
-         7MIQt9263/UQtbKNl1u/jltQLYmqEKECH9BNazDY0EDFa1wvfDEeLSgnMRRFxt3DoLCK
-         IVtA==
-X-Forwarded-Encrypted: i=1; AFNElJ+Vpxh3xhI8DHvb/Wk37cJwEFzcyA3t5K9QNd1RosK72LpmHQw63fMR06kjwQ5HNCv1Huxg6jgo8aeUJQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGSzLYRZUtAIqo303uXH67SOq5MMP/L8OXHfVM6t8mQbbznjML
-	jjKrsemMJpsy6PNH0WoOkR/lARN9OFvGLCFwCDAA+OUJtqOheda3etEH
-X-Gm-Gg: AeBDievVyPCGkdJz38Jf6+JYcYEJw3uYnK4Oj0Gc32zlUTiKQw2+j50nBqI3IVbnKWB
-	m5prRypTyyHydfTvDJUa80he2z8K1D8VKGpUaeJrpl/fIgpD6iWyjn3ML8rAprC9g6ufuQMFxoT
-	QqYcDUaoi2frssSB/G6rNdduCHXFA6zx6arbgUJz41h4QHmtNCEDgsIiTXYM+VFN7ZyURFx2b2W
-	goyshkBnYkv0p/E3EX8VoHlS8Nm+jwqVdcySto5i05heR5Rvak57gTel10viSu/CW38ovD7JxQw
-	7An6e9gpNqmSur/5+mVjdbK0GuzH9FnsVZn81wbvTiqXfm8aggm+B+fBI64D5GoE+TGGoPKUu/8
-	iRMWsDI6TXLUbAbgUDiz5WKEDMenmeFe2HZKf0dSmV7NpAAm98l+O/kGTsSpjDqj4ruRo169s6f
-	O5QdVtxOv2aNm5qkeS1lveJQRlPj8K7LPHo6/TcR7bPneQN0jEoh8efT9Wf3KoVWzLbGZgNHqFe
-	BGJNz4=
-X-Received: by 2002:a05:600c:a118:b0:48a:7676:30bc with SMTP id 5b1f17b1804b1-48a9865e188mr184980115e9.14.1777997193775;
-        Tue, 05 May 2026 09:06:33 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1777997185; x=1778601985;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hV0+0zVBNNCjKEt7Ft390V3lS17ubfm/vB5GKRklvSI=;
+        b=UTm8aVd5a3w60eDXgprfVUYUdmFZF8GNnuEWWWYoaTkg577vcw9TYaChodWTW6nsxO
+         nfsoyzbr+kUTB9Eqe1xH7Rwaivlz+BERkgP8D2kSuqfqqa1JBh56ugMDrjGC780wRFSQ
+         35Jn5MbILkjYj8RHZ7V3O1prH6ZlWDMFXLK3gEjycLiWmWAv0aagG7GD6P/qi5AXyZPH
+         1hpmPmM3ZGDamc2R30U57tRhrUJQr4LYqgul2Saymmqby5JXVT80rH+ENumIWV53+kHS
+         ZVfSNSuh3JZGNqMK7API/QlrCgdJhZAR8nyOAdumWJekFUQUr8097WIo5ASifgPWa+kJ
+         ItTg==
+X-Gm-Message-State: AOJu0YxoNo2wBPbkh3twEhxKTDqhJ1s9Otr4mYv98UGbpNRz7NDjBRl8
+	bWSJUDbYXK+TG3aOiXyEnVyt80LyUQbN7SRumSkuFTe7aAx3rqbqxO2/
+X-Gm-Gg: AeBDieutQEjwLT8kNhsj0d75NxgyO4uUx4oTSk82rQMMyrgqDuWqsrd8PU9VDX7nOuP
+	w5Y9ZeqGVzoAGG2sHMBwU47ox/i2jgHeYF+2fRfy2Ua3N//swTkWBlsPnaJzI7OQeG9nKbLxMsO
+	EWQSNx9hIv1FWnxFV+SUq6u3U/xdw93xfdFu4KUwxS/Suhc8cs0aFBZgaYVl+xLv9SCHJ8B7DPf
+	HMEhz7mYAKqa1xFtOM6l+pLmrBPLNFHfCIiGsmg6MHRS8h0eKLesEnc7V9NXO3TdcSSx4hSyDP4
+	WwHOjkzmLJJHyDCdYRZ1Z2TBiJ8pwv9lHTqsr9w7uTX4usMw906bRFPZOZBtNm0VV+2VTWMNItf
+	/a85gDoi89Pwnvaz2CNqo9IrgNnJ3DFoc32uCqgb7giWA5pjLfR2b6RbYaWpeI347P9iNpAlWze
+	3YCn/VMT9pGBQnkZ0sNz12zdNzN+fxNVTr28emiUorSwQKp7ZTEgk09UDN5GeP7eRm5cSF2Z/eP
+	fX02bU=
+X-Received: by 2002:a05:6000:2489:b0:43e:a9ba:b194 with SMTP id ffacd0b85a97d-44bb5c43349mr26253545f8f.34.1777997185280;
+        Tue, 05 May 2026 09:06:25 -0700 (PDT)
 Received: from mamamia.internal (a89-182-137-143.net-htp.de. [89.182.137.143])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055d36dacsm5398891f8f.32.2026.05.05.09.06.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055d36dacsm5398891f8f.32.2026.05.05.09.06.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 09:06:33 -0700 (PDT)
+        Tue, 05 May 2026 09:06:24 -0700 (PDT)
 From: Andre Heider <a.heider@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>,
-	Paul Walmsley <pjw@kernel.org>,
+To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 6/6] riscv: dts: spacemit: k1-musepi-pro: set default console baud rate
-Date: Tue,  5 May 2026 18:06:20 +0200
-Message-ID: <20260505160623.1369347-7-a.heider@gmail.com>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@gentoo.org>
+Cc: linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: [PATCH 0/6] spacemit: k1-musepi-pro: add missing devices
+Date: Tue,  5 May 2026 18:06:14 +0200
+Message-ID: <20260505160623.1369347-1-a.heider@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260505160623.1369347-1-a.heider@gmail.com>
-References: <20260505160623.1369347-1-a.heider@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_090635_916775_15CC1BCE 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20260505_090627_852717_64BDF9E1 
+X-CRM114-Status: UNSURE (   5.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,27 +101,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allow serial output with the same uboot/opensbi settings so the
-console works without providing a cmdline.
+Add the missing devices with their required regulators. The regulators are named after
+their label in the vendor schematics[0].
 
-Signed-off-by: Andre Heider <a.heider@gmail.com>
----
- arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[0] https://github.com/spacemit-com/docs-product/blob/main/en/k1_muse_pi_pro/pi_pro_hw.md
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-index 3ba6244952b63..edeeac501fad7 100644
---- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-@@ -22,7 +22,7 @@ aliases {
- 	};
- 
- 	chosen {
--		stdout-path = "serial0";
-+		stdout-path = "serial0:115200n8";
- 	};
- 
- 	leds {
+root@OpenWrt:~# cat /sys/kernel/debug/regulator/regulator_summary
+ regulator                      use open bypass  opmode voltage current     min     max
+---------------------------------------------------------------------------------------
+ regulator-dummy                  1    0      0 unknown     0mV     0mA     0mV     0mV
+ USBVBUS                          4    3      0 unknown 12000mV     0mA 12000mV 12000mV
+    PCIE_VCC3V3                   2    1      0 unknown  3300mV     0mA  3300mV  3300mV
+       ca400000.pcie-vpcie3v3     1                                 0mA     0mV     0mV
+    MPCIE_VCC3V3                  2    1      0 unknown  3300mV     0mA  3300mV  3300mV
+       ca800000.pcie-vpcie3v3     1                                 0mA     0mV     0mV
+    VCC5V0_SYS                    9   12      0 unknown  5000mV     0mA  5000mV  5000mV
+       buck1                      1    0      0 unknown  1050mV     0mA   500mV  3450mV
+       buck2                      1    0      0 unknown   900mV     0mA   500mV  3450mV
+       buck3                      1    1      0 unknown  1800mV     0mA   500mV  1800mV
+          2-0050-vcc              0                                 0mA     0mV     0mV
+       buck4                      2    1      0 unknown  3300mV     0mA   500mV  3300mV
+          spi0.0-vcc              1                                 0mA     0mV     0mV
+       buck5                      3    7      0 unknown  2100mV     0mA   500mV  3450mV
+          dldo1                   0    0      0 unknown  1200mV     0mA   500mV  3400mV
+          dldo2                   0    0      0 unknown   500mV     0mA   500mV  3400mV
+          dldo3                   0    0      0 unknown   500mV     0mA   500mV  3400mV
+          dldo4                   1    0      0 unknown  1800mV     0mA   500mV  3400mV
+          dldo5                   0    0      0 unknown   500mV     0mA   500mV  3400mV
+          dldo6                   1    0      0 unknown  1800mV     0mA   500mV  3400mV
+          dldo7                   0    0      0 unknown   500mV     0mA   500mV  3400mV
+       buck6                      1    0      0 unknown  1100mV     0mA   500mV  3450mV
+       aldo1                      0    0      0 unknown  3300mV     0mA   500mV  3400mV
+       aldo2                      0    0      0 unknown   500mV     0mA   500mV  3400mV
+       aldo3                      0    0      0 unknown   500mV     0mA   500mV  3400mV
+       aldo4                      0    0      0 unknown   500mV     0mA   500mV  3400mV
+       VCC5V0_HUB                 2    1      0 unknown  5000mV     0mA  5000mV  5000mV
+          c0a00000.usb:hub@1-vdd   1                                 0mA     0mV     0mV
+       5V_VBUS                    2    1      0 unknown  5000mV     0mA  5000mV  5000mV
+          c0a00000.usb-vbus       1                                 0mA     0mV     0mV
+
+Thanks,
+Andre
+
+Andre Heider (6):
+  riscv: dts: spacemit: k1-musepi-pro: add PMIC and power infrastructure
+  riscv: dts: spacemit: k1-musepi-pro: add 24c04 eeprom
+  riscv: dts: spacemit: k1-musepi-pro: enable QSPI and add SPI NOR
+  riscv: dts: spacemit: k1-musepi-pro: enable USB 3 ports
+  riscv: dts: spacemit: k1-musepi-pro: enable PCIe ports
+  riscv: dts: spacemit: k1-musepi-pro: set default console baud rate
+
+ .../riscv/boot/dts/spacemit/k1-musepi-pro.dts | 324 +++++++++++++++++-
+ 1 file changed, 323 insertions(+), 1 deletion(-)
+
 -- 
 2.53.0
 
