@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7542CD3430
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 08:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B556CCD3430
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 May 2026 08:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VC+rjoPyE+CWXgqfyETzjAbVs/r5Bcga3zugbb9n6VE=; b=TOV7LI8yKoPXM0
-	wyzzZxLsmiH+9dL/+c9oO7fXUxCiy0Moc1n+NfNCanONrbS30ftrcle41yhL1Q3YZXv0sCXb3HE6k
-	MFdsfcvW+/P0zmOq1ChwX24iri5vmxpkQ21L/QL6DeeIkBL5T3zPpFAi19Stm+rU/85i2bJJxoCfH
-	6SREKwghDr4ostztpugzuLHVOVzC0YzjUW/Wlf6BRLYJP5UUs09xIvej4DOR4gwKdvcllzU2uTVlZ
-	hyjDYF6DWLUbKbTfeE9YQfRpQ8cb9Nj3g2aOn1qPNilK6WFlkfJanyEkmyrFPSEpQAgefx9t10ejE
-	TbVkFA2KODIPz8bYsiFw==;
+	List-Owner; bh=DsDEd9tssrFff9QN7t1Id53XYP9bY72RbzS94xA1AV4=; b=wJNIEE9n491p2m
+	UvQoF4IDeZerjpebB6h1A5kTBps8R0Mp+IPYwMGpLGcTkxehiH1ohnrNUimUmvAD9SCAkM53AJhM0
+	3FWSGyohlcNSFqEZLs/+KoKhTVlXyAjhUhXlpO7y5JslSp7xselDfHyutDabDz+waeu4hBIl9ijyE
+	Kv2bO6cnYseByZsRUOiRawCxoTpKJb2GGPetuI+CyGj1ZXt0nv9YOrI51cNF8UqvuWKL73ybNkwoQ
+	7Kmgk5MQKSGdOXzT8K6lmFm3JP7MUrbZ+5a7DtEgLMZVBhztl6MHY585CH8Ccd1Cn73J59fhRQBl/
+	axNBvJ4FSMRoOI3eolUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKBSJ-0000000FZKz-2nAV;
-	Tue, 05 May 2026 08:48:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKBWm-0000000FaN7-1TUd;
+	Tue, 05 May 2026 08:53:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wKBSG-0000000FZIw-2EKb;
-	Tue, 05 May 2026 08:48:37 +0000
+	id 1wKBWl-0000000FaMw-0DL2
+	for linux-riscv@lists.infradead.org;
+	Tue, 05 May 2026 08:53:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8964442B05;
-	Tue,  5 May 2026 08:48:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C344FC2BCB4;
-	Tue,  5 May 2026 08:48:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4D1D960128;
+	Tue,  5 May 2026 08:53:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F4D2C2BCB9;
+	Tue,  5 May 2026 08:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1777970915;
-	bh=VoLG4om3LpMu6n/Rm19I44/U7HtIxq4nWFHci0mVcJQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OlAvh5mxETVWeOeQOP0cx2TPuQdar1Qo63oUGsyjgHBoL8WbHY9STto/vJjpy/WCm
-	 MJ6hVp22pb6rw8eQMJdkyVvaLjSb77BnI2zyIYpKhAFjR66FvOTu6r+2etEWAlvHna
-	 uFzHV6JVPdqW4vngVY8VZcih5KwShRRN87GSKxW/LqkYXkrKBh6K+eqNh/YnREUIWT
-	 57s88b8/yrGPTgoRkp6pAAmPAcMy7/pgpadPwCKn25i4b3T2EB/m1RcUY4o5kI91h8
-	 jdY9ReXyeitMWjG21T3Dz5By7JyUgK2wPIaTK7ReASdZGf3H3Y3BI6044rhduJ0m4j
-	 Q1xl4tcE8RfLw==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 05 May 2026 10:48:04 +0200
-Subject: [PATCH 2/2] irqchip/gic-v5: Add IWB to ACPI probe dependency
- control
+	s=k20201202; t=1777971194;
+	bh=+fxw3GWOaW5i1Rt7AYvW9ueNOp4s3QpM81hQC4XSmKg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=C7v3zufeAcj0HCHyboRNBPRPoEypDLgZ2/fsqe4kAY29sPi9yK78XL9yn1B8PnWn9
+	 XXmwuDJrzUFP2sYuicTnATn8FnlXBUc03JW06Gdg1PTzjqf8Jza1c696aXvq2ckCfJ
+	 0TSTgA0TY3wilxC51M7CnsoeTMMKtaRZ7vFdo+PnJCT0ETVPKAhZOnVT9GcQ8oPfiv
+	 Ps/qO69DBOwnyZB0OAzORt/hKBoPQJaJZIS1dYtGc2tMO+WRfToapd60Ndm0qlUmc5
+	 NIEai3nXm8hs0WI5oiLUi13dazLB7qFj1HkC+5kD7+C5KeTnyejHlP2H+y+yOwwIxy
+	 acp8eDQLHFnfg==
+From: Yixun Lan <dlan@kernel.org>
+To: spacemit@lists.linux.dev,
+	Conor Dooley <conor@kernel.org>
+Cc: Yixun Lan <dlan@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] dts: spacemit: set console baud rate on bpif3
+Date: Tue,  5 May 2026 08:53:06 +0000
+Message-ID: <177797117437.466549.17292861658160797583.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260430-reword-overstep-3be08b7eab25@spud>
+References: <20260430-reword-overstep-3be08b7eab25@spud>
 MIME-Version: 1.0
-Message-Id: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-2-b37b85998362@kernel.org>
-References: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org>
-In-Reply-To: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- loongarch@lists.linux.dev, Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_014836_629484_0EEB5113 
-X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,162 +77,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Arm GICv5 systems, wired IRQs routed to an IWB may require resolving
-probe dependencies to make sure drivers for devices whose IRQs are routed
-to an IWB are probed after the IWB interrupt controller driver for the IWB
-they are routed to has probed.
 
-Implement an ACPI hook to retrieve an acpi_handle for a specific GSI (if
-any, on GICv5 systems only the IWB is represented in firmware with an
-ACPI device object), hook it into ACPI IRQ core (updating
-acpi_set_irq_model()) and add the IWB to the list of devices whose
-dependencies can be detected (and cleared) in ACPI core to guarantee that
-probe dependencies for the IWB are satisfied.
+On Thu, 30 Apr 2026 19:52:12 +0100, Conor Dooley wrote:
+> Because the default console's baud rate is not set, defconfig kernels do
+> not have any serial output on this platform. Set the baud rate to
+> 115200, matching what is used by U-Boot etc on this platform.
+> 
+> 
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Hanjun Guo <guohanjun@huawei.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
----
- drivers/acpi/arm64/iort.c        | 22 +++++++++++++++++++---
- drivers/acpi/scan.c              |  1 +
- drivers/irqchip/irq-gic-v5-iwb.c |  5 +++++
- drivers/irqchip/irq-gic-v5.c     | 13 +++++++++++--
- include/linux/acpi_iort.h        |  3 ++-
- 5 files changed, 38 insertions(+), 6 deletions(-)
+Applied, thanks!
 
-diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-index af7a9b2fd5bc..34412cd697d8 100644
---- a/drivers/acpi/arm64/iort.c
-+++ b/drivers/acpi/arm64/iort.c
-@@ -789,11 +789,9 @@ struct irq_domain *iort_get_device_domain(struct device *dev, u32 id,
- 	return irq_find_matching_fwnode(handle, bus_token);
- }
- 
--struct fwnode_handle *iort_iwb_handle(u32 iwb_id)
-+acpi_handle iort_iwb_handle(u32 iwb_id)
- {
--	struct fwnode_handle *fwnode;
- 	struct acpi_iort_node *node;
--	struct acpi_device *device;
- 	struct acpi_iort_iwb *iwb;
- 	acpi_status status;
- 	acpi_handle handle;
-@@ -808,6 +806,19 @@ struct fwnode_handle *iort_iwb_handle(u32 iwb_id)
- 	if (ACPI_FAILURE(status))
- 		return NULL;
- 
-+	return handle;
-+}
-+
-+struct fwnode_handle *iort_iwb_handle_fwnode(u32 iwb_id)
-+{
-+	struct fwnode_handle *fwnode;
-+	struct acpi_device *device;
-+	acpi_handle handle;
-+
-+	handle = iort_iwb_handle(iwb_id);
-+	if (!handle)
-+		return NULL;
-+
- 	device = acpi_get_acpi_dev(handle);
- 	if (!device)
- 		return NULL;
-@@ -2090,6 +2101,11 @@ static void __init iort_init_platform_devices(void)
- 	}
- }
- 
-+u32 arch_acpi_add_auto_dep(acpi_handle handle)
-+{
-+	return acpi_irq_add_auto_dep(handle);
-+}
-+
- void __init acpi_iort_init(void)
- {
- 	acpi_status status;
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index 530547cda8b2..ba15da9058dc 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -856,6 +856,7 @@ static const char * const acpi_ignore_dep_ids[] = {
- 
- /* List of HIDs for which we honor deps of matching ACPI devs, when checking _DEP lists. */
- static const char * const acpi_honor_dep_ids[] = {
-+	"ARMH0003", /* ARM GICv5 IWB */
- 	"INT3472", /* Camera sensor PMIC / clk and regulator info */
- 	"INTC1059", /* IVSC (TGL) driver must be loaded to allow i2c access to camera sensors */
- 	"INTC1095", /* IVSC (ADL) driver must be loaded to allow i2c access to camera sensors */
-diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
-index 9103feb70ce8..a02cb9537b15 100644
---- a/drivers/irqchip/irq-gic-v5-iwb.c
-+++ b/drivers/irqchip/irq-gic-v5-iwb.c
-@@ -269,6 +269,11 @@ static int gicv5_iwb_device_probe(struct platform_device *pdev)
- 	if (IS_ERR(iwb_node))
- 		return PTR_ERR(iwb_node);
- 
-+#ifdef CONFIG_ACPI
-+	if (has_acpi_companion(&pdev->dev))
-+		acpi_dev_clear_dependencies(ACPI_COMPANION(&pdev->dev));
-+#endif
-+
- 	return 0;
- }
- 
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index 03cc2830b260..26cfaea1af41 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -1217,11 +1217,19 @@ static struct fwnode_handle *gsi_domain_handle;
- static struct fwnode_handle *gic_v5_get_gsi_domain_id(u32 gsi)
- {
- 	if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
--		return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
-+		return iort_iwb_handle_fwnode(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
- 
- 	return gsi_domain_handle;
- }
- 
-+static acpi_handle gic_v5_get_gsi_handle(u32 gsi)
-+{
-+	if (FIELD_GET(GICV5_GSI_IC_TYPE, gsi) == GICV5_GSI_IWB_TYPE)
-+		return iort_iwb_handle(FIELD_GET(GICV5_GSI_IWB_FRAME_ID, gsi));
-+
-+	return NULL;
-+}
-+
- static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsigned long end)
- {
- 	struct acpi_madt_gicv5_irs *irs = (struct acpi_madt_gicv5_irs *)header;
-@@ -1242,7 +1250,8 @@ static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsig
- 	if (ret)
- 		goto out_irs;
- 
--	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id, NULL);
-+	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id,
-+			   gic_v5_get_gsi_handle);
- 
- 	return 0;
- 
-diff --git a/include/linux/acpi_iort.h b/include/linux/acpi_iort.h
-index 17bb3374f4ca..931eaa7bbf6a 100644
---- a/include/linux/acpi_iort.h
-+++ b/include/linux/acpi_iort.h
-@@ -27,7 +27,8 @@ int iort_register_domain_token(int trans_id, phys_addr_t base,
- 			       struct fwnode_handle *fw_node);
- void iort_deregister_domain_token(int trans_id);
- struct fwnode_handle *iort_find_domain_token(int trans_id);
--struct fwnode_handle *iort_iwb_handle(u32 iwb_id);
-+acpi_handle iort_iwb_handle(u32 iwb_id);
-+struct fwnode_handle *iort_iwb_handle_fwnode(u32 iwb_id);
- 
- #ifdef CONFIG_ACPI_IORT
- u32 iort_msi_map_id(struct device *dev, u32 id);
+[1/1] dts: spacemit: set console baud rate on bpif3
+      https://github.com/spacemit-com/linux/commit/24c12ca43b12c104389d9a159207d0b25779d0af
 
+Best regards,
 -- 
-2.54.0
-
+Yixun Lan <dlan@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
