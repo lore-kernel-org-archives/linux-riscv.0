@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36F9CD342F
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 02:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06777CD3424
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 05:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7zCWiUhT9fyyGbOn3ejOZqO4wRMVjXq4C313mbWO874=; b=UFTzV6oTeCRmhr
-	UVtYyggFkwWdTotBTd8856vUw04BoZyiDCUdL6F9zt+rAOq+xClsksfSzmwNx57vSzkSUyA3pzYmQ
-	q27KJ1qubGgBnDUY4MAvkg7cazjM4Ae0as7/0oqsBPTts19kE1FUFWuBhRJCRv/XyCOBuz4t7z17n
-	jRj74RGXGHXLjAf/3Xmx6RixYs+xSy1OfcQzJwedBmGmTYoeNgfkuYBAYAyWdYFKX13wfdlUPuBkO
-	MAL3uLKNxsNGiibRu/PUpxSO3sm9Ar2BIXW4wytcbEPABK2chCsvxZcOhNhHFZvfXXucBplG7dyPB
-	5nLY8FMBGWzmhh9QbWYg==;
+	List-Owner; bh=By2MGZBxY0SMmLQ6jguyP4p0bj6jjLhmlV6sGy7uVME=; b=LRobi6EBPcV9j1
+	6grp4Xv5shd9I0vfoqKOW146nIoM81/NbXJPQA54jkS3imJUBRUemHqrO8BRAlv9fUZJQMIatpG6b
+	rsC9kbmBSehIQDBEIHEf7RyXlZWE50wGiBpWBx7VovU8HtL/9nfbQxPSbpUop/Fh4qeSP7TMAwVTw
+	qy8svBO45Oc8s2wJw5rqwVxqxadnatQEXBt/ybPBW0IgJdWDZeHjR2QTJkvCPMOuMXIVpxFKYFlaU
+	fU6PPa9P4K3OhM02evumKRxIrlGObt0FsmeBqt5Hy/vxFKZPJdJ9K0gtLTfujKPGWYxswRoPe0f/F
+	NPA0YfFRDM+sUT4zH3kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKRjm-00000000UZw-0KjL;
-	Wed, 06 May 2026 02:11:46 +0000
-Received: from azure-sdnproxy.icoremail.net ([52.229.168.213])
+	id 1wKUXZ-00000000lAm-1QqK;
+	Wed, 06 May 2026 05:11:21 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKRji-00000000UZ2-0m7f;
-	Wed, 06 May 2026 02:11:44 +0000
-Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
- ajax-webmail-app1 (Coremail) ; Wed, 6 May 2026 10:10:57 +0800 (GMT+08:00)
-X-Originating-IP: [10.11.96.26]
-Date: Wed, 6 May 2026 10:10:57 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-To: "Jakub Kicinski" <kuba@kernel.org>
-Cc: andrew+netdev@lunn.ch, devicetree@vger.kernel.org, davem@davemloft.net,
-	edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
-	horms@kernel.org
-Subject: Re: Re: [PATCH net-next v7 2/4] net: stmmac: eic7700: enable clocks
- before syscon access and correct RX sampling timing
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <20260430163551.7491407a@kernel.org>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
- <20260427072508.1151-1-lizhi2@eswincomputing.com>
- <20260428180625.738223cf@kernel.org>
- <2117464.7991.19ddd2125d1.Coremail.lizhi2@eswincomputing.com>
- <20260430163551.7491407a@kernel.org>
+	id 1wKUXW-00000000l9U-05D6;
+	Wed, 06 May 2026 05:11:20 +0000
+Received: from [10.95.65.64] (unknown [167.220.238.64])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 6F18920B7168;
+	Tue,  5 May 2026 22:11:05 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6F18920B7168
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1778044272;
+	bh=g826hBG5sdvtVoUdo7WR5/F7nLFfVhBDlSe4q/ANC2k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=U3sNDtsK/up9rwRUYjKE71paEXx7G/JFAVmIVF6V2Nv4CAPsofHIjZwC6aP/EYO0s
+	 UAYeJhR8zLMUktpca2eDmFAvxr/MMokVL5s4fG8oEfRRsB/j2DV01NlxYriEMaMmvN
+	 np2+tbmhsnd8n3DXx9Tl2L4uHKUiU4vBu3yQbhNs=
+Message-ID: <beb61bb4-ab7c-4939-a1e6-525d0f5ea119@linux.microsoft.com>
+Date: Wed, 6 May 2026 10:41:02 +0530
 MIME-Version: 1.0
-Message-ID: <38d052b7.7a70.19dfb0d782b.Coremail.lizhi2@eswincomputing.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: TAJkCgDHaXMyo_ppwzEXAA--.6613W
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAQETDGn6G5we7wACs4
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
+ mshv_vtl_return_call
+To: Michael Kelley <mhklinux@outlook.com>
+Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sascha Bischoff <sascha.bischoff@arm.com>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "vdso@mailbox.org" <vdso@mailbox.org>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+ <20260423124206.2410879-8-namjain@linux.microsoft.com>
+ <SN6PR02MB4157C147A1B915F9B45D3B74D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <516a4e65-3a4d-4e09-b445-28cb740b5653@linux.microsoft.com>
+ <SN6PR02MB4157B99838CE7498933B2382D4312@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157B99838CE7498933B2382D4312@SN6PR02MB4157.namprd02.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_191142_533741_5BE14130 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20260505_221118_127291_B2CEBA78 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,51 +88,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgoKPiAtLS0tLeWOn+Wni+mCruS7ti0tLS0tCj4g5Y+R5Lu25Lq6OiAiSmFrdWIgS2ljaW5za2ki
-IDxrdWJhQGtlcm5lbC5vcmc+Cj4g5Y+R6YCB5pe26Ze0OjIwMjYtMDUtMDEgMDc6MzU6NTEgKOaY
-n+acn+S6lCkKPiDmlLbku7bkuro6IOadjuW/lyA8bGl6aGkyQGVzd2luY29tcHV0aW5nLmNvbT4K
-PiDmioTpgIE6IGFuZHJldytuZXRkZXZAbHVubi5jaCwgZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5v
-cmcsIGRhdmVtQGRhdmVtbG9mdC5uZXQsIGVkdW1hemV0QGdvb2dsZS5jb20sIHJvYmhAa2VybmVs
-Lm9yZywga3J6aytkdEBrZXJuZWwub3JnLCBjb25vcitkdEBrZXJuZWwub3JnLCBuZXRkZXZAdmdl
-ci5rZXJuZWwub3JnLCBwYWJlbmlAcmVkaGF0LmNvbSwgbWNvcXVlbGluLnN0bTMyQGdtYWlsLmNv
-bSwgYWxleGFuZHJlLnRvcmd1ZUBmb3NzLnN0LmNvbSwgcm1rK2tlcm5lbEBhcm1saW51eC5vcmcu
-dWssIHBqd0BrZXJuZWwub3JnLCBwYWxtZXJAZGFiYmVsdC5jb20sIGFvdUBlZWNzLmJlcmtlbGV5
-LmVkdSwgYWxleEBnaGl0aS5mciwgbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZywgbGlu
-dXgtc3RtMzJAc3QtbWQtbWFpbG1hbi5zdG9ybXJlcGx5LmNvbSwgbGludXgtYXJtLWtlcm5lbEBs
-aXN0cy5pbmZyYWRlYWQub3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBtYXhpbWUu
-Y2hldmFsbGllckBib290bGluLmNvbSwgbmluZ3l1QGVzd2luY29tcHV0aW5nLmNvbSwgbGlubWlu
-QGVzd2luY29tcHV0aW5nLmNvbSwgcGlua2VzaC52YWdoZWxhQGVpbmZvY2hpcHMuY29tLCBwcml0
-ZXNoLnBhdGVsQGVpbmZvY2hpcHMuY29tLCB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29t
-LCBob3Jtc0BrZXJuZWwub3JnCj4g5Li76aKYOiBSZTogW1BBVENIIG5ldC1uZXh0IHY3IDIvNF0g
-bmV0OiBzdG1tYWM6IGVpYzc3MDA6IGVuYWJsZSBjbG9ja3MgYmVmb3JlIHN5c2NvbiBhY2Nlc3Mg
-YW5kIGNvcnJlY3QgUlggc2FtcGxpbmcgdGltaW5nCj4gCj4gT24gVGh1LCAzMCBBcHIgMjAyNiAx
-NDo0Mzo1MCArMDgwMCAoR01UKzA4OjAwKSDmnY7lv5cgd3JvdGU6Cj4gPiA+IFdoeSBGaXhlcz8g
-SWYgZXRoMSBuZXZlciB3b3JrZWQgdGhpcyBpcyBub3QgYSBmaXggYnV0IG5ldyBmdW5jdGlvbmFs
-aXR5Cj4gPiA+IElmIHlvdSB3YW50IHRvIG1ha2UgdGhpcyBhIGZpeCB0byBwcmV2ZW50IGluY29t
-cGF0aWJpbGl0eSAtIGN1dCBpdCBkb3duCj4gPiA+IGp1c3QgdG8gdGhlIGV0aDAgY2hhbmdlcy4K
-PiA+ID4gICAKPiA+IFRoYW5rIHlvdSBmb3IgdGhlIHN1Z2dlc3Rpb24uCj4gPiAKPiA+IFlvdSdy
-ZSByaWdodCB0aGF0IGV0aDEgbmV2ZXIgd29ya2VkIGF0IEdpZ2FiaXQgc3BlZWQsIHNvIHRoaXMg
-c2hvdWxkCj4gPiBub3QgYmUgdHJlYXRlZCBhcyBhIGZpeC4KPiA+IAo+ID4gSW4gdjgsIEkgd2ls
-bCBzcGxpdCB0aGUgY2hhbmdlcyBpbnRvIHR3byBwYXRjaGVzIHdpdGhpbiB0aGUgc2FtZSBzZXJp
-ZXM6Cj4gPiAtIFBhdGNoIDEgd2lsbCBjb250YWluIG9ubHkgdGhlIGZpeGVzIGFmZmVjdGluZyB0
-aGUgZXhpc3RpbmcgZXRoMAo+ID4gZnVuY3Rpb25hbGl0eSwgYW5kIHdpbGwga2VlcCB0aGUgRml4
-ZXMgdGFnLgo+ID4gLSBQYXRjaCAyIHdpbGwgYWRkIHRoZSBldGgxIHN1cHBvcnQgKFJYIGNsb2Nr
-IGludmVyc2lvbiB3b3JrYXJvdW5kKQo+ID4gYXMgbmV3IGZ1bmN0aW9uYWxpdHksIHdpdGhvdXQg
-YSBGaXhlcyB0YWcuCj4gPiAKPiA+IFBsZWFzZSBsZXQgbWUga25vdyBpZiB5b3Ugd291bGQgcHJl
-ZmVyIGEgZGlmZmVyZW50IHNwbGl0IG9yIG9yZGVyaW5nLgo+IAo+IElmIHlvdSB3YW50IHRvIGNv
-bnNpZGVyIHNvbWUgcGFydCBvZiB0aGlzIGNvbW1pdCBhIGZpeCBpdCBoYXMgdG8gYmUKPiBwb3N0
-ZWQgc2VwYXJhdGVseSB0byB0aGUgbmV0IHRyZWUgKHJhdGhlciB0aGFuIG5ldC1uZXh0KS4KPiBP
-bmNlIGl0J3MgbWVyZ2VkIGFuZCBtYWtlcyBpdCB3YXkgb3ZlciB0byB0aGUgbmV0LW5leHQgdHJl
-ZSAoZWFjaAo+IFRodXJzZGF5KSB5b3UgY2FuIHBvc3QgdGhlIG5ldC1uZXh0IGNobmFnZXMgZm9y
-IGV0aDEKClRoYW5rcywgdW5kZXJzdG9vZC4KCkkgd2lsbCBzcGxpdCB0aGUgY2hhbmdlcyBhY2Nv
-cmRpbmdseToKLSBTZW5kIHRoZSBldGgwIGZpeGVzIGFzIGEgbmV3IHYxIHNlcmllcyB0YXJnZXRp
-bmcgbmV0LgotIFNlbmQgdGhlIGV0aDEgZW5hYmxlbWVudCBhcyBhIG5ldyB2MSBzZXJpZXMgdGFy
-Z2V0aW5nIG5ldC1uZXh0LgoKVGhhbmtzIGZvciB0aGUgZ3VpZGFuY2UuCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 5/4/2026 9:36 PM, Michael Kelley wrote:
+> From: Naman Jain <namjain@linux.microsoft.com> Sent: Wednesday, April 29, 2026 2:57 AM
+>>
+>> On 4/27/2026 11:08 AM, Michael Kelley wrote:
+>>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 2026 5:42 AM
+>>>>
+> 
+> [snip]
+> 
+>>>> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+>>>> index 08278547b84c..b4d80c9a673a 100644
+>>>> --- a/arch/x86/include/asm/mshyperv.h
+>>>> +++ b/arch/x86/include/asm/mshyperv.h
+>>>> @@ -286,7 +286,6 @@ struct mshv_vtl_cpu_context {
+>>>>    #ifdef CONFIG_HYPERV_VTL_MODE
+>>>>    void __init hv_vtl_init_platform(void);
+>>>>    int __init hv_vtl_early_init(void);
+>>>> -void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
+>>>>    void mshv_vtl_return_call_init(u64 vtl_return_offset);
+>>>>    void mshv_vtl_return_hypercall(void);
+>>>>    void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
+>>>> @@ -294,7 +293,6 @@ int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, bool shared);
+>>>>    #else
+>>>>    static inline void __init hv_vtl_init_platform(void) {}
+>>>>    static inline int __init hv_vtl_early_init(void) { return 0; }
+>>>> -static inline void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0) {}
+>>>>    static inline void mshv_vtl_return_call_init(u64 vtl_return_offset) {}
+>>>>    static inline void mshv_vtl_return_hypercall(void) {}
+>>>>    static inline void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0) {}
+>>>> diff --git a/drivers/hv/mshv_vtl.h b/drivers/hv/mshv_vtl.h
+>>>> index a6eea52f7aa2..103f07371f3f 100644
+>>>> --- a/drivers/hv/mshv_vtl.h
+>>>> +++ b/drivers/hv/mshv_vtl.h
+>>>> @@ -22,4 +22,7 @@ struct mshv_vtl_run {
+>>>>    	char vtl_ret_actions[MSHV_MAX_RUN_MSG_SIZE];
+>>>>    };
+>>>>
+>>>> +static_assert(sizeof(struct mshv_vtl_cpu_context) <= 1024,
+>>>> +	      "struct mshv_vtl_cpu_context exceeds reserved space in struct mshv_vtl_run");
+>>>> +
+>>>>    #endif /* _MSHV_VTL_H */
+>>>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>>>> index db183c8cfb95..8cdf2a9fbdfb 100644
+>>>> --- a/include/asm-generic/mshyperv.h
+>>>> +++ b/include/asm-generic/mshyperv.h
+>>>> @@ -396,8 +396,10 @@ static inline int hv_deposit_memory(u64 partition_id, u64 status)
+>>>>
+>>>>    #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>>>>    u8 __init get_vtl(void);
+>>>> +void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
+>>>>    #else
+>>>>    static inline u8 get_vtl(void) { return 0; }
+>>>> +static inline void mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0) {}
+>>>
+>>> Is this stub needed? Maybe I missed something, but it looks to me like none
+>>> of the code that calls this gets built unless CONFIG_HYPERV_VTL_MODE is set.
+>>> See further comments about stubs in Patch 8 of this series.
+>>>
+>>
+>> Config dependencies would handle such cases, and this is not required. I
+>> saw similar stubs added in the code, so I thought this is a norm that
+>> should be followed, and not rely on config dependencies.
+>> I can remove it.
+>>
+> 
+> Others might disagree with me, but I don't think it's the norm to add
+> stubs when they aren't truly needed. As you can see from some of my
+> other comments, I look for ways to eliminate stubs. Stubs are indicative
+> of a boundary between separately built components, and I generally
+> try to minimize the surface area of such boundaries. A large surface area
+> often means that the overall design could be improved by re-thinking
+> which code goes with which component.
+> 
+> Michael
+
+I agree. I'll remove these in next version.
+
+Thanks,
+Naman
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
