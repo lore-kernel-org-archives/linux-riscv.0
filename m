@@ -4,156 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77312CD343B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 14:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D2BCD343B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 14:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2t+kAgHwFXLO6L0tSl44qUDHKvEU3ihSS676Spbx/rg=; b=HKGze6ESZiWWOo
-	TQt1ANZRLbHwgBLOQQBDqyK8FflMejVzHUrUP2Owgk3lvloDDHAa6tfw8cBNGE0tSpzoU0+BEgUxl
-	kSscCyMOL09V6PFIQq3pvb4ukgrADiiqk+J8zZiiTRTs+BFtAbWrcBSws5UOA+IWMqsgf1UimWkp3
-	Jd6JVXIrW57KFkMJV+dq7d80inD3OO1RiX/nU0anqmpx8V2lwVBKRuY364l+HSRmui5xbasHOpEPz
-	HS9ZxLbnkciIqzMsqKYOc3seEhI24FsJq81ThevCiS8naJiND840lfcnR+JIOhSreg4ucYsCPHUvu
-	1Q/xKsRTqnYx7/vXzTPw==;
+	List-Owner; bh=sfuxrrNI86Q1fvs0vRadpEpjTYcMw38jsY21ao2RG0k=; b=Rmdc6SElKwUoGv
+	PEZ0QFFsLabA4E8/UtOgAC3CTUEkA5Jppo2XWyY0b+BILsu1OLt2p0dgSwLUDeKTxrROMmoAF1QKh
+	15artr9hkbZ8jIX4x3GErNY4SM4eqUUfYh7dnKQC2sxOTIv+btcpbs7eXhLxkUqzCDic6Q+BmsNmV
+	4LB5CKfQMGQ9aVUENajoOiNzfHMqESga0rS6MGOPm50eFGdbgQsRU/oi8pAYEKsd/l8JCTN34mDV2
+	OMU0an2EahfpllDWauy/gR78QdGN+i61Yy5oXiT3SaqvD/ObFebi1vV4CVM1lK2QEYt6ttoH+LfqQ
+	SmfGu8ApnYRGRz/tFqnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdMb-0000000175O-3srd;
-	Wed, 06 May 2026 14:36:37 +0000
-Received: from mail-westus3azolkn19012011.outbound.protection.outlook.com ([52.103.23.11] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wKdVU-000000018zd-2YvM;
+	Wed, 06 May 2026 14:45:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdMa-0000000174k-13Os;
-	Wed, 06 May 2026 14:36:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZV6NCSyPkWLDoDiyQvtx/gFo9hSccnDSY1IEWE+XZTEDjz5uYg9JusrX7wsy+144nmNxQ66EoqWqhQBgV2pEVH8HxeymcWrKWiMrY+B/nmb0KhNJBuFqEQ6sKcWLmvmb+SAo6aY0/LXMtuc2Fs21qTFnbv4nDtp1RArdZR7n//t1qavK9CODxq6U9eNlJb5BdRqnZqOt3zlaty+lfG+mSVNKOtgGcW+Hx9yMvQeaek7djSZzlHtrJzsJdCOyzT85tDkb14zlQ1lBxSiGFFxWNrRoDMcLDTWu9PiAfDP78qGXw+9cXIGViamLZibbP2uBX5YrW8O1yjSt9WqupLMhvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V1IRyPESnisKXlkxEFzWzSZt3/CaTy6k7s442lpEm0A=;
- b=HuEaI6mzGvRJJS6APA5l7BPXM5Dqfa2wna8T0/AGFuOa0WzvJDTgecsVY2oRq5ul6WaO8et215SdXtyA8ynJd0V4GTABD7NToccj3QXaGHfZbsh06MdMV1rYVsuqqDBAQQyOhvMW6r9bTcAGe6+1vH1kiZaxQsN381PTFM9dlFlJRY3BdNR5FJ/kc+Y7xfHlyIg1DPsEYMma31iwM80NNfjoYZ8G2bsW4V0r/FwBO1naM1kKA+3eeFf7RbWR+RTe2f9Y5CQbWtlFlSunHJ2Lyw9jL7mUTUEKwlWpGGp17mQTPJh0z9pUNDb+7RxvROuic/dGIcXTfbcKRh0XUvMFYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V1IRyPESnisKXlkxEFzWzSZt3/CaTy6k7s442lpEm0A=;
- b=J5LPq89AUtH5m8Ymhzt78Ez/MME5R6ubnZQMfaCcI6wUMAgyNLJa9fuXO1sojVf/7JHbYkfRHKOY2uJJADoloReVBz785jlsp2Dm3qIF64miM26ueBzv05ISpLx8JFTh6WriSbUA+FUP3p45RQpx6G1KMVIsA11ZvhRBOUtzydEHC1MFSKDXcQymCfX78Jo5W4NKkvR0AQtSQUkCpcBobQprYhP9YlzsG4mEtZTU5rXVBVaLUbksFFDlQqfcOVuyaEEmuEd/iirVqXwfJjvQYQgXyDze2S1Vm4ZpL5qRf20Flpz5fOkYC2OnSPVjbraDrKzEIBrFzwHJGLP64csY3A==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by DS0PR02MB8928.namprd02.prod.outlook.com (2603:10b6:8:c8::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
- 2026 14:36:31 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9891.008; Wed, 6 May 2026
- 14:36:31 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Naman Jain <namjain@linux.microsoft.com>, Michael Kelley
-	<mhklinux@outlook.com>
-CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sascha Bischoff
-	<sascha.bischoff@arm.com>, mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "vdso@mailbox.org" <vdso@mailbox.org>,
-	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>, Michael Kelley
-	<mhklinux@outlook.com>, "K . Y . Srinivasan" <kys@microsoft.com>, Haiyang
- Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui
-	<decui@microsoft.com>, Long Li <longli@microsoft.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner
-	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann
-	<arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>
-Subject: RE: [PATCH v2 09/15] Drivers: hv: mshv_vtl: Move
- hv_vtl_configure_reg_page() to x86
-Thread-Topic: [PATCH v2 09/15] Drivers: hv: mshv_vtl: Move
- hv_vtl_configure_reg_page() to x86
-Thread-Index: AQHc0x7PKig5dZReokG7sAarwbgXxbXyan2QgANsi4CACEKMcIACeJ+AgACS93A=
-Date: Wed, 6 May 2026 14:36:31 +0000
-Message-ID: <SN6PR02MB4157D109AF4B5C62EF7F0E2CD43F2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-10-namjain@linux.microsoft.com>
- <SN6PR02MB4157467FDBC0203C67A67042D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
- <567cf73b-6a48-4fc3-b312-9be6d71e2f22@linux.microsoft.com>
- <SN6PR02MB4157AD364DE0755DE070D286D4312@SN6PR02MB4157.namprd02.prod.outlook.com>
- <024aed8c-cd97-45f0-a653-489fc334a2b9@linux.microsoft.com>
-In-Reply-To: <024aed8c-cd97-45f0-a653-489fc334a2b9@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|DS0PR02MB8928:EE_
-x-ms-office365-filtering-correlation-id: af6d726b-1294-4c27-d2ed-08deab7cdd84
-x-microsoft-antispam: BCL:0;ARA:14566002|37011999003|15080799012|41001999006|19110799012|13091999003|51005399006|8060799015|8062599012|461199028|19101099003|55001999006|31061999003|10035399007|4302099013|440099028|3412199025|102099032|1602099012|40105399003|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Rf8XXGl//YUGjJNFZUjXtvlG4XNEs/yDeKJlQ1gAc0LdMFYlbL206u+tC+Z4?=
- =?us-ascii?Q?9RIMGzeuS6R62xUCns1b+FFumj+w6DNz+1bVmZWlzDYuTl9xIl1Qsl/xcDAk?=
- =?us-ascii?Q?OBTt7eiTok+I1XdAz7U5R1ke5Bb8QlUsyIBxNPV5p/VG180M9mRvz2utssgp?=
- =?us-ascii?Q?sezlBOyNH74pUBEgdnP+Zf+9SADbPlya4CwMD+vMdT26NXXrCLe7dTiJzsCt?=
- =?us-ascii?Q?idjOv2/vf2q10LB9k891L0fSWQBRWqvogOcwZ7tzNRoO/4wzjTtiWS/VqqiC?=
- =?us-ascii?Q?FY7l/+H1Gasa/2pczdjEiCvZamXEIbji3eldj8TTEudSJqjbTp1RSQw3gn0P?=
- =?us-ascii?Q?pTJmfB2Q9i3+q0ifqOtp0z8l+RwtMH/TNU0CSwWF6u4EvZ27JX8kPRN9EVZw?=
- =?us-ascii?Q?RHK77QM+Bnn0/SRkuP/4DNDxHBHduJNj1h+NUqWSgxrN+QXaNK97O99ahYku?=
- =?us-ascii?Q?Dx9CBTq5+SDZxea567PTwhcVQ+bRTMba56JaLs7E+uWzjkid82z74ipEpooJ?=
- =?us-ascii?Q?c8Ty1n0fmkBjbAaGBZCOMpBt0zTm/cauZGRUJ8+exXz5dCe+j2qayvP2aEjo?=
- =?us-ascii?Q?8v4gJtjQA+aNDdmz6aXuRVmFjj8uUmkd8nEIb2sTPS6l8wqICWvADvgxXp6+?=
- =?us-ascii?Q?eq5BhbkP7LDGF7Pedf0J+YqTRTpoXZRDLyLlWtaKbV9hDGmCjkis6s6Qbf2t?=
- =?us-ascii?Q?vOpvkJZuVadTyoLpKMpBVPQjVTBhnP9Qi1swiOomNVoL5EEUUHb4OormN3V5?=
- =?us-ascii?Q?tKl5IlRtJECJWEzk7Qhafxm3Mu6CrD91qwkIjPM1Lb7/+vwaHg26z8RWVDVI?=
- =?us-ascii?Q?2BXLhQHyU4EDtbDchF7RB2y5xWujo7mLSakZaj+FvkNWU+UlSNqZLLNj+4on?=
- =?us-ascii?Q?TdlTtWGiaN3kKic0iP7lNAEC47MiHKBjl1r3KnrJrkfAC7g0Ur5vOkb8auV3?=
- =?us-ascii?Q?dcbWxU9Gb3syqnE4k8E3c1cpFaCtB7iNv2v0qoFy76DwKUi6laot5ao5snIX?=
- =?us-ascii?Q?BKs1spcbGBvSUGEkTeuIm6BfHmsBkLpA2FCBv/Hx/HkNQY++byCqJsVcusQi?=
- =?us-ascii?Q?8Ap0/r6GeA+br3tYoPBu2jqFCZLx3XCbeQwEJvt+sXK6egTv7M4kXx0bmb9u?=
- =?us-ascii?Q?zQsMQ6px95KS?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?KQmGg3qPblHshAbsAMrBXeVHejCnXhsDWPdX8bK2ecOzEZmpsrRra8bjf06e?=
- =?us-ascii?Q?ktPc1MFxaR30pN1l8IrKeAeIoAFVFX2CIIbdI1x14ooWQWoeTgSf4+M25xMC?=
- =?us-ascii?Q?UKyy+RrHidim03MBm3+12fSXGJ80j1FQCNkTpJwDua6r+CNsX4mjXtu2F1Ww?=
- =?us-ascii?Q?/wVNA4i3m7z2qAuVXRol6hbJib//EKuw3rJwWuAa/wOfb32vCuqLm7FshZyS?=
- =?us-ascii?Q?fJ8cmkR3qxAFzkb0XePA4LSqs0MOveX7gxXLPkY3boCH4Q+dP5N38GAXrJuP?=
- =?us-ascii?Q?0JZgXzNNmJ9JzG8LCy7G25jTRjTNdL40RDGr9kxz5mIGkJcKIGqSi9uYQP0F?=
- =?us-ascii?Q?rH0C3XHyziuahG4DiJLqSx/+43fVNalK0fV6VZS6bUR0z4J+vkdySaeqp+JC?=
- =?us-ascii?Q?0X42zNQ9YYAq0jIcbouQobbc5UpEJdrZ2Rqcq8G+zwn29NeCnaOihGsm88+L?=
- =?us-ascii?Q?Dkz9pxBM4GK7IaiJbW/2nb1BIkD44xmHVjNAsJGZAxHuK6AeOxMPQJf6ax+b?=
- =?us-ascii?Q?UGaLyAzVp1uLRxo+lVrLC1+Zy4VMySTv0KVzEgQTN+pAzPDQu5JIuvXtWB3X?=
- =?us-ascii?Q?bquevU4PVq0mlhVocK3bHgOgxkVPh2KRLq53QdqCniJiPwcHG/cgLwNXNCuW?=
- =?us-ascii?Q?koLqP46KYfL68Vx8oxX4fnyiX3P11p3LoNeYwqN2g7izWCiQtouQra1nJ6rY?=
- =?us-ascii?Q?Ut/KQTUjNVrB18323/4Pn20f9rQr+c4n2Cu5Aiq6lAfW6CTyGmH0M219Y3Uf?=
- =?us-ascii?Q?7fH7vljryFAdZIBFbfwxolK1JCTXF5OhGdpkArOwuKqXTHWCcm7CAvt8y4tH?=
- =?us-ascii?Q?kzMizC7zw82QUMYBMURiQJwvHnf9pUeo9Se6BrsjiOt3C0REpJxIcrqKhXC+?=
- =?us-ascii?Q?+YmFmsGMBDrE5cy/q89n+DcrnPo+UqQTFVASUezwO/bPilgQodIOZOqvELL/?=
- =?us-ascii?Q?LueOBWS6qQRr3/cg2NpdpofCPplfx/PFRYIF4kquwZNCr9omSEeUYWBvkZpy?=
- =?us-ascii?Q?RYBtztdZZM4LoXvWGSqE9DwXMB1GHP7qpjB7364F8JcOwCsgHhBx0kkDtkRS?=
- =?us-ascii?Q?l8aU4qG2qBslhIkc+v91Zk7ebUgz3AwELT4d7kkgr/JHnZXTNEZJpyRmbAR6?=
- =?us-ascii?Q?DIXGmwbqc9K2iBCaWtojN8tDIvS64VYVxzqWa570SNoInjFHHRw+zzxaEMk2?=
- =?us-ascii?Q?/v5snnfF8JmSAqZI/8DO4FknCrFmgk0sdlXPg0N1CLo9hq0em3tw5dwa8EI/?=
- =?us-ascii?Q?lom2i01Kvxif0Dcvk8//ieUfAmceTB6rh9tjVf0UuglQ01Prqcz56HmR+lEq?=
- =?us-ascii?Q?FALJWW6hgpwIs4gaZiTET1yAVVlCcTR7bnpjRrfc/WGEQxCEDXY2EJ5IEJMc?=
- =?us-ascii?Q?uNVxCEQ=3D?=
+	id 1wKdVR-000000018wv-3SpX;
+	Wed, 06 May 2026 14:45:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A3DF40339;
+	Wed,  6 May 2026 14:45:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C551CC2BCB0;
+	Wed,  6 May 2026 14:45:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778078745;
+	bh=0KO8hApD0eGU7/dmfhl80Uq28cv6QcKZtN0DhSa6VO8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=asJ2zJX1kDJF4N0879YgzX1aEN+OycWFuFs84uFQjFbe8XLl2JHLjmVHMoHBwAk6J
+	 EyTzWttjeZ93aH8W7WcFdePxJWrsBw+70Fkp1Sj/wAXvJJ9ZUP0h6gsAQLVvDjqXg+
+	 1JmbHeC6lmnatopx+tcxUwuh3OWiIVIg9v7sbG4queTxnNERHgV5fuJoHciimhrIva
+	 z6tiru0U8Vxnzc3gPBEsx2ByvC9Goicr/7n+uezz8eLpotdhh9lgEl05dnGU8nYkxS
+	 OEKJJCfqVKkDK1W7iVncEPYYt+PI8inusarD9Il7nm3cTLeZ9yidzQoX4xCLwhJW5m
+	 DVbx5oZerq5OA==
+Date: Wed, 6 May 2026 09:45:42 -0500
+From: Rob Herring <robh@kernel.org>
+To: Chen Wandun <chenwandun1@gmail.com>
+Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, akpm@linux-foundation.org,
+	bhe@redhat.com, rppt@kernel.org, pasha.tatashin@soleen.com,
+	pratyush@kernel.org, ruirui.yang@linux.dev, corbet@lwn.net,
+	skhan@linuxfoundation.org, catalin.marinas@arm.com, will@kernel.org,
+	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, saravanak@kernel.org,
+	chenwandun@lixiang.com, zhaomeijing@lixiang.com, everyzhao@126.com
+Subject: Re: [PATCH 05/11] of: reserved_mem: add linux,no-dump property
+ support for reserved memory regions
+Message-ID: <20260506144542.GA2072596-robh@kernel.org>
+References: <20260429065831.1510858-1-chenwandun@lixiang.com>
+ <20260429065831.1510858-6-chenwandun@lixiang.com>
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: af6d726b-1294-4c27-d2ed-08deab7cdd84
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 14:36:31.3823
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR02MB8928
+Content-Disposition: inline
+In-Reply-To: <20260429065831.1510858-6-chenwandun@lixiang.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_073636_358012_9FEB89BD 
-X-CRM114-Status: GOOD (  49.09  )
+X-CRM114-CacheID: sfid-20260506_074545_884116_9DFB7232 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,153 +81,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Naman Jain <namjain@linux.microsoft.com> Sent: Tuesday, May 5, 2026 10:50 PM
+On Wed, Apr 29, 2026 at 02:58:25PM +0800, Chen Wandun wrote:
+> Add a 'no_dump' field to struct reserved_mem and parse the
+> 'linux,no-dump' device tree property during reserved memory node
+> initialization. This property allows device tree authors to mark
+> specific reserved memory regions that should be excluded from kdump
+> vmcore dumps.
 > 
-> On 5/4/2026 9:36 PM, Michael Kelley wrote:
-> > From: Naman Jain <namjain@linux.microsoft.com> Sent: Wednesday, April 29, 2026 2:58 AM
-> >>
-> >> On 4/27/2026 11:10 AM, Michael Kelley wrote:
-> >>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 2026 5:42 AM
-> >>>>
-> >>>> Move hv_vtl_configure_reg_page() from drivers/hv/mshv_vtl_main.c to
-> >>>> arch/x86/hyperv/hv_vtl.c. The register page overlay is an x86-specific
-> >>>> feature that uses HV_X64_REGISTER_REG_PAGE, so its configuration belongs
-> >>>> in architecture-specific code.
-> >>>>
-> >>>> Move struct mshv_vtl_per_cpu and union hv_synic_overlay_page_msr to
-> >>>> include/asm-generic/mshyperv.h so they are visible to both arch and
-> >>>> driver code.
-> >>>>
-> >>>> Change the return type from void to bool so the caller can determine
-> >>>> whether the register page was successfully configured and set
-> >>>> mshv_has_reg_page accordingly.
-> >>>>
-> >>>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
-> >>>> ---
-> >>>>    arch/x86/hyperv/hv_vtl.c       | 32 ++++++++++++++++++++++
-> >>>>    drivers/hv/mshv_vtl_main.c     | 49 +++-------------------------------
-> >>>>    include/asm-generic/mshyperv.h | 17 ++++++++++++
-> >>>>    3 files changed, 53 insertions(+), 45 deletions(-)
-> >>>>
-> >>
-> >> <snip>
-> >>
-> >>>>    #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
-> >>>> +/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
-> >>>
-> >>> This comment pre-dates your patch, but I don't understand the point
-> >>> it is trying to make. The comment is factually true, but I don't know
-> >>> why calling that out is relevant. The REG_PAGE MSR seems to be
-> >>> conceptually separate and distinct from the SIMP MSR, so the fact
-> >>> that the layouts are the same is just a coincidence. Or is there some
-> >>> relationship between the two MSRs that I'm not aware of, and the
-> >>> comment is trying (and failing?) to point out?
-> >>
-> >> This was added as per suggestion from Nuno in my initial series for
-> >> MSHV_VTL. If the reference in "identical to" is misleading, I should
-> >> remove it.
-> >>
-> >> https://lore.kernel.org/all/68143eb0-e6a7-4579-bedb-4c2ec5aaef6b@linux.microsoft.com/
-> >>
-> >> Quoting:
-> >> """
-> >> it is a generic structure that
-> >> appears to be used for several overlay page MSRs (SIMP, SIEF, etc).
-> >>
-> >> But, the type doesn't appear in the hv*dk headers explicitly; it's just
-> >> used internally by the hypervisor.
-> >>
-> >> I think it should be renamed with a hv_ prefix to indicate it's part of
-> >> the hypervisor ABI, and a brief comment with the provenance:
-> >>
-> >> /* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
-> >> union hv_synic_overlay_page_msr {
-> >> 	/* <snip> */
-> >> };
-> >
-> > OK, so this union is not associated *only* with the REG_PAGE MSR
-> > (though that MSR is the only current user). Instead, it is intended to
-> > be a more generic description of MSRs that set up overlay pages. I
-> > don't think I had previously noticed Nuno's comment on the topic.
-> >
-> > Looking through hvgdk_mini.h and hvhdk.h, I see 6 definitions that
-> > are exactly the same:
-> >
-> > * union hv_reference_tsc_msr
-> > * union hv_x64_msr_hypercall_contents
-> > * union hv_vp_assist_msr_contents
-> > * union hv_synic_simp
-> > * union hv_synic_siefp
-> > * union hv_synic_sirbp
-> >
-> > There's an argument to be made for removing these 6 unique definitions
-> > and using union hv_synic_overlay_page_msr instead (though "synic"
-> > would need to be removed from the name).  I would not object to such
-> > an approach. It's a small extra layer of conceptual indirection, but saves
-> > some lines of code for duplicative definitions. The alternative is to drop
-> > the idea of a generic overlay page MSR layout, and replace union
-> > hv_synic_overlay_page_msr with a definition that is specific to the
-> > REG_PAGE MSR, like the other six above.
-> >
+> Reserved memory regions used by device firmware (e.g., GPU, DSP, modem)
+> typically contain data that is not useful for kernel crash analysis and
+> can significantly increase vmcore size. The 'linux,no-dump' property
+> provides a declarative way to indicate these regions should be filtered
+> out when constructing the elfcorehdr for kdump.
 > 
-> Hi Michael,
+> The property is named with a 'linux,' prefix because kdump/vmcore is
+> Linux-specific and the property is an OS hint rather than a hardware
+> description, matching existing properties such as 'linux,cma-default'
+> and 'linux,usable-memory-range'.
 > 
-> While having a generic definition looks good to have here, I can see two
-> reasons for not going ahead with generic overlay page definition:
-> 1. All of the above definitions are present in Hyper-V headers and
-> generalizing them would deviate from the strategy of keeping the kernel
-> headers in line with Hyper-V headers.
-> 2. For any of these definitions, if the use-case requires using some of
-> these reserved bits, then it would be a problem. I can actually see that
-> happening in "hv_x64_msr_hypercall_contents" in the corresponding
-> variant in the Hyper-V header.
-
-Your points are certainly valid, and I'm good with not going the
-generic route.
-
+> The 'linux,no-dump' property is only effective when the region:
+>  - Does not have 'no-map': these regions are already excluded from
+>    vmcore since they are removed from the linear mapping (MEMBLOCK_NOMAP).
+>  - Does not have 'reusable': CMA reusable regions are actively used by
+>    the kernel for movable page allocations, and their contents are
+>    valuable for crash analysis.
 > 
-> > I could go either way. If we want to use a generic overlay page definition,
-> > then that approach should be applied everywhere. With the current
-> > state of your patch set, we're halfway in between -- the generic definition
-> > is used one place, but duplicative specific MSR definitions are used other
-> > places. That's probably the least desirable approach.
-> >
-> > Michael
-> 
-> 
-> Now, coming back to the hv_synic_overlay_page_msr definition. While
-> Nuno's comment hinted at it being "generic", the same is not documented
-> in the name of this structure or its comments. So it should be safe to
-> assume that it is specific to synic_overlay_page_msr usage. But since it
-> is not part of Hyper-V header as such, we needed that comment:
-> "/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */"
-> 
+> The no-dump status is also printed in the boot log alongside the
+> existing nomap and reusable flags for diagnostic purposes.
 
-An "overlay page" is a generic concept in the Hyper-V world, and it is used
-in multiple places in the guest<->hypervisor interface. The old PDF version of
-the Hyper-V TLFS describes overlay pages in the section 5.2.1 entitled "GPA
-Overlay Pages". See [1]. Unfortunately, this material about overlay pages
-doesn't seem to have been carried over to the web page version of the TLFS.
+I think this property is the wrong way around and probably not needed. 
+The default should be exclude the regions, but if Linux is using the 
+regions (like CMA) then it can decide on its own to include them.
 
-So in my thinking, the name "hv_synic_overlay_page_msr" is inherently
-a generic definition that could be applied to multiple MSRs that are used to
-specify overlay pages. Your patch is about a specific MSR,
-HV_X64_REGISTER_REG_PAGE, which happens to be used to define an
-overlay page. But if the decision is to *not* go the generic route, I
-would expect to see something like "union hv_x64_reg_page_msr"
-that is specific to the REG_PAGE MSR, and to have that type used in
-hv_vtl_configure_reg_page(). The definition of hv_x64_reg_page_msr
-would not have a comment referencing the SIMP or any other MSR
-because it would be a standalone definition that is specific to
-HV_X64_REGISTER_REG_PAGE. Then the pattern would be the same as
-the other six cases that I listed above.
+With the restructuring that went into 7.1, it should be possible for the 
+CMA code (and code for any other regions) to set some flag for the 
+region.
 
-When not using the generic approach, hv_synic_overlay_page_msr
-really has no purpose, and could go away.
-
-Michael
-
-[1] https://github.com/MicrosoftDocs/Virtualization-Documentation/raw/live/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v6.0b.pdf
+Rob
 
 _______________________________________________
 linux-riscv mailing list
