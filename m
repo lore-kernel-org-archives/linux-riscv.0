@@ -4,125 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76893CD342C
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 09:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A9CCD342C
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 09:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zlPOyukpT1+qvgXZFxZCIYtUDCHoONTyGXOObg4oTJk=; b=O+FIxJ27xNYG/H
-	a2S0gVPVCAWN2+mAQUTK7WF7O+rzgiVRaCzy/yuMkI/wk6hKGFFZqMGG1rI5OgugWpCVs51QbbuNo
-	6YsEWuPyx1a3toQU12ve9lCrygRblLnnsIP+IBvIGDTCpIe1yag4VngbIbv1OZhW7G1TDfhjkeugl
-	svUBUqYOYsuY8pefkfgyQOhhWqDhfLBgDmb7RjkIHdQ8JYE4up21a6G3TvsGml4zmzJ6m5fFtCnhA
-	Tw1ehtXL4Of4NWKMXaI3if0OspjGeREmQBYSceLW3nwL0RmcAYkEBhI0LrAP4imYenay/Yub0JU8E
-	G9T28/lz2HDKGT7Z67Sw==;
+	List-Owner; bh=JPwoMjhFcnoK8d7+vetM5KYxDCq6Rs5DeLzRpO8UUYY=; b=dcT6pwMTEbyrk9
+	fFTsfWt4TOzaUe/T/7NDyuQsehM93C3DEuU3DAxE5rY342Sx0q+CVP4s29A1HFwaKOMlAnghaMioW
+	UJVjQPDg27xiqWFzez0QAb9qPGcCs2tNjzxgLDoCdjWjf5HUCSAq40zil6aGthiqdwc1x0F/AQK6o
+	awyNV9WjTrl2Cz0h+Z1l6X0bw3HOeUTOntbeP4EX8cZjPz1RrgR6NQoqhH5c2RNavMO7aIWh5Mu1s
+	DuT0rXlUa/Vt7eYq4EfJpFQi2L0Aj6WXjhVkDd70cSHqICxQFwTUQCTtmv4+0XN1og8lpMzQu4S7g
+	fxCGUlLn0iK8McNWkoOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKYLl-00000000JwA-0TyM;
-	Wed, 06 May 2026 09:15:25 +0000
-Received: from mail-sh0chn02on2072d.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::72d] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wKYhx-00000000N9K-0Y7T;
+	Wed, 06 May 2026 09:38:21 +0000
+Received: from mail-bjschn02on2129.outbound.protection.partner.outlook.cn ([139.219.17.129] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKYLk-00000000Jur-0CeD
+	id 1wKYhw-00000000N7a-0ViD
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 May 2026 09:15:24 +0000
+	Wed, 06 May 2026 09:38:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ejQgdwa+4j/Pzyc9MmTIxTFqDwqH2AAtGgxl6yW9rscbv5ZJ1msEpQ7wi+WfXr8zvQj6chbPxz/ibLG+FybYOx4AQi4dMuu/4yS7z8RJfq8Z0GP3EfVT1mL8yJKIDhng8gVISrYFuLl2OROl2N/Ond/5n7UMTeIpO3QhNY3KUj9NwnyZ2Cuod4DvAjJwmEbwpdczzPD9Hwo/XdncQwfl+oeMvi1uF328+WyNCpQJ0Q3EkaHRveHZtDO1SrNhi5+bGP7X2vUFC640DorAXfjSxw9coicmyrkzeX+ziktv1OluI01kzyLz2TzvyMQ6E26AkF9Lr+S5WF2YdWTEfcUWqw==
+ b=dbrRuxJkNqtOIrnxQp60IdNwxaWzDJpKByV4UzCu9FNk5vmBYa7/Oz73BXcxB8Mp7Do2jLe/wP2bbb/XVdY5Tk4lcSJ1k/YN7gTGaz9m7GkAur0rCt1kAyklbhyiDuddLai+XJ0Z/Z37YYV//edoxghv/lxm6qxnwpHzzI7I1E28xniRs+zpZMWkVviw3VCRPTvozrEn/anW0tEfd+UWuv7afscwRQz2+CA4Y2e39/JCCxxYxZwe7NI/Vy595nVThWfSUj6DaEPxogHAYDolmLAOfZ143N6SsiQywAsFBpYgBMhJOOG/kYN1rPBEQcTLGf+igw+6RZ965y/NzKYd8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zaa1cAL6tLkap27wliNORNCj8ONjiRRS+SK9oo6mg3A=;
- b=WlXqtn4M6l40wdUbqyQjAZgEsgtVqmy0pIg0HoMKoo9MKz0DvweHLg8NsYkg8diCkL4xlrB4Rp1LVIfIXPhuyLzy7cvSdSBs5OS56FRm+YDTGj0Wug4sVZa7EsN72q491aR1FDPn833YqbAfP8t6P3qAFf1A7Q6HkbwHlX+VY/DRiiWMsC3iR18aaoa0U/uLm7bgloFRUMNEbgrOE1bAPZdLOU7huX1M5gwQjICrO1la6pMcGqtd3QClLf2qIz74xxLHaJH0Zp76Gm0oWrduvjJhkdv8nqYS6YW5jZ7bLgI+1u6yjJqac06jbGa+cDVtIIH+I5Gnx7fAngWi1xffkw==
+ bh=uJKEKVPIq1XRSdKOOntc9VF2F23Ieo4f1lZdwnoGwX0=;
+ b=d+6JsZsTnWI37eX55CkEyUfZU72QTwsVwbldsh1+Aeo83m+qqvbbyNn1JUND9Ps5xXXRK+gBu8hMalRUIkFCa6JQP6RfQKomBicL+PmS0+eMQ8JTyzz2hTesmFzcz5IjFacSpPTvbGRCyf6lPCAYuJZ+E4vLQY7fpWE7woFAWxiyk8bQbI7170eRxn1m9T5IF7mpQD9DU+Xt8/iSMPfE/1u3TFTFQvVDUZl6HJm5JhA8iBQl7vL6Lt4guPkQ+tAzmUMC+MSIhNTUmR4IDKJZJIWSwiMFZ3CB6rpOo63fQhHRQFwSM6fjvy86TUwOOmfXHqJsT4tQDlOyfYG6YZGuhw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1171.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:15::10) with Microsoft SMTP Server (version=TLS1_2,
+ (2406:e500:c550:17::6) by ZQ4PR01MB1172.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:14::8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
- 2026 08:59:50 +0000
+ 2026 09:23:37 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
- with mapi id 15.20.9891.008; Wed, 6 May 2026 08:59:50 +0000
+ with mapi id 15.20.9891.008; Wed, 6 May 2026 09:23:37 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Thomas Gleixner <tglx@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>
-Subject: [PATCH v2 2/4] dt-bindings: interrupt-controller: Add StarFive JHB100 plic
-Date: Wed,  6 May 2026 01:59:35 -0700
-Message-Id: <20260506085937.754808-3-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260506085937.754808-1-changhuang.liang@starfivetech.com>
-References: <20260506085937.754808-1-changhuang.liang@starfivetech.com>
-X-ClientProxiedBy: NT0PR01CA0011.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510::20) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6)
+To: Conor Dooley <conor@kernel.org>
+CC: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Bartosz Golaszewski <brgl@kernel.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Lianfeng Ouyang
+	<lianfeng.ouyang@starfivetech.com>
+Subject: Re: [PATCH v1 11/20] dt-bindings: pinctrl: Add
+ starfive,jhb100-per1-pinctrl
+Thread-Topic: [PATCH v1 11/20] dt-bindings: pinctrl: Add
+ starfive,jhb100-per1-pinctrl
+Thread-Index: AQHc09tvLatUK5oq3keSy4c9Ncpt5LXubvkAgAVF1NCAASNvgIAL9BTw
+Date: Wed, 6 May 2026 09:23:36 +0000
+Message-ID: <ZQ4PR01MB1202F561A68C43547A85D1E7F23F2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260424111330.702272-1-changhuang.liang@starfivetech.com>
+ <20260424111330.702272-12-changhuang.liang@starfivetech.com>
+ <20260424-mumps-foothill-ef122c1029c0@spud>
+ <ZQ4PR01MB120229BE0DAC2658164C066AF2372@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <20260428-hardhat-both-1c9aa594a45a@spud>
+In-Reply-To: <20260428-hardhat-both-1c9aa594a45a@spud>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1172:EE_
+x-ms-office365-filtering-correlation-id: 6475f694-eb94-495c-fc29-08deab51271b
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700021|56012099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: uKyLAUOB1M1rdjZ7VM216P9y7hUaP6JCFmlFKKjfxZ4zATBg9w6xBKsS5W19KVzwYxcm14cFhoPTlIJ+DgiA7CRK8SHrRZEWQyqWGgja5qeTcRfpcxRQ1pi4Jg1MR9unQbAfYm/y4gNQYMl/xMp207beYp6bKtAH0BpBRNHBn7m2u42K4bj0azHt6u8XpT4gmBo8FuKiazt9eWd1BXv259Il0afmXoOoWVXPpQIIqYS0+YPvOG2xvIpsKszFmLoHhtunP4M1B3L0Z0RtR8O2/Kp5jbdXt8K5QJoIM0Gn7iw6iBrjK2ZvzOIGuXm/koa/XvljjQLJyaHJEnVLP2ZEuW8I5ah39nJ4tKePSCxGufbCCYVvQDD4HilvylijYX2c8Ds9Tl/DZhgeHgrHPr6pHimGbEjE1AX7MWlIvJizzNso42hVH79SpOvbhJfVJWllGTGulaHsKbS5PMLmjcdRpugOJwrB6Nm6aBB8Hfml3jPGbfiiyRC0xyouZe2oyI3DXbNBKfogKu1NIzHLH4NYXJB6XTR4ekHDhcbEJujX2rDzt6DQi44l9M9iztGoXrFc
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Uy566qmnzeObFGEfVpxuK3doQQ83ff25mtBEh3d3TemKDeJ3nfwbguyTka32?=
+ =?us-ascii?Q?O0xOwISG1171zxuouK3rAbFQFsaz9ErbvfpRr+yqfpfWsGOn9lgXjMKZqu67?=
+ =?us-ascii?Q?NWIfQ08Rrz6XuU4dGwSdpXN2TjuBRO5r26oHOlzwNhl/GM3NiQ3VblX8ilOd?=
+ =?us-ascii?Q?yR3QfxnPvOE9x7C7REpXriIll4Rj8HMgq/8D7GddGlVjBlThGoz/aTCgg2+Q?=
+ =?us-ascii?Q?hMBm1imt3E1fadyJvm5hic7P33Cut8xeR3TWY0h1MMjCsPZYuAGa5yz2tx+5?=
+ =?us-ascii?Q?oP/DbJs+5GT12aG5mgBhwhhWVsV2P5SI5RPQogmKIlb3qokWFgadTs5id7e+?=
+ =?us-ascii?Q?sL+nQEedVU7ux0wsLm1nPeGMo4PTkW5+rsGhTYTTH1jNnXp257V6sX0aCR3/?=
+ =?us-ascii?Q?bHdKFtZxNXBOnOJN7yRTL2hny8AQEnFI96U/upVVu80PSaJA4TB/r0GiVwTI?=
+ =?us-ascii?Q?+J958lfHNEA4ypM0MNvgGiprWWHNJy1H0Q0v4WLJ2b5XZtz+uvMolp6vKY2f?=
+ =?us-ascii?Q?kixBACxg3v6ZIqGkynn+5uKu8xsZwlGi9PlPzW2enE5u8ZGR910YjYiiPfhx?=
+ =?us-ascii?Q?juBN5pWsjidVAl3nsd/I0kXqIfKj4AqsednlcPdkwrnrbRZkzqVggYvX/21v?=
+ =?us-ascii?Q?s75db86JFBhUgCC8oLESULbDXzlfJVc73rdNDwvVz99Ozk0g3lkjsETWbcxe?=
+ =?us-ascii?Q?Y1E5W+pWoWoRtISkuILLhYX8eLrlBtqtsZCTH83zDm0rbwqHd4H/Zb8TA73w?=
+ =?us-ascii?Q?92dpgqxPwzY3ECKsP5NsE2iDqpnUEJpx46yLflYf+W9fq6yfmVniPuRsj+74?=
+ =?us-ascii?Q?zpnok8aHJIPUMtIrJYb5ZOcGsBEqZkYtaE33K88mNuYSSJbWsXykxpCWW3vn?=
+ =?us-ascii?Q?l6LuPhnVaJWrw+I9p2EMO4uUPer60ExVL9xKv8vd8rbLpQX4uVsbHC1eeUXC?=
+ =?us-ascii?Q?Kiu6DR0W1Fm7640FophNtG7ueJN2Zgvn77JJFQRLKDB47GVmzk5mJedbpV5g?=
+ =?us-ascii?Q?X1lclNVc/DH/x2cPDgMBwDd6L1OuczzFVulBy4gW/mqkUqkYR5JMJZaKX/Av?=
+ =?us-ascii?Q?UuPp3QsxybF7SMhMhHR7lE+7xrIJ6K6SvxUNFkB2/xmJD3Z3vvf63I8Q6d6U?=
+ =?us-ascii?Q?+BV1tNGz436RXnmms+a3BRqy/7x1ZjT8Slg4cxgvh6zegvpTRV+78nWLABf5?=
+ =?us-ascii?Q?3uFBT0KmtRKMAeZwQrM7ux5ddjV4KG17mUDMBKlFfXvoiDr/R44ilufj5JRN?=
+ =?us-ascii?Q?uWYn1pcLmDkAYysoLwnlzUQkZ4ibx43hVjxEG/fZ7SejiaJ7d/nLgbwttvqf?=
+ =?us-ascii?Q?vrbhP/YRcUHxgrUG/PV7SDHDIH1jq+pP+5hQbnUXczoKWCEfiQftFXSs8Cun?=
+ =?us-ascii?Q?7R7VU87s6Ldk+7Htc3Y/7vKYfvXbyu3W8FhVNscPWGI9CXaFUGggJEH2Mq2Z?=
+ =?us-ascii?Q?ZnNkbnwbpnwWRLnXy/RHZ8diqhGSf2RMwN/KUlKxIKdJZTMFQhxZ6V0pjao1?=
+ =?us-ascii?Q?cOZvpDUTSvVK0r0dTrBKz6RJONW2yLgTwGLmumaUNB7FPtE31xPqFnon/xql?=
+ =?us-ascii?Q?q9tskyisgkIf6EmjgztfuUhrEupQEO1BU+W1UmSzKXG2BPa9IZM90xJgJPit?=
+ =?us-ascii?Q?uOABoJFPIUg0tPj3UwFSIL7Pb1H2rcxx+bdJY1SGdDJIqonASNaHx9XgUX4e?=
+ =?us-ascii?Q?YNn/Zq1lofKZI/TPoDWfaNVBovRPmwvr/A8x29RxXym9YHHUkTmrNlTgktXT?=
+ =?us-ascii?Q?stzmFJkkQEoKyJ3cw3hj9Sd8rp25wIo=3D?=
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1171:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2c071a7c-54fc-4352-eb12-08deab4dd4e0
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|1800799024|366016|376014|921020|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: ao53BPt88SG+CQJnSrycomXdWyYdSWBnR4mqOT3OLGYxzV/+2f+6m/twkCB6cLpgOaaXuRHTU/MvDLeCqV4Ob/nhJ8JyLc/qFlkeax7KnfUnnLmCZ4twDidevujCFI4sG/N24fc3se5+daryWlte6twuXDP2p7St7rLRlcttJpvdnzVONZwe5j5FDNpSqB93bvBmb4NdyTK7WeYhwYohVLvTuUugS+MspMRlnNBvQqdo6kVLsjiTCnT+X/HO7GjYkndS9Kr9risXFv08u21Ny9kKcn9T6mjN/aqyK09HMhPfVviXYp6cTtSHQ3Vb7rUqpmkscdd49h/ShfrW1hNISAlZBxDx7CA3tfB03DKKWWl0+xoM0ZFRnYyKyf4WQ9isswXS2un7eZdTPtGmbRwOqmvJ6RghDFmQ3DILdhPrnUdwPSXoEAE8BV796x3jI4wMoT6gM3yxdCZzwWoxwAr7DKr3GiskxvJGegv9RgKUftJ9J20c1YVnrjxmYesAghuBkJ2wW2jks3QIAhnbqaslBn/YjdMNMxymztx/8wYRhfHc2/S5mKQmPsQKZGW7KUdz/OUiNiHYj32BhbHRRwyGlg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(1800799024)(366016)(376014)(921020)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2KBZ0yHjt9R7ztl9lyUmc5c+PCElPp9EsWAEKTRVL0hhN1S60rG7V10MbSdk?=
- =?us-ascii?Q?KsbDb6AQApntuR/nbaROBTlBXP2s74WQN50HZNCefXs7O4CoDiHwsZd2sAbH?=
- =?us-ascii?Q?e7ih+d0DdCfheRcaGP2pdUt8mA1mdTQ4YJULglIvefZsmtK6CIxSyQ7p2GN0?=
- =?us-ascii?Q?6RrMFz1DX9UbSDgifKjYDMgFAkNsoT/biq6BsCvDyErrWmSYyamFyCThDcRF?=
- =?us-ascii?Q?7TpDmrv8d9qEdVy63QX691+oGZWY3LAfvtlwZpf6eiCxKaKiwyUz03rDdtw8?=
- =?us-ascii?Q?VeKwn/i/xFFzG1iB/yDyZyRd9/tbRk9nnvqJ6Sas3CTTuUmI7zxqEVU93Gky?=
- =?us-ascii?Q?Dnw+UlxclPW9HhOUmEPsSg7iihzTxDhzPiQE/sh1jTfSlJSCKyIf4X1atg+c?=
- =?us-ascii?Q?Fc6SWYrXL13vs8uRxm+JmMAwzxKnF99rJegip/KVDPlQRlHhoy73s35QduMJ?=
- =?us-ascii?Q?0iMsM0B6pXNYOxQV/7juuWXiCMtgK0LQC+yfYn8Nof1RYjN1Xg7ZxR9kMYWr?=
- =?us-ascii?Q?8in+sxBXlueT2BvxVAeBvWXmdd0D3lXjxg8/tGTVC7NzJnwnsaimSERWGo4c?=
- =?us-ascii?Q?zhmaY4+d3qTGQ/uJkGhLgcA4htePQ4jcBZdHL6H8pB0VWruw1wJ+r7TZxUFO?=
- =?us-ascii?Q?uMC4Z+MZn7FE8pglR9imDrkyjwIWR9oM097rihPztUmHJbGiwIVFtOX/FGgi?=
- =?us-ascii?Q?+2dS2OEdVLOdNlUZqCd3fmEkuOrhwmZDftPEd+/8Z+Lgiw3f52s8QQsj7h+e?=
- =?us-ascii?Q?dByxHUHr7sd073qBaUr8+vypw2+4PG0mA0cus/8S7pKK6DL3Cl/1uQY5jipE?=
- =?us-ascii?Q?Xe7JMtH0eUkXPbH78YmdM6ws1Ny2C0CEjtRdjQZB9TTNFcfg9fBPezwHOWJb?=
- =?us-ascii?Q?YL2H68eUmvuPhdZFbYdTPWZWVgccricoxro+aaxusmwPoEpZEZJ5eA7fsyFE?=
- =?us-ascii?Q?eB7rDgapwj9HAYnQXJq+9Hy8S7YsG6PKEClDbYcWVXgFWM6HYDPtYcCm3cC9?=
- =?us-ascii?Q?FynwSAeIfdo1KLSJWQ5OhjSp8ZWVP125wYjkpJb2gl0hKbQAlWldBA58bGiB?=
- =?us-ascii?Q?6aUy/hsUVtRDsccWkcWxAqod4dTYl8nUpLzmTmUr7ZMpNHWQF5zq9m/9vDk5?=
- =?us-ascii?Q?sQ4/kDbIairS6brd2k/WOvTk/TGc41FrJ6kSF94SebcnvJlVCGK/qEcGTtJm?=
- =?us-ascii?Q?MirHM8hP58YJJqCMoxQpf66WX9ecfJ7ep7o7n8jjR9JPat+uh6iFWIzu68SB?=
- =?us-ascii?Q?CUcoBnmiIZG1YoaLZfQocQwPZB2t3OkDnr0auLnGCDf27j6CwY0d27IoPnJm?=
- =?us-ascii?Q?509CYcASiA4oLLJPIDGLuSglp2xAIHiF23esAQW+ggjJraYyxZZ8Stg55c0n?=
- =?us-ascii?Q?uPhCt1wefcLEce/s/EUfjybhtfCYEFw8mJTPzdHkSUyJPL7dUMbS/7cSZ/28?=
- =?us-ascii?Q?scQmqFZsz487be2n5FS03zAZT81MfNxbw3IXG6EyZXAQ6tyfhwC3FNGvCO/g?=
- =?us-ascii?Q?RX0ZY//zrM2iMUYO2f8NFx2wdswfMHE0QIvF26qNS6lPHXYccKbWyVeVmzXg?=
- =?us-ascii?Q?AbvzZgPnkuDYhKk+fNFFwI/B0yxC15glz4shecHnmmmps0Laa/cuNY9p3dAG?=
- =?us-ascii?Q?lVlspR2AMJQ6ypRvL1gVdmbKaAy1x1OjYBeltl4Dn77BRTV5EUGWhNuXpc3a?=
- =?us-ascii?Q?TsU3/6Ym3LijxSyh7XNJ5OwPzBbgLJ2q9XO44zMb8iVWTwSqaiHP1MeX4M+R?=
- =?us-ascii?Q?B3HMdJGMTWhY3RkpSdDQiZT+ivxfJI85ey4qie+gpqfJqe4pddDh?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c071a7c-54fc-4352-eb12-08deab4dd4e0
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 08:59:50.7258
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6475f694-eb94-495c-fc29-08deab51271b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 09:23:37.0018
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lI/zBhUQ/4KmzyBCOmpBfLqrJ27r6/V9yoxtrWgPkGrwEyUKYDN+DuYlBRJRQ0sRbghbrFouOLCne0RPBjGl4wyFBsG6T/7Y5dcGviR2D+gHRxAbnXWB/BvC+2TI0f3n
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1171
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FuerHwtXM5GFeawXRfQk5QhdK71janhM/c8jakeLxsim3FYPkBHmdwDiPWcEaYv3XJPhBDpncXNR8Nt95Cxmwxt37ujp4I9izhQBt2Dtgxf+mKNX85vinzufyU6Jb8E6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1172
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_021524_081201_1E945A8B 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_023820_159298_42098956 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,38 +142,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Michael Zhu <michael.zhu@starfivetech.com>, Junhui Liu <junhui.liu@pigmoral.tech>, E Shattow <e@freeshell.de>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, Joel Stanley <jms@oss.tenstorrent.com>, linux-kernel@vger.kernel.org, Drew Fustini <dfustini@oss.tenstorrent.com>, Guodong Xu <guodong@riscstar.com>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Darshan Prajapati <darshan.prajapati@einfochips.com>, Yixun Lan <dlan@kernel.org>, Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, linux-riscv@lists.infradead.org, Hal Feng <hal.feng@starfivetech.com>, Michal Simek <michal.simek@amd.com>, Changhuang Liang <changhuang.liang@starfivetech.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Hi, Conor
 
-Add compatible string for StarFive JHB100 plic.
+Thanks for the review.
 
-Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+> On Tue, Apr 28, 2026 at 01:28:05AM +0000, Changhuang Liang wrote:
+> > > On Fri, Apr 24, 2026 at 04:13:21AM -0700, Changhuang Liang wrote:
+> > > > Add pinctrl bindings for StarFive JHB100 SoC Peripheral-1(per1)
+> > > > pinctrl controller.
+> > > >
+> > > > Signed-off-by: Changhuang Liang
+> > > > <changhuang.liang@starfivetech.com>
+> > > > +        properties:
+> > > > +          pinmux:
+> > > > +            description: |
+> > > > +              The list of GPIOs and their function select.
+> > > > +              The PINMUX macros are used to configure the
+> > > > +              function selection.
+> > >
+> > > Why is the pinmux property needed?
+> > > Can you use pins and function instead?
+> > >
+> > > Looking at the defines that you have added, it appears that lots of
+> > > defines for the same peripheral share the same numerical values,
+> > > suggesting that across peripheral, all (or most) pins would share
+> > > the same mux setting/"function select", suggesting that pins/function
+> would suffice.
+> > >
+> > > I'd like to see some justification for pinmux being the right
+> > > solution here, like the "function select" used by one peripheral
+> > > being significantly different for many of its pins.
+> >
+> > We think that implementing this in the pinmux will be relatively
+> > simple. It avoids the need to create a large number of mapping
+> > relationships in the driver, which simplifies our driver
+> > implementation. I'm not sure if you'll find this explanation acceptable.
+> 
+> I don't really see how pins + functions would require lots of "mapping
+> relationships". Instead of having
+> +/* pinctrl_sys2 pad function selection */
+> +#define FUNC_SYS2_UART_CTS				1
+> +#define FUNC_SYS2_UART_RTS				1
+> +#define FUNC_SYS2_UART_DCD				1
+> +#define FUNC_SYS2_UART_DSR				1
+> +#define FUNC_SYS2_UART_DTR				1
+> +#define FUNC_SYS2_UART_RI				1
+> +#define FUNC_SYS2_UART0_TX				1
+> +#define FUNC_SYS2_UART0_RX				1
+> +#define FUNC_SYS2_UART1_TX				1
+> +#define FUNC_SYS2_UART1_RX				1
+> +#define FUNC_SYS2_UART2_TX				1
+> +#define FUNC_SYS2_UART2_RX				1
+> +#define FUNC_SYS2_UART3_TX				1
+> +#define FUNC_SYS2_UART3_RX				1
+> +#define FUNC_SYS2_UART4_TX				1
+> +#define FUNC_SYS2_UART4_RX				1
+> +#define FUNC_SYS2_UART5_TX				1
+> +#define FUNC_SYS2_UART5_RX				1
+> +#define FUNC_SYS2_UART6_TX				1
+> +#define FUNC_SYS2_UART6_RX				1
+> +#define FUNC_SYS2_UART7_TX				1
+> +#define FUNC_SYS2_UART7_RX				1
+> +#define FUNC_SYS2_UART8_TX				1
+> +#define FUNC_SYS2_UART8_RX				1
+> +#define FUNC_SYS2_UART9_TX				1
+> +#define FUNC_SYS2_UART9_RX				1
+> +#define FUNC_SYS2_UART10_TX				1
+> +#define FUNC_SYS2_UART10_RX				1
+> +#define FUNC_SYS2_UART11_TX				1
+> +#define FUNC_SYS2_UART11_RX				1
+> +#define FUNC_SYS2_UART12_TX				1
+> +#define FUNC_SYS2_UART12_RX				1
+> +#define FUNC_SYS2_UART13_TX				1
+> +#define FUNC_SYS2_UART13_RX				1
+> +#define FUNC_SYS2_UART14_TX				1
+> +#define FUNC_SYS2_UART14_RX				1
+> you just define a function called "uart" and have a simple map of that string to
+> the number 1. You end up with a single array with the relationships, not lots.
+> 
+> Frankly, pinmux just does not seem appropriate to me when it looks like 90%+
+> of the pin mappings for a peripheral share the same function value.
+> There appears only to be a rare number of cases where that doesn't apply, but
+> that could be handled by having them represented by a different group/pins
+> node with a different function.
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index 639bbeb1f6bd..4a242d252aef 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -66,6 +66,7 @@ properties:
-               - spacemit,k1-plic
-               - starfive,jh7100-plic
-               - starfive,jh7110-plic
-+              - starfive,jhb100-plic
-               - tenstorrent,blackhole-plic
-           - const: sifive,plic-1.0.0
-       - items:
--- 
-2.25.1
+Thank you for sharing the method. We are trying to make some modifications, and the results are quite good.
 
+Best Regards,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
