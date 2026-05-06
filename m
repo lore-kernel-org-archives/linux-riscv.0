@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86EDFCD342C
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 06:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 415A4CD342C
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 07:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5drLRAIxbV9OAg+5bFo1onzGVcixuZZkYjYcH6gN67Y=; b=ZqbTWyjcpuUjxt
-	kvGxuT7hqrfqi1ly5lIvfQW/y8H9+N09Soge52J5AJ+aCbhhTG4jksxXdoowj56n79XJ81+VXhxJv
-	ABVeFJsxX0I+JjTWPIUIGU8VyzwUBCjnrCo3yIvkLpVPpv3r0s4cka3SYplfSerW3bunl+qj6kpxg
-	vfV6457R2okbr+z14m6HAgWkxdJ4maznAmBbHBEHGXshh450KtUJSHtbq5WCEfQy979WBgddGbIjo
-	FkQpcmNYtWHazCMFJC1KzQ4ewUKUYk+o5fGvOmW91yLZdv87memv7pnC5DjDdc72sRWFungx2F8pg
-	N29Rj+WKRtHRjfaK+uaQ==;
+	List-Owner; bh=Qi0ZOqWdN3GDldxatnDV7dlFlDrrKuLAlFkVSklKpFk=; b=wXpuxCFPfRufef
+	mHsxhspBi4fAhn2XFunpSNvU4FRk+PNAbbeueuEqvdwB+dIQK6+13lQnKOf7Q9FK1phNrN21Q4nHY
+	eOqoJ+P2R5b0RPDUttm1nm5pI7rLwHji4ya48tj9KTBLs1k68QEVmdFnZH2plKiMmbaAmqP6xSTDK
+	JGKPhj7DmI7HlzXrBEEfCsxOkyvdoaC3FSqJqf80crY+xUxPFHQ8pdWdd2CBnOjS51OGYFMvdCUfd
+	WQWE04tOS/dj+5H5E3VYH3HdLNYS2CX5OdUPsAutimeVDgpsR+VRkbZwRs9n1cN/Yz0eikHJRJSF0
+	5C6IIqvIBEdKQWqU8ozw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKVnk-00000000tsw-2ot7;
-	Wed, 06 May 2026 06:32:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKVnh-00000000tsC-40p4
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 May 2026 06:32:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC37D43FB0;
-	Wed,  6 May 2026 06:32:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C28CC2BCB8;
-	Wed,  6 May 2026 06:32:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778049123;
-	bh=SB5tDwl8GpNdeE6O/6YQk+V4Mr/UoFQkPrb3axoem68=;
+	id 1wKX3Q-000000004ux-0Zep;
+	Wed, 06 May 2026 07:52:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKX3P-000000004uL-0Zq1;
+	Wed, 06 May 2026 07:52:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDC9816F8;
+	Wed,  6 May 2026 00:52:16 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7F223F7B4;
+	Wed,  6 May 2026 00:52:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778053942; bh=6FFVqh/7MHmu6fMlze6Pr8sVj+Fc68+P/CMCl97GJHY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fF3bycpXWafr2E6qk4jaQsRplkyTXsst0PRy82bGKoHCkbGw5g55yRzCrynQZrzSc
-	 lYaMvU0ovlHM96IMGqQ8UiJlXcxZQgufTf8zhcbBL5SI9TdNCaBL2+KgSAAb+fSrMY
-	 BZIJCpMEMPwVlNs/BBLTqSaB7boxgxCYH3lLSyyy3+r/SybHOg11xhMNc4t52yxmjZ
-	 yDIfF8tEAWfK2HS5pjFirlhbQXRy2txnNcm4TTRiQUsbThXjrpkvmu4NeMjVm1tIxh
-	 RD3VVd4bWsnrwfkRUCOvP8hJS5VwyVAsHHRjNLyAbTLGCAnrQZuBqOyTTRKv2IbwxY
-	 2iwODr94mwEbg==
-Date: Tue, 5 May 2026 23:30:43 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Yury Norov <ynorov@nvidia.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	b=meaziBh2Y9VBs+iy/L6rKp64Itbk/SuVY9x+LY628fB+3BjdMpShAfiz7kxaVUmK3
+	 ML5Shd4PkZizJdBxdiUxDSD16EtZOZgzSYKb2WqhuFmuhUGrne0s9eqpQddsN+hRNR
+	 s8bBXG8z4UPrCKTSgYHbdm5hCjsmKq0wzvAMc6Yo=
+Date: Wed, 6 May 2026 08:52:10 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Naman Jain <namjain@linux.microsoft.com>
+Cc: Marc Zyngier <maz@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Ruan Jinjie <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Linux-Arch <linux-arch@vger.kernel.org>,
-	Netdev <netdev@vger.kernel.org>, bpf@vger.kernel.org,
-	Nathan Chancellor <nathan@kernel.org>
-Subject: Re: [PATCH 1/6] lib: include crc32.h conditionally on CONFIG_CRC32
-Message-ID: <20260506063043.GB16204@sol>
-References: <20260430211351.658193-1-ynorov@nvidia.com>
- <20260430211351.658193-2-ynorov@nvidia.com>
- <ec4ed7f5-b1c8-49e4-b83d-e29c5414b9de@app.fastmail.com>
- <afjNaToyptiMogV4@yury>
- <9d45acd1-667b-4acf-9e2e-bcd79630d726@app.fastmail.com>
- <afjmIK4mlCWeywuS@yury>
- <abf4a586-b675-4e29-9570-fd3ed4158f58@app.fastmail.com>
+	Michael Kelley <mhklinux@outlook.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, vdso@mailbox.org,
+	ssengar@linux.microsoft.com
+Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
+ mshv_vtl_return_call
+Message-ID: <afrzKl3ixCUUVL6C@J2N7QTR9R3>
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+ <20260423124206.2410879-8-namjain@linux.microsoft.com>
+ <aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
+ <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <abf4a586-b675-4e29-9570-fd3ed4158f58@app.fastmail.com>
+In-Reply-To: <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_233206_033992_BA4B7077 
-X-CRM114-Status: GOOD (  55.69  )
+X-CRM114-CacheID: sfid-20260506_005223_278997_80949009 
+X-CRM114-Status: GOOD (  44.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,140 +90,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 09:05:30PM +0200, Arnd Bergmann wrote:
-> On Mon, May 4, 2026, at 20:32, Yury Norov wrote:
-> > On Mon, May 04, 2026 at 07:18:49PM +0200, Arnd Bergmann wrote:
-> >> On Mon, May 4, 2026, at 18:46, Yury Norov wrote:
-> >> > Never heard about such a thing like "optional interface". And git grep
-> >> > tends to second that...
-> >> 
-> >> I meant any library interface that can be turned on or off
-> >
-> > So? If I disable CRC32, can I use the either_crc()? In case of that
-> > networking header, the answer is yes. In some other piece of code
-> > the answer is no. Is that correct?
-> 
-> Since it's a macro defiend in terms of both bitref32 and
-> crc32_le, you can only call it from dead code, such as an
-> inline function that is not itself used, or from inside of
-> a block that is protected with IS_ENABLED(CONFIG_CRC32) etc.
->   
-> >> >> 
-> >> >> Don't add #ifdef blocks around headers. If the header cannot
-> >> >> be included without side-effects, change the linux/crc32.h
-> >> >> file instead of its users.
-> >> >
-> >> > linux/acpi.h does that like many othes. What exactly is wrong with
-> >> > protecting headers inclusion?
-> >> 
-> >> There is no "protecting" here, you just add complexity to the
-> >> build when headers are sometimes included indirectly and but
-> >> other times are not, depending on kernel configuration.
-> >
-> > Sorry, don't understand... I use the 'protecting' term with the meaning:
-> > the functionality that is explicitly disabled should be never used.
-> > Otherwise, what for we disable it?
-> 
-> Arguably, both configuration symbols are at the point of not actually
-> saving enough object code size to actually be worth the Kconfig
-> dependencies.
-> 
-> As long as we have CONFIG_CRC32 and CONFIG_BITREVERSE, the
-> point of having the Kconfig symbols is to let drivers request
-> the inclusion of the library helpers.
-> 
-> >> It's unlikely to cause problems for the crc32.h header, but
-> >> the acpi example definitely risks running into circular
-> >> inclusions when you end up with some other header that depending
-> >> on configuration ends up including linux/acpi.h while also
-> >> bring included indirectly from that one.
-> >> 
-> >> >> It looks like the problem is the check for CONFIG_GENERIC_BITREVERSE
-> >> >> in include/asm-generic/bitops/__bitrev.h, which ends up
-> >> >> hinding the generic___bitrev32() helper without need.
-> >> >> 
-> >> >> Simply removing the #ifdef there should avoid the build failure.
-> >> >
-> >> > OK, it seems like this is what I don't understand.
-> >> >
-> >> > We've got an optional feature, like CRC32, which is enabled by
-> >> > CONFIG_CRC32. The most conservative way is to declare everything
-> >> > CRC32-related in the corresponding header, and then protect the header
-> >> > with IS_ENABLED(CONFIG_CRC32).
-> >> >
-> >> > I understand that from practical perspective, we can declare some simple
-> >> > macros, like header size, unprotected. But what we've got now is a sort
-> >> > of mess: all CRC32-related functions are declared unprotected, and
-> >> > generic headers are good to use them. Compiler is happy while those
-> >> > functions are actually unused. Next, CRC32 depends on BITREVERSE, which
-> >> > is again unprotected, and it may optionally have an arch implementation.
-> >> >
-> >> > So if arch bitrev() is implemented, you can use part of bitreverse and
-> >> > crc32 APIs despite that they are explicitly disabled - just because they
-> >> > are implemented as macros in unprotected headers. And you cannot use some
-> >> > others - because they are implemented differently, as a real functions.
-> >> 
-> >> I think you trying to solve a non-problem here.
-> >
-> > This was reported by Nathan for tinyconfig. At least x86 and s390 are
-> > affected.
-> >
-> > https://lore.kernel.org/all/20260429202922.GA3575295@ax162/
-> >
-> > Is tinyconfig important?
-> 
-> Nathan reported a build regression caused by a small mistake
-> in 596a9ea9015b ("bitops: Define generic __bitrev8/16/32 for reuse"),
-> which is of course needs to be fixed.
-> 
-> What I meant is that there is no reason to not use the obvious
-> fix and do
-> 
-> --- a/include/asm-generic/bitops/__bitrev.h
-> +++ b/include/asm-generic/bitops/__bitrev.h
-> @@ -2,7 +2,6 @@
->  #ifndef _ASM_GENERIC_BITOPS___BITREV_H_
->  #define _ASM_GENERIC_BITOPS___BITREV_H_
->  
-> -#ifdef CONFIG_GENERIC_BITREVERSE
->  #include <asm/types.h>
->  
->  extern u8 const byte_rev_table[256];
-> @@ -20,6 +19,5 @@ static __always_inline __attribute_const__ u32 generic___bitrev32(u32 x)
->  {
->         return (generic___bitrev16(x & 0xffff) << 16) | generic___bitrev16(x >> 16);
->  }
-> -#endif /* CONFIG_GENERIC_BITREVERSE */
->  
->  #endif /* _ASM_GENERIC_BITOPS___BITREV_H_ */
-> 
-> > Right now half CRC32 is available if CONFIG_CRC32 is on, and half is
-> > not available. The bitreverse is the same. If HAVE_ARCH_BITREVERSE is
-> > enabled, one can use the API, bypassing the BITREVERSE. This doesn't
-> > sound right to me long-term.
-> >
-> > Whatever this ends up, let's figure out a consistent solution please?
-> 
-> I really don't think we need any sort of solution here, aside from
-> the trivial regression fix that returns it to the previous working
-> state.
+On Wed, Apr 29, 2026 at 03:26:11PM +0530, Naman Jain wrote:
+> On 4/23/2026 7:26 PM, Mark Rutland wrote:
+> > On Thu, Apr 23, 2026 at 12:41:57PM +0000, Naman Jain wrote:
 
-I agree with Arnd.  The standard practice in the kernel is for headers
-to be includeable even when the associated kconfig (if any) isn't
-enabled.  In such a case usually the inline functions, macros, and the
-declarations of out-of-line functions and global variables are still
-made available in the header.
+[ non-SMMC hypercall code omitted for brevity ]
 
-The point of the kconfig symbol is just to build the file containing the
-definitions of out-of-line functions and global variables.
+> > NAK to this.
+> > 
+> > * This is a non-SMCCC hypercall, which we have NAK'd in general in the
+> >    past for various reasons that I am not going to rehash here.
+> > 
+> > * It's not clear how this is going to be extended with necessary
+> >    architecture state in future (e.g. SVE, SME). This is not
+> >    future-proof, and I don't believe this is maintainable.
+> > 
+> > * This breaks general requirements for reliable stacktracing by
+> >    clobbering state (e.g. x29) that we depend upon being valid AT ALL
+> >    TIMES outside of entry code.
+> > 
+> > * IMO, if this needs to be saved/restored, that should happen in
+> >    whatever you are calling.
+> > 
+> > Mark.
+> 
+> Merging threads for addressing comments from Mark Rutland and Marc Zyngier
+> on this patch.
+> 
+> Thanks for reviewing the changes. Please allow me to briefly explain the use
+> case here and then address your comments.
+> 
+> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced isolation
+> within a single VM, analogous to ARM TrustZone. The kernel runs in VTL2
+> (higher privilege) as a "paravisor", a security monitor that handles
+> intercepts for the primary OS in VTL0 (lower privilege). The VTL switch
+> (mshv_vtl_return_call) is functionally equivalent to KVM's guest enter/exit.
 
-Yes, when those definitions are needed and calling code forgets to
-select that kconfig symbol, a build error results.  But it's "only" a
-build error; those get found and fixed relatively easily.  The
-alternative of hiding everything would mean a lot more #ifdefs in other
-code, which ends up being very messy.
+It's worth noting that for KVM, the KVM hyp code is *tightly* coupled
+with the host kernel (they are one single binary object), and the
+calling convention between the two is an implementation detail that can
+change at any time without any ABI concerns.
 
-- Eric
+While I appreciate this might be trying to do the same thing from a
+*functional* perspective, it's certainly different from a
+maintainability perspective, and can't be treated in the same way.
+
+> It saves VTL2 state, loads VTL0's GPRs other registers from a shared context
+> structure, issues hvc #3 to let VTL0 run, and on return saves VTL0's updated
+> state back.
+> 
+> Coming to the problems with the code, I have identified a few ways to
+> address them.
+> 
+> I can put the assembly code in a separate .S file with
+> SYM_FUNC_START/SYM_FUNC_END and marked as noinstr, to prevent ftrace/kprobes
+> from instrumenting between the GPR load and the hvc, which could have
+> corrupted VTL0 register state. This should solve x29 clobbering, stack
+> tracing problems.
+
+My point was that you must not clobber those registers.
+
+Looking at the TLFS document you linked below, it says:
+
+| Note: X29 (FP/frame pointer), X30 (LR/link register), and SP are private
+| per-VTL
+
+... so clobbering those doesn't seem to be necessary anyway. Clearly
+having an arbitrary calling convention is confusing for everyone.
+
+> I should use kernel_neon_begin()/kernel_neon_end() to save/restore the full
+> extended FP state of the current task in VTL2. VTL0's Q0-Q31 can be
+> loaded/saved separately via fpsimd_load_state()/fpsimd_save_state(). This
+> way, the assembly touches none of the SIMD registers. This is SVE/SME-safe
+> for VTL2's task state. VTL0 still only carries Q0-Q31 in the context struct,
+> and extending to SVE, SME is a future context struct change, which will need
+> Hyper-V arm64 ABI support.
+> This way, VTL2's callee-saved regs (x19-x28, x29, x30) are explicitly saved
+> to the stack frame at the top and restored at the bottom of assembly code.
+> The C caller (in hv_vtl.c) is a clean function call.
+
+That doesn't really address my concerns here.
+
+I do not think that Linux should have to save/restore anything here;
+that should be the job of the real hypervisor. The arbitrary separation
+of PE state into private and shared (with shred state being directly
+exposed to Linux) is a problem for maintainability and forward
+compatibility.
+
+Looking at the TLFS document you linked below, I see:
+
+| Note: SVE state (Z0-Z31, P0-P15, FFR) and SME state are VTL-private.
+| The lower 128-bit portion (Q registers) is shared, but the upper bits
+| of Z registers may be corrupted on VTL transitions. Software should
+| not rely on Z register contents being preserved across VTL switches.
+
+... which is certainly going to be a pain to manage.
+
+Note in particular "SME state" is not an architectural term. I don't
+know which state in particular that is intended to cover (e.g. ZA, ZT0,
+SVCR, all streaming mode state)?
+
+There's no mention of SVCR, so I don't know how this is going to
+interact with management of ZA state (ZA and ZT0, which are dependent
+upon SVCR.ZA) or streaming mode (dependent upon SVCR.SM). That state has
+been *incredibly* painful for us to manage generally. Regardless of the
+SMCCC concerns, that needs to be specified better.
+
+> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to the ABI
+> that is defined by the Hyper-V hypervisor. Fixing this requires a
+> hypervisor-side change to support SMCCC-style dispatch for VTL return. Until
+> then, hvc #3 is the only working interface. Moreover there would be backward
+> compatibility issues with this new ABI interface, if at all it is added.
+
+To be clear, that's Microsoft's problem, not the Linux kernel
+community's problem. My NAK still stands.
+
+Multiple years ago now, we made it clear that we would not accept a
+non-SMCCC calling convention. Ignoring the substance of that feedback,
+and inventing a new calling convention after that point is a
+self-inflicted problem.
+
+[...]
+
+> Link to TLFS: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm#on-arm64-platforms-3
+
+For shared state, aside fomr GPRs and FPSIMD/SVE/SME state, that says:
+
+| * System Information Registers (read-only or non-security-critical):
+|   * System identification and feature registers
+|   * Cache and TLB type information
+
+It's *implied* that some of those registers might be writable, but as
+the specific set of registers is not described I cannot tell. Are there
+any writable system registers which are shared?
+
+I don't see how we can know which registers we might need to
+save/restore without that being explicitly documented.
+
+I also see:
+
+| Note: SPE (Statistical Profiling Extension) state is shared across VTLs,
+| except for PMBSR_EL1 which is VTL-private.
+
+If "SPE state" includes PMBPTR or PMBLIMITR (which is the obvious
+reading), this would be a security problem, as a lower-privileged VTL
+could clobber those and cause SPE to write to arbitrary memory
+immediately upon return to the higher-privileged VTL. Having PMBSR be
+private on its own isn't sufficient to prevent that (e.g. since the
+higher-privileged VTL could have its own active SPE profiling session).
+
+I'm not keen on requiring hyper-v specific hooks in the SPE driver to
+achieve that, and I'm also not keen on having hyper-v support code poke
+SPE registers behind the SPE driver's back.
+
+This does not give me confidence that any future PE state (e.g. things
+like TRBE) will be managed in a safe way either.
+
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
