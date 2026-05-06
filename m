@@ -4,76 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 415A4CD342C
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 07:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCFFCD342C
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 08:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qi0ZOqWdN3GDldxatnDV7dlFlDrrKuLAlFkVSklKpFk=; b=wXpuxCFPfRufef
-	mHsxhspBi4fAhn2XFunpSNvU4FRk+PNAbbeueuEqvdwB+dIQK6+13lQnKOf7Q9FK1phNrN21Q4nHY
-	eOqoJ+P2R5b0RPDUttm1nm5pI7rLwHji4ya48tj9KTBLs1k68QEVmdFnZH2plKiMmbaAmqP6xSTDK
-	JGKPhj7DmI7HlzXrBEEfCsxOkyvdoaC3FSqJqf80crY+xUxPFHQ8pdWdd2CBnOjS51OGYFMvdCUfd
-	WQWE04tOS/dj+5H5E3VYH3HdLNYS2CX5OdUPsAutimeVDgpsR+VRkbZwRs9n1cN/Yz0eikHJRJSF0
-	5C6IIqvIBEdKQWqU8ozw==;
+	List-Owner; bh=EJseDU4b8LqyKUF4lFOR12/RJdaYt4KAR9KAIb2etFY=; b=RyIlAI8TY8E4k8
+	VVbJNyZJJf7XVHiFqhQfrlDLT9Iy6nM9D6ZTic9pC2NUbGEVDkS4QEpdXv/8YSJBZOHiQH+s8ZZE8
+	CS5oZaM67VSRb3xCudaF2GaVufemTFNuBZWNxgLufAQARYJ6IYp7iQFh6XDpeyw2Oke6jloLn/FsL
+	9cbUC0onlvsuaXAvlVWx21KdRdmk8y3StEv9bqZ7t9pTx7Bccd3XCTPdIfKlqxcad9d1r2COVvEk/
+	gbInCg0F6XHhdvXJrgPwYFYvGaHW69uZcZ2Ct8m8ayNP5M9kQt5MSimWxAdMRuCzLqgiYIqQoacME
+	/Bkr8tyoP0sB3HrybGGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX3Q-000000004ux-0Zep;
-	Wed, 06 May 2026 07:52:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX3P-000000004uL-0Zq1;
-	Wed, 06 May 2026 07:52:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDC9816F8;
-	Wed,  6 May 2026 00:52:16 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7F223F7B4;
-	Wed,  6 May 2026 00:52:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778053942; bh=6FFVqh/7MHmu6fMlze6Pr8sVj+Fc68+P/CMCl97GJHY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=meaziBh2Y9VBs+iy/L6rKp64Itbk/SuVY9x+LY628fB+3BjdMpShAfiz7kxaVUmK3
-	 ML5Shd4PkZizJdBxdiUxDSD16EtZOZgzSYKb2WqhuFmuhUGrne0s9eqpQddsN+hRNR
-	 s8bBXG8z4UPrCKTSgYHbdm5hCjsmKq0wzvAMc6Yo=
-Date: Wed, 6 May 2026 08:52:10 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Naman Jain <namjain@linux.microsoft.com>
-Cc: Marc Zyngier <maz@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Kelley <mhklinux@outlook.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, vdso@mailbox.org,
-	ssengar@linux.microsoft.com
-Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
- mshv_vtl_return_call
-Message-ID: <afrzKl3ixCUUVL6C@J2N7QTR9R3>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-8-namjain@linux.microsoft.com>
- <aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
- <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+	id 1wKXlU-00000000BWv-39jx;
+	Wed, 06 May 2026 08:37:56 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKXlT-00000000BVk-0QOo
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 May 2026 08:37:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778056672;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IMA+C0TJi4LM3UTvwkCroeu4Tv8AgJe8bHK3v1p/l2E=;
+	b=OUCtbXAIom0lydhN+lO9z+XtYHlZR6wu9cdq5HmSfK7CnJmXsciTN8Z3v02qLumj4DI2id
+	OFfliZaXwRqboOidSL8DG8FSq3zIeVC+zGqsDIcr5AbjoaZn8D+b1L/0E0TUJhM4l78YbY
+	/rSWyMCExd/9MblSpzuuY17E1n7ino4=
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
+ [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-20-nb8oN8NqNYGUbiEpxm-HPA-1; Wed, 06 May 2026 04:37:51 -0400
+X-MC-Unique: nb8oN8NqNYGUbiEpxm-HPA-1
+X-Mimecast-MFC-AGG-ID: nb8oN8NqNYGUbiEpxm-HPA_1778056670
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-7bd5af04312so123044267b3.1
+        for <linux-riscv@lists.infradead.org>; Wed, 06 May 2026 01:37:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778056670; x=1778661470;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=IMA+C0TJi4LM3UTvwkCroeu4Tv8AgJe8bHK3v1p/l2E=;
+        b=K4WSVdqEjZ5GzLHI/TdVazZg7h32ZXZA1k513h7pJ1G9s9yi9k40IbpQYQcDN+PzA6
+         qEAmVV75OCVzT8ZFK235GcT4Tzvyhzgp67c8ITmD+eI85FJUywVFLSUOyZkL5R0VlrA5
+         vBXj+z+DBb+mxv73fRkH4n0QO2EAXIsSb3oXtdlT05NZzqUwpQAa1bRSSu4ey59vwTon
+         hYHW2CB55gvmCCcTZlGyuQBcZBLazlWqfbgkuO57WScTeSbozPM0yi/p1x2D64t88Y3P
+         b0tDMn21F3sedK9B3Rk8x097g3WJko6+o7lgMIqXN1+CnTJsFzovRpWksstiS056XFKr
+         vsWA==
+X-Forwarded-Encrypted: i=1; AFNElJ8xS2HZiU7CnOIuNqn1PJsivbqJjHnUL1lpDM+XRhwzXTrzl6KMoVOC3yuhs/ZdMYprqLM9Vel/7Wyq8Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzINTNqfNorkDcCcixbQdlo0I3q9DcGr9xL18i4PdBRBYKd9SCu
+	k5/pxoOagTikiFV9o2oBnYOYuTuikQ2kgSN1mUo/OCz7rW4I4e+TZjLqa94RLtQQTIU434NAoDK
+	SH/3rKVqtRw1cF614gkfqVeISLGzz12YSumY6luLJRLLDhZ1x5uYomXtdq4yQNQL6vA8nl7NHbf
+	mbfu+3PJUnIy11tYd1oY0wjkh1VibAJMZ3CSISOtxSsBce
+X-Gm-Gg: AeBDiet/hBfTL8EPNGvicpPOSpYamz6vP//lK8xgnQtBlO8Phx6UctD1cp/t4tXgJQH
+	LtSpQxNvb7RlKO0uSzCnAJ+czT3ATZ59E9OX8H87R+AqpgpeVly2PjvGtMfzzh0lCXwroRWFPmw
+	cjQQmiWrXvhSzVtw4thrZ3P6Ws8RicHqhH6sDrYDfdcIRysdgF7vRqnK3aAoq6YVQqp8ZfV/c/8
+	3J5enjo7NFdU7qU
+X-Received: by 2002:a05:690c:60c3:b0:7bd:696d:5137 with SMTP id 00721157ae682-7bdf5eb872emr28069927b3.41.1778056670483;
+        Wed, 06 May 2026 01:37:50 -0700 (PDT)
+X-Received: by 2002:a05:690c:60c3:b0:7bd:696d:5137 with SMTP id
+ 00721157ae682-7bdf5eb872emr28069617b3.41.1778056670063; Wed, 06 May 2026
+ 01:37:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+References: <20260504-kunit_add_support-v8-0-3e5957cdd235@redhat.com>
+ <20260504-kunit_add_support-v8-3-3e5957cdd235@redhat.com> <20260504-tentacled-free-lobster-38d8d9@houat>
+In-Reply-To: <20260504-tentacled-free-lobster-38d8d9@houat>
+From: Albert Esteve <aesteve@redhat.com>
+Date: Wed, 6 May 2026 10:37:39 +0200
+X-Gm-Features: AVHnY4LGPM5httthyZYEMeSVpsAZZGIetxyr0Irj5BEH6JEFnHV4PP6tgxL43VM
+Message-ID: <CADSE00+TPGWPjD7DGHy5f+=QzwUqYHc=X-G1sEER8=NS5VvV-Q@mail.gmail.com>
+Subject: Re: [PATCH v8 3/4] drm: Suppress intentional warning backtraces in
+ scaling unit tests
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Brendan Higgins <brendan.higgins@linux.dev>, 
+	David Gow <david@davidgow.net>, Rae Moar <raemoar63@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	dri-devel@lists.freedesktop.org, workflows@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
+	peterz@infradead.org, Guenter Roeck <linux@roeck-us.net>, 
+	Linux Kernel Functional Testing <lkft@linaro.org>, Dan Carpenter <dan.carpenter@linaro.org>, 
+	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Alessandro Carminati <acarmina@redhat.com>, Simona Vetter <simona.vetter@ffwll.ch>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: sntBtZUASX8Qskt34vIucZwMxLoaH-6SrTR4iNQ8Z80_1778056670
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_005223_278997_80949009 
-X-CRM114-Status: GOOD (  44.69  )
+X-CRM114-CacheID: sfid-20260506_013755_222051_963A111F 
+X-CRM114-Status: GOOD (  26.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,170 +113,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 03:26:11PM +0530, Naman Jain wrote:
-> On 4/23/2026 7:26 PM, Mark Rutland wrote:
-> > On Thu, Apr 23, 2026 at 12:41:57PM +0000, Naman Jain wrote:
-
-[ non-SMMC hypercall code omitted for brevity ]
-
-> > NAK to this.
-> > 
-> > * This is a non-SMCCC hypercall, which we have NAK'd in general in the
-> >    past for various reasons that I am not going to rehash here.
-> > 
-> > * It's not clear how this is going to be extended with necessary
-> >    architecture state in future (e.g. SVE, SME). This is not
-> >    future-proof, and I don't believe this is maintainable.
-> > 
-> > * This breaks general requirements for reliable stacktracing by
-> >    clobbering state (e.g. x29) that we depend upon being valid AT ALL
-> >    TIMES outside of entry code.
-> > 
-> > * IMO, if this needs to be saved/restored, that should happen in
-> >    whatever you are calling.
-> > 
-> > Mark.
-> 
-> Merging threads for addressing comments from Mark Rutland and Marc Zyngier
-> on this patch.
-> 
-> Thanks for reviewing the changes. Please allow me to briefly explain the use
-> case here and then address your comments.
-> 
-> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced isolation
-> within a single VM, analogous to ARM TrustZone. The kernel runs in VTL2
-> (higher privilege) as a "paravisor", a security monitor that handles
-> intercepts for the primary OS in VTL0 (lower privilege). The VTL switch
-> (mshv_vtl_return_call) is functionally equivalent to KVM's guest enter/exit.
-
-It's worth noting that for KVM, the KVM hyp code is *tightly* coupled
-with the host kernel (they are one single binary object), and the
-calling convention between the two is an implementation detail that can
-change at any time without any ABI concerns.
-
-While I appreciate this might be trying to do the same thing from a
-*functional* perspective, it's certainly different from a
-maintainability perspective, and can't be treated in the same way.
-
-> It saves VTL2 state, loads VTL0's GPRs other registers from a shared context
-> structure, issues hvc #3 to let VTL0 run, and on return saves VTL0's updated
-> state back.
-> 
-> Coming to the problems with the code, I have identified a few ways to
-> address them.
-> 
-> I can put the assembly code in a separate .S file with
-> SYM_FUNC_START/SYM_FUNC_END and marked as noinstr, to prevent ftrace/kprobes
-> from instrumenting between the GPR load and the hvc, which could have
-> corrupted VTL0 register state. This should solve x29 clobbering, stack
-> tracing problems.
-
-My point was that you must not clobber those registers.
-
-Looking at the TLFS document you linked below, it says:
-
-| Note: X29 (FP/frame pointer), X30 (LR/link register), and SP are private
-| per-VTL
-
-... so clobbering those doesn't seem to be necessary anyway. Clearly
-having an arbitrary calling convention is confusing for everyone.
-
-> I should use kernel_neon_begin()/kernel_neon_end() to save/restore the full
-> extended FP state of the current task in VTL2. VTL0's Q0-Q31 can be
-> loaded/saved separately via fpsimd_load_state()/fpsimd_save_state(). This
-> way, the assembly touches none of the SIMD registers. This is SVE/SME-safe
-> for VTL2's task state. VTL0 still only carries Q0-Q31 in the context struct,
-> and extending to SVE, SME is a future context struct change, which will need
-> Hyper-V arm64 ABI support.
-> This way, VTL2's callee-saved regs (x19-x28, x29, x30) are explicitly saved
-> to the stack frame at the top and restored at the bottom of assembly code.
-> The C caller (in hv_vtl.c) is a clean function call.
-
-That doesn't really address my concerns here.
-
-I do not think that Linux should have to save/restore anything here;
-that should be the job of the real hypervisor. The arbitrary separation
-of PE state into private and shared (with shred state being directly
-exposed to Linux) is a problem for maintainability and forward
-compatibility.
-
-Looking at the TLFS document you linked below, I see:
-
-| Note: SVE state (Z0-Z31, P0-P15, FFR) and SME state are VTL-private.
-| The lower 128-bit portion (Q registers) is shared, but the upper bits
-| of Z registers may be corrupted on VTL transitions. Software should
-| not rely on Z register contents being preserved across VTL switches.
-
-... which is certainly going to be a pain to manage.
-
-Note in particular "SME state" is not an architectural term. I don't
-know which state in particular that is intended to cover (e.g. ZA, ZT0,
-SVCR, all streaming mode state)?
-
-There's no mention of SVCR, so I don't know how this is going to
-interact with management of ZA state (ZA and ZT0, which are dependent
-upon SVCR.ZA) or streaming mode (dependent upon SVCR.SM). That state has
-been *incredibly* painful for us to manage generally. Regardless of the
-SMCCC concerns, that needs to be specified better.
-
-> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to the ABI
-> that is defined by the Hyper-V hypervisor. Fixing this requires a
-> hypervisor-side change to support SMCCC-style dispatch for VTL return. Until
-> then, hvc #3 is the only working interface. Moreover there would be backward
-> compatibility issues with this new ABI interface, if at all it is added.
-
-To be clear, that's Microsoft's problem, not the Linux kernel
-community's problem. My NAK still stands.
-
-Multiple years ago now, we made it clear that we would not accept a
-non-SMCCC calling convention. Ignoring the substance of that feedback,
-and inventing a new calling convention after that point is a
-self-inflicted problem.
-
-[...]
-
-> Link to TLFS: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm#on-arm64-platforms-3
-
-For shared state, aside fomr GPRs and FPSIMD/SVE/SME state, that says:
-
-| * System Information Registers (read-only or non-security-critical):
-|   * System identification and feature registers
-|   * Cache and TLB type information
-
-It's *implied* that some of those registers might be writable, but as
-the specific set of registers is not described I cannot tell. Are there
-any writable system registers which are shared?
-
-I don't see how we can know which registers we might need to
-save/restore without that being explicitly documented.
-
-I also see:
-
-| Note: SPE (Statistical Profiling Extension) state is shared across VTLs,
-| except for PMBSR_EL1 which is VTL-private.
-
-If "SPE state" includes PMBPTR or PMBLIMITR (which is the obvious
-reading), this would be a security problem, as a lower-privileged VTL
-could clobber those and cause SPE to write to arbitrary memory
-immediately upon return to the higher-privileged VTL. Having PMBSR be
-private on its own isn't sufficient to prevent that (e.g. since the
-higher-privileged VTL could have its own active SPE profiling session).
-
-I'm not keen on requiring hyper-v specific hooks in the SPE driver to
-achieve that, and I'm also not keen on having hyper-v support code poke
-SPE registers behind the SPE driver's back.
-
-This does not give me confidence that any future PE state (e.g. things
-like TRBE) will be managed in a safe way either.
-
-Mark.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBNYXkgNCwgMjAyNiBhdCAxMjowNOKAr1BNIE1heGltZSBSaXBhcmQgPG1yaXBhcmRA
+a2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBIaSwKPgo+IE9uIE1vbiwgTWF5IDA0LCAyMDI2IGF0IDA5
+OjQxOjI3QU0gKzAyMDAsIEFsYmVydCBFc3RldmUgd3JvdGU6Cj4gPiBGcm9tOiBHdWVudGVyIFJv
+ZWNrIDxsaW51eEByb2Vjay11cy5uZXQ+Cj4gPgo+ID4gVGhlIGRybV90ZXN0X3JlY3RfY2FsY19o
+c2NhbGUgYW5kIGRybV90ZXN0X3JlY3RfY2FsY192c2NhbGUgdW5pdCB0ZXN0cwo+ID4gaW50ZW50
+aW9uYWxseSB0cmlnZ2VyIHdhcm5pbmcgYmFja3RyYWNlcyBieSBwcm92aWRpbmcgYmFkIHBhcmFt
+ZXRlcnMgdG8KPiA+IHRoZSB0ZXN0ZWQgZnVuY3Rpb25zLiBXaGF0IGlzIHRlc3RlZCBpcyB0aGUg
+cmV0dXJuIHZhbHVlLCBub3QgdGhlIGV4aXN0ZW5jZQo+ID4gb2YgYSB3YXJuaW5nIGJhY2t0cmFj
+ZS4gU3VwcHJlc3MgdGhlIGJhY2t0cmFjZXMgdG8gYXZvaWQgY2xvZ2dpbmcgdGhlCj4gPiBrZXJu
+ZWwgbG9nIGFuZCBkaXN0cmFjdGlvbiBmcm9tIHJlYWwgcHJvYmxlbXMuCj4gPgo+ID4gVGVzdGVk
+LWJ5OiBMaW51eCBLZXJuZWwgRnVuY3Rpb25hbCBUZXN0aW5nIDxsa2Z0QGxpbmFyby5vcmc+Cj4g
+PiBBY2tlZC1ieTogRGFuIENhcnBlbnRlciA8ZGFuLmNhcnBlbnRlckBsaW5hcm8ub3JnPgo+ID4g
+QWNrZWQtYnk6IE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+Cj4gPiBDYzogTWFhcnRl
+biBMYW5raG9yc3QgPG1hYXJ0ZW4ubGFua2hvcnN0QGxpbnV4LmludGVsLmNvbT4KPiA+IENjOiBE
+YXZpZCBBaXJsaWUgPGFpcmxpZWRAZ21haWwuY29tPgo+ID4gQ2M6IERhbmllbCBWZXR0ZXIgPGRh
+bmllbEBmZndsbC5jaD4KPiA+IFNpZ25lZC1vZmYtYnk6IEd1ZW50ZXIgUm9lY2sgPGxpbnV4QHJv
+ZWNrLXVzLm5ldD4KPiA+IFNpZ25lZC1vZmYtYnk6IEFsZXNzYW5kcm8gQ2FybWluYXRpIDxhY2Fy
+bWluYUByZWRoYXQuY29tPgo+ID4gQWNrZWQtYnk6IERhdmlkIEdvdyA8ZGF2aWRAZGF2aWRnb3cu
+bmV0Pgo+ID4gU2lnbmVkLW9mZi1ieTogQWxiZXJ0IEVzdGV2ZSA8YWVzdGV2ZUByZWRoYXQuY29t
+Pgo+ID4gLS0tCj4gPiAgZHJpdmVycy9ncHUvZHJtL3Rlc3RzL2RybV9yZWN0X3Rlc3QuYyB8IDIz
+ICsrKysrKysrKysrKysrKysrKystLS0tCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDE5IGluc2VydGlv
+bnMoKyksIDQgZGVsZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2Ry
+bS90ZXN0cy9kcm1fcmVjdF90ZXN0LmMgYi9kcml2ZXJzL2dwdS9kcm0vdGVzdHMvZHJtX3JlY3Rf
+dGVzdC5jCj4gPiBpbmRleCAxN2UxZjM0Yjc2MTAxLi44MThlMTZlODBjOGY5IDEwMDY0NAo+ID4g
+LS0tIGEvZHJpdmVycy9ncHUvZHJtL3Rlc3RzL2RybV9yZWN0X3Rlc3QuYwo+ID4gKysrIGIvZHJp
+dmVycy9ncHUvZHJtL3Rlc3RzL2RybV9yZWN0X3Rlc3QuYwo+ID4gQEAgLTQwOSw4ICs0MDksMTYg
+QEAgc3RhdGljIHZvaWQgZHJtX3Rlc3RfcmVjdF9jYWxjX2hzY2FsZShzdHJ1Y3Qga3VuaXQgKnRl
+c3QpCj4gPiAgICAgICBjb25zdCBzdHJ1Y3QgZHJtX3JlY3Rfc2NhbGVfY2FzZSAqcGFyYW1zID0g
+dGVzdC0+cGFyYW1fdmFsdWU7Cj4gPiAgICAgICBpbnQgc2NhbGluZ19mYWN0b3I7Cj4gPgo+ID4g
+LSAgICAgc2NhbGluZ19mYWN0b3IgPSBkcm1fcmVjdF9jYWxjX2hzY2FsZSgmcGFyYW1zLT5zcmMs
+ICZwYXJhbXMtPmRzdCwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgcGFyYW1zLT5taW5fcmFuZ2UsIHBhcmFtcy0+bWF4X3JhbmdlKTsKPiA+ICsgICAgIC8q
+Cj4gPiArICAgICAgKiBkcm1fcmVjdF9jYWxjX2hzY2FsZSgpIGdlbmVyYXRlcyBhIHdhcm5pbmcg
+YmFja3RyYWNlIHdoZW5ldmVyIGJhZAo+ID4gKyAgICAgICogcGFyYW1ldGVycyBhcmUgcGFzc2Vk
+IHRvIGl0LiBUaGlzIGFmZmVjdHMgYWxsIHVuaXQgdGVzdHMgd2l0aCBhbgo+ID4gKyAgICAgICog
+ZXJyb3IgY29kZSBpbiBleHBlY3RlZF9zY2FsaW5nX2ZhY3Rvci4KPiA+ICsgICAgICAqLwo+ID4g
+KyAgICAga3VuaXRfd2FybmluZ19zdXBwcmVzcyh0ZXN0KSB7Cj4gPiArICAgICAgICAgICAgIHNj
+YWxpbmdfZmFjdG9yID0gZHJtX3JlY3RfY2FsY19oc2NhbGUoJnBhcmFtcy0+c3JjLCAmcGFyYW1z
+LT5kc3QsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgcGFyYW1zLT5taW5fcmFuZ2UsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgcGFyYW1zLT5tYXhfcmFuZ2UpOwo+ID4gKyAgICAgfQo+
+ID4KPiA+ICAgICAgIEtVTklUX0VYUEVDVF9FUSh0ZXN0LCBzY2FsaW5nX2ZhY3RvciwgcGFyYW1z
+LT5leHBlY3RlZF9zY2FsaW5nX2ZhY3Rvcik7Cj4gPiAgfQo+ID4gQEAgLTQyMCw4ICs0MjgsMTUg
+QEAgc3RhdGljIHZvaWQgZHJtX3Rlc3RfcmVjdF9jYWxjX3ZzY2FsZShzdHJ1Y3Qga3VuaXQgKnRl
+c3QpCj4gPiAgICAgICBjb25zdCBzdHJ1Y3QgZHJtX3JlY3Rfc2NhbGVfY2FzZSAqcGFyYW1zID0g
+dGVzdC0+cGFyYW1fdmFsdWU7Cj4gPiAgICAgICBpbnQgc2NhbGluZ19mYWN0b3I7Cj4gPgo+ID4g
+LSAgICAgc2NhbGluZ19mYWN0b3IgPSBkcm1fcmVjdF9jYWxjX3ZzY2FsZSgmcGFyYW1zLT5zcmMs
+ICZwYXJhbXMtPmRzdCwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgcGFyYW1zLT5taW5fcmFuZ2UsIHBhcmFtcy0+bWF4X3JhbmdlKTsKPiA+ICsgICAgIC8q
+Cj4gPiArICAgICAgKiBkcm1fcmVjdF9jYWxjX3ZzY2FsZSgpIGdlbmVyYXRlcyBhIHdhcm5pbmcg
+YmFja3RyYWNlIHdoZW5ldmVyIGJhZAo+ID4gKyAgICAgICogcGFyYW1ldGVycyBhcmUgcGFzc2Vk
+IHRvIGl0LiBUaGlzIGFmZmVjdHMgYWxsIHVuaXQgdGVzdHMgd2l0aCBhbgo+ID4gKyAgICAgICog
+ZXJyb3IgY29kZSBpbiBleHBlY3RlZF9zY2FsaW5nX2ZhY3Rvci4KPiA+ICsgICAgICAqLwo+ID4g
+KyAgICAga3VuaXRfd2FybmluZ19zdXBwcmVzcyh0ZXN0KSB7Cj4gPiArICAgICAgICAgICAgIHNj
+YWxpbmdfZmFjdG9yID0gZHJtX3JlY3RfY2FsY192c2NhbGUoJnBhcmFtcy0+c3JjLCAmcGFyYW1z
+LT5kc3QsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgcGFyYW1zLT5taW5fcmFuZ2UsIHBhcmFtcy0+bWF4X3JhbmdlKTsKPiA+ICsgICAgIH0K
+PiA+Cj4gPiAgICAgICBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgc2NhbGluZ19mYWN0b3IsIHBhcmFt
+cy0+ZXhwZWN0ZWRfc2NhbGluZ19mYWN0b3IpOwo+ID4gIH0KPgo+IEZvciBib3RoIEkgdGhpbmsg
+d2Ugc2hvdWxkIGFkZCBLVU5JVF9FWFBFQ1RfU1VQUFJFU1NFRF9XQVJOSU5HX0NPVU5UIGNhbGxz
+LCBubz8KCkhpIE1heGltZSwKCkl0IG1heSBpbmRlZWQgYWRkIHZlcmlmaWNhdGlvbiB2YWx1ZSBi
+eSBlbnN1cmluZyB0aGUgY2FsbCBhY3R1YWxseQpnZW5lcmF0ZXMgdGhlIGV4cGVjdGVkIHdhcm5p
+bmcuCgpUaGUgb3JpZ2luYWwgcGF0Y2ggZGlkIG5vdCBpbmNsdWRlIGNvdW50IGNoZWNrcyBvbiB0
+aGUgdmVyc2lvbiBJCmluaGVyaXRlZCBpdCBmcm9tIChpLmUuLApodHRwczovL2xvcmUua2VybmVs
+Lm9yZy9hbGwvMjAyNTA1MjYxMzI3NTUuMTY2MTUwLTUtYWNhcm1pbmFAcmVkaGF0LmNvbS8pLApz
+byBJIGtlcHQgdGhlIHNhbWUgYXBwcm9hY2ggd2hpbGUgYWRhcHRpbmcgdG8gdGhlIEFQSSBjaGFu
+Z2VzLiBUaGF0CnNhaWQsIHRoZSBjaGVjayBpcyBzaW1wbGUgdG8gYWRkLCBzbyBJIGNvdWxkIGlu
+Y2x1ZGUgaXQgaW4gdGhlIG5leHQKdmVyc2lvbi4KCkJSLApBbGJlcnQKCj4KPiBNYXhpbWUKCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
