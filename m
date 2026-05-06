@@ -4,80 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4D8CD342C
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 05:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F38CCD3424
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 06:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3EhnlSZyBr6q30DrG28nWcsD/FzGwb9fyPq96KVmYuE=; b=2/XulQkCu+Z+8n
-	hrkVyUKl7Y6JiLoeYlgArVM0vZDvKw66xJCkMuGwlqaYImfIU9Wu6J8WMKawjOaGa0DDIn9IYU1/R
-	Am2uw84ZNFBpRi0NZpp342Cl1vj3HHB0yARiPB1NWrsWXrcH6qX0LSwLPDGwRiRX/usQfnQcokEs3
-	Pzo0NkwJBLMd7yIs3/jx/bZGM8p/tsIHGzw8DE1t057lAIF3P4mAtXhw8EyOQNkVXaaOkWmr+ZuAg
-	ANGyK4r1Tc1RRw61t1AvZ5v90TOOjJmzAGOImuKMv9pLtwgcayCAHQV1kiZr/C07o+eCKAsjcexgt
-	dcsZxSsgBAvYWPInmIbw==;
+	List-Owner; bh=56PNrt5RpJP/q1E7CUKnZEewpl/WsczNLUP+INRR4Vo=; b=tsAEDxwUmUdn1R
+	NXday69fX4FhMOVhrCoeR9PO1KSYoieusrq+8wWiGud9stqTN9p/ZAkE0GX7xQhDPQaZ5o2nuS8nt
+	uwRogd3qTITnpsmIenoUYNSUqcq1PwQGlU6PaZS2sPbYqXnXZcGttkAOdPIQIHe/pZy4dN1SQMnCv
+	I0ntcwrNDvmxkSioqRy/08mAoR65rBocWN7NPSXOalgdzDXtkuipz+WNUbDwcLLniJwxUR+wMUYLA
+	KveniReqWpMthrHg1OC2Tc4Al2beNuqZljPGptAJfANQ8e/j3zBAndAbLt5Rq90UIyfrXezRTKm8a
+	UZPME42HmDBXBzwWVe0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKV9b-00000000owe-1eEw;
-	Wed, 06 May 2026 05:50:39 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKV9V-00000000oun-0gVz;
-	Wed, 06 May 2026 05:50:34 +0000
-Received: from [10.95.65.64] (unknown [167.220.238.64])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 13CCF20B7165;
-	Tue,  5 May 2026 22:50:21 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 13CCF20B7165
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1778046628;
-	bh=QyNM8slwloHcgyPfCmyTDTiWPCaULRQDVrKg7eQmpRw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pTIJ7GQk9D6hXldWJKVX9dd14kousDi69JXWi3e3f50TycMcZbL4tmIIy42qBnJzY
-	 5jAFHEKcwRIHTJ00l4z2+4+dyEr8WIYxFTL6Mka7lXucOa2EB+G3QILghYR5i5XQvo
-	 EvpZDSKIPbRY9FmL0WEPyHmdgfUSeILDT7aOuQTE=
-Message-ID: <024aed8c-cd97-45f0-a653-489fc334a2b9@linux.microsoft.com>
-Date: Wed, 6 May 2026 11:20:19 +0530
+	id 1wKVk1-00000000tUP-1NFz;
+	Wed, 06 May 2026 06:28:17 +0000
+Received: from mail-sh0chn02on2098.outbound.protection.partner.outlook.cn ([139.219.146.98] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKVjx-00000000tTM-1tlx
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 May 2026 06:28:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SC0Wzkk0vrpuWScp9rCO/JK1BPNv+D9ewqBaSxjPg0W186qsXXlu6G/pUwWN8iQ8sTVtOAC6ahw4x/u13z1inkNKlz6qaqb9ZwqH+tHewgRt9GExykDfqxkLtbvG7DU987KcAeRFJY1U3YjCktSJoSSvHPdAsOwwEATbP1r2En5O66z9x3fsYMNEywRUGdAgoJF6C9Uij792b+IIOJ+XVNuvnzNre7IPH2OAV1r984EmnN2ln2OH1/fDImpTBlUDvIDWhdqEJ+/Dooi7f81Hv8l9A1hVaQJKj2y0LtnsMNstTnejBkgTLQolSLFZNx9wZo2Oj2obpqzdlih33WeEUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Zk4zOiWNbYQpvI40jer0If9lUD/pDnnhojW/u1puWLQ=;
+ b=bxz7RmD354ZUANIZr85XscV70m93ZQkdk8fQGxBSAeHoBR3oro+CGoUcPJfIyehgp+62VPPJR6+4qSugw5AVWg0ziFnDuhInzIVMJyGqavg34ygcOIHCAyMBx0YRN09aIInnkZOH3v5KZM/R4UOFPSPW2t01J3InNaewCGBqLEp5CdNUVEL1rFS3n1BMY3dGjlBG1rqjo0/oDvslvEwy115gymHqPgTfcVt+d3NSWRNECpQyMCMtPtDtvQTwFOrx5uRDjHgnumacmJdFI4rvnUCLCHF/KqJtupxY7aM4WT9JENrmSYMRYXm8ti0vNzgXF7YGXueglW8sKn4bq6xilQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1282.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.27; Wed, 6 May
+ 2026 06:27:39 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9891.008; Wed, 6 May 2026 06:27:39 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Linus Walleij <linusw@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Lianfeng
+ Ouyang <lianfeng.ouyang@starfivetech.com>
+Subject: Re: [PATCH v1 11/20] dt-bindings: pinctrl: Add
+ starfive,jhb100-per1-pinctrl
+Thread-Topic: [PATCH v1 11/20] dt-bindings: pinctrl: Add
+ starfive,jhb100-per1-pinctrl
+Thread-Index: AQHc09tvLatUK5oq3keSy4c9Ncpt5LX0VuCAgAxERvA=
+Date: Wed, 6 May 2026 06:27:38 +0000
+Message-ID: <ZQ4PR01MB1202F6E14D422C816A2975D8F23F2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260424111330.702272-1-changhuang.liang@starfivetech.com>
+ <20260424111330.702272-12-changhuang.liang@starfivetech.com>
+ <CAD++jLk_AQjjCLkeuiyBtiQUsmzHEfqpigttJ7E9n1UE8h29Hg@mail.gmail.com>
+In-Reply-To: <CAD++jLk_AQjjCLkeuiyBtiQUsmzHEfqpigttJ7E9n1UE8h29Hg@mail.gmail.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1282:EE_
+x-ms-office365-filtering-correlation-id: 523ae080-c64a-481f-d929-08deab389208
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700021|18002099003|22082099003|56012099003;
+x-microsoft-antispam-message-info: xBLOX4eJQlKH7sXpTuAu0CYDyoQNTVdpVpKGpp6+DLR8bU84TvZFrykf6jib7eEqLjDZ7fP0XCR5TwmNG5DmvtE+8EEsX5iN9eniMQBqbkkOGsB3oBuUkcJAQfaEe2BA27+bJvZyt7bSIqD7Uu3aE8nC0CXXUdETkKwadnFEaMF+VHgjfRbWJFr9f6XELxhL9bM4PrSsqiwNEKPqQlCJnYp060ja+metcqYZ2yFyyTBIWQx1n9w+XY4m8wwKGdTvU9D7VDOVH8q0v/F4oO/M5MXr8N8QNAcNmR0jtV/x9NT3/4vYPrNDSjxHKj8xeUSx445q6i/A6KXIEdekUe15UN8Vcj+t6Mdg5MW/0ed7guWksgRK/ZhyBytvdtVCAAad6ldaw5uqm2M0BznblaK4iUp8rvVC3e2bPh2WRqRTpZEwKYYkQJs5TMxRYbzj1hhgyatc3Tzc3yHAoGhArnvGSe59oNmgMckEFm/Qx7VejvEnXJtV50RwO4QKDoudvvdC1gVSbLFG9a5SS6kzZghzrzCo3lIrYqjCyj7KQGdODF0qw5LX/vNghbbBJ0zjNZ83
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VzJaTGJFVklmTTRFWjRmdVplMTZzeUZUNmcvK3ROOWx4R25ZY0hKQ0xlS3d6?=
+ =?utf-8?B?NnNrVlhZc0Vpa2VUS051TUljL0pPZm9OMmdKMURkN1ZybUZ6L1pDa3g5OTMz?=
+ =?utf-8?B?MkRHTUM0bFE3WmtwRkNQdURwdml1ZGcxaGdOZzRMOFNkN3BWUFZoWUZuaXJ0?=
+ =?utf-8?B?ZVJyZ1JqUFdzR0JGb1gzU000V3F0OWc5SnlxNEova0J2Z2JXM2pER24xamhs?=
+ =?utf-8?B?Sk4xcE9QZFhMVmQ5dDRFeGJzN0xHN2IzNjhZOEd5WGtEVWFVK2ppaUd2WmVM?=
+ =?utf-8?B?TDRFRzVoeUZ2amRGakFXb2NtS28xZFR6aTU1VCtOeGJjMU5ubU9CeWtQNlB2?=
+ =?utf-8?B?REtnUmlCdW82T0JVaW5IUGo4aEZ1UjRuNmdCVUJEWVRyMFVuampWMVpXSmc4?=
+ =?utf-8?B?MWxDdHhzWUxlUTlBdG5scjZvSC9tM0pVWDdKMFQ1NmEzcjlrcDJ1OHg5dWR4?=
+ =?utf-8?B?UldCRVJ2NFU1VjYwa0pBRGNJY1djQ0N6RkxJWEVwZGErVjM5bWR6YmhUMUVD?=
+ =?utf-8?B?NGtCcDJHenJRc2xpa0w2N2lpNVgrcnY3WmZQUkZDcGR3d3I3QkUvamg2blEv?=
+ =?utf-8?B?bU5pc0llcGtIYkVTb04vaFJFaW5nS0xtWW91bHZmTjBxeExuK3M5YWhrOGIz?=
+ =?utf-8?B?RThEYWt0SWxvNjhubEc3cThtRWs5ODBrU2ZaYVkyZDVFdjllYVZRRmQrQ2Vn?=
+ =?utf-8?B?VWFROGVWb3Rkb3QxaGZzbXhaRnN2STJ6RjVLQWM3eTYvQ3JkTGZzSHkraWRi?=
+ =?utf-8?B?blZoNWJBOVpSSGdJbzJQT3VjS2VxWkZhNWJQMnNmZnRRdXZlQkpYVXFKczJk?=
+ =?utf-8?B?aHlxNlZ4T1luR2RhbXJaUlV0aGw5QjIycjhUcWR1aFYwU29aZVpvcWtqeE83?=
+ =?utf-8?B?VzlDYjd4VFJURWV4cUhlcFZnK1QzbzgycDVwNlRUOU9VZXA3RjFOcDYvWEVS?=
+ =?utf-8?B?Vk80ZDdhVzBlN3VPRXhxK2NtNDRRTUVsbXhKY2VOYmsvamsrTnV4ZEtMTkVu?=
+ =?utf-8?B?YS80N1JiOFdLQVRsQm90b0VlVVdPUTJEVlJZc3dFbzVxN3RwVmwwUHRZVGp2?=
+ =?utf-8?B?cWIwWTEwYnJucUNXK0EzTmx4dGhPWDFSNnJ0ZjV5ZE9OcytCVTh0L3JxZFda?=
+ =?utf-8?B?MlZlc0t2Nkc0cGdkZjRKSm12bTJ5dzBkd0tYZmhXUTdoNW1SVG1JTTdSRFZR?=
+ =?utf-8?B?VnZPSEdZOEZxTEpPR3AxQ0o2RWcxc2VTV0ZmWkVJYVJaZ3lCR1IwdVhKUENu?=
+ =?utf-8?B?bFJ1a0RFQ215Zk5qejZTNjFFUHp6VWNkdHVIV0VUaUd6NWJ6UEhYQ1hzaVBT?=
+ =?utf-8?B?bGJJbTYwQy8xR3YzM0VhNzRzVjFvSEU5M05jNXdSNTRRNUNHUFFKQit6RkNK?=
+ =?utf-8?B?KzUvZWJ5Qk45SlE2WjFRR3BKSWFCbW16TUd3UXpaU09tQnpCQ2Q0WktqdDRQ?=
+ =?utf-8?B?TzhLbDRmenBNdGs1Z2s2OHhUcDZHOHNVbEF1aDdvK2FEeUxDSU5tdnlQdDVS?=
+ =?utf-8?B?SzNLUFVKR3dDalBNZVFNWDVESWNIb3ZiUFUvNzZDV3BDcnkreHVlK2F4OGE1?=
+ =?utf-8?B?eE1NZ1VneTZQcmNkYzNCWEJ3emN3Rk5GaWR6Nis0RGZYbkVSYUwwVHhqNnVI?=
+ =?utf-8?B?bmd1L1JMbEFxSFArWUhock1iMXhvQXNhcXFkc1NaelhoQnBBcFBWSE5GdC9M?=
+ =?utf-8?B?SmlwVnZ0YWVBQytqSEJIYnBvb1diV2JkN05OMkhRSHl0bld2ZW9DbmdWSjl3?=
+ =?utf-8?B?MldFb0ZWS2FEVW41Z09WMjZkTmZJZlJ0RzZRQVNMMmFMNTdEaUFhM1UyaWt6?=
+ =?utf-8?B?VVJpY1pHOUdMTzJHempCNkxrN0NtWFV3NDlmK1YzT01rMHdmV2xsUThXWkYv?=
+ =?utf-8?B?MnBGZ0Nnalc1MURDT1NZazhDdlRobEdSbkY2dFJDbVFzaW04WWM0SXd1bHRn?=
+ =?utf-8?B?QmtXN0dYOU55SG5rZGJWcWsxTjdLUDRWN3NYN3JwQU4xT3ZwbThmWWVWZk9n?=
+ =?utf-8?B?ZEl6b1FMM2E0dkpXaXQvVkJRSWJHMllKbGtCMDBZMHgwMEpscHRUV25XbVdB?=
+ =?utf-8?B?c1Nja2xtMzc0YTJTSFFZWEpZR3VNa1I5MGNsQXk2d1dLK1pFbUx6NHVvSXd3?=
+ =?utf-8?B?aGZXWGkyUzFKS2NIVjc1eW9pcnRkOEFNMnc4U0hjT3l3REMvZERIOXdQbmZm?=
+ =?utf-8?B?NmJtaDMyWlQ3K3pvZUEvM0dIcmRTRy94Y0l3LytVd1BuOHNRS1pHTHRsd2hT?=
+ =?utf-8?B?Qm12UzA3MmhxbEpvNGM4WStWTFFiSElXeHdkOElaMmZyRW9yQlRSTFBrbE9w?=
+ =?utf-8?B?NDArbzJPUXppK2hsTFoxZkV1RnRyVUtoL3BLVGdKSkVvRE5Dc3hSUG5PSDZZ?=
+ =?utf-8?Q?v74umVy2bXkTa2Ak=3D?=
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/15] Drivers: hv: mshv_vtl: Move
- hv_vtl_configure_reg_page() to x86
-To: Michael Kelley <mhklinux@outlook.com>
-Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Sascha Bischoff <sascha.bischoff@arm.com>,
- mrigendrachaubey <mrigendra.chaubey@gmail.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "vdso@mailbox.org" <vdso@mailbox.org>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- Michael Kelley <mhklinux@outlook.com>, "K . Y . Srinivasan"
- <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
- Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
- Long Li <longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
- <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
- Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-10-namjain@linux.microsoft.com>
- <SN6PR02MB4157467FDBC0203C67A67042D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
- <567cf73b-6a48-4fc3-b312-9be6d71e2f22@linux.microsoft.com>
- <SN6PR02MB4157AD364DE0755DE070D286D4312@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Naman Jain <namjain@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157AD364DE0755DE070D286D4312@SN6PR02MB4157.namprd02.prod.outlook.com>
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 523ae080-c64a-481f-d929-08deab389208
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 06:27:38.9366
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FT7U2J//cYDqnfUIFM9Vzle5GDdI8fMQJNLsocuTcBYfDzz7+1oFzHfzSPPsdAUBq1RlGfsSYllTMBclfvEL/w8UULmIylFTvgLZqFmu1Kca1CAGqi3D59Sw6rjL27dK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_225033_266954_BB567474 
-X-CRM114-Status: GOOD (  32.53  )
+X-CRM114-CacheID: sfid-20260505_232813_512961_7607525E 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,134 +149,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/4/2026 9:36 PM, Michael Kelley wrote:
-> From: Naman Jain <namjain@linux.microsoft.com> Sent: Wednesday, April 29, 2026 2:58 AM
->>
->> On 4/27/2026 11:10 AM, Michael Kelley wrote:
->>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 2026 5:42 AM
->>>>
->>>> Move hv_vtl_configure_reg_page() from drivers/hv/mshv_vtl_main.c to
->>>> arch/x86/hyperv/hv_vtl.c. The register page overlay is an x86-specific
->>>> feature that uses HV_X64_REGISTER_REG_PAGE, so its configuration belongs
->>>> in architecture-specific code.
->>>>
->>>> Move struct mshv_vtl_per_cpu and union hv_synic_overlay_page_msr to
->>>> include/asm-generic/mshyperv.h so they are visible to both arch and
->>>> driver code.
->>>>
->>>> Change the return type from void to bool so the caller can determine
->>>> whether the register page was successfully configured and set
->>>> mshv_has_reg_page accordingly.
->>>>
->>>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
->>>> ---
->>>>    arch/x86/hyperv/hv_vtl.c       | 32 ++++++++++++++++++++++
->>>>    drivers/hv/mshv_vtl_main.c     | 49 +++-------------------------------
->>>>    include/asm-generic/mshyperv.h | 17 ++++++++++++
->>>>    3 files changed, 53 insertions(+), 45 deletions(-)
->>>>
->>
->> <snip>
->>
->>>>    #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
->>>> +/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
->>>
->>> This comment pre-dates your patch, but I don't understand the point
->>> it is trying to make. The comment is factually true, but I don't know
->>> why calling that out is relevant. The REG_PAGE MSR seems to be
->>> conceptually separate and distinct from the SIMP MSR, so the fact
->>> that the layouts are the same is just a coincidence. Or is there some
->>> relationship between the two MSRs that I'm not aware of, and the
->>> comment is trying (and failing?) to point out?
->>
->> This was added as per suggestion from Nuno in my initial series for
->> MSHV_VTL. If the reference in "identical to" is misleading, I should
->> remove it.
->>
->> https://lore.kernel.org/all/68143eb0-e6a7-4579-bedb-4c2ec5aaef6b@linux.microsoft.com/
->>
->> Quoting:
->> """
->> it is a generic structure that
->> appears to be used for several overlay page MSRs (SIMP, SIEF, etc).
->>
->> But, the type doesn't appear in the hv*dk headers explicitly; it's just
->> used internally by the hypervisor.
->>
->> I think it should be renamed with a hv_ prefix to indicate it's part of
->> the hypervisor ABI, and a brief comment with the provenance:
->>
->> /* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
->> union hv_synic_overlay_page_msr {
->> 	/* <snip> */
->> };
-> 
-> OK, so this union is not associated *only* with the REG_PAGE MSR
-> (though that MSR is the only current user). Instead, it is intended to
-> be a more generic description of MSRs that set up overlay pages. I
-> don't think I had previously noticed Nuno's comment on the topic.
-> 
-> Looking through hvgdk_mini.h and hvhdk.h, I see 6 definitions that
-> are exactly the same:
-> 
-> * union hv_reference_tsc_msr
-> * union hv_x64_msr_hypercall_contents
-> * union hv_vp_assist_msr_contents
-> * union hv_synic_simp
-> * union hv_synic_siefp
-> * union hv_synic_sirbp
-> 
-> There's an argument to be made for removing these 6 unique definitions
-> and using union hv_synic_overlay_page_msr instead (though "synic"
-> would need to be removed from the name).  I would not object to such
-> an approach. It's a small extra layer of conceptual indirection, but saves
-> some lines of code for duplicative definitions. The alternative is to drop
-> the idea of a generic overlay page MSR layout, and replace union
-> hv_synic_overlay_page_msr with a definition that is specific to the
-> REG_PAGE MSR, like the other six above.
-> 
-
-Hi Michael,
-
-While having a generic definition looks good to have here, I can see two 
-reasons for not going ahead with generic overlay page definition:
-1. All of the above definitions are present in Hyper-V headers and 
-generalizing them would deviate from the strategy of keeping the kernel 
-headers in line with Hyper-V headers.
-2. For any of these definitions, if the use-case requires using some of 
-these reserved bits, then it would be a problem. I can actually see that 
-happening in "hv_x64_msr_hypercall_contents" in the corresponding 
-variant in the Hyper-V header.
-
-> I could go either way. If we want to use a generic overlay page definition,
-> then that approach should be applied everywhere. With the current
-> state of your patch set, we're halfway in between -- the generic definition
-> is used one place, but duplicative specific MSR definitions are used other
-> places. That's probably the least desirable approach.
-> 
-> Michael
-
-
-Now, coming back to the hv_synic_overlay_page_msr definition. While 
-Nuno's comment hinted at it being "generic", the same is not documented 
-in the name of this structure or its comments. So it should be safe to 
-assume that it is specific to synic_overlay_page_msr usage. But since it 
-is not part of Hyper-V header as such, we needed that comment:
-"/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */"
-
-Please let me know your thoughts on this.
-
-Regards,
-Naman
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIGxpbnVzDQoNClRoYW5rcyBmb3IgdGhlIHJldmlldy4NCg0KPiBIaSBDaGFuZ2h1YW5nLA0K
+PiANCj4gdGhhbmtzIGZvciB5b3VyIHBhdGNoIQ0KPiANCj4gT24gRnJpLCBBcHIgMjQsIDIwMjYg
+YXQgMToxNOKAr1BNIENoYW5naHVhbmcgTGlhbmcNCj4gPGNoYW5naHVhbmcubGlhbmdAc3RhcmZp
+dmV0ZWNoLmNvbT4gd3JvdGU6DQo+IA0KPiA+IEFkZCBwaW5jdHJsIGJpbmRpbmdzIGZvciBTdGFy
+Rml2ZSBKSEIxMDAgU29DIFBlcmlwaGVyYWwtMShwZXIxKQ0KPiA+IHBpbmN0cmwgY29udHJvbGxl
+ci4NCj4gPg0KPiA+IFNpZ25lZC1vZmYtYnk6IENoYW5naHVhbmcgTGlhbmcgPGNoYW5naHVhbmcu
+bGlhbmdAc3RhcmZpdmV0ZWNoLmNvbT4NCj4gKC4uLikNCj4gDQo+ID4gKyAgVGhpcyBkb21haW4g
+Y29udGFpbnMgNCBJTyBncm91cHMgd2hpY2ggc3VwcG9ydCB2b2x0YWdlIGxldmVscyAxLjhWDQo+
+ID4gKyBhbmQgMy4zViAgZ3Bpb2Utc3BpIC0gY29tcHJpc2VzIFBBRF9HUElPX0MwIHRocm91Z2gg
+UEFEX0dQSU9fQzQuDQo+ID4gKyAgZ3Bpb2UtcXNwaTAgLSBjb21wcmlzZXMgUEFEX0dQSU9fQzUg
+dGhyb3VnaCBQQURfR1BJT19DMTEuDQo+ID4gKyAgZ3Bpb2UtcXNwaTEgLSBjb21wcmlzZXMgUEFE
+X0dQSU9fQzEyIHRocm91Z2ggUEFEX0dQSU9fQzE5Lg0KPiA+ICsgIGdwaW9lLXFzcGkyIC0gY29t
+cHJpc2VzIFBBRF9HUElPX0MyMCB0aHJvdWdoIFBBRF9HUElPX0MyNy4NCj4gPiArDQo+ID4gKyAg
+RWFjaCBvZiB0aGUgYWJvdmUgSU8gZ3JvdXBzIG11c3QgYmUgY29uZmlndXJlZCB3aXRoIGEgdm9s
+dGFnZQ0KPiA+ICsgc2V0dGluZyB0aGF0IG1hdGNoZXMgdGhlIGV4dGVybmFsICB2b2x0YWdlIGxl
+dmVsIHByb3ZpZGVkIHRvIHRoZSBJTyBncm91cC4NCj4gDQo+IFNvIHlvdXIgaGFyZHdhcmUgaGFz
+IGdyb3VwcyBhbmQgc3VwcG9ydCBzb21lIHByb3BlcnRpZXMgb24gdGhlIGdyb3VwIGxldmVsLg0K
+PiANCj4gU28gZXhwb3NlIHRoZXNlIGdyb3VwcyBhbmQgbWFrZSB0aGVzZSBwcm9wZXJ0aWVzIGNv
+bmZpZ3VyYWJsZSBwZXIgZ3JvdXANCj4gaW5zdGVhZCBvZiBpbnZlbnRpbmcgcGVyLWdyb3VwIHBy
+b3BlcnRpZXMuDQo+IA0KPiA+ICsgIGdwaW9lLXNwaS12cmVmOg0KPiA+ICsgIGdwaW9lLXFzcGkw
+LXZyZWY6DQo+ID4gKyAgZ3Bpb2UtcXNwaTEtdnJlZjoNCj4gPiArICBncGlvZS1xc3BpMi12cmVm
+Og0KPiANCj4gQ3JlYXRlIHByb3BlciBncm91cHMgaW4gdGhlIHBpbiBjb250cm9sbGVyIHRoZW4g
+dXNlIHRoZSBzdGFuZGFyZCBwaW5jZmcNCj4gcHJvcGVydHkgcG93ZXItc291cmNlID0gPC4uLj47
+IGZvciB0aGlzLg0KPiANCj4gRXhhbXBsZSBmb3IgYSBzaW1wbGUgZGVmYXVsdCBob2c6DQo+IA0K
+PiBwaW5jdHJsIHsNCj4gICAgIC8qIEhvZyB0aGUgUVNQSSBwaW5zICovDQo+ICAgICBwaW5jdHJs
+LW5hbWVzID0gImRlZmF1bHQiOw0KPiAgICAgcGluY3RybC0wID0gPCZxc3BpX2RlZmF1bHQ+Ow0K
+PiANCj4gICAgIHFzcGlfZGVmYXVsdDogcGluY3RybC1xc3BpIHsNCj4gICAgICAgICBjb25maWcg
+ew0KPiAgICAgICAgICAgICBncm91cHMgPSAiZ3Bpb2UtcXNwaS1waW5zIjsNCj4gICAgICAgICAg
+ICAgcG93ZXItc291cmNlID0gPDI+Ow0KPiAgICAgICAgIH07DQo+ICAgICB9Ow0KPiB9Ow0KPiAN
+Cj4gVGhlIGdyb3VwcyBjYW4gYmUgb3J0aG9nb25hbCB0byBvdGhlciBwaW4gaGFuZGxpbmcsIHRo
+YXQncyBmaW5lLg0KPiBJbXBsZW1lbnQgLnBpbl9jb25maWdfZ3JvdXBfc2V0IGluIHN0cnVjdCBw
+aW5jb25mX29wcy4NCg0KV2Ugd2lsbCB0cnkgdGhpcy4gVGhhbmtzLg0KDQpCZXN0IFJlZ2FyZHMs
+DQpDaGFuZ2h1YW5nDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
