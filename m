@@ -4,91 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2D4CD8C9D
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2026 15:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D9ECD3439
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 17:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AuMwHBAYqf8iz9lLCWPhgmyC1kdbXn943WDSl/CSVCc=; b=DUE/NNimaB3+Qn
-	YMJrhegN05IxJ9VdhJcgdOl4qPxveemzzIcFFjmfyo+/qTHG790DJBA+cS9LSiXKPR8CF9UP8kawr
-	jbZUdUgPUzj0qvhyCl4w/9aTyMjWDN4CsKOHg/W8wtdXMGgoKohHWiFzovpjGKVhSMfDxlrisVQni
-	qOLEuenGHVY3JcG1CO8FIsh/eNIs3EkWelyc8y0/q2LezsjzLWQqAtO5y9gIx+jpOEGs9wBzX2z0X
-	KdIiHJCdaHwF61cSkNHfp4+eOdnb+WGcl2g+grxSsynccnKypHAej8/3vyy2J2KfxQid06PdnJRRb
-	6cJyYfofnJSPAhex3Elg==;
+	List-Owner; bh=ie4FoBB9FexacNmrIjvnRKEHoaKZFiReqokGdKq7REg=; b=TCsLQfsyU8hdm9
+	VLr0PlFHNO/PewTO1yHoxpftT129hHl02IrMUmJJc6IswXmlX7hzMU+YPi7peV7iOgFWzEU5029X3
+	CzlrQdFhwknputpKmUKZwSyaG9kHqIZYJkU67bnV/pcwsz1zcyoMpnSvnmDvyC1XgeK2nTISvNkiZ
+	pJHg9OIVKg8k5xjC6X9m00Aka2mJUQ0Pc5+kNkGn6h7S+52lkqmus2dhiPcNf2v+5fBIWEKQWrbtj
+	L9OzNV0bwWZzLnhWrIuBA4ipvYPefhHoqFJlwDV3UJvn7buNqYGeWbDCokwn0qYXT8ImqCxaFb/E2
+	FHRLtWt/BCNH5n2v2Qtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWcHe-000000040PT-3Iwu;
-	Mon, 08 Jun 2026 15:53:02 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wKgQ6-00000001hTh-1y0e;
+	Wed, 06 May 2026 17:52:26 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wWcHc-000000040Oc-1ERP
+	id 1wKgQ3-00000001hSA-410C
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jun 2026 15:53:01 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c0bd02d97eso52031215ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Jun 2026 08:52:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1780933979; x=1781538779; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=EVMcV2amC0zCzG7WFGyPAc9k2b2Mh+czO6Q9ao0kqOA=;
-        b=S+wUasjNQWwXHwWEl1JvjVhSr894TQHrAN9SgVkUII6HAepPNNQ0bD5jZ4jq17j/F/
-         l45bfbzlKEmIXdArw2MO+YRX7pb2zmlNZtkxLyBgtHA6I4D+KWK351/4M2UkESsHZehj
-         SlK/mRlhcb0g80jZsT65b6eYtC3aU0tMpu7MRnUnT1h+l+9GuRzKlLw1PmTQQ0dayuXP
-         DNycsqbNYj/qnSg3I1AtPXqQ8V5RvlR1TW7EX14UUR5Ds1VnV6CzUwn75RSXcbuIvtDr
-         GcyNl1Yfxg8ilZG9jb5ue8kxhtC0tQ5COWQdtqGDpPpC78Olg2RmXJSGBXlJBwdYOy4d
-         4EjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1780933979; x=1781538779;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EVMcV2amC0zCzG7WFGyPAc9k2b2Mh+czO6Q9ao0kqOA=;
-        b=kVp/z7cEXR3MxIsKf2o0pxRDYTQlI9ZG3Qqq2wowA/O3Mmm5IrQr6w+1NseWW/5H+L
-         G4fgqZ7YsfIRB1mxX4tTB/HBNyJ2Docviu786s9UAkqfIlJPKPBVKfjELB0oBGPopg5k
-         hjnPb3y8Cl5B5vZEhY5MjRds4mC8w3DpiyK4MlPJWB3AA/e6/NXwm75eDNRwWNbTwb6Y
-         8vlNdMtOlBRN4GbvMbzxuF36fKsiSnkEjvpPSeWooE9g3fLrBqlxaUADXy7on1cgWXEb
-         Z8rfD7ef5qBr2KznDR2iGGq3T7QzDHzRnG1v4QZsL91sI6kfo2utKHERe89AhAtbQlUG
-         Rv7g==
-X-Forwarded-Encrypted: i=1; AFNElJ+hIYazFmJ4sQq7cGtBUySrokGhbpp4bCAghmzdXVE+cNDzWRfPvK0t+GxN+hUEOWOP+0NAcWuYP9IazQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwdxP5yHn4SS668sw2a38OfM2ZPDQSNWaUFalBe/MK9qrA+wi3
-	NdwSdezc5TyOV0s4tm7pyj5djOqxhXr0gScDAOlRZVbaYE8NPyWZhjFs
-X-Gm-Gg: Acq92OEVoW14Py8zVZCISOgsb02z+RmZkD5Q+lVsZNIgCpoPAhmtI+mglot3eWF8miV
-	lcmmydw21dNUsvas/d05JTFv6MvPM9fauMlW7ZjnAo4UXLMIjU2Sh1yJI7gra9xl31pF1tsZw/U
-	b1jw2CrT95gZWcwnEB89nnRai57BRaYqKFMKH5yg6WTOlD4m0+d9hvbS+yqqmem+bj8sAxf13Tv
-	+9ucXdTunvEGKEUCeJA8zuyKs9FAHWWj8Jn05nX7E4Cg3UTDrwfqO+mkDK3bgvlEppOsE5eLzJ+
-	mYxoZs+tjR8icbHDL2Qw+wuG7gRnQIwmoBmj345xkx8yujxvujv/tTv2z6heW6i03d2SITU8Qau
-	GqHL2R6Qbjrcu7kKM7+MN59209EQYGVrD9dTexqd1CUj4hkGoHc7L7Agua8JwdU28O+og1JKbCW
-	/OyJTxil8gmKj4YVhetna2pYc7FRdQqnSnkNC6kI9tLxsLKg88i6oXzisquBaXrY9WoqQ/0coa4
-	MFP01zhP67X36LoSq6/4KT8x9r8ZchbKRpWAYj7Rg==
-X-Received: by 2002:a17:902:ce92:b0:2c0:db23:4a4 with SMTP id d9443c01a7336-2c1e85d210amr175246605ad.36.1780933979031;
-        Mon, 08 Jun 2026 08:52:59 -0700 (PDT)
-Received: from LAPTOP-M4N25KQ5.tail73068d.ts.net (1-160-247-151.dynamic-ip.hinet.net. [1.160.247.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c1664ad138sm192371645ad.82.2026.06.08.08.52.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jun 2026 08:52:58 -0700 (PDT)
-From: Sean Chang <seanwascoding@gmail.com>
-To: Anup Patel <anup@brainfault.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
+	Wed, 06 May 2026 17:52:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hbaKmjjxL2Nx2ZyVRh+eFooQcVrjl1YnlejYDQkO8n2lGXAZqBoZMSK2FrwltK1SMhphJu044nkx056V3EGacvP5XttKdrborE4TgaiqLuMaSCUqRfYEHXzZbzzCILBVMcQdGMUgSZW1NlKWkMPX6ocQfy+4W8gX6jibZyoiJomQaecJkjVC28jHfivKzZ+VEx/Sm4BB86u1wJoptd024Q7bIKpia14orp2eJWl7BDdTjQni95f5QD9eHtxqNjs45/uI2dQi6I/vEfmIvmTZffYRw1hS61l6tFExaPHBbbdRORZqLGt2S77p9DBA5taBu8ken6RO1l94qu5nSZACZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tuRQmN/PCDSHowsH7tJWtXQHKYITGQz/qjfhBk8DGVQ=;
+ b=mtOr9wn5awNlwjgj0y2EhXN6Wc1Jo1oJaUZXi3QDhlN3nX3DiNsS/rgvOhVeWvaS1ErEQwXGkmWPmhETslox0MU0ZxuR+LwALE/567DGaz5wRP01YTnLLyXX/iO2QJnfff+ejVHpqJJHtFfsczIi/K6nt3F3C6OmyMvHWn+sknwns7nc4mgMPyH07ch6IXyU+R0kuSLEl+WPpypgYOulvKut8mIV+oqRG88OfS0GhnrLpmNfTiiFDPMseQUxIOR/UpyWvOPE+PaF8iJ3/oDzBP8JXbRRQLTO4Y0acGim1HH4JWp4+A9PzjITBx59tX9FXJWa+sCOZJyn7N9I/oHfPA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tuRQmN/PCDSHowsH7tJWtXQHKYITGQz/qjfhBk8DGVQ=;
+ b=VLVPTcmwM2lvgdGRdjpB75W4yb6VFiHPe693G3HTZvU33UNC/fKZ+BiuY7107swpE/MXDEXBfgJo0TQrxhtH7Rh5AFVhAuH9YVFb0Vqcq8p6RObj1lpRA1+SFZSvZxsXcagLI4fXwqzK/QoA6bXwOnBuMCqML6o4yuby0NBphdxpL6XaPE0IS+b7fnebkusU7TO1T1E6ci6HLYSjykwDLtpCRYQQDmZA4aD0ne4mxdtSy5CHroFz8zngnK8ka7S1OXLHmbvH4NRpEmC+1SW4HCy9+REBW+L3EE2Xi3VZFUl/JGMw8ntJpYsiO9rmo/ywXmYFghyKbe9NqvAxnfq90A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com (2603:10b6:930:7d::16)
+ by CH3PR12MB8188.namprd12.prod.outlook.com (2603:10b6:610:120::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
+ 2026 17:52:10 +0000
+Received: from CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de]) by CY8PR12MB8300.namprd12.prod.outlook.com
+ ([fe80::ce75:8187:3ac3:c5de%3]) with mapi id 15.20.9870.023; Wed, 6 May 2026
+ 17:52:10 +0000
+From: Yury Norov <ynorov@nvidia.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
 	linux-kernel@vger.kernel.org,
-	Sean Chang <seanwascoding@gmail.com>
-Subject: [PATCH v1] riscv: kvm: Use endian-specific __lelong for NACL shared memory
-Date: Mon,  8 Jun 2026 23:52:52 +0800
-Message-ID: <20260608155252.4292-1-seanwascoding@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org
+Cc: Yury Norov <ynorov@nvidia.com>
+Subject: 
+Date: Wed,  6 May 2026 13:52:01 -0400
+Message-ID: <20260506175207.110893-1-ynorov@nvidia.com>
+X-Mailer: git-send-email 2.51.0
+X-ClientProxiedBy: BY1P220CA0008.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:59d::16) To CY8PR12MB8300.namprd12.prod.outlook.com
+ (2603:10b6:930:7d::16)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB8300:EE_|CH3PR12MB8188:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8875d670-0733-45c4-dbe1-08deab98325b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|10070799003|7416014|376014|1800799024|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: QT1t1sh4SlZEQdFqHI7CDJoE8IsG7mYLK35S8u7/GeuA9kuxLS8jRuNgXY71a2u5vJV5E3EH6mTK3Rt2dHnjJnFZFGOdOrkRppGpkGS6V9N1ensePQPU+pTAaG2ZUP9YGDmh5jRLEgpI2yLTEBDakxaKRJmAmXTgwiYpmdAIUhdv1zPzshk7FvkGp+8DXSSSFdNUoaX8He0W3PFp1Ca8Os6R4IzwFmNzdbzcoAxWHeNmfcJoUgxkC8nUlm9JTltIBRfLdPbiRBweqAemC/4Xh6VImeTdI9BVZ3RLXoUVmLcdZvEpwoKVT5GGoaRJ77d9zhJGMBdl2tuL8zSiwvb583E4R/AayRu7z0q1Buelsl3TcuoDVrZ1/VQK1qvXyVr2bbWdUa2qBozMhkU1RMRSB7eBojlFX9a7MLc4d3DlGqaOKyRLARSZpXhy60WORYP5YI8dgx607DNB0XdZ72uvCZqJ1FBYL8YfhJc0xdvxVRAv5FXDZyxEuDGf1mDt2onD4fkI8H7r/CSBmoGog9/LSkCIFj/kmF5+Ept9WG/I/gnk54CkTjSnT8S2/mz/ZoAfWqoTREHZjqY90G9FNnoeVGwXYEtclhcIABwgUGwiM4HfJJiScGaw7vsAVbYk1S+PziLS+wdTlbWocDLnLlRkP404yi8tXcNnsDQgi12W3kwcYWS5Bg+m7gor0IKUpmICAQKgLKJ02BD+B70CgdZxvLs9i24iQdEtjEEFrFVXlcRvJ0Nj0zUwsVYlfu0Jm4GT
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB8300.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(7416014)(376014)(1800799024)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ac62m93fVkGgHouyrIymZYwTFyoJaD9IyuBHDH2hL2XXTji736VSzNQAVzII?=
+ =?us-ascii?Q?RSYmDBwH4KiCyT7ni1TuJPnGlkVMX5oszhkIWIwU/fpvSNfigfrjk7RZKuMz?=
+ =?us-ascii?Q?/TJmChmq34KFgx053QHd1jebhm8ivsW/fsBlHSfOww5RW0k+1rjOY8jtNIOM?=
+ =?us-ascii?Q?EFq5vAIpBhvRIPM2Oe4EtjB5ObBaxeai7Lz/tLzDHY0EkGT4cQGZrobWn7pb?=
+ =?us-ascii?Q?vC8b9Rhixr5s6+juNXNVzT+fE2nLLrUg2S1dWjentsfhfxA4M4eot02aVaGM?=
+ =?us-ascii?Q?3Xm3lFLOeFht6f8ENx7Ln5V2NfErnT3qwLiGaWHThtC9JcWnjRyk4VTYZOTc?=
+ =?us-ascii?Q?ZilRCAv2X2LjwAld4mhPGMPNCAHL5zF/5GoCDbZeFMkgy38V+b1e9yTHgsGA?=
+ =?us-ascii?Q?hJcDx0I1aDz17mfeec0SA8TwlEhiHANr8aAtm1DDoMiBZC3Raih6E4MdyUZG?=
+ =?us-ascii?Q?hu8yr6R9IpS45G7S2psh7Xtuxrs4VP0kf8u1TqN0VAiP0nWdUUCHFdjkOXl8?=
+ =?us-ascii?Q?N0d8SCN2m0syMzb2iF+0Lx2C7KbrU5EAHSjcXsswXIZS/Z/zoDxZYawZ4pPy?=
+ =?us-ascii?Q?iz674Nxk/8iFkCO285p/tN6CF2U9zDRDqXHdjyOfyJTOHXllPyG2v6LZDM3O?=
+ =?us-ascii?Q?5Bem1LBNuZv/tpEqDitrrNwH/0pWfl3aILDMDriqib5UMjeM9TNiiND4V+Cy?=
+ =?us-ascii?Q?nMNovQyv3iyUPtlj4S4knipWiRcVTXDaVj7TK9stJ3vjvNFWSkET6cydDdqP?=
+ =?us-ascii?Q?WP7U9aZt1hSQffSIQhywt49Lhp2HVZU4474I/RsNhK+ZSCI/E85Lkz2hf9y5?=
+ =?us-ascii?Q?1fehYROsWuNDfwH3IF3y0s3c3DAH0dUEVGt/vGKuhQpdHNu4DYMQI0HCok+S?=
+ =?us-ascii?Q?xCHtupT8QPB/byNnRaeO7f1EauEkNLXXn+2FwbaW1vdOeftMma6Fw0tWpU4d?=
+ =?us-ascii?Q?k8Y/G4LyZTGifiAJvBh7NAFymcTtdFCv5ykfWQi6nEccRFLNYrYIEGksX/sq?=
+ =?us-ascii?Q?UjhyTvAnyGV26vYcHdYIxrFrvXQ7sHueh/KkjaUUpF8Tov1u0/vo2MufYf1+?=
+ =?us-ascii?Q?fxYAIaq3HriVsqgLF9bf6vq18WE0NpDPovgVUwFRJ+bt+z6Lil6LxtzlTsMH?=
+ =?us-ascii?Q?5sNVXl/9AVVIJtQHz454bAMTrm9QDi/9sJlHfkzjbBg6d8xX4jBWaqUXCq6H?=
+ =?us-ascii?Q?U6NZcy65tzysg17XG664M7GRlzeFQVXmeZPK4vWKisaQbItRr5xIElEEU51s?=
+ =?us-ascii?Q?3uVkoj28kA+C03G5saeW1P0029oG290vnC1b2XIRcZuS7f+b1q6Xtkr/EZBY?=
+ =?us-ascii?Q?MKKrXRdvvrOMxTUgs0OGIBPhGjkvEpQkaxWmUAQmzLycpw9rNQPNbPfgAZ7q?=
+ =?us-ascii?Q?sBDoo4khTS1R1yObROE8HlF2eAtUBb5WtpwgkgaaMlWvm3P8TaEytH2Mk8u8?=
+ =?us-ascii?Q?Xcy+rHgbchIpFKRXX/J6PqaQU4xl8dk8HBr4DzW2lAUhYe8hYypTW6uOY7NW?=
+ =?us-ascii?Q?vq0S5kdCSBcVqT7LxDrhedSUUOy90HEGN94g31Kk6UnLp4pT761vb4vsSJas?=
+ =?us-ascii?Q?1UcTxqbNisJn1ZXM/awwaU1CxXWsiM/1lbQOpjZafqDLwfeZdq6tbHSqXtCD?=
+ =?us-ascii?Q?cxj98dU5JrqRPKuVI1OBDEhrbLKaXl2/CK2frzBq3SZQpGFzyIFxNeeXsi6k?=
+ =?us-ascii?Q?61E+uaLB+TXwsQh4/51yFUMQBVRGNcdgTrd26WzjiF43sEUrhdSesuCNf1cM?=
+ =?us-ascii?Q?MyEwSXb+hy5t+XxhPOh32dnCoJHHNzAACPx5cKpO8YTbjOMYbTl1?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8875d670-0733-45c4-dbe1-08deab98325b
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB8300.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 17:52:10.2815
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2aKwIyHlg69qUGZowFSWp6G94bJc8WkV9Xl+ZDDupzdSywdQjGwt+4lCNl4mGDi8pb/llosLodvGjB6c/du15g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260608_085300_337759_C8664E73 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20260506_105225_531531_CE09AFC2 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,127 +158,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When compiling with sparse enabled (C=2), bitwise type warnings are
-triggered in the RISC-V KVM implementation. This occurs because the
-user-space data unboxing macro '__get_user_asm' performs implicit
-casting on restricted types without forcing the compiler's compliance.
+Subject: [PATCH v2 0/5] lib: rework bitreverse
 
-Additionally, raw 'unsigned long *' pointers are used to access the
-SBI NACL shared memory, whereas the RISC-V SBI specification mandates
-that these structures must follow little-endian byte ordering.
+Cleanup bitreverse-related Kconfig dependency mechanism, and add new
+GENERIC_BITREVERSE option to allow architectures to pick the generic
+implementation as a fallback for the arch one.
 
-Fix these by:
-1. Adding a '__force' cast to '__get_user_asm()' to safely suppress
-   implicit cast warnings during user-space data fetching.
-2. Introducing the '__lelong' type macro, which dynamically resolves to
-   '__le32' or '__le64' depending on XLEN, and replacing 'unsigned long *'
-   with '__lelong *' to enforce proper compile-time endianness checks.
+Make RISCV to pick the generic implementation with the absence of ZBKB.
 
-Signed-off-by: Sean Chang <seanwascoding@gmail.com>
----
- arch/riscv/include/asm/kvm_nacl.h | 14 ++++++++------
- arch/riscv/include/asm/uaccess.h  |  2 +-
- arch/riscv/kvm/nacl.c             |  2 +-
- 3 files changed, 10 insertions(+), 8 deletions(-)
+v1: https://lore.kernel.org/all/20260430211351.658193-1-ynorov@nvidia.com/
+v2:
+ - don't protect headers with the corresponding configs (Arnd, Erik);
+ - make HAVE_ARCH_BITREVERSE conditional on BITREVERSE;
+ - make GENERIC_BITREVERSE tri-state (sashiko);
+ - re-implement GENERIC_BITREVERSE and it's relation to BITREVERSE and
+   HAVE_ARCH_BITREVERSE, thus taking over the authorship;
+ - RISCV: select GENERIC_BITREVERSE and HAVE_ARCH_BITREVERSE depending
+   on BITREVERSE;
 
-diff --git a/arch/riscv/include/asm/kvm_nacl.h b/arch/riscv/include/asm/kvm_nacl.h
-index 4124d5e06a0f..f45407bcaa26 100644
---- a/arch/riscv/include/asm/kvm_nacl.h
-+++ b/arch/riscv/include/asm/kvm_nacl.h
-@@ -60,9 +60,11 @@ int kvm_riscv_nacl_init(void);
- #ifdef CONFIG_32BIT
- #define lelong_to_cpu(__x)	le32_to_cpu(__x)
- #define cpu_to_lelong(__x)	cpu_to_le32(__x)
-+#define __lelong                __le32
- #else
- #define lelong_to_cpu(__x)	le64_to_cpu(__x)
- #define cpu_to_lelong(__x)	cpu_to_le64(__x)
-+#define __lelong                __le64
- #endif
- 
- #define nacl_shmem()							\
-@@ -70,7 +72,7 @@ int kvm_riscv_nacl_init(void);
- 
- #define nacl_scratch_read_long(__shmem, __offset)			\
- ({									\
--	unsigned long *__p = (__shmem) +				\
-+	__lelong *__p = (__shmem) +					\
- 			     SBI_NACL_SHMEM_SCRATCH_OFFSET +		\
- 			     (__offset);				\
- 	lelong_to_cpu(*__p);						\
-@@ -78,7 +80,7 @@ int kvm_riscv_nacl_init(void);
- 
- #define nacl_scratch_write_long(__shmem, __offset, __val)		\
- do {									\
--	unsigned long *__p = (__shmem) +				\
-+	__lelong *__p = (__shmem) +					\
- 			     SBI_NACL_SHMEM_SCRATCH_OFFSET +		\
- 			     (__offset);				\
- 	*__p = cpu_to_lelong(__val);					\
-@@ -87,7 +89,7 @@ do {									\
- #define nacl_scratch_write_longs(__shmem, __offset, __array, __count)	\
- do {									\
- 	unsigned int __i;						\
--	unsigned long *__p = (__shmem) +				\
-+	__lelong *__p = (__shmem) +					\
- 			     SBI_NACL_SHMEM_SCRATCH_OFFSET +		\
- 			     (__offset);				\
- 	for (__i = 0; __i < (__count); __i++)				\
-@@ -168,7 +170,7 @@ __kvm_riscv_nacl_hfence(__shmem,					\
- 
- #define nacl_csr_read(__shmem, __csr)					\
- ({									\
--	unsigned long *__a = (__shmem) + SBI_NACL_SHMEM_CSR_OFFSET;	\
-+	__lelong *__a = (__shmem) + SBI_NACL_SHMEM_CSR_OFFSET;		\
- 	lelong_to_cpu(__a[SBI_NACL_SHMEM_CSR_INDEX(__csr)]);		\
- })
- 
-@@ -176,7 +178,7 @@ __kvm_riscv_nacl_hfence(__shmem,					\
- do {									\
- 	void *__s = (__shmem);						\
- 	unsigned int __i = SBI_NACL_SHMEM_CSR_INDEX(__csr);		\
--	unsigned long *__a = (__s) + SBI_NACL_SHMEM_CSR_OFFSET;		\
-+	__lelong *__a = (__s) + SBI_NACL_SHMEM_CSR_OFFSET;		\
- 	u8 *__b = (__s) + SBI_NACL_SHMEM_DBITMAP_OFFSET;		\
- 	__a[__i] = cpu_to_lelong(__val);				\
- 	__b[__i >> 3] |= 1U << (__i & 0x7);				\
-@@ -186,7 +188,7 @@ do {									\
- ({									\
- 	void *__s = (__shmem);						\
- 	unsigned int __i = SBI_NACL_SHMEM_CSR_INDEX(__csr);		\
--	unsigned long *__a = (__s) + SBI_NACL_SHMEM_CSR_OFFSET;		\
-+	__lelong *__a = (__s) + SBI_NACL_SHMEM_CSR_OFFSET;		\
- 	u8 *__b = (__s) + SBI_NACL_SHMEM_DBITMAP_OFFSET;		\
- 	unsigned long __r = lelong_to_cpu(__a[__i]);			\
- 	__a[__i] = cpu_to_lelong(__val);				\
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 11c9886c3b70..5d4ec15584cf 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -112,7 +112,7 @@ do {								\
- 		_ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)		\
- 		: "=&r" (__tmp)					\
- 		: "m" (*(ptr)) : : label);			\
--	(x) = (__typeof__(x))(unsigned long)__tmp;		\
-+	(x) = (__force __typeof__(x))(unsigned long)__tmp;	\
- } while (0)
- #else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
- #define __get_user_asm(insn, x, ptr, label)			\
-diff --git a/arch/riscv/kvm/nacl.c b/arch/riscv/kvm/nacl.c
-index 08a95ad9ada2..6f9f8963e9dd 100644
---- a/arch/riscv/kvm/nacl.c
-+++ b/arch/riscv/kvm/nacl.c
-@@ -20,7 +20,7 @@ void __kvm_riscv_nacl_hfence(void *shmem,
- 			     unsigned long page_count)
- {
- 	int i, ent = -1, try_count = 5;
--	unsigned long *entp;
-+	__lelong *entp;
- 
- again:
- 	for (i = 0; i < SBI_NACL_SHMEM_HFENCE_ENTRY_MAX; i++) {
+Jinjie Ruan (2):
+  bitops: Define generic___bitrev8/16/32 for reuse
+  arch/riscv: Add bitrev.h file to support rev8 and brev8
+
+Yury Norov (3):
+  arch: select HAVE_ARCH_BITREVERSE conditionally on BITREVERSE
+  lib/bitrev: Introduce GENERIC_BITREVERSE
+  MAINTAINERS: BITOPS: include bitrev.[ch]
+
+ MAINTAINERS                           |  2 ++
+ arch/arm/Kconfig                      |  2 +-
+ arch/arm64/Kconfig                    |  2 +-
+ arch/loongarch/Kconfig                |  2 +-
+ arch/mips/Kconfig                     |  2 +-
+ arch/riscv/Kconfig                    |  2 ++
+ arch/riscv/include/asm/bitrev.h       | 51 +++++++++++++++++++++++++++
+ include/asm-generic/bitops/__bitrev.h | 23 ++++++++++++
+ include/linux/bitrev.h                | 20 +++--------
+ lib/Kconfig                           | 13 +++++++
+ lib/Makefile                          |  2 +-
+ lib/bitrev.c                          |  3 --
+ 12 files changed, 100 insertions(+), 24 deletions(-)
+ create mode 100644 arch/riscv/include/asm/bitrev.h
+ create mode 100644 include/asm-generic/bitops/__bitrev.h
+
 -- 
-2.43.0
+2.51.0
 
 
 _______________________________________________
