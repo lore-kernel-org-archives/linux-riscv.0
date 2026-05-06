@@ -4,55 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7765CD3424
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 08:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF13CD342C
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 09:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oy+NdXCO8cTBIaqEXRNP2YgotFrHVMryMcMtQHCMfws=; b=HUFVcGaqGgSzZH
-	YOrakCPnx/I7ej1pMk+IfdwatPVAZYSzhtFJPvsNso2ZQ0tM7fQnNNoFPKmwegvTgxUh7V2roBF2H
-	9oTWibknFhcjcu5rDaI2ex/lIrjdgySmF7ThNVQv/SUcyA+HRSsz+gQ3m4XHc4nRm47l1SgKyVPE7
-	aBBukGGpfil+INq0JlJGQhKb1x+2EtififpeuAaS4Gm4/i3EVMSlitkxZiybkVEmbT20YX/GntP6O
-	XkD79x3/o4M/2fmQcpX9Lr8Ov45pVxe5xcpsHxXMZpn2viEH3PicmP0mAeYE20HrNh7Bsf1an8Irz
-	XU2/0X6uHa6XK6lJ6+6Q==;
+	List-Owner; bh=sQWuj6kBVNjO99U26nGz1788wI1Jft9Gb7CU3mF8Lnk=; b=HcIpbGvsDur1aD
+	dKuJyCyZ1AQcZ0t7k/T/NL7uroAIJ1BT50YBkpWqvimGb37PPEMsdfOyvSvdkXtAuzpIxHnzQjxsN
+	eXq5aw6ELsEkiaHEjE2fmELqzuve4oJZf5pcgT9cN68a2AZtE5BnCn8sRwF/BrvOY8wokvhVBDJ09
+	7GxrIvTVDuYQtvnEVFVnZjz7HUnqZkasjlvQe4HeThG/YiPr3Q+IQ3bf7yFSGD3R3bMMX16wOSXls
+	6yiu/c86tUqXHjlga1DzlbDBz210PHFLpO+nn5cYHoq7mARWwbSLUT4kIuu6z4Dj0eaQzdGp3avyR
+	mEmqVR6KbhYsyXX9Avag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXvg-00000000Dct-3bjz;
-	Wed, 06 May 2026 08:48:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKYJl-00000000JRV-1Qzu;
+	Wed, 06 May 2026 09:13:21 +0000
+Received: from mail-westusazon11012001.outbound.protection.outlook.com ([52.101.43.1] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXvf-00000000Dba-1hgK;
-	Wed, 06 May 2026 08:48:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D894860132;
-	Wed,  6 May 2026 08:48:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2A17C2BCC4;
-	Wed,  6 May 2026 08:48:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778057306;
-	bh=IUO5lXUDkT4nvUBviJejZvM9e4p1qGcE/fMZ5yRqht4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oyYTCfoLxt9bBadi2EzSMoURTPGCD/lKkFKebSQF7LnOtBPR7VpN5fo8iYNGExYVa
-	 pzOx4fSjkWAUmltCJw7h9vFz4ijQnMvAm1HfN1G3MPdgeGBbcpUuo3/7au0nR0YPik
-	 QP0PIXAdZ0urf5mL1ZHZpMfa3ImOrTwCrDGS6rGzzuXKml0O331yQiC2f/f/zdkqUb
-	 icnkpvTei2+s4rP+rPmBhJDOyhpeHek2fYHa5d41MUUvOCZVLneiy8qWgxAQTW/q3p
-	 aDLeYpf2toLXyU3+GN4x4R8CHJovyT4t6/+1ytZyodVy0KkHqIds6KcxOgk8aI6cBi
-	 YCO2FlL2Ct/SA==
-Date: Wed, 6 May 2026 10:48:20 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>
-Subject: Re: [PATCH 2/2] irqchip/gic-v5: Add IWB to ACPI probe dependency
- control
-Message-ID: <afsAVO+vTQp2r/EI@lpieralisi>
-References: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org>
- <20260505-gic-v5-acpi-iwb-probe-deferral-v1-2-b37b85998362@kernel.org>
- <875x51y6gi.ffs@tglx>
-MIME-Version: 1.0
+	id 1wKYJj-00000000JQP-0hpy
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 May 2026 09:13:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i4eTt0Osfb+HDbc/hZ/8jPX3aHiaDJGbziioqhUH1PTv26d4nHzltRrsIL4EZGDW7mHhHrh0Y8sPmi3Wk+Tagtyhhk9X+bbFX3cxYcJHP0MK9iUh0F/LxyuHBD2iTqGMwE/5b86e+aLFtw9+1OcuSk5D5rngMyD3ZrdYJPPDv3+2SikD496PvAJtRFMZO9YOv+OCeqWM/ayLO67iCy29THDTVlOwVr59m1gWPa4NgpXQgKZYXu1fL0gSHE2RsotEeE3UVBn4Ow5ABtn5IuN84clsSUS2/1PvDeUT4Ee/1ZS/3f4jhzF5HZE/IIc+xZ3bsJZxN/YGc+Nq8i6YPFxV1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iGrYu4B/sa4l/Atbq1ML/D2tEBQ2bfXmPau6/r4eYI4=;
+ b=OkhTKC1+0q0qSMLUhVHYeDT81Ij2eOVsUFkB3YabtMxhAILrL0o/Ocn/3+DDunpqh2PzmHtYSrgUHpUznDYFQBy4db/qt1IIbXA84WzdVdhyVVKIt5xpc0aDcK9R9JGiXNHbHXAh0zhXIVbOTX6se1R4FLIshg/qukJwPVaVIMVNd4rZD5k4nfzkeCykJ5nCvyTA0OG++ATFO+s7NukurPJM+ZRdA4oIfR68mo7NgtQIQ6hDRqLJr5+79GoDdVxfVO3XzanIK8P0RFLcSxfrYlH+DdsFIIyAQAnsovEFOFWqsnVd7G8N7Kv88RfLNZ2rZX8j8WzSCcH4aI4D3eKH2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iGrYu4B/sa4l/Atbq1ML/D2tEBQ2bfXmPau6/r4eYI4=;
+ b=BhuPzNlQzp9LQbx/TVVN+WLpoo4H3oKgVQXVm0wAkrCXsbssoQurGRyd8WjnQ1leNqk7i+GkURZMGER8nZ6gdllA1bLeAqBHZW90dTN+yn03AWGrlFhz68HZHlBiPNkiAKVqS5r5ad8PU3DSuywXKZJfBSEEM41amTbUzqrpHxsDm9YNlp68tNRMhgHDLmQg1c/SlMUkaefj/P5Gvdhebf+v1SBDnqyw6ox24pcmZoD5Nnby+3DLJHfxXS7OapDqS5GcoTAly50kYiMkyP2vYcl3nZMkV0tR64y3p8uMgzOh4kyUEt/AxgUX5jkNx/cTQ3Ql3wUSkJqq5LsHZJC40g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DM6PR12MB4075.namprd12.prod.outlook.com (2603:10b6:5:21d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
+ 2026 09:13:09 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9891.008; Wed, 6 May 2026
+ 09:13:09 +0000
+Date: Wed, 6 May 2026 06:13:06 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Will Deacon <will@kernel.org>,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>, patches@lists.linux.dev
+Subject: Re: [PATCH 7/7] iommu/riscv: Add NAPOT range invalidation support
+Message-ID: <afsGItRkLibstQpa@nvidia.com>
+References: <0-v1-54e7264d71b4+17cc3-iommu_riscv_inv_jgg@nvidia.com>
+ <7-v1-54e7264d71b4+17cc3-iommu_riscv_inv_jgg@nvidia.com>
+ <oe75yk2fx2c7wg73xrikppw2gxxe2e6bsvkktowbo64ftldy7p@53gjjzhu6cy5>
 Content-Disposition: inline
-In-Reply-To: <875x51y6gi.ffs@tglx>
+In-Reply-To: <oe75yk2fx2c7wg73xrikppw2gxxe2e6bsvkktowbo64ftldy7p@53gjjzhu6cy5>
+X-ClientProxiedBy: ZR0P278CA0091.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:23::6) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM6PR12MB4075:EE_
+X-MS-Office365-Filtering-Correlation-Id: 520a4334-c55f-4089-e4e2-08deab4fb0f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: p14PSjAZHzeaHfPMU5vI3H3h+i1aK996F3UA3t+sWxxVlvhG5Si4x1FmFdhDCRI3aYmLXY03RZdvoRrud5qUOD5B76lD0G+/beYk8XJ2HqCLV3BPUFtd5vIF6WbsHUSEnqsKahZWtdfRcuvbZPheCJNi80LwUiSJg94M7QMMEwLb8TKb5/qUZY+8MoppuzQKJ5xjFJuRJ3QX4DSsJSc9aQSMxhfON8XGljuGdSXUuXxWCM2csmwjfz6WCQp6eCHIbHm7qQvhbGDEoGHasOcCILhX9rejo0mF99xIIrRTkucCO5ypqpt/RnGNzUrgCGb3GfzjRFwAWa/vE86AegMb09/dENey5RRFxzEKEXU9yfUMGQNTv1ZGarZmpiYGGjUlZA+/aAFUEAabBmqPL9kcrsjj1ebKn0XftcwuYq8aeaJGS4rR09DeM9Lr2wg/XYhgzq5/ggf2+rXIu6fcaXqzWfDn9HKxLXsYDsMg8CNPMnFRaZNPU+8lwiWlNq9tKUWiuwip/o4YPV71Not/oF8jle2ZX7mvC33vjvr8GXvNaGBMdRzMKSpDxRveiXyqy4LFIBZMtzj5SriRUyhtvttW+BVoFIKFZ4Vd//i/hHbQ90nRgM/nDSBVBMpwjLsmKhuAMHL5P98MUruwuDckYege/bNNGGQVwHxMSMJNuE5sW/2kIfcxvJS90uLSJTHKf5Oq
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?evbnhrAi4gh5CRKXZxg3UsJoBq+ruH+/QGVsOdMF6hdQmE9QCw/ZhHQ3P7VR?=
+ =?us-ascii?Q?PCKRgkbQk9gQhUUY+D6slS1XCvS7JF0P5XFNL02vTsm3pRXGSUxqHKRVaxwd?=
+ =?us-ascii?Q?+6OocDGXclXptXZSqGKzmKEqvaL7bfnKehT6dH4IfOw6t64A3kZ/23AqeS5d?=
+ =?us-ascii?Q?X7dGiUdUZ4dThSEBDjqBGEUeR2KjoMBfM9/pGntTVXUtYuqiVcHXUqx9pFMA?=
+ =?us-ascii?Q?pYPcZf+Zf+Tg6guCuZV8XCnjh4NnyeUoMDYGwNRahl8hxEEYQXgPnoWDAO5+?=
+ =?us-ascii?Q?yw15GsQUpt7pf5Ncha2XekgiT2hz4izbMoMLvY+IFPLnNh7UHxqf7aIZCfR4?=
+ =?us-ascii?Q?TqcjU2thrLqkZXq+I/KJ3eMtW7JNunTFM6AXn33I5caDWeaSi0l+cR0aiceR?=
+ =?us-ascii?Q?JuhoT6qMt7NYdLnpWJUbmHd0lZhnYYp5YEjM0EtMczGGzBcUBfpDLz6O6YDb?=
+ =?us-ascii?Q?jcF6PgYC/gqn1lBGLSGLM0RB1Kfq1i3s1dAvKyI+a2/PTsWffgvlOGJ1rLgc?=
+ =?us-ascii?Q?m7hKdexTCXd0ZRwRzg/4j+JD9wqm9KzuAiqYcV+9R3qQ3rqZ0Yd3klzloOu9?=
+ =?us-ascii?Q?1tubxuKQ7YtAyRrmXjUPGI8jBOa4FYMacJkPsVrZ56YdElegfV8T/PRmYoyM?=
+ =?us-ascii?Q?VMt+N2Q/dz45hCtwpX8BqlixvBPShrz9fTJMcSmVsPUHAzqWTmQsYHFb6rGA?=
+ =?us-ascii?Q?PisreEgK9sVr5jIM2fInwKlXLOtETZyn9W6Z9u9EUwpEqcyYkQTsuypqA2Tl?=
+ =?us-ascii?Q?QihkGxMG30cuxt4cqfy805z6O90jlXcamgK6DDZ/Zkq6LjhAO9n1m/9Ym00d?=
+ =?us-ascii?Q?6aUFBp05j5xYh+FzvYoyGKW4y/iaX/QlGQaqdGDcc45zPZ5yQoU0uClzDbxP?=
+ =?us-ascii?Q?TkJZdcL1OZII+3qEirhVWvMSAix5k614nJ/dAb3dtrqOFVJQ/3c7o1oGSR/v?=
+ =?us-ascii?Q?iZMDsMaugcuUq8mOWTSk+W1sY/Aj920Iltg12ri8+pWrUD4g2aL1K8i6QZ//?=
+ =?us-ascii?Q?d833EgAtV9HRpk1R/UYLgwPCbuXXM3W3JPnrKSVlRpo/64SBTPEfbzvbYg4r?=
+ =?us-ascii?Q?m9hMwDOCjFaeV0qs/KeswyjUXUyKnNKyzzy79TIR8vV17XAEYW9Ddx9/CiY0?=
+ =?us-ascii?Q?28HEADR5gGkRiBiSiCMLqoaIKMpepYd8pmeEh4aR9/5WIRxcgb0oogFcZVM+?=
+ =?us-ascii?Q?vBjmi4PpJrXvxf1aWSMDJMVlNx6lr69GM+rNMH4Rjw1/KEPYVys4FB6xEso1?=
+ =?us-ascii?Q?JilWtdaxDt7FdTohGiJS/GU7wiGyARwyACC9EWIgNLXhs2dZ/owTAqVJbBV1?=
+ =?us-ascii?Q?tM940EhNnIJ23oTtT+ggDEtNV94eOxO6wuSnr/zcMIC86+4zisJ+p5EI3HUa?=
+ =?us-ascii?Q?FVwYO2RaYoYqUzi+HnfIlNddRSJeDFwSNXPeVyTOd5qPX7Z5NttSdyQaHPvy?=
+ =?us-ascii?Q?UmYc+qiCiEoFbtye22ulqqIuYyPBdIIw1TsUVVW2M0cPc6bDK/ilGHOOIq0f?=
+ =?us-ascii?Q?b+UuYi63M2QxfmoSkQIPS1RXaIMeSM9zXxDTXs4/jLTJDK/qsmnMHEOqYzRl?=
+ =?us-ascii?Q?2iX0eYQXK7VaSOnaUI68jB8bTzyc/4i3QUDNtcmZhCZLmj4K24WJv2K7GmK6?=
+ =?us-ascii?Q?dydgBtDmPEMaN58iA9VDCnd49lT3j4+JEtq4gGXSBGFFtJwBqaS9XxzwiXeq?=
+ =?us-ascii?Q?2WizrRA84icdBevsC/q4OQgYBuBLq0zqmVSB2rc/vJpx1t6p?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 520a4334-c55f-4089-e4e2-08deab4fb0f0
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 09:13:09.4657
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sUZM/guim4oSDPOHTF2fLHgpGEobWhFpNhlhC+yduz87FPtjTkrmN7XSN1Wy9Bb/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4075
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260506_021319_207724_CC6D2FF0 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,39 +138,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, linux-kernel@vger.kernel.org, Sudeep Holla <sudeep.holla@kernel.org>, linux-acpi@vger.kernel.org, loongarch@lists.linux.dev, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 09:58:05PM +0200, Thomas Gleixner wrote:
-> On Tue, May 05 2026 at 10:48, Lorenzo Pieralisi wrote:
-> > On Arm GICv5 systems, wired IRQs routed to an IWB may require resolving
+On Tue, May 05, 2026 at 05:47:10PM -0500, Andrew Jones wrote:
+> On Fri, Apr 10, 2026 at 12:57:08PM -0300, Jason Gunthorpe wrote:
+> > Use the RISC-V IOMMU Address Range Invalidation extension
+> > (capabilities.S, spec section 9.3) to invalidate an IOVA range with
+> > a single IOTINVAL.VMA command using NAPOT-encoded addressing.
+> > 
+> > One iommu_iotlb_gather maps to one NAPOT invalidation command. The
+> > smallest power-of-two aligned range covering the gather is used since
+> > over-invalidation is always safe.
+> > 
+> > S and NL seem to be orthogonal in the spec, so if NL is not
+> > supported then global invalidation is probably always going to happen
+> > as wiping a large range without a table change is not common.
+> > 
+> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> > ---
+> >  drivers/iommu/riscv/iommu-bits.h | 17 +++++++++++++
+> >  drivers/iommu/riscv/iommu.c      | 43 +++++++++++++++++++++++++++-----
+> >  2 files changed, 54 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
+> > index f01b49ac815586..32b3ad3ac9ae59 100644
+> > --- a/drivers/iommu/riscv/iommu-bits.h
+> > +++ b/drivers/iommu/riscv/iommu-bits.h
+> > @@ -64,6 +64,7 @@
+> >  #define RISCV_IOMMU_CAPABILITIES_PD17		BIT_ULL(39)
+> >  #define RISCV_IOMMU_CAPABILITIES_PD20		BIT_ULL(40)
+> >  #define RISCV_IOMMU_CAPABILITIES_NL		BIT_ULL(42)
+> > +#define RISCV_IOMMU_CAPABILITIES_S		BIT_ULL(43)
+> >  
+> >  /**
+> >   * enum riscv_iommu_igs_settings - Interrupt Generation Support Settings
+> > @@ -475,6 +476,7 @@ struct riscv_iommu_command {
+> >  #define RISCV_IOMMU_CMD_IOTINVAL_GV		BIT_ULL(33)
+> >  #define RISCV_IOMMU_CMD_IOTINVAL_GSCID		GENMASK_ULL(59, 44)
+> >  #define RISCV_IOMMU_CMD_IOTINVAL_NL		BIT_ULL(34)
+> > +#define RISCV_IOMMU_CMD_IOTINVAL_S		BIT_ULL(9)
 > 
-> S/IRQs/interrupts/g
+> We should add a comment here that this is actually bit 73, i.e.
 > 
-> Changelogs are prose and not an acronym dump ground.
+> #define RISCV_IOMMU_CMD_IOTINVAL_S           BIT_ULL(9)	/* bit 73 (dword1 bit 9) */
 > 
-> >  drivers/acpi/arm64/iort.c        | 22 +++++++++++++++++++---
-> >  drivers/acpi/scan.c              |  1 +
-> >  drivers/irqchip/irq-gic-v5-iwb.c |  5 +++++
-> >  drivers/irqchip/irq-gic-v5.c     | 13 +++++++++++--
-> >  include/linux/acpi_iort.h        |  3 ++-
-> 
-> I'm confused about the conglomerate of files affected by an irqchip
-> change...
+> because...
 
-True, I can split the ACPI changes into a separate patch though on its
-own it would not be that useful because the resulting code would have
-no user - I will do what you and Rafael prefer.
+!! That's a big mistake, the common thing in other drivers is
+something like CMD0 CMD1 to designate the word.
+
+> > +static inline void riscv_iommu_cmd_inval_set_napot(
+> > +	struct riscv_iommu_command *cmd, u64 addr, unsigned int sz_lg2)
+> > +{
+> > +	u64 pfn = addr >> 12;
+> > +
+> > +	pfn |= BIT_U64(sz_lg2 - 13) - 1;
+> > +	cmd->dword1 = FIELD_PREP(RISCV_IOMMU_CMD_IOTINVAL_ADDR, pfn);
+> > +	cmd->dword0 |= RISCV_IOMMU_CMD_IOTINVAL_AV | RISCV_IOMMU_CMD_IOTINVAL_S;
+> 
+> ...here we're setting the wrong dword. This should be
+> 
+> 	cmd->dword1 = FIELD_PREP(RISCV_IOMMU_CMD_IOTINVAL_ADDR, pfn) |
+> 		      RISCV_IOMMU_CMD_IOTINVAL_S;
+> 	cmd->dword0 |= RISCV_IOMMU_CMD_IOTINVAL_AV;
+
+Right, I will fix it up
 
 Thanks,
-Lorenzo
-
-> Thanks,
-> 
->         tglx
+Jason
 
 _______________________________________________
 linux-riscv mailing list
