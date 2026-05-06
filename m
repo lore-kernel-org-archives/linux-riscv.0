@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD57CD342C
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 13:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F6DFF8855
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 13:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1uS6indbA0dV/Rt5BfkIvVZ49lfapzLkgyvIx1EbjHY=; b=XX1OTpIVNc+cHs
-	QZM0JQtZoA1iDkUDYq7Xdtp2lHtv/aXeLe83Gldsi+WpPZdaZY3+i4CTTVnO3VpX5l4mgtib0Eyt9
-	iCPYp60KLWUREZ/jGzY56aSfKrrp4Nk+REFmtY53s0IlSkh3jKnI0wTXFc3vLTws4g/QojfLpwYbS
-	+0wGFmNcYUZqq3U29Mu0+33p3RDA+ocryvcGpG4Z0wPghEtB4bVAT7gMbxbCswT1ISI+icB68NllB
-	zriwgLOZwqowuB1MgZCMDq7l2ck94Y8b9pr7ee/NOBMFD0MbrPZEKi9QXtbWWAmPkzypiRPu8Yfx+
-	mrNbJgFCDty02G+NP97w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hwdZQTcxkskTTB5jNqInuZAbSs6iNRk0WQd5Bk5VBtY=; b=tz4kNYO3CIngxs
+	UVYN63EOkDFuq+h2TsI7trbdb1pZprSTMH9nqeb8mH37uI840RX0kpaazJTFUNqSfL+etwCv6Hre4
+	xZWWAkrcVHh7zOwbPauDY2QsGuvqUEhM6swR430EM/1q5qCxjzjZWboI2ViOfB4cPyZXZaGam+pNq
+	8hvDrQ7IKW1CKEsR9SuNmhI+lvzTE8qKYc4gg4GvQ6SPXRiw3vqfBmYdQeIVBkZ8tGSZhJHBuaELm
+	0JanVdyyZ0suaD3L5FcilK8qRS3vFbzgb35Erk5jnXeBCOeOiuq/5Jgez9TubPP3MtDmE+6BXUQFZ
+	XWEZXKsSN43+Lgp9thmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcCD-00000000sbU-3zOO;
-	Wed, 06 May 2026 13:21:49 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wKcCd-00000000si7-0XfY;
+	Wed, 06 May 2026 13:22:15 +0000
+Received: from smtp-relay-canonical-1.canonical.com ([185.125.188.121])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcCB-00000000saE-2OBw
+	id 1wKcCb-00000000sgg-1BAv
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 May 2026 13:21:47 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4891f625344so10230105e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 May 2026 06:21:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778073706; x=1778678506; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=L7rCjUTJQsAQHnwXFtsx6ks2Ud7GiaEkWHxltyMvS7k=;
-        b=rHP/cQpc5afXG9SCgEDdCRLZ2aapPo0Z8t5wTH2DWa9Fru02vpoIqHTYtB5gImgVKh
-         rha6pZOSnIwDm1A0wVJ0C7g/5xxB1K3snS146cVUcEwjbc73TeU+N6W27bozzlKg52zd
-         9aj6pZgNlCa7v4frKfWEooiqV2xo0KXl08jWj/pKgR3PDGhas3vLphjfabZinrTyqZC4
-         b9WFjo4ywHEx2ydV0HX/n1DZiK4NgWaOy1j/YZp+5WCWbLdDPCwD3M21vsaaWmp9WRhy
-         AcTHvJI7eP4neGo657mWMOfIC2kLVoFOTynV2gtjFzadkb/o49BfI8GrIj5TsiCs80Nc
-         t1dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778073706; x=1778678506;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=L7rCjUTJQsAQHnwXFtsx6ks2Ud7GiaEkWHxltyMvS7k=;
-        b=a1/m6lEw/eq+xZJdMLUD9tjO1Tf0bKMNlDVE3iS+DOgLtW2/XBKpKwXFzzEr7egZJ3
-         fxNbcd8OgzGyFHlC2qpxIGjxPCn0nSwVbW/OsABuK/pm3N+7iwz4PWOeaXy6TD2z8Dil
-         ZYgpsLevh8c8WNAfI+G/hah0IU3fdNWarfEvSddhiWtvA1gK4t//Ut8zuj1J7l7z3mdn
-         j/utewGFG7i1dbUDEHw3ro8NJNwat2+sBJxjEz5QbEI+OgzT5vpbZFn31/QUgvkRKEyN
-         JagfFfwa+Qasr0AreDNF13QRJOdBl4urQl5pDn+BqF1RD8iqMuWL8sV0EaidYYQYD/ku
-         Vq2g==
-X-Forwarded-Encrypted: i=1; AFNElJ9MDRuHIAmDV/BeSYowZZElMlVguuA9YmhXy9eJxgai6ZTveoXqnIdgb94aMukIxpoxXQU6XVxt/qWjwQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvpChSOhPQXPTsQCZbHdfRCAxnl1uHYHuv/eIUA8jUw6KO22j9
-	J7vmnrP4jQSUXUA8jlYVXNkZA3LMT1WSNDw2AWhY+Tyvqw2GIUGZZicE
-X-Gm-Gg: AeBDieseCJvaSxzW7M2E5N0wHhaOqyb0gMDFSjqSz3N4KA7HzOWFmiPIu7kR0gVl/nR
-	PSGvYcfOupjmNZy00lPxQjjmffPSsC24S8VTiO7LGC7VvRL0L5qZ7rKKG2H+SBuSv+T/AMGDcdP
-	HJK6S75ZpGBZutwV1J2WEjwlV/2lN9eiAUwSgLWZUBvJeULZVKP5/bbJ4XHP/Fuq47qlWnVaqhy
-	9ELxpXs6LhNH4OxNguFiRutM+w25dlSG6OYBRyGuL528eRi6+aNXnYlHK9Do+v5PuTDl1XeM3nN
-	BCmM4prbn7eGAZ0L0/KFWBjpL+H6/aYZDYBrz/4zN//fForoThI0Cw72JIRBB/R2YOX/V7icCcq
-	l/0thyORBSA4PKtHXB5F02JoarGohwxhzJ/HyofdZMnRF2doAKD+292gWVtfFtjKv2mFQnbgn3y
-	oLUJxbJByacMR3/2eXyDp7a26V7lICADVICpT3e2aGmaRIar/PJGD4SbRXGc/ddoHJxX7j
-X-Received: by 2002:a05:600c:6612:b0:486:f893:56c6 with SMTP id 5b1f17b1804b1-48e522b71f2mr50112055e9.10.1778073705537;
-        Wed, 06 May 2026 06:21:45 -0700 (PDT)
-Received: from osama ([2a02:908:1b6:8980:89b3:e462:e9ca:df27])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e53895f0asm52221165e9.2.2026.05.06.06.21.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 06:21:45 -0700 (PDT)
-Date: Wed, 6 May 2026 15:21:43 +0200
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] riscv: kvm: return SBI_ERR_FAILURE for PMU shmem OOM
-Message-ID: <aftAZ6U93qCXLcSc@osama>
-References: <20260415220930.287592-1-osama.abdelkader@gmail.com>
+	Wed, 06 May 2026 13:22:13 +0000
+Received: from hwang4-g16.DHCP (unknown [120.238.220.158])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-canonical-1.canonical.com (Postfix) with ESMTPSA id 88F8D3F68E;
+	Wed,  6 May 2026 13:22:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1778073727;
+	bh=RgqPO58n5rIyhlTprUL9feLOIzOcCSi/hFjIypfDGZY=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=JXyfgGOVDaSzm2uhg6aLYbgrsszXItI+LudeFpsGnxbvCE97MS3/hWJ9oZ7XNYwIh
+	 grla55xSQx1rUmPe9zgsJuyBu2ihiN3kIYZ8msdUXhHHIXmifdqAjyqnPypyJ5rPBm
+	 gaMx6xsvurr9K15Ayu3FjGUHaAl+aAMlGny6Eqp0rRlUNu7iGPU7CIW5Oz/p/kuueg
+	 3qNRhegVr6n5RQ4w6dz2NE6Y20jJjKhucCfRidhARe26rCNGd58tfiBWmvbKusG+6S
+	 OV5+RTX7QzsX80shcn15a7MgN4rXAWo0dbI4rvz2BrDjDqrw1Tl1zEHj2rjngpA+sn
+	 UVlyyeX/yV38lBz19oWSkg5uIBDNqUY4+QiO1CWRgWcE9KIujtSN+V1TSmTb7bUnBd
+	 4N3XijF/v1ZHawGh7j/PRM31mN2EO7SARMKrha0X7laB/PmjJisMAgcMCeQz/eND+q
+	 fV3QRpjJGtN80aRwUBlo8SowVjcddaYrCya+JPWbbw1uaoWM6ryDft92jladL5GXdr
+	 eKnmx9oFNC1qlmSg77z492+znoOmF00kmtlZzBMb8mgZzCFeRYhDvuz98rgMmI71Yb
+	 l/4VdP6UzCbfMyDMXOMYcR5leRuy3wWpppgRJGVAqnMqmpRHPSDC6blrn01cQcH/P5
+	 euCej4aqwNrhqXhTdTwwqGeE=
+From: Hui Wang <hui.wang@canonical.com>
+To: linux-riscv@lists.infradead.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: hui.wang@canonical.com
+Subject: [PATCH] riscv: cpufeature: Use pre-defined ISA ext macros to index isa2hwcap
+Date: Wed,  6 May 2026 21:21:52 +0800
+Message-ID: <20260506132152.53239-1-hui.wang@canonical.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260415220930.287592-1-osama.abdelkader@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_062147_615560_E70BF39C 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20260506_062213_722397_4365E6A5 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,53 +80,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 16, 2026 at 12:09:30AM +0200, Osama Abdelkader wrote:
-> kvm_riscv_vcpu_pmu_snapshot_set_shmem() and kvm_riscv_vcpu_pmu_event_info()
-> returned -ENOMEM from the SBI extension handler, which caused 
-> kvm_riscv_vcpu_sbi_ecall() to abort KVM_RUN and surface the error to 
-> userspace instead of completing the ECALL with a negative SBI error in a0.
-> Use SBI_ERR_FAILURE and the normal retdata path, matching other PMU
-> handlers and kvm_sbi_ext_pmu_handler comment.
-> 
-> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
-> ---
->  arch/riscv/kvm/vcpu_pmu.c | 12 ++++++++----
->  1 file changed, 8 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-> index e873430e596b..f36b099f447c 100644
-> --- a/arch/riscv/kvm/vcpu_pmu.c
-> +++ b/arch/riscv/kvm/vcpu_pmu.c
-> @@ -435,8 +435,10 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
->  	}
->  
->  	kvpmu->sdata = kzalloc(snapshot_area_size, GFP_ATOMIC);
-> -	if (!kvpmu->sdata)
-> -		return -ENOMEM;
-> +	if (!kvpmu->sdata) {
-> +		sbiret = SBI_ERR_FAILURE;
-> +		goto out;
-> +	}
->  
->  	/* No need to check writable slot explicitly as kvm_vcpu_write_guest does it internally */
->  	if (kvm_vcpu_write_guest(vcpu, saddr, kvpmu->sdata, snapshot_area_size)) {
-> @@ -480,8 +482,10 @@ int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low
->  	}
->  
->  	einfo = kzalloc(shmem_size, GFP_KERNEL);
-> -	if (!einfo)
-> -		return -ENOMEM;
-> +	if (!einfo) {
-> +		ret = SBI_ERR_FAILURE;
-> +		goto out;
-> +	}
->  
->  	ret = kvm_vcpu_read_guest(vcpu, shmem, einfo, shmem_size);
->  	if (ret) {
-> -- 
-> 2.43.0
-> 
-ping.
+We have pre-defined ISA extension macros, here use those macros to
+replace a magic number for isa2hwcap definition and some array
+indexing for isa2hwcap access.
+
+This doesn't change the original functionality, just improve the code
+maintainability and readability.
+
+Signed-off-by: Hui Wang <hui.wang@canonical.com>
+---
+ arch/riscv/kernel/cpufeature.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 3dc4c0d31550..f46aa5602d74 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -1102,16 +1102,16 @@ early_param("riscv_isa_fallback", riscv_isa_fallback_setup);
+ void __init riscv_fill_hwcap(void)
+ {
+ 	char print_str[NUM_ALPHA_EXTS + 1];
+-	unsigned long isa2hwcap[26] = {0};
++	unsigned long isa2hwcap[RISCV_ISA_EXT_BASE] = {0};
+ 	int i, j;
+ 
+-	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
+-	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
+-	isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
+-	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
+-	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
+-	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
+-	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
++	isa2hwcap[RISCV_ISA_EXT_i] = COMPAT_HWCAP_ISA_I;
++	isa2hwcap[RISCV_ISA_EXT_m] = COMPAT_HWCAP_ISA_M;
++	isa2hwcap[RISCV_ISA_EXT_a] = COMPAT_HWCAP_ISA_A;
++	isa2hwcap[RISCV_ISA_EXT_f] = COMPAT_HWCAP_ISA_F;
++	isa2hwcap[RISCV_ISA_EXT_d] = COMPAT_HWCAP_ISA_D;
++	isa2hwcap[RISCV_ISA_EXT_c] = COMPAT_HWCAP_ISA_C;
++	isa2hwcap[RISCV_ISA_EXT_v] = COMPAT_HWCAP_ISA_V;
+ 
+ 	if (!acpi_disabled) {
+ 		riscv_fill_hwcap_from_isa_string(isa2hwcap);
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
