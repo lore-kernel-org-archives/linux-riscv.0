@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CC29CD342F
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 01:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B06CD3427
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 01:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cnbj2WCQo8dkBuPoDM64t3JSi3MeXFdwo5XWCk6NPoA=; b=R9Tv2qhx05Ua3B
-	8REvmxMq3g/lEoJRVvezg4Sd0ltBJxeH8eof+cNGADTUOKkxq3Fau14KBZ2i1mTd51Kbl57AyWTqc
-	zOjLzs7B1U7XaJFUnSCVKcLD+aG4Gbe9j1HI8JJOWI1uzc8djrxW4sBkPwNR7ZNhFVdd0ymazEq1q
-	kbeqXByQdiRc88fQqHSecEwEzna6GIZid6HTLFZZO1QHrLHih9xrSM7OM6fZsPFR7Z4gCFsNk0BKr
-	xDUI1iKudnZHNPeKaPTiwgviETVn4TV08AHG/jluLHMCELbFJavB1TWVXv1gkeCoU3r0MkvqefW4N
-	UJUTngeZb70Y/ca6jRSg==;
+	List-Owner; bh=3RX6q5Xf++bFNo6Mbp3EMi19GpJTRczOMaW9zDC4u2c=; b=fN59h9UdqHpMDg
+	D3RMl4pOZcXQnAu6+T3vz+FQJ/hR2aTgDCrc/xXjPvn/zV7TJKyp+VhI2Rt15LiN10ArD+6KPcNZT
+	UL5Tu7kjSqQnXCvgYIKu0EJYtt6d+pgV0yZmejaJTfLw1xciq0veUioPs492LZua3wN94cQ9ji29C
+	Ld64W/obdESASEQ40kV40wplDaMqMwPpk7b5exhLCeKb1oHEo5dPtSrHAIopmQIFsklJy/yFQbRcF
+	cpqfVMcB4WSEQg5T6Y34A0OZbr1yvRdUDmgmWVUE0rZH40lrJnQGdOqP18d3xvaeW1RunpI0Gk1DJ
+	+Ls+ttVvZsSRoTGJUvkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKRG5-00000000R8F-0495;
-	Wed, 06 May 2026 01:41:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKRMm-00000000S1e-28ao;
+	Wed, 06 May 2026 01:48:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKRG3-00000000R7g-2eg7
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 May 2026 01:41:03 +0000
+	id 1wKRMj-00000000S0f-2LaB;
+	Wed, 06 May 2026 01:47:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4FBB60123;
-	Wed,  6 May 2026 01:41:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 409D5C2BCB4;
-	Wed,  6 May 2026 01:41:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 07DDC43F40;
+	Wed,  6 May 2026 01:47:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DE19C2BCB4;
+	Wed,  6 May 2026 01:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778031661;
-	bh=hhMyhYQkEibov8dn8mpF2dhq9pE2vOf4P3z3yErV8Bo=;
+	s=k20201202; t=1778032074;
+	bh=dq4n2rXi6bWQ/HXhC18pEK/hPmy2rLxTxVTfaCPfj8o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SbmIvA0CoRDijT5PixCvhBpVGsf6Pe4U9+n6QJfiJ1GfQfJxpMKA9fg7rOuw/7ee4
-	 RhVtgKO4zwQx35Z0rvxTLveNcyBatCa0K7UzyOINYii6rOdpBwHhaS4Zx1w/VkT9Kp
-	 cqDiL/eY4RhGnXKBHNAsrtUq80zHpAhA508Khi7b2lhL3iIVs0UxNtv4mVhAcqtvjQ
-	 xpEQQ4vEuvcxEXQBpoQp9XF6dTaKCvi7oB2PBkKNDkdfJhoyb7oRBDBKgw6zChytNE
-	 btd0bvsL7VmTgd6cSCwpGQ7B7yFJ+/aO4vW+AnBIgpj/EEJ4JuIyP0/iFuEFhjnqEW
-	 AGfeQUsMYrnmg==
-Date: Tue, 5 May 2026 20:40:59 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Takashi Iwai <tiwai@suse.com>,
-	Jinmei Wei <weijinmei@linux.spacemit.com>,
-	Jaroslav Kysela <perex@perex.cz>, Mark Brown <broonie@kernel.org>,
-	spacemit@lists.linux.dev, Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Liam Girdwood <lgirdwood@gmail.com>, linux-sound@vger.kernel.org,
-	Yixun Lan <dlan@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 4/7] ASoC: dt-bindings: add SpacemiT K3 SoC compatible
-Message-ID: <177803165885.276520.14965394611244579892.robh@kernel.org>
-References: <20260429-k3-i2s-v1-0-2fe99db11ecb@linux.spacemit.com>
- <20260429-k3-i2s-v1-4-2fe99db11ecb@linux.spacemit.com>
+	b=YdyS+2DLodBz71jljKCplG4FZBljdfyl2Rw0roX/XQ85aOtU2I7CcqNF2A0kG5A//
+	 NzyKhanO+oBs1GKJZ/+jVaIKfFY1ZBu5EXHaUhFVvqz6fwAGFvkin91L8ubjNXtnh7
+	 o25ZvGb8CQLR9N4h85xEbobLDSeXWT/n1Q6fa988WYtAIuPdBY1VEZwO7nD4RnobgI
+	 hyBa9xCzUrYXv2WXolzNYAFjhR6OgRye3m/99B2127B4m11IA4kwZI6hPk2QBxAwE3
+	 wn65bgWJy/bPSIzurdvUiJVpeFoe6RVWkqcBEpBwZLwzQd1mqa4EEK201gJwibItot
+	 gn/oAoZtWy6wQ==
+Date: Tue, 5 May 2026 20:47:52 -0500
+From: Rob Herring <robh@kernel.org>
+To: Chen Wandun <chenwandun1@gmail.com>
+Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, akpm@linux-foundation.org,
+	bhe@redhat.com, rppt@kernel.org, pasha.tatashin@soleen.com,
+	pratyush@kernel.org, ruirui.yang@linux.dev, corbet@lwn.net,
+	skhan@linuxfoundation.org, catalin.marinas@arm.com, will@kernel.org,
+	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, saravanak@kernel.org,
+	chenwandun@lixiang.com, zhaomeijing@lixiang.com, everyzhao@126.com
+Subject: Re: [PATCH 01/11] of: reserved_mem: fix region count for nodes with
+ multiple reg entries
+Message-ID: <20260506014752.GA280279-robh@kernel.org>
+References: <20260429065831.1510858-1-chenwandun@lixiang.com>
+ <20260429065831.1510858-2-chenwandun@lixiang.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260429-k3-i2s-v1-4-2fe99db11ecb@linux.spacemit.com>
+In-Reply-To: <20260429065831.1510858-2-chenwandun@lixiang.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_184757_624760_6CDD3081 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +81,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 29 Apr 2026 09:38:49 +0800, Troy Mitchell wrote:
-> Add the spacemit,k3-i2s compatible string for the K3 SoC I2S
-> controller. The K3 I2S IP is the same as K1 but requires additional
-> clocks: sysclk_div, common_sysclk, and common_bclk. These common
-> clocks are shared across multiple I2S controllers on K3.
+On Wed, Apr 29, 2026 at 02:58:21PM +0800, Chen Wandun wrote:
+> When a reserved-memory node contains multiple reg entries (e.g.,
+> reg = <base1 size1>, <base2 size2>), the count used for
+> total_reserved_mem_cnt is wrong in two places:
 > 
-> Also add the spacemit,fixed-sample-rate property which constrains
-> the sample rate when multiple I2S controllers share a common bclk.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
->  .../devicetree/bindings/sound/spacemit,k1-i2s.yaml | 31 ++++++++++++++++++++--
->  1 file changed, 29 insertions(+), 2 deletions(-)
-> 
+> 1) __reserved_mem_reserve_reg() returns 0 on success regardless of how
+>    many regions it reserved in memblock. The caller in
+>    fdt_scan_reserved_mem() then increments count by just 1.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Just to make sure, more than 1 worked before the referenced commits? It 
+would be easier to just define we only expect/support 1 entry.
 
+> 
+> 2) fdt_scan_reserved_mem_late() uses of_flat_dt_get_addr_size() which
+>    only reads the first reg entry. Subsequent entries are never
+>    initialized via fdt_init_reserved_mem_node(), so their metadata is
+>    lost.
+> 
+> Fix both issues:
+>  - Make __reserved_mem_reserve_reg() return the actual number of
+>    regions successfully reserved. Update the caller to accumulate
+>    the returned count.
+>  - Rewrite fdt_scan_reserved_mem_late() to use
+>    of_flat_dt_get_addr_size_prop() and iterate all reg entries,
+>    initializing each one via fdt_init_reserved_mem_node().
+> 
+> Fixes: 8a6e02d0c00e ("of: reserved_mem: Restructure how the reserved memory regions are processed")
+> Fixes: 00c9a452a235 ("of: reserved_mem: Add code to dynamically allocate reserved_mem array")
 
 _______________________________________________
 linux-riscv mailing list
