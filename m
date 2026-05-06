@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C71A6CD3439
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 09:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3704CD3436
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 09:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LEgSuBi8Yya8peCSLkPQiVsYI5LrLh0onUgwfu/ymBQ=; b=WICtkB9XVbr9NQ
-	zvk5IePPywbQwzTIjEoMpH+H8MNnKXtH7JjM4RlvWSN/gWj/u85e/uxwl7sbBsQXfiapozq/qRW8r
-	OByf0ZlNk2ap/b7mcW3xp49DyedFziayLoGN6/J0DmL5IOFj4PDQwWPeWnwEJebylpjHdrGNVPgbH
-	BJ4DodZ1QXraf1rbeVHFadlDsyprBfGXjBxpxxJ0dAYE1NS1XQlrDFOQbIHGCKn/NikKsTmwHA1hy
-	O+XiiNAXBmDjs3kagOrQGDnsS+Fg2FSb8BrA+NQPKouFShkeHUYh6MOG/j9XkvkLvXyBEkVmwPDQQ
-	ey3VR3YaojKn2nfFjmoA==;
+	List-Owner; bh=LAPcQpCBUa+NBx+FtO3puP93GiAHG73FURm09UVvx5A=; b=tV+9bjN6pvq3wF
+	wqnFCsMGgIx5oCwVf3dsY00d55UBuYskgO9Q5UBwUj3BesR7n5svKtWlehBnHjqDZDwkx0HRN9XGk
+	3zEeriTRl2AdhzE4ip0JetqkmrYQGUJDCZoONQ5lSR6jZ8Qvs74gzcg5MRREfK2G3VtWUz9zwGkz8
+	Waim+xM2hGo6wSoAvaJLYbgvRRU7ackspT23lr071Pn2qRydcmah0lA6DR5iOjhC95UFcYzrRnKhi
+	9xzXEAK3UaYt1KTz5PtQP7dD8J5cjgy3m1J12nObGLVbjm1ve+frCmwdTKpowz1UmaL6eJylIVvpO
+	sLsq/KJ1dMv0eifkdK4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZ1B-00000000QHw-3i7T;
-	Wed, 06 May 2026 09:58:13 +0000
+	id 1wKZ1F-00000000QKK-0FAR;
+	Wed, 06 May 2026 09:58:17 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZ18-00000000QGL-46vw
+	id 1wKZ1D-00000000QIp-1Sw6
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 May 2026 09:58:11 +0000
+	Wed, 06 May 2026 09:58:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B09B444158;
-	Wed,  6 May 2026 09:58:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC201C2BCC9;
-	Wed,  6 May 2026 09:58:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 18A4343D94;
+	Wed,  6 May 2026 09:58:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33148C2BCB8;
+	Wed,  6 May 2026 09:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778061490;
-	bh=nS+w53mgZDDz5/WHgJtZUFy3p+Gm1mncA2Mp8hJAH74=;
+	s=k20201202; t=1778061495;
+	bh=swaIO29uhHgaslA4Hb1JIgdHX4IRPVdujCyvQCSGJPk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XNXkQku1uHHdKKAtHRjXNdS25Uae4Aqi3pNq5aNNDiyT2Om7uGSnVXCw8dOCAWQKh
-	 bKtCO3LCuYUICNBzWGpN9QXT5o7YJPcFe/eZyh02x03CuhfSEVLNlhPmsGCQAULxTk
-	 7Xa8mbzQjPaAXrDIeq5A8hGur2yo+iDkeBzIvuR/3U+50vJ/ywNyfr4YfFznDmIDEq
-	 Up3hQJpqxC8Jn1WWogcn5xF2FTI9kEnOT762Z2PUEOghRsbpW3DE7IhTGKAQLurCYb
-	 zb233IsLBDidkAwMIQ6YZILbIS/5bOjpS3ZVYZ7g94WoNN3geDR/WHRCm7S5oevW0l
-	 vuKKXk8jx33SQ==
+	b=sr9dxcpKbkrPjay+PbxV7TxKARgnQeSvNiWdxHqqwTNyrWnN71FmZ69sBQgaLvVQf
+	 jfhZGtsQFIsRLl9k9OgRgPasiztvdv+jBiqTq/tE3N++VVFnbEA0A/ScgMxM5z2sl5
+	 Lp8N0kf+l218jEg7tFKPLbxLeN61EcUyvtV+ayG0qiG5LVUkhIwpdaCzCbcLJGqAFP
+	 SfwNY73hVH75Kab2ugZt3wkdwD5h2+LvAyOO2IeTRnNiuanHljXzrPGtD8GjTDZsqk
+	 4WzHdhqekeI1A3CusbSWknRQ0nbkXvEVrWedGSn0fPEpinzyGbRdKeJBzY9aWjdpLa
+	 1LlIf1TfxLL8Q==
 From: Conor Dooley <conor@kernel.org>
 To: Linus Walleij <linusw@kernel.org>
 Cc: conor@kernel.org,
@@ -52,18 +52,18 @@ Cc: conor@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev
-Subject: [RFC v1 1/4] pinctrl: generic: change signature of pinctrl_generic_to_map() to pass void data
-Date: Wed,  6 May 2026 10:57:39 +0100
-Message-ID: <20260506-impotency-untagged-2b3d46b57039@spud>
+Subject: [RFC v1 3/4] pinctrl: spacemit: delete check_power()
+Date: Wed,  6 May 2026 10:57:41 +0100
+Message-ID: <20260506-backtalk-pregnant-ff4cbd27b4d0@spud>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260506-energize-dramatize-051909e54256@spud>
 References: <20260506-energize-dramatize-051909e54256@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2497; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=t1tswcXW1xGoS+RayKsRaGJ8HHS0FkJbWLql/CcOziI=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJm/BSaXfFPfffymmOxen8mpidxeynlPvk6YWfI24PrhW 60m13XudJSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAi17YzMvxXXe7/pf72wa03 T0jExSs8/PpVSzVs7w9l5ec+R7J5ymYx/NOM/ta08MfmounxD0rWsbS/mfBd+Opf15pDag6Hdj+ bvIEVAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2013; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=f33zeKL5li7qyIF7zuSgaFGlrhBhLaxwN0tJ5RiB2fs=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJm/BSa/fc7zKjvqntBa9fW+u13t5l559yMkpVm8yHaN2 g3T7R9CO0pZGMS4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRUl9Ghkb7K6GySfZHrVbE +nLKtcfcW7eaP9Uu1v5jRfmelg1TrBkZvodaMm5n71KetaAucPcL7fz3XefyfAtz+vpX7zLwdzf kBQA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_025811_058623_344A8549 
-X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-CacheID: sfid-20260506_025815_427931_E79EDC03 
+X-CRM114-Status: UNSURE (   9.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,59 +83,69 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
+AFAICT, this is pointless because generate_config performs this check
+too.
+
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/pinctrl/pinconf.h         | 6 ++----
- drivers/pinctrl/pinctrl-generic.c | 5 ++---
- 2 files changed, 4 insertions(+), 7 deletions(-)
+ drivers/pinctrl/spacemit/pinctrl-k1.c | 37 ---------------------------
+ 1 file changed, 37 deletions(-)
 
-diff --git a/drivers/pinctrl/pinconf.h b/drivers/pinctrl/pinconf.h
-index 83f2d00c732e1..5d99fef27657f 100644
---- a/drivers/pinctrl/pinconf.h
-+++ b/drivers/pinctrl/pinconf.h
-@@ -171,8 +171,7 @@ int pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *pare
- 			   struct device_node *np, struct pinctrl_map **maps,
- 			   unsigned int *num_maps, unsigned int *num_reserved_maps,
- 			   const char **group_name, unsigned int ngroups,
--			   const char **functions, unsigned int *pins,
--			   unsigned int npins);
-+			   void *data, unsigned int *pins, unsigned int npins);
- #else
- static inline int
- pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
-@@ -188,8 +187,7 @@ pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *parent,
- 		       struct device_node *np, struct pinctrl_map **maps,
- 		       unsigned int *num_maps, unsigned int *num_reserved_maps,
- 		       const char **group_name, unsigned int ngroups,
--		       const char **functions, unsigned int *pins,
--		       unsigned int npins)
-+		       void *data, unsigned int *pins, unsigned int npins)
- {
- 	return -ENOTSUPP;
+diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
+index 62cab6f6cd0a8..41d8a34bc386b 100644
+--- a/drivers/pinctrl/spacemit/pinctrl-k1.c
++++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
+@@ -409,38 +409,6 @@ static inline u32 spacemit_get_drive_strength_mA(enum spacemit_pin_io_type type,
+ 	}
  }
-diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinctrl-generic.c
-index 76670aef62da4..6a13fd4eea65b 100644
---- a/drivers/pinctrl/pinctrl-generic.c
-+++ b/drivers/pinctrl/pinctrl-generic.c
-@@ -21,8 +21,7 @@ int pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *pare
- 			   struct device_node *np, struct pinctrl_map **maps,
- 			   unsigned int *num_maps, unsigned int *num_reserved_maps,
- 			   const char **group_names, unsigned int ngroups,
--			   const char **functions, unsigned int *pins,
--			   unsigned int npins)
-+			   void *data, unsigned int *pins, unsigned int npins)
- {
- 	struct device *dev = pctldev->dev;
- 	unsigned int num_configs;
-@@ -45,7 +44,7 @@ int pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *pare
- 	if (ret < 0)
- 		return ret;
  
--	ret = pinctrl_generic_add_group(pctldev, group_name, pins, npins, functions);
-+	ret = pinctrl_generic_add_group(pctldev, group_name, pins, npins, data);
- 	if (ret < 0)
- 		return dev_err_probe(dev, ret, "failed to add group %s: %d\n",
- 				     group_name, ret);
+-static int spacemit_pctrl_check_power(struct pinctrl_dev *pctldev,
+-				      struct device_node *dn,
+-				      struct spacemit_pin_mux_config *pinmuxs,
+-				      int num_pins, const char *grpname)
+-{
+-	struct spacemit_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
+-	struct device *dev = pctrl->dev;
+-	enum spacemit_pin_io_type type;
+-	u32 power = 0, i;
+-
+-	of_property_read_u32(dn, "power-source", &power);
+-
+-	for (i = 0; i < num_pins; i++) {
+-		type = spacemit_to_pin_io_type(pinmuxs[i].pin);
+-
+-		if (type != IO_TYPE_EXTERNAL)
+-			continue;
+-
+-		switch (power) {
+-		case PIN_POWER_STATE_1V8:
+-		case PIN_POWER_STATE_3V3:
+-			break;
+-		default:
+-			dev_err(dev, "group %s has unsupported power\n",
+-				grpname);
+-			return -ENOTSUPP;
+-		}
+-	}
+-
+-	return 0;
+-}
+-
+ static void spacemit_set_io_pwr_domain(struct spacemit_pinctrl *pctrl,
+ 				      const struct spacemit_pin *spin,
+ 				      const enum spacemit_pin_io_type type)
+@@ -548,11 +516,6 @@ static int spacemit_pctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 				return dev_err_probe(dev, -ENODEV, "failed to get pin %d\n", pins[i]);
+ 		}
+ 
+-		ret = spacemit_pctrl_check_power(pctldev, child, pinmuxs,
+-						 npins, grpname);
+-		if (ret < 0)
+-			return ret;
+-
+ 		map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
+ 		map[nmaps].data.mux.function = np->name;
+ 		map[nmaps].data.mux.group = grpname;
 -- 
 2.53.0
 
