@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3690CD343F
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 19:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700FCCD37AA
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 22:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uYYcMRsw5yUUK0Q9aooEGyb08h6dxkTd17L8nxIeEkQ=; b=e7IYlU4x4F8H5Q
-	3t4IMPi5waxO7RVhg4enIaxfZASYiTn3Cr+6IXRD/D0K9YGc3XBiSGzqQydCKGSnRZTUCecRgxKn4
-	LNImtfxnuopQJh96UpT5zwpBcvqF+tYFyTnnN9WVDLWMm9W/wh5DStmP2zWpJzBiaYUOn7ekaPYIY
-	FClbmYXev2NwdrhhzQnY4NvCHnRdgugnyq2BUUHBfCLDFh8A2Wk2lwQ7domw20SBnPgMNVb4zTek0
-	PIMGuAKlK8TajHKZoX8Z2Zp+qcd2tJdQuyl6NdM7x0KhpwND08F16TMkJkx2JcaUEHC68PSbAG2MA
-	0wk25iJWauuKThKudYLw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Cc0WeUCwNVkHkBz89xnncY6H6HSCkZjcsvrRQ329ChU=; b=gRvaG9ZnVZUOBo
+	HKXaX49a6mlg7qvTNxYH6KIsdWTFI7G9mE/y1i+NkS6bOwnMQkRnWeahkB9JWB2sfHwaqgoIpEVgo
+	/hnOPowISc3M8/9adUTNtiIVZTtdHQhoMQX6rBMwgeB/sme21kNr9RqiEZC+Ona0UOa6v8pMtV3p+
+	FJyopPuuwxcMNSOJvCgFqkbz5458HXhn1qcbUd1F2Hcyec+9sXkRDVug1MXcYQZO3QkPqbKKZoui/
+	vPsSzIcp20flbqBWUoluQGbCkU0+vpFD41Gn11qAouaa7mG+/ALYvAob/66xRL9/GUXSd4krcS+KZ
+	UhozwEP2cK9+rG6XiimQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL49k-00000004gc2-2Gr6;
-	Thu, 07 May 2026 19:13:08 +0000
+	id 1wL7QD-000000054h5-2KBG;
+	Thu, 07 May 2026 22:42:21 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL49i-00000004gab-28pL
+	id 1wL7QC-000000054gs-1bCe
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 May 2026 19:13:06 +0000
+	Thu, 07 May 2026 22:42:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9248F60181;
-	Thu,  7 May 2026 19:13:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F7A9C2BCB2;
-	Thu,  7 May 2026 19:13:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 64E366057A;
+	Thu,  7 May 2026 22:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DED86C2BCB2;
+	Thu,  7 May 2026 22:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778181185;
-	bh=wryvf8h8saMxe/tJcVAN8lMbAU21FCA47IoyVg/yQ88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bwTN2U7ORZdeCaNaxaUSr4neb9ESj0k6NNIQR360HUAN4dPJuj/2NR7QTGu+yzcwV
-	 3QesyvlsNJ7RlTfQyJ8yFVT1D1PCrzRzO3eg38ekUO6lyk/KreWR6jlgfvgPL/HTIR
-	 9m2WpzcIgl0L0Q11PBqP3pmIAIhV5YGBZYrKEitGK6m/TQVtjzdmU9xKrxtp79CyvP
-	 xYc5MEGfRojNdD+zCIaKorIlYYwrYaMc9mz0R01kIdjMKX9ouIBKFGgcxik2671DgK
-	 eaYoouGTPxeLo/dyd9F9zjdimTwozLoPHN5x6kUHl1Oy1JAF5qPOSZGhSJpFSJ0/xe
-	 MgNuHeqHAzZbg==
-Date: Thu, 7 May 2026 14:13:02 -0500
-From: Rob Herring <robh@kernel.org>
+	s=k20201202; t=1778193739;
+	bh=J0kRFG9bUaWTTHIU1f8/BZmV72pbWWRzeSv5tn2IJ+Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=pZ8OJoJDjVp74T5HTAFYAW24ULTzTS5u6XyQpEYzf/fwJ5askHm4Fepx+Mb8uIuBh
+	 TTWkblCiS9WBse7RVNTyWkBEd6TQDKcRX4EFPjrBJ1/wnrNBYScemGuDwm5uQmWla2
+	 F/28EibEfFcTpulfbdWpo4wOhiE4GwjNtSEVwOK9iKai27Zxp2rvtKUTNoPQ+UJR9B
+	 N7G5SWN8B3xOPKcvsiFMQTUaj/25gFtPjx0RFsJAuhRUmDrSRJg5R0nF0XDYF1LUdZ
+	 saU/G2E92XATlbrCE6iN3x0H4Jfxqq+T1rAzFc+lQSLeDTrl0JYmf65tvMbU+dZE+U
+	 or2kQaRwQdKVA==
+Date: Thu, 7 May 2026 17:42:17 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Jingoo Han <jingoohan1@gmail.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
@@ -60,14 +61,12 @@ Cc: Jingoo Han <jingoohan1@gmail.com>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 4/5] dt-bindings: pci: spacemit: Introduce Spacemit K3
- PCIe host controller
-Message-ID: <20260507191302.GA2284447-robh@kernel.org>
-References: <20260502101319.2364052-1-inochiama@gmail.com>
- <20260502101319.2364052-5-inochiama@gmail.com>
+Subject: Re: [PATCH 5/5] PCI: spacemit-k1: Add Spacemit K3 PCIe host
+ controller support
+Message-ID: <20260507224217.GA48780@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260502101319.2364052-5-inochiama@gmail.com>
+In-Reply-To: <20260502101319.2364052-6-inochiama@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,104 +83,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 02, 2026 at 06:13:17PM +0800, Inochi Amaoto wrote:
-> Add binding support for the PCIe controller on the SpacemiT K3 SoC.
-> This controller is almost a standard Synopsys Designware PCIe IP,
-> with some extra link and reset state control.
+On Sat, May 02, 2026 at 06:13:18PM +0800, Inochi Amaoto wrote:
+> The PCIe controller on Spacemit K3 is almost a standard Synopsys
+> Designware PCIe IP with extra link and reset control. Unlike
+> the PCIe controller on K1, this controller supports external MSI
+> interrupt controller and can use multiple phy at the same time.
+> 
+> Add driver to support PCIe controller on Spacemit K3 PCIe.
 > 
 > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->  .../bindings/pci/spacemit,k3-pcie-host.yaml   | 142 ++++++++++++++++++
->  1 file changed, 142 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/spacemit,k3-pcie-host.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/spacemit,k3-pcie-host.yaml b/Documentation/devicetree/bindings/pci/spacemit,k3-pcie-host.yaml
-> new file mode 100644
-> index 000000000000..be2641526b19
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/spacemit,k3-pcie-host.yaml
-> @@ -0,0 +1,142 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/spacemit,k3-pcie-host.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SpacemiT K3 PCI Express Host Controller
-> +
-> +maintainers:
-> +  - Inochi Amaoto <inochiama@gmail.com>
-> +
-> +description:
-> +  The SpacemiT K3 SoC PCIe host controller is based on the Synopsys
-> +  DesignWare PCIe IP.  The controller uses the external MSI interrupt
-> +  controller.
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: spacemit,k3-pcie
-> +
-> +  reg:
-> +    items:
-> +      - description: DesignWare PCIe registers
-> +      - description: Data Bus Interface (DBI) shadow registers
-> +      - description: ATU address space
-> +      - description: PCIe configuration space
-> +      - description: Link control registers
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: dbi2
-> +      - const: atu
-> +      - const: config
-> +      - const: link
-> +
-> +  clocks:
-> +    items:
-> +      - description: DWC PCIe Data Bus Interface (DBI) clock
-> +      - description: DWC PCIe application AXI-bus master interface clock
-> +      - description: DWC PCIe application AXI-bus slave interface clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: dbi
-> +      - const: mstr
-> +      - const: slv
-> +
-> +  resets:
-> +    items:
-> +      - description: DWC PCIe Data Bus Interface (DBI) reset
-> +      - description: DWC PCIe application AXI-bus master interface reset
-> +      - description: DWC PCIe application AXI-bus slave interface reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: dbi
-> +      - const: mstr
-> +      - const: slv
-> +
-> +  interrupts:
-> +    items:
-> +      - description: Interrupt used for port state
-> +
-> +  interrupt-names:
-> +    const: app
-> +
-> +  msi-parent: true
-> +
-> +  phys:
-> +    minItems: 1
-> +    maxItems: 6
 
-You have to define what each entry is. I assume this is 1 per lane 
-though I thought only a power of 2 number of lanes was valid.
+Sashiko had some good questions:
+https://sashiko.dev/#/patchset/20260502101319.2364052-1-inochiama%40gmail.com
 
-Rob
+Looks like the CONFIG_PCIE_SPACEMIT_K1 menu item and help text
+drivers/pci/controller/dwc/Kconfig should be updated to include K3.
+
+The "CONFIG_PCIE_SPACEMIT_K1" name itself should stay the same.
+
+s/Designware/DesignWare/, also in 4/5 commit log
+s/phy/PHY/ here and other patches and subject lines
+s/msi/MSI/ in 3/5 subject and commit log when it's a stand-alone word
+s/pci:/PCI:/ in 4/5 subject to match history (and patch 3/5)
+
+> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+
+> +#define INTR_STATUS				0x0010
+> +
+>  #define INTR_ENABLE				0x0014
+>  #define MSI_CTRL_INT			BIT(11)
+> +#define RDLH_LINK_UP_INT		BIT(20)
+> +
+> +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
+> +
+> +#define K3_PHY_AHB_IRQENABLE_SET_INTX		0x000c
+> +#define LEG_EP_INTERRUPTS		(BIT(6) | BIT(7) | BIT(8) | BIT(9))
+
+Would be nicer to use "INTX" rather than "LEG" here since we use
+"INTX" in K3_PHY_AHB_IRQENABLE_SET_INTX, in the comments, etc.
+
+> +#define K3_PHY_AHB_IRQENABLE_SET_MSI		0x0014
+> +/* MSI defined as BIT(11) in existing INTR_ENABLE, reusing */
+> +
+> +#define K3_ADDR_INTR_STATUS1			0x0018
+> +
+> +#define K3_ADDR_INTR_ENABLE1			0x001C
+
+You're using a mix of upper- and lower-case hex here.  Be consistent
+and match the existing code.
+
+Seems a little weird to have a mix of "IRQ" names (e.g.,
+K1_PHY_AHB_IRQ_EN, K3_PHY_AHB_IRQSTATUS_INTX,
+K3_PHY_AHB_IRQENABLE_SET_INTX) and "INTR" names (e.g., INTR_STATUS,
+INTR_ENABLE, K3_ADDR_INTR_STATUS1, K3_ADDR_INTR_ENABLE1) when I think
+they're really talking about the same concept.
+
+And why do the new K3 names have "ADDR" in the middle when the
+existing "INTR_ENABLE" names don't?  It's obvious these are addresses
+(well, actually I think they're *offsets*, but no need to be that
+detailed).
+
+> +static int k3_pcie_init(struct dw_pcie_rp *pp)
+> +{
+> ...
+> +	val = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
+> +	val &= ~(0xffff << 8);
+> +	val |= ((0x1 << 4) << 8);
+
+Can you use FIELD_MODIFY and some #defines here?
+
+> +	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, val);
+> +
+> +	/* Set the PCI vendor and device ID */
+
+Superfluous comment since the code is obvious.
+
+> +	dw_pcie_dbi_ro_wr_en(pci);
+> +	dw_pcie_writew_dbi(pci, PCI_VENDOR_ID, PCI_VENDOR_ID_SPACEMIT);
+> +	dw_pcie_writew_dbi(pci, PCI_DEVICE_ID, PCI_DEVICE_ID_SPACEMIT_K3);
+> +	dw_pcie_dbi_ro_wr_dis(pci);
+> +
+> +	/* Finally, as a workaround, disable ASPM L1 */
+
+I guess this means a device erratum?  It advertises L1 but it doesn't
+actually work?
+
+> +	k1_pcie_disable_aspm_l1(k1);
+
+> +static int k3_pcie_msi_host_init(struct dw_pcie_rp *pp)
+> +{
+> ...
+> +	val = dw_pcie_readl_dbi(pci, COHERENCY_CONTROL_3_OFF);
+> +	val |= (0xf << 11);
+
+FIELD_MODIFY and some #defines here?
+
+> +static int k3_pcie_start_link(struct dw_pcie *pci)
+> +{
+> +	struct k1_pcie *k1 = to_k1_pcie(pci);
+> +	u32 val;
+> +
+> +	k1_pcie_start_link(pci);
+> +
+> +	/* Enable INTx */
+> +	val = readl_relaxed(k1->link + K3_PHY_AHB_IRQENABLE_SET_INTX);
+> +	val |= LEG_EP_INTERRUPTS;
+> +	writel_relaxed(val, k1->link + K3_PHY_AHB_IRQENABLE_SET_INTX);
+> +
+> +	/* Enable MSI/MSIX specific to K3 */
+
+s/MSIX/MSI-X/ to match spec usage.
+
+> +	val = readl_relaxed(k1->link + K3_ADDR_INTR_ENABLE1);
+> +	val |= (MSI_INT | MSIX_INT);
+> +	writel_relaxed(val, k1->link + K3_ADDR_INTR_ENABLE1);
+
+Generally speaking I think the interrupt setup belongs somewhere other
+than .start_link().  Usually .start_link() only enables LTSSM.
+
+> +	return 0;
+> +}
+
+> +static irqreturn_t k3_pcie_irq_thread(int irq, void *data)
+> +{
+> +	struct k1_pcie *k1 = data;
+> +	struct dw_pcie_rp *pp = &k1->pci.pp;
+> +	struct device *dev = k1->pci.dev;
+> +	u32 status0, status1, status2;
+> +
+> +	k3_pcie_clear_irq_status(k1, &status0, &status1, &status2);
+> +
+> +	writel_relaxed(status0, k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
+> +	writel_relaxed(status1, k1->link + INTR_STATUS);
+> +	writel_relaxed(status2, k1->link + K3_ADDR_INTR_STATUS1);
+> +
+> +	if (FIELD_GET(RDLH_LINK_UP_INT, status1)) {
+> +		msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> +		/* Rescan the bus to enumerate endpoint devices */
+> +		pci_lock_rescan_remove();
+> +		pci_rescan_bus(pp->bridge->bus);
+
+This is the *only* driver that uses pci_rescan_bus() this way, which
+automatically makes it suspicous.  Maybe it's the first hardware that
+implements or is willing to use RDLH_LINK_UP_INT for this, but somehow
+I doubt it.
+
+> +		pci_unlock_rescan_remove();
+> +	} else if (!status0 && !status1 && !status2)
+> +		dev_WARN_ONCE(dev, true,
+> +			      "Received unknown event. status0=0x%08x status1=0x%08x status2=0x%08x\n",
+> +			      status0, status1, status2);
+> +
+> +	return IRQ_HANDLED;
+> +}
 
 _______________________________________________
 linux-riscv mailing list
