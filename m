@@ -4,134 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD7C5CD3439
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 May 2026 22:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57F6CD342C
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 00:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ap1b/56n75CfwlGw41FX0XxrJ3dJYPYCrKFEN0oh7s=; b=SmJ14wCVrw5JVB
-	rKwC8+rhJ2o1MXlJ3yA233GwS7uUGLPBjKCsM3GXJ9Q2GbtZd+mVPWmsjsjfiZIOrewC2TQtG3Ec8
-	bO9NPaz0OmnGWsG2p3b7nySGHHXTyWUItrYQcx2Io9r3lWUh9epSOIl7NPImt58GjR1hsUe6rBT6S
-	54IXVLH4AJPMvwjiRCEAwxc6zKWfRdqJj7hHihVG0W68asQ+UYijtbamM3AMXy5TwmxhiRbSE3bCf
-	CaIUF06d8LcYFETvIlrVMMSVE0o0Z9+fHS+6jShfI3P1HheLR34SgZi9AKe0SEhJ7iXq9W3/s6bl+
-	WaLbnlZGLPEJcO6mIzAA==;
+	List-Owner; bh=H2eBL9fQ2zUccEX3NPNjRJ9cXsb/5dhAFYsTtKbPb4I=; b=hLq2TkapOV8bHV
+	/6CCY9Yj3eZpInhUGn35KdE1PliLBt7S7Qvi0WAo1yFAh2VMtXpdeYsoE0n9+OxaGg9RBqTbev4Gi
+	y8L3w3bz6tTzON3MbYts9b5nhtIZGQnUQ115mONQnD4tfBnC+KZhVslqjxRDKps7M4tqdQFh+Gjni
+	oM+cHvIcRDFyvkUNyOkcG0XfgC5kAOmVjEG4v8me5HD77TOWTzt1kLjpEEhlu9LuYF5OIH56kIV8Z
+	pVG77uMSe35lLgMsWhWx39aHK4XBT+l7zw1sUwl2pL4ursEOceSPkJgEhUxziTtNwUI68rbS6pn+u
+	n5jLeLuD0NZnYf5uZi7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKkIe-000000029Qw-37D5;
-	Wed, 06 May 2026 22:01:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wKmoF-00000002MwT-0WB5;
+	Thu, 07 May 2026 00:41:47 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKkId-000000029Q6-1BK8
+	id 1wKmoE-00000002Mw5-2VZP
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 May 2026 22:00:59 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 646KNWCb3036649
-	for <linux-riscv@lists.infradead.org>; Wed, 6 May 2026 22:00:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=aZPxIliVcF9OGztv2uIgcJGk
-	CT8mmquqC1ZufniuUCE=; b=SR6oKNSlVvu5Oi4g7EAbzQbJqL70VeUZkFFoQr7d
-	jBTGJhE+nNHV7VIPGBmbgJvVk94vulDk4vSyBaQdr0VA5aT4g8uEpcUXXT7q0JoP
-	OLCwAnATUfCoKhuBlsGJh/kce1HoHHTpuvlgE5+SRwwPboydQTvpPsxucipuWjpQ
-	FolwM6ppk6NBKBrvz+2DXaJ2ByuHnVvXZqsQDQ2fCsQREk9X3qC1J5H+Bg9UUqVE
-	BBM+drUf+fkYJo30GFOq8SF3eOyE7GEYV2IQkMpPevkjuyf2D4P6FmTY8vPwBJeD
-	ugUnK83b7jyBxEYuha1Q/Q7wi+mIbCd2p0uK02UclJEZMw==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e05bf245k-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Wed, 06 May 2026 22:00:58 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2efc342ef15so248761eec.1
-        for <linux-riscv@lists.infradead.org>; Wed, 06 May 2026 15:00:58 -0700 (PDT)
+	Thu, 07 May 2026 00:41:46 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c798fc1a28cso82796a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 06 May 2026 17:41:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778104857; x=1778709657; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778114505; x=1778719305; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aZPxIliVcF9OGztv2uIgcJGkCT8mmquqC1ZufniuUCE=;
-        b=ioqgodY+dDiTJFHUXyEMe8E5w2i++IOAdSw32vsHMMHWy/yTrrtK6/2uwML54po07o
-         8pcFA2uqyY7FS8klkWtNum/mF9txjDEal0gcGrgXAn6GitBK9oZ0S1krw5t1MIqD0GLV
-         j/JFJgE5KTz8MIUasLIRamfsPCCTjn6DErwsPDxDUz+abdUHd49agcG+npJn7xV3jwRV
-         d/8OP3R/yDRKS1IawXdLLZOjF4DUUwKVcGmkKT6Ax+KTjLh9Jx7vunN2mxS+jmrLu4gg
-         AqZfGLVofo/sO6EphsJBVEbJL4I/BIhXuFAzIBlr/29Rf12sXK5fZ0wOGn+6YJXWlISm
-         UoDw==
+        bh=hZ5LFFAZbhjlqv4fN6kLXFN2tALXchu13wJuFe3wZrI=;
+        b=mpzKPD1YuRmyhhAkZ0xbmYhGt5exiwwe9ier9FEuzy2OnNNSfBaqBW03Qn6BBJjZq/
+         VBXmR3SvWrqLFw/Z+hKYgatJTymZkMogYKCDq+yzbU3AmaerGJaoVv4s8tSa84XaDirZ
+         Fdwomm+JKDF/6YPPbmCFEY8p34moNT+YcgXaAdeueXh/7erCXTQnEVRjAKuJwVdFaIci
+         m3gDMx59J9XYJ/WeapKHl/sbgpvNhbQ+rabWfdQXBx/e1dQtCcc5J5bQOzfz1AFGVWvz
+         f4IudAYXMan5NIOkVv+zb6FQoA7wAltnK0Js6Q0ySb2lx0veO3lJRkFERQ+ytc/Rwogj
+         AoiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778104857; x=1778709657;
+        d=1e100.net; s=20251104; t=1778114505; x=1778719305;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aZPxIliVcF9OGztv2uIgcJGkCT8mmquqC1ZufniuUCE=;
-        b=gYhmUMkQJCyOrYJAk4Hf8K8NXohrU0Sa8Ljq7TCr52Te8AchR4u5Jkaef7PJeZuSmu
-         KAyiYeUVVf5fYogEploAr4n4Arp/ax9VyMp64pFQRf5AvuPZk1WiIgbz7qnJwTuy4Vq/
-         dVUNstjWNPivDxqTreoSU6PjFEeCFedgfQmk2asbO+HK5RM70X1XNQpe03cmHA9WJym6
-         ETDyDa5tjwz/nL+66mPjU1jYdpbKO92AlbQyYWMQuEZvaHZ2ie+CdAJe94j9LAjBPvT1
-         pzRtkg69ikUfog1tj6r75+4PwqMl+nnqT3mYYhiAFNaaYjI5+q3HCC7S0IQqVHikTacD
-         nVyQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+LbVmOSz9dbr4jfRvt/vgZzMXjKsr6kbI+J6ICtlZVDItKrx28CFnTv2+VhhHuJRqBsVketAkrQUe1Jw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzN9s+k6Q5hirRH0icIQRqy5MtISjLdtH+SIKD3LJ3wPeS8HiC
-	rBQRb3EiXaD1rEUlXcngsaWPHnENvmEkq+tffeevZeIbbWBWhS3XrFx26/oUi7UFDHjAQEILGqM
-	VGjWXvgrRPEXs4m4Iutu3co9Ysz54ueYzpzemLsNY/0mEVZZWs/doBq9oT7F0NeZl/3GGr1Q=
-X-Gm-Gg: AeBDievpAGDAIG8v9uuC3iB8grgPD4lcDeUliLI+oA22iNWKyfzTt+dC2Gsaqj68AEZ
-	1wBQZUMvU/1Sb+DuKhuLw7lncDk9ShIyhKgeXGgIfBQXk2tYNZ7fOmsR13ZchiTtB40EGdq0wrI
-	OPdM40h7cCoQKDgyZFthZGwugdHZTYlkwjXXClFcCn/nnlun5aKOPtJxqp2V9U1C96qNGZDWgwa
-	cgbVh6u4RG7NkbAkAG2/HLzraAgli3a0KwUIZxnvLp65PIuwSP3t3aXnDFmo/Ztb9D9xcCOEdlF
-	iv9IZdyBW+aOI9Jj5cf/AVgC++QkflTxJ3GOxD5fHNsItWp/yRG8uWDoN/rnu8ctPJQVCJI26+r
-	ZmT5sELXSrxZwkOh4NjbXtiWbRXBg21SrQqQ0z3k/Gg==
-X-Received: by 2002:a05:7301:9f03:b0:2f4:3a9c:819f with SMTP id 5a478bee46e88-2f54d79b972mr2873500eec.20.1778104857233;
-        Wed, 06 May 2026 15:00:57 -0700 (PDT)
-X-Received: by 2002:a05:7301:9f03:b0:2f4:3a9c:819f with SMTP id 5a478bee46e88-2f54d79b972mr2873464eec.20.1778104856617;
-        Wed, 06 May 2026 15:00:56 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f5707734a0sm5901626eec.31.2026.05.06.15.00.55
+        bh=hZ5LFFAZbhjlqv4fN6kLXFN2tALXchu13wJuFe3wZrI=;
+        b=m6mLET8PyeM9CD1vl55QrNuXn/BIKlUPSKDjv/9tSMrUUtV/qcBs3BAbQmJZL5gIK/
+         fS7Im+DOnL1Qj3dfCe72ZWeVCNsnNJZyvgq8n50IeThw5CcLnsPX8b3ry3Upx5AmixXd
+         VdfRieYqwnOv3G5O0KOSwlwGZxbAZjk+ZoT2fWT1pb0ACvgp5tAlgg0EwikyHoINWYsq
+         nAB1jPCxSQwbSVOfAZK5apSXldDwU++vkkSsv9JfNSO2+J3vgBOdYMekhEIg6gVgdIm2
+         JZ/LKVcfINtVDge93sC/kq3bSnRUVD0B4YD8IuO0C+IQyHKSnDPulnLSKWqkJ90xhTGF
+         MSPA==
+X-Forwarded-Encrypted: i=1; AFNElJ/y4k1AKMMRjRU00P+NwG+SUstdFKiyqSInrsMWI3nmF5+B7yqglG9qH1+W1pORFuGg2KOf7MAhBYnRDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLMrp7F1Asd2FQp+LO/jZBQtKtrjuoID+HJppxmUbqSIe7sCv/
+	GhkwupeBpcz6FIf6tnpn5Otk00cVobfmSJyj1ZKFSsVI/M0RUAq2LzyB
+X-Gm-Gg: AeBDiet70jDuiLkzWqiXdLbHp1Uc795JQNiuTOnH77TISuNQl/2cL+QHib9goWqlNeL
+	wuYwNDm4z3Ma10C8gYKqiSE8v4DqcOhSGOZd+xxiUkdXjxpuE6mhoqdp1x2xYWLyQ4J+kz8zkRa
+	Y1QgK9l/78E5sX1FLj2XhUKRqLOs+eIM5LPImyneCZCvFEjeRskSjtrLEnuxEwi7OtWuzR5Ndyk
+	3rs71IjaFD73RjP8vdCz0A6tuhi7bbcxZh9I3a+Ofe3Yg91/09U0xKtfUXLH8ztkStIUeV0sAOv
+	gYJLjpqa0xJr4wJpF+TsG5PzDHe3hBfkCHuSrOI5E0zwiZNlKADkXkdzYUSKqvzCBHIpQKtHCmS
+	vKCIa+/FF0tk83apb52iG5fGqqAiGmAi6LhF8/6j0o3zOGO5UZPDj5KGFnBepqAUGF5QCf/oo1T
+	+90im71y2ZPS7twrHSM421fJUV1hwmof86qA==
+X-Received: by 2002:a05:6a20:431e:b0:3a8:284c:fa3b with SMTP id adf61e73a8af0-3aa5ac98bc1mr5493704637.48.1778114501965;
+        Wed, 06 May 2026 17:41:41 -0700 (PDT)
+Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8253582a60sm370848a12.1.2026.05.06.17.41.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 15:00:56 -0700 (PDT)
-Date: Wed, 6 May 2026 17:00:54 -0500
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
-        Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-        linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
-        linux-kernel@vger.kernel.org, greentime.hu@sifive.com,
-        vincent.chen@sifive.com, zong.li@sifive.com
-Subject: Re: [PATCH] KVM: riscv: selftests: add check_supported_reg() into
- get-reg-list test
-Message-ID: <kysjvcg5shcuhgsd44znceenfjw65djs4wviwp3psruq4t7n4c@ppj62upl26wf>
-References: <20260503-kvm-get_reg_list-v1-1-c16f9b572e9f@sifive.com>
+        Wed, 06 May 2026 17:41:41 -0700 (PDT)
+Date: Thu, 7 May 2026 08:41:23 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Lukas Wunner <lukas@wunner.de>, 
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, Han Gao <gaohan@iscas.ac.cn>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
+	Kees Cook <kees@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, linux-pci@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Han Gao <rabenda.cn@gmail.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, stable@vger.kernel.org
+Subject: Re: [PATCH 2/2] PCI: Add quirk to disable PCIe port services on
+ Sophgo SG2042
+Message-ID: <afveQQI-CsQ2L1-N@inochi.infowork>
+References: <20260331175658.1015829-1-gaohan@iscas.ac.cn>
+ <20260331175658.1015829-3-gaohan@iscas.ac.cn>
+ <q6wmn67lzk5c2pgmgkoezcvy3xj3yqecg675gx7xyrw3amjwpi@5pjla6j3krbv>
+ <0f42afefd9322779af5463b696c55b08d2296ea8.camel@iscas.ac.cn>
+ <afZUxYhkCQ0wG0Uu@wunner.de>
+ <68d4a49bf1df785ae906fbc2dd16e64b667ca5f0.camel@iscas.ac.cn>
+ <afcMtlBJYeuxSqZr@wunner.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260503-kvm-get_reg_list-v1-1-c16f9b572e9f@sifive.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDIxNSBTYWx0ZWRfX52X/a23O0im1
- eb1HSO7GDma3drzJcyvihKPjoAS2dqg8jKK/7Yv4leQ81oxs2YLJG0MEuvPq2lbbZyVhZu0YQNo
- Cg5k5lP35KoRTatyS/dZ3dw264Xi83nArm4O9wlE2thnZKBLUsY+ngXoJh9o5k/NMJ8RcoFBJ3G
- pK6JSnz0fzy+DRv3ODodt73hqNP6Iw2jW3f201l2mASchD2ht/rJ8dwFtCx5LVy3VOEz2bauZWC
- LkndbV84kay/7ItmF7OraNLSq3gRtOK1PXoe1E2Y+OfYanCcDXh/oWIbm4ujPabPe7+8tBmNsoE
- 18UnXlvLek8NAqOc40/clsbY1wAWVeXeHms1XCcnGILZWDLzxITKWd5kazH2Cjz8BvYS/RrgD4x
- K1LQHrYW/I/zQfCRymMbuBlmML5PSlBsl8EseHzrM37TDT79ttWpRj6DaUnVd+eE0X46ySSXXNO
- rf4aYItCXyRrCkVzrnw==
-X-Authority-Analysis: v=2.4 cv=PqmjqQM3 c=1 sm=1 tr=0 ts=69fbba1a cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=cvcws7F5//HeuvjG1O1erQ==:17
- a=kj9zAlcOel0A:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=pFyQfRViAAAA:8 a=wBkBAAe1paUrZEgFcZ0A:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22 a=oJz5jJLG1JtSoe7EL652:22
-X-Proofpoint-GUID: sUmHs6vRrdPxqk3Tsx_7ffVNyTxfR5qb
-X-Proofpoint-ORIG-GUID: sUmHs6vRrdPxqk3Tsx_7ffVNyTxfR5qb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-06_02,2026-05-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 impostorscore=0 adultscore=0 priorityscore=1501
- malwarescore=0 spamscore=0 phishscore=0 suspectscore=0 clxscore=1015
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2605060215
+In-Reply-To: <afcMtlBJYeuxSqZr@wunner.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_150059_441164_248AF990 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20260506_174146_646627_DDFF3BEC 
+X-CRM114-Status: GOOD (  25.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,51 +111,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 03, 2026 at 09:00:53PM -0700, Yong-Xuan Wang wrote:
-> Not all the registers in a sublist are supported on a platform, e.g. the
-> SUBLIST_SBI_FWFT list. Add the check_supported_reg() to remove the false
-> alarm of missing registers.
+On Sun, May 03, 2026 at 10:52:06AM +0200, Lukas Wunner wrote:
+> On Sun, May 03, 2026 at 03:10:58PM +0800, Icenowy Zheng wrote:
+> > It's used in multiple products, but only one of them (EVBv1, which is
+> > just an early EVB available for a few people including me) lacks an
+> > onboard switch, because SG2042 is short on on-chip peripherals. All
+> > other devices (including two mainlined ones, EVBv2 and Milk-V Pioneer,
+> > and unmainlined dual socket rack servers; Milk-V Pioneer should be the
+> > most popular device because it was on shelf) have an onboard switch to
+> > mitigate the lack of on-chip peripherals in SG2042.
 > 
-> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-> ---
->  tools/testing/selftests/kvm/riscv/get-reg-list.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+> Who knows, maybe someone will design a product which doesn't attach
+> a PCIe switch to the SoC, maybe the lack of peripherals isn't a
+> problem for them.
 > 
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index 8d6b951434eb..d7cb9b5d37df 100644
-> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -28,6 +28,18 @@ enum {
->  
->  static bool isa_ext_cant_disable[KVM_RISCV_ISA_EXT_MAX];
->  
-> +bool check_supported_reg(struct kvm_vcpu *vcpu, __u64 reg)
-> +{
-> +	int ret;
-> +	u64 data;
-> +
-> +	ret = __vcpu_get_reg(vcpu, reg, &data);
-> +	if (ret < 0)
-> +		return false;
-> +
-> +	return true;
-> +}
-> +
+> It seems reasonable to accommodate such non-switch use cases as well,
+> so I think you definitely do not want to quirk all products using that
+> SoC but only those that need it, regardless whether it's the majority.
+> 
 
-arm64 implements this function to only return false when a register's
-corresponding feature register isn't present or it indicates the feature
-isn't present. The above would return false for all missing registers,
-even when they shouldn't be. OIOW, the above makes for_each_missing_reg()
-useless for riscv.
+I think it is possible to quirk all the SG2042 products, because the
+typical usage already shows MSI shortage (And this is why SG2044 has
+512 MSIs). Although it may left some MSIs in the test case, MSI shortage
+is a common issue in a real scenario. And the Sophgo already maintains
+a whitelist to limit the MSI usage of most devices in their vendor
+kernel. So I think it is fine to quirk all the products that use SG2042.
 
-When its OK for registers to be missing, then we need some way to
-determine that. If a sublist has optional registers then it should
-be broken into multiple sublists. Then, this function can be implemented
-to return false for registers in the sublists of optional registers when
-we have determined those sublists won't be present.
+Regards,
+Inochi
 
-Thanks,
-drew
+> > > My point is, you want to constrain this to a specific product, not to
+> > > the SoC.  Can you maybe solve this by not specifying interrupts in
+> > > the devicetree for the PCIe switch?
+> > 
+> > The PCIe switches are not described in the device tree at all, because
+> > they're all just discoverable; can we describe them in the DT and
+> > redirect their interrupts to void?
+> 
+> Yes, somebody did a writeup how to represent switches and endpoints
+> in the devicetree:
+> 
+> https://farlepet.github.io/linux/2024/02/20/using-linux-device-tree-with-pcie-devices.html
+> 
+> And then I would try providing an empty "interrupts" property for
+> those switch ports for which you want to avoid port services being
+> instantiated.
+> 
+> That way you could selectively *enable* port services for specific
+> ports where it's useful.  Let's say you need DPC on a specific port
+> to contain errors of an attached NVMe drive.  Just assign a single
+> MSI for that port and assign no MSIs for all the others.  Much more
+> flexible than globally disabling port services.
+> 
+> Thanks,
+> 
+> Lukas
 
 _______________________________________________
 linux-riscv mailing list
