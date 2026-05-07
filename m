@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD45CD3442
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E50CD3447
 	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 11:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AUJjMwG9H2gq6A7lQMMdt9TZGbgfEa4vjI+XVBz4Ecg=; b=Ff5Ie72k0sm75U
-	A/W5CAudkiTyraRnpiPANYmjn83BaWydAyqweAymqBS63Fk6wMzOe+fqRFagKqLJ20jpzDMg7f3WQ
-	dS+LB845nTT+YaIgDank7YeBFTXbn/WSXZbnVQR575pGwI8hUMrJ01VTCFR2+LlssIhY44Y9ikseu
-	lU3XzHBsw/4vU3GMApSsq+0gokQV8B6x8lvyFXS22G1ypfLW0g0QCZ9+51Bh8aSVO9gwoux0mOS7t
-	s6RcORaDcqZxwn346scFgY0o1Gek952IYkavPuID6ZeNPfJqJOMekCV+h87vOQaKzEQ2+jVQVI6wz
-	NnBma1/Hzw92JfBmfU7Q==;
+	List-Owner; bh=KZZobRI92CGqSG050phPzyZ8nAlBVGvaUkdPcKyyRWM=; b=lsQ5WURumWHUnB
+	2QHoRf/3NOHiVLtZUdkVJfjBnbD/peRkwFpoROcKoRVxiiWppeAtT/wvK/ivJOVTK0oEIPDFZw/Nt
+	8W4Jb1hm2xYBchX8bD6TDmuIUI0fNd4D1mNoJvtd5q1whlYtaqN47uj2V7cNoyte78CfjdwlHKTNh
+	sZqxap0Gc6ptTpLNhztm+bSpfbKqaWKhg64CQ7UEyGBneK0sYd/Qgo4c9hu6QNlfcssfq1hlDM0Va
+	r7lT343QkEG8RG98VQRZ9NqrFXGG0I2TatmiwVyxdUJqBun5DSATNVTJA94OZzWuhZGhrZ9TibXN5
+	aHfD5Q9dEY1Ycgy6hvLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKx2u-00000003erC-2M3N;
-	Thu, 07 May 2026 11:37:36 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1wKx2r-00000003elB-2pN1;
+	Thu, 07 May 2026 11:37:33 +0000
+Received: from out199-9.us.a.mail.aliyun.com ([47.90.199.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKx2r-00000003eji-2zm8;
-	Thu, 07 May 2026 11:37:34 +0000
+	id 1wKx2n-00000003edh-1qvm;
+	Thu, 07 May 2026 11:37:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1778153851; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=iJ95MOqqUstSXPIf+KA1zXZMnjUDZYM6/cGTcZoBUgk=;
-	b=G3CYQpRuW/RqSEyj990oR/ik8E8hFVdX2rQ8bvATHB7NY9U/Z/jHgwQ5PycWCVKnjGR1oPF1ObYKDCWnB9Mf2v0zF7+Gs20dSCrlbg7Ij67C/ERIRdnRSzIC2pW/KFMt71wRRznuuoFzaD4s8sKzdES4jiD3B7ClTwYbyTGBvp0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X2UVF2t_1778153845;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X2UVF2t_1778153845 cluster:ay36)
+	t=1778153845; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=hesx5mr3hyIU597nzAcEZE25NXb5nnN09Ut/PVDl82s=;
+	b=JLZRCKGOYXjaDJ/iERJ9nTMtGqRHKGeOxZmTCFSnbMplFVl+f4W7zY122s7n4TL1LljTrQlj/i1rAcPQvv4h2wqzwdCI9oHAlHx5eIdv29ezXPefeZNOloovUbd7kfdzFct8rgx/MkIbned5/FLUh7nHEObHx6+7hIX62nnUfnU=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X2UVF1m_1778153842;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X2UVF1m_1778153842 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 07 May 2026 19:37:26 +0800
+          Thu, 07 May 2026 19:37:23 +0800
 From: fangyu.yu@linux.alibaba.com
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -60,16 +60,16 @@ Cc: guoren@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Subject: [RFC PATCH v2 10/10] iommu/riscv: Add IOTINVAL.GVMA after updating DDT/PDT entries
-Date: Thu,  7 May 2026 19:37:06 +0800
-Message-Id: <20260507113706.11400-11-fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH v2 08/10] iommu/riscv: Pre-enable GADE for second-stage domains
+Date: Thu,  7 May 2026 19:37:04 +0800
+Message-Id: <20260507113706.11400-9-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260507113706.11400-1-fangyu.yu@linux.alibaba.com>
 References: <20260507113706.11400-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_043733_933533_6566B278 
-X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-CacheID: sfid-20260507_043729_785184_1592B427 
+X-CRM114-Status: UNSURE (   7.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,37 +89,36 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Previously, only IOTINVAL.VMA was issued, which is insufficient for
-second-stage address translation consistency.
+Pre-enable RISCV_IOMMU_DC_TC_GADE in the device context when
+attaching a second-stage domain, if the IOMMU supports AMO_HWAD.
+
+Software pre-populates second-stage page tables with D set, so
+enabling GADE by default does not change normal behavior. When
+dirty tracking is enabled, iommufd clears the pre-set D bits and
+GADE becomes necessary for hardware to update the dirty bit on
+write access.
+
+This avoids toggling GADE dynamically and keeps device context
+setup consistent with second-stage domain attachment.
 
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- drivers/iommu/riscv/iommu.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ drivers/iommu/riscv/iommu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index b7944149dcfe..44dd268cc3ce 100644
+index ebf42f74e194..4adf2b6be89b 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -1065,12 +1065,15 @@ static void riscv_iommu_iodir_iotinval(struct riscv_iommu_device *iommu,
- 		/*
- 		 * else: IOTINVAL.VMA with GV=1,AV=PSCV=0,and
- 		 * GSCID=DC.iohgatp.GSCID
--		 *
-+		 */
-+		riscv_iommu_cmd_send(iommu, &cmd);
-+		/*
- 		 * IOTINVAL.GVMA with GV=1,AV=0,and
- 		 * GSCID=DC.iohgatp.GSCID
--		 * TODO: For now, the Second-Stage feature have not yet been merged,
--		 * also issue IOTINVAL.GVMA once second-stage support is merged.
- 		 */
-+		riscv_iommu_cmd_inval_gvma(&cmd);
-+		riscv_iommu_cmd_inval_set_gscid(&cmd,
-+			FIELD_GET(RISCV_IOMMU_DC_IOHGATP_GSCID, iohgatp));
- 	}
- 	riscv_iommu_cmd_send(iommu, &cmd);
- }
+@@ -1229,6 +1229,8 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 		dc.iohgatp = FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_MODE, pt_info.iohgatp_mode) |
+ 			     FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_GSCID, domain->gscid) |
+ 			     FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_PPN, pt_info.ppn);
++		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD)
++			dc.tc |= RISCV_IOMMU_DC_TC_GADE;
+ 	} else {
+ 		dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
+ 		      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, pt_info.ppn);
 -- 
 2.50.1
 
