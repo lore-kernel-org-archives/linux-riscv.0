@@ -4,56 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD14CCD343F
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 17:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89291CD343F
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 18:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=CP0jdsCcuQe1I2VMS87DLArLO22kXr/kr/q/IpMqVl0=; b=IR2
-	6t9wrdLNH93/Eqtx/sTwja4Nn3P0Bgo+Dr2+VI0gDW+KqI4l3JzVgJGZx5AYudgiHETsKVL1RNGEg
-	exYRIigY1Ul77x7y41T/sNynLfEU7ymojv35aMOvNVVW+f5HmC2UE3K62DC/hm2b+oPSUUZg87kOE
-	YzwFp/IeNkYhb11d1Cg98WzCLPShq7PKlMjtnB7NYqH7I3kEY6d1nzQdUM9q7cHXEYJQ8ub5Iwtfa
-	i5x8FqomZBlWS/Ka0dmxX9e/r3s4J/Z/DNGbKvbe5dmm39x5Gtav2RDoFPpPrXWFUL+1ei9KMOl9D
-	larp+GT7SI7iTXV16GuWbzDw+cydiDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qOVb54YwlJlVhGzYvSfyYk98Vxycd1GZWb6YUFyyTzI=; b=eYKERa9cT+q4s7
+	VszB0Vrg5+zu8KQn82leLUvKIsUgG4HZbAYmgrDTe4J8ej3mNyhRQtoqWaBp4+PTK4BIDntJYL4+g
+	aZBpB3pia2sWeZd1XgFOkJw+8wBjXh5eBV/lNqtw0OEOCn+ChIS8N9D0BHGFBQo/AvNnfJDg+OtVA
+	+pIgQlfLSPou9pr7gHRMoEjf5JPMHATVTMIGcJCn7uB5JyY3lV2W3Kt9ADqp5aOerxzz9dkedyECX
+	g2oU956cf2WUY6eIuhFkI6JdXUbGKhaFxPnIL6RLRHnuoj9YjgLAD9OIwTdBgCnu8jKoGxwWg/aZg
+	88Q4NpkKdYFHZOXDrZCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL2vO-00000004Wra-3lMF;
-	Thu, 07 May 2026 17:54:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wL3I0-00000004Zlq-2XrR;
+	Thu, 07 May 2026 18:17:37 +0000
+Received: from mail-francecentralazon11013059.outbound.protection.outlook.com ([40.107.162.59] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL2vL-00000004Wql-49UJ
+	id 1wL3Hx-00000004ZlN-2afs
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 May 2026 17:54:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E1EF4361C
-	for <linux-riscv@lists.infradead.org>; Thu,  7 May 2026 17:54:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AF07C2BCB2;
-	Thu,  7 May 2026 17:54:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778176451;
-	bh=xDacGMvvzPmsE/iO9k/VkS15Yv8TKnxQDlE6Ud9l47c=;
-	h=Date:From:To:Cc:Subject:From;
-	b=p7o5P/bFde+3X0B4/e3CnBLyHflwWlJqQvVLFUvnZvq6Hbn7eyHLsnaNHrDxpXcSW
-	 92LWmHZvf1dFy4rKeDAaN9+vLHtNTadwB6HBwUUi0+dLQWSis4ry5tovfGeECATQc2
-	 oKuFfzGDJnv6voPZF6kPJL4MqP6FZqatWDfWxgu6mBiwLtE3jpc5pOvA5vxXpCv36K
-	 922p1Gz95B79a67bIn3yu6qQCDCdkDb2F1wXnMVVUNwL3WhXz0RUclD315eJfaOiUV
-	 7w4Q0sjBcO1aVne6va75iHvKBJzRtyFmMOogTURs471mDIsStMbG9cdXj3sIMQ1/s3
-	 G6wTzpR9GDKww==
-Date: Thu, 7 May 2026 18:54:08 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V devicetrees fixes for v7.1-rc3
-Message-ID: <20260507-blush-secluding-aae99d404f6f@spud>
+	Thu, 07 May 2026 18:17:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LiUgNGvaQKumtkJ9pxzMn/bIQKAJ56tL6LoELKnr5SAiJwCCezObwOpkJKANaS07qGu0LL5aWeqnKtEKrKHUIeZN6dOmQ4fhQrwuKGa94lGNR9kBV6jMJsBj8sw3GKjKFrx0UkL7B4ctU5otnKgRVBT3zR5El3U9MAOUVNV9usS+fTN6KkJh+oCcTi3HcuzkbxRgT22XoTNq8pHE7eozKBwMiTdaOyvbIpJQ8FZ7p/VKJcOmvbV694bSOm9DZ0/uHC0cgD+NnqdjTRkOVHdtq17ZaFfrX2Gl+9juz9+JN5CeUnoPG87YbpurbHYUPgRAeugjm9k6aEm0Bu6YfWAEJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wPw9/bu+9M7ZqO8vWoYUrTe0wsaQE3KcKgMQHW1QD3E=;
+ b=NOQysYNHJeI0Jes5Vi0QhTLHCJCfxwx/L3Z+c3mS1V3SNeLvmko1l5gie2IAYO7heEQjrGVWCVvmE19iSENOiS0jY0BmLc/7Laf0dGirFQ6hjPQi/9anQghrlZH/C9YvHJfqxMXXYET+gBuvcdHRLlLHQA6wTYqELxUwN+juyv4mJI4Zobeyqtn1qqfeh5VhlBOR2zUF3lzf++2Dj2jKK8yH2bYKZ0gShzntiOHxK13kFEZshjLeQIvvJCH1s6zrIhtaaWMQiT8NblY/dzBGTJeL8w2qY6EA8d2BE2l3BVT7Z5fCQBq3Q9miIJ3IVc1nIlIuk3QbTRQnQ2KX9TDr6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wPw9/bu+9M7ZqO8vWoYUrTe0wsaQE3KcKgMQHW1QD3E=;
+ b=NsoVNz/C2zz5PemnR9lqaYUcaF3PJ8eeC55A0v6G8GKXcSdkSyWeJ+AnzEhqNDjDBiwg68cfwkNyDfI0aIT6C/QsodxbYBkJbC+PtbAF+gWob8KrnW5NIvdh8KA5QN3ndksQJWQSX0hYT6gldv9lFeIcJO1a2nuYNlThtXnzocjvSUvWK6XevpXKQ3riCXoQfStlo3HttfQIYArUpYwvJf7NdjLAcLa+FkBvQfJL1eRHyjsM7MbMjp1gFYZPcc92sahnifpz6M2Dp30Y1t1YqgTZfyECXeupQsQwWEjOQft1gnEAmTqsUfFCdIwJYDryqiPG0ZrRYaeGWmZdW0xzcA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV1PR04MB10156.eurprd04.prod.outlook.com (2603:10a6:150:1ad::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
+ 2026 18:17:26 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.016; Thu, 7 May 2026
+ 18:17:26 +0000
+Date: Thu, 7 May 2026 14:17:17 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Guodong Xu <guodong@riscstar.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 2/4] dmaengine: mmp_pdma: support variable extended
+ DRCMR base
+Message-ID: <afzXLe_ny4xemZKW@lizhi-Precision-Tower-5810>
+References: <20260507-k3-pdma-v5-0-6b9743038026@linux.spacemit.com>
+ <20260507-k3-pdma-v5-2-6b9743038026@linux.spacemit.com>
+Content-Disposition: inline
+In-Reply-To: <20260507-k3-pdma-v5-2-6b9743038026@linux.spacemit.com>
+X-ClientProxiedBy: PH8PR15CA0002.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::29) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10156:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a29c3eb-a9ab-4253-80d5-08deac64e453
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|7416014|38350700014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ke79/arKivW6K9qntjtJ+YixOCgIP9ZQ9SwfXoonG2okNhmsS6iqaYsfxmxZ51qSfQM1L8Oe5WZXDZnjhykrM19n53juUMYEIubdRcmaANbhieQkiN2wLwHTZ9Zlf4ojB2SXNnNHpQ3g2nCqxZgvf1Vv7ZLs2vv5DDSodhQDfcBHZjhMYqfUkXtptCFfGKPbo2Wg/MacZrFUzJ8c433WIrBlaxV9eYwmCy/PcD7CLkjtUYIEgwFMUhy8ESsFfZQJ2o2sBwNasLn4r5arsV3AVuSI7NLkdJb5E5dl/jSkmQoGclb7fgg+8JMRHRpid01uLhRv5axnjHmkG4/WNAJ9uVV6zIN4sUJ4ZgTJu/k05lQf7dYKhHZiMSyRc8CEiXMXPDkY05m0piyfRhtnEs2Q6TBD+9uqy+KFl54gOWHynpTFullbI/a+fYcffdDH/uCsHXpUEPsz3EHmK9X5qenF/5Dcq0f7G25TUA460vpFPxHA3js5Mk9ayalGz2VQdx75fYBpY8PnkC8107SuI5Pwjnv0uNircG+/nikHL6Crpsv01asNmvOm2lWYvNkYh1N9bTVJxRR1ubHlElmO9oI6zdvd7PlRyTmmEXKWZMcAfrUCbeQhvnw3l1SygvFfy0U/4ZNBSGH6EWumKtatUYA4b/4NZq2GFhJoc5GY+n/YrHQxOWbgd7SysFy005mQsP/lw+TtIYNpn7UQiQEsE0r8NxKIvaRgyq1/2SdIt07MS5PoHLW2ZGxj4RA3XM87vog1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(7416014)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?keQA6UqZpqiAcuKwQATuB1iaC5noQRYIrmHtGyGVIX4W53xQnILh6tNolyet?=
+ =?us-ascii?Q?dHCggcDRju7asIfbQiO6+ksyJeGPrNszBE15osr+maslr0HA0RMJXq0zBmHu?=
+ =?us-ascii?Q?eOQh/Bg3nwnh06NX1e41G1Z9WiOvpZ+3SQImrTSGKIes0scktWRvsm5xqlvE?=
+ =?us-ascii?Q?fgc1uwSMBTYsm6GhnJgUFt2/0s9rN9qZGn/CKcuUvWhJ0y53YLwmIf8npPZP?=
+ =?us-ascii?Q?NZjEhVyoq0Hdj3l/QHZVQ6sDIokgxPqAwTdKGRjFiUa99lueG7/wwhgGCRba?=
+ =?us-ascii?Q?oBNLAMrU3XWipkkdT7KHkqS5lReh0lo+APOmAQanXiJRvv0M8JF8vHvS/s3D?=
+ =?us-ascii?Q?z1/tKnVrlMVdirrai27VDT7Xy1ccwkMZBG1twUJJmdKaqp1qofwVhSulPfa+?=
+ =?us-ascii?Q?A0MVi8uwz/gI3fGHk39aK3cL5+hpXIxZMU/I2Tg76FW//oxIZArEFgmjhHtJ?=
+ =?us-ascii?Q?1JbTu4jFl9SaMO9dstT2ithcLBlHy3b4IS42znnT9CwuxxryB3Y2i6bSbRvs?=
+ =?us-ascii?Q?YCFY2EcvyXhVgkxUV4GMfGq99TcryFJXshmtqhnVlYxjjrd4Z8D4G1FCROsL?=
+ =?us-ascii?Q?tNWuyuOnQepd12i2h++K+glsBSgUekUPcodlvLkPPVePrdgOFGQReAnNTX0J?=
+ =?us-ascii?Q?hAF3F1kjVec0xtcptWErIdK/tB8yxkgBwscD/SGBd+bfxsAaWYu7HdXg5cd2?=
+ =?us-ascii?Q?40Xfja2VLGjEY+Fde7vtncE4j/IaMTpdk67ENnoTKH9Jg2cC4NrOgwQVOC45?=
+ =?us-ascii?Q?wB/7FGMORjskQ/K2v2Ou/aVNjcrQoqwBK7I5fXJ3QAkZzUzDsYLpg01pRrJg?=
+ =?us-ascii?Q?Yud7JphSkYx1X9hu8vsUawcsZ4X0FhjdDqfKSnRwOYSmzwXX1VWXjwuaY2n+?=
+ =?us-ascii?Q?vmjJhHJAvIPlrkoVpvx5Dr8dIjsRX9GfGG2XZ9+Y0rC7gyeRRDMVOciLBUzL?=
+ =?us-ascii?Q?1g1e+YN/2rmc7pEx/1S9aM5/kIZRBMCjrrwyDitz3sSd/4Bj59OpZci1bheR?=
+ =?us-ascii?Q?dP74XpldZGB1dqvchSAlaHNK1/s67m32U7Buv0RwiNlG4bAvU8uQr2mJyGzF?=
+ =?us-ascii?Q?ljAuNWEyP+QThr8M3q9HrJ+SPtYabrng1Bz8SYfAoPxGtbi/V9lyMcnCl2Rx?=
+ =?us-ascii?Q?lpxeTPCX9obSid+gxuDzvlVX1PzW0ZBbctzRfJDrwmuF3u3dom+2P+xFD4e1?=
+ =?us-ascii?Q?PrML9wJVzsfxrrqbEHuDGgCqf2S9eiq7wLNBAguVSzXdKMg9OSCVMCO14YBP?=
+ =?us-ascii?Q?4VBvXUEc/kOta1+mG9sMUbShwiEISW1Ss8ELYifZt+2Pe3T52paTim0Z5Rjq?=
+ =?us-ascii?Q?3oEPn4/e6LJzpk1DXREkgaaPsb0UREp1i+T7IGzz4xpy8amnNDe+Uldb6dwB?=
+ =?us-ascii?Q?RkrAwSBEkRuLCPXDR6Sosss4gyJhyV1uwkvHlxk7ln4j5lDcXMnwUew1RKkh?=
+ =?us-ascii?Q?4R/wMdoiAMUANoltIhKAngdisYyO6jbv4kICqtzCa8bQEVQSo/LJzTbhdTnC?=
+ =?us-ascii?Q?aAKrz7refVjR0urMeUDfofr1ssfkaqiGWWbylrxEGfafZXqlKkXXtym90peH?=
+ =?us-ascii?Q?BkLe0sZSX6zsvM+s4kcVRQhalsrdJS5suXcZDKzulNHBfRmaOI++CWn/orQT?=
+ =?us-ascii?Q?c0l0mtoatkmqp7O83laG9BwU0ic3G54vO6NyL8xY8l5CTnbNuo4OJ2oyc/IJ?=
+ =?us-ascii?Q?JAHTTfxKBa+lC71zG12W3b7fSb33ZVlXrCSINf795ZQAFuJB?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a29c3eb-a9ab-4253-80d5-08deac64e453
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 18:17:26.3683
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jGKqCdPx2o3L6CyOZ9wPqYyHU9LRPLTDBFk5fabQIJTQ9BQWHpwv1bsxb04ixvujD9NMJ0G1MBAWYLuJUj+MNQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_105412_055813_F6312A32 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260507_111734_065350_9C8AAB6B 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,92 +141,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3373972022825184449=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, May 07, 2026 at 06:36:21PM +0800, Troy Mitchell wrote:
+> From: Guodong Xu <guodong@riscstar.com>
+>
+> DRCMR base address for extended DMA request numbers (which means bigger
+> or equal to 64) varies in different PMDA hardware implementation.
+>
+> One such different PDMA implementation is found in SpacemiT's K3. In
+> this patch is for preparation the adding of K3 PDMA support.
 
---===============3373972022825184449==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KYu/UkfaUcfJ3dJ2"
-Content-Disposition: inline
+Avoid use words "this patch", just
 
+This patch should actaully prepare to support variable extended DRCMR base.
 
---KYu/UkfaUcfJ3dJ2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Correct descript this patch looks like
 
-Hey folks,
+dmaengine: mmp_pdma: refactor DRCMR access with helper function
 
-Please pull two relatively minor fixes.
+Refactor the DRCMR macro into mmp_pdma_get_drcmr() to support variable
+extended DRCMR bases, such as K3 PDMA.
 
-Cheers,
-Conor.
-
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
-
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-fixes-for-v7.1-rc3
-
-for you to fetch changes up to 0df8aa2b9aec5cd21e8c71d9cc1227e57bea43b3:
-
-  riscv: dts: microchip: fix icicle i2c pinctrl configuration (2026-04-27 20:12:51 +0100)
-
-----------------------------------------------------------------
-RISC-V devicetrees fixes for v7.1-rc3
-
-Microchip:
-Fix a pinctrl misconfiguration caused by a erratum fixed between
-engineering sample and production silicon, that causes settings for one
-to not apply to the other.
-
-Starfive:
-Remove nodes relating to the "camss" video device that has been deleted
-entirely from staging.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (1):
-      riscv: dts: microchip: fix icicle i2c pinctrl configuration
-
-Jai Luthra (1):
-      riscv: dts: starfive: jh7110: Drop CAMSS node
-
- .../boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi | 10 --------
- .../boot/dts/microchip/mpfs-icicle-kit-prod.dts    | 10 ++++++++
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts  | 19 +++++++++++++++
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 27 +--------------------
- arch/riscv/boot/dts/starfive/jh7110.dtsi           | 28 ----------------------
- 5 files changed, 30 insertions(+), 64 deletions(-)
-
---KYu/UkfaUcfJ3dJ2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafzRvwAKCRB4tDGHoIJi
-0m+dAP4kfTtXjWW+yv2V46nbdCJLIoIsgFfHdA2Z9DxsK1GB5gD+Npd2n1NI8aB4
-gmmHReY2KXLaVmkSMdrggUHatlXo9wM=
-=24Qz
------END PGP SIGNATURE-----
-
---KYu/UkfaUcfJ3dJ2--
-
-
---===============3373972022825184449==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Frank
+>
+> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
+>  drivers/dma/mmp_pdma.c | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
+> index d12e729ee12c..6112369006ee 100644
+> --- a/drivers/dma/mmp_pdma.c
+> +++ b/drivers/dma/mmp_pdma.c
+> @@ -51,7 +51,9 @@
+>  #define DCSR_CMPST	BIT(10)	/* The Descriptor Compare Status */
+>  #define DCSR_EORINTR	BIT(9)	/* The end of Receive */
+>
+> -#define DRCMR(n)	((((n) < 64) ? 0x0100 : 0x1100) + (((n) & 0x3f) << 2))
+> +#define DRCMR_BASE		0x0100
+> +#define DRCMR_EXT_BASE_DEFAULT	0x1100
+> +#define DRCMR_REQ_LIMIT		64
+>  #define DRCMR_MAPVLD	BIT(7)	/* Map Valid (read / write) */
+>  #define DRCMR_CHLNUM	0x1f	/* mask for Channel Number (read / write) */
+>
+> @@ -154,6 +156,7 @@ struct mmp_pdma_phy {
+>   * @run_bits:   Control bits in DCSR register for channel start/stop
+>   * @dma_width:  DMA addressing width in bits (32 or 64). Determines the
+>   *              DMA mask capability of the controller hardware.
+> + * @drcmr_ext_base: Base DRCMR address for extended requests
+>   */
+>  struct mmp_pdma_ops {
+>  	/* Hardware Register Operations */
+> @@ -174,6 +177,7 @@ struct mmp_pdma_ops {
+>  	/* Controller Configuration */
+>  	u32 run_bits;
+>  	u32 dma_width;
+> +	u32 drcmr_ext_base;
+>  };
+>
+>  struct mmp_pdma_device {
+> @@ -195,6 +199,13 @@ struct mmp_pdma_device {
+>  #define to_mmp_pdma_dev(dmadev)					\
+>  	container_of(dmadev, struct mmp_pdma_device, device)
+>
+> +static u32 mmp_pdma_get_drcmr(struct mmp_pdma_device *pdev, u32 drcmr)
+> +{
+> +	if (drcmr < DRCMR_REQ_LIMIT)
+> +		return DRCMR_BASE + (drcmr << 2);
+> +	return pdev->ops->drcmr_ext_base + ((drcmr - DRCMR_REQ_LIMIT) << 2);
+> +}
+> +
+>  /* For 32-bit PDMA */
+>  static void write_next_addr_32(struct mmp_pdma_phy *phy, dma_addr_t addr)
+>  {
+> @@ -301,7 +312,7 @@ static void enable_chan(struct mmp_pdma_phy *phy)
+>
+>  	pdev = to_mmp_pdma_dev(phy->vchan->chan.device);
+>
+> -	reg = DRCMR(phy->vchan->drcmr);
+> +	reg = mmp_pdma_get_drcmr(pdev, phy->vchan->drcmr);
+>  	writel(DRCMR_MAPVLD | phy->idx, phy->base + reg);
+>
+>  	dalgn = readl(phy->base + DALGN);
+> @@ -437,7 +448,7 @@ static void mmp_pdma_free_phy(struct mmp_pdma_chan *pchan)
+>  		return;
+>
+>  	/* clear the channel mapping in DRCMR */
+> -	reg = DRCMR(pchan->drcmr);
+> +	reg = mmp_pdma_get_drcmr(pdev, pchan->drcmr);
+>  	writel(0, pchan->phy->base + reg);
+>
+>  	spin_lock_irqsave(&pdev->phy_lock, flags);
+> @@ -1179,6 +1190,7 @@ static const struct mmp_pdma_ops marvell_pdma_v1_ops = {
+>  	.get_desc_dst_addr = get_desc_dst_addr_32,
+>  	.run_bits = (DCSR_RUN),
+>  	.dma_width = 32,
+> +	.drcmr_ext_base = DRCMR_EXT_BASE_DEFAULT,
+>  };
+>
+>  static const struct mmp_pdma_ops spacemit_k1_pdma_ops = {
+> @@ -1192,6 +1204,7 @@ static const struct mmp_pdma_ops spacemit_k1_pdma_ops = {
+>  	.get_desc_dst_addr = get_desc_dst_addr_64,
+>  	.run_bits = (DCSR_RUN | DCSR_LPAEEN),
+>  	.dma_width = 64,
+> +	.drcmr_ext_base = DRCMR_EXT_BASE_DEFAULT,
+>  };
+>
+>  static const struct of_device_id mmp_pdma_dt_ids[] = {
+>
+> --
+> 2.54.0
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3373972022825184449==--
-
