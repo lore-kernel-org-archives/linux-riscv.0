@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00989CD3436
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 02:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0365ECD342C
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 03:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uchh/dBTgILcavtS4liC/3MV/8RZVI3WAL+wP4TI3H8=; b=Sj/bwJKOaaEVa7
-	rDCj9NFthvLRFjnMpPN8qG4LDvQRKGyoptkyv6vc5MeTjyD7TofPxOj88XfQZhI1F/1okgXTEtzLL
-	QbHxvrhc6Blhb2kRgwfP4zkgp6hQzEozAXvw3yK3xvRMLa7sZDhyTf4UYpcbyFxTaWHS4mPtq+uWs
-	GIxupniptYUI9fso8kU9sEIFbDPqmvl90S3K1CAYmBEdIJk+QKkaH36Xts18L1WC8SKNL07U+Qvej
-	K/uGXHyAFH/bI+M0PyVG+RO9XhkzBXqkYlgk7ZcPSrh7a+0CPgLfMPa1VS8atmTOLm2spOUWHwIbJ
-	bNDyc6g2o4M7qxwNgE6g==;
+	List-Owner; bh=ZUhXhKGkkmzUwUIu5uymsfoyjcERGNWHTAfOgPn4pKA=; b=QbcPu3rgxCm9yo
+	nDjRONBKLOW8+oQXSzP/+A7DWcqOM3gbM32czGObeJYWCvg5JsNYrJYLv9cbE3Y01Qlq2zS/ed4er
+	ITEvNNwU97MCCdht+oQJMGEJoQMlV3D3HTyffNApsvQmGS6B1DGzXT84f6sOj8ltW9bBTinKGGmRY
+	3ixIWLySQhmwkDNbRty+6ONkVAvPijjF1oL3HxFN82G4yiKo6xisQM0LvC3HXwMku3bbxZHMbAgWg
+	iPjKeIvC1vvjVEUSV6n7OQJZNCV4NZupQRHf6y6X9aprQkvyfZkB08XKsqNSZefXTN2nMeacdVpCc
+	7j/nM0qUnUWcVMdDYxNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKojy-00000002Z0s-2Csb;
-	Thu, 07 May 2026 02:45:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKojw-00000002Z0a-46y8
-	for linux-riscv@lists.infradead.org;
-	Thu, 07 May 2026 02:45:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB8EB6015B;
-	Thu,  7 May 2026 02:45:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E609CC2BCB0;
-	Thu,  7 May 2026 02:45:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778121927;
-	bh=GVDgyNBjLVJtO0PjEWdPQZ+br1pnpWOGwCkKrGbMVKY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qpj1qYcrB2K6aLv1IaeZuNOwPCUdI+3QGKr40V78B/F3Nl90L20lL3c3Aa6ViiCxm
-	 zpSZl9i4y5RsNk2dnVmrzlb0+2o2rQgyr58CEYhwizs5YUL15KfkQCEUyGVScjLrdy
-	 naDPsrm67kPdWXE0BrEvbefGTDoQaQdhD1tnMBHk4XRV4unHxDD3ALSbb7G+VT4wtd
-	 WkNwusG5+NN+trr0hYEH1g9URbJb1iGbc4E21AbRrBF4Eu2oUEXpKhPszLF8tT3ilz
-	 oUhcjLj9pzn9fP3aGM30K5QG8RwC7iLAtbYPKr8/hxv6BO6aaBSEnLofKASeIRpy+3
-	 TO36e5KAClafw==
-Date: Thu, 7 May 2026 02:45:24 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>,
-	Han Gao <gaohan@iscas.ac.cn>, Ze Huang <huang.ze@linux.dev>,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH v2 1/4] riscv: dts: spacemit: k1-bananapi-f3: Add
- vcc5v0_sys regulator for Banana Pi F3
-Message-ID: <20260507024524-GKA3579608@kernel.org>
-References: <20260502051906.8160-1-linux.amoon@gmail.com>
- <20260502051906.8160-2-linux.amoon@gmail.com>
+	id 1wKpeG-00000002f3n-17j0;
+	Thu, 07 May 2026 03:43:40 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKpeE-00000002f3L-1hue;
+	Thu, 07 May 2026 03:43:38 +0000
+Received: from [10.95.65.64] (unknown [167.220.238.64])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 33FE320B7165;
+	Wed,  6 May 2026 20:43:26 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 33FE320B7165
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1778125413;
+	bh=ZaiVA7FK64HzHiW79paCCu3hRwFlMBFKVgvgM3gbwUQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZNlBaGdBTGgWhXBzXBgqOVZm/b/shQdBDzoIUFvlVMUYDb35gRYc2aRNtfBtUwVde
+	 0yvNU7byjWVWhwL6ErC+tJLxcEwic9+viIQo4EvQsOVk3Ed9dZyD3pgRTvCuHQWwws
+	 ORdyFcW2lS6CP3jUPBUMPamNznpGn0N/JJmWavVk=
+Message-ID: <b9ab1860-ec82-4a82-abac-f099a3747ba8@linux.microsoft.com>
+Date: Thu, 7 May 2026 09:13:27 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260502051906.8160-2-linux.amoon@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/15] Drivers: hv: mshv_vtl: Move
+ hv_vtl_configure_reg_page() to x86
+To: Michael Kelley <mhklinux@outlook.com>
+Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sascha Bischoff <sascha.bischoff@arm.com>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "vdso@mailbox.org" <vdso@mailbox.org>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+ <20260423124206.2410879-10-namjain@linux.microsoft.com>
+ <SN6PR02MB4157467FDBC0203C67A67042D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <567cf73b-6a48-4fc3-b312-9be6d71e2f22@linux.microsoft.com>
+ <SN6PR02MB4157AD364DE0755DE070D286D4312@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <024aed8c-cd97-45f0-a653-489fc334a2b9@linux.microsoft.com>
+ <SN6PR02MB4157D109AF4B5C62EF7F0E2CD43F2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157D109AF4B5C62EF7F0E2CD43F2@SN6PR02MB4157.namprd02.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260506_204338_487349_394C3262 
+X-CRM114-Status: GOOD (  40.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,78 +90,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anand,
 
-On 10:48 Sat 02 May     , Anand Moon wrote:
-> Define the system 5V fixed regulator (vcc5v0_sys) supplied by the
-> DC input. As per the schematics, vcc5v0_sys is the input power source
-> for the VCC5V0_HUB and 5V_VBUS reglators. Update these regulators
-> to correctly reference vcc5v0_sys as their parent (vin-supply).
+
+On 5/6/2026 8:06 PM, Michael Kelley wrote:
+> From: Naman Jain <namjain@linux.microsoft.com> Sent: Tuesday, May 5, 2026 10:50 PM
+>>
+>> On 5/4/2026 9:36 PM, Michael Kelley wrote:
+>>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Wednesday, April 29, 2026 2:58 AM
+>>>>
+>>>> On 4/27/2026 11:10 AM, Michael Kelley wrote:
+>>>>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 2026 5:42 AM
+>>>>>>
+>>>>>> Move hv_vtl_configure_reg_page() from drivers/hv/mshv_vtl_main.c to
+>>>>>> arch/x86/hyperv/hv_vtl.c. The register page overlay is an x86-specific
+>>>>>> feature that uses HV_X64_REGISTER_REG_PAGE, so its configuration belongs
+>>>>>> in architecture-specific code.
+>>>>>>
+>>>>>> Move struct mshv_vtl_per_cpu and union hv_synic_overlay_page_msr to
+>>>>>> include/asm-generic/mshyperv.h so they are visible to both arch and
+>>>>>> driver code.
+>>>>>>
+>>>>>> Change the return type from void to bool so the caller can determine
+>>>>>> whether the register page was successfully configured and set
+>>>>>> mshv_has_reg_page accordingly.
+>>>>>>
+>>>>>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+>>>>>> ---
+>>>>>>     arch/x86/hyperv/hv_vtl.c       | 32 ++++++++++++++++++++++
+>>>>>>     drivers/hv/mshv_vtl_main.c     | 49 +++-------------------------------
+>>>>>>     include/asm-generic/mshyperv.h | 17 ++++++++++++
+>>>>>>     3 files changed, 53 insertions(+), 45 deletions(-)
+>>>>>>
+>>>>
+>>>> <snip>
+>>>>
+>>>>>>     #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+>>>>>> +/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
+>>>>>
+>>>>> This comment pre-dates your patch, but I don't understand the point
+>>>>> it is trying to make. The comment is factually true, but I don't know
+>>>>> why calling that out is relevant. The REG_PAGE MSR seems to be
+>>>>> conceptually separate and distinct from the SIMP MSR, so the fact
+>>>>> that the layouts are the same is just a coincidence. Or is there some
+>>>>> relationship between the two MSRs that I'm not aware of, and the
+>>>>> comment is trying (and failing?) to point out?
+>>>>
+>>>> This was added as per suggestion from Nuno in my initial series for
+>>>> MSHV_VTL. If the reference in "identical to" is misleading, I should
+>>>> remove it.
+>>>>
+>>>> https://lore.kernel.org/all/68143eb0-e6a7-4579-bedb-4c2ec5aaef6b@linux.microsoft.com/
+>>>>
+>>>> Quoting:
+>>>> """
+>>>> it is a generic structure that
+>>>> appears to be used for several overlay page MSRs (SIMP, SIEF, etc).
+>>>>
+>>>> But, the type doesn't appear in the hv*dk headers explicitly; it's just
+>>>> used internally by the hypervisor.
+>>>>
+>>>> I think it should be renamed with a hv_ prefix to indicate it's part of
+>>>> the hypervisor ABI, and a brief comment with the provenance:
+>>>>
+>>>> /* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
+>>>> union hv_synic_overlay_page_msr {
+>>>> 	/* <snip> */
+>>>> };
+>>>
+>>> OK, so this union is not associated *only* with the REG_PAGE MSR
+>>> (though that MSR is the only current user). Instead, it is intended to
+>>> be a more generic description of MSRs that set up overlay pages. I
+>>> don't think I had previously noticed Nuno's comment on the topic.
+>>>
+>>> Looking through hvgdk_mini.h and hvhdk.h, I see 6 definitions that
+>>> are exactly the same:
+>>>
+>>> * union hv_reference_tsc_msr
+>>> * union hv_x64_msr_hypercall_contents
+>>> * union hv_vp_assist_msr_contents
+>>> * union hv_synic_simp
+>>> * union hv_synic_siefp
+>>> * union hv_synic_sirbp
+>>>
+>>> There's an argument to be made for removing these 6 unique definitions
+>>> and using union hv_synic_overlay_page_msr instead (though "synic"
+>>> would need to be removed from the name).  I would not object to such
+>>> an approach. It's a small extra layer of conceptual indirection, but saves
+>>> some lines of code for duplicative definitions. The alternative is to drop
+>>> the idea of a generic overlay page MSR layout, and replace union
+>>> hv_synic_overlay_page_msr with a definition that is specific to the
+>>> REG_PAGE MSR, like the other six above.
+>>>
+>>
+>> Hi Michael,
+>>
+>> While having a generic definition looks good to have here, I can see two
+>> reasons for not going ahead with generic overlay page definition:
+>> 1. All of the above definitions are present in Hyper-V headers and
+>> generalizing them would deviate from the strategy of keeping the kernel
+>> headers in line with Hyper-V headers.
+>> 2. For any of these definitions, if the use-case requires using some of
+>> these reserved bits, then it would be a problem. I can actually see that
+>> happening in "hv_x64_msr_hypercall_contents" in the corresponding
+>> variant in the Hyper-V header.
 > 
-> Cc: Han Gao <gaohan@iscas.ac.cn>
-> Cc: Ze Huang <huang.ze@linux.dev>
-> Cc: Chukun Pan <amadeus@jmu.edu.cn>
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+> Your points are certainly valid, and I'm good with not going the
+> generic route.
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> index 5790d927b93d..9727ecdd9f6b 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> @@ -50,6 +50,16 @@ reg_dc_in: regulator-dc-in-12v {
->  		regulator-always-on;
->  	};
->  
-> +	reg_vcc5v0_sys: regulator-vcc5v0-sys {
-This will fall into the catogery of "non-controllable & serve no devices"
-see similar comment for 'reg_dc_in' which raised by Krzysztof
-
-https://lore.kernel.org/all/6530526f-59ca-4753-a068-46c62a1a1fed@kernel.org/
-
-or should I ask, what's the real problem if regulator has no vin-supply?
-Any probe failure or something bad happen? (besides /sys/../regulator_summay)
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc5v0_sys";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		vin-supply = <&reg_dc_in>;
-> +	};
-> +
->  	reg_vcc_4v: regulator-vcc-4v {
->  		compatible = "regulator-fixed";
->  		regulator-name = "vcc_4v";
-> @@ -66,6 +76,7 @@ regulator-usb3-vbus-5v {
->  		regulator-min-microvolt = <5000000>;
->  		regulator-max-microvolt = <5000000>;
->  		regulator-always-on;
-> +		vin-supply = <&reg_vcc5v0_sys>;
->  		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
->  		enable-active-high;
->  	};
-> @@ -75,6 +86,7 @@ usb3_hub_5v: regulator-usb3-hub-5v {
->  		regulator-name = "USB30_HUB";
->  		regulator-min-microvolt = <5000000>;
->  		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&reg_vcc5v0_sys>;
->  		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
->  		enable-active-high;
->  	};
-> -- 
-> 2.50.1
+>>
+>>> I could go either way. If we want to use a generic overlay page definition,
+>>> then that approach should be applied everywhere. With the current
+>>> state of your patch set, we're halfway in between -- the generic definition
+>>> is used one place, but duplicative specific MSR definitions are used other
+>>> places. That's probably the least desirable approach.
+>>>
+>>> Michael
+>>
+>>
+>> Now, coming back to the hv_synic_overlay_page_msr definition. While
+>> Nuno's comment hinted at it being "generic", the same is not documented
+>> in the name of this structure or its comments. So it should be safe to
+>> assume that it is specific to synic_overlay_page_msr usage. But since it
+>> is not part of Hyper-V header as such, we needed that comment:
+>> "/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */"
+>>
 > 
+> An "overlay page" is a generic concept in the Hyper-V world, and it is used
+> in multiple places in the guest<->hypervisor interface. The old PDF version of
+> the Hyper-V TLFS describes overlay pages in the section 5.2.1 entitled "GPA
+> Overlay Pages". See [1]. Unfortunately, this material about overlay pages
+> doesn't seem to have been carried over to the web page version of the TLFS.
+> 
+> So in my thinking, the name "hv_synic_overlay_page_msr" is inherently
+> a generic definition that could be applied to multiple MSRs that are used to
+> specify overlay pages. Your patch is about a specific MSR,
+> HV_X64_REGISTER_REG_PAGE, which happens to be used to define an
+> overlay page. But if the decision is to *not* go the generic route, I
+> would expect to see something like "union hv_x64_reg_page_msr"
+> that is specific to the REG_PAGE MSR, and to have that type used in
+> hv_vtl_configure_reg_page(). The definition of hv_x64_reg_page_msr
+> would not have a comment referencing the SIMP or any other MSR
+> because it would be a standalone definition that is specific to
+> HV_X64_REGISTER_REG_PAGE. Then the pattern would be the same as
+> the other six cases that I listed above.
+> 
+> When not using the generic approach, hv_synic_overlay_page_msr
+> really has no purpose, and could go away.
+> 
+> Michael
+> 
+> [1] https://github.com/MicrosoftDocs/Virtualization-Documentation/raw/live/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v6.0b.pdf
 
--- 
-Yixun Lan (dlan)
+
+Thanks for suggesting this, I was not aware of it. I'll change it to 
+hv_x64_reg_page_msr and remove the comment.
+
+Regards,
+Naman
+
 
 _______________________________________________
 linux-riscv mailing list
