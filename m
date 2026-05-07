@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57F6CD342C
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 00:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC994CD342C
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 01:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H2eBL9fQ2zUccEX3NPNjRJ9cXsb/5dhAFYsTtKbPb4I=; b=hLq2TkapOV8bHV
-	/6CCY9Yj3eZpInhUGn35KdE1PliLBt7S7Qvi0WAo1yFAh2VMtXpdeYsoE0n9+OxaGg9RBqTbev4Gi
-	y8L3w3bz6tTzON3MbYts9b5nhtIZGQnUQ115mONQnD4tfBnC+KZhVslqjxRDKps7M4tqdQFh+Gjni
-	oM+cHvIcRDFyvkUNyOkcG0XfgC5kAOmVjEG4v8me5HD77TOWTzt1kLjpEEhlu9LuYF5OIH56kIV8Z
-	pVG77uMSe35lLgMsWhWx39aHK4XBT+l7zw1sUwl2pL4ursEOceSPkJgEhUxziTtNwUI68rbS6pn+u
-	n5jLeLuD0NZnYf5uZi7A==;
+	List-Owner; bh=LVCAPU0+G95pcv/Boa0S6VTqpjdytwvmqEV6BLz2s28=; b=wcCO2kSm6U6/x1
+	WRwifVysnbAUSrc8eL0GdXCS5DFF74YmdP328fA2tTtK2wxYg0a7ob781dx7kTAZ4Wq+rnB4DGXcf
+	ZnOVjw5lPhT868P3hrs9UEYvLz1TKFeQtKQXspV3SSzkAmH5HLXPX+g8sFrh9Tv8nuAmRM0/TM/9R
+	yVPQbYskihimPZNf7rk1BLanghr9oXR3zZEspuBBaEORyAZOJUJCwVcpzvfsA+0rA3JonQ5tTnIgw
+	jbWmOBITCsnrOeRSzYMMYsYNIoTK6SebDCQDSmM8nUX3YGYS6rNLAP5dnYqZ96XyLF38JzcptJnhR
+	ZKmiWHMFGUYlvKQIpllw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKmoF-00000002MwT-0WB5;
-	Thu, 07 May 2026 00:41:47 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1wKnxw-00000002TUX-47wV;
+	Thu, 07 May 2026 01:55:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKmoE-00000002Mw5-2VZP
+	id 1wKnxv-00000002TUF-3h5m
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 May 2026 00:41:46 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c798fc1a28cso82796a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 06 May 2026 17:41:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778114505; x=1778719305; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hZ5LFFAZbhjlqv4fN6kLXFN2tALXchu13wJuFe3wZrI=;
-        b=mpzKPD1YuRmyhhAkZ0xbmYhGt5exiwwe9ier9FEuzy2OnNNSfBaqBW03Qn6BBJjZq/
-         VBXmR3SvWrqLFw/Z+hKYgatJTymZkMogYKCDq+yzbU3AmaerGJaoVv4s8tSa84XaDirZ
-         Fdwomm+JKDF/6YPPbmCFEY8p34moNT+YcgXaAdeueXh/7erCXTQnEVRjAKuJwVdFaIci
-         m3gDMx59J9XYJ/WeapKHl/sbgpvNhbQ+rabWfdQXBx/e1dQtCcc5J5bQOzfz1AFGVWvz
-         f4IudAYXMan5NIOkVv+zb6FQoA7wAltnK0Js6Q0ySb2lx0veO3lJRkFERQ+ytc/Rwogj
-         AoiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778114505; x=1778719305;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hZ5LFFAZbhjlqv4fN6kLXFN2tALXchu13wJuFe3wZrI=;
-        b=m6mLET8PyeM9CD1vl55QrNuXn/BIKlUPSKDjv/9tSMrUUtV/qcBs3BAbQmJZL5gIK/
-         fS7Im+DOnL1Qj3dfCe72ZWeVCNsnNJZyvgq8n50IeThw5CcLnsPX8b3ry3Upx5AmixXd
-         VdfRieYqwnOv3G5O0KOSwlwGZxbAZjk+ZoT2fWT1pb0ACvgp5tAlgg0EwikyHoINWYsq
-         nAB1jPCxSQwbSVOfAZK5apSXldDwU++vkkSsv9JfNSO2+J3vgBOdYMekhEIg6gVgdIm2
-         JZ/LKVcfINtVDge93sC/kq3bSnRUVD0B4YD8IuO0C+IQyHKSnDPulnLSKWqkJ90xhTGF
-         MSPA==
-X-Forwarded-Encrypted: i=1; AFNElJ/y4k1AKMMRjRU00P+NwG+SUstdFKiyqSInrsMWI3nmF5+B7yqglG9qH1+W1pORFuGg2KOf7MAhBYnRDw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLMrp7F1Asd2FQp+LO/jZBQtKtrjuoID+HJppxmUbqSIe7sCv/
-	GhkwupeBpcz6FIf6tnpn5Otk00cVobfmSJyj1ZKFSsVI/M0RUAq2LzyB
-X-Gm-Gg: AeBDiet70jDuiLkzWqiXdLbHp1Uc795JQNiuTOnH77TISuNQl/2cL+QHib9goWqlNeL
-	wuYwNDm4z3Ma10C8gYKqiSE8v4DqcOhSGOZd+xxiUkdXjxpuE6mhoqdp1x2xYWLyQ4J+kz8zkRa
-	Y1QgK9l/78E5sX1FLj2XhUKRqLOs+eIM5LPImyneCZCvFEjeRskSjtrLEnuxEwi7OtWuzR5Ndyk
-	3rs71IjaFD73RjP8vdCz0A6tuhi7bbcxZh9I3a+Ofe3Yg91/09U0xKtfUXLH8ztkStIUeV0sAOv
-	gYJLjpqa0xJr4wJpF+TsG5PzDHe3hBfkCHuSrOI5E0zwiZNlKADkXkdzYUSKqvzCBHIpQKtHCmS
-	vKCIa+/FF0tk83apb52iG5fGqqAiGmAi6LhF8/6j0o3zOGO5UZPDj5KGFnBepqAUGF5QCf/oo1T
-	+90im71y2ZPS7twrHSM421fJUV1hwmof86qA==
-X-Received: by 2002:a05:6a20:431e:b0:3a8:284c:fa3b with SMTP id adf61e73a8af0-3aa5ac98bc1mr5493704637.48.1778114501965;
-        Wed, 06 May 2026 17:41:41 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8253582a60sm370848a12.1.2026.05.06.17.41.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 17:41:41 -0700 (PDT)
-Date: Thu, 7 May 2026 08:41:23 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Lukas Wunner <lukas@wunner.de>, 
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Han Gao <gaohan@iscas.ac.cn>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Jonathan Cameron <jonathan.cameron@huawei.com>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
-	Kees Cook <kees@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, linux-pci@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Han Gao <rabenda.cn@gmail.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, stable@vger.kernel.org
-Subject: Re: [PATCH 2/2] PCI: Add quirk to disable PCIe port services on
- Sophgo SG2042
-Message-ID: <afveQQI-CsQ2L1-N@inochi.infowork>
-References: <20260331175658.1015829-1-gaohan@iscas.ac.cn>
- <20260331175658.1015829-3-gaohan@iscas.ac.cn>
- <q6wmn67lzk5c2pgmgkoezcvy3xj3yqecg675gx7xyrw3amjwpi@5pjla6j3krbv>
- <0f42afefd9322779af5463b696c55b08d2296ea8.camel@iscas.ac.cn>
- <afZUxYhkCQ0wG0Uu@wunner.de>
- <68d4a49bf1df785ae906fbc2dd16e64b667ca5f0.camel@iscas.ac.cn>
- <afcMtlBJYeuxSqZr@wunner.de>
+	Thu, 07 May 2026 01:55:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 09C3760181;
+	Thu,  7 May 2026 01:55:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7F5CC2BCB0;
+	Thu,  7 May 2026 01:55:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778118950;
+	bh=HmSssX1mkmHZczuAQsHC8mpZvxjJ8ykpKqPzUDK6R8I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=s7E72tRfcpgr6klSGp/xQF8CXOa2Yr3ciYm2R3qmVK7PIXH+5vvbHvNOuyimAGGm9
+	 PLLnosaUmwCqEfxH9ux94q9IoqxKJILYjL0vs2P19wKxC6bq7vJou0OeQu6iWY9qUa
+	 19iCXoyhqZed4b7063deHKSh1YunU0Sc8+N/kf6TShC4n+J409YH5O21wyjAb0gEvr
+	 ICn3Dtat/b9PdvFBK/g5/BOeO+EdRMnpzfYK1H2t+hIzJi1XzUMMcI9QkAJENfP/GL
+	 D9mJjGe6DIIVXgy/KfQaiqaQRNskqrXgyd2CrDXplUrOHxFvogYjo4sUn8SlLmqSNX
+	 qWHBER3uhJQOQ==
+From: Yixun Lan <dlan@kernel.org>
+To: Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alex Elder <elder@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Guodong Xu <guodong@riscstar.com>
+Cc: Yixun Lan <dlan@kernel.org>,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Alex Elder <elder@riscstar.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Subject: Re: (subset) [PATCH v10 0/3] spi: support the SpacemiT K1 SPI controller
+Date: Thu,  7 May 2026 01:55:39 +0000
+Message-ID: <177811891149.2316511.8217429551447102118.b4-ty@b4>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260502-spi-spacemit-k1-v10-0-f412e1ae8a34@riscstar.com>
+References: <20260502-spi-spacemit-k1-v10-0-f412e1ae8a34@riscstar.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <afcMtlBJYeuxSqZr@wunner.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_174146_646627_DDFF3BEC 
-X-CRM114-Status: GOOD (  25.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,61 +86,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 03, 2026 at 10:52:06AM +0200, Lukas Wunner wrote:
-> On Sun, May 03, 2026 at 03:10:58PM +0800, Icenowy Zheng wrote:
-> > It's used in multiple products, but only one of them (EVBv1, which is
-> > just an early EVB available for a few people including me) lacks an
-> > onboard switch, because SG2042 is short on on-chip peripherals. All
-> > other devices (including two mainlined ones, EVBv2 and Milk-V Pioneer,
-> > and unmainlined dual socket rack servers; Milk-V Pioneer should be the
-> > most popular device because it was on shelf) have an onboard switch to
-> > mitigate the lack of on-chip peripherals in SG2042.
-> 
-> Who knows, maybe someone will design a product which doesn't attach
-> a PCIe switch to the SoC, maybe the lack of peripherals isn't a
-> problem for them.
-> 
-> It seems reasonable to accommodate such non-switch use cases as well,
-> so I think you definitely do not want to quirk all products using that
-> SoC but only those that need it, regardless whether it's the majority.
-> 
 
-I think it is possible to quirk all the SG2042 products, because the
-typical usage already shows MSI shortage (And this is why SG2044 has
-512 MSIs). Although it may left some MSIs in the test case, MSI shortage
-is a common issue in a real scenario. And the Sophgo already maintains
-a whitelist to limit the MSI usage of most devices in their vendor
-kernel. So I think it is fine to quirk all the products that use SG2042.
+On Sat, 02 May 2026 21:30:50 -0400, Guodong Xu wrote:
+> This series adds support for the SPI controller found in the SpacemiT
+> K1 SoC.  The driver currently supports only master mode.  The controller
+> has two 32-entry FIFOs and supports PIO and DMA for transfers.
+> 
+> Starting with v8, I am taking over from Alex Elder to shepherd this
+> series upstream.  Alex developed versions 1 through 7.
+> 
+> [...]
 
-Regards,
-Inochi
+Applied, thanks!
 
-> > > My point is, you want to constrain this to a specific product, not to
-> > > the SoC.  Can you maybe solve this by not specifying interrupts in
-> > > the devicetree for the PCIe switch?
-> > 
-> > The PCIe switches are not described in the device tree at all, because
-> > they're all just discoverable; can we describe them in the DT and
-> > redirect their interrupts to void?
-> 
-> Yes, somebody did a writeup how to represent switches and endpoints
-> in the devicetree:
-> 
-> https://farlepet.github.io/linux/2024/02/20/using-linux-device-tree-with-pcie-devices.html
-> 
-> And then I would try providing an empty "interrupts" property for
-> those switch ports for which you want to avoid port services being
-> instantiated.
-> 
-> That way you could selectively *enable* port services for specific
-> ports where it's useful.  Let's say you need DPC on a specific port
-> to contain errors of an attached NVMe drive.  Just assign a single
-> MSI for that port and assign no MSIs for all the others.  Much more
-> flexible than globally disabling port services.
-> 
-> Thanks,
-> 
-> Lukas
+[3/3] riscv: dts: spacemit: define a SPI controller node
+      https://github.com/spacemit-com/linux/commit/c580774185426ea316396b1dc3f1737a3ad3800a
+
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
