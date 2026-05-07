@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C5BECD3445
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CAAACD3446
 	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 08:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,23 +12,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lvo/Qc3dbMP69j9pv+0iA8jTppy84Fap1EEqCqfpHhU=; b=YF8SbHyxrYsJkr
-	1i3Bls2ywnrQ4f+mUi2Fzmqw6cCNSCFKbBAtLI5UOrSQeB3MJcT3PCMbojzNnPasZF7EfliEU0ZXe
-	3nceX90vZs5QC18n0yIf6e8sFaXcoG++3ZnIzOYEcCnnmdq+zD7FwpljFprf1eR6m5rJ9TCzADOKb
-	Z/eH/EdkUwOVe+pumrj37CSiIzAsD06I67o97uzEytA5tPDGvVuhifJ98MeTHmRzQxXddhK1uB8Qv
-	qbNIP8Y4WR86sF4puXEbo2/LkbhKmxDIb5popn0jk7457W/2rAsf109sER9QiUHMUjv3LknanWzL7
-	jrY6gRPbTVAScDRrcq/A==;
+	List-Owner; bh=CxdgqQxAUR2GD4CSI7OeUd27/k38nqOcCTZ4Ncns6fI=; b=VbEX9L1qKBTvpB
+	9Dvnzobl2BrsXz9JviB+ngCUq6kO6Kdkrbz4XoO/5wseHzN2zHcdvo6nHOoubCMPTGShUGdC9ZWXk
+	sxAdv46SIFvLY771Yzz5JplefdxIBS8qu84g1/nBCgpqynxnw+RQ1hX3phKOQwORC/pK+bKu+k1KX
+	JXKY20zUKe1LB4lFMl5vCaXd50pZn8Vdyjil8Gz0Mab8Q18SZEgn36bdK3BCr8SIRJFMQbmqlI2ki
+	lAzhGFZtIGl285zRoiKLjpqoWr0dJlXxHzKzYt34HDJ4J3XC9jBIfRPDnZOGpBOp2tZ22a7U4jla3
+	F4VVMgrzdV1kChkk+oiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtvy-00000003855-1FpG;
+	id 1wKtvy-0000000384d-0GaP;
 	Thu, 07 May 2026 08:18:14 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtvu-000000037z1-2Dey;
-	Thu, 07 May 2026 08:18:12 +0000
+	id 1wKtvt-000000037yl-2D0a;
+	Thu, 07 May 2026 08:18:11 +0000
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.82])
-	by APP-03 (Coremail) with SMTP id rQCowAC3m+KLSvxpI_pNEA--.42168S8;
-	Thu, 07 May 2026 16:17:28 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAC3m+KLSvxpI_pNEA--.42168S6;
+	Thu, 07 May 2026 16:17:25 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Drew Fustini <fustini@kernel.org>,
 	Guo Ren <guoren@kernel.org>,
@@ -46,17 +46,17 @@ To: Drew Fustini <fustini@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Jisheng Zhang <jszhang@kernel.org>
-Subject: [PATCH 06/12] riscv: dts: thead: add device nodes for USB
-Date: Thu,  7 May 2026 16:17:04 +0800
-Message-ID: <20260507081710.4090814-7-zhengxingda@iscas.ac.cn>
+Subject: [PATCH 04/12] dt-bindings: phy: add binding for T-Head TH1520 USB PHY
+Date: Thu,  7 May 2026 16:17:02 +0800
+Message-ID: <20260507081710.4090814-5-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
 References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAC3m+KLSvxpI_pNEA--.42168S8
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF4xWryDXFW5Jr15Cr43Awb_yoW8ZF4kpw
-	47CrZ3ArsagFsa9anIyr1jgFs3XF4rCF1vgFnFka48CrsagrWjvrWxKa1fZFW8Jrs7Zw43
-	CFyUK340kr1qyw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowAC3m+KLSvxpI_pNEA--.42168S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw1kZrW3uryUJFW5Ww4kWFg_yoW8tF43pa
+	93GFyfJFnagFn3uw4SqF10kF1ftrZ5ZF15tr12gw10gws0g3WSqa9IkFy5uF48Jr48XFW7
+	uF4Y9ry7KF12kw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
 	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
@@ -67,16 +67,15 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7tF4xWryDXFW5Jr15Cr43Awb_yoW8ZF4kpw
 	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
 	kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
 	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
-	AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI
+	AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI
 	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
-	4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
+	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
 	daVFxhVjvjDU0xZFpf9x0pRQJ5wUUUUU=
 X-Originating-IP: [112.94.100.82]
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_011810_936506_16E18092 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260507_011809_947648_ECF84BAE 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,64 +93,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The TH1520 SoC contains a Synopsys DesignWare Cores SuperSpeed USB3.0
-Dual Role Device controller in addition to a USB2+USB3 combo PHY based
-on Synopsys USB3.0 FemtoPHY.
+The TH1520 SoC features a Synopsys USB 3.0 FemtoPHY with some custom
+glue logic configuring PHY parameters.
 
-Add device tree nodes for them. The USB controller is quite generic, new
-and properly configured during silicon design, but the PHY is a little
-quirky.
+Add a binding for it.
 
 Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ .../bindings/phy/thead,th1520-usb-phy.yaml    | 74 +++++++++++++++++++
+ 1 file changed, 74 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/thead,th1520-usb-phy.yaml
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index c9930e63bbe93..a6a3e114d0d2f 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -316,6 +316,20 @@ uart0: serial@ffe7014000 {
- 			status = "disabled";
- 		};
- 
-+		usb: usb@ffe7040000 {
-+			compatible = "snps,dwc3";
-+			reg = <0xff 0xe7040000 0x0 0x10000>;
-+			interrupts = <68 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk_misc CLK_USB>,
-+				 <&clk_misc CLK_USB_CTL_REF>,
-+				 <&clk_misc CLK_USB_SUSPEND>;
-+			clock-names = "bus_early", "ref", "suspend";
-+			resets = <&rst_misc TH1520_RESET_ID_USB3_VCC>;
-+			phys = <&usb_phy>;
-+			phy-names = "usb3-phy";
-+			status = "disabled";
-+		};
+diff --git a/Documentation/devicetree/bindings/phy/thead,th1520-usb-phy.yaml b/Documentation/devicetree/bindings/phy/thead,th1520-usb-phy.yaml
+new file mode 100644
+index 0000000000000..37f5cfb95bad0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/thead,th1520-usb-phy.yaml
+@@ -0,0 +1,74 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/thead,th1520-usb-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 		gmac1: ethernet@ffe7060000 {
- 			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
- 			reg = <0xff 0xe7060000 0x0 0x2000>, <0xff 0xec004000 0x0 0x1000>;
-@@ -540,6 +554,19 @@ clk_misc: clock-controller@ffec02c100 {
- 			#clock-cells = <1>;
- 		};
- 
-+		usb_phy: phy@ffec030000 {
-+			compatible = "thead,th1520-usb-phy";
-+			reg = <0xff 0xec030000 0x0 0x10000>;
-+			clocks = <&clk_misc CLK_USB>,
-+				 <&clk_misc CLK_USB_PHY_REF>;
-+			clock-names = "bus", "ref";
-+			resets = <&rst_misc TH1520_RESET_ID_USB3_APB>,
-+				 <&rst_misc TH1520_RESET_ID_USB3_PHY>;
-+			reset-names = "bus", "phy";
-+			#phy-cells = <0>;
-+			status = "disabled";
-+		};
++title: T-Head TH1520 USB PHY
 +
- 		rst_vp: reset-controller@ffecc30000 {
- 			compatible = "thead,th1520-reset-vp";
- 			reg = <0xff 0xecc30000 0x0 0x14>;
++description: |
++  The T-HEAD TH1520 USB PHY is a Synopsys USB 3.0 FemtoPHY glued with some
++  custom logic to configure PHY parameters.
++
++maintainers:
++  - Icenowy Zheng <zhengxingda@iscas.ac.cn>
++  - Wei Fu <wefu@redhat.com>
++  - Drew Fustini <dfustini@tenstorrent.com>
++
++properties:
++  compatible:
++    const: thead,th1520-usb-phy
++
++  reg:
++    maxItems: 1
++
++  "#phy-cells":
++    const: 0
++
++  clocks:
++    items:
++      - description: PHY bus clock
++      - description: PHY reference clock
++
++  clock-names:
++    items:
++      - const: bus
++      - const: ref
++
++  resets:
++    items:
++      - description: PHY bus reset
++      - description: PHY reset
++
++  reset-names:
++    items:
++      - const: bus
++      - const: phy
++
++  avdd33-usb3-supply:
++    description: |
++      3.3V power supply for the PHY, named AVDD33_USB3 in the SoC pin list.
++
++required:
++  - compatible
++  - "#phy-cells"
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - avdd33-usb3-supply
++
++additionalProperties: false
++
++examples:
++  - |
++    phy@ec030000 {
++      compatible = "thead,th1520-usb-phy";
++      reg = <0xec030000 0x10000>;
++      #phy-cells = <0>;
++      clocks = <&clk_misc 1>, <&clk_misc 3>;
++      clock-names = "bus", "ref";
++      resets = <&rst_misc 6>, <&rst_misc 7>;
++      reset-names = "bus", "phy";
++      avdd33-usb3-supply = <&avdd33_usb3>;
++    };
 -- 
 2.52.0
 
