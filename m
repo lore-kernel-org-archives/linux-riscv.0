@@ -4,86 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A8ACD3427
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 10:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A1ECD3445
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 10:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9D5kQ0P4B07E1siNeE69eur5Zc5WADoA7Nt2oCeXdfw=; b=s2keLon4oWzSHO
-	dd/hzXuoUZxEEffAoF1y9mMoGjImONftJpjcHbiIvOC4r2DmOqHl2pcKHXnqzvmQGKSxxNHPPlmH7
-	+bSk2Vd1jwJHK2ZC3eV1/mOsKgx4mIwAiDXRZNrtVuk8y6mBo3WxsyM6QlAiLUArmnhRv5KlQmFht
-	x/dIGdkwPrc35SW/6rCYfXHf8DYFHNvbWjuVA9cwOoOSOxv+cyxpCTEcIN+B5XWe7irmYQrDVfPc0
-	lHAdgP3j/6ppybcHLC3pH+gZxOQiKu79nr620dA1OIjLTvvbdNsM9YJXUD154aHbU8vhzV1p2ka4U
-	KClXUYIUEYMthzXFcOnA==;
+	List-Owner; bh=NnqOaL1u4plvdh6YDkoYckdyivEPowpbGPhUbKVuCqU=; b=xbd07a+K/0QMQQ
+	giN0A0OKhkQEzgcHgXMEdKKzGhzP8DZ7YApKHKX5YcwVEmEgN25dMd+fIACPo4M5im6+Xshq/2YRE
+	C5iqKE+Ap4jihfTibHPl7DSZ0TVxzrAKOn1kft9oT3EI5iWIbnccsgGGMfIMbeTcSpVEErXXSzR0n
+	cSJ3jT19korHyL4i/dNyLrud4RsuRMKMW5MNHwQdQd5xxbN72Y62adjoA9b69CkVjL4tvAiHsgPf7
+	7CeQWD00eFc57SmTzrc5nhgpl2FgwwmerJB84LfWeW8b5WSb57dj4UxSAsGyZ/2zCJ3MKwnsrdigz
+	7AxbqA1I/CTnr8opfWsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvsP-00000003TNP-3uMz;
-	Thu, 07 May 2026 10:22:41 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wKw1y-00000003Ua9-3AOl;
+	Thu, 07 May 2026 10:32:34 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvsN-00000003TMI-0OE5
+	id 1wKw1u-00000003UYX-0lA7
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 May 2026 10:22:40 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-44985f4ab0fso384691f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 07 May 2026 03:22:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778149357; x=1778754157; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VG5+crceacfEG7lUxSRm1vLSDuNECrSBsB0KagNLyvo=;
-        b=jbfafNoAqjJCHEtlS28llgAfCz8Rq3dR2QYjfb87agd9bf75Uc4yRoznp62BFAoKjh
-         rbtq/0Em01KxFiDdheIscxiS0eLuRvVM9yU6ufk6Nr67Gw7E+jOYnRnCDpgIH9T7kYVg
-         Ok+OTRHCv1w7LBy4OSVjh5Veuc0Iss0olTcPjFzNkf9Ukwjk9Sfo1hI4IQmEGQrKOOFu
-         rB7v50vwVLms/JMRE5CFbBORMXm3Sh68FvercrIfGHsVjse4Fj3ZlpAxUZPKt5/kfS2o
-         uuOkPWfqEI5Tj1eP/vTRIcGB2UVF4jIxifx05fy6nJ/Q37W34ccKOof1byautydnaghE
-         YJ4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778149357; x=1778754157;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=VG5+crceacfEG7lUxSRm1vLSDuNECrSBsB0KagNLyvo=;
-        b=sQdQZYGX8ZbMV1Az+KgfRXK6QSFsHr/OsSf32uEMwAC8msNrALj1X2PWOJTgRXFsYd
-         LBxarIhtei8EUjy7i7gJZ2TCaEqdt+or6I1JcxB5QoHoLrm1dtEKhmmxlcAmOQX9Q2jU
-         0VHiyPBKUFKB08aZQ4xTYmx9VaWX9tfhfK/UTgJKb1SfAMlovZ/LXysmlog5Ynmm3woW
-         KfQiDcJqTBtOlQx/yhDP2zktnuORYQ3y3Lqo0lydPK2JQrm0Acn+BvcGQOzEWlSgo/bU
-         aNJGoCd8w/SrYdEVIOFkTc7RZ4hAvkOvVWp9z18PEMsKZSBYnmlktsoeHWJQ7dPyCcDS
-         JdEQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/G8ZzYHheUhAkiBB69Awoj+u7hyJD2Otd+7tNXuMWtsCn8VK1iBY/9dTusndFf2pCZv4FHerIJ7YrVBw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzf4R9pgdYBC+ZbSVpHPi2ou7MA/ea53ptQKUqIVOYd1O4aro2u
-	oPYweIBZtkuNjdDLnpLe5NfcCUs4PJOwYU9Pnjge3OfMeTLBLw4mTBRR
-X-Gm-Gg: AeBDieu2Pfm+tDE/4/Ljoai6nKHMjq/FUgUThtupiG1Wiaa4iC3zmXJzDvABk4cG3cV
-	DLEtn0WbOr+IpeHRJEEzr9jZLmrGrunyszuYhmmxZBjnLjf+M+DnwXx2EEL5C9Pz6KnB4W4Upri
-	MpwvfEQr7i//vAr7keQLpaK30KY3z13v0sYH4P+CMvJ7Bbonmj353KTu/Jl24rJlOyqxRieovn6
-	3sLTS2yJDM62t3l0Ai9XwCfKUjwV0fY50AcVS1mhIdIOjIDkcDteIcbts3s+oSl9VU7fnp8+Xg7
-	D8Ae7GkZMLP5bqUei8uyNFdk0Cp5oIB0Nj1E/z44deuoP6qwh/PwJMwaghi9K758v+peXN6aHSE
-	ZdyzIZwWVD5hlTSntuUG6naFaflwgBGx+xQsD+kcAy8DokIUW+MinsZMjoSafQqk22+BQ5mPsXE
-	1UEbcBOxSMo6mCCz5BJVgvju0kUVHuWFiFhynXD7EgJHusFlEgtn3bXHhaJavwkdQYqwfehog=
-X-Received: by 2002:a05:6000:4203:b0:441:36b7:7262 with SMTP id ffacd0b85a97d-4515b61ae87mr11877520f8f.13.1778149356886;
-        Thu, 07 May 2026 03:22:36 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055f2203csm19358959f8f.37.2026.05.07.03.22.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 May 2026 03:22:36 -0700 (PDT)
-Date: Thu, 7 May 2026 11:22:35 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Zongmin Zhou <min_halo@163.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Zongmin Zhou <zhouzongmin@kylinos.cn>
-Subject: Re: [PATCH] riscv: lib: optimize strchr() with Zbb extension
-Message-ID: <20260507112235.41e539fa@pumpkin>
-In-Reply-To: <20260507020620.134225-1-min_halo@163.com>
-References: <20260507020620.134225-1-min_halo@163.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Thu, 07 May 2026 10:32:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1778149926;
+	bh=MzLAGIAWkK+XCchAd4hGeXE2CHkEuJGkm4cHQuRIBJ0=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=lUUZ9cT+GygDgLz6wdHzaE3Y3IQwIJzkI7slPaanjOcSMLA5E2SCUTFIzMVobD3sR
+	 4yKrfwShNYDbS9u457NmEqCT9cX3T5Emcktsruh9y9vZnrOMyMsa7JS6D3Raulc2vE
+	 uSiR3W72yq0Jpxy+WfnQBEgYlAxNXmfKADzR3YO4=
+X-QQ-mid: esmtpgz16t1778149918tf7e27786
+X-QQ-Originating-IP: mHa7ppekGTzd1+13tMcGS5yqyWnnUNMpj+ng21mAHZk=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 07 May 2026 18:31:56 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15051299853537787261
+EX-QQ-RecipientCnt: 11
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Thu, 07 May 2026 18:31:43 +0800
+Subject: [PATCH v2 2/3] ASoC: soc-pcm: constrain hw_params when DAIs share
+ the same BCLK
 MIME-Version: 1.0
+Message-Id: <20260507-i2s-same-blk-v2-2-ede05a22f732@linux.spacemit.com>
+References: <20260507-i2s-same-blk-v2-0-ede05a22f732@linux.spacemit.com>
+In-Reply-To: <20260507-i2s-same-blk-v2-0-ede05a22f732@linux.spacemit.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Yixun Lan <dlan@kernel.org>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ jinmei.wei@spacemit.com, Troy Mitchell <troy.mitchell@linux.spacemit.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778149908; l=5785;
+ i=troy.mitchell@linux.spacemit.com; s=20250710; h=from:subject:message-id;
+ bh=dHcuwQewOQ91+lcIOJFibASbfSOLIkUa8mNyTgSGWBs=;
+ b=NbtniqEW25n4xUv0iVA/ktb5BAl2nFn4hzHuUE0SFUHJHAcndBmILS4Oonh6PP9u3dYgZGyUA
+ pm4l88XWS+KDFpmXtGlKehkpEsI2/oEDh61kfA8VU0l40jZOViVemRV
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=ed25519;
+ pk=lQa7BzLrq8DfZnChqmwJ5qQk8fP2USmY/4xZ2/MSsXc=
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MzOrCbSXFQdfTT7uEET/FBlgp5PRiXI+H3t4NRuIB6slvEH2swrf9GUa
+	oYvFHPbeZFcbwjqgh+ks8vF0wSeKoW7HwcAhjECyJdJbGMGtVPyY81WYhZkEl0cl6yCSRel
+	E7Rr/UY7+s/4etipwIA2iOjoVTnQfx9VwETNR1WvFJqDy/98MvZ90KpX9bcxfaqqL8I5aCC
+	juQ26FYBD6cCJwNjz0y3Pv4eytDeWH9SlQNigQLtiVqPEqV5J0WP6RRMnYiQPjyXnJmZ0t7
+	lsdoCauCiM6qphlzHNPk8RQR2Cmu7wFBV2i9ky9V0/e2tJOJvrjXEsJdebFhntwEVB4bEk2
+	mL2lbpnxArRWMcU9s2YTnRe/7ifxgGrK6TQsnMBnppRnznQVg3dLksPlsMcHhIJn1tGjBrj
+	PxpzZ1TstlfcZTL8yBEox5iPGTHdUVCNBpDxFahikOJwUQSdpE4t2DXnxWb/P8U/Wk8h0VF
+	P/hK67Wea3ru0E3j2UunmXwU1GU+Pas3L3zSVQgW20LGUznr7r1Jr3JTQtF46babjHlkijY
+	SSEfBFYAFgNyQ9pYvMMyhg5qmUBjX0pjpd8QEIPebGyAdkl6vALi6fbeClyPbKcITZYvsuG
+	G68ThD2JTys0xoHkyZ7GxCJexBnN4DC0HMN+dfby4S+0IdG+xkcNWzw+i9PQsRo0xfPI98L
+	lz4Bj+Y73UjrO3ZFu/pH5ITU8QXBgPLB/2mGVYsZ0qBtA8JblQw1aD8+0tUNJIlWMfS3qLL
+	PfUZn/ndA8jZ+KKqPzaKSp4B8GHBRU0TXQoGgudRJxMdCo+YagapupgxthLL+wMA3Sux4ss
+	vHkQUCF6IS4i3s3+zxrSwbotxbuI0bILPttR09ny4Ab4iuVdiGeGmLGvOZhOeA12qoS/SHm
+	7fW5b2s9u8mCX5imbKGl/DCRX6OWyDXo+GRtkl0A3CnktjnXwwNGaP7hzD7+r9K9YSgkmNn
+	NXQCMEX5Ckf9qD76haAaxZXrPsnnAJ4dMcSI30Y4P40aD8gXUKtkKaHRZccaPK10aWoq1jf
+	nOiRIWsv/2nekxgpLBbK1XAMtsCw1QE+RpUSC8iQXf9iNVvPE8oHd8YkTdAAl6PzlGC8Oy0
+	6PQSrnG2zbXal3X25Hy8wnzB8iYitOSc6b8J+rgTkTxIaJXvsMrwKsSwkfsTKHHJg==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_032239_170929_458784A1 
-X-CRM114-Status: GOOD (  23.43  )
+X-CRM114-CacheID: sfid-20260507_033231_057676_D1B1B046 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,198 +105,184 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  7 May 2026 10:06:20 +0800
-Zongmin Zhou <min_halo@163.com> wrote:
+When multiple CPU DAIs on the same sound card share the same physical
+BCLK, add a hw_rule during PCM open that constrains the sample rate so
+the resulting BCLK rate stays consistent across all sharing DAIs.
 
-> From: Zongmin Zhou <zhouzongmin@kylinos.cn>
-> 
-> Add a Zbb-powered optimization to the existing strchr() implementation
-> using the 'orc.b' instruction, following the same pattern established
-> by strnlen().
-> 
-> The Zbb variant processes data in word-sized chunks using orc.b to
-> detect both NUL terminators and target characters in parallel. On
-> systems without Zbb support, the original byte-by-byte implementation
-> is used as a fallback via the alternatives mechanism.
-> 
-> Benchmark results (QEMU TCG, rv64):
->   Length | zbb=off (MB/s) | zbb=on (MB/s) | Improvement
->   -------|----------------|---------------|------------
->   1 B    | 27             | 25            | -7.4%
->   7 B    | 147            | 128           | -12.9%
->   16 B   | 216            | 372           | +72.2%
->   64 B   | 378            | 958           | +153.4%
->   512 B  | 480            | 1990          | +314.6%
->   4096 B | 501            | 2269          | +352.9%
-> 
-> The regression on very short strings (1-7 bytes) is due to the fixed
-> overhead of the word-level path: broadcasting the target character to
-> all byte lanes via multiplication and checking pointer alignment before
-> entering the main loop. For strings shorter than one machine word, this
-> setup cost outweighs the benefit of parallel comparison. As string
-> length increases beyond 16 bytes, the word-at-a-time processing shows
-> significant gains.
-> 
-> Signed-off-by: Zongmin Zhou <zhouzongmin@kylinos.cn>
-> ---
->  arch/riscv/lib/strchr.S | 115 ++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 115 insertions(+)
-> 
-> diff --git a/arch/riscv/lib/strchr.S b/arch/riscv/lib/strchr.S
-> index 48c3a9da53e3..600b19452bc2 100644
-> --- a/arch/riscv/lib/strchr.S
-> +++ b/arch/riscv/lib/strchr.S
-> @@ -6,9 +6,15 @@
->  
->  #include <linux/linkage.h>
->  #include <asm/asm.h>
-> +#include <asm/alternative-macros.h>
-> +#include <asm/hwcap.h>
->  
->  /* char *strchr(const char *s, int c) */
->  SYM_FUNC_START(strchr)
-> +
-> +	__ALTERNATIVE_CFG("nop", "j strchr_zbb", 0, RISCV_ISA_EXT_ZBB,
-> +		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-> +
->  	/*
->  	 * Parameters
->  	 *   a0 - The string to be searched
-> @@ -29,6 +35,115 @@ SYM_FUNC_START(strchr)
->  	li	a0, 0
->  2:
->  	ret
-> +
-> +/*
-> + * Variant of strchr using the ZBB extension if available
-> + *
-> + * This implementation uses orc.b to detect both NUL terminators and target
-> + * characters in parallel, processing word-sized chunks for efficiency.
-> + */
-> +#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
-> +strchr_zbb:
-> +
-> +#ifdef CONFIG_CPU_BIG_ENDIAN
-> +# define CZ	clz
-> +#else
-> +# define CZ	ctz
-> +#endif
-> +
-> +.option push
-> +.option arch,+zbb
-> +
-> +	/*
-> +	 * Returns
-> +	 *   a0 - Address of first occurrence of 'c' or NULL
-> +	 *
-> +	 * Parameters
-> +	 *   a0 - String to search
-> +	 *   a1 - Character to find
-> +	 *
-> +	 * Clobbers
-> +	 *   t0, t1, t2, t3, t4
-> +	 */
-> +
-> +	/*
-> +	 * Prepare target character mask.
-> +	 * Broadcast target character to all bytes using multiply.
-> +	 */
-> +	andi	a1, a1, 0xff
-> +	li	t1, 0x01010101
-> +#if __riscv_xlen == 64
-> +	slli	t2, t1, 32
-> +	or	t1, t1, t2
-> +#endif
-> +	mul	t2, a1, t1
-> +
-> +	/* All-ones mask for orc.b comparisons. */
-> +	li	t4, -1
-> +
-> +	/* Check alignment. */
-> +	andi	t0, a0, SZREG-1
-> +	beqz	t0, 2f
+The hw_rule is registered unconditionally for every DAI that has a bclk
+clock pointer set. The actual peer scanning happens inside the rule
+callback at hw_refine time: it walks all DAIs on the card, looking for
+an active peer that shares the same physical BCLK (via clk_is_match())
+and has already completed hw_params (checked via dai->symmetric_rate
+!= 0). This ensures the constraint uses the real BCLK rate established
+by the peer's clk_set_rate() in hw_params, not a stale boot-time
+default.
 
-It is almost certainly faster to jump 'out of line' for misaligned
-strings and fallthrough for aligned ones.
+The first DAI to complete hw_params is unconstrained (no active peer
+yet); subsequent DAIs are constrained to match.
 
-> +
-> +	/* Handle misaligned portion byte-by-byte. */
-> +1:
-> +	lbu	t1, 0(a0)
-> +	beq	t1, a1, 9f
-> +	beqz	t1, 8f
-> +	addi	a0, a0, 1
-> +	andi	t0, a0, SZREG-1
-> +	bnez	t0, 1b
-> +
-> +	/* Main loop: process word-sized chunks. */
+The rule supports two modes:
+- If the DAI has an explicit bclk_ratio set (e.g. for TDM where
+  BCLK = rate * slots * slot_width), the rate is constrained to
+  active_bclk_rate / bclk_ratio.
+- Otherwise, the default formula BCLK = rate * channels * sample_bits
+  is used to derive the valid rate range.
 
-Tweak to remove a branch from the loop:
-	addi	a0, a0, -SZREG
+The constraint is purely additive: DAIs that do not set a bclk clock
+pointer are completely unaffected.
 
-> +2:
-> +	REG_L	t0, 0(a0)
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+---
+ sound/soc/soc-pcm.c | 119 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 119 insertions(+)
 
-Do read first for better instruction scheduling.
-	REG_L	t0, SZREG(a0)
-	addi	a0, a0, SZREG
+diff --git a/sound/soc/soc-pcm.c b/sound/soc/soc-pcm.c
+index 9b12eedb77c3..e75c343b8d4e 100644
+--- a/sound/soc/soc-pcm.c
++++ b/sound/soc/soc-pcm.c
+@@ -12,6 +12,7 @@
+ 
+ #include <linux/kernel.h>
+ #include <linux/init.h>
++#include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/slab.h>
+@@ -467,6 +468,117 @@ static int soc_pcm_apply_symmetry(struct snd_pcm_substream *substream,
+ 	return 0;
+ }
+ 
++/*
++ * Shared BCLK constraint: when multiple DAIs share the same physical BCLK,
++ * constrain hw_params so that the BCLK rate (rate * channels * sample_bits,
++ * or rate * slots * slot_width for TDM) remains consistent.
++ */
++
++static int soc_pcm_shared_bclk_rule_rate(struct snd_pcm_hw_params *params,
++					 struct snd_pcm_hw_rule *rule)
++{
++	struct snd_soc_dai *dai = rule->private;
++	struct snd_soc_card *card = dai->component->card;
++	struct snd_soc_pcm_runtime *rtd;
++	struct snd_soc_dai *other_dai;
++	unsigned long active_bclk_rate = 0;
++	struct snd_interval *rate = hw_param_interval(params, SNDRV_PCM_HW_PARAM_RATE);
++	struct snd_interval constraint = { .empty = 1 };
++	unsigned int target_rate;
++	int i;
++
++	/*
++	 * Protect the rtd list traversal.  No nesting: this callback runs
++	 * from snd_pcm_hw_refine() which does not hold card->mutex.
++	 */
++	guard(mutex)(&card->mutex);
++
++	/* Scan all DAIs on the card for an active peer sharing the same BCLK */
++	for_each_card_rtds(card, rtd) {
++		for_each_rtd_cpu_dais(rtd, i, other_dai) {
++			if (other_dai == dai)
++				continue;
++			if (!other_dai->bclk)
++				continue;
++			if (!snd_soc_dai_active(other_dai))
++				continue;
++			/*
++			 * Skip peers whose hw_params hasn't run yet.
++			 * symmetric_rate is set by soc_pcm_set_dai_params()
++			 * after snd_soc_dai_hw_params(), so non-zero means
++			 * the DAI's clk_set_rate() has already executed.
++			 */
++			if (!other_dai->symmetric_rate)
++				continue;
++			if (!clk_is_match(dai->bclk, other_dai->bclk))
++				continue;
++
++			active_bclk_rate = clk_get_rate(other_dai->bclk);
++			if (active_bclk_rate)
++				goto found;
++		}
++	}
++
++	return 0;
++
++found:
++	if (dai->bclk_ratio) {
++		/*
++		 * Driver has set an explicit BCLK ratio (e.g. for TDM where
++		 * BCLK = rate * slots * slot_width). The only valid rate is
++		 * active_bclk_rate / bclk_ratio.
++		 */
++		target_rate = active_bclk_rate / dai->bclk_ratio;
++
++		constraint.min = target_rate;
++		constraint.max = target_rate;
++	} else {
++		struct snd_interval *channels = hw_param_interval(params,
++						SNDRV_PCM_HW_PARAM_CHANNELS);
++		struct snd_interval *sample_bits = hw_param_interval(params,
++						SNDRV_PCM_HW_PARAM_SAMPLE_BITS);
++
++		/*
++		 * Default: BCLK = rate * channels * sample_bits.
++		 * Calculate the range of valid rates given the current
++		 * channel and sample_bits intervals.
++		 */
++		if (!channels->min || !sample_bits->min)
++			return 0;
++
++		constraint.max = active_bclk_rate /
++				 ((unsigned long)channels->min * sample_bits->min);
++
++		if (channels->max && sample_bits->max)
++			constraint.min = active_bclk_rate /
++					 ((unsigned long)channels->max * sample_bits->max);
++		else
++			constraint.min = constraint.max;
++	}
++
++	constraint.integer = 1;
++	constraint.empty = 0;
++
++	return snd_interval_refine(rate, &constraint);
++}
++
++static int soc_pcm_apply_shared_bclk(struct snd_pcm_substream *substream,
++				     struct snd_soc_dai *dai)
++{
++	if (!dai->bclk)
++		return 0;
++
++	dev_dbg(dai->dev,
++		"ASoC: registering shared BCLK rate constraint\n");
++
++	return snd_pcm_hw_rule_add(substream->runtime, 0,
++		SNDRV_PCM_HW_PARAM_RATE,
++		soc_pcm_shared_bclk_rule_rate, dai,
++		SNDRV_PCM_HW_PARAM_CHANNELS,
++		SNDRV_PCM_HW_PARAM_SAMPLE_BITS,
++		-1);
++}
++
+ static int soc_pcm_params_symmetry(struct snd_pcm_substream *substream,
+ 				struct snd_pcm_hw_params *params)
+ {
+@@ -903,6 +1015,13 @@ static int __soc_pcm_open(struct snd_soc_pcm_runtime *rtd,
+ 		if (ret != 0)
+ 			goto err;
+ 	}
++
++	/* Shared BCLK constraint across DAIs on the same card */
++	for_each_rtd_cpu_dais(rtd, i, dai) {
++		ret = soc_pcm_apply_shared_bclk(substream, dai);
++		if (ret != 0)
++			goto err;
++	}
+ dynamic:
+ 	snd_soc_runtime_activate(rtd, substream->stream);
+ 	ret = 0;
 
-> +
-> +	/* Check for NUL terminator. */
-> +	orc.b	t1, t0
-> +	bne	t1, t4, 3f
-> +
-> +	/* Check for target character. */
-> +	xor	t1, t0, t2
-> +	orc.b	t1, t1
-> +	bne	t1, t4, 4f
-
-	be	t1, t4, 2b
-and move the code at '4:' here.
-
--- David
-
-> +
-> +	addi	a0, a0, SZREG
-> +	j	2b
-> +
-> +3:
-> +	/* NUL found in current chunk. Check if target appears before NUL. */
-> +	not	t1, t1
-> +
-> +	xor	t3, t0, t2
-> +	orc.b	t3, t3
-> +	not	t3, t3
-> +
-> +	CZ	t3, t3
-> +	CZ	t1, t1
-> +
-> +	/* If NUL appears before target, character not found. */
-> +	bltu	t1, t3, 8f
-> +
-> +	srli	t3, t3, 3
-> +	add	a0, a0, t3
-> +	ret
-> +
-> +4:
-> +	/* Target found in chunk without NUL. */
-> +	not	t1, t1
-> +	CZ	t1, t1
-> +	srli	t1, t1, 3
-> +	add	a0, a0, t1
-> +	ret
-> +
-> +8:
-> +	/* Character not found, return NULL. */
-> +	li	a0, 0
-> +9:
-> +	ret
-> +
-> +.option pop
-> +#endif
->  SYM_FUNC_END(strchr)
->  
->  SYM_FUNC_ALIAS_WEAK(__pi_strchr, strchr)
+-- 
+2.54.0
 
 
 _______________________________________________
