@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700FCCD37AA
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 May 2026 22:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450FCCD343F
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 01:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Cc0WeUCwNVkHkBz89xnncY6H6HSCkZjcsvrRQ329ChU=; b=gRvaG9ZnVZUOBo
-	HKXaX49a6mlg7qvTNxYH6KIsdWTFI7G9mE/y1i+NkS6bOwnMQkRnWeahkB9JWB2sfHwaqgoIpEVgo
-	/hnOPowISc3M8/9adUTNtiIVZTtdHQhoMQX6rBMwgeB/sme21kNr9RqiEZC+Ona0UOa6v8pMtV3p+
-	FJyopPuuwxcMNSOJvCgFqkbz5458HXhn1qcbUd1F2Hcyec+9sXkRDVug1MXcYQZO3QkPqbKKZoui/
-	vPsSzIcp20flbqBWUoluQGbCkU0+vpFD41Gn11qAouaa7mG+/ALYvAob/66xRL9/GUXSd4krcS+KZ
-	UhozwEP2cK9+rG6XiimQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vuOG6YgY2tIN7bsZEj0MMhid+avN196Hdt8g5BkiAfQ=; b=z6IXh4uCIJ9l+t
+	EnKKAjBS9OjpC+8mBIn11UNZX/h9yc0rj3XoiFWXhup50OGcNlGP1NLzDTMXicd2VBtqEK0KpjW9y
+	LE4hj99J/yG8UHCg2zdtpVuIlbru6JQM1codzkzL1a6MUa4350yOxDBHjEWU43kGox2vRYLIgRPY9
+	AdWLW0/LQvc+KDoXa2Ie5FhNbs5+UPk+ihQOtIl9ctwgqUKQRm8ih0/mhU5DetQuDPT5qlKZjVoh5
+	k/pqJlnrgxwggH0vc4Kgq4HyHj9CZEWgbZEZ+LBmh0EAR+8SiLI0bMNArLvcclW4zhcCBlECTPam9
+	zQd5ozzP7iuL2kTakHIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL7QD-000000054h5-2KBG;
-	Thu, 07 May 2026 22:42:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wLAF2-00000005Iop-1lU2;
+	Fri, 08 May 2026 01:43:00 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL7QC-000000054gs-1bCe
+	id 1wLAEw-00000005Io3-272i
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 May 2026 22:42:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64E366057A;
-	Thu,  7 May 2026 22:42:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DED86C2BCB2;
-	Thu,  7 May 2026 22:42:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778193739;
-	bh=J0kRFG9bUaWTTHIU1f8/BZmV72pbWWRzeSv5tn2IJ+Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=pZ8OJoJDjVp74T5HTAFYAW24ULTzTS5u6XyQpEYzf/fwJ5askHm4Fepx+Mb8uIuBh
-	 TTWkblCiS9WBse7RVNTyWkBEd6TQDKcRX4EFPjrBJ1/wnrNBYScemGuDwm5uQmWla2
-	 F/28EibEfFcTpulfbdWpo4wOhiE4GwjNtSEVwOK9iKai27Zxp2rvtKUTNoPQ+UJR9B
-	 N7G5SWN8B3xOPKcvsiFMQTUaj/25gFtPjx0RFsJAuhRUmDrSRJg5R0nF0XDYF1LUdZ
-	 saU/G2E92XATlbrCE6iN3x0H4Jfxqq+T1rAzFc+lQSLeDTrl0JYmf65tvMbU+dZE+U
-	 or2kQaRwQdKVA==
-Date: Thu, 7 May 2026 17:42:17 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Alex Elder <elder@riscstar.com>,
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 5/5] PCI: spacemit-k1: Add Spacemit K3 PCIe host
- controller support
-Message-ID: <20260507224217.GA48780@bhelgaas>
+	Fri, 08 May 2026 01:42:58 +0000
+Received: from [198.18.0.1] (unknown [121.237.245.103])
+	by APP-03 (Coremail) with SMTP id rQCowAC32eCUP_1pVDldEA--.6803S2;
+	Fri, 08 May 2026 09:42:44 +0800 (CST)
+Message-ID: <7ba2f4b7-8475-4ec3-ab31-58b332bda47e@iscas.ac.cn>
+Date: Fri, 8 May 2026 09:42:44 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260502101319.2364052-6-inochiama@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] riscv: clarify vector state semantics on syscall and
+ context switch
+Content-Language: en-US
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260319073709.18562-1-daichengrong@iscas.ac.cn>
+From: daichengrong <daichengrong@iscas.ac.cn>
+In-Reply-To: <20260319073709.18562-1-daichengrong@iscas.ac.cn>
+X-CM-TRANSID: rQCowAC32eCUP_1pVDldEA--.6803S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAr4fAFWUCr18Xr1kCF43Awb_yoWrtr1fpr
+	Z8Gr4ak3yUJF4xZr92gw48XFZ5C395G3y5Ar98C3yUCFy5Gr9akFn3t3yqvFWDAFy0kFyj
+	va1jq34kZa1DArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvYb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1l
+	c2xSY4AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
+	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r12
+	6r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
+	kF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
+	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07
+	bopBhUUUUU=
+X-Originating-IP: [121.237.245.103]
+X-CM-SenderInfo: pgdluxxhqj201qj6x2xfdvhtffof0/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260507_184254_925676_AF5078A6 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,159 +81,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 02, 2026 at 06:13:18PM +0800, Inochi Amaoto wrote:
-> The PCIe controller on Spacemit K3 is almost a standard Synopsys
-> Designware PCIe IP with extra link and reset control. Unlike
-> the PCIe controller on K1, this controller supports external MSI
-> interrupt controller and can use multiple phy at the same time.
+
+
+On 3/19/26 15:37, daichengrong wrote:
+> The RISC-V vector specification states that executing a system call
+> causes all caller-saved vector registers (v0-v31, vl, vtype) and vstart
+> to become unspecified.
 > 
-> Add driver to support PCIe controller on Spacemit K3 PCIe.
+> Currently, after calling riscv_v_vstate_discard(), the vector state 
+> may still be marked as DIRTY, which can mislead the context switch 
+> logic into treating the registers as containing valid user data.
 > 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> This patch clarifies and tightens the kernel-side semantics:
+> 
+> 1. On syscall entry, the kernel checks the vector state via mstatus
+>    and discards it if necessary. After discard, the state is explicitly
+>    set to INIT instead of DIRTY, indicating that the vector registers
+>    no longer contain meaningful user data.
+> 
+> 2. During context switch, the vector state is interpreted as follows:
+>    - INIT: no valid user data is present, so vector register data does
+>      not need to be saved.
+>    - non-INIT (e.g. DIRTY): vector register data must be saved.
+> 
+> 3. On restore, if the state is INIT, the vector registers are treated
+>    as invalid and are not restored from memory. Instead, they are
+>    overwritten with a known initial value to avoid potential data
+>    leakage from a previous task.
+> 
+> This aligns the kernel's vector state tracking with the architectural
+> "unspecified" semantics while ensuring correct lazy context switching
+> and preventing cross-task data leakage.
+> 
+> Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
+> ---
+>  arch/riscv/include/asm/vector.h | 15 +++++++--------
+>  1 file changed, 7 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+> index 00cb9c0982b1..93c68a549b72 100644
+> --- a/arch/riscv/include/asm/vector.h
+> +++ b/arch/riscv/include/asm/vector.h
+> @@ -298,8 +298,9 @@ static inline void __riscv_v_vstate_discard(void)
+>  static inline void riscv_v_vstate_discard(struct pt_regs *regs)
+>  {
+>  	if (riscv_v_vstate_query(regs)) {
+> -		__riscv_v_vstate_discard();
+> -		__riscv_v_vstate_dirty(regs);
+> +		if (!__riscv_v_vstate_check(regs->status, INITIAL))
+> +			__riscv_v_vstate_discard();
+> +		riscv_v_vstate_on(regs);
+>  	}
+>  }
+>  
+> @@ -315,19 +316,17 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
+>  static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
+>  					  struct pt_regs *regs)
+>  {
+> -	if (riscv_v_vstate_query(regs)) {
+> +	if (__riscv_v_vstate_check(regs->status, INITIAL))
+> +		__riscv_v_vstate_discard();
+> +	else if (__riscv_v_vstate_check(regs->status, CLEAN))
+>  		__riscv_v_vstate_restore(vstate, vstate->datap);
+> -		__riscv_v_vstate_clean(regs);
+> -	}
+>  }
+>  
+>  static inline void riscv_v_vstate_set_restore(struct task_struct *task,
+>  					      struct pt_regs *regs)
+>  {
+> -	if (riscv_v_vstate_query(regs)) {
+> +	if (riscv_v_vstate_query(regs))
+>  		set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
+> -		riscv_v_vstate_on(regs);
+> -	}
+>  }
+>  
+>  #ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
 
-Sashiko had some good questions:
-https://sashiko.dev/#/patchset/20260502101319.2364052-1-inochiama%40gmail.com
+Hi all,
 
-Looks like the CONFIG_PCIE_SPACEMIT_K1 menu item and help text
-drivers/pci/controller/dwc/Kconfig should be updated to include K3.
+Just a gentle ping on this patch.
 
-The "CONFIG_PCIE_SPACEMIT_K1" name itself should stay the same.
+I would also like to add some additional motivation from the RISC-V vector spec, which may help clarify the rationale behind this change.
 
-s/Designware/DesignWare/, also in 4/5 commit log
-s/phy/PHY/ here and other patches and subject lines
-s/msi/MSI/ in 3/5 subject and commit log when it's a stand-alone word
-s/pci:/PCI:/ in 4/5 subject to match history (and patch 3/5)
+The spec states:
 
-> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+During a context restore, the context need only be loaded from
+memory if the status is Clean (it should never be Dirty at restore).
+If the status is Initial, the context must be set to an initial
+constant value on context restore to avoid a security hole, but
+this can be done without accessing memory.
 
-> +#define INTR_STATUS				0x0010
-> +
->  #define INTR_ENABLE				0x0014
->  #define MSI_CTRL_INT			BIT(11)
-> +#define RDLH_LINK_UP_INT		BIT(20)
-> +
-> +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
-> +
-> +#define K3_PHY_AHB_IRQENABLE_SET_INTX		0x000c
-> +#define LEG_EP_INTERRUPTS		(BIT(6) | BIT(7) | BIT(8) | BIT(9))
+This indicates that the architectural Initial vector state is treated
+specially during restore: instead of reloading vector register contents
+from memory, the state can be restored by resetting it to the defined
+initial value.
 
-Would be nicer to use "INTX" rather than "LEG" here since we use
-"INTX" in K3_PHY_AHB_IRQENABLE_SET_INTX, in the comments, etc.
+The motivation of this patch is related to this behavior. Allowing
+userspace to explicitly release vector state when it is no longer needed
+may help reduce unnecessary vector context restore overhead on later
+context switches. It may also help avoid repeatedly reinitializing the
+vector state when applications frequently enter and exit syscalls without
+actually requiring vector state preservation across those transitions.
 
-> +#define K3_PHY_AHB_IRQENABLE_SET_MSI		0x0014
-> +/* MSI defined as BIT(11) in existing INTR_ENABLE, reusing */
-> +
-> +#define K3_ADDR_INTR_STATUS1			0x0018
-> +
-> +#define K3_ADDR_INTR_ENABLE1			0x001C
+The original RFC discussion and motivation can be found here:
 
-You're using a mix of upper- and lower-case hex here.  Be consistent
-and match the existing code.
+https://lists.infradead.org/pipermail/linux-riscv/2026-March/087678.html
 
-Seems a little weird to have a mix of "IRQ" names (e.g.,
-K1_PHY_AHB_IRQ_EN, K3_PHY_AHB_IRQSTATUS_INTX,
-K3_PHY_AHB_IRQENABLE_SET_INTX) and "INTR" names (e.g., INTR_STATUS,
-INTR_ENABLE, K3_ADDR_INTR_STATUS1, K3_ADDR_INTR_ENABLE1) when I think
-they're really talking about the same concept.
+If there are other preferred or more suitable mechanisms for allowing
+userspace to voluntarily relinquish ownership/control of vector state,
+I would also be very interested in further suggestions or discussion.
 
-And why do the new K3 names have "ADDR" in the middle when the
-existing "INTR_ENABLE" names don't?  It's obvious these are addresses
-(well, actually I think they're *offsets*, but no need to be that
-detailed).
+Thanks.
 
-> +static int k3_pcie_init(struct dw_pcie_rp *pp)
-> +{
-> ...
-> +	val = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
-> +	val &= ~(0xffff << 8);
-> +	val |= ((0x1 << 4) << 8);
-
-Can you use FIELD_MODIFY and some #defines here?
-
-> +	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, val);
-> +
-> +	/* Set the PCI vendor and device ID */
-
-Superfluous comment since the code is obvious.
-
-> +	dw_pcie_dbi_ro_wr_en(pci);
-> +	dw_pcie_writew_dbi(pci, PCI_VENDOR_ID, PCI_VENDOR_ID_SPACEMIT);
-> +	dw_pcie_writew_dbi(pci, PCI_DEVICE_ID, PCI_DEVICE_ID_SPACEMIT_K3);
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +
-> +	/* Finally, as a workaround, disable ASPM L1 */
-
-I guess this means a device erratum?  It advertises L1 but it doesn't
-actually work?
-
-> +	k1_pcie_disable_aspm_l1(k1);
-
-> +static int k3_pcie_msi_host_init(struct dw_pcie_rp *pp)
-> +{
-> ...
-> +	val = dw_pcie_readl_dbi(pci, COHERENCY_CONTROL_3_OFF);
-> +	val |= (0xf << 11);
-
-FIELD_MODIFY and some #defines here?
-
-> +static int k3_pcie_start_link(struct dw_pcie *pci)
-> +{
-> +	struct k1_pcie *k1 = to_k1_pcie(pci);
-> +	u32 val;
-> +
-> +	k1_pcie_start_link(pci);
-> +
-> +	/* Enable INTx */
-> +	val = readl_relaxed(k1->link + K3_PHY_AHB_IRQENABLE_SET_INTX);
-> +	val |= LEG_EP_INTERRUPTS;
-> +	writel_relaxed(val, k1->link + K3_PHY_AHB_IRQENABLE_SET_INTX);
-> +
-> +	/* Enable MSI/MSIX specific to K3 */
-
-s/MSIX/MSI-X/ to match spec usage.
-
-> +	val = readl_relaxed(k1->link + K3_ADDR_INTR_ENABLE1);
-> +	val |= (MSI_INT | MSIX_INT);
-> +	writel_relaxed(val, k1->link + K3_ADDR_INTR_ENABLE1);
-
-Generally speaking I think the interrupt setup belongs somewhere other
-than .start_link().  Usually .start_link() only enables LTSSM.
-
-> +	return 0;
-> +}
-
-> +static irqreturn_t k3_pcie_irq_thread(int irq, void *data)
-> +{
-> +	struct k1_pcie *k1 = data;
-> +	struct dw_pcie_rp *pp = &k1->pci.pp;
-> +	struct device *dev = k1->pci.dev;
-> +	u32 status0, status1, status2;
-> +
-> +	k3_pcie_clear_irq_status(k1, &status0, &status1, &status2);
-> +
-> +	writel_relaxed(status0, k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
-> +	writel_relaxed(status1, k1->link + INTR_STATUS);
-> +	writel_relaxed(status2, k1->link + K3_ADDR_INTR_STATUS1);
-> +
-> +	if (FIELD_GET(RDLH_LINK_UP_INT, status1)) {
-> +		msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> +		/* Rescan the bus to enumerate endpoint devices */
-> +		pci_lock_rescan_remove();
-> +		pci_rescan_bus(pp->bridge->bus);
-
-This is the *only* driver that uses pci_rescan_bus() this way, which
-automatically makes it suspicous.  Maybe it's the first hardware that
-implements or is willing to use RDLH_LINK_UP_INT for this, but somehow
-I doubt it.
-
-> +		pci_unlock_rescan_remove();
-> +	} else if (!status0 && !status1 && !status2)
-> +		dev_WARN_ONCE(dev, true,
-> +			      "Received unknown event. status0=0x%08x status1=0x%08x status2=0x%08x\n",
-> +			      status0, status1, status2);
-> +
-> +	return IRQ_HANDLED;
-> +}
 
 _______________________________________________
 linux-riscv mailing list
