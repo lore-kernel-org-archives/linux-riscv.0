@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D124CD3445
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2180CD3436
 	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 14:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7nXZGMIL89Hu5UIkoN6pkZax1PQHM/S2d2h6Ro2D72o=; b=ac0TvV/dMNygDa
-	Qz+Vn/0qzIx2K9jRWb0FgfEdpHYmfs4YiT0SDOy3DGbBoD/NdjtlPYsjfCSKpuXqjKm2rUN1t5lS6
-	6lUqXRFmus+iundZihjPgJHt3I5E+VqYjITUqsh/l181s5TJ/ID5SbQRhDwZ6jv22PAItxpqzfqmz
-	tgLkoXK9davixvPWGuKFgR5KVZaKcT+q3oVgws8wt/u4ssKB41nLslcSquXLPqJTYL16XsTwdiY/3
-	L6PsaaMwiSwL4sI3AbdrbNtRYuGfM/HpEsS8hzJ4u2Gqv42VWF/rJtBzLUyFs1GjWYRPy9VS0SZ7O
-	GWtnH6gkUujwyP8tpzUw==;
+	List-Owner; bh=74eL+760VztMsGs8Ovgk6+OfG7mn/MXM+lBcbd5ldwc=; b=xrNDAAS8Akcqx6
+	jj75HpK3UQlZ8xBx9GxXcI4kIRTMZe1KUb7Mp+GYqKc1W8MkEu4tCEXySRQwcFy6A8q+ANB655jlf
+	VwaalfeBD8AYRHyssvPsWtOIUg0iGsTvna0BNr9LfsJuJiCWzLmVe5n5WsoRqlYvk21d5v1btg7oE
+	ciJ9MvF5aNsgzGjT94S+/KPjF0xr1CnMpDc4ls6KNfmONOr71RFUaiY/gtU+Y0luS5qLClrdV0kWI
+	jURGG1ucocQOwKCWrZ9asayH399+G2UrOxac7r4hLPh9P19zQSgwyJclRNSitzruZiTNodbfRND80
+	eqDjgeZeQuOtpKVrU2MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMZv-00000006j1r-1lQ5;
-	Fri, 08 May 2026 14:53:23 +0000
-Received: from mail-eastus2azon11011036.outbound.protection.outlook.com ([52.101.57.36] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wLMZx-00000006j2y-28ux;
+	Fri, 08 May 2026 14:53:25 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMZt-00000006j0v-1X7d
+	id 1wLMZv-00000006j1Q-0Gn3
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 May 2026 14:53:22 +0000
+	Fri, 08 May 2026 14:53:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j/7hlRY1/Vi0Gaxdo50I/8VdEBNV06Rp2xAflwVGFp8Y0TMem97xXRemYIdzFMveODUGo9z6l9ivI4QKsAaQUHykFeJRJaFlSTssQAh5fh9yQxBBtARg7C/vDhpk0MoGzV7oy6iLvOSviU+Brcwd6DPfNz7yHQFYbIvajAXfwNQAi9hA/e8iUbqi+4olJDSaV0YkQ0hSzPK4u5mnfnDGdzzbKfaK8pJAfiS7yHdM9Zr74/dsTJ/wdQOxiIFvAzXVMSEYV/L1RASQCCVSFwu0rlZZr5JRk90O2MPR/0Hq5U9lhrWsF/YXS4wWypye54fVol9e/Qmd76otSexm9dF7Fw==
+ b=lIlT4SmMKbX35pxPXWMLlrHXi/mk/mFF6GkwdcC9wYdtvw2LwDhY5JX+7IfUZVMF9pSIMQHlP0YObkQXHu7Q5fpjSZq6/w71d8Rk4ptJR4D1v2z2KwT/rx+z7xiriBI89NmjYK5jWaNSId7GW0d1Iapx705ejsnD7c8H7dYwgA7M1eOWSy4JNZGw7xCBNqqPrT0ZIE0QXl2vdEUmNsfowVkb/pU0mrCmQZ3eUfso1fkyvNBQBn9ymElT49JWMk9RHofm+LgCYvSoTpAvKXqnA27jp8jX5EdKb39yL/EivnMaG2/JqTTnDh9907UnbIh9m6Dg+HeU0o6bY94Sh74MBA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LjLysUi/HcpqrgT5EbE6zj8/XevIAyfkAeC+wBphLsg=;
- b=BsAO+xMAbYPzkCaroG5WtultjAkXsIerudo7tw5Un2mSt5YhxeKBXdUe22ot0WROk8MN8M0eHs6R6yA+tvAMO0K1tPV3sXVR/hiuA/7El1XqQrQz+kiRsUp2J4C/GGzydSWTFu97M0trpNwLlAs5mYLUf/uW+mR508zlcHhofHrCH2jwxQF/yzjmzHURKATVRidZlqsdJ5OllKEStWzhI72sNn/XlIrDz7EDPrScvjSIWZw7LWXzsjULSOoScZfRphCE7twaVZp6SLcJSyhHar96e23vGIUNESviWnwAw6JfAxM+0kaAdn12Ddpq3ErQb8RmC/fu0SdlOWegoKwkuA==
+ bh=6/TZCX3KRM5w+Fc4NJlLCrjUe4pC9l7yswsj1YoLnAU=;
+ b=hV0BL5fGAdUvvMDKwmwKpTImDxXlYboUXtOlrjd2ZKWZYBmB6bgBlN1baZpzHVeZrBtc1w8azwowFHOXLYvJXdb075cqLwaLYoX7a2NVsMRCRJMOeqtoT4z9IWYI0zxYz8R8zQOovxa/dLb3d4g8BkmIY7+z/kWV7a2Ekvra98kpZtfS87QhZFKK2mrV4V/J9aQyOcmwjnU9AkmYvJWAwtUQqnMRAGVunHrUOS/qShK9kMqBS7RE7E56WFvzmhc1ooe0qekbkb5DyaYGglEii50iVFaztw1foYMw/pIA+xG8JeuidKHlEaB8nd/PFVMgjSPLnvYi52oGu6AtQuPILQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LjLysUi/HcpqrgT5EbE6zj8/XevIAyfkAeC+wBphLsg=;
- b=VYoOo+I9kOC7b5zH9pSPCJMHnJBrlk1xkQv861HA9Qvev7pMNHN1nxA44D0NDUVvUxVLTAac/wEm5J0PvTUUVhCoP4rhJYyKNe65cwtVRNivf5HJLiSNNdNJna9DM60WisfeO1ilS6hx3O1iIfLrxg2J56Wxk7XlztYMthU6QCG5ewtC9T78GsaZeMbnk/vA9CjAQymk86cF55TZVf9kNbtyOED9S3qdR9wq05JFGufpHj2dG3LoF4G4YmM+yAb3JTraRrfhdqJd0w8a2bVCEJY5xoPnzUKwQDswII76yY72xBT1qaxUNDDEooGos05ChhvyjH9NV1GknZK5iocpJQ==
+ bh=6/TZCX3KRM5w+Fc4NJlLCrjUe4pC9l7yswsj1YoLnAU=;
+ b=J2v9LpXOFoVgPyTDCXdFkjKhpTHw52rHpis/ngKjip50JUfRosjwo4S/2dLxW5yxiq1lL255zh8WDzFdPGfUg/olJA7Hh3XPYd+gMShGcUf04CmGCQu5A764zmHiFyPp/GpRA32sjc6zUrVFSyfqUuMwk6ca1LkzPqzyinzOox4T0dAy1Lj9ZQook0YQcNG0kWTIP6/WxHAG0fYRYMvSRxUW2jw1ICfu96i4BP3v7A+pogLmgQbctu0OHFmCmIXupKdHaU7UTPMHi9yhYZi4QwkPJQe5DxdLVe0IBEa7KcBVqISfuLH6jwMDgo+bHOTcUa4GQrInIWzO44pO1XCc8g==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SA1PR12MB7176.namprd12.prod.outlook.com (2603:10b6:806:2bd::19) with
+ by MN0PR12MB6224.namprd12.prod.outlook.com (2603:10b6:208:3c0::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.19; Fri, 8 May
- 2026 14:53:11 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.20; Fri, 8 May
+ 2026 14:53:08 +0000
 Received: from LV8PR12MB9620.namprd12.prod.outlook.com
  ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
  ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9891.017; Fri, 8 May 2026
- 14:53:11 +0000
+ 14:53:08 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -67,67 +67,67 @@ To: Alexandre Ghiti <alex@ghiti.fr>,
 Cc: Andrew Jones <andrew.jones@oss.qualcomm.com>,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>,
 	patches@lists.linux.dev
-Subject: [PATCH v2 3/8] iommupt: Add PT_FEAT_DETAILED_GATHER
-Date: Fri,  8 May 2026 11:53:02 -0300
-Message-ID: <3-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com>
+Subject: [PATCH v2 8/8] iommu/riscv: Add NAPOT range invalidation support
+Date: Fri,  8 May 2026 11:53:07 -0300
+Message-ID: <8-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com>
 In-Reply-To: <0-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com>
 References: 
-X-ClientProxiedBy: BL1PR13CA0106.namprd13.prod.outlook.com
- (2603:10b6:208:2b9::21) To LV8PR12MB9620.namprd12.prod.outlook.com
+X-ClientProxiedBy: BN0PR04CA0068.namprd04.prod.outlook.com
+ (2603:10b6:408:ea::13) To LV8PR12MB9620.namprd12.prod.outlook.com
  (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB7176:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cb05ac3-f5e4-423b-4e4d-08dead118623
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MN0PR12MB6224:EE_
+X-MS-Office365-Filtering-Correlation-Id: b34eac10-96f5-4801-1e89-08dead11846b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|18002099003|921020|56012099003|22082099003|3023799003;
-X-Microsoft-Antispam-Message-Info: wB5dxUCuqDWTpJny3WabdkkVq7W2ZFZghkJSHuJH64e6vwxzvQsL82P6CTLUqNpsB+WobiR5EhGT2Ea5nDXogBQJaEBEyfTzmeZVtKWeP/9y1/I6SIaghsSUxGORNORS8RJijI7HsPVEk9H3GVwzk2wZe+zr635uPQeqKylZ/9lvl3uEwgfhzJltLqQTr3Yzj4ABcvZ1P6miQuPLXSCJRNjoM+kWALEgsXJPc9pt/HteBV2AxzhiQXUL3GmjHx+DM0sJDVE+C9tpsMQLZQCl5JkkEJYCCTWTsXSzZRxrth+x9yfvxrFIsN1KmQ2Bf9pFicaVG03CdoLDSYkE2mi8MkffscQOuXhMVl/r5soHRU3//R68twuUY/WRLt3k+HMOJfCCDRB8ziHEaYe9DcHQghY0x2XHMvyf6NQzm4FB4z+yvO2BmPQLAEquvBuQKQnhHEHKQmdgPe8NDqSDsAwCGrUn68q4hKKEDQV+Ne8hCnmrtf+oP1tr9srCz2f7DK2QSJ/fog17RmOAhFMse+fWLZRYBmb/i/7uOOoLgo2aZ5+sk472uGDQC5GSvftKa7WAd5+zpct7SJYjCkAB4EMmplKrqYjPJ/XDgFjarOQe2VYDuB3PRpJqD7WxZgtsxT5uX2wQZFX+04FyzgRv+ozOeehdgfmsI3CjpsVYXxl/j+JR4rgjcWR4tWmTXv7KdUnceVQfLUSTLYtGtZ/0Zcl6XKRwDroh+1u1HqF2HjXJNdQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(18002099003)(921020)(56012099003)(22082099003)(3023799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|921020|22082099003|18002099003|56012099003|3023799003;
+X-Microsoft-Antispam-Message-Info: ulQQRet67OS9Ncg8z7KQwjbCx41M11lsqUV9CwfkDE5FBmRFU2FNZ++/y/yaYwyn8McMzmNbkr04V64egclnH8unFRcC4UfQtWqeO5y440bmlRECgx+I+L0T2idFRIJgw3MLu++vGvLMsIVNEd9IlRQ5ejNjqKqAoAa4wZLf6tTTMy6KcL9B+oCzh0hb73CJqOimrsyzG8c+Gl2UfRv/CEy7bLLRVVqhpVLisoDISvTrgFlDKm9vas8GIj02gD3qe7VXqAn1Sc/+t9IEW3mo4v/hKyYDyLyhh8qbXulDvtLHoEb3O8C0Ou6AE1wRbe0dtSQYzl17nPgkC23wBcaTVfu8p9YXMhI5PullJo+YfwPLpDxqrN8qi4+GDdCuf8q6zBe4jifAkKjUTOHoBPHPMxDXsKcINY0bv6ueD39rJQULtFPHZzzxYydWKwkcliRUiq2tQ5UUQlJs+c1oT20EYf0Nu+fWB99BSAn3f652Q6tvttixOQrxUdiCMEKTeeTgnXWPnIV0VEMAs+x9yz0ZgZPu9mi6Z5CGgNdUJTzByxK04fpo/+7kdNRmAeD1nZJBsMAiiDGMlCrd05FKLS1cDecAlhvVaTUANFkyBYHj+0yLP5g1TTsRRn0ON+OAWplTSyWXUyTevEI/OMMXfqfLTjZpTrnQLqHLhUBQgAE+xlmp2ZZz/kxUr62uS+c3QvIY3OX7DqdefSaM3zoXpP3R62sDR0VXEcZM6pltmPORgfg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(921020)(22082099003)(18002099003)(56012099003)(3023799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zVFTFIvEplTisDlZz5hhSH96ge3ZpZkudpT/3idNHx5ai3WFNCtBiRsMyjYH?=
- =?us-ascii?Q?FODTbC6sxwZiWrAc9ivbeWr2j2kVbetbn1y0eaThCuIikBcGPDANdcT1Ojae?=
- =?us-ascii?Q?h3FCqjj597GtmwG4sMCf0zNxyVDsgCdj6gBmqz8gsrPfH+Ty47VdkFexQYoa?=
- =?us-ascii?Q?P7DgC5W0ipHgpegvXtcXuSHbcFVr/rr2xtgaW+j5uWSNyhxC47Z+FlHacpfh?=
- =?us-ascii?Q?RBP7G32mT70+F2CBlJlcenI6Ps1r7dN7oGbKkbrlAiixB4jC5QxbVW8KeByz?=
- =?us-ascii?Q?vjaYkzWyzUgPr3b2iFxW+wB8VTVKVj+DGqo7ACSfLixd3CXUYhUUTF9A+yuy?=
- =?us-ascii?Q?+FSvw5eUe9LAMF971zYxfZTet2zYuuYolS9+0FlkqxXuXNc7X4wsKCIY99Z/?=
- =?us-ascii?Q?rFefMeKPJ1DtkC0LmcQkPsKgRq93PZTT2S/pzj61k4DLKGfYKFG6PtsdKI9y?=
- =?us-ascii?Q?wHneNvh72856Qu/ZWBfxAxdwqI7V5shcbFhmcOcBhROd+qwqzNKxdMXcmZTL?=
- =?us-ascii?Q?ryO6rVE/J4dJfLohpEJx5mhVmTxUBQjWdpVKPAOVgL1pfd+ZqmFD6GEAd8iQ?=
- =?us-ascii?Q?BFjZwak6A9biy/0+Nc8NEnuh1PZZlkdLf7uUtDh7S75To53mviVTwLBTxN50?=
- =?us-ascii?Q?bHqTznOVd5yNC/OxCQn1ushSatR2bjwjKH75NGYUvkRtOvW6rq+HwiW3p0tn?=
- =?us-ascii?Q?h9MLZ5b4q0AP3eTqfyDOJhYq9byR7aTuag1nCB92FpTEQntw1t8NgnAbSzDw?=
- =?us-ascii?Q?mNpGN6rsgjoAODzq6WOkzXzvzVOW+swHJx0KyDpLywPlGcw8Ftw1p+BHXZYs?=
- =?us-ascii?Q?Ma7/7E1xuXF3juRHBD7YYW3G5sAFgPmN4HtjnUEtimWjSqHwzjyXejOO20eF?=
- =?us-ascii?Q?QwvrUkSadcWaM7iEAAsFfAzAwta198R3HGN80Me7kuGiuFykFxuwRXU/6gBF?=
- =?us-ascii?Q?dquC8pfPCMe90mPNLJgUzlGy5f8vQOLS05b5h6cbCHYBA1cYDg55sD+LU7Fa?=
- =?us-ascii?Q?S1EUq99AXNxMcJ/nDPtEPbPjsYveah/Bmrxd4KDWosZoyk9JsK0t9/Qx+pyt?=
- =?us-ascii?Q?Er96EAp8IzSWJAqowVrX0ak4HcSRg0RhAzJWFhl68oyEFlflnADL84613V3f?=
- =?us-ascii?Q?p9SkBu7opoXP8fKpFFiWd1JLCD0NanIBUxBA5jvyEDZbJNdftA7JVlWBJWTh?=
- =?us-ascii?Q?uFopumwL3DH0WKep+a7el4o0LY2fgp+jGruNaASfsTGFoje6YeK25ot07DQ7?=
- =?us-ascii?Q?W1LKLdflXJOaGCvSzHZfjQjSgapaMCY23giQgYjsic4DxCq8CWEzSNXH3p3T?=
- =?us-ascii?Q?nXf1NOdAELqLq6PDXJTx7JS3ENqZFGDLXPmMaH8PaDUJYCruMAZYSjNOdDhj?=
- =?us-ascii?Q?r2cHC00zbMUcXflTFQN61OQZVV/VAnbzTv0ryYtoEkihrsdFAuENC5xYrXEK?=
- =?us-ascii?Q?aOCmamRidzLmBuDhXvFfHjFthlg02BikrkciRwOkCH3oQpRyTlRJfpTGoWk4?=
- =?us-ascii?Q?BreRnTpX9pzdXeSI0eME46JSOXpucyLWogrDwOOLzrVAK9rTVtsbGUITmIrF?=
- =?us-ascii?Q?zeURB2z4jRmfTmgbKQ9k4bJn1fbuWr/hzQtKeOZ9Dv/RHGcMta/Cdbkz1rjJ?=
- =?us-ascii?Q?Mvgku3CybOEWfBevODd5+eCRLE8K/pTrtq8MkfPBBVso6GPsv7qhqQJCO3g0?=
- =?us-ascii?Q?6YrxMgXYWPDNuFML21CVZn6wXbevx6VyqD484zUETbt/I9Eq?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Du97cRsNFQD61lNUTbub4mPJzBBnxITZlKV52MslSv5Z/19iyXS/meaR/xg2?=
+ =?us-ascii?Q?XoQjBYZjulHclAihIAyptgpLBesvOeYpdQc2xkXqRyWGnY8BOzN7BP29YLyP?=
+ =?us-ascii?Q?x2VoYQ1L1BfgWvYJoE3UW/lU/8LdW/dxrU3l+vJvzPkf7b5OC6TN1dUUlacl?=
+ =?us-ascii?Q?Q/d4L+Z+L60IEBE1+Yw5OfXFkeYe8j5H6Xv6svPRhep3vicKOfimfyEB5S6i?=
+ =?us-ascii?Q?TiZSM7jbhH29Hefy0oyIMVhBiHpNDHUHx0wJ0BlqC/36j5R7SqwtAG/9YmBF?=
+ =?us-ascii?Q?eZJLdhZ6iyUDb5TgB9zJ9QyIrX4mLNqjXvXlU9YP8sHnplNFWEdAWRn7wC8X?=
+ =?us-ascii?Q?MWe0vY3SLzpUQI5aIdCqLLQuXRo684yGRbSmbCvZIjrygKuStjMoc4jIO4G2?=
+ =?us-ascii?Q?zSRuNtXlYvlnJBUXFFn8Z1WSpLn1qziX93IazkW387OyLxj5EG0X6SfDKNCq?=
+ =?us-ascii?Q?9YGYvTa2ezxxdRgKGT/K0rQiXY7SIL4GC6tWBJWgVGc3U7nTvkG+XNCxdIIF?=
+ =?us-ascii?Q?vRmG5z2nh/J1nlfvw4nw2/yi0JwaSt6DjymjctEmCkhWWUFHuZRHDd5p9M2M?=
+ =?us-ascii?Q?7/wU8IE7R1Ny+RSoThoMsKQjyhyT1ZQLuBP01XRfEpWaXPsHNU+yNYVLyq6i?=
+ =?us-ascii?Q?hY3QdV71jXQ5A7xPTTXHouC7xFvFnWR/p2EcAt4TwYNHOox/S6QZwpGtsIkX?=
+ =?us-ascii?Q?LQW1B5DTU3hwXG6gxUoys6ZKYvzE9m5RR5MFLHIoGEF66F6LOL6nEsfEEiV0?=
+ =?us-ascii?Q?dHnUwtXSOLOG5XPL8SOutnNi2MtSpV2ywfmewcR0pIF7wCotthpUt7pgTwqH?=
+ =?us-ascii?Q?57YEzRLuLZi7dB81YQ9oIKZwYHx9TrxP1JT6NFebs4Ni0/d9juVpXU3XgJWR?=
+ =?us-ascii?Q?rq6pIJEjnhSmim3SqG7mzuLlXEJqaFqAZv5T57cXOiCscz0IRW6oeebOuZxa?=
+ =?us-ascii?Q?+7lB3VVeQzjYMpg6GndG1B6NoiKu6ZCWeP32775CwySL57IjZf8X8ROWaS5I?=
+ =?us-ascii?Q?6oGwpIwTIYAGpwa1UsE1tGUf3FUJ2GL7JIZZ6SJYs/SgskQAO3Ot3mh/TevI?=
+ =?us-ascii?Q?VUraVV+LT4KK0rfqHEkzN6rc/N8PctUmprUe8hcHWr3KwTHagVosLdYEArpz?=
+ =?us-ascii?Q?C9yfhbmoo5+ePpa6J2GXWhfQ1SLJ45dvyOti4+xUj94EIHuWU+GoqMn1B4bK?=
+ =?us-ascii?Q?uNcjTVcdePCeR7kqhzwBaKx9kiefAqcjdkPZrNt2T55EaMNp5P/wC5QypWbi?=
+ =?us-ascii?Q?N/Fx1UnV1QR3qAZZh8bPmLeU+AKBzK9/RgAAYlbp72on2Ef52OO/fMVGFmkB?=
+ =?us-ascii?Q?mDze6h3ND24JjIXrYoAEYqFZTmAeBwu4v75/NCiWxsAU/zi9opsVDwCvd/wy?=
+ =?us-ascii?Q?3P7UHkGsHe8RTETyIY/RYxGTu2f+BnP8182ifUvZhzLEQ8jjTLT0an/luacf?=
+ =?us-ascii?Q?1D+heloFyeDDWuZvtTfjnecqllKcqV7FAEkoZ7CdMOJEy2T3IfzzTGij3xaf?=
+ =?us-ascii?Q?pnDgDmkzloMNUdbcbninfIqvHFrdujadHuUohTExhoPM8e+zpKQ6LFzdfG8J?=
+ =?us-ascii?Q?AnsfjcyvhsPDJCwFj77G5TEZcyIp8rM0wcato8jukjYq672d0Z+Tm/acMPKD?=
+ =?us-ascii?Q?i9ovfFJehRpBnQI3tH0+9YWmafsJGmc0zPmCKYwXRPFHiG0jIiQYdgKxLxE5?=
+ =?us-ascii?Q?xvdW5Jkw8SlG/JZjVMyyqgcohyAhiybPWbVGlzKqIVZbWsQi?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cb05ac3-f5e4-423b-4e4d-08dead118623
+X-MS-Exchange-CrossTenant-Network-Message-Id: b34eac10-96f5-4801-1e89-08dead11846b
 X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 14:53:11.1375
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 14:53:08.2335
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ehjfZDTx5u9q04PVo/zm9J0R2tHXozh2WeLSFPjV/LVz520Q4F7Lq6a1w0gnKp73
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7176
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5koltWzFTXwRDB0q5GfqLw8CW7DfehdqCSPY+PbZSGcml2WVOBhbmwD1qVG63Pl8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6224
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_075321_419745_07CC6269 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20260508_075323_106095_BFD92B0F 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,143 +144,151 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Generating the ARM SMMUv3 and RISC-V invalidation commands optimally
-requires some additional details from iommupt:
+Use the RISC-V IOMMU Address Range Invalidation extension
+(capabilities.S, spec section 9.3) to invalidate an IOVA range with
+a single IOTINVAL.VMA command using NAPOT-encoded addressing.
 
-- leaf_levels_bitmap is used to compute the ARM Range Invalidation
-  Table Top Level hint
+One iommu_iotlb_gather maps to one NAPOT invalidation command. The
+smallest power-of-two aligned range covering the gather is used since
+over-invalidation is always safe.
 
-- leaf_levels_bitmap is also used to compute the stride when
-  generating single invalidations to invalidate once per leaf
+S and NL seem to be orthogonal in the spec, so if NL is not
+supported then global invalidation is probably always going to happen
+as wiping a large range without a table change is not common.
 
-- table_levels_bitmap also computes the ARM TTL for future cases when
-  there are no leaves
-
-Put these under a feature since only two drivers need to calculate
-them.
-
-This is also useful for the coming kunit iotlb invalidation test to
-know more about what invalidation is happening.
-
+Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/iommu/generic_pt/iommu_pt.h | 23 ++++++++++++++++++++++
- include/linux/generic_pt/common.h   |  5 +++++
- include/linux/iommu.h               | 30 ++++++++++++++++++++++++-----
- 3 files changed, 53 insertions(+), 5 deletions(-)
+ drivers/iommu/riscv/iommu-bits.h | 18 +++++++++++++
+ drivers/iommu/riscv/iommu.c      | 43 +++++++++++++++++++++++++++-----
+ 2 files changed, 55 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
-index 5ec135cf43e2d6..61c6d79c712cfa 100644
---- a/drivers/iommu/generic_pt/iommu_pt.h
-+++ b/drivers/iommu/generic_pt/iommu_pt.h
-@@ -43,6 +43,8 @@ static void flush_writes_item(const struct pt_state *pts)
- struct iommupt_pending_gather {
- 	struct iommu_iotlb_gather *iotlb_gather;
- 	struct iommu_pages_list free_list;
-+	u8 leaf_levels_bitmap;
-+	u8 table_levels_bitmap;
- };
+diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
+index 8c60780363da72..f2ef9bd3cde960 100644
+--- a/drivers/iommu/riscv/iommu-bits.h
++++ b/drivers/iommu/riscv/iommu-bits.h
+@@ -64,6 +64,7 @@
+ #define RISCV_IOMMU_CAPABILITIES_PD17		BIT_ULL(39)
+ #define RISCV_IOMMU_CAPABILITIES_PD20		BIT_ULL(40)
+ #define RISCV_IOMMU_CAPABILITIES_NL		BIT_ULL(42)
++#define RISCV_IOMMU_CAPABILITIES_S		BIT_ULL(43)
  
- static void gather_add_table(struct iommupt_pending_gather *pending,
-@@ -50,6 +52,17 @@ static void gather_add_table(struct iommupt_pending_gather *pending,
- 			     struct pt_table_p *table)
- {
- 	iommu_pages_list_add(&pending->free_list, table);
-+	if (pts_feature(pts, PT_FEAT_DETAILED_GATHER))
-+		pending->table_levels_bitmap |= BIT(pts->level);
+ /**
+  * enum riscv_iommu_igs_settings - Interrupt Generation Support Settings
+@@ -475,6 +476,7 @@ struct riscv_iommu_command {
+ #define RISCV_IOMMU_CMD0_IOTINVAL_GV		BIT_ULL(33)
+ #define RISCV_IOMMU_CMD0_IOTINVAL_GSCID		GENMASK_ULL(59, 44)
+ #define RISCV_IOMMU_CMD0_IOTINVAL_NL		BIT_ULL(34)
++#define RISCV_IOMMU_CMD1_IOTINVAL_S		BIT_ULL(9)
+ /* dword1[61:10] is the 4K-aligned page address */
+ #define RISCV_IOMMU_CMD1_IOTINVAL_ADDR		GENMASK_ULL(61, 10)
+ 
+@@ -731,6 +733,22 @@ static inline void riscv_iommu_cmd_inval_set_nl(struct riscv_iommu_command *cmd)
+ 	cmd->dword0 |= RISCV_IOMMU_CMD0_IOTINVAL_NL;
+ }
+ 
++/*
++ * Set NAPOT-encoded address for range invalidation (S=1).
++ * sz_lg2: log2 of total range in bytes, must be >= 13 (8KiB, 2 pages).
++ * addr must be naturally aligned to 2^sz_lg2.
++ */
++static inline void riscv_iommu_cmd_inval_set_napot(
++	struct riscv_iommu_command *cmd, u64 addr, unsigned int sz_lg2)
++{
++	u64 pfn = addr >> 12;
++
++	pfn |= BIT_U64(sz_lg2 - 13) - 1;
++	cmd->dword1 = FIELD_PREP(RISCV_IOMMU_CMD1_IOTINVAL_ADDR, pfn) |
++		      RISCV_IOMMU_CMD1_IOTINVAL_S;
++	cmd->dword0 |= RISCV_IOMMU_CMD0_IOTINVAL_AV;
 +}
 +
-+static void gather_add_leaf(struct iommupt_pending_gather *pending,
-+			    const struct pt_state *pts)
-+{
-+	if (!pts_feature(pts, PT_FEAT_DETAILED_GATHER))
-+		return;
-+
-+	pending->leaf_levels_bitmap |= BIT(pts->level);
- }
- 
- static void gather_range_pending(struct iommupt_pending_gather *pending,
-@@ -86,6 +99,15 @@ static void gather_range_pending(struct iommupt_pending_gather *pending,
- 
- 	iommu_pages_list_splice(&pending->free_list, &iotlb_gather->freelist);
- 	INIT_LIST_HEAD(&pending->free_list.pages);
-+
-+	if (pt_feature(common, PT_FEAT_DETAILED_GATHER)) {
-+		iotlb_gather->pt.leaf_levels_bitmap |=
-+			pending->leaf_levels_bitmap;
-+		iotlb_gather->pt.table_levels_bitmap |=
-+			pending->table_levels_bitmap;
-+		pending->leaf_levels_bitmap = 0;
-+		pending->table_levels_bitmap = 0;
-+	}
- }
- 
- #define DOMAIN_NS(op) CONCATENATE(CONCATENATE(pt_iommu_, PTPFX), op)
-@@ -1059,6 +1081,7 @@ static __maybe_unused int __unmap_range(struct pt_range *range, void *arg,
- 			 */
- 			num_contig_lg2 = pt_entry_num_contig_lg2(&pts);
- 			pt_clear_entries(&pts, num_contig_lg2);
-+			gather_add_leaf(&unmap->pending, &pts);
- 			num_oas += log2_to_int(num_contig_lg2);
- 			if (pts.index < flush_start_index)
- 				flush_start_index = pts.index;
-diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
-index fc5d0b5edadc08..230347f00353bc 100644
---- a/include/linux/generic_pt/common.h
-+++ b/include/linux/generic_pt/common.h
-@@ -134,6 +134,11 @@ enum pt_features {
- 	 * significant amount of page table.
- 	 */
- 	PT_FEAT_FLUSH_RANGE_NO_GAPS,
-+	/**
-+	 * @PT_FEAT_DETAILED_GATHER: Fill in the struct iommu_iotlb_gather pt
-+	 * sub structure with information about which levels were changed.
-+	 */
-+	PT_FEAT_DETAILED_GATHER,
- 	/* private: */
- 	PT_FEAT_FMT_START,
+ static inline void riscv_iommu_cmd_inval_set_pscid(struct riscv_iommu_command *cmd,
+ 						   int pscid)
+ {
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index ea14630430451a..41e26e267a7fd6 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -929,6 +929,10 @@ struct riscv_iommu_tlbi {
+ 		u8 stride_lg2;
+ 		unsigned int num;
+ 	} single;
++	struct {
++		u8 sz_lg2;
++		u64 addr;
++	} range;
  };
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index a9e89911c90f24..bf8a77a164e4db 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -360,11 +360,31 @@ struct iommu_iotlb_gather {
- 	 *       flushed (inclusive)
+ 
+ static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
+@@ -945,9 +949,23 @@ static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
+ 	/* No level information available */
+ 	if (!combined) {
+ 		tlbi->single.use_global = true;
++		tlbi->range.sz_lg2 = 0;
+ 		return;
+ 	}
+ 
++	/*
++	 * Calculate the smallest NAPOT range containing [start, last].
++	 * NAPOT encoding requires a power-of-two sized, naturally aligned
++	 * range. Over-invalidation is always safe.
++	 */
++	tlbi->range.sz_lg2 = fls64(tlbi->start ^ tlbi->last);
++	if (unlikely(tlbi->range.sz_lg2 >= 64)) {
++		tlbi->single.use_global = true;
++		tlbi->range.sz_lg2 = 0;
++		return;
++	}
++	tlbi->range.addr = tlbi->start & ~(BIT_U64(tlbi->range.sz_lg2) - 1);
++
+ 	/*
+ 	 * Calculate stride from the lowest changed level. RISC-V uses 4KiB
+ 	 * granule with 9 bits per level.
+@@ -969,7 +987,6 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+ 	bool use_nl = tlbi->non_leaf &&
+ 		      (iommu->caps & RISCV_IOMMU_CAPABILITIES_NL);
+ 	struct riscv_iommu_command cmd;
+-	unsigned long iova;
+ 	unsigned int i;
+ 
+ 	riscv_iommu_cmd_inval_vma(&cmd);
+@@ -979,16 +996,30 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
+ 	 * If non-leaf entries were changed and the IOMMU doesn't
+ 	 * support NL, we must fall back to global invalidation (AV=0).
  	 */
- 	unsigned long		end;
--	/**
--	 * @pgsize: The interval at which to perform the flush, only used
--	 *          by arm-smmu-v3
--	 */
--	size_t			pgsize;
+-	if (tlbi->single.use_global || (tlbi->non_leaf && !use_nl))
++	if (tlbi->non_leaf && !use_nl)
+ 		goto global;
+ 
+-	iova = tlbi->start;
+-	for (i = 0; i < tlbi->single.num; i++) {
+-		riscv_iommu_cmd_inval_set_addr(&cmd, iova);
++	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_S &&
++	    tlbi->range.sz_lg2 >= 13) {
++		riscv_iommu_cmd_inval_set_napot(&cmd, tlbi->range.addr,
++						tlbi->range.sz_lg2);
+ 		if (use_nl)
+ 			riscv_iommu_cmd_inval_set_nl(&cmd);
+ 		riscv_iommu_cmd_send(iommu, &cmd);
+-		iova += 1ULL << tlbi->single.stride_lg2;
++	} else {
++		unsigned long iova;
 +
-+	union {
-+		/**
-+		 * @pgsize: The interval at which to perform the flush, only
-+		 *          used by arm-smmu-v3
-+		 */
-+		size_t pgsize;
-+		struct {
-+			/**
-+			 * @pt.leaf_levels_bitmap: Bitmap of generic_pt
-+			 * levels where leaf entries were unmapped. Bit 0
-+			 * means the leaf only level. If 0 no leafs
-+			 * were unmapped.
-+			 */
-+			u8 leaf_levels_bitmap;
-+			/**
-+			 * @pt.table_levels_bitmap: Bitmap of generic_pt levels
-+			 * of table entries that were removed. Bit 0 is never
-+			 * set, bit 1 means a table of all leafs was removed.
-+			 * When freelist is empty this must be 0.
-+			 */
-+			u8 table_levels_bitmap;
-+		} pt;
-+	};
++		if (tlbi->single.use_global)
++			goto global;
 +
- 	/**
- 	 * @freelist: Removed pages to free after sync, only used by
- 	 *            iommupt
++		iova = tlbi->start;
++		for (i = 0; i < tlbi->single.num; i++) {
++			riscv_iommu_cmd_inval_set_addr(&cmd, iova);
++			if (use_nl)
++				riscv_iommu_cmd_inval_set_nl(&cmd);
++			riscv_iommu_cmd_send(iommu, &cmd);
++			iova += 1ULL << tlbi->single.stride_lg2;
++		}
+ 	}
+ 	return;
+ global:
 -- 
 2.43.0
 
