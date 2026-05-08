@@ -4,75 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546E7CD342F
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 04:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E203CD342F
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 05:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0pJfFVQQl02lOKCzWREDgFrRUMzZ3DtcCK/pwxc3q4g=; b=clRK2uGPPBa8TU
-	7CjBG2IiZmhTi9F7B+Zf4Sig/+rZHa2F1iMKq5ulmXtP9ABZC6cL3K5bQftx52P2C+TwjMRIF64Si
-	jNcoAHwDhaG2T73fXgub8ivfHEFbWx8SzH8npjXTIAC4PKBpz6q3lXdxrPsOFhdgIUSIRX6W6Truq
-	oRxZ3xJf6I0+KvnvU+7NaUL0wi1JzF/YbBtpn5cl8VXls5YR6x2n16O4A55S8Jn9qHGbxLrCHA6Qg
-	sBbweFqZ9bx1FTAcG8N8+8Yz8YyGqKEV9HjyXz1F9ii30MNlABPrQphKGppWqo+snKxI3ca9Scg38
-	7G87gO1HAHFSML6KYMZw==;
+	List-Owner; bh=Omxn7Z4HfSRePc/LAQ3saVUbsiSl+6uJ2v4h3ce3izU=; b=VEXPFITGXeZ5Sk
+	eMERxR1cwE5vOfxpVMYAVFxCYXc/6hk3QsCzGKD13vOZ1LNXu1nTwQiZgZH6RgxB0f47oH8vJRnnQ
+	A+ZTW1M/Cm+gwXt6WbumlesWqtgjWbmp4ICOMR9c6u0/gS6vOXRVUGq57j4AFEVI7s/e4DItij82Z
+	8WWKBYbtAlaAAOC0jvUbWWiPV7vaJbMqXE8uGm5rgpX5VCdLRc9BYP+b2KH28dmfUs5GQotnQ5YbU
+	fsh8ERuMt7GVwfKXE3Jb9s3lClQ440jto0u7IBfE7Mzug3ZfmRm+joErXqoe51H9S37OOcPP3zq5A
+	njbr5Lp38NCiFDbf+wOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLCnI-00000005Wbz-0zk7;
-	Fri, 08 May 2026 04:26:32 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLCnE-00000005WbG-2ibg;
-	Fri, 08 May 2026 04:26:30 +0000
-Received: from [192.168.0.107] (unknown [49.205.253.198])
-	by linux.microsoft.com (Postfix) with ESMTPSA id DE52B20B7165;
-	Thu,  7 May 2026 21:26:12 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DE52B20B7165
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1778214383;
-	bh=fZqbznsyO6uH2km9lQYaNTISd52E1x5y5ydr8MxcDaw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=saKSNoO0PcppAv0QSZCXEm1JRqArYoL9lzAhr6mpjz1I5JmqqVCasbTbSgZaIVZiH
-	 sUX4ruWHuB2F+A8vGH2rkSjjbLdRPspCsm30BK8qa8CADHIXgVxA2yl9f4W+MudAuW
-	 D0jhJ0Rq+J/hcu+QRyXhYoOB0C9nqZfvlttbgl9w=
-Message-ID: <4c0a81b2-43b0-43c0-a836-f6f5d9c08d33@linux.microsoft.com>
-Date: Fri, 8 May 2026 09:56:11 +0530
+	id 1wLDtu-00000005cc5-37hq;
+	Fri, 08 May 2026 05:37:26 +0000
+Received: from mail-sh0chn02on2124.outbound.protection.partner.outlook.cn ([139.219.146.124] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLDts-00000005cU7-0YKo
+	for linux-riscv@lists.infradead.org;
+	Fri, 08 May 2026 05:37:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=UQTTqD96Dpa5lDXu3uyoXdKoVJxVWNZpm3GcSQhq//Ue7LYDA5Q39Fn61jB4k+FGLIcSr0nNZcR0epjMrOXe0CXfpCS05+N/fWSjS9w6xKeRspVPUYi4LmjPTREj8CRD5LRqshNQTEUYSOu9jHkFMK5CVgN2KcqkyS1l7rlbQn7Bp98TFHUYRZUIOKAZihmlLm5apd0+hmD04/dnq2Q+Bml3oOTRxqJgkn5/T8pg3zN4iZOmQ9RfgX3Nd1CjM+93HxSx2hRCtNPSuxv1Hi6yvNdnluKlAiJIe79ecBEFb0f5X4kB91Y+mOJ/y9IXRM39uHNYQsVzJGNp2dceeIMTkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2O7GJZDL6POhZ6R/ouHkAUr7Lnai4C4vhFjhtZbuxxY=;
+ b=MdUCLP90ubNCUb41R9crVQ9PF4QVwY/rrq/8QK5DEPzU1xZ0B6HibW5RGjLB4jYmNV/NEqA6RnXd7kCY8R4SPGi/8hqLXPY/NCMwfNcQzqSuugb4greWLG+qPHxGVFq4dJ0yg78a6XC+UUfi/66GtrjtWQs8l+CRBbhh5HmjywDParQ0i30EBH9x18bZRYsUjKDHZ4KhgLK3VFifnYkLTOcdgfRyD5stNWce9TzQNxZak6yAL0EYwxg84+YEOSjOMZ/wksv+QsdfvsLrwX0Z8IfBZg/HJApstYowTKKSwvPG9jrkd5jV37zNn5A+VzFprs8TeKJpc2F6zZMXPrSYbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1236.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:14::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.17; Fri, 8 May
+ 2026 05:36:55 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%5])
+ with mapi id 15.20.9891.019; Fri, 8 May 2026 05:36:55 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-hardening@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: [PATCH v2 08/22] clk: starfive: Add JHB100 System-1 clock generator driver
+Date: Thu,  7 May 2026 22:36:18 -0700
+Message-Id: <20260508053632.818548-9-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260508053632.818548-1-changhuang.liang@starfivetech.com>
+References: <20260508053632.818548-1-changhuang.liang@starfivetech.com>
+X-ClientProxiedBy: NT0PR01CA0035.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510:c::12) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
- mshv_vtl_return_call
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
- Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Michael Kelley <mhklinux@outlook.com>,
- Timothy Hayes <timothy.hayes@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Sascha Bischoff <sascha.bischoff@arm.com>,
- mrigendrachaubey <mrigendra.chaubey@gmail.com>,
- linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-riscv@lists.infradead.org, vdso@mailbox.org,
- ssengar@linux.microsoft.com
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-8-namjain@linux.microsoft.com>
- <aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
- <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
- <afrzKl3ixCUUVL6C@J2N7QTR9R3>
-Content-Language: en-US
-From: Naman Jain <namjain@linux.microsoft.com>
-In-Reply-To: <afrzKl3ixCUUVL6C@J2N7QTR9R3>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1236:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4535aeaa-e23e-478c-2703-08deacc3d0b4
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|38350700014|921020|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 5gXWE6wiem4ODjBY+oNtoUECtDRhcfmkdvz/+DVmq09ZSrPppHCJjzpMsjzUr0VwBSL27wIylp6rpg2iGRThmH2eNg4TjkCZ96vZk9OwharZKu33B0MPiRvP/AzzU8vhN+J32UrxodRXYY49vd1ExXgH3ADOd3hsqkacuvHJQ7UG7EHB+T0ISOhjsy6uvg3Q5ZmKBhPpV7Xdim/mHFe/qeEzKbpmdy3E/iNlJqxKOu9cC+QXgVTwvBhZMAMV3nYScuU/8bVp7LtGHxgrJnMF9Jr53eUrmAdbT7lSDVQTY1sUmn9ARlwWl0iAw3/+3Fs+dV86F2B/MuMjxEc01DU2n6efvmESTRr86OR9FsIkx8cw+3DDXJ1tEwDYsB6+L/439yLyBuKtM8w4oZDvl2G1mwpzIwnYdsKrZQOi3GTLZphRIJcJMpfMwlErcKgonW8iaLHyS4Q7QZ4mS0gDYSortYi3wsuEPJBtx7ZoKFbcKGs0Xp0KEnFlBAFnYFnNppMj1YnZaPp7wgP3dQNaSB2+zi7+YFSMK11ATTOPrWoIMmw2rP7yrVa6xCDIBUpRr2pp0RO9viikD41B9iiWrbCtdA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iZVh4WqpkSQWkBE3QijV8NLFGVCYb80YHYBwdaom+ahSUL4yqukdNdd5tvbC?=
+ =?us-ascii?Q?5o/qoVwxlIjEatZTV97LWSSy+4aVVntb0GttTLUR0FUECMY/NEQTSvSosY+C?=
+ =?us-ascii?Q?VBRIJELT8jpGQOQ1FwAkLQ4vRMxlAPI4yqm7v3cKK3ZsMg0cO/8Tyxx8Pg6s?=
+ =?us-ascii?Q?HTg6bWQXufv7lByMlL+oOGkylG5CRVOlOef8dCcvpid0Q04aU+2A6mmF7muO?=
+ =?us-ascii?Q?DS8W8oYeEtHzEHgmJ5RXZ7n0tREi7T4lc/4hliED6+s5/fNodyJN19s7gtnB?=
+ =?us-ascii?Q?YVimN4AKlYEydo44KrtNKzdSWa6rieRdOTABGO0u2fVZX9XnMJACsuYWktEx?=
+ =?us-ascii?Q?AJpqhBJPDrOKAcm+EQ/FMjeEWxwBjh/14Axg7z5TmhMT6q4m+UFzTNtWTX5K?=
+ =?us-ascii?Q?yu7wvVPJo6/md7Q44z3zQeXfCF1+X8WYBZWMUoWpr3uHiOM5WQNa41OieVmk?=
+ =?us-ascii?Q?v1muw3VBlADjuBz9rntZZm1lBQNBL3pJjkXYtlBsIZxuWJmwNo5gIEtQPqjy?=
+ =?us-ascii?Q?uwrYJT7Sr+5i+gZIOy7A1RBTRaRswLIgRjIfVUrSvu/OAnFlja1QXicSytnq?=
+ =?us-ascii?Q?s0iN8IfgWa6LloS3yl24sb3alx9z4MhcLB9tWRwPamb4dwafzM88/8mryspP?=
+ =?us-ascii?Q?pjDEIwLpmx5cWBfqlPmc2etMU2AHSTFFS2CJeSk/r0yaZ34ulFYeXnBqOP9N?=
+ =?us-ascii?Q?URebwpT+Aa0fDDWIsB5o///6nxYAzJMWMHNn4A+UE1JCcE3trfLsa3Z+Cf4T?=
+ =?us-ascii?Q?UsL7xh+l1au0uXg6yI5VFDyX2RveOA9vPL25RolzpPQmKwf6frQlJ9OqWGJo?=
+ =?us-ascii?Q?SOXi78zH9WGRL5KLRozeSr3+D8WXOPMfZOtEQ6oCkUy8vS7CjRvqaCAtiLEP?=
+ =?us-ascii?Q?TzO5ewbR2zCb0DvoVmG/qE81E5kNLjcqAcOy10HW4M35nCrlSXibfAPkU17F?=
+ =?us-ascii?Q?CAam8ZGfR8Ne2B6JvvE+bEoHwgpt87ku1zLi1i/SQO2eb11KKazBs30KRknI?=
+ =?us-ascii?Q?cJbUPEGfI8sr1ehH16Nky2jPtJHFQosJvLOHiB5opkD8EiQIbJXsMj9LsLvE?=
+ =?us-ascii?Q?HwYOH/97dpZMH6OFujkGWCHihnRWXsdohjK3MXHVS05ueorjTiEnG9txJXrF?=
+ =?us-ascii?Q?ZWo6bwi72Nh/08G66ulOtEV56Mmu55VYYaqrgk/HQlY4RVYws7SH7X+PnUwl?=
+ =?us-ascii?Q?G7UoY+e6auCK9sUs9jNEMsiWlyFwSaZfG2ZBXJqKpB13G+ECAJDN2kYPHcDs?=
+ =?us-ascii?Q?grtJbkKMHGKbGdwEe3RiGda2ISrO+Z1bVg/crmuUkImfaeRJIhx95xlagZGt?=
+ =?us-ascii?Q?WU/hz0ZkopVxpM3rWxCdbOwByxJy5Xsa96lwUxgnm44wgmgWWgZl7HayKgOg?=
+ =?us-ascii?Q?VsmsProGclO5sQDcR/DeLRYplaUh4/ySRQqxwW4wenTirVoyQ1kncZRgsl9G?=
+ =?us-ascii?Q?DzfPLRawAj0ljmnBUX6hXXAMETKeD6htVrfMuiqXmSWnbUGCCmEKg2nkKL1h?=
+ =?us-ascii?Q?Ty5li00u+H8Vsfl/hkdWPF6PNtozD2KD0JHYt7Vph4ppvXaHkbMvjNixikfM?=
+ =?us-ascii?Q?CDCzU0dmvi6QlgU6Z/buHCcqawpwaRjk6Az5mn9bgNWXpP9hEl9FbpPHr6IN?=
+ =?us-ascii?Q?UNABDLNOuHMSiXny3wK8PJGL0WjA5mnMnUmiSoL4Km4Enwu0Wu/JKMj4WbC/?=
+ =?us-ascii?Q?eFflDFe4i34r+Yd3jeaAO5MNfpZvAvkPOUQcmXeqG2Q2gpiKBR+zniuWiJv3?=
+ =?us-ascii?Q?dk4jAfVxMcZFeLFZkRdF2KhP/tWhBXpolPqci3HLu99pA3dVo2Ra?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4535aeaa-e23e-478c-2703-08deacc3d0b4
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 05:36:55.4043
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v6SW8yfVpJ05jfm2AEKWggd5a8MiEmRnsnL5aH0AFcQQpQ7XGAkyJaGNX7QgDEV7Aw7bNds1U23kAbr68EzsDzBoXUphZAADpi32ZU9rm28qj1KOe/Y4p23ZsxJ5zqIC
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1236
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_212628_739370_76683B9B 
-X-CRM114-Status: GOOD (  49.75  )
+X-CRM114-CacheID: sfid-20260507_223724_229673_7F11CBA8 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,177 +146,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add support for JHB100 System-1 clock generator (SYS1CRG).
 
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+---
+ drivers/clk/starfive/Kconfig                  |   8 ++
+ drivers/clk/starfive/Makefile                 |   1 +
+ .../clk/starfive/clk-starfive-jhb100-sys1.c   | 105 ++++++++++++++++++
+ 3 files changed, 114 insertions(+)
+ create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys1.c
 
-On 5/6/2026 1:22 PM, Mark Rutland wrote:
-> On Wed, Apr 29, 2026 at 03:26:11PM +0530, Naman Jain wrote:
->> On 4/23/2026 7:26 PM, Mark Rutland wrote:
->>> On Thu, Apr 23, 2026 at 12:41:57PM +0000, Naman Jain wrote:
-> 
-> [ non-SMMC hypercall code omitted for brevity ]
-> 
->>> NAK to this.
->>>
->>> * This is a non-SMCCC hypercall, which we have NAK'd in general in the
->>>     past for various reasons that I am not going to rehash here.
->>>
->>> * It's not clear how this is going to be extended with necessary
->>>     architecture state in future (e.g. SVE, SME). This is not
->>>     future-proof, and I don't believe this is maintainable.
->>>
->>> * This breaks general requirements for reliable stacktracing by
->>>     clobbering state (e.g. x29) that we depend upon being valid AT ALL
->>>     TIMES outside of entry code.
->>>
->>> * IMO, if this needs to be saved/restored, that should happen in
->>>     whatever you are calling.
->>>
->>> Mark.
->>
->> Merging threads for addressing comments from Mark Rutland and Marc Zyngier
->> on this patch.
->>
->> Thanks for reviewing the changes. Please allow me to briefly explain the use
->> case here and then address your comments.
->>
->> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced isolation
->> within a single VM, analogous to ARM TrustZone. The kernel runs in VTL2
->> (higher privilege) as a "paravisor", a security monitor that handles
->> intercepts for the primary OS in VTL0 (lower privilege). The VTL switch
->> (mshv_vtl_return_call) is functionally equivalent to KVM's guest enter/exit.
-> 
-> It's worth noting that for KVM, the KVM hyp code is *tightly* coupled
-> with the host kernel (they are one single binary object), and the
-> calling convention between the two is an implementation detail that can
-> change at any time without any ABI concerns.
-> 
-> While I appreciate this might be trying to do the same thing from a
-> *functional* perspective, it's certainly different from a
-> maintainability perspective, and can't be treated in the same way.
-> 
->> It saves VTL2 state, loads VTL0's GPRs other registers from a shared context
->> structure, issues hvc #3 to let VTL0 run, and on return saves VTL0's updated
->> state back.
->>
->> Coming to the problems with the code, I have identified a few ways to
->> address them.
->>
->> I can put the assembly code in a separate .S file with
->> SYM_FUNC_START/SYM_FUNC_END and marked as noinstr, to prevent ftrace/kprobes
->> from instrumenting between the GPR load and the hvc, which could have
->> corrupted VTL0 register state. This should solve x29 clobbering, stack
->> tracing problems.
-> 
-> My point was that you must not clobber those registers.
-> 
-> Looking at the TLFS document you linked below, it says:
-> 
-> | Note: X29 (FP/frame pointer), X30 (LR/link register), and SP are private
-> | per-VTL
-> 
-> ... so clobbering those doesn't seem to be necessary anyway. Clearly
-> having an arbitrary calling convention is confusing for everyone.
-> 
->> I should use kernel_neon_begin()/kernel_neon_end() to save/restore the full
->> extended FP state of the current task in VTL2. VTL0's Q0-Q31 can be
->> loaded/saved separately via fpsimd_load_state()/fpsimd_save_state(). This
->> way, the assembly touches none of the SIMD registers. This is SVE/SME-safe
->> for VTL2's task state. VTL0 still only carries Q0-Q31 in the context struct,
->> and extending to SVE, SME is a future context struct change, which will need
->> Hyper-V arm64 ABI support.
->> This way, VTL2's callee-saved regs (x19-x28, x29, x30) are explicitly saved
->> to the stack frame at the top and restored at the bottom of assembly code.
->> The C caller (in hv_vtl.c) is a clean function call.
-> 
-> That doesn't really address my concerns here.
-> 
-> I do not think that Linux should have to save/restore anything here;
-> that should be the job of the real hypervisor. The arbitrary separation
-> of PE state into private and shared (with shred state being directly
-> exposed to Linux) is a problem for maintainability and forward
-> compatibility.
-> 
-> Looking at the TLFS document you linked below, I see:
-> 
-> | Note: SVE state (Z0-Z31, P0-P15, FFR) and SME state are VTL-private.
-> | The lower 128-bit portion (Q registers) is shared, but the upper bits
-> | of Z registers may be corrupted on VTL transitions. Software should
-> | not rely on Z register contents being preserved across VTL switches.
-> 
-> ... which is certainly going to be a pain to manage.
-> 
-> Note in particular "SME state" is not an architectural term. I don't
-> know which state in particular that is intended to cover (e.g. ZA, ZT0,
-> SVCR, all streaming mode state)?
-> 
-> There's no mention of SVCR, so I don't know how this is going to
-> interact with management of ZA state (ZA and ZT0, which are dependent
-> upon SVCR.ZA) or streaming mode (dependent upon SVCR.SM). That state has
-> been *incredibly* painful for us to manage generally. Regardless of the
-> SMCCC concerns, that needs to be specified better.
-> 
->> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to the ABI
->> that is defined by the Hyper-V hypervisor. Fixing this requires a
->> hypervisor-side change to support SMCCC-style dispatch for VTL return. Until
->> then, hvc #3 is the only working interface. Moreover there would be backward
->> compatibility issues with this new ABI interface, if at all it is added.
-> 
-> To be clear, that's Microsoft's problem, not the Linux kernel
-> community's problem. My NAK still stands.
-> 
-> Multiple years ago now, we made it clear that we would not accept a
-> non-SMCCC calling convention. Ignoring the substance of that feedback,
-> and inventing a new calling convention after that point is a
-> self-inflicted problem.
-> 
-> [...]
-> 
->> Link to TLFS: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm#on-arm64-platforms-3
-> 
-> For shared state, aside fomr GPRs and FPSIMD/SVE/SME state, that says:
-> 
-> | * System Information Registers (read-only or non-security-critical):
-> |   * System identification and feature registers
-> |   * Cache and TLB type information
-> 
-> It's *implied* that some of those registers might be writable, but as
-> the specific set of registers is not described I cannot tell. Are there
-> any writable system registers which are shared?
-> 
-> I don't see how we can know which registers we might need to
-> save/restore without that being explicitly documented.
-> 
-> I also see:
-> 
-> | Note: SPE (Statistical Profiling Extension) state is shared across VTLs,
-> | except for PMBSR_EL1 which is VTL-private.
-> 
-> If "SPE state" includes PMBPTR or PMBLIMITR (which is the obvious
-> reading), this would be a security problem, as a lower-privileged VTL
-> could clobber those and cause SPE to write to arbitrary memory
-> immediately upon return to the higher-privileged VTL. Having PMBSR be
-> private on its own isn't sufficient to prevent that (e.g. since the
-> higher-privileged VTL could have its own active SPE profiling session).
-> 
-> I'm not keen on requiring hyper-v specific hooks in the SPE driver to
-> achieve that, and I'm also not keen on having hyper-v support code poke
-> SPE registers behind the SPE driver's back.
-> 
-> This does not give me confidence that any future PE state (e.g. things
-> like TRBE) will be managed in a safe way either.
-> 
-> Mark.
+diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+index 7926e02ccd7d..b6042bcb5992 100644
+--- a/drivers/clk/starfive/Kconfig
++++ b/drivers/clk/starfive/Kconfig
+@@ -83,3 +83,11 @@ config CLK_STARFIVE_JHB100_SYS0
+ 	help
+ 	  Say yes here to support the system-0 clock controller on the
+ 	  StarFive JHB100 SoC.
++
++config CLK_STARFIVE_JHB100_SYS1
++	bool "StarFive JHB100 system-1 clock support"
++	depends on CLK_STARFIVE_JHB100_SYS0
++	default ARCH_STARFIVE
++	help
++	  Say yes here to support the system-1 clock controller on the
++	  StarFive JHB100 SoC.
+diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
+index 2c5e66d1d44e..b3571e2f0555 100644
+--- a/drivers/clk/starfive/Makefile
++++ b/drivers/clk/starfive/Makefile
+@@ -12,3 +12,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
+ obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
+ 
+ obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS0)		+= clk-starfive-jhb100-sys0.o
++obj-$(CONFIG_CLK_STARFIVE_JHB100_SYS1)		+= clk-starfive-jhb100-sys1.o
+diff --git a/drivers/clk/starfive/clk-starfive-jhb100-sys1.c b/drivers/clk/starfive/clk-starfive-jhb100-sys1.c
+new file mode 100644
+index 000000000000..46ef9cc63f9d
+--- /dev/null
++++ b/drivers/clk/starfive/clk-starfive-jhb100-sys1.c
+@@ -0,0 +1,105 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * StarFive JHB100 System-1 Clock Driver
++ *
++ * Copyright (C) 2024 StarFive Technology Co., Ltd.
++ *
++ * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
++ *
++ */
++
++#include <dt-bindings/clock/starfive,jhb100-crg.h>
++#include <linux/init.h>
++#include <linux/platform_device.h>
++
++#include "clk-starfive-common.h"
++
++#define JHB100_SYS1CLK_NUM_CLKS			(JHB100_SYS1CLK_BMCPER3_CFG_125 + 1)
++
++/* external clocks */
++#define JHB100_SYS1CLK_OSC			(JHB100_SYS1CLK_NUM_CLKS + 0)
++#define JHB100_SYS1CLK_PLL0			(JHB100_SYS1CLK_NUM_CLKS + 1)
++#define JHB100_SYS1CLK_PLL1			(JHB100_SYS1CLK_NUM_CLKS + 2)
++#define JHB100_SYS1CLK_PLL2			(JHB100_SYS1CLK_NUM_CLKS + 3)
++#define JHB100_SYS1CLK_PLL4			(JHB100_SYS1CLK_NUM_CLKS + 4)
++#define JHB100_SYS1CLK_PLL5			(JHB100_SYS1CLK_NUM_CLKS + 5)
++#define JHB100_SYS1CLK_NPU_NCNOC_INIT		(JHB100_SYS1CLK_NUM_CLKS + 6)
++
++char *jhb100_sys1_ext_clk[] = {
++	"osc",
++	"pll0",
++	"pll1",
++	"pll2",
++	"pll4",
++	"pll5",
++	"npu_ncnoc_init",
++};
++
++static const struct starfive_clk_data jhb100_sys1crg_clk_data[] __initconst = {
++	/* root */
++	STARFIVE__DIV(JHB100_SYS1CLK_APB_MAIN_SYS1, "apb_main_sys1", 12,
++		      JHB100_SYS1CLK_PLL1),
++	/* sensor */
++	STARFIVE_GATE(JHB100_SYS1CLK_APB_SENSOR_ICG_BUF, "apb_sensor_icg_buf",
++		      CLK_IS_CRITICAL, JHB100_SYS1CLK_APB_MAIN_SYS1),
++	/* hostss1 */
++	STARFIVE__DIV(JHB100_SYS1CLK_GPIO_ESPI1_EXT, "gpio_espi1_ext", 14,
++		      JHB100_SYS1CLK_PLL2),
++	STARFIVE__DIV(JHB100_SYS1CLK_HOSTSS1_NCNOC_CFG, "hostss1_ncnoc_cfg", 12,
++		      JHB100_SYS1CLK_PLL1),
++	STARFIVE_GATE(JHB100_SYS1CLK_HOSTSS1_PHY_SCAN_1000_ICG_BUF,
++		      "hostss1_phy_scan_1000_icg_buf", CLK_IS_CRITICAL,
++		      JHB100_SYS1CLK_PLL1),
++	/* npu */
++	STARFIVE__DIV(JHB100_SYS1CLK_NPU_NCNOC_CFG, "npu_ncnoc_cfg", 6,
++		      JHB100_SYS1CLK_PLL1),
++	STARFIVE__DIV(JHB100_SYS1CLK_NPU_CORE_DIV, "npu_core_div", 10,
++		      JHB100_SYS1CLK_PLL0),
++	STARFIVE_GATE(JHB100_SYS1CLK_DOM_NPU_CORE_CLK, "dom_npu_core_clk",
++		      CLK_IS_CRITICAL, JHB100_SYS1CLK_NPU_CORE_DIV),
++	STARFIVE_GATE(JHB100_SYS1CLK_DOM_NPU_BUS_CLK, "dom_npu_bus_clk",
++		      CLK_IS_CRITICAL, JHB100_SYS1CLK_NPU_NCNOC_INIT),
++	STARFIVE_GATE(JHB100_SYS1CLK_DOM_NPU_INIT_CLK, "dom_npu_init_clk",
++		      CLK_IS_CRITICAL, JHB100_SYS1CLK_NPU_NCNOC_CFG),
++	STARFIVE_GATE(JHB100_SYS1CLK_DOM_NPU_OSC_CLK, "dom_npu_osc_clk",
++		      CLK_IS_CRITICAL, JHB100_SYS1CLK_OSC),
++	/* vout */
++	STARFIVE__DIV(JHB100_SYS1CLK_VOUT_NCNOC_TARG, "vout_ncnoc_targ", 12,
++		      JHB100_SYS1CLK_PLL1),
++	STARFIVE__DIV(JHB100_SYS1CLK_VOUT_PIX0, "vout_pix0", 4,
++		      JHB100_SYS1CLK_PLL4),
++	STARFIVE__DIV(JHB100_SYS1CLK_VOUT_PIX1, "vout_pix1", 4,
++		      JHB100_SYS1CLK_PLL5),
++	/* bmcperiph3 */
++	STARFIVE__DIV(JHB100_SYS1CLK_BMCPER3_NCNOC_TARG, "bmcper3_ncnoc_targ", 12,
++		      JHB100_SYS1CLK_PLL1),
++	STARFIVE__DIV(JHB100_SYS1CLK_BMCPER3_CFG_125, "bmcper3_cfg_125", 10,
++		      JHB100_SYS1CLK_PLL1),
++
++};
++
++const struct jhb100_crg_domain_info jhb100_sys1crg_info = {
++	.clk_data	= jhb100_sys1crg_clk_data,
++	.num_clk	= ARRAY_SIZE(jhb100_sys1crg_clk_data),
++	.ext_clk	= jhb100_sys1_ext_clk,
++	.num_ext_clk	= ARRAY_SIZE(jhb100_sys1_ext_clk),
++	.rst_name	= "jhb100-r-sys1",
++	.power_domain	= false,
++};
++
++static const struct of_device_id jhb100_sys1crg_match[] = {
++	{
++		.compatible = "starfive,jhb100-sys1crg",
++		.data = &jhb100_sys1crg_info,
++	},
++	{ /* sentinel */ }
++};
++
++static struct platform_driver jhb100_sys1crg_driver = {
++	.driver = {
++		.name = "clk-starfive-jhb100-sys1",
++		.of_match_table = jhb100_sys1crg_match,
++		.suppress_bind_attrs = true,
++	},
++};
++builtin_platform_driver_probe(jhb100_sys1crg_driver, starfive_crg_probe);
+-- 
+2.25.1
 
-
-Thanks for sharing this, I'll discuss it internally and come up with a plan.
-
-Regards,
-Naman
 
 _______________________________________________
 linux-riscv mailing list
