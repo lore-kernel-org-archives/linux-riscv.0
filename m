@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2180CD3436
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 14:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC42CD3445
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 14:53:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=74eL+760VztMsGs8Ovgk6+OfG7mn/MXM+lBcbd5ldwc=; b=xrNDAAS8Akcqx6
-	jj75HpK3UQlZ8xBx9GxXcI4kIRTMZe1KUb7Mp+GYqKc1W8MkEu4tCEXySRQwcFy6A8q+ANB655jlf
-	VwaalfeBD8AYRHyssvPsWtOIUg0iGsTvna0BNr9LfsJuJiCWzLmVe5n5WsoRqlYvk21d5v1btg7oE
-	ciJ9MvF5aNsgzGjT94S+/KPjF0xr1CnMpDc4ls6KNfmONOr71RFUaiY/gtU+Y0luS5qLClrdV0kWI
-	jURGG1ucocQOwKCWrZ9asayH399+G2UrOxac7r4hLPh9P19zQSgwyJclRNSitzruZiTNodbfRND80
-	eqDjgeZeQuOtpKVrU2MQ==;
+	List-Owner; bh=gHczSA7toFKTKgHyNIyuv8d2iUZgAmozn7KleGknoZc=; b=CYda77HpE4tzuj
+	GZlZaK4Umt1gFwzgGUoUpRhwdk0c+pDKsYN/Gj6/YwB3pqkqcqfCDBopP0253TJ5yMZtPktHz3Dth
+	PER7Mxc+5ByQdjfycFFiwWqhKK6PoUkZnvy5fvg+pQQ6gik31Sw6Zb9c2JSNfydcVVosaIur99dVK
+	iNb50ubrQBWAsghwWxjMSfmSQhbs+4R6It8qjdetrqNO1Nw+65OKApT+O5L2FYekbcE36Ob6ULSHg
+	WH599K1TgJ5b4Mf+jhPph4uXjZee07EHEYyCYZbv9FJHu42vXcIkcThGtzReT1G0IxGrrh1CVLpLc
+	+3+yJ9t5Stt/6eMtKsnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMZx-00000006j2y-28ux;
-	Fri, 08 May 2026 14:53:25 +0000
+	id 1wLMZy-00000006j3n-2a9a;
+	Fri, 08 May 2026 14:53:26 +0000
 Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMZv-00000006j1Q-0Gn3
+	id 1wLMZw-00000006j1Q-2Eyp
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 May 2026 14:53:24 +0000
+	Fri, 08 May 2026 14:53:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lIlT4SmMKbX35pxPXWMLlrHXi/mk/mFF6GkwdcC9wYdtvw2LwDhY5JX+7IfUZVMF9pSIMQHlP0YObkQXHu7Q5fpjSZq6/w71d8Rk4ptJR4D1v2z2KwT/rx+z7xiriBI89NmjYK5jWaNSId7GW0d1Iapx705ejsnD7c8H7dYwgA7M1eOWSy4JNZGw7xCBNqqPrT0ZIE0QXl2vdEUmNsfowVkb/pU0mrCmQZ3eUfso1fkyvNBQBn9ymElT49JWMk9RHofm+LgCYvSoTpAvKXqnA27jp8jX5EdKb39yL/EivnMaG2/JqTTnDh9907UnbIh9m6Dg+HeU0o6bY94Sh74MBA==
+ b=jM41FmLrTeCkVoEISs+nPTDWRcBhyerRa/AkQmaoCOA+IeKIMZJjqFBpI2SIC4PYrw2MXdIZD+F1vhVee/9qMu1Ncqoh49SC9G3I31mKWIn8pUtP8e7V9E/zN0KcydbpB9GtqXUxI/L5u30+rxkE4Ra18E3qYxveyJQ48R1z3z+vJqtKAD3pY4K4WXKj0pGkBs+oblCymWPOZhKgWb8FuU6bfpEPjWN1quc+cxh59NSxQ1sqffNZnP7Zv9T7xUsbe7qKOMQ1PctFh33futQ5kcKjCh9srqWPwONyiincmX2hCfEhYd8x+rQI5Ry0vxisJHJXAD8MbvMGHqlAuyLqzw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6/TZCX3KRM5w+Fc4NJlLCrjUe4pC9l7yswsj1YoLnAU=;
- b=hV0BL5fGAdUvvMDKwmwKpTImDxXlYboUXtOlrjd2ZKWZYBmB6bgBlN1baZpzHVeZrBtc1w8azwowFHOXLYvJXdb075cqLwaLYoX7a2NVsMRCRJMOeqtoT4z9IWYI0zxYz8R8zQOovxa/dLb3d4g8BkmIY7+z/kWV7a2Ekvra98kpZtfS87QhZFKK2mrV4V/J9aQyOcmwjnU9AkmYvJWAwtUQqnMRAGVunHrUOS/qShK9kMqBS7RE7E56WFvzmhc1ooe0qekbkb5DyaYGglEii50iVFaztw1foYMw/pIA+xG8JeuidKHlEaB8nd/PFVMgjSPLnvYi52oGu6AtQuPILQ==
+ bh=aWZwPd2/s+hegZJsVVJ11ki8YnpJTXD8aqR/QGIS6Yw=;
+ b=toM8sn2S9xjeizPjTzfFYKTyyU1tbsQC6CTbbmNPmPs/kJg6EO7gCXqgwOdoQJzTjnOULKjSH8bNP+xFjlHpvm7M3JfpR0YGiINIye/g5kQM/Hx2ADvrDumaQ0SrkYGKX9fGkO4bj1MYhyG4po9QivRgjEk55pu08tUqvBFiTyBIm7IckZQw4uBL3cwnNiHnTN+Dry38sXMIZrmScQlNj+2PxtrFoS+e2eS5yFNiZGGr0Lg0lmTXnCIx7m3tQoPJPNqD4nE00hwBnGgZz6HGBgKwuVA+1bzxTazs2x7FB0AyfXoQaTEkC8Y9AtxliJ5v/wfxKap2zOGGJu7aEJetdA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6/TZCX3KRM5w+Fc4NJlLCrjUe4pC9l7yswsj1YoLnAU=;
- b=J2v9LpXOFoVgPyTDCXdFkjKhpTHw52rHpis/ngKjip50JUfRosjwo4S/2dLxW5yxiq1lL255zh8WDzFdPGfUg/olJA7Hh3XPYd+gMShGcUf04CmGCQu5A764zmHiFyPp/GpRA32sjc6zUrVFSyfqUuMwk6ca1LkzPqzyinzOox4T0dAy1Lj9ZQook0YQcNG0kWTIP6/WxHAG0fYRYMvSRxUW2jw1ICfu96i4BP3v7A+pogLmgQbctu0OHFmCmIXupKdHaU7UTPMHi9yhYZi4QwkPJQe5DxdLVe0IBEa7KcBVqISfuLH6jwMDgo+bHOTcUa4GQrInIWzO44pO1XCc8g==
+ bh=aWZwPd2/s+hegZJsVVJ11ki8YnpJTXD8aqR/QGIS6Yw=;
+ b=bn8vcTLUd30eIK9BovgKjPQDLZYinc15BsgqyhhrhFH1WrWEm7SKsTqNQKiEdYo2qBVjMgwDANlWrqE9S/VM9dtl4/J3iD9KkgirM3JE+86W7ykkECvXvhRiFOdXRAP5YSkXNbzvz7A1cLZQdbUp6eUDeA3QnHWPYfaQQuWhpHkuZPbXJMXVO6EFau/nxUj8O8O3WV7X9qdyOw2qYHxtobTLdlQW76gGbr3AxSswzBDrheMRIUz7V3quNYk3jaLprHimL0HFzJphbALyfYR9iigeizPSkHqCHRZZGF7QkHGZ9XRc3/bQBebT7yBJZ5BLXz57O4FDR+GJW+5ZS/t3lw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
  by MN0PR12MB6224.namprd12.prod.outlook.com (2603:10b6:208:3c0::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.20; Fri, 8 May
- 2026 14:53:08 +0000
+ 2026 14:53:09 +0000
 Received: from LV8PR12MB9620.namprd12.prod.outlook.com
  ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
  ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9891.017; Fri, 8 May 2026
- 14:53:08 +0000
+ 14:53:09 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -67,67 +67,67 @@ To: Alexandre Ghiti <alex@ghiti.fr>,
 Cc: Andrew Jones <andrew.jones@oss.qualcomm.com>,
 	Fangyu Yu <fangyu.yu@linux.alibaba.com>,
 	patches@lists.linux.dev
-Subject: [PATCH v2 8/8] iommu/riscv: Add NAPOT range invalidation support
-Date: Fri,  8 May 2026 11:53:07 -0300
-Message-ID: <8-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com>
+Subject: [PATCH v2 2/8] iommupt: Add struct iommupt_pending_gather
+Date: Fri,  8 May 2026 11:53:01 -0300
+Message-ID: <2-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com>
 In-Reply-To: <0-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com>
 References: 
-X-ClientProxiedBy: BN0PR04CA0068.namprd04.prod.outlook.com
- (2603:10b6:408:ea::13) To LV8PR12MB9620.namprd12.prod.outlook.com
+X-ClientProxiedBy: BN0PR04CA0067.namprd04.prod.outlook.com
+ (2603:10b6:408:ea::12) To LV8PR12MB9620.namprd12.prod.outlook.com
  (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MN0PR12MB6224:EE_
-X-MS-Office365-Filtering-Correlation-Id: b34eac10-96f5-4801-1e89-08dead11846b
+X-MS-Office365-Filtering-Correlation-Id: 3d5ee695-3211-44a9-a197-08dead118461
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|921020|22082099003|18002099003|56012099003|3023799003;
-X-Microsoft-Antispam-Message-Info: ulQQRet67OS9Ncg8z7KQwjbCx41M11lsqUV9CwfkDE5FBmRFU2FNZ++/y/yaYwyn8McMzmNbkr04V64egclnH8unFRcC4UfQtWqeO5y440bmlRECgx+I+L0T2idFRIJgw3MLu++vGvLMsIVNEd9IlRQ5ejNjqKqAoAa4wZLf6tTTMy6KcL9B+oCzh0hb73CJqOimrsyzG8c+Gl2UfRv/CEy7bLLRVVqhpVLisoDISvTrgFlDKm9vas8GIj02gD3qe7VXqAn1Sc/+t9IEW3mo4v/hKyYDyLyhh8qbXulDvtLHoEb3O8C0Ou6AE1wRbe0dtSQYzl17nPgkC23wBcaTVfu8p9YXMhI5PullJo+YfwPLpDxqrN8qi4+GDdCuf8q6zBe4jifAkKjUTOHoBPHPMxDXsKcINY0bv6ueD39rJQULtFPHZzzxYydWKwkcliRUiq2tQ5UUQlJs+c1oT20EYf0Nu+fWB99BSAn3f652Q6tvttixOQrxUdiCMEKTeeTgnXWPnIV0VEMAs+x9yz0ZgZPu9mi6Z5CGgNdUJTzByxK04fpo/+7kdNRmAeD1nZJBsMAiiDGMlCrd05FKLS1cDecAlhvVaTUANFkyBYHj+0yLP5g1TTsRRn0ON+OAWplTSyWXUyTevEI/OMMXfqfLTjZpTrnQLqHLhUBQgAE+xlmp2ZZz/kxUr62uS+c3QvIY3OX7DqdefSaM3zoXpP3R62sDR0VXEcZM6pltmPORgfg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(921020)(22082099003)(18002099003)(56012099003)(3023799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|921020|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: gZN/P599JK92mrZ/r7oSyi8nEEsTs/SnK/iUfzd4f4b4Sdi5I4r9wYePZ3kfAk9HOeUcNSDJTwo0R2VcAv408cDBN2udpKuT1jXzP69uCtKiVBeuLyzosWH42lz3Fpg/oVNga1k4xZWEAkQMZzBhAMto9v8PyP7DZe9lKnA77MEitzuBGyevvw82L1yO8nu6ejpkZDoHeYBNR6E0THehRAohW0ctPYCWHgKHOszXbp55QTyX+DJF+bfWvI2av3x2onvYxneuy1ZGkZ8BQvXfNSYrGMStq8ol3oRorFSLzai8brWn0NQTpzn7ZuAKNrqERscyXkxVIE+kb+3YHJJSYBn6BGQUdmpI7HrgbwD097WnTFbh2LXwO+Y4oQUdmvt1fUmOGsF6GWg6IGxFvo4XHbC+QUs5SwMNzAc/CsyBgQMvT0GP72BKFRBSlKNRuMPoUr4dj2A+fXdOh73pfk/gOqk7hh4vpAkS2YU6tWIe1YWyxOsuIVmh6Gc/PcvbQhSCJF9OcDkh7dH/mVolDX8DB5Zrrpwlz++CTEULLQD7MdksZaQE7wbU00EE6KjfPT75HMl/fOb4THSghB5cqJ12ziznd0Nu+DdBh6hUzfRM2iNI+O0mvi4LKs8nn0hBiT4HVklT9NJMrtAltVJ0TFoa0+K/7rQsokc3933NmiT3EwblCH+tYes9CwcjgYluLVZ/YqLUJckAQbfBOOxuF6uIhKxmTvFoirJCqTcI4ZS4yyM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Du97cRsNFQD61lNUTbub4mPJzBBnxITZlKV52MslSv5Z/19iyXS/meaR/xg2?=
- =?us-ascii?Q?XoQjBYZjulHclAihIAyptgpLBesvOeYpdQc2xkXqRyWGnY8BOzN7BP29YLyP?=
- =?us-ascii?Q?x2VoYQ1L1BfgWvYJoE3UW/lU/8LdW/dxrU3l+vJvzPkf7b5OC6TN1dUUlacl?=
- =?us-ascii?Q?Q/d4L+Z+L60IEBE1+Yw5OfXFkeYe8j5H6Xv6svPRhep3vicKOfimfyEB5S6i?=
- =?us-ascii?Q?TiZSM7jbhH29Hefy0oyIMVhBiHpNDHUHx0wJ0BlqC/36j5R7SqwtAG/9YmBF?=
- =?us-ascii?Q?eZJLdhZ6iyUDb5TgB9zJ9QyIrX4mLNqjXvXlU9YP8sHnplNFWEdAWRn7wC8X?=
- =?us-ascii?Q?MWe0vY3SLzpUQI5aIdCqLLQuXRo684yGRbSmbCvZIjrygKuStjMoc4jIO4G2?=
- =?us-ascii?Q?zSRuNtXlYvlnJBUXFFn8Z1WSpLn1qziX93IazkW387OyLxj5EG0X6SfDKNCq?=
- =?us-ascii?Q?9YGYvTa2ezxxdRgKGT/K0rQiXY7SIL4GC6tWBJWgVGc3U7nTvkG+XNCxdIIF?=
- =?us-ascii?Q?vRmG5z2nh/J1nlfvw4nw2/yi0JwaSt6DjymjctEmCkhWWUFHuZRHDd5p9M2M?=
- =?us-ascii?Q?7/wU8IE7R1Ny+RSoThoMsKQjyhyT1ZQLuBP01XRfEpWaXPsHNU+yNYVLyq6i?=
- =?us-ascii?Q?hY3QdV71jXQ5A7xPTTXHouC7xFvFnWR/p2EcAt4TwYNHOox/S6QZwpGtsIkX?=
- =?us-ascii?Q?LQW1B5DTU3hwXG6gxUoys6ZKYvzE9m5RR5MFLHIoGEF66F6LOL6nEsfEEiV0?=
- =?us-ascii?Q?dHnUwtXSOLOG5XPL8SOutnNi2MtSpV2ywfmewcR0pIF7wCotthpUt7pgTwqH?=
- =?us-ascii?Q?57YEzRLuLZi7dB81YQ9oIKZwYHx9TrxP1JT6NFebs4Ni0/d9juVpXU3XgJWR?=
- =?us-ascii?Q?rq6pIJEjnhSmim3SqG7mzuLlXEJqaFqAZv5T57cXOiCscz0IRW6oeebOuZxa?=
- =?us-ascii?Q?+7lB3VVeQzjYMpg6GndG1B6NoiKu6ZCWeP32775CwySL57IjZf8X8ROWaS5I?=
- =?us-ascii?Q?6oGwpIwTIYAGpwa1UsE1tGUf3FUJ2GL7JIZZ6SJYs/SgskQAO3Ot3mh/TevI?=
- =?us-ascii?Q?VUraVV+LT4KK0rfqHEkzN6rc/N8PctUmprUe8hcHWr3KwTHagVosLdYEArpz?=
- =?us-ascii?Q?C9yfhbmoo5+ePpa6J2GXWhfQ1SLJ45dvyOti4+xUj94EIHuWU+GoqMn1B4bK?=
- =?us-ascii?Q?uNcjTVcdePCeR7kqhzwBaKx9kiefAqcjdkPZrNt2T55EaMNp5P/wC5QypWbi?=
- =?us-ascii?Q?N/Fx1UnV1QR3qAZZh8bPmLeU+AKBzK9/RgAAYlbp72on2Ef52OO/fMVGFmkB?=
- =?us-ascii?Q?mDze6h3ND24JjIXrYoAEYqFZTmAeBwu4v75/NCiWxsAU/zi9opsVDwCvd/wy?=
- =?us-ascii?Q?3P7UHkGsHe8RTETyIY/RYxGTu2f+BnP8182ifUvZhzLEQ8jjTLT0an/luacf?=
- =?us-ascii?Q?1D+heloFyeDDWuZvtTfjnecqllKcqV7FAEkoZ7CdMOJEy2T3IfzzTGij3xaf?=
- =?us-ascii?Q?pnDgDmkzloMNUdbcbninfIqvHFrdujadHuUohTExhoPM8e+zpKQ6LFzdfG8J?=
- =?us-ascii?Q?AnsfjcyvhsPDJCwFj77G5TEZcyIp8rM0wcato8jukjYq672d0Z+Tm/acMPKD?=
- =?us-ascii?Q?i9ovfFJehRpBnQI3tH0+9YWmafsJGmc0zPmCKYwXRPFHiG0jIiQYdgKxLxE5?=
- =?us-ascii?Q?xvdW5Jkw8SlG/JZjVMyyqgcohyAhiybPWbVGlzKqIVZbWsQi?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K9wxs5L9R97eGN9e8R9UAKIy6kj+A21YzbnuNXUp0pHke4chE1O0ztfEnpRw?=
+ =?us-ascii?Q?YkNpYTPRqkYmsKmYNusugwmR1TkVvhFNOK6FOrd+9wPl5Ec/0ySd3DKAQR91?=
+ =?us-ascii?Q?RwCEmPaDQ8AJaC2Z377E0/YEYyVa4+l+4j19DSP+J/WjfONTJLUflNTnhku8?=
+ =?us-ascii?Q?Agg9zIUEV5dPgq5W5NCdmy4coWR7p6deeQ+DANcbW+Ah/g4QiYn71e3w3QDZ?=
+ =?us-ascii?Q?7cxoguHur4hKNmv+3XqGOmKRS95Jxt2Wc+oUfgDXWV7rvxg/geDKS+8+Dc48?=
+ =?us-ascii?Q?nPAFPsMPGLhQuoVYJiLuWM9rtON5AhFbLSdQv7oL/+yH+hPx54m/uzlLH3k0?=
+ =?us-ascii?Q?NjH9MZ3tzHmQQhQ+Wpr2j/BU7AgP5xxH/npRA3OaVsYcUcSJUmEMLXiIZh9L?=
+ =?us-ascii?Q?BoU+SUQhB1VrQK/+a7PkfKQLw/OlToNfvm0TA6PMKeUGpWMVImJR0LLuoeqs?=
+ =?us-ascii?Q?BRoKfsP7HyUpIj5hM0482EAuSqV0u5HXE7Y5YRhd2EZoZoNp+NgnHD9ANYs7?=
+ =?us-ascii?Q?8rGxvAKUzrGGtN65jbHPiulhLJOu35yRm3RtAeopg9sCP/1GITopVDPwZSrz?=
+ =?us-ascii?Q?iwgy9prRJ7ztyPSWuzjpv/ShpO2N2auCdfvFREnKTOOqJqxiduEl1p6dbCV4?=
+ =?us-ascii?Q?GCQtuUMMGsRcSF931Osrj3tnNCBySzSF2sMqsjzrvf9wOFQ8//X+b0Y6BEXE?=
+ =?us-ascii?Q?vcUGcEXC15AkUmclyV21LZvx5hyFF7O4r34HaWBCuU2EF8eAuOsQ3yWbKF83?=
+ =?us-ascii?Q?CKM5twZzM4bA/iUpBiIIt3zzFFCSp5tyvcwZnxDrNw2HuyfL4GiD4QbLHILO?=
+ =?us-ascii?Q?8bwMa6sOvQro7v2arz/9VwOsQPL3KTkU219FdDTo9jv44xXvs246zRhVptbm?=
+ =?us-ascii?Q?EiEd8vpGAtSYMgf1+Gv3cGMfKlGTdhF9m7MUPt9l1B4+uYzPA78KoZY/ykuA?=
+ =?us-ascii?Q?H4QUsU/Vnx4hKa9CAMbfyxJl8hox7ywl/o41OSZxqGKzZSdXKC+3bGpTlAb7?=
+ =?us-ascii?Q?rKOOnfotxlh4WeEBBL7px43BUnqZ5sHzHR8FJeAzY9DcfrW1UvBK5LyqxMv+?=
+ =?us-ascii?Q?5ABMrszMVmtSpc9FNXqhL7F27QPuFUrA8xI2852d0QTViNaLROHQbsSYEDYX?=
+ =?us-ascii?Q?MwhVGKMUqiN7VYJFBxW+bEF8u6w+w47fWr5BiF6kwMpdNYZTjRMjV94QKc/n?=
+ =?us-ascii?Q?EzVP/tUTMq+bgAPTrkNfu2/goqw0nOBaKNoXTJmQucxegcZuBqe/X6IyB721?=
+ =?us-ascii?Q?a6FDb85mnqPYM7TYkoyP3WTRL9ZVLdOGelP1E9XNRtjHMWlKWIqeGYEdNlzz?=
+ =?us-ascii?Q?hdx7lEi/If0Tt0nuCqroLTr7bh934xQjMCVG9+h8XOIi684DZ0dRYjGBm4Ih?=
+ =?us-ascii?Q?fhvaWXNHUlM4/kv3VnrX5D2T5hLfbbl6c3kDtvOcBT81t11ivZJk9Dzi2Rdm?=
+ =?us-ascii?Q?caTnCmUGG3sLUlbqdaRfZv+w/RQHSaNbwrHeytS2YLcCBThdjIg9ugnWyeoZ?=
+ =?us-ascii?Q?dlLhzbm7nKKK12rFp5EWjrCm8RnK36giS8yeNTSgXmF2kuWP8hRAQYS71Qqi?=
+ =?us-ascii?Q?jK4El3E4vcsz610jHZmhJxrp2EiZHZOthgfs8y2VD5bSzLqbehtlnZk109f3?=
+ =?us-ascii?Q?bFksfd9FNLPrvEcLx2D/Fm8HEQ90eVJp0PhV3ZEQV5LIx4deDlypMGN4NQV8?=
+ =?us-ascii?Q?qmhEbd7KUEBzn3/kC3w2JOFeeBjNZQ/sqBgRwQnes210Z5at?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b34eac10-96f5-4801-1e89-08dead11846b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d5ee695-3211-44a9-a197-08dead118461
 X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 14:53:08.2335
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 14:53:08.3676
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5koltWzFTXwRDB0q5GfqLw8CW7DfehdqCSPY+PbZSGcml2WVOBhbmwD1qVG63Pl8
+X-MS-Exchange-CrossTenant-UserPrincipalName: gBoyMTfKtykKRqddNJGt2zro80/ZTndyeA+gKWXDX2oahgXng6FC5Dk4ctC/LBCW
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6224
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_075323_106095_BFD92B0F 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20260508_075324_575174_2E31C9BA 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,151 +144,198 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the RISC-V IOMMU Address Range Invalidation extension
-(capabilities.S, spec section 9.3) to invalidate an IOVA range with
-a single IOTINVAL.VMA command using NAPOT-encoded addressing.
+Add a struct to keep track of all the things that are pending to be
+merged into the gather. The way gather merging works, the pending
+range is checked against the current gather, and the current gather
+can be flushed before the pending things are added.
 
-One iommu_iotlb_gather maps to one NAPOT invalidation command. The
-smallest power-of-two aligned range covering the gather is used since
-over-invalidation is always safe.
+Thus, if new things have to be recorded in the gather they need to be
+kept in the pending struct until after the gather is optionally
+flushed.
 
-S and NL seem to be orthogonal in the spec, so if NL is not
-supported then global invalidation is probably always going to happen
-as wiping a large range without a table change is not common.
+The next patch adds new items to the gather and the pending struct.
 
-Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/iommu/riscv/iommu-bits.h | 18 +++++++++++++
- drivers/iommu/riscv/iommu.c      | 43 +++++++++++++++++++++++++++-----
- 2 files changed, 55 insertions(+), 6 deletions(-)
+ drivers/iommu/generic_pt/iommu_pt.h | 75 ++++++++++++++++++-----------
+ 1 file changed, 47 insertions(+), 28 deletions(-)
 
-diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
-index 8c60780363da72..f2ef9bd3cde960 100644
---- a/drivers/iommu/riscv/iommu-bits.h
-+++ b/drivers/iommu/riscv/iommu-bits.h
-@@ -64,6 +64,7 @@
- #define RISCV_IOMMU_CAPABILITIES_PD17		BIT_ULL(39)
- #define RISCV_IOMMU_CAPABILITIES_PD20		BIT_ULL(40)
- #define RISCV_IOMMU_CAPABILITIES_NL		BIT_ULL(42)
-+#define RISCV_IOMMU_CAPABILITIES_S		BIT_ULL(43)
- 
- /**
-  * enum riscv_iommu_igs_settings - Interrupt Generation Support Settings
-@@ -475,6 +476,7 @@ struct riscv_iommu_command {
- #define RISCV_IOMMU_CMD0_IOTINVAL_GV		BIT_ULL(33)
- #define RISCV_IOMMU_CMD0_IOTINVAL_GSCID		GENMASK_ULL(59, 44)
- #define RISCV_IOMMU_CMD0_IOTINVAL_NL		BIT_ULL(34)
-+#define RISCV_IOMMU_CMD1_IOTINVAL_S		BIT_ULL(9)
- /* dword1[61:10] is the 4K-aligned page address */
- #define RISCV_IOMMU_CMD1_IOTINVAL_ADDR		GENMASK_ULL(61, 10)
- 
-@@ -731,6 +733,22 @@ static inline void riscv_iommu_cmd_inval_set_nl(struct riscv_iommu_command *cmd)
- 	cmd->dword0 |= RISCV_IOMMU_CMD0_IOTINVAL_NL;
+diff --git a/drivers/iommu/generic_pt/iommu_pt.h b/drivers/iommu/generic_pt/iommu_pt.h
+index 19b6daf88f2ab1..5ec135cf43e2d6 100644
+--- a/drivers/iommu/generic_pt/iommu_pt.h
++++ b/drivers/iommu/generic_pt/iommu_pt.h
+@@ -40,15 +40,27 @@ static void flush_writes_item(const struct pt_state *pts)
+ 			PT_ITEM_WORD_SIZE);
  }
  
-+/*
-+ * Set NAPOT-encoded address for range invalidation (S=1).
-+ * sz_lg2: log2 of total range in bytes, must be >= 13 (8KiB, 2 pages).
-+ * addr must be naturally aligned to 2^sz_lg2.
-+ */
-+static inline void riscv_iommu_cmd_inval_set_napot(
-+	struct riscv_iommu_command *cmd, u64 addr, unsigned int sz_lg2)
-+{
-+	u64 pfn = addr >> 12;
+-static void gather_range_pages(struct iommu_iotlb_gather *iotlb_gather,
+-			       struct pt_iommu *iommu_table, pt_vaddr_t iova,
+-			       pt_vaddr_t len,
+-			       struct iommu_pages_list *free_list)
++struct iommupt_pending_gather {
++	struct iommu_iotlb_gather *iotlb_gather;
++	struct iommu_pages_list free_list;
++};
 +
-+	pfn |= BIT_U64(sz_lg2 - 13) - 1;
-+	cmd->dword1 = FIELD_PREP(RISCV_IOMMU_CMD1_IOTINVAL_ADDR, pfn) |
-+		      RISCV_IOMMU_CMD1_IOTINVAL_S;
-+	cmd->dword0 |= RISCV_IOMMU_CMD0_IOTINVAL_AV;
++static void gather_add_table(struct iommupt_pending_gather *pending,
++			     const struct pt_state *pts,
++			     struct pt_table_p *table)
+ {
++	iommu_pages_list_add(&pending->free_list, table);
 +}
 +
- static inline void riscv_iommu_cmd_inval_set_pscid(struct riscv_iommu_command *cmd,
- 						   int pscid)
- {
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index ea14630430451a..41e26e267a7fd6 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -929,6 +929,10 @@ struct riscv_iommu_tlbi {
- 		u8 stride_lg2;
- 		unsigned int num;
- 	} single;
-+	struct {
-+		u8 sz_lg2;
-+		u64 addr;
-+	} range;
++static void gather_range_pending(struct iommupt_pending_gather *pending,
++				 struct pt_iommu *iommu_table, pt_vaddr_t iova,
++				 pt_vaddr_t len)
++{
++	struct iommu_iotlb_gather *iotlb_gather = pending->iotlb_gather;
+ 	struct pt_common *common = common_from_iommu(iommu_table);
+ 
+ 	if (pt_feature(common, PT_FEAT_DMA_INCOHERENT))
+-		iommu_pages_stop_incoherent_list(free_list,
++		iommu_pages_stop_incoherent_list(&pending->free_list,
+ 						 iommu_table->iommu_device);
+ 
+ 	/*
+@@ -72,7 +84,8 @@ static void gather_range_pages(struct iommu_iotlb_gather *iotlb_gather,
+ 		iommu_iotlb_gather_add_range(iotlb_gather, iova, len);
+ 	}
+ 
+-	iommu_pages_list_splice(free_list, &iotlb_gather->freelist);
++	iommu_pages_list_splice(&pending->free_list, &iotlb_gather->freelist);
++	INIT_LIST_HEAD(&pending->free_list.pages);
+ }
+ 
+ #define DOMAIN_NS(op) CONCATENATE(CONCATENATE(pt_iommu_, PTPFX), op)
+@@ -341,7 +354,7 @@ static int __maybe_unused NS(set_dirty)(struct pt_iommu *iommu_table,
+ }
+ 
+ struct pt_iommu_collect_args {
+-	struct iommu_pages_list free_list;
++	struct iommupt_pending_gather pending;
+ 	/* Fail if any OAs are within the range */
+ 	u8 check_mapped : 1;
+ };
+@@ -358,7 +371,8 @@ static int __collect_tables(struct pt_range *range, void *arg,
+ 
+ 	for_each_pt_level_entry(&pts) {
+ 		if (pts.type == PT_ENTRY_TABLE) {
+-			iommu_pages_list_add(&collect->free_list, pts.table_lower);
++			gather_add_table(&collect->pending, &pts,
++					 pts.table_lower);
+ 			ret = pt_descend(&pts, arg, __collect_tables);
+ 			if (ret)
+ 				return ret;
+@@ -493,15 +507,18 @@ static int clear_contig(const struct pt_state *start_pts,
+ 	struct pt_range range = *start_pts->range;
+ 	struct pt_state pts =
+ 		pt_init(&range, start_pts->level, start_pts->table);
+-	struct pt_iommu_collect_args collect = { .check_mapped = true };
++	struct pt_iommu_collect_args collect = {
++		.check_mapped = true,
++		.pending.iotlb_gather = iotlb_gather,
++		.pending.free_list = IOMMU_PAGES_LIST_INIT(
++			collect.pending.free_list),
++	};
+ 	int ret;
+ 
+ 	pts.index = start_pts->index;
+ 	pts.end_index = start_pts->index + step;
+ 	for (; _pt_iter_load(&pts); pt_next_entry(&pts)) {
+ 		if (pts.type == PT_ENTRY_TABLE) {
+-			collect.free_list =
+-				IOMMU_PAGES_LIST_INIT(collect.free_list);
+ 			ret = pt_walk_descend_all(&pts, __collect_tables,
+ 						  &collect);
+ 			if (ret)
+@@ -514,12 +531,11 @@ static int clear_contig(const struct pt_state *start_pts,
+ 			pt_clear_entries(&pts, ilog2(1));
+ 			flush_writes_item(&pts);
+ 
+-			iommu_pages_list_add(&collect.free_list,
+-					     pt_table_ptr(&pts));
+-			gather_range_pages(
+-				iotlb_gather, iommu_table, range.va,
+-				log2_to_int(pt_table_item_lg2sz(&pts)),
+-				&collect.free_list);
++			gather_add_table(&collect.pending, &pts,
++					 pts.table_lower);
++			gather_range_pending(
++				&collect.pending, iommu_table, range.va,
++				log2_to_int(pt_table_item_lg2sz(&pts)));
+ 		} else if (pts.type != PT_ENTRY_EMPTY) {
+ 			return -EADDRINUSE;
+ 		}
+@@ -962,7 +978,7 @@ static int NS(map_range)(struct pt_iommu *iommu_table, dma_addr_t iova,
+ }
+ 
+ struct pt_unmap_args {
+-	struct iommu_pages_list free_list;
++	struct iommupt_pending_gather pending;
+ 	pt_vaddr_t unmapped;
  };
  
- static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
-@@ -945,9 +949,23 @@ static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
- 	/* No level information available */
- 	if (!combined) {
- 		tlbi->single.use_global = true;
-+		tlbi->range.sz_lg2 = 0;
- 		return;
- 	}
+@@ -1025,8 +1041,8 @@ static __maybe_unused int __unmap_range(struct pt_range *range, void *arg,
+ 			 * succeed in clearing the lower table levels.
+ 			 */
+ 			if (fully_covered) {
+-				iommu_pages_list_add(&unmap->free_list,
+-						     pts.table_lower);
++				gather_add_table(&unmap->pending, &pts,
++						 pts.table_lower);
+ 				pt_clear_entries(&pts, ilog2(1));
+ 				if (pts.index < flush_start_index)
+ 					flush_start_index = pts.index;
+@@ -1065,8 +1081,11 @@ static size_t NS(unmap_range)(struct pt_iommu *iommu_table, dma_addr_t iova,
+ 			      dma_addr_t len,
+ 			      struct iommu_iotlb_gather *iotlb_gather)
+ {
+-	struct pt_unmap_args unmap = { .free_list = IOMMU_PAGES_LIST_INIT(
+-					       unmap.free_list) };
++	struct pt_unmap_args unmap = {
++		.pending.iotlb_gather = iotlb_gather,
++		.pending.free_list = IOMMU_PAGES_LIST_INIT(
++			unmap.pending.free_list),
++	};
+ 	struct pt_range range;
+ 	int ret;
  
-+	/*
-+	 * Calculate the smallest NAPOT range containing [start, last].
-+	 * NAPOT encoding requires a power-of-two sized, naturally aligned
-+	 * range. Over-invalidation is always safe.
-+	 */
-+	tlbi->range.sz_lg2 = fls64(tlbi->start ^ tlbi->last);
-+	if (unlikely(tlbi->range.sz_lg2 >= 64)) {
-+		tlbi->single.use_global = true;
-+		tlbi->range.sz_lg2 = 0;
-+		return;
-+	}
-+	tlbi->range.addr = tlbi->start & ~(BIT_U64(tlbi->range.sz_lg2) - 1);
-+
+@@ -1076,8 +1095,7 @@ static size_t NS(unmap_range)(struct pt_iommu *iommu_table, dma_addr_t iova,
+ 
+ 	pt_walk_range(&range, __unmap_range, &unmap);
+ 
+-	gather_range_pages(iotlb_gather, iommu_table, iova, unmap.unmapped,
+-			   &unmap.free_list);
++	gather_range_pending(&unmap.pending, iommu_table, iova, unmap.unmapped);
+ 
+ 	return unmap.unmapped;
+ }
+@@ -1111,10 +1129,11 @@ static void NS(deinit)(struct pt_iommu *iommu_table)
+ 	struct pt_common *common = common_from_iommu(iommu_table);
+ 	struct pt_range range = pt_all_range(common);
+ 	struct pt_iommu_collect_args collect = {
+-		.free_list = IOMMU_PAGES_LIST_INIT(collect.free_list),
++		.pending.free_list = IOMMU_PAGES_LIST_INIT(
++			collect.pending.free_list),
+ 	};
+ 
+-	iommu_pages_list_add(&collect.free_list, range.top_table);
++	iommu_pages_list_add(&collect.pending.free_list, range.top_table);
+ 	pt_walk_range(&range, __collect_tables, &collect);
+ 
  	/*
- 	 * Calculate stride from the lowest changed level. RISC-V uses 4KiB
- 	 * granule with 9 bits per level.
-@@ -969,7 +987,6 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
- 	bool use_nl = tlbi->non_leaf &&
- 		      (iommu->caps & RISCV_IOMMU_CAPABILITIES_NL);
- 	struct riscv_iommu_command cmd;
--	unsigned long iova;
- 	unsigned int i;
- 
- 	riscv_iommu_cmd_inval_vma(&cmd);
-@@ -979,16 +996,30 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
- 	 * If non-leaf entries were changed and the IOMMU doesn't
- 	 * support NL, we must fall back to global invalidation (AV=0).
+@@ -1122,9 +1141,9 @@ static void NS(deinit)(struct pt_iommu *iommu_table)
+ 	 * and invalidated any caching referring to this memory.
  	 */
--	if (tlbi->single.use_global || (tlbi->non_leaf && !use_nl))
-+	if (tlbi->non_leaf && !use_nl)
- 		goto global;
+ 	if (pt_feature(common, PT_FEAT_DMA_INCOHERENT))
+-		iommu_pages_stop_incoherent_list(&collect.free_list,
++		iommu_pages_stop_incoherent_list(&collect.pending.free_list,
+ 						 iommu_table->iommu_device);
+-	iommu_put_pages_list(&collect.free_list);
++	iommu_put_pages_list(&collect.pending.free_list);
+ }
  
--	iova = tlbi->start;
--	for (i = 0; i < tlbi->single.num; i++) {
--		riscv_iommu_cmd_inval_set_addr(&cmd, iova);
-+	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_S &&
-+	    tlbi->range.sz_lg2 >= 13) {
-+		riscv_iommu_cmd_inval_set_napot(&cmd, tlbi->range.addr,
-+						tlbi->range.sz_lg2);
- 		if (use_nl)
- 			riscv_iommu_cmd_inval_set_nl(&cmd);
- 		riscv_iommu_cmd_send(iommu, &cmd);
--		iova += 1ULL << tlbi->single.stride_lg2;
-+	} else {
-+		unsigned long iova;
-+
-+		if (tlbi->single.use_global)
-+			goto global;
-+
-+		iova = tlbi->start;
-+		for (i = 0; i < tlbi->single.num; i++) {
-+			riscv_iommu_cmd_inval_set_addr(&cmd, iova);
-+			if (use_nl)
-+				riscv_iommu_cmd_inval_set_nl(&cmd);
-+			riscv_iommu_cmd_send(iommu, &cmd);
-+			iova += 1ULL << tlbi->single.stride_lg2;
-+		}
- 	}
- 	return;
- global:
+ static const struct pt_iommu_ops NS(ops) = {
 -- 
 2.43.0
 
