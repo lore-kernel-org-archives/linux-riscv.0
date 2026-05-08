@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450FCCD343F
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 01:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546E7CD342F
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 04:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vuOG6YgY2tIN7bsZEj0MMhid+avN196Hdt8g5BkiAfQ=; b=z6IXh4uCIJ9l+t
-	EnKKAjBS9OjpC+8mBIn11UNZX/h9yc0rj3XoiFWXhup50OGcNlGP1NLzDTMXicd2VBtqEK0KpjW9y
-	LE4hj99J/yG8UHCg2zdtpVuIlbru6JQM1codzkzL1a6MUa4350yOxDBHjEWU43kGox2vRYLIgRPY9
-	AdWLW0/LQvc+KDoXa2Ie5FhNbs5+UPk+ihQOtIl9ctwgqUKQRm8ih0/mhU5DetQuDPT5qlKZjVoh5
-	k/pqJlnrgxwggH0vc4Kgq4HyHj9CZEWgbZEZ+LBmh0EAR+8SiLI0bMNArLvcclW4zhcCBlECTPam9
-	zQd5ozzP7iuL2kTakHIA==;
+	List-Owner; bh=0pJfFVQQl02lOKCzWREDgFrRUMzZ3DtcCK/pwxc3q4g=; b=clRK2uGPPBa8TU
+	7CjBG2IiZmhTi9F7B+Zf4Sig/+rZHa2F1iMKq5ulmXtP9ABZC6cL3K5bQftx52P2C+TwjMRIF64Si
+	jNcoAHwDhaG2T73fXgub8ivfHEFbWx8SzH8npjXTIAC4PKBpz6q3lXdxrPsOFhdgIUSIRX6W6Truq
+	oRxZ3xJf6I0+KvnvU+7NaUL0wi1JzF/YbBtpn5cl8VXls5YR6x2n16O4A55S8Jn9qHGbxLrCHA6Qg
+	sBbweFqZ9bx1FTAcG8N8+8Yz8YyGqKEV9HjyXz1F9ii30MNlABPrQphKGppWqo+snKxI3ca9Scg38
+	7G87gO1HAHFSML6KYMZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLAF2-00000005Iop-1lU2;
-	Fri, 08 May 2026 01:43:00 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLAEw-00000005Io3-272i
-	for linux-riscv@lists.infradead.org;
-	Fri, 08 May 2026 01:42:58 +0000
-Received: from [198.18.0.1] (unknown [121.237.245.103])
-	by APP-03 (Coremail) with SMTP id rQCowAC32eCUP_1pVDldEA--.6803S2;
-	Fri, 08 May 2026 09:42:44 +0800 (CST)
-Message-ID: <7ba2f4b7-8475-4ec3-ab31-58b332bda47e@iscas.ac.cn>
-Date: Fri, 8 May 2026 09:42:44 +0800
+	id 1wLCnI-00000005Wbz-0zk7;
+	Fri, 08 May 2026 04:26:32 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLCnE-00000005WbG-2ibg;
+	Fri, 08 May 2026 04:26:30 +0000
+Received: from [192.168.0.107] (unknown [49.205.253.198])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DE52B20B7165;
+	Thu,  7 May 2026 21:26:12 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DE52B20B7165
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1778214383;
+	bh=fZqbznsyO6uH2km9lQYaNTISd52E1x5y5ydr8MxcDaw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=saKSNoO0PcppAv0QSZCXEm1JRqArYoL9lzAhr6mpjz1I5JmqqVCasbTbSgZaIVZiH
+	 sUX4ruWHuB2F+A8vGH2rkSjjbLdRPspCsm30BK8qa8CADHIXgVxA2yl9f4W+MudAuW
+	 D0jhJ0Rq+J/hcu+QRyXhYoOB0C9nqZfvlttbgl9w=
+Message-ID: <4c0a81b2-43b0-43c0-a836-f6f5d9c08d33@linux.microsoft.com>
+Date: Fri, 8 May 2026 09:56:11 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] riscv: clarify vector state semantics on syscall and
- context switch
+Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
+ mshv_vtl_return_call
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Michael Kelley <mhklinux@outlook.com>,
+ Timothy Hayes <timothy.hayes@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sascha Bischoff <sascha.bischoff@arm.com>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-riscv@lists.infradead.org, vdso@mailbox.org,
+ ssengar@linux.microsoft.com
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+ <20260423124206.2410879-8-namjain@linux.microsoft.com>
+ <aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
+ <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+ <afrzKl3ixCUUVL6C@J2N7QTR9R3>
 Content-Language: en-US
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260319073709.18562-1-daichengrong@iscas.ac.cn>
-From: daichengrong <daichengrong@iscas.ac.cn>
-In-Reply-To: <20260319073709.18562-1-daichengrong@iscas.ac.cn>
-X-CM-TRANSID: rQCowAC32eCUP_1pVDldEA--.6803S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAr4fAFWUCr18Xr1kCF43Awb_yoWrtr1fpr
-	Z8Gr4ak3yUJF4xZr92gw48XFZ5C395G3y5Ar98C3yUCFy5Gr9akFn3t3yqvFWDAFy0kFyj
-	va1jq34kZa1DArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvYb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
-	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
-	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1l
-	c2xSY4AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
-	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r12
-	6r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
-	kF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
-	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07
-	bopBhUUUUU=
-X-Originating-IP: [121.237.245.103]
-X-CM-SenderInfo: pgdluxxhqj201qj6x2xfdvhtffof0/
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <afrzKl3ixCUUVL6C@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_184254_925676_AF5078A6 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20260507_212628_739370_76683B9B 
+X-CRM114-Status: GOOD (  49.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,125 +84,177 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
 
-On 3/19/26 15:37, daichengrong wrote:
-> The RISC-V vector specification states that executing a system call
-> causes all caller-saved vector registers (v0-v31, vl, vtype) and vstart
-> to become unspecified.
+On 5/6/2026 1:22 PM, Mark Rutland wrote:
+> On Wed, Apr 29, 2026 at 03:26:11PM +0530, Naman Jain wrote:
+>> On 4/23/2026 7:26 PM, Mark Rutland wrote:
+>>> On Thu, Apr 23, 2026 at 12:41:57PM +0000, Naman Jain wrote:
 > 
-> Currently, after calling riscv_v_vstate_discard(), the vector state 
-> may still be marked as DIRTY, which can mislead the context switch 
-> logic into treating the registers as containing valid user data.
+> [ non-SMMC hypercall code omitted for brevity ]
 > 
-> This patch clarifies and tightens the kernel-side semantics:
+>>> NAK to this.
+>>>
+>>> * This is a non-SMCCC hypercall, which we have NAK'd in general in the
+>>>     past for various reasons that I am not going to rehash here.
+>>>
+>>> * It's not clear how this is going to be extended with necessary
+>>>     architecture state in future (e.g. SVE, SME). This is not
+>>>     future-proof, and I don't believe this is maintainable.
+>>>
+>>> * This breaks general requirements for reliable stacktracing by
+>>>     clobbering state (e.g. x29) that we depend upon being valid AT ALL
+>>>     TIMES outside of entry code.
+>>>
+>>> * IMO, if this needs to be saved/restored, that should happen in
+>>>     whatever you are calling.
+>>>
+>>> Mark.
+>>
+>> Merging threads for addressing comments from Mark Rutland and Marc Zyngier
+>> on this patch.
+>>
+>> Thanks for reviewing the changes. Please allow me to briefly explain the use
+>> case here and then address your comments.
+>>
+>> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced isolation
+>> within a single VM, analogous to ARM TrustZone. The kernel runs in VTL2
+>> (higher privilege) as a "paravisor", a security monitor that handles
+>> intercepts for the primary OS in VTL0 (lower privilege). The VTL switch
+>> (mshv_vtl_return_call) is functionally equivalent to KVM's guest enter/exit.
 > 
-> 1. On syscall entry, the kernel checks the vector state via mstatus
->    and discards it if necessary. After discard, the state is explicitly
->    set to INIT instead of DIRTY, indicating that the vector registers
->    no longer contain meaningful user data.
+> It's worth noting that for KVM, the KVM hyp code is *tightly* coupled
+> with the host kernel (they are one single binary object), and the
+> calling convention between the two is an implementation detail that can
+> change at any time without any ABI concerns.
 > 
-> 2. During context switch, the vector state is interpreted as follows:
->    - INIT: no valid user data is present, so vector register data does
->      not need to be saved.
->    - non-INIT (e.g. DIRTY): vector register data must be saved.
+> While I appreciate this might be trying to do the same thing from a
+> *functional* perspective, it's certainly different from a
+> maintainability perspective, and can't be treated in the same way.
 > 
-> 3. On restore, if the state is INIT, the vector registers are treated
->    as invalid and are not restored from memory. Instead, they are
->    overwritten with a known initial value to avoid potential data
->    leakage from a previous task.
+>> It saves VTL2 state, loads VTL0's GPRs other registers from a shared context
+>> structure, issues hvc #3 to let VTL0 run, and on return saves VTL0's updated
+>> state back.
+>>
+>> Coming to the problems with the code, I have identified a few ways to
+>> address them.
+>>
+>> I can put the assembly code in a separate .S file with
+>> SYM_FUNC_START/SYM_FUNC_END and marked as noinstr, to prevent ftrace/kprobes
+>> from instrumenting between the GPR load and the hvc, which could have
+>> corrupted VTL0 register state. This should solve x29 clobbering, stack
+>> tracing problems.
 > 
-> This aligns the kernel's vector state tracking with the architectural
-> "unspecified" semantics while ensuring correct lazy context switching
-> and preventing cross-task data leakage.
+> My point was that you must not clobber those registers.
 > 
-> Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
-> ---
->  arch/riscv/include/asm/vector.h | 15 +++++++--------
->  1 file changed, 7 insertions(+), 8 deletions(-)
+> Looking at the TLFS document you linked below, it says:
 > 
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> index 00cb9c0982b1..93c68a549b72 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -298,8 +298,9 @@ static inline void __riscv_v_vstate_discard(void)
->  static inline void riscv_v_vstate_discard(struct pt_regs *regs)
->  {
->  	if (riscv_v_vstate_query(regs)) {
-> -		__riscv_v_vstate_discard();
-> -		__riscv_v_vstate_dirty(regs);
-> +		if (!__riscv_v_vstate_check(regs->status, INITIAL))
-> +			__riscv_v_vstate_discard();
-> +		riscv_v_vstate_on(regs);
->  	}
->  }
->  
-> @@ -315,19 +316,17 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
->  static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
->  					  struct pt_regs *regs)
->  {
-> -	if (riscv_v_vstate_query(regs)) {
-> +	if (__riscv_v_vstate_check(regs->status, INITIAL))
-> +		__riscv_v_vstate_discard();
-> +	else if (__riscv_v_vstate_check(regs->status, CLEAN))
->  		__riscv_v_vstate_restore(vstate, vstate->datap);
-> -		__riscv_v_vstate_clean(regs);
-> -	}
->  }
->  
->  static inline void riscv_v_vstate_set_restore(struct task_struct *task,
->  					      struct pt_regs *regs)
->  {
-> -	if (riscv_v_vstate_query(regs)) {
-> +	if (riscv_v_vstate_query(regs))
->  		set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
-> -		riscv_v_vstate_on(regs);
-> -	}
->  }
->  
->  #ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
+> | Note: X29 (FP/frame pointer), X30 (LR/link register), and SP are private
+> | per-VTL
+> 
+> ... so clobbering those doesn't seem to be necessary anyway. Clearly
+> having an arbitrary calling convention is confusing for everyone.
+> 
+>> I should use kernel_neon_begin()/kernel_neon_end() to save/restore the full
+>> extended FP state of the current task in VTL2. VTL0's Q0-Q31 can be
+>> loaded/saved separately via fpsimd_load_state()/fpsimd_save_state(). This
+>> way, the assembly touches none of the SIMD registers. This is SVE/SME-safe
+>> for VTL2's task state. VTL0 still only carries Q0-Q31 in the context struct,
+>> and extending to SVE, SME is a future context struct change, which will need
+>> Hyper-V arm64 ABI support.
+>> This way, VTL2's callee-saved regs (x19-x28, x29, x30) are explicitly saved
+>> to the stack frame at the top and restored at the bottom of assembly code.
+>> The C caller (in hv_vtl.c) is a clean function call.
+> 
+> That doesn't really address my concerns here.
+> 
+> I do not think that Linux should have to save/restore anything here;
+> that should be the job of the real hypervisor. The arbitrary separation
+> of PE state into private and shared (with shred state being directly
+> exposed to Linux) is a problem for maintainability and forward
+> compatibility.
+> 
+> Looking at the TLFS document you linked below, I see:
+> 
+> | Note: SVE state (Z0-Z31, P0-P15, FFR) and SME state are VTL-private.
+> | The lower 128-bit portion (Q registers) is shared, but the upper bits
+> | of Z registers may be corrupted on VTL transitions. Software should
+> | not rely on Z register contents being preserved across VTL switches.
+> 
+> ... which is certainly going to be a pain to manage.
+> 
+> Note in particular "SME state" is not an architectural term. I don't
+> know which state in particular that is intended to cover (e.g. ZA, ZT0,
+> SVCR, all streaming mode state)?
+> 
+> There's no mention of SVCR, so I don't know how this is going to
+> interact with management of ZA state (ZA and ZT0, which are dependent
+> upon SVCR.ZA) or streaming mode (dependent upon SVCR.SM). That state has
+> been *incredibly* painful for us to manage generally. Regardless of the
+> SMCCC concerns, that needs to be specified better.
+> 
+>> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to the ABI
+>> that is defined by the Hyper-V hypervisor. Fixing this requires a
+>> hypervisor-side change to support SMCCC-style dispatch for VTL return. Until
+>> then, hvc #3 is the only working interface. Moreover there would be backward
+>> compatibility issues with this new ABI interface, if at all it is added.
+> 
+> To be clear, that's Microsoft's problem, not the Linux kernel
+> community's problem. My NAK still stands.
+> 
+> Multiple years ago now, we made it clear that we would not accept a
+> non-SMCCC calling convention. Ignoring the substance of that feedback,
+> and inventing a new calling convention after that point is a
+> self-inflicted problem.
+> 
+> [...]
+> 
+>> Link to TLFS: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm#on-arm64-platforms-3
+> 
+> For shared state, aside fomr GPRs and FPSIMD/SVE/SME state, that says:
+> 
+> | * System Information Registers (read-only or non-security-critical):
+> |   * System identification and feature registers
+> |   * Cache and TLB type information
+> 
+> It's *implied* that some of those registers might be writable, but as
+> the specific set of registers is not described I cannot tell. Are there
+> any writable system registers which are shared?
+> 
+> I don't see how we can know which registers we might need to
+> save/restore without that being explicitly documented.
+> 
+> I also see:
+> 
+> | Note: SPE (Statistical Profiling Extension) state is shared across VTLs,
+> | except for PMBSR_EL1 which is VTL-private.
+> 
+> If "SPE state" includes PMBPTR or PMBLIMITR (which is the obvious
+> reading), this would be a security problem, as a lower-privileged VTL
+> could clobber those and cause SPE to write to arbitrary memory
+> immediately upon return to the higher-privileged VTL. Having PMBSR be
+> private on its own isn't sufficient to prevent that (e.g. since the
+> higher-privileged VTL could have its own active SPE profiling session).
+> 
+> I'm not keen on requiring hyper-v specific hooks in the SPE driver to
+> achieve that, and I'm also not keen on having hyper-v support code poke
+> SPE registers behind the SPE driver's back.
+> 
+> This does not give me confidence that any future PE state (e.g. things
+> like TRBE) will be managed in a safe way either.
+> 
+> Mark.
 
-Hi all,
 
-Just a gentle ping on this patch.
+Thanks for sharing this, I'll discuss it internally and come up with a plan.
 
-I would also like to add some additional motivation from the RISC-V vector spec, which may help clarify the rationale behind this change.
-
-The spec states:
-
-During a context restore, the context need only be loaded from
-memory if the status is Clean (it should never be Dirty at restore).
-If the status is Initial, the context must be set to an initial
-constant value on context restore to avoid a security hole, but
-this can be done without accessing memory.
-
-This indicates that the architectural Initial vector state is treated
-specially during restore: instead of reloading vector register contents
-from memory, the state can be restored by resetting it to the defined
-initial value.
-
-The motivation of this patch is related to this behavior. Allowing
-userspace to explicitly release vector state when it is no longer needed
-may help reduce unnecessary vector context restore overhead on later
-context switches. It may also help avoid repeatedly reinitializing the
-vector state when applications frequently enter and exit syscalls without
-actually requiring vector state preservation across those transitions.
-
-The original RFC discussion and motivation can be found here:
-
-https://lists.infradead.org/pipermail/linux-riscv/2026-March/087678.html
-
-If there are other preferred or more suitable mechanisms for allowing
-userspace to voluntarily relinquish ownership/control of vector state,
-I would also be very interested in further suggestions or discussion.
-
-Thanks.
-
+Regards,
+Naman
 
 _______________________________________________
 linux-riscv mailing list
