@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B695CD3445
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 15:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF4ACD3445
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 15:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VKSj9nCP0EGo0Zvm746387yDgvpm7TL0MFPVuPcxKDg=; b=hKu6NcSWw/kNqU
-	QlJ3iPuK+YQUb1xk5cyz4n1t4oT+/1FT60G8doJy6P8KJBaHCF7TK3i6FN3iBQVZNv3YkDRldJ4X8
-	Bq5TntaiLv7A8Kkw/mMvkT3kkLPFwknKpUMvBewh4do6lgEJOA2RMfgvIdQYnxbqf9mYQHF9foR56
-	VF9RagRuEYiJKAJWnQ5+gcOm7lPRCIuqkynJWaKF/lVOnFLG5ODoxW8kH1ZXM1702k17WU7HfeD4h
-	pjZfd8ASkuSgqZSpqA2HjFFSJGqKiu3NBuK2GqTrI4oMfBG8lUoXLR1haW0nw4cG12SP1WORgWUi2
-	ASADxs+6l+gYlEexcnCA==;
+	List-Owner; bh=X11NkhgA79/ppp/OQHIgmfSjQndlWLBL/0xZOPlTHy4=; b=ZKv0VdA0JihtCZ
+	k4J+/vYxAgf/ul2XBswGV+ZnvuZla6IYTe+ZwrIt6doAFRjYxsmeCtZePdc/xznYRGNP9MC5LEK3H
+	MBIJg1xvDyltrFDBErEpzmRRjWW4h/UV8kvw4VMrf8WXQQtcM3apDv5w4Z+/CQyHamBFdEOl0YQOp
+	Cz7r9aDkSpvpB5JfiN7n7avmvhyjp2JMuhycL8YNGJ/jWrYyrSNAKa5FqU7Ev3zpDZ+SdFqdq6D8L
+	pMljPNPuwZbFxKRBk5eiir8mlrNcmK3X/mPRhsSIYriZzELF6pzU9Vr4PNTzloBJUY72Sq03oK/Kv
+	ydoaUiysGueYE7D0F4dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMjy-00000006liC-3JjE;
-	Fri, 08 May 2026 15:03:46 +0000
+	id 1wLMk4-00000006llP-3iJX;
+	Fri, 08 May 2026 15:03:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMjx-00000006lhb-13Wp
+	id 1wLMk3-00000006lkU-0GUq
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 08 May 2026 15:03:45 +0000
+	Fri, 08 May 2026 15:03:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:Date:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=pTM5bDRFu2LnEWelZ4UVeTQriZB7mfNT46GLFzc2/xE=; b=R5uOYC1KSLbt5wcGOMKC3y5dVb
-	pQKdfGWJOrnnPTweU+BpyVoc1AZ1KSHpuxRc0JPDlwzRqeQRDJWnxg49SE0WM2vpP5erUMIzEo1eU
-	3FV1a90ZPAkxPrJrmgy8fKqlhaOaGOLRjSa5fynD3I11+3DcwEW2/RFcL7qhGz4WdeqNg3r6CUW2U
-	coSTXcU92HqEtWaVXcT5lc+BQfGnwkHOZXcVVCbdRXjLH9wv5ctlH3jHpiy2p/TqBeykEzlYuzMKZ
-	Xx/h3ubZH3X8Z0HSVpKaHfQE6uA07gl/Jwz5po6fALIMFHRbR9Wnth/D3fRY8duSGeykaALskEN2L
-	it8U8T5A==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	bh=mmxOVGUrnxS/H09zubyapT22aA5Jy+w6JF95xU/Ftgg=; b=BOlOP0PB6SysCbzxMUA5GLc1/R
+	izsQJoyGPSUeKnFCGjhm4nlnoZ2eOwUj795VuhnyzUkK4sqXT7m6QNHfYMqoLwxW9+rs62ZBorjm3
+	2Hqi8lMwjDlpAMDwFCZ1Cq7JJfvU2Ra0fg4lHZUI5gV1mwTl7rusvFvxUXEkswyZ5BkqoeKan8Cht
+	wjZnujzMTItMGxqpmELFyeanInfG0S8vuxkz3c2QLs52M0Ofzt17HTYtbhcbd0vZAX5zyJF+Pioko
+	f7Hg6txVixY1IndAndQzN+uErXOyIn91K2cpeY7eGC2hHwdMJvzJpgdgjq0ektggeu8QDXm+2/0Fk
+	FagQlTXQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMjt-00000006cn1-2qM1
+	id 1wLMjz-00000006coQ-2mb9
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 May 2026 15:03:44 +0000
+	Fri, 08 May 2026 15:03:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778252620;
+	s=mimecast20190719; t=1778252626;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pTM5bDRFu2LnEWelZ4UVeTQriZB7mfNT46GLFzc2/xE=;
-	b=ip1xIDxdv5dIenGbBZpuGs4XDiHqHX9BAhrIjHVIe5+xQbWWnLR6ZBh7NskL/DxV/eMjfB
-	nfRKtv1DaLWqXZAH757RxjSqS6k3CYt30yVjiWTi7EC71F36B0wx6SHrz2VokKITkB8Fr6
-	NXiQk9FpWO3bsiNSKcIkj/8IfygvwhM=
+	bh=mmxOVGUrnxS/H09zubyapT22aA5Jy+w6JF95xU/Ftgg=;
+	b=Jsvg82Oc46HvZyqkXFLJkIZxNO68PNSvHEJ7gAMBI6qBpu8xFAUwiD1YBuwJQC1SLQ43UV
+	mwVs9zZ9I1zc/11BrwNyarho9GaQf0MQpNnlC44/685sagfq4BFqkFdhT2BseZCsrYRbT6
+	IDS2ci7RGExeb1Gx9r6pL82CLLD5PUs=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778252620;
+	s=mimecast20190719; t=1778252627;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pTM5bDRFu2LnEWelZ4UVeTQriZB7mfNT46GLFzc2/xE=;
-	b=ip1xIDxdv5dIenGbBZpuGs4XDiHqHX9BAhrIjHVIe5+xQbWWnLR6ZBh7NskL/DxV/eMjfB
-	nfRKtv1DaLWqXZAH757RxjSqS6k3CYt30yVjiWTi7EC71F36B0wx6SHrz2VokKITkB8Fr6
-	NXiQk9FpWO3bsiNSKcIkj/8IfygvwhM=
+	bh=mmxOVGUrnxS/H09zubyapT22aA5Jy+w6JF95xU/Ftgg=;
+	b=dUn8FlZovMCGENEtlNfqLnb4B4ckOj9cw6TlYLYNbFQw1JrHtpiueL0QkuhmBUaXM1amKW
+	zFu8P/wkKMBItQroXMRRjh/FQqHYEOCil3kWsSrcap1s1yJuwKq0Otk3LTYRgU6ywg7oVO
+	6thDY5L9qZw65mXYoA3BNd21ZcvFltI=
 Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-113-CspO-cBrOmeqIlR5CcKP1A-1; Fri,
- 08 May 2026 11:03:31 -0400
-X-MC-Unique: CspO-cBrOmeqIlR5CcKP1A-1
-X-Mimecast-MFC-AGG-ID: CspO-cBrOmeqIlR5CcKP1A_1778252605
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-170-iS7UFWwSOQ6ATgQIY2aB7w-1; Fri,
+ 08 May 2026 11:03:39 -0400
+X-MC-Unique: iS7UFWwSOQ6ATgQIY2aB7w-1
+X-Mimecast-MFC-AGG-ID: iS7UFWwSOQ6ATgQIY2aB7w_1778252612
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BB9FC19560B7;
-	Fri,  8 May 2026 15:03:24 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 412AD1955F56;
+	Fri,  8 May 2026 15:03:32 +0000 (UTC)
 Received: from [192.168.1.153] (headnet01.pony-001.prod.iad2.dc.redhat.com [10.2.32.101])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D8224180075F;
-	Fri,  8 May 2026 15:03:17 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1A3551800347;
+	Fri,  8 May 2026 15:03:24 +0000 (UTC)
 From: Albert Esteve <aesteve@redhat.com>
-Date: Fri, 08 May 2026 17:02:47 +0200
-Subject: [PATCH v9 3/4] drm: Suppress intentional warning backtraces in
- scaling unit tests
+Date: Fri, 08 May 2026 17:02:48 +0200
+Subject: [PATCH v9 4/4] kunit: Add documentation for warning backtrace
+ suppression API
 MIME-Version: 1.0
-Message-Id: <20260508-kunit_add_support-v9-3-99df7aa880f6@redhat.com>
+Message-Id: <20260508-kunit_add_support-v9-4-99df7aa880f6@redhat.com>
 References: <20260508-kunit_add_support-v9-0-99df7aa880f6@redhat.com>
 In-Reply-To: <20260508-kunit_add_support-v9-0-99df7aa880f6@redhat.com>
 To: Arnd Bergmann <arnd@arndb.de>, 
@@ -102,23 +102,22 @@ Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org, 
  peterz@infradead.org, Guenter Roeck <linux@roeck-us.net>, 
  Linux Kernel Functional Testing <lkft@linaro.org>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
  Alessandro Carminati <acarmina@redhat.com>, 
  Albert Esteve <aesteve@redhat.com>, Dan Carpenter <error27@gmail.com>, 
- Simona Vetter <simona.vetter@ffwll.ch>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778252571; l=3273;
+ Kees Cook <kees@kernel.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778252571; l=2728;
  i=aesteve@redhat.com; s=20260303; h=from:subject:message-id;
- bh=OzxKDl7juzBnGFv8nRO4KYyX446iqYsOHsLTSHCA/XY=;
- b=eRPZlXY0oZGNDAQpUv/i+XN1tRR4oFcuvNsNePj/TPFZTO4ljQZ5s0YOyA05Z0ONI4q4xTFKo
- R+2fJodStnmDnC9kzZ4GrIUOUC3P+HSFidoOMOuCg2vOOBDrpbup0Ao
+ bh=YX7AMC4Z3qCvd9o2GGoQ6LMsoUJS/dulVvDsXv5Qzg4=;
+ b=O8GAE+hb0obKMFu0966wbJ+cfY19Wpbym+fXH6s7bOO7dYWHfLHG5XXWIpqXGRKKa/TQnhg+q
+ h6jrH8Z3iA1BMBe58q+Vr1SlKcH+06z/ZRxopUzfcImr+dmdwYcQvPe
 X-Developer-Key: i=aesteve@redhat.com; a=ed25519;
  pk=YSFz6sOHd2L45+Fr8DIvHTi6lSIjhLZ5T+rkxspJt1s=
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-MFC-PROC-ID: KCu2cjkzT9k0c3jAx0s2vy6U40DdT0q1LW3C33qG9Dg_1778252605
+X-Mimecast-MFC-PROC-ID: I4UO_FSi1Hdb8M1HauZSS75HkD_fg-gtapoc0IkETvA_1778252612
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_160342_770712_6795DFD8 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260508_160348_447336_F82B1E33 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,68 +129,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VlbnRlciBSb2VjayA8bGludXhAcm9lY2stdXMubmV0PgoKVGhlIGRybV90ZXN0X3Jl
-Y3RfY2FsY19oc2NhbGUgYW5kIGRybV90ZXN0X3JlY3RfY2FsY192c2NhbGUgdW5pdCB0ZXN0cwpp
-bnRlbnRpb25hbGx5IHRyaWdnZXIgd2FybmluZyBiYWNrdHJhY2VzIGJ5IHByb3ZpZGluZyBiYWQg
-cGFyYW1ldGVycyB0bwp0aGUgdGVzdGVkIGZ1bmN0aW9ucy4gV2hhdCBpcyB0ZXN0ZWQgaXMgdGhl
-IHJldHVybiB2YWx1ZSwgbm90IHRoZSBleGlzdGVuY2UKb2YgYSB3YXJuaW5nIGJhY2t0cmFjZS4g
-U3VwcHJlc3MgdGhlIGJhY2t0cmFjZXMgdG8gYXZvaWQgY2xvZ2dpbmcgdGhlCmtlcm5lbCBsb2cg
-YW5kIGRpc3RyYWN0aW9uIGZyb20gcmVhbCBwcm9ibGVtcy4gQWRkaXRpb25hbGx5LCB0aGUKc3Vw
-cHJlc3Npb24gQVBJIGFsbG93cyB0byBhY3R1YWxseSBlbnN1cmUgYSB3YXJuaW5nIHdhcyB0cmln
-Z2VyZWQsCndpdGhvdXQgcGFyc2luZyBhbnkga2VybmVsIGxvZ3MgYW5kIGtlZXBpbmcgdGhlbSBj
-bGVhbi4KClRlc3RlZC1ieTogTGludXggS2VybmVsIEZ1bmN0aW9uYWwgVGVzdGluZyA8bGtmdEBs
-aW5hcm8ub3JnPgpBY2tlZC1ieTogRGFuIENhcnBlbnRlciA8ZGFuLmNhcnBlbnRlckBsaW5hcm8u
-b3JnPgpBY2tlZC1ieTogTWHDrXJhIENhbmFsIDxtY2FuYWxAaWdhbGlhLmNvbT4KQ2M6IE1hYXJ0
-ZW4gTGFua2hvcnN0IDxtYWFydGVuLmxhbmtob3JzdEBsaW51eC5pbnRlbC5jb20+CkNjOiBEYXZp
-ZCBBaXJsaWUgPGFpcmxpZWRAZ21haWwuY29tPgpDYzogRGFuaWVsIFZldHRlciA8ZGFuaWVsQGZm
-d2xsLmNoPgpTaWduZWQtb2ZmLWJ5OiBHdWVudGVyIFJvZWNrIDxsaW51eEByb2Vjay11cy5uZXQ+
-ClNpZ25lZC1vZmYtYnk6IEFsZXNzYW5kcm8gQ2FybWluYXRpIDxhY2FybWluYUByZWRoYXQuY29t
-PgpBY2tlZC1ieTogRGF2aWQgR293IDxkYXZpZEBkYXZpZGdvdy5uZXQ+ClNpZ25lZC1vZmYtYnk6
-IEFsYmVydCBFc3RldmUgPGFlc3RldmVAcmVkaGF0LmNvbT4KLS0tCiBkcml2ZXJzL2dwdS9kcm0v
-dGVzdHMvZHJtX3JlY3RfdGVzdC5jIHwgMjcgKysrKysrKysrKysrKysrKysrKysrKystLS0tCiAx
-IGZpbGUgY2hhbmdlZCwgMjMgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKCmRpZmYgLS1n
-aXQgYS9kcml2ZXJzL2dwdS9kcm0vdGVzdHMvZHJtX3JlY3RfdGVzdC5jIGIvZHJpdmVycy9ncHUv
-ZHJtL3Rlc3RzL2RybV9yZWN0X3Rlc3QuYwppbmRleCAxN2UxZjM0Yjc2MTAxLi44MDllNzNjYjc0
-NDk4IDEwMDY0NAotLS0gYS9kcml2ZXJzL2dwdS9kcm0vdGVzdHMvZHJtX3JlY3RfdGVzdC5jCisr
-KyBiL2RyaXZlcnMvZ3B1L2RybS90ZXN0cy9kcm1fcmVjdF90ZXN0LmMKQEAgLTQwNywxMCArNDA3
-LDIwIEBAIEtVTklUX0FSUkFZX1BBUkFNKGRybV9yZWN0X3NjYWxlLCBkcm1fcmVjdF9zY2FsZV9j
-YXNlcywgZHJtX3JlY3Rfc2NhbGVfY2FzZV9kZXNjCiBzdGF0aWMgdm9pZCBkcm1fdGVzdF9yZWN0
-X2NhbGNfaHNjYWxlKHN0cnVjdCBrdW5pdCAqdGVzdCkKIHsKIAljb25zdCBzdHJ1Y3QgZHJtX3Jl
-Y3Rfc2NhbGVfY2FzZSAqcGFyYW1zID0gdGVzdC0+cGFyYW1fdmFsdWU7CisJaW50IGV4cGVjdGVk
-X3dhcm5pbmdzID0gcGFyYW1zLT5leHBlY3RlZF9zY2FsaW5nX2ZhY3RvciA9PSAtRUlOVkFMOwog
-CWludCBzY2FsaW5nX2ZhY3RvcjsKIAotCXNjYWxpbmdfZmFjdG9yID0gZHJtX3JlY3RfY2FsY19o
-c2NhbGUoJnBhcmFtcy0+c3JjLCAmcGFyYW1zLT5kc3QsCi0JCQkJCSAgICAgIHBhcmFtcy0+bWlu
-X3JhbmdlLCBwYXJhbXMtPm1heF9yYW5nZSk7CisJLyoKKwkgKiBkcm1fcmVjdF9jYWxjX2hzY2Fs
-ZSgpIGdlbmVyYXRlcyBhIHdhcm5pbmcgYmFja3RyYWNlIHdoZW5ldmVyIGJhZAorCSAqIHBhcmFt
-ZXRlcnMgYXJlIHBhc3NlZCB0byBpdC4gVGhpcyBhZmZlY3RzIHVuaXQgdGVzdHMgd2l0aCAtRUlO
-VkFMCisJICogZXJyb3IgY29kZSBpbiBleHBlY3RlZF9zY2FsaW5nX2ZhY3Rvci4KKwkgKi8KKwlr
-dW5pdF93YXJuaW5nX3N1cHByZXNzKHRlc3QpIHsKKwkJc2NhbGluZ19mYWN0b3IgPSBkcm1fcmVj
-dF9jYWxjX2hzY2FsZSgmcGFyYW1zLT5zcmMsICZwYXJhbXMtPmRzdCwKKwkJCQkJCSAgICAgIHBh
-cmFtcy0+bWluX3JhbmdlLAorCQkJCQkJICAgICAgcGFyYW1zLT5tYXhfcmFuZ2UpOworCQlLVU5J
-VF9FWFBFQ1RfU1VQUFJFU1NFRF9XQVJOSU5HX0NPVU5UKHRlc3QsIGV4cGVjdGVkX3dhcm5pbmdz
-KTsKKwl9CiAKIAlLVU5JVF9FWFBFQ1RfRVEodGVzdCwgc2NhbGluZ19mYWN0b3IsIHBhcmFtcy0+
-ZXhwZWN0ZWRfc2NhbGluZ19mYWN0b3IpOwogfQpAQCAtNDE4LDEwICs0MjgsMTkgQEAgc3RhdGlj
-IHZvaWQgZHJtX3Rlc3RfcmVjdF9jYWxjX2hzY2FsZShzdHJ1Y3Qga3VuaXQgKnRlc3QpCiBzdGF0
-aWMgdm9pZCBkcm1fdGVzdF9yZWN0X2NhbGNfdnNjYWxlKHN0cnVjdCBrdW5pdCAqdGVzdCkKIHsK
-IAljb25zdCBzdHJ1Y3QgZHJtX3JlY3Rfc2NhbGVfY2FzZSAqcGFyYW1zID0gdGVzdC0+cGFyYW1f
-dmFsdWU7CisJaW50IGV4cGVjdGVkX3dhcm5pbmdzID0gcGFyYW1zLT5leHBlY3RlZF9zY2FsaW5n
-X2ZhY3RvciA9PSAtRUlOVkFMOwogCWludCBzY2FsaW5nX2ZhY3RvcjsKIAotCXNjYWxpbmdfZmFj
-dG9yID0gZHJtX3JlY3RfY2FsY192c2NhbGUoJnBhcmFtcy0+c3JjLCAmcGFyYW1zLT5kc3QsCi0J
-CQkJCSAgICAgIHBhcmFtcy0+bWluX3JhbmdlLCBwYXJhbXMtPm1heF9yYW5nZSk7CisJLyoKKwkg
-KiBkcm1fcmVjdF9jYWxjX3ZzY2FsZSgpIGdlbmVyYXRlcyBhIHdhcm5pbmcgYmFja3RyYWNlIHdo
-ZW5ldmVyIGJhZAorCSAqIHBhcmFtZXRlcnMgYXJlIHBhc3NlZCB0byBpdC4gVGhpcyBhZmZlY3Rz
-IHVuaXQgdGVzdHMgd2l0aCAtRUlOVkFMCisJICogZXJyb3IgY29kZSBpbiBleHBlY3RlZF9zY2Fs
-aW5nX2ZhY3Rvci4KKwkgKi8KKwlrdW5pdF93YXJuaW5nX3N1cHByZXNzKHRlc3QpIHsKKwkJc2Nh
-bGluZ19mYWN0b3IgPSBkcm1fcmVjdF9jYWxjX3ZzY2FsZSgmcGFyYW1zLT5zcmMsICZwYXJhbXMt
-PmRzdCwKKwkJCQkJCSAgICAgIHBhcmFtcy0+bWluX3JhbmdlLCBwYXJhbXMtPm1heF9yYW5nZSk7
-CisJCUtVTklUX0VYUEVDVF9TVVBQUkVTU0VEX1dBUk5JTkdfQ09VTlQodGVzdCwgZXhwZWN0ZWRf
-d2FybmluZ3MpOworCX0KIAogCUtVTklUX0VYUEVDVF9FUSh0ZXN0LCBzY2FsaW5nX2ZhY3Rvciwg
-cGFyYW1zLT5leHBlY3RlZF9zY2FsaW5nX2ZhY3Rvcik7CiB9CgotLSAKMi41My4wCgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Guenter Roeck <linux@roeck-us.net>
+
+Document API functions for suppressing warning backtraces.
+
+Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
+Reviewed-by: David Gow <david@davidgow.net>
+Signed-off-by: Albert Esteve <aesteve@redhat.com>
+---
+ Documentation/dev-tools/kunit/usage.rst | 46 ++++++++++++++++++++++++++++++++-
+ 1 file changed, 45 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/dev-tools/kunit/usage.rst b/Documentation/dev-tools/kunit/usage.rst
+index ebd06f5ea4550..1c78dfff94e8a 100644
+--- a/Documentation/dev-tools/kunit/usage.rst
++++ b/Documentation/dev-tools/kunit/usage.rst
+@@ -157,6 +157,50 @@ Alternatively, one can take full control over the error message by using
+ 	if (some_setup_function())
+ 		KUNIT_FAIL(test, "Failed to setup thing for testing");
+ 
++Suppressing warning backtraces
++------------------------------
++
++Some unit tests trigger warning backtraces either intentionally or as a side
++effect. Such backtraces are normally undesirable since they distract from
++the actual test and may result in the impression that there is a problem.
++
++Backtraces can be suppressed with **task-scoped suppression**: while
++suppression is active on the current task, the backtrace and stack dump from
++``WARN*()``, ``WARN_ON*()``, and related macros on that task are suppressed.
++Two API forms are available.
++
++- Scoped suppression is the simplest form. Wrap the code that triggers
++  warnings in a ``kunit_warning_suppress()`` block:
++
++.. code-block:: c
++
++	static void some_test(struct kunit *test)
++	{
++		kunit_warning_suppress(test) {
++			trigger_backtrace();
++			KUNIT_EXPECT_SUPPRESSED_WARNING_COUNT(test, 1);
++		}
++	}
++
++.. note::
++   The warning count must be checked inside the block; the suppression handle
++   is not accessible after the block exits.
++
++- Direct functions return an explicit handle pointer. Use them when the handle
++  needs to be retained or passed across helper functions:
++
++.. code-block:: c
++
++	static void some_test(struct kunit *test)
++	{
++		struct kunit_suppressed_warning *w;
++
++		w = kunit_start_suppress_warning(test);
++		trigger_backtrace();
++		kunit_end_suppress_warning(test, w);
++
++		KUNIT_EXPECT_EQ(test, kunit_suppressed_warning_count(w), 1);
++	}
+ 
+ Test Suites
+ ~~~~~~~~~~~
+@@ -1211,4 +1255,4 @@ For example:
+ 		dev_managed_string = devm_kstrdup(fake_device, "Hello, World!");
+ 
+ 		// Everything is cleaned up automatically when the test ends.
+-	}
+\ No newline at end of file
++	}
+
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
