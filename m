@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E44CCD3436
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 06:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18A3CD3436
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 06:47:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GavhU1CawQ2jhJrndX+vD7VKdK+z+tQVpXi//rkJ8fc=; b=XTiDdZfTZEpWv+
-	KjczWNO+khu5QHvyrRLgjtPYAi2aKuTpHhPcJV0K2+7P848ZQLifTSCSZcOvznNjlghUSIv9ZpySo
-	D+kdMWEJOivPWzUlB4Odven4ev11eDddZfjniQWKBrUZqMPtNv7r3iaamg+Y+PgmDY6MaShH6ZPSZ
-	hnnHCRM1bxj0cmIrfAiAPpiAg9C3N/3IeSu8q3b2UA20gohnjEcb7Lg/4n5K5EaoRA4B2Jv95zH34
-	n/n8mU7lxe49aWfr0kr/3hsrVwJYITGuLFL1gs29DaPJWNCiw1GWiuAP1bOBaIDkOopP5NjVOXucI
-	N0Owh1j3b2VZO07dJnVg==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=8Q6nC5uFH3/izXsJOHk9CqNVy88Z+Ul8o/qzai0iqR4=; b=Jzs6+JqmEZxwsnetiQmyPs9Jjf
+	YSJ/DWLRztMTfCR/Gi67fLSpaTfIZ+EuPMOZ4YMPlaXIoYem3qhuZ4htZVDXodZkKKIjCIzPSKgy/
+	BYekShW+1WTee6hC98sLphG9XmWdpwigTA8G+UDq4A9H97Zg4RcrCJ+WWFXOExJvRaA1U15yH+lxm
+	jNopOKD3JUONSpapgNEChNnaRwIQo3RBoc9EEngP27D3RM3aqRhRAqQZn6ThWnSG95XsvBtVKW6S0
+	i/qx42I3DSkLG/V8uN9COQmCukXx18cDt08CGCSBdYOgpmVhBlM3U+8J0qgj2cXSHR1/s8GFt8WVB
+	mTjEhiWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLEqI-00000005l1U-2Gk7;
-	Fri, 08 May 2026 06:37:46 +0000
-Received: from bg1.exmail.qq.com ([114.132.74.132])
+	id 1wLEzH-00000005luT-03Od;
+	Fri, 08 May 2026 06:47:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLEqE-00000005l0q-3Xf7
+	id 1wLEzE-00000005ltm-0e3s
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 May 2026 06:37:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1778222245;
-	bh=8JEEYGi3KIhC5hASnjM+XwuYNJ31pZv1KHpSN+PB1g0=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=UTcaQbXQPU4WAgAPqUC5ZvcTLQSZGCn37LAcRNBSY5aeFYnJhijrH/I+9Lkf+86O3
-	 xMcN3i2Zl8h4N86Tb/FMWyV14W3v0wY25UjcFoUvCG69kp+O210vQndo/myozYe1yb
-	 jIrVRjIvCvs/VMUpAF0UGnea345woL491br1EhI4=
-X-QQ-mid: esmtpsz10t1778222238t9023b831
-X-QQ-Originating-IP: /HYZdUY2KNZVeYoHWNpv7D+eFSQ2gIKlhmT7/A5s2ik=
-Received: from = ( [27.42.96.100])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 08 May 2026 14:37:16 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11761350832640437751
-EX-QQ-RecipientCnt: 8
-Mime-Version: 1.0
-Date: Fri, 08 May 2026 14:37:14 +0800
-Message-Id: <DID36992GF2G.229YAG9BSQ3VZ@linux.spacemit.com>
-Subject: Re: [PATCH v6 1/2] i2c: spacemit: configure ILCR/IWCR for accurate
- SCL frequency
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Alex Elder" <elder@riscstar.com>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>, "Andi Shyti" <andi.shyti@kernel.org>,
- "Yixun Lan" <dlan@kernel.org>
-Cc: <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260429-k1-i2c-ilcr-v6-0-1c7a5a5a8b24@linux.spacemit.com>
- <20260429-k1-i2c-ilcr-v6-1-1c7a5a5a8b24@linux.spacemit.com>
- <01278362-ae7c-424a-838b-4add1718e7f6@riscstar.com>
-In-Reply-To: <01278362-ae7c-424a-838b-4add1718e7f6@riscstar.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MMKL56urm3zQV7YJ/4+hEDQDhDqRuSm0rVJAUOxlSg9Qa65SepnVx6/0
-	OsyBJRlydIF2swX9SWpWR4R0iLrURbJPw/HC5gXE+nN2igVmvkjKFB05rSHKhJ3MPKTLvFu
-	umlULDEs2yJBuFh47XmsJWFzz5fLL9kBbj/5VBUzQ8VVDmktS10AFAf/uxtgBwLWcRYurNv
-	oKdTy9CU4x9hT4z3aeznijyPw3CSCiFilg7AK3Pek7ObwnKDgsOHDtf2LpfgOEKrILYJjAL
-	yFoFR9kqXmWhwYyK4XlbEsM2CwMbBeLN047bpngQO20+YlfMUgOhEHS7TsAKpJ8QW4Nvaj5
-	6OUdJkFu86/dEy4fuTqkIeJh1eXq0WL7BsfjtnRDEwiRTyIxNnXX87CEsMovtHefNrKVX+g
-	pUy5a+2V9GAD+OdTHDDqc4Pez7j/PHa0uhlCRx0ZVSIZjwQBtcpwsvMFh2GSmk1AE32LIv3
-	ZcxM74JYIGcuxYlxcFU20ndg6MR9XA+6G8nMUthYUPod7fVmU553RCFRCerwxZiaJYuCic0
-	P2NLo7xOi+ceneI5wiqL2f6DpbtDYMWi0GW2RTn0GWuuIzl3XpCLnw+WhqKa7qtNNZ+w1F/
-	67NV6odHMvV4RegWa8nvOSSFa5wBtuvi2K9vOmCdmJ8bRobO2ibZVpgt2g0EkAVRBLC4QHp
-	97H6OlRBgEKRg0FyIzjaTn/uuUVcMGfq1+lClg94VB/EZiYMAiXBSZOf3dyCNeIc3w3UpFs
-	k0qBtMSJgGSYiEhrv7/UgIcBkm3bCLcFOz4dqnOuGWRW0XjXMGRNBChbyfY8J1g0bjR9xtC
-	2/ENNiiXdMRHJ3FGfTyhdulSqTK1XmKPD+2oxICNVocNaf+qMDGIHdDICTEp4E5AUcYg/9G
-	nAtdiJLWzJexCSkxg1fPO4hy/FUlW+k4DM0tYw4Y3kYIRlmDHdP7pRc3ukzwGrsB7pIrcdc
-	o7a5nbe8w6DOzJ3sjf3Ywyvnk5FsORSUIgw63NSJCnOmLTN1KhFC2h0ckEQTytST1gdY0zZ
-	SKq80qOU6FpK6Ej/aJbKuZ1KcPvoz816f1TvszZtIyBY6CTDe1hpFnbqvdQ4apXxXZNKsP2
-	w==
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-X-QQ-RECHKSPAM: 0
+	Fri, 08 May 2026 06:47:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 69B9743C4F;
+	Fri,  8 May 2026 06:46:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193EBC2BCB0;
+	Fri,  8 May 2026 06:46:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778222819;
+	bh=uKAOXdr7KoyoLXoWkvIiwhu5inN82Hrcf71gx2FwTL4=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=rBoM+uOJQYB0NFff7uB2cgpANz0ma7Q2Xa2GtuDlwToO8Z4hyJ3vsgSr7JHXCc+be
+	 OLHKrccw0DSFGpeId3LHUKMk/Gwl4tqOqp/07IIW6u2cFxfyoOHuYWbFh23r7xTIOi
+	 hL5WDRxzrIV6p6YckB/PmvwN7uPvaMY8cQ1rsoojo2qL3raam0Hmw0Tuc77TuWcpRj
+	 ELQNf3ajnJ7t3nB+K+LQqKtJE3QjgxbH6e7bFggdFLT3FlZJUNU6lYITqPEd/6fQbx
+	 uGYvmGl+oQd65vop7dQbVH+vVgJK7uUkiBh1CJlNu5DjaXsiG5N/gfY+Q0WIG2/kWu
+	 FXza7gN5NuWLw==
+Date: Fri, 08 May 2026 01:46:57 -0500
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-hardening@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Hal Feng <hal.feng@starfivetech.com>, Stephen Boyd <sboyd@kernel.org>, 
+ linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>, 
+ netdev@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+ linux-clk@vger.kernel.org, Kees Cook <kees@kernel.org>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Emil Renner Berthing <kernel@esmil.dk>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sia Jee Heng <jeeheng.sia@starfivetech.com>, 
+ "Gustavo A . R . Silva" <gustavoars@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+ Ley Foon Tan <leyfoon.tan@starfivetech.com>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+In-Reply-To: <20260508053632.818548-18-changhuang.liang@starfivetech.com>
+References: <20260508053632.818548-1-changhuang.liang@starfivetech.com>
+ <20260508053632.818548-18-changhuang.liang@starfivetech.com>
+Message-Id: <177822281712.4161155.7993611746550690786.robh@kernel.org>
+Subject: Re: [PATCH v2 17/22] dt-bindings: clock: Add StarFive JHB100
+ Peripheral-2 clock and reset generator
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_233743_977738_4E981FD9 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20260507_234700_235564_1E6409C6 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,132 +86,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 29, 2026 at 8:40 PM CST, Alex Elder wrote:
-> On 4/29/26 2:48 AM, Troy Mitchell wrote:
 
-[...]
+On Thu, 07 May 2026 22:36:27 -0700, Changhuang Liang wrote:
+> Add bindings for the Peripheral-2 clock and reset generator (PER2CRG)
+> on the JHB100 RISC-V SoC by StarFive Ltd.
+> 
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  .../clock/starfive,jhb100-per2crg.yaml        | 76 +++++++++++++++++++
+>  .../dt-bindings/clock/starfive,jhb100-crg.h   | 57 ++++++++++++++
+>  .../dt-bindings/reset/starfive,jhb100-crg.h   | 17 +++++
+>  3 files changed, 150 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb100-per2crg.yaml
+> 
 
->>   #define SPACEMIT_ISR		 0x4		/* Status register */
->>   #define SPACEMIT_IDBR		 0xc		/* Data buffer register */
->>   #define SPACEMIT_IRCR		 0x18		/* Reset cycle counter */
->> +#define SPACEMIT_ILCR		 0x10		/* Load Count Register */
->> +#define SPACEMIT_IWCR		 0x14		/* Wait Count Register */
->>   #define SPACEMIT_IBMR		 0x1c		/* Bus monitor register */
->>   
->>   /* SPACEMIT_ICR register fields */
->> @@ -88,6 +92,12 @@
->>   #define SPACEMIT_BMR_SDA         BIT(0)		/* SDA line level */
->>   #define SPACEMIT_BMR_SCL         BIT(1)		/* SCL line level */
->>   
->> +#define SPACEMIT_LCR_LV_STANDARD_MASK		GENMASK(8, 0)
->> +#define SPACEMIT_LCR_LV_FAST_MASK		GENMASK(17, 9)
->> +
->> +/* Required by I2C IP for correct SCL timing */
->> +#define SPACEMIT_IWCR_INIT_VALUE		0x142A
->
-> Even if it's just used to "do the right thing", I still think it's
-> useful to break this numeric value into what it *represents*.  The
-> register is defined this way:
-> COUNT		GENMASK(4:0)
-> HS_COUNT1	GENMASK(9:5)
-> HS_COUNT2	GENMASK(14:10)
-> (the rest is reserved)
->
-> So 0x142a represents:
-> COUNT		10	33 MHz I2C functional clock (versus 66 MHz)
-> HS_COUNT1	2	Count defining start bit setup/hold times
-> HS_COUNT2	3	Count defining stop bit setup/hold times
->
-> The first one in particular *could* be managed in your clock
-> to support even more accurate clock rates.  But even if you
-> don't change its value I think it's meaningful to know what
-> the value represents.
->
-> That said--what I suggest won't change what the code does,
-> it just helps the reader understand what it's doing.
-Thanks for the suggestion.
-I've broken SPACEMIT_IWCR_INIT_VALUE into its constituent fields
-using FIELD_PREP. One small correction: 0x142A actually decodes
-to COUNT=10, HS_COUNT1=1, HS_COUNT2=5 (not 2 and 3).
->
->> +
->>   /* i2c bus recover timeout: us */
->>   #define SPACEMIT_I2C_BUS_BUSY_TIMEOUT		100000
->>   
->>
-[...]
+My bot found errors running 'make dt_binding_check' on your patch:
 
->> +
->> +static int spacemit_i2c_clk_determine_rate(struct clk_hw *hw,
->> +					   struct clk_rate_request *req)
->> +{
->> +	struct spacemit_i2c_dev *i2c = container_of(hw, struct spacemit_i2c_dev, scl_clk_hw);
->> +	u32 lv, denom;
->
-> Can you have clk_set_rate() call clk_determine_rate(), or at
-> least have them both share a helper that does these (duplicated)
-> calculations?
-Done. Extracted spacemit_i2c_calc_lv() as a shared helper used
-by both set_rate and determine_rate.
+yamllint warnings/errors:
 
->
->> +
->> +	denom = DIV_ROUND_CLOSEST(req->best_parent_rate, req->rate);
->> +
->> +	if (i2c->mode == SPACEMIT_MODE_STANDARD) {
->> +		lv = (denom <= 8) ? 0 : DIV_ROUND_CLOSEST(denom - 8, 2);
->> +		req->rate = DIV_ROUND_CLOSEST(req->best_parent_rate, lv * 2 + 8);
->> +	} else {
->> +		lv = (denom <= 10) ? 0 : DIV_ROUND_CLOSEST(denom - 10, 2);
->> +		req->rate = DIV_ROUND_CLOSEST(req->best_parent_rate, lv * 2 + 10);
->> +	}
->> +
->> +	return 0;
->> +}
->> +
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/renesas,ether.example.dtb: ethernet-phy@1 (ethernet-phy-id0022.1537): compatible: ['ethernet-phy-id0022.1537', 'ethernet-phy-ieee802.3-c22'] is too long
+	from schema $id: http://devicetree.org/schemas/net/micrel.yaml
 
-[...]
+doc reference errors (make refcheckdocs):
 
->>   
->> +static struct clk *spacemit_i2c_register_scl_clk(struct spacemit_i2c_dev *i2c)
->> +{
->> +	struct clk_init_data init = {};
->> +	char name[64];
->> +	int ret;
->> +
->> +	ret = snprintf(name, sizeof(name), "%s_scl_clk", dev_name(i2c->dev));
->> +	if (ret >= ARRAY_SIZE(name))
->> +		dev_warn(i2c->dev, "scl clock name truncated");
->> +
->> +	init.name = name;
->> +	init.ops = &spacemit_i2c_clk_ops;
->> +	init.parent_data = (struct clk_parent_data[]) {
->> +		{ .fw_name = "func" },
->> +	};
->> +	init.num_parents = 1;
->> +
->> +	i2c->scl_clk_hw.init = &init;
->> +
->> +	return devm_clk_register(i2c->dev, &i2c->scl_clk_hw);
->
-> The comments above clk_register() indicate that this is a deprecated
-> interface, and you should use a form of clk_hw_register() instead.
-> devm_clk_hw_register() exists and takes the same arguments, but
-> returns an int rather than the clock pointer.  But I think then you
-> can call devm_clk_get_enabled() in the caller (spacemit_i2c_probe()).
-> That would allow you to get rid of your clk_disable_unprepare()
-> wrapper too.
-I've switched to devm_clk_hw_register() as suggested. However,
-devm_clk_get_enabled() isn't applicable here because the SCL clock is
-registered internally by the driver rather than being described in the
-Device Tree. Since devm_clk_get_enabled() relies on clk_get(),
-it would fail to find the clock without a DT entry or a clkdev lookup.
+See https://patchwork.kernel.org/project/devicetree/patch/20260508053632.818548-18-changhuang.liang@starfivetech.com
 
-Instead, I'm using devm_clk_hw_get_clk() to retrieve the struct clk
-directly from the clk_hw, followed by a manual clk_prepare_enable()
-with a devm action for automated cleanup.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-                            - Troy
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
 _______________________________________________
 linux-riscv mailing list
