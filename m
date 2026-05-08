@@ -4,63 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CF5CD3436
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 08:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC980CD342F
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 09:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y8cqBiJr1vWR1zY9FNDCZGS5/keh4mkoxxo8z8Rzzgs=; b=af3dn9yyN2RyoC
-	+ZhbWM0D/ZAte+G+X98FSAUA48ADeXg72rj81BXNFkOFh3vKEkZ0tLeX8wh1xPa8vDnsYwqYOo83P
-	rFDe4baSuHqHXHZ8JQrTwO9WTB8SqDEh9P1SCVjvQxTIafxbfGyREfbimBfMRGPPOn5F7+AECh93A
-	lLigIPxHvmmxAUhOfAvenF6kON8T3TEDs61eFcmwHEyQbDawVUT8caVo2W2Bqu73unEwq4ztweLuc
-	K0wvDxQcGu1MohuZh6W3gjPBhTlF0l2k3VsWTaHSFPVa84dxnWGocnRhdbJTaEoS8rQVIibOmgJh7
-	NldryhV6x5e+DBGqKgUA==;
+	List-Owner; bh=/FJM/6bAfd+RovOG5mpCa1IClw0eDE8JyGdArfmiLJg=; b=ueEuGxHK59OXlF
+	4g4v1jNTB9L8DX2AMH/K0BfynKvpXbR++im5kxF32FekTBFlOnXGdEDDOCsZ9c/dukeRJNNbpGQzZ
+	2aQWbBUawsmVRfTAHVkzMLn9CnuxrJEddfGasa9KXrYds0k9WyIru02YrbRNibfa+lF+pkSXsp6IN
+	tnSX1G8OlmzZ5iuqYxeN4ZYnsO7UcFjgw7HVHPGxAvu563RAmtgBAX6gtg3wqE9p/JC/tK0CAVF+I
+	EcmJ6XunbgvKBaAFhvzB51AZCqVf2SXUxMlqaLVkhu97TSrds0tDNKXVgG8XMexC6/c8zu16eIQEH
+	0LWz5eMFsJXQGKhNqHGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLGYH-00000005znD-0XFj;
-	Fri, 08 May 2026 08:27:17 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1wLHSm-000000066Sl-29qm;
+	Fri, 08 May 2026 09:25:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLGYF-00000005zl1-1Jfp
-	for linux-riscv@lists.infradead.org;
-	Fri, 08 May 2026 08:27:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1778228829; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=a73lSRvoBg8oqtRew8SX40A5vzZ5CLJdEpWjAqKsG2Q=;
-	b=akaueN1SiRQCOErWtcNeCoLAfAiXU/y920tdwDKyRYZXVfV7jcTAXDhV3F0gl4vvmrZz1+2lLFD2MjR5CdOlZtRf4REslmI4biSuqgumZansiLMcNrUrKnr2zeRvTzpv+9S5UnOzi7e3ICDUHp/xPBiTEfVZoa6awU+qNpiXz/Q=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0X2WjvBI_1778228818;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X2WjvBI_1778228818 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 08 May 2026 16:27:04 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: cp0613@linux.alibaba.com
-Cc: acme@kernel.org,
-	alex@ghiti.fr,
-	dapeng1.mi@linux.intel.com,
-	guoren@kernel.org,
-	irogers@google.com,
+	id 1wLHSj-000000066S4-0UDu;
+	Fri, 08 May 2026 09:25:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 178F243E2D;
+	Fri,  8 May 2026 09:25:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E59F7C2BCB0;
+	Fri,  8 May 2026 09:25:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778232336;
+	bh=eXP0oMTZAYd//JjTRl4w7nF1MEv2B4XDSDUlXIvROs8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ogWfq3ZcnhE2rqKxT1vCgd4yENO8ZYiD5dns210a3Vrra4P5WBxPcSD6//cB9jijc
+	 hzQme7ttEn9uwpAmEEHcfKDLBRvUSk/TA1LWcGJybqiWgRm+Ea19wgnpZhBTTe8Bi/
+	 BbbKH1nC4pKpduK2HnleCXarp6HKwrsamC7TDZOms8JYHxOJoY9aGDDRulc46LErEJ
+	 0QS9PLUKncr4AHWMVAcBTNuyCHfOHIAgNkNthUirODdYQ4FMQ+IzA2fnsH1n4pBHee
+	 0XN7ETfCS+ur3akfTuS/lx09FAfm7SxzS8qe6VkzjVU6DfuchNzUVVWcCu6PSruZih
+	 v1JULYOzLHELQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wLHSf-00000000H25-175L;
+	Fri, 08 May 2026 09:25:33 +0000
+Date: Fri, 08 May 2026 10:25:32 +0100
+Message-ID: <86mryaxng3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Naman Jain <namjain@linux.microsoft.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	"K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Kelley <mhklinux@outlook.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
+	linux-arch@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	mingo@redhat.com,
-	namhyung@kernel.org,
-	peterz@infradead.org,
-	pjw@kernel.org
-Subject: Re: [PATCH v2] perf riscv: Add SDT argument parsing for RISC-V
-Date: Fri,  8 May 2026 16:26:58 +0800
-Message-ID: <20260508082658.3982-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260416124945.121699-1-cp0613@linux.alibaba.com>
-References: <20260416124945.121699-1-cp0613@linux.alibaba.com>
-MIME-Version: 1.0
+	vdso@mailbox.org,
+	ssengar@linux.microsoft.com
+Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for mshv_vtl_return_call
+In-Reply-To: <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+	<20260423124206.2410879-8-namjain@linux.microsoft.com>
+	<aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
+	<f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: namjain@linux.microsoft.com, mark.rutland@arm.com, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, arnd@arndb.de, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, mhklinux@outlook.com, timothy.hayes@arm.com, lpieralisi@kernel.org, sascha.bischoff@arm.com, mrigendra.chaubey@gmail.com, linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org, vdso@mailbox.org, ssengar@linux.microsoft.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_012715_572101_400B4F86 
-X-CRM114-Status: UNSURE (   2.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260508_022537_242048_E5A51A94 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,14 +115,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Gentle ping.
+On Wed, 29 Apr 2026 10:56:11 +0100,
+Naman Jain <namjain@linux.microsoft.com> wrote:
+> 
 
-Please let me know if there's anything I can do to help move this forward.
+[...]
 
-Thank you very much for your time and guidance.
+> Merging threads for addressing comments from Mark Rutland and Marc
+> Zyngier on this patch.
+> 
+> Thanks for reviewing the changes. Please allow me to briefly explain
+> the use case here and then address your comments.
+> 
+> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced
+> isolation within a single VM, analogous to ARM TrustZone. The kernel
+> runs in VTL2 (higher privilege) as a "paravisor", a security monitor
+> that handles intercepts for the primary OS in VTL0 (lower
+> privilege). The VTL switch (mshv_vtl_return_call) is functionally
+> equivalent to KVM's guest enter/exit. It saves VTL2 state, loads
+> VTL0's GPRs other registers from a shared context structure, issues
+> hvc #3 to let VTL0 run, and on return saves VTL0's updated state back.
+
+No, this is fundamentally different. KVM is purely architectural,
+doesn't try to "sanitise" anything, and context switches *all* of the
+guest state. No ifs, no buts, no "reserved registers".
+
+[...]
+
+> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to
+> the ABI that is defined by the Hyper-V hypervisor. Fixing this
+> requires a hypervisor-side change to support SMCCC-style dispatch for
+> VTL return. Until then, hvc #3 is the only working interface. Moreover
+> there would be backward compatibility issues with this new ABI
+> interface, if at all it is added.
+
+Left hand, please talk to right hand. This is not the first time we
+push back on this, and we already had this annoying discussion back
+when arm64 as a Hyper-V guest was first proposed (6, 7 years ago?).
+
+What has changed since? Absolutely nothing.
+
+If the Hyper-V folks decide to ignore the standard and go their own
+way, that's fine. They only get to keep the pieces.
 
 Thanks,
-Pei
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
