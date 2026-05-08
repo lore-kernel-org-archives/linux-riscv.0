@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63620CD3445
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 23:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B647CD37AC
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 May 2026 23:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5TFdgZ3x2EoVg4Fj5+8oj/f9ap6U9/v+M3sCVkwNicQ=; b=G6W6bsVgOEw2L7
-	7UuxrFmbFaWa2JY9lVCt4K3CdPr9lhBUNhWA3ezEk+HUTgkLWbmI2hiEZMx0ecTb+YcrzrTh1vQ7g
-	SasjQ+cl83sxSlnZ0RLSRxsmroaO2m3rcrHwcC2sSOTDVJaPZ2Erg5gAsXi5oZkTTecg4mqRcjLzV
-	xXMdl/xeSp+EJHPHK3Z8CHuqXbEIG6iTraED5Rkrx/9NpMKTcVl3FPOxRucv6sMlMPqxLxbVsqvG9
-	lVgM0ZUK3dy4zGz8gJGVEV4oRVYCCtarUoWS6lTXJx6I87D3ZSC8DZTntQmq5ozpritwzxpZhQY/l
-	capMeb8kptr04NV89ttQ==;
+	List-Owner; bh=HfcZIo2WISh4pcwur0Fw9lupyGGBnLywTN9J6S1gV9k=; b=HOqoqj2kbky4kY
+	FcW5QcdXPY4n6HID2mgl3Zrbu4MtwWuh0raGg2KQChoNozG9HgaukekD5pkOze5W/euYahVMNExoX
+	HSthDGrqsD+rJJXT1AhkIjuu5DE3B4BxAGFJQpDkJHwgkkQkurbGMlSdWfp58fovy/Vq2WiazdbNm
+	qkriUBfRji8+sP9W3rDQeelwb139Ge7GJmxmWnm6ZBmGE6m1kVcgRuooJhwKkgwUnt7xKok4kP+77
+	wB1dubeaZGPYNFCWGKv1EM/IA4H4RtS3xn+9+/iT+hbxV39nwojcDUa1Gi4P/9PLHg458FGdGVaqY
+	zVSHdy1SZ5suCgRTQlhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLULQ-00000007iGU-3v3O;
-	Fri, 08 May 2026 23:10:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wLUzJ-00000007meV-1qo5;
+	Fri, 08 May 2026 23:52:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLULO-00000007iFf-46hV
+	id 1wLUzG-00000007mdp-1Vb4
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 May 2026 23:10:56 +0000
+	Fri, 08 May 2026 23:52:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DE7440B1B;
-	Fri,  8 May 2026 23:10:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92092C2BCB0;
-	Fri,  8 May 2026 23:10:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778281854;
-	bh=ORUCAFTKRGtPG3yUupNBAwqRD7T186ukSAgBZG1/VzU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Bkp2tTvzxBQ1lw4TojOwbCxXjFn3apkpbGAlAAl5jjvRm5xLfk8ckS7o6lDCOr39s
-	 e5KMX0cyLx1MfBiyzPyqTOYi1r+GROZMtblQykNNnLG8Sc7Rke17bGGU0WSCMOOgkh
-	 vvKSYbgB6rBj2dIxILCpx7T865GFhyyO8Ry+4h0bP4QLSRliClw3wSMTcYiEOBpZTy
-	 QU/NcDi+61hZwBCBbqYjZ/+0VouP5O7jGAxRW8AyPkL4KH/pG90FxoRht62WhY13N1
-	 c95TPlVgYcd5XOOrLa8Di/sQ3bXfAqYENtWDfxaJftaR0PkggdRkpgSl5ICD2sZFab
-	 Shn1Z4ZNkMdxA==
-Date: Fri, 8 May 2026 23:10:51 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Iker Pedrosa <ikerpedrosam@gmail.com>,
-	Troy Mitchell <troy.mitchell@linux.dev>
-Subject: Re: [PATCH v8 8/9] riscv: dts: spacemit: k1-bananapi-f3: add SD card
- support with UHS modes
-Message-ID: <20260508231051-GKC3590877@kernel.org>
-References: <20260413-orangepi-sd-card-uhs-v8-0-c21c40ec16d0@gmail.com>
- <20260413-orangepi-sd-card-uhs-v8-8-c21c40ec16d0@gmail.com>
- <CA+Xcp4nY9GVMOmtMG-PNhY2vqP4Cc_amAMSa+M3vuDjWUkuCHw@mail.gmail.com>
- <CABdCQ=OsPva9=YPdBd=3HW1OO7=_zJtpXjvaiA0WLEDT5Scs_Q@mail.gmail.com>
- <DICDTHYTPDSP.210EBVHTQ6966@linux.dev>
- <20260508225341-GKB3590877@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260508225341-GKB3590877@kernel.org>
+	by sea.source.kernel.org (Postfix) with ESMTP id B64C3417AC;
+	Fri,  8 May 2026 23:52:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E3FDC2BCB0;
+	Fri,  8 May 2026 23:52:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1778284324;
+	bh=sRGeCV6w/1XLJmMiis3Zh7jmQgcOwgTRye0mEg75f10=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ALxe9ym2sHgz7eBUYTEuUFF41oSDC4cz3mXGbV78Dfm+oqqwoIPEWCG2MGsWVZ8Z4
+	 +kLExX711p4ifWyTbJVe/8ddxhSROJmkV+x4IqyVtlJY9/t7d0pJNbyrMmNlQj8ehW
+	 q/cmtclmZMfOII99C0Y3VrNtwUEN0IxC3cncAWjE=
+Date: Fri, 8 May 2026 16:52:03 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Albert Esteve <aesteve@redhat.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Brendan Higgins
+ <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, Rae Moar
+ <raemoar63@gmail.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, Shuah
+ Khan <skhan@linuxfoundation.org>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ kunit-dev@googlegroups.com, dri-devel@lists.freedesktop.org,
+ workflows@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-doc@vger.kernel.org, peterz@infradead.org, Alessandro Carminati
+ <acarmina@redhat.com>, Guenter Roeck <linux@roeck-us.net>, Kees Cook
+ <kees@kernel.org>, Linux Kernel Functional Testing <lkft@linaro.org>,
+ =?ISO-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>, Dan Carpenter
+ <error27@gmail.com>, Simona Vetter <simona.vetter@ffwll.ch>
+Subject: Re: [PATCH v9 0/4] kunit: Add support for suppressing warning
+ backtraces
+Message-Id: <20260508165203.1cd1b27e664754d18dbea899@linux-foundation.org>
+In-Reply-To: <20260508-kunit_add_support-v9-0-99df7aa880f6@redhat.com>
+References: <20260508-kunit_add_support-v9-0-99df7aa880f6@redhat.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_161055_039837_4C32E576 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260508_165206_463550_522271EB 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +80,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, Margherita Milani <margherita.milani@amarulasolutions.com>, linux-riscv@lists.infradead.org, Adrian Hunter <adrian.hunter@intel.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Javier Martinez Canillas <javierm@redhat.com>, Ulf Hansson <ulf.hansson@linaro.org>, spacemit@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 08 May 2026 17:02:44 +0200 Albert Esteve <aesteve@redhat.com> wrote:
 
-On 22:53 Fri 08 May     , Yixun Lan wrote:
-> Hi Iker, Troy,
+> Some unit tests intentionally trigger warning backtraces by passing bad
+> parameters to kernel API functions. Such unit tests typically check the
+> return value from such calls, not the existence of the warning backtrace.
 > 
-..
-> I would object to add CONFIG_I2C_K1 as hard dependency, the reason is
-> that the spacemit sdhci driver (sdhci-of-k1.c) has no used i2c
-> api/function, it's just need I2C function via an indirect requirement,
-> which sdhci -> regulator(p1) -> i2c, besides, from the hardware design
-> perspective, it just happens that K1 use P1(via I2C) as PMIC, it's
-> totally possible(even in theory) to use other PMIC as power supply
-> control which may not be I2C interface (maybe use SPI, for example)
+> ...
 > 
-> If we want to solve this more gracefully, I'm in favor to add explict
-> option enabled in defconfig..
-> 
-or I think it's better we do this way..
+> Solve the problem by providing a means to suppress warning backtraces
+> originating from the current kthread while executing test code.
+> Since each KUnit test runs in its own kthread, this effectively scopes
+> suppression to the test that enabled it, without requiring any
+> architecture-specific code.
 
-+++ b/drivers/i2c/busses/Kconfig
-@@ -794,6 +794,7 @@ config I2C_K1
-        tristate "SpacemiT K1 I2C adapter"
-        depends on ARCH_SPACEMIT || COMPILE_TEST
-        depends on OF
-+       default ARCH_SPACEMIT
-
-
--- 
-Yixun Lan (dlan)
+Thanks.  AI review has a bunch of questions:
+	https://sashiko.dev/#/patchset/20260508-kunit_add_support-v9-0-99df7aa880f6@redhat.com
 
 _______________________________________________
 linux-riscv mailing list
