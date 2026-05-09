@@ -4,95 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A7ECD3447
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 07:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31DD3CD37B2
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 07:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M8ZCePWtzozoglC2OYtouGvZl2GUg43G4tOHLq6O3yg=; b=3gMwhj7joU+/72
-	lzrrx2UP5Kuj0aG/dfNle4wI0cZlqiYeQo3WGsvm5CNec/km07LRQDEnQ2Juc0Br0+hS2BjDEhubV
-	ONbI9rzJbmnVlBVQiSBXAB/ZT+UyZYfjHEhBWozIdMvl9bUsSUJWs5bm6ItgtADqWddtxX9pUjUbo
-	JiVdofavUQzwhqxxJrcimzsazMCkfJs+WYQOSTQ6GsNLkiMkb+Sx5zqrHhwYNGVvr88cg/l1lgdTO
-	Ll01OOm1wWh58qoPz1yxui6awR23EKWfGtDrdzAuvqYBnbZANdRohXfakWi62S4QjWw+FEa4Rsa2r
-	GFP7eEfHnfAAgZvBUW9g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+QUWZxcltA2gBWCXpM+gtd9Cx+lca2EUs3uaRZbpHc8=; b=UuBEUu0bIHdPcX
+	Bv8fe3XpRIzUUS35q+Vq7uOeRPGjXQsTaGHIGSH22ojWlVwfkj8Gego5ZzcKIywZVKIEhBcLtkJnw
+	Lum7ifqsYOsS6JyIuSaUMo7wE8IvcSOvFs2khOGLps7kbRmwboEPssFBsMc290xENJO7UdaehpAY6
+	pw1656ADE8fBwKgHrtGFwPvf5baUiOOZnpcjIHfOqDIo5VCFxr/4rnDWGtCNBaCzIT3jCw4GdOqLH
+	KGvRZAjAVNTYwC2iXBEN0oUwUZ52jo884S3rvRe4lsPNu9a8kH8D5liiwFIcRoyGZclMX2gksCyz0
+	ZfQmULyLTW8njiL0XVJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLcBY-00000008UXf-22qA;
-	Sat, 09 May 2026 07:33:16 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wLcHR-00000008VDa-23n0;
+	Sat, 09 May 2026 07:39:21 +0000
+Received: from out-183.mta0.migadu.com ([91.218.175.183])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLcBW-00000008UX1-0xs9
+	id 1wLcHO-00000008VCk-2IEa
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 May 2026 07:33:15 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-837c09d2268so1207106b3a.0
-        for <linux-riscv@lists.infradead.org>; Sat, 09 May 2026 00:33:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778311993; x=1778916793; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4rrWX8PR+HWUg34CwgZ0qTRfJ+rZargOz41FLZiRD60=;
-        b=lxU+SzLRzWKHH/g4FZXo2AtslWVSIXxxgyG6V2jTDquIWO+WXskjNuVw9lzDAIfnES
-         beNe4Y3UlVF49A1iVP9pWyhhwZCMWZr2iFSBy6IU0jKq4Q4C4PycqNsGNXiqpu1SY/o6
-         v4IXAWKyqdLfu6+j8/5VJwR2qR6ofNZBsw9hDSOYd83FxoC1FBeeC8qMpVC1VK8/2STl
-         gRlaLoNF4Gw33yBLD+VKNjHYH65TafJ8NOTUBrIzLpJYqe1mFKXQj2WAg1m5l2s1/Erz
-         Qjygbq1Ml8skBJP7PocXEl87a5owmXC3BZBYwfNVStXiRP3ustqzLjYPn9Fz181b2B9s
-         bGDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778311993; x=1778916793;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4rrWX8PR+HWUg34CwgZ0qTRfJ+rZargOz41FLZiRD60=;
-        b=PBFDr4vQ3MzFhIjQ+NMDJiGnfUVOLQLeAakoYxBiD+S63aTPKOalDa1aLT/PIB78I9
-         9geIB66pjAWVIr4s3mgO3UZTNTmnJ/BXZys+lubnwauITlMndHx7vANihOORbeGEPb38
-         w5TAmqPgaBT8EW1oTczAm/ZA7RFGG4zodbbCbMYipI7FoVYNQpGXK37ez3q0dIA80/fx
-         PzBGKGh5kBpcmFfpxGlBInyDKm437vzD8L53bBGlUT1ialCo3P061XY9VV02Y+fBGKtM
-         lL1KHbRpyyNCIhBk/lKLDMAmINfjCIflred7ciqc8ficdWMaXunDVZoDHpL0+dkCip+t
-         lsKA==
-X-Forwarded-Encrypted: i=1; AFNElJ/PZpK/Rfv5Mw5+UxVb5JninRbdnydmNW3YBfHXM0r+JpqPtZlPydGTKaejsEk0zcvcTMi66DHgVozLlA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5fDNYPCB4Yg94KbLVddh1F5xr17MfdP6msSUTUYtIFBdvukOl
-	Fovomnz6qz1kjZR9Bt9xwKc3qN/HrM0N1sFGa52ijjt7V17y+1SI8prG
-X-Gm-Gg: Acq92OE13mSAVuwSdPArZqwT9cWirTnSE7AWiI6dqVy7jF6bGEVYxkvICa+CYhJ8ln3
-	fNbyshcGVRWmhW6g03Vmu8skJ/8Q1lcKxVkQmnIkXAYriKWvwtkuN1UKIVX5kvg4zREZ7xN8gds
-	tykQIpd3vLWR1PF4qCFLnVRvBkdLIS23KwFL7iz0bOgwhoQDFQy/D5n4G0Lty2ev5x7LTML68Uy
-	FiVYzMZ2SgNv2leAEsGXlymXay+MglxVIAiTimwXCVhTFNAFVzaaEkv1TXoMXShVGdb4CadHlA8
-	R+J6C5/71KV4LBrJJoh7ehG54838FqulWiHNzU4U4O1dXgW6nq6MxOpMhP8/K67HRhyugl8dBTV
-	E4Dpf5pN0amH50iemj67xRtN8Jg/3NCtmpfuUti1OXr2nOfUZA0AYnKe3yyR6+upy1EYdoZTwOk
-	GD4BzpqDx7Lsr6616pbR8HfoFypquIpjPh5w==
-X-Received: by 2002:a05:6a00:1407:b0:837:eaa9:381f with SMTP id d2e1a72fcca58-83a57c7782dmr15579899b3a.0.1778311993011;
-        Sat, 09 May 2026 00:33:13 -0700 (PDT)
-Received: from localhost ([2001:19f0:8001:1b2d:5400:5ff:fefa:a95d])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83967dbf67fsm14681697b3a.47.2026.05.09.00.33.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 00:33:12 -0700 (PDT)
-Date: Sat, 9 May 2026 15:32:52 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Alex Elder <elder@riscstar.com>, 
-	Gustavo Pimentel <gustavo.pimentel@synopsys.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 5/5] PCI: spacemit-k1: Add Spacemit K3 PCIe host
- controller support
-Message-ID: <af7fu8xuv3faMhPe@inochi.infowork>
-References: <20260502101319.2364052-6-inochiama@gmail.com>
- <20260507224217.GA48780@bhelgaas>
+	Sat, 09 May 2026 07:39:20 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1778312354;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ALn5vWljU/fPoLd3GB3xTWUGvCIhsExGeZzm58DpKd8=;
+	b=niXtNgIb1fwJv67QgDcBsYweRVno2efsohmmToE/zL5hB6/hVCFaU0ScPUkugzVXypjhdh
+	04N/WxNVPPE1+o5Hk1S5efQ2aU37IBdeQRzhWz0zeUykjqvzyxcMMq2wYTMZeQNNFjN6OC
+	QOKN49K6vEiEtjDQipcuo9jjHGLh34Y=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/2] riscv/purgatory: return bool from verify_sha256_digest
+Date: Sat,  9 May 2026 09:38:50 +0200
+Message-ID: <20260509073850.44595-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260507224217.GA48780@bhelgaas>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1854; i=thorsten.blum@linux.dev; h=from:subject; bh=dOLgFJTy8JLvzmSFaoqYz9sOLYJWoxubaDRMCBGo53o=; b=kA0DAAoWXqtxINjMdS4ByyZiAGn+5Iqi3Xr1UsOQUCDC7zLRW87jrBcNtohW3o0Kf6QLGaeKY Yh1BAAWCgAdFiEE4Jr4mE11fHmyNFi5XqtxINjMdS4FAmn+5IoACgkQXqtxINjMdS5qsgD/TFGy wUNyXrSnEtJQq9svFIJlxL6+nq0bbyx2OgRIohIBAIYwKUfk8DNN30v4QcQnqUafZQhWZtn39sX MCB5uc4wJ
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_003314_277553_FD34D662 
-X-CRM114-Status: GOOD (  42.91  )
+X-CRM114-CacheID: sfid-20260509_003919_003886_D91925B3 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,195 +73,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 05:42:17PM -0500, Bjorn Helgaas wrote:
-> On Sat, May 02, 2026 at 06:13:18PM +0800, Inochi Amaoto wrote:
-> > The PCIe controller on Spacemit K3 is almost a standard Synopsys
-> > Designware PCIe IP with extra link and reset control. Unlike
-> > the PCIe controller on K1, this controller supports external MSI
-> > interrupt controller and can use multiple phy at the same time.
-> > 
-> > Add driver to support PCIe controller on Spacemit K3 PCIe.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> 
-> Sashiko had some good questions:
-> https://sashiko.dev/#/patchset/20260502101319.2364052-1-inochiama%40gmail.com
-> 
-> Looks like the CONFIG_PCIE_SPACEMIT_K1 menu item and help text
-> drivers/pci/controller/dwc/Kconfig should be updated to include K3.
-> 
-> The "CONFIG_PCIE_SPACEMIT_K1" name itself should stay the same.
-> 
-> s/Designware/DesignWare/, also in 4/5 commit log
-> s/phy/PHY/ here and other patches and subject lines
-> s/msi/MSI/ in 3/5 subject and commit log when it's a stand-alone word
-> s/pci:/PCI:/ in 4/5 subject to match history (and patch 3/5)
-> 
+Change the function's return type from int to bool and return the result
+of memcmp() directly to simplify the code.  While at it, cast ->start to
+'const u8 *' to better match the expected type.
 
-See it, thanks, I will take care of that
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+Changes in v2:
+- Return true on success and false on failure (Eric)
+- v1: https://lore.kernel.org/lkml/20260412194113.228703-4-thorsten.blum@linux.dev/
+---
+ arch/riscv/purgatory/purgatory.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
-> > +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> 
-> > +#define INTR_STATUS				0x0010
-> > +
-> >  #define INTR_ENABLE				0x0014
-> >  #define MSI_CTRL_INT			BIT(11)
-> > +#define RDLH_LINK_UP_INT		BIT(20)
-> > +
-> > +#define K3_PHY_AHB_IRQSTATUS_INTX		0x0008
-> > +
-> > +#define K3_PHY_AHB_IRQENABLE_SET_INTX		0x000c
-> > +#define LEG_EP_INTERRUPTS		(BIT(6) | BIT(7) | BIT(8) | BIT(9))
-> 
-> Would be nicer to use "INTX" rather than "LEG" here since we use
-> "INTX" in K3_PHY_AHB_IRQENABLE_SET_INTX, in the comments, etc.
-> 
-> > +#define K3_PHY_AHB_IRQENABLE_SET_MSI		0x0014
-> > +/* MSI defined as BIT(11) in existing INTR_ENABLE, reusing */
-> > +
-> > +#define K3_ADDR_INTR_STATUS1			0x0018
-> > +
-> > +#define K3_ADDR_INTR_ENABLE1			0x001C
-> 
-> You're using a mix of upper- and lower-case hex here.  Be consistent
-> and match the existing code.
-> 
-> Seems a little weird to have a mix of "IRQ" names (e.g.,
-> K1_PHY_AHB_IRQ_EN, K3_PHY_AHB_IRQSTATUS_INTX,
-> K3_PHY_AHB_IRQENABLE_SET_INTX) and "INTR" names (e.g., INTR_STATUS,
-> INTR_ENABLE, K3_ADDR_INTR_STATUS1, K3_ADDR_INTR_ENABLE1) when I think
-> they're really talking about the same concept.
-> 
-> And why do the new K3 names have "ADDR" in the middle when the
-> existing "INTR_ENABLE" names don't?  It's obvious these are addresses
-> (well, actually I think they're *offsets*, but no need to be that
-> detailed).
-> 
-
-In fact I have no detailed document about these name, but reference
-to their comments, I think it is a register for some link features.
-So it could be more accurate to be named with "LINK"
-
-> > +static int k3_pcie_init(struct dw_pcie_rp *pp)
-> > +{
-> > ...
-> > +	val = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
-> > +	val &= ~(0xffff << 8);
-> > +	val |= ((0x1 << 4) << 8);
-> 
-> Can you use FIELD_MODIFY and some #defines here?
-
-It is fine for me.
-
-> 
-> > +	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, val);
-> > +
-> > +	/* Set the PCI vendor and device ID */
-> 
-> Superfluous comment since the code is obvious.
-> 
-
-OK, I will remove it
-
-> > +	dw_pcie_dbi_ro_wr_en(pci);
-> > +	dw_pcie_writew_dbi(pci, PCI_VENDOR_ID, PCI_VENDOR_ID_SPACEMIT);
-> > +	dw_pcie_writew_dbi(pci, PCI_DEVICE_ID, PCI_DEVICE_ID_SPACEMIT_K3);
-> > +	dw_pcie_dbi_ro_wr_dis(pci);
-> > +
-> > +	/* Finally, as a workaround, disable ASPM L1 */
-> 
-> I guess this means a device erratum?  It advertises L1 but it doesn't
-> actually work?
-> 
-> > +	k1_pcie_disable_aspm_l1(k1);
-> 
-> > +static int k3_pcie_msi_host_init(struct dw_pcie_rp *pp)
-> > +{
-> > ...
-> > +	val = dw_pcie_readl_dbi(pci, COHERENCY_CONTROL_3_OFF);
-> > +	val |= (0xf << 11);
-> 
-> FIELD_MODIFY and some #defines here?
-> 
-
-OK.
-
-> > +static int k3_pcie_start_link(struct dw_pcie *pci)
-> > +{
-> > +	struct k1_pcie *k1 = to_k1_pcie(pci);
-> > +	u32 val;
-> > +
-> > +	k1_pcie_start_link(pci);
-> > +
-> > +	/* Enable INTx */
-> > +	val = readl_relaxed(k1->link + K3_PHY_AHB_IRQENABLE_SET_INTX);
-> > +	val |= LEG_EP_INTERRUPTS;
-> > +	writel_relaxed(val, k1->link + K3_PHY_AHB_IRQENABLE_SET_INTX);
-> > +
-> > +	/* Enable MSI/MSIX specific to K3 */
-> 
-> s/MSIX/MSI-X/ to match spec usage.
-> 
-> > +	val = readl_relaxed(k1->link + K3_ADDR_INTR_ENABLE1);
-> > +	val |= (MSI_INT | MSIX_INT);
-> > +	writel_relaxed(val, k1->link + K3_ADDR_INTR_ENABLE1);
-> 
-> Generally speaking I think the interrupt setup belongs somewhere other
-> than .start_link().  Usually .start_link() only enables LTSSM.
-> 
-
-Yes, this logic are not needed any more after I recheck the vendor
-code. Only thing related to the link will be left.
-
-With this, the macro like LEG_EP_INTERRUPTS can be removed.
-
-> > +	return 0;
-> > +}
-> 
-> > +static irqreturn_t k3_pcie_irq_thread(int irq, void *data)
-> > +{
-> > +	struct k1_pcie *k1 = data;
-> > +	struct dw_pcie_rp *pp = &k1->pci.pp;
-> > +	struct device *dev = k1->pci.dev;
-> > +	u32 status0, status1, status2;
-> > +
-> > +	k3_pcie_clear_irq_status(k1, &status0, &status1, &status2);
-> > +
-> > +	writel_relaxed(status0, k1->link + K3_PHY_AHB_IRQSTATUS_INTX);
-> > +	writel_relaxed(status1, k1->link + INTR_STATUS);
-> > +	writel_relaxed(status2, k1->link + K3_ADDR_INTR_STATUS1);
-> > +
-> > +	if (FIELD_GET(RDLH_LINK_UP_INT, status1)) {
-> > +		msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> > +		/* Rescan the bus to enumerate endpoint devices */
-> > +		pci_lock_rescan_remove();
-> > +		pci_rescan_bus(pp->bridge->bus);
-> 
-> This is the *only* driver that uses pci_rescan_bus() this way, which
-> automatically makes it suspicous.  Maybe it's the first hardware that
-> implements or is willing to use RDLH_LINK_UP_INT for this, but somehow
-> I doubt it.
->
-
-I am going to remove this. At least I do not think it is very proper
-to add this in the first version. 
-The vendor explained that they use this interrupt to speed up the
-device link up check. This depends on a feature that make dwc skip
-the link up delay. And this feature is removed in v7.0. In commit
-142d5869f6ee ("Revert "PCI: dwc: Don't wait for link up if driver
-can detect Link Up event"")
-
-Regards,
-Inochi
+diff --git a/arch/riscv/purgatory/purgatory.c b/arch/riscv/purgatory/purgatory.c
+index bbd5cfa4d741..745deeb6e3a5 100644
+--- a/arch/riscv/purgatory/purgatory.c
++++ b/arch/riscv/purgatory/purgatory.c
+@@ -17,7 +17,7 @@ u8 purgatory_sha256_digest[SHA256_DIGEST_SIZE] __section(".kexec-purgatory");
  
-> > +		pci_unlock_rescan_remove();
-> > +	} else if (!status0 && !status1 && !status2)
-> > +		dev_WARN_ONCE(dev, true,
-> > +			      "Received unknown event. status0=0x%08x status1=0x%08x status2=0x%08x\n",
-> > +			      status0, status1, status2);
-> > +
-> > +	return IRQ_HANDLED;
-> > +}
+ struct kexec_sha_region purgatory_sha_regions[KEXEC_SEGMENT_MAX] __section(".kexec-purgatory");
+ 
+-static int verify_sha256_digest(void)
++static bool verify_sha256_digest(void)
+ {
+ 	struct kexec_sha_region *ptr, *end;
+ 	struct sha256_ctx sctx;
+@@ -26,11 +26,10 @@ static int verify_sha256_digest(void)
+ 	sha256_init(&sctx);
+ 	end = purgatory_sha_regions + ARRAY_SIZE(purgatory_sha_regions);
+ 	for (ptr = purgatory_sha_regions; ptr < end; ptr++)
+-		sha256_update(&sctx, (uint8_t *)(ptr->start), ptr->len);
++		sha256_update(&sctx, (const u8 *)(ptr->start), ptr->len);
+ 	sha256_final(&sctx, digest);
+-	if (memcmp(digest, purgatory_sha256_digest, sizeof(digest)) != 0)
+-		return 1;
+-	return 0;
++
++	return memcmp(digest, purgatory_sha256_digest, sizeof(digest)) == 0;
+ }
+ 
+ /* workaround for a warning with -Wmissing-prototypes */
+@@ -38,7 +37,7 @@ void purgatory(void);
+ 
+ void purgatory(void)
+ {
+-	if (verify_sha256_digest())
++	if (!verify_sha256_digest())
+ 		for (;;)
+ 			/* loop forever */
+ 			;
 
 _______________________________________________
 linux-riscv mailing list
