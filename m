@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15ABCCD343F
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 11:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37B4CD343F
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 11:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=niSbOaWnonN5BBTSGo+Tmc+FiNRw4z1Fmq5/4w4incw=; b=kjToVmMOOKoc1k
-	ZKzaLrmJq0ZJe0owkej5p9bjPdLWpQ64MSZxX6PngpnYguOCrjHtaAVsLLIl573TB5VJ6KXCbYllA
-	/u5LaNIndU3Z7huylofYXwJ/1D+8Fndi2N8Y1uuuVANpaMfTv9YjfF7kzTC+B/5N8TQO2MYccSDQo
-	tt35AuAeIfGZ6PVGWV7cx6fVAJjUpQQkwk580qnhyRpAqDPYkwW2OajqGZ01TPkAFAhW0racusI+A
-	3y24McsSFDU+k9Ta2QtM94WlgDlJHt8+bYW6CEHElPtx0LU71BSCta0qGzs8JbNOH44IufyOYmPQQ
-	uIC3VZtmwXUvQMF2iCmQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6VlD4BYUvBhxhiA8DetExSf5lKQzSNalmFxHAfwJ9mY=; b=e9XXa/ozOKY40c
+	5JGljxsO5hkckC+kyrK8TJyAdzzHCu4G1qi/Jq0kObkO+e5ldOAGORpMjl7D/zPKl/946QawZBvkz
+	Hwk+yc1MPHynpMsozo0XyMmnFBFuK/ZtPOFrXzbdCttB4M1IBOGAP80HCy7DXW4Vsxq76a12N6tqY
+	RxRoywfffn/lFSEMd2FPqnynNojBgoY3pE21TEo4DkE1bYz/nvcrakNwxIxTpDa/DvHK+aNKOg9Y8
+	iRwgk9Rtk4eZLw9JqevAbMkOLnjcuGP7TXZ2GJyPQAfSWqtKpLqVMR4GGs76gqDgV505lGRBelw2B
+	6O3+hi2GcWAAbMQx4wSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLgDJ-00000008sFw-1XBn;
-	Sat, 09 May 2026 11:51:21 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wLgIC-00000008siJ-0VOV;
+	Sat, 09 May 2026 11:56:24 +0000
+Received: from csmtpq4-prd-nl1-vfz.edge.unified.services ([84.116.50.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLgDG-00000008sFB-11Bb
+	id 1wLgI9-00000008sh0-0K6E
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 May 2026 11:51:20 +0000
-Received: from yzs (unknown [115.199.218.204])
-	by APP-05 (Coremail) with SMTP id zQCowABX6QylH_9pIgPLDw--.3436S2;
-	Sat, 09 May 2026 19:51:01 +0800 (CST)
-From: Zishun Yi <vulab@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Kees Cook <kees@kernel.org>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Zishun Yi <vulab@iscas.ac.cn>
-Subject: [PATCH v2] riscv: Fix memory leak in apply_relocate_add
-Date: Sat,  9 May 2026 19:51:00 +0800
-Message-ID: <20260509115100.1879716-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.51.2
+	Sat, 09 May 2026 11:56:22 +0000
+Received: from csmtp2-prd-nl1-vfz.nl1.unified.services ([100.107.80.24] helo=csmtp2-prd-nl1-vfz.edge.unified.services)
+	by csmtpq4-prd-nl1-vfz.edge.unified.services with esmtp (Exim 4.95)
+	(envelope-from <lvd2@ziggo.nl>)
+	id 1wLgI2-008wN0-En
+	for linux-riscv@lists.infradead.org;
+	Sat, 09 May 2026 13:56:14 +0200
+Received: from pivobook ([31.151.14.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 256/256 bits)
+	(Client did not present a certificate)
+	by csmtp2-prd-nl1-vfz.edge.unified.services with ESMTPSA
+	id LgI1wNynmrfEILgI2wlUBZ; Sat, 09 May 2026 13:56:14 +0200
+X-Env-Mailfrom: lvd2@ziggo.nl
+X-Env-Rcptto: linux-riscv@lists.infradead.org
+X-SourceIP: 31.151.14.30
+X-CNFS-Analysis: v=2.4 cv=JpPBas4C c=1 sm=1 tr=0 ts=69ff20de cx=a_exe
+ a=NV7W8VvOCisUEaGs51tmdQ==:117 a=NV7W8VvOCisUEaGs51tmdQ==:17
+ a=IkcTkHD0fZMA:10 a=mZ4yd4CqamDfb6olylMA:9 a=QEXdDO2ut3YA:10
+X-Authenticated-Sender: lvd2@ziggo.nl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ziggo.nl;
+	s=202002corplgsmtpnl; t=1778327774;
+	bh=kkC00Hm4PasArfja3LA/UXc0OW6JjSzi6RiGJEIqRc8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TffVbMC4PBOTtUqdc6fFXUHBP/WEJKpDws7pW1ZzzphfAP05D43Z0yqf0/i3JDsGp
+	 raUSMPu/yohAEfFrwcUMMLElU81nynerwaTe2hnJr1dbY1SoxrJzFg2HVtRsNRbX1E
+	 WHbgtkM5CGZgWGAJYFbOoedrG3lIeS73lHLRfR55P9Io9jdK2AFieerVKT4W/s2Xtv
+	 rdvmCRf0EHtVFiyp9lmwic1QzUskhYUrOaq46L+ryoL7ELvibG8/akWSe+q53rKSqw
+	 bI9ozCRLfmIHjRI985Rj57JuJSurGFJGI5VUepLMr9JbG6wm1QkXOHTeVa9iv4RSr7
+	 fdGfqMeklXRLQ==
+Date: Sat, 9 May 2026 13:56:12 +0200
+From: Vadim Akimov <lvd2@ziggo.nl>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH] RISC-V: Define pgprot_dmacoherent() for non-coherent
+ devices
+Message-ID: <af8g3DlQhHSME-0_@pivobook>
+References: <20250820152316.1012757-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowABX6QylH_9pIgPLDw--.3436S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGr17Xw18CF4fKry8CF18Grg_yoW5ur4UpF
-	13G34SyrWfGr1xtrnIq3WkWw4fGa1kWr47Z3y29wsaywsxA3WFq343KF1FqF95Xryvgr45
-	WFWj93WUCw4UAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkl14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r1q
-	6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
-	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y
-	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
-	W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
-	IxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbHa0JUUUU
-	U==
-X-Originating-IP: [115.199.218.204]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAcCA2n+2sLWYgAAsx
+Content-Disposition: inline
+In-Reply-To: <20250820152316.1012757-1-apatel@ventanamicro.com>
+X-CMAE-Envelope: MS4xfNDTPr0vul+5v/KwGl5RI2QffcB7SymM16QmsJPTDk+WVAVIDIZFOdV76cwlQ5gPqx1/N6mVa4RFxpehkcP6L+t26aC2pigYtcqHH4ngn+IfNkWRGX0+
+ nC5dUN/AHZ+BWYddiFotvlnydDGmcajOzZiTVToRGJbHFmCgW0STW2Pnb0c6/kGQcaqw6FwZe/hYJTd4B2bTVs5KFysWd9Hp5eNvh1JVqr5lB63yFkIpLST8
+ 77+6AduirQaBdkNLxp640R8Xji7afv+QG7REZvIFTfh0UoXYwUD7L5SY5b30eNOGeXR/UuqSMdj4318dH8400SzIf/lCCYfxqKsGUGNSan+LzqtYNnK1ZhyL
+ iqRmPZmaau+dYDIfPSvGKVLY0QSDG73HEyIju1dvA1i/dXumI6jB2Wf3XlW+Q5M82aEk04TgpYoTquJJZ9G+wBNMh3Dpb5fcyx0AnhjcGp+sJcxseLD/n+un
+ ADBeT1ptOeKRMWPjP2OC8XWfZY8krZapdqzrzNxtAK/H/HUjPsRHyfbYj4G1woy7olKiIXAtr8RsWRL3qzt6HFYO/3C4G7fIMdsUWQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_045118_768057_2CB28FB8 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20260509_045621_238700_6DB5BF7A 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,116 +85,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>, "Rafael J . Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The error path in apply_relocate_add() forgets to clean up the hashtable
-allocated at the beginning. But we should not use
-process_accumulated_relocations() as a cleanup function because some
-entries may be half-finished, and we cannot write incorrect values back
-to memory.
+Hi,
 
-So, add cleanup_accumulated_relocations() for freeing all memory
-allocated in the error paths.
+On Wed, Aug 20, 2025 at 08:53:16PM +0530, Anup Patel wrote:
 
-Fixes: 8fd6c5142395 ("riscv: Add remaining module relocations")
-Assisted-by: Gemini:gemini-3.1-pro
-Signed-off-by: Zishun Yi <vulab@iscas.ac.cn>
----
-Changes in v2:
-- Added 'Assisted-by' tag.
+> The pgprot_dmacoherent() is used when allocating memory for
+> non-coherent devices and by default pgprot_dmacoherent() is
+> same as pgprot_noncached() unless architecture overrides it.
+ 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 91697fbf1f90..00d8bdaf1e8d 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
 
- arch/riscv/kernel/module.c | 44 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 43 insertions(+), 1 deletion(-)
+> +#define pgprot_dmacoherent pgprot_writecombine
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 1961135689db..5ac3f2cd55bc 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -594,6 +594,38 @@ static const struct relocation_handlers reloc_handlers[] = {
- 	/* 192-255 nonstandard ABI extensions  */
- };
- 
-+static void
-+cleanup_accumulated_relocations(struct hlist_head **relocation_hashtable,
-+				struct list_head *used_buckets_list)
-+{
-+	/*
-+	 * Clean up accumulated relocations without applying them.
-+	 */
-+	struct used_bucket *bucket_iter;
-+	struct used_bucket *bucket_iter_tmp;
-+	struct relocation_head *rel_head_iter;
-+	struct hlist_node *rel_head_iter_tmp;
-+	struct relocation_entry *rel_entry_iter;
-+	struct relocation_entry *rel_entry_iter_tmp;
-+
-+	list_for_each_entry_safe(bucket_iter, bucket_iter_tmp,
-+				 used_buckets_list, head) {
-+		hlist_for_each_entry_safe(rel_head_iter, rel_head_iter_tmp,
-+					  bucket_iter->bucket, node) {
-+			list_for_each_entry_safe(rel_entry_iter,
-+						 rel_entry_iter_tmp,
-+						 &rel_head_iter->rel_entry,
-+						 head) {
-+				kfree(rel_entry_iter);
-+			}
-+			kfree(rel_head_iter);
-+		}
-+		kfree(bucket_iter);
-+	}
-+
-+	kvfree(*relocation_hashtable);
-+}
-+
- static void
- process_accumulated_relocations(struct module *me,
- 				struct hlist_head **relocation_hashtable,
-@@ -802,6 +834,8 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 				continue;
- 			pr_warn("%s: Unknown symbol %s\n",
- 				me->name, strtab + sym->st_name);
-+			cleanup_accumulated_relocations(&relocation_hashtable,
-+							&used_buckets_list);
- 			return -ENOENT;
- 		}
- 
-@@ -815,6 +849,8 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 		if (!handler) {
- 			pr_err("%s: Unknown relocation type %u\n",
- 			       me->name, type);
-+			cleanup_accumulated_relocations(&relocation_hashtable,
-+							&used_buckets_list);
- 			return -EINVAL;
- 		}
- 
-@@ -868,6 +904,8 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 				pr_err(
- 				  "%s: Can not find HI20 relocation information\n",
- 				  me->name);
-+				cleanup_accumulated_relocations(&relocation_hashtable,
-+								&used_buckets_list);
- 				return -EINVAL;
- 			}
- 
-@@ -882,8 +920,12 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 							   &used_buckets_list);
- 		else
- 			res = handler(me, location, v);
--		if (res)
-+
-+		if (res) {
-+			cleanup_accumulated_relocations(&relocation_hashtable,
-+							&used_buckets_list);
- 			return res;
-+		}
- 	}
- 
- 	process_accumulated_relocations(me, &relocation_hashtable,
--- 
-2.51.2
+This single-line patch, as implemented in commit 00b58d2c25d10fecffbebaa0c369fc9d0a6de397 for 6.6.y,
+breaks allwinner D1 SDcard handling:
+
+[    0.000000] Linux version 6.6.115 (surfin@nedoserver) (riscv64-unknown-linux-gnu-gcc () 11.3.0, GNU ld (GNU Binutils) 2.38) #1 Tue May  5 10:25:47 MSK 2026
+
+[    4.886823] sunxi-mmc 4020000.mmc: Got CD GPIO
+[    4.893625] sunxi-mmc 4021000.mmc: allocated mmc-pwrseq
+[    4.941711] sunxi-mmc 4021000.mmc: initialized, max. request size: 2048 KB, uses new timings mode
+[    4.958033] sunxi-mmc 4020000.mmc: initialized, max. request size: 2048 KB, uses new timings mode
+[    4.990692] sunxi-mmc 4021000.mmc: card claims to support voltages below defined range
+[    5.009712] mmc1: new high speed SDIO card at address 0001
+
+then following never happens with that patch, i.e. no SD card is found.
+
+#[    5.109896] mmc0: new high speed SDHC card at address 0001
+#[    5.116546] mmcblk0: mmc0:0001 EB1QT 29.8 GiB
+#[    5.128887]  mmcblk0: p1 p2
 
 
 _______________________________________________
