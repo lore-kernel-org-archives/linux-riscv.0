@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEE0CD3447
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 10:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E861ECD3447
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 May 2026 11:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EVUlJzwmb7tzZFvhfG9/55bxvJs8sEiBLj+JP92TkmY=; b=cIDz4NLe6CPVEC
-	RToagthAOqJnSSUW/qIrFhfa7KYFazy1apgcH2kb/KGX2tZQWOYYy8KysUHs6oMu/BldHt0gQQ7HG
-	bv3tc5PUtNaAxj0Qao1sR6+8EVQMFHxafS+gRYMOEo99DcxDdYIyEG4FsLEiId9QQVycCtlDo78ls
-	42zhG31K7gH5gwY/IoOuugnaNsc5xRknQIyLJkDT0lDp2rLbbsDwXYufLboD7Bg7fucnSBYosT+g2
-	SoxR6NA56prLb+p/AHWJYBqYQyyPsX+O9dIltbaEt9br+F9TtXRiG8bcXCvjY46gVLwu87rvFN2ld
-	pWc8mVlT7Toq4dYkkjuw==;
+	List-Owner; bh=nm6esjVnqEX8HOD/xOyFFXTumBZ6cmkgz9dnvy+AFIM=; b=SF09qC3m1zMDrz
+	O5KbI/SI1VnNtBt+SrZ5tUjmtjv6hZ/9Y+0lOHv7Utbd68jJoSqSPfZiZrSsqHPBvVseIVRuDvoBA
+	LTYll18WIyTL7xEW/lwd1jbCiA7/RwVsYg5QFCvDvWN8ldWpIHh+T5Y6m0kfXEuFs7VCTDtAA43nW
+	sAaaBRxTmfFeBjPVH4Vow355zamyylsYtKZrNAEjQVLcV4F/EWEs1sEOLUnQ0Mq+h5OgRpodc0w4R
+	d+23IgJcJvhmNLAN5y6FLbmMbltd/gFHq3+oR4855znSNqYn68b1JdpZox3g7WA5/hCwK+VQvSjqh
+	st6Q1TF+B1Cfx+40FLMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLeTy-00000008iJB-0KWF;
-	Sat, 09 May 2026 10:00:26 +0000
-Received: from mail-m8387.xmail.ntesmail.com ([156.224.83.87])
+	id 1wLg3x-00000008rO2-1eZE;
+	Sat, 09 May 2026 11:41:41 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLeTu-00000008iHl-1cZg
-	for linux-riscv@lists.infradead.org;
-	Sat, 09 May 2026 10:00:24 +0000
-Received: from Vostro-3710.. (unknown [119.122.215.211])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3dc316494;
-	Sat, 9 May 2026 18:00:05 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
+	id 1wLg3s-00000008rMl-2Byk;
+	Sat, 09 May 2026 11:41:39 +0000
+Received: from yzs (unknown [115.199.218.204])
+	by APP-05 (Coremail) with SMTP id zQCowAAHlQhjHf9pbOLKDw--.3401S2;
+	Sat, 09 May 2026 19:41:24 +0800 (CST)
+From: Zishun Yi <vulab@iscas.ac.cn>
+To: Anup Patel <anup@brainfault.org>,
 	Paul Walmsley <pjw@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Atish Patra <atish.patra@linux.dev>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: [PATCH 1/1] riscv: dts: spacemit: enable eMMC for OrangePi RV2
-Date: Sat,  9 May 2026 18:00:00 +0800
-Message-Id: <20260509100000.3315109-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	Zishun Yi <vulab@iscas.ac.cn>
+Subject: [PATCH] riscv: KVM: Fix missing TLB flush on HENVCFG.PMM updates
+Date: Sat,  9 May 2026 19:41:22 +0800
+Message-ID: <20260509114122.1868327-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
-X-HM-Tid: 0a9e0c2e0ca503a2kunm604c4a73202c55
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaHhlPVkJCQklOThoZGBlCHlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVJSkpZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	tKTEtVSktLVUtZBg++
+X-CM-TRANSID: zQCowAAHlQhjHf9pbOLKDw--.3401S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KrWrJF4fXF43CrWktr17GFg_yoW8Ar4UpF
+	W3uF95uaykJF1xGF9rta12gF4jkr4vgasIgr9rA342vrZFyF1Fq3yvg34IyryUC3y8X3yF
+	kr4YqFW5urn0v3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
+	C2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
+X-Originating-IP: [115.199.218.204]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRACA2n+2gnStgAAs4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_030022_770205_86E9AE47 
-X-CRM114-Status: UNSURE (   5.96  )
+X-CRM114-CacheID: sfid-20260509_044137_086378_F2C29CF0 
+X-CRM114-Status: UNSURE (   9.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,37 +86,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The OrangePi RV2 board has one eMMC slot, so enable eMMC.
-Tested using a 16 GiB AJTD4R eMMC module.
+According to the RISC-V Privileged ISA specification, if henvcfg.PMM is
+changed from or to a value where (XLEN-PMLEN) is less than the GPA width
+supported by the hgatp translation mode of that guest, hypervisors must
+execute an HFENCE.GVMA with rs1=x0.
 
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+Currently, when a guest dynamically changes pointer masking mode via the
+SBI FWFT extension, kvm_sbi_fwft_set_pointer_masking_pmlen() directly
+modifies the hardware CSR_HENVCFG from the non-one-reg-access path
+without issuing the required TLB invalidation
+
+Fix this by adding an unconditional HFENCE.GVMA after the CSR write.
+
+This vulnerability was discovered and reported by my SpecHunter, an
+AI-driven architecture specification analysis tool.
+
+Link: https://github.com/yizishun/rv-isa-sec/blob/master/output/riscv-isa-manual/pr-2494/linux.txt
+Fixes: 48d67106f4a7 ("RISC-V: KVM: Implement ONE_REG interface for SBI FWFT state")
+Assisted-by: DeepSeek:DeepSeek-V4-Pro
+Signed-off-by: Zishun Yi <vulab@iscas.ac.cn>
 ---
- arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/riscv/kvm/vcpu_sbi_fwft.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-index 3a829e3c9cbc..c95ca38e3d4a 100644
---- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
-@@ -78,6 +78,16 @@ &combo_phy {
- 	status = "okay";
- };
+diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
+index 2eab15339694..c2bd3ae699fd 100644
+--- a/arch/riscv/kvm/vcpu_sbi_fwft.c
++++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
+@@ -186,8 +186,10 @@ static long kvm_sbi_fwft_set_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
+ 	 * update here so that VCPU see's pointer masking mode change
+ 	 * immediately.
+ 	 */
+-	if (!one_reg_access)
++	if (!one_reg_access) {
+ 		csr_write(CSR_HENVCFG, vcpu->arch.cfg.henvcfg);
++		kvm_riscv_local_hfence_gvma_all();
++	}
  
-+&emmc {
-+	bus-width = <8>;
-+	mmc-hs400-1_8v;
-+	mmc-hs400-enhanced-strobe;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	status = "okay";
-+};
-+
- &eth0 {
- 	phy-handle = <&rgmii0>;
- 	phy-mode = "rgmii-id";
+ 	return SBI_SUCCESS;
+ }
 -- 
-2.34.1
+2.51.2
 
 
 _______________________________________________
